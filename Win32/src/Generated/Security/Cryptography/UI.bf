@@ -344,7 +344,8 @@ public function BOOL PFNCFILTERPROC(CERT_CONTEXT* pCertContext, BOOL* pfInitialS
 #endregion
 
 #region Structs
-[CRepr]public struct CERT_SELECT_STRUCT_A
+[CRepr]
+public struct CERT_SELECT_STRUCT_A
 {
 	public uint32 dwSize;
 	public HWND hwndParent;
@@ -365,7 +366,8 @@ public function BOOL PFNCFILTERPROC(CERT_CONTEXT* pCertContext, BOOL* pfInitialS
 	public uint hprov;
 }
 
-[CRepr]public struct CERT_SELECT_STRUCT_W
+[CRepr]
+public struct CERT_SELECT_STRUCT_W
 {
 	public uint32 dwSize;
 	public HWND hwndParent;
@@ -386,7 +388,8 @@ public function BOOL PFNCFILTERPROC(CERT_CONTEXT* pCertContext, BOOL* pfInitialS
 	public uint hprov;
 }
 
-[CRepr]public struct CERT_VIEWPROPERTIES_STRUCT_A
+[CRepr]
+public struct CERT_VIEWPROPERTIES_STRUCT_A
 {
 	public uint32 dwSize;
 	public HWND hwndParent;
@@ -412,7 +415,8 @@ public function BOOL PFNCFILTERPROC(CERT_CONTEXT* pCertContext, BOOL* pfInitialS
 	public PROPSHEETPAGEA* arrayPropSheetPages;
 }
 
-[CRepr]public struct CERT_VIEWPROPERTIES_STRUCT_W
+[CRepr]
+public struct CERT_VIEWPROPERTIES_STRUCT_W
 {
 	public uint32 dwSize;
 	public HWND hwndParent;
@@ -438,7 +442,8 @@ public function BOOL PFNCFILTERPROC(CERT_CONTEXT* pCertContext, BOOL* pfInitialS
 	public PROPSHEETPAGEA* arrayPropSheetPages;
 }
 
-[CRepr]public struct CMOID
+[CRepr]
+public struct CMOID
 {
 	public PSTR szExtensionOID;
 	public uint32 dwTestOperation;
@@ -446,7 +451,8 @@ public function BOOL PFNCFILTERPROC(CERT_CONTEXT* pCertContext, BOOL* pfInitialS
 	public uint32 cbTestData;
 }
 
-[CRepr]public struct CMFLTR
+[CRepr]
+public struct CMFLTR
 {
 	public uint32 dwSize;
 	public uint32 cExtensionChecks;
@@ -454,7 +460,8 @@ public function BOOL PFNCFILTERPROC(CERT_CONTEXT* pCertContext, BOOL* pfInitialS
 	public uint32 dwCheckingFlags;
 }
 
-[CRepr]public struct CERT_VERIFY_CERTIFICATE_TRUST
+[CRepr]
+public struct CERT_VERIFY_CERTIFICATE_TRUST
 {
 	public uint32 cbSize;
 	public CERT_CONTEXT* pccert;
@@ -477,21 +484,24 @@ public function BOOL PFNCFILTERPROC(CERT_CONTEXT* pCertContext, BOOL* pfInitialS
 	public CRYPTOAPI_BLOB** prgpbTrustInfo;
 }
 
-[CRepr]public struct CTL_MODIFY_REQUEST
+[CRepr]
+public struct CTL_MODIFY_REQUEST
 {
 	public CERT_CONTEXT* pccert;
 	public CTL_MODIFY_REQUEST_OPERATION dwOperation;
 	public uint32 dwError;
 }
 
-[CRepr]public struct CERT_SELECTUI_INPUT
+[CRepr]
+public struct CERT_SELECTUI_INPUT
 {
 	public void* hStore;
 	public CERT_CHAIN_CONTEXT** prgpChain;
 	public uint32 cChain;
 }
 
-[CRepr]public struct CRYPTUI_CERT_MGR_STRUCT
+[CRepr]
+public struct CRYPTUI_CERT_MGR_STRUCT
 {
 	public uint32 dwSize;
 	public HWND hwndParent;
@@ -500,7 +510,8 @@ public function BOOL PFNCFILTERPROC(CERT_CONTEXT* pCertContext, BOOL* pfInitialS
 	public PSTR pszInitUsageOID;
 }
 
-[CRepr]public struct CRYPTUI_WIZ_DIGITAL_SIGN_BLOB_INFO
+[CRepr]
+public struct CRYPTUI_WIZ_DIGITAL_SIGN_BLOB_INFO
 {
 	public uint32 dwSize;
 	public Guid* pGuidSubject;
@@ -509,7 +520,8 @@ public function BOOL PFNCFILTERPROC(CERT_CONTEXT* pCertContext, BOOL* pfInitialS
 	public PWSTR pwszDisplayName;
 }
 
-[CRepr]public struct CRYPTUI_WIZ_DIGITAL_SIGN_STORE_INFO
+[CRepr]
+public struct CRYPTUI_WIZ_DIGITAL_SIGN_STORE_INFO
 {
 	public uint32 dwSize;
 	public uint32 cCertStore;
@@ -518,7 +530,8 @@ public function BOOL PFNCFILTERPROC(CERT_CONTEXT* pCertContext, BOOL* pfInitialS
 	public void* pvCallbackData;
 }
 
-[CRepr]public struct CRYPTUI_WIZ_DIGITAL_SIGN_PVK_FILE_INFO
+[CRepr]
+public struct CRYPTUI_WIZ_DIGITAL_SIGN_PVK_FILE_INFO
 {
 	public uint32 dwSize;
 	public PWSTR pwszPvkFileName;
@@ -526,9 +539,11 @@ public function BOOL PFNCFILTERPROC(CERT_CONTEXT* pCertContext, BOOL* pfInitialS
 	public uint32 dwProvType;
 }
 
-[CRepr]public struct CRYPTUI_WIZ_DIGITAL_SIGN_CERT_PVK_INFO
+[CRepr]
+public struct CRYPTUI_WIZ_DIGITAL_SIGN_CERT_PVK_INFO
 {
-	[CRepr, Union]	public struct _Anonymous_e__Union
+	[CRepr, Union]
+	public struct _Anonymous_e__Union
 	{
 		public CRYPTUI_WIZ_DIGITAL_SIGN_PVK_FILE_INFO* pPvkFileInfo;
 		public CRYPT_KEY_PROV_INFO* pPvkProvInfo;
@@ -540,7 +555,8 @@ public function BOOL PFNCFILTERPROC(CERT_CONTEXT* pCertContext, BOOL* pfInitialS
 	public using _Anonymous_e__Union Anonymous;
 }
 
-[CRepr]public struct CRYPTUI_WIZ_DIGITAL_SIGN_EXTENDED_INFO
+[CRepr]
+public struct CRYPTUI_WIZ_DIGITAL_SIGN_EXTENDED_INFO
 {
 	public uint32 dwSize;
 	public CRYPTUI_WIZ_DIGITAL_SIGN_SIG_TYPE dwAttrFlags;
@@ -553,16 +569,19 @@ public function BOOL PFNCFILTERPROC(CERT_CONTEXT* pCertContext, BOOL* pfInitialS
 	public CRYPT_ATTRIBUTES* psUnauthenticated;
 }
 
-[CRepr]public struct CRYPTUI_WIZ_DIGITAL_SIGN_INFO
+[CRepr]
+public struct CRYPTUI_WIZ_DIGITAL_SIGN_INFO
 {
-	[CRepr, Union]	public struct _Anonymous2_e__Union
+	[CRepr, Union]
+	public struct _Anonymous2_e__Union
 	{
 		public CERT_CONTEXT* pSigningCertContext;
 		public CRYPTUI_WIZ_DIGITAL_SIGN_STORE_INFO* pSigningCertStore;
 		public CRYPTUI_WIZ_DIGITAL_SIGN_CERT_PVK_INFO* pSigningCertPvkInfo;
 	}
 
-	[CRepr, Union]	public struct _Anonymous1_e__Union
+	[CRepr, Union]
+	public struct _Anonymous1_e__Union
 	{
 		public PWSTR pwszFileName;
 		public CRYPTUI_WIZ_DIGITAL_SIGN_BLOB_INFO* pSignBlobInfo;
@@ -578,22 +597,26 @@ public function BOOL PFNCFILTERPROC(CERT_CONTEXT* pCertContext, BOOL* pfInitialS
 	public CRYPTUI_WIZ_DIGITAL_SIGN_EXTENDED_INFO* pSignExtInfo;
 }
 
-[CRepr]public struct CRYPTUI_WIZ_DIGITAL_SIGN_CONTEXT
+[CRepr]
+public struct CRYPTUI_WIZ_DIGITAL_SIGN_CONTEXT
 {
 	public uint32 dwSize;
 	public uint32 cbBlob;
 	public uint8* pbBlob;
 }
 
-[CRepr]public struct CRYPTUI_INITDIALOG_STRUCT
+[CRepr]
+public struct CRYPTUI_INITDIALOG_STRUCT
 {
 	public LPARAM lParam;
 	public CERT_CONTEXT* pCertContext;
 }
 
-[CRepr]public struct CRYPTUI_VIEWCERTIFICATE_STRUCTW
+[CRepr]
+public struct CRYPTUI_VIEWCERTIFICATE_STRUCTW
 {
-	[CRepr, Union]	public struct _Anonymous_e__Union
+	[CRepr, Union]
+	public struct _Anonymous_e__Union
 	{
 		public CRYPT_PROVIDER_DATA* pCryptProviderData;
 		public HANDLE hWVTStateData;
@@ -619,9 +642,11 @@ public function BOOL PFNCFILTERPROC(CERT_CONTEXT* pCertContext, BOOL* pfInitialS
 	public uint32 nStartPage;
 }
 
-[CRepr]public struct CRYPTUI_VIEWCERTIFICATE_STRUCTA
+[CRepr]
+public struct CRYPTUI_VIEWCERTIFICATE_STRUCTA
 {
-	[CRepr, Union]	public struct _Anonymous_e__Union
+	[CRepr, Union]
+	public struct _Anonymous_e__Union
 	{
 		public CRYPT_PROVIDER_DATA* pCryptProviderData;
 		public HANDLE hWVTStateData;
@@ -647,9 +672,11 @@ public function BOOL PFNCFILTERPROC(CERT_CONTEXT* pCertContext, BOOL* pfInitialS
 	public uint32 nStartPage;
 }
 
-[CRepr]public struct CRYPTUI_WIZ_EXPORT_INFO
+[CRepr]
+public struct CRYPTUI_WIZ_EXPORT_INFO
 {
-	[CRepr, Union]	public struct _Anonymous_e__Union
+	[CRepr, Union]
+	public struct _Anonymous_e__Union
 	{
 		public CERT_CONTEXT* pCertContext;
 		public CTL_CONTEXT* pCTLContext;
@@ -665,7 +692,8 @@ public function BOOL PFNCFILTERPROC(CERT_CONTEXT* pCertContext, BOOL* pfInitialS
 	public void** rghStores;
 }
 
-[CRepr]public struct CRYPTUI_WIZ_EXPORT_CERTCONTEXT_INFO
+[CRepr]
+public struct CRYPTUI_WIZ_EXPORT_CERTCONTEXT_INFO
 {
 	public uint32 dwSize;
 	public CRYPTUI_WIZ_EXPORT_FORMAT dwExportFormat;
@@ -675,9 +703,11 @@ public function BOOL PFNCFILTERPROC(CERT_CONTEXT* pCertContext, BOOL* pfInitialS
 	public BOOL fStrongEncryption;
 }
 
-[CRepr]public struct CRYPTUI_WIZ_IMPORT_SRC_INFO
+[CRepr]
+public struct CRYPTUI_WIZ_IMPORT_SRC_INFO
 {
-	[CRepr, Union]	public struct _Anonymous_e__Union
+	[CRepr, Union]
+	public struct _Anonymous_e__Union
 	{
 		public PWSTR pwszFileName;
 		public CERT_CONTEXT* pCertContext;

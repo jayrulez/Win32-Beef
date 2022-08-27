@@ -42,13 +42,15 @@ public enum SRPHOSTING_VERSION : int32
 #endregion
 
 #region Structs
-[CRepr]public struct HTHREAD_NETWORK_CONTEXT
+[CRepr]
+public struct HTHREAD_NETWORK_CONTEXT
 {
 	public uint32 ThreadId;
 	public HANDLE ThreadContext;
 }
 
-[CRepr]public struct FILE_UNPROTECT_OPTIONS
+[CRepr]
+public struct FILE_UNPROTECT_OPTIONS
 {
 	public bool audit;
 }

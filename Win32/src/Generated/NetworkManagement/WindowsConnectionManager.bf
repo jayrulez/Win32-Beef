@@ -81,32 +81,37 @@ public function void ONDEMAND_NOTIFICATION_CALLBACK(void* param0);
 #endregion
 
 #region Structs
-[CRepr]public struct WCM_POLICY_VALUE
+[CRepr]
+public struct WCM_POLICY_VALUE
 {
 	public BOOL fValue;
 	public BOOL fIsGroupPolicy;
 }
 
-[CRepr]public struct WCM_PROFILE_INFO
+[CRepr]
+public struct WCM_PROFILE_INFO
 {
 	public char8[256] strProfileName;
 	public Guid AdapterGUID;
 	public WCM_MEDIA_TYPE Media;
 }
 
-[CRepr]public struct WCM_PROFILE_INFO_LIST
+[CRepr]
+public struct WCM_PROFILE_INFO_LIST
 {
 	public uint32 dwNumberOfItems;
 	public WCM_PROFILE_INFO[1] ProfileInfo;
 }
 
-[CRepr]public struct WCM_CONNECTION_COST_DATA
+[CRepr]
+public struct WCM_CONNECTION_COST_DATA
 {
 	public uint32 ConnectionCost;
 	public WCM_CONNECTION_COST_SOURCE CostSource;
 }
 
-[CRepr]public struct WCM_TIME_INTERVAL
+[CRepr]
+public struct WCM_TIME_INTERVAL
 {
 	public uint16 wYear;
 	public uint16 wMonth;
@@ -117,20 +122,23 @@ public function void ONDEMAND_NOTIFICATION_CALLBACK(void* param0);
 	public uint16 wMilliseconds;
 }
 
-[CRepr]public struct WCM_USAGE_DATA
+[CRepr]
+public struct WCM_USAGE_DATA
 {
 	public uint32 UsageInMegabytes;
 	public FILETIME LastSyncTime;
 }
 
-[CRepr]public struct WCM_BILLING_CYCLE_INFO
+[CRepr]
+public struct WCM_BILLING_CYCLE_INFO
 {
 	public FILETIME StartDate;
 	public WCM_TIME_INTERVAL Duration;
 	public BOOL Reset;
 }
 
-[CRepr]public struct WCM_DATAPLAN_STATUS
+[CRepr]
+public struct WCM_DATAPLAN_STATUS
 {
 	public WCM_USAGE_DATA UsageData;
 	public uint32 DataLimitInMegabytes;
@@ -141,13 +149,15 @@ public function void ONDEMAND_NOTIFICATION_CALLBACK(void* param0);
 	public uint32 Reserved;
 }
 
-[CRepr]public struct NET_INTERFACE_CONTEXT
+[CRepr]
+public struct NET_INTERFACE_CONTEXT
 {
 	public uint32 InterfaceIndex;
 	public PWSTR ConfigurationName;
 }
 
-[CRepr]public struct NET_INTERFACE_CONTEXT_TABLE
+[CRepr]
+public struct NET_INTERFACE_CONTEXT_TABLE
 {
 	public HANDLE InterfaceContextHandle;
 	public uint32 NumberOfEntries;

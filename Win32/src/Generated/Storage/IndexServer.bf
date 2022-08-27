@@ -363,7 +363,8 @@ public enum DBKINDENUM : int32
 #endregion
 
 #region Structs
-[CRepr]public struct CI_STATE
+[CRepr]
+public struct CI_STATE
 {
 	public uint32 cbStruct;
 	public uint32 cWordList;
@@ -382,20 +383,23 @@ public enum DBKINDENUM : int32
 	public uint32 dwPropCacheSize;
 }
 
-[CRepr]public struct FULLPROPSPEC
+[CRepr]
+public struct FULLPROPSPEC
 {
 	public Guid guidPropSet;
 	public PROPSPEC psProperty;
 }
 
-[CRepr]public struct FILTERREGION
+[CRepr]
+public struct FILTERREGION
 {
 	public uint32 idChunk;
 	public uint32 cwcStart;
 	public uint32 cwcExtent;
 }
 
-[CRepr]public struct STAT_CHUNK
+[CRepr]
+public struct STAT_CHUNK
 {
 	public uint32 idChunk;
 	public CHUNK_BREAKTYPE breakType;
@@ -408,15 +412,18 @@ public enum DBKINDENUM : int32
 }
 
 #if BF_64_BIT || BF_ARM_64
-[CRepr]public struct DBID
+[CRepr]
+public struct DBID
 {
-	[CRepr, Union]	public struct _uName_e__Union
+	[CRepr, Union]
+	public struct _uName_e__Union
 	{
 		public PWSTR pwszName;
 		public uint32 ulPropid;
 	}
 
-	[CRepr, Union]	public struct _uGuid_e__Union
+	[CRepr, Union]
+	public struct _uGuid_e__Union
 	{
 		public Guid guid;
 		public Guid* pguid;
@@ -429,15 +436,18 @@ public enum DBKINDENUM : int32
 #endif
 
 #if BF_32_BIT
-[CRepr, Packed(2)]public struct DBID
+[CRepr, Packed(2)]
+public struct DBID
 {
-	[CRepr, Union, Packed(2)]	public struct _uName_e__Union
+	[CRepr, Union, Packed(2)]
+	public struct _uName_e__Union
 	{
 		public PWSTR pwszName;
 		public uint32 ulPropid;
 	}
 
-	[CRepr, Union, Packed(2)]	public struct _uGuid_e__Union
+	[CRepr, Union, Packed(2)]
+	public struct _uGuid_e__Union
 	{
 		public Guid guid;
 		public Guid* pguid;

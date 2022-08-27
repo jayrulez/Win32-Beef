@@ -1947,12 +1947,14 @@ public function BOOL PPATCH_SYMLOAD_CALLBACK(uint32 WhichFile, PSTR SymbolFileNa
 #endregion
 
 #region Structs
-[CRepr]public struct PMSIHANDLE
+[CRepr]
+public struct PMSIHANDLE
 {
 	public MSIHANDLE m_h;
 }
 
-[CRepr]public struct MSIPATCHSEQUENCEINFOA
+[CRepr]
+public struct MSIPATCHSEQUENCEINFOA
 {
 	public PSTR szPatchData;
 	public MSIPATCHDATATYPE ePatchDataType;
@@ -1960,7 +1962,8 @@ public function BOOL PPATCH_SYMLOAD_CALLBACK(uint32 WhichFile, PSTR SymbolFileNa
 	public uint32 uStatus;
 }
 
-[CRepr]public struct MSIPATCHSEQUENCEINFOW
+[CRepr]
+public struct MSIPATCHSEQUENCEINFOW
 {
 	public PWSTR szPatchData;
 	public MSIPATCHDATATYPE ePatchDataType;
@@ -1968,13 +1971,15 @@ public function BOOL PPATCH_SYMLOAD_CALLBACK(uint32 WhichFile, PSTR SymbolFileNa
 	public uint32 uStatus;
 }
 
-[CRepr]public struct MSIFILEHASHINFO
+[CRepr]
+public struct MSIFILEHASHINFO
 {
 	public uint32 dwFileHashInfoSize;
 	public uint32[4] dwData;
 }
 
-[CRepr]public struct ASSEMBLY_INFO
+[CRepr]
+public struct ASSEMBLY_INFO
 {
 	public uint32 cbAssemblyInfo;
 	public uint32 dwAssemblyFlags;
@@ -1983,7 +1988,8 @@ public function BOOL PPATCH_SYMLOAD_CALLBACK(uint32 WhichFile, PSTR SymbolFileNa
 	public uint32 cchBuf;
 }
 
-[CRepr]public struct FUSION_INSTALL_REFERENCE
+[CRepr]
+public struct FUSION_INSTALL_REFERENCE
 {
 	public uint32 cbSize;
 	public uint32 dwFlags;
@@ -1992,39 +1998,46 @@ public function BOOL PPATCH_SYMLOAD_CALLBACK(uint32 WhichFile, PSTR SymbolFileNa
 	public PWSTR szNonCannonicalData;
 }
 
-[CRepr]public struct PROTECTED_FILE_DATA
+[CRepr]
+public struct PROTECTED_FILE_DATA
 {
 	public char8[260] FileName;
 	public uint32 FileNumber;
 }
 
-[CRepr]public struct _tagAPPTASKTYPE
+[CRepr]
+public struct _tagAPPTASKTYPE
 {
 	public Guid ProductID;
 	public PM_TASK_TYPE TaskType;
 }
 
-[CRepr]public struct PM_EXTENSIONCONSUMER
+[CRepr]
+public struct PM_EXTENSIONCONSUMER
 {
 	public Guid ConsumerPID;
 	public BSTR ExtensionID;
 }
 
-[CRepr]public struct PM_BSATASKID
+[CRepr]
+public struct PM_BSATASKID
 {
 	public Guid ProductID;
 	public BSTR TaskID;
 }
 
-[CRepr]public struct PM_BWTASKID
+[CRepr]
+public struct PM_BWTASKID
 {
 	public Guid ProductID;
 	public BSTR TaskID;
 }
 
-[CRepr]public struct PM_ENUM_FILTER
+[CRepr]
+public struct PM_ENUM_FILTER
 {
-	[CRepr, Union]	public struct _FilterParameter_e__Union
+	[CRepr, Union]
+	public struct _FilterParameter_e__Union
 	{
 		public int32 Dummy;
 		public PM_APP_GENRE Genre;
@@ -2049,7 +2062,8 @@ public function BOOL PPATCH_SYMLOAD_CALLBACK(uint32 WhichFile, PSTR SymbolFileNa
 	public _FilterParameter_e__Union FilterParameter;
 }
 
-[CRepr]public struct PM_STARTAPPBLOB
+[CRepr]
+public struct PM_STARTAPPBLOB
 {
 	public uint32 cbSize;
 	public Guid ProductID;
@@ -2064,13 +2078,15 @@ public function BOOL PPATCH_SYMLOAD_CALLBACK(uint32 WhichFile, PSTR SymbolFileNa
 	public uint16 LightUpSupportMask;
 }
 
-[CRepr]public struct PM_INVOCATIONINFO
+[CRepr]
+public struct PM_INVOCATIONINFO
 {
 	public BSTR URIBaseOrAUMID;
 	public BSTR URIFragmentOrArgs;
 }
 
-[CRepr]public struct PM_STARTTILEBLOB
+[CRepr]
+public struct PM_STARTTILEBLOB
 {
 	public uint32 cbSize;
 	public Guid ProductID;
@@ -2087,7 +2103,8 @@ public function BOOL PPATCH_SYMLOAD_CALLBACK(uint32 WhichFile, PSTR SymbolFileNa
 	public PM_INVOCATIONINFO InvocationInfo;
 }
 
-[CRepr]public struct PM_INSTALLINFO
+[CRepr]
+public struct PM_INSTALLINFO
 {
 	public Guid ProductID;
 	public BSTR PackagePath;
@@ -2100,7 +2117,8 @@ public function BOOL PPATCH_SYMLOAD_CALLBACK(uint32 WhichFile, PSTR SymbolFileNa
 	public BSTR MarketplaceAppVersion;
 }
 
-[CRepr]public struct PM_UPDATEINFO_LEGACY
+[CRepr]
+public struct PM_UPDATEINFO_LEGACY
 {
 	public Guid ProductID;
 	public BSTR PackagePath;
@@ -2110,7 +2128,8 @@ public function BOOL PPATCH_SYMLOAD_CALLBACK(uint32 WhichFile, PSTR SymbolFileNa
 	public BSTR MarketplaceAppVersion;
 }
 
-[CRepr]public struct PM_UPDATEINFO
+[CRepr]
+public struct PM_UPDATEINFO
 {
 	public Guid ProductID;
 	public BSTR PackagePath;
@@ -2121,20 +2140,23 @@ public function BOOL PPATCH_SYMLOAD_CALLBACK(uint32 WhichFile, PSTR SymbolFileNa
 	public uint32 DeploymentOptions;
 }
 
-[CRepr]public struct PATCH_IGNORE_RANGE
+[CRepr]
+public struct PATCH_IGNORE_RANGE
 {
 	public uint32 OffsetInOldFile;
 	public uint32 LengthInBytes;
 }
 
-[CRepr]public struct PATCH_RETAIN_RANGE
+[CRepr]
+public struct PATCH_RETAIN_RANGE
 {
 	public uint32 OffsetInOldFile;
 	public uint32 LengthInBytes;
 	public uint32 OffsetInNewFile;
 }
 
-[CRepr]public struct PATCH_OLD_FILE_INFO_A
+[CRepr]
+public struct PATCH_OLD_FILE_INFO_A
 {
 	public uint32 SizeOfThisStruct;
 	public PSTR OldFileName;
@@ -2144,7 +2166,8 @@ public function BOOL PPATCH_SYMLOAD_CALLBACK(uint32 WhichFile, PSTR SymbolFileNa
 	public PATCH_RETAIN_RANGE* RetainRangeArray;
 }
 
-[CRepr]public struct PATCH_OLD_FILE_INFO_W
+[CRepr]
+public struct PATCH_OLD_FILE_INFO_W
 {
 	public uint32 SizeOfThisStruct;
 	public PWSTR OldFileName;
@@ -2154,7 +2177,8 @@ public function BOOL PPATCH_SYMLOAD_CALLBACK(uint32 WhichFile, PSTR SymbolFileNa
 	public PATCH_RETAIN_RANGE* RetainRangeArray;
 }
 
-[CRepr]public struct PATCH_OLD_FILE_INFO_H
+[CRepr]
+public struct PATCH_OLD_FILE_INFO_H
 {
 	public uint32 SizeOfThisStruct;
 	public HANDLE OldFileHandle;
@@ -2164,9 +2188,11 @@ public function BOOL PPATCH_SYMLOAD_CALLBACK(uint32 WhichFile, PSTR SymbolFileNa
 	public PATCH_RETAIN_RANGE* RetainRangeArray;
 }
 
-[CRepr]public struct PATCH_OLD_FILE_INFO
+[CRepr]
+public struct PATCH_OLD_FILE_INFO
 {
-	[CRepr, Union]	public struct _Anonymous_e__Union
+	[CRepr, Union]
+	public struct _Anonymous_e__Union
 	{
 		public PSTR OldFileNameA;
 		public PWSTR OldFileNameW;
@@ -2181,9 +2207,11 @@ public function BOOL PPATCH_SYMLOAD_CALLBACK(uint32 WhichFile, PSTR SymbolFileNa
 	public PATCH_RETAIN_RANGE* RetainRangeArray;
 }
 
-[CRepr]public struct PATCH_INTERLEAVE_MAP
+[CRepr]
+public struct PATCH_INTERLEAVE_MAP
 {
-	[CRepr]	public struct _Anonymous_e__Struct
+	[CRepr]
+	public struct _Anonymous_e__Struct
 	{
 		public uint32 OldOffset;
 		public uint32 OldLength;
@@ -2194,7 +2222,8 @@ public function BOOL PPATCH_SYMLOAD_CALLBACK(uint32 WhichFile, PSTR SymbolFileNa
 	public _Anonymous_e__Struct[1] Range;
 }
 
-[CRepr]public struct PATCH_OPTION_DATA
+[CRepr]
+public struct PATCH_OPTION_DATA
 {
 	public uint32 SizeOfThisStruct;
 	public uint32 SymbolOptionFlags;
@@ -2207,9 +2236,11 @@ public function BOOL PPATCH_SYMLOAD_CALLBACK(uint32 WhichFile, PSTR SymbolFileNa
 	public uint32 MaxLzxWindowSize;
 }
 
-[CRepr]public struct DELTA_INPUT
+[CRepr]
+public struct DELTA_INPUT
 {
-	[CRepr, Union]	public struct _Anonymous_e__Union
+	[CRepr, Union]
+	public struct _Anonymous_e__Union
 	{
 		public void* lpcStart;
 		public void* lpStart;
@@ -2220,19 +2251,22 @@ public function BOOL PPATCH_SYMLOAD_CALLBACK(uint32 WhichFile, PSTR SymbolFileNa
 	public BOOL Editable;
 }
 
-[CRepr]public struct DELTA_OUTPUT
+[CRepr]
+public struct DELTA_OUTPUT
 {
 	public void* lpStart;
 	public uint uSize;
 }
 
-[CRepr]public struct DELTA_HASH
+[CRepr]
+public struct DELTA_HASH
 {
 	public uint32 HashSize;
 	public uint8[32] HashValue;
 }
 
-[CRepr]public struct DELTA_HEADER_INFO
+[CRepr]
+public struct DELTA_HEADER_INFO
 {
 	public int64 FileTypeSet;
 	public int64 FileType;
@@ -2243,13 +2277,15 @@ public function BOOL PPATCH_SYMLOAD_CALLBACK(uint32 WhichFile, PSTR SymbolFileNa
 	public DELTA_HASH TargetHash;
 }
 
-[CRepr]public struct ACTIVATION_CONTEXT_QUERY_INDEX
+[CRepr]
+public struct ACTIVATION_CONTEXT_QUERY_INDEX
 {
 	public uint32 ulAssemblyIndex;
 	public uint32 ulFileIndexInAssembly;
 }
 
-[CRepr]public struct ASSEMBLY_FILE_DETAILED_INFORMATION
+[CRepr]
+public struct ASSEMBLY_FILE_DETAILED_INFORMATION
 {
 	public uint32 ulFlags;
 	public uint32 ulFilenameLength;
@@ -2258,7 +2294,8 @@ public function BOOL PPATCH_SYMLOAD_CALLBACK(uint32 WhichFile, PSTR SymbolFileNa
 	public PWSTR lpFilePath;
 }
 
-[CRepr]public struct ACTIVATION_CONTEXT_ASSEMBLY_DETAILED_INFORMATION
+[CRepr]
+public struct ACTIVATION_CONTEXT_ASSEMBLY_DETAILED_INFORMATION
 {
 	public uint32 ulFlags;
 	public uint32 ulEncodedAssemblyIdentityLength;
@@ -2281,27 +2318,31 @@ public function BOOL PPATCH_SYMLOAD_CALLBACK(uint32 WhichFile, PSTR SymbolFileNa
 	public uint32 ulFileCount;
 }
 
-[CRepr]public struct ACTIVATION_CONTEXT_RUN_LEVEL_INFORMATION
+[CRepr]
+public struct ACTIVATION_CONTEXT_RUN_LEVEL_INFORMATION
 {
 	public uint32 ulFlags;
 	public ACTCTX_REQUESTED_RUN_LEVEL RunLevel;
 	public uint32 UiAccess;
 }
 
-[CRepr]public struct COMPATIBILITY_CONTEXT_ELEMENT
+[CRepr]
+public struct COMPATIBILITY_CONTEXT_ELEMENT
 {
 	public Guid Id;
 	public ACTCTX_COMPATIBILITY_ELEMENT_TYPE Type;
 	public uint64 MaxVersionTested;
 }
 
-[CRepr]public struct ACTIVATION_CONTEXT_COMPATIBILITY_INFORMATION
+[CRepr]
+public struct ACTIVATION_CONTEXT_COMPATIBILITY_INFORMATION
 {
 	public uint32 ElementCount;
 	public COMPATIBILITY_CONTEXT_ELEMENT[1] Elements;
 }
 
-[CRepr]public struct ACTIVATION_CONTEXT_DETAILED_INFORMATION
+[CRepr]
+public struct ACTIVATION_CONTEXT_DETAILED_INFORMATION
 {
 	public uint32 dwFlags;
 	public uint32 ulFormatVersion;
@@ -2317,7 +2358,8 @@ public function BOOL PPATCH_SYMLOAD_CALLBACK(uint32 WhichFile, PSTR SymbolFileNa
 	public PWSTR lpAppDirPath;
 }
 
-[CRepr]public struct ACTCTXA
+[CRepr]
+public struct ACTCTXA
 {
 	public uint32 cbSize;
 	public uint32 dwFlags;
@@ -2330,7 +2372,8 @@ public function BOOL PPATCH_SYMLOAD_CALLBACK(uint32 WhichFile, PSTR SymbolFileNa
 	public HINSTANCE hModule;
 }
 
-[CRepr]public struct ACTCTXW
+[CRepr]
+public struct ACTCTXW
 {
 	public uint32 cbSize;
 	public uint32 dwFlags;
@@ -2343,7 +2386,8 @@ public function BOOL PPATCH_SYMLOAD_CALLBACK(uint32 WhichFile, PSTR SymbolFileNa
 	public HINSTANCE hModule;
 }
 
-[CRepr]public struct ACTCTX_SECTION_KEYED_DATA
+[CRepr]
+public struct ACTCTX_SECTION_KEYED_DATA
 {
 	public uint32 cbSize;
 	public uint32 ulDataFormatVersion;

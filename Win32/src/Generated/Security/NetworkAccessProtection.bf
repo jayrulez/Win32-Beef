@@ -89,20 +89,23 @@ public enum RemoteConfigurationType : int32
 #endregion
 
 #region Structs
-[CRepr]public struct CountedString
+[CRepr]
+public struct CountedString
 {
 	public uint16 length;
 	public PWSTR string;
 }
 
-[CRepr]public struct IsolationInfo
+[CRepr]
+public struct IsolationInfo
 {
 	public IsolationState isolationState;
 	public FILETIME probEndTime;
 	public CountedString failureUrl;
 }
 
-[CRepr]public struct IsolationInfoEx
+[CRepr]
+public struct IsolationInfoEx
 {
 	public IsolationState isolationState;
 	public ExtendedIsolationState extendedIsolationState;
@@ -110,34 +113,40 @@ public enum RemoteConfigurationType : int32
 	public CountedString failureUrl;
 }
 
-[CRepr]public struct FailureCategoryMapping
+[CRepr]
+public struct FailureCategoryMapping
 {
 	public BOOL[5] mappingCompliance;
 }
 
-[CRepr]public struct CorrelationId
+[CRepr]
+public struct CorrelationId
 {
 	public Guid connId;
 	public FILETIME timeStamp;
 }
 
-[CRepr]public struct ResultCodes
+[CRepr]
+public struct ResultCodes
 {
 	public uint16 count;
 	public HRESULT* results;
 }
 
-[CRepr]public struct Ipv4Address
+[CRepr]
+public struct Ipv4Address
 {
 	public uint8[4] addr;
 }
 
-[CRepr]public struct Ipv6Address
+[CRepr]
+public struct Ipv6Address
 {
 	public uint8[16] addr;
 }
 
-[CRepr]public struct FixupInfo
+[CRepr]
+public struct FixupInfo
 {
 	public FixupState state;
 	public uint8 percentage;
@@ -145,7 +154,8 @@ public enum RemoteConfigurationType : int32
 	public uint32 fixupMsgId;
 }
 
-[CRepr]public struct SystemHealthAgentState
+[CRepr]
+public struct SystemHealthAgentState
 {
 	public uint32 id;
 	public ResultCodes shaResultCodes;
@@ -153,32 +163,37 @@ public enum RemoteConfigurationType : int32
 	public FixupInfo fixupInfo;
 }
 
-[CRepr]public struct SoHAttribute
+[CRepr]
+public struct SoHAttribute
 {
 	public uint16 type;
 	public uint16 size;
 	public uint8* value;
 }
 
-[CRepr]public struct SoH
+[CRepr]
+public struct SoH
 {
 	public uint16 count;
 	public SoHAttribute* attributes;
 }
 
-[CRepr]public struct NetworkSoH
+[CRepr]
+public struct NetworkSoH
 {
 	public uint16 size;
 	public uint8* data;
 }
 
-[CRepr]public struct PrivateData
+[CRepr]
+public struct PrivateData
 {
 	public uint16 size;
 	public uint8* data;
 }
 
-[CRepr]public struct NapComponentRegistrationInfo
+[CRepr]
+public struct NapComponentRegistrationInfo
 {
 	public uint32 id;
 	public CountedString friendlyName;

@@ -183,7 +183,8 @@ public static
 
 #region Structs
 #if BF_64_BIT || BF_ARM_64
-[CRepr]public struct NCB
+[CRepr]
+public struct NCB
 {
 	public uint8 ncb_command;
 	public uint8 ncb_retcode;
@@ -203,7 +204,8 @@ public static
 }
 #endif
 
-[CRepr]public struct ADAPTER_STATUS
+[CRepr]
+public struct ADAPTER_STATUS
 {
 	public uint8[6] adapter_address;
 	public uint8 rev_major;
@@ -234,14 +236,16 @@ public static
 	public uint16 name_count;
 }
 
-[CRepr]public struct NAME_BUFFER
+[CRepr]
+public struct NAME_BUFFER
 {
 	public uint8[16] name;
 	public uint8 name_num;
 	public uint8 name_flags;
 }
 
-[CRepr]public struct SESSION_HEADER
+[CRepr]
+public struct SESSION_HEADER
 {
 	public uint8 sess_name;
 	public uint8 num_sess;
@@ -249,7 +253,8 @@ public static
 	public uint8 rcv_any_outstanding;
 }
 
-[CRepr]public struct SESSION_BUFFER
+[CRepr]
+public struct SESSION_BUFFER
 {
 	public uint8 lsn;
 	public uint8 state;
@@ -259,20 +264,23 @@ public static
 	public uint8 sends_outstanding;
 }
 
-[CRepr]public struct LANA_ENUM
+[CRepr]
+public struct LANA_ENUM
 {
 	public uint8 length;
 	public uint8[255] lana;
 }
 
-[CRepr]public struct FIND_NAME_HEADER
+[CRepr]
+public struct FIND_NAME_HEADER
 {
 	public uint16 node_count;
 	public uint8 reserved;
 	public uint8 unique_group;
 }
 
-[CRepr]public struct FIND_NAME_BUFFER
+[CRepr]
+public struct FIND_NAME_BUFFER
 {
 	public uint8 length;
 	public uint8 access_control;
@@ -282,7 +290,8 @@ public static
 	public uint8[18] routing_info;
 }
 
-[CRepr]public struct ACTION_HEADER
+[CRepr]
+public struct ACTION_HEADER
 {
 	public uint32 transport_id;
 	public uint16 action_code;
@@ -290,7 +299,8 @@ public static
 }
 
 #if BF_32_BIT
-[CRepr]public struct NCB
+[CRepr]
+public struct NCB
 {
 	public uint8 ncb_command;
 	public uint8 ncb_retcode;

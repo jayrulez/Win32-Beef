@@ -925,7 +925,8 @@ public function uint32 LPDHCP_ENTRY_POINT_FUNC(PWSTR ChainDlls, uint32 CalloutVe
 #endregion
 
 #region Structs
-[CRepr]public struct DHCPV6CAPI_PARAMS
+[CRepr]
+public struct DHCPV6CAPI_PARAMS
 {
 	public uint32 Flags;
 	public uint32 OptionId;
@@ -934,20 +935,23 @@ public function uint32 LPDHCP_ENTRY_POINT_FUNC(PWSTR ChainDlls, uint32 CalloutVe
 	public uint32 nBytesData;
 }
 
-[CRepr]public struct DHCPV6CAPI_PARAMS_ARRAY
+[CRepr]
+public struct DHCPV6CAPI_PARAMS_ARRAY
 {
 	public uint32 nParams;
 	public DHCPV6CAPI_PARAMS* Params;
 }
 
-[CRepr]public struct DHCPV6CAPI_CLASSID
+[CRepr]
+public struct DHCPV6CAPI_CLASSID
 {
 	public uint32 Flags;
 	public uint8* Data;
 	public uint32 nBytesData;
 }
 
-[CRepr]public struct DHCPV6Prefix
+[CRepr]
+public struct DHCPV6Prefix
 {
 	public uint8[16] prefix;
 	public uint32 prefixLength;
@@ -956,7 +960,8 @@ public function uint32 LPDHCP_ENTRY_POINT_FUNC(PWSTR ChainDlls, uint32 CalloutVe
 	public StatusCode status;
 }
 
-[CRepr]public struct DHCPV6PrefixLeaseInformation
+[CRepr]
+public struct DHCPV6PrefixLeaseInformation
 {
 	public uint32 nPrefixes;
 	public DHCPV6Prefix* prefixArray;
@@ -970,7 +975,8 @@ public function uint32 LPDHCP_ENTRY_POINT_FUNC(PWSTR ChainDlls, uint32 CalloutVe
 	public uint32 ServerIdLen;
 }
 
-[CRepr]public struct DHCPAPI_PARAMS
+[CRepr]
+public struct DHCPAPI_PARAMS
 {
 	public uint32 Flags;
 	public uint32 OptionId;
@@ -979,13 +985,15 @@ public function uint32 LPDHCP_ENTRY_POINT_FUNC(PWSTR ChainDlls, uint32 CalloutVe
 	public uint32 nBytesData;
 }
 
-[CRepr]public struct DHCPCAPI_PARAMS_ARRAY
+[CRepr]
+public struct DHCPCAPI_PARAMS_ARRAY
 {
 	public uint32 nParams;
 	public DHCPAPI_PARAMS* Params;
 }
 
-[CRepr]public struct DHCPCAPI_CLASSID
+[CRepr]
+public struct DHCPCAPI_CLASSID
 {
 	public uint32 Flags;
 	public uint8* Data;
@@ -993,7 +1001,8 @@ public function uint32 LPDHCP_ENTRY_POINT_FUNC(PWSTR ChainDlls, uint32 CalloutVe
 }
 
 #if BF_64_BIT || BF_ARM_64
-[CRepr]public struct DHCP_SERVER_OPTIONS
+[CRepr]
+public struct DHCP_SERVER_OPTIONS
 {
 	public uint8* MessageType;
 	public uint32* SubnetMask;
@@ -1023,7 +1032,8 @@ public function uint32 LPDHCP_ENTRY_POINT_FUNC(PWSTR ChainDlls, uint32 CalloutVe
 }
 #endif
 
-[CRepr]public struct DHCP_CALLOUT_TABLE
+[CRepr]
+public struct DHCP_CALLOUT_TABLE
 {
 	public LPDHCP_CONTROL DhcpControlHook;
 	public LPDHCP_NEWPKT DhcpNewPktHook;
@@ -1037,38 +1047,44 @@ public function uint32 LPDHCP_ENTRY_POINT_FUNC(PWSTR ChainDlls, uint32 CalloutVe
 	public void* DhcpReservedHook;
 }
 
-[CRepr]public struct DATE_TIME
+[CRepr]
+public struct DATE_TIME
 {
 	public uint32 dwLowDateTime;
 	public uint32 dwHighDateTime;
 }
 
-[CRepr]public struct DHCP_IP_RANGE
+[CRepr]
+public struct DHCP_IP_RANGE
 {
 	public uint32 StartAddress;
 	public uint32 EndAddress;
 }
 
-[CRepr]public struct DHCP_BINARY_DATA
+[CRepr]
+public struct DHCP_BINARY_DATA
 {
 	public uint32 DataLength;
 	public uint8* Data;
 }
 
-[CRepr]public struct DHCP_HOST_INFO
+[CRepr]
+public struct DHCP_HOST_INFO
 {
 	public uint32 IpAddress;
 	public PWSTR NetBiosName;
 	public PWSTR HostName;
 }
 
-[CRepr]public struct DWORD_DWORD
+[CRepr]
+public struct DWORD_DWORD
 {
 	public uint32 DWord1;
 	public uint32 DWord2;
 }
 
-[CRepr]public struct DHCP_SUBNET_INFO
+[CRepr]
+public struct DHCP_SUBNET_INFO
 {
 	public uint32 SubnetAddress;
 	public uint32 SubnetMask;
@@ -1078,7 +1094,8 @@ public function uint32 LPDHCP_ENTRY_POINT_FUNC(PWSTR ChainDlls, uint32 CalloutVe
 	public DHCP_SUBNET_STATE SubnetState;
 }
 
-[CRepr]public struct DHCP_SUBNET_INFO_VQ
+[CRepr]
+public struct DHCP_SUBNET_INFO_VQ
 {
 	public uint32 SubnetAddress;
 	public uint32 SubnetMask;
@@ -1093,27 +1110,32 @@ public function uint32 LPDHCP_ENTRY_POINT_FUNC(PWSTR ChainDlls, uint32 CalloutVe
 	public int64 Reserved4;
 }
 
-[CRepr]public struct DHCP_IP_ARRAY
+[CRepr]
+public struct DHCP_IP_ARRAY
 {
 	public uint32 NumElements;
 	public uint32* Elements;
 }
 
-[CRepr]public struct DHCP_IP_CLUSTER
+[CRepr]
+public struct DHCP_IP_CLUSTER
 {
 	public uint32 ClusterAddress;
 	public uint32 ClusterMask;
 }
 
-[CRepr]public struct DHCP_IP_RESERVATION
+[CRepr]
+public struct DHCP_IP_RESERVATION
 {
 	public uint32 ReservedIpAddress;
 	public DHCP_BINARY_DATA* ReservedForClient;
 }
 
-[CRepr]public struct DHCP_SUBNET_ELEMENT_DATA
+[CRepr]
+public struct DHCP_SUBNET_ELEMENT_DATA
 {
-	[CRepr, Union]	public struct DHCP_SUBNET_ELEMENT_UNION
+	[CRepr, Union]
+	public struct DHCP_SUBNET_ELEMENT_UNION
 	{
 		public DHCP_IP_RANGE* IpRange;
 		public DHCP_HOST_INFO* SecondaryHost;
@@ -1126,23 +1148,27 @@ public function uint32 LPDHCP_ENTRY_POINT_FUNC(PWSTR ChainDlls, uint32 CalloutVe
 	public DHCP_SUBNET_ELEMENT_UNION Element;
 }
 
-[CRepr, Union]public struct DHCP_SUBNET_ELEMENT_UNION
+[CRepr, Union]
+public struct DHCP_SUBNET_ELEMENT_UNION
 {
 }
 
-[CRepr]public struct DHCP_SUBNET_ELEMENT_INFO_ARRAY
+[CRepr]
+public struct DHCP_SUBNET_ELEMENT_INFO_ARRAY
 {
 	public uint32 NumElements;
 	public DHCP_SUBNET_ELEMENT_DATA* Elements;
 }
 
-[CRepr]public struct DHCP_IPV6_ADDRESS
+[CRepr]
+public struct DHCP_IPV6_ADDRESS
 {
 	public uint64 HighOrderBits;
 	public uint64 LowOrderBits;
 }
 
-[CRepr]public struct DHCP_ADDR_PATTERN
+[CRepr]
+public struct DHCP_ADDR_PATTERN
 {
 	public BOOL MatchHWType;
 	public uint8 HWType;
@@ -1151,34 +1177,40 @@ public function uint32 LPDHCP_ENTRY_POINT_FUNC(PWSTR ChainDlls, uint32 CalloutVe
 	public uint8[255] Pattern;
 }
 
-[CRepr]public struct DHCP_FILTER_ADD_INFO
+[CRepr]
+public struct DHCP_FILTER_ADD_INFO
 {
 	public DHCP_ADDR_PATTERN AddrPatt;
 	public PWSTR Comment;
 	public DHCP_FILTER_LIST_TYPE ListType;
 }
 
-[CRepr]public struct DHCP_FILTER_GLOBAL_INFO
+[CRepr]
+public struct DHCP_FILTER_GLOBAL_INFO
 {
 	public BOOL EnforceAllowList;
 	public BOOL EnforceDenyList;
 }
 
-[CRepr]public struct DHCP_FILTER_RECORD
+[CRepr]
+public struct DHCP_FILTER_RECORD
 {
 	public DHCP_ADDR_PATTERN AddrPatt;
 	public PWSTR Comment;
 }
 
-[CRepr]public struct DHCP_FILTER_ENUM_INFO
+[CRepr]
+public struct DHCP_FILTER_ENUM_INFO
 {
 	public uint32 NumElements;
 	public DHCP_FILTER_RECORD* pEnumRecords;
 }
 
-[CRepr]public struct DHCP_OPTION_DATA_ELEMENT
+[CRepr]
+public struct DHCP_OPTION_DATA_ELEMENT
 {
-	[CRepr, Union]	public struct DHCP_OPTION_ELEMENT_UNION
+	[CRepr, Union]
+	public struct DHCP_OPTION_ELEMENT_UNION
 	{
 		public uint8 ByteOption;
 		public uint16 WordOption;
@@ -1195,17 +1227,20 @@ public function uint32 LPDHCP_ENTRY_POINT_FUNC(PWSTR ChainDlls, uint32 CalloutVe
 	public DHCP_OPTION_ELEMENT_UNION Element;
 }
 
-[CRepr, Union]public struct DHCP_OPTION_ELEMENT_UNION
+[CRepr, Union]
+public struct DHCP_OPTION_ELEMENT_UNION
 {
 }
 
-[CRepr]public struct DHCP_OPTION_DATA
+[CRepr]
+public struct DHCP_OPTION_DATA
 {
 	public uint32 NumElements;
 	public DHCP_OPTION_DATA_ELEMENT* Elements;
 }
 
-[CRepr]public struct DHCP_OPTION
+[CRepr]
+public struct DHCP_OPTION
 {
 	public uint32 OptionID;
 	public PWSTR OptionName;
@@ -1214,33 +1249,39 @@ public function uint32 LPDHCP_ENTRY_POINT_FUNC(PWSTR ChainDlls, uint32 CalloutVe
 	public DHCP_OPTION_TYPE OptionType;
 }
 
-[CRepr]public struct DHCP_OPTION_ARRAY
+[CRepr]
+public struct DHCP_OPTION_ARRAY
 {
 	public uint32 NumElements;
 	public DHCP_OPTION* Options;
 }
 
-[CRepr]public struct DHCP_OPTION_VALUE
+[CRepr]
+public struct DHCP_OPTION_VALUE
 {
 	public uint32 OptionID;
 	public DHCP_OPTION_DATA Value;
 }
 
-[CRepr]public struct DHCP_OPTION_VALUE_ARRAY
+[CRepr]
+public struct DHCP_OPTION_VALUE_ARRAY
 {
 	public uint32 NumElements;
 	public DHCP_OPTION_VALUE* Values;
 }
 
-[CRepr]public struct DHCP_RESERVED_SCOPE
+[CRepr]
+public struct DHCP_RESERVED_SCOPE
 {
 	public uint32 ReservedIpAddress;
 	public uint32 ReservedIpSubnetAddress;
 }
 
-[CRepr]public struct DHCP_OPTION_SCOPE_INFO
+[CRepr]
+public struct DHCP_OPTION_SCOPE_INFO
 {
-	[CRepr, Union]	public struct _DHCP_OPTION_SCOPE_UNION
+	[CRepr, Union]
+	public struct _DHCP_OPTION_SCOPE_UNION
 	{
 		public void* DefaultScopeInfo;
 		public void* GlobalScopeInfo;
@@ -1253,15 +1294,18 @@ public function uint32 LPDHCP_ENTRY_POINT_FUNC(PWSTR ChainDlls, uint32 CalloutVe
 	public _DHCP_OPTION_SCOPE_UNION ScopeInfo;
 }
 
-[CRepr]public struct DHCP_RESERVED_SCOPE6
+[CRepr]
+public struct DHCP_RESERVED_SCOPE6
 {
 	public DHCP_IPV6_ADDRESS ReservedIpAddress;
 	public DHCP_IPV6_ADDRESS ReservedIpSubnetAddress;
 }
 
-[CRepr]public struct DHCP_OPTION_SCOPE_INFO6
+[CRepr]
+public struct DHCP_OPTION_SCOPE_INFO6
 {
-	[CRepr, Union]	public struct DHCP_OPTION_SCOPE_UNION6
+	[CRepr, Union]
+	public struct DHCP_OPTION_SCOPE_UNION6
 	{
 		public void* DefaultScopeInfo;
 		public DHCP_IPV6_ADDRESS SubnetScopeInfo;
@@ -1272,17 +1316,20 @@ public function uint32 LPDHCP_ENTRY_POINT_FUNC(PWSTR ChainDlls, uint32 CalloutVe
 	public DHCP_OPTION_SCOPE_UNION6 ScopeInfo;
 }
 
-[CRepr, Union]public struct DHCP_OPTION_SCOPE_UNION6
+[CRepr, Union]
+public struct DHCP_OPTION_SCOPE_UNION6
 {
 }
 
-[CRepr]public struct DHCP_OPTION_LIST
+[CRepr]
+public struct DHCP_OPTION_LIST
 {
 	public uint32 NumOptions;
 	public DHCP_OPTION_VALUE* Options;
 }
 
-[CRepr]public struct DHCP_CLIENT_INFO
+[CRepr]
+public struct DHCP_CLIENT_INFO
 {
 	public uint32 ClientIpAddress;
 	public uint32 SubnetMask;
@@ -1293,13 +1340,15 @@ public function uint32 LPDHCP_ENTRY_POINT_FUNC(PWSTR ChainDlls, uint32 CalloutVe
 	public DHCP_HOST_INFO OwnerHost;
 }
 
-[CRepr]public struct DHCP_CLIENT_INFO_ARRAY
+[CRepr]
+public struct DHCP_CLIENT_INFO_ARRAY
 {
 	public uint32 NumElements;
 	public DHCP_CLIENT_INFO** Clients;
 }
 
-[CRepr]public struct DHCP_CLIENT_INFO_VQ
+[CRepr]
+public struct DHCP_CLIENT_INFO_VQ
 {
 	public uint32 ClientIpAddress;
 	public uint32 SubnetMask;
@@ -1315,13 +1364,15 @@ public function uint32 LPDHCP_ENTRY_POINT_FUNC(PWSTR ChainDlls, uint32 CalloutVe
 	public BOOL QuarantineCapable;
 }
 
-[CRepr]public struct DHCP_CLIENT_INFO_ARRAY_VQ
+[CRepr]
+public struct DHCP_CLIENT_INFO_ARRAY_VQ
 {
 	public uint32 NumElements;
 	public DHCP_CLIENT_INFO_VQ** Clients;
 }
 
-[CRepr]public struct DHCP_CLIENT_FILTER_STATUS_INFO
+[CRepr]
+public struct DHCP_CLIENT_FILTER_STATUS_INFO
 {
 	public uint32 ClientIpAddress;
 	public uint32 SubnetMask;
@@ -1338,13 +1389,15 @@ public function uint32 LPDHCP_ENTRY_POINT_FUNC(PWSTR ChainDlls, uint32 CalloutVe
 	public uint32 FilterStatus;
 }
 
-[CRepr]public struct DHCP_CLIENT_FILTER_STATUS_INFO_ARRAY
+[CRepr]
+public struct DHCP_CLIENT_FILTER_STATUS_INFO_ARRAY
 {
 	public uint32 NumElements;
 	public DHCP_CLIENT_FILTER_STATUS_INFO** Clients;
 }
 
-[CRepr]public struct DHCP_CLIENT_INFO_PB
+[CRepr]
+public struct DHCP_CLIENT_INFO_PB
 {
 	public uint32 ClientIpAddress;
 	public uint32 SubnetMask;
@@ -1362,15 +1415,18 @@ public function uint32 LPDHCP_ENTRY_POINT_FUNC(PWSTR ChainDlls, uint32 CalloutVe
 	public PWSTR PolicyName;
 }
 
-[CRepr]public struct DHCP_CLIENT_INFO_PB_ARRAY
+[CRepr]
+public struct DHCP_CLIENT_INFO_PB_ARRAY
 {
 	public uint32 NumElements;
 	public DHCP_CLIENT_INFO_PB** Clients;
 }
 
-[CRepr]public struct DHCP_SEARCH_INFO
+[CRepr]
+public struct DHCP_SEARCH_INFO
 {
-	[CRepr, Union]	public struct DHCP_CLIENT_SEARCH_UNION
+	[CRepr, Union]
+	public struct DHCP_CLIENT_SEARCH_UNION
 	{
 		public uint32 ClientIpAddress;
 		public DHCP_BINARY_DATA ClientHardwareAddress;
@@ -1381,13 +1437,16 @@ public function uint32 LPDHCP_ENTRY_POINT_FUNC(PWSTR ChainDlls, uint32 CalloutVe
 	public DHCP_CLIENT_SEARCH_UNION SearchInfo;
 }
 
-[CRepr, Union]public struct DHCP_CLIENT_SEARCH_UNION
+[CRepr, Union]
+public struct DHCP_CLIENT_SEARCH_UNION
 {
 }
 
-[CRepr]public struct DHCP_PROPERTY
+[CRepr]
+public struct DHCP_PROPERTY
 {
-	[CRepr, Union]	public struct _DHCP_PROPERTY_VALUE_UNION
+	[CRepr, Union]
+	public struct _DHCP_PROPERTY_VALUE_UNION
 	{
 		public uint8 ByteValue;
 		public uint16 WordValue;
@@ -1401,13 +1460,15 @@ public function uint32 LPDHCP_ENTRY_POINT_FUNC(PWSTR ChainDlls, uint32 CalloutVe
 	public _DHCP_PROPERTY_VALUE_UNION Value;
 }
 
-[CRepr]public struct DHCP_PROPERTY_ARRAY
+[CRepr]
+public struct DHCP_PROPERTY_ARRAY
 {
 	public uint32 NumElements;
 	public DHCP_PROPERTY* Elements;
 }
 
-[CRepr]public struct DHCP_CLIENT_INFO_EX
+[CRepr]
+public struct DHCP_CLIENT_INFO_EX
 {
 	public uint32 ClientIpAddress;
 	public uint32 SubnetMask;
@@ -1426,13 +1487,15 @@ public function uint32 LPDHCP_ENTRY_POINT_FUNC(PWSTR ChainDlls, uint32 CalloutVe
 	public DHCP_PROPERTY_ARRAY* Properties;
 }
 
-[CRepr]public struct DHCP_CLIENT_INFO_EX_ARRAY
+[CRepr]
+public struct DHCP_CLIENT_INFO_EX_ARRAY
 {
 	public uint32 NumElements;
 	public DHCP_CLIENT_INFO_EX** Clients;
 }
 
-[CRepr]public struct SCOPE_MIB_INFO
+[CRepr]
+public struct SCOPE_MIB_INFO
 {
 	public uint32 Subnet;
 	public uint32 NumAddressesInuse;
@@ -1440,7 +1503,8 @@ public function uint32 LPDHCP_ENTRY_POINT_FUNC(PWSTR ChainDlls, uint32 CalloutVe
 	public uint32 NumPendingOffers;
 }
 
-[CRepr]public struct DHCP_MIB_INFO
+[CRepr]
+public struct DHCP_MIB_INFO
 {
 	public uint32 Discovers;
 	public uint32 Offers;
@@ -1454,7 +1518,8 @@ public function uint32 LPDHCP_ENTRY_POINT_FUNC(PWSTR ChainDlls, uint32 CalloutVe
 	public SCOPE_MIB_INFO* ScopeInfo;
 }
 
-[CRepr]public struct SCOPE_MIB_INFO_VQ
+[CRepr]
+public struct SCOPE_MIB_INFO_VQ
 {
 	public uint32 Subnet;
 	public uint32 NumAddressesInuse;
@@ -1468,7 +1533,8 @@ public function uint32 LPDHCP_ENTRY_POINT_FUNC(PWSTR ChainDlls, uint32 CalloutVe
 	public uint32 QtnCapableClients;
 }
 
-[CRepr]public struct DHCP_MIB_INFO_VQ
+[CRepr]
+public struct DHCP_MIB_INFO_VQ
 {
 	public uint32 Discovers;
 	public uint32 Offers;
@@ -1489,7 +1555,8 @@ public function uint32 LPDHCP_ENTRY_POINT_FUNC(PWSTR ChainDlls, uint32 CalloutVe
 	public SCOPE_MIB_INFO_VQ* ScopeInfo;
 }
 
-[CRepr]public struct SCOPE_MIB_INFO_V5
+[CRepr]
+public struct SCOPE_MIB_INFO_V5
 {
 	public uint32 Subnet;
 	public uint32 NumAddressesInuse;
@@ -1497,7 +1564,8 @@ public function uint32 LPDHCP_ENTRY_POINT_FUNC(PWSTR ChainDlls, uint32 CalloutVe
 	public uint32 NumPendingOffers;
 }
 
-[CRepr]public struct DHCP_MIB_INFO_V5
+[CRepr]
+public struct DHCP_MIB_INFO_V5
 {
 	public uint32 Discovers;
 	public uint32 Offers;
@@ -1520,7 +1588,8 @@ public function uint32 LPDHCP_ENTRY_POINT_FUNC(PWSTR ChainDlls, uint32 CalloutVe
 	public SCOPE_MIB_INFO_V5* ScopeInfo;
 }
 
-[CRepr]public struct DHCP_SERVER_CONFIG_INFO
+[CRepr]
+public struct DHCP_SERVER_CONFIG_INFO
 {
 	public uint32 APIProtocolSupport;
 	public PWSTR DatabaseName;
@@ -1533,19 +1602,22 @@ public function uint32 LPDHCP_ENTRY_POINT_FUNC(PWSTR ChainDlls, uint32 CalloutVe
 	public uint32 DebugFlag;
 }
 
-[CRepr]public struct DHCP_SCAN_ITEM
+[CRepr]
+public struct DHCP_SCAN_ITEM
 {
 	public uint32 IpAddress;
 	public DHCP_SCAN_FLAG ScanFlag;
 }
 
-[CRepr]public struct DHCP_SCAN_LIST
+[CRepr]
+public struct DHCP_SCAN_LIST
 {
 	public uint32 NumScanItems;
 	public DHCP_SCAN_ITEM* ScanItems;
 }
 
-[CRepr]public struct DHCP_CLASS_INFO
+[CRepr]
+public struct DHCP_CLASS_INFO
 {
 	public PWSTR ClassName;
 	public PWSTR ClassComment;
@@ -1555,13 +1627,15 @@ public function uint32 LPDHCP_ENTRY_POINT_FUNC(PWSTR ChainDlls, uint32 CalloutVe
 	public uint8* ClassData;
 }
 
-[CRepr]public struct DHCP_CLASS_INFO_ARRAY
+[CRepr]
+public struct DHCP_CLASS_INFO_ARRAY
 {
 	public uint32 NumElements;
 	public DHCP_CLASS_INFO* Classes;
 }
 
-[CRepr]public struct DHCP_CLASS_INFO_V6
+[CRepr]
+public struct DHCP_CLASS_INFO_V6
 {
 	public PWSTR ClassName;
 	public PWSTR ClassComment;
@@ -1572,26 +1646,30 @@ public function uint32 LPDHCP_ENTRY_POINT_FUNC(PWSTR ChainDlls, uint32 CalloutVe
 	public uint8* ClassData;
 }
 
-[CRepr]public struct DHCP_CLASS_INFO_ARRAY_V6
+[CRepr]
+public struct DHCP_CLASS_INFO_ARRAY_V6
 {
 	public uint32 NumElements;
 	public DHCP_CLASS_INFO_V6* Classes;
 }
 
-[CRepr]public struct DHCP_SERVER_SPECIFIC_STRINGS
+[CRepr]
+public struct DHCP_SERVER_SPECIFIC_STRINGS
 {
 	public PWSTR DefaultVendorClassName;
 	public PWSTR DefaultUserClassName;
 }
 
-[CRepr]public struct DHCP_IP_RESERVATION_V4
+[CRepr]
+public struct DHCP_IP_RESERVATION_V4
 {
 	public uint32 ReservedIpAddress;
 	public DHCP_BINARY_DATA* ReservedForClient;
 	public uint8 bAllowedClientTypes;
 }
 
-[CRepr]public struct DHCP_IP_RESERVATION_INFO
+[CRepr]
+public struct DHCP_IP_RESERVATION_INFO
 {
 	public uint32 ReservedIpAddress;
 	public DHCP_BINARY_DATA ReservedForClient;
@@ -1601,15 +1679,18 @@ public function uint32 LPDHCP_ENTRY_POINT_FUNC(PWSTR ChainDlls, uint32 CalloutVe
 	public uint8 fOptionsPresent;
 }
 
-[CRepr]public struct DHCP_RESERVATION_INFO_ARRAY
+[CRepr]
+public struct DHCP_RESERVATION_INFO_ARRAY
 {
 	public uint32 NumElements;
 	public DHCP_IP_RESERVATION_INFO** Elements;
 }
 
-[CRepr]public struct DHCP_SUBNET_ELEMENT_DATA_V4
+[CRepr]
+public struct DHCP_SUBNET_ELEMENT_DATA_V4
 {
-	[CRepr, Union]	public struct DHCP_SUBNET_ELEMENT_UNION_V4
+	[CRepr, Union]
+	public struct DHCP_SUBNET_ELEMENT_UNION_V4
 	{
 		public DHCP_IP_RANGE* IpRange;
 		public DHCP_HOST_INFO* SecondaryHost;
@@ -1622,17 +1703,20 @@ public function uint32 LPDHCP_ENTRY_POINT_FUNC(PWSTR ChainDlls, uint32 CalloutVe
 	public DHCP_SUBNET_ELEMENT_UNION_V4 Element;
 }
 
-[CRepr, Union]public struct DHCP_SUBNET_ELEMENT_UNION_V4
+[CRepr, Union]
+public struct DHCP_SUBNET_ELEMENT_UNION_V4
 {
 }
 
-[CRepr]public struct DHCP_SUBNET_ELEMENT_INFO_ARRAY_V4
+[CRepr]
+public struct DHCP_SUBNET_ELEMENT_INFO_ARRAY_V4
 {
 	public uint32 NumElements;
 	public DHCP_SUBNET_ELEMENT_DATA_V4* Elements;
 }
 
-[CRepr]public struct DHCP_CLIENT_INFO_V4
+[CRepr]
+public struct DHCP_CLIENT_INFO_V4
 {
 	public uint32 ClientIpAddress;
 	public uint32 SubnetMask;
@@ -1644,13 +1728,15 @@ public function uint32 LPDHCP_ENTRY_POINT_FUNC(PWSTR ChainDlls, uint32 CalloutVe
 	public uint8 bClientType;
 }
 
-[CRepr]public struct DHCP_CLIENT_INFO_ARRAY_V4
+[CRepr]
+public struct DHCP_CLIENT_INFO_ARRAY_V4
 {
 	public uint32 NumElements;
 	public DHCP_CLIENT_INFO_V4** Clients;
 }
 
-[CRepr]public struct DHCP_SERVER_CONFIG_INFO_V4
+[CRepr]
+public struct DHCP_SERVER_CONFIG_INFO_V4
 {
 	public uint32 APIProtocolSupport;
 	public PWSTR DatabaseName;
@@ -1667,7 +1753,8 @@ public function uint32 LPDHCP_ENTRY_POINT_FUNC(PWSTR ChainDlls, uint32 CalloutVe
 	public BOOL fAuditLog;
 }
 
-[CRepr]public struct DHCP_SERVER_CONFIG_INFO_VQ
+[CRepr]
+public struct DHCP_SERVER_CONFIG_INFO_VQ
 {
 	public uint32 APIProtocolSupport;
 	public PWSTR DatabaseName;
@@ -1687,7 +1774,8 @@ public function uint32 LPDHCP_ENTRY_POINT_FUNC(PWSTR ChainDlls, uint32 CalloutVe
 	public BOOL QuarRuntimeStatus;
 }
 
-[CRepr]public struct DHCP_SERVER_CONFIG_INFO_V6
+[CRepr]
+public struct DHCP_SERVER_CONFIG_INFO_V6
 {
 	public BOOL UnicastFlag;
 	public BOOL RapidCommitFlag;
@@ -1700,7 +1788,8 @@ public function uint32 LPDHCP_ENTRY_POINT_FUNC(PWSTR ChainDlls, uint32 CalloutVe
 	public BOOL fAuditLog;
 }
 
-[CRepr]public struct DHCP_SUPER_SCOPE_TABLE_ENTRY
+[CRepr]
+public struct DHCP_SUPER_SCOPE_TABLE_ENTRY
 {
 	public uint32 SubnetAddress;
 	public uint32 SuperScopeNumber;
@@ -1708,13 +1797,15 @@ public function uint32 LPDHCP_ENTRY_POINT_FUNC(PWSTR ChainDlls, uint32 CalloutVe
 	public PWSTR SuperScopeName;
 }
 
-[CRepr]public struct DHCP_SUPER_SCOPE_TABLE
+[CRepr]
+public struct DHCP_SUPER_SCOPE_TABLE
 {
 	public uint32 cEntries;
 	public DHCP_SUPER_SCOPE_TABLE_ENTRY* pEntries;
 }
 
-[CRepr]public struct DHCP_CLIENT_INFO_V5
+[CRepr]
+public struct DHCP_CLIENT_INFO_V5
 {
 	public uint32 ClientIpAddress;
 	public uint32 SubnetMask;
@@ -1727,15 +1818,18 @@ public function uint32 LPDHCP_ENTRY_POINT_FUNC(PWSTR ChainDlls, uint32 CalloutVe
 	public uint8 AddressState;
 }
 
-[CRepr]public struct DHCP_CLIENT_INFO_ARRAY_V5
+[CRepr]
+public struct DHCP_CLIENT_INFO_ARRAY_V5
 {
 	public uint32 NumElements;
 	public DHCP_CLIENT_INFO_V5** Clients;
 }
 
-[CRepr]public struct DHCP_ALL_OPTIONS
+[CRepr]
+public struct DHCP_ALL_OPTIONS
 {
-	[CRepr]	public struct _Anonymous_e__Struct
+	[CRepr]
+	public struct _Anonymous_e__Struct
 	{
 		public DHCP_OPTION Option;
 		public PWSTR VendorName;
@@ -1748,9 +1842,11 @@ public function uint32 LPDHCP_ENTRY_POINT_FUNC(PWSTR ChainDlls, uint32 CalloutVe
 	public _Anonymous_e__Struct* VendorOptions;
 }
 
-[CRepr]public struct DHCP_ALL_OPTION_VALUES
+[CRepr]
+public struct DHCP_ALL_OPTION_VALUES
 {
-	[CRepr]	public struct _Anonymous_e__Struct
+	[CRepr]
+	public struct _Anonymous_e__Struct
 	{
 		public PWSTR ClassName;
 		public PWSTR VendorName;
@@ -1763,9 +1859,11 @@ public function uint32 LPDHCP_ENTRY_POINT_FUNC(PWSTR ChainDlls, uint32 CalloutVe
 	public _Anonymous_e__Struct* Options;
 }
 
-[CRepr]public struct DHCP_ALL_OPTION_VALUES_PB
+[CRepr]
+public struct DHCP_ALL_OPTION_VALUES_PB
 {
-	[CRepr]	public struct _Anonymous_e__Struct
+	[CRepr]
+	public struct _Anonymous_e__Struct
 	{
 		public PWSTR PolicyName;
 		public PWSTR VendorName;
@@ -1778,7 +1876,8 @@ public function uint32 LPDHCP_ENTRY_POINT_FUNC(PWSTR ChainDlls, uint32 CalloutVe
 	public _Anonymous_e__Struct* Options;
 }
 
-[CRepr]public struct DHCPDS_SERVER
+[CRepr]
+public struct DHCPDS_SERVER
 {
 	public uint32 Version;
 	public PWSTR ServerName;
@@ -1789,16 +1888,19 @@ public function uint32 LPDHCP_ENTRY_POINT_FUNC(PWSTR ChainDlls, uint32 CalloutVe
 	public uint32 DsLocType;
 }
 
-[CRepr]public struct DHCPDS_SERVERS
+[CRepr]
+public struct DHCPDS_SERVERS
 {
 	public uint32 Flags;
 	public uint32 NumElements;
 	public DHCPDS_SERVER* Servers;
 }
 
-[CRepr]public struct DHCP_ATTRIB
+[CRepr]
+public struct DHCP_ATTRIB
 {
-	[CRepr, Union]	public struct _Anonymous_e__Union
+	[CRepr, Union]
+	public struct _Anonymous_e__Union
 	{
 		public BOOL DhcpAttribBool;
 		public uint32 DhcpAttribUlong;
@@ -1809,13 +1911,15 @@ public function uint32 LPDHCP_ENTRY_POINT_FUNC(PWSTR ChainDlls, uint32 CalloutVe
 	public using _Anonymous_e__Union Anonymous;
 }
 
-[CRepr]public struct DHCP_ATTRIB_ARRAY
+[CRepr]
+public struct DHCP_ATTRIB_ARRAY
 {
 	public uint32 NumElements;
 	public DHCP_ATTRIB* DhcpAttribs;
 }
 
-[CRepr]public struct DHCP_BOOTP_IP_RANGE
+[CRepr]
+public struct DHCP_BOOTP_IP_RANGE
 {
 	public uint32 StartAddress;
 	public uint32 EndAddress;
@@ -1823,9 +1927,11 @@ public function uint32 LPDHCP_ENTRY_POINT_FUNC(PWSTR ChainDlls, uint32 CalloutVe
 	public uint32 MaxBootpAllowed;
 }
 
-[CRepr]public struct DHCP_SUBNET_ELEMENT_DATA_V5
+[CRepr]
+public struct DHCP_SUBNET_ELEMENT_DATA_V5
 {
-	[CRepr, Union]	public struct _DHCP_SUBNET_ELEMENT_UNION_V5
+	[CRepr, Union]
+	public struct _DHCP_SUBNET_ELEMENT_UNION_V5
 	{
 		public DHCP_BOOTP_IP_RANGE* IpRange;
 		public DHCP_HOST_INFO* SecondaryHost;
@@ -1838,13 +1944,15 @@ public function uint32 LPDHCP_ENTRY_POINT_FUNC(PWSTR ChainDlls, uint32 CalloutVe
 	public _DHCP_SUBNET_ELEMENT_UNION_V5 Element;
 }
 
-[CRepr]public struct DHCP_SUBNET_ELEMENT_INFO_ARRAY_V5
+[CRepr]
+public struct DHCP_SUBNET_ELEMENT_INFO_ARRAY_V5
 {
 	public uint32 NumElements;
 	public DHCP_SUBNET_ELEMENT_DATA_V5* Elements;
 }
 
-[CRepr]public struct DHCP_PERF_STATS
+[CRepr]
+public struct DHCP_PERF_STATS
 {
 	public uint32 dwNumPacketsReceived;
 	public uint32 dwNumPacketsDuplicate;
@@ -1867,7 +1975,8 @@ public function uint32 LPDHCP_ENTRY_POINT_FUNC(PWSTR ChainDlls, uint32 CalloutVe
 	public uint32 dwNumPacketsInQuarDecisionQueue;
 }
 
-[CRepr]public struct DHCP_BIND_ELEMENT
+[CRepr]
+public struct DHCP_BIND_ELEMENT
 {
 	public uint32 Flags;
 	public BOOL fBoundToDHCPServer;
@@ -1878,13 +1987,15 @@ public function uint32 LPDHCP_ENTRY_POINT_FUNC(PWSTR ChainDlls, uint32 CalloutVe
 	public uint8* IfId;
 }
 
-[CRepr]public struct DHCP_BIND_ELEMENT_ARRAY
+[CRepr]
+public struct DHCP_BIND_ELEMENT_ARRAY
 {
 	public uint32 NumElements;
 	public DHCP_BIND_ELEMENT* Elements;
 }
 
-[CRepr]public struct DHCPV6_BIND_ELEMENT
+[CRepr]
+public struct DHCPV6_BIND_ELEMENT
 {
 	public uint32 Flags;
 	public BOOL fBoundToDHCPServer;
@@ -1896,26 +2007,30 @@ public function uint32 LPDHCP_ENTRY_POINT_FUNC(PWSTR ChainDlls, uint32 CalloutVe
 	public uint8* IfId;
 }
 
-[CRepr]public struct DHCPV6_BIND_ELEMENT_ARRAY
+[CRepr]
+public struct DHCPV6_BIND_ELEMENT_ARRAY
 {
 	public uint32 NumElements;
 	public DHCPV6_BIND_ELEMENT* Elements;
 }
 
-[CRepr]public struct DHCP_IP_RANGE_V6
+[CRepr]
+public struct DHCP_IP_RANGE_V6
 {
 	public DHCP_IPV6_ADDRESS StartAddress;
 	public DHCP_IPV6_ADDRESS EndAddress;
 }
 
-[CRepr]public struct DHCP_HOST_INFO_V6
+[CRepr]
+public struct DHCP_HOST_INFO_V6
 {
 	public DHCP_IPV6_ADDRESS IpAddress;
 	public PWSTR NetBiosName;
 	public PWSTR HostName;
 }
 
-[CRepr]public struct DHCP_SUBNET_INFO_V6
+[CRepr]
+public struct DHCP_SUBNET_INFO_V6
 {
 	public DHCP_IPV6_ADDRESS SubnetAddress;
 	public uint32 Prefix;
@@ -1926,7 +2041,8 @@ public function uint32 LPDHCP_ENTRY_POINT_FUNC(PWSTR ChainDlls, uint32 CalloutVe
 	public uint32 ScopeId;
 }
 
-[CRepr]public struct SCOPE_MIB_INFO_V6
+[CRepr]
+public struct SCOPE_MIB_INFO_V6
 {
 	public DHCP_IPV6_ADDRESS Subnet;
 	public uint64 NumAddressesInuse;
@@ -1934,7 +2050,8 @@ public function uint32 LPDHCP_ENTRY_POINT_FUNC(PWSTR ChainDlls, uint32 CalloutVe
 	public uint64 NumPendingAdvertises;
 }
 
-[CRepr]public struct DHCP_MIB_INFO_V6
+[CRepr]
+public struct DHCP_MIB_INFO_V6
 {
 	public uint32 Solicits;
 	public uint32 Advertises;
@@ -1951,16 +2068,19 @@ public function uint32 LPDHCP_ENTRY_POINT_FUNC(PWSTR ChainDlls, uint32 CalloutVe
 	public SCOPE_MIB_INFO_V6* ScopeInfo;
 }
 
-[CRepr]public struct DHCP_IP_RESERVATION_V6
+[CRepr]
+public struct DHCP_IP_RESERVATION_V6
 {
 	public DHCP_IPV6_ADDRESS ReservedIpAddress;
 	public DHCP_BINARY_DATA* ReservedForClient;
 	public uint32 InterfaceId;
 }
 
-[CRepr]public struct DHCP_SUBNET_ELEMENT_DATA_V6
+[CRepr]
+public struct DHCP_SUBNET_ELEMENT_DATA_V6
 {
-	[CRepr, Union]	public struct DHCP_SUBNET_ELEMENT_UNION_V6
+	[CRepr, Union]
+	public struct DHCP_SUBNET_ELEMENT_UNION_V6
 	{
 		public DHCP_IP_RANGE_V6* IpRange;
 		public DHCP_IP_RESERVATION_V6* ReservedIp;
@@ -1971,17 +2091,20 @@ public function uint32 LPDHCP_ENTRY_POINT_FUNC(PWSTR ChainDlls, uint32 CalloutVe
 	public DHCP_SUBNET_ELEMENT_UNION_V6 Element;
 }
 
-[CRepr, Union]public struct DHCP_SUBNET_ELEMENT_UNION_V6
+[CRepr, Union]
+public struct DHCP_SUBNET_ELEMENT_UNION_V6
 {
 }
 
-[CRepr]public struct DHCP_SUBNET_ELEMENT_INFO_ARRAY_V6
+[CRepr]
+public struct DHCP_SUBNET_ELEMENT_INFO_ARRAY_V6
 {
 	public uint32 NumElements;
 	public DHCP_SUBNET_ELEMENT_DATA_V6* Elements;
 }
 
-[CRepr]public struct DHCP_CLIENT_INFO_V6
+[CRepr]
+public struct DHCP_CLIENT_INFO_V6
 {
 	public DHCP_IPV6_ADDRESS ClientIpAddress;
 	public DHCP_BINARY_DATA ClientDUID;
@@ -1994,21 +2117,25 @@ public function uint32 LPDHCP_ENTRY_POINT_FUNC(PWSTR ChainDlls, uint32 CalloutVe
 	public DHCP_HOST_INFO_V6 OwnerHost;
 }
 
-[CRepr]public struct DHCPV6_IP_ARRAY
+[CRepr]
+public struct DHCPV6_IP_ARRAY
 {
 	public uint32 NumElements;
 	public DHCP_IPV6_ADDRESS* Elements;
 }
 
-[CRepr]public struct DHCP_CLIENT_INFO_ARRAY_V6
+[CRepr]
+public struct DHCP_CLIENT_INFO_ARRAY_V6
 {
 	public uint32 NumElements;
 	public DHCP_CLIENT_INFO_V6** Clients;
 }
 
-[CRepr]public struct DHCP_SEARCH_INFO_V6
+[CRepr]
+public struct DHCP_SEARCH_INFO_V6
 {
-	[CRepr, Union]	public struct _DHCP_CLIENT_SEARCH_UNION_V6
+	[CRepr, Union]
+	public struct _DHCP_CLIENT_SEARCH_UNION_V6
 	{
 		public DHCP_IPV6_ADDRESS ClientIpAddress;
 		public DHCP_BINARY_DATA ClientDUID;
@@ -2019,7 +2146,8 @@ public function uint32 LPDHCP_ENTRY_POINT_FUNC(PWSTR ChainDlls, uint32 CalloutVe
 	public _DHCP_CLIENT_SEARCH_UNION_V6 SearchInfo;
 }
 
-[CRepr]public struct DHCP_POL_COND
+[CRepr]
+public struct DHCP_POL_COND
 {
 	public uint32 ParentExpr;
 	public DHCP_POL_ATTR_TYPE Type;
@@ -2031,31 +2159,36 @@ public function uint32 LPDHCP_ENTRY_POINT_FUNC(PWSTR ChainDlls, uint32 CalloutVe
 	public uint32 ValueLength;
 }
 
-[CRepr]public struct DHCP_POL_COND_ARRAY
+[CRepr]
+public struct DHCP_POL_COND_ARRAY
 {
 	public uint32 NumElements;
 	public DHCP_POL_COND* Elements;
 }
 
-[CRepr]public struct DHCP_POL_EXPR
+[CRepr]
+public struct DHCP_POL_EXPR
 {
 	public uint32 ParentExpr;
 	public DHCP_POL_LOGIC_OPER Operator;
 }
 
-[CRepr]public struct DHCP_POL_EXPR_ARRAY
+[CRepr]
+public struct DHCP_POL_EXPR_ARRAY
 {
 	public uint32 NumElements;
 	public DHCP_POL_EXPR* Elements;
 }
 
-[CRepr]public struct DHCP_IP_RANGE_ARRAY
+[CRepr]
+public struct DHCP_IP_RANGE_ARRAY
 {
 	public uint32 NumElements;
 	public DHCP_IP_RANGE* Elements;
 }
 
-[CRepr]public struct DHCP_POLICY
+[CRepr]
+public struct DHCP_POLICY
 {
 	public PWSTR PolicyName;
 	public BOOL IsGlobalPolicy;
@@ -2068,13 +2201,15 @@ public function uint32 LPDHCP_ENTRY_POINT_FUNC(PWSTR ChainDlls, uint32 CalloutVe
 	public BOOL Enabled;
 }
 
-[CRepr]public struct DHCP_POLICY_ARRAY
+[CRepr]
+public struct DHCP_POLICY_ARRAY
 {
 	public uint32 NumElements;
 	public DHCP_POLICY* Elements;
 }
 
-[CRepr]public struct DHCP_POLICY_EX
+[CRepr]
+public struct DHCP_POLICY_EX
 {
 	public PWSTR PolicyName;
 	public BOOL IsGlobalPolicy;
@@ -2088,32 +2223,37 @@ public function uint32 LPDHCP_ENTRY_POINT_FUNC(PWSTR ChainDlls, uint32 CalloutVe
 	public DHCP_PROPERTY_ARRAY* Properties;
 }
 
-[CRepr]public struct DHCP_POLICY_EX_ARRAY
+[CRepr]
+public struct DHCP_POLICY_EX_ARRAY
 {
 	public uint32 NumElements;
 	public DHCP_POLICY_EX* Elements;
 }
 
-[CRepr]public struct DHCPV6_STATELESS_PARAMS
+[CRepr]
+public struct DHCPV6_STATELESS_PARAMS
 {
 	public BOOL Status;
 	public uint32 PurgeInterval;
 }
 
-[CRepr]public struct DHCPV6_STATELESS_SCOPE_STATS
+[CRepr]
+public struct DHCPV6_STATELESS_SCOPE_STATS
 {
 	public DHCP_IPV6_ADDRESS SubnetAddress;
 	public uint64 NumStatelessClientsAdded;
 	public uint64 NumStatelessClientsRemoved;
 }
 
-[CRepr]public struct DHCPV6_STATELESS_STATS
+[CRepr]
+public struct DHCPV6_STATELESS_STATS
 {
 	public uint32 NumScopes;
 	public DHCPV6_STATELESS_SCOPE_STATS* ScopeStats;
 }
 
-[CRepr]public struct DHCP_FAILOVER_RELATIONSHIP
+[CRepr]
+public struct DHCP_FAILOVER_RELATIONSHIP
 {
 	public uint32 PrimaryServer;
 	public uint32 SecondaryServer;
@@ -2131,13 +2271,15 @@ public function uint32 LPDHCP_ENTRY_POINT_FUNC(PWSTR ChainDlls, uint32 CalloutVe
 	public PWSTR SharedSecret;
 }
 
-[CRepr]public struct DHCP_FAILOVER_RELATIONSHIP_ARRAY
+[CRepr]
+public struct DHCP_FAILOVER_RELATIONSHIP_ARRAY
 {
 	public uint32 NumElements;
 	public DHCP_FAILOVER_RELATIONSHIP* pRelationships;
 }
 
-[CRepr]public struct DHCPV4_FAILOVER_CLIENT_INFO
+[CRepr]
+public struct DHCPV4_FAILOVER_CLIENT_INFO
 {
 	public uint32 ClientIpAddress;
 	public uint32 SubnetMask;
@@ -2162,13 +2304,15 @@ public function uint32 LPDHCP_ENTRY_POINT_FUNC(PWSTR ChainDlls, uint32 CalloutVe
 	public uint8 Flags;
 }
 
-[CRepr]public struct DHCPV4_FAILOVER_CLIENT_INFO_ARRAY
+[CRepr]
+public struct DHCPV4_FAILOVER_CLIENT_INFO_ARRAY
 {
 	public uint32 NumElements;
 	public DHCPV4_FAILOVER_CLIENT_INFO** Clients;
 }
 
-[CRepr]public struct DHCPV4_FAILOVER_CLIENT_INFO_EX
+[CRepr]
+public struct DHCPV4_FAILOVER_CLIENT_INFO_EX
 {
 	public uint32 ClientIpAddress;
 	public uint32 SubnetMask;
@@ -2194,7 +2338,8 @@ public function uint32 LPDHCP_ENTRY_POINT_FUNC(PWSTR ChainDlls, uint32 CalloutVe
 	public uint32 AddressStateEx;
 }
 
-[CRepr]public struct DHCP_FAILOVER_STATISTICS
+[CRepr]
+public struct DHCP_FAILOVER_STATISTICS
 {
 	public uint32 NumAddr;
 	public uint32 AddrFree;
@@ -2206,7 +2351,8 @@ public function uint32 LPDHCP_ENTRY_POINT_FUNC(PWSTR ChainDlls, uint32 CalloutVe
 }
 
 #if BF_32_BIT
-[CRepr]public struct DHCP_SERVER_OPTIONS
+[CRepr]
+public struct DHCP_SERVER_OPTIONS
 {
 	public uint8* MessageType;
 	public uint32* SubnetMask;

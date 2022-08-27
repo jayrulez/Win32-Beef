@@ -13555,7 +13555,8 @@ public function void PAPCFUNC(uint Parameter);
 #endregion
 
 #region Structs
-[CRepr]public struct SYSTEMTIME
+[CRepr]
+public struct SYSTEMTIME
 {
 	public uint16 wYear;
 	public uint16 wMonth;
@@ -13567,11 +13568,14 @@ public function void PAPCFUNC(uint Parameter);
 	public uint16 wMilliseconds;
 }
 
-[CRepr]public struct DECIMAL
+[CRepr]
+public struct DECIMAL
 {
-	[CRepr, Union]	public struct _Anonymous2_e__Union
+	[CRepr, Union]
+	public struct _Anonymous2_e__Union
 	{
-		[CRepr]		public struct _Anonymous_e__Struct
+		[CRepr]
+		public struct _Anonymous_e__Struct
 		{
 			public uint32 Lo32;
 			public uint32 Mid32;
@@ -13581,9 +13585,11 @@ public function void PAPCFUNC(uint Parameter);
 		public uint64 Lo64;
 	}
 
-	[CRepr, Union]	public struct _Anonymous1_e__Union
+	[CRepr, Union]
+	public struct _Anonymous1_e__Union
 	{
-		[CRepr]		public struct _Anonymous_e__Struct
+		[CRepr]
+		public struct _Anonymous_e__Struct
 		{
 			public uint8 scale;
 			public uint8 sign;
@@ -13599,33 +13605,39 @@ public function void PAPCFUNC(uint Parameter);
 	public _Anonymous2_e__Union Anonymous2;
 }
 
-[CRepr]public struct HSPRITE__
+[CRepr]
+public struct HSPRITE__
 {
 	public int32 unused;
 }
 
-[CRepr]public struct HLSURF__
+[CRepr]
+public struct HLSURF__
 {
 	public int32 unused;
 }
 
-[CRepr]public struct HSTR__
+[CRepr]
+public struct HSTR__
 {
 	public int32 unused;
 }
 
-[CRepr]public struct FILETIME
+[CRepr]
+public struct FILETIME
 {
 	public uint32 dwLowDateTime;
 	public uint32 dwHighDateTime;
 }
 
-[CRepr]public struct HUMPD__
+[CRepr]
+public struct HUMPD__
 {
 	public int32 unused;
 }
 
-[CRepr]public struct RECT
+[CRepr]
+public struct RECT
 {
 	public int32 left;
 	public int32 top;
@@ -13633,7 +13645,8 @@ public function void PAPCFUNC(uint Parameter);
 	public int32 bottom;
 }
 
-[CRepr]public struct RECTL
+[CRepr]
+public struct RECTL
 {
 	public int32 left;
 	public int32 top;
@@ -13641,57 +13654,67 @@ public function void PAPCFUNC(uint Parameter);
 	public int32 bottom;
 }
 
-[CRepr]public struct POINT
+[CRepr]
+public struct POINT
 {
 	public int32 x;
 	public int32 y;
 }
 
-[CRepr]public struct POINTL
+[CRepr]
+public struct POINTL
 {
 	public int32 x;
 	public int32 y;
 }
 
-[CRepr]public struct SIZE
+[CRepr]
+public struct SIZE
 {
 	public int32 cx;
 	public int32 cy;
 }
 
-[CRepr]public struct POINTS
+[CRepr]
+public struct POINTS
 {
 	public int16 x;
 	public int16 y;
 }
 
-[CRepr]public struct APP_LOCAL_DEVICE_ID
+[CRepr]
+public struct APP_LOCAL_DEVICE_ID
 {
 	public uint8[32] value;
 }
 
-[CRepr]public struct UNICODE_STRING
+[CRepr]
+public struct UNICODE_STRING
 {
 	public uint16 Length;
 	public uint16 MaximumLength;
 	public PWSTR Buffer;
 }
 
-[CRepr]public struct FLOAT128
+[CRepr]
+public struct FLOAT128
 {
 	public int64 LowPart;
 	public int64 HighPart;
 }
 
-[CRepr, Union]public struct LARGE_INTEGER
+[CRepr, Union]
+public struct LARGE_INTEGER
 {
-	[CRepr]	public struct _Anonymous_e__Struct
+	[CRepr]
+	public struct _Anonymous_e__Struct
 	{
 		public uint32 LowPart;
 		public int32 HighPart;
 	}
 
-	[CRepr]	public struct _u_e__Struct
+	[CRepr]
+	public struct _u_e__Struct
 	{
 		public uint32 LowPart;
 		public int32 HighPart;
@@ -13702,15 +13725,18 @@ public function void PAPCFUNC(uint Parameter);
 	public int64 QuadPart;
 }
 
-[CRepr, Union]public struct ULARGE_INTEGER
+[CRepr, Union]
+public struct ULARGE_INTEGER
 {
-	[CRepr]	public struct _Anonymous_e__Struct
+	[CRepr]
+	public struct _Anonymous_e__Struct
 	{
 		public uint32 LowPart;
 		public uint32 HighPart;
 	}
 
-	[CRepr]	public struct _u_e__Struct
+	[CRepr]
+	public struct _u_e__Struct
 	{
 		public uint32 LowPart;
 		public uint32 HighPart;
@@ -13721,7 +13747,8 @@ public function void PAPCFUNC(uint Parameter);
 	public uint64 QuadPart;
 }
 
-[CRepr]public struct LUID
+[CRepr]
+public struct LUID
 {
 	public uint32 LowPart;
 	public int32 HighPart;

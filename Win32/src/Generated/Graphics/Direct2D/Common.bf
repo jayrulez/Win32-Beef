@@ -143,7 +143,8 @@ public enum D2D1_COMPOSITE_MODE : uint32
 #endregion
 
 #region Structs
-[CRepr]public struct D2D_COLOR_F
+[CRepr]
+public struct D2D_COLOR_F
 {
 	public float r;
 	public float g;
@@ -151,7 +152,8 @@ public enum D2D1_COMPOSITE_MODE : uint32
 	public float a;
 }
 
-[CRepr]public struct D2D1_COLOR_F
+[CRepr]
+public struct D2D1_COLOR_F
 {
 	public float r;
 	public float g;
@@ -159,38 +161,44 @@ public enum D2D1_COMPOSITE_MODE : uint32
 	public float a;
 }
 
-[CRepr]public struct D2D1_PIXEL_FORMAT
+[CRepr]
+public struct D2D1_PIXEL_FORMAT
 {
 	public DXGI_FORMAT format;
 	public D2D1_ALPHA_MODE alphaMode;
 }
 
-[CRepr]public struct D2D_POINT_2U
+[CRepr]
+public struct D2D_POINT_2U
 {
 	public uint32 x;
 	public uint32 y;
 }
 
-[CRepr]public struct D2D_POINT_2F
+[CRepr]
+public struct D2D_POINT_2F
 {
 	public float x;
 	public float y;
 }
 
-[CRepr]public struct D2D_VECTOR_2F
+[CRepr]
+public struct D2D_VECTOR_2F
 {
 	public float x;
 	public float y;
 }
 
-[CRepr]public struct D2D_VECTOR_3F
+[CRepr]
+public struct D2D_VECTOR_3F
 {
 	public float x;
 	public float y;
 	public float z;
 }
 
-[CRepr]public struct D2D_VECTOR_4F
+[CRepr]
+public struct D2D_VECTOR_4F
 {
 	public float x;
 	public float y;
@@ -198,7 +206,8 @@ public enum D2D1_COMPOSITE_MODE : uint32
 	public float w;
 }
 
-[CRepr]public struct D2D_RECT_F
+[CRepr]
+public struct D2D_RECT_F
 {
 	public float left;
 	public float top;
@@ -206,7 +215,8 @@ public enum D2D1_COMPOSITE_MODE : uint32
 	public float bottom;
 }
 
-[CRepr]public struct D2D_RECT_U
+[CRepr]
+public struct D2D_RECT_U
 {
 	public uint32 left;
 	public uint32 top;
@@ -214,23 +224,28 @@ public enum D2D1_COMPOSITE_MODE : uint32
 	public uint32 bottom;
 }
 
-[CRepr]public struct D2D_SIZE_F
+[CRepr]
+public struct D2D_SIZE_F
 {
 	public float width;
 	public float height;
 }
 
-[CRepr]public struct D2D_SIZE_U
+[CRepr]
+public struct D2D_SIZE_U
 {
 	public uint32 width;
 	public uint32 height;
 }
 
-[CRepr]public struct D2D_MATRIX_3X2_F
+[CRepr]
+public struct D2D_MATRIX_3X2_F
 {
-	[CRepr, Union]	public struct _Anonymous_e__Union
+	[CRepr, Union]
+	public struct _Anonymous_e__Union
 	{
-		[CRepr]		public struct _Anonymous1_e__Struct
+		[CRepr]
+		public struct _Anonymous1_e__Struct
 		{
 			public float m11;
 			public float m12;
@@ -240,7 +255,8 @@ public enum D2D1_COMPOSITE_MODE : uint32
 			public float dy;
 		}
 
-		[CRepr]		public struct _Anonymous2_e__Struct
+		[CRepr]
+		public struct _Anonymous2_e__Struct
 		{
 			public float _11;
 			public float _12;
@@ -258,11 +274,14 @@ public enum D2D1_COMPOSITE_MODE : uint32
 	public using _Anonymous_e__Union Anonymous;
 }
 
-[CRepr]public struct D2D_MATRIX_4X3_F
+[CRepr]
+public struct D2D_MATRIX_4X3_F
 {
-	[CRepr, Union]	public struct _Anonymous_e__Union
+	[CRepr, Union]
+	public struct _Anonymous_e__Union
 	{
-		[CRepr]		public struct _Anonymous_e__Struct
+		[CRepr]
+		public struct _Anonymous_e__Struct
 		{
 			public float _11;
 			public float _12;
@@ -285,11 +304,14 @@ public enum D2D1_COMPOSITE_MODE : uint32
 	public using _Anonymous_e__Union Anonymous;
 }
 
-[CRepr]public struct D2D_MATRIX_4X4_F
+[CRepr]
+public struct D2D_MATRIX_4X4_F
 {
-	[CRepr, Union]	public struct _Anonymous_e__Union
+	[CRepr, Union]
+	public struct _Anonymous_e__Union
 	{
-		[CRepr]		public struct _Anonymous_e__Struct
+		[CRepr]
+		public struct _Anonymous_e__Struct
 		{
 			public float _11;
 			public float _12;
@@ -316,11 +338,14 @@ public enum D2D1_COMPOSITE_MODE : uint32
 	public using _Anonymous_e__Union Anonymous;
 }
 
-[CRepr]public struct D2D_MATRIX_5X4_F
+[CRepr]
+public struct D2D_MATRIX_5X4_F
 {
-	[CRepr, Union]	public struct _Anonymous_e__Union
+	[CRepr, Union]
+	public struct _Anonymous_e__Union
 	{
-		[CRepr]		public struct _Anonymous_e__Struct
+		[CRepr]
+		public struct _Anonymous_e__Struct
 		{
 			public float _11;
 			public float _12;
@@ -351,7 +376,8 @@ public enum D2D1_COMPOSITE_MODE : uint32
 	public using _Anonymous_e__Union Anonymous;
 }
 
-[CRepr]public struct D2D1_BEZIER_SEGMENT
+[CRepr]
+public struct D2D1_BEZIER_SEGMENT
 {
 	public D2D_POINT_2F point1;
 	public D2D_POINT_2F point2;

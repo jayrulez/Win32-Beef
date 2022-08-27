@@ -23,7 +23,8 @@ public enum DdqAccessLevel : int32
 #endregion
 
 #region Structs
-[CRepr]public struct DIAGNOSTIC_DATA_RECORD
+[CRepr]
+public struct DIAGNOSTIC_DATA_RECORD
 {
 	public int64 rowId;
 	public uint64 timestamp;
@@ -41,7 +42,8 @@ public enum DdqAccessLevel : int32
 	public PWSTR extra3;
 }
 
-[CRepr]public struct DIAGNOSTIC_DATA_SEARCH_CRITERIA
+[CRepr]
+public struct DIAGNOSTIC_DATA_SEARCH_CRITERIA
 {
 	public PWSTR* producerNames;
 	public uint32 producerNameCount;
@@ -53,31 +55,36 @@ public enum DdqAccessLevel : int32
 	public BOOL coreDataOnly;
 }
 
-[CRepr]public struct DIAGNOSTIC_DATA_EVENT_TAG_DESCRIPTION
+[CRepr]
+public struct DIAGNOSTIC_DATA_EVENT_TAG_DESCRIPTION
 {
 	public int32 privacyTag;
 	public PWSTR name;
 	public PWSTR description;
 }
 
-[CRepr]public struct DIAGNOSTIC_DATA_EVENT_PRODUCER_DESCRIPTION
+[CRepr]
+public struct DIAGNOSTIC_DATA_EVENT_PRODUCER_DESCRIPTION
 {
 	public PWSTR name;
 }
 
-[CRepr]public struct DIAGNOSTIC_DATA_EVENT_CATEGORY_DESCRIPTION
+[CRepr]
+public struct DIAGNOSTIC_DATA_EVENT_CATEGORY_DESCRIPTION
 {
 	public int32 id;
 	public PWSTR name;
 }
 
-[CRepr]public struct DIAGNOSTIC_DATA_EVENT_TAG_STATS
+[CRepr]
+public struct DIAGNOSTIC_DATA_EVENT_TAG_STATS
 {
 	public int32 privacyTag;
 	public uint32 eventCount;
 }
 
-[CRepr]public struct DIAGNOSTIC_DATA_EVENT_BINARY_STATS
+[CRepr]
+public struct DIAGNOSTIC_DATA_EVENT_BINARY_STATS
 {
 	public PWSTR moduleName;
 	public PWSTR friendlyModuleName;
@@ -85,7 +92,8 @@ public enum DdqAccessLevel : int32
 	public uint64 uploadSizeBytes;
 }
 
-[CRepr]public struct DIAGNOSTIC_DATA_GENERAL_STATS
+[CRepr]
+public struct DIAGNOSTIC_DATA_GENERAL_STATS
 {
 	public uint32 optInLevel;
 	public uint64 transcriptSizeBytes;
@@ -94,26 +102,30 @@ public enum DdqAccessLevel : int32
 	public float averageDailyEvents;
 }
 
-[CRepr]public struct DIAGNOSTIC_DATA_EVENT_TRANSCRIPT_CONFIGURATION
+[CRepr]
+public struct DIAGNOSTIC_DATA_EVENT_TRANSCRIPT_CONFIGURATION
 {
 	public uint32 hoursOfHistoryToKeep;
 	public uint32 maxStoreMegabytes;
 	public uint32 requestedMaxStoreMegabytes;
 }
 
-[CRepr]public struct DIAGNOSTIC_REPORT_PARAMETER
+[CRepr]
+public struct DIAGNOSTIC_REPORT_PARAMETER
 {
 	public char8[129] name;
 	public char8[260] value;
 }
 
-[CRepr]public struct DIAGNOSTIC_REPORT_SIGNATURE
+[CRepr]
+public struct DIAGNOSTIC_REPORT_SIGNATURE
 {
 	public char8[65] eventName;
 	public DIAGNOSTIC_REPORT_PARAMETER[10] parameters;
 }
 
-[CRepr]public struct DIAGNOSTIC_REPORT_DATA
+[CRepr]
+public struct DIAGNOSTIC_REPORT_DATA
 {
 	public DIAGNOSTIC_REPORT_SIGNATURE signature;
 	public Guid bucketId;

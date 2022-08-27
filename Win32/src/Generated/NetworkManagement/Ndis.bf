@@ -4247,14 +4247,16 @@ public function uint32 DOT11EXTIHV_CONTROL(HANDLE hIhvExtAdapter, uint32 dwInBuf
 #endregion
 
 #region Structs
-[CRepr]public struct NDIS_STATISTICS_VALUE
+[CRepr]
+public struct NDIS_STATISTICS_VALUE
 {
 	public uint32 Oid;
 	public uint32 DataLength;
 	public uint8[1] Data;
 }
 
-[CRepr]public struct NDIS_STATISTICS_VALUE_EX
+[CRepr]
+public struct NDIS_STATISTICS_VALUE_EX
 {
 	public uint32 Oid;
 	public uint32 DataLength;
@@ -4262,21 +4264,24 @@ public function uint32 DOT11EXTIHV_CONTROL(HANDLE hIhvExtAdapter, uint32 dwInBuf
 	public uint8[1] Data;
 }
 
-[CRepr]public struct NDIS_VAR_DATA_DESC
+[CRepr]
+public struct NDIS_VAR_DATA_DESC
 {
 	public uint16 Length;
 	public uint16 MaximumLength;
 	public uint Offset;
 }
 
-[CRepr]public struct NDIS_OBJECT_HEADER
+[CRepr]
+public struct NDIS_OBJECT_HEADER
 {
 	public uint8 Type;
 	public uint8 Revision;
 	public uint16 Size;
 }
 
-[CRepr]public struct NDIS_STATISTICS_INFO
+[CRepr]
+public struct NDIS_STATISTICS_INFO
 {
 	public NDIS_OBJECT_HEADER Header;
 	public uint32 SupportedStatistics;
@@ -4300,14 +4305,16 @@ public function uint32 DOT11EXTIHV_CONTROL(HANDLE hIhvExtAdapter, uint32 dwInBuf
 	public uint64 ifHCOutBroadcastOctets;
 }
 
-[CRepr]public struct NDIS_INTERRUPT_MODERATION_PARAMETERS
+[CRepr]
+public struct NDIS_INTERRUPT_MODERATION_PARAMETERS
 {
 	public NDIS_OBJECT_HEADER Header;
 	public uint32 Flags;
 	public NDIS_INTERRUPT_MODERATION InterruptModeration;
 }
 
-[CRepr]public struct NDIS_TIMEOUT_DPC_REQUEST_CAPABILITIES
+[CRepr]
+public struct NDIS_TIMEOUT_DPC_REQUEST_CAPABILITIES
 {
 	public NDIS_OBJECT_HEADER Header;
 	public uint32 Flags;
@@ -4315,7 +4322,8 @@ public function uint32 DOT11EXTIHV_CONTROL(HANDLE hIhvExtAdapter, uint32 dwInBuf
 	public uint32[1] TimeoutArray;
 }
 
-[CRepr]public struct NDIS_PCI_DEVICE_CUSTOM_PROPERTIES
+[CRepr]
+public struct NDIS_PCI_DEVICE_CUSTOM_PROPERTIES
 {
 	public NDIS_OBJECT_HEADER Header;
 	public uint32 DeviceType;
@@ -4332,38 +4340,44 @@ public function uint32 DOT11EXTIHV_CONTROL(HANDLE hIhvExtAdapter, uint32 dwInBuf
 	public uint32 MaxInterruptMessages;
 }
 
-[CRepr]public struct NDIS_802_11_STATUS_INDICATION
+[CRepr]
+public struct NDIS_802_11_STATUS_INDICATION
 {
 	public NDIS_802_11_STATUS_TYPE StatusType;
 }
 
-[CRepr]public struct NDIS_802_11_AUTHENTICATION_REQUEST
+[CRepr]
+public struct NDIS_802_11_AUTHENTICATION_REQUEST
 {
 	public uint32 Length;
 	public uint8[6] Bssid;
 	public uint32 Flags;
 }
 
-[CRepr]public struct PMKID_CANDIDATE
+[CRepr]
+public struct PMKID_CANDIDATE
 {
 	public uint8[6] BSSID;
 	public uint32 Flags;
 }
 
-[CRepr]public struct NDIS_802_11_PMKID_CANDIDATE_LIST
+[CRepr]
+public struct NDIS_802_11_PMKID_CANDIDATE_LIST
 {
 	public uint32 Version;
 	public uint32 NumCandidates;
 	public PMKID_CANDIDATE[1] CandidateList;
 }
 
-[CRepr]public struct NDIS_802_11_NETWORK_TYPE_LIST
+[CRepr]
+public struct NDIS_802_11_NETWORK_TYPE_LIST
 {
 	public uint32 NumberOfItems;
 	public NDIS_802_11_NETWORK_TYPE[1] NetworkType;
 }
 
-[CRepr]public struct NDIS_802_11_CONFIGURATION_FH
+[CRepr]
+public struct NDIS_802_11_CONFIGURATION_FH
 {
 	public uint32 Length;
 	public uint32 HopPattern;
@@ -4371,7 +4385,8 @@ public function uint32 DOT11EXTIHV_CONTROL(HANDLE hIhvExtAdapter, uint32 dwInBuf
 	public uint32 DwellTime;
 }
 
-[CRepr]public struct NDIS_802_11_CONFIGURATION
+[CRepr]
+public struct NDIS_802_11_CONFIGURATION
 {
 	public uint32 Length;
 	public uint32 BeaconPeriod;
@@ -4380,7 +4395,8 @@ public function uint32 DOT11EXTIHV_CONTROL(HANDLE hIhvExtAdapter, uint32 dwInBuf
 	public NDIS_802_11_CONFIGURATION_FH FHConfig;
 }
 
-[CRepr]public struct NDIS_802_11_STATISTICS
+[CRepr]
+public struct NDIS_802_11_STATISTICS
 {
 	public uint32 Length;
 	public LARGE_INTEGER TransmittedFragmentCount;
@@ -4409,7 +4425,8 @@ public function uint32 DOT11EXTIHV_CONTROL(HANDLE hIhvExtAdapter, uint32 dwInBuf
 	public LARGE_INTEGER DecryptFailureCount;
 }
 
-[CRepr]public struct NDIS_802_11_KEY
+[CRepr]
+public struct NDIS_802_11_KEY
 {
 	public uint32 Length;
 	public uint32 KeyIndex;
@@ -4419,14 +4436,16 @@ public function uint32 DOT11EXTIHV_CONTROL(HANDLE hIhvExtAdapter, uint32 dwInBuf
 	public uint8[1] KeyMaterial;
 }
 
-[CRepr]public struct NDIS_802_11_REMOVE_KEY
+[CRepr]
+public struct NDIS_802_11_REMOVE_KEY
 {
 	public uint32 Length;
 	public uint32 KeyIndex;
 	public uint8[6] BSSID;
 }
 
-[CRepr]public struct NDIS_802_11_WEP
+[CRepr]
+public struct NDIS_802_11_WEP
 {
 	public uint32 Length;
 	public uint32 KeyIndex;
@@ -4434,13 +4453,15 @@ public function uint32 DOT11EXTIHV_CONTROL(HANDLE hIhvExtAdapter, uint32 dwInBuf
 	public uint8[1] KeyMaterial;
 }
 
-[CRepr]public struct NDIS_802_11_SSID
+[CRepr]
+public struct NDIS_802_11_SSID
 {
 	public uint32 SsidLength;
 	public uint8[32] Ssid;
 }
 
-[CRepr]public struct NDIS_WLAN_BSSID
+[CRepr]
+public struct NDIS_WLAN_BSSID
 {
 	public uint32 Length;
 	public uint8[6] MacAddress;
@@ -4454,13 +4475,15 @@ public function uint32 DOT11EXTIHV_CONTROL(HANDLE hIhvExtAdapter, uint32 dwInBuf
 	public uint8[8] SupportedRates;
 }
 
-[CRepr]public struct NDIS_802_11_BSSID_LIST
+[CRepr]
+public struct NDIS_802_11_BSSID_LIST
 {
 	public uint32 NumberOfItems;
 	public NDIS_WLAN_BSSID[1] Bssid;
 }
 
-[CRepr]public struct NDIS_WLAN_BSSID_EX
+[CRepr]
+public struct NDIS_WLAN_BSSID_EX
 {
 	public uint32 Length;
 	public uint8[6] MacAddress;
@@ -4476,41 +4499,47 @@ public function uint32 DOT11EXTIHV_CONTROL(HANDLE hIhvExtAdapter, uint32 dwInBuf
 	public uint8[1] IEs;
 }
 
-[CRepr]public struct NDIS_802_11_BSSID_LIST_EX
+[CRepr]
+public struct NDIS_802_11_BSSID_LIST_EX
 {
 	public uint32 NumberOfItems;
 	public NDIS_WLAN_BSSID_EX[1] Bssid;
 }
 
-[CRepr]public struct NDIS_802_11_FIXED_IEs
+[CRepr]
+public struct NDIS_802_11_FIXED_IEs
 {
 	public uint8[8] Timestamp;
 	public uint16 BeaconInterval;
 	public uint16 Capabilities;
 }
 
-[CRepr]public struct NDIS_802_11_VARIABLE_IEs
+[CRepr]
+public struct NDIS_802_11_VARIABLE_IEs
 {
 	public uint8 ElementID;
 	public uint8 Length;
 	public uint8[1] data;
 }
 
-[CRepr]public struct NDIS_802_11_AI_REQFI
+[CRepr]
+public struct NDIS_802_11_AI_REQFI
 {
 	public uint16 Capabilities;
 	public uint16 ListenInterval;
 	public uint8[6] CurrentAPAddress;
 }
 
-[CRepr]public struct NDIS_802_11_AI_RESFI
+[CRepr]
+public struct NDIS_802_11_AI_RESFI
 {
 	public uint16 Capabilities;
 	public uint16 StatusCode;
 	public uint16 AssociationId;
 }
 
-[CRepr]public struct NDIS_802_11_ASSOCIATION_INFORMATION
+[CRepr]
+public struct NDIS_802_11_ASSOCIATION_INFORMATION
 {
 	public uint32 Length;
 	public uint16 AvailableRequestFixedIEs;
@@ -4523,15 +4552,18 @@ public function uint32 DOT11EXTIHV_CONTROL(HANDLE hIhvExtAdapter, uint32 dwInBuf
 	public uint32 OffsetResponseIEs;
 }
 
-[CRepr]public struct NDIS_802_11_AUTHENTICATION_EVENT
+[CRepr]
+public struct NDIS_802_11_AUTHENTICATION_EVENT
 {
 	public NDIS_802_11_STATUS_INDICATION Status;
 	public NDIS_802_11_AUTHENTICATION_REQUEST[1] Request;
 }
 
-[CRepr]public struct NDIS_802_11_TEST
+[CRepr]
+public struct NDIS_802_11_TEST
 {
-	[CRepr, Union]	public struct _Anonymous_e__Union
+	[CRepr, Union]
+	public struct _Anonymous_e__Union
 	{
 		public NDIS_802_11_AUTHENTICATION_EVENT AuthenticationEvent;
 		public int32 RssiTrigger;
@@ -4542,26 +4574,30 @@ public function uint32 DOT11EXTIHV_CONTROL(HANDLE hIhvExtAdapter, uint32 dwInBuf
 	public using _Anonymous_e__Union Anonymous;
 }
 
-[CRepr]public struct BSSID_INFO
+[CRepr]
+public struct BSSID_INFO
 {
 	public uint8[6] BSSID;
 	public uint8[16] PMKID;
 }
 
-[CRepr]public struct NDIS_802_11_PMKID
+[CRepr]
+public struct NDIS_802_11_PMKID
 {
 	public uint32 Length;
 	public uint32 BSSIDInfoCount;
 	public BSSID_INFO[1] BSSIDInfo;
 }
 
-[CRepr]public struct NDIS_802_11_AUTHENTICATION_ENCRYPTION
+[CRepr]
+public struct NDIS_802_11_AUTHENTICATION_ENCRYPTION
 {
 	public NDIS_802_11_AUTHENTICATION_MODE AuthModeSupported;
 	public NDIS_802_11_WEP_STATUS EncryptStatusSupported;
 }
 
-[CRepr]public struct NDIS_802_11_CAPABILITY
+[CRepr]
+public struct NDIS_802_11_CAPABILITY
 {
 	public uint32 Length;
 	public uint32 Version;
@@ -4570,13 +4606,15 @@ public function uint32 DOT11EXTIHV_CONTROL(HANDLE hIhvExtAdapter, uint32 dwInBuf
 	public NDIS_802_11_AUTHENTICATION_ENCRYPTION[1] AuthenticationEncryptionSupported;
 }
 
-[CRepr]public struct NDIS_802_11_NON_BCAST_SSID_LIST
+[CRepr]
+public struct NDIS_802_11_NON_BCAST_SSID_LIST
 {
 	public uint32 NumberOfItems;
 	public NDIS_802_11_SSID[1] Non_Bcast_Ssid;
 }
 
-[CRepr]public struct NDIS_CO_DEVICE_PROFILE
+[CRepr]
+public struct NDIS_CO_DEVICE_PROFILE
 {
 	public NDIS_VAR_DATA_DESC DeviceDescription;
 	public NDIS_VAR_DATA_DESC DevSpecificInfo;
@@ -4608,14 +4646,16 @@ public function uint32 DOT11EXTIHV_CONTROL(HANDLE hIhvExtAdapter, uint32 dwInBuf
 	public uint32 ulUUICallInfoSize;
 }
 
-[CRepr]public struct OFFLOAD_ALGO_INFO
+[CRepr]
+public struct OFFLOAD_ALGO_INFO
 {
 	public uint32 algoIdentifier;
 	public uint32 algoKeylen;
 	public uint32 algoRounds;
 }
 
-[CRepr]public struct OFFLOAD_SECURITY_ASSOCIATION
+[CRepr]
+public struct OFFLOAD_SECURITY_ASSOCIATION
 {
 	public OFFLOAD_OPERATION_E Operation;
 	public uint32 SPI;
@@ -4624,7 +4664,8 @@ public function uint32 DOT11EXTIHV_CONTROL(HANDLE hIhvExtAdapter, uint32 dwInBuf
 	public OFFLOAD_ALGO_INFO Reserved;
 }
 
-[CRepr]public struct OFFLOAD_IPSEC_ADD_SA
+[CRepr]
+public struct OFFLOAD_IPSEC_ADD_SA
 {
 	public uint32 SrcAddr;
 	public uint32 SrcMask;
@@ -4643,18 +4684,21 @@ public function uint32 DOT11EXTIHV_CONTROL(HANDLE hIhvExtAdapter, uint32 dwInBuf
 	public uint8[1] KeyMat;
 }
 
-[CRepr]public struct OFFLOAD_IPSEC_DELETE_SA
+[CRepr]
+public struct OFFLOAD_IPSEC_DELETE_SA
 {
 	public HANDLE OffloadHandle;
 }
 
-[CRepr]public struct OFFLOAD_IPSEC_UDPESP_ENCAPTYPE_ENTRY
+[CRepr]
+public struct OFFLOAD_IPSEC_UDPESP_ENCAPTYPE_ENTRY
 {
 	public UDP_ENCAP_TYPE UdpEncapType;
 	public uint16 DstEncapPort;
 }
 
-[CRepr]public struct OFFLOAD_IPSEC_ADD_UDPESP_SA
+[CRepr]
+public struct OFFLOAD_IPSEC_ADD_UDPESP_SA
 {
 	public uint32 SrcAddr;
 	public uint32 SrcMask;
@@ -4675,40 +4719,46 @@ public function uint32 DOT11EXTIHV_CONTROL(HANDLE hIhvExtAdapter, uint32 dwInBuf
 	public uint8[1] KeyMat;
 }
 
-[CRepr]public struct OFFLOAD_IPSEC_DELETE_UDPESP_SA
+[CRepr]
+public struct OFFLOAD_IPSEC_DELETE_UDPESP_SA
 {
 	public HANDLE OffloadHandle;
 	public HANDLE EncapTypeEntryOffldHandle;
 }
 
-[CRepr]public struct TRANSPORT_HEADER_OFFSET
+[CRepr]
+public struct TRANSPORT_HEADER_OFFSET
 {
 	public uint16 ProtocolType;
 	public uint16 HeaderOffset;
 }
 
-[CRepr]public struct NETWORK_ADDRESS
+[CRepr]
+public struct NETWORK_ADDRESS
 {
 	public uint16 AddressLength;
 	public uint16 AddressType;
 	public uint8[1] Address;
 }
 
-[CRepr]public struct NETWORK_ADDRESS_LIST
+[CRepr]
+public struct NETWORK_ADDRESS_LIST
 {
 	public int32 AddressCount;
 	public uint16 AddressType;
 	public NETWORK_ADDRESS[1] Address;
 }
 
-[CRepr]public struct NETWORK_ADDRESS_IP
+[CRepr]
+public struct NETWORK_ADDRESS_IP
 {
 	public uint16 sin_port;
 	public uint32 IN_ADDR;
 	public uint8[8] sin_zero;
 }
 
-[CRepr]public struct NETWORK_ADDRESS_IP6
+[CRepr]
+public struct NETWORK_ADDRESS_IP6
 {
 	public uint16 sin6_port;
 	public uint32 sin6_flowinfo;
@@ -4716,25 +4766,29 @@ public function uint32 DOT11EXTIHV_CONTROL(HANDLE hIhvExtAdapter, uint32 dwInBuf
 	public uint32 sin6_scope_id;
 }
 
-[CRepr]public struct NETWORK_ADDRESS_IPX
+[CRepr]
+public struct NETWORK_ADDRESS_IPX
 {
 	public uint32 NetworkAddress;
 	public uint8[6] NodeAddress;
 	public uint16 Socket;
 }
 
-[CRepr]public struct GEN_GET_TIME_CAPS
+[CRepr]
+public struct GEN_GET_TIME_CAPS
 {
 	public uint32 Flags;
 	public uint32 ClockPrecision;
 }
 
-[CRepr]public struct GEN_GET_NETCARD_TIME
+[CRepr]
+public struct GEN_GET_NETCARD_TIME
 {
 	public uint64 ReadTime;
 }
 
-[CRepr]public struct NDIS_PM_PACKET_PATTERN
+[CRepr]
+public struct NDIS_PM_PACKET_PATTERN
 {
 	public uint32 Priority;
 	public uint32 Reserved;
@@ -4744,40 +4798,47 @@ public function uint32 DOT11EXTIHV_CONTROL(HANDLE hIhvExtAdapter, uint32 dwInBuf
 	public uint32 PatternFlags;
 }
 
-[CRepr]public struct NDIS_PM_WAKE_UP_CAPABILITIES
+[CRepr]
+public struct NDIS_PM_WAKE_UP_CAPABILITIES
 {
 	public NDIS_DEVICE_POWER_STATE MinMagicPacketWakeUp;
 	public NDIS_DEVICE_POWER_STATE MinPatternWakeUp;
 	public NDIS_DEVICE_POWER_STATE MinLinkChangeWakeUp;
 }
 
-[CRepr]public struct NDIS_PNP_CAPABILITIES
+[CRepr]
+public struct NDIS_PNP_CAPABILITIES
 {
 	public uint32 Flags;
 	public NDIS_PM_WAKE_UP_CAPABILITIES WakeUpCapabilities;
 }
 
-[CRepr]public struct NDIS_WAN_PROTOCOL_CAPS
+[CRepr]
+public struct NDIS_WAN_PROTOCOL_CAPS
 {
 	public uint32 Flags;
 	public uint32 Reserved;
 }
 
-[CRepr]public struct NDIS_CO_LINK_SPEED
+[CRepr]
+public struct NDIS_CO_LINK_SPEED
 {
 	public uint32 Outbound;
 	public uint32 Inbound;
 }
 
-[CRepr]public struct NDIS_LINK_SPEED
+[CRepr]
+public struct NDIS_LINK_SPEED
 {
 	public uint64 XmitLinkSpeed;
 	public uint64 RcvLinkSpeed;
 }
 
-[CRepr]public struct NDIS_GUID
+[CRepr]
+public struct NDIS_GUID
 {
-	[CRepr, Union]	public struct _Anonymous_e__Union
+	[CRepr, Union]
+	public struct _Anonymous_e__Union
 	{
 		public uint32 Oid;
 		public int32 Status;
@@ -4789,13 +4850,15 @@ public function uint32 DOT11EXTIHV_CONTROL(HANDLE hIhvExtAdapter, uint32 dwInBuf
 	public uint32 Flags;
 }
 
-[CRepr]public struct NDIS_IRDA_PACKET_INFO
+[CRepr]
+public struct NDIS_IRDA_PACKET_INFO
 {
 	public uint32 ExtraBOFs;
 	public uint32 MinTurnAroundTime;
 }
 
-[CRepr]public struct NDIS_LINK_STATE
+[CRepr]
+public struct NDIS_LINK_STATE
 {
 	public NDIS_OBJECT_HEADER Header;
 	public NET_IF_MEDIA_CONNECT_STATE MediaConnectState;
@@ -4806,7 +4869,8 @@ public function uint32 DOT11EXTIHV_CONTROL(HANDLE hIhvExtAdapter, uint32 dwInBuf
 	public uint32 AutoNegotiationFlags;
 }
 
-[CRepr]public struct NDIS_LINK_PARAMETERS
+[CRepr]
+public struct NDIS_LINK_PARAMETERS
 {
 	public NDIS_OBJECT_HEADER Header;
 	public NET_IF_MEDIA_DUPLEX_STATE MediaDuplexState;
@@ -4816,21 +4880,24 @@ public function uint32 DOT11EXTIHV_CONTROL(HANDLE hIhvExtAdapter, uint32 dwInBuf
 	public uint32 AutoNegotiationFlags;
 }
 
-[CRepr]public struct NDIS_OPER_STATE
+[CRepr]
+public struct NDIS_OPER_STATE
 {
 	public NDIS_OBJECT_HEADER Header;
 	public NET_IF_OPER_STATUS OperationalStatus;
 	public uint32 OperationalStatusFlags;
 }
 
-[CRepr]public struct NDIS_IP_OPER_STATUS
+[CRepr]
+public struct NDIS_IP_OPER_STATUS
 {
 	public uint32 AddressFamily;
 	public NET_IF_OPER_STATUS OperationalStatus;
 	public uint32 OperationalStatusFlags;
 }
 
-[CRepr]public struct NDIS_IP_OPER_STATUS_INFO
+[CRepr]
+public struct NDIS_IP_OPER_STATUS_INFO
 {
 	public NDIS_OBJECT_HEADER Header;
 	public uint32 Flags;
@@ -4838,14 +4905,16 @@ public function uint32 DOT11EXTIHV_CONTROL(HANDLE hIhvExtAdapter, uint32 dwInBuf
 	public NDIS_IP_OPER_STATUS[32] IpOperationalStatus;
 }
 
-[CRepr]public struct NDIS_IP_OPER_STATE
+[CRepr]
+public struct NDIS_IP_OPER_STATE
 {
 	public NDIS_OBJECT_HEADER Header;
 	public uint32 Flags;
 	public NDIS_IP_OPER_STATUS IpOperationalStatus;
 }
 
-[CRepr]public struct NDIS_OFFLOAD_PARAMETERS
+[CRepr]
+public struct NDIS_OFFLOAD_PARAMETERS
 {
 	public NDIS_OBJECT_HEADER Header;
 	public uint8 IPv4Checksum;
@@ -4862,9 +4931,11 @@ public function uint32 DOT11EXTIHV_CONTROL(HANDLE hIhvExtAdapter, uint32 dwInBuf
 	public uint32 Flags;
 }
 
-[CRepr]public struct NDIS_TCP_LARGE_SEND_OFFLOAD_V1
+[CRepr]
+public struct NDIS_TCP_LARGE_SEND_OFFLOAD_V1
 {
-	[CRepr]	public struct _IPv4_e__Struct
+	[CRepr]
+	public struct _IPv4_e__Struct
 	{
 		public uint32 Encapsulation;
 		public uint32 MaxOffLoadSize;
@@ -4875,27 +4946,32 @@ public function uint32 DOT11EXTIHV_CONTROL(HANDLE hIhvExtAdapter, uint32 dwInBuf
 	public _IPv4_e__Struct IPv4;
 }
 
-[CRepr]public struct NDIS_TCP_IP_CHECKSUM_OFFLOAD
+[CRepr]
+public struct NDIS_TCP_IP_CHECKSUM_OFFLOAD
 {
-	[CRepr]	public struct _IPv6Receive_e__Struct
+	[CRepr]
+	public struct _IPv6Receive_e__Struct
 	{
 		public uint32 Encapsulation;
 		public uint32 _bitfield;
 	}
 
-	[CRepr]	public struct _IPv4Receive_e__Struct
+	[CRepr]
+	public struct _IPv4Receive_e__Struct
 	{
 		public uint32 Encapsulation;
 		public uint32 _bitfield;
 	}
 
-	[CRepr]	public struct _IPv6Transmit_e__Struct
+	[CRepr]
+	public struct _IPv6Transmit_e__Struct
 	{
 		public uint32 Encapsulation;
 		public uint32 _bitfield;
 	}
 
-	[CRepr]	public struct _IPv4Transmit_e__Struct
+	[CRepr]
+	public struct _IPv4Transmit_e__Struct
 	{
 		public uint32 Encapsulation;
 		public uint32 _bitfield;
@@ -4907,19 +4983,23 @@ public function uint32 DOT11EXTIHV_CONTROL(HANDLE hIhvExtAdapter, uint32 dwInBuf
 	public _IPv6Receive_e__Struct IPv6Receive;
 }
 
-[CRepr]public struct NDIS_IPSEC_OFFLOAD_V1
+[CRepr]
+public struct NDIS_IPSEC_OFFLOAD_V1
 {
-	[CRepr]	public struct _IPv4AH_e__Struct
+	[CRepr]
+	public struct _IPv4AH_e__Struct
 	{
 		public uint32 _bitfield;
 	}
 
-	[CRepr]	public struct _IPv4ESP_e__Struct
+	[CRepr]
+	public struct _IPv4ESP_e__Struct
 	{
 		public uint32 _bitfield;
 	}
 
-	[CRepr]	public struct _Supported_e__Struct
+	[CRepr]
+	public struct _Supported_e__Struct
 	{
 		public uint32 Encapsulation;
 		public uint32 AhEspCombined;
@@ -4933,16 +5013,19 @@ public function uint32 DOT11EXTIHV_CONTROL(HANDLE hIhvExtAdapter, uint32 dwInBuf
 	public _IPv4ESP_e__Struct IPv4ESP;
 }
 
-[CRepr]public struct NDIS_TCP_LARGE_SEND_OFFLOAD_V2
+[CRepr]
+public struct NDIS_TCP_LARGE_SEND_OFFLOAD_V2
 {
-	[CRepr]	public struct _IPv4_e__Struct
+	[CRepr]
+	public struct _IPv4_e__Struct
 	{
 		public uint32 Encapsulation;
 		public uint32 MaxOffLoadSize;
 		public uint32 MinSegmentCount;
 	}
 
-	[CRepr]	public struct _IPv6_e__Struct
+	[CRepr]
+	public struct _IPv6_e__Struct
 	{
 		public uint32 Encapsulation;
 		public uint32 MaxOffLoadSize;
@@ -4954,7 +5037,8 @@ public function uint32 DOT11EXTIHV_CONTROL(HANDLE hIhvExtAdapter, uint32 dwInBuf
 	public _IPv6_e__Struct IPv6;
 }
 
-[CRepr]public struct NDIS_OFFLOAD
+[CRepr]
+public struct NDIS_OFFLOAD
 {
 	public NDIS_OBJECT_HEADER Header;
 	public NDIS_TCP_IP_CHECKSUM_OFFLOAD Checksum;
@@ -4964,9 +5048,11 @@ public function uint32 DOT11EXTIHV_CONTROL(HANDLE hIhvExtAdapter, uint32 dwInBuf
 	public uint32 Flags;
 }
 
-[CRepr]public struct NDIS_WMI_TCP_LARGE_SEND_OFFLOAD_V1
+[CRepr]
+public struct NDIS_WMI_TCP_LARGE_SEND_OFFLOAD_V1
 {
-	[CRepr]	public struct _IPv4_e__Struct
+	[CRepr]
+	public struct _IPv4_e__Struct
 	{
 		public uint32 Encapsulation;
 		public uint32 MaxOffLoadSize;
@@ -4978,9 +5064,11 @@ public function uint32 DOT11EXTIHV_CONTROL(HANDLE hIhvExtAdapter, uint32 dwInBuf
 	public _IPv4_e__Struct IPv4;
 }
 
-[CRepr]public struct NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD
+[CRepr]
+public struct NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD
 {
-	[CRepr]	public struct _IPv6Receive_e__Struct
+	[CRepr]
+	public struct _IPv6Receive_e__Struct
 	{
 		public uint32 Encapsulation;
 		public uint32 IpExtensionHeadersSupported;
@@ -4989,7 +5077,8 @@ public function uint32 DOT11EXTIHV_CONTROL(HANDLE hIhvExtAdapter, uint32 dwInBuf
 		public uint32 UdpChecksum;
 	}
 
-	[CRepr]	public struct _IPv4Receive_e__Struct
+	[CRepr]
+	public struct _IPv4Receive_e__Struct
 	{
 		public uint32 Encapsulation;
 		public uint32 IpOptionsSupported;
@@ -4999,7 +5088,8 @@ public function uint32 DOT11EXTIHV_CONTROL(HANDLE hIhvExtAdapter, uint32 dwInBuf
 		public uint32 IpChecksum;
 	}
 
-	[CRepr]	public struct _IPv4Transmit_e__Struct
+	[CRepr]
+	public struct _IPv4Transmit_e__Struct
 	{
 		public uint32 Encapsulation;
 		public uint32 IpOptionsSupported;
@@ -5009,7 +5099,8 @@ public function uint32 DOT11EXTIHV_CONTROL(HANDLE hIhvExtAdapter, uint32 dwInBuf
 		public uint32 IpChecksum;
 	}
 
-	[CRepr]	public struct _IPv6Transmit_e__Struct
+	[CRepr]
+	public struct _IPv6Transmit_e__Struct
 	{
 		public uint32 Encapsulation;
 		public uint32 IpExtensionHeadersSupported;
@@ -5024,9 +5115,11 @@ public function uint32 DOT11EXTIHV_CONTROL(HANDLE hIhvExtAdapter, uint32 dwInBuf
 	public _IPv6Receive_e__Struct IPv6Receive;
 }
 
-[CRepr]public struct NDIS_WMI_IPSEC_OFFLOAD_V1
+[CRepr]
+public struct NDIS_WMI_IPSEC_OFFLOAD_V1
 {
-	[CRepr]	public struct _IPv4AH_e__Struct
+	[CRepr]
+	public struct _IPv4AH_e__Struct
 	{
 		public uint32 Md5;
 		public uint32 Sha_1;
@@ -5036,7 +5129,8 @@ public function uint32 DOT11EXTIHV_CONTROL(HANDLE hIhvExtAdapter, uint32 dwInBuf
 		public uint32 Receive;
 	}
 
-	[CRepr]	public struct _Supported_e__Struct
+	[CRepr]
+	public struct _Supported_e__Struct
 	{
 		public uint32 Encapsulation;
 		public uint32 AhEspCombined;
@@ -5045,7 +5139,8 @@ public function uint32 DOT11EXTIHV_CONTROL(HANDLE hIhvExtAdapter, uint32 dwInBuf
 		public uint32 Flags;
 	}
 
-	[CRepr]	public struct _IPv4ESP_e__Struct
+	[CRepr]
+	public struct _IPv4ESP_e__Struct
 	{
 		public uint32 Des;
 		public uint32 Reserved;
@@ -5062,16 +5157,19 @@ public function uint32 DOT11EXTIHV_CONTROL(HANDLE hIhvExtAdapter, uint32 dwInBuf
 	public _IPv4ESP_e__Struct IPv4ESP;
 }
 
-[CRepr]public struct NDIS_WMI_TCP_LARGE_SEND_OFFLOAD_V2
+[CRepr]
+public struct NDIS_WMI_TCP_LARGE_SEND_OFFLOAD_V2
 {
-	[CRepr]	public struct _IPv4_e__Struct
+	[CRepr]
+	public struct _IPv4_e__Struct
 	{
 		public uint32 Encapsulation;
 		public uint32 MaxOffLoadSize;
 		public uint32 MinSegmentCount;
 	}
 
-	[CRepr]	public struct _IPv6_e__Struct
+	[CRepr]
+	public struct _IPv6_e__Struct
 	{
 		public uint32 Encapsulation;
 		public uint32 MaxOffLoadSize;
@@ -5084,7 +5182,8 @@ public function uint32 DOT11EXTIHV_CONTROL(HANDLE hIhvExtAdapter, uint32 dwInBuf
 	public _IPv6_e__Struct IPv6;
 }
 
-[CRepr]public struct NDIS_WMI_OFFLOAD
+[CRepr]
+public struct NDIS_WMI_OFFLOAD
 {
 	public NDIS_OBJECT_HEADER Header;
 	public NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD Checksum;
@@ -5094,7 +5193,8 @@ public function uint32 DOT11EXTIHV_CONTROL(HANDLE hIhvExtAdapter, uint32 dwInBuf
 	public uint32 Flags;
 }
 
-[CRepr]public struct NDIS_TCP_CONNECTION_OFFLOAD
+[CRepr]
+public struct NDIS_TCP_CONNECTION_OFFLOAD
 {
 	public NDIS_OBJECT_HEADER Header;
 	public uint32 Encapsulation;
@@ -5103,7 +5203,8 @@ public function uint32 DOT11EXTIHV_CONTROL(HANDLE hIhvExtAdapter, uint32 dwInBuf
 	public uint32 Flags;
 }
 
-[CRepr]public struct NDIS_WMI_TCP_CONNECTION_OFFLOAD
+[CRepr]
+public struct NDIS_WMI_TCP_CONNECTION_OFFLOAD
 {
 	public NDIS_OBJECT_HEADER Header;
 	public uint32 Encapsulation;
@@ -5115,7 +5216,8 @@ public function uint32 DOT11EXTIHV_CONTROL(HANDLE hIhvExtAdapter, uint32 dwInBuf
 	public uint32 Flags;
 }
 
-[CRepr]public struct NDIS_PORT_AUTHENTICATION_PARAMETERS
+[CRepr]
+public struct NDIS_PORT_AUTHENTICATION_PARAMETERS
 {
 	public NDIS_OBJECT_HEADER Header;
 	public NDIS_PORT_CONTROL_STATE SendControlState;
@@ -5124,7 +5226,8 @@ public function uint32 DOT11EXTIHV_CONTROL(HANDLE hIhvExtAdapter, uint32 dwInBuf
 	public NDIS_PORT_AUTHORIZATION_STATE RcvAuthorizationState;
 }
 
-[CRepr]public struct NDIS_WMI_METHOD_HEADER
+[CRepr]
+public struct NDIS_WMI_METHOD_HEADER
 {
 	public NDIS_OBJECT_HEADER Header;
 	public uint32 PortNumber;
@@ -5134,7 +5237,8 @@ public function uint32 DOT11EXTIHV_CONTROL(HANDLE hIhvExtAdapter, uint32 dwInBuf
 	public uint8[4] Padding;
 }
 
-[CRepr]public struct NDIS_WMI_SET_HEADER
+[CRepr]
+public struct NDIS_WMI_SET_HEADER
 {
 	public NDIS_OBJECT_HEADER Header;
 	public uint32 PortNumber;
@@ -5144,7 +5248,8 @@ public function uint32 DOT11EXTIHV_CONTROL(HANDLE hIhvExtAdapter, uint32 dwInBuf
 	public uint8[4] Padding;
 }
 
-[CRepr]public struct NDIS_WMI_EVENT_HEADER
+[CRepr]
+public struct NDIS_WMI_EVENT_HEADER
 {
 	public NDIS_OBJECT_HEADER Header;
 	public uint32 IfIndex;
@@ -5156,7 +5261,8 @@ public function uint32 DOT11EXTIHV_CONTROL(HANDLE hIhvExtAdapter, uint32 dwInBuf
 	public uint8[4] Padding;
 }
 
-[CRepr]public struct NDIS_WMI_ENUM_ADAPTER
+[CRepr]
+public struct NDIS_WMI_ENUM_ADAPTER
 {
 	public NDIS_OBJECT_HEADER Header;
 	public uint32 IfIndex;
@@ -5165,7 +5271,8 @@ public function uint32 DOT11EXTIHV_CONTROL(HANDLE hIhvExtAdapter, uint32 dwInBuf
 	public CHAR[1] DeviceName;
 }
 
-[CRepr]public struct NDIS_WMI_OUTPUT_INFO
+[CRepr]
+public struct NDIS_WMI_OUTPUT_INFO
 {
 	public NDIS_OBJECT_HEADER Header;
 	public uint32 Flags;
@@ -5173,7 +5280,8 @@ public function uint32 DOT11EXTIHV_CONTROL(HANDLE hIhvExtAdapter, uint32 dwInBuf
 	public uint32 DataOffset;
 }
 
-[CRepr]public struct NDIS_RECEIVE_SCALE_CAPABILITIES
+[CRepr]
+public struct NDIS_RECEIVE_SCALE_CAPABILITIES
 {
 	public NDIS_OBJECT_HEADER Header;
 	public uint32 CapabilitiesFlags;
@@ -5181,7 +5289,8 @@ public function uint32 DOT11EXTIHV_CONTROL(HANDLE hIhvExtAdapter, uint32 dwInBuf
 	public uint32 NumberOfReceiveQueues;
 }
 
-[CRepr]public struct NDIS_RECEIVE_SCALE_PARAMETERS
+[CRepr]
+public struct NDIS_RECEIVE_SCALE_PARAMETERS
 {
 	public NDIS_OBJECT_HEADER Header;
 	public uint16 Flags;
@@ -5193,7 +5302,8 @@ public function uint32 DOT11EXTIHV_CONTROL(HANDLE hIhvExtAdapter, uint32 dwInBuf
 	public uint32 HashSecretKeyOffset;
 }
 
-[CRepr]public struct NDIS_RECEIVE_HASH_PARAMETERS
+[CRepr]
+public struct NDIS_RECEIVE_HASH_PARAMETERS
 {
 	public NDIS_OBJECT_HEADER Header;
 	public uint32 Flags;
@@ -5202,7 +5312,8 @@ public function uint32 DOT11EXTIHV_CONTROL(HANDLE hIhvExtAdapter, uint32 dwInBuf
 	public uint32 HashSecretKeyOffset;
 }
 
-[CRepr]public struct NDIS_PORT_STATE
+[CRepr]
+public struct NDIS_PORT_STATE
 {
 	public NDIS_OBJECT_HEADER Header;
 	public NET_IF_MEDIA_CONNECT_STATE MediaConnectState;
@@ -5216,7 +5327,8 @@ public function uint32 DOT11EXTIHV_CONTROL(HANDLE hIhvExtAdapter, uint32 dwInBuf
 	public uint32 Flags;
 }
 
-[CRepr]public struct NDIS_PORT_CHARACTERISTICS
+[CRepr]
+public struct NDIS_PORT_CHARACTERISTICS
 {
 	public NDIS_OBJECT_HEADER Header;
 	public uint32 PortNumber;
@@ -5232,7 +5344,8 @@ public function uint32 DOT11EXTIHV_CONTROL(HANDLE hIhvExtAdapter, uint32 dwInBuf
 	public NDIS_PORT_AUTHORIZATION_STATE RcvAuthorizationState;
 }
 
-[CRepr]public struct NDIS_PORT
+[CRepr]
+public struct NDIS_PORT
 {
 	public NDIS_PORT* Next;
 	public void* NdisReserved;
@@ -5241,7 +5354,8 @@ public function uint32 DOT11EXTIHV_CONTROL(HANDLE hIhvExtAdapter, uint32 dwInBuf
 	public NDIS_PORT_CHARACTERISTICS PortCharacteristics;
 }
 
-[CRepr]public struct NDIS_PORT_ARRAY
+[CRepr]
+public struct NDIS_PORT_ARRAY
 {
 	public NDIS_OBJECT_HEADER Header;
 	public uint32 NumberOfPorts;
@@ -5250,7 +5364,8 @@ public function uint32 DOT11EXTIHV_CONTROL(HANDLE hIhvExtAdapter, uint32 dwInBuf
 	public NDIS_PORT_CHARACTERISTICS[1] Ports;
 }
 
-[CRepr]public struct NDIS_TIMESTAMP_CAPABILITY_FLAGS
+[CRepr]
+public struct NDIS_TIMESTAMP_CAPABILITY_FLAGS
 {
 	public BOOLEAN PtpV2OverUdpIPv4EventMsgReceiveHw;
 	public BOOLEAN PtpV2OverUdpIPv4AllMsgReceiveHw;
@@ -5268,7 +5383,8 @@ public function uint32 DOT11EXTIHV_CONTROL(HANDLE hIhvExtAdapter, uint32 dwInBuf
 	public BOOLEAN TaggedTransmitSw;
 }
 
-[CRepr]public struct NDIS_TIMESTAMP_CAPABILITIES
+[CRepr]
+public struct NDIS_TIMESTAMP_CAPABILITIES
 {
 	public NDIS_OBJECT_HEADER Header;
 	public uint64 HardwareClockFrequencyHz;
@@ -5278,7 +5394,8 @@ public function uint32 DOT11EXTIHV_CONTROL(HANDLE hIhvExtAdapter, uint32 dwInBuf
 	public NDIS_TIMESTAMP_CAPABILITY_FLAGS TimestampFlags;
 }
 
-[CRepr]public struct NDIS_HARDWARE_CROSSTIMESTAMP
+[CRepr]
+public struct NDIS_HARDWARE_CROSSTIMESTAMP
 {
 	public NDIS_OBJECT_HEADER Header;
 	public uint32 Flags;
@@ -5287,13 +5404,15 @@ public function uint32 DOT11EXTIHV_CONTROL(HANDLE hIhvExtAdapter, uint32 dwInBuf
 	public uint64 SystemTimestamp2;
 }
 
-[CRepr]public struct NDK_VERSION
+[CRepr]
+public struct NDK_VERSION
 {
 	public uint16 Major;
 	public uint16 Minor;
 }
 
-[CRepr]public struct NDK_ADAPTER_INFO
+[CRepr]
+public struct NDK_ADAPTER_INFO
 {
 	public NDK_VERSION Version;
 	public uint32 VendorId;
@@ -5319,20 +5438,23 @@ public function uint32 DOT11EXTIHV_CONTROL(HANDLE hIhvExtAdapter, uint32 dwInBuf
 	public NDK_RDMA_TECHNOLOGY RdmaTechnology;
 }
 
-[CRepr]public struct DOT11_ADAPTER
+[CRepr]
+public struct DOT11_ADAPTER
 {
 	public Guid gAdapterId;
 	public PWSTR pszDescription;
 	public DOT11_CURRENT_OPERATION_MODE Dot11CurrentOpMode;
 }
 
-[CRepr]public struct DOT11_BSS_LIST
+[CRepr]
+public struct DOT11_BSS_LIST
 {
 	public uint32 uNumOfBytes;
 	public uint8* pucBuffer;
 }
 
-[CRepr]public struct DOT11_PORT_STATE
+[CRepr]
+public struct DOT11_PORT_STATE
 {
 	public uint8[6] PeerMacAddress;
 	public uint32 uSessionId;
@@ -5340,14 +5462,16 @@ public function uint32 DOT11EXTIHV_CONTROL(HANDLE hIhvExtAdapter, uint32 dwInBuf
 	public BOOL bPortAuthorized;
 }
 
-[CRepr, Packed(1)]public struct DOT11_SECURITY_PACKET_HEADER
+[CRepr, Packed(1)]
+public struct DOT11_SECURITY_PACKET_HEADER
 {
 	public uint8[6] PeerMac;
 	public uint16 usEtherType;
 	public uint8[1] Data;
 }
 
-[CRepr]public struct DOT11_MSSECURITY_SETTINGS
+[CRepr]
+public struct DOT11_MSSECURITY_SETTINGS
 {
 	public DOT11_AUTH_ALGORITHM dot11AuthAlgorithm;
 	public DOT11_CIPHER_ALGORITHM dot11CipherAlgorithm;
@@ -5357,20 +5481,23 @@ public function uint32 DOT11EXTIHV_CONTROL(HANDLE hIhvExtAdapter, uint32 dwInBuf
 	public uint8* pEapConnectionData;
 }
 
-[CRepr]public struct DOT11EXT_IHV_SSID_LIST
+[CRepr]
+public struct DOT11EXT_IHV_SSID_LIST
 {
 	public uint32 ulCount;
 	public DOT11_SSID[1] SSIDs;
 }
 
-[CRepr]public struct DOT11EXT_IHV_PROFILE_PARAMS
+[CRepr]
+public struct DOT11EXT_IHV_PROFILE_PARAMS
 {
 	public DOT11EXT_IHV_SSID_LIST* pSsidList;
 	public DOT11_BSS_TYPE BssType;
 	public DOT11_MSSECURITY_SETTINGS* pMSSecuritySettings;
 }
 
-[CRepr]public struct DOT11EXT_IHV_PARAMS
+[CRepr]
+public struct DOT11EXT_IHV_PARAMS
 {
 	public DOT11EXT_IHV_PROFILE_PARAMS dot11ExtIhvProfileParams;
 	public char8[256] wstrProfileName;
@@ -5378,13 +5505,15 @@ public function uint32 DOT11EXTIHV_CONTROL(HANDLE hIhvExtAdapter, uint32 dwInBuf
 	public Guid interfaceGuid;
 }
 
-[CRepr]public struct DOT11_IHV_VERSION_INFO
+[CRepr]
+public struct DOT11_IHV_VERSION_INFO
 {
 	public uint32 dwVerMin;
 	public uint32 dwVerMax;
 }
 
-[CRepr]public struct DOT11EXT_IHV_UI_REQUEST
+[CRepr]
+public struct DOT11EXT_IHV_UI_REQUEST
 {
 	public uint32 dwSessionId;
 	public Guid guidUIRequest;
@@ -5393,13 +5522,15 @@ public function uint32 DOT11EXTIHV_CONTROL(HANDLE hIhvExtAdapter, uint32 dwInBuf
 	public uint8* pvUIRequest;
 }
 
-[CRepr]public struct DOT11_EAP_RESULT
+[CRepr]
+public struct DOT11_EAP_RESULT
 {
 	public uint32 dwFailureReasonCode;
 	public EAP_ATTRIBUTES* pAttribArray;
 }
 
-[CRepr]public struct DOT11_MSONEX_RESULT_PARAMS
+[CRepr]
+public struct DOT11_MSONEX_RESULT_PARAMS
 {
 	public ONEX_AUTH_STATUS Dot11OnexAuthStatus;
 	public ONEX_REASON_CODE Dot11OneXReasonCode;
@@ -5410,30 +5541,35 @@ public function uint32 DOT11EXTIHV_CONTROL(HANDLE hIhvExtAdapter, uint32 dwInBuf
 	public DOT11_EAP_RESULT* pDot11EapResult;
 }
 
-[CRepr]public struct DOT11EXT_IHV_CONNECTIVITY_PROFILE
+[CRepr]
+public struct DOT11EXT_IHV_CONNECTIVITY_PROFILE
 {
 	public PWSTR pszXmlFragmentIhvConnectivity;
 }
 
-[CRepr]public struct DOT11EXT_IHV_SECURITY_PROFILE
+[CRepr]
+public struct DOT11EXT_IHV_SECURITY_PROFILE
 {
 	public PWSTR pszXmlFragmentIhvSecurity;
 	public BOOL bUseMSOnex;
 }
 
-[CRepr]public struct DOT11EXT_IHV_DISCOVERY_PROFILE
+[CRepr]
+public struct DOT11EXT_IHV_DISCOVERY_PROFILE
 {
 	public DOT11EXT_IHV_CONNECTIVITY_PROFILE IhvConnectivityProfile;
 	public DOT11EXT_IHV_SECURITY_PROFILE IhvSecurityProfile;
 }
 
-[CRepr]public struct DOT11EXT_IHV_DISCOVERY_PROFILE_LIST
+[CRepr]
+public struct DOT11EXT_IHV_DISCOVERY_PROFILE_LIST
 {
 	public uint32 dwCount;
 	public DOT11EXT_IHV_DISCOVERY_PROFILE* pIhvDiscoveryProfiles;
 }
 
-[CRepr]public struct DOT11EXT_VIRTUAL_STATION_AP_PROPERTY
+[CRepr]
+public struct DOT11EXT_VIRTUAL_STATION_AP_PROPERTY
 {
 	public DOT11_SSID dot11SSID;
 	public DOT11_AUTH_ALGORITHM dot11AuthAlgo;
@@ -5443,7 +5579,8 @@ public function uint32 DOT11EXTIHV_CONTROL(HANDLE hIhvExtAdapter, uint32 dwInBuf
 	public uint8[64] ucKeyData;
 }
 
-[CRepr]public struct WDIAG_IHV_WLAN_ID
+[CRepr]
+public struct WDIAG_IHV_WLAN_ID
 {
 	public char8[256] strProfileName;
 	public DOT11_SSID Ssid;
@@ -5452,7 +5589,8 @@ public function uint32 DOT11EXTIHV_CONTROL(HANDLE hIhvExtAdapter, uint32 dwInBuf
 	public uint32 dwReasonCode;
 }
 
-[CRepr]public struct DOT11EXT_APIS
+[CRepr]
+public struct DOT11EXT_APIS
 {
 	public DOT11EXT_ALLOCATE_BUFFER Dot11ExtAllocateBuffer;
 	public DOT11EXT_FREE_BUFFER Dot11ExtFreeBuffer;
@@ -5478,7 +5616,8 @@ public function uint32 DOT11EXTIHV_CONTROL(HANDLE hIhvExtAdapter, uint32 dwInBuf
 	public DOT11EXT_PROCESS_ONEX_PACKET Dot11ExtProcessSecurityPacket;
 }
 
-[CRepr]public struct DOT11EXT_IHV_HANDLERS
+[CRepr]
+public struct DOT11EXT_IHV_HANDLERS
 {
 	public DOT11EXTIHV_DEINIT_SERVICE Dot11ExtIhvDeinitService;
 	public DOT11EXTIHV_INIT_ADAPTER Dot11ExtIhvInitAdapter;
@@ -5501,7 +5640,8 @@ public function uint32 DOT11EXTIHV_CONTROL(HANDLE hIhvExtAdapter, uint32 dwInBuf
 	public DOT11EXTIHV_CONTROL Dot11ExtIhvControl;
 }
 
-[CRepr]public struct DOT11EXT_VIRTUAL_STATION_APIS
+[CRepr]
+public struct DOT11EXT_VIRTUAL_STATION_APIS
 {
 	public DOT11EXT_REQUEST_VIRTUAL_STATION Dot11ExtRequestVirtualStation;
 	public DOT11EXT_RELEASE_VIRTUAL_STATION Dot11ExtReleaseVirtualStation;

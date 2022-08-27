@@ -328,7 +328,8 @@ public enum MODEMDEVCAPS_SPEAKER_MODE : uint32
 #endregion
 
 #region Structs
-[CRepr]public struct MODEMDEVCAPS
+[CRepr]
+public struct MODEMDEVCAPS
 {
 	public uint32 dwActualSize;
 	public uint32 dwRequiredSize;
@@ -352,7 +353,8 @@ public enum MODEMDEVCAPS_SPEAKER_MODE : uint32
 	public uint8[1] abVariablePortion;
 }
 
-[CRepr]public struct MODEMSETTINGS
+[CRepr]
+public struct MODEMSETTINGS
 {
 	public uint32 dwActualSize;
 	public uint32 dwRequiredSize;
@@ -368,7 +370,8 @@ public enum MODEMDEVCAPS_SPEAKER_MODE : uint32
 	public uint8[1] abVariablePortion;
 }
 
-[CRepr]public struct COMMPROP
+[CRepr]
+public struct COMMPROP
 {
 	public uint16 wPacketLength;
 	public uint16 wPacketVersion;
@@ -390,14 +393,16 @@ public enum MODEMDEVCAPS_SPEAKER_MODE : uint32
 	public char8[1] wcProvChar;
 }
 
-[CRepr]public struct COMSTAT
+[CRepr]
+public struct COMSTAT
 {
 	public uint32 _bitfield;
 	public uint32 cbInQue;
 	public uint32 cbOutQue;
 }
 
-[CRepr]public struct DCB
+[CRepr]
+public struct DCB
 {
 	public uint32 DCBlength;
 	public uint32 BaudRate;
@@ -416,7 +421,8 @@ public enum MODEMDEVCAPS_SPEAKER_MODE : uint32
 	public uint16 wReserved1;
 }
 
-[CRepr]public struct COMMTIMEOUTS
+[CRepr]
+public struct COMMTIMEOUTS
 {
 	public uint32 ReadIntervalTimeout;
 	public uint32 ReadTotalTimeoutMultiplier;
@@ -425,7 +431,8 @@ public enum MODEMDEVCAPS_SPEAKER_MODE : uint32
 	public uint32 WriteTotalTimeoutConstant;
 }
 
-[CRepr]public struct COMMCONFIG
+[CRepr]
+public struct COMMCONFIG
 {
 	public uint32 dwSize;
 	public uint16 wVersion;

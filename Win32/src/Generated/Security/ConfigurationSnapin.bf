@@ -99,33 +99,38 @@ public function uint32 PF_UpdateService(SCESVC_CALLBACK_INFO* pSceCbInfo, SCESVC
 #endregion
 
 #region Structs
-[CRepr]public struct SCESVC_CONFIGURATION_LINE
+[CRepr]
+public struct SCESVC_CONFIGURATION_LINE
 {
 	public int8* Key;
 	public int8* Value;
 	public uint32 ValueLen;
 }
 
-[CRepr]public struct SCESVC_CONFIGURATION_INFO
+[CRepr]
+public struct SCESVC_CONFIGURATION_INFO
 {
 	public uint32 Count;
 	public SCESVC_CONFIGURATION_LINE* Lines;
 }
 
-[CRepr]public struct SCESVC_ANALYSIS_LINE
+[CRepr]
+public struct SCESVC_ANALYSIS_LINE
 {
 	public int8* Key;
 	public uint8* Value;
 	public uint32 ValueLen;
 }
 
-[CRepr]public struct SCESVC_ANALYSIS_INFO
+[CRepr]
+public struct SCESVC_ANALYSIS_INFO
 {
 	public uint32 Count;
 	public SCESVC_ANALYSIS_LINE* Lines;
 }
 
-[CRepr]public struct SCESVC_CALLBACK_INFO
+[CRepr]
+public struct SCESVC_CALLBACK_INFO
 {
 	public void* sceHandle;
 	public PFSCE_QUERY_INFO pfQueryInfo;

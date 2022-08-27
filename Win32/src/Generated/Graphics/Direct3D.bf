@@ -829,24 +829,29 @@ public function void PFN_DESTRUCTION_CALLBACK(void* pData);
 #endregion
 
 #region Structs
-[CRepr]public struct D3D_SHADER_MACRO
+[CRepr]
+public struct D3D_SHADER_MACRO
 {
 	public PSTR Name;
 	public PSTR Definition;
 }
 
-[CRepr]public struct D3DVECTOR
+[CRepr]
+public struct D3DVECTOR
 {
 	public float x;
 	public float y;
 	public float z;
 }
 
-[CRepr]public struct D3DMATRIX
+[CRepr]
+public struct D3DMATRIX
 {
-	[CRepr, Union]	public struct _Anonymous_e__Union
+	[CRepr, Union]
+	public struct _Anonymous_e__Union
 	{
-		[CRepr]		public struct _Anonymous_e__Struct
+		[CRepr]
+		public struct _Anonymous_e__Struct
 		{
 			public float _11;
 			public float _12;

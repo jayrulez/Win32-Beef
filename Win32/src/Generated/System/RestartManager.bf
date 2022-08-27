@@ -97,13 +97,15 @@ public function void RM_WRITE_STATUS_CALLBACK(uint32 nPercentComplete);
 #endregion
 
 #region Structs
-[CRepr]public struct RM_UNIQUE_PROCESS
+[CRepr]
+public struct RM_UNIQUE_PROCESS
 {
 	public uint32 dwProcessId;
 	public FILETIME ProcessStartTime;
 }
 
-[CRepr]public struct RM_PROCESS_INFO
+[CRepr]
+public struct RM_PROCESS_INFO
 {
 	public RM_UNIQUE_PROCESS Process;
 	public char8[256] strAppName;
@@ -114,9 +116,11 @@ public function void RM_WRITE_STATUS_CALLBACK(uint32 nPercentComplete);
 	public BOOL bRestartable;
 }
 
-[CRepr]public struct RM_FILTER_INFO
+[CRepr]
+public struct RM_FILTER_INFO
 {
-	[CRepr, Union]	public struct _Anonymous_e__Union
+	[CRepr, Union]
+	public struct _Anonymous_e__Union
 	{
 		public PWSTR strFilename;
 		public RM_UNIQUE_PROCESS Process;

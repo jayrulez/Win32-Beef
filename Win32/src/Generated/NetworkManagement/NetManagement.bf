@@ -4350,12 +4350,14 @@ public function void WORKERFUNCTION(void* param0);
 #endregion
 
 #region Structs
-[CRepr]public struct USER_INFO_0
+[CRepr]
+public struct USER_INFO_0
 {
 	public PWSTR usri0_name;
 }
 
-[CRepr]public struct USER_INFO_1
+[CRepr]
+public struct USER_INFO_1
 {
 	public PWSTR usri1_name;
 	public PWSTR usri1_password;
@@ -4367,7 +4369,8 @@ public function void WORKERFUNCTION(void* param0);
 	public PWSTR usri1_script_path;
 }
 
-[CRepr]public struct USER_INFO_2
+[CRepr]
+public struct USER_INFO_2
 {
 	public PWSTR usri2_name;
 	public PWSTR usri2_password;
@@ -4395,7 +4398,8 @@ public function void WORKERFUNCTION(void* param0);
 	public uint32 usri2_code_page;
 }
 
-[CRepr]public struct USER_INFO_3
+[CRepr]
+public struct USER_INFO_3
 {
 	public PWSTR usri3_name;
 	public PWSTR usri3_password;
@@ -4428,7 +4432,8 @@ public function void WORKERFUNCTION(void* param0);
 	public uint32 usri3_password_expired;
 }
 
-[CRepr]public struct USER_INFO_4
+[CRepr]
+public struct USER_INFO_4
 {
 	public PWSTR usri4_name;
 	public PWSTR usri4_password;
@@ -4461,7 +4466,8 @@ public function void WORKERFUNCTION(void* param0);
 	public uint32 usri4_password_expired;
 }
 
-[CRepr]public struct USER_INFO_10
+[CRepr]
+public struct USER_INFO_10
 {
 	public PWSTR usri10_name;
 	public PWSTR usri10_comment;
@@ -4469,7 +4475,8 @@ public function void WORKERFUNCTION(void* param0);
 	public PWSTR usri10_full_name;
 }
 
-[CRepr]public struct USER_INFO_11
+[CRepr]
+public struct USER_INFO_11
 {
 	public PWSTR usri11_name;
 	public PWSTR usri11_comment;
@@ -4493,7 +4500,8 @@ public function void WORKERFUNCTION(void* param0);
 	public uint32 usri11_code_page;
 }
 
-[CRepr]public struct USER_INFO_20
+[CRepr]
+public struct USER_INFO_20
 {
 	public PWSTR usri20_name;
 	public PWSTR usri20_full_name;
@@ -4502,12 +4510,14 @@ public function void WORKERFUNCTION(void* param0);
 	public uint32 usri20_user_id;
 }
 
-[CRepr]public struct USER_INFO_21
+[CRepr]
+public struct USER_INFO_21
 {
 	public uint8[16] usri21_password;
 }
 
-[CRepr]public struct USER_INFO_22
+[CRepr]
+public struct USER_INFO_22
 {
 	public PWSTR usri22_name;
 	public uint8[16] usri22_password;
@@ -4535,7 +4545,8 @@ public function void WORKERFUNCTION(void* param0);
 	public uint32 usri22_code_page;
 }
 
-[CRepr]public struct USER_INFO_23
+[CRepr]
+public struct USER_INFO_23
 {
 	public PWSTR usri23_name;
 	public PWSTR usri23_full_name;
@@ -4544,7 +4555,8 @@ public function void WORKERFUNCTION(void* param0);
 	public PSID usri23_user_sid;
 }
 
-[CRepr]public struct USER_INFO_24
+[CRepr]
+public struct USER_INFO_24
 {
 	public BOOL usri24_internet_identity;
 	public uint32 usri24_flags;
@@ -4553,108 +4565,129 @@ public function void WORKERFUNCTION(void* param0);
 	public PSID usri24_user_sid;
 }
 
-[CRepr]public struct USER_INFO_1003
+[CRepr]
+public struct USER_INFO_1003
 {
 	public PWSTR usri1003_password;
 }
 
-[CRepr]public struct USER_INFO_1005
+[CRepr]
+public struct USER_INFO_1005
 {
 	public USER_PRIV usri1005_priv;
 }
 
-[CRepr]public struct USER_INFO_1006
+[CRepr]
+public struct USER_INFO_1006
 {
 	public PWSTR usri1006_home_dir;
 }
 
-[CRepr]public struct USER_INFO_1007
+[CRepr]
+public struct USER_INFO_1007
 {
 	public PWSTR usri1007_comment;
 }
 
-[CRepr]public struct USER_INFO_1008
+[CRepr]
+public struct USER_INFO_1008
 {
 	public USER_ACCOUNT_FLAGS usri1008_flags;
 }
 
-[CRepr]public struct USER_INFO_1009
+[CRepr]
+public struct USER_INFO_1009
 {
 	public PWSTR usri1009_script_path;
 }
 
-[CRepr]public struct USER_INFO_1010
+[CRepr]
+public struct USER_INFO_1010
 {
 	public AF_OP usri1010_auth_flags;
 }
 
-[CRepr]public struct USER_INFO_1011
+[CRepr]
+public struct USER_INFO_1011
 {
 	public PWSTR usri1011_full_name;
 }
 
-[CRepr]public struct USER_INFO_1012
+[CRepr]
+public struct USER_INFO_1012
 {
 	public PWSTR usri1012_usr_comment;
 }
 
-[CRepr]public struct USER_INFO_1013
+[CRepr]
+public struct USER_INFO_1013
 {
 	public PWSTR usri1013_parms;
 }
 
-[CRepr]public struct USER_INFO_1014
+[CRepr]
+public struct USER_INFO_1014
 {
 	public PWSTR usri1014_workstations;
 }
 
-[CRepr]public struct USER_INFO_1017
+[CRepr]
+public struct USER_INFO_1017
 {
 	public uint32 usri1017_acct_expires;
 }
 
-[CRepr]public struct USER_INFO_1018
+[CRepr]
+public struct USER_INFO_1018
 {
 	public uint32 usri1018_max_storage;
 }
 
-[CRepr]public struct USER_INFO_1020
+[CRepr]
+public struct USER_INFO_1020
 {
 	public uint32 usri1020_units_per_week;
 	public uint8* usri1020_logon_hours;
 }
 
-[CRepr]public struct USER_INFO_1023
+[CRepr]
+public struct USER_INFO_1023
 {
 	public PWSTR usri1023_logon_server;
 }
 
-[CRepr]public struct USER_INFO_1024
+[CRepr]
+public struct USER_INFO_1024
 {
 	public uint32 usri1024_country_code;
 }
 
-[CRepr]public struct USER_INFO_1025
+[CRepr]
+public struct USER_INFO_1025
 {
 	public uint32 usri1025_code_page;
 }
 
-[CRepr]public struct USER_INFO_1051
+[CRepr]
+public struct USER_INFO_1051
 {
 	public uint32 usri1051_primary_group_id;
 }
 
-[CRepr]public struct USER_INFO_1052
+[CRepr]
+public struct USER_INFO_1052
 {
 	public PWSTR usri1052_profile;
 }
 
-[CRepr]public struct USER_INFO_1053
+[CRepr]
+public struct USER_INFO_1053
 {
 	public PWSTR usri1053_home_dir_drive;
 }
 
-[CRepr]public struct USER_MODALS_INFO_0
+[CRepr]
+public struct USER_MODALS_INFO_0
 {
 	public uint32 usrmod0_min_passwd_len;
 	public uint32 usrmod0_max_passwd_age;
@@ -4663,72 +4696,85 @@ public function void WORKERFUNCTION(void* param0);
 	public uint32 usrmod0_password_hist_len;
 }
 
-[CRepr]public struct USER_MODALS_INFO_1
+[CRepr]
+public struct USER_MODALS_INFO_1
 {
 	public uint32 usrmod1_role;
 	public PWSTR usrmod1_primary;
 }
 
-[CRepr]public struct USER_MODALS_INFO_2
+[CRepr]
+public struct USER_MODALS_INFO_2
 {
 	public PWSTR usrmod2_domain_name;
 	public PSID usrmod2_domain_id;
 }
 
-[CRepr]public struct USER_MODALS_INFO_3
+[CRepr]
+public struct USER_MODALS_INFO_3
 {
 	public uint32 usrmod3_lockout_duration;
 	public uint32 usrmod3_lockout_observation_window;
 	public uint32 usrmod3_lockout_threshold;
 }
 
-[CRepr]public struct USER_MODALS_INFO_1001
+[CRepr]
+public struct USER_MODALS_INFO_1001
 {
 	public uint32 usrmod1001_min_passwd_len;
 }
 
-[CRepr]public struct USER_MODALS_INFO_1002
+[CRepr]
+public struct USER_MODALS_INFO_1002
 {
 	public uint32 usrmod1002_max_passwd_age;
 }
 
-[CRepr]public struct USER_MODALS_INFO_1003
+[CRepr]
+public struct USER_MODALS_INFO_1003
 {
 	public uint32 usrmod1003_min_passwd_age;
 }
 
-[CRepr]public struct USER_MODALS_INFO_1004
+[CRepr]
+public struct USER_MODALS_INFO_1004
 {
 	public uint32 usrmod1004_force_logoff;
 }
 
-[CRepr]public struct USER_MODALS_INFO_1005
+[CRepr]
+public struct USER_MODALS_INFO_1005
 {
 	public uint32 usrmod1005_password_hist_len;
 }
 
-[CRepr]public struct USER_MODALS_INFO_1006
+[CRepr]
+public struct USER_MODALS_INFO_1006
 {
 	public USER_MODALS_ROLES usrmod1006_role;
 }
 
-[CRepr]public struct USER_MODALS_INFO_1007
+[CRepr]
+public struct USER_MODALS_INFO_1007
 {
 	public PWSTR usrmod1007_primary;
 }
 
-[CRepr]public struct GROUP_INFO_0
+[CRepr]
+public struct GROUP_INFO_0
 {
 	public PWSTR grpi0_name;
 }
 
-[CRepr]public struct GROUP_INFO_1
+[CRepr]
+public struct GROUP_INFO_1
 {
 	public PWSTR grpi1_name;
 	public PWSTR grpi1_comment;
 }
 
-[CRepr]public struct GROUP_INFO_2
+[CRepr]
+public struct GROUP_INFO_2
 {
 	public PWSTR grpi2_name;
 	public PWSTR grpi2_comment;
@@ -4736,7 +4782,8 @@ public function void WORKERFUNCTION(void* param0);
 	public uint32 grpi2_attributes;
 }
 
-[CRepr]public struct GROUP_INFO_3
+[CRepr]
+public struct GROUP_INFO_3
 {
 	public PWSTR grpi3_name;
 	public PWSTR grpi3_comment;
@@ -4744,73 +4791,86 @@ public function void WORKERFUNCTION(void* param0);
 	public uint32 grpi3_attributes;
 }
 
-[CRepr]public struct GROUP_INFO_1002
+[CRepr]
+public struct GROUP_INFO_1002
 {
 	public PWSTR grpi1002_comment;
 }
 
-[CRepr]public struct GROUP_INFO_1005
+[CRepr]
+public struct GROUP_INFO_1005
 {
 	public uint32 grpi1005_attributes;
 }
 
-[CRepr]public struct GROUP_USERS_INFO_0
+[CRepr]
+public struct GROUP_USERS_INFO_0
 {
 	public PWSTR grui0_name;
 }
 
-[CRepr]public struct GROUP_USERS_INFO_1
+[CRepr]
+public struct GROUP_USERS_INFO_1
 {
 	public PWSTR grui1_name;
 	public uint32 grui1_attributes;
 }
 
-[CRepr]public struct LOCALGROUP_INFO_0
+[CRepr]
+public struct LOCALGROUP_INFO_0
 {
 	public PWSTR lgrpi0_name;
 }
 
-[CRepr]public struct LOCALGROUP_INFO_1
+[CRepr]
+public struct LOCALGROUP_INFO_1
 {
 	public PWSTR lgrpi1_name;
 	public PWSTR lgrpi1_comment;
 }
 
-[CRepr]public struct LOCALGROUP_INFO_1002
+[CRepr]
+public struct LOCALGROUP_INFO_1002
 {
 	public PWSTR lgrpi1002_comment;
 }
 
-[CRepr]public struct LOCALGROUP_MEMBERS_INFO_0
+[CRepr]
+public struct LOCALGROUP_MEMBERS_INFO_0
 {
 	public PSID lgrmi0_sid;
 }
 
-[CRepr]public struct LOCALGROUP_MEMBERS_INFO_1
+[CRepr]
+public struct LOCALGROUP_MEMBERS_INFO_1
 {
 	public PSID lgrmi1_sid;
 	public SID_NAME_USE lgrmi1_sidusage;
 	public PWSTR lgrmi1_name;
 }
 
-[CRepr]public struct LOCALGROUP_MEMBERS_INFO_2
+[CRepr]
+public struct LOCALGROUP_MEMBERS_INFO_2
 {
 	public PSID lgrmi2_sid;
 	public SID_NAME_USE lgrmi2_sidusage;
 	public PWSTR lgrmi2_domainandname;
 }
 
-[CRepr]public struct LOCALGROUP_MEMBERS_INFO_3
+[CRepr]
+public struct LOCALGROUP_MEMBERS_INFO_3
 {
 	public PWSTR lgrmi3_domainandname;
 }
 
-[CRepr]public struct LOCALGROUP_USERS_INFO_0
+[CRepr]
+public struct LOCALGROUP_USERS_INFO_0
 {
 	public PWSTR lgrui0_name;
 }
 
-[CRepr]public struct NET_DISPLAY_USER
+[CRepr]
+public struct NET_DISPLAY_USER
 {
 	public PWSTR usri1_name;
 	public PWSTR usri1_comment;
@@ -4820,7 +4880,8 @@ public function void WORKERFUNCTION(void* param0);
 	public uint32 usri1_next_index;
 }
 
-[CRepr]public struct NET_DISPLAY_MACHINE
+[CRepr]
+public struct NET_DISPLAY_MACHINE
 {
 	public PWSTR usri2_name;
 	public PWSTR usri2_comment;
@@ -4829,7 +4890,8 @@ public function void WORKERFUNCTION(void* param0);
 	public uint32 usri2_next_index;
 }
 
-[CRepr]public struct NET_DISPLAY_GROUP
+[CRepr]
+public struct NET_DISPLAY_GROUP
 {
 	public PWSTR grpi3_name;
 	public PWSTR grpi3_comment;
@@ -4838,36 +4900,42 @@ public function void WORKERFUNCTION(void* param0);
 	public uint32 grpi3_next_index;
 }
 
-[CRepr]public struct ACCESS_INFO_0
+[CRepr]
+public struct ACCESS_INFO_0
 {
 	public PWSTR acc0_resource_name;
 }
 
-[CRepr]public struct ACCESS_INFO_1
+[CRepr]
+public struct ACCESS_INFO_1
 {
 	public PWSTR acc1_resource_name;
 	public uint32 acc1_attr;
 	public uint32 acc1_count;
 }
 
-[CRepr]public struct ACCESS_INFO_1002
+[CRepr]
+public struct ACCESS_INFO_1002
 {
 	public uint32 acc1002_attr;
 }
 
-[CRepr]public struct ACCESS_LIST
+[CRepr]
+public struct ACCESS_LIST
 {
 	public PWSTR acl_ugname;
 	public uint32 acl_access;
 }
 
-[CRepr]public struct NET_VALIDATE_PASSWORD_HASH
+[CRepr]
+public struct NET_VALIDATE_PASSWORD_HASH
 {
 	public uint32 Length;
 	public uint8* Hash;
 }
 
-[CRepr]public struct NET_VALIDATE_PERSISTED_FIELDS
+[CRepr]
+public struct NET_VALIDATE_PERSISTED_FIELDS
 {
 	public uint32 PresentFields;
 	public FILETIME PasswordLastSet;
@@ -4878,19 +4946,22 @@ public function void WORKERFUNCTION(void* param0);
 	public NET_VALIDATE_PASSWORD_HASH* PasswordHistory;
 }
 
-[CRepr]public struct NET_VALIDATE_OUTPUT_ARG
+[CRepr]
+public struct NET_VALIDATE_OUTPUT_ARG
 {
 	public NET_VALIDATE_PERSISTED_FIELDS ChangedPersistedFields;
 	public uint32 ValidationStatus;
 }
 
-[CRepr]public struct NET_VALIDATE_AUTHENTICATION_INPUT_ARG
+[CRepr]
+public struct NET_VALIDATE_AUTHENTICATION_INPUT_ARG
 {
 	public NET_VALIDATE_PERSISTED_FIELDS InputPersistedFields;
 	public BOOLEAN PasswordMatched;
 }
 
-[CRepr]public struct NET_VALIDATE_PASSWORD_CHANGE_INPUT_ARG
+[CRepr]
+public struct NET_VALIDATE_PASSWORD_CHANGE_INPUT_ARG
 {
 	public NET_VALIDATE_PERSISTED_FIELDS InputPersistedFields;
 	public PWSTR ClearPassword;
@@ -4899,7 +4970,8 @@ public function void WORKERFUNCTION(void* param0);
 	public BOOLEAN PasswordMatch;
 }
 
-[CRepr]public struct NET_VALIDATE_PASSWORD_RESET_INPUT_ARG
+[CRepr]
+public struct NET_VALIDATE_PASSWORD_RESET_INPUT_ARG
 {
 	public NET_VALIDATE_PERSISTED_FIELDS InputPersistedFields;
 	public PWSTR ClearPassword;
@@ -4909,13 +4981,15 @@ public function void WORKERFUNCTION(void* param0);
 	public BOOLEAN ClearLockout;
 }
 
-[CRepr]public struct NETLOGON_INFO_1
+[CRepr]
+public struct NETLOGON_INFO_1
 {
 	public uint32 netlog1_flags;
 	public uint32 netlog1_pdc_connection_status;
 }
 
-[CRepr]public struct NETLOGON_INFO_2
+[CRepr]
+public struct NETLOGON_INFO_2
 {
 	public uint32 netlog2_flags;
 	public uint32 netlog2_pdc_connection_status;
@@ -4923,7 +4997,8 @@ public function void WORKERFUNCTION(void* param0);
 	public uint32 netlog2_tc_connection_status;
 }
 
-[CRepr]public struct NETLOGON_INFO_3
+[CRepr]
+public struct NETLOGON_INFO_3
 {
 	public uint32 netlog3_flags;
 	public uint32 netlog3_logon_attempts;
@@ -4934,37 +5009,43 @@ public function void WORKERFUNCTION(void* param0);
 	public uint32 netlog3_reserved5;
 }
 
-[CRepr]public struct NETLOGON_INFO_4
+[CRepr]
+public struct NETLOGON_INFO_4
 {
 	public PWSTR netlog4_trusted_dc_name;
 	public PWSTR netlog4_trusted_domain_name;
 }
 
-[CRepr]public struct MSA_INFO_0
+[CRepr]
+public struct MSA_INFO_0
 {
 	public MSA_INFO_STATE State;
 }
 
-[CRepr]public struct STD_ALERT
+[CRepr]
+public struct STD_ALERT
 {
 	public uint32 alrt_timestamp;
 	public char8[17] alrt_eventname;
 	public char8[81] alrt_servicename;
 }
 
-[CRepr]public struct ADMIN_OTHER_INFO
+[CRepr]
+public struct ADMIN_OTHER_INFO
 {
 	public uint32 alrtad_errcode;
 	public uint32 alrtad_numstrings;
 }
 
-[CRepr]public struct ERRLOG_OTHER_INFO
+[CRepr]
+public struct ERRLOG_OTHER_INFO
 {
 	public uint32 alrter_errcode;
 	public uint32 alrter_offset;
 }
 
-[CRepr]public struct PRINT_OTHER_INFO
+[CRepr]
+public struct PRINT_OTHER_INFO
 {
 	public uint32 alrtpr_jobid;
 	public uint32 alrtpr_status;
@@ -4972,25 +5053,29 @@ public function void WORKERFUNCTION(void* param0);
 	public uint32 alrtpr_size;
 }
 
-[CRepr]public struct USER_OTHER_INFO
+[CRepr]
+public struct USER_OTHER_INFO
 {
 	public uint32 alrtus_errcode;
 	public uint32 alrtus_numstrings;
 }
 
-[CRepr]public struct MSG_INFO_0
+[CRepr]
+public struct MSG_INFO_0
 {
 	public PWSTR msgi0_name;
 }
 
-[CRepr]public struct MSG_INFO_1
+[CRepr]
+public struct MSG_INFO_1
 {
 	public PWSTR msgi1_name;
 	public uint32 msgi1_forward_flag;
 	public PWSTR msgi1_forward;
 }
 
-[CRepr]public struct TIME_OF_DAY_INFO
+[CRepr]
+public struct TIME_OF_DAY_INFO
 {
 	public uint32 tod_elapsedt;
 	public uint32 tod_msecs;
@@ -5006,7 +5091,8 @@ public function void WORKERFUNCTION(void* param0);
 	public uint32 tod_weekday;
 }
 
-[CRepr]public struct REPL_INFO_0
+[CRepr]
+public struct REPL_INFO_0
 {
 	public uint32 rp0_role;
 	public PWSTR rp0_exportpath;
@@ -5020,39 +5106,46 @@ public function void WORKERFUNCTION(void* param0);
 	public uint32 rp0_random;
 }
 
-[CRepr]public struct REPL_INFO_1000
+[CRepr]
+public struct REPL_INFO_1000
 {
 	public uint32 rp1000_interval;
 }
 
-[CRepr]public struct REPL_INFO_1001
+[CRepr]
+public struct REPL_INFO_1001
 {
 	public uint32 rp1001_pulse;
 }
 
-[CRepr]public struct REPL_INFO_1002
+[CRepr]
+public struct REPL_INFO_1002
 {
 	public uint32 rp1002_guardtime;
 }
 
-[CRepr]public struct REPL_INFO_1003
+[CRepr]
+public struct REPL_INFO_1003
 {
 	public uint32 rp1003_random;
 }
 
-[CRepr]public struct REPL_EDIR_INFO_0
+[CRepr]
+public struct REPL_EDIR_INFO_0
 {
 	public PWSTR rped0_dirname;
 }
 
-[CRepr]public struct REPL_EDIR_INFO_1
+[CRepr]
+public struct REPL_EDIR_INFO_1
 {
 	public PWSTR rped1_dirname;
 	public uint32 rped1_integrity;
 	public uint32 rped1_extent;
 }
 
-[CRepr]public struct REPL_EDIR_INFO_2
+[CRepr]
+public struct REPL_EDIR_INFO_2
 {
 	public PWSTR rped2_dirname;
 	public uint32 rped2_integrity;
@@ -5061,22 +5154,26 @@ public function void WORKERFUNCTION(void* param0);
 	public uint32 rped2_locktime;
 }
 
-[CRepr]public struct REPL_EDIR_INFO_1000
+[CRepr]
+public struct REPL_EDIR_INFO_1000
 {
 	public uint32 rped1000_integrity;
 }
 
-[CRepr]public struct REPL_EDIR_INFO_1001
+[CRepr]
+public struct REPL_EDIR_INFO_1001
 {
 	public uint32 rped1001_extent;
 }
 
-[CRepr]public struct REPL_IDIR_INFO_0
+[CRepr]
+public struct REPL_IDIR_INFO_0
 {
 	public PWSTR rpid0_dirname;
 }
 
-[CRepr]public struct REPL_IDIR_INFO_1
+[CRepr]
+public struct REPL_IDIR_INFO_1
 {
 	public PWSTR rpid1_dirname;
 	public uint32 rpid1_state;
@@ -5086,13 +5183,15 @@ public function void WORKERFUNCTION(void* param0);
 	public uint32 rpid1_locktime;
 }
 
-[CRepr]public struct SERVER_INFO_100
+[CRepr]
+public struct SERVER_INFO_100
 {
 	public uint32 sv100_platform_id;
 	public PWSTR sv100_name;
 }
 
-[CRepr]public struct SERVER_INFO_101
+[CRepr]
+public struct SERVER_INFO_101
 {
 	public uint32 sv101_platform_id;
 	public PWSTR sv101_name;
@@ -5102,7 +5201,8 @@ public function void WORKERFUNCTION(void* param0);
 	public PWSTR sv101_comment;
 }
 
-[CRepr]public struct SERVER_INFO_102
+[CRepr]
+public struct SERVER_INFO_102
 {
 	public uint32 sv102_platform_id;
 	public PWSTR sv102_name;
@@ -5119,7 +5219,8 @@ public function void WORKERFUNCTION(void* param0);
 	public PWSTR sv102_userpath;
 }
 
-[CRepr]public struct SERVER_INFO_103
+[CRepr]
+public struct SERVER_INFO_103
 {
 	public uint32 sv103_platform_id;
 	public PWSTR sv103_name;
@@ -5137,7 +5238,8 @@ public function void WORKERFUNCTION(void* param0);
 	public uint32 sv103_capabilities;
 }
 
-[CRepr]public struct SERVER_INFO_402
+[CRepr]
+public struct SERVER_INFO_402
 {
 	public uint32 sv402_ulist_mtime;
 	public uint32 sv402_glist_mtime;
@@ -5172,7 +5274,8 @@ public function void WORKERFUNCTION(void* param0);
 	public PWSTR sv402_srvheuristics;
 }
 
-[CRepr]public struct SERVER_INFO_403
+[CRepr]
+public struct SERVER_INFO_403
 {
 	public uint32 sv403_ulist_mtime;
 	public uint32 sv403_glist_mtime;
@@ -5210,7 +5313,8 @@ public function void WORKERFUNCTION(void* param0);
 	public PWSTR sv403_autopath;
 }
 
-[CRepr]public struct SERVER_INFO_502
+[CRepr]
+public struct SERVER_INFO_502
 {
 	public uint32 sv502_sessopens;
 	public uint32 sv502_sessvcs;
@@ -5232,7 +5336,8 @@ public function void WORKERFUNCTION(void* param0);
 	public BOOL sv502_lmannounce;
 }
 
-[CRepr]public struct SERVER_INFO_503
+[CRepr]
+public struct SERVER_INFO_503
 {
 	public uint32 sv503_sessopens;
 	public uint32 sv503_sessvcs;
@@ -5278,7 +5383,8 @@ public function void WORKERFUNCTION(void* param0);
 	public uint32 sv503_maxfreeconnections;
 }
 
-[CRepr]public struct SERVER_INFO_599
+[CRepr]
+public struct SERVER_INFO_599
 {
 	public uint32 sv599_sessopens;
 	public uint32 sv599_sessvcs;
@@ -5338,7 +5444,8 @@ public function void WORKERFUNCTION(void* param0);
 	public uint32 sv599_maxworkitemidletime;
 }
 
-[CRepr]public struct SERVER_INFO_598
+[CRepr]
+public struct SERVER_INFO_598
 {
 	public uint32 sv598_maxrawworkitems;
 	public uint32 sv598_maxthreadsperqueue;
@@ -5385,477 +5492,572 @@ public function void WORKERFUNCTION(void* param0);
 	public BOOL sv598_enableauthenticateusersharing;
 }
 
-[CRepr]public struct SERVER_INFO_1005
+[CRepr]
+public struct SERVER_INFO_1005
 {
 	public PWSTR sv1005_comment;
 }
 
-[CRepr]public struct SERVER_INFO_1107
+[CRepr]
+public struct SERVER_INFO_1107
 {
 	public uint32 sv1107_users;
 }
 
-[CRepr]public struct SERVER_INFO_1010
+[CRepr]
+public struct SERVER_INFO_1010
 {
 	public int32 sv1010_disc;
 }
 
-[CRepr]public struct SERVER_INFO_1016
+[CRepr]
+public struct SERVER_INFO_1016
 {
 	public SERVER_INFO_HIDDEN sv1016_hidden;
 }
 
-[CRepr]public struct SERVER_INFO_1017
+[CRepr]
+public struct SERVER_INFO_1017
 {
 	public uint32 sv1017_announce;
 }
 
-[CRepr]public struct SERVER_INFO_1018
+[CRepr]
+public struct SERVER_INFO_1018
 {
 	public uint32 sv1018_anndelta;
 }
 
-[CRepr]public struct SERVER_INFO_1501
+[CRepr]
+public struct SERVER_INFO_1501
 {
 	public uint32 sv1501_sessopens;
 }
 
-[CRepr]public struct SERVER_INFO_1502
+[CRepr]
+public struct SERVER_INFO_1502
 {
 	public uint32 sv1502_sessvcs;
 }
 
-[CRepr]public struct SERVER_INFO_1503
+[CRepr]
+public struct SERVER_INFO_1503
 {
 	public uint32 sv1503_opensearch;
 }
 
-[CRepr]public struct SERVER_INFO_1506
+[CRepr]
+public struct SERVER_INFO_1506
 {
 	public uint32 sv1506_maxworkitems;
 }
 
-[CRepr]public struct SERVER_INFO_1509
+[CRepr]
+public struct SERVER_INFO_1509
 {
 	public uint32 sv1509_maxrawbuflen;
 }
 
-[CRepr]public struct SERVER_INFO_1510
+[CRepr]
+public struct SERVER_INFO_1510
 {
 	public uint32 sv1510_sessusers;
 }
 
-[CRepr]public struct SERVER_INFO_1511
+[CRepr]
+public struct SERVER_INFO_1511
 {
 	public uint32 sv1511_sessconns;
 }
 
-[CRepr]public struct SERVER_INFO_1512
+[CRepr]
+public struct SERVER_INFO_1512
 {
 	public uint32 sv1512_maxnonpagedmemoryusage;
 }
 
-[CRepr]public struct SERVER_INFO_1513
+[CRepr]
+public struct SERVER_INFO_1513
 {
 	public uint32 sv1513_maxpagedmemoryusage;
 }
 
-[CRepr]public struct SERVER_INFO_1514
+[CRepr]
+public struct SERVER_INFO_1514
 {
 	public BOOL sv1514_enablesoftcompat;
 }
 
-[CRepr]public struct SERVER_INFO_1515
+[CRepr]
+public struct SERVER_INFO_1515
 {
 	public BOOL sv1515_enableforcedlogoff;
 }
 
-[CRepr]public struct SERVER_INFO_1516
+[CRepr]
+public struct SERVER_INFO_1516
 {
 	public BOOL sv1516_timesource;
 }
 
-[CRepr]public struct SERVER_INFO_1518
+[CRepr]
+public struct SERVER_INFO_1518
 {
 	public BOOL sv1518_lmannounce;
 }
 
-[CRepr]public struct SERVER_INFO_1520
+[CRepr]
+public struct SERVER_INFO_1520
 {
 	public uint32 sv1520_maxcopyreadlen;
 }
 
-[CRepr]public struct SERVER_INFO_1521
+[CRepr]
+public struct SERVER_INFO_1521
 {
 	public uint32 sv1521_maxcopywritelen;
 }
 
-[CRepr]public struct SERVER_INFO_1522
+[CRepr]
+public struct SERVER_INFO_1522
 {
 	public uint32 sv1522_minkeepsearch;
 }
 
-[CRepr]public struct SERVER_INFO_1523
+[CRepr]
+public struct SERVER_INFO_1523
 {
 	public uint32 sv1523_maxkeepsearch;
 }
 
-[CRepr]public struct SERVER_INFO_1524
+[CRepr]
+public struct SERVER_INFO_1524
 {
 	public uint32 sv1524_minkeepcomplsearch;
 }
 
-[CRepr]public struct SERVER_INFO_1525
+[CRepr]
+public struct SERVER_INFO_1525
 {
 	public uint32 sv1525_maxkeepcomplsearch;
 }
 
-[CRepr]public struct SERVER_INFO_1528
+[CRepr]
+public struct SERVER_INFO_1528
 {
 	public uint32 sv1528_scavtimeout;
 }
 
-[CRepr]public struct SERVER_INFO_1529
+[CRepr]
+public struct SERVER_INFO_1529
 {
 	public uint32 sv1529_minrcvqueue;
 }
 
-[CRepr]public struct SERVER_INFO_1530
+[CRepr]
+public struct SERVER_INFO_1530
 {
 	public uint32 sv1530_minfreeworkitems;
 }
 
-[CRepr]public struct SERVER_INFO_1533
+[CRepr]
+public struct SERVER_INFO_1533
 {
 	public uint32 sv1533_maxmpxct;
 }
 
-[CRepr]public struct SERVER_INFO_1534
+[CRepr]
+public struct SERVER_INFO_1534
 {
 	public uint32 sv1534_oplockbreakwait;
 }
 
-[CRepr]public struct SERVER_INFO_1535
+[CRepr]
+public struct SERVER_INFO_1535
 {
 	public uint32 sv1535_oplockbreakresponsewait;
 }
 
-[CRepr]public struct SERVER_INFO_1536
+[CRepr]
+public struct SERVER_INFO_1536
 {
 	public BOOL sv1536_enableoplocks;
 }
 
-[CRepr]public struct SERVER_INFO_1537
+[CRepr]
+public struct SERVER_INFO_1537
 {
 	public BOOL sv1537_enableoplockforceclose;
 }
 
-[CRepr]public struct SERVER_INFO_1538
+[CRepr]
+public struct SERVER_INFO_1538
 {
 	public BOOL sv1538_enablefcbopens;
 }
 
-[CRepr]public struct SERVER_INFO_1539
+[CRepr]
+public struct SERVER_INFO_1539
 {
 	public BOOL sv1539_enableraw;
 }
 
-[CRepr]public struct SERVER_INFO_1540
+[CRepr]
+public struct SERVER_INFO_1540
 {
 	public BOOL sv1540_enablesharednetdrives;
 }
 
-[CRepr]public struct SERVER_INFO_1541
+[CRepr]
+public struct SERVER_INFO_1541
 {
 	public BOOL sv1541_minfreeconnections;
 }
 
-[CRepr]public struct SERVER_INFO_1542
+[CRepr]
+public struct SERVER_INFO_1542
 {
 	public BOOL sv1542_maxfreeconnections;
 }
 
-[CRepr]public struct SERVER_INFO_1543
+[CRepr]
+public struct SERVER_INFO_1543
 {
 	public uint32 sv1543_initsesstable;
 }
 
-[CRepr]public struct SERVER_INFO_1544
+[CRepr]
+public struct SERVER_INFO_1544
 {
 	public uint32 sv1544_initconntable;
 }
 
-[CRepr]public struct SERVER_INFO_1545
+[CRepr]
+public struct SERVER_INFO_1545
 {
 	public uint32 sv1545_initfiletable;
 }
 
-[CRepr]public struct SERVER_INFO_1546
+[CRepr]
+public struct SERVER_INFO_1546
 {
 	public uint32 sv1546_initsearchtable;
 }
 
-[CRepr]public struct SERVER_INFO_1547
+[CRepr]
+public struct SERVER_INFO_1547
 {
 	public uint32 sv1547_alertschedule;
 }
 
-[CRepr]public struct SERVER_INFO_1548
+[CRepr]
+public struct SERVER_INFO_1548
 {
 	public uint32 sv1548_errorthreshold;
 }
 
-[CRepr]public struct SERVER_INFO_1549
+[CRepr]
+public struct SERVER_INFO_1549
 {
 	public uint32 sv1549_networkerrorthreshold;
 }
 
-[CRepr]public struct SERVER_INFO_1550
+[CRepr]
+public struct SERVER_INFO_1550
 {
 	public uint32 sv1550_diskspacethreshold;
 }
 
-[CRepr]public struct SERVER_INFO_1552
+[CRepr]
+public struct SERVER_INFO_1552
 {
 	public uint32 sv1552_maxlinkdelay;
 }
 
-[CRepr]public struct SERVER_INFO_1553
+[CRepr]
+public struct SERVER_INFO_1553
 {
 	public uint32 sv1553_minlinkthroughput;
 }
 
-[CRepr]public struct SERVER_INFO_1554
+[CRepr]
+public struct SERVER_INFO_1554
 {
 	public uint32 sv1554_linkinfovalidtime;
 }
 
-[CRepr]public struct SERVER_INFO_1555
+[CRepr]
+public struct SERVER_INFO_1555
 {
 	public uint32 sv1555_scavqosinfoupdatetime;
 }
 
-[CRepr]public struct SERVER_INFO_1556
+[CRepr]
+public struct SERVER_INFO_1556
 {
 	public uint32 sv1556_maxworkitemidletime;
 }
 
-[CRepr]public struct SERVER_INFO_1557
+[CRepr]
+public struct SERVER_INFO_1557
 {
 	public uint32 sv1557_maxrawworkitems;
 }
 
-[CRepr]public struct SERVER_INFO_1560
+[CRepr]
+public struct SERVER_INFO_1560
 {
 	public uint32 sv1560_producttype;
 }
 
-[CRepr]public struct SERVER_INFO_1561
+[CRepr]
+public struct SERVER_INFO_1561
 {
 	public uint32 sv1561_serversize;
 }
 
-[CRepr]public struct SERVER_INFO_1562
+[CRepr]
+public struct SERVER_INFO_1562
 {
 	public uint32 sv1562_connectionlessautodisc;
 }
 
-[CRepr]public struct SERVER_INFO_1563
+[CRepr]
+public struct SERVER_INFO_1563
 {
 	public uint32 sv1563_sharingviolationretries;
 }
 
-[CRepr]public struct SERVER_INFO_1564
+[CRepr]
+public struct SERVER_INFO_1564
 {
 	public uint32 sv1564_sharingviolationdelay;
 }
 
-[CRepr]public struct SERVER_INFO_1565
+[CRepr]
+public struct SERVER_INFO_1565
 {
 	public uint32 sv1565_maxglobalopensearch;
 }
 
-[CRepr]public struct SERVER_INFO_1566
+[CRepr]
+public struct SERVER_INFO_1566
 {
 	public BOOL sv1566_removeduplicatesearches;
 }
 
-[CRepr]public struct SERVER_INFO_1567
+[CRepr]
+public struct SERVER_INFO_1567
 {
 	public uint32 sv1567_lockviolationretries;
 }
 
-[CRepr]public struct SERVER_INFO_1568
+[CRepr]
+public struct SERVER_INFO_1568
 {
 	public uint32 sv1568_lockviolationoffset;
 }
 
-[CRepr]public struct SERVER_INFO_1569
+[CRepr]
+public struct SERVER_INFO_1569
 {
 	public uint32 sv1569_lockviolationdelay;
 }
 
-[CRepr]public struct SERVER_INFO_1570
+[CRepr]
+public struct SERVER_INFO_1570
 {
 	public uint32 sv1570_mdlreadswitchover;
 }
 
-[CRepr]public struct SERVER_INFO_1571
+[CRepr]
+public struct SERVER_INFO_1571
 {
 	public uint32 sv1571_cachedopenlimit;
 }
 
-[CRepr]public struct SERVER_INFO_1572
+[CRepr]
+public struct SERVER_INFO_1572
 {
 	public uint32 sv1572_criticalthreads;
 }
 
-[CRepr]public struct SERVER_INFO_1573
+[CRepr]
+public struct SERVER_INFO_1573
 {
 	public uint32 sv1573_restrictnullsessaccess;
 }
 
-[CRepr]public struct SERVER_INFO_1574
+[CRepr]
+public struct SERVER_INFO_1574
 {
 	public uint32 sv1574_enablewfw311directipx;
 }
 
-[CRepr]public struct SERVER_INFO_1575
+[CRepr]
+public struct SERVER_INFO_1575
 {
 	public uint32 sv1575_otherqueueaffinity;
 }
 
-[CRepr]public struct SERVER_INFO_1576
+[CRepr]
+public struct SERVER_INFO_1576
 {
 	public uint32 sv1576_queuesamplesecs;
 }
 
-[CRepr]public struct SERVER_INFO_1577
+[CRepr]
+public struct SERVER_INFO_1577
 {
 	public uint32 sv1577_balancecount;
 }
 
-[CRepr]public struct SERVER_INFO_1578
+[CRepr]
+public struct SERVER_INFO_1578
 {
 	public uint32 sv1578_preferredaffinity;
 }
 
-[CRepr]public struct SERVER_INFO_1579
+[CRepr]
+public struct SERVER_INFO_1579
 {
 	public uint32 sv1579_maxfreerfcbs;
 }
 
-[CRepr]public struct SERVER_INFO_1580
+[CRepr]
+public struct SERVER_INFO_1580
 {
 	public uint32 sv1580_maxfreemfcbs;
 }
 
-[CRepr]public struct SERVER_INFO_1581
+[CRepr]
+public struct SERVER_INFO_1581
 {
 	public uint32 sv1581_maxfreemlcbs;
 }
 
-[CRepr]public struct SERVER_INFO_1582
+[CRepr]
+public struct SERVER_INFO_1582
 {
 	public uint32 sv1582_maxfreepagedpoolchunks;
 }
 
-[CRepr]public struct SERVER_INFO_1583
+[CRepr]
+public struct SERVER_INFO_1583
 {
 	public uint32 sv1583_minpagedpoolchunksize;
 }
 
-[CRepr]public struct SERVER_INFO_1584
+[CRepr]
+public struct SERVER_INFO_1584
 {
 	public uint32 sv1584_maxpagedpoolchunksize;
 }
 
-[CRepr]public struct SERVER_INFO_1585
+[CRepr]
+public struct SERVER_INFO_1585
 {
 	public BOOL sv1585_sendsfrompreferredprocessor;
 }
 
-[CRepr]public struct SERVER_INFO_1586
+[CRepr]
+public struct SERVER_INFO_1586
 {
 	public uint32 sv1586_maxthreadsperqueue;
 }
 
-[CRepr]public struct SERVER_INFO_1587
+[CRepr]
+public struct SERVER_INFO_1587
 {
 	public uint32 sv1587_cacheddirectorylimit;
 }
 
-[CRepr]public struct SERVER_INFO_1588
+[CRepr]
+public struct SERVER_INFO_1588
 {
 	public uint32 sv1588_maxcopylength;
 }
 
-[CRepr]public struct SERVER_INFO_1590
+[CRepr]
+public struct SERVER_INFO_1590
 {
 	public uint32 sv1590_enablecompression;
 }
 
-[CRepr]public struct SERVER_INFO_1591
+[CRepr]
+public struct SERVER_INFO_1591
 {
 	public uint32 sv1591_autosharewks;
 }
 
-[CRepr]public struct SERVER_INFO_1592
+[CRepr]
+public struct SERVER_INFO_1592
 {
 	public uint32 sv1592_autosharewks;
 }
 
-[CRepr]public struct SERVER_INFO_1593
+[CRepr]
+public struct SERVER_INFO_1593
 {
 	public uint32 sv1593_enablesecuritysignature;
 }
 
-[CRepr]public struct SERVER_INFO_1594
+[CRepr]
+public struct SERVER_INFO_1594
 {
 	public uint32 sv1594_requiresecuritysignature;
 }
 
-[CRepr]public struct SERVER_INFO_1595
+[CRepr]
+public struct SERVER_INFO_1595
 {
 	public uint32 sv1595_minclientbuffersize;
 }
 
-[CRepr]public struct SERVER_INFO_1596
+[CRepr]
+public struct SERVER_INFO_1596
 {
 	public uint32 sv1596_ConnectionNoSessionsTimeout;
 }
 
-[CRepr]public struct SERVER_INFO_1597
+[CRepr]
+public struct SERVER_INFO_1597
 {
 	public uint32 sv1597_IdleThreadTimeOut;
 }
 
-[CRepr]public struct SERVER_INFO_1598
+[CRepr]
+public struct SERVER_INFO_1598
 {
 	public uint32 sv1598_enableW9xsecuritysignature;
 }
 
-[CRepr]public struct SERVER_INFO_1599
+[CRepr]
+public struct SERVER_INFO_1599
 {
 	public BOOLEAN sv1598_enforcekerberosreauthentication;
 }
 
-[CRepr]public struct SERVER_INFO_1600
+[CRepr]
+public struct SERVER_INFO_1600
 {
 	public BOOLEAN sv1598_disabledos;
 }
 
-[CRepr]public struct SERVER_INFO_1601
+[CRepr]
+public struct SERVER_INFO_1601
 {
 	public uint32 sv1598_lowdiskspaceminimum;
 }
 
-[CRepr]public struct SERVER_INFO_1602
+[CRepr]
+public struct SERVER_INFO_1602
 {
 	public BOOL sv_1598_disablestrictnamechecking;
 }
 
-[CRepr]public struct SERVER_TRANSPORT_INFO_0
+[CRepr]
+public struct SERVER_TRANSPORT_INFO_0
 {
 	public uint32 svti0_numberofvcs;
 	public PWSTR svti0_transportname;
@@ -5864,7 +6066,8 @@ public function void WORKERFUNCTION(void* param0);
 	public PWSTR svti0_networkaddress;
 }
 
-[CRepr]public struct SERVER_TRANSPORT_INFO_1
+[CRepr]
+public struct SERVER_TRANSPORT_INFO_1
 {
 	public uint32 svti1_numberofvcs;
 	public PWSTR svti1_transportname;
@@ -5874,7 +6077,8 @@ public function void WORKERFUNCTION(void* param0);
 	public PWSTR svti1_domain;
 }
 
-[CRepr]public struct SERVER_TRANSPORT_INFO_2
+[CRepr]
+public struct SERVER_TRANSPORT_INFO_2
 {
 	public uint32 svti2_numberofvcs;
 	public PWSTR svti2_transportname;
@@ -5885,7 +6089,8 @@ public function void WORKERFUNCTION(void* param0);
 	public uint32 svti2_flags;
 }
 
-[CRepr]public struct SERVER_TRANSPORT_INFO_3
+[CRepr]
+public struct SERVER_TRANSPORT_INFO_3
 {
 	public uint32 svti3_numberofvcs;
 	public PWSTR svti3_transportname;
@@ -5898,12 +6103,14 @@ public function void WORKERFUNCTION(void* param0);
 	public uint8[256] svti3_password;
 }
 
-[CRepr]public struct SERVICE_INFO_0
+[CRepr]
+public struct SERVICE_INFO_0
 {
 	public PWSTR svci0_name;
 }
 
-[CRepr]public struct SERVICE_INFO_1
+[CRepr]
+public struct SERVICE_INFO_1
 {
 	public PWSTR svci1_name;
 	public uint32 svci1_status;
@@ -5911,7 +6118,8 @@ public function void WORKERFUNCTION(void* param0);
 	public uint32 svci1_pid;
 }
 
-[CRepr]public struct SERVICE_INFO_2
+[CRepr]
+public struct SERVICE_INFO_2
 {
 	public PWSTR svci2_name;
 	public uint32 svci2_status;
@@ -5922,13 +6130,15 @@ public function void WORKERFUNCTION(void* param0);
 	public PWSTR svci2_display_name;
 }
 
-[CRepr]public struct USE_INFO_0
+[CRepr]
+public struct USE_INFO_0
 {
 	public PWSTR ui0_local;
 	public PWSTR ui0_remote;
 }
 
-[CRepr]public struct USE_INFO_1
+[CRepr]
+public struct USE_INFO_1
 {
 	public PWSTR ui1_local;
 	public PWSTR ui1_remote;
@@ -5939,7 +6149,8 @@ public function void WORKERFUNCTION(void* param0);
 	public uint32 ui1_usecount;
 }
 
-[CRepr]public struct USE_INFO_2
+[CRepr]
+public struct USE_INFO_2
 {
 	public PWSTR ui2_local;
 	public PWSTR ui2_remote;
@@ -5952,20 +6163,23 @@ public function void WORKERFUNCTION(void* param0);
 	public PWSTR ui2_domainname;
 }
 
-[CRepr]public struct USE_INFO_3
+[CRepr]
+public struct USE_INFO_3
 {
 	public USE_INFO_2 ui3_ui2;
 	public uint32 ui3_flags;
 }
 
-[CRepr]public struct USE_INFO_4
+[CRepr]
+public struct USE_INFO_4
 {
 	public USE_INFO_3 ui4_ui3;
 	public uint32 ui4_auth_identity_length;
 	public uint8* ui4_auth_identity;
 }
 
-[CRepr]public struct USE_INFO_5
+[CRepr]
+public struct USE_INFO_5
 {
 	public USE_INFO_3 ui4_ui3;
 	public uint32 ui4_auth_identity_length;
@@ -5976,34 +6190,39 @@ public function void WORKERFUNCTION(void* param0);
 	public uint8* ui5_use_options;
 }
 
-[CRepr]public struct USE_OPTION_GENERIC
+[CRepr]
+public struct USE_OPTION_GENERIC
 {
 	public uint32 Tag;
 	public uint16 Length;
 	public uint16 Reserved;
 }
 
-[CRepr]public struct USE_OPTION_DEFERRED_CONNECTION_PARAMETERS
+[CRepr]
+public struct USE_OPTION_DEFERRED_CONNECTION_PARAMETERS
 {
 	public uint32 Tag;
 	public uint16 Length;
 	public uint16 Reserved;
 }
 
-[CRepr]public struct TRANSPORT_INFO
+[CRepr]
+public struct TRANSPORT_INFO
 {
 	public TRANSPORT_TYPE Type;
 	public BOOLEAN SkipCertificateCheck;
 }
 
-[CRepr]public struct USE_OPTION_TRANSPORT_PARAMETERS
+[CRepr]
+public struct USE_OPTION_TRANSPORT_PARAMETERS
 {
 	public uint32 Tag;
 	public uint16 Length;
 	public uint16 Reserved;
 }
 
-[CRepr]public struct SMB_COMPRESSION_INFO
+[CRepr]
+public struct SMB_COMPRESSION_INFO
 {
 	public BOOLEAN Switch;
 	public uint8 Reserved1;
@@ -6011,14 +6230,16 @@ public function void WORKERFUNCTION(void* param0);
 	public uint32 Reserved3;
 }
 
-[CRepr]public struct SMB_USE_OPTION_COMPRESSION_PARAMETERS
+[CRepr]
+public struct SMB_USE_OPTION_COMPRESSION_PARAMETERS
 {
 	public uint32 Tag;
 	public uint16 Length;
 	public uint16 Reserved;
 }
 
-[CRepr]public struct SMB_TREE_CONNECT_PARAMETERS
+[CRepr]
+public struct SMB_TREE_CONNECT_PARAMETERS
 {
 	public uint32 EABufferOffset;
 	public uint32 EABufferLen;
@@ -6026,14 +6247,16 @@ public function void WORKERFUNCTION(void* param0);
 	public uint32 TreeConnectAttributes;
 }
 
-[CRepr]public struct USE_OPTION_PROPERTIES
+[CRepr]
+public struct USE_OPTION_PROPERTIES
 {
 	public uint32 Tag;
 	public void* pInfo;
 	public uint Length;
 }
 
-[CRepr]public struct WKSTA_INFO_100
+[CRepr]
+public struct WKSTA_INFO_100
 {
 	public uint32 wki100_platform_id;
 	public PWSTR wki100_computername;
@@ -6042,7 +6265,8 @@ public function void WORKERFUNCTION(void* param0);
 	public uint32 wki100_ver_minor;
 }
 
-[CRepr]public struct WKSTA_INFO_101
+[CRepr]
+public struct WKSTA_INFO_101
 {
 	public uint32 wki101_platform_id;
 	public PWSTR wki101_computername;
@@ -6052,7 +6276,8 @@ public function void WORKERFUNCTION(void* param0);
 	public PWSTR wki101_lanroot;
 }
 
-[CRepr]public struct WKSTA_INFO_102
+[CRepr]
+public struct WKSTA_INFO_102
 {
 	public uint32 wki102_platform_id;
 	public PWSTR wki102_computername;
@@ -6063,7 +6288,8 @@ public function void WORKERFUNCTION(void* param0);
 	public uint32 wki102_logged_on_users;
 }
 
-[CRepr]public struct WKSTA_INFO_302
+[CRepr]
+public struct WKSTA_INFO_302
 {
 	public uint32 wki302_char_wait;
 	public uint32 wki302_collection_time;
@@ -6087,7 +6313,8 @@ public function void WORKERFUNCTION(void* param0);
 	public uint32 wki302_num_dgram_buf;
 }
 
-[CRepr]public struct WKSTA_INFO_402
+[CRepr]
+public struct WKSTA_INFO_402
 {
 	public uint32 wki402_char_wait;
 	public uint32 wki402_collection_time;
@@ -6112,7 +6339,8 @@ public function void WORKERFUNCTION(void* param0);
 	public uint32 wki402_max_threads;
 }
 
-[CRepr]public struct WKSTA_INFO_502
+[CRepr]
+public struct WKSTA_INFO_502
 {
 	public uint32 wki502_char_wait;
 	public uint32 wki502_collection_time;
@@ -6151,172 +6379,206 @@ public function void WORKERFUNCTION(void* param0);
 	public BOOL wki502_use_512_byte_max_transfer;
 }
 
-[CRepr]public struct WKSTA_INFO_1010
+[CRepr]
+public struct WKSTA_INFO_1010
 {
 	public uint32 wki1010_char_wait;
 }
 
-[CRepr]public struct WKSTA_INFO_1011
+[CRepr]
+public struct WKSTA_INFO_1011
 {
 	public uint32 wki1011_collection_time;
 }
 
-[CRepr]public struct WKSTA_INFO_1012
+[CRepr]
+public struct WKSTA_INFO_1012
 {
 	public uint32 wki1012_maximum_collection_count;
 }
 
-[CRepr]public struct WKSTA_INFO_1027
+[CRepr]
+public struct WKSTA_INFO_1027
 {
 	public uint32 wki1027_errlog_sz;
 }
 
-[CRepr]public struct WKSTA_INFO_1028
+[CRepr]
+public struct WKSTA_INFO_1028
 {
 	public uint32 wki1028_print_buf_time;
 }
 
-[CRepr]public struct WKSTA_INFO_1032
+[CRepr]
+public struct WKSTA_INFO_1032
 {
 	public uint32 wki1032_wrk_heuristics;
 }
 
-[CRepr]public struct WKSTA_INFO_1013
+[CRepr]
+public struct WKSTA_INFO_1013
 {
 	public uint32 wki1013_keep_conn;
 }
 
-[CRepr]public struct WKSTA_INFO_1018
+[CRepr]
+public struct WKSTA_INFO_1018
 {
 	public uint32 wki1018_sess_timeout;
 }
 
-[CRepr]public struct WKSTA_INFO_1023
+[CRepr]
+public struct WKSTA_INFO_1023
 {
 	public uint32 wki1023_siz_char_buf;
 }
 
-[CRepr]public struct WKSTA_INFO_1033
+[CRepr]
+public struct WKSTA_INFO_1033
 {
 	public uint32 wki1033_max_threads;
 }
 
-[CRepr]public struct WKSTA_INFO_1041
+[CRepr]
+public struct WKSTA_INFO_1041
 {
 	public uint32 wki1041_lock_quota;
 }
 
-[CRepr]public struct WKSTA_INFO_1042
+[CRepr]
+public struct WKSTA_INFO_1042
 {
 	public uint32 wki1042_lock_increment;
 }
 
-[CRepr]public struct WKSTA_INFO_1043
+[CRepr]
+public struct WKSTA_INFO_1043
 {
 	public uint32 wki1043_lock_maximum;
 }
 
-[CRepr]public struct WKSTA_INFO_1044
+[CRepr]
+public struct WKSTA_INFO_1044
 {
 	public uint32 wki1044_pipe_increment;
 }
 
-[CRepr]public struct WKSTA_INFO_1045
+[CRepr]
+public struct WKSTA_INFO_1045
 {
 	public uint32 wki1045_pipe_maximum;
 }
 
-[CRepr]public struct WKSTA_INFO_1046
+[CRepr]
+public struct WKSTA_INFO_1046
 {
 	public uint32 wki1046_dormant_file_limit;
 }
 
-[CRepr]public struct WKSTA_INFO_1047
+[CRepr]
+public struct WKSTA_INFO_1047
 {
 	public uint32 wki1047_cache_file_timeout;
 }
 
-[CRepr]public struct WKSTA_INFO_1048
+[CRepr]
+public struct WKSTA_INFO_1048
 {
 	public BOOL wki1048_use_opportunistic_locking;
 }
 
-[CRepr]public struct WKSTA_INFO_1049
+[CRepr]
+public struct WKSTA_INFO_1049
 {
 	public BOOL wki1049_use_unlock_behind;
 }
 
-[CRepr]public struct WKSTA_INFO_1050
+[CRepr]
+public struct WKSTA_INFO_1050
 {
 	public BOOL wki1050_use_close_behind;
 }
 
-[CRepr]public struct WKSTA_INFO_1051
+[CRepr]
+public struct WKSTA_INFO_1051
 {
 	public BOOL wki1051_buf_named_pipes;
 }
 
-[CRepr]public struct WKSTA_INFO_1052
+[CRepr]
+public struct WKSTA_INFO_1052
 {
 	public BOOL wki1052_use_lock_read_unlock;
 }
 
-[CRepr]public struct WKSTA_INFO_1053
+[CRepr]
+public struct WKSTA_INFO_1053
 {
 	public BOOL wki1053_utilize_nt_caching;
 }
 
-[CRepr]public struct WKSTA_INFO_1054
+[CRepr]
+public struct WKSTA_INFO_1054
 {
 	public BOOL wki1054_use_raw_read;
 }
 
-[CRepr]public struct WKSTA_INFO_1055
+[CRepr]
+public struct WKSTA_INFO_1055
 {
 	public BOOL wki1055_use_raw_write;
 }
 
-[CRepr]public struct WKSTA_INFO_1056
+[CRepr]
+public struct WKSTA_INFO_1056
 {
 	public BOOL wki1056_use_write_raw_data;
 }
 
-[CRepr]public struct WKSTA_INFO_1057
+[CRepr]
+public struct WKSTA_INFO_1057
 {
 	public BOOL wki1057_use_encryption;
 }
 
-[CRepr]public struct WKSTA_INFO_1058
+[CRepr]
+public struct WKSTA_INFO_1058
 {
 	public BOOL wki1058_buf_files_deny_write;
 }
 
-[CRepr]public struct WKSTA_INFO_1059
+[CRepr]
+public struct WKSTA_INFO_1059
 {
 	public BOOL wki1059_buf_read_only_files;
 }
 
-[CRepr]public struct WKSTA_INFO_1060
+[CRepr]
+public struct WKSTA_INFO_1060
 {
 	public BOOL wki1060_force_core_create_mode;
 }
 
-[CRepr]public struct WKSTA_INFO_1061
+[CRepr]
+public struct WKSTA_INFO_1061
 {
 	public BOOL wki1061_use_512_byte_max_transfer;
 }
 
-[CRepr]public struct WKSTA_INFO_1062
+[CRepr]
+public struct WKSTA_INFO_1062
 {
 	public uint32 wki1062_read_ahead_throughput;
 }
 
-[CRepr]public struct WKSTA_USER_INFO_0
+[CRepr]
+public struct WKSTA_USER_INFO_0
 {
 	public PWSTR wkui0_username;
 }
 
-[CRepr]public struct WKSTA_USER_INFO_1
+[CRepr]
+public struct WKSTA_USER_INFO_1
 {
 	public PWSTR wkui1_username;
 	public PWSTR wkui1_logon_domain;
@@ -6324,12 +6586,14 @@ public function void WORKERFUNCTION(void* param0);
 	public PWSTR wkui1_logon_server;
 }
 
-[CRepr]public struct WKSTA_USER_INFO_1101
+[CRepr]
+public struct WKSTA_USER_INFO_1101
 {
 	public PWSTR wkui1101_oth_domains;
 }
 
-[CRepr]public struct WKSTA_TRANSPORT_INFO_0
+[CRepr]
+public struct WKSTA_TRANSPORT_INFO_0
 {
 	public uint32 wkti0_quality_of_service;
 	public uint32 wkti0_number_of_vcs;
@@ -6338,7 +6602,8 @@ public function void WORKERFUNCTION(void* param0);
 	public BOOL wkti0_wan_ish;
 }
 
-[CRepr]public struct ERROR_LOG
+[CRepr]
+public struct ERROR_LOG
 {
 	public uint32 el_len;
 	public uint32 el_reserved;
@@ -6351,7 +6616,8 @@ public function void WORKERFUNCTION(void* param0);
 	public uint32 el_nstrings;
 }
 
-[CRepr]public struct HLOG
+[CRepr]
+public struct HLOG
 {
 	public uint32 time;
 	public uint32 last_flags;
@@ -6359,13 +6625,15 @@ public function void WORKERFUNCTION(void* param0);
 	public uint32 rec_offset;
 }
 
-[CRepr]public struct CONFIG_INFO_0
+[CRepr]
+public struct CONFIG_INFO_0
 {
 	public PWSTR cfgi0_key;
 	public PWSTR cfgi0_data;
 }
 
-[CRepr]public struct AUDIT_ENTRY
+[CRepr]
+public struct AUDIT_ENTRY
 {
 	public uint32 ae_len;
 	public uint32 ae_reserved;
@@ -6375,32 +6643,37 @@ public function void WORKERFUNCTION(void* param0);
 	public uint32 ae_data_size;
 }
 
-[CRepr]public struct AE_SRVSTATUS
+[CRepr]
+public struct AE_SRVSTATUS
 {
 	public uint32 ae_sv_status;
 }
 
-[CRepr]public struct AE_SESSLOGON
+[CRepr]
+public struct AE_SESSLOGON
 {
 	public uint32 ae_so_compname;
 	public uint32 ae_so_username;
 	public uint32 ae_so_privilege;
 }
 
-[CRepr]public struct AE_SESSLOGOFF
+[CRepr]
+public struct AE_SESSLOGOFF
 {
 	public uint32 ae_sf_compname;
 	public uint32 ae_sf_username;
 	public uint32 ae_sf_reason;
 }
 
-[CRepr]public struct AE_SESSPWERR
+[CRepr]
+public struct AE_SESSPWERR
 {
 	public uint32 ae_sp_compname;
 	public uint32 ae_sp_username;
 }
 
-[CRepr]public struct AE_CONNSTART
+[CRepr]
+public struct AE_CONNSTART
 {
 	public uint32 ae_ct_compname;
 	public uint32 ae_ct_username;
@@ -6408,7 +6681,8 @@ public function void WORKERFUNCTION(void* param0);
 	public uint32 ae_ct_connid;
 }
 
-[CRepr]public struct AE_CONNSTOP
+[CRepr]
+public struct AE_CONNSTOP
 {
 	public uint32 ae_cp_compname;
 	public uint32 ae_cp_username;
@@ -6417,7 +6691,8 @@ public function void WORKERFUNCTION(void* param0);
 	public uint32 ae_cp_reason;
 }
 
-[CRepr]public struct AE_CONNREJ
+[CRepr]
+public struct AE_CONNREJ
 {
 	public uint32 ae_cr_compname;
 	public uint32 ae_cr_username;
@@ -6425,7 +6700,8 @@ public function void WORKERFUNCTION(void* param0);
 	public uint32 ae_cr_reason;
 }
 
-[CRepr]public struct AE_RESACCESS
+[CRepr]
+public struct AE_RESACCESS
 {
 	public uint32 ae_ra_compname;
 	public uint32 ae_ra_username;
@@ -6436,7 +6712,8 @@ public function void WORKERFUNCTION(void* param0);
 	public uint32 ae_ra_fileid;
 }
 
-[CRepr]public struct AE_RESACCESSREJ
+[CRepr]
+public struct AE_RESACCESSREJ
 {
 	public uint32 ae_rr_compname;
 	public uint32 ae_rr_username;
@@ -6444,7 +6721,8 @@ public function void WORKERFUNCTION(void* param0);
 	public uint32 ae_rr_operation;
 }
 
-[CRepr]public struct AE_CLOSEFILE
+[CRepr]
+public struct AE_CLOSEFILE
 {
 	public uint32 ae_cf_compname;
 	public uint32 ae_cf_username;
@@ -6454,7 +6732,8 @@ public function void WORKERFUNCTION(void* param0);
 	public uint32 ae_cf_reason;
 }
 
-[CRepr]public struct AE_SERVICESTAT
+[CRepr]
+public struct AE_SERVICESTAT
 {
 	public uint32 ae_ss_compname;
 	public uint32 ae_ss_username;
@@ -6465,7 +6744,8 @@ public function void WORKERFUNCTION(void* param0);
 	public uint32 ae_ss_returnval;
 }
 
-[CRepr]public struct AE_ACLMOD
+[CRepr]
+public struct AE_ACLMOD
 {
 	public uint32 ae_am_compname;
 	public uint32 ae_am_username;
@@ -6474,7 +6754,8 @@ public function void WORKERFUNCTION(void* param0);
 	public uint32 ae_am_datalen;
 }
 
-[CRepr]public struct AE_UASMOD
+[CRepr]
+public struct AE_UASMOD
 {
 	public uint32 ae_um_compname;
 	public uint32 ae_um_username;
@@ -6484,7 +6765,8 @@ public function void WORKERFUNCTION(void* param0);
 	public uint32 ae_um_datalen;
 }
 
-[CRepr]public struct AE_NETLOGON
+[CRepr]
+public struct AE_NETLOGON
 {
 	public uint32 ae_no_compname;
 	public uint32 ae_no_username;
@@ -6492,7 +6774,8 @@ public function void WORKERFUNCTION(void* param0);
 	public uint32 ae_no_authflags;
 }
 
-[CRepr]public struct AE_NETLOGOFF
+[CRepr]
+public struct AE_NETLOGOFF
 {
 	public uint32 ae_nf_compname;
 	public uint32 ae_nf_username;
@@ -6500,7 +6783,8 @@ public function void WORKERFUNCTION(void* param0);
 	public uint32 ae_nf_reserved2;
 }
 
-[CRepr]public struct AE_ACCLIM
+[CRepr]
+public struct AE_ACCLIM
 {
 	public uint32 ae_al_compname;
 	public uint32 ae_al_username;
@@ -6508,7 +6792,8 @@ public function void WORKERFUNCTION(void* param0);
 	public uint32 ae_al_limit;
 }
 
-[CRepr]public struct AE_LOCKOUT
+[CRepr]
+public struct AE_LOCKOUT
 {
 	public uint32 ae_lk_compname;
 	public uint32 ae_lk_username;
@@ -6516,7 +6801,8 @@ public function void WORKERFUNCTION(void* param0);
 	public uint32 ae_lk_bad_pw_count;
 }
 
-[CRepr]public struct AE_GENERIC
+[CRepr]
+public struct AE_GENERIC
 {
 	public uint32 ae_ge_msgfile;
 	public uint32 ae_ge_msgnum;
@@ -6532,14 +6818,16 @@ public function void WORKERFUNCTION(void* param0);
 	public uint32 ae_ge_param9;
 }
 
-[CRepr]public struct DSREG_USER_INFO
+[CRepr]
+public struct DSREG_USER_INFO
 {
 	public PWSTR pszUserEmail;
 	public PWSTR pszUserKeyId;
 	public PWSTR pszUserKeyName;
 }
 
-[CRepr]public struct DSREG_JOIN_INFO
+[CRepr]
+public struct DSREG_JOIN_INFO
 {
 	public DSREG_JOIN_TYPE joinType;
 	public CERT_CONTEXT* pJoinCertificate;
@@ -6555,7 +6843,8 @@ public function void WORKERFUNCTION(void* param0);
 	public DSREG_USER_INFO* pUserInfo;
 }
 
-[CRepr]public struct NETSETUP_PROVISIONING_PARAMS
+[CRepr]
+public struct NETSETUP_PROVISIONING_PARAMS
 {
 	public uint32 dwVersion;
 	public PWSTR lpDomain;
@@ -6574,7 +6863,8 @@ public function void WORKERFUNCTION(void* param0);
 	public PWSTR lpPrimaryDNSDomain;
 }
 
-[CRepr]public struct AT_INFO
+[CRepr]
+public struct AT_INFO
 {
 	public uint JobTime;
 	public uint32 DaysOfMonth;
@@ -6583,7 +6873,8 @@ public function void WORKERFUNCTION(void* param0);
 	public PWSTR Command;
 }
 
-[CRepr]public struct AT_ENUM
+[CRepr]
+public struct AT_ENUM
 {
 	public uint32 JobId;
 	public uint JobTime;
@@ -6593,24 +6884,28 @@ public function void WORKERFUNCTION(void* param0);
 	public PWSTR Command;
 }
 
-[CRepr]public struct FLAT_STRING
+[CRepr]
+public struct FLAT_STRING
 {
 	public int16 MaximumLength;
 	public int16 Length;
 	public CHAR[1] Buffer;
 }
 
-[CRepr]public struct NETWORK_NAME
+[CRepr]
+public struct NETWORK_NAME
 {
 	public FLAT_STRING Name;
 }
 
-[CRepr]public struct HARDWARE_ADDRESS
+[CRepr]
+public struct HARDWARE_ADDRESS
 {
 	public uint8[6] Address;
 }
 
-[CRepr]public struct OBO_TOKEN
+[CRepr]
+public struct OBO_TOKEN
 {
 	public OBO_TOKEN_TYPE Type;
 	public INetCfgComponent* pncc;
@@ -6620,7 +6915,8 @@ public function void WORKERFUNCTION(void* param0);
 	public BOOL fRegistered;
 }
 
-[CRepr]public struct RASCON_IPUI
+[CRepr]
+public struct RASCON_IPUI
 {
 	public Guid guidConnection;
 	public BOOL fIPv6Cfg;
@@ -6639,7 +6935,8 @@ public function void WORKERFUNCTION(void* param0);
 	public uint32 dwIPv6InfMetric;
 }
 
-[CRepr]public struct RTR_TOC_ENTRY
+[CRepr]
+public struct RTR_TOC_ENTRY
 {
 	public uint32 InfoType;
 	public uint32 InfoSize;
@@ -6647,7 +6944,8 @@ public function void WORKERFUNCTION(void* param0);
 	public uint32 Offset;
 }
 
-[CRepr]public struct RTR_INFO_BLOCK_HEADER
+[CRepr]
+public struct RTR_INFO_BLOCK_HEADER
 {
 	public uint32 Version;
 	public uint32 Size;
@@ -6655,7 +6953,8 @@ public function void WORKERFUNCTION(void* param0);
 	public RTR_TOC_ENTRY[1] TocEntry;
 }
 
-[CRepr]public struct MPR_PROTOCOL_0
+[CRepr]
+public struct MPR_PROTOCOL_0
 {
 	public uint32 dwProtocolId;
 	public char8[41] wszProtocol;

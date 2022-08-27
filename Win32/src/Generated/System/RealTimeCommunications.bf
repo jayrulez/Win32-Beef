@@ -964,7 +964,8 @@ public enum RTC_REINVITE_STATE : int32
 #endregion
 
 #region Structs
-[CRepr]public struct TRANSPORT_SETTING
+[CRepr]
+public struct TRANSPORT_SETTING
 {
 	public TRANSPORT_SETTING_ID SettingId;
 	public uint32* Length;

@@ -158,7 +158,8 @@ public enum XINPUT_VIRTUAL_KEY : uint16
 #endregion
 
 #region Structs
-[CRepr]public struct XINPUT_GAMEPAD
+[CRepr]
+public struct XINPUT_GAMEPAD
 {
 	public uint16 wButtons;
 	public uint8 bLeftTrigger;
@@ -169,19 +170,22 @@ public enum XINPUT_VIRTUAL_KEY : uint16
 	public int16 sThumbRY;
 }
 
-[CRepr]public struct XINPUT_STATE
+[CRepr]
+public struct XINPUT_STATE
 {
 	public uint32 dwPacketNumber;
 	public XINPUT_GAMEPAD Gamepad;
 }
 
-[CRepr]public struct XINPUT_VIBRATION
+[CRepr]
+public struct XINPUT_VIBRATION
 {
 	public uint16 wLeftMotorSpeed;
 	public uint16 wRightMotorSpeed;
 }
 
-[CRepr]public struct XINPUT_CAPABILITIES
+[CRepr]
+public struct XINPUT_CAPABILITIES
 {
 	public uint8 Type;
 	public uint8 SubType;
@@ -190,13 +194,15 @@ public enum XINPUT_VIRTUAL_KEY : uint16
 	public XINPUT_VIBRATION Vibration;
 }
 
-[CRepr]public struct XINPUT_BATTERY_INFORMATION
+[CRepr]
+public struct XINPUT_BATTERY_INFORMATION
 {
 	public uint8 BatteryType;
 	public uint8 BatteryLevel;
 }
 
-[CRepr]public struct XINPUT_KEYSTROKE
+[CRepr]
+public struct XINPUT_KEYSTROKE
 {
 	public XINPUT_VIRTUAL_KEY VirtualKey;
 	public char8 Unicode;

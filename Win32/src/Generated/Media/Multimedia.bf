@@ -9349,13 +9349,15 @@ public function BOOL LPFNEXTDEVIO(LPARAM lParam, uint32 dwFlags, uint32 dwIoCont
 #endregion
 
 #region Structs
-[CRepr, Packed(1)]public struct ADPCMCOEFSET
+[CRepr, Packed(1)]
+public struct ADPCMCOEFSET
 {
 	public int16 iCoef1;
 	public int16 iCoef2;
 }
 
-[CRepr, Packed(1)]public struct ADPCMWAVEFORMAT
+[CRepr, Packed(1)]
+public struct ADPCMWAVEFORMAT
 {
 	public WAVEFORMATEX wfx;
 	public uint16 wSamplesPerBlock;
@@ -9363,7 +9365,8 @@ public function BOOL LPFNEXTDEVIO(LPARAM lParam, uint32 dwFlags, uint32 dwIoCont
 	public ADPCMCOEFSET[1] aCoef;
 }
 
-[CRepr, Packed(1)]public struct DRMWAVEFORMAT
+[CRepr, Packed(1)]
+public struct DRMWAVEFORMAT
 {
 	public WAVEFORMATEX wfx;
 	public uint16 wReserved;
@@ -9371,64 +9374,75 @@ public function BOOL LPFNEXTDEVIO(LPARAM lParam, uint32 dwFlags, uint32 dwIoCont
 	public WAVEFORMATEX wfxSecure;
 }
 
-[CRepr, Packed(1)]public struct DVIADPCMWAVEFORMAT
+[CRepr, Packed(1)]
+public struct DVIADPCMWAVEFORMAT
 {
 	public WAVEFORMATEX wfx;
 	public uint16 wSamplesPerBlock;
 }
 
-[CRepr, Packed(1)]public struct IMAADPCMWAVEFORMAT
+[CRepr, Packed(1)]
+public struct IMAADPCMWAVEFORMAT
 {
 	public WAVEFORMATEX wfx;
 	public uint16 wSamplesPerBlock;
 }
 
-[CRepr, Packed(1)]public struct MEDIASPACEADPCMWAVEFORMAT
+[CRepr, Packed(1)]
+public struct MEDIASPACEADPCMWAVEFORMAT
 {
 	public WAVEFORMATEX wfx;
 	public uint16 wRevision;
 }
 
-[CRepr, Packed(1)]public struct SIERRAADPCMWAVEFORMAT
+[CRepr, Packed(1)]
+public struct SIERRAADPCMWAVEFORMAT
 {
 	public WAVEFORMATEX wfx;
 	public uint16 wRevision;
 }
 
-[CRepr, Packed(1)]public struct G723_ADPCMWAVEFORMAT
+[CRepr, Packed(1)]
+public struct G723_ADPCMWAVEFORMAT
 {
 	public WAVEFORMATEX wfx;
 	public uint16 cbExtraSize;
 	public uint16 nAuxBlockSize;
 }
 
-[CRepr, Packed(1)]public struct DIGISTDWAVEFORMAT
+[CRepr, Packed(1)]
+public struct DIGISTDWAVEFORMAT
 {
 	public WAVEFORMATEX wfx;
 }
 
-[CRepr, Packed(1)]public struct DIGIFIXWAVEFORMAT
+[CRepr, Packed(1)]
+public struct DIGIFIXWAVEFORMAT
 {
 	public WAVEFORMATEX wfx;
 }
 
-[CRepr, Packed(1)]public struct DIALOGICOKIADPCMWAVEFORMAT
+[CRepr, Packed(1)]
+public struct DIALOGICOKIADPCMWAVEFORMAT
 {
 	public WAVEFORMATEX ewf;
 }
 
-[CRepr, Packed(1)]public struct YAMAHA_ADPCMWAVEFORMAT
+[CRepr, Packed(1)]
+public struct YAMAHA_ADPCMWAVEFORMAT
 {
 	public WAVEFORMATEX wfx;
 }
 
-[CRepr, Packed(1)]public struct SONARCWAVEFORMAT
+[CRepr, Packed(1)]
+public struct SONARCWAVEFORMAT
 {
 	public WAVEFORMATEX wfx;
 	public uint16 wCompType;
 }
 
-[CRepr, Packed(1)]public struct TRUESPEECHWAVEFORMAT
+[CRepr, Packed(1)]
+public struct TRUESPEECHWAVEFORMAT
 {
 	public WAVEFORMATEX wfx;
 	public uint16 wRevision;
@@ -9436,88 +9450,103 @@ public function BOOL LPFNEXTDEVIO(LPARAM lParam, uint32 dwFlags, uint32 dwIoCont
 	public uint8[28] abReserved;
 }
 
-[CRepr, Packed(1)]public struct ECHOSC1WAVEFORMAT
+[CRepr, Packed(1)]
+public struct ECHOSC1WAVEFORMAT
 {
 	public WAVEFORMATEX wfx;
 }
 
-[CRepr, Packed(1)]public struct AUDIOFILE_AF36WAVEFORMAT
+[CRepr, Packed(1)]
+public struct AUDIOFILE_AF36WAVEFORMAT
 {
 	public WAVEFORMATEX wfx;
 }
 
-[CRepr, Packed(1)]public struct APTXWAVEFORMAT
+[CRepr, Packed(1)]
+public struct APTXWAVEFORMAT
 {
 	public WAVEFORMATEX wfx;
 }
 
-[CRepr, Packed(1)]public struct AUDIOFILE_AF10WAVEFORMAT
+[CRepr, Packed(1)]
+public struct AUDIOFILE_AF10WAVEFORMAT
 {
 	public WAVEFORMATEX wfx;
 }
 
-[CRepr, Packed(1)]public struct DOLBYAC2WAVEFORMAT
+[CRepr, Packed(1)]
+public struct DOLBYAC2WAVEFORMAT
 {
 	public WAVEFORMATEX wfx;
 	public uint16 nAuxBitsCode;
 }
 
-[CRepr, Packed(1)]public struct GSM610WAVEFORMAT
+[CRepr, Packed(1)]
+public struct GSM610WAVEFORMAT
 {
 	public WAVEFORMATEX wfx;
 	public uint16 wSamplesPerBlock;
 }
 
-[CRepr, Packed(1)]public struct ADPCMEWAVEFORMAT
+[CRepr, Packed(1)]
+public struct ADPCMEWAVEFORMAT
 {
 	public WAVEFORMATEX wfx;
 	public uint16 wSamplesPerBlock;
 }
 
-[CRepr, Packed(1)]public struct CONTRESVQLPCWAVEFORMAT
+[CRepr, Packed(1)]
+public struct CONTRESVQLPCWAVEFORMAT
 {
 	public WAVEFORMATEX wfx;
 	public uint16 wSamplesPerBlock;
 }
 
-[CRepr, Packed(1)]public struct DIGIREALWAVEFORMAT
+[CRepr, Packed(1)]
+public struct DIGIREALWAVEFORMAT
 {
 	public WAVEFORMATEX wfx;
 	public uint16 wSamplesPerBlock;
 }
 
-[CRepr, Packed(1)]public struct DIGIADPCMWAVEFORMAT
+[CRepr, Packed(1)]
+public struct DIGIADPCMWAVEFORMAT
 {
 	public WAVEFORMATEX wfx;
 	public uint16 wSamplesPerBlock;
 }
 
-[CRepr, Packed(1)]public struct CONTRESCR10WAVEFORMAT
+[CRepr, Packed(1)]
+public struct CONTRESCR10WAVEFORMAT
 {
 	public WAVEFORMATEX wfx;
 	public uint16 wSamplesPerBlock;
 }
 
-[CRepr, Packed(1)]public struct NMS_VBXADPCMWAVEFORMAT
+[CRepr, Packed(1)]
+public struct NMS_VBXADPCMWAVEFORMAT
 {
 	public WAVEFORMATEX wfx;
 	public uint16 wSamplesPerBlock;
 }
 
-[CRepr, Packed(1)]public struct G721_ADPCMWAVEFORMAT
+[CRepr, Packed(1)]
+public struct G721_ADPCMWAVEFORMAT
 {
 	public WAVEFORMATEX wfx;
 	public uint16 nAuxBlockSize;
 }
 
-[CRepr, Packed(1)]public struct MSAUDIO1WAVEFORMAT
+[CRepr, Packed(1)]
+public struct MSAUDIO1WAVEFORMAT
 {
 	public WAVEFORMATEX wfx;
 	public uint16 wSamplesPerBlock;
 	public uint16 wEncodeOptions;
 }
 
-[CRepr, Packed(1)]public struct WMAUDIO2WAVEFORMAT
+[CRepr, Packed(1)]
+public struct WMAUDIO2WAVEFORMAT
 {
 	public WAVEFORMATEX wfx;
 	public uint32 dwSamplesPerBlock;
@@ -9525,7 +9554,8 @@ public function BOOL LPFNEXTDEVIO(LPARAM lParam, uint32 dwFlags, uint32 dwIoCont
 	public uint32 dwSuperBlockAlign;
 }
 
-[CRepr, Packed(1)]public struct WMAUDIO3WAVEFORMAT
+[CRepr, Packed(1)]
+public struct WMAUDIO3WAVEFORMAT
 {
 	public WAVEFORMATEX wfx;
 	public uint16 wValidBitsPerSample;
@@ -9536,61 +9566,72 @@ public function BOOL LPFNEXTDEVIO(LPARAM lParam, uint32 dwFlags, uint32 dwIoCont
 	public uint16 wReserved3;
 }
 
-[CRepr, Packed(1)]public struct CREATIVEADPCMWAVEFORMAT
+[CRepr, Packed(1)]
+public struct CREATIVEADPCMWAVEFORMAT
 {
 	public WAVEFORMATEX wfx;
 	public uint16 wRevision;
 }
 
-[CRepr, Packed(1)]public struct CREATIVEFASTSPEECH8WAVEFORMAT
+[CRepr, Packed(1)]
+public struct CREATIVEFASTSPEECH8WAVEFORMAT
 {
 	public WAVEFORMATEX wfx;
 	public uint16 wRevision;
 }
 
-[CRepr, Packed(1)]public struct CREATIVEFASTSPEECH10WAVEFORMAT
+[CRepr, Packed(1)]
+public struct CREATIVEFASTSPEECH10WAVEFORMAT
 {
 	public WAVEFORMATEX wfx;
 	public uint16 wRevision;
 }
 
-[CRepr, Packed(1)]public struct FMTOWNS_SND_WAVEFORMAT
+[CRepr, Packed(1)]
+public struct FMTOWNS_SND_WAVEFORMAT
 {
 	public WAVEFORMATEX wfx;
 	public uint16 wRevision;
 }
 
-[CRepr, Packed(1)]public struct OLIGSMWAVEFORMAT
+[CRepr, Packed(1)]
+public struct OLIGSMWAVEFORMAT
 {
 	public WAVEFORMATEX wfx;
 }
 
-[CRepr, Packed(1)]public struct OLIADPCMWAVEFORMAT
+[CRepr, Packed(1)]
+public struct OLIADPCMWAVEFORMAT
 {
 	public WAVEFORMATEX wfx;
 }
 
-[CRepr, Packed(1)]public struct OLICELPWAVEFORMAT
+[CRepr, Packed(1)]
+public struct OLICELPWAVEFORMAT
 {
 	public WAVEFORMATEX wfx;
 }
 
-[CRepr, Packed(1)]public struct OLISBCWAVEFORMAT
+[CRepr, Packed(1)]
+public struct OLISBCWAVEFORMAT
 {
 	public WAVEFORMATEX wfx;
 }
 
-[CRepr, Packed(1)]public struct OLIOPRWAVEFORMAT
+[CRepr, Packed(1)]
+public struct OLIOPRWAVEFORMAT
 {
 	public WAVEFORMATEX wfx;
 }
 
-[CRepr, Packed(1)]public struct CSIMAADPCMWAVEFORMAT
+[CRepr, Packed(1)]
+public struct CSIMAADPCMWAVEFORMAT
 {
 	public WAVEFORMATEX wfx;
 }
 
-[CRepr]public struct s_RIFFWAVE_inst
+[CRepr]
+public struct s_RIFFWAVE_inst
 {
 	public uint8 bUnshiftedNote;
 	public CHAR chFineTune;
@@ -9601,13 +9642,15 @@ public function BOOL LPFNEXTDEVIO(LPARAM lParam, uint32 dwFlags, uint32 dwIoCont
 	public uint8 bHighVelocity;
 }
 
-[CRepr, Packed(1)]public struct EXBMINFOHEADER
+[CRepr, Packed(1)]
+public struct EXBMINFOHEADER
 {
 	public BITMAPINFOHEADER bmi;
 	public uint32 biExtDataOffset;
 }
 
-[CRepr, Packed(1)]public struct JPEGINFOHEADER
+[CRepr, Packed(1)]
+public struct JPEGINFOHEADER
 {
 	public uint32 JPEGSize;
 	public uint32 JPEGProcess;
@@ -9617,12 +9660,14 @@ public function BOOL LPFNEXTDEVIO(LPARAM lParam, uint32 dwFlags, uint32 dwIoCont
 	public uint32 JPEGVSubSampling;
 }
 
-[CRepr, Packed(1)]public struct MCI_GENERIC_PARMS
+[CRepr, Packed(1)]
+public struct MCI_GENERIC_PARMS
 {
 	public uint dwCallback;
 }
 
-[CRepr, Packed(1)]public struct MCI_OPEN_PARMSA
+[CRepr, Packed(1)]
+public struct MCI_OPEN_PARMSA
 {
 	public uint dwCallback;
 	public uint32 wDeviceID;
@@ -9631,7 +9676,8 @@ public function BOOL LPFNEXTDEVIO(LPARAM lParam, uint32 dwFlags, uint32 dwIoCont
 	public PSTR lpstrAlias;
 }
 
-[CRepr, Packed(1)]public struct MCI_OPEN_PARMSW
+[CRepr, Packed(1)]
+public struct MCI_OPEN_PARMSW
 {
 	public uint dwCallback;
 	public uint32 wDeviceID;
@@ -9640,20 +9686,23 @@ public function BOOL LPFNEXTDEVIO(LPARAM lParam, uint32 dwFlags, uint32 dwIoCont
 	public PWSTR lpstrAlias;
 }
 
-[CRepr, Packed(1)]public struct MCI_PLAY_PARMS
+[CRepr, Packed(1)]
+public struct MCI_PLAY_PARMS
 {
 	public uint dwCallback;
 	public uint32 dwFrom;
 	public uint32 dwTo;
 }
 
-[CRepr, Packed(1)]public struct MCI_SEEK_PARMS
+[CRepr, Packed(1)]
+public struct MCI_SEEK_PARMS
 {
 	public uint dwCallback;
 	public uint32 dwTo;
 }
 
-[CRepr, Packed(1)]public struct MCI_STATUS_PARMS
+[CRepr, Packed(1)]
+public struct MCI_STATUS_PARMS
 {
 	public uint dwCallback;
 	public uint dwReturn;
@@ -9661,28 +9710,32 @@ public function BOOL LPFNEXTDEVIO(LPARAM lParam, uint32 dwFlags, uint32 dwIoCont
 	public uint32 dwTrack;
 }
 
-[CRepr, Packed(1)]public struct MCI_INFO_PARMSA
+[CRepr, Packed(1)]
+public struct MCI_INFO_PARMSA
 {
 	public uint dwCallback;
 	public PSTR lpstrReturn;
 	public uint32 dwRetSize;
 }
 
-[CRepr, Packed(1)]public struct MCI_INFO_PARMSW
+[CRepr, Packed(1)]
+public struct MCI_INFO_PARMSW
 {
 	public uint dwCallback;
 	public PWSTR lpstrReturn;
 	public uint32 dwRetSize;
 }
 
-[CRepr, Packed(1)]public struct MCI_GETDEVCAPS_PARMS
+[CRepr, Packed(1)]
+public struct MCI_GETDEVCAPS_PARMS
 {
 	public uint dwCallback;
 	public uint32 dwReturn;
 	public uint32 dwItem;
 }
 
-[CRepr, Packed(1)]public struct MCI_SYSINFO_PARMSA
+[CRepr, Packed(1)]
+public struct MCI_SYSINFO_PARMSA
 {
 	public uint dwCallback;
 	public PSTR lpstrReturn;
@@ -9691,7 +9744,8 @@ public function BOOL LPFNEXTDEVIO(LPARAM lParam, uint32 dwFlags, uint32 dwIoCont
 	public uint32 wDeviceType;
 }
 
-[CRepr, Packed(1)]public struct MCI_SYSINFO_PARMSW
+[CRepr, Packed(1)]
+public struct MCI_SYSINFO_PARMSW
 {
 	public uint dwCallback;
 	public PWSTR lpstrReturn;
@@ -9700,52 +9754,60 @@ public function BOOL LPFNEXTDEVIO(LPARAM lParam, uint32 dwFlags, uint32 dwIoCont
 	public uint32 wDeviceType;
 }
 
-[CRepr, Packed(1)]public struct MCI_SET_PARMS
+[CRepr, Packed(1)]
+public struct MCI_SET_PARMS
 {
 	public uint dwCallback;
 	public uint32 dwTimeFormat;
 	public uint32 dwAudio;
 }
 
-[CRepr, Packed(1)]public struct MCI_BREAK_PARMS
+[CRepr, Packed(1)]
+public struct MCI_BREAK_PARMS
 {
 	public uint dwCallback;
 	public int32 nVirtKey;
 	public HWND hwndBreak;
 }
 
-[CRepr, Packed(1)]public struct MCI_SAVE_PARMSA
+[CRepr, Packed(1)]
+public struct MCI_SAVE_PARMSA
 {
 	public uint dwCallback;
 	public PSTR lpfilename;
 }
 
-[CRepr, Packed(1)]public struct MCI_SAVE_PARMSW
+[CRepr, Packed(1)]
+public struct MCI_SAVE_PARMSW
 {
 	public uint dwCallback;
 	public PWSTR lpfilename;
 }
 
-[CRepr, Packed(1)]public struct MCI_LOAD_PARMSA
+[CRepr, Packed(1)]
+public struct MCI_LOAD_PARMSA
 {
 	public uint dwCallback;
 	public PSTR lpfilename;
 }
 
-[CRepr, Packed(1)]public struct MCI_LOAD_PARMSW
+[CRepr, Packed(1)]
+public struct MCI_LOAD_PARMSW
 {
 	public uint dwCallback;
 	public PWSTR lpfilename;
 }
 
-[CRepr, Packed(1)]public struct MCI_RECORD_PARMS
+[CRepr, Packed(1)]
+public struct MCI_RECORD_PARMS
 {
 	public uint dwCallback;
 	public uint32 dwFrom;
 	public uint32 dwTo;
 }
 
-[CRepr, Packed(1)]public struct MCI_VD_PLAY_PARMS
+[CRepr, Packed(1)]
+public struct MCI_VD_PLAY_PARMS
 {
 	public uint dwCallback;
 	public uint32 dwFrom;
@@ -9753,25 +9815,29 @@ public function BOOL LPFNEXTDEVIO(LPARAM lParam, uint32 dwFlags, uint32 dwIoCont
 	public uint32 dwSpeed;
 }
 
-[CRepr, Packed(1)]public struct MCI_VD_STEP_PARMS
+[CRepr, Packed(1)]
+public struct MCI_VD_STEP_PARMS
 {
 	public uint dwCallback;
 	public uint32 dwFrames;
 }
 
-[CRepr, Packed(1)]public struct MCI_VD_ESCAPE_PARMSA
+[CRepr, Packed(1)]
+public struct MCI_VD_ESCAPE_PARMSA
 {
 	public uint dwCallback;
 	public PSTR lpstrCommand;
 }
 
-[CRepr, Packed(1)]public struct MCI_VD_ESCAPE_PARMSW
+[CRepr, Packed(1)]
+public struct MCI_VD_ESCAPE_PARMSW
 {
 	public uint dwCallback;
 	public PWSTR lpstrCommand;
 }
 
-[CRepr, Packed(1)]public struct MCI_WAVE_OPEN_PARMSA
+[CRepr, Packed(1)]
+public struct MCI_WAVE_OPEN_PARMSA
 {
 	public uint dwCallback;
 	public uint32 wDeviceID;
@@ -9781,7 +9847,8 @@ public function BOOL LPFNEXTDEVIO(LPARAM lParam, uint32 dwFlags, uint32 dwIoCont
 	public uint32 dwBufferSeconds;
 }
 
-[CRepr, Packed(1)]public struct MCI_WAVE_OPEN_PARMSW
+[CRepr, Packed(1)]
+public struct MCI_WAVE_OPEN_PARMSW
 {
 	public uint dwCallback;
 	public uint32 wDeviceID;
@@ -9791,14 +9858,16 @@ public function BOOL LPFNEXTDEVIO(LPARAM lParam, uint32 dwFlags, uint32 dwIoCont
 	public uint32 dwBufferSeconds;
 }
 
-[CRepr, Packed(1)]public struct MCI_WAVE_DELETE_PARMS
+[CRepr, Packed(1)]
+public struct MCI_WAVE_DELETE_PARMS
 {
 	public uint dwCallback;
 	public uint32 dwFrom;
 	public uint32 dwTo;
 }
 
-[CRepr, Packed(1)]public struct MCI_WAVE_SET_PARMS
+[CRepr, Packed(1)]
+public struct MCI_WAVE_SET_PARMS
 {
 	public uint dwCallback;
 	public uint32 dwTimeFormat;
@@ -9817,7 +9886,8 @@ public function BOOL LPFNEXTDEVIO(LPARAM lParam, uint32 dwFlags, uint32 dwIoCont
 	public uint16 wReserved5;
 }
 
-[CRepr, Packed(1)]public struct MCI_SEQ_SET_PARMS
+[CRepr, Packed(1)]
+public struct MCI_SEQ_SET_PARMS
 {
 	public uint dwCallback;
 	public uint32 dwTimeFormat;
@@ -9829,7 +9899,8 @@ public function BOOL LPFNEXTDEVIO(LPARAM lParam, uint32 dwFlags, uint32 dwIoCont
 	public uint32 dwOffset;
 }
 
-[CRepr, Packed(1)]public struct MCI_ANIM_OPEN_PARMSA
+[CRepr, Packed(1)]
+public struct MCI_ANIM_OPEN_PARMSA
 {
 	public uint dwCallback;
 	public uint32 wDeviceID;
@@ -9840,7 +9911,8 @@ public function BOOL LPFNEXTDEVIO(LPARAM lParam, uint32 dwFlags, uint32 dwIoCont
 	public HWND hWndParent;
 }
 
-[CRepr, Packed(1)]public struct MCI_ANIM_OPEN_PARMSW
+[CRepr, Packed(1)]
+public struct MCI_ANIM_OPEN_PARMSW
 {
 	public uint dwCallback;
 	public uint32 wDeviceID;
@@ -9851,7 +9923,8 @@ public function BOOL LPFNEXTDEVIO(LPARAM lParam, uint32 dwFlags, uint32 dwIoCont
 	public HWND hWndParent;
 }
 
-[CRepr, Packed(1)]public struct MCI_ANIM_PLAY_PARMS
+[CRepr, Packed(1)]
+public struct MCI_ANIM_PLAY_PARMS
 {
 	public uint dwCallback;
 	public uint32 dwFrom;
@@ -9859,13 +9932,15 @@ public function BOOL LPFNEXTDEVIO(LPARAM lParam, uint32 dwFlags, uint32 dwIoCont
 	public uint32 dwSpeed;
 }
 
-[CRepr, Packed(1)]public struct MCI_ANIM_STEP_PARMS
+[CRepr, Packed(1)]
+public struct MCI_ANIM_STEP_PARMS
 {
 	public uint dwCallback;
 	public uint32 dwFrames;
 }
 
-[CRepr, Packed(1)]public struct MCI_ANIM_WINDOW_PARMSA
+[CRepr, Packed(1)]
+public struct MCI_ANIM_WINDOW_PARMSA
 {
 	public uint dwCallback;
 	public HWND hWnd;
@@ -9873,7 +9948,8 @@ public function BOOL LPFNEXTDEVIO(LPARAM lParam, uint32 dwFlags, uint32 dwIoCont
 	public PSTR lpstrText;
 }
 
-[CRepr, Packed(1)]public struct MCI_ANIM_WINDOW_PARMSW
+[CRepr, Packed(1)]
+public struct MCI_ANIM_WINDOW_PARMSW
 {
 	public uint dwCallback;
 	public HWND hWnd;
@@ -9881,20 +9957,23 @@ public function BOOL LPFNEXTDEVIO(LPARAM lParam, uint32 dwFlags, uint32 dwIoCont
 	public PWSTR lpstrText;
 }
 
-[CRepr, Packed(1)]public struct MCI_ANIM_RECT_PARMS
+[CRepr, Packed(1)]
+public struct MCI_ANIM_RECT_PARMS
 {
 	public uint dwCallback;
 	public RECT rc;
 }
 
-[CRepr, Packed(1)]public struct MCI_ANIM_UPDATE_PARMS
+[CRepr, Packed(1)]
+public struct MCI_ANIM_UPDATE_PARMS
 {
 	public uint dwCallback;
 	public RECT rc;
 	public HDC hDC;
 }
 
-[CRepr, Packed(1)]public struct MCI_OVLY_OPEN_PARMSA
+[CRepr, Packed(1)]
+public struct MCI_OVLY_OPEN_PARMSA
 {
 	public uint dwCallback;
 	public uint32 wDeviceID;
@@ -9905,7 +9984,8 @@ public function BOOL LPFNEXTDEVIO(LPARAM lParam, uint32 dwFlags, uint32 dwIoCont
 	public HWND hWndParent;
 }
 
-[CRepr, Packed(1)]public struct MCI_OVLY_OPEN_PARMSW
+[CRepr, Packed(1)]
+public struct MCI_OVLY_OPEN_PARMSW
 {
 	public uint dwCallback;
 	public uint32 wDeviceID;
@@ -9916,7 +9996,8 @@ public function BOOL LPFNEXTDEVIO(LPARAM lParam, uint32 dwFlags, uint32 dwIoCont
 	public HWND hWndParent;
 }
 
-[CRepr, Packed(1)]public struct MCI_OVLY_WINDOW_PARMSA
+[CRepr, Packed(1)]
+public struct MCI_OVLY_WINDOW_PARMSA
 {
 	public uint dwCallback;
 	public HWND hWnd;
@@ -9924,7 +10005,8 @@ public function BOOL LPFNEXTDEVIO(LPARAM lParam, uint32 dwFlags, uint32 dwIoCont
 	public PSTR lpstrText;
 }
 
-[CRepr, Packed(1)]public struct MCI_OVLY_WINDOW_PARMSW
+[CRepr, Packed(1)]
+public struct MCI_OVLY_WINDOW_PARMSW
 {
 	public uint dwCallback;
 	public HWND hWnd;
@@ -9932,41 +10014,47 @@ public function BOOL LPFNEXTDEVIO(LPARAM lParam, uint32 dwFlags, uint32 dwIoCont
 	public PWSTR lpstrText;
 }
 
-[CRepr, Packed(1)]public struct MCI_OVLY_RECT_PARMS
+[CRepr, Packed(1)]
+public struct MCI_OVLY_RECT_PARMS
 {
 	public uint dwCallback;
 	public RECT rc;
 }
 
-[CRepr, Packed(1)]public struct MCI_OVLY_SAVE_PARMSA
-{
-	public uint dwCallback;
-	public PSTR lpfilename;
-	public RECT rc;
-}
-
-[CRepr, Packed(1)]public struct MCI_OVLY_SAVE_PARMSW
-{
-	public uint dwCallback;
-	public PWSTR lpfilename;
-	public RECT rc;
-}
-
-[CRepr, Packed(1)]public struct MCI_OVLY_LOAD_PARMSA
+[CRepr, Packed(1)]
+public struct MCI_OVLY_SAVE_PARMSA
 {
 	public uint dwCallback;
 	public PSTR lpfilename;
 	public RECT rc;
 }
 
-[CRepr, Packed(1)]public struct MCI_OVLY_LOAD_PARMSW
+[CRepr, Packed(1)]
+public struct MCI_OVLY_SAVE_PARMSW
 {
 	public uint dwCallback;
 	public PWSTR lpfilename;
 	public RECT rc;
 }
 
-[CRepr, Packed(1)]public struct DRVCONFIGINFOEX
+[CRepr, Packed(1)]
+public struct MCI_OVLY_LOAD_PARMSA
+{
+	public uint dwCallback;
+	public PSTR lpfilename;
+	public RECT rc;
+}
+
+[CRepr, Packed(1)]
+public struct MCI_OVLY_LOAD_PARMSW
+{
+	public uint dwCallback;
+	public PWSTR lpfilename;
+	public RECT rc;
+}
+
+[CRepr, Packed(1)]
+public struct DRVCONFIGINFOEX
 {
 	public uint32 dwDCISize;
 	public PWSTR lpszDCISectionName;
@@ -9974,14 +10062,16 @@ public function BOOL LPFNEXTDEVIO(LPARAM lParam, uint32 dwFlags, uint32 dwIoCont
 	public uint32 dnDevNode;
 }
 
-[CRepr, Packed(1)]public struct DRVCONFIGINFO
+[CRepr, Packed(1)]
+public struct DRVCONFIGINFO
 {
 	public uint32 dwDCISize;
 	public PWSTR lpszDCISectionName;
 	public PWSTR lpszDCIAliasName;
 }
 
-[CRepr, Packed(1)]public struct MMIOINFO
+[CRepr, Packed(1)]
+public struct MMIOINFO
 {
 	public uint32 dwFlags;
 	public uint32 fccIOProc;
@@ -10001,7 +10091,8 @@ public function BOOL LPFNEXTDEVIO(LPARAM lParam, uint32 dwFlags, uint32 dwIoCont
 	public HMMIO hmmio;
 }
 
-[CRepr, Packed(1)]public struct MMCKINFO
+[CRepr, Packed(1)]
+public struct MMCKINFO
 {
 	public uint32 ckid;
 	public uint32 cksize;
@@ -10010,7 +10101,8 @@ public function BOOL LPFNEXTDEVIO(LPARAM lParam, uint32 dwFlags, uint32 dwIoCont
 	public uint32 dwFlags;
 }
 
-[CRepr, Packed(1)]public struct JOYCAPSA
+[CRepr, Packed(1)]
+public struct JOYCAPSA
 {
 	public uint16 wMid;
 	public uint16 wPid;
@@ -10038,7 +10130,8 @@ public function BOOL LPFNEXTDEVIO(LPARAM lParam, uint32 dwFlags, uint32 dwIoCont
 	public CHAR[260] szOEMVxD;
 }
 
-[CRepr, Packed(1)]public struct JOYCAPSW
+[CRepr, Packed(1)]
+public struct JOYCAPSW
 {
 	public uint16 wMid;
 	public uint16 wPid;
@@ -10066,7 +10159,8 @@ public function BOOL LPFNEXTDEVIO(LPARAM lParam, uint32 dwFlags, uint32 dwIoCont
 	public char8[260] szOEMVxD;
 }
 
-[CRepr, Packed(1)]public struct JOYCAPS2A
+[CRepr, Packed(1)]
+public struct JOYCAPS2A
 {
 	public uint16 wMid;
 	public uint16 wPid;
@@ -10097,7 +10191,8 @@ public function BOOL LPFNEXTDEVIO(LPARAM lParam, uint32 dwFlags, uint32 dwIoCont
 	public Guid NameGuid;
 }
 
-[CRepr, Packed(1)]public struct JOYCAPS2W
+[CRepr, Packed(1)]
+public struct JOYCAPS2W
 {
 	public uint16 wMid;
 	public uint16 wPid;
@@ -10128,7 +10223,8 @@ public function BOOL LPFNEXTDEVIO(LPARAM lParam, uint32 dwFlags, uint32 dwIoCont
 	public Guid NameGuid;
 }
 
-[CRepr, Packed(1)]public struct JOYINFO
+[CRepr, Packed(1)]
+public struct JOYINFO
 {
 	public uint32 wXpos;
 	public uint32 wYpos;
@@ -10136,7 +10232,8 @@ public function BOOL LPFNEXTDEVIO(LPARAM lParam, uint32 dwFlags, uint32 dwIoCont
 	public uint32 wButtons;
 }
 
-[CRepr, Packed(1)]public struct JOYINFOEX
+[CRepr, Packed(1)]
+public struct JOYINFOEX
 {
 	public uint32 dwSize;
 	public uint32 dwFlags;
@@ -10153,27 +10250,31 @@ public function BOOL LPFNEXTDEVIO(LPARAM lParam, uint32 dwFlags, uint32 dwIoCont
 	public uint32 dwReserved2;
 }
 
-[CRepr, Packed(1)]public struct MCI_DGV_RECT_PARMS
+[CRepr, Packed(1)]
+public struct MCI_DGV_RECT_PARMS
 {
 	public uint dwCallback;
 	public RECT rc;
 }
 
-[CRepr, Packed(1)]public struct MCI_DGV_CAPTURE_PARMSA
+[CRepr, Packed(1)]
+public struct MCI_DGV_CAPTURE_PARMSA
 {
 	public uint dwCallback;
 	public PSTR lpstrFileName;
 	public RECT rc;
 }
 
-[CRepr, Packed(1)]public struct MCI_DGV_CAPTURE_PARMSW
+[CRepr, Packed(1)]
+public struct MCI_DGV_CAPTURE_PARMSW
 {
 	public uint dwCallback;
 	public PWSTR lpstrFileName;
 	public RECT rc;
 }
 
-[CRepr, Packed(1)]public struct MCI_DGV_COPY_PARMS
+[CRepr, Packed(1)]
+public struct MCI_DGV_COPY_PARMS
 {
 	public uint dwCallback;
 	public uint32 dwFrom;
@@ -10183,23 +10284,15 @@ public function BOOL LPFNEXTDEVIO(LPARAM lParam, uint32 dwFlags, uint32 dwIoCont
 	public uint32 dwVideoStream;
 }
 
-[CRepr, Packed(1)]public struct MCI_DGV_CUE_PARMS
+[CRepr, Packed(1)]
+public struct MCI_DGV_CUE_PARMS
 {
 	public uint dwCallback;
 	public uint32 dwTo;
 }
 
-[CRepr, Packed(1)]public struct MCI_DGV_CUT_PARMS
-{
-	public uint dwCallback;
-	public uint32 dwFrom;
-	public uint32 dwTo;
-	public RECT rc;
-	public uint32 dwAudioStream;
-	public uint32 dwVideoStream;
-}
-
-[CRepr, Packed(1)]public struct MCI_DGV_DELETE_PARMS
+[CRepr, Packed(1)]
+public struct MCI_DGV_CUT_PARMS
 {
 	public uint dwCallback;
 	public uint32 dwFrom;
@@ -10209,7 +10302,19 @@ public function BOOL LPFNEXTDEVIO(LPARAM lParam, uint32 dwFlags, uint32 dwIoCont
 	public uint32 dwVideoStream;
 }
 
-[CRepr, Packed(1)]public struct MCI_DGV_INFO_PARMSA
+[CRepr, Packed(1)]
+public struct MCI_DGV_DELETE_PARMS
+{
+	public uint dwCallback;
+	public uint32 dwFrom;
+	public uint32 dwTo;
+	public RECT rc;
+	public uint32 dwAudioStream;
+	public uint32 dwVideoStream;
+}
+
+[CRepr, Packed(1)]
+public struct MCI_DGV_INFO_PARMSA
 {
 	public uint dwCallback;
 	public PSTR lpstrReturn;
@@ -10217,7 +10322,8 @@ public function BOOL LPFNEXTDEVIO(LPARAM lParam, uint32 dwFlags, uint32 dwIoCont
 	public uint32 dwItem;
 }
 
-[CRepr, Packed(1)]public struct MCI_DGV_INFO_PARMSW
+[CRepr, Packed(1)]
+public struct MCI_DGV_INFO_PARMSW
 {
 	public uint dwCallback;
 	public PWSTR lpstrReturn;
@@ -10225,7 +10331,8 @@ public function BOOL LPFNEXTDEVIO(LPARAM lParam, uint32 dwFlags, uint32 dwIoCont
 	public uint32 dwItem;
 }
 
-[CRepr, Packed(1)]public struct MCI_DGV_LIST_PARMSA
+[CRepr, Packed(1)]
+public struct MCI_DGV_LIST_PARMSA
 {
 	public uint dwCallback;
 	public PSTR lpstrReturn;
@@ -10235,7 +10342,8 @@ public function BOOL LPFNEXTDEVIO(LPARAM lParam, uint32 dwFlags, uint32 dwIoCont
 	public PSTR lpstrAlgorithm;
 }
 
-[CRepr, Packed(1)]public struct MCI_DGV_LIST_PARMSW
+[CRepr, Packed(1)]
+public struct MCI_DGV_LIST_PARMSW
 {
 	public uint dwCallback;
 	public PWSTR lpstrReturn;
@@ -10245,14 +10353,16 @@ public function BOOL LPFNEXTDEVIO(LPARAM lParam, uint32 dwFlags, uint32 dwIoCont
 	public PWSTR lpstrAlgorithm;
 }
 
-[CRepr, Packed(1)]public struct MCI_DGV_MONITOR_PARMS
+[CRepr, Packed(1)]
+public struct MCI_DGV_MONITOR_PARMS
 {
 	public uint dwCallback;
 	public uint32 dwSource;
 	public uint32 dwMethod;
 }
 
-[CRepr, Packed(1)]public struct MCI_DGV_OPEN_PARMSA
+[CRepr, Packed(1)]
+public struct MCI_DGV_OPEN_PARMSA
 {
 	public uint dwCallback;
 	public uint32 wDeviceID;
@@ -10263,7 +10373,8 @@ public function BOOL LPFNEXTDEVIO(LPARAM lParam, uint32 dwFlags, uint32 dwIoCont
 	public HWND hWndParent;
 }
 
-[CRepr, Packed(1)]public struct MCI_DGV_OPEN_PARMSW
+[CRepr, Packed(1)]
+public struct MCI_DGV_OPEN_PARMSW
 {
 	public uint dwCallback;
 	public uint32 wDeviceID;
@@ -10274,7 +10385,8 @@ public function BOOL LPFNEXTDEVIO(LPARAM lParam, uint32 dwFlags, uint32 dwIoCont
 	public HWND hWndParent;
 }
 
-[CRepr, Packed(1)]public struct MCI_DGV_PASTE_PARMS
+[CRepr, Packed(1)]
+public struct MCI_DGV_PASTE_PARMS
 {
 	public uint dwCallback;
 	public uint32 dwTo;
@@ -10283,7 +10395,8 @@ public function BOOL LPFNEXTDEVIO(LPARAM lParam, uint32 dwFlags, uint32 dwIoCont
 	public uint32 dwVideoStream;
 }
 
-[CRepr, Packed(1)]public struct MCI_DGV_QUALITY_PARMSA
+[CRepr, Packed(1)]
+public struct MCI_DGV_QUALITY_PARMSA
 {
 	public uint dwCallback;
 	public uint32 dwItem;
@@ -10292,7 +10405,8 @@ public function BOOL LPFNEXTDEVIO(LPARAM lParam, uint32 dwFlags, uint32 dwIoCont
 	public uint32 dwHandle;
 }
 
-[CRepr, Packed(1)]public struct MCI_DGV_QUALITY_PARMSW
+[CRepr, Packed(1)]
+public struct MCI_DGV_QUALITY_PARMSW
 {
 	public uint dwCallback;
 	public uint32 dwItem;
@@ -10301,7 +10415,8 @@ public function BOOL LPFNEXTDEVIO(LPARAM lParam, uint32 dwFlags, uint32 dwIoCont
 	public uint32 dwHandle;
 }
 
-[CRepr, Packed(1)]public struct MCI_DGV_RECORD_PARMS
+[CRepr, Packed(1)]
+public struct MCI_DGV_RECORD_PARMS
 {
 	public uint dwCallback;
 	public uint32 dwFrom;
@@ -10311,49 +10426,56 @@ public function BOOL LPFNEXTDEVIO(LPARAM lParam, uint32 dwFlags, uint32 dwIoCont
 	public uint32 dwVideoStream;
 }
 
-[CRepr, Packed(1)]public struct MCI_DGV_RESERVE_PARMSA
+[CRepr, Packed(1)]
+public struct MCI_DGV_RESERVE_PARMSA
 {
 	public uint dwCallback;
 	public PSTR lpstrPath;
 	public uint32 dwSize;
 }
 
-[CRepr, Packed(1)]public struct MCI_DGV_RESERVE_PARMSW
+[CRepr, Packed(1)]
+public struct MCI_DGV_RESERVE_PARMSW
 {
 	public uint dwCallback;
 	public PWSTR lpstrPath;
 	public uint32 dwSize;
 }
 
-[CRepr, Packed(1)]public struct MCI_DGV_RESTORE_PARMSA
+[CRepr, Packed(1)]
+public struct MCI_DGV_RESTORE_PARMSA
 {
 	public uint dwCallback;
 	public PSTR lpstrFileName;
 	public RECT rc;
 }
 
-[CRepr, Packed(1)]public struct MCI_DGV_RESTORE_PARMSW
+[CRepr, Packed(1)]
+public struct MCI_DGV_RESTORE_PARMSW
 {
 	public uint dwCallback;
 	public PWSTR lpstrFileName;
 	public RECT rc;
 }
 
-[CRepr, Packed(1)]public struct MCI_DGV_SAVE_PARMSA
+[CRepr, Packed(1)]
+public struct MCI_DGV_SAVE_PARMSA
 {
 	public uint dwCallback;
 	public PSTR lpstrFileName;
 	public RECT rc;
 }
 
-[CRepr, Packed(1)]public struct MCI_DGV_SAVE_PARMSW
+[CRepr, Packed(1)]
+public struct MCI_DGV_SAVE_PARMSW
 {
 	public uint dwCallback;
 	public PWSTR lpstrFileName;
 	public RECT rc;
 }
 
-[CRepr, Packed(1)]public struct MCI_DGV_SET_PARMS
+[CRepr, Packed(1)]
+public struct MCI_DGV_SET_PARMS
 {
 	public uint dwCallback;
 	public uint32 dwTimeFormat;
@@ -10362,7 +10484,8 @@ public function BOOL LPFNEXTDEVIO(LPARAM lParam, uint32 dwFlags, uint32 dwIoCont
 	public uint32 dwSpeed;
 }
 
-[CRepr, Packed(1)]public struct MCI_DGV_SETAUDIO_PARMSA
+[CRepr, Packed(1)]
+public struct MCI_DGV_SETAUDIO_PARMSA
 {
 	public uint dwCallback;
 	public uint32 dwItem;
@@ -10372,7 +10495,8 @@ public function BOOL LPFNEXTDEVIO(LPARAM lParam, uint32 dwFlags, uint32 dwIoCont
 	public PSTR lpstrQuality;
 }
 
-[CRepr, Packed(1)]public struct MCI_DGV_SETAUDIO_PARMSW
+[CRepr, Packed(1)]
+public struct MCI_DGV_SETAUDIO_PARMSW
 {
 	public uint dwCallback;
 	public uint32 dwItem;
@@ -10382,7 +10506,8 @@ public function BOOL LPFNEXTDEVIO(LPARAM lParam, uint32 dwFlags, uint32 dwIoCont
 	public PWSTR lpstrQuality;
 }
 
-[CRepr, Packed(1)]public struct MCI_DGV_SIGNAL_PARMS
+[CRepr, Packed(1)]
+public struct MCI_DGV_SIGNAL_PARMS
 {
 	public uint dwCallback;
 	public uint32 dwPosition;
@@ -10390,7 +10515,8 @@ public function BOOL LPFNEXTDEVIO(LPARAM lParam, uint32 dwFlags, uint32 dwIoCont
 	public uint32 dwUserParm;
 }
 
-[CRepr, Packed(1)]public struct MCI_DGV_SETVIDEO_PARMSA
+[CRepr, Packed(1)]
+public struct MCI_DGV_SETVIDEO_PARMSA
 {
 	public uint dwCallback;
 	public uint32 dwItem;
@@ -10401,7 +10527,8 @@ public function BOOL LPFNEXTDEVIO(LPARAM lParam, uint32 dwFlags, uint32 dwIoCont
 	public uint32 dwSourceNumber;
 }
 
-[CRepr, Packed(1)]public struct MCI_DGV_SETVIDEO_PARMSW
+[CRepr, Packed(1)]
+public struct MCI_DGV_SETVIDEO_PARMSW
 {
 	public uint dwCallback;
 	public uint32 dwItem;
@@ -10412,7 +10539,8 @@ public function BOOL LPFNEXTDEVIO(LPARAM lParam, uint32 dwFlags, uint32 dwIoCont
 	public uint32 dwSourceNumber;
 }
 
-[CRepr, Packed(1)]public struct MCI_DGV_STATUS_PARMSA
+[CRepr, Packed(1)]
+public struct MCI_DGV_STATUS_PARMSA
 {
 	public uint dwCallback;
 	public uint dwReturn;
@@ -10422,7 +10550,8 @@ public function BOOL LPFNEXTDEVIO(LPARAM lParam, uint32 dwFlags, uint32 dwIoCont
 	public uint32 dwReference;
 }
 
-[CRepr, Packed(1)]public struct MCI_DGV_STATUS_PARMSW
+[CRepr, Packed(1)]
+public struct MCI_DGV_STATUS_PARMSW
 {
 	public uint dwCallback;
 	public uint dwReturn;
@@ -10432,20 +10561,23 @@ public function BOOL LPFNEXTDEVIO(LPARAM lParam, uint32 dwFlags, uint32 dwIoCont
 	public uint32 dwReference;
 }
 
-[CRepr, Packed(1)]public struct MCI_DGV_STEP_PARMS
+[CRepr, Packed(1)]
+public struct MCI_DGV_STEP_PARMS
 {
 	public uint dwCallback;
 	public uint32 dwFrames;
 }
 
-[CRepr, Packed(1)]public struct MCI_DGV_UPDATE_PARMS
+[CRepr, Packed(1)]
+public struct MCI_DGV_UPDATE_PARMS
 {
 	public uint dwCallback;
 	public RECT rc;
 	public HDC hDC;
 }
 
-[CRepr, Packed(1)]public struct MCI_DGV_WINDOW_PARMSA
+[CRepr, Packed(1)]
+public struct MCI_DGV_WINDOW_PARMSA
 {
 	public uint dwCallback;
 	public HWND hWnd;
@@ -10453,7 +10585,8 @@ public function BOOL LPFNEXTDEVIO(LPARAM lParam, uint32 dwFlags, uint32 dwIoCont
 	public PSTR lpstrText;
 }
 
-[CRepr, Packed(1)]public struct MCI_DGV_WINDOW_PARMSW
+[CRepr, Packed(1)]
+public struct MCI_DGV_WINDOW_PARMSW
 {
 	public uint dwCallback;
 	public HWND hWnd;
@@ -10461,7 +10594,8 @@ public function BOOL LPFNEXTDEVIO(LPARAM lParam, uint32 dwFlags, uint32 dwIoCont
 	public PWSTR lpstrText;
 }
 
-[CRepr]public struct ICOPEN
+[CRepr]
+public struct ICOPEN
 {
 	public uint32 dwSize;
 	public uint32 fccType;
@@ -10474,7 +10608,8 @@ public function BOOL LPFNEXTDEVIO(LPARAM lParam, uint32 dwFlags, uint32 dwIoCont
 	public uint32 dnDevNode;
 }
 
-[CRepr]public struct ICINFO
+[CRepr]
+public struct ICINFO
 {
 	public uint32 dwSize;
 	public uint32 fccType;
@@ -10487,7 +10622,8 @@ public function BOOL LPFNEXTDEVIO(LPARAM lParam, uint32 dwFlags, uint32 dwIoCont
 	public char8[128] szDriver;
 }
 
-[CRepr]public struct ICCOMPRESS
+[CRepr]
+public struct ICCOMPRESS
 {
 	public uint32 dwFlags;
 	public BITMAPINFOHEADER* lpbiOutput;
@@ -10503,7 +10639,8 @@ public function BOOL LPFNEXTDEVIO(LPARAM lParam, uint32 dwFlags, uint32 dwIoCont
 	public void* lpPrev;
 }
 
-[CRepr]public struct ICCOMPRESSFRAMES
+[CRepr]
+public struct ICCOMPRESSFRAMES
 {
 	public uint32 dwFlags;
 	public BITMAPINFOHEADER* lpbiOutput;
@@ -10523,14 +10660,16 @@ public function BOOL LPFNEXTDEVIO(LPARAM lParam, uint32 dwFlags, uint32 dwIoCont
 	public int PutData;
 }
 
-[CRepr]public struct ICSETSTATUSPROC
+[CRepr]
+public struct ICSETSTATUSPROC
 {
 	public uint32 dwFlags;
 	public LPARAM lParam;
 	public int Status;
 }
 
-[CRepr]public struct ICDECOMPRESS
+[CRepr]
+public struct ICDECOMPRESS
 {
 	public uint32 dwFlags;
 	public BITMAPINFOHEADER* lpbiInput;
@@ -10540,7 +10679,8 @@ public function BOOL LPFNEXTDEVIO(LPARAM lParam, uint32 dwFlags, uint32 dwIoCont
 	public uint32 ckid;
 }
 
-[CRepr]public struct ICDECOMPRESSEX
+[CRepr]
+public struct ICDECOMPRESSEX
 {
 	public uint32 dwFlags;
 	public BITMAPINFOHEADER* lpbiSrc;
@@ -10557,7 +10697,8 @@ public function BOOL LPFNEXTDEVIO(LPARAM lParam, uint32 dwFlags, uint32 dwIoCont
 	public int32 dySrc;
 }
 
-[CRepr]public struct ICDRAWBEGIN
+[CRepr]
+public struct ICDRAWBEGIN
 {
 	public uint32 dwFlags;
 	public HPALETTE hpal;
@@ -10576,7 +10717,8 @@ public function BOOL LPFNEXTDEVIO(LPARAM lParam, uint32 dwFlags, uint32 dwIoCont
 	public uint32 dwScale;
 }
 
-[CRepr]public struct ICDRAW
+[CRepr]
+public struct ICDRAW
 {
 	public uint32 dwFlags;
 	public void* lpFormat;
@@ -10585,7 +10727,8 @@ public function BOOL LPFNEXTDEVIO(LPARAM lParam, uint32 dwFlags, uint32 dwIoCont
 	public int32 lTime;
 }
 
-[CRepr]public struct ICDRAWSUGGEST
+[CRepr]
+public struct ICDRAWSUGGEST
 {
 	public BITMAPINFOHEADER* lpbiIn;
 	public BITMAPINFOHEADER* lpbiSuggest;
@@ -10596,7 +10739,8 @@ public function BOOL LPFNEXTDEVIO(LPARAM lParam, uint32 dwFlags, uint32 dwIoCont
 	public HIC hicDecompressor;
 }
 
-[CRepr]public struct ICPALETTE
+[CRepr]
+public struct ICPALETTE
 {
 	public uint32 dwFlags;
 	public int32 iStart;
@@ -10604,7 +10748,8 @@ public function BOOL LPFNEXTDEVIO(LPARAM lParam, uint32 dwFlags, uint32 dwIoCont
 	public PALETTEENTRY* lppe;
 }
 
-[CRepr]public struct COMPVARS
+[CRepr]
+public struct COMPVARS
 {
 	public int32 cbSize;
 	public uint32 dwFlags;
@@ -10624,7 +10769,8 @@ public function BOOL LPFNEXTDEVIO(LPARAM lParam, uint32 dwFlags, uint32 dwIoCont
 	public int32 cbState;
 }
 
-[CRepr]public struct DRAWDIBTIME
+[CRepr]
+public struct DRAWDIBTIME
 {
 	public int32 timeCount;
 	public int32 timeDraw;
@@ -10635,7 +10781,8 @@ public function BOOL LPFNEXTDEVIO(LPARAM lParam, uint32 dwFlags, uint32 dwIoCont
 	public int32 timeSetDIBits;
 }
 
-[CRepr]public struct AVISTREAMINFOW
+[CRepr]
+public struct AVISTREAMINFOW
 {
 	public uint32 fccType;
 	public uint32 fccHandler;
@@ -10657,7 +10804,8 @@ public function BOOL LPFNEXTDEVIO(LPARAM lParam, uint32 dwFlags, uint32 dwIoCont
 	public char8[64] szName;
 }
 
-[CRepr]public struct AVISTREAMINFOA
+[CRepr]
+public struct AVISTREAMINFOA
 {
 	public uint32 fccType;
 	public uint32 fccHandler;
@@ -10679,7 +10827,8 @@ public function BOOL LPFNEXTDEVIO(LPARAM lParam, uint32 dwFlags, uint32 dwIoCont
 	public CHAR[64] szName;
 }
 
-[CRepr]public struct AVIFILEINFOW
+[CRepr]
+public struct AVIFILEINFOW
 {
 	public uint32 dwMaxBytesPerSec;
 	public uint32 dwFlags;
@@ -10695,7 +10844,8 @@ public function BOOL LPFNEXTDEVIO(LPARAM lParam, uint32 dwFlags, uint32 dwIoCont
 	public char8[64] szFileType;
 }
 
-[CRepr]public struct AVIFILEINFOA
+[CRepr]
+public struct AVIFILEINFOA
 {
 	public uint32 dwMaxBytesPerSec;
 	public uint32 dwFlags;
@@ -10711,7 +10861,8 @@ public function BOOL LPFNEXTDEVIO(LPARAM lParam, uint32 dwFlags, uint32 dwIoCont
 	public CHAR[64] szFileType;
 }
 
-[CRepr]public struct AVICOMPRESSOPTIONS
+[CRepr]
+public struct AVICOMPRESSOPTIONS
 {
 	public uint32 fccType;
 	public uint32 fccHandler;
@@ -10726,7 +10877,8 @@ public function BOOL LPFNEXTDEVIO(LPARAM lParam, uint32 dwFlags, uint32 dwIoCont
 	public uint32 dwInterleaveEvery;
 }
 
-[CRepr]public struct VIDEOHDR
+[CRepr]
+public struct VIDEOHDR
 {
 	public uint8* lpData;
 	public uint32 dwBufferLength;
@@ -10737,7 +10889,8 @@ public function BOOL LPFNEXTDEVIO(LPARAM lParam, uint32 dwFlags, uint32 dwIoCont
 	public uint[4] dwReserved;
 }
 
-[CRepr]public struct CHANNEL_CAPS
+[CRepr]
+public struct CHANNEL_CAPS
 {
 	public uint32 dwFlags;
 	public uint32 dwSrcRectXMod;
@@ -10750,7 +10903,8 @@ public function BOOL LPFNEXTDEVIO(LPARAM lParam, uint32 dwFlags, uint32 dwIoCont
 	public uint32 dwDstRectHeightMod;
 }
 
-[CRepr]public struct CAPDRIVERCAPS
+[CRepr]
+public struct CAPDRIVERCAPS
 {
 	public uint32 wDeviceIndex;
 	public BOOL fHasOverlay;
@@ -10765,7 +10919,8 @@ public function BOOL LPFNEXTDEVIO(LPARAM lParam, uint32 dwFlags, uint32 dwIoCont
 	public HANDLE hVideoExtOut;
 }
 
-[CRepr]public struct CAPSTATUS
+[CRepr]
+public struct CAPSTATUS
 {
 	public uint32 uiImageWidth;
 	public uint32 uiImageHeight;
@@ -10787,7 +10942,8 @@ public function BOOL LPFNEXTDEVIO(LPARAM lParam, uint32 dwFlags, uint32 dwIoCont
 	public uint32 wNumAudioAllocated;
 }
 
-[CRepr]public struct CAPTUREPARMS
+[CRepr]
+public struct CAPTUREPARMS
 {
 	public uint32 dwRequestMicroSecPerFrame;
 	public BOOL fMakeUserHitOKToCapture;
@@ -10815,20 +10971,23 @@ public function BOOL LPFNEXTDEVIO(LPARAM lParam, uint32 dwFlags, uint32 dwIoCont
 	public uint32 AVStreamMaster;
 }
 
-[CRepr]public struct CAPINFOCHUNK
+[CRepr]
+public struct CAPINFOCHUNK
 {
 	public uint32 fccInfoID;
 	public void* lpData;
 	public int32 cbData;
 }
 
-[CRepr, Packed(1)]public struct DRVM_IOCTL_DATA
+[CRepr, Packed(1)]
+public struct DRVM_IOCTL_DATA
 {
 	public uint32 dwSize;
 	public uint32 dwCmd;
 }
 
-[CRepr, Packed(1)]public struct WAVEOPENDESC
+[CRepr, Packed(1)]
+public struct WAVEOPENDESC
 {
 	public HWAVE hWave;
 	public WAVEFORMAT* lpFormat;
@@ -10838,13 +10997,15 @@ public function BOOL LPFNEXTDEVIO(LPARAM lParam, uint32 dwFlags, uint32 dwIoCont
 	public uint dnDevNode;
 }
 
-[CRepr, Packed(1)]public struct MIDIOPENSTRMID
+[CRepr, Packed(1)]
+public struct MIDIOPENSTRMID
 {
 	public uint32 dwStreamID;
 	public uint32 uDeviceID;
 }
 
-[CRepr, Packed(1)]public struct MIXEROPENDESC
+[CRepr, Packed(1)]
+public struct MIXEROPENDESC
 {
 	public HMIXER hmx;
 	public void* pReserved0;
@@ -10853,7 +11014,8 @@ public function BOOL LPFNEXTDEVIO(LPARAM lParam, uint32 dwFlags, uint32 dwIoCont
 	public uint dnDevNode;
 }
 
-[CRepr, Packed(1)]public struct TIMEREVENT
+[CRepr, Packed(1)]
+public struct TIMEREVENT
 {
 	public uint16 wDelay;
 	public uint16 wResolution;
@@ -10863,7 +11025,8 @@ public function BOOL LPFNEXTDEVIO(LPARAM lParam, uint32 dwFlags, uint32 dwIoCont
 	public uint16 wReserved1;
 }
 
-[CRepr, Packed(1)]public struct MCI_OPEN_DRIVER_PARMS
+[CRepr, Packed(1)]
+public struct MCI_OPEN_DRIVER_PARMS
 {
 	public uint32 wDeviceID;
 	public PWSTR lpstrParams;

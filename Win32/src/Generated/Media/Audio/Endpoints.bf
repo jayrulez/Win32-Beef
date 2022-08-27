@@ -42,7 +42,8 @@ public enum EndpointConnectorType : int32
 #endregion
 
 #region Structs
-[CRepr]public struct AUDIO_ENDPOINT_SHARED_CREATE_PARAMS
+[CRepr]
+public struct AUDIO_ENDPOINT_SHARED_CREATE_PARAMS
 {
 	public uint32 u32Size;
 	public uint32 u32TSSessionId;

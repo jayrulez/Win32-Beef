@@ -2143,13 +2143,15 @@ public function uint32 HTTP_POLICY_EXTENSION_SHUTDOWN(HTTP_POLICY_EXTENSION_TYPE
 #endregion
 
 #region Structs
-[CRepr]public struct INTERNET_ASYNC_RESULT
+[CRepr]
+public struct INTERNET_ASYNC_RESULT
 {
 	public uint dwResult;
 	public uint32 dwError;
 }
 
-[CRepr]public struct INTERNET_DIAGNOSTIC_SOCKET_INFO
+[CRepr]
+public struct INTERNET_DIAGNOSTIC_SOCKET_INFO
 {
 	public uint Socket;
 	public uint32 SourcePort;
@@ -2157,16 +2159,19 @@ public function uint32 HTTP_POLICY_EXTENSION_SHUTDOWN(HTTP_POLICY_EXTENSION_TYPE
 	public uint32 Flags;
 }
 
-[CRepr]public struct INTERNET_PROXY_INFO
+[CRepr]
+public struct INTERNET_PROXY_INFO
 {
 	public INTERNET_ACCESS_TYPE dwAccessType;
 	public int8* lpszProxy;
 	public int8* lpszProxyBypass;
 }
 
-[CRepr]public struct INTERNET_PER_CONN_OPTIONA
+[CRepr]
+public struct INTERNET_PER_CONN_OPTIONA
 {
-	[CRepr, Union]	public struct _Value_e__Union
+	[CRepr, Union]
+	public struct _Value_e__Union
 	{
 		public uint32 dwValue;
 		public PSTR pszValue;
@@ -2177,9 +2182,11 @@ public function uint32 HTTP_POLICY_EXTENSION_SHUTDOWN(HTTP_POLICY_EXTENSION_TYPE
 	public _Value_e__Union Value;
 }
 
-[CRepr]public struct INTERNET_PER_CONN_OPTIONW
+[CRepr]
+public struct INTERNET_PER_CONN_OPTIONW
 {
-	[CRepr, Union]	public struct _Value_e__Union
+	[CRepr, Union]
+	public struct _Value_e__Union
 	{
 		public uint32 dwValue;
 		public PWSTR pszValue;
@@ -2190,7 +2197,8 @@ public function uint32 HTTP_POLICY_EXTENSION_SHUTDOWN(HTTP_POLICY_EXTENSION_TYPE
 	public _Value_e__Union Value;
 }
 
-[CRepr]public struct INTERNET_PER_CONN_OPTION_LISTA
+[CRepr]
+public struct INTERNET_PER_CONN_OPTION_LISTA
 {
 	public uint32 dwSize;
 	public PSTR pszConnection;
@@ -2199,7 +2207,8 @@ public function uint32 HTTP_POLICY_EXTENSION_SHUTDOWN(HTTP_POLICY_EXTENSION_TYPE
 	public INTERNET_PER_CONN_OPTIONA* pOptions;
 }
 
-[CRepr]public struct INTERNET_PER_CONN_OPTION_LISTW
+[CRepr]
+public struct INTERNET_PER_CONN_OPTION_LISTW
 {
 	public uint32 dwSize;
 	public PWSTR pszConnection;
@@ -2208,19 +2217,22 @@ public function uint32 HTTP_POLICY_EXTENSION_SHUTDOWN(HTTP_POLICY_EXTENSION_TYPE
 	public INTERNET_PER_CONN_OPTIONW* pOptions;
 }
 
-[CRepr]public struct INTERNET_VERSION_INFO
+[CRepr]
+public struct INTERNET_VERSION_INFO
 {
 	public uint32 dwMajorVersion;
 	public uint32 dwMinorVersion;
 }
 
-[CRepr]public struct INTERNET_CONNECTED_INFO
+[CRepr]
+public struct INTERNET_CONNECTED_INFO
 {
 	public INTERNET_STATE dwConnectedState;
 	public uint32 dwFlags;
 }
 
-[CRepr]public struct URL_COMPONENTSA
+[CRepr]
+public struct URL_COMPONENTSA
 {
 	public uint32 dwStructSize;
 	public PSTR lpszScheme;
@@ -2239,7 +2251,8 @@ public function uint32 HTTP_POLICY_EXTENSION_SHUTDOWN(HTTP_POLICY_EXTENSION_TYPE
 	public uint32 dwExtraInfoLength;
 }
 
-[CRepr]public struct URL_COMPONENTSW
+[CRepr]
+public struct URL_COMPONENTSW
 {
 	public uint32 dwStructSize;
 	public PWSTR lpszScheme;
@@ -2258,7 +2271,8 @@ public function uint32 HTTP_POLICY_EXTENSION_SHUTDOWN(HTTP_POLICY_EXTENSION_TYPE
 	public uint32 dwExtraInfoLength;
 }
 
-[CRepr]public struct INTERNET_CERTIFICATE_INFO
+[CRepr]
+public struct INTERNET_CERTIFICATE_INFO
 {
 	public FILETIME ftExpiry;
 	public FILETIME ftStart;
@@ -2270,7 +2284,8 @@ public function uint32 HTTP_POLICY_EXTENSION_SHUTDOWN(HTTP_POLICY_EXTENSION_TYPE
 	public uint32 dwKeySize;
 }
 
-[CRepr]public struct INTERNET_BUFFERSA
+[CRepr]
+public struct INTERNET_BUFFERSA
 {
 	public uint32 dwStructSize;
 	public INTERNET_BUFFERSA* Next;
@@ -2284,7 +2299,8 @@ public function uint32 HTTP_POLICY_EXTENSION_SHUTDOWN(HTTP_POLICY_EXTENSION_TYPE
 	public uint32 dwOffsetHigh;
 }
 
-[CRepr]public struct INTERNET_BUFFERSW
+[CRepr]
+public struct INTERNET_BUFFERSW
 {
 	public uint32 dwStructSize;
 	public INTERNET_BUFFERSW* Next;
@@ -2298,7 +2314,8 @@ public function uint32 HTTP_POLICY_EXTENSION_SHUTDOWN(HTTP_POLICY_EXTENSION_TYPE
 	public uint32 dwOffsetHigh;
 }
 
-[CRepr]public struct IncomingCookieState
+[CRepr]
+public struct IncomingCookieState
 {
 	public int32 cSession;
 	public int32 cPersistent;
@@ -2309,14 +2326,16 @@ public function uint32 HTTP_POLICY_EXTENSION_SHUTDOWN(HTTP_POLICY_EXTENSION_TYPE
 	public PSTR pszLocation;
 }
 
-[CRepr]public struct OutgoingCookieState
+[CRepr]
+public struct OutgoingCookieState
 {
 	public int32 cSent;
 	public int32 cSuppressed;
 	public PSTR pszLocation;
 }
 
-[CRepr]public struct InternetCookieHistory
+[CRepr]
+public struct InternetCookieHistory
 {
 	public BOOL fAccepted;
 	public BOOL fLeashed;
@@ -2324,13 +2343,15 @@ public function uint32 HTTP_POLICY_EXTENSION_SHUTDOWN(HTTP_POLICY_EXTENSION_TYPE
 	public BOOL fRejected;
 }
 
-[CRepr]public struct CookieDecision
+[CRepr]
+public struct CookieDecision
 {
 	public uint32 dwCookieState;
 	public BOOL fAllowSession;
 }
 
-[CRepr]public struct GOPHER_FIND_DATAA
+[CRepr]
+public struct GOPHER_FIND_DATAA
 {
 	public CHAR[129] DisplayString;
 	public GOPHER_TYPE GopherType;
@@ -2340,7 +2361,8 @@ public function uint32 HTTP_POLICY_EXTENSION_SHUTDOWN(HTTP_POLICY_EXTENSION_TYPE
 	public CHAR[654] Locator;
 }
 
-[CRepr]public struct GOPHER_FIND_DATAW
+[CRepr]
+public struct GOPHER_FIND_DATAW
 {
 	public char8[129] DisplayString;
 	public GOPHER_TYPE GopherType;
@@ -2350,49 +2372,58 @@ public function uint32 HTTP_POLICY_EXTENSION_SHUTDOWN(HTTP_POLICY_EXTENSION_TYPE
 	public char8[654] Locator;
 }
 
-[CRepr]public struct GOPHER_ADMIN_ATTRIBUTE_TYPE
+[CRepr]
+public struct GOPHER_ADMIN_ATTRIBUTE_TYPE
 {
 	public int8* Comment;
 	public int8* EmailAddress;
 }
 
-[CRepr]public struct GOPHER_MOD_DATE_ATTRIBUTE_TYPE
+[CRepr]
+public struct GOPHER_MOD_DATE_ATTRIBUTE_TYPE
 {
 	public FILETIME DateAndTime;
 }
 
-[CRepr]public struct GOPHER_TTL_ATTRIBUTE_TYPE
+[CRepr]
+public struct GOPHER_TTL_ATTRIBUTE_TYPE
 {
 	public uint32 Ttl;
 }
 
-[CRepr]public struct GOPHER_SCORE_ATTRIBUTE_TYPE
+[CRepr]
+public struct GOPHER_SCORE_ATTRIBUTE_TYPE
 {
 	public int32 Score;
 }
 
-[CRepr]public struct GOPHER_SCORE_RANGE_ATTRIBUTE_TYPE
+[CRepr]
+public struct GOPHER_SCORE_RANGE_ATTRIBUTE_TYPE
 {
 	public int32 LowerBound;
 	public int32 UpperBound;
 }
 
-[CRepr]public struct GOPHER_SITE_ATTRIBUTE_TYPE
+[CRepr]
+public struct GOPHER_SITE_ATTRIBUTE_TYPE
 {
 	public int8* Site;
 }
 
-[CRepr]public struct GOPHER_ORGANIZATION_ATTRIBUTE_TYPE
+[CRepr]
+public struct GOPHER_ORGANIZATION_ATTRIBUTE_TYPE
 {
 	public int8* Organization;
 }
 
-[CRepr]public struct GOPHER_LOCATION_ATTRIBUTE_TYPE
+[CRepr]
+public struct GOPHER_LOCATION_ATTRIBUTE_TYPE
 {
 	public int8* Location;
 }
 
-[CRepr]public struct GOPHER_GEOGRAPHICAL_LOCATION_ATTRIBUTE_TYPE
+[CRepr]
+public struct GOPHER_GEOGRAPHICAL_LOCATION_ATTRIBUTE_TYPE
 {
 	public int32 DegreesNorth;
 	public int32 MinutesNorth;
@@ -2402,53 +2433,63 @@ public function uint32 HTTP_POLICY_EXTENSION_SHUTDOWN(HTTP_POLICY_EXTENSION_TYPE
 	public int32 SecondsEast;
 }
 
-[CRepr]public struct GOPHER_TIMEZONE_ATTRIBUTE_TYPE
+[CRepr]
+public struct GOPHER_TIMEZONE_ATTRIBUTE_TYPE
 {
 	public int32 Zone;
 }
 
-[CRepr]public struct GOPHER_PROVIDER_ATTRIBUTE_TYPE
+[CRepr]
+public struct GOPHER_PROVIDER_ATTRIBUTE_TYPE
 {
 	public int8* Provider;
 }
 
-[CRepr]public struct GOPHER_VERSION_ATTRIBUTE_TYPE
+[CRepr]
+public struct GOPHER_VERSION_ATTRIBUTE_TYPE
 {
 	public int8* Version;
 }
 
-[CRepr]public struct GOPHER_ABSTRACT_ATTRIBUTE_TYPE
+[CRepr]
+public struct GOPHER_ABSTRACT_ATTRIBUTE_TYPE
 {
 	public int8* ShortAbstract;
 	public int8* AbstractFile;
 }
 
-[CRepr]public struct GOPHER_VIEW_ATTRIBUTE_TYPE
+[CRepr]
+public struct GOPHER_VIEW_ATTRIBUTE_TYPE
 {
 	public int8* ContentType;
 	public int8* Language;
 	public uint32 Size;
 }
 
-[CRepr]public struct GOPHER_VERONICA_ATTRIBUTE_TYPE
+[CRepr]
+public struct GOPHER_VERONICA_ATTRIBUTE_TYPE
 {
 	public BOOL TreeWalk;
 }
 
-[CRepr]public struct GOPHER_ASK_ATTRIBUTE_TYPE
+[CRepr]
+public struct GOPHER_ASK_ATTRIBUTE_TYPE
 {
 	public int8* QuestionType;
 	public int8* QuestionText;
 }
 
-[CRepr]public struct GOPHER_UNKNOWN_ATTRIBUTE_TYPE
+[CRepr]
+public struct GOPHER_UNKNOWN_ATTRIBUTE_TYPE
 {
 	public int8* Text;
 }
 
-[CRepr]public struct GOPHER_ATTRIBUTE_TYPE
+[CRepr]
+public struct GOPHER_ATTRIBUTE_TYPE
 {
-	[CRepr, Union]	public struct _AttributeType_e__Union
+	[CRepr, Union]
+	public struct _AttributeType_e__Union
 	{
 		public GOPHER_ADMIN_ATTRIBUTE_TYPE Admin;
 		public GOPHER_MOD_DATE_ATTRIBUTE_TYPE ModDate;
@@ -2474,7 +2515,8 @@ public function uint32 HTTP_POLICY_EXTENSION_SHUTDOWN(HTTP_POLICY_EXTENSION_TYPE
 	public _AttributeType_e__Union AttributeType;
 }
 
-[CRepr]public struct INTERNET_COOKIE2
+[CRepr]
+public struct INTERNET_COOKIE2
 {
 	public PWSTR pwszName;
 	public PWSTR pwszValue;
@@ -2485,7 +2527,8 @@ public function uint32 HTTP_POLICY_EXTENSION_SHUTDOWN(HTTP_POLICY_EXTENSION_TYPE
 	public BOOL fExpiresSet;
 }
 
-[CRepr]public struct INTERNET_AUTH_NOTIFY_DATA
+[CRepr]
+public struct INTERNET_AUTH_NOTIFY_DATA
 {
 	public uint32 cbStruct;
 	public uint32 dwOptions;
@@ -2493,9 +2536,11 @@ public function uint32 HTTP_POLICY_EXTENSION_SHUTDOWN(HTTP_POLICY_EXTENSION_TYPE
 	public uint dwContext;
 }
 
-[CRepr]public struct INTERNET_CACHE_ENTRY_INFOA
+[CRepr]
+public struct INTERNET_CACHE_ENTRY_INFOA
 {
-	[CRepr, Union]	public struct _Anonymous_e__Union
+	[CRepr, Union]
+	public struct _Anonymous_e__Union
 	{
 		public uint32 dwReserved;
 		public uint32 dwExemptDelta;
@@ -2519,9 +2564,11 @@ public function uint32 HTTP_POLICY_EXTENSION_SHUTDOWN(HTTP_POLICY_EXTENSION_TYPE
 	public using _Anonymous_e__Union Anonymous;
 }
 
-[CRepr]public struct INTERNET_CACHE_ENTRY_INFOW
+[CRepr]
+public struct INTERNET_CACHE_ENTRY_INFOW
 {
-	[CRepr, Union]	public struct _Anonymous_e__Union
+	[CRepr, Union]
+	public struct _Anonymous_e__Union
 	{
 		public uint32 dwReserved;
 		public uint32 dwExemptDelta;
@@ -2545,13 +2592,15 @@ public function uint32 HTTP_POLICY_EXTENSION_SHUTDOWN(HTTP_POLICY_EXTENSION_TYPE
 	public using _Anonymous_e__Union Anonymous;
 }
 
-[CRepr]public struct INTERNET_CACHE_TIMESTAMPS
+[CRepr]
+public struct INTERNET_CACHE_TIMESTAMPS
 {
 	public FILETIME ftExpires;
 	public FILETIME ftLastModified;
 }
 
-[CRepr]public struct INTERNET_CACHE_GROUP_INFOA
+[CRepr]
+public struct INTERNET_CACHE_GROUP_INFOA
 {
 	public uint32 dwGroupSize;
 	public uint32 dwGroupFlags;
@@ -2562,7 +2611,8 @@ public function uint32 HTTP_POLICY_EXTENSION_SHUTDOWN(HTTP_POLICY_EXTENSION_TYPE
 	public CHAR[120] szGroupName;
 }
 
-[CRepr]public struct INTERNET_CACHE_GROUP_INFOW
+[CRepr]
+public struct INTERNET_CACHE_GROUP_INFOW
 {
 	public uint32 dwGroupSize;
 	public uint32 dwGroupFlags;
@@ -2573,7 +2623,8 @@ public function uint32 HTTP_POLICY_EXTENSION_SHUTDOWN(HTTP_POLICY_EXTENSION_TYPE
 	public char8[120] szGroupName;
 }
 
-[CRepr]public struct AutoProxyHelperVtbl
+[CRepr]
+public struct AutoProxyHelperVtbl
 {
 	public int IsResolvable;
 	public int GetIPAddress;
@@ -2586,25 +2637,29 @@ public function uint32 HTTP_POLICY_EXTENSION_SHUTDOWN(HTTP_POLICY_EXTENSION_TYPE
 	public int SortIpList;
 }
 
-[CRepr]public struct AUTO_PROXY_SCRIPT_BUFFER
+[CRepr]
+public struct AUTO_PROXY_SCRIPT_BUFFER
 {
 	public uint32 dwStructSize;
 	public PSTR lpszScriptBuffer;
 	public uint32 dwScriptBufferSize;
 }
 
-[CRepr]public struct AutoProxyHelperFunctions
+[CRepr]
+public struct AutoProxyHelperFunctions
 {
 	public AutoProxyHelperVtbl* lpVtbl;
 }
 
-[CRepr]public struct INTERNET_PREFETCH_STATUS
+[CRepr]
+public struct INTERNET_PREFETCH_STATUS
 {
 	public uint32 dwStatus;
 	public uint32 dwSize;
 }
 
-[CRepr]public struct INTERNET_SECURITY_INFO
+[CRepr]
+public struct INTERNET_SECURITY_INFO
 {
 	public uint32 dwSize;
 	public CERT_CONTEXT* pCertificate;
@@ -2615,7 +2670,8 @@ public function uint32 HTTP_POLICY_EXTENSION_SHUTDOWN(HTTP_POLICY_EXTENSION_TYPE
 	public SecPkgContext_Bindings channelBindingToken;
 }
 
-[CRepr]public struct INTERNET_SECURITY_CONNECTION_INFO
+[CRepr]
+public struct INTERNET_SECURITY_CONNECTION_INFO
 {
 	public uint32 dwSize;
 	public BOOL fSecure;
@@ -2623,19 +2679,22 @@ public function uint32 HTTP_POLICY_EXTENSION_SHUTDOWN(HTTP_POLICY_EXTENSION_TYPE
 	public SecPkgContext_CipherInfo cipherInfo;
 }
 
-[CRepr]public struct INTERNET_DOWNLOAD_MODE_HANDLE
+[CRepr]
+public struct INTERNET_DOWNLOAD_MODE_HANDLE
 {
 	public PWSTR pcwszFileName;
 	public HANDLE* phFile;
 }
 
-[CRepr]public struct HTTP_REQUEST_TIMES
+[CRepr]
+public struct HTTP_REQUEST_TIMES
 {
 	public uint32 cTimes;
 	public uint64[32] rgTimes;
 }
 
-[CRepr]public struct INTERNET_SERVER_CONNECTION_STATE
+[CRepr]
+public struct INTERNET_SERVER_CONNECTION_STATE
 {
 	public PWSTR lpcwszHostName;
 	public BOOL fProxy;
@@ -2647,13 +2706,15 @@ public function uint32 HTTP_POLICY_EXTENSION_SHUTDOWN(HTTP_POLICY_EXTENSION_TYPE
 	public uint32 dwWaiters;
 }
 
-[CRepr]public struct INTERNET_END_BROWSER_SESSION_DATA
+[CRepr]
+public struct INTERNET_END_BROWSER_SESSION_DATA
 {
 	public void* lpBuffer;
 	public uint32 dwBufferLength;
 }
 
-[CRepr]public struct INTERNET_CALLBACK_COOKIE
+[CRepr]
+public struct INTERNET_CALLBACK_COOKIE
 {
 	public PWSTR pcwszName;
 	public PWSTR pcwszValue;
@@ -2663,11 +2724,14 @@ public function uint32 HTTP_POLICY_EXTENSION_SHUTDOWN(HTTP_POLICY_EXTENSION_TYPE
 	public uint32 dwFlags;
 }
 
-[CRepr]public struct INTERNET_CREDENTIALS
+[CRepr]
+public struct INTERNET_CREDENTIALS
 {
-	[CRepr, Union]	public struct _Anonymous_e__Union
+	[CRepr, Union]
+	public struct _Anonymous_e__Union
 	{
-		[CRepr]		public struct _Anonymous_e__Struct
+		[CRepr]
+		public struct _Anonymous_e__Struct
 		{
 			public PWSTR lpcwszUserName;
 			public PWSTR lpcwszPassword;
@@ -2686,19 +2750,22 @@ public function uint32 HTTP_POLICY_EXTENSION_SHUTDOWN(HTTP_POLICY_EXTENSION_TYPE
 	public using _Anonymous_e__Union Anonymous;
 }
 
-[CRepr]public struct HTTP_PUSH_TRANSPORT_SETTING
+[CRepr]
+public struct HTTP_PUSH_TRANSPORT_SETTING
 {
 	public Guid TransportSettingId;
 	public Guid BrokerEventId;
 }
 
-[CRepr]public struct HTTP_PUSH_NOTIFICATION_STATUS
+[CRepr]
+public struct HTTP_PUSH_NOTIFICATION_STATUS
 {
 	public BOOL ChannelStatusValid;
 	public uint32 ChannelStatus;
 }
 
-[CRepr]public struct INTERNET_COOKIE
+[CRepr]
+public struct INTERNET_COOKIE
 {
 	public uint32 cbSize;
 	public PSTR pszName;
@@ -2711,7 +2778,8 @@ public function uint32 HTTP_POLICY_EXTENSION_SHUTDOWN(HTTP_POLICY_EXTENSION_TYPE
 	public PSTR pszP3PPolicy;
 }
 
-[CRepr]public struct COOKIE_DLG_INFO
+[CRepr]
+public struct COOKIE_DLG_INFO
 {
 	public PWSTR pszServer;
 	public INTERNET_COOKIE* pic;
@@ -2722,23 +2790,28 @@ public function uint32 HTTP_POLICY_EXTENSION_SHUTDOWN(HTTP_POLICY_EXTENSION_TYPE
 	public uint32 dwOperation;
 }
 
-[CRepr]public struct INTERNET_CACHE_CONFIG_PATH_ENTRYA
+[CRepr]
+public struct INTERNET_CACHE_CONFIG_PATH_ENTRYA
 {
 	public CHAR[260] CachePath;
 	public uint32 dwCacheSize;
 }
 
-[CRepr]public struct INTERNET_CACHE_CONFIG_PATH_ENTRYW
+[CRepr]
+public struct INTERNET_CACHE_CONFIG_PATH_ENTRYW
 {
 	public char8[260] CachePath;
 	public uint32 dwCacheSize;
 }
 
-[CRepr]public struct INTERNET_CACHE_CONFIG_INFOA
+[CRepr]
+public struct INTERNET_CACHE_CONFIG_INFOA
 {
-	[CRepr, Union]	public struct _Anonymous_e__Union
+	[CRepr, Union]
+	public struct _Anonymous_e__Union
 	{
-		[CRepr]		public struct _Anonymous_e__Struct
+		[CRepr]
+		public struct _Anonymous_e__Struct
 		{
 			public CHAR[260] CachePath;
 			public uint32 dwCacheSize;
@@ -2760,11 +2833,14 @@ public function uint32 HTTP_POLICY_EXTENSION_SHUTDOWN(HTTP_POLICY_EXTENSION_TYPE
 	public uint32 dwExemptUsage;
 }
 
-[CRepr]public struct INTERNET_CACHE_CONFIG_INFOW
+[CRepr]
+public struct INTERNET_CACHE_CONFIG_INFOW
 {
-	[CRepr, Union]	public struct _Anonymous_e__Union
+	[CRepr, Union]
+	public struct _Anonymous_e__Union
 	{
-		[CRepr]		public struct _Anonymous_e__Struct
+		[CRepr]
+		public struct _Anonymous_e__Struct
 		{
 			public char8[260] CachePath;
 			public uint32 dwCacheSize;
@@ -2786,7 +2862,8 @@ public function uint32 HTTP_POLICY_EXTENSION_SHUTDOWN(HTTP_POLICY_EXTENSION_TYPE
 	public uint32 dwExemptUsage;
 }
 
-[CRepr]public struct INTERNET_CACHE_CONTAINER_INFOA
+[CRepr]
+public struct INTERNET_CACHE_CONTAINER_INFOA
 {
 	public uint32 dwCacheVersion;
 	public PSTR lpszName;
@@ -2795,7 +2872,8 @@ public function uint32 HTTP_POLICY_EXTENSION_SHUTDOWN(HTTP_POLICY_EXTENSION_TYPE
 	public PSTR lpszVolumeTitle;
 }
 
-[CRepr]public struct INTERNET_CACHE_CONTAINER_INFOW
+[CRepr]
+public struct INTERNET_CACHE_CONTAINER_INFOW
 {
 	public uint32 dwCacheVersion;
 	public PWSTR lpszName;
@@ -2804,32 +2882,37 @@ public function uint32 HTTP_POLICY_EXTENSION_SHUTDOWN(HTTP_POLICY_EXTENSION_TYPE
 	public PWSTR lpszVolumeTitle;
 }
 
-[CRepr]public struct APP_CACHE_DOWNLOAD_ENTRY
+[CRepr]
+public struct APP_CACHE_DOWNLOAD_ENTRY
 {
 	public PWSTR pwszUrl;
 	public uint32 dwEntryType;
 }
 
-[CRepr]public struct APP_CACHE_DOWNLOAD_LIST
+[CRepr]
+public struct APP_CACHE_DOWNLOAD_LIST
 {
 	public uint32 dwEntryCount;
 	public APP_CACHE_DOWNLOAD_ENTRY* pEntries;
 }
 
-[CRepr]public struct APP_CACHE_GROUP_INFO
+[CRepr]
+public struct APP_CACHE_GROUP_INFO
 {
 	public PWSTR pwszManifestUrl;
 	public FILETIME ftLastAccessTime;
 	public uint64 ullSize;
 }
 
-[CRepr]public struct APP_CACHE_GROUP_LIST
+[CRepr]
+public struct APP_CACHE_GROUP_LIST
 {
 	public uint32 dwAppCacheGroupCount;
 	public APP_CACHE_GROUP_INFO* pAppCacheGroups;
 }
 
-[CRepr]public struct URLCACHE_ENTRY_INFO
+[CRepr]
+public struct URLCACHE_ENTRY_INFO
 {
 	public PWSTR pwszSourceUrlName;
 	public PWSTR pwszLocalFileName;
@@ -2848,7 +2931,8 @@ public function uint32 HTTP_POLICY_EXTENSION_SHUTDOWN(HTTP_POLICY_EXTENSION_TYPE
 	public uint32 cbExtraDataSize;
 }
 
-[CRepr]public struct WININET_PROXY_INFO
+[CRepr]
+public struct WININET_PROXY_INFO
 {
 	public BOOL fProxy;
 	public BOOL fBypass;
@@ -2857,13 +2941,15 @@ public function uint32 HTTP_POLICY_EXTENSION_SHUTDOWN(HTTP_POLICY_EXTENSION_TYPE
 	public uint16 ProxyPort;
 }
 
-[CRepr]public struct WININET_PROXY_INFO_LIST
+[CRepr]
+public struct WININET_PROXY_INFO_LIST
 {
 	public uint32 dwProxyInfoCount;
 	public WININET_PROXY_INFO* pProxyInfo;
 }
 
-[CRepr]public struct HTTP_WEB_SOCKET_ASYNC_RESULT
+[CRepr]
+public struct HTTP_WEB_SOCKET_ASYNC_RESULT
 {
 	public INTERNET_ASYNC_RESULT AsyncResult;
 	public HTTP_WEB_SOCKET_OPERATION Operation;
@@ -2871,7 +2957,8 @@ public function uint32 HTTP_POLICY_EXTENSION_SHUTDOWN(HTTP_POLICY_EXTENSION_TYPE
 	public uint32 dwBytesTransferred;
 }
 
-[CRepr]public struct ProofOfPossessionCookieInfo
+[CRepr]
+public struct ProofOfPossessionCookieInfo
 {
 	public PWSTR name;
 	public PWSTR data;

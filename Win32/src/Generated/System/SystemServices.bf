@@ -6835,26 +6835,31 @@ public function void APC_CALLBACK_FUNCTION(uint32 param0, void* param1, void* pa
 #endregion
 
 #region Structs
-[CRepr]public struct TP_POOL
+[CRepr]
+public struct TP_POOL
 {
 }
 
-[CRepr]public struct TP_CLEANUP_GROUP
+[CRepr]
+public struct TP_CLEANUP_GROUP
 {
 }
 
-[CRepr]public struct TEB
+[CRepr]
+public struct TEB
 {
 }
 
-[CRepr]public struct RemHGLOBAL
+[CRepr]
+public struct RemHGLOBAL
 {
 	public int32 fNullHGlobal;
 	public uint32 cbData;
 	public uint8[1] data;
 }
 
-[CRepr]public struct RemHMETAFILEPICT
+[CRepr]
+public struct RemHMETAFILEPICT
 {
 	public int32 mm;
 	public int32 xExt;
@@ -6863,33 +6868,39 @@ public function void APC_CALLBACK_FUNCTION(uint32 param0, void* param1, void* pa
 	public uint8[1] data;
 }
 
-[CRepr]public struct RemHENHMETAFILE
+[CRepr]
+public struct RemHENHMETAFILE
 {
 	public uint32 cbData;
 	public uint8[1] data;
 }
 
-[CRepr]public struct RemHBITMAP
+[CRepr]
+public struct RemHBITMAP
 {
 	public uint32 cbData;
 	public uint8[1] data;
 }
 
-[CRepr]public struct RemHPALETTE
+[CRepr]
+public struct RemHPALETTE
 {
 	public uint32 cbData;
 	public uint8[1] data;
 }
 
-[CRepr]public struct RemBRUSH
+[CRepr]
+public struct RemBRUSH
 {
 	public uint32 cbData;
 	public uint8[1] data;
 }
 
-[CRepr]public struct userCLIPFORMAT
+[CRepr]
+public struct userCLIPFORMAT
 {
-	[CRepr, Union]	public struct _u_e__Struct
+	[CRepr, Union]
+	public struct _u_e__Struct
 	{
 		public uint32 dwValue;
 		public PWSTR pwszName;
@@ -6899,9 +6910,11 @@ public function void APC_CALLBACK_FUNCTION(uint32 param0, void* param1, void* pa
 	public _u_e__Struct u;
 }
 
-[CRepr]public struct GDI_NONREMOTE
+[CRepr]
+public struct GDI_NONREMOTE
 {
-	[CRepr, Union]	public struct _u_e__Struct
+	[CRepr, Union]
+	public struct _u_e__Struct
 	{
 		public int32 hInproc;
 		public DWORD_BLOB* hRemote;
@@ -6911,9 +6924,11 @@ public function void APC_CALLBACK_FUNCTION(uint32 param0, void* param1, void* pa
 	public _u_e__Struct u;
 }
 
-[CRepr]public struct userHGLOBAL
+[CRepr]
+public struct userHGLOBAL
 {
-	[CRepr, Union]	public struct _u_e__Struct
+	[CRepr, Union]
+	public struct _u_e__Struct
 	{
 		public int32 hInproc;
 		public FLAGGED_BYTE_BLOB* hRemote;
@@ -6924,9 +6939,11 @@ public function void APC_CALLBACK_FUNCTION(uint32 param0, void* param1, void* pa
 	public _u_e__Struct u;
 }
 
-[CRepr]public struct userHMETAFILE
+[CRepr]
+public struct userHMETAFILE
 {
-	[CRepr, Union]	public struct _u_e__Struct
+	[CRepr, Union]
+	public struct _u_e__Struct
 	{
 		public int32 hInproc;
 		public BYTE_BLOB* hRemote;
@@ -6937,7 +6954,8 @@ public function void APC_CALLBACK_FUNCTION(uint32 param0, void* param1, void* pa
 	public _u_e__Struct u;
 }
 
-[CRepr]public struct remoteMETAFILEPICT
+[CRepr]
+public struct remoteMETAFILEPICT
 {
 	public int32 mm;
 	public int32 xExt;
@@ -6945,9 +6963,11 @@ public function void APC_CALLBACK_FUNCTION(uint32 param0, void* param1, void* pa
 	public userHMETAFILE* hMF;
 }
 
-[CRepr]public struct userHMETAFILEPICT
+[CRepr]
+public struct userHMETAFILEPICT
 {
-	[CRepr, Union]	public struct _u_e__Struct
+	[CRepr, Union]
+	public struct _u_e__Struct
 	{
 		public int32 hInproc;
 		public remoteMETAFILEPICT* hRemote;
@@ -6958,9 +6978,11 @@ public function void APC_CALLBACK_FUNCTION(uint32 param0, void* param1, void* pa
 	public _u_e__Struct u;
 }
 
-[CRepr]public struct userHENHMETAFILE
+[CRepr]
+public struct userHENHMETAFILE
 {
-	[CRepr, Union]	public struct _u_e__Struct
+	[CRepr, Union]
+	public struct _u_e__Struct
 	{
 		public int32 hInproc;
 		public BYTE_BLOB* hRemote;
@@ -6971,7 +6993,8 @@ public function void APC_CALLBACK_FUNCTION(uint32 param0, void* param1, void* pa
 	public _u_e__Struct u;
 }
 
-[CRepr]public struct userBITMAP
+[CRepr]
+public struct userBITMAP
 {
 	public int32 bmType;
 	public int32 bmWidth;
@@ -6983,9 +7006,11 @@ public function void APC_CALLBACK_FUNCTION(uint32 param0, void* param1, void* pa
 	public uint8[1] pBuffer;
 }
 
-[CRepr]public struct userHBITMAP
+[CRepr]
+public struct userHBITMAP
 {
-	[CRepr, Union]	public struct _u_e__Struct
+	[CRepr, Union]
+	public struct _u_e__Struct
 	{
 		public int32 hInproc;
 		public userBITMAP* hRemote;
@@ -6996,9 +7021,11 @@ public function void APC_CALLBACK_FUNCTION(uint32 param0, void* param1, void* pa
 	public _u_e__Struct u;
 }
 
-[CRepr]public struct userHPALETTE
+[CRepr]
+public struct userHPALETTE
 {
-	[CRepr, Union]	public struct _u_e__Struct
+	[CRepr, Union]
+	public struct _u_e__Struct
 	{
 		public int32 hInproc;
 		public LOGPALETTE* hRemote;
@@ -7009,9 +7036,11 @@ public function void APC_CALLBACK_FUNCTION(uint32 param0, void* param1, void* pa
 	public _u_e__Struct u;
 }
 
-[CRepr]public struct RemotableHandle
+[CRepr]
+public struct RemotableHandle
 {
-	[CRepr, Union]	public struct _u_e__Struct
+	[CRepr, Union]
+	public struct _u_e__Struct
 	{
 		public int32 hInproc;
 		public int32 hRemote;
@@ -7021,7 +7050,8 @@ public function void APC_CALLBACK_FUNCTION(uint32 param0, void* param1, void* pa
 	public _u_e__Struct u;
 }
 
-[CRepr]public struct DEVICE_EVENT_MOUNT
+[CRepr]
+public struct DEVICE_EVENT_MOUNT
 {
 	public uint32 Version;
 	public uint32 Flags;
@@ -7029,14 +7059,16 @@ public function void APC_CALLBACK_FUNCTION(uint32 param0, void* param1, void* pa
 	public uint32 FileSystemNameOffset;
 }
 
-[CRepr]public struct DEVICE_EVENT_BECOMING_READY
+[CRepr]
+public struct DEVICE_EVENT_BECOMING_READY
 {
 	public uint32 Version;
 	public uint32 Reason;
 	public uint32 Estimated100msToReady;
 }
 
-[CRepr]public struct DEVICE_EVENT_EXTERNAL_REQUEST
+[CRepr]
+public struct DEVICE_EVENT_EXTERNAL_REQUEST
 {
 	public uint32 Version;
 	public uint32 DeviceClass;
@@ -7045,12 +7077,14 @@ public function void APC_CALLBACK_FUNCTION(uint32 param0, void* param1, void* pa
 	public LARGE_INTEGER SystemTime;
 }
 
-[CRepr]public struct DEVICE_EVENT_GENERIC_DATA
+[CRepr]
+public struct DEVICE_EVENT_GENERIC_DATA
 {
 	public uint32 EventNumber;
 }
 
-[CRepr]public struct DEVICE_EVENT_RBC_DATA
+[CRepr]
+public struct DEVICE_EVENT_RBC_DATA
 {
 	public uint32 EventNumber;
 	public uint8 SenseQualifier;
@@ -7060,17 +7094,20 @@ public function void APC_CALLBACK_FUNCTION(uint32 param0, void* param1, void* pa
 	public uint32 Information;
 }
 
-[CRepr]public struct GUID_IO_DISK_CLONE_ARRIVAL_INFORMATION
+[CRepr]
+public struct GUID_IO_DISK_CLONE_ARRIVAL_INFORMATION
 {
 	public uint32 DiskNumber;
 }
 
-[CRepr]public struct DISK_HEALTH_NOTIFICATION_DATA
+[CRepr]
+public struct DISK_HEALTH_NOTIFICATION_DATA
 {
 	public Guid DeviceGuid;
 }
 
-[CRepr]public struct REDBOOK_DIGITAL_AUDIO_EXTRACTION_INFO
+[CRepr]
+public struct REDBOOK_DIGITAL_AUDIO_EXTRACTION_INFO
 {
 	public uint32 Version;
 	public uint32 Accurate;
@@ -7078,14 +7115,16 @@ public function void APC_CALLBACK_FUNCTION(uint32 param0, void* param1, void* pa
 	public uint32 AccurateMask0;
 }
 
-[CRepr]public struct DEV_BROADCAST_HDR
+[CRepr]
+public struct DEV_BROADCAST_HDR
 {
 	public uint32 dbch_size;
 	public DEV_BROADCAST_HDR_DEVICE_TYPE dbch_devicetype;
 	public uint32 dbch_reserved;
 }
 
-[CRepr]public struct VolLockBroadcast
+[CRepr]
+public struct VolLockBroadcast
 {
 	public DEV_BROADCAST_HDR vlb_dbh;
 	public uint32 vlb_owner;
@@ -7095,14 +7134,16 @@ public function void APC_CALLBACK_FUNCTION(uint32 param0, void* param1, void* pa
 	public uint8 vlb_flags;
 }
 
-[CRepr]public struct _DEV_BROADCAST_HEADER
+[CRepr]
+public struct _DEV_BROADCAST_HEADER
 {
 	public uint32 dbcd_size;
 	public uint32 dbcd_devicetype;
 	public uint32 dbcd_reserved;
 }
 
-[CRepr]public struct DEV_BROADCAST_OEM
+[CRepr]
+public struct DEV_BROADCAST_OEM
 {
 	public uint32 dbco_size;
 	public uint32 dbco_devicetype;
@@ -7111,7 +7152,8 @@ public function void APC_CALLBACK_FUNCTION(uint32 param0, void* param1, void* pa
 	public uint32 dbco_suppfunc;
 }
 
-[CRepr]public struct DEV_BROADCAST_DEVNODE
+[CRepr]
+public struct DEV_BROADCAST_DEVNODE
 {
 	public uint32 dbcd_size;
 	public uint32 dbcd_devicetype;
@@ -7119,7 +7161,8 @@ public function void APC_CALLBACK_FUNCTION(uint32 param0, void* param1, void* pa
 	public uint32 dbcd_devnode;
 }
 
-[CRepr]public struct DEV_BROADCAST_VOLUME
+[CRepr]
+public struct DEV_BROADCAST_VOLUME
 {
 	public uint32 dbcv_size;
 	public uint32 dbcv_devicetype;
@@ -7128,7 +7171,8 @@ public function void APC_CALLBACK_FUNCTION(uint32 param0, void* param1, void* pa
 	public DEV_BROADCAST_VOLUME_FLAGS dbcv_flags;
 }
 
-[CRepr]public struct DEV_BROADCAST_PORT_A
+[CRepr]
+public struct DEV_BROADCAST_PORT_A
 {
 	public uint32 dbcp_size;
 	public uint32 dbcp_devicetype;
@@ -7136,7 +7180,8 @@ public function void APC_CALLBACK_FUNCTION(uint32 param0, void* param1, void* pa
 	public CHAR[1] dbcp_name;
 }
 
-[CRepr]public struct DEV_BROADCAST_PORT_W
+[CRepr]
+public struct DEV_BROADCAST_PORT_W
 {
 	public uint32 dbcp_size;
 	public uint32 dbcp_devicetype;
@@ -7144,7 +7189,8 @@ public function void APC_CALLBACK_FUNCTION(uint32 param0, void* param1, void* pa
 	public char8[1] dbcp_name;
 }
 
-[CRepr]public struct DEV_BROADCAST_NET
+[CRepr]
+public struct DEV_BROADCAST_NET
 {
 	public uint32 dbcn_size;
 	public uint32 dbcn_devicetype;
@@ -7153,7 +7199,8 @@ public function void APC_CALLBACK_FUNCTION(uint32 param0, void* param1, void* pa
 	public uint32 dbcn_flags;
 }
 
-[CRepr]public struct DEV_BROADCAST_DEVICEINTERFACE_A
+[CRepr]
+public struct DEV_BROADCAST_DEVICEINTERFACE_A
 {
 	public uint32 dbcc_size;
 	public uint32 dbcc_devicetype;
@@ -7162,7 +7209,8 @@ public function void APC_CALLBACK_FUNCTION(uint32 param0, void* param1, void* pa
 	public CHAR[1] dbcc_name;
 }
 
-[CRepr]public struct DEV_BROADCAST_DEVICEINTERFACE_W
+[CRepr]
+public struct DEV_BROADCAST_DEVICEINTERFACE_W
 {
 	public uint32 dbcc_size;
 	public uint32 dbcc_devicetype;
@@ -7171,7 +7219,8 @@ public function void APC_CALLBACK_FUNCTION(uint32 param0, void* param1, void* pa
 	public char8[1] dbcc_name;
 }
 
-[CRepr]public struct DEV_BROADCAST_HANDLE
+[CRepr]
+public struct DEV_BROADCAST_HANDLE
 {
 	public uint32 dbch_size;
 	public uint32 dbch_devicetype;
@@ -7183,7 +7232,8 @@ public function void APC_CALLBACK_FUNCTION(uint32 param0, void* param1, void* pa
 	public uint8[1] dbch_data;
 }
 
-[CRepr]public struct DEV_BROADCAST_HANDLE32
+[CRepr]
+public struct DEV_BROADCAST_HANDLE32
 {
 	public uint32 dbch_size;
 	public uint32 dbch_devicetype;
@@ -7195,7 +7245,8 @@ public function void APC_CALLBACK_FUNCTION(uint32 param0, void* param1, void* pa
 	public uint8[1] dbch_data;
 }
 
-[CRepr]public struct DEV_BROADCAST_HANDLE64
+[CRepr]
+public struct DEV_BROADCAST_HANDLE64
 {
 	public uint32 dbch_size;
 	public uint32 dbch_devicetype;
@@ -7207,27 +7258,33 @@ public function void APC_CALLBACK_FUNCTION(uint32 param0, void* param1, void* pa
 	public uint8[1] dbch_data;
 }
 
-[CRepr]public struct _DEV_BROADCAST_USERDEFINED
+[CRepr]
+public struct _DEV_BROADCAST_USERDEFINED
 {
 	public DEV_BROADCAST_HDR dbud_dbh;
 	public CHAR[1] dbud_szName;
 }
 
-[CRepr]public struct AtlThunkData_t
+[CRepr]
+public struct AtlThunkData_t
 {
 }
 
-[CRepr]public struct XSAVE_CET_U_FORMAT
+[CRepr]
+public struct XSAVE_CET_U_FORMAT
 {
 	public uint64 Ia32CetUMsr;
 	public uint64 Ia32Pl3SspMsr;
 }
 
-[CRepr]public struct KERNEL_CET_CONTEXT
+[CRepr]
+public struct KERNEL_CET_CONTEXT
 {
-	[CRepr, Union]	public struct _Anonymous_e__Union
+	[CRepr, Union]
+	public struct _Anonymous_e__Union
 	{
-		[CRepr]		public struct _Anonymous_e__Struct
+		[CRepr]
+		public struct _Anonymous_e__Struct
 		{
 			public uint16 _bitfield;
 		}
@@ -7243,9 +7300,11 @@ public function void APC_CALLBACK_FUNCTION(uint32 param0, void* param1, void* pa
 	public uint16[2] Fill;
 }
 
-[CRepr]public struct SCOPE_TABLE_AMD64
+[CRepr]
+public struct SCOPE_TABLE_AMD64
 {
-	[CRepr]	public struct _Anonymous_e__Struct
+	[CRepr]
+	public struct _Anonymous_e__Struct
 	{
 		public uint32 BeginAddress;
 		public uint32 EndAddress;
@@ -7257,9 +7316,11 @@ public function void APC_CALLBACK_FUNCTION(uint32 param0, void* param1, void* pa
 	public _Anonymous_e__Struct[1] ScopeRecord;
 }
 
-[CRepr]public struct SCOPE_TABLE_ARM
+[CRepr]
+public struct SCOPE_TABLE_ARM
 {
-	[CRepr]	public struct _Anonymous_e__Struct
+	[CRepr]
+	public struct _Anonymous_e__Struct
 	{
 		public uint32 BeginAddress;
 		public uint32 EndAddress;
@@ -7271,9 +7332,11 @@ public function void APC_CALLBACK_FUNCTION(uint32 param0, void* param1, void* pa
 	public _Anonymous_e__Struct[1] ScopeRecord;
 }
 
-[CRepr]public struct SCOPE_TABLE_ARM64
+[CRepr]
+public struct SCOPE_TABLE_ARM64
 {
-	[CRepr]	public struct _Anonymous_e__Struct
+	[CRepr]
+	public struct _Anonymous_e__Struct
 	{
 		public uint32 BeginAddress;
 		public uint32 EndAddress;
@@ -7285,9 +7348,11 @@ public function void APC_CALLBACK_FUNCTION(uint32 param0, void* param1, void* pa
 	public _Anonymous_e__Struct[1] ScopeRecord;
 }
 
-[CRepr, Union]public struct DISPATCHER_CONTEXT_NONVOLREG_ARM64
+[CRepr, Union]
+public struct DISPATCHER_CONTEXT_NONVOLREG_ARM64
 {
-	[CRepr]	public struct _Anonymous_e__Struct
+	[CRepr]
+	public struct _Anonymous_e__Struct
 	{
 		public uint64[11] GpNvRegs;
 		public double[8] FpNvRegs;
@@ -7297,7 +7362,8 @@ public function void APC_CALLBACK_FUNCTION(uint32 param0, void* param1, void* pa
 	public using _Anonymous_e__Struct Anonymous;
 }
 
-[CRepr]public struct SECURITY_DESCRIPTOR_RELATIVE
+[CRepr]
+public struct SECURITY_DESCRIPTOR_RELATIVE
 {
 	public uint8 Revision;
 	public uint8 Sbz1;
@@ -7308,21 +7374,25 @@ public function void APC_CALLBACK_FUNCTION(uint32 param0, void* param1, void* pa
 	public uint32 Dacl;
 }
 
-[CRepr]public struct SECURITY_OBJECT_AI_PARAMS
+[CRepr]
+public struct SECURITY_OBJECT_AI_PARAMS
 {
 	public uint32 Size;
 	public uint32 ConstraintMask;
 }
 
-[CRepr]public struct SE_TOKEN_USER
+[CRepr]
+public struct SE_TOKEN_USER
 {
-	[CRepr, Union]	public struct _Anonymous2_e__Union
+	[CRepr, Union]
+	public struct _Anonymous2_e__Union
 	{
 		public SID Sid;
 		public uint8[68] Buffer;
 	}
 
-	[CRepr, Union]	public struct _Anonymous1_e__Union
+	[CRepr, Union]
+	public struct _Anonymous1_e__Union
 	{
 		public TOKEN_USER TokenUser;
 		public SID_AND_ATTRIBUTES User;
@@ -7332,20 +7402,24 @@ public function void APC_CALLBACK_FUNCTION(uint32 param0, void* param1, void* pa
 	public _Anonymous2_e__Union Anonymous2;
 }
 
-[CRepr]public struct TOKEN_SID_INFORMATION
+[CRepr]
+public struct TOKEN_SID_INFORMATION
 {
 	public PSID Sid;
 }
 
-[CRepr]public struct TOKEN_BNO_ISOLATION_INFORMATION
+[CRepr]
+public struct TOKEN_BNO_ISOLATION_INFORMATION
 {
 	public PWSTR IsolationPrefix;
 	public BOOLEAN IsolationEnabled;
 }
 
-[CRepr]public struct NT_TIB32
+[CRepr]
+public struct NT_TIB32
 {
-	[CRepr, Union]	public struct _Anonymous_e__Union
+	[CRepr, Union]
+	public struct _Anonymous_e__Union
 	{
 		public uint32 FiberData;
 		public uint32 Version;
@@ -7360,9 +7434,11 @@ public function void APC_CALLBACK_FUNCTION(uint32 param0, void* param1, void* pa
 	public uint32 Self;
 }
 
-[CRepr]public struct NT_TIB64
+[CRepr]
+public struct NT_TIB64
 {
-	[CRepr, Union]	public struct _Anonymous_e__Union
+	[CRepr, Union]
+	public struct _Anonymous_e__Union
 	{
 		public uint64 FiberData;
 		public uint32 Version;
@@ -7377,21 +7453,25 @@ public function void APC_CALLBACK_FUNCTION(uint32 param0, void* param1, void* pa
 	public uint64 Self;
 }
 
-[CRepr]public struct UMS_CREATE_THREAD_ATTRIBUTES
+[CRepr]
+public struct UMS_CREATE_THREAD_ATTRIBUTES
 {
 	public uint32 UmsVersion;
 	public void* UmsContext;
 	public void* UmsCompletionList;
 }
 
-[CRepr]public struct COMPONENT_FILTER
+[CRepr]
+public struct COMPONENT_FILTER
 {
 	public uint32 ComponentFlags;
 }
 
-[CRepr, Union]public struct RATE_QUOTA_LIMIT
+[CRepr, Union]
+public struct RATE_QUOTA_LIMIT
 {
-	[CRepr]	public struct _Anonymous_e__Struct
+	[CRepr]
+	public struct _Anonymous_e__Struct
 	{
 		public uint32 _bitfield;
 	}
@@ -7400,7 +7480,8 @@ public function void APC_CALLBACK_FUNCTION(uint32 param0, void* param1, void* pa
 	public using _Anonymous_e__Struct Anonymous;
 }
 
-[CRepr]public struct QUOTA_LIMITS_EX
+[CRepr]
+public struct QUOTA_LIMITS_EX
 {
 	public uint PagedPoolLimit;
 	public uint NonPagedPoolLimit;
@@ -7416,11 +7497,14 @@ public function void APC_CALLBACK_FUNCTION(uint32 param0, void* param1, void* pa
 	public RATE_QUOTA_LIMIT CpuRateLimit;
 }
 
-[CRepr]public struct PROCESS_MITIGATION_ASLR_POLICY
+[CRepr]
+public struct PROCESS_MITIGATION_ASLR_POLICY
 {
-	[CRepr, Union]	public struct _Anonymous_e__Union
+	[CRepr, Union]
+	public struct _Anonymous_e__Union
 	{
-		[CRepr]		public struct _Anonymous_e__Struct
+		[CRepr]
+		public struct _Anonymous_e__Struct
 		{
 			public uint32 _bitfield;
 		}
@@ -7432,11 +7516,14 @@ public function void APC_CALLBACK_FUNCTION(uint32 param0, void* param1, void* pa
 	public using _Anonymous_e__Union Anonymous;
 }
 
-[CRepr]public struct PROCESS_MITIGATION_DEP_POLICY
+[CRepr]
+public struct PROCESS_MITIGATION_DEP_POLICY
 {
-	[CRepr, Union]	public struct _Anonymous_e__Union
+	[CRepr, Union]
+	public struct _Anonymous_e__Union
 	{
-		[CRepr]		public struct _Anonymous_e__Struct
+		[CRepr]
+		public struct _Anonymous_e__Struct
 		{
 			public uint32 _bitfield;
 		}
@@ -7449,11 +7536,14 @@ public function void APC_CALLBACK_FUNCTION(uint32 param0, void* param1, void* pa
 	public BOOLEAN Permanent;
 }
 
-[CRepr]public struct PROCESS_MITIGATION_STRICT_HANDLE_CHECK_POLICY
+[CRepr]
+public struct PROCESS_MITIGATION_STRICT_HANDLE_CHECK_POLICY
 {
-	[CRepr, Union]	public struct _Anonymous_e__Union
+	[CRepr, Union]
+	public struct _Anonymous_e__Union
 	{
-		[CRepr]		public struct _Anonymous_e__Struct
+		[CRepr]
+		public struct _Anonymous_e__Struct
 		{
 			public uint32 _bitfield;
 		}
@@ -7465,11 +7555,14 @@ public function void APC_CALLBACK_FUNCTION(uint32 param0, void* param1, void* pa
 	public using _Anonymous_e__Union Anonymous;
 }
 
-[CRepr]public struct PROCESS_MITIGATION_SYSTEM_CALL_DISABLE_POLICY
+[CRepr]
+public struct PROCESS_MITIGATION_SYSTEM_CALL_DISABLE_POLICY
 {
-	[CRepr, Union]	public struct _Anonymous_e__Union
+	[CRepr, Union]
+	public struct _Anonymous_e__Union
 	{
-		[CRepr]		public struct _Anonymous_e__Struct
+		[CRepr]
+		public struct _Anonymous_e__Struct
 		{
 			public uint32 _bitfield;
 		}
@@ -7481,11 +7574,14 @@ public function void APC_CALLBACK_FUNCTION(uint32 param0, void* param1, void* pa
 	public using _Anonymous_e__Union Anonymous;
 }
 
-[CRepr]public struct PROCESS_MITIGATION_EXTENSION_POINT_DISABLE_POLICY
+[CRepr]
+public struct PROCESS_MITIGATION_EXTENSION_POINT_DISABLE_POLICY
 {
-	[CRepr, Union]	public struct _Anonymous_e__Union
+	[CRepr, Union]
+	public struct _Anonymous_e__Union
 	{
-		[CRepr]		public struct _Anonymous_e__Struct
+		[CRepr]
+		public struct _Anonymous_e__Struct
 		{
 			public uint32 _bitfield;
 		}
@@ -7497,11 +7593,14 @@ public function void APC_CALLBACK_FUNCTION(uint32 param0, void* param1, void* pa
 	public using _Anonymous_e__Union Anonymous;
 }
 
-[CRepr]public struct PROCESS_MITIGATION_DYNAMIC_CODE_POLICY
+[CRepr]
+public struct PROCESS_MITIGATION_DYNAMIC_CODE_POLICY
 {
-	[CRepr, Union]	public struct _Anonymous_e__Union
+	[CRepr, Union]
+	public struct _Anonymous_e__Union
 	{
-		[CRepr]		public struct _Anonymous_e__Struct
+		[CRepr]
+		public struct _Anonymous_e__Struct
 		{
 			public uint32 _bitfield;
 		}
@@ -7513,11 +7612,14 @@ public function void APC_CALLBACK_FUNCTION(uint32 param0, void* param1, void* pa
 	public using _Anonymous_e__Union Anonymous;
 }
 
-[CRepr]public struct PROCESS_MITIGATION_CONTROL_FLOW_GUARD_POLICY
+[CRepr]
+public struct PROCESS_MITIGATION_CONTROL_FLOW_GUARD_POLICY
 {
-	[CRepr, Union]	public struct _Anonymous_e__Union
+	[CRepr, Union]
+	public struct _Anonymous_e__Union
 	{
-		[CRepr]		public struct _Anonymous_e__Struct
+		[CRepr]
+		public struct _Anonymous_e__Struct
 		{
 			public uint32 _bitfield;
 		}
@@ -7529,11 +7631,14 @@ public function void APC_CALLBACK_FUNCTION(uint32 param0, void* param1, void* pa
 	public using _Anonymous_e__Union Anonymous;
 }
 
-[CRepr]public struct PROCESS_MITIGATION_BINARY_SIGNATURE_POLICY
+[CRepr]
+public struct PROCESS_MITIGATION_BINARY_SIGNATURE_POLICY
 {
-	[CRepr, Union]	public struct _Anonymous_e__Union
+	[CRepr, Union]
+	public struct _Anonymous_e__Union
 	{
-		[CRepr]		public struct _Anonymous_e__Struct
+		[CRepr]
+		public struct _Anonymous_e__Struct
 		{
 			public uint32 _bitfield;
 		}
@@ -7545,11 +7650,14 @@ public function void APC_CALLBACK_FUNCTION(uint32 param0, void* param1, void* pa
 	public using _Anonymous_e__Union Anonymous;
 }
 
-[CRepr]public struct PROCESS_MITIGATION_FONT_DISABLE_POLICY
+[CRepr]
+public struct PROCESS_MITIGATION_FONT_DISABLE_POLICY
 {
-	[CRepr, Union]	public struct _Anonymous_e__Union
+	[CRepr, Union]
+	public struct _Anonymous_e__Union
 	{
-		[CRepr]		public struct _Anonymous_e__Struct
+		[CRepr]
+		public struct _Anonymous_e__Struct
 		{
 			public uint32 _bitfield;
 		}
@@ -7561,11 +7669,14 @@ public function void APC_CALLBACK_FUNCTION(uint32 param0, void* param1, void* pa
 	public using _Anonymous_e__Union Anonymous;
 }
 
-[CRepr]public struct PROCESS_MITIGATION_IMAGE_LOAD_POLICY
+[CRepr]
+public struct PROCESS_MITIGATION_IMAGE_LOAD_POLICY
 {
-	[CRepr, Union]	public struct _Anonymous_e__Union
+	[CRepr, Union]
+	public struct _Anonymous_e__Union
 	{
-		[CRepr]		public struct _Anonymous_e__Struct
+		[CRepr]
+		public struct _Anonymous_e__Struct
 		{
 			public uint32 _bitfield;
 		}
@@ -7577,11 +7688,14 @@ public function void APC_CALLBACK_FUNCTION(uint32 param0, void* param1, void* pa
 	public using _Anonymous_e__Union Anonymous;
 }
 
-[CRepr]public struct PROCESS_MITIGATION_SYSTEM_CALL_FILTER_POLICY
+[CRepr]
+public struct PROCESS_MITIGATION_SYSTEM_CALL_FILTER_POLICY
 {
-	[CRepr, Union]	public struct _Anonymous_e__Union
+	[CRepr, Union]
+	public struct _Anonymous_e__Union
 	{
-		[CRepr]		public struct _Anonymous_e__Struct
+		[CRepr]
+		public struct _Anonymous_e__Struct
 		{
 			public uint32 _bitfield;
 		}
@@ -7593,11 +7707,14 @@ public function void APC_CALLBACK_FUNCTION(uint32 param0, void* param1, void* pa
 	public using _Anonymous_e__Union Anonymous;
 }
 
-[CRepr]public struct PROCESS_MITIGATION_PAYLOAD_RESTRICTION_POLICY
+[CRepr]
+public struct PROCESS_MITIGATION_PAYLOAD_RESTRICTION_POLICY
 {
-	[CRepr, Union]	public struct _Anonymous_e__Union
+	[CRepr, Union]
+	public struct _Anonymous_e__Union
 	{
-		[CRepr]		public struct _Anonymous_e__Struct
+		[CRepr]
+		public struct _Anonymous_e__Struct
 		{
 			public uint32 _bitfield;
 		}
@@ -7609,11 +7726,14 @@ public function void APC_CALLBACK_FUNCTION(uint32 param0, void* param1, void* pa
 	public using _Anonymous_e__Union Anonymous;
 }
 
-[CRepr]public struct PROCESS_MITIGATION_CHILD_PROCESS_POLICY
+[CRepr]
+public struct PROCESS_MITIGATION_CHILD_PROCESS_POLICY
 {
-	[CRepr, Union]	public struct _Anonymous_e__Union
+	[CRepr, Union]
+	public struct _Anonymous_e__Union
 	{
-		[CRepr]		public struct _Anonymous_e__Struct
+		[CRepr]
+		public struct _Anonymous_e__Struct
 		{
 			public uint32 _bitfield;
 		}
@@ -7625,11 +7745,14 @@ public function void APC_CALLBACK_FUNCTION(uint32 param0, void* param1, void* pa
 	public using _Anonymous_e__Union Anonymous;
 }
 
-[CRepr]public struct PROCESS_MITIGATION_SIDE_CHANNEL_ISOLATION_POLICY
+[CRepr]
+public struct PROCESS_MITIGATION_SIDE_CHANNEL_ISOLATION_POLICY
 {
-	[CRepr, Union]	public struct _Anonymous_e__Union
+	[CRepr, Union]
+	public struct _Anonymous_e__Union
 	{
-		[CRepr]		public struct _Anonymous_e__Struct
+		[CRepr]
+		public struct _Anonymous_e__Struct
 		{
 			public uint32 _bitfield;
 		}
@@ -7641,11 +7764,14 @@ public function void APC_CALLBACK_FUNCTION(uint32 param0, void* param1, void* pa
 	public using _Anonymous_e__Union Anonymous;
 }
 
-[CRepr]public struct PROCESS_MITIGATION_USER_SHADOW_STACK_POLICY
+[CRepr]
+public struct PROCESS_MITIGATION_USER_SHADOW_STACK_POLICY
 {
-	[CRepr, Union]	public struct _Anonymous_e__Union
+	[CRepr, Union]
+	public struct _Anonymous_e__Union
 	{
-		[CRepr]		public struct _Anonymous_e__Struct
+		[CRepr]
+		public struct _Anonymous_e__Struct
 		{
 			public uint32 _bitfield;
 		}
@@ -7657,11 +7783,14 @@ public function void APC_CALLBACK_FUNCTION(uint32 param0, void* param1, void* pa
 	public using _Anonymous_e__Union Anonymous;
 }
 
-[CRepr]public struct PROCESS_MITIGATION_REDIRECTION_TRUST_POLICY
+[CRepr]
+public struct PROCESS_MITIGATION_REDIRECTION_TRUST_POLICY
 {
-	[CRepr, Union]	public struct _Anonymous_e__Union
+	[CRepr, Union]
+	public struct _Anonymous_e__Union
 	{
-		[CRepr]		public struct _Anonymous_e__Struct
+		[CRepr]
+		public struct _Anonymous_e__Struct
 		{
 			public uint32 _bitfield;
 		}
@@ -7673,7 +7802,8 @@ public function void APC_CALLBACK_FUNCTION(uint32 param0, void* param1, void* pa
 	public using _Anonymous_e__Union Anonymous;
 }
 
-[CRepr]public struct SILOOBJECT_BASIC_INFORMATION
+[CRepr]
+public struct SILOOBJECT_BASIC_INFORMATION
 {
 	public uint32 SiloId;
 	public uint32 SiloParentId;
@@ -7682,7 +7812,8 @@ public function void APC_CALLBACK_FUNCTION(uint32 param0, void* param1, void* pa
 	public uint8[3] Reserved;
 }
 
-[CRepr]public struct SERVERSILO_BASIC_INFORMATION
+[CRepr]
+public struct SERVERSILO_BASIC_INFORMATION
 {
 	public uint32 ServiceSessionId;
 	public SERVERSILO_STATE State;
@@ -7692,21 +7823,24 @@ public function void APC_CALLBACK_FUNCTION(uint32 param0, void* param1, void* pa
 	public void* HostApiSetSchema;
 }
 
-[CRepr]public struct MEM_ADDRESS_REQUIREMENTS
+[CRepr]
+public struct MEM_ADDRESS_REQUIREMENTS
 {
 	public void* LowestStartingAddress;
 	public void* HighestEndingAddress;
 	public uint Alignment;
 }
 
-[CRepr]public struct MEMORY_PARTITION_DEDICATED_MEMORY_ATTRIBUTE
+[CRepr]
+public struct MEMORY_PARTITION_DEDICATED_MEMORY_ATTRIBUTE
 {
 	public MEM_DEDICATED_ATTRIBUTE_TYPE Type;
 	public uint32 Reserved;
 	public uint64 Value;
 }
 
-[CRepr]public struct MEMORY_PARTITION_DEDICATED_MEMORY_INFORMATION
+[CRepr]
+public struct MEMORY_PARTITION_DEDICATED_MEMORY_INFORMATION
 {
 	public uint32 NextEntryOffset;
 	public uint32 SizeOfInformation;
@@ -7717,7 +7851,8 @@ public function void APC_CALLBACK_FUNCTION(uint32 param0, void* param1, void* pa
 	public uint64 TypeId;
 }
 
-[CRepr]public struct SCRUB_DATA_INPUT
+[CRepr]
+public struct SCRUB_DATA_INPUT
 {
 	public uint32 Size;
 	public uint32 Flags;
@@ -7727,13 +7862,15 @@ public function void APC_CALLBACK_FUNCTION(uint32 param0, void* param1, void* pa
 	public uint8[1040] ResumeContext;
 }
 
-[CRepr]public struct SCRUB_PARITY_EXTENT
+[CRepr]
+public struct SCRUB_PARITY_EXTENT
 {
 	public int64 Offset;
 	public uint64 Length;
 }
 
-[CRepr]public struct SCRUB_PARITY_EXTENT_DATA
+[CRepr]
+public struct SCRUB_PARITY_EXTENT_DATA
 {
 	public uint16 Size;
 	public uint16 Flags;
@@ -7742,7 +7879,8 @@ public function void APC_CALLBACK_FUNCTION(uint32 param0, void* param1, void* pa
 	public SCRUB_PARITY_EXTENT[1] ParityExtents;
 }
 
-[CRepr]public struct SCRUB_DATA_OUTPUT
+[CRepr]
+public struct SCRUB_DATA_OUTPUT
 {
 	public uint32 Size;
 	public uint32 Flags;
@@ -7770,13 +7908,15 @@ public function void APC_CALLBACK_FUNCTION(uint32 param0, void* param1, void* pa
 	public uint8[1040] ResumeContext;
 }
 
-[CRepr]public struct SHARED_VIRTUAL_DISK_SUPPORT
+[CRepr]
+public struct SHARED_VIRTUAL_DISK_SUPPORT
 {
 	public SharedVirtualDiskSupportType SharedVirtualDiskSupport;
 	public SharedVirtualDiskHandleState HandleState;
 }
 
-[CRepr]public struct REARRANGE_FILE_DATA
+[CRepr]
+public struct REARRANGE_FILE_DATA
 {
 	public uint64 SourceStartingOffset;
 	public uint64 TargetOffset;
@@ -7786,7 +7926,8 @@ public function void APC_CALLBACK_FUNCTION(uint32 param0, void* param1, void* pa
 }
 
 #if BF_64_BIT || BF_ARM_64
-[CRepr]public struct REARRANGE_FILE_DATA32
+[CRepr]
+public struct REARRANGE_FILE_DATA32
 {
 	public uint64 SourceStartingOffset;
 	public uint64 TargetOffset;
@@ -7796,98 +7937,114 @@ public function void APC_CALLBACK_FUNCTION(uint32 param0, void* param1, void* pa
 }
 #endif
 
-[CRepr]public struct SHUFFLE_FILE_DATA
+[CRepr]
+public struct SHUFFLE_FILE_DATA
 {
 	public int64 StartingOffset;
 	public int64 Length;
 	public uint32 Flags;
 }
 
-[CRepr]public struct NETWORK_APP_INSTANCE_EA
+[CRepr]
+public struct NETWORK_APP_INSTANCE_EA
 {
 	public Guid AppInstanceID;
 	public uint32 CsvFlags;
 }
 
-[CRepr]public struct POWER_USER_PRESENCE
+[CRepr]
+public struct POWER_USER_PRESENCE
 {
 	public POWER_USER_PRESENCE_TYPE UserPresence;
 }
 
-[CRepr]public struct POWER_SESSION_CONNECT
+[CRepr]
+public struct POWER_SESSION_CONNECT
 {
 	public BOOLEAN Connected;
 	public BOOLEAN Console;
 }
 
-[CRepr]public struct POWER_SESSION_TIMEOUTS
+[CRepr]
+public struct POWER_SESSION_TIMEOUTS
 {
 	public uint32 InputTimeout;
 	public uint32 DisplayTimeout;
 }
 
-[CRepr]public struct POWER_SESSION_RIT_STATE
+[CRepr]
+public struct POWER_SESSION_RIT_STATE
 {
 	public BOOLEAN Active;
 	public uint64 LastInputTime;
 }
 
-[CRepr]public struct POWER_SESSION_WINLOGON
+[CRepr]
+public struct POWER_SESSION_WINLOGON
 {
 	public uint32 SessionId;
 	public BOOLEAN Console;
 	public BOOLEAN Locked;
 }
 
-[CRepr]public struct POWER_SESSION_ALLOW_EXTERNAL_DMA_DEVICES
+[CRepr]
+public struct POWER_SESSION_ALLOW_EXTERNAL_DMA_DEVICES
 {
 	public BOOLEAN IsAllowed;
 }
 
-[CRepr]public struct POWER_IDLE_RESILIENCY
+[CRepr]
+public struct POWER_IDLE_RESILIENCY
 {
 	public uint32 CoalescingTimeout;
 	public uint32 IdleResiliencyPeriod;
 }
 
-[CRepr]public struct POWER_MONITOR_INVOCATION
+[CRepr]
+public struct POWER_MONITOR_INVOCATION
 {
 	public BOOLEAN Console;
 	public POWER_MONITOR_REQUEST_REASON RequestReason;
 }
 
-[CRepr]public struct RESUME_PERFORMANCE
+[CRepr]
+public struct RESUME_PERFORMANCE
 {
 	public uint32 PostTimeMs;
 	public uint64 TotalResumeTimeMs;
 	public uint64 ResumeCompleteTimestamp;
 }
 
-[CRepr]public struct NOTIFY_USER_POWER_SETTING
+[CRepr]
+public struct NOTIFY_USER_POWER_SETTING
 {
 	public Guid Guid;
 }
 
-[CRepr]public struct APPLICATIONLAUNCH_SETTING_VALUE
+[CRepr]
+public struct APPLICATIONLAUNCH_SETTING_VALUE
 {
 	public LARGE_INTEGER ActivationTime;
 	public uint32 Flags;
 	public uint32 ButtonInstanceID;
 }
 
-[CRepr]public struct POWER_PLATFORM_INFORMATION
+[CRepr]
+public struct POWER_PLATFORM_INFORMATION
 {
 	public BOOLEAN AoAc;
 }
 
-[CRepr]public struct PPM_WMI_LEGACY_PERFSTATE
+[CRepr]
+public struct PPM_WMI_LEGACY_PERFSTATE
 {
 	public uint32 Frequency;
 	public uint32 Flags;
 	public uint32 PercentFrequency;
 }
 
-[CRepr]public struct PPM_WMI_IDLE_STATE
+[CRepr]
+public struct PPM_WMI_IDLE_STATE
 {
 	public uint32 Latency;
 	public uint32 Power;
@@ -7902,7 +8059,8 @@ public function void APC_CALLBACK_FUNCTION(uint32 param0, void* param1, void* pa
 	public uint32 Reserved1;
 }
 
-[CRepr]public struct PPM_WMI_IDLE_STATES
+[CRepr]
+public struct PPM_WMI_IDLE_STATES
 {
 	public uint32 Type;
 	public uint32 Count;
@@ -7912,7 +8070,8 @@ public function void APC_CALLBACK_FUNCTION(uint32 param0, void* param1, void* pa
 	public PPM_WMI_IDLE_STATE[1] State;
 }
 
-[CRepr]public struct PPM_WMI_IDLE_STATES_EX
+[CRepr]
+public struct PPM_WMI_IDLE_STATES_EX
 {
 	public uint32 Type;
 	public uint32 Count;
@@ -7922,7 +8081,8 @@ public function void APC_CALLBACK_FUNCTION(uint32 param0, void* param1, void* pa
 	public PPM_WMI_IDLE_STATE[1] State;
 }
 
-[CRepr]public struct PPM_WMI_PERF_STATE
+[CRepr]
+public struct PPM_WMI_PERF_STATE
 {
 	public uint32 Frequency;
 	public uint32 Power;
@@ -7940,7 +8100,8 @@ public function void APC_CALLBACK_FUNCTION(uint32 param0, void* param1, void* pa
 	public uint64 Reserved3;
 }
 
-[CRepr]public struct PPM_WMI_PERF_STATES
+[CRepr]
+public struct PPM_WMI_PERF_STATES
 {
 	public uint32 Count;
 	public uint32 MaxFrequency;
@@ -7965,7 +8126,8 @@ public function void APC_CALLBACK_FUNCTION(uint32 param0, void* param1, void* pa
 	public PPM_WMI_PERF_STATE[1] State;
 }
 
-[CRepr]public struct PPM_WMI_PERF_STATES_EX
+[CRepr]
+public struct PPM_WMI_PERF_STATES_EX
 {
 	public uint32 Count;
 	public uint32 MaxFrequency;
@@ -7990,7 +8152,8 @@ public function void APC_CALLBACK_FUNCTION(uint32 param0, void* param1, void* pa
 	public PPM_WMI_PERF_STATE[1] State;
 }
 
-[CRepr]public struct PPM_IDLE_STATE_ACCOUNTING
+[CRepr]
+public struct PPM_IDLE_STATE_ACCOUNTING
 {
 	public uint32 IdleTransitions;
 	public uint32 FailedTransitions;
@@ -7999,7 +8162,8 @@ public function void APC_CALLBACK_FUNCTION(uint32 param0, void* param1, void* pa
 	public uint32[6] IdleTimeBuckets;
 }
 
-[CRepr]public struct PPM_IDLE_ACCOUNTING
+[CRepr]
+public struct PPM_IDLE_ACCOUNTING
 {
 	public uint32 StateCount;
 	public uint32 TotalTransitions;
@@ -8008,7 +8172,8 @@ public function void APC_CALLBACK_FUNCTION(uint32 param0, void* param1, void* pa
 	public PPM_IDLE_STATE_ACCOUNTING[1] State;
 }
 
-[CRepr]public struct PPM_IDLE_STATE_BUCKET_EX
+[CRepr]
+public struct PPM_IDLE_STATE_BUCKET_EX
 {
 	public uint64 TotalTimeUs;
 	public uint32 MinTimeUs;
@@ -8016,7 +8181,8 @@ public function void APC_CALLBACK_FUNCTION(uint32 param0, void* param1, void* pa
 	public uint32 Count;
 }
 
-[CRepr]public struct PPM_IDLE_STATE_ACCOUNTING_EX
+[CRepr]
+public struct PPM_IDLE_STATE_ACCOUNTING_EX
 {
 	public uint64 TotalTime;
 	public uint32 IdleTransitions;
@@ -8028,7 +8194,8 @@ public function void APC_CALLBACK_FUNCTION(uint32 param0, void* param1, void* pa
 	public PPM_IDLE_STATE_BUCKET_EX[16] IdleTimeBuckets;
 }
 
-[CRepr]public struct PPM_IDLE_ACCOUNTING_EX
+[CRepr]
+public struct PPM_IDLE_ACCOUNTING_EX
 {
 	public uint32 StateCount;
 	public uint32 TotalTransitions;
@@ -8038,7 +8205,8 @@ public function void APC_CALLBACK_FUNCTION(uint32 param0, void* param1, void* pa
 	public PPM_IDLE_STATE_ACCOUNTING_EX[1] State;
 }
 
-[CRepr]public struct PPM_PERFSTATE_EVENT
+[CRepr]
+public struct PPM_PERFSTATE_EVENT
 {
 	public uint32 State;
 	public uint32 Status;
@@ -8047,7 +8215,8 @@ public function void APC_CALLBACK_FUNCTION(uint32 param0, void* param1, void* pa
 	public uint32 Processor;
 }
 
-[CRepr]public struct PPM_PERFSTATE_DOMAIN_EVENT
+[CRepr]
+public struct PPM_PERFSTATE_DOMAIN_EVENT
 {
 	public uint32 State;
 	public uint32 Latency;
@@ -8055,26 +8224,30 @@ public function void APC_CALLBACK_FUNCTION(uint32 param0, void* param1, void* pa
 	public uint64 Processors;
 }
 
-[CRepr]public struct PPM_IDLESTATE_EVENT
+[CRepr]
+public struct PPM_IDLESTATE_EVENT
 {
 	public uint32 NewState;
 	public uint32 OldState;
 	public uint64 Processors;
 }
 
-[CRepr]public struct PPM_THERMALCHANGE_EVENT
+[CRepr]
+public struct PPM_THERMALCHANGE_EVENT
 {
 	public uint32 ThermalConstraint;
 	public uint64 Processors;
 }
 
-[CRepr]public struct PPM_THERMAL_POLICY_EVENT
+[CRepr]
+public struct PPM_THERMAL_POLICY_EVENT
 {
 	public uint8 Mode;
 	public uint64 Processors;
 }
 
-[CRepr]public struct PROCESSOR_IDLESTATE_INFO
+[CRepr]
+public struct PROCESSOR_IDLESTATE_INFO
 {
 	public uint32 TimeCheck;
 	public uint8 DemotePercent;
@@ -8082,11 +8255,14 @@ public function void APC_CALLBACK_FUNCTION(uint32 param0, void* param1, void* pa
 	public uint8[2] Spare;
 }
 
-[CRepr]public struct PROCESSOR_IDLESTATE_POLICY
+[CRepr]
+public struct PROCESSOR_IDLESTATE_POLICY
 {
-	[CRepr, Union]	public struct _Flags_e__Union
+	[CRepr, Union]
+	public struct _Flags_e__Union
 	{
-		[CRepr]		public struct _Anonymous_e__Struct
+		[CRepr]
+		public struct _Anonymous_e__Struct
 		{
 			public uint16 _bitfield;
 		}
@@ -8101,13 +8277,17 @@ public function void APC_CALLBACK_FUNCTION(uint32 param0, void* param1, void* pa
 	public PROCESSOR_IDLESTATE_INFO[3] Policy;
 }
 
-[CRepr]public struct PROCESSOR_PERFSTATE_POLICY
+[CRepr]
+public struct PROCESSOR_PERFSTATE_POLICY
 {
-	[CRepr, Union]	public struct _Anonymous_e__Union
+	[CRepr, Union]
+	public struct _Anonymous_e__Union
 	{
-		[CRepr, Union]		public struct _Flags_e__Union
+		[CRepr, Union]
+		public struct _Flags_e__Union
 		{
-			[CRepr]			public struct _Anonymous_e__Struct
+			[CRepr]
+			public struct _Anonymous_e__Struct
 			{
 				public uint8 _bitfield;
 			}
@@ -8132,13 +8312,15 @@ public function void APC_CALLBACK_FUNCTION(uint32 param0, void* param1, void* pa
 	public uint32 DecreasePercent;
 }
 
-[CRepr]public struct HIBERFILE_BUCKET
+[CRepr]
+public struct HIBERFILE_BUCKET
 {
 	public uint64 MaxPhysicalMemory;
 	public uint32[3] PhysicalMemoryPercent;
 }
 
-[CRepr, Packed(2)]public struct IMAGE_DOS_HEADER
+[CRepr, Packed(2)]
+public struct IMAGE_DOS_HEADER
 {
 	public uint16 e_magic;
 	public uint16 e_cblp;
@@ -8161,7 +8343,8 @@ public function void APC_CALLBACK_FUNCTION(uint32 param0, void* param1, void* pa
 	public int32 e_lfanew;
 }
 
-[CRepr, Packed(2)]public struct IMAGE_OS2_HEADER
+[CRepr, Packed(2)]
+public struct IMAGE_OS2_HEADER
 {
 	public uint16 ne_magic;
 	public CHAR ne_ver;
@@ -8195,7 +8378,8 @@ public function void APC_CALLBACK_FUNCTION(uint32 param0, void* param1, void* pa
 	public uint16 ne_expver;
 }
 
-[CRepr, Packed(2)]public struct IMAGE_VXD_HEADER
+[CRepr, Packed(2)]
+public struct IMAGE_VXD_HEADER
 {
 	public uint16 e32_magic;
 	public uint8 e32_border;
@@ -8250,7 +8434,8 @@ public function void APC_CALLBACK_FUNCTION(uint32 param0, void* param1, void* pa
 	public uint16 e32_ddkver;
 }
 
-[CRepr]public struct ANON_OBJECT_HEADER
+[CRepr]
+public struct ANON_OBJECT_HEADER
 {
 	public uint16 Sig1;
 	public uint16 Sig2;
@@ -8261,7 +8446,8 @@ public function void APC_CALLBACK_FUNCTION(uint32 param0, void* param1, void* pa
 	public uint32 SizeOfData;
 }
 
-[CRepr]public struct ANON_OBJECT_HEADER_V2
+[CRepr]
+public struct ANON_OBJECT_HEADER_V2
 {
 	public uint16 Sig1;
 	public uint16 Sig2;
@@ -8275,7 +8461,8 @@ public function void APC_CALLBACK_FUNCTION(uint32 param0, void* param1, void* pa
 	public uint32 MetaDataOffset;
 }
 
-[CRepr]public struct ANON_OBJECT_HEADER_BIGOBJ
+[CRepr]
+public struct ANON_OBJECT_HEADER_BIGOBJ
 {
 	public uint16 Sig1;
 	public uint16 Sig2;
@@ -8292,11 +8479,14 @@ public function void APC_CALLBACK_FUNCTION(uint32 param0, void* param1, void* pa
 	public uint32 NumberOfSymbols;
 }
 
-[CRepr, Packed(2)]public struct IMAGE_SYMBOL
+[CRepr, Packed(2)]
+public struct IMAGE_SYMBOL
 {
-	[CRepr, Union, Packed(2)]	public struct _N_e__Union
+	[CRepr, Union, Packed(2)]
+	public struct _N_e__Union
 	{
-		[CRepr, Packed(2)]		public struct _Name_e__Struct
+		[CRepr, Packed(2)]
+		public struct _Name_e__Struct
 		{
 			public uint32 Short;
 			public uint32 Long;
@@ -8315,11 +8505,14 @@ public function void APC_CALLBACK_FUNCTION(uint32 param0, void* param1, void* pa
 	public uint8 NumberOfAuxSymbols;
 }
 
-[CRepr, Packed(2)]public struct IMAGE_SYMBOL_EX
+[CRepr, Packed(2)]
+public struct IMAGE_SYMBOL_EX
 {
-	[CRepr, Union, Packed(2)]	public struct _N_e__Union
+	[CRepr, Union, Packed(2)]
+	public struct _N_e__Union
 	{
-		[CRepr, Packed(2)]		public struct _Name_e__Struct
+		[CRepr, Packed(2)]
+		public struct _Name_e__Struct
 		{
 			public uint32 Short;
 			public uint32 Long;
@@ -8338,7 +8531,8 @@ public function void APC_CALLBACK_FUNCTION(uint32 param0, void* param1, void* pa
 	public uint8 NumberOfAuxSymbols;
 }
 
-[CRepr, Packed(2)]public struct IMAGE_AUX_SYMBOL_TOKEN_DEF
+[CRepr, Packed(2)]
+public struct IMAGE_AUX_SYMBOL_TOKEN_DEF
 {
 	public uint8 bAuxType;
 	public uint8 bReserved;
@@ -8346,29 +8540,36 @@ public function void APC_CALLBACK_FUNCTION(uint32 param0, void* param1, void* pa
 	public uint8[12] rgbReserved;
 }
 
-[CRepr, Union]public struct IMAGE_AUX_SYMBOL
+[CRepr, Union]
+public struct IMAGE_AUX_SYMBOL
 {
-	[CRepr, Packed(2)]	public struct _CRC_e__Struct
+	[CRepr, Packed(2)]
+	public struct _CRC_e__Struct
 	{
 		public uint32 crc;
 		public uint8[14] rgbReserved;
 	}
 
-	[CRepr]	public struct _File_e__Struct
+	[CRepr]
+	public struct _File_e__Struct
 	{
 		public uint8[18] Name;
 	}
 
-	[CRepr, Packed(2)]	public struct _Sym_e__Struct
+	[CRepr, Packed(2)]
+	public struct _Sym_e__Struct
 	{
-		[CRepr, Union]		public struct _FcnAry_e__Union
+		[CRepr, Union]
+		public struct _FcnAry_e__Union
 		{
-			[CRepr]			public struct _Array_e__Struct
+			[CRepr]
+			public struct _Array_e__Struct
 			{
 				public uint16[4] Dimension;
 			}
 
-			[CRepr, Packed(2)]			public struct _Function_e__Struct
+			[CRepr, Packed(2)]
+			public struct _Function_e__Struct
 			{
 				public uint32 PointerToLinenumber;
 				public uint32 PointerToNextFunction;
@@ -8378,9 +8579,11 @@ public function void APC_CALLBACK_FUNCTION(uint32 param0, void* param1, void* pa
 			public _Array_e__Struct Array;
 		}
 
-		[CRepr, Union, Packed(2)]		public struct _Misc_e__Union
+		[CRepr, Union, Packed(2)]
+		public struct _Misc_e__Union
 		{
-			[CRepr]			public struct _LnSz_e__Struct
+			[CRepr]
+			public struct _LnSz_e__Struct
 			{
 				public uint16 Linenumber;
 				public uint16 Size;
@@ -8396,7 +8599,8 @@ public function void APC_CALLBACK_FUNCTION(uint32 param0, void* param1, void* pa
 		public uint16 TvIndex;
 	}
 
-	[CRepr, Packed(2)]	public struct _Section_e__Struct
+	[CRepr, Packed(2)]
+	public struct _Section_e__Struct
 	{
 		public uint32 Length;
 		public uint16 NumberOfRelocations;
@@ -8415,33 +8619,39 @@ public function void APC_CALLBACK_FUNCTION(uint32 param0, void* param1, void* pa
 	public _CRC_e__Struct CRC;
 }
 
-[CRepr, Union]public struct IMAGE_AUX_SYMBOL_EX
+[CRepr, Union]
+public struct IMAGE_AUX_SYMBOL_EX
 {
-	[CRepr]	public struct _Anonymous_e__Struct
+	[CRepr]
+	public struct _Anonymous_e__Struct
 	{
 		public IMAGE_AUX_SYMBOL_TOKEN_DEF TokenDef;
 		public uint8[2] rgbReserved;
 	}
 
-	[CRepr]	public struct _File_e__Struct
+	[CRepr]
+	public struct _File_e__Struct
 	{
 		public uint8[20] Name;
 	}
 
-	[CRepr, Packed(2)]	public struct _CRC_e__Struct
+	[CRepr, Packed(2)]
+	public struct _CRC_e__Struct
 	{
 		public uint32 crc;
 		public uint8[16] rgbReserved;
 	}
 
-	[CRepr, Packed(2)]	public struct _Sym_e__Struct
+	[CRepr, Packed(2)]
+	public struct _Sym_e__Struct
 	{
 		public uint32 WeakDefaultSymIndex;
 		public uint32 WeakSearchType;
 		public uint8[12] rgbReserved;
 	}
 
-	[CRepr, Packed(2)]	public struct _Section_e__Struct
+	[CRepr, Packed(2)]
+	public struct _Section_e__Struct
 	{
 		public uint32 Length;
 		public uint16 NumberOfRelocations;
@@ -8461,9 +8671,11 @@ public function void APC_CALLBACK_FUNCTION(uint32 param0, void* param1, void* pa
 	public _CRC_e__Struct CRC;
 }
 
-[CRepr, Packed(2)]public struct IMAGE_RELOCATION
+[CRepr, Packed(2)]
+public struct IMAGE_RELOCATION
 {
-	[CRepr, Union, Packed(2)]	public struct _Anonymous_e__Union
+	[CRepr, Union, Packed(2)]
+	public struct _Anonymous_e__Union
 	{
 		public uint32 VirtualAddress;
 		public uint32 RelocCount;
@@ -8474,9 +8686,11 @@ public function void APC_CALLBACK_FUNCTION(uint32 param0, void* param1, void* pa
 	public uint16 Type;
 }
 
-[CRepr]public struct IMAGE_LINENUMBER
+[CRepr]
+public struct IMAGE_LINENUMBER
 {
-	[CRepr, Union, Packed(2)]	public struct _Type_e__Union
+	[CRepr, Union, Packed(2)]
+	public struct _Type_e__Union
 	{
 		public uint32 SymbolTableIndex;
 		public uint32 VirtualAddress;
@@ -8486,13 +8700,15 @@ public function void APC_CALLBACK_FUNCTION(uint32 param0, void* param1, void* pa
 	public uint16 Linenumber;
 }
 
-[CRepr]public struct IMAGE_BASE_RELOCATION
+[CRepr]
+public struct IMAGE_BASE_RELOCATION
 {
 	public uint32 VirtualAddress;
 	public uint32 SizeOfBlock;
 }
 
-[CRepr]public struct IMAGE_ARCHIVE_MEMBER_HEADER
+[CRepr]
+public struct IMAGE_ARCHIVE_MEMBER_HEADER
 {
 	public uint8[16] Name;
 	public uint8[12] Date;
@@ -8503,7 +8719,8 @@ public function void APC_CALLBACK_FUNCTION(uint32 param0, void* param1, void* pa
 	public uint8[2] EndHeader;
 }
 
-[CRepr]public struct IMAGE_EXPORT_DIRECTORY
+[CRepr]
+public struct IMAGE_EXPORT_DIRECTORY
 {
 	public uint32 Characteristics;
 	public uint32 TimeDateStamp;
@@ -8518,17 +8735,21 @@ public function void APC_CALLBACK_FUNCTION(uint32 param0, void* param1, void* pa
 	public uint32 AddressOfNameOrdinals;
 }
 
-[CRepr]public struct IMAGE_IMPORT_BY_NAME
+[CRepr]
+public struct IMAGE_IMPORT_BY_NAME
 {
 	public uint16 Hint;
 	public CHAR[1] Name;
 }
 
-[CRepr, Packed(4)]public struct IMAGE_TLS_DIRECTORY64
+[CRepr, Packed(4)]
+public struct IMAGE_TLS_DIRECTORY64
 {
-	[CRepr, Union]	public struct _Anonymous_e__Union
+	[CRepr, Union]
+	public struct _Anonymous_e__Union
 	{
-		[CRepr]		public struct _Anonymous_e__Struct
+		[CRepr]
+		public struct _Anonymous_e__Struct
 		{
 			public uint32 _bitfield;
 		}
@@ -8545,11 +8766,14 @@ public function void APC_CALLBACK_FUNCTION(uint32 param0, void* param1, void* pa
 	public using _Anonymous_e__Union Anonymous;
 }
 
-[CRepr]public struct IMAGE_TLS_DIRECTORY32
+[CRepr]
+public struct IMAGE_TLS_DIRECTORY32
 {
-	[CRepr, Union]	public struct _Anonymous_e__Union
+	[CRepr, Union]
+	public struct _Anonymous_e__Union
 	{
-		[CRepr]		public struct _Anonymous_e__Struct
+		[CRepr]
+		public struct _Anonymous_e__Struct
 		{
 			public uint32 _bitfield;
 		}
@@ -8566,9 +8790,11 @@ public function void APC_CALLBACK_FUNCTION(uint32 param0, void* param1, void* pa
 	public using _Anonymous_e__Union Anonymous;
 }
 
-[CRepr]public struct IMAGE_IMPORT_DESCRIPTOR
+[CRepr]
+public struct IMAGE_IMPORT_DESCRIPTOR
 {
-	[CRepr, Union]	public struct _Anonymous_e__Union
+	[CRepr, Union]
+	public struct _Anonymous_e__Union
 	{
 		public uint32 Characteristics;
 		public uint32 OriginalFirstThunk;
@@ -8581,21 +8807,24 @@ public function void APC_CALLBACK_FUNCTION(uint32 param0, void* param1, void* pa
 	public uint32 FirstThunk;
 }
 
-[CRepr]public struct IMAGE_BOUND_IMPORT_DESCRIPTOR
+[CRepr]
+public struct IMAGE_BOUND_IMPORT_DESCRIPTOR
 {
 	public uint32 TimeDateStamp;
 	public uint16 OffsetModuleName;
 	public uint16 NumberOfModuleForwarderRefs;
 }
 
-[CRepr]public struct IMAGE_BOUND_FORWARDER_REF
+[CRepr]
+public struct IMAGE_BOUND_FORWARDER_REF
 {
 	public uint32 TimeDateStamp;
 	public uint16 OffsetModuleName;
 	public uint16 Reserved;
 }
 
-[CRepr]public struct IMAGE_RESOURCE_DIRECTORY
+[CRepr]
+public struct IMAGE_RESOURCE_DIRECTORY
 {
 	public uint32 Characteristics;
 	public uint32 TimeDateStamp;
@@ -8605,11 +8834,14 @@ public function void APC_CALLBACK_FUNCTION(uint32 param0, void* param1, void* pa
 	public uint16 NumberOfIdEntries;
 }
 
-[CRepr]public struct IMAGE_RESOURCE_DIRECTORY_ENTRY
+[CRepr]
+public struct IMAGE_RESOURCE_DIRECTORY_ENTRY
 {
-	[CRepr, Union]	public struct _Anonymous2_e__Union
+	[CRepr, Union]
+	public struct _Anonymous2_e__Union
 	{
-		[CRepr]		public struct _Anonymous_e__Struct
+		[CRepr]
+		public struct _Anonymous_e__Struct
 		{
 			public uint32 _bitfield;
 		}
@@ -8618,9 +8850,11 @@ public function void APC_CALLBACK_FUNCTION(uint32 param0, void* param1, void* pa
 		public using _Anonymous_e__Struct Anonymous;
 	}
 
-	[CRepr, Union]	public struct _Anonymous1_e__Union
+	[CRepr, Union]
+	public struct _Anonymous1_e__Union
 	{
-		[CRepr]		public struct _Anonymous_e__Struct
+		[CRepr]
+		public struct _Anonymous_e__Struct
 		{
 			public uint32 _bitfield;
 		}
@@ -8634,19 +8868,22 @@ public function void APC_CALLBACK_FUNCTION(uint32 param0, void* param1, void* pa
 	public _Anonymous2_e__Union Anonymous2;
 }
 
-[CRepr]public struct IMAGE_RESOURCE_DIRECTORY_STRING
+[CRepr]
+public struct IMAGE_RESOURCE_DIRECTORY_STRING
 {
 	public uint16 Length;
 	public CHAR[1] NameString;
 }
 
-[CRepr]public struct IMAGE_RESOURCE_DIR_STRING_U
+[CRepr]
+public struct IMAGE_RESOURCE_DIR_STRING_U
 {
 	public uint16 Length;
 	public char8[1] NameString;
 }
 
-[CRepr]public struct IMAGE_RESOURCE_DATA_ENTRY
+[CRepr]
+public struct IMAGE_RESOURCE_DATA_ENTRY
 {
 	public uint32 OffsetToData;
 	public uint32 Size;
@@ -8654,25 +8891,29 @@ public function void APC_CALLBACK_FUNCTION(uint32 param0, void* param1, void* pa
 	public uint32 Reserved;
 }
 
-[CRepr]public struct IMAGE_DYNAMIC_RELOCATION_TABLE
+[CRepr]
+public struct IMAGE_DYNAMIC_RELOCATION_TABLE
 {
 	public uint32 Version;
 	public uint32 Size;
 }
 
-[CRepr, Packed(1)]public struct IMAGE_DYNAMIC_RELOCATION32
+[CRepr, Packed(1)]
+public struct IMAGE_DYNAMIC_RELOCATION32
 {
 	public uint32 Symbol;
 	public uint32 BaseRelocSize;
 }
 
-[CRepr, Packed(1)]public struct IMAGE_DYNAMIC_RELOCATION64
+[CRepr, Packed(1)]
+public struct IMAGE_DYNAMIC_RELOCATION64
 {
 	public uint64 Symbol;
 	public uint32 BaseRelocSize;
 }
 
-[CRepr, Packed(1)]public struct IMAGE_DYNAMIC_RELOCATION32_V2
+[CRepr, Packed(1)]
+public struct IMAGE_DYNAMIC_RELOCATION32_V2
 {
 	public uint32 HeaderSize;
 	public uint32 FixupInfoSize;
@@ -8681,7 +8922,8 @@ public function void APC_CALLBACK_FUNCTION(uint32 param0, void* param1, void* pa
 	public uint32 Flags;
 }
 
-[CRepr, Packed(1)]public struct IMAGE_DYNAMIC_RELOCATION64_V2
+[CRepr, Packed(1)]
+public struct IMAGE_DYNAMIC_RELOCATION64_V2
 {
 	public uint32 HeaderSize;
 	public uint32 FixupInfoSize;
@@ -8690,12 +8932,14 @@ public function void APC_CALLBACK_FUNCTION(uint32 param0, void* param1, void* pa
 	public uint32 Flags;
 }
 
-[CRepr]public struct IMAGE_PROLOGUE_DYNAMIC_RELOCATION_HEADER
+[CRepr]
+public struct IMAGE_PROLOGUE_DYNAMIC_RELOCATION_HEADER
 {
 	public uint8 PrologueByteCount;
 }
 
-[CRepr, Packed(1)]public struct IMAGE_EPILOGUE_DYNAMIC_RELOCATION_HEADER
+[CRepr, Packed(1)]
+public struct IMAGE_EPILOGUE_DYNAMIC_RELOCATION_HEADER
 {
 	public uint32 EpilogueCount;
 	public uint8 EpilogueByteCount;
@@ -8703,22 +8947,26 @@ public function void APC_CALLBACK_FUNCTION(uint32 param0, void* param1, void* pa
 	public uint16 BranchDescriptorCount;
 }
 
-[CRepr, Packed(1)]public struct IMAGE_IMPORT_CONTROL_TRANSFER_DYNAMIC_RELOCATION
+[CRepr, Packed(1)]
+public struct IMAGE_IMPORT_CONTROL_TRANSFER_DYNAMIC_RELOCATION
 {
 	public uint32 _bitfield;
 }
 
-[CRepr, Packed(1)]public struct IMAGE_INDIR_CONTROL_TRANSFER_DYNAMIC_RELOCATION
+[CRepr, Packed(1)]
+public struct IMAGE_INDIR_CONTROL_TRANSFER_DYNAMIC_RELOCATION
 {
 	public uint16 _bitfield;
 }
 
-[CRepr, Packed(1)]public struct IMAGE_SWITCHTABLE_BRANCH_DYNAMIC_RELOCATION
+[CRepr, Packed(1)]
+public struct IMAGE_SWITCHTABLE_BRANCH_DYNAMIC_RELOCATION
 {
 	public uint16 _bitfield;
 }
 
-[CRepr]public struct IMAGE_HOT_PATCH_INFO
+[CRepr]
+public struct IMAGE_HOT_PATCH_INFO
 {
 	public uint32 Version;
 	public uint32 Size;
@@ -8729,7 +8977,8 @@ public function void APC_CALLBACK_FUNCTION(uint32 param0, void* param1, void* pa
 	public uint32 ExtraPatchSize;
 }
 
-[CRepr]public struct IMAGE_HOT_PATCH_BASE
+[CRepr]
+public struct IMAGE_HOT_PATCH_BASE
 {
 	public uint32 SequenceNumber;
 	public uint32 Flags;
@@ -8741,23 +8990,28 @@ public function void APC_CALLBACK_FUNCTION(uint32 param0, void* param1, void* pa
 	public uint32 BufferOffset;
 }
 
-[CRepr]public struct IMAGE_HOT_PATCH_HASHES
+[CRepr]
+public struct IMAGE_HOT_PATCH_HASHES
 {
 	public uint8[32] SHA256;
 	public uint8[20] SHA1;
 }
 
-[CRepr]public struct IMAGE_CE_RUNTIME_FUNCTION_ENTRY
+[CRepr]
+public struct IMAGE_CE_RUNTIME_FUNCTION_ENTRY
 {
 	public uint32 FuncStart;
 	public uint32 _bitfield;
 }
 
-[CRepr]public struct IMAGE_ARM_RUNTIME_FUNCTION_ENTRY
+[CRepr]
+public struct IMAGE_ARM_RUNTIME_FUNCTION_ENTRY
 {
-	[CRepr, Union]	public struct _Anonymous_e__Union
+	[CRepr, Union]
+	public struct _Anonymous_e__Union
 	{
-		[CRepr]		public struct _Anonymous_e__Struct
+		[CRepr]
+		public struct _Anonymous_e__Struct
 		{
 			public uint32 _bitfield;
 		}
@@ -8770,9 +9024,11 @@ public function void APC_CALLBACK_FUNCTION(uint32 param0, void* param1, void* pa
 	public using _Anonymous_e__Union Anonymous;
 }
 
-[CRepr, Union]public struct IMAGE_ARM64_RUNTIME_FUNCTION_ENTRY_XDATA
+[CRepr, Union]
+public struct IMAGE_ARM64_RUNTIME_FUNCTION_ENTRY_XDATA
 {
-	[CRepr]	public struct _Anonymous_e__Struct
+	[CRepr]
+	public struct _Anonymous_e__Struct
 	{
 		public uint32 _bitfield;
 	}
@@ -8781,7 +9037,8 @@ public function void APC_CALLBACK_FUNCTION(uint32 param0, void* param1, void* pa
 	public using _Anonymous_e__Struct Anonymous;
 }
 
-[CRepr, Packed(4)]public struct IMAGE_ALPHA64_RUNTIME_FUNCTION_ENTRY
+[CRepr, Packed(4)]
+public struct IMAGE_ALPHA64_RUNTIME_FUNCTION_ENTRY
 {
 	public uint64 BeginAddress;
 	public uint64 EndAddress;
@@ -8790,7 +9047,8 @@ public function void APC_CALLBACK_FUNCTION(uint32 param0, void* param1, void* pa
 	public uint64 PrologEndAddress;
 }
 
-[CRepr]public struct IMAGE_ALPHA_RUNTIME_FUNCTION_ENTRY
+[CRepr]
+public struct IMAGE_ALPHA_RUNTIME_FUNCTION_ENTRY
 {
 	public uint32 BeginAddress;
 	public uint32 EndAddress;
@@ -8799,7 +9057,8 @@ public function void APC_CALLBACK_FUNCTION(uint32 param0, void* param1, void* pa
 	public uint32 PrologEndAddress;
 }
 
-[CRepr]public struct IMAGE_DEBUG_MISC
+[CRepr]
+public struct IMAGE_DEBUG_MISC
 {
 	public uint32 DataType;
 	public uint32 Length;
@@ -8808,7 +9067,8 @@ public function void APC_CALLBACK_FUNCTION(uint32 param0, void* param1, void* pa
 	public uint8[1] Data;
 }
 
-[CRepr]public struct IMAGE_SEPARATE_DEBUG_HEADER
+[CRepr]
+public struct IMAGE_SEPARATE_DEBUG_HEADER
 {
 	public uint16 Signature;
 	public uint16 Flags;
@@ -8825,7 +9085,8 @@ public function void APC_CALLBACK_FUNCTION(uint32 param0, void* param1, void* pa
 	public uint32[2] Reserved;
 }
 
-[CRepr, Packed(4)]public struct NON_PAGED_DEBUG_INFO
+[CRepr, Packed(4)]
+public struct NON_PAGED_DEBUG_INFO
 {
 	public uint16 Signature;
 	public uint16 Flags;
@@ -8838,21 +9099,25 @@ public function void APC_CALLBACK_FUNCTION(uint32 param0, void* param1, void* pa
 	public uint64 ImageBase;
 }
 
-[CRepr]public struct IMAGE_ARCHITECTURE_HEADER
+[CRepr]
+public struct IMAGE_ARCHITECTURE_HEADER
 {
 	public uint32 _bitfield;
 	public uint32 FirstEntryRVA;
 }
 
-[CRepr]public struct IMAGE_ARCHITECTURE_ENTRY
+[CRepr]
+public struct IMAGE_ARCHITECTURE_ENTRY
 {
 	public uint32 FixupInstRVA;
 	public uint32 NewInst;
 }
 
-[CRepr]public struct IMPORT_OBJECT_HEADER
+[CRepr]
+public struct IMPORT_OBJECT_HEADER
 {
-	[CRepr, Union]	public struct _Anonymous_e__Union
+	[CRepr, Union]
+	public struct _Anonymous_e__Union
 	{
 		public uint16 Ordinal;
 		public uint16 Hint;
@@ -8868,9 +9133,11 @@ public function void APC_CALLBACK_FUNCTION(uint32 param0, void* param1, void* pa
 	public uint16 _bitfield;
 }
 
-[CRepr]public struct IMAGE_POLICY_ENTRY
+[CRepr]
+public struct IMAGE_POLICY_ENTRY
 {
-	[CRepr, Union]	public struct _u_e__Union
+	[CRepr, Union]
+	public struct _u_e__Union
 	{
 		public void* None;
 		public BOOLEAN BoolValue;
@@ -8891,7 +9158,8 @@ public function void APC_CALLBACK_FUNCTION(uint32 param0, void* param1, void* pa
 	public _u_e__Union u;
 }
 
-[CRepr]public struct IMAGE_POLICY_METADATA
+[CRepr]
+public struct IMAGE_POLICY_METADATA
 {
 	public uint8 Version;
 	public uint8[7] Reserved0;
@@ -8899,31 +9167,36 @@ public function void APC_CALLBACK_FUNCTION(uint32 param0, void* param1, void* pa
 	public IMAGE_POLICY_ENTRY[1] Policies;
 }
 
-[CRepr]public struct HEAP_OPTIMIZE_RESOURCES_INFORMATION
+[CRepr]
+public struct HEAP_OPTIMIZE_RESOURCES_INFORMATION
 {
 	public uint32 Version;
 	public uint32 Flags;
 }
 
-[CRepr]public struct SUPPORTED_OS_INFO
+[CRepr]
+public struct SUPPORTED_OS_INFO
 {
 	public uint16 MajorVersion;
 	public uint16 MinorVersion;
 }
 
-[CRepr]public struct MAXVERSIONTESTED_INFO
+[CRepr]
+public struct MAXVERSIONTESTED_INFO
 {
 	public uint64 MaxVersionTested;
 }
 
-[CRepr]public struct PACKEDEVENTINFO
+[CRepr]
+public struct PACKEDEVENTINFO
 {
 	public uint32 ulSize;
 	public uint32 ulNumEventsForLogFile;
 	public uint32[1] ulOffsets;
 }
 
-[CRepr]public struct TAPE_GET_DRIVE_PARAMETERS
+[CRepr]
+public struct TAPE_GET_DRIVE_PARAMETERS
 {
 	public BOOLEAN ECC;
 	public BOOLEAN Compression;
@@ -8938,7 +9211,8 @@ public function void APC_CALLBACK_FUNCTION(uint32 param0, void* param1, void* pa
 	public uint32 EOTWarningZoneSize;
 }
 
-[CRepr]public struct TAPE_SET_DRIVE_PARAMETERS
+[CRepr]
+public struct TAPE_SET_DRIVE_PARAMETERS
 {
 	public BOOLEAN ECC;
 	public BOOLEAN Compression;
@@ -8947,7 +9221,8 @@ public function void APC_CALLBACK_FUNCTION(uint32 param0, void* param1, void* pa
 	public uint32 EOTWarningZoneSize;
 }
 
-[CRepr]public struct TAPE_GET_MEDIA_PARAMETERS
+[CRepr]
+public struct TAPE_GET_MEDIA_PARAMETERS
 {
 	public LARGE_INTEGER Capacity;
 	public LARGE_INTEGER Remaining;
@@ -8956,60 +9231,70 @@ public function void APC_CALLBACK_FUNCTION(uint32 param0, void* param1, void* pa
 	public BOOLEAN WriteProtected;
 }
 
-[CRepr]public struct TAPE_SET_MEDIA_PARAMETERS
+[CRepr]
+public struct TAPE_SET_MEDIA_PARAMETERS
 {
 	public uint32 BlockSize;
 }
 
-[CRepr]public struct TAPE_CREATE_PARTITION
+[CRepr]
+public struct TAPE_CREATE_PARTITION
 {
 	public uint32 Method;
 	public uint32 Count;
 	public uint32 Size;
 }
 
-[CRepr]public struct TAPE_WMI_OPERATIONS
+[CRepr]
+public struct TAPE_WMI_OPERATIONS
 {
 	public uint32 Method;
 	public uint32 DataBufferSize;
 	public void* DataBuffer;
 }
 
-[CRepr]public struct TRANSACTION_BASIC_INFORMATION
+[CRepr]
+public struct TRANSACTION_BASIC_INFORMATION
 {
 	public Guid TransactionId;
 	public uint32 State;
 	public uint32 Outcome;
 }
 
-[CRepr]public struct TRANSACTIONMANAGER_BASIC_INFORMATION
+[CRepr]
+public struct TRANSACTIONMANAGER_BASIC_INFORMATION
 {
 	public Guid TmIdentity;
 	public LARGE_INTEGER VirtualClock;
 }
 
-[CRepr]public struct TRANSACTIONMANAGER_LOG_INFORMATION
+[CRepr]
+public struct TRANSACTIONMANAGER_LOG_INFORMATION
 {
 	public Guid LogIdentity;
 }
 
-[CRepr]public struct TRANSACTIONMANAGER_LOGPATH_INFORMATION
+[CRepr]
+public struct TRANSACTIONMANAGER_LOGPATH_INFORMATION
 {
 	public uint32 LogPathLength;
 	public char8[1] LogPath;
 }
 
-[CRepr]public struct TRANSACTIONMANAGER_RECOVERY_INFORMATION
+[CRepr]
+public struct TRANSACTIONMANAGER_RECOVERY_INFORMATION
 {
 	public uint64 LastRecoveredLsn;
 }
 
-[CRepr]public struct TRANSACTIONMANAGER_OLDEST_INFORMATION
+[CRepr]
+public struct TRANSACTIONMANAGER_OLDEST_INFORMATION
 {
 	public Guid OldestTransactionGuid;
 }
 
-[CRepr]public struct TRANSACTION_PROPERTIES_INFORMATION
+[CRepr]
+public struct TRANSACTION_PROPERTIES_INFORMATION
 {
 	public uint32 IsolationLevel;
 	public uint32 IsolationFlags;
@@ -9019,67 +9304,78 @@ public function void APC_CALLBACK_FUNCTION(uint32 param0, void* param1, void* pa
 	public char8[1] Description;
 }
 
-[CRepr]public struct TRANSACTION_BIND_INFORMATION
+[CRepr]
+public struct TRANSACTION_BIND_INFORMATION
 {
 	public HANDLE TmHandle;
 }
 
-[CRepr]public struct TRANSACTION_ENLISTMENT_PAIR
+[CRepr]
+public struct TRANSACTION_ENLISTMENT_PAIR
 {
 	public Guid EnlistmentId;
 	public Guid ResourceManagerId;
 }
 
-[CRepr]public struct TRANSACTION_ENLISTMENTS_INFORMATION
+[CRepr]
+public struct TRANSACTION_ENLISTMENTS_INFORMATION
 {
 	public uint32 NumberOfEnlistments;
 	public TRANSACTION_ENLISTMENT_PAIR[1] EnlistmentPair;
 }
 
-[CRepr]public struct TRANSACTION_SUPERIOR_ENLISTMENT_INFORMATION
+[CRepr]
+public struct TRANSACTION_SUPERIOR_ENLISTMENT_INFORMATION
 {
 	public TRANSACTION_ENLISTMENT_PAIR SuperiorEnlistmentPair;
 }
 
-[CRepr]public struct RESOURCEMANAGER_BASIC_INFORMATION
+[CRepr]
+public struct RESOURCEMANAGER_BASIC_INFORMATION
 {
 	public Guid ResourceManagerId;
 	public uint32 DescriptionLength;
 	public char8[1] Description;
 }
 
-[CRepr]public struct RESOURCEMANAGER_COMPLETION_INFORMATION
+[CRepr]
+public struct RESOURCEMANAGER_COMPLETION_INFORMATION
 {
 	public HANDLE IoCompletionPortHandle;
 	public uint CompletionKey;
 }
 
-[CRepr]public struct ENLISTMENT_BASIC_INFORMATION
+[CRepr]
+public struct ENLISTMENT_BASIC_INFORMATION
 {
 	public Guid EnlistmentId;
 	public Guid TransactionId;
 	public Guid ResourceManagerId;
 }
 
-[CRepr]public struct ENLISTMENT_CRM_INFORMATION
+[CRepr]
+public struct ENLISTMENT_CRM_INFORMATION
 {
 	public Guid CrmTransactionManagerId;
 	public Guid CrmResourceManagerId;
 	public Guid CrmEnlistmentId;
 }
 
-[CRepr]public struct TRANSACTION_LIST_ENTRY
+[CRepr]
+public struct TRANSACTION_LIST_ENTRY
 {
 	public Guid UOW;
 }
 
-[CRepr]public struct TRANSACTION_LIST_INFORMATION
+[CRepr]
+public struct TRANSACTION_LIST_INFORMATION
 {
 	public uint32 NumberOfTransactions;
 	public TRANSACTION_LIST_ENTRY[1] TransactionInformation;
 }
 
-[CRepr]public struct KTMOBJECT_CURSOR
+[CRepr]
+public struct KTMOBJECT_CURSOR
 {
 	public Guid LastQuery;
 	public uint32 ObjectIdCount;

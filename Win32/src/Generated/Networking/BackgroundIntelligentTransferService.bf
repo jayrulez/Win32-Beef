@@ -588,20 +588,23 @@ public enum GROUPPROP : int32
 #endregion
 
 #region Structs
-[CRepr]public struct BG_FILE_PROGRESS
+[CRepr]
+public struct BG_FILE_PROGRESS
 {
 	public uint64 BytesTotal;
 	public uint64 BytesTransferred;
 	public BOOL Completed;
 }
 
-[CRepr]public struct BG_FILE_INFO
+[CRepr]
+public struct BG_FILE_INFO
 {
 	public PWSTR RemoteName;
 	public PWSTR LocalName;
 }
 
-[CRepr]public struct BG_JOB_PROGRESS
+[CRepr]
+public struct BG_JOB_PROGRESS
 {
 	public uint64 BytesTotal;
 	public uint64 BytesTransferred;
@@ -609,44 +612,51 @@ public enum GROUPPROP : int32
 	public uint32 FilesTransferred;
 }
 
-[CRepr]public struct BG_JOB_TIMES
+[CRepr]
+public struct BG_JOB_TIMES
 {
 	public FILETIME CreationTime;
 	public FILETIME ModificationTime;
 	public FILETIME TransferCompletionTime;
 }
 
-[CRepr]public struct BG_JOB_REPLY_PROGRESS
+[CRepr]
+public struct BG_JOB_REPLY_PROGRESS
 {
 	public uint64 BytesTotal;
 	public uint64 BytesTransferred;
 }
 
-[CRepr]public struct BG_BASIC_CREDENTIALS
+[CRepr]
+public struct BG_BASIC_CREDENTIALS
 {
 	public PWSTR UserName;
 	public PWSTR Password;
 }
 
-[CRepr, Union]public struct BG_AUTH_CREDENTIALS_UNION
+[CRepr, Union]
+public struct BG_AUTH_CREDENTIALS_UNION
 {
 	public BG_BASIC_CREDENTIALS Basic;
 }
 
-[CRepr]public struct BG_AUTH_CREDENTIALS
+[CRepr]
+public struct BG_AUTH_CREDENTIALS
 {
 	public BG_AUTH_TARGET Target;
 	public BG_AUTH_SCHEME Scheme;
 	public BG_AUTH_CREDENTIALS_UNION Credentials;
 }
 
-[CRepr]public struct BG_FILE_RANGE
+[CRepr]
+public struct BG_FILE_RANGE
 {
 	public uint64 InitialOffset;
 	public uint64 Length;
 }
 
-[CRepr, Union]public struct BITS_JOB_PROPERTY_VALUE
+[CRepr, Union]
+public struct BITS_JOB_PROPERTY_VALUE
 {
 	public uint32 Dword;
 	public Guid ClsID;
@@ -655,12 +665,14 @@ public enum GROUPPROP : int32
 	public BG_AUTH_TARGET Target;
 }
 
-[CRepr, Union]public struct BITS_FILE_PROPERTY_VALUE
+[CRepr, Union]
+public struct BITS_FILE_PROPERTY_VALUE
 {
 	public PWSTR String;
 }
 
-[CRepr]public struct FILESETINFO
+[CRepr]
+public struct FILESETINFO
 {
 	public BSTR bstrRemoteFile;
 	public BSTR bstrLocalFile;

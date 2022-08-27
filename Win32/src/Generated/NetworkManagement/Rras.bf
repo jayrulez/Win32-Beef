@@ -1805,7 +1805,8 @@ public function void RTM_ENTITY_EXPORT_METHOD(int CallerHandle, int CalleeHandle
 #endregion
 
 #region Structs
-[CRepr]public struct RASIPADDR
+[CRepr]
+public struct RASIPADDR
 {
 	public uint8 a;
 	public uint8 b;
@@ -1813,9 +1814,11 @@ public function void RTM_ENTITY_EXPORT_METHOD(int CallerHandle, int CalleeHandle
 	public uint8 d;
 }
 
-[CRepr]public struct RASTUNNELENDPOINT
+[CRepr]
+public struct RASTUNNELENDPOINT
 {
-	[CRepr, Union]	public struct _Anonymous_e__Union
+	[CRepr, Union]
+	public struct _Anonymous_e__Union
 	{
 		public IN_ADDR ipv4;
 		public IN6_ADDR ipv6;
@@ -1825,7 +1828,8 @@ public function void RTM_ENTITY_EXPORT_METHOD(int CallerHandle, int CalleeHandle
 	public using _Anonymous_e__Union Anonymous;
 }
 
-[CRepr, Packed(4)]public struct RASCONNW
+[CRepr, Packed(4)]
+public struct RASCONNW
 {
 	public uint32 dwSize;
 	public HRASCONN hrasconn;
@@ -1840,7 +1844,8 @@ public function void RTM_ENTITY_EXPORT_METHOD(int CallerHandle, int CalleeHandle
 	public Guid guidCorrelationId;
 }
 
-[CRepr, Packed(4)]public struct RASCONNA
+[CRepr, Packed(4)]
+public struct RASCONNA
 {
 	public uint32 dwSize;
 	public HRASCONN hrasconn;
@@ -1855,7 +1860,8 @@ public function void RTM_ENTITY_EXPORT_METHOD(int CallerHandle, int CalleeHandle
 	public Guid guidCorrelationId;
 }
 
-[CRepr]public struct RASCONNSTATUSW
+[CRepr]
+public struct RASCONNSTATUSW
 {
 	public uint32 dwSize;
 	public RASCONNSTATE rasconnstate;
@@ -1868,7 +1874,8 @@ public function void RTM_ENTITY_EXPORT_METHOD(int CallerHandle, int CalleeHandle
 	public RASCONNSUBSTATE rasconnsubstate;
 }
 
-[CRepr]public struct RASCONNSTATUSA
+[CRepr]
+public struct RASCONNSTATUSA
 {
 	public uint32 dwSize;
 	public RASCONNSTATE rasconnstate;
@@ -1881,7 +1888,8 @@ public function void RTM_ENTITY_EXPORT_METHOD(int CallerHandle, int CalleeHandle
 	public RASCONNSUBSTATE rasconnsubstate;
 }
 
-[CRepr, Packed(4)]public struct RASDIALPARAMSW
+[CRepr, Packed(4)]
+public struct RASDIALPARAMSW
 {
 	public uint32 dwSize;
 	public char8[257] szEntryName;
@@ -1896,7 +1904,8 @@ public function void RTM_ENTITY_EXPORT_METHOD(int CallerHandle, int CalleeHandle
 	public PWSTR szEncPassword;
 }
 
-[CRepr, Packed(4)]public struct RASDIALPARAMSA
+[CRepr, Packed(4)]
+public struct RASDIALPARAMSA
 {
 	public uint32 dwSize;
 	public CHAR[257] szEntryName;
@@ -1911,19 +1920,22 @@ public function void RTM_ENTITY_EXPORT_METHOD(int CallerHandle, int CalleeHandle
 	public PSTR szEncPassword;
 }
 
-[CRepr, Packed(4)]public struct RASEAPINFO
+[CRepr, Packed(4)]
+public struct RASEAPINFO
 {
 	public uint32 dwSizeofEapInfo;
 	public uint8* pbEapInfo;
 }
 
-[CRepr, Packed(4)]public struct RASDEVSPECIFICINFO
+[CRepr, Packed(4)]
+public struct RASDEVSPECIFICINFO
 {
 	public uint32 dwSize;
 	public uint8* pbDevSpecificInfo;
 }
 
-[CRepr, Packed(4)]public struct RASDIALEXTENSIONS
+[CRepr, Packed(4)]
+public struct RASDIALEXTENSIONS
 {
 	public uint32 dwSize;
 	public uint32 dwfOptions;
@@ -1935,7 +1947,8 @@ public function void RTM_ENTITY_EXPORT_METHOD(int CallerHandle, int CalleeHandle
 	public RASDEVSPECIFICINFO RasDevSpecificInfo;
 }
 
-[CRepr]public struct RASENTRYNAMEW
+[CRepr]
+public struct RASENTRYNAMEW
 {
 	public uint32 dwSize;
 	public char8[257] szEntryName;
@@ -1943,7 +1956,8 @@ public function void RTM_ENTITY_EXPORT_METHOD(int CallerHandle, int CalleeHandle
 	public char8[261] szPhonebookPath;
 }
 
-[CRepr]public struct RASENTRYNAMEA
+[CRepr]
+public struct RASENTRYNAMEA
 {
 	public uint32 dwSize;
 	public CHAR[257] szEntryName;
@@ -1951,7 +1965,8 @@ public function void RTM_ENTITY_EXPORT_METHOD(int CallerHandle, int CalleeHandle
 	public CHAR[261] szPhonebookPath;
 }
 
-[CRepr]public struct RASAMBW
+[CRepr]
+public struct RASAMBW
 {
 	public uint32 dwSize;
 	public uint32 dwError;
@@ -1959,7 +1974,8 @@ public function void RTM_ENTITY_EXPORT_METHOD(int CallerHandle, int CalleeHandle
 	public uint8 bLana;
 }
 
-[CRepr]public struct RASAMBA
+[CRepr]
+public struct RASAMBA
 {
 	public uint32 dwSize;
 	public uint32 dwError;
@@ -1967,7 +1983,8 @@ public function void RTM_ENTITY_EXPORT_METHOD(int CallerHandle, int CalleeHandle
 	public uint8 bLana;
 }
 
-[CRepr]public struct RASPPPNBFW
+[CRepr]
+public struct RASPPPNBFW
 {
 	public uint32 dwSize;
 	public uint32 dwError;
@@ -1977,7 +1994,8 @@ public function void RTM_ENTITY_EXPORT_METHOD(int CallerHandle, int CalleeHandle
 	public uint8 bLana;
 }
 
-[CRepr]public struct RASPPPNBFA
+[CRepr]
+public struct RASPPPNBFA
 {
 	public uint32 dwSize;
 	public uint32 dwError;
@@ -1987,21 +2005,24 @@ public function void RTM_ENTITY_EXPORT_METHOD(int CallerHandle, int CalleeHandle
 	public uint8 bLana;
 }
 
-[CRepr]public struct RASIPXW
+[CRepr]
+public struct RASIPXW
 {
 	public uint32 dwSize;
 	public uint32 dwError;
 	public char8[22] szIpxAddress;
 }
 
-[CRepr]public struct RASPPPIPXA
+[CRepr]
+public struct RASPPPIPXA
 {
 	public uint32 dwSize;
 	public uint32 dwError;
 	public CHAR[22] szIpxAddress;
 }
 
-[CRepr]public struct RASPPPIPW
+[CRepr]
+public struct RASPPPIPW
 {
 	public uint32 dwSize;
 	public uint32 dwError;
@@ -2011,7 +2032,8 @@ public function void RTM_ENTITY_EXPORT_METHOD(int CallerHandle, int CalleeHandle
 	public uint32 dwServerOptions;
 }
 
-[CRepr]public struct RASPPPIPA
+[CRepr]
+public struct RASPPPIPA
 {
 	public uint32 dwSize;
 	public uint32 dwError;
@@ -2021,7 +2043,8 @@ public function void RTM_ENTITY_EXPORT_METHOD(int CallerHandle, int CalleeHandle
 	public uint32 dwServerOptions;
 }
 
-[CRepr]public struct RASPPPIPV6
+[CRepr]
+public struct RASPPPIPV6
 {
 	public uint32 dwSize;
 	public uint32 dwError;
@@ -2031,7 +2054,8 @@ public function void RTM_ENTITY_EXPORT_METHOD(int CallerHandle, int CalleeHandle
 	public uint8[2] bPeerCompressionProtocol;
 }
 
-[CRepr]public struct RASPPPLCPW
+[CRepr]
+public struct RASPPPLCPW
 {
 	public uint32 dwSize;
 	public BOOL fBundled;
@@ -2050,7 +2074,8 @@ public function void RTM_ENTITY_EXPORT_METHOD(int CallerHandle, int CalleeHandle
 	public uint32 dwServerOptions;
 }
 
-[CRepr]public struct RASPPPLCPA
+[CRepr]
+public struct RASPPPLCPA
 {
 	public uint32 dwSize;
 	public BOOL fBundled;
@@ -2069,7 +2094,8 @@ public function void RTM_ENTITY_EXPORT_METHOD(int CallerHandle, int CalleeHandle
 	public uint32 dwServerOptions;
 }
 
-[CRepr]public struct RASPPPCCP
+[CRepr]
+public struct RASPPPCCP
 {
 	public uint32 dwSize;
 	public uint32 dwError;
@@ -2079,7 +2105,8 @@ public function void RTM_ENTITY_EXPORT_METHOD(int CallerHandle, int CalleeHandle
 	public uint32 dwServerOptions;
 }
 
-[CRepr]public struct RASPPP_PROJECTION_INFO
+[CRepr]
+public struct RASPPP_PROJECTION_INFO
 {
 	public uint32 dwIPv4NegotiationError;
 	public IN_ADDR ipv4Address;
@@ -2106,7 +2133,8 @@ public function void RTM_ENTITY_EXPORT_METHOD(int CallerHandle, int CalleeHandle
 	public uint32 dwCcpServerOptions;
 }
 
-[CRepr, Packed(4)]public struct RASIKEV2_PROJECTION_INFO
+[CRepr, Packed(4)]
+public struct RASIKEV2_PROJECTION_INFO
 {
 	public uint32 dwIPv4NegotiationError;
 	public IN_ADDR ipv4Address;
@@ -2125,9 +2153,11 @@ public function void RTM_ENTITY_EXPORT_METHOD(int CallerHandle, int CalleeHandle
 	public IN6_ADDR* ipv6ServerAddresses;
 }
 
-[CRepr]public struct RAS_PROJECTION_INFO
+[CRepr]
+public struct RAS_PROJECTION_INFO
 {
-	[CRepr, Union]	public struct _Anonymous_e__Union
+	[CRepr, Union]
+	public struct _Anonymous_e__Union
 	{
 		public RASPPP_PROJECTION_INFO ppp;
 		public RASIKEV2_PROJECTION_INFO ikev2;
@@ -2138,21 +2168,24 @@ public function void RTM_ENTITY_EXPORT_METHOD(int CallerHandle, int CalleeHandle
 	public using _Anonymous_e__Union Anonymous;
 }
 
-[CRepr]public struct RASDEVINFOW
+[CRepr]
+public struct RASDEVINFOW
 {
 	public uint32 dwSize;
 	public char8[17] szDeviceType;
 	public char8[129] szDeviceName;
 }
 
-[CRepr]public struct RASDEVINFOA
+[CRepr]
+public struct RASDEVINFOA
 {
 	public uint32 dwSize;
 	public CHAR[17] szDeviceType;
 	public CHAR[129] szDeviceName;
 }
 
-[CRepr]public struct RASCTRYINFO
+[CRepr]
+public struct RASCTRYINFO
 {
 	public uint32 dwSize;
 	public uint32 dwCountryID;
@@ -2161,7 +2194,8 @@ public function void RTM_ENTITY_EXPORT_METHOD(int CallerHandle, int CalleeHandle
 	public uint32 dwCountryNameOffset;
 }
 
-[CRepr]public struct RASENTRYA
+[CRepr]
+public struct RASENTRYA
 {
 	public uint32 dwSize;
 	public uint32 dwfOptions;
@@ -2226,7 +2260,8 @@ public function void RTM_ENTITY_EXPORT_METHOD(int CallerHandle, int CalleeHandle
 	public BOOL fDisableIKEv2Fragmentation;
 }
 
-[CRepr]public struct RASENTRYW
+[CRepr]
+public struct RASENTRYW
 {
 	public uint32 dwSize;
 	public uint32 dwfOptions;
@@ -2291,7 +2326,8 @@ public function void RTM_ENTITY_EXPORT_METHOD(int CallerHandle, int CalleeHandle
 	public BOOL fDisableIKEv2Fragmentation;
 }
 
-[CRepr, Packed(4)]public struct RASADPARAMS
+[CRepr, Packed(4)]
+public struct RASADPARAMS
 {
 	public uint32 dwSize;
 	public HWND hwndOwner;
@@ -2300,7 +2336,8 @@ public function void RTM_ENTITY_EXPORT_METHOD(int CallerHandle, int CalleeHandle
 	public int32 yDlg;
 }
 
-[CRepr]public struct RASSUBENTRYA
+[CRepr]
+public struct RASSUBENTRYA
 {
 	public uint32 dwSize;
 	public uint32 dwfFlags;
@@ -2310,7 +2347,8 @@ public function void RTM_ENTITY_EXPORT_METHOD(int CallerHandle, int CalleeHandle
 	public uint32 dwAlternateOffset;
 }
 
-[CRepr]public struct RASSUBENTRYW
+[CRepr]
+public struct RASSUBENTRYW
 {
 	public uint32 dwSize;
 	public uint32 dwfFlags;
@@ -2320,7 +2358,8 @@ public function void RTM_ENTITY_EXPORT_METHOD(int CallerHandle, int CalleeHandle
 	public uint32 dwAlternateOffset;
 }
 
-[CRepr]public struct RASCREDENTIALSA
+[CRepr]
+public struct RASCREDENTIALSA
 {
 	public uint32 dwSize;
 	public uint32 dwMask;
@@ -2329,7 +2368,8 @@ public function void RTM_ENTITY_EXPORT_METHOD(int CallerHandle, int CalleeHandle
 	public CHAR[16] szDomain;
 }
 
-[CRepr]public struct RASCREDENTIALSW
+[CRepr]
+public struct RASCREDENTIALSW
 {
 	public uint32 dwSize;
 	public uint32 dwMask;
@@ -2338,7 +2378,8 @@ public function void RTM_ENTITY_EXPORT_METHOD(int CallerHandle, int CalleeHandle
 	public char8[16] szDomain;
 }
 
-[CRepr]public struct RASAUTODIALENTRYA
+[CRepr]
+public struct RASAUTODIALENTRYA
 {
 	public uint32 dwSize;
 	public uint32 dwFlags;
@@ -2346,7 +2387,8 @@ public function void RTM_ENTITY_EXPORT_METHOD(int CallerHandle, int CalleeHandle
 	public CHAR[257] szEntry;
 }
 
-[CRepr]public struct RASAUTODIALENTRYW
+[CRepr]
+public struct RASAUTODIALENTRYW
 {
 	public uint32 dwSize;
 	public uint32 dwFlags;
@@ -2354,21 +2396,24 @@ public function void RTM_ENTITY_EXPORT_METHOD(int CallerHandle, int CalleeHandle
 	public char8[257] szEntry;
 }
 
-[CRepr]public struct RASEAPUSERIDENTITYA
+[CRepr]
+public struct RASEAPUSERIDENTITYA
 {
 	public CHAR[257] szUserName;
 	public uint32 dwSizeofEapInfo;
 	public uint8[1] pbEapInfo;
 }
 
-[CRepr]public struct RASEAPUSERIDENTITYW
+[CRepr]
+public struct RASEAPUSERIDENTITYW
 {
 	public char8[257] szUserName;
 	public uint32 dwSizeofEapInfo;
 	public uint8[1] pbEapInfo;
 }
 
-[CRepr]public struct RASCOMMSETTINGS
+[CRepr]
+public struct RASCOMMSETTINGS
 {
 	public uint32 dwSize;
 	public uint8 bParity;
@@ -2377,13 +2422,15 @@ public function void RTM_ENTITY_EXPORT_METHOD(int CallerHandle, int CalleeHandle
 	public uint8 bAlign;
 }
 
-[CRepr, Packed(4)]public struct RASCUSTOMSCRIPTEXTENSIONS
+[CRepr, Packed(4)]
+public struct RASCUSTOMSCRIPTEXTENSIONS
 {
 	public uint32 dwSize;
 	public PFNRASSETCOMMSETTINGS pfnRasSetCommSettings;
 }
 
-[CRepr]public struct RAS_STATS
+[CRepr]
+public struct RAS_STATS
 {
 	public uint32 dwSize;
 	public uint32 dwBytesXmited;
@@ -2402,7 +2449,8 @@ public function void RTM_ENTITY_EXPORT_METHOD(int CallerHandle, int CalleeHandle
 	public uint32 dwConnectDuration;
 }
 
-[CRepr]public struct RASUPDATECONN
+[CRepr]
+public struct RASUPDATECONN
 {
 	public RASAPIVERSION version;
 	public uint32 dwSize;
@@ -2412,7 +2460,8 @@ public function void RTM_ENTITY_EXPORT_METHOD(int CallerHandle, int CalleeHandle
 	public RASTUNNELENDPOINT remoteEndPoint;
 }
 
-[CRepr]public struct RASNOUSERW
+[CRepr]
+public struct RASNOUSERW
 {
 	public uint32 dwSize;
 	public uint32 dwFlags;
@@ -2422,7 +2471,8 @@ public function void RTM_ENTITY_EXPORT_METHOD(int CallerHandle, int CalleeHandle
 	public char8[16] szDomain;
 }
 
-[CRepr]public struct RASNOUSERA
+[CRepr]
+public struct RASNOUSERA
 {
 	public uint32 dwSize;
 	public uint32 dwFlags;
@@ -2432,7 +2482,8 @@ public function void RTM_ENTITY_EXPORT_METHOD(int CallerHandle, int CalleeHandle
 	public CHAR[16] szDomain;
 }
 
-[CRepr, Packed(4)]public struct RASPBDLGW
+[CRepr, Packed(4)]
+public struct RASPBDLGW
 {
 	public uint32 dwSize;
 	public HWND hwndOwner;
@@ -2446,7 +2497,8 @@ public function void RTM_ENTITY_EXPORT_METHOD(int CallerHandle, int CalleeHandle
 	public uint reserved2;
 }
 
-[CRepr, Packed(4)]public struct RASPBDLGA
+[CRepr, Packed(4)]
+public struct RASPBDLGA
 {
 	public uint32 dwSize;
 	public HWND hwndOwner;
@@ -2460,7 +2512,8 @@ public function void RTM_ENTITY_EXPORT_METHOD(int CallerHandle, int CalleeHandle
 	public uint reserved2;
 }
 
-[CRepr, Packed(4)]public struct RASENTRYDLGW
+[CRepr, Packed(4)]
+public struct RASENTRYDLGW
 {
 	public uint32 dwSize;
 	public HWND hwndOwner;
@@ -2473,7 +2526,8 @@ public function void RTM_ENTITY_EXPORT_METHOD(int CallerHandle, int CalleeHandle
 	public uint reserved2;
 }
 
-[CRepr, Packed(4)]public struct RASENTRYDLGA
+[CRepr, Packed(4)]
+public struct RASENTRYDLGA
 {
 	public uint32 dwSize;
 	public HWND hwndOwner;
@@ -2486,7 +2540,8 @@ public function void RTM_ENTITY_EXPORT_METHOD(int CallerHandle, int CalleeHandle
 	public uint reserved2;
 }
 
-[CRepr, Packed(4)]public struct RASDIALDLG
+[CRepr, Packed(4)]
+public struct RASDIALDLG
 {
 	public uint32 dwSize;
 	public HWND hwndOwner;
@@ -2499,7 +2554,8 @@ public function void RTM_ENTITY_EXPORT_METHOD(int CallerHandle, int CalleeHandle
 	public uint reserved2;
 }
 
-[CRepr]public struct MPR_INTERFACE_0
+[CRepr]
+public struct MPR_INTERFACE_0
 {
 	public char8[257] wszInterfaceName;
 	public HANDLE hInterface;
@@ -2510,13 +2566,15 @@ public function void RTM_ENTITY_EXPORT_METHOD(int CallerHandle, int CalleeHandle
 	public uint32 dwLastError;
 }
 
-[CRepr]public struct MPR_IPINIP_INTERFACE_0
+[CRepr]
+public struct MPR_IPINIP_INTERFACE_0
 {
 	public char8[257] wszFriendlyName;
 	public Guid Guid;
 }
 
-[CRepr]public struct MPR_INTERFACE_1
+[CRepr]
+public struct MPR_INTERFACE_1
 {
 	public char8[257] wszInterfaceName;
 	public HANDLE hInterface;
@@ -2528,7 +2586,8 @@ public function void RTM_ENTITY_EXPORT_METHOD(int CallerHandle, int CalleeHandle
 	public PWSTR lpwsDialoutHoursRestriction;
 }
 
-[CRepr]public struct MPR_INTERFACE_2
+[CRepr]
+public struct MPR_INTERFACE_2
 {
 	public char8[257] wszInterfaceName;
 	public HANDLE hInterface;
@@ -2569,7 +2628,8 @@ public function void RTM_ENTITY_EXPORT_METHOD(int CallerHandle, int CalleeHandle
 	public MPR_VS dwVpnStrategy;
 }
 
-[CRepr]public struct MPR_INTERFACE_3
+[CRepr]
+public struct MPR_INTERFACE_3
 {
 	public char8[257] wszInterfaceName;
 	public HANDLE hInterface;
@@ -2614,13 +2674,15 @@ public function void RTM_ENTITY_EXPORT_METHOD(int CallerHandle, int CalleeHandle
 	public IN6_ADDR* ipv6addr;
 }
 
-[CRepr]public struct MPR_DEVICE_0
+[CRepr]
+public struct MPR_DEVICE_0
 {
 	public char8[17] szDeviceType;
 	public char8[129] szDeviceName;
 }
 
-[CRepr]public struct MPR_DEVICE_1
+[CRepr]
+public struct MPR_DEVICE_1
 {
 	public char8[17] szDeviceType;
 	public char8[129] szDeviceName;
@@ -2628,33 +2690,38 @@ public function void RTM_ENTITY_EXPORT_METHOD(int CallerHandle, int CalleeHandle
 	public PWSTR szAlternates;
 }
 
-[CRepr]public struct MPR_CREDENTIALSEX_0
+[CRepr]
+public struct MPR_CREDENTIALSEX_0
 {
 	public uint32 dwSize;
 	public uint8* lpbCredentialsInfo;
 }
 
-[CRepr]public struct MPR_CREDENTIALSEX_1
+[CRepr]
+public struct MPR_CREDENTIALSEX_1
 {
 	public uint32 dwSize;
 	public uint8* lpbCredentialsInfo;
 }
 
-[CRepr]public struct MPR_TRANSPORT_0
+[CRepr]
+public struct MPR_TRANSPORT_0
 {
 	public uint32 dwTransportId;
 	public HANDLE hTransport;
 	public char8[41] wszTransportName;
 }
 
-[CRepr]public struct MPR_IFTRANSPORT_0
+[CRepr]
+public struct MPR_IFTRANSPORT_0
 {
 	public uint32 dwTransportId;
 	public HANDLE hIfTransport;
 	public char8[41] wszIfTransportName;
 }
 
-[CRepr]public struct MPR_SERVER_0
+[CRepr]
+public struct MPR_SERVER_0
 {
 	public BOOL fLanOnlyMode;
 	public uint32 dwUpTime;
@@ -2662,7 +2729,8 @@ public function void RTM_ENTITY_EXPORT_METHOD(int CallerHandle, int CalleeHandle
 	public uint32 dwPortsInUse;
 }
 
-[CRepr]public struct MPR_SERVER_1
+[CRepr]
+public struct MPR_SERVER_1
 {
 	public uint32 dwNumPptpPorts;
 	public uint32 dwPptpPortFlags;
@@ -2670,7 +2738,8 @@ public function void RTM_ENTITY_EXPORT_METHOD(int CallerHandle, int CalleeHandle
 	public uint32 dwL2tpPortFlags;
 }
 
-[CRepr]public struct MPR_SERVER_2
+[CRepr]
+public struct MPR_SERVER_2
 {
 	public uint32 dwNumPptpPorts;
 	public uint32 dwPptpPortFlags;
@@ -2680,7 +2749,8 @@ public function void RTM_ENTITY_EXPORT_METHOD(int CallerHandle, int CalleeHandle
 	public uint32 dwSstpPortFlags;
 }
 
-[CRepr]public struct RAS_PORT_0
+[CRepr]
+public struct RAS_PORT_0
 {
 	public HANDLE hPort;
 	public HANDLE hConnection;
@@ -2693,7 +2763,8 @@ public function void RTM_ENTITY_EXPORT_METHOD(int CallerHandle, int CalleeHandle
 	public char8[17] wszDeviceType;
 }
 
-[CRepr]public struct RAS_PORT_1
+[CRepr]
+public struct RAS_PORT_1
 {
 	public HANDLE hPort;
 	public HANDLE hConnection;
@@ -2713,7 +2784,8 @@ public function void RTM_ENTITY_EXPORT_METHOD(int CallerHandle, int CalleeHandle
 	public uint32 dwCompressionRatioOut;
 }
 
-[CRepr]public struct RAS_PORT_2
+[CRepr]
+public struct RAS_PORT_2
 {
 	public HANDLE hPort;
 	public HANDLE hConnection;
@@ -2744,20 +2816,23 @@ public function void RTM_ENTITY_EXPORT_METHOD(int CallerHandle, int CalleeHandle
 	public uint64 ullBytesRcvCompressed;
 }
 
-[CRepr]public struct PPP_NBFCP_INFO
+[CRepr]
+public struct PPP_NBFCP_INFO
 {
 	public uint32 dwError;
 	public char8[17] wszWksta;
 }
 
-[CRepr]public struct PPP_IPCP_INFO
+[CRepr]
+public struct PPP_IPCP_INFO
 {
 	public uint32 dwError;
 	public char8[16] wszAddress;
 	public char8[16] wszRemoteAddress;
 }
 
-[CRepr]public struct PPP_IPCP_INFO2
+[CRepr]
+public struct PPP_IPCP_INFO2
 {
 	public uint32 dwError;
 	public char8[16] wszAddress;
@@ -2766,19 +2841,22 @@ public function void RTM_ENTITY_EXPORT_METHOD(int CallerHandle, int CalleeHandle
 	public uint32 dwRemoteOptions;
 }
 
-[CRepr]public struct PPP_IPXCP_INFO
+[CRepr]
+public struct PPP_IPXCP_INFO
 {
 	public uint32 dwError;
 	public char8[23] wszAddress;
 }
 
-[CRepr]public struct PPP_ATCP_INFO
+[CRepr]
+public struct PPP_ATCP_INFO
 {
 	public uint32 dwError;
 	public char8[33] wszAddress;
 }
 
-[CRepr]public struct PPP_IPV6_CP_INFO
+[CRepr]
+public struct PPP_IPV6_CP_INFO
 {
 	public uint32 dwVersion;
 	public uint32 dwSize;
@@ -2791,7 +2869,8 @@ public function void RTM_ENTITY_EXPORT_METHOD(int CallerHandle, int CalleeHandle
 	public uint32 dwPrefixLength;
 }
 
-[CRepr]public struct PPP_INFO
+[CRepr]
+public struct PPP_INFO
 {
 	public PPP_NBFCP_INFO nbf;
 	public PPP_IPCP_INFO ip;
@@ -2799,7 +2878,8 @@ public function void RTM_ENTITY_EXPORT_METHOD(int CallerHandle, int CalleeHandle
 	public PPP_ATCP_INFO at;
 }
 
-[CRepr]public struct PPP_CCP_INFO
+[CRepr]
+public struct PPP_CCP_INFO
 {
 	public uint32 dwError;
 	public uint32 dwCompressionAlgorithm;
@@ -2808,7 +2888,8 @@ public function void RTM_ENTITY_EXPORT_METHOD(int CallerHandle, int CalleeHandle
 	public uint32 dwRemoteOptions;
 }
 
-[CRepr]public struct PPP_LCP_INFO
+[CRepr]
+public struct PPP_LCP_INFO
 {
 	public uint32 dwError;
 	public PPP_LCP dwAuthenticationProtocol;
@@ -2823,7 +2904,8 @@ public function void RTM_ENTITY_EXPORT_METHOD(int CallerHandle, int CalleeHandle
 	public uint32 dwRemoteEapTypeId;
 }
 
-[CRepr]public struct PPP_INFO_2
+[CRepr]
+public struct PPP_INFO_2
 {
 	public PPP_NBFCP_INFO nbf;
 	public PPP_IPCP_INFO2 ip;
@@ -2833,7 +2915,8 @@ public function void RTM_ENTITY_EXPORT_METHOD(int CallerHandle, int CalleeHandle
 	public PPP_LCP_INFO lcp;
 }
 
-[CRepr]public struct PPP_INFO_3
+[CRepr]
+public struct PPP_INFO_3
 {
 	public PPP_NBFCP_INFO nbf;
 	public PPP_IPCP_INFO2 ip;
@@ -2842,7 +2925,8 @@ public function void RTM_ENTITY_EXPORT_METHOD(int CallerHandle, int CalleeHandle
 	public PPP_LCP_INFO lcp;
 }
 
-[CRepr]public struct RAS_CONNECTION_0
+[CRepr]
+public struct RAS_CONNECTION_0
 {
 	public HANDLE hConnection;
 	public HANDLE hInterface;
@@ -2855,7 +2939,8 @@ public function void RTM_ENTITY_EXPORT_METHOD(int CallerHandle, int CalleeHandle
 	public char8[17] wszRemoteComputer;
 }
 
-[CRepr]public struct RAS_CONNECTION_1
+[CRepr]
+public struct RAS_CONNECTION_1
 {
 	public HANDLE hConnection;
 	public HANDLE hInterface;
@@ -2874,7 +2959,8 @@ public function void RTM_ENTITY_EXPORT_METHOD(int CallerHandle, int CalleeHandle
 	public uint32 dwCompressionRatioOut;
 }
 
-[CRepr]public struct RAS_CONNECTION_2
+[CRepr]
+public struct RAS_CONNECTION_2
 {
 	public HANDLE hConnection;
 	public char8[257] wszUserName;
@@ -2883,7 +2969,8 @@ public function void RTM_ENTITY_EXPORT_METHOD(int CallerHandle, int CalleeHandle
 	public PPP_INFO_2 PppInfo2;
 }
 
-[CRepr]public struct RAS_CONNECTION_3
+[CRepr]
+public struct RAS_CONNECTION_3
 {
 	public uint32 dwVersion;
 	public uint32 dwSize;
@@ -2896,32 +2983,37 @@ public function void RTM_ENTITY_EXPORT_METHOD(int CallerHandle, int CalleeHandle
 	public FILETIME timer;
 }
 
-[CRepr]public struct RAS_USER_0
+[CRepr]
+public struct RAS_USER_0
 {
 	public uint8 bfPrivilege;
 	public char8[129] wszPhoneNumber;
 }
 
-[CRepr]public struct RAS_USER_1
+[CRepr]
+public struct RAS_USER_1
 {
 	public uint8 bfPrivilege;
 	public char8[129] wszPhoneNumber;
 	public uint8 bfPrivilege2;
 }
 
-[CRepr]public struct MPR_FILTER_0
+[CRepr]
+public struct MPR_FILTER_0
 {
 	public BOOL fEnable;
 }
 
-[CRepr]public struct MPRAPI_OBJECT_HEADER
+[CRepr]
+public struct MPRAPI_OBJECT_HEADER
 {
 	public uint8 revision;
 	public uint8 type;
 	public uint16 size;
 }
 
-[CRepr]public struct PPP_PROJECTION_INFO
+[CRepr]
+public struct PPP_PROJECTION_INFO
 {
 	public uint32 dwIPv4NegotiationError;
 	public char8[16] wszAddress;
@@ -2953,7 +3045,8 @@ public function void RTM_ENTITY_EXPORT_METHOD(int CallerHandle, int CalleeHandle
 	public uint32 dwCcpRemoteOptions;
 }
 
-[CRepr]public struct PPP_PROJECTION_INFO2
+[CRepr]
+public struct PPP_PROJECTION_INFO2
 {
 	public uint32 dwIPv4NegotiationError;
 	public char8[16] wszAddress;
@@ -2986,7 +3079,8 @@ public function void RTM_ENTITY_EXPORT_METHOD(int CallerHandle, int CalleeHandle
 	public uint32 dwCcpRemoteOptions;
 }
 
-[CRepr]public struct IKEV2_PROJECTION_INFO
+[CRepr]
+public struct IKEV2_PROJECTION_INFO
 {
 	public uint32 dwIPv4NegotiationError;
 	public char8[16] wszAddress;
@@ -3005,7 +3099,8 @@ public function void RTM_ENTITY_EXPORT_METHOD(int CallerHandle, int CalleeHandle
 	public uint32 dwEncryptionMethod;
 }
 
-[CRepr]public struct IKEV2_PROJECTION_INFO2
+[CRepr]
+public struct IKEV2_PROJECTION_INFO2
 {
 	public uint32 dwIPv4NegotiationError;
 	public char8[16] wszAddress;
@@ -3025,9 +3120,11 @@ public function void RTM_ENTITY_EXPORT_METHOD(int CallerHandle, int CalleeHandle
 	public uint32 dwEncryptionMethod;
 }
 
-[CRepr]public struct PROJECTION_INFO
+[CRepr]
+public struct PROJECTION_INFO
 {
-	[CRepr, Union]	public struct _Anonymous_e__Union
+	[CRepr, Union]
+	public struct _Anonymous_e__Union
 	{
 		public PPP_PROJECTION_INFO PppProjectionInfo;
 		public IKEV2_PROJECTION_INFO Ikev2ProjectionInfo;
@@ -3037,9 +3134,11 @@ public function void RTM_ENTITY_EXPORT_METHOD(int CallerHandle, int CalleeHandle
 	public using _Anonymous_e__Union Anonymous;
 }
 
-[CRepr]public struct PROJECTION_INFO2
+[CRepr]
+public struct PROJECTION_INFO2
 {
-	[CRepr, Union]	public struct _Anonymous_e__Union
+	[CRepr, Union]
+	public struct _Anonymous_e__Union
 	{
 		public PPP_PROJECTION_INFO2 PppProjectionInfo;
 		public IKEV2_PROJECTION_INFO2 Ikev2ProjectionInfo;
@@ -3049,7 +3148,8 @@ public function void RTM_ENTITY_EXPORT_METHOD(int CallerHandle, int CalleeHandle
 	public using _Anonymous_e__Union Anonymous;
 }
 
-[CRepr]public struct RAS_CONNECTION_EX
+[CRepr]
+public struct RAS_CONNECTION_EX
 {
 	public MPRAPI_OBJECT_HEADER Header;
 	public uint32 dwConnectDuration;
@@ -3082,7 +3182,8 @@ public function void RTM_ENTITY_EXPORT_METHOD(int CallerHandle, int CalleeHandle
 	public HANDLE hInterface;
 }
 
-[CRepr]public struct RAS_CONNECTION_4
+[CRepr]
+public struct RAS_CONNECTION_4
 {
 	public uint32 dwConnectDuration;
 	public ROUTER_INTERFACE_TYPE dwInterfaceType;
@@ -3116,7 +3217,8 @@ public function void RTM_ENTITY_EXPORT_METHOD(int CallerHandle, int CalleeHandle
 	public uint32 dwDeviceType;
 }
 
-[CRepr]public struct ROUTER_CUSTOM_IKEv2_POLICY0
+[CRepr]
+public struct ROUTER_CUSTOM_IKEv2_POLICY0
 {
 	public uint32 dwIntegrityMethod;
 	public uint32 dwEncryptionMethod;
@@ -3126,7 +3228,8 @@ public function void RTM_ENTITY_EXPORT_METHOD(int CallerHandle, int CalleeHandle
 	public uint32 dwDhGroup;
 }
 
-[CRepr]public struct ROUTER_IKEv2_IF_CUSTOM_CONFIG0
+[CRepr]
+public struct ROUTER_IKEv2_IF_CUSTOM_CONFIG0
 {
 	public uint32 dwSaLifeTime;
 	public uint32 dwSaDataSize;
@@ -3134,23 +3237,27 @@ public function void RTM_ENTITY_EXPORT_METHOD(int CallerHandle, int CalleeHandle
 	public ROUTER_CUSTOM_IKEv2_POLICY0* customPolicy;
 }
 
-[CRepr]public struct MPR_IF_CUSTOMINFOEX0
+[CRepr]
+public struct MPR_IF_CUSTOMINFOEX0
 {
 	public MPRAPI_OBJECT_HEADER Header;
 	public uint32 dwFlags;
 	public ROUTER_IKEv2_IF_CUSTOM_CONFIG0 customIkev2Config;
 }
 
-[CRepr]public struct MPR_CERT_EKU
+[CRepr]
+public struct MPR_CERT_EKU
 {
 	public uint32 dwSize;
 	public BOOL IsEKUOID;
 	public PWSTR pwszEKU;
 }
 
-[CRepr]public struct VPN_TS_IP_ADDRESS
+[CRepr]
+public struct VPN_TS_IP_ADDRESS
 {
-	[CRepr, Union]	public struct _Anonymous_e__Union
+	[CRepr, Union]
+	public struct _Anonymous_e__Union
 	{
 		public IN_ADDR v4;
 		public IN6_ADDR v6;
@@ -3160,7 +3267,8 @@ public function void RTM_ENTITY_EXPORT_METHOD(int CallerHandle, int CalleeHandle
 	public using _Anonymous_e__Union Anonymous;
 }
 
-[CRepr]public struct _MPR_VPN_SELECTOR
+[CRepr]
+public struct _MPR_VPN_SELECTOR
 {
 	public MPR_VPN_TS_TYPE type;
 	public uint8 protocolId;
@@ -3171,7 +3279,8 @@ public function void RTM_ENTITY_EXPORT_METHOD(int CallerHandle, int CalleeHandle
 	public VPN_TS_IP_ADDRESS addrEnd;
 }
 
-[CRepr]public struct MPR_VPN_TRAFFIC_SELECTORS
+[CRepr]
+public struct MPR_VPN_TRAFFIC_SELECTORS
 {
 	public uint32 numTsi;
 	public uint32 numTsr;
@@ -3179,7 +3288,8 @@ public function void RTM_ENTITY_EXPORT_METHOD(int CallerHandle, int CalleeHandle
 	public _MPR_VPN_SELECTOR* tsR;
 }
 
-[CRepr]public struct ROUTER_IKEv2_IF_CUSTOM_CONFIG2
+[CRepr]
+public struct ROUTER_IKEv2_IF_CUSTOM_CONFIG2
 {
 	public uint32 dwSaLifeTime;
 	public uint32 dwSaDataSize;
@@ -3190,14 +3300,16 @@ public function void RTM_ENTITY_EXPORT_METHOD(int CallerHandle, int CalleeHandle
 	public MPR_VPN_TRAFFIC_SELECTORS vpnTrafficSelectors;
 }
 
-[CRepr]public struct MPR_IF_CUSTOMINFOEX2
+[CRepr]
+public struct MPR_IF_CUSTOMINFOEX2
 {
 	public MPRAPI_OBJECT_HEADER Header;
 	public uint32 dwFlags;
 	public ROUTER_IKEv2_IF_CUSTOM_CONFIG2 customIkev2Config;
 }
 
-[CRepr]public struct IKEV2_TUNNEL_CONFIG_PARAMS4
+[CRepr]
+public struct IKEV2_TUNNEL_CONFIG_PARAMS4
 {
 	public uint32 dwIdleTimeout;
 	public uint32 dwNetworkBlackoutTime;
@@ -3215,7 +3327,8 @@ public function void RTM_ENTITY_EXPORT_METHOD(int CallerHandle, int CalleeHandle
 	public uint32 dwMmSaLifeTime;
 }
 
-[CRepr]public struct ROUTER_IKEv2_IF_CUSTOM_CONFIG1
+[CRepr]
+public struct ROUTER_IKEv2_IF_CUSTOM_CONFIG1
 {
 	public uint32 dwSaLifeTime;
 	public uint32 dwSaDataSize;
@@ -3224,14 +3337,16 @@ public function void RTM_ENTITY_EXPORT_METHOD(int CallerHandle, int CalleeHandle
 	public CRYPTOAPI_BLOB certificateHash;
 }
 
-[CRepr]public struct MPR_IF_CUSTOMINFOEX1
+[CRepr]
+public struct MPR_IF_CUSTOMINFOEX1
 {
 	public MPRAPI_OBJECT_HEADER Header;
 	public uint32 dwFlags;
 	public ROUTER_IKEv2_IF_CUSTOM_CONFIG1 customIkev2Config;
 }
 
-[CRepr]public struct IKEV2_TUNNEL_CONFIG_PARAMS3
+[CRepr]
+public struct IKEV2_TUNNEL_CONFIG_PARAMS3
 {
 	public uint32 dwIdleTimeout;
 	public uint32 dwNetworkBlackoutTime;
@@ -3248,7 +3363,8 @@ public function void RTM_ENTITY_EXPORT_METHOD(int CallerHandle, int CalleeHandle
 	public CRYPTOAPI_BLOB machineCertificateHash;
 }
 
-[CRepr]public struct IKEV2_TUNNEL_CONFIG_PARAMS2
+[CRepr]
+public struct IKEV2_TUNNEL_CONFIG_PARAMS2
 {
 	public uint32 dwIdleTimeout;
 	public uint32 dwNetworkBlackoutTime;
@@ -3262,7 +3378,8 @@ public function void RTM_ENTITY_EXPORT_METHOD(int CallerHandle, int CalleeHandle
 	public ROUTER_CUSTOM_IKEv2_POLICY0* customPolicy;
 }
 
-[CRepr]public struct L2TP_TUNNEL_CONFIG_PARAMS2
+[CRepr]
+public struct L2TP_TUNNEL_CONFIG_PARAMS2
 {
 	public uint32 dwIdleTimeout;
 	public uint32 dwEncryptionType;
@@ -3272,7 +3389,8 @@ public function void RTM_ENTITY_EXPORT_METHOD(int CallerHandle, int CalleeHandle
 	public uint32 dwMmSaLifeTime;
 }
 
-[CRepr]public struct L2TP_TUNNEL_CONFIG_PARAMS1
+[CRepr]
+public struct L2TP_TUNNEL_CONFIG_PARAMS1
 {
 	public uint32 dwIdleTimeout;
 	public uint32 dwEncryptionType;
@@ -3281,7 +3399,8 @@ public function void RTM_ENTITY_EXPORT_METHOD(int CallerHandle, int CalleeHandle
 	public ROUTER_CUSTOM_IKEv2_POLICY0* customPolicy;
 }
 
-[CRepr]public struct IKEV2_CONFIG_PARAMS
+[CRepr]
+public struct IKEV2_CONFIG_PARAMS
 {
 	public uint32 dwNumPorts;
 	public uint32 dwPortFlags;
@@ -3289,13 +3408,15 @@ public function void RTM_ENTITY_EXPORT_METHOD(int CallerHandle, int CalleeHandle
 	public IKEV2_TUNNEL_CONFIG_PARAMS4 TunnelConfigParams;
 }
 
-[CRepr]public struct PPTP_CONFIG_PARAMS
+[CRepr]
+public struct PPTP_CONFIG_PARAMS
 {
 	public uint32 dwNumPorts;
 	public uint32 dwPortFlags;
 }
 
-[CRepr]public struct L2TP_CONFIG_PARAMS1
+[CRepr]
+public struct L2TP_CONFIG_PARAMS1
 {
 	public uint32 dwNumPorts;
 	public uint32 dwPortFlags;
@@ -3303,25 +3424,29 @@ public function void RTM_ENTITY_EXPORT_METHOD(int CallerHandle, int CalleeHandle
 	public L2TP_TUNNEL_CONFIG_PARAMS2 TunnelConfigParams;
 }
 
-[CRepr]public struct GRE_CONFIG_PARAMS0
+[CRepr]
+public struct GRE_CONFIG_PARAMS0
 {
 	public uint32 dwNumPorts;
 	public uint32 dwPortFlags;
 }
 
-[CRepr]public struct L2TP_CONFIG_PARAMS0
+[CRepr]
+public struct L2TP_CONFIG_PARAMS0
 {
 	public uint32 dwNumPorts;
 	public uint32 dwPortFlags;
 }
 
-[CRepr]public struct SSTP_CERT_INFO
+[CRepr]
+public struct SSTP_CERT_INFO
 {
 	public BOOL isDefault;
 	public CRYPTOAPI_BLOB certBlob;
 }
 
-[CRepr]public struct SSTP_CONFIG_PARAMS
+[CRepr]
+public struct SSTP_CONFIG_PARAMS
 {
 	public uint32 dwNumPorts;
 	public uint32 dwPortFlags;
@@ -3330,7 +3455,8 @@ public function void RTM_ENTITY_EXPORT_METHOD(int CallerHandle, int CalleeHandle
 	public SSTP_CERT_INFO sstpCertDetails;
 }
 
-[CRepr]public struct MPRAPI_TUNNEL_CONFIG_PARAMS0
+[CRepr]
+public struct MPRAPI_TUNNEL_CONFIG_PARAMS0
 {
 	public IKEV2_CONFIG_PARAMS IkeConfigParams;
 	public PPTP_CONFIG_PARAMS PptpConfigParams;
@@ -3338,7 +3464,8 @@ public function void RTM_ENTITY_EXPORT_METHOD(int CallerHandle, int CalleeHandle
 	public SSTP_CONFIG_PARAMS SstpConfigParams;
 }
 
-[CRepr]public struct MPRAPI_TUNNEL_CONFIG_PARAMS1
+[CRepr]
+public struct MPRAPI_TUNNEL_CONFIG_PARAMS1
 {
 	public IKEV2_CONFIG_PARAMS IkeConfigParams;
 	public PPTP_CONFIG_PARAMS PptpConfigParams;
@@ -3347,7 +3474,8 @@ public function void RTM_ENTITY_EXPORT_METHOD(int CallerHandle, int CalleeHandle
 	public GRE_CONFIG_PARAMS0 GREConfigParams;
 }
 
-[CRepr]public struct MPR_SERVER_EX0
+[CRepr]
+public struct MPR_SERVER_EX0
 {
 	public MPRAPI_OBJECT_HEADER Header;
 	public uint32 fLanOnlyMode;
@@ -3358,7 +3486,8 @@ public function void RTM_ENTITY_EXPORT_METHOD(int CallerHandle, int CalleeHandle
 	public MPRAPI_TUNNEL_CONFIG_PARAMS0 ConfigParams;
 }
 
-[CRepr]public struct MPR_SERVER_EX1
+[CRepr]
+public struct MPR_SERVER_EX1
 {
 	public MPRAPI_OBJECT_HEADER Header;
 	public uint32 fLanOnlyMode;
@@ -3369,21 +3498,24 @@ public function void RTM_ENTITY_EXPORT_METHOD(int CallerHandle, int CalleeHandle
 	public MPRAPI_TUNNEL_CONFIG_PARAMS1 ConfigParams;
 }
 
-[CRepr]public struct MPR_SERVER_SET_CONFIG_EX0
+[CRepr]
+public struct MPR_SERVER_SET_CONFIG_EX0
 {
 	public MPRAPI_OBJECT_HEADER Header;
 	public uint32 setConfigForProtocols;
 	public MPRAPI_TUNNEL_CONFIG_PARAMS0 ConfigParams;
 }
 
-[CRepr]public struct MPR_SERVER_SET_CONFIG_EX1
+[CRepr]
+public struct MPR_SERVER_SET_CONFIG_EX1
 {
 	public MPRAPI_OBJECT_HEADER Header;
 	public uint32 setConfigForProtocols;
 	public MPRAPI_TUNNEL_CONFIG_PARAMS1 ConfigParams;
 }
 
-[CRepr]public struct AUTH_VALIDATION_EX
+[CRepr]
+public struct AUTH_VALIDATION_EX
 {
 	public MPRAPI_OBJECT_HEADER Header;
 	public HANDLE hRasConnection;
@@ -3393,7 +3525,8 @@ public function void RTM_ENTITY_EXPORT_METHOD(int CallerHandle, int CalleeHandle
 	public uint8[1] AuthInfo;
 }
 
-[CRepr]public struct RAS_UPDATE_CONNECTION
+[CRepr]
+public struct RAS_UPDATE_CONNECTION
 {
 	public MPRAPI_OBJECT_HEADER Header;
 	public uint32 dwIfIndex;
@@ -3401,7 +3534,8 @@ public function void RTM_ENTITY_EXPORT_METHOD(int CallerHandle, int CalleeHandle
 	public char8[65] wszRemoteEndpointAddress;
 }
 
-[CRepr]public struct MPRAPI_ADMIN_DLL_CALLBACKS
+[CRepr]
+public struct MPRAPI_ADMIN_DLL_CALLBACKS
 {
 	public uint8 revision;
 	public PMPRADMINGETIPADDRESSFORUSER lpfnMprAdminGetIpAddressForUser;
@@ -3418,7 +3552,8 @@ public function void RTM_ENTITY_EXPORT_METHOD(int CallerHandle, int CalleeHandle
 	public PMPRADMINRASVALIDATEPREAUTHENTICATEDCONNECTIONEX lpfnRASValidatePreAuthenticatedConnectionEx;
 }
 
-[CRepr]public struct SECURITY_MESSAGE
+[CRepr]
+public struct SECURITY_MESSAGE
 {
 	public SECURITY_MESSAGE_MSG_ID dwMsgId;
 	public int hPort;
@@ -3427,14 +3562,16 @@ public function void RTM_ENTITY_EXPORT_METHOD(int CallerHandle, int CalleeHandle
 	public CHAR[16] Domain;
 }
 
-[CRepr]public struct RAS_SECURITY_INFO
+[CRepr]
+public struct RAS_SECURITY_INFO
 {
 	public uint32 LastError;
 	public uint32 BytesReceived;
 	public CHAR[129] DeviceName;
 }
 
-[CRepr]public struct MGM_IF_ENTRY
+[CRepr]
+public struct MGM_IF_ENTRY
 {
 	public uint32 dwIfIndex;
 	public uint32 dwIfNextHopAddr;
@@ -3442,7 +3579,8 @@ public function void RTM_ENTITY_EXPORT_METHOD(int CallerHandle, int CalleeHandle
 	public BOOL bIsEnabled;
 }
 
-[CRepr]public struct ROUTING_PROTOCOL_CONFIG
+[CRepr]
+public struct ROUTING_PROTOCOL_CONFIG
 {
 	public uint32 dwCallbackFlags;
 	public PMGM_RPF_CALLBACK pfnRpfCallback;
@@ -3456,7 +3594,8 @@ public function void RTM_ENTITY_EXPORT_METHOD(int CallerHandle, int CalleeHandle
 	public PMGM_ENABLE_IGMP_CALLBACK pfnEnableIgmpCallback;
 }
 
-[CRepr]public struct SOURCE_GROUP_ENTRY
+[CRepr]
+public struct SOURCE_GROUP_ENTRY
 {
 	public uint32 dwSourceAddr;
 	public uint32 dwSourceMask;
@@ -3464,7 +3603,8 @@ public function void RTM_ENTITY_EXPORT_METHOD(int CallerHandle, int CalleeHandle
 	public uint32 dwGroupMask;
 }
 
-[CRepr]public struct RTM_REGN_PROFILE
+[CRepr]
+public struct RTM_REGN_PROFILE
 {
 	public uint32 MaxNextHopsInRoute;
 	public uint32 MaxHandlesInEnum;
@@ -3472,28 +3612,33 @@ public function void RTM_ENTITY_EXPORT_METHOD(int CallerHandle, int CalleeHandle
 	public uint32 NumberOfViews;
 }
 
-[CRepr]public struct RTM_NET_ADDRESS
+[CRepr]
+public struct RTM_NET_ADDRESS
 {
 	public uint16 AddressFamily;
 	public uint16 NumBits;
 	public uint8[16] AddrBits;
 }
 
-[CRepr]public struct RTM_PREF_INFO
+[CRepr]
+public struct RTM_PREF_INFO
 {
 	public uint32 Metric;
 	public uint32 Preference;
 }
 
-[CRepr]public struct RTM_NEXTHOP_LIST
+[CRepr]
+public struct RTM_NEXTHOP_LIST
 {
 	public uint16 NumNextHops;
 	public int[1] NextHops;
 }
 
-[CRepr]public struct RTM_DEST_INFO
+[CRepr]
+public struct RTM_DEST_INFO
 {
-	[CRepr]	public struct _Anonymous_e__Struct
+	[CRepr]
+	public struct _Anonymous_e__Struct
 	{
 		public int32 ViewId;
 		public uint32 NumRoutes;
@@ -3511,7 +3656,8 @@ public function void RTM_ENTITY_EXPORT_METHOD(int CallerHandle, int CalleeHandle
 	public _Anonymous_e__Struct[1] ViewInfo;
 }
 
-[CRepr]public struct RTM_ROUTE_INFO
+[CRepr]
+public struct RTM_ROUTE_INFO
 {
 	public int DestHandle;
 	public int RouteOwner;
@@ -3525,7 +3671,8 @@ public function void RTM_ENTITY_EXPORT_METHOD(int CallerHandle, int CalleeHandle
 	public RTM_NEXTHOP_LIST NextHopsList;
 }
 
-[CRepr]public struct RTM_NEXTHOP_INFO
+[CRepr]
+public struct RTM_NEXTHOP_INFO
 {
 	public RTM_NET_ADDRESS NextHopAddress;
 	public int NextHopOwner;
@@ -3536,11 +3683,14 @@ public function void RTM_ENTITY_EXPORT_METHOD(int CallerHandle, int CalleeHandle
 	public int RemoteNextHop;
 }
 
-[CRepr]public struct RTM_ENTITY_ID
+[CRepr]
+public struct RTM_ENTITY_ID
 {
-	[CRepr, Union]	public struct _Anonymous_e__Union
+	[CRepr, Union]
+	public struct _Anonymous_e__Union
 	{
-		[CRepr]		public struct _Anonymous_e__Struct
+		[CRepr]
+		public struct _Anonymous_e__Struct
 		{
 			public uint32 EntityProtocolId;
 			public uint32 EntityInstanceId;
@@ -3553,21 +3703,24 @@ public function void RTM_ENTITY_EXPORT_METHOD(int CallerHandle, int CalleeHandle
 	public using _Anonymous_e__Union Anonymous;
 }
 
-[CRepr]public struct RTM_ENTITY_INFO
+[CRepr]
+public struct RTM_ENTITY_INFO
 {
 	public uint16 RtmInstanceId;
 	public uint16 AddressFamily;
 	public RTM_ENTITY_ID EntityId;
 }
 
-[CRepr]public struct RTM_ENTITY_METHOD_INPUT
+[CRepr]
+public struct RTM_ENTITY_METHOD_INPUT
 {
 	public uint32 MethodType;
 	public uint32 InputSize;
 	public uint8[1] InputData;
 }
 
-[CRepr]public struct RTM_ENTITY_METHOD_OUTPUT
+[CRepr]
+public struct RTM_ENTITY_METHOD_OUTPUT
 {
 	public uint32 MethodType;
 	public uint32 MethodStatus;
@@ -3575,7 +3728,8 @@ public function void RTM_ENTITY_EXPORT_METHOD(int CallerHandle, int CalleeHandle
 	public uint8[1] OutputData;
 }
 
-[CRepr]public struct RTM_ENTITY_EXPORT_METHODS
+[CRepr]
+public struct RTM_ENTITY_EXPORT_METHODS
 {
 	public uint32 NumMethods;
 	public RTM_ENTITY_EXPORT_METHOD[1] Methods;

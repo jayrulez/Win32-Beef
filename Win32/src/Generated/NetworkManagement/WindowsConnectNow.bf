@@ -500,14 +500,16 @@ public enum WCN_SESSION_STATUS : int32
 #endregion
 
 #region Structs
-[CRepr, Packed(1)]public struct WCN_VALUE_TYPE_PRIMARY_DEVICE_TYPE
+[CRepr, Packed(1)]
+public struct WCN_VALUE_TYPE_PRIMARY_DEVICE_TYPE
 {
 	public uint16 Category;
 	public uint32 SubCategoryOUI;
 	public uint16 SubCategory;
 }
 
-[CRepr]public struct WCN_VENDOR_EXTENSION_SPEC
+[CRepr]
+public struct WCN_VENDOR_EXTENSION_SPEC
 {
 	public uint32 VendorId;
 	public uint32 SubType;

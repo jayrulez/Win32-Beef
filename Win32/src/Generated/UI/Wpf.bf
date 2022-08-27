@@ -35,7 +35,8 @@ public static
 #endregion
 
 #region Structs
-[CRepr]public struct MilRectD
+[CRepr]
+public struct MilRectD
 {
 	public double left;
 	public double top;
@@ -43,13 +44,15 @@ public static
 	public double bottom;
 }
 
-[CRepr]public struct MilPoint2D
+[CRepr]
+public struct MilPoint2D
 {
 	public double X;
 	public double Y;
 }
 
-[CRepr]public struct MILMatrixF
+[CRepr]
+public struct MILMatrixF
 {
 	public double _11;
 	public double _12;

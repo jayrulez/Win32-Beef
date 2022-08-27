@@ -237,33 +237,38 @@ public enum DXGI_ALPHA_MODE : uint32
 #endregion
 
 #region Structs
-[CRepr]public struct DXGI_RATIONAL
+[CRepr]
+public struct DXGI_RATIONAL
 {
 	public uint32 Numerator;
 	public uint32 Denominator;
 }
 
-[CRepr]public struct DXGI_SAMPLE_DESC
+[CRepr]
+public struct DXGI_SAMPLE_DESC
 {
 	public uint32 Count;
 	public uint32 Quality;
 }
 
-[CRepr]public struct DXGI_RGB
+[CRepr]
+public struct DXGI_RGB
 {
 	public float Red;
 	public float Green;
 	public float Blue;
 }
 
-[CRepr]public struct DXGI_GAMMA_CONTROL
+[CRepr]
+public struct DXGI_GAMMA_CONTROL
 {
 	public DXGI_RGB Scale;
 	public DXGI_RGB Offset;
 	public DXGI_RGB[1025] GammaCurve;
 }
 
-[CRepr]public struct DXGI_GAMMA_CONTROL_CAPABILITIES
+[CRepr]
+public struct DXGI_GAMMA_CONTROL_CAPABILITIES
 {
 	public BOOL ScaleAndOffsetSupported;
 	public float MaxConvertedValue;
@@ -272,7 +277,8 @@ public enum DXGI_ALPHA_MODE : uint32
 	public float[1025] ControlPointPositions;
 }
 
-[CRepr]public struct DXGI_MODE_DESC
+[CRepr]
+public struct DXGI_MODE_DESC
 {
 	public uint32 Width;
 	public uint32 Height;
@@ -282,19 +288,22 @@ public enum DXGI_ALPHA_MODE : uint32
 	public DXGI_MODE_SCALING Scaling;
 }
 
-[CRepr]public struct DXGI_JPEG_DC_HUFFMAN_TABLE
+[CRepr]
+public struct DXGI_JPEG_DC_HUFFMAN_TABLE
 {
 	public uint8[12] CodeCounts;
 	public uint8[12] CodeValues;
 }
 
-[CRepr]public struct DXGI_JPEG_AC_HUFFMAN_TABLE
+[CRepr]
+public struct DXGI_JPEG_AC_HUFFMAN_TABLE
 {
 	public uint8[16] CodeCounts;
 	public uint8[162] CodeValues;
 }
 
-[CRepr]public struct DXGI_JPEG_QUANTIZATION_TABLE
+[CRepr]
+public struct DXGI_JPEG_QUANTIZATION_TABLE
 {
 	public uint8[64] Elements;
 }

@@ -7962,14 +7962,16 @@ public function void MFPERIODICCALLBACK(IUnknown* pContext);
 #endregion
 
 #region Structs
-[CRepr]public struct CodecAPIEventData
+[CRepr]
+public struct CodecAPIEventData
 {
 	public Guid guid;
 	public uint32 dataLength;
 	public uint32[3] reserved;
 }
 
-[CRepr]public struct D3DOVERLAYCAPS
+[CRepr]
+public struct D3DOVERLAYCAPS
 {
 	public uint32 Caps;
 	public uint32 MaxOverlayDisplayWidth;
@@ -7977,7 +7979,8 @@ public function void MFPERIODICCALLBACK(IUnknown* pContext);
 }
 
 #if BF_64_BIT || BF_ARM_64
-[CRepr]public struct D3DCONTENTPROTECTIONCAPS
+[CRepr]
+public struct D3DCONTENTPROTECTIONCAPS
 {
 	public uint32 Caps;
 	public Guid KeyExchangeType;
@@ -7987,33 +7990,38 @@ public function void MFPERIODICCALLBACK(IUnknown* pContext);
 }
 #endif
 
-[CRepr]public struct D3D12_VIDEO_FORMAT
+[CRepr]
+public struct D3D12_VIDEO_FORMAT
 {
 	public DXGI_FORMAT Format;
 	public DXGI_COLOR_SPACE_TYPE ColorSpace;
 }
 
-[CRepr]public struct D3D12_VIDEO_SAMPLE
+[CRepr]
+public struct D3D12_VIDEO_SAMPLE
 {
 	public uint32 Width;
 	public uint32 Height;
 	public D3D12_VIDEO_FORMAT Format;
 }
 
-[CRepr]public struct D3D12_VIDEO_DECODE_CONFIGURATION
+[CRepr]
+public struct D3D12_VIDEO_DECODE_CONFIGURATION
 {
 	public Guid DecodeProfile;
 	public D3D12_BITSTREAM_ENCRYPTION_TYPE BitstreamEncryption;
 	public D3D12_VIDEO_FRAME_CODED_INTERLACE_TYPE InterlaceType;
 }
 
-[CRepr]public struct D3D12_VIDEO_DECODER_DESC
+[CRepr]
+public struct D3D12_VIDEO_DECODER_DESC
 {
 	public uint32 NodeMask;
 	public D3D12_VIDEO_DECODE_CONFIGURATION Configuration;
 }
 
-[CRepr]public struct D3D12_VIDEO_DECODER_HEAP_DESC
+[CRepr]
+public struct D3D12_VIDEO_DECODER_HEAP_DESC
 {
 	public uint32 NodeMask;
 	public D3D12_VIDEO_DECODE_CONFIGURATION Configuration;
@@ -8025,7 +8033,8 @@ public function void MFPERIODICCALLBACK(IUnknown* pContext);
 	public uint32 MaxDecodePictureBufferCount;
 }
 
-[CRepr]public struct D3D12_VIDEO_SIZE_RANGE
+[CRepr]
+public struct D3D12_VIDEO_SIZE_RANGE
 {
 	public uint32 MaxWidth;
 	public uint32 MaxHeight;
@@ -8033,20 +8042,23 @@ public function void MFPERIODICCALLBACK(IUnknown* pContext);
 	public uint32 MinHeight;
 }
 
-[CRepr]public struct D3D12_VIDEO_PROCESS_ALPHA_BLENDING
+[CRepr]
+public struct D3D12_VIDEO_PROCESS_ALPHA_BLENDING
 {
 	public BOOL Enable;
 	public float Alpha;
 }
 
-[CRepr]public struct D3D12_VIDEO_PROCESS_LUMA_KEY
+[CRepr]
+public struct D3D12_VIDEO_PROCESS_LUMA_KEY
 {
 	public BOOL Enable;
 	public float Lower;
 	public float Upper;
 }
 
-[CRepr]public struct D3D12_VIDEO_PROCESS_INPUT_STREAM_DESC
+[CRepr]
+public struct D3D12_VIDEO_PROCESS_INPUT_STREAM_DESC
 {
 	public DXGI_FORMAT Format;
 	public DXGI_COLOR_SPACE_TYPE ColorSpace;
@@ -8067,7 +8079,8 @@ public function void MFPERIODICCALLBACK(IUnknown* pContext);
 	public BOOL EnableAutoProcessing;
 }
 
-[CRepr]public struct D3D12_VIDEO_PROCESS_OUTPUT_STREAM_DESC
+[CRepr]
+public struct D3D12_VIDEO_PROCESS_OUTPUT_STREAM_DESC
 {
 	public DXGI_FORMAT Format;
 	public DXGI_COLOR_SPACE_TYPE ColorSpace;
@@ -8078,7 +8091,8 @@ public function void MFPERIODICCALLBACK(IUnknown* pContext);
 	public BOOL EnableStereo;
 }
 
-[CRepr]public struct D3D12_FEATURE_DATA_VIDEO_DECODE_SUPPORT
+[CRepr]
+public struct D3D12_FEATURE_DATA_VIDEO_DECODE_SUPPORT
 {
 	public uint32 NodeIndex;
 	public D3D12_VIDEO_DECODE_CONFIGURATION Configuration;
@@ -8092,27 +8106,31 @@ public function void MFPERIODICCALLBACK(IUnknown* pContext);
 	public D3D12_VIDEO_DECODE_TIER DecodeTier;
 }
 
-[CRepr]public struct D3D12_FEATURE_DATA_VIDEO_DECODE_PROFILE_COUNT
+[CRepr]
+public struct D3D12_FEATURE_DATA_VIDEO_DECODE_PROFILE_COUNT
 {
 	public uint32 NodeIndex;
 	public uint32 ProfileCount;
 }
 
-[CRepr]public struct D3D12_FEATURE_DATA_VIDEO_DECODE_PROFILES
+[CRepr]
+public struct D3D12_FEATURE_DATA_VIDEO_DECODE_PROFILES
 {
 	public uint32 NodeIndex;
 	public uint32 ProfileCount;
 	public Guid* pProfiles;
 }
 
-[CRepr]public struct D3D12_FEATURE_DATA_VIDEO_DECODE_FORMAT_COUNT
+[CRepr]
+public struct D3D12_FEATURE_DATA_VIDEO_DECODE_FORMAT_COUNT
 {
 	public uint32 NodeIndex;
 	public D3D12_VIDEO_DECODE_CONFIGURATION Configuration;
 	public uint32 FormatCount;
 }
 
-[CRepr]public struct D3D12_FEATURE_DATA_VIDEO_DECODE_FORMATS
+[CRepr]
+public struct D3D12_FEATURE_DATA_VIDEO_DECODE_FORMATS
 {
 	public uint32 NodeIndex;
 	public D3D12_VIDEO_DECODE_CONFIGURATION Configuration;
@@ -8120,12 +8138,14 @@ public function void MFPERIODICCALLBACK(IUnknown* pContext);
 	public DXGI_FORMAT* pOutputFormats;
 }
 
-[CRepr]public struct D3D12_FEATURE_DATA_VIDEO_ARCHITECTURE
+[CRepr]
+public struct D3D12_FEATURE_DATA_VIDEO_ARCHITECTURE
 {
 	public BOOL IOCoherent;
 }
 
-[CRepr]public struct D3D12_FEATURE_DATA_VIDEO_DECODE_HISTOGRAM
+[CRepr]
+public struct D3D12_FEATURE_DATA_VIDEO_DECODE_HISTOGRAM
 {
 	public uint32 NodeIndex;
 	public Guid DecodeProfile;
@@ -8137,13 +8157,15 @@ public function void MFPERIODICCALLBACK(IUnknown* pContext);
 	public uint32 CounterBitDepth;
 }
 
-[CRepr]public struct D3D12_VIDEO_SCALE_SUPPORT
+[CRepr]
+public struct D3D12_VIDEO_SCALE_SUPPORT
 {
 	public D3D12_VIDEO_SIZE_RANGE OutputSizeRange;
 	public D3D12_VIDEO_SCALE_SUPPORT_FLAGS Flags;
 }
 
-[CRepr]public struct D3D12_FEATURE_DATA_VIDEO_DECODE_CONVERSION_SUPPORT
+[CRepr]
+public struct D3D12_FEATURE_DATA_VIDEO_DECODE_CONVERSION_SUPPORT
 {
 	public uint32 NodeIndex;
 	public D3D12_VIDEO_DECODE_CONFIGURATION Configuration;
@@ -8155,14 +8177,16 @@ public function void MFPERIODICCALLBACK(IUnknown* pContext);
 	public D3D12_VIDEO_SCALE_SUPPORT ScaleSupport;
 }
 
-[CRepr]public struct D3D12_FEATURE_DATA_VIDEO_DECODER_HEAP_SIZE
+[CRepr]
+public struct D3D12_FEATURE_DATA_VIDEO_DECODER_HEAP_SIZE
 {
 	public D3D12_VIDEO_DECODER_HEAP_DESC VideoDecoderHeapDesc;
 	public uint64 MemoryPoolL0Size;
 	public uint64 MemoryPoolL1Size;
 }
 
-[CRepr]public struct D3D12_FEATURE_DATA_VIDEO_PROCESSOR_SIZE
+[CRepr]
+public struct D3D12_FEATURE_DATA_VIDEO_PROCESSOR_SIZE
 {
 	public uint32 NodeMask;
 	public D3D12_VIDEO_PROCESS_OUTPUT_STREAM_DESC* pOutputStreamDesc;
@@ -8172,7 +8196,8 @@ public function void MFPERIODICCALLBACK(IUnknown* pContext);
 	public uint64 MemoryPoolL1Size;
 }
 
-[CRepr]public struct D3D12_QUERY_DATA_VIDEO_DECODE_STATISTICS
+[CRepr]
+public struct D3D12_QUERY_DATA_VIDEO_DECODE_STATISTICS
 {
 	public uint64 Status;
 	public uint64 NumMacroblocksAffected;
@@ -8180,14 +8205,16 @@ public function void MFPERIODICCALLBACK(IUnknown* pContext);
 	public uint32 BitRate;
 }
 
-[CRepr]public struct D3D12_VIDEO_DECODE_FRAME_ARGUMENT
+[CRepr]
+public struct D3D12_VIDEO_DECODE_FRAME_ARGUMENT
 {
 	public D3D12_VIDEO_DECODE_ARGUMENT_TYPE Type;
 	public uint32 Size;
 	public void* pData;
 }
 
-[CRepr]public struct D3D12_VIDEO_DECODE_REFERENCE_FRAMES
+[CRepr]
+public struct D3D12_VIDEO_DECODE_REFERENCE_FRAMES
 {
 	public uint32 NumTexture2Ds;
 	public ID3D12Resource** ppTexture2Ds;
@@ -8195,14 +8222,16 @@ public function void MFPERIODICCALLBACK(IUnknown* pContext);
 	public ID3D12VideoDecoderHeap** ppHeaps;
 }
 
-[CRepr]public struct D3D12_VIDEO_DECODE_COMPRESSED_BITSTREAM
+[CRepr]
+public struct D3D12_VIDEO_DECODE_COMPRESSED_BITSTREAM
 {
 	public ID3D12Resource* pBuffer;
 	public uint64 Offset;
 	public uint64 Size;
 }
 
-[CRepr]public struct D3D12_VIDEO_DECODE_CONVERSION_ARGUMENTS
+[CRepr]
+public struct D3D12_VIDEO_DECODE_CONVERSION_ARGUMENTS
 {
 	public BOOL Enable;
 	public ID3D12Resource* pReferenceTexture2D;
@@ -8211,7 +8240,8 @@ public function void MFPERIODICCALLBACK(IUnknown* pContext);
 	public DXGI_COLOR_SPACE_TYPE DecodeColorSpace;
 }
 
-[CRepr]public struct D3D12_VIDEO_DECODE_INPUT_STREAM_ARGUMENTS
+[CRepr]
+public struct D3D12_VIDEO_DECODE_INPUT_STREAM_ARGUMENTS
 {
 	public uint32 NumFrameArguments;
 	public D3D12_VIDEO_DECODE_FRAME_ARGUMENT[10] FrameArguments;
@@ -8220,14 +8250,16 @@ public function void MFPERIODICCALLBACK(IUnknown* pContext);
 	public ID3D12VideoDecoderHeap* pHeap;
 }
 
-[CRepr]public struct D3D12_VIDEO_DECODE_OUTPUT_STREAM_ARGUMENTS
+[CRepr]
+public struct D3D12_VIDEO_DECODE_OUTPUT_STREAM_ARGUMENTS
 {
 	public ID3D12Resource* pOutputTexture2D;
 	public uint32 OutputSubresource;
 	public D3D12_VIDEO_DECODE_CONVERSION_ARGUMENTS ConversionArguments;
 }
 
-[CRepr]public struct D3D12_VIDEO_PROCESS_FILTER_RANGE
+[CRepr]
+public struct D3D12_VIDEO_PROCESS_FILTER_RANGE
 {
 	public int32 Minimum;
 	public int32 Maximum;
@@ -8235,7 +8267,8 @@ public function void MFPERIODICCALLBACK(IUnknown* pContext);
 	public float Multiplier;
 }
 
-[CRepr]public struct D3D12_FEATURE_DATA_VIDEO_PROCESS_SUPPORT
+[CRepr]
+public struct D3D12_FEATURE_DATA_VIDEO_PROCESS_SUPPORT
 {
 	public uint32 NodeIndex;
 	public D3D12_VIDEO_SAMPLE InputSample;
@@ -8254,13 +8287,15 @@ public function void MFPERIODICCALLBACK(IUnknown* pContext);
 	public D3D12_VIDEO_PROCESS_FILTER_RANGE[32] FilterRangeSupport;
 }
 
-[CRepr]public struct D3D12_FEATURE_DATA_VIDEO_PROCESS_MAX_INPUT_STREAMS
+[CRepr]
+public struct D3D12_FEATURE_DATA_VIDEO_PROCESS_MAX_INPUT_STREAMS
 {
 	public uint32 NodeIndex;
 	public uint32 MaxInputStreams;
 }
 
-[CRepr]public struct D3D12_FEATURE_DATA_VIDEO_PROCESS_REFERENCE_INFO
+[CRepr]
+public struct D3D12_FEATURE_DATA_VIDEO_PROCESS_REFERENCE_INFO
 {
 	public uint32 NodeIndex;
 	public D3D12_VIDEO_PROCESS_DEINTERLACE_FLAGS DeinterlaceMode;
@@ -8273,7 +8308,8 @@ public function void MFPERIODICCALLBACK(IUnknown* pContext);
 	public uint32 FutureFrames;
 }
 
-[CRepr]public struct D3D12_VIDEO_PROCESS_REFERENCE_SET
+[CRepr]
+public struct D3D12_VIDEO_PROCESS_REFERENCE_SET
 {
 	public uint32 NumPastFrames;
 	public ID3D12Resource** ppPastFrames;
@@ -8283,27 +8319,31 @@ public function void MFPERIODICCALLBACK(IUnknown* pContext);
 	public uint32* pFutureSubresources;
 }
 
-[CRepr]public struct D3D12_VIDEO_PROCESS_TRANSFORM
+[CRepr]
+public struct D3D12_VIDEO_PROCESS_TRANSFORM
 {
 	public RECT SourceRectangle;
 	public RECT DestinationRectangle;
 	public D3D12_VIDEO_PROCESS_ORIENTATION Orientation;
 }
 
-[CRepr]public struct D3D12_VIDEO_PROCESS_INPUT_STREAM_RATE
+[CRepr]
+public struct D3D12_VIDEO_PROCESS_INPUT_STREAM_RATE
 {
 	public uint32 OutputIndex;
 	public uint32 InputFrameOrField;
 }
 
-[CRepr]public struct D3D12_VIDEO_PROCESS_INPUT_STREAM
+[CRepr]
+public struct D3D12_VIDEO_PROCESS_INPUT_STREAM
 {
 	public ID3D12Resource* pTexture2D;
 	public uint32 Subresource;
 	public D3D12_VIDEO_PROCESS_REFERENCE_SET ReferenceSet;
 }
 
-[CRepr]public struct D3D12_VIDEO_PROCESS_INPUT_STREAM_ARGUMENTS
+[CRepr]
+public struct D3D12_VIDEO_PROCESS_INPUT_STREAM_ARGUMENTS
 {
 	public D3D12_VIDEO_PROCESS_INPUT_STREAM[2] InputStream;
 	public D3D12_VIDEO_PROCESS_TRANSFORM Transform;
@@ -8313,25 +8353,29 @@ public function void MFPERIODICCALLBACK(IUnknown* pContext);
 	public D3D12_VIDEO_PROCESS_ALPHA_BLENDING AlphaBlending;
 }
 
-[CRepr]public struct D3D12_VIDEO_PROCESS_OUTPUT_STREAM
+[CRepr]
+public struct D3D12_VIDEO_PROCESS_OUTPUT_STREAM
 {
 	public ID3D12Resource* pTexture2D;
 	public uint32 Subresource;
 }
 
-[CRepr]public struct D3D12_VIDEO_PROCESS_OUTPUT_STREAM_ARGUMENTS
+[CRepr]
+public struct D3D12_VIDEO_PROCESS_OUTPUT_STREAM_ARGUMENTS
 {
 	public D3D12_VIDEO_PROCESS_OUTPUT_STREAM[2] OutputStream;
 	public RECT TargetRectangle;
 }
 
-[CRepr]public struct D3D12_VIDEO_DECODE_OUTPUT_HISTOGRAM
+[CRepr]
+public struct D3D12_VIDEO_DECODE_OUTPUT_HISTOGRAM
 {
 	public uint64 Offset;
 	public ID3D12Resource* pBuffer;
 }
 
-[CRepr]public struct D3D12_VIDEO_DECODE_CONVERSION_ARGUMENTS1
+[CRepr]
+public struct D3D12_VIDEO_DECODE_CONVERSION_ARGUMENTS1
 {
 	public BOOL Enable;
 	public ID3D12Resource* pReferenceTexture2D;
@@ -8342,7 +8386,8 @@ public function void MFPERIODICCALLBACK(IUnknown* pContext);
 	public uint32 OutputHeight;
 }
 
-[CRepr]public struct D3D12_VIDEO_DECODE_OUTPUT_STREAM_ARGUMENTS1
+[CRepr]
+public struct D3D12_VIDEO_DECODE_OUTPUT_STREAM_ARGUMENTS1
 {
 	public ID3D12Resource* pOutputTexture2D;
 	public uint32 OutputSubresource;
@@ -8350,7 +8395,8 @@ public function void MFPERIODICCALLBACK(IUnknown* pContext);
 	public D3D12_VIDEO_DECODE_OUTPUT_HISTOGRAM[4] Histograms;
 }
 
-[CRepr]public struct D3D12_VIDEO_PROCESS_INPUT_STREAM_ARGUMENTS1
+[CRepr]
+public struct D3D12_VIDEO_PROCESS_INPUT_STREAM_ARGUMENTS1
 {
 	public D3D12_VIDEO_PROCESS_INPUT_STREAM[2] InputStream;
 	public D3D12_VIDEO_PROCESS_TRANSFORM Transform;
@@ -8361,7 +8407,8 @@ public function void MFPERIODICCALLBACK(IUnknown* pContext);
 	public D3D12_VIDEO_FIELD_TYPE FieldType;
 }
 
-[CRepr]public struct D3D12_FEATURE_DATA_VIDEO_FEATURE_AREA_SUPPORT
+[CRepr]
+public struct D3D12_FEATURE_DATA_VIDEO_FEATURE_AREA_SUPPORT
 {
 	public uint32 NodeIndex;
 	public BOOL VideoDecodeSupport;
@@ -8369,7 +8416,8 @@ public function void MFPERIODICCALLBACK(IUnknown* pContext);
 	public BOOL VideoEncodeSupport;
 }
 
-[CRepr]public struct D3D12_FEATURE_DATA_VIDEO_MOTION_ESTIMATOR
+[CRepr]
+public struct D3D12_FEATURE_DATA_VIDEO_MOTION_ESTIMATOR
 {
 	public uint32 NodeIndex;
 	public DXGI_FORMAT InputFormat;
@@ -8378,7 +8426,8 @@ public function void MFPERIODICCALLBACK(IUnknown* pContext);
 	public D3D12_VIDEO_SIZE_RANGE SizeRange;
 }
 
-[CRepr]public struct D3D12_FEATURE_DATA_VIDEO_MOTION_ESTIMATOR_SIZE
+[CRepr]
+public struct D3D12_FEATURE_DATA_VIDEO_MOTION_ESTIMATOR_SIZE
 {
 	public uint32 NodeIndex;
 	public DXGI_FORMAT InputFormat;
@@ -8392,7 +8441,8 @@ public function void MFPERIODICCALLBACK(IUnknown* pContext);
 	public uint64 MotionEstimatorMemoryPoolL1Size;
 }
 
-[CRepr]public struct D3D12_VIDEO_MOTION_ESTIMATOR_DESC
+[CRepr]
+public struct D3D12_VIDEO_MOTION_ESTIMATOR_DESC
 {
 	public uint32 NodeMask;
 	public DXGI_FORMAT InputFormat;
@@ -8401,7 +8451,8 @@ public function void MFPERIODICCALLBACK(IUnknown* pContext);
 	public D3D12_VIDEO_SIZE_RANGE SizeRange;
 }
 
-[CRepr]public struct D3D12_VIDEO_MOTION_VECTOR_HEAP_DESC
+[CRepr]
+public struct D3D12_VIDEO_MOTION_VECTOR_HEAP_DESC
 {
 	public uint32 NodeMask;
 	public DXGI_FORMAT InputFormat;
@@ -8410,7 +8461,8 @@ public function void MFPERIODICCALLBACK(IUnknown* pContext);
 	public D3D12_VIDEO_SIZE_RANGE SizeRange;
 }
 
-[CRepr]public struct D3D12_RESOURCE_COORDINATE
+[CRepr]
+public struct D3D12_RESOURCE_COORDINATE
 {
 	public uint64 X;
 	public uint32 Y;
@@ -8418,12 +8470,14 @@ public function void MFPERIODICCALLBACK(IUnknown* pContext);
 	public uint32 SubresourceIndex;
 }
 
-[CRepr]public struct D3D12_VIDEO_MOTION_ESTIMATOR_OUTPUT
+[CRepr]
+public struct D3D12_VIDEO_MOTION_ESTIMATOR_OUTPUT
 {
 	public ID3D12VideoMotionVectorHeap* pMotionVectorHeap;
 }
 
-[CRepr]public struct D3D12_VIDEO_MOTION_ESTIMATOR_INPUT
+[CRepr]
+public struct D3D12_VIDEO_MOTION_ESTIMATOR_INPUT
 {
 	public ID3D12Resource* pInputTexture2D;
 	public uint32 InputSubresourceIndex;
@@ -8432,39 +8486,45 @@ public function void MFPERIODICCALLBACK(IUnknown* pContext);
 	public ID3D12VideoMotionVectorHeap* pHintMotionVectorHeap;
 }
 
-[CRepr]public struct D3D12_RESOLVE_VIDEO_MOTION_VECTOR_HEAP_OUTPUT
+[CRepr]
+public struct D3D12_RESOLVE_VIDEO_MOTION_VECTOR_HEAP_OUTPUT
 {
 	public ID3D12Resource* pMotionVectorTexture2D;
 	public D3D12_RESOURCE_COORDINATE MotionVectorCoordinate;
 }
 
-[CRepr]public struct D3D12_RESOLVE_VIDEO_MOTION_VECTOR_HEAP_INPUT
+[CRepr]
+public struct D3D12_RESOLVE_VIDEO_MOTION_VECTOR_HEAP_INPUT
 {
 	public ID3D12VideoMotionVectorHeap* pMotionVectorHeap;
 	public uint32 PixelWidth;
 	public uint32 PixelHeight;
 }
 
-[CRepr]public struct D3D12_FEATURE_DATA_VIDEO_DECODE_PROTECTED_RESOURCES
+[CRepr]
+public struct D3D12_FEATURE_DATA_VIDEO_DECODE_PROTECTED_RESOURCES
 {
 	public uint32 NodeIndex;
 	public D3D12_VIDEO_DECODE_CONFIGURATION Configuration;
 	public D3D12_VIDEO_PROTECTED_RESOURCE_SUPPORT_FLAGS SupportFlags;
 }
 
-[CRepr]public struct D3D12_FEATURE_DATA_VIDEO_PROCESS_PROTECTED_RESOURCES
+[CRepr]
+public struct D3D12_FEATURE_DATA_VIDEO_PROCESS_PROTECTED_RESOURCES
 {
 	public uint32 NodeIndex;
 	public D3D12_VIDEO_PROTECTED_RESOURCE_SUPPORT_FLAGS SupportFlags;
 }
 
-[CRepr]public struct D3D12_FEATURE_DATA_VIDEO_MOTION_ESTIMATOR_PROTECTED_RESOURCES
+[CRepr]
+public struct D3D12_FEATURE_DATA_VIDEO_MOTION_ESTIMATOR_PROTECTED_RESOURCES
 {
 	public uint32 NodeIndex;
 	public D3D12_VIDEO_PROTECTED_RESOURCE_SUPPORT_FLAGS SupportFlags;
 }
 
-[CRepr]public struct D3D12_FEATURE_DATA_VIDEO_DECODER_HEAP_SIZE1
+[CRepr]
+public struct D3D12_FEATURE_DATA_VIDEO_DECODER_HEAP_SIZE1
 {
 	public D3D12_VIDEO_DECODER_HEAP_DESC VideoDecoderHeapDesc;
 	public BOOL Protected;
@@ -8472,7 +8532,8 @@ public function void MFPERIODICCALLBACK(IUnknown* pContext);
 	public uint64 MemoryPoolL1Size;
 }
 
-[CRepr]public struct D3D12_FEATURE_DATA_VIDEO_PROCESSOR_SIZE1
+[CRepr]
+public struct D3D12_FEATURE_DATA_VIDEO_PROCESSOR_SIZE1
 {
 	public uint32 NodeMask;
 	public D3D12_VIDEO_PROCESS_OUTPUT_STREAM_DESC* pOutputStreamDesc;
@@ -8483,27 +8544,31 @@ public function void MFPERIODICCALLBACK(IUnknown* pContext);
 	public uint64 MemoryPoolL1Size;
 }
 
-[CRepr]public struct D3D12_FEATURE_DATA_VIDEO_EXTENSION_COMMAND_COUNT
+[CRepr]
+public struct D3D12_FEATURE_DATA_VIDEO_EXTENSION_COMMAND_COUNT
 {
 	public uint32 NodeIndex;
 	public uint32 CommandCount;
 }
 
-[CRepr]public struct D3D12_VIDEO_EXTENSION_COMMAND_INFO
+[CRepr]
+public struct D3D12_VIDEO_EXTENSION_COMMAND_INFO
 {
 	public Guid CommandId;
 	public PWSTR Name;
 	public D3D12_COMMAND_LIST_SUPPORT_FLAGS CommandListSupportFlags;
 }
 
-[CRepr]public struct D3D12_FEATURE_DATA_VIDEO_EXTENSION_COMMANDS
+[CRepr]
+public struct D3D12_FEATURE_DATA_VIDEO_EXTENSION_COMMANDS
 {
 	public uint32 NodeIndex;
 	public uint32 CommandCount;
 	public D3D12_VIDEO_EXTENSION_COMMAND_INFO* pCommandInfos;
 }
 
-[CRepr]public struct D3D12_FEATURE_DATA_VIDEO_EXTENSION_COMMAND_PARAMETER_COUNT
+[CRepr]
+public struct D3D12_FEATURE_DATA_VIDEO_EXTENSION_COMMAND_PARAMETER_COUNT
 {
 	public Guid CommandId;
 	public D3D12_VIDEO_EXTENSION_COMMAND_PARAMETER_STAGE Stage;
@@ -8511,14 +8576,16 @@ public function void MFPERIODICCALLBACK(IUnknown* pContext);
 	public uint32 ParameterPacking;
 }
 
-[CRepr]public struct D3D12_VIDEO_EXTENSION_COMMAND_PARAMETER_INFO
+[CRepr]
+public struct D3D12_VIDEO_EXTENSION_COMMAND_PARAMETER_INFO
 {
 	public PWSTR Name;
 	public D3D12_VIDEO_EXTENSION_COMMAND_PARAMETER_TYPE Type;
 	public D3D12_VIDEO_EXTENSION_COMMAND_PARAMETER_FLAGS Flags;
 }
 
-[CRepr]public struct D3D12_FEATURE_DATA_VIDEO_EXTENSION_COMMAND_PARAMETERS
+[CRepr]
+public struct D3D12_FEATURE_DATA_VIDEO_EXTENSION_COMMAND_PARAMETERS
 {
 	public Guid CommandId;
 	public D3D12_VIDEO_EXTENSION_COMMAND_PARAMETER_STAGE Stage;
@@ -8526,7 +8593,8 @@ public function void MFPERIODICCALLBACK(IUnknown* pContext);
 	public D3D12_VIDEO_EXTENSION_COMMAND_PARAMETER_INFO* pParameterInfos;
 }
 
-[CRepr]public struct D3D12_FEATURE_DATA_VIDEO_EXTENSION_COMMAND_SUPPORT
+[CRepr]
+public struct D3D12_FEATURE_DATA_VIDEO_EXTENSION_COMMAND_SUPPORT
 {
 	public uint32 NodeIndex;
 	public Guid CommandId;
@@ -8536,7 +8604,8 @@ public function void MFPERIODICCALLBACK(IUnknown* pContext);
 	public uint OutputDataSizeInBytes;
 }
 
-[CRepr]public struct D3D12_FEATURE_DATA_VIDEO_EXTENSION_COMMAND_SIZE
+[CRepr]
+public struct D3D12_FEATURE_DATA_VIDEO_EXTENSION_COMMAND_SIZE
 {
 	public uint32 NodeIndex;
 	public Guid CommandId;
@@ -8546,20 +8615,23 @@ public function void MFPERIODICCALLBACK(IUnknown* pContext);
 	public uint64 MemoryPoolL1Size;
 }
 
-[CRepr]public struct D3D12_VIDEO_EXTENSION_COMMAND_DESC
+[CRepr]
+public struct D3D12_VIDEO_EXTENSION_COMMAND_DESC
 {
 	public uint32 NodeMask;
 	public Guid CommandId;
 }
 
-[CRepr]public struct D3D12_VIDEO_ENCODER_RATE_CONTROL_CQP
+[CRepr]
+public struct D3D12_VIDEO_ENCODER_RATE_CONTROL_CQP
 {
 	public uint32 ConstantQP_FullIntracodedFrame;
 	public uint32 ConstantQP_InterPredictedFrame_PrevRefOnly;
 	public uint32 ConstantQP_InterPredictedFrame_BiDirectionalRef;
 }
 
-[CRepr]public struct D3D12_VIDEO_ENCODER_RATE_CONTROL_CBR
+[CRepr]
+public struct D3D12_VIDEO_ENCODER_RATE_CONTROL_CBR
 {
 	public uint32 InitialQP;
 	public uint32 MinQP;
@@ -8570,7 +8642,8 @@ public function void MFPERIODICCALLBACK(IUnknown* pContext);
 	public uint64 InitialVBVFullness;
 }
 
-[CRepr]public struct D3D12_VIDEO_ENCODER_RATE_CONTROL_VBR
+[CRepr]
+public struct D3D12_VIDEO_ENCODER_RATE_CONTROL_VBR
 {
 	public uint32 InitialQP;
 	public uint32 MinQP;
@@ -8582,7 +8655,8 @@ public function void MFPERIODICCALLBACK(IUnknown* pContext);
 	public uint64 InitialVBVFullness;
 }
 
-[CRepr]public struct D3D12_VIDEO_ENCODER_RATE_CONTROL_QVBR
+[CRepr]
+public struct D3D12_VIDEO_ENCODER_RATE_CONTROL_QVBR
 {
 	public uint32 InitialQP;
 	public uint32 MinQP;
@@ -8593,9 +8667,11 @@ public function void MFPERIODICCALLBACK(IUnknown* pContext);
 	public uint32 ConstantQualityTarget;
 }
 
-[CRepr]public struct D3D12_VIDEO_ENCODER_RATE_CONTROL_CONFIGURATION_PARAMS
+[CRepr]
+public struct D3D12_VIDEO_ENCODER_RATE_CONTROL_CONFIGURATION_PARAMS
 {
-	[CRepr, Union]	public struct _Anonymous_e__Union
+	[CRepr, Union]
+	public struct _Anonymous_e__Union
 	{
 		public D3D12_VIDEO_ENCODER_RATE_CONTROL_CQP* pConfiguration_CQP;
 		public D3D12_VIDEO_ENCODER_RATE_CONTROL_CBR* pConfiguration_CBR;
@@ -8607,7 +8683,8 @@ public function void MFPERIODICCALLBACK(IUnknown* pContext);
 	public using _Anonymous_e__Union Anonymous;
 }
 
-[CRepr]public struct D3D12_VIDEO_ENCODER_RATE_CONTROL
+[CRepr]
+public struct D3D12_VIDEO_ENCODER_RATE_CONTROL
 {
 	public D3D12_VIDEO_ENCODER_RATE_CONTROL_MODE Mode;
 	public D3D12_VIDEO_ENCODER_RATE_CONTROL_FLAGS Flags;
@@ -8615,16 +8692,19 @@ public function void MFPERIODICCALLBACK(IUnknown* pContext);
 	public DXGI_RATIONAL TargetFrameRate;
 }
 
-[CRepr]public struct D3D12_FEATURE_DATA_VIDEO_ENCODER_CODEC
+[CRepr]
+public struct D3D12_FEATURE_DATA_VIDEO_ENCODER_CODEC
 {
 	public uint32 NodeIndex;
 	public D3D12_VIDEO_ENCODER_CODEC Codec;
 	public BOOL IsSupported;
 }
 
-[CRepr]public struct D3D12_VIDEO_ENCODER_PROFILE_DESC
+[CRepr]
+public struct D3D12_VIDEO_ENCODER_PROFILE_DESC
 {
-	[CRepr, Union]	public struct _Anonymous_e__Union
+	[CRepr, Union]
+	public struct _Anonymous_e__Union
 	{
 		public D3D12_VIDEO_ENCODER_PROFILE_H264* pH264Profile;
 		public D3D12_VIDEO_ENCODER_PROFILE_HEVC* pHEVCProfile;
@@ -8634,15 +8714,18 @@ public function void MFPERIODICCALLBACK(IUnknown* pContext);
 	public using _Anonymous_e__Union Anonymous;
 }
 
-[CRepr]public struct D3D12_VIDEO_ENCODER_LEVEL_TIER_CONSTRAINTS_HEVC
+[CRepr]
+public struct D3D12_VIDEO_ENCODER_LEVEL_TIER_CONSTRAINTS_HEVC
 {
 	public D3D12_VIDEO_ENCODER_LEVELS_HEVC Level;
 	public D3D12_VIDEO_ENCODER_TIER_HEVC Tier;
 }
 
-[CRepr]public struct D3D12_VIDEO_ENCODER_LEVEL_SETTING
+[CRepr]
+public struct D3D12_VIDEO_ENCODER_LEVEL_SETTING
 {
-	[CRepr, Union]	public struct _Anonymous_e__Union
+	[CRepr, Union]
+	public struct _Anonymous_e__Union
 	{
 		public D3D12_VIDEO_ENCODER_LEVELS_H264* pH264LevelSetting;
 		public D3D12_VIDEO_ENCODER_LEVEL_TIER_CONSTRAINTS_HEVC* pHEVCLevelSetting;
@@ -8652,7 +8735,8 @@ public function void MFPERIODICCALLBACK(IUnknown* pContext);
 	public using _Anonymous_e__Union Anonymous;
 }
 
-[CRepr]public struct D3D12_FEATURE_DATA_VIDEO_ENCODER_PROFILE_LEVEL
+[CRepr]
+public struct D3D12_FEATURE_DATA_VIDEO_ENCODER_PROFILE_LEVEL
 {
 	public uint32 NodeIndex;
 	public D3D12_VIDEO_ENCODER_CODEC Codec;
@@ -8662,26 +8746,30 @@ public function void MFPERIODICCALLBACK(IUnknown* pContext);
 	public D3D12_VIDEO_ENCODER_LEVEL_SETTING MaxSupportedLevel;
 }
 
-[CRepr]public struct D3D12_VIDEO_ENCODER_PICTURE_RESOLUTION_DESC
+[CRepr]
+public struct D3D12_VIDEO_ENCODER_PICTURE_RESOLUTION_DESC
 {
 	public uint32 Width;
 	public uint32 Height;
 }
 
-[CRepr]public struct D3D12_VIDEO_ENCODER_PICTURE_RESOLUTION_RATIO_DESC
+[CRepr]
+public struct D3D12_VIDEO_ENCODER_PICTURE_RESOLUTION_RATIO_DESC
 {
 	public uint32 WidthRatio;
 	public uint32 HeightRatio;
 }
 
-[CRepr]public struct D3D12_FEATURE_DATA_VIDEO_ENCODER_OUTPUT_RESOLUTION_RATIOS_COUNT
+[CRepr]
+public struct D3D12_FEATURE_DATA_VIDEO_ENCODER_OUTPUT_RESOLUTION_RATIOS_COUNT
 {
 	public uint32 NodeIndex;
 	public D3D12_VIDEO_ENCODER_CODEC Codec;
 	public uint32 ResolutionRatiosCount;
 }
 
-[CRepr]public struct D3D12_FEATURE_DATA_VIDEO_ENCODER_OUTPUT_RESOLUTION
+[CRepr]
+public struct D3D12_FEATURE_DATA_VIDEO_ENCODER_OUTPUT_RESOLUTION
 {
 	public uint32 NodeIndex;
 	public D3D12_VIDEO_ENCODER_CODEC Codec;
@@ -8694,7 +8782,8 @@ public function void MFPERIODICCALLBACK(IUnknown* pContext);
 	public D3D12_VIDEO_ENCODER_PICTURE_RESOLUTION_RATIO_DESC* pResolutionRatios;
 }
 
-[CRepr]public struct D3D12_FEATURE_DATA_VIDEO_ENCODER_INPUT_FORMAT
+[CRepr]
+public struct D3D12_FEATURE_DATA_VIDEO_ENCODER_INPUT_FORMAT
 {
 	public uint32 NodeIndex;
 	public D3D12_VIDEO_ENCODER_CODEC Codec;
@@ -8703,7 +8792,8 @@ public function void MFPERIODICCALLBACK(IUnknown* pContext);
 	public BOOL IsSupported;
 }
 
-[CRepr]public struct D3D12_FEATURE_DATA_VIDEO_ENCODER_RATE_CONTROL_MODE
+[CRepr]
+public struct D3D12_FEATURE_DATA_VIDEO_ENCODER_RATE_CONTROL_MODE
 {
 	public uint32 NodeIndex;
 	public D3D12_VIDEO_ENCODER_CODEC Codec;
@@ -8711,7 +8801,8 @@ public function void MFPERIODICCALLBACK(IUnknown* pContext);
 	public BOOL IsSupported;
 }
 
-[CRepr]public struct D3D12_FEATURE_DATA_VIDEO_ENCODER_INTRA_REFRESH_MODE
+[CRepr]
+public struct D3D12_FEATURE_DATA_VIDEO_ENCODER_INTRA_REFRESH_MODE
 {
 	public uint32 NodeIndex;
 	public D3D12_VIDEO_ENCODER_CODEC Codec;
@@ -8721,7 +8812,8 @@ public function void MFPERIODICCALLBACK(IUnknown* pContext);
 	public BOOL IsSupported;
 }
 
-[CRepr]public struct D3D12_FEATURE_DATA_VIDEO_ENCODER_FRAME_SUBREGION_LAYOUT_MODE
+[CRepr]
+public struct D3D12_FEATURE_DATA_VIDEO_ENCODER_FRAME_SUBREGION_LAYOUT_MODE
 {
 	public uint32 NodeIndex;
 	public D3D12_VIDEO_ENCODER_CODEC Codec;
@@ -8731,7 +8823,8 @@ public function void MFPERIODICCALLBACK(IUnknown* pContext);
 	public BOOL IsSupported;
 }
 
-[CRepr]public struct D3D12_VIDEO_ENCODER_HEAP_DESC
+[CRepr]
+public struct D3D12_VIDEO_ENCODER_HEAP_DESC
 {
 	public uint32 NodeMask;
 	public D3D12_VIDEO_ENCODER_HEAP_FLAGS Flags;
@@ -8742,7 +8835,8 @@ public function void MFPERIODICCALLBACK(IUnknown* pContext);
 	public D3D12_VIDEO_ENCODER_PICTURE_RESOLUTION_DESC* pResolutionList;
 }
 
-[CRepr]public struct D3D12_FEATURE_DATA_VIDEO_ENCODER_HEAP_SIZE
+[CRepr]
+public struct D3D12_FEATURE_DATA_VIDEO_ENCODER_HEAP_SIZE
 {
 	public D3D12_VIDEO_ENCODER_HEAP_DESC HeapDesc;
 	public BOOL IsSupported;
@@ -8750,13 +8844,15 @@ public function void MFPERIODICCALLBACK(IUnknown* pContext);
 	public uint64 MemoryPoolL1Size;
 }
 
-[CRepr]public struct D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT_H264
+[CRepr]
+public struct D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT_H264
 {
 	public D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT_H264_FLAGS SupportFlags;
 	public D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_H264_SLICES_DEBLOCKING_MODE_FLAGS DisableDeblockingFilterSupportedModes;
 }
 
-[CRepr]public struct D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT_HEVC
+[CRepr]
+public struct D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT_HEVC
 {
 	public D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT_HEVC_FLAGS SupportFlags;
 	public D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_HEVC_CUSIZE MinLumaCodingUnitSize;
@@ -8767,9 +8863,11 @@ public function void MFPERIODICCALLBACK(IUnknown* pContext);
 	public uint8 max_transform_hierarchy_depth_intra;
 }
 
-[CRepr]public struct D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT
+[CRepr]
+public struct D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT
 {
-	[CRepr, Union]	public struct _Anonymous_e__Union
+	[CRepr, Union]
+	public struct _Anonymous_e__Union
 	{
 		public D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT_H264* pH264Support;
 		public D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT_HEVC* pHEVCSupport;
@@ -8779,7 +8877,8 @@ public function void MFPERIODICCALLBACK(IUnknown* pContext);
 	public using _Anonymous_e__Union Anonymous;
 }
 
-[CRepr]public struct D3D12_FEATURE_DATA_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT
+[CRepr]
+public struct D3D12_FEATURE_DATA_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT
 {
 	public uint32 NodeIndex;
 	public D3D12_VIDEO_ENCODER_CODEC Codec;
@@ -8788,7 +8887,8 @@ public function void MFPERIODICCALLBACK(IUnknown* pContext);
 	public D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT CodecSupportLimits;
 }
 
-[CRepr]public struct D3D12_VIDEO_ENCODER_CODEC_PICTURE_CONTROL_SUPPORT_H264
+[CRepr]
+public struct D3D12_VIDEO_ENCODER_CODEC_PICTURE_CONTROL_SUPPORT_H264
 {
 	public uint32 MaxL0ReferencesForP;
 	public uint32 MaxL0ReferencesForB;
@@ -8797,7 +8897,8 @@ public function void MFPERIODICCALLBACK(IUnknown* pContext);
 	public uint32 MaxDPBCapacity;
 }
 
-[CRepr]public struct D3D12_VIDEO_ENCODER_CODEC_PICTURE_CONTROL_SUPPORT_HEVC
+[CRepr]
+public struct D3D12_VIDEO_ENCODER_CODEC_PICTURE_CONTROL_SUPPORT_HEVC
 {
 	public uint32 MaxL0ReferencesForP;
 	public uint32 MaxL0ReferencesForB;
@@ -8806,9 +8907,11 @@ public function void MFPERIODICCALLBACK(IUnknown* pContext);
 	public uint32 MaxDPBCapacity;
 }
 
-[CRepr]public struct D3D12_VIDEO_ENCODER_CODEC_PICTURE_CONTROL_SUPPORT
+[CRepr]
+public struct D3D12_VIDEO_ENCODER_CODEC_PICTURE_CONTROL_SUPPORT
 {
-	[CRepr, Union]	public struct _Anonymous_e__Union
+	[CRepr, Union]
+	public struct _Anonymous_e__Union
 	{
 		public D3D12_VIDEO_ENCODER_CODEC_PICTURE_CONTROL_SUPPORT_H264* pH264Support;
 		public D3D12_VIDEO_ENCODER_CODEC_PICTURE_CONTROL_SUPPORT_HEVC* pHEVCSupport;
@@ -8818,7 +8921,8 @@ public function void MFPERIODICCALLBACK(IUnknown* pContext);
 	public using _Anonymous_e__Union Anonymous;
 }
 
-[CRepr]public struct D3D12_FEATURE_DATA_VIDEO_ENCODER_CODEC_PICTURE_CONTROL_SUPPORT
+[CRepr]
+public struct D3D12_FEATURE_DATA_VIDEO_ENCODER_CODEC_PICTURE_CONTROL_SUPPORT
 {
 	public uint32 NodeIndex;
 	public D3D12_VIDEO_ENCODER_CODEC Codec;
@@ -8827,14 +8931,16 @@ public function void MFPERIODICCALLBACK(IUnknown* pContext);
 	public D3D12_VIDEO_ENCODER_CODEC_PICTURE_CONTROL_SUPPORT PictureSupport;
 }
 
-[CRepr]public struct D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_H264
+[CRepr]
+public struct D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_H264
 {
 	public D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_H264_FLAGS ConfigurationFlags;
 	public D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_H264_DIRECT_MODES DirectModeConfig;
 	public D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_H264_SLICES_DEBLOCKING_MODES DisableDeblockingFilterConfig;
 }
 
-[CRepr]public struct D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_HEVC
+[CRepr]
+public struct D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_HEVC
 {
 	public D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_HEVC_FLAGS ConfigurationFlags;
 	public D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_HEVC_CUSIZE MinLumaCodingUnitSize;
@@ -8845,9 +8951,11 @@ public function void MFPERIODICCALLBACK(IUnknown* pContext);
 	public uint8 max_transform_hierarchy_depth_intra;
 }
 
-[CRepr]public struct D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION
+[CRepr]
+public struct D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION
 {
-	[CRepr, Union]	public struct _Anonymous_e__Union
+	[CRepr, Union]
+	public struct _Anonymous_e__Union
 	{
 		public D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_H264* pH264Config;
 		public D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_HEVC* pHEVCConfig;
@@ -8857,13 +8965,15 @@ public function void MFPERIODICCALLBACK(IUnknown* pContext);
 	public using _Anonymous_e__Union Anonymous;
 }
 
-[CRepr]public struct D3D12_VIDEO_ENCODER_INTRA_REFRESH
+[CRepr]
+public struct D3D12_VIDEO_ENCODER_INTRA_REFRESH
 {
 	public D3D12_VIDEO_ENCODER_INTRA_REFRESH_MODE Mode;
 	public uint32 IntraRefreshDuration;
 }
 
-[CRepr]public struct D3D12_FEATURE_DATA_VIDEO_ENCODER_RESOLUTION_SUPPORT_LIMITS
+[CRepr]
+public struct D3D12_FEATURE_DATA_VIDEO_ENCODER_RESOLUTION_SUPPORT_LIMITS
 {
 	public uint32 MaxSubregionsNumber;
 	public uint32 MaxIntraRefreshFrameDuration;
@@ -8871,7 +8981,8 @@ public function void MFPERIODICCALLBACK(IUnknown* pContext);
 	public uint32 QPMapRegionPixelsSize;
 }
 
-[CRepr]public struct D3D12_VIDEO_ENCODER_SEQUENCE_GOP_STRUCTURE_H264
+[CRepr]
+public struct D3D12_VIDEO_ENCODER_SEQUENCE_GOP_STRUCTURE_H264
 {
 	public uint32 GOPLength;
 	public uint32 PPicturePeriod;
@@ -8880,16 +8991,19 @@ public function void MFPERIODICCALLBACK(IUnknown* pContext);
 	public uint8 log2_max_pic_order_cnt_lsb_minus4;
 }
 
-[CRepr]public struct D3D12_VIDEO_ENCODER_SEQUENCE_GOP_STRUCTURE_HEVC
+[CRepr]
+public struct D3D12_VIDEO_ENCODER_SEQUENCE_GOP_STRUCTURE_HEVC
 {
 	public uint32 GOPLength;
 	public uint32 PPicturePeriod;
 	public uint8 log2_max_pic_order_cnt_lsb_minus4;
 }
 
-[CRepr]public struct D3D12_VIDEO_ENCODER_SEQUENCE_GOP_STRUCTURE
+[CRepr]
+public struct D3D12_VIDEO_ENCODER_SEQUENCE_GOP_STRUCTURE
 {
-	[CRepr, Union]	public struct _Anonymous_e__Union
+	[CRepr, Union]
+	public struct _Anonymous_e__Union
 	{
 		public D3D12_VIDEO_ENCODER_SEQUENCE_GOP_STRUCTURE_H264* pH264GroupOfPictures;
 		public D3D12_VIDEO_ENCODER_SEQUENCE_GOP_STRUCTURE_HEVC* pHEVCGroupOfPictures;
@@ -8899,7 +9013,8 @@ public function void MFPERIODICCALLBACK(IUnknown* pContext);
 	public using _Anonymous_e__Union Anonymous;
 }
 
-[CRepr]public struct D3D12_FEATURE_DATA_VIDEO_ENCODER_SUPPORT
+[CRepr]
+public struct D3D12_FEATURE_DATA_VIDEO_ENCODER_SUPPORT
 {
 	public uint32 NodeIndex;
 	public D3D12_VIDEO_ENCODER_CODEC Codec;
@@ -8919,7 +9034,8 @@ public function void MFPERIODICCALLBACK(IUnknown* pContext);
 	public D3D12_FEATURE_DATA_VIDEO_ENCODER_RESOLUTION_SUPPORT_LIMITS* pResolutionDependentSupport;
 }
 
-[CRepr]public struct D3D12_FEATURE_DATA_VIDEO_ENCODER_RESOURCE_REQUIREMENTS
+[CRepr]
+public struct D3D12_FEATURE_DATA_VIDEO_ENCODER_RESOURCE_REQUIREMENTS
 {
 	public uint32 NodeIndex;
 	public D3D12_VIDEO_ENCODER_CODEC Codec;
@@ -8932,7 +9048,8 @@ public function void MFPERIODICCALLBACK(IUnknown* pContext);
 	public uint32 MaxEncoderOutputMetadataBufferSize;
 }
 
-[CRepr]public struct D3D12_VIDEO_ENCODER_DESC
+[CRepr]
+public struct D3D12_VIDEO_ENCODER_DESC
 {
 	public uint32 NodeMask;
 	public D3D12_VIDEO_ENCODER_FLAGS Flags;
@@ -8943,7 +9060,8 @@ public function void MFPERIODICCALLBACK(IUnknown* pContext);
 	public D3D12_VIDEO_ENCODER_MOTION_ESTIMATION_PRECISION_MODE MaxMotionEstimationPrecision;
 }
 
-[CRepr]public struct D3D12_VIDEO_ENCODER_REFERENCE_PICTURE_DESCRIPTOR_H264
+[CRepr]
+public struct D3D12_VIDEO_ENCODER_REFERENCE_PICTURE_DESCRIPTOR_H264
 {
 	public uint32 ReconstructedPictureResourceIndex;
 	public BOOL IsLongTermReference;
@@ -8953,7 +9071,8 @@ public function void MFPERIODICCALLBACK(IUnknown* pContext);
 	public uint32 TemporalLayerIndex;
 }
 
-[CRepr]public struct D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA_H264_REFERENCE_PICTURE_MARKING_OPERATION
+[CRepr]
+public struct D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA_H264_REFERENCE_PICTURE_MARKING_OPERATION
 {
 	public uint8 memory_management_control_operation;
 	public uint32 difference_of_pic_nums_minus1;
@@ -8962,14 +9081,16 @@ public function void MFPERIODICCALLBACK(IUnknown* pContext);
 	public uint32 max_long_term_frame_idx_plus1;
 }
 
-[CRepr]public struct D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA_H264_REFERENCE_PICTURE_LIST_MODIFICATION_OPERATION
+[CRepr]
+public struct D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA_H264_REFERENCE_PICTURE_LIST_MODIFICATION_OPERATION
 {
 	public uint8 modification_of_pic_nums_idc;
 	public uint32 abs_diff_pic_num_minus1;
 	public uint32 long_term_pic_num;
 }
 
-[CRepr]public struct D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA_H264
+[CRepr]
+public struct D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA_H264
 {
 	public D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA_H264_FLAGS Flags;
 	public D3D12_VIDEO_ENCODER_FRAME_TYPE_H264 FrameType;
@@ -8995,7 +9116,8 @@ public function void MFPERIODICCALLBACK(IUnknown* pContext);
 	public int8* pRateControlQPMap;
 }
 
-[CRepr]public struct D3D12_VIDEO_ENCODER_REFERENCE_PICTURE_DESCRIPTOR_HEVC
+[CRepr]
+public struct D3D12_VIDEO_ENCODER_REFERENCE_PICTURE_DESCRIPTOR_HEVC
 {
 	public uint32 ReconstructedPictureResourceIndex;
 	public BOOL IsRefUsedByCurrentPic;
@@ -9004,7 +9126,8 @@ public function void MFPERIODICCALLBACK(IUnknown* pContext);
 	public uint32 TemporalLayerIndex;
 }
 
-[CRepr]public struct D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA_HEVC
+[CRepr]
+public struct D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA_HEVC
 {
 	public D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA_HEVC_FLAGS Flags;
 	public D3D12_VIDEO_ENCODER_FRAME_TYPE_HEVC FrameType;
@@ -9025,9 +9148,11 @@ public function void MFPERIODICCALLBACK(IUnknown* pContext);
 	public int8* pRateControlQPMap;
 }
 
-[CRepr]public struct D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA
+[CRepr]
+public struct D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA
 {
-	[CRepr, Union]	public struct _Anonymous_e__Union
+	[CRepr, Union]
+	public struct _Anonymous_e__Union
 	{
 		public D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA_H264* pH264PicData;
 		public D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA_HEVC* pHEVCPicData;
@@ -9037,14 +9162,16 @@ public function void MFPERIODICCALLBACK(IUnknown* pContext);
 	public using _Anonymous_e__Union Anonymous;
 }
 
-[CRepr]public struct D3D12_VIDEO_ENCODE_REFERENCE_FRAMES
+[CRepr]
+public struct D3D12_VIDEO_ENCODE_REFERENCE_FRAMES
 {
 	public uint32 NumTexture2Ds;
 	public ID3D12Resource** ppTexture2Ds;
 	public uint32* pSubresources;
 }
 
-[CRepr]public struct D3D12_VIDEO_ENCODER_PICTURE_CONTROL_DESC
+[CRepr]
+public struct D3D12_VIDEO_ENCODER_PICTURE_CONTROL_DESC
 {
 	public uint32 IntraRefreshFrameIndex;
 	public D3D12_VIDEO_ENCODER_PICTURE_CONTROL_FLAGS Flags;
@@ -9052,9 +9179,11 @@ public function void MFPERIODICCALLBACK(IUnknown* pContext);
 	public D3D12_VIDEO_ENCODE_REFERENCE_FRAMES ReferenceFrames;
 }
 
-[CRepr]public struct D3D12_VIDEO_ENCODER_PICTURE_CONTROL_SUBREGIONS_LAYOUT_DATA_SLICES
+[CRepr]
+public struct D3D12_VIDEO_ENCODER_PICTURE_CONTROL_SUBREGIONS_LAYOUT_DATA_SLICES
 {
-	[CRepr, Union]	public struct _Anonymous_e__Union
+	[CRepr, Union]
+	public struct _Anonymous_e__Union
 	{
 		public uint32 MaxBytesPerSlice;
 		public uint32 NumberOfCodingUnitsPerSlice;
@@ -9065,9 +9194,11 @@ public function void MFPERIODICCALLBACK(IUnknown* pContext);
 	public using _Anonymous_e__Union Anonymous;
 }
 
-[CRepr]public struct D3D12_VIDEO_ENCODER_PICTURE_CONTROL_SUBREGIONS_LAYOUT_DATA
+[CRepr]
+public struct D3D12_VIDEO_ENCODER_PICTURE_CONTROL_SUBREGIONS_LAYOUT_DATA
 {
-	[CRepr, Union]	public struct _Anonymous_e__Union
+	[CRepr, Union]
+	public struct _Anonymous_e__Union
 	{
 		public D3D12_VIDEO_ENCODER_PICTURE_CONTROL_SUBREGIONS_LAYOUT_DATA_SLICES* pSlicesPartition_H264;
 		public D3D12_VIDEO_ENCODER_PICTURE_CONTROL_SUBREGIONS_LAYOUT_DATA_SLICES* pSlicesPartition_HEVC;
@@ -9077,7 +9208,8 @@ public function void MFPERIODICCALLBACK(IUnknown* pContext);
 	public using _Anonymous_e__Union Anonymous;
 }
 
-[CRepr]public struct D3D12_VIDEO_ENCODER_SEQUENCE_CONTROL_DESC
+[CRepr]
+public struct D3D12_VIDEO_ENCODER_SEQUENCE_CONTROL_DESC
 {
 	public D3D12_VIDEO_ENCODER_SEQUENCE_CONTROL_FLAGS Flags;
 	public D3D12_VIDEO_ENCODER_INTRA_REFRESH IntraRefreshConfig;
@@ -9088,7 +9220,8 @@ public function void MFPERIODICCALLBACK(IUnknown* pContext);
 	public D3D12_VIDEO_ENCODER_SEQUENCE_GOP_STRUCTURE CodecGopSequence;
 }
 
-[CRepr]public struct D3D12_VIDEO_ENCODER_ENCODEFRAME_INPUT_ARGUMENTS
+[CRepr]
+public struct D3D12_VIDEO_ENCODER_ENCODEFRAME_INPUT_ARGUMENTS
 {
 	public D3D12_VIDEO_ENCODER_SEQUENCE_CONTROL_DESC SequenceControlDesc;
 	public D3D12_VIDEO_ENCODER_PICTURE_CONTROL_DESC PictureControlDesc;
@@ -9097,26 +9230,30 @@ public function void MFPERIODICCALLBACK(IUnknown* pContext);
 	public uint32 CurrentFrameBitstreamMetadataSize;
 }
 
-[CRepr]public struct D3D12_VIDEO_ENCODER_COMPRESSED_BITSTREAM
+[CRepr]
+public struct D3D12_VIDEO_ENCODER_COMPRESSED_BITSTREAM
 {
 	public ID3D12Resource* pBuffer;
 	public uint64 FrameStartOffset;
 }
 
-[CRepr]public struct D3D12_VIDEO_ENCODER_RECONSTRUCTED_PICTURE
+[CRepr]
+public struct D3D12_VIDEO_ENCODER_RECONSTRUCTED_PICTURE
 {
 	public ID3D12Resource* pReconstructedPicture;
 	public uint32 ReconstructedPictureSubresource;
 }
 
-[CRepr]public struct D3D12_VIDEO_ENCODER_FRAME_SUBREGION_METADATA
+[CRepr]
+public struct D3D12_VIDEO_ENCODER_FRAME_SUBREGION_METADATA
 {
 	public uint64 bSize;
 	public uint64 bStartOffset;
 	public uint64 bHeaderSize;
 }
 
-[CRepr]public struct D3D12_VIDEO_ENCODER_OUTPUT_METADATA_STATISTICS
+[CRepr]
+public struct D3D12_VIDEO_ENCODER_OUTPUT_METADATA_STATISTICS
 {
 	public uint64 AverageQP;
 	public uint64 IntraCodingUnitsCount;
@@ -9126,7 +9263,8 @@ public function void MFPERIODICCALLBACK(IUnknown* pContext);
 	public uint64 AverageMotionEstimationYDirection;
 }
 
-[CRepr]public struct D3D12_VIDEO_ENCODER_OUTPUT_METADATA
+[CRepr]
+public struct D3D12_VIDEO_ENCODER_OUTPUT_METADATA
 {
 	public uint64 EncodeErrorFlags;
 	public D3D12_VIDEO_ENCODER_OUTPUT_METADATA_STATISTICS EncodeStats;
@@ -9134,13 +9272,15 @@ public function void MFPERIODICCALLBACK(IUnknown* pContext);
 	public uint64 WrittenSubregionsCount;
 }
 
-[CRepr]public struct D3D12_VIDEO_ENCODER_ENCODE_OPERATION_METADATA_BUFFER
+[CRepr]
+public struct D3D12_VIDEO_ENCODER_ENCODE_OPERATION_METADATA_BUFFER
 {
 	public ID3D12Resource* pBuffer;
 	public uint64 Offset;
 }
 
-[CRepr]public struct D3D12_VIDEO_ENCODER_RESOLVE_METADATA_INPUT_ARGUMENTS
+[CRepr]
+public struct D3D12_VIDEO_ENCODER_RESOLVE_METADATA_INPUT_ARGUMENTS
 {
 	public D3D12_VIDEO_ENCODER_CODEC EncoderCodec;
 	public D3D12_VIDEO_ENCODER_PROFILE_DESC EncoderProfile;
@@ -9149,19 +9289,22 @@ public function void MFPERIODICCALLBACK(IUnknown* pContext);
 	public D3D12_VIDEO_ENCODER_ENCODE_OPERATION_METADATA_BUFFER HWLayoutMetadata;
 }
 
-[CRepr]public struct D3D12_VIDEO_ENCODER_RESOLVE_METADATA_OUTPUT_ARGUMENTS
+[CRepr]
+public struct D3D12_VIDEO_ENCODER_RESOLVE_METADATA_OUTPUT_ARGUMENTS
 {
 	public D3D12_VIDEO_ENCODER_ENCODE_OPERATION_METADATA_BUFFER ResolvedLayoutMetadata;
 }
 
-[CRepr]public struct D3D12_VIDEO_ENCODER_ENCODEFRAME_OUTPUT_ARGUMENTS
+[CRepr]
+public struct D3D12_VIDEO_ENCODER_ENCODEFRAME_OUTPUT_ARGUMENTS
 {
 	public D3D12_VIDEO_ENCODER_COMPRESSED_BITSTREAM Bitstream;
 	public D3D12_VIDEO_ENCODER_RECONSTRUCTED_PICTURE ReconstructedPicture;
 	public D3D12_VIDEO_ENCODER_ENCODE_OPERATION_METADATA_BUFFER EncoderOutputMetadata;
 }
 
-[CRepr]public struct AecQualityMetrics_Struct
+[CRepr]
+public struct AecQualityMetrics_Struct
 {
 	public int64 i64Timestamp;
 	public uint8 ConvergenceFlag;
@@ -9184,7 +9327,8 @@ public function void MFPERIODICCALLBACK(IUnknown* pContext);
 	public uint32 dwReserved;
 }
 
-[CRepr]public struct TOC_DESCRIPTOR
+[CRepr]
+public struct TOC_DESCRIPTOR
 {
 	public Guid guidID;
 	public uint16 wStreamNumber;
@@ -9192,7 +9336,8 @@ public function void MFPERIODICCALLBACK(IUnknown* pContext);
 	public uint16 wLanguageIndex;
 }
 
-[CRepr]public struct TOC_ENTRY_DESCRIPTOR
+[CRepr]
+public struct TOC_ENTRY_DESCRIPTOR
 {
 	public uint64 qwStartTime;
 	public uint64 qwEndTime;
@@ -9201,7 +9346,8 @@ public function void MFPERIODICCALLBACK(IUnknown* pContext);
 	public uint64 qwRepresentativeFrameTime;
 }
 
-[CRepr]public struct DXVA_AYUVsample2
+[CRepr]
+public struct DXVA_AYUVsample2
 {
 	public uint8 bCrValue;
 	public uint8 bCbValue;
@@ -9209,7 +9355,8 @@ public function void MFPERIODICCALLBACK(IUnknown* pContext);
 	public uint8 bSampleAlpha8;
 }
 
-[CRepr, Packed(1)]public struct DXVA_BufferDescription
+[CRepr, Packed(1)]
+public struct DXVA_BufferDescription
 {
 	public uint32 dwTypeIndex;
 	public uint32 dwBufferIndex;
@@ -9223,7 +9370,8 @@ public function void MFPERIODICCALLBACK(IUnknown* pContext);
 	public uint32 dwReservedBits;
 }
 
-[CRepr, Packed(1)]public struct DXVA_ConfigPictureDecode
+[CRepr, Packed(1)]
+public struct DXVA_ConfigPictureDecode
 {
 	public uint32 dwFunction;
 	public uint32[3] dwReservedBits;
@@ -9244,7 +9392,8 @@ public function void MFPERIODICCALLBACK(IUnknown* pContext);
 	public uint8 bConfig4GroupedCoefs;
 }
 
-[CRepr, Packed(1)]public struct DXVA_PictureParameters
+[CRepr, Packed(1)]
+public struct DXVA_PictureParameters
 {
 	public uint16 wDecodedPictureIndex;
 	public uint16 wDeblockedPictureIndex;
@@ -9284,14 +9433,16 @@ public function void MFPERIODICCALLBACK(IUnknown* pContext);
 	public uint8 bBitstreamConcealmentMethod;
 }
 
-[CRepr]public struct DXVAUncompDataInfo
+[CRepr]
+public struct DXVAUncompDataInfo
 {
 	public uint32 UncompWidth;
 	public uint32 UncompHeight;
 	public D3DFORMAT UncompFormat;
 }
 
-[CRepr]public struct DXVACompBufferInfo
+[CRepr]
+public struct DXVACompBufferInfo
 {
 	public uint32 NumCompBuffers;
 	public uint32 WidthToCreate;
@@ -9302,25 +9453,29 @@ public function void MFPERIODICCALLBACK(IUnknown* pContext);
 	public D3DFORMAT Format;
 }
 
-[CRepr]public struct DXVABufferInfo
+[CRepr]
+public struct DXVABufferInfo
 {
 	public void* pCompSurface;
 	public uint32 DataOffset;
 	public uint32 DataSize;
 }
 
-[CRepr]public struct DXVA_ExtendedFormat
+[CRepr]
+public struct DXVA_ExtendedFormat
 {
 	public uint32 _bitfield;
 }
 
-[CRepr]public struct DXVA_Frequency
+[CRepr]
+public struct DXVA_Frequency
 {
 	public uint32 Numerator;
 	public uint32 Denominator;
 }
 
-[CRepr]public struct DXVA_VideoDesc
+[CRepr]
+public struct DXVA_VideoDesc
 {
 	public uint32 Size;
 	public uint32 SampleWidth;
@@ -9331,7 +9486,8 @@ public function void MFPERIODICCALLBACK(IUnknown* pContext);
 	public DXVA_Frequency OutputFrameFreq;
 }
 
-[CRepr]public struct DXVA_VideoSample
+[CRepr]
+public struct DXVA_VideoSample
 {
 	public int64 rtStart;
 	public int64 rtEnd;
@@ -9340,7 +9496,8 @@ public function void MFPERIODICCALLBACK(IUnknown* pContext);
 }
 
 #if BF_64_BIT || BF_ARM_64
-[CRepr]public struct DXVA_VideoSample2
+[CRepr]
+public struct DXVA_VideoSample2
 {
 	public uint32 Size;
 	public uint32 Reserved;
@@ -9355,7 +9512,8 @@ public function void MFPERIODICCALLBACK(IUnknown* pContext);
 }
 #endif
 
-[CRepr]public struct DXVA_DeinterlaceCaps
+[CRepr]
+public struct DXVA_DeinterlaceCaps
 {
 	public uint32 Size;
 	public uint32 NumPreviousOutputFrames;
@@ -9368,7 +9526,8 @@ public function void MFPERIODICCALLBACK(IUnknown* pContext);
 }
 
 #if BF_64_BIT || BF_ARM_64
-[CRepr]public struct DXVA_VideoSample32
+[CRepr]
+public struct DXVA_VideoSample32
 {
 	public int64 rtStart;
 	public int64 rtEnd;
@@ -9382,7 +9541,8 @@ public function void MFPERIODICCALLBACK(IUnknown* pContext);
 #endif
 
 #if BF_64_BIT || BF_ARM_64
-[CRepr]public struct DXVA_DeinterlaceBltEx32
+[CRepr]
+public struct DXVA_DeinterlaceBltEx32
 {
 	public uint32 Size;
 	public DXVA_AYUVsample2 BackgroundColor;
@@ -9396,7 +9556,8 @@ public function void MFPERIODICCALLBACK(IUnknown* pContext);
 }
 #endif
 
-[CRepr]public struct DXVA_DeinterlaceBlt
+[CRepr]
+public struct DXVA_DeinterlaceBlt
 {
 	public uint32 Size;
 	public uint32 Reserved;
@@ -9408,7 +9569,8 @@ public function void MFPERIODICCALLBACK(IUnknown* pContext);
 	public DXVA_VideoSample[32] Source;
 }
 
-[CRepr]public struct DXVA_DeinterlaceBltEx
+[CRepr]
+public struct DXVA_DeinterlaceBltEx
 {
 	public uint32 Size;
 	public DXVA_AYUVsample2 BackgroundColor;
@@ -9421,21 +9583,24 @@ public function void MFPERIODICCALLBACK(IUnknown* pContext);
 	public uint32 DestinationFlags;
 }
 
-[CRepr]public struct DXVA_DeinterlaceQueryAvailableModes
+[CRepr]
+public struct DXVA_DeinterlaceQueryAvailableModes
 {
 	public uint32 Size;
 	public uint32 NumGuids;
 	public Guid[32] Guids;
 }
 
-[CRepr]public struct DXVA_DeinterlaceQueryModeCaps
+[CRepr]
+public struct DXVA_DeinterlaceQueryModeCaps
 {
 	public uint32 Size;
 	public Guid Guid;
 	public DXVA_VideoDesc VideoDesc;
 }
 
-[CRepr]public struct DXVA_ProcAmpControlCaps
+[CRepr]
+public struct DXVA_ProcAmpControlCaps
 {
 	public uint32 Size;
 	public uint32 InputPool;
@@ -9444,14 +9609,16 @@ public function void MFPERIODICCALLBACK(IUnknown* pContext);
 	public uint32 VideoProcessingCaps;
 }
 
-[CRepr]public struct DXVA_ProcAmpControlQueryRange
+[CRepr]
+public struct DXVA_ProcAmpControlQueryRange
 {
 	public uint32 Size;
 	public DXVA_ProcAmpControlProp ProcAmpControlProp;
 	public DXVA_VideoDesc VideoDesc;
 }
 
-[CRepr]public struct DXVA_VideoPropertyRange
+[CRepr]
+public struct DXVA_VideoPropertyRange
 {
 	public float MinValue;
 	public float MaxValue;
@@ -9459,7 +9626,8 @@ public function void MFPERIODICCALLBACK(IUnknown* pContext);
 	public float StepSize;
 }
 
-[CRepr]public struct DXVA_ProcAmpControlBlt
+[CRepr]
+public struct DXVA_ProcAmpControlBlt
 {
 	public uint32 Size;
 	public RECT DstRect;
@@ -9471,12 +9639,14 @@ public function void MFPERIODICCALLBACK(IUnknown* pContext);
 	public float Saturation;
 }
 
-[CRepr]public struct DXVA_COPPSignature
+[CRepr]
+public struct DXVA_COPPSignature
 {
 	public uint8[256] Signature;
 }
 
-[CRepr]public struct DXVA_COPPCommand
+[CRepr]
+public struct DXVA_COPPCommand
 {
 	public Guid macKDI;
 	public Guid guidCommandID;
@@ -9485,7 +9655,8 @@ public function void MFPERIODICCALLBACK(IUnknown* pContext);
 	public uint8[4056] CommandData;
 }
 
-[CRepr]public struct DXVA_COPPStatusInput
+[CRepr]
+public struct DXVA_COPPStatusInput
 {
 	public Guid rApp;
 	public Guid guidStatusRequestID;
@@ -9494,20 +9665,23 @@ public function void MFPERIODICCALLBACK(IUnknown* pContext);
 	public uint8[4056] StatusData;
 }
 
-[CRepr]public struct DXVA_COPPStatusOutput
+[CRepr]
+public struct DXVA_COPPStatusOutput
 {
 	public Guid macKDI;
 	public uint32 cbSizeData;
 	public uint8[4076] COPPStatus;
 }
 
-[CRepr]public struct DXVAHD_RATIONAL
+[CRepr]
+public struct DXVAHD_RATIONAL
 {
 	public uint32 Numerator;
 	public uint32 Denominator;
 }
 
-[CRepr]public struct DXVAHD_COLOR_RGBA
+[CRepr]
+public struct DXVAHD_COLOR_RGBA
 {
 	public float R;
 	public float G;
@@ -9515,7 +9689,8 @@ public function void MFPERIODICCALLBACK(IUnknown* pContext);
 	public float A;
 }
 
-[CRepr]public struct DXVAHD_COLOR_YCbCrA
+[CRepr]
+public struct DXVAHD_COLOR_YCbCrA
 {
 	public float Y;
 	public float Cb;
@@ -9523,13 +9698,15 @@ public function void MFPERIODICCALLBACK(IUnknown* pContext);
 	public float A;
 }
 
-[CRepr, Union]public struct DXVAHD_COLOR
+[CRepr, Union]
+public struct DXVAHD_COLOR
 {
 	public DXVAHD_COLOR_RGBA RGB;
 	public DXVAHD_COLOR_YCbCrA YCbCr;
 }
 
-[CRepr]public struct DXVAHD_CONTENT_DESC
+[CRepr]
+public struct DXVAHD_CONTENT_DESC
 {
 	public DXVAHD_FRAME_FORMAT InputFrameFormat;
 	public DXVAHD_RATIONAL InputFrameRate;
@@ -9540,7 +9717,8 @@ public function void MFPERIODICCALLBACK(IUnknown* pContext);
 	public uint32 OutputHeight;
 }
 
-[CRepr]public struct DXVAHD_VPDEVCAPS
+[CRepr]
+public struct DXVAHD_VPDEVCAPS
 {
 	public DXVAHD_DEVICE_TYPE DeviceType;
 	public uint32 DeviceCaps;
@@ -9555,7 +9733,8 @@ public function void MFPERIODICCALLBACK(IUnknown* pContext);
 	public uint32 MaxStreamStates;
 }
 
-[CRepr]public struct DXVAHD_VPCAPS
+[CRepr]
+public struct DXVAHD_VPCAPS
 {
 	public Guid VPGuid;
 	public uint32 PastFrames;
@@ -9565,7 +9744,8 @@ public function void MFPERIODICCALLBACK(IUnknown* pContext);
 	public uint32 CustomRateCount;
 }
 
-[CRepr]public struct DXVAHD_CUSTOM_RATE_DATA
+[CRepr]
+public struct DXVAHD_CUSTOM_RATE_DATA
 {
 	public DXVAHD_RATIONAL CustomRate;
 	public uint32 OutputFrames;
@@ -9573,7 +9753,8 @@ public function void MFPERIODICCALLBACK(IUnknown* pContext);
 	public uint32 InputFramesOrFields;
 }
 
-[CRepr]public struct DXVAHD_FILTER_RANGE_DATA
+[CRepr]
+public struct DXVAHD_FILTER_RANGE_DATA
 {
 	public int32 Minimum;
 	public int32 Maximum;
@@ -9581,23 +9762,28 @@ public function void MFPERIODICCALLBACK(IUnknown* pContext);
 	public float Multiplier;
 }
 
-[CRepr]public struct DXVAHD_BLT_STATE_TARGET_RECT_DATA
+[CRepr]
+public struct DXVAHD_BLT_STATE_TARGET_RECT_DATA
 {
 	public BOOL Enable;
 	public RECT TargetRect;
 }
 
-[CRepr]public struct DXVAHD_BLT_STATE_BACKGROUND_COLOR_DATA
+[CRepr]
+public struct DXVAHD_BLT_STATE_BACKGROUND_COLOR_DATA
 {
 	public BOOL YCbCr;
 	public DXVAHD_COLOR BackgroundColor;
 }
 
-[CRepr]public struct DXVAHD_BLT_STATE_OUTPUT_COLOR_SPACE_DATA
+[CRepr]
+public struct DXVAHD_BLT_STATE_OUTPUT_COLOR_SPACE_DATA
 {
-	[CRepr, Union]	public struct _Anonymous_e__Union
+	[CRepr, Union]
+	public struct _Anonymous_e__Union
 	{
-		[CRepr]		public struct _Anonymous_e__Struct
+		[CRepr]
+		public struct _Anonymous_e__Struct
 		{
 			public uint32 _bitfield;
 		}
@@ -9609,40 +9795,48 @@ public function void MFPERIODICCALLBACK(IUnknown* pContext);
 	public using _Anonymous_e__Union Anonymous;
 }
 
-[CRepr]public struct DXVAHD_BLT_STATE_ALPHA_FILL_DATA
+[CRepr]
+public struct DXVAHD_BLT_STATE_ALPHA_FILL_DATA
 {
 	public DXVAHD_ALPHA_FILL_MODE Mode;
 	public uint32 StreamNumber;
 }
 
-[CRepr]public struct DXVAHD_BLT_STATE_CONSTRICTION_DATA
+[CRepr]
+public struct DXVAHD_BLT_STATE_CONSTRICTION_DATA
 {
 	public BOOL Enable;
 	public SIZE Size;
 }
 
-[CRepr]public struct DXVAHD_BLT_STATE_PRIVATE_DATA
+[CRepr]
+public struct DXVAHD_BLT_STATE_PRIVATE_DATA
 {
 	public Guid Guid;
 	public uint32 DataSize;
 	public void* pData;
 }
 
-[CRepr]public struct DXVAHD_STREAM_STATE_D3DFORMAT_DATA
+[CRepr]
+public struct DXVAHD_STREAM_STATE_D3DFORMAT_DATA
 {
 	public D3DFORMAT Format;
 }
 
-[CRepr]public struct DXVAHD_STREAM_STATE_FRAME_FORMAT_DATA
+[CRepr]
+public struct DXVAHD_STREAM_STATE_FRAME_FORMAT_DATA
 {
 	public DXVAHD_FRAME_FORMAT FrameFormat;
 }
 
-[CRepr]public struct DXVAHD_STREAM_STATE_INPUT_COLOR_SPACE_DATA
+[CRepr]
+public struct DXVAHD_STREAM_STATE_INPUT_COLOR_SPACE_DATA
 {
-	[CRepr, Union]	public struct _Anonymous_e__Union
+	[CRepr, Union]
+	public struct _Anonymous_e__Union
 	{
-		[CRepr]		public struct _Anonymous_e__Struct
+		[CRepr]
+		public struct _Anonymous_e__Struct
 		{
 			public uint32 _bitfield;
 		}
@@ -9654,65 +9848,75 @@ public function void MFPERIODICCALLBACK(IUnknown* pContext);
 	public using _Anonymous_e__Union Anonymous;
 }
 
-[CRepr]public struct DXVAHD_STREAM_STATE_OUTPUT_RATE_DATA
+[CRepr]
+public struct DXVAHD_STREAM_STATE_OUTPUT_RATE_DATA
 {
 	public BOOL RepeatFrame;
 	public DXVAHD_OUTPUT_RATE OutputRate;
 	public DXVAHD_RATIONAL CustomRate;
 }
 
-[CRepr]public struct DXVAHD_STREAM_STATE_SOURCE_RECT_DATA
+[CRepr]
+public struct DXVAHD_STREAM_STATE_SOURCE_RECT_DATA
 {
 	public BOOL Enable;
 	public RECT SourceRect;
 }
 
-[CRepr]public struct DXVAHD_STREAM_STATE_DESTINATION_RECT_DATA
+[CRepr]
+public struct DXVAHD_STREAM_STATE_DESTINATION_RECT_DATA
 {
 	public BOOL Enable;
 	public RECT DestinationRect;
 }
 
-[CRepr]public struct DXVAHD_STREAM_STATE_ALPHA_DATA
+[CRepr]
+public struct DXVAHD_STREAM_STATE_ALPHA_DATA
 {
 	public BOOL Enable;
 	public float Alpha;
 }
 
-[CRepr]public struct DXVAHD_STREAM_STATE_PALETTE_DATA
+[CRepr]
+public struct DXVAHD_STREAM_STATE_PALETTE_DATA
 {
 	public uint32 Count;
 	public uint32* pEntries;
 }
 
-[CRepr]public struct DXVAHD_STREAM_STATE_LUMA_KEY_DATA
+[CRepr]
+public struct DXVAHD_STREAM_STATE_LUMA_KEY_DATA
 {
 	public BOOL Enable;
 	public float Lower;
 	public float Upper;
 }
 
-[CRepr]public struct DXVAHD_STREAM_STATE_ASPECT_RATIO_DATA
+[CRepr]
+public struct DXVAHD_STREAM_STATE_ASPECT_RATIO_DATA
 {
 	public BOOL Enable;
 	public DXVAHD_RATIONAL SourceAspectRatio;
 	public DXVAHD_RATIONAL DestinationAspectRatio;
 }
 
-[CRepr]public struct DXVAHD_STREAM_STATE_FILTER_DATA
+[CRepr]
+public struct DXVAHD_STREAM_STATE_FILTER_DATA
 {
 	public BOOL Enable;
 	public int32 Level;
 }
 
-[CRepr]public struct DXVAHD_STREAM_STATE_PRIVATE_DATA
+[CRepr]
+public struct DXVAHD_STREAM_STATE_PRIVATE_DATA
 {
 	public Guid Guid;
 	public uint32 DataSize;
 	public void* pData;
 }
 
-[CRepr]public struct DXVAHD_STREAM_DATA
+[CRepr]
+public struct DXVAHD_STREAM_DATA
 {
 	public BOOL Enable;
 	public uint32 OutputIndex;
@@ -9724,7 +9928,8 @@ public function void MFPERIODICCALLBACK(IUnknown* pContext);
 	public IDirect3DSurface9** ppFutureSurfaces;
 }
 
-[CRepr]public struct DXVAHD_STREAM_STATE_PRIVATE_IVTC_DATA
+[CRepr]
+public struct DXVAHD_STREAM_STATE_PRIVATE_IVTC_DATA
 {
 	public BOOL Enable;
 	public uint32 ITelecineFlags;
@@ -9732,7 +9937,8 @@ public function void MFPERIODICCALLBACK(IUnknown* pContext);
 	public uint32 InputField;
 }
 
-[CRepr]public struct DXVAHDSW_CALLBACKS
+[CRepr]
+public struct DXVAHDSW_CALLBACKS
 {
 	public PDXVAHDSW_CreateDevice CreateDevice;
 	public PDXVAHDSW_ProposeVideoPrivateFormat ProposeVideoPrivateFormat;
@@ -9752,14 +9958,16 @@ public function void MFPERIODICCALLBACK(IUnknown* pContext);
 	public PDXVAHDSW_DestroyVideoProcessor DestroyVideoProcessor;
 }
 
-[CRepr]public struct DXVAHDETW_CREATEVIDEOPROCESSOR
+[CRepr]
+public struct DXVAHDETW_CREATEVIDEOPROCESSOR
 {
 	public uint64 pObject;
 	public uint64 pD3D9Ex;
 	public Guid VPGuid;
 }
 
-[CRepr]public struct DXVAHDETW_VIDEOPROCESSBLTSTATE
+[CRepr]
+public struct DXVAHDETW_VIDEOPROCESSBLTSTATE
 {
 	public uint64 pObject;
 	public DXVAHD_BLT_STATE State;
@@ -9767,7 +9975,8 @@ public function void MFPERIODICCALLBACK(IUnknown* pContext);
 	public BOOL SetState;
 }
 
-[CRepr]public struct DXVAHDETW_VIDEOPROCESSSTREAMSTATE
+[CRepr]
+public struct DXVAHDETW_VIDEOPROCESSSTREAMSTATE
 {
 	public uint64 pObject;
 	public uint32 StreamNumber;
@@ -9776,7 +9985,8 @@ public function void MFPERIODICCALLBACK(IUnknown* pContext);
 	public BOOL SetState;
 }
 
-[CRepr]public struct DXVAHDETW_VIDEOPROCESSBLTHD
+[CRepr]
+public struct DXVAHDETW_VIDEOPROCESSBLTHD
 {
 	public uint64 pObject;
 	public uint64 pOutputSurface;
@@ -9788,7 +9998,8 @@ public function void MFPERIODICCALLBACK(IUnknown* pContext);
 	public BOOL Enter;
 }
 
-[CRepr]public struct DXVAHDETW_VIDEOPROCESSBLTHD_STREAM
+[CRepr]
+public struct DXVAHDETW_VIDEOPROCESSBLTHD_STREAM
 {
 	public uint64 pObject;
 	public uint64 pInputSurface;
@@ -9804,16 +10015,20 @@ public function void MFPERIODICCALLBACK(IUnknown* pContext);
 	public uint32 FutureFrames;
 }
 
-[CRepr]public struct DXVAHDETW_DESTROYVIDEOPROCESSOR
+[CRepr]
+public struct DXVAHDETW_DESTROYVIDEOPROCESSOR
 {
 	public uint64 pObject;
 }
 
-[CRepr]public struct DXVA2_ExtendedFormat
+[CRepr]
+public struct DXVA2_ExtendedFormat
 {
-	[CRepr, Union]	public struct _Anonymous_e__Union
+	[CRepr, Union]
+	public struct _Anonymous_e__Union
 	{
-		[CRepr]		public struct _Anonymous_e__Struct
+		[CRepr]
+		public struct _Anonymous_e__Struct
 		{
 			public uint32 _bitfield;
 		}
@@ -9825,13 +10040,15 @@ public function void MFPERIODICCALLBACK(IUnknown* pContext);
 	public using _Anonymous_e__Union Anonymous;
 }
 
-[CRepr]public struct DXVA2_Frequency
+[CRepr]
+public struct DXVA2_Frequency
 {
 	public uint32 Numerator;
 	public uint32 Denominator;
 }
 
-[CRepr]public struct DXVA2_VideoDesc
+[CRepr]
+public struct DXVA2_VideoDesc
 {
 	public uint32 SampleWidth;
 	public uint32 SampleHeight;
@@ -9843,7 +10060,8 @@ public function void MFPERIODICCALLBACK(IUnknown* pContext);
 	public uint32 Reserved;
 }
 
-[CRepr]public struct DXVA2_VideoProcessorCaps
+[CRepr]
+public struct DXVA2_VideoProcessorCaps
 {
 	public uint32 DeviceCaps;
 	public D3DPOOL InputPool;
@@ -9857,11 +10075,14 @@ public function void MFPERIODICCALLBACK(IUnknown* pContext);
 	public uint32 DetailFilterTechnology;
 }
 
-[CRepr]public struct DXVA2_Fixed32
+[CRepr]
+public struct DXVA2_Fixed32
 {
-	[CRepr, Union]	public struct _Anonymous_e__Union
+	[CRepr, Union]
+	public struct _Anonymous_e__Union
 	{
-		[CRepr]		public struct _Anonymous_e__Struct
+		[CRepr]
+		public struct _Anonymous_e__Struct
 		{
 			public uint16 Fraction;
 			public int16 Value;
@@ -9874,7 +10095,8 @@ public function void MFPERIODICCALLBACK(IUnknown* pContext);
 	public using _Anonymous_e__Union Anonymous;
 }
 
-[CRepr]public struct DXVA2_AYUVSample8
+[CRepr]
+public struct DXVA2_AYUVSample8
 {
 	public uint8 Cr;
 	public uint8 Cb;
@@ -9882,7 +10104,8 @@ public function void MFPERIODICCALLBACK(IUnknown* pContext);
 	public uint8 Alpha;
 }
 
-[CRepr]public struct DXVA2_AYUVSample16
+[CRepr]
+public struct DXVA2_AYUVSample16
 {
 	public uint16 Cr;
 	public uint16 Cb;
@@ -9890,7 +10113,8 @@ public function void MFPERIODICCALLBACK(IUnknown* pContext);
 	public uint16 Alpha;
 }
 
-[CRepr]public struct DXVA2_VideoSample
+[CRepr]
+public struct DXVA2_VideoSample
 {
 	public int64 Start;
 	public int64 End;
@@ -9903,7 +10127,8 @@ public function void MFPERIODICCALLBACK(IUnknown* pContext);
 	public uint32 SampleData;
 }
 
-[CRepr]public struct DXVA2_ValueRange
+[CRepr]
+public struct DXVA2_ValueRange
 {
 	public DXVA2_Fixed32 MinValue;
 	public DXVA2_Fixed32 MaxValue;
@@ -9911,7 +10136,8 @@ public function void MFPERIODICCALLBACK(IUnknown* pContext);
 	public DXVA2_Fixed32 StepSize;
 }
 
-[CRepr]public struct DXVA2_ProcAmpValues
+[CRepr]
+public struct DXVA2_ProcAmpValues
 {
 	public DXVA2_Fixed32 Brightness;
 	public DXVA2_Fixed32 Contrast;
@@ -9919,14 +10145,16 @@ public function void MFPERIODICCALLBACK(IUnknown* pContext);
 	public DXVA2_Fixed32 Saturation;
 }
 
-[CRepr]public struct DXVA2_FilterValues
+[CRepr]
+public struct DXVA2_FilterValues
 {
 	public DXVA2_Fixed32 Level;
 	public DXVA2_Fixed32 Threshold;
 	public DXVA2_Fixed32 Radius;
 }
 
-[CRepr]public struct DXVA2_VideoProcessBltParams
+[CRepr]
+public struct DXVA2_VideoProcessBltParams
 {
 	public int64 TargetFrame;
 	public RECT TargetRect;
@@ -9943,7 +10171,8 @@ public function void MFPERIODICCALLBACK(IUnknown* pContext);
 	public uint32 DestData;
 }
 
-[CRepr]public struct DXVA2_ConfigPictureDecode
+[CRepr]
+public struct DXVA2_ConfigPictureDecode
 {
 	public Guid guidConfigBitstreamEncryption;
 	public Guid guidConfigMBcontrolEncryption;
@@ -9964,7 +10193,8 @@ public function void MFPERIODICCALLBACK(IUnknown* pContext);
 	public uint16 ConfigDecoderSpecific;
 }
 
-[CRepr]public struct DXVA2_DecodeBufferDesc
+[CRepr]
+public struct DXVA2_DecodeBufferDesc
 {
 	public DXVA2_BufferfType CompressedBufferType;
 	public uint32 BufferIndex;
@@ -9979,13 +10209,15 @@ public function void MFPERIODICCALLBACK(IUnknown* pContext);
 	public void* pvPVPState;
 }
 
-[CRepr]public struct DXVA2_AES_CTR_IV
+[CRepr]
+public struct DXVA2_AES_CTR_IV
 {
 	public uint64 IV;
 	public uint64 Count;
 }
 
-[CRepr]public struct DXVA2_DecodeExtensionData
+[CRepr]
+public struct DXVA2_DecodeExtensionData
 {
 	public uint32 Function;
 	public void* pPrivateInputData;
@@ -9994,29 +10226,34 @@ public function void MFPERIODICCALLBACK(IUnknown* pContext);
 	public uint32 PrivateOutputDataSize;
 }
 
-[CRepr]public struct DXVA2_DecodeExecuteParams
+[CRepr]
+public struct DXVA2_DecodeExecuteParams
 {
 	public uint32 NumCompBuffers;
 	public DXVA2_DecodeBufferDesc* pCompressedBuffers;
 	public DXVA2_DecodeExtensionData* pExtensionData;
 }
 
-[CRepr]public struct OPM_RANDOM_NUMBER
+[CRepr]
+public struct OPM_RANDOM_NUMBER
 {
 	public uint8[16] abRandomNumber;
 }
 
-[CRepr]public struct OPM_OMAC
+[CRepr]
+public struct OPM_OMAC
 {
 	public uint8[16] abOMAC;
 }
 
-[CRepr]public struct OPM_ENCRYPTED_INITIALIZATION_PARAMETERS
+[CRepr]
+public struct OPM_ENCRYPTED_INITIALIZATION_PARAMETERS
 {
 	public uint8[256] abEncryptedInitializationParameters;
 }
 
-[CRepr, Packed(1)]public struct OPM_GET_INFO_PARAMETERS
+[CRepr, Packed(1)]
+public struct OPM_GET_INFO_PARAMETERS
 {
 	public OPM_OMAC omac;
 	public OPM_RANDOM_NUMBER rnRandomNumber;
@@ -10026,7 +10263,8 @@ public function void MFPERIODICCALLBACK(IUnknown* pContext);
 	public uint8[4056] abParameters;
 }
 
-[CRepr, Packed(1)]public struct OPM_COPP_COMPATIBLE_GET_INFO_PARAMETERS
+[CRepr, Packed(1)]
+public struct OPM_COPP_COMPATIBLE_GET_INFO_PARAMETERS
 {
 	public OPM_RANDOM_NUMBER rnRandomNumber;
 	public Guid guidInformation;
@@ -10035,12 +10273,14 @@ public function void MFPERIODICCALLBACK(IUnknown* pContext);
 	public uint8[4056] abParameters;
 }
 
-[CRepr]public struct OPM_HDCP_KEY_SELECTION_VECTOR
+[CRepr]
+public struct OPM_HDCP_KEY_SELECTION_VECTOR
 {
 	public uint8[5] abKeySelectionVector;
 }
 
-[CRepr, Packed(1)]public struct OPM_CONNECTED_HDCP_DEVICE_INFORMATION
+[CRepr, Packed(1)]
+public struct OPM_CONNECTED_HDCP_DEVICE_INFORMATION
 {
 	public OPM_RANDOM_NUMBER rnRandomNumber;
 	public uint32 ulStatusFlags;
@@ -10051,14 +10291,16 @@ public function void MFPERIODICCALLBACK(IUnknown* pContext);
 	public uint8[16] Reserved3;
 }
 
-[CRepr, Packed(1)]public struct OPM_REQUESTED_INFORMATION
+[CRepr, Packed(1)]
+public struct OPM_REQUESTED_INFORMATION
 {
 	public OPM_OMAC omac;
 	public uint32 cbRequestedInformationSize;
 	public uint8[4076] abRequestedInformation;
 }
 
-[CRepr, Packed(1)]public struct OPM_STANDARD_INFORMATION
+[CRepr, Packed(1)]
+public struct OPM_STANDARD_INFORMATION
 {
 	public OPM_RANDOM_NUMBER rnRandomNumber;
 	public uint32 ulStatusFlags;
@@ -10067,7 +10309,8 @@ public function void MFPERIODICCALLBACK(IUnknown* pContext);
 	public uint32 ulReserved2;
 }
 
-[CRepr, Packed(1)]public struct OPM_ACTUAL_OUTPUT_FORMAT
+[CRepr, Packed(1)]
+public struct OPM_ACTUAL_OUTPUT_FORMAT
 {
 	public OPM_RANDOM_NUMBER rnRandomNumber;
 	public uint32 ulStatusFlags;
@@ -10079,7 +10322,8 @@ public function void MFPERIODICCALLBACK(IUnknown* pContext);
 	public uint32 ulFrequencyDenominator;
 }
 
-[CRepr, Packed(1)]public struct OPM_ACP_AND_CGMSA_SIGNALING
+[CRepr, Packed(1)]
+public struct OPM_ACP_AND_CGMSA_SIGNALING
 {
 	public OPM_RANDOM_NUMBER rnRandomNumber;
 	public uint32 ulStatusFlags;
@@ -10096,14 +10340,16 @@ public function void MFPERIODICCALLBACK(IUnknown* pContext);
 	public uint32[4] ulReserved3;
 }
 
-[CRepr, Packed(1)]public struct OPM_OUTPUT_ID_DATA
+[CRepr, Packed(1)]
+public struct OPM_OUTPUT_ID_DATA
 {
 	public OPM_RANDOM_NUMBER rnRandomNumber;
 	public uint32 ulStatusFlags;
 	public uint64 OutputId;
 }
 
-[CRepr, Packed(1)]public struct OPM_CONFIGURE_PARAMETERS
+[CRepr, Packed(1)]
+public struct OPM_CONFIGURE_PARAMETERS
 {
 	public OPM_OMAC omac;
 	public Guid guidSetting;
@@ -10112,7 +10358,8 @@ public function void MFPERIODICCALLBACK(IUnknown* pContext);
 	public uint8[4056] abParameters;
 }
 
-[CRepr, Packed(1)]public struct OPM_SET_PROTECTION_LEVEL_PARAMETERS
+[CRepr, Packed(1)]
+public struct OPM_SET_PROTECTION_LEVEL_PARAMETERS
 {
 	public uint32 ulProtectionType;
 	public uint32 ulProtectionLevel;
@@ -10120,7 +10367,8 @@ public function void MFPERIODICCALLBACK(IUnknown* pContext);
 	public uint32 Reserved2;
 }
 
-[CRepr, Packed(1)]public struct OPM_SET_ACP_AND_CGMSA_SIGNALING_PARAMETERS
+[CRepr, Packed(1)]
+public struct OPM_SET_ACP_AND_CGMSA_SIGNALING_PARAMETERS
 {
 	public uint32 ulNewTVProtectionStandard;
 	public uint32 ulAspectRatioChangeMask1;
@@ -10134,49 +10382,57 @@ public function void MFPERIODICCALLBACK(IUnknown* pContext);
 	public uint32 ulReserved3;
 }
 
-[CRepr, Packed(1)]public struct OPM_SET_HDCP_SRM_PARAMETERS
+[CRepr, Packed(1)]
+public struct OPM_SET_HDCP_SRM_PARAMETERS
 {
 	public uint32 ulSRMVersion;
 }
 
-[CRepr, Packed(1)]public struct OPM_GET_CODEC_INFO_PARAMETERS
+[CRepr, Packed(1)]
+public struct OPM_GET_CODEC_INFO_PARAMETERS
 {
 	public uint32 cbVerifier;
 	public uint8[4052] Verifier;
 }
 
-[CRepr, Packed(1)]public struct OPM_GET_CODEC_INFO_INFORMATION
+[CRepr, Packed(1)]
+public struct OPM_GET_CODEC_INFO_INFORMATION
 {
 	public OPM_RANDOM_NUMBER rnRandomNumber;
 	public uint32 Merit;
 }
 
-[CRepr]public struct MFT_REGISTER_TYPE_INFO
+[CRepr]
+public struct MFT_REGISTER_TYPE_INFO
 {
 	public Guid guidMajorType;
 	public Guid guidSubtype;
 }
 
-[CRepr]public struct MFRatio
+[CRepr]
+public struct MFRatio
 {
 	public uint32 Numerator;
 	public uint32 Denominator;
 }
 
-[CRepr]public struct MFOffset
+[CRepr]
+public struct MFOffset
 {
 	public uint16 fract;
 	public int16 value;
 }
 
-[CRepr]public struct MFVideoArea
+[CRepr]
+public struct MFVideoArea
 {
 	public MFOffset OffsetX;
 	public MFOffset OffsetY;
 	public SIZE Area;
 }
 
-[CRepr]public struct MFVideoInfo
+[CRepr]
+public struct MFVideoInfo
 {
 	public uint32 dwWidth;
 	public uint32 dwHeight;
@@ -10195,7 +10451,8 @@ public function void MFPERIODICCALLBACK(IUnknown* pContext);
 	public uint64 VideoFlags;
 }
 
-[CRepr]public struct MFAYUVSample
+[CRepr]
+public struct MFAYUVSample
 {
 	public uint8 bCrValue;
 	public uint8 bCbValue;
@@ -10203,7 +10460,8 @@ public function void MFPERIODICCALLBACK(IUnknown* pContext);
 	public uint8 bSampleAlpha8;
 }
 
-[CRepr]public struct MFARGB
+[CRepr]
+public struct MFARGB
 {
 	public uint8 rgbBlue;
 	public uint8 rgbGreen;
@@ -10211,27 +10469,31 @@ public function void MFPERIODICCALLBACK(IUnknown* pContext);
 	public uint8 rgbAlpha;
 }
 
-[CRepr, Union]public struct MFPaletteEntry
+[CRepr, Union]
+public struct MFPaletteEntry
 {
 	public MFARGB ARGB;
 	public MFAYUVSample AYCbCr;
 }
 
-[CRepr]public struct MFVideoSurfaceInfo
+[CRepr]
+public struct MFVideoSurfaceInfo
 {
 	public uint32 Format;
 	public uint32 PaletteEntries;
 	public MFPaletteEntry[1] Palette;
 }
 
-[CRepr]public struct MFVideoCompressedInfo
+[CRepr]
+public struct MFVideoCompressedInfo
 {
 	public int64 AvgBitrate;
 	public int64 AvgBitErrorRate;
 	public uint32 MaxKeyFrameSpacing;
 }
 
-[CRepr]public struct MFVIDEOFORMAT
+[CRepr]
+public struct MFVIDEOFORMAT
 {
 	public uint32 dwSize;
 	public MFVideoInfo videoInfo;
@@ -10240,7 +10502,8 @@ public function void MFPERIODICCALLBACK(IUnknown* pContext);
 	public MFVideoSurfaceInfo surfaceInfo;
 }
 
-[CRepr]public struct MFT_INPUT_STREAM_INFO
+[CRepr]
+public struct MFT_INPUT_STREAM_INFO
 {
 	public int64 hnsMaxLatency;
 	public uint32 dwFlags;
@@ -10249,14 +10512,16 @@ public function void MFPERIODICCALLBACK(IUnknown* pContext);
 	public uint32 cbAlignment;
 }
 
-[CRepr]public struct MFT_OUTPUT_STREAM_INFO
+[CRepr]
+public struct MFT_OUTPUT_STREAM_INFO
 {
 	public uint32 dwFlags;
 	public uint32 cbSize;
 	public uint32 cbAlignment;
 }
 
-[CRepr]public struct MFT_OUTPUT_DATA_BUFFER
+[CRepr]
+public struct MFT_OUTPUT_DATA_BUFFER
 {
 	public uint32 dwStreamID;
 	public IMFSample* pSample;
@@ -10264,25 +10529,29 @@ public function void MFPERIODICCALLBACK(IUnknown* pContext);
 	public IMFCollection* pEvents;
 }
 
-[CRepr]public struct STREAM_MEDIUM
+[CRepr]
+public struct STREAM_MEDIUM
 {
 	public Guid gidMedium;
 	public uint32 unMediumInstance;
 }
 
-[CRepr]public struct MFAudioDecoderDegradationInfo
+[CRepr]
+public struct MFAudioDecoderDegradationInfo
 {
 	public MFT_AUDIO_DECODER_DEGRADATION_REASON eDegradationReason;
 	public MFT_AUDIO_DECODER_DEGRADATION_TYPE eType;
 }
 
-[CRepr]public struct MFT_STREAM_STATE_PARAM
+[CRepr]
+public struct MFT_STREAM_STATE_PARAM
 {
 	public uint32 StreamId;
 	public MF_STREAM_STATE State;
 }
 
-[CRepr]public struct MFCLOCK_PROPERTIES
+[CRepr]
+public struct MFCLOCK_PROPERTIES
 {
 	public uint64 qwCorrelationRate;
 	public Guid guidClockId;
@@ -10292,7 +10561,8 @@ public function void MFPERIODICCALLBACK(IUnknown* pContext);
 	public uint32 dwClockJitter;
 }
 
-[CRepr]public struct MFRR_COMPONENT_HASH_INFO
+[CRepr]
+public struct MFRR_COMPONENT_HASH_INFO
 {
 	public uint32 ulReason;
 	public char8[43] rgHeaderHash;
@@ -10300,29 +10570,34 @@ public function void MFPERIODICCALLBACK(IUnknown* pContext);
 	public char8[260] wszName;
 }
 
-[CRepr]public struct MFRR_COMPONENTS
+[CRepr]
+public struct MFRR_COMPONENTS
 {
 	public uint32 dwRRInfoVersion;
 	public uint32 dwRRComponents;
 	public MFRR_COMPONENT_HASH_INFO* pRRComponents;
 }
 
-[CRepr, Packed(1)]public struct ASF_FLAT_PICTURE
+[CRepr, Packed(1)]
+public struct ASF_FLAT_PICTURE
 {
 	public uint8 bPictureType;
 	public uint32 dwDataLen;
 }
 
-[CRepr, Packed(1)]public struct ASF_FLAT_SYNCHRONISED_LYRICS
+[CRepr, Packed(1)]
+public struct ASF_FLAT_SYNCHRONISED_LYRICS
 {
 	public uint8 bTimeStampFormat;
 	public uint8 bContentType;
 	public uint32 dwLyricsLen;
 }
 
-[CRepr]public struct MFTOPONODE_ATTRIBUTE_UPDATE
+[CRepr]
+public struct MFTOPONODE_ATTRIBUTE_UPDATE
 {
-	[CRepr, Union]	public struct _Anonymous_e__Union
+	[CRepr, Union]
+	public struct _Anonymous_e__Union
 	{
 		public uint32 u32;
 		public uint64 u64;
@@ -10335,13 +10610,15 @@ public function void MFPERIODICCALLBACK(IUnknown* pContext);
 	public using _Anonymous_e__Union Anonymous;
 }
 
-[CRepr]public struct MF_LEAKY_BUCKET_PAIR
+[CRepr]
+public struct MF_LEAKY_BUCKET_PAIR
 {
 	public uint32 dwBitrate;
 	public uint32 msBufferWindow;
 }
 
-[CRepr]public struct MFBYTESTREAM_BUFFERING_PARAMS
+[CRepr]
+public struct MFBYTESTREAM_BUFFERING_PARAMS
 {
 	public uint64 cbTotalFileSize;
 	public uint64 cbPlayableDataSize;
@@ -10353,13 +10630,15 @@ public function void MFPERIODICCALLBACK(IUnknown* pContext);
 	public float dRate;
 }
 
-[CRepr]public struct MF_BYTE_STREAM_CACHE_RANGE
+[CRepr]
+public struct MF_BYTE_STREAM_CACHE_RANGE
 {
 	public uint64 qwStartOffset;
 	public uint64 qwEndOffset;
 }
 
-[CRepr]public struct MFNetCredentialManagerGetParam
+[CRepr]
+public struct MFNetCredentialManagerGetParam
 {
 	public HRESULT hrOp;
 	public BOOL fAllowLoggedOnUser;
@@ -10371,14 +10650,16 @@ public function void MFPERIODICCALLBACK(IUnknown* pContext);
 	public int32 nRetries;
 }
 
-[CRepr]public struct MFINPUTTRUSTAUTHORITY_ACCESS_ACTION
+[CRepr]
+public struct MFINPUTTRUSTAUTHORITY_ACCESS_ACTION
 {
 	public MFPOLICYMANAGER_ACTION Action;
 	public uint8* pbTicket;
 	public uint32 cbTicket;
 }
 
-[CRepr]public struct MFINPUTTRUSTAUTHORITY_ACCESS_PARAMS
+[CRepr]
+public struct MFINPUTTRUSTAUTHORITY_ACCESS_PARAMS
 {
 	public uint32 dwSize;
 	public uint32 dwVer;
@@ -10390,7 +10671,8 @@ public function void MFPERIODICCALLBACK(IUnknown* pContext);
 	public MFINPUTTRUSTAUTHORITY_ACCESS_ACTION[1] rgOutputActions;
 }
 
-[CRepr]public struct MF_TRANSCODE_SINK_INFO
+[CRepr]
+public struct MF_TRANSCODE_SINK_INFO
 {
 	public uint32 dwVideoStreamID;
 	public IMFMediaType* pVideoMediaType;
@@ -10398,7 +10680,8 @@ public function void MFPERIODICCALLBACK(IUnknown* pContext);
 	public IMFMediaType* pAudioMediaType;
 }
 
-[CRepr]public struct MFT_REGISTRATION_INFO
+[CRepr]
+public struct MFT_REGISTRATION_INFO
 {
 	public Guid clsid;
 	public Guid guidCategory;
@@ -10410,7 +10693,8 @@ public function void MFPERIODICCALLBACK(IUnknown* pContext);
 	public MFT_REGISTER_TYPE_INFO* pOutTypes;
 }
 
-[CRepr]public struct MFCONTENTPROTECTIONDEVICE_INPUT_DATA
+[CRepr]
+public struct MFCONTENTPROTECTIONDEVICE_INPUT_DATA
 {
 	public uint32 HWProtectionFunctionID;
 	public uint32 PrivateDataByteCount;
@@ -10419,7 +10703,8 @@ public function void MFPERIODICCALLBACK(IUnknown* pContext);
 	public uint8[4] InputData;
 }
 
-[CRepr]public struct MFCONTENTPROTECTIONDEVICE_OUTPUT_DATA
+[CRepr]
+public struct MFCONTENTPROTECTIONDEVICE_OUTPUT_DATA
 {
 	public uint32 PrivateDataByteCount;
 	public uint32 MaxHWProtectionDataByteCount;
@@ -10430,35 +10715,40 @@ public function void MFPERIODICCALLBACK(IUnknown* pContext);
 	public uint8[4] OutputData;
 }
 
-[CRepr]public struct MFCONTENTPROTECTIONDEVICE_REALTIMECLIENT_DATA
+[CRepr]
+public struct MFCONTENTPROTECTIONDEVICE_REALTIMECLIENT_DATA
 {
 	public uint32 TaskIndex;
 	public char8[260] ClassName;
 	public int32 BasePriority;
 }
 
-[CRepr]public struct MFMediaKeyStatus
+[CRepr]
+public struct MFMediaKeyStatus
 {
 	public uint8* pbKeyId;
 	public uint32 cbKeyId;
 	public MF_MEDIAKEY_STATUS eMediaKeyStatus;
 }
 
-[CRepr]public struct MF_VIDEO_SPHERICAL_VIEWDIRECTION
+[CRepr]
+public struct MF_VIDEO_SPHERICAL_VIEWDIRECTION
 {
 	public int32 iHeading;
 	public int32 iPitch;
 	public int32 iRoll;
 }
 
-[CRepr]public struct SENSORPROFILEID
+[CRepr]
+public struct SENSORPROFILEID
 {
 	public Guid Type;
 	public uint32 Index;
 	public uint32 Unused;
 }
 
-[CRepr]public struct MFCameraIntrinsic_CameraModel
+[CRepr]
+public struct MFCameraIntrinsic_CameraModel
 {
 	public float FocalLength_x;
 	public float FocalLength_y;
@@ -10466,7 +10756,8 @@ public function void MFPERIODICCALLBACK(IUnknown* pContext);
 	public float PrincipalPoint_y;
 }
 
-[CRepr]public struct MFCameraIntrinsic_DistortionModel6KT
+[CRepr]
+public struct MFCameraIntrinsic_DistortionModel6KT
 {
 	public float Radial_k1;
 	public float Radial_k2;
@@ -10478,7 +10769,8 @@ public function void MFPERIODICCALLBACK(IUnknown* pContext);
 	public float Tangential_p2;
 }
 
-[CRepr]public struct MFCameraIntrinsic_DistortionModelArcTan
+[CRepr]
+public struct MFCameraIntrinsic_DistortionModelArcTan
 {
 	public float Radial_k0;
 	public float DistortionCenter_x;
@@ -10487,7 +10779,8 @@ public function void MFPERIODICCALLBACK(IUnknown* pContext);
 	public float Tangential_y;
 }
 
-[CRepr]public struct MFExtendedCameraIntrinsic_IntrinsicModel
+[CRepr]
+public struct MFExtendedCameraIntrinsic_IntrinsicModel
 {
 	public uint32 Width;
 	public uint32 Height;
@@ -10495,13 +10788,15 @@ public function void MFPERIODICCALLBACK(IUnknown* pContext);
 	public MFCameraIntrinsic_CameraModel CameraModel;
 }
 
-[CRepr]public struct ASF_INDEX_IDENTIFIER
+[CRepr]
+public struct ASF_INDEX_IDENTIFIER
 {
 	public Guid guidIndexType;
 	public uint16 wStreamNumber;
 }
 
-[CRepr]public struct ASF_INDEX_DESCRIPTOR
+[CRepr]
+public struct ASF_INDEX_DESCRIPTOR
 {
 	public ASF_INDEX_IDENTIFIER Identifier;
 	public uint16 cPerEntryBytes;
@@ -10509,13 +10804,15 @@ public function void MFPERIODICCALLBACK(IUnknown* pContext);
 	public uint32 dwInterval;
 }
 
-[CRepr]public struct ASF_MUX_STATISTICS
+[CRepr]
+public struct ASF_MUX_STATISTICS
 {
 	public uint32 cFramesWritten;
 	public uint32 cFramesDropped;
 }
 
-[CRepr]public struct MFVideoNormalizedRect
+[CRepr]
+public struct MFVideoNormalizedRect
 {
 	public float left;
 	public float top;
@@ -10523,33 +10820,38 @@ public function void MFPERIODICCALLBACK(IUnknown* pContext);
 	public float bottom;
 }
 
-[CRepr]public struct MOVE_RECT
+[CRepr]
+public struct MOVE_RECT
 {
 	public POINT SourcePoint;
 	public RECT DestRect;
 }
 
-[CRepr]public struct DIRTYRECT_INFO
+[CRepr]
+public struct DIRTYRECT_INFO
 {
 	public uint32 FrameNumber;
 	public uint32 NumDirtyRects;
 	public RECT[1] DirtyRects;
 }
 
-[CRepr]public struct MOVEREGION_INFO
+[CRepr]
+public struct MOVEREGION_INFO
 {
 	public uint32 FrameNumber;
 	public uint32 NumMoveRegions;
 	public MOVE_RECT[1] MoveRegions;
 }
 
-[CRepr]public struct ROI_AREA
+[CRepr]
+public struct ROI_AREA
 {
 	public RECT rect;
 	public int32 QPDelta;
 }
 
-[CRepr]public struct MACROBLOCK_DATA
+[CRepr]
+public struct MACROBLOCK_DATA
 {
 	public uint32 flags;
 	public int16 motionVectorX;
@@ -10557,14 +10859,16 @@ public function void MFPERIODICCALLBACK(IUnknown* pContext);
 	public int32 QPDelta;
 }
 
-[CRepr]public struct DigitalWindowSetting
+[CRepr]
+public struct DigitalWindowSetting
 {
 	public double OriginX;
 	public double OriginY;
 	public double WindowSize;
 }
 
-[CRepr]public struct MFFOLDDOWN_MATRIX
+[CRepr]
+public struct MFFOLDDOWN_MATRIX
 {
 	public uint32 cbSize;
 	public uint32 cSrcChannels;
@@ -10573,7 +10877,8 @@ public function void MFPERIODICCALLBACK(IUnknown* pContext);
 	public int32[64] Coeff;
 }
 
-[CRepr]public struct MT_CUSTOM_VIDEO_PRIMARIES
+[CRepr]
+public struct MT_CUSTOM_VIDEO_PRIMARIES
 {
 	public float fRx;
 	public float fRy;
@@ -10585,7 +10890,8 @@ public function void MFPERIODICCALLBACK(IUnknown* pContext);
 	public float fWy;
 }
 
-[CRepr]public struct MT_ARBITRARY_HEADER
+[CRepr]
+public struct MT_ARBITRARY_HEADER
 {
 	public Guid majortype;
 	public Guid subtype;
@@ -10595,20 +10901,23 @@ public function void MFPERIODICCALLBACK(IUnknown* pContext);
 	public Guid formattype;
 }
 
-[CRepr]public struct MF_FLOAT2
+[CRepr]
+public struct MF_FLOAT2
 {
 	public float x;
 	public float y;
 }
 
-[CRepr]public struct MF_FLOAT3
+[CRepr]
+public struct MF_FLOAT3
 {
 	public float x;
 	public float y;
 	public float z;
 }
 
-[CRepr]public struct MF_QUATERNION
+[CRepr]
+public struct MF_QUATERNION
 {
 	public float x;
 	public float y;
@@ -10616,26 +10925,30 @@ public function void MFPERIODICCALLBACK(IUnknown* pContext);
 	public float w;
 }
 
-[CRepr]public struct MFCameraExtrinsic_CalibratedTransform
+[CRepr]
+public struct MFCameraExtrinsic_CalibratedTransform
 {
 	public Guid CalibrationId;
 	public MF_FLOAT3 Position;
 	public MF_QUATERNION Orientation;
 }
 
-[CRepr]public struct MFCameraExtrinsics
+[CRepr]
+public struct MFCameraExtrinsics
 {
 	public uint32 TransformCount;
 	public MFCameraExtrinsic_CalibratedTransform[1] CalibratedTransforms;
 }
 
-[CRepr]public struct MFCameraIntrinsic_PinholeCameraModel
+[CRepr]
+public struct MFCameraIntrinsic_PinholeCameraModel
 {
 	public MF_FLOAT2 FocalLength;
 	public MF_FLOAT2 PrincipalPoint;
 }
 
-[CRepr]public struct MFCameraIntrinsic_DistortionModel
+[CRepr]
+public struct MFCameraIntrinsic_DistortionModel
 {
 	public float Radial_k1;
 	public float Radial_k2;
@@ -10644,7 +10957,8 @@ public function void MFPERIODICCALLBACK(IUnknown* pContext);
 	public float Tangential_p2;
 }
 
-[CRepr]public struct MFPinholeCameraIntrinsic_IntrinsicModel
+[CRepr]
+public struct MFPinholeCameraIntrinsic_IntrinsicModel
 {
 	public uint32 Width;
 	public uint32 Height;
@@ -10652,13 +10966,15 @@ public function void MFPERIODICCALLBACK(IUnknown* pContext);
 	public MFCameraIntrinsic_DistortionModel DistortionModel;
 }
 
-[CRepr]public struct MFPinholeCameraIntrinsics
+[CRepr]
+public struct MFPinholeCameraIntrinsics
 {
 	public uint32 IntrinsicModelCount;
 	public MFPinholeCameraIntrinsic_IntrinsicModel[1] IntrinsicModels;
 }
 
-[CRepr]public struct MFMPEG2DLNASINKSTATS
+[CRepr]
+public struct MFMPEG2DLNASINKSTATS
 {
 	public uint64 cBytesWritten;
 	public BOOL fPAL;
@@ -10676,7 +10992,8 @@ public function void MFPERIODICCALLBACK(IUnknown* pContext);
 	public uint64 cAudioFramesEncoded;
 }
 
-[CRepr]public struct MF_SINK_WRITER_STATISTICS
+[CRepr]
+public struct MF_SINK_WRITER_STATISTICS
 {
 	public uint32 cb;
 	public int64 llLastTimestampReceived;
@@ -10696,7 +11013,8 @@ public function void MFPERIODICCALLBACK(IUnknown* pContext);
 	public uint32 dwAverageSampleRateProcessed;
 }
 
-[CRepr]public struct MFP_EVENT_HEADER
+[CRepr]
+public struct MFP_EVENT_HEADER
 {
 	public MFP_EVENT_TYPE eEventType;
 	public HRESULT hrEvent;
@@ -10705,63 +11023,73 @@ public function void MFPERIODICCALLBACK(IUnknown* pContext);
 	public IPropertyStore* pPropertyStore;
 }
 
-[CRepr]public struct MFP_PLAY_EVENT
+[CRepr]
+public struct MFP_PLAY_EVENT
 {
 	public MFP_EVENT_HEADER header;
 	public IMFPMediaItem* pMediaItem;
 }
 
-[CRepr]public struct MFP_PAUSE_EVENT
+[CRepr]
+public struct MFP_PAUSE_EVENT
 {
 	public MFP_EVENT_HEADER header;
 	public IMFPMediaItem* pMediaItem;
 }
 
-[CRepr]public struct MFP_STOP_EVENT
+[CRepr]
+public struct MFP_STOP_EVENT
 {
 	public MFP_EVENT_HEADER header;
 	public IMFPMediaItem* pMediaItem;
 }
 
-[CRepr]public struct MFP_POSITION_SET_EVENT
+[CRepr]
+public struct MFP_POSITION_SET_EVENT
 {
 	public MFP_EVENT_HEADER header;
 	public IMFPMediaItem* pMediaItem;
 }
 
-[CRepr]public struct MFP_RATE_SET_EVENT
+[CRepr]
+public struct MFP_RATE_SET_EVENT
 {
 	public MFP_EVENT_HEADER header;
 	public IMFPMediaItem* pMediaItem;
 	public float flRate;
 }
 
-[CRepr]public struct MFP_MEDIAITEM_CREATED_EVENT
+[CRepr]
+public struct MFP_MEDIAITEM_CREATED_EVENT
 {
 	public MFP_EVENT_HEADER header;
 	public IMFPMediaItem* pMediaItem;
 	public uint dwUserData;
 }
 
-[CRepr]public struct MFP_MEDIAITEM_SET_EVENT
+[CRepr]
+public struct MFP_MEDIAITEM_SET_EVENT
 {
 	public MFP_EVENT_HEADER header;
 	public IMFPMediaItem* pMediaItem;
 }
 
-[CRepr]public struct MFP_FRAME_STEP_EVENT
+[CRepr]
+public struct MFP_FRAME_STEP_EVENT
 {
 	public MFP_EVENT_HEADER header;
 	public IMFPMediaItem* pMediaItem;
 }
 
-[CRepr]public struct MFP_MEDIAITEM_CLEARED_EVENT
+[CRepr]
+public struct MFP_MEDIAITEM_CLEARED_EVENT
 {
 	public MFP_EVENT_HEADER header;
 	public IMFPMediaItem* pMediaItem;
 }
 
-[CRepr]public struct MFP_MF_EVENT
+[CRepr]
+public struct MFP_MF_EVENT
 {
 	public MFP_EVENT_HEADER header;
 	public uint32 MFEventType;
@@ -10769,18 +11097,21 @@ public function void MFPERIODICCALLBACK(IUnknown* pContext);
 	public IMFPMediaItem* pMediaItem;
 }
 
-[CRepr]public struct MFP_ERROR_EVENT
+[CRepr]
+public struct MFP_ERROR_EVENT
 {
 	public MFP_EVENT_HEADER header;
 }
 
-[CRepr]public struct MFP_PLAYBACK_ENDED_EVENT
+[CRepr]
+public struct MFP_PLAYBACK_ENDED_EVENT
 {
 	public MFP_EVENT_HEADER header;
 	public IMFPMediaItem* pMediaItem;
 }
 
-[CRepr]public struct MFP_ACQUIRE_USER_CREDENTIAL_EVENT
+[CRepr]
+public struct MFP_ACQUIRE_USER_CREDENTIAL_EVENT
 {
 	public MFP_EVENT_HEADER header;
 	public uint dwUserData;
@@ -10795,7 +11126,8 @@ public function void MFPERIODICCALLBACK(IUnknown* pContext);
 	public IMFNetCredential* pCredential;
 }
 
-[CRepr]public struct DEVICE_INFO
+[CRepr]
+public struct DEVICE_INFO
 {
 	public BSTR pFriendlyDeviceName;
 	public BSTR pUniqueDeviceName;
@@ -10804,7 +11136,8 @@ public function void MFPERIODICCALLBACK(IUnknown* pContext);
 	public BSTR pIconURL;
 }
 
-[CRepr]public struct MFVideoAlphaBitmapParams
+[CRepr]
+public struct MFVideoAlphaBitmapParams
 {
 	public uint32 dwFlags;
 	public uint32 clrSrcKey;
@@ -10814,9 +11147,11 @@ public function void MFPERIODICCALLBACK(IUnknown* pContext);
 	public uint32 dwFilterMode;
 }
 
-[CRepr]public struct MFVideoAlphaBitmap
+[CRepr]
+public struct MFVideoAlphaBitmap
 {
-	[CRepr, Union]	public struct _bitmap_e__Union
+	[CRepr, Union]
+	public struct _bitmap_e__Union
 	{
 		public HDC hdc;
 		public IDirect3DSurface9* pDDS;
@@ -10828,7 +11163,8 @@ public function void MFPERIODICCALLBACK(IUnknown* pContext);
 }
 
 #if BF_32_BIT
-[CRepr, Packed(4)]public struct D3DCONTENTPROTECTIONCAPS
+[CRepr, Packed(4)]
+public struct D3DCONTENTPROTECTIONCAPS
 {
 	public uint32 Caps;
 	public Guid KeyExchangeType;
@@ -10839,7 +11175,8 @@ public function void MFPERIODICCALLBACK(IUnknown* pContext);
 #endif
 
 #if BF_32_BIT
-[CRepr]public struct DXVA_VideoSample2
+[CRepr]
+public struct DXVA_VideoSample2
 {
 	public int64 rtStart;
 	public int64 rtEnd;

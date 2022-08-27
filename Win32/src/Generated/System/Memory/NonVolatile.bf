@@ -12,7 +12,8 @@ namespace Win32.System.Memory.NonVolatile;
 #endregion
 
 #region Structs
-[CRepr]public struct NV_MEMORY_RANGE
+[CRepr]
+public struct NV_MEMORY_RANGE
 {
 	public void* BaseAddress;
 	public uint Length;

@@ -1094,7 +1094,8 @@ public function void TCI_DEL_FLOW_COMPLETE_HANDLER(HANDLE ClFlowCtx, uint32 Stat
 #endregion
 
 #region Structs
-[CRepr]public struct FLOWSPEC
+[CRepr]
+public struct FLOWSPEC
 {
 	public uint32 TokenRate;
 	public uint32 TokenBucketSize;
@@ -1106,32 +1107,37 @@ public function void TCI_DEL_FLOW_COMPLETE_HANDLER(HANDLE ClFlowCtx, uint32 Stat
 	public uint32 MinimumPolicedSize;
 }
 
-[CRepr]public struct QOS_OBJECT_HDR
+[CRepr]
+public struct QOS_OBJECT_HDR
 {
 	public uint32 ObjectType;
 	public uint32 ObjectLength;
 }
 
-[CRepr]public struct QOS_SD_MODE
+[CRepr]
+public struct QOS_SD_MODE
 {
 	public QOS_OBJECT_HDR ObjectHdr;
 	public uint32 ShapeDiscardMode;
 }
 
-[CRepr]public struct QOS_SHAPING_RATE
+[CRepr]
+public struct QOS_SHAPING_RATE
 {
 	public QOS_OBJECT_HDR ObjectHdr;
 	public uint32 ShapingRate;
 }
 
-[CRepr]public struct RsvpObjHdr
+[CRepr]
+public struct RsvpObjHdr
 {
 	public uint16 obj_length;
 	public uint8 obj_class;
 	public uint8 obj_ctype;
 }
 
-[CRepr]public struct Session_IPv4
+[CRepr]
+public struct Session_IPv4
 {
 	public IN_ADDR sess_destaddr;
 	public uint8 sess_protid;
@@ -1139,9 +1145,11 @@ public function void TCI_DEL_FLOW_COMPLETE_HANDLER(HANDLE ClFlowCtx, uint32 Stat
 	public uint16 sess_destport;
 }
 
-[CRepr]public struct RSVP_SESSION
+[CRepr]
+public struct RSVP_SESSION
 {
-	[CRepr, Union]	public struct _sess_u_e__Union
+	[CRepr, Union]
+	public struct _sess_u_e__Union
 	{
 		public Session_IPv4 sess_ipv4;
 	}
@@ -1150,15 +1158,18 @@ public function void TCI_DEL_FLOW_COMPLETE_HANDLER(HANDLE ClFlowCtx, uint32 Stat
 	public _sess_u_e__Union sess_u;
 }
 
-[CRepr]public struct Rsvp_Hop_IPv4
+[CRepr]
+public struct Rsvp_Hop_IPv4
 {
 	public IN_ADDR hop_ipaddr;
 	public uint32 hop_LIH;
 }
 
-[CRepr]public struct RSVP_HOP
+[CRepr]
+public struct RSVP_HOP
 {
-	[CRepr, Union]	public struct _hop_u_e__Union
+	[CRepr, Union]
+	public struct _hop_u_e__Union
 	{
 		public Rsvp_Hop_IPv4 hop_ipv4;
 	}
@@ -1167,28 +1178,33 @@ public function void TCI_DEL_FLOW_COMPLETE_HANDLER(HANDLE ClFlowCtx, uint32 Stat
 	public _hop_u_e__Union hop_u;
 }
 
-[CRepr]public struct RESV_STYLE
+[CRepr]
+public struct RESV_STYLE
 {
 	public RsvpObjHdr style_header;
 	public uint32 style_word;
 }
 
-[CRepr]public struct Filter_Spec_IPv4
+[CRepr]
+public struct Filter_Spec_IPv4
 {
 	public IN_ADDR filt_ipaddr;
 	public uint16 filt_unused;
 	public uint16 filt_port;
 }
 
-[CRepr]public struct Filter_Spec_IPv4GPI
+[CRepr]
+public struct Filter_Spec_IPv4GPI
 {
 	public IN_ADDR filt_ipaddr;
 	public uint32 filt_gpi;
 }
 
-[CRepr]public struct FILTER_SPEC
+[CRepr]
+public struct FILTER_SPEC
 {
-	[CRepr, Union]	public struct _filt_u_e__Union
+	[CRepr, Union]
+	public struct _filt_u_e__Union
 	{
 		public Filter_Spec_IPv4 filt_ipv4;
 		public Filter_Spec_IPv4GPI filt_ipv4gpi;
@@ -1198,14 +1214,17 @@ public function void TCI_DEL_FLOW_COMPLETE_HANDLER(HANDLE ClFlowCtx, uint32 Stat
 	public _filt_u_e__Union filt_u;
 }
 
-[CRepr]public struct Scope_list_ipv4
+[CRepr]
+public struct Scope_list_ipv4
 {
 	public IN_ADDR[1] scopl_ipaddr;
 }
 
-[CRepr]public struct RSVP_SCOPE
+[CRepr]
+public struct RSVP_SCOPE
 {
-	[CRepr, Union]	public struct _scope_u_e__Union
+	[CRepr, Union]
+	public struct _scope_u_e__Union
 	{
 		public Scope_list_ipv4 scopl_ipv4;
 	}
@@ -1214,7 +1233,8 @@ public function void TCI_DEL_FLOW_COMPLETE_HANDLER(HANDLE ClFlowCtx, uint32 Stat
 	public _scope_u_e__Union scope_u;
 }
 
-[CRepr]public struct Error_Spec_IPv4
+[CRepr]
+public struct Error_Spec_IPv4
 {
 	public IN_ADDR errs_errnode;
 	public uint8 errs_flags;
@@ -1222,9 +1242,11 @@ public function void TCI_DEL_FLOW_COMPLETE_HANDLER(HANDLE ClFlowCtx, uint32 Stat
 	public uint16 errs_value;
 }
 
-[CRepr]public struct ERROR_SPEC
+[CRepr]
+public struct ERROR_SPEC
 {
-	[CRepr, Union]	public struct _errs_u_e__Union
+	[CRepr, Union]
+	public struct _errs_u_e__Union
 	{
 		public Error_Spec_IPv4 errs_ipv4;
 	}
@@ -1233,42 +1255,48 @@ public function void TCI_DEL_FLOW_COMPLETE_HANDLER(HANDLE ClFlowCtx, uint32 Stat
 	public _errs_u_e__Union errs_u;
 }
 
-[CRepr]public struct POLICY_DATA
+[CRepr]
+public struct POLICY_DATA
 {
 	public RsvpObjHdr PolicyObjHdr;
 	public uint16 usPeOffset;
 	public uint16 usReserved;
 }
 
-[CRepr]public struct POLICY_ELEMENT
+[CRepr]
+public struct POLICY_ELEMENT
 {
 	public uint16 usPeLength;
 	public uint16 usPeType;
 	public uint8[4] ucPeData;
 }
 
-[CRepr]public struct IntServMainHdr
+[CRepr]
+public struct IntServMainHdr
 {
 	public uint8 ismh_version;
 	public uint8 ismh_unused;
 	public uint16 ismh_len32b;
 }
 
-[CRepr]public struct IntServServiceHdr
+[CRepr]
+public struct IntServServiceHdr
 {
 	public uint8 issh_service;
 	public uint8 issh_flags;
 	public uint16 issh_len32b;
 }
 
-[CRepr]public struct IntServParmHdr
+[CRepr]
+public struct IntServParmHdr
 {
 	public uint8 isph_parm_num;
 	public uint8 isph_flags;
 	public uint16 isph_len32b;
 }
 
-[CRepr]public struct GenTspecParms
+[CRepr]
+public struct GenTspecParms
 {
 	public float TB_Tspec_r;
 	public float TB_Tspec_b;
@@ -1277,35 +1305,41 @@ public function void TCI_DEL_FLOW_COMPLETE_HANDLER(HANDLE ClFlowCtx, uint32 Stat
 	public uint32 TB_Tspec_M;
 }
 
-[CRepr]public struct GenTspec
+[CRepr]
+public struct GenTspec
 {
 	public IntServServiceHdr gen_Tspec_serv_hdr;
 	public IntServParmHdr gen_Tspec_parm_hdr;
 	public GenTspecParms gen_Tspec_parms;
 }
 
-[CRepr]public struct QualTspecParms
+[CRepr]
+public struct QualTspecParms
 {
 	public uint32 TB_Tspec_M;
 }
 
-[CRepr]public struct QualTspec
+[CRepr]
+public struct QualTspec
 {
 	public IntServServiceHdr qual_Tspec_serv_hdr;
 	public IntServParmHdr qual_Tspec_parm_hdr;
 	public QualTspecParms qual_Tspec_parms;
 }
 
-[CRepr]public struct QualAppFlowSpec
+[CRepr]
+public struct QualAppFlowSpec
 {
 	public IntServServiceHdr Q_spec_serv_hdr;
 	public IntServParmHdr Q_spec_parm_hdr;
 	public QualTspecParms Q_spec_parms;
 }
 
-[CRepr]public struct IntServTspecBody
+[CRepr]
+public struct IntServTspecBody
 {
-	[CRepr, Union]	public struct _tspec_u_e__Union
+	[CRepr, Union]
+	public struct _tspec_u_e__Union
 	{
 		public GenTspec gen_stspec;
 		public QualTspec qual_stspec;
@@ -1315,26 +1349,30 @@ public function void TCI_DEL_FLOW_COMPLETE_HANDLER(HANDLE ClFlowCtx, uint32 Stat
 	public _tspec_u_e__Union tspec_u;
 }
 
-[CRepr]public struct SENDER_TSPEC
+[CRepr]
+public struct SENDER_TSPEC
 {
 	public RsvpObjHdr stspec_header;
 	public IntServTspecBody stspec_body;
 }
 
-[CRepr]public struct CtrlLoadFlowspec
+[CRepr]
+public struct CtrlLoadFlowspec
 {
 	public IntServServiceHdr CL_spec_serv_hdr;
 	public IntServParmHdr CL_spec_parm_hdr;
 	public GenTspecParms CL_spec_parms;
 }
 
-[CRepr]public struct GuarRspec
+[CRepr]
+public struct GuarRspec
 {
 	public float Guar_R;
 	public uint32 Guar_S;
 }
 
-[CRepr]public struct GuarFlowSpec
+[CRepr]
+public struct GuarFlowSpec
 {
 	public IntServServiceHdr Guar_serv_hdr;
 	public IntServParmHdr Guar_Tspec_hdr;
@@ -1343,9 +1381,11 @@ public function void TCI_DEL_FLOW_COMPLETE_HANDLER(HANDLE ClFlowCtx, uint32 Stat
 	public GuarRspec Guar_Rspec;
 }
 
-[CRepr]public struct IntServFlowSpec
+[CRepr]
+public struct IntServFlowSpec
 {
-	[CRepr, Union]	public struct _spec_u_e__Union
+	[CRepr, Union]
+	public struct _spec_u_e__Union
 	{
 		public CtrlLoadFlowspec CL_spec;
 		public GuarFlowSpec G_spec;
@@ -1356,21 +1396,25 @@ public function void TCI_DEL_FLOW_COMPLETE_HANDLER(HANDLE ClFlowCtx, uint32 Stat
 	public _spec_u_e__Union spec_u;
 }
 
-[CRepr]public struct IS_FLOWSPEC
+[CRepr]
+public struct IS_FLOWSPEC
 {
 	public RsvpObjHdr flow_header;
 	public IntServFlowSpec flow_body;
 }
 
-[CRepr]public struct flow_desc
+[CRepr]
+public struct flow_desc
 {
-	[CRepr, Union]	public struct _u1_e__Union
+	[CRepr, Union]
+	public struct _u1_e__Union
 	{
 		public SENDER_TSPEC* stspec;
 		public IS_FLOWSPEC* isflow;
 	}
 
-	[CRepr, Union]	public struct _u2_e__Union
+	[CRepr, Union]
+	public struct _u2_e__Union
 	{
 		public FILTER_SPEC* stemp;
 		public FILTER_SPEC* fspec;
@@ -1380,7 +1424,8 @@ public function void TCI_DEL_FLOW_COMPLETE_HANDLER(HANDLE ClFlowCtx, uint32 Stat
 	public _u2_e__Union u2;
 }
 
-[CRepr]public struct Gads_parms_t
+[CRepr]
+public struct Gads_parms_t
 {
 	public IntServServiceHdr Gads_serv_hdr;
 	public IntServParmHdr Gads_Ctot_hdr;
@@ -1393,7 +1438,8 @@ public function void TCI_DEL_FLOW_COMPLETE_HANDLER(HANDLE ClFlowCtx, uint32 Stat
 	public uint32 Gads_Dsum;
 }
 
-[CRepr]public struct GenAdspecParams
+[CRepr]
+public struct GenAdspecParams
 {
 	public IntServServiceHdr gen_parm_hdr;
 	public IntServParmHdr gen_parm_hopcnt_hdr;
@@ -1406,19 +1452,22 @@ public function void TCI_DEL_FLOW_COMPLETE_HANDLER(HANDLE ClFlowCtx, uint32 Stat
 	public uint32 gen_parm_composed_MTU;
 }
 
-[CRepr]public struct IS_ADSPEC_BODY
+[CRepr]
+public struct IS_ADSPEC_BODY
 {
 	public IntServMainHdr adspec_mh;
 	public GenAdspecParams adspec_genparms;
 }
 
-[CRepr]public struct ADSPEC
+[CRepr]
+public struct ADSPEC
 {
 	public RsvpObjHdr adspec_header;
 	public IS_ADSPEC_BODY adspec_body;
 }
 
-[CRepr]public struct ID_ERROR_OBJECT
+[CRepr]
+public struct ID_ERROR_OBJECT
 {
 	public uint16 usIdErrLength;
 	public uint8 ucAType;
@@ -1428,7 +1477,8 @@ public function void TCI_DEL_FLOW_COMPLETE_HANDLER(HANDLE ClFlowCtx, uint32 Stat
 	public uint8[4] ucIdErrData;
 }
 
-[CRepr]public struct RSVP_MSG_OBJS
+[CRepr]
+public struct RSVP_MSG_OBJS
 {
 	public int32 RsvpMsgType;
 	public RSVP_SESSION* pRsvpSession;
@@ -1444,14 +1494,16 @@ public function void TCI_DEL_FLOW_COMPLETE_HANDLER(HANDLE ClFlowCtx, uint32 Stat
 	public ADSPEC* pAdspec;
 }
 
-[CRepr]public struct policy_decision
+[CRepr]
+public struct policy_decision
 {
 	public uint32 lpvResult;
 	public uint16 wPolicyErrCode;
 	public uint16 wPolicyErrValue;
 }
 
-[CRepr]public struct LPM_INIT_INFO
+[CRepr]
+public struct LPM_INIT_INFO
 {
 	public uint32 PcmVersionNumber;
 	public uint32 ResultTimeLimit;
@@ -1462,7 +1514,8 @@ public function void TCI_DEL_FLOW_COMPLETE_HANDLER(HANDLE ClFlowCtx, uint32 Stat
 	public CBGETRSVPOBJECTS GetRsvpObjectsCallback;
 }
 
-[CRepr]public struct lpmiptable
+[CRepr]
+public struct lpmiptable
 {
 	public uint32 ulIfIndex;
 	public uint32 MediaType;
@@ -1470,7 +1523,8 @@ public function void TCI_DEL_FLOW_COMPLETE_HANDLER(HANDLE ClFlowCtx, uint32 Stat
 	public IN_ADDR IfNetMask;
 }
 
-[CRepr]public struct QOS_PACKET_PRIORITY
+[CRepr]
+public struct QOS_PACKET_PRIORITY
 {
 	public uint32 ConformantDSCPValue;
 	public uint32 NonConformantDSCPValue;
@@ -1478,7 +1532,8 @@ public function void TCI_DEL_FLOW_COMPLETE_HANDLER(HANDLE ClFlowCtx, uint32 Stat
 	public uint32 NonConformantL2Value;
 }
 
-[CRepr]public struct QOS_FLOW_FUNDAMENTALS
+[CRepr]
+public struct QOS_FLOW_FUNDAMENTALS
 {
 	public BOOL BottleneckBandwidthSet;
 	public uint64 BottleneckBandwidth;
@@ -1488,45 +1543,52 @@ public function void TCI_DEL_FLOW_COMPLETE_HANDLER(HANDLE ClFlowCtx, uint32 Stat
 	public uint32 RTT;
 }
 
-[CRepr]public struct QOS_FLOWRATE_OUTGOING
+[CRepr]
+public struct QOS_FLOWRATE_OUTGOING
 {
 	public uint64 Bandwidth;
 	public QOS_SHAPING ShapingBehavior;
 	public QOS_FLOWRATE_REASON Reason;
 }
 
-[CRepr]public struct QOS_VERSION
+[CRepr]
+public struct QOS_VERSION
 {
 	public uint16 MajorVersion;
 	public uint16 MinorVersion;
 }
 
-[CRepr]public struct QOS_FRIENDLY_NAME
+[CRepr]
+public struct QOS_FRIENDLY_NAME
 {
 	public QOS_OBJECT_HDR ObjectHdr;
 	public char8[256] FriendlyName;
 }
 
-[CRepr]public struct QOS_TRAFFIC_CLASS
+[CRepr]
+public struct QOS_TRAFFIC_CLASS
 {
 	public QOS_OBJECT_HDR ObjectHdr;
 	public uint32 TrafficClass;
 }
 
-[CRepr]public struct QOS_DS_CLASS
+[CRepr]
+public struct QOS_DS_CLASS
 {
 	public QOS_OBJECT_HDR ObjectHdr;
 	public uint32 DSField;
 }
 
-[CRepr]public struct QOS_DIFFSERV
+[CRepr]
+public struct QOS_DIFFSERV
 {
 	public QOS_OBJECT_HDR ObjectHdr;
 	public uint32 DSFieldCount;
 	public uint8[1] DiffservRule;
 }
 
-[CRepr]public struct QOS_DIFFSERV_RULE
+[CRepr]
+public struct QOS_DIFFSERV_RULE
 {
 	public uint8 InboundDSField;
 	public uint8 ConformingOutboundDSField;
@@ -1535,12 +1597,14 @@ public function void TCI_DEL_FLOW_COMPLETE_HANDLER(HANDLE ClFlowCtx, uint32 Stat
 	public uint8 NonConformingUserPriority;
 }
 
-[CRepr]public struct QOS_TCP_TRAFFIC
+[CRepr]
+public struct QOS_TCP_TRAFFIC
 {
 	public QOS_OBJECT_HDR ObjectHdr;
 }
 
-[CRepr]public struct TCI_CLIENT_FUNC_LIST
+[CRepr]
+public struct TCI_CLIENT_FUNC_LIST
 {
 	public TCI_NOTIFY_HANDLER ClNotifyHandler;
 	public TCI_ADD_FLOW_COMPLETE_HANDLER ClAddFlowCompleteHandler;
@@ -1548,13 +1612,15 @@ public function void TCI_DEL_FLOW_COMPLETE_HANDLER(HANDLE ClFlowCtx, uint32 Stat
 	public TCI_DEL_FLOW_COMPLETE_HANDLER ClDeleteFlowCompleteHandler;
 }
 
-[CRepr]public struct ADDRESS_LIST_DESCRIPTOR
+[CRepr]
+public struct ADDRESS_LIST_DESCRIPTOR
 {
 	public uint32 MediaType;
 	public NETWORK_ADDRESS_LIST AddressList;
 }
 
-[CRepr]public struct TC_IFC_DESCRIPTOR
+[CRepr]
+public struct TC_IFC_DESCRIPTOR
 {
 	public uint32 Length;
 	public PWSTR pInterfaceName;
@@ -1562,7 +1628,8 @@ public function void TCI_DEL_FLOW_COMPLETE_HANDLER(HANDLE ClFlowCtx, uint32 Stat
 	public ADDRESS_LIST_DESCRIPTOR AddressListDesc;
 }
 
-[CRepr]public struct TC_SUPPORTED_INFO_BUFFER
+[CRepr]
+public struct TC_SUPPORTED_INFO_BUFFER
 {
 	public uint16 InstanceIDLength;
 	public char8[256] InstanceID;
@@ -1570,7 +1637,8 @@ public function void TCI_DEL_FLOW_COMPLETE_HANDLER(HANDLE ClFlowCtx, uint32 Stat
 	public ADDRESS_LIST_DESCRIPTOR AddrListDesc;
 }
 
-[CRepr]public struct TC_GEN_FILTER
+[CRepr]
+public struct TC_GEN_FILTER
 {
 	public uint16 AddressType;
 	public uint32 PatternSize;
@@ -1578,7 +1646,8 @@ public function void TCI_DEL_FLOW_COMPLETE_HANDLER(HANDLE ClFlowCtx, uint32 Stat
 	public void* Mask;
 }
 
-[CRepr]public struct TC_GEN_FLOW
+[CRepr]
+public struct TC_GEN_FLOW
 {
 	public FLOWSPEC SendingFlowspec;
 	public FLOWSPEC ReceivingFlowspec;
@@ -1586,18 +1655,22 @@ public function void TCI_DEL_FLOW_COMPLETE_HANDLER(HANDLE ClFlowCtx, uint32 Stat
 	public QOS_OBJECT_HDR[1] TcObjects;
 }
 
-[CRepr]public struct IP_PATTERN
+[CRepr]
+public struct IP_PATTERN
 {
-	[CRepr, Union]	public struct _S_un_e__Union
+	[CRepr, Union]
+	public struct _S_un_e__Union
 	{
-		[CRepr]		public struct _S_un_icmp_e__Struct
+		[CRepr]
+		public struct _S_un_icmp_e__Struct
 		{
 			public uint8 s_type;
 			public uint8 s_code;
 			public uint16 filler;
 		}
 
-		[CRepr]		public struct _S_un_ports_e__Struct
+		[CRepr]
+		public struct _S_un_ports_e__Struct
 		{
 			public uint16 s_srcport;
 			public uint16 s_dstport;
@@ -1617,9 +1690,11 @@ public function void TCI_DEL_FLOW_COMPLETE_HANDLER(HANDLE ClFlowCtx, uint32 Stat
 	public uint8[3] Reserved3;
 }
 
-[CRepr]public struct IPX_PATTERN
+[CRepr]
+public struct IPX_PATTERN
 {
-	[CRepr]	public struct _Src_e__Struct
+	[CRepr]
+	public struct _Src_e__Struct
 	{
 		public uint32 NetworkAddress;
 		public uint8[6] NodeAddress;
@@ -1630,7 +1705,8 @@ public function void TCI_DEL_FLOW_COMPLETE_HANDLER(HANDLE ClFlowCtx, uint32 Stat
 	public _Src_e__Struct Dest;
 }
 
-[CRepr]public struct ENUMERATION_BUFFER
+[CRepr]
+public struct ENUMERATION_BUFFER
 {
 	public uint32 Length;
 	public uint32 OwnerProcessId;
@@ -1641,53 +1717,62 @@ public function void TCI_DEL_FLOW_COMPLETE_HANDLER(HANDLE ClFlowCtx, uint32 Stat
 	public TC_GEN_FILTER[1] GenericFilter;
 }
 
-[CRepr, Union]public struct IN_ADDR_IPV4
+[CRepr, Union]
+public struct IN_ADDR_IPV4
 {
 	public uint32 Addr;
 	public uint8[4] AddrBytes;
 }
 
-[CRepr]public struct IN_ADDR_IPV6
+[CRepr]
+public struct IN_ADDR_IPV6
 {
 	public uint8[16] Addr;
 }
 
-[CRepr]public struct RSVP_FILTERSPEC_V4
+[CRepr]
+public struct RSVP_FILTERSPEC_V4
 {
 	public IN_ADDR_IPV4 Address;
 	public uint16 Unused;
 	public uint16 Port;
 }
 
-[CRepr]public struct RSVP_FILTERSPEC_V6
+[CRepr]
+public struct RSVP_FILTERSPEC_V6
 {
 	public IN_ADDR_IPV6 Address;
 	public uint16 UnUsed;
 	public uint16 Port;
 }
 
-[CRepr]public struct RSVP_FILTERSPEC_V6_FLOW
+[CRepr]
+public struct RSVP_FILTERSPEC_V6_FLOW
 {
 	public IN_ADDR_IPV6 Address;
 	public uint8 UnUsed;
 	public uint8[3] FlowLabel;
 }
 
-[CRepr]public struct RSVP_FILTERSPEC_V4_GPI
+[CRepr]
+public struct RSVP_FILTERSPEC_V4_GPI
 {
 	public IN_ADDR_IPV4 Address;
 	public uint32 GeneralPortId;
 }
 
-[CRepr]public struct RSVP_FILTERSPEC_V6_GPI
+[CRepr]
+public struct RSVP_FILTERSPEC_V6_GPI
 {
 	public IN_ADDR_IPV6 Address;
 	public uint32 GeneralPortId;
 }
 
-[CRepr]public struct RSVP_FILTERSPEC
+[CRepr]
+public struct RSVP_FILTERSPEC
 {
-	[CRepr, Union]	public struct _Anonymous_e__Union
+	[CRepr, Union]
+	public struct _Anonymous_e__Union
 	{
 		public RSVP_FILTERSPEC_V4 FilterSpecV4;
 		public RSVP_FILTERSPEC_V6 FilterSpecV6;
@@ -1700,28 +1785,32 @@ public function void TCI_DEL_FLOW_COMPLETE_HANDLER(HANDLE ClFlowCtx, uint32 Stat
 	public using _Anonymous_e__Union Anonymous;
 }
 
-[CRepr]public struct FLOWDESCRIPTOR
+[CRepr]
+public struct FLOWDESCRIPTOR
 {
 	public FLOWSPEC FlowSpec;
 	public uint32 NumFilters;
 	public RSVP_FILTERSPEC* FilterList;
 }
 
-[CRepr]public struct RSVP_POLICY
+[CRepr]
+public struct RSVP_POLICY
 {
 	public uint16 Len;
 	public uint16 Type;
 	public uint8[4] Info;
 }
 
-[CRepr]public struct RSVP_POLICY_INFO
+[CRepr]
+public struct RSVP_POLICY_INFO
 {
 	public QOS_OBJECT_HDR ObjectHdr;
 	public uint32 NumPolicyElement;
 	public RSVP_POLICY[1] PolicyElement;
 }
 
-[CRepr]public struct RSVP_RESERVE_INFO
+[CRepr]
+public struct RSVP_RESERVE_INFO
 {
 	public QOS_OBJECT_HDR ObjectHdr;
 	public uint32 Style;
@@ -1731,7 +1820,8 @@ public function void TCI_DEL_FLOW_COMPLETE_HANDLER(HANDLE ClFlowCtx, uint32 Stat
 	public FLOWDESCRIPTOR* FlowDescList;
 }
 
-[CRepr]public struct RSVP_STATUS_INFO
+[CRepr]
+public struct RSVP_STATUS_INFO
 {
 	public QOS_OBJECT_HDR ObjectHdr;
 	public uint32 StatusCode;
@@ -1739,14 +1829,16 @@ public function void TCI_DEL_FLOW_COMPLETE_HANDLER(HANDLE ClFlowCtx, uint32 Stat
 	public uint32 ExtendedStatus2;
 }
 
-[CRepr]public struct QOS_DESTADDR
+[CRepr]
+public struct QOS_DESTADDR
 {
 	public QOS_OBJECT_HDR ObjectHdr;
 	public SOCKADDR* SocketAddress;
 	public uint32 SocketAddressLength;
 }
 
-[CRepr]public struct AD_GENERAL_PARAMS
+[CRepr]
+public struct AD_GENERAL_PARAMS
 {
 	public uint32 IntServAwareHopCount;
 	public uint32 PathBandwidthEstimate;
@@ -1755,7 +1847,8 @@ public function void TCI_DEL_FLOW_COMPLETE_HANDLER(HANDLE ClFlowCtx, uint32 Stat
 	public uint32 Flags;
 }
 
-[CRepr]public struct AD_GUARANTEED
+[CRepr]
+public struct AD_GUARANTEED
 {
 	public uint32 CTotal;
 	public uint32 DTotal;
@@ -1763,16 +1856,19 @@ public function void TCI_DEL_FLOW_COMPLETE_HANDLER(HANDLE ClFlowCtx, uint32 Stat
 	public uint32 DSum;
 }
 
-[CRepr]public struct PARAM_BUFFER
+[CRepr]
+public struct PARAM_BUFFER
 {
 	public uint32 ParameterId;
 	public uint32 Length;
 	public uint8[1] Buffer;
 }
 
-[CRepr]public struct CONTROL_SERVICE
+[CRepr]
+public struct CONTROL_SERVICE
 {
-	[CRepr, Union]	public struct _Anonymous_e__Union
+	[CRepr, Union]
+	public struct _Anonymous_e__Union
 	{
 		public AD_GUARANTEED Guaranteed;
 		public PARAM_BUFFER[1] ParamBuffer;
@@ -1784,7 +1880,8 @@ public function void TCI_DEL_FLOW_COMPLETE_HANDLER(HANDLE ClFlowCtx, uint32 Stat
 	public using _Anonymous_e__Union Anonymous;
 }
 
-[CRepr]public struct RSVP_ADSPEC
+[CRepr]
+public struct RSVP_ADSPEC
 {
 	public QOS_OBJECT_HDR ObjectHdr;
 	public AD_GENERAL_PARAMS GeneralParams;
@@ -1792,7 +1889,8 @@ public function void TCI_DEL_FLOW_COMPLETE_HANDLER(HANDLE ClFlowCtx, uint32 Stat
 	public CONTROL_SERVICE[1] Services;
 }
 
-[CRepr]public struct IDPE_ATTR
+[CRepr]
+public struct IDPE_ATTR
 {
 	public uint16 PeAttribLength;
 	public uint8 PeAttribType;
@@ -1800,7 +1898,8 @@ public function void TCI_DEL_FLOW_COMPLETE_HANDLER(HANDLE ClFlowCtx, uint32 Stat
 	public uint8[4] PeAttribValue;
 }
 
-[CRepr, Packed(1)]public struct WBCL_Iterator
+[CRepr, Packed(1)]
+public struct WBCL_Iterator
 {
 	public void* firstElementPtr;
 	public uint32 logSize;
@@ -1814,7 +1913,8 @@ public function void TCI_DEL_FLOW_COMPLETE_HANDLER(HANDLE ClFlowCtx, uint32 Stat
 	public uint16 hashAlgorithm;
 }
 
-[CRepr, Packed(1)]public struct TCG_PCClientPCREventStruct
+[CRepr, Packed(1)]
+public struct TCG_PCClientPCREventStruct
 {
 	public uint32 pcrIndex;
 	public uint32 eventType;
@@ -1823,14 +1923,16 @@ public function void TCI_DEL_FLOW_COMPLETE_HANDLER(HANDLE ClFlowCtx, uint32 Stat
 	public uint8[1] event;
 }
 
-[CRepr, Packed(1)]public struct TCG_PCClientTaggedEventStruct
+[CRepr, Packed(1)]
+public struct TCG_PCClientTaggedEventStruct
 {
 	public uint32 EventID;
 	public uint32 EventDataSize;
 	public uint8[1] EventData;
 }
 
-[CRepr, Packed(1)]public struct WBCL_LogHdr
+[CRepr, Packed(1)]
+public struct WBCL_LogHdr
 {
 	public uint32 signature;
 	public uint32 version;
@@ -1838,7 +1940,8 @@ public function void TCI_DEL_FLOW_COMPLETE_HANDLER(HANDLE ClFlowCtx, uint32 Stat
 	public uint32 length;
 }
 
-[CRepr, Packed(1)]public struct tag_SIPAEVENT_VSM_IDK_RSA_INFO
+[CRepr, Packed(1)]
+public struct tag_SIPAEVENT_VSM_IDK_RSA_INFO
 {
 	public uint32 KeyBitLength;
 	public uint32 PublicExpLengthBytes;
@@ -1846,9 +1949,11 @@ public function void TCI_DEL_FLOW_COMPLETE_HANDLER(HANDLE ClFlowCtx, uint32 Stat
 	public uint8[1] PublicKeyData;
 }
 
-[CRepr, Packed(1)]public struct tag_SIPAEVENT_VSM_IDK_INFO_PAYLOAD
+[CRepr, Packed(1)]
+public struct tag_SIPAEVENT_VSM_IDK_INFO_PAYLOAD
 {
-	[CRepr, Union]	public struct _Anonymous_e__Union
+	[CRepr, Union]
+	public struct _Anonymous_e__Union
 	{
 		public tag_SIPAEVENT_VSM_IDK_RSA_INFO RsaKeyInfo;
 	}
@@ -1857,7 +1962,8 @@ public function void TCI_DEL_FLOW_COMPLETE_HANDLER(HANDLE ClFlowCtx, uint32 Stat
 	public using _Anonymous_e__Union Anonymous;
 }
 
-[CRepr, Packed(1)]public struct tag_SIPAEVENT_SI_POLICY_PAYLOAD
+[CRepr, Packed(1)]
+public struct tag_SIPAEVENT_SI_POLICY_PAYLOAD
 {
 	public uint64 PolicyVersion;
 	public uint16 PolicyNameLength;
@@ -1866,7 +1972,8 @@ public function void TCI_DEL_FLOW_COMPLETE_HANDLER(HANDLE ClFlowCtx, uint32 Stat
 	public uint8[1] VarLengthData;
 }
 
-[CRepr, Packed(1)]public struct tag_SIPAEVENT_REVOCATION_LIST_PAYLOAD
+[CRepr, Packed(1)]
+public struct tag_SIPAEVENT_REVOCATION_LIST_PAYLOAD
 {
 	public int64 CreationTime;
 	public uint32 DigestLength;
@@ -1874,14 +1981,16 @@ public function void TCI_DEL_FLOW_COMPLETE_HANDLER(HANDLE ClFlowCtx, uint32 Stat
 	public uint8[1] Digest;
 }
 
-[CRepr, Packed(1)]public struct tag_SIPAEVENT_KSR_SIGNATURE_PAYLOAD
+[CRepr, Packed(1)]
+public struct tag_SIPAEVENT_KSR_SIGNATURE_PAYLOAD
 {
 	public uint32 SignAlgID;
 	public uint32 SignatureLength;
 	public uint8[1] Signature;
 }
 
-[CRepr, Packed(1)]public struct tag_SIPAEVENT_SBCP_INFO_PAYLOAD_V1
+[CRepr, Packed(1)]
+public struct tag_SIPAEVENT_SBCP_INFO_PAYLOAD_V1
 {
 	public uint32 PayloadVersion;
 	public uint32 VarDataOffset;
@@ -1892,7 +2001,8 @@ public function void TCI_DEL_FLOW_COMPLETE_HANDLER(HANDLE ClFlowCtx, uint32 Stat
 	public uint8[1] VarData;
 }
 
-[CRepr]public struct QOS
+[CRepr]
+public struct QOS
 {
 	public FLOWSPEC SendingFlowspec;
 	public FLOWSPEC ReceivingFlowspec;

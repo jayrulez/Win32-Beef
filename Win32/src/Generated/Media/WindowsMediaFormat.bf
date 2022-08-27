@@ -1058,19 +1058,22 @@ public enum NETSOURCE_URLCREDPOLICY_SETTINGS : int32
 #endregion
 
 #region Structs
-[CRepr]public struct AM_WMT_EVENT_DATA
+[CRepr]
+public struct AM_WMT_EVENT_DATA
 {
 	public HRESULT hrStatus;
 	public void* pData;
 }
 
-[CRepr, Packed(2)]public struct WM_STREAM_PRIORITY_RECORD
+[CRepr, Packed(2)]
+public struct WM_STREAM_PRIORITY_RECORD
 {
 	public uint16 wStreamNumber;
 	public BOOL fMandatory;
 }
 
-[CRepr]public struct WM_WRITER_STATISTICS
+[CRepr]
+public struct WM_WRITER_STATISTICS
 {
 	public uint64 qwSampleCount;
 	public uint64 qwByteCount;
@@ -1084,7 +1087,8 @@ public enum NETSOURCE_URLCREDPOLICY_SETTINGS : int32
 	public uint32 dwExpectedSampleRate;
 }
 
-[CRepr]public struct WM_WRITER_STATISTICS_EX
+[CRepr]
+public struct WM_WRITER_STATISTICS_EX
 {
 	public uint32 dwBitratePlusOverhead;
 	public uint32 dwCurrentSampleDropRateInQueue;
@@ -1095,7 +1099,8 @@ public enum NETSOURCE_URLCREDPOLICY_SETTINGS : int32
 	public uint32 dwTotalSampleDropsInMultiplexer;
 }
 
-[CRepr]public struct WM_READER_STATISTICS
+[CRepr]
+public struct WM_READER_STATISTICS
 {
 	public uint32 cbSize;
 	public uint32 dwBandwidth;
@@ -1105,7 +1110,8 @@ public enum NETSOURCE_URLCREDPOLICY_SETTINGS : int32
 	public uint16 wQuality;
 }
 
-[CRepr]public struct WM_READER_CLIENTINFO
+[CRepr]
+public struct WM_READER_CLIENTINFO
 {
 	public uint32 cbSize;
 	public PWSTR wszLang;
@@ -1118,13 +1124,15 @@ public enum NETSOURCE_URLCREDPOLICY_SETTINGS : int32
 	public PWSTR wszPlayerUserAgent;
 }
 
-[CRepr]public struct WM_CLIENT_PROPERTIES
+[CRepr]
+public struct WM_CLIENT_PROPERTIES
 {
 	public uint32 dwIPAddress;
 	public uint32 dwPort;
 }
 
-[CRepr]public struct WM_CLIENT_PROPERTIES_EX
+[CRepr]
+public struct WM_CLIENT_PROPERTIES_EX
 {
 	public uint32 cbSize;
 	public PWSTR pwszIPAddress;
@@ -1132,26 +1140,30 @@ public enum NETSOURCE_URLCREDPOLICY_SETTINGS : int32
 	public PWSTR pwszDNSName;
 }
 
-[CRepr]public struct WM_PORT_NUMBER_RANGE
+[CRepr]
+public struct WM_PORT_NUMBER_RANGE
 {
 	public uint16 wPortBegin;
 	public uint16 wPortEnd;
 }
 
-[CRepr]public struct WMT_BUFFER_SEGMENT
+[CRepr]
+public struct WMT_BUFFER_SEGMENT
 {
 	public INSSBuffer* pBuffer;
 	public uint32 cbOffset;
 	public uint32 cbLength;
 }
 
-[CRepr]public struct WMT_PAYLOAD_FRAGMENT
+[CRepr]
+public struct WMT_PAYLOAD_FRAGMENT
 {
 	public uint32 dwPayloadIndex;
 	public WMT_BUFFER_SEGMENT segmentData;
 }
 
-[CRepr]public struct WMT_FILESINK_DATA_UNIT
+[CRepr]
+public struct WMT_FILESINK_DATA_UNIT
 {
 	public WMT_BUFFER_SEGMENT packetHeaderBuffer;
 	public uint32 cPayloads;
@@ -1160,7 +1172,8 @@ public enum NETSOURCE_URLCREDPOLICY_SETTINGS : int32
 	public WMT_PAYLOAD_FRAGMENT* pPayloadDataFragments;
 }
 
-[CRepr]public struct WMT_WEBSTREAM_FORMAT
+[CRepr]
+public struct WMT_WEBSTREAM_FORMAT
 {
 	public uint16 cbSize;
 	public uint16 cbSampleHeaderFixedData;
@@ -1168,7 +1181,8 @@ public enum NETSOURCE_URLCREDPOLICY_SETTINGS : int32
 	public uint16 wReserved;
 }
 
-[CRepr]public struct WMT_WEBSTREAM_SAMPLE_HEADER
+[CRepr]
+public struct WMT_WEBSTREAM_SAMPLE_HEADER
 {
 	public uint16 cbLength;
 	public uint16 wPart;
@@ -1177,13 +1191,15 @@ public enum NETSOURCE_URLCREDPOLICY_SETTINGS : int32
 	public char8[1] wszURL;
 }
 
-[CRepr]public struct WM_ADDRESS_ACCESSENTRY
+[CRepr]
+public struct WM_ADDRESS_ACCESSENTRY
 {
 	public uint32 dwIPAddress;
 	public uint32 dwMask;
 }
 
-[CRepr, Packed(1)]public struct WM_PICTURE
+[CRepr, Packed(1)]
+public struct WM_PICTURE
 {
 	public PWSTR pwszMIMEType;
 	public uint8 bPictureType;
@@ -1192,7 +1208,8 @@ public enum NETSOURCE_URLCREDPOLICY_SETTINGS : int32
 	public uint8* pbData;
 }
 
-[CRepr, Packed(1)]public struct WM_SYNCHRONISED_LYRICS
+[CRepr, Packed(1)]
+public struct WM_SYNCHRONISED_LYRICS
 {
 	public uint8 bTimeStampFormat;
 	public uint8 bContentType;
@@ -1201,31 +1218,36 @@ public enum NETSOURCE_URLCREDPOLICY_SETTINGS : int32
 	public uint8* pbLyrics;
 }
 
-[CRepr, Packed(1)]public struct WM_USER_WEB_URL
+[CRepr, Packed(1)]
+public struct WM_USER_WEB_URL
 {
 	public PWSTR pwszDescription;
 	public PWSTR pwszURL;
 }
 
-[CRepr, Packed(1)]public struct WM_USER_TEXT
+[CRepr, Packed(1)]
+public struct WM_USER_TEXT
 {
 	public PWSTR pwszDescription;
 	public PWSTR pwszText;
 }
 
-[CRepr, Packed(1)]public struct WM_LEAKY_BUCKET_PAIR
+[CRepr, Packed(1)]
+public struct WM_LEAKY_BUCKET_PAIR
 {
 	public uint32 dwBitrate;
 	public uint32 msBufferWindow;
 }
 
-[CRepr, Packed(1)]public struct WM_STREAM_TYPE_INFO
+[CRepr, Packed(1)]
+public struct WM_STREAM_TYPE_INFO
 {
 	public Guid guidMajorType;
 	public uint32 cbFormat;
 }
 
-[CRepr]public struct WMT_WATERMARK_ENTRY
+[CRepr]
+public struct WMT_WATERMARK_ENTRY
 {
 	public WMT_WATERMARK_ENTRY_TYPE wmetType;
 	public Guid clsid;
@@ -1233,7 +1255,8 @@ public enum NETSOURCE_URLCREDPOLICY_SETTINGS : int32
 	public PWSTR pwszDisplayName;
 }
 
-[CRepr]public struct WMT_VIDEOIMAGE_SAMPLE
+[CRepr]
+public struct WMT_VIDEOIMAGE_SAMPLE
 {
 	public uint32 dwMagic;
 	public uint32 cbStruct;
@@ -1258,7 +1281,8 @@ public enum NETSOURCE_URLCREDPOLICY_SETTINGS : int32
 	public int32 lPrevBlendCoef2;
 }
 
-[CRepr]public struct WMT_VIDEOIMAGE_SAMPLE2
+[CRepr]
+public struct WMT_VIDEOIMAGE_SAMPLE2
 {
 	public uint32 dwMagic;
 	public uint32 dwStructSize;
@@ -1289,7 +1313,8 @@ public enum NETSOURCE_URLCREDPOLICY_SETTINGS : int32
 	public BOOL bKeepPrevImage;
 }
 
-[CRepr]public struct WM_MEDIA_TYPE
+[CRepr]
+public struct WM_MEDIA_TYPE
 {
 	public Guid majortype;
 	public Guid subtype;
@@ -1302,7 +1327,8 @@ public enum NETSOURCE_URLCREDPOLICY_SETTINGS : int32
 	public uint8* pbFormat;
 }
 
-[CRepr]public struct WMVIDEOINFOHEADER
+[CRepr]
+public struct WMVIDEOINFOHEADER
 {
 	public RECT rcSource;
 	public RECT rcTarget;
@@ -1312,7 +1338,8 @@ public enum NETSOURCE_URLCREDPOLICY_SETTINGS : int32
 	public BITMAPINFOHEADER bmiHeader;
 }
 
-[CRepr]public struct WMVIDEOINFOHEADER2
+[CRepr]
+public struct WMVIDEOINFOHEADER2
 {
 	public RECT rcSource;
 	public RECT rcTarget;
@@ -1328,7 +1355,8 @@ public enum NETSOURCE_URLCREDPOLICY_SETTINGS : int32
 	public BITMAPINFOHEADER bmiHeader;
 }
 
-[CRepr]public struct WMMPEG2VIDEOINFO
+[CRepr]
+public struct WMMPEG2VIDEOINFO
 {
 	public WMVIDEOINFOHEADER2 hdr;
 	public uint32 dwStartTimeCode;
@@ -1339,19 +1367,22 @@ public enum NETSOURCE_URLCREDPOLICY_SETTINGS : int32
 	public uint32[1] dwSequenceHeader;
 }
 
-[CRepr]public struct WMSCRIPTFORMAT
+[CRepr]
+public struct WMSCRIPTFORMAT
 {
 	public Guid scriptType;
 }
 
-[CRepr]public struct WMT_COLORSPACEINFO_EXTENSION_DATA
+[CRepr]
+public struct WMT_COLORSPACEINFO_EXTENSION_DATA
 {
 	public uint8 ucColorPrimaries;
 	public uint8 ucColorTransferChar;
 	public uint8 ucColorMatrixCoef;
 }
 
-[CRepr, Packed(2)]public struct WMT_TIMECODE_EXTENSION_DATA
+[CRepr, Packed(2)]
+public struct WMT_TIMECODE_EXTENSION_DATA
 {
 	public uint16 wRange;
 	public uint32 dwTimecode;
@@ -1359,12 +1390,14 @@ public enum NETSOURCE_URLCREDPOLICY_SETTINGS : int32
 	public uint32 dwAmFlags;
 }
 
-[CRepr]public struct DRM_VAL16
+[CRepr]
+public struct DRM_VAL16
 {
 	public uint8[16] val;
 }
 
-[CRepr]public struct WMDRM_IMPORT_INIT_STRUCT
+[CRepr]
+public struct WMDRM_IMPORT_INIT_STRUCT
 {
 	public uint32 dwVersion;
 	public uint32 cbEncryptedSessionKeyMessage;
@@ -1373,7 +1406,8 @@ public enum NETSOURCE_URLCREDPOLICY_SETTINGS : int32
 	public uint8* pbEncryptedKeyMessage;
 }
 
-[CRepr]public struct DRM_MINIMUM_OUTPUT_PROTECTION_LEVELS
+[CRepr]
+public struct DRM_MINIMUM_OUTPUT_PROTECTION_LEVELS
 {
 	public uint16 wCompressedDigitalVideo;
 	public uint16 wUncompressedDigitalVideo;
@@ -1382,32 +1416,37 @@ public enum NETSOURCE_URLCREDPOLICY_SETTINGS : int32
 	public uint16 wUncompressedDigitalAudio;
 }
 
-[CRepr]public struct DRM_OPL_OUTPUT_IDS
+[CRepr]
+public struct DRM_OPL_OUTPUT_IDS
 {
 	public uint16 cIds;
 	public Guid* rgIds;
 }
 
-[CRepr]public struct DRM_OUTPUT_PROTECTION
+[CRepr]
+public struct DRM_OUTPUT_PROTECTION
 {
 	public Guid guidId;
 	public uint8 bConfigData;
 }
 
-[CRepr]public struct DRM_VIDEO_OUTPUT_PROTECTION_IDS
+[CRepr]
+public struct DRM_VIDEO_OUTPUT_PROTECTION_IDS
 {
 	public uint16 cEntries;
 	public DRM_OUTPUT_PROTECTION* rgVop;
 }
 
-[CRepr]public struct DRM_PLAY_OPL
+[CRepr]
+public struct DRM_PLAY_OPL
 {
 	public DRM_MINIMUM_OUTPUT_PROTECTION_LEVELS minOPL;
 	public DRM_OPL_OUTPUT_IDS oplIdReserved;
 	public DRM_VIDEO_OUTPUT_PROTECTION_IDS vopi;
 }
 
-[CRepr]public struct DRM_COPY_OPL
+[CRepr]
+public struct DRM_COPY_OPL
 {
 	public uint16 wMinimumCopyLevel;
 	public DRM_OPL_OUTPUT_IDS oplIdIncludes;

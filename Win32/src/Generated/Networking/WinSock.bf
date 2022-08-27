@@ -2761,29 +2761,36 @@ public function int32 LPWSCWRITENAMESPACEORDER(Guid* lpProviderId, uint32 dwNumb
 #endregion
 
 #region Structs
-[CRepr]public struct RIO_BUFFERID_t
+[CRepr]
+public struct RIO_BUFFERID_t
 {
 }
 
-[CRepr]public struct RIO_CQ_t
+[CRepr]
+public struct RIO_CQ_t
 {
 }
 
-[CRepr]public struct RIO_RQ_t
+[CRepr]
+public struct RIO_RQ_t
 {
 }
 
-[CRepr]public struct IN_ADDR
+[CRepr]
+public struct IN_ADDR
 {
-	[CRepr, Union]	public struct _S_un_e__Union
+	[CRepr, Union]
+	public struct _S_un_e__Union
 	{
-		[CRepr]		public struct _S_un_w_e__Struct
+		[CRepr]
+		public struct _S_un_w_e__Struct
 		{
 			public uint16 s_w1;
 			public uint16 s_w2;
 		}
 
-		[CRepr]		public struct _S_un_b_e__Struct
+		[CRepr]
+		public struct _S_un_b_e__Struct
 		{
 			public uint8 s_b1;
 			public uint8 s_b2;
@@ -2799,25 +2806,29 @@ public function int32 LPWSCWRITENAMESPACEORDER(Guid* lpProviderId, uint32 dwNumb
 	public _S_un_e__Union S_un;
 }
 
-[CRepr]public struct SOCKADDR
+[CRepr]
+public struct SOCKADDR
 {
 	public uint16 sa_family;
 	public CHAR[14] sa_data;
 }
 
-[CRepr]public struct SOCKET_ADDRESS
+[CRepr]
+public struct SOCKET_ADDRESS
 {
 	public SOCKADDR* lpSockaddr;
 	public int32 iSockaddrLength;
 }
 
-[CRepr]public struct SOCKET_ADDRESS_LIST
+[CRepr]
+public struct SOCKET_ADDRESS_LIST
 {
 	public int32 iAddressCount;
 	public SOCKET_ADDRESS[1] Address;
 }
 
-[CRepr]public struct CSADDR_INFO
+[CRepr]
+public struct CSADDR_INFO
 {
 	public SOCKET_ADDRESS LocalAddr;
 	public SOCKET_ADDRESS RemoteAddr;
@@ -2825,7 +2836,8 @@ public function int32 LPWSCWRITENAMESPACEORDER(Guid* lpProviderId, uint32 dwNumb
 	public int32 iProtocol;
 }
 
-[CRepr]public struct SOCKADDR_STORAGE
+[CRepr]
+public struct SOCKADDR_STORAGE
 {
 	public uint16 ss_family;
 	public CHAR[6] __ss_pad1;
@@ -2833,7 +2845,8 @@ public function int32 LPWSCWRITENAMESPACEORDER(Guid* lpProviderId, uint32 dwNumb
 	public CHAR[112] __ss_pad2;
 }
 
-[CRepr]public struct SOCKADDR_STORAGE_XP
+[CRepr]
+public struct SOCKADDR_STORAGE_XP
 {
 	public int16 ss_family;
 	public CHAR[6] __ss_pad1;
@@ -2841,18 +2854,22 @@ public function int32 LPWSCWRITENAMESPACEORDER(Guid* lpProviderId, uint32 dwNumb
 	public CHAR[112] __ss_pad2;
 }
 
-[CRepr]public struct SOCKET_PROCESSOR_AFFINITY
+[CRepr]
+public struct SOCKET_PROCESSOR_AFFINITY
 {
 	public PROCESSOR_NUMBER Processor;
 	public uint16 NumaNodeId;
 	public uint16 Reserved;
 }
 
-[CRepr]public struct SCOPE_ID
+[CRepr]
+public struct SCOPE_ID
 {
-	[CRepr, Union]	public struct _Anonymous_e__Union
+	[CRepr, Union]
+	public struct _Anonymous_e__Union
 	{
-		[CRepr]		public struct _Anonymous_e__Struct
+		[CRepr]
+		public struct _Anonymous_e__Struct
 		{
 			public uint32 _bitfield;
 		}
@@ -2864,7 +2881,8 @@ public function int32 LPWSCWRITENAMESPACEORDER(Guid* lpProviderId, uint32 dwNumb
 	public using _Anonymous_e__Union Anonymous;
 }
 
-[CRepr]public struct SOCKADDR_IN
+[CRepr]
+public struct SOCKADDR_IN
 {
 	public uint16 sin_family;
 	public uint16 sin_port;
@@ -2872,20 +2890,23 @@ public function int32 LPWSCWRITENAMESPACEORDER(Guid* lpProviderId, uint32 dwNumb
 	public CHAR[8] sin_zero;
 }
 
-[CRepr]public struct SOCKADDR_DL
+[CRepr]
+public struct SOCKADDR_DL
 {
 	public uint16 sdl_family;
 	public uint8[8] sdl_data;
 	public uint8[4] sdl_zero;
 }
 
-[CRepr]public struct WSABUF
+[CRepr]
+public struct WSABUF
 {
 	public uint32 len;
 	public PSTR buf;
 }
 
-[CRepr]public struct WSAMSG
+[CRepr]
+public struct WSAMSG
 {
 	public SOCKADDR* name;
 	public int32 namelen;
@@ -2895,14 +2916,16 @@ public function int32 LPWSCWRITENAMESPACEORDER(Guid* lpProviderId, uint32 dwNumb
 	public uint32 dwFlags;
 }
 
-[CRepr]public struct cmsghdr
+[CRepr]
+public struct cmsghdr
 {
 	public uint cmsg_len;
 	public int32 cmsg_level;
 	public int32 cmsg_type;
 }
 
-[CRepr]public struct ADDRINFOA
+[CRepr]
+public struct ADDRINFOA
 {
 	public int32 ai_flags;
 	public int32 ai_family;
@@ -2914,7 +2937,8 @@ public function int32 LPWSCWRITENAMESPACEORDER(Guid* lpProviderId, uint32 dwNumb
 	public ADDRINFOA* ai_next;
 }
 
-[CRepr]public struct addrinfoW
+[CRepr]
+public struct addrinfoW
 {
 	public int32 ai_flags;
 	public int32 ai_family;
@@ -2926,7 +2950,8 @@ public function int32 LPWSCWRITENAMESPACEORDER(Guid* lpProviderId, uint32 dwNumb
 	public addrinfoW* ai_next;
 }
 
-[CRepr]public struct addrinfoexA
+[CRepr]
+public struct addrinfoexA
 {
 	public int32 ai_flags;
 	public int32 ai_family;
@@ -2941,7 +2966,8 @@ public function int32 LPWSCWRITENAMESPACEORDER(Guid* lpProviderId, uint32 dwNumb
 	public addrinfoexA* ai_next;
 }
 
-[CRepr]public struct addrinfoexW
+[CRepr]
+public struct addrinfoexW
 {
 	public int32 ai_flags;
 	public int32 ai_family;
@@ -2956,7 +2982,8 @@ public function int32 LPWSCWRITENAMESPACEORDER(Guid* lpProviderId, uint32 dwNumb
 	public addrinfoexW* ai_next;
 }
 
-[CRepr]public struct addrinfoex2A
+[CRepr]
+public struct addrinfoex2A
 {
 	public int32 ai_flags;
 	public int32 ai_family;
@@ -2973,7 +3000,8 @@ public function int32 LPWSCWRITENAMESPACEORDER(Guid* lpProviderId, uint32 dwNumb
 	public PSTR ai_fqdn;
 }
 
-[CRepr]public struct addrinfoex2W
+[CRepr]
+public struct addrinfoex2W
 {
 	public int32 ai_flags;
 	public int32 ai_family;
@@ -2990,7 +3018,8 @@ public function int32 LPWSCWRITENAMESPACEORDER(Guid* lpProviderId, uint32 dwNumb
 	public PWSTR ai_fqdn;
 }
 
-[CRepr]public struct addrinfoex3
+[CRepr]
+public struct addrinfoex3
 {
 	public int32 ai_flags;
 	public int32 ai_family;
@@ -3008,7 +3037,8 @@ public function int32 LPWSCWRITENAMESPACEORDER(Guid* lpProviderId, uint32 dwNumb
 	public int32 ai_interfaceindex;
 }
 
-[CRepr]public struct addrinfoex4
+[CRepr]
+public struct addrinfoex4
 {
 	public int32 ai_flags;
 	public int32 ai_family;
@@ -3027,7 +3057,8 @@ public function int32 LPWSCWRITENAMESPACEORDER(Guid* lpProviderId, uint32 dwNumb
 	public HANDLE ai_resolutionhandle;
 }
 
-[CRepr]public struct addrinfoex5
+[CRepr]
+public struct addrinfoex5
 {
 	public int32 ai_flags;
 	public int32 ai_family;
@@ -3047,9 +3078,11 @@ public function int32 LPWSCWRITENAMESPACEORDER(Guid* lpProviderId, uint32 dwNumb
 	public uint32 ai_ttl;
 }
 
-[CRepr]public struct addrinfo_dns_server
+[CRepr]
+public struct addrinfo_dns_server
 {
-	[CRepr, Union]	public struct _Anonymous_e__Union
+	[CRepr, Union]
+	public struct _Anonymous_e__Union
 	{
 		public PWSTR ai_template;
 	}
@@ -3061,7 +3094,8 @@ public function int32 LPWSCWRITENAMESPACEORDER(Guid* lpProviderId, uint32 dwNumb
 	public using _Anonymous_e__Union Anonymous;
 }
 
-[CRepr]public struct addrinfoex6
+[CRepr]
+public struct addrinfoex6
 {
 	public int32 ai_flags;
 	public int32 ai_family;
@@ -3084,19 +3118,22 @@ public function int32 LPWSCWRITENAMESPACEORDER(Guid* lpProviderId, uint32 dwNumb
 	public uint64 ai_responseflags;
 }
 
-[CRepr]public struct fd_set
+[CRepr]
+public struct fd_set
 {
 	public uint32 fd_count;
 	public SOCKET[64] fd_array;
 }
 
-[CRepr]public struct timeval
+[CRepr]
+public struct timeval
 {
 	public int32 tv_sec;
 	public int32 tv_usec;
 }
 
-[CRepr]public struct hostent
+[CRepr]
+public struct hostent
 {
 	public PSTR h_name;
 	public int8** h_aliases;
@@ -3105,7 +3142,8 @@ public function int32 LPWSCWRITENAMESPACEORDER(Guid* lpProviderId, uint32 dwNumb
 	public int8** h_addr_list;
 }
 
-[CRepr]public struct netent
+[CRepr]
+public struct netent
 {
 	public PSTR n_name;
 	public int8** n_aliases;
@@ -3114,7 +3152,8 @@ public function int32 LPWSCWRITENAMESPACEORDER(Guid* lpProviderId, uint32 dwNumb
 }
 
 #if BF_64_BIT || BF_ARM_64
-[CRepr]public struct servent
+[CRepr]
+public struct servent
 {
 	public PSTR s_name;
 	public int8** s_aliases;
@@ -3123,7 +3162,8 @@ public function int32 LPWSCWRITENAMESPACEORDER(Guid* lpProviderId, uint32 dwNumb
 }
 #endif
 
-[CRepr]public struct protoent
+[CRepr]
+public struct protoent
 {
 	public PSTR p_name;
 	public int8** p_aliases;
@@ -3131,7 +3171,8 @@ public function int32 LPWSCWRITENAMESPACEORDER(Guid* lpProviderId, uint32 dwNumb
 }
 
 #if BF_64_BIT || BF_ARM_64
-[CRepr]public struct WSAData
+[CRepr]
+public struct WSAData
 {
 	public uint16 wVersion;
 	public uint16 wHighVersion;
@@ -3143,31 +3184,36 @@ public function int32 LPWSCWRITENAMESPACEORDER(Guid* lpProviderId, uint32 dwNumb
 }
 #endif
 
-[CRepr]public struct sockproto
+[CRepr]
+public struct sockproto
 {
 	public uint16 sp_family;
 	public uint16 sp_protocol;
 }
 
-[CRepr]public struct linger
+[CRepr]
+public struct linger
 {
 	public uint16 l_onoff;
 	public uint16 l_linger;
 }
 
-[CRepr]public struct WSANETWORKEVENTS
+[CRepr]
+public struct WSANETWORKEVENTS
 {
 	public int32 lNetworkEvents;
 	public int32[10] iErrorCode;
 }
 
-[CRepr]public struct WSAPROTOCOLCHAIN
+[CRepr]
+public struct WSAPROTOCOLCHAIN
 {
 	public int32 ChainLen;
 	public uint32[7] ChainEntries;
 }
 
-[CRepr]public struct WSAPROTOCOL_INFOA
+[CRepr]
+public struct WSAPROTOCOL_INFOA
 {
 	public uint32 dwServiceFlags1;
 	public uint32 dwServiceFlags2;
@@ -3191,7 +3237,8 @@ public function int32 LPWSCWRITENAMESPACEORDER(Guid* lpProviderId, uint32 dwNumb
 	public CHAR[256] szProtocol;
 }
 
-[CRepr]public struct WSAPROTOCOL_INFOW
+[CRepr]
+public struct WSAPROTOCOL_INFOW
 {
 	public uint32 dwServiceFlags1;
 	public uint32 dwServiceFlags2;
@@ -3215,30 +3262,36 @@ public function int32 LPWSCWRITENAMESPACEORDER(Guid* lpProviderId, uint32 dwNumb
 	public char8[256] szProtocol;
 }
 
-[CRepr]public struct WSACOMPLETION
+[CRepr]
+public struct WSACOMPLETION
 {
-	[CRepr, Union]	public struct _Parameters_e__Union
+	[CRepr, Union]
+	public struct _Parameters_e__Union
 	{
-		[CRepr]		public struct _Port_e__Struct
+		[CRepr]
+		public struct _Port_e__Struct
 		{
 			public OVERLAPPED* lpOverlapped;
 			public HANDLE hPort;
 			public uint Key;
 		}
 
-		[CRepr]		public struct _Event_e__Struct
+		[CRepr]
+		public struct _Event_e__Struct
 		{
 			public OVERLAPPED* lpOverlapped;
 		}
 
-		[CRepr]		public struct _WindowMessage_e__Struct
+		[CRepr]
+		public struct _WindowMessage_e__Struct
 		{
 			public HWND hWnd;
 			public uint32 uMsg;
 			public WPARAM context;
 		}
 
-		[CRepr]		public struct _Apc_e__Struct
+		[CRepr]
+		public struct _Apc_e__Struct
 		{
 			public OVERLAPPED* lpOverlapped;
 			public LPWSAOVERLAPPED_COMPLETION_ROUTINE lpfnCompletionProc;
@@ -3254,19 +3307,22 @@ public function int32 LPWSCWRITENAMESPACEORDER(Guid* lpProviderId, uint32 dwNumb
 	public _Parameters_e__Union Parameters;
 }
 
-[CRepr]public struct AFPROTOCOLS
+[CRepr]
+public struct AFPROTOCOLS
 {
 	public int32 iAddressFamily;
 	public int32 iProtocol;
 }
 
-[CRepr]public struct WSAVERSION
+[CRepr]
+public struct WSAVERSION
 {
 	public uint32 dwVersion;
 	public WSAECOMPARATOR ecHow;
 }
 
-[CRepr]public struct WSAQUERYSETA
+[CRepr]
+public struct WSAQUERYSETA
 {
 	public uint32 dwSize;
 	public PSTR lpszServiceInstanceName;
@@ -3285,7 +3341,8 @@ public function int32 LPWSCWRITENAMESPACEORDER(Guid* lpProviderId, uint32 dwNumb
 	public BLOB* lpBlob;
 }
 
-[CRepr]public struct WSAQUERYSETW
+[CRepr]
+public struct WSAQUERYSETW
 {
 	public uint32 dwSize;
 	public PWSTR lpszServiceInstanceName;
@@ -3304,7 +3361,8 @@ public function int32 LPWSCWRITENAMESPACEORDER(Guid* lpProviderId, uint32 dwNumb
 	public BLOB* lpBlob;
 }
 
-[CRepr]public struct WSAQUERYSET2A
+[CRepr]
+public struct WSAQUERYSET2A
 {
 	public uint32 dwSize;
 	public PSTR lpszServiceInstanceName;
@@ -3322,7 +3380,8 @@ public function int32 LPWSCWRITENAMESPACEORDER(Guid* lpProviderId, uint32 dwNumb
 	public BLOB* lpBlob;
 }
 
-[CRepr]public struct WSAQUERYSET2W
+[CRepr]
+public struct WSAQUERYSET2W
 {
 	public uint32 dwSize;
 	public PWSTR lpszServiceInstanceName;
@@ -3340,7 +3399,8 @@ public function int32 LPWSCWRITENAMESPACEORDER(Guid* lpProviderId, uint32 dwNumb
 	public BLOB* lpBlob;
 }
 
-[CRepr]public struct WSANSCLASSINFOA
+[CRepr]
+public struct WSANSCLASSINFOA
 {
 	public PSTR lpszName;
 	public uint32 dwNameSpace;
@@ -3349,7 +3409,8 @@ public function int32 LPWSCWRITENAMESPACEORDER(Guid* lpProviderId, uint32 dwNumb
 	public void* lpValue;
 }
 
-[CRepr]public struct WSANSCLASSINFOW
+[CRepr]
+public struct WSANSCLASSINFOW
 {
 	public PWSTR lpszName;
 	public uint32 dwNameSpace;
@@ -3358,7 +3419,8 @@ public function int32 LPWSCWRITENAMESPACEORDER(Guid* lpProviderId, uint32 dwNumb
 	public void* lpValue;
 }
 
-[CRepr]public struct WSASERVICECLASSINFOA
+[CRepr]
+public struct WSASERVICECLASSINFOA
 {
 	public Guid* lpServiceClassId;
 	public PSTR lpszServiceClassName;
@@ -3366,7 +3428,8 @@ public function int32 LPWSCWRITENAMESPACEORDER(Guid* lpProviderId, uint32 dwNumb
 	public WSANSCLASSINFOA* lpClassInfos;
 }
 
-[CRepr]public struct WSASERVICECLASSINFOW
+[CRepr]
+public struct WSASERVICECLASSINFOW
 {
 	public Guid* lpServiceClassId;
 	public PWSTR lpszServiceClassName;
@@ -3374,7 +3437,8 @@ public function int32 LPWSCWRITENAMESPACEORDER(Guid* lpProviderId, uint32 dwNumb
 	public WSANSCLASSINFOW* lpClassInfos;
 }
 
-[CRepr]public struct WSANAMESPACE_INFOA
+[CRepr]
+public struct WSANAMESPACE_INFOA
 {
 	public Guid NSProviderId;
 	public uint32 dwNameSpace;
@@ -3383,7 +3447,8 @@ public function int32 LPWSCWRITENAMESPACEORDER(Guid* lpProviderId, uint32 dwNumb
 	public PSTR lpszIdentifier;
 }
 
-[CRepr]public struct WSANAMESPACE_INFOW
+[CRepr]
+public struct WSANAMESPACE_INFOW
 {
 	public Guid NSProviderId;
 	public uint32 dwNameSpace;
@@ -3392,7 +3457,8 @@ public function int32 LPWSCWRITENAMESPACEORDER(Guid* lpProviderId, uint32 dwNumb
 	public PWSTR lpszIdentifier;
 }
 
-[CRepr]public struct WSANAMESPACE_INFOEXA
+[CRepr]
+public struct WSANAMESPACE_INFOEXA
 {
 	public Guid NSProviderId;
 	public uint32 dwNameSpace;
@@ -3402,7 +3468,8 @@ public function int32 LPWSCWRITENAMESPACEORDER(Guid* lpProviderId, uint32 dwNumb
 	public BLOB ProviderSpecific;
 }
 
-[CRepr]public struct WSANAMESPACE_INFOEXW
+[CRepr]
+public struct WSANAMESPACE_INFOEXW
 {
 	public Guid NSProviderId;
 	public uint32 dwNameSpace;
@@ -3412,14 +3479,16 @@ public function int32 LPWSCWRITENAMESPACEORDER(Guid* lpProviderId, uint32 dwNumb
 	public BLOB ProviderSpecific;
 }
 
-[CRepr]public struct WSAPOLLFD
+[CRepr]
+public struct WSAPOLLFD
 {
 	public SOCKET fd;
 	public int16 events;
 	public int16 revents;
 }
 
-[CRepr]public struct SOCK_NOTIFY_REGISTRATION
+[CRepr]
+public struct SOCK_NOTIFY_REGISTRATION
 {
 	public SOCKET socket;
 	public void* completionKey;
@@ -3429,9 +3498,11 @@ public function int32 LPWSCWRITENAMESPACEORDER(Guid* lpProviderId, uint32 dwNumb
 	public uint32 registrationResult;
 }
 
-[CRepr]public struct IN6_ADDR
+[CRepr]
+public struct IN6_ADDR
 {
-	[CRepr, Union]	public struct _u_e__Union
+	[CRepr, Union]
+	public struct _u_e__Union
 	{
 		public uint8[16] Byte;
 		public uint16[8] Word;
@@ -3440,7 +3511,8 @@ public function int32 LPWSCWRITENAMESPACEORDER(Guid* lpProviderId, uint32 dwNumb
 	public _u_e__Union u;
 }
 
-[CRepr]public struct sockaddr_in6_old
+[CRepr]
+public struct sockaddr_in6_old
 {
 	public int16 sin6_family;
 	public uint16 sin6_port;
@@ -3448,14 +3520,16 @@ public function int32 LPWSCWRITENAMESPACEORDER(Guid* lpProviderId, uint32 dwNumb
 	public IN6_ADDR sin6_addr;
 }
 
-[CRepr, Union]public struct sockaddr_gen
+[CRepr, Union]
+public struct sockaddr_gen
 {
 	public SOCKADDR Address;
 	public SOCKADDR_IN AddressIn;
 	public sockaddr_in6_old AddressIn6;
 }
 
-[CRepr]public struct INTERFACE_INFO
+[CRepr]
+public struct INTERFACE_INFO
 {
 	public uint32 iiFlags;
 	public sockaddr_gen iiAddress;
@@ -3463,7 +3537,8 @@ public function int32 LPWSCWRITENAMESPACEORDER(Guid* lpProviderId, uint32 dwNumb
 	public sockaddr_gen iiNetmask;
 }
 
-[CRepr]public struct INTERFACE_INFO_EX
+[CRepr]
+public struct INTERFACE_INFO_EX
 {
 	public uint32 iiFlags;
 	public SOCKET_ADDRESS iiAddress;
@@ -3471,9 +3546,11 @@ public function int32 LPWSCWRITENAMESPACEORDER(Guid* lpProviderId, uint32 dwNumb
 	public SOCKET_ADDRESS iiNetmask;
 }
 
-[CRepr]public struct SOCKADDR_IN6
+[CRepr]
+public struct SOCKADDR_IN6
 {
-	[CRepr, Union]	public struct _Anonymous_e__Union
+	[CRepr, Union]
+	public struct _Anonymous_e__Union
 	{
 		public uint32 sin6_scope_id;
 		public SCOPE_ID sin6_scope_struct;
@@ -3486,7 +3563,8 @@ public function int32 LPWSCWRITENAMESPACEORDER(Guid* lpProviderId, uint32 dwNumb
 	public using _Anonymous_e__Union Anonymous;
 }
 
-[CRepr]public struct SOCKADDR_IN6_W2KSP1
+[CRepr]
+public struct SOCKADDR_IN6_W2KSP1
 {
 	public int16 sin6_family;
 	public uint16 sin6_port;
@@ -3495,33 +3573,38 @@ public function int32 LPWSCWRITENAMESPACEORDER(Guid* lpProviderId, uint32 dwNumb
 	public uint32 sin6_scope_id;
 }
 
-[CRepr, Union]public struct SOCKADDR_INET
+[CRepr, Union]
+public struct SOCKADDR_INET
 {
 	public SOCKADDR_IN Ipv4;
 	public SOCKADDR_IN6 Ipv6;
 	public uint16 si_family;
 }
 
-[CRepr]public struct SOCKADDR_IN6_PAIR
+[CRepr]
+public struct SOCKADDR_IN6_PAIR
 {
 	public SOCKADDR_IN6* SourceAddress;
 	public SOCKADDR_IN6* DestinationAddress;
 }
 
-[CRepr]public struct IP_MREQ
+[CRepr]
+public struct IP_MREQ
 {
 	public IN_ADDR imr_multiaddr;
 	public IN_ADDR imr_interface;
 }
 
-[CRepr]public struct IP_MREQ_SOURCE
+[CRepr]
+public struct IP_MREQ_SOURCE
 {
 	public IN_ADDR imr_multiaddr;
 	public IN_ADDR imr_sourceaddr;
 	public IN_ADDR imr_interface;
 }
 
-[CRepr]public struct IP_MSFILTER
+[CRepr]
+public struct IP_MSFILTER
 {
 	public IN_ADDR imsf_multiaddr;
 	public IN_ADDR imsf_interface;
@@ -3530,26 +3613,30 @@ public function int32 LPWSCWRITENAMESPACEORDER(Guid* lpProviderId, uint32 dwNumb
 	public IN_ADDR[1] imsf_slist;
 }
 
-[CRepr]public struct IPV6_MREQ
+[CRepr]
+public struct IPV6_MREQ
 {
 	public IN6_ADDR ipv6mr_multiaddr;
 	public uint32 ipv6mr_interface;
 }
 
-[CRepr]public struct GROUP_REQ
+[CRepr]
+public struct GROUP_REQ
 {
 	public uint32 gr_interface;
 	public SOCKADDR_STORAGE gr_group;
 }
 
-[CRepr]public struct GROUP_SOURCE_REQ
+[CRepr]
+public struct GROUP_SOURCE_REQ
 {
 	public uint32 gsr_interface;
 	public SOCKADDR_STORAGE gsr_group;
 	public SOCKADDR_STORAGE gsr_source;
 }
 
-[CRepr]public struct GROUP_FILTER
+[CRepr]
+public struct GROUP_FILTER
 {
 	public uint32 gf_interface;
 	public SOCKADDR_STORAGE gf_group;
@@ -3558,31 +3645,36 @@ public function int32 LPWSCWRITENAMESPACEORDER(Guid* lpProviderId, uint32 dwNumb
 	public SOCKADDR_STORAGE[1] gf_slist;
 }
 
-[CRepr]public struct IN_PKTINFO
+[CRepr]
+public struct IN_PKTINFO
 {
 	public IN_ADDR ipi_addr;
 	public uint32 ipi_ifindex;
 }
 
-[CRepr]public struct IN6_PKTINFO
+[CRepr]
+public struct IN6_PKTINFO
 {
 	public IN6_ADDR ipi6_addr;
 	public uint32 ipi6_ifindex;
 }
 
-[CRepr]public struct IN_PKTINFO_EX
+[CRepr]
+public struct IN_PKTINFO_EX
 {
 	public IN_PKTINFO pkt_info;
 	public SCOPE_ID scope_id;
 }
 
-[CRepr]public struct in6_pktinfo_ex
+[CRepr]
+public struct in6_pktinfo_ex
 {
 	public IN6_PKTINFO pkt_info;
 	public SCOPE_ID scope_id;
 }
 
-[CRepr]public struct IN_RECVERR
+[CRepr]
+public struct IN_RECVERR
 {
 	public IPPROTO protocol;
 	public uint32 info;
@@ -3590,7 +3682,8 @@ public function int32 LPWSCWRITENAMESPACEORDER(Guid* lpProviderId, uint32 dwNumb
 	public uint8 code;
 }
 
-[CRepr]public struct ICMP_ERROR_INFO
+[CRepr]
+public struct ICMP_ERROR_INFO
 {
 	public SOCKADDR_INET srcaddress;
 	public IPPROTO protocol;
@@ -3598,14 +3691,16 @@ public function int32 LPWSCWRITENAMESPACEORDER(Guid* lpProviderId, uint32 dwNumb
 	public uint8 code;
 }
 
-[CRepr]public struct RM_SEND_WINDOW
+[CRepr]
+public struct RM_SEND_WINDOW
 {
 	public uint32 RateKbitsPerSec;
 	public uint32 WindowSizeInMSecs;
 	public uint32 WindowSizeInBytes;
 }
 
-[CRepr]public struct RM_SENDER_STATS
+[CRepr]
+public struct RM_SENDER_STATS
 {
 	public uint64 DataBytesSent;
 	public uint64 TotalBytesSent;
@@ -3622,7 +3717,8 @@ public function int32 LPWSCWRITENAMESPACEORDER(Guid* lpProviderId, uint32 dwNumb
 	public uint64 TotalODataPacketsSent;
 }
 
-[CRepr]public struct RM_RECEIVER_STATS
+[CRepr]
+public struct RM_RECEIVER_STATS
 {
 	public uint64 NumODataPacketsReceived;
 	public uint64 NumRDataPacketsReceived;
@@ -3644,7 +3740,8 @@ public function int32 LPWSCWRITENAMESPACEORDER(Guid* lpProviderId, uint32 dwNumb
 	public uint64 TotalParityNaksSent;
 }
 
-[CRepr]public struct RM_FEC_INFO
+[CRepr]
+public struct RM_FEC_INFO
 {
 	public uint16 FECBlockSize;
 	public uint16 FECProActivePackets;
@@ -3652,7 +3749,8 @@ public function int32 LPWSCWRITENAMESPACEORDER(Guid* lpProviderId, uint32 dwNumb
 	public BOOLEAN fFECOnDemandParityEnabled;
 }
 
-[CRepr]public struct IPX_ADDRESS_DATA
+[CRepr]
+public struct IPX_ADDRESS_DATA
 {
 	public int32 adapternum;
 	public uint8[4] netnum;
@@ -3663,7 +3761,8 @@ public function int32 LPWSCWRITENAMESPACEORDER(Guid* lpProviderId, uint32 dwNumb
 	public uint32 linkspeed;
 }
 
-[CRepr]public struct IPX_NETNUM_DATA
+[CRepr]
+public struct IPX_NETNUM_DATA
 {
 	public uint8[4] netnum;
 	public uint16 hopcount;
@@ -3672,7 +3771,8 @@ public function int32 LPWSCWRITENAMESPACEORDER(Guid* lpProviderId, uint32 dwNumb
 	public uint8[6] router;
 }
 
-[CRepr]public struct IPX_SPXCONNSTATUS_DATA
+[CRepr]
+public struct IPX_SPXCONNSTATUS_DATA
 {
 	public uint8 ConnectionState;
 	public uint8 WatchDogActive;
@@ -3694,7 +3794,8 @@ public function int32 LPWSCWRITENAMESPACEORDER(Guid* lpProviderId, uint32 dwNumb
 	public uint16 SuppressedPacket;
 }
 
-[CRepr]public struct LM_IRPARMS
+[CRepr]
+public struct LM_IRPARMS
 {
 	public uint32 nTXDataBytes;
 	public uint32 nRXDataBytes;
@@ -3706,14 +3807,16 @@ public function int32 LPWSCWRITENAMESPACEORDER(Guid* lpProviderId, uint32 dwNumb
 	public uint8 nRXPackets;
 }
 
-[CRepr]public struct SOCKADDR_IRDA
+[CRepr]
+public struct SOCKADDR_IRDA
 {
 	public uint16 irdaAddressFamily;
 	public uint8[4] irdaDeviceID;
 	public CHAR[25] irdaServiceName;
 }
 
-[CRepr]public struct WINDOWS_IRDA_DEVICE_INFO
+[CRepr]
+public struct WINDOWS_IRDA_DEVICE_INFO
 {
 	public uint8[4] irdaDeviceID;
 	public CHAR[22] irdaDeviceName;
@@ -3722,36 +3825,43 @@ public function int32 LPWSCWRITENAMESPACEORDER(Guid* lpProviderId, uint32 dwNumb
 	public uint8 irdaCharSet;
 }
 
-[CRepr]public struct WCE_IRDA_DEVICE_INFO
+[CRepr]
+public struct WCE_IRDA_DEVICE_INFO
 {
 	public uint8[4] irdaDeviceID;
 	public CHAR[22] irdaDeviceName;
 	public uint8[2] Reserved;
 }
 
-[CRepr]public struct WINDOWS_DEVICELIST
+[CRepr]
+public struct WINDOWS_DEVICELIST
 {
 	public uint32 numDevice;
 	public WINDOWS_IRDA_DEVICE_INFO[1] Device;
 }
 
-[CRepr]public struct WCE_DEVICELIST
+[CRepr]
+public struct WCE_DEVICELIST
 {
 	public uint32 numDevice;
 	public WCE_IRDA_DEVICE_INFO[1] Device;
 }
 
-[CRepr]public struct WINDOWS_IAS_SET
+[CRepr]
+public struct WINDOWS_IAS_SET
 {
-	[CRepr, Union]	public struct _irdaAttribute_e__Union
+	[CRepr, Union]
+	public struct _irdaAttribute_e__Union
 	{
-		[CRepr]		public struct _irdaAttribOctetSeq_e__Struct
+		[CRepr]
+		public struct _irdaAttribOctetSeq_e__Struct
 		{
 			public uint16 Len;
 			public uint8[1024] OctetSeq;
 		}
 
-		[CRepr]		public struct _irdaAttribUsrStr_e__Struct
+		[CRepr]
+		public struct _irdaAttribUsrStr_e__Struct
 		{
 			public uint8 Len;
 			public uint8 CharSet;
@@ -3769,17 +3879,21 @@ public function int32 LPWSCWRITENAMESPACEORDER(Guid* lpProviderId, uint32 dwNumb
 	public _irdaAttribute_e__Union irdaAttribute;
 }
 
-[CRepr]public struct WINDOWS_IAS_QUERY
+[CRepr]
+public struct WINDOWS_IAS_QUERY
 {
-	[CRepr, Union]	public struct _irdaAttribute_e__Union
+	[CRepr, Union]
+	public struct _irdaAttribute_e__Union
 	{
-		[CRepr]		public struct _irdaAttribOctetSeq_e__Struct
+		[CRepr]
+		public struct _irdaAttribOctetSeq_e__Struct
 		{
 			public uint32 Len;
 			public uint8[1024] OctetSeq;
 		}
 
-		[CRepr]		public struct _irdaAttribUsrStr_e__Struct
+		[CRepr]
+		public struct _irdaAttribUsrStr_e__Struct
 		{
 			public uint32 Len;
 			public uint32 CharSet;
@@ -3798,19 +3912,22 @@ public function int32 LPWSCWRITENAMESPACEORDER(Guid* lpProviderId, uint32 dwNumb
 	public _irdaAttribute_e__Union irdaAttribute;
 }
 
-[CRepr]public struct NL_INTERFACE_OFFLOAD_ROD
+[CRepr]
+public struct NL_INTERFACE_OFFLOAD_ROD
 {
 	public uint8 _bitfield;
 }
 
-[CRepr]public struct NL_PATH_BANDWIDTH_ROD
+[CRepr]
+public struct NL_PATH_BANDWIDTH_ROD
 {
 	public uint64 Bandwidth;
 	public uint64 Instability;
 	public BOOLEAN BandwidthPeaked;
 }
 
-[CRepr]public struct NL_NETWORK_CONNECTIVITY_HINT
+[CRepr]
+public struct NL_NETWORK_CONNECTIVITY_HINT
 {
 	public NL_NETWORK_CONNECTIVITY_LEVEL_HINT ConnectivityLevel;
 	public NL_NETWORK_CONNECTIVITY_COST_HINT ConnectivityCost;
@@ -3819,84 +3936,98 @@ public function int32 LPWSCWRITENAMESPACEORDER(Guid* lpProviderId, uint32 dwNumb
 	public BOOLEAN Roaming;
 }
 
-[CRepr]public struct NL_BANDWIDTH_INFORMATION
+[CRepr]
+public struct NL_BANDWIDTH_INFORMATION
 {
 	public uint64 Bandwidth;
 	public uint64 Instability;
 	public BOOLEAN BandwidthPeaked;
 }
 
-[CRepr]public struct TRANSPORT_SETTING_ID
+[CRepr]
+public struct TRANSPORT_SETTING_ID
 {
 	public Guid Guid;
 }
 
-[CRepr]public struct tcp_keepalive
+[CRepr]
+public struct tcp_keepalive
 {
 	public uint32 onoff;
 	public uint32 keepalivetime;
 	public uint32 keepaliveinterval;
 }
 
-[CRepr]public struct REAL_TIME_NOTIFICATION_SETTING_INPUT
+[CRepr]
+public struct REAL_TIME_NOTIFICATION_SETTING_INPUT
 {
 	public TRANSPORT_SETTING_ID TransportSettingId;
 	public Guid BrokerEventGuid;
 }
 
-[CRepr]public struct REAL_TIME_NOTIFICATION_SETTING_INPUT_EX
+[CRepr]
+public struct REAL_TIME_NOTIFICATION_SETTING_INPUT_EX
 {
 	public TRANSPORT_SETTING_ID TransportSettingId;
 	public Guid BrokerEventGuid;
 	public BOOLEAN Unmark;
 }
 
-[CRepr]public struct REAL_TIME_NOTIFICATION_SETTING_OUTPUT
+[CRepr]
+public struct REAL_TIME_NOTIFICATION_SETTING_OUTPUT
 {
 	public CONTROL_CHANNEL_TRIGGER_STATUS ChannelStatus;
 }
 
-[CRepr]public struct ASSOCIATE_NAMERES_CONTEXT_INPUT
+[CRepr]
+public struct ASSOCIATE_NAMERES_CONTEXT_INPUT
 {
 	public TRANSPORT_SETTING_ID TransportSettingId;
 	public uint64 Handle;
 }
 
-[CRepr]public struct TIMESTAMPING_CONFIG
+[CRepr]
+public struct TIMESTAMPING_CONFIG
 {
 	public uint32 Flags;
 	public uint16 TxTimestampsBuffered;
 }
 
-[CRepr]public struct PRIORITY_STATUS
+[CRepr]
+public struct PRIORITY_STATUS
 {
 	public SOCKET_PRIORITY_HINT Sender;
 	public SOCKET_PRIORITY_HINT Receiver;
 }
 
-[CRepr]public struct RCVALL_IF
+[CRepr]
+public struct RCVALL_IF
 {
 	public RCVALL_VALUE Mode;
 	public uint32 Interface;
 }
 
-[CRepr]public struct TCP_INITIAL_RTO_PARAMETERS
+[CRepr]
+public struct TCP_INITIAL_RTO_PARAMETERS
 {
 	public uint16 Rtt;
 	public uint8 MaxSynRetransmissions;
 }
 
-[CRepr]public struct TCP_ICW_PARAMETERS
+[CRepr]
+public struct TCP_ICW_PARAMETERS
 {
 	public TCP_ICW_LEVEL Level;
 }
 
-[CRepr]public struct TCP_ACK_FREQUENCY_PARAMETERS
+[CRepr]
+public struct TCP_ACK_FREQUENCY_PARAMETERS
 {
 	public uint8 TcpDelayedAckFrequency;
 }
 
-[CRepr]public struct TCP_INFO_v0
+[CRepr]
+public struct TCP_INFO_v0
 {
 	public TCPSTATE State;
 	public uint32 Mss;
@@ -3919,7 +4050,8 @@ public function int32 LPWSCWRITENAMESPACEORDER(Guid* lpProviderId, uint32 dwNumb
 	public uint8 SynRetrans;
 }
 
-[CRepr]public struct TCP_INFO_v1
+[CRepr]
+public struct TCP_INFO_v1
 {
 	public TCPSTATE State;
 	public uint32 Mss;
@@ -3951,35 +4083,41 @@ public function int32 LPWSCWRITENAMESPACEORDER(Guid* lpProviderId, uint32 dwNumb
 	public uint64 SndLimBytesSnd;
 }
 
-[CRepr]public struct INET_PORT_RANGE
+[CRepr]
+public struct INET_PORT_RANGE
 {
 	public uint16 StartPort;
 	public uint16 NumberOfPorts;
 }
 
-[CRepr]public struct INET_PORT_RESERVATION_TOKEN
+[CRepr]
+public struct INET_PORT_RESERVATION_TOKEN
 {
 	public uint64 Token;
 }
 
-[CRepr]public struct INET_PORT_RESERVATION_INSTANCE
+[CRepr]
+public struct INET_PORT_RESERVATION_INSTANCE
 {
 	public INET_PORT_RANGE Reservation;
 	public INET_PORT_RESERVATION_TOKEN Token;
 }
 
-[CRepr]public struct INET_PORT_RESERVATION_INFORMATION
+[CRepr]
+public struct INET_PORT_RESERVATION_INFORMATION
 {
 	public uint32 OwningPid;
 }
 
-[CRepr]public struct SOCKET_SECURITY_SETTINGS
+[CRepr]
+public struct SOCKET_SECURITY_SETTINGS
 {
 	public SOCKET_SECURITY_PROTOCOL SecurityProtocol;
 	public uint32 SecurityFlags;
 }
 
-[CRepr]public struct SOCKET_SECURITY_SETTINGS_IPSEC
+[CRepr]
+public struct SOCKET_SECURITY_SETTINGS_IPSEC
 {
 	public SOCKET_SECURITY_PROTOCOL SecurityProtocol;
 	public uint32 SecurityFlags;
@@ -3994,7 +4132,8 @@ public function int32 LPWSCWRITENAMESPACEORDER(Guid* lpProviderId, uint32 dwNumb
 	public char8[1] AllStrings;
 }
 
-[CRepr]public struct SOCKET_PEER_TARGET_NAME
+[CRepr]
+public struct SOCKET_PEER_TARGET_NAME
 {
 	public SOCKET_SECURITY_PROTOCOL SecurityProtocol;
 	public SOCKADDR_STORAGE PeerAddress;
@@ -4002,14 +4141,16 @@ public function int32 LPWSCWRITENAMESPACEORDER(Guid* lpProviderId, uint32 dwNumb
 	public char8[1] AllStrings;
 }
 
-[CRepr]public struct SOCKET_SECURITY_QUERY_TEMPLATE
+[CRepr]
+public struct SOCKET_SECURITY_QUERY_TEMPLATE
 {
 	public SOCKET_SECURITY_PROTOCOL SecurityProtocol;
 	public SOCKADDR_STORAGE PeerAddress;
 	public uint32 PeerTokenAccessMask;
 }
 
-[CRepr]public struct SOCKET_SECURITY_QUERY_TEMPLATE_IPSEC2
+[CRepr]
+public struct SOCKET_SECURITY_QUERY_TEMPLATE_IPSEC2
 {
 	public SOCKET_SECURITY_PROTOCOL SecurityProtocol;
 	public SOCKADDR_STORAGE PeerAddress;
@@ -4018,7 +4159,8 @@ public function int32 LPWSCWRITENAMESPACEORDER(Guid* lpProviderId, uint32 dwNumb
 	public uint32 FieldMask;
 }
 
-[CRepr]public struct SOCKET_SECURITY_QUERY_INFO
+[CRepr]
+public struct SOCKET_SECURITY_QUERY_INFO
 {
 	public SOCKET_SECURITY_PROTOCOL SecurityProtocol;
 	public uint32 Flags;
@@ -4026,7 +4168,8 @@ public function int32 LPWSCWRITENAMESPACEORDER(Guid* lpProviderId, uint32 dwNumb
 	public uint64 PeerMachineAccessTokenHandle;
 }
 
-[CRepr]public struct SOCKET_SECURITY_QUERY_INFO_IPSEC2
+[CRepr]
+public struct SOCKET_SECURITY_QUERY_INFO_IPSEC2
 {
 	public SOCKET_SECURITY_PROTOCOL SecurityProtocol;
 	public uint32 Flags;
@@ -4038,18 +4181,21 @@ public function int32 LPWSCWRITENAMESPACEORDER(Guid* lpProviderId, uint32 dwNumb
 	public Guid SaLookupContext;
 }
 
-[CRepr]public struct RSS_SCALABILITY_INFO
+[CRepr]
+public struct RSS_SCALABILITY_INFO
 {
 	public BOOLEAN RssEnabled;
 }
 
-[CRepr]public struct WSA_COMPATIBILITY_MODE
+[CRepr]
+public struct WSA_COMPATIBILITY_MODE
 {
 	public WSA_COMPATIBILITY_BEHAVIOR_ID BehaviorId;
 	public uint32 TargetOsVersion;
 }
 
-[CRepr]public struct RIORESULT
+[CRepr]
+public struct RIORESULT
 {
 	public int32 Status;
 	public uint32 BytesTransferred;
@@ -4057,26 +4203,30 @@ public function int32 LPWSCWRITENAMESPACEORDER(Guid* lpProviderId, uint32 dwNumb
 	public uint64 RequestContext;
 }
 
-[CRepr]public struct RIO_BUF
+[CRepr]
+public struct RIO_BUF
 {
 	public RIO_BUFFERID_t* BufferId;
 	public uint32 Offset;
 	public uint32 Length;
 }
 
-[CRepr]public struct RIO_CMSG_BUFFER
+[CRepr]
+public struct RIO_CMSG_BUFFER
 {
 	public uint32 TotalLength;
 }
 
-[CRepr]public struct ATM_ADDRESS
+[CRepr]
+public struct ATM_ADDRESS
 {
 	public uint32 AddressType;
 	public uint32 NumofDigits;
 	public uint8[20] Addr;
 }
 
-[CRepr]public struct ATM_BLLI
+[CRepr]
+public struct ATM_BLLI
 {
 	public uint32 Layer2Protocol;
 	public uint32 Layer2UserSpecifiedProtocol;
@@ -4086,14 +4236,16 @@ public function int32 LPWSCWRITENAMESPACEORDER(Guid* lpProviderId, uint32 dwNumb
 	public uint8[5] SnapID;
 }
 
-[CRepr]public struct ATM_BHLI
+[CRepr]
+public struct ATM_BHLI
 {
 	public uint32 HighLayerInfoType;
 	public uint32 HighLayerInfoLength;
 	public uint8[8] HighLayerInfo;
 }
 
-[CRepr]public struct sockaddr_atm
+[CRepr]
+public struct sockaddr_atm
 {
 	public uint16 satm_family;
 	public ATM_ADDRESS satm_number;
@@ -4101,14 +4253,16 @@ public function int32 LPWSCWRITENAMESPACEORDER(Guid* lpProviderId, uint32 dwNumb
 	public ATM_BHLI satm_bhli;
 }
 
-[CRepr]public struct Q2931_IE
+[CRepr]
+public struct Q2931_IE
 {
 	public Q2931_IE_TYPE IEType;
 	public uint32 IELength;
 	public uint8[1] IE;
 }
 
-[CRepr]public struct AAL5_PARAMETERS
+[CRepr]
+public struct AAL5_PARAMETERS
 {
 	public uint32 ForwardMaxCPCSSDUSize;
 	public uint32 BackwardMaxCPCSSDUSize;
@@ -4116,14 +4270,17 @@ public function int32 LPWSCWRITENAMESPACEORDER(Guid* lpProviderId, uint32 dwNumb
 	public uint8 SSCSType;
 }
 
-[CRepr]public struct AALUSER_PARAMETERS
+[CRepr]
+public struct AALUSER_PARAMETERS
 {
 	public uint32 UserDefined;
 }
 
-[CRepr]public struct AAL_PARAMETERS_IE
+[CRepr]
+public struct AAL_PARAMETERS_IE
 {
-	[CRepr, Union]	public struct _AALSpecificParameters_e__Union
+	[CRepr, Union]
+	public struct _AALSpecificParameters_e__Union
 	{
 		public AAL5_PARAMETERS AAL5Parameters;
 		public AALUSER_PARAMETERS AALUserParameters;
@@ -4133,7 +4290,8 @@ public function int32 LPWSCWRITENAMESPACEORDER(Guid* lpProviderId, uint32 dwNumb
 	public _AALSpecificParameters_e__Union AALSpecificParameters;
 }
 
-[CRepr]public struct ATM_TD
+[CRepr]
+public struct ATM_TD
 {
 	public uint32 PeakCellRate_CLP0;
 	public uint32 PeakCellRate_CLP01;
@@ -4144,14 +4302,16 @@ public function int32 LPWSCWRITENAMESPACEORDER(Guid* lpProviderId, uint32 dwNumb
 	public BOOL Tagging;
 }
 
-[CRepr]public struct ATM_TRAFFIC_DESCRIPTOR_IE
+[CRepr]
+public struct ATM_TRAFFIC_DESCRIPTOR_IE
 {
 	public ATM_TD Forward;
 	public ATM_TD Backward;
 	public BOOL BestEffort;
 }
 
-[CRepr]public struct ATM_BROADBAND_BEARER_CAPABILITY_IE
+[CRepr]
+public struct ATM_BROADBAND_BEARER_CAPABILITY_IE
 {
 	public uint8 BearerClass;
 	public uint8 TrafficType;
@@ -4160,7 +4320,8 @@ public function int32 LPWSCWRITENAMESPACEORDER(Guid* lpProviderId, uint32 dwNumb
 	public uint8 UserPlaneConnectionConfig;
 }
 
-[CRepr]public struct ATM_BLLI_IE
+[CRepr]
+public struct ATM_BLLI_IE
 {
 	public uint32 Layer2Protocol;
 	public uint8 Layer2Mode;
@@ -4175,14 +4336,16 @@ public function int32 LPWSCWRITENAMESPACEORDER(Guid* lpProviderId, uint32 dwNumb
 	public uint8[5] SnapID;
 }
 
-[CRepr]public struct ATM_CALLING_PARTY_NUMBER_IE
+[CRepr]
+public struct ATM_CALLING_PARTY_NUMBER_IE
 {
 	public ATM_ADDRESS ATM_Number;
 	public uint8 Presentation_Indication;
 	public uint8 Screening_Indicator;
 }
 
-[CRepr]public struct ATM_CAUSE_IE
+[CRepr]
+public struct ATM_CAUSE_IE
 {
 	public uint8 Location;
 	public uint8 Cause;
@@ -4190,13 +4353,15 @@ public function int32 LPWSCWRITENAMESPACEORDER(Guid* lpProviderId, uint32 dwNumb
 	public uint8[4] Diagnostics;
 }
 
-[CRepr]public struct ATM_QOS_CLASS_IE
+[CRepr]
+public struct ATM_QOS_CLASS_IE
 {
 	public uint8 QOSClassForward;
 	public uint8 QOSClassBackward;
 }
 
-[CRepr]public struct ATM_TRANSIT_NETWORK_SELECTION_IE
+[CRepr]
+public struct ATM_TRANSIT_NETWORK_SELECTION_IE
 {
 	public uint8 TypeOfNetworkId;
 	public uint8 NetworkIdPlan;
@@ -4204,20 +4369,23 @@ public function int32 LPWSCWRITENAMESPACEORDER(Guid* lpProviderId, uint32 dwNumb
 	public uint8[1] NetworkId;
 }
 
-[CRepr]public struct ATM_CONNECTION_ID
+[CRepr]
+public struct ATM_CONNECTION_ID
 {
 	public uint32 DeviceNumber;
 	public uint32 VPI;
 	public uint32 VCI;
 }
 
-[CRepr, Packed(4)]public struct ATM_PVC_PARAMS
+[CRepr, Packed(4)]
+public struct ATM_PVC_PARAMS
 {
 	public ATM_CONNECTION_ID PvcConnectionId;
 	public QOS PvcQos;
 }
 
-[CRepr]public struct NAPI_DOMAIN_DESCRIPTION_BLOB
+[CRepr]
+public struct NAPI_DOMAIN_DESCRIPTION_BLOB
 {
 	public uint32 AuthLevel;
 	public uint32 cchDomainName;
@@ -4225,7 +4393,8 @@ public function int32 LPWSCWRITENAMESPACEORDER(Guid* lpProviderId, uint32 dwNumb
 	public uint32 OffsetThisDomainName;
 }
 
-[CRepr]public struct NAPI_PROVIDER_INSTALLATION_BLOB
+[CRepr]
+public struct NAPI_PROVIDER_INSTALLATION_BLOB
 {
 	public uint32 dwVersion;
 	public uint32 dwProviderType;
@@ -4234,7 +4403,8 @@ public function int32 LPWSCWRITENAMESPACEORDER(Guid* lpProviderId, uint32 dwNumb
 	public uint32 OffsetFirstDomain;
 }
 
-[CRepr]public struct TRANSMIT_FILE_BUFFERS
+[CRepr]
+public struct TRANSMIT_FILE_BUFFERS
 {
 	public void* Head;
 	public uint32 HeadLength;
@@ -4242,11 +4412,14 @@ public function int32 LPWSCWRITENAMESPACEORDER(Guid* lpProviderId, uint32 dwNumb
 	public uint32 TailLength;
 }
 
-[CRepr]public struct TRANSMIT_PACKETS_ELEMENT
+[CRepr]
+public struct TRANSMIT_PACKETS_ELEMENT
 {
-	[CRepr, Union]	public struct _Anonymous_e__Union
+	[CRepr, Union]
+	public struct _Anonymous_e__Union
 	{
-		[CRepr]		public struct _Anonymous_e__Struct
+		[CRepr]
+		public struct _Anonymous_e__Struct
 		{
 			public LARGE_INTEGER nFileOffset;
 			public HANDLE hFile;
@@ -4261,13 +4434,17 @@ public function int32 LPWSCWRITENAMESPACEORDER(Guid* lpProviderId, uint32 dwNumb
 	public using _Anonymous_e__Union Anonymous;
 }
 
-[CRepr]public struct NLA_BLOB
+[CRepr]
+public struct NLA_BLOB
 {
-	[CRepr, Union]	public struct _data_e__Union
+	[CRepr, Union]
+	public struct _data_e__Union
 	{
-		[CRepr]		public struct _ICS_e__Struct
+		[CRepr]
+		public struct _ICS_e__Struct
 		{
-			[CRepr]			public struct _remote_e__Struct
+			[CRepr]
+			public struct _remote_e__Struct
 			{
 				public uint32 speed;
 				public uint32 type;
@@ -4279,19 +4456,22 @@ public function int32 LPWSCWRITENAMESPACEORDER(Guid* lpProviderId, uint32 dwNumb
 			public _remote_e__Struct remote;
 		}
 
-		[CRepr]		public struct _locationData_e__Struct
+		[CRepr]
+		public struct _locationData_e__Struct
 		{
 			public CHAR[1] information;
 		}
 
-		[CRepr]		public struct _interfaceData_e__Struct
+		[CRepr]
+		public struct _interfaceData_e__Struct
 		{
 			public uint32 dwType;
 			public uint32 dwSpeed;
 			public CHAR[1] adapterName;
 		}
 
-		[CRepr]		public struct _connectivity_e__Struct
+		[CRepr]
+		public struct _connectivity_e__Struct
 		{
 			public NLA_CONNECTIVITY_TYPE type;
 			public NLA_INTERNET internet;
@@ -4304,7 +4484,8 @@ public function int32 LPWSCWRITENAMESPACEORDER(Guid* lpProviderId, uint32 dwNumb
 		public _ICS_e__Struct ICS;
 	}
 
-	[CRepr]	public struct _header_e__Struct
+	[CRepr]
+	public struct _header_e__Struct
 	{
 		public NLA_BLOB_DATA_TYPE type;
 		public uint32 dwSize;
@@ -4315,7 +4496,8 @@ public function int32 LPWSCWRITENAMESPACEORDER(Guid* lpProviderId, uint32 dwNumb
 	public _data_e__Union data;
 }
 
-[CRepr]public struct WSAPOLLDATA
+[CRepr]
+public struct WSAPOLLDATA
 {
 	public int32 result;
 	public uint32 fds;
@@ -4323,7 +4505,8 @@ public function int32 LPWSCWRITENAMESPACEORDER(Guid* lpProviderId, uint32 dwNumb
 	public WSAPOLLFD[1] fdArray;
 }
 
-[CRepr]public struct WSASENDMSG
+[CRepr]
+public struct WSASENDMSG
 {
 	public WSAMSG* lpMsg;
 	public uint32 dwFlags;
@@ -4332,18 +4515,22 @@ public function int32 LPWSCWRITENAMESPACEORDER(Guid* lpProviderId, uint32 dwNumb
 	public LPWSAOVERLAPPED_COMPLETION_ROUTINE lpCompletionRoutine;
 }
 
-[CRepr]public struct RIO_NOTIFICATION_COMPLETION
+[CRepr]
+public struct RIO_NOTIFICATION_COMPLETION
 {
-	[CRepr, Union]	public struct _Anonymous_e__Union
+	[CRepr, Union]
+	public struct _Anonymous_e__Union
 	{
-		[CRepr]		public struct _Iocp_e__Struct
+		[CRepr]
+		public struct _Iocp_e__Struct
 		{
 			public HANDLE IocpHandle;
 			public void* CompletionKey;
 			public void* Overlapped;
 		}
 
-		[CRepr]		public struct _Event_e__Struct
+		[CRepr]
+		public struct _Event_e__Struct
 		{
 			public HANDLE EventHandle;
 			public BOOL NotifyReset;
@@ -4357,7 +4544,8 @@ public function int32 LPWSCWRITENAMESPACEORDER(Guid* lpProviderId, uint32 dwNumb
 	public using _Anonymous_e__Union Anonymous;
 }
 
-[CRepr]public struct RIO_EXTENSION_FUNCTION_TABLE
+[CRepr]
+public struct RIO_EXTENSION_FUNCTION_TABLE
 {
 	public uint32 cbSize;
 	public LPFN_RIORECEIVE RIOReceive;
@@ -4375,20 +4563,23 @@ public function int32 LPWSCWRITENAMESPACEORDER(Guid* lpProviderId, uint32 dwNumb
 	public LPFN_RIORESIZEREQUESTQUEUE RIOResizeRequestQueue;
 }
 
-[CRepr]public struct WSPData
+[CRepr]
+public struct WSPData
 {
 	public uint16 wVersion;
 	public uint16 wHighVersion;
 	public char8[256] szDescription;
 }
 
-[CRepr]public struct WSATHREADID
+[CRepr]
+public struct WSATHREADID
 {
 	public HANDLE ThreadHandle;
 	public uint Reserved;
 }
 
-[CRepr]public struct WSPPROC_TABLE
+[CRepr]
+public struct WSPPROC_TABLE
 {
 	public LPWSPACCEPT lpWSPAccept;
 	public LPWSPADDRESSTOSTRING lpWSPAddressToString;
@@ -4422,7 +4613,8 @@ public function int32 LPWSCWRITENAMESPACEORDER(Guid* lpProviderId, uint32 dwNumb
 	public LPWSPSTRINGTOADDRESS lpWSPStringToAddress;
 }
 
-[CRepr]public struct WSPUPCALLTABLE
+[CRepr]
+public struct WSPUPCALLTABLE
 {
 	public LPWPUCLOSEEVENT lpWPUCloseEvent;
 	public LPWPUCLOSESOCKETHANDLE lpWPUCloseSocketHandle;
@@ -4441,13 +4633,15 @@ public function int32 LPWSCWRITENAMESPACEORDER(Guid* lpProviderId, uint32 dwNumb
 	public LPWPUCLOSETHREAD lpWPUCloseThread;
 }
 
-[CRepr]public struct WSC_PROVIDER_AUDIT_INFO
+[CRepr]
+public struct WSC_PROVIDER_AUDIT_INFO
 {
 	public uint32 RecordSize;
 	public void* Reserved;
 }
 
-[CRepr]public struct NSP_ROUTINE
+[CRepr]
+public struct NSP_ROUTINE
 {
 	public uint32 cbSize;
 	public uint32 dwMajorVersion;
@@ -4463,7 +4657,8 @@ public function int32 LPWSCWRITENAMESPACEORDER(Guid* lpProviderId, uint32 dwNumb
 	public LPNSPIOCTL NSPIoctl;
 }
 
-[CRepr]public struct NSPV2_ROUTINE
+[CRepr]
+public struct NSPV2_ROUTINE
 {
 	public uint32 cbSize;
 	public uint32 dwMajorVersion;
@@ -4477,21 +4672,24 @@ public function int32 LPWSCWRITENAMESPACEORDER(Guid* lpProviderId, uint32 dwNumb
 	public LPNSPV2CLIENTSESSIONRUNDOWN NSPv2ClientSessionRundown;
 }
 
-[CRepr]public struct NS_INFOA
+[CRepr]
+public struct NS_INFOA
 {
 	public uint32 dwNameSpace;
 	public uint32 dwNameSpaceFlags;
 	public PSTR lpNameSpace;
 }
 
-[CRepr]public struct NS_INFOW
+[CRepr]
+public struct NS_INFOW
 {
 	public uint32 dwNameSpace;
 	public uint32 dwNameSpaceFlags;
 	public PWSTR lpNameSpace;
 }
 
-[CRepr]public struct SERVICE_TYPE_VALUE
+[CRepr]
+public struct SERVICE_TYPE_VALUE
 {
 	public uint32 dwNameSpace;
 	public uint32 dwValueType;
@@ -4500,7 +4698,8 @@ public function int32 LPWSCWRITENAMESPACEORDER(Guid* lpProviderId, uint32 dwNumb
 	public uint32 dwValueOffset;
 }
 
-[CRepr]public struct SERVICE_TYPE_VALUE_ABSA
+[CRepr]
+public struct SERVICE_TYPE_VALUE_ABSA
 {
 	public uint32 dwNameSpace;
 	public uint32 dwValueType;
@@ -4509,7 +4708,8 @@ public function int32 LPWSCWRITENAMESPACEORDER(Guid* lpProviderId, uint32 dwNumb
 	public void* lpValue;
 }
 
-[CRepr]public struct SERVICE_TYPE_VALUE_ABSW
+[CRepr]
+public struct SERVICE_TYPE_VALUE_ABSW
 {
 	public uint32 dwNameSpace;
 	public uint32 dwValueType;
@@ -4518,28 +4718,32 @@ public function int32 LPWSCWRITENAMESPACEORDER(Guid* lpProviderId, uint32 dwNumb
 	public void* lpValue;
 }
 
-[CRepr]public struct SERVICE_TYPE_INFO
+[CRepr]
+public struct SERVICE_TYPE_INFO
 {
 	public uint32 dwTypeNameOffset;
 	public uint32 dwValueCount;
 	public SERVICE_TYPE_VALUE[1] Values;
 }
 
-[CRepr]public struct SERVICE_TYPE_INFO_ABSA
+[CRepr]
+public struct SERVICE_TYPE_INFO_ABSA
 {
 	public PSTR lpTypeName;
 	public uint32 dwValueCount;
 	public SERVICE_TYPE_VALUE_ABSA[1] Values;
 }
 
-[CRepr]public struct SERVICE_TYPE_INFO_ABSW
+[CRepr]
+public struct SERVICE_TYPE_INFO_ABSW
 {
 	public PWSTR lpTypeName;
 	public uint32 dwValueCount;
 	public SERVICE_TYPE_VALUE_ABSW[1] Values;
 }
 
-[CRepr]public struct SERVICE_ADDRESS
+[CRepr]
+public struct SERVICE_ADDRESS
 {
 	public uint32 dwAddressType;
 	public uint32 dwAddressFlags;
@@ -4549,13 +4753,15 @@ public function int32 LPWSCWRITENAMESPACEORDER(Guid* lpProviderId, uint32 dwNumb
 	public uint8* lpPrincipal;
 }
 
-[CRepr]public struct SERVICE_ADDRESSES
+[CRepr]
+public struct SERVICE_ADDRESSES
 {
 	public uint32 dwAddressCount;
 	public SERVICE_ADDRESS[1] Addresses;
 }
 
-[CRepr]public struct SERVICE_INFOA
+[CRepr]
+public struct SERVICE_INFOA
 {
 	public Guid* lpServiceType;
 	public PSTR lpServiceName;
@@ -4569,7 +4775,8 @@ public function int32 LPWSCWRITENAMESPACEORDER(Guid* lpProviderId, uint32 dwNumb
 	public BLOB ServiceSpecificInfo;
 }
 
-[CRepr]public struct SERVICE_INFOW
+[CRepr]
+public struct SERVICE_INFOW
 {
 	public Guid* lpServiceType;
 	public PWSTR lpServiceName;
@@ -4583,19 +4790,22 @@ public function int32 LPWSCWRITENAMESPACEORDER(Guid* lpProviderId, uint32 dwNumb
 	public BLOB ServiceSpecificInfo;
 }
 
-[CRepr]public struct NS_SERVICE_INFOA
+[CRepr]
+public struct NS_SERVICE_INFOA
 {
 	public uint32 dwNameSpace;
 	public SERVICE_INFOA ServiceInfo;
 }
 
-[CRepr]public struct NS_SERVICE_INFOW
+[CRepr]
+public struct NS_SERVICE_INFOW
 {
 	public uint32 dwNameSpace;
 	public SERVICE_INFOW ServiceInfo;
 }
 
-[CRepr]public struct PROTOCOL_INFOA
+[CRepr]
+public struct PROTOCOL_INFOA
 {
 	public uint32 dwServiceFlags;
 	public int32 iAddressFamily;
@@ -4607,7 +4817,8 @@ public function int32 LPWSCWRITENAMESPACEORDER(Guid* lpProviderId, uint32 dwNumb
 	public PSTR lpProtocol;
 }
 
-[CRepr]public struct PROTOCOL_INFOW
+[CRepr]
+public struct PROTOCOL_INFOW
 {
 	public uint32 dwServiceFlags;
 	public int32 iAddressFamily;
@@ -4619,7 +4830,8 @@ public function int32 LPWSCWRITENAMESPACEORDER(Guid* lpProviderId, uint32 dwNumb
 	public PWSTR lpProtocol;
 }
 
-[CRepr]public struct NETRESOURCE2A
+[CRepr]
+public struct NETRESOURCE2A
 {
 	public uint32 dwScope;
 	public uint32 dwType;
@@ -4634,7 +4846,8 @@ public function int32 LPWSCWRITENAMESPACEORDER(Guid* lpProviderId, uint32 dwNumb
 	public int32* lpiProtocols;
 }
 
-[CRepr]public struct NETRESOURCE2W
+[CRepr]
+public struct NETRESOURCE2W
 {
 	public uint32 dwScope;
 	public uint32 dwType;
@@ -4649,20 +4862,23 @@ public function int32 LPWSCWRITENAMESPACEORDER(Guid* lpProviderId, uint32 dwNumb
 	public int32* lpiProtocols;
 }
 
-[CRepr]public struct SERVICE_ASYNC_INFO
+[CRepr]
+public struct SERVICE_ASYNC_INFO
 {
 	public LPSERVICE_CALLBACK_PROC lpServiceCallbackProc;
 	public LPARAM lParam;
 	public HANDLE hAsyncTaskHandle;
 }
 
-[CRepr]public struct sockaddr_un
+[CRepr]
+public struct sockaddr_un
 {
 	public uint16 sun_family;
 	public CHAR[108] sun_path;
 }
 
-[CRepr]public struct sockaddr_ipx
+[CRepr]
+public struct sockaddr_ipx
 {
 	public int16 sa_family;
 	public CHAR[4] sa_netnum;
@@ -4670,7 +4886,8 @@ public function int32 LPWSCWRITENAMESPACEORDER(Guid* lpProviderId, uint32 dwNumb
 	public uint16 sa_socket;
 }
 
-[CRepr]public struct sockaddr_tp
+[CRepr]
+public struct sockaddr_tp
 {
 	public uint16 tp_family;
 	public uint16 tp_addr_type;
@@ -4679,14 +4896,16 @@ public function int32 LPWSCWRITENAMESPACEORDER(Guid* lpProviderId, uint32 dwNumb
 	public uint8[64] tp_addr;
 }
 
-[CRepr]public struct sockaddr_nb
+[CRepr]
+public struct sockaddr_nb
 {
 	public int16 snb_family;
 	public uint16 snb_type;
 	public CHAR[16] snb_name;
 }
 
-[CRepr]public struct sockaddr_vns
+[CRepr]
+public struct sockaddr_vns
 {
 	public uint16 sin_family;
 	public uint8[4] net_address;
@@ -4697,7 +4916,8 @@ public function int32 LPWSCWRITENAMESPACEORDER(Guid* lpProviderId, uint32 dwNumb
 }
 
 #if BF_32_BIT
-[CRepr]public struct servent
+[CRepr]
+public struct servent
 {
 	public PSTR s_name;
 	public int8** s_aliases;
@@ -4707,7 +4927,8 @@ public function int32 LPWSCWRITENAMESPACEORDER(Guid* lpProviderId, uint32 dwNumb
 #endif
 
 #if BF_32_BIT
-[CRepr]public struct WSAData
+[CRepr]
+public struct WSAData
 {
 	public uint16 wVersion;
 	public uint16 wHighVersion;

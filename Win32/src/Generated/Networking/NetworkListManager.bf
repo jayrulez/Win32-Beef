@@ -116,13 +116,15 @@ public enum NLM_CONNECTION_PROPERTY_CHANGE : int32
 #endregion
 
 #region Structs
-[CRepr]public struct NLM_USAGE_DATA
+[CRepr]
+public struct NLM_USAGE_DATA
 {
 	public uint32 UsageInMegabytes;
 	public FILETIME LastSyncTime;
 }
 
-[CRepr]public struct NLM_DATAPLAN_STATUS
+[CRepr]
+public struct NLM_DATAPLAN_STATUS
 {
 	public Guid InterfaceGuid;
 	public NLM_USAGE_DATA UsageData;
@@ -134,12 +136,14 @@ public enum NLM_CONNECTION_PROPERTY_CHANGE : int32
 	public uint32 Reserved;
 }
 
-[CRepr]public struct NLM_SOCKADDR
+[CRepr]
+public struct NLM_SOCKADDR
 {
 	public uint8[128] data;
 }
 
-[CRepr]public struct NLM_SIMULATED_PROFILE_INFO
+[CRepr]
+public struct NLM_SIMULATED_PROFILE_INFO
 {
 	public char8[256] ProfileName;
 	public NLM_CONNECTION_COST cost;

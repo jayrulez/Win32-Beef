@@ -54,7 +54,8 @@ public enum CALLFRAME_WALK : int32
 #endregion
 
 #region Structs
-[CRepr]public struct CALLFRAMEINFO
+[CRepr]
+public struct CALLFRAMEINFO
 {
 	public uint32 iMethod;
 	public BOOL fHasInValues;
@@ -70,7 +71,8 @@ public enum CALLFRAME_WALK : int32
 	public uint32 cParams;
 }
 
-[CRepr]public struct CALLFRAMEPARAMINFO
+[CRepr]
+public struct CALLFRAMEPARAMINFO
 {
 	public BOOLEAN fIn;
 	public BOOLEAN fOut;
@@ -78,7 +80,8 @@ public enum CALLFRAME_WALK : int32
 	public uint32 cbParam;
 }
 
-[CRepr]public struct CALLFRAME_MARSHALCONTEXT
+[CRepr]
+public struct CALLFRAME_MARSHALCONTEXT
 {
 	public BOOLEAN fIn;
 	public uint32 dwDestContext;

@@ -5103,11 +5103,14 @@ public function BOOL PSYMBOL_REGISTERED_CALLBACK(HANDLE hProcess, uint32 ActionC
 
 #region Structs
 #if BF_ARM_64
-[CRepr]public struct CONTEXT
+[CRepr]
+public struct CONTEXT
 {
-	[CRepr, Union]	public struct _Anonymous_e__Union
+	[CRepr, Union]
+	public struct _Anonymous_e__Union
 	{
-		[CRepr]		public struct _Anonymous_e__Struct
+		[CRepr]
+		public struct _Anonymous_e__Struct
 		{
 			public uint64 X0;
 			public uint64 X1;
@@ -5162,7 +5165,8 @@ public function BOOL PSYMBOL_REGISTERED_CALLBACK(HANDLE hProcess, uint32 ActionC
 #endif
 
 #if BF_ARM_64
-[CRepr]public struct DISPATCHER_CONTEXT
+[CRepr]
+public struct DISPATCHER_CONTEXT
 {
 	public uint ControlPc;
 	public uint ImageBase;
@@ -5180,7 +5184,8 @@ public function BOOL PSYMBOL_REGISTERED_CALLBACK(HANDLE hProcess, uint32 ActionC
 #endif
 
 #if BF_ARM_64
-[CRepr]public struct KNONVOLATILE_CONTEXT_POINTERS_ARM64
+[CRepr]
+public struct KNONVOLATILE_CONTEXT_POINTERS_ARM64
 {
 	public uint64* X19;
 	public uint64* X20;
@@ -5206,7 +5211,8 @@ public function BOOL PSYMBOL_REGISTERED_CALLBACK(HANDLE hProcess, uint32 ActionC
 #endif
 
 #if BF_ARM_64
-[CRepr]public struct UNWIND_HISTORY_TABLE_ENTRY
+[CRepr]
+public struct UNWIND_HISTORY_TABLE_ENTRY
 {
 	public uint ImageBase;
 	public IMAGE_ARM64_RUNTIME_FUNCTION_ENTRY* FunctionEntry;
@@ -5214,7 +5220,8 @@ public function BOOL PSYMBOL_REGISTERED_CALLBACK(HANDLE hProcess, uint32 ActionC
 #endif
 
 #if BF_ARM_64
-[CRepr]public struct MINIDUMP_THREAD_CALLBACK
+[CRepr]
+public struct MINIDUMP_THREAD_CALLBACK
 {
 	public uint32 ThreadId;
 	public HANDLE ThreadHandle;
@@ -5227,7 +5234,8 @@ public function BOOL PSYMBOL_REGISTERED_CALLBACK(HANDLE hProcess, uint32 ActionC
 #endif
 
 #if BF_ARM_64
-[CRepr]public struct MINIDUMP_THREAD_EX_CALLBACK
+[CRepr]
+public struct MINIDUMP_THREAD_EX_CALLBACK
 {
 	public uint32 ThreadId;
 	public HANDLE ThreadHandle;
@@ -5241,20 +5249,23 @@ public function BOOL PSYMBOL_REGISTERED_CALLBACK(HANDLE hProcess, uint32 ActionC
 }
 #endif
 
-[CRepr]public struct EXCEPTION_DEBUG_INFO
+[CRepr]
+public struct EXCEPTION_DEBUG_INFO
 {
 	public EXCEPTION_RECORD ExceptionRecord;
 	public uint32 dwFirstChance;
 }
 
-[CRepr]public struct CREATE_THREAD_DEBUG_INFO
+[CRepr]
+public struct CREATE_THREAD_DEBUG_INFO
 {
 	public HANDLE hThread;
 	public void* lpThreadLocalBase;
 	public LPTHREAD_START_ROUTINE lpStartAddress;
 }
 
-[CRepr]public struct CREATE_PROCESS_DEBUG_INFO
+[CRepr]
+public struct CREATE_PROCESS_DEBUG_INFO
 {
 	public HANDLE hFile;
 	public HANDLE hProcess;
@@ -5268,17 +5279,20 @@ public function BOOL PSYMBOL_REGISTERED_CALLBACK(HANDLE hProcess, uint32 ActionC
 	public uint16 fUnicode;
 }
 
-[CRepr]public struct EXIT_THREAD_DEBUG_INFO
+[CRepr]
+public struct EXIT_THREAD_DEBUG_INFO
 {
 	public uint32 dwExitCode;
 }
 
-[CRepr]public struct EXIT_PROCESS_DEBUG_INFO
+[CRepr]
+public struct EXIT_PROCESS_DEBUG_INFO
 {
 	public uint32 dwExitCode;
 }
 
-[CRepr]public struct LOAD_DLL_DEBUG_INFO
+[CRepr]
+public struct LOAD_DLL_DEBUG_INFO
 {
 	public HANDLE hFile;
 	public void* lpBaseOfDll;
@@ -5288,27 +5302,32 @@ public function BOOL PSYMBOL_REGISTERED_CALLBACK(HANDLE hProcess, uint32 ActionC
 	public uint16 fUnicode;
 }
 
-[CRepr]public struct UNLOAD_DLL_DEBUG_INFO
+[CRepr]
+public struct UNLOAD_DLL_DEBUG_INFO
 {
 	public void* lpBaseOfDll;
 }
 
-[CRepr]public struct OUTPUT_DEBUG_STRING_INFO
+[CRepr]
+public struct OUTPUT_DEBUG_STRING_INFO
 {
 	public PSTR lpDebugStringData;
 	public uint16 fUnicode;
 	public uint16 nDebugStringLength;
 }
 
-[CRepr]public struct RIP_INFO
+[CRepr]
+public struct RIP_INFO
 {
 	public uint32 dwError;
 	public RIP_INFO_TYPE dwType;
 }
 
-[CRepr]public struct DEBUG_EVENT
+[CRepr]
+public struct DEBUG_EVENT
 {
-	[CRepr, Union]	public struct _u_e__Union
+	[CRepr, Union]
+	public struct _u_e__Union
 	{
 		public EXCEPTION_DEBUG_INFO Exception;
 		public CREATE_THREAD_DEBUG_INFO CreateThread;
@@ -5327,13 +5346,15 @@ public function BOOL PSYMBOL_REGISTERED_CALLBACK(HANDLE hProcess, uint32 ActionC
 	public _u_e__Union u;
 }
 
-[CRepr]public struct DEBUG_OFFSET_REGION
+[CRepr]
+public struct DEBUG_OFFSET_REGION
 {
 	public uint64 Base;
 	public uint64 Size;
 }
 
-[CRepr]public struct DEBUG_READ_USER_MINIDUMP_STREAM
+[CRepr]
+public struct DEBUG_READ_USER_MINIDUMP_STREAM
 {
 	public uint32 StreamType;
 	public uint32 Flags;
@@ -5343,14 +5364,16 @@ public function BOOL PSYMBOL_REGISTERED_CALLBACK(HANDLE hProcess, uint32 ActionC
 	public uint32 BufferUsed;
 }
 
-[CRepr]public struct DEBUG_GET_TEXT_COMPLETIONS_IN
+[CRepr]
+public struct DEBUG_GET_TEXT_COMPLETIONS_IN
 {
 	public uint32 Flags;
 	public uint32 MatchCountLimit;
 	public uint64[3] Reserved;
 }
 
-[CRepr]public struct DEBUG_GET_TEXT_COMPLETIONS_OUT
+[CRepr]
+public struct DEBUG_GET_TEXT_COMPLETIONS_OUT
 {
 	public uint32 Flags;
 	public uint32 ReplaceIndex;
@@ -5359,7 +5382,8 @@ public function BOOL PSYMBOL_REGISTERED_CALLBACK(HANDLE hProcess, uint32 ActionC
 	public uint64[2] Reserved2;
 }
 
-[CRepr]public struct DEBUG_CACHED_SYMBOL_INFO
+[CRepr]
+public struct DEBUG_CACHED_SYMBOL_INFO
 {
 	public uint64 ModBase;
 	public uint64 Arg1;
@@ -5368,7 +5392,8 @@ public function BOOL PSYMBOL_REGISTERED_CALLBACK(HANDLE hProcess, uint32 ActionC
 	public uint32 Arg3;
 }
 
-[CRepr]public struct PROCESS_NAME_ENTRY
+[CRepr]
+public struct PROCESS_NAME_ENTRY
 {
 	public uint32 ProcessId;
 	public uint32 NameOffset;
@@ -5376,7 +5401,8 @@ public function BOOL PSYMBOL_REGISTERED_CALLBACK(HANDLE hProcess, uint32 ActionC
 	public uint32 NextEntry;
 }
 
-[CRepr]public struct DEBUG_THREAD_BASIC_INFORMATION
+[CRepr]
+public struct DEBUG_THREAD_BASIC_INFORMATION
 {
 	public uint32 Valid;
 	public uint32 ExitStatus;
@@ -5390,7 +5416,8 @@ public function BOOL PSYMBOL_REGISTERED_CALLBACK(HANDLE hProcess, uint32 ActionC
 	public uint64 Affinity;
 }
 
-[CRepr]public struct SYMBOL_INFO_EX
+[CRepr]
+public struct SYMBOL_INFO_EX
 {
 	public uint32 SizeOfStruct;
 	public uint32 TypeOfInfo;
@@ -5400,7 +5427,8 @@ public function BOOL PSYMBOL_REGISTERED_CALLBACK(HANDLE hProcess, uint32 ActionC
 	public uint32[4] Reserved;
 }
 
-[CRepr]public struct DEBUG_BREAKPOINT_PARAMETERS
+[CRepr]
+public struct DEBUG_BREAKPOINT_PARAMETERS
 {
 	public uint64 Offset;
 	public uint32 Id;
@@ -5416,7 +5444,8 @@ public function BOOL PSYMBOL_REGISTERED_CALLBACK(HANDLE hProcess, uint32 ActionC
 	public uint32 OffsetExpressionSize;
 }
 
-[CRepr]public struct DEBUG_CREATE_PROCESS_OPTIONS
+[CRepr]
+public struct DEBUG_CREATE_PROCESS_OPTIONS
 {
 	public uint32 CreateFlags;
 	public uint32 EngCreateFlags;
@@ -5424,13 +5453,15 @@ public function BOOL PSYMBOL_REGISTERED_CALLBACK(HANDLE hProcess, uint32 ActionC
 	public uint32 Reserved;
 }
 
-[CRepr]public struct DEBUG_CLIENT_CONTEXT
+[CRepr]
+public struct DEBUG_CLIENT_CONTEXT
 {
 	public uint32 cbSize;
 	public uint32 eClient;
 }
 
-[CRepr]public struct DEBUG_STACK_FRAME
+[CRepr]
+public struct DEBUG_STACK_FRAME
 {
 	public uint64 InstructionOffset;
 	public uint64 ReturnOffset;
@@ -5443,7 +5474,8 @@ public function BOOL PSYMBOL_REGISTERED_CALLBACK(HANDLE hProcess, uint32 ActionC
 	public uint32 FrameNumber;
 }
 
-[CRepr]public struct DEBUG_STACK_FRAME_EX
+[CRepr]
+public struct DEBUG_STACK_FRAME_EX
 {
 	public uint64 InstructionOffset;
 	public uint64 ReturnOffset;
@@ -5458,9 +5490,11 @@ public function BOOL PSYMBOL_REGISTERED_CALLBACK(HANDLE hProcess, uint32 ActionC
 	public uint32 Reserved1;
 }
 
-[CRepr, Union]public struct INLINE_FRAME_CONTEXT
+[CRepr, Union]
+public struct INLINE_FRAME_CONTEXT
 {
-	[CRepr]	public struct _Anonymous_e__Struct
+	[CRepr]
+	public struct _Anonymous_e__Struct
 	{
 		public uint8 FrameId;
 		public uint8 FrameType;
@@ -5471,7 +5505,8 @@ public function BOOL PSYMBOL_REGISTERED_CALLBACK(HANDLE hProcess, uint32 ActionC
 	public using _Anonymous_e__Struct Anonymous;
 }
 
-[CRepr]public struct STACK_SRC_INFO
+[CRepr]
+public struct STACK_SRC_INFO
 {
 	public PWSTR ImagePath;
 	public PWSTR ModuleName;
@@ -5481,13 +5516,15 @@ public function BOOL PSYMBOL_REGISTERED_CALLBACK(HANDLE hProcess, uint32 ActionC
 	public uint32 Column;
 }
 
-[CRepr]public struct STACK_SYM_FRAME_INFO
+[CRepr]
+public struct STACK_SYM_FRAME_INFO
 {
 	public DEBUG_STACK_FRAME_EX StackFrameEx;
 	public STACK_SRC_INFO SrcInfo;
 }
 
-[CRepr]public struct DEBUG_SPECIFIC_FILTER_PARAMETERS
+[CRepr]
+public struct DEBUG_SPECIFIC_FILTER_PARAMETERS
 {
 	public uint32 ExecutionOption;
 	public uint32 ContinueOption;
@@ -5496,7 +5533,8 @@ public function BOOL PSYMBOL_REGISTERED_CALLBACK(HANDLE hProcess, uint32 ActionC
 	public uint32 ArgumentSize;
 }
 
-[CRepr]public struct DEBUG_EXCEPTION_FILTER_PARAMETERS
+[CRepr]
+public struct DEBUG_EXCEPTION_FILTER_PARAMETERS
 {
 	public uint32 ExecutionOption;
 	public uint32 ContinueOption;
@@ -5506,67 +5544,80 @@ public function BOOL PSYMBOL_REGISTERED_CALLBACK(HANDLE hProcess, uint32 ActionC
 	public uint32 ExceptionCode;
 }
 
-[CRepr]public struct DEBUG_LAST_EVENT_INFO_BREAKPOINT
+[CRepr]
+public struct DEBUG_LAST_EVENT_INFO_BREAKPOINT
 {
 	public uint32 Id;
 }
 
-[CRepr]public struct DEBUG_LAST_EVENT_INFO_EXCEPTION
+[CRepr]
+public struct DEBUG_LAST_EVENT_INFO_EXCEPTION
 {
 	public EXCEPTION_RECORD64 ExceptionRecord;
 	public uint32 FirstChance;
 }
 
-[CRepr]public struct DEBUG_LAST_EVENT_INFO_EXIT_THREAD
+[CRepr]
+public struct DEBUG_LAST_EVENT_INFO_EXIT_THREAD
 {
 	public uint32 ExitCode;
 }
 
-[CRepr]public struct DEBUG_LAST_EVENT_INFO_EXIT_PROCESS
+[CRepr]
+public struct DEBUG_LAST_EVENT_INFO_EXIT_PROCESS
 {
 	public uint32 ExitCode;
 }
 
-[CRepr]public struct DEBUG_LAST_EVENT_INFO_LOAD_MODULE
+[CRepr]
+public struct DEBUG_LAST_EVENT_INFO_LOAD_MODULE
 {
 	public uint64 Base;
 }
 
-[CRepr]public struct DEBUG_LAST_EVENT_INFO_UNLOAD_MODULE
+[CRepr]
+public struct DEBUG_LAST_EVENT_INFO_UNLOAD_MODULE
 {
 	public uint64 Base;
 }
 
-[CRepr]public struct DEBUG_LAST_EVENT_INFO_SYSTEM_ERROR
+[CRepr]
+public struct DEBUG_LAST_EVENT_INFO_SYSTEM_ERROR
 {
 	public uint32 Error;
 	public uint32 Level;
 }
 
-[CRepr]public struct DEBUG_LAST_EVENT_INFO_SERVICE_EXCEPTION
+[CRepr]
+public struct DEBUG_LAST_EVENT_INFO_SERVICE_EXCEPTION
 {
 	public uint32 Kind;
 	public uint32 DataSize;
 	public uint64 Address;
 }
 
-[CRepr]public struct DEBUG_VALUE
+[CRepr]
+public struct DEBUG_VALUE
 {
-	[CRepr, Union]	public struct _Anonymous_e__Union
+	[CRepr, Union]
+	public struct _Anonymous_e__Union
 	{
-		[CRepr]		public struct _I64Parts32_e__Struct
+		[CRepr]
+		public struct _I64Parts32_e__Struct
 		{
 			public uint32 LowPart;
 			public uint32 HighPart;
 		}
 
-		[CRepr]		public struct _F128Parts64_e__Struct
+		[CRepr]
+		public struct _F128Parts64_e__Struct
 		{
 			public uint64 LowPart;
 			public int64 HighPart;
 		}
 
-		[CRepr]		public struct _Anonymous_e__Struct
+		[CRepr]
+		public struct _Anonymous_e__Struct
 		{
 			public uint64 I64;
 			public BOOL Nat;
@@ -5597,13 +5648,15 @@ public function BOOL PSYMBOL_REGISTERED_CALLBACK(HANDLE hProcess, uint32 ActionC
 	public uint32 Type;
 }
 
-[CRepr]public struct DEBUG_PROCESSOR_IDENTIFICATION_ALPHA
+[CRepr]
+public struct DEBUG_PROCESSOR_IDENTIFICATION_ALPHA
 {
 	public uint32 Type;
 	public uint32 Revision;
 }
 
-[CRepr]public struct DEBUG_PROCESSOR_IDENTIFICATION_AMD64
+[CRepr]
+public struct DEBUG_PROCESSOR_IDENTIFICATION_AMD64
 {
 	public uint32 Family;
 	public uint32 Model;
@@ -5611,7 +5664,8 @@ public function BOOL PSYMBOL_REGISTERED_CALLBACK(HANDLE hProcess, uint32 ActionC
 	public CHAR[16] VendorString;
 }
 
-[CRepr]public struct DEBUG_PROCESSOR_IDENTIFICATION_IA64
+[CRepr]
+public struct DEBUG_PROCESSOR_IDENTIFICATION_IA64
 {
 	public uint32 Model;
 	public uint32 Revision;
@@ -5620,7 +5674,8 @@ public function BOOL PSYMBOL_REGISTERED_CALLBACK(HANDLE hProcess, uint32 ActionC
 	public CHAR[16] VendorString;
 }
 
-[CRepr]public struct DEBUG_PROCESSOR_IDENTIFICATION_X86
+[CRepr]
+public struct DEBUG_PROCESSOR_IDENTIFICATION_X86
 {
 	public uint32 Family;
 	public uint32 Model;
@@ -5628,21 +5683,24 @@ public function BOOL PSYMBOL_REGISTERED_CALLBACK(HANDLE hProcess, uint32 ActionC
 	public CHAR[16] VendorString;
 }
 
-[CRepr]public struct DEBUG_PROCESSOR_IDENTIFICATION_ARM
+[CRepr]
+public struct DEBUG_PROCESSOR_IDENTIFICATION_ARM
 {
 	public uint32 Model;
 	public uint32 Revision;
 	public CHAR[16] VendorString;
 }
 
-[CRepr]public struct DEBUG_PROCESSOR_IDENTIFICATION_ARM64
+[CRepr]
+public struct DEBUG_PROCESSOR_IDENTIFICATION_ARM64
 {
 	public uint32 Model;
 	public uint32 Revision;
 	public CHAR[16] VendorString;
 }
 
-[CRepr, Union]public struct DEBUG_PROCESSOR_IDENTIFICATION_ALL
+[CRepr, Union]
+public struct DEBUG_PROCESSOR_IDENTIFICATION_ALL
 {
 	public DEBUG_PROCESSOR_IDENTIFICATION_ALPHA Alpha;
 	public DEBUG_PROCESSOR_IDENTIFICATION_AMD64 Amd64;
@@ -5652,7 +5710,8 @@ public function BOOL PSYMBOL_REGISTERED_CALLBACK(HANDLE hProcess, uint32 ActionC
 	public DEBUG_PROCESSOR_IDENTIFICATION_ARM64 Arm64;
 }
 
-[CRepr]public struct DEBUG_HANDLE_DATA_BASIC
+[CRepr]
+public struct DEBUG_HANDLE_DATA_BASIC
 {
 	public uint32 TypeNameSize;
 	public uint32 ObjectNameSize;
@@ -5662,7 +5721,8 @@ public function BOOL PSYMBOL_REGISTERED_CALLBACK(HANDLE hProcess, uint32 ActionC
 	public uint32 PointerCount;
 }
 
-[CRepr]public struct DEBUG_EVENT_CONTEXT
+[CRepr]
+public struct DEBUG_EVENT_CONTEXT
 {
 	public uint32 Size;
 	public uint32 ProcessEngineId;
@@ -5670,7 +5730,8 @@ public function BOOL PSYMBOL_REGISTERED_CALLBACK(HANDLE hProcess, uint32 ActionC
 	public uint32 FrameEngineId;
 }
 
-[CRepr]public struct DEBUG_REGISTER_DESCRIPTION
+[CRepr]
+public struct DEBUG_REGISTER_DESCRIPTION
 {
 	public uint32 Type;
 	public uint32 Flags;
@@ -5681,7 +5742,8 @@ public function BOOL PSYMBOL_REGISTERED_CALLBACK(HANDLE hProcess, uint32 ActionC
 	public uint32 Reserved0;
 }
 
-[CRepr]public struct DEBUG_SYMBOL_PARAMETERS
+[CRepr]
+public struct DEBUG_SYMBOL_PARAMETERS
 {
 	public uint64 Module;
 	public uint32 TypeId;
@@ -5691,7 +5753,8 @@ public function BOOL PSYMBOL_REGISTERED_CALLBACK(HANDLE hProcess, uint32 ActionC
 	public uint64 Reserved;
 }
 
-[CRepr]public struct DEBUG_SYMBOL_ENTRY
+[CRepr]
+public struct DEBUG_SYMBOL_ENTRY
 {
 	public uint64 ModuleBase;
 	public uint64 Offset;
@@ -5707,7 +5770,8 @@ public function BOOL PSYMBOL_REGISTERED_CALLBACK(HANDLE hProcess, uint32 ActionC
 	public uint32 Reserved;
 }
 
-[CRepr]public struct DEBUG_MODULE_PARAMETERS
+[CRepr]
+public struct DEBUG_MODULE_PARAMETERS
 {
 	public uint64 Base;
 	public uint32 Size;
@@ -5723,13 +5787,15 @@ public function BOOL PSYMBOL_REGISTERED_CALLBACK(HANDLE hProcess, uint32 ActionC
 	public uint64[2] Reserved;
 }
 
-[CRepr]public struct DEBUG_MODULE_AND_ID
+[CRepr]
+public struct DEBUG_MODULE_AND_ID
 {
 	public uint64 ModuleBase;
 	public uint64 Id;
 }
 
-[CRepr]public struct DEBUG_SYMBOL_SOURCE_ENTRY
+[CRepr]
+public struct DEBUG_SYMBOL_SOURCE_ENTRY
 {
 	public uint64 ModuleBase;
 	public uint64 Offset;
@@ -5745,35 +5811,42 @@ public function BOOL PSYMBOL_REGISTERED_CALLBACK(HANDLE hProcess, uint32 ActionC
 	public uint32 Reserved;
 }
 
-[CRepr]public struct Location
+[CRepr]
+public struct Location
 {
 	public uint64 HostDefined;
 	public uint64 Offset;
 }
 
-[CRepr]public struct ArrayDimension
+[CRepr]
+public struct ArrayDimension
 {
 	public int64 LowerBound;
 	public uint64 Length;
 	public uint64 Stride;
 }
 
-[CRepr]public struct ScriptDebugPosition
+[CRepr]
+public struct ScriptDebugPosition
 {
 	public uint32 Line;
 	public uint32 Column;
 }
 
-[CRepr]public struct ScriptDebugEventInformation
+[CRepr]
+public struct ScriptDebugEventInformation
 {
-	[CRepr, Union]	public struct _u_e__Union
+	[CRepr, Union]
+	public struct _u_e__Union
 	{
-		[CRepr]		public struct _ExceptionInformation_e__Struct
+		[CRepr]
+		public struct _ExceptionInformation_e__Struct
 		{
 			public bool IsUncaught;
 		}
 
-		[CRepr]		public struct _BreakpointInformation_e__Struct
+		[CRepr]
+		public struct _BreakpointInformation_e__Struct
 		{
 			public uint64 BreakpointId;
 		}
@@ -5788,7 +5861,8 @@ public function BOOL PSYMBOL_REGISTERED_CALLBACK(HANDLE hProcess, uint32 ActionC
 	public _u_e__Union u;
 }
 
-[CRepr]public struct EXTSTACKTRACE
+[CRepr]
+public struct EXTSTACKTRACE
 {
 	public uint32 FramePointer;
 	public uint32 ProgramCounter;
@@ -5796,7 +5870,8 @@ public function BOOL PSYMBOL_REGISTERED_CALLBACK(HANDLE hProcess, uint32 ActionC
 	public uint32[4] Args;
 }
 
-[CRepr]public struct EXTSTACKTRACE32
+[CRepr]
+public struct EXTSTACKTRACE32
 {
 	public uint32 FramePointer;
 	public uint32 ProgramCounter;
@@ -5804,7 +5879,8 @@ public function BOOL PSYMBOL_REGISTERED_CALLBACK(HANDLE hProcess, uint32 ActionC
 	public uint32[4] Args;
 }
 
-[CRepr]public struct EXTSTACKTRACE64
+[CRepr]
+public struct EXTSTACKTRACE64
 {
 	public uint64 FramePointer;
 	public uint64 ProgramCounter;
@@ -5812,7 +5888,8 @@ public function BOOL PSYMBOL_REGISTERED_CALLBACK(HANDLE hProcess, uint32 ActionC
 	public uint64[4] Args;
 }
 
-[CRepr]public struct WINDBG_EXTENSION_APIS
+[CRepr]
+public struct WINDBG_EXTENSION_APIS
 {
 	public uint32 nSize;
 	public PWINDBG_OUTPUT_ROUTINE lpOutputRoutine;
@@ -5828,7 +5905,8 @@ public function BOOL PSYMBOL_REGISTERED_CALLBACK(HANDLE hProcess, uint32 ActionC
 	public PWINDBG_STACKTRACE_ROUTINE lpStackTraceRoutine;
 }
 
-[CRepr]public struct WINDBG_EXTENSION_APIS32
+[CRepr]
+public struct WINDBG_EXTENSION_APIS32
 {
 	public uint32 nSize;
 	public PWINDBG_OUTPUT_ROUTINE lpOutputRoutine;
@@ -5844,7 +5922,8 @@ public function BOOL PSYMBOL_REGISTERED_CALLBACK(HANDLE hProcess, uint32 ActionC
 	public PWINDBG_STACKTRACE_ROUTINE32 lpStackTraceRoutine;
 }
 
-[CRepr]public struct WINDBG_EXTENSION_APIS64
+[CRepr]
+public struct WINDBG_EXTENSION_APIS64
 {
 	public uint32 nSize;
 	public PWINDBG_OUTPUT_ROUTINE lpOutputRoutine;
@@ -5860,7 +5939,8 @@ public function BOOL PSYMBOL_REGISTERED_CALLBACK(HANDLE hProcess, uint32 ActionC
 	public PWINDBG_STACKTRACE_ROUTINE64 lpStackTraceRoutine;
 }
 
-[CRepr]public struct WINDBG_OLD_EXTENSION_APIS
+[CRepr]
+public struct WINDBG_OLD_EXTENSION_APIS
 {
 	public uint32 nSize;
 	public PWINDBG_OUTPUT_ROUTINE lpOutputRoutine;
@@ -5870,7 +5950,8 @@ public function BOOL PSYMBOL_REGISTERED_CALLBACK(HANDLE hProcess, uint32 ActionC
 	public PWINDBG_CHECK_CONTROL_C lpCheckControlCRoutine;
 }
 
-[CRepr]public struct WINDBG_OLDKD_EXTENSION_APIS
+[CRepr]
+public struct WINDBG_OLDKD_EXTENSION_APIS
 {
 	public uint32 nSize;
 	public PWINDBG_OUTPUT_ROUTINE lpOutputRoutine;
@@ -5884,7 +5965,8 @@ public function BOOL PSYMBOL_REGISTERED_CALLBACK(HANDLE hProcess, uint32 ActionC
 	public PWINDBG_OLDKD_WRITE_PHYSICAL_MEMORY lpWritePhysicalMemRoutine;
 }
 
-[CRepr]public struct EXT_API_VERSION
+[CRepr]
+public struct EXT_API_VERSION
 {
 	public uint16 MajorVersion;
 	public uint16 MinorVersion;
@@ -5892,13 +5974,15 @@ public function BOOL PSYMBOL_REGISTERED_CALLBACK(HANDLE hProcess, uint32 ActionC
 	public uint16 Reserved;
 }
 
-[CRepr]public struct PROCESSORINFO
+[CRepr]
+public struct PROCESSORINFO
 {
 	public uint16 Processor;
 	public uint16 NumberProcessors;
 }
 
-[CRepr]public struct READCONTROLSPACE
+[CRepr]
+public struct READCONTROLSPACE
 {
 	public uint16 Processor;
 	public uint32 Address;
@@ -5906,7 +5990,8 @@ public function BOOL PSYMBOL_REGISTERED_CALLBACK(HANDLE hProcess, uint32 ActionC
 	public uint8[1] Buf;
 }
 
-[CRepr]public struct READCONTROLSPACE32
+[CRepr]
+public struct READCONTROLSPACE32
 {
 	public uint16 Processor;
 	public uint32 Address;
@@ -5914,7 +5999,8 @@ public function BOOL PSYMBOL_REGISTERED_CALLBACK(HANDLE hProcess, uint32 ActionC
 	public uint8[1] Buf;
 }
 
-[CRepr]public struct READCONTROLSPACE64
+[CRepr]
+public struct READCONTROLSPACE64
 {
 	public uint16 Processor;
 	public uint64 Address;
@@ -5922,28 +6008,32 @@ public function BOOL PSYMBOL_REGISTERED_CALLBACK(HANDLE hProcess, uint32 ActionC
 	public uint8[1] Buf;
 }
 
-[CRepr]public struct IOSPACE
+[CRepr]
+public struct IOSPACE
 {
 	public uint32 Address;
 	public uint32 Length;
 	public uint32 Data;
 }
 
-[CRepr]public struct IOSPACE32
+[CRepr]
+public struct IOSPACE32
 {
 	public uint32 Address;
 	public uint32 Length;
 	public uint32 Data;
 }
 
-[CRepr]public struct IOSPACE64
+[CRepr]
+public struct IOSPACE64
 {
 	public uint64 Address;
 	public uint32 Length;
 	public uint32 Data;
 }
 
-[CRepr]public struct IOSPACE_EX
+[CRepr]
+public struct IOSPACE_EX
 {
 	public uint32 Address;
 	public uint32 Length;
@@ -5953,7 +6043,8 @@ public function BOOL PSYMBOL_REGISTERED_CALLBACK(HANDLE hProcess, uint32 ActionC
 	public uint32 AddressSpace;
 }
 
-[CRepr]public struct IOSPACE_EX32
+[CRepr]
+public struct IOSPACE_EX32
 {
 	public uint32 Address;
 	public uint32 Length;
@@ -5963,7 +6054,8 @@ public function BOOL PSYMBOL_REGISTERED_CALLBACK(HANDLE hProcess, uint32 ActionC
 	public uint32 AddressSpace;
 }
 
-[CRepr]public struct IOSPACE_EX64
+[CRepr]
+public struct IOSPACE_EX64
 {
 	public uint64 Address;
 	public uint32 Length;
@@ -5973,7 +6065,8 @@ public function BOOL PSYMBOL_REGISTERED_CALLBACK(HANDLE hProcess, uint32 ActionC
 	public uint32 AddressSpace;
 }
 
-[CRepr]public struct _GETSETBUSDATA
+[CRepr]
+public struct _GETSETBUSDATA
 {
 	public uint32 BusDataType;
 	public uint32 BusNumber;
@@ -5983,7 +6076,8 @@ public function BOOL PSYMBOL_REGISTERED_CALLBACK(HANDLE hProcess, uint32 ActionC
 	public uint32 Length;
 }
 
-[CRepr]public struct SEARCHMEMORY
+[CRepr]
+public struct SEARCHMEMORY
 {
 	public uint64 SearchAddress;
 	public uint64 SearchLength;
@@ -5992,14 +6086,16 @@ public function BOOL PSYMBOL_REGISTERED_CALLBACK(HANDLE hProcess, uint32 ActionC
 	public void* Pattern;
 }
 
-[CRepr]public struct PHYSICAL
+[CRepr]
+public struct PHYSICAL
 {
 	public uint64 Address;
 	public uint32 BufLen;
 	public uint8[1] Buf;
 }
 
-[CRepr]public struct PHYSICAL_WITH_FLAGS
+[CRepr]
+public struct PHYSICAL_WITH_FLAGS
 {
 	public uint64 Address;
 	public uint32 BufLen;
@@ -6007,44 +6103,51 @@ public function BOOL PSYMBOL_REGISTERED_CALLBACK(HANDLE hProcess, uint32 ActionC
 	public uint8[1] Buf;
 }
 
-[CRepr]public struct READ_WRITE_MSR
+[CRepr]
+public struct READ_WRITE_MSR
 {
 	public uint32 Msr;
 	public int64 Value;
 }
 
-[CRepr]public struct GET_SET_SYMPATH
+[CRepr]
+public struct GET_SET_SYMPATH
 {
 	public PSTR Args;
 	public PSTR Result;
 	public int32 Length;
 }
 
-[CRepr]public struct GET_TEB_ADDRESS
+[CRepr]
+public struct GET_TEB_ADDRESS
 {
 	public uint64 Address;
 }
 
-[CRepr]public struct GET_PEB_ADDRESS
+[CRepr]
+public struct GET_PEB_ADDRESS
 {
 	public uint64 CurrentThread;
 	public uint64 Address;
 }
 
-[CRepr]public struct GET_CURRENT_THREAD_ADDRESS
+[CRepr]
+public struct GET_CURRENT_THREAD_ADDRESS
 {
 	public uint32 Processor;
 	public uint64 Address;
 }
 
-[CRepr]public struct GET_CURRENT_PROCESS_ADDRESS
+[CRepr]
+public struct GET_CURRENT_PROCESS_ADDRESS
 {
 	public uint32 Processor;
 	public uint64 CurrentThread;
 	public uint64 Address;
 }
 
-[CRepr]public struct GET_INPUT_LINE
+[CRepr]
+public struct GET_INPUT_LINE
 {
 	public PSTR Prompt;
 	public PSTR Buffer;
@@ -6052,20 +6155,23 @@ public function BOOL PSYMBOL_REGISTERED_CALLBACK(HANDLE hProcess, uint32 ActionC
 	public uint32 InputSize;
 }
 
-[CRepr]public struct GET_EXPRESSION_EX
+[CRepr]
+public struct GET_EXPRESSION_EX
 {
 	public PSTR Expression;
 	public PSTR Remainder;
 	public uint64 Value;
 }
 
-[CRepr]public struct TRANSLATE_VIRTUAL_TO_PHYSICAL
+[CRepr]
+public struct TRANSLATE_VIRTUAL_TO_PHYSICAL
 {
 	public uint64 Virtual;
 	public uint64 Physical;
 }
 
-[CRepr]public struct VIRTUAL_TO_PHYSICAL
+[CRepr]
+public struct VIRTUAL_TO_PHYSICAL
 {
 	public uint32 Status;
 	public uint32 Size;
@@ -6074,21 +6180,24 @@ public function BOOL PSYMBOL_REGISTERED_CALLBACK(HANDLE hProcess, uint32 ActionC
 	public uint64 Physical;
 }
 
-[CRepr]public struct PHYSICAL_TO_VIRTUAL
+[CRepr]
+public struct PHYSICAL_TO_VIRTUAL
 {
 	public uint32 Status;
 	public uint32 Size;
 	public uint64 PdeAddress;
 }
 
-[CRepr]public struct GET_CONTEXT_EX
+[CRepr]
+public struct GET_CONTEXT_EX
 {
 	public uint32 Status;
 	public uint32 ContextSize;
 	public void* pContext;
 }
 
-[CRepr]public struct POINTER_SEARCH_PHYSICAL
+[CRepr]
+public struct POINTER_SEARCH_PHYSICAL
 {
 	public uint64 Offset;
 	public uint64 Length;
@@ -6100,7 +6209,8 @@ public function BOOL PSYMBOL_REGISTERED_CALLBACK(HANDLE hProcess, uint32 ActionC
 	public uint32 MatchOffsetsCount;
 }
 
-[CRepr]public struct WDBGEXTS_THREAD_OS_INFO
+[CRepr]
+public struct WDBGEXTS_THREAD_OS_INFO
 {
 	public uint32 ThreadId;
 	public uint32 ExitStatus;
@@ -6114,20 +6224,23 @@ public function BOOL PSYMBOL_REGISTERED_CALLBACK(HANDLE hProcess, uint32 ActionC
 	public uint64 Affinity;
 }
 
-[CRepr]public struct WDBGEXTS_CLR_DATA_INTERFACE
+[CRepr]
+public struct WDBGEXTS_CLR_DATA_INTERFACE
 {
 	public Guid* Iid;
 	public void* Iface;
 }
 
-[CRepr]public struct EXT_MATCH_PATTERN_A
+[CRepr]
+public struct EXT_MATCH_PATTERN_A
 {
 	public PSTR Str;
 	public PSTR Pattern;
 	public uint32 CaseSensitive;
 }
 
-[CRepr]public struct EXT_FIND_FILE
+[CRepr]
+public struct EXT_FIND_FILE
 {
 	public PWSTR FileName;
 	public uint64 IndexedSize;
@@ -6143,7 +6256,8 @@ public function BOOL PSYMBOL_REGISTERED_CALLBACK(HANDLE hProcess, uint32 ActionC
 	public uint32 FoundFileNameChars;
 }
 
-[CRepr]public struct DEBUG_TYPED_DATA
+[CRepr]
+public struct DEBUG_TYPED_DATA
 {
 	public uint64 ModBase;
 	public uint64 Offset;
@@ -6158,7 +6272,8 @@ public function BOOL PSYMBOL_REGISTERED_CALLBACK(HANDLE hProcess, uint32 ActionC
 	public uint64[9] Internal;
 }
 
-[CRepr]public struct EXT_TYPED_DATA
+[CRepr]
+public struct EXT_TYPED_DATA
 {
 	public EXT_TDOP Operation;
 	public uint32 Flags;
@@ -6179,13 +6294,15 @@ public function BOOL PSYMBOL_REGISTERED_CALLBACK(HANDLE hProcess, uint32 ActionC
 	public uint64[8] Reserved;
 }
 
-[CRepr]public struct WDBGEXTS_QUERY_INTERFACE
+[CRepr]
+public struct WDBGEXTS_QUERY_INTERFACE
 {
 	public Guid* Iid;
 	public void* Iface;
 }
 
-[CRepr]public struct WDBGEXTS_DISASSEMBLE_BUFFER
+[CRepr]
+public struct WDBGEXTS_DISASSEMBLE_BUFFER
 {
 	public uint64 InOffset;
 	public uint64 OutOffset;
@@ -6198,7 +6315,8 @@ public function BOOL PSYMBOL_REGISTERED_CALLBACK(HANDLE hProcess, uint32 ActionC
 	public uint64[3] Reserved0;
 }
 
-[CRepr]public struct WDBGEXTS_MODULE_IN_RANGE
+[CRepr]
+public struct WDBGEXTS_MODULE_IN_RANGE
 {
 	public uint64 Start;
 	public uint64 End;
@@ -6206,7 +6324,8 @@ public function BOOL PSYMBOL_REGISTERED_CALLBACK(HANDLE hProcess, uint32 ActionC
 	public uint32 FoundModSize;
 }
 
-[CRepr]public struct DBGKD_GET_VERSION32
+[CRepr]
+public struct DBGKD_GET_VERSION32
 {
 	public uint16 MajorVersion;
 	public uint16 MinorVersion;
@@ -6224,14 +6343,16 @@ public function BOOL PSYMBOL_REGISTERED_CALLBACK(HANDLE hProcess, uint32 ActionC
 	public uint32 DebuggerDataList;
 }
 
-[CRepr]public struct DBGKD_DEBUG_DATA_HEADER32
+[CRepr]
+public struct DBGKD_DEBUG_DATA_HEADER32
 {
 	public LIST_ENTRY32 List;
 	public uint32 OwnerTag;
 	public uint32 Size;
 }
 
-[CRepr]public struct KDDEBUGGER_DATA32
+[CRepr]
+public struct KDDEBUGGER_DATA32
 {
 	public DBGKD_DEBUG_DATA_HEADER32 Header;
 	public uint32 KernBase;
@@ -6301,7 +6422,8 @@ public function BOOL PSYMBOL_REGISTERED_CALLBACK(HANDLE hProcess, uint32 ActionC
 	public uint32 MmLoadedUserImageList;
 }
 
-[CRepr]public struct DBGKD_GET_VERSION64
+[CRepr]
+public struct DBGKD_GET_VERSION64
 {
 	public uint16 MajorVersion;
 	public uint16 MinorVersion;
@@ -6319,14 +6441,16 @@ public function BOOL PSYMBOL_REGISTERED_CALLBACK(HANDLE hProcess, uint32 ActionC
 	public uint64 DebuggerDataList;
 }
 
-[CRepr]public struct DBGKD_DEBUG_DATA_HEADER64
+[CRepr]
+public struct DBGKD_DEBUG_DATA_HEADER64
 {
 	public LIST_ENTRY64 List;
 	public uint32 OwnerTag;
 	public uint32 Size;
 }
 
-[CRepr]public struct KDDEBUGGER_DATA64
+[CRepr]
+public struct KDDEBUGGER_DATA64
 {
 	public DBGKD_DEBUG_DATA_HEADER64 Header;
 	public uint64 KernBase;
@@ -6488,15 +6612,18 @@ public function BOOL PSYMBOL_REGISTERED_CALLBACK(HANDLE hProcess, uint32 ActionC
 	public uint16 OffsetEProcessMmHotPatchContext;
 }
 
-[CRepr]public struct FIELD_INFO
+[CRepr]
+public struct FIELD_INFO
 {
-	[CRepr, Union]	public struct _Anonymous_e__Union
+	[CRepr, Union]
+	public struct _Anonymous_e__Union
 	{
 		public void* fieldCallBack;
 		public void* pBuffer;
 	}
 
-	[CRepr]	public struct _BitField
+	[CRepr]
+	public struct _BitField
 	{
 		public uint16 Position;
 		public uint16 Size;
@@ -6515,9 +6642,11 @@ public function BOOL PSYMBOL_REGISTERED_CALLBACK(HANDLE hProcess, uint32 ActionC
 	public uint32 _bitfield;
 }
 
-[CRepr]public struct SYM_DUMP_PARAM
+[CRepr]
+public struct SYM_DUMP_PARAM
 {
-	[CRepr, Union]	public struct _Anonymous_e__Union
+	[CRepr, Union]
+	public struct _Anonymous_e__Union
 	{
 		public void* Context;
 		public void* pBuffer;
@@ -6539,14 +6668,16 @@ public function BOOL PSYMBOL_REGISTERED_CALLBACK(HANDLE hProcess, uint32 ActionC
 	public uint32 _bitfield;
 }
 
-[CRepr]public struct M128A
+[CRepr]
+public struct M128A
 {
 	public uint64 Low;
 	public int64 High;
 }
 
 #if BF_64_BIT || BF_ARM_64
-[CRepr]public struct XSAVE_FORMAT
+[CRepr]
+public struct XSAVE_FORMAT
 {
 	public uint16 ControlWord;
 	public uint16 StatusWord;
@@ -6567,21 +6698,24 @@ public function BOOL PSYMBOL_REGISTERED_CALLBACK(HANDLE hProcess, uint32 ActionC
 }
 #endif
 
-[CRepr]public struct XSAVE_AREA_HEADER
+[CRepr]
+public struct XSAVE_AREA_HEADER
 {
 	public uint64 Mask;
 	public uint64 CompactionMask;
 	public uint64[6] Reserved2;
 }
 
-[CRepr]public struct XSAVE_AREA
+[CRepr]
+public struct XSAVE_AREA
 {
 	public XSAVE_FORMAT LegacyState;
 	public XSAVE_AREA_HEADER Header;
 }
 
 #if BF_64_BIT || BF_ARM_64
-[CRepr]public struct XSTATE_CONTEXT
+[CRepr]
+public struct XSTATE_CONTEXT
 {
 	public uint64 Mask;
 	public uint32 Length;
@@ -6592,11 +6726,14 @@ public function BOOL PSYMBOL_REGISTERED_CALLBACK(HANDLE hProcess, uint32 ActionC
 #endif
 
 #if BF_64_BIT
-[CRepr]public struct CONTEXT
+[CRepr]
+public struct CONTEXT
 {
-	[CRepr, Union]	public struct _Anonymous_e__Union
+	[CRepr, Union]
+	public struct _Anonymous_e__Union
 	{
-		[CRepr]		public struct _Anonymous_e__Struct
+		[CRepr]
+		public struct _Anonymous_e__Struct
 		{
 			public M128A[2] Header;
 			public M128A[8] Legacy;
@@ -6672,7 +6809,8 @@ public function BOOL PSYMBOL_REGISTERED_CALLBACK(HANDLE hProcess, uint32 ActionC
 #endif
 
 #if BF_64_BIT
-[CRepr]public struct DISPATCHER_CONTEXT
+[CRepr]
+public struct DISPATCHER_CONTEXT
 {
 	public uint64 ControlPc;
 	public uint64 ImageBase;
@@ -6689,11 +6827,14 @@ public function BOOL PSYMBOL_REGISTERED_CALLBACK(HANDLE hProcess, uint32 ActionC
 #endif
 
 #if BF_64_BIT
-[CRepr]public struct KNONVOLATILE_CONTEXT_POINTERS
+[CRepr]
+public struct KNONVOLATILE_CONTEXT_POINTERS
 {
-	[CRepr, Union]	public struct _Anonymous2_e__Union
+	[CRepr, Union]
+	public struct _Anonymous2_e__Union
 	{
-		[CRepr]		public struct _Anonymous_e__Struct
+		[CRepr]
+		public struct _Anonymous_e__Struct
 		{
 			public uint64* Rax;
 			public uint64* Rcx;
@@ -6717,9 +6858,11 @@ public function BOOL PSYMBOL_REGISTERED_CALLBACK(HANDLE hProcess, uint32 ActionC
 		public using _Anonymous_e__Struct Anonymous;
 	}
 
-	[CRepr, Union]	public struct _Anonymous1_e__Union
+	[CRepr, Union]
+	public struct _Anonymous1_e__Union
 	{
-		[CRepr]		public struct _Anonymous_e__Struct
+		[CRepr]
+		public struct _Anonymous_e__Struct
 		{
 			public M128A* Xmm0;
 			public M128A* Xmm1;
@@ -6748,9 +6891,11 @@ public function BOOL PSYMBOL_REGISTERED_CALLBACK(HANDLE hProcess, uint32 ActionC
 }
 #endif
 
-[CRepr, Union]public struct ARM64_NT_NEON128
+[CRepr, Union]
+public struct ARM64_NT_NEON128
 {
-	[CRepr]	public struct _Anonymous_e__Struct
+	[CRepr]
+	public struct _Anonymous_e__Struct
 	{
 		public uint64 Low;
 		public int64 High;
@@ -6764,11 +6909,14 @@ public function BOOL PSYMBOL_REGISTERED_CALLBACK(HANDLE hProcess, uint32 ActionC
 }
 
 #if BF_32_BIT || BF_64_BIT
-[CRepr]public struct ARM64_NT_CONTEXT
+[CRepr]
+public struct ARM64_NT_CONTEXT
 {
-	[CRepr, Union]	public struct _Anonymous_e__Union
+	[CRepr, Union]
+	public struct _Anonymous_e__Union
 	{
-		[CRepr]		public struct _Anonymous_e__Struct
+		[CRepr]
+		public struct _Anonymous_e__Struct
 		{
 			public uint64 X0;
 			public uint64 X1;
@@ -6823,7 +6971,8 @@ public function BOOL PSYMBOL_REGISTERED_CALLBACK(HANDLE hProcess, uint32 ActionC
 #endif
 
 #if BF_32_BIT || BF_64_BIT
-[CRepr]public struct DISPATCHER_CONTEXT_ARM64
+[CRepr]
+public struct DISPATCHER_CONTEXT_ARM64
 {
 	public uint ControlPc;
 	public uint ImageBase;
@@ -6840,11 +6989,14 @@ public function BOOL PSYMBOL_REGISTERED_CALLBACK(HANDLE hProcess, uint32 ActionC
 }
 #endif
 
-[CRepr]public struct LDT_ENTRY
+[CRepr]
+public struct LDT_ENTRY
 {
-	[CRepr, Union]	public struct _HighWord_e__Union
+	[CRepr, Union]
+	public struct _HighWord_e__Union
 	{
-		[CRepr]		public struct _Bytes_e__Struct
+		[CRepr]
+		public struct _Bytes_e__Struct
 		{
 			public uint8 BaseMid;
 			public uint8 Flags1;
@@ -6852,7 +7004,8 @@ public function BOOL PSYMBOL_REGISTERED_CALLBACK(HANDLE hProcess, uint32 ActionC
 			public uint8 BaseHi;
 		}
 
-		[CRepr]		public struct _Bits_e__Struct
+		[CRepr]
+		public struct _Bits_e__Struct
 		{
 			public uint32 _bitfield;
 		}
@@ -6866,7 +7019,8 @@ public function BOOL PSYMBOL_REGISTERED_CALLBACK(HANDLE hProcess, uint32 ActionC
 	public _HighWord_e__Union HighWord;
 }
 
-[CRepr]public struct WOW64_FLOATING_SAVE_AREA
+[CRepr]
+public struct WOW64_FLOATING_SAVE_AREA
 {
 	public uint32 ControlWord;
 	public uint32 StatusWord;
@@ -6879,7 +7033,8 @@ public function BOOL PSYMBOL_REGISTERED_CALLBACK(HANDLE hProcess, uint32 ActionC
 	public uint32 Cr0NpxState;
 }
 
-[CRepr]public struct WOW64_CONTEXT
+[CRepr]
+public struct WOW64_CONTEXT
 {
 	public uint32 ContextFlags;
 	public uint32 Dr0;
@@ -6908,11 +7063,14 @@ public function BOOL PSYMBOL_REGISTERED_CALLBACK(HANDLE hProcess, uint32 ActionC
 	public uint8[512] ExtendedRegisters;
 }
 
-[CRepr]public struct WOW64_LDT_ENTRY
+[CRepr]
+public struct WOW64_LDT_ENTRY
 {
-	[CRepr, Union]	public struct _HighWord_e__Union
+	[CRepr, Union]
+	public struct _HighWord_e__Union
 	{
-		[CRepr]		public struct _Bytes_e__Struct
+		[CRepr]
+		public struct _Bytes_e__Struct
 		{
 			public uint8 BaseMid;
 			public uint8 Flags1;
@@ -6920,7 +7078,8 @@ public function BOOL PSYMBOL_REGISTERED_CALLBACK(HANDLE hProcess, uint32 ActionC
 			public uint8 BaseHi;
 		}
 
-		[CRepr]		public struct _Bits_e__Struct
+		[CRepr]
+		public struct _Bits_e__Struct
 		{
 			public uint32 _bitfield;
 		}
@@ -6934,13 +7093,15 @@ public function BOOL PSYMBOL_REGISTERED_CALLBACK(HANDLE hProcess, uint32 ActionC
 	public _HighWord_e__Union HighWord;
 }
 
-[CRepr]public struct WOW64_DESCRIPTOR_TABLE_ENTRY
+[CRepr]
+public struct WOW64_DESCRIPTOR_TABLE_ENTRY
 {
 	public uint32 Selector;
 	public WOW64_LDT_ENTRY Descriptor;
 }
 
-[CRepr]public struct EXCEPTION_RECORD
+[CRepr]
+public struct EXCEPTION_RECORD
 {
 	public NTSTATUS ExceptionCode;
 	public uint32 ExceptionFlags;
@@ -6950,7 +7111,8 @@ public function BOOL PSYMBOL_REGISTERED_CALLBACK(HANDLE hProcess, uint32 ActionC
 	public uint[15] ExceptionInformation;
 }
 
-[CRepr]public struct EXCEPTION_RECORD32
+[CRepr]
+public struct EXCEPTION_RECORD32
 {
 	public NTSTATUS ExceptionCode;
 	public uint32 ExceptionFlags;
@@ -6960,7 +7122,8 @@ public function BOOL PSYMBOL_REGISTERED_CALLBACK(HANDLE hProcess, uint32 ActionC
 	public uint32[15] ExceptionInformation;
 }
 
-[CRepr]public struct EXCEPTION_RECORD64
+[CRepr]
+public struct EXCEPTION_RECORD64
 {
 	public NTSTATUS ExceptionCode;
 	public uint32 ExceptionFlags;
@@ -6971,23 +7134,28 @@ public function BOOL PSYMBOL_REGISTERED_CALLBACK(HANDLE hProcess, uint32 ActionC
 	public uint64[15] ExceptionInformation;
 }
 
-[CRepr]public struct EXCEPTION_POINTERS
+[CRepr]
+public struct EXCEPTION_POINTERS
 {
 	public EXCEPTION_RECORD* ExceptionRecord;
 	public CONTEXT* ContextRecord;
 }
 
-[CRepr]public struct XSTATE_FEATURE
+[CRepr]
+public struct XSTATE_FEATURE
 {
 	public uint32 Offset;
 	public uint32 Size;
 }
 
-[CRepr]public struct XSTATE_CONFIGURATION
+[CRepr]
+public struct XSTATE_CONFIGURATION
 {
-	[CRepr, Union]	public struct _Anonymous_e__Union
+	[CRepr, Union]
+	public struct _Anonymous_e__Union
 	{
-		[CRepr]		public struct _Anonymous_e__Struct
+		[CRepr]
+		public struct _Anonymous_e__Struct
 		{
 			public uint32 _bitfield;
 		}
@@ -7011,7 +7179,8 @@ public function BOOL PSYMBOL_REGISTERED_CALLBACK(HANDLE hProcess, uint32 ActionC
 	public uint32 Spare;
 }
 
-[CRepr]public struct IMAGE_FILE_HEADER
+[CRepr]
+public struct IMAGE_FILE_HEADER
 {
 	public IMAGE_FILE_MACHINE Machine;
 	public uint16 NumberOfSections;
@@ -7022,13 +7191,15 @@ public function BOOL PSYMBOL_REGISTERED_CALLBACK(HANDLE hProcess, uint32 ActionC
 	public IMAGE_FILE_CHARACTERISTICS Characteristics;
 }
 
-[CRepr]public struct IMAGE_DATA_DIRECTORY
+[CRepr]
+public struct IMAGE_DATA_DIRECTORY
 {
 	public uint32 VirtualAddress;
 	public uint32 Size;
 }
 
-[CRepr]public struct IMAGE_OPTIONAL_HEADER32
+[CRepr]
+public struct IMAGE_OPTIONAL_HEADER32
 {
 	public IMAGE_OPTIONAL_HEADER_MAGIC Magic;
 	public uint8 MajorLinkerVersion;
@@ -7063,7 +7234,8 @@ public function BOOL PSYMBOL_REGISTERED_CALLBACK(HANDLE hProcess, uint32 ActionC
 	public IMAGE_DATA_DIRECTORY[16] DataDirectory;
 }
 
-[CRepr]public struct IMAGE_ROM_OPTIONAL_HEADER
+[CRepr]
+public struct IMAGE_ROM_OPTIONAL_HEADER
 {
 	public uint16 Magic;
 	public uint8 MajorLinkerVersion;
@@ -7080,7 +7252,8 @@ public function BOOL PSYMBOL_REGISTERED_CALLBACK(HANDLE hProcess, uint32 ActionC
 	public uint32 GpValue;
 }
 
-[CRepr, Packed(4)]public struct IMAGE_OPTIONAL_HEADER64
+[CRepr, Packed(4)]
+public struct IMAGE_OPTIONAL_HEADER64
 {
 	public IMAGE_OPTIONAL_HEADER_MAGIC Magic;
 	public uint8 MajorLinkerVersion;
@@ -7114,29 +7287,34 @@ public function BOOL PSYMBOL_REGISTERED_CALLBACK(HANDLE hProcess, uint32 ActionC
 	public IMAGE_DATA_DIRECTORY[16] DataDirectory;
 }
 
-[CRepr]public struct IMAGE_NT_HEADERS64
+[CRepr]
+public struct IMAGE_NT_HEADERS64
 {
 	public uint32 Signature;
 	public IMAGE_FILE_HEADER FileHeader;
 	public IMAGE_OPTIONAL_HEADER64 OptionalHeader;
 }
 
-[CRepr]public struct IMAGE_NT_HEADERS32
+[CRepr]
+public struct IMAGE_NT_HEADERS32
 {
 	public uint32 Signature;
 	public IMAGE_FILE_HEADER FileHeader;
 	public IMAGE_OPTIONAL_HEADER32 OptionalHeader;
 }
 
-[CRepr]public struct IMAGE_ROM_HEADERS
+[CRepr]
+public struct IMAGE_ROM_HEADERS
 {
 	public IMAGE_FILE_HEADER FileHeader;
 	public IMAGE_ROM_OPTIONAL_HEADER OptionalHeader;
 }
 
-[CRepr]public struct IMAGE_SECTION_HEADER
+[CRepr]
+public struct IMAGE_SECTION_HEADER
 {
-	[CRepr, Union]	public struct _Misc_e__Union
+	[CRepr, Union]
+	public struct _Misc_e__Union
 	{
 		public uint32 PhysicalAddress;
 		public uint32 VirtualSize;
@@ -7154,7 +7332,8 @@ public function BOOL PSYMBOL_REGISTERED_CALLBACK(HANDLE hProcess, uint32 ActionC
 	public IMAGE_SECTION_CHARACTERISTICS Characteristics;
 }
 
-[CRepr]public struct IMAGE_LOAD_CONFIG_CODE_INTEGRITY
+[CRepr]
+public struct IMAGE_LOAD_CONFIG_CODE_INTEGRITY
 {
 	public uint16 Flags;
 	public uint16 Catalog;
@@ -7162,7 +7341,8 @@ public function BOOL PSYMBOL_REGISTERED_CALLBACK(HANDLE hProcess, uint32 ActionC
 	public uint32 Reserved;
 }
 
-[CRepr]public struct IMAGE_LOAD_CONFIG_DIRECTORY32
+[CRepr]
+public struct IMAGE_LOAD_CONFIG_DIRECTORY32
 {
 	public uint32 Size;
 	public uint32 TimeDateStamp;
@@ -7214,7 +7394,8 @@ public function BOOL PSYMBOL_REGISTERED_CALLBACK(HANDLE hProcess, uint32 ActionC
 	public uint32 CastGuardOsDeterminedFailureMode;
 }
 
-[CRepr, Packed(4)]public struct IMAGE_LOAD_CONFIG_DIRECTORY64
+[CRepr, Packed(4)]
+public struct IMAGE_LOAD_CONFIG_DIRECTORY64
 {
 	public uint32 Size;
 	public uint32 TimeDateStamp;
@@ -7266,11 +7447,14 @@ public function BOOL PSYMBOL_REGISTERED_CALLBACK(HANDLE hProcess, uint32 ActionC
 	public uint64 CastGuardOsDeterminedFailureMode;
 }
 
-[CRepr]public struct IMAGE_ARM64_RUNTIME_FUNCTION_ENTRY
+[CRepr]
+public struct IMAGE_ARM64_RUNTIME_FUNCTION_ENTRY
 {
-	[CRepr, Union]	public struct _Anonymous_e__Union
+	[CRepr, Union]
+	public struct _Anonymous_e__Union
 	{
-		[CRepr]		public struct _Anonymous_e__Struct
+		[CRepr]
+		public struct _Anonymous_e__Struct
 		{
 			public uint32 _bitfield;
 		}
@@ -7283,9 +7467,11 @@ public function BOOL PSYMBOL_REGISTERED_CALLBACK(HANDLE hProcess, uint32 ActionC
 	public using _Anonymous_e__Union Anonymous;
 }
 
-[CRepr]public struct IMAGE_RUNTIME_FUNCTION_ENTRY
+[CRepr]
+public struct IMAGE_RUNTIME_FUNCTION_ENTRY
 {
-	[CRepr, Union]	public struct _Anonymous_e__Union
+	[CRepr, Union]
+	public struct _Anonymous_e__Union
 	{
 		public uint32 UnwindInfoAddress;
 		public uint32 UnwindData;
@@ -7296,7 +7482,8 @@ public function BOOL PSYMBOL_REGISTERED_CALLBACK(HANDLE hProcess, uint32 ActionC
 	public using _Anonymous_e__Union Anonymous;
 }
 
-[CRepr]public struct IMAGE_DEBUG_DIRECTORY
+[CRepr]
+public struct IMAGE_DEBUG_DIRECTORY
 {
 	public uint32 Characteristics;
 	public uint32 TimeDateStamp;
@@ -7308,7 +7495,8 @@ public function BOOL PSYMBOL_REGISTERED_CALLBACK(HANDLE hProcess, uint32 ActionC
 	public uint32 PointerToRawData;
 }
 
-[CRepr]public struct IMAGE_COFF_SYMBOLS_HEADER
+[CRepr]
+public struct IMAGE_COFF_SYMBOLS_HEADER
 {
 	public uint32 NumberOfSymbols;
 	public uint32 LvaToFirstSymbol;
@@ -7320,7 +7508,8 @@ public function BOOL PSYMBOL_REGISTERED_CALLBACK(HANDLE hProcess, uint32 ActionC
 	public uint32 RvaToLastByteOfData;
 }
 
-[CRepr]public struct FPO_DATA
+[CRepr]
+public struct FPO_DATA
 {
 	public uint32 ulOffStart;
 	public uint32 cbProcSize;
@@ -7329,16 +7518,19 @@ public function BOOL PSYMBOL_REGISTERED_CALLBACK(HANDLE hProcess, uint32 ActionC
 	public uint16 _bitfield;
 }
 
-[CRepr]public struct IMAGE_FUNCTION_ENTRY
+[CRepr]
+public struct IMAGE_FUNCTION_ENTRY
 {
 	public uint32 StartingAddress;
 	public uint32 EndingAddress;
 	public uint32 EndOfPrologue;
 }
 
-[CRepr, Packed(4)]public struct IMAGE_FUNCTION_ENTRY64
+[CRepr, Packed(4)]
+public struct IMAGE_FUNCTION_ENTRY64
 {
-	[CRepr, Union, Packed(4)]	public struct _Anonymous_e__Union
+	[CRepr, Union, Packed(4)]
+	public struct _Anonymous_e__Union
 	{
 		public uint64 EndOfPrologue;
 		public uint64 UnwindInfoAddress;
@@ -7349,9 +7541,11 @@ public function BOOL PSYMBOL_REGISTERED_CALLBACK(HANDLE hProcess, uint32 ActionC
 	public using _Anonymous_e__Union Anonymous;
 }
 
-[CRepr]public struct IMAGE_COR20_HEADER
+[CRepr]
+public struct IMAGE_COR20_HEADER
 {
-	[CRepr, Union]	public struct _Anonymous_e__Union
+	[CRepr, Union]
+	public struct _Anonymous_e__Union
 	{
 		public uint32 EntryPointToken;
 		public uint32 EntryPointRVA;
@@ -7372,7 +7566,8 @@ public function BOOL PSYMBOL_REGISTERED_CALLBACK(HANDLE hProcess, uint32 ActionC
 }
 
 #if BF_64_BIT
-[CRepr]public struct UNWIND_HISTORY_TABLE_ENTRY
+[CRepr]
+public struct UNWIND_HISTORY_TABLE_ENTRY
 {
 	public uint ImageBase;
 	public IMAGE_RUNTIME_FUNCTION_ENTRY* FunctionEntry;
@@ -7380,7 +7575,8 @@ public function BOOL PSYMBOL_REGISTERED_CALLBACK(HANDLE hProcess, uint32 ActionC
 #endif
 
 #if BF_64_BIT || BF_ARM_64
-[CRepr]public struct UNWIND_HISTORY_TABLE
+[CRepr]
+public struct UNWIND_HISTORY_TABLE
 {
 	public uint32 Count;
 	public uint8 LocalHint;
@@ -7393,18 +7589,22 @@ public function BOOL PSYMBOL_REGISTERED_CALLBACK(HANDLE hProcess, uint32 ActionC
 }
 #endif
 
-[CRepr]public struct WAITCHAIN_NODE_INFO
+[CRepr]
+public struct WAITCHAIN_NODE_INFO
 {
-	[CRepr, Union]	public struct _Anonymous_e__Union
+	[CRepr, Union]
+	public struct _Anonymous_e__Union
 	{
-		[CRepr]		public struct _LockObject_e__Struct
+		[CRepr]
+		public struct _LockObject_e__Struct
 		{
 			public char8[128] ObjectName;
 			public LARGE_INTEGER Timeout;
 			public BOOL Alertable;
 		}
 
-		[CRepr]		public struct _ThreadObject_e__Struct
+		[CRepr]
+		public struct _ThreadObject_e__Struct
 		{
 			public uint32 ProcessId;
 			public uint32 ThreadId;
@@ -7421,33 +7621,39 @@ public function BOOL PSYMBOL_REGISTERED_CALLBACK(HANDLE hProcess, uint32 ActionC
 	public using _Anonymous_e__Union Anonymous;
 }
 
-[CRepr]public struct MINIDUMP_LOCATION_DESCRIPTOR
+[CRepr]
+public struct MINIDUMP_LOCATION_DESCRIPTOR
 {
 	public uint32 DataSize;
 	public uint32 Rva;
 }
 
-[CRepr, Packed(4)]public struct MINIDUMP_LOCATION_DESCRIPTOR64
+[CRepr, Packed(4)]
+public struct MINIDUMP_LOCATION_DESCRIPTOR64
 {
 	public uint64 DataSize;
 	public uint64 Rva;
 }
 
-[CRepr, Packed(4)]public struct MINIDUMP_MEMORY_DESCRIPTOR
+[CRepr, Packed(4)]
+public struct MINIDUMP_MEMORY_DESCRIPTOR
 {
 	public uint64 StartOfMemoryRange;
 	public MINIDUMP_LOCATION_DESCRIPTOR Memory;
 }
 
-[CRepr, Packed(4)]public struct MINIDUMP_MEMORY_DESCRIPTOR64
+[CRepr, Packed(4)]
+public struct MINIDUMP_MEMORY_DESCRIPTOR64
 {
 	public uint64 StartOfMemoryRange;
 	public uint64 DataSize;
 }
 
-[CRepr, Packed(4)]public struct MINIDUMP_HEADER
+[CRepr, Packed(4)]
+public struct MINIDUMP_HEADER
 {
-	[CRepr, Union]	public struct _Anonymous_e__Union
+	[CRepr, Union]
+	public struct _Anonymous_e__Union
 	{
 		public uint32 Reserved;
 		public uint32 TimeDateStamp;
@@ -7462,21 +7668,25 @@ public function BOOL PSYMBOL_REGISTERED_CALLBACK(HANDLE hProcess, uint32 ActionC
 	public uint64 Flags;
 }
 
-[CRepr]public struct MINIDUMP_DIRECTORY
+[CRepr]
+public struct MINIDUMP_DIRECTORY
 {
 	public uint32 StreamType;
 	public MINIDUMP_LOCATION_DESCRIPTOR Location;
 }
 
-[CRepr]public struct MINIDUMP_STRING
+[CRepr]
+public struct MINIDUMP_STRING
 {
 	public uint32 Length;
 	public char8[1] Buffer;
 }
 
-[CRepr, Union]public struct CPU_INFORMATION
+[CRepr, Union]
+public struct CPU_INFORMATION
 {
-	[CRepr]	public struct _X86CpuInfo_e__Struct
+	[CRepr]
+	public struct _X86CpuInfo_e__Struct
 	{
 		public uint32[3] VendorId;
 		public uint32 VersionInformation;
@@ -7484,7 +7694,8 @@ public function BOOL PSYMBOL_REGISTERED_CALLBACK(HANDLE hProcess, uint32 ActionC
 		public uint32 AMDExtendedCpuFeatures;
 	}
 
-	[CRepr, Packed(4)]	public struct _OtherCpuInfo_e__Struct
+	[CRepr, Packed(4)]
+	public struct _OtherCpuInfo_e__Struct
 	{
 		public uint64[2] ProcessorFeatures;
 	}
@@ -7493,11 +7704,14 @@ public function BOOL PSYMBOL_REGISTERED_CALLBACK(HANDLE hProcess, uint32 ActionC
 	public _OtherCpuInfo_e__Struct OtherCpuInfo;
 }
 
-[CRepr]public struct MINIDUMP_SYSTEM_INFO
+[CRepr]
+public struct MINIDUMP_SYSTEM_INFO
 {
-	[CRepr, Union]	public struct _Anonymous2_e__Union
+	[CRepr, Union]
+	public struct _Anonymous2_e__Union
 	{
-		[CRepr]		public struct _Anonymous_e__Struct
+		[CRepr]
+		public struct _Anonymous_e__Struct
 		{
 			public uint16 SuiteMask;
 			public uint16 Reserved2;
@@ -7507,9 +7721,11 @@ public function BOOL PSYMBOL_REGISTERED_CALLBACK(HANDLE hProcess, uint32 ActionC
 		public using _Anonymous_e__Struct Anonymous;
 	}
 
-	[CRepr, Union]	public struct _Anonymous1_e__Union
+	[CRepr, Union]
+	public struct _Anonymous1_e__Union
 	{
-		[CRepr]		public struct _Anonymous_e__Struct
+		[CRepr]
+		public struct _Anonymous_e__Struct
 		{
 			public uint8 NumberOfProcessors;
 			public uint8 ProductType;
@@ -7532,7 +7748,8 @@ public function BOOL PSYMBOL_REGISTERED_CALLBACK(HANDLE hProcess, uint32 ActionC
 	public CPU_INFORMATION Cpu;
 }
 
-[CRepr, Packed(4)]public struct MINIDUMP_THREAD
+[CRepr, Packed(4)]
+public struct MINIDUMP_THREAD
 {
 	public uint32 ThreadId;
 	public uint32 SuspendCount;
@@ -7543,13 +7760,15 @@ public function BOOL PSYMBOL_REGISTERED_CALLBACK(HANDLE hProcess, uint32 ActionC
 	public MINIDUMP_LOCATION_DESCRIPTOR ThreadContext;
 }
 
-[CRepr]public struct MINIDUMP_THREAD_LIST
+[CRepr]
+public struct MINIDUMP_THREAD_LIST
 {
 	public uint32 NumberOfThreads;
 	public MINIDUMP_THREAD[1] Threads;
 }
 
-[CRepr, Packed(4)]public struct MINIDUMP_THREAD_EX
+[CRepr, Packed(4)]
+public struct MINIDUMP_THREAD_EX
 {
 	public uint32 ThreadId;
 	public uint32 SuspendCount;
@@ -7561,13 +7780,15 @@ public function BOOL PSYMBOL_REGISTERED_CALLBACK(HANDLE hProcess, uint32 ActionC
 	public MINIDUMP_MEMORY_DESCRIPTOR BackingStore;
 }
 
-[CRepr]public struct MINIDUMP_THREAD_EX_LIST
+[CRepr]
+public struct MINIDUMP_THREAD_EX_LIST
 {
 	public uint32 NumberOfThreads;
 	public MINIDUMP_THREAD_EX[1] Threads;
 }
 
-[CRepr, Packed(4)]public struct MINIDUMP_EXCEPTION
+[CRepr, Packed(4)]
+public struct MINIDUMP_EXCEPTION
 {
 	public uint32 ExceptionCode;
 	public uint32 ExceptionFlags;
@@ -7578,7 +7799,8 @@ public function BOOL PSYMBOL_REGISTERED_CALLBACK(HANDLE hProcess, uint32 ActionC
 	public uint64[15] ExceptionInformation;
 }
 
-[CRepr]public struct MINIDUMP_EXCEPTION_STREAM
+[CRepr]
+public struct MINIDUMP_EXCEPTION_STREAM
 {
 	public uint32 ThreadId;
 	public uint32 __alignment;
@@ -7586,7 +7808,8 @@ public function BOOL PSYMBOL_REGISTERED_CALLBACK(HANDLE hProcess, uint32 ActionC
 	public MINIDUMP_LOCATION_DESCRIPTOR ThreadContext;
 }
 
-[CRepr, Packed(4)]public struct MINIDUMP_MODULE
+[CRepr, Packed(4)]
+public struct MINIDUMP_MODULE
 {
 	public uint64 BaseOfImage;
 	public uint32 SizeOfImage;
@@ -7600,33 +7823,38 @@ public function BOOL PSYMBOL_REGISTERED_CALLBACK(HANDLE hProcess, uint32 ActionC
 	public uint64 Reserved1;
 }
 
-[CRepr]public struct MINIDUMP_MODULE_LIST
+[CRepr]
+public struct MINIDUMP_MODULE_LIST
 {
 	public uint32 NumberOfModules;
 	public MINIDUMP_MODULE[1] Modules;
 }
 
-[CRepr]public struct MINIDUMP_MEMORY_LIST
+[CRepr]
+public struct MINIDUMP_MEMORY_LIST
 {
 	public uint32 NumberOfMemoryRanges;
 	public MINIDUMP_MEMORY_DESCRIPTOR[1] MemoryRanges;
 }
 
-[CRepr, Packed(4)]public struct MINIDUMP_MEMORY64_LIST
+[CRepr, Packed(4)]
+public struct MINIDUMP_MEMORY64_LIST
 {
 	public uint64 NumberOfMemoryRanges;
 	public uint64 BaseRva;
 	public MINIDUMP_MEMORY_DESCRIPTOR64[1] MemoryRanges;
 }
 
-[CRepr, Packed(4)]public struct MINIDUMP_EXCEPTION_INFORMATION
+[CRepr, Packed(4)]
+public struct MINIDUMP_EXCEPTION_INFORMATION
 {
 	public uint32 ThreadId;
 	public EXCEPTION_POINTERS* ExceptionPointers;
 	public BOOL ClientPointers;
 }
 
-[CRepr, Packed(4)]public struct MINIDUMP_EXCEPTION_INFORMATION64
+[CRepr, Packed(4)]
+public struct MINIDUMP_EXCEPTION_INFORMATION64
 {
 	public uint32 ThreadId;
 	public uint64 ExceptionRecord;
@@ -7634,14 +7862,16 @@ public function BOOL PSYMBOL_REGISTERED_CALLBACK(HANDLE hProcess, uint32 ActionC
 	public BOOL ClientPointers;
 }
 
-[CRepr]public struct MINIDUMP_HANDLE_OBJECT_INFORMATION
+[CRepr]
+public struct MINIDUMP_HANDLE_OBJECT_INFORMATION
 {
 	public uint32 NextInfoRva;
 	public uint32 InfoType;
 	public uint32 SizeOfInfo;
 }
 
-[CRepr, Packed(4)]public struct MINIDUMP_HANDLE_DESCRIPTOR
+[CRepr, Packed(4)]
+public struct MINIDUMP_HANDLE_DESCRIPTOR
 {
 	public uint64 Handle;
 	public uint32 TypeNameRva;
@@ -7652,7 +7882,8 @@ public function BOOL PSYMBOL_REGISTERED_CALLBACK(HANDLE hProcess, uint32 ActionC
 	public uint32 PointerCount;
 }
 
-[CRepr, Packed(4)]public struct MINIDUMP_HANDLE_DESCRIPTOR_2
+[CRepr, Packed(4)]
+public struct MINIDUMP_HANDLE_DESCRIPTOR_2
 {
 	public uint64 Handle;
 	public uint32 TypeNameRva;
@@ -7665,7 +7896,8 @@ public function BOOL PSYMBOL_REGISTERED_CALLBACK(HANDLE hProcess, uint32 ActionC
 	public uint32 Reserved0;
 }
 
-[CRepr]public struct MINIDUMP_HANDLE_DATA_STREAM
+[CRepr]
+public struct MINIDUMP_HANDLE_DATA_STREAM
 {
 	public uint32 SizeOfHeader;
 	public uint32 SizeOfDescriptor;
@@ -7673,7 +7905,8 @@ public function BOOL PSYMBOL_REGISTERED_CALLBACK(HANDLE hProcess, uint32 ActionC
 	public uint32 Reserved;
 }
 
-[CRepr]public struct MINIDUMP_HANDLE_OPERATION_LIST
+[CRepr]
+public struct MINIDUMP_HANDLE_OPERATION_LIST
 {
 	public uint32 SizeOfHeader;
 	public uint32 SizeOfEntry;
@@ -7681,7 +7914,8 @@ public function BOOL PSYMBOL_REGISTERED_CALLBACK(HANDLE hProcess, uint32 ActionC
 	public uint32 Reserved;
 }
 
-[CRepr, Packed(4)]public struct MINIDUMP_FUNCTION_TABLE_DESCRIPTOR
+[CRepr, Packed(4)]
+public struct MINIDUMP_FUNCTION_TABLE_DESCRIPTOR
 {
 	public uint64 MinimumAddress;
 	public uint64 MaximumAddress;
@@ -7690,7 +7924,8 @@ public function BOOL PSYMBOL_REGISTERED_CALLBACK(HANDLE hProcess, uint32 ActionC
 	public uint32 SizeOfAlignPad;
 }
 
-[CRepr]public struct MINIDUMP_FUNCTION_TABLE_STREAM
+[CRepr]
+public struct MINIDUMP_FUNCTION_TABLE_STREAM
 {
 	public uint32 SizeOfHeader;
 	public uint32 SizeOfDescriptor;
@@ -7700,7 +7935,8 @@ public function BOOL PSYMBOL_REGISTERED_CALLBACK(HANDLE hProcess, uint32 ActionC
 	public uint32 SizeOfAlignPad;
 }
 
-[CRepr, Packed(4)]public struct MINIDUMP_UNLOADED_MODULE
+[CRepr, Packed(4)]
+public struct MINIDUMP_UNLOADED_MODULE
 {
 	public uint64 BaseOfImage;
 	public uint32 SizeOfImage;
@@ -7709,14 +7945,16 @@ public function BOOL PSYMBOL_REGISTERED_CALLBACK(HANDLE hProcess, uint32 ActionC
 	public uint32 ModuleNameRva;
 }
 
-[CRepr]public struct MINIDUMP_UNLOADED_MODULE_LIST
+[CRepr]
+public struct MINIDUMP_UNLOADED_MODULE_LIST
 {
 	public uint32 SizeOfHeader;
 	public uint32 SizeOfEntry;
 	public uint32 NumberOfEntries;
 }
 
-[CRepr, Packed(4)]public struct XSTATE_CONFIG_FEATURE_MSC_INFO
+[CRepr, Packed(4)]
+public struct XSTATE_CONFIG_FEATURE_MSC_INFO
 {
 	public uint32 SizeOfInfo;
 	public uint32 ContextSize;
@@ -7724,7 +7962,8 @@ public function BOOL PSYMBOL_REGISTERED_CALLBACK(HANDLE hProcess, uint32 ActionC
 	public XSTATE_FEATURE[64] Features;
 }
 
-[CRepr]public struct MINIDUMP_MISC_INFO
+[CRepr]
+public struct MINIDUMP_MISC_INFO
 {
 	public uint32 SizeOfInfo;
 	public MINIDUMP_MISC_INFO_FLAGS Flags1;
@@ -7734,7 +7973,8 @@ public function BOOL PSYMBOL_REGISTERED_CALLBACK(HANDLE hProcess, uint32 ActionC
 	public uint32 ProcessKernelTime;
 }
 
-[CRepr]public struct MINIDUMP_MISC_INFO_2
+[CRepr]
+public struct MINIDUMP_MISC_INFO_2
 {
 	public uint32 SizeOfInfo;
 	public uint32 Flags1;
@@ -7749,7 +7989,8 @@ public function BOOL PSYMBOL_REGISTERED_CALLBACK(HANDLE hProcess, uint32 ActionC
 	public uint32 ProcessorCurrentIdleState;
 }
 
-[CRepr]public struct MINIDUMP_MISC_INFO_3
+[CRepr]
+public struct MINIDUMP_MISC_INFO_3
 {
 	public uint32 SizeOfInfo;
 	public uint32 Flags1;
@@ -7769,7 +8010,8 @@ public function BOOL PSYMBOL_REGISTERED_CALLBACK(HANDLE hProcess, uint32 ActionC
 	public TIME_ZONE_INFORMATION TimeZone;
 }
 
-[CRepr]public struct MINIDUMP_MISC_INFO_4
+[CRepr]
+public struct MINIDUMP_MISC_INFO_4
 {
 	public uint32 SizeOfInfo;
 	public uint32 Flags1;
@@ -7791,7 +8033,8 @@ public function BOOL PSYMBOL_REGISTERED_CALLBACK(HANDLE hProcess, uint32 ActionC
 	public char8[40] DbgBldStr;
 }
 
-[CRepr]public struct MINIDUMP_MISC_INFO_5
+[CRepr]
+public struct MINIDUMP_MISC_INFO_5
 {
 	public uint32 SizeOfInfo;
 	public uint32 Flags1;
@@ -7815,7 +8058,8 @@ public function BOOL PSYMBOL_REGISTERED_CALLBACK(HANDLE hProcess, uint32 ActionC
 	public uint32 ProcessCookie;
 }
 
-[CRepr, Packed(4)]public struct MINIDUMP_MEMORY_INFO
+[CRepr, Packed(4)]
+public struct MINIDUMP_MEMORY_INFO
 {
 	public uint64 BaseAddress;
 	public uint64 AllocationBase;
@@ -7828,26 +8072,30 @@ public function BOOL PSYMBOL_REGISTERED_CALLBACK(HANDLE hProcess, uint32 ActionC
 	public uint32 __alignment2;
 }
 
-[CRepr, Packed(4)]public struct MINIDUMP_MEMORY_INFO_LIST
+[CRepr, Packed(4)]
+public struct MINIDUMP_MEMORY_INFO_LIST
 {
 	public uint32 SizeOfHeader;
 	public uint32 SizeOfEntry;
 	public uint64 NumberOfEntries;
 }
 
-[CRepr, Packed(4)]public struct MINIDUMP_THREAD_NAME
+[CRepr, Packed(4)]
+public struct MINIDUMP_THREAD_NAME
 {
 	public uint32 ThreadId;
 	public uint64 RvaOfThreadName;
 }
 
-[CRepr]public struct MINIDUMP_THREAD_NAME_LIST
+[CRepr]
+public struct MINIDUMP_THREAD_NAME_LIST
 {
 	public uint32 NumberOfThreadNames;
 	public MINIDUMP_THREAD_NAME[1] ThreadNames;
 }
 
-[CRepr, Packed(4)]public struct MINIDUMP_THREAD_INFO
+[CRepr, Packed(4)]
+public struct MINIDUMP_THREAD_INFO
 {
 	public uint32 ThreadId;
 	public MINIDUMP_THREAD_INFO_DUMP_FLAGS DumpFlags;
@@ -7861,21 +8109,24 @@ public function BOOL PSYMBOL_REGISTERED_CALLBACK(HANDLE hProcess, uint32 ActionC
 	public uint64 Affinity;
 }
 
-[CRepr]public struct MINIDUMP_THREAD_INFO_LIST
+[CRepr]
+public struct MINIDUMP_THREAD_INFO_LIST
 {
 	public uint32 SizeOfHeader;
 	public uint32 SizeOfEntry;
 	public uint32 NumberOfEntries;
 }
 
-[CRepr, Packed(4)]public struct MINIDUMP_TOKEN_INFO_HEADER
+[CRepr, Packed(4)]
+public struct MINIDUMP_TOKEN_INFO_HEADER
 {
 	public uint32 TokenSize;
 	public uint32 TokenId;
 	public uint64 TokenHandle;
 }
 
-[CRepr]public struct MINIDUMP_TOKEN_INFO_LIST
+[CRepr]
+public struct MINIDUMP_TOKEN_INFO_LIST
 {
 	public uint32 TokenListSize;
 	public uint32 TokenListEntries;
@@ -7883,7 +8134,8 @@ public function BOOL PSYMBOL_REGISTERED_CALLBACK(HANDLE hProcess, uint32 ActionC
 	public uint32 ElementHeaderSize;
 }
 
-[CRepr, Packed(4)]public struct MINIDUMP_SYSTEM_BASIC_INFORMATION
+[CRepr, Packed(4)]
+public struct MINIDUMP_SYSTEM_BASIC_INFORMATION
 {
 	public uint32 TimerResolution;
 	public uint32 PageSize;
@@ -7897,7 +8149,8 @@ public function BOOL PSYMBOL_REGISTERED_CALLBACK(HANDLE hProcess, uint32 ActionC
 	public uint32 NumberOfProcessors;
 }
 
-[CRepr, Packed(4)]public struct MINIDUMP_SYSTEM_FILECACHE_INFORMATION
+[CRepr, Packed(4)]
+public struct MINIDUMP_SYSTEM_FILECACHE_INFORMATION
 {
 	public uint64 CurrentSize;
 	public uint64 PeakSize;
@@ -7910,7 +8163,8 @@ public function BOOL PSYMBOL_REGISTERED_CALLBACK(HANDLE hProcess, uint32 ActionC
 	public uint32 Flags;
 }
 
-[CRepr, Packed(4)]public struct MINIDUMP_SYSTEM_BASIC_PERFORMANCE_INFORMATION
+[CRepr, Packed(4)]
+public struct MINIDUMP_SYSTEM_BASIC_PERFORMANCE_INFORMATION
 {
 	public uint64 AvailablePages;
 	public uint64 CommittedPages;
@@ -7918,7 +8172,8 @@ public function BOOL PSYMBOL_REGISTERED_CALLBACK(HANDLE hProcess, uint32 ActionC
 	public uint64 PeakCommitment;
 }
 
-[CRepr, Packed(4)]public struct MINIDUMP_SYSTEM_PERFORMANCE_INFORMATION
+[CRepr, Packed(4)]
+public struct MINIDUMP_SYSTEM_PERFORMANCE_INFORMATION
 {
 	public uint64 IdleProcessTime;
 	public uint64 IoReadTransferCount;
@@ -8000,7 +8255,8 @@ public function BOOL PSYMBOL_REGISTERED_CALLBACK(HANDLE hProcess, uint32 ActionC
 	public uint64 SharedCommittedPages;
 }
 
-[CRepr]public struct MINIDUMP_SYSTEM_MEMORY_INFO_1
+[CRepr]
+public struct MINIDUMP_SYSTEM_MEMORY_INFO_1
 {
 	public uint16 Revision;
 	public uint16 Flags;
@@ -8010,7 +8266,8 @@ public function BOOL PSYMBOL_REGISTERED_CALLBACK(HANDLE hProcess, uint32 ActionC
 	public MINIDUMP_SYSTEM_PERFORMANCE_INFORMATION PerfInfo;
 }
 
-[CRepr, Packed(4)]public struct MINIDUMP_PROCESS_VM_COUNTERS_1
+[CRepr, Packed(4)]
+public struct MINIDUMP_PROCESS_VM_COUNTERS_1
 {
 	public uint16 Revision;
 	public uint32 PageFaultCount;
@@ -8025,7 +8282,8 @@ public function BOOL PSYMBOL_REGISTERED_CALLBACK(HANDLE hProcess, uint32 ActionC
 	public uint64 PrivateUsage;
 }
 
-[CRepr, Packed(4)]public struct MINIDUMP_PROCESS_VM_COUNTERS_2
+[CRepr, Packed(4)]
+public struct MINIDUMP_PROCESS_VM_COUNTERS_2
 {
 	public uint16 Revision;
 	public uint16 Flags;
@@ -8050,27 +8308,31 @@ public function BOOL PSYMBOL_REGISTERED_CALLBACK(HANDLE hProcess, uint32 ActionC
 	public uint64 JobTotalCommitLimit;
 }
 
-[CRepr]public struct MINIDUMP_USER_RECORD
+[CRepr]
+public struct MINIDUMP_USER_RECORD
 {
 	public uint32 Type;
 	public MINIDUMP_LOCATION_DESCRIPTOR Memory;
 }
 
-[CRepr, Packed(4)]public struct MINIDUMP_USER_STREAM
+[CRepr, Packed(4)]
+public struct MINIDUMP_USER_STREAM
 {
 	public uint32 Type;
 	public uint32 BufferSize;
 	public void* Buffer;
 }
 
-[CRepr, Packed(4)]public struct MINIDUMP_USER_STREAM_INFORMATION
+[CRepr, Packed(4)]
+public struct MINIDUMP_USER_STREAM_INFORMATION
 {
 	public uint32 UserStreamCount;
 	public MINIDUMP_USER_STREAM* UserStreamArray;
 }
 
 #if BF_64_BIT
-[CRepr]public struct MINIDUMP_THREAD_CALLBACK
+[CRepr]
+public struct MINIDUMP_THREAD_CALLBACK
 {
 	public uint32 ThreadId;
 	public HANDLE ThreadHandle;
@@ -8082,7 +8344,8 @@ public function BOOL PSYMBOL_REGISTERED_CALLBACK(HANDLE hProcess, uint32 ActionC
 #endif
 
 #if BF_64_BIT
-[CRepr]public struct MINIDUMP_THREAD_EX_CALLBACK
+[CRepr]
+public struct MINIDUMP_THREAD_EX_CALLBACK
 {
 	public uint32 ThreadId;
 	public HANDLE ThreadHandle;
@@ -8095,12 +8358,14 @@ public function BOOL PSYMBOL_REGISTERED_CALLBACK(HANDLE hProcess, uint32 ActionC
 }
 #endif
 
-[CRepr]public struct MINIDUMP_INCLUDE_THREAD_CALLBACK
+[CRepr]
+public struct MINIDUMP_INCLUDE_THREAD_CALLBACK
 {
 	public uint32 ThreadId;
 }
 
-[CRepr, Packed(4)]public struct MINIDUMP_MODULE_CALLBACK
+[CRepr, Packed(4)]
+public struct MINIDUMP_MODULE_CALLBACK
 {
 	public PWSTR FullPath;
 	public uint64 BaseOfImage;
@@ -8114,12 +8379,14 @@ public function BOOL PSYMBOL_REGISTERED_CALLBACK(HANDLE hProcess, uint32 ActionC
 	public uint32 SizeOfMiscRecord;
 }
 
-[CRepr, Packed(4)]public struct MINIDUMP_INCLUDE_MODULE_CALLBACK
+[CRepr, Packed(4)]
+public struct MINIDUMP_INCLUDE_MODULE_CALLBACK
 {
 	public uint64 BaseOfImage;
 }
 
-[CRepr, Packed(4)]public struct MINIDUMP_IO_CALLBACK
+[CRepr, Packed(4)]
+public struct MINIDUMP_IO_CALLBACK
 {
 	public HANDLE Handle;
 	public uint64 Offset;
@@ -8127,26 +8394,30 @@ public function BOOL PSYMBOL_REGISTERED_CALLBACK(HANDLE hProcess, uint32 ActionC
 	public uint32 BufferBytes;
 }
 
-[CRepr, Packed(4)]public struct MINIDUMP_READ_MEMORY_FAILURE_CALLBACK
+[CRepr, Packed(4)]
+public struct MINIDUMP_READ_MEMORY_FAILURE_CALLBACK
 {
 	public uint64 Offset;
 	public uint32 Bytes;
 	public HRESULT FailureStatus;
 }
 
-[CRepr, Packed(4)]public struct MINIDUMP_VM_QUERY_CALLBACK
+[CRepr, Packed(4)]
+public struct MINIDUMP_VM_QUERY_CALLBACK
 {
 	public uint64 Offset;
 }
 
-[CRepr, Packed(4)]public struct MINIDUMP_VM_PRE_READ_CALLBACK
+[CRepr, Packed(4)]
+public struct MINIDUMP_VM_PRE_READ_CALLBACK
 {
 	public uint64 Offset;
 	public void* Buffer;
 	public uint32 Size;
 }
 
-[CRepr, Packed(4)]public struct MINIDUMP_VM_POST_READ_CALLBACK
+[CRepr, Packed(4)]
+public struct MINIDUMP_VM_POST_READ_CALLBACK
 {
 	public uint64 Offset;
 	public void* Buffer;
@@ -8155,9 +8426,11 @@ public function BOOL PSYMBOL_REGISTERED_CALLBACK(HANDLE hProcess, uint32 ActionC
 	public HRESULT Status;
 }
 
-[CRepr]public struct MINIDUMP_CALLBACK_INPUT
+[CRepr]
+public struct MINIDUMP_CALLBACK_INPUT
 {
-	[CRepr, Union]	public struct _Anonymous_e__Union
+	[CRepr, Union]
+	public struct _Anonymous_e__Union
 	{
 		public HRESULT Status;
 		public MINIDUMP_THREAD_CALLBACK Thread;
@@ -8179,35 +8452,42 @@ public function BOOL PSYMBOL_REGISTERED_CALLBACK(HANDLE hProcess, uint32 ActionC
 	public using _Anonymous_e__Union Anonymous;
 }
 
-[CRepr]public struct MINIDUMP_CALLBACK_OUTPUT
+[CRepr]
+public struct MINIDUMP_CALLBACK_OUTPUT
 {
-	[CRepr, Union, Packed(4)]	public struct _Anonymous_e__Union
+	[CRepr, Union, Packed(4)]
+	public struct _Anonymous_e__Union
 	{
-		[CRepr]		public struct _Anonymous4_e__Struct
+		[CRepr]
+		public struct _Anonymous4_e__Struct
 		{
 			public HRESULT VmQueryStatus;
 			public MINIDUMP_MEMORY_INFO VmQueryResult;
 		}
 
-		[CRepr]		public struct _Anonymous2_e__Struct
+		[CRepr]
+		public struct _Anonymous2_e__Struct
 		{
 			public BOOL CheckCancel;
 			public BOOL Cancel;
 		}
 
-		[CRepr]		public struct _Anonymous5_e__Struct
+		[CRepr]
+		public struct _Anonymous5_e__Struct
 		{
 			public HRESULT VmReadStatus;
 			public uint32 VmReadBytesCompleted;
 		}
 
-		[CRepr, Packed(4)]		public struct _Anonymous1_e__Struct
+		[CRepr, Packed(4)]
+		public struct _Anonymous1_e__Struct
 		{
 			public uint64 MemoryBase;
 			public uint32 MemorySize;
 		}
 
-		[CRepr]		public struct _Anonymous3_e__Struct
+		[CRepr]
+		public struct _Anonymous3_e__Struct
 		{
 			public MINIDUMP_MEMORY_INFO VmRegion;
 			public BOOL Continue;
@@ -8228,13 +8508,15 @@ public function BOOL PSYMBOL_REGISTERED_CALLBACK(HANDLE hProcess, uint32 ActionC
 	public using _Anonymous_e__Union Anonymous;
 }
 
-[CRepr, Packed(4)]public struct MINIDUMP_CALLBACK_INFORMATION
+[CRepr, Packed(4)]
+public struct MINIDUMP_CALLBACK_INFORMATION
 {
 	public MINIDUMP_CALLBACK_ROUTINE CallbackRoutine;
 	public void* CallbackParam;
 }
 
-[CRepr]public struct DebugPropertyInfo
+[CRepr]
+public struct DebugPropertyInfo
 {
 	public uint32 m_dwValidFields;
 	public BSTR m_bstrName;
@@ -8245,7 +8527,8 @@ public function BOOL PSYMBOL_REGISTERED_CALLBACK(HANDLE hProcess, uint32 ActionC
 	public IDebugProperty* m_pDebugProp;
 }
 
-[CRepr]public struct ExtendedDebugPropertyInfo
+[CRepr]
+public struct ExtendedDebugPropertyInfo
 {
 	public uint32 dwValidFields;
 	public PWSTR pszName;
@@ -8261,7 +8544,8 @@ public function BOOL PSYMBOL_REGISTERED_CALLBACK(HANDLE hProcess, uint32 ActionC
 	public IDebugExtendedProperty* pDebugExtProp;
 }
 
-[CRepr]public struct DebugStackFrameDescriptor
+[CRepr]
+public struct DebugStackFrameDescriptor
 {
 	public IDebugStackFrame* pdsf;
 	public uint32 dwMin;
@@ -8270,7 +8554,8 @@ public function BOOL PSYMBOL_REGISTERED_CALLBACK(HANDLE hProcess, uint32 ActionC
 	public IUnknown* punkFinal;
 }
 
-[CRepr]public struct DebugStackFrameDescriptor64
+[CRepr]
+public struct DebugStackFrameDescriptor64
 {
 	public IDebugStackFrame* pdsf;
 	public uint64 dwMin;
@@ -8279,21 +8564,25 @@ public function BOOL PSYMBOL_REGISTERED_CALLBACK(HANDLE hProcess, uint32 ActionC
 	public IUnknown* punkFinal;
 }
 
-[CRepr]public struct PROFILER_HEAP_OBJECT_SCOPE_LIST
+[CRepr]
+public struct PROFILER_HEAP_OBJECT_SCOPE_LIST
 {
 	public uint32 count;
 	public uint[1] scopes;
 }
 
-[CRepr]public struct PROFILER_PROPERTY_TYPE_SUBSTRING_INFO
+[CRepr]
+public struct PROFILER_PROPERTY_TYPE_SUBSTRING_INFO
 {
 	public uint32 length;
 	public PWSTR value;
 }
 
-[CRepr]public struct PROFILER_HEAP_OBJECT_RELATIONSHIP
+[CRepr]
+public struct PROFILER_HEAP_OBJECT_RELATIONSHIP
 {
-	[CRepr, Union]	public struct _Anonymous_e__Union
+	[CRepr, Union]
+	public struct _Anonymous_e__Union
 	{
 		public double numberValue;
 		public PWSTR stringValue;
@@ -8308,15 +8597,18 @@ public function BOOL PSYMBOL_REGISTERED_CALLBACK(HANDLE hProcess, uint32 ActionC
 	public using _Anonymous_e__Union Anonymous;
 }
 
-[CRepr]public struct PROFILER_HEAP_OBJECT_RELATIONSHIP_LIST
+[CRepr]
+public struct PROFILER_HEAP_OBJECT_RELATIONSHIP_LIST
 {
 	public uint32 count;
 	public PROFILER_HEAP_OBJECT_RELATIONSHIP[1] elements;
 }
 
-[CRepr]public struct PROFILER_HEAP_OBJECT_OPTIONAL_INFO
+[CRepr]
+public struct PROFILER_HEAP_OBJECT_OPTIONAL_INFO
 {
-	[CRepr, Union]	public struct _Anonymous_e__Union
+	[CRepr, Union]
+	public struct _Anonymous_e__Union
 	{
 		public uint prototype;
 		public PWSTR functionName;
@@ -8337,9 +8629,11 @@ public function BOOL PSYMBOL_REGISTERED_CALLBACK(HANDLE hProcess, uint32 ActionC
 	public using _Anonymous_e__Union Anonymous;
 }
 
-[CRepr]public struct PROFILER_HEAP_OBJECT
+[CRepr]
+public struct PROFILER_HEAP_OBJECT
 {
-	[CRepr, Union]	public struct _Anonymous_e__Union
+	[CRepr, Union]
+	public struct _Anonymous_e__Union
 	{
 		public uint objectId;
 		public void* externalObjectAddress;
@@ -8353,14 +8647,16 @@ public function BOOL PSYMBOL_REGISTERED_CALLBACK(HANDLE hProcess, uint32 ActionC
 	public uint16 optionalInfoCount;
 }
 
-[CRepr]public struct PROFILER_HEAP_SUMMARY
+[CRepr]
+public struct PROFILER_HEAP_SUMMARY
 {
 	public PROFILER_HEAP_SUMMARY_VERSION version;
 	public uint32 totalHeapSize;
 }
 
 #if BF_64_BIT || BF_ARM_64
-[CRepr]public struct LOADED_IMAGE
+[CRepr]
+public struct LOADED_IMAGE
 {
 	public PSTR ModuleName;
 	public HANDLE hFile;
@@ -8379,7 +8675,8 @@ public function BOOL PSYMBOL_REGISTERED_CALLBACK(HANDLE hProcess, uint32 ActionC
 }
 #endif
 
-[CRepr]public struct MODLOAD_DATA
+[CRepr]
+public struct MODLOAD_DATA
 {
 	public uint32 ssize;
 	public MODLOAD_DATA_TYPE ssig;
@@ -8388,7 +8685,8 @@ public function BOOL PSYMBOL_REGISTERED_CALLBACK(HANDLE hProcess, uint32 ActionC
 	public uint32 flags;
 }
 
-[CRepr]public struct MODLOAD_CVMISC
+[CRepr]
+public struct MODLOAD_CVMISC
 {
 	public uint32 oCV;
 	public uint cCV;
@@ -8398,20 +8696,23 @@ public function BOOL PSYMBOL_REGISTERED_CALLBACK(HANDLE hProcess, uint32 ActionC
 	public uint32 cImage;
 }
 
-[CRepr]public struct MODLOAD_PDBGUID_PDBAGE
+[CRepr]
+public struct MODLOAD_PDBGUID_PDBAGE
 {
 	public Guid PdbGuid;
 	public uint32 PdbAge;
 }
 
-[CRepr]public struct ADDRESS64
+[CRepr]
+public struct ADDRESS64
 {
 	public uint64 Offset;
 	public uint16 Segment;
 	public ADDRESS_MODE Mode;
 }
 
-[CRepr]public struct KDHELP64
+[CRepr]
+public struct KDHELP64
 {
 	public uint64 Thread;
 	public uint32 ThCallbackStack;
@@ -8432,7 +8733,8 @@ public function BOOL PSYMBOL_REGISTERED_CALLBACK(HANDLE hProcess, uint32 ActionC
 	public uint64[2] Reserved0;
 }
 
-[CRepr]public struct STACKFRAME64
+[CRepr]
+public struct STACKFRAME64
 {
 	public ADDRESS64 AddrPC;
 	public ADDRESS64 AddrReturn;
@@ -8447,7 +8749,8 @@ public function BOOL PSYMBOL_REGISTERED_CALLBACK(HANDLE hProcess, uint32 ActionC
 	public KDHELP64 KdHelp;
 }
 
-[CRepr]public struct STACKFRAME_EX
+[CRepr]
+public struct STACKFRAME_EX
 {
 	public ADDRESS64 AddrPC;
 	public ADDRESS64 AddrReturn;
@@ -8464,7 +8767,8 @@ public function BOOL PSYMBOL_REGISTERED_CALLBACK(HANDLE hProcess, uint32 ActionC
 	public uint32 InlineFrameContext;
 }
 
-[CRepr]public struct API_VERSION
+[CRepr]
+public struct API_VERSION
 {
 	public uint16 MajorVersion;
 	public uint16 MinorVersion;
@@ -8472,7 +8776,8 @@ public function BOOL PSYMBOL_REGISTERED_CALLBACK(HANDLE hProcess, uint32 ActionC
 	public uint16 Reserved;
 }
 
-[CRepr]public struct IMAGEHLP_SYMBOL64
+[CRepr]
+public struct IMAGEHLP_SYMBOL64
 {
 	public uint32 SizeOfStruct;
 	public uint64 Address;
@@ -8482,13 +8787,15 @@ public function BOOL PSYMBOL_REGISTERED_CALLBACK(HANDLE hProcess, uint32 ActionC
 	public CHAR[1] Name;
 }
 
-[CRepr]public struct IMAGEHLP_SYMBOL64_PACKAGE
+[CRepr]
+public struct IMAGEHLP_SYMBOL64_PACKAGE
 {
 	public IMAGEHLP_SYMBOL64 sym;
 	public CHAR[2001] name;
 }
 
-[CRepr]public struct IMAGEHLP_SYMBOLW64
+[CRepr]
+public struct IMAGEHLP_SYMBOLW64
 {
 	public uint32 SizeOfStruct;
 	public uint64 Address;
@@ -8498,13 +8805,15 @@ public function BOOL PSYMBOL_REGISTERED_CALLBACK(HANDLE hProcess, uint32 ActionC
 	public char8[1] Name;
 }
 
-[CRepr]public struct IMAGEHLP_SYMBOLW64_PACKAGE
+[CRepr]
+public struct IMAGEHLP_SYMBOLW64_PACKAGE
 {
 	public IMAGEHLP_SYMBOLW64 sym;
 	public char8[2001] name;
 }
 
-[CRepr]public struct IMAGEHLP_MODULE64
+[CRepr]
+public struct IMAGEHLP_MODULE64
 {
 	public uint32 SizeOfStruct;
 	public uint64 BaseOfImage;
@@ -8533,13 +8842,15 @@ public function BOOL PSYMBOL_REGISTERED_CALLBACK(HANDLE hProcess, uint32 ActionC
 	public uint32 Reserved;
 }
 
-[CRepr]public struct IMAGEHLP_MODULE64_EX
+[CRepr]
+public struct IMAGEHLP_MODULE64_EX
 {
 	public IMAGEHLP_MODULE64 Module;
 	public uint32 RegionFlags;
 }
 
-[CRepr]public struct IMAGEHLP_MODULEW64
+[CRepr]
+public struct IMAGEHLP_MODULEW64
 {
 	public uint32 SizeOfStruct;
 	public uint64 BaseOfImage;
@@ -8568,13 +8879,15 @@ public function BOOL PSYMBOL_REGISTERED_CALLBACK(HANDLE hProcess, uint32 ActionC
 	public uint32 Reserved;
 }
 
-[CRepr]public struct IMAGEHLP_MODULEW64_EX
+[CRepr]
+public struct IMAGEHLP_MODULEW64_EX
 {
 	public IMAGEHLP_MODULEW64 Module;
 	public uint32 RegionFlags;
 }
 
-[CRepr]public struct IMAGEHLP_LINE64
+[CRepr]
+public struct IMAGEHLP_LINE64
 {
 	public uint32 SizeOfStruct;
 	public void* Key;
@@ -8583,7 +8896,8 @@ public function BOOL PSYMBOL_REGISTERED_CALLBACK(HANDLE hProcess, uint32 ActionC
 	public uint64 Address;
 }
 
-[CRepr]public struct IMAGEHLP_LINEW64
+[CRepr]
+public struct IMAGEHLP_LINEW64
 {
 	public uint32 SizeOfStruct;
 	public void* Key;
@@ -8592,19 +8906,22 @@ public function BOOL PSYMBOL_REGISTERED_CALLBACK(HANDLE hProcess, uint32 ActionC
 	public uint64 Address;
 }
 
-[CRepr]public struct SOURCEFILE
+[CRepr]
+public struct SOURCEFILE
 {
 	public uint64 ModBase;
 	public PSTR FileName;
 }
 
-[CRepr]public struct SOURCEFILEW
+[CRepr]
+public struct SOURCEFILEW
 {
 	public uint64 ModBase;
 	public PWSTR FileName;
 }
 
-[CRepr]public struct IMAGEHLP_CBA_READ_MEMORY
+[CRepr]
+public struct IMAGEHLP_CBA_READ_MEMORY
 {
 	public uint64 addr;
 	public void* buf;
@@ -8612,7 +8929,8 @@ public function BOOL PSYMBOL_REGISTERED_CALLBACK(HANDLE hProcess, uint32 ActionC
 	public uint32* bytesread;
 }
 
-[CRepr]public struct IMAGEHLP_CBA_EVENT
+[CRepr]
+public struct IMAGEHLP_CBA_EVENT
 {
 	public IMAGEHLP_CBA_EVENT_SEVERITY severity;
 	public uint32 code;
@@ -8620,7 +8938,8 @@ public function BOOL PSYMBOL_REGISTERED_CALLBACK(HANDLE hProcess, uint32 ActionC
 	public void* object;
 }
 
-[CRepr]public struct IMAGEHLP_CBA_EVENTW
+[CRepr]
+public struct IMAGEHLP_CBA_EVENTW
 {
 	public IMAGEHLP_CBA_EVENT_SEVERITY severity;
 	public uint32 code;
@@ -8628,7 +8947,8 @@ public function BOOL PSYMBOL_REGISTERED_CALLBACK(HANDLE hProcess, uint32 ActionC
 	public void* object;
 }
 
-[CRepr]public struct IMAGEHLP_DEFERRED_SYMBOL_LOAD64
+[CRepr]
+public struct IMAGEHLP_DEFERRED_SYMBOL_LOAD64
 {
 	public uint32 SizeOfStruct;
 	public uint64 BaseOfImage;
@@ -8640,7 +8960,8 @@ public function BOOL PSYMBOL_REGISTERED_CALLBACK(HANDLE hProcess, uint32 ActionC
 	public uint32 Flags;
 }
 
-[CRepr]public struct IMAGEHLP_DEFERRED_SYMBOL_LOADW64
+[CRepr]
+public struct IMAGEHLP_DEFERRED_SYMBOL_LOADW64
 {
 	public uint32 SizeOfStruct;
 	public uint64 BaseOfImage;
@@ -8652,7 +8973,8 @@ public function BOOL PSYMBOL_REGISTERED_CALLBACK(HANDLE hProcess, uint32 ActionC
 	public uint32 Flags;
 }
 
-[CRepr]public struct IMAGEHLP_DUPLICATE_SYMBOL64
+[CRepr]
+public struct IMAGEHLP_DUPLICATE_SYMBOL64
 {
 	public uint32 SizeOfStruct;
 	public uint32 NumberOfDups;
@@ -8660,20 +8982,23 @@ public function BOOL PSYMBOL_REGISTERED_CALLBACK(HANDLE hProcess, uint32 ActionC
 	public uint32 SelectedSymbol;
 }
 
-[CRepr]public struct _IMAGEHLP_JIT_SYMBOL_MAP
+[CRepr]
+public struct _IMAGEHLP_JIT_SYMBOL_MAP
 {
 	public uint32 SizeOfStruct;
 	public uint64 Address;
 	public uint64 BaseOfImage;
 }
 
-[CRepr]public struct OMAP
+[CRepr]
+public struct OMAP
 {
 	public uint32 rva;
 	public uint32 rvaTo;
 }
 
-[CRepr]public struct SRCCODEINFO
+[CRepr]
+public struct SRCCODEINFO
 {
 	public uint32 SizeOfStruct;
 	public void* Key;
@@ -8684,7 +9009,8 @@ public function BOOL PSYMBOL_REGISTERED_CALLBACK(HANDLE hProcess, uint32 ActionC
 	public uint64 Address;
 }
 
-[CRepr]public struct SRCCODEINFOW
+[CRepr]
+public struct SRCCODEINFOW
 {
 	public uint32 SizeOfStruct;
 	public void* Key;
@@ -8695,21 +9021,24 @@ public function BOOL PSYMBOL_REGISTERED_CALLBACK(HANDLE hProcess, uint32 ActionC
 	public uint64 Address;
 }
 
-[CRepr]public struct IMAGEHLP_SYMBOL_SRC
+[CRepr]
+public struct IMAGEHLP_SYMBOL_SRC
 {
 	public uint32 sizeofstruct;
 	public uint32 type;
 	public CHAR[260] file;
 }
 
-[CRepr]public struct MODULE_TYPE_INFO
+[CRepr]
+public struct MODULE_TYPE_INFO
 {
 	public uint16 dataLength;
 	public uint16 leaf;
 	public uint8[1] data;
 }
 
-[CRepr]public struct SYMBOL_INFO
+[CRepr]
+public struct SYMBOL_INFO
 {
 	public uint32 SizeOfStruct;
 	public uint32 TypeIndex;
@@ -8728,13 +9057,15 @@ public function BOOL PSYMBOL_REGISTERED_CALLBACK(HANDLE hProcess, uint32 ActionC
 	public CHAR[1] Name;
 }
 
-[CRepr]public struct SYMBOL_INFO_PACKAGE
+[CRepr]
+public struct SYMBOL_INFO_PACKAGE
 {
 	public SYMBOL_INFO si;
 	public CHAR[2001] name;
 }
 
-[CRepr]public struct SYMBOL_INFOW
+[CRepr]
+public struct SYMBOL_INFOW
 {
 	public uint32 SizeOfStruct;
 	public uint32 TypeIndex;
@@ -8753,13 +9084,15 @@ public function BOOL PSYMBOL_REGISTERED_CALLBACK(HANDLE hProcess, uint32 ActionC
 	public char8[1] Name;
 }
 
-[CRepr]public struct SYMBOL_INFO_PACKAGEW
+[CRepr]
+public struct SYMBOL_INFO_PACKAGEW
 {
 	public SYMBOL_INFOW si;
 	public char8[2001] name;
 }
 
-[CRepr]public struct IMAGEHLP_STACK_FRAME
+[CRepr]
+public struct IMAGEHLP_STACK_FRAME
 {
 	public uint64 InstructionOffset;
 	public uint64 ReturnOffset;
@@ -8773,14 +9106,16 @@ public function BOOL PSYMBOL_REGISTERED_CALLBACK(HANDLE hProcess, uint32 ActionC
 	public uint32 Reserved2;
 }
 
-[CRepr]public struct TI_FINDCHILDREN_PARAMS
+[CRepr]
+public struct TI_FINDCHILDREN_PARAMS
 {
 	public uint32 Count;
 	public uint32 Start;
 	public uint32[1] ChildId;
 }
 
-[CRepr]public struct IMAGEHLP_GET_TYPE_INFO_PARAMS
+[CRepr]
+public struct IMAGEHLP_GET_TYPE_INFO_PARAMS
 {
 	public uint32 SizeOfStruct;
 	public IMAGEHLP_GET_TYPE_INFO_FLAGS Flags;
@@ -8802,7 +9137,8 @@ public function BOOL PSYMBOL_REGISTERED_CALLBACK(HANDLE hProcess, uint32 ActionC
 	public uint64* ReqsValid;
 }
 
-[CRepr]public struct SYMSRV_INDEX_INFO
+[CRepr]
+public struct SYMSRV_INDEX_INFO
 {
 	public uint32 sizeofstruct;
 	public CHAR[261] file;
@@ -8816,7 +9152,8 @@ public function BOOL PSYMBOL_REGISTERED_CALLBACK(HANDLE hProcess, uint32 ActionC
 	public uint32 age;
 }
 
-[CRepr]public struct SYMSRV_INDEX_INFOW
+[CRepr]
+public struct SYMSRV_INDEX_INFOW
 {
 	public uint32 sizeofstruct;
 	public char8[261] file;
@@ -8830,26 +9167,30 @@ public function BOOL PSYMBOL_REGISTERED_CALLBACK(HANDLE hProcess, uint32 ActionC
 	public uint32 age;
 }
 
-[CRepr]public struct SYMSRV_EXTENDED_OUTPUT_DATA
+[CRepr]
+public struct SYMSRV_EXTENDED_OUTPUT_DATA
 {
 	public uint32 sizeOfStruct;
 	public uint32 version;
 	public char8[261] filePtrMsg;
 }
 
-[CRepr]public struct DBGHELP_DATA_REPORT_STRUCT
+[CRepr]
+public struct DBGHELP_DATA_REPORT_STRUCT
 {
 	public PWSTR pBinPathNonExist;
 	public PWSTR pSymbolPathNonExist;
 }
 
-[CRepr]public struct TEXT_DOCUMENT_ARRAY
+[CRepr]
+public struct TEXT_DOCUMENT_ARRAY
 {
 	public uint32 dwCount;
 	public IDebugDocumentText** Members;
 }
 
-[CRepr]public struct JsDebugPropertyInfo
+[CRepr]
+public struct JsDebugPropertyInfo
 {
 	public BSTR name;
 	public BSTR type;
@@ -8858,7 +9199,8 @@ public function BOOL PSYMBOL_REGISTERED_CALLBACK(HANDLE hProcess, uint32 ActionC
 	public JS_PROPERTY_ATTRIBUTES attr;
 }
 
-[CRepr]public struct __MIDL___MIDL_itf_jscript9diag_0000_0007_0001
+[CRepr]
+public struct __MIDL___MIDL_itf_jscript9diag_0000_0007_0001
 {
 	public uint64 InstructionOffset;
 	public uint64 ReturnOffset;
@@ -8866,35 +9208,41 @@ public function BOOL PSYMBOL_REGISTERED_CALLBACK(HANDLE hProcess, uint32 ActionC
 	public uint64 StackOffset;
 }
 
-[CRepr]public struct PHYSICAL_MEMORY_RUN32
+[CRepr]
+public struct PHYSICAL_MEMORY_RUN32
 {
 	public uint32 BasePage;
 	public uint32 PageCount;
 }
 
-[CRepr]public struct PHYSICAL_MEMORY_DESCRIPTOR32
+[CRepr]
+public struct PHYSICAL_MEMORY_DESCRIPTOR32
 {
 	public uint32 NumberOfRuns;
 	public uint32 NumberOfPages;
 	public PHYSICAL_MEMORY_RUN32[1] Run;
 }
 
-[CRepr]public struct PHYSICAL_MEMORY_RUN64
+[CRepr]
+public struct PHYSICAL_MEMORY_RUN64
 {
 	public uint64 BasePage;
 	public uint64 PageCount;
 }
 
-[CRepr]public struct PHYSICAL_MEMORY_DESCRIPTOR64
+[CRepr]
+public struct PHYSICAL_MEMORY_DESCRIPTOR64
 {
 	public uint32 NumberOfRuns;
 	public uint64 NumberOfPages;
 	public PHYSICAL_MEMORY_RUN64[1] Run;
 }
 
-[CRepr, Union]public struct DUMP_FILE_ATTRIBUTES
+[CRepr, Union]
+public struct DUMP_FILE_ATTRIBUTES
 {
-	[CRepr]	public struct _Anonymous_e__Struct
+	[CRepr]
+	public struct _Anonymous_e__Struct
 	{
 		public uint32 _bitfield;
 	}
@@ -8903,9 +9251,11 @@ public function BOOL PSYMBOL_REGISTERED_CALLBACK(HANDLE hProcess, uint32 ActionC
 	public uint32 Attributes;
 }
 
-[CRepr]public struct DUMP_HEADER32
+[CRepr]
+public struct DUMP_HEADER32
 {
-	[CRepr, Union]	public struct _Anonymous_e__Union
+	[CRepr, Union]
+	public struct _Anonymous_e__Union
 	{
 		public PHYSICAL_MEMORY_DESCRIPTOR32 PhysicalMemoryBlock;
 		public uint8[700] PhysicalMemoryBlockBuffer;
@@ -8951,9 +9301,11 @@ public function BOOL PSYMBOL_REGISTERED_CALLBACK(HANDLE hProcess, uint32 ActionC
 	public uint8[56] _reserved3;
 }
 
-[CRepr]public struct DUMP_HEADER64
+[CRepr]
+public struct DUMP_HEADER64
 {
-	[CRepr, Union]	public struct _Anonymous_e__Union
+	[CRepr, Union]
+	public struct _Anonymous_e__Union
 	{
 		public PHYSICAL_MEMORY_DESCRIPTOR64 PhysicalMemoryBlock;
 		public uint8[700] PhysicalMemoryBlockBuffer;
@@ -8997,14 +9349,16 @@ public function BOOL PSYMBOL_REGISTERED_CALLBACK(HANDLE hProcess, uint32 ActionC
 	public uint8[4008] _reserved0;
 }
 
-[CRepr, Packed(1)]public struct WHEA_ERROR_SOURCE_CONFIGURATION_DD
+[CRepr, Packed(1)]
+public struct WHEA_ERROR_SOURCE_CONFIGURATION_DD
 {
 	public WHEA_ERROR_SOURCE_INITIALIZE_DEVICE_DRIVER Initialize;
 	public WHEA_ERROR_SOURCE_UNINITIALIZE_DEVICE_DRIVER Uninitialize;
 	public WHEA_ERROR_SOURCE_CORRECT_DEVICE_DRIVER Correct;
 }
 
-[CRepr, Packed(1)]public struct WHEA_ERROR_SOURCE_CONFIGURATION_DEVICE_DRIVER_V1
+[CRepr, Packed(1)]
+public struct WHEA_ERROR_SOURCE_CONFIGURATION_DEVICE_DRIVER_V1
 {
 	public uint32 Version;
 	public Guid SourceGuid;
@@ -9014,7 +9368,8 @@ public function BOOL PSYMBOL_REGISTERED_CALLBACK(HANDLE hProcess, uint32 ActionC
 	public WHEA_ERROR_SOURCE_UNINITIALIZE_DEVICE_DRIVER Uninitialize;
 }
 
-[CRepr, Packed(1)]public struct WHEA_ERROR_SOURCE_CONFIGURATION_DEVICE_DRIVER
+[CRepr, Packed(1)]
+public struct WHEA_ERROR_SOURCE_CONFIGURATION_DEVICE_DRIVER
 {
 	public uint32 Version;
 	public Guid SourceGuid;
@@ -9028,7 +9383,8 @@ public function BOOL PSYMBOL_REGISTERED_CALLBACK(HANDLE hProcess, uint32 ActionC
 	public Guid PartitionId;
 }
 
-[CRepr, Packed(1)]public struct WHEA_DRIVER_BUFFER_SET
+[CRepr, Packed(1)]
+public struct WHEA_DRIVER_BUFFER_SET
 {
 	public uint32 Version;
 	public uint8* Data;
@@ -9038,9 +9394,11 @@ public function BOOL PSYMBOL_REGISTERED_CALLBACK(HANDLE hProcess, uint32 ActionC
 	public uint8* Flags;
 }
 
-[CRepr, Union, Packed(1)]public struct WHEA_NOTIFICATION_FLAGS
+[CRepr, Union, Packed(1)]
+public struct WHEA_NOTIFICATION_FLAGS
 {
-	[CRepr, Packed(1)]	public struct _Anonymous_e__Struct
+	[CRepr, Packed(1)]
+	public struct _Anonymous_e__Struct
 	{
 		public uint16 _bitfield;
 	}
@@ -9049,9 +9407,11 @@ public function BOOL PSYMBOL_REGISTERED_CALLBACK(HANDLE hProcess, uint32 ActionC
 	public uint16 AsUSHORT;
 }
 
-[CRepr, Union]public struct XPF_MC_BANK_FLAGS
+[CRepr, Union]
+public struct XPF_MC_BANK_FLAGS
 {
-	[CRepr]	public struct _Anonymous_e__Struct
+	[CRepr]
+	public struct _Anonymous_e__Struct
 	{
 		public uint8 _bitfield;
 	}
@@ -9060,9 +9420,11 @@ public function BOOL PSYMBOL_REGISTERED_CALLBACK(HANDLE hProcess, uint32 ActionC
 	public uint8 AsUCHAR;
 }
 
-[CRepr, Union, Packed(1)]public struct XPF_MCE_FLAGS
+[CRepr, Union, Packed(1)]
+public struct XPF_MCE_FLAGS
 {
-	[CRepr, Packed(1)]	public struct _Anonymous_e__Struct
+	[CRepr, Packed(1)]
+	public struct _Anonymous_e__Struct
 	{
 		public uint32 _bitfield;
 	}
@@ -9071,9 +9433,11 @@ public function BOOL PSYMBOL_REGISTERED_CALLBACK(HANDLE hProcess, uint32 ActionC
 	public uint32 AsULONG;
 }
 
-[CRepr, Union, Packed(1)]public struct AER_ROOTPORT_DESCRIPTOR_FLAGS
+[CRepr, Union, Packed(1)]
+public struct AER_ROOTPORT_DESCRIPTOR_FLAGS
 {
-	[CRepr, Packed(1)]	public struct _Anonymous_e__Struct
+	[CRepr, Packed(1)]
+	public struct _Anonymous_e__Struct
 	{
 		public uint16 _bitfield;
 	}
@@ -9082,9 +9446,11 @@ public function BOOL PSYMBOL_REGISTERED_CALLBACK(HANDLE hProcess, uint32 ActionC
 	public uint16 AsUSHORT;
 }
 
-[CRepr, Union, Packed(1)]public struct AER_ENDPOINT_DESCRIPTOR_FLAGS
+[CRepr, Union, Packed(1)]
+public struct AER_ENDPOINT_DESCRIPTOR_FLAGS
 {
-	[CRepr, Packed(1)]	public struct _Anonymous_e__Struct
+	[CRepr, Packed(1)]
+	public struct _Anonymous_e__Struct
 	{
 		public uint16 _bitfield;
 	}
@@ -9093,9 +9459,11 @@ public function BOOL PSYMBOL_REGISTERED_CALLBACK(HANDLE hProcess, uint32 ActionC
 	public uint16 AsUSHORT;
 }
 
-[CRepr, Union, Packed(1)]public struct AER_BRIDGE_DESCRIPTOR_FLAGS
+[CRepr, Union, Packed(1)]
+public struct AER_BRIDGE_DESCRIPTOR_FLAGS
 {
-	[CRepr, Packed(1)]	public struct _Anonymous_e__Struct
+	[CRepr, Packed(1)]
+	public struct _Anonymous_e__Struct
 	{
 		public uint16 _bitfield;
 	}
@@ -9104,11 +9472,14 @@ public function BOOL PSYMBOL_REGISTERED_CALLBACK(HANDLE hProcess, uint32 ActionC
 	public uint16 AsUSHORT;
 }
 
-[CRepr]public struct WHEA_NOTIFICATION_DESCRIPTOR
+[CRepr]
+public struct WHEA_NOTIFICATION_DESCRIPTOR
 {
-	[CRepr, Union]	public struct _u_e__Union
+	[CRepr, Union]
+	public struct _u_e__Union
 	{
-		[CRepr, Packed(1)]		public struct _Sei_e__Struct
+		[CRepr, Packed(1)]
+		public struct _Sei_e__Struct
 		{
 			public uint32 PollInterval;
 			public uint32 Vector;
@@ -9118,7 +9489,8 @@ public function BOOL PSYMBOL_REGISTERED_CALLBACK(HANDLE hProcess, uint32 ActionC
 			public uint32 ErrorThresholdWindow;
 		}
 
-		[CRepr, Packed(1)]		public struct _Nmi_e__Struct
+		[CRepr, Packed(1)]
+		public struct _Nmi_e__Struct
 		{
 			public uint32 PollInterval;
 			public uint32 Vector;
@@ -9128,7 +9500,8 @@ public function BOOL PSYMBOL_REGISTERED_CALLBACK(HANDLE hProcess, uint32 ActionC
 			public uint32 ErrorThresholdWindow;
 		}
 
-		[CRepr, Packed(1)]		public struct _LocalInterrupt_e__Struct
+		[CRepr, Packed(1)]
+		public struct _LocalInterrupt_e__Struct
 		{
 			public uint32 PollInterval;
 			public uint32 Vector;
@@ -9138,22 +9511,14 @@ public function BOOL PSYMBOL_REGISTERED_CALLBACK(HANDLE hProcess, uint32 ActionC
 			public uint32 ErrorThresholdWindow;
 		}
 
-		[CRepr, Packed(1)]		public struct _Polled_e__Struct
+		[CRepr, Packed(1)]
+		public struct _Polled_e__Struct
 		{
 			public uint32 PollInterval;
 		}
 
-		[CRepr, Packed(1)]		public struct _Sea_e__Struct
-		{
-			public uint32 PollInterval;
-			public uint32 Vector;
-			public uint32 SwitchToPollingThreshold;
-			public uint32 SwitchToPollingWindow;
-			public uint32 ErrorThreshold;
-			public uint32 ErrorThresholdWindow;
-		}
-
-		[CRepr, Packed(1)]		public struct _Interrupt_e__Struct
+		[CRepr, Packed(1)]
+		public struct _Sea_e__Struct
 		{
 			public uint32 PollInterval;
 			public uint32 Vector;
@@ -9163,7 +9528,8 @@ public function BOOL PSYMBOL_REGISTERED_CALLBACK(HANDLE hProcess, uint32 ActionC
 			public uint32 ErrorThresholdWindow;
 		}
 
-		[CRepr, Packed(1)]		public struct _Sci_e__Struct
+		[CRepr, Packed(1)]
+		public struct _Interrupt_e__Struct
 		{
 			public uint32 PollInterval;
 			public uint32 Vector;
@@ -9173,7 +9539,19 @@ public function BOOL PSYMBOL_REGISTERED_CALLBACK(HANDLE hProcess, uint32 ActionC
 			public uint32 ErrorThresholdWindow;
 		}
 
-		[CRepr, Packed(1)]		public struct _Gsiv_e__Struct
+		[CRepr, Packed(1)]
+		public struct _Sci_e__Struct
+		{
+			public uint32 PollInterval;
+			public uint32 Vector;
+			public uint32 SwitchToPollingThreshold;
+			public uint32 SwitchToPollingWindow;
+			public uint32 ErrorThreshold;
+			public uint32 ErrorThresholdWindow;
+		}
+
+		[CRepr, Packed(1)]
+		public struct _Gsiv_e__Struct
 		{
 			public uint32 PollInterval;
 			public uint32 Vector;
@@ -9199,7 +9577,8 @@ public function BOOL PSYMBOL_REGISTERED_CALLBACK(HANDLE hProcess, uint32 ActionC
 	public _u_e__Union u;
 }
 
-[CRepr, Packed(1)]public struct WHEA_XPF_MC_BANK_DESCRIPTOR
+[CRepr, Packed(1)]
+public struct WHEA_XPF_MC_BANK_DESCRIPTOR
 {
 	public uint8 BankNumber;
 	public BOOLEAN ClearOnInitialization;
@@ -9212,7 +9591,8 @@ public function BOOL PSYMBOL_REGISTERED_CALLBACK(HANDLE hProcess, uint32 ActionC
 	public uint64 ControlData;
 }
 
-[CRepr, Packed(1)]public struct WHEA_XPF_MCE_DESCRIPTOR
+[CRepr, Packed(1)]
+public struct WHEA_XPF_MCE_DESCRIPTOR
 {
 	public uint16 Type;
 	public uint8 Enabled;
@@ -9223,7 +9603,8 @@ public function BOOL PSYMBOL_REGISTERED_CALLBACK(HANDLE hProcess, uint32 ActionC
 	public WHEA_XPF_MC_BANK_DESCRIPTOR[32] Banks;
 }
 
-[CRepr, Packed(1)]public struct WHEA_XPF_CMC_DESCRIPTOR
+[CRepr, Packed(1)]
+public struct WHEA_XPF_CMC_DESCRIPTOR
 {
 	public uint16 Type;
 	public BOOLEAN Enabled;
@@ -9233,11 +9614,14 @@ public function BOOL PSYMBOL_REGISTERED_CALLBACK(HANDLE hProcess, uint32 ActionC
 	public WHEA_XPF_MC_BANK_DESCRIPTOR[32] Banks;
 }
 
-[CRepr]public struct WHEA_PCI_SLOT_NUMBER
+[CRepr]
+public struct WHEA_PCI_SLOT_NUMBER
 {
-	[CRepr, Union, Packed(1)]	public struct _u_e__Union
+	[CRepr, Union, Packed(1)]
+	public struct _u_e__Union
 	{
-		[CRepr, Packed(1)]		public struct _bits_e__Struct
+		[CRepr, Packed(1)]
+		public struct _bits_e__Struct
 		{
 			public uint32 _bitfield;
 		}
@@ -9249,13 +9633,15 @@ public function BOOL PSYMBOL_REGISTERED_CALLBACK(HANDLE hProcess, uint32 ActionC
 	public _u_e__Union u;
 }
 
-[CRepr, Packed(1)]public struct WHEA_XPF_NMI_DESCRIPTOR
+[CRepr, Packed(1)]
+public struct WHEA_XPF_NMI_DESCRIPTOR
 {
 	public uint16 Type;
 	public BOOLEAN Enabled;
 }
 
-[CRepr, Packed(1)]public struct WHEA_AER_ROOTPORT_DESCRIPTOR
+[CRepr, Packed(1)]
+public struct WHEA_AER_ROOTPORT_DESCRIPTOR
 {
 	public uint16 Type;
 	public BOOLEAN Enabled;
@@ -9271,7 +9657,8 @@ public function BOOL PSYMBOL_REGISTERED_CALLBACK(HANDLE hProcess, uint32 ActionC
 	public uint32 RootErrorCommand;
 }
 
-[CRepr, Packed(1)]public struct WHEA_AER_ENDPOINT_DESCRIPTOR
+[CRepr, Packed(1)]
+public struct WHEA_AER_ENDPOINT_DESCRIPTOR
 {
 	public uint16 Type;
 	public BOOLEAN Enabled;
@@ -9286,7 +9673,8 @@ public function BOOL PSYMBOL_REGISTERED_CALLBACK(HANDLE hProcess, uint32 ActionC
 	public uint32 AdvancedCapsAndControl;
 }
 
-[CRepr, Packed(1)]public struct WHEA_AER_BRIDGE_DESCRIPTOR
+[CRepr, Packed(1)]
+public struct WHEA_AER_BRIDGE_DESCRIPTOR
 {
 	public uint16 Type;
 	public BOOLEAN Enabled;
@@ -9304,7 +9692,8 @@ public function BOOL PSYMBOL_REGISTERED_CALLBACK(HANDLE hProcess, uint32 ActionC
 	public uint32 SecondaryCapsAndControl;
 }
 
-[CRepr, Packed(1)]public struct WHEA_GENERIC_ERROR_DESCRIPTOR
+[CRepr, Packed(1)]
+public struct WHEA_GENERIC_ERROR_DESCRIPTOR
 {
 	public uint16 Type;
 	public uint8 Reserved;
@@ -9319,7 +9708,8 @@ public function BOOL PSYMBOL_REGISTERED_CALLBACK(HANDLE hProcess, uint32 ActionC
 	public WHEA_NOTIFICATION_DESCRIPTOR Notify;
 }
 
-[CRepr, Packed(1)]public struct WHEA_GENERIC_ERROR_DESCRIPTOR_V2
+[CRepr, Packed(1)]
+public struct WHEA_GENERIC_ERROR_DESCRIPTOR_V2
 {
 	public uint16 Type;
 	public uint8 Reserved;
@@ -9341,7 +9731,8 @@ public function BOOL PSYMBOL_REGISTERED_CALLBACK(HANDLE hProcess, uint32 ActionC
 	public uint64 ReadAckWriteMask;
 }
 
-[CRepr, Packed(1)]public struct WHEA_DEVICE_DRIVER_DESCRIPTOR
+[CRepr, Packed(1)]
+public struct WHEA_DEVICE_DRIVER_DESCRIPTOR
 {
 	public uint16 Type;
 	public BOOLEAN Enabled;
@@ -9361,30 +9752,35 @@ public function BOOL PSYMBOL_REGISTERED_CALLBACK(HANDLE hProcess, uint32 ActionC
 	public int32 OpenHandles;
 }
 
-[CRepr, Packed(1)]public struct WHEA_IPF_MCA_DESCRIPTOR
+[CRepr, Packed(1)]
+public struct WHEA_IPF_MCA_DESCRIPTOR
 {
 	public uint16 Type;
 	public uint8 Enabled;
 	public uint8 Reserved;
 }
 
-[CRepr, Packed(1)]public struct WHEA_IPF_CMC_DESCRIPTOR
+[CRepr, Packed(1)]
+public struct WHEA_IPF_CMC_DESCRIPTOR
 {
 	public uint16 Type;
 	public uint8 Enabled;
 	public uint8 Reserved;
 }
 
-[CRepr, Packed(1)]public struct WHEA_IPF_CPE_DESCRIPTOR
+[CRepr, Packed(1)]
+public struct WHEA_IPF_CPE_DESCRIPTOR
 {
 	public uint16 Type;
 	public uint8 Enabled;
 	public uint8 Reserved;
 }
 
-[CRepr, Packed(1)]public struct WHEA_ERROR_SOURCE_DESCRIPTOR
+[CRepr, Packed(1)]
+public struct WHEA_ERROR_SOURCE_DESCRIPTOR
 {
-	[CRepr, Union]	public struct _Info_e__Union
+	[CRepr, Union]
+	public struct _Info_e__Union
 	{
 		public WHEA_XPF_MCE_DESCRIPTOR XpfMceDescriptor;
 		public WHEA_XPF_CMC_DESCRIPTOR XpfCmcDescriptor;
@@ -9413,7 +9809,8 @@ public function BOOL PSYMBOL_REGISTERED_CALLBACK(HANDLE hProcess, uint32 ActionC
 	public _Info_e__Union Info;
 }
 
-[CRepr, Packed(1)]public struct IPMI_OS_SEL_RECORD
+[CRepr, Packed(1)]
+public struct IPMI_OS_SEL_RECORD
 {
 	public uint32 Signature;
 	public uint32 Version;
@@ -9424,7 +9821,8 @@ public function BOOL PSYMBOL_REGISTERED_CALLBACK(HANDLE hProcess, uint32 ActionC
 }
 
 #if BF_32_BIT
-[CRepr]public struct XSAVE_FORMAT
+[CRepr]
+public struct XSAVE_FORMAT
 {
 	public uint16 ControlWord;
 	public uint16 StatusWord;
@@ -9446,7 +9844,8 @@ public function BOOL PSYMBOL_REGISTERED_CALLBACK(HANDLE hProcess, uint32 ActionC
 #endif
 
 #if BF_32_BIT
-[CRepr]public struct XSTATE_CONTEXT
+[CRepr]
+public struct XSTATE_CONTEXT
 {
 	public uint64 Mask;
 	public uint32 Length;
@@ -9459,7 +9858,8 @@ public function BOOL PSYMBOL_REGISTERED_CALLBACK(HANDLE hProcess, uint32 ActionC
 #endif
 
 #if BF_32_BIT
-[CRepr]public struct CONTEXT
+[CRepr]
+public struct CONTEXT
 {
 	public uint32 ContextFlags;
 	public uint32 Dr0;
@@ -9490,14 +9890,16 @@ public function BOOL PSYMBOL_REGISTERED_CALLBACK(HANDLE hProcess, uint32 ActionC
 #endif
 
 #if BF_32_BIT
-[CRepr]public struct KNONVOLATILE_CONTEXT_POINTERS
+[CRepr]
+public struct KNONVOLATILE_CONTEXT_POINTERS
 {
 	public uint32 Dummy;
 }
 #endif
 
 #if BF_32_BIT
-[CRepr, Packed(4)]public struct MINIDUMP_THREAD_CALLBACK
+[CRepr, Packed(4)]
+public struct MINIDUMP_THREAD_CALLBACK
 {
 	public uint32 ThreadId;
 	public HANDLE ThreadHandle;
@@ -9509,7 +9911,8 @@ public function BOOL PSYMBOL_REGISTERED_CALLBACK(HANDLE hProcess, uint32 ActionC
 #endif
 
 #if BF_32_BIT
-[CRepr, Packed(4)]public struct MINIDUMP_THREAD_EX_CALLBACK
+[CRepr, Packed(4)]
+public struct MINIDUMP_THREAD_EX_CALLBACK
 {
 	public uint32 ThreadId;
 	public HANDLE ThreadHandle;
@@ -9523,7 +9926,8 @@ public function BOOL PSYMBOL_REGISTERED_CALLBACK(HANDLE hProcess, uint32 ActionC
 #endif
 
 #if BF_32_BIT
-[CRepr]public struct LOADED_IMAGE
+[CRepr]
+public struct LOADED_IMAGE
 {
 	public PSTR ModuleName;
 	public HANDLE hFile;
@@ -9543,7 +9947,8 @@ public function BOOL PSYMBOL_REGISTERED_CALLBACK(HANDLE hProcess, uint32 ActionC
 #endif
 
 #if BF_32_BIT
-[CRepr]public struct IMAGE_DEBUG_INFORMATION
+[CRepr]
+public struct IMAGE_DEBUG_INFORMATION
 {
 	public LIST_ENTRY List;
 	public uint32 ReservedSize;
@@ -9580,7 +9985,8 @@ public function BOOL PSYMBOL_REGISTERED_CALLBACK(HANDLE hProcess, uint32 ActionC
 #endif
 
 #if BF_32_BIT
-[CRepr]public struct ADDRESS
+[CRepr]
+public struct ADDRESS
 {
 	public uint32 Offset;
 	public uint16 Segment;
@@ -9589,7 +9995,8 @@ public function BOOL PSYMBOL_REGISTERED_CALLBACK(HANDLE hProcess, uint32 ActionC
 #endif
 
 #if BF_32_BIT
-[CRepr]public struct KDHELP
+[CRepr]
+public struct KDHELP
 {
 	public uint32 Thread;
 	public uint32 ThCallbackStack;
@@ -9607,7 +10014,8 @@ public function BOOL PSYMBOL_REGISTERED_CALLBACK(HANDLE hProcess, uint32 ActionC
 #endif
 
 #if BF_32_BIT
-[CRepr]public struct STACKFRAME
+[CRepr]
+public struct STACKFRAME
 {
 	public ADDRESS AddrPC;
 	public ADDRESS AddrReturn;
@@ -9624,7 +10032,8 @@ public function BOOL PSYMBOL_REGISTERED_CALLBACK(HANDLE hProcess, uint32 ActionC
 #endif
 
 #if BF_32_BIT
-[CRepr]public struct IMAGEHLP_SYMBOL
+[CRepr]
+public struct IMAGEHLP_SYMBOL
 {
 	public uint32 SizeOfStruct;
 	public uint32 Address;
@@ -9636,7 +10045,8 @@ public function BOOL PSYMBOL_REGISTERED_CALLBACK(HANDLE hProcess, uint32 ActionC
 #endif
 
 #if BF_32_BIT
-[CRepr]public struct IMAGEHLP_SYMBOL_PACKAGE
+[CRepr]
+public struct IMAGEHLP_SYMBOL_PACKAGE
 {
 	public IMAGEHLP_SYMBOL sym;
 	public CHAR[2001] name;
@@ -9644,7 +10054,8 @@ public function BOOL PSYMBOL_REGISTERED_CALLBACK(HANDLE hProcess, uint32 ActionC
 #endif
 
 #if BF_32_BIT
-[CRepr]public struct IMAGEHLP_SYMBOLW
+[CRepr]
+public struct IMAGEHLP_SYMBOLW
 {
 	public uint32 SizeOfStruct;
 	public uint32 Address;
@@ -9656,7 +10067,8 @@ public function BOOL PSYMBOL_REGISTERED_CALLBACK(HANDLE hProcess, uint32 ActionC
 #endif
 
 #if BF_32_BIT
-[CRepr]public struct IMAGEHLP_SYMBOLW_PACKAGE
+[CRepr]
+public struct IMAGEHLP_SYMBOLW_PACKAGE
 {
 	public IMAGEHLP_SYMBOLW sym;
 	public char8[2001] name;
@@ -9664,7 +10076,8 @@ public function BOOL PSYMBOL_REGISTERED_CALLBACK(HANDLE hProcess, uint32 ActionC
 #endif
 
 #if BF_32_BIT
-[CRepr]public struct IMAGEHLP_MODULE
+[CRepr]
+public struct IMAGEHLP_MODULE
 {
 	public uint32 SizeOfStruct;
 	public uint32 BaseOfImage;
@@ -9680,7 +10093,8 @@ public function BOOL PSYMBOL_REGISTERED_CALLBACK(HANDLE hProcess, uint32 ActionC
 #endif
 
 #if BF_32_BIT
-[CRepr]public struct IMAGEHLP_MODULEW
+[CRepr]
+public struct IMAGEHLP_MODULEW
 {
 	public uint32 SizeOfStruct;
 	public uint32 BaseOfImage;
@@ -9696,7 +10110,8 @@ public function BOOL PSYMBOL_REGISTERED_CALLBACK(HANDLE hProcess, uint32 ActionC
 #endif
 
 #if BF_32_BIT
-[CRepr]public struct IMAGEHLP_LINE
+[CRepr]
+public struct IMAGEHLP_LINE
 {
 	public uint32 SizeOfStruct;
 	public void* Key;
@@ -9707,7 +10122,8 @@ public function BOOL PSYMBOL_REGISTERED_CALLBACK(HANDLE hProcess, uint32 ActionC
 #endif
 
 #if BF_32_BIT
-[CRepr]public struct IMAGEHLP_LINEW
+[CRepr]
+public struct IMAGEHLP_LINEW
 {
 	public uint32 SizeOfStruct;
 	public void* Key;
@@ -9718,7 +10134,8 @@ public function BOOL PSYMBOL_REGISTERED_CALLBACK(HANDLE hProcess, uint32 ActionC
 #endif
 
 #if BF_32_BIT
-[CRepr]public struct IMAGEHLP_DEFERRED_SYMBOL_LOAD
+[CRepr]
+public struct IMAGEHLP_DEFERRED_SYMBOL_LOAD
 {
 	public uint32 SizeOfStruct;
 	public uint32 BaseOfImage;
@@ -9731,7 +10148,8 @@ public function BOOL PSYMBOL_REGISTERED_CALLBACK(HANDLE hProcess, uint32 ActionC
 #endif
 
 #if BF_32_BIT
-[CRepr]public struct IMAGEHLP_DUPLICATE_SYMBOL
+[CRepr]
+public struct IMAGEHLP_DUPLICATE_SYMBOL
 {
 	public uint32 SizeOfStruct;
 	public uint32 NumberOfDups;

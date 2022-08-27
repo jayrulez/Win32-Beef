@@ -2421,19 +2421,22 @@ public function void FNIMPORTPFXTOPROVIDERFREEDATA(uint32 cCert, CERT_CONTEXT** 
 #endregion
 
 #region Structs
-[CRepr]public struct CSEDB_RSTMAPW
+[CRepr]
+public struct CSEDB_RSTMAPW
 {
 	public PWSTR pwszDatabaseName;
 	public PWSTR pwszNewDatabaseName;
 }
 
-[CRepr]public struct CERTTRANSBLOB
+[CRepr]
+public struct CERTTRANSBLOB
 {
 	public uint32 cb;
 	public uint8* pb;
 }
 
-[CRepr]public struct CERTVIEWRESTRICTION
+[CRepr]
+public struct CERTVIEWRESTRICTION
 {
 	public uint32 ColumnIndex;
 	public int32 SeekOperator;
@@ -2442,7 +2445,8 @@ public function void FNIMPORTPFXTOPROVIDERFREEDATA(uint32 cCert, CERT_CONTEXT** 
 	public uint32 cbValue;
 }
 
-[CRepr]public struct CAINFO
+[CRepr]
+public struct CAINFO
 {
 	public uint32 cbSize;
 	public ENUM_CATYPES CAType;

@@ -3951,19 +3951,22 @@ public function int32 SslGetExtensionsFn(uint8* clientHello, uint32 clientHelloB
 #endregion
 
 #region Structs
-[CRepr]public struct LSA_TRUST_INFORMATION
+[CRepr]
+public struct LSA_TRUST_INFORMATION
 {
 	public UNICODE_STRING Name;
 	public PSID Sid;
 }
 
-[CRepr]public struct LSA_REFERENCED_DOMAIN_LIST
+[CRepr]
+public struct LSA_REFERENCED_DOMAIN_LIST
 {
 	public uint32 Entries;
 	public LSA_TRUST_INFORMATION* Domains;
 }
 
-[CRepr]public struct LSA_TRANSLATED_SID2
+[CRepr]
+public struct LSA_TRANSLATED_SID2
 {
 	public SID_NAME_USE Use;
 	public PSID Sid;
@@ -3971,20 +3974,23 @@ public function int32 SslGetExtensionsFn(uint8* clientHello, uint32 clientHelloB
 	public uint32 Flags;
 }
 
-[CRepr]public struct LSA_TRANSLATED_NAME
+[CRepr]
+public struct LSA_TRANSLATED_NAME
 {
 	public SID_NAME_USE Use;
 	public UNICODE_STRING Name;
 	public int32 DomainIndex;
 }
 
-[CRepr]public struct POLICY_ACCOUNT_DOMAIN_INFO
+[CRepr]
+public struct POLICY_ACCOUNT_DOMAIN_INFO
 {
 	public UNICODE_STRING DomainName;
 	public PSID DomainSid;
 }
 
-[CRepr]public struct POLICY_DNS_DOMAIN_INFO
+[CRepr]
+public struct POLICY_DNS_DOMAIN_INFO
 {
 	public UNICODE_STRING Name;
 	public UNICODE_STRING DnsDomainName;
@@ -3993,7 +3999,8 @@ public function int32 SslGetExtensionsFn(uint8* clientHello, uint32 clientHelloB
 	public PSID Sid;
 }
 
-[CRepr]public struct SE_ADT_OBJECT_TYPE
+[CRepr]
+public struct SE_ADT_OBJECT_TYPE
 {
 	public Guid ObjectType;
 	public uint16 Flags;
@@ -4001,7 +4008,8 @@ public function int32 SslGetExtensionsFn(uint8* clientHello, uint32 clientHelloB
 	public uint32 AccessMask;
 }
 
-[CRepr]public struct SE_ADT_PARAMETER_ARRAY_ENTRY
+[CRepr]
+public struct SE_ADT_PARAMETER_ARRAY_ENTRY
 {
 	public SE_ADT_PARAMETER_TYPE Type;
 	public uint32 Length;
@@ -4009,7 +4017,8 @@ public function int32 SslGetExtensionsFn(uint8* clientHello, uint32 clientHelloB
 	public void* Address;
 }
 
-[CRepr]public struct SE_ADT_ACCESS_REASON
+[CRepr]
+public struct SE_ADT_ACCESS_REASON
 {
 	public uint32 AccessMask;
 	public uint32[32] AccessReasons;
@@ -4018,13 +4027,15 @@ public function int32 SslGetExtensionsFn(uint8* clientHello, uint32 clientHelloB
 	public SECURITY_DESCRIPTOR* SecurityDescriptor;
 }
 
-[CRepr]public struct SE_ADT_CLAIMS
+[CRepr]
+public struct SE_ADT_CLAIMS
 {
 	public uint32 Length;
 	public void* Claims;
 }
 
-[CRepr]public struct SE_ADT_PARAMETER_ARRAY
+[CRepr]
+public struct SE_ADT_PARAMETER_ARRAY
 {
 	public uint32 CategoryId;
 	public uint32 AuditId;
@@ -4036,7 +4047,8 @@ public function int32 SslGetExtensionsFn(uint8* clientHello, uint32 clientHelloB
 	public SE_ADT_PARAMETER_ARRAY_ENTRY[32] Parameters;
 }
 
-[CRepr]public struct SE_ADT_PARAMETER_ARRAY_EX
+[CRepr]
+public struct SE_ADT_PARAMETER_ARRAY_EX
 {
 	public uint32 CategoryId;
 	public uint32 AuditId;
@@ -4049,14 +4061,16 @@ public function int32 SslGetExtensionsFn(uint8* clientHello, uint32 clientHelloB
 	public SE_ADT_PARAMETER_ARRAY_ENTRY[32] Parameters;
 }
 
-[CRepr]public struct LSA_TRANSLATED_SID
+[CRepr]
+public struct LSA_TRANSLATED_SID
 {
 	public SID_NAME_USE Use;
 	public uint32 RelativeId;
 	public int32 DomainIndex;
 }
 
-[CRepr]public struct POLICY_AUDIT_LOG_INFO
+[CRepr]
+public struct POLICY_AUDIT_LOG_INFO
 {
 	public uint32 AuditLogPercentFull;
 	public uint32 MaximumLogSize;
@@ -4066,76 +4080,89 @@ public function int32 SslGetExtensionsFn(uint8* clientHello, uint32 clientHelloB
 	public uint32 NextAuditRecordId;
 }
 
-[CRepr]public struct POLICY_AUDIT_EVENTS_INFO
+[CRepr]
+public struct POLICY_AUDIT_EVENTS_INFO
 {
 	public BOOLEAN AuditingMode;
 	public uint32* EventAuditingOptions;
 	public uint32 MaximumAuditEventCount;
 }
 
-[CRepr]public struct POLICY_AUDIT_SUBCATEGORIES_INFO
+[CRepr]
+public struct POLICY_AUDIT_SUBCATEGORIES_INFO
 {
 	public uint32 MaximumSubCategoryCount;
 	public uint32* EventAuditingOptions;
 }
 
-[CRepr]public struct POLICY_AUDIT_CATEGORIES_INFO
+[CRepr]
+public struct POLICY_AUDIT_CATEGORIES_INFO
 {
 	public uint32 MaximumCategoryCount;
 	public POLICY_AUDIT_SUBCATEGORIES_INFO* SubCategoriesInfo;
 }
 
-[CRepr]public struct POLICY_PRIMARY_DOMAIN_INFO
+[CRepr]
+public struct POLICY_PRIMARY_DOMAIN_INFO
 {
 	public UNICODE_STRING Name;
 	public PSID Sid;
 }
 
-[CRepr]public struct POLICY_PD_ACCOUNT_INFO
+[CRepr]
+public struct POLICY_PD_ACCOUNT_INFO
 {
 	public UNICODE_STRING Name;
 }
 
-[CRepr]public struct POLICY_LSA_SERVER_ROLE_INFO
+[CRepr]
+public struct POLICY_LSA_SERVER_ROLE_INFO
 {
 	public POLICY_LSA_SERVER_ROLE LsaServerRole;
 }
 
-[CRepr]public struct POLICY_REPLICA_SOURCE_INFO
+[CRepr]
+public struct POLICY_REPLICA_SOURCE_INFO
 {
 	public UNICODE_STRING ReplicaSource;
 	public UNICODE_STRING ReplicaAccountName;
 }
 
-[CRepr]public struct POLICY_DEFAULT_QUOTA_INFO
+[CRepr]
+public struct POLICY_DEFAULT_QUOTA_INFO
 {
 	public QUOTA_LIMITS QuotaLimits;
 }
 
-[CRepr]public struct POLICY_MODIFICATION_INFO
+[CRepr]
+public struct POLICY_MODIFICATION_INFO
 {
 	public LARGE_INTEGER ModifiedId;
 	public LARGE_INTEGER DatabaseCreationTime;
 }
 
-[CRepr]public struct POLICY_AUDIT_FULL_SET_INFO
+[CRepr]
+public struct POLICY_AUDIT_FULL_SET_INFO
 {
 	public BOOLEAN ShutDownOnFull;
 }
 
-[CRepr]public struct POLICY_AUDIT_FULL_QUERY_INFO
+[CRepr]
+public struct POLICY_AUDIT_FULL_QUERY_INFO
 {
 	public BOOLEAN ShutDownOnFull;
 	public BOOLEAN LogIsFull;
 }
 
-[CRepr]public struct POLICY_DOMAIN_EFS_INFO
+[CRepr]
+public struct POLICY_DOMAIN_EFS_INFO
 {
 	public uint32 InfoLength;
 	public uint8* EfsBlob;
 }
 
-[CRepr]public struct POLICY_DOMAIN_KERBEROS_TICKET_INFO
+[CRepr]
+public struct POLICY_DOMAIN_KERBEROS_TICKET_INFO
 {
 	public uint32 AuthenticationOptions;
 	public LARGE_INTEGER MaxServiceTicketAge;
@@ -4145,35 +4172,41 @@ public function int32 SslGetExtensionsFn(uint8* clientHello, uint32 clientHelloB
 	public LARGE_INTEGER Reserved;
 }
 
-[CRepr]public struct POLICY_MACHINE_ACCT_INFO
+[CRepr]
+public struct POLICY_MACHINE_ACCT_INFO
 {
 	public uint32 Rid;
 	public PSID Sid;
 }
 
-[CRepr]public struct TRUSTED_DOMAIN_NAME_INFO
+[CRepr]
+public struct TRUSTED_DOMAIN_NAME_INFO
 {
 	public UNICODE_STRING Name;
 }
 
-[CRepr]public struct TRUSTED_CONTROLLERS_INFO
+[CRepr]
+public struct TRUSTED_CONTROLLERS_INFO
 {
 	public uint32 Entries;
 	public UNICODE_STRING* Names;
 }
 
-[CRepr]public struct TRUSTED_POSIX_OFFSET_INFO
+[CRepr]
+public struct TRUSTED_POSIX_OFFSET_INFO
 {
 	public uint32 Offset;
 }
 
-[CRepr]public struct TRUSTED_PASSWORD_INFO
+[CRepr]
+public struct TRUSTED_PASSWORD_INFO
 {
 	public UNICODE_STRING Password;
 	public UNICODE_STRING OldPassword;
 }
 
-[CRepr]public struct TRUSTED_DOMAIN_INFORMATION_EX
+[CRepr]
+public struct TRUSTED_DOMAIN_INFORMATION_EX
 {
 	public UNICODE_STRING Name;
 	public UNICODE_STRING FlatName;
@@ -4183,7 +4216,8 @@ public function int32 SslGetExtensionsFn(uint8* clientHello, uint32 clientHelloB
 	public TRUSTED_DOMAIN_TRUST_ATTRIBUTES TrustAttributes;
 }
 
-[CRepr]public struct TRUSTED_DOMAIN_INFORMATION_EX2
+[CRepr]
+public struct TRUSTED_DOMAIN_INFORMATION_EX2
 {
 	public UNICODE_STRING Name;
 	public UNICODE_STRING FlatName;
@@ -4195,7 +4229,8 @@ public function int32 SslGetExtensionsFn(uint8* clientHello, uint32 clientHelloB
 	public uint8* ForestTrustInfo;
 }
 
-[CRepr]public struct LSA_AUTH_INFORMATION
+[CRepr]
+public struct LSA_AUTH_INFORMATION
 {
 	public LARGE_INTEGER LastUpdateTime;
 	public LSA_AUTH_INFORMATION_AUTH_TYPE AuthType;
@@ -4203,7 +4238,8 @@ public function int32 SslGetExtensionsFn(uint8* clientHello, uint32 clientHelloB
 	public uint8* AuthInfo;
 }
 
-[CRepr]public struct TRUSTED_DOMAIN_AUTH_INFORMATION
+[CRepr]
+public struct TRUSTED_DOMAIN_AUTH_INFORMATION
 {
 	public uint32 IncomingAuthInfos;
 	public LSA_AUTH_INFORMATION* IncomingAuthenticationInformation;
@@ -4213,41 +4249,48 @@ public function int32 SslGetExtensionsFn(uint8* clientHello, uint32 clientHelloB
 	public LSA_AUTH_INFORMATION* OutgoingPreviousAuthenticationInformation;
 }
 
-[CRepr]public struct TRUSTED_DOMAIN_FULL_INFORMATION
+[CRepr]
+public struct TRUSTED_DOMAIN_FULL_INFORMATION
 {
 	public TRUSTED_DOMAIN_INFORMATION_EX Information;
 	public TRUSTED_POSIX_OFFSET_INFO PosixOffset;
 	public TRUSTED_DOMAIN_AUTH_INFORMATION AuthInformation;
 }
 
-[CRepr]public struct TRUSTED_DOMAIN_FULL_INFORMATION2
+[CRepr]
+public struct TRUSTED_DOMAIN_FULL_INFORMATION2
 {
 	public TRUSTED_DOMAIN_INFORMATION_EX2 Information;
 	public TRUSTED_POSIX_OFFSET_INFO PosixOffset;
 	public TRUSTED_DOMAIN_AUTH_INFORMATION AuthInformation;
 }
 
-[CRepr]public struct TRUSTED_DOMAIN_SUPPORTED_ENCRYPTION_TYPES
+[CRepr]
+public struct TRUSTED_DOMAIN_SUPPORTED_ENCRYPTION_TYPES
 {
 	public uint32 SupportedEncryptionTypes;
 }
 
-[CRepr]public struct LSA_FOREST_TRUST_DOMAIN_INFO
+[CRepr]
+public struct LSA_FOREST_TRUST_DOMAIN_INFO
 {
 	public PSID Sid;
 	public UNICODE_STRING DnsName;
 	public UNICODE_STRING NetbiosName;
 }
 
-[CRepr]public struct LSA_FOREST_TRUST_BINARY_DATA
+[CRepr]
+public struct LSA_FOREST_TRUST_BINARY_DATA
 {
 	public uint32 Length;
 	public uint8* Buffer;
 }
 
-[CRepr]public struct LSA_FOREST_TRUST_RECORD
+[CRepr]
+public struct LSA_FOREST_TRUST_RECORD
 {
-	[CRepr, Union]	public struct _ForestTrustData_e__Union
+	[CRepr, Union]
+	public struct _ForestTrustData_e__Union
 	{
 		public UNICODE_STRING TopLevelName;
 		public LSA_FOREST_TRUST_DOMAIN_INFO DomainInfo;
@@ -4260,13 +4303,15 @@ public function int32 SslGetExtensionsFn(uint8* clientHello, uint32 clientHelloB
 	public _ForestTrustData_e__Union ForestTrustData;
 }
 
-[CRepr]public struct LSA_FOREST_TRUST_INFORMATION
+[CRepr]
+public struct LSA_FOREST_TRUST_INFORMATION
 {
 	public uint32 RecordCount;
 	public LSA_FOREST_TRUST_RECORD** Entries;
 }
 
-[CRepr]public struct LSA_FOREST_TRUST_COLLISION_RECORD
+[CRepr]
+public struct LSA_FOREST_TRUST_COLLISION_RECORD
 {
 	public uint32 Index;
 	public LSA_FOREST_TRUST_COLLISION_RECORD_TYPE Type;
@@ -4274,25 +4319,29 @@ public function int32 SslGetExtensionsFn(uint8* clientHello, uint32 clientHelloB
 	public UNICODE_STRING Name;
 }
 
-[CRepr]public struct LSA_FOREST_TRUST_COLLISION_INFORMATION
+[CRepr]
+public struct LSA_FOREST_TRUST_COLLISION_INFORMATION
 {
 	public uint32 RecordCount;
 	public LSA_FOREST_TRUST_COLLISION_RECORD** Entries;
 }
 
-[CRepr]public struct LSA_ENUMERATION_INFORMATION
+[CRepr]
+public struct LSA_ENUMERATION_INFORMATION
 {
 	public PSID Sid;
 }
 
-[CRepr]public struct LSA_LAST_INTER_LOGON_INFO
+[CRepr]
+public struct LSA_LAST_INTER_LOGON_INFO
 {
 	public LARGE_INTEGER LastSuccessfulLogon;
 	public LARGE_INTEGER LastFailedLogon;
 	public uint32 FailedAttemptCountSinceLastSuccessfulLogon;
 }
 
-[CRepr]public struct SECURITY_LOGON_SESSION_DATA
+[CRepr]
+public struct SECURITY_LOGON_SESSION_DATA
 {
 	public uint32 Size;
 	public LUID LogonId;
@@ -4319,7 +4368,8 @@ public function int32 SslGetExtensionsFn(uint8* clientHello, uint32 clientHelloB
 	public LARGE_INTEGER PasswordMustChange;
 }
 
-[CRepr]public struct CENTRAL_ACCESS_POLICY_ENTRY
+[CRepr]
+public struct CENTRAL_ACCESS_POLICY_ENTRY
 {
 	public UNICODE_STRING Name;
 	public UNICODE_STRING Description;
@@ -4333,7 +4383,8 @@ public function int32 SslGetExtensionsFn(uint8* clientHello, uint32 clientHelloB
 	public uint32 Flags;
 }
 
-[CRepr]public struct CENTRAL_ACCESS_POLICY
+[CRepr]
+public struct CENTRAL_ACCESS_POLICY
 {
 	public PSID CAPID;
 	public UNICODE_STRING Name;
@@ -4344,7 +4395,8 @@ public function int32 SslGetExtensionsFn(uint8* clientHello, uint32 clientHelloB
 	public CENTRAL_ACCESS_POLICY_ENTRY** CAPEs;
 }
 
-[CRepr]public struct NEGOTIATE_PACKAGE_PREFIX
+[CRepr]
+public struct NEGOTIATE_PACKAGE_PREFIX
 {
 	public uint PackageId;
 	public void* PackageDataA;
@@ -4353,7 +4405,8 @@ public function int32 SslGetExtensionsFn(uint8* clientHello, uint32 clientHelloB
 	public uint8[32] Prefix;
 }
 
-[CRepr]public struct NEGOTIATE_PACKAGE_PREFIXES
+[CRepr]
+public struct NEGOTIATE_PACKAGE_PREFIXES
 {
 	public uint32 MessageType;
 	public uint32 PrefixCount;
@@ -4361,19 +4414,22 @@ public function int32 SslGetExtensionsFn(uint8* clientHello, uint32 clientHelloB
 	public uint32 Pad;
 }
 
-[CRepr]public struct NEGOTIATE_CALLER_NAME_REQUEST
+[CRepr]
+public struct NEGOTIATE_CALLER_NAME_REQUEST
 {
 	public uint32 MessageType;
 	public LUID LogonId;
 }
 
-[CRepr]public struct NEGOTIATE_CALLER_NAME_RESPONSE
+[CRepr]
+public struct NEGOTIATE_CALLER_NAME_RESPONSE
 {
 	public uint32 MessageType;
 	public PWSTR CallerName;
 }
 
-[CRepr]public struct DOMAIN_PASSWORD_INFORMATION
+[CRepr]
+public struct DOMAIN_PASSWORD_INFORMATION
 {
 	public uint16 MinPasswordLength;
 	public uint16 PasswordHistoryLength;
@@ -4382,7 +4438,8 @@ public function int32 SslGetExtensionsFn(uint8* clientHello, uint32 clientHelloB
 	public LARGE_INTEGER MinPasswordAge;
 }
 
-[CRepr]public struct MSV1_0_INTERACTIVE_LOGON
+[CRepr]
+public struct MSV1_0_INTERACTIVE_LOGON
 {
 	public MSV1_0_LOGON_SUBMIT_TYPE MessageType;
 	public UNICODE_STRING LogonDomainName;
@@ -4390,7 +4447,8 @@ public function int32 SslGetExtensionsFn(uint8* clientHello, uint32 clientHelloB
 	public UNICODE_STRING Password;
 }
 
-[CRepr]public struct MSV1_0_INTERACTIVE_PROFILE
+[CRepr]
+public struct MSV1_0_INTERACTIVE_PROFILE
 {
 	public MSV1_0_PROFILE_BUFFER_TYPE MessageType;
 	public uint16 LogonCount;
@@ -4410,7 +4468,8 @@ public function int32 SslGetExtensionsFn(uint8* clientHello, uint32 clientHelloB
 	public uint32 UserFlags;
 }
 
-[CRepr]public struct MSV1_0_LM20_LOGON
+[CRepr]
+public struct MSV1_0_LM20_LOGON
 {
 	public MSV1_0_LOGON_SUBMIT_TYPE MessageType;
 	public UNICODE_STRING LogonDomainName;
@@ -4422,7 +4481,8 @@ public function int32 SslGetExtensionsFn(uint8* clientHello, uint32 clientHelloB
 	public uint32 ParameterControl;
 }
 
-[CRepr]public struct MSV1_0_SUBAUTH_LOGON
+[CRepr]
+public struct MSV1_0_SUBAUTH_LOGON
 {
 	public MSV1_0_LOGON_SUBMIT_TYPE MessageType;
 	public UNICODE_STRING LogonDomainName;
@@ -4435,7 +4495,8 @@ public function int32 SslGetExtensionsFn(uint8* clientHello, uint32 clientHelloB
 	public uint32 SubAuthPackageId;
 }
 
-[CRepr]public struct MSV1_0_S4U_LOGON
+[CRepr]
+public struct MSV1_0_S4U_LOGON
 {
 	public MSV1_0_LOGON_SUBMIT_TYPE MessageType;
 	public uint32 Flags;
@@ -4443,7 +4504,8 @@ public function int32 SslGetExtensionsFn(uint8* clientHello, uint32 clientHelloB
 	public UNICODE_STRING DomainName;
 }
 
-[CRepr]public struct MSV1_0_LM20_LOGON_PROFILE
+[CRepr]
+public struct MSV1_0_LM20_LOGON_PROFILE
 {
 	public MSV1_0_PROFILE_BUFFER_TYPE MessageType;
 	public LARGE_INTEGER KickOffTime;
@@ -4456,12 +4518,14 @@ public function int32 SslGetExtensionsFn(uint8* clientHello, uint32 clientHelloB
 	public UNICODE_STRING UserParameters;
 }
 
-[CRepr]public struct MSV1_0_CREDENTIAL_KEY
+[CRepr]
+public struct MSV1_0_CREDENTIAL_KEY
 {
 	public uint8[20] Data;
 }
 
-[CRepr]public struct MSV1_0_SUPPLEMENTAL_CREDENTIAL
+[CRepr]
+public struct MSV1_0_SUPPLEMENTAL_CREDENTIAL
 {
 	public uint32 Version;
 	public MSV_SUPPLEMENTAL_CREDENTIAL_FLAGS Flags;
@@ -4469,7 +4533,8 @@ public function int32 SslGetExtensionsFn(uint8* clientHello, uint32 clientHelloB
 	public uint8[16] NtPassword;
 }
 
-[CRepr]public struct MSV1_0_SUPPLEMENTAL_CREDENTIAL_V2
+[CRepr]
+public struct MSV1_0_SUPPLEMENTAL_CREDENTIAL_V2
 {
 	public uint32 Version;
 	public uint32 Flags;
@@ -4477,7 +4542,8 @@ public function int32 SslGetExtensionsFn(uint8* clientHello, uint32 clientHelloB
 	public MSV1_0_CREDENTIAL_KEY CredentialKey;
 }
 
-[CRepr]public struct MSV1_0_SUPPLEMENTAL_CREDENTIAL_V3
+[CRepr]
+public struct MSV1_0_SUPPLEMENTAL_CREDENTIAL_V3
 {
 	public uint32 Version;
 	public uint32 Flags;
@@ -4487,14 +4553,16 @@ public function int32 SslGetExtensionsFn(uint8* clientHello, uint32 clientHelloB
 	public uint8[20] ShaPassword;
 }
 
-[CRepr]public struct MSV1_0_IUM_SUPPLEMENTAL_CREDENTIAL
+[CRepr]
+public struct MSV1_0_IUM_SUPPLEMENTAL_CREDENTIAL
 {
 	public uint32 Version;
 	public uint32 EncryptedCredsSize;
 	public uint8[1] EncryptedCreds;
 }
 
-[CRepr, Packed(1)]public struct MSV1_0_REMOTE_SUPPLEMENTAL_CREDENTIAL
+[CRepr, Packed(1)]
+public struct MSV1_0_REMOTE_SUPPLEMENTAL_CREDENTIAL
 {
 	public uint32 Version;
 	public uint32 Flags;
@@ -4504,7 +4572,8 @@ public function int32 SslGetExtensionsFn(uint8* clientHello, uint32 clientHelloB
 	public uint8[1] EncryptedCreds;
 }
 
-[CRepr]public struct MSV1_0_NTLM3_RESPONSE
+[CRepr]
+public struct MSV1_0_NTLM3_RESPONSE
 {
 	public uint8[16] Response;
 	public uint8 RespType;
@@ -4517,13 +4586,15 @@ public function int32 SslGetExtensionsFn(uint8* clientHello, uint32 clientHelloB
 	public uint8[1] Buffer;
 }
 
-[CRepr]public struct MSV1_0_AV_PAIR
+[CRepr]
+public struct MSV1_0_AV_PAIR
 {
 	public uint16 AvId;
 	public uint16 AvLen;
 }
 
-[CRepr]public struct MSV1_0_CHANGEPASSWORD_REQUEST
+[CRepr]
+public struct MSV1_0_CHANGEPASSWORD_REQUEST
 {
 	public MSV1_0_PROTOCOL_MESSAGE_TYPE MessageType;
 	public UNICODE_STRING DomainName;
@@ -4533,14 +4604,16 @@ public function int32 SslGetExtensionsFn(uint8* clientHello, uint32 clientHelloB
 	public BOOLEAN Impersonating;
 }
 
-[CRepr]public struct MSV1_0_CHANGEPASSWORD_RESPONSE
+[CRepr]
+public struct MSV1_0_CHANGEPASSWORD_RESPONSE
 {
 	public MSV1_0_PROTOCOL_MESSAGE_TYPE MessageType;
 	public BOOLEAN PasswordInfoValid;
 	public DOMAIN_PASSWORD_INFORMATION DomainPasswordInfo;
 }
 
-[CRepr]public struct MSV1_0_PASSTHROUGH_REQUEST
+[CRepr]
+public struct MSV1_0_PASSTHROUGH_REQUEST
 {
 	public MSV1_0_PROTOCOL_MESSAGE_TYPE MessageType;
 	public UNICODE_STRING DomainName;
@@ -4550,7 +4623,8 @@ public function int32 SslGetExtensionsFn(uint8* clientHello, uint32 clientHelloB
 	public uint32 Pad;
 }
 
-[CRepr]public struct MSV1_0_PASSTHROUGH_RESPONSE
+[CRepr]
+public struct MSV1_0_PASSTHROUGH_RESPONSE
 {
 	public MSV1_0_PROTOCOL_MESSAGE_TYPE MessageType;
 	public uint32 Pad;
@@ -4558,7 +4632,8 @@ public function int32 SslGetExtensionsFn(uint8* clientHello, uint32 clientHelloB
 	public uint8* ValidationData;
 }
 
-[CRepr]public struct MSV1_0_SUBAUTH_REQUEST
+[CRepr]
+public struct MSV1_0_SUBAUTH_REQUEST
 {
 	public MSV1_0_PROTOCOL_MESSAGE_TYPE MessageType;
 	public uint32 SubAuthPackageId;
@@ -4566,14 +4641,16 @@ public function int32 SslGetExtensionsFn(uint8* clientHello, uint32 clientHelloB
 	public uint8* SubAuthSubmitBuffer;
 }
 
-[CRepr]public struct MSV1_0_SUBAUTH_RESPONSE
+[CRepr]
+public struct MSV1_0_SUBAUTH_RESPONSE
 {
 	public MSV1_0_PROTOCOL_MESSAGE_TYPE MessageType;
 	public uint32 SubAuthInfoLength;
 	public uint8* SubAuthReturnBuffer;
 }
 
-[CRepr]public struct KERB_INTERACTIVE_LOGON
+[CRepr]
+public struct KERB_INTERACTIVE_LOGON
 {
 	public KERB_LOGON_SUBMIT_TYPE MessageType;
 	public UNICODE_STRING LogonDomainName;
@@ -4581,13 +4658,15 @@ public function int32 SslGetExtensionsFn(uint8* clientHello, uint32 clientHelloB
 	public UNICODE_STRING Password;
 }
 
-[CRepr]public struct KERB_INTERACTIVE_UNLOCK_LOGON
+[CRepr]
+public struct KERB_INTERACTIVE_UNLOCK_LOGON
 {
 	public KERB_INTERACTIVE_LOGON Logon;
 	public LUID LogonId;
 }
 
-[CRepr]public struct KERB_SMART_CARD_LOGON
+[CRepr]
+public struct KERB_SMART_CARD_LOGON
 {
 	public KERB_LOGON_SUBMIT_TYPE MessageType;
 	public UNICODE_STRING Pin;
@@ -4595,13 +4674,15 @@ public function int32 SslGetExtensionsFn(uint8* clientHello, uint32 clientHelloB
 	public uint8* CspData;
 }
 
-[CRepr]public struct KERB_SMART_CARD_UNLOCK_LOGON
+[CRepr]
+public struct KERB_SMART_CARD_UNLOCK_LOGON
 {
 	public KERB_SMART_CARD_LOGON Logon;
 	public LUID LogonId;
 }
 
-[CRepr]public struct KERB_CERTIFICATE_LOGON
+[CRepr]
+public struct KERB_CERTIFICATE_LOGON
 {
 	public KERB_LOGON_SUBMIT_TYPE MessageType;
 	public UNICODE_STRING DomainName;
@@ -4612,13 +4693,15 @@ public function int32 SslGetExtensionsFn(uint8* clientHello, uint32 clientHelloB
 	public uint8* CspData;
 }
 
-[CRepr]public struct KERB_CERTIFICATE_UNLOCK_LOGON
+[CRepr]
+public struct KERB_CERTIFICATE_UNLOCK_LOGON
 {
 	public KERB_CERTIFICATE_LOGON Logon;
 	public LUID LogonId;
 }
 
-[CRepr]public struct KERB_CERTIFICATE_S4U_LOGON
+[CRepr]
+public struct KERB_CERTIFICATE_S4U_LOGON
 {
 	public KERB_LOGON_SUBMIT_TYPE MessageType;
 	public uint32 Flags;
@@ -4628,7 +4711,8 @@ public function int32 SslGetExtensionsFn(uint8* clientHello, uint32 clientHelloB
 	public uint8* Certificate;
 }
 
-[CRepr]public struct KERB_TICKET_LOGON
+[CRepr]
+public struct KERB_TICKET_LOGON
 {
 	public KERB_LOGON_SUBMIT_TYPE MessageType;
 	public uint32 Flags;
@@ -4638,13 +4722,15 @@ public function int32 SslGetExtensionsFn(uint8* clientHello, uint32 clientHelloB
 	public uint8* TicketGrantingTicket;
 }
 
-[CRepr]public struct KERB_TICKET_UNLOCK_LOGON
+[CRepr]
+public struct KERB_TICKET_UNLOCK_LOGON
 {
 	public KERB_TICKET_LOGON Logon;
 	public LUID LogonId;
 }
 
-[CRepr]public struct KERB_S4U_LOGON
+[CRepr]
+public struct KERB_S4U_LOGON
 {
 	public KERB_LOGON_SUBMIT_TYPE MessageType;
 	public uint32 Flags;
@@ -4652,7 +4738,8 @@ public function int32 SslGetExtensionsFn(uint8* clientHello, uint32 clientHelloB
 	public UNICODE_STRING ClientRealm;
 }
 
-[CRepr]public struct KERB_INTERACTIVE_PROFILE
+[CRepr]
+public struct KERB_INTERACTIVE_PROFILE
 {
 	public KERB_PROFILE_BUFFER_TYPE MessageType;
 	public uint16 LogonCount;
@@ -4672,40 +4759,46 @@ public function int32 SslGetExtensionsFn(uint8* clientHello, uint32 clientHelloB
 	public uint32 UserFlags;
 }
 
-[CRepr]public struct KERB_SMART_CARD_PROFILE
+[CRepr]
+public struct KERB_SMART_CARD_PROFILE
 {
 	public KERB_INTERACTIVE_PROFILE Profile;
 	public uint32 CertificateSize;
 	public uint8* CertificateData;
 }
 
-[CRepr]public struct KERB_CRYPTO_KEY
+[CRepr]
+public struct KERB_CRYPTO_KEY
 {
 	public KERB_CRYPTO_KEY_TYPE KeyType;
 	public uint32 Length;
 	public uint8* Value;
 }
 
-[CRepr]public struct KERB_CRYPTO_KEY32
+[CRepr]
+public struct KERB_CRYPTO_KEY32
 {
 	public int32 KeyType;
 	public uint32 Length;
 	public uint32 Offset;
 }
 
-[CRepr]public struct KERB_TICKET_PROFILE
+[CRepr]
+public struct KERB_TICKET_PROFILE
 {
 	public KERB_INTERACTIVE_PROFILE Profile;
 	public KERB_CRYPTO_KEY SessionKey;
 }
 
-[CRepr]public struct KERB_QUERY_TKT_CACHE_REQUEST
+[CRepr]
+public struct KERB_QUERY_TKT_CACHE_REQUEST
 {
 	public KERB_PROTOCOL_MESSAGE_TYPE MessageType;
 	public LUID LogonId;
 }
 
-[CRepr]public struct KERB_TICKET_CACHE_INFO
+[CRepr]
+public struct KERB_TICKET_CACHE_INFO
 {
 	public UNICODE_STRING ServerName;
 	public UNICODE_STRING RealmName;
@@ -4716,7 +4809,8 @@ public function int32 SslGetExtensionsFn(uint8* clientHello, uint32 clientHelloB
 	public KERB_TICKET_FLAGS TicketFlags;
 }
 
-[CRepr]public struct KERB_TICKET_CACHE_INFO_EX
+[CRepr]
+public struct KERB_TICKET_CACHE_INFO_EX
 {
 	public UNICODE_STRING ClientName;
 	public UNICODE_STRING ClientRealm;
@@ -4729,7 +4823,8 @@ public function int32 SslGetExtensionsFn(uint8* clientHello, uint32 clientHelloB
 	public uint32 TicketFlags;
 }
 
-[CRepr]public struct KERB_TICKET_CACHE_INFO_EX2
+[CRepr]
+public struct KERB_TICKET_CACHE_INFO_EX2
 {
 	public UNICODE_STRING ClientName;
 	public UNICODE_STRING ClientRealm;
@@ -4744,7 +4839,8 @@ public function int32 SslGetExtensionsFn(uint8* clientHello, uint32 clientHelloB
 	public uint32 BranchId;
 }
 
-[CRepr]public struct KERB_TICKET_CACHE_INFO_EX3
+[CRepr]
+public struct KERB_TICKET_CACHE_INFO_EX3
 {
 	public UNICODE_STRING ClientName;
 	public UNICODE_STRING ClientRealm;
@@ -4761,62 +4857,71 @@ public function int32 SslGetExtensionsFn(uint8* clientHello, uint32 clientHelloB
 	public UNICODE_STRING KdcCalled;
 }
 
-[CRepr]public struct KERB_QUERY_TKT_CACHE_RESPONSE
+[CRepr]
+public struct KERB_QUERY_TKT_CACHE_RESPONSE
 {
 	public KERB_PROTOCOL_MESSAGE_TYPE MessageType;
 	public uint32 CountOfTickets;
 	public KERB_TICKET_CACHE_INFO[1] Tickets;
 }
 
-[CRepr]public struct KERB_QUERY_TKT_CACHE_EX_RESPONSE
+[CRepr]
+public struct KERB_QUERY_TKT_CACHE_EX_RESPONSE
 {
 	public KERB_PROTOCOL_MESSAGE_TYPE MessageType;
 	public uint32 CountOfTickets;
 	public KERB_TICKET_CACHE_INFO_EX[1] Tickets;
 }
 
-[CRepr]public struct KERB_QUERY_TKT_CACHE_EX2_RESPONSE
+[CRepr]
+public struct KERB_QUERY_TKT_CACHE_EX2_RESPONSE
 {
 	public KERB_PROTOCOL_MESSAGE_TYPE MessageType;
 	public uint32 CountOfTickets;
 	public KERB_TICKET_CACHE_INFO_EX2[1] Tickets;
 }
 
-[CRepr]public struct KERB_QUERY_TKT_CACHE_EX3_RESPONSE
+[CRepr]
+public struct KERB_QUERY_TKT_CACHE_EX3_RESPONSE
 {
 	public KERB_PROTOCOL_MESSAGE_TYPE MessageType;
 	public uint32 CountOfTickets;
 	public KERB_TICKET_CACHE_INFO_EX3[1] Tickets;
 }
 
-[CRepr]public struct KERB_AUTH_DATA
+[CRepr]
+public struct KERB_AUTH_DATA
 {
 	public uint32 Type;
 	public uint32 Length;
 	public uint8* Data;
 }
 
-[CRepr]public struct KERB_NET_ADDRESS
+[CRepr]
+public struct KERB_NET_ADDRESS
 {
 	public uint32 Family;
 	public uint32 Length;
 	public PSTR Address;
 }
 
-[CRepr]public struct KERB_NET_ADDRESSES
+[CRepr]
+public struct KERB_NET_ADDRESSES
 {
 	public uint32 Number;
 	public KERB_NET_ADDRESS[1] Addresses;
 }
 
-[CRepr]public struct KERB_EXTERNAL_NAME
+[CRepr]
+public struct KERB_EXTERNAL_NAME
 {
 	public int16 NameType;
 	public uint16 NameCount;
 	public UNICODE_STRING[1] Names;
 }
 
-[CRepr]public struct KERB_EXTERNAL_TICKET
+[CRepr]
+public struct KERB_EXTERNAL_TICKET
 {
 	public KERB_EXTERNAL_NAME* ServiceName;
 	public KERB_EXTERNAL_NAME* TargetName;
@@ -4836,7 +4941,8 @@ public function int32 SslGetExtensionsFn(uint8* clientHello, uint32 clientHelloB
 	public uint8* EncodedTicket;
 }
 
-[CRepr]public struct KERB_RETRIEVE_TKT_REQUEST
+[CRepr]
+public struct KERB_RETRIEVE_TKT_REQUEST
 {
 	public KERB_PROTOCOL_MESSAGE_TYPE MessageType;
 	public LUID LogonId;
@@ -4847,12 +4953,14 @@ public function int32 SslGetExtensionsFn(uint8* clientHello, uint32 clientHelloB
 	public SecHandle CredentialsHandle;
 }
 
-[CRepr]public struct KERB_RETRIEVE_TKT_RESPONSE
+[CRepr]
+public struct KERB_RETRIEVE_TKT_RESPONSE
 {
 	public KERB_EXTERNAL_TICKET Ticket;
 }
 
-[CRepr]public struct KERB_PURGE_TKT_CACHE_REQUEST
+[CRepr]
+public struct KERB_PURGE_TKT_CACHE_REQUEST
 {
 	public KERB_PROTOCOL_MESSAGE_TYPE MessageType;
 	public LUID LogonId;
@@ -4860,7 +4968,8 @@ public function int32 SslGetExtensionsFn(uint8* clientHello, uint32 clientHelloB
 	public UNICODE_STRING RealmName;
 }
 
-[CRepr]public struct KERB_PURGE_TKT_CACHE_EX_REQUEST
+[CRepr]
+public struct KERB_PURGE_TKT_CACHE_EX_REQUEST
 {
 	public KERB_PROTOCOL_MESSAGE_TYPE MessageType;
 	public LUID LogonId;
@@ -4868,7 +4977,8 @@ public function int32 SslGetExtensionsFn(uint8* clientHello, uint32 clientHelloB
 	public KERB_TICKET_CACHE_INFO_EX TicketTemplate;
 }
 
-[CRepr]public struct KERB_SUBMIT_TKT_REQUEST
+[CRepr]
+public struct KERB_SUBMIT_TKT_REQUEST
 {
 	public KERB_PROTOCOL_MESSAGE_TYPE MessageType;
 	public LUID LogonId;
@@ -4878,14 +4988,16 @@ public function int32 SslGetExtensionsFn(uint8* clientHello, uint32 clientHelloB
 	public uint32 KerbCredOffset;
 }
 
-[CRepr]public struct KERB_QUERY_KDC_PROXY_CACHE_REQUEST
+[CRepr]
+public struct KERB_QUERY_KDC_PROXY_CACHE_REQUEST
 {
 	public KERB_PROTOCOL_MESSAGE_TYPE MessageType;
 	public uint32 Flags;
 	public LUID LogonId;
 }
 
-[CRepr]public struct KDC_PROXY_CACHE_ENTRY_DATA
+[CRepr]
+public struct KDC_PROXY_CACHE_ENTRY_DATA
 {
 	public uint64 SinceLastUsed;
 	public UNICODE_STRING DomainName;
@@ -4898,27 +5010,31 @@ public function int32 SslGetExtensionsFn(uint8* clientHello, uint32 clientHelloB
 	public BOOLEAN GlobalCache;
 }
 
-[CRepr]public struct KERB_QUERY_KDC_PROXY_CACHE_RESPONSE
+[CRepr]
+public struct KERB_QUERY_KDC_PROXY_CACHE_RESPONSE
 {
 	public KERB_PROTOCOL_MESSAGE_TYPE MessageType;
 	public uint32 CountOfEntries;
 	public KDC_PROXY_CACHE_ENTRY_DATA* Entries;
 }
 
-[CRepr]public struct KERB_PURGE_KDC_PROXY_CACHE_REQUEST
+[CRepr]
+public struct KERB_PURGE_KDC_PROXY_CACHE_REQUEST
 {
 	public KERB_PROTOCOL_MESSAGE_TYPE MessageType;
 	public uint32 Flags;
 	public LUID LogonId;
 }
 
-[CRepr]public struct KERB_PURGE_KDC_PROXY_CACHE_RESPONSE
+[CRepr]
+public struct KERB_PURGE_KDC_PROXY_CACHE_RESPONSE
 {
 	public KERB_PROTOCOL_MESSAGE_TYPE MessageType;
 	public uint32 CountOfPurged;
 }
 
-[CRepr]public struct KERB_S4U2PROXY_CACHE_ENTRY_INFO
+[CRepr]
+public struct KERB_S4U2PROXY_CACHE_ENTRY_INFO
 {
 	public UNICODE_STRING ServerName;
 	public uint32 Flags;
@@ -4926,7 +5042,8 @@ public function int32 SslGetExtensionsFn(uint8* clientHello, uint32 clientHelloB
 	public LARGE_INTEGER Expiry;
 }
 
-[CRepr]public struct KERB_S4U2PROXY_CRED
+[CRepr]
+public struct KERB_S4U2PROXY_CRED
 {
 	public UNICODE_STRING UserName;
 	public UNICODE_STRING DomainName;
@@ -4937,21 +5054,24 @@ public function int32 SslGetExtensionsFn(uint8* clientHello, uint32 clientHelloB
 	public KERB_S4U2PROXY_CACHE_ENTRY_INFO* Entries;
 }
 
-[CRepr]public struct KERB_QUERY_S4U2PROXY_CACHE_REQUEST
+[CRepr]
+public struct KERB_QUERY_S4U2PROXY_CACHE_REQUEST
 {
 	public KERB_PROTOCOL_MESSAGE_TYPE MessageType;
 	public uint32 Flags;
 	public LUID LogonId;
 }
 
-[CRepr]public struct KERB_QUERY_S4U2PROXY_CACHE_RESPONSE
+[CRepr]
+public struct KERB_QUERY_S4U2PROXY_CACHE_RESPONSE
 {
 	public KERB_PROTOCOL_MESSAGE_TYPE MessageType;
 	public uint32 CountOfCreds;
 	public KERB_S4U2PROXY_CRED* Creds;
 }
 
-[CRepr]public struct KERB_RETRIEVE_KEY_TAB_REQUEST
+[CRepr]
+public struct KERB_RETRIEVE_KEY_TAB_REQUEST
 {
 	public KERB_PROTOCOL_MESSAGE_TYPE MessageType;
 	public uint32 Flags;
@@ -4960,32 +5080,37 @@ public function int32 SslGetExtensionsFn(uint8* clientHello, uint32 clientHelloB
 	public UNICODE_STRING Password;
 }
 
-[CRepr]public struct KERB_RETRIEVE_KEY_TAB_RESPONSE
+[CRepr]
+public struct KERB_RETRIEVE_KEY_TAB_RESPONSE
 {
 	public KERB_PROTOCOL_MESSAGE_TYPE MessageType;
 	public uint32 KeyTabLength;
 	public uint8* KeyTab;
 }
 
-[CRepr]public struct KERB_REFRESH_POLICY_REQUEST
+[CRepr]
+public struct KERB_REFRESH_POLICY_REQUEST
 {
 	public KERB_PROTOCOL_MESSAGE_TYPE MessageType;
 	public uint32 Flags;
 }
 
-[CRepr]public struct KERB_REFRESH_POLICY_RESPONSE
+[CRepr]
+public struct KERB_REFRESH_POLICY_RESPONSE
 {
 	public KERB_PROTOCOL_MESSAGE_TYPE MessageType;
 	public uint32 Flags;
 }
 
-[CRepr]public struct KERB_CLOUD_KERBEROS_DEBUG_REQUEST
+[CRepr]
+public struct KERB_CLOUD_KERBEROS_DEBUG_REQUEST
 {
 	public KERB_PROTOCOL_MESSAGE_TYPE MessageType;
 	public LUID LogonId;
 }
 
-[CRepr]public struct KERB_CLOUD_KERBEROS_DEBUG_RESPONSE
+[CRepr]
+public struct KERB_CLOUD_KERBEROS_DEBUG_RESPONSE
 {
 	public KERB_PROTOCOL_MESSAGE_TYPE MessageType;
 	public uint32 Version;
@@ -4993,12 +5118,14 @@ public function int32 SslGetExtensionsFn(uint8* clientHello, uint32 clientHelloB
 	public uint32[1] Data;
 }
 
-[CRepr]public struct KERB_CLOUD_KERBEROS_DEBUG_DATA_V0
+[CRepr]
+public struct KERB_CLOUD_KERBEROS_DEBUG_DATA_V0
 {
 	public int32 _bitfield;
 }
 
-[CRepr]public struct KERB_CHANGEPASSWORD_REQUEST
+[CRepr]
+public struct KERB_CHANGEPASSWORD_REQUEST
 {
 	public KERB_PROTOCOL_MESSAGE_TYPE MessageType;
 	public UNICODE_STRING DomainName;
@@ -5008,7 +5135,8 @@ public function int32 SslGetExtensionsFn(uint8* clientHello, uint32 clientHelloB
 	public BOOLEAN Impersonating;
 }
 
-[CRepr]public struct KERB_SETPASSWORD_REQUEST
+[CRepr]
+public struct KERB_SETPASSWORD_REQUEST
 {
 	public KERB_PROTOCOL_MESSAGE_TYPE MessageType;
 	public LUID LogonId;
@@ -5019,7 +5147,8 @@ public function int32 SslGetExtensionsFn(uint8* clientHello, uint32 clientHelloB
 	public UNICODE_STRING Password;
 }
 
-[CRepr]public struct KERB_SETPASSWORD_EX_REQUEST
+[CRepr]
+public struct KERB_SETPASSWORD_EX_REQUEST
 {
 	public KERB_PROTOCOL_MESSAGE_TYPE MessageType;
 	public LUID LogonId;
@@ -5035,7 +5164,8 @@ public function int32 SslGetExtensionsFn(uint8* clientHello, uint32 clientHelloB
 	public uint32 KdcAddressType;
 }
 
-[CRepr]public struct KERB_DECRYPT_REQUEST
+[CRepr]
+public struct KERB_DECRYPT_REQUEST
 {
 	public KERB_PROTOCOL_MESSAGE_TYPE MessageType;
 	public LUID LogonId;
@@ -5049,12 +5179,14 @@ public function int32 SslGetExtensionsFn(uint8* clientHello, uint32 clientHelloB
 	public uint8* EncryptedData;
 }
 
-[CRepr]public struct KERB_DECRYPT_RESPONSE
+[CRepr]
+public struct KERB_DECRYPT_RESPONSE
 {
 	public uint8[1] DecryptedData;
 }
 
-[CRepr]public struct KERB_ADD_BINDING_CACHE_ENTRY_REQUEST
+[CRepr]
+public struct KERB_ADD_BINDING_CACHE_ENTRY_REQUEST
 {
 	public KERB_PROTOCOL_MESSAGE_TYPE MessageType;
 	public UNICODE_STRING RealmName;
@@ -5062,7 +5194,8 @@ public function int32 SslGetExtensionsFn(uint8* clientHello, uint32 clientHelloB
 	public KERB_ADDRESS_TYPE AddressType;
 }
 
-[CRepr]public struct KERB_REFRESH_SCCRED_REQUEST
+[CRepr]
+public struct KERB_REFRESH_SCCRED_REQUEST
 {
 	public KERB_PROTOCOL_MESSAGE_TYPE MessageType;
 	public UNICODE_STRING CredentialBlob;
@@ -5070,7 +5203,8 @@ public function int32 SslGetExtensionsFn(uint8* clientHello, uint32 clientHelloB
 	public uint32 Flags;
 }
 
-[CRepr]public struct KERB_ADD_CREDENTIALS_REQUEST
+[CRepr]
+public struct KERB_ADD_CREDENTIALS_REQUEST
 {
 	public KERB_PROTOCOL_MESSAGE_TYPE MessageType;
 	public UNICODE_STRING UserName;
@@ -5080,14 +5214,16 @@ public function int32 SslGetExtensionsFn(uint8* clientHello, uint32 clientHelloB
 	public KERB_REQUEST_FLAGS Flags;
 }
 
-[CRepr]public struct KERB_ADD_CREDENTIALS_REQUEST_EX
+[CRepr]
+public struct KERB_ADD_CREDENTIALS_REQUEST_EX
 {
 	public KERB_ADD_CREDENTIALS_REQUEST Credentials;
 	public uint32 PrincipalNameCount;
 	public UNICODE_STRING[1] PrincipalNames;
 }
 
-[CRepr]public struct KERB_TRANSFER_CRED_REQUEST
+[CRepr]
+public struct KERB_TRANSFER_CRED_REQUEST
 {
 	public KERB_PROTOCOL_MESSAGE_TYPE MessageType;
 	public LUID OriginLogonId;
@@ -5095,13 +5231,15 @@ public function int32 SslGetExtensionsFn(uint8* clientHello, uint32 clientHelloB
 	public uint32 Flags;
 }
 
-[CRepr]public struct KERB_CLEANUP_MACHINE_PKINIT_CREDS_REQUEST
+[CRepr]
+public struct KERB_CLEANUP_MACHINE_PKINIT_CREDS_REQUEST
 {
 	public KERB_PROTOCOL_MESSAGE_TYPE MessageType;
 	public LUID LogonId;
 }
 
-[CRepr]public struct KERB_BINDING_CACHE_ENTRY_DATA
+[CRepr]
+public struct KERB_BINDING_CACHE_ENTRY_DATA
 {
 	public uint64 DiscoveryTime;
 	public UNICODE_STRING RealmName;
@@ -5113,14 +5251,16 @@ public function int32 SslGetExtensionsFn(uint8* clientHello, uint32 clientHelloB
 	public UNICODE_STRING KdcName;
 }
 
-[CRepr]public struct KERB_QUERY_BINDING_CACHE_RESPONSE
+[CRepr]
+public struct KERB_QUERY_BINDING_CACHE_RESPONSE
 {
 	public KERB_PROTOCOL_MESSAGE_TYPE MessageType;
 	public uint32 CountOfEntries;
 	public KERB_BINDING_CACHE_ENTRY_DATA* Entries;
 }
 
-[CRepr]public struct KERB_ADD_BINDING_CACHE_ENTRY_EX_REQUEST
+[CRepr]
+public struct KERB_ADD_BINDING_CACHE_ENTRY_EX_REQUEST
 {
 	public KERB_PROTOCOL_MESSAGE_TYPE MessageType;
 	public UNICODE_STRING RealmName;
@@ -5129,24 +5269,28 @@ public function int32 SslGetExtensionsFn(uint8* clientHello, uint32 clientHelloB
 	public uint32 DcFlags;
 }
 
-[CRepr]public struct KERB_QUERY_BINDING_CACHE_REQUEST
+[CRepr]
+public struct KERB_QUERY_BINDING_CACHE_REQUEST
 {
 	public KERB_PROTOCOL_MESSAGE_TYPE MessageType;
 }
 
-[CRepr]public struct KERB_PURGE_BINDING_CACHE_REQUEST
+[CRepr]
+public struct KERB_PURGE_BINDING_CACHE_REQUEST
 {
 	public KERB_PROTOCOL_MESSAGE_TYPE MessageType;
 }
 
-[CRepr]public struct KERB_QUERY_DOMAIN_EXTENDED_POLICIES_REQUEST
+[CRepr]
+public struct KERB_QUERY_DOMAIN_EXTENDED_POLICIES_REQUEST
 {
 	public KERB_PROTOCOL_MESSAGE_TYPE MessageType;
 	public uint32 Flags;
 	public UNICODE_STRING DomainName;
 }
 
-[CRepr]public struct KERB_QUERY_DOMAIN_EXTENDED_POLICIES_RESPONSE
+[CRepr]
+public struct KERB_QUERY_DOMAIN_EXTENDED_POLICIES_RESPONSE
 {
 	public KERB_PROTOCOL_MESSAGE_TYPE MessageType;
 	public uint32 Flags;
@@ -5154,38 +5298,44 @@ public function int32 SslGetExtensionsFn(uint8* clientHello, uint32 clientHelloB
 	public uint32 DsFlags;
 }
 
-[CRepr]public struct KERB_CERTIFICATE_HASHINFO
+[CRepr]
+public struct KERB_CERTIFICATE_HASHINFO
 {
 	public uint16 StoreNameLength;
 	public uint16 HashLength;
 }
 
-[CRepr]public struct KERB_CERTIFICATE_INFO
+[CRepr]
+public struct KERB_CERTIFICATE_INFO
 {
 	public uint32 CertInfoSize;
 	public uint32 InfoType;
 }
 
-[CRepr]public struct POLICY_AUDIT_SID_ARRAY
+[CRepr]
+public struct POLICY_AUDIT_SID_ARRAY
 {
 	public uint32 UsersCount;
 	public PSID* UserSidArray;
 }
 
-[CRepr]public struct AUDIT_POLICY_INFORMATION
+[CRepr]
+public struct AUDIT_POLICY_INFORMATION
 {
 	public Guid AuditSubCategoryGuid;
 	public uint32 AuditingInformation;
 	public Guid AuditCategoryGuid;
 }
 
-[CRepr]public struct PKU2U_CERT_BLOB
+[CRepr]
+public struct PKU2U_CERT_BLOB
 {
 	public uint32 CertOffset;
 	public uint16 CertLength;
 }
 
-[CRepr]public struct PKU2U_CREDUI_CONTEXT
+[CRepr]
+public struct PKU2U_CREDUI_CONTEXT
 {
 	public uint64 Version;
 	public uint16 cbHeaderLength;
@@ -5194,7 +5344,8 @@ public function int32 SslGetExtensionsFn(uint8* clientHello, uint32 clientHelloB
 	public uint32 CertArrayOffset;
 }
 
-[CRepr]public struct PKU2U_CERTIFICATE_S4U_LOGON
+[CRepr]
+public struct PKU2U_CERTIFICATE_S4U_LOGON
 {
 	public PKU2U_LOGON_SUBMIT_TYPE MessageType;
 	public uint32 Flags;
@@ -5204,7 +5355,8 @@ public function int32 SslGetExtensionsFn(uint8* clientHello, uint32 clientHelloB
 	public uint8* Certificate;
 }
 
-[CRepr]public struct SecPkgInfoW
+[CRepr]
+public struct SecPkgInfoW
 {
 	public uint32 fCapabilities;
 	public uint16 wVersion;
@@ -5214,7 +5366,8 @@ public function int32 SslGetExtensionsFn(uint8* clientHello, uint32 clientHelloB
 	public uint16* Comment;
 }
 
-[CRepr]public struct SecPkgInfoA
+[CRepr]
+public struct SecPkgInfoA
 {
 	public uint32 fCapabilities;
 	public uint16 wVersion;
@@ -5224,21 +5377,24 @@ public function int32 SslGetExtensionsFn(uint8* clientHello, uint32 clientHelloB
 	public int8* Comment;
 }
 
-[CRepr]public struct SecBuffer
+[CRepr]
+public struct SecBuffer
 {
 	public uint32 cbBuffer;
 	public uint32 BufferType;
 	public void* pvBuffer;
 }
 
-[CRepr]public struct SecBufferDesc
+[CRepr]
+public struct SecBufferDesc
 {
 	public uint32 ulVersion;
 	public uint32 cBuffers;
 	public SecBuffer* pBuffers;
 }
 
-[CRepr]public struct SEC_NEGOTIATION_INFO
+[CRepr]
+public struct SEC_NEGOTIATION_INFO
 {
 	public uint32 Size;
 	public uint32 NameLength;
@@ -5246,7 +5402,8 @@ public function int32 SslGetExtensionsFn(uint8* clientHello, uint32 clientHelloB
 	public void* Reserved;
 }
 
-[CRepr]public struct SEC_CHANNEL_BINDINGS
+[CRepr]
+public struct SEC_CHANNEL_BINDINGS
 {
 	public uint32 dwInitiatorAddrType;
 	public uint32 cbInitiatorLength;
@@ -5258,32 +5415,37 @@ public function int32 SslGetExtensionsFn(uint8* clientHello, uint32 clientHelloB
 	public uint32 dwApplicationDataOffset;
 }
 
-[CRepr]public struct SEC_APPLICATION_PROTOCOL_LIST
+[CRepr]
+public struct SEC_APPLICATION_PROTOCOL_LIST
 {
 	public SEC_APPLICATION_PROTOCOL_NEGOTIATION_EXT ProtoNegoExt;
 	public uint16 ProtocolListSize;
 	public uint8[1] ProtocolList;
 }
 
-[CRepr]public struct SEC_APPLICATION_PROTOCOLS
+[CRepr]
+public struct SEC_APPLICATION_PROTOCOLS
 {
 	public uint32 ProtocolListsSize;
 	public SEC_APPLICATION_PROTOCOL_LIST[1] ProtocolLists;
 }
 
-[CRepr]public struct SEC_SRTP_PROTECTION_PROFILES
+[CRepr]
+public struct SEC_SRTP_PROTECTION_PROFILES
 {
 	public uint16 ProfilesSize;
 	public uint16[1] ProfilesList;
 }
 
-[CRepr]public struct SEC_SRTP_MASTER_KEY_IDENTIFIER
+[CRepr]
+public struct SEC_SRTP_MASTER_KEY_IDENTIFIER
 {
 	public uint8 MasterKeyIdentifierSize;
 	public uint8[1] MasterKeyIdentifier;
 }
 
-[CRepr]public struct SEC_TOKEN_BINDING
+[CRepr]
+public struct SEC_TOKEN_BINDING
 {
 	public uint8 MajorVersion;
 	public uint8 MinorVersion;
@@ -5291,29 +5453,34 @@ public function int32 SslGetExtensionsFn(uint8* clientHello, uint32 clientHelloB
 	public uint8[1] KeyParameters;
 }
 
-[CRepr]public struct SEC_PRESHAREDKEY
+[CRepr]
+public struct SEC_PRESHAREDKEY
 {
 	public uint16 KeySize;
 	public uint8[1] Key;
 }
 
-[CRepr]public struct SEC_PRESHAREDKEY_IDENTITY
+[CRepr]
+public struct SEC_PRESHAREDKEY_IDENTITY
 {
 	public uint16 KeyIdentitySize;
 	public uint8[1] KeyIdentity;
 }
 
-[CRepr]public struct SEC_DTLS_MTU
+[CRepr]
+public struct SEC_DTLS_MTU
 {
 	public uint16 PathMTU;
 }
 
-[CRepr]public struct SEC_FLAGS
+[CRepr]
+public struct SEC_FLAGS
 {
 	public uint64 Flags;
 }
 
-[CRepr]public struct SEC_TRAFFIC_SECRETS
+[CRepr]
+public struct SEC_TRAFFIC_SECRETS
 {
 	public char8[64] SymmetricAlgId;
 	public char8[64] ChainingMode;
@@ -5327,31 +5494,36 @@ public function int32 SslGetExtensionsFn(uint8* clientHello, uint32 clientHelloB
 	public uint8[1] TrafficSecret;
 }
 
-[CRepr]public struct SecPkgCredentials_NamesW
+[CRepr]
+public struct SecPkgCredentials_NamesW
 {
 	public uint16* sUserName;
 }
 
-[CRepr]public struct SecPkgCredentials_NamesA
+[CRepr]
+public struct SecPkgCredentials_NamesA
 {
 	public int8* sUserName;
 }
 
-[CRepr]public struct SecPkgCredentials_SSIProviderW
+[CRepr]
+public struct SecPkgCredentials_SSIProviderW
 {
 	public uint16* sProviderName;
 	public uint32 ProviderInfoLength;
 	public PSTR ProviderInfo;
 }
 
-[CRepr]public struct SecPkgCredentials_SSIProviderA
+[CRepr]
+public struct SecPkgCredentials_SSIProviderA
 {
 	public int8* sProviderName;
 	public uint32 ProviderInfoLength;
 	public PSTR ProviderInfo;
 }
 
-[CRepr]public struct SecPkgCredentials_KdcProxySettingsW
+[CRepr]
+public struct SecPkgCredentials_KdcProxySettingsW
 {
 	public uint32 Version;
 	public uint32 Flags;
@@ -5361,34 +5533,40 @@ public function int32 SslGetExtensionsFn(uint8* clientHello, uint32 clientHelloB
 	public uint16 ClientTlsCredLength;
 }
 
-[CRepr]public struct SecPkgCredentials_Cert
+[CRepr]
+public struct SecPkgCredentials_Cert
 {
 	public uint32 EncodedCertSize;
 	public uint8* EncodedCert;
 }
 
-[CRepr]public struct SecPkgContext_SubjectAttributes
+[CRepr]
+public struct SecPkgContext_SubjectAttributes
 {
 	public void* AttributeInfo;
 }
 
-[CRepr]public struct SecPkgContext_CredInfo
+[CRepr]
+public struct SecPkgContext_CredInfo
 {
 	public SECPKG_CRED_CLASS CredClass;
 	public uint32 IsPromptingNeeded;
 }
 
-[CRepr]public struct SecPkgContext_NegoPackageInfo
+[CRepr]
+public struct SecPkgContext_NegoPackageInfo
 {
 	public uint32 PackageMask;
 }
 
-[CRepr]public struct SecPkgContext_NegoStatus
+[CRepr]
+public struct SecPkgContext_NegoStatus
 {
 	public uint32 LastStatus;
 }
 
-[CRepr]public struct SecPkgContext_Sizes
+[CRepr]
+public struct SecPkgContext_Sizes
 {
 	public uint32 cbMaxToken;
 	public uint32 cbMaxSignature;
@@ -5396,7 +5574,8 @@ public function int32 SslGetExtensionsFn(uint8* clientHello, uint32 clientHelloB
 	public uint32 cbSecurityTrailer;
 }
 
-[CRepr]public struct SecPkgContext_StreamSizes
+[CRepr]
+public struct SecPkgContext_StreamSizes
 {
 	public uint32 cbHeader;
 	public uint32 cbTrailer;
@@ -5405,34 +5584,40 @@ public function int32 SslGetExtensionsFn(uint8* clientHello, uint32 clientHelloB
 	public uint32 cbBlockSize;
 }
 
-[CRepr]public struct SecPkgContext_NamesW
+[CRepr]
+public struct SecPkgContext_NamesW
 {
 	public uint16* sUserName;
 }
 
-[CRepr]public struct SecPkgContext_LastClientTokenStatus
+[CRepr]
+public struct SecPkgContext_LastClientTokenStatus
 {
 	public SECPKG_ATTR_LCT_STATUS LastClientTokenStatus;
 }
 
-[CRepr]public struct SecPkgContext_NamesA
+[CRepr]
+public struct SecPkgContext_NamesA
 {
 	public int8* sUserName;
 }
 
-[CRepr]public struct SecPkgContext_Lifespan
+[CRepr]
+public struct SecPkgContext_Lifespan
 {
 	public LARGE_INTEGER tsStart;
 	public LARGE_INTEGER tsExpiry;
 }
 
-[CRepr]public struct SecPkgContext_DceInfo
+[CRepr]
+public struct SecPkgContext_DceInfo
 {
 	public uint32 AuthzSvc;
 	public void* pPac;
 }
 
-[CRepr]public struct SecPkgContext_KeyInfoA
+[CRepr]
+public struct SecPkgContext_KeyInfoA
 {
 	public int8* sSignatureAlgorithmName;
 	public int8* sEncryptAlgorithmName;
@@ -5441,7 +5626,8 @@ public function int32 SslGetExtensionsFn(uint8* clientHello, uint32 clientHelloB
 	public uint32 EncryptAlgorithm;
 }
 
-[CRepr]public struct SecPkgContext_KeyInfoW
+[CRepr]
+public struct SecPkgContext_KeyInfoW
 {
 	public uint16* sSignatureAlgorithmName;
 	public uint16* sEncryptAlgorithmName;
@@ -5450,47 +5636,55 @@ public function int32 SslGetExtensionsFn(uint8* clientHello, uint32 clientHelloB
 	public uint32 EncryptAlgorithm;
 }
 
-[CRepr]public struct SecPkgContext_AuthorityA
+[CRepr]
+public struct SecPkgContext_AuthorityA
 {
 	public int8* sAuthorityName;
 }
 
-[CRepr]public struct SecPkgContext_AuthorityW
+[CRepr]
+public struct SecPkgContext_AuthorityW
 {
 	public uint16* sAuthorityName;
 }
 
-[CRepr]public struct SecPkgContext_ProtoInfoA
+[CRepr]
+public struct SecPkgContext_ProtoInfoA
 {
 	public int8* sProtocolName;
 	public uint32 majorVersion;
 	public uint32 minorVersion;
 }
 
-[CRepr]public struct SecPkgContext_ProtoInfoW
+[CRepr]
+public struct SecPkgContext_ProtoInfoW
 {
 	public uint16* sProtocolName;
 	public uint32 majorVersion;
 	public uint32 minorVersion;
 }
 
-[CRepr]public struct SecPkgContext_PasswordExpiry
+[CRepr]
+public struct SecPkgContext_PasswordExpiry
 {
 	public LARGE_INTEGER tsPasswordExpires;
 }
 
-[CRepr]public struct SecPkgContext_LogoffTime
+[CRepr]
+public struct SecPkgContext_LogoffTime
 {
 	public LARGE_INTEGER tsLogoffTime;
 }
 
-[CRepr]public struct SecPkgContext_SessionKey
+[CRepr]
+public struct SecPkgContext_SessionKey
 {
 	public uint32 SessionKeyLength;
 	public uint8* SessionKey;
 }
 
-[CRepr]public struct SecPkgContext_NegoKeys
+[CRepr]
+public struct SecPkgContext_NegoKeys
 {
 	public uint32 KeyType;
 	public uint16 KeyLength;
@@ -5500,97 +5694,114 @@ public function int32 SslGetExtensionsFn(uint8* clientHello, uint32 clientHelloB
 	public uint8* VerifyKeyValue;
 }
 
-[CRepr]public struct SecPkgContext_PackageInfoW
+[CRepr]
+public struct SecPkgContext_PackageInfoW
 {
 	public SecPkgInfoW* PackageInfo;
 }
 
-[CRepr]public struct SecPkgContext_PackageInfoA
+[CRepr]
+public struct SecPkgContext_PackageInfoA
 {
 	public SecPkgInfoA* PackageInfo;
 }
 
-[CRepr]public struct SecPkgContext_UserFlags
+[CRepr]
+public struct SecPkgContext_UserFlags
 {
 	public uint32 UserFlags;
 }
 
-[CRepr]public struct SecPkgContext_Flags
+[CRepr]
+public struct SecPkgContext_Flags
 {
 	public uint32 Flags;
 }
 
-[CRepr]public struct SecPkgContext_NegotiationInfoA
+[CRepr]
+public struct SecPkgContext_NegotiationInfoA
 {
 	public SecPkgInfoA* PackageInfo;
 	public uint32 NegotiationState;
 }
 
-[CRepr]public struct SecPkgContext_NegotiationInfoW
+[CRepr]
+public struct SecPkgContext_NegotiationInfoW
 {
 	public SecPkgInfoW* PackageInfo;
 	public uint32 NegotiationState;
 }
 
-[CRepr]public struct SecPkgContext_NativeNamesW
+[CRepr]
+public struct SecPkgContext_NativeNamesW
 {
 	public uint16* sClientName;
 	public uint16* sServerName;
 }
 
-[CRepr]public struct SecPkgContext_NativeNamesA
+[CRepr]
+public struct SecPkgContext_NativeNamesA
 {
 	public int8* sClientName;
 	public int8* sServerName;
 }
 
-[CRepr]public struct SecPkgContext_CredentialNameW
+[CRepr]
+public struct SecPkgContext_CredentialNameW
 {
 	public uint32 CredentialType;
 	public uint16* sCredentialName;
 }
 
-[CRepr]public struct SecPkgContext_CredentialNameA
+[CRepr]
+public struct SecPkgContext_CredentialNameA
 {
 	public uint32 CredentialType;
 	public int8* sCredentialName;
 }
 
-[CRepr]public struct SecPkgContext_AccessToken
+[CRepr]
+public struct SecPkgContext_AccessToken
 {
 	public void* AccessToken;
 }
 
-[CRepr]public struct SecPkgContext_TargetInformation
+[CRepr]
+public struct SecPkgContext_TargetInformation
 {
 	public uint32 MarshalledTargetInfoLength;
 	public uint8* MarshalledTargetInfo;
 }
 
-[CRepr]public struct SecPkgContext_AuthzID
+[CRepr]
+public struct SecPkgContext_AuthzID
 {
 	public uint32 AuthzIDLength;
 	public PSTR AuthzID;
 }
 
-[CRepr]public struct SecPkgContext_Target
+[CRepr]
+public struct SecPkgContext_Target
 {
 	public uint32 TargetLength;
 	public PSTR Target;
 }
 
-[CRepr]public struct SecPkgContext_ClientSpecifiedTarget
+[CRepr]
+public struct SecPkgContext_ClientSpecifiedTarget
 {
 	public uint16* sTargetName;
 }
 
-[CRepr]public struct SecPkgContext_Bindings
+[CRepr]
+public struct SecPkgContext_Bindings
 {
 	public uint32 BindingsLength;
 	public SEC_CHANNEL_BINDINGS* Bindings;
 }
 
-[CRepr]public struct SecPkgContext_ApplicationProtocol
+[CRepr]
+public struct SecPkgContext_ApplicationProtocol
 {
 	public SEC_APPLICATION_PROTOCOL_NEGOTIATION_STATUS ProtoNegoStatus;
 	public SEC_APPLICATION_PROTOCOL_NEGOTIATION_EXT ProtoNegoExt;
@@ -5598,13 +5809,15 @@ public function int32 SslGetExtensionsFn(uint8* clientHello, uint32 clientHelloB
 	public uint8[255] ProtocolId;
 }
 
-[CRepr]public struct SecPkgContext_NegotiatedTlsExtensions
+[CRepr]
+public struct SecPkgContext_NegotiatedTlsExtensions
 {
 	public uint32 ExtensionsCount;
 	public uint16* Extensions;
 }
 
-[CRepr]public struct SECPKG_APP_MODE_INFO
+[CRepr]
+public struct SECPKG_APP_MODE_INFO
 {
 	public uint32 UserFunction;
 	public uint Argument1;
@@ -5613,7 +5826,8 @@ public function int32 SslGetExtensionsFn(uint8* clientHello, uint32 clientHelloB
 	public BOOLEAN ReturnToLsa;
 }
 
-[CRepr]public struct SecurityFunctionTableW
+[CRepr]
+public struct SecurityFunctionTableW
 {
 	public uint32 dwVersion;
 	public ENUMERATE_SECURITY_PACKAGES_FN_W EnumerateSecurityPackagesW;
@@ -5649,7 +5863,8 @@ public function int32 SslGetExtensionsFn(uint8* clientHello, uint32 clientHelloB
 	public QUERY_CREDENTIALS_ATTRIBUTES_EX_FN_W QueryCredentialsAttributesExW;
 }
 
-[CRepr]public struct SecurityFunctionTableA
+[CRepr]
+public struct SecurityFunctionTableA
 {
 	public uint32 dwVersion;
 	public ENUMERATE_SECURITY_PACKAGES_FN_A EnumerateSecurityPackagesA;
@@ -5685,7 +5900,8 @@ public function int32 SslGetExtensionsFn(uint8* clientHello, uint32 clientHelloB
 	public QUERY_CREDENTIALS_ATTRIBUTES_EX_FN_A QueryCredentialsAttributesExA;
 }
 
-[CRepr]public struct SEC_WINNT_AUTH_IDENTITY_EX2
+[CRepr]
+public struct SEC_WINNT_AUTH_IDENTITY_EX2
 {
 	public uint32 Version;
 	public uint16 cbHeaderLength;
@@ -5701,7 +5917,8 @@ public function int32 SslGetExtensionsFn(uint8* clientHello, uint32 clientHelloB
 	public uint16 PackageListLength;
 }
 
-[CRepr]public struct SEC_WINNT_AUTH_IDENTITY_EXW
+[CRepr]
+public struct SEC_WINNT_AUTH_IDENTITY_EXW
 {
 	public uint32 Version;
 	public uint32 Length;
@@ -5716,7 +5933,8 @@ public function int32 SslGetExtensionsFn(uint8* clientHello, uint32 clientHelloB
 	public uint32 PackageListLength;
 }
 
-[CRepr]public struct SEC_WINNT_AUTH_IDENTITY_EXA
+[CRepr]
+public struct SEC_WINNT_AUTH_IDENTITY_EXA
 {
 	public uint32 Version;
 	public uint32 Length;
@@ -5731,7 +5949,8 @@ public function int32 SslGetExtensionsFn(uint8* clientHello, uint32 clientHelloB
 	public uint32 PackageListLength;
 }
 
-[CRepr, Union]public struct SEC_WINNT_AUTH_IDENTITY_INFO
+[CRepr, Union]
+public struct SEC_WINNT_AUTH_IDENTITY_INFO
 {
 	public SEC_WINNT_AUTH_IDENTITY_EXW AuthIdExw;
 	public SEC_WINNT_AUTH_IDENTITY_EXA AuthIdExa;
@@ -5740,7 +5959,8 @@ public function int32 SslGetExtensionsFn(uint8* clientHello, uint32 clientHelloB
 	public SEC_WINNT_AUTH_IDENTITY_EX2 AuthIdEx2;
 }
 
-[CRepr]public struct SECURITY_PACKAGE_OPTIONS
+[CRepr]
+public struct SECURITY_PACKAGE_OPTIONS
 {
 	public uint32 Size;
 	public SECURITY_PACKAGE_OPTIONS_TYPE Type;
@@ -5749,13 +5969,15 @@ public function int32 SslGetExtensionsFn(uint8* clientHello, uint32 clientHelloB
 	public void* Signature;
 }
 
-[CRepr]public struct LSA_TOKEN_INFORMATION_NULL
+[CRepr]
+public struct LSA_TOKEN_INFORMATION_NULL
 {
 	public LARGE_INTEGER ExpirationTime;
 	public TOKEN_GROUPS* Groups;
 }
 
-[CRepr]public struct LSA_TOKEN_INFORMATION_V1
+[CRepr]
+public struct LSA_TOKEN_INFORMATION_V1
 {
 	public LARGE_INTEGER ExpirationTime;
 	public TOKEN_USER User;
@@ -5766,7 +5988,8 @@ public function int32 SslGetExtensionsFn(uint8* clientHello, uint32 clientHelloB
 	public TOKEN_DEFAULT_DACL DefaultDacl;
 }
 
-[CRepr]public struct LSA_TOKEN_INFORMATION_V3
+[CRepr]
+public struct LSA_TOKEN_INFORMATION_V3
 {
 	public LARGE_INTEGER ExpirationTime;
 	public TOKEN_USER User;
@@ -5780,7 +6003,8 @@ public function int32 SslGetExtensionsFn(uint8* clientHello, uint32 clientHelloB
 	public TOKEN_GROUPS* DeviceGroups;
 }
 
-[CRepr]public struct LSA_DISPATCH_TABLE
+[CRepr]
+public struct LSA_DISPATCH_TABLE
 {
 	public PLSA_CREATE_LOGON_SESSION CreateLogonSession;
 	public PLSA_DELETE_LOGON_SESSION DeleteLogonSession;
@@ -5795,26 +6019,30 @@ public function int32 SslGetExtensionsFn(uint8* clientHello, uint32 clientHelloB
 	public PLSA_COPY_FROM_CLIENT_BUFFER CopyFromClientBuffer;
 }
 
-[CRepr]public struct SAM_REGISTER_MAPPING_ELEMENT
+[CRepr]
+public struct SAM_REGISTER_MAPPING_ELEMENT
 {
 	public PSTR Original;
 	public PSTR Mapped;
 	public BOOLEAN Continuable;
 }
 
-[CRepr]public struct SAM_REGISTER_MAPPING_LIST
+[CRepr]
+public struct SAM_REGISTER_MAPPING_LIST
 {
 	public uint32 Count;
 	public SAM_REGISTER_MAPPING_ELEMENT* Elements;
 }
 
-[CRepr]public struct SAM_REGISTER_MAPPING_TABLE
+[CRepr]
+public struct SAM_REGISTER_MAPPING_TABLE
 {
 	public uint32 Count;
 	public SAM_REGISTER_MAPPING_LIST* Lists;
 }
 
-[CRepr]public struct SECPKG_CLIENT_INFO
+[CRepr]
+public struct SECPKG_CLIENT_INFO
 {
 	public LUID LogonId;
 	public uint32 ProcessID;
@@ -5827,7 +6055,8 @@ public function int32 SslGetExtensionsFn(uint8* clientHello, uint32 clientHelloB
 	public HANDLE ClientToken;
 }
 
-[CRepr]public struct SECPKG_CALL_INFO
+[CRepr]
+public struct SECPKG_CALL_INFO
 {
 	public uint32 ProcessId;
 	public uint32 ThreadId;
@@ -5836,26 +6065,30 @@ public function int32 SslGetExtensionsFn(uint8* clientHello, uint32 clientHelloB
 	public void* MechOid;
 }
 
-[CRepr]public struct SECPKG_SUPPLEMENTAL_CRED
+[CRepr]
+public struct SECPKG_SUPPLEMENTAL_CRED
 {
 	public UNICODE_STRING PackageName;
 	public uint32 CredentialSize;
 	public uint8* Credentials;
 }
 
-[CRepr]public struct SECPKG_BYTE_VECTOR
+[CRepr]
+public struct SECPKG_BYTE_VECTOR
 {
 	public uint32 ByteArrayOffset;
 	public uint16 ByteArrayLength;
 }
 
-[CRepr]public struct SECPKG_SHORT_VECTOR
+[CRepr]
+public struct SECPKG_SHORT_VECTOR
 {
 	public uint32 ShortArrayOffset;
 	public uint16 ShortArrayCount;
 }
 
-[CRepr]public struct SECPKG_SUPPLIED_CREDENTIAL
+[CRepr]
+public struct SECPKG_SUPPLIED_CREDENTIAL
 {
 	public uint16 cbHeaderLength;
 	public uint16 cbStructureLength;
@@ -5865,7 +6098,8 @@ public function int32 SslGetExtensionsFn(uint8* clientHello, uint32 clientHelloB
 	public uint32 CredFlags;
 }
 
-[CRepr]public struct SECPKG_CREDENTIAL
+[CRepr]
+public struct SECPKG_CREDENTIAL
 {
 	public uint64 Version;
 	public uint16 cbHeaderLength;
@@ -5883,19 +6117,22 @@ public function int32 SslGetExtensionsFn(uint8* clientHello, uint32 clientHelloB
 	public SECPKG_BYTE_VECTOR MarshaledSuppliedCreds;
 }
 
-[CRepr]public struct SECPKG_SUPPLEMENTAL_CRED_ARRAY
+[CRepr]
+public struct SECPKG_SUPPLEMENTAL_CRED_ARRAY
 {
 	public uint32 CredentialCount;
 	public SECPKG_SUPPLEMENTAL_CRED[1] Credentials;
 }
 
-[CRepr]public struct SECPKG_SURROGATE_LOGON_ENTRY
+[CRepr]
+public struct SECPKG_SURROGATE_LOGON_ENTRY
 {
 	public Guid Type;
 	public void* Data;
 }
 
-[CRepr]public struct SECPKG_SURROGATE_LOGON
+[CRepr]
+public struct SECPKG_SURROGATE_LOGON
 {
 	public uint32 Version;
 	public LUID SurrogateLogonID;
@@ -5903,7 +6140,8 @@ public function int32 SslGetExtensionsFn(uint8* clientHello, uint32 clientHelloB
 	public SECPKG_SURROGATE_LOGON_ENTRY* Entries;
 }
 
-[CRepr]public struct SECPKG_PRIMARY_CRED
+[CRepr]
+public struct SECPKG_PRIMARY_CRED
 {
 	public LUID LogonId;
 	public UNICODE_STRING DownlevelName;
@@ -5921,7 +6159,8 @@ public function int32 SslGetExtensionsFn(uint8* clientHello, uint32 clientHelloB
 	public UNICODE_STRING Spare4;
 }
 
-[CRepr]public struct SECPKG_PRIMARY_CRED_EX
+[CRepr]
+public struct SECPKG_PRIMARY_CRED_EX
 {
 	public LUID LogonId;
 	public UNICODE_STRING DownlevelName;
@@ -5942,7 +6181,8 @@ public function int32 SslGetExtensionsFn(uint8* clientHello, uint32 clientHelloB
 	public uint32 FlagsEx;
 }
 
-[CRepr]public struct SECPKG_PARAMETERS
+[CRepr]
+public struct SECPKG_PARAMETERS
 {
 	public uint32 Version;
 	public uint32 MachineState;
@@ -5953,50 +6193,59 @@ public function int32 SslGetExtensionsFn(uint8* clientHello, uint32 clientHelloB
 	public Guid DomainGuid;
 }
 
-[CRepr]public struct SECPKG_GSS_INFO
+[CRepr]
+public struct SECPKG_GSS_INFO
 {
 	public uint32 EncodedIdLength;
 	public uint8[4] EncodedId;
 }
 
-[CRepr]public struct SECPKG_CONTEXT_THUNKS
+[CRepr]
+public struct SECPKG_CONTEXT_THUNKS
 {
 	public uint32 InfoLevelCount;
 	public uint32[1] Levels;
 }
 
-[CRepr]public struct SECPKG_MUTUAL_AUTH_LEVEL
+[CRepr]
+public struct SECPKG_MUTUAL_AUTH_LEVEL
 {
 	public uint32 MutualAuthLevel;
 }
 
-[CRepr]public struct SECPKG_WOW_CLIENT_DLL
+[CRepr]
+public struct SECPKG_WOW_CLIENT_DLL
 {
 	public UNICODE_STRING WowClientDllPath;
 }
 
-[CRepr]public struct SECPKG_SERIALIZED_OID
+[CRepr]
+public struct SECPKG_SERIALIZED_OID
 {
 	public uint32 OidLength;
 	public uint32 OidAttributes;
 	public uint8[32] OidValue;
 }
 
-[CRepr]public struct SECPKG_EXTRA_OIDS
+[CRepr]
+public struct SECPKG_EXTRA_OIDS
 {
 	public uint32 OidCount;
 	public SECPKG_SERIALIZED_OID[1] Oids;
 }
 
-[CRepr]public struct SECPKG_NEGO2_INFO
+[CRepr]
+public struct SECPKG_NEGO2_INFO
 {
 	public uint8[16] AuthScheme;
 	public uint32 PackageFlags;
 }
 
-[CRepr]public struct SECPKG_EXTENDED_INFORMATION
+[CRepr]
+public struct SECPKG_EXTENDED_INFORMATION
 {
-	[CRepr, Union]	public struct _Info_e__Union
+	[CRepr, Union]
+	public struct _Info_e__Union
 	{
 		public SECPKG_GSS_INFO GssInfo;
 		public SECPKG_CONTEXT_THUNKS ContextThunks;
@@ -6010,18 +6259,21 @@ public function int32 SslGetExtensionsFn(uint8* clientHello, uint32 clientHelloB
 	public _Info_e__Union Info;
 }
 
-[CRepr]public struct SECPKG_TARGETINFO
+[CRepr]
+public struct SECPKG_TARGETINFO
 {
 	public PSID DomainSid;
 	public PWSTR ComputerName;
 }
 
-[CRepr]public struct SecPkgContext_SaslContext
+[CRepr]
+public struct SecPkgContext_SaslContext
 {
 	public void* SaslContext;
 }
 
-[CRepr]public struct SECURITY_USER_DATA
+[CRepr]
+public struct SECURITY_USER_DATA
 {
 	public UNICODE_STRING UserName;
 	public UNICODE_STRING LogonDomainName;
@@ -6029,7 +6281,8 @@ public function int32 SslGetExtensionsFn(uint8* clientHello, uint32 clientHelloB
 	public PSID pSid;
 }
 
-[CRepr]public struct SECPKG_CALL_PACKAGE_PIN_DC_REQUEST
+[CRepr]
+public struct SECPKG_CALL_PACKAGE_PIN_DC_REQUEST
 {
 	public uint32 MessageType;
 	public uint32 Flags;
@@ -6038,13 +6291,15 @@ public function int32 SslGetExtensionsFn(uint8* clientHello, uint32 clientHelloB
 	public uint32 DcFlags;
 }
 
-[CRepr]public struct SECPKG_CALL_PACKAGE_UNPIN_ALL_DCS_REQUEST
+[CRepr]
+public struct SECPKG_CALL_PACKAGE_UNPIN_ALL_DCS_REQUEST
 {
 	public uint32 MessageType;
 	public uint32 Flags;
 }
 
-[CRepr]public struct SECPKG_CALL_PACKAGE_TRANSFER_CRED_REQUEST
+[CRepr]
+public struct SECPKG_CALL_PACKAGE_TRANSFER_CRED_REQUEST
 {
 	public uint32 MessageType;
 	public LUID OriginLogonId;
@@ -6052,7 +6307,8 @@ public function int32 SslGetExtensionsFn(uint8* clientHello, uint32 clientHelloB
 	public uint32 Flags;
 }
 
-[CRepr]public struct SECPKG_REDIRECTED_LOGON_BUFFER
+[CRepr]
+public struct SECPKG_REDIRECTED_LOGON_BUFFER
 {
 	public Guid RedirectedLogonGuid;
 	public HANDLE RedirectedLogonHandle;
@@ -6063,27 +6319,31 @@ public function int32 SslGetExtensionsFn(uint8* clientHello, uint32 clientHelloB
 	public PLSA_REDIRECTED_LOGON_GET_SUPP_CREDS GetSupplementalCreds;
 }
 
-[CRepr]public struct SECPKG_POST_LOGON_USER_INFO
+[CRepr]
+public struct SECPKG_POST_LOGON_USER_INFO
 {
 	public uint32 Flags;
 	public LUID LogonId;
 	public LUID LinkedLogonId;
 }
 
-[CRepr]public struct SECPKG_EVENT_PACKAGE_CHANGE
+[CRepr]
+public struct SECPKG_EVENT_PACKAGE_CHANGE
 {
 	public SECPKG_PACKAGE_CHANGE_TYPE ChangeType;
 	public uint PackageId;
 	public UNICODE_STRING PackageName;
 }
 
-[CRepr]public struct SECPKG_EVENT_ROLE_CHANGE
+[CRepr]
+public struct SECPKG_EVENT_ROLE_CHANGE
 {
 	public uint32 PreviousRole;
 	public uint32 NewRole;
 }
 
-[CRepr]public struct SECPKG_EVENT_NOTIFY
+[CRepr]
+public struct SECPKG_EVENT_NOTIFY
 {
 	public uint32 EventClass;
 	public uint32 Reserved;
@@ -6092,13 +6352,15 @@ public function int32 SslGetExtensionsFn(uint8* clientHello, uint32 clientHelloB
 	public void* PackageParameter;
 }
 
-[CRepr]public struct ENCRYPTED_CREDENTIALW
+[CRepr]
+public struct ENCRYPTED_CREDENTIALW
 {
 	public CREDENTIALW Cred;
 	public uint32 ClearCredentialBlobSize;
 }
 
-[CRepr]public struct SEC_WINNT_AUTH_IDENTITY32
+[CRepr]
+public struct SEC_WINNT_AUTH_IDENTITY32
 {
 	public uint32 User;
 	public uint32 UserLength;
@@ -6109,7 +6371,8 @@ public function int32 SslGetExtensionsFn(uint8* clientHello, uint32 clientHelloB
 	public uint32 Flags;
 }
 
-[CRepr]public struct SEC_WINNT_AUTH_IDENTITY_EX32
+[CRepr]
+public struct SEC_WINNT_AUTH_IDENTITY_EX32
 {
 	public uint32 Version;
 	public uint32 Length;
@@ -6124,7 +6387,8 @@ public function int32 SslGetExtensionsFn(uint8* clientHello, uint32 clientHelloB
 	public uint32 PackageListLength;
 }
 
-[CRepr]public struct LSA_SECPKG_FUNCTION_TABLE
+[CRepr]
+public struct LSA_SECPKG_FUNCTION_TABLE
 {
 	public PLSA_CREATE_LOGON_SESSION CreateLogonSession;
 	public PLSA_DELETE_LOGON_SESSION DeleteLogonSession;
@@ -6191,7 +6455,8 @@ public function int32 SslGetExtensionsFn(uint8* clientHello, uint32 clientHelloB
 	public PLSA_SET_APP_MODE_INFO SetAppModeInfo;
 }
 
-[CRepr]public struct SECPKG_DLL_FUNCTIONS
+[CRepr]
+public struct SECPKG_DLL_FUNCTIONS
 {
 	public PLSA_ALLOCATE_LSA_HEAP AllocateHeap;
 	public PLSA_FREE_LSA_HEAP FreeHeap;
@@ -6199,7 +6464,8 @@ public function int32 SslGetExtensionsFn(uint8* clientHello, uint32 clientHelloB
 	public PLSA_LOCATE_PKG_BY_ID LocatePackageById;
 }
 
-[CRepr]public struct SECPKG_FUNCTION_TABLE
+[CRepr]
+public struct SECPKG_FUNCTION_TABLE
 {
 	public PLSA_AP_INITIALIZE_PACKAGE InitializePackage;
 	public PLSA_AP_LOGON_USER LogonUserA;
@@ -6245,7 +6511,8 @@ public function int32 SslGetExtensionsFn(uint8* clientHello, uint32 clientHelloB
 	public PLSA_AP_POST_LOGON_USER_SURROGATE PostLogonUserSurrogate;
 }
 
-[CRepr]public struct SECPKG_USER_FUNCTION_TABLE
+[CRepr]
+public struct SECPKG_USER_FUNCTION_TABLE
 {
 	public SpInstanceInitFn InstanceInit;
 	public SpInitUserModeContextFn InitUserModeContext;
@@ -6264,7 +6531,8 @@ public function int32 SslGetExtensionsFn(uint8* clientHello, uint32 clientHelloB
 	public SpMarshalAttributeDataFn MarshalAttributeData;
 }
 
-[CRepr]public struct KSEC_LIST_ENTRY
+[CRepr]
+public struct KSEC_LIST_ENTRY
 {
 	public LIST_ENTRY List;
 	public int32 RefCount;
@@ -6273,7 +6541,8 @@ public function int32 SslGetExtensionsFn(uint8* clientHello, uint32 clientHelloB
 	public void* Reserved;
 }
 
-[CRepr]public struct SECPKG_KERNEL_FUNCTIONS
+[CRepr]
+public struct SECPKG_KERNEL_FUNCTIONS
 {
 	public PLSA_ALLOCATE_LSA_HEAP AllocateHeap;
 	public PLSA_FREE_LSA_HEAP FreeHeap;
@@ -6286,7 +6555,8 @@ public function int32 SslGetExtensionsFn(uint8* clientHello, uint32 clientHelloB
 	public PKSEC_LOCATE_PKG_BY_ID LocatePackageById;
 }
 
-[CRepr]public struct SECPKG_KERNEL_FUNCTION_TABLE
+[CRepr]
+public struct SECPKG_KERNEL_FUNCTION_TABLE
 {
 	public KspInitPackageFn Initialize;
 	public KspDeleteContextFn DeleteContext;
@@ -6305,24 +6575,28 @@ public function int32 SslGetExtensionsFn(uint8* clientHello, uint32 clientHelloB
 	public KspSerializeAuthDataFn SerializeAuthData;
 }
 
-[CRepr]public struct SecPkgCred_SupportedAlgs
+[CRepr]
+public struct SecPkgCred_SupportedAlgs
 {
 	public uint32 cSupportedAlgs;
 	public uint32* palgSupportedAlgs;
 }
 
-[CRepr]public struct SecPkgCred_CipherStrengths
+[CRepr]
+public struct SecPkgCred_CipherStrengths
 {
 	public uint32 dwMinimumCipherStrength;
 	public uint32 dwMaximumCipherStrength;
 }
 
-[CRepr]public struct SecPkgCred_SupportedProtocols
+[CRepr]
+public struct SecPkgCred_SupportedProtocols
 {
 	public uint32 grbitProtocol;
 }
 
-[CRepr]public struct SecPkgCred_ClientCertPolicy
+[CRepr]
+public struct SecPkgCred_ClientCertPolicy
 {
 	public uint32 dwFlags;
 	public Guid guidPolicyId;
@@ -6335,7 +6609,8 @@ public function int32 SslGetExtensionsFn(uint8* clientHello, uint32 clientHelloB
 	public PWSTR pwszSslCtlIdentifier;
 }
 
-[CRepr]public struct SecPkgCred_SessionTicketKey
+[CRepr]
+public struct SecPkgCred_SessionTicketKey
 {
 	public uint32 TicketInfoVersion;
 	public uint8[16] KeyId;
@@ -6343,13 +6618,15 @@ public function int32 SslGetExtensionsFn(uint8* clientHello, uint32 clientHelloB
 	public uint8 KeyingMaterialSize;
 }
 
-[CRepr]public struct SecPkgCred_SessionTicketKeys
+[CRepr]
+public struct SecPkgCred_SessionTicketKeys
 {
 	public uint32 cSessionTicketKeys;
 	public SecPkgCred_SessionTicketKey* pSessionTicketKeys;
 }
 
-[CRepr]public struct SecPkgContext_RemoteCredentialInfo
+[CRepr]
+public struct SecPkgContext_RemoteCredentialInfo
 {
 	public uint32 cbCertificateChain;
 	public uint8* pbCertificateChain;
@@ -6358,7 +6635,8 @@ public function int32 SslGetExtensionsFn(uint8* clientHello, uint32 clientHelloB
 	public uint32 dwBits;
 }
 
-[CRepr]public struct SecPkgContext_LocalCredentialInfo
+[CRepr]
+public struct SecPkgContext_LocalCredentialInfo
 {
 	public uint32 cbCertificateChain;
 	public uint8* pbCertificateChain;
@@ -6367,19 +6645,22 @@ public function int32 SslGetExtensionsFn(uint8* clientHello, uint32 clientHelloB
 	public uint32 dwBits;
 }
 
-[CRepr]public struct SecPkgContext_ClientCertPolicyResult
+[CRepr]
+public struct SecPkgContext_ClientCertPolicyResult
 {
 	public HRESULT dwPolicyResult;
 	public Guid guidPolicyId;
 }
 
-[CRepr]public struct SecPkgContext_IssuerListInfoEx
+[CRepr]
+public struct SecPkgContext_IssuerListInfoEx
 {
 	public CRYPTOAPI_BLOB* aIssuers;
 	public uint32 cIssuers;
 }
 
-[CRepr]public struct SecPkgContext_ConnectionInfo
+[CRepr]
+public struct SecPkgContext_ConnectionInfo
 {
 	public uint32 dwProtocol;
 	public uint32 aiCipher;
@@ -6390,7 +6671,8 @@ public function int32 SslGetExtensionsFn(uint8* clientHello, uint32 clientHelloB
 	public uint32 dwExchStrength;
 }
 
-[CRepr]public struct SecPkgContext_ConnectionInfoEx
+[CRepr]
+public struct SecPkgContext_ConnectionInfoEx
 {
 	public uint32 dwVersion;
 	public uint32 dwProtocol;
@@ -6402,7 +6684,8 @@ public function int32 SslGetExtensionsFn(uint8* clientHello, uint32 clientHelloB
 	public uint32 dwExchStrength;
 }
 
-[CRepr]public struct SecPkgContext_CipherInfo
+[CRepr]
+public struct SecPkgContext_CipherInfo
 {
 	public uint32 dwVersion;
 	public uint32 dwProtocol;
@@ -6421,53 +6704,61 @@ public function int32 SslGetExtensionsFn(uint8* clientHello, uint32 clientHelloB
 	public uint32 dwKeyType;
 }
 
-[CRepr]public struct SecPkgContext_EapKeyBlock
+[CRepr]
+public struct SecPkgContext_EapKeyBlock
 {
 	public uint8[128] rgbKeys;
 	public uint8[64] rgbIVs;
 }
 
-[CRepr]public struct SecPkgContext_MappedCredAttr
+[CRepr]
+public struct SecPkgContext_MappedCredAttr
 {
 	public uint32 dwAttribute;
 	public void* pvBuffer;
 }
 
-[CRepr]public struct SecPkgContext_SessionInfo
+[CRepr]
+public struct SecPkgContext_SessionInfo
 {
 	public uint32 dwFlags;
 	public uint32 cbSessionId;
 	public uint8[32] rgbSessionId;
 }
 
-[CRepr]public struct SecPkgContext_SessionAppData
+[CRepr]
+public struct SecPkgContext_SessionAppData
 {
 	public uint32 dwFlags;
 	public uint32 cbAppData;
 	public uint8* pbAppData;
 }
 
-[CRepr]public struct SecPkgContext_EapPrfInfo
+[CRepr]
+public struct SecPkgContext_EapPrfInfo
 {
 	public uint32 dwVersion;
 	public uint32 cbPrfData;
 	public uint8* pbPrfData;
 }
 
-[CRepr]public struct SecPkgContext_SupportedSignatures
+[CRepr]
+public struct SecPkgContext_SupportedSignatures
 {
 	public uint16 cSignatureAndHashAlgorithms;
 	public uint16* pSignatureAndHashAlgorithms;
 }
 
-[CRepr]public struct SecPkgContext_Certificates
+[CRepr]
+public struct SecPkgContext_Certificates
 {
 	public uint32 cCertificates;
 	public uint32 cbCertificateChain;
 	public uint8* pbCertificateChain;
 }
 
-[CRepr]public struct SecPkgContext_CertInfo
+[CRepr]
+public struct SecPkgContext_CertInfo
 {
 	public uint32 dwVersion;
 	public uint32 cbSubjectName;
@@ -6477,17 +6768,20 @@ public function int32 SslGetExtensionsFn(uint8* clientHello, uint32 clientHelloB
 	public uint32 dwKeySize;
 }
 
-[CRepr]public struct SecPkgContext_UiInfo
+[CRepr]
+public struct SecPkgContext_UiInfo
 {
 	public HWND hParentWindow;
 }
 
-[CRepr]public struct SecPkgContext_EarlyStart
+[CRepr]
+public struct SecPkgContext_EarlyStart
 {
 	public uint32 dwEarlyStartFlags;
 }
 
-[CRepr]public struct SecPkgContext_KeyingMaterialInfo
+[CRepr]
+public struct SecPkgContext_KeyingMaterialInfo
 {
 	public uint16 cbLabel;
 	public PSTR pszLabel;
@@ -6496,13 +6790,15 @@ public function int32 SslGetExtensionsFn(uint8* clientHello, uint32 clientHelloB
 	public uint32 cbKeyingMaterial;
 }
 
-[CRepr]public struct SecPkgContext_KeyingMaterial
+[CRepr]
+public struct SecPkgContext_KeyingMaterial
 {
 	public uint32 cbKeyingMaterial;
 	public uint8* pbKeyingMaterial;
 }
 
-[CRepr]public struct SecPkgContext_KeyingMaterial_Inproc
+[CRepr]
+public struct SecPkgContext_KeyingMaterial_Inproc
 {
 	public uint16 cbLabel;
 	public PSTR pszLabel;
@@ -6512,14 +6808,16 @@ public function int32 SslGetExtensionsFn(uint8* clientHello, uint32 clientHelloB
 	public uint8* pbKeyingMaterial;
 }
 
-[CRepr]public struct SecPkgContext_SrtpParameters
+[CRepr]
+public struct SecPkgContext_SrtpParameters
 {
 	public uint16 ProtectionProfile;
 	public uint8 MasterKeyIdentifierSize;
 	public uint8* MasterKeyIdentifier;
 }
 
-[CRepr]public struct SecPkgContext_TokenBinding
+[CRepr]
+public struct SecPkgContext_TokenBinding
 {
 	public uint8 MajorVersion;
 	public uint8 MinorVersion;
@@ -6527,17 +6825,20 @@ public function int32 SslGetExtensionsFn(uint8* clientHello, uint32 clientHelloB
 	public uint8* KeyParameters;
 }
 
-[CRepr]public struct SecPkgContext_CertificateValidationResult
+[CRepr]
+public struct SecPkgContext_CertificateValidationResult
 {
 	public uint32 dwChainErrorStatus;
 	public HRESULT hrVerifyChainStatus;
 }
 
-[CRepr]public struct _HMAPPER
+[CRepr]
+public struct _HMAPPER
 {
 }
 
-[CRepr]public struct SCHANNEL_CRED
+[CRepr]
+public struct SCHANNEL_CRED
 {
 	public uint32 dwVersion;
 	public uint32 cCreds;
@@ -6555,7 +6856,8 @@ public function int32 SslGetExtensionsFn(uint8* clientHello, uint32 clientHelloB
 	public uint32 dwCredFormat;
 }
 
-[CRepr]public struct SEND_GENERIC_TLS_EXTENSION
+[CRepr]
+public struct SEND_GENERIC_TLS_EXTENSION
 {
 	public uint16 ExtensionType;
 	public uint16 HandshakeType;
@@ -6564,20 +6866,23 @@ public function int32 SslGetExtensionsFn(uint8* clientHello, uint32 clientHelloB
 	public uint8[1] Buffer;
 }
 
-[CRepr]public struct TLS_EXTENSION_SUBSCRIPTION
+[CRepr]
+public struct TLS_EXTENSION_SUBSCRIPTION
 {
 	public uint16 ExtensionType;
 	public uint16 HandshakeType;
 }
 
-[CRepr]public struct SUBSCRIBE_GENERIC_TLS_EXTENSION
+[CRepr]
+public struct SUBSCRIBE_GENERIC_TLS_EXTENSION
 {
 	public uint32 Flags;
 	public uint32 SubscriptionsCount;
 	public TLS_EXTENSION_SUBSCRIPTION[1] Subscriptions;
 }
 
-[CRepr]public struct SCHANNEL_CERT_HASH
+[CRepr]
+public struct SCHANNEL_CERT_HASH
 {
 	public uint32 dwLength;
 	public uint32 dwFlags;
@@ -6585,7 +6890,8 @@ public function int32 SslGetExtensionsFn(uint8* clientHello, uint32 clientHelloB
 	public uint8[20] ShaHash;
 }
 
-[CRepr]public struct SCHANNEL_CERT_HASH_STORE
+[CRepr]
+public struct SCHANNEL_CERT_HASH_STORE
 {
 	public uint32 dwLength;
 	public uint32 dwFlags;
@@ -6594,20 +6900,23 @@ public function int32 SslGetExtensionsFn(uint8* clientHello, uint32 clientHelloB
 	public char8[128] pwszStoreName;
 }
 
-[CRepr]public struct SCHANNEL_ALERT_TOKEN
+[CRepr]
+public struct SCHANNEL_ALERT_TOKEN
 {
 	public uint32 dwTokenType;
 	public SCHANNEL_ALERT_TOKEN_ALERT_TYPE dwAlertType;
 	public uint32 dwAlertNumber;
 }
 
-[CRepr]public struct SCHANNEL_SESSION_TOKEN
+[CRepr]
+public struct SCHANNEL_SESSION_TOKEN
 {
 	public uint32 dwTokenType;
 	public SCHANNEL_SESSION_TOKEN_FLAGS dwFlags;
 }
 
-[CRepr]public struct SCHANNEL_CLIENT_SIGNATURE
+[CRepr]
+public struct SCHANNEL_CLIENT_SIGNATURE
 {
 	public uint32 cbLength;
 	public uint32 aiHash;
@@ -6616,7 +6925,8 @@ public function int32 SslGetExtensionsFn(uint8* clientHello, uint32 clientHelloB
 	public uint8[20] CertThumbprint;
 }
 
-[CRepr]public struct SSL_CREDENTIAL_CERTIFICATE
+[CRepr]
+public struct SSL_CREDENTIAL_CERTIFICATE
 {
 	public uint32 cbPrivateKey;
 	public uint8* pPrivateKey;
@@ -6625,7 +6935,8 @@ public function int32 SslGetExtensionsFn(uint8* clientHello, uint32 clientHelloB
 	public PSTR pszPassword;
 }
 
-[CRepr]public struct SCH_CRED
+[CRepr]
+public struct SCH_CRED
 {
 	public uint32 dwVersion;
 	public uint32 cCreds;
@@ -6635,13 +6946,15 @@ public function int32 SslGetExtensionsFn(uint8* clientHello, uint32 clientHelloB
 	public _HMAPPER** aphMappers;
 }
 
-[CRepr]public struct SCH_CRED_SECRET_CAPI
+[CRepr]
+public struct SCH_CRED_SECRET_CAPI
 {
 	public uint32 dwType;
 	public uint hProv;
 }
 
-[CRepr]public struct SCH_CRED_SECRET_PRIVKEY
+[CRepr]
+public struct SCH_CRED_SECRET_PRIVKEY
 {
 	public uint32 dwType;
 	public uint8* pPrivateKey;
@@ -6649,21 +6962,24 @@ public function int32 SslGetExtensionsFn(uint8* clientHello, uint32 clientHelloB
 	public PSTR pszPassword;
 }
 
-[CRepr]public struct SCH_CRED_PUBLIC_CERTCHAIN
+[CRepr]
+public struct SCH_CRED_PUBLIC_CERTCHAIN
 {
 	public uint32 dwType;
 	public uint32 cbCertChain;
 	public uint8* pCertChain;
 }
 
-[CRepr]public struct PctPublicKey
+[CRepr]
+public struct PctPublicKey
 {
 	public uint32 Type;
 	public uint32 cbKey;
 	public uint8[1] pKey;
 }
 
-[CRepr]public struct X509Certificate
+[CRepr]
+public struct X509Certificate
 {
 	public uint32 Version;
 	public uint32[4] SerialNumber;
@@ -6675,26 +6991,30 @@ public function int32 SslGetExtensionsFn(uint8* clientHello, uint32 clientHelloB
 	public PctPublicKey* pPublicKey;
 }
 
-[CRepr]public struct SCH_EXTENSION_DATA
+[CRepr]
+public struct SCH_EXTENSION_DATA
 {
 	public uint16 ExtensionType;
 	public uint8* pExtData;
 	public uint32 cbExtData;
 }
 
-[CRepr]public struct LOGON_HOURS
+[CRepr]
+public struct LOGON_HOURS
 {
 	public uint16 UnitsPerWeek;
 	public uint8* LogonHours;
 }
 
-[CRepr]public struct SR_SECURITY_DESCRIPTOR
+[CRepr]
+public struct SR_SECURITY_DESCRIPTOR
 {
 	public uint32 Length;
 	public uint8* SecurityDescriptor;
 }
 
-[CRepr, Packed(4)]public struct USER_ALL_INFORMATION
+[CRepr, Packed(4)]
+public struct USER_ALL_INFORMATION
 {
 	public LARGE_INTEGER LastLogon;
 	public LARGE_INTEGER LastLogoff;
@@ -6731,17 +7051,20 @@ public function int32 SslGetExtensionsFn(uint8* clientHello, uint32 clientHelloB
 	public BOOLEAN PrivateDataSensitive;
 }
 
-[CRepr]public struct CLEAR_BLOCK
+[CRepr]
+public struct CLEAR_BLOCK
 {
 	public CHAR[8] data;
 }
 
-[CRepr]public struct USER_SESSION_KEY
+[CRepr]
+public struct USER_SESSION_KEY
 {
 	public CYPHER_BLOCK[2] data;
 }
 
-[CRepr]public struct NETLOGON_LOGON_IDENTITY_INFO
+[CRepr]
+public struct NETLOGON_LOGON_IDENTITY_INFO
 {
 	public UNICODE_STRING LogonDomainName;
 	public uint32 ParameterControl;
@@ -6750,21 +7073,24 @@ public function int32 SslGetExtensionsFn(uint8* clientHello, uint32 clientHelloB
 	public UNICODE_STRING Workstation;
 }
 
-[CRepr]public struct NETLOGON_INTERACTIVE_INFO
+[CRepr]
+public struct NETLOGON_INTERACTIVE_INFO
 {
 	public NETLOGON_LOGON_IDENTITY_INFO Identity;
 	public LM_OWF_PASSWORD LmOwfPassword;
 	public LM_OWF_PASSWORD NtOwfPassword;
 }
 
-[CRepr]public struct NETLOGON_SERVICE_INFO
+[CRepr]
+public struct NETLOGON_SERVICE_INFO
 {
 	public NETLOGON_LOGON_IDENTITY_INFO Identity;
 	public LM_OWF_PASSWORD LmOwfPassword;
 	public LM_OWF_PASSWORD NtOwfPassword;
 }
 
-[CRepr]public struct NETLOGON_NETWORK_INFO
+[CRepr]
+public struct NETLOGON_NETWORK_INFO
 {
 	public NETLOGON_LOGON_IDENTITY_INFO Identity;
 	public CLEAR_BLOCK LmChallenge;
@@ -6772,7 +7098,8 @@ public function int32 SslGetExtensionsFn(uint8* clientHello, uint32 clientHelloB
 	public STRING LmChallengeResponse;
 }
 
-[CRepr]public struct NETLOGON_GENERIC_INFO
+[CRepr]
+public struct NETLOGON_GENERIC_INFO
 {
 	public NETLOGON_LOGON_IDENTITY_INFO Identity;
 	public UNICODE_STRING PackageName;
@@ -6780,7 +7107,8 @@ public function int32 SslGetExtensionsFn(uint8* clientHello, uint32 clientHelloB
 	public uint8* LogonData;
 }
 
-[CRepr]public struct MSV1_0_VALIDATION_INFO
+[CRepr]
+public struct MSV1_0_VALIDATION_INFO
 {
 	public LARGE_INTEGER LogoffTime;
 	public LARGE_INTEGER KickoffTime;
@@ -6793,12 +7121,14 @@ public function int32 SslGetExtensionsFn(uint8* clientHello, uint32 clientHelloB
 	public uint32 UserId;
 }
 
-[CRepr]public struct TOKENBINDING_IDENTIFIER
+[CRepr]
+public struct TOKENBINDING_IDENTIFIER
 {
 	public uint8 keyType;
 }
 
-[CRepr]public struct TOKENBINDING_RESULT_DATA
+[CRepr]
+public struct TOKENBINDING_RESULT_DATA
 {
 	public TOKENBINDING_TYPE bindingType;
 	public uint32 identifierSize;
@@ -6808,19 +7138,22 @@ public function int32 SslGetExtensionsFn(uint8* clientHello, uint32 clientHelloB
 	public void* extensionData;
 }
 
-[CRepr]public struct TOKENBINDING_RESULT_LIST
+[CRepr]
+public struct TOKENBINDING_RESULT_LIST
 {
 	public uint32 resultCount;
 	public TOKENBINDING_RESULT_DATA* resultData;
 }
 
-[CRepr]public struct TOKENBINDING_KEY_TYPES
+[CRepr]
+public struct TOKENBINDING_KEY_TYPES
 {
 	public uint32 keyCount;
 	public TOKENBINDING_KEY_PARAMETERS_TYPE* keyType;
 }
 
-[CRepr]public struct SL_LICENSING_STATUS
+[CRepr]
+public struct SL_LICENSING_STATUS
 {
 	public Guid SkuId;
 	public SLLICENSINGSTATUS eStatus;
@@ -6830,27 +7163,31 @@ public function int32 SslGetExtensionsFn(uint8* clientHello, uint32 clientHelloB
 	public uint64 qwValidityExpiration;
 }
 
-[CRepr]public struct SL_ACTIVATION_INFO_HEADER
+[CRepr]
+public struct SL_ACTIVATION_INFO_HEADER
 {
 	public uint32 cbSize;
 	public SL_ACTIVATION_TYPE type;
 }
 
-[CRepr]public struct SL_AD_ACTIVATION_INFO
+[CRepr]
+public struct SL_AD_ACTIVATION_INFO
 {
 	public SL_ACTIVATION_INFO_HEADER header;
 	public PWSTR pwszProductKey;
 	public PWSTR pwszActivationObjectName;
 }
 
-[CRepr]public struct SL_NONGENUINE_UI_OPTIONS
+[CRepr]
+public struct SL_NONGENUINE_UI_OPTIONS
 {
 	public uint32 cbSize;
 	public Guid* pComponentId;
 	public HRESULT hResultUI;
 }
 
-[CRepr]public struct SL_SYSTEM_POLICY_INFORMATION
+[CRepr]
+public struct SL_SYSTEM_POLICY_INFORMATION
 {
 	public void*[2] Reserved1;
 	public uint32[3] Reserved2;

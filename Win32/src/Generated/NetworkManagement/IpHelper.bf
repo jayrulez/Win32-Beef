@@ -1404,7 +1404,8 @@ public function void PINTERFACE_TIMESTAMP_CONFIG_CHANGE_CALLBACK(void* CallerCon
 #endregion
 
 #region Structs
-[CRepr]public struct ip_option_information
+[CRepr]
+public struct ip_option_information
 {
 	public uint8 Ttl;
 	public uint8 Tos;
@@ -1414,7 +1415,8 @@ public function void PINTERFACE_TIMESTAMP_CONFIG_CHANGE_CALLBACK(void* CallerCon
 }
 
 #if BF_64_BIT || BF_ARM_64
-[CRepr]public struct ip_option_information32
+[CRepr]
+public struct ip_option_information32
 {
 	public uint8 Ttl;
 	public uint8 Tos;
@@ -1424,7 +1426,8 @@ public function void PINTERFACE_TIMESTAMP_CONFIG_CHANGE_CALLBACK(void* CallerCon
 }
 #endif
 
-[CRepr]public struct icmp_echo_reply
+[CRepr]
+public struct icmp_echo_reply
 {
 	public uint32 Address;
 	public uint32 Status;
@@ -1436,7 +1439,8 @@ public function void PINTERFACE_TIMESTAMP_CONFIG_CHANGE_CALLBACK(void* CallerCon
 }
 
 #if BF_64_BIT || BF_ARM_64
-[CRepr]public struct icmp_echo_reply32
+[CRepr]
+public struct icmp_echo_reply32
 {
 	public uint32 Address;
 	public uint32 Status;
@@ -1448,7 +1452,8 @@ public function void PINTERFACE_TIMESTAMP_CONFIG_CHANGE_CALLBACK(void* CallerCon
 }
 #endif
 
-[CRepr, Packed(1)]public struct IPV6_ADDRESS_EX
+[CRepr, Packed(1)]
+public struct IPV6_ADDRESS_EX
 {
 	public uint16 sin6_port;
 	public uint32 sin6_flowinfo;
@@ -1456,50 +1461,58 @@ public function void PINTERFACE_TIMESTAMP_CONFIG_CHANGE_CALLBACK(void* CallerCon
 	public uint32 sin6_scope_id;
 }
 
-[CRepr]public struct icmpv6_echo_reply_lh
+[CRepr]
+public struct icmpv6_echo_reply_lh
 {
 	public IPV6_ADDRESS_EX Address;
 	public uint32 Status;
 	public uint32 RoundTripTime;
 }
 
-[CRepr]public struct arp_send_reply
+[CRepr]
+public struct arp_send_reply
 {
 	public uint32 DestAddress;
 	public uint32 SrcAddress;
 }
 
-[CRepr]public struct tcp_reserve_port_range
+[CRepr]
+public struct tcp_reserve_port_range
 {
 	public uint16 UpperRange;
 	public uint16 LowerRange;
 }
 
-[CRepr]public struct IP_ADAPTER_INDEX_MAP
+[CRepr]
+public struct IP_ADAPTER_INDEX_MAP
 {
 	public uint32 Index;
 	public char8[128] Name;
 }
 
-[CRepr]public struct IP_INTERFACE_INFO
+[CRepr]
+public struct IP_INTERFACE_INFO
 {
 	public int32 NumAdapters;
 	public IP_ADAPTER_INDEX_MAP[1] Adapter;
 }
 
-[CRepr]public struct IP_UNIDIRECTIONAL_ADAPTER_ADDRESS
+[CRepr]
+public struct IP_UNIDIRECTIONAL_ADAPTER_ADDRESS
 {
 	public uint32 NumAdapters;
 	public uint32[1] Address;
 }
 
-[CRepr]public struct IP_ADAPTER_ORDER_MAP
+[CRepr]
+public struct IP_ADAPTER_ORDER_MAP
 {
 	public uint32 NumAdapters;
 	public uint32[1] AdapterOrder;
 }
 
-[CRepr]public struct IP_MCAST_COUNTER_INFO
+[CRepr]
+public struct IP_MCAST_COUNTER_INFO
 {
 	public uint64 InMcastOctets;
 	public uint64 OutMcastOctets;
@@ -1507,22 +1520,26 @@ public function void PINTERFACE_TIMESTAMP_CONFIG_CHANGE_CALLBACK(void* CallerCon
 	public uint64 OutMcastPkts;
 }
 
-[CRepr]public struct NET_IF_RCV_ADDRESS_LH
+[CRepr]
+public struct NET_IF_RCV_ADDRESS_LH
 {
 	public NET_IF_RCV_ADDRESS_TYPE ifRcvAddressType;
 	public uint16 ifRcvAddressLength;
 	public uint16 ifRcvAddressOffset;
 }
 
-[CRepr]public struct NET_IF_ALIAS_LH
+[CRepr]
+public struct NET_IF_ALIAS_LH
 {
 	public uint16 ifAliasLength;
 	public uint16 ifAliasOffset;
 }
 
-[CRepr, Union]public struct NET_LUID_LH
+[CRepr, Union]
+public struct NET_LUID_LH
 {
-	[CRepr]	public struct _Info_e__Struct
+	[CRepr]
+	public struct _Info_e__Struct
 	{
 		public uint64 _bitfield;
 	}
@@ -1531,26 +1548,30 @@ public function void PINTERFACE_TIMESTAMP_CONFIG_CHANGE_CALLBACK(void* CallerCon
 	public _Info_e__Struct Info;
 }
 
-[CRepr]public struct NET_PHYSICAL_LOCATION_LH
+[CRepr]
+public struct NET_PHYSICAL_LOCATION_LH
 {
 	public uint32 BusNumber;
 	public uint32 SlotNumber;
 	public uint32 FunctionNumber;
 }
 
-[CRepr]public struct IF_COUNTED_STRING_LH
+[CRepr]
+public struct IF_COUNTED_STRING_LH
 {
 	public uint16 Length;
 	public char8[257] String;
 }
 
-[CRepr]public struct IF_PHYSICAL_ADDRESS_LH
+[CRepr]
+public struct IF_PHYSICAL_ADDRESS_LH
 {
 	public uint16 Length;
 	public uint8[32] Address;
 }
 
-[CRepr]public struct NDIS_INTERFACE_INFORMATION
+[CRepr]
+public struct NDIS_INTERFACE_INFORMATION
 {
 	public NET_IF_OPER_STATUS ifOperStatus;
 	public uint32 ifOperStatusFlags;
@@ -1586,9 +1607,11 @@ public function void PINTERFACE_TIMESTAMP_CONFIG_CHANGE_CALLBACK(void* CallerCon
 	public uint32 SupportedStatistics;
 }
 
-[CRepr]public struct MIB_IF_ROW2
+[CRepr]
+public struct MIB_IF_ROW2
 {
-	[CRepr]	public struct _InterfaceAndOperStatusFlags_e__Struct
+	[CRepr]
+	public struct _InterfaceAndOperStatusFlags_e__Struct
 	{
 		public uint8 _bitfield;
 	}
@@ -1636,13 +1659,15 @@ public function void PINTERFACE_TIMESTAMP_CONFIG_CHANGE_CALLBACK(void* CallerCon
 	public uint64 OutQLen;
 }
 
-[CRepr]public struct MIB_IF_TABLE2
+[CRepr]
+public struct MIB_IF_TABLE2
 {
 	public uint32 NumEntries;
 	public MIB_IF_ROW2[1] Table;
 }
 
-[CRepr]public struct MIB_IPINTERFACE_ROW
+[CRepr]
+public struct MIB_IPINTERFACE_ROW
 {
 	public uint16 Family;
 	public NET_LUID_LH InterfaceLuid;
@@ -1681,43 +1706,50 @@ public function void PINTERFACE_TIMESTAMP_CONFIG_CHANGE_CALLBACK(void* CallerCon
 	public BOOLEAN DisableDefaultRoutes;
 }
 
-[CRepr]public struct MIB_IPINTERFACE_TABLE
+[CRepr]
+public struct MIB_IPINTERFACE_TABLE
 {
 	public uint32 NumEntries;
 	public MIB_IPINTERFACE_ROW[1] Table;
 }
 
-[CRepr]public struct MIB_IFSTACK_ROW
+[CRepr]
+public struct MIB_IFSTACK_ROW
 {
 	public uint32 HigherLayerInterfaceIndex;
 	public uint32 LowerLayerInterfaceIndex;
 }
 
-[CRepr]public struct MIB_INVERTEDIFSTACK_ROW
+[CRepr]
+public struct MIB_INVERTEDIFSTACK_ROW
 {
 	public uint32 LowerLayerInterfaceIndex;
 	public uint32 HigherLayerInterfaceIndex;
 }
 
-[CRepr]public struct MIB_IFSTACK_TABLE
+[CRepr]
+public struct MIB_IFSTACK_TABLE
 {
 	public uint32 NumEntries;
 	public MIB_IFSTACK_ROW[1] Table;
 }
 
-[CRepr]public struct MIB_INVERTEDIFSTACK_TABLE
+[CRepr]
+public struct MIB_INVERTEDIFSTACK_TABLE
 {
 	public uint32 NumEntries;
 	public MIB_INVERTEDIFSTACK_ROW[1] Table;
 }
 
-[CRepr]public struct MIB_IP_NETWORK_CONNECTION_BANDWIDTH_ESTIMATES
+[CRepr]
+public struct MIB_IP_NETWORK_CONNECTION_BANDWIDTH_ESTIMATES
 {
 	public NL_BANDWIDTH_INFORMATION InboundBandwidthInformation;
 	public NL_BANDWIDTH_INFORMATION OutboundBandwidthInformation;
 }
 
-[CRepr]public struct MIB_UNICASTIPADDRESS_ROW
+[CRepr]
+public struct MIB_UNICASTIPADDRESS_ROW
 {
 	public SOCKADDR_INET Address;
 	public NET_LUID_LH InterfaceLuid;
@@ -1733,13 +1765,15 @@ public function void PINTERFACE_TIMESTAMP_CONFIG_CHANGE_CALLBACK(void* CallerCon
 	public LARGE_INTEGER CreationTimeStamp;
 }
 
-[CRepr]public struct MIB_UNICASTIPADDRESS_TABLE
+[CRepr]
+public struct MIB_UNICASTIPADDRESS_TABLE
 {
 	public uint32 NumEntries;
 	public MIB_UNICASTIPADDRESS_ROW[1] Table;
 }
 
-[CRepr]public struct MIB_ANYCASTIPADDRESS_ROW
+[CRepr]
+public struct MIB_ANYCASTIPADDRESS_ROW
 {
 	public SOCKADDR_INET Address;
 	public NET_LUID_LH InterfaceLuid;
@@ -1747,13 +1781,15 @@ public function void PINTERFACE_TIMESTAMP_CONFIG_CHANGE_CALLBACK(void* CallerCon
 	public SCOPE_ID ScopeId;
 }
 
-[CRepr]public struct MIB_ANYCASTIPADDRESS_TABLE
+[CRepr]
+public struct MIB_ANYCASTIPADDRESS_TABLE
 {
 	public uint32 NumEntries;
 	public MIB_ANYCASTIPADDRESS_ROW[1] Table;
 }
 
-[CRepr]public struct MIB_MULTICASTIPADDRESS_ROW
+[CRepr]
+public struct MIB_MULTICASTIPADDRESS_ROW
 {
 	public SOCKADDR_INET Address;
 	public uint32 InterfaceIndex;
@@ -1761,19 +1797,22 @@ public function void PINTERFACE_TIMESTAMP_CONFIG_CHANGE_CALLBACK(void* CallerCon
 	public SCOPE_ID ScopeId;
 }
 
-[CRepr]public struct MIB_MULTICASTIPADDRESS_TABLE
+[CRepr]
+public struct MIB_MULTICASTIPADDRESS_TABLE
 {
 	public uint32 NumEntries;
 	public MIB_MULTICASTIPADDRESS_ROW[1] Table;
 }
 
-[CRepr]public struct IP_ADDRESS_PREFIX
+[CRepr]
+public struct IP_ADDRESS_PREFIX
 {
 	public SOCKADDR_INET Prefix;
 	public uint8 PrefixLength;
 }
 
-[CRepr]public struct MIB_IPFORWARD_ROW2
+[CRepr]
+public struct MIB_IPFORWARD_ROW2
 {
 	public NET_LUID_LH InterfaceLuid;
 	public uint32 InterfaceIndex;
@@ -1792,15 +1831,18 @@ public function void PINTERFACE_TIMESTAMP_CONFIG_CHANGE_CALLBACK(void* CallerCon
 	public NL_ROUTE_ORIGIN Origin;
 }
 
-[CRepr]public struct MIB_IPFORWARD_TABLE2
+[CRepr]
+public struct MIB_IPFORWARD_TABLE2
 {
 	public uint32 NumEntries;
 	public MIB_IPFORWARD_ROW2[1] Table;
 }
 
-[CRepr]public struct MIB_IPPATH_ROW
+[CRepr]
+public struct MIB_IPPATH_ROW
 {
-	[CRepr, Union]	public struct _Anonymous_e__Union
+	[CRepr, Union]
+	public struct _Anonymous_e__Union
 	{
 		public uint32 LastReachable;
 		public uint32 LastUnreachable;
@@ -1820,17 +1862,21 @@ public function void PINTERFACE_TIMESTAMP_CONFIG_CHANGE_CALLBACK(void* CallerCon
 	public uint64 LinkReceiveSpeed;
 }
 
-[CRepr]public struct MIB_IPPATH_TABLE
+[CRepr]
+public struct MIB_IPPATH_TABLE
 {
 	public uint32 NumEntries;
 	public MIB_IPPATH_ROW[1] Table;
 }
 
-[CRepr]public struct MIB_IPNET_ROW2
+[CRepr]
+public struct MIB_IPNET_ROW2
 {
-	[CRepr, Union]	public struct _Anonymous_e__Union
+	[CRepr, Union]
+	public struct _Anonymous_e__Union
 	{
-		[CRepr]		public struct _Anonymous_e__Struct
+		[CRepr]
+		public struct _Anonymous_e__Struct
 		{
 			public uint8 _bitfield;
 		}
@@ -1839,7 +1885,8 @@ public function void PINTERFACE_TIMESTAMP_CONFIG_CHANGE_CALLBACK(void* CallerCon
 		public uint8 Flags;
 	}
 
-	[CRepr, Union]	public struct _ReachabilityTime_e__Union
+	[CRepr, Union]
+	public struct _ReachabilityTime_e__Union
 	{
 		public uint32 LastReachable;
 		public uint32 LastUnreachable;
@@ -1855,13 +1902,15 @@ public function void PINTERFACE_TIMESTAMP_CONFIG_CHANGE_CALLBACK(void* CallerCon
 	public _ReachabilityTime_e__Union ReachabilityTime;
 }
 
-[CRepr]public struct MIB_IPNET_TABLE2
+[CRepr]
+public struct MIB_IPNET_TABLE2
 {
 	public uint32 NumEntries;
 	public MIB_IPNET_ROW2[1] Table;
 }
 
-[CRepr]public struct DNS_SETTINGS
+[CRepr]
+public struct DNS_SETTINGS
 {
 	public uint32 Version;
 	public uint64 Flags;
@@ -1870,7 +1919,8 @@ public function void PINTERFACE_TIMESTAMP_CONFIG_CHANGE_CALLBACK(void* CallerCon
 	public PWSTR SearchList;
 }
 
-[CRepr]public struct DNS_SETTINGS2
+[CRepr]
+public struct DNS_SETTINGS2
 {
 	public uint32 Version;
 	public uint64 Flags;
@@ -1880,18 +1930,21 @@ public function void PINTERFACE_TIMESTAMP_CONFIG_CHANGE_CALLBACK(void* CallerCon
 	public uint64 SettingFlags;
 }
 
-[CRepr]public struct DNS_DOH_SERVER_SETTINGS
+[CRepr]
+public struct DNS_DOH_SERVER_SETTINGS
 {
 	public PWSTR Template;
 	public uint64 Flags;
 }
 
-[CRepr, Union]public struct DNS_SERVER_PROPERTY_TYPES
+[CRepr, Union]
+public struct DNS_SERVER_PROPERTY_TYPES
 {
 	public DNS_DOH_SERVER_SETTINGS* DohSettings;
 }
 
-[CRepr]public struct DNS_SERVER_PROPERTY
+[CRepr]
+public struct DNS_SERVER_PROPERTY
 {
 	public uint32 Version;
 	public uint32 ServerIndex;
@@ -1899,7 +1952,8 @@ public function void PINTERFACE_TIMESTAMP_CONFIG_CHANGE_CALLBACK(void* CallerCon
 	public DNS_SERVER_PROPERTY_TYPES Property;
 }
 
-[CRepr]public struct DNS_INTERFACE_SETTINGS
+[CRepr]
+public struct DNS_INTERFACE_SETTINGS
 {
 	public uint32 Version;
 	public uint64 Flags;
@@ -1913,14 +1967,16 @@ public function void PINTERFACE_TIMESTAMP_CONFIG_CHANGE_CALLBACK(void* CallerCon
 	public PWSTR ProfileNameServer;
 }
 
-[CRepr]public struct DNS_INTERFACE_SETTINGS_EX
+[CRepr]
+public struct DNS_INTERFACE_SETTINGS_EX
 {
 	public DNS_INTERFACE_SETTINGS SettingsV1;
 	public uint32 DisableUnconstrainedQueries;
 	public PWSTR SupplementalSearchList;
 }
 
-[CRepr]public struct DNS_INTERFACE_SETTINGS3
+[CRepr]
+public struct DNS_INTERFACE_SETTINGS3
 {
 	public uint32 Version;
 	public uint64 Flags;
@@ -1940,18 +1996,21 @@ public function void PINTERFACE_TIMESTAMP_CONFIG_CHANGE_CALLBACK(void* CallerCon
 	public DNS_SERVER_PROPERTY* ProfileServerProperties;
 }
 
-[CRepr]public struct MIB_OPAQUE_QUERY
+[CRepr]
+public struct MIB_OPAQUE_QUERY
 {
 	public uint32 dwVarId;
 	public uint32[1] rgdwVarIndex;
 }
 
-[CRepr]public struct MIB_IFNUMBER
+[CRepr]
+public struct MIB_IFNUMBER
 {
 	public uint32 dwValue;
 }
 
-[CRepr]public struct MIB_IFROW
+[CRepr]
+public struct MIB_IFROW
 {
 	public char8[256] wszName;
 	public uint32 dwIndex;
@@ -1979,13 +2038,15 @@ public function void PINTERFACE_TIMESTAMP_CONFIG_CHANGE_CALLBACK(void* CallerCon
 	public uint8[256] bDescr;
 }
 
-[CRepr]public struct MIB_IFTABLE
+[CRepr]
+public struct MIB_IFTABLE
 {
 	public uint32 dwNumEntries;
 	public MIB_IFROW[1] table;
 }
 
-[CRepr]public struct MIB_IPADDRROW_XP
+[CRepr]
+public struct MIB_IPADDRROW_XP
 {
 	public uint32 dwAddr;
 	public uint32 dwIndex;
@@ -1996,7 +2057,8 @@ public function void PINTERFACE_TIMESTAMP_CONFIG_CHANGE_CALLBACK(void* CallerCon
 	public uint16 wType;
 }
 
-[CRepr]public struct MIB_IPADDRROW_W2K
+[CRepr]
+public struct MIB_IPADDRROW_W2K
 {
 	public uint32 dwAddr;
 	public uint32 dwIndex;
@@ -2007,26 +2069,31 @@ public function void PINTERFACE_TIMESTAMP_CONFIG_CHANGE_CALLBACK(void* CallerCon
 	public uint16 unused2;
 }
 
-[CRepr]public struct MIB_IPADDRTABLE
+[CRepr]
+public struct MIB_IPADDRTABLE
 {
 	public uint32 dwNumEntries;
 	public MIB_IPADDRROW_XP[1] table;
 }
 
-[CRepr]public struct MIB_IPFORWARDNUMBER
+[CRepr]
+public struct MIB_IPFORWARDNUMBER
 {
 	public uint32 dwValue;
 }
 
-[CRepr]public struct MIB_IPFORWARDROW
+[CRepr]
+public struct MIB_IPFORWARDROW
 {
-	[CRepr, Union]	public struct _Anonymous1_e__Union
+	[CRepr, Union]
+	public struct _Anonymous1_e__Union
 	{
 		public uint32 dwForwardType;
 		public MIB_IPFORWARD_TYPE ForwardType;
 	}
 
-	[CRepr, Union]	public struct _Anonymous2_e__Union
+	[CRepr, Union]
+	public struct _Anonymous2_e__Union
 	{
 		public uint32 dwForwardProto;
 		public NL_ROUTE_PROTOCOL ForwardProto;
@@ -2048,15 +2115,18 @@ public function void PINTERFACE_TIMESTAMP_CONFIG_CHANGE_CALLBACK(void* CallerCon
 	public uint32 dwForwardMetric5;
 }
 
-[CRepr]public struct MIB_IPFORWARDTABLE
+[CRepr]
+public struct MIB_IPFORWARDTABLE
 {
 	public uint32 dwNumEntries;
 	public MIB_IPFORWARDROW[1] table;
 }
 
-[CRepr]public struct MIB_IPNETROW_LH
+[CRepr]
+public struct MIB_IPNETROW_LH
 {
-	[CRepr, Union]	public struct _Anonymous_e__Union
+	[CRepr, Union]
+	public struct _Anonymous_e__Union
 	{
 		public uint32 dwType;
 		public MIB_IPNET_TYPE Type;
@@ -2069,7 +2139,8 @@ public function void PINTERFACE_TIMESTAMP_CONFIG_CHANGE_CALLBACK(void* CallerCon
 	public using _Anonymous_e__Union Anonymous;
 }
 
-[CRepr]public struct MIB_IPNETROW_W2K
+[CRepr]
+public struct MIB_IPNETROW_W2K
 {
 	public uint32 dwIndex;
 	public uint32 dwPhysAddrLen;
@@ -2078,15 +2149,18 @@ public function void PINTERFACE_TIMESTAMP_CONFIG_CHANGE_CALLBACK(void* CallerCon
 	public uint32 dwType;
 }
 
-[CRepr]public struct MIB_IPNETTABLE
+[CRepr]
+public struct MIB_IPNETTABLE
 {
 	public uint32 dwNumEntries;
 	public MIB_IPNETROW_LH[1] table;
 }
 
-[CRepr]public struct MIB_IPSTATS_LH
+[CRepr]
+public struct MIB_IPSTATS_LH
 {
-	[CRepr, Union]	public struct _Anonymous_e__Union
+	[CRepr, Union]
+	public struct _Anonymous_e__Union
 	{
 		public uint32 dwForwarding;
 		public MIB_IPSTATS_FORWARDING Forwarding;
@@ -2117,7 +2191,8 @@ public function void PINTERFACE_TIMESTAMP_CONFIG_CHANGE_CALLBACK(void* CallerCon
 	public uint32 dwNumRoutes;
 }
 
-[CRepr]public struct MIB_IPSTATS_W2K
+[CRepr]
+public struct MIB_IPSTATS_W2K
 {
 	public uint32 dwForwarding;
 	public uint32 dwDefaultTTL;
@@ -2144,7 +2219,8 @@ public function void PINTERFACE_TIMESTAMP_CONFIG_CHANGE_CALLBACK(void* CallerCon
 	public uint32 dwNumRoutes;
 }
 
-[CRepr]public struct MIBICMPSTATS
+[CRepr]
+public struct MIBICMPSTATS
 {
 	public uint32 dwMsgs;
 	public uint32 dwErrors;
@@ -2161,31 +2237,36 @@ public function void PINTERFACE_TIMESTAMP_CONFIG_CHANGE_CALLBACK(void* CallerCon
 	public uint32 dwAddrMaskReps;
 }
 
-[CRepr]public struct MIBICMPINFO
+[CRepr]
+public struct MIBICMPINFO
 {
 	public MIBICMPSTATS icmpInStats;
 	public MIBICMPSTATS icmpOutStats;
 }
 
-[CRepr]public struct MIB_ICMP
+[CRepr]
+public struct MIB_ICMP
 {
 	public MIBICMPINFO stats;
 }
 
-[CRepr]public struct MIBICMPSTATS_EX_XPSP1
+[CRepr]
+public struct MIBICMPSTATS_EX_XPSP1
 {
 	public uint32 dwMsgs;
 	public uint32 dwErrors;
 	public uint32[256] rgdwTypeCount;
 }
 
-[CRepr]public struct MIB_ICMP_EX_XPSP1
+[CRepr]
+public struct MIB_ICMP_EX_XPSP1
 {
 	public MIBICMPSTATS_EX_XPSP1 icmpInStats;
 	public MIBICMPSTATS_EX_XPSP1 icmpOutStats;
 }
 
-[CRepr]public struct MIB_IPMCAST_OIF_XP
+[CRepr]
+public struct MIB_IPMCAST_OIF_XP
 {
 	public uint32 dwOutIfIndex;
 	public uint32 dwNextHopAddr;
@@ -2193,7 +2274,8 @@ public function void PINTERFACE_TIMESTAMP_CONFIG_CHANGE_CALLBACK(void* CallerCon
 	public uint32 dwReserved1;
 }
 
-[CRepr]public struct MIB_IPMCAST_OIF_W2K
+[CRepr]
+public struct MIB_IPMCAST_OIF_W2K
 {
 	public uint32 dwOutIfIndex;
 	public uint32 dwNextHopAddr;
@@ -2201,7 +2283,8 @@ public function void PINTERFACE_TIMESTAMP_CONFIG_CHANGE_CALLBACK(void* CallerCon
 	public uint32 dwReserved;
 }
 
-[CRepr]public struct MIB_IPMCAST_MFE
+[CRepr]
+public struct MIB_IPMCAST_MFE
 {
 	public uint32 dwGroup;
 	public uint32 dwSource;
@@ -2221,13 +2304,15 @@ public function void PINTERFACE_TIMESTAMP_CONFIG_CHANGE_CALLBACK(void* CallerCon
 	public MIB_IPMCAST_OIF_XP[1] rgmioOutInfo;
 }
 
-[CRepr]public struct MIB_MFE_TABLE
+[CRepr]
+public struct MIB_MFE_TABLE
 {
 	public uint32 dwNumEntries;
 	public MIB_IPMCAST_MFE[1] table;
 }
 
-[CRepr]public struct MIB_IPMCAST_OIF_STATS_LH
+[CRepr]
+public struct MIB_IPMCAST_OIF_STATS_LH
 {
 	public uint32 dwOutIfIndex;
 	public uint32 dwNextHopAddr;
@@ -2238,7 +2323,8 @@ public function void PINTERFACE_TIMESTAMP_CONFIG_CHANGE_CALLBACK(void* CallerCon
 	public uint32 ulOutDiscards;
 }
 
-[CRepr]public struct MIB_IPMCAST_OIF_STATS_W2K
+[CRepr]
+public struct MIB_IPMCAST_OIF_STATS_W2K
 {
 	public uint32 dwOutIfIndex;
 	public uint32 dwNextHopAddr;
@@ -2249,7 +2335,8 @@ public function void PINTERFACE_TIMESTAMP_CONFIG_CHANGE_CALLBACK(void* CallerCon
 	public uint32 ulOutDiscards;
 }
 
-[CRepr]public struct MIB_IPMCAST_MFE_STATS
+[CRepr]
+public struct MIB_IPMCAST_MFE_STATS
 {
 	public uint32 dwGroup;
 	public uint32 dwSource;
@@ -2270,13 +2357,15 @@ public function void PINTERFACE_TIMESTAMP_CONFIG_CHANGE_CALLBACK(void* CallerCon
 	public MIB_IPMCAST_OIF_STATS_LH[1] rgmiosOutStats;
 }
 
-[CRepr]public struct MIB_MFE_STATS_TABLE
+[CRepr]
+public struct MIB_MFE_STATS_TABLE
 {
 	public uint32 dwNumEntries;
 	public MIB_IPMCAST_MFE_STATS[1] table;
 }
 
-[CRepr]public struct MIB_IPMCAST_MFE_STATS_EX_XP
+[CRepr]
+public struct MIB_IPMCAST_MFE_STATS_EX_XP
 {
 	public uint32 dwGroup;
 	public uint32 dwSource;
@@ -2302,18 +2391,21 @@ public function void PINTERFACE_TIMESTAMP_CONFIG_CHANGE_CALLBACK(void* CallerCon
 	public MIB_IPMCAST_OIF_STATS_LH[1] rgmiosOutStats;
 }
 
-[CRepr]public struct MIB_MFE_STATS_TABLE_EX_XP
+[CRepr]
+public struct MIB_MFE_STATS_TABLE_EX_XP
 {
 	public uint32 dwNumEntries;
 	public MIB_IPMCAST_MFE_STATS_EX_XP*[1] table;
 }
 
-[CRepr]public struct MIB_IPMCAST_GLOBAL
+[CRepr]
+public struct MIB_IPMCAST_GLOBAL
 {
 	public uint32 dwEnable;
 }
 
-[CRepr]public struct MIB_IPMCAST_IF_ENTRY
+[CRepr]
+public struct MIB_IPMCAST_IF_ENTRY
 {
 	public uint32 dwIfIndex;
 	public uint32 dwTtl;
@@ -2323,15 +2415,18 @@ public function void PINTERFACE_TIMESTAMP_CONFIG_CHANGE_CALLBACK(void* CallerCon
 	public uint32 ulOutMcastOctets;
 }
 
-[CRepr]public struct MIB_IPMCAST_IF_TABLE
+[CRepr]
+public struct MIB_IPMCAST_IF_TABLE
 {
 	public uint32 dwNumEntries;
 	public MIB_IPMCAST_IF_ENTRY[1] table;
 }
 
-[CRepr]public struct MIB_TCPROW_LH
+[CRepr]
+public struct MIB_TCPROW_LH
 {
-	[CRepr, Union]	public struct _Anonymous_e__Union
+	[CRepr, Union]
+	public struct _Anonymous_e__Union
 	{
 		public uint32 dwState;
 		public MIB_TCP_STATE State;
@@ -2344,7 +2439,8 @@ public function void PINTERFACE_TIMESTAMP_CONFIG_CHANGE_CALLBACK(void* CallerCon
 	public uint32 dwRemotePort;
 }
 
-[CRepr]public struct MIB_TCPROW_W2K
+[CRepr]
+public struct MIB_TCPROW_W2K
 {
 	public uint32 dwState;
 	public uint32 dwLocalAddr;
@@ -2353,13 +2449,15 @@ public function void PINTERFACE_TIMESTAMP_CONFIG_CHANGE_CALLBACK(void* CallerCon
 	public uint32 dwRemotePort;
 }
 
-[CRepr]public struct MIB_TCPTABLE
+[CRepr]
+public struct MIB_TCPTABLE
 {
 	public uint32 dwNumEntries;
 	public MIB_TCPROW_LH[1] table;
 }
 
-[CRepr]public struct MIB_TCPROW2
+[CRepr]
+public struct MIB_TCPROW2
 {
 	public uint32 dwState;
 	public uint32 dwLocalAddr;
@@ -2370,13 +2468,15 @@ public function void PINTERFACE_TIMESTAMP_CONFIG_CHANGE_CALLBACK(void* CallerCon
 	public TCP_CONNECTION_OFFLOAD_STATE dwOffloadState;
 }
 
-[CRepr]public struct MIB_TCPTABLE2
+[CRepr]
+public struct MIB_TCPTABLE2
 {
 	public uint32 dwNumEntries;
 	public MIB_TCPROW2[1] table;
 }
 
-[CRepr]public struct MIB_TCPROW_OWNER_PID
+[CRepr]
+public struct MIB_TCPROW_OWNER_PID
 {
 	public uint32 dwState;
 	public uint32 dwLocalAddr;
@@ -2386,13 +2486,15 @@ public function void PINTERFACE_TIMESTAMP_CONFIG_CHANGE_CALLBACK(void* CallerCon
 	public uint32 dwOwningPid;
 }
 
-[CRepr]public struct MIB_TCPTABLE_OWNER_PID
+[CRepr]
+public struct MIB_TCPTABLE_OWNER_PID
 {
 	public uint32 dwNumEntries;
 	public MIB_TCPROW_OWNER_PID[1] table;
 }
 
-[CRepr]public struct MIB_TCPROW_OWNER_MODULE
+[CRepr]
+public struct MIB_TCPROW_OWNER_MODULE
 {
 	public uint32 dwState;
 	public uint32 dwLocalAddr;
@@ -2404,13 +2506,15 @@ public function void PINTERFACE_TIMESTAMP_CONFIG_CHANGE_CALLBACK(void* CallerCon
 	public uint64[16] OwningModuleInfo;
 }
 
-[CRepr]public struct MIB_TCPTABLE_OWNER_MODULE
+[CRepr]
+public struct MIB_TCPTABLE_OWNER_MODULE
 {
 	public uint32 dwNumEntries;
 	public MIB_TCPROW_OWNER_MODULE[1] table;
 }
 
-[CRepr]public struct MIB_TCP6ROW
+[CRepr]
+public struct MIB_TCP6ROW
 {
 	public MIB_TCP_STATE State;
 	public IN6_ADDR LocalAddr;
@@ -2421,13 +2525,15 @@ public function void PINTERFACE_TIMESTAMP_CONFIG_CHANGE_CALLBACK(void* CallerCon
 	public uint32 dwRemotePort;
 }
 
-[CRepr]public struct MIB_TCP6TABLE
+[CRepr]
+public struct MIB_TCP6TABLE
 {
 	public uint32 dwNumEntries;
 	public MIB_TCP6ROW[1] table;
 }
 
-[CRepr]public struct MIB_TCP6ROW2
+[CRepr]
+public struct MIB_TCP6ROW2
 {
 	public IN6_ADDR LocalAddr;
 	public uint32 dwLocalScopeId;
@@ -2440,13 +2546,15 @@ public function void PINTERFACE_TIMESTAMP_CONFIG_CHANGE_CALLBACK(void* CallerCon
 	public TCP_CONNECTION_OFFLOAD_STATE dwOffloadState;
 }
 
-[CRepr]public struct MIB_TCP6TABLE2
+[CRepr]
+public struct MIB_TCP6TABLE2
 {
 	public uint32 dwNumEntries;
 	public MIB_TCP6ROW2[1] table;
 }
 
-[CRepr]public struct MIB_TCP6ROW_OWNER_PID
+[CRepr]
+public struct MIB_TCP6ROW_OWNER_PID
 {
 	public uint8[16] ucLocalAddr;
 	public uint32 dwLocalScopeId;
@@ -2458,13 +2566,15 @@ public function void PINTERFACE_TIMESTAMP_CONFIG_CHANGE_CALLBACK(void* CallerCon
 	public uint32 dwOwningPid;
 }
 
-[CRepr]public struct MIB_TCP6TABLE_OWNER_PID
+[CRepr]
+public struct MIB_TCP6TABLE_OWNER_PID
 {
 	public uint32 dwNumEntries;
 	public MIB_TCP6ROW_OWNER_PID[1] table;
 }
 
-[CRepr]public struct MIB_TCP6ROW_OWNER_MODULE
+[CRepr]
+public struct MIB_TCP6ROW_OWNER_MODULE
 {
 	public uint8[16] ucLocalAddr;
 	public uint32 dwLocalScopeId;
@@ -2478,15 +2588,18 @@ public function void PINTERFACE_TIMESTAMP_CONFIG_CHANGE_CALLBACK(void* CallerCon
 	public uint64[16] OwningModuleInfo;
 }
 
-[CRepr]public struct MIB_TCP6TABLE_OWNER_MODULE
+[CRepr]
+public struct MIB_TCP6TABLE_OWNER_MODULE
 {
 	public uint32 dwNumEntries;
 	public MIB_TCP6ROW_OWNER_MODULE[1] table;
 }
 
-[CRepr]public struct MIB_TCPSTATS_LH
+[CRepr]
+public struct MIB_TCPSTATS_LH
 {
-	[CRepr, Union]	public struct _Anonymous_e__Union
+	[CRepr, Union]
+	public struct _Anonymous_e__Union
 	{
 		public uint32 dwRtoAlgorithm;
 		public TCP_RTO_ALGORITHM RtoAlgorithm;
@@ -2509,7 +2622,8 @@ public function void PINTERFACE_TIMESTAMP_CONFIG_CHANGE_CALLBACK(void* CallerCon
 	public uint32 dwNumConns;
 }
 
-[CRepr]public struct MIB_TCPSTATS_W2K
+[CRepr]
+public struct MIB_TCPSTATS_W2K
 {
 	public uint32 dwRtoAlgorithm;
 	public uint32 dwRtoMin;
@@ -2528,7 +2642,8 @@ public function void PINTERFACE_TIMESTAMP_CONFIG_CHANGE_CALLBACK(void* CallerCon
 	public uint32 dwNumConns;
 }
 
-[CRepr]public struct MIB_TCPSTATS2
+[CRepr]
+public struct MIB_TCPSTATS2
 {
 	public TCP_RTO_ALGORITHM RtoAlgorithm;
 	public uint32 dwRtoMin;
@@ -2547,36 +2662,43 @@ public function void PINTERFACE_TIMESTAMP_CONFIG_CHANGE_CALLBACK(void* CallerCon
 	public uint32 dwNumConns;
 }
 
-[CRepr]public struct MIB_UDPROW
+[CRepr]
+public struct MIB_UDPROW
 {
 	public uint32 dwLocalAddr;
 	public uint32 dwLocalPort;
 }
 
-[CRepr]public struct MIB_UDPTABLE
+[CRepr]
+public struct MIB_UDPTABLE
 {
 	public uint32 dwNumEntries;
 	public MIB_UDPROW[1] table;
 }
 
-[CRepr]public struct MIB_UDPROW_OWNER_PID
+[CRepr]
+public struct MIB_UDPROW_OWNER_PID
 {
 	public uint32 dwLocalAddr;
 	public uint32 dwLocalPort;
 	public uint32 dwOwningPid;
 }
 
-[CRepr]public struct MIB_UDPTABLE_OWNER_PID
+[CRepr]
+public struct MIB_UDPTABLE_OWNER_PID
 {
 	public uint32 dwNumEntries;
 	public MIB_UDPROW_OWNER_PID[1] table;
 }
 
-[CRepr]public struct MIB_UDPROW_OWNER_MODULE
+[CRepr]
+public struct MIB_UDPROW_OWNER_MODULE
 {
-	[CRepr, Union]	public struct _Anonymous_e__Union
+	[CRepr, Union]
+	public struct _Anonymous_e__Union
 	{
-		[CRepr]		public struct _Anonymous_e__Struct
+		[CRepr]
+		public struct _Anonymous_e__Struct
 		{
 			public int32 _bitfield;
 		}
@@ -2593,17 +2715,21 @@ public function void PINTERFACE_TIMESTAMP_CONFIG_CHANGE_CALLBACK(void* CallerCon
 	public uint64[16] OwningModuleInfo;
 }
 
-[CRepr]public struct MIB_UDPTABLE_OWNER_MODULE
+[CRepr]
+public struct MIB_UDPTABLE_OWNER_MODULE
 {
 	public uint32 dwNumEntries;
 	public MIB_UDPROW_OWNER_MODULE[1] table;
 }
 
-[CRepr]public struct MIB_UDPROW2
+[CRepr]
+public struct MIB_UDPROW2
 {
-	[CRepr, Union]	public struct _Anonymous_e__Union
+	[CRepr, Union]
+	public struct _Anonymous_e__Union
 	{
-		[CRepr]		public struct _Anonymous_e__Struct
+		[CRepr]
+		public struct _Anonymous_e__Struct
 		{
 			public int32 _bitfield;
 		}
@@ -2622,26 +2748,30 @@ public function void PINTERFACE_TIMESTAMP_CONFIG_CHANGE_CALLBACK(void* CallerCon
 	public uint32 dwRemotePort;
 }
 
-[CRepr]public struct MIB_UDPTABLE2
+[CRepr]
+public struct MIB_UDPTABLE2
 {
 	public uint32 dwNumEntries;
 	public MIB_UDPROW2[1] table;
 }
 
-[CRepr]public struct MIB_UDP6ROW
+[CRepr]
+public struct MIB_UDP6ROW
 {
 	public IN6_ADDR dwLocalAddr;
 	public uint32 dwLocalScopeId;
 	public uint32 dwLocalPort;
 }
 
-[CRepr]public struct MIB_UDP6TABLE
+[CRepr]
+public struct MIB_UDP6TABLE
 {
 	public uint32 dwNumEntries;
 	public MIB_UDP6ROW[1] table;
 }
 
-[CRepr]public struct MIB_UDP6ROW_OWNER_PID
+[CRepr]
+public struct MIB_UDP6ROW_OWNER_PID
 {
 	public uint8[16] ucLocalAddr;
 	public uint32 dwLocalScopeId;
@@ -2649,17 +2779,21 @@ public function void PINTERFACE_TIMESTAMP_CONFIG_CHANGE_CALLBACK(void* CallerCon
 	public uint32 dwOwningPid;
 }
 
-[CRepr]public struct MIB_UDP6TABLE_OWNER_PID
+[CRepr]
+public struct MIB_UDP6TABLE_OWNER_PID
 {
 	public uint32 dwNumEntries;
 	public MIB_UDP6ROW_OWNER_PID[1] table;
 }
 
-[CRepr]public struct MIB_UDP6ROW_OWNER_MODULE
+[CRepr]
+public struct MIB_UDP6ROW_OWNER_MODULE
 {
-	[CRepr, Union]	public struct _Anonymous_e__Union
+	[CRepr, Union]
+	public struct _Anonymous_e__Union
 	{
-		[CRepr]		public struct _Anonymous_e__Struct
+		[CRepr]
+		public struct _Anonymous_e__Struct
 		{
 			public int32 _bitfield;
 		}
@@ -2677,17 +2811,21 @@ public function void PINTERFACE_TIMESTAMP_CONFIG_CHANGE_CALLBACK(void* CallerCon
 	public uint64[16] OwningModuleInfo;
 }
 
-[CRepr]public struct MIB_UDP6TABLE_OWNER_MODULE
+[CRepr]
+public struct MIB_UDP6TABLE_OWNER_MODULE
 {
 	public uint32 dwNumEntries;
 	public MIB_UDP6ROW_OWNER_MODULE[1] table;
 }
 
-[CRepr]public struct MIB_UDP6ROW2
+[CRepr]
+public struct MIB_UDP6ROW2
 {
-	[CRepr, Union]	public struct _Anonymous_e__Union
+	[CRepr, Union]
+	public struct _Anonymous_e__Union
 	{
-		[CRepr]		public struct _Anonymous_e__Struct
+		[CRepr]
+		public struct _Anonymous_e__Struct
 		{
 			public int32 _bitfield;
 		}
@@ -2708,13 +2846,15 @@ public function void PINTERFACE_TIMESTAMP_CONFIG_CHANGE_CALLBACK(void* CallerCon
 	public uint32 dwRemotePort;
 }
 
-[CRepr]public struct MIB_UDP6TABLE2
+[CRepr]
+public struct MIB_UDP6TABLE2
 {
 	public uint32 dwNumEntries;
 	public MIB_UDP6ROW2[1] table;
 }
 
-[CRepr]public struct MIB_UDPSTATS
+[CRepr]
+public struct MIB_UDPSTATS
 {
 	public uint32 dwInDatagrams;
 	public uint32 dwNoPorts;
@@ -2723,7 +2863,8 @@ public function void PINTERFACE_TIMESTAMP_CONFIG_CHANGE_CALLBACK(void* CallerCon
 	public uint32 dwNumAddrs;
 }
 
-[CRepr]public struct MIB_UDPSTATS2
+[CRepr]
+public struct MIB_UDPSTATS2
 {
 	public uint64 dw64InDatagrams;
 	public uint32 dwNoPorts;
@@ -2732,13 +2873,15 @@ public function void PINTERFACE_TIMESTAMP_CONFIG_CHANGE_CALLBACK(void* CallerCon
 	public uint32 dwNumAddrs;
 }
 
-[CRepr]public struct TCPIP_OWNER_MODULE_BASIC_INFO
+[CRepr]
+public struct TCPIP_OWNER_MODULE_BASIC_INFO
 {
 	public PWSTR pModuleName;
 	public PWSTR pModulePath;
 }
 
-[CRepr]public struct MIB_IPMCAST_BOUNDARY
+[CRepr]
+public struct MIB_IPMCAST_BOUNDARY
 {
 	public uint32 dwIfIndex;
 	public uint32 dwGroupAddress;
@@ -2746,25 +2889,29 @@ public function void PINTERFACE_TIMESTAMP_CONFIG_CHANGE_CALLBACK(void* CallerCon
 	public uint32 dwStatus;
 }
 
-[CRepr]public struct MIB_IPMCAST_BOUNDARY_TABLE
+[CRepr]
+public struct MIB_IPMCAST_BOUNDARY_TABLE
 {
 	public uint32 dwNumEntries;
 	public MIB_IPMCAST_BOUNDARY[1] table;
 }
 
-[CRepr]public struct MIB_BOUNDARYROW
+[CRepr]
+public struct MIB_BOUNDARYROW
 {
 	public uint32 dwGroupAddress;
 	public uint32 dwGroupMask;
 }
 
-[CRepr]public struct MIB_MCAST_LIMIT_ROW
+[CRepr]
+public struct MIB_MCAST_LIMIT_ROW
 {
 	public uint32 dwTtl;
 	public uint32 dwRateLimit;
 }
 
-[CRepr]public struct MIB_IPMCAST_SCOPE
+[CRepr]
+public struct MIB_IPMCAST_SCOPE
 {
 	public uint32 dwGroupAddress;
 	public uint32 dwGroupMask;
@@ -2772,33 +2919,38 @@ public function void PINTERFACE_TIMESTAMP_CONFIG_CHANGE_CALLBACK(void* CallerCon
 	public uint32 dwStatus;
 }
 
-[CRepr]public struct MIB_IPDESTROW
+[CRepr]
+public struct MIB_IPDESTROW
 {
 	public MIB_IPFORWARDROW ForwardRow;
 	public uint32 dwForwardPreference;
 	public uint32 dwForwardViewSet;
 }
 
-[CRepr]public struct MIB_IPDESTTABLE
+[CRepr]
+public struct MIB_IPDESTTABLE
 {
 	public uint32 dwNumEntries;
 	public MIB_IPDESTROW[1] table;
 }
 
-[CRepr]public struct MIB_BEST_IF
+[CRepr]
+public struct MIB_BEST_IF
 {
 	public uint32 dwDestAddr;
 	public uint32 dwIfIndex;
 }
 
-[CRepr]public struct MIB_PROXYARP
+[CRepr]
+public struct MIB_PROXYARP
 {
 	public uint32 dwAddress;
 	public uint32 dwMask;
 	public uint32 dwIfIndex;
 }
 
-[CRepr]public struct MIB_IFSTATUS
+[CRepr]
+public struct MIB_IFSTATUS
 {
 	public uint32 dwIfIndex;
 	public uint32 dwAdminStatus;
@@ -2807,14 +2959,17 @@ public function void PINTERFACE_TIMESTAMP_CONFIG_CHANGE_CALLBACK(void* CallerCon
 	public BOOL bMHbeatAlive;
 }
 
-[CRepr]public struct MIB_ROUTESTATE
+[CRepr]
+public struct MIB_ROUTESTATE
 {
 	public BOOL bRoutesSetToStack;
 }
 
-[CRepr]public struct MIB_OPAQUE_INFO
+[CRepr]
+public struct MIB_OPAQUE_INFO
 {
-	[CRepr, Union]	public struct _Anonymous_e__Union
+	[CRepr, Union]
+	public struct _Anonymous_e__Union
 	{
 		public uint64 ullAlign;
 		public uint8[1] rgbyData;
@@ -2824,12 +2979,14 @@ public function void PINTERFACE_TIMESTAMP_CONFIG_CHANGE_CALLBACK(void* CallerCon
 	public using _Anonymous_e__Union Anonymous;
 }
 
-[CRepr]public struct IP_ADDRESS_STRING
+[CRepr]
+public struct IP_ADDRESS_STRING
 {
 	public CHAR[16] String;
 }
 
-[CRepr]public struct IP_ADDR_STRING
+[CRepr]
+public struct IP_ADDR_STRING
 {
 	public IP_ADDR_STRING* Next;
 	public IP_ADDRESS_STRING IpAddress;
@@ -2837,7 +2994,8 @@ public function void PINTERFACE_TIMESTAMP_CONFIG_CHANGE_CALLBACK(void* CallerCon
 	public uint32 Context;
 }
 
-[CRepr]public struct IP_ADAPTER_INFO
+[CRepr]
+public struct IP_ADAPTER_INFO
 {
 	public IP_ADAPTER_INFO* Next;
 	public uint32 ComboIndex;
@@ -2859,11 +3017,14 @@ public function void PINTERFACE_TIMESTAMP_CONFIG_CHANGE_CALLBACK(void* CallerCon
 	public int64 LeaseExpires;
 }
 
-[CRepr]public struct IP_ADAPTER_UNICAST_ADDRESS_LH
+[CRepr]
+public struct IP_ADAPTER_UNICAST_ADDRESS_LH
 {
-	[CRepr, Union]	public struct _Anonymous_e__Union
+	[CRepr, Union]
+	public struct _Anonymous_e__Union
 	{
-		[CRepr]		public struct _Anonymous_e__Struct
+		[CRepr]
+		public struct _Anonymous_e__Struct
 		{
 			public uint32 Length;
 			public uint32 Flags;
@@ -2885,11 +3046,14 @@ public function void PINTERFACE_TIMESTAMP_CONFIG_CHANGE_CALLBACK(void* CallerCon
 	public uint8 OnLinkPrefixLength;
 }
 
-[CRepr]public struct IP_ADAPTER_UNICAST_ADDRESS_XP
+[CRepr]
+public struct IP_ADAPTER_UNICAST_ADDRESS_XP
 {
-	[CRepr, Union]	public struct _Anonymous_e__Union
+	[CRepr, Union]
+	public struct _Anonymous_e__Union
 	{
-		[CRepr]		public struct _Anonymous_e__Struct
+		[CRepr]
+		public struct _Anonymous_e__Struct
 		{
 			public uint32 Length;
 			public uint32 Flags;
@@ -2910,11 +3074,14 @@ public function void PINTERFACE_TIMESTAMP_CONFIG_CHANGE_CALLBACK(void* CallerCon
 	public uint32 LeaseLifetime;
 }
 
-[CRepr]public struct IP_ADAPTER_ANYCAST_ADDRESS_XP
+[CRepr]
+public struct IP_ADAPTER_ANYCAST_ADDRESS_XP
 {
-	[CRepr, Union]	public struct _Anonymous_e__Union
+	[CRepr, Union]
+	public struct _Anonymous_e__Union
 	{
-		[CRepr]		public struct _Anonymous_e__Struct
+		[CRepr]
+		public struct _Anonymous_e__Struct
 		{
 			public uint32 Length;
 			public uint32 Flags;
@@ -2929,11 +3096,14 @@ public function void PINTERFACE_TIMESTAMP_CONFIG_CHANGE_CALLBACK(void* CallerCon
 	public SOCKET_ADDRESS Address;
 }
 
-[CRepr]public struct IP_ADAPTER_MULTICAST_ADDRESS_XP
+[CRepr]
+public struct IP_ADAPTER_MULTICAST_ADDRESS_XP
 {
-	[CRepr, Union]	public struct _Anonymous_e__Union
+	[CRepr, Union]
+	public struct _Anonymous_e__Union
 	{
-		[CRepr]		public struct _Anonymous_e__Struct
+		[CRepr]
+		public struct _Anonymous_e__Struct
 		{
 			public uint32 Length;
 			public uint32 Flags;
@@ -2948,11 +3118,14 @@ public function void PINTERFACE_TIMESTAMP_CONFIG_CHANGE_CALLBACK(void* CallerCon
 	public SOCKET_ADDRESS Address;
 }
 
-[CRepr]public struct IP_ADAPTER_DNS_SERVER_ADDRESS_XP
+[CRepr]
+public struct IP_ADAPTER_DNS_SERVER_ADDRESS_XP
 {
-	[CRepr, Union]	public struct _Anonymous_e__Union
+	[CRepr, Union]
+	public struct _Anonymous_e__Union
 	{
-		[CRepr]		public struct _Anonymous_e__Struct
+		[CRepr]
+		public struct _Anonymous_e__Struct
 		{
 			public uint32 Length;
 			public uint32 Reserved;
@@ -2967,11 +3140,14 @@ public function void PINTERFACE_TIMESTAMP_CONFIG_CHANGE_CALLBACK(void* CallerCon
 	public SOCKET_ADDRESS Address;
 }
 
-[CRepr]public struct IP_ADAPTER_WINS_SERVER_ADDRESS_LH
+[CRepr]
+public struct IP_ADAPTER_WINS_SERVER_ADDRESS_LH
 {
-	[CRepr, Union]	public struct _Anonymous_e__Union
+	[CRepr, Union]
+	public struct _Anonymous_e__Union
 	{
-		[CRepr]		public struct _Anonymous_e__Struct
+		[CRepr]
+		public struct _Anonymous_e__Struct
 		{
 			public uint32 Length;
 			public uint32 Reserved;
@@ -2986,11 +3162,14 @@ public function void PINTERFACE_TIMESTAMP_CONFIG_CHANGE_CALLBACK(void* CallerCon
 	public SOCKET_ADDRESS Address;
 }
 
-[CRepr]public struct IP_ADAPTER_GATEWAY_ADDRESS_LH
+[CRepr]
+public struct IP_ADAPTER_GATEWAY_ADDRESS_LH
 {
-	[CRepr, Union]	public struct _Anonymous_e__Union
+	[CRepr, Union]
+	public struct _Anonymous_e__Union
 	{
-		[CRepr]		public struct _Anonymous_e__Struct
+		[CRepr]
+		public struct _Anonymous_e__Struct
 		{
 			public uint32 Length;
 			public uint32 Reserved;
@@ -3005,11 +3184,14 @@ public function void PINTERFACE_TIMESTAMP_CONFIG_CHANGE_CALLBACK(void* CallerCon
 	public SOCKET_ADDRESS Address;
 }
 
-[CRepr]public struct IP_ADAPTER_PREFIX_XP
+[CRepr]
+public struct IP_ADAPTER_PREFIX_XP
 {
-	[CRepr, Union]	public struct _Anonymous_e__Union
+	[CRepr, Union]
+	public struct _Anonymous_e__Union
 	{
-		[CRepr]		public struct _Anonymous_e__Struct
+		[CRepr]
+		public struct _Anonymous_e__Struct
 		{
 			public uint32 Length;
 			public uint32 Flags;
@@ -3025,17 +3207,21 @@ public function void PINTERFACE_TIMESTAMP_CONFIG_CHANGE_CALLBACK(void* CallerCon
 	public uint32 PrefixLength;
 }
 
-[CRepr]public struct IP_ADAPTER_DNS_SUFFIX
+[CRepr]
+public struct IP_ADAPTER_DNS_SUFFIX
 {
 	public IP_ADAPTER_DNS_SUFFIX* Next;
 	public char8[256] String;
 }
 
-[CRepr]public struct IP_ADAPTER_ADDRESSES_LH
+[CRepr]
+public struct IP_ADAPTER_ADDRESSES_LH
 {
-	[CRepr, Union]	public struct _Anonymous2_e__Union
+	[CRepr, Union]
+	public struct _Anonymous2_e__Union
 	{
-		[CRepr]		public struct _Anonymous_e__Struct
+		[CRepr]
+		public struct _Anonymous_e__Struct
 		{
 			public uint32 _bitfield;
 		}
@@ -3044,9 +3230,11 @@ public function void PINTERFACE_TIMESTAMP_CONFIG_CHANGE_CALLBACK(void* CallerCon
 		public using _Anonymous_e__Struct Anonymous;
 	}
 
-	[CRepr, Union]	public struct _Anonymous1_e__Union
+	[CRepr, Union]
+	public struct _Anonymous1_e__Union
 	{
-		[CRepr]		public struct _Anonymous_e__Struct
+		[CRepr]
+		public struct _Anonymous_e__Struct
 		{
 			public uint32 Length;
 			public uint32 IfIndex;
@@ -3094,11 +3282,14 @@ public function void PINTERFACE_TIMESTAMP_CONFIG_CHANGE_CALLBACK(void* CallerCon
 	public IP_ADAPTER_DNS_SUFFIX* FirstDnsSuffix;
 }
 
-[CRepr]public struct IP_ADAPTER_ADDRESSES_XP
+[CRepr]
+public struct IP_ADAPTER_ADDRESSES_XP
 {
-	[CRepr, Union]	public struct _Anonymous_e__Union
+	[CRepr, Union]
+	public struct _Anonymous_e__Union
 	{
-		[CRepr]		public struct _Anonymous_e__Struct
+		[CRepr]
+		public struct _Anonymous_e__Struct
 		{
 			public uint32 Length;
 			public uint32 IfIndex;
@@ -3129,7 +3320,8 @@ public function void PINTERFACE_TIMESTAMP_CONFIG_CHANGE_CALLBACK(void* CallerCon
 	public IP_ADAPTER_PREFIX_XP* FirstPrefix;
 }
 
-[CRepr]public struct IP_PER_ADAPTER_INFO_W2KSP1
+[CRepr]
+public struct IP_PER_ADAPTER_INFO_W2KSP1
 {
 	public uint32 AutoconfigEnabled;
 	public uint32 AutoconfigActive;
@@ -3137,7 +3329,8 @@ public function void PINTERFACE_TIMESTAMP_CONFIG_CHANGE_CALLBACK(void* CallerCon
 	public IP_ADDR_STRING DnsServerList;
 }
 
-[CRepr]public struct FIXED_INFO_W2KSP1
+[CRepr]
+public struct FIXED_INFO_W2KSP1
 {
 	public CHAR[132] HostName;
 	public CHAR[132] DomainName;
@@ -3150,7 +3343,8 @@ public function void PINTERFACE_TIMESTAMP_CONFIG_CHANGE_CALLBACK(void* CallerCon
 	public uint32 EnableDns;
 }
 
-[CRepr]public struct ip_interface_name_info_w2ksp1
+[CRepr]
+public struct ip_interface_name_info_w2ksp1
 {
 	public uint32 Index;
 	public uint32 MediaType;
@@ -3160,14 +3354,16 @@ public function void PINTERFACE_TIMESTAMP_CONFIG_CHANGE_CALLBACK(void* CallerCon
 	public Guid InterfaceGuid;
 }
 
-[CRepr]public struct TCP_ESTATS_SYN_OPTS_ROS_v0
+[CRepr]
+public struct TCP_ESTATS_SYN_OPTS_ROS_v0
 {
 	public BOOLEAN ActiveOpen;
 	public uint32 MssRcvd;
 	public uint32 MssSent;
 }
 
-[CRepr]public struct TCP_ESTATS_DATA_ROD_v0
+[CRepr]
+public struct TCP_ESTATS_DATA_ROD_v0
 {
 	public uint64 DataBytesOut;
 	public uint64 DataSegsOut;
@@ -3185,12 +3381,14 @@ public function void PINTERFACE_TIMESTAMP_CONFIG_CHANGE_CALLBACK(void* CallerCon
 	public uint64 ThruBytesReceived;
 }
 
-[CRepr]public struct TCP_ESTATS_DATA_RW_v0
+[CRepr]
+public struct TCP_ESTATS_DATA_RW_v0
 {
 	public BOOLEAN EnableCollection;
 }
 
-[CRepr]public struct TCP_ESTATS_SND_CONG_ROD_v0
+[CRepr]
+public struct TCP_ESTATS_SND_CONG_ROD_v0
 {
 	public uint32 SndLimTransRwin;
 	public uint32 SndLimTimeRwin;
@@ -3212,17 +3410,20 @@ public function void PINTERFACE_TIMESTAMP_CONFIG_CHANGE_CALLBACK(void* CallerCon
 	public uint32 MinSsthresh;
 }
 
-[CRepr]public struct TCP_ESTATS_SND_CONG_ROS_v0
+[CRepr]
+public struct TCP_ESTATS_SND_CONG_ROS_v0
 {
 	public uint32 LimCwnd;
 }
 
-[CRepr]public struct TCP_ESTATS_SND_CONG_RW_v0
+[CRepr]
+public struct TCP_ESTATS_SND_CONG_RW_v0
 {
 	public BOOLEAN EnableCollection;
 }
 
-[CRepr]public struct TCP_ESTATS_PATH_ROD_v0
+[CRepr]
+public struct TCP_ESTATS_PATH_ROD_v0
 {
 	public uint32 FastRetran;
 	public uint32 Timeouts;
@@ -3266,12 +3467,14 @@ public function void PINTERFACE_TIMESTAMP_CONFIG_CHANGE_CALLBACK(void* CallerCon
 	public uint32 SpuriousRtoDetections;
 }
 
-[CRepr]public struct TCP_ESTATS_PATH_RW_v0
+[CRepr]
+public struct TCP_ESTATS_PATH_RW_v0
 {
 	public BOOLEAN EnableCollection;
 }
 
-[CRepr]public struct TCP_ESTATS_SEND_BUFF_ROD_v0
+[CRepr]
+public struct TCP_ESTATS_SEND_BUFF_ROD_v0
 {
 	public uint CurRetxQueue;
 	public uint MaxRetxQueue;
@@ -3279,12 +3482,14 @@ public function void PINTERFACE_TIMESTAMP_CONFIG_CHANGE_CALLBACK(void* CallerCon
 	public uint MaxAppWQueue;
 }
 
-[CRepr]public struct TCP_ESTATS_SEND_BUFF_RW_v0
+[CRepr]
+public struct TCP_ESTATS_SEND_BUFF_RW_v0
 {
 	public BOOLEAN EnableCollection;
 }
 
-[CRepr]public struct TCP_ESTATS_REC_ROD_v0
+[CRepr]
+public struct TCP_ESTATS_REC_ROD_v0
 {
 	public uint32 CurRwinSent;
 	public uint32 MaxRwinSent;
@@ -3302,12 +3507,14 @@ public function void PINTERFACE_TIMESTAMP_CONFIG_CHANGE_CALLBACK(void* CallerCon
 	public uint8 WinScaleSent;
 }
 
-[CRepr]public struct TCP_ESTATS_REC_RW_v0
+[CRepr]
+public struct TCP_ESTATS_REC_RW_v0
 {
 	public BOOLEAN EnableCollection;
 }
 
-[CRepr]public struct TCP_ESTATS_OBS_REC_ROD_v0
+[CRepr]
+public struct TCP_ESTATS_OBS_REC_ROD_v0
 {
 	public uint32 CurRwinRcvd;
 	public uint32 MaxRwinRcvd;
@@ -3315,18 +3522,21 @@ public function void PINTERFACE_TIMESTAMP_CONFIG_CHANGE_CALLBACK(void* CallerCon
 	public uint8 WinScaleRcvd;
 }
 
-[CRepr]public struct TCP_ESTATS_OBS_REC_RW_v0
+[CRepr]
+public struct TCP_ESTATS_OBS_REC_RW_v0
 {
 	public BOOLEAN EnableCollection;
 }
 
-[CRepr]public struct TCP_ESTATS_BANDWIDTH_RW_v0
+[CRepr]
+public struct TCP_ESTATS_BANDWIDTH_RW_v0
 {
 	public TCP_BOOLEAN_OPTIONAL EnableCollectionOutbound;
 	public TCP_BOOLEAN_OPTIONAL EnableCollectionInbound;
 }
 
-[CRepr]public struct TCP_ESTATS_BANDWIDTH_ROD_v0
+[CRepr]
+public struct TCP_ESTATS_BANDWIDTH_ROD_v0
 {
 	public uint64 OutboundBandwidth;
 	public uint64 InboundBandwidth;
@@ -3336,12 +3546,14 @@ public function void PINTERFACE_TIMESTAMP_CONFIG_CHANGE_CALLBACK(void* CallerCon
 	public BOOLEAN InboundBandwidthPeaked;
 }
 
-[CRepr]public struct TCP_ESTATS_FINE_RTT_RW_v0
+[CRepr]
+public struct TCP_ESTATS_FINE_RTT_RW_v0
 {
 	public BOOLEAN EnableCollection;
 }
 
-[CRepr]public struct TCP_ESTATS_FINE_RTT_ROD_v0
+[CRepr]
+public struct TCP_ESTATS_FINE_RTT_ROD_v0
 {
 	public uint32 RttVar;
 	public uint32 MaxRtt;
@@ -3349,7 +3561,8 @@ public function void PINTERFACE_TIMESTAMP_CONFIG_CHANGE_CALLBACK(void* CallerCon
 	public uint32 SumRtt;
 }
 
-[CRepr]public struct INTERFACE_HARDWARE_TIMESTAMP_CAPABILITIES
+[CRepr]
+public struct INTERFACE_HARDWARE_TIMESTAMP_CAPABILITIES
 {
 	public BOOLEAN PtpV2OverUdpIPv4EventMessageReceive;
 	public BOOLEAN PtpV2OverUdpIPv4AllMessageReceive;
@@ -3364,14 +3577,16 @@ public function void PINTERFACE_TIMESTAMP_CONFIG_CHANGE_CALLBACK(void* CallerCon
 	public BOOLEAN TaggedTransmit;
 }
 
-[CRepr]public struct INTERFACE_SOFTWARE_TIMESTAMP_CAPABILITIES
+[CRepr]
+public struct INTERFACE_SOFTWARE_TIMESTAMP_CAPABILITIES
 {
 	public BOOLEAN AllReceive;
 	public BOOLEAN AllTransmit;
 	public BOOLEAN TaggedTransmit;
 }
 
-[CRepr]public struct INTERFACE_TIMESTAMP_CAPABILITIES
+[CRepr]
+public struct INTERFACE_TIMESTAMP_CAPABILITIES
 {
 	public uint64 HardwareClockFrequencyHz;
 	public BOOLEAN SupportsCrossTimestamp;
@@ -3379,14 +3594,16 @@ public function void PINTERFACE_TIMESTAMP_CONFIG_CHANGE_CALLBACK(void* CallerCon
 	public INTERFACE_SOFTWARE_TIMESTAMP_CAPABILITIES SoftwareCapabilities;
 }
 
-[CRepr]public struct INTERFACE_HARDWARE_CROSSTIMESTAMP
+[CRepr]
+public struct INTERFACE_HARDWARE_CROSSTIMESTAMP
 {
 	public uint64 SystemTimestamp1;
 	public uint64 HardwareClockTimestamp;
 	public uint64 SystemTimestamp2;
 }
 
-[CRepr]public struct PF_FILTER_DESCRIPTOR
+[CRepr]
+public struct PF_FILTER_DESCRIPTOR
 {
 	public uint32 dwFilterFlags;
 	public uint32 dwRule;
@@ -3403,13 +3620,15 @@ public function void PINTERFACE_TIMESTAMP_CONFIG_CHANGE_CALLBACK(void* CallerCon
 	public uint16 wDstPortHighRange;
 }
 
-[CRepr]public struct PF_FILTER_STATS
+[CRepr]
+public struct PF_FILTER_STATS
 {
 	public uint32 dwNumPacketsFiltered;
 	public PF_FILTER_DESCRIPTOR info;
 }
 
-[CRepr]public struct PF_INTERFACE_STATS
+[CRepr]
+public struct PF_INTERFACE_STATS
 {
 	public void* pvDriverContext;
 	public uint32 dwFlags;
@@ -3429,14 +3648,16 @@ public function void PINTERFACE_TIMESTAMP_CONFIG_CHANGE_CALLBACK(void* CallerCon
 	public PF_FILTER_STATS[1] FilterInfo;
 }
 
-[CRepr]public struct PF_LATEBIND_INFO
+[CRepr]
+public struct PF_LATEBIND_INFO
 {
 	public uint8* SrcAddr;
 	public uint8* DstAddr;
 	public uint8* Mask;
 }
 
-[CRepr]public struct PFLOGFRAME
+[CRepr]
+public struct PFLOGFRAME
 {
 	public LARGE_INTEGER Timestamp;
 	public PFFRAMETYPE pfeTypeOfFrame;

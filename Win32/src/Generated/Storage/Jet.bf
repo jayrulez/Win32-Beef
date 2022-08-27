@@ -1961,30 +1961,36 @@ public function void* JET_PFNREALLOC(void* pvContext, void* pv, uint32 cb);
 
 #region Structs
 #if BF_64_BIT || BF_ARM_64
-[CRepr]public struct JET_INDEXID
+[CRepr]
+public struct JET_INDEXID
 {
 	public uint32 cbStruct;
 	public uint8[16] rgbIndexId;
 }
 #endif
 
-[CRepr]public struct JET_RSTMAP_A
+[CRepr]
+public struct JET_RSTMAP_A
 {
 	public PSTR szDatabaseName;
 	public PSTR szNewDatabaseName;
 }
 
-[CRepr]public struct JET_RSTMAP_W
+[CRepr]
+public struct JET_RSTMAP_W
 {
 	public PWSTR szDatabaseName;
 	public PWSTR szNewDatabaseName;
 }
 
-[CRepr]public struct CONVERT_A
+[CRepr]
+public struct CONVERT_A
 {
-	[CRepr, Union]	public struct _Anonymous_e__Union
+	[CRepr, Union]
+	public struct _Anonymous_e__Union
 	{
-		[CRepr]		public struct _Anonymous_e__Struct
+		[CRepr]
+		public struct _Anonymous_e__Struct
 		{
 			public uint32 _bitfield;
 		}
@@ -1997,11 +2003,14 @@ public function void* JET_PFNREALLOC(void* pvContext, void* pv, uint32 cb);
 	public using _Anonymous_e__Union Anonymous;
 }
 
-[CRepr]public struct CONVERT_W
+[CRepr]
+public struct CONVERT_W
 {
-	[CRepr, Union]	public struct _Anonymous_e__Union
+	[CRepr, Union]
+	public struct _Anonymous_e__Union
 	{
-		[CRepr]		public struct _Anonymous_e__Struct
+		[CRepr]
+		public struct _Anonymous_e__Struct
 		{
 			public uint32 _bitfield;
 		}
@@ -2014,18 +2023,22 @@ public function void* JET_PFNREALLOC(void* pvContext, void* pv, uint32 cb);
 	public using _Anonymous_e__Union Anonymous;
 }
 
-[CRepr]public struct JET_SNPROG
+[CRepr]
+public struct JET_SNPROG
 {
 	public uint32 cbStruct;
 	public uint32 cunitDone;
 	public uint32 cunitTotal;
 }
 
-[CRepr]public struct JET_DBINFOUPGRADE
+[CRepr]
+public struct JET_DBINFOUPGRADE
 {
-	[CRepr, Union]	public struct _Anonymous_e__Union
+	[CRepr, Union]
+	public struct _Anonymous_e__Union
 	{
-		[CRepr]		public struct _Anonymous_e__Struct
+		[CRepr]
+		public struct _Anonymous_e__Struct
 		{
 			public uint32 _bitfield;
 		}
@@ -2044,7 +2057,8 @@ public function void* JET_PFNREALLOC(void* pvContext, void* pv, uint32 cb);
 }
 
 #if BF_64_BIT || BF_ARM_64
-[CRepr]public struct JET_OBJECTINFO
+[CRepr]
+public struct JET_OBJECTINFO
 {
 	public uint32 cbStruct;
 	public uint32 objtyp;
@@ -2057,7 +2071,8 @@ public function void* JET_PFNREALLOC(void* pvContext, void* pv, uint32 cb);
 }
 #endif
 
-[CRepr]public struct JET_OBJECTLIST
+[CRepr]
+public struct JET_OBJECTLIST
 {
 	public uint32 cbStruct;
 	public JET_TABLEID tableid;
@@ -2073,7 +2088,8 @@ public function void* JET_PFNREALLOC(void* pvContext, void* pv, uint32 cb);
 	public uint32 columnidcPage;
 }
 
-[CRepr]public struct JET_COLUMNLIST
+[CRepr]
+public struct JET_COLUMNLIST
 {
 	public uint32 cbStruct;
 	public JET_TABLEID tableid;
@@ -2094,7 +2110,8 @@ public function void* JET_PFNREALLOC(void* pvContext, void* pv, uint32 cb);
 	public uint32 columnidDefinitionName;
 }
 
-[CRepr]public struct JET_COLUMNDEF
+[CRepr]
+public struct JET_COLUMNDEF
 {
 	public uint32 cbStruct;
 	public uint32 columnid;
@@ -2107,7 +2124,8 @@ public function void* JET_PFNREALLOC(void* pvContext, void* pv, uint32 cb);
 	public uint32 grbit;
 }
 
-[CRepr]public struct JET_COLUMNBASE_A
+[CRepr]
+public struct JET_COLUMNBASE_A
 {
 	public uint32 cbStruct;
 	public uint32 columnid;
@@ -2122,7 +2140,8 @@ public function void* JET_PFNREALLOC(void* pvContext, void* pv, uint32 cb);
 	public CHAR[256] szBaseColumnName;
 }
 
-[CRepr]public struct JET_COLUMNBASE_W
+[CRepr]
+public struct JET_COLUMNBASE_W
 {
 	public uint32 cbStruct;
 	public uint32 columnid;
@@ -2137,7 +2156,8 @@ public function void* JET_PFNREALLOC(void* pvContext, void* pv, uint32 cb);
 	public char8[256] szBaseColumnName;
 }
 
-[CRepr]public struct JET_INDEXLIST
+[CRepr]
+public struct JET_INDEXLIST
 {
 	public uint32 cbStruct;
 	public JET_TABLEID tableid;
@@ -2160,7 +2180,8 @@ public function void* JET_PFNREALLOC(void* pvContext, void* pv, uint32 cb);
 	public uint32 columnidLCMapFlags;
 }
 
-[CRepr]public struct JET_COLUMNCREATE_A
+[CRepr]
+public struct JET_COLUMNCREATE_A
 {
 	public uint32 cbStruct;
 	public PSTR szColumnName;
@@ -2174,7 +2195,8 @@ public function void* JET_PFNREALLOC(void* pvContext, void* pv, uint32 cb);
 	public int32 err;
 }
 
-[CRepr]public struct JET_COLUMNCREATE_W
+[CRepr]
+public struct JET_COLUMNCREATE_W
 {
 	public uint32 cbStruct;
 	public PWSTR szColumnName;
@@ -2188,7 +2210,8 @@ public function void* JET_PFNREALLOC(void* pvContext, void* pv, uint32 cb);
 	public int32 err;
 }
 
-[CRepr]public struct JET_USERDEFINEDDEFAULT_A
+[CRepr]
+public struct JET_USERDEFINEDDEFAULT_A
 {
 	public PSTR szCallback;
 	public uint8* pbUserData;
@@ -2196,7 +2219,8 @@ public function void* JET_PFNREALLOC(void* pvContext, void* pv, uint32 cb);
 	public PSTR szDependantColumns;
 }
 
-[CRepr]public struct JET_USERDEFINEDDEFAULT_W
+[CRepr]
+public struct JET_USERDEFINEDDEFAULT_W
 {
 	public PWSTR szCallback;
 	public uint8* pbUserData;
@@ -2204,33 +2228,38 @@ public function void* JET_PFNREALLOC(void* pvContext, void* pv, uint32 cb);
 	public PWSTR szDependantColumns;
 }
 
-[CRepr]public struct JET_CONDITIONALCOLUMN_A
+[CRepr]
+public struct JET_CONDITIONALCOLUMN_A
 {
 	public uint32 cbStruct;
 	public PSTR szColumnName;
 	public uint32 grbit;
 }
 
-[CRepr]public struct JET_CONDITIONALCOLUMN_W
+[CRepr]
+public struct JET_CONDITIONALCOLUMN_W
 {
 	public uint32 cbStruct;
 	public PWSTR szColumnName;
 	public uint32 grbit;
 }
 
-[CRepr]public struct JET_UNICODEINDEX
+[CRepr]
+public struct JET_UNICODEINDEX
 {
 	public uint32 lcid;
 	public uint32 dwMapFlags;
 }
 
-[CRepr]public struct JET_UNICODEINDEX2
+[CRepr]
+public struct JET_UNICODEINDEX2
 {
 	public PWSTR szLocaleName;
 	public uint32 dwMapFlags;
 }
 
-[CRepr]public struct JET_TUPLELIMITS
+[CRepr]
+public struct JET_TUPLELIMITS
 {
 	public uint32 chLengthMin;
 	public uint32 chLengthMax;
@@ -2239,7 +2268,8 @@ public function void* JET_PFNREALLOC(void* pvContext, void* pv, uint32 cb);
 	public uint32 ichStart;
 }
 
-[CRepr]public struct JET_SPACEHINTS
+[CRepr]
+public struct JET_SPACEHINTS
 {
 	public uint32 cbStruct;
 	public uint32 ulInitialDensity;
@@ -2251,15 +2281,18 @@ public function void* JET_PFNREALLOC(void* pvContext, void* pv, uint32 cb);
 	public uint32 cbMaxExtent;
 }
 
-[CRepr]public struct JET_INDEXCREATE_A
+[CRepr]
+public struct JET_INDEXCREATE_A
 {
-	[CRepr, Union]	public struct _Anonymous1_e__Union
+	[CRepr, Union]
+	public struct _Anonymous1_e__Union
 	{
 		public uint32 lcid;
 		public JET_UNICODEINDEX* pidxunicode;
 	}
 
-	[CRepr, Union]	public struct _Anonymous2_e__Union
+	[CRepr, Union]
+	public struct _Anonymous2_e__Union
 	{
 		public uint32 cbVarSegMac;
 		public JET_TUPLELIMITS* ptuplelimits;
@@ -2279,15 +2312,18 @@ public function void* JET_PFNREALLOC(void* pvContext, void* pv, uint32 cb);
 	public uint32 cbKeyMost;
 }
 
-[CRepr]public struct JET_INDEXCREATE_W
+[CRepr]
+public struct JET_INDEXCREATE_W
 {
-	[CRepr, Union]	public struct _Anonymous1_e__Union
+	[CRepr, Union]
+	public struct _Anonymous1_e__Union
 	{
 		public uint32 lcid;
 		public JET_UNICODEINDEX* pidxunicode;
 	}
 
-	[CRepr, Union]	public struct _Anonymous2_e__Union
+	[CRepr, Union]
+	public struct _Anonymous2_e__Union
 	{
 		public uint32 cbVarSegMac;
 		public JET_TUPLELIMITS* ptuplelimits;
@@ -2307,15 +2343,18 @@ public function void* JET_PFNREALLOC(void* pvContext, void* pv, uint32 cb);
 	public uint32 cbKeyMost;
 }
 
-[CRepr]public struct JET_INDEXCREATE2_A
+[CRepr]
+public struct JET_INDEXCREATE2_A
 {
-	[CRepr, Union]	public struct _Anonymous1_e__Union
+	[CRepr, Union]
+	public struct _Anonymous1_e__Union
 	{
 		public uint32 lcid;
 		public JET_UNICODEINDEX* pidxunicode;
 	}
 
-	[CRepr, Union]	public struct _Anonymous2_e__Union
+	[CRepr, Union]
+	public struct _Anonymous2_e__Union
 	{
 		public uint32 cbVarSegMac;
 		public JET_TUPLELIMITS* ptuplelimits;
@@ -2336,15 +2375,18 @@ public function void* JET_PFNREALLOC(void* pvContext, void* pv, uint32 cb);
 	public JET_SPACEHINTS* pSpacehints;
 }
 
-[CRepr]public struct JET_INDEXCREATE2_W
+[CRepr]
+public struct JET_INDEXCREATE2_W
 {
-	[CRepr, Union]	public struct _Anonymous1_e__Union
+	[CRepr, Union]
+	public struct _Anonymous1_e__Union
 	{
 		public uint32 lcid;
 		public JET_UNICODEINDEX* pidxunicode;
 	}
 
-	[CRepr, Union]	public struct _Anonymous2_e__Union
+	[CRepr, Union]
+	public struct _Anonymous2_e__Union
 	{
 		public uint32 cbVarSegMac;
 		public JET_TUPLELIMITS* ptuplelimits;
@@ -2365,9 +2407,11 @@ public function void* JET_PFNREALLOC(void* pvContext, void* pv, uint32 cb);
 	public JET_SPACEHINTS* pSpacehints;
 }
 
-[CRepr]public struct JET_INDEXCREATE3_A
+[CRepr]
+public struct JET_INDEXCREATE3_A
 {
-	[CRepr, Union]	public struct _Anonymous_e__Union
+	[CRepr, Union]
+	public struct _Anonymous_e__Union
 	{
 		public uint32 cbVarSegMac;
 		public JET_TUPLELIMITS* ptuplelimits;
@@ -2388,9 +2432,11 @@ public function void* JET_PFNREALLOC(void* pvContext, void* pv, uint32 cb);
 	public JET_SPACEHINTS* pSpacehints;
 }
 
-[CRepr]public struct JET_INDEXCREATE3_W
+[CRepr]
+public struct JET_INDEXCREATE3_W
 {
-	[CRepr, Union]	public struct _Anonymous_e__Union
+	[CRepr, Union]
+	public struct _Anonymous_e__Union
 	{
 		public uint32 cbVarSegMac;
 		public JET_TUPLELIMITS* ptuplelimits;
@@ -2411,7 +2457,8 @@ public function void* JET_PFNREALLOC(void* pvContext, void* pv, uint32 cb);
 	public JET_SPACEHINTS* pSpacehints;
 }
 
-[CRepr]public struct JET_TABLECREATE_A
+[CRepr]
+public struct JET_TABLECREATE_A
 {
 	public uint32 cbStruct;
 	public PSTR szTableName;
@@ -2427,7 +2474,8 @@ public function void* JET_PFNREALLOC(void* pvContext, void* pv, uint32 cb);
 	public uint32 cCreated;
 }
 
-[CRepr]public struct JET_TABLECREATE_W
+[CRepr]
+public struct JET_TABLECREATE_W
 {
 	public uint32 cbStruct;
 	public PWSTR szTableName;
@@ -2443,7 +2491,8 @@ public function void* JET_PFNREALLOC(void* pvContext, void* pv, uint32 cb);
 	public uint32 cCreated;
 }
 
-[CRepr]public struct JET_TABLECREATE2_A
+[CRepr]
+public struct JET_TABLECREATE2_A
 {
 	public uint32 cbStruct;
 	public PSTR szTableName;
@@ -2461,7 +2510,8 @@ public function void* JET_PFNREALLOC(void* pvContext, void* pv, uint32 cb);
 	public uint32 cCreated;
 }
 
-[CRepr]public struct JET_TABLECREATE2_W
+[CRepr]
+public struct JET_TABLECREATE2_W
 {
 	public uint32 cbStruct;
 	public PWSTR szTableName;
@@ -2479,7 +2529,8 @@ public function void* JET_PFNREALLOC(void* pvContext, void* pv, uint32 cb);
 	public uint32 cCreated;
 }
 
-[CRepr]public struct JET_TABLECREATE3_A
+[CRepr]
+public struct JET_TABLECREATE3_A
 {
 	public uint32 cbStruct;
 	public PSTR szTableName;
@@ -2500,7 +2551,8 @@ public function void* JET_PFNREALLOC(void* pvContext, void* pv, uint32 cb);
 	public uint32 cCreated;
 }
 
-[CRepr]public struct JET_TABLECREATE3_W
+[CRepr]
+public struct JET_TABLECREATE3_W
 {
 	public uint32 cbStruct;
 	public PWSTR szTableName;
@@ -2521,7 +2573,8 @@ public function void* JET_PFNREALLOC(void* pvContext, void* pv, uint32 cb);
 	public uint32 cCreated;
 }
 
-[CRepr]public struct JET_TABLECREATE4_A
+[CRepr]
+public struct JET_TABLECREATE4_A
 {
 	public uint32 cbStruct;
 	public PSTR szTableName;
@@ -2542,7 +2595,8 @@ public function void* JET_PFNREALLOC(void* pvContext, void* pv, uint32 cb);
 	public uint32 cCreated;
 }
 
-[CRepr]public struct JET_TABLECREATE4_W
+[CRepr]
+public struct JET_TABLECREATE4_W
 {
 	public uint32 cbStruct;
 	public PWSTR szTableName;
@@ -2563,7 +2617,8 @@ public function void* JET_PFNREALLOC(void* pvContext, void* pv, uint32 cb);
 	public uint32 cCreated;
 }
 
-[CRepr]public struct JET_OPENTEMPORARYTABLE
+[CRepr]
+public struct JET_OPENTEMPORARYTABLE
 {
 	public uint32 cbStruct;
 	public JET_COLUMNDEF* prgcolumndef;
@@ -2576,7 +2631,8 @@ public function void* JET_PFNREALLOC(void* pvContext, void* pv, uint32 cb);
 	public JET_TABLEID tableid;
 }
 
-[CRepr]public struct JET_OPENTEMPORARYTABLE2
+[CRepr]
+public struct JET_OPENTEMPORARYTABLE2
 {
 	public uint32 cbStruct;
 	public JET_COLUMNDEF* prgcolumndef;
@@ -2589,7 +2645,8 @@ public function void* JET_PFNREALLOC(void* pvContext, void* pv, uint32 cb);
 	public JET_TABLEID tableid;
 }
 
-[CRepr]public struct JET_RETINFO
+[CRepr]
+public struct JET_RETINFO
 {
 	public uint32 cbStruct;
 	public uint32 ibLongValue;
@@ -2597,14 +2654,16 @@ public function void* JET_PFNREALLOC(void* pvContext, void* pv, uint32 cb);
 	public uint32 columnidNextTagged;
 }
 
-[CRepr]public struct JET_SETINFO
+[CRepr]
+public struct JET_SETINFO
 {
 	public uint32 cbStruct;
 	public uint32 ibLongValue;
 	public uint32 itagSequence;
 }
 
-[CRepr]public struct JET_RECPOS
+[CRepr]
+public struct JET_RECPOS
 {
 	public uint32 cbStruct;
 	public uint32 centriesLT;
@@ -2612,7 +2671,8 @@ public function void* JET_PFNREALLOC(void* pvContext, void* pv, uint32 cb);
 	public uint32 centriesTotal;
 }
 
-[CRepr]public struct JET_RECORDLIST
+[CRepr]
+public struct JET_RECORDLIST
 {
 	public uint32 cbStruct;
 	public JET_TABLEID tableid;
@@ -2620,14 +2680,16 @@ public function void* JET_PFNREALLOC(void* pvContext, void* pv, uint32 cb);
 	public uint32 columnidBookmark;
 }
 
-[CRepr]public struct JET_INDEXRANGE
+[CRepr]
+public struct JET_INDEXRANGE
 {
 	public uint32 cbStruct;
 	public JET_TABLEID tableid;
 	public uint32 grbit;
 }
 
-[CRepr]public struct JET_INDEX_COLUMN
+[CRepr]
+public struct JET_INDEX_COLUMN
 {
 	public uint32 columnid;
 	public JET_RELOP relop;
@@ -2636,7 +2698,8 @@ public function void* JET_PFNREALLOC(void* pvContext, void* pv, uint32 cb);
 	public uint32 grbit;
 }
 
-[CRepr]public struct JET_INDEX_RANGE
+[CRepr]
+public struct JET_INDEX_RANGE
 {
 	public JET_INDEX_COLUMN* rgStartColumns;
 	public uint32 cStartColumns;
@@ -2644,11 +2707,14 @@ public function void* JET_PFNREALLOC(void* pvContext, void* pv, uint32 cb);
 	public uint32 cEndColumns;
 }
 
-[CRepr]public struct JET_LOGTIME
+[CRepr]
+public struct JET_LOGTIME
 {
-	[CRepr, Union]	public struct _Anonymous2_e__Union
+	[CRepr, Union]
+	public struct _Anonymous2_e__Union
 	{
-		[CRepr]		public struct _Anonymous_e__Struct
+		[CRepr]
+		public struct _Anonymous_e__Struct
 		{
 			public uint8 _bitfield;
 		}
@@ -2657,9 +2723,11 @@ public function void* JET_PFNREALLOC(void* pvContext, void* pv, uint32 cb);
 		public using _Anonymous_e__Struct Anonymous;
 	}
 
-	[CRepr, Union]	public struct _Anonymous1_e__Union
+	[CRepr, Union]
+	public struct _Anonymous1_e__Union
 	{
-		[CRepr]		public struct _Anonymous_e__Struct
+		[CRepr]
+		public struct _Anonymous_e__Struct
 		{
 			public uint8 _bitfield;
 		}
@@ -2678,11 +2746,14 @@ public function void* JET_PFNREALLOC(void* pvContext, void* pv, uint32 cb);
 	public _Anonymous2_e__Union Anonymous2;
 }
 
-[CRepr]public struct JET_BKLOGTIME
+[CRepr]
+public struct JET_BKLOGTIME
 {
-	[CRepr, Union]	public struct _Anonymous2_e__Union
+	[CRepr, Union]
+	public struct _Anonymous2_e__Union
 	{
-		[CRepr]		public struct _Anonymous_e__Struct
+		[CRepr]
+		public struct _Anonymous_e__Struct
 		{
 			public uint8 _bitfield;
 		}
@@ -2691,9 +2762,11 @@ public function void* JET_PFNREALLOC(void* pvContext, void* pv, uint32 cb);
 		public using _Anonymous_e__Struct Anonymous;
 	}
 
-	[CRepr, Union]	public struct _Anonymous1_e__Union
+	[CRepr, Union]
+	public struct _Anonymous1_e__Union
 	{
-		[CRepr]		public struct _Anonymous_e__Struct
+		[CRepr]
+		public struct _Anonymous_e__Struct
 		{
 			public uint8 _bitfield;
 		}
@@ -2712,23 +2785,27 @@ public function void* JET_PFNREALLOC(void* pvContext, void* pv, uint32 cb);
 	public _Anonymous2_e__Union Anonymous2;
 }
 
-[CRepr, Packed(1)]public struct JET_LGPOS
+[CRepr, Packed(1)]
+public struct JET_LGPOS
 {
 	public uint16 ib;
 	public uint16 isec;
 	public int32 lGeneration;
 }
 
-[CRepr, Packed(1)]public struct JET_SIGNATURE
+[CRepr, Packed(1)]
+public struct JET_SIGNATURE
 {
 	public uint32 ulRandom;
 	public JET_LOGTIME logtimeCreate;
 	public CHAR[16] szComputerName;
 }
 
-[CRepr, Packed(1)]public struct JET_BKINFO
+[CRepr, Packed(1)]
+public struct JET_BKINFO
 {
-	[CRepr, Union]	public struct _Anonymous_e__Union
+	[CRepr, Union]
+	public struct _Anonymous_e__Union
 	{
 		public JET_LOGTIME logtimeMark;
 		public JET_BKLOGTIME bklogtimeMark;
@@ -2740,7 +2817,8 @@ public function void* JET_PFNREALLOC(void* pvContext, void* pv, uint32 cb);
 	public uint32 genHigh;
 }
 
-[CRepr]public struct JET_DBINFOMISC
+[CRepr]
+public struct JET_DBINFOMISC
 {
 	public uint32 ulVersion;
 	public uint32 ulUpdate;
@@ -2765,7 +2843,8 @@ public function void* JET_PFNREALLOC(void* pvContext, void* pv, uint32 cb);
 	public uint32 cbPageSize;
 }
 
-[CRepr]public struct JET_DBINFOMISC2
+[CRepr]
+public struct JET_DBINFOMISC2
 {
 	public uint32 ulVersion;
 	public uint32 ulUpdate;
@@ -2805,7 +2884,8 @@ public function void* JET_PFNREALLOC(void* pvContext, void* pv, uint32 cb);
 	public uint32 ulBadChecksumOld;
 }
 
-[CRepr]public struct JET_DBINFOMISC3
+[CRepr]
+public struct JET_DBINFOMISC3
 {
 	public uint32 ulVersion;
 	public uint32 ulUpdate;
@@ -2846,7 +2926,8 @@ public function void* JET_PFNREALLOC(void* pvContext, void* pv, uint32 cb);
 	public uint32 genCommitted;
 }
 
-[CRepr]public struct JET_DBINFOMISC4
+[CRepr]
+public struct JET_DBINFOMISC4
 {
 	public uint32 ulVersion;
 	public uint32 ulUpdate;
@@ -2889,7 +2970,8 @@ public function void* JET_PFNREALLOC(void* pvContext, void* pv, uint32 cb);
 	public JET_BKINFO bkinfoDiffPrev;
 }
 
-[CRepr]public struct JET_THREADSTATS
+[CRepr]
+public struct JET_THREADSTATS
 {
 	public uint32 cbStruct;
 	public uint32 cPageReferenced;
@@ -2902,7 +2984,8 @@ public function void* JET_PFNREALLOC(void* pvContext, void* pv, uint32 cb);
 }
 
 #if BF_64_BIT || BF_ARM_64
-[CRepr]public struct JET_THREADSTATS2
+[CRepr]
+public struct JET_THREADSTATS2
 {
 	public uint32 cbStruct;
 	public uint32 cPageReferenced;
@@ -2917,7 +3000,8 @@ public function void* JET_PFNREALLOC(void* pvContext, void* pv, uint32 cb);
 }
 #endif
 
-[CRepr]public struct JET_RSTINFO_A
+[CRepr]
+public struct JET_RSTINFO_A
 {
 	public uint32 cbStruct;
 	public JET_RSTMAP_A* rgrstmap;
@@ -2927,7 +3011,8 @@ public function void* JET_PFNREALLOC(void* pvContext, void* pv, uint32 cb);
 	public JET_PFNSTATUS pfnStatus;
 }
 
-[CRepr]public struct JET_RSTINFO_W
+[CRepr]
+public struct JET_RSTINFO_W
 {
 	public uint32 cbStruct;
 	public JET_RSTMAP_W* rgrstmap;
@@ -2937,7 +3022,8 @@ public function void* JET_PFNREALLOC(void* pvContext, void* pv, uint32 cb);
 	public JET_PFNSTATUS pfnStatus;
 }
 
-[CRepr]public struct JET_ERRINFOBASIC_W
+[CRepr]
+public struct JET_ERRINFOBASIC_W
 {
 	public uint32 cbStruct;
 	public int32 errValue;
@@ -2948,7 +3034,8 @@ public function void* JET_PFNREALLOC(void* pvContext, void* pv, uint32 cb);
 }
 
 #if BF_64_BIT || BF_ARM_64
-[CRepr]public struct JET_COMMIT_ID
+[CRepr]
+public struct JET_COMMIT_ID
 {
 	public JET_SIGNATURE signLog;
 	public int32 reserved;
@@ -2957,7 +3044,8 @@ public function void* JET_PFNREALLOC(void* pvContext, void* pv, uint32 cb);
 #endif
 
 #if BF_64_BIT || BF_ARM_64
-[CRepr]public struct JET_RBSINFOMISC
+[CRepr]
+public struct JET_RBSINFOMISC
 {
 	public int32 lRBSGeneration;
 	public JET_LOGTIME logtimeCreate;
@@ -2969,7 +3057,8 @@ public function void* JET_PFNREALLOC(void* pvContext, void* pv, uint32 cb);
 #endif
 
 #if BF_64_BIT || BF_ARM_64
-[CRepr]public struct JET_RBSREVERTINFOMISC
+[CRepr]
+public struct JET_RBSREVERTINFOMISC
 {
 	public int32 lGenMinRevertStart;
 	public int32 lGenMaxRevertStart;
@@ -2981,7 +3070,8 @@ public function void* JET_PFNREALLOC(void* pvContext, void* pv, uint32 cb);
 }
 #endif
 
-[CRepr]public struct JET_OPERATIONCONTEXT
+[CRepr]
+public struct JET_OPERATIONCONTEXT
 {
 	public uint32 ulUserID;
 	public uint8 nOperationID;
@@ -2990,7 +3080,8 @@ public function void* JET_PFNREALLOC(void* pvContext, void* pv, uint32 cb);
 	public uint8 fFlags;
 }
 
-[CRepr]public struct JET_SETCOLUMN
+[CRepr]
+public struct JET_SETCOLUMN
 {
 	public uint32 columnid;
 	public void* pvData;
@@ -3001,7 +3092,8 @@ public function void* JET_PFNREALLOC(void* pvContext, void* pv, uint32 cb);
 	public int32 err;
 }
 
-[CRepr]public struct JET_SETSYSPARAM_A
+[CRepr]
+public struct JET_SETSYSPARAM_A
 {
 	public uint32 paramid;
 	public JET_API_PTR lParam;
@@ -3009,7 +3101,8 @@ public function void* JET_PFNREALLOC(void* pvContext, void* pv, uint32 cb);
 	public int32 err;
 }
 
-[CRepr]public struct JET_SETSYSPARAM_W
+[CRepr]
+public struct JET_SETSYSPARAM_W
 {
 	public uint32 paramid;
 	public JET_API_PTR lParam;
@@ -3017,7 +3110,8 @@ public function void* JET_PFNREALLOC(void* pvContext, void* pv, uint32 cb);
 	public int32 err;
 }
 
-[CRepr]public struct JET_RETRIEVECOLUMN
+[CRepr]
+public struct JET_RETRIEVECOLUMN
 {
 	public uint32 columnid;
 	public void* pvData;
@@ -3030,14 +3124,16 @@ public function void* JET_PFNREALLOC(void* pvContext, void* pv, uint32 cb);
 	public int32 err;
 }
 
-[CRepr]public struct JET_ENUMCOLUMNID
+[CRepr]
+public struct JET_ENUMCOLUMNID
 {
 	public uint32 columnid;
 	public uint32 ctagSequence;
 	public uint32* rgtagSequence;
 }
 
-[CRepr]public struct JET_ENUMCOLUMNVALUE
+[CRepr]
+public struct JET_ENUMCOLUMNVALUE
 {
 	public uint32 itagSequence;
 	public int32 err;
@@ -3045,17 +3141,21 @@ public function void* JET_PFNREALLOC(void* pvContext, void* pv, uint32 cb);
 	public void* pvData;
 }
 
-[CRepr]public struct JET_ENUMCOLUMN
+[CRepr]
+public struct JET_ENUMCOLUMN
 {
-	[CRepr, Union]	public struct _Anonymous_e__Union
+	[CRepr, Union]
+	public struct _Anonymous_e__Union
 	{
-		[CRepr]		public struct _Anonymous2_e__Struct
+		[CRepr]
+		public struct _Anonymous2_e__Struct
 		{
 			public uint32 cbData;
 			public void* pvData;
 		}
 
-		[CRepr]		public struct _Anonymous1_e__Struct
+		[CRepr]
+		public struct _Anonymous1_e__Struct
 		{
 			public uint32 cEnumColumnValue;
 			public JET_ENUMCOLUMNVALUE* rgEnumColumnValue;
@@ -3071,7 +3171,8 @@ public function void* JET_PFNREALLOC(void* pvContext, void* pv, uint32 cb);
 }
 
 #if BF_64_BIT || BF_ARM_64
-[CRepr]public struct JET_RECSIZE
+[CRepr]
+public struct JET_RECSIZE
 {
 	public uint64 cbData;
 	public uint64 cbLongValueData;
@@ -3085,7 +3186,8 @@ public function void* JET_PFNREALLOC(void* pvContext, void* pv, uint32 cb);
 #endif
 
 #if BF_64_BIT || BF_ARM_64
-[CRepr]public struct JET_RECSIZE2
+[CRepr]
+public struct JET_RECSIZE2
 {
 	public uint64 cbData;
 	public uint64 cbLongValueData;
@@ -3101,7 +3203,8 @@ public function void* JET_PFNREALLOC(void* pvContext, void* pv, uint32 cb);
 }
 #endif
 
-[CRepr]public struct JET_LOGINFO_A
+[CRepr]
+public struct JET_LOGINFO_A
 {
 	public uint32 cbSize;
 	public uint32 ulGenLow;
@@ -3109,7 +3212,8 @@ public function void* JET_PFNREALLOC(void* pvContext, void* pv, uint32 cb);
 	public CHAR[4] szBaseName;
 }
 
-[CRepr]public struct JET_LOGINFO_W
+[CRepr]
+public struct JET_LOGINFO_W
 {
 	public uint32 cbSize;
 	public uint32 ulGenLow;
@@ -3117,7 +3221,8 @@ public function void* JET_PFNREALLOC(void* pvContext, void* pv, uint32 cb);
 	public char8[4] szBaseName;
 }
 
-[CRepr]public struct JET_INSTANCE_INFO_A
+[CRepr]
+public struct JET_INSTANCE_INFO_A
 {
 	public JET_INSTANCE hInstanceId;
 	public PSTR szInstanceName;
@@ -3127,7 +3232,8 @@ public function void* JET_PFNREALLOC(void* pvContext, void* pv, uint32 cb);
 	public int8** szDatabaseSLVFileName_Obsolete;
 }
 
-[CRepr]public struct JET_INSTANCE_INFO_W
+[CRepr]
+public struct JET_INSTANCE_INFO_W
 {
 	public JET_INSTANCE hInstanceId;
 	public PWSTR szInstanceName;
@@ -3138,7 +3244,8 @@ public function void* JET_PFNREALLOC(void* pvContext, void* pv, uint32 cb);
 }
 
 #if BF_32_BIT
-[CRepr]public struct JET_INDEXID
+[CRepr]
+public struct JET_INDEXID
 {
 	public uint32 cbStruct;
 	public uint8[12] rgbIndexId;
@@ -3146,7 +3253,8 @@ public function void* JET_PFNREALLOC(void* pvContext, void* pv, uint32 cb);
 #endif
 
 #if BF_32_BIT
-[CRepr, Packed(4)]public struct JET_OBJECTINFO
+[CRepr, Packed(4)]
+public struct JET_OBJECTINFO
 {
 	public uint32 cbStruct;
 	public uint32 objtyp;
@@ -3160,7 +3268,8 @@ public function void* JET_PFNREALLOC(void* pvContext, void* pv, uint32 cb);
 #endif
 
 #if BF_32_BIT
-[CRepr, Packed(4)]public struct JET_THREADSTATS2
+[CRepr, Packed(4)]
+public struct JET_THREADSTATS2
 {
 	public uint32 cbStruct;
 	public uint32 cPageReferenced;
@@ -3176,7 +3285,8 @@ public function void* JET_PFNREALLOC(void* pvContext, void* pv, uint32 cb);
 #endif
 
 #if BF_32_BIT
-[CRepr, Packed(4)]public struct JET_COMMIT_ID
+[CRepr, Packed(4)]
+public struct JET_COMMIT_ID
 {
 	public JET_SIGNATURE signLog;
 	public int32 reserved;
@@ -3185,7 +3295,8 @@ public function void* JET_PFNREALLOC(void* pvContext, void* pv, uint32 cb);
 #endif
 
 #if BF_32_BIT
-[CRepr, Packed(4)]public struct JET_RBSINFOMISC
+[CRepr, Packed(4)]
+public struct JET_RBSINFOMISC
 {
 	public int32 lRBSGeneration;
 	public JET_LOGTIME logtimeCreate;
@@ -3197,7 +3308,8 @@ public function void* JET_PFNREALLOC(void* pvContext, void* pv, uint32 cb);
 #endif
 
 #if BF_32_BIT
-[CRepr, Packed(4)]public struct JET_RBSREVERTINFOMISC
+[CRepr, Packed(4)]
+public struct JET_RBSREVERTINFOMISC
 {
 	public int32 lGenMinRevertStart;
 	public int32 lGenMaxRevertStart;
@@ -3210,7 +3322,8 @@ public function void* JET_PFNREALLOC(void* pvContext, void* pv, uint32 cb);
 #endif
 
 #if BF_32_BIT
-[CRepr, Packed(4)]public struct JET_RECSIZE
+[CRepr, Packed(4)]
+public struct JET_RECSIZE
 {
 	public uint64 cbData;
 	public uint64 cbLongValueData;
@@ -3224,7 +3337,8 @@ public function void* JET_PFNREALLOC(void* pvContext, void* pv, uint32 cb);
 #endif
 
 #if BF_32_BIT
-[CRepr, Packed(4)]public struct JET_RECSIZE2
+[CRepr, Packed(4)]
+public struct JET_RECSIZE2
 {
 	public uint64 cbData;
 	public uint64 cbLongValueData;

@@ -5995,13 +5995,15 @@ public function HRESULT PDXVA2SW_VIDEOPROCESSBLT(HANDLE hDevice, DXVA2_VIDEOPROC
 #endregion
 
 #region Structs
-[CRepr]public struct AMVPSIZE
+[CRepr]
+public struct AMVPSIZE
 {
 	public uint32 dwWidth;
 	public uint32 dwHeight;
 }
 
-[CRepr]public struct AMVPDIMINFO
+[CRepr]
+public struct AMVPDIMINFO
 {
 	public uint32 dwFieldWidth;
 	public uint32 dwFieldHeight;
@@ -6010,7 +6012,8 @@ public function HRESULT PDXVA2SW_VIDEOPROCESSBLT(HANDLE hDevice, DXVA2_VIDEOPROC
 	public RECT rcValidRegion;
 }
 
-[CRepr]public struct AMVPDATAINFO
+[CRepr]
+public struct AMVPDATAINFO
 {
 	public uint32 dwSize;
 	public uint32 dwMicrosecondsPerField;
@@ -6027,7 +6030,8 @@ public function HRESULT PDXVA2SW_VIDEOPROCESSBLT(HANDLE hDevice, DXVA2_VIDEOPROC
 	public uint32 dwReserved1;
 }
 
-[CRepr]public struct AM_MEDIA_TYPE
+[CRepr]
+public struct AM_MEDIA_TYPE
 {
 	public Guid majortype;
 	public Guid subtype;
@@ -6040,7 +6044,8 @@ public function HRESULT PDXVA2SW_VIDEOPROCESSBLT(HANDLE hDevice, DXVA2_VIDEOPROC
 	public uint8* pbFormat;
 }
 
-[CRepr]public struct ALLOCATOR_PROPERTIES
+[CRepr]
+public struct ALLOCATOR_PROPERTIES
 {
 	public int32 cBuffers;
 	public int32 cbBuffer;
@@ -6048,20 +6053,23 @@ public function HRESULT PDXVA2SW_VIDEOPROCESSBLT(HANDLE hDevice, DXVA2_VIDEOPROC
 	public int32 cbPrefix;
 }
 
-[CRepr]public struct PIN_INFO
+[CRepr]
+public struct PIN_INFO
 {
 	public IBaseFilter* pFilter;
 	public PIN_DIRECTION dir;
 	public char8[128] achName;
 }
 
-[CRepr]public struct FILTER_INFO
+[CRepr]
+public struct FILTER_INFO
 {
 	public char8[128] achName;
 	public IFilterGraph* pGraph;
 }
 
-[CRepr]public struct AM_SAMPLE2_PROPERTIES
+[CRepr]
+public struct AM_SAMPLE2_PROPERTIES
 {
 	public uint32 cbData;
 	public uint32 dwTypeSpecificFlags;
@@ -6075,19 +6083,22 @@ public function HRESULT PDXVA2SW_VIDEOPROCESSBLT(HANDLE hDevice, DXVA2_VIDEOPROC
 	public int32 cbBuffer;
 }
 
-[CRepr]public struct REGFILTER
+[CRepr]
+public struct REGFILTER
 {
 	public Guid Clsid;
 	public PWSTR Name;
 }
 
-[CRepr]public struct REGPINTYPES
+[CRepr]
+public struct REGPINTYPES
 {
 	public Guid* clsMajorType;
 	public Guid* clsMinorType;
 }
 
-[CRepr]public struct REGFILTERPINS
+[CRepr]
+public struct REGFILTERPINS
 {
 	public PWSTR strName;
 	public BOOL bRendered;
@@ -6100,14 +6111,16 @@ public function HRESULT PDXVA2SW_VIDEOPROCESSBLT(HANDLE hDevice, DXVA2_VIDEOPROC
 	public REGPINTYPES* lpMediaType;
 }
 
-[CRepr]public struct REGPINMEDIUM
+[CRepr]
+public struct REGPINMEDIUM
 {
 	public Guid clsMedium;
 	public uint32 dw1;
 	public uint32 dw2;
 }
 
-[CRepr]public struct REGFILTERPINS2
+[CRepr]
+public struct REGFILTERPINS2
 {
 	public uint32 dwFlags;
 	public uint32 cInstances;
@@ -6118,17 +6131,21 @@ public function HRESULT PDXVA2SW_VIDEOPROCESSBLT(HANDLE hDevice, DXVA2_VIDEOPROC
 	public Guid* clsPinCategory;
 }
 
-[CRepr]public struct REGFILTER2
+[CRepr]
+public struct REGFILTER2
 {
-	[CRepr, Union]	public struct _Anonymous_e__Union
+	[CRepr, Union]
+	public struct _Anonymous_e__Union
 	{
-		[CRepr]		public struct _Anonymous1_e__Struct
+		[CRepr]
+		public struct _Anonymous1_e__Struct
 		{
 			public uint32 cPins;
 			public REGFILTERPINS* rgPins;
 		}
 
-		[CRepr]		public struct _Anonymous2_e__Struct
+		[CRepr]
+		public struct _Anonymous2_e__Struct
 		{
 			public uint32 cPins2;
 			public REGFILTERPINS2* rgPins2;
@@ -6143,7 +6160,8 @@ public function HRESULT PDXVA2SW_VIDEOPROCESSBLT(HANDLE hDevice, DXVA2_VIDEOPROC
 	public using _Anonymous_e__Union Anonymous;
 }
 
-[CRepr]public struct Quality
+[CRepr]
+public struct Quality
 {
 	public QualityMessageType Type;
 	public int32 Proportion;
@@ -6151,7 +6169,8 @@ public function HRESULT PDXVA2SW_VIDEOPROCESSBLT(HANDLE hDevice, DXVA2_VIDEOPROC
 	public int64 TimeStamp;
 }
 
-[CRepr]public struct COLORKEY
+[CRepr]
+public struct COLORKEY
 {
 	public uint32 KeyType;
 	public uint32 PaletteIndex;
@@ -6159,7 +6178,8 @@ public function HRESULT PDXVA2SW_VIDEOPROCESSBLT(HANDLE hDevice, DXVA2_VIDEOPROC
 	public uint32 HighColorValue;
 }
 
-[CRepr]public struct AM_STREAM_INFO
+[CRepr]
+public struct AM_STREAM_INFO
 {
 	public int64 tStart;
 	public int64 tStop;
@@ -6168,7 +6188,8 @@ public function HRESULT PDXVA2SW_VIDEOPROCESSBLT(HANDLE hDevice, DXVA2_VIDEOPROC
 	public uint32 dwFlags;
 }
 
-[CRepr]public struct VIDEO_STREAM_CONFIG_CAPS
+[CRepr]
+public struct VIDEO_STREAM_CONFIG_CAPS
 {
 	public Guid guid;
 	public uint32 VideoStandard;
@@ -6193,7 +6214,8 @@ public function HRESULT PDXVA2SW_VIDEOPROCESSBLT(HANDLE hDevice, DXVA2_VIDEOPROC
 	public int32 MaxBitsPerSecond;
 }
 
-[CRepr]public struct AUDIO_STREAM_CONFIG_CAPS
+[CRepr]
+public struct AUDIO_STREAM_CONFIG_CAPS
 {
 	public Guid guid;
 	public uint32 MinimumChannels;
@@ -6207,7 +6229,8 @@ public function HRESULT PDXVA2SW_VIDEOPROCESSBLT(HANDLE hDevice, DXVA2_VIDEOPROC
 	public uint32 SampleFrequencyGranularity;
 }
 
-[CRepr]public struct DVINFO
+[CRepr]
+public struct DVINFO
 {
 	public uint32 dwDVAAuxSrc;
 	public uint32 dwDVAAuxCtl;
@@ -6218,7 +6241,8 @@ public function HRESULT PDXVA2SW_VIDEOPROCESSBLT(HANDLE hDevice, DXVA2_VIDEOPROC
 	public uint32[2] dwDVReserved;
 }
 
-[CRepr]public struct STREAM_ID_MAP
+[CRepr]
+public struct STREAM_ID_MAP
 {
 	public uint32 stream_id;
 	public uint32 dwMediaSampleContent;
@@ -6226,12 +6250,14 @@ public function HRESULT PDXVA2SW_VIDEOPROCESSBLT(HANDLE hDevice, DXVA2_VIDEOPROC
 	public int32 iDataOffset;
 }
 
-[CRepr]public struct AMCOPPSignature
+[CRepr]
+public struct AMCOPPSignature
 {
 	public uint8[256] Signature;
 }
 
-[CRepr]public struct AMCOPPCommand
+[CRepr]
+public struct AMCOPPCommand
 {
 	public Guid macKDI;
 	public Guid guidCommandID;
@@ -6240,7 +6266,8 @@ public function HRESULT PDXVA2SW_VIDEOPROCESSBLT(HANDLE hDevice, DXVA2_VIDEOPROC
 	public uint8[4056] CommandData;
 }
 
-[CRepr]public struct AMCOPPStatusInput
+[CRepr]
+public struct AMCOPPStatusInput
 {
 	public Guid rApp;
 	public Guid guidStatusRequestID;
@@ -6249,14 +6276,16 @@ public function HRESULT PDXVA2SW_VIDEOPROCESSBLT(HANDLE hDevice, DXVA2_VIDEOPROC
 	public uint8[4056] StatusData;
 }
 
-[CRepr]public struct AMCOPPStatusOutput
+[CRepr]
+public struct AMCOPPStatusOutput
 {
 	public Guid macKDI;
 	public uint32 cbSizeData;
 	public uint8[4076] COPPStatus;
 }
 
-[CRepr]public struct VMRPRESENTATIONINFO
+[CRepr]
+public struct VMRPRESENTATIONINFO
 {
 	public uint32 dwFlags;
 	public IDirectDrawSurface7* lpSurf;
@@ -6269,7 +6298,8 @@ public function HRESULT PDXVA2SW_VIDEOPROCESSBLT(HANDLE hDevice, DXVA2_VIDEOPROC
 	public uint32 dwInterlaceFlags;
 }
 
-[CRepr]public struct VMRALLOCATIONINFO
+[CRepr]
+public struct VMRALLOCATIONINFO
 {
 	public uint32 dwFlags;
 	public BITMAPINFOHEADER* lpHdr;
@@ -6281,7 +6311,8 @@ public function HRESULT PDXVA2SW_VIDEOPROCESSBLT(HANDLE hDevice, DXVA2_VIDEOPROC
 	public SIZE szNativeSize;
 }
 
-[CRepr]public struct NORMALIZEDRECT
+[CRepr]
+public struct NORMALIZEDRECT
 {
 	public float left;
 	public float top;
@@ -6289,13 +6320,15 @@ public function HRESULT PDXVA2SW_VIDEOPROCESSBLT(HANDLE hDevice, DXVA2_VIDEOPROC
 	public float bottom;
 }
 
-[CRepr]public struct VMRGUID
+[CRepr]
+public struct VMRGUID
 {
 	public Guid* pGUID;
 	public Guid GUID;
 }
 
-[CRepr]public struct VMRMONITORINFO
+[CRepr]
+public struct VMRMONITORINFO
 {
 	public VMRGUID guid;
 	public RECT rcMonitor;
@@ -6310,13 +6343,15 @@ public function HRESULT PDXVA2SW_VIDEOPROCESSBLT(HANDLE hDevice, DXVA2_VIDEOPROC
 	public uint32 dwRevision;
 }
 
-[CRepr]public struct VMRFrequency
+[CRepr]
+public struct VMRFrequency
 {
 	public uint32 dwNumerator;
 	public uint32 dwDenominator;
 }
 
-[CRepr]public struct VMRVideoDesc
+[CRepr]
+public struct VMRVideoDesc
 {
 	public uint32 dwSize;
 	public uint32 dwSampleWidth;
@@ -6327,7 +6362,8 @@ public function HRESULT PDXVA2SW_VIDEOPROCESSBLT(HANDLE hDevice, DXVA2_VIDEOPROC
 	public VMRFrequency OutputFrameFreq;
 }
 
-[CRepr]public struct VMRDeinterlaceCaps
+[CRepr]
+public struct VMRDeinterlaceCaps
 {
 	public uint32 dwSize;
 	public uint32 dwNumPreviousOutputFrames;
@@ -6336,7 +6372,8 @@ public function HRESULT PDXVA2SW_VIDEOPROCESSBLT(HANDLE hDevice, DXVA2_VIDEOPROC
 	public VMRDeinterlaceTech DeinterlaceTechnology;
 }
 
-[CRepr]public struct VMRALPHABITMAP
+[CRepr]
+public struct VMRALPHABITMAP
 {
 	public uint32 dwFlags;
 	public HDC hdc;
@@ -6347,7 +6384,8 @@ public function HRESULT PDXVA2SW_VIDEOPROCESSBLT(HANDLE hDevice, DXVA2_VIDEOPROC
 	public uint32 clrSrcKey;
 }
 
-[CRepr]public struct VMRVIDEOSTREAMINFO
+[CRepr]
+public struct VMRVIDEOSTREAMINFO
 {
 	public IDirectDrawSurface7* pddsVideoSurface;
 	public uint32 dwWidth;
@@ -6358,18 +6396,21 @@ public function HRESULT PDXVA2SW_VIDEOPROCESSBLT(HANDLE hDevice, DXVA2_VIDEOPROC
 	public NORMALIZEDRECT rNormal;
 }
 
-[CRepr]public struct DVD_ATR
+[CRepr]
+public struct DVD_ATR
 {
 	public uint32 ulCAT;
 	public uint8[768] pbATRI;
 }
 
-[CRepr]public struct DVD_TIMECODE
+[CRepr]
+public struct DVD_TIMECODE
 {
 	public uint32 _bitfield;
 }
 
-[CRepr]public struct DVD_HMSF_TIMECODE
+[CRepr]
+public struct DVD_HMSF_TIMECODE
 {
 	public uint8 bHours;
 	public uint8 bMinutes;
@@ -6377,7 +6418,8 @@ public function HRESULT PDXVA2SW_VIDEOPROCESSBLT(HANDLE hDevice, DXVA2_VIDEOPROC
 	public uint8 bFrames;
 }
 
-[CRepr]public struct DVD_PLAYBACK_LOCATION2
+[CRepr]
+public struct DVD_PLAYBACK_LOCATION2
 {
 	public uint32 TitleNum;
 	public uint32 ChapterNum;
@@ -6385,14 +6427,16 @@ public function HRESULT PDXVA2SW_VIDEOPROCESSBLT(HANDLE hDevice, DXVA2_VIDEOPROC
 	public uint32 TimeCodeFlags;
 }
 
-[CRepr]public struct DVD_PLAYBACK_LOCATION
+[CRepr]
+public struct DVD_PLAYBACK_LOCATION
 {
 	public uint32 TitleNum;
 	public uint32 ChapterNum;
 	public uint32 TimeCode;
 }
 
-[CRepr]public struct DVD_AudioAttributes
+[CRepr]
+public struct DVD_AudioAttributes
 {
 	public DVD_AUDIO_APPMODE AppMode;
 	public uint8 AppModeData;
@@ -6406,7 +6450,8 @@ public function HRESULT PDXVA2SW_VIDEOPROCESSBLT(HANDLE hDevice, DXVA2_VIDEOPROC
 	public uint32[2] dwReserved;
 }
 
-[CRepr]public struct DVD_MUA_MixingInfo
+[CRepr]
+public struct DVD_MUA_MixingInfo
 {
 	public BOOL fMixTo0;
 	public BOOL fMixTo1;
@@ -6415,19 +6460,22 @@ public function HRESULT PDXVA2SW_VIDEOPROCESSBLT(HANDLE hDevice, DXVA2_VIDEOPROC
 	public uint32 dwSpeakerPosition;
 }
 
-[CRepr]public struct DVD_MUA_Coeff
+[CRepr]
+public struct DVD_MUA_Coeff
 {
 	public double log2_alpha;
 	public double log2_beta;
 }
 
-[CRepr]public struct DVD_MultichannelAudioAttributes
+[CRepr]
+public struct DVD_MultichannelAudioAttributes
 {
 	public DVD_MUA_MixingInfo[8] Info;
 	public DVD_MUA_Coeff[8] Coeff;
 }
 
-[CRepr]public struct DVD_KaraokeAttributes
+[CRepr]
+public struct DVD_KaraokeAttributes
 {
 	public uint8 bVersion;
 	public BOOL fMasterOfCeremoniesInGuideVocal1;
@@ -6436,7 +6484,8 @@ public function HRESULT PDXVA2SW_VIDEOPROCESSBLT(HANDLE hDevice, DXVA2_VIDEOPROC
 	public uint16[8] wChannelContents;
 }
 
-[CRepr]public struct DVD_VideoAttributes
+[CRepr]
+public struct DVD_VideoAttributes
 {
 	public BOOL fPanscanPermitted;
 	public BOOL fLetterboxPermitted;
@@ -6453,7 +6502,8 @@ public function HRESULT PDXVA2SW_VIDEOPROCESSBLT(HANDLE hDevice, DXVA2_VIDEOPROC
 	public BOOL fIsFilmMode;
 }
 
-[CRepr]public struct DVD_SubpictureAttributes
+[CRepr]
+public struct DVD_SubpictureAttributes
 {
 	public DVD_SUBPICTURE_TYPE Type;
 	public DVD_SUBPICTURE_CODING CodingMode;
@@ -6461,9 +6511,11 @@ public function HRESULT PDXVA2SW_VIDEOPROCESSBLT(HANDLE hDevice, DXVA2_VIDEOPROC
 	public DVD_SUBPICTURE_LANG_EXT LanguageExtension;
 }
 
-[CRepr]public struct DVD_TitleAttributes
+[CRepr]
+public struct DVD_TitleAttributes
 {
-	[CRepr, Union]	public struct _Anonymous_e__Union
+	[CRepr, Union]
+	public struct _Anonymous_e__Union
 	{
 		public DVD_TITLE_APPMODE AppMode;
 		public DVD_HMSF_TIMECODE TitleLength;
@@ -6478,7 +6530,8 @@ public function HRESULT PDXVA2SW_VIDEOPROCESSBLT(HANDLE hDevice, DXVA2_VIDEOPROC
 	public DVD_SubpictureAttributes[32] SubpictureAttributes;
 }
 
-[CRepr]public struct DVD_MenuAttributes
+[CRepr]
+public struct DVD_MenuAttributes
 {
 	public BOOL[8] fCompatibleRegion;
 	public DVD_VideoAttributes VideoAttributes;
@@ -6488,7 +6541,8 @@ public function HRESULT PDXVA2SW_VIDEOPROCESSBLT(HANDLE hDevice, DXVA2_VIDEOPROC
 	public DVD_SubpictureAttributes SubpictureAttributes;
 }
 
-[CRepr]public struct DVD_DECODER_CAPS
+[CRepr]
+public struct DVD_DECODER_CAPS
 {
 	public uint32 dwSize;
 	public uint32 dwAudioCaps;
@@ -6504,7 +6558,8 @@ public function HRESULT PDXVA2SW_VIDEOPROCESSBLT(HANDLE hDevice, DXVA2_VIDEOPROC
 	public uint32 dwRes4;
 }
 
-[CRepr]public struct AM_DVD_RENDERSTATUS
+[CRepr]
+public struct AM_DVD_RENDERSTATUS
 {
 	public HRESULT hrVPEStatus;
 	public BOOL bDvdVolInvalid;
@@ -6516,7 +6571,8 @@ public function HRESULT PDXVA2SW_VIDEOPROCESSBLT(HANDLE hDevice, DXVA2_VIDEOPROC
 	public uint32 dwFailedStreamsFlag;
 }
 
-[CRepr]public struct BDA_TEMPLATE_CONNECTION
+[CRepr]
+public struct BDA_TEMPLATE_CONNECTION
 {
 	public uint32 FromNodeType;
 	public uint32 FromNodePinType;
@@ -6524,13 +6580,15 @@ public function HRESULT PDXVA2SW_VIDEOPROCESSBLT(HANDLE hDevice, DXVA2_VIDEOPROC
 	public uint32 ToNodePinType;
 }
 
-[CRepr]public struct BDA_TEMPLATE_PIN_JOINT
+[CRepr]
+public struct BDA_TEMPLATE_PIN_JOINT
 {
 	public uint32 uliTemplateConnection;
 	public uint32 ulcInstancesMax;
 }
 
-[CRepr]public struct KS_BDA_FRAME_INFO
+[CRepr]
+public struct KS_BDA_FRAME_INFO
 {
 	public uint32 ExtendedHeaderSize;
 	public uint32 dwFrameFlags;
@@ -6540,47 +6598,55 @@ public function HRESULT PDXVA2SW_VIDEOPROCESSBLT(HANDLE hDevice, DXVA2_VIDEOPROC
 	public uint32 ulReason;
 }
 
-[CRepr]public struct BDA_ETHERNET_ADDRESS
+[CRepr]
+public struct BDA_ETHERNET_ADDRESS
 {
 	public uint8[6] rgbAddress;
 }
 
-[CRepr]public struct BDA_ETHERNET_ADDRESS_LIST
+[CRepr]
+public struct BDA_ETHERNET_ADDRESS_LIST
 {
 	public uint32 ulcAddresses;
 	public BDA_ETHERNET_ADDRESS[1] rgAddressl;
 }
 
-[CRepr]public struct BDA_IPv4_ADDRESS
+[CRepr]
+public struct BDA_IPv4_ADDRESS
 {
 	public uint8[4] rgbAddress;
 }
 
-[CRepr]public struct BDA_IPv4_ADDRESS_LIST
+[CRepr]
+public struct BDA_IPv4_ADDRESS_LIST
 {
 	public uint32 ulcAddresses;
 	public BDA_IPv4_ADDRESS[1] rgAddressl;
 }
 
-[CRepr]public struct BDA_IPv6_ADDRESS
+[CRepr]
+public struct BDA_IPv6_ADDRESS
 {
 	public uint8[6] rgbAddress;
 }
 
-[CRepr]public struct BDA_IPv6_ADDRESS_LIST
+[CRepr]
+public struct BDA_IPv6_ADDRESS_LIST
 {
 	public uint32 ulcAddresses;
 	public BDA_IPv6_ADDRESS[1] rgAddressl;
 }
 
-[CRepr]public struct BDANODE_DESCRIPTOR
+[CRepr]
+public struct BDANODE_DESCRIPTOR
 {
 	public uint32 ulBdaNodeType;
 	public Guid guidFunction;
 	public Guid guidName;
 }
 
-[CRepr]public struct BDA_TABLE_SECTION
+[CRepr]
+public struct BDA_TABLE_SECTION
 {
 	public uint32 ulPrimarySectionId;
 	public uint32 ulSecondarySectionId;
@@ -6588,54 +6654,62 @@ public function HRESULT PDXVA2SW_VIDEOPROCESSBLT(HANDLE hDevice, DXVA2_VIDEOPROC
 	public uint32[1] argbSectionData;
 }
 
-[CRepr]public struct BDA_DISEQC_SEND
+[CRepr]
+public struct BDA_DISEQC_SEND
 {
 	public uint32 ulRequestId;
 	public uint32 ulPacketLength;
 	public uint8[8] argbPacketData;
 }
 
-[CRepr]public struct BDA_DISEQC_RESPONSE
+[CRepr]
+public struct BDA_DISEQC_RESPONSE
 {
 	public uint32 ulRequestId;
 	public uint32 ulPacketLength;
 	public uint8[8] argbPacketData;
 }
 
-[CRepr]public struct PID_MAP
+[CRepr]
+public struct PID_MAP
 {
 	public uint32 ulPID;
 	public MEDIA_SAMPLE_CONTENT MediaSampleContent;
 }
 
-[CRepr]public struct BDA_PID_MAP
+[CRepr]
+public struct BDA_PID_MAP
 {
 	public MEDIA_SAMPLE_CONTENT MediaSampleContent;
 	public uint32 ulcPIDs;
 	public uint32[1] aulPIDs;
 }
 
-[CRepr]public struct BDA_PID_UNMAP
+[CRepr]
+public struct BDA_PID_UNMAP
 {
 	public uint32 ulcPIDs;
 	public uint32[1] aulPIDs;
 }
 
-[CRepr]public struct BDA_CA_MODULE_UI
+[CRepr]
+public struct BDA_CA_MODULE_UI
 {
 	public uint32 ulFormat;
 	public uint32 ulbcDesc;
 	public uint32[1] ulDesc;
 }
 
-[CRepr]public struct BDA_PROGRAM_PID_LIST
+[CRepr]
+public struct BDA_PROGRAM_PID_LIST
 {
 	public uint32 ulProgramNumber;
 	public uint32 ulcPIDs;
 	public uint32[1] ulPID;
 }
 
-[CRepr]public struct BDA_DRM_DRMSTATUS
+[CRepr]
+public struct BDA_DRM_DRMSTATUS
 {
 	public int32 lResult;
 	public Guid DRMuuid;
@@ -6643,7 +6717,8 @@ public function HRESULT PDXVA2SW_VIDEOPROCESSBLT(HANDLE hDevice, DXVA2_VIDEOPROC
 	public Guid[1] argbDrmUuidListString;
 }
 
-[CRepr]public struct BDA_WMDRM_STATUS
+[CRepr]
+public struct BDA_WMDRM_STATUS
 {
 	public int32 lResult;
 	public uint32 ulMaxCaptureTokenSize;
@@ -6657,21 +6732,24 @@ public function HRESULT PDXVA2SW_VIDEOPROCESSBLT(HANDLE hDevice, DXVA2_VIDEOPROC
 	public uint32 ulState;
 }
 
-[CRepr]public struct BDA_WMDRM_KEYINFOLIST
+[CRepr]
+public struct BDA_WMDRM_KEYINFOLIST
 {
 	public int32 lResult;
 	public uint32 ulKeyuuidBufferLen;
 	public Guid[1] argKeyuuidBuffer;
 }
 
-[CRepr]public struct BDA_BUFFER
+[CRepr]
+public struct BDA_BUFFER
 {
 	public int32 lResult;
 	public uint32 ulBufferSize;
 	public uint8[1] argbBuffer;
 }
 
-[CRepr]public struct BDA_WMDRM_RENEWLICENSE
+[CRepr]
+public struct BDA_WMDRM_RENEWLICENSE
 {
 	public int32 lResult;
 	public uint32 ulDescrambleStatus;
@@ -6679,13 +6757,15 @@ public function HRESULT PDXVA2SW_VIDEOPROCESSBLT(HANDLE hDevice, DXVA2_VIDEOPROC
 	public uint8[1] argbXmrLicenceOutputBuffer;
 }
 
-[CRepr]public struct BDA_WMDRMTUNER_PIDPROTECTION
+[CRepr]
+public struct BDA_WMDRMTUNER_PIDPROTECTION
 {
 	public int32 lResult;
 	public Guid uuidKeyID;
 }
 
-[CRepr]public struct BDA_WMDRMTUNER_PURCHASEENTITLEMENT
+[CRepr]
+public struct BDA_WMDRMTUNER_PURCHASEENTITLEMENT
 {
 	public int32 lResult;
 	public uint32 ulDescrambleStatus;
@@ -6693,14 +6773,16 @@ public function HRESULT PDXVA2SW_VIDEOPROCESSBLT(HANDLE hDevice, DXVA2_VIDEOPROC
 	public uint8[1] argbCaptureTokenBuffer;
 }
 
-[CRepr]public struct BDA_TUNER_TUNERSTATE
+[CRepr]
+public struct BDA_TUNER_TUNERSTATE
 {
 	public int32 lResult;
 	public uint32 ulTuneLength;
 	public uint8[1] argbTuneData;
 }
 
-[CRepr]public struct BDA_TUNER_DIAGNOSTICS
+[CRepr]
+public struct BDA_TUNER_DIAGNOSTICS
 {
 	public int32 lResult;
 	public uint32 ulSignalLevel;
@@ -6708,20 +6790,23 @@ public function HRESULT PDXVA2SW_VIDEOPROCESSBLT(HANDLE hDevice, DXVA2_VIDEOPROC
 	public uint32 ulSignalNoiseRatio;
 }
 
-[CRepr]public struct BDA_STRING
+[CRepr]
+public struct BDA_STRING
 {
 	public int32 lResult;
 	public uint32 ulStringSize;
 	public uint8[1] argbString;
 }
 
-[CRepr]public struct BDA_SCAN_CAPABILTIES
+[CRepr]
+public struct BDA_SCAN_CAPABILTIES
 {
 	public int32 lResult;
 	public uint64 ul64AnalogStandardsSupported;
 }
 
-[CRepr]public struct BDA_SCAN_STATE
+[CRepr]
+public struct BDA_SCAN_STATE
 {
 	public int32 lResult;
 	public uint32 ulSignalLock;
@@ -6729,20 +6814,23 @@ public function HRESULT PDXVA2SW_VIDEOPROCESSBLT(HANDLE hDevice, DXVA2_VIDEOPROC
 	public uint32 ulCurrentFrequency;
 }
 
-[CRepr]public struct BDA_SCAN_START
+[CRepr]
+public struct BDA_SCAN_START
 {
 	public int32 lResult;
 	public uint32 LowerFrequency;
 	public uint32 HigerFrequency;
 }
 
-[CRepr]public struct BDA_GDDS_DATATYPE
+[CRepr]
+public struct BDA_GDDS_DATATYPE
 {
 	public int32 lResult;
 	public Guid uuidDataType;
 }
 
-[CRepr]public struct BDA_GDDS_DATA
+[CRepr]
+public struct BDA_GDDS_DATA
 {
 	public int32 lResult;
 	public uint32 ulDataLength;
@@ -6750,25 +6838,29 @@ public function HRESULT PDXVA2SW_VIDEOPROCESSBLT(HANDLE hDevice, DXVA2_VIDEOPROC
 	public uint8[1] argbData;
 }
 
-[CRepr]public struct BDA_USERACTIVITY_INTERVAL
+[CRepr]
+public struct BDA_USERACTIVITY_INTERVAL
 {
 	public int32 lResult;
 	public uint32 ulActivityInterval;
 }
 
-[CRepr]public struct BDA_CAS_CHECK_ENTITLEMENTTOKEN
+[CRepr]
+public struct BDA_CAS_CHECK_ENTITLEMENTTOKEN
 {
 	public int32 lResult;
 	public uint32 ulDescrambleStatus;
 }
 
-[CRepr]public struct BDA_CAS_CLOSE_MMIDIALOG
+[CRepr]
+public struct BDA_CAS_CLOSE_MMIDIALOG
 {
 	public int32 lResult;
 	public uint32 SessionResult;
 }
 
-[CRepr]public struct BDA_CAS_REQUESTTUNERDATA
+[CRepr]
+public struct BDA_CAS_REQUESTTUNERDATA
 {
 	public uint8 ucRequestPriority;
 	public uint8 ucRequestReason;
@@ -6776,7 +6868,8 @@ public function HRESULT PDXVA2SW_VIDEOPROCESSBLT(HANDLE hDevice, DXVA2_VIDEOPROC
 	public uint32 ulEstimatedTime;
 }
 
-[CRepr]public struct BDA_CAS_OPENMMIDATA
+[CRepr]
+public struct BDA_CAS_OPENMMIDATA
 {
 	public uint32 ulDialogNumber;
 	public uint32 ulDialogRequest;
@@ -6785,12 +6878,14 @@ public function HRESULT PDXVA2SW_VIDEOPROCESSBLT(HANDLE hDevice, DXVA2_VIDEOPROC
 	public uint8[1] argbDialogData;
 }
 
-[CRepr]public struct BDA_CAS_CLOSEMMIDATA
+[CRepr]
+public struct BDA_CAS_CLOSEMMIDATA
 {
 	public uint32 ulDialogNumber;
 }
 
-[CRepr, Packed(1)]public struct BDA_ISDBCAS_REQUESTHEADER
+[CRepr, Packed(1)]
+public struct BDA_ISDBCAS_REQUESTHEADER
 {
 	public uint8 bInstruction;
 	public uint8[3] bReserved;
@@ -6798,7 +6893,8 @@ public function HRESULT PDXVA2SW_VIDEOPROCESSBLT(HANDLE hDevice, DXVA2_VIDEOPROC
 	public uint8[1] argbIsdbCommand;
 }
 
-[CRepr, Packed(1)]public struct BDA_ISDBCAS_RESPONSEDATA
+[CRepr, Packed(1)]
+public struct BDA_ISDBCAS_RESPONSEDATA
 {
 	public int32 lResult;
 	public uint32 ulRequestID;
@@ -6807,7 +6903,8 @@ public function HRESULT PDXVA2SW_VIDEOPROCESSBLT(HANDLE hDevice, DXVA2_VIDEOPROC
 	public uint8[1] argbIsdbCommandData;
 }
 
-[CRepr]public struct BDA_ISDBCAS_EMG_REQ
+[CRepr]
+public struct BDA_ISDBCAS_EMG_REQ
 {
 	public uint8 bCLA;
 	public uint8 bINS;
@@ -6821,14 +6918,16 @@ public function HRESULT PDXVA2SW_VIDEOPROCESSBLT(HANDLE hDevice, DXVA2_VIDEOPROC
 	public uint8[1] bMessageCode;
 }
 
-[CRepr, Packed(2)]public struct BDA_MUX_PIDLISTITEM
+[CRepr, Packed(2)]
+public struct BDA_MUX_PIDLISTITEM
 {
 	public uint16 usPIDNumber;
 	public uint16 usProgramNumber;
 	public MUX_PID_TYPE ePIDType;
 }
 
-[CRepr, Packed(1)]public struct BDA_TS_SELECTORINFO
+[CRepr, Packed(1)]
+public struct BDA_TS_SELECTORINFO
 {
 	public uint8 bTSInfolength;
 	public uint8[2] bReserved;
@@ -6837,12 +6936,14 @@ public function HRESULT PDXVA2SW_VIDEOPROCESSBLT(HANDLE hDevice, DXVA2_VIDEOPROC
 	public uint16[1] usTSID;
 }
 
-[CRepr]public struct BDA_TS_SELECTORINFO_ISDBS_EXT
+[CRepr]
+public struct BDA_TS_SELECTORINFO_ISDBS_EXT
 {
 	public uint8[48] bTMCC;
 }
 
-[CRepr]public struct BDA_DVBT2_L1_SIGNALLING_DATA
+[CRepr]
+public struct BDA_DVBT2_L1_SIGNALLING_DATA
 {
 	public uint8 L1Pre_TYPE;
 	public uint8 L1Pre_BWT_S1_S2;
@@ -6860,27 +6961,31 @@ public function HRESULT PDXVA2SW_VIDEOPROCESSBLT(HANDLE hDevice, DXVA2_VIDEOPROC
 	public uint8[1] L1PostData;
 }
 
-[CRepr]public struct BDA_RATING_PINRESET
+[CRepr]
+public struct BDA_RATING_PINRESET
 {
 	public uint8 bPinLength;
 	public uint8[1] argbNewPin;
 }
 
-[CRepr]public struct MPEG2_TRANSPORT_STRIDE
+[CRepr]
+public struct MPEG2_TRANSPORT_STRIDE
 {
 	public uint32 dwOffset;
 	public uint32 dwPacketLength;
 	public uint32 dwStride;
 }
 
-[CRepr]public struct BDA_SIGNAL_TIMEOUTS
+[CRepr]
+public struct BDA_SIGNAL_TIMEOUTS
 {
 	public uint32 ulCarrierTimeoutMs;
 	public uint32 ulScanningTimeoutMs;
 	public uint32 ulTuningTimeoutMs;
 }
 
-[CRepr]public struct EALocationCodeType
+[CRepr]
+public struct EALocationCodeType
 {
 	public LocationCodeSchemeType LocationCodeScheme;
 	public uint8 state_code;
@@ -6888,7 +6993,8 @@ public function HRESULT PDXVA2SW_VIDEOPROCESSBLT(HANDLE hDevice, DXVA2_VIDEOPROC
 	public uint16 county_code;
 }
 
-[CRepr]public struct SmartCardApplication
+[CRepr]
+public struct SmartCardApplication
 {
 	public ApplicationTypeType ApplicationType;
 	public uint16 ApplicationVersion;
@@ -6896,26 +7002,30 @@ public function HRESULT PDXVA2SW_VIDEOPROCESSBLT(HANDLE hDevice, DXVA2_VIDEOPROC
 	public BSTR pbstrApplicationURL;
 }
 
-[CRepr]public struct AMVAUncompBufferInfo
+[CRepr]
+public struct AMVAUncompBufferInfo
 {
 	public uint32 dwMinNumSurfaces;
 	public uint32 dwMaxNumSurfaces;
 	public DDPIXELFORMAT ddUncompPixelFormat;
 }
 
-[CRepr]public struct AMVAUncompDataInfo
+[CRepr]
+public struct AMVAUncompDataInfo
 {
 	public uint32 dwUncompWidth;
 	public uint32 dwUncompHeight;
 	public DDPIXELFORMAT ddUncompPixelFormat;
 }
 
-[CRepr]public struct AMVAInternalMemInfo
+[CRepr]
+public struct AMVAInternalMemInfo
 {
 	public uint32 dwScratchMemAlloc;
 }
 
-[CRepr]public struct AMVACompBufferInfo
+[CRepr]
+public struct AMVACompBufferInfo
 {
 	public uint32 dwNumCompBuffers;
 	public uint32 dwWidthToCreate;
@@ -6925,7 +7035,8 @@ public function HRESULT PDXVA2SW_VIDEOPROCESSBLT(HANDLE hDevice, DXVA2_VIDEOPROC
 	public DDPIXELFORMAT ddPixelFormat;
 }
 
-[CRepr]public struct AMVABeginFrameInfo
+[CRepr]
+public struct AMVABeginFrameInfo
 {
 	public uint32 dwDestSurfaceIndex;
 	public void* pInputData;
@@ -6934,13 +7045,15 @@ public function HRESULT PDXVA2SW_VIDEOPROCESSBLT(HANDLE hDevice, DXVA2_VIDEOPROC
 	public uint32 dwSizeOutputData;
 }
 
-[CRepr]public struct AMVAEndFrameInfo
+[CRepr]
+public struct AMVAEndFrameInfo
 {
 	public uint32 dwSizeMiscData;
 	public void* pMiscData;
 }
 
-[CRepr]public struct AMVABUFFERINFO
+[CRepr]
+public struct AMVABUFFERINFO
 {
 	public uint32 dwTypeIndex;
 	public uint32 dwBufferIndex;
@@ -6948,20 +7061,23 @@ public function HRESULT PDXVA2SW_VIDEOPROCESSBLT(HANDLE hDevice, DXVA2_VIDEOPROC
 	public uint32 dwDataSize;
 }
 
-[CRepr]public struct AM_WST_PAGE
+[CRepr]
+public struct AM_WST_PAGE
 {
 	public uint32 dwPageNr;
 	public uint32 dwSubPageNr;
 	public uint8* pucPageData;
 }
 
-[CRepr]public struct TRUECOLORINFO
+[CRepr]
+public struct TRUECOLORINFO
 {
 	public uint32[3] dwBitMasks;
 	public RGBQUAD[256] bmiColors;
 }
 
-[CRepr]public struct VIDEOINFOHEADER
+[CRepr]
+public struct VIDEOINFOHEADER
 {
 	public RECT rcSource;
 	public RECT rcTarget;
@@ -6971,9 +7087,11 @@ public function HRESULT PDXVA2SW_VIDEOPROCESSBLT(HANDLE hDevice, DXVA2_VIDEOPROC
 	public BITMAPINFOHEADER bmiHeader;
 }
 
-[CRepr]public struct VIDEOINFO
+[CRepr]
+public struct VIDEOINFO
 {
-	[CRepr, Union]	public struct _Anonymous_e__Union
+	[CRepr, Union]
+	public struct _Anonymous_e__Union
 	{
 		public RGBQUAD[256] bmiColors;
 		public uint32[3] dwBitMasks;
@@ -6989,7 +7107,8 @@ public function HRESULT PDXVA2SW_VIDEOPROCESSBLT(HANDLE hDevice, DXVA2_VIDEOPROC
 	public using _Anonymous_e__Union Anonymous;
 }
 
-[CRepr]public struct MPEG1VIDEOINFO
+[CRepr]
+public struct MPEG1VIDEOINFO
 {
 	public VIDEOINFOHEADER hdr;
 	public uint32 dwStartTimeCode;
@@ -6997,7 +7116,8 @@ public function HRESULT PDXVA2SW_VIDEOPROCESSBLT(HANDLE hDevice, DXVA2_VIDEOPROC
 	public uint8[1] bSequenceHeader;
 }
 
-[CRepr]public struct ANALOGVIDEOINFO
+[CRepr]
+public struct ANALOGVIDEOINFO
 {
 	public RECT rcSource;
 	public RECT rcTarget;
@@ -7006,12 +7126,14 @@ public function HRESULT PDXVA2SW_VIDEOPROCESSBLT(HANDLE hDevice, DXVA2_VIDEOPROC
 	public int64 AvgTimePerFrame;
 }
 
-[CRepr]public struct AM_FRAMESTEP_STEP
+[CRepr]
+public struct AM_FRAMESTEP_STEP
 {
 	public uint32 dwFramesToStep;
 }
 
-[CRepr]public struct AM_MPEGSTREAMTYPE
+[CRepr]
+public struct AM_MPEGSTREAMTYPE
 {
 	public uint32 dwStreamId;
 	public uint32 dwReserved;
@@ -7019,14 +7141,16 @@ public function HRESULT PDXVA2SW_VIDEOPROCESSBLT(HANDLE hDevice, DXVA2_VIDEOPROC
 	public uint8[1] bFormat;
 }
 
-[CRepr]public struct AM_MPEGSYSTEMTYPE
+[CRepr]
+public struct AM_MPEGSYSTEMTYPE
 {
 	public uint32 dwBitRate;
 	public uint32 cStreams;
 	public AM_MPEGSTREAMTYPE[1] Streams;
 }
 
-[CRepr]public struct VMR9PresentationInfo
+[CRepr]
+public struct VMR9PresentationInfo
 {
 	public uint32 dwFlags;
 	public IDirect3DSurface9* lpSurf;
@@ -7039,7 +7163,8 @@ public function HRESULT PDXVA2SW_VIDEOPROCESSBLT(HANDLE hDevice, DXVA2_VIDEOPROC
 	public uint32 dwReserved2;
 }
 
-[CRepr]public struct VMR9AllocationInfo
+[CRepr]
+public struct VMR9AllocationInfo
 {
 	public uint32 dwFlags;
 	public uint32 dwWidth;
@@ -7051,7 +7176,8 @@ public function HRESULT PDXVA2SW_VIDEOPROCESSBLT(HANDLE hDevice, DXVA2_VIDEOPROC
 	public SIZE szNativeSize;
 }
 
-[CRepr]public struct VMR9NormalizedRect
+[CRepr]
+public struct VMR9NormalizedRect
 {
 	public float left;
 	public float top;
@@ -7059,7 +7185,8 @@ public function HRESULT PDXVA2SW_VIDEOPROCESSBLT(HANDLE hDevice, DXVA2_VIDEOPROC
 	public float bottom;
 }
 
-[CRepr]public struct VMR9ProcAmpControl
+[CRepr]
+public struct VMR9ProcAmpControl
 {
 	public uint32 dwSize;
 	public uint32 dwFlags;
@@ -7069,7 +7196,8 @@ public function HRESULT PDXVA2SW_VIDEOPROCESSBLT(HANDLE hDevice, DXVA2_VIDEOPROC
 	public float Saturation;
 }
 
-[CRepr]public struct VMR9ProcAmpControlRange
+[CRepr]
+public struct VMR9ProcAmpControlRange
 {
 	public uint32 dwSize;
 	public VMR9ProcAmpControlFlags dwProperty;
@@ -7079,7 +7207,8 @@ public function HRESULT PDXVA2SW_VIDEOPROCESSBLT(HANDLE hDevice, DXVA2_VIDEOPROC
 	public float StepSize;
 }
 
-[CRepr]public struct VMR9AlphaBitmap
+[CRepr]
+public struct VMR9AlphaBitmap
 {
 	public uint32 dwFlags;
 	public HDC hdc;
@@ -7091,7 +7220,8 @@ public function HRESULT PDXVA2SW_VIDEOPROCESSBLT(HANDLE hDevice, DXVA2_VIDEOPROC
 	public uint32 dwFilterMode;
 }
 
-[CRepr]public struct VMR9MonitorInfo
+[CRepr]
+public struct VMR9MonitorInfo
 {
 	public uint32 uDevID;
 	public RECT rcMonitor;
@@ -7106,13 +7236,15 @@ public function HRESULT PDXVA2SW_VIDEOPROCESSBLT(HANDLE hDevice, DXVA2_VIDEOPROC
 	public uint32 dwRevision;
 }
 
-[CRepr]public struct VMR9Frequency
+[CRepr]
+public struct VMR9Frequency
 {
 	public uint32 dwNumerator;
 	public uint32 dwDenominator;
 }
 
-[CRepr]public struct VMR9VideoDesc
+[CRepr]
+public struct VMR9VideoDesc
 {
 	public uint32 dwSize;
 	public uint32 dwSampleWidth;
@@ -7123,7 +7255,8 @@ public function HRESULT PDXVA2SW_VIDEOPROCESSBLT(HANDLE hDevice, DXVA2_VIDEOPROC
 	public VMR9Frequency OutputFrameFreq;
 }
 
-[CRepr]public struct VMR9DeinterlaceCaps
+[CRepr]
+public struct VMR9DeinterlaceCaps
 {
 	public uint32 dwSize;
 	public uint32 dwNumPreviousOutputFrames;
@@ -7132,7 +7265,8 @@ public function HRESULT PDXVA2SW_VIDEOPROCESSBLT(HANDLE hDevice, DXVA2_VIDEOPROC
 	public VMR9DeinterlaceTech DeinterlaceTechnology;
 }
 
-[CRepr]public struct VMR9VideoStreamInfo
+[CRepr]
+public struct VMR9VideoStreamInfo
 {
 	public IDirect3DSurface9* pddsVideoSurface;
 	public uint32 dwWidth;
@@ -7145,20 +7279,23 @@ public function HRESULT PDXVA2SW_VIDEOPROCESSBLT(HANDLE hDevice, DXVA2_VIDEOPROC
 	public VMR9_SampleFormat SampleFormat;
 }
 
-[CRepr, Packed(2)]public struct RIFFCHUNK
+[CRepr, Packed(2)]
+public struct RIFFCHUNK
 {
 	public uint32 fcc;
 	public uint32 cb;
 }
 
-[CRepr, Packed(2)]public struct RIFFLIST
+[CRepr, Packed(2)]
+public struct RIFFLIST
 {
 	public uint32 fcc;
 	public uint32 cb;
 	public uint32 fccListType;
 }
 
-[CRepr, Packed(2)]public struct AVIMAINHEADER
+[CRepr, Packed(2)]
+public struct AVIMAINHEADER
 {
 	public uint32 fcc;
 	public uint32 cb;
@@ -7175,7 +7312,8 @@ public function HRESULT PDXVA2SW_VIDEOPROCESSBLT(HANDLE hDevice, DXVA2_VIDEOPROC
 	public uint32[4] dwReserved;
 }
 
-[CRepr, Packed(2)]public struct AVIEXTHEADER
+[CRepr, Packed(2)]
+public struct AVIEXTHEADER
 {
 	public uint32 fcc;
 	public uint32 cb;
@@ -7183,9 +7321,11 @@ public function HRESULT PDXVA2SW_VIDEOPROCESSBLT(HANDLE hDevice, DXVA2_VIDEOPROC
 	public uint32[61] dwFuture;
 }
 
-[CRepr, Packed(2)]public struct AVISTREAMHEADER
+[CRepr, Packed(2)]
+public struct AVISTREAMHEADER
 {
-	[CRepr]	public struct _rcFrame_e__Struct
+	[CRepr]
+	public struct _rcFrame_e__Struct
 	{
 		public int16 left;
 		public int16 top;
@@ -7211,9 +7351,11 @@ public function HRESULT PDXVA2SW_VIDEOPROCESSBLT(HANDLE hDevice, DXVA2_VIDEOPROC
 	public _rcFrame_e__Struct rcFrame;
 }
 
-[CRepr, Packed(2)]public struct AVIOLDINDEX
+[CRepr, Packed(2)]
+public struct AVIOLDINDEX
 {
-	[CRepr, Packed(2)]	public struct _avioldindex_entry
+	[CRepr, Packed(2)]
+	public struct _avioldindex_entry
 	{
 		public uint32 dwChunkId;
 		public uint32 dwFlags;
@@ -7226,14 +7368,16 @@ public function HRESULT PDXVA2SW_VIDEOPROCESSBLT(HANDLE hDevice, DXVA2_VIDEOPROC
 	public _avioldindex_entry[1] aIndex;
 }
 
-[CRepr, Packed(2)]public struct TIMECODEDATA
+[CRepr, Packed(2)]
+public struct TIMECODEDATA
 {
 	public TIMECODE time;
 	public uint32 dwSMPTEflags;
 	public uint32 dwUser;
 }
 
-[CRepr, Packed(2)]public struct AVIMETAINDEX
+[CRepr, Packed(2)]
+public struct AVIMETAINDEX
 {
 	public uint32 fcc;
 	public uint32 cb;
@@ -7246,9 +7390,11 @@ public function HRESULT PDXVA2SW_VIDEOPROCESSBLT(HANDLE hDevice, DXVA2_VIDEOPROC
 	public uint32[1] adwIndex;
 }
 
-[CRepr, Packed(2)]public struct AVISUPERINDEX
+[CRepr, Packed(2)]
+public struct AVISUPERINDEX
 {
-	[CRepr, Packed(2)]	public struct _avisuperindex_entry
+	[CRepr, Packed(2)]
+	public struct _avisuperindex_entry
 	{
 		public uint64 qwOffset;
 		public uint32 dwSize;
@@ -7266,13 +7412,15 @@ public function HRESULT PDXVA2SW_VIDEOPROCESSBLT(HANDLE hDevice, DXVA2_VIDEOPROC
 	public _avisuperindex_entry[1022] aIndex;
 }
 
-[CRepr, Packed(2)]public struct AVISTDINDEX_ENTRY
+[CRepr, Packed(2)]
+public struct AVISTDINDEX_ENTRY
 {
 	public uint32 dwOffset;
 	public uint32 dwSize;
 }
 
-[CRepr, Packed(2)]public struct AVISTDINDEX
+[CRepr, Packed(2)]
+public struct AVISTDINDEX
 {
 	public uint32 fcc;
 	public uint32 cb;
@@ -7286,14 +7434,16 @@ public function HRESULT PDXVA2SW_VIDEOPROCESSBLT(HANDLE hDevice, DXVA2_VIDEOPROC
 	public AVISTDINDEX_ENTRY[2044] aIndex;
 }
 
-[CRepr, Packed(2)]public struct AVITIMEDINDEX_ENTRY
+[CRepr, Packed(2)]
+public struct AVITIMEDINDEX_ENTRY
 {
 	public uint32 dwOffset;
 	public uint32 dwSize;
 	public uint32 dwDuration;
 }
 
-[CRepr, Packed(2)]public struct _avitimedindex
+[CRepr, Packed(2)]
+public struct _avitimedindex
 {
 	public uint32 fcc;
 	public uint32 cb;
@@ -7308,7 +7458,8 @@ public function HRESULT PDXVA2SW_VIDEOPROCESSBLT(HANDLE hDevice, DXVA2_VIDEOPROC
 	public uint32[2734] adwTrailingFill;
 }
 
-[CRepr, Packed(2)]public struct AVITIMECODEINDEX
+[CRepr, Packed(2)]
+public struct AVITIMECODEINDEX
 {
 	public uint32 fcc;
 	public uint32 cb;
@@ -7321,7 +7472,8 @@ public function HRESULT PDXVA2SW_VIDEOPROCESSBLT(HANDLE hDevice, DXVA2_VIDEOPROC
 	public TIMECODEDATA[1022] aIndex;
 }
 
-[CRepr, Packed(2)]public struct AVITCDLINDEX_ENTRY
+[CRepr, Packed(2)]
+public struct AVITCDLINDEX_ENTRY
 {
 	public uint32 dwTick;
 	public TIMECODE time;
@@ -7330,7 +7482,8 @@ public function HRESULT PDXVA2SW_VIDEOPROCESSBLT(HANDLE hDevice, DXVA2_VIDEOPROC
 	public int8[12] szReelId;
 }
 
-[CRepr, Packed(2)]public struct _avitcdlindex
+[CRepr, Packed(2)]
+public struct _avitcdlindex
 {
 	public uint32 fcc;
 	public uint32 cb;
@@ -7344,9 +7497,11 @@ public function HRESULT PDXVA2SW_VIDEOPROCESSBLT(HANDLE hDevice, DXVA2_VIDEOPROC
 	public uint32[3512] adwTrailingFill;
 }
 
-[CRepr, Packed(2)]public struct AVIFIELDINDEX
+[CRepr, Packed(2)]
+public struct AVIFIELDINDEX
 {
-	[CRepr, Packed(2)]	public struct _avifieldindex_entry
+	[CRepr, Packed(2)]
+	public struct _avifieldindex_entry
 	{
 		public uint32 dwOffset;
 		public uint32 dwSize;
@@ -7365,7 +7520,8 @@ public function HRESULT PDXVA2SW_VIDEOPROCESSBLT(HANDLE hDevice, DXVA2_VIDEOPROC
 	public _avifieldindex_entry[1] aIndex;
 }
 
-[CRepr]public struct MainAVIHeader
+[CRepr]
+public struct MainAVIHeader
 {
 	public uint32 dwMicroSecPerFrame;
 	public uint32 dwMaxBytesPerSec;
@@ -7380,7 +7536,8 @@ public function HRESULT PDXVA2SW_VIDEOPROCESSBLT(HANDLE hDevice, DXVA2_VIDEOPROC
 	public uint32[4] dwReserved;
 }
 
-[CRepr]public struct AVIStreamHeader
+[CRepr]
+public struct AVIStreamHeader
 {
 	public uint32 fccType;
 	public uint32 fccHandler;
@@ -7398,7 +7555,8 @@ public function HRESULT PDXVA2SW_VIDEOPROCESSBLT(HANDLE hDevice, DXVA2_VIDEOPROC
 	public RECT rcFrame;
 }
 
-[CRepr]public struct AVIINDEXENTRY
+[CRepr]
+public struct AVIINDEXENTRY
 {
 	public uint32 ckid;
 	public uint32 dwFlags;
@@ -7406,7 +7564,8 @@ public function HRESULT PDXVA2SW_VIDEOPROCESSBLT(HANDLE hDevice, DXVA2_VIDEOPROC
 	public uint32 dwChunkLength;
 }
 
-[CRepr]public struct AVIPALCHANGE
+[CRepr]
+public struct AVIPALCHANGE
 {
 	public uint8 bFirstEntry;
 	public uint8 bNumEntries;
@@ -7414,40 +7573,47 @@ public function HRESULT PDXVA2SW_VIDEOPROCESSBLT(HANDLE hDevice, DXVA2_VIDEOPROC
 	public PALETTEENTRY[1] peNew;
 }
 
-[CRepr]public struct AM_AC3_ERROR_CONCEALMENT
+[CRepr]
+public struct AM_AC3_ERROR_CONCEALMENT
 {
 	public BOOL fRepeatPreviousBlock;
 	public BOOL fErrorInCurrentBlock;
 }
 
-[CRepr]public struct AM_AC3_ALTERNATE_AUDIO
+[CRepr]
+public struct AM_AC3_ALTERNATE_AUDIO
 {
 	public BOOL fStereo;
 	public uint32 DualMode;
 }
 
-[CRepr]public struct AM_AC3_DOWNMIX
+[CRepr]
+public struct AM_AC3_DOWNMIX
 {
 	public BOOL fDownMix;
 	public BOOL fDolbySurround;
 }
 
-[CRepr]public struct AM_AC3_BIT_STREAM_MODE
+[CRepr]
+public struct AM_AC3_BIT_STREAM_MODE
 {
 	public int32 BitStreamMode;
 }
 
-[CRepr]public struct AM_AC3_DIALOGUE_LEVEL
+[CRepr]
+public struct AM_AC3_DIALOGUE_LEVEL
 {
 	public uint32 DialogueLevel;
 }
 
-[CRepr]public struct AM_AC3_ROOM_TYPE
+[CRepr]
+public struct AM_AC3_ROOM_TYPE
 {
 	public BOOL fLargeRoom;
 }
 
-[CRepr]public struct AM_DVD_YUV
+[CRepr]
+public struct AM_DVD_YUV
 {
 	public uint8 Reserved;
 	public uint8 Y;
@@ -7455,12 +7621,14 @@ public function HRESULT PDXVA2SW_VIDEOPROCESSBLT(HANDLE hDevice, DXVA2_VIDEOPROC
 	public uint8 V;
 }
 
-[CRepr]public struct AM_PROPERTY_SPPAL
+[CRepr]
+public struct AM_PROPERTY_SPPAL
 {
 	public AM_DVD_YUV[16] sppal;
 }
 
-[CRepr]public struct AM_COLCON
+[CRepr]
+public struct AM_COLCON
 {
 	public uint8 _bitfield1;
 	public uint8 _bitfield2;
@@ -7468,7 +7636,8 @@ public function HRESULT PDXVA2SW_VIDEOPROCESSBLT(HANDLE hDevice, DXVA2_VIDEOPROC
 	public uint8 _bitfield4;
 }
 
-[CRepr]public struct AM_PROPERTY_SPHLI
+[CRepr]
+public struct AM_PROPERTY_SPHLI
 {
 	public uint16 HLISS;
 	public uint16 Reserved;
@@ -7481,24 +7650,28 @@ public function HRESULT PDXVA2SW_VIDEOPROCESSBLT(HANDLE hDevice, DXVA2_VIDEOPROC
 	public AM_COLCON ColCon;
 }
 
-[CRepr]public struct AM_DVDCOPY_CHLGKEY
+[CRepr]
+public struct AM_DVDCOPY_CHLGKEY
 {
 	public uint8[10] ChlgKey;
 	public uint8[2] Reserved;
 }
 
-[CRepr]public struct AM_DVDCOPY_BUSKEY
+[CRepr]
+public struct AM_DVDCOPY_BUSKEY
 {
 	public uint8[5] BusKey;
 	public uint8[1] Reserved;
 }
 
-[CRepr]public struct AM_DVDCOPY_DISCKEY
+[CRepr]
+public struct AM_DVDCOPY_DISCKEY
 {
 	public uint8[2048] DiscKey;
 }
 
-[CRepr]public struct AM_DVDCOPY_TITLEKEY
+[CRepr]
+public struct AM_DVDCOPY_TITLEKEY
 {
 	public uint32 KeyFlags;
 	public uint32[2] Reserved1;
@@ -7506,17 +7679,20 @@ public function HRESULT PDXVA2SW_VIDEOPROCESSBLT(HANDLE hDevice, DXVA2_VIDEOPROC
 	public uint8[2] Reserved2;
 }
 
-[CRepr]public struct AM_COPY_MACROVISION
+[CRepr]
+public struct AM_COPY_MACROVISION
 {
 	public uint32 MACROVISIONLevel;
 }
 
-[CRepr]public struct AM_DVDCOPY_SET_COPY_STATE
+[CRepr]
+public struct AM_DVDCOPY_SET_COPY_STATE
 {
 	public uint32 DVDCopyState;
 }
 
-[CRepr]public struct DVD_REGION
+[CRepr]
+public struct DVD_REGION
 {
 	public uint8 CopySystem;
 	public uint8 RegionData;
@@ -7524,9 +7700,11 @@ public function HRESULT PDXVA2SW_VIDEOPROCESSBLT(HANDLE hDevice, DXVA2_VIDEOPROC
 	public uint8 ResetCount;
 }
 
-[CRepr]public struct VIDEOINFOHEADER2
+[CRepr]
+public struct VIDEOINFOHEADER2
 {
-	[CRepr, Union]	public struct _Anonymous_e__Union
+	[CRepr, Union]
+	public struct _Anonymous_e__Union
 	{
 		public uint32 dwControlFlags;
 		public uint32 dwReserved1;
@@ -7546,7 +7724,8 @@ public function HRESULT PDXVA2SW_VIDEOPROCESSBLT(HANDLE hDevice, DXVA2_VIDEOPROC
 	public BITMAPINFOHEADER bmiHeader;
 }
 
-[CRepr]public struct MPEG2VIDEOINFO
+[CRepr]
+public struct MPEG2VIDEOINFO
 {
 	public VIDEOINFOHEADER2 hdr;
 	public uint32 dwStartTimeCode;
@@ -7557,38 +7736,44 @@ public function HRESULT PDXVA2SW_VIDEOPROCESSBLT(HANDLE hDevice, DXVA2_VIDEOPROC
 	public uint32[1] dwSequenceHeader;
 }
 
-[CRepr]public struct AM_DvdKaraokeData
+[CRepr]
+public struct AM_DvdKaraokeData
 {
 	public uint32 dwDownmix;
 	public uint32 dwSpeakerAssignment;
 }
 
-[CRepr]public struct AM_SimpleRateChange
+[CRepr]
+public struct AM_SimpleRateChange
 {
 	public int64 StartTime;
 	public int32 Rate;
 }
 
-[CRepr]public struct AM_QueryRate
+[CRepr]
+public struct AM_QueryRate
 {
 	public int32 lMaxForwardFullFrame;
 	public int32 lMaxReverseFullFrame;
 }
 
-[CRepr]public struct AM_ExactRateChange
+[CRepr]
+public struct AM_ExactRateChange
 {
 	public int64 OutputZeroTime;
 	public int32 Rate;
 }
 
-[CRepr]public struct AM_DVD_ChangeRate
+[CRepr]
+public struct AM_DVD_ChangeRate
 {
 	public int64 StartInTime;
 	public int64 StartOutTime;
 	public int32 Rate;
 }
 
-[CRepr]public struct MP_PARAMINFO
+[CRepr]
+public struct MP_PARAMINFO
 {
 	public MP_TYPE mpType;
 	public uint32 mopCaps;
@@ -7599,7 +7784,8 @@ public function HRESULT PDXVA2SW_VIDEOPROCESSBLT(HANDLE hDevice, DXVA2_VIDEOPROC
 	public char8[32] szLabel;
 }
 
-[CRepr]public struct MP_ENVELOPE_SEGMENT
+[CRepr]
+public struct MP_ENVELOPE_SEGMENT
 {
 	public int64 rtStart;
 	public int64 rtEnd;
@@ -7609,13 +7795,15 @@ public function HRESULT PDXVA2SW_VIDEOPROCESSBLT(HANDLE hDevice, DXVA2_VIDEOPROC
 	public uint32 flags;
 }
 
-[CRepr]public struct VFW_FILTERLIST
+[CRepr]
+public struct VFW_FILTERLIST
 {
 	public uint32 cFilters;
 	public Guid[1] aClsId;
 }
 
-[CRepr]public struct DXVA2_VIDEOSAMPLE
+[CRepr]
+public struct DXVA2_VIDEOSAMPLE
 {
 	public int64 Start;
 	public int64 End;
@@ -7628,7 +7816,8 @@ public function HRESULT PDXVA2SW_VIDEOPROCESSBLT(HANDLE hDevice, DXVA2_VIDEOPROC
 	public DXVA2_Fixed32 PlanarAlpha;
 }
 
-[CRepr]public struct DXVA2_VIDEOPROCESSBLT
+[CRepr]
+public struct DXVA2_VIDEOPROCESSBLT
 {
 	public int64 TargetFrame;
 	public RECT TargetRect;
@@ -7647,7 +7836,8 @@ public function HRESULT PDXVA2SW_VIDEOPROCESSBLT(HANDLE hDevice, DXVA2_VIDEOPROC
 	public uint32 NumSrcSurfaces;
 }
 
-[CRepr]public struct DXVA2SW_CALLBACKS
+[CRepr]
+public struct DXVA2SW_CALLBACKS
 {
 	public uint32 Size;
 	public PDXVA2SW_GETVIDEOPROCESSORRENDERTARGETCOUNT GetVideoProcessorRenderTargetCount;
@@ -7665,7 +7855,8 @@ public function HRESULT PDXVA2SW_VIDEOPROCESSBLT(HANDLE hDevice, DXVA2_VIDEOPROC
 	public PDXVA2SW_VIDEOPROCESSBLT VideoProcessBlt;
 }
 
-[CRepr]public struct DXVA2Trace_DecodeDevCreatedData
+[CRepr]
+public struct DXVA2Trace_DecodeDevCreatedData
 {
 	public EVENT_TRACE_HEADER wmiHeader;
 	public uint64 pObject;
@@ -7676,14 +7867,16 @@ public function HRESULT PDXVA2SW_VIDEOPROCESSBLT(HANDLE hDevice, DXVA2_VIDEOPROC
 	public BOOL Enter;
 }
 
-[CRepr]public struct DXVA2Trace_DecodeDeviceData
+[CRepr]
+public struct DXVA2Trace_DecodeDeviceData
 {
 	public EVENT_TRACE_HEADER wmiHeader;
 	public uint64 pObject;
 	public BOOL Enter;
 }
 
-[CRepr]public struct DXVA2Trace_DecodeDevBeginFrameData
+[CRepr]
+public struct DXVA2Trace_DecodeDevBeginFrameData
 {
 	public EVENT_TRACE_HEADER wmiHeader;
 	public uint64 pObject;
@@ -7691,7 +7884,8 @@ public function HRESULT PDXVA2SW_VIDEOPROCESSBLT(HANDLE hDevice, DXVA2_VIDEOPROC
 	public BOOL Enter;
 }
 
-[CRepr]public struct DXVA2Trace_DecodeDevGetBufferData
+[CRepr]
+public struct DXVA2Trace_DecodeDevGetBufferData
 {
 	public EVENT_TRACE_HEADER wmiHeader;
 	public uint64 pObject;
@@ -7699,7 +7893,8 @@ public function HRESULT PDXVA2SW_VIDEOPROCESSBLT(HANDLE hDevice, DXVA2_VIDEOPROC
 	public BOOL Enter;
 }
 
-[CRepr]public struct DXVA2Trace_VideoProcessDevCreatedData
+[CRepr]
+public struct DXVA2Trace_VideoProcessDevCreatedData
 {
 	public EVENT_TRACE_HEADER wmiHeader;
 	public uint64 pObject;
@@ -7711,14 +7906,16 @@ public function HRESULT PDXVA2SW_VIDEOPROCESSBLT(HANDLE hDevice, DXVA2_VIDEOPROC
 	public BOOL Enter;
 }
 
-[CRepr]public struct DXVA2Trace_VideoProcessDeviceData
+[CRepr]
+public struct DXVA2Trace_VideoProcessDeviceData
 {
 	public EVENT_TRACE_HEADER wmiHeader;
 	public uint64 pObject;
 	public BOOL Enter;
 }
 
-[CRepr]public struct DXVA2TraceVideoProcessBltData
+[CRepr]
+public struct DXVA2TraceVideoProcessBltData
 {
 	public EVENT_TRACE_HEADER wmiHeader;
 	public uint64 pObject;
@@ -7728,7 +7925,8 @@ public function HRESULT PDXVA2SW_VIDEOPROCESSBLT(HANDLE hDevice, DXVA2_VIDEOPROC
 	public BOOL Enter;
 }
 
-[CRepr, Packed(1)]public struct WMDRMProtectionInfo
+[CRepr, Packed(1)]
+public struct WMDRMProtectionInfo
 {
 	public uint16[25] wszKID;
 	public uint64 qwCounter;
@@ -7736,12 +7934,14 @@ public function HRESULT PDXVA2SW_VIDEOPROCESSBLT(HANDLE hDevice, DXVA2_VIDEOPROC
 	public uint8 bOffset;
 }
 
-[CRepr, Packed(1)]public struct BadSampleInfo
+[CRepr, Packed(1)]
+public struct BadSampleInfo
 {
 	public HRESULT hrReason;
 }
 
-[CRepr]public struct STREAMBUFFER_ATTRIBUTE
+[CRepr]
+public struct STREAMBUFFER_ATTRIBUTE
 {
 	public PWSTR pszName;
 	public STREAMBUFFER_ATTR_DATATYPE StreamBufferAttributeType;
@@ -7749,7 +7949,8 @@ public function HRESULT PDXVA2SW_VIDEOPROCESSBLT(HANDLE hDevice, DXVA2_VIDEOPROC
 	public uint16 cbLength;
 }
 
-[CRepr]public struct SBE_PIN_DATA
+[CRepr]
+public struct SBE_PIN_DATA
 {
 	public uint64 cDataBytes;
 	public uint64 cSamplesProcessed;
@@ -7758,7 +7959,8 @@ public function HRESULT PDXVA2SW_VIDEOPROCESSBLT(HANDLE hDevice, DXVA2_VIDEOPROC
 	public uint64 cTimestamps;
 }
 
-[CRepr]public struct SBE2_STREAM_DESC
+[CRepr]
+public struct SBE2_STREAM_DESC
 {
 	public uint32 Version;
 	public uint32 StreamId;
@@ -7766,7 +7968,8 @@ public function HRESULT PDXVA2SW_VIDEOPROCESSBLT(HANDLE hDevice, DXVA2_VIDEOPROC
 	public uint32 Reserved;
 }
 
-[CRepr]public struct DVR_STREAM_DESC
+[CRepr]
+public struct DVR_STREAM_DESC
 {
 	public uint32 Version;
 	public uint32 StreamId;
@@ -7778,30 +7981,36 @@ public function HRESULT PDXVA2SW_VIDEOPROCESSBLT(HANDLE hDevice, DXVA2_VIDEOPROC
 	public AM_MEDIA_TYPE MediaType;
 }
 
-[CRepr, Packed(1)]public struct PID_BITS_MIDL
+[CRepr, Packed(1)]
+public struct PID_BITS_MIDL
 {
 	public uint16 Bits;
 }
 
-[CRepr, Packed(1)]public struct MPEG_HEADER_BITS_MIDL
+[CRepr, Packed(1)]
+public struct MPEG_HEADER_BITS_MIDL
 {
 	public uint16 Bits;
 }
 
-[CRepr]public struct MPEG_HEADER_VERSION_BITS_MIDL
+[CRepr]
+public struct MPEG_HEADER_VERSION_BITS_MIDL
 {
 	public uint8 Bits;
 }
 
-[CRepr, Packed(1)]public struct TID_EXTENSION
+[CRepr, Packed(1)]
+public struct TID_EXTENSION
 {
 	public uint16 wTidExt;
 	public uint16 wCount;
 }
 
-[CRepr]public struct SECTION
+[CRepr]
+public struct SECTION
 {
-	[CRepr, Union, Packed(1)]	public struct _Header_e__Union
+	[CRepr, Union, Packed(1)]
+	public struct _Header_e__Union
 	{
 		public MPEG_HEADER_BITS_MIDL S;
 		public uint16 W;
@@ -7812,15 +8021,18 @@ public function HRESULT PDXVA2SW_VIDEOPROCESSBLT(HANDLE hDevice, DXVA2_VIDEOPROC
 	public uint8[1] SectionData;
 }
 
-[CRepr, Packed(1)]public struct LONG_SECTION
+[CRepr, Packed(1)]
+public struct LONG_SECTION
 {
-	[CRepr, Union, Packed(1)]	public struct _Header_e__Union
+	[CRepr, Union, Packed(1)]
+	public struct _Header_e__Union
 	{
 		public MPEG_HEADER_BITS_MIDL S;
 		public uint16 W;
 	}
 
-	[CRepr, Union]	public struct _Version_e__Union
+	[CRepr, Union]
+	public struct _Version_e__Union
 	{
 		public MPEG_HEADER_VERSION_BITS_MIDL S;
 		public uint8 B;
@@ -7835,15 +8047,18 @@ public function HRESULT PDXVA2SW_VIDEOPROCESSBLT(HANDLE hDevice, DXVA2_VIDEOPROC
 	public uint8[1] RemainingData;
 }
 
-[CRepr, Packed(1)]public struct DSMCC_SECTION
+[CRepr, Packed(1)]
+public struct DSMCC_SECTION
 {
-	[CRepr, Union, Packed(1)]	public struct _Header_e__Union
+	[CRepr, Union, Packed(1)]
+	public struct _Header_e__Union
 	{
 		public MPEG_HEADER_BITS_MIDL S;
 		public uint16 W;
 	}
 
-	[CRepr, Union]	public struct _Version_e__Union
+	[CRepr, Union]
+	public struct _Version_e__Union
 	{
 		public MPEG_HEADER_VERSION_BITS_MIDL S;
 		public uint8 B;
@@ -7865,19 +8080,22 @@ public function HRESULT PDXVA2SW_VIDEOPROCESSBLT(HANDLE hDevice, DXVA2_VIDEOPROC
 	public uint8[1] RemainingData;
 }
 
-[CRepr, Packed(1)]public struct MPEG_RQST_PACKET
+[CRepr, Packed(1)]
+public struct MPEG_RQST_PACKET
 {
 	public uint32 dwLength;
 	public SECTION* pSection;
 }
 
-[CRepr, Packed(1)]public struct MPEG_PACKET_LIST
+[CRepr, Packed(1)]
+public struct MPEG_PACKET_LIST
 {
 	public uint16 wPacketCount;
 	public MPEG_RQST_PACKET*[1] PacketList;
 }
 
-[CRepr, Packed(1)]public struct DSMCC_FILTER_OPTIONS
+[CRepr, Packed(1)]
+public struct DSMCC_FILTER_OPTIONS
 {
 	public BOOL fSpecifyProtocol;
 	public uint8 Protocol;
@@ -7896,19 +8114,22 @@ public function HRESULT PDXVA2SW_VIDEOPROCESSBLT(HANDLE hDevice, DXVA2_VIDEOPROC
 	public uint16 NumberOfBlocksInModule;
 }
 
-[CRepr, Packed(1)]public struct ATSC_FILTER_OPTIONS
+[CRepr, Packed(1)]
+public struct ATSC_FILTER_OPTIONS
 {
 	public BOOL fSpecifyEtmId;
 	public uint32 EtmId;
 }
 
-[CRepr, Packed(1)]public struct DVB_EIT_FILTER_OPTIONS
+[CRepr, Packed(1)]
+public struct DVB_EIT_FILTER_OPTIONS
 {
 	public BOOL fSpecifySegment;
 	public uint8 bSegment;
 }
 
-[CRepr, Packed(1)]public struct MPEG2_FILTER
+[CRepr, Packed(1)]
+public struct MPEG2_FILTER
 {
 	public uint8 bVersionNumber;
 	public uint16 wFilterSize;
@@ -7929,11 +8150,14 @@ public function HRESULT PDXVA2SW_VIDEOPROCESSBLT(HANDLE hDevice, DXVA2_VIDEOPROC
 	public ATSC_FILTER_OPTIONS Atsc;
 }
 
-[CRepr, Packed(1)]public struct MPEG2_FILTER2
+[CRepr, Packed(1)]
+public struct MPEG2_FILTER2
 {
-	[CRepr, Union]	public struct _Anonymous_e__Union
+	[CRepr, Union]
+	public struct _Anonymous_e__Union
 	{
-		[CRepr, Packed(1)]		public struct _Anonymous_e__Struct
+		[CRepr, Packed(1)]
+		public struct _Anonymous_e__Struct
 		{
 			public uint8 bVersionNumber;
 			public uint16 wFilterSize;
@@ -7963,7 +8187,8 @@ public function HRESULT PDXVA2SW_VIDEOPROCESSBLT(HANDLE hDevice, DXVA2_VIDEOPROC
 	public DVB_EIT_FILTER_OPTIONS DvbEit;
 }
 
-[CRepr, Packed(1)]public struct MPEG_STREAM_BUFFER
+[CRepr, Packed(1)]
+public struct MPEG_STREAM_BUFFER
 {
 	public HRESULT hr;
 	public uint32 dwDataBufferSize;
@@ -7971,39 +8196,46 @@ public function HRESULT PDXVA2SW_VIDEOPROCESSBLT(HANDLE hDevice, DXVA2_VIDEOPROC
 	public uint8* pDataBuffer;
 }
 
-[CRepr]public struct MPEG_TIME
+[CRepr]
+public struct MPEG_TIME
 {
 	public uint8 Hours;
 	public uint8 Minutes;
 	public uint8 Seconds;
 }
 
-[CRepr, Packed(1)]public struct MPEG_DATE
+[CRepr, Packed(1)]
+public struct MPEG_DATE
 {
 	public uint8 Date;
 	public uint8 Month;
 	public uint16 Year;
 }
 
-[CRepr]public struct MPEG_DATE_AND_TIME
+[CRepr]
+public struct MPEG_DATE_AND_TIME
 {
 	public MPEG_DATE D;
 	public MPEG_TIME T;
 }
 
-[CRepr, Packed(1)]public struct MPEG_BCS_DEMUX
+[CRepr, Packed(1)]
+public struct MPEG_BCS_DEMUX
 {
 	public uint32 AVMGraphId;
 }
 
-[CRepr, Packed(1)]public struct MPEG_WINSOCK
+[CRepr, Packed(1)]
+public struct MPEG_WINSOCK
 {
 	public uint32 AVMGraphId;
 }
 
-[CRepr, Packed(1)]public struct MPEG_CONTEXT
+[CRepr, Packed(1)]
+public struct MPEG_CONTEXT
 {
-	[CRepr, Union]	public struct _U_e__Union
+	[CRepr, Union]
+	public struct _U_e__Union
 	{
 		public MPEG_BCS_DEMUX Demux;
 		public MPEG_WINSOCK Winsock;
@@ -8013,7 +8245,8 @@ public function HRESULT PDXVA2SW_VIDEOPROCESSBLT(HANDLE hDevice, DXVA2_VIDEOPROC
 	public _U_e__Union U;
 }
 
-[CRepr, Packed(1)]public struct MPEG_SERVICE_REQUEST
+[CRepr, Packed(1)]
+public struct MPEG_SERVICE_REQUEST
 {
 	public MPEG_REQUEST_TYPE Type;
 	public MPEG_CONTEXT Context;
@@ -8023,13 +8256,15 @@ public function HRESULT PDXVA2SW_VIDEOPROCESSBLT(HANDLE hDevice, DXVA2_VIDEOPROC
 	public uint32 Flags;
 }
 
-[CRepr, Packed(1)]public struct MPEG_SERVICE_RESPONSE
+[CRepr, Packed(1)]
+public struct MPEG_SERVICE_RESPONSE
 {
 	public uint32 IPAddress;
 	public uint16 Port;
 }
 
-[CRepr, Packed(1)]public struct DSMCC_ELEMENT
+[CRepr, Packed(1)]
+public struct DSMCC_ELEMENT
 {
 	public uint16 pid;
 	public uint8 bComponentTag;
@@ -8038,14 +8273,16 @@ public function HRESULT PDXVA2SW_VIDEOPROCESSBLT(HANDLE hDevice, DXVA2_VIDEOPROC
 	public DSMCC_ELEMENT* pNext;
 }
 
-[CRepr, Packed(1)]public struct MPE_ELEMENT
+[CRepr, Packed(1)]
+public struct MPE_ELEMENT
 {
 	public uint16 pid;
 	public uint8 bComponentTag;
 	public MPE_ELEMENT* pNext;
 }
 
-[CRepr, Packed(1)]public struct MPEG_STREAM_FILTER
+[CRepr, Packed(1)]
+public struct MPEG_STREAM_FILTER
 {
 	public uint16 wPidValue;
 	public uint32 dwFilterSize;
@@ -8054,20 +8291,23 @@ public function HRESULT PDXVA2SW_VIDEOPROCESSBLT(HANDLE hDevice, DXVA2_VIDEOPROC
 	public uint8[16] rgchMask;
 }
 
-[CRepr, Packed(1)]public struct Mpeg2TableSampleHdr
+[CRepr, Packed(1)]
+public struct Mpeg2TableSampleHdr
 {
 	public uint8 SectionCount;
 	public uint8[3] Reserved;
 	public int32[1] SectionOffsets;
 }
 
-[CRepr]public struct ProgramElement
+[CRepr]
+public struct ProgramElement
 {
 	public uint16 wProgramNumber;
 	public uint16 wProgramMapPID;
 }
 
-[CRepr]public struct UDCR_TAG
+[CRepr]
+public struct UDCR_TAG
 {
 	public uint8 bVersion;
 	public uint8[25] KID;
@@ -8079,17 +8319,20 @@ public function HRESULT PDXVA2SW_VIDEOPROCESSBLT(HANDLE hDevice, DXVA2_VIDEOPROC
 	public uint32 dwReserved2;
 }
 
-[CRepr]public struct PIC_SEQ_SAMPLE
+[CRepr]
+public struct PIC_SEQ_SAMPLE
 {
 	public uint32 _bitfield;
 }
 
-[CRepr]public struct SAMPLE_SEQ_OFFSET
+[CRepr]
+public struct SAMPLE_SEQ_OFFSET
 {
 	public uint32 _bitfield;
 }
 
-[CRepr]public struct VA_OPTIONAL_VIDEO_PROPERTIES
+[CRepr]
+public struct VA_OPTIONAL_VIDEO_PROPERTIES
 {
 	public uint16 dwPictureHeight;
 	public uint16 dwPictureWidth;
@@ -8101,11 +8344,14 @@ public function HRESULT PDXVA2SW_VIDEOPROCESSBLT(HANDLE hDevice, DXVA2_VIDEOPROC
 	public VA_MATRIX_COEFFICIENTS VAMatrixCoefficients;
 }
 
-[CRepr]public struct TRANSPORT_PROPERTIES
+[CRepr]
+public struct TRANSPORT_PROPERTIES
 {
-	[CRepr, Union]	public struct _Fields_e__Union
+	[CRepr, Union]
+	public struct _Fields_e__Union
 	{
-		[CRepr]		public struct _Others
+		[CRepr]
+		public struct _Others
 		{
 			public int64 _bitfield;
 		}
@@ -8119,7 +8365,8 @@ public function HRESULT PDXVA2SW_VIDEOPROCESSBLT(HANDLE hDevice, DXVA2_VIDEOPROC
 	public _Fields_e__Union Fields;
 }
 
-[CRepr]public struct PBDA_TAG_ATTRIBUTE
+[CRepr]
+public struct PBDA_TAG_ATTRIBUTE
 {
 	public Guid TableUUId;
 	public uint8 TableId;
@@ -8128,12 +8375,14 @@ public function HRESULT PDXVA2SW_VIDEOPROCESSBLT(HANDLE hDevice, DXVA2_VIDEOPROC
 	public uint8[1] TableData;
 }
 
-[CRepr]public struct CAPTURE_STREAMTIME
+[CRepr]
+public struct CAPTURE_STREAMTIME
 {
 	public int64 StreamTime;
 }
 
-[CRepr]public struct DSHOW_STREAM_DESC
+[CRepr]
+public struct DSHOW_STREAM_DESC
 {
 	public uint32 VersionNo;
 	public uint32 StreamId;
@@ -8142,13 +8391,15 @@ public function HRESULT PDXVA2SW_VIDEOPROCESSBLT(HANDLE hDevice, DXVA2_VIDEOPROC
 	public uint32 Reserved;
 }
 
-[CRepr]public struct SAMPLE_LIVE_STREAM_TIME
+[CRepr]
+public struct SAMPLE_LIVE_STREAM_TIME
 {
 	public uint64 qwStreamTime;
 	public uint64 qwLiveTime;
 }
 
-[CRepr]public struct KSP_BDA_NODE_PIN
+[CRepr]
+public struct KSP_BDA_NODE_PIN
 {
 	public KSIDENTIFIER Property;
 	public uint32 ulNodeType;
@@ -8156,9 +8407,11 @@ public function HRESULT PDXVA2SW_VIDEOPROCESSBLT(HANDLE hDevice, DXVA2_VIDEOPROC
 	public uint32 ulOutputPinId;
 }
 
-[CRepr]public struct KSM_BDA_PIN
+[CRepr]
+public struct KSM_BDA_PIN
 {
-	[CRepr, Union]	public struct _Anonymous_e__Union
+	[CRepr, Union]
+	public struct _Anonymous_e__Union
 	{
 		public uint32 PinId;
 		public uint32 PinType;
@@ -8169,15 +8422,18 @@ public function HRESULT PDXVA2SW_VIDEOPROCESSBLT(HANDLE hDevice, DXVA2_VIDEOPROC
 	public uint32 Reserved;
 }
 
-[CRepr]public struct KSM_BDA_PIN_PAIR
+[CRepr]
+public struct KSM_BDA_PIN_PAIR
 {
-	[CRepr, Union]	public struct _Anonymous1_e__Union
+	[CRepr, Union]
+	public struct _Anonymous1_e__Union
 	{
 		public uint32 InputPinId;
 		public uint32 InputPinType;
 	}
 
-	[CRepr, Union]	public struct _Anonymous2_e__Union
+	[CRepr, Union]
+	public struct _Anonymous2_e__Union
 	{
 		public uint32 OutputPinId;
 		public uint32 OutputPinType;
@@ -8188,13 +8444,15 @@ public function HRESULT PDXVA2SW_VIDEOPROCESSBLT(HANDLE hDevice, DXVA2_VIDEOPROC
 	public _Anonymous2_e__Union Anonymous2;
 }
 
-[CRepr]public struct KSP_NODE_ESPID
+[CRepr]
+public struct KSP_NODE_ESPID
 {
 	public KSP_NODE Property;
 	public uint32 EsPid;
 }
 
-[CRepr]public struct KSM_BDA_DEBUG_LEVEL
+[CRepr]
+public struct KSM_BDA_DEBUG_LEVEL
 {
 	public KSIDENTIFIER Method;
 	public uint8 ucDebugLevel;
@@ -8202,7 +8460,8 @@ public function HRESULT PDXVA2SW_VIDEOPROCESSBLT(HANDLE hDevice, DXVA2_VIDEOPROC
 	public uint8[1] argbDebugString;
 }
 
-[CRepr]public struct BDA_DEBUG_DATA
+[CRepr]
+public struct BDA_DEBUG_DATA
 {
 	public int32 lResult;
 	public Guid uuidDebugDataType;
@@ -8210,7 +8469,8 @@ public function HRESULT PDXVA2SW_VIDEOPROCESSBLT(HANDLE hDevice, DXVA2_VIDEOPROC
 	public uint8[1] argbDebugData;
 }
 
-[CRepr]public struct BDA_EVENT_DATA
+[CRepr]
+public struct BDA_EVENT_DATA
 {
 	public int32 lResult;
 	public uint32 ulEventID;
@@ -8219,33 +8479,38 @@ public function HRESULT PDXVA2SW_VIDEOPROCESSBLT(HANDLE hDevice, DXVA2_VIDEOPROC
 	public uint8[1] argbEventData;
 }
 
-[CRepr]public struct KSM_BDA_EVENT_COMPLETE
+[CRepr]
+public struct KSM_BDA_EVENT_COMPLETE
 {
 	public KSIDENTIFIER Method;
 	public uint32 ulEventID;
 	public uint32 ulEventResult;
 }
 
-[CRepr]public struct KSM_BDA_DRM_SETDRM
+[CRepr]
+public struct KSM_BDA_DRM_SETDRM
 {
 	public KSM_NODE NodeMethod;
 	public Guid NewDRMuuid;
 }
 
-[CRepr]public struct KSM_BDA_BUFFER
+[CRepr]
+public struct KSM_BDA_BUFFER
 {
 	public KSM_NODE NodeMethod;
 	public uint32 ulBufferSize;
 	public uint8[1] argbBuffer;
 }
 
-[CRepr]public struct KSM_BDA_WMDRM_LICENSE
+[CRepr]
+public struct KSM_BDA_WMDRM_LICENSE
 {
 	public KSM_NODE NodeMethod;
 	public Guid uuidKeyID;
 }
 
-[CRepr]public struct KSM_BDA_WMDRM_RENEWLICENSE
+[CRepr]
+public struct KSM_BDA_WMDRM_RENEWLICENSE
 {
 	public KSM_NODE NodeMethod;
 	public uint32 ulXMRLicenseLength;
@@ -8253,7 +8518,8 @@ public function HRESULT PDXVA2SW_VIDEOPROCESSBLT(HANDLE hDevice, DXVA2_VIDEOPROC
 	public uint8[1] argbDataBuffer;
 }
 
-[CRepr]public struct KSM_BDA_WMDRMTUNER_PURCHASEENTITLEMENT
+[CRepr]
+public struct KSM_BDA_WMDRMTUNER_PURCHASEENTITLEMENT
 {
 	public KSM_NODE NodeMethod;
 	public uint32 ulDialogRequest;
@@ -8262,33 +8528,38 @@ public function HRESULT PDXVA2SW_VIDEOPROCESSBLT(HANDLE hDevice, DXVA2_VIDEOPROC
 	public uint8[1] argbDataBuffer;
 }
 
-[CRepr]public struct KSM_BDA_WMDRMTUNER_SETPIDPROTECTION
+[CRepr]
+public struct KSM_BDA_WMDRMTUNER_SETPIDPROTECTION
 {
 	public KSM_NODE NodeMethod;
 	public uint32 ulPID;
 	public Guid uuidKeyID;
 }
 
-[CRepr]public struct KSM_BDA_WMDRMTUNER_GETPIDPROTECTION
+[CRepr]
+public struct KSM_BDA_WMDRMTUNER_GETPIDPROTECTION
 {
 	public KSM_NODE NodeMethod;
 	public uint32 ulPID;
 }
 
-[CRepr]public struct KSM_BDA_WMDRMTUNER_SYNCVALUE
+[CRepr]
+public struct KSM_BDA_WMDRMTUNER_SYNCVALUE
 {
 	public KSM_NODE NodeMethod;
 	public uint32 ulSyncValue;
 }
 
-[CRepr]public struct KSM_BDA_TUNER_TUNEREQUEST
+[CRepr]
+public struct KSM_BDA_TUNER_TUNEREQUEST
 {
 	public KSIDENTIFIER Method;
 	public uint32 ulTuneLength;
 	public uint8[1] argbTuneData;
 }
 
-[CRepr]public struct KSM_BDA_GPNV_GETVALUE
+[CRepr]
+public struct KSM_BDA_GPNV_GETVALUE
 {
 	public KSIDENTIFIER Method;
 	public uint32 ulNameLength;
@@ -8296,7 +8567,8 @@ public function HRESULT PDXVA2SW_VIDEOPROCESSBLT(HANDLE hDevice, DXVA2_VIDEOPROC
 	public uint8[1] argbData;
 }
 
-[CRepr]public struct KSM_BDA_GPNV_SETVALUE
+[CRepr]
+public struct KSM_BDA_GPNV_SETVALUE
 {
 	public KSIDENTIFIER Method;
 	public uint32 ulDialogRequest;
@@ -8306,19 +8578,22 @@ public function HRESULT PDXVA2SW_VIDEOPROCESSBLT(HANDLE hDevice, DXVA2_VIDEOPROC
 	public uint8[1] argbName;
 }
 
-[CRepr]public struct KSM_BDA_GPNV_NAMEINDEX
+[CRepr]
+public struct KSM_BDA_GPNV_NAMEINDEX
 {
 	public KSIDENTIFIER Method;
 	public uint32 ulValueNameIndex;
 }
 
-[CRepr]public struct KSM_BDA_SCAN_CAPABILTIES
+[CRepr]
+public struct KSM_BDA_SCAN_CAPABILTIES
 {
 	public KSIDENTIFIER Method;
 	public Guid uuidBroadcastStandard;
 }
 
-[CRepr]public struct KSM_BDA_SCAN_FILTER
+[CRepr]
+public struct KSM_BDA_SCAN_FILTER
 {
 	public KSIDENTIFIER Method;
 	public uint32 ulScanModulationTypeSize;
@@ -8326,33 +8601,38 @@ public function HRESULT PDXVA2SW_VIDEOPROCESSBLT(HANDLE hDevice, DXVA2_VIDEOPROC
 	public uint8[1] argbScanModulationTypes;
 }
 
-[CRepr]public struct KSM_BDA_SCAN_START
+[CRepr]
+public struct KSM_BDA_SCAN_START
 {
 	public KSIDENTIFIER Method;
 	public uint32 LowerFrequency;
 	public uint32 HigherFrequency;
 }
 
-[CRepr]public struct KSM_BDA_GDDS_TUNEXMLFROMIDX
+[CRepr]
+public struct KSM_BDA_GDDS_TUNEXMLFROMIDX
 {
 	public KSIDENTIFIER Method;
 	public uint64 ulIdx;
 }
 
-[CRepr]public struct KSM_BDA_GDDS_SERVICEFROMTUNEXML
+[CRepr]
+public struct KSM_BDA_GDDS_SERVICEFROMTUNEXML
 {
 	public KSIDENTIFIER Method;
 	public uint32 ulTuneXmlLength;
 	public uint8[1] argbTuneXml;
 }
 
-[CRepr]public struct KSM_BDA_USERACTIVITY_USEREASON
+[CRepr]
+public struct KSM_BDA_USERACTIVITY_USEREASON
 {
 	public KSIDENTIFIER Method;
 	public uint32 ulUseReason;
 }
 
-[CRepr]public struct KSM_BDA_CAS_ENTITLEMENTTOKEN
+[CRepr]
+public struct KSM_BDA_CAS_ENTITLEMENTTOKEN
 {
 	public KSM_NODE NodeMethod;
 	public uint32 ulDialogRequest;
@@ -8362,14 +8642,16 @@ public function HRESULT PDXVA2SW_VIDEOPROCESSBLT(HANDLE hDevice, DXVA2_VIDEOPROC
 	public uint8[1] argbEntitlementToken;
 }
 
-[CRepr]public struct KSM_BDA_CAS_CAPTURETOKEN
+[CRepr]
+public struct KSM_BDA_CAS_CAPTURETOKEN
 {
 	public KSM_NODE NodeMethod;
 	public uint32 ulTokenLength;
 	public uint8[1] argbToken;
 }
 
-[CRepr]public struct KSM_BDA_CAS_OPENBROADCASTMMI
+[CRepr]
+public struct KSM_BDA_CAS_OPENBROADCASTMMI
 {
 	public KSM_NODE NodeMethod;
 	public uint32 ulDialogRequest;
@@ -8377,7 +8659,8 @@ public function HRESULT PDXVA2SW_VIDEOPROCESSBLT(HANDLE hDevice, DXVA2_VIDEOPROC
 	public uint32 ulEventId;
 }
 
-[CRepr]public struct KSM_BDA_CAS_CLOSEMMIDIALOG
+[CRepr]
+public struct KSM_BDA_CAS_CLOSEMMIDIALOG
 {
 	public KSM_NODE NodeMethod;
 	public uint32 ulDialogRequest;
@@ -8386,7 +8669,8 @@ public function HRESULT PDXVA2SW_VIDEOPROCESSBLT(HANDLE hDevice, DXVA2_VIDEOPROC
 	public uint32 ulReason;
 }
 
-[CRepr]public struct KSM_BDA_ISDBCAS_REQUEST
+[CRepr]
+public struct KSM_BDA_ISDBCAS_REQUEST
 {
 	public KSM_NODE NodeMethod;
 	public uint32 ulRequestID;
@@ -8394,18 +8678,21 @@ public function HRESULT PDXVA2SW_VIDEOPROCESSBLT(HANDLE hDevice, DXVA2_VIDEOPROC
 	public uint8[1] argbIsdbCommandData;
 }
 
-[CRepr]public struct KSM_BDA_TS_SELECTOR_SETTSID
+[CRepr]
+public struct KSM_BDA_TS_SELECTOR_SETTSID
 {
 	public KSM_NODE NodeMethod;
 	public uint16 usTSID;
 }
 
-[CRepr]public struct KS_DATARANGE_BDA_ANTENNA
+[CRepr]
+public struct KS_DATARANGE_BDA_ANTENNA
 {
 	public KSDATAFORMAT DataRange;
 }
 
-[CRepr]public struct BDA_TRANSPORT_INFO
+[CRepr]
+public struct BDA_TRANSPORT_INFO
 {
 	public uint32 ulcbPhyiscalPacket;
 	public uint32 ulcbPhyiscalFrame;
@@ -8413,41 +8700,49 @@ public function HRESULT PDXVA2SW_VIDEOPROCESSBLT(HANDLE hDevice, DXVA2_VIDEOPROC
 	public int64 AvgTimePerFrame;
 }
 
-[CRepr]public struct KS_DATARANGE_BDA_TRANSPORT
+[CRepr]
+public struct KS_DATARANGE_BDA_TRANSPORT
 {
 	public KSDATAFORMAT DataRange;
 	public BDA_TRANSPORT_INFO BdaTransportInfo;
 }
 
-[CRepr]public struct ChannelChangeInfo
+[CRepr]
+public struct ChannelChangeInfo
 {
 	public ChannelChangeSpanningEvent_State state;
 	public uint64 TimeStamp;
 }
 
-[CRepr]public struct ChannelTypeInfo
+[CRepr]
+public struct ChannelTypeInfo
 {
 	public ChannelType channelType;
 	public uint64 timeStamp;
 }
 
-[CRepr]public struct ChannelInfo
+[CRepr]
+public struct ChannelInfo
 {
-	[CRepr, Union]	public struct _Anonymous_e__Union
+	[CRepr, Union]
+	public struct _Anonymous_e__Union
 	{
-		[CRepr]		public struct _DC_e__Struct
+		[CRepr]
+		public struct _DC_e__Struct
 		{
 			public int32 lProgNumber;
 		}
 
-		[CRepr]		public struct _DVB_e__Struct
+		[CRepr]
+		public struct _DVB_e__Struct
 		{
 			public int32 lONID;
 			public int32 lTSID;
 			public int32 lSID;
 		}
 
-		[CRepr]		public struct _ATSC_e__Struct
+		[CRepr]
+		public struct _ATSC_e__Struct
 		{
 			public int32 lProgNumber;
 		}
@@ -8461,7 +8756,8 @@ public function HRESULT PDXVA2SW_VIDEOPROCESSBLT(HANDLE hDevice, DXVA2_VIDEOPROC
 	public using _Anonymous_e__Union Anonymous;
 }
 
-[CRepr]public struct SpanningEventDescriptor
+[CRepr]
+public struct SpanningEventDescriptor
 {
 	public uint16 wDataLen;
 	public uint16 wProgNumber;
@@ -8469,13 +8765,15 @@ public function HRESULT PDXVA2SW_VIDEOPROCESSBLT(HANDLE hDevice, DXVA2_VIDEOPROC
 	public uint8[1] bDescriptor;
 }
 
-[CRepr]public struct DVBScramblingControlSpanningEvent
+[CRepr]
+public struct DVBScramblingControlSpanningEvent
 {
 	public uint32 ulPID;
 	public BOOL fScrambled;
 }
 
-[CRepr]public struct SpanningEventEmmMessage
+[CRepr]
+public struct SpanningEventEmmMessage
 {
 	public uint8 bCAbroadcasterGroupId;
 	public uint8 bMessageControl;
@@ -8492,13 +8790,15 @@ public function HRESULT PDXVA2SW_VIDEOPROCESSBLT(HANDLE hDevice, DXVA2_VIDEOPROC
 	public char8[1] szMessageArea;
 }
 
-[CRepr]public struct LanguageInfo
+[CRepr]
+public struct LanguageInfo
 {
 	public uint16 LangID;
 	public int32 lISOLangCode;
 }
 
-[CRepr]public struct DualMonoInfo
+[CRepr]
+public struct DualMonoInfo
 {
 	public uint16 LangID1;
 	public uint16 LangID2;
@@ -8506,19 +8806,22 @@ public function HRESULT PDXVA2SW_VIDEOPROCESSBLT(HANDLE hDevice, DXVA2_VIDEOPROC
 	public int32 lISOLangCode2;
 }
 
-[CRepr]public struct PIDListSpanningEvent
+[CRepr]
+public struct PIDListSpanningEvent
 {
 	public uint16 wPIDCount;
 	public uint32[1] pulPIDs;
 }
 
-[CRepr, Packed(1)]public struct RATING_ATTRIBUTE
+[CRepr, Packed(1)]
+public struct RATING_ATTRIBUTE
 {
 	public uint32 rating_attribute_id;
 	public uint32 rating_attribute_value;
 }
 
-[CRepr, Packed(1)]public struct RATING_SYSTEM
+[CRepr, Packed(1)]
+public struct RATING_SYSTEM
 {
 	public Guid rating_system_id;
 	public uint8 _bitfield;
@@ -8527,31 +8830,36 @@ public function HRESULT PDXVA2SW_VIDEOPROCESSBLT(HANDLE hDevice, DXVA2_VIDEOPROC
 	public RATING_ATTRIBUTE* lpratingattrib;
 }
 
-[CRepr, Packed(1)]public struct RATING_INFO
+[CRepr, Packed(1)]
+public struct RATING_INFO
 {
 	public uint32 rating_system_count;
 	public RATING_SYSTEM* lpratingsystem;
 }
 
-[CRepr, Packed(1)]public struct PBDAParentalControl
+[CRepr, Packed(1)]
+public struct PBDAParentalControl
 {
 	public uint32 rating_system_count;
 	public RATING_SYSTEM* rating_systems;
 }
 
-[CRepr]public struct DvbParentalRatingParam
+[CRepr]
+public struct DvbParentalRatingParam
 {
 	public CHAR[4] szCountryCode;
 	public uint8 bRating;
 }
 
-[CRepr]public struct DvbParentalRatingDescriptor
+[CRepr]
+public struct DvbParentalRatingDescriptor
 {
 	public uint32 ulNumParams;
 	public DvbParentalRatingParam[1] pParams;
 }
 
-[CRepr]public struct KSPROPERTY_BDA_RF_TUNER_CAPS_S
+[CRepr]
+public struct KSPROPERTY_BDA_RF_TUNER_CAPS_S
 {
 	public KSP_NODE Property;
 	public uint32 Mode;
@@ -8565,7 +8873,8 @@ public function HRESULT PDXVA2SW_VIDEOPROCESSBLT(HANDLE hDevice, DXVA2_VIDEOPROC
 	public uint32 MilliSecondsPerMHz;
 }
 
-[CRepr]public struct KSPROPERTY_BDA_RF_TUNER_SCAN_STATUS_S
+[CRepr]
+public struct KSPROPERTY_BDA_RF_TUNER_SCAN_STATUS_S
 {
 	public KSP_NODE Property;
 	public uint32 CurrentFrequency;
@@ -8574,20 +8883,23 @@ public function HRESULT PDXVA2SW_VIDEOPROCESSBLT(HANDLE hDevice, DXVA2_VIDEOPROC
 	public uint32 MilliSecondsLeft;
 }
 
-[CRepr]public struct KSPROPERTY_BDA_RF_TUNER_STANDARD_S
+[CRepr]
+public struct KSPROPERTY_BDA_RF_TUNER_STANDARD_S
 {
 	public KSP_NODE Property;
 	public BDA_SignalType SignalType;
 	public uint32 SignalStandard;
 }
 
-[CRepr]public struct KSPROPERTY_BDA_RF_TUNER_STANDARD_MODE_S
+[CRepr]
+public struct KSPROPERTY_BDA_RF_TUNER_STANDARD_MODE_S
 {
 	public KSP_NODE Property;
 	public BOOL AutoDetect;
 }
 
-[CRepr]public struct KSEVENTDATA_BDA_RF_TUNER_SCAN_S
+[CRepr]
+public struct KSEVENTDATA_BDA_RF_TUNER_SCAN_S
 {
 	public KSEVENTDATA EventData;
 	public uint32 StartFrequency;
@@ -8595,22 +8907,26 @@ public function HRESULT PDXVA2SW_VIDEOPROCESSBLT(HANDLE hDevice, DXVA2_VIDEOPROC
 	public BDA_LockType LockRequested;
 }
 
-[CRepr, Packed(1)]public struct PID_BITS
+[CRepr, Packed(1)]
+public struct PID_BITS
 {
 	public uint16 _bitfield;
 }
 
-[CRepr, Packed(1)]public struct MPEG_HEADER_BITS
+[CRepr, Packed(1)]
+public struct MPEG_HEADER_BITS
 {
 	public uint16 _bitfield;
 }
 
-[CRepr]public struct MPEG_HEADER_VERSION_BITS
+[CRepr]
+public struct MPEG_HEADER_VERSION_BITS
 {
 	public uint8 _bitfield;
 }
 
-[CRepr, Packed(1)]public struct MPEG1WAVEFORMAT
+[CRepr, Packed(1)]
+public struct MPEG1WAVEFORMAT
 {
 	public WAVEFORMATEX wfx;
 	public uint16 fwHeadLayer;
@@ -8623,7 +8939,8 @@ public function HRESULT PDXVA2SW_VIDEOPROCESSBLT(HANDLE hDevice, DXVA2_VIDEOPROC
 	public uint32 dwPTSHigh;
 }
 
-[CRepr, Packed(1)]public struct MPEGLAYER3WAVEFORMAT
+[CRepr, Packed(1)]
+public struct MPEGLAYER3WAVEFORMAT
 {
 	public WAVEFORMATEX wfx;
 	public uint16 wID;
@@ -8633,7 +8950,8 @@ public function HRESULT PDXVA2SW_VIDEOPROCESSBLT(HANDLE hDevice, DXVA2_VIDEOPROC
 	public uint16 nCodecDelay;
 }
 
-[CRepr, Packed(1)]public struct HEAACWAVEINFO
+[CRepr, Packed(1)]
+public struct HEAACWAVEINFO
 {
 	public WAVEFORMATEX wfx;
 	public uint16 wPayloadType;
@@ -8643,13 +8961,15 @@ public function HRESULT PDXVA2SW_VIDEOPROCESSBLT(HANDLE hDevice, DXVA2_VIDEOPROC
 	public uint32 dwReserved2;
 }
 
-[CRepr]public struct HEAACWAVEFORMAT
+[CRepr]
+public struct HEAACWAVEFORMAT
 {
 	public HEAACWAVEINFO wfInfo;
 	public uint8[1] pbAudioSpecificConfig;
 }
 
-[CRepr]public struct DXVA_COPPSetProtectionLevelCmdData
+[CRepr]
+public struct DXVA_COPPSetProtectionLevelCmdData
 {
 	public uint32 ProtType;
 	public uint32 ProtLevel;
@@ -8657,7 +8977,8 @@ public function HRESULT PDXVA2SW_VIDEOPROCESSBLT(HANDLE hDevice, DXVA2_VIDEOPROC
 	public uint32 ExtendedInfoData;
 }
 
-[CRepr]public struct DXVA_COPPSetSignalingCmdData
+[CRepr]
+public struct DXVA_COPPSetSignalingCmdData
 {
 	public uint32 ActiveTVProtectionStandard;
 	public uint32 AspectRatioChangeMask1;
@@ -8671,7 +8992,8 @@ public function HRESULT PDXVA2SW_VIDEOPROCESSBLT(HANDLE hDevice, DXVA2_VIDEOPROC
 	public uint32 Reserved;
 }
 
-[CRepr]public struct DXVA_COPPStatusData
+[CRepr]
+public struct DXVA_COPPStatusData
 {
 	public Guid rApp;
 	public uint32 dwFlags;
@@ -8680,7 +9002,8 @@ public function HRESULT PDXVA2SW_VIDEOPROCESSBLT(HANDLE hDevice, DXVA2_VIDEOPROC
 	public uint32 ExtendedInfoData;
 }
 
-[CRepr]public struct DXVA_COPPStatusDisplayData
+[CRepr]
+public struct DXVA_COPPStatusDisplayData
 {
 	public Guid rApp;
 	public uint32 dwFlags;
@@ -8692,7 +9015,8 @@ public function HRESULT PDXVA2SW_VIDEOPROCESSBLT(HANDLE hDevice, DXVA2_VIDEOPROC
 	public uint32 FreqDenominator;
 }
 
-[CRepr]public struct DXVA_COPPStatusHDCPKeyData
+[CRepr]
+public struct DXVA_COPPStatusHDCPKeyData
 {
 	public Guid rApp;
 	public uint32 dwFlags;
@@ -8702,7 +9026,8 @@ public function HRESULT PDXVA2SW_VIDEOPROCESSBLT(HANDLE hDevice, DXVA2_VIDEOPROC
 	public Guid Reserved2;
 }
 
-[CRepr]public struct DXVA_COPPStatusSignalingCmdData
+[CRepr]
+public struct DXVA_COPPStatusSignalingCmdData
 {
 	public Guid rApp;
 	public uint32 dwFlags;

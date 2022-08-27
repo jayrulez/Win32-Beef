@@ -21,14 +21,16 @@ public enum HARDWARE_COUNTER_TYPE : int32
 #endregion
 
 #region Structs
-[CRepr]public struct HARDWARE_COUNTER_DATA
+[CRepr]
+public struct HARDWARE_COUNTER_DATA
 {
 	public HARDWARE_COUNTER_TYPE Type;
 	public uint32 Reserved;
 	public uint64 Value;
 }
 
-[CRepr]public struct PERFORMANCE_DATA
+[CRepr]
+public struct PERFORMANCE_DATA
 {
 	public uint16 Size;
 	public uint8 Version;

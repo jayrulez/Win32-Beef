@@ -788,21 +788,24 @@ public function void NotificationHandler(Guid connectionId, void* pContextData);
 #endregion
 
 #region Structs
-[CRepr]public struct NgcTicketContext
+[CRepr]
+public struct NgcTicketContext
 {
 	public char8[45] wszTicket;
 	public uint hKey;
 	public HANDLE hImpersonateToken;
 }
 
-[CRepr]public struct RAS_AUTH_ATTRIBUTE
+[CRepr]
+public struct RAS_AUTH_ATTRIBUTE
 {
 	public RAS_AUTH_ATTRIBUTE_TYPE raaType;
 	public uint32 dwLength;
 	public void* Value;
 }
 
-[CRepr]public struct PPP_EAP_PACKET
+[CRepr]
+public struct PPP_EAP_PACKET
 {
 	public uint8 Code;
 	public uint8 Id;
@@ -810,7 +813,8 @@ public function void NotificationHandler(Guid connectionId, void* pContextData);
 	public uint8[1] Data;
 }
 
-[CRepr]public struct PPP_EAP_INPUT
+[CRepr]
+public struct PPP_EAP_INPUT
 {
 	public uint32 dwSizeInBytes;
 	public uint32 fFlags;
@@ -835,7 +839,8 @@ public function void NotificationHandler(Guid connectionId, void* pContextData);
 	public BOOL isVpn;
 }
 
-[CRepr]public struct PPP_EAP_OUTPUT
+[CRepr]
+public struct PPP_EAP_OUTPUT
 {
 	public uint32 dwSizeInBytes;
 	public PPP_EAP_ACTION Action;
@@ -854,7 +859,8 @@ public function void NotificationHandler(Guid connectionId, void* pContextData);
 	public BOOL fSaveToCredMan;
 }
 
-[CRepr]public struct PPP_EAP_INFO
+[CRepr]
+public struct PPP_EAP_INFO
 {
 	public uint32 dwSizeInBytes;
 	public uint32 dwEapTypeId;
@@ -864,7 +870,8 @@ public function void NotificationHandler(Guid connectionId, void* pContextData);
 	public int RasEapMakeMessage;
 }
 
-[CRepr]public struct LEGACY_IDENTITY_UI_PARAMS
+[CRepr]
+public struct LEGACY_IDENTITY_UI_PARAMS
 {
 	public uint32 eapType;
 	public uint32 dwFlags;
@@ -878,7 +885,8 @@ public function void NotificationHandler(Guid connectionId, void* pContextData);
 	public uint32 dwError;
 }
 
-[CRepr]public struct LEGACY_INTERACTIVE_UI_PARAMS
+[CRepr]
+public struct LEGACY_INTERACTIVE_UI_PARAMS
 {
 	public uint32 eapType;
 	public uint32 dwSizeofContextData;
@@ -888,20 +896,23 @@ public function void NotificationHandler(Guid connectionId, void* pContextData);
 	public uint32 dwError;
 }
 
-[CRepr]public struct EAP_TYPE
+[CRepr]
+public struct EAP_TYPE
 {
 	public uint8 type;
 	public uint32 dwVendorId;
 	public uint32 dwVendorType;
 }
 
-[CRepr]public struct EAP_METHOD_TYPE
+[CRepr]
+public struct EAP_METHOD_TYPE
 {
 	public EAP_TYPE eapType;
 	public uint32 dwAuthorId;
 }
 
-[CRepr]public struct EAP_METHOD_INFO
+[CRepr]
+public struct EAP_METHOD_INFO
 {
 	public EAP_METHOD_TYPE eaptype;
 	public PWSTR pwszAuthorName;
@@ -910,7 +921,8 @@ public function void NotificationHandler(Guid connectionId, void* pContextData);
 	public EAP_METHOD_INFO* pInnerMethodInfo;
 }
 
-[CRepr]public struct EAP_METHOD_INFO_EX
+[CRepr]
+public struct EAP_METHOD_INFO_EX
 {
 	public EAP_METHOD_TYPE eaptype;
 	public PWSTR pwszAuthorName;
@@ -919,19 +931,22 @@ public function void NotificationHandler(Guid connectionId, void* pContextData);
 	public EAP_METHOD_INFO_ARRAY_EX* pInnerMethodInfoArray;
 }
 
-[CRepr]public struct EAP_METHOD_INFO_ARRAY
+[CRepr]
+public struct EAP_METHOD_INFO_ARRAY
 {
 	public uint32 dwNumberOfMethods;
 	public EAP_METHOD_INFO* pEapMethods;
 }
 
-[CRepr]public struct EAP_METHOD_INFO_ARRAY_EX
+[CRepr]
+public struct EAP_METHOD_INFO_ARRAY_EX
 {
 	public uint32 dwNumberOfMethods;
 	public EAP_METHOD_INFO_EX* pEapMethods;
 }
 
-[CRepr]public struct EAP_ERROR
+[CRepr]
+public struct EAP_ERROR
 {
 	public uint32 dwWinError;
 	public EAP_METHOD_TYPE type;
@@ -943,20 +958,23 @@ public function void NotificationHandler(Guid connectionId, void* pContextData);
 	public PWSTR pRepairString;
 }
 
-[CRepr]public struct EAP_ATTRIBUTE
+[CRepr]
+public struct EAP_ATTRIBUTE
 {
 	public EAP_ATTRIBUTE_TYPE eaType;
 	public uint32 dwLength;
 	public uint8* pValue;
 }
 
-[CRepr]public struct EAP_ATTRIBUTES
+[CRepr]
+public struct EAP_ATTRIBUTES
 {
 	public uint32 dwNumberOfAttributes;
 	public EAP_ATTRIBUTE* pAttribs;
 }
 
-[CRepr]public struct EAP_CONFIG_INPUT_FIELD_DATA
+[CRepr]
+public struct EAP_CONFIG_INPUT_FIELD_DATA
 {
 	public uint32 dwSize;
 	public EAP_CONFIG_INPUT_FIELD_TYPE Type;
@@ -967,27 +985,31 @@ public function void NotificationHandler(Guid connectionId, void* pContextData);
 	public uint32 dwMaxDataLength;
 }
 
-[CRepr]public struct EAP_CONFIG_INPUT_FIELD_ARRAY
+[CRepr]
+public struct EAP_CONFIG_INPUT_FIELD_ARRAY
 {
 	public uint32 dwVersion;
 	public uint32 dwNumberOfFields;
 	public EAP_CONFIG_INPUT_FIELD_DATA* pFields;
 }
 
-[CRepr]public struct EAP_CRED_EXPIRY_REQ
+[CRepr]
+public struct EAP_CRED_EXPIRY_REQ
 {
 	public EAP_CONFIG_INPUT_FIELD_ARRAY curCreds;
 	public EAP_CONFIG_INPUT_FIELD_ARRAY newCreds;
 }
 
-[CRepr, Union]public struct EAP_UI_DATA_FORMAT
+[CRepr, Union]
+public struct EAP_UI_DATA_FORMAT
 {
 	public EAP_CONFIG_INPUT_FIELD_ARRAY* credData;
 	public EAP_CRED_EXPIRY_REQ* credExpiryData;
 	public EAP_CONFIG_INPUT_FIELD_ARRAY* credLogonData;
 }
 
-[CRepr]public struct EAP_INTERACTIVE_UI_DATA
+[CRepr]
+public struct EAP_INTERACTIVE_UI_DATA
 {
 	public uint32 dwVersion;
 	public uint32 dwSize;
@@ -996,45 +1018,52 @@ public function void NotificationHandler(Guid connectionId, void* pContextData);
 	public EAP_UI_DATA_FORMAT pbUiData;
 }
 
-[CRepr]public struct EAP_METHOD_PROPERTY_VALUE_BOOL
+[CRepr]
+public struct EAP_METHOD_PROPERTY_VALUE_BOOL
 {
 	public uint32 length;
 	public BOOL value;
 }
 
-[CRepr]public struct EAP_METHOD_PROPERTY_VALUE_DWORD
+[CRepr]
+public struct EAP_METHOD_PROPERTY_VALUE_DWORD
 {
 	public uint32 length;
 	public uint32 value;
 }
 
-[CRepr]public struct EAP_METHOD_PROPERTY_VALUE_STRING
+[CRepr]
+public struct EAP_METHOD_PROPERTY_VALUE_STRING
 {
 	public uint32 length;
 	public uint8* value;
 }
 
-[CRepr, Union]public struct EAP_METHOD_PROPERTY_VALUE
+[CRepr, Union]
+public struct EAP_METHOD_PROPERTY_VALUE
 {
 	public EAP_METHOD_PROPERTY_VALUE_BOOL empvBool;
 	public EAP_METHOD_PROPERTY_VALUE_DWORD empvDword;
 	public EAP_METHOD_PROPERTY_VALUE_STRING empvString;
 }
 
-[CRepr]public struct EAP_METHOD_PROPERTY
+[CRepr]
+public struct EAP_METHOD_PROPERTY
 {
 	public EAP_METHOD_PROPERTY_TYPE eapMethodPropertyType;
 	public EAP_METHOD_PROPERTY_VALUE_TYPE eapMethodPropertyValueType;
 	public EAP_METHOD_PROPERTY_VALUE eapMethodPropertyValue;
 }
 
-[CRepr]public struct EAP_METHOD_PROPERTY_ARRAY
+[CRepr]
+public struct EAP_METHOD_PROPERTY_ARRAY
 {
 	public uint32 dwNumberOfProperties;
 	public EAP_METHOD_PROPERTY* pMethodProperty;
 }
 
-[CRepr]public struct EAPHOST_IDENTITY_UI_PARAMS
+[CRepr]
+public struct EAPHOST_IDENTITY_UI_PARAMS
 {
 	public EAP_METHOD_TYPE eapMethodType;
 	public uint32 dwFlags;
@@ -1049,7 +1078,8 @@ public function void NotificationHandler(Guid connectionId, void* pContextData);
 	public EAP_ERROR* pEapError;
 }
 
-[CRepr]public struct EAPHOST_INTERACTIVE_UI_PARAMS
+[CRepr]
+public struct EAPHOST_INTERACTIVE_UI_PARAMS
 {
 	public uint32 dwSizeofContextData;
 	public uint8* pContextData;
@@ -1059,44 +1089,51 @@ public function void NotificationHandler(Guid connectionId, void* pContextData);
 	public EAP_ERROR* pEapError;
 }
 
-[CRepr]public struct EapUsernamePasswordCredential
+[CRepr]
+public struct EapUsernamePasswordCredential
 {
 	public PWSTR username;
 	public PWSTR password;
 }
 
-[CRepr]public struct EapCertificateCredential
+[CRepr]
+public struct EapCertificateCredential
 {
 	public uint8[20] certHash;
 	public PWSTR password;
 }
 
-[CRepr]public struct EapSimCredential
+[CRepr]
+public struct EapSimCredential
 {
 	public PWSTR iccID;
 }
 
-[CRepr, Union]public struct EapCredentialTypeData
+[CRepr, Union]
+public struct EapCredentialTypeData
 {
 	public EapUsernamePasswordCredential username_password;
 	public EapCertificateCredential certificate;
 	public EapSimCredential sim;
 }
 
-[CRepr]public struct EapCredential
+[CRepr]
+public struct EapCredential
 {
 	public EapCredentialType credType;
 	public EapCredentialTypeData credData;
 }
 
-[CRepr]public struct EAPHOST_AUTH_INFO
+[CRepr]
+public struct EAPHOST_AUTH_INFO
 {
 	public EAPHOST_AUTH_STATUS status;
 	public uint32 dwErrorCode;
 	public uint32 dwReasonCode;
 }
 
-[CRepr]public struct EapHostPeerMethodResult
+[CRepr]
+public struct EapHostPeerMethodResult
 {
 	public BOOL fIsSuccess;
 	public uint32 dwFailureReasonCode;
@@ -1112,7 +1149,8 @@ public function void NotificationHandler(Guid connectionId, void* pContextData);
 	public EAP_ERROR* pEapError;
 }
 
-[CRepr]public struct EapPacket
+[CRepr]
+public struct EapPacket
 {
 	public uint8 Code;
 	public uint8 Id;
@@ -1120,20 +1158,23 @@ public function void NotificationHandler(Guid connectionId, void* pContextData);
 	public uint8[1] Data;
 }
 
-[CRepr]public struct EAP_METHOD_AUTHENTICATOR_RESULT
+[CRepr]
+public struct EAP_METHOD_AUTHENTICATOR_RESULT
 {
 	public BOOL fIsSuccess;
 	public uint32 dwFailureReason;
 	public EAP_ATTRIBUTES* pAuthAttribs;
 }
 
-[CRepr]public struct EapPeerMethodOutput
+[CRepr]
+public struct EapPeerMethodOutput
 {
 	public EapPeerMethodResponseAction action;
 	public BOOL fAllowNotifications;
 }
 
-[CRepr]public struct EapPeerMethodResult
+[CRepr]
+public struct EapPeerMethodResult
 {
 	public BOOL fIsSuccess;
 	public uint32 dwFailureReasonCode;
@@ -1149,7 +1190,8 @@ public function void NotificationHandler(Guid connectionId, void* pContextData);
 	public BOOL fSaveToCredMan;
 }
 
-[CRepr]public struct EAP_PEER_METHOD_ROUTINES
+[CRepr]
+public struct EAP_PEER_METHOD_ROUTINES
 {
 	public uint32 dwVersion;
 	public EAP_TYPE* pEapType;
@@ -1168,7 +1210,8 @@ public function void NotificationHandler(Guid connectionId, void* pContextData);
 	public int EapPeerShutdown;
 }
 
-[CRepr]public struct EAP_AUTHENTICATOR_METHOD_ROUTINES
+[CRepr]
+public struct EAP_AUTHENTICATOR_METHOD_ROUTINES
 {
 	public uint32 dwSizeInBytes;
 	public EAP_METHOD_TYPE* pEapType;

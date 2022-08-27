@@ -28,7 +28,8 @@ public static
 #endregion
 
 #region Structs
-[CRepr]public struct CORRELATION_VECTOR
+[CRepr]
+public struct CORRELATION_VECTOR
 {
 	public CHAR Version;
 	public CHAR[129] Vector;

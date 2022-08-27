@@ -146,14 +146,16 @@ public function int PFNFDINOTIFY(FDINOTIFICATIONTYPE fdint, FDINOTIFICATION* pfd
 #endregion
 
 #region Structs
-[CRepr]public struct ERF
+[CRepr]
+public struct ERF
 {
 	public int32 erfOper;
 	public int32 erfType;
 	public BOOL fError;
 }
 
-[CRepr]public struct CCAB
+[CRepr]
+public struct CCAB
 {
 	public uint32 cb;
 	public uint32 cbFolderThresh;
@@ -169,7 +171,8 @@ public function int PFNFDINOTIFY(FDINOTIFICATIONTYPE fdint, FDINOTIFICATION* pfd
 	public CHAR[256] szCabPath;
 }
 
-[CRepr]public struct FDICABINETINFO
+[CRepr]
+public struct FDICABINETINFO
 {
 	public int32 cbCabinet;
 	public uint16 cFolders;
@@ -181,11 +184,14 @@ public function int PFNFDINOTIFY(FDINOTIFICATIONTYPE fdint, FDINOTIFICATION* pfd
 	public BOOL hasnext;
 }
 
-[CRepr]public struct FDIDECRYPT
+[CRepr]
+public struct FDIDECRYPT
 {
-	[CRepr, Union]	public struct _Anonymous_e__Union
+	[CRepr, Union]
+	public struct _Anonymous_e__Union
 	{
-		[CRepr]		public struct _decrypt_e__Struct
+		[CRepr]
+		public struct _decrypt_e__Struct
 		{
 			public void* pDataReserve;
 			public uint16 cbDataReserve;
@@ -195,7 +201,8 @@ public function int PFNFDINOTIFY(FDINOTIFICATIONTYPE fdint, FDINOTIFICATION* pfd
 			public uint16 cbPartial;
 		}
 
-		[CRepr]		public struct _cabinet_e__Struct
+		[CRepr]
+		public struct _cabinet_e__Struct
 		{
 			public void* pHeaderReserve;
 			public uint16 cbHeaderReserve;
@@ -203,7 +210,8 @@ public function int PFNFDINOTIFY(FDINOTIFICATIONTYPE fdint, FDINOTIFICATION* pfd
 			public int32 iCabinet;
 		}
 
-		[CRepr]		public struct _folder_e__Struct
+		[CRepr]
+		public struct _folder_e__Struct
 		{
 			public void* pFolderReserve;
 			public uint16 cbFolderReserve;
@@ -220,7 +228,8 @@ public function int PFNFDINOTIFY(FDINOTIFICATIONTYPE fdint, FDINOTIFICATION* pfd
 	public using _Anonymous_e__Union Anonymous;
 }
 
-[CRepr]public struct FDINOTIFICATION
+[CRepr]
+public struct FDINOTIFICATION
 {
 	public int32 cb;
 	public PSTR psz1;
@@ -238,7 +247,8 @@ public function int PFNFDINOTIFY(FDINOTIFICATIONTYPE fdint, FDINOTIFICATION* pfd
 }
 
 #if BF_64_BIT || BF_ARM_64
-[CRepr]public struct FDISPILLFILE
+[CRepr]
+public struct FDISPILLFILE
 {
 	public CHAR[2] ach;
 	public int32 cbFile;
@@ -246,7 +256,8 @@ public function int PFNFDINOTIFY(FDINOTIFICATIONTYPE fdint, FDINOTIFICATION* pfd
 #endif
 
 #if BF_32_BIT
-[CRepr, Packed(1)]public struct FDISPILLFILE
+[CRepr, Packed(1)]
+public struct FDISPILLFILE
 {
 	public CHAR[2] ach;
 	public int32 cbFile;

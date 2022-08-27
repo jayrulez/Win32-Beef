@@ -189,7 +189,8 @@ public function void INTERACTION_CONTEXT_OUTPUT_CALLBACK2(void* clientData, INTE
 #endregion
 
 #region Structs
-[CRepr]public struct MANIPULATION_TRANSFORM
+[CRepr]
+public struct MANIPULATION_TRANSFORM
 {
 	public float translationX;
 	public float translationY;
@@ -198,7 +199,8 @@ public function void INTERACTION_CONTEXT_OUTPUT_CALLBACK2(void* clientData, INTE
 	public float rotation;
 }
 
-[CRepr]public struct MANIPULATION_VELOCITY
+[CRepr]
+public struct MANIPULATION_VELOCITY
 {
 	public float velocityX;
 	public float velocityY;
@@ -206,7 +208,8 @@ public function void INTERACTION_CONTEXT_OUTPUT_CALLBACK2(void* clientData, INTE
 	public float velocityAngular;
 }
 
-[CRepr]public struct INTERACTION_ARGUMENTS_MANIPULATION
+[CRepr]
+public struct INTERACTION_ARGUMENTS_MANIPULATION
 {
 	public MANIPULATION_TRANSFORM delta;
 	public MANIPULATION_TRANSFORM cumulative;
@@ -214,19 +217,23 @@ public function void INTERACTION_CONTEXT_OUTPUT_CALLBACK2(void* clientData, INTE
 	public MANIPULATION_RAILS_STATE railsState;
 }
 
-[CRepr]public struct INTERACTION_ARGUMENTS_TAP
+[CRepr]
+public struct INTERACTION_ARGUMENTS_TAP
 {
 	public uint32 count;
 }
 
-[CRepr]public struct INTERACTION_ARGUMENTS_CROSS_SLIDE
+[CRepr]
+public struct INTERACTION_ARGUMENTS_CROSS_SLIDE
 {
 	public CROSS_SLIDE_FLAGS flags;
 }
 
-[CRepr]public struct INTERACTION_CONTEXT_OUTPUT
+[CRepr]
+public struct INTERACTION_CONTEXT_OUTPUT
 {
-	[CRepr, Union]	public struct _arguments_e__Union
+	[CRepr, Union]
+	public struct _arguments_e__Union
 	{
 		public INTERACTION_ARGUMENTS_MANIPULATION manipulation;
 		public INTERACTION_ARGUMENTS_TAP tap;
@@ -241,9 +248,11 @@ public function void INTERACTION_CONTEXT_OUTPUT_CALLBACK2(void* clientData, INTE
 	public _arguments_e__Union arguments;
 }
 
-[CRepr]public struct INTERACTION_CONTEXT_OUTPUT2
+[CRepr]
+public struct INTERACTION_CONTEXT_OUTPUT2
 {
-	[CRepr, Union]	public struct _arguments_e__Union
+	[CRepr, Union]
+	public struct _arguments_e__Union
 	{
 		public INTERACTION_ARGUMENTS_MANIPULATION manipulation;
 		public INTERACTION_ARGUMENTS_TAP tap;
@@ -260,13 +269,15 @@ public function void INTERACTION_CONTEXT_OUTPUT_CALLBACK2(void* clientData, INTE
 	public _arguments_e__Union arguments;
 }
 
-[CRepr]public struct INTERACTION_CONTEXT_CONFIGURATION
+[CRepr]
+public struct INTERACTION_CONTEXT_CONFIGURATION
 {
 	public INTERACTION_ID interactionId;
 	public INTERACTION_CONFIGURATION_FLAGS enable;
 }
 
-[CRepr]public struct CROSS_SLIDE_PARAMETER
+[CRepr]
+public struct CROSS_SLIDE_PARAMETER
 {
 	public CROSS_SLIDE_THRESHOLD threshold;
 	public float distance;

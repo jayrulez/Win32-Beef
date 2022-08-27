@@ -262,171 +262,201 @@ public enum PIDMSI_STATUS_VALUE : int32
 #endregion
 
 #region Structs
-[CRepr]public struct BSTRBLOB
+[CRepr]
+public struct BSTRBLOB
 {
 	public uint32 cbSize;
 	public uint8* pData;
 }
 
-[CRepr]public struct CLIPDATA
+[CRepr]
+public struct CLIPDATA
 {
 	public uint32 cbSize;
 	public int32 ulClipFmt;
 	public uint8* pClipData;
 }
 
-[CRepr]public struct RemSNB
+[CRepr]
+public struct RemSNB
 {
 	public uint32 ulCntStr;
 	public uint32 ulCntChar;
 	public char8[1] rgString;
 }
 
-[CRepr]public struct VERSIONEDSTREAM
+[CRepr]
+public struct VERSIONEDSTREAM
 {
 	public Guid guidVersion;
 	public IStream* pStream;
 }
 
-[CRepr]public struct CAC
+[CRepr]
+public struct CAC
 {
 	public uint32 cElems;
 	public PSTR pElems;
 }
 
-[CRepr]public struct CAUB
+[CRepr]
+public struct CAUB
 {
 	public uint32 cElems;
 	public uint8* pElems;
 }
 
-[CRepr]public struct CAI
+[CRepr]
+public struct CAI
 {
 	public uint32 cElems;
 	public int16* pElems;
 }
 
-[CRepr]public struct CAUI
+[CRepr]
+public struct CAUI
 {
 	public uint32 cElems;
 	public uint16* pElems;
 }
 
-[CRepr]public struct CAL
+[CRepr]
+public struct CAL
 {
 	public uint32 cElems;
 	public int32* pElems;
 }
 
-[CRepr]public struct CAUL
+[CRepr]
+public struct CAUL
 {
 	public uint32 cElems;
 	public uint32* pElems;
 }
 
-[CRepr]public struct CAFLT
+[CRepr]
+public struct CAFLT
 {
 	public uint32 cElems;
 	public float* pElems;
 }
 
-[CRepr]public struct CADBL
+[CRepr]
+public struct CADBL
 {
 	public uint32 cElems;
 	public double* pElems;
 }
 
-[CRepr]public struct CACY
+[CRepr]
+public struct CACY
 {
 	public uint32 cElems;
 	public CY* pElems;
 }
 
-[CRepr]public struct CADATE
+[CRepr]
+public struct CADATE
 {
 	public uint32 cElems;
 	public double* pElems;
 }
 
-[CRepr]public struct CABSTR
+[CRepr]
+public struct CABSTR
 {
 	public uint32 cElems;
 	public BSTR* pElems;
 }
 
-[CRepr]public struct CABSTRBLOB
+[CRepr]
+public struct CABSTRBLOB
 {
 	public uint32 cElems;
 	public BSTRBLOB* pElems;
 }
 
-[CRepr]public struct CABOOL
+[CRepr]
+public struct CABOOL
 {
 	public uint32 cElems;
 	public int16* pElems;
 }
 
-[CRepr]public struct CASCODE
+[CRepr]
+public struct CASCODE
 {
 	public uint32 cElems;
 	public int32* pElems;
 }
 
-[CRepr]public struct CAPROPVARIANT
+[CRepr]
+public struct CAPROPVARIANT
 {
 	public uint32 cElems;
 	public PROPVARIANT* pElems;
 }
 
-[CRepr]public struct CAH
+[CRepr]
+public struct CAH
 {
 	public uint32 cElems;
 	public LARGE_INTEGER* pElems;
 }
 
-[CRepr]public struct CAUH
+[CRepr]
+public struct CAUH
 {
 	public uint32 cElems;
 	public ULARGE_INTEGER* pElems;
 }
 
-[CRepr]public struct CALPSTR
+[CRepr]
+public struct CALPSTR
 {
 	public uint32 cElems;
 	public PSTR* pElems;
 }
 
-[CRepr]public struct CALPWSTR
+[CRepr]
+public struct CALPWSTR
 {
 	public uint32 cElems;
 	public PWSTR* pElems;
 }
 
-[CRepr]public struct CAFILETIME
+[CRepr]
+public struct CAFILETIME
 {
 	public uint32 cElems;
 	public FILETIME* pElems;
 }
 
-[CRepr]public struct CACLIPDATA
+[CRepr]
+public struct CACLIPDATA
 {
 	public uint32 cElems;
 	public CLIPDATA* pElems;
 }
 
-[CRepr]public struct CACLSID
+[CRepr]
+public struct CACLSID
 {
 	public uint32 cElems;
 	public Guid* pElems;
 }
 
-[CRepr]public struct PROPVARIANT
+[CRepr]
+public struct PROPVARIANT
 {
-	[CRepr, Union]	public struct _Anonymous_e__Union
+	[CRepr, Union]
+	public struct _Anonymous_e__Union
 	{
-		[CRepr]		public struct _Anonymous_e__Struct
+		[CRepr]
+		public struct _Anonymous_e__Struct
 		{
-			[CRepr, Union]			public struct _Anonymous_e__Union
+			[CRepr, Union]
+			public struct _Anonymous_e__Union
 			{
 				public CHAR cVal;
 				public uint8 bVal;
@@ -517,9 +547,11 @@ public enum PIDMSI_STATUS_VALUE : int32
 	public using _Anonymous_e__Union Anonymous;
 }
 
-[CRepr]public struct PROPSPEC
+[CRepr]
+public struct PROPSPEC
 {
-	[CRepr, Union]	public struct _Anonymous_e__Union
+	[CRepr, Union]
+	public struct _Anonymous_e__Union
 	{
 		public uint32 propid;
 		public PWSTR lpwstr;
@@ -529,14 +561,16 @@ public enum PIDMSI_STATUS_VALUE : int32
 	public using _Anonymous_e__Union Anonymous;
 }
 
-[CRepr]public struct STATPROPSTG
+[CRepr]
+public struct STATPROPSTG
 {
 	public PWSTR lpwstrName;
 	public uint32 propid;
 	public uint16 vt;
 }
 
-[CRepr]public struct STATPROPSETSTG
+[CRepr]
+public struct STATPROPSETSTG
 {
 	public Guid fmtid;
 	public Guid clsid;
@@ -547,7 +581,8 @@ public enum PIDMSI_STATUS_VALUE : int32
 	public uint32 dwOSVersion;
 }
 
-[CRepr]public struct STGOPTIONS
+[CRepr]
+public struct STGOPTIONS
 {
 	public uint16 usVersion;
 	public uint16 reserved;
@@ -555,28 +590,33 @@ public enum PIDMSI_STATUS_VALUE : int32
 	public PWSTR pwcsTemplateFile;
 }
 
-[CRepr]public struct SERIALIZEDPROPERTYVALUE
+[CRepr]
+public struct SERIALIZEDPROPERTYVALUE
 {
 	public uint32 dwType;
 	public uint8[1] rgb;
 }
 
-[CRepr]public struct PMemoryAllocator
+[CRepr]
+public struct PMemoryAllocator
 {
 }
 
-[CRepr]public struct OLESTREAMVTBL
+[CRepr]
+public struct OLESTREAMVTBL
 {
 	public int Get;
 	public int Put;
 }
 
-[CRepr]public struct OLESTREAM
+[CRepr]
+public struct OLESTREAM
 {
 	public OLESTREAMVTBL* lpstbl;
 }
 
-[CRepr]public struct PROPBAG2
+[CRepr]
+public struct PROPBAG2
 {
 	public uint32 dwType;
 	public uint16 vt;

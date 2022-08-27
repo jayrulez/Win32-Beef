@@ -139,17 +139,21 @@ public function uint32 PNS_DLL_INIT_FN(uint32 dwNetshVersion, void* pReserved);
 #endregion
 
 #region Structs
-[CRepr]public struct TOKEN_VALUE
+[CRepr]
+public struct TOKEN_VALUE
 {
 	public PWSTR pwszToken;
 	public uint32 dwValue;
 }
 
-[CRepr]public struct NS_HELPER_ATTRIBUTES
+[CRepr]
+public struct NS_HELPER_ATTRIBUTES
 {
-	[CRepr, Union]	public struct _Anonymous_e__Union
+	[CRepr, Union]
+	public struct _Anonymous_e__Union
 	{
-		[CRepr]		public struct _Anonymous_e__Struct
+		[CRepr]
+		public struct _Anonymous_e__Struct
 		{
 			public uint32 dwVersion;
 			public uint32 dwReserved;
@@ -165,7 +169,8 @@ public function uint32 PNS_DLL_INIT_FN(uint32 dwNetshVersion, void* pReserved);
 	public PNS_HELPER_STOP_FN pfnStop;
 }
 
-[CRepr]public struct CMD_ENTRY
+[CRepr]
+public struct CMD_ENTRY
 {
 	public PWSTR pwszCmdToken;
 	public PFN_HANDLE_CMD pfnCmdHandler;
@@ -175,7 +180,8 @@ public function uint32 PNS_DLL_INIT_FN(uint32 dwNetshVersion, void* pReserved);
 	public PNS_OSVERSIONCHECK pOsVersionCheck;
 }
 
-[CRepr]public struct CMD_GROUP_ENTRY
+[CRepr]
+public struct CMD_GROUP_ENTRY
 {
 	public PWSTR pwszCmdGroupToken;
 	public uint32 dwShortCmdHelpToken;
@@ -185,11 +191,14 @@ public function uint32 PNS_DLL_INIT_FN(uint32 dwNetshVersion, void* pReserved);
 	public PNS_OSVERSIONCHECK pOsVersionCheck;
 }
 
-[CRepr]public struct NS_CONTEXT_ATTRIBUTES
+[CRepr]
+public struct NS_CONTEXT_ATTRIBUTES
 {
-	[CRepr, Union]	public struct _Anonymous_e__Union
+	[CRepr, Union]
+	public struct _Anonymous_e__Union
 	{
-		[CRepr]		public struct _Anonymous_e__Struct
+		[CRepr]
+		public struct _Anonymous_e__Struct
 		{
 			public uint32 dwVersion;
 			public uint32 dwReserved;
@@ -215,7 +224,8 @@ public function uint32 PNS_DLL_INIT_FN(uint32 dwNetshVersion, void* pReserved);
 	public PNS_OSVERSIONCHECK pfnOsVersionCheck;
 }
 
-[CRepr]public struct TAG_TYPE
+[CRepr]
+public struct TAG_TYPE
 {
 	public PWSTR pwszTag;
 	public uint32 dwRequired;

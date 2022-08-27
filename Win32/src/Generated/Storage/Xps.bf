@@ -478,7 +478,8 @@ public function BOOL ABORTPROC(HDC param0, int32 param1);
 #endregion
 
 #region Structs
-[CRepr]public struct DRAWPATRECT
+[CRepr]
+public struct DRAWPATRECT
 {
 	public POINT ptPosition;
 	public POINT ptSize;
@@ -486,20 +487,23 @@ public function BOOL ABORTPROC(HDC param0, int32 param1);
 	public uint16 wPattern;
 }
 
-[CRepr]public struct PSINJECTDATA
+[CRepr]
+public struct PSINJECTDATA
 {
 	public uint32 DataBytes;
 	public PSINJECT_POINT InjectionPoint;
 	public uint16 PageNumber;
 }
 
-[CRepr]public struct PSFEATURE_OUTPUT
+[CRepr]
+public struct PSFEATURE_OUTPUT
 {
 	public BOOL bPageIndependent;
 	public BOOL bSetPageDevice;
 }
 
-[CRepr]public struct PSFEATURE_CUSTPAPER
+[CRepr]
+public struct PSFEATURE_CUSTPAPER
 {
 	public int32 lOrientation;
 	public int32 lWidth;
@@ -508,7 +512,8 @@ public function BOOL ABORTPROC(HDC param0, int32 param1);
 	public int32 lHeightOffset;
 }
 
-[CRepr]public struct DOCINFOA
+[CRepr]
+public struct DOCINFOA
 {
 	public int32 cbSize;
 	public PSTR lpszDocName;
@@ -517,7 +522,8 @@ public function BOOL ABORTPROC(HDC param0, int32 param1);
 	public uint32 fwType;
 }
 
-[CRepr]public struct DOCINFOW
+[CRepr]
+public struct DOCINFOW
 {
 	public int32 cbSize;
 	public PWSTR lpszDocName;
@@ -526,19 +532,22 @@ public function BOOL ABORTPROC(HDC param0, int32 param1);
 	public uint32 fwType;
 }
 
-[CRepr]public struct XPS_POINT
+[CRepr]
+public struct XPS_POINT
 {
 	public float x;
 	public float y;
 }
 
-[CRepr]public struct XPS_SIZE
+[CRepr]
+public struct XPS_SIZE
 {
 	public float width;
 	public float height;
 }
 
-[CRepr]public struct XPS_RECT
+[CRepr]
+public struct XPS_RECT
 {
 	public float x;
 	public float y;
@@ -546,13 +555,15 @@ public function BOOL ABORTPROC(HDC param0, int32 param1);
 	public float height;
 }
 
-[CRepr]public struct XPS_DASH
+[CRepr]
+public struct XPS_DASH
 {
 	public float length;
 	public float gap;
 }
 
-[CRepr]public struct XPS_GLYPH_INDEX
+[CRepr]
+public struct XPS_GLYPH_INDEX
 {
 	public int32 index;
 	public float advanceWidth;
@@ -560,7 +571,8 @@ public function BOOL ABORTPROC(HDC param0, int32 param1);
 	public float verticalOffset;
 }
 
-[CRepr]public struct XPS_GLYPH_MAPPING
+[CRepr]
+public struct XPS_GLYPH_MAPPING
 {
 	public uint32 unicodeStringStart;
 	public uint16 unicodeStringLength;
@@ -568,7 +580,8 @@ public function BOOL ABORTPROC(HDC param0, int32 param1);
 	public uint16 glyphIndicesLength;
 }
 
-[CRepr]public struct XPS_MATRIX
+[CRepr]
+public struct XPS_MATRIX
 {
 	public float m11;
 	public float m12;
@@ -578,11 +591,14 @@ public function BOOL ABORTPROC(HDC param0, int32 param1);
 	public float m32;
 }
 
-[CRepr]public struct XPS_COLOR
+[CRepr]
+public struct XPS_COLOR
 {
-	[CRepr, Union]	public struct XPS_COLOR_VALUE
+	[CRepr, Union]
+	public struct XPS_COLOR_VALUE
 	{
-		[CRepr]		public struct _scRGB_e__Struct
+		[CRepr]
+		public struct _scRGB_e__Struct
 		{
 			public float alpha;
 			public float red;
@@ -590,7 +606,8 @@ public function BOOL ABORTPROC(HDC param0, int32 param1);
 			public float blue;
 		}
 
-		[CRepr]		public struct _sRGB_e__Struct
+		[CRepr]
+		public struct _sRGB_e__Struct
 		{
 			public uint8 alpha;
 			public uint8 red;
@@ -598,7 +615,8 @@ public function BOOL ABORTPROC(HDC param0, int32 param1);
 			public uint8 blue;
 		}
 
-		[CRepr]		public struct _context_e__Struct
+		[CRepr]
+		public struct _context_e__Struct
 		{
 			public uint8 channelCount;
 			public float[9] channels;

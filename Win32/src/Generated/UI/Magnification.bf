@@ -31,12 +31,14 @@ public function BOOL MagImageScalingCallback(HWND hwnd, void* srcdata, MAGIMAGEH
 #endregion
 
 #region Structs
-[CRepr]public struct MAGTRANSFORM
+[CRepr]
+public struct MAGTRANSFORM
 {
 	public float[9] v;
 }
 
-[CRepr]public struct MAGIMAGEHEADER
+[CRepr]
+public struct MAGIMAGEHEADER
 {
 	public uint32 width;
 	public uint32 height;
@@ -46,7 +48,8 @@ public function BOOL MagImageScalingCallback(HWND hwnd, void* srcdata, MAGIMAGEH
 	public uint cbSize;
 }
 
-[CRepr]public struct MAGCOLOREFFECT
+[CRepr]
+public struct MAGCOLOREFFECT
 {
 	public float[25] transform;
 }

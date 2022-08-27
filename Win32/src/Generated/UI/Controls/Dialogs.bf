@@ -400,7 +400,8 @@ public function uint LPPAGESETUPHOOK(HWND param0, uint32 param1, WPARAM param2, 
 
 #region Structs
 #if BF_64_BIT || BF_ARM_64
-[CRepr]public struct OPENFILENAME_NT4A
+[CRepr]
+public struct OPENFILENAME_NT4A
 {
 	public uint32 lStructSize;
 	public HWND hwndOwner;
@@ -426,7 +427,8 @@ public function uint LPPAGESETUPHOOK(HWND param0, uint32 param1, WPARAM param2, 
 #endif
 
 #if BF_64_BIT || BF_ARM_64
-[CRepr]public struct OPENFILENAME_NT4W
+[CRepr]
+public struct OPENFILENAME_NT4W
 {
 	public uint32 lStructSize;
 	public HWND hwndOwner;
@@ -452,7 +454,8 @@ public function uint LPPAGESETUPHOOK(HWND param0, uint32 param1, WPARAM param2, 
 #endif
 
 #if BF_64_BIT || BF_ARM_64
-[CRepr]public struct OPENFILENAMEA
+[CRepr]
+public struct OPENFILENAMEA
 {
 	public uint32 lStructSize;
 	public HWND hwndOwner;
@@ -481,7 +484,8 @@ public function uint LPPAGESETUPHOOK(HWND param0, uint32 param1, WPARAM param2, 
 #endif
 
 #if BF_64_BIT || BF_ARM_64
-[CRepr]public struct OPENFILENAMEW
+[CRepr]
+public struct OPENFILENAMEW
 {
 	public uint32 lStructSize;
 	public HWND hwndOwner;
@@ -510,7 +514,8 @@ public function uint LPPAGESETUPHOOK(HWND param0, uint32 param1, WPARAM param2, 
 #endif
 
 #if BF_64_BIT || BF_ARM_64
-[CRepr]public struct OFNOTIFYA
+[CRepr]
+public struct OFNOTIFYA
 {
 	public NMHDR hdr;
 	public OPENFILENAMEA* lpOFN;
@@ -519,7 +524,8 @@ public function uint LPPAGESETUPHOOK(HWND param0, uint32 param1, WPARAM param2, 
 #endif
 
 #if BF_64_BIT || BF_ARM_64
-[CRepr]public struct OFNOTIFYW
+[CRepr]
+public struct OFNOTIFYW
 {
 	public NMHDR hdr;
 	public OPENFILENAMEW* lpOFN;
@@ -528,7 +534,8 @@ public function uint LPPAGESETUPHOOK(HWND param0, uint32 param1, WPARAM param2, 
 #endif
 
 #if BF_64_BIT || BF_ARM_64
-[CRepr]public struct OFNOTIFYEXA
+[CRepr]
+public struct OFNOTIFYEXA
 {
 	public NMHDR hdr;
 	public OPENFILENAMEA* lpOFN;
@@ -538,7 +545,8 @@ public function uint LPPAGESETUPHOOK(HWND param0, uint32 param1, WPARAM param2, 
 #endif
 
 #if BF_64_BIT || BF_ARM_64
-[CRepr]public struct OFNOTIFYEXW
+[CRepr]
+public struct OFNOTIFYEXW
 {
 	public NMHDR hdr;
 	public OPENFILENAMEW* lpOFN;
@@ -548,7 +556,8 @@ public function uint LPPAGESETUPHOOK(HWND param0, uint32 param1, WPARAM param2, 
 #endif
 
 #if BF_64_BIT || BF_ARM_64
-[CRepr]public struct CHOOSECOLORA
+[CRepr]
+public struct CHOOSECOLORA
 {
 	public uint32 lStructSize;
 	public HWND hwndOwner;
@@ -563,7 +572,8 @@ public function uint LPPAGESETUPHOOK(HWND param0, uint32 param1, WPARAM param2, 
 #endif
 
 #if BF_64_BIT || BF_ARM_64
-[CRepr]public struct CHOOSECOLORW
+[CRepr]
+public struct CHOOSECOLORW
 {
 	public uint32 lStructSize;
 	public HWND hwndOwner;
@@ -578,7 +588,8 @@ public function uint LPPAGESETUPHOOK(HWND param0, uint32 param1, WPARAM param2, 
 #endif
 
 #if BF_64_BIT || BF_ARM_64
-[CRepr]public struct FINDREPLACEA
+[CRepr]
+public struct FINDREPLACEA
 {
 	public uint32 lStructSize;
 	public HWND hwndOwner;
@@ -595,7 +606,8 @@ public function uint LPPAGESETUPHOOK(HWND param0, uint32 param1, WPARAM param2, 
 #endif
 
 #if BF_64_BIT || BF_ARM_64
-[CRepr]public struct FINDREPLACEW
+[CRepr]
+public struct FINDREPLACEW
 {
 	public uint32 lStructSize;
 	public HWND hwndOwner;
@@ -612,7 +624,8 @@ public function uint LPPAGESETUPHOOK(HWND param0, uint32 param1, WPARAM param2, 
 #endif
 
 #if BF_64_BIT || BF_ARM_64
-[CRepr]public struct CHOOSEFONTA
+[CRepr]
+public struct CHOOSEFONTA
 {
 	public uint32 lStructSize;
 	public HWND hwndOwner;
@@ -634,7 +647,8 @@ public function uint LPPAGESETUPHOOK(HWND param0, uint32 param1, WPARAM param2, 
 #endif
 
 #if BF_64_BIT || BF_ARM_64
-[CRepr]public struct CHOOSEFONTW
+[CRepr]
+public struct CHOOSEFONTW
 {
 	public uint32 lStructSize;
 	public HWND hwndOwner;
@@ -656,7 +670,8 @@ public function uint LPPAGESETUPHOOK(HWND param0, uint32 param1, WPARAM param2, 
 #endif
 
 #if BF_64_BIT || BF_ARM_64
-[CRepr]public struct PRINTDLGA
+[CRepr]
+public struct PRINTDLGA
 {
 	public uint32 lStructSize;
 	public HWND hwndOwner;
@@ -681,7 +696,8 @@ public function uint LPPAGESETUPHOOK(HWND param0, uint32 param1, WPARAM param2, 
 #endif
 
 #if BF_64_BIT || BF_ARM_64
-[CRepr]public struct PRINTDLGW
+[CRepr]
+public struct PRINTDLGW
 {
 	public uint32 lStructSize;
 	public HWND hwndOwner;
@@ -706,7 +722,8 @@ public function uint LPPAGESETUPHOOK(HWND param0, uint32 param1, WPARAM param2, 
 #endif
 
 #if BF_64_BIT || BF_ARM_64
-[CRepr]public struct PRINTPAGERANGE
+[CRepr]
+public struct PRINTPAGERANGE
 {
 	public uint32 nFromPage;
 	public uint32 nToPage;
@@ -714,7 +731,8 @@ public function uint LPPAGESETUPHOOK(HWND param0, uint32 param1, WPARAM param2, 
 #endif
 
 #if BF_64_BIT || BF_ARM_64
-[CRepr]public struct PRINTDLGEXA
+[CRepr]
+public struct PRINTDLGEXA
 {
 	public uint32 lStructSize;
 	public HWND hwndOwner;
@@ -741,7 +759,8 @@ public function uint LPPAGESETUPHOOK(HWND param0, uint32 param1, WPARAM param2, 
 #endif
 
 #if BF_64_BIT || BF_ARM_64
-[CRepr]public struct PRINTDLGEXW
+[CRepr]
+public struct PRINTDLGEXW
 {
 	public uint32 lStructSize;
 	public HWND hwndOwner;
@@ -768,7 +787,8 @@ public function uint LPPAGESETUPHOOK(HWND param0, uint32 param1, WPARAM param2, 
 #endif
 
 #if BF_64_BIT || BF_ARM_64
-[CRepr]public struct DEVNAMES
+[CRepr]
+public struct DEVNAMES
 {
 	public uint16 wDriverOffset;
 	public uint16 wDeviceOffset;
@@ -778,7 +798,8 @@ public function uint LPPAGESETUPHOOK(HWND param0, uint32 param1, WPARAM param2, 
 #endif
 
 #if BF_64_BIT || BF_ARM_64
-[CRepr]public struct PAGESETUPDLGA
+[CRepr]
+public struct PAGESETUPDLGA
 {
 	public uint32 lStructSize;
 	public HWND hwndOwner;
@@ -798,7 +819,8 @@ public function uint LPPAGESETUPHOOK(HWND param0, uint32 param1, WPARAM param2, 
 #endif
 
 #if BF_64_BIT || BF_ARM_64
-[CRepr]public struct PAGESETUPDLGW
+[CRepr]
+public struct PAGESETUPDLGW
 {
 	public uint32 lStructSize;
 	public HWND hwndOwner;
@@ -818,7 +840,8 @@ public function uint LPPAGESETUPHOOK(HWND param0, uint32 param1, WPARAM param2, 
 #endif
 
 #if BF_32_BIT
-[CRepr, Packed(1)]public struct OPENFILENAME_NT4A
+[CRepr, Packed(1)]
+public struct OPENFILENAME_NT4A
 {
 	public uint32 lStructSize;
 	public HWND hwndOwner;
@@ -844,7 +867,8 @@ public function uint LPPAGESETUPHOOK(HWND param0, uint32 param1, WPARAM param2, 
 #endif
 
 #if BF_32_BIT
-[CRepr, Packed(1)]public struct OPENFILENAME_NT4W
+[CRepr, Packed(1)]
+public struct OPENFILENAME_NT4W
 {
 	public uint32 lStructSize;
 	public HWND hwndOwner;
@@ -870,7 +894,8 @@ public function uint LPPAGESETUPHOOK(HWND param0, uint32 param1, WPARAM param2, 
 #endif
 
 #if BF_32_BIT
-[CRepr, Packed(1)]public struct OPENFILENAMEA
+[CRepr, Packed(1)]
+public struct OPENFILENAMEA
 {
 	public uint32 lStructSize;
 	public HWND hwndOwner;
@@ -899,7 +924,8 @@ public function uint LPPAGESETUPHOOK(HWND param0, uint32 param1, WPARAM param2, 
 #endif
 
 #if BF_32_BIT
-[CRepr, Packed(1)]public struct OPENFILENAMEW
+[CRepr, Packed(1)]
+public struct OPENFILENAMEW
 {
 	public uint32 lStructSize;
 	public HWND hwndOwner;
@@ -928,7 +954,8 @@ public function uint LPPAGESETUPHOOK(HWND param0, uint32 param1, WPARAM param2, 
 #endif
 
 #if BF_32_BIT
-[CRepr, Packed(1)]public struct OFNOTIFYA
+[CRepr, Packed(1)]
+public struct OFNOTIFYA
 {
 	public NMHDR hdr;
 	public OPENFILENAMEA* lpOFN;
@@ -937,7 +964,8 @@ public function uint LPPAGESETUPHOOK(HWND param0, uint32 param1, WPARAM param2, 
 #endif
 
 #if BF_32_BIT
-[CRepr, Packed(1)]public struct OFNOTIFYW
+[CRepr, Packed(1)]
+public struct OFNOTIFYW
 {
 	public NMHDR hdr;
 	public OPENFILENAMEW* lpOFN;
@@ -946,7 +974,8 @@ public function uint LPPAGESETUPHOOK(HWND param0, uint32 param1, WPARAM param2, 
 #endif
 
 #if BF_32_BIT
-[CRepr, Packed(1)]public struct OFNOTIFYEXA
+[CRepr, Packed(1)]
+public struct OFNOTIFYEXA
 {
 	public NMHDR hdr;
 	public OPENFILENAMEA* lpOFN;
@@ -956,7 +985,8 @@ public function uint LPPAGESETUPHOOK(HWND param0, uint32 param1, WPARAM param2, 
 #endif
 
 #if BF_32_BIT
-[CRepr, Packed(1)]public struct OFNOTIFYEXW
+[CRepr, Packed(1)]
+public struct OFNOTIFYEXW
 {
 	public NMHDR hdr;
 	public OPENFILENAMEW* lpOFN;
@@ -966,7 +996,8 @@ public function uint LPPAGESETUPHOOK(HWND param0, uint32 param1, WPARAM param2, 
 #endif
 
 #if BF_32_BIT
-[CRepr, Packed(1)]public struct CHOOSECOLORA
+[CRepr, Packed(1)]
+public struct CHOOSECOLORA
 {
 	public uint32 lStructSize;
 	public HWND hwndOwner;
@@ -981,7 +1012,8 @@ public function uint LPPAGESETUPHOOK(HWND param0, uint32 param1, WPARAM param2, 
 #endif
 
 #if BF_32_BIT
-[CRepr, Packed(1)]public struct CHOOSECOLORW
+[CRepr, Packed(1)]
+public struct CHOOSECOLORW
 {
 	public uint32 lStructSize;
 	public HWND hwndOwner;
@@ -996,7 +1028,8 @@ public function uint LPPAGESETUPHOOK(HWND param0, uint32 param1, WPARAM param2, 
 #endif
 
 #if BF_32_BIT
-[CRepr, Packed(1)]public struct FINDREPLACEA
+[CRepr, Packed(1)]
+public struct FINDREPLACEA
 {
 	public uint32 lStructSize;
 	public HWND hwndOwner;
@@ -1013,7 +1046,8 @@ public function uint LPPAGESETUPHOOK(HWND param0, uint32 param1, WPARAM param2, 
 #endif
 
 #if BF_32_BIT
-[CRepr, Packed(1)]public struct FINDREPLACEW
+[CRepr, Packed(1)]
+public struct FINDREPLACEW
 {
 	public uint32 lStructSize;
 	public HWND hwndOwner;
@@ -1030,7 +1064,8 @@ public function uint LPPAGESETUPHOOK(HWND param0, uint32 param1, WPARAM param2, 
 #endif
 
 #if BF_32_BIT
-[CRepr, Packed(1)]public struct CHOOSEFONTA
+[CRepr, Packed(1)]
+public struct CHOOSEFONTA
 {
 	public uint32 lStructSize;
 	public HWND hwndOwner;
@@ -1052,7 +1087,8 @@ public function uint LPPAGESETUPHOOK(HWND param0, uint32 param1, WPARAM param2, 
 #endif
 
 #if BF_32_BIT
-[CRepr, Packed(1)]public struct CHOOSEFONTW
+[CRepr, Packed(1)]
+public struct CHOOSEFONTW
 {
 	public uint32 lStructSize;
 	public HWND hwndOwner;
@@ -1074,7 +1110,8 @@ public function uint LPPAGESETUPHOOK(HWND param0, uint32 param1, WPARAM param2, 
 #endif
 
 #if BF_32_BIT
-[CRepr, Packed(1)]public struct PRINTDLGA
+[CRepr, Packed(1)]
+public struct PRINTDLGA
 {
 	public uint32 lStructSize;
 	public HWND hwndOwner;
@@ -1099,7 +1136,8 @@ public function uint LPPAGESETUPHOOK(HWND param0, uint32 param1, WPARAM param2, 
 #endif
 
 #if BF_32_BIT
-[CRepr, Packed(1)]public struct PRINTDLGW
+[CRepr, Packed(1)]
+public struct PRINTDLGW
 {
 	public uint32 lStructSize;
 	public HWND hwndOwner;
@@ -1124,7 +1162,8 @@ public function uint LPPAGESETUPHOOK(HWND param0, uint32 param1, WPARAM param2, 
 #endif
 
 #if BF_32_BIT
-[CRepr, Packed(1)]public struct PRINTPAGERANGE
+[CRepr, Packed(1)]
+public struct PRINTPAGERANGE
 {
 	public uint32 nFromPage;
 	public uint32 nToPage;
@@ -1132,7 +1171,8 @@ public function uint LPPAGESETUPHOOK(HWND param0, uint32 param1, WPARAM param2, 
 #endif
 
 #if BF_32_BIT
-[CRepr, Packed(1)]public struct PRINTDLGEXA
+[CRepr, Packed(1)]
+public struct PRINTDLGEXA
 {
 	public uint32 lStructSize;
 	public HWND hwndOwner;
@@ -1159,7 +1199,8 @@ public function uint LPPAGESETUPHOOK(HWND param0, uint32 param1, WPARAM param2, 
 #endif
 
 #if BF_32_BIT
-[CRepr, Packed(1)]public struct PRINTDLGEXW
+[CRepr, Packed(1)]
+public struct PRINTDLGEXW
 {
 	public uint32 lStructSize;
 	public HWND hwndOwner;
@@ -1186,7 +1227,8 @@ public function uint LPPAGESETUPHOOK(HWND param0, uint32 param1, WPARAM param2, 
 #endif
 
 #if BF_32_BIT
-[CRepr, Packed(1)]public struct DEVNAMES
+[CRepr, Packed(1)]
+public struct DEVNAMES
 {
 	public uint16 wDriverOffset;
 	public uint16 wDeviceOffset;
@@ -1196,7 +1238,8 @@ public function uint LPPAGESETUPHOOK(HWND param0, uint32 param1, WPARAM param2, 
 #endif
 
 #if BF_32_BIT
-[CRepr, Packed(1)]public struct PAGESETUPDLGA
+[CRepr, Packed(1)]
+public struct PAGESETUPDLGA
 {
 	public uint32 lStructSize;
 	public HWND hwndOwner;
@@ -1216,7 +1259,8 @@ public function uint LPPAGESETUPHOOK(HWND param0, uint32 param1, WPARAM param2, 
 #endif
 
 #if BF_32_BIT
-[CRepr, Packed(1)]public struct PAGESETUPDLGW
+[CRepr, Packed(1)]
+public struct PAGESETUPDLGW
 {
 	public uint32 lStructSize;
 	public HWND hwndOwner;

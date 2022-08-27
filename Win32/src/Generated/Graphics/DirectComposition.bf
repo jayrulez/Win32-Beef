@@ -98,7 +98,8 @@ public enum COMPOSITION_FRAME_ID_TYPE : int32
 #endregion
 
 #region Structs
-[CRepr]public struct DCOMPOSITION_FRAME_STATISTICS
+[CRepr]
+public struct DCOMPOSITION_FRAME_STATISTICS
 {
 	public LARGE_INTEGER lastFrameTime;
 	public DXGI_RATIONAL currentCompositionRate;
@@ -107,14 +108,16 @@ public enum COMPOSITION_FRAME_ID_TYPE : int32
 	public LARGE_INTEGER nextEstimatedFrameTime;
 }
 
-[CRepr]public struct COMPOSITION_FRAME_STATS
+[CRepr]
+public struct COMPOSITION_FRAME_STATS
 {
 	public uint64 startTime;
 	public uint64 targetTime;
 	public uint64 framePeriod;
 }
 
-[CRepr]public struct COMPOSITION_TARGET_ID
+[CRepr]
+public struct COMPOSITION_TARGET_ID
 {
 	public LUID displayAdapterLuid;
 	public LUID renderAdapterLuid;
@@ -123,7 +126,8 @@ public enum COMPOSITION_FRAME_ID_TYPE : int32
 	public uint32 uniqueId;
 }
 
-[CRepr]public struct COMPOSITION_STATS
+[CRepr]
+public struct COMPOSITION_STATS
 {
 	public uint32 presentCount;
 	public uint32 refreshCount;
@@ -131,7 +135,8 @@ public enum COMPOSITION_FRAME_ID_TYPE : int32
 	public uint64 time;
 }
 
-[CRepr]public struct COMPOSITION_TARGET_STATS
+[CRepr]
+public struct COMPOSITION_TARGET_STATS
 {
 	public uint32 outstandingPresents;
 	public uint64 presentTime;
@@ -140,7 +145,8 @@ public enum COMPOSITION_FRAME_ID_TYPE : int32
 	public COMPOSITION_STATS completedStats;
 }
 
-[CRepr]public struct DCompositionInkTrailPoint
+[CRepr]
+public struct DCompositionInkTrailPoint
 {
 	public float x;
 	public float y;

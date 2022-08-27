@@ -8497,11 +8497,13 @@ public function int16 SQL_ASYNC_NOTIFICATION_CALLBACK(void* pContext, BOOL fLast
 #endregion
 
 #region Structs
-[CRepr]public struct IRowsetExactScroll
+[CRepr]
+public struct IRowsetExactScroll
 {
 }
 
-[CRepr]public struct TEXT_SOURCE
+[CRepr]
+public struct TEXT_SOURCE
 {
 	public PFNFILLTEXTBUFFER pfnFillTextBuffer;
 	public PWSTR awcBuffer;
@@ -8509,7 +8511,8 @@ public function int16 SQL_ASYNC_NOTIFICATION_CALLBACK(void* pContext, BOOL fLast
 	public uint32 iCur;
 }
 
-[CRepr]public struct FILTERED_DATA_SOURCES
+[CRepr]
+public struct FILTERED_DATA_SOURCES
 {
 	public PWSTR pwcsExtension;
 	public PWSTR pwcsMime;
@@ -8517,7 +8520,8 @@ public function int16 SQL_ASYNC_NOTIFICATION_CALLBACK(void* pContext, BOOL fLast
 	public PWSTR pwcsOverride;
 }
 
-[CRepr]public struct DB_NUMERIC
+[CRepr]
+public struct DB_NUMERIC
 {
 	public uint8 precision;
 	public uint8 scale;
@@ -8526,21 +8530,24 @@ public function int16 SQL_ASYNC_NOTIFICATION_CALLBACK(void* pContext, BOOL fLast
 }
 
 #if BF_64_BIT || BF_ARM_64
-[CRepr]public struct DBVECTOR
+[CRepr]
+public struct DBVECTOR
 {
 	public uint size;
 	public void* ptr;
 }
 #endif
 
-[CRepr]public struct DBDATE
+[CRepr]
+public struct DBDATE
 {
 	public int16 year;
 	public uint16 month;
 	public uint16 day;
 }
 
-[CRepr]public struct DBTIME
+[CRepr]
+public struct DBTIME
 {
 	public uint16 hour;
 	public uint16 minute;
@@ -8548,7 +8555,8 @@ public function int16 SQL_ASYNC_NOTIFICATION_CALLBACK(void* pContext, BOOL fLast
 }
 
 #if BF_64_BIT || BF_ARM_64
-[CRepr]public struct DBTIMESTAMP
+[CRepr]
+public struct DBTIMESTAMP
 {
 	public int16 year;
 	public uint16 month;
@@ -8560,7 +8568,8 @@ public function int16 SQL_ASYNC_NOTIFICATION_CALLBACK(void* pContext, BOOL fLast
 }
 #endif
 
-[CRepr]public struct DB_VARNUMERIC
+[CRepr]
+public struct DB_VARNUMERIC
 {
 	public uint8 precision;
 	public int8 scale;
@@ -8569,7 +8578,8 @@ public function int16 SQL_ASYNC_NOTIFICATION_CALLBACK(void* pContext, BOOL fLast
 }
 
 #if BF_64_BIT || BF_ARM_64
-[CRepr]public struct SEC_OBJECT_ELEMENT
+[CRepr]
+public struct SEC_OBJECT_ELEMENT
 {
 	public Guid guidObjectType;
 	public DBID ObjectID;
@@ -8577,7 +8587,8 @@ public function int16 SQL_ASYNC_NOTIFICATION_CALLBACK(void* pContext, BOOL fLast
 #endif
 
 #if BF_64_BIT || BF_ARM_64
-[CRepr]public struct SEC_OBJECT
+[CRepr]
+public struct SEC_OBJECT
 {
 	public uint32 cObjects;
 	public SEC_OBJECT_ELEMENT* prgObjects;
@@ -8585,7 +8596,8 @@ public function int16 SQL_ASYNC_NOTIFICATION_CALLBACK(void* pContext, BOOL fLast
 #endif
 
 #if BF_64_BIT || BF_ARM_64
-[CRepr]public struct DBIMPLICITSESSION
+[CRepr]
+public struct DBIMPLICITSESSION
 {
 	public IUnknown* pUnkOuter;
 	public Guid* piid;
@@ -8594,7 +8606,8 @@ public function int16 SQL_ASYNC_NOTIFICATION_CALLBACK(void* pContext, BOOL fLast
 #endif
 
 #if BF_64_BIT || BF_ARM_64
-[CRepr]public struct DBOBJECT
+[CRepr]
+public struct DBOBJECT
 {
 	public uint32 dwFlags;
 	public Guid iid;
@@ -8602,7 +8615,8 @@ public function int16 SQL_ASYNC_NOTIFICATION_CALLBACK(void* pContext, BOOL fLast
 #endif
 
 #if BF_64_BIT || BF_ARM_64
-[CRepr]public struct DBBINDEXT
+[CRepr]
+public struct DBBINDEXT
 {
 	public uint8* pExtension;
 	public uint ulExtension;
@@ -8610,7 +8624,8 @@ public function int16 SQL_ASYNC_NOTIFICATION_CALLBACK(void* pContext, BOOL fLast
 #endif
 
 #if BF_64_BIT || BF_ARM_64
-[CRepr]public struct DBBINDING
+[CRepr]
+public struct DBBINDING
 {
 	public uint iOrdinal;
 	public uint obValue;
@@ -8631,7 +8646,8 @@ public function int16 SQL_ASYNC_NOTIFICATION_CALLBACK(void* pContext, BOOL fLast
 #endif
 
 #if BF_64_BIT || BF_ARM_64
-[CRepr]public struct DBFAILUREINFO
+[CRepr]
+public struct DBFAILUREINFO
 {
 	public uint hRow;
 	public uint iColumn;
@@ -8640,7 +8656,8 @@ public function int16 SQL_ASYNC_NOTIFICATION_CALLBACK(void* pContext, BOOL fLast
 #endif
 
 #if BF_64_BIT || BF_ARM_64
-[CRepr]public struct DBCOLUMNINFO
+[CRepr]
+public struct DBCOLUMNINFO
 {
 	public PWSTR pwszName;
 	public ITypeInfo* pTypeInfo;
@@ -8655,7 +8672,8 @@ public function int16 SQL_ASYNC_NOTIFICATION_CALLBACK(void* pContext, BOOL fLast
 #endif
 
 #if BF_64_BIT || BF_ARM_64
-[CRepr]public struct DBPARAMS
+[CRepr]
+public struct DBPARAMS
 {
 	public void* pData;
 	public uint cParamSets;
@@ -8664,7 +8682,8 @@ public function int16 SQL_ASYNC_NOTIFICATION_CALLBACK(void* pContext, BOOL fLast
 #endif
 
 #if BF_64_BIT || BF_ARM_64
-[CRepr]public struct DBPARAMINFO
+[CRepr]
+public struct DBPARAMINFO
 {
 	public uint32 dwFlags;
 	public uint iOrdinal;
@@ -8678,7 +8697,8 @@ public function int16 SQL_ASYNC_NOTIFICATION_CALLBACK(void* pContext, BOOL fLast
 #endif
 
 #if BF_64_BIT || BF_ARM_64
-[CRepr]public struct DBPROPIDSET
+[CRepr]
+public struct DBPROPIDSET
 {
 	public uint32* rgPropertyIDs;
 	public uint32 cPropertyIDs;
@@ -8687,7 +8707,8 @@ public function int16 SQL_ASYNC_NOTIFICATION_CALLBACK(void* pContext, BOOL fLast
 #endif
 
 #if BF_64_BIT || BF_ARM_64
-[CRepr]public struct DBPROPINFO
+[CRepr]
+public struct DBPROPINFO
 {
 	public PWSTR pwszDescription;
 	public uint32 dwPropertyID;
@@ -8698,7 +8719,8 @@ public function int16 SQL_ASYNC_NOTIFICATION_CALLBACK(void* pContext, BOOL fLast
 #endif
 
 #if BF_64_BIT || BF_ARM_64
-[CRepr]public struct DBPROPINFOSET
+[CRepr]
+public struct DBPROPINFOSET
 {
 	public DBPROPINFO* rgPropertyInfos;
 	public uint32 cPropertyInfos;
@@ -8707,7 +8729,8 @@ public function int16 SQL_ASYNC_NOTIFICATION_CALLBACK(void* pContext, BOOL fLast
 #endif
 
 #if BF_64_BIT || BF_ARM_64
-[CRepr]public struct DBPROP
+[CRepr]
+public struct DBPROP
 {
 	public uint32 dwPropertyID;
 	public uint32 dwOptions;
@@ -8718,7 +8741,8 @@ public function int16 SQL_ASYNC_NOTIFICATION_CALLBACK(void* pContext, BOOL fLast
 #endif
 
 #if BF_64_BIT || BF_ARM_64
-[CRepr]public struct DBPROPSET
+[CRepr]
+public struct DBPROPSET
 {
 	public DBPROP* rgProperties;
 	public uint32 cProperties;
@@ -8727,7 +8751,8 @@ public function int16 SQL_ASYNC_NOTIFICATION_CALLBACK(void* pContext, BOOL fLast
 #endif
 
 #if BF_64_BIT || BF_ARM_64
-[CRepr]public struct DBINDEXCOLUMNDESC
+[CRepr]
+public struct DBINDEXCOLUMNDESC
 {
 	public DBID* pColumnID;
 	public uint32 eIndexColOrder;
@@ -8735,7 +8760,8 @@ public function int16 SQL_ASYNC_NOTIFICATION_CALLBACK(void* pContext, BOOL fLast
 #endif
 
 #if BF_64_BIT || BF_ARM_64
-[CRepr]public struct DBCOLUMNDESC
+[CRepr]
+public struct DBCOLUMNDESC
 {
 	public PWSTR pwszTypeName;
 	public ITypeInfo* pTypeInfo;
@@ -8751,7 +8777,8 @@ public function int16 SQL_ASYNC_NOTIFICATION_CALLBACK(void* pContext, BOOL fLast
 #endif
 
 #if BF_64_BIT || BF_ARM_64
-[CRepr]public struct DBCOLUMNACCESS
+[CRepr]
+public struct DBCOLUMNACCESS
 {
 	public void* pData;
 	public DBID columnid;
@@ -8766,7 +8793,8 @@ public function int16 SQL_ASYNC_NOTIFICATION_CALLBACK(void* pContext, BOOL fLast
 #endif
 
 #if BF_64_BIT || BF_ARM_64
-[CRepr]public struct DBCONSTRAINTDESC
+[CRepr]
+public struct DBCONSTRAINTDESC
 {
 	public DBID* pConstraintID;
 	public uint32 ConstraintType;
@@ -8786,7 +8814,8 @@ public function int16 SQL_ASYNC_NOTIFICATION_CALLBACK(void* pContext, BOOL fLast
 #endif
 
 #if BF_64_BIT || BF_ARM_64
-[CRepr]public struct MDAXISINFO
+[CRepr]
+public struct MDAXISINFO
 {
 	public uint cbSize;
 	public uint iAxis;
@@ -8798,7 +8827,8 @@ public function int16 SQL_ASYNC_NOTIFICATION_CALLBACK(void* pContext, BOOL fLast
 #endif
 
 #if BF_64_BIT || BF_ARM_64
-[CRepr]public struct RMTPACK
+[CRepr]
+public struct RMTPACK
 {
 	public ISequentialStream* pISeqStream;
 	public uint32 cbData;
@@ -8818,7 +8848,8 @@ public function int16 SQL_ASYNC_NOTIFICATION_CALLBACK(void* pContext, BOOL fLast
 #endif
 
 #if BF_64_BIT || BF_ARM_64
-[CRepr]public struct DBPARAMBINDINFO
+[CRepr]
+public struct DBPARAMBINDINFO
 {
 	public PWSTR pwszDataSourceType;
 	public PWSTR pwszName;
@@ -8830,7 +8861,8 @@ public function int16 SQL_ASYNC_NOTIFICATION_CALLBACK(void* pContext, BOOL fLast
 #endif
 
 #if BF_64_BIT || BF_ARM_64
-[CRepr]public struct DBLITERALINFO
+[CRepr]
+public struct DBLITERALINFO
 {
 	public PWSTR pwszLiteralValue;
 	public PWSTR pwszInvalidChars;
@@ -8842,7 +8874,8 @@ public function int16 SQL_ASYNC_NOTIFICATION_CALLBACK(void* pContext, BOOL fLast
 #endif
 
 #if BF_64_BIT || BF_ARM_64
-[CRepr]public struct ERRORINFO
+[CRepr]
+public struct ERRORINFO
 {
 	public HRESULT hrError;
 	public uint32 dwMinor;
@@ -8852,20 +8885,23 @@ public function int16 SQL_ASYNC_NOTIFICATION_CALLBACK(void* pContext, BOOL fLast
 }
 #endif
 
-[CRepr]public struct HITRANGE
+[CRepr]
+public struct HITRANGE
 {
 	public uint32 iPosition;
 	public uint32 cLength;
 }
 
-[CRepr]public struct TIMEOUT_INFO
+[CRepr]
+public struct TIMEOUT_INFO
 {
 	public uint32 dwSize;
 	public uint32 dwConnectTimeout;
 	public uint32 dwDataTimeout;
 }
 
-[CRepr]public struct PROXY_INFO
+[CRepr]
+public struct PROXY_INFO
 {
 	public uint32 dwSize;
 	public PWSTR pcwszUserAgent;
@@ -8876,7 +8912,8 @@ public function int16 SQL_ASYNC_NOTIFICATION_CALLBACK(void* pContext, BOOL fLast
 	public PWSTR pcwszBypassList;
 }
 
-[CRepr]public struct AUTHENTICATION_INFO
+[CRepr]
+public struct AUTHENTICATION_INFO
 {
 	public uint32 dwSize;
 	public AUTH_TYPE atAuthenticationType;
@@ -8884,13 +8921,15 @@ public function int16 SQL_ASYNC_NOTIFICATION_CALLBACK(void* pContext, BOOL fLast
 	public PWSTR pcwszPassword;
 }
 
-[CRepr]public struct INCREMENTAL_ACCESS_INFO
+[CRepr]
+public struct INCREMENTAL_ACCESS_INFO
 {
 	public uint32 dwSize;
 	public FILETIME ftLastModifiedTime;
 }
 
-[CRepr]public struct ITEM_INFO
+[CRepr]
+public struct ITEM_INFO
 {
 	public uint32 dwSize;
 	public PWSTR pcwszFromEMail;
@@ -8899,7 +8938,8 @@ public function int16 SQL_ASYNC_NOTIFICATION_CALLBACK(void* pContext, BOOL fLast
 	public PWSTR pcwszContentClass;
 }
 
-[CRepr]public struct SEARCH_ITEM_CHANGE
+[CRepr]
+public struct SEARCH_ITEM_CHANGE
 {
 	public SEARCH_KIND_OF_CHANGE Change;
 	public SEARCH_NOTIFICATION_PRIORITY Priority;
@@ -8908,7 +8948,8 @@ public function int16 SQL_ASYNC_NOTIFICATION_CALLBACK(void* pContext, BOOL fLast
 	public PWSTR lpwszOldURL;
 }
 
-[CRepr]public struct SEARCH_ITEM_PERSISTENT_CHANGE
+[CRepr]
+public struct SEARCH_ITEM_PERSISTENT_CHANGE
 {
 	public SEARCH_KIND_OF_CHANGE Change;
 	public PWSTR URL;
@@ -8916,25 +8957,29 @@ public function int16 SQL_ASYNC_NOTIFICATION_CALLBACK(void* pContext, BOOL fLast
 	public SEARCH_NOTIFICATION_PRIORITY Priority;
 }
 
-[CRepr]public struct SEARCH_ITEM_INDEXING_STATUS
+[CRepr]
+public struct SEARCH_ITEM_INDEXING_STATUS
 {
 	public uint32 dwDocID;
 	public HRESULT hrIndexingStatus;
 }
 
-[CRepr]public struct SEARCH_COLUMN_PROPERTIES
+[CRepr]
+public struct SEARCH_COLUMN_PROPERTIES
 {
 	public PROPVARIANT Value;
 	public uint32 lcid;
 }
 
-[CRepr]public struct ITEMPROP
+[CRepr]
+public struct ITEMPROP
 {
 	public VARIANT variantValue;
 	public PWSTR pwszName;
 }
 
-[CRepr]public struct SUBSCRIPTIONITEMINFO
+[CRepr]
+public struct SUBSCRIPTIONITEMINFO
 {
 	public uint32 cbSize;
 	public uint32 dwFlags;
@@ -8943,7 +8988,8 @@ public function int16 SQL_ASYNC_NOTIFICATION_CALLBACK(void* pContext, BOOL fLast
 	public Guid clsidAgent;
 }
 
-[CRepr]public struct SUBSCRIPTIONINFO
+[CRepr]
+public struct SUBSCRIPTIONINFO
 {
 	public uint32 cbSize;
 	public uint32 fUpdateFlags;
@@ -8966,41 +9012,47 @@ public function int16 SQL_ASYNC_NOTIFICATION_CALLBACK(void* pContext, BOOL fLast
 	public uint32 dwReserved;
 }
 
-[CRepr]public struct DCINFO
+[CRepr]
+public struct DCINFO
 {
 	public uint32 eInfoType;
 	public VARIANT vData;
 }
 
-[CRepr]public struct KAGREQDIAG
+[CRepr]
+public struct KAGREQDIAG
 {
 	public uint32 ulDiagFlags;
 	public uint16 vt;
 	public int16 sDiagField;
 }
 
-[CRepr]public struct KAGGETDIAG
+[CRepr]
+public struct KAGGETDIAG
 {
 	public uint32 ulSize;
 	public VARIANT vDiagInfo;
 	public int16 sDiagField;
 }
 
-[CRepr]public struct DATE_STRUCT
+[CRepr]
+public struct DATE_STRUCT
 {
 	public int16 year;
 	public uint16 month;
 	public uint16 day;
 }
 
-[CRepr]public struct TIME_STRUCT
+[CRepr]
+public struct TIME_STRUCT
 {
 	public uint16 hour;
 	public uint16 minute;
 	public uint16 second;
 }
 
-[CRepr]public struct TIMESTAMP_STRUCT
+[CRepr]
+public struct TIMESTAMP_STRUCT
 {
 	public int16 year;
 	public uint16 month;
@@ -9011,13 +9063,15 @@ public function int16 SQL_ASYNC_NOTIFICATION_CALLBACK(void* pContext, BOOL fLast
 	public uint32 fraction;
 }
 
-[CRepr]public struct tagSQL_YEAR_MONTH
+[CRepr]
+public struct tagSQL_YEAR_MONTH
 {
 	public uint32 year;
 	public uint32 month;
 }
 
-[CRepr]public struct tagSQL_DAY_SECOND
+[CRepr]
+public struct tagSQL_DAY_SECOND
 {
 	public uint32 day;
 	public uint32 hour;
@@ -9026,9 +9080,11 @@ public function int16 SQL_ASYNC_NOTIFICATION_CALLBACK(void* pContext, BOOL fLast
 	public uint32 fraction;
 }
 
-[CRepr]public struct SQL_INTERVAL_STRUCT
+[CRepr]
+public struct SQL_INTERVAL_STRUCT
 {
-	[CRepr, Union]	public struct _intval_e__Union
+	[CRepr, Union]
+	public struct _intval_e__Union
 	{
 		public tagSQL_YEAR_MONTH year_month;
 		public tagSQL_DAY_SECOND day_second;
@@ -9039,7 +9095,8 @@ public function int16 SQL_ASYNC_NOTIFICATION_CALLBACK(void* pContext, BOOL fLast
 	public _intval_e__Union intval;
 }
 
-[CRepr]public struct SQL_NUMERIC_STRUCT
+[CRepr]
+public struct SQL_NUMERIC_STRUCT
 {
 	public uint8 precision;
 	public int8 scale;
@@ -9047,37 +9104,43 @@ public function int16 SQL_ASYNC_NOTIFICATION_CALLBACK(void* pContext, BOOL fLast
 	public uint8[16] val;
 }
 
-[CRepr]public struct dbvarychar
+[CRepr]
+public struct dbvarychar
 {
 	public int16 len;
 	public int8[8001] str;
 }
 
-[CRepr]public struct dbvarybin
+[CRepr]
+public struct dbvarybin
 {
 	public int16 len;
 	public uint8[8001] array;
 }
 
-[CRepr]public struct dbmoney
+[CRepr]
+public struct dbmoney
 {
 	public int32 mnyhigh;
 	public uint32 mnylow;
 }
 
-[CRepr]public struct dbdatetime
+[CRepr]
+public struct dbdatetime
 {
 	public int32 dtdays;
 	public uint32 dttime;
 }
 
-[CRepr]public struct dbdatetime4
+[CRepr]
+public struct dbdatetime4
 {
 	public uint16 numdays;
 	public uint16 nummins;
 }
 
-[CRepr]public struct sqlperf
+[CRepr]
+public struct sqlperf
 {
 	public uint32 TimerResolution;
 	public uint32 SQLidu;
@@ -9115,7 +9178,8 @@ public function int16 SQL_ASYNC_NOTIFICATION_CALLBACK(void* pContext, BOOL fLast
 }
 
 #if BF_64_BIT || BF_ARM_64
-[CRepr]public struct tagDBROWWATCHRANGE
+[CRepr]
+public struct tagDBROWWATCHRANGE
 {
 	public uint hRegion;
 	public uint32 eChangeKind;
@@ -9125,7 +9189,8 @@ public function int16 SQL_ASYNC_NOTIFICATION_CALLBACK(void* pContext, BOOL fLast
 #endif
 
 #if BF_64_BIT || BF_ARM_64
-[CRepr]public struct DBCOST
+[CRepr]
+public struct DBCOST
 {
 	public uint32 eKind;
 	public uint32 dwUnits;
@@ -9133,25 +9198,29 @@ public function int16 SQL_ASYNC_NOTIFICATION_CALLBACK(void* pContext, BOOL fLast
 }
 #endif
 
-[CRepr]public struct NOTRESTRICTION
+[CRepr]
+public struct NOTRESTRICTION
 {
 	public RESTRICTION* pRes;
 }
 
-[CRepr]public struct NODERESTRICTION
+[CRepr]
+public struct NODERESTRICTION
 {
 	public uint32 cRes;
 	public RESTRICTION** paRes;
 	public uint32 reserved;
 }
 
-[CRepr]public struct VECTORRESTRICTION
+[CRepr]
+public struct VECTORRESTRICTION
 {
 	public NODERESTRICTION Node;
 	public uint32 RankMethod;
 }
 
-[CRepr]public struct CONTENTRESTRICTION
+[CRepr]
+public struct CONTENTRESTRICTION
 {
 	public FULLPROPSPEC prop;
 	public PWSTR pwcsPhrase;
@@ -9159,23 +9228,27 @@ public function int16 SQL_ASYNC_NOTIFICATION_CALLBACK(void* pContext, BOOL fLast
 	public uint32 ulGenerateMethod;
 }
 
-[CRepr]public struct NATLANGUAGERESTRICTION
+[CRepr]
+public struct NATLANGUAGERESTRICTION
 {
 	public FULLPROPSPEC prop;
 	public PWSTR pwcsPhrase;
 	public uint32 lcid;
 }
 
-[CRepr]public struct PROPERTYRESTRICTION
+[CRepr]
+public struct PROPERTYRESTRICTION
 {
 	public uint32 rel;
 	public FULLPROPSPEC prop;
 	public PROPVARIANT prval;
 }
 
-[CRepr]public struct RESTRICTION
+[CRepr]
+public struct RESTRICTION
 {
-	[CRepr, Union]	public struct _URes
+	[CRepr, Union]
+	public struct _URes
 	{
 		public NODERESTRICTION ar;
 		public NODERESTRICTION orRestriction;
@@ -9192,40 +9265,47 @@ public function int16 SQL_ASYNC_NOTIFICATION_CALLBACK(void* pContext, BOOL fLast
 	public _URes res;
 }
 
-[CRepr]public struct COLUMNSET
+[CRepr]
+public struct COLUMNSET
 {
 	public uint32 cCol;
 	public FULLPROPSPEC* aCol;
 }
 
-[CRepr]public struct SORTKEY
+[CRepr]
+public struct SORTKEY
 {
 	public FULLPROPSPEC propColumn;
 	public uint32 dwOrder;
 	public uint32 locale;
 }
 
-[CRepr]public struct SORTSET
+[CRepr]
+public struct SORTSET
 {
 	public uint32 cCol;
 	public SORTKEY* aCol;
 }
 
-[CRepr]public struct BUCKETCATEGORIZE
+[CRepr]
+public struct BUCKETCATEGORIZE
 {
 	public uint32 cBuckets;
 	public uint32 Distribution;
 }
 
-[CRepr]public struct RANGECATEGORIZE
+[CRepr]
+public struct RANGECATEGORIZE
 {
 	public uint32 cRange;
 	public PROPVARIANT* aRangeBegin;
 }
 
-[CRepr]public struct CATEGORIZATION
+[CRepr]
+public struct CATEGORIZATION
 {
-	[CRepr, Union]	public struct _Anonymous_e__Union
+	[CRepr, Union]
+	public struct _Anonymous_e__Union
 	{
 		public uint32 cClusters;
 		public BUCKETCATEGORIZE bucket;
@@ -9237,21 +9317,25 @@ public function int16 SQL_ASYNC_NOTIFICATION_CALLBACK(void* pContext, BOOL fLast
 	public COLUMNSET csColumns;
 }
 
-[CRepr]public struct CATEGORIZATIONSET
+[CRepr]
+public struct CATEGORIZATIONSET
 {
 	public uint32 cCat;
 	public CATEGORIZATION* aCat;
 }
 
-[CRepr]public struct ODBC_VS_ARGS
+[CRepr]
+public struct ODBC_VS_ARGS
 {
-	[CRepr, Union]	public struct _Anonymous1_e__Union
+	[CRepr, Union]
+	public struct _Anonymous1_e__Union
 	{
 		public PWSTR wszArg;
 		public PSTR szArg;
 	}
 
-	[CRepr, Union]	public struct _Anonymous2_e__Union
+	[CRepr, Union]
+	public struct _Anonymous2_e__Union
 	{
 		public PWSTR wszCorrelation;
 		public PSTR szCorrelation;
@@ -9264,18 +9348,22 @@ public function int16 SQL_ASYNC_NOTIFICATION_CALLBACK(void* pContext, BOOL fLast
 	public int16 RetCode;
 }
 
-[CRepr]public struct SSVARIANT
+[CRepr]
+public struct SSVARIANT
 {
-	[CRepr, Union]	public struct _Anonymous_e__Union
+	[CRepr, Union]
+	public struct _Anonymous_e__Union
 	{
-		[CRepr]		public struct _UnknownType
+		[CRepr]
+		public struct _UnknownType
 		{
 			public uint32 dwActualLength;
 			public uint8[16] rgMetadata;
 			public uint8* pUnknownData;
 		}
 
-		[CRepr]		public struct _CharVal
+		[CRepr]
+		public struct _CharVal
 		{
 			public int16 sActualLength;
 			public int16 sMaxLength;
@@ -9285,7 +9373,8 @@ public function int16 SQL_ASYNC_NOTIFICATION_CALLBACK(void* pContext, BOOL fLast
 			public PWSTR pwchReserved;
 		}
 
-		[CRepr]		public struct _BinaryVal
+		[CRepr]
+		public struct _BinaryVal
 		{
 			public int16 sActualLength;
 			public int16 sMaxLength;
@@ -9293,13 +9382,15 @@ public function int16 SQL_ASYNC_NOTIFICATION_CALLBACK(void* pContext, BOOL fLast
 			public uint32 dwReserved;
 		}
 
-		[CRepr]		public struct _BLOBType
+		[CRepr]
+		public struct _BLOBType
 		{
 			public DBOBJECT dbobj;
 			public IUnknown* pUnk;
 		}
 
-		[CRepr]		public struct _NCharVal
+		[CRepr]
+		public struct _NCharVal
 		{
 			public int16 sActualLength;
 			public int16 sMaxLength;
@@ -9333,7 +9424,8 @@ public function int16 SQL_ASYNC_NOTIFICATION_CALLBACK(void* pContext, BOOL fLast
 	public using _Anonymous_e__Union Anonymous;
 }
 
-[CRepr]public struct tagSSErrorInfo
+[CRepr]
+public struct tagSSErrorInfo
 {
 	public PWSTR pwszMessage;
 	public PWSTR pwszServer;
@@ -9345,7 +9437,8 @@ public function int16 SQL_ASYNC_NOTIFICATION_CALLBACK(void* pContext, BOOL fLast
 }
 
 #if BF_32_BIT
-[CRepr, Packed(2)]public struct DBVECTOR
+[CRepr, Packed(2)]
+public struct DBVECTOR
 {
 	public uint size;
 	public void* ptr;
@@ -9353,7 +9446,8 @@ public function int16 SQL_ASYNC_NOTIFICATION_CALLBACK(void* pContext, BOOL fLast
 #endif
 
 #if BF_32_BIT
-[CRepr, Packed(2)]public struct DBTIMESTAMP
+[CRepr, Packed(2)]
+public struct DBTIMESTAMP
 {
 	public int16 year;
 	public uint16 month;
@@ -9366,7 +9460,8 @@ public function int16 SQL_ASYNC_NOTIFICATION_CALLBACK(void* pContext, BOOL fLast
 #endif
 
 #if BF_32_BIT
-[CRepr, Packed(2)]public struct SEC_OBJECT_ELEMENT
+[CRepr, Packed(2)]
+public struct SEC_OBJECT_ELEMENT
 {
 	public Guid guidObjectType;
 	public DBID ObjectID;
@@ -9374,7 +9469,8 @@ public function int16 SQL_ASYNC_NOTIFICATION_CALLBACK(void* pContext, BOOL fLast
 #endif
 
 #if BF_32_BIT
-[CRepr, Packed(2)]public struct SEC_OBJECT
+[CRepr, Packed(2)]
+public struct SEC_OBJECT
 {
 	public uint32 cObjects;
 	public SEC_OBJECT_ELEMENT* prgObjects;
@@ -9382,7 +9478,8 @@ public function int16 SQL_ASYNC_NOTIFICATION_CALLBACK(void* pContext, BOOL fLast
 #endif
 
 #if BF_32_BIT
-[CRepr, Packed(2)]public struct DBIMPLICITSESSION
+[CRepr, Packed(2)]
+public struct DBIMPLICITSESSION
 {
 	public IUnknown* pUnkOuter;
 	public Guid* piid;
@@ -9391,7 +9488,8 @@ public function int16 SQL_ASYNC_NOTIFICATION_CALLBACK(void* pContext, BOOL fLast
 #endif
 
 #if BF_32_BIT
-[CRepr, Packed(2)]public struct DBOBJECT
+[CRepr, Packed(2)]
+public struct DBOBJECT
 {
 	public uint32 dwFlags;
 	public Guid iid;
@@ -9399,7 +9497,8 @@ public function int16 SQL_ASYNC_NOTIFICATION_CALLBACK(void* pContext, BOOL fLast
 #endif
 
 #if BF_32_BIT
-[CRepr, Packed(2)]public struct DBBINDEXT
+[CRepr, Packed(2)]
+public struct DBBINDEXT
 {
 	public uint8* pExtension;
 	public uint ulExtension;
@@ -9407,7 +9506,8 @@ public function int16 SQL_ASYNC_NOTIFICATION_CALLBACK(void* pContext, BOOL fLast
 #endif
 
 #if BF_32_BIT
-[CRepr, Packed(2)]public struct DBBINDING
+[CRepr, Packed(2)]
+public struct DBBINDING
 {
 	public uint iOrdinal;
 	public uint obValue;
@@ -9428,7 +9528,8 @@ public function int16 SQL_ASYNC_NOTIFICATION_CALLBACK(void* pContext, BOOL fLast
 #endif
 
 #if BF_32_BIT
-[CRepr, Packed(2)]public struct DBFAILUREINFO
+[CRepr, Packed(2)]
+public struct DBFAILUREINFO
 {
 	public uint hRow;
 	public uint iColumn;
@@ -9437,7 +9538,8 @@ public function int16 SQL_ASYNC_NOTIFICATION_CALLBACK(void* pContext, BOOL fLast
 #endif
 
 #if BF_32_BIT
-[CRepr, Packed(2)]public struct DBCOLUMNINFO
+[CRepr, Packed(2)]
+public struct DBCOLUMNINFO
 {
 	public PWSTR pwszName;
 	public ITypeInfo* pTypeInfo;
@@ -9452,7 +9554,8 @@ public function int16 SQL_ASYNC_NOTIFICATION_CALLBACK(void* pContext, BOOL fLast
 #endif
 
 #if BF_32_BIT
-[CRepr, Packed(2)]public struct DBPARAMS
+[CRepr, Packed(2)]
+public struct DBPARAMS
 {
 	public void* pData;
 	public uint cParamSets;
@@ -9461,7 +9564,8 @@ public function int16 SQL_ASYNC_NOTIFICATION_CALLBACK(void* pContext, BOOL fLast
 #endif
 
 #if BF_32_BIT
-[CRepr, Packed(2)]public struct DBPARAMINFO
+[CRepr, Packed(2)]
+public struct DBPARAMINFO
 {
 	public uint32 dwFlags;
 	public uint iOrdinal;
@@ -9475,7 +9579,8 @@ public function int16 SQL_ASYNC_NOTIFICATION_CALLBACK(void* pContext, BOOL fLast
 #endif
 
 #if BF_32_BIT
-[CRepr, Packed(2)]public struct DBPROPIDSET
+[CRepr, Packed(2)]
+public struct DBPROPIDSET
 {
 	public uint32* rgPropertyIDs;
 	public uint32 cPropertyIDs;
@@ -9484,7 +9589,8 @@ public function int16 SQL_ASYNC_NOTIFICATION_CALLBACK(void* pContext, BOOL fLast
 #endif
 
 #if BF_32_BIT
-[CRepr, Packed(2)]public struct DBPROPINFO
+[CRepr, Packed(2)]
+public struct DBPROPINFO
 {
 	public PWSTR pwszDescription;
 	public uint32 dwPropertyID;
@@ -9495,7 +9601,8 @@ public function int16 SQL_ASYNC_NOTIFICATION_CALLBACK(void* pContext, BOOL fLast
 #endif
 
 #if BF_32_BIT
-[CRepr, Packed(2)]public struct DBPROPINFOSET
+[CRepr, Packed(2)]
+public struct DBPROPINFOSET
 {
 	public DBPROPINFO* rgPropertyInfos;
 	public uint32 cPropertyInfos;
@@ -9504,7 +9611,8 @@ public function int16 SQL_ASYNC_NOTIFICATION_CALLBACK(void* pContext, BOOL fLast
 #endif
 
 #if BF_32_BIT
-[CRepr, Packed(2)]public struct DBPROP
+[CRepr, Packed(2)]
+public struct DBPROP
 {
 	public uint32 dwPropertyID;
 	public uint32 dwOptions;
@@ -9515,7 +9623,8 @@ public function int16 SQL_ASYNC_NOTIFICATION_CALLBACK(void* pContext, BOOL fLast
 #endif
 
 #if BF_32_BIT
-[CRepr, Packed(2)]public struct DBPROPSET
+[CRepr, Packed(2)]
+public struct DBPROPSET
 {
 	public DBPROP* rgProperties;
 	public uint32 cProperties;
@@ -9524,7 +9633,8 @@ public function int16 SQL_ASYNC_NOTIFICATION_CALLBACK(void* pContext, BOOL fLast
 #endif
 
 #if BF_32_BIT
-[CRepr, Packed(2)]public struct DBINDEXCOLUMNDESC
+[CRepr, Packed(2)]
+public struct DBINDEXCOLUMNDESC
 {
 	public DBID* pColumnID;
 	public uint32 eIndexColOrder;
@@ -9532,7 +9642,8 @@ public function int16 SQL_ASYNC_NOTIFICATION_CALLBACK(void* pContext, BOOL fLast
 #endif
 
 #if BF_32_BIT
-[CRepr, Packed(2)]public struct DBCOLUMNDESC
+[CRepr, Packed(2)]
+public struct DBCOLUMNDESC
 {
 	public PWSTR pwszTypeName;
 	public ITypeInfo* pTypeInfo;
@@ -9548,7 +9659,8 @@ public function int16 SQL_ASYNC_NOTIFICATION_CALLBACK(void* pContext, BOOL fLast
 #endif
 
 #if BF_32_BIT
-[CRepr, Packed(2)]public struct DBCOLUMNACCESS
+[CRepr, Packed(2)]
+public struct DBCOLUMNACCESS
 {
 	public void* pData;
 	public DBID columnid;
@@ -9563,7 +9675,8 @@ public function int16 SQL_ASYNC_NOTIFICATION_CALLBACK(void* pContext, BOOL fLast
 #endif
 
 #if BF_32_BIT
-[CRepr, Packed(2)]public struct DBCONSTRAINTDESC
+[CRepr, Packed(2)]
+public struct DBCONSTRAINTDESC
 {
 	public DBID* pConstraintID;
 	public uint32 ConstraintType;
@@ -9583,7 +9696,8 @@ public function int16 SQL_ASYNC_NOTIFICATION_CALLBACK(void* pContext, BOOL fLast
 #endif
 
 #if BF_32_BIT
-[CRepr, Packed(2)]public struct MDAXISINFO
+[CRepr, Packed(2)]
+public struct MDAXISINFO
 {
 	public uint cbSize;
 	public uint iAxis;
@@ -9595,7 +9709,8 @@ public function int16 SQL_ASYNC_NOTIFICATION_CALLBACK(void* pContext, BOOL fLast
 #endif
 
 #if BF_32_BIT
-[CRepr, Packed(2)]public struct RMTPACK
+[CRepr, Packed(2)]
+public struct RMTPACK
 {
 	public ISequentialStream* pISeqStream;
 	public uint32 cbData;
@@ -9615,7 +9730,8 @@ public function int16 SQL_ASYNC_NOTIFICATION_CALLBACK(void* pContext, BOOL fLast
 #endif
 
 #if BF_32_BIT
-[CRepr, Packed(2)]public struct DBPARAMBINDINFO
+[CRepr, Packed(2)]
+public struct DBPARAMBINDINFO
 {
 	public PWSTR pwszDataSourceType;
 	public PWSTR pwszName;
@@ -9627,7 +9743,8 @@ public function int16 SQL_ASYNC_NOTIFICATION_CALLBACK(void* pContext, BOOL fLast
 #endif
 
 #if BF_32_BIT
-[CRepr, Packed(2)]public struct DBLITERALINFO
+[CRepr, Packed(2)]
+public struct DBLITERALINFO
 {
 	public PWSTR pwszLiteralValue;
 	public PWSTR pwszInvalidChars;
@@ -9639,7 +9756,8 @@ public function int16 SQL_ASYNC_NOTIFICATION_CALLBACK(void* pContext, BOOL fLast
 #endif
 
 #if BF_32_BIT
-[CRepr, Packed(2)]public struct ERRORINFO
+[CRepr, Packed(2)]
+public struct ERRORINFO
 {
 	public HRESULT hrError;
 	public uint32 dwMinor;
@@ -9650,7 +9768,8 @@ public function int16 SQL_ASYNC_NOTIFICATION_CALLBACK(void* pContext, BOOL fLast
 #endif
 
 #if BF_32_BIT
-[CRepr, Packed(2)]public struct tagDBROWWATCHRANGE
+[CRepr, Packed(2)]
+public struct tagDBROWWATCHRANGE
 {
 	public uint hRegion;
 	public uint32 eChangeKind;
@@ -9660,7 +9779,8 @@ public function int16 SQL_ASYNC_NOTIFICATION_CALLBACK(void* pContext, BOOL fLast
 #endif
 
 #if BF_32_BIT
-[CRepr, Packed(2)]public struct DBCOST
+[CRepr, Packed(2)]
+public struct DBCOST
 {
 	public uint32 eKind;
 	public uint32 dwUnits;

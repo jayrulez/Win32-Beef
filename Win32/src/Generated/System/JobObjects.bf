@@ -195,7 +195,8 @@ public enum JOBOBJECTINFOCLASS : int32
 #endregion
 
 #region Structs
-[CRepr]public struct JOBOBJECT_IO_RATE_CONTROL_INFORMATION
+[CRepr]
+public struct JOBOBJECT_IO_RATE_CONTROL_INFORMATION
 {
 	public int64 MaxIops;
 	public int64 MaxBandwidth;
@@ -205,14 +206,16 @@ public enum JOBOBJECTINFOCLASS : int32
 	public JOB_OBJECT_IO_RATE_CONTROL_FLAGS ControlFlags;
 }
 
-[CRepr]public struct JOB_SET_ARRAY
+[CRepr]
+public struct JOB_SET_ARRAY
 {
 	public HANDLE JobHandle;
 	public uint32 MemberLevel;
 	public uint32 Flags;
 }
 
-[CRepr]public struct JOBOBJECT_BASIC_ACCOUNTING_INFORMATION
+[CRepr]
+public struct JOBOBJECT_BASIC_ACCOUNTING_INFORMATION
 {
 	public LARGE_INTEGER TotalUserTime;
 	public LARGE_INTEGER TotalKernelTime;
@@ -224,7 +227,8 @@ public enum JOBOBJECTINFOCLASS : int32
 	public uint32 TotalTerminatedProcesses;
 }
 
-[CRepr]public struct JOBOBJECT_BASIC_LIMIT_INFORMATION
+[CRepr]
+public struct JOBOBJECT_BASIC_LIMIT_INFORMATION
 {
 	public LARGE_INTEGER PerProcessUserTimeLimit;
 	public LARGE_INTEGER PerJobUserTimeLimit;
@@ -237,7 +241,8 @@ public enum JOBOBJECTINFOCLASS : int32
 	public uint32 SchedulingClass;
 }
 
-[CRepr]public struct JOBOBJECT_EXTENDED_LIMIT_INFORMATION
+[CRepr]
+public struct JOBOBJECT_EXTENDED_LIMIT_INFORMATION
 {
 	public JOBOBJECT_BASIC_LIMIT_INFORMATION BasicLimitInformation;
 	public IO_COUNTERS IoInfo;
@@ -247,19 +252,22 @@ public enum JOBOBJECTINFOCLASS : int32
 	public uint PeakJobMemoryUsed;
 }
 
-[CRepr]public struct JOBOBJECT_BASIC_PROCESS_ID_LIST
+[CRepr]
+public struct JOBOBJECT_BASIC_PROCESS_ID_LIST
 {
 	public uint32 NumberOfAssignedProcesses;
 	public uint32 NumberOfProcessIdsInList;
 	public uint[1] ProcessIdList;
 }
 
-[CRepr]public struct JOBOBJECT_BASIC_UI_RESTRICTIONS
+[CRepr]
+public struct JOBOBJECT_BASIC_UI_RESTRICTIONS
 {
 	public JOB_OBJECT_UILIMIT UIRestrictionsClass;
 }
 
-[CRepr]public struct JOBOBJECT_SECURITY_LIMIT_INFORMATION
+[CRepr]
+public struct JOBOBJECT_SECURITY_LIMIT_INFORMATION
 {
 	public JOB_OBJECT_SECURITY SecurityLimitFlags;
 	public HANDLE JobToken;
@@ -268,29 +276,34 @@ public enum JOBOBJECTINFOCLASS : int32
 	public TOKEN_GROUPS* RestrictedSids;
 }
 
-[CRepr]public struct JOBOBJECT_END_OF_JOB_TIME_INFORMATION
+[CRepr]
+public struct JOBOBJECT_END_OF_JOB_TIME_INFORMATION
 {
 	public JOB_OBJECT_TERMINATE_AT_END_ACTION EndOfJobTimeAction;
 }
 
-[CRepr]public struct JOBOBJECT_ASSOCIATE_COMPLETION_PORT
+[CRepr]
+public struct JOBOBJECT_ASSOCIATE_COMPLETION_PORT
 {
 	public void* CompletionKey;
 	public HANDLE CompletionPort;
 }
 
-[CRepr]public struct JOBOBJECT_BASIC_AND_IO_ACCOUNTING_INFORMATION
+[CRepr]
+public struct JOBOBJECT_BASIC_AND_IO_ACCOUNTING_INFORMATION
 {
 	public JOBOBJECT_BASIC_ACCOUNTING_INFORMATION BasicInfo;
 	public IO_COUNTERS IoInfo;
 }
 
-[CRepr]public struct JOBOBJECT_JOBSET_INFORMATION
+[CRepr]
+public struct JOBOBJECT_JOBSET_INFORMATION
 {
 	public uint32 MemberLevel;
 }
 
-[CRepr]public struct JOBOBJECT_NOTIFICATION_LIMIT_INFORMATION
+[CRepr]
+public struct JOBOBJECT_NOTIFICATION_LIMIT_INFORMATION
 {
 	public uint64 IoReadBytesLimit;
 	public uint64 IoWriteBytesLimit;
@@ -301,21 +314,25 @@ public enum JOBOBJECTINFOCLASS : int32
 	public JOB_OBJECT_LIMIT LimitFlags;
 }
 
-[CRepr]public struct JOBOBJECT_NOTIFICATION_LIMIT_INFORMATION_2
+[CRepr]
+public struct JOBOBJECT_NOTIFICATION_LIMIT_INFORMATION_2
 {
-	[CRepr, Union]	public struct _Anonymous3_e__Union
+	[CRepr, Union]
+	public struct _Anonymous3_e__Union
 	{
 		public JOBOBJECT_RATE_CONTROL_TOLERANCE_INTERVAL RateControlToleranceInterval;
 		public JOBOBJECT_RATE_CONTROL_TOLERANCE_INTERVAL CpuRateControlToleranceInterval;
 	}
 
-	[CRepr, Union]	public struct _Anonymous1_e__Union
+	[CRepr, Union]
+	public struct _Anonymous1_e__Union
 	{
 		public uint64 JobHighMemoryLimit;
 		public uint64 JobMemoryLimit;
 	}
 
-	[CRepr, Union]	public struct _Anonymous2_e__Union
+	[CRepr, Union]
+	public struct _Anonymous2_e__Union
 	{
 		public JOBOBJECT_RATE_CONTROL_TOLERANCE RateControlTolerance;
 		public JOBOBJECT_RATE_CONTROL_TOLERANCE CpuRateControlTolerance;
@@ -335,7 +352,8 @@ public enum JOBOBJECTINFOCLASS : int32
 	public JOBOBJECT_RATE_CONTROL_TOLERANCE_INTERVAL NetRateControlToleranceInterval;
 }
 
-[CRepr]public struct JOBOBJECT_LIMIT_VIOLATION_INFORMATION
+[CRepr]
+public struct JOBOBJECT_LIMIT_VIOLATION_INFORMATION
 {
 	public JOB_OBJECT_LIMIT LimitFlags;
 	public JOB_OBJECT_LIMIT ViolationLimitFlags;
@@ -351,21 +369,25 @@ public enum JOBOBJECTINFOCLASS : int32
 	public JOBOBJECT_RATE_CONTROL_TOLERANCE RateControlToleranceLimit;
 }
 
-[CRepr]public struct JOBOBJECT_LIMIT_VIOLATION_INFORMATION_2
+[CRepr]
+public struct JOBOBJECT_LIMIT_VIOLATION_INFORMATION_2
 {
-	[CRepr, Union]	public struct _Anonymous2_e__Union
+	[CRepr, Union]
+	public struct _Anonymous2_e__Union
 	{
 		public JOBOBJECT_RATE_CONTROL_TOLERANCE RateControlTolerance;
 		public JOBOBJECT_RATE_CONTROL_TOLERANCE CpuRateControlTolerance;
 	}
 
-	[CRepr, Union]	public struct _Anonymous3_e__Union
+	[CRepr, Union]
+	public struct _Anonymous3_e__Union
 	{
 		public JOBOBJECT_RATE_CONTROL_TOLERANCE RateControlToleranceLimit;
 		public JOBOBJECT_RATE_CONTROL_TOLERANCE CpuRateControlToleranceLimit;
 	}
 
-	[CRepr, Union]	public struct _Anonymous1_e__Union
+	[CRepr, Union]
+	public struct _Anonymous1_e__Union
 	{
 		public uint64 JobHighMemoryLimit;
 		public uint64 JobMemoryLimit;
@@ -390,11 +412,14 @@ public enum JOBOBJECTINFOCLASS : int32
 	public JOBOBJECT_RATE_CONTROL_TOLERANCE NetRateControlToleranceLimit;
 }
 
-[CRepr]public struct JOBOBJECT_CPU_RATE_CONTROL_INFORMATION
+[CRepr]
+public struct JOBOBJECT_CPU_RATE_CONTROL_INFORMATION
 {
-	[CRepr, Union]	public struct _Anonymous_e__Union
+	[CRepr, Union]
+	public struct _Anonymous_e__Union
 	{
-		[CRepr]		public struct _Anonymous_e__Struct
+		[CRepr]
+		public struct _Anonymous_e__Struct
 		{
 			public uint16 MinRate;
 			public uint16 MaxRate;
@@ -409,14 +434,16 @@ public enum JOBOBJECTINFOCLASS : int32
 	public using _Anonymous_e__Union Anonymous;
 }
 
-[CRepr]public struct JOBOBJECT_NET_RATE_CONTROL_INFORMATION
+[CRepr]
+public struct JOBOBJECT_NET_RATE_CONTROL_INFORMATION
 {
 	public uint64 MaxBandwidth;
 	public JOB_OBJECT_NET_RATE_CONTROL_FLAGS ControlFlags;
 	public uint8 DscpTag;
 }
 
-[CRepr]public struct JOBOBJECT_IO_RATE_CONTROL_INFORMATION_NATIVE
+[CRepr]
+public struct JOBOBJECT_IO_RATE_CONTROL_INFORMATION_NATIVE
 {
 	public int64 MaxIops;
 	public int64 MaxBandwidth;
@@ -427,7 +454,8 @@ public enum JOBOBJECTINFOCLASS : int32
 	public uint16 VolumeNameLength;
 }
 
-[CRepr]public struct JOBOBJECT_IO_RATE_CONTROL_INFORMATION_NATIVE_V2
+[CRepr]
+public struct JOBOBJECT_IO_RATE_CONTROL_INFORMATION_NATIVE_V2
 {
 	public int64 MaxIops;
 	public int64 MaxBandwidth;
@@ -444,7 +472,8 @@ public enum JOBOBJECTINFOCLASS : int32
 	public int64 CriticalReservationTimePercent;
 }
 
-[CRepr]public struct JOBOBJECT_IO_RATE_CONTROL_INFORMATION_NATIVE_V3
+[CRepr]
+public struct JOBOBJECT_IO_RATE_CONTROL_INFORMATION_NATIVE_V3
 {
 	public int64 MaxIops;
 	public int64 MaxBandwidth;
@@ -467,7 +496,8 @@ public enum JOBOBJECTINFOCLASS : int32
 	public int64 LimitExcessNotifyTimePercent;
 }
 
-[CRepr]public struct JOBOBJECT_IO_ATTRIBUTION_STATS
+[CRepr]
+public struct JOBOBJECT_IO_ATTRIBUTION_STATS
 {
 	public uint IoCount;
 	public uint64 TotalNonOverlappedQueueTime;
@@ -475,7 +505,8 @@ public enum JOBOBJECTINFOCLASS : int32
 	public uint64 TotalSize;
 }
 
-[CRepr]public struct JOBOBJECT_IO_ATTRIBUTION_INFORMATION
+[CRepr]
+public struct JOBOBJECT_IO_ATTRIBUTION_INFORMATION
 {
 	public uint32 ControlFlags;
 	public JOBOBJECT_IO_ATTRIBUTION_STATS ReadStats;

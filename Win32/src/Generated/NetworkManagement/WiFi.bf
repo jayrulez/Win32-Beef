@@ -2414,25 +2414,29 @@ public function void WFD_OPEN_SESSION_COMPLETE_CALLBACK(HANDLE hSessionHandle, v
 #endregion
 
 #region Structs
-[CRepr]public struct DOT11_SSID
+[CRepr]
+public struct DOT11_SSID
 {
 	public uint32 uSSIDLength;
 	public uint8[32] ucSSID;
 }
 
-[CRepr]public struct DOT11_AUTH_CIPHER_PAIR
+[CRepr]
+public struct DOT11_AUTH_CIPHER_PAIR
 {
 	public DOT11_AUTH_ALGORITHM AuthAlgoId;
 	public DOT11_CIPHER_ALGORITHM CipherAlgoId;
 }
 
-[CRepr]public struct DOT11_OI
+[CRepr]
+public struct DOT11_OI
 {
 	public uint16 OILength;
 	public uint8[5] OI;
 }
 
-[CRepr]public struct DOT11_ACCESSNETWORKOPTIONS
+[CRepr]
+public struct DOT11_ACCESSNETWORKOPTIONS
 {
 	public uint8 AccessNetworkType;
 	public uint8 Internet;
@@ -2441,13 +2445,15 @@ public function void WFD_OPEN_SESSION_COMPLETE_CALLBACK(HANDLE hSessionHandle, v
 	public uint8 UESA;
 }
 
-[CRepr]public struct DOT11_VENUEINFO
+[CRepr]
+public struct DOT11_VENUEINFO
 {
 	public uint8 VenueGroup;
 	public uint8 VenueType;
 }
 
-[CRepr]public struct DOT11_BSSID_LIST
+[CRepr]
+public struct DOT11_BSSID_LIST
 {
 	public NDIS_OBJECT_HEADER Header;
 	public uint32 uNumOfEntries;
@@ -2455,19 +2461,22 @@ public function void WFD_OPEN_SESSION_COMPLETE_CALLBACK(HANDLE hSessionHandle, v
 	public uint8[6] BSSIDs;
 }
 
-[CRepr]public struct DOT11_RATE_SET
+[CRepr]
+public struct DOT11_RATE_SET
 {
 	public uint32 uRateSetLength;
 	public uint8[126] ucRateSet;
 }
 
-[CRepr]public struct DOT11_WFD_SESSION_INFO
+[CRepr]
+public struct DOT11_WFD_SESSION_INFO
 {
 	public uint16 uSessionInfoLength;
 	public uint8[144] ucSessionInfo;
 }
 
-[CRepr]public struct DOT11_OFFLOAD_CAPABILITY
+[CRepr]
+public struct DOT11_OFFLOAD_CAPABILITY
 {
 	public uint32 uReserved;
 	public uint32 uFlags;
@@ -2478,19 +2487,22 @@ public function void WFD_OPEN_SESSION_COMPLETE_CALLBACK(HANDLE hSessionHandle, v
 	public uint32 uMaxAuthKeyMappingLength;
 }
 
-[CRepr]public struct DOT11_CURRENT_OFFLOAD_CAPABILITY
+[CRepr]
+public struct DOT11_CURRENT_OFFLOAD_CAPABILITY
 {
 	public uint32 uReserved;
 	public uint32 uFlags;
 }
 
-[CRepr]public struct DOT11_IV48_COUNTER
+[CRepr]
+public struct DOT11_IV48_COUNTER
 {
 	public uint32 uIV32Counter;
 	public uint16 usIV16Counter;
 }
 
-[CRepr]public struct DOT11_WEP_OFFLOAD
+[CRepr]
+public struct DOT11_WEP_OFFLOAD
 {
 	public uint32 uReserved;
 	public HANDLE hOffloadContext;
@@ -2509,7 +2521,8 @@ public function void WFD_OPEN_SESSION_COMPLETE_CALLBACK(HANDLE hSessionHandle, v
 	public uint8[1] ucKey;
 }
 
-[CRepr]public struct DOT11_WEP_UPLOAD
+[CRepr]
+public struct DOT11_WEP_UPLOAD
 {
 	public uint32 uReserved;
 	public DOT11_OFFLOAD_TYPE dot11OffloadType;
@@ -2519,7 +2532,8 @@ public function void WFD_OPEN_SESSION_COMPLETE_CALLBACK(HANDLE hSessionHandle, v
 	public uint16[16] usDot11RWBitMaps;
 }
 
-[CRepr]public struct DOT11_DEFAULT_WEP_OFFLOAD
+[CRepr]
+public struct DOT11_DEFAULT_WEP_OFFLOAD
 {
 	public uint32 uReserved;
 	public HANDLE hOffloadContext;
@@ -2537,7 +2551,8 @@ public function void WFD_OPEN_SESSION_COMPLETE_CALLBACK(HANDLE hSessionHandle, v
 	public uint8[1] ucKey;
 }
 
-[CRepr]public struct DOT11_DEFAULT_WEP_UPLOAD
+[CRepr]
+public struct DOT11_DEFAULT_WEP_UPLOAD
 {
 	public uint32 uReserved;
 	public DOT11_OFFLOAD_TYPE dot11OffloadType;
@@ -2547,7 +2562,8 @@ public function void WFD_OPEN_SESSION_COMPLETE_CALLBACK(HANDLE hSessionHandle, v
 	public uint16[16] usDot11RWBitMaps;
 }
 
-[CRepr]public struct DOT11_OPERATION_MODE_CAPABILITY
+[CRepr]
+public struct DOT11_OPERATION_MODE_CAPABILITY
 {
 	public uint32 uReserved;
 	public uint32 uMajorVersion;
@@ -2557,13 +2573,15 @@ public function void WFD_OPEN_SESSION_COMPLETE_CALLBACK(HANDLE hSessionHandle, v
 	public uint32 uOpModeCapability;
 }
 
-[CRepr]public struct DOT11_CURRENT_OPERATION_MODE
+[CRepr]
+public struct DOT11_CURRENT_OPERATION_MODE
 {
 	public uint32 uReserved;
 	public uint32 uCurrentOpMode;
 }
 
-[CRepr]public struct DOT11_SCAN_REQUEST
+[CRepr]
+public struct DOT11_SCAN_REQUEST
 {
 	public DOT11_BSS_TYPE dot11BSSType;
 	public uint8[6] dot11BSSID;
@@ -2580,7 +2598,8 @@ public function void WFD_OPEN_SESSION_COMPLETE_CALLBACK(HANDLE hSessionHandle, v
 	public uint8[1] ucBuffer;
 }
 
-[CRepr]public struct DOT11_PHY_TYPE_INFO
+[CRepr]
+public struct DOT11_PHY_TYPE_INFO
 {
 	public DOT11_PHY_TYPE dot11PhyType;
 	public BOOLEAN bUseParameters;
@@ -2592,7 +2611,8 @@ public function void WFD_OPEN_SESSION_COMPLETE_CALLBACK(HANDLE hSessionHandle, v
 	public uint8[1] ucChannelListBuffer;
 }
 
-[CRepr]public struct DOT11_SCAN_REQUEST_V2
+[CRepr]
+public struct DOT11_SCAN_REQUEST_V2
 {
 	public DOT11_BSS_TYPE dot11BSSType;
 	public uint8[6] dot11BSSID;
@@ -2610,7 +2630,8 @@ public function void WFD_OPEN_SESSION_COMPLETE_CALLBACK(HANDLE hSessionHandle, v
 	public uint8[1] ucBuffer;
 }
 
-[CRepr]public struct DOT11_PHY_TYPE_LIST
+[CRepr]
+public struct DOT11_PHY_TYPE_LIST
 {
 	public NDIS_OBJECT_HEADER Header;
 	public uint32 uNumOfEntries;
@@ -2618,7 +2639,8 @@ public function void WFD_OPEN_SESSION_COMPLETE_CALLBACK(HANDLE hSessionHandle, v
 	public DOT11_PHY_TYPE[1] dot11PhyType;
 }
 
-[CRepr]public struct DOT11_BSS_DESCRIPTION
+[CRepr]
+public struct DOT11_BSS_DESCRIPTION
 {
 	public uint32 uReserved;
 	public uint8[6] dot11BSSID;
@@ -2630,7 +2652,8 @@ public function void WFD_OPEN_SESSION_COMPLETE_CALLBACK(HANDLE hSessionHandle, v
 	public uint8[1] ucBuffer;
 }
 
-[CRepr]public struct DOT11_JOIN_REQUEST
+[CRepr]
+public struct DOT11_JOIN_REQUEST
 {
 	public uint32 uJoinFailureTimeout;
 	public DOT11_RATE_SET OperationalRateSet;
@@ -2638,7 +2661,8 @@ public function void WFD_OPEN_SESSION_COMPLETE_CALLBACK(HANDLE hSessionHandle, v
 	public DOT11_BSS_DESCRIPTION dot11BSSDescription;
 }
 
-[CRepr]public struct DOT11_START_REQUEST
+[CRepr]
+public struct DOT11_START_REQUEST
 {
 	public uint32 uStartFailureTimeout;
 	public DOT11_RATE_SET OperationalRateSet;
@@ -2646,21 +2670,24 @@ public function void WFD_OPEN_SESSION_COMPLETE_CALLBACK(HANDLE hSessionHandle, v
 	public DOT11_BSS_DESCRIPTION dot11BSSDescription;
 }
 
-[CRepr]public struct DOT11_UPDATE_IE
+[CRepr]
+public struct DOT11_UPDATE_IE
 {
 	public DOT11_UPDATE_IE_OP dot11UpdateIEOp;
 	public uint32 uBufferLength;
 	public uint8[1] ucBuffer;
 }
 
-[CRepr]public struct DOT11_RESET_REQUEST
+[CRepr]
+public struct DOT11_RESET_REQUEST
 {
 	public DOT11_RESET_TYPE dot11ResetType;
 	public uint8[6] dot11MacAddress;
 	public BOOLEAN bSetDefaultMIB;
 }
 
-[CRepr]public struct DOT11_OPTIONAL_CAPABILITY
+[CRepr]
+public struct DOT11_OPTIONAL_CAPABILITY
 {
 	public uint32 uReserved;
 	public BOOLEAN bDot11PCF;
@@ -2668,7 +2695,8 @@ public function void WFD_OPEN_SESSION_COMPLETE_CALLBACK(HANDLE hSessionHandle, v
 	public BOOLEAN bStrictlyOrderedServiceClass;
 }
 
-[CRepr]public struct DOT11_CURRENT_OPTIONAL_CAPABILITY
+[CRepr]
+public struct DOT11_CURRENT_OPTIONAL_CAPABILITY
 {
 	public uint32 uReserved;
 	public BOOLEAN bDot11CFPollable;
@@ -2677,7 +2705,8 @@ public function void WFD_OPEN_SESSION_COMPLETE_CALLBACK(HANDLE hSessionHandle, v
 	public BOOLEAN bStrictlyOrderedServiceClass;
 }
 
-[CRepr]public struct DOT11_POWER_MGMT_MODE
+[CRepr]
+public struct DOT11_POWER_MGMT_MODE
 {
 	public DOT11_POWER_MODE dot11PowerMode;
 	public uint32 uPowerSaveLevel;
@@ -2686,7 +2715,8 @@ public function void WFD_OPEN_SESSION_COMPLETE_CALLBACK(HANDLE hSessionHandle, v
 	public BOOLEAN bReceiveDTIMs;
 }
 
-[CRepr]public struct DOT11_COUNTERS_ENTRY
+[CRepr]
+public struct DOT11_COUNTERS_ENTRY
 {
 	public uint32 uTransmittedFragmentCount;
 	public uint32 uMulticastTransmittedFrameCount;
@@ -2703,71 +2733,82 @@ public function void WFD_OPEN_SESSION_COMPLETE_CALLBACK(HANDLE hSessionHandle, v
 	public uint32 uTransmittedFrameCount;
 }
 
-[CRepr]public struct DOT11_SUPPORTED_PHY_TYPES
+[CRepr]
+public struct DOT11_SUPPORTED_PHY_TYPES
 {
 	public uint32 uNumOfEntries;
 	public uint32 uTotalNumOfEntries;
 	public DOT11_PHY_TYPE[1] dot11PHYType;
 }
 
-[CRepr]public struct DOT11_SUPPORTED_POWER_LEVELS
+[CRepr]
+public struct DOT11_SUPPORTED_POWER_LEVELS
 {
 	public uint32 uNumOfSupportedPowerLevels;
 	public uint32[8] uTxPowerLevelValues;
 }
 
-[CRepr]public struct DOT11_REG_DOMAIN_VALUE
+[CRepr]
+public struct DOT11_REG_DOMAIN_VALUE
 {
 	public uint32 uRegDomainsSupportIndex;
 	public uint32 uRegDomainsSupportValue;
 }
 
-[CRepr]public struct DOT11_REG_DOMAINS_SUPPORT_VALUE
+[CRepr]
+public struct DOT11_REG_DOMAINS_SUPPORT_VALUE
 {
 	public uint32 uNumOfEntries;
 	public uint32 uTotalNumOfEntries;
 	public DOT11_REG_DOMAIN_VALUE[1] dot11RegDomainValue;
 }
 
-[CRepr]public struct DOT11_SUPPORTED_ANTENNA
+[CRepr]
+public struct DOT11_SUPPORTED_ANTENNA
 {
 	public uint32 uAntennaListIndex;
 	public BOOLEAN bSupportedAntenna;
 }
 
-[CRepr]public struct DOT11_SUPPORTED_ANTENNA_LIST
+[CRepr]
+public struct DOT11_SUPPORTED_ANTENNA_LIST
 {
 	public uint32 uNumOfEntries;
 	public uint32 uTotalNumOfEntries;
 	public DOT11_SUPPORTED_ANTENNA[1] dot11SupportedAntenna;
 }
 
-[CRepr]public struct DOT11_DIVERSITY_SELECTION_RX
+[CRepr]
+public struct DOT11_DIVERSITY_SELECTION_RX
 {
 	public uint32 uAntennaListIndex;
 	public BOOLEAN bDiversitySelectionRX;
 }
 
-[CRepr]public struct DOT11_DIVERSITY_SELECTION_RX_LIST
+[CRepr]
+public struct DOT11_DIVERSITY_SELECTION_RX_LIST
 {
 	public uint32 uNumOfEntries;
 	public uint32 uTotalNumOfEntries;
 	public DOT11_DIVERSITY_SELECTION_RX[1] dot11DiversitySelectionRx;
 }
 
-[CRepr]public struct DOT11_SUPPORTED_DATA_RATES_VALUE
+[CRepr]
+public struct DOT11_SUPPORTED_DATA_RATES_VALUE
 {
 	public uint8[8] ucSupportedTxDataRatesValue;
 	public uint8[8] ucSupportedRxDataRatesValue;
 }
 
-[CRepr]public struct DOT11_SUPPORTED_DATA_RATES_VALUE_V2
+[CRepr]
+public struct DOT11_SUPPORTED_DATA_RATES_VALUE_V2
 {
 	public uint8[255] ucSupportedTxDataRatesValue;
 	public uint8[255] ucSupportedRxDataRatesValue;
 }
 
-[CRepr]public struct DOT11_MULTI_DOMAIN_CAPABILITY_ENTRY
+[CRepr]
+public struct DOT11_MULTI_DOMAIN_CAPABILITY_ENTRY
 {
 	public uint32 uMultiDomainCapabilityIndex;
 	public uint32 uFirstChannelNumber;
@@ -2775,27 +2816,31 @@ public function void WFD_OPEN_SESSION_COMPLETE_CALLBACK(HANDLE hSessionHandle, v
 	public int32 lMaximumTransmitPowerLevel;
 }
 
-[CRepr]public struct DOT11_MD_CAPABILITY_ENTRY_LIST
+[CRepr]
+public struct DOT11_MD_CAPABILITY_ENTRY_LIST
 {
 	public uint32 uNumOfEntries;
 	public uint32 uTotalNumOfEntries;
 	public DOT11_MULTI_DOMAIN_CAPABILITY_ENTRY[1] dot11MDCapabilityEntry;
 }
 
-[CRepr]public struct DOT11_HOPPING_PATTERN_ENTRY
+[CRepr]
+public struct DOT11_HOPPING_PATTERN_ENTRY
 {
 	public uint32 uHoppingPatternIndex;
 	public uint32 uRandomTableFieldNumber;
 }
 
-[CRepr]public struct DOT11_HOPPING_PATTERN_ENTRY_LIST
+[CRepr]
+public struct DOT11_HOPPING_PATTERN_ENTRY_LIST
 {
 	public uint32 uNumOfEntries;
 	public uint32 uTotalNumOfEntries;
 	public DOT11_HOPPING_PATTERN_ENTRY[1] dot11HoppingPatternEntry;
 }
 
-[CRepr]public struct DOT11_WPA_TSC
+[CRepr]
+public struct DOT11_WPA_TSC
 {
 	public uint32 uReserved;
 	public DOT11_OFFLOAD_TYPE dot11OffloadType;
@@ -2803,21 +2848,24 @@ public function void WFD_OPEN_SESSION_COMPLETE_CALLBACK(HANDLE hSessionHandle, v
 	public DOT11_IV48_COUNTER dot11IV48Counter;
 }
 
-[CRepr]public struct DOT11_RSSI_RANGE
+[CRepr]
+public struct DOT11_RSSI_RANGE
 {
 	public DOT11_PHY_TYPE dot11PhyType;
 	public uint32 uRSSIMin;
 	public uint32 uRSSIMax;
 }
 
-[CRepr]public struct DOT11_NIC_SPECIFIC_EXTENSION
+[CRepr]
+public struct DOT11_NIC_SPECIFIC_EXTENSION
 {
 	public uint32 uBufferLength;
 	public uint32 uTotalBufferLength;
 	public uint8[1] ucBuffer;
 }
 
-[CRepr]public struct DOT11_AP_JOIN_REQUEST
+[CRepr]
+public struct DOT11_AP_JOIN_REQUEST
 {
 	public uint32 uJoinFailureTimeout;
 	public DOT11_RATE_SET OperationalRateSet;
@@ -2825,16 +2873,19 @@ public function void WFD_OPEN_SESSION_COMPLETE_CALLBACK(HANDLE hSessionHandle, v
 	public DOT11_BSS_DESCRIPTION dot11BSSDescription;
 }
 
-[CRepr]public struct DOT11_RECV_SENSITIVITY
+[CRepr]
+public struct DOT11_RECV_SENSITIVITY
 {
 	public uint8 ucDataRate;
 	public int32 lRSSIMin;
 	public int32 lRSSIMax;
 }
 
-[CRepr]public struct DOT11_RECV_SENSITIVITY_LIST
+[CRepr]
+public struct DOT11_RECV_SENSITIVITY_LIST
 {
-	[CRepr, Union]	public struct _Anonymous_e__Union
+	[CRepr, Union]
+	public struct _Anonymous_e__Union
 	{
 		public DOT11_PHY_TYPE dot11PhyType;
 		public uint32 uPhyId;
@@ -2846,7 +2897,8 @@ public function void WFD_OPEN_SESSION_COMPLETE_CALLBACK(HANDLE hSessionHandle, v
 	public DOT11_RECV_SENSITIVITY[1] dot11RecvSensitivity;
 }
 
-[CRepr]public struct DOT11_WME_AC_PARAMETERS
+[CRepr]
+public struct DOT11_WME_AC_PARAMETERS
 {
 	public uint8 ucAccessCategoryIndex;
 	public uint8 ucAIFSN;
@@ -2855,14 +2907,16 @@ public function void WFD_OPEN_SESSION_COMPLETE_CALLBACK(HANDLE hSessionHandle, v
 	public uint16 usTXOPLimit;
 }
 
-[CRepr]public struct _DOT11_WME_AC_PARAMTERS_LIST
+[CRepr]
+public struct _DOT11_WME_AC_PARAMTERS_LIST
 {
 	public uint32 uNumOfEntries;
 	public uint32 uTotalNumOfEntries;
 	public DOT11_WME_AC_PARAMETERS[1] dot11WMEACParameters;
 }
 
-[CRepr]public struct DOT11_WME_UPDATE_IE
+[CRepr]
+public struct DOT11_WME_UPDATE_IE
 {
 	public uint32 uParamElemMinBeaconIntervals;
 	public uint32 uWMEInfoElemOffset;
@@ -2872,45 +2926,52 @@ public function void WFD_OPEN_SESSION_COMPLETE_CALLBACK(HANDLE hSessionHandle, v
 	public uint8[1] ucBuffer;
 }
 
-[CRepr]public struct DOT11_QOS_TX_DURATION
+[CRepr]
+public struct DOT11_QOS_TX_DURATION
 {
 	public uint32 uNominalMSDUSize;
 	public uint32 uMinPHYRate;
 	public uint32 uDuration;
 }
 
-[CRepr]public struct DOT11_QOS_TX_MEDIUM_TIME
+[CRepr]
+public struct DOT11_QOS_TX_MEDIUM_TIME
 {
 	public uint8[6] dot11PeerAddress;
 	public uint8 ucQoSPriority;
 	public uint32 uMediumTimeAdmited;
 }
 
-[CRepr]public struct DOT11_SUPPORTED_OFDM_FREQUENCY
+[CRepr]
+public struct DOT11_SUPPORTED_OFDM_FREQUENCY
 {
 	public uint32 uCenterFrequency;
 }
 
-[CRepr]public struct DOT11_SUPPORTED_OFDM_FREQUENCY_LIST
+[CRepr]
+public struct DOT11_SUPPORTED_OFDM_FREQUENCY_LIST
 {
 	public uint32 uNumOfEntries;
 	public uint32 uTotalNumOfEntries;
 	public DOT11_SUPPORTED_OFDM_FREQUENCY[1] dot11SupportedOFDMFrequency;
 }
 
-[CRepr]public struct DOT11_SUPPORTED_DSSS_CHANNEL
+[CRepr]
+public struct DOT11_SUPPORTED_DSSS_CHANNEL
 {
 	public uint32 uChannel;
 }
 
-[CRepr]public struct DOT11_SUPPORTED_DSSS_CHANNEL_LIST
+[CRepr]
+public struct DOT11_SUPPORTED_DSSS_CHANNEL_LIST
 {
 	public uint32 uNumOfEntries;
 	public uint32 uTotalNumOfEntries;
 	public DOT11_SUPPORTED_DSSS_CHANNEL[1] dot11SupportedDSSSChannel;
 }
 
-[CRepr]public struct DOT11_BYTE_ARRAY
+[CRepr]
+public struct DOT11_BYTE_ARRAY
 {
 	public NDIS_OBJECT_HEADER Header;
 	public uint32 uNumOfBytes;
@@ -2918,9 +2979,11 @@ public function void WFD_OPEN_SESSION_COMPLETE_CALLBACK(HANDLE hSessionHandle, v
 	public uint8[1] ucBuffer;
 }
 
-[CRepr, Union]public struct DOT11_BSS_ENTRY_PHY_SPECIFIC_INFO
+[CRepr, Union]
+public struct DOT11_BSS_ENTRY_PHY_SPECIFIC_INFO
 {
-	[CRepr]	public struct _FHSS_e__Struct
+	[CRepr]
+	public struct _FHSS_e__Struct
 	{
 		public uint32 uHopPattern;
 		public uint32 uHopSet;
@@ -2931,7 +2994,8 @@ public function void WFD_OPEN_SESSION_COMPLETE_CALLBACK(HANDLE hSessionHandle, v
 	public _FHSS_e__Struct FHSS;
 }
 
-[CRepr]public struct DOT11_BSS_ENTRY
+[CRepr]
+public struct DOT11_BSS_ENTRY
 {
 	public uint32 uPhyId;
 	public DOT11_BSS_ENTRY_PHY_SPECIFIC_INFO PhySpecificInfo;
@@ -2948,7 +3012,8 @@ public function void WFD_OPEN_SESSION_COMPLETE_CALLBACK(HANDLE hSessionHandle, v
 	public uint8[1] ucBuffer;
 }
 
-[CRepr]public struct DOT11_SSID_LIST
+[CRepr]
+public struct DOT11_SSID_LIST
 {
 	public NDIS_OBJECT_HEADER Header;
 	public uint32 uNumOfEntries;
@@ -2956,7 +3021,8 @@ public function void WFD_OPEN_SESSION_COMPLETE_CALLBACK(HANDLE hSessionHandle, v
 	public DOT11_SSID[1] SSIDs;
 }
 
-[CRepr]public struct DOT11_MAC_ADDRESS_LIST
+[CRepr]
+public struct DOT11_MAC_ADDRESS_LIST
 {
 	public NDIS_OBJECT_HEADER Header;
 	public uint32 uNumOfEntries;
@@ -2964,14 +3030,16 @@ public function void WFD_OPEN_SESSION_COMPLETE_CALLBACK(HANDLE hSessionHandle, v
 	public uint8[6] MacAddrs;
 }
 
-[CRepr]public struct DOT11_PMKID_ENTRY
+[CRepr]
+public struct DOT11_PMKID_ENTRY
 {
 	public uint8[6] BSSID;
 	public uint8[16] PMKID;
 	public uint32 uFlags;
 }
 
-[CRepr]public struct DOT11_PMKID_LIST
+[CRepr]
+public struct DOT11_PMKID_LIST
 {
 	public NDIS_OBJECT_HEADER Header;
 	public uint32 uNumOfEntries;
@@ -2979,7 +3047,8 @@ public function void WFD_OPEN_SESSION_COMPLETE_CALLBACK(HANDLE hSessionHandle, v
 	public DOT11_PMKID_ENTRY[1] PMKIDs;
 }
 
-[CRepr]public struct DOT11_PHY_FRAME_STATISTICS
+[CRepr]
+public struct DOT11_PHY_FRAME_STATISTICS
 {
 	public uint64 ullTransmittedFrameCount;
 	public uint64 ullMulticastTransmittedFrameCount;
@@ -3001,7 +3070,8 @@ public function void WFD_OPEN_SESSION_COMPLETE_CALLBACK(HANDLE hSessionHandle, v
 	public uint64 ullFCSErrorCount;
 }
 
-[CRepr]public struct DOT11_MAC_FRAME_STATISTICS
+[CRepr]
+public struct DOT11_MAC_FRAME_STATISTICS
 {
 	public uint64 ullTransmittedFrameCount;
 	public uint64 ullReceivedFrameCount;
@@ -3019,7 +3089,8 @@ public function void WFD_OPEN_SESSION_COMPLETE_CALLBACK(HANDLE hSessionHandle, v
 	public uint64 ullDecryptFailureCount;
 }
 
-[CRepr]public struct DOT11_STATISTICS
+[CRepr]
+public struct DOT11_STATISTICS
 {
 	public NDIS_OBJECT_HEADER Header;
 	public uint64 ullFourWayHandshakeFailures;
@@ -3030,14 +3101,16 @@ public function void WFD_OPEN_SESSION_COMPLETE_CALLBACK(HANDLE hSessionHandle, v
 	public DOT11_PHY_FRAME_STATISTICS[1] PhyCounters;
 }
 
-[CRepr]public struct DOT11_PRIVACY_EXEMPTION
+[CRepr]
+public struct DOT11_PRIVACY_EXEMPTION
 {
 	public uint16 usEtherType;
 	public uint16 usExemptionActionType;
 	public uint16 usExemptionPacketType;
 }
 
-[CRepr]public struct DOT11_PRIVACY_EXEMPTION_LIST
+[CRepr]
+public struct DOT11_PRIVACY_EXEMPTION_LIST
 {
 	public NDIS_OBJECT_HEADER Header;
 	public uint32 uNumOfEntries;
@@ -3045,7 +3118,8 @@ public function void WFD_OPEN_SESSION_COMPLETE_CALLBACK(HANDLE hSessionHandle, v
 	public DOT11_PRIVACY_EXEMPTION[1] PrivacyExemptionEntries;
 }
 
-[CRepr]public struct DOT11_AUTH_ALGORITHM_LIST
+[CRepr]
+public struct DOT11_AUTH_ALGORITHM_LIST
 {
 	public NDIS_OBJECT_HEADER Header;
 	public uint32 uNumOfEntries;
@@ -3053,7 +3127,8 @@ public function void WFD_OPEN_SESSION_COMPLETE_CALLBACK(HANDLE hSessionHandle, v
 	public DOT11_AUTH_ALGORITHM[1] AlgorithmIds;
 }
 
-[CRepr]public struct DOT11_AUTH_CIPHER_PAIR_LIST
+[CRepr]
+public struct DOT11_AUTH_CIPHER_PAIR_LIST
 {
 	public NDIS_OBJECT_HEADER Header;
 	public uint32 uNumOfEntries;
@@ -3061,7 +3136,8 @@ public function void WFD_OPEN_SESSION_COMPLETE_CALLBACK(HANDLE hSessionHandle, v
 	public DOT11_AUTH_CIPHER_PAIR[1] AuthCipherPairs;
 }
 
-[CRepr]public struct DOT11_CIPHER_ALGORITHM_LIST
+[CRepr]
+public struct DOT11_CIPHER_ALGORITHM_LIST
 {
 	public NDIS_OBJECT_HEADER Header;
 	public uint32 uNumOfEntries;
@@ -3069,7 +3145,8 @@ public function void WFD_OPEN_SESSION_COMPLETE_CALLBACK(HANDLE hSessionHandle, v
 	public DOT11_CIPHER_ALGORITHM[1] AlgorithmIds;
 }
 
-[CRepr]public struct DOT11_CIPHER_DEFAULT_KEY_VALUE
+[CRepr]
+public struct DOT11_CIPHER_DEFAULT_KEY_VALUE
 {
 	public NDIS_OBJECT_HEADER Header;
 	public uint32 uKeyIndex;
@@ -3081,7 +3158,8 @@ public function void WFD_OPEN_SESSION_COMPLETE_CALLBACK(HANDLE hSessionHandle, v
 	public uint8[1] ucKey;
 }
 
-[CRepr]public struct DOT11_KEY_ALGO_TKIP_MIC
+[CRepr]
+public struct DOT11_KEY_ALGO_TKIP_MIC
 {
 	public uint8[6] ucIV48Counter;
 	public uint32 ulTKIPKeyLength;
@@ -3089,42 +3167,48 @@ public function void WFD_OPEN_SESSION_COMPLETE_CALLBACK(HANDLE hSessionHandle, v
 	public uint8[1] ucTKIPMICKeys;
 }
 
-[CRepr]public struct DOT11_KEY_ALGO_CCMP
+[CRepr]
+public struct DOT11_KEY_ALGO_CCMP
 {
 	public uint8[6] ucIV48Counter;
 	public uint32 ulCCMPKeyLength;
 	public uint8[1] ucCCMPKey;
 }
 
-[CRepr]public struct DOT11_KEY_ALGO_GCMP
+[CRepr]
+public struct DOT11_KEY_ALGO_GCMP
 {
 	public uint8[6] ucIV48Counter;
 	public uint32 ulGCMPKeyLength;
 	public uint8[1] ucGCMPKey;
 }
 
-[CRepr]public struct DOT11_KEY_ALGO_GCMP_256
+[CRepr]
+public struct DOT11_KEY_ALGO_GCMP_256
 {
 	public uint8[6] ucIV48Counter;
 	public uint32 ulGCMP256KeyLength;
 	public uint8[1] ucGCMP256Key;
 }
 
-[CRepr]public struct DOT11_KEY_ALGO_BIP
+[CRepr]
+public struct DOT11_KEY_ALGO_BIP
 {
 	public uint8[6] ucIPN;
 	public uint32 ulBIPKeyLength;
 	public uint8[1] ucBIPKey;
 }
 
-[CRepr]public struct DOT11_KEY_ALGO_BIP_GMAC_256
+[CRepr]
+public struct DOT11_KEY_ALGO_BIP_GMAC_256
 {
 	public uint8[6] ucIPN;
 	public uint32 ulBIPGmac256KeyLength;
 	public uint8[1] ucBIPGmac256Key;
 }
 
-[CRepr]public struct DOT11_CIPHER_KEY_MAPPING_KEY_VALUE
+[CRepr]
+public struct DOT11_CIPHER_KEY_MAPPING_KEY_VALUE
 {
 	public uint8[6] PeerMacAddr;
 	public DOT11_CIPHER_ALGORITHM AlgorithmId;
@@ -3135,7 +3219,8 @@ public function void WFD_OPEN_SESSION_COMPLETE_CALLBACK(HANDLE hSessionHandle, v
 	public uint8[1] ucKey;
 }
 
-[CRepr]public struct DOT11_ASSOCIATION_INFO_EX
+[CRepr]
+public struct DOT11_ASSOCIATION_INFO_EX
 {
 	public uint8[6] PeerMacAddress;
 	public uint8[6] BSSID;
@@ -3152,7 +3237,8 @@ public function void WFD_OPEN_SESSION_COMPLETE_CALLBACK(HANDLE hSessionHandle, v
 	public uint64 ullNumOfRxPacketFailures;
 }
 
-[CRepr]public struct DOT11_ASSOCIATION_INFO_LIST
+[CRepr]
+public struct DOT11_ASSOCIATION_INFO_LIST
 {
 	public NDIS_OBJECT_HEADER Header;
 	public uint32 uNumOfEntries;
@@ -3160,7 +3246,8 @@ public function void WFD_OPEN_SESSION_COMPLETE_CALLBACK(HANDLE hSessionHandle, v
 	public DOT11_ASSOCIATION_INFO_EX[1] dot11AssocInfo;
 }
 
-[CRepr]public struct DOT11_PHY_ID_LIST
+[CRepr]
+public struct DOT11_PHY_ID_LIST
 {
 	public NDIS_OBJECT_HEADER Header;
 	public uint32 uNumOfEntries;
@@ -3168,7 +3255,8 @@ public function void WFD_OPEN_SESSION_COMPLETE_CALLBACK(HANDLE hSessionHandle, v
 	public uint32[1] dot11PhyId;
 }
 
-[CRepr]public struct DOT11_EXTSTA_CAPABILITY
+[CRepr]
+public struct DOT11_EXTSTA_CAPABILITY
 {
 	public NDIS_OBJECT_HEADER Header;
 	public uint32 uScanSSIDListSize;
@@ -3183,21 +3271,24 @@ public function void WFD_OPEN_SESSION_COMPLETE_CALLBACK(HANDLE hSessionHandle, v
 	public uint32 uMaxNumPerSTADefaultKeyTables;
 }
 
-[CRepr]public struct DOT11_DATA_RATE_MAPPING_ENTRY
+[CRepr]
+public struct DOT11_DATA_RATE_MAPPING_ENTRY
 {
 	public uint8 ucDataRateIndex;
 	public uint8 ucDataRateFlag;
 	public uint16 usDataRateValue;
 }
 
-[CRepr]public struct DOT11_DATA_RATE_MAPPING_TABLE
+[CRepr]
+public struct DOT11_DATA_RATE_MAPPING_TABLE
 {
 	public NDIS_OBJECT_HEADER Header;
 	public uint32 uDataRateMappingLength;
 	public DOT11_DATA_RATE_MAPPING_ENTRY[126] DataRateMappingEntries;
 }
 
-[CRepr]public struct DOT11_COUNTRY_OR_REGION_STRING_LIST
+[CRepr]
+public struct DOT11_COUNTRY_OR_REGION_STRING_LIST
 {
 	public NDIS_OBJECT_HEADER Header;
 	public uint32 uNumOfEntries;
@@ -3205,14 +3296,16 @@ public function void WFD_OPEN_SESSION_COMPLETE_CALLBACK(HANDLE hSessionHandle, v
 	public uint8[3] CountryOrRegionStrings;
 }
 
-[CRepr]public struct DOT11_PORT_STATE_NOTIFICATION
+[CRepr]
+public struct DOT11_PORT_STATE_NOTIFICATION
 {
 	public NDIS_OBJECT_HEADER Header;
 	public uint8[6] PeerMac;
 	public BOOLEAN bOpen;
 }
 
-[CRepr]public struct DOT11_IBSS_PARAMS
+[CRepr]
+public struct DOT11_IBSS_PARAMS
 {
 	public NDIS_OBJECT_HEADER Header;
 	public BOOLEAN bJoinOnly;
@@ -3220,13 +3313,15 @@ public function void WFD_OPEN_SESSION_COMPLETE_CALLBACK(HANDLE hSessionHandle, v
 	public uint32 uIEsLength;
 }
 
-[CRepr]public struct DOT11_QOS_PARAMS
+[CRepr]
+public struct DOT11_QOS_PARAMS
 {
 	public NDIS_OBJECT_HEADER Header;
 	public uint8 ucEnabledQoSProtocolFlags;
 }
 
-[CRepr]public struct DOT11_ASSOCIATION_PARAMS
+[CRepr]
+public struct DOT11_ASSOCIATION_PARAMS
 {
 	public NDIS_OBJECT_HEADER Header;
 	public uint8[6] BSSID;
@@ -3234,13 +3329,15 @@ public function void WFD_OPEN_SESSION_COMPLETE_CALLBACK(HANDLE hSessionHandle, v
 	public uint32 uAssocRequestIEsLength;
 }
 
-[CRepr]public struct DOT11_FRAGMENT_DESCRIPTOR
+[CRepr]
+public struct DOT11_FRAGMENT_DESCRIPTOR
 {
 	public uint32 uOffset;
 	public uint32 uLength;
 }
 
-[CRepr]public struct DOT11_PER_MSDU_COUNTERS
+[CRepr]
+public struct DOT11_PER_MSDU_COUNTERS
 {
 	public uint32 uTransmittedFragmentCount;
 	public uint32 uRetryCount;
@@ -3249,7 +3346,8 @@ public function void WFD_OPEN_SESSION_COMPLETE_CALLBACK(HANDLE hSessionHandle, v
 	public uint32 uACKFailureCount;
 }
 
-[CRepr]public struct DOT11_HRDSSS_PHY_ATTRIBUTES
+[CRepr]
+public struct DOT11_HRDSSS_PHY_ATTRIBUTES
 {
 	public BOOLEAN bShortPreambleOptionImplemented;
 	public BOOLEAN bPBCCOptionImplemented;
@@ -3257,12 +3355,14 @@ public function void WFD_OPEN_SESSION_COMPLETE_CALLBACK(HANDLE hSessionHandle, v
 	public uint32 uHRCCAModeSupported;
 }
 
-[CRepr]public struct DOT11_OFDM_PHY_ATTRIBUTES
+[CRepr]
+public struct DOT11_OFDM_PHY_ATTRIBUTES
 {
 	public uint32 uFrequencyBandsSupported;
 }
 
-[CRepr]public struct DOT11_ERP_PHY_ATTRIBUTES
+[CRepr]
+public struct DOT11_ERP_PHY_ATTRIBUTES
 {
 	public DOT11_HRDSSS_PHY_ATTRIBUTES HRDSSSAttributes;
 	public BOOLEAN bERPPBCCOptionImplemented;
@@ -3270,9 +3370,11 @@ public function void WFD_OPEN_SESSION_COMPLETE_CALLBACK(HANDLE hSessionHandle, v
 	public BOOLEAN bShortSlotTimeOptionImplemented;
 }
 
-[CRepr]public struct DOT11_PHY_ATTRIBUTES
+[CRepr]
+public struct DOT11_PHY_ATTRIBUTES
 {
-	[CRepr, Union]	public struct _PhySpecificAttributes_e__Union
+	[CRepr, Union]
+	public struct _PhySpecificAttributes_e__Union
 	{
 		public DOT11_HRDSSS_PHY_ATTRIBUTES HRDSSSAttributes;
 		public DOT11_OFDM_PHY_ATTRIBUTES OFDMAttributes;
@@ -3295,7 +3397,8 @@ public function void WFD_OPEN_SESSION_COMPLETE_CALLBACK(HANDLE hSessionHandle, v
 	public DOT11_SUPPORTED_DATA_RATES_VALUE_V2 SupportedDataRatesValue;
 }
 
-[CRepr]public struct DOT11_EXTSTA_ATTRIBUTES
+[CRepr]
+public struct DOT11_EXTSTA_ATTRIBUTES
 {
 	public NDIS_OBJECT_HEADER Header;
 	public uint32 uScanSSIDListSize;
@@ -3333,7 +3436,8 @@ public function void WFD_OPEN_SESSION_COMPLETE_CALLBACK(HANDLE hSessionHandle, v
 	public BOOLEAN bHESSIDConnectionSupported;
 }
 
-[CRepr]public struct DOT11_RECV_EXTENSION_INFO
+[CRepr]
+public struct DOT11_RECV_EXTENSION_INFO
 {
 	public uint32 uVersion;
 	public void* pvReserved;
@@ -3360,7 +3464,8 @@ public function void WFD_OPEN_SESSION_COMPLETE_CALLBACK(HANDLE hSessionHandle, v
 	public void*[1] pNdisPackets;
 }
 
-[CRepr]public struct DOT11_RECV_EXTENSION_INFO_V2
+[CRepr]
+public struct DOT11_RECV_EXTENSION_INFO_V2
 {
 	public uint32 uVersion;
 	public void* pvReserved;
@@ -3385,20 +3490,23 @@ public function void WFD_OPEN_SESSION_COMPLETE_CALLBACK(HANDLE hSessionHandle, v
 	public void*[1] pNdisPackets;
 }
 
-[CRepr]public struct DOT11_STATUS_INDICATION
+[CRepr]
+public struct DOT11_STATUS_INDICATION
 {
 	public uint32 uStatusType;
 	public int32 ndisStatus;
 }
 
-[CRepr]public struct DOT11_MPDU_MAX_LENGTH_INDICATION
+[CRepr]
+public struct DOT11_MPDU_MAX_LENGTH_INDICATION
 {
 	public NDIS_OBJECT_HEADER Header;
 	public uint32 uPhyId;
 	public uint32 uMPDUMaxLength;
 }
 
-[CRepr]public struct DOT11_ASSOCIATION_START_PARAMETERS
+[CRepr]
+public struct DOT11_ASSOCIATION_START_PARAMETERS
 {
 	public NDIS_OBJECT_HEADER Header;
 	public uint8[6] MacAddr;
@@ -3407,13 +3515,15 @@ public function void WFD_OPEN_SESSION_COMPLETE_CALLBACK(HANDLE hSessionHandle, v
 	public uint32 uIHVDataSize;
 }
 
-[CRepr]public struct DOT11_ENCAP_ENTRY
+[CRepr]
+public struct DOT11_ENCAP_ENTRY
 {
 	public uint16 usEtherType;
 	public uint16 usEncapType;
 }
 
-[CRepr]public struct DOT11_ASSOCIATION_COMPLETION_PARAMETERS
+[CRepr]
+public struct DOT11_ASSOCIATION_COMPLETION_PARAMETERS
 {
 	public NDIS_OBJECT_HEADER Header;
 	public uint8[6] MacAddr;
@@ -3443,7 +3553,8 @@ public function void WFD_OPEN_SESSION_COMPLETE_CALLBACK(HANDLE hSessionHandle, v
 	public uint32 uAssocComebackTime;
 }
 
-[CRepr]public struct DOT11_CONNECTION_START_PARAMETERS
+[CRepr]
+public struct DOT11_CONNECTION_START_PARAMETERS
 {
 	public NDIS_OBJECT_HEADER Header;
 	public DOT11_BSS_TYPE BSSType;
@@ -3451,13 +3562,15 @@ public function void WFD_OPEN_SESSION_COMPLETE_CALLBACK(HANDLE hSessionHandle, v
 	public DOT11_SSID AdhocSSID;
 }
 
-[CRepr]public struct DOT11_CONNECTION_COMPLETION_PARAMETERS
+[CRepr]
+public struct DOT11_CONNECTION_COMPLETION_PARAMETERS
 {
 	public NDIS_OBJECT_HEADER Header;
 	public uint32 uStatus;
 }
 
-[CRepr]public struct DOT11_ROAMING_START_PARAMETERS
+[CRepr]
+public struct DOT11_ROAMING_START_PARAMETERS
 {
 	public NDIS_OBJECT_HEADER Header;
 	public uint8[6] AdhocBSSID;
@@ -3465,13 +3578,15 @@ public function void WFD_OPEN_SESSION_COMPLETE_CALLBACK(HANDLE hSessionHandle, v
 	public uint32 uRoamingReason;
 }
 
-[CRepr]public struct DOT11_ROAMING_COMPLETION_PARAMETERS
+[CRepr]
+public struct DOT11_ROAMING_COMPLETION_PARAMETERS
 {
 	public NDIS_OBJECT_HEADER Header;
 	public uint32 uStatus;
 }
 
-[CRepr]public struct DOT11_DISASSOCIATION_PARAMETERS
+[CRepr]
+public struct DOT11_DISASSOCIATION_PARAMETERS
 {
 	public NDIS_OBJECT_HEADER Header;
 	public uint8[6] MacAddr;
@@ -3480,7 +3595,8 @@ public function void WFD_OPEN_SESSION_COMPLETE_CALLBACK(HANDLE hSessionHandle, v
 	public uint32 uIHVDataSize;
 }
 
-[CRepr]public struct DOT11_TKIPMIC_FAILURE_PARAMETERS
+[CRepr]
+public struct DOT11_TKIPMIC_FAILURE_PARAMETERS
 {
 	public NDIS_OBJECT_HEADER Header;
 	public BOOLEAN bDefaultKeyFailure;
@@ -3488,20 +3604,23 @@ public function void WFD_OPEN_SESSION_COMPLETE_CALLBACK(HANDLE hSessionHandle, v
 	public uint8[6] PeerMac;
 }
 
-[CRepr]public struct DOT11_PMKID_CANDIDATE_LIST_PARAMETERS
+[CRepr]
+public struct DOT11_PMKID_CANDIDATE_LIST_PARAMETERS
 {
 	public NDIS_OBJECT_HEADER Header;
 	public uint32 uCandidateListSize;
 	public uint32 uCandidateListOffset;
 }
 
-[CRepr]public struct DOT11_BSSID_CANDIDATE
+[CRepr]
+public struct DOT11_BSSID_CANDIDATE
 {
 	public uint8[6] BSSID;
 	public uint32 uFlags;
 }
 
-[CRepr]public struct DOT11_PHY_STATE_PARAMETERS
+[CRepr]
+public struct DOT11_PHY_STATE_PARAMETERS
 {
 	public NDIS_OBJECT_HEADER Header;
 	public uint32 uPhyId;
@@ -3509,20 +3628,23 @@ public function void WFD_OPEN_SESSION_COMPLETE_CALLBACK(HANDLE hSessionHandle, v
 	public BOOLEAN bSoftwarePhyState;
 }
 
-[CRepr]public struct DOT11_LINK_QUALITY_ENTRY
+[CRepr]
+public struct DOT11_LINK_QUALITY_ENTRY
 {
 	public uint8[6] PeerMacAddr;
 	public uint8 ucLinkQuality;
 }
 
-[CRepr]public struct DOT11_LINK_QUALITY_PARAMETERS
+[CRepr]
+public struct DOT11_LINK_QUALITY_PARAMETERS
 {
 	public NDIS_OBJECT_HEADER Header;
 	public uint32 uLinkQualityListSize;
 	public uint32 uLinkQualityListOffset;
 }
 
-[CRepr]public struct DOT11_EXTSTA_SEND_CONTEXT
+[CRepr]
+public struct DOT11_EXTSTA_SEND_CONTEXT
 {
 	public NDIS_OBJECT_HEADER Header;
 	public uint16 usExemptionActionType;
@@ -3532,7 +3654,8 @@ public function void WFD_OPEN_SESSION_COMPLETE_CALLBACK(HANDLE hSessionHandle, v
 	public uint32 uSendFlags;
 }
 
-[CRepr]public struct DOT11_EXTSTA_RECV_CONTEXT
+[CRepr]
+public struct DOT11_EXTSTA_RECV_CONTEXT
 {
 	public NDIS_OBJECT_HEADER Header;
 	public uint32 uReceiveFlags;
@@ -3546,7 +3669,8 @@ public function void WFD_OPEN_SESSION_COMPLETE_CALLBACK(HANDLE hSessionHandle, v
 	public uint64 ullTimestamp;
 }
 
-[CRepr]public struct DOT11_EXTAP_ATTRIBUTES
+[CRepr]
+public struct DOT11_EXTAP_ATTRIBUTES
 {
 	public NDIS_OBJECT_HEADER Header;
 	public uint32 uScanSSIDListSize;
@@ -3564,13 +3688,15 @@ public function void WFD_OPEN_SESSION_COMPLETE_CALLBACK(HANDLE hSessionHandle, v
 	public DOT11_AUTH_CIPHER_PAIR* pInfraSupportedMcastAlgoPairs;
 }
 
-[CRepr]public struct DOT11_INCOMING_ASSOC_STARTED_PARAMETERS
+[CRepr]
+public struct DOT11_INCOMING_ASSOC_STARTED_PARAMETERS
 {
 	public NDIS_OBJECT_HEADER Header;
 	public uint8[6] PeerMacAddr;
 }
 
-[CRepr]public struct DOT11_INCOMING_ASSOC_REQUEST_RECEIVED_PARAMETERS
+[CRepr]
+public struct DOT11_INCOMING_ASSOC_REQUEST_RECEIVED_PARAMETERS
 {
 	public NDIS_OBJECT_HEADER Header;
 	public uint8[6] PeerMacAddr;
@@ -3579,7 +3705,8 @@ public function void WFD_OPEN_SESSION_COMPLETE_CALLBACK(HANDLE hSessionHandle, v
 	public uint32 uAssocReqSize;
 }
 
-[CRepr]public struct DOT11_INCOMING_ASSOC_COMPLETION_PARAMETERS
+[CRepr]
+public struct DOT11_INCOMING_ASSOC_COMPLETION_PARAMETERS
 {
 	public NDIS_OBJECT_HEADER Header;
 	public uint8[6] PeerMacAddr;
@@ -3600,15 +3727,18 @@ public function void WFD_OPEN_SESSION_COMPLETE_CALLBACK(HANDLE hSessionHandle, v
 	public uint32 uBeaconSize;
 }
 
-[CRepr]public struct DOT11_STOP_AP_PARAMETERS
+[CRepr]
+public struct DOT11_STOP_AP_PARAMETERS
 {
 	public NDIS_OBJECT_HEADER Header;
 	public uint32 ulReason;
 }
 
-[CRepr]public struct DOT11_PHY_FREQUENCY_ADOPTED_PARAMETERS
+[CRepr]
+public struct DOT11_PHY_FREQUENCY_ADOPTED_PARAMETERS
 {
-	[CRepr, Union]	public struct _Anonymous_e__Union
+	[CRepr, Union]
+	public struct _Anonymous_e__Union
 	{
 		public uint32 ulChannel;
 		public uint32 ulFrequency;
@@ -3619,13 +3749,15 @@ public function void WFD_OPEN_SESSION_COMPLETE_CALLBACK(HANDLE hSessionHandle, v
 	public using _Anonymous_e__Union Anonymous;
 }
 
-[CRepr]public struct DOT11_CAN_SUSTAIN_AP_PARAMETERS
+[CRepr]
+public struct DOT11_CAN_SUSTAIN_AP_PARAMETERS
 {
 	public NDIS_OBJECT_HEADER Header;
 	public uint32 ulReason;
 }
 
-[CRepr]public struct DOT11_AVAILABLE_CHANNEL_LIST
+[CRepr]
+public struct DOT11_AVAILABLE_CHANNEL_LIST
 {
 	public NDIS_OBJECT_HEADER Header;
 	public uint32 uNumOfEntries;
@@ -3633,7 +3765,8 @@ public function void WFD_OPEN_SESSION_COMPLETE_CALLBACK(HANDLE hSessionHandle, v
 	public uint32[1] uChannelNumber;
 }
 
-[CRepr]public struct DOT11_AVAILABLE_FREQUENCY_LIST
+[CRepr]
+public struct DOT11_AVAILABLE_FREQUENCY_LIST
 {
 	public NDIS_OBJECT_HEADER Header;
 	public uint32 uNumOfEntries;
@@ -3641,14 +3774,16 @@ public function void WFD_OPEN_SESSION_COMPLETE_CALLBACK(HANDLE hSessionHandle, v
 	public uint32[1] uFrequencyValue;
 }
 
-[CRepr]public struct DOT11_DISASSOCIATE_PEER_REQUEST
+[CRepr]
+public struct DOT11_DISASSOCIATE_PEER_REQUEST
 {
 	public NDIS_OBJECT_HEADER Header;
 	public uint8[6] PeerMacAddr;
 	public uint16 usReason;
 }
 
-[CRepr]public struct DOT11_INCOMING_ASSOC_DECISION
+[CRepr]
+public struct DOT11_INCOMING_ASSOC_DECISION
 {
 	public NDIS_OBJECT_HEADER Header;
 	public uint8[6] PeerMacAddr;
@@ -3658,7 +3793,8 @@ public function void WFD_OPEN_SESSION_COMPLETE_CALLBACK(HANDLE hSessionHandle, v
 	public uint32 uAssocResponseIEsLength;
 }
 
-[CRepr]public struct DOT11_INCOMING_ASSOC_DECISION_V2
+[CRepr]
+public struct DOT11_INCOMING_ASSOC_DECISION_V2
 {
 	public NDIS_OBJECT_HEADER Header;
 	public uint8[6] PeerMacAddr;
@@ -3669,7 +3805,8 @@ public function void WFD_OPEN_SESSION_COMPLETE_CALLBACK(HANDLE hSessionHandle, v
 	public uint8 WFDStatus;
 }
 
-[CRepr]public struct DOT11_ADDITIONAL_IE
+[CRepr]
+public struct DOT11_ADDITIONAL_IE
 {
 	public NDIS_OBJECT_HEADER Header;
 	public uint32 uBeaconIEsOffset;
@@ -3678,7 +3815,8 @@ public function void WFD_OPEN_SESSION_COMPLETE_CALLBACK(HANDLE hSessionHandle, v
 	public uint32 uResponseIEsLength;
 }
 
-[CRepr]public struct DOT11_PEER_STATISTICS
+[CRepr]
+public struct DOT11_PEER_STATISTICS
 {
 	public uint64 ullDecryptSuccessCount;
 	public uint64 ullDecryptFailureCount;
@@ -3688,7 +3826,8 @@ public function void WFD_OPEN_SESSION_COMPLETE_CALLBACK(HANDLE hSessionHandle, v
 	public uint64 ullRxPacketFailureCount;
 }
 
-[CRepr]public struct DOT11_PEER_INFO
+[CRepr]
+public struct DOT11_PEER_INFO
 {
 	public uint8[6] MacAddress;
 	public uint16 usCapabilityInformation;
@@ -3705,7 +3844,8 @@ public function void WFD_OPEN_SESSION_COMPLETE_CALLBACK(HANDLE hSessionHandle, v
 	public DOT11_PEER_STATISTICS Statistics;
 }
 
-[CRepr]public struct DOT11_PEER_INFO_LIST
+[CRepr]
+public struct DOT11_PEER_INFO_LIST
 {
 	public NDIS_OBJECT_HEADER Header;
 	public uint32 uNumOfEntries;
@@ -3713,7 +3853,8 @@ public function void WFD_OPEN_SESSION_COMPLETE_CALLBACK(HANDLE hSessionHandle, v
 	public DOT11_PEER_INFO[1] PeerInfo;
 }
 
-[CRepr]public struct DOT11_VWIFI_COMBINATION
+[CRepr]
+public struct DOT11_VWIFI_COMBINATION
 {
 	public NDIS_OBJECT_HEADER Header;
 	public uint32 uNumInfrastructure;
@@ -3721,7 +3862,8 @@ public function void WFD_OPEN_SESSION_COMPLETE_CALLBACK(HANDLE hSessionHandle, v
 	public uint32 uNumSoftAP;
 }
 
-[CRepr]public struct DOT11_VWIFI_COMBINATION_V2
+[CRepr]
+public struct DOT11_VWIFI_COMBINATION_V2
 {
 	public NDIS_OBJECT_HEADER Header;
 	public uint32 uNumInfrastructure;
@@ -3730,7 +3872,8 @@ public function void WFD_OPEN_SESSION_COMPLETE_CALLBACK(HANDLE hSessionHandle, v
 	public uint32 uNumVirtualStation;
 }
 
-[CRepr]public struct DOT11_VWIFI_COMBINATION_V3
+[CRepr]
+public struct DOT11_VWIFI_COMBINATION_V3
 {
 	public NDIS_OBJECT_HEADER Header;
 	public uint32 uNumInfrastructure;
@@ -3740,27 +3883,31 @@ public function void WFD_OPEN_SESSION_COMPLETE_CALLBACK(HANDLE hSessionHandle, v
 	public uint32 uNumWFDGroup;
 }
 
-[CRepr]public struct DOT11_VWIFI_ATTRIBUTES
+[CRepr]
+public struct DOT11_VWIFI_ATTRIBUTES
 {
 	public NDIS_OBJECT_HEADER Header;
 	public uint32 uTotalNumOfEntries;
 	public DOT11_VWIFI_COMBINATION[1] Combinations;
 }
 
-[CRepr]public struct DOT11_MAC_PARAMETERS
+[CRepr]
+public struct DOT11_MAC_PARAMETERS
 {
 	public NDIS_OBJECT_HEADER Header;
 	public uint32 uOpmodeMask;
 }
 
-[CRepr]public struct DOT11_MAC_INFO
+[CRepr]
+public struct DOT11_MAC_INFO
 {
 	public uint32 uReserved;
 	public uint32 uNdisPortNumber;
 	public uint8[6] MacAddr;
 }
 
-[CRepr]public struct DOT11_WFD_ATTRIBUTES
+[CRepr]
+public struct DOT11_WFD_ATTRIBUTES
 {
 	public NDIS_OBJECT_HEADER Header;
 	public uint32 uNumConcurrentGORole;
@@ -3779,69 +3926,80 @@ public function void WFD_OPEN_SESSION_COMPLETE_CALLBACK(HANDLE hSessionHandle, v
 	public uint32 uGORoleClientTableSize;
 }
 
-[CRepr]public struct DOT11_WFD_DEVICE_TYPE
+[CRepr]
+public struct DOT11_WFD_DEVICE_TYPE
 {
 	public uint16 CategoryID;
 	public uint16 SubCategoryID;
 	public uint8[4] OUI;
 }
 
-[CRepr]public struct DOT11_WPS_DEVICE_NAME
+[CRepr]
+public struct DOT11_WPS_DEVICE_NAME
 {
 	public uint32 uDeviceNameLength;
 	public uint8[32] ucDeviceName;
 }
 
-[CRepr]public struct DOT11_WFD_CONFIGURATION_TIMEOUT
+[CRepr]
+public struct DOT11_WFD_CONFIGURATION_TIMEOUT
 {
 	public uint8 GOTimeout;
 	public uint8 ClientTimeout;
 }
 
-[CRepr]public struct DOT11_WFD_GROUP_ID
+[CRepr]
+public struct DOT11_WFD_GROUP_ID
 {
 	public uint8[6] DeviceAddress;
 	public DOT11_SSID SSID;
 }
 
-[CRepr]public struct DOT11_WFD_GO_INTENT
+[CRepr]
+public struct DOT11_WFD_GO_INTENT
 {
 	public uint8 _bitfield;
 }
 
-[CRepr]public struct DOT11_WFD_CHANNEL
+[CRepr]
+public struct DOT11_WFD_CHANNEL
 {
 	public uint8[3] CountryRegionString;
 	public uint8 OperatingClass;
 	public uint8 ChannelNumber;
 }
 
-[CRepr]public struct WFDSVC_CONNECTION_CAPABILITY
+[CRepr]
+public struct WFDSVC_CONNECTION_CAPABILITY
 {
 	public BOOLEAN bNew;
 	public BOOLEAN bClient;
 	public BOOLEAN bGO;
 }
 
-[CRepr]public struct DOT11_WFD_SERVICE_HASH_LIST
+[CRepr]
+public struct DOT11_WFD_SERVICE_HASH_LIST
 {
 	public uint16 ServiceHashCount;
 	public uint8[6] ServiceHash;
 }
 
-[CRepr]public struct DOT11_WFD_ADVERTISEMENT_ID
+[CRepr]
+public struct DOT11_WFD_ADVERTISEMENT_ID
 {
 	public uint32 AdvertisementID;
 	public uint8[6] ServiceAddress;
 }
 
-[CRepr]public struct DOT11_WFD_SESSION_ID
+[CRepr]
+public struct DOT11_WFD_SESSION_ID
 {
 	public uint32 SessionID;
 	public uint8[6] SessionAddress;
 }
 
-[CRepr]public struct DOT11_WFD_ADVERTISED_SERVICE_DESCRIPTOR
+[CRepr]
+public struct DOT11_WFD_ADVERTISED_SERVICE_DESCRIPTOR
 {
 	public uint32 AdvertisementID;
 	public uint16 ConfigMethods;
@@ -3849,13 +4007,15 @@ public function void WFD_OPEN_SESSION_COMPLETE_CALLBACK(HANDLE hSessionHandle, v
 	public uint8[255] ServiceName;
 }
 
-[CRepr]public struct DOT11_WFD_ADVERTISED_SERVICE_LIST
+[CRepr]
+public struct DOT11_WFD_ADVERTISED_SERVICE_LIST
 {
 	public uint16 ServiceCount;
 	public DOT11_WFD_ADVERTISED_SERVICE_DESCRIPTOR[1] AdvertisedService;
 }
 
-[CRepr]public struct DOT11_WFD_DISCOVER_COMPLETE_PARAMETERS
+[CRepr]
+public struct DOT11_WFD_DISCOVER_COMPLETE_PARAMETERS
 {
 	public NDIS_OBJECT_HEADER Header;
 	public int32 Status;
@@ -3865,7 +4025,8 @@ public function void WFD_OPEN_SESSION_COMPLETE_CALLBACK(HANDLE hSessionHandle, v
 	public uint32 uListLength;
 }
 
-[CRepr]public struct DOT11_GO_NEGOTIATION_REQUEST_SEND_COMPLETE_PARAMETERS
+[CRepr]
+public struct DOT11_GO_NEGOTIATION_REQUEST_SEND_COMPLETE_PARAMETERS
 {
 	public NDIS_OBJECT_HEADER Header;
 	public uint8[6] PeerDeviceAddress;
@@ -3875,7 +4036,8 @@ public function void WFD_OPEN_SESSION_COMPLETE_CALLBACK(HANDLE hSessionHandle, v
 	public uint32 uIEsLength;
 }
 
-[CRepr]public struct DOT11_RECEIVED_GO_NEGOTIATION_REQUEST_PARAMETERS
+[CRepr]
+public struct DOT11_RECEIVED_GO_NEGOTIATION_REQUEST_PARAMETERS
 {
 	public NDIS_OBJECT_HEADER Header;
 	public uint8[6] PeerDeviceAddress;
@@ -3885,7 +4047,8 @@ public function void WFD_OPEN_SESSION_COMPLETE_CALLBACK(HANDLE hSessionHandle, v
 	public uint32 uIEsLength;
 }
 
-[CRepr]public struct DOT11_GO_NEGOTIATION_RESPONSE_SEND_COMPLETE_PARAMETERS
+[CRepr]
+public struct DOT11_GO_NEGOTIATION_RESPONSE_SEND_COMPLETE_PARAMETERS
 {
 	public NDIS_OBJECT_HEADER Header;
 	public uint8[6] PeerDeviceAddress;
@@ -3895,7 +4058,8 @@ public function void WFD_OPEN_SESSION_COMPLETE_CALLBACK(HANDLE hSessionHandle, v
 	public uint32 uIEsLength;
 }
 
-[CRepr]public struct DOT11_RECEIVED_GO_NEGOTIATION_RESPONSE_PARAMETERS
+[CRepr]
+public struct DOT11_RECEIVED_GO_NEGOTIATION_RESPONSE_PARAMETERS
 {
 	public NDIS_OBJECT_HEADER Header;
 	public uint8[6] PeerDeviceAddress;
@@ -3905,7 +4069,8 @@ public function void WFD_OPEN_SESSION_COMPLETE_CALLBACK(HANDLE hSessionHandle, v
 	public uint32 uIEsLength;
 }
 
-[CRepr]public struct DOT11_GO_NEGOTIATION_CONFIRMATION_SEND_COMPLETE_PARAMETERS
+[CRepr]
+public struct DOT11_GO_NEGOTIATION_CONFIRMATION_SEND_COMPLETE_PARAMETERS
 {
 	public NDIS_OBJECT_HEADER Header;
 	public uint8[6] PeerDeviceAddress;
@@ -3915,7 +4080,8 @@ public function void WFD_OPEN_SESSION_COMPLETE_CALLBACK(HANDLE hSessionHandle, v
 	public uint32 uIEsLength;
 }
 
-[CRepr]public struct DOT11_RECEIVED_GO_NEGOTIATION_CONFIRMATION_PARAMETERS
+[CRepr]
+public struct DOT11_RECEIVED_GO_NEGOTIATION_CONFIRMATION_PARAMETERS
 {
 	public NDIS_OBJECT_HEADER Header;
 	public uint8[6] PeerDeviceAddress;
@@ -3924,49 +4090,8 @@ public function void WFD_OPEN_SESSION_COMPLETE_CALLBACK(HANDLE hSessionHandle, v
 	public uint32 uIEsLength;
 }
 
-[CRepr]public struct DOT11_INVITATION_REQUEST_SEND_COMPLETE_PARAMETERS
-{
-	public NDIS_OBJECT_HEADER Header;
-	public uint8[6] PeerDeviceAddress;
-	public uint8[6] ReceiverAddress;
-	public uint8 DialogToken;
-	public int32 Status;
-	public uint32 uIEsOffset;
-	public uint32 uIEsLength;
-}
-
-[CRepr]public struct DOT11_RECEIVED_INVITATION_REQUEST_PARAMETERS
-{
-	public NDIS_OBJECT_HEADER Header;
-	public uint8[6] TransmitterDeviceAddress;
-	public uint8[6] BSSID;
-	public uint8 DialogToken;
-	public void* RequestContext;
-	public uint32 uIEsOffset;
-	public uint32 uIEsLength;
-}
-
-[CRepr]public struct DOT11_INVITATION_RESPONSE_SEND_COMPLETE_PARAMETERS
-{
-	public NDIS_OBJECT_HEADER Header;
-	public uint8[6] ReceiverDeviceAddress;
-	public uint8 DialogToken;
-	public int32 Status;
-	public uint32 uIEsOffset;
-	public uint32 uIEsLength;
-}
-
-[CRepr]public struct DOT11_RECEIVED_INVITATION_RESPONSE_PARAMETERS
-{
-	public NDIS_OBJECT_HEADER Header;
-	public uint8[6] TransmitterDeviceAddress;
-	public uint8[6] BSSID;
-	public uint8 DialogToken;
-	public uint32 uIEsOffset;
-	public uint32 uIEsLength;
-}
-
-[CRepr]public struct DOT11_PROVISION_DISCOVERY_REQUEST_SEND_COMPLETE_PARAMETERS
+[CRepr]
+public struct DOT11_INVITATION_REQUEST_SEND_COMPLETE_PARAMETERS
 {
 	public NDIS_OBJECT_HEADER Header;
 	public uint8[6] PeerDeviceAddress;
@@ -3977,7 +4102,8 @@ public function void WFD_OPEN_SESSION_COMPLETE_CALLBACK(HANDLE hSessionHandle, v
 	public uint32 uIEsLength;
 }
 
-[CRepr]public struct DOT11_RECEIVED_PROVISION_DISCOVERY_REQUEST_PARAMETERS
+[CRepr]
+public struct DOT11_RECEIVED_INVITATION_REQUEST_PARAMETERS
 {
 	public NDIS_OBJECT_HEADER Header;
 	public uint8[6] TransmitterDeviceAddress;
@@ -3988,7 +4114,8 @@ public function void WFD_OPEN_SESSION_COMPLETE_CALLBACK(HANDLE hSessionHandle, v
 	public uint32 uIEsLength;
 }
 
-[CRepr]public struct DOT11_PROVISION_DISCOVERY_RESPONSE_SEND_COMPLETE_PARAMETERS
+[CRepr]
+public struct DOT11_INVITATION_RESPONSE_SEND_COMPLETE_PARAMETERS
 {
 	public NDIS_OBJECT_HEADER Header;
 	public uint8[6] ReceiverDeviceAddress;
@@ -3998,7 +4125,8 @@ public function void WFD_OPEN_SESSION_COMPLETE_CALLBACK(HANDLE hSessionHandle, v
 	public uint32 uIEsLength;
 }
 
-[CRepr]public struct DOT11_RECEIVED_PROVISION_DISCOVERY_RESPONSE_PARAMETERS
+[CRepr]
+public struct DOT11_RECEIVED_INVITATION_RESPONSE_PARAMETERS
 {
 	public NDIS_OBJECT_HEADER Header;
 	public uint8[6] TransmitterDeviceAddress;
@@ -4008,7 +4136,54 @@ public function void WFD_OPEN_SESSION_COMPLETE_CALLBACK(HANDLE hSessionHandle, v
 	public uint32 uIEsLength;
 }
 
-[CRepr]public struct DOT11_ANQP_QUERY_COMPLETE_PARAMETERS
+[CRepr]
+public struct DOT11_PROVISION_DISCOVERY_REQUEST_SEND_COMPLETE_PARAMETERS
+{
+	public NDIS_OBJECT_HEADER Header;
+	public uint8[6] PeerDeviceAddress;
+	public uint8[6] ReceiverAddress;
+	public uint8 DialogToken;
+	public int32 Status;
+	public uint32 uIEsOffset;
+	public uint32 uIEsLength;
+}
+
+[CRepr]
+public struct DOT11_RECEIVED_PROVISION_DISCOVERY_REQUEST_PARAMETERS
+{
+	public NDIS_OBJECT_HEADER Header;
+	public uint8[6] TransmitterDeviceAddress;
+	public uint8[6] BSSID;
+	public uint8 DialogToken;
+	public void* RequestContext;
+	public uint32 uIEsOffset;
+	public uint32 uIEsLength;
+}
+
+[CRepr]
+public struct DOT11_PROVISION_DISCOVERY_RESPONSE_SEND_COMPLETE_PARAMETERS
+{
+	public NDIS_OBJECT_HEADER Header;
+	public uint8[6] ReceiverDeviceAddress;
+	public uint8 DialogToken;
+	public int32 Status;
+	public uint32 uIEsOffset;
+	public uint32 uIEsLength;
+}
+
+[CRepr]
+public struct DOT11_RECEIVED_PROVISION_DISCOVERY_RESPONSE_PARAMETERS
+{
+	public NDIS_OBJECT_HEADER Header;
+	public uint8[6] TransmitterDeviceAddress;
+	public uint8[6] BSSID;
+	public uint8 DialogToken;
+	public uint32 uIEsOffset;
+	public uint32 uIEsLength;
+}
+
+[CRepr]
+public struct DOT11_ANQP_QUERY_COMPLETE_PARAMETERS
 {
 	public NDIS_OBJECT_HEADER Header;
 	public DOT11_ANQP_QUERY_RESULT Status;
@@ -4016,7 +4191,8 @@ public function void WFD_OPEN_SESSION_COMPLETE_CALLBACK(HANDLE hSessionHandle, v
 	public uint32 uResponseLength;
 }
 
-[CRepr]public struct DOT11_WFD_DEVICE_CAPABILITY_CONFIG
+[CRepr]
+public struct DOT11_WFD_DEVICE_CAPABILITY_CONFIG
 {
 	public NDIS_OBJECT_HEADER Header;
 	public BOOLEAN bServiceDiscoveryEnabled;
@@ -4028,7 +4204,8 @@ public function void WFD_OPEN_SESSION_COMPLETE_CALLBACK(HANDLE hSessionHandle, v
 	public uint32 WPSVersionsEnabled;
 }
 
-[CRepr]public struct DOT11_WFD_GROUP_OWNER_CAPABILITY_CONFIG
+[CRepr]
+public struct DOT11_WFD_GROUP_OWNER_CAPABILITY_CONFIG
 {
 	public NDIS_OBJECT_HEADER Header;
 	public BOOLEAN bPersistentGroupEnabled;
@@ -4039,7 +4216,8 @@ public function void WFD_OPEN_SESSION_COMPLETE_CALLBACK(HANDLE hSessionHandle, v
 	public uint32 uMaximumGroupLimit;
 }
 
-[CRepr]public struct DOT11_WFD_GROUP_OWNER_CAPABILITY_CONFIG_V2
+[CRepr]
+public struct DOT11_WFD_GROUP_OWNER_CAPABILITY_CONFIG_V2
 {
 	public NDIS_OBJECT_HEADER Header;
 	public BOOLEAN bPersistentGroupEnabled;
@@ -4051,7 +4229,8 @@ public function void WFD_OPEN_SESSION_COMPLETE_CALLBACK(HANDLE hSessionHandle, v
 	public BOOLEAN bEapolKeyIpAddressAllocationSupported;
 }
 
-[CRepr]public struct DOT11_WFD_DEVICE_INFO
+[CRepr]
+public struct DOT11_WFD_DEVICE_INFO
 {
 	public NDIS_OBJECT_HEADER Header;
 	public uint8[6] DeviceAddress;
@@ -4060,7 +4239,8 @@ public function void WFD_OPEN_SESSION_COMPLETE_CALLBACK(HANDLE hSessionHandle, v
 	public DOT11_WPS_DEVICE_NAME DeviceName;
 }
 
-[CRepr]public struct DOT11_WFD_SECONDARY_DEVICE_TYPE_LIST
+[CRepr]
+public struct DOT11_WFD_SECONDARY_DEVICE_TYPE_LIST
 {
 	public NDIS_OBJECT_HEADER Header;
 	public uint32 uNumOfEntries;
@@ -4068,14 +4248,16 @@ public function void WFD_OPEN_SESSION_COMPLETE_CALLBACK(HANDLE hSessionHandle, v
 	public DOT11_WFD_DEVICE_TYPE[1] SecondaryDeviceTypes;
 }
 
-[CRepr]public struct DOT11_WFD_DISCOVER_DEVICE_FILTER
+[CRepr]
+public struct DOT11_WFD_DISCOVER_DEVICE_FILTER
 {
 	public uint8[6] DeviceID;
 	public uint8 ucBitmask;
 	public DOT11_SSID GroupSSID;
 }
 
-[CRepr]public struct DOT11_WFD_DISCOVER_REQUEST
+[CRepr]
+public struct DOT11_WFD_DISCOVER_REQUEST
 {
 	public NDIS_OBJECT_HEADER Header;
 	public DOT11_WFD_DISCOVER_TYPE DiscoverType;
@@ -4088,7 +4270,8 @@ public function void WFD_OPEN_SESSION_COMPLETE_CALLBACK(HANDLE hSessionHandle, v
 	public BOOLEAN bForceScanLegacyNetworks;
 }
 
-[CRepr]public struct DOT11_WFD_DEVICE_ENTRY
+[CRepr]
+public struct DOT11_WFD_DEVICE_ENTRY
 {
 	public uint32 uPhyId;
 	public DOT11_BSS_ENTRY_PHY_SPECIFIC_INFO PhySpecificInfo;
@@ -4108,7 +4291,8 @@ public function void WFD_OPEN_SESSION_COMPLETE_CALLBACK(HANDLE hSessionHandle, v
 	public uint32 uProbeResponseIEsLength;
 }
 
-[CRepr]public struct DOT11_WFD_ADDITIONAL_IE
+[CRepr]
+public struct DOT11_WFD_ADDITIONAL_IE
 {
 	public NDIS_OBJECT_HEADER Header;
 	public uint32 uBeaconIEsOffset;
@@ -4119,7 +4303,8 @@ public function void WFD_OPEN_SESSION_COMPLETE_CALLBACK(HANDLE hSessionHandle, v
 	public uint32 uDefaultRequestIEsLength;
 }
 
-[CRepr]public struct DOT11_SEND_GO_NEGOTIATION_REQUEST_PARAMETERS
+[CRepr]
+public struct DOT11_SEND_GO_NEGOTIATION_REQUEST_PARAMETERS
 {
 	public NDIS_OBJECT_HEADER Header;
 	public uint8[6] PeerDeviceAddress;
@@ -4133,7 +4318,8 @@ public function void WFD_OPEN_SESSION_COMPLETE_CALLBACK(HANDLE hSessionHandle, v
 	public uint32 uIEsLength;
 }
 
-[CRepr]public struct DOT11_SEND_GO_NEGOTIATION_RESPONSE_PARAMETERS
+[CRepr]
+public struct DOT11_SEND_GO_NEGOTIATION_RESPONSE_PARAMETERS
 {
 	public NDIS_OBJECT_HEADER Header;
 	public uint8[6] PeerDeviceAddress;
@@ -4151,7 +4337,8 @@ public function void WFD_OPEN_SESSION_COMPLETE_CALLBACK(HANDLE hSessionHandle, v
 	public uint32 uIEsLength;
 }
 
-[CRepr]public struct DOT11_SEND_GO_NEGOTIATION_CONFIRMATION_PARAMETERS
+[CRepr]
+public struct DOT11_SEND_GO_NEGOTIATION_CONFIRMATION_PARAMETERS
 {
 	public NDIS_OBJECT_HEADER Header;
 	public uint8[6] PeerDeviceAddress;
@@ -4166,12 +4353,14 @@ public function void WFD_OPEN_SESSION_COMPLETE_CALLBACK(HANDLE hSessionHandle, v
 	public uint32 uIEsLength;
 }
 
-[CRepr]public struct DOT11_WFD_INVITATION_FLAGS
+[CRepr]
+public struct DOT11_WFD_INVITATION_FLAGS
 {
 	public uint8 _bitfield;
 }
 
-[CRepr]public struct DOT11_SEND_INVITATION_REQUEST_PARAMETERS
+[CRepr]
+public struct DOT11_SEND_INVITATION_REQUEST_PARAMETERS
 {
 	public NDIS_OBJECT_HEADER Header;
 	public uint8 DialogToken;
@@ -4189,7 +4378,8 @@ public function void WFD_OPEN_SESSION_COMPLETE_CALLBACK(HANDLE hSessionHandle, v
 	public uint32 uIEsLength;
 }
 
-[CRepr]public struct DOT11_SEND_INVITATION_RESPONSE_PARAMETERS
+[CRepr]
+public struct DOT11_SEND_INVITATION_RESPONSE_PARAMETERS
 {
 	public NDIS_OBJECT_HEADER Header;
 	public uint8[6] ReceiverDeviceAddress;
@@ -4206,7 +4396,8 @@ public function void WFD_OPEN_SESSION_COMPLETE_CALLBACK(HANDLE hSessionHandle, v
 	public uint32 uIEsLength;
 }
 
-[CRepr]public struct DOT11_SEND_PROVISION_DISCOVERY_REQUEST_PARAMETERS
+[CRepr]
+public struct DOT11_SEND_PROVISION_DISCOVERY_REQUEST_PARAMETERS
 {
 	public NDIS_OBJECT_HEADER Header;
 	public uint8 DialogToken;
@@ -4219,7 +4410,8 @@ public function void WFD_OPEN_SESSION_COMPLETE_CALLBACK(HANDLE hSessionHandle, v
 	public uint32 uIEsLength;
 }
 
-[CRepr]public struct DOT11_SEND_PROVISION_DISCOVERY_RESPONSE_PARAMETERS
+[CRepr]
+public struct DOT11_SEND_PROVISION_DISCOVERY_RESPONSE_PARAMETERS
 {
 	public NDIS_OBJECT_HEADER Header;
 	public uint8[6] ReceiverDeviceAddress;
@@ -4230,19 +4422,22 @@ public function void WFD_OPEN_SESSION_COMPLETE_CALLBACK(HANDLE hSessionHandle, v
 	public uint32 uIEsLength;
 }
 
-[CRepr]public struct DOT11_WFD_DEVICE_LISTEN_CHANNEL
+[CRepr]
+public struct DOT11_WFD_DEVICE_LISTEN_CHANNEL
 {
 	public NDIS_OBJECT_HEADER Header;
 	public uint8 ChannelNumber;
 }
 
-[CRepr]public struct DOT11_WFD_GROUP_START_PARAMETERS
+[CRepr]
+public struct DOT11_WFD_GROUP_START_PARAMETERS
 {
 	public NDIS_OBJECT_HEADER Header;
 	public DOT11_WFD_CHANNEL AdvertisedOperatingChannel;
 }
 
-[CRepr]public struct DOT11_WFD_GROUP_JOIN_PARAMETERS
+[CRepr]
+public struct DOT11_WFD_GROUP_JOIN_PARAMETERS
 {
 	public NDIS_OBJECT_HEADER Header;
 	public DOT11_WFD_CHANNEL GOOperatingChannel;
@@ -4251,13 +4446,15 @@ public function void WFD_OPEN_SESSION_COMPLETE_CALLBACK(HANDLE hSessionHandle, v
 	public BOOLEAN bWaitForWPSReady;
 }
 
-[CRepr]public struct DOT11_POWER_MGMT_AUTO_MODE_ENABLED_INFO
+[CRepr]
+public struct DOT11_POWER_MGMT_AUTO_MODE_ENABLED_INFO
 {
 	public NDIS_OBJECT_HEADER Header;
 	public BOOLEAN bEnabled;
 }
 
-[CRepr]public struct DOT11_POWER_MGMT_MODE_STATUS_INFO
+[CRepr]
+public struct DOT11_POWER_MGMT_MODE_STATUS_INFO
 {
 	public NDIS_OBJECT_HEADER Header;
 	public DOT11_POWER_MODE PowerSaveMode;
@@ -4265,13 +4462,15 @@ public function void WFD_OPEN_SESSION_COMPLETE_CALLBACK(HANDLE hSessionHandle, v
 	public DOT11_POWER_MODE_REASON Reason;
 }
 
-[CRepr]public struct DOT11_CHANNEL_HINT
+[CRepr]
+public struct DOT11_CHANNEL_HINT
 {
 	public DOT11_PHY_TYPE Dot11PhyType;
 	public uint32 uChannelNumber;
 }
 
-[CRepr]public struct DOT11_OFFLOAD_NETWORK
+[CRepr]
+public struct DOT11_OFFLOAD_NETWORK
 {
 	public DOT11_SSID Ssid;
 	public DOT11_CIPHER_ALGORITHM UnicastCipher;
@@ -4279,7 +4478,8 @@ public function void WFD_OPEN_SESSION_COMPLETE_CALLBACK(HANDLE hSessionHandle, v
 	public DOT11_CHANNEL_HINT[4] Dot11ChannelHints;
 }
 
-[CRepr]public struct DOT11_OFFLOAD_NETWORK_LIST_INFO
+[CRepr]
+public struct DOT11_OFFLOAD_NETWORK_LIST_INFO
 {
 	public NDIS_OBJECT_HEADER Header;
 	public uint32 ulFlags;
@@ -4290,20 +4490,23 @@ public function void WFD_OPEN_SESSION_COMPLETE_CALLBACK(HANDLE hSessionHandle, v
 	public DOT11_OFFLOAD_NETWORK[1] offloadNetworkList;
 }
 
-[CRepr]public struct DOT11_OFFLOAD_NETWORK_STATUS_PARAMETERS
+[CRepr]
+public struct DOT11_OFFLOAD_NETWORK_STATUS_PARAMETERS
 {
 	public NDIS_OBJECT_HEADER Header;
 	public int32 Status;
 }
 
-[CRepr]public struct DOT11_MANUFACTURING_TEST
+[CRepr]
+public struct DOT11_MANUFACTURING_TEST
 {
 	public DOT11_MANUFACTURING_TEST_TYPE dot11ManufacturingTestType;
 	public uint32 uBufferLength;
 	public uint8[1] ucBuffer;
 }
 
-[CRepr]public struct DOT11_MANUFACTURING_SELF_TEST_SET_PARAMS
+[CRepr]
+public struct DOT11_MANUFACTURING_SELF_TEST_SET_PARAMS
 {
 	public DOT11_MANUFACTURING_SELF_TEST_TYPE SelfTestType;
 	public uint32 uTestID;
@@ -4313,7 +4516,8 @@ public function void WFD_OPEN_SESSION_COMPLETE_CALLBACK(HANDLE hSessionHandle, v
 	public uint8[1] ucBufferIn;
 }
 
-[CRepr]public struct DOT11_MANUFACTURING_SELF_TEST_QUERY_RESULTS
+[CRepr]
+public struct DOT11_MANUFACTURING_SELF_TEST_QUERY_RESULTS
 {
 	public DOT11_MANUFACTURING_SELF_TEST_TYPE SelfTestType;
 	public uint32 uTestID;
@@ -4324,7 +4528,8 @@ public function void WFD_OPEN_SESSION_COMPLETE_CALLBACK(HANDLE hSessionHandle, v
 	public uint8[1] ucBufferOut;
 }
 
-[CRepr]public struct DOT11_MANUFACTURING_FUNCTIONAL_TEST_RX
+[CRepr]
+public struct DOT11_MANUFACTURING_FUNCTIONAL_TEST_RX
 {
 	public BOOLEAN bEnabled;
 	public DOT11_BAND Dot11Band;
@@ -4332,7 +4537,8 @@ public function void WFD_OPEN_SESSION_COMPLETE_CALLBACK(HANDLE hSessionHandle, v
 	public int32 PowerLevel;
 }
 
-[CRepr]public struct DOT11_MANUFACTURING_FUNCTIONAL_TEST_TX
+[CRepr]
+public struct DOT11_MANUFACTURING_FUNCTIONAL_TEST_TX
 {
 	public BOOLEAN bEnable;
 	public BOOLEAN bOpenLoop;
@@ -4342,14 +4548,16 @@ public function void WFD_OPEN_SESSION_COMPLETE_CALLBACK(HANDLE hSessionHandle, v
 	public int32 ADCPowerLevel;
 }
 
-[CRepr]public struct DOT11_MANUFACTURING_FUNCTIONAL_TEST_QUERY_ADC
+[CRepr]
+public struct DOT11_MANUFACTURING_FUNCTIONAL_TEST_QUERY_ADC
 {
 	public DOT11_BAND Dot11Band;
 	public uint32 uChannel;
 	public int32 ADCPowerLevel;
 }
 
-[CRepr]public struct DOT11_MANUFACTURING_TEST_SET_DATA
+[CRepr]
+public struct DOT11_MANUFACTURING_TEST_SET_DATA
 {
 	public uint32 uKey;
 	public uint32 uOffset;
@@ -4357,7 +4565,8 @@ public function void WFD_OPEN_SESSION_COMPLETE_CALLBACK(HANDLE hSessionHandle, v
 	public uint8[1] ucBufferIn;
 }
 
-[CRepr]public struct DOT11_MANUFACTURING_TEST_QUERY_DATA
+[CRepr]
+public struct DOT11_MANUFACTURING_TEST_QUERY_DATA
 {
 	public uint32 uKey;
 	public uint32 uOffset;
@@ -4366,13 +4575,15 @@ public function void WFD_OPEN_SESSION_COMPLETE_CALLBACK(HANDLE hSessionHandle, v
 	public uint8[1] ucBufferOut;
 }
 
-[CRepr]public struct DOT11_MANUFACTURING_TEST_SLEEP
+[CRepr]
+public struct DOT11_MANUFACTURING_TEST_SLEEP
 {
 	public uint32 uSleepTime;
 	public void* pvContext;
 }
 
-[CRepr]public struct DOT11_MANUFACTURING_CALLBACK_PARAMETERS
+[CRepr]
+public struct DOT11_MANUFACTURING_CALLBACK_PARAMETERS
 {
 	public NDIS_OBJECT_HEADER Header;
 	public DOT11_MANUFACTURING_CALLBACK_TYPE dot11ManufacturingCallbackType;
@@ -4380,7 +4591,8 @@ public function void WFD_OPEN_SESSION_COMPLETE_CALLBACK(HANDLE hSessionHandle, v
 	public void* pvContext;
 }
 
-[CRepr]public struct L2_NOTIFICATION_DATA
+[CRepr]
+public struct L2_NOTIFICATION_DATA
 {
 	public uint32 NotificationSource;
 	public uint32 NotificationCode;
@@ -4389,27 +4601,32 @@ public function void WFD_OPEN_SESSION_COMPLETE_CALLBACK(HANDLE hSessionHandle, v
 	public void* pData;
 }
 
-[CRepr]public struct WLAN_PROFILE_INFO
+[CRepr]
+public struct WLAN_PROFILE_INFO
 {
 	public char8[256] strProfileName;
 	public uint32 dwFlags;
 }
 
-[CRepr]public struct DOT11_NETWORK
+[CRepr]
+public struct DOT11_NETWORK
 {
 	public DOT11_SSID dot11Ssid;
 	public DOT11_BSS_TYPE dot11BssType;
 }
 
-[CRepr]public struct WLAN_RAW_DATA
+[CRepr]
+public struct WLAN_RAW_DATA
 {
 	public uint32 dwDataSize;
 	public uint8[1] DataBlob;
 }
 
-[CRepr]public struct WLAN_RAW_DATA_LIST
+[CRepr]
+public struct WLAN_RAW_DATA_LIST
 {
-	[CRepr]	public struct _Anonymous_e__Struct
+	[CRepr]
+	public struct _Anonymous_e__Struct
 	{
 		public uint32 dwDataOffset;
 		public uint32 dwDataSize;
@@ -4420,13 +4637,15 @@ public function void WFD_OPEN_SESSION_COMPLETE_CALLBACK(HANDLE hSessionHandle, v
 	public _Anonymous_e__Struct[1] DataList;
 }
 
-[CRepr]public struct WLAN_RATE_SET
+[CRepr]
+public struct WLAN_RATE_SET
 {
 	public uint32 uRateSetLength;
 	public uint16[126] usRateSet;
 }
 
-[CRepr]public struct WLAN_AVAILABLE_NETWORK
+[CRepr]
+public struct WLAN_AVAILABLE_NETWORK
 {
 	public char8[256] strProfileName;
 	public DOT11_SSID dot11Ssid;
@@ -4445,7 +4664,8 @@ public function void WFD_OPEN_SESSION_COMPLETE_CALLBACK(HANDLE hSessionHandle, v
 	public uint32 dwReserved;
 }
 
-[CRepr]public struct WLAN_AVAILABLE_NETWORK_V2
+[CRepr]
+public struct WLAN_AVAILABLE_NETWORK_V2
 {
 	public char8[256] strProfileName;
 	public DOT11_SSID dot11Ssid;
@@ -4467,7 +4687,8 @@ public function void WFD_OPEN_SESSION_COMPLETE_CALLBACK(HANDLE hSessionHandle, v
 	public uint32 dwReserved;
 }
 
-[CRepr]public struct WLAN_BSS_ENTRY
+[CRepr]
+public struct WLAN_BSS_ENTRY
 {
 	public DOT11_SSID dot11Ssid;
 	public uint32 uPhyId;
@@ -4487,21 +4708,24 @@ public function void WFD_OPEN_SESSION_COMPLETE_CALLBACK(HANDLE hSessionHandle, v
 	public uint32 ulIeSize;
 }
 
-[CRepr]public struct WLAN_BSS_LIST
+[CRepr]
+public struct WLAN_BSS_LIST
 {
 	public uint32 dwTotalSize;
 	public uint32 dwNumberOfItems;
 	public WLAN_BSS_ENTRY[1] wlanBssEntries;
 }
 
-[CRepr]public struct WLAN_INTERFACE_INFO
+[CRepr]
+public struct WLAN_INTERFACE_INFO
 {
 	public Guid InterfaceGuid;
 	public char8[256] strInterfaceDescription;
 	public WLAN_INTERFACE_STATE isState;
 }
 
-[CRepr]public struct WLAN_ASSOCIATION_ATTRIBUTES
+[CRepr]
+public struct WLAN_ASSOCIATION_ATTRIBUTES
 {
 	public DOT11_SSID dot11Ssid;
 	public DOT11_BSS_TYPE dot11BssType;
@@ -4513,7 +4737,8 @@ public function void WFD_OPEN_SESSION_COMPLETE_CALLBACK(HANDLE hSessionHandle, v
 	public uint32 ulTxRate;
 }
 
-[CRepr]public struct WLAN_SECURITY_ATTRIBUTES
+[CRepr]
+public struct WLAN_SECURITY_ATTRIBUTES
 {
 	public BOOL bSecurityEnabled;
 	public BOOL bOneXEnabled;
@@ -4521,7 +4746,8 @@ public function void WFD_OPEN_SESSION_COMPLETE_CALLBACK(HANDLE hSessionHandle, v
 	public DOT11_CIPHER_ALGORITHM dot11CipherAlgorithm;
 }
 
-[CRepr]public struct WLAN_CONNECTION_ATTRIBUTES
+[CRepr]
+public struct WLAN_CONNECTION_ATTRIBUTES
 {
 	public WLAN_INTERFACE_STATE isState;
 	public WLAN_CONNECTION_MODE wlanConnectionMode;
@@ -4530,20 +4756,23 @@ public function void WFD_OPEN_SESSION_COMPLETE_CALLBACK(HANDLE hSessionHandle, v
 	public WLAN_SECURITY_ATTRIBUTES wlanSecurityAttributes;
 }
 
-[CRepr]public struct WLAN_PHY_RADIO_STATE
+[CRepr]
+public struct WLAN_PHY_RADIO_STATE
 {
 	public uint32 dwPhyIndex;
 	public DOT11_RADIO_STATE dot11SoftwareRadioState;
 	public DOT11_RADIO_STATE dot11HardwareRadioState;
 }
 
-[CRepr]public struct WLAN_RADIO_STATE
+[CRepr]
+public struct WLAN_RADIO_STATE
 {
 	public uint32 dwNumberOfPhys;
 	public WLAN_PHY_RADIO_STATE[64] PhyRadioState;
 }
 
-[CRepr]public struct WLAN_INTERFACE_CAPABILITY
+[CRepr]
+public struct WLAN_INTERFACE_CAPABILITY
 {
 	public WLAN_INTERFACE_TYPE interfaceType;
 	public BOOL bDot11DSupported;
@@ -4553,54 +4782,62 @@ public function void WFD_OPEN_SESSION_COMPLETE_CALLBACK(HANDLE hSessionHandle, v
 	public DOT11_PHY_TYPE[64] dot11PhyTypes;
 }
 
-[CRepr]public struct WLAN_AUTH_CIPHER_PAIR_LIST
+[CRepr]
+public struct WLAN_AUTH_CIPHER_PAIR_LIST
 {
 	public uint32 dwNumberOfItems;
 	public DOT11_AUTH_CIPHER_PAIR[1] pAuthCipherPairList;
 }
 
-[CRepr]public struct WLAN_COUNTRY_OR_REGION_STRING_LIST
+[CRepr]
+public struct WLAN_COUNTRY_OR_REGION_STRING_LIST
 {
 	public uint32 dwNumberOfItems;
 	public uint8[3] pCountryOrRegionStringList;
 }
 
-[CRepr]public struct WLAN_PROFILE_INFO_LIST
+[CRepr]
+public struct WLAN_PROFILE_INFO_LIST
 {
 	public uint32 dwNumberOfItems;
 	public uint32 dwIndex;
 	public WLAN_PROFILE_INFO[1] ProfileInfo;
 }
 
-[CRepr]public struct WLAN_AVAILABLE_NETWORK_LIST
+[CRepr]
+public struct WLAN_AVAILABLE_NETWORK_LIST
 {
 	public uint32 dwNumberOfItems;
 	public uint32 dwIndex;
 	public WLAN_AVAILABLE_NETWORK[1] Network;
 }
 
-[CRepr]public struct WLAN_AVAILABLE_NETWORK_LIST_V2
+[CRepr]
+public struct WLAN_AVAILABLE_NETWORK_LIST_V2
 {
 	public uint32 dwNumberOfItems;
 	public uint32 dwIndex;
 	public WLAN_AVAILABLE_NETWORK_V2[1] Network;
 }
 
-[CRepr]public struct WLAN_INTERFACE_INFO_LIST
+[CRepr]
+public struct WLAN_INTERFACE_INFO_LIST
 {
 	public uint32 dwNumberOfItems;
 	public uint32 dwIndex;
 	public WLAN_INTERFACE_INFO[1] InterfaceInfo;
 }
 
-[CRepr]public struct DOT11_NETWORK_LIST
+[CRepr]
+public struct DOT11_NETWORK_LIST
 {
 	public uint32 dwNumberOfItems;
 	public uint32 dwIndex;
 	public DOT11_NETWORK[1] Network;
 }
 
-[CRepr]public struct WLAN_CONNECTION_PARAMETERS
+[CRepr]
+public struct WLAN_CONNECTION_PARAMETERS
 {
 	public WLAN_CONNECTION_MODE wlanConnectionMode;
 	public PWSTR strProfile;
@@ -4610,7 +4847,8 @@ public function void WFD_OPEN_SESSION_COMPLETE_CALLBACK(HANDLE hSessionHandle, v
 	public uint32 dwFlags;
 }
 
-[CRepr]public struct WLAN_CONNECTION_PARAMETERS_V2
+[CRepr]
+public struct WLAN_CONNECTION_PARAMETERS_V2
 {
 	public WLAN_CONNECTION_MODE wlanConnectionMode;
 	public PWSTR strProfile;
@@ -4622,7 +4860,8 @@ public function void WFD_OPEN_SESSION_COMPLETE_CALLBACK(HANDLE hSessionHandle, v
 	public DOT11_ACCESSNETWORKOPTIONS* pDot11AccessNetworkOptions;
 }
 
-[CRepr]public struct WLAN_MSM_NOTIFICATION_DATA
+[CRepr]
+public struct WLAN_MSM_NOTIFICATION_DATA
 {
 	public WLAN_CONNECTION_MODE wlanConnectionMode;
 	public char8[256] strProfileName;
@@ -4635,7 +4874,8 @@ public function void WFD_OPEN_SESSION_COMPLETE_CALLBACK(HANDLE hSessionHandle, v
 	public uint32 wlanReasonCode;
 }
 
-[CRepr]public struct WLAN_CONNECTION_NOTIFICATION_DATA
+[CRepr]
+public struct WLAN_CONNECTION_NOTIFICATION_DATA
 {
 	public WLAN_CONNECTION_MODE wlanConnectionMode;
 	public char8[256] strProfileName;
@@ -4647,7 +4887,8 @@ public function void WFD_OPEN_SESSION_COMPLETE_CALLBACK(HANDLE hSessionHandle, v
 	public char8[1] strProfileXml;
 }
 
-[CRepr]public struct WLAN_DEVICE_SERVICE_NOTIFICATION_DATA
+[CRepr]
+public struct WLAN_DEVICE_SERVICE_NOTIFICATION_DATA
 {
 	public Guid DeviceService;
 	public uint32 dwOpCode;
@@ -4655,7 +4896,8 @@ public function void WFD_OPEN_SESSION_COMPLETE_CALLBACK(HANDLE hSessionHandle, v
 	public uint8[1] DataBlob;
 }
 
-[CRepr]public struct WLAN_PHY_FRAME_STATISTICS
+[CRepr]
+public struct WLAN_PHY_FRAME_STATISTICS
 {
 	public uint64 ullTransmittedFrameCount;
 	public uint64 ullMulticastTransmittedFrameCount;
@@ -4677,7 +4919,8 @@ public function void WFD_OPEN_SESSION_COMPLETE_CALLBACK(HANDLE hSessionHandle, v
 	public uint64 ullFCSErrorCount;
 }
 
-[CRepr]public struct WLAN_MAC_FRAME_STATISTICS
+[CRepr]
+public struct WLAN_MAC_FRAME_STATISTICS
 {
 	public uint64 ullTransmittedFrameCount;
 	public uint64 ullReceivedFrameCount;
@@ -4693,7 +4936,8 @@ public function void WFD_OPEN_SESSION_COMPLETE_CALLBACK(HANDLE hSessionHandle, v
 	public uint64 ullDecryptFailureCount;
 }
 
-[CRepr]public struct WLAN_STATISTICS
+[CRepr]
+public struct WLAN_STATISTICS
 {
 	public uint64 ullFourWayHandshakeFailures;
 	public uint64 ullTKIPCounterMeasuresInvoked;
@@ -4704,58 +4948,67 @@ public function void WFD_OPEN_SESSION_COMPLETE_CALLBACK(HANDLE hSessionHandle, v
 	public WLAN_PHY_FRAME_STATISTICS[1] PhyCounters;
 }
 
-[CRepr]public struct WLAN_DEVICE_SERVICE_GUID_LIST
+[CRepr]
+public struct WLAN_DEVICE_SERVICE_GUID_LIST
 {
 	public uint32 dwNumberOfItems;
 	public uint32 dwIndex;
 	public Guid[1] DeviceService;
 }
 
-[CRepr]public struct WFD_GROUP_ID
+[CRepr]
+public struct WFD_GROUP_ID
 {
 	public uint8[6] DeviceAddress;
 	public DOT11_SSID GroupSSID;
 }
 
-[CRepr]public struct WLAN_HOSTED_NETWORK_PEER_STATE
+[CRepr]
+public struct WLAN_HOSTED_NETWORK_PEER_STATE
 {
 	public uint8[6] PeerMacAddress;
 	public WLAN_HOSTED_NETWORK_PEER_AUTH_STATE PeerAuthState;
 }
 
-[CRepr]public struct WLAN_HOSTED_NETWORK_RADIO_STATE
+[CRepr]
+public struct WLAN_HOSTED_NETWORK_RADIO_STATE
 {
 	public DOT11_RADIO_STATE dot11SoftwareRadioState;
 	public DOT11_RADIO_STATE dot11HardwareRadioState;
 }
 
-[CRepr]public struct WLAN_HOSTED_NETWORK_STATE_CHANGE
+[CRepr]
+public struct WLAN_HOSTED_NETWORK_STATE_CHANGE
 {
 	public WLAN_HOSTED_NETWORK_STATE OldState;
 	public WLAN_HOSTED_NETWORK_STATE NewState;
 	public WLAN_HOSTED_NETWORK_REASON StateChangeReason;
 }
 
-[CRepr]public struct WLAN_HOSTED_NETWORK_DATA_PEER_STATE_CHANGE
+[CRepr]
+public struct WLAN_HOSTED_NETWORK_DATA_PEER_STATE_CHANGE
 {
 	public WLAN_HOSTED_NETWORK_PEER_STATE OldState;
 	public WLAN_HOSTED_NETWORK_PEER_STATE NewState;
 	public WLAN_HOSTED_NETWORK_REASON PeerStateChangeReason;
 }
 
-[CRepr]public struct WLAN_HOSTED_NETWORK_CONNECTION_SETTINGS
+[CRepr]
+public struct WLAN_HOSTED_NETWORK_CONNECTION_SETTINGS
 {
 	public DOT11_SSID hostedNetworkSSID;
 	public uint32 dwMaxNumberOfPeers;
 }
 
-[CRepr]public struct WLAN_HOSTED_NETWORK_SECURITY_SETTINGS
+[CRepr]
+public struct WLAN_HOSTED_NETWORK_SECURITY_SETTINGS
 {
 	public DOT11_AUTH_ALGORITHM dot11AuthAlgo;
 	public DOT11_CIPHER_ALGORITHM dot11CipherAlgo;
 }
 
-[CRepr]public struct WLAN_HOSTED_NETWORK_STATUS
+[CRepr]
+public struct WLAN_HOSTED_NETWORK_STATUS
 {
 	public WLAN_HOSTED_NETWORK_STATE HostedNetworkState;
 	public Guid IPDeviceID;
@@ -4766,13 +5019,15 @@ public function void WFD_OPEN_SESSION_COMPLETE_CALLBACK(HANDLE hSessionHandle, v
 	public WLAN_HOSTED_NETWORK_PEER_STATE[1] PeerList;
 }
 
-[CRepr]public struct ONEX_VARIABLE_BLOB
+[CRepr]
+public struct ONEX_VARIABLE_BLOB
 {
 	public uint32 dwSize;
 	public uint32 dwOffset;
 }
 
-[CRepr]public struct ONEX_AUTH_PARAMS
+[CRepr]
+public struct ONEX_AUTH_PARAMS
 {
 	public BOOL fUpdatePending;
 	public ONEX_VARIABLE_BLOB oneXConnProfile;
@@ -4787,7 +5042,8 @@ public function void WFD_OPEN_SESSION_COMPLETE_CALLBACK(HANDLE hSessionHandle, v
 	public ONEX_VARIABLE_BLOB Domain;
 }
 
-[CRepr]public struct ONEX_EAP_ERROR
+[CRepr]
+public struct ONEX_EAP_ERROR
 {
 	public uint32 dwWinError;
 	public EAP_METHOD_TYPE type;
@@ -4800,14 +5056,16 @@ public function void WFD_OPEN_SESSION_COMPLETE_CALLBACK(HANDLE hSessionHandle, v
 	public ONEX_VARIABLE_BLOB RepairString;
 }
 
-[CRepr]public struct ONEX_STATUS
+[CRepr]
+public struct ONEX_STATUS
 {
 	public ONEX_AUTH_STATUS authStatus;
 	public uint32 dwReason;
 	public uint32 dwError;
 }
 
-[CRepr]public struct ONEX_RESULT_UPDATE_DATA
+[CRepr]
+public struct ONEX_RESULT_UPDATE_DATA
 {
 	public ONEX_STATUS oneXStatus;
 	public ONEX_EAP_METHOD_BACKEND_SUPPORT BackendSupport;
@@ -4817,7 +5075,8 @@ public function void WFD_OPEN_SESSION_COMPLETE_CALLBACK(HANDLE hSessionHandle, v
 	public ONEX_VARIABLE_BLOB eapError;
 }
 
-[CRepr]public struct ONEX_USER_INFO
+[CRepr]
+public struct ONEX_USER_INFO
 {
 	public ONEX_AUTH_IDENTITY authIdentity;
 	public uint32 _bitfield;

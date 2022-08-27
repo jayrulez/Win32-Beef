@@ -152,9 +152,11 @@ public enum EC_SUBSCRIPTION_RUNTIME_STATUS_ACTIVE_STATUS : int32
 #endregion
 
 #region Structs
-[CRepr]public struct EC_VARIANT
+[CRepr]
+public struct EC_VARIANT
 {
-	[CRepr, Union]	public struct _Anonymous_e__Union
+	[CRepr, Union]
+	public struct _Anonymous_e__Union
 	{
 		public BOOL BooleanVal;
 		public uint32 UInt32Val;

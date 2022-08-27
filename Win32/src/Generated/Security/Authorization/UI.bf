@@ -131,7 +131,8 @@ public enum SI_PAGE_ACTIVATED : int32
 #endregion
 
 #region Structs
-[CRepr]public struct SI_OBJECT_INFO
+[CRepr]
+public struct SI_OBJECT_INFO
 {
 	public SI_OBJECT_INFO_FLAGS dwFlags;
 	public HINSTANCE hInstance;
@@ -141,7 +142,8 @@ public enum SI_PAGE_ACTIVATED : int32
 	public Guid guidObjectType;
 }
 
-[CRepr]public struct SI_ACCESS
+[CRepr]
+public struct SI_ACCESS
 {
 	public Guid* pguid;
 	public uint32 mask;
@@ -149,14 +151,16 @@ public enum SI_PAGE_ACTIVATED : int32
 	public uint32 dwFlags;
 }
 
-[CRepr]public struct SI_INHERIT_TYPE
+[CRepr]
+public struct SI_INHERIT_TYPE
 {
 	public Guid* pguid;
 	public ACE_FLAGS dwFlags;
 	public PWSTR pszName;
 }
 
-[CRepr]public struct SID_INFO
+[CRepr]
+public struct SID_INFO
 {
 	public PSID pSid;
 	public PWSTR pwzCommonName;
@@ -164,13 +168,15 @@ public enum SI_PAGE_ACTIVATED : int32
 	public PWSTR pwzUPN;
 }
 
-[CRepr]public struct SID_INFO_LIST
+[CRepr]
+public struct SID_INFO_LIST
 {
 	public uint32 cItems;
 	public SID_INFO[1] aSidInfo;
 }
 
-[CRepr]public struct SECURITY_OBJECT
+[CRepr]
+public struct SECURITY_OBJECT
 {
 	public PWSTR pwszName;
 	public void* pData;
@@ -181,7 +187,8 @@ public enum SI_PAGE_ACTIVATED : int32
 	public BOOLEAN fWellKnown;
 }
 
-[CRepr]public struct EFFPERM_RESULT_LIST
+[CRepr]
+public struct EFFPERM_RESULT_LIST
 {
 	public BOOLEAN fEvaluated;
 	public uint32 cObjectTypeListLength;

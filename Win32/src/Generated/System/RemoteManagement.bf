@@ -1272,21 +1272,25 @@ public function void WSMAN_PLUGIN_AUTHORIZE_RELEASE_CONTEXT(void* userAuthorizat
 #endregion
 
 #region Structs
-[CRepr]public struct WSMAN_DATA_TEXT
+[CRepr]
+public struct WSMAN_DATA_TEXT
 {
 	public uint32 bufferLength;
 	public PWSTR buffer;
 }
 
-[CRepr]public struct WSMAN_DATA_BINARY
+[CRepr]
+public struct WSMAN_DATA_BINARY
 {
 	public uint32 dataLength;
 	public uint8* data;
 }
 
-[CRepr]public struct WSMAN_DATA
+[CRepr]
+public struct WSMAN_DATA
 {
-	[CRepr, Union]	public struct _Anonymous_e__Union
+	[CRepr, Union]
+	public struct _Anonymous_e__Union
 	{
 		public WSMAN_DATA_TEXT text;
 		public WSMAN_DATA_BINARY binaryData;
@@ -1297,7 +1301,8 @@ public function void WSMAN_PLUGIN_AUTHORIZE_RELEASE_CONTEXT(void* userAuthorizat
 	public using _Anonymous_e__Union Anonymous;
 }
 
-[CRepr]public struct WSMAN_ERROR
+[CRepr]
+public struct WSMAN_ERROR
 {
 	public uint32 code;
 	public PWSTR errorDetail;
@@ -1306,15 +1311,18 @@ public function void WSMAN_PLUGIN_AUTHORIZE_RELEASE_CONTEXT(void* userAuthorizat
 	public PWSTR pluginName;
 }
 
-[CRepr]public struct WSMAN_USERNAME_PASSWORD_CREDS
+[CRepr]
+public struct WSMAN_USERNAME_PASSWORD_CREDS
 {
 	public PWSTR username;
 	public PWSTR password;
 }
 
-[CRepr]public struct WSMAN_AUTHENTICATION_CREDENTIALS
+[CRepr]
+public struct WSMAN_AUTHENTICATION_CREDENTIALS
 {
-	[CRepr, Union]	public struct _Anonymous_e__Union
+	[CRepr, Union]
+	public struct _Anonymous_e__Union
 	{
 		public WSMAN_USERNAME_PASSWORD_CREDS userAccount;
 		public PWSTR certificateThumbprint;
@@ -1324,21 +1332,24 @@ public function void WSMAN_PLUGIN_AUTHORIZE_RELEASE_CONTEXT(void* userAuthorizat
 	public using _Anonymous_e__Union Anonymous;
 }
 
-[CRepr]public struct WSMAN_OPTION
+[CRepr]
+public struct WSMAN_OPTION
 {
 	public PWSTR name;
 	public PWSTR value;
 	public BOOL mustComply;
 }
 
-[CRepr]public struct WSMAN_OPTION_SET
+[CRepr]
+public struct WSMAN_OPTION_SET
 {
 	public uint32 optionsCount;
 	public WSMAN_OPTION* options;
 	public BOOL optionsMustUnderstand;
 }
 
-[CRepr]public struct WSMAN_OPTION_SETEX
+[CRepr]
+public struct WSMAN_OPTION_SETEX
 {
 	public uint32 optionsCount;
 	public WSMAN_OPTION* options;
@@ -1346,31 +1357,36 @@ public function void WSMAN_PLUGIN_AUTHORIZE_RELEASE_CONTEXT(void* userAuthorizat
 	public PWSTR* optionTypes;
 }
 
-[CRepr]public struct WSMAN_KEY
+[CRepr]
+public struct WSMAN_KEY
 {
 	public PWSTR key;
 	public PWSTR value;
 }
 
-[CRepr]public struct WSMAN_SELECTOR_SET
+[CRepr]
+public struct WSMAN_SELECTOR_SET
 {
 	public uint32 numberKeys;
 	public WSMAN_KEY* keys;
 }
 
-[CRepr]public struct WSMAN_FRAGMENT
+[CRepr]
+public struct WSMAN_FRAGMENT
 {
 	public PWSTR path;
 	public PWSTR dialect;
 }
 
-[CRepr]public struct WSMAN_FILTER
+[CRepr]
+public struct WSMAN_FILTER
 {
 	public PWSTR filter;
 	public PWSTR dialect;
 }
 
-[CRepr]public struct WSMAN_OPERATION_INFO
+[CRepr]
+public struct WSMAN_OPERATION_INFO
 {
 	public WSMAN_FRAGMENT fragment;
 	public WSMAN_FILTER filter;
@@ -1380,7 +1396,8 @@ public function void WSMAN_PLUGIN_AUTHORIZE_RELEASE_CONTEXT(void* userAuthorizat
 	public uint32 version;
 }
 
-[CRepr]public struct WSMAN_OPERATION_INFOEX
+[CRepr]
+public struct WSMAN_OPERATION_INFOEX
 {
 	public WSMAN_FRAGMENT fragment;
 	public WSMAN_FILTER filter;
@@ -1391,51 +1408,61 @@ public function void WSMAN_PLUGIN_AUTHORIZE_RELEASE_CONTEXT(void* userAuthorizat
 	public PWSTR dataLocale;
 }
 
-[CRepr]public struct WSMAN_API
+[CRepr]
+public struct WSMAN_API
 {
 }
 
-[CRepr]public struct WSMAN_PROXY_INFO
+[CRepr]
+public struct WSMAN_PROXY_INFO
 {
 	public uint32 accessType;
 	public WSMAN_AUTHENTICATION_CREDENTIALS authenticationCredentials;
 }
 
-[CRepr]public struct WSMAN_SESSION
+[CRepr]
+public struct WSMAN_SESSION
 {
 }
 
-[CRepr]public struct WSMAN_OPERATION
+[CRepr]
+public struct WSMAN_OPERATION
 {
 }
 
-[CRepr]public struct WSMAN_SHELL
+[CRepr]
+public struct WSMAN_SHELL
 {
 }
 
-[CRepr]public struct WSMAN_COMMAND
+[CRepr]
+public struct WSMAN_COMMAND
 {
 }
 
-[CRepr]public struct WSMAN_STREAM_ID_SET
+[CRepr]
+public struct WSMAN_STREAM_ID_SET
 {
 	public uint32 streamIDsCount;
 	public PWSTR* streamIDs;
 }
 
-[CRepr]public struct WSMAN_ENVIRONMENT_VARIABLE
+[CRepr]
+public struct WSMAN_ENVIRONMENT_VARIABLE
 {
 	public PWSTR name;
 	public PWSTR value;
 }
 
-[CRepr]public struct WSMAN_ENVIRONMENT_VARIABLE_SET
+[CRepr]
+public struct WSMAN_ENVIRONMENT_VARIABLE_SET
 {
 	public uint32 varsCount;
 	public WSMAN_ENVIRONMENT_VARIABLE* vars;
 }
 
-[CRepr]public struct WSMAN_SHELL_STARTUP_INFO_V10
+[CRepr]
+public struct WSMAN_SHELL_STARTUP_INFO_V10
 {
 	public WSMAN_STREAM_ID_SET* inputStreamSet;
 	public WSMAN_STREAM_ID_SET* outputStreamSet;
@@ -1444,18 +1471,21 @@ public function void WSMAN_PLUGIN_AUTHORIZE_RELEASE_CONTEXT(void* userAuthorizat
 	public WSMAN_ENVIRONMENT_VARIABLE_SET* variableSet;
 }
 
-[CRepr]public struct WSMAN_SHELL_STARTUP_INFO_V11
+[CRepr]
+public struct WSMAN_SHELL_STARTUP_INFO_V11
 {
 	public WSMAN_SHELL_STARTUP_INFO_V10 __AnonymousBase_wsman_L665_C48;
 	public PWSTR name;
 }
 
-[CRepr]public struct WSMAN_SHELL_DISCONNECT_INFO
+[CRepr]
+public struct WSMAN_SHELL_DISCONNECT_INFO
 {
 	public uint32 idleTimeoutMs;
 }
 
-[CRepr]public struct WSMAN_RECEIVE_DATA_RESULT
+[CRepr]
+public struct WSMAN_RECEIVE_DATA_RESULT
 {
 	public PWSTR streamId;
 	public WSMAN_DATA streamData;
@@ -1463,36 +1493,42 @@ public function void WSMAN_PLUGIN_AUTHORIZE_RELEASE_CONTEXT(void* userAuthorizat
 	public uint32 exitCode;
 }
 
-[CRepr]public struct WSMAN_CONNECT_DATA
+[CRepr]
+public struct WSMAN_CONNECT_DATA
 {
 	public WSMAN_DATA data;
 }
 
-[CRepr]public struct WSMAN_CREATE_SHELL_DATA
+[CRepr]
+public struct WSMAN_CREATE_SHELL_DATA
 {
 	public WSMAN_DATA data;
 }
 
-[CRepr, Union]public struct WSMAN_RESPONSE_DATA
+[CRepr, Union]
+public struct WSMAN_RESPONSE_DATA
 {
 	public WSMAN_RECEIVE_DATA_RESULT receiveData;
 	public WSMAN_CONNECT_DATA connectData;
 	public WSMAN_CREATE_SHELL_DATA createData;
 }
 
-[CRepr]public struct WSMAN_SHELL_ASYNC
+[CRepr]
+public struct WSMAN_SHELL_ASYNC
 {
 	public void* operationContext;
 	public WSMAN_SHELL_COMPLETION_FUNCTION completionFunction;
 }
 
-[CRepr]public struct WSMAN_COMMAND_ARG_SET
+[CRepr]
+public struct WSMAN_COMMAND_ARG_SET
 {
 	public uint32 argsCount;
 	public PWSTR* args;
 }
 
-[CRepr]public struct WSMAN_CERTIFICATE_DETAILS
+[CRepr]
+public struct WSMAN_CERTIFICATE_DETAILS
 {
 	public PWSTR subject;
 	public PWSTR issuerName;
@@ -1500,7 +1536,8 @@ public function void WSMAN_PLUGIN_AUTHORIZE_RELEASE_CONTEXT(void* userAuthorizat
 	public PWSTR subjectName;
 }
 
-[CRepr]public struct WSMAN_SENDER_DETAILS
+[CRepr]
+public struct WSMAN_SENDER_DETAILS
 {
 	public PWSTR senderName;
 	public PWSTR authenticationMechanism;
@@ -1509,7 +1546,8 @@ public function void WSMAN_PLUGIN_AUTHORIZE_RELEASE_CONTEXT(void* userAuthorizat
 	public PWSTR httpURL;
 }
 
-[CRepr]public struct WSMAN_PLUGIN_REQUEST
+[CRepr]
+public struct WSMAN_PLUGIN_REQUEST
 {
 	public WSMAN_SENDER_DETAILS* senderDetails;
 	public PWSTR locale;
@@ -1520,7 +1558,8 @@ public function void WSMAN_PLUGIN_AUTHORIZE_RELEASE_CONTEXT(void* userAuthorizat
 	public PWSTR dataLocale;
 }
 
-[CRepr]public struct WSMAN_AUTHZ_QUOTA
+[CRepr]
+public struct WSMAN_AUTHZ_QUOTA
 {
 	public uint32 maxAllowedConcurrentShells;
 	public uint32 maxAllowedConcurrentOperations;

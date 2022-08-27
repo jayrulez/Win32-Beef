@@ -66,7 +66,8 @@ public enum POINTER_BUTTON_CHANGE_TYPE : int32
 #endregion
 
 #region Structs
-[CRepr]public struct POINTER_INFO
+[CRepr]
+public struct POINTER_INFO
 {
 	public POINTER_INPUT_TYPE pointerType;
 	public uint32 pointerId;
@@ -86,7 +87,8 @@ public enum POINTER_BUTTON_CHANGE_TYPE : int32
 	public POINTER_BUTTON_CHANGE_TYPE ButtonChangeType;
 }
 
-[CRepr]public struct POINTER_TOUCH_INFO
+[CRepr]
+public struct POINTER_TOUCH_INFO
 {
 	public POINTER_INFO pointerInfo;
 	public uint32 touchFlags;
@@ -97,7 +99,8 @@ public enum POINTER_BUTTON_CHANGE_TYPE : int32
 	public uint32 pressure;
 }
 
-[CRepr]public struct POINTER_PEN_INFO
+[CRepr]
+public struct POINTER_PEN_INFO
 {
 	public POINTER_INFO pointerInfo;
 	public uint32 penFlags;
@@ -108,7 +111,8 @@ public enum POINTER_BUTTON_CHANGE_TYPE : int32
 	public int32 tiltY;
 }
 
-[CRepr]public struct INPUT_INJECTION_VALUE
+[CRepr]
+public struct INPUT_INJECTION_VALUE
 {
 	public uint16 page;
 	public uint16 usage;
@@ -116,11 +120,14 @@ public enum POINTER_BUTTON_CHANGE_TYPE : int32
 	public uint16 index;
 }
 
-[CRepr]public struct INPUT_TRANSFORM
+[CRepr]
+public struct INPUT_TRANSFORM
 {
-	[CRepr, Union]	public struct _Anonymous_e__Union
+	[CRepr, Union]
+	public struct _Anonymous_e__Union
 	{
-		[CRepr]		public struct _Anonymous_e__Struct
+		[CRepr]
+		public struct _Anonymous_e__Struct
 		{
 			public float _11;
 			public float _12;

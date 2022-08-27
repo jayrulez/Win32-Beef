@@ -134,21 +134,25 @@ public function EXCEPTION_DISPOSITION EXCEPTION_ROUTINE(EXCEPTION_RECORD* Except
 #endregion
 
 #region Structs
-[CRepr]public struct SLIST_ENTRY
+[CRepr]
+public struct SLIST_ENTRY
 {
 	public SLIST_ENTRY* Next;
 }
 
 #if BF_ARM_64
-[CRepr, Union]public struct SLIST_HEADER
+[CRepr, Union]
+public struct SLIST_HEADER
 {
-	[CRepr]	public struct _Anonymous_e__Struct
+	[CRepr]
+	public struct _Anonymous_e__Struct
 	{
 		public uint64 Alignment;
 		public uint64 Region;
 	}
 
-	[CRepr]	public struct _HeaderArm64_e__Struct
+	[CRepr]
+	public struct _HeaderArm64_e__Struct
 	{
 		public uint64 _bitfield1;
 		public uint64 _bitfield2;
@@ -159,9 +163,11 @@ public function EXCEPTION_DISPOSITION EXCEPTION_ROUTINE(EXCEPTION_RECORD* Except
 }
 #endif
 
-[CRepr]public struct QUAD
+[CRepr]
+public struct QUAD
 {
-	[CRepr, Union]	public struct _Anonymous_e__Union
+	[CRepr, Union]
+	public struct _Anonymous_e__Union
 	{
 		public int64 UseThisFieldToCopy;
 		public double DoNotUseThisField;
@@ -170,49 +176,58 @@ public function EXCEPTION_DISPOSITION EXCEPTION_ROUTINE(EXCEPTION_RECORD* Except
 	public using _Anonymous_e__Union Anonymous;
 }
 
-[CRepr]public struct PROCESSOR_NUMBER
+[CRepr]
+public struct PROCESSOR_NUMBER
 {
 	public uint16 Group;
 	public uint8 Number;
 	public uint8 Reserved;
 }
 
-[CRepr]public struct STRING
+[CRepr]
+public struct STRING
 {
 	public uint16 Length;
 	public uint16 MaximumLength;
 	public PSTR Buffer;
 }
 
-[CRepr]public struct CSTRING
+[CRepr]
+public struct CSTRING
 {
 	public uint16 Length;
 	public uint16 MaximumLength;
 	public PSTR Buffer;
 }
 
-[CRepr]public struct LIST_ENTRY
+[CRepr]
+public struct LIST_ENTRY
 {
 	public LIST_ENTRY* Flink;
 	public LIST_ENTRY* Blink;
 }
 
-[CRepr]public struct SINGLE_LIST_ENTRY
+[CRepr]
+public struct SINGLE_LIST_ENTRY
 {
 	public SINGLE_LIST_ENTRY* Next;
 }
 
-[CRepr]public struct RTL_BALANCED_NODE
+[CRepr]
+public struct RTL_BALANCED_NODE
 {
-	[CRepr, Union]	public struct _Anonymous2_e__Union
+	[CRepr, Union]
+	public struct _Anonymous2_e__Union
 	{
 		public uint8 _bitfield;
 		public uint ParentValue;
 	}
 
-	[CRepr, Union]	public struct _Anonymous1_e__Union
+	[CRepr, Union]
+	public struct _Anonymous1_e__Union
 	{
-		[CRepr]		public struct _Anonymous_e__Struct
+		[CRepr]
+		public struct _Anonymous_e__Struct
 		{
 			public RTL_BALANCED_NODE* Left;
 			public RTL_BALANCED_NODE* Right;
@@ -226,43 +241,50 @@ public function EXCEPTION_DISPOSITION EXCEPTION_ROUTINE(EXCEPTION_RECORD* Except
 	public _Anonymous2_e__Union Anonymous2;
 }
 
-[CRepr]public struct LIST_ENTRY32
+[CRepr]
+public struct LIST_ENTRY32
 {
 	public uint32 Flink;
 	public uint32 Blink;
 }
 
-[CRepr]public struct LIST_ENTRY64
+[CRepr]
+public struct LIST_ENTRY64
 {
 	public uint64 Flink;
 	public uint64 Blink;
 }
 
-[CRepr]public struct SINGLE_LIST_ENTRY32
+[CRepr]
+public struct SINGLE_LIST_ENTRY32
 {
 	public uint32 Next;
 }
 
-[CRepr]public struct WNF_STATE_NAME
+[CRepr]
+public struct WNF_STATE_NAME
 {
 	public uint32[2] Data;
 }
 
-[CRepr]public struct STRING32
+[CRepr]
+public struct STRING32
 {
 	public uint16 Length;
 	public uint16 MaximumLength;
 	public uint32 Buffer;
 }
 
-[CRepr]public struct STRING64
+[CRepr]
+public struct STRING64
 {
 	public uint16 Length;
 	public uint16 MaximumLength;
 	public uint64 Buffer;
 }
 
-[CRepr]public struct OBJECT_ATTRIBUTES64
+[CRepr]
+public struct OBJECT_ATTRIBUTES64
 {
 	public uint32 Length;
 	public uint64 RootDirectory;
@@ -272,7 +294,8 @@ public function EXCEPTION_DISPOSITION EXCEPTION_ROUTINE(EXCEPTION_RECORD* Except
 	public uint64 SecurityQualityOfService;
 }
 
-[CRepr]public struct OBJECT_ATTRIBUTES32
+[CRepr]
+public struct OBJECT_ATTRIBUTES32
 {
 	public uint32 Length;
 	public uint32 RootDirectory;
@@ -282,21 +305,25 @@ public function EXCEPTION_DISPOSITION EXCEPTION_ROUTINE(EXCEPTION_RECORD* Except
 	public uint32 SecurityQualityOfService;
 }
 
-[CRepr]public struct OBJECTID
+[CRepr]
+public struct OBJECTID
 {
 	public Guid Lineage;
 	public uint32 Uniquifier;
 }
 
-[CRepr]public struct EXCEPTION_REGISTRATION_RECORD
+[CRepr]
+public struct EXCEPTION_REGISTRATION_RECORD
 {
 	public EXCEPTION_REGISTRATION_RECORD* Next;
 	public EXCEPTION_ROUTINE Handler;
 }
 
-[CRepr]public struct NT_TIB
+[CRepr]
+public struct NT_TIB
 {
-	[CRepr, Union]	public struct _Anonymous_e__Union
+	[CRepr, Union]
+	public struct _Anonymous_e__Union
 	{
 		public void* FiberData;
 		public uint32 Version;
@@ -312,15 +339,18 @@ public function EXCEPTION_DISPOSITION EXCEPTION_ROUTINE(EXCEPTION_RECORD* Except
 }
 
 #if BF_64_BIT
-[CRepr, Union]public struct SLIST_HEADER
+[CRepr, Union]
+public struct SLIST_HEADER
 {
-	[CRepr]	public struct _Anonymous_e__Struct
+	[CRepr]
+	public struct _Anonymous_e__Struct
 	{
 		public uint64 Alignment;
 		public uint64 Region;
 	}
 
-	[CRepr]	public struct _HeaderX64_e__Struct
+	[CRepr]
+	public struct _HeaderX64_e__Struct
 	{
 		public uint64 _bitfield1;
 		public uint64 _bitfield2;
@@ -332,7 +362,8 @@ public function EXCEPTION_DISPOSITION EXCEPTION_ROUTINE(EXCEPTION_RECORD* Except
 #endif
 
 #if BF_64_BIT || BF_ARM_64
-[CRepr]public struct FLOATING_SAVE_AREA
+[CRepr]
+public struct FLOATING_SAVE_AREA
 {
 	public uint32 ControlWord;
 	public uint32 StatusWord;
@@ -347,7 +378,8 @@ public function EXCEPTION_DISPOSITION EXCEPTION_ROUTINE(EXCEPTION_RECORD* Except
 #endif
 
 #if BF_32_BIT
-[CRepr]public struct FLOATING_SAVE_AREA
+[CRepr]
+public struct FLOATING_SAVE_AREA
 {
 	public uint32 ControlWord;
 	public uint32 StatusWord;
@@ -362,9 +394,11 @@ public function EXCEPTION_DISPOSITION EXCEPTION_ROUTINE(EXCEPTION_RECORD* Except
 #endif
 
 #if BF_32_BIT
-[CRepr, Union]public struct SLIST_HEADER
+[CRepr, Union]
+public struct SLIST_HEADER
 {
-	[CRepr]	public struct _Anonymous_e__Struct
+	[CRepr]
+	public struct _Anonymous_e__Struct
 	{
 		public SINGLE_LIST_ENTRY Next;
 		public uint16 Depth;

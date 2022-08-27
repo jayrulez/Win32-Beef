@@ -1302,9 +1302,11 @@ public function void USB_IDLE_CALLBACK(void* Context);
 #endregion
 
 #region Structs
-[CRepr, Union]public struct BM_REQUEST_TYPE
+[CRepr, Union]
+public struct BM_REQUEST_TYPE
 {
-	[CRepr]	public struct _BM
+	[CRepr]
+	public struct _BM
 	{
 		public uint8 _bitfield;
 	}
@@ -1313,11 +1315,14 @@ public function void USB_IDLE_CALLBACK(void* Context);
 	public uint8 B;
 }
 
-[CRepr, Packed(1)]public struct USB_DEFAULT_PIPE_SETUP_PACKET
+[CRepr, Packed(1)]
+public struct USB_DEFAULT_PIPE_SETUP_PACKET
 {
-	[CRepr, Union, Packed(1)]	public struct _wIndex
+	[CRepr, Union, Packed(1)]
+	public struct _wIndex
 	{
-		[CRepr]		public struct _Anonymous_e__Struct
+		[CRepr]
+		public struct _Anonymous_e__Struct
 		{
 			public uint8 LowByte;
 			public uint8 HiByte;
@@ -1327,9 +1332,11 @@ public function void USB_IDLE_CALLBACK(void* Context);
 		public uint16 W;
 	}
 
-	[CRepr, Union, Packed(1)]	public struct _wValue
+	[CRepr, Union, Packed(1)]
+	public struct _wValue
 	{
-		[CRepr]		public struct _Anonymous_e__Struct
+		[CRepr]
+		public struct _Anonymous_e__Struct
 		{
 			public uint8 LowByte;
 			public uint8 HiByte;
@@ -1346,9 +1353,11 @@ public function void USB_IDLE_CALLBACK(void* Context);
 	public uint16 wLength;
 }
 
-[CRepr, Union, Packed(1)]public struct USB_DEVICE_STATUS
+[CRepr, Union, Packed(1)]
+public struct USB_DEVICE_STATUS
 {
-	[CRepr, Packed(1)]	public struct _Anonymous_e__Struct
+	[CRepr, Packed(1)]
+	public struct _Anonymous_e__Struct
 	{
 		public uint16 _bitfield;
 	}
@@ -1357,9 +1366,11 @@ public function void USB_IDLE_CALLBACK(void* Context);
 	public using _Anonymous_e__Struct Anonymous;
 }
 
-[CRepr, Union, Packed(1)]public struct USB_INTERFACE_STATUS
+[CRepr, Union, Packed(1)]
+public struct USB_INTERFACE_STATUS
 {
-	[CRepr, Packed(1)]	public struct _Anonymous_e__Struct
+	[CRepr, Packed(1)]
+	public struct _Anonymous_e__Struct
 	{
 		public uint16 _bitfield;
 	}
@@ -1368,9 +1379,11 @@ public function void USB_IDLE_CALLBACK(void* Context);
 	public using _Anonymous_e__Struct Anonymous;
 }
 
-[CRepr, Union, Packed(1)]public struct USB_ENDPOINT_STATUS
+[CRepr, Union, Packed(1)]
+public struct USB_ENDPOINT_STATUS
 {
-	[CRepr, Packed(1)]	public struct _Anonymous_e__Struct
+	[CRepr, Packed(1)]
+	public struct _Anonymous_e__Struct
 	{
 		public uint16 _bitfield;
 	}
@@ -1379,13 +1392,15 @@ public function void USB_IDLE_CALLBACK(void* Context);
 	public using _Anonymous_e__Struct Anonymous;
 }
 
-[CRepr]public struct USB_COMMON_DESCRIPTOR
+[CRepr]
+public struct USB_COMMON_DESCRIPTOR
 {
 	public uint8 bLength;
 	public uint8 bDescriptorType;
 }
 
-[CRepr, Packed(1)]public struct USB_DEVICE_DESCRIPTOR
+[CRepr, Packed(1)]
+public struct USB_DEVICE_DESCRIPTOR
 {
 	public uint8 bLength;
 	public uint8 bDescriptorType;
@@ -1403,7 +1418,8 @@ public function void USB_IDLE_CALLBACK(void* Context);
 	public uint8 bNumConfigurations;
 }
 
-[CRepr, Packed(1)]public struct USB_DEVICE_QUALIFIER_DESCRIPTOR
+[CRepr, Packed(1)]
+public struct USB_DEVICE_QUALIFIER_DESCRIPTOR
 {
 	public uint8 bLength;
 	public uint8 bDescriptorType;
@@ -1416,7 +1432,8 @@ public function void USB_IDLE_CALLBACK(void* Context);
 	public uint8 bReserved;
 }
 
-[CRepr, Packed(1)]public struct USB_BOS_DESCRIPTOR
+[CRepr, Packed(1)]
+public struct USB_BOS_DESCRIPTOR
 {
 	public uint8 bLength;
 	public uint8 bDescriptorType;
@@ -1424,11 +1441,14 @@ public function void USB_IDLE_CALLBACK(void* Context);
 	public uint8 bNumDeviceCaps;
 }
 
-[CRepr]public struct USB_DEVICE_CAPABILITY_USB20_EXTENSION_DESCRIPTOR
+[CRepr]
+public struct USB_DEVICE_CAPABILITY_USB20_EXTENSION_DESCRIPTOR
 {
-	[CRepr, Union, Packed(1)]	public struct _bmAttributes_e__Union
+	[CRepr, Union, Packed(1)]
+	public struct _bmAttributes_e__Union
 	{
-		[CRepr, Packed(1)]		public struct _Anonymous_e__Struct
+		[CRepr, Packed(1)]
+		public struct _Anonymous_e__Struct
 		{
 			public uint32 _bitfield;
 		}
@@ -1443,11 +1463,14 @@ public function void USB_IDLE_CALLBACK(void* Context);
 	public _bmAttributes_e__Union bmAttributes;
 }
 
-[CRepr, Packed(1)]public struct USB_DEVICE_CAPABILITY_POWER_DELIVERY_DESCRIPTOR
+[CRepr, Packed(1)]
+public struct USB_DEVICE_CAPABILITY_POWER_DELIVERY_DESCRIPTOR
 {
-	[CRepr, Union, Packed(1)]	public struct _bmAttributes_e__Union
+	[CRepr, Union, Packed(1)]
+	public struct _bmAttributes_e__Union
 	{
-		[CRepr, Packed(1)]		public struct _Anonymous_e__Struct
+		[CRepr, Packed(1)]
+		public struct _Anonymous_e__Struct
 		{
 			public uint32 _bitfield;
 		}
@@ -1468,11 +1491,14 @@ public function void USB_IDLE_CALLBACK(void* Context);
 	public uint16 bcdUSBTypeCVersion;
 }
 
-[CRepr, Packed(1)]public struct USB_DEVICE_CAPABILITY_PD_CONSUMER_PORT_DESCRIPTOR
+[CRepr, Packed(1)]
+public struct USB_DEVICE_CAPABILITY_PD_CONSUMER_PORT_DESCRIPTOR
 {
-	[CRepr, Union, Packed(1)]	public struct _bmCapabilities_e__Union
+	[CRepr, Union, Packed(1)]
+	public struct _bmCapabilities_e__Union
 	{
-		[CRepr, Packed(1)]		public struct _Anonymous_e__Struct
+		[CRepr, Packed(1)]
+		public struct _Anonymous_e__Struct
 		{
 			public uint16 _bitfield;
 		}
@@ -1494,7 +1520,8 @@ public function void USB_IDLE_CALLBACK(void* Context);
 	public uint32 dwMaxPeakPowerTime;
 }
 
-[CRepr, Packed(1)]public struct USB_DEVICE_CAPABILITY_SUPERSPEED_USB_DESCRIPTOR
+[CRepr, Packed(1)]
+public struct USB_DEVICE_CAPABILITY_SUPERSPEED_USB_DESCRIPTOR
 {
 	public uint8 bLength;
 	public uint8 bDescriptorType;
@@ -1506,9 +1533,11 @@ public function void USB_IDLE_CALLBACK(void* Context);
 	public uint16 wU2DevExitLat;
 }
 
-[CRepr, Union, Packed(1)]public struct USB_DEVICE_CAPABILITY_SUPERSPEEDPLUS_SPEED
+[CRepr, Union, Packed(1)]
+public struct USB_DEVICE_CAPABILITY_SUPERSPEEDPLUS_SPEED
 {
-	[CRepr, Packed(1)]	public struct _Anonymous_e__Struct
+	[CRepr, Packed(1)]
+	public struct _Anonymous_e__Struct
 	{
 		public uint32 _bitfield;
 	}
@@ -1517,11 +1546,14 @@ public function void USB_IDLE_CALLBACK(void* Context);
 	public using _Anonymous_e__Struct Anonymous;
 }
 
-[CRepr, Packed(1)]public struct USB_DEVICE_CAPABILITY_SUPERSPEEDPLUS_USB_DESCRIPTOR
+[CRepr, Packed(1)]
+public struct USB_DEVICE_CAPABILITY_SUPERSPEEDPLUS_USB_DESCRIPTOR
 {
-	[CRepr, Union, Packed(1)]	public struct _wFunctionalitySupport_e__Union
+	[CRepr, Union, Packed(1)]
+	public struct _wFunctionalitySupport_e__Union
 	{
-		[CRepr, Packed(1)]		public struct _Anonymous_e__Struct
+		[CRepr, Packed(1)]
+		public struct _Anonymous_e__Struct
 		{
 			public uint16 _bitfield;
 		}
@@ -1530,9 +1562,11 @@ public function void USB_IDLE_CALLBACK(void* Context);
 		public using _Anonymous_e__Struct Anonymous;
 	}
 
-	[CRepr, Union, Packed(1)]	public struct _bmAttributes_e__Union
+	[CRepr, Union, Packed(1)]
+	public struct _bmAttributes_e__Union
 	{
-		[CRepr, Packed(1)]		public struct _Anonymous_e__Struct
+		[CRepr, Packed(1)]
+		public struct _Anonymous_e__Struct
 		{
 			public uint32 _bitfield;
 		}
@@ -1551,7 +1585,8 @@ public function void USB_IDLE_CALLBACK(void* Context);
 	public USB_DEVICE_CAPABILITY_SUPERSPEEDPLUS_SPEED[1] bmSublinkSpeedAttr;
 }
 
-[CRepr]public struct USB_DEVICE_CAPABILITY_CONTAINER_ID_DESCRIPTOR
+[CRepr]
+public struct USB_DEVICE_CAPABILITY_CONTAINER_ID_DESCRIPTOR
 {
 	public uint8 bLength;
 	public uint8 bDescriptorType;
@@ -1560,7 +1595,8 @@ public function void USB_IDLE_CALLBACK(void* Context);
 	public uint8[16] ContainerID;
 }
 
-[CRepr, Packed(1)]public struct USB_DEVICE_CAPABILITY_PLATFORM_DESCRIPTOR
+[CRepr, Packed(1)]
+public struct USB_DEVICE_CAPABILITY_PLATFORM_DESCRIPTOR
 {
 	public uint8 bLength;
 	public uint8 bDescriptorType;
@@ -1570,11 +1606,14 @@ public function void USB_IDLE_CALLBACK(void* Context);
 	public uint8[1] CapabililityData;
 }
 
-[CRepr, Packed(1)]public struct USB_DEVICE_CAPABILITY_BILLBOARD_DESCRIPTOR
+[CRepr, Packed(1)]
+public struct USB_DEVICE_CAPABILITY_BILLBOARD_DESCRIPTOR
 {
-	[CRepr, Union, Packed(1)]	public struct _VconnPower_e__Union
+	[CRepr, Union, Packed(1)]
+	public struct _VconnPower_e__Union
 	{
-		[CRepr, Packed(1)]		public struct _Anonymous_e__Struct
+		[CRepr, Packed(1)]
+		public struct _Anonymous_e__Struct
 		{
 			public uint16 _bitfield;
 		}
@@ -1583,7 +1622,8 @@ public function void USB_IDLE_CALLBACK(void* Context);
 		public using _Anonymous_e__Struct Anonymous;
 	}
 
-	[CRepr, Packed(1)]	public struct _Anonymous_e__Struct
+	[CRepr, Packed(1)]
+	public struct _Anonymous_e__Struct
 	{
 		public uint16 wSVID;
 		public uint8 bAlternateMode;
@@ -1602,11 +1642,14 @@ public function void USB_IDLE_CALLBACK(void* Context);
 	public _Anonymous_e__Struct[1] AlternateMode;
 }
 
-[CRepr]public struct USB_DEVICE_CAPABILITY_FIRMWARE_STATUS_DESCRIPTOR
+[CRepr]
+public struct USB_DEVICE_CAPABILITY_FIRMWARE_STATUS_DESCRIPTOR
 {
-	[CRepr, Union, Packed(1)]	public struct _bmAttributes_e__Union
+	[CRepr, Union, Packed(1)]
+	public struct _bmAttributes_e__Union
 	{
-		[CRepr, Packed(1)]		public struct _Anonymous_e__Struct
+		[CRepr, Packed(1)]
+		public struct _Anonymous_e__Struct
 		{
 			public uint32 _bitfield;
 		}
@@ -1622,14 +1665,16 @@ public function void USB_IDLE_CALLBACK(void* Context);
 	public _bmAttributes_e__Union bmAttributes;
 }
 
-[CRepr]public struct USB_DEVICE_CAPABILITY_DESCRIPTOR
+[CRepr]
+public struct USB_DEVICE_CAPABILITY_DESCRIPTOR
 {
 	public uint8 bLength;
 	public uint8 bDescriptorType;
 	public uint8 bDevCapabilityType;
 }
 
-[CRepr, Packed(1)]public struct USB_CONFIGURATION_DESCRIPTOR
+[CRepr, Packed(1)]
+public struct USB_CONFIGURATION_DESCRIPTOR
 {
 	public uint8 bLength;
 	public uint8 bDescriptorType;
@@ -1641,7 +1686,8 @@ public function void USB_IDLE_CALLBACK(void* Context);
 	public uint8 MaxPower;
 }
 
-[CRepr]public struct USB_INTERFACE_ASSOCIATION_DESCRIPTOR
+[CRepr]
+public struct USB_INTERFACE_ASSOCIATION_DESCRIPTOR
 {
 	public uint8 bLength;
 	public uint8 bDescriptorType;
@@ -1653,7 +1699,8 @@ public function void USB_IDLE_CALLBACK(void* Context);
 	public uint8 iFunction;
 }
 
-[CRepr]public struct USB_INTERFACE_DESCRIPTOR
+[CRepr]
+public struct USB_INTERFACE_DESCRIPTOR
 {
 	public uint8 bLength;
 	public uint8 bDescriptorType;
@@ -1666,7 +1713,8 @@ public function void USB_IDLE_CALLBACK(void* Context);
 	public uint8 iInterface;
 }
 
-[CRepr, Packed(1)]public struct USB_ENDPOINT_DESCRIPTOR
+[CRepr, Packed(1)]
+public struct USB_ENDPOINT_DESCRIPTOR
 {
 	public uint8 bLength;
 	public uint8 bDescriptorType;
@@ -1676,9 +1724,11 @@ public function void USB_IDLE_CALLBACK(void* Context);
 	public uint8 bInterval;
 }
 
-[CRepr, Union, Packed(1)]public struct USB_HIGH_SPEED_MAXPACKET
+[CRepr, Union, Packed(1)]
+public struct USB_HIGH_SPEED_MAXPACKET
 {
-	[CRepr, Packed(1)]	public struct _MP
+	[CRepr, Packed(1)]
+	public struct _MP
 	{
 		public uint16 _bitfield;
 	}
@@ -1686,23 +1736,28 @@ public function void USB_IDLE_CALLBACK(void* Context);
 	public uint16 us;
 }
 
-[CRepr, Packed(1)]public struct USB_STRING_DESCRIPTOR
+[CRepr, Packed(1)]
+public struct USB_STRING_DESCRIPTOR
 {
 	public uint8 bLength;
 	public uint8 bDescriptorType;
 	public char8[1] bString;
 }
 
-[CRepr, Packed(1)]public struct USB_SUPERSPEED_ENDPOINT_COMPANION_DESCRIPTOR
+[CRepr, Packed(1)]
+public struct USB_SUPERSPEED_ENDPOINT_COMPANION_DESCRIPTOR
 {
-	[CRepr, Union]	public struct _bmAttributes_e__Union
+	[CRepr, Union]
+	public struct _bmAttributes_e__Union
 	{
-		[CRepr]		public struct _Bulk_e__Struct
+		[CRepr]
+		public struct _Bulk_e__Struct
 		{
 			public uint8 _bitfield;
 		}
 
-		[CRepr]		public struct _Isochronous_e__Struct
+		[CRepr]
+		public struct _Isochronous_e__Struct
 		{
 			public uint8 _bitfield;
 		}
@@ -1719,7 +1774,8 @@ public function void USB_IDLE_CALLBACK(void* Context);
 	public uint16 wBytesPerInterval;
 }
 
-[CRepr, Packed(1)]public struct USB_SUPERSPEEDPLUS_ISOCH_ENDPOINT_COMPANION_DESCRIPTOR
+[CRepr, Packed(1)]
+public struct USB_SUPERSPEEDPLUS_ISOCH_ENDPOINT_COMPANION_DESCRIPTOR
 {
 	public uint8 bLength;
 	public uint8 bDescriptorType;
@@ -1727,7 +1783,8 @@ public function void USB_IDLE_CALLBACK(void* Context);
 	public uint32 dwBytesPerInterval;
 }
 
-[CRepr, Packed(1)]public struct USB_HUB_DESCRIPTOR
+[CRepr, Packed(1)]
+public struct USB_HUB_DESCRIPTOR
 {
 	public uint8 bDescriptorLength;
 	public uint8 bDescriptorType;
@@ -1738,7 +1795,8 @@ public function void USB_IDLE_CALLBACK(void* Context);
 	public uint8[64] bRemoveAndPowerMask;
 }
 
-[CRepr, Packed(1)]public struct USB_30_HUB_DESCRIPTOR
+[CRepr, Packed(1)]
+public struct USB_30_HUB_DESCRIPTOR
 {
 	public uint8 bLength;
 	public uint8 bDescriptorType;
@@ -1751,9 +1809,11 @@ public function void USB_IDLE_CALLBACK(void* Context);
 	public uint16 DeviceRemovable;
 }
 
-[CRepr, Union, Packed(1)]public struct USB_HUB_STATUS
+[CRepr, Union, Packed(1)]
+public struct USB_HUB_STATUS
 {
-	[CRepr, Packed(1)]	public struct _Anonymous_e__Struct
+	[CRepr, Packed(1)]
+	public struct _Anonymous_e__Struct
 	{
 		public uint16 _bitfield;
 	}
@@ -1762,9 +1822,11 @@ public function void USB_IDLE_CALLBACK(void* Context);
 	public using _Anonymous_e__Struct Anonymous;
 }
 
-[CRepr, Union, Packed(1)]public struct USB_HUB_CHANGE
+[CRepr, Union, Packed(1)]
+public struct USB_HUB_CHANGE
 {
-	[CRepr, Packed(1)]	public struct _Anonymous_e__Struct
+	[CRepr, Packed(1)]
+	public struct _Anonymous_e__Struct
 	{
 		public uint16 _bitfield;
 	}
@@ -1773,9 +1835,11 @@ public function void USB_IDLE_CALLBACK(void* Context);
 	public using _Anonymous_e__Struct Anonymous;
 }
 
-[CRepr, Union, Packed(1)]public struct USB_HUB_STATUS_AND_CHANGE
+[CRepr, Union, Packed(1)]
+public struct USB_HUB_STATUS_AND_CHANGE
 {
-	[CRepr]	public struct _Anonymous_e__Struct
+	[CRepr]
+	public struct _Anonymous_e__Struct
 	{
 		public USB_HUB_STATUS HubStatus;
 		public USB_HUB_CHANGE HubChange;
@@ -1785,9 +1849,11 @@ public function void USB_IDLE_CALLBACK(void* Context);
 	public using _Anonymous_e__Struct Anonymous;
 }
 
-[CRepr, Union, Packed(1)]public struct USB_20_PORT_STATUS
+[CRepr, Union, Packed(1)]
+public struct USB_20_PORT_STATUS
 {
-	[CRepr, Packed(1)]	public struct _Anonymous_e__Struct
+	[CRepr, Packed(1)]
+	public struct _Anonymous_e__Struct
 	{
 		public uint16 _bitfield;
 	}
@@ -1796,9 +1862,11 @@ public function void USB_IDLE_CALLBACK(void* Context);
 	public using _Anonymous_e__Struct Anonymous;
 }
 
-[CRepr, Union, Packed(1)]public struct USB_20_PORT_CHANGE
+[CRepr, Union, Packed(1)]
+public struct USB_20_PORT_CHANGE
 {
-	[CRepr, Packed(1)]	public struct _Anonymous_e__Struct
+	[CRepr, Packed(1)]
+	public struct _Anonymous_e__Struct
 	{
 		public uint16 _bitfield;
 	}
@@ -1807,9 +1875,11 @@ public function void USB_IDLE_CALLBACK(void* Context);
 	public using _Anonymous_e__Struct Anonymous;
 }
 
-[CRepr, Union, Packed(1)]public struct USB_30_PORT_STATUS
+[CRepr, Union, Packed(1)]
+public struct USB_30_PORT_STATUS
 {
-	[CRepr, Packed(1)]	public struct _Anonymous_e__Struct
+	[CRepr, Packed(1)]
+	public struct _Anonymous_e__Struct
 	{
 		public uint16 _bitfield;
 	}
@@ -1818,9 +1888,11 @@ public function void USB_IDLE_CALLBACK(void* Context);
 	public using _Anonymous_e__Struct Anonymous;
 }
 
-[CRepr, Union, Packed(1)]public struct USB_30_PORT_CHANGE
+[CRepr, Union, Packed(1)]
+public struct USB_30_PORT_CHANGE
 {
-	[CRepr, Packed(1)]	public struct _Anonymous_e__Struct
+	[CRepr, Packed(1)]
+	public struct _Anonymous_e__Struct
 	{
 		public uint16 _bitfield;
 	}
@@ -1829,23 +1901,27 @@ public function void USB_IDLE_CALLBACK(void* Context);
 	public using _Anonymous_e__Struct Anonymous;
 }
 
-[CRepr, Union, Packed(1)]public struct USB_PORT_STATUS
+[CRepr, Union, Packed(1)]
+public struct USB_PORT_STATUS
 {
 	public uint16 AsUshort16;
 	public USB_20_PORT_STATUS Usb20PortStatus;
 	public USB_30_PORT_STATUS Usb30PortStatus;
 }
 
-[CRepr, Union, Packed(1)]public struct USB_PORT_CHANGE
+[CRepr, Union, Packed(1)]
+public struct USB_PORT_CHANGE
 {
 	public uint16 AsUshort16;
 	public USB_20_PORT_CHANGE Usb20PortChange;
 	public USB_30_PORT_CHANGE Usb30PortChange;
 }
 
-[CRepr, Union, Packed(1)]public struct USB_PORT_EXT_STATUS
+[CRepr, Union, Packed(1)]
+public struct USB_PORT_EXT_STATUS
 {
-	[CRepr, Packed(1)]	public struct _Anonymous_e__Struct
+	[CRepr, Packed(1)]
+	public struct _Anonymous_e__Struct
 	{
 		public uint32 _bitfield;
 	}
@@ -1854,9 +1930,11 @@ public function void USB_IDLE_CALLBACK(void* Context);
 	public using _Anonymous_e__Struct Anonymous;
 }
 
-[CRepr, Union, Packed(1)]public struct USB_PORT_STATUS_AND_CHANGE
+[CRepr, Union, Packed(1)]
+public struct USB_PORT_STATUS_AND_CHANGE
 {
-	[CRepr]	public struct _Anonymous_e__Struct
+	[CRepr]
+	public struct _Anonymous_e__Struct
 	{
 		public USB_PORT_STATUS PortStatus;
 		public USB_PORT_CHANGE PortChange;
@@ -1866,9 +1944,11 @@ public function void USB_IDLE_CALLBACK(void* Context);
 	public using _Anonymous_e__Struct Anonymous;
 }
 
-[CRepr, Union, Packed(1)]public struct USB_PORT_EXT_STATUS_AND_CHANGE
+[CRepr, Union, Packed(1)]
+public struct USB_PORT_EXT_STATUS_AND_CHANGE
 {
-	[CRepr]	public struct _Anonymous_e__Struct
+	[CRepr]
+	public struct _Anonymous_e__Struct
 	{
 		public USB_PORT_STATUS_AND_CHANGE PortStatusChange;
 		public USB_PORT_EXT_STATUS PortExtStatus;
@@ -1878,9 +1958,11 @@ public function void USB_IDLE_CALLBACK(void* Context);
 	public using _Anonymous_e__Struct Anonymous;
 }
 
-[CRepr, Union]public struct USB_HUB_30_PORT_REMOTE_WAKE_MASK
+[CRepr, Union]
+public struct USB_HUB_30_PORT_REMOTE_WAKE_MASK
 {
-	[CRepr]	public struct _Anonymous_e__Struct
+	[CRepr]
+	public struct _Anonymous_e__Struct
 	{
 		public uint8 _bitfield;
 	}
@@ -1889,9 +1971,11 @@ public function void USB_IDLE_CALLBACK(void* Context);
 	public using _Anonymous_e__Struct Anonymous;
 }
 
-[CRepr, Union]public struct USB_FUNCTION_SUSPEND_OPTIONS
+[CRepr, Union]
+public struct USB_FUNCTION_SUSPEND_OPTIONS
 {
-	[CRepr]	public struct _Anonymous_e__Struct
+	[CRepr]
+	public struct _Anonymous_e__Struct
 	{
 		public uint8 _bitfield;
 	}
@@ -1900,7 +1984,8 @@ public function void USB_IDLE_CALLBACK(void* Context);
 	public using _Anonymous_e__Struct Anonymous;
 }
 
-[CRepr, Packed(1)]public struct USB_CONFIGURATION_POWER_DESCRIPTOR
+[CRepr, Packed(1)]
+public struct USB_CONFIGURATION_POWER_DESCRIPTOR
 {
 	public uint8 bLength;
 	public uint8 bDescriptorType;
@@ -1917,7 +2002,8 @@ public function void USB_IDLE_CALLBACK(void* Context);
 	public uint16 TransitionTimeFromD3;
 }
 
-[CRepr, Packed(1)]public struct USB_INTERFACE_POWER_DESCRIPTOR
+[CRepr, Packed(1)]
+public struct USB_INTERFACE_POWER_DESCRIPTOR
 {
 	public uint8 bLength;
 	public uint8 bDescriptorType;
@@ -1933,20 +2019,23 @@ public function void USB_IDLE_CALLBACK(void* Context);
 	public uint16 TransitionTimeFromD3;
 }
 
-[CRepr]public struct USBD_VERSION_INFORMATION
+[CRepr]
+public struct USBD_VERSION_INFORMATION
 {
 	public uint32 USBDI_Version;
 	public uint32 Supported_USB_Version;
 }
 
-[CRepr]public struct USBD_DEVICE_INFORMATION
+[CRepr]
+public struct USBD_DEVICE_INFORMATION
 {
 	public uint32 OffsetNext;
 	public void* UsbdDeviceHandle;
 	public USB_DEVICE_DESCRIPTOR DeviceDescriptor;
 }
 
-[CRepr]public struct USBD_PIPE_INFORMATION
+[CRepr]
+public struct USBD_PIPE_INFORMATION
 {
 	public uint16 MaximumPacketSize;
 	public uint8 EndpointAddress;
@@ -1957,7 +2046,8 @@ public function void USB_IDLE_CALLBACK(void* Context);
 	public uint32 PipeFlags;
 }
 
-[CRepr, Packed(1)]public struct USBD_ENDPOINT_OFFLOAD_INFORMATION
+[CRepr, Packed(1)]
+public struct USBD_ENDPOINT_OFFLOAD_INFORMATION
 {
 	public uint32 Size;
 	public uint16 EndpointAddress;
@@ -1976,7 +2066,8 @@ public function void USB_IDLE_CALLBACK(void* Context);
 	public uint32 EventRingInitialCycleBit;
 }
 
-[CRepr]public struct USBD_INTERFACE_INFORMATION
+[CRepr]
+public struct USBD_INTERFACE_INFORMATION
 {
 	public uint16 Length;
 	public uint8 InterfaceNumber;
@@ -1990,12 +2081,14 @@ public function void USB_IDLE_CALLBACK(void* Context);
 	public USBD_PIPE_INFORMATION[1] Pipes;
 }
 
-[CRepr]public struct _URB_HCD_AREA
+[CRepr]
+public struct _URB_HCD_AREA
 {
 	public void*[8] Reserved8;
 }
 
-[CRepr]public struct _URB_HEADER
+[CRepr]
+public struct _URB_HEADER
 {
 	public uint16 Length;
 	public uint16 Function;
@@ -2004,14 +2097,16 @@ public function void USB_IDLE_CALLBACK(void* Context);
 	public uint32 UsbdFlags;
 }
 
-[CRepr]public struct _URB_SELECT_INTERFACE
+[CRepr]
+public struct _URB_SELECT_INTERFACE
 {
 	public _URB_HEADER Hdr;
 	public void* ConfigurationHandle;
 	public USBD_INTERFACE_INFORMATION Interface;
 }
 
-[CRepr]public struct _URB_SELECT_CONFIGURATION
+[CRepr]
+public struct _URB_SELECT_CONFIGURATION
 {
 	public _URB_HEADER Hdr;
 	public USB_CONFIGURATION_DESCRIPTOR* ConfigurationDescriptor;
@@ -2019,38 +2114,44 @@ public function void USB_IDLE_CALLBACK(void* Context);
 	public USBD_INTERFACE_INFORMATION Interface;
 }
 
-[CRepr]public struct _URB_PIPE_REQUEST
+[CRepr]
+public struct _URB_PIPE_REQUEST
 {
 	public _URB_HEADER Hdr;
 	public void* PipeHandle;
 	public uint32 Reserved;
 }
 
-[CRepr]public struct _URB_FRAME_LENGTH_CONTROL
+[CRepr]
+public struct _URB_FRAME_LENGTH_CONTROL
 {
 	public _URB_HEADER Hdr;
 }
 
-[CRepr]public struct _URB_GET_FRAME_LENGTH
+[CRepr]
+public struct _URB_GET_FRAME_LENGTH
 {
 	public _URB_HEADER Hdr;
 	public uint32 FrameLength;
 	public uint32 FrameNumber;
 }
 
-[CRepr]public struct _URB_SET_FRAME_LENGTH
+[CRepr]
+public struct _URB_SET_FRAME_LENGTH
 {
 	public _URB_HEADER Hdr;
 	public int32 FrameLengthDelta;
 }
 
-[CRepr]public struct _URB_GET_CURRENT_FRAME_NUMBER
+[CRepr]
+public struct _URB_GET_CURRENT_FRAME_NUMBER
 {
 	public _URB_HEADER Hdr;
 	public uint32 FrameNumber;
 }
 
-[CRepr]public struct _URB_CONTROL_DESCRIPTOR_REQUEST
+[CRepr]
+public struct _URB_CONTROL_DESCRIPTOR_REQUEST
 {
 	public _URB_HEADER Hdr;
 	public void* Reserved;
@@ -2067,7 +2168,8 @@ public function void USB_IDLE_CALLBACK(void* Context);
 	public uint16 Reserved2;
 }
 
-[CRepr]public struct _URB_CONTROL_GET_STATUS_REQUEST
+[CRepr]
+public struct _URB_CONTROL_GET_STATUS_REQUEST
 {
 	public _URB_HEADER Hdr;
 	public void* Reserved;
@@ -2082,7 +2184,8 @@ public function void USB_IDLE_CALLBACK(void* Context);
 	public uint16 Reserved2;
 }
 
-[CRepr]public struct _URB_CONTROL_FEATURE_REQUEST
+[CRepr]
+public struct _URB_CONTROL_FEATURE_REQUEST
 {
 	public _URB_HEADER Hdr;
 	public void* Reserved;
@@ -2098,7 +2201,8 @@ public function void USB_IDLE_CALLBACK(void* Context);
 	public uint16 Reserved1;
 }
 
-[CRepr]public struct _URB_CONTROL_VENDOR_OR_CLASS_REQUEST
+[CRepr]
+public struct _URB_CONTROL_VENDOR_OR_CLASS_REQUEST
 {
 	public _URB_HEADER Hdr;
 	public void* Reserved;
@@ -2115,7 +2219,8 @@ public function void USB_IDLE_CALLBACK(void* Context);
 	public uint16 Reserved1;
 }
 
-[CRepr]public struct _URB_CONTROL_GET_INTERFACE_REQUEST
+[CRepr]
+public struct _URB_CONTROL_GET_INTERFACE_REQUEST
 {
 	public _URB_HEADER Hdr;
 	public void* Reserved;
@@ -2130,7 +2235,8 @@ public function void USB_IDLE_CALLBACK(void* Context);
 	public uint16 Reserved2;
 }
 
-[CRepr]public struct _URB_CONTROL_GET_CONFIGURATION_REQUEST
+[CRepr]
+public struct _URB_CONTROL_GET_CONFIGURATION_REQUEST
 {
 	public _URB_HEADER Hdr;
 	public void* Reserved;
@@ -2143,9 +2249,11 @@ public function void USB_IDLE_CALLBACK(void* Context);
 	public uint8[8] Reserved1;
 }
 
-[CRepr]public struct OS_STRING
+[CRepr]
+public struct OS_STRING
 {
-	[CRepr, Union]	public struct _Anonymous_e__Union
+	[CRepr, Union]
+	public struct _Anonymous_e__Union
 	{
 		public uint8 bPad;
 		public uint8 bFlags;
@@ -2158,7 +2266,8 @@ public function void USB_IDLE_CALLBACK(void* Context);
 	public using _Anonymous_e__Union Anonymous;
 }
 
-[CRepr]public struct _URB_OS_FEATURE_DESCRIPTOR_REQUEST
+[CRepr]
+public struct _URB_OS_FEATURE_DESCRIPTOR_REQUEST
 {
 	public _URB_HEADER Hdr;
 	public void* Reserved;
@@ -2176,7 +2285,8 @@ public function void USB_IDLE_CALLBACK(void* Context);
 	public uint16 Reserved3;
 }
 
-[CRepr]public struct _URB_CONTROL_TRANSFER
+[CRepr]
+public struct _URB_CONTROL_TRANSFER
 {
 	public _URB_HEADER Hdr;
 	public void* PipeHandle;
@@ -2189,7 +2299,8 @@ public function void USB_IDLE_CALLBACK(void* Context);
 	public uint8[8] SetupPacket;
 }
 
-[CRepr]public struct _URB_CONTROL_TRANSFER_EX
+[CRepr]
+public struct _URB_CONTROL_TRANSFER_EX
 {
 	public _URB_HEADER Hdr;
 	public void* PipeHandle;
@@ -2202,7 +2313,8 @@ public function void USB_IDLE_CALLBACK(void* Context);
 	public uint8[8] SetupPacket;
 }
 
-[CRepr]public struct _URB_BULK_OR_INTERRUPT_TRANSFER
+[CRepr]
+public struct _URB_BULK_OR_INTERRUPT_TRANSFER
 {
 	public _URB_HEADER Hdr;
 	public void* PipeHandle;
@@ -2214,14 +2326,16 @@ public function void USB_IDLE_CALLBACK(void* Context);
 	public _URB_HCD_AREA hca;
 }
 
-[CRepr]public struct USBD_ISO_PACKET_DESCRIPTOR
+[CRepr]
+public struct USBD_ISO_PACKET_DESCRIPTOR
 {
 	public uint32 Offset;
 	public uint32 Length;
 	public int32 Status;
 }
 
-[CRepr]public struct _URB_ISOCH_TRANSFER
+[CRepr]
+public struct _URB_ISOCH_TRANSFER
 {
 	public _URB_HEADER Hdr;
 	public void* PipeHandle;
@@ -2237,7 +2351,8 @@ public function void USB_IDLE_CALLBACK(void* Context);
 	public USBD_ISO_PACKET_DESCRIPTOR[1] IsoPacket;
 }
 
-[CRepr]public struct USBD_STREAM_INFORMATION
+[CRepr]
+public struct USBD_STREAM_INFORMATION
 {
 	public void* PipeHandle;
 	public uint32 StreamID;
@@ -2245,7 +2360,8 @@ public function void USB_IDLE_CALLBACK(void* Context);
 	public uint32 PipeFlags;
 }
 
-[CRepr]public struct _URB_OPEN_STATIC_STREAMS
+[CRepr]
+public struct _URB_OPEN_STATIC_STREAMS
 {
 	public _URB_HEADER Hdr;
 	public void* PipeHandle;
@@ -2255,7 +2371,8 @@ public function void USB_IDLE_CALLBACK(void* Context);
 	public USBD_STREAM_INFORMATION* Streams;
 }
 
-[CRepr]public struct _URB_GET_ISOCH_PIPE_TRANSFER_PATH_DELAYS
+[CRepr]
+public struct _URB_GET_ISOCH_PIPE_TRANSFER_PATH_DELAYS
 {
 	public _URB_HEADER Hdr;
 	public void* PipeHandle;
@@ -2263,9 +2380,11 @@ public function void USB_IDLE_CALLBACK(void* Context);
 	public uint32 MaximumCompletionPathDelayInMilliSeconds;
 }
 
-[CRepr]public struct URB
+[CRepr]
+public struct URB
 {
-	[CRepr, Union]	public struct _Anonymous_e__Union
+	[CRepr, Union]
+	public struct _Anonymous_e__Union
 	{
 		public _URB_HEADER UrbHeader;
 		public _URB_SELECT_INTERFACE UrbSelectInterface;
@@ -2293,13 +2412,15 @@ public function void USB_IDLE_CALLBACK(void* Context);
 	public using _Anonymous_e__Union Anonymous;
 }
 
-[CRepr]public struct USB_IDLE_CALLBACK_INFO
+[CRepr]
+public struct USB_IDLE_CALLBACK_INFO
 {
 	public USB_IDLE_CALLBACK IdleCallback;
 	public void* IdleContext;
 }
 
-[CRepr, Packed(1)]public struct USBUSER_REQUEST_HEADER
+[CRepr, Packed(1)]
+public struct USBUSER_REQUEST_HEADER
 {
 	public uint32 UsbUserRequest;
 	public USB_USER_ERROR_CODE UsbUserStatusCode;
@@ -2307,7 +2428,8 @@ public function void USB_IDLE_CALLBACK(void* Context);
 	public uint32 ActualBufferLength;
 }
 
-[CRepr, Packed(1)]public struct PACKET_PARAMETERS
+[CRepr, Packed(1)]
+public struct PACKET_PARAMETERS
 {
 	public uint8 DeviceAddress;
 	public uint8 EndpointAddress;
@@ -2323,50 +2445,58 @@ public function void USB_IDLE_CALLBACK(void* Context);
 	public uint8[4] Data;
 }
 
-[CRepr]public struct USBUSER_SEND_ONE_PACKET
+[CRepr]
+public struct USBUSER_SEND_ONE_PACKET
 {
 	public USBUSER_REQUEST_HEADER Header;
 	public PACKET_PARAMETERS PacketParameters;
 }
 
-[CRepr, Packed(1)]public struct RAW_RESET_PORT_PARAMETERS
+[CRepr, Packed(1)]
+public struct RAW_RESET_PORT_PARAMETERS
 {
 	public uint16 PortNumber;
 	public uint16 PortStatus;
 }
 
-[CRepr]public struct USBUSER_RAW_RESET_ROOT_PORT
+[CRepr]
+public struct USBUSER_RAW_RESET_ROOT_PORT
 {
 	public USBUSER_REQUEST_HEADER Header;
 	public RAW_RESET_PORT_PARAMETERS Parameters;
 }
 
-[CRepr, Packed(1)]public struct RAW_ROOTPORT_FEATURE
+[CRepr, Packed(1)]
+public struct RAW_ROOTPORT_FEATURE
 {
 	public uint16 PortNumber;
 	public uint16 PortFeature;
 	public uint16 PortStatus;
 }
 
-[CRepr]public struct USBUSER_ROOTPORT_FEATURE_REQUEST
+[CRepr]
+public struct USBUSER_ROOTPORT_FEATURE_REQUEST
 {
 	public USBUSER_REQUEST_HEADER Header;
 	public RAW_ROOTPORT_FEATURE Parameters;
 }
 
-[CRepr, Packed(1)]public struct RAW_ROOTPORT_PARAMETERS
+[CRepr, Packed(1)]
+public struct RAW_ROOTPORT_PARAMETERS
 {
 	public uint16 PortNumber;
 	public uint16 PortStatus;
 }
 
-[CRepr]public struct USBUSER_ROOTPORT_PARAMETERS
+[CRepr]
+public struct USBUSER_ROOTPORT_PARAMETERS
 {
 	public USBUSER_REQUEST_HEADER Header;
 	public RAW_ROOTPORT_PARAMETERS Parameters;
 }
 
-[CRepr, Packed(1)]public struct USB_CONTROLLER_INFO_0
+[CRepr, Packed(1)]
+public struct USB_CONTROLLER_INFO_0
 {
 	public uint32 PciVendorId;
 	public uint32 PciDeviceId;
@@ -2376,38 +2506,44 @@ public function void USB_IDLE_CALLBACK(void* Context);
 	public uint32 HcFeatureFlags;
 }
 
-[CRepr]public struct USBUSER_CONTROLLER_INFO_0
+[CRepr]
+public struct USBUSER_CONTROLLER_INFO_0
 {
 	public USBUSER_REQUEST_HEADER Header;
 	public USB_CONTROLLER_INFO_0 Info0;
 }
 
-[CRepr, Packed(1)]public struct USB_UNICODE_NAME
+[CRepr, Packed(1)]
+public struct USB_UNICODE_NAME
 {
 	public uint32 Length;
 	public char8[1] String;
 }
 
-[CRepr]public struct USBUSER_CONTROLLER_UNICODE_NAME
+[CRepr]
+public struct USBUSER_CONTROLLER_UNICODE_NAME
 {
 	public USBUSER_REQUEST_HEADER Header;
 	public USB_UNICODE_NAME UnicodeName;
 }
 
-[CRepr, Packed(1)]public struct USB_PASS_THRU_PARAMETERS
+[CRepr, Packed(1)]
+public struct USB_PASS_THRU_PARAMETERS
 {
 	public Guid FunctionGUID;
 	public uint32 ParameterLength;
 	public uint8[4] Parameters;
 }
 
-[CRepr]public struct USBUSER_PASS_THRU_REQUEST
+[CRepr]
+public struct USBUSER_PASS_THRU_REQUEST
 {
 	public USBUSER_REQUEST_HEADER Header;
 	public USB_PASS_THRU_PARAMETERS PassThru;
 }
 
-[CRepr, Packed(1)]public struct USB_POWER_INFO
+[CRepr, Packed(1)]
+public struct USB_POWER_INFO
 {
 	public WDMUSB_POWER_STATE SystemState;
 	public WDMUSB_POWER_STATE HcDevicePowerState;
@@ -2421,36 +2557,42 @@ public function void USB_IDLE_CALLBACK(void* Context);
 	public BOOLEAN IsPowered;
 }
 
-[CRepr]public struct USBUSER_POWER_INFO_REQUEST
+[CRepr]
+public struct USBUSER_POWER_INFO_REQUEST
 {
 	public USBUSER_REQUEST_HEADER Header;
 	public USB_POWER_INFO PowerInformation;
 }
 
-[CRepr, Packed(1)]public struct USB_OPEN_RAW_DEVICE_PARAMETERS
+[CRepr, Packed(1)]
+public struct USB_OPEN_RAW_DEVICE_PARAMETERS
 {
 	public uint16 PortStatus;
 	public uint16 MaxPacketEp0;
 }
 
-[CRepr]public struct USBUSER_OPEN_RAW_DEVICE
+[CRepr]
+public struct USBUSER_OPEN_RAW_DEVICE
 {
 	public USBUSER_REQUEST_HEADER Header;
 	public USB_OPEN_RAW_DEVICE_PARAMETERS Parameters;
 }
 
-[CRepr, Packed(1)]public struct USB_CLOSE_RAW_DEVICE_PARAMETERS
+[CRepr, Packed(1)]
+public struct USB_CLOSE_RAW_DEVICE_PARAMETERS
 {
 	public uint32 xxx;
 }
 
-[CRepr]public struct USBUSER_CLOSE_RAW_DEVICE
+[CRepr]
+public struct USBUSER_CLOSE_RAW_DEVICE
 {
 	public USBUSER_REQUEST_HEADER Header;
 	public USB_CLOSE_RAW_DEVICE_PARAMETERS Parameters;
 }
 
-[CRepr, Packed(1)]public struct USB_SEND_RAW_COMMAND_PARAMETERS
+[CRepr, Packed(1)]
+public struct USB_SEND_RAW_COMMAND_PARAMETERS
 {
 	public uint8 Usb_bmRequest;
 	public uint8 Usb_bRequest;
@@ -2465,13 +2607,15 @@ public function void USB_IDLE_CALLBACK(void* Context);
 	public uint8[4] Data;
 }
 
-[CRepr]public struct USBUSER_SEND_RAW_COMMAND
+[CRepr]
+public struct USBUSER_SEND_RAW_COMMAND
 {
 	public USBUSER_REQUEST_HEADER Header;
 	public USB_SEND_RAW_COMMAND_PARAMETERS Parameters;
 }
 
-[CRepr, Packed(1)]public struct USB_BANDWIDTH_INFO
+[CRepr, Packed(1)]
+public struct USB_BANDWIDTH_INFO
 {
 	public uint32 DeviceCount;
 	public uint32 TotalBusBandwidth;
@@ -2486,13 +2630,15 @@ public function void USB_IDLE_CALLBACK(void* Context);
 	public uint32 AllocedInterrupt_32ms;
 }
 
-[CRepr]public struct USBUSER_BANDWIDTH_INFO_REQUEST
+[CRepr]
+public struct USBUSER_BANDWIDTH_INFO_REQUEST
 {
 	public USBUSER_REQUEST_HEADER Header;
 	public USB_BANDWIDTH_INFO BandwidthInformation;
 }
 
-[CRepr, Packed(1)]public struct USB_BUS_STATISTICS_0
+[CRepr, Packed(1)]
+public struct USB_BUS_STATISTICS_0
 {
 	public uint32 DeviceCount;
 	public LARGE_INTEGER CurrentSystemTime;
@@ -2512,13 +2658,15 @@ public function void USB_IDLE_CALLBACK(void* Context);
 	public uint8 NameIndex;
 }
 
-[CRepr]public struct USBUSER_BUS_STATISTICS_0_REQUEST
+[CRepr]
+public struct USBUSER_BUS_STATISTICS_0_REQUEST
 {
 	public USBUSER_REQUEST_HEADER Header;
 	public USB_BUS_STATISTICS_0 BusStatistics0;
 }
 
-[CRepr, Packed(1)]public struct USB_DRIVER_VERSION_PARAMETERS
+[CRepr, Packed(1)]
+public struct USB_DRIVER_VERSION_PARAMETERS
 {
 	public uint32 DriverTrackingCode;
 	public uint32 USBDI_Version;
@@ -2528,30 +2676,35 @@ public function void USB_IDLE_CALLBACK(void* Context);
 	public uint16 USB_Version;
 }
 
-[CRepr]public struct USBUSER_GET_DRIVER_VERSION
+[CRepr]
+public struct USBUSER_GET_DRIVER_VERSION
 {
 	public USBUSER_REQUEST_HEADER Header;
 	public USB_DRIVER_VERSION_PARAMETERS Parameters;
 }
 
-[CRepr]public struct USB_USB2HW_VERSION_PARAMETERS
+[CRepr]
+public struct USB_USB2HW_VERSION_PARAMETERS
 {
 	public uint8 Usb2HwRevision;
 }
 
-[CRepr]public struct USBUSER_GET_USB2HW_VERSION
+[CRepr]
+public struct USBUSER_GET_USB2HW_VERSION
 {
 	public USBUSER_REQUEST_HEADER Header;
 	public USB_USB2HW_VERSION_PARAMETERS Parameters;
 }
 
-[CRepr, Packed(1)]public struct USBUSER_REFRESH_HCT_REG
+[CRepr, Packed(1)]
+public struct USBUSER_REFRESH_HCT_REG
 {
 	public USBUSER_REQUEST_HEADER Header;
 	public uint32 Flags;
 }
 
-[CRepr]public struct WINUSB_PIPE_INFORMATION
+[CRepr]
+public struct WINUSB_PIPE_INFORMATION
 {
 	public USBD_PIPE_TYPE PipeType;
 	public uint8 PipeId;
@@ -2559,7 +2712,8 @@ public function void USB_IDLE_CALLBACK(void* Context);
 	public uint8 Interval;
 }
 
-[CRepr]public struct WINUSB_PIPE_INFORMATION_EX
+[CRepr]
+public struct WINUSB_PIPE_INFORMATION_EX
 {
 	public USBD_PIPE_TYPE PipeType;
 	public uint8 PipeId;
@@ -2568,7 +2722,8 @@ public function void USB_IDLE_CALLBACK(void* Context);
 	public uint32 MaximumBytesPerInterval;
 }
 
-[CRepr, Packed(1)]public struct WINUSB_SETUP_PACKET
+[CRepr, Packed(1)]
+public struct WINUSB_SETUP_PACKET
 {
 	public uint8 RequestType;
 	public uint8 Request;
@@ -2577,18 +2732,21 @@ public function void USB_IDLE_CALLBACK(void* Context);
 	public uint16 Length;
 }
 
-[CRepr, Packed(1)]public struct USB_START_TRACKING_FOR_TIME_SYNC_INFORMATION
+[CRepr, Packed(1)]
+public struct USB_START_TRACKING_FOR_TIME_SYNC_INFORMATION
 {
 	public HANDLE TimeTrackingHandle;
 	public BOOLEAN IsStartupDelayTolerable;
 }
 
-[CRepr, Packed(1)]public struct USB_STOP_TRACKING_FOR_TIME_SYNC_INFORMATION
+[CRepr, Packed(1)]
+public struct USB_STOP_TRACKING_FOR_TIME_SYNC_INFORMATION
 {
 	public HANDLE TimeTrackingHandle;
 }
 
-[CRepr, Packed(1)]public struct USB_FRAME_NUMBER_AND_QPC_FOR_TIME_SYNC_INFORMATION
+[CRepr, Packed(1)]
+public struct USB_FRAME_NUMBER_AND_QPC_FOR_TIME_SYNC_INFORMATION
 {
 	public HANDLE TimeTrackingHandle;
 	public uint32 InputFrameNumber;
@@ -2603,15 +2761,18 @@ public function void USB_IDLE_CALLBACK(void* Context);
 	public uint32 CurrentUSBFrameNumber;
 }
 
-[CRepr]public struct ALTERNATE_INTERFACE
+[CRepr]
+public struct ALTERNATE_INTERFACE
 {
 	public uint16 InterfaceNumber;
 	public uint16 AlternateInterfaceNumber;
 }
 
-[CRepr]public struct USBFN_NOTIFICATION
+[CRepr]
+public struct USBFN_NOTIFICATION
 {
-	[CRepr, Union]	public struct _u_e__Union
+	[CRepr, Union]
+	public struct _u_e__Union
 	{
 		public USBFN_BUS_SPEED BusSpeed;
 		public USB_DEFAULT_PIPE_SETUP_PACKET SetupPacket;
@@ -2624,20 +2785,23 @@ public function void USB_IDLE_CALLBACK(void* Context);
 	public _u_e__Union u;
 }
 
-[CRepr]public struct USBFN_PIPE_INFORMATION
+[CRepr]
+public struct USBFN_PIPE_INFORMATION
 {
 	public USB_ENDPOINT_DESCRIPTOR EpDesc;
 	public uint32 PipeId;
 }
 
-[CRepr]public struct USBFN_CLASS_INTERFACE
+[CRepr]
+public struct USBFN_CLASS_INTERFACE
 {
 	public uint8 InterfaceNumber;
 	public uint8 PipeCount;
 	public USBFN_PIPE_INFORMATION[16] PipeArr;
 }
 
-[CRepr]public struct USBFN_CLASS_INFORMATION_PACKET
+[CRepr]
+public struct USBFN_CLASS_INFORMATION_PACKET
 {
 	public USBFN_CLASS_INTERFACE FullSpeedClassInterface;
 	public USBFN_CLASS_INTERFACE HighSpeedClassInterface;
@@ -2647,7 +2811,8 @@ public function void USB_IDLE_CALLBACK(void* Context);
 	public USBFN_CLASS_INTERFACE SuperSpeedClassInterface;
 }
 
-[CRepr]public struct USBFN_CLASS_INTERFACE_EX
+[CRepr]
+public struct USBFN_CLASS_INTERFACE_EX
 {
 	public uint8 BaseInterfaceNumber;
 	public uint8 InterfaceCount;
@@ -2655,7 +2820,8 @@ public function void USB_IDLE_CALLBACK(void* Context);
 	public USBFN_PIPE_INFORMATION[16] PipeArr;
 }
 
-[CRepr]public struct USBFN_CLASS_INFORMATION_PACKET_EX
+[CRepr]
+public struct USBFN_CLASS_INFORMATION_PACKET_EX
 {
 	public USBFN_CLASS_INTERFACE_EX FullSpeedClassInterfaceEx;
 	public USBFN_CLASS_INTERFACE_EX HighSpeedClassInterfaceEx;
@@ -2665,7 +2831,8 @@ public function void USB_IDLE_CALLBACK(void* Context);
 	public BOOLEAN HasInterfaceGuid;
 }
 
-[CRepr]public struct USBFN_INTERFACE_INFO
+[CRepr]
+public struct USBFN_INTERFACE_INFO
 {
 	public uint8 InterfaceNumber;
 	public USBFN_BUS_SPEED Speed;
@@ -2673,27 +2840,31 @@ public function void USB_IDLE_CALLBACK(void* Context);
 	public uint8[1] InterfaceDescriptorSet;
 }
 
-[CRepr]public struct USBFN_USB_STRING
+[CRepr]
+public struct USBFN_USB_STRING
 {
 	public uint8 StringIndex;
 	public char8[255] UsbString;
 }
 
-[CRepr]public struct USBFN_BUS_CONFIGURATION_INFO
+[CRepr]
+public struct USBFN_BUS_CONFIGURATION_INFO
 {
 	public char8[40] ConfigurationName;
 	public BOOLEAN IsCurrent;
 	public BOOLEAN IsActive;
 }
 
-[CRepr]public struct DRV_VERSION
+[CRepr]
+public struct DRV_VERSION
 {
 	public uint32 major;
 	public uint32 minor;
 	public uint32 @internal;
 }
 
-[CRepr]public struct IO_BLOCK
+[CRepr]
+public struct IO_BLOCK
 {
 	public uint32 uOffset;
 	public uint32 uLength;
@@ -2701,7 +2872,8 @@ public function void USB_IDLE_CALLBACK(void* Context);
 	public uint32 uIndex;
 }
 
-[CRepr]public struct IO_BLOCK_EX
+[CRepr]
+public struct IO_BLOCK_EX
 {
 	public uint32 uOffset;
 	public uint32 uLength;
@@ -2712,21 +2884,24 @@ public function void USB_IDLE_CALLBACK(void* Context);
 	public uint8 fTransferDirectionIn;
 }
 
-[CRepr]public struct CHANNEL_INFO
+[CRepr]
+public struct CHANNEL_INFO
 {
 	public uint32 EventChannelSize;
 	public uint32 uReadDataAlignment;
 	public uint32 uWriteDataAlignment;
 }
 
-[CRepr]public struct USBSCAN_GET_DESCRIPTOR
+[CRepr]
+public struct USBSCAN_GET_DESCRIPTOR
 {
 	public uint8 DescriptorType;
 	public uint8 Index;
 	public uint16 LanguageId;
 }
 
-[CRepr]public struct DEVICE_DESCRIPTOR
+[CRepr]
+public struct DEVICE_DESCRIPTOR
 {
 	public uint16 usVendorId;
 	public uint16 usProductId;
@@ -2734,7 +2909,8 @@ public function void USB_IDLE_CALLBACK(void* Context);
 	public uint16 usLanguageId;
 }
 
-[CRepr]public struct USBSCAN_PIPE_INFORMATION
+[CRepr]
+public struct USBSCAN_PIPE_INFORMATION
 {
 	public uint16 MaximumPacketSize;
 	public uint8 EndpointAddress;
@@ -2742,13 +2918,15 @@ public function void USB_IDLE_CALLBACK(void* Context);
 	public RAW_PIPE_TYPE PipeType;
 }
 
-[CRepr]public struct USBSCAN_PIPE_CONFIGURATION
+[CRepr]
+public struct USBSCAN_PIPE_CONFIGURATION
 {
 	public uint32 NumberOfPipes;
 	public USBSCAN_PIPE_INFORMATION[8] PipeInfo;
 }
 
-[CRepr]public struct USBSCAN_TIMEOUT
+[CRepr]
+public struct USBSCAN_TIMEOUT
 {
 	public uint32 TimeoutRead;
 	public uint32 TimeoutWrite;

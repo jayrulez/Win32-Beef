@@ -3278,7 +3278,8 @@ public function BOOL MONITORENUMPROC(HMONITOR param0, HDC param1, RECT* param2, 
 #endregion
 
 #region Structs
-[CRepr]public struct XFORM
+[CRepr]
+public struct XFORM
 {
 	public float eM11;
 	public float eM12;
@@ -3288,7 +3289,8 @@ public function BOOL MONITORENUMPROC(HMONITOR param0, HDC param1, RECT* param2, 
 	public float eDy;
 }
 
-[CRepr]public struct BITMAP
+[CRepr]
+public struct BITMAP
 {
 	public int32 bmType;
 	public int32 bmWidth;
@@ -3299,14 +3301,16 @@ public function BOOL MONITORENUMPROC(HMONITOR param0, HDC param1, RECT* param2, 
 	public void* bmBits;
 }
 
-[CRepr]public struct RGBTRIPLE
+[CRepr]
+public struct RGBTRIPLE
 {
 	public uint8 rgbtBlue;
 	public uint8 rgbtGreen;
 	public uint8 rgbtRed;
 }
 
-[CRepr]public struct RGBQUAD
+[CRepr]
+public struct RGBQUAD
 {
 	public uint8 rgbBlue;
 	public uint8 rgbGreen;
@@ -3314,21 +3318,24 @@ public function BOOL MONITORENUMPROC(HMONITOR param0, HDC param1, RECT* param2, 
 	public uint8 rgbReserved;
 }
 
-[CRepr]public struct CIEXYZ
+[CRepr]
+public struct CIEXYZ
 {
 	public int32 ciexyzX;
 	public int32 ciexyzY;
 	public int32 ciexyzZ;
 }
 
-[CRepr]public struct CIEXYZTRIPLE
+[CRepr]
+public struct CIEXYZTRIPLE
 {
 	public CIEXYZ ciexyzRed;
 	public CIEXYZ ciexyzGreen;
 	public CIEXYZ ciexyzBlue;
 }
 
-[CRepr]public struct BITMAPCOREHEADER
+[CRepr]
+public struct BITMAPCOREHEADER
 {
 	public uint32 bcSize;
 	public uint16 bcWidth;
@@ -3337,7 +3344,8 @@ public function BOOL MONITORENUMPROC(HMONITOR param0, HDC param1, RECT* param2, 
 	public uint16 bcBitCount;
 }
 
-[CRepr]public struct BITMAPINFOHEADER
+[CRepr]
+public struct BITMAPINFOHEADER
 {
 	public uint32 biSize;
 	public int32 biWidth;
@@ -3352,7 +3360,8 @@ public function BOOL MONITORENUMPROC(HMONITOR param0, HDC param1, RECT* param2, 
 	public uint32 biClrImportant;
 }
 
-[CRepr]public struct BITMAPV4HEADER
+[CRepr]
+public struct BITMAPV4HEADER
 {
 	public uint32 bV4Size;
 	public int32 bV4Width;
@@ -3376,7 +3385,8 @@ public function BOOL MONITORENUMPROC(HMONITOR param0, HDC param1, RECT* param2, 
 	public uint32 bV4GammaBlue;
 }
 
-[CRepr]public struct BITMAPV5HEADER
+[CRepr]
+public struct BITMAPV5HEADER
 {
 	public uint32 bV5Size;
 	public int32 bV5Width;
@@ -3404,19 +3414,22 @@ public function BOOL MONITORENUMPROC(HMONITOR param0, HDC param1, RECT* param2, 
 	public uint32 bV5Reserved;
 }
 
-[CRepr]public struct BITMAPINFO
+[CRepr]
+public struct BITMAPINFO
 {
 	public BITMAPINFOHEADER bmiHeader;
 	public RGBQUAD[1] bmiColors;
 }
 
-[CRepr]public struct BITMAPCOREINFO
+[CRepr]
+public struct BITMAPCOREINFO
 {
 	public BITMAPCOREHEADER bmciHeader;
 	public RGBTRIPLE[1] bmciColors;
 }
 
-[CRepr, Packed(2)]public struct BITMAPFILEHEADER
+[CRepr, Packed(2)]
+public struct BITMAPFILEHEADER
 {
 	public uint16 bfType;
 	public uint32 bfSize;
@@ -3425,19 +3438,22 @@ public function BOOL MONITORENUMPROC(HMONITOR param0, HDC param1, RECT* param2, 
 	public uint32 bfOffBits;
 }
 
-[CRepr]public struct HANDLETABLE
+[CRepr]
+public struct HANDLETABLE
 {
 	public HGDIOBJ[1] objectHandle;
 }
 
-[CRepr]public struct METARECORD
+[CRepr]
+public struct METARECORD
 {
 	public uint32 rdSize;
 	public uint16 rdFunction;
 	public uint16[1] rdParm;
 }
 
-[CRepr, Packed(2)]public struct METAHEADER
+[CRepr, Packed(2)]
+public struct METAHEADER
 {
 	public uint16 mtType;
 	public uint16 mtHeaderSize;
@@ -3448,14 +3464,16 @@ public function BOOL MONITORENUMPROC(HMONITOR param0, HDC param1, RECT* param2, 
 	public uint16 mtNoParameters;
 }
 
-[CRepr]public struct ENHMETARECORD
+[CRepr]
+public struct ENHMETARECORD
 {
 	public uint32 iType;
 	public uint32 nSize;
 	public uint32[1] dParm;
 }
 
-[CRepr]public struct ENHMETAHEADER
+[CRepr]
+public struct ENHMETAHEADER
 {
 	public uint32 iType;
 	public uint32 nSize;
@@ -3478,7 +3496,8 @@ public function BOOL MONITORENUMPROC(HMONITOR param0, HDC param1, RECT* param2, 
 	public SIZE szlMicrometers;
 }
 
-[CRepr]public struct TEXTMETRICA
+[CRepr]
+public struct TEXTMETRICA
 {
 	public int32 tmHeight;
 	public int32 tmAscent;
@@ -3502,7 +3521,8 @@ public function BOOL MONITORENUMPROC(HMONITOR param0, HDC param1, RECT* param2, 
 	public uint8 tmCharSet;
 }
 
-[CRepr]public struct TEXTMETRICW
+[CRepr]
+public struct TEXTMETRICW
 {
 	public int32 tmHeight;
 	public int32 tmAscent;
@@ -3526,7 +3546,8 @@ public function BOOL MONITORENUMPROC(HMONITOR param0, HDC param1, RECT* param2, 
 	public uint8 tmCharSet;
 }
 
-[CRepr]public struct NEWTEXTMETRICA
+[CRepr]
+public struct NEWTEXTMETRICA
 {
 	public int32 tmHeight;
 	public int32 tmAscent;
@@ -3554,7 +3575,8 @@ public function BOOL MONITORENUMPROC(HMONITOR param0, HDC param1, RECT* param2, 
 	public uint32 ntmAvgWidth;
 }
 
-[CRepr]public struct NEWTEXTMETRICW
+[CRepr]
+public struct NEWTEXTMETRICW
 {
 	public int32 tmHeight;
 	public int32 tmAscent;
@@ -3582,7 +3604,8 @@ public function BOOL MONITORENUMPROC(HMONITOR param0, HDC param1, RECT* param2, 
 	public uint32 ntmAvgWidth;
 }
 
-[CRepr]public struct PELARRAY
+[CRepr]
+public struct PELARRAY
 {
 	public int32 paXCount;
 	public int32 paYCount;
@@ -3591,28 +3614,32 @@ public function BOOL MONITORENUMPROC(HMONITOR param0, HDC param1, RECT* param2, 
 	public uint8 paRGBs;
 }
 
-[CRepr]public struct LOGBRUSH
+[CRepr]
+public struct LOGBRUSH
 {
 	public uint32 lbStyle;
 	public uint32 lbColor;
 	public uint lbHatch;
 }
 
-[CRepr]public struct LOGBRUSH32
+[CRepr]
+public struct LOGBRUSH32
 {
 	public uint32 lbStyle;
 	public uint32 lbColor;
 	public uint32 lbHatch;
 }
 
-[CRepr]public struct LOGPEN
+[CRepr]
+public struct LOGPEN
 {
 	public uint32 lopnStyle;
 	public POINT lopnWidth;
 	public uint32 lopnColor;
 }
 
-[CRepr]public struct EXTLOGPEN
+[CRepr]
+public struct EXTLOGPEN
 {
 	public uint32 elpPenStyle;
 	public uint32 elpWidth;
@@ -3623,7 +3650,8 @@ public function BOOL MONITORENUMPROC(HMONITOR param0, HDC param1, RECT* param2, 
 	public uint32[1] elpStyleEntry;
 }
 
-[CRepr]public struct EXTLOGPEN32
+[CRepr]
+public struct EXTLOGPEN32
 {
 	public uint32 elpPenStyle;
 	public uint32 elpWidth;
@@ -3634,7 +3662,8 @@ public function BOOL MONITORENUMPROC(HMONITOR param0, HDC param1, RECT* param2, 
 	public uint32[1] elpStyleEntry;
 }
 
-[CRepr]public struct PALETTEENTRY
+[CRepr]
+public struct PALETTEENTRY
 {
 	public uint8 peRed;
 	public uint8 peGreen;
@@ -3642,14 +3671,16 @@ public function BOOL MONITORENUMPROC(HMONITOR param0, HDC param1, RECT* param2, 
 	public uint8 peFlags;
 }
 
-[CRepr]public struct LOGPALETTE
+[CRepr]
+public struct LOGPALETTE
 {
 	public uint16 palVersion;
 	public uint16 palNumEntries;
 	public PALETTEENTRY[1] palPalEntry;
 }
 
-[CRepr]public struct LOGFONTA
+[CRepr]
+public struct LOGFONTA
 {
 	public int32 lfHeight;
 	public int32 lfWidth;
@@ -3667,7 +3698,8 @@ public function BOOL MONITORENUMPROC(HMONITOR param0, HDC param1, RECT* param2, 
 	public CHAR[32] lfFaceName;
 }
 
-[CRepr]public struct LOGFONTW
+[CRepr]
+public struct LOGFONTW
 {
 	public int32 lfHeight;
 	public int32 lfWidth;
@@ -3685,21 +3717,24 @@ public function BOOL MONITORENUMPROC(HMONITOR param0, HDC param1, RECT* param2, 
 	public char8[32] lfFaceName;
 }
 
-[CRepr]public struct ENUMLOGFONTA
+[CRepr]
+public struct ENUMLOGFONTA
 {
 	public LOGFONTA elfLogFont;
 	public uint8[64] elfFullName;
 	public uint8[32] elfStyle;
 }
 
-[CRepr]public struct ENUMLOGFONTW
+[CRepr]
+public struct ENUMLOGFONTW
 {
 	public LOGFONTW elfLogFont;
 	public char8[64] elfFullName;
 	public char8[32] elfStyle;
 }
 
-[CRepr]public struct ENUMLOGFONTEXA
+[CRepr]
+public struct ENUMLOGFONTEXA
 {
 	public LOGFONTA elfLogFont;
 	public uint8[64] elfFullName;
@@ -3707,7 +3742,8 @@ public function BOOL MONITORENUMPROC(HMONITOR param0, HDC param1, RECT* param2, 
 	public uint8[32] elfScript;
 }
 
-[CRepr]public struct ENUMLOGFONTEXW
+[CRepr]
+public struct ENUMLOGFONTEXW
 {
 	public LOGFONTW elfLogFont;
 	public char8[64] elfFullName;
@@ -3715,7 +3751,8 @@ public function BOOL MONITORENUMPROC(HMONITOR param0, HDC param1, RECT* param2, 
 	public char8[32] elfScript;
 }
 
-[CRepr]public struct PANOSE
+[CRepr]
+public struct PANOSE
 {
 	public uint8 bFamilyType;
 	public uint8 bSerifStyle;
@@ -3729,7 +3766,8 @@ public function BOOL MONITORENUMPROC(HMONITOR param0, HDC param1, RECT* param2, 
 	public uint8 bXHeight;
 }
 
-[CRepr]public struct EXTLOGFONTA
+[CRepr]
+public struct EXTLOGFONTA
 {
 	public LOGFONTA elfLogFont;
 	public uint8[64] elfFullName;
@@ -3743,7 +3781,8 @@ public function BOOL MONITORENUMPROC(HMONITOR param0, HDC param1, RECT* param2, 
 	public PANOSE elfPanose;
 }
 
-[CRepr]public struct EXTLOGFONTW
+[CRepr]
+public struct EXTLOGFONTW
 {
 	public LOGFONTW elfLogFont;
 	public char8[64] elfFullName;
@@ -3757,18 +3796,22 @@ public function BOOL MONITORENUMPROC(HMONITOR param0, HDC param1, RECT* param2, 
 	public PANOSE elfPanose;
 }
 
-[CRepr]public struct DEVMODEA
+[CRepr]
+public struct DEVMODEA
 {
-	[CRepr, Union]	public struct _Anonymous1_e__Union
+	[CRepr, Union]
+	public struct _Anonymous1_e__Union
 	{
-		[CRepr]		public struct _Anonymous2_e__Struct
+		[CRepr]
+		public struct _Anonymous2_e__Struct
 		{
 			public POINTL dmPosition;
 			public uint32 dmDisplayOrientation;
 			public uint32 dmDisplayFixedOutput;
 		}
 
-		[CRepr]		public struct _Anonymous1_e__Struct
+		[CRepr]
+		public struct _Anonymous1_e__Struct
 		{
 			public int16 dmOrientation;
 			public int16 dmPaperSize;
@@ -3784,7 +3827,8 @@ public function BOOL MONITORENUMPROC(HMONITOR param0, HDC param1, RECT* param2, 
 		public _Anonymous2_e__Struct Anonymous2;
 	}
 
-	[CRepr, Union]	public struct _Anonymous2_e__Union
+	[CRepr, Union]
+	public struct _Anonymous2_e__Union
 	{
 		public uint32 dmDisplayFlags;
 		public uint32 dmNup;
@@ -3819,11 +3863,14 @@ public function BOOL MONITORENUMPROC(HMONITOR param0, HDC param1, RECT* param2, 
 	public uint32 dmPanningHeight;
 }
 
-[CRepr]public struct DEVMODEW
+[CRepr]
+public struct DEVMODEW
 {
-	[CRepr, Union]	public struct _Anonymous1_e__Union
+	[CRepr, Union]
+	public struct _Anonymous1_e__Union
 	{
-		[CRepr]		public struct _Anonymous1_e__Struct
+		[CRepr]
+		public struct _Anonymous1_e__Struct
 		{
 			public int16 dmOrientation;
 			public int16 dmPaperSize;
@@ -3835,7 +3882,8 @@ public function BOOL MONITORENUMPROC(HMONITOR param0, HDC param1, RECT* param2, 
 			public int16 dmPrintQuality;
 		}
 
-		[CRepr]		public struct _Anonymous2_e__Struct
+		[CRepr]
+		public struct _Anonymous2_e__Struct
 		{
 			public POINTL dmPosition;
 			public uint32 dmDisplayOrientation;
@@ -3846,7 +3894,8 @@ public function BOOL MONITORENUMPROC(HMONITOR param0, HDC param1, RECT* param2, 
 		public _Anonymous2_e__Struct Anonymous2;
 	}
 
-	[CRepr, Union]	public struct _Anonymous2_e__Union
+	[CRepr, Union]
+	public struct _Anonymous2_e__Union
 	{
 		public uint32 dmDisplayFlags;
 		public uint32 dmNup;
@@ -3881,7 +3930,8 @@ public function BOOL MONITORENUMPROC(HMONITOR param0, HDC param1, RECT* param2, 
 	public uint32 dmPanningHeight;
 }
 
-[CRepr]public struct DISPLAY_DEVICEA
+[CRepr]
+public struct DISPLAY_DEVICEA
 {
 	public uint32 cb;
 	public CHAR[32] DeviceName;
@@ -3891,7 +3941,8 @@ public function BOOL MONITORENUMPROC(HMONITOR param0, HDC param1, RECT* param2, 
 	public CHAR[128] DeviceKey;
 }
 
-[CRepr]public struct DISPLAY_DEVICEW
+[CRepr]
+public struct DISPLAY_DEVICEW
 {
 	public uint32 cb;
 	public char8[32] DeviceName;
@@ -3901,7 +3952,8 @@ public function BOOL MONITORENUMPROC(HMONITOR param0, HDC param1, RECT* param2, 
 	public char8[128] DeviceKey;
 }
 
-[CRepr]public struct RGNDATAHEADER
+[CRepr]
+public struct RGNDATAHEADER
 {
 	public uint32 dwSize;
 	public uint32 iType;
@@ -3910,27 +3962,31 @@ public function BOOL MONITORENUMPROC(HMONITOR param0, HDC param1, RECT* param2, 
 	public RECT rcBound;
 }
 
-[CRepr]public struct RGNDATA
+[CRepr]
+public struct RGNDATA
 {
 	public RGNDATAHEADER rdh;
 	public CHAR[1] Buffer;
 }
 
-[CRepr]public struct ABC
+[CRepr]
+public struct ABC
 {
 	public int32 abcA;
 	public uint32 abcB;
 	public int32 abcC;
 }
 
-[CRepr]public struct ABCFLOAT
+[CRepr]
+public struct ABCFLOAT
 {
 	public float abcfA;
 	public float abcfB;
 	public float abcfC;
 }
 
-[CRepr]public struct OUTLINETEXTMETRICA
+[CRepr]
+public struct OUTLINETEXTMETRICA
 {
 	public uint32 otmSize;
 	public TEXTMETRICA otmTextMetrics;
@@ -3966,7 +4022,8 @@ public function BOOL MONITORENUMPROC(HMONITOR param0, HDC param1, RECT* param2, 
 	public PSTR otmpFullName;
 }
 
-[CRepr]public struct OUTLINETEXTMETRICW
+[CRepr]
+public struct OUTLINETEXTMETRICW
 {
 	public uint32 otmSize;
 	public TEXTMETRICW otmTextMetrics;
@@ -4002,7 +4059,8 @@ public function BOOL MONITORENUMPROC(HMONITOR param0, HDC param1, RECT* param2, 
 	public PSTR otmpFullName;
 }
 
-[CRepr]public struct POLYTEXTA
+[CRepr]
+public struct POLYTEXTA
 {
 	public int32 x;
 	public int32 y;
@@ -4013,7 +4071,8 @@ public function BOOL MONITORENUMPROC(HMONITOR param0, HDC param1, RECT* param2, 
 	public int32* pdx;
 }
 
-[CRepr]public struct POLYTEXTW
+[CRepr]
+public struct POLYTEXTW
 {
 	public int32 x;
 	public int32 y;
@@ -4024,13 +4083,15 @@ public function BOOL MONITORENUMPROC(HMONITOR param0, HDC param1, RECT* param2, 
 	public int32* pdx;
 }
 
-[CRepr]public struct FIXED
+[CRepr]
+public struct FIXED
 {
 	public uint16 fract;
 	public int16 value;
 }
 
-[CRepr]public struct MAT2
+[CRepr]
+public struct MAT2
 {
 	public FIXED eM11;
 	public FIXED eM12;
@@ -4038,7 +4099,8 @@ public function BOOL MONITORENUMPROC(HMONITOR param0, HDC param1, RECT* param2, 
 	public FIXED eM22;
 }
 
-[CRepr]public struct GLYPHMETRICS
+[CRepr]
+public struct GLYPHMETRICS
 {
 	public uint32 gmBlackBoxX;
 	public uint32 gmBlackBoxY;
@@ -4047,27 +4109,31 @@ public function BOOL MONITORENUMPROC(HMONITOR param0, HDC param1, RECT* param2, 
 	public int16 gmCellIncY;
 }
 
-[CRepr]public struct POINTFX
+[CRepr]
+public struct POINTFX
 {
 	public FIXED x;
 	public FIXED y;
 }
 
-[CRepr]public struct TTPOLYCURVE
+[CRepr]
+public struct TTPOLYCURVE
 {
 	public uint16 wType;
 	public uint16 cpfx;
 	public POINTFX[1] apfx;
 }
 
-[CRepr]public struct TTPOLYGONHEADER
+[CRepr]
+public struct TTPOLYGONHEADER
 {
 	public uint32 cb;
 	public uint32 dwType;
 	public POINTFX pfxStart;
 }
 
-[CRepr]public struct GCP_RESULTSA
+[CRepr]
+public struct GCP_RESULTSA
 {
 	public uint32 lStructSize;
 	public PSTR lpOutString;
@@ -4080,7 +4146,8 @@ public function BOOL MONITORENUMPROC(HMONITOR param0, HDC param1, RECT* param2, 
 	public int32 nMaxFit;
 }
 
-[CRepr]public struct GCP_RESULTSW
+[CRepr]
+public struct GCP_RESULTSW
 {
 	public uint32 lStructSize;
 	public PWSTR lpOutString;
@@ -4093,20 +4160,23 @@ public function BOOL MONITORENUMPROC(HMONITOR param0, HDC param1, RECT* param2, 
 	public int32 nMaxFit;
 }
 
-[CRepr]public struct RASTERIZER_STATUS
+[CRepr]
+public struct RASTERIZER_STATUS
 {
 	public int16 nSize;
 	public int16 wFlags;
 	public int16 nLanguageID;
 }
 
-[CRepr]public struct WCRANGE
+[CRepr]
+public struct WCRANGE
 {
 	public char8 wcLow;
 	public uint16 cGlyphs;
 }
 
-[CRepr]public struct GLYPHSET
+[CRepr]
+public struct GLYPHSET
 {
 	public uint32 cbThis;
 	public uint32 flAccel;
@@ -4115,54 +4185,62 @@ public function BOOL MONITORENUMPROC(HMONITOR param0, HDC param1, RECT* param2, 
 	public WCRANGE[1] ranges;
 }
 
-[CRepr]public struct DESIGNVECTOR
+[CRepr]
+public struct DESIGNVECTOR
 {
 	public uint32 dvReserved;
 	public uint32 dvNumAxes;
 	public int32[16] dvValues;
 }
 
-[CRepr]public struct AXISINFOA
+[CRepr]
+public struct AXISINFOA
 {
 	public int32 axMinValue;
 	public int32 axMaxValue;
 	public uint8[16] axAxisName;
 }
 
-[CRepr]public struct AXISINFOW
+[CRepr]
+public struct AXISINFOW
 {
 	public int32 axMinValue;
 	public int32 axMaxValue;
 	public char8[16] axAxisName;
 }
 
-[CRepr]public struct AXESLISTA
+[CRepr]
+public struct AXESLISTA
 {
 	public uint32 axlReserved;
 	public uint32 axlNumAxes;
 	public AXISINFOA[16] axlAxisInfo;
 }
 
-[CRepr]public struct AXESLISTW
+[CRepr]
+public struct AXESLISTW
 {
 	public uint32 axlReserved;
 	public uint32 axlNumAxes;
 	public AXISINFOW[16] axlAxisInfo;
 }
 
-[CRepr]public struct ENUMLOGFONTEXDVA
+[CRepr]
+public struct ENUMLOGFONTEXDVA
 {
 	public ENUMLOGFONTEXA elfEnumLogfontEx;
 	public DESIGNVECTOR elfDesignVector;
 }
 
-[CRepr]public struct ENUMLOGFONTEXDVW
+[CRepr]
+public struct ENUMLOGFONTEXDVW
 {
 	public ENUMLOGFONTEXW elfEnumLogfontEx;
 	public DESIGNVECTOR elfDesignVector;
 }
 
-[CRepr]public struct TRIVERTEX
+[CRepr]
+public struct TRIVERTEX
 {
 	public int32 x;
 	public int32 y;
@@ -4172,20 +4250,23 @@ public function BOOL MONITORENUMPROC(HMONITOR param0, HDC param1, RECT* param2, 
 	public uint16 Alpha;
 }
 
-[CRepr]public struct GRADIENT_TRIANGLE
+[CRepr]
+public struct GRADIENT_TRIANGLE
 {
 	public uint32 Vertex1;
 	public uint32 Vertex2;
 	public uint32 Vertex3;
 }
 
-[CRepr]public struct GRADIENT_RECT
+[CRepr]
+public struct GRADIENT_RECT
 {
 	public uint32 UpperLeft;
 	public uint32 LowerRight;
 }
 
-[CRepr]public struct BLENDFUNCTION
+[CRepr]
+public struct BLENDFUNCTION
 {
 	public uint8 BlendOp;
 	public uint8 BlendFlags;
@@ -4193,7 +4274,8 @@ public function BOOL MONITORENUMPROC(HMONITOR param0, HDC param1, RECT* param2, 
 	public uint8 AlphaFormat;
 }
 
-[CRepr]public struct DIBSECTION
+[CRepr]
+public struct DIBSECTION
 {
 	public BITMAP dsBm;
 	public BITMAPINFOHEADER dsBmih;
@@ -4202,7 +4284,8 @@ public function BOOL MONITORENUMPROC(HMONITOR param0, HDC param1, RECT* param2, 
 	public uint32 dsOffset;
 }
 
-[CRepr]public struct COLORADJUSTMENT
+[CRepr]
+public struct COLORADJUSTMENT
 {
 	public uint16 caSize;
 	public uint16 caFlags;
@@ -4218,20 +4301,23 @@ public function BOOL MONITORENUMPROC(HMONITOR param0, HDC param1, RECT* param2, 
 	public int16 caRedGreenTint;
 }
 
-[CRepr]public struct KERNINGPAIR
+[CRepr]
+public struct KERNINGPAIR
 {
 	public uint16 wFirst;
 	public uint16 wSecond;
 	public int32 iKernAmount;
 }
 
-[CRepr]public struct EMR
+[CRepr]
+public struct EMR
 {
 	public uint32 iType;
 	public uint32 nSize;
 }
 
-[CRepr]public struct EMRTEXT
+[CRepr]
+public struct EMRTEXT
 {
 	public POINTL ptlReference;
 	public uint32 nChars;
@@ -4241,67 +4327,78 @@ public function BOOL MONITORENUMPROC(HMONITOR param0, HDC param1, RECT* param2, 
 	public uint32 offDx;
 }
 
-[CRepr]public struct ABORTPATH
+[CRepr]
+public struct ABORTPATH
 {
 	public EMR emr;
 }
 
-[CRepr]public struct EMRSELECTCLIPPATH
+[CRepr]
+public struct EMRSELECTCLIPPATH
 {
 	public EMR emr;
 	public uint32 iMode;
 }
 
-[CRepr]public struct EMRSETMITERLIMIT
+[CRepr]
+public struct EMRSETMITERLIMIT
 {
 	public EMR emr;
 	public float eMiterLimit;
 }
 
-[CRepr]public struct EMRRESTOREDC
+[CRepr]
+public struct EMRRESTOREDC
 {
 	public EMR emr;
 	public int32 iRelative;
 }
 
-[CRepr]public struct EMRSETARCDIRECTION
+[CRepr]
+public struct EMRSETARCDIRECTION
 {
 	public EMR emr;
 	public uint32 iArcDirection;
 }
 
-[CRepr]public struct EMRSETMAPPERFLAGS
+[CRepr]
+public struct EMRSETMAPPERFLAGS
 {
 	public EMR emr;
 	public uint32 dwFlags;
 }
 
-[CRepr]public struct EMRSETTEXTCOLOR
+[CRepr]
+public struct EMRSETTEXTCOLOR
 {
 	public EMR emr;
 	public uint32 crColor;
 }
 
-[CRepr]public struct EMRSELECTOBJECT
+[CRepr]
+public struct EMRSELECTOBJECT
 {
 	public EMR emr;
 	public uint32 ihObject;
 }
 
-[CRepr]public struct EMRSELECTPALETTE
+[CRepr]
+public struct EMRSELECTPALETTE
 {
 	public EMR emr;
 	public uint32 ihPal;
 }
 
-[CRepr]public struct EMRRESIZEPALETTE
+[CRepr]
+public struct EMRRESIZEPALETTE
 {
 	public EMR emr;
 	public uint32 ihPal;
 	public uint32 cEntries;
 }
 
-[CRepr]public struct EMRSETPALETTEENTRIES
+[CRepr]
+public struct EMRSETPALETTEENTRIES
 {
 	public EMR emr;
 	public uint32 ihPal;
@@ -4310,20 +4407,23 @@ public function BOOL MONITORENUMPROC(HMONITOR param0, HDC param1, RECT* param2, 
 	public PALETTEENTRY[1] aPalEntries;
 }
 
-[CRepr]public struct EMRSETCOLORADJUSTMENT
+[CRepr]
+public struct EMRSETCOLORADJUSTMENT
 {
 	public EMR emr;
 	public COLORADJUSTMENT ColorAdjustment;
 }
 
-[CRepr]public struct EMRGDICOMMENT
+[CRepr]
+public struct EMRGDICOMMENT
 {
 	public EMR emr;
 	public uint32 cbData;
 	public uint8[1] Data;
 }
 
-[CRepr]public struct EMREOF
+[CRepr]
+public struct EMREOF
 {
 	public EMR emr;
 	public uint32 nPalEntries;
@@ -4331,43 +4431,50 @@ public function BOOL MONITORENUMPROC(HMONITOR param0, HDC param1, RECT* param2, 
 	public uint32 nSizeLast;
 }
 
-[CRepr]public struct EMRLINETO
+[CRepr]
+public struct EMRLINETO
 {
 	public EMR emr;
 	public POINTL ptl;
 }
 
-[CRepr]public struct EMROFFSETCLIPRGN
+[CRepr]
+public struct EMROFFSETCLIPRGN
 {
 	public EMR emr;
 	public POINTL ptlOffset;
 }
 
-[CRepr]public struct EMRFILLPATH
+[CRepr]
+public struct EMRFILLPATH
 {
 	public EMR emr;
 	public RECTL rclBounds;
 }
 
-[CRepr]public struct EMREXCLUDECLIPRECT
+[CRepr]
+public struct EMREXCLUDECLIPRECT
 {
 	public EMR emr;
 	public RECTL rclClip;
 }
 
-[CRepr]public struct EMRSETVIEWPORTORGEX
+[CRepr]
+public struct EMRSETVIEWPORTORGEX
 {
 	public EMR emr;
 	public POINTL ptlOrigin;
 }
 
-[CRepr]public struct EMRSETVIEWPORTEXTEX
+[CRepr]
+public struct EMRSETVIEWPORTEXTEX
 {
 	public EMR emr;
 	public SIZE szlExtent;
 }
 
-[CRepr]public struct EMRSCALEVIEWPORTEXTEX
+[CRepr]
+public struct EMRSCALEVIEWPORTEXTEX
 {
 	public EMR emr;
 	public int32 xNum;
@@ -4376,27 +4483,31 @@ public function BOOL MONITORENUMPROC(HMONITOR param0, HDC param1, RECT* param2, 
 	public int32 yDenom;
 }
 
-[CRepr]public struct EMRSETWORLDTRANSFORM
+[CRepr]
+public struct EMRSETWORLDTRANSFORM
 {
 	public EMR emr;
 	public XFORM xform;
 }
 
-[CRepr]public struct EMRMODIFYWORLDTRANSFORM
+[CRepr]
+public struct EMRMODIFYWORLDTRANSFORM
 {
 	public EMR emr;
 	public XFORM xform;
 	public uint32 iMode;
 }
 
-[CRepr]public struct EMRSETPIXELV
+[CRepr]
+public struct EMRSETPIXELV
 {
 	public EMR emr;
 	public POINTL ptlPixel;
 	public uint32 crColor;
 }
 
-[CRepr]public struct EMREXTFLOODFILL
+[CRepr]
+public struct EMREXTFLOODFILL
 {
 	public EMR emr;
 	public POINTL ptlStart;
@@ -4404,20 +4515,23 @@ public function BOOL MONITORENUMPROC(HMONITOR param0, HDC param1, RECT* param2, 
 	public uint32 iMode;
 }
 
-[CRepr]public struct EMRELLIPSE
+[CRepr]
+public struct EMRELLIPSE
 {
 	public EMR emr;
 	public RECTL rclBox;
 }
 
-[CRepr]public struct EMRROUNDRECT
+[CRepr]
+public struct EMRROUNDRECT
 {
 	public EMR emr;
 	public RECTL rclBox;
 	public SIZE szlCorner;
 }
 
-[CRepr]public struct EMRARC
+[CRepr]
+public struct EMRARC
 {
 	public EMR emr;
 	public RECTL rclBox;
@@ -4425,7 +4539,8 @@ public function BOOL MONITORENUMPROC(HMONITOR param0, HDC param1, RECT* param2, 
 	public POINTL ptlEnd;
 }
 
-[CRepr]public struct EMRANGLEARC
+[CRepr]
+public struct EMRANGLEARC
 {
 	public EMR emr;
 	public POINTL ptlCenter;
@@ -4434,7 +4549,8 @@ public function BOOL MONITORENUMPROC(HMONITOR param0, HDC param1, RECT* param2, 
 	public float eSweepAngle;
 }
 
-[CRepr]public struct EMRPOLYLINE
+[CRepr]
+public struct EMRPOLYLINE
 {
 	public EMR emr;
 	public RECTL rclBounds;
@@ -4442,7 +4558,8 @@ public function BOOL MONITORENUMPROC(HMONITOR param0, HDC param1, RECT* param2, 
 	public POINTL[1] aptl;
 }
 
-[CRepr]public struct EMRPOLYLINE16
+[CRepr]
+public struct EMRPOLYLINE16
 {
 	public EMR emr;
 	public RECTL rclBounds;
@@ -4450,7 +4567,8 @@ public function BOOL MONITORENUMPROC(HMONITOR param0, HDC param1, RECT* param2, 
 	public POINTS[1] apts;
 }
 
-[CRepr]public struct EMRPOLYDRAW
+[CRepr]
+public struct EMRPOLYDRAW
 {
 	public EMR emr;
 	public RECTL rclBounds;
@@ -4459,7 +4577,8 @@ public function BOOL MONITORENUMPROC(HMONITOR param0, HDC param1, RECT* param2, 
 	public uint8[1] abTypes;
 }
 
-[CRepr]public struct EMRPOLYDRAW16
+[CRepr]
+public struct EMRPOLYDRAW16
 {
 	public EMR emr;
 	public RECTL rclBounds;
@@ -4468,7 +4587,8 @@ public function BOOL MONITORENUMPROC(HMONITOR param0, HDC param1, RECT* param2, 
 	public uint8[1] abTypes;
 }
 
-[CRepr]public struct EMRPOLYPOLYLINE
+[CRepr]
+public struct EMRPOLYPOLYLINE
 {
 	public EMR emr;
 	public RECTL rclBounds;
@@ -4478,7 +4598,8 @@ public function BOOL MONITORENUMPROC(HMONITOR param0, HDC param1, RECT* param2, 
 	public POINTL[1] aptl;
 }
 
-[CRepr]public struct EMRPOLYPOLYLINE16
+[CRepr]
+public struct EMRPOLYPOLYLINE16
 {
 	public EMR emr;
 	public RECTL rclBounds;
@@ -4488,7 +4609,8 @@ public function BOOL MONITORENUMPROC(HMONITOR param0, HDC param1, RECT* param2, 
 	public POINTS[1] apts;
 }
 
-[CRepr]public struct EMRINVERTRGN
+[CRepr]
+public struct EMRINVERTRGN
 {
 	public EMR emr;
 	public RECTL rclBounds;
@@ -4496,7 +4618,8 @@ public function BOOL MONITORENUMPROC(HMONITOR param0, HDC param1, RECT* param2, 
 	public uint8[1] RgnData;
 }
 
-[CRepr]public struct EMRFILLRGN
+[CRepr]
+public struct EMRFILLRGN
 {
 	public EMR emr;
 	public RECTL rclBounds;
@@ -4505,7 +4628,8 @@ public function BOOL MONITORENUMPROC(HMONITOR param0, HDC param1, RECT* param2, 
 	public uint8[1] RgnData;
 }
 
-[CRepr]public struct EMRFRAMERGN
+[CRepr]
+public struct EMRFRAMERGN
 {
 	public EMR emr;
 	public RECTL rclBounds;
@@ -4515,7 +4639,8 @@ public function BOOL MONITORENUMPROC(HMONITOR param0, HDC param1, RECT* param2, 
 	public uint8[1] RgnData;
 }
 
-[CRepr]public struct EMREXTSELECTCLIPRGN
+[CRepr]
+public struct EMREXTSELECTCLIPRGN
 {
 	public EMR emr;
 	public uint32 cbRgnData;
@@ -4523,7 +4648,8 @@ public function BOOL MONITORENUMPROC(HMONITOR param0, HDC param1, RECT* param2, 
 	public uint8[1] RgnData;
 }
 
-[CRepr]public struct EMREXTTEXTOUTA
+[CRepr]
+public struct EMREXTTEXTOUTA
 {
 	public EMR emr;
 	public RECTL rclBounds;
@@ -4533,7 +4659,8 @@ public function BOOL MONITORENUMPROC(HMONITOR param0, HDC param1, RECT* param2, 
 	public EMRTEXT emrtext;
 }
 
-[CRepr]public struct EMRPOLYTEXTOUTA
+[CRepr]
+public struct EMRPOLYTEXTOUTA
 {
 	public EMR emr;
 	public RECTL rclBounds;
@@ -4544,7 +4671,8 @@ public function BOOL MONITORENUMPROC(HMONITOR param0, HDC param1, RECT* param2, 
 	public EMRTEXT[1] aemrtext;
 }
 
-[CRepr]public struct EMRBITBLT
+[CRepr]
+public struct EMRBITBLT
 {
 	public EMR emr;
 	public RECTL rclBounds;
@@ -4564,7 +4692,8 @@ public function BOOL MONITORENUMPROC(HMONITOR param0, HDC param1, RECT* param2, 
 	public uint32 cbBitsSrc;
 }
 
-[CRepr]public struct EMRSTRETCHBLT
+[CRepr]
+public struct EMRSTRETCHBLT
 {
 	public EMR emr;
 	public RECTL rclBounds;
@@ -4586,7 +4715,8 @@ public function BOOL MONITORENUMPROC(HMONITOR param0, HDC param1, RECT* param2, 
 	public int32 cySrc;
 }
 
-[CRepr]public struct EMRMASKBLT
+[CRepr]
+public struct EMRMASKBLT
 {
 	public EMR emr;
 	public RECTL rclBounds;
@@ -4613,7 +4743,8 @@ public function BOOL MONITORENUMPROC(HMONITOR param0, HDC param1, RECT* param2, 
 	public uint32 cbBitsMask;
 }
 
-[CRepr]public struct EMRPLGBLT
+[CRepr]
+public struct EMRPLGBLT
 {
 	public EMR emr;
 	public RECTL rclBounds;
@@ -4638,7 +4769,8 @@ public function BOOL MONITORENUMPROC(HMONITOR param0, HDC param1, RECT* param2, 
 	public uint32 cbBitsMask;
 }
 
-[CRepr]public struct EMRSETDIBITSTODEVICE
+[CRepr]
+public struct EMRSETDIBITSTODEVICE
 {
 	public EMR emr;
 	public RECTL rclBounds;
@@ -4657,7 +4789,8 @@ public function BOOL MONITORENUMPROC(HMONITOR param0, HDC param1, RECT* param2, 
 	public uint32 cScans;
 }
 
-[CRepr]public struct EMRSTRETCHDIBITS
+[CRepr]
+public struct EMRSTRETCHDIBITS
 {
 	public EMR emr;
 	public RECTL rclBounds;
@@ -4677,28 +4810,32 @@ public function BOOL MONITORENUMPROC(HMONITOR param0, HDC param1, RECT* param2, 
 	public int32 cyDest;
 }
 
-[CRepr]public struct EMREXTCREATEFONTINDIRECTW
+[CRepr]
+public struct EMREXTCREATEFONTINDIRECTW
 {
 	public EMR emr;
 	public uint32 ihFont;
 	public EXTLOGFONTW elfw;
 }
 
-[CRepr]public struct EMRCREATEPALETTE
+[CRepr]
+public struct EMRCREATEPALETTE
 {
 	public EMR emr;
 	public uint32 ihPal;
 	public LOGPALETTE lgpl;
 }
 
-[CRepr]public struct EMRCREATEPEN
+[CRepr]
+public struct EMRCREATEPEN
 {
 	public EMR emr;
 	public uint32 ihPen;
 	public LOGPEN lopn;
 }
 
-[CRepr]public struct EMREXTCREATEPEN
+[CRepr]
+public struct EMREXTCREATEPEN
 {
 	public EMR emr;
 	public uint32 ihPen;
@@ -4709,14 +4846,16 @@ public function BOOL MONITORENUMPROC(HMONITOR param0, HDC param1, RECT* param2, 
 	public EXTLOGPEN32 elp;
 }
 
-[CRepr]public struct EMRCREATEBRUSHINDIRECT
+[CRepr]
+public struct EMRCREATEBRUSHINDIRECT
 {
 	public EMR emr;
 	public uint32 ihBrush;
 	public LOGBRUSH32 lb;
 }
 
-[CRepr]public struct EMRCREATEMONOBRUSH
+[CRepr]
+public struct EMRCREATEMONOBRUSH
 {
 	public EMR emr;
 	public uint32 ihBrush;
@@ -4727,7 +4866,8 @@ public function BOOL MONITORENUMPROC(HMONITOR param0, HDC param1, RECT* param2, 
 	public uint32 cbBits;
 }
 
-[CRepr]public struct EMRCREATEDIBPATTERNBRUSHPT
+[CRepr]
+public struct EMRCREATEDIBPATTERNBRUSHPT
 {
 	public EMR emr;
 	public uint32 ihBrush;
@@ -4738,7 +4878,8 @@ public function BOOL MONITORENUMPROC(HMONITOR param0, HDC param1, RECT* param2, 
 	public uint32 cbBits;
 }
 
-[CRepr]public struct EMRFORMAT
+[CRepr]
+public struct EMRFORMAT
 {
 	public uint32 dSignature;
 	public uint32 nVersion;
@@ -4746,14 +4887,16 @@ public function BOOL MONITORENUMPROC(HMONITOR param0, HDC param1, RECT* param2, 
 	public uint32 offData;
 }
 
-[CRepr]public struct EMRGLSRECORD
+[CRepr]
+public struct EMRGLSRECORD
 {
 	public EMR emr;
 	public uint32 cbData;
 	public uint8[1] Data;
 }
 
-[CRepr]public struct EMRGLSBOUNDEDRECORD
+[CRepr]
+public struct EMRGLSBOUNDEDRECORD
 {
 	public EMR emr;
 	public RECTL rclBounds;
@@ -4761,13 +4904,15 @@ public function BOOL MONITORENUMPROC(HMONITOR param0, HDC param1, RECT* param2, 
 	public uint8[1] Data;
 }
 
-[CRepr]public struct EMRSETCOLORSPACE
+[CRepr]
+public struct EMRSETCOLORSPACE
 {
 	public EMR emr;
 	public uint32 ihCS;
 }
 
-[CRepr]public struct EMREXTESCAPE
+[CRepr]
+public struct EMREXTESCAPE
 {
 	public EMR emr;
 	public int32 iEscape;
@@ -4775,7 +4920,8 @@ public function BOOL MONITORENUMPROC(HMONITOR param0, HDC param1, RECT* param2, 
 	public uint8[1] EscData;
 }
 
-[CRepr]public struct EMRNAMEDESCAPE
+[CRepr]
+public struct EMRNAMEDESCAPE
 {
 	public EMR emr;
 	public int32 iEscape;
@@ -4784,7 +4930,8 @@ public function BOOL MONITORENUMPROC(HMONITOR param0, HDC param1, RECT* param2, 
 	public uint8[1] EscData;
 }
 
-[CRepr]public struct EMRSETICMPROFILE
+[CRepr]
+public struct EMRSETICMPROFILE
 {
 	public EMR emr;
 	public uint32 dwFlags;
@@ -4793,7 +4940,8 @@ public function BOOL MONITORENUMPROC(HMONITOR param0, HDC param1, RECT* param2, 
 	public uint8[1] Data;
 }
 
-[CRepr]public struct COLORMATCHTOTARGET
+[CRepr]
+public struct COLORMATCHTOTARGET
 {
 	public EMR emr;
 	public uint32 dwAction;
@@ -4803,7 +4951,8 @@ public function BOOL MONITORENUMPROC(HMONITOR param0, HDC param1, RECT* param2, 
 	public uint8[1] Data;
 }
 
-[CRepr]public struct COLORCORRECTPALETTE
+[CRepr]
+public struct COLORCORRECTPALETTE
 {
 	public EMR emr;
 	public uint32 ihPalette;
@@ -4812,7 +4961,8 @@ public function BOOL MONITORENUMPROC(HMONITOR param0, HDC param1, RECT* param2, 
 	public uint32 nReserved;
 }
 
-[CRepr]public struct EMRALPHABLEND
+[CRepr]
+public struct EMRALPHABLEND
 {
 	public EMR emr;
 	public RECTL rclBounds;
@@ -4834,7 +4984,8 @@ public function BOOL MONITORENUMPROC(HMONITOR param0, HDC param1, RECT* param2, 
 	public int32 cySrc;
 }
 
-[CRepr]public struct EMRGRADIENTFILL
+[CRepr]
+public struct EMRGRADIENTFILL
 {
 	public EMR emr;
 	public RECTL rclBounds;
@@ -4844,7 +4995,8 @@ public function BOOL MONITORENUMPROC(HMONITOR param0, HDC param1, RECT* param2, 
 	public TRIVERTEX[1] Ver;
 }
 
-[CRepr]public struct EMRTRANSPARENTBLT
+[CRepr]
+public struct EMRTRANSPARENTBLT
 {
 	public EMR emr;
 	public RECTL rclBounds;
@@ -4866,27 +5018,31 @@ public function BOOL MONITORENUMPROC(HMONITOR param0, HDC param1, RECT* param2, 
 	public int32 cySrc;
 }
 
-[CRepr]public struct WGLSWAP
+[CRepr]
+public struct WGLSWAP
 {
 	public HDC hdc;
 	public uint32 uiFlags;
 }
 
-[CRepr]public struct TTLOADINFO
+[CRepr]
+public struct TTLOADINFO
 {
 	public uint16 usStructSize;
 	public uint16 usRefStrSize;
 	public uint16* pusRefStr;
 }
 
-[CRepr]public struct TTEMBEDINFO
+[CRepr]
+public struct TTEMBEDINFO
 {
 	public uint16 usStructSize;
 	public uint16 usRootStrSize;
 	public uint16* pusRootStr;
 }
 
-[CRepr]public struct TTVALIDATIONTESTSPARAMS
+[CRepr]
+public struct TTVALIDATIONTESTSPARAMS
 {
 	public uint32 ulStructSize;
 	public int32 lTestFromSize;
@@ -4897,7 +5053,8 @@ public function BOOL MONITORENUMPROC(HMONITOR param0, HDC param1, RECT* param2, 
 	public uint16* pusCharCodeSet;
 }
 
-[CRepr]public struct TTVALIDATIONTESTSPARAMSEX
+[CRepr]
+public struct TTVALIDATIONTESTSPARAMSEX
 {
 	public uint32 ulStructSize;
 	public int32 lTestFromSize;
@@ -4908,7 +5065,8 @@ public function BOOL MONITORENUMPROC(HMONITOR param0, HDC param1, RECT* param2, 
 	public uint32* pulCharCodeSet;
 }
 
-[CRepr]public struct PAINTSTRUCT
+[CRepr]
+public struct PAINTSTRUCT
 {
 	public HDC hdc;
 	public BOOL fErase;
@@ -4918,7 +5076,8 @@ public function BOOL MONITORENUMPROC(HMONITOR param0, HDC param1, RECT* param2, 
 	public uint8[32] rgbReserved;
 }
 
-[CRepr]public struct DRAWTEXTPARAMS
+[CRepr]
+public struct DRAWTEXTPARAMS
 {
 	public uint32 cbSize;
 	public int32 iTabLength;
@@ -4927,7 +5086,8 @@ public function BOOL MONITORENUMPROC(HMONITOR param0, HDC param1, RECT* param2, 
 	public uint32 uiLengthDrawn;
 }
 
-[CRepr]public struct MONITORINFO
+[CRepr]
+public struct MONITORINFO
 {
 	public uint32 cbSize;
 	public RECT rcMonitor;
@@ -4935,13 +5095,15 @@ public function BOOL MONITORENUMPROC(HMONITOR param0, HDC param1, RECT* param2, 
 	public uint32 dwFlags;
 }
 
-[CRepr]public struct MONITORINFOEXA
+[CRepr]
+public struct MONITORINFOEXA
 {
 	public MONITORINFO __AnonymousBase_winuser_L13567_C43;
 	public CHAR[32] szDevice;
 }
 
-[CRepr]public struct MONITORINFOEXW
+[CRepr]
+public struct MONITORINFOEXW
 {
 	public MONITORINFO __AnonymousBase_winuser_L13571_C43;
 	public char8[32] szDevice;

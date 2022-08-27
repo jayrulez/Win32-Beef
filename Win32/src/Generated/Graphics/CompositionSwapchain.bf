@@ -42,12 +42,14 @@ public enum CompositionFrameInstanceKind : int32
 #endregion
 
 #region Structs
-[CRepr]public struct SystemInterruptTime
+[CRepr]
+public struct SystemInterruptTime
 {
 	public uint64 value;
 }
 
-[CRepr]public struct PresentationTransform
+[CRepr]
+public struct PresentationTransform
 {
 	public float M11;
 	public float M12;
@@ -57,7 +59,8 @@ public enum CompositionFrameInstanceKind : int32
 	public float M32;
 }
 
-[CRepr]public struct CompositionFrameDisplayInstance
+[CRepr]
+public struct CompositionFrameDisplayInstance
 {
 	public LUID displayAdapterLUID;
 	public uint32 displayVidPnSourceId;

@@ -365,7 +365,8 @@ public function uint32 PF_NPFMXGetPermHelp(PWSTR lpDriveName, uint32 nDialogType
 #endregion
 
 #region Structs
-[CRepr]public struct NETRESOURCEA
+[CRepr]
+public struct NETRESOURCEA
 {
 	public NET_RESOURCE_SCOPE dwScope;
 	public NET_RESOURCE_TYPE dwType;
@@ -377,7 +378,8 @@ public function uint32 PF_NPFMXGetPermHelp(PWSTR lpDriveName, uint32 nDialogType
 	public PSTR lpProvider;
 }
 
-[CRepr]public struct NETRESOURCEW
+[CRepr]
+public struct NETRESOURCEW
 {
 	public NET_RESOURCE_SCOPE dwScope;
 	public NET_RESOURCE_TYPE dwType;
@@ -389,7 +391,8 @@ public function uint32 PF_NPFMXGetPermHelp(PWSTR lpDriveName, uint32 nDialogType
 	public PWSTR lpProvider;
 }
 
-[CRepr]public struct CONNECTDLGSTRUCTA
+[CRepr]
+public struct CONNECTDLGSTRUCTA
 {
 	public uint32 cbStructure;
 	public HWND hwndOwner;
@@ -398,7 +401,8 @@ public function uint32 PF_NPFMXGetPermHelp(PWSTR lpDriveName, uint32 nDialogType
 	public uint32 dwDevNum;
 }
 
-[CRepr]public struct CONNECTDLGSTRUCTW
+[CRepr]
+public struct CONNECTDLGSTRUCTW
 {
 	public uint32 cbStructure;
 	public HWND hwndOwner;
@@ -407,7 +411,8 @@ public function uint32 PF_NPFMXGetPermHelp(PWSTR lpDriveName, uint32 nDialogType
 	public uint32 dwDevNum;
 }
 
-[CRepr]public struct DISCDLGSTRUCTA
+[CRepr]
+public struct DISCDLGSTRUCTA
 {
 	public uint32 cbStructure;
 	public HWND hwndOwner;
@@ -416,7 +421,8 @@ public function uint32 PF_NPFMXGetPermHelp(PWSTR lpDriveName, uint32 nDialogType
 	public DISCDLGSTRUCT_FLAGS dwFlags;
 }
 
-[CRepr]public struct DISCDLGSTRUCTW
+[CRepr]
+public struct DISCDLGSTRUCTW
 {
 	public uint32 cbStructure;
 	public HWND hwndOwner;
@@ -425,31 +431,36 @@ public function uint32 PF_NPFMXGetPermHelp(PWSTR lpDriveName, uint32 nDialogType
 	public DISCDLGSTRUCT_FLAGS dwFlags;
 }
 
-[CRepr]public struct UNIVERSAL_NAME_INFOA
+[CRepr]
+public struct UNIVERSAL_NAME_INFOA
 {
 	public PSTR lpUniversalName;
 }
 
-[CRepr]public struct UNIVERSAL_NAME_INFOW
+[CRepr]
+public struct UNIVERSAL_NAME_INFOW
 {
 	public PWSTR lpUniversalName;
 }
 
-[CRepr]public struct REMOTE_NAME_INFOA
+[CRepr]
+public struct REMOTE_NAME_INFOA
 {
 	public PSTR lpUniversalName;
 	public PSTR lpConnectionName;
 	public PSTR lpRemainingPath;
 }
 
-[CRepr]public struct REMOTE_NAME_INFOW
+[CRepr]
+public struct REMOTE_NAME_INFOW
 {
 	public PWSTR lpUniversalName;
 	public PWSTR lpConnectionName;
 	public PWSTR lpRemainingPath;
 }
 
-[CRepr]public struct NETINFOSTRUCT
+[CRepr]
+public struct NETINFOSTRUCT
 {
 	public uint32 cbStructure;
 	public uint32 dwProviderVersion;
@@ -461,7 +472,8 @@ public function uint32 PF_NPFMXGetPermHelp(PWSTR lpDriveName, uint32 nDialogType
 	public uint32 dwDrives;
 }
 
-[CRepr]public struct NETCONNECTINFOSTRUCT
+[CRepr]
+public struct NETCONNECTINFOSTRUCT
 {
 	public uint32 cbStructure;
 	public uint32 dwFlags;
@@ -470,21 +482,24 @@ public function uint32 PF_NPFMXGetPermHelp(PWSTR lpDriveName, uint32 nDialogType
 	public uint32 dwOptDataSize;
 }
 
-[CRepr]public struct NOTIFYINFO
+[CRepr]
+public struct NOTIFYINFO
 {
 	public uint32 dwNotifyStatus;
 	public uint32 dwOperationStatus;
 	public void* lpContext;
 }
 
-[CRepr]public struct NOTIFYADD
+[CRepr]
+public struct NOTIFYADD
 {
 	public HWND hwndOwner;
 	public NETRESOURCEA NetResource;
 	public NET_USE_CONNECT_FLAGS dwAddFlags;
 }
 
-[CRepr]public struct NOTIFYCANCEL
+[CRepr]
+public struct NOTIFYCANCEL
 {
 	public PWSTR lpName;
 	public PWSTR lpProvider;

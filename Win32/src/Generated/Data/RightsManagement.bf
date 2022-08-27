@@ -233,14 +233,16 @@ public function HRESULT DRMCALLBACK(DRM_STATUS_MSG param0, HRESULT param1, void*
 #endregion
 
 #region Structs
-[CRepr]public struct DRMID
+[CRepr]
+public struct DRMID
 {
 	public uint32 uVersion;
 	public PWSTR wszIDType;
 	public PWSTR wszID;
 }
 
-[CRepr]public struct DRMBOUNDLICENSEPARAMS
+[CRepr]
+public struct DRMBOUNDLICENSEPARAMS
 {
 	public uint32 uVersion;
 	public uint32 hEnablingPrincipal;
@@ -254,7 +256,8 @@ public function HRESULT DRMCALLBACK(DRM_STATUS_MSG param0, HRESULT param1, void*
 	public uint32 dwFlags;
 }
 
-[CRepr]public struct DRM_LICENSE_ACQ_DATA
+[CRepr]
+public struct DRM_LICENSE_ACQ_DATA
 {
 	public uint32 uVersion;
 	public PWSTR wszURL;
@@ -264,14 +267,16 @@ public function HRESULT DRMCALLBACK(DRM_STATUS_MSG param0, HRESULT param1, void*
 	public PWSTR wszFriendlyName;
 }
 
-[CRepr]public struct DRM_ACTSERV_INFO
+[CRepr]
+public struct DRM_ACTSERV_INFO
 {
 	public uint32 uVersion;
 	public PWSTR wszPubKey;
 	public PWSTR wszURL;
 }
 
-[CRepr]public struct DRM_CLIENT_VERSION_INFO
+[CRepr]
+public struct DRM_CLIENT_VERSION_INFO
 {
 	public uint32 uStructVersion;
 	public uint32[4] dwVersion;

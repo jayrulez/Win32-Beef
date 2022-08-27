@@ -154,7 +154,8 @@ public function uint32 LPMAPIRESOLVENAME(uint lhSession, uint ulUIParam, PSTR lp
 #endregion
 
 #region Structs
-[CRepr]public struct MapiFileDesc
+[CRepr]
+public struct MapiFileDesc
 {
 	public uint32 ulReserved;
 	public uint32 flFlags;
@@ -164,7 +165,8 @@ public function uint32 LPMAPIRESOLVENAME(uint lhSession, uint ulUIParam, PSTR lp
 	public void* lpFileType;
 }
 
-[CRepr]public struct MapiFileDescW
+[CRepr]
+public struct MapiFileDescW
 {
 	public uint32 ulReserved;
 	public uint32 flFlags;
@@ -174,7 +176,8 @@ public function uint32 LPMAPIRESOLVENAME(uint lhSession, uint ulUIParam, PSTR lp
 	public void* lpFileType;
 }
 
-[CRepr]public struct MapiFileTagExt
+[CRepr]
+public struct MapiFileTagExt
 {
 	public uint32 ulReserved;
 	public uint32 cbTag;
@@ -183,7 +186,8 @@ public function uint32 LPMAPIRESOLVENAME(uint lhSession, uint ulUIParam, PSTR lp
 	public uint8* lpEncoding;
 }
 
-[CRepr]public struct MapiRecipDesc
+[CRepr]
+public struct MapiRecipDesc
 {
 	public uint32 ulReserved;
 	public uint32 ulRecipClass;
@@ -193,7 +197,8 @@ public function uint32 LPMAPIRESOLVENAME(uint lhSession, uint ulUIParam, PSTR lp
 	public void* lpEntryID;
 }
 
-[CRepr]public struct MapiRecipDescW
+[CRepr]
+public struct MapiRecipDescW
 {
 	public uint32 ulReserved;
 	public uint32 ulRecipClass;
@@ -203,7 +208,8 @@ public function uint32 LPMAPIRESOLVENAME(uint lhSession, uint ulUIParam, PSTR lp
 	public void* lpEntryID;
 }
 
-[CRepr]public struct MapiMessage
+[CRepr]
+public struct MapiMessage
 {
 	public uint32 ulReserved;
 	public PSTR lpszSubject;
@@ -219,7 +225,8 @@ public function uint32 LPMAPIRESOLVENAME(uint lhSession, uint ulUIParam, PSTR lp
 	public MapiFileDesc* lpFiles;
 }
 
-[CRepr]public struct MapiMessageW
+[CRepr]
+public struct MapiMessageW
 {
 	public uint32 ulReserved;
 	public PWSTR lpszSubject;

@@ -675,7 +675,8 @@ public function BOOL LPDSENUMCALLBACKW(Guid* param0, PWSTR param1, PWSTR param2,
 #endregion
 
 #region Structs
-[CRepr]public struct DSCAPS
+[CRepr]
+public struct DSCAPS
 {
 	public uint32 dwSize;
 	public uint32 dwFlags;
@@ -703,7 +704,8 @@ public function BOOL LPDSENUMCALLBACKW(Guid* param0, PWSTR param1, PWSTR param2,
 	public uint32 dwReserved2;
 }
 
-[CRepr]public struct DSBCAPS
+[CRepr]
+public struct DSBCAPS
 {
 	public uint32 dwSize;
 	public uint32 dwFlags;
@@ -712,7 +714,8 @@ public function BOOL LPDSENUMCALLBACKW(Guid* param0, PWSTR param1, PWSTR param2,
 	public uint32 dwPlayCpuOverhead;
 }
 
-[CRepr]public struct DSEFFECTDESC
+[CRepr]
+public struct DSEFFECTDESC
 {
 	public uint32 dwSize;
 	public uint32 dwFlags;
@@ -721,7 +724,8 @@ public function BOOL LPDSENUMCALLBACKW(Guid* param0, PWSTR param1, PWSTR param2,
 	public uint dwReserved2;
 }
 
-[CRepr]public struct DSCEFFECTDESC
+[CRepr]
+public struct DSCEFFECTDESC
 {
 	public uint32 dwSize;
 	public uint32 dwFlags;
@@ -731,7 +735,8 @@ public function BOOL LPDSENUMCALLBACKW(Guid* param0, PWSTR param1, PWSTR param2,
 	public uint32 dwReserved2;
 }
 
-[CRepr]public struct DSBUFFERDESC
+[CRepr]
+public struct DSBUFFERDESC
 {
 	public uint32 dwSize;
 	public uint32 dwFlags;
@@ -741,7 +746,8 @@ public function BOOL LPDSENUMCALLBACKW(Guid* param0, PWSTR param1, PWSTR param2,
 	public Guid guid3DAlgorithm;
 }
 
-[CRepr]public struct DSBUFFERDESC1
+[CRepr]
+public struct DSBUFFERDESC1
 {
 	public uint32 dwSize;
 	public uint32 dwFlags;
@@ -750,7 +756,8 @@ public function BOOL LPDSENUMCALLBACKW(Guid* param0, PWSTR param1, PWSTR param2,
 	public WAVEFORMATEX* lpwfxFormat;
 }
 
-[CRepr]public struct DS3DBUFFER
+[CRepr]
+public struct DS3DBUFFER
 {
 	public uint32 dwSize;
 	public D3DVECTOR vPosition;
@@ -764,7 +771,8 @@ public function BOOL LPDSENUMCALLBACKW(Guid* param0, PWSTR param1, PWSTR param2,
 	public uint32 dwMode;
 }
 
-[CRepr]public struct DS3DLISTENER
+[CRepr]
+public struct DS3DLISTENER
 {
 	public uint32 dwSize;
 	public D3DVECTOR vPosition;
@@ -776,7 +784,8 @@ public function BOOL LPDSENUMCALLBACKW(Guid* param0, PWSTR param1, PWSTR param2,
 	public float flDopplerFactor;
 }
 
-[CRepr]public struct DSCCAPS
+[CRepr]
+public struct DSCCAPS
 {
 	public uint32 dwSize;
 	public uint32 dwFlags;
@@ -784,7 +793,8 @@ public function BOOL LPDSENUMCALLBACKW(Guid* param0, PWSTR param1, PWSTR param2,
 	public uint32 dwChannels;
 }
 
-[CRepr]public struct DSCBUFFERDESC1
+[CRepr]
+public struct DSCBUFFERDESC1
 {
 	public uint32 dwSize;
 	public uint32 dwFlags;
@@ -793,7 +803,8 @@ public function BOOL LPDSENUMCALLBACKW(Guid* param0, PWSTR param1, PWSTR param2,
 	public WAVEFORMATEX* lpwfxFormat;
 }
 
-[CRepr]public struct DSCBUFFERDESC
+[CRepr]
+public struct DSCBUFFERDESC
 {
 	public uint32 dwSize;
 	public uint32 dwFlags;
@@ -804,7 +815,8 @@ public function BOOL LPDSENUMCALLBACKW(Guid* param0, PWSTR param1, PWSTR param2,
 	public DSCEFFECTDESC* lpDSCFXDesc;
 }
 
-[CRepr]public struct DSCBCAPS
+[CRepr]
+public struct DSCBCAPS
 {
 	public uint32 dwSize;
 	public uint32 dwFlags;
@@ -812,19 +824,22 @@ public function BOOL LPDSENUMCALLBACKW(Guid* param0, PWSTR param1, PWSTR param2,
 	public uint32 dwReserved;
 }
 
-[CRepr]public struct DSBPOSITIONNOTIFY
+[CRepr]
+public struct DSBPOSITIONNOTIFY
 {
 	public uint32 dwOffset;
 	public HANDLE hEventNotify;
 }
 
-[CRepr]public struct DSFXGargle
+[CRepr]
+public struct DSFXGargle
 {
 	public uint32 dwRateHz;
 	public uint32 dwWaveShape;
 }
 
-[CRepr]public struct DSFXChorus
+[CRepr]
+public struct DSFXChorus
 {
 	public float fWetDryMix;
 	public float fDepth;
@@ -835,7 +850,8 @@ public function BOOL LPDSENUMCALLBACKW(Guid* param0, PWSTR param1, PWSTR param2,
 	public int32 lPhase;
 }
 
-[CRepr]public struct DSFXFlanger
+[CRepr]
+public struct DSFXFlanger
 {
 	public float fWetDryMix;
 	public float fDepth;
@@ -846,7 +862,8 @@ public function BOOL LPDSENUMCALLBACKW(Guid* param0, PWSTR param1, PWSTR param2,
 	public int32 lPhase;
 }
 
-[CRepr]public struct DSFXEcho
+[CRepr]
+public struct DSFXEcho
 {
 	public float fWetDryMix;
 	public float fFeedback;
@@ -855,7 +872,8 @@ public function BOOL LPDSENUMCALLBACKW(Guid* param0, PWSTR param1, PWSTR param2,
 	public int32 lPanDelay;
 }
 
-[CRepr]public struct DSFXDistortion
+[CRepr]
+public struct DSFXDistortion
 {
 	public float fGain;
 	public float fEdge;
@@ -864,7 +882,8 @@ public function BOOL LPDSENUMCALLBACKW(Guid* param0, PWSTR param1, PWSTR param2,
 	public float fPreLowpassCutoff;
 }
 
-[CRepr]public struct DSFXCompressor
+[CRepr]
+public struct DSFXCompressor
 {
 	public float fGain;
 	public float fAttack;
@@ -874,14 +893,16 @@ public function BOOL LPDSENUMCALLBACKW(Guid* param0, PWSTR param1, PWSTR param2,
 	public float fPredelay;
 }
 
-[CRepr]public struct DSFXParamEq
+[CRepr]
+public struct DSFXParamEq
 {
 	public float fCenter;
 	public float fBandwidth;
 	public float fGain;
 }
 
-[CRepr]public struct DSFXI3DL2Reverb
+[CRepr]
+public struct DSFXI3DL2Reverb
 {
 	public int32 lRoom;
 	public int32 lRoomHF;
@@ -897,7 +918,8 @@ public function BOOL LPDSENUMCALLBACKW(Guid* param0, PWSTR param1, PWSTR param2,
 	public float flHFReference;
 }
 
-[CRepr]public struct DSFXWavesReverb
+[CRepr]
+public struct DSFXWavesReverb
 {
 	public float fInGain;
 	public float fReverbMix;
@@ -905,14 +927,16 @@ public function BOOL LPDSENUMCALLBACKW(Guid* param0, PWSTR param1, PWSTR param2,
 	public float fHighFreqRTRatio;
 }
 
-[CRepr]public struct DSCFXAec
+[CRepr]
+public struct DSCFXAec
 {
 	public BOOL fEnable;
 	public BOOL fNoiseFill;
 	public uint32 dwMode;
 }
 
-[CRepr]public struct DSCFXNoiseSuppress
+[CRepr]
+public struct DSCFXNoiseSuppress
 {
 	public BOOL fEnable;
 }

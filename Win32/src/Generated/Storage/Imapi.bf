@@ -1080,22 +1080,26 @@ public function void MSGCALLRELEASE(uint32 ulCallerData, IMessage* lpMessage);
 #endregion
 
 #region Structs
-[CRepr]public struct _MSGSESS
+[CRepr]
+public struct _MSGSESS
 {
 }
 
-[CRepr]public struct SPropAttrArray
+[CRepr]
+public struct SPropAttrArray
 {
 	public uint32 cValues;
 	public uint32[1] aPropAttr;
 }
 
-[CRepr]public struct IMMP_MPV_STORE_DRIVER_HANDLE
+[CRepr]
+public struct IMMP_MPV_STORE_DRIVER_HANDLE
 {
 	public Guid guidSignature;
 }
 
-[CRepr]public struct tagIMMPID_GUIDLIST_ITEM
+[CRepr]
+public struct tagIMMPID_GUIDLIST_ITEM
 {
 	public Guid* pguid;
 	public uint32 dwStart;

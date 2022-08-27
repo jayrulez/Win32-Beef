@@ -755,11 +755,13 @@ public function void alljoyn_observer_object_lost_ptr(void* context, alljoyn_pro
 #endregion
 
 #region Structs
-[CRepr]public struct _alljoyn_abouticon_handle
+[CRepr]
+public struct _alljoyn_abouticon_handle
 {
 }
 
-[CRepr]public struct alljoyn_certificateid
+[CRepr]
+public struct alljoyn_certificateid
 {
 	public uint8* serial;
 	public uint serialLen;
@@ -768,30 +770,35 @@ public function void alljoyn_observer_object_lost_ptr(void* context, alljoyn_pro
 	public uint issuerAkiLen;
 }
 
-[CRepr]public struct alljoyn_certificateidarray
+[CRepr]
+public struct alljoyn_certificateidarray
 {
 	public uint count;
 	public alljoyn_certificateid* ids;
 }
 
-[CRepr]public struct alljoyn_manifestarray
+[CRepr]
+public struct alljoyn_manifestarray
 {
 	public uint count;
 	public int8** xmls;
 }
 
-[CRepr]public struct alljoyn_applicationstatelistener_callbacks
+[CRepr]
+public struct alljoyn_applicationstatelistener_callbacks
 {
 	public alljoyn_applicationstatelistener_state_ptr state;
 }
 
-[CRepr]public struct alljoyn_keystorelistener_callbacks
+[CRepr]
+public struct alljoyn_keystorelistener_callbacks
 {
 	public alljoyn_keystorelistener_loadrequest_ptr load_request;
 	public alljoyn_keystorelistener_storerequest_ptr store_request;
 }
 
-[CRepr]public struct alljoyn_keystorelistener_with_synchronization_callbacks
+[CRepr]
+public struct alljoyn_keystorelistener_with_synchronization_callbacks
 {
 	public alljoyn_keystorelistener_loadrequest_ptr load_request;
 	public alljoyn_keystorelistener_storerequest_ptr store_request;
@@ -799,7 +806,8 @@ public function void alljoyn_observer_object_lost_ptr(void* context, alljoyn_pro
 	public alljoyn_keystorelistener_releaseexclusivelock_ptr release_exclusive_lock;
 }
 
-[CRepr]public struct alljoyn_authlistener_callbacks
+[CRepr]
+public struct alljoyn_authlistener_callbacks
 {
 	public alljoyn_authlistener_requestcredentials_ptr request_credentials;
 	public alljoyn_authlistener_verifycredentials_ptr verify_credentials;
@@ -807,7 +815,8 @@ public function void alljoyn_observer_object_lost_ptr(void* context, alljoyn_pro
 	public alljoyn_authlistener_authenticationcomplete_ptr authentication_complete;
 }
 
-[CRepr]public struct alljoyn_authlistenerasync_callbacks
+[CRepr]
+public struct alljoyn_authlistenerasync_callbacks
 {
 	public alljoyn_authlistener_requestcredentialsasync_ptr request_credentials;
 	public alljoyn_authlistener_verifycredentialsasync_ptr verify_credentials;
@@ -815,7 +824,8 @@ public function void alljoyn_observer_object_lost_ptr(void* context, alljoyn_pro
 	public alljoyn_authlistener_authenticationcomplete_ptr authentication_complete;
 }
 
-[CRepr]public struct alljoyn_buslistener_callbacks
+[CRepr]
+public struct alljoyn_buslistener_callbacks
 {
 	public alljoyn_buslistener_listener_registered_ptr listener_registered;
 	public alljoyn_buslistener_listener_unregistered_ptr listener_unregistered;
@@ -827,7 +837,8 @@ public function void alljoyn_observer_object_lost_ptr(void* context, alljoyn_pro
 	public alljoyn_buslistener_bus_prop_changed_ptr property_changed;
 }
 
-[CRepr]public struct alljoyn_interfacedescription_member
+[CRepr]
+public struct alljoyn_interfacedescription_member
 {
 	public alljoyn_interfacedescription iface;
 	public alljoyn_messagetype memberType;
@@ -838,7 +849,8 @@ public function void alljoyn_observer_object_lost_ptr(void* context, alljoyn_pro
 	public void* internal_member;
 }
 
-[CRepr]public struct alljoyn_interfacedescription_property
+[CRepr]
+public struct alljoyn_interfacedescription_property
 {
 	public PSTR name;
 	public PSTR signature;
@@ -846,7 +858,8 @@ public function void alljoyn_observer_object_lost_ptr(void* context, alljoyn_pro
 	public void* internal_property;
 }
 
-[CRepr]public struct alljoyn_busobject_callbacks
+[CRepr]
+public struct alljoyn_busobject_callbacks
 {
 	public alljoyn_busobject_prop_get_ptr property_get;
 	public alljoyn_busobject_prop_set_ptr property_set;
@@ -854,13 +867,15 @@ public function void alljoyn_observer_object_lost_ptr(void* context, alljoyn_pro
 	public alljoyn_busobject_object_registration_ptr object_unregistered;
 }
 
-[CRepr]public struct alljoyn_busobject_methodentry
+[CRepr]
+public struct alljoyn_busobject_methodentry
 {
 	public alljoyn_interfacedescription_member* member;
 	public alljoyn_messagereceiver_methodhandler_ptr method_handler;
 }
 
-[CRepr]public struct alljoyn_permissionconfigurationlistener_callbacks
+[CRepr]
+public struct alljoyn_permissionconfigurationlistener_callbacks
 {
 	public alljoyn_permissionconfigurationlistener_factoryreset_ptr factory_reset;
 	public alljoyn_permissionconfigurationlistener_policychanged_ptr policy_changed;
@@ -868,45 +883,53 @@ public function void alljoyn_observer_object_lost_ptr(void* context, alljoyn_pro
 	public alljoyn_permissionconfigurationlistener_endmanagement_ptr end_management;
 }
 
-[CRepr]public struct alljoyn_sessionlistener_callbacks
+[CRepr]
+public struct alljoyn_sessionlistener_callbacks
 {
 	public alljoyn_sessionlistener_sessionlost_ptr session_lost;
 	public alljoyn_sessionlistener_sessionmemberadded_ptr session_member_added;
 	public alljoyn_sessionlistener_sessionmemberremoved_ptr session_member_removed;
 }
 
-[CRepr]public struct alljoyn_sessionportlistener_callbacks
+[CRepr]
+public struct alljoyn_sessionportlistener_callbacks
 {
 	public alljoyn_sessionportlistener_acceptsessionjoiner_ptr accept_session_joiner;
 	public alljoyn_sessionportlistener_sessionjoined_ptr session_joined;
 }
 
-[CRepr]public struct alljoyn_aboutlistener_callback
+[CRepr]
+public struct alljoyn_aboutlistener_callback
 {
 	public alljoyn_about_announced_ptr about_listener_announced;
 }
 
-[CRepr]public struct _alljoyn_abouticonobj_handle
+[CRepr]
+public struct _alljoyn_abouticonobj_handle
 {
 }
 
-[CRepr]public struct _alljoyn_abouticonproxy_handle
+[CRepr]
+public struct _alljoyn_abouticonproxy_handle
 {
 }
 
-[CRepr]public struct alljoyn_aboutdatalistener_callbacks
+[CRepr]
+public struct alljoyn_aboutdatalistener_callbacks
 {
 	public alljoyn_aboutdatalistener_getaboutdata_ptr about_datalistener_getaboutdata;
 	public alljoyn_aboutdatalistener_getannouncedaboutdata_ptr about_datalistener_getannouncedaboutdata;
 }
 
-[CRepr]public struct alljoyn_pinglistener_callback
+[CRepr]
+public struct alljoyn_pinglistener_callback
 {
 	public alljoyn_autopinger_destination_found_ptr destination_found;
 	public alljoyn_autopinger_destination_lost_ptr destination_lost;
 }
 
-[CRepr]public struct alljoyn_observerlistener_callback
+[CRepr]
+public struct alljoyn_observerlistener_callback
 {
 	public alljoyn_observer_object_discovered_ptr object_discovered;
 	public alljoyn_observer_object_lost_ptr object_lost;

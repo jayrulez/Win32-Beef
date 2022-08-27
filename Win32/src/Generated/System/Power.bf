@@ -628,7 +628,8 @@ public function uint32 PDEVICE_NOTIFY_CALLBACK_ROUTINE(void* Context, uint32 Typ
 #endregion
 
 #region Structs
-[CRepr]public struct GLOBAL_MACHINE_POWER_POLICY
+[CRepr]
+public struct GLOBAL_MACHINE_POWER_POLICY
 {
 	public uint32 Revision;
 	public SYSTEM_POWER_STATE LidOpenWakeAc;
@@ -636,7 +637,8 @@ public function uint32 PDEVICE_NOTIFY_CALLBACK_ROUTINE(void* Context, uint32 Typ
 	public uint32 BroadcastCapacityResolution;
 }
 
-[CRepr]public struct GLOBAL_USER_POWER_POLICY
+[CRepr]
+public struct GLOBAL_USER_POWER_POLICY
 {
 	public uint32 Revision;
 	public POWER_ACTION_POLICY PowerButtonAc;
@@ -649,13 +651,15 @@ public function uint32 PDEVICE_NOTIFY_CALLBACK_ROUTINE(void* Context, uint32 Typ
 	public uint32 GlobalFlags;
 }
 
-[CRepr]public struct GLOBAL_POWER_POLICY
+[CRepr]
+public struct GLOBAL_POWER_POLICY
 {
 	public GLOBAL_USER_POWER_POLICY user;
 	public GLOBAL_MACHINE_POWER_POLICY mach;
 }
 
-[CRepr]public struct MACHINE_POWER_POLICY
+[CRepr]
+public struct MACHINE_POWER_POLICY
 {
 	public uint32 Revision;
 	public SYSTEM_POWER_STATE MinSleepAc;
@@ -673,14 +677,16 @@ public function uint32 PDEVICE_NOTIFY_CALLBACK_ROUTINE(void* Context, uint32 Typ
 	public POWER_ACTION_POLICY OverThrottledDc;
 }
 
-[CRepr]public struct MACHINE_PROCESSOR_POWER_POLICY
+[CRepr]
+public struct MACHINE_PROCESSOR_POWER_POLICY
 {
 	public uint32 Revision;
 	public PROCESSOR_POWER_POLICY ProcessorPolicyAc;
 	public PROCESSOR_POWER_POLICY ProcessorPolicyDc;
 }
 
-[CRepr]public struct USER_POWER_POLICY
+[CRepr]
+public struct USER_POWER_POLICY
 {
 	public uint32 Revision;
 	public POWER_ACTION_POLICY IdleAc;
@@ -706,19 +712,22 @@ public function uint32 PDEVICE_NOTIFY_CALLBACK_ROUTINE(void* Context, uint32 Typ
 	public uint8 ForcedThrottleDc;
 }
 
-[CRepr]public struct POWER_POLICY
+[CRepr]
+public struct POWER_POLICY
 {
 	public USER_POWER_POLICY user;
 	public MACHINE_POWER_POLICY mach;
 }
 
-[CRepr]public struct DEVICE_NOTIFY_SUBSCRIBE_PARAMETERS
+[CRepr]
+public struct DEVICE_NOTIFY_SUBSCRIBE_PARAMETERS
 {
 	public PDEVICE_NOTIFY_CALLBACK_ROUTINE Callback;
 	public void* Context;
 }
 
-[CRepr]public struct THERMAL_EVENT
+[CRepr]
+public struct THERMAL_EVENT
 {
 	public uint32 Version;
 	public uint32 Size;
@@ -728,14 +737,16 @@ public function uint32 PDEVICE_NOTIFY_CALLBACK_ROUTINE(void* Context, uint32 Typ
 	public PWSTR Initiator;
 }
 
-[CRepr]public struct BATTERY_QUERY_INFORMATION
+[CRepr]
+public struct BATTERY_QUERY_INFORMATION
 {
 	public uint32 BatteryTag;
 	public BATTERY_QUERY_INFORMATION_LEVEL InformationLevel;
 	public uint32 AtRate;
 }
 
-[CRepr]public struct BATTERY_INFORMATION
+[CRepr]
+public struct BATTERY_INFORMATION
 {
 	public uint32 Capabilities;
 	public uint8 Technology;
@@ -749,32 +760,37 @@ public function uint32 PDEVICE_NOTIFY_CALLBACK_ROUTINE(void* Context, uint32 Typ
 	public uint32 CycleCount;
 }
 
-[CRepr]public struct BATTERY_CHARGING_SOURCE
+[CRepr]
+public struct BATTERY_CHARGING_SOURCE
 {
 	public BATTERY_CHARGING_SOURCE_TYPE Type;
 	public uint32 MaxCurrent;
 }
 
-[CRepr]public struct BATTERY_CHARGING_SOURCE_INFORMATION
+[CRepr]
+public struct BATTERY_CHARGING_SOURCE_INFORMATION
 {
 	public BATTERY_CHARGING_SOURCE_TYPE Type;
 	public BOOLEAN SourceOnline;
 }
 
-[CRepr]public struct BATTERY_SET_INFORMATION
+[CRepr]
+public struct BATTERY_SET_INFORMATION
 {
 	public uint32 BatteryTag;
 	public BATTERY_SET_INFORMATION_LEVEL InformationLevel;
 	public uint8[1] Buffer;
 }
 
-[CRepr]public struct BATTERY_CHARGER_STATUS
+[CRepr]
+public struct BATTERY_CHARGER_STATUS
 {
 	public BATTERY_CHARGING_SOURCE_TYPE Type;
 	public uint32[1] VaData;
 }
 
-[CRepr]public struct BATTERY_USB_CHARGER_STATUS
+[CRepr]
+public struct BATTERY_USB_CHARGER_STATUS
 {
 	public BATTERY_CHARGING_SOURCE_TYPE Type;
 	public uint32 Reserved;
@@ -787,7 +803,8 @@ public function uint32 PDEVICE_NOTIFY_CALLBACK_ROUTINE(void* Context, uint32 Typ
 	public Guid OemCharger;
 }
 
-[CRepr]public struct BATTERY_WAIT_STATUS
+[CRepr]
+public struct BATTERY_WAIT_STATUS
 {
 	public uint32 BatteryTag;
 	public uint32 Timeout;
@@ -796,7 +813,8 @@ public function uint32 PDEVICE_NOTIFY_CALLBACK_ROUTINE(void* Context, uint32 Typ
 	public uint32 HighCapacity;
 }
 
-[CRepr]public struct BATTERY_STATUS
+[CRepr]
+public struct BATTERY_STATUS
 {
 	public uint32 PowerState;
 	public uint32 Capacity;
@@ -804,14 +822,16 @@ public function uint32 PDEVICE_NOTIFY_CALLBACK_ROUTINE(void* Context, uint32 Typ
 	public int32 Rate;
 }
 
-[CRepr]public struct BATTERY_MANUFACTURE_DATE
+[CRepr]
+public struct BATTERY_MANUFACTURE_DATE
 {
 	public uint8 Day;
 	public uint8 Month;
 	public uint16 Year;
 }
 
-[CRepr]public struct THERMAL_INFORMATION
+[CRepr]
+public struct THERMAL_INFORMATION
 {
 	public uint32 ThermalStamp;
 	public uint32 ThermalConstant1;
@@ -825,14 +845,16 @@ public function uint32 PDEVICE_NOTIFY_CALLBACK_ROUTINE(void* Context, uint32 Typ
 	public uint32[10] ActiveTripPoint;
 }
 
-[CRepr]public struct THERMAL_WAIT_READ
+[CRepr]
+public struct THERMAL_WAIT_READ
 {
 	public uint32 Timeout;
 	public uint32 LowTemperature;
 	public uint32 HighTemperature;
 }
 
-[CRepr]public struct THERMAL_POLICY
+[CRepr]
+public struct THERMAL_POLICY
 {
 	public uint32 Version;
 	public BOOLEAN WaitForUpdate;
@@ -845,14 +867,16 @@ public function uint32 PDEVICE_NOTIFY_CALLBACK_ROUTINE(void* Context, uint32 Typ
 	public BOOLEAN OverThrottled;
 }
 
-[CRepr]public struct PROCESSOR_OBJECT_INFO
+[CRepr]
+public struct PROCESSOR_OBJECT_INFO
 {
 	public uint32 PhysicalID;
 	public uint32 PBlkAddress;
 	public uint8 PBlkLength;
 }
 
-[CRepr]public struct PROCESSOR_OBJECT_INFO_EX
+[CRepr]
+public struct PROCESSOR_OBJECT_INFO_EX
 {
 	public uint32 PhysicalID;
 	public uint32 PBlkAddress;
@@ -860,13 +884,15 @@ public function uint32 PDEVICE_NOTIFY_CALLBACK_ROUTINE(void* Context, uint32 Typ
 	public uint32 InitialApicId;
 }
 
-[CRepr]public struct WAKE_ALARM_INFORMATION
+[CRepr]
+public struct WAKE_ALARM_INFORMATION
 {
 	public uint32 TimerIdentifier;
 	public uint32 Timeout;
 }
 
-[CRepr]public struct ACPI_REAL_TIME
+[CRepr]
+public struct ACPI_REAL_TIME
 {
 	public uint16 Year;
 	public uint8 Month;
@@ -881,23 +907,27 @@ public function uint32 PDEVICE_NOTIFY_CALLBACK_ROUTINE(void* Context, uint32 Typ
 	public uint8[3] Reserved1;
 }
 
-[CRepr]public struct EMI_VERSION
+[CRepr]
+public struct EMI_VERSION
 {
 	public uint16 EmiVersion;
 }
 
-[CRepr]public struct EMI_METADATA_SIZE
+[CRepr]
+public struct EMI_METADATA_SIZE
 {
 	public uint32 MetadataSize;
 }
 
-[CRepr]public struct EMI_CHANNEL_MEASUREMENT_DATA
+[CRepr]
+public struct EMI_CHANNEL_MEASUREMENT_DATA
 {
 	public uint64 AbsoluteEnergy;
 	public uint64 AbsoluteTime;
 }
 
-[CRepr]public struct EMI_METADATA_V1
+[CRepr]
+public struct EMI_METADATA_V1
 {
 	public EMI_MEASUREMENT_UNIT MeasurementUnit;
 	public char8[16] HardwareOEM;
@@ -907,14 +937,16 @@ public function uint32 PDEVICE_NOTIFY_CALLBACK_ROUTINE(void* Context, uint32 Typ
 	public char8[1] MeteredHardwareName;
 }
 
-[CRepr]public struct EMI_CHANNEL_V2
+[CRepr]
+public struct EMI_CHANNEL_V2
 {
 	public EMI_MEASUREMENT_UNIT MeasurementUnit;
 	public uint16 ChannelNameSize;
 	public char8[1] ChannelName;
 }
 
-[CRepr]public struct EMI_METADATA_V2
+[CRepr]
+public struct EMI_METADATA_V2
 {
 	public char8[16] HardwareOEM;
 	public char8[16] HardwareModel;
@@ -923,12 +955,14 @@ public function uint32 PDEVICE_NOTIFY_CALLBACK_ROUTINE(void* Context, uint32 Typ
 	public EMI_CHANNEL_V2[1] Channels;
 }
 
-[CRepr]public struct EMI_MEASUREMENT_DATA_V2
+[CRepr]
+public struct EMI_MEASUREMENT_DATA_V2
 {
 	public EMI_CHANNEL_MEASUREMENT_DATA[1] ChannelData;
 }
 
-[CRepr]public struct CM_POWER_DATA
+[CRepr]
+public struct CM_POWER_DATA
 {
 	public uint32 PD_Size;
 	public DEVICE_POWER_STATE PD_MostRecentPowerState;
@@ -940,7 +974,8 @@ public function uint32 PDEVICE_NOTIFY_CALLBACK_ROUTINE(void* Context, uint32 Typ
 	public SYSTEM_POWER_STATE PD_DeepestSystemWake;
 }
 
-[CRepr]public struct SET_POWER_SETTING_VALUE
+[CRepr]
+public struct SET_POWER_SETTING_VALUE
 {
 	public uint32 Version;
 	public Guid Guid;
@@ -949,20 +984,23 @@ public function uint32 PDEVICE_NOTIFY_CALLBACK_ROUTINE(void* Context, uint32 Typ
 	public uint8[1] Data;
 }
 
-[CRepr]public struct BATTERY_REPORTING_SCALE
+[CRepr]
+public struct BATTERY_REPORTING_SCALE
 {
 	public uint32 Granularity;
 	public uint32 Capacity;
 }
 
-[CRepr]public struct POWER_ACTION_POLICY
+[CRepr]
+public struct POWER_ACTION_POLICY
 {
 	public POWER_ACTION Action;
 	public uint32 Flags;
 	public POWER_ACTION_POLICY_EVENT_CODE EventCode;
 }
 
-[CRepr]public struct SYSTEM_POWER_LEVEL
+[CRepr]
+public struct SYSTEM_POWER_LEVEL
 {
 	public BOOLEAN Enable;
 	public uint8[3] Spare;
@@ -971,7 +1009,8 @@ public function uint32 PDEVICE_NOTIFY_CALLBACK_ROUTINE(void* Context, uint32 Typ
 	public SYSTEM_POWER_STATE MinSystemState;
 }
 
-[CRepr]public struct SYSTEM_POWER_POLICY
+[CRepr]
+public struct SYSTEM_POWER_POLICY
 {
 	public uint32 Revision;
 	public POWER_ACTION_POLICY PowerButton;
@@ -1003,7 +1042,8 @@ public function uint32 PDEVICE_NOTIFY_CALLBACK_ROUTINE(void* Context, uint32 Typ
 	public POWER_ACTION_POLICY OverThrottled;
 }
 
-[CRepr]public struct PROCESSOR_POWER_POLICY_INFO
+[CRepr]
+public struct PROCESSOR_POWER_POLICY_INFO
 {
 	public uint32 TimeCheck;
 	public uint32 DemoteLimit;
@@ -1014,7 +1054,8 @@ public function uint32 PDEVICE_NOTIFY_CALLBACK_ROUTINE(void* Context, uint32 Typ
 	public uint32 _bitfield;
 }
 
-[CRepr]public struct PROCESSOR_POWER_POLICY
+[CRepr]
+public struct PROCESSOR_POWER_POLICY
 {
 	public uint32 Revision;
 	public uint8 DynamicThrottle;
@@ -1024,7 +1065,8 @@ public function uint32 PDEVICE_NOTIFY_CALLBACK_ROUTINE(void* Context, uint32 Typ
 	public PROCESSOR_POWER_POLICY_INFO[3] Policy;
 }
 
-[CRepr]public struct ADMINISTRATOR_POWER_POLICY
+[CRepr]
+public struct ADMINISTRATOR_POWER_POLICY
 {
 	public SYSTEM_POWER_STATE MinSleep;
 	public SYSTEM_POWER_STATE MaxSleep;
@@ -1034,7 +1076,8 @@ public function uint32 PDEVICE_NOTIFY_CALLBACK_ROUTINE(void* Context, uint32 Typ
 	public uint32 MaxSpindownTimeout;
 }
 
-[CRepr]public struct SYSTEM_POWER_CAPABILITIES
+[CRepr]
+public struct SYSTEM_POWER_CAPABILITIES
 {
 	public BOOLEAN PowerButtonPresent;
 	public BOOLEAN SleepButtonPresent;
@@ -1071,7 +1114,8 @@ public function uint32 PDEVICE_NOTIFY_CALLBACK_ROUTINE(void* Context, uint32 Typ
 	public SYSTEM_POWER_STATE DefaultLowLatencyWake;
 }
 
-[CRepr]public struct SYSTEM_BATTERY_STATE
+[CRepr]
+public struct SYSTEM_BATTERY_STATE
 {
 	public BOOLEAN AcOnLine;
 	public BOOLEAN BatteryPresent;
@@ -1087,14 +1131,16 @@ public function uint32 PDEVICE_NOTIFY_CALLBACK_ROUTINE(void* Context, uint32 Typ
 	public uint32 DefaultAlert2;
 }
 
-[CRepr]public struct POWERBROADCAST_SETTING
+[CRepr]
+public struct POWERBROADCAST_SETTING
 {
 	public Guid PowerSetting;
 	public uint32 DataLength;
 	public uint8[1] Data;
 }
 
-[CRepr]public struct SYSTEM_POWER_STATUS
+[CRepr]
+public struct SYSTEM_POWER_STATUS
 {
 	public uint8 ACLineStatus;
 	public uint8 BatteryFlag;

@@ -51,7 +51,8 @@ public enum SENS_CONNECTION_TYPE : uint32
 #endregion
 
 #region Structs
-[CRepr]public struct QOCINFO
+[CRepr]
+public struct QOCINFO
 {
 	public uint32 dwSize;
 	public uint32 dwFlags;
@@ -59,7 +60,8 @@ public enum SENS_CONNECTION_TYPE : uint32
 	public uint32 dwOutSpeed;
 }
 
-[CRepr]public struct SENS_QOCINFO
+[CRepr]
+public struct SENS_QOCINFO
 {
 	public uint32 dwSize;
 	public uint32 dwFlags;

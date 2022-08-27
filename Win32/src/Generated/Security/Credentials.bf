@@ -445,18 +445,21 @@ public function void LPOCNDSCPROC(uint param0, uint param1, void* param2);
 #endregion
 
 #region Structs
-[CRepr]public struct KeyCredentialManagerInfo
+[CRepr]
+public struct KeyCredentialManagerInfo
 {
 	public Guid containerId;
 }
 
-[CRepr]public struct SecHandle
+[CRepr]
+public struct SecHandle
 {
 	public uint dwLower;
 	public uint dwUpper;
 }
 
-[CRepr]public struct CREDENTIAL_ATTRIBUTEA
+[CRepr]
+public struct CREDENTIAL_ATTRIBUTEA
 {
 	public PSTR Keyword;
 	public uint32 Flags;
@@ -464,7 +467,8 @@ public function void LPOCNDSCPROC(uint param0, uint param1, void* param2);
 	public uint8* Value;
 }
 
-[CRepr]public struct CREDENTIAL_ATTRIBUTEW
+[CRepr]
+public struct CREDENTIAL_ATTRIBUTEW
 {
 	public PWSTR Keyword;
 	public uint32 Flags;
@@ -472,7 +476,8 @@ public function void LPOCNDSCPROC(uint param0, uint param1, void* param2);
 	public uint8* Value;
 }
 
-[CRepr]public struct CREDENTIALA
+[CRepr]
+public struct CREDENTIALA
 {
 	public CRED_FLAGS Flags;
 	public CRED_TYPE Type;
@@ -488,7 +493,8 @@ public function void LPOCNDSCPROC(uint param0, uint param1, void* param2);
 	public PSTR UserName;
 }
 
-[CRepr]public struct CREDENTIALW
+[CRepr]
+public struct CREDENTIALW
 {
 	public CRED_FLAGS Flags;
 	public CRED_TYPE Type;
@@ -504,7 +510,8 @@ public function void LPOCNDSCPROC(uint param0, uint param1, void* param2);
 	public PWSTR UserName;
 }
 
-[CRepr]public struct CREDENTIAL_TARGET_INFORMATIONA
+[CRepr]
+public struct CREDENTIAL_TARGET_INFORMATIONA
 {
 	public PSTR TargetName;
 	public PSTR NetbiosServerName;
@@ -518,7 +525,8 @@ public function void LPOCNDSCPROC(uint param0, uint param1, void* param2);
 	public uint32* CredTypes;
 }
 
-[CRepr]public struct CREDENTIAL_TARGET_INFORMATIONW
+[CRepr]
+public struct CREDENTIAL_TARGET_INFORMATIONW
 {
 	public PWSTR TargetName;
 	public PWSTR NetbiosServerName;
@@ -532,24 +540,28 @@ public function void LPOCNDSCPROC(uint param0, uint param1, void* param2);
 	public uint32* CredTypes;
 }
 
-[CRepr]public struct CERT_CREDENTIAL_INFO
+[CRepr]
+public struct CERT_CREDENTIAL_INFO
 {
 	public uint32 cbSize;
 	public uint8[20] rgbHashOfCert;
 }
 
-[CRepr]public struct USERNAME_TARGET_CREDENTIAL_INFO
+[CRepr]
+public struct USERNAME_TARGET_CREDENTIAL_INFO
 {
 	public PWSTR UserName;
 }
 
-[CRepr]public struct BINARY_BLOB_CREDENTIAL_INFO
+[CRepr]
+public struct BINARY_BLOB_CREDENTIAL_INFO
 {
 	public uint32 cbBlob;
 	public uint8* pbBlob;
 }
 
-[CRepr]public struct CREDUI_INFOA
+[CRepr]
+public struct CREDUI_INFOA
 {
 	public uint32 cbSize;
 	public HWND hwndParent;
@@ -558,7 +570,8 @@ public function void LPOCNDSCPROC(uint param0, uint param1, void* param2);
 	public HBITMAP hbmBanner;
 }
 
-[CRepr]public struct CREDUI_INFOW
+[CRepr]
+public struct CREDUI_INFOW
 {
 	public uint32 cbSize;
 	public HWND hwndParent;
@@ -567,13 +580,15 @@ public function void LPOCNDSCPROC(uint param0, uint param1, void* param2);
 	public HBITMAP hbmBanner;
 }
 
-[CRepr]public struct SCARD_IO_REQUEST
+[CRepr]
+public struct SCARD_IO_REQUEST
 {
 	public uint32 dwProtocol;
 	public uint32 cbPciLength;
 }
 
-[CRepr]public struct SCARD_T0_COMMAND
+[CRepr]
+public struct SCARD_T0_COMMAND
 {
 	public uint8 bCla;
 	public uint8 bIns;
@@ -582,9 +597,11 @@ public function void LPOCNDSCPROC(uint param0, uint param1, void* param2);
 	public uint8 bP3;
 }
 
-[CRepr]public struct SCARD_T0_REQUEST
+[CRepr]
+public struct SCARD_T0_REQUEST
 {
-	[CRepr, Union]	public struct _Anonymous_e__Union
+	[CRepr, Union]
+	public struct _Anonymous_e__Union
 	{
 		public SCARD_T0_COMMAND CmdBytes;
 		public uint8[5] rgbHeader;
@@ -596,12 +613,14 @@ public function void LPOCNDSCPROC(uint param0, uint param1, void* param2);
 	public using _Anonymous_e__Union Anonymous;
 }
 
-[CRepr]public struct SCARD_T1_REQUEST
+[CRepr]
+public struct SCARD_T1_REQUEST
 {
 	public SCARD_IO_REQUEST ioRequest;
 }
 
-[CRepr]public struct SCARD_READERSTATEA
+[CRepr]
+public struct SCARD_READERSTATEA
 {
 	public PSTR szReader;
 	public void* pvUserData;
@@ -611,7 +630,8 @@ public function void LPOCNDSCPROC(uint param0, uint param1, void* param2);
 	public uint8[36] rgbAtr;
 }
 
-[CRepr]public struct SCARD_READERSTATEW
+[CRepr]
+public struct SCARD_READERSTATEW
 {
 	public PWSTR szReader;
 	public void* pvUserData;
@@ -621,14 +641,16 @@ public function void LPOCNDSCPROC(uint param0, uint param1, void* param2);
 	public uint8[36] rgbAtr;
 }
 
-[CRepr]public struct SCARD_ATRMASK
+[CRepr]
+public struct SCARD_ATRMASK
 {
 	public uint32 cbAtr;
 	public uint8[36] rgbAtr;
 	public uint8[36] rgbMask;
 }
 
-[CRepr]public struct OPENCARD_SEARCH_CRITERIAA
+[CRepr]
+public struct OPENCARD_SEARCH_CRITERIAA
 {
 	public uint32 dwStructSize;
 	public PSTR lpstrGroupNames;
@@ -645,7 +667,8 @@ public function void LPOCNDSCPROC(uint param0, uint param1, void* param2);
 	public uint32 dwPreferredProtocols;
 }
 
-[CRepr]public struct OPENCARD_SEARCH_CRITERIAW
+[CRepr]
+public struct OPENCARD_SEARCH_CRITERIAW
 {
 	public uint32 dwStructSize;
 	public PWSTR lpstrGroupNames;
@@ -662,7 +685,8 @@ public function void LPOCNDSCPROC(uint param0, uint param1, void* param2);
 	public uint32 dwPreferredProtocols;
 }
 
-[CRepr]public struct OPENCARDNAME_EXA
+[CRepr]
+public struct OPENCARDNAME_EXA
 {
 	public uint32 dwStructSize;
 	public uint hSCardContext;
@@ -684,7 +708,8 @@ public function void LPOCNDSCPROC(uint param0, uint param1, void* param2);
 	public uint hCardHandle;
 }
 
-[CRepr]public struct OPENCARDNAME_EXW
+[CRepr]
+public struct OPENCARDNAME_EXW
 {
 	public uint32 dwStructSize;
 	public uint hSCardContext;
@@ -706,11 +731,14 @@ public function void LPOCNDSCPROC(uint param0, uint param1, void* param2);
 	public uint hCardHandle;
 }
 
-[CRepr]public struct READER_SEL_REQUEST
+[CRepr]
+public struct READER_SEL_REQUEST
 {
-	[CRepr, Union]	public struct _Anonymous_e__Union
+	[CRepr, Union]
+	public struct _Anonymous_e__Union
 	{
-		[CRepr]		public struct _ReaderAndContainerParameter_e__Struct
+		[CRepr]
+		public struct _ReaderAndContainerParameter_e__Struct
 		{
 			public uint32 cbReaderNameOffset;
 			public uint32 cchReaderNameLength;
@@ -720,7 +748,8 @@ public function void LPOCNDSCPROC(uint param0, uint param1, void* param2);
 			public uint32 dwCspFlags;
 		}
 
-		[CRepr]		public struct _SerialNumberParameter_e__Struct
+		[CRepr]
+		public struct _SerialNumberParameter_e__Struct
 		{
 			public uint32 cbSerialNumberOffset;
 			public uint32 cbSerialNumberLength;
@@ -737,7 +766,8 @@ public function void LPOCNDSCPROC(uint param0, uint param1, void* param2);
 	public using _Anonymous_e__Union Anonymous;
 }
 
-[CRepr]public struct READER_SEL_RESPONSE
+[CRepr]
+public struct READER_SEL_RESPONSE
 {
 	public uint32 cbReaderNameOffset;
 	public uint32 cchReaderNameLength;
@@ -745,7 +775,8 @@ public function void LPOCNDSCPROC(uint param0, uint param1, void* param2);
 	public uint32 cchCardNameLength;
 }
 
-[CRepr]public struct OPENCARDNAMEA
+[CRepr]
+public struct OPENCARDNAMEA
 {
 	public uint32 dwStructSize;
 	public HWND hwndOwner;
@@ -772,7 +803,8 @@ public function void LPOCNDSCPROC(uint param0, uint param1, void* param2);
 	public uint hCardHandle;
 }
 
-[CRepr]public struct OPENCARDNAMEW
+[CRepr]
+public struct OPENCARDNAMEW
 {
 	public uint32 dwStructSize;
 	public HWND hwndOwner;
@@ -799,20 +831,23 @@ public function void LPOCNDSCPROC(uint param0, uint param1, void* param2);
 	public uint hCardHandle;
 }
 
-[CRepr]public struct SecPkgContext_ClientCreds
+[CRepr]
+public struct SecPkgContext_ClientCreds
 {
 	public uint32 AuthBufferLen;
 	public uint8* AuthBuffer;
 }
 
-[CRepr]public struct CREDSSP_CRED
+[CRepr]
+public struct CREDSSP_CRED
 {
 	public CREDSPP_SUBMIT_TYPE Type;
 	public void* pSchannelCred;
 	public void* pSpnegoCred;
 }
 
-[CRepr]public struct CREDSSP_CRED_EX
+[CRepr]
+public struct CREDSSP_CRED_EX
 {
 	public CREDSPP_SUBMIT_TYPE Type;
 	public uint32 Version;

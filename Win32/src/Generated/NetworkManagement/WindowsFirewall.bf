@@ -356,7 +356,8 @@ public function uint32 PFN_FWUPDATEDYNAMICKEYWORDADDRESS0(Guid dynamicKeywordAdd
 #endregion
 
 #region Structs
-[CRepr]public struct NETCON_PROPERTIES
+[CRepr]
+public struct NETCON_PROPERTIES
 {
 	public Guid guidId;
 	public PWSTR pszwName;
@@ -368,21 +369,25 @@ public function uint32 PFN_FWUPDATEDYNAMICKEYWORDADDRESS0(Guid dynamicKeywordAdd
 	public Guid clsidUiObject;
 }
 
-[CRepr]public struct INET_FIREWALL_AC_CAPABILITIES
+[CRepr]
+public struct INET_FIREWALL_AC_CAPABILITIES
 {
 	public uint32 count;
 	public SID_AND_ATTRIBUTES* capabilities;
 }
 
-[CRepr]public struct INET_FIREWALL_AC_BINARIES
+[CRepr]
+public struct INET_FIREWALL_AC_BINARIES
 {
 	public uint32 count;
 	public PWSTR* binaries;
 }
 
-[CRepr]public struct INET_FIREWALL_AC_CHANGE
+[CRepr]
+public struct INET_FIREWALL_AC_CHANGE
 {
-	[CRepr, Union]	public struct _Anonymous_e__Union
+	[CRepr, Union]
+	public struct _Anonymous_e__Union
 	{
 		public INET_FIREWALL_AC_CAPABILITIES capabilities;
 		public INET_FIREWALL_AC_BINARIES binaries;
@@ -396,7 +401,8 @@ public function uint32 PFN_FWUPDATEDYNAMICKEYWORDADDRESS0(Guid dynamicKeywordAdd
 	public using _Anonymous_e__Union Anonymous;
 }
 
-[CRepr]public struct INET_FIREWALL_APP_CONTAINER
+[CRepr]
+public struct INET_FIREWALL_APP_CONTAINER
 {
 	public SID* appContainerSid;
 	public SID* userSid;
@@ -409,7 +415,8 @@ public function uint32 PFN_FWUPDATEDYNAMICKEYWORDADDRESS0(Guid dynamicKeywordAdd
 	public PWSTR packageFullName;
 }
 
-[CRepr]public struct _tag_FW_DYNAMIC_KEYWORD_ADDRESS0
+[CRepr]
+public struct _tag_FW_DYNAMIC_KEYWORD_ADDRESS0
 {
 	public Guid id;
 	public PWSTR keyword;
@@ -417,7 +424,8 @@ public function uint32 PFN_FWUPDATEDYNAMICKEYWORDADDRESS0(Guid dynamicKeywordAdd
 	public PWSTR addresses;
 }
 
-[CRepr]public struct _tag_FW_DYNAMIC_KEYWORD_ADDRESS_DATA0
+[CRepr]
+public struct _tag_FW_DYNAMIC_KEYWORD_ADDRESS_DATA0
 {
 	public _tag_FW_DYNAMIC_KEYWORD_ADDRESS0 dynamicKeywordAddress;
 	public _tag_FW_DYNAMIC_KEYWORD_ADDRESS_DATA0* next;

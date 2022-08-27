@@ -389,9 +389,11 @@ public function BOOLEAN VERIFYSERVERCERT(ldap* Connection, CERT_CONTEXT** pServe
 #endregion
 
 #region Structs
-[CRepr]public struct ldap
+[CRepr]
+public struct ldap
 {
-	[CRepr]	public struct _ld_sb_e__Struct
+	[CRepr]
+	public struct _ld_sb_e__Struct
 	{
 		public uint sb_sd;
 		public uint8[41] Reserved1;
@@ -417,19 +419,22 @@ public function BOOLEAN VERIFYSERVERCERT(ldap* Connection, CERT_CONTEXT** pServe
 	public uint32 ld_options;
 }
 
-[CRepr]public struct LDAP_TIMEVAL
+[CRepr]
+public struct LDAP_TIMEVAL
 {
 	public int32 tv_sec;
 	public int32 tv_usec;
 }
 
-[CRepr]public struct LDAP_BERVAL
+[CRepr]
+public struct LDAP_BERVAL
 {
 	public uint32 bv_len;
 	public PSTR bv_val;
 }
 
-[CRepr]public struct LDAPMessage
+[CRepr]
+public struct LDAPMessage
 {
 	public uint32 lm_msgid;
 	public uint32 lm_msgtype;
@@ -446,23 +451,27 @@ public function BOOLEAN VERIFYSERVERCERT(ldap* Connection, CERT_CONTEXT** pServe
 	public BOOLEAN ConnectionReferenced;
 }
 
-[CRepr]public struct ldapcontrolA
+[CRepr]
+public struct ldapcontrolA
 {
 	public PSTR ldctl_oid;
 	public LDAP_BERVAL ldctl_value;
 	public BOOLEAN ldctl_iscritical;
 }
 
-[CRepr]public struct ldapcontrolW
+[CRepr]
+public struct ldapcontrolW
 {
 	public PWSTR ldctl_oid;
 	public LDAP_BERVAL ldctl_value;
 	public BOOLEAN ldctl_iscritical;
 }
 
-[CRepr]public struct ldapmodW
+[CRepr]
+public struct ldapmodW
 {
-	[CRepr, Union]	public struct _mod_vals_e__Union
+	[CRepr, Union]
+	public struct _mod_vals_e__Union
 	{
 		public PWSTR* modv_strvals;
 		public LDAP_BERVAL** modv_bvals;
@@ -473,9 +482,11 @@ public function BOOLEAN VERIFYSERVERCERT(ldap* Connection, CERT_CONTEXT** pServe
 	public _mod_vals_e__Union mod_vals;
 }
 
-[CRepr]public struct ldapmodA
+[CRepr]
+public struct ldapmodA
 {
-	[CRepr, Union]	public struct _mod_vals_e__Union
+	[CRepr, Union]
+	public struct _mod_vals_e__Union
 	{
 		public PSTR* modv_strvals;
 		public LDAP_BERVAL** modv_bvals;
@@ -486,19 +497,22 @@ public function BOOLEAN VERIFYSERVERCERT(ldap* Connection, CERT_CONTEXT** pServe
 	public _mod_vals_e__Union mod_vals;
 }
 
-[CRepr]public struct berelement
+[CRepr]
+public struct berelement
 {
 	public PSTR opaque;
 }
 
-[CRepr]public struct ldap_version_info
+[CRepr]
+public struct ldap_version_info
 {
 	public uint32 lv_size;
 	public uint32 lv_major;
 	public uint32 lv_minor;
 }
 
-[CRepr]public struct ldapapiinfoA
+[CRepr]
+public struct ldapapiinfoA
 {
 	public int32 ldapai_info_version;
 	public int32 ldapai_api_version;
@@ -508,7 +522,8 @@ public function BOOLEAN VERIFYSERVERCERT(ldap* Connection, CERT_CONTEXT** pServe
 	public int32 ldapai_vendor_version;
 }
 
-[CRepr]public struct ldapapiinfoW
+[CRepr]
+public struct ldapapiinfoW
 {
 	public int32 ldapai_info_version;
 	public int32 ldapai_api_version;
@@ -518,39 +533,45 @@ public function BOOLEAN VERIFYSERVERCERT(ldap* Connection, CERT_CONTEXT** pServe
 	public int32 ldapai_vendor_version;
 }
 
-[CRepr]public struct LDAPAPIFeatureInfoA
+[CRepr]
+public struct LDAPAPIFeatureInfoA
 {
 	public int32 ldapaif_info_version;
 	public PSTR ldapaif_name;
 	public int32 ldapaif_version;
 }
 
-[CRepr]public struct LDAPAPIFeatureInfoW
+[CRepr]
+public struct LDAPAPIFeatureInfoW
 {
 	public int32 ldapaif_info_version;
 	public PWSTR ldapaif_name;
 	public int32 ldapaif_version;
 }
 
-[CRepr]public struct ldapsearch
+[CRepr]
+public struct ldapsearch
 {
 }
 
-[CRepr]public struct ldapsortkeyW
+[CRepr]
+public struct ldapsortkeyW
 {
 	public PWSTR sk_attrtype;
 	public PWSTR sk_matchruleoid;
 	public BOOLEAN sk_reverseorder;
 }
 
-[CRepr]public struct ldapsortkeyA
+[CRepr]
+public struct ldapsortkeyA
 {
 	public PSTR sk_attrtype;
 	public PSTR sk_matchruleoid;
 	public BOOLEAN sk_reverseorder;
 }
 
-[CRepr]public struct ldapvlvinfo
+[CRepr]
+public struct ldapvlvinfo
 {
 	public int32 ldvlv_version;
 	public uint32 ldvlv_before_count;
@@ -562,7 +583,8 @@ public function BOOLEAN VERIFYSERVERCERT(ldap* Connection, CERT_CONTEXT** pServe
 	public void* ldvlv_extradata;
 }
 
-[CRepr]public struct LDAP_REFERRAL_CALLBACK
+[CRepr]
+public struct LDAP_REFERRAL_CALLBACK
 {
 	public uint32 SizeOfCallbacks;
 	public QUERYFORCONNECTION QueryForConnection;

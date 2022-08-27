@@ -135,7 +135,8 @@ public enum SAFER_IDENTIFICATION_TYPES : int32
 #endregion
 
 #region Structs
-[CRepr]public struct SAFER_CODE_PROPERTIES_V1
+[CRepr]
+public struct SAFER_CODE_PROPERTIES_V1
 {
 	public uint32 cbSize;
 	public uint32 dwCheckFlags;
@@ -151,7 +152,8 @@ public enum SAFER_IDENTIFICATION_TYPES : int32
 	public uint32 dwWVTUIChoice;
 }
 
-[CRepr]public struct SAFER_CODE_PROPERTIES_V2
+[CRepr]
+public struct SAFER_CODE_PROPERTIES_V2
 {
 	public uint32 cbSize;
 	public uint32 dwCheckFlags;
@@ -172,7 +174,8 @@ public enum SAFER_IDENTIFICATION_TYPES : int32
 	public BOOL PackageIsFramework;
 }
 
-[CRepr]public struct SAFER_IDENTIFICATION_HEADER
+[CRepr]
+public struct SAFER_IDENTIFICATION_HEADER
 {
 	public SAFER_IDENTIFICATION_TYPES dwIdentificationType;
 	public uint32 cbStructSize;
@@ -180,7 +183,8 @@ public enum SAFER_IDENTIFICATION_TYPES : int32
 	public FILETIME lastModified;
 }
 
-[CRepr]public struct SAFER_PATHNAME_IDENTIFICATION
+[CRepr]
+public struct SAFER_PATHNAME_IDENTIFICATION
 {
 	public SAFER_IDENTIFICATION_HEADER header;
 	public char8[256] Description;
@@ -188,7 +192,8 @@ public enum SAFER_IDENTIFICATION_TYPES : int32
 	public uint32 dwSaferFlags;
 }
 
-[CRepr]public struct SAFER_HASH_IDENTIFICATION
+[CRepr]
+public struct SAFER_HASH_IDENTIFICATION
 {
 	public SAFER_IDENTIFICATION_HEADER header;
 	public char8[256] Description;
@@ -200,7 +205,8 @@ public enum SAFER_IDENTIFICATION_TYPES : int32
 	public uint32 dwSaferFlags;
 }
 
-[CRepr]public struct SAFER_HASH_IDENTIFICATION2
+[CRepr]
+public struct SAFER_HASH_IDENTIFICATION2
 {
 	public SAFER_HASH_IDENTIFICATION hashIdentification;
 	public uint32 HashSize;
@@ -208,7 +214,8 @@ public enum SAFER_IDENTIFICATION_TYPES : int32
 	public uint32 HashAlgorithm;
 }
 
-[CRepr]public struct SAFER_URLZONE_IDENTIFICATION
+[CRepr]
+public struct SAFER_URLZONE_IDENTIFICATION
 {
 	public SAFER_IDENTIFICATION_HEADER header;
 	public uint32 UrlZoneId;

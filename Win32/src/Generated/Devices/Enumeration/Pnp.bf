@@ -135,7 +135,8 @@ public function void SW_DEVICE_CREATE_CALLBACK(HSWDEVICE hSwDevice, HRESULT Crea
 #endregion
 
 #region Structs
-[CRepr]public struct SW_DEVICE_CREATE_INFO
+[CRepr]
+public struct SW_DEVICE_CREATE_INFO
 {
 	public uint32 cbSize;
 	public PWSTR pszInstanceId;

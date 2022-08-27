@@ -79,7 +79,8 @@ public enum INPUT_MESSAGE_ORIGIN_ID : int32
 #endregion
 
 #region Structs
-[CRepr]public struct RAWINPUTHEADER
+[CRepr]
+public struct RAWINPUTHEADER
 {
 	public uint32 dwType;
 	public uint32 dwSize;
@@ -87,11 +88,14 @@ public enum INPUT_MESSAGE_ORIGIN_ID : int32
 	public WPARAM wParam;
 }
 
-[CRepr]public struct RAWMOUSE
+[CRepr]
+public struct RAWMOUSE
 {
-	[CRepr, Union]	public struct _Anonymous_e__Union
+	[CRepr, Union]
+	public struct _Anonymous_e__Union
 	{
-		[CRepr]		public struct _Anonymous_e__Struct
+		[CRepr]
+		public struct _Anonymous_e__Struct
 		{
 			public uint16 usButtonFlags;
 			public uint16 usButtonData;
@@ -109,7 +113,8 @@ public enum INPUT_MESSAGE_ORIGIN_ID : int32
 	public uint32 ulExtraInformation;
 }
 
-[CRepr]public struct RAWKEYBOARD
+[CRepr]
+public struct RAWKEYBOARD
 {
 	public uint16 MakeCode;
 	public uint16 Flags;
@@ -119,16 +124,19 @@ public enum INPUT_MESSAGE_ORIGIN_ID : int32
 	public uint32 ExtraInformation;
 }
 
-[CRepr]public struct RAWHID
+[CRepr]
+public struct RAWHID
 {
 	public uint32 dwSizeHid;
 	public uint32 dwCount;
 	public uint8[1] bRawData;
 }
 
-[CRepr]public struct RAWINPUT
+[CRepr]
+public struct RAWINPUT
 {
-	[CRepr, Union]	public struct _data_e__Union
+	[CRepr, Union]
+	public struct _data_e__Union
 	{
 		public RAWMOUSE mouse;
 		public RAWKEYBOARD keyboard;
@@ -139,7 +147,8 @@ public enum INPUT_MESSAGE_ORIGIN_ID : int32
 	public _data_e__Union data;
 }
 
-[CRepr]public struct RID_DEVICE_INFO_MOUSE
+[CRepr]
+public struct RID_DEVICE_INFO_MOUSE
 {
 	public uint32 dwId;
 	public uint32 dwNumberOfButtons;
@@ -147,7 +156,8 @@ public enum INPUT_MESSAGE_ORIGIN_ID : int32
 	public BOOL fHasHorizontalWheel;
 }
 
-[CRepr]public struct RID_DEVICE_INFO_KEYBOARD
+[CRepr]
+public struct RID_DEVICE_INFO_KEYBOARD
 {
 	public uint32 dwType;
 	public uint32 dwSubType;
@@ -157,7 +167,8 @@ public enum INPUT_MESSAGE_ORIGIN_ID : int32
 	public uint32 dwNumberOfKeysTotal;
 }
 
-[CRepr]public struct RID_DEVICE_INFO_HID
+[CRepr]
+public struct RID_DEVICE_INFO_HID
 {
 	public uint32 dwVendorId;
 	public uint32 dwProductId;
@@ -166,9 +177,11 @@ public enum INPUT_MESSAGE_ORIGIN_ID : int32
 	public uint16 usUsage;
 }
 
-[CRepr]public struct RID_DEVICE_INFO
+[CRepr]
+public struct RID_DEVICE_INFO
 {
-	[CRepr, Union]	public struct _Anonymous_e__Union
+	[CRepr, Union]
+	public struct _Anonymous_e__Union
 	{
 		public RID_DEVICE_INFO_MOUSE mouse;
 		public RID_DEVICE_INFO_KEYBOARD keyboard;
@@ -180,7 +193,8 @@ public enum INPUT_MESSAGE_ORIGIN_ID : int32
 	public using _Anonymous_e__Union Anonymous;
 }
 
-[CRepr]public struct RAWINPUTDEVICE
+[CRepr]
+public struct RAWINPUTDEVICE
 {
 	public uint16 usUsagePage;
 	public uint16 usUsage;
@@ -188,13 +202,15 @@ public enum INPUT_MESSAGE_ORIGIN_ID : int32
 	public HWND hwndTarget;
 }
 
-[CRepr]public struct RAWINPUTDEVICELIST
+[CRepr]
+public struct RAWINPUTDEVICELIST
 {
 	public HANDLE hDevice;
 	public RID_DEVICE_INFO_TYPE dwType;
 }
 
-[CRepr]public struct INPUT_MESSAGE_SOURCE
+[CRepr]
+public struct INPUT_MESSAGE_SOURCE
 {
 	public INPUT_MESSAGE_DEVICE_TYPE deviceType;
 	public INPUT_MESSAGE_ORIGIN_ID originId;

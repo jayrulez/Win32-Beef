@@ -4810,58 +4810,67 @@ public function int32 UStringCaseMapper(UCaseMap* csm, uint16* dest, int32 destC
 #endregion
 
 #region Structs
-[CRepr]public struct FONTSIGNATURE
+[CRepr]
+public struct FONTSIGNATURE
 {
 	public uint32[4] fsUsb;
 	public uint32[2] fsCsb;
 }
 
-[CRepr]public struct CHARSETINFO
+[CRepr]
+public struct CHARSETINFO
 {
 	public uint32 ciCharset;
 	public uint32 ciACP;
 	public FONTSIGNATURE fs;
 }
 
-[CRepr]public struct LOCALESIGNATURE
+[CRepr]
+public struct LOCALESIGNATURE
 {
 	public uint32[4] lsUsb;
 	public uint32[2] lsCsbDefault;
 	public uint32[2] lsCsbSupported;
 }
 
-[CRepr]public struct NEWTEXTMETRICEXA
+[CRepr]
+public struct NEWTEXTMETRICEXA
 {
 	public NEWTEXTMETRICA ntmTm;
 	public FONTSIGNATURE ntmFontSig;
 }
 
-[CRepr]public struct NEWTEXTMETRICEXW
+[CRepr]
+public struct NEWTEXTMETRICEXW
 {
 	public NEWTEXTMETRICW ntmTm;
 	public FONTSIGNATURE ntmFontSig;
 }
 
-[CRepr]public struct ENUMTEXTMETRICA
+[CRepr]
+public struct ENUMTEXTMETRICA
 {
 	public NEWTEXTMETRICEXA etmNewTextMetricEx;
 	public AXESLISTA etmAxesList;
 }
 
-[CRepr]public struct ENUMTEXTMETRICW
+[CRepr]
+public struct ENUMTEXTMETRICW
 {
 	public NEWTEXTMETRICEXW etmNewTextMetricEx;
 	public AXESLISTW etmAxesList;
 }
 
-[CRepr]public struct CPINFO
+[CRepr]
+public struct CPINFO
 {
 	public uint32 MaxCharSize;
 	public uint8[2] DefaultChar;
 	public uint8[12] LeadByte;
 }
 
-[CRepr]public struct CPINFOEXA
+[CRepr]
+public struct CPINFOEXA
 {
 	public uint32 MaxCharSize;
 	public uint8[2] DefaultChar;
@@ -4871,7 +4880,8 @@ public function int32 UStringCaseMapper(UCaseMap* csm, uint16* dest, int32 destC
 	public CHAR[260] CodePageName;
 }
 
-[CRepr]public struct CPINFOEXW
+[CRepr]
+public struct CPINFOEXW
 {
 	public uint32 MaxCharSize;
 	public uint8[2] DefaultChar;
@@ -4881,7 +4891,8 @@ public function int32 UStringCaseMapper(UCaseMap* csm, uint16* dest, int32 destC
 	public char8[260] CodePageName;
 }
 
-[CRepr]public struct NUMBERFMTA
+[CRepr]
+public struct NUMBERFMTA
 {
 	public uint32 NumDigits;
 	public uint32 LeadingZero;
@@ -4891,7 +4902,8 @@ public function int32 UStringCaseMapper(UCaseMap* csm, uint16* dest, int32 destC
 	public uint32 NegativeOrder;
 }
 
-[CRepr]public struct NUMBERFMTW
+[CRepr]
+public struct NUMBERFMTW
 {
 	public uint32 NumDigits;
 	public uint32 LeadingZero;
@@ -4901,7 +4913,8 @@ public function int32 UStringCaseMapper(UCaseMap* csm, uint16* dest, int32 destC
 	public uint32 NegativeOrder;
 }
 
-[CRepr]public struct CURRENCYFMTA
+[CRepr]
+public struct CURRENCYFMTA
 {
 	public uint32 NumDigits;
 	public uint32 LeadingZero;
@@ -4913,7 +4926,8 @@ public function int32 UStringCaseMapper(UCaseMap* csm, uint16* dest, int32 destC
 	public PSTR lpCurrencySymbol;
 }
 
-[CRepr]public struct CURRENCYFMTW
+[CRepr]
+public struct CURRENCYFMTW
 {
 	public uint32 NumDigits;
 	public uint32 LeadingZero;
@@ -4925,7 +4939,8 @@ public function int32 UStringCaseMapper(UCaseMap* csm, uint16* dest, int32 destC
 	public PWSTR lpCurrencySymbol;
 }
 
-[CRepr]public struct NLSVERSIONINFO
+[CRepr]
+public struct NLSVERSIONINFO
 {
 	public uint32 dwNLSVersionInfoSize;
 	public uint32 dwNLSVersion;
@@ -4934,7 +4949,8 @@ public function int32 UStringCaseMapper(UCaseMap* csm, uint16* dest, int32 destC
 	public Guid guidCustomVersion;
 }
 
-[CRepr]public struct NLSVERSIONINFOEX
+[CRepr]
+public struct NLSVERSIONINFOEX
 {
 	public uint32 dwNLSVersionInfoSize;
 	public uint32 dwNLSVersion;
@@ -4943,7 +4959,8 @@ public function int32 UStringCaseMapper(UCaseMap* csm, uint16* dest, int32 destC
 	public Guid guidCustomVersion;
 }
 
-[CRepr]public struct FILEMUIINFO
+[CRepr]
+public struct FILEMUIINFO
 {
 	public uint32 dwSize;
 	public uint32 dwVersion;
@@ -4960,7 +4977,8 @@ public function int32 UStringCaseMapper(UCaseMap* csm, uint16* dest, int32 destC
 	public uint8[8] abBuffer;
 }
 
-[CRepr]public struct MAPPING_SERVICE_INFO
+[CRepr]
+public struct MAPPING_SERVICE_INFO
 {
 	public uint Size;
 	public PWSTR pszCopyright;
@@ -4989,7 +5007,8 @@ public function int32 UStringCaseMapper(UCaseMap* csm, uint16* dest, int32 destC
 	public uint32 _bitfield;
 }
 
-[CRepr]public struct MAPPING_ENUM_OPTIONS
+[CRepr]
+public struct MAPPING_ENUM_OPTIONS
 {
 	public uint Size;
 	public PWSTR pszCategory;
@@ -5003,7 +5022,8 @@ public function int32 UStringCaseMapper(UCaseMap* csm, uint16* dest, int32 destC
 	public uint32 _bitfield;
 }
 
-[CRepr]public struct MAPPING_OPTIONS
+[CRepr]
+public struct MAPPING_OPTIONS
 {
 	public uint Size;
 	public PWSTR pszInputLanguage;
@@ -5023,7 +5043,8 @@ public function int32 UStringCaseMapper(UCaseMap* csm, uint16* dest, int32 destC
 	public uint32 _bitfield;
 }
 
-[CRepr]public struct MAPPING_DATA_RANGE
+[CRepr]
+public struct MAPPING_DATA_RANGE
 {
 	public uint32 dwStartIndex;
 	public uint32 dwEndIndex;
@@ -5037,7 +5058,8 @@ public function int32 UStringCaseMapper(UCaseMap* csm, uint16* dest, int32 destC
 	public PWSTR* prgActionDisplayNames;
 }
 
-[CRepr]public struct MAPPING_PROPERTY_BAG
+[CRepr]
+public struct MAPPING_PROPERTY_BAG
 {
 	public uint Size;
 	public MAPPING_DATA_RANGE* prgResultRanges;
@@ -5049,51 +5071,60 @@ public function int32 UStringCaseMapper(UCaseMap* csm, uint16* dest, int32 destC
 	public void* pContext;
 }
 
-[CRepr]public struct SCRIPT_CONTROL
+[CRepr]
+public struct SCRIPT_CONTROL
 {
 	public uint32 _bitfield;
 }
 
-[CRepr]public struct SCRIPT_STATE
+[CRepr]
+public struct SCRIPT_STATE
 {
 	public uint16 _bitfield;
 }
 
-[CRepr]public struct SCRIPT_ANALYSIS
+[CRepr]
+public struct SCRIPT_ANALYSIS
 {
 	public uint16 _bitfield;
 	public SCRIPT_STATE s;
 }
 
-[CRepr]public struct SCRIPT_ITEM
+[CRepr]
+public struct SCRIPT_ITEM
 {
 	public int32 iCharPos;
 	public SCRIPT_ANALYSIS a;
 }
 
-[CRepr]public struct SCRIPT_VISATTR
+[CRepr]
+public struct SCRIPT_VISATTR
 {
 	public uint16 _bitfield;
 }
 
-[CRepr]public struct GOFFSET
+[CRepr]
+public struct GOFFSET
 {
 	public int32 du;
 	public int32 dv;
 }
 
-[CRepr]public struct SCRIPT_LOGATTR
+[CRepr]
+public struct SCRIPT_LOGATTR
 {
 	public uint8 _bitfield;
 }
 
-[CRepr]public struct SCRIPT_PROPERTIES
+[CRepr]
+public struct SCRIPT_PROPERTIES
 {
 	public uint32 _bitfield1;
 	public uint32 _bitfield2;
 }
 
-[CRepr]public struct SCRIPT_FONTPROPERTIES
+[CRepr]
+public struct SCRIPT_FONTPROPERTIES
 {
 	public int32 cBytes;
 	public uint16 wgBlank;
@@ -5103,7 +5134,8 @@ public function int32 UStringCaseMapper(UCaseMap* csm, uint16* dest, int32 destC
 	public int32 iKashidaWidth;
 }
 
-[CRepr]public struct SCRIPT_TABDEF
+[CRepr]
+public struct SCRIPT_TABDEF
 {
 	public int32 cTabStops;
 	public int32 iScale;
@@ -5111,37 +5143,43 @@ public function int32 UStringCaseMapper(UCaseMap* csm, uint16* dest, int32 destC
 	public int32 iTabOrigin;
 }
 
-[CRepr]public struct SCRIPT_DIGITSUBSTITUTE
+[CRepr]
+public struct SCRIPT_DIGITSUBSTITUTE
 {
 	public uint32 _bitfield1;
 	public uint32 _bitfield2;
 	public uint32 dwReserved;
 }
 
-[CRepr]public struct opentype_feature_record
+[CRepr]
+public struct opentype_feature_record
 {
 	public uint32 tagFeature;
 	public int32 lParameter;
 }
 
-[CRepr]public struct textrange_properties
+[CRepr]
+public struct textrange_properties
 {
 	public opentype_feature_record* potfRecords;
 	public int32 cotfRecords;
 }
 
-[CRepr]public struct script_charprop
+[CRepr]
+public struct script_charprop
 {
 	public uint16 _bitfield;
 }
 
-[CRepr]public struct script_glyphprop
+[CRepr]
+public struct script_glyphprop
 {
 	public SCRIPT_VISATTR sva;
 	public uint16 reserved;
 }
 
-[CRepr]public struct UReplaceableCallbacks
+[CRepr]
+public struct UReplaceableCallbacks
 {
 	public int length;
 	public int charAt;
@@ -5151,14 +5189,16 @@ public function int32 UStringCaseMapper(UCaseMap* csm, uint16* dest, int32 destC
 	public int copy;
 }
 
-[CRepr]public struct UFieldPosition
+[CRepr]
+public struct UFieldPosition
 {
 	public int32 field;
 	public int32 beginIndex;
 	public int32 endIndex;
 }
 
-[CRepr]public struct UCharIterator
+[CRepr]
+public struct UCharIterator
 {
 	public void* context;
 	public int32 length;
@@ -5178,23 +5218,28 @@ public function int32 UStringCaseMapper(UCaseMap* csm, uint16* dest, int32 destC
 	public UCharIteratorSetState setState;
 }
 
-[CRepr]public struct UEnumeration
+[CRepr]
+public struct UEnumeration
 {
 }
 
-[CRepr]public struct UResourceBundle
+[CRepr]
+public struct UResourceBundle
 {
 }
 
-[CRepr]public struct ULocaleDisplayNames
+[CRepr]
+public struct ULocaleDisplayNames
 {
 }
 
-[CRepr]public struct UCPMap
+[CRepr]
+public struct UCPMap
 {
 }
 
-[CRepr, Union]public struct UCPTrieData
+[CRepr, Union]
+public struct UCPTrieData
 {
 	public void* ptr0;
 	public uint16* ptr16;
@@ -5202,7 +5247,8 @@ public function int32 UStringCaseMapper(UCaseMap* csm, uint16* dest, int32 destC
 	public uint8* ptr8;
 }
 
-[CRepr]public struct UCPTrie
+[CRepr]
+public struct UCPTrie
 {
 	public uint16* index;
 	public UCPTrieData data;
@@ -5219,15 +5265,18 @@ public function int32 UStringCaseMapper(UCaseMap* csm, uint16* dest, int32 destC
 	public uint32 nullValue;
 }
 
-[CRepr]public struct UMutableCPTrie
+[CRepr]
+public struct UMutableCPTrie
 {
 }
 
-[CRepr]public struct UConverter
+[CRepr]
+public struct UConverter
 {
 }
 
-[CRepr]public struct UConverterFromUnicodeArgs
+[CRepr]
+public struct UConverterFromUnicodeArgs
 {
 	public uint16 size;
 	public int8 flush;
@@ -5239,7 +5288,8 @@ public function int32 UStringCaseMapper(UCaseMap* csm, uint16* dest, int32 destC
 	public int32* offsets;
 }
 
-[CRepr]public struct UConverterToUnicodeArgs
+[CRepr]
+public struct UConverterToUnicodeArgs
 {
 	public uint16 size;
 	public int8 flush;
@@ -5251,19 +5301,23 @@ public function int32 UStringCaseMapper(UCaseMap* csm, uint16* dest, int32 destC
 	public int32* offsets;
 }
 
-[CRepr]public struct USet
+[CRepr]
+public struct USet
 {
 }
 
-[CRepr]public struct UBiDi
+[CRepr]
+public struct UBiDi
 {
 }
 
-[CRepr]public struct UBiDiTransform
+[CRepr]
+public struct UBiDiTransform
 {
 }
 
-[CRepr]public struct UTextFuncs
+[CRepr]
+public struct UTextFuncs
 {
 	public int32 tableSize;
 	public int32 reserved1;
@@ -5283,7 +5337,8 @@ public function int32 UStringCaseMapper(UCaseMap* csm, uint16* dest, int32 destC
 	public UTextClose spare3;
 }
 
-[CRepr]public struct UText
+[CRepr]
+public struct UText
 {
 	public uint32 magic;
 	public int32 flags;
@@ -5311,7 +5366,8 @@ public function int32 UStringCaseMapper(UCaseMap* csm, uint16* dest, int32 destC
 	public int32 privC;
 }
 
-[CRepr]public struct USerializedSet
+[CRepr]
+public struct USerializedSet
 {
 	public uint16* array;
 	public int32 bmpLength;
@@ -5319,23 +5375,28 @@ public function int32 UStringCaseMapper(UCaseMap* csm, uint16* dest, int32 destC
 	public uint16[8] staticArray;
 }
 
-[CRepr]public struct UNormalizer2
+[CRepr]
+public struct UNormalizer2
 {
 }
 
-[CRepr]public struct UConverterSelector
+[CRepr]
+public struct UConverterSelector
 {
 }
 
-[CRepr]public struct UBreakIterator
+[CRepr]
+public struct UBreakIterator
 {
 }
 
-[CRepr]public struct UCaseMap
+[CRepr]
+public struct UCaseMap
 {
 }
 
-[CRepr]public struct UParseError
+[CRepr]
+public struct UParseError
 {
 	public int32 line;
 	public int32 offset;
@@ -5343,15 +5404,18 @@ public function int32 UStringCaseMapper(UCaseMap* csm, uint16* dest, int32 destC
 	public uint16[16] postContext;
 }
 
-[CRepr]public struct UStringPrepProfile
+[CRepr]
+public struct UStringPrepProfile
 {
 }
 
-[CRepr]public struct UIDNA
+[CRepr]
+public struct UIDNA
 {
 }
 
-[CRepr]public struct UIDNAInfo
+[CRepr]
+public struct UIDNAInfo
 {
 	public int16 size;
 	public int8 isTransitionalDifferent;
@@ -5361,111 +5425,138 @@ public function int32 UStringCaseMapper(UCaseMap* csm, uint16* dest, int32 destC
 	public int32 reservedI3;
 }
 
-[CRepr]public struct UCollator
+[CRepr]
+public struct UCollator
 {
 }
 
-[CRepr]public struct UCollationElements
+[CRepr]
+public struct UCollationElements
 {
 }
 
-[CRepr]public struct UCharsetDetector
+[CRepr]
+public struct UCharsetDetector
 {
 }
 
-[CRepr]public struct UCharsetMatch
+[CRepr]
+public struct UCharsetMatch
 {
 }
 
-[CRepr]public struct UFieldPositionIterator
+[CRepr]
+public struct UFieldPositionIterator
 {
 }
 
-[CRepr]public struct UConstrainedFieldPosition
+[CRepr]
+public struct UConstrainedFieldPosition
 {
 }
 
-[CRepr]public struct UFormattedValue
+[CRepr]
+public struct UFormattedValue
 {
 }
 
-[CRepr]public struct UDateIntervalFormat
+[CRepr]
+public struct UDateIntervalFormat
 {
 }
 
-[CRepr]public struct UFormattedDateInterval
+[CRepr]
+public struct UFormattedDateInterval
 {
 }
 
-[CRepr]public struct UGenderInfo
+[CRepr]
+public struct UGenderInfo
 {
 }
 
-[CRepr]public struct UListFormatter
+[CRepr]
+public struct UListFormatter
 {
 }
 
-[CRepr]public struct UFormattedList
+[CRepr]
+public struct UFormattedList
 {
 }
 
-[CRepr]public struct ULocaleData
+[CRepr]
+public struct ULocaleData
 {
 }
 
-[CRepr]public struct UDateFormatSymbols
+[CRepr]
+public struct UDateFormatSymbols
 {
 }
 
-[CRepr]public struct UNumberFormatter
+[CRepr]
+public struct UNumberFormatter
 {
 }
 
-[CRepr]public struct UFormattedNumber
+[CRepr]
+public struct UFormattedNumber
 {
 }
 
-[CRepr]public struct UNumberingSystem
+[CRepr]
+public struct UNumberingSystem
 {
 }
 
-[CRepr]public struct UFormattedNumberRange
+[CRepr]
+public struct UFormattedNumberRange
 {
 }
 
-[CRepr]public struct UPluralRules
+[CRepr]
+public struct UPluralRules
 {
 }
 
-[CRepr]public struct URegularExpression
+[CRepr]
+public struct URegularExpression
 {
 }
 
-[CRepr]public struct URegion
+[CRepr]
+public struct URegion
 {
 }
 
-[CRepr]public struct URelativeDateTimeFormatter
+[CRepr]
+public struct URelativeDateTimeFormatter
 {
 }
 
-[CRepr]public struct UFormattedRelativeDateTime
+[CRepr]
+public struct UFormattedRelativeDateTime
 {
 }
 
-[CRepr]public struct UStringSearch
+[CRepr]
+public struct UStringSearch
 {
 }
 
-[CRepr]public struct USpoofChecker
+[CRepr]
+public struct USpoofChecker
 {
 }
 
-[CRepr]public struct USpoofCheckResult
+[CRepr]
+public struct USpoofCheckResult
 {
 }
 
-[CRepr]public struct UTransPosition
+[CRepr]
+public struct UTransPosition
 {
 	public int32 contextStart;
 	public int32 contextLimit;
@@ -5473,15 +5564,18 @@ public function int32 UStringCaseMapper(UCaseMap* csm, uint16* dest, int32 destC
 	public int32 limit;
 }
 
-[CRepr]public struct UHashtable
+[CRepr]
+public struct UHashtable
 {
 }
 
-[CRepr]public struct USearch
+[CRepr]
+public struct USearch
 {
 }
 
-[CRepr]public struct MIMECPINFO
+[CRepr]
+public struct MIMECPINFO
 {
 	public uint32 dwFlags;
 	public uint32 uiCodePage;
@@ -5495,21 +5589,24 @@ public function int32 UStringCaseMapper(UCaseMap* csm, uint16* dest, int32 destC
 	public uint8 bGDICharset;
 }
 
-[CRepr]public struct MIMECSETINFO
+[CRepr]
+public struct MIMECSETINFO
 {
 	public uint32 uiCodePage;
 	public uint32 uiInternetEncoding;
 	public char8[50] wszCharset;
 }
 
-[CRepr]public struct RFC1766INFO
+[CRepr]
+public struct RFC1766INFO
 {
 	public uint32 lcid;
 	public char8[6] wszRfc1766;
 	public char8[32] wszLocaleName;
 }
 
-[CRepr]public struct SCRIPTINFO
+[CRepr]
+public struct SCRIPTINFO
 {
 	public uint8 ScriptId;
 	public uint32 uiCodePage;
@@ -5518,7 +5615,8 @@ public function int32 UStringCaseMapper(UCaseMap* csm, uint16* dest, int32 destC
 	public char8[32] wszProportionalFont;
 }
 
-[CRepr]public struct DetectEncodingInfo
+[CRepr]
+public struct DetectEncodingInfo
 {
 	public uint32 nLangID;
 	public uint32 nCodePage;
@@ -5526,13 +5624,15 @@ public function int32 UStringCaseMapper(UCaseMap* csm, uint16* dest, int32 destC
 	public int32 nConfidence;
 }
 
-[CRepr]public struct tagSCRIPFONTINFO
+[CRepr]
+public struct tagSCRIPFONTINFO
 {
 	public int64 scripts;
 	public char8[32] wszFont;
 }
 
-[CRepr]public struct UNICODERANGE
+[CRepr]
+public struct UNICODERANGE
 {
 	public char8 wcFrom;
 	public char8 wcTo;

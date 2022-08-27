@@ -483,20 +483,23 @@ public enum DEVPROPSTORE : int32
 #endregion
 
 #region Structs
-[CRepr]public struct DEVPROPKEY
+[CRepr]
+public struct DEVPROPKEY
 {
 	public Guid fmtid;
 	public uint32 pid;
 }
 
-[CRepr]public struct DEVPROPCOMPKEY
+[CRepr]
+public struct DEVPROPCOMPKEY
 {
 	public DEVPROPKEY Key;
 	public DEVPROPSTORE Store;
 	public PWSTR LocaleName;
 }
 
-[CRepr]public struct DEVPROPERTY
+[CRepr]
+public struct DEVPROPERTY
 {
 	public DEVPROPCOMPKEY CompKey;
 	public uint32 Type;

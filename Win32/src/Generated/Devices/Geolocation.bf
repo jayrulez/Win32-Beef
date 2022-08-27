@@ -293,20 +293,23 @@ public enum GNSS_NI_USER_RESPONSE : int32
 #endregion
 
 #region Structs
-[CRepr]public struct GNSS_SUPL_VERSION
+[CRepr]
+public struct GNSS_SUPL_VERSION
 {
 	public uint32 MajorVersion;
 	public uint32 MinorVersion;
 }
 
-[CRepr]public struct GNSS_SUPL_VERSION_2
+[CRepr]
+public struct GNSS_SUPL_VERSION_2
 {
 	public uint32 MajorVersion;
 	public uint32 MinorVersion;
 	public uint32 ServiceIndicator;
 }
 
-[CRepr]public struct GNSS_DEVICE_CAPABILITY
+[CRepr]
+public struct GNSS_DEVICE_CAPABILITY
 {
 	public uint32 Size;
 	public uint32 Version;
@@ -337,7 +340,8 @@ public enum GNSS_NI_USER_RESPONSE : int32
 	public uint8[496] Unused;
 }
 
-[CRepr]public struct GNSS_PLATFORM_CAPABILITY
+[CRepr]
+public struct GNSS_PLATFORM_CAPABILITY
 {
 	public uint32 Size;
 	public uint32 Version;
@@ -346,7 +350,8 @@ public enum GNSS_NI_USER_RESPONSE : int32
 	public uint8[516] Unused;
 }
 
-[CRepr]public struct GNSS_DRIVERCOMMAND_PARAM
+[CRepr]
+public struct GNSS_DRIVERCOMMAND_PARAM
 {
 	public uint32 Size;
 	public uint32 Version;
@@ -357,36 +362,42 @@ public enum GNSS_NI_USER_RESPONSE : int32
 	public uint8[1] CommandData;
 }
 
-[CRepr]public struct GNSS_SINGLESHOT_PARAM
+[CRepr]
+public struct GNSS_SINGLESHOT_PARAM
 {
 	public uint32 Size;
 	public uint32 Version;
 	public uint32 ResponseTime;
 }
 
-[CRepr]public struct GNSS_DISTANCETRACKING_PARAM
+[CRepr]
+public struct GNSS_DISTANCETRACKING_PARAM
 {
 	public uint32 Size;
 	public uint32 Version;
 	public uint32 MovementThreshold;
 }
 
-[CRepr]public struct GNSS_CONTINUOUSTRACKING_PARAM
+[CRepr]
+public struct GNSS_CONTINUOUSTRACKING_PARAM
 {
 	public uint32 Size;
 	public uint32 Version;
 	public uint32 PreferredInterval;
 }
 
-[CRepr]public struct GNSS_LKGFIX_PARAM
+[CRepr]
+public struct GNSS_LKGFIX_PARAM
 {
 	public uint32 Size;
 	public uint32 Version;
 }
 
-[CRepr]public struct GNSS_FIXSESSION_PARAM
+[CRepr]
+public struct GNSS_FIXSESSION_PARAM
 {
-	[CRepr, Union]	public struct _Anonymous_e__Union
+	[CRepr, Union]
+	public struct _Anonymous_e__Union
 	{
 		public GNSS_SINGLESHOT_PARAM SingleShotParam;
 		public GNSS_DISTANCETRACKING_PARAM DistanceParam;
@@ -407,7 +418,8 @@ public enum GNSS_NI_USER_RESPONSE : int32
 	public uint8[256] Unused;
 }
 
-[CRepr]public struct GNSS_STOPFIXSESSION_PARAM
+[CRepr]
+public struct GNSS_STOPFIXSESSION_PARAM
 {
 	public uint32 Size;
 	public uint32 Version;
@@ -415,7 +427,8 @@ public enum GNSS_NI_USER_RESPONSE : int32
 	public uint8[512] Unused;
 }
 
-[CRepr]public struct GNSS_FIXDATA_BASIC
+[CRepr]
+public struct GNSS_FIXDATA_BASIC
 {
 	public uint32 Size;
 	public uint32 Version;
@@ -426,7 +439,8 @@ public enum GNSS_NI_USER_RESPONSE : int32
 	public double Heading;
 }
 
-[CRepr]public struct GNSS_FIXDATA_BASIC_2
+[CRepr]
+public struct GNSS_FIXDATA_BASIC_2
 {
 	public uint32 Size;
 	public uint32 Version;
@@ -438,7 +452,8 @@ public enum GNSS_NI_USER_RESPONSE : int32
 	public double AltitudeEllipsoid;
 }
 
-[CRepr]public struct GNSS_FIXDATA_ACCURACY
+[CRepr]
+public struct GNSS_FIXDATA_ACCURACY
 {
 	public uint32 Size;
 	public uint32 Version;
@@ -458,7 +473,8 @@ public enum GNSS_NI_USER_RESPONSE : int32
 	public float VerticalDilutionOfPrecision;
 }
 
-[CRepr]public struct GNSS_FIXDATA_ACCURACY_2
+[CRepr]
+public struct GNSS_FIXDATA_ACCURACY_2
 {
 	public uint32 Size;
 	public uint32 Version;
@@ -480,7 +496,8 @@ public enum GNSS_NI_USER_RESPONSE : int32
 	public double TimeDilutionOfPrecision;
 }
 
-[CRepr]public struct GNSS_SATELLITEINFO
+[CRepr]
+public struct GNSS_SATELLITEINFO
 {
 	public uint32 SatelliteId;
 	public BOOL UsedInPositiong;
@@ -489,7 +506,8 @@ public enum GNSS_NI_USER_RESPONSE : int32
 	public double SignalToNoiseRatio;
 }
 
-[CRepr]public struct GNSS_FIXDATA_SATELLITE
+[CRepr]
+public struct GNSS_FIXDATA_SATELLITE
 {
 	public uint32 Size;
 	public uint32 Version;
@@ -497,7 +515,8 @@ public enum GNSS_NI_USER_RESPONSE : int32
 	public GNSS_SATELLITEINFO[64] SatelliteArray;
 }
 
-[CRepr]public struct GNSS_FIXDATA
+[CRepr]
+public struct GNSS_FIXDATA
 {
 	public uint32 Size;
 	public uint32 Version;
@@ -511,7 +530,8 @@ public enum GNSS_NI_USER_RESPONSE : int32
 	public GNSS_FIXDATA_SATELLITE SatelliteData;
 }
 
-[CRepr]public struct GNSS_FIXDATA_2
+[CRepr]
+public struct GNSS_FIXDATA_2
 {
 	public uint32 Size;
 	public uint32 Version;
@@ -525,7 +545,8 @@ public enum GNSS_NI_USER_RESPONSE : int32
 	public GNSS_FIXDATA_SATELLITE SatelliteData;
 }
 
-[CRepr]public struct GNSS_BREADCRUMBING_PARAM
+[CRepr]
+public struct GNSS_BREADCRUMBING_PARAM
 {
 	public uint32 Size;
 	public uint32 Version;
@@ -535,14 +556,16 @@ public enum GNSS_NI_USER_RESPONSE : int32
 	public uint8[512] Unused;
 }
 
-[CRepr]public struct GNSS_BREADCRUMBING_ALERT_DATA
+[CRepr]
+public struct GNSS_BREADCRUMBING_ALERT_DATA
 {
 	public uint32 Size;
 	public uint32 Version;
 	public uint8[512] Unused;
 }
 
-[CRepr]public struct GNSS_BREADCRUMB_V1
+[CRepr]
+public struct GNSS_BREADCRUMB_V1
 {
 	public FILETIME FixTimeStamp;
 	public double Latitude;
@@ -557,9 +580,11 @@ public enum GNSS_NI_USER_RESPONSE : int32
 	public uint8 FixSuccess;
 }
 
-[CRepr]public struct GNSS_BREADCRUMB_LIST
+[CRepr]
+public struct GNSS_BREADCRUMB_LIST
 {
-	[CRepr, Union]	public struct _Anonymous_e__Union
+	[CRepr, Union]
+	public struct _Anonymous_e__Union
 	{
 		public GNSS_BREADCRUMB_V1[50] v1;
 	}
@@ -570,16 +595,19 @@ public enum GNSS_NI_USER_RESPONSE : int32
 	public using _Anonymous_e__Union Anonymous;
 }
 
-[CRepr]public struct GNSS_GEOREGION_CIRCLE
+[CRepr]
+public struct GNSS_GEOREGION_CIRCLE
 {
 	public double Latitude;
 	public double Longitude;
 	public double RadiusInMeters;
 }
 
-[CRepr]public struct GNSS_GEOREGION
+[CRepr]
+public struct GNSS_GEOREGION
 {
-	[CRepr, Union]	public struct _Anonymous_e__Union
+	[CRepr, Union]
+	public struct _Anonymous_e__Union
 	{
 		public GNSS_GEOREGION_CIRCLE Circle;
 		public uint8[512] Unused;
@@ -591,7 +619,8 @@ public enum GNSS_NI_USER_RESPONSE : int32
 	public using _Anonymous_e__Union Anonymous;
 }
 
-[CRepr]public struct GNSS_GEOFENCE_CREATE_PARAM
+[CRepr]
+public struct GNSS_GEOFENCE_CREATE_PARAM
 {
 	public uint32 Size;
 	public uint32 Version;
@@ -601,7 +630,8 @@ public enum GNSS_NI_USER_RESPONSE : int32
 	public uint8[512] Unused;
 }
 
-[CRepr]public struct GNSS_GEOFENCE_CREATE_RESPONSE
+[CRepr]
+public struct GNSS_GEOFENCE_CREATE_RESPONSE
 {
 	public uint32 Size;
 	public uint32 Version;
@@ -610,7 +640,8 @@ public enum GNSS_NI_USER_RESPONSE : int32
 	public uint8[512] Unused;
 }
 
-[CRepr]public struct GNSS_GEOFENCE_DELETE_PARAM
+[CRepr]
+public struct GNSS_GEOFENCE_DELETE_PARAM
 {
 	public uint32 Size;
 	public uint32 Version;
@@ -618,7 +649,8 @@ public enum GNSS_NI_USER_RESPONSE : int32
 	public uint8[512] Unused;
 }
 
-[CRepr]public struct GNSS_GEOFENCE_ALERT_DATA
+[CRepr]
+public struct GNSS_GEOFENCE_ALERT_DATA
 {
 	public uint32 Size;
 	public uint32 Version;
@@ -629,7 +661,8 @@ public enum GNSS_NI_USER_RESPONSE : int32
 	public uint8[512] Unused;
 }
 
-[CRepr]public struct GNSS_GEOFENCES_TRACKINGSTATUS_DATA
+[CRepr]
+public struct GNSS_GEOFENCES_TRACKINGSTATUS_DATA
 {
 	public uint32 Size;
 	public uint32 Version;
@@ -638,7 +671,8 @@ public enum GNSS_NI_USER_RESPONSE : int32
 	public uint8[512] Unused;
 }
 
-[CRepr]public struct GNSS_ERRORINFO
+[CRepr]
+public struct GNSS_ERRORINFO
 {
 	public uint32 Size;
 	public uint32 Version;
@@ -648,14 +682,16 @@ public enum GNSS_NI_USER_RESPONSE : int32
 	public uint8[512] Unused;
 }
 
-[CRepr]public struct GNSS_NMEA_DATA
+[CRepr]
+public struct GNSS_NMEA_DATA
 {
 	public uint32 Size;
 	public uint32 Version;
 	public CHAR[256] NmeaSentences;
 }
 
-[CRepr]public struct GNSS_AGNSS_REQUEST_PARAM
+[CRepr]
+public struct GNSS_AGNSS_REQUEST_PARAM
 {
 	public uint32 Size;
 	public uint32 Version;
@@ -663,7 +699,8 @@ public enum GNSS_NI_USER_RESPONSE : int32
 	public uint32 BlobFormat;
 }
 
-[CRepr]public struct GNSS_SUPL_NI_INFO
+[CRepr]
+public struct GNSS_SUPL_NI_INFO
 {
 	public uint32 Size;
 	public uint32 Version;
@@ -672,7 +709,8 @@ public enum GNSS_NI_USER_RESPONSE : int32
 	public CHAR[260] SuplNiUrl;
 }
 
-[CRepr]public struct GNSS_CP_NI_INFO
+[CRepr]
+public struct GNSS_CP_NI_INFO
 {
 	public uint32 Size;
 	public uint32 Version;
@@ -680,16 +718,19 @@ public enum GNSS_NI_USER_RESPONSE : int32
 	public char8[260] NotificationText;
 }
 
-[CRepr]public struct GNSS_V2UPL_NI_INFO
+[CRepr]
+public struct GNSS_V2UPL_NI_INFO
 {
 	public uint32 Size;
 	public uint32 Version;
 	public char8[260] RequestorId;
 }
 
-[CRepr]public struct GNSS_NI_REQUEST_PARAM
+[CRepr]
+public struct GNSS_NI_REQUEST_PARAM
 {
-	[CRepr, Union]	public struct _Anonymous_e__Union
+	[CRepr, Union]
+	public struct _Anonymous_e__Union
 	{
 		public GNSS_SUPL_NI_INFO SuplNiInfo;
 		public GNSS_CP_NI_INFO CpNiInfo;
@@ -707,7 +748,8 @@ public enum GNSS_NI_USER_RESPONSE : int32
 	public BOOL EmergencyLocation;
 }
 
-[CRepr]public struct GNSS_DRIVER_REQUEST_DATA
+[CRepr]
+public struct GNSS_DRIVER_REQUEST_DATA
 {
 	public uint32 Size;
 	public uint32 Version;
@@ -715,9 +757,11 @@ public enum GNSS_NI_USER_RESPONSE : int32
 	public uint32 RequestFlag;
 }
 
-[CRepr]public struct GNSS_EVENT
+[CRepr]
+public struct GNSS_EVENT
 {
-	[CRepr, Union]	public struct _Anonymous_e__Union
+	[CRepr, Union]
+	public struct _Anonymous_e__Union
 	{
 		public GNSS_FIXDATA FixData;
 		public GNSS_AGNSS_REQUEST_PARAM AgnssRequest;
@@ -739,9 +783,11 @@ public enum GNSS_NI_USER_RESPONSE : int32
 	public using _Anonymous_e__Union Anonymous;
 }
 
-[CRepr]public struct GNSS_EVENT_2
+[CRepr]
+public struct GNSS_EVENT_2
 {
-	[CRepr, Union]	public struct _Anonymous_e__Union
+	[CRepr, Union]
+	public struct _Anonymous_e__Union
 	{
 		public GNSS_FIXDATA FixData;
 		public GNSS_FIXDATA_2 FixData2;
@@ -764,7 +810,8 @@ public enum GNSS_NI_USER_RESPONSE : int32
 	public using _Anonymous_e__Union Anonymous;
 }
 
-[CRepr]public struct GNSS_AGNSS_INJECTTIME
+[CRepr]
+public struct GNSS_AGNSS_INJECTTIME
 {
 	public uint32 Size;
 	public uint32 Version;
@@ -772,7 +819,8 @@ public enum GNSS_NI_USER_RESPONSE : int32
 	public uint32 TimeUncertainty;
 }
 
-[CRepr]public struct GNSS_AGNSS_INJECTPOSITION
+[CRepr]
+public struct GNSS_AGNSS_INJECTPOSITION
 {
 	public uint32 Size;
 	public uint32 Version;
@@ -781,7 +829,8 @@ public enum GNSS_NI_USER_RESPONSE : int32
 	public GNSS_FIXDATA_ACCURACY AccuracyData;
 }
 
-[CRepr]public struct GNSS_AGNSS_INJECTBLOB
+[CRepr]
+public struct GNSS_AGNSS_INJECTBLOB
 {
 	public uint32 Size;
 	public uint32 Version;
@@ -792,9 +841,11 @@ public enum GNSS_NI_USER_RESPONSE : int32
 	public uint8[1] BlobData;
 }
 
-[CRepr]public struct GNSS_AGNSS_INJECT
+[CRepr]
+public struct GNSS_AGNSS_INJECT
 {
-	[CRepr, Union]	public struct _Anonymous_e__Union
+	[CRepr, Union]
+	public struct _Anonymous_e__Union
 	{
 		public GNSS_AGNSS_INJECTTIME Time;
 		public GNSS_AGNSS_INJECTPOSITION Position;
@@ -810,7 +861,8 @@ public enum GNSS_NI_USER_RESPONSE : int32
 	public using _Anonymous_e__Union Anonymous;
 }
 
-[CRepr]public struct GNSS_SUPL_HSLP_CONFIG
+[CRepr]
+public struct GNSS_SUPL_HSLP_CONFIG
 {
 	public uint32 Size;
 	public uint32 Version;
@@ -820,7 +872,8 @@ public enum GNSS_NI_USER_RESPONSE : int32
 	public uint8[512] Unused;
 }
 
-[CRepr]public struct GNSS_SUPL_CERT_CONFIG
+[CRepr]
+public struct GNSS_SUPL_CERT_CONFIG
 {
 	public uint32 Size;
 	public uint32 Version;
@@ -831,7 +884,8 @@ public enum GNSS_NI_USER_RESPONSE : int32
 	public uint8[1] CertData;
 }
 
-[CRepr]public struct GNSS_V2UPL_CONFIG
+[CRepr]
+public struct GNSS_V2UPL_CONFIG
 {
 	public uint32 Size;
 	public uint32 Version;
@@ -841,7 +895,8 @@ public enum GNSS_NI_USER_RESPONSE : int32
 	public uint8[512] Unused;
 }
 
-[CRepr]public struct GNSS_NI_RESPONSE
+[CRepr]
+public struct GNSS_NI_RESPONSE
 {
 	public uint32 Size;
 	public uint32 Version;
@@ -849,7 +904,8 @@ public enum GNSS_NI_USER_RESPONSE : int32
 	public GNSS_NI_USER_RESPONSE UserResponse;
 }
 
-[CRepr]public struct GNSS_CWTESTDATA
+[CRepr]
+public struct GNSS_CWTESTDATA
 {
 	public uint32 Size;
 	public uint32 Version;
@@ -859,7 +915,8 @@ public enum GNSS_NI_USER_RESPONSE : int32
 	public uint8[512] Unused;
 }
 
-[CRepr]public struct GNSS_SELFTESTCONFIG
+[CRepr]
+public struct GNSS_SELFTESTCONFIG
 {
 	public uint32 Size;
 	public uint32 Version;
@@ -869,7 +926,8 @@ public enum GNSS_NI_USER_RESPONSE : int32
 	public uint8[1] InBuffer;
 }
 
-[CRepr]public struct GNSS_SELFTESTRESULT
+[CRepr]
+public struct GNSS_SELFTESTRESULT
 {
 	public uint32 Size;
 	public uint32 Version;
@@ -881,7 +939,8 @@ public enum GNSS_NI_USER_RESPONSE : int32
 	public uint8[1] OutBuffer;
 }
 
-[CRepr]public struct GNSS_CHIPSETINFO
+[CRepr]
+public struct GNSS_CHIPSETINFO
 {
 	public uint32 Size;
 	public uint32 Version;

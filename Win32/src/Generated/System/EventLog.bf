@@ -376,9 +376,11 @@ public function uint32 EVT_SUBSCRIBE_CALLBACK(EVT_SUBSCRIBE_NOTIFY_ACTION Action
 #endregion
 
 #region Structs
-[CRepr]public struct EVT_VARIANT
+[CRepr]
+public struct EVT_VARIANT
 {
-	[CRepr, Union]	public struct _Anonymous_e__Union
+	[CRepr, Union]
+	public struct _Anonymous_e__Union
 	{
 		public BOOL BooleanVal;
 		public int8 SByteVal;
@@ -427,7 +429,8 @@ public function uint32 EVT_SUBSCRIBE_CALLBACK(EVT_SUBSCRIBE_NOTIFY_ACTION Action
 	public uint32 Type;
 }
 
-[CRepr]public struct EVT_RPC_LOGIN
+[CRepr]
+public struct EVT_RPC_LOGIN
 {
 	public PWSTR Server;
 	public PWSTR User;
@@ -436,7 +439,8 @@ public function uint32 EVT_SUBSCRIBE_CALLBACK(EVT_SUBSCRIBE_NOTIFY_ACTION Action
 	public uint32 Flags;
 }
 
-[CRepr]public struct EVENTLOGRECORD
+[CRepr]
+public struct EVENTLOGRECORD
 {
 	public uint32 Length;
 	public uint32 Reserved;
@@ -456,7 +460,8 @@ public function uint32 EVT_SUBSCRIBE_CALLBACK(EVT_SUBSCRIBE_NOTIFY_ACTION Action
 	public uint32 DataOffset;
 }
 
-[CRepr]public struct EVENTSFORLOGFILE
+[CRepr]
+public struct EVENTSFORLOGFILE
 {
 	public uint32 ulSize;
 	public char8[256] szLogicalLogFile;
@@ -464,7 +469,8 @@ public function uint32 EVT_SUBSCRIBE_CALLBACK(EVT_SUBSCRIBE_NOTIFY_ACTION Action
 	public EVENTLOGRECORD[1] pEventLogRecords;
 }
 
-[CRepr]public struct EVENTLOG_FULL_INFORMATION
+[CRepr]
+public struct EVENTLOG_FULL_INFORMATION
 {
 	public uint32 dwFull;
 }

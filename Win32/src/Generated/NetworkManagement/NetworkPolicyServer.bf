@@ -893,9 +893,11 @@ public function uint32 PRADIUS_EXTENSION_PROCESS_2(RADIUS_EXTENSION_CONTROL_BLOC
 #endregion
 
 #region Structs
-[CRepr]public struct RADIUS_ATTRIBUTE
+[CRepr]
+public struct RADIUS_ATTRIBUTE
 {
-	[CRepr, Union]	public struct _Anonymous_e__Union
+	[CRepr, Union]
+	public struct _Anonymous_e__Union
 	{
 		public uint32 dwValue;
 		public uint8* lpValue;
@@ -907,7 +909,8 @@ public function uint32 PRADIUS_EXTENSION_PROCESS_2(RADIUS_EXTENSION_CONTROL_BLOC
 	public using _Anonymous_e__Union Anonymous;
 }
 
-[CRepr]public struct RADIUS_VSA_FORMAT
+[CRepr]
+public struct RADIUS_VSA_FORMAT
 {
 	public uint8[4] VendorId;
 	public uint8 VendorType;
@@ -915,7 +918,8 @@ public function uint32 PRADIUS_EXTENSION_PROCESS_2(RADIUS_EXTENSION_CONTROL_BLOC
 	public uint8[1] AttributeSpecific;
 }
 
-[CRepr]public struct RADIUS_ATTRIBUTE_ARRAY
+[CRepr]
+public struct RADIUS_ATTRIBUTE_ARRAY
 {
 	public uint32 cbSize;
 	public int Add;
@@ -926,7 +930,8 @@ public function uint32 PRADIUS_EXTENSION_PROCESS_2(RADIUS_EXTENSION_CONTROL_BLOC
 	public int SetAt;
 }
 
-[CRepr]public struct RADIUS_EXTENSION_CONTROL_BLOCK
+[CRepr]
+public struct RADIUS_EXTENSION_CONTROL_BLOCK
 {
 	public uint32 cbSize;
 	public uint32 dwVersion;

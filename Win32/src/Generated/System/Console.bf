@@ -183,13 +183,15 @@ public function BOOL PHANDLER_ROUTINE(uint32 CtrlType);
 #endregion
 
 #region Structs
-[CRepr]public struct COORD
+[CRepr]
+public struct COORD
 {
 	public int16 X;
 	public int16 Y;
 }
 
-[CRepr]public struct SMALL_RECT
+[CRepr]
+public struct SMALL_RECT
 {
 	public int16 Left;
 	public int16 Top;
@@ -197,9 +199,11 @@ public function BOOL PHANDLER_ROUTINE(uint32 CtrlType);
 	public int16 Bottom;
 }
 
-[CRepr]public struct KEY_EVENT_RECORD
+[CRepr]
+public struct KEY_EVENT_RECORD
 {
-	[CRepr, Union]	public struct _uChar_e__Union
+	[CRepr, Union]
+	public struct _uChar_e__Union
 	{
 		public char8 UnicodeChar;
 		public CHAR AsciiChar;
@@ -213,7 +217,8 @@ public function BOOL PHANDLER_ROUTINE(uint32 CtrlType);
 	public uint32 dwControlKeyState;
 }
 
-[CRepr]public struct MOUSE_EVENT_RECORD
+[CRepr]
+public struct MOUSE_EVENT_RECORD
 {
 	public COORD dwMousePosition;
 	public uint32 dwButtonState;
@@ -221,24 +226,29 @@ public function BOOL PHANDLER_ROUTINE(uint32 CtrlType);
 	public uint32 dwEventFlags;
 }
 
-[CRepr]public struct WINDOW_BUFFER_SIZE_RECORD
+[CRepr]
+public struct WINDOW_BUFFER_SIZE_RECORD
 {
 	public COORD dwSize;
 }
 
-[CRepr]public struct MENU_EVENT_RECORD
+[CRepr]
+public struct MENU_EVENT_RECORD
 {
 	public uint32 dwCommandId;
 }
 
-[CRepr]public struct FOCUS_EVENT_RECORD
+[CRepr]
+public struct FOCUS_EVENT_RECORD
 {
 	public BOOL bSetFocus;
 }
 
-[CRepr]public struct INPUT_RECORD
+[CRepr]
+public struct INPUT_RECORD
 {
-	[CRepr, Union]	public struct _Event_e__Union
+	[CRepr, Union]
+	public struct _Event_e__Union
 	{
 		public KEY_EVENT_RECORD KeyEvent;
 		public MOUSE_EVENT_RECORD MouseEvent;
@@ -251,9 +261,11 @@ public function BOOL PHANDLER_ROUTINE(uint32 CtrlType);
 	public _Event_e__Union Event;
 }
 
-[CRepr]public struct CHAR_INFO
+[CRepr]
+public struct CHAR_INFO
 {
-	[CRepr, Union]	public struct _Char_e__Union
+	[CRepr, Union]
+	public struct _Char_e__Union
 	{
 		public char8 UnicodeChar;
 		public CHAR AsciiChar;
@@ -263,13 +275,15 @@ public function BOOL PHANDLER_ROUTINE(uint32 CtrlType);
 	public uint16 Attributes;
 }
 
-[CRepr]public struct CONSOLE_FONT_INFO
+[CRepr]
+public struct CONSOLE_FONT_INFO
 {
 	public uint32 nFont;
 	public COORD dwFontSize;
 }
 
-[CRepr]public struct CONSOLE_READCONSOLE_CONTROL
+[CRepr]
+public struct CONSOLE_READCONSOLE_CONTROL
 {
 	public uint32 nLength;
 	public uint32 nInitialChars;
@@ -277,13 +291,15 @@ public function BOOL PHANDLER_ROUTINE(uint32 CtrlType);
 	public uint32 dwControlKeyState;
 }
 
-[CRepr]public struct CONSOLE_CURSOR_INFO
+[CRepr]
+public struct CONSOLE_CURSOR_INFO
 {
 	public uint32 dwSize;
 	public BOOL bVisible;
 }
 
-[CRepr]public struct CONSOLE_SCREEN_BUFFER_INFO
+[CRepr]
+public struct CONSOLE_SCREEN_BUFFER_INFO
 {
 	public COORD dwSize;
 	public COORD dwCursorPosition;
@@ -292,7 +308,8 @@ public function BOOL PHANDLER_ROUTINE(uint32 CtrlType);
 	public COORD dwMaximumWindowSize;
 }
 
-[CRepr]public struct CONSOLE_SCREEN_BUFFER_INFOEX
+[CRepr]
+public struct CONSOLE_SCREEN_BUFFER_INFOEX
 {
 	public uint32 cbSize;
 	public COORD dwSize;
@@ -305,7 +322,8 @@ public function BOOL PHANDLER_ROUTINE(uint32 CtrlType);
 	public uint32[16] ColorTable;
 }
 
-[CRepr]public struct CONSOLE_FONT_INFOEX
+[CRepr]
+public struct CONSOLE_FONT_INFOEX
 {
 	public uint32 cbSize;
 	public uint32 nFont;
@@ -315,14 +333,16 @@ public function BOOL PHANDLER_ROUTINE(uint32 CtrlType);
 	public char8[32] FaceName;
 }
 
-[CRepr]public struct CONSOLE_SELECTION_INFO
+[CRepr]
+public struct CONSOLE_SELECTION_INFO
 {
 	public uint32 dwFlags;
 	public COORD dwSelectionAnchor;
 	public SMALL_RECT srSelection;
 }
 
-[CRepr]public struct CONSOLE_HISTORY_INFO
+[CRepr]
+public struct CONSOLE_HISTORY_INFO
 {
 	public uint32 cbSize;
 	public uint32 HistoryBufferSize;

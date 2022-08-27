@@ -591,7 +591,8 @@ public enum VSS_PROTECTION_FAULT : int32
 #endregion
 
 #region Structs
-[CRepr]public struct VSS_SNAPSHOT_PROP
+[CRepr]
+public struct VSS_SNAPSHOT_PROP
 {
 	public Guid m_SnapshotId;
 	public Guid m_SnapshotSetId;
@@ -608,7 +609,8 @@ public enum VSS_PROTECTION_FAULT : int32
 	public VSS_SNAPSHOT_STATE m_eStatus;
 }
 
-[CRepr]public struct VSS_PROVIDER_PROP
+[CRepr]
+public struct VSS_PROVIDER_PROP
 {
 	public Guid m_ProviderId;
 	public uint16* m_pwszProviderName;
@@ -618,29 +620,34 @@ public enum VSS_PROTECTION_FAULT : int32
 	public Guid m_ClassId;
 }
 
-[CRepr, Union]public struct VSS_OBJECT_UNION
+[CRepr, Union]
+public struct VSS_OBJECT_UNION
 {
 	public VSS_SNAPSHOT_PROP Snap;
 	public VSS_PROVIDER_PROP Prov;
 }
 
-[CRepr]public struct VSS_OBJECT_PROP
+[CRepr]
+public struct VSS_OBJECT_PROP
 {
 	public VSS_OBJECT_TYPE Type;
 	public VSS_OBJECT_UNION Obj;
 }
 
-[CRepr]public struct IVssExamineWriterMetadata
+[CRepr]
+public struct IVssExamineWriterMetadata
 {
 }
 
-[CRepr]public struct VSS_VOLUME_PROP
+[CRepr]
+public struct VSS_VOLUME_PROP
 {
 	public uint16* m_pwszVolumeName;
 	public uint16* m_pwszVolumeDisplayName;
 }
 
-[CRepr]public struct VSS_DIFF_VOLUME_PROP
+[CRepr]
+public struct VSS_DIFF_VOLUME_PROP
 {
 	public uint16* m_pwszVolumeName;
 	public uint16* m_pwszVolumeDisplayName;
@@ -648,7 +655,8 @@ public enum VSS_PROTECTION_FAULT : int32
 	public int64 m_llVolumeTotalSpace;
 }
 
-[CRepr]public struct VSS_DIFF_AREA_PROP
+[CRepr]
+public struct VSS_DIFF_AREA_PROP
 {
 	public uint16* m_pwszVolumeName;
 	public uint16* m_pwszDiffAreaVolumeName;
@@ -657,20 +665,23 @@ public enum VSS_PROTECTION_FAULT : int32
 	public int64 m_llUsedDiffSpace;
 }
 
-[CRepr, Union]public struct VSS_MGMT_OBJECT_UNION
+[CRepr, Union]
+public struct VSS_MGMT_OBJECT_UNION
 {
 	public VSS_VOLUME_PROP Vol;
 	public VSS_DIFF_VOLUME_PROP DiffVol;
 	public VSS_DIFF_AREA_PROP DiffArea;
 }
 
-[CRepr]public struct VSS_MGMT_OBJECT_PROP
+[CRepr]
+public struct VSS_MGMT_OBJECT_PROP
 {
 	public VSS_MGMT_OBJECT_TYPE Type;
 	public VSS_MGMT_OBJECT_UNION Obj;
 }
 
-[CRepr]public struct VSS_VOLUME_PROTECTION_INFO
+[CRepr]
+public struct VSS_VOLUME_PROTECTION_INFO
 {
 	public VSS_PROTECTION_LEVEL m_protectionLevel;
 	public BOOL m_volumeIsOfflineForProtection;

@@ -45,14 +45,16 @@ public function uint32 PFNDAVAUTHCALLBACK(PWSTR lpwzServerName, PWSTR lpwzRemote
 #endregion
 
 #region Structs
-[CRepr]public struct DAV_CALLBACK_AUTH_BLOB
+[CRepr]
+public struct DAV_CALLBACK_AUTH_BLOB
 {
 	public void* pBuffer;
 	public uint32 ulSize;
 	public uint32 ulType;
 }
 
-[CRepr]public struct DAV_CALLBACK_AUTH_UNP
+[CRepr]
+public struct DAV_CALLBACK_AUTH_UNP
 {
 	public PWSTR pszUserName;
 	public uint32 ulUserNameLength;
@@ -60,7 +62,8 @@ public function uint32 PFNDAVAUTHCALLBACK(PWSTR lpwzServerName, PWSTR lpwzRemote
 	public uint32 ulPasswordLength;
 }
 
-[CRepr]public struct DAV_CALLBACK_CRED
+[CRepr]
+public struct DAV_CALLBACK_CRED
 {
 	public DAV_CALLBACK_AUTH_BLOB AuthBlob;
 	public DAV_CALLBACK_AUTH_UNP UNPBlob;

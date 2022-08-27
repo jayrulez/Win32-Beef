@@ -1798,7 +1798,8 @@ public function void SPNOTIFYCALLBACK(WPARAM wParam, LPARAM lParam);
 #endregion
 
 #region Structs
-[CRepr]public struct SPEVENT
+[CRepr]
+public struct SPEVENT
 {
 	public int32 _bitfield;
 	public uint32 ulStreamNum;
@@ -1807,7 +1808,8 @@ public function void SPNOTIFYCALLBACK(WPARAM wParam, LPARAM lParam);
 	public LPARAM lParam;
 }
 
-[CRepr]public struct SPSERIALIZEDEVENT
+[CRepr]
+public struct SPSERIALIZEDEVENT
 {
 	public int32 _bitfield;
 	public uint32 ulStreamNum;
@@ -1816,7 +1818,8 @@ public function void SPNOTIFYCALLBACK(WPARAM wParam, LPARAM lParam);
 	public int32 SerializedlParam;
 }
 
-[CRepr]public struct SPSERIALIZEDEVENT64
+[CRepr]
+public struct SPSERIALIZEDEVENT64
 {
 	public int32 _bitfield;
 	public uint32 ulStreamNum;
@@ -1825,7 +1828,8 @@ public function void SPNOTIFYCALLBACK(WPARAM wParam, LPARAM lParam);
 	public int64 SerializedlParam;
 }
 
-[CRepr]public struct SPEVENTEX
+[CRepr]
+public struct SPEVENTEX
 {
 	public int32 _bitfield;
 	public uint32 ulStreamNum;
@@ -1835,14 +1839,16 @@ public function void SPNOTIFYCALLBACK(WPARAM wParam, LPARAM lParam);
 	public uint64 ullAudioTimeOffset;
 }
 
-[CRepr]public struct SPEVENTSOURCEINFO
+[CRepr]
+public struct SPEVENTSOURCEINFO
 {
 	public uint64 ullEventInterest;
 	public uint64 ullQueuedInterest;
 	public uint32 ulCount;
 }
 
-[CRepr]public struct SPAUDIOSTATUS
+[CRepr]
+public struct SPAUDIOSTATUS
 {
 	public int32 cbFreeBuffSpace;
 	public uint32 cbNonBlockingIO;
@@ -1853,14 +1859,16 @@ public function void SPNOTIFYCALLBACK(WPARAM wParam, LPARAM lParam);
 	public uint32 dwReserved2;
 }
 
-[CRepr]public struct SPAUDIOBUFFERINFO
+[CRepr]
+public struct SPAUDIOBUFFERINFO
 {
 	public uint32 ulMsMinNotification;
 	public uint32 ulMsBufferSize;
 	public uint32 ulMsEventBias;
 }
 
-[CRepr]public struct SPPHRASEELEMENT
+[CRepr]
+public struct SPPHRASEELEMENT
 {
 	public uint32 ulAudioTimeOffset;
 	public uint32 ulAudioSizeTime;
@@ -1878,7 +1886,8 @@ public function void SPNOTIFYCALLBACK(WPARAM wParam, LPARAM lParam);
 	public float SREngineConfidence;
 }
 
-[CRepr]public struct SPPHRASERULE
+[CRepr]
+public struct SPPHRASERULE
 {
 	public PWSTR pszName;
 	public uint32 ulId;
@@ -1890,11 +1899,14 @@ public function void SPNOTIFYCALLBACK(WPARAM wParam, LPARAM lParam);
 	public int8 Confidence;
 }
 
-[CRepr]public struct SPPHRASEPROPERTY
+[CRepr]
+public struct SPPHRASEPROPERTY
 {
-	[CRepr, Union]	public struct _Anonymous_e__Union
+	[CRepr, Union]
+	public struct _Anonymous_e__Union
 	{
-		[CRepr]		public struct _Anonymous_e__Struct
+		[CRepr]
+		public struct _Anonymous_e__Struct
 		{
 			public uint8 bType;
 			public uint8 bReserved;
@@ -1917,7 +1929,8 @@ public function void SPNOTIFYCALLBACK(WPARAM wParam, LPARAM lParam);
 	public int8 Confidence;
 }
 
-[CRepr]public struct SPPHRASEREPLACEMENT
+[CRepr]
+public struct SPPHRASEREPLACEMENT
 {
 	public uint8 bDisplayAttributes;
 	public PWSTR pszReplacementText;
@@ -1925,7 +1938,8 @@ public function void SPNOTIFYCALLBACK(WPARAM wParam, LPARAM lParam);
 	public uint32 ulCountOfElements;
 }
 
-[CRepr]public struct SPSEMANTICERRORINFO
+[CRepr]
+public struct SPSEMANTICERRORINFO
 {
 	public uint32 ulLineNumber;
 	public PWSTR pszScriptLine;
@@ -1934,7 +1948,8 @@ public function void SPNOTIFYCALLBACK(WPARAM wParam, LPARAM lParam);
 	public HRESULT hrResultCode;
 }
 
-[CRepr]public struct SPPHRASE_50
+[CRepr]
+public struct SPPHRASE_50
 {
 	public uint32 cbSize;
 	public uint16 LangID;
@@ -1955,36 +1970,42 @@ public function void SPNOTIFYCALLBACK(WPARAM wParam, LPARAM lParam);
 	public uint8* pSREnginePrivateData;
 }
 
-[CRepr]public struct SPPHRASE
+[CRepr]
+public struct SPPHRASE
 {
 	public SPPHRASE_50 __AnonymousBase_sapi53_L5821_C34;
 	public PWSTR pSML;
 	public SPSEMANTICERRORINFO* pSemanticErrorInfo;
 }
 
-[CRepr]public struct SPSERIALIZEDPHRASE
+[CRepr]
+public struct SPSERIALIZEDPHRASE
 {
 	public uint32 ulSerializedSize;
 }
 
-[CRepr]public struct SPRULE
+[CRepr]
+public struct SPRULE
 {
 	public PWSTR pszRuleName;
 	public uint32 ulRuleId;
 	public uint32 dwAttributes;
 }
 
-[CRepr]public struct SPBINARYGRAMMAR
+[CRepr]
+public struct SPBINARYGRAMMAR
 {
 	public uint32 ulTotalSerializedSize;
 }
 
-[CRepr]public struct SPSTATEHANDLE__
+[CRepr]
+public struct SPSTATEHANDLE__
 {
 	public int32 unused;
 }
 
-[CRepr]public struct SPWORDPRONUNCIATION
+[CRepr]
+public struct SPWORDPRONUNCIATION
 {
 	public SPWORDPRONUNCIATION* pNextWordPronunciation;
 	public SPLEXICONTYPE eLexiconType;
@@ -1994,14 +2015,16 @@ public function void SPNOTIFYCALLBACK(WPARAM wParam, LPARAM lParam);
 	public uint16[1] szPronunciation;
 }
 
-[CRepr]public struct SPWORDPRONUNCIATIONLIST
+[CRepr]
+public struct SPWORDPRONUNCIATIONLIST
 {
 	public uint32 ulSize;
 	public uint8* pvBuffer;
 	public SPWORDPRONUNCIATION* pFirstWordPronunciation;
 }
 
-[CRepr]public struct SPWORD
+[CRepr]
+public struct SPWORD
 {
 	public SPWORD* pNextWord;
 	public uint16 LangID;
@@ -2011,14 +2034,16 @@ public function void SPNOTIFYCALLBACK(WPARAM wParam, LPARAM lParam);
 	public SPWORDPRONUNCIATION* pFirstWordPronunciation;
 }
 
-[CRepr]public struct SPWORDLIST
+[CRepr]
+public struct SPWORDLIST
 {
 	public uint32 ulSize;
 	public uint8* pvBuffer;
 	public SPWORD* pFirstWord;
 }
 
-[CRepr]public struct SPSHORTCUTPAIR
+[CRepr]
+public struct SPSHORTCUTPAIR
 {
 	public SPSHORTCUTPAIR* pNextSHORTCUTPAIR;
 	public uint16 LangID;
@@ -2027,27 +2052,31 @@ public function void SPNOTIFYCALLBACK(WPARAM wParam, LPARAM lParam);
 	public PWSTR pszSpoken;
 }
 
-[CRepr]public struct SPSHORTCUTPAIRLIST
+[CRepr]
+public struct SPSHORTCUTPAIRLIST
 {
 	public uint32 ulSize;
 	public uint8* pvBuffer;
 	public SPSHORTCUTPAIR* pFirstShortcutPair;
 }
 
-[CRepr]public struct SPVPITCH
+[CRepr]
+public struct SPVPITCH
 {
 	public int32 MiddleAdj;
 	public int32 RangeAdj;
 }
 
-[CRepr]public struct SPVCONTEXT
+[CRepr]
+public struct SPVCONTEXT
 {
 	public PWSTR pCategory;
 	public PWSTR pBefore;
 	public PWSTR pAfter;
 }
 
-[CRepr]public struct SPVSTATE
+[CRepr]
+public struct SPVSTATE
 {
 	public SPVACTIONS eAction;
 	public uint16 LangID;
@@ -2062,7 +2091,8 @@ public function void SPNOTIFYCALLBACK(WPARAM wParam, LPARAM lParam);
 	public SPVCONTEXT Context;
 }
 
-[CRepr]public struct SPVOICESTATUS
+[CRepr]
+public struct SPVOICESTATUS
 {
 	public uint32 ulCurrentStream;
 	public uint32 ulLastStreamQueued;
@@ -2079,7 +2109,8 @@ public function void SPNOTIFYCALLBACK(WPARAM wParam, LPARAM lParam);
 	public uint32 dwReserved2;
 }
 
-[CRepr]public struct SPRECORESULTTIMES
+[CRepr]
+public struct SPRECORESULTTIMES
 {
 	public FILETIME ftStreamTime;
 	public uint64 ullLength;
@@ -2087,12 +2118,14 @@ public function void SPNOTIFYCALLBACK(WPARAM wParam, LPARAM lParam);
 	public uint64 ullStart;
 }
 
-[CRepr]public struct SPSERIALIZEDRESULT
+[CRepr]
+public struct SPSERIALIZEDRESULT
 {
 	public uint32 ulSerializedSize;
 }
 
-[CRepr]public struct SPTEXTSELECTIONINFO
+[CRepr]
+public struct SPTEXTSELECTIONINFO
 {
 	public uint32 ulStartActiveOffset;
 	public uint32 cchActiveChars;
@@ -2100,7 +2133,8 @@ public function void SPNOTIFYCALLBACK(WPARAM wParam, LPARAM lParam);
 	public uint32 cchSelection;
 }
 
-[CRepr]public struct SPPROPERTYINFO
+[CRepr]
+public struct SPPROPERTYINFO
 {
 	public PWSTR pszName;
 	public uint32 ulId;
@@ -2108,7 +2142,8 @@ public function void SPNOTIFYCALLBACK(WPARAM wParam, LPARAM lParam);
 	public VARIANT vValue;
 }
 
-[CRepr]public struct SPRECOCONTEXTSTATUS
+[CRepr]
+public struct SPRECOCONTEXTSTATUS
 {
 	public SPINTERFERENCE eInterference;
 	public char8[255] szRequestTypeOfUI;
@@ -2116,7 +2151,8 @@ public function void SPNOTIFYCALLBACK(WPARAM wParam, LPARAM lParam);
 	public uint32 dwReserved2;
 }
 
-[CRepr]public struct SPRECOGNIZERSTATUS
+[CRepr]
+public struct SPRECOGNIZERSTATUS
 {
 	public SPAUDIOSTATUS AudioStatus;
 	public uint64 ullRecognitionStreamPos;
@@ -2128,20 +2164,23 @@ public function void SPNOTIFYCALLBACK(WPARAM wParam, LPARAM lParam);
 	public uint64 ullRecognitionStreamTime;
 }
 
-[CRepr]public struct SPNORMALIZATIONLIST
+[CRepr]
+public struct SPNORMALIZATIONLIST
 {
 	public uint32 ulSize;
 	public uint16** ppszzNormalizedList;
 }
 
-[CRepr]public struct SPDISPLAYTOKEN
+[CRepr]
+public struct SPDISPLAYTOKEN
 {
 	public PWSTR pszLexical;
 	public PWSTR pszDisplay;
 	public uint8 bDisplayAttributes;
 }
 
-[CRepr]public struct SPDISPLAYPHRASE
+[CRepr]
+public struct SPDISPLAYPHRASE
 {
 	public uint32 ulNumTokens;
 	public SPDISPLAYTOKEN* pTokens;

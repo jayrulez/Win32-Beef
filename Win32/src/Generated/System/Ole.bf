@@ -2017,46 +2017,54 @@ public function uint32 LPFNOLEUIHOOK(HWND param0, uint32 param1, WPARAM param2, 
 #endregion
 
 #region Structs
-[CRepr]public struct _wireSAFEARR_BSTR
+[CRepr]
+public struct _wireSAFEARR_BSTR
 {
 	public uint32 Size;
 	public FLAGGED_WORD_BLOB** aBstr;
 }
 
-[CRepr]public struct _wireSAFEARR_UNKNOWN
+[CRepr]
+public struct _wireSAFEARR_UNKNOWN
 {
 	public uint32 Size;
 	public IUnknown** apUnknown;
 }
 
-[CRepr]public struct _wireSAFEARR_DISPATCH
+[CRepr]
+public struct _wireSAFEARR_DISPATCH
 {
 	public uint32 Size;
 	public IDispatch** apDispatch;
 }
 
-[CRepr]public struct _wireSAFEARR_VARIANT
+[CRepr]
+public struct _wireSAFEARR_VARIANT
 {
 	public uint32 Size;
 	public _wireVARIANT** aVariant;
 }
 
-[CRepr]public struct _wireSAFEARR_BRECORD
+[CRepr]
+public struct _wireSAFEARR_BRECORD
 {
 	public uint32 Size;
 	public _wireBRECORD** aRecord;
 }
 
-[CRepr]public struct _wireSAFEARR_HAVEIID
+[CRepr]
+public struct _wireSAFEARR_HAVEIID
 {
 	public uint32 Size;
 	public IUnknown** apUnknown;
 	public Guid iid;
 }
 
-[CRepr]public struct _wireSAFEARRAY_UNION
+[CRepr]
+public struct _wireSAFEARRAY_UNION
 {
-	[CRepr, Union]	public struct _u_e__Struct
+	[CRepr, Union]
+	public struct _u_e__Struct
 	{
 		public _wireSAFEARR_BSTR BstrStr;
 		public _wireSAFEARR_UNKNOWN UnknownStr;
@@ -2074,7 +2082,8 @@ public function uint32 LPFNOLEUIHOOK(HWND param0, uint32 param1, WPARAM param2, 
 	public _u_e__Struct u;
 }
 
-[CRepr]public struct _wireSAFEARRAY
+[CRepr]
+public struct _wireSAFEARRAY
 {
 	public uint16 cDims;
 	public uint16 fFeatures;
@@ -2084,7 +2093,8 @@ public function uint32 LPFNOLEUIHOOK(HWND param0, uint32 param1, WPARAM param2, 
 	public SAFEARRAYBOUND[1] rgsabound;
 }
 
-[CRepr]public struct _wireBRECORD
+[CRepr]
+public struct _wireBRECORD
 {
 	public uint32 fFlags;
 	public uint32 clSize;
@@ -2092,9 +2102,11 @@ public function uint32 LPFNOLEUIHOOK(HWND param0, uint32 param1, WPARAM param2, 
 	public uint8* pRecord;
 }
 
-[CRepr]public struct _wireVARIANT
+[CRepr]
+public struct _wireVARIANT
 {
-	[CRepr, Union]	public struct _Anonymous_e__Union
+	[CRepr, Union]
+	public struct _Anonymous_e__Union
 	{
 		public int64 llVal;
 		public int32 lVal;
@@ -2151,33 +2163,38 @@ public function uint32 LPFNOLEUIHOOK(HWND param0, uint32 param1, WPARAM param2, 
 	public using _Anonymous_e__Union Anonymous;
 }
 
-[CRepr]public struct ARRAYDESC
+[CRepr]
+public struct ARRAYDESC
 {
 	public TYPEDESC tdescElem;
 	public uint16 cDims;
 	public SAFEARRAYBOUND[1] rgbounds;
 }
 
-[CRepr]public struct PARAMDESCEX
+[CRepr]
+public struct PARAMDESCEX
 {
 	public uint32 cBytes;
 	public VARIANT varDefaultValue;
 }
 
-[CRepr]public struct PARAMDESC
+[CRepr]
+public struct PARAMDESC
 {
 	public PARAMDESCEX* pparamdescex;
 	public uint16 wParamFlags;
 }
 
-[CRepr]public struct CLEANLOCALSTORAGE
+[CRepr]
+public struct CLEANLOCALSTORAGE
 {
 	public IUnknown* pInterface;
 	public void* pStorage;
 	public uint32 flags;
 }
 
-[CRepr]public struct OBJECTDESCRIPTOR
+[CRepr]
+public struct OBJECTDESCRIPTOR
 {
 	public uint32 cbSize;
 	public Guid clsid;
@@ -2189,7 +2206,8 @@ public function uint32 LPFNOLEUIHOOK(HWND param0, uint32 param1, WPARAM param2, 
 	public uint32 dwSrcOfCopy;
 }
 
-[CRepr]public struct OIFI
+[CRepr]
+public struct OIFI
 {
 	public uint32 cb;
 	public BOOL fMDIApp;
@@ -2198,12 +2216,14 @@ public function uint32 LPFNOLEUIHOOK(HWND param0, uint32 param1, WPARAM param2, 
 	public uint32 cAccelEntries;
 }
 
-[CRepr]public struct OleMenuGroupWidths
+[CRepr]
+public struct OleMenuGroupWidths
 {
 	public int32[6] width;
 }
 
-[CRepr]public struct OLEVERB
+[CRepr]
+public struct OLEVERB
 {
 	public int32 lVerb;
 	public PWSTR lpszVerbName;
@@ -2211,7 +2231,8 @@ public function uint32 LPFNOLEUIHOOK(HWND param0, uint32 param1, WPARAM param2, 
 	public uint32 grfAttribs;
 }
 
-[CRepr]public struct NUMPARSE
+[CRepr]
+public struct NUMPARSE
 {
 	public int32 cDig;
 	public uint32 dwInFlags;
@@ -2221,19 +2242,22 @@ public function uint32 LPFNOLEUIHOOK(HWND param0, uint32 param1, WPARAM param2, 
 	public int32 nPwr10;
 }
 
-[CRepr]public struct UDATE
+[CRepr]
+public struct UDATE
 {
 	public SYSTEMTIME st;
 	public uint16 wDayOfYear;
 }
 
-[CRepr]public struct PARAMDATA
+[CRepr]
+public struct PARAMDATA
 {
 	public PWSTR szName;
 	public uint16 vt;
 }
 
-[CRepr]public struct METHODDATA
+[CRepr]
+public struct METHODDATA
 {
 	public PWSTR szName;
 	public PARAMDATA* ppdata;
@@ -2245,20 +2269,23 @@ public function uint32 LPFNOLEUIHOOK(HWND param0, uint32 param1, WPARAM param2, 
 	public uint16 vtReturn;
 }
 
-[CRepr]public struct INTERFACEDATA
+[CRepr]
+public struct INTERFACEDATA
 {
 	public METHODDATA* pmethdata;
 	public uint32 cMembers;
 }
 
-[CRepr]public struct LICINFO
+[CRepr]
+public struct LICINFO
 {
 	public int32 cbLicInfo;
 	public BOOL fRuntimeKeyAvail;
 	public BOOL fLicVerified;
 }
 
-[CRepr]public struct CONTROLINFO
+[CRepr]
+public struct CONTROLINFO
 {
 	public uint32 cb;
 	public HACCEL hAccel;
@@ -2266,13 +2293,15 @@ public function uint32 LPFNOLEUIHOOK(HWND param0, uint32 param1, WPARAM param2, 
 	public uint32 dwFlags;
 }
 
-[CRepr]public struct POINTF
+[CRepr]
+public struct POINTF
 {
 	public float x;
 	public float y;
 }
 
-[CRepr]public struct PROPPAGEINFO
+[CRepr]
+public struct PROPPAGEINFO
 {
 	public uint32 cb;
 	public PWSTR pszTitle;
@@ -2282,38 +2311,44 @@ public function uint32 LPFNOLEUIHOOK(HWND param0, uint32 param1, WPARAM param2, 
 	public uint32 dwHelpContext;
 }
 
-[CRepr]public struct CAUUID
+[CRepr]
+public struct CAUUID
 {
 	public uint32 cElems;
 	public Guid* pElems;
 }
 
-[CRepr]public struct ExtentInfo
+[CRepr]
+public struct ExtentInfo
 {
 	public uint32 cb;
 	public uint32 dwExtentMode;
 	public SIZE sizelProposed;
 }
 
-[CRepr]public struct AspectInfo
+[CRepr]
+public struct AspectInfo
 {
 	public uint32 cb;
 	public uint32 dwFlags;
 }
 
-[CRepr]public struct CALPOLESTR
+[CRepr]
+public struct CALPOLESTR
 {
 	public uint32 cElems;
 	public PWSTR* pElems;
 }
 
-[CRepr]public struct CADWORD
+[CRepr]
+public struct CADWORD
 {
 	public uint32 cElems;
 	public uint32* pElems;
 }
 
-[CRepr]public struct QACONTAINER
+[CRepr]
+public struct QACONTAINER
 {
 	public uint32 cbSize;
 	public IOleClientSite* pClientSite;
@@ -2333,7 +2368,8 @@ public function uint32 LPFNOLEUIHOOK(HWND param0, uint32 param1, WPARAM param2, 
 	public IServiceProvider* pServiceProvider;
 }
 
-[CRepr]public struct QACONTROL
+[CRepr]
+public struct QACONTROL
 {
 	public uint32 cbSize;
 	public uint32 dwMiscStatus;
@@ -2343,7 +2379,8 @@ public function uint32 LPFNOLEUIHOOK(HWND param0, uint32 param1, WPARAM param2, 
 	public uint32 dwPointerActivationPolicy;
 }
 
-[CRepr]public struct OCPFIPARAMS
+[CRepr]
+public struct OCPFIPARAMS
 {
 	public uint32 cbStructSize;
 	public HWND hWndOwner;
@@ -2358,7 +2395,8 @@ public function uint32 LPFNOLEUIHOOK(HWND param0, uint32 param1, WPARAM param2, 
 	public int32 dispidInitialProperty;
 }
 
-[CRepr]public struct FONTDESC
+[CRepr]
+public struct FONTDESC
 {
 	public uint32 cbSizeofstruct;
 	public PWSTR lpstrName;
@@ -2370,29 +2408,35 @@ public function uint32 LPFNOLEUIHOOK(HWND param0, uint32 param1, WPARAM param2, 
 	public BOOL fStrikethrough;
 }
 
-[CRepr]public struct PICTDESC
+[CRepr]
+public struct PICTDESC
 {
-	[CRepr, Union]	public struct _Anonymous_e__Union
+	[CRepr, Union]
+	public struct _Anonymous_e__Union
 	{
-		[CRepr]		public struct _icon_e__Struct
+		[CRepr]
+		public struct _icon_e__Struct
 		{
 			public HICON hicon;
 		}
 
-		[CRepr]		public struct _bmp_e__Struct
+		[CRepr]
+		public struct _bmp_e__Struct
 		{
 			public HBITMAP hbitmap;
 			public HPALETTE hpal;
 		}
 
-		[CRepr]		public struct _wmf_e__Struct
+		[CRepr]
+		public struct _wmf_e__Struct
 		{
 			public HMETAFILE hmeta;
 			public int32 xExt;
 			public int32 yExt;
 		}
 
-		[CRepr]		public struct _emf_e__Struct
+		[CRepr]
+		public struct _emf_e__Struct
 		{
 			public HENHMETAFILE hemf;
 		}
@@ -2408,13 +2452,15 @@ public function uint32 LPFNOLEUIHOOK(HWND param0, uint32 param1, WPARAM param2, 
 	public using _Anonymous_e__Union Anonymous;
 }
 
-[CRepr]public struct PAGERANGE
+[CRepr]
+public struct PAGERANGE
 {
 	public int32 nFromPage;
 	public int32 nToPage;
 }
 
-[CRepr]public struct PAGESET
+[CRepr]
+public struct PAGESET
 {
 	public uint32 cbStruct;
 	public BOOL fOddPages;
@@ -2423,13 +2469,15 @@ public function uint32 LPFNOLEUIHOOK(HWND param0, uint32 param1, WPARAM param2, 
 	public PAGERANGE[1] rgPages;
 }
 
-[CRepr]public struct OLECMD
+[CRepr]
+public struct OLECMD
 {
 	public uint32 cmdID;
 	public uint32 cmdf;
 }
 
-[CRepr]public struct OLECMDTEXT
+[CRepr]
+public struct OLECMDTEXT
 {
 	public uint32 cmdtextf;
 	public uint32 cwActual;
@@ -2437,7 +2485,8 @@ public function uint32 LPFNOLEUIHOOK(HWND param0, uint32 param1, WPARAM param2, 
 	public char8[1] rgwz;
 }
 
-[CRepr]public struct OLEUIINSERTOBJECTW
+[CRepr]
+public struct OLEUIINSERTOBJECTW
 {
 	public uint32 cbStruct;
 	public uint32 dwFlags;
@@ -2463,7 +2512,8 @@ public function uint32 LPFNOLEUIHOOK(HWND param0, uint32 param1, WPARAM param2, 
 	public int hMetaPict;
 }
 
-[CRepr]public struct OLEUIINSERTOBJECTA
+[CRepr]
+public struct OLEUIINSERTOBJECTA
 {
 	public uint32 cbStruct;
 	public uint32 dwFlags;
@@ -2489,7 +2539,8 @@ public function uint32 LPFNOLEUIHOOK(HWND param0, uint32 param1, WPARAM param2, 
 	public int hMetaPict;
 }
 
-[CRepr]public struct OLEUIPASTEENTRYW
+[CRepr]
+public struct OLEUIPASTEENTRYW
 {
 	public FORMATETC fmtetc;
 	public PWSTR lpstrFormatName;
@@ -2498,7 +2549,8 @@ public function uint32 LPFNOLEUIHOOK(HWND param0, uint32 param1, WPARAM param2, 
 	public uint32 dwScratchSpace;
 }
 
-[CRepr]public struct OLEUIPASTEENTRYA
+[CRepr]
+public struct OLEUIPASTEENTRYA
 {
 	public FORMATETC fmtetc;
 	public PSTR lpstrFormatName;
@@ -2507,7 +2559,8 @@ public function uint32 LPFNOLEUIHOOK(HWND param0, uint32 param1, WPARAM param2, 
 	public uint32 dwScratchSpace;
 }
 
-[CRepr]public struct OLEUIPASTESPECIALW
+[CRepr]
+public struct OLEUIPASTESPECIALW
 {
 	public uint32 cbStruct;
 	public uint32 dwFlags;
@@ -2531,7 +2584,8 @@ public function uint32 LPFNOLEUIHOOK(HWND param0, uint32 param1, WPARAM param2, 
 	public SIZE sizel;
 }
 
-[CRepr]public struct OLEUIPASTESPECIALA
+[CRepr]
+public struct OLEUIPASTESPECIALA
 {
 	public uint32 cbStruct;
 	public uint32 dwFlags;
@@ -2555,7 +2609,8 @@ public function uint32 LPFNOLEUIHOOK(HWND param0, uint32 param1, WPARAM param2, 
 	public SIZE sizel;
 }
 
-[CRepr]public struct OLEUIEDITLINKSW
+[CRepr]
+public struct OLEUIEDITLINKSW
 {
 	public uint32 cbStruct;
 	public uint32 dwFlags;
@@ -2569,7 +2624,8 @@ public function uint32 LPFNOLEUIHOOK(HWND param0, uint32 param1, WPARAM param2, 
 	public IOleUILinkContainerW* lpOleUILinkContainer;
 }
 
-[CRepr]public struct OLEUIEDITLINKSA
+[CRepr]
+public struct OLEUIEDITLINKSA
 {
 	public uint32 cbStruct;
 	public uint32 dwFlags;
@@ -2583,7 +2639,8 @@ public function uint32 LPFNOLEUIHOOK(HWND param0, uint32 param1, WPARAM param2, 
 	public IOleUILinkContainerA* lpOleUILinkContainer;
 }
 
-[CRepr]public struct OLEUICHANGEICONW
+[CRepr]
+public struct OLEUICHANGEICONW
 {
 	public uint32 cbStruct;
 	public uint32 dwFlags;
@@ -2600,7 +2657,8 @@ public function uint32 LPFNOLEUIHOOK(HWND param0, uint32 param1, WPARAM param2, 
 	public int32 cchIconExe;
 }
 
-[CRepr]public struct OLEUICHANGEICONA
+[CRepr]
+public struct OLEUICHANGEICONA
 {
 	public uint32 cbStruct;
 	public uint32 dwFlags;
@@ -2617,7 +2675,8 @@ public function uint32 LPFNOLEUIHOOK(HWND param0, uint32 param1, WPARAM param2, 
 	public int32 cchIconExe;
 }
 
-[CRepr]public struct OLEUICONVERTW
+[CRepr]
+public struct OLEUICONVERTW
 {
 	public uint32 cbStruct;
 	public uint32 dwFlags;
@@ -2643,7 +2702,8 @@ public function uint32 LPFNOLEUIHOOK(HWND param0, uint32 param1, WPARAM param2, 
 	public Guid* lpClsidExclude;
 }
 
-[CRepr]public struct OLEUICONVERTA
+[CRepr]
+public struct OLEUICONVERTA
 {
 	public uint32 cbStruct;
 	public uint32 dwFlags;
@@ -2669,7 +2729,8 @@ public function uint32 LPFNOLEUIHOOK(HWND param0, uint32 param1, WPARAM param2, 
 	public Guid* lpClsidExclude;
 }
 
-[CRepr]public struct OLEUIBUSYW
+[CRepr]
+public struct OLEUIBUSYW
 {
 	public uint32 cbStruct;
 	public uint32 dwFlags;
@@ -2684,7 +2745,8 @@ public function uint32 LPFNOLEUIHOOK(HWND param0, uint32 param1, WPARAM param2, 
 	public HWND* lphWndDialog;
 }
 
-[CRepr]public struct OLEUIBUSYA
+[CRepr]
+public struct OLEUIBUSYA
 {
 	public uint32 cbStruct;
 	public uint32 dwFlags;
@@ -2699,7 +2761,8 @@ public function uint32 LPFNOLEUIHOOK(HWND param0, uint32 param1, WPARAM param2, 
 	public HWND* lphWndDialog;
 }
 
-[CRepr]public struct OLEUICHANGESOURCEW
+[CRepr]
+public struct OLEUICHANGESOURCEW
 {
 	public uint32 cbStruct;
 	public uint32 dwFlags;
@@ -2720,7 +2783,8 @@ public function uint32 LPFNOLEUIHOOK(HWND param0, uint32 param1, WPARAM param2, 
 	public PWSTR lpszTo;
 }
 
-[CRepr]public struct OLEUICHANGESOURCEA
+[CRepr]
+public struct OLEUICHANGESOURCEA
 {
 	public uint32 cbStruct;
 	public uint32 dwFlags;
@@ -2741,7 +2805,8 @@ public function uint32 LPFNOLEUIHOOK(HWND param0, uint32 param1, WPARAM param2, 
 	public PSTR lpszTo;
 }
 
-[CRepr]public struct OLEUIGNRLPROPSW
+[CRepr]
+public struct OLEUIGNRLPROPSW
 {
 	public uint32 cbStruct;
 	public uint32 dwFlags;
@@ -2752,7 +2817,8 @@ public function uint32 LPFNOLEUIHOOK(HWND param0, uint32 param1, WPARAM param2, 
 	public OLEUIOBJECTPROPSW* lpOP;
 }
 
-[CRepr]public struct OLEUIGNRLPROPSA
+[CRepr]
+public struct OLEUIGNRLPROPSA
 {
 	public uint32 cbStruct;
 	public uint32 dwFlags;
@@ -2763,7 +2829,8 @@ public function uint32 LPFNOLEUIHOOK(HWND param0, uint32 param1, WPARAM param2, 
 	public OLEUIOBJECTPROPSA* lpOP;
 }
 
-[CRepr]public struct OLEUIVIEWPROPSW
+[CRepr]
+public struct OLEUIVIEWPROPSW
 {
 	public uint32 cbStruct;
 	public uint32 dwFlags;
@@ -2776,7 +2843,8 @@ public function uint32 LPFNOLEUIHOOK(HWND param0, uint32 param1, WPARAM param2, 
 	public int32 nScaleMax;
 }
 
-[CRepr]public struct OLEUIVIEWPROPSA
+[CRepr]
+public struct OLEUIVIEWPROPSA
 {
 	public uint32 cbStruct;
 	public uint32 dwFlags;
@@ -2789,7 +2857,8 @@ public function uint32 LPFNOLEUIHOOK(HWND param0, uint32 param1, WPARAM param2, 
 	public int32 nScaleMax;
 }
 
-[CRepr]public struct OLEUILINKPROPSW
+[CRepr]
+public struct OLEUILINKPROPSW
 {
 	public uint32 cbStruct;
 	public uint32 dwFlags;
@@ -2800,7 +2869,8 @@ public function uint32 LPFNOLEUIHOOK(HWND param0, uint32 param1, WPARAM param2, 
 	public OLEUIOBJECTPROPSW* lpOP;
 }
 
-[CRepr]public struct OLEUILINKPROPSA
+[CRepr]
+public struct OLEUILINKPROPSA
 {
 	public uint32 cbStruct;
 	public uint32 dwFlags;
@@ -2811,7 +2881,8 @@ public function uint32 LPFNOLEUIHOOK(HWND param0, uint32 param1, WPARAM param2, 
 	public OLEUIOBJECTPROPSA* lpOP;
 }
 
-[CRepr]public struct OLEUIOBJECTPROPSW
+[CRepr]
+public struct OLEUIOBJECTPROPSW
 {
 	public uint32 cbStruct;
 	public uint32 dwFlags;
@@ -2825,7 +2896,8 @@ public function uint32 LPFNOLEUIHOOK(HWND param0, uint32 param1, WPARAM param2, 
 	public OLEUILINKPROPSW* lpLP;
 }
 
-[CRepr]public struct OLEUIOBJECTPROPSA
+[CRepr]
+public struct OLEUIOBJECTPROPSA
 {
 	public uint32 cbStruct;
 	public uint32 dwFlags;

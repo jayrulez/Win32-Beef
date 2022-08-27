@@ -66,14 +66,16 @@ public function BOOL DESKTOPENUMPROCW(PWSTR param0, LPARAM param1);
 #endregion
 
 #region Structs
-[CRepr]public struct USEROBJECTFLAGS
+[CRepr]
+public struct USEROBJECTFLAGS
 {
 	public BOOL fInherit;
 	public BOOL fReserved;
 	public uint32 dwFlags;
 }
 
-[CRepr]public struct BSMINFO
+[CRepr]
+public struct BSMINFO
 {
 	public uint32 cbSize;
 	public HDESK hdesk;

@@ -158,13 +158,15 @@ public enum REGISTRATION_INFORMATION_CLASS : int32
 #endregion
 
 #region Structs
-[CRepr]public struct MANAGEMENT_SERVICE_INFO
+[CRepr]
+public struct MANAGEMENT_SERVICE_INFO
 {
 	public PWSTR pszMDMServiceUri;
 	public PWSTR pszAuthenticationUri;
 }
 
-[CRepr]public struct MANAGEMENT_REGISTRATION_INFO
+[CRepr]
+public struct MANAGEMENT_REGISTRATION_INFO
 {
 	public BOOL fDeviceRegisteredWithManagement;
 	public uint32 dwDeviceRegistionKind;

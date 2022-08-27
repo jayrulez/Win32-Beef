@@ -113,20 +113,24 @@ public enum DEVICE_SCALE_FACTOR : int32
 #endregion
 
 #region Structs
-[CRepr, Packed(1)]public struct SHITEMID
+[CRepr, Packed(1)]
+public struct SHITEMID
 {
 	public uint16 cb;
 	public uint8[1] abID;
 }
 
-[CRepr]public struct ITEMIDLIST
+[CRepr]
+public struct ITEMIDLIST
 {
 	public SHITEMID mkid;
 }
 
-[CRepr]public struct STRRET
+[CRepr]
+public struct STRRET
 {
-	[CRepr, Union]	public struct _Anonymous_e__Union
+	[CRepr, Union]
+	public struct _Anonymous_e__Union
 	{
 		public PWSTR pOleStr;
 		public uint32 uOffset;
@@ -137,14 +141,16 @@ public enum DEVICE_SCALE_FACTOR : int32
 	public using _Anonymous_e__Union Anonymous;
 }
 
-[CRepr, Packed(1)]public struct SHELLDETAILS
+[CRepr, Packed(1)]
+public struct SHELLDETAILS
 {
 	public int32 fmt;
 	public int32 cxChar;
 	public STRRET str;
 }
 
-[CRepr]public struct COMDLG_FILTERSPEC
+[CRepr]
+public struct COMDLG_FILTERSPEC
 {
 	public PWSTR pszName;
 	public PWSTR pszSpec;

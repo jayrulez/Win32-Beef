@@ -1138,7 +1138,8 @@ public function BOOL PVIRTUALCHANNELENTRY(CHANNEL_ENTRY_POINTS* pEntryPoints);
 #endregion
 
 #region Structs
-[CRepr]public struct AE_CURRENT_POSITION
+[CRepr]
+public struct AE_CURRENT_POSITION
 {
 	public uint64 u64DevicePosition;
 	public uint64 u64StreamPosition;
@@ -1148,7 +1149,8 @@ public function BOOL PVIRTUALCHANNELENTRY(CHANNEL_ENTRY_POINTS* pEntryPoints);
 	public AE_POSITION_FLAGS Flag;
 }
 
-[CRepr]public struct AAAccountingData
+[CRepr]
+public struct AAAccountingData
 {
 	public BSTR userName;
 	public BSTR clientName;
@@ -1163,31 +1165,36 @@ public function BOOL PVIRTUALCHANNELENTRY(CHANNEL_ENTRY_POINTS* pEntryPoints);
 	public int32 subSessionId;
 }
 
-[CRepr]public struct WTS_SERVER_INFOW
+[CRepr]
+public struct WTS_SERVER_INFOW
 {
 	public PWSTR pServerName;
 }
 
-[CRepr]public struct WTS_SERVER_INFOA
+[CRepr]
+public struct WTS_SERVER_INFOA
 {
 	public PSTR pServerName;
 }
 
-[CRepr]public struct WTS_SESSION_INFOW
+[CRepr]
+public struct WTS_SESSION_INFOW
 {
 	public uint32 SessionId;
 	public PWSTR pWinStationName;
 	public WTS_CONNECTSTATE_CLASS State;
 }
 
-[CRepr]public struct WTS_SESSION_INFOA
+[CRepr]
+public struct WTS_SESSION_INFOA
 {
 	public uint32 SessionId;
 	public PSTR pWinStationName;
 	public WTS_CONNECTSTATE_CLASS State;
 }
 
-[CRepr]public struct WTS_SESSION_INFO_1W
+[CRepr]
+public struct WTS_SESSION_INFO_1W
 {
 	public uint32 ExecEnvId;
 	public WTS_CONNECTSTATE_CLASS State;
@@ -1199,7 +1206,8 @@ public function BOOL PVIRTUALCHANNELENTRY(CHANNEL_ENTRY_POINTS* pEntryPoints);
 	public PWSTR pFarmName;
 }
 
-[CRepr]public struct WTS_SESSION_INFO_1A
+[CRepr]
+public struct WTS_SESSION_INFO_1A
 {
 	public uint32 ExecEnvId;
 	public WTS_CONNECTSTATE_CLASS State;
@@ -1211,7 +1219,8 @@ public function BOOL PVIRTUALCHANNELENTRY(CHANNEL_ENTRY_POINTS* pEntryPoints);
 	public PSTR pFarmName;
 }
 
-[CRepr]public struct WTS_PROCESS_INFOW
+[CRepr]
+public struct WTS_PROCESS_INFOW
 {
 	public uint32 SessionId;
 	public uint32 ProcessId;
@@ -1219,7 +1228,8 @@ public function BOOL PVIRTUALCHANNELENTRY(CHANNEL_ENTRY_POINTS* pEntryPoints);
 	public PSID pUserSid;
 }
 
-[CRepr]public struct WTS_PROCESS_INFOA
+[CRepr]
+public struct WTS_PROCESS_INFOA
 {
 	public uint32 SessionId;
 	public uint32 ProcessId;
@@ -1227,7 +1237,8 @@ public function BOOL PVIRTUALCHANNELENTRY(CHANNEL_ENTRY_POINTS* pEntryPoints);
 	public PSID pUserSid;
 }
 
-[CRepr]public struct WTSCONFIGINFOW
+[CRepr]
+public struct WTSCONFIGINFOW
 {
 	public uint32 version;
 	public uint32 fConnectClientDrivesAtLogon;
@@ -1242,7 +1253,8 @@ public function BOOL PVIRTUALCHANNELENTRY(CHANNEL_ENTRY_POINTS* pEntryPoints);
 	public char8[261] ApplicationName;
 }
 
-[CRepr]public struct WTSCONFIGINFOA
+[CRepr]
+public struct WTSCONFIGINFOA
 {
 	public uint32 version;
 	public uint32 fConnectClientDrivesAtLogon;
@@ -1257,7 +1269,8 @@ public function BOOL PVIRTUALCHANNELENTRY(CHANNEL_ENTRY_POINTS* pEntryPoints);
 	public CHAR[261] ApplicationName;
 }
 
-[CRepr]public struct WTSINFOW
+[CRepr]
+public struct WTSINFOW
 {
 	public WTS_CONNECTSTATE_CLASS State;
 	public uint32 SessionId;
@@ -1277,7 +1290,8 @@ public function BOOL PVIRTUALCHANNELENTRY(CHANNEL_ENTRY_POINTS* pEntryPoints);
 	public LARGE_INTEGER CurrentTime;
 }
 
-[CRepr]public struct WTSINFOA
+[CRepr]
+public struct WTSINFOA
 {
 	public WTS_CONNECTSTATE_CLASS State;
 	public uint32 SessionId;
@@ -1297,7 +1311,8 @@ public function BOOL PVIRTUALCHANNELENTRY(CHANNEL_ENTRY_POINTS* pEntryPoints);
 	public LARGE_INTEGER CurrentTime;
 }
 
-[CRepr]public struct WTSINFOEX_LEVEL1_W
+[CRepr]
+public struct WTSINFOEX_LEVEL1_W
 {
 	public uint32 SessionId;
 	public WTS_CONNECTSTATE_CLASS SessionState;
@@ -1318,7 +1333,8 @@ public function BOOL PVIRTUALCHANNELENTRY(CHANNEL_ENTRY_POINTS* pEntryPoints);
 	public uint32 OutgoingCompressedBytes;
 }
 
-[CRepr]public struct WTSINFOEX_LEVEL1_A
+[CRepr]
+public struct WTSINFOEX_LEVEL1_A
 {
 	public uint32 SessionId;
 	public WTS_CONNECTSTATE_CLASS SessionState;
@@ -1339,29 +1355,34 @@ public function BOOL PVIRTUALCHANNELENTRY(CHANNEL_ENTRY_POINTS* pEntryPoints);
 	public uint32 OutgoingCompressedBytes;
 }
 
-[CRepr, Union]public struct WTSINFOEX_LEVEL_W
+[CRepr, Union]
+public struct WTSINFOEX_LEVEL_W
 {
 	public WTSINFOEX_LEVEL1_W WTSInfoExLevel1;
 }
 
-[CRepr, Union]public struct WTSINFOEX_LEVEL_A
+[CRepr, Union]
+public struct WTSINFOEX_LEVEL_A
 {
 	public WTSINFOEX_LEVEL1_A WTSInfoExLevel1;
 }
 
-[CRepr]public struct WTSINFOEXW
+[CRepr]
+public struct WTSINFOEXW
 {
 	public uint32 Level;
 	public WTSINFOEX_LEVEL_W Data;
 }
 
-[CRepr]public struct WTSINFOEXA
+[CRepr]
+public struct WTSINFOEXA
 {
 	public uint32 Level;
 	public WTSINFOEX_LEVEL_A Data;
 }
 
-[CRepr]public struct WTSCLIENTW
+[CRepr]
+public struct WTSCLIENTW
 {
 	public char8[21] ClientName;
 	public char8[18] Domain;
@@ -1384,7 +1405,8 @@ public function BOOL PVIRTUALCHANNELENTRY(CHANNEL_ENTRY_POINTS* pEntryPoints);
 	public char8[261] DeviceId;
 }
 
-[CRepr]public struct WTSCLIENTA
+[CRepr]
+public struct WTSCLIENTA
 {
 	public CHAR[21] ClientName;
 	public CHAR[18] Domain;
@@ -1407,19 +1429,22 @@ public function BOOL PVIRTUALCHANNELENTRY(CHANNEL_ENTRY_POINTS* pEntryPoints);
 	public CHAR[261] DeviceId;
 }
 
-[CRepr]public struct _WTS_PRODUCT_INFOA
+[CRepr]
+public struct _WTS_PRODUCT_INFOA
 {
 	public CHAR[256] CompanyName;
 	public CHAR[4] ProductID;
 }
 
-[CRepr]public struct _WTS_PRODUCT_INFOW
+[CRepr]
+public struct _WTS_PRODUCT_INFOW
 {
 	public char8[256] CompanyName;
 	public char8[4] ProductID;
 }
 
-[CRepr]public struct WTS_VALIDATION_INFORMATIONA
+[CRepr]
+public struct WTS_VALIDATION_INFORMATIONA
 {
 	public _WTS_PRODUCT_INFOA ProductInfo;
 	public uint8[16384] License;
@@ -1428,7 +1453,8 @@ public function BOOL PVIRTUALCHANNELENTRY(CHANNEL_ENTRY_POINTS* pEntryPoints);
 	public uint32 HardwareIDLength;
 }
 
-[CRepr]public struct WTS_VALIDATION_INFORMATIONW
+[CRepr]
+public struct WTS_VALIDATION_INFORMATIONW
 {
 	public _WTS_PRODUCT_INFOW ProductInfo;
 	public uint8[16384] License;
@@ -1437,20 +1463,23 @@ public function BOOL PVIRTUALCHANNELENTRY(CHANNEL_ENTRY_POINTS* pEntryPoints);
 	public uint32 HardwareIDLength;
 }
 
-[CRepr]public struct WTS_CLIENT_ADDRESS
+[CRepr]
+public struct WTS_CLIENT_ADDRESS
 {
 	public uint32 AddressFamily;
 	public uint8[20] Address;
 }
 
-[CRepr]public struct WTS_CLIENT_DISPLAY
+[CRepr]
+public struct WTS_CLIENT_DISPLAY
 {
 	public uint32 HorizontalResolution;
 	public uint32 VerticalResolution;
 	public uint32 ColorDepth;
 }
 
-[CRepr]public struct WTSUSERCONFIGA
+[CRepr]
+public struct WTSUSERCONFIGA
 {
 	public uint32 Source;
 	public uint32 InheritInitialProgram;
@@ -1472,7 +1501,8 @@ public function BOOL PVIRTUALCHANNELENTRY(CHANNEL_ENTRY_POINTS* pEntryPoints);
 	public CHAR[4] TerminalServerHomeDirDrive;
 }
 
-[CRepr]public struct WTSUSERCONFIGW
+[CRepr]
+public struct WTSUSERCONFIGW
 {
 	public uint32 Source;
 	public uint32 InheritInitialProgram;
@@ -1494,13 +1524,15 @@ public function BOOL PVIRTUALCHANNELENTRY(CHANNEL_ENTRY_POINTS* pEntryPoints);
 	public char8[4] TerminalServerHomeDirDrive;
 }
 
-[CRepr]public struct WTS_SESSION_ADDRESS
+[CRepr]
+public struct WTS_SESSION_ADDRESS
 {
 	public uint32 AddressFamily;
 	public uint8[20] Address;
 }
 
-[CRepr]public struct WTS_PROCESS_INFO_EXW
+[CRepr]
+public struct WTS_PROCESS_INFO_EXW
 {
 	public uint32 SessionId;
 	public uint32 ProcessId;
@@ -1516,7 +1548,8 @@ public function BOOL PVIRTUALCHANNELENTRY(CHANNEL_ENTRY_POINTS* pEntryPoints);
 	public LARGE_INTEGER KernelTime;
 }
 
-[CRepr]public struct WTS_PROCESS_INFO_EXA
+[CRepr]
+public struct WTS_PROCESS_INFO_EXA
 {
 	public uint32 SessionId;
 	public uint32 ProcessId;
@@ -1532,7 +1565,8 @@ public function BOOL PVIRTUALCHANNELENTRY(CHANNEL_ENTRY_POINTS* pEntryPoints);
 	public LARGE_INTEGER KernelTime;
 }
 
-[CRepr]public struct WTSLISTENERCONFIGW
+[CRepr]
+public struct WTSLISTENERCONFIGW
 {
 	public uint32 version;
 	public uint32 fEnableListener;
@@ -1567,7 +1601,8 @@ public function BOOL PVIRTUALCHANNELENTRY(CHANNEL_ENTRY_POINTS* pEntryPoints);
 	public char8[261] InitialProgram;
 }
 
-[CRepr]public struct WTSLISTENERCONFIGA
+[CRepr]
+public struct WTSLISTENERCONFIGA
 {
 	public uint32 version;
 	public uint32 fEnableListener;
@@ -1602,7 +1637,8 @@ public function BOOL PVIRTUALCHANNELENTRY(CHANNEL_ENTRY_POINTS* pEntryPoints);
 	public CHAR[261] InitialProgram;
 }
 
-[CRepr]public struct WTSSBX_IP_ADDRESS
+[CRepr]
+public struct WTSSBX_IP_ADDRESS
 {
 	public WTSSBX_ADDRESS_FAMILY AddressFamily;
 	public uint8[16] Address;
@@ -1610,7 +1646,8 @@ public function BOOL PVIRTUALCHANNELENTRY(CHANNEL_ENTRY_POINTS* pEntryPoints);
 	public uint32 dwScope;
 }
 
-[CRepr]public struct WTSSBX_MACHINE_CONNECT_INFO
+[CRepr]
+public struct WTSSBX_MACHINE_CONNECT_INFO
 {
 	public char8[257] wczMachineFQDN;
 	public char8[17] wczMachineNetBiosName;
@@ -1618,7 +1655,8 @@ public function BOOL PVIRTUALCHANNELENTRY(CHANNEL_ENTRY_POINTS* pEntryPoints);
 	public WTSSBX_IP_ADDRESS[12] IPaddr;
 }
 
-[CRepr]public struct WTSSBX_MACHINE_INFO
+[CRepr]
+public struct WTSSBX_MACHINE_INFO
 {
 	public WTSSBX_MACHINE_CONNECT_INFO ClientConnectInfo;
 	public char8[257] wczFarmName;
@@ -1630,7 +1668,8 @@ public function BOOL PVIRTUALCHANNELENTRY(CHANNEL_ENTRY_POINTS* pEntryPoints);
 	public WTSSBX_MACHINE_STATE MachineState;
 }
 
-[CRepr]public struct WTSSBX_SESSION_INFO
+[CRepr]
+public struct WTSSBX_SESSION_INFO
 {
 	public char8[105] wszUserName;
 	public char8[257] wszDomainName;
@@ -1641,19 +1680,22 @@ public function BOOL PVIRTUALCHANNELENTRY(CHANNEL_ENTRY_POINTS* pEntryPoints);
 	public WTSSBX_SESSION_STATE SessionState;
 }
 
-[CRepr, Packed(1)]public struct CHANNEL_DEF
+[CRepr, Packed(1)]
+public struct CHANNEL_DEF
 {
 	public CHAR[8] name;
 	public uint32 options;
 }
 
-[CRepr]public struct CHANNEL_PDU_HEADER
+[CRepr]
+public struct CHANNEL_PDU_HEADER
 {
 	public uint32 length;
 	public uint32 flags;
 }
 
-[CRepr]public struct CHANNEL_ENTRY_POINTS
+[CRepr]
+public struct CHANNEL_ENTRY_POINTS
 {
 	public uint32 cbSize;
 	public uint32 protocolVersion;
@@ -1663,14 +1705,16 @@ public function BOOL PVIRTUALCHANNELENTRY(CHANNEL_ENTRY_POINTS* pEntryPoints);
 	public PVIRTUALCHANNELWRITE pVirtualChannelWrite;
 }
 
-[CRepr]public struct CLIENT_DISPLAY
+[CRepr]
+public struct CLIENT_DISPLAY
 {
 	public uint32 HorizontalResolution;
 	public uint32 VerticalResolution;
 	public uint32 ColorDepth;
 }
 
-[CRepr]public struct TSSD_ConnectionPoint
+[CRepr]
+public struct TSSD_ConnectionPoint
 {
 	public uint8[16] ServerAddressB;
 	public TSSD_AddrV46Type AddressType;
@@ -1678,25 +1722,29 @@ public function BOOL PVIRTUALCHANNELENTRY(CHANNEL_ENTRY_POINTS* pEntryPoints);
 	public uint32 AddressScope;
 }
 
-[CRepr]public struct VM_NOTIFY_ENTRY
+[CRepr]
+public struct VM_NOTIFY_ENTRY
 {
 	public char8[128] VmName;
 	public char8[128] VmHost;
 }
 
-[CRepr]public struct VM_PATCH_INFO
+[CRepr]
+public struct VM_PATCH_INFO
 {
 	public uint32 dwNumEntries;
 	public PWSTR* pVmNames;
 }
 
-[CRepr]public struct VM_NOTIFY_INFO
+[CRepr]
+public struct VM_NOTIFY_INFO
 {
 	public uint32 dwNumEntries;
 	public VM_NOTIFY_ENTRY** ppVmEntries;
 }
 
-[CRepr]public struct pluginResource
+[CRepr]
+public struct pluginResource
 {
 	public char8[256] alias;
 	public char8[256] name;
@@ -1711,7 +1759,8 @@ public function BOOL PVIRTUALCHANNELENTRY(CHANNEL_ENTRY_POINTS* pEntryPoints);
 	public uint8* blobContents;
 }
 
-[CRepr]public struct pluginResource2FileAssociation
+[CRepr]
+public struct pluginResource2FileAssociation
 {
 	public char8[256] extName;
 	public uint8 primaryHandler;
@@ -1719,7 +1768,8 @@ public function BOOL PVIRTUALCHANNELENTRY(CHANNEL_ENTRY_POINTS* pEntryPoints);
 	public uint8* iconContents;
 }
 
-[CRepr]public struct pluginResource2
+[CRepr]
+public struct pluginResource2
 {
 	public pluginResource resourceV1;
 	public uint32 pceFileAssocListSize;
@@ -1729,13 +1779,15 @@ public function BOOL PVIRTUALCHANNELENTRY(CHANNEL_ENTRY_POINTS* pEntryPoints);
 	public uint16** folderList;
 }
 
-[CRepr]public struct BITMAP_RENDERER_STATISTICS
+[CRepr]
+public struct BITMAP_RENDERER_STATISTICS
 {
 	public uint32 dwFramesDelivered;
 	public uint32 dwFramesDropped;
 }
 
-[CRepr, Packed(1)]public struct RFX_GFX_RECT
+[CRepr, Packed(1)]
+public struct RFX_GFX_RECT
 {
 	public int32 left;
 	public int32 top;
@@ -1743,13 +1795,15 @@ public function BOOL PVIRTUALCHANNELENTRY(CHANNEL_ENTRY_POINTS* pEntryPoints);
 	public int32 bottom;
 }
 
-[CRepr, Packed(1)]public struct RFX_GFX_MSG_HEADER
+[CRepr, Packed(1)]
+public struct RFX_GFX_MSG_HEADER
 {
 	public uint16 uMSGType;
 	public uint16 cbSize;
 }
 
-[CRepr, Packed(1)]public struct RFX_GFX_MONITOR_INFO
+[CRepr, Packed(1)]
+public struct RFX_GFX_MONITOR_INFO
 {
 	public int32 left;
 	public int32 top;
@@ -1761,12 +1815,14 @@ public function BOOL PVIRTUALCHANNELENTRY(CHANNEL_ENTRY_POINTS* pEntryPoints);
 	public BOOL primary;
 }
 
-[CRepr]public struct RFX_GFX_MSG_CLIENT_DESKTOP_INFO_REQUEST
+[CRepr]
+public struct RFX_GFX_MSG_CLIENT_DESKTOP_INFO_REQUEST
 {
 	public RFX_GFX_MSG_HEADER channelHdr;
 }
 
-[CRepr, Packed(1)]public struct RFX_GFX_MSG_CLIENT_DESKTOP_INFO_RESPONSE
+[CRepr, Packed(1)]
+public struct RFX_GFX_MSG_CLIENT_DESKTOP_INFO_RESPONSE
 {
 	public RFX_GFX_MSG_HEADER channelHdr;
 	public uint32 reserved;
@@ -1775,7 +1831,8 @@ public function BOOL PVIRTUALCHANNELENTRY(CHANNEL_ENTRY_POINTS* pEntryPoints);
 	public char8[32] clientUniqueId;
 }
 
-[CRepr, Packed(1)]public struct RFX_GFX_MSG_DESKTOP_CONFIG_CHANGE_NOTIFY
+[CRepr, Packed(1)]
+public struct RFX_GFX_MSG_DESKTOP_CONFIG_CHANGE_NOTIFY
 {
 	public RFX_GFX_MSG_HEADER channelHdr;
 	public uint32 ulWidth;
@@ -1784,41 +1841,49 @@ public function BOOL PVIRTUALCHANNELENTRY(CHANNEL_ENTRY_POINTS* pEntryPoints);
 	public uint32 Reserved;
 }
 
-[CRepr]public struct RFX_GFX_MSG_DESKTOP_CONFIG_CHANGE_CONFIRM
+[CRepr]
+public struct RFX_GFX_MSG_DESKTOP_CONFIG_CHANGE_CONFIRM
 {
 	public RFX_GFX_MSG_HEADER channelHdr;
 }
 
-[CRepr, Packed(1)]public struct RFX_GFX_MSG_DESKTOP_INPUT_RESET
+[CRepr, Packed(1)]
+public struct RFX_GFX_MSG_DESKTOP_INPUT_RESET
 {
 	public RFX_GFX_MSG_HEADER channelHdr;
 	public uint32 ulWidth;
 	public uint32 ulHeight;
 }
 
-[CRepr, Packed(1)]public struct RFX_GFX_MSG_DISCONNECT_NOTIFY
+[CRepr, Packed(1)]
+public struct RFX_GFX_MSG_DISCONNECT_NOTIFY
 {
 	public RFX_GFX_MSG_HEADER channelHdr;
 	public uint32 DisconnectReason;
 }
 
-[CRepr]public struct RFX_GFX_MSG_DESKTOP_RESEND_REQUEST
+[CRepr]
+public struct RFX_GFX_MSG_DESKTOP_RESEND_REQUEST
 {
 	public RFX_GFX_MSG_HEADER channelHdr;
 	public RFX_GFX_RECT RedrawRect;
 }
 
-[CRepr]public struct RFX_GFX_MSG_RDP_DATA
+[CRepr]
+public struct RFX_GFX_MSG_RDP_DATA
 {
 	public RFX_GFX_MSG_HEADER channelHdr;
 	public uint8[1] rdpData;
 }
 
-[CRepr]public struct WTS_SOCKADDR
+[CRepr]
+public struct WTS_SOCKADDR
 {
-	[CRepr, Union]	public struct _u_e__Union
+	[CRepr, Union]
+	public struct _u_e__Union
 	{
-		[CRepr]		public struct _ipv6_e__Struct
+		[CRepr]
+		public struct _ipv6_e__Struct
 		{
 			public uint16 sin6_port;
 			public uint32 sin6_flowinfo;
@@ -1826,7 +1891,8 @@ public function BOOL PVIRTUALCHANNELENTRY(CHANNEL_ENTRY_POINTS* pEntryPoints);
 			public uint32 sin6_scope_id;
 		}
 
-		[CRepr]		public struct _ipv4_e__Struct
+		[CRepr]
+		public struct _ipv4_e__Struct
 		{
 			public uint16 sin_port;
 			public uint32 IN_ADDR;
@@ -1841,7 +1907,8 @@ public function BOOL PVIRTUALCHANNELENTRY(CHANNEL_ENTRY_POINTS* pEntryPoints);
 	public _u_e__Union u;
 }
 
-[CRepr]public struct WTS_SMALL_RECT
+[CRepr]
+public struct WTS_SMALL_RECT
 {
 	public int16 Left;
 	public int16 Top;
@@ -1849,26 +1916,30 @@ public function BOOL PVIRTUALCHANNELENTRY(CHANNEL_ENTRY_POINTS* pEntryPoints);
 	public int16 Bottom;
 }
 
-[CRepr]public struct WTS_SERVICE_STATE
+[CRepr]
+public struct WTS_SERVICE_STATE
 {
 	public WTS_RCM_SERVICE_STATE RcmServiceState;
 	public WTS_RCM_DRAIN_STATE RcmDrainState;
 }
 
-[CRepr]public struct WTS_SESSION_ID
+[CRepr]
+public struct WTS_SESSION_ID
 {
 	public Guid SessionUniqueGuid;
 	public uint32 SessionId;
 }
 
-[CRepr]public struct WTS_USER_CREDENTIAL
+[CRepr]
+public struct WTS_USER_CREDENTIAL
 {
 	public char8[256] UserName;
 	public char8[256] Password;
 	public char8[256] Domain;
 }
 
-[CRepr]public struct WTS_SYSTEMTIME
+[CRepr]
+public struct WTS_SYSTEMTIME
 {
 	public uint16 wYear;
 	public uint16 wMonth;
@@ -1880,7 +1951,8 @@ public function BOOL PVIRTUALCHANNELENTRY(CHANNEL_ENTRY_POINTS* pEntryPoints);
 	public uint16 wMilliseconds;
 }
 
-[CRepr]public struct WTS_TIME_ZONE_INFORMATION
+[CRepr]
+public struct WTS_TIME_ZONE_INFORMATION
 {
 	public int32 Bias;
 	public char8[32] StandardName;
@@ -1891,7 +1963,8 @@ public function BOOL PVIRTUALCHANNELENTRY(CHANNEL_ENTRY_POINTS* pEntryPoints);
 	public int32 DaylightBias;
 }
 
-[CRepr]public struct WRDS_DYNAMIC_TIME_ZONE_INFORMATION
+[CRepr]
+public struct WRDS_DYNAMIC_TIME_ZONE_INFORMATION
 {
 	public int32 Bias;
 	public char8[32] StandardName;
@@ -1904,7 +1977,8 @@ public function BOOL PVIRTUALCHANNELENTRY(CHANNEL_ENTRY_POINTS* pEntryPoints);
 	public uint16 DynamicDaylightTimeDisabled;
 }
 
-[CRepr]public struct WTS_CLIENT_DATA
+[CRepr]
+public struct WTS_CLIENT_DATA
 {
 	public BOOLEAN fDisableCtrlAltDel;
 	public BOOLEAN fDoubleClickDetect;
@@ -1963,14 +2037,16 @@ public function BOOL PVIRTUALCHANNELENTRY(CHANNEL_ENTRY_POINTS* pEntryPoints);
 	public BOOLEAN fDisablePNP;
 }
 
-[CRepr]public struct WTS_USER_DATA
+[CRepr]
+public struct WTS_USER_DATA
 {
 	public char8[257] WorkDirectory;
 	public char8[257] InitialProgram;
 	public WTS_TIME_ZONE_INFORMATION UserTimeZone;
 }
 
-[CRepr]public struct WTS_POLICY_DATA
+[CRepr]
+public struct WTS_POLICY_DATA
 {
 	public BOOLEAN fDisableEncryption;
 	public BOOLEAN fDisableAutoReconnect;
@@ -1984,20 +2060,23 @@ public function BOOL PVIRTUALCHANNELENTRY(CHANNEL_ENTRY_POINTS* pEntryPoints);
 	public BOOLEAN fDisablePNPRedir;
 }
 
-[CRepr]public struct WTS_PROTOCOL_CACHE
+[CRepr]
+public struct WTS_PROTOCOL_CACHE
 {
 	public uint32 CacheReads;
 	public uint32 CacheHits;
 }
 
-[CRepr, Union]public struct WTS_CACHE_STATS_UN
+[CRepr, Union]
+public struct WTS_CACHE_STATS_UN
 {
 	public WTS_PROTOCOL_CACHE[4] ProtocolCache;
 	public uint32 TShareCacheStats;
 	public uint32[20] Reserved;
 }
 
-[CRepr]public struct WTS_CACHE_STATS
+[CRepr]
+public struct WTS_CACHE_STATS
 {
 	public uint32 Specific;
 	public WTS_CACHE_STATS_UN Data;
@@ -2005,7 +2084,8 @@ public function BOOL PVIRTUALCHANNELENTRY(CHANNEL_ENTRY_POINTS* pEntryPoints);
 	public uint16 Length;
 }
 
-[CRepr]public struct WTS_PROTOCOL_COUNTERS
+[CRepr]
+public struct WTS_PROTOCOL_COUNTERS
 {
 	public uint32 WdBytes;
 	public uint32 WdFrames;
@@ -2027,7 +2107,8 @@ public function BOOL PVIRTUALCHANNELENTRY(CHANNEL_ENTRY_POINTS* pEntryPoints);
 	public uint32[100] Reserved;
 }
 
-[CRepr]public struct WTS_PROTOCOL_STATUS
+[CRepr]
+public struct WTS_PROTOCOL_STATUS
 {
 	public WTS_PROTOCOL_COUNTERS Output;
 	public WTS_PROTOCOL_COUNTERS Input;
@@ -2037,23 +2118,28 @@ public function BOOL PVIRTUALCHANNELENTRY(CHANNEL_ENTRY_POINTS* pEntryPoints);
 	public LARGE_INTEGER[100] Counters;
 }
 
-[CRepr]public struct WTS_DISPLAY_IOCTL
+[CRepr]
+public struct WTS_DISPLAY_IOCTL
 {
 	public uint8[256] pDisplayIOCtlData;
 	public uint32 cbDisplayIOCtlData;
 }
 
-[CRepr]public struct WTS_PROPERTY_VALUE
+[CRepr]
+public struct WTS_PROPERTY_VALUE
 {
-	[CRepr, Union]	public struct _u_e__Union
+	[CRepr, Union]
+	public struct _u_e__Union
 	{
-		[CRepr]		public struct _bVal_e__Struct
+		[CRepr]
+		public struct _bVal_e__Struct
 		{
 			public uint32 size;
 			public PSTR pbVal;
 		}
 
-		[CRepr]		public struct _strVal_e__Struct
+		[CRepr]
+		public struct _strVal_e__Struct
 		{
 			public uint32 size;
 			public PWSTR pstrVal;
@@ -2069,7 +2155,8 @@ public function BOOL PVIRTUALCHANNELENTRY(CHANNEL_ENTRY_POINTS* pEntryPoints);
 	public _u_e__Union u;
 }
 
-[CRepr]public struct WTS_LICENSE_CAPABILITIES
+[CRepr]
+public struct WTS_LICENSE_CAPABILITIES
 {
 	public uint32 KeyExchangeAlg;
 	public uint32 ProtocolVer;
@@ -2079,25 +2166,29 @@ public function BOOL PVIRTUALCHANNELENTRY(CHANNEL_ENTRY_POINTS* pEntryPoints);
 	public uint8[42] rgbClientName;
 }
 
-[CRepr]public struct WRDS_LISTENER_SETTINGS_1
+[CRepr]
+public struct WRDS_LISTENER_SETTINGS_1
 {
 	public uint32 MaxProtocolListenerConnectionCount;
 	public uint32 SecurityDescriptorSize;
 	public uint8* pSecurityDescriptor;
 }
 
-[CRepr, Union]public struct WRDS_LISTENER_SETTING
+[CRepr, Union]
+public struct WRDS_LISTENER_SETTING
 {
 	public WRDS_LISTENER_SETTINGS_1 WRdsListenerSettings1;
 }
 
-[CRepr]public struct WRDS_LISTENER_SETTINGS
+[CRepr]
+public struct WRDS_LISTENER_SETTINGS
 {
 	public WRDS_LISTENER_SETTING_LEVEL WRdsListenerSettingLevel;
 	public WRDS_LISTENER_SETTING WRdsListenerSetting;
 }
 
-[CRepr]public struct WRDS_CONNECTION_SETTINGS_1
+[CRepr]
+public struct WRDS_CONNECTION_SETTINGS_1
 {
 	public BOOLEAN fInheritInitialProgram;
 	public BOOLEAN fInheritColorDepth;
@@ -2166,7 +2257,8 @@ public function BOOL PVIRTUALCHANNELENTRY(CHANNEL_ENTRY_POINTS* pEntryPoints);
 	public uint8* ContextData;
 }
 
-[CRepr]public struct WRDS_SETTINGS_1
+[CRepr]
+public struct WRDS_SETTINGS_1
 {
 	public WRDS_SETTING_STATUS WRdsDisableClipStatus;
 	public uint32 WRdsDisableClipValue;
@@ -2201,30 +2293,35 @@ public function BOOL PVIRTUALCHANNELENTRY(CHANNEL_ENTRY_POINTS* pEntryPoints);
 	public uint32 WRdsKeepAliveIntervalValue;
 }
 
-[CRepr, Union]public struct WRDS_CONNECTION_SETTING
+[CRepr, Union]
+public struct WRDS_CONNECTION_SETTING
 {
 	public WRDS_CONNECTION_SETTINGS_1 WRdsConnectionSettings1;
 }
 
-[CRepr]public struct WRDS_CONNECTION_SETTINGS
+[CRepr]
+public struct WRDS_CONNECTION_SETTINGS
 {
 	public WRDS_CONNECTION_SETTING_LEVEL WRdsConnectionSettingLevel;
 	public WRDS_CONNECTION_SETTING WRdsConnectionSetting;
 }
 
-[CRepr, Union]public struct WRDS_SETTING
+[CRepr, Union]
+public struct WRDS_SETTING
 {
 	public WRDS_SETTINGS_1 WRdsSettings1;
 }
 
-[CRepr]public struct WRDS_SETTINGS
+[CRepr]
+public struct WRDS_SETTINGS
 {
 	public WRDS_SETTING_TYPE WRdsSettingType;
 	public WRDS_SETTING_LEVEL WRdsSettingLevel;
 	public WRDS_SETTING WRdsSetting;
 }
 
-[CRepr]public struct WTSSESSION_NOTIFICATION
+[CRepr]
+public struct WTSSESSION_NOTIFICATION
 {
 	public uint32 cbSize;
 	public uint32 dwSessionId;

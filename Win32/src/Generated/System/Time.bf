@@ -26,7 +26,8 @@ public static
 #endregion
 
 #region Structs
-[CRepr]public struct TIME_ZONE_INFORMATION
+[CRepr]
+public struct TIME_ZONE_INFORMATION
 {
 	public int32 Bias;
 	public char8[32] StandardName;
@@ -37,7 +38,8 @@ public static
 	public int32 DaylightBias;
 }
 
-[CRepr]public struct DYNAMIC_TIME_ZONE_INFORMATION
+[CRepr]
+public struct DYNAMIC_TIME_ZONE_INFORMATION
 {
 	public int32 Bias;
 	public char8[32] StandardName;

@@ -204,7 +204,8 @@ public function uint32 PFNMSGECALLBACK(BOOL bVerbose, PWSTR lpMessage);
 #endregion
 
 #region Structs
-[CRepr]public struct WLX_SC_NOTIFICATION_INFO
+[CRepr]
+public struct WLX_SC_NOTIFICATION_INFO
 {
 	public PWSTR pszCard;
 	public PWSTR pszReader;
@@ -212,13 +213,15 @@ public function uint32 PFNMSGECALLBACK(BOOL bVerbose, PWSTR lpMessage);
 	public PWSTR pszCryptoProvider;
 }
 
-[CRepr]public struct WLX_PROFILE_V1_0
+[CRepr]
+public struct WLX_PROFILE_V1_0
 {
 	public uint32 dwType;
 	public PWSTR pszProfile;
 }
 
-[CRepr]public struct WLX_PROFILE_V2_0
+[CRepr]
+public struct WLX_PROFILE_V2_0
 {
 	public uint32 dwType;
 	public PWSTR pszProfile;
@@ -228,7 +231,8 @@ public function uint32 PFNMSGECALLBACK(BOOL bVerbose, PWSTR lpMessage);
 	public PWSTR pszEnvironment;
 }
 
-[CRepr]public struct WLX_MPR_NOTIFY_INFO
+[CRepr]
+public struct WLX_MPR_NOTIFY_INFO
 {
 	public PWSTR pszUserName;
 	public PWSTR pszDomain;
@@ -236,14 +240,16 @@ public function uint32 PFNMSGECALLBACK(BOOL bVerbose, PWSTR lpMessage);
 	public PWSTR pszOldPassword;
 }
 
-[CRepr]public struct WLX_TERMINAL_SERVICES_DATA
+[CRepr]
+public struct WLX_TERMINAL_SERVICES_DATA
 {
 	public char8[257] ProfilePath;
 	public char8[257] HomeDir;
 	public char8[4] HomeDirDrive;
 }
 
-[CRepr]public struct WLX_CLIENT_CREDENTIALS_INFO_V1_0
+[CRepr]
+public struct WLX_CLIENT_CREDENTIALS_INFO_V1_0
 {
 	public uint32 dwType;
 	public PWSTR pszUserName;
@@ -252,7 +258,8 @@ public function uint32 PFNMSGECALLBACK(BOOL bVerbose, PWSTR lpMessage);
 	public BOOL fPromptForPassword;
 }
 
-[CRepr]public struct WLX_CLIENT_CREDENTIALS_INFO_V2_0
+[CRepr]
+public struct WLX_CLIENT_CREDENTIALS_INFO_V2_0
 {
 	public uint32 dwType;
 	public PWSTR pszUserName;
@@ -262,7 +269,8 @@ public function uint32 PFNMSGECALLBACK(BOOL bVerbose, PWSTR lpMessage);
 	public BOOL fDisconnectOnLogonFailure;
 }
 
-[CRepr]public struct WLX_CONSOLESWITCH_CREDENTIALS_INFO_V1_0
+[CRepr]
+public struct WLX_CONSOLESWITCH_CREDENTIALS_INFO_V1_0
 {
 	public uint32 dwType;
 	public HANDLE UserToken;
@@ -293,7 +301,8 @@ public function uint32 PFNMSGECALLBACK(BOOL bVerbose, PWSTR lpMessage);
 	public uint8* PrivateData;
 }
 
-[CRepr]public struct WLX_DESKTOP
+[CRepr]
+public struct WLX_DESKTOP
 {
 	public uint32 Size;
 	public uint32 Flags;
@@ -301,7 +310,8 @@ public function uint32 PFNMSGECALLBACK(BOOL bVerbose, PWSTR lpMessage);
 	public PWSTR pszDesktopName;
 }
 
-[CRepr]public struct WLX_DISPATCH_VERSION_1_0
+[CRepr]
+public struct WLX_DISPATCH_VERSION_1_0
 {
 	public PWLX_USE_CTRL_ALT_DEL WlxUseCtrlAltDel;
 	public PWLX_SET_CONTEXT_POINTER WlxSetContextPointer;
@@ -318,7 +328,8 @@ public function uint32 PFNMSGECALLBACK(BOOL bVerbose, PWSTR lpMessage);
 	public PWLX_CHANGE_PASSWORD_NOTIFY WlxChangePasswordNotify;
 }
 
-[CRepr]public struct WLX_DISPATCH_VERSION_1_1
+[CRepr]
+public struct WLX_DISPATCH_VERSION_1_1
 {
 	public PWLX_USE_CTRL_ALT_DEL WlxUseCtrlAltDel;
 	public PWLX_SET_CONTEXT_POINTER WlxSetContextPointer;
@@ -339,7 +350,8 @@ public function uint32 PFNMSGECALLBACK(BOOL bVerbose, PWSTR lpMessage);
 	public PWLX_CHANGE_PASSWORD_NOTIFY_EX WlxChangePasswordNotifyEx;
 }
 
-[CRepr]public struct WLX_DISPATCH_VERSION_1_2
+[CRepr]
+public struct WLX_DISPATCH_VERSION_1_2
 {
 	public PWLX_USE_CTRL_ALT_DEL WlxUseCtrlAltDel;
 	public PWLX_SET_CONTEXT_POINTER WlxSetContextPointer;
@@ -361,7 +373,8 @@ public function uint32 PFNMSGECALLBACK(BOOL bVerbose, PWSTR lpMessage);
 	public PWLX_CLOSE_USER_DESKTOP WlxCloseUserDesktop;
 }
 
-[CRepr]public struct WLX_DISPATCH_VERSION_1_3
+[CRepr]
+public struct WLX_DISPATCH_VERSION_1_3
 {
 	public PWLX_USE_CTRL_ALT_DEL WlxUseCtrlAltDel;
 	public PWLX_SET_CONTEXT_POINTER WlxSetContextPointer;
@@ -390,7 +403,8 @@ public function uint32 PFNMSGECALLBACK(BOOL bVerbose, PWSTR lpMessage);
 	public PWLX_QUERY_TERMINAL_SERVICES_DATA WlxQueryTerminalServicesData;
 }
 
-[CRepr]public struct WLX_DISPATCH_VERSION_1_4
+[CRepr]
+public struct WLX_DISPATCH_VERSION_1_4
 {
 	public PWLX_USE_CTRL_ALT_DEL WlxUseCtrlAltDel;
 	public PWLX_SET_CONTEXT_POINTER WlxSetContextPointer;
@@ -421,7 +435,8 @@ public function uint32 PFNMSGECALLBACK(BOOL bVerbose, PWSTR lpMessage);
 	public PWLX_QUERY_TS_LOGON_CREDENTIALS WlxQueryTsLogonCredentials;
 }
 
-[CRepr]public struct WLX_NOTIFICATION_INFO
+[CRepr]
+public struct WLX_NOTIFICATION_INFO
 {
 	public uint32 Size;
 	public uint32 Flags;

@@ -624,7 +624,8 @@ public function void FN_PROGRESS(PWSTR pObjectName, uint32 Status, PROG_INVOKE_S
 #endregion
 
 #region Structs
-[CRepr]public struct OBJECTS_AND_SID
+[CRepr]
+public struct OBJECTS_AND_SID
 {
 	public SYSTEM_AUDIT_OBJECT_ACE_FLAGS ObjectsPresent;
 	public Guid ObjectTypeGuid;
@@ -632,7 +633,8 @@ public function void FN_PROGRESS(PWSTR pObjectName, uint32 Status, PROG_INVOKE_S
 	public SID* pSid;
 }
 
-[CRepr]public struct OBJECTS_AND_NAME_A
+[CRepr]
+public struct OBJECTS_AND_NAME_A
 {
 	public SYSTEM_AUDIT_OBJECT_ACE_FLAGS ObjectsPresent;
 	public SE_OBJECT_TYPE ObjectType;
@@ -641,7 +643,8 @@ public function void FN_PROGRESS(PWSTR pObjectName, uint32 Status, PROG_INVOKE_S
 	public PSTR ptstrName;
 }
 
-[CRepr]public struct OBJECTS_AND_NAME_W
+[CRepr]
+public struct OBJECTS_AND_NAME_W
 {
 	public SYSTEM_AUDIT_OBJECT_ACE_FLAGS ObjectsPresent;
 	public SE_OBJECT_TYPE ObjectType;
@@ -650,7 +653,8 @@ public function void FN_PROGRESS(PWSTR pObjectName, uint32 Status, PROG_INVOKE_S
 	public PWSTR ptstrName;
 }
 
-[CRepr]public struct TRUSTEE_A
+[CRepr]
+public struct TRUSTEE_A
 {
 	public TRUSTEE_A* pMultipleTrustee;
 	public MULTIPLE_TRUSTEE_OPERATION MultipleTrusteeOperation;
@@ -659,7 +663,8 @@ public function void FN_PROGRESS(PWSTR pObjectName, uint32 Status, PROG_INVOKE_S
 	public PSTR ptstrName;
 }
 
-[CRepr]public struct TRUSTEE_W
+[CRepr]
+public struct TRUSTEE_W
 {
 	public TRUSTEE_W* pMultipleTrustee;
 	public MULTIPLE_TRUSTEE_OPERATION MultipleTrusteeOperation;
@@ -668,7 +673,8 @@ public function void FN_PROGRESS(PWSTR pObjectName, uint32 Status, PROG_INVOKE_S
 	public PWSTR ptstrName;
 }
 
-[CRepr]public struct EXPLICIT_ACCESS_A
+[CRepr]
+public struct EXPLICIT_ACCESS_A
 {
 	public uint32 grfAccessPermissions;
 	public ACCESS_MODE grfAccessMode;
@@ -676,7 +682,8 @@ public function void FN_PROGRESS(PWSTR pObjectName, uint32 Status, PROG_INVOKE_S
 	public TRUSTEE_A Trustee;
 }
 
-[CRepr]public struct EXPLICIT_ACCESS_W
+[CRepr]
+public struct EXPLICIT_ACCESS_W
 {
 	public uint32 grfAccessPermissions;
 	public ACCESS_MODE grfAccessMode;
@@ -684,7 +691,8 @@ public function void FN_PROGRESS(PWSTR pObjectName, uint32 Status, PROG_INVOKE_S
 	public TRUSTEE_W Trustee;
 }
 
-[CRepr]public struct ACTRL_ACCESS_ENTRYA
+[CRepr]
+public struct ACTRL_ACCESS_ENTRYA
 {
 	public TRUSTEE_A Trustee;
 	public ACTRL_ACCESS_ENTRY_ACCESS_FLAGS fAccessFlags;
@@ -694,7 +702,8 @@ public function void FN_PROGRESS(PWSTR pObjectName, uint32 Status, PROG_INVOKE_S
 	public PSTR lpInheritProperty;
 }
 
-[CRepr]public struct ACTRL_ACCESS_ENTRYW
+[CRepr]
+public struct ACTRL_ACCESS_ENTRYW
 {
 	public TRUSTEE_W Trustee;
 	public ACTRL_ACCESS_ENTRY_ACCESS_FLAGS fAccessFlags;
@@ -704,45 +713,52 @@ public function void FN_PROGRESS(PWSTR pObjectName, uint32 Status, PROG_INVOKE_S
 	public PWSTR lpInheritProperty;
 }
 
-[CRepr]public struct ACTRL_ACCESS_ENTRY_LISTA
+[CRepr]
+public struct ACTRL_ACCESS_ENTRY_LISTA
 {
 	public uint32 cEntries;
 	public ACTRL_ACCESS_ENTRYA* pAccessList;
 }
 
-[CRepr]public struct ACTRL_ACCESS_ENTRY_LISTW
+[CRepr]
+public struct ACTRL_ACCESS_ENTRY_LISTW
 {
 	public uint32 cEntries;
 	public ACTRL_ACCESS_ENTRYW* pAccessList;
 }
 
-[CRepr]public struct ACTRL_PROPERTY_ENTRYA
+[CRepr]
+public struct ACTRL_PROPERTY_ENTRYA
 {
 	public PSTR lpProperty;
 	public ACTRL_ACCESS_ENTRY_LISTA* pAccessEntryList;
 	public uint32 fListFlags;
 }
 
-[CRepr]public struct ACTRL_PROPERTY_ENTRYW
+[CRepr]
+public struct ACTRL_PROPERTY_ENTRYW
 {
 	public PWSTR lpProperty;
 	public ACTRL_ACCESS_ENTRY_LISTW* pAccessEntryList;
 	public uint32 fListFlags;
 }
 
-[CRepr]public struct ACTRL_ACCESSA
+[CRepr]
+public struct ACTRL_ACCESSA
 {
 	public uint32 cEntries;
 	public ACTRL_PROPERTY_ENTRYA* pPropertyAccessList;
 }
 
-[CRepr]public struct ACTRL_ACCESSW
+[CRepr]
+public struct ACTRL_ACCESSW
 {
 	public uint32 cEntries;
 	public ACTRL_PROPERTY_ENTRYW* pPropertyAccessList;
 }
 
-[CRepr]public struct TRUSTEE_ACCESSA
+[CRepr]
+public struct TRUSTEE_ACCESSA
 {
 	public PSTR lpProperty;
 	public uint32 Access;
@@ -750,7 +766,8 @@ public function void FN_PROGRESS(PWSTR pObjectName, uint32 Status, PROG_INVOKE_S
 	public uint32 fReturnedAccess;
 }
 
-[CRepr]public struct TRUSTEE_ACCESSW
+[CRepr]
+public struct TRUSTEE_ACCESSW
 {
 	public PWSTR lpProperty;
 	public uint32 Access;
@@ -758,9 +775,11 @@ public function void FN_PROGRESS(PWSTR pObjectName, uint32 Status, PROG_INVOKE_S
 	public uint32 fReturnedAccess;
 }
 
-[CRepr]public struct ACTRL_OVERLAPPED
+[CRepr]
+public struct ACTRL_OVERLAPPED
 {
-	[CRepr, Union]	public struct _Anonymous_e__Union
+	[CRepr, Union]
+	public struct _Anonymous_e__Union
 	{
 		public void* Provider;
 		public uint32 Reserved1;
@@ -771,48 +790,56 @@ public function void FN_PROGRESS(PWSTR pObjectName, uint32 Status, PROG_INVOKE_S
 	public HANDLE hEvent;
 }
 
-[CRepr]public struct ACTRL_ACCESS_INFOA
+[CRepr]
+public struct ACTRL_ACCESS_INFOA
 {
 	public uint32 fAccessPermission;
 	public PSTR lpAccessPermissionName;
 }
 
-[CRepr]public struct ACTRL_ACCESS_INFOW
+[CRepr]
+public struct ACTRL_ACCESS_INFOW
 {
 	public uint32 fAccessPermission;
 	public PWSTR lpAccessPermissionName;
 }
 
-[CRepr]public struct ACTRL_CONTROL_INFOA
+[CRepr]
+public struct ACTRL_CONTROL_INFOA
 {
 	public PSTR lpControlId;
 	public PSTR lpControlName;
 }
 
-[CRepr]public struct ACTRL_CONTROL_INFOW
+[CRepr]
+public struct ACTRL_CONTROL_INFOW
 {
 	public PWSTR lpControlId;
 	public PWSTR lpControlName;
 }
 
-[CRepr]public struct FN_OBJECT_MGR_FUNCTIONS
+[CRepr]
+public struct FN_OBJECT_MGR_FUNCTIONS
 {
 	public uint32 Placeholder;
 }
 
-[CRepr]public struct INHERITED_FROMA
+[CRepr]
+public struct INHERITED_FROMA
 {
 	public int32 GenerationGap;
 	public PSTR AncestorName;
 }
 
-[CRepr]public struct INHERITED_FROMW
+[CRepr]
+public struct INHERITED_FROMW
 {
 	public int32 GenerationGap;
 	public PWSTR AncestorName;
 }
 
-[CRepr]public struct AUDIT_OBJECT_TYPE
+[CRepr]
+public struct AUDIT_OBJECT_TYPE
 {
 	public Guid ObjectType;
 	public uint16 Flags;
@@ -820,21 +847,25 @@ public function void FN_PROGRESS(PWSTR pObjectName, uint32 Status, PROG_INVOKE_S
 	public uint32 AccessMask;
 }
 
-[CRepr]public struct AUDIT_OBJECT_TYPES
+[CRepr]
+public struct AUDIT_OBJECT_TYPES
 {
 	public uint16 Count;
 	public uint16 Flags;
 	public AUDIT_OBJECT_TYPE* pObjectTypes;
 }
 
-[CRepr]public struct AUDIT_IP_ADDRESS
+[CRepr]
+public struct AUDIT_IP_ADDRESS
 {
 	public uint8[128] pIpAddress;
 }
 
-[CRepr]public struct AUDIT_PARAM
+[CRepr]
+public struct AUDIT_PARAM
 {
-	[CRepr, Union]	public struct _Anonymous1_e__Union
+	[CRepr, Union]
+	public struct _Anonymous1_e__Union
 	{
 		public uint Data0;
 		public PWSTR String;
@@ -846,7 +877,8 @@ public function void FN_PROGRESS(PWSTR pObjectName, uint32 Status, PROG_INVOKE_S
 		public AUDIT_IP_ADDRESS* pIpAddress;
 	}
 
-	[CRepr, Union]	public struct _Anonymous2_e__Union
+	[CRepr, Union]
+	public struct _Anonymous2_e__Union
 	{
 		public uint Data1;
 		public int32 LogonId_HighPart;
@@ -859,7 +891,8 @@ public function void FN_PROGRESS(PWSTR pObjectName, uint32 Status, PROG_INVOKE_S
 	public _Anonymous2_e__Union Anonymous2;
 }
 
-[CRepr]public struct AUDIT_PARAMS
+[CRepr]
+public struct AUDIT_PARAMS
 {
 	public uint32 Length;
 	public uint32 Flags;
@@ -867,19 +900,22 @@ public function void FN_PROGRESS(PWSTR pObjectName, uint32 Status, PROG_INVOKE_S
 	public AUDIT_PARAM* Parameters;
 }
 
-[CRepr]public struct AUTHZ_AUDIT_EVENT_TYPE_LEGACY
+[CRepr]
+public struct AUTHZ_AUDIT_EVENT_TYPE_LEGACY
 {
 	public uint16 CategoryId;
 	public uint16 AuditId;
 	public uint16 ParameterCount;
 }
 
-[CRepr, Union]public struct AUTHZ_AUDIT_EVENT_TYPE_UNION
+[CRepr, Union]
+public struct AUTHZ_AUDIT_EVENT_TYPE_UNION
 {
 	public AUTHZ_AUDIT_EVENT_TYPE_LEGACY Legacy;
 }
 
-[CRepr]public struct AUTHZ_AUDIT_EVENT_TYPE_OLD
+[CRepr]
+public struct AUTHZ_AUDIT_EVENT_TYPE_OLD
 {
 	public uint32 Version;
 	public uint32 dwFlags;
@@ -889,12 +925,14 @@ public function void FN_PROGRESS(PWSTR pObjectName, uint32 Status, PROG_INVOKE_S
 	public AUTHZ_AUDIT_EVENT_TYPE_UNION u;
 }
 
-[CRepr]public struct AUTHZ_CAP_CHANGE_SUBSCRIPTION_HANDLE__
+[CRepr]
+public struct AUTHZ_CAP_CHANGE_SUBSCRIPTION_HANDLE__
 {
 	public int32 unused;
 }
 
-[CRepr]public struct AUTHZ_ACCESS_REQUEST
+[CRepr]
+public struct AUTHZ_ACCESS_REQUEST
 {
 	public uint32 DesiredAccess;
 	public PSID PrincipalSelfSid;
@@ -903,7 +941,8 @@ public function void FN_PROGRESS(PWSTR pObjectName, uint32 Status, PROG_INVOKE_S
 	public void* OptionalArguments;
 }
 
-[CRepr]public struct AUTHZ_ACCESS_REPLY
+[CRepr]
+public struct AUTHZ_ACCESS_REPLY
 {
 	public uint32 ResultListLength;
 	public uint32* GrantedAccessMask;
@@ -911,21 +950,25 @@ public function void FN_PROGRESS(PWSTR pObjectName, uint32 Status, PROG_INVOKE_S
 	public uint32* Error;
 }
 
-[CRepr]public struct AUTHZ_SECURITY_ATTRIBUTE_FQBN_VALUE
+[CRepr]
+public struct AUTHZ_SECURITY_ATTRIBUTE_FQBN_VALUE
 {
 	public uint64 Version;
 	public PWSTR pName;
 }
 
-[CRepr]public struct AUTHZ_SECURITY_ATTRIBUTE_OCTET_STRING_VALUE
+[CRepr]
+public struct AUTHZ_SECURITY_ATTRIBUTE_OCTET_STRING_VALUE
 {
 	public void* pValue;
 	public uint32 ValueLength;
 }
 
-[CRepr]public struct AUTHZ_SECURITY_ATTRIBUTE_V1
+[CRepr]
+public struct AUTHZ_SECURITY_ATTRIBUTE_V1
 {
-	[CRepr, Union]	public struct _Values_e__Union
+	[CRepr, Union]
+	public struct _Values_e__Union
 	{
 		public int64* pInt64;
 		public uint64* pUint64;
@@ -942,9 +985,11 @@ public function void FN_PROGRESS(PWSTR pObjectName, uint32 Status, PROG_INVOKE_S
 	public _Values_e__Union Values;
 }
 
-[CRepr]public struct AUTHZ_SECURITY_ATTRIBUTES_INFORMATION
+[CRepr]
+public struct AUTHZ_SECURITY_ATTRIBUTES_INFORMATION
 {
-	[CRepr, Union]	public struct _Attribute_e__Union
+	[CRepr, Union]
+	public struct _Attribute_e__Union
 	{
 		public AUTHZ_SECURITY_ATTRIBUTE_V1* pAttributeV1;
 	}
@@ -955,7 +1000,8 @@ public function void FN_PROGRESS(PWSTR pObjectName, uint32 Status, PROG_INVOKE_S
 	public _Attribute_e__Union Attribute;
 }
 
-[CRepr]public struct AUTHZ_RPC_INIT_INFO_CLIENT
+[CRepr]
+public struct AUTHZ_RPC_INIT_INFO_CLIENT
 {
 	public uint16 version;
 	public PWSTR ObjectUuid;
@@ -966,7 +1012,8 @@ public function void FN_PROGRESS(PWSTR pObjectName, uint32 Status, PROG_INVOKE_S
 	public PWSTR ServerSpn;
 }
 
-[CRepr]public struct AUTHZ_INIT_INFO
+[CRepr]
+public struct AUTHZ_INIT_INFO
 {
 	public uint16 version;
 	public PWSTR szResourceManagerName;
@@ -977,15 +1024,18 @@ public function void FN_PROGRESS(PWSTR pObjectName, uint32 Status, PROG_INVOKE_S
 	public PFN_AUTHZ_FREE_CENTRAL_ACCESS_POLICY pfnFreeCentralAccessPolicy;
 }
 
-[CRepr]public struct AUTHZ_REGISTRATION_OBJECT_TYPE_NAME_OFFSET
+[CRepr]
+public struct AUTHZ_REGISTRATION_OBJECT_TYPE_NAME_OFFSET
 {
 	public PWSTR szObjectTypeName;
 	public uint32 dwOffset;
 }
 
-[CRepr]public struct AUTHZ_SOURCE_SCHEMA_REGISTRATION
+[CRepr]
+public struct AUTHZ_SOURCE_SCHEMA_REGISTRATION
 {
-	[CRepr, Union]	public struct _Anonymous_e__Union
+	[CRepr, Union]
+	public struct _Anonymous_e__Union
 	{
 		public void* pReserved;
 		public Guid* pProviderGuid;

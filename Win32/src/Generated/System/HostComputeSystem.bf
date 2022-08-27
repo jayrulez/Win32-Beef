@@ -115,14 +115,16 @@ public function void HCS_NOTIFICATION_CALLBACK(uint32 notificationType, void* co
 #endregion
 
 #region Structs
-[CRepr]public struct HCS_EVENT
+[CRepr]
+public struct HCS_EVENT
 {
 	public HCS_EVENT_TYPE Type;
 	public PWSTR EventData;
 	public HCS_OPERATION Operation;
 }
 
-[CRepr]public struct HCS_PROCESS_INFORMATION
+[CRepr]
+public struct HCS_PROCESS_INFORMATION
 {
 	public uint32 ProcessId;
 	public uint32 Reserved;
@@ -131,7 +133,8 @@ public function void HCS_NOTIFICATION_CALLBACK(uint32 notificationType, void* co
 	public HANDLE StdError;
 }
 
-[CRepr]public struct HCS_CREATE_OPTIONS_1
+[CRepr]
+public struct HCS_CREATE_OPTIONS_1
 {
 	public HCS_CREATE_OPTIONS Version;
 	public HANDLE UserToken;

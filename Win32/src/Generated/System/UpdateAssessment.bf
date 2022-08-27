@@ -42,14 +42,16 @@ public enum UpdateAssessmentStatus : int32
 #endregion
 
 #region Structs
-[CRepr]public struct UpdateAssessment
+[CRepr]
+public struct UpdateAssessment
 {
 	public UpdateAssessmentStatus status;
 	public UpdateImpactLevel impact;
 	public uint32 daysOutOfDate;
 }
 
-[CRepr]public struct OSUpdateAssessment
+[CRepr]
+public struct OSUpdateAssessment
 {
 	public BOOL isEndOfSupport;
 	public UpdateAssessment assessmentForCurrent;

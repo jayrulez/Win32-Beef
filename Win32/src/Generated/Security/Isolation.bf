@@ -16,7 +16,8 @@ namespace Win32.Security.Isolation;
 #endregion
 
 #region Structs
-[CRepr]public struct IsolatedAppLauncherTelemetryParameters
+[CRepr]
+public struct IsolatedAppLauncherTelemetryParameters
 {
 	public BOOL EnableForLaunch;
 	public Guid CorrelationGUID;

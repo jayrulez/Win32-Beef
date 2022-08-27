@@ -168,27 +168,32 @@ public enum PROBLEM_TYPE : int32
 #endregion
 
 #region Structs
-[CRepr]public struct OCTET_STRING
+[CRepr]
+public struct OCTET_STRING
 {
 	public uint32 dwLength;
 	public uint8* lpValue;
 }
 
-[CRepr]public struct LIFE_TIME
+[CRepr]
+public struct LIFE_TIME
 {
 	public FILETIME startTime;
 	public FILETIME endTime;
 }
 
-[CRepr]public struct DIAG_SOCKADDR
+[CRepr]
+public struct DIAG_SOCKADDR
 {
 	public uint16 family;
 	public CHAR[126] data;
 }
 
-[CRepr]public struct HELPER_ATTRIBUTE
+[CRepr]
+public struct HELPER_ATTRIBUTE
 {
-	[CRepr, Union]	public struct _Anonymous_e__Union
+	[CRepr, Union]
+	public struct _Anonymous_e__Union
 	{
 		public BOOL Boolean;
 		public uint8 Char;
@@ -211,7 +216,8 @@ public enum PROBLEM_TYPE : int32
 	public using _Anonymous_e__Union Anonymous;
 }
 
-[CRepr]public struct ShellCommandInfo
+[CRepr]
+public struct ShellCommandInfo
 {
 	public PWSTR pwszOperation;
 	public PWSTR pwszFile;
@@ -220,9 +226,11 @@ public enum PROBLEM_TYPE : int32
 	public uint32 nShowCmd;
 }
 
-[CRepr]public struct UiInfo
+[CRepr]
+public struct UiInfo
 {
-	[CRepr, Union]	public struct _Anonymous_e__Union
+	[CRepr, Union]
+	public struct _Anonymous_e__Union
 	{
 		public PWSTR pwzNull;
 		public ShellCommandInfo ShellInfo;
@@ -234,7 +242,8 @@ public enum PROBLEM_TYPE : int32
 	public using _Anonymous_e__Union Anonymous;
 }
 
-[CRepr]public struct RepairInfo
+[CRepr]
+public struct RepairInfo
 {
 	public Guid guid;
 	public PWSTR pwszClassName;
@@ -248,13 +257,15 @@ public enum PROBLEM_TYPE : int32
 	public int32 rootCauseIndex;
 }
 
-[CRepr]public struct RepairInfoEx
+[CRepr]
+public struct RepairInfoEx
 {
 	public RepairInfo repair;
 	public uint16 repairRank;
 }
 
-[CRepr]public struct RootCauseInfo
+[CRepr]
+public struct RootCauseInfo
 {
 	public PWSTR pwszDescription;
 	public Guid rootCauseID;
@@ -264,7 +275,8 @@ public enum PROBLEM_TYPE : int32
 	public uint16 repairCount;
 }
 
-[CRepr]public struct HYPOTHESIS
+[CRepr]
+public struct HYPOTHESIS
 {
 	public PWSTR pwszClassName;
 	public PWSTR pwszDescription;
@@ -272,19 +284,22 @@ public enum PROBLEM_TYPE : int32
 	public HELPER_ATTRIBUTE* rgAttributes;
 }
 
-[CRepr]public struct HelperAttributeInfo
+[CRepr]
+public struct HelperAttributeInfo
 {
 	public PWSTR pwszName;
 	public ATTRIBUTE_TYPE type;
 }
 
-[CRepr]public struct DiagnosticsInfo
+[CRepr]
+public struct DiagnosticsInfo
 {
 	public int32 cost;
 	public uint32 flags;
 }
 
-[CRepr]public struct HypothesisResult
+[CRepr]
+public struct HypothesisResult
 {
 	public HYPOTHESIS hypothesis;
 	public DIAGNOSIS_STATUS pathStatus;

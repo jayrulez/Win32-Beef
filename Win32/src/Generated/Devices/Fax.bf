@@ -969,27 +969,31 @@ public function HRESULT PFAX_EXT_INITIALIZE_CONFIG(PFAX_EXT_GET_DATA param0, PFA
 #endregion
 
 #region Structs
-[CRepr]public struct FAX_LOG_CATEGORYA
+[CRepr]
+public struct FAX_LOG_CATEGORYA
 {
 	public PSTR Name;
 	public uint32 Category;
 	public uint32 Level;
 }
 
-[CRepr]public struct FAX_LOG_CATEGORYW
+[CRepr]
+public struct FAX_LOG_CATEGORYW
 {
 	public PWSTR Name;
 	public uint32 Category;
 	public uint32 Level;
 }
 
-[CRepr]public struct FAX_TIME
+[CRepr]
+public struct FAX_TIME
 {
 	public uint16 Hour;
 	public uint16 Minute;
 }
 
-[CRepr]public struct FAX_CONFIGURATIONA
+[CRepr]
+public struct FAX_CONFIGURATIONA
 {
 	public uint32 SizeOfStruct;
 	public uint32 Retries;
@@ -1006,7 +1010,8 @@ public function HRESULT PFAX_EXT_INITIALIZE_CONFIG(PFAX_EXT_GET_DATA param0, PFA
 	public PSTR Reserved;
 }
 
-[CRepr]public struct FAX_CONFIGURATIONW
+[CRepr]
+public struct FAX_CONFIGURATIONW
 {
 	public uint32 SizeOfStruct;
 	public uint32 Retries;
@@ -1023,7 +1028,8 @@ public function HRESULT PFAX_EXT_INITIALIZE_CONFIG(PFAX_EXT_GET_DATA param0, PFA
 	public PWSTR Reserved;
 }
 
-[CRepr]public struct FAX_DEVICE_STATUSA
+[CRepr]
+public struct FAX_DEVICE_STATUSA
 {
 	public uint32 SizeOfStruct;
 	public PSTR CallerId;
@@ -1047,7 +1053,8 @@ public function HRESULT PFAX_EXT_INITIALIZE_CONFIG(PFAX_EXT_GET_DATA param0, PFA
 	public PSTR UserName;
 }
 
-[CRepr]public struct FAX_DEVICE_STATUSW
+[CRepr]
+public struct FAX_DEVICE_STATUSW
 {
 	public uint32 SizeOfStruct;
 	public PWSTR CallerId;
@@ -1071,7 +1078,8 @@ public function HRESULT PFAX_EXT_INITIALIZE_CONFIG(PFAX_EXT_GET_DATA param0, PFA
 	public PWSTR UserName;
 }
 
-[CRepr]public struct FAX_JOB_ENTRYA
+[CRepr]
+public struct FAX_JOB_ENTRYA
 {
 	public uint32 SizeOfStruct;
 	public uint32 JobId;
@@ -1095,7 +1103,8 @@ public function HRESULT PFAX_EXT_INITIALIZE_CONFIG(PFAX_EXT_GET_DATA param0, PFA
 	public PSTR DocumentName;
 }
 
-[CRepr]public struct FAX_JOB_ENTRYW
+[CRepr]
+public struct FAX_JOB_ENTRYW
 {
 	public uint32 SizeOfStruct;
 	public uint32 JobId;
@@ -1119,7 +1128,8 @@ public function HRESULT PFAX_EXT_INITIALIZE_CONFIG(PFAX_EXT_GET_DATA param0, PFA
 	public PWSTR DocumentName;
 }
 
-[CRepr]public struct FAX_PORT_INFOA
+[CRepr]
+public struct FAX_PORT_INFOA
 {
 	public uint32 SizeOfStruct;
 	public uint32 DeviceId;
@@ -1132,7 +1142,8 @@ public function HRESULT PFAX_EXT_INITIALIZE_CONFIG(PFAX_EXT_GET_DATA param0, PFA
 	public PSTR Csid;
 }
 
-[CRepr]public struct FAX_PORT_INFOW
+[CRepr]
+public struct FAX_PORT_INFOW
 {
 	public uint32 SizeOfStruct;
 	public uint32 DeviceId;
@@ -1145,7 +1156,8 @@ public function HRESULT PFAX_EXT_INITIALIZE_CONFIG(PFAX_EXT_GET_DATA param0, PFA
 	public PWSTR Csid;
 }
 
-[CRepr]public struct FAX_ROUTING_METHODA
+[CRepr]
+public struct FAX_ROUTING_METHODA
 {
 	public uint32 SizeOfStruct;
 	public uint32 DeviceId;
@@ -1158,7 +1170,8 @@ public function HRESULT PFAX_EXT_INITIALIZE_CONFIG(PFAX_EXT_GET_DATA param0, PFA
 	public PSTR ExtensionFriendlyName;
 }
 
-[CRepr]public struct FAX_ROUTING_METHODW
+[CRepr]
+public struct FAX_ROUTING_METHODW
 {
 	public uint32 SizeOfStruct;
 	public uint32 DeviceId;
@@ -1171,7 +1184,8 @@ public function HRESULT PFAX_EXT_INITIALIZE_CONFIG(PFAX_EXT_GET_DATA param0, PFA
 	public PWSTR ExtensionFriendlyName;
 }
 
-[CRepr]public struct FAX_GLOBAL_ROUTING_INFOA
+[CRepr]
+public struct FAX_GLOBAL_ROUTING_INFOA
 {
 	public uint32 SizeOfStruct;
 	public uint32 Priority;
@@ -1182,7 +1196,8 @@ public function HRESULT PFAX_EXT_INITIALIZE_CONFIG(PFAX_EXT_GET_DATA param0, PFA
 	public PSTR ExtensionFriendlyName;
 }
 
-[CRepr]public struct FAX_GLOBAL_ROUTING_INFOW
+[CRepr]
+public struct FAX_GLOBAL_ROUTING_INFOW
 {
 	public uint32 SizeOfStruct;
 	public uint32 Priority;
@@ -1193,7 +1208,8 @@ public function HRESULT PFAX_EXT_INITIALIZE_CONFIG(PFAX_EXT_GET_DATA param0, PFA
 	public PWSTR ExtensionFriendlyName;
 }
 
-[CRepr]public struct FAX_COVERPAGE_INFOA
+[CRepr]
+public struct FAX_COVERPAGE_INFOA
 {
 	public uint32 SizeOfStruct;
 	public PSTR CoverPageName;
@@ -1226,7 +1242,8 @@ public function HRESULT PFAX_EXT_INITIALIZE_CONFIG(PFAX_EXT_GET_DATA param0, PFA
 	public uint32 PageCount;
 }
 
-[CRepr]public struct FAX_COVERPAGE_INFOW
+[CRepr]
+public struct FAX_COVERPAGE_INFOW
 {
 	public uint32 SizeOfStruct;
 	public PWSTR CoverPageName;
@@ -1259,7 +1276,8 @@ public function HRESULT PFAX_EXT_INITIALIZE_CONFIG(PFAX_EXT_GET_DATA param0, PFA
 	public uint32 PageCount;
 }
 
-[CRepr]public struct FAX_JOB_PARAMA
+[CRepr]
+public struct FAX_JOB_PARAMA
 {
 	public uint32 SizeOfStruct;
 	public PSTR RecipientNumber;
@@ -1278,7 +1296,8 @@ public function HRESULT PFAX_EXT_INITIALIZE_CONFIG(PFAX_EXT_GET_DATA param0, PFA
 	public uint[3] Reserved;
 }
 
-[CRepr]public struct FAX_JOB_PARAMW
+[CRepr]
+public struct FAX_JOB_PARAMW
 {
 	public uint32 SizeOfStruct;
 	public PWSTR RecipientNumber;
@@ -1297,7 +1316,8 @@ public function HRESULT PFAX_EXT_INITIALIZE_CONFIG(PFAX_EXT_GET_DATA param0, PFA
 	public uint[3] Reserved;
 }
 
-[CRepr]public struct FAX_EVENTA
+[CRepr]
+public struct FAX_EVENTA
 {
 	public uint32 SizeOfStruct;
 	public FILETIME TimeStamp;
@@ -1306,7 +1326,8 @@ public function HRESULT PFAX_EXT_INITIALIZE_CONFIG(PFAX_EXT_GET_DATA param0, PFA
 	public uint32 JobId;
 }
 
-[CRepr]public struct FAX_EVENTW
+[CRepr]
+public struct FAX_EVENTW
 {
 	public uint32 SizeOfStruct;
 	public FILETIME TimeStamp;
@@ -1315,7 +1336,8 @@ public function HRESULT PFAX_EXT_INITIALIZE_CONFIG(PFAX_EXT_GET_DATA param0, PFA
 	public uint32 JobId;
 }
 
-[CRepr]public struct FAX_PRINT_INFOA
+[CRepr]
+public struct FAX_PRINT_INFOA
 {
 	public uint32 SizeOfStruct;
 	public PSTR DocName;
@@ -1330,7 +1352,8 @@ public function HRESULT PFAX_EXT_INITIALIZE_CONFIG(PFAX_EXT_GET_DATA param0, PFA
 	public PSTR OutputFileName;
 }
 
-[CRepr]public struct FAX_PRINT_INFOW
+[CRepr]
+public struct FAX_PRINT_INFOW
 {
 	public uint32 SizeOfStruct;
 	public PWSTR DocName;
@@ -1345,21 +1368,24 @@ public function HRESULT PFAX_EXT_INITIALIZE_CONFIG(PFAX_EXT_GET_DATA param0, PFA
 	public PWSTR OutputFileName;
 }
 
-[CRepr]public struct FAX_CONTEXT_INFOA
+[CRepr]
+public struct FAX_CONTEXT_INFOA
 {
 	public uint32 SizeOfStruct;
 	public HDC hDC;
 	public CHAR[16] ServerName;
 }
 
-[CRepr]public struct FAX_CONTEXT_INFOW
+[CRepr]
+public struct FAX_CONTEXT_INFOW
 {
 	public uint32 SizeOfStruct;
 	public HDC hDC;
 	public char8[16] ServerName;
 }
 
-[CRepr]public struct FAX_SEND
+[CRepr]
+public struct FAX_SEND
 {
 	public uint32 SizeOfStruct;
 	public PWSTR FileName;
@@ -1372,7 +1398,8 @@ public function HRESULT PFAX_EXT_INITIALIZE_CONFIG(PFAX_EXT_GET_DATA param0, PFA
 	public uint32[3] Reserved;
 }
 
-[CRepr]public struct FAX_RECEIVE
+[CRepr]
+public struct FAX_RECEIVE
 {
 	public uint32 SizeOfStruct;
 	public PWSTR FileName;
@@ -1381,7 +1408,8 @@ public function HRESULT PFAX_EXT_INITIALIZE_CONFIG(PFAX_EXT_GET_DATA param0, PFA
 	public uint32[4] Reserved;
 }
 
-[CRepr]public struct FAX_DEV_STATUS
+[CRepr]
+public struct FAX_DEV_STATUS
 {
 	public uint32 SizeOfStruct;
 	public uint32 StatusId;
@@ -1394,7 +1422,8 @@ public function HRESULT PFAX_EXT_INITIALIZE_CONFIG(PFAX_EXT_GET_DATA param0, PFA
 	public uint32[3] Reserved;
 }
 
-[CRepr]public struct FAX_ROUTE_CALLBACKROUTINES
+[CRepr]
+public struct FAX_ROUTE_CALLBACKROUTINES
 {
 	public uint32 SizeOfStruct;
 	public PFAXROUTEADDFILE FaxRouteAddFile;
@@ -1404,7 +1433,8 @@ public function HRESULT PFAX_EXT_INITIALIZE_CONFIG(PFAX_EXT_GET_DATA param0, PFA
 	public PFAXROUTEMODIFYROUTINGDATA FaxRouteModifyRoutingData;
 }
 
-[CRepr]public struct FAX_ROUTE
+[CRepr]
+public struct FAX_ROUTE
 {
 	public uint32 SizeOfStruct;
 	public uint32 JobId;
@@ -1423,12 +1453,14 @@ public function HRESULT PFAX_EXT_INITIALIZE_CONFIG(PFAX_EXT_GET_DATA param0, PFA
 	public uint32 RoutingInfoDataSize;
 }
 
-[CRepr]public struct STI_DEV_CAPS
+[CRepr]
+public struct STI_DEV_CAPS
 {
 	public uint32 dwGeneric;
 }
 
-[CRepr]public struct STI_DEVICE_INFORMATIONW
+[CRepr]
+public struct STI_DEVICE_INFORMATIONW
 {
 	public uint32 dwSize;
 	public uint32 DeviceType;
@@ -1442,7 +1474,8 @@ public function HRESULT PFAX_EXT_INITIALIZE_CONFIG(PFAX_EXT_GET_DATA param0, PFA
 	public PWSTR pszLocalName;
 }
 
-[CRepr]public struct STI_WIA_DEVICE_INFORMATIONW
+[CRepr]
+public struct STI_WIA_DEVICE_INFORMATIONW
 {
 	public uint32 dwSize;
 	public uint32 DeviceType;
@@ -1458,7 +1491,8 @@ public function HRESULT PFAX_EXT_INITIALIZE_CONFIG(PFAX_EXT_GET_DATA param0, PFA
 	public PWSTR pszServer;
 }
 
-[CRepr]public struct STI_DEVICE_STATUS
+[CRepr]
+public struct STI_DEVICE_STATUS
 {
 	public uint32 dwSize;
 	public uint32 StatusMask;
@@ -1468,7 +1502,8 @@ public function HRESULT PFAX_EXT_INITIALIZE_CONFIG(PFAX_EXT_GET_DATA param0, PFA
 	public uint32 dwPollingInterval;
 }
 
-[CRepr]public struct _ERROR_INFOW
+[CRepr]
+public struct _ERROR_INFOW
 {
 	public uint32 dwSize;
 	public uint32 dwGenericError;
@@ -1476,7 +1511,8 @@ public function HRESULT PFAX_EXT_INITIALIZE_CONFIG(PFAX_EXT_GET_DATA param0, PFA
 	public char8[255] szExtendedErrorText;
 }
 
-[CRepr]public struct STI_DIAG
+[CRepr]
+public struct STI_DIAG
 {
 	public uint32 dwSize;
 	public uint32 dwBasicDiagCode;
@@ -1485,7 +1521,8 @@ public function HRESULT PFAX_EXT_INITIALIZE_CONFIG(PFAX_EXT_GET_DATA param0, PFA
 	public _ERROR_INFOW sErrorInfo;
 }
 
-[CRepr]public struct STISUBSCRIBE
+[CRepr]
+public struct STISUBSCRIBE
 {
 	public uint32 dwSize;
 	public uint32 dwFlags;
@@ -1495,18 +1532,21 @@ public function HRESULT PFAX_EXT_INITIALIZE_CONFIG(PFAX_EXT_GET_DATA param0, PFA
 	public uint32 uiNotificationMessage;
 }
 
-[CRepr]public struct STINOTIFY
+[CRepr]
+public struct STINOTIFY
 {
 	public uint32 dwSize;
 	public Guid guidNotificationCode;
 	public uint8[64] abNotificationData;
 }
 
-[CRepr]public struct IStiDeviceW
+[CRepr]
+public struct IStiDeviceW
 {
 }
 
-[CRepr]public struct STI_USD_CAPS
+[CRepr]
+public struct STI_USD_CAPS
 {
 	public uint32 dwVersion;
 	public uint32 dwGenericCaps;

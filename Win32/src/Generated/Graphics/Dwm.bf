@@ -184,7 +184,8 @@ public enum DWM_TAB_WINDOW_REQUIREMENTS : uint32
 #endregion
 
 #region Structs
-[CRepr, Packed(1)]public struct DWM_BLURBEHIND
+[CRepr, Packed(1)]
+public struct DWM_BLURBEHIND
 {
 	public uint32 dwFlags;
 	public BOOL fEnable;
@@ -192,7 +193,8 @@ public enum DWM_TAB_WINDOW_REQUIREMENTS : uint32
 	public BOOL fTransitionOnMaximized;
 }
 
-[CRepr, Packed(1)]public struct DWM_THUMBNAIL_PROPERTIES
+[CRepr, Packed(1)]
+public struct DWM_THUMBNAIL_PROPERTIES
 {
 	public uint32 dwFlags;
 	public RECT rcDestination;
@@ -202,13 +204,15 @@ public enum DWM_TAB_WINDOW_REQUIREMENTS : uint32
 	public BOOL fSourceClientAreaOnly;
 }
 
-[CRepr, Packed(1)]public struct UNSIGNED_RATIO
+[CRepr, Packed(1)]
+public struct UNSIGNED_RATIO
 {
 	public uint32 uiNumerator;
 	public uint32 uiDenominator;
 }
 
-[CRepr, Packed(1)]public struct DWM_TIMING_INFO
+[CRepr, Packed(1)]
+public struct DWM_TIMING_INFO
 {
 	public uint32 cbSize;
 	public UNSIGNED_RATIO rateRefresh;
@@ -252,7 +256,8 @@ public enum DWM_TAB_WINDOW_REQUIREMENTS : uint32
 	public uint64 cBuffersEmpty;
 }
 
-[CRepr, Packed(1)]public struct DWM_PRESENT_PARAMETERS
+[CRepr, Packed(1)]
+public struct DWM_PRESENT_PARAMETERS
 {
 	public uint32 cbSize;
 	public BOOL fQueue;
@@ -264,7 +269,8 @@ public enum DWM_TAB_WINDOW_REQUIREMENTS : uint32
 	public DWM_SOURCE_FRAME_SAMPLING eSampling;
 }
 
-[CRepr, Packed(1)]public struct MilMatrix3x2D
+[CRepr, Packed(1)]
+public struct MilMatrix3x2D
 {
 	public double S_11;
 	public double S_12;

@@ -1164,14 +1164,16 @@ public enum BINDHANDLETYPES : int32
 #endregion
 
 #region Structs
-[CRepr]public struct REMSECURITY_ATTRIBUTES
+[CRepr]
+public struct REMSECURITY_ATTRIBUTES
 {
 	public uint32 nLength;
 	public uint32 lpSecurityDescriptor;
 	public BOOL bInheritHandle;
 }
 
-[CRepr]public struct RemBINDINFO
+[CRepr]
+public struct RemBINDINFO
 {
 	public uint32 cbSize;
 	public PWSTR szExtraInfo;
@@ -1188,7 +1190,8 @@ public enum BINDHANDLETYPES : int32
 	public uint32 dwReserved;
 }
 
-[CRepr]public struct RemFORMATETC
+[CRepr]
+public struct RemFORMATETC
 {
 	public uint32 cfFormat;
 	public uint32 ptd;
@@ -1197,7 +1200,8 @@ public enum BINDHANDLETYPES : int32
 	public uint32 tymed;
 }
 
-[CRepr]public struct PROTOCOLDATA
+[CRepr]
+public struct PROTOCOLDATA
 {
 	public uint32 grfFlags;
 	public uint32 dwState;
@@ -1205,14 +1209,16 @@ public enum BINDHANDLETYPES : int32
 	public uint32 cbData;
 }
 
-[CRepr]public struct StartParam
+[CRepr]
+public struct StartParam
 {
 	public Guid iid;
 	public IBindCtx* pIBindCtx;
 	public IUnknown* pItf;
 }
 
-[CRepr]public struct ZONEATTRIBUTES
+[CRepr]
+public struct ZONEATTRIBUTES
 {
 	public uint32 cbSize;
 	public char8[260] szDisplayName;
@@ -1224,7 +1230,8 @@ public enum BINDHANDLETYPES : int32
 	public uint32 dwFlags;
 }
 
-[CRepr]public struct CODEBASEHOLD
+[CRepr]
+public struct CODEBASEHOLD
 {
 	public uint32 cbSize;
 	public PWSTR szDistUnit;
@@ -1234,7 +1241,8 @@ public enum BINDHANDLETYPES : int32
 	public uint32 dwStyle;
 }
 
-[CRepr]public struct SOFTDISTINFO
+[CRepr]
+public struct SOFTDISTINFO
 {
 	public uint32 cbSize;
 	public uint32 dwFlags;
@@ -1251,7 +1259,8 @@ public enum BINDHANDLETYPES : int32
 	public uint32 dwReserved;
 }
 
-[CRepr]public struct PROTOCOLFILTERDATA
+[CRepr]
+public struct PROTOCOLFILTERDATA
 {
 	public uint32 cbSize;
 	public IInternetProtocolSink* pProtocolSink;
@@ -1260,7 +1269,8 @@ public enum BINDHANDLETYPES : int32
 	public uint32 dwFilterFlags;
 }
 
-[CRepr]public struct DATAINFO
+[CRepr]
+public struct DATAINFO
 {
 	public uint32 ulTotalSize;
 	public uint32 ulavrPacketSize;
@@ -1268,7 +1278,8 @@ public enum BINDHANDLETYPES : int32
 	public uint32 ulProcessorSpeed;
 }
 
-[CRepr]public struct HIT_LOGGING_INFO
+[CRepr]
+public struct HIT_LOGGING_INFO
 {
 	public uint32 dwStructSize;
 	public PSTR lpszLoggedUrlName;
@@ -1277,14 +1288,16 @@ public enum BINDHANDLETYPES : int32
 	public PSTR lpszExtendedInfo;
 }
 
-[CRepr]public struct CONFIRMSAFETY
+[CRepr]
+public struct CONFIRMSAFETY
 {
 	public Guid clsid;
 	public IUnknown* pUnk;
 	public uint32 dwFlags;
 }
 
-[CRepr]public struct PROTOCOL_ARGUMENT
+[CRepr]
+public struct PROTOCOL_ARGUMENT
 {
 	public PWSTR szMethod;
 	public PWSTR szTargetUrl;

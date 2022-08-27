@@ -4206,7 +4206,8 @@ public function HRESULT CryptXmlDllCreateKey(CRYPT_XML_BLOB* pEncoded, BCRYPT_KE
 #endregion
 
 #region Structs
-[CRepr]public struct CMS_KEY_INFO
+[CRepr]
+public struct CMS_KEY_INFO
 {
 	public uint32 dwVersion;
 	public uint32 Algid;
@@ -4214,7 +4215,8 @@ public function HRESULT CryptXmlDllCreateKey(CRYPT_XML_BLOB* pEncoded, BCRYPT_KE
 	public uint32 cbOID;
 }
 
-[CRepr]public struct HMAC_Info
+[CRepr]
+public struct HMAC_Info
 {
 	public uint32 HashAlgid;
 	public uint8* pbInnerString;
@@ -4223,7 +4225,8 @@ public function HRESULT CryptXmlDllCreateKey(CRYPT_XML_BLOB* pEncoded, BCRYPT_KE
 	public uint32 cbOuterString;
 }
 
-[CRepr]public struct SCHANNEL_ALG
+[CRepr]
+public struct SCHANNEL_ALG
 {
 	public uint32 dwUse;
 	public uint32 Algid;
@@ -4232,7 +4235,8 @@ public function HRESULT CryptXmlDllCreateKey(CRYPT_XML_BLOB* pEncoded, BCRYPT_KE
 	public uint32 dwReserved;
 }
 
-[CRepr]public struct PROV_ENUMALGS
+[CRepr]
+public struct PROV_ENUMALGS
 {
 	public uint32 aiAlgid;
 	public uint32 dwBitLen;
@@ -4240,7 +4244,8 @@ public function HRESULT CryptXmlDllCreateKey(CRYPT_XML_BLOB* pEncoded, BCRYPT_KE
 	public CHAR[20] szName;
 }
 
-[CRepr]public struct PROV_ENUMALGS_EX
+[CRepr]
+public struct PROV_ENUMALGS_EX
 {
 	public uint32 aiAlgid;
 	public uint32 dwDefaultLen;
@@ -4253,7 +4258,8 @@ public function HRESULT CryptXmlDllCreateKey(CRYPT_XML_BLOB* pEncoded, BCRYPT_KE
 	public CHAR[40] szLongName;
 }
 
-[CRepr]public struct PUBLICKEYSTRUC
+[CRepr]
+public struct PUBLICKEYSTRUC
 {
 	public uint8 bType;
 	public uint8 bVersion;
@@ -4261,26 +4267,30 @@ public function HRESULT CryptXmlDllCreateKey(CRYPT_XML_BLOB* pEncoded, BCRYPT_KE
 	public uint32 aiKeyAlg;
 }
 
-[CRepr]public struct RSAPUBKEY
+[CRepr]
+public struct RSAPUBKEY
 {
 	public uint32 magic;
 	public uint32 bitlen;
 	public uint32 pubexp;
 }
 
-[CRepr]public struct PUBKEY
+[CRepr]
+public struct PUBKEY
 {
 	public uint32 magic;
 	public uint32 bitlen;
 }
 
-[CRepr]public struct DSSSEED
+[CRepr]
+public struct DSSSEED
 {
 	public uint32 counter;
 	public uint8[20] seed;
 }
 
-[CRepr]public struct PUBKEYVER3
+[CRepr]
+public struct PUBKEYVER3
 {
 	public uint32 magic;
 	public uint32 bitlenP;
@@ -4289,7 +4299,8 @@ public function HRESULT CryptXmlDllCreateKey(CRYPT_XML_BLOB* pEncoded, BCRYPT_KE
 	public DSSSEED DSSSeed;
 }
 
-[CRepr]public struct PRIVKEYVER3
+[CRepr]
+public struct PRIVKEYVER3
 {
 	public uint32 magic;
 	public uint32 bitlenP;
@@ -4299,21 +4310,24 @@ public function HRESULT CryptXmlDllCreateKey(CRYPT_XML_BLOB* pEncoded, BCRYPT_KE
 	public DSSSEED DSSSeed;
 }
 
-[CRepr]public struct KEY_TYPE_SUBTYPE
+[CRepr]
+public struct KEY_TYPE_SUBTYPE
 {
 	public uint32 dwKeySpec;
 	public Guid Type;
 	public Guid Subtype;
 }
 
-[CRepr]public struct CERT_FORTEZZA_DATA_PROP
+[CRepr]
+public struct CERT_FORTEZZA_DATA_PROP
 {
 	public uint8[8] SerialNumber;
 	public int32 CertIndex;
 	public uint8[36] CertLabel;
 }
 
-[CRepr]public struct CRYPT_RC4_KEY_STATE
+[CRepr]
+public struct CRYPT_RC4_KEY_STATE
 {
 	public uint8[16] Key;
 	public uint8[256] SBox;
@@ -4321,21 +4335,24 @@ public function HRESULT CryptXmlDllCreateKey(CRYPT_XML_BLOB* pEncoded, BCRYPT_KE
 	public uint8 j;
 }
 
-[CRepr]public struct CRYPT_DES_KEY_STATE
+[CRepr]
+public struct CRYPT_DES_KEY_STATE
 {
 	public uint8[8] Key;
 	public uint8[8] IV;
 	public uint8[8] Feedback;
 }
 
-[CRepr]public struct CRYPT_3DES_KEY_STATE
+[CRepr]
+public struct CRYPT_3DES_KEY_STATE
 {
 	public uint8[24] Key;
 	public uint8[8] IV;
 	public uint8[8] Feedback;
 }
 
-[CRepr]public struct CRYPT_AES_128_KEY_STATE
+[CRepr]
+public struct CRYPT_AES_128_KEY_STATE
 {
 	public uint8[16] Key;
 	public uint8[16] IV;
@@ -4344,7 +4361,8 @@ public function HRESULT CryptXmlDllCreateKey(CRYPT_XML_BLOB* pEncoded, BCRYPT_KE
 	public uint8[16] Feedback;
 }
 
-[CRepr]public struct CRYPT_AES_256_KEY_STATE
+[CRepr]
+public struct CRYPT_AES_256_KEY_STATE
 {
 	public uint8[32] Key;
 	public uint8[16] IV;
@@ -4353,13 +4371,15 @@ public function HRESULT CryptXmlDllCreateKey(CRYPT_XML_BLOB* pEncoded, BCRYPT_KE
 	public uint8[16] Feedback;
 }
 
-[CRepr]public struct CRYPTOAPI_BLOB
+[CRepr]
+public struct CRYPTOAPI_BLOB
 {
 	public uint32 cbData;
 	public uint8* pbData;
 }
 
-[CRepr]public struct CMS_DH_KEY_INFO
+[CRepr]
+public struct CMS_DH_KEY_INFO
 {
 	public uint32 dwVersion;
 	public uint32 Algid;
@@ -4368,44 +4388,51 @@ public function HRESULT CryptXmlDllCreateKey(CRYPT_XML_BLOB* pEncoded, BCRYPT_KE
 	public void* pReserved;
 }
 
-[CRepr]public struct BCRYPT_KEY_LENGTHS_STRUCT
+[CRepr]
+public struct BCRYPT_KEY_LENGTHS_STRUCT
 {
 	public uint32 dwMinLength;
 	public uint32 dwMaxLength;
 	public uint32 dwIncrement;
 }
 
-[CRepr]public struct BCRYPT_OID
+[CRepr]
+public struct BCRYPT_OID
 {
 	public uint32 cbOID;
 	public uint8* pbOID;
 }
 
-[CRepr]public struct BCRYPT_OID_LIST
+[CRepr]
+public struct BCRYPT_OID_LIST
 {
 	public uint32 dwOIDCount;
 	public BCRYPT_OID* pOIDs;
 }
 
-[CRepr]public struct BCRYPT_PKCS1_PADDING_INFO
+[CRepr]
+public struct BCRYPT_PKCS1_PADDING_INFO
 {
 	public PWSTR pszAlgId;
 }
 
-[CRepr]public struct BCRYPT_PSS_PADDING_INFO
+[CRepr]
+public struct BCRYPT_PSS_PADDING_INFO
 {
 	public PWSTR pszAlgId;
 	public uint32 cbSalt;
 }
 
-[CRepr]public struct BCRYPT_OAEP_PADDING_INFO
+[CRepr]
+public struct BCRYPT_OAEP_PADDING_INFO
 {
 	public PWSTR pszAlgId;
 	public uint8* pbLabel;
 	public uint32 cbLabel;
 }
 
-[CRepr]public struct BCRYPT_AUTHENTICATED_CIPHER_MODE_INFO
+[CRepr]
+public struct BCRYPT_AUTHENTICATED_CIPHER_MODE_INFO
 {
 	public uint32 cbSize;
 	public uint32 dwInfoVersion;
@@ -4422,26 +4449,30 @@ public function HRESULT CryptXmlDllCreateKey(CRYPT_XML_BLOB* pEncoded, BCRYPT_KE
 	public uint32 dwFlags;
 }
 
-[CRepr]public struct BCryptBuffer
+[CRepr]
+public struct BCryptBuffer
 {
 	public uint32 cbBuffer;
 	public uint32 BufferType;
 	public void* pvBuffer;
 }
 
-[CRepr]public struct BCryptBufferDesc
+[CRepr]
+public struct BCryptBufferDesc
 {
 	public uint32 ulVersion;
 	public uint32 cBuffers;
 	public BCryptBuffer* pBuffers;
 }
 
-[CRepr]public struct BCRYPT_KEY_BLOB
+[CRepr]
+public struct BCRYPT_KEY_BLOB
 {
 	public uint32 Magic;
 }
 
-[CRepr]public struct BCRYPT_RSAKEY_BLOB
+[CRepr]
+public struct BCRYPT_RSAKEY_BLOB
 {
 	public BCRYPT_RSAKEY_BLOB_MAGIC Magic;
 	public uint32 BitLength;
@@ -4451,19 +4482,22 @@ public function HRESULT CryptXmlDllCreateKey(CRYPT_XML_BLOB* pEncoded, BCRYPT_KE
 	public uint32 cbPrime2;
 }
 
-[CRepr]public struct BCRYPT_ECCKEY_BLOB
+[CRepr]
+public struct BCRYPT_ECCKEY_BLOB
 {
 	public uint32 dwMagic;
 	public uint32 cbKey;
 }
 
-[CRepr]public struct SSL_ECCKEY_BLOB
+[CRepr]
+public struct SSL_ECCKEY_BLOB
 {
 	public uint32 dwCurveType;
 	public uint32 cbKey;
 }
 
-[CRepr]public struct BCRYPT_ECCFULLKEY_BLOB
+[CRepr]
+public struct BCRYPT_ECCFULLKEY_BLOB
 {
 	public uint32 dwMagic;
 	public uint32 dwVersion;
@@ -4475,20 +4509,23 @@ public function HRESULT CryptXmlDllCreateKey(CRYPT_XML_BLOB* pEncoded, BCRYPT_KE
 	public uint32 cbSeed;
 }
 
-[CRepr]public struct BCRYPT_DH_KEY_BLOB
+[CRepr]
+public struct BCRYPT_DH_KEY_BLOB
 {
 	public BCRYPT_DH_KEY_BLOB_MAGIC dwMagic;
 	public uint32 cbKey;
 }
 
-[CRepr]public struct BCRYPT_DH_PARAMETER_HEADER
+[CRepr]
+public struct BCRYPT_DH_PARAMETER_HEADER
 {
 	public uint32 cbLength;
 	public uint32 dwMagic;
 	public uint32 cbKeyLength;
 }
 
-[CRepr]public struct BCRYPT_DSA_KEY_BLOB
+[CRepr]
+public struct BCRYPT_DSA_KEY_BLOB
 {
 	public BCRYPT_DSA_MAGIC dwMagic;
 	public uint32 cbKey;
@@ -4497,7 +4534,8 @@ public function HRESULT CryptXmlDllCreateKey(CRYPT_XML_BLOB* pEncoded, BCRYPT_KE
 	public uint8[20] q;
 }
 
-[CRepr]public struct BCRYPT_DSA_KEY_BLOB_V2
+[CRepr]
+public struct BCRYPT_DSA_KEY_BLOB_V2
 {
 	public BCRYPT_DSA_MAGIC dwMagic;
 	public uint32 cbKey;
@@ -4508,14 +4546,16 @@ public function HRESULT CryptXmlDllCreateKey(CRYPT_XML_BLOB* pEncoded, BCRYPT_KE
 	public uint8[4] Count;
 }
 
-[CRepr]public struct BCRYPT_KEY_DATA_BLOB_HEADER
+[CRepr]
+public struct BCRYPT_KEY_DATA_BLOB_HEADER
 {
 	public uint32 dwMagic;
 	public uint32 dwVersion;
 	public uint32 cbKeyData;
 }
 
-[CRepr]public struct BCRYPT_DSA_PARAMETER_HEADER
+[CRepr]
+public struct BCRYPT_DSA_PARAMETER_HEADER
 {
 	public uint32 cbLength;
 	public uint32 dwMagic;
@@ -4525,7 +4565,8 @@ public function HRESULT CryptXmlDllCreateKey(CRYPT_XML_BLOB* pEncoded, BCRYPT_KE
 	public uint8[20] q;
 }
 
-[CRepr]public struct BCRYPT_DSA_PARAMETER_HEADER_V2
+[CRepr]
+public struct BCRYPT_DSA_PARAMETER_HEADER_V2
 {
 	public uint32 cbLength;
 	public uint32 dwMagic;
@@ -4537,13 +4578,15 @@ public function HRESULT CryptXmlDllCreateKey(CRYPT_XML_BLOB* pEncoded, BCRYPT_KE
 	public uint8[4] Count;
 }
 
-[CRepr]public struct BCRYPT_ECC_CURVE_NAMES
+[CRepr]
+public struct BCRYPT_ECC_CURVE_NAMES
 {
 	public uint32 dwEccCurveNames;
 	public PWSTR* pEccCurveNames;
 }
 
-[CRepr]public struct BCRYPT_MULTI_HASH_OPERATION
+[CRepr]
+public struct BCRYPT_MULTI_HASH_OPERATION
 {
 	public uint32 iHash;
 	public BCRYPT_HASH_OPERATION_TYPE hashOperation;
@@ -4551,31 +4594,36 @@ public function HRESULT CryptXmlDllCreateKey(CRYPT_XML_BLOB* pEncoded, BCRYPT_KE
 	public uint32 cbBuffer;
 }
 
-[CRepr]public struct BCRYPT_MULTI_OBJECT_LENGTH_STRUCT
+[CRepr]
+public struct BCRYPT_MULTI_OBJECT_LENGTH_STRUCT
 {
 	public uint32 cbPerObject;
 	public uint32 cbPerElement;
 }
 
-[CRepr]public struct BCRYPT_ALGORITHM_IDENTIFIER
+[CRepr]
+public struct BCRYPT_ALGORITHM_IDENTIFIER
 {
 	public PWSTR pszName;
 	public uint32 dwClass;
 	public uint32 dwFlags;
 }
 
-[CRepr]public struct BCRYPT_PROVIDER_NAME
+[CRepr]
+public struct BCRYPT_PROVIDER_NAME
 {
 	public PWSTR pszProviderName;
 }
 
-[CRepr]public struct BCRYPT_INTERFACE_VERSION
+[CRepr]
+public struct BCRYPT_INTERFACE_VERSION
 {
 	public uint16 MajorVersion;
 	public uint16 MinorVersion;
 }
 
-[CRepr]public struct CRYPT_INTERFACE_REG
+[CRepr]
+public struct CRYPT_INTERFACE_REG
 {
 	public BCRYPT_INTERFACE dwInterface;
 	public BCRYPT_TABLE dwFlags;
@@ -4583,14 +4631,16 @@ public function HRESULT CryptXmlDllCreateKey(CRYPT_XML_BLOB* pEncoded, BCRYPT_KE
 	public PWSTR* rgpszFunctions;
 }
 
-[CRepr]public struct CRYPT_IMAGE_REG
+[CRepr]
+public struct CRYPT_IMAGE_REG
 {
 	public PWSTR pszImage;
 	public uint32 cInterfaces;
 	public CRYPT_INTERFACE_REG** rgpInterfaces;
 }
 
-[CRepr]public struct CRYPT_PROVIDER_REG
+[CRepr]
+public struct CRYPT_PROVIDER_REG
 {
 	public uint32 cAliases;
 	public PWSTR* rgpszAliases;
@@ -4598,56 +4648,65 @@ public function HRESULT CryptXmlDllCreateKey(CRYPT_XML_BLOB* pEncoded, BCRYPT_KE
 	public CRYPT_IMAGE_REG* pKM;
 }
 
-[CRepr]public struct CRYPT_PROVIDERS
+[CRepr]
+public struct CRYPT_PROVIDERS
 {
 	public uint32 cProviders;
 	public PWSTR* rgpszProviders;
 }
 
-[CRepr]public struct CRYPT_CONTEXT_CONFIG
+[CRepr]
+public struct CRYPT_CONTEXT_CONFIG
 {
 	public CRYPT_CONTEXT_CONFIG_FLAGS dwFlags;
 	public uint32 dwReserved;
 }
 
-[CRepr]public struct CRYPT_CONTEXT_FUNCTION_CONFIG
+[CRepr]
+public struct CRYPT_CONTEXT_FUNCTION_CONFIG
 {
 	public uint32 dwFlags;
 	public uint32 dwReserved;
 }
 
-[CRepr]public struct CRYPT_CONTEXTS
+[CRepr]
+public struct CRYPT_CONTEXTS
 {
 	public uint32 cContexts;
 	public PWSTR* rgpszContexts;
 }
 
-[CRepr]public struct CRYPT_CONTEXT_FUNCTIONS
+[CRepr]
+public struct CRYPT_CONTEXT_FUNCTIONS
 {
 	public uint32 cFunctions;
 	public PWSTR* rgpszFunctions;
 }
 
-[CRepr]public struct CRYPT_CONTEXT_FUNCTION_PROVIDERS
+[CRepr]
+public struct CRYPT_CONTEXT_FUNCTION_PROVIDERS
 {
 	public uint32 cProviders;
 	public PWSTR* rgpszProviders;
 }
 
-[CRepr]public struct CRYPT_PROPERTY_REF
+[CRepr]
+public struct CRYPT_PROPERTY_REF
 {
 	public PWSTR pszProperty;
 	public uint32 cbValue;
 	public uint8* pbValue;
 }
 
-[CRepr]public struct CRYPT_IMAGE_REF
+[CRepr]
+public struct CRYPT_IMAGE_REF
 {
 	public PWSTR pszImage;
 	public CRYPT_IMAGE_REF_FLAGS dwFlags;
 }
 
-[CRepr]public struct CRYPT_PROVIDER_REF
+[CRepr]
+public struct CRYPT_PROVIDER_REF
 {
 	public uint32 dwInterface;
 	public PWSTR pszFunction;
@@ -4658,20 +4717,23 @@ public function HRESULT CryptXmlDllCreateKey(CRYPT_XML_BLOB* pEncoded, BCRYPT_KE
 	public CRYPT_IMAGE_REF* pKM;
 }
 
-[CRepr]public struct CRYPT_PROVIDER_REFS
+[CRepr]
+public struct CRYPT_PROVIDER_REFS
 {
 	public uint32 cProviders;
 	public CRYPT_PROVIDER_REF** rgpProviders;
 }
 
-[CRepr]public struct NCRYPT_ALLOC_PARA
+[CRepr]
+public struct NCRYPT_ALLOC_PARA
 {
 	public uint32 cbSize;
 	public PFN_NCRYPT_ALLOC pfnAlloc;
 	public PFN_NCRYPT_FREE pfnFree;
 }
 
-[CRepr]public struct NCRYPT_CIPHER_PADDING_INFO
+[CRepr]
+public struct NCRYPT_CIPHER_PADDING_INFO
 {
 	public uint32 cbSize;
 	public uint32 dwFlags;
@@ -4681,13 +4743,15 @@ public function HRESULT CryptXmlDllCreateKey(CRYPT_XML_BLOB* pEncoded, BCRYPT_KE
 	public uint32 cbOtherInfo;
 }
 
-[CRepr]public struct NCRYPT_PLATFORM_ATTEST_PADDING_INFO
+[CRepr]
+public struct NCRYPT_PLATFORM_ATTEST_PADDING_INFO
 {
 	public uint32 magic;
 	public uint32 pcrMask;
 }
 
-[CRepr]public struct NCRYPT_KEY_ATTEST_PADDING_INFO
+[CRepr]
+public struct NCRYPT_KEY_ATTEST_PADDING_INFO
 {
 	public uint32 magic;
 	public uint8* pbKeyBlob;
@@ -4696,14 +4760,16 @@ public function HRESULT CryptXmlDllCreateKey(CRYPT_XML_BLOB* pEncoded, BCRYPT_KE
 	public uint32 cbKeyAuth;
 }
 
-[CRepr]public struct NCRYPT_ISOLATED_KEY_ATTESTED_ATTRIBUTES
+[CRepr]
+public struct NCRYPT_ISOLATED_KEY_ATTESTED_ATTRIBUTES
 {
 	public uint32 Version;
 	public uint32 Flags;
 	public uint32 cbPublicKeyBlob;
 }
 
-[CRepr]public struct NCRYPT_VSM_KEY_ATTESTATION_STATEMENT
+[CRepr]
+public struct NCRYPT_VSM_KEY_ATTESTATION_STATEMENT
 {
 	public uint32 Magic;
 	public uint32 Version;
@@ -4712,7 +4778,8 @@ public function HRESULT CryptXmlDllCreateKey(CRYPT_XML_BLOB* pEncoded, BCRYPT_KE
 	public uint32 cbAttributes;
 }
 
-[CRepr]public struct NCRYPT_VSM_KEY_ATTESTATION_CLAIM_RESTRICTIONS
+[CRepr]
+public struct NCRYPT_VSM_KEY_ATTESTATION_CLAIM_RESTRICTIONS
 {
 	public uint32 Version;
 	public uint64 TrustletId;
@@ -4722,7 +4789,8 @@ public function HRESULT CryptXmlDllCreateKey(CRYPT_XML_BLOB* pEncoded, BCRYPT_KE
 	public uint32 _bitfield;
 }
 
-[CRepr]public struct NCRYPT_EXPORTED_ISOLATED_KEY_HEADER
+[CRepr]
+public struct NCRYPT_EXPORTED_ISOLATED_KEY_HEADER
 {
 	public uint32 Version;
 	public uint32 KeyUsage;
@@ -4734,12 +4802,14 @@ public function HRESULT CryptXmlDllCreateKey(CRYPT_XML_BLOB* pEncoded, BCRYPT_KE
 	public uint32 cbIsolatedKey;
 }
 
-[CRepr]public struct NCRYPT_EXPORTED_ISOLATED_KEY_ENVELOPE
+[CRepr]
+public struct NCRYPT_EXPORTED_ISOLATED_KEY_ENVELOPE
 {
 	public NCRYPT_EXPORTED_ISOLATED_KEY_HEADER Header;
 }
 
-[CRepr]public struct __NCRYPT_PCP_TPM_WEB_AUTHN_ATTESTATION_STATEMENT
+[CRepr]
+public struct __NCRYPT_PCP_TPM_WEB_AUTHN_ATTESTATION_STATEMENT
 {
 	public uint32 Magic;
 	public uint32 Version;
@@ -4749,7 +4819,8 @@ public function HRESULT CryptXmlDllCreateKey(CRYPT_XML_BLOB* pEncoded, BCRYPT_KE
 	public uint32 cbTpmPublic;
 }
 
-[CRepr]public struct NCRYPT_TPM_PLATFORM_ATTESTATION_STATEMENT
+[CRepr]
+public struct NCRYPT_TPM_PLATFORM_ATTESTATION_STATEMENT
 {
 	public uint32 Magic;
 	public uint32 Version;
@@ -4759,7 +4830,8 @@ public function HRESULT CryptXmlDllCreateKey(CRYPT_XML_BLOB* pEncoded, BCRYPT_KE
 	public uint32 cbPcrs;
 }
 
-[CRepr]public struct NCryptAlgorithmName
+[CRepr]
+public struct NCryptAlgorithmName
 {
 	public PWSTR pszName;
 	public NCRYPT_ALGORITHM_NAME_CLASS dwClass;
@@ -4767,7 +4839,8 @@ public function HRESULT CryptXmlDllCreateKey(CRYPT_XML_BLOB* pEncoded, BCRYPT_KE
 	public uint32 dwFlags;
 }
 
-[CRepr]public struct NCryptKeyName
+[CRepr]
+public struct NCryptKeyName
 {
 	public PWSTR pszName;
 	public PWSTR pszAlgid;
@@ -4775,13 +4848,15 @@ public function HRESULT CryptXmlDllCreateKey(CRYPT_XML_BLOB* pEncoded, BCRYPT_KE
 	public uint32 dwFlags;
 }
 
-[CRepr]public struct NCryptProviderName
+[CRepr]
+public struct NCryptProviderName
 {
 	public PWSTR pszName;
 	public PWSTR pszComment;
 }
 
-[CRepr]public struct NCRYPT_UI_POLICY
+[CRepr]
+public struct NCRYPT_UI_POLICY
 {
 	public uint32 dwVersion;
 	public uint32 dwFlags;
@@ -4790,7 +4865,8 @@ public function HRESULT CryptXmlDllCreateKey(CRYPT_XML_BLOB* pEncoded, BCRYPT_KE
 	public PWSTR pszDescription;
 }
 
-[CRepr]public struct NCRYPT_KEY_ACCESS_POLICY_BLOB
+[CRepr]
+public struct NCRYPT_KEY_ACCESS_POLICY_BLOB
 {
 	public uint32 dwVersion;
 	public uint32 dwPolicyFlags;
@@ -4798,7 +4874,8 @@ public function HRESULT CryptXmlDllCreateKey(CRYPT_XML_BLOB* pEncoded, BCRYPT_KE
 	public uint32 cbApplicationSid;
 }
 
-[CRepr]public struct NCRYPT_SUPPORTED_LENGTHS
+[CRepr]
+public struct NCRYPT_SUPPORTED_LENGTHS
 {
 	public uint32 dwMinLength;
 	public uint32 dwMaxLength;
@@ -4806,7 +4883,8 @@ public function HRESULT CryptXmlDllCreateKey(CRYPT_XML_BLOB* pEncoded, BCRYPT_KE
 	public uint32 dwDefaultLength;
 }
 
-[CRepr]public struct NCRYPT_PCP_HMAC_AUTH_SIGNATURE_INFO
+[CRepr]
+public struct NCRYPT_PCP_HMAC_AUTH_SIGNATURE_INFO
 {
 	public uint32 dwVersion;
 	public int32 iExpiration;
@@ -4815,7 +4893,8 @@ public function HRESULT CryptXmlDllCreateKey(CRYPT_XML_BLOB* pEncoded, BCRYPT_KE
 	public uint8[32] pabHMAC;
 }
 
-[CRepr]public struct NCRYPT_PCP_TPM_FW_VERSION_INFO
+[CRepr]
+public struct NCRYPT_PCP_TPM_FW_VERSION_INFO
 {
 	public uint16 major1;
 	public uint16 major2;
@@ -4823,13 +4902,15 @@ public function HRESULT CryptXmlDllCreateKey(CRYPT_XML_BLOB* pEncoded, BCRYPT_KE
 	public uint16 minor2;
 }
 
-[CRepr]public struct NCRYPT_PCP_RAW_POLICYDIGEST
+[CRepr]
+public struct NCRYPT_PCP_RAW_POLICYDIGEST
 {
 	public uint32 dwVersion;
 	public uint32 cbDigest;
 }
 
-[CRepr]public struct NCRYPT_KEY_BLOB_HEADER
+[CRepr]
+public struct NCRYPT_KEY_BLOB_HEADER
 {
 	public uint32 cbSize;
 	public uint32 dwMagic;
@@ -4837,7 +4918,8 @@ public function HRESULT CryptXmlDllCreateKey(CRYPT_XML_BLOB* pEncoded, BCRYPT_KE
 	public uint32 cbKeyData;
 }
 
-[CRepr]public struct NCRYPT_TPM_LOADABLE_KEY_BLOB_HEADER
+[CRepr]
+public struct NCRYPT_TPM_LOADABLE_KEY_BLOB_HEADER
 {
 	public uint32 magic;
 	public uint32 cbHeader;
@@ -4846,89 +4928,103 @@ public function HRESULT CryptXmlDllCreateKey(CRYPT_XML_BLOB* pEncoded, BCRYPT_KE
 	public uint32 cbName;
 }
 
-[CRepr]public struct CRYPT_BIT_BLOB
+[CRepr]
+public struct CRYPT_BIT_BLOB
 {
 	public uint32 cbData;
 	public uint8* pbData;
 	public uint32 cUnusedBits;
 }
 
-[CRepr]public struct CRYPT_ALGORITHM_IDENTIFIER
+[CRepr]
+public struct CRYPT_ALGORITHM_IDENTIFIER
 {
 	public PSTR pszObjId;
 	public CRYPTOAPI_BLOB Parameters;
 }
 
-[CRepr]public struct CRYPT_OBJID_TABLE
+[CRepr]
+public struct CRYPT_OBJID_TABLE
 {
 	public uint32 dwAlgId;
 	public PSTR pszObjId;
 }
 
-[CRepr]public struct CRYPT_HASH_INFO
+[CRepr]
+public struct CRYPT_HASH_INFO
 {
 	public CRYPT_ALGORITHM_IDENTIFIER HashAlgorithm;
 	public CRYPTOAPI_BLOB Hash;
 }
 
-[CRepr]public struct CERT_EXTENSION
+[CRepr]
+public struct CERT_EXTENSION
 {
 	public PSTR pszObjId;
 	public BOOL fCritical;
 	public CRYPTOAPI_BLOB Value;
 }
 
-[CRepr]public struct CRYPT_ATTRIBUTE_TYPE_VALUE
+[CRepr]
+public struct CRYPT_ATTRIBUTE_TYPE_VALUE
 {
 	public PSTR pszObjId;
 	public CRYPTOAPI_BLOB Value;
 }
 
-[CRepr]public struct CRYPT_ATTRIBUTE
+[CRepr]
+public struct CRYPT_ATTRIBUTE
 {
 	public PSTR pszObjId;
 	public uint32 cValue;
 	public CRYPTOAPI_BLOB* rgValue;
 }
 
-[CRepr]public struct CRYPT_ATTRIBUTES
+[CRepr]
+public struct CRYPT_ATTRIBUTES
 {
 	public uint32 cAttr;
 	public CRYPT_ATTRIBUTE* rgAttr;
 }
 
-[CRepr]public struct CERT_RDN_ATTR
+[CRepr]
+public struct CERT_RDN_ATTR
 {
 	public PSTR pszObjId;
 	public CERT_RDN_ATTR_VALUE_TYPE dwValueType;
 	public CRYPTOAPI_BLOB Value;
 }
 
-[CRepr]public struct CERT_RDN
+[CRepr]
+public struct CERT_RDN
 {
 	public uint32 cRDNAttr;
 	public CERT_RDN_ATTR* rgRDNAttr;
 }
 
-[CRepr]public struct CERT_NAME_INFO
+[CRepr]
+public struct CERT_NAME_INFO
 {
 	public uint32 cRDN;
 	public CERT_RDN* rgRDN;
 }
 
-[CRepr]public struct CERT_NAME_VALUE
+[CRepr]
+public struct CERT_NAME_VALUE
 {
 	public uint32 dwValueType;
 	public CRYPTOAPI_BLOB Value;
 }
 
-[CRepr]public struct CERT_PUBLIC_KEY_INFO
+[CRepr]
+public struct CERT_PUBLIC_KEY_INFO
 {
 	public CRYPT_ALGORITHM_IDENTIFIER Algorithm;
 	public CRYPT_BIT_BLOB PublicKey;
 }
 
-[CRepr]public struct CRYPT_ECC_PRIVATE_KEY_INFO
+[CRepr]
+public struct CRYPT_ECC_PRIVATE_KEY_INFO
 {
 	public uint32 dwVersion;
 	public CRYPTOAPI_BLOB PrivateKey;
@@ -4936,7 +5032,8 @@ public function HRESULT CryptXmlDllCreateKey(CRYPT_XML_BLOB* pEncoded, BCRYPT_KE
 	public CRYPT_BIT_BLOB PublicKey;
 }
 
-[CRepr]public struct CRYPT_PRIVATE_KEY_INFO
+[CRepr]
+public struct CRYPT_PRIVATE_KEY_INFO
 {
 	public uint32 Version;
 	public CRYPT_ALGORITHM_IDENTIFIER Algorithm;
@@ -4944,13 +5041,15 @@ public function HRESULT CryptXmlDllCreateKey(CRYPT_XML_BLOB* pEncoded, BCRYPT_KE
 	public CRYPT_ATTRIBUTES* pAttributes;
 }
 
-[CRepr]public struct CRYPT_ENCRYPTED_PRIVATE_KEY_INFO
+[CRepr]
+public struct CRYPT_ENCRYPTED_PRIVATE_KEY_INFO
 {
 	public CRYPT_ALGORITHM_IDENTIFIER EncryptionAlgorithm;
 	public CRYPTOAPI_BLOB EncryptedPrivateKey;
 }
 
-[CRepr]public struct CRYPT_PKCS8_IMPORT_PARAMS
+[CRepr]
+public struct CRYPT_PKCS8_IMPORT_PARAMS
 {
 	public CRYPTOAPI_BLOB PrivateKey;
 	public PCRYPT_RESOLVE_HCRYPTPROV_FUNC pResolvehCryptProvFunc;
@@ -4959,7 +5058,8 @@ public function HRESULT CryptXmlDllCreateKey(CRYPT_XML_BLOB* pEncoded, BCRYPT_KE
 	public void* pVoidDecryptFunc;
 }
 
-[CRepr]public struct CRYPT_PKCS8_EXPORT_PARAMS
+[CRepr]
+public struct CRYPT_PKCS8_EXPORT_PARAMS
 {
 	public uint hCryptProv;
 	public uint32 dwKeySpec;
@@ -4968,7 +5068,8 @@ public function HRESULT CryptXmlDllCreateKey(CRYPT_XML_BLOB* pEncoded, BCRYPT_KE
 	public void* pVoidEncryptFunc;
 }
 
-[CRepr]public struct CERT_INFO
+[CRepr]
+public struct CERT_INFO
 {
 	public uint32 dwVersion;
 	public CRYPTOAPI_BLOB SerialNumber;
@@ -4984,7 +5085,8 @@ public function HRESULT CryptXmlDllCreateKey(CRYPT_XML_BLOB* pEncoded, BCRYPT_KE
 	public CERT_EXTENSION* rgExtension;
 }
 
-[CRepr]public struct CRL_ENTRY
+[CRepr]
+public struct CRL_ENTRY
 {
 	public CRYPTOAPI_BLOB SerialNumber;
 	public FILETIME RevocationDate;
@@ -4992,7 +5094,8 @@ public function HRESULT CryptXmlDllCreateKey(CRYPT_XML_BLOB* pEncoded, BCRYPT_KE
 	public CERT_EXTENSION* rgExtension;
 }
 
-[CRepr]public struct CRL_INFO
+[CRepr]
+public struct CRL_INFO
 {
 	public uint32 dwVersion;
 	public CRYPT_ALGORITHM_IDENTIFIER SignatureAlgorithm;
@@ -5005,20 +5108,23 @@ public function HRESULT CryptXmlDllCreateKey(CRYPT_XML_BLOB* pEncoded, BCRYPT_KE
 	public CERT_EXTENSION* rgExtension;
 }
 
-[CRepr]public struct CERT_OR_CRL_BLOB
+[CRepr]
+public struct CERT_OR_CRL_BLOB
 {
 	public uint32 dwChoice;
 	public uint32 cbEncoded;
 	public uint8* pbEncoded;
 }
 
-[CRepr]public struct CERT_OR_CRL_BUNDLE
+[CRepr]
+public struct CERT_OR_CRL_BUNDLE
 {
 	public uint32 cItem;
 	public CERT_OR_CRL_BLOB* rgItem;
 }
 
-[CRepr]public struct CERT_REQUEST_INFO
+[CRepr]
+public struct CERT_REQUEST_INFO
 {
 	public uint32 dwVersion;
 	public CRYPTOAPI_BLOB Subject;
@@ -5027,34 +5133,39 @@ public function HRESULT CryptXmlDllCreateKey(CRYPT_XML_BLOB* pEncoded, BCRYPT_KE
 	public CRYPT_ATTRIBUTE* rgAttribute;
 }
 
-[CRepr]public struct CERT_KEYGEN_REQUEST_INFO
+[CRepr]
+public struct CERT_KEYGEN_REQUEST_INFO
 {
 	public uint32 dwVersion;
 	public CERT_PUBLIC_KEY_INFO SubjectPublicKeyInfo;
 	public PWSTR pwszChallengeString;
 }
 
-[CRepr]public struct CERT_SIGNED_CONTENT_INFO
+[CRepr]
+public struct CERT_SIGNED_CONTENT_INFO
 {
 	public CRYPTOAPI_BLOB ToBeSigned;
 	public CRYPT_ALGORITHM_IDENTIFIER SignatureAlgorithm;
 	public CRYPT_BIT_BLOB Signature;
 }
 
-[CRepr]public struct CTL_USAGE
+[CRepr]
+public struct CTL_USAGE
 {
 	public uint32 cUsageIdentifier;
 	public PSTR* rgpszUsageIdentifier;
 }
 
-[CRepr]public struct CTL_ENTRY
+[CRepr]
+public struct CTL_ENTRY
 {
 	public CRYPTOAPI_BLOB SubjectIdentifier;
 	public uint32 cAttribute;
 	public CRYPT_ATTRIBUTE* rgAttribute;
 }
 
-[CRepr]public struct CTL_INFO
+[CRepr]
+public struct CTL_INFO
 {
 	public uint32 dwVersion;
 	public CTL_USAGE SubjectUsage;
@@ -5069,7 +5180,8 @@ public function HRESULT CryptXmlDllCreateKey(CRYPT_XML_BLOB* pEncoded, BCRYPT_KE
 	public CERT_EXTENSION* rgExtension;
 }
 
-[CRepr]public struct CRYPT_TIME_STAMP_REQUEST_INFO
+[CRepr]
+public struct CRYPT_TIME_STAMP_REQUEST_INFO
 {
 	public PSTR pszTimeStampAlgorithm;
 	public PSTR pszContentType;
@@ -5078,81 +5190,94 @@ public function HRESULT CryptXmlDllCreateKey(CRYPT_XML_BLOB* pEncoded, BCRYPT_KE
 	public CRYPT_ATTRIBUTE* rgAttribute;
 }
 
-[CRepr]public struct CRYPT_ENROLLMENT_NAME_VALUE_PAIR
+[CRepr]
+public struct CRYPT_ENROLLMENT_NAME_VALUE_PAIR
 {
 	public PWSTR pwszName;
 	public PWSTR pwszValue;
 }
 
-[CRepr]public struct CRYPT_CSP_PROVIDER
+[CRepr]
+public struct CRYPT_CSP_PROVIDER
 {
 	public uint32 dwKeySpec;
 	public PWSTR pwszProviderName;
 	public CRYPT_BIT_BLOB Signature;
 }
 
-[CRepr]public struct CRYPT_ENCODE_PARA
+[CRepr]
+public struct CRYPT_ENCODE_PARA
 {
 	public uint32 cbSize;
 	public PFN_CRYPT_ALLOC pfnAlloc;
 	public PFN_CRYPT_FREE pfnFree;
 }
 
-[CRepr]public struct CRYPT_DECODE_PARA
+[CRepr]
+public struct CRYPT_DECODE_PARA
 {
 	public uint32 cbSize;
 	public PFN_CRYPT_ALLOC pfnAlloc;
 	public PFN_CRYPT_FREE pfnFree;
 }
 
-[CRepr]public struct CERT_EXTENSIONS
+[CRepr]
+public struct CERT_EXTENSIONS
 {
 	public uint32 cExtension;
 	public CERT_EXTENSION* rgExtension;
 }
 
-[CRepr]public struct CERT_AUTHORITY_KEY_ID_INFO
+[CRepr]
+public struct CERT_AUTHORITY_KEY_ID_INFO
 {
 	public CRYPTOAPI_BLOB KeyId;
 	public CRYPTOAPI_BLOB CertIssuer;
 	public CRYPTOAPI_BLOB CertSerialNumber;
 }
 
-[CRepr]public struct CERT_PRIVATE_KEY_VALIDITY
+[CRepr]
+public struct CERT_PRIVATE_KEY_VALIDITY
 {
 	public FILETIME NotBefore;
 	public FILETIME NotAfter;
 }
 
-[CRepr]public struct CERT_KEY_ATTRIBUTES_INFO
+[CRepr]
+public struct CERT_KEY_ATTRIBUTES_INFO
 {
 	public CRYPTOAPI_BLOB KeyId;
 	public CRYPT_BIT_BLOB IntendedKeyUsage;
 	public CERT_PRIVATE_KEY_VALIDITY* pPrivateKeyUsagePeriod;
 }
 
-[CRepr]public struct CERT_POLICY_ID
+[CRepr]
+public struct CERT_POLICY_ID
 {
 	public uint32 cCertPolicyElementId;
 	public PSTR* rgpszCertPolicyElementId;
 }
 
-[CRepr]public struct CERT_KEY_USAGE_RESTRICTION_INFO
+[CRepr]
+public struct CERT_KEY_USAGE_RESTRICTION_INFO
 {
 	public uint32 cCertPolicyId;
 	public CERT_POLICY_ID* rgCertPolicyId;
 	public CRYPT_BIT_BLOB RestrictedKeyUsage;
 }
 
-[CRepr]public struct CERT_OTHER_NAME
+[CRepr]
+public struct CERT_OTHER_NAME
 {
 	public PSTR pszObjId;
 	public CRYPTOAPI_BLOB Value;
 }
 
-[CRepr]public struct CERT_ALT_NAME_ENTRY
+[CRepr]
+public struct CERT_ALT_NAME_ENTRY
 {
-	[CRepr, Union]	public struct _Anonymous_e__Union
+	[CRepr, Union]
+	public struct _Anonymous_e__Union
 	{
 		public CERT_OTHER_NAME* pOtherName;
 		public PWSTR pwszRfc822Name;
@@ -5167,13 +5292,15 @@ public function HRESULT CryptXmlDllCreateKey(CRYPT_XML_BLOB* pEncoded, BCRYPT_KE
 	public using _Anonymous_e__Union Anonymous;
 }
 
-[CRepr]public struct CERT_ALT_NAME_INFO
+[CRepr]
+public struct CERT_ALT_NAME_INFO
 {
 	public uint32 cAltEntry;
 	public CERT_ALT_NAME_ENTRY* rgAltEntry;
 }
 
-[CRepr]public struct CERT_BASIC_CONSTRAINTS_INFO
+[CRepr]
+public struct CERT_BASIC_CONSTRAINTS_INFO
 {
 	public CRYPT_BIT_BLOB SubjectType;
 	public BOOL fPathLenConstraint;
@@ -5182,53 +5309,61 @@ public function HRESULT CryptXmlDllCreateKey(CRYPT_XML_BLOB* pEncoded, BCRYPT_KE
 	public CRYPTOAPI_BLOB* rgSubtreesConstraint;
 }
 
-[CRepr]public struct CERT_BASIC_CONSTRAINTS2_INFO
+[CRepr]
+public struct CERT_BASIC_CONSTRAINTS2_INFO
 {
 	public BOOL fCA;
 	public BOOL fPathLenConstraint;
 	public uint32 dwPathLenConstraint;
 }
 
-[CRepr]public struct CERT_POLICY_QUALIFIER_INFO
+[CRepr]
+public struct CERT_POLICY_QUALIFIER_INFO
 {
 	public PSTR pszPolicyQualifierId;
 	public CRYPTOAPI_BLOB Qualifier;
 }
 
-[CRepr]public struct CERT_POLICY_INFO
+[CRepr]
+public struct CERT_POLICY_INFO
 {
 	public PSTR pszPolicyIdentifier;
 	public uint32 cPolicyQualifier;
 	public CERT_POLICY_QUALIFIER_INFO* rgPolicyQualifier;
 }
 
-[CRepr]public struct CERT_POLICIES_INFO
+[CRepr]
+public struct CERT_POLICIES_INFO
 {
 	public uint32 cPolicyInfo;
 	public CERT_POLICY_INFO* rgPolicyInfo;
 }
 
-[CRepr]public struct CERT_POLICY_QUALIFIER_NOTICE_REFERENCE
+[CRepr]
+public struct CERT_POLICY_QUALIFIER_NOTICE_REFERENCE
 {
 	public PSTR pszOrganization;
 	public uint32 cNoticeNumbers;
 	public int32* rgNoticeNumbers;
 }
 
-[CRepr]public struct CERT_POLICY_QUALIFIER_USER_NOTICE
+[CRepr]
+public struct CERT_POLICY_QUALIFIER_USER_NOTICE
 {
 	public CERT_POLICY_QUALIFIER_NOTICE_REFERENCE* pNoticeReference;
 	public PWSTR pszDisplayText;
 }
 
-[CRepr]public struct CPS_URLS
+[CRepr]
+public struct CPS_URLS
 {
 	public PWSTR pszURL;
 	public CRYPT_ALGORITHM_IDENTIFIER* pAlgorithm;
 	public CRYPTOAPI_BLOB* pDigest;
 }
 
-[CRepr]public struct CERT_POLICY95_QUALIFIER1
+[CRepr]
+public struct CERT_POLICY95_QUALIFIER1
 {
 	public PWSTR pszPracticesReference;
 	public PSTR pszNoticeIdentifier;
@@ -5237,19 +5372,22 @@ public function HRESULT CryptXmlDllCreateKey(CRYPT_XML_BLOB* pEncoded, BCRYPT_KE
 	public CPS_URLS* rgCPSURLs;
 }
 
-[CRepr]public struct CERT_POLICY_MAPPING
+[CRepr]
+public struct CERT_POLICY_MAPPING
 {
 	public PSTR pszIssuerDomainPolicy;
 	public PSTR pszSubjectDomainPolicy;
 }
 
-[CRepr]public struct CERT_POLICY_MAPPINGS_INFO
+[CRepr]
+public struct CERT_POLICY_MAPPINGS_INFO
 {
 	public uint32 cPolicyMapping;
 	public CERT_POLICY_MAPPING* rgPolicyMapping;
 }
 
-[CRepr]public struct CERT_POLICY_CONSTRAINTS_INFO
+[CRepr]
+public struct CERT_POLICY_CONSTRAINTS_INFO
 {
 	public BOOL fRequireExplicitPolicy;
 	public uint32 dwRequireExplicitPolicySkipCerts;
@@ -5257,47 +5395,55 @@ public function HRESULT CryptXmlDllCreateKey(CRYPT_XML_BLOB* pEncoded, BCRYPT_KE
 	public uint32 dwInhibitPolicyMappingSkipCerts;
 }
 
-[CRepr]public struct CRYPT_CONTENT_INFO_SEQUENCE_OF_ANY
+[CRepr]
+public struct CRYPT_CONTENT_INFO_SEQUENCE_OF_ANY
 {
 	public PSTR pszObjId;
 	public uint32 cValue;
 	public CRYPTOAPI_BLOB* rgValue;
 }
 
-[CRepr]public struct CRYPT_CONTENT_INFO
+[CRepr]
+public struct CRYPT_CONTENT_INFO
 {
 	public PSTR pszObjId;
 	public CRYPTOAPI_BLOB Content;
 }
 
-[CRepr]public struct CRYPT_SEQUENCE_OF_ANY
+[CRepr]
+public struct CRYPT_SEQUENCE_OF_ANY
 {
 	public uint32 cValue;
 	public CRYPTOAPI_BLOB* rgValue;
 }
 
-[CRepr]public struct CERT_AUTHORITY_KEY_ID2_INFO
+[CRepr]
+public struct CERT_AUTHORITY_KEY_ID2_INFO
 {
 	public CRYPTOAPI_BLOB KeyId;
 	public CERT_ALT_NAME_INFO AuthorityCertIssuer;
 	public CRYPTOAPI_BLOB AuthorityCertSerialNumber;
 }
 
-[CRepr]public struct CERT_ACCESS_DESCRIPTION
+[CRepr]
+public struct CERT_ACCESS_DESCRIPTION
 {
 	public PSTR pszAccessMethod;
 	public CERT_ALT_NAME_ENTRY AccessLocation;
 }
 
-[CRepr]public struct CERT_AUTHORITY_INFO_ACCESS
+[CRepr]
+public struct CERT_AUTHORITY_INFO_ACCESS
 {
 	public uint32 cAccDescr;
 	public CERT_ACCESS_DESCRIPTION* rgAccDescr;
 }
 
-[CRepr]public struct CRL_DIST_POINT_NAME
+[CRepr]
+public struct CRL_DIST_POINT_NAME
 {
-	[CRepr, Union]	public struct _Anonymous_e__Union
+	[CRepr, Union]
+	public struct _Anonymous_e__Union
 	{
 		public CERT_ALT_NAME_INFO FullName;
 	}
@@ -5306,33 +5452,38 @@ public function HRESULT CryptXmlDllCreateKey(CRYPT_XML_BLOB* pEncoded, BCRYPT_KE
 	public using _Anonymous_e__Union Anonymous;
 }
 
-[CRepr]public struct CRL_DIST_POINT
+[CRepr]
+public struct CRL_DIST_POINT
 {
 	public CRL_DIST_POINT_NAME DistPointName;
 	public CRYPT_BIT_BLOB ReasonFlags;
 	public CERT_ALT_NAME_INFO CRLIssuer;
 }
 
-[CRepr]public struct CRL_DIST_POINTS_INFO
+[CRepr]
+public struct CRL_DIST_POINTS_INFO
 {
 	public uint32 cDistPoint;
 	public CRL_DIST_POINT* rgDistPoint;
 }
 
-[CRepr]public struct CROSS_CERT_DIST_POINTS_INFO
+[CRepr]
+public struct CROSS_CERT_DIST_POINTS_INFO
 {
 	public uint32 dwSyncDeltaTime;
 	public uint32 cDistPoint;
 	public CERT_ALT_NAME_INFO* rgDistPoint;
 }
 
-[CRepr]public struct CERT_PAIR
+[CRepr]
+public struct CERT_PAIR
 {
 	public CRYPTOAPI_BLOB Forward;
 	public CRYPTOAPI_BLOB Reverse;
 }
 
-[CRepr]public struct CRL_ISSUING_DIST_POINT
+[CRepr]
+public struct CRL_ISSUING_DIST_POINT
 {
 	public CRL_DIST_POINT_NAME DistPointName;
 	public BOOL fOnlyContainsUserCerts;
@@ -5341,7 +5492,8 @@ public function HRESULT CryptXmlDllCreateKey(CRYPT_XML_BLOB* pEncoded, BCRYPT_KE
 	public BOOL fIndirectCRL;
 }
 
-[CRepr]public struct CERT_GENERAL_SUBTREE
+[CRepr]
+public struct CERT_GENERAL_SUBTREE
 {
 	public CERT_ALT_NAME_ENTRY Base;
 	public uint32 dwMinimum;
@@ -5349,7 +5501,8 @@ public function HRESULT CryptXmlDllCreateKey(CRYPT_XML_BLOB* pEncoded, BCRYPT_KE
 	public uint32 dwMaximum;
 }
 
-[CRepr]public struct CERT_NAME_CONSTRAINTS_INFO
+[CRepr]
+public struct CERT_NAME_CONSTRAINTS_INFO
 {
 	public uint32 cPermittedSubtree;
 	public CERT_GENERAL_SUBTREE* rgPermittedSubtree;
@@ -5357,32 +5510,37 @@ public function HRESULT CryptXmlDllCreateKey(CRYPT_XML_BLOB* pEncoded, BCRYPT_KE
 	public CERT_GENERAL_SUBTREE* rgExcludedSubtree;
 }
 
-[CRepr]public struct CERT_DSS_PARAMETERS
+[CRepr]
+public struct CERT_DSS_PARAMETERS
 {
 	public CRYPTOAPI_BLOB p;
 	public CRYPTOAPI_BLOB q;
 	public CRYPTOAPI_BLOB g;
 }
 
-[CRepr]public struct CERT_DH_PARAMETERS
+[CRepr]
+public struct CERT_DH_PARAMETERS
 {
 	public CRYPTOAPI_BLOB p;
 	public CRYPTOAPI_BLOB g;
 }
 
-[CRepr]public struct CERT_ECC_SIGNATURE
+[CRepr]
+public struct CERT_ECC_SIGNATURE
 {
 	public CRYPTOAPI_BLOB r;
 	public CRYPTOAPI_BLOB s;
 }
 
-[CRepr]public struct CERT_X942_DH_VALIDATION_PARAMS
+[CRepr]
+public struct CERT_X942_DH_VALIDATION_PARAMS
 {
 	public CRYPT_BIT_BLOB seed;
 	public uint32 pgenCounter;
 }
 
-[CRepr]public struct CERT_X942_DH_PARAMETERS
+[CRepr]
+public struct CERT_X942_DH_PARAMETERS
 {
 	public CRYPTOAPI_BLOB p;
 	public CRYPTOAPI_BLOB g;
@@ -5391,7 +5549,8 @@ public function HRESULT CryptXmlDllCreateKey(CRYPT_XML_BLOB* pEncoded, BCRYPT_KE
 	public CERT_X942_DH_VALIDATION_PARAMS* pValidationParams;
 }
 
-[CRepr]public struct CRYPT_X942_OTHER_INFO
+[CRepr]
+public struct CRYPT_X942_OTHER_INFO
 {
 	public PSTR pszContentEncryptionObjId;
 	public uint8[4] rgbCounter;
@@ -5399,51 +5558,59 @@ public function HRESULT CryptXmlDllCreateKey(CRYPT_XML_BLOB* pEncoded, BCRYPT_KE
 	public CRYPTOAPI_BLOB PubInfo;
 }
 
-[CRepr]public struct CRYPT_ECC_CMS_SHARED_INFO
+[CRepr]
+public struct CRYPT_ECC_CMS_SHARED_INFO
 {
 	public CRYPT_ALGORITHM_IDENTIFIER Algorithm;
 	public CRYPTOAPI_BLOB EntityUInfo;
 	public uint8[4] rgbSuppPubInfo;
 }
 
-[CRepr]public struct CRYPT_RC2_CBC_PARAMETERS
+[CRepr]
+public struct CRYPT_RC2_CBC_PARAMETERS
 {
 	public uint32 dwVersion;
 	public BOOL fIV;
 	public uint8[8] rgbIV;
 }
 
-[CRepr]public struct CRYPT_SMIME_CAPABILITY
+[CRepr]
+public struct CRYPT_SMIME_CAPABILITY
 {
 	public PSTR pszObjId;
 	public CRYPTOAPI_BLOB Parameters;
 }
 
-[CRepr]public struct CRYPT_SMIME_CAPABILITIES
+[CRepr]
+public struct CRYPT_SMIME_CAPABILITIES
 {
 	public uint32 cCapability;
 	public CRYPT_SMIME_CAPABILITY* rgCapability;
 }
 
-[CRepr]public struct CERT_QC_STATEMENT
+[CRepr]
+public struct CERT_QC_STATEMENT
 {
 	public PSTR pszStatementId;
 	public CRYPTOAPI_BLOB StatementInfo;
 }
 
-[CRepr]public struct CERT_QC_STATEMENTS_EXT_INFO
+[CRepr]
+public struct CERT_QC_STATEMENTS_EXT_INFO
 {
 	public uint32 cStatement;
 	public CERT_QC_STATEMENT* rgStatement;
 }
 
-[CRepr]public struct CRYPT_MASK_GEN_ALGORITHM
+[CRepr]
+public struct CRYPT_MASK_GEN_ALGORITHM
 {
 	public PSTR pszObjId;
 	public CRYPT_ALGORITHM_IDENTIFIER HashAlgorithm;
 }
 
-[CRepr]public struct CRYPT_RSA_SSA_PSS_PARAMETERS
+[CRepr]
+public struct CRYPT_RSA_SSA_PSS_PARAMETERS
 {
 	public CRYPT_ALGORITHM_IDENTIFIER HashAlgorithm;
 	public CRYPT_MASK_GEN_ALGORITHM MaskGenAlgorithm;
@@ -5451,34 +5618,40 @@ public function HRESULT CryptXmlDllCreateKey(CRYPT_XML_BLOB* pEncoded, BCRYPT_KE
 	public uint32 dwTrailerField;
 }
 
-[CRepr]public struct CRYPT_PSOURCE_ALGORITHM
+[CRepr]
+public struct CRYPT_PSOURCE_ALGORITHM
 {
 	public PSTR pszObjId;
 	public CRYPTOAPI_BLOB EncodingParameters;
 }
 
-[CRepr]public struct CRYPT_RSAES_OAEP_PARAMETERS
+[CRepr]
+public struct CRYPT_RSAES_OAEP_PARAMETERS
 {
 	public CRYPT_ALGORITHM_IDENTIFIER HashAlgorithm;
 	public CRYPT_MASK_GEN_ALGORITHM MaskGenAlgorithm;
 	public CRYPT_PSOURCE_ALGORITHM PSourceAlgorithm;
 }
 
-[CRepr]public struct CMC_TAGGED_ATTRIBUTE
+[CRepr]
+public struct CMC_TAGGED_ATTRIBUTE
 {
 	public uint32 dwBodyPartID;
 	public CRYPT_ATTRIBUTE Attribute;
 }
 
-[CRepr]public struct CMC_TAGGED_CERT_REQUEST
+[CRepr]
+public struct CMC_TAGGED_CERT_REQUEST
 {
 	public uint32 dwBodyPartID;
 	public CRYPTOAPI_BLOB SignedCertRequest;
 }
 
-[CRepr]public struct CMC_TAGGED_REQUEST
+[CRepr]
+public struct CMC_TAGGED_REQUEST
 {
-	[CRepr, Union]	public struct _Anonymous_e__Union
+	[CRepr, Union]
+	public struct _Anonymous_e__Union
 	{
 		public CMC_TAGGED_CERT_REQUEST* pTaggedCertRequest;
 	}
@@ -5487,20 +5660,23 @@ public function HRESULT CryptXmlDllCreateKey(CRYPT_XML_BLOB* pEncoded, BCRYPT_KE
 	public using _Anonymous_e__Union Anonymous;
 }
 
-[CRepr]public struct CMC_TAGGED_CONTENT_INFO
+[CRepr]
+public struct CMC_TAGGED_CONTENT_INFO
 {
 	public uint32 dwBodyPartID;
 	public CRYPTOAPI_BLOB EncodedContentInfo;
 }
 
-[CRepr]public struct CMC_TAGGED_OTHER_MSG
+[CRepr]
+public struct CMC_TAGGED_OTHER_MSG
 {
 	public uint32 dwBodyPartID;
 	public PSTR pszObjId;
 	public CRYPTOAPI_BLOB Value;
 }
 
-[CRepr]public struct CMC_DATA_INFO
+[CRepr]
+public struct CMC_DATA_INFO
 {
 	public uint32 cTaggedAttribute;
 	public CMC_TAGGED_ATTRIBUTE* rgTaggedAttribute;
@@ -5512,7 +5688,8 @@ public function HRESULT CryptXmlDllCreateKey(CRYPT_XML_BLOB* pEncoded, BCRYPT_KE
 	public CMC_TAGGED_OTHER_MSG* rgTaggedOtherMsg;
 }
 
-[CRepr]public struct CMC_RESPONSE_INFO
+[CRepr]
+public struct CMC_RESPONSE_INFO
 {
 	public uint32 cTaggedAttribute;
 	public CMC_TAGGED_ATTRIBUTE* rgTaggedAttribute;
@@ -5522,15 +5699,18 @@ public function HRESULT CryptXmlDllCreateKey(CRYPT_XML_BLOB* pEncoded, BCRYPT_KE
 	public CMC_TAGGED_OTHER_MSG* rgTaggedOtherMsg;
 }
 
-[CRepr]public struct CMC_PEND_INFO
+[CRepr]
+public struct CMC_PEND_INFO
 {
 	public CRYPTOAPI_BLOB PendToken;
 	public FILETIME PendTime;
 }
 
-[CRepr]public struct CMC_STATUS_INFO
+[CRepr]
+public struct CMC_STATUS_INFO
 {
-	[CRepr, Union]	public struct _Anonymous_e__Union
+	[CRepr, Union]
+	public struct _Anonymous_e__Union
 	{
 		public uint32 dwFailInfo;
 		public CMC_PEND_INFO* pPendInfo;
@@ -5544,7 +5724,8 @@ public function HRESULT CryptXmlDllCreateKey(CRYPT_XML_BLOB* pEncoded, BCRYPT_KE
 	public using _Anonymous_e__Union Anonymous;
 }
 
-[CRepr]public struct CMC_ADD_EXTENSIONS_INFO
+[CRepr]
+public struct CMC_ADD_EXTENSIONS_INFO
 {
 	public uint32 dwCmcDataReference;
 	public uint32 cCertReference;
@@ -5553,7 +5734,8 @@ public function HRESULT CryptXmlDllCreateKey(CRYPT_XML_BLOB* pEncoded, BCRYPT_KE
 	public CERT_EXTENSION* rgExtension;
 }
 
-[CRepr]public struct CMC_ADD_ATTRIBUTES_INFO
+[CRepr]
+public struct CMC_ADD_ATTRIBUTES_INFO
 {
 	public uint32 dwCmcDataReference;
 	public uint32 cCertReference;
@@ -5562,7 +5744,8 @@ public function HRESULT CryptXmlDllCreateKey(CRYPT_XML_BLOB* pEncoded, BCRYPT_KE
 	public CRYPT_ATTRIBUTE* rgAttribute;
 }
 
-[CRepr]public struct CERT_TEMPLATE_EXT
+[CRepr]
+public struct CERT_TEMPLATE_EXT
 {
 	public PSTR pszObjId;
 	public uint32 dwMajorVersion;
@@ -5570,29 +5753,34 @@ public function HRESULT CryptXmlDllCreateKey(CRYPT_XML_BLOB* pEncoded, BCRYPT_KE
 	public uint32 dwMinorVersion;
 }
 
-[CRepr]public struct CERT_HASHED_URL
+[CRepr]
+public struct CERT_HASHED_URL
 {
 	public CRYPT_ALGORITHM_IDENTIFIER HashAlgorithm;
 	public CRYPTOAPI_BLOB Hash;
 	public PWSTR pwszUrl;
 }
 
-[CRepr]public struct CERT_LOGOTYPE_DETAILS
+[CRepr]
+public struct CERT_LOGOTYPE_DETAILS
 {
 	public PWSTR pwszMimeType;
 	public uint32 cHashedUrl;
 	public CERT_HASHED_URL* rgHashedUrl;
 }
 
-[CRepr]public struct CERT_LOGOTYPE_REFERENCE
+[CRepr]
+public struct CERT_LOGOTYPE_REFERENCE
 {
 	public uint32 cHashedUrl;
 	public CERT_HASHED_URL* rgHashedUrl;
 }
 
-[CRepr]public struct CERT_LOGOTYPE_IMAGE_INFO
+[CRepr]
+public struct CERT_LOGOTYPE_IMAGE_INFO
 {
-	[CRepr, Union]	public struct _Anonymous_e__Union
+	[CRepr, Union]
+	public struct _Anonymous_e__Union
 	{
 		public uint32 dwNumBits;
 		public uint32 dwTableSize;
@@ -5607,13 +5795,15 @@ public function HRESULT CryptXmlDllCreateKey(CRYPT_XML_BLOB* pEncoded, BCRYPT_KE
 	public PWSTR pwszLanguage;
 }
 
-[CRepr]public struct CERT_LOGOTYPE_IMAGE
+[CRepr]
+public struct CERT_LOGOTYPE_IMAGE
 {
 	public CERT_LOGOTYPE_DETAILS LogotypeDetails;
 	public CERT_LOGOTYPE_IMAGE_INFO* pLogotypeImageInfo;
 }
 
-[CRepr]public struct CERT_LOGOTYPE_AUDIO_INFO
+[CRepr]
+public struct CERT_LOGOTYPE_AUDIO_INFO
 {
 	public uint32 dwFileSize;
 	public uint32 dwPlayTime;
@@ -5622,13 +5812,15 @@ public function HRESULT CryptXmlDllCreateKey(CRYPT_XML_BLOB* pEncoded, BCRYPT_KE
 	public PWSTR pwszLanguage;
 }
 
-[CRepr]public struct CERT_LOGOTYPE_AUDIO
+[CRepr]
+public struct CERT_LOGOTYPE_AUDIO
 {
 	public CERT_LOGOTYPE_DETAILS LogotypeDetails;
 	public CERT_LOGOTYPE_AUDIO_INFO* pLogotypeAudioInfo;
 }
 
-[CRepr]public struct CERT_LOGOTYPE_DATA
+[CRepr]
+public struct CERT_LOGOTYPE_DATA
 {
 	public uint32 cLogotypeImage;
 	public CERT_LOGOTYPE_IMAGE* rgLogotypeImage;
@@ -5636,9 +5828,11 @@ public function HRESULT CryptXmlDllCreateKey(CRYPT_XML_BLOB* pEncoded, BCRYPT_KE
 	public CERT_LOGOTYPE_AUDIO* rgLogotypeAudio;
 }
 
-[CRepr]public struct CERT_LOGOTYPE_INFO
+[CRepr]
+public struct CERT_LOGOTYPE_INFO
 {
-	[CRepr, Union]	public struct _Anonymous_e__Union
+	[CRepr, Union]
+	public struct _Anonymous_e__Union
 	{
 		public CERT_LOGOTYPE_DATA* pLogotypeDirectInfo;
 		public CERT_LOGOTYPE_REFERENCE* pLogotypeIndirectInfo;
@@ -5648,13 +5842,15 @@ public function HRESULT CryptXmlDllCreateKey(CRYPT_XML_BLOB* pEncoded, BCRYPT_KE
 	public using _Anonymous_e__Union Anonymous;
 }
 
-[CRepr]public struct CERT_OTHER_LOGOTYPE_INFO
+[CRepr]
+public struct CERT_OTHER_LOGOTYPE_INFO
 {
 	public PSTR pszObjId;
 	public CERT_LOGOTYPE_INFO LogotypeInfo;
 }
 
-[CRepr]public struct CERT_LOGOTYPE_EXT_INFO
+[CRepr]
+public struct CERT_LOGOTYPE_EXT_INFO
 {
 	public uint32 cCommunityLogo;
 	public CERT_LOGOTYPE_INFO* rgCommunityLogo;
@@ -5664,9 +5860,11 @@ public function HRESULT CryptXmlDllCreateKey(CRYPT_XML_BLOB* pEncoded, BCRYPT_KE
 	public CERT_OTHER_LOGOTYPE_INFO* rgOtherLogo;
 }
 
-[CRepr]public struct CERT_BIOMETRIC_DATA
+[CRepr]
+public struct CERT_BIOMETRIC_DATA
 {
-	[CRepr, Union]	public struct _Anonymous_e__Union
+	[CRepr, Union]
+	public struct _Anonymous_e__Union
 	{
 		public uint32 dwPredefined;
 		public PSTR pszObjId;
@@ -5677,13 +5875,15 @@ public function HRESULT CryptXmlDllCreateKey(CRYPT_XML_BLOB* pEncoded, BCRYPT_KE
 	public CERT_HASHED_URL HashedUrl;
 }
 
-[CRepr]public struct CERT_BIOMETRIC_EXT_INFO
+[CRepr]
+public struct CERT_BIOMETRIC_EXT_INFO
 {
 	public uint32 cBiometricData;
 	public CERT_BIOMETRIC_DATA* rgBiometricData;
 }
 
-[CRepr]public struct OCSP_SIGNATURE_INFO
+[CRepr]
+public struct OCSP_SIGNATURE_INFO
 {
 	public CRYPT_ALGORITHM_IDENTIFIER SignatureAlgorithm;
 	public CRYPT_BIT_BLOB Signature;
@@ -5691,13 +5891,15 @@ public function HRESULT CryptXmlDllCreateKey(CRYPT_XML_BLOB* pEncoded, BCRYPT_KE
 	public CRYPTOAPI_BLOB* rgCertEncoded;
 }
 
-[CRepr]public struct OCSP_SIGNED_REQUEST_INFO
+[CRepr]
+public struct OCSP_SIGNED_REQUEST_INFO
 {
 	public CRYPTOAPI_BLOB ToBeSigned;
 	public OCSP_SIGNATURE_INFO* pOptionalSignatureInfo;
 }
 
-[CRepr]public struct OCSP_CERT_ID
+[CRepr]
+public struct OCSP_CERT_ID
 {
 	public CRYPT_ALGORITHM_IDENTIFIER HashAlgorithm;
 	public CRYPTOAPI_BLOB IssuerNameHash;
@@ -5705,14 +5907,16 @@ public function HRESULT CryptXmlDllCreateKey(CRYPT_XML_BLOB* pEncoded, BCRYPT_KE
 	public CRYPTOAPI_BLOB SerialNumber;
 }
 
-[CRepr]public struct OCSP_REQUEST_ENTRY
+[CRepr]
+public struct OCSP_REQUEST_ENTRY
 {
 	public OCSP_CERT_ID CertId;
 	public uint32 cExtension;
 	public CERT_EXTENSION* rgExtension;
 }
 
-[CRepr]public struct OCSP_REQUEST_INFO
+[CRepr]
+public struct OCSP_REQUEST_INFO
 {
 	public uint32 dwVersion;
 	public CERT_ALT_NAME_ENTRY* pRequestorName;
@@ -5722,28 +5926,33 @@ public function HRESULT CryptXmlDllCreateKey(CRYPT_XML_BLOB* pEncoded, BCRYPT_KE
 	public CERT_EXTENSION* rgExtension;
 }
 
-[CRepr]public struct OCSP_RESPONSE_INFO
+[CRepr]
+public struct OCSP_RESPONSE_INFO
 {
 	public uint32 dwStatus;
 	public PSTR pszObjId;
 	public CRYPTOAPI_BLOB Value;
 }
 
-[CRepr]public struct OCSP_BASIC_SIGNED_RESPONSE_INFO
+[CRepr]
+public struct OCSP_BASIC_SIGNED_RESPONSE_INFO
 {
 	public CRYPTOAPI_BLOB ToBeSigned;
 	public OCSP_SIGNATURE_INFO SignatureInfo;
 }
 
-[CRepr]public struct OCSP_BASIC_REVOKED_INFO
+[CRepr]
+public struct OCSP_BASIC_REVOKED_INFO
 {
 	public FILETIME RevocationDate;
 	public CERT_REVOCATION_STATUS_REASON dwCrlReasonCode;
 }
 
-[CRepr]public struct OCSP_BASIC_RESPONSE_ENTRY
+[CRepr]
+public struct OCSP_BASIC_RESPONSE_ENTRY
 {
-	[CRepr, Union]	public struct _Anonymous_e__Union
+	[CRepr, Union]
+	public struct _Anonymous_e__Union
 	{
 		public OCSP_BASIC_REVOKED_INFO* pRevokedInfo;
 	}
@@ -5757,9 +5966,11 @@ public function HRESULT CryptXmlDllCreateKey(CRYPT_XML_BLOB* pEncoded, BCRYPT_KE
 	public CERT_EXTENSION* rgExtension;
 }
 
-[CRepr]public struct OCSP_BASIC_RESPONSE_INFO
+[CRepr]
+public struct OCSP_BASIC_RESPONSE_INFO
 {
-	[CRepr, Union]	public struct _Anonymous_e__Union
+	[CRepr, Union]
+	public struct _Anonymous_e__Union
 	{
 		public CRYPTOAPI_BLOB ByNameResponderId;
 		public CRYPTOAPI_BLOB ByKeyResponderId;
@@ -5775,29 +5986,34 @@ public function HRESULT CryptXmlDllCreateKey(CRYPT_XML_BLOB* pEncoded, BCRYPT_KE
 	public CERT_EXTENSION* rgExtension;
 }
 
-[CRepr]public struct CERT_SUPPORTED_ALGORITHM_INFO
+[CRepr]
+public struct CERT_SUPPORTED_ALGORITHM_INFO
 {
 	public CRYPT_ALGORITHM_IDENTIFIER Algorithm;
 	public CRYPT_BIT_BLOB IntendedKeyUsage;
 	public CERT_POLICIES_INFO IntendedCertPolicies;
 }
 
-[CRepr]public struct CERT_TPM_SPECIFICATION_INFO
+[CRepr]
+public struct CERT_TPM_SPECIFICATION_INFO
 {
 	public PWSTR pwszFamily;
 	public uint32 dwLevel;
 	public uint32 dwRevision;
 }
 
-[CRepr]public struct CRYPT_OID_FUNC_ENTRY
+[CRepr]
+public struct CRYPT_OID_FUNC_ENTRY
 {
 	public PSTR pszOID;
 	public void* pvFuncAddr;
 }
 
-[CRepr]public struct CRYPT_OID_INFO
+[CRepr]
+public struct CRYPT_OID_INFO
 {
-	[CRepr, Union]	public struct _Anonymous_e__Union
+	[CRepr, Union]
+	public struct _Anonymous_e__Union
 	{
 		public uint32 dwValue;
 		public uint32 Algid;
@@ -5812,16 +6028,19 @@ public function HRESULT CryptXmlDllCreateKey(CRYPT_XML_BLOB* pEncoded, BCRYPT_KE
 	public CRYPTOAPI_BLOB ExtraInfo;
 }
 
-[CRepr]public struct CERT_STRONG_SIGN_SERIALIZED_INFO
+[CRepr]
+public struct CERT_STRONG_SIGN_SERIALIZED_INFO
 {
 	public CERT_STRONG_SIGN_FLAGS dwFlags;
 	public PWSTR pwszCNGSignHashAlgids;
 	public PWSTR pwszCNGPubKeyMinBitLengths;
 }
 
-[CRepr]public struct CERT_STRONG_SIGN_PARA
+[CRepr]
+public struct CERT_STRONG_SIGN_PARA
 {
-	[CRepr, Union]	public struct _Anonymous_e__Union
+	[CRepr, Union]
+	public struct _Anonymous_e__Union
 	{
 		public void* pvInfo;
 		public CERT_STRONG_SIGN_SERIALIZED_INFO* pSerializedInfo;
@@ -5833,15 +6052,18 @@ public function HRESULT CryptXmlDllCreateKey(CRYPT_XML_BLOB* pEncoded, BCRYPT_KE
 	public using _Anonymous_e__Union Anonymous;
 }
 
-[CRepr]public struct CERT_ISSUER_SERIAL_NUMBER
+[CRepr]
+public struct CERT_ISSUER_SERIAL_NUMBER
 {
 	public CRYPTOAPI_BLOB Issuer;
 	public CRYPTOAPI_BLOB SerialNumber;
 }
 
-[CRepr]public struct CERT_ID
+[CRepr]
+public struct CERT_ID
 {
-	[CRepr, Union]	public struct _Anonymous_e__Union
+	[CRepr, Union]
+	public struct _Anonymous_e__Union
 	{
 		public CERT_ISSUER_SERIAL_NUMBER IssuerSerialNumber;
 		public CRYPTOAPI_BLOB KeyId;
@@ -5852,9 +6074,11 @@ public function HRESULT CryptXmlDllCreateKey(CRYPT_XML_BLOB* pEncoded, BCRYPT_KE
 	public using _Anonymous_e__Union Anonymous;
 }
 
-[CRepr]public struct CMSG_SIGNER_ENCODE_INFO
+[CRepr]
+public struct CMSG_SIGNER_ENCODE_INFO
 {
-	[CRepr, Union]	public struct _Anonymous_e__Union
+	[CRepr, Union]
+	public struct _Anonymous_e__Union
 	{
 		public uint hCryptProv;
 		public uint hNCryptKey;
@@ -5872,7 +6096,8 @@ public function HRESULT CryptXmlDllCreateKey(CRYPT_XML_BLOB* pEncoded, BCRYPT_KE
 	public CRYPT_ATTRIBUTE* rgUnauthAttr;
 }
 
-[CRepr]public struct CMSG_SIGNED_ENCODE_INFO
+[CRepr]
+public struct CMSG_SIGNED_ENCODE_INFO
 {
 	public uint32 cbSize;
 	public uint32 cSigners;
@@ -5883,7 +6108,8 @@ public function HRESULT CryptXmlDllCreateKey(CRYPT_XML_BLOB* pEncoded, BCRYPT_KE
 	public CRYPTOAPI_BLOB* rgCrlEncoded;
 }
 
-[CRepr]public struct CMSG_ENVELOPED_ENCODE_INFO
+[CRepr]
+public struct CMSG_ENVELOPED_ENCODE_INFO
 {
 	public uint32 cbSize;
 	public uint hCryptProv;
@@ -5893,7 +6119,8 @@ public function HRESULT CryptXmlDllCreateKey(CRYPT_XML_BLOB* pEncoded, BCRYPT_KE
 	public CERT_INFO** rgpRecipients;
 }
 
-[CRepr]public struct CMSG_KEY_TRANS_RECIPIENT_ENCODE_INFO
+[CRepr]
+public struct CMSG_KEY_TRANS_RECIPIENT_ENCODE_INFO
 {
 	public uint32 cbSize;
 	public CRYPT_ALGORITHM_IDENTIFIER KeyEncryptionAlgorithm;
@@ -5903,7 +6130,8 @@ public function HRESULT CryptXmlDllCreateKey(CRYPT_XML_BLOB* pEncoded, BCRYPT_KE
 	public CERT_ID RecipientId;
 }
 
-[CRepr]public struct CMSG_RECIPIENT_ENCRYPTED_KEY_ENCODE_INFO
+[CRepr]
+public struct CMSG_RECIPIENT_ENCRYPTED_KEY_ENCODE_INFO
 {
 	public uint32 cbSize;
 	public CRYPT_BIT_BLOB RecipientPublicKey;
@@ -5912,9 +6140,11 @@ public function HRESULT CryptXmlDllCreateKey(CRYPT_XML_BLOB* pEncoded, BCRYPT_KE
 	public CRYPT_ATTRIBUTE_TYPE_VALUE* pOtherAttr;
 }
 
-[CRepr]public struct CMSG_KEY_AGREE_RECIPIENT_ENCODE_INFO
+[CRepr]
+public struct CMSG_KEY_AGREE_RECIPIENT_ENCODE_INFO
 {
-	[CRepr, Union]	public struct _Anonymous_e__Union
+	[CRepr, Union]
+	public struct _Anonymous_e__Union
 	{
 		public CRYPT_ALGORITHM_IDENTIFIER* pEphemeralAlgorithm;
 		public CERT_ID* pSenderId;
@@ -5934,9 +6164,11 @@ public function HRESULT CryptXmlDllCreateKey(CRYPT_XML_BLOB* pEncoded, BCRYPT_KE
 	public CMSG_RECIPIENT_ENCRYPTED_KEY_ENCODE_INFO** rgpRecipientEncryptedKeys;
 }
 
-[CRepr]public struct CMSG_MAIL_LIST_RECIPIENT_ENCODE_INFO
+[CRepr]
+public struct CMSG_MAIL_LIST_RECIPIENT_ENCODE_INFO
 {
-	[CRepr, Union]	public struct _Anonymous_e__Union
+	[CRepr, Union]
+	public struct _Anonymous_e__Union
 	{
 		public uint hKeyEncryptionKey;
 		public void* pvKeyEncryptionKey;
@@ -5953,9 +6185,11 @@ public function HRESULT CryptXmlDllCreateKey(CRYPT_XML_BLOB* pEncoded, BCRYPT_KE
 	public CRYPT_ATTRIBUTE_TYPE_VALUE* pOtherAttr;
 }
 
-[CRepr]public struct CMSG_RECIPIENT_ENCODE_INFO
+[CRepr]
+public struct CMSG_RECIPIENT_ENCODE_INFO
 {
-	[CRepr, Union]	public struct _Anonymous_e__Union
+	[CRepr, Union]
+	public struct _Anonymous_e__Union
 	{
 		public CMSG_KEY_TRANS_RECIPIENT_ENCODE_INFO* pKeyTrans;
 		public CMSG_KEY_AGREE_RECIPIENT_ENCODE_INFO* pKeyAgree;
@@ -5966,32 +6200,37 @@ public function HRESULT CryptXmlDllCreateKey(CRYPT_XML_BLOB* pEncoded, BCRYPT_KE
 	public using _Anonymous_e__Union Anonymous;
 }
 
-[CRepr]public struct CMSG_RC2_AUX_INFO
+[CRepr]
+public struct CMSG_RC2_AUX_INFO
 {
 	public uint32 cbSize;
 	public uint32 dwBitLen;
 }
 
-[CRepr]public struct CMSG_SP3_COMPATIBLE_AUX_INFO
+[CRepr]
+public struct CMSG_SP3_COMPATIBLE_AUX_INFO
 {
 	public uint32 cbSize;
 	public uint32 dwFlags;
 }
 
-[CRepr]public struct CMSG_RC4_AUX_INFO
+[CRepr]
+public struct CMSG_RC4_AUX_INFO
 {
 	public uint32 cbSize;
 	public uint32 dwBitLen;
 }
 
-[CRepr]public struct CMSG_SIGNED_AND_ENVELOPED_ENCODE_INFO
+[CRepr]
+public struct CMSG_SIGNED_AND_ENVELOPED_ENCODE_INFO
 {
 	public uint32 cbSize;
 	public CMSG_SIGNED_ENCODE_INFO SignedInfo;
 	public CMSG_ENVELOPED_ENCODE_INFO EnvelopedInfo;
 }
 
-[CRepr]public struct CMSG_HASHED_ENCODE_INFO
+[CRepr]
+public struct CMSG_HASHED_ENCODE_INFO
 {
 	public uint32 cbSize;
 	public uint hCryptProv;
@@ -5999,21 +6238,24 @@ public function HRESULT CryptXmlDllCreateKey(CRYPT_XML_BLOB* pEncoded, BCRYPT_KE
 	public void* pvHashAuxInfo;
 }
 
-[CRepr]public struct CMSG_ENCRYPTED_ENCODE_INFO
+[CRepr]
+public struct CMSG_ENCRYPTED_ENCODE_INFO
 {
 	public uint32 cbSize;
 	public CRYPT_ALGORITHM_IDENTIFIER ContentEncryptionAlgorithm;
 	public void* pvEncryptionAuxInfo;
 }
 
-[CRepr]public struct CMSG_STREAM_INFO
+[CRepr]
+public struct CMSG_STREAM_INFO
 {
 	public uint32 cbContent;
 	public PFN_CMSG_STREAM_OUTPUT pfnStreamOutput;
 	public void* pvArg;
 }
 
-[CRepr]public struct CMSG_SIGNER_INFO
+[CRepr]
+public struct CMSG_SIGNER_INFO
 {
 	public uint32 dwVersion;
 	public CRYPTOAPI_BLOB Issuer;
@@ -6025,7 +6267,8 @@ public function HRESULT CryptXmlDllCreateKey(CRYPT_XML_BLOB* pEncoded, BCRYPT_KE
 	public CRYPT_ATTRIBUTES UnauthAttrs;
 }
 
-[CRepr]public struct CMSG_CMS_SIGNER_INFO
+[CRepr]
+public struct CMSG_CMS_SIGNER_INFO
 {
 	public uint32 dwVersion;
 	public CERT_ID SignerId;
@@ -6036,7 +6279,8 @@ public function HRESULT CryptXmlDllCreateKey(CRYPT_XML_BLOB* pEncoded, BCRYPT_KE
 	public CRYPT_ATTRIBUTES UnauthAttrs;
 }
 
-[CRepr]public struct CMSG_KEY_TRANS_RECIPIENT_INFO
+[CRepr]
+public struct CMSG_KEY_TRANS_RECIPIENT_INFO
 {
 	public uint32 dwVersion;
 	public CERT_ID RecipientId;
@@ -6044,7 +6288,8 @@ public function HRESULT CryptXmlDllCreateKey(CRYPT_XML_BLOB* pEncoded, BCRYPT_KE
 	public CRYPTOAPI_BLOB EncryptedKey;
 }
 
-[CRepr]public struct CMSG_RECIPIENT_ENCRYPTED_KEY_INFO
+[CRepr]
+public struct CMSG_RECIPIENT_ENCRYPTED_KEY_INFO
 {
 	public CERT_ID RecipientId;
 	public CRYPTOAPI_BLOB EncryptedKey;
@@ -6052,9 +6297,11 @@ public function HRESULT CryptXmlDllCreateKey(CRYPT_XML_BLOB* pEncoded, BCRYPT_KE
 	public CRYPT_ATTRIBUTE_TYPE_VALUE* pOtherAttr;
 }
 
-[CRepr]public struct CMSG_KEY_AGREE_RECIPIENT_INFO
+[CRepr]
+public struct CMSG_KEY_AGREE_RECIPIENT_INFO
 {
-	[CRepr, Union]	public struct _Anonymous_e__Union
+	[CRepr, Union]
+	public struct _Anonymous_e__Union
 	{
 		public CERT_ID OriginatorCertId;
 		public CERT_PUBLIC_KEY_INFO OriginatorPublicKeyInfo;
@@ -6069,7 +6316,8 @@ public function HRESULT CryptXmlDllCreateKey(CRYPT_XML_BLOB* pEncoded, BCRYPT_KE
 	public CMSG_RECIPIENT_ENCRYPTED_KEY_INFO** rgpRecipientEncryptedKeys;
 }
 
-[CRepr]public struct CMSG_MAIL_LIST_RECIPIENT_INFO
+[CRepr]
+public struct CMSG_MAIL_LIST_RECIPIENT_INFO
 {
 	public uint32 dwVersion;
 	public CRYPTOAPI_BLOB KeyId;
@@ -6079,9 +6327,11 @@ public function HRESULT CryptXmlDllCreateKey(CRYPT_XML_BLOB* pEncoded, BCRYPT_KE
 	public CRYPT_ATTRIBUTE_TYPE_VALUE* pOtherAttr;
 }
 
-[CRepr]public struct CMSG_CMS_RECIPIENT_INFO
+[CRepr]
+public struct CMSG_CMS_RECIPIENT_INFO
 {
-	[CRepr, Union]	public struct _Anonymous_e__Union
+	[CRepr, Union]
+	public struct _Anonymous_e__Union
 	{
 		public CMSG_KEY_TRANS_RECIPIENT_INFO* pKeyTrans;
 		public CMSG_KEY_AGREE_RECIPIENT_INFO* pKeyAgree;
@@ -6092,7 +6342,8 @@ public function HRESULT CryptXmlDllCreateKey(CRYPT_XML_BLOB* pEncoded, BCRYPT_KE
 	public using _Anonymous_e__Union Anonymous;
 }
 
-[CRepr]public struct CMSG_CTRL_VERIFY_SIGNATURE_EX_PARA
+[CRepr]
+public struct CMSG_CTRL_VERIFY_SIGNATURE_EX_PARA
 {
 	public uint32 cbSize;
 	public uint hCryptProv;
@@ -6101,9 +6352,11 @@ public function HRESULT CryptXmlDllCreateKey(CRYPT_XML_BLOB* pEncoded, BCRYPT_KE
 	public void* pvSigner;
 }
 
-[CRepr]public struct CMSG_CTRL_DECRYPT_PARA
+[CRepr]
+public struct CMSG_CTRL_DECRYPT_PARA
 {
-	[CRepr, Union]	public struct _Anonymous_e__Union
+	[CRepr, Union]
+	public struct _Anonymous_e__Union
 	{
 		public uint hCryptProv;
 		public uint hNCryptKey;
@@ -6115,9 +6368,11 @@ public function HRESULT CryptXmlDllCreateKey(CRYPT_XML_BLOB* pEncoded, BCRYPT_KE
 	public uint32 dwRecipientIndex;
 }
 
-[CRepr]public struct CMSG_CTRL_KEY_TRANS_DECRYPT_PARA
+[CRepr]
+public struct CMSG_CTRL_KEY_TRANS_DECRYPT_PARA
 {
-	[CRepr, Union]	public struct _Anonymous_e__Union
+	[CRepr, Union]
+	public struct _Anonymous_e__Union
 	{
 		public uint hCryptProv;
 		public uint hNCryptKey;
@@ -6130,9 +6385,11 @@ public function HRESULT CryptXmlDllCreateKey(CRYPT_XML_BLOB* pEncoded, BCRYPT_KE
 	public uint32 dwRecipientIndex;
 }
 
-[CRepr]public struct CMSG_CTRL_KEY_AGREE_DECRYPT_PARA
+[CRepr]
+public struct CMSG_CTRL_KEY_AGREE_DECRYPT_PARA
 {
-	[CRepr, Union]	public struct _Anonymous_e__Union
+	[CRepr, Union]
+	public struct _Anonymous_e__Union
 	{
 		public uint hCryptProv;
 		public uint hNCryptKey;
@@ -6147,9 +6404,11 @@ public function HRESULT CryptXmlDllCreateKey(CRYPT_XML_BLOB* pEncoded, BCRYPT_KE
 	public CRYPT_BIT_BLOB OriginatorPublicKey;
 }
 
-[CRepr]public struct CMSG_CTRL_MAIL_LIST_DECRYPT_PARA
+[CRepr]
+public struct CMSG_CTRL_MAIL_LIST_DECRYPT_PARA
 {
-	[CRepr, Union]	public struct _Anonymous_e__Union
+	[CRepr, Union]
+	public struct _Anonymous_e__Union
 	{
 		public uint hKeyEncryptionKey;
 		public void* pvKeyEncryptionKey;
@@ -6163,23 +6422,27 @@ public function HRESULT CryptXmlDllCreateKey(CRYPT_XML_BLOB* pEncoded, BCRYPT_KE
 	public using _Anonymous_e__Union Anonymous;
 }
 
-[CRepr]public struct CMSG_CTRL_ADD_SIGNER_UNAUTH_ATTR_PARA
+[CRepr]
+public struct CMSG_CTRL_ADD_SIGNER_UNAUTH_ATTR_PARA
 {
 	public uint32 cbSize;
 	public uint32 dwSignerIndex;
 	public CRYPTOAPI_BLOB blob;
 }
 
-[CRepr]public struct CMSG_CTRL_DEL_SIGNER_UNAUTH_ATTR_PARA
+[CRepr]
+public struct CMSG_CTRL_DEL_SIGNER_UNAUTH_ATTR_PARA
 {
 	public uint32 cbSize;
 	public uint32 dwSignerIndex;
 	public uint32 dwUnauthAttrIndex;
 }
 
-[CRepr]public struct CMSG_CONTENT_ENCRYPT_INFO
+[CRepr]
+public struct CMSG_CONTENT_ENCRYPT_INFO
 {
-	[CRepr, Union]	public struct _Anonymous_e__Union
+	[CRepr, Union]
+	public struct _Anonymous_e__Union
 	{
 		public uint hContentEncryptKey;
 		public BCRYPT_KEY_HANDLE hCNGContentEncryptKey;
@@ -6202,7 +6465,8 @@ public function HRESULT CryptXmlDllCreateKey(CRYPT_XML_BLOB* pEncoded, BCRYPT_KE
 	public uint32 cbContentEncryptKey;
 }
 
-[CRepr]public struct CMSG_KEY_TRANS_ENCRYPT_INFO
+[CRepr]
+public struct CMSG_KEY_TRANS_ENCRYPT_INFO
 {
 	public uint32 cbSize;
 	public uint32 dwRecipientIndex;
@@ -6211,15 +6475,18 @@ public function HRESULT CryptXmlDllCreateKey(CRYPT_XML_BLOB* pEncoded, BCRYPT_KE
 	public uint32 dwFlags;
 }
 
-[CRepr]public struct CMSG_KEY_AGREE_KEY_ENCRYPT_INFO
+[CRepr]
+public struct CMSG_KEY_AGREE_KEY_ENCRYPT_INFO
 {
 	public uint32 cbSize;
 	public CRYPTOAPI_BLOB EncryptedKey;
 }
 
-[CRepr]public struct CMSG_KEY_AGREE_ENCRYPT_INFO
+[CRepr]
+public struct CMSG_KEY_AGREE_ENCRYPT_INFO
 {
-	[CRepr, Union]	public struct _Anonymous_e__Union
+	[CRepr, Union]
+	public struct _Anonymous_e__Union
 	{
 		public CERT_ID OriginatorCertId;
 		public CERT_PUBLIC_KEY_INFO OriginatorPublicKeyInfo;
@@ -6236,7 +6503,8 @@ public function HRESULT CryptXmlDllCreateKey(CRYPT_XML_BLOB* pEncoded, BCRYPT_KE
 	public uint32 dwFlags;
 }
 
-[CRepr]public struct CMSG_MAIL_LIST_ENCRYPT_INFO
+[CRepr]
+public struct CMSG_MAIL_LIST_ENCRYPT_INFO
 {
 	public uint32 cbSize;
 	public uint32 dwRecipientIndex;
@@ -6245,7 +6513,8 @@ public function HRESULT CryptXmlDllCreateKey(CRYPT_XML_BLOB* pEncoded, BCRYPT_KE
 	public uint32 dwFlags;
 }
 
-[CRepr]public struct CMSG_CNG_CONTENT_DECRYPT_INFO
+[CRepr]
+public struct CMSG_CNG_CONTENT_DECRYPT_INFO
 {
 	public uint32 cbSize;
 	public CRYPT_ALGORITHM_IDENTIFIER ContentEncryptionAlgorithm;
@@ -6258,7 +6527,8 @@ public function HRESULT CryptXmlDllCreateKey(CRYPT_XML_BLOB* pEncoded, BCRYPT_KE
 	public uint8* pbCNGContentEncryptKeyObject;
 }
 
-[CRepr]public struct CERT_CONTEXT
+[CRepr]
+public struct CERT_CONTEXT
 {
 	public uint32 dwCertEncodingType;
 	public uint8* pbCertEncoded;
@@ -6267,7 +6537,8 @@ public function HRESULT CryptXmlDllCreateKey(CRYPT_XML_BLOB* pEncoded, BCRYPT_KE
 	public void* hCertStore;
 }
 
-[CRepr]public struct CRL_CONTEXT
+[CRepr]
+public struct CRL_CONTEXT
 {
 	public uint32 dwCertEncodingType;
 	public uint8* pbCrlEncoded;
@@ -6276,7 +6547,8 @@ public function HRESULT CryptXmlDllCreateKey(CRYPT_XML_BLOB* pEncoded, BCRYPT_KE
 	public void* hCertStore;
 }
 
-[CRepr]public struct CTL_CONTEXT
+[CRepr]
+public struct CTL_CONTEXT
 {
 	public uint32 dwMsgAndCertEncodingType;
 	public uint8* pbCtlEncoded;
@@ -6288,7 +6560,8 @@ public function HRESULT CryptXmlDllCreateKey(CRYPT_XML_BLOB* pEncoded, BCRYPT_KE
 	public uint32 cbCtlContent;
 }
 
-[CRepr]public struct CRYPT_KEY_PROV_PARAM
+[CRepr]
+public struct CRYPT_KEY_PROV_PARAM
 {
 	public uint32 dwParam;
 	public uint8* pbData;
@@ -6296,7 +6569,8 @@ public function HRESULT CryptXmlDllCreateKey(CRYPT_XML_BLOB* pEncoded, BCRYPT_KE
 	public uint32 dwFlags;
 }
 
-[CRepr]public struct CRYPT_KEY_PROV_INFO
+[CRepr]
+public struct CRYPT_KEY_PROV_INFO
 {
 	public PWSTR pwszContainerName;
 	public PWSTR pwszProvName;
@@ -6307,9 +6581,11 @@ public function HRESULT CryptXmlDllCreateKey(CRYPT_XML_BLOB* pEncoded, BCRYPT_KE
 	public uint32 dwKeySpec;
 }
 
-[CRepr]public struct CERT_KEY_CONTEXT
+[CRepr]
+public struct CERT_KEY_CONTEXT
 {
-	[CRepr, Union]	public struct _Anonymous_e__Union
+	[CRepr, Union]
+	public struct _Anonymous_e__Union
 	{
 		public uint hCryptProv;
 		public uint hNCryptKey;
@@ -6320,28 +6596,33 @@ public function HRESULT CryptXmlDllCreateKey(CRYPT_XML_BLOB* pEncoded, BCRYPT_KE
 	public uint32 dwKeySpec;
 }
 
-[CRepr]public struct ROOT_INFO_LUID
+[CRepr]
+public struct ROOT_INFO_LUID
 {
 	public uint32 LowPart;
 	public int32 HighPart;
 }
 
-[CRepr]public struct CRYPT_SMART_CARD_ROOT_INFO
+[CRepr]
+public struct CRYPT_SMART_CARD_ROOT_INFO
 {
 	public uint8[16] rgbCardID;
 	public ROOT_INFO_LUID luid;
 }
 
-[CRepr]public struct CERT_SYSTEM_STORE_RELOCATE_PARA
+[CRepr]
+public struct CERT_SYSTEM_STORE_RELOCATE_PARA
 {
-	[CRepr, Union]	public struct _Anonymous2_e__Union
+	[CRepr, Union]
+	public struct _Anonymous2_e__Union
 	{
 		public void* pvSystemStore;
 		public PSTR pszSystemStore;
 		public PWSTR pwszSystemStore;
 	}
 
-	[CRepr, Union]	public struct _Anonymous1_e__Union
+	[CRepr, Union]
+	public struct _Anonymous1_e__Union
 	{
 		public HKEY hKeyBase;
 		public void* pvBase;
@@ -6351,25 +6632,29 @@ public function HRESULT CryptXmlDllCreateKey(CRYPT_XML_BLOB* pEncoded, BCRYPT_KE
 	public _Anonymous2_e__Union Anonymous2;
 }
 
-[CRepr]public struct CERT_REGISTRY_STORE_CLIENT_GPT_PARA
+[CRepr]
+public struct CERT_REGISTRY_STORE_CLIENT_GPT_PARA
 {
 	public HKEY hKeyBase;
 	public PWSTR pwszRegPath;
 }
 
-[CRepr]public struct CERT_REGISTRY_STORE_ROAMING_PARA
+[CRepr]
+public struct CERT_REGISTRY_STORE_ROAMING_PARA
 {
 	public HKEY hKey;
 	public PWSTR pwszStoreDirectory;
 }
 
-[CRepr]public struct CERT_LDAP_STORE_OPENED_PARA
+[CRepr]
+public struct CERT_LDAP_STORE_OPENED_PARA
 {
 	public void* pvLdapSessionHandle;
 	public PWSTR pwszLdapUrl;
 }
 
-[CRepr]public struct CERT_STORE_PROV_INFO
+[CRepr]
+public struct CERT_STORE_PROV_INFO
 {
 	public uint32 cbSize;
 	public uint32 cStoreProvFunc;
@@ -6379,7 +6664,8 @@ public function HRESULT CryptXmlDllCreateKey(CRYPT_XML_BLOB* pEncoded, BCRYPT_KE
 	public void* hStoreProvFuncAddr2;
 }
 
-[CRepr]public struct CERT_STORE_PROV_FIND_INFO
+[CRepr]
+public struct CERT_STORE_PROV_FIND_INFO
 {
 	public uint32 cbSize;
 	public uint32 dwMsgAndCertEncodingType;
@@ -6388,19 +6674,22 @@ public function HRESULT CryptXmlDllCreateKey(CRYPT_XML_BLOB* pEncoded, BCRYPT_KE
 	public void* pvFindPara;
 }
 
-[CRepr]public struct CRL_FIND_ISSUED_FOR_PARA
+[CRepr]
+public struct CRL_FIND_ISSUED_FOR_PARA
 {
 	public CERT_CONTEXT* pSubjectCert;
 	public CERT_CONTEXT* pIssuerCert;
 }
 
-[CRepr]public struct CTL_ANY_SUBJECT_INFO
+[CRepr]
+public struct CTL_ANY_SUBJECT_INFO
 {
 	public CRYPT_ALGORITHM_IDENTIFIER SubjectAlgorithm;
 	public CRYPTOAPI_BLOB SubjectIdentifier;
 }
 
-[CRepr]public struct CTL_FIND_USAGE_PARA
+[CRepr]
+public struct CTL_FIND_USAGE_PARA
 {
 	public uint32 cbSize;
 	public CTL_USAGE SubjectUsage;
@@ -6408,7 +6697,8 @@ public function HRESULT CryptXmlDllCreateKey(CRYPT_XML_BLOB* pEncoded, BCRYPT_KE
 	public CERT_INFO* pSigner;
 }
 
-[CRepr]public struct CTL_FIND_SUBJECT_PARA
+[CRepr]
+public struct CTL_FIND_SUBJECT_PARA
 {
 	public uint32 cbSize;
 	public CTL_FIND_USAGE_PARA* pUsagePara;
@@ -6416,7 +6706,8 @@ public function HRESULT CryptXmlDllCreateKey(CRYPT_XML_BLOB* pEncoded, BCRYPT_KE
 	public void* pvSubject;
 }
 
-[CRepr]public struct CERT_CREATE_CONTEXT_PARA
+[CRepr]
+public struct CERT_CREATE_CONTEXT_PARA
 {
 	public uint32 cbSize;
 	public PFN_CRYPT_FREE pfnFree;
@@ -6425,12 +6716,14 @@ public function HRESULT CryptXmlDllCreateKey(CRYPT_XML_BLOB* pEncoded, BCRYPT_KE
 	public void* pvSort;
 }
 
-[CRepr]public struct CERT_SYSTEM_STORE_INFO
+[CRepr]
+public struct CERT_SYSTEM_STORE_INFO
 {
 	public uint32 cbSize;
 }
 
-[CRepr]public struct CERT_PHYSICAL_STORE_INFO
+[CRepr]
+public struct CERT_PHYSICAL_STORE_INFO
 {
 	public uint32 cbSize;
 	public PSTR pszOpenStoreProvider;
@@ -6441,7 +6734,8 @@ public function HRESULT CryptXmlDllCreateKey(CRYPT_XML_BLOB* pEncoded, BCRYPT_KE
 	public uint32 dwPriority;
 }
 
-[CRepr]public struct CTL_VERIFY_USAGE_PARA
+[CRepr]
+public struct CTL_VERIFY_USAGE_PARA
 {
 	public uint32 cbSize;
 	public CRYPTOAPI_BLOB ListIdentifier;
@@ -6451,7 +6745,8 @@ public function HRESULT CryptXmlDllCreateKey(CRYPT_XML_BLOB* pEncoded, BCRYPT_KE
 	public void** rghSignerStore;
 }
 
-[CRepr]public struct CTL_VERIFY_USAGE_STATUS
+[CRepr]
+public struct CTL_VERIFY_USAGE_STATUS
 {
 	public uint32 cbSize;
 	public uint32 dwError;
@@ -6462,7 +6757,8 @@ public function HRESULT CryptXmlDllCreateKey(CRYPT_XML_BLOB* pEncoded, BCRYPT_KE
 	public uint32 dwSignerIndex;
 }
 
-[CRepr]public struct CERT_REVOCATION_CRL_INFO
+[CRepr]
+public struct CERT_REVOCATION_CRL_INFO
 {
 	public uint32 cbSize;
 	public CRL_CONTEXT* pBaseCrlContext;
@@ -6471,7 +6767,8 @@ public function HRESULT CryptXmlDllCreateKey(CRYPT_XML_BLOB* pEncoded, BCRYPT_KE
 	public BOOL fDeltaCrlEntry;
 }
 
-[CRepr]public struct CERT_REVOCATION_PARA
+[CRepr]
+public struct CERT_REVOCATION_PARA
 {
 	public uint32 cbSize;
 	public CERT_CONTEXT* pIssuerCert;
@@ -6481,7 +6778,8 @@ public function HRESULT CryptXmlDllCreateKey(CRYPT_XML_BLOB* pEncoded, BCRYPT_KE
 	public FILETIME* pftTimeToUse;
 }
 
-[CRepr]public struct CERT_REVOCATION_STATUS
+[CRepr]
+public struct CERT_REVOCATION_STATUS
 {
 	public uint32 cbSize;
 	public uint32 dwIndex;
@@ -6491,26 +6789,30 @@ public function HRESULT CryptXmlDllCreateKey(CRYPT_XML_BLOB* pEncoded, BCRYPT_KE
 	public uint32 dwFreshnessTime;
 }
 
-[CRepr]public struct CRYPT_VERIFY_CERT_SIGN_STRONG_PROPERTIES_INFO
+[CRepr]
+public struct CRYPT_VERIFY_CERT_SIGN_STRONG_PROPERTIES_INFO
 {
 	public CRYPTOAPI_BLOB CertSignHashCNGAlgPropData;
 	public CRYPTOAPI_BLOB CertIssuerPubKeyBitLengthPropData;
 }
 
-[CRepr]public struct CRYPT_VERIFY_CERT_SIGN_WEAK_HASH_INFO
+[CRepr]
+public struct CRYPT_VERIFY_CERT_SIGN_WEAK_HASH_INFO
 {
 	public uint32 cCNGHashAlgid;
 	public PWSTR* rgpwszCNGHashAlgid;
 	public uint32 dwWeakIndex;
 }
 
-[CRepr]public struct CRYPT_DEFAULT_CONTEXT_MULTI_OID_PARA
+[CRepr]
+public struct CRYPT_DEFAULT_CONTEXT_MULTI_OID_PARA
 {
 	public uint32 cOID;
 	public PSTR* rgpszOID;
 }
 
-[CRepr]public struct CRYPT_SIGN_MESSAGE_PARA
+[CRepr]
+public struct CRYPT_SIGN_MESSAGE_PARA
 {
 	public uint32 cbSize;
 	public uint32 dwMsgEncodingType;
@@ -6529,7 +6831,8 @@ public function HRESULT CryptXmlDllCreateKey(CRYPT_XML_BLOB* pEncoded, BCRYPT_KE
 	public uint32 dwInnerContentType;
 }
 
-[CRepr]public struct CRYPT_VERIFY_MESSAGE_PARA
+[CRepr]
+public struct CRYPT_VERIFY_MESSAGE_PARA
 {
 	public uint32 cbSize;
 	public uint32 dwMsgAndCertEncodingType;
@@ -6538,7 +6841,8 @@ public function HRESULT CryptXmlDllCreateKey(CRYPT_XML_BLOB* pEncoded, BCRYPT_KE
 	public void* pvGetArg;
 }
 
-[CRepr]public struct CRYPT_ENCRYPT_MESSAGE_PARA
+[CRepr]
+public struct CRYPT_ENCRYPT_MESSAGE_PARA
 {
 	public uint32 cbSize;
 	public uint32 dwMsgEncodingType;
@@ -6549,7 +6853,8 @@ public function HRESULT CryptXmlDllCreateKey(CRYPT_XML_BLOB* pEncoded, BCRYPT_KE
 	public uint32 dwInnerContentType;
 }
 
-[CRepr]public struct CRYPT_DECRYPT_MESSAGE_PARA
+[CRepr]
+public struct CRYPT_DECRYPT_MESSAGE_PARA
 {
 	public uint32 cbSize;
 	public uint32 dwMsgAndCertEncodingType;
@@ -6557,7 +6862,8 @@ public function HRESULT CryptXmlDllCreateKey(CRYPT_XML_BLOB* pEncoded, BCRYPT_KE
 	public void** rghCertStore;
 }
 
-[CRepr]public struct CRYPT_HASH_MESSAGE_PARA
+[CRepr]
+public struct CRYPT_HASH_MESSAGE_PARA
 {
 	public uint32 cbSize;
 	public uint32 dwMsgEncodingType;
@@ -6566,9 +6872,11 @@ public function HRESULT CryptXmlDllCreateKey(CRYPT_XML_BLOB* pEncoded, BCRYPT_KE
 	public void* pvHashAuxInfo;
 }
 
-[CRepr]public struct CRYPT_KEY_SIGN_MESSAGE_PARA
+[CRepr]
+public struct CRYPT_KEY_SIGN_MESSAGE_PARA
 {
-	[CRepr, Union]	public struct _Anonymous_e__Union
+	[CRepr, Union]
+	public struct _Anonymous_e__Union
 	{
 		public uint hCryptProv;
 		public uint hNCryptKey;
@@ -6583,48 +6891,55 @@ public function HRESULT CryptXmlDllCreateKey(CRYPT_XML_BLOB* pEncoded, BCRYPT_KE
 	public CRYPT_ALGORITHM_IDENTIFIER PubKeyAlgorithm;
 }
 
-[CRepr]public struct CRYPT_KEY_VERIFY_MESSAGE_PARA
+[CRepr]
+public struct CRYPT_KEY_VERIFY_MESSAGE_PARA
 {
 	public uint32 cbSize;
 	public uint32 dwMsgEncodingType;
 	public uint hCryptProv;
 }
 
-[CRepr]public struct CERT_CHAIN
+[CRepr]
+public struct CERT_CHAIN
 {
 	public uint32 cCerts;
 	public CRYPTOAPI_BLOB* certs;
 	public CRYPT_KEY_PROV_INFO keyLocatorInfo;
 }
 
-[CRepr]public struct CRYPT_BLOB_ARRAY
+[CRepr]
+public struct CRYPT_BLOB_ARRAY
 {
 	public uint32 cBlob;
 	public CRYPTOAPI_BLOB* rgBlob;
 }
 
-[CRepr]public struct CRYPT_CREDENTIALS
+[CRepr]
+public struct CRYPT_CREDENTIALS
 {
 	public uint32 cbSize;
 	public PSTR pszCredentialsOid;
 	public void* pvCredentials;
 }
 
-[CRepr]public struct CRYPT_PASSWORD_CREDENTIALSA
+[CRepr]
+public struct CRYPT_PASSWORD_CREDENTIALSA
 {
 	public uint32 cbSize;
 	public PSTR pszUsername;
 	public PSTR pszPassword;
 }
 
-[CRepr]public struct CRYPT_PASSWORD_CREDENTIALSW
+[CRepr]
+public struct CRYPT_PASSWORD_CREDENTIALSW
 {
 	public uint32 cbSize;
 	public PWSTR pszUsername;
 	public PWSTR pszPassword;
 }
 
-[CRepr]public struct CRYPTNET_URL_CACHE_PRE_FETCH_INFO
+[CRepr]
+public struct CRYPTNET_URL_CACHE_PRE_FETCH_INFO
 {
 	public uint32 cbSize;
 	public uint32 dwObjectType;
@@ -6635,14 +6950,16 @@ public function HRESULT CryptXmlDllCreateKey(CRYPT_XML_BLOB* pEncoded, BCRYPT_KE
 	public FILETIME PublishTime;
 }
 
-[CRepr]public struct CRYPTNET_URL_CACHE_FLUSH_INFO
+[CRepr]
+public struct CRYPTNET_URL_CACHE_FLUSH_INFO
 {
 	public uint32 cbSize;
 	public uint32 dwExemptSeconds;
 	public FILETIME ExpireTime;
 }
 
-[CRepr]public struct CRYPTNET_URL_CACHE_RESPONSE_INFO
+[CRepr]
+public struct CRYPTNET_URL_CACHE_RESPONSE_INFO
 {
 	public uint32 cbSize;
 	public uint16 wResponseType;
@@ -6653,7 +6970,8 @@ public function HRESULT CryptXmlDllCreateKey(CRYPT_XML_BLOB* pEncoded, BCRYPT_KE
 	public uint32 dwProxyId;
 }
 
-[CRepr]public struct CRYPT_RETRIEVE_AUX_INFO
+[CRepr]
+public struct CRYPT_RETRIEVE_AUX_INFO
 {
 	public uint32 cbSize;
 	public FILETIME* pLastSyncTime;
@@ -6669,19 +6987,22 @@ public function HRESULT CryptXmlDllCreateKey(CRYPT_XML_BLOB* pEncoded, BCRYPT_KE
 	public CRYPTOAPI_BLOB** ppErrorContentBlob;
 }
 
-[CRepr]public struct CRYPT_ASYNC_RETRIEVAL_COMPLETION
+[CRepr]
+public struct CRYPT_ASYNC_RETRIEVAL_COMPLETION
 {
 	public PFN_CRYPT_ASYNC_RETRIEVAL_COMPLETION_FUNC pfnCompletion;
 	public void* pvCompletion;
 }
 
-[CRepr]public struct CRYPT_URL_ARRAY
+[CRepr]
+public struct CRYPT_URL_ARRAY
 {
 	public uint32 cUrl;
 	public PWSTR* rgwszUrl;
 }
 
-[CRepr]public struct CRYPT_URL_INFO
+[CRepr]
+public struct CRYPT_URL_INFO
 {
 	public uint32 cbSize;
 	public uint32 dwSyncDeltaTime;
@@ -6689,13 +7010,15 @@ public function HRESULT CryptXmlDllCreateKey(CRYPT_XML_BLOB* pEncoded, BCRYPT_KE
 	public uint32* rgcGroupEntry;
 }
 
-[CRepr]public struct CERT_CRL_CONTEXT_PAIR
+[CRepr]
+public struct CERT_CRL_CONTEXT_PAIR
 {
 	public CERT_CONTEXT* pCertContext;
 	public CRL_CONTEXT* pCrlContext;
 }
 
-[CRepr]public struct CRYPT_GET_TIME_VALID_OBJECT_EXTRA_INFO
+[CRepr]
+public struct CRYPT_GET_TIME_VALID_OBJECT_EXTRA_INFO
 {
 	public uint32 cbSize;
 	public int32 iDeltaCrlIndicator;
@@ -6706,7 +7029,8 @@ public function HRESULT CryptXmlDllCreateKey(CRYPT_XML_BLOB* pEncoded, BCRYPT_KE
 	public CRYPTOAPI_BLOB* pDeltaCrlIndicator;
 }
 
-[CRepr]public struct CERT_CHAIN_ENGINE_CONFIG
+[CRepr]
+public struct CERT_CHAIN_ENGINE_CONFIG
 {
 	public uint32 cbSize;
 	public void* hRestrictedRoot;
@@ -6723,13 +7047,15 @@ public function HRESULT CryptXmlDllCreateKey(CRYPT_XML_BLOB* pEncoded, BCRYPT_KE
 	public uint32 dwExclusiveFlags;
 }
 
-[CRepr]public struct CERT_TRUST_STATUS
+[CRepr]
+public struct CERT_TRUST_STATUS
 {
 	public uint32 dwErrorStatus;
 	public uint32 dwInfoStatus;
 }
 
-[CRepr]public struct CERT_REVOCATION_INFO
+[CRepr]
+public struct CERT_REVOCATION_INFO
 {
 	public uint32 cbSize;
 	public uint32 dwRevocationResult;
@@ -6740,14 +7066,16 @@ public function HRESULT CryptXmlDllCreateKey(CRYPT_XML_BLOB* pEncoded, BCRYPT_KE
 	public CERT_REVOCATION_CRL_INFO* pCrlInfo;
 }
 
-[CRepr]public struct CERT_TRUST_LIST_INFO
+[CRepr]
+public struct CERT_TRUST_LIST_INFO
 {
 	public uint32 cbSize;
 	public CTL_ENTRY* pCtlEntry;
 	public CTL_CONTEXT* pCtlContext;
 }
 
-[CRepr]public struct CERT_CHAIN_ELEMENT
+[CRepr]
+public struct CERT_CHAIN_ELEMENT
 {
 	public uint32 cbSize;
 	public CERT_CONTEXT* pCertContext;
@@ -6758,7 +7086,8 @@ public function HRESULT CryptXmlDllCreateKey(CRYPT_XML_BLOB* pEncoded, BCRYPT_KE
 	public PWSTR pwszExtendedErrorInfo;
 }
 
-[CRepr]public struct CERT_SIMPLE_CHAIN
+[CRepr]
+public struct CERT_SIMPLE_CHAIN
 {
 	public uint32 cbSize;
 	public CERT_TRUST_STATUS TrustStatus;
@@ -6769,7 +7098,8 @@ public function HRESULT CryptXmlDllCreateKey(CRYPT_XML_BLOB* pEncoded, BCRYPT_KE
 	public uint32 dwRevocationFreshnessTime;
 }
 
-[CRepr]public struct CERT_CHAIN_CONTEXT
+[CRepr]
+public struct CERT_CHAIN_CONTEXT
 {
 	public uint32 cbSize;
 	public CERT_TRUST_STATUS TrustStatus;
@@ -6783,25 +7113,29 @@ public function HRESULT CryptXmlDllCreateKey(CRYPT_XML_BLOB* pEncoded, BCRYPT_KE
 	public Guid ChainId;
 }
 
-[CRepr]public struct CERT_USAGE_MATCH
+[CRepr]
+public struct CERT_USAGE_MATCH
 {
 	public uint32 dwType;
 	public CTL_USAGE Usage;
 }
 
-[CRepr]public struct CTL_USAGE_MATCH
+[CRepr]
+public struct CTL_USAGE_MATCH
 {
 	public uint32 dwType;
 	public CTL_USAGE Usage;
 }
 
-[CRepr]public struct CERT_CHAIN_PARA
+[CRepr]
+public struct CERT_CHAIN_PARA
 {
 	public uint32 cbSize;
 	public CERT_USAGE_MATCH RequestedUsage;
 }
 
-[CRepr]public struct CERT_REVOCATION_CHAIN_PARA
+[CRepr]
+public struct CERT_REVOCATION_CHAIN_PARA
 {
 	public uint32 cbSize;
 	public HCERTCHAINENGINE hChainEngine;
@@ -6813,14 +7147,16 @@ public function HRESULT CryptXmlDllCreateKey(CRYPT_XML_BLOB* pEncoded, BCRYPT_KE
 	public uint32 cbMaxUrlRetrievalByteCount;
 }
 
-[CRepr]public struct CRL_REVOCATION_INFO
+[CRepr]
+public struct CRL_REVOCATION_INFO
 {
 	public CRL_ENTRY* pCrlEntry;
 	public CRL_CONTEXT* pCrlContext;
 	public CERT_CHAIN_CONTEXT* pCrlIssuerChain;
 }
 
-[CRepr]public struct CERT_CHAIN_FIND_BY_ISSUER_PARA
+[CRepr]
+public struct CERT_CHAIN_FIND_BY_ISSUER_PARA
 {
 	public uint32 cbSize;
 	public PSTR pszUsageIdentifier;
@@ -6832,14 +7168,16 @@ public function HRESULT CryptXmlDllCreateKey(CRYPT_XML_BLOB* pEncoded, BCRYPT_KE
 	public void* pvFindArg;
 }
 
-[CRepr]public struct CERT_CHAIN_POLICY_PARA
+[CRepr]
+public struct CERT_CHAIN_POLICY_PARA
 {
 	public uint32 cbSize;
 	public CERT_CHAIN_POLICY_FLAGS dwFlags;
 	public void* pvExtraPolicyPara;
 }
 
-[CRepr]public struct CERT_CHAIN_POLICY_STATUS
+[CRepr]
+public struct CERT_CHAIN_POLICY_STATUS
 {
 	public uint32 cbSize;
 	public uint32 dwError;
@@ -6848,29 +7186,34 @@ public function HRESULT CryptXmlDllCreateKey(CRYPT_XML_BLOB* pEncoded, BCRYPT_KE
 	public void* pvExtraPolicyStatus;
 }
 
-[CRepr]public struct AUTHENTICODE_EXTRA_CERT_CHAIN_POLICY_PARA
+[CRepr]
+public struct AUTHENTICODE_EXTRA_CERT_CHAIN_POLICY_PARA
 {
 	public uint32 cbSize;
 	public uint32 dwRegPolicySettings;
 	public CMSG_SIGNER_INFO* pSignerInfo;
 }
 
-[CRepr]public struct AUTHENTICODE_EXTRA_CERT_CHAIN_POLICY_STATUS
+[CRepr]
+public struct AUTHENTICODE_EXTRA_CERT_CHAIN_POLICY_STATUS
 {
 	public uint32 cbSize;
 	public BOOL fCommercial;
 }
 
-[CRepr]public struct AUTHENTICODE_TS_EXTRA_CERT_CHAIN_POLICY_PARA
+[CRepr]
+public struct AUTHENTICODE_TS_EXTRA_CERT_CHAIN_POLICY_PARA
 {
 	public uint32 cbSize;
 	public uint32 dwRegPolicySettings;
 	public BOOL fCommercial;
 }
 
-[CRepr]public struct HTTPSPolicyCallbackData
+[CRepr]
+public struct HTTPSPolicyCallbackData
 {
-	[CRepr, Union]	public struct _Anonymous_e__Union
+	[CRepr, Union]
+	public struct _Anonymous_e__Union
 	{
 		public uint32 cbStruct;
 		public uint32 cbSize;
@@ -6882,20 +7225,23 @@ public function HRESULT CryptXmlDllCreateKey(CRYPT_XML_BLOB* pEncoded, BCRYPT_KE
 	public PWSTR pwszServerName;
 }
 
-[CRepr]public struct EV_EXTRA_CERT_CHAIN_POLICY_PARA
+[CRepr]
+public struct EV_EXTRA_CERT_CHAIN_POLICY_PARA
 {
 	public uint32 cbSize;
 	public CERT_ROOT_PROGRAM_FLAGS dwRootProgramQualifierFlags;
 }
 
-[CRepr]public struct EV_EXTRA_CERT_CHAIN_POLICY_STATUS
+[CRepr]
+public struct EV_EXTRA_CERT_CHAIN_POLICY_STATUS
 {
 	public uint32 cbSize;
 	public uint32 dwQualifiers;
 	public uint32 dwIssuanceUsageIndex;
 }
 
-[CRepr]public struct SSL_F12_EXTRA_CERT_CHAIN_POLICY_STATUS
+[CRepr]
+public struct SSL_F12_EXTRA_CERT_CHAIN_POLICY_STATUS
 {
 	public uint32 cbSize;
 	public uint32 dwErrorLevel;
@@ -6904,7 +7250,8 @@ public function HRESULT CryptXmlDllCreateKey(CRYPT_XML_BLOB* pEncoded, BCRYPT_KE
 	public char8[256] wszErrorText;
 }
 
-[CRepr]public struct SSL_HPKP_HEADER_EXTRA_CERT_CHAIN_POLICY_PARA
+[CRepr]
+public struct SSL_HPKP_HEADER_EXTRA_CERT_CHAIN_POLICY_PARA
 {
 	public uint32 cbSize;
 	public uint32 dwReserved;
@@ -6912,41 +7259,47 @@ public function HRESULT CryptXmlDllCreateKey(CRYPT_XML_BLOB* pEncoded, BCRYPT_KE
 	public PSTR[2] rgpszHpkpValue;
 }
 
-[CRepr]public struct SSL_KEY_PIN_EXTRA_CERT_CHAIN_POLICY_PARA
+[CRepr]
+public struct SSL_KEY_PIN_EXTRA_CERT_CHAIN_POLICY_PARA
 {
 	public uint32 cbSize;
 	public uint32 dwReserved;
 	public PWSTR pwszServerName;
 }
 
-[CRepr]public struct SSL_KEY_PIN_EXTRA_CERT_CHAIN_POLICY_STATUS
+[CRepr]
+public struct SSL_KEY_PIN_EXTRA_CERT_CHAIN_POLICY_STATUS
 {
 	public uint32 cbSize;
 	public int32 lError;
 	public char8[512] wszErrorText;
 }
 
-[CRepr]public struct CRYPT_PKCS12_PBE_PARAMS
+[CRepr]
+public struct CRYPT_PKCS12_PBE_PARAMS
 {
 	public int32 iIterations;
 	public uint32 cbSalt;
 }
 
-[CRepr]public struct PKCS12_PBES2_EXPORT_PARAMS
+[CRepr]
+public struct PKCS12_PBES2_EXPORT_PARAMS
 {
 	public uint32 dwSize;
 	public void* hNcryptDescriptor;
 	public PWSTR pwszPbes2Alg;
 }
 
-[CRepr]public struct CERT_SERVER_OCSP_RESPONSE_CONTEXT
+[CRepr]
+public struct CERT_SERVER_OCSP_RESPONSE_CONTEXT
 {
 	public uint32 cbSize;
 	public uint8* pbEncodedOcspResponse;
 	public uint32 cbEncodedOcspResponse;
 }
 
-[CRepr]public struct CERT_SERVER_OCSP_RESPONSE_OPEN_PARA
+[CRepr]
+public struct CERT_SERVER_OCSP_RESPONSE_OPEN_PARA
 {
 	public uint32 cbSize;
 	public uint32 dwFlags;
@@ -6956,7 +7309,8 @@ public function HRESULT CryptXmlDllCreateKey(CRYPT_XML_BLOB* pEncoded, BCRYPT_KE
 	public void* pvUpdateCallbackArg;
 }
 
-[CRepr]public struct CERT_SELECT_CHAIN_PARA
+[CRepr]
+public struct CERT_SELECT_CHAIN_PARA
 {
 	public HCERTCHAINENGINE hChainEngine;
 	public FILETIME* pTime;
@@ -6965,14 +7319,16 @@ public function HRESULT CryptXmlDllCreateKey(CRYPT_XML_BLOB* pEncoded, BCRYPT_KE
 	public uint32 dwFlags;
 }
 
-[CRepr]public struct CERT_SELECT_CRITERIA
+[CRepr]
+public struct CERT_SELECT_CRITERIA
 {
 	public CERT_SELECT_CRITERIA_TYPE dwType;
 	public uint32 cPara;
 	public void** ppPara;
 }
 
-[CRepr]public struct CRYPT_TIMESTAMP_REQUEST
+[CRepr]
+public struct CRYPT_TIMESTAMP_REQUEST
 {
 	public CRYPT_TIMESTAMP_VERSION dwVersion;
 	public CRYPT_ALGORITHM_IDENTIFIER HashAlgorithm;
@@ -6984,7 +7340,8 @@ public function HRESULT CryptXmlDllCreateKey(CRYPT_XML_BLOB* pEncoded, BCRYPT_KE
 	public CERT_EXTENSION* rgExtension;
 }
 
-[CRepr]public struct CRYPT_TIMESTAMP_RESPONSE
+[CRepr]
+public struct CRYPT_TIMESTAMP_RESPONSE
 {
 	public CRYPT_TIMESTAMP_RESPONSE_STATUS dwStatus;
 	public uint32 cFreeText;
@@ -6993,14 +7350,16 @@ public function HRESULT CryptXmlDllCreateKey(CRYPT_XML_BLOB* pEncoded, BCRYPT_KE
 	public CRYPTOAPI_BLOB ContentInfo;
 }
 
-[CRepr]public struct CRYPT_TIMESTAMP_ACCURACY
+[CRepr]
+public struct CRYPT_TIMESTAMP_ACCURACY
 {
 	public uint32 dwSeconds;
 	public uint32 dwMillis;
 	public uint32 dwMicros;
 }
 
-[CRepr]public struct CRYPT_TIMESTAMP_INFO
+[CRepr]
+public struct CRYPT_TIMESTAMP_INFO
 {
 	public uint32 dwVersion;
 	public PSTR pszTSAPolicyId;
@@ -7016,14 +7375,16 @@ public function HRESULT CryptXmlDllCreateKey(CRYPT_XML_BLOB* pEncoded, BCRYPT_KE
 	public CERT_EXTENSION* rgExtension;
 }
 
-[CRepr]public struct CRYPT_TIMESTAMP_CONTEXT
+[CRepr]
+public struct CRYPT_TIMESTAMP_CONTEXT
 {
 	public uint32 cbEncoded;
 	public uint8* pbEncoded;
 	public CRYPT_TIMESTAMP_INFO* pTimeStamp;
 }
 
-[CRepr]public struct CRYPT_TIMESTAMP_PARA
+[CRepr]
+public struct CRYPT_TIMESTAMP_PARA
 {
 	public PSTR pszTSAPolicyId;
 	public BOOL fRequestCerts;
@@ -7032,7 +7393,8 @@ public function HRESULT CryptXmlDllCreateKey(CRYPT_XML_BLOB* pEncoded, BCRYPT_KE
 	public CERT_EXTENSION* rgExtension;
 }
 
-[CRepr]public struct CRYPT_OBJECT_LOCATOR_PROVIDER_TABLE
+[CRepr]
+public struct CRYPT_OBJECT_LOCATOR_PROVIDER_TABLE
 {
 	public uint32 cbSize;
 	public PFN_CRYPT_OBJECT_LOCATOR_PROVIDER_GET pfnGet;
@@ -7042,7 +7404,8 @@ public function HRESULT CryptXmlDllCreateKey(CRYPT_XML_BLOB* pEncoded, BCRYPT_KE
 	public PFN_CRYPT_OBJECT_LOCATOR_PROVIDER_FREE_IDENTIFIER pfnFreeIdentifier;
 }
 
-[CRepr]public struct CRYPTPROTECT_PROMPTSTRUCT
+[CRepr]
+public struct CRYPTPROTECT_PROMPTSTRUCT
 {
 	public uint32 cbSize;
 	public uint32 dwPromptFlags;
@@ -7050,39 +7413,45 @@ public function HRESULT CryptXmlDllCreateKey(CRYPT_XML_BLOB* pEncoded, BCRYPT_KE
 	public PWSTR szPrompt;
 }
 
-[CRepr]public struct NCRYPT_PROTECT_STREAM_INFO
+[CRepr]
+public struct NCRYPT_PROTECT_STREAM_INFO
 {
 	public PFNCryptStreamOutputCallback pfnStreamOutput;
 	public void* pvCallbackCtxt;
 }
 
-[CRepr]public struct NCRYPT_PROTECT_STREAM_INFO_EX
+[CRepr]
+public struct NCRYPT_PROTECT_STREAM_INFO_EX
 {
 	public PFNCryptStreamOutputCallbackEx pfnStreamOutput;
 	public void* pvCallbackCtxt;
 }
 
-[CRepr]public struct CRYPT_XML_BLOB
+[CRepr]
+public struct CRYPT_XML_BLOB
 {
 	public CRYPT_XML_CHARSET dwCharset;
 	public uint32 cbData;
 	public uint8* pbData;
 }
 
-[CRepr]public struct CRYPT_XML_DATA_BLOB
+[CRepr]
+public struct CRYPT_XML_DATA_BLOB
 {
 	public uint32 cbData;
 	public uint8* pbData;
 }
 
-[CRepr]public struct CRYPT_XML_PROPERTY
+[CRepr]
+public struct CRYPT_XML_PROPERTY
 {
 	public CRYPT_XML_PROPERTY_ID dwPropId;
 	public void* pvValue;
 	public uint32 cbValue;
 }
 
-[CRepr]public struct CRYPT_XML_DATA_PROVIDER
+[CRepr]
+public struct CRYPT_XML_DATA_PROVIDER
 {
 	public void* pvCallbackState;
 	public uint32 cbBufferSize;
@@ -7090,21 +7459,24 @@ public function HRESULT CryptXmlDllCreateKey(CRYPT_XML_BLOB* pEncoded, BCRYPT_KE
 	public PFN_CRYPT_XML_DATA_PROVIDER_CLOSE pfnClose;
 }
 
-[CRepr]public struct CRYPT_XML_STATUS
+[CRepr]
+public struct CRYPT_XML_STATUS
 {
 	public uint32 cbSize;
 	public CRYPT_XML_STATUS_ERROR_STATUS dwErrorStatus;
 	public CRYPT_XML_STATUS_INFO_STATUS dwInfoStatus;
 }
 
-[CRepr]public struct CRYPT_XML_ALGORITHM
+[CRepr]
+public struct CRYPT_XML_ALGORITHM
 {
 	public uint32 cbSize;
 	public PWSTR wszAlgorithm;
 	public CRYPT_XML_BLOB Encoded;
 }
 
-[CRepr]public struct CRYPT_XML_TRANSFORM_INFO
+[CRepr]
+public struct CRYPT_XML_TRANSFORM_INFO
 {
 	public uint32 cbSize;
 	public PWSTR wszAlgorithm;
@@ -7113,14 +7485,16 @@ public function HRESULT CryptXmlDllCreateKey(CRYPT_XML_BLOB* pEncoded, BCRYPT_KE
 	public PFN_CRYPT_XML_CREATE_TRANSFORM pfnCreateTransform;
 }
 
-[CRepr]public struct CRYPT_XML_TRANSFORM_CHAIN_CONFIG
+[CRepr]
+public struct CRYPT_XML_TRANSFORM_CHAIN_CONFIG
 {
 	public uint32 cbSize;
 	public uint32 cTransformInfo;
 	public CRYPT_XML_TRANSFORM_INFO** rgpTransformInfo;
 }
 
-[CRepr]public struct CRYPT_XML_KEY_DSA_KEY_VALUE
+[CRepr]
+public struct CRYPT_XML_KEY_DSA_KEY_VALUE
 {
 	public CRYPT_XML_DATA_BLOB P;
 	public CRYPT_XML_DATA_BLOB Q;
@@ -7131,7 +7505,8 @@ public function HRESULT CryptXmlDllCreateKey(CRYPT_XML_BLOB* pEncoded, BCRYPT_KE
 	public CRYPT_XML_DATA_BLOB Counter;
 }
 
-[CRepr]public struct CRYPT_XML_KEY_ECDSA_KEY_VALUE
+[CRepr]
+public struct CRYPT_XML_KEY_ECDSA_KEY_VALUE
 {
 	public PWSTR wszNamedCurve;
 	public CRYPT_XML_DATA_BLOB X;
@@ -7139,15 +7514,18 @@ public function HRESULT CryptXmlDllCreateKey(CRYPT_XML_BLOB* pEncoded, BCRYPT_KE
 	public CRYPT_XML_BLOB ExplicitPara;
 }
 
-[CRepr]public struct CRYPT_XML_KEY_RSA_KEY_VALUE
+[CRepr]
+public struct CRYPT_XML_KEY_RSA_KEY_VALUE
 {
 	public CRYPT_XML_DATA_BLOB Modulus;
 	public CRYPT_XML_DATA_BLOB Exponent;
 }
 
-[CRepr]public struct CRYPT_XML_KEY_VALUE
+[CRepr]
+public struct CRYPT_XML_KEY_VALUE
 {
-	[CRepr, Union]	public struct _Anonymous_e__Union
+	[CRepr, Union]
+	public struct _Anonymous_e__Union
 	{
 		public CRYPT_XML_KEY_DSA_KEY_VALUE DSAKeyValue;
 		public CRYPT_XML_KEY_RSA_KEY_VALUE RSAKeyValue;
@@ -7159,15 +7537,18 @@ public function HRESULT CryptXmlDllCreateKey(CRYPT_XML_BLOB* pEncoded, BCRYPT_KE
 	public using _Anonymous_e__Union Anonymous;
 }
 
-[CRepr]public struct CRYPT_XML_ISSUER_SERIAL
+[CRepr]
+public struct CRYPT_XML_ISSUER_SERIAL
 {
 	public PWSTR wszIssuer;
 	public PWSTR wszSerial;
 }
 
-[CRepr]public struct CRYPT_XML_X509DATA_ITEM
+[CRepr]
+public struct CRYPT_XML_X509DATA_ITEM
 {
-	[CRepr, Union]	public struct _Anonymous_e__Union
+	[CRepr, Union]
+	public struct _Anonymous_e__Union
 	{
 		public CRYPT_XML_ISSUER_SERIAL IssuerSerial;
 		public CRYPT_XML_DATA_BLOB SKI;
@@ -7181,15 +7562,18 @@ public function HRESULT CryptXmlDllCreateKey(CRYPT_XML_BLOB* pEncoded, BCRYPT_KE
 	public using _Anonymous_e__Union Anonymous;
 }
 
-[CRepr]public struct CRYPT_XML_X509DATA
+[CRepr]
+public struct CRYPT_XML_X509DATA
 {
 	public uint32 cX509Data;
 	public CRYPT_XML_X509DATA_ITEM* rgX509Data;
 }
 
-[CRepr]public struct CRYPT_XML_KEY_INFO_ITEM
+[CRepr]
+public struct CRYPT_XML_KEY_INFO_ITEM
 {
-	[CRepr, Union]	public struct _Anonymous_e__Union
+	[CRepr, Union]
+	public struct _Anonymous_e__Union
 	{
 		public PWSTR wszKeyName;
 		public CRYPT_XML_KEY_VALUE KeyValue;
@@ -7202,7 +7586,8 @@ public function HRESULT CryptXmlDllCreateKey(CRYPT_XML_BLOB* pEncoded, BCRYPT_KE
 	public using _Anonymous_e__Union Anonymous;
 }
 
-[CRepr]public struct CRYPT_XML_KEY_INFO
+[CRepr]
+public struct CRYPT_XML_KEY_INFO
 {
 	public uint32 cbSize;
 	public PWSTR wszId;
@@ -7211,7 +7596,8 @@ public function HRESULT CryptXmlDllCreateKey(CRYPT_XML_BLOB* pEncoded, BCRYPT_KE
 	public BCRYPT_KEY_HANDLE hVerifyKey;
 }
 
-[CRepr]public struct CRYPT_XML_REFERENCE
+[CRepr]
+public struct CRYPT_XML_REFERENCE
 {
 	public uint32 cbSize;
 	public void* hReference;
@@ -7224,13 +7610,15 @@ public function HRESULT CryptXmlDllCreateKey(CRYPT_XML_BLOB* pEncoded, BCRYPT_KE
 	public CRYPT_XML_ALGORITHM* rgTransform;
 }
 
-[CRepr]public struct CRYPT_XML_REFERENCES
+[CRepr]
+public struct CRYPT_XML_REFERENCES
 {
 	public uint32 cReference;
 	public CRYPT_XML_REFERENCE** rgpReference;
 }
 
-[CRepr]public struct CRYPT_XML_SIGNED_INFO
+[CRepr]
+public struct CRYPT_XML_SIGNED_INFO
 {
 	public uint32 cbSize;
 	public PWSTR wszId;
@@ -7241,7 +7629,8 @@ public function HRESULT CryptXmlDllCreateKey(CRYPT_XML_BLOB* pEncoded, BCRYPT_KE
 	public CRYPT_XML_BLOB Encoded;
 }
 
-[CRepr]public struct CRYPT_XML_OBJECT
+[CRepr]
+public struct CRYPT_XML_OBJECT
 {
 	public uint32 cbSize;
 	public void* hObject;
@@ -7252,7 +7641,8 @@ public function HRESULT CryptXmlDllCreateKey(CRYPT_XML_BLOB* pEncoded, BCRYPT_KE
 	public CRYPT_XML_BLOB Encoded;
 }
 
-[CRepr]public struct CRYPT_XML_SIGNATURE
+[CRepr]
+public struct CRYPT_XML_SIGNATURE
 {
 	public uint32 cbSize;
 	public void* hSignature;
@@ -7264,7 +7654,8 @@ public function HRESULT CryptXmlDllCreateKey(CRYPT_XML_BLOB* pEncoded, BCRYPT_KE
 	public CRYPT_XML_OBJECT** rgpObject;
 }
 
-[CRepr]public struct CRYPT_XML_DOC_CTXT
+[CRepr]
+public struct CRYPT_XML_DOC_CTXT
 {
 	public uint32 cbSize;
 	public void* hDocCtxt;
@@ -7273,7 +7664,8 @@ public function HRESULT CryptXmlDllCreateKey(CRYPT_XML_BLOB* pEncoded, BCRYPT_KE
 	public CRYPT_XML_SIGNATURE** rgpSignature;
 }
 
-[CRepr]public struct CRYPT_XML_KEYINFO_PARAM
+[CRepr]
+public struct CRYPT_XML_KEYINFO_PARAM
 {
 	public PWSTR wszId;
 	public PWSTR wszKeyName;
@@ -7285,7 +7677,8 @@ public function HRESULT CryptXmlDllCreateKey(CRYPT_XML_BLOB* pEncoded, BCRYPT_KE
 	public CRYPTOAPI_BLOB* rgCRL;
 }
 
-[CRepr]public struct CRYPT_XML_ALGORITHM_INFO
+[CRepr]
+public struct CRYPT_XML_ALGORITHM_INFO
 {
 	public uint32 cbSize;
 	public PWSTR wszAlgorithmURI;
@@ -7299,7 +7692,8 @@ public function HRESULT CryptXmlDllCreateKey(CRYPT_XML_BLOB* pEncoded, BCRYPT_KE
 	public void* pvExtraInfo;
 }
 
-[CRepr]public struct CRYPT_XML_CRYPTOGRAPHIC_INTERFACE
+[CRepr]
+public struct CRYPT_XML_CRYPTOGRAPHIC_INTERFACE
 {
 	public uint32 cbSize;
 	public CryptXmlDllEncodeAlgorithm fpCryptXmlEncodeAlgorithm;
@@ -7312,21 +7706,24 @@ public function HRESULT CryptXmlDllCreateKey(CRYPT_XML_BLOB* pEncoded, BCRYPT_KE
 	public CryptXmlDllGetAlgorithmInfo fpCryptXmlGetAlgorithmInfo;
 }
 
-[CRepr]public struct INFORMATIONCARD_ASYMMETRIC_CRYPTO_PARAMETERS
+[CRepr]
+public struct INFORMATIONCARD_ASYMMETRIC_CRYPTO_PARAMETERS
 {
 	public int32 keySize;
 	public PWSTR keyExchangeAlgorithm;
 	public PWSTR signatureAlgorithm;
 }
 
-[CRepr]public struct INFORMATIONCARD_SYMMETRIC_CRYPTO_PARAMETERS
+[CRepr]
+public struct INFORMATIONCARD_SYMMETRIC_CRYPTO_PARAMETERS
 {
 	public int32 keySize;
 	public int32 blockSize;
 	public int32 feedbackSize;
 }
 
-[CRepr]public struct INFORMATIONCARD_TRANSFORM_CRYPTO_PARAMETERS
+[CRepr]
+public struct INFORMATIONCARD_TRANSFORM_CRYPTO_PARAMETERS
 {
 	public int32 inputBlockSize;
 	public int32 outputBlockSize;
@@ -7334,20 +7731,23 @@ public function HRESULT CryptXmlDllCreateKey(CRYPT_XML_BLOB* pEncoded, BCRYPT_KE
 	public BOOL canReuseTransform;
 }
 
-[CRepr]public struct INFORMATIONCARD_HASH_CRYPTO_PARAMETERS
+[CRepr]
+public struct INFORMATIONCARD_HASH_CRYPTO_PARAMETERS
 {
 	public int32 hashSize;
 	public INFORMATIONCARD_TRANSFORM_CRYPTO_PARAMETERS transform;
 }
 
-[CRepr]public struct INFORMATIONCARD_CRYPTO_HANDLE
+[CRepr]
+public struct INFORMATIONCARD_CRYPTO_HANDLE
 {
 	public HandleType type;
 	public int64 expiration;
 	public void* cryptoParameters;
 }
 
-[CRepr, Packed(1)]public struct GENERIC_XML_TOKEN
+[CRepr, Packed(1)]
+public struct GENERIC_XML_TOKEN
 {
 	public FILETIME createDate;
 	public FILETIME expiryDate;
@@ -7356,7 +7756,8 @@ public function HRESULT CryptXmlDllCreateKey(CRYPT_XML_BLOB* pEncoded, BCRYPT_KE
 	public PWSTR externalTokenReference;
 }
 
-[CRepr]public struct POLICY_ELEMENT
+[CRepr]
+public struct POLICY_ELEMENT
 {
 	public PWSTR targetEndpointAddress;
 	public PWSTR issuerEndpointAddress;
@@ -7366,14 +7767,16 @@ public function HRESULT CryptXmlDllCreateKey(CRYPT_XML_BLOB* pEncoded, BCRYPT_KE
 	public BOOL useManagedPresentation;
 }
 
-[CRepr]public struct ENDPOINTADDRESS
+[CRepr]
+public struct ENDPOINTADDRESS
 {
 	public PWSTR serviceUrl;
 	public PWSTR policyUrl;
 	public CRYPTOAPI_BLOB rawCertificate;
 }
 
-[CRepr]public struct ENDPOINTADDRESS2
+[CRepr]
+public struct ENDPOINTADDRESS2
 {
 	public PWSTR serviceUrl;
 	public PWSTR policyUrl;
@@ -7381,19 +7784,22 @@ public function HRESULT CryptXmlDllCreateKey(CRYPT_XML_BLOB* pEncoded, BCRYPT_KE
 	public void* identityBytes;
 }
 
-[CRepr]public struct CERTIFICATE_CHAIN_BLOB
+[CRepr]
+public struct CERTIFICATE_CHAIN_BLOB
 {
 	public uint32 certCount;
 	public CRYPTOAPI_BLOB* rawCertificates;
 }
 
-[CRepr]public struct CLAIMLIST
+[CRepr]
+public struct CLAIMLIST
 {
 	public uint32 count;
 	public PWSTR* claims;
 }
 
-[CRepr]public struct RECIPIENTPOLICY
+[CRepr]
+public struct RECIPIENTPOLICY
 {
 	public ENDPOINTADDRESS recipient;
 	public ENDPOINTADDRESS issuer;
@@ -7404,7 +7810,8 @@ public function HRESULT CryptXmlDllCreateKey(CRYPT_XML_BLOB* pEncoded, BCRYPT_KE
 	public uint32 privacyVersion;
 }
 
-[CRepr]public struct RECIPIENTPOLICY2
+[CRepr]
+public struct RECIPIENTPOLICY2
 {
 	public ENDPOINTADDRESS2 recipient;
 	public ENDPOINTADDRESS2 issuer;

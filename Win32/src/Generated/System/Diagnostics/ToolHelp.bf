@@ -46,7 +46,8 @@ public enum HEAPENTRY32_FLAGS : uint32
 #endregion
 
 #region Structs
-[CRepr]public struct HEAPLIST32
+[CRepr]
+public struct HEAPLIST32
 {
 	public uint dwSize;
 	public uint32 th32ProcessID;
@@ -54,7 +55,8 @@ public enum HEAPENTRY32_FLAGS : uint32
 	public uint32 dwFlags;
 }
 
-[CRepr]public struct HEAPENTRY32
+[CRepr]
+public struct HEAPENTRY32
 {
 	public uint dwSize;
 	public HANDLE hHandle;
@@ -67,7 +69,8 @@ public enum HEAPENTRY32_FLAGS : uint32
 	public uint th32HeapID;
 }
 
-[CRepr]public struct PROCESSENTRY32W
+[CRepr]
+public struct PROCESSENTRY32W
 {
 	public uint32 dwSize;
 	public uint32 cntUsage;
@@ -81,7 +84,8 @@ public enum HEAPENTRY32_FLAGS : uint32
 	public char8[260] szExeFile;
 }
 
-[CRepr]public struct PROCESSENTRY32
+[CRepr]
+public struct PROCESSENTRY32
 {
 	public uint32 dwSize;
 	public uint32 cntUsage;
@@ -95,7 +99,8 @@ public enum HEAPENTRY32_FLAGS : uint32
 	public CHAR[260] szExeFile;
 }
 
-[CRepr]public struct THREADENTRY32
+[CRepr]
+public struct THREADENTRY32
 {
 	public uint32 dwSize;
 	public uint32 cntUsage;
@@ -106,7 +111,8 @@ public enum HEAPENTRY32_FLAGS : uint32
 	public uint32 dwFlags;
 }
 
-[CRepr]public struct MODULEENTRY32W
+[CRepr]
+public struct MODULEENTRY32W
 {
 	public uint32 dwSize;
 	public uint32 th32ModuleID;
@@ -120,7 +126,8 @@ public enum HEAPENTRY32_FLAGS : uint32
 	public char8[260] szExePath;
 }
 
-[CRepr]public struct MODULEENTRY32
+[CRepr]
+public struct MODULEENTRY32
 {
 	public uint32 dwSize;
 	public uint32 th32ModuleID;

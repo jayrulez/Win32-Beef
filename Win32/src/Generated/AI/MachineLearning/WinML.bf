@@ -151,7 +151,8 @@ public enum MLOperatorExecutionType : uint32
 #endregion
 
 #region Structs
-[CRepr]public struct WINML_TENSOR_BINDING_DESC
+[CRepr]
+public struct WINML_TENSOR_BINDING_DESC
 {
 	public WINML_TENSOR_DATA_TYPE DataType;
 	public uint32 NumDimensions;
@@ -160,9 +161,11 @@ public enum MLOperatorExecutionType : uint32
 	public void* pData;
 }
 
-[CRepr]public struct WINML_SEQUENCE_BINDING_DESC
+[CRepr]
+public struct WINML_SEQUENCE_BINDING_DESC
 {
-	[CRepr, Union]	public struct _Anonymous_e__Union
+	[CRepr, Union]
+	public struct _Anonymous_e__Union
 	{
 		public PWSTR* pStrings;
 		public int64* pInts;
@@ -175,9 +178,11 @@ public enum MLOperatorExecutionType : uint32
 	public using _Anonymous_e__Union Anonymous;
 }
 
-[CRepr]public struct WINML_MAP_BINDING_DESC
+[CRepr]
+public struct WINML_MAP_BINDING_DESC
 {
-	[CRepr, Union]	public struct _Anonymous2_e__Union
+	[CRepr, Union]
+	public struct _Anonymous2_e__Union
 	{
 		public PWSTR* pStringFields;
 		public int64* pIntFields;
@@ -185,7 +190,8 @@ public enum MLOperatorExecutionType : uint32
 		public double* pDoubleFields;
 	}
 
-	[CRepr, Union]	public struct _Anonymous1_e__Union
+	[CRepr, Union]
+	public struct _Anonymous1_e__Union
 	{
 		public PWSTR* pStringKeys;
 		public int64* pIntKeys;
@@ -198,7 +204,8 @@ public enum MLOperatorExecutionType : uint32
 	public _Anonymous2_e__Union Anonymous2;
 }
 
-[CRepr]public struct WINML_IMAGE_BINDING_DESC
+[CRepr]
+public struct WINML_IMAGE_BINDING_DESC
 {
 	public WINML_TENSOR_DATA_TYPE ElementType;
 	public uint32 NumDimensions;
@@ -207,7 +214,8 @@ public enum MLOperatorExecutionType : uint32
 	public void* pData;
 }
 
-[CRepr]public struct WINML_RESOURCE_BINDING_DESC
+[CRepr]
+public struct WINML_RESOURCE_BINDING_DESC
 {
 	public WINML_TENSOR_DATA_TYPE ElementType;
 	public uint32 NumDimensions;
@@ -215,9 +223,11 @@ public enum MLOperatorExecutionType : uint32
 	public ID3D12Resource* pResource;
 }
 
-[CRepr]public struct WINML_BINDING_DESC
+[CRepr]
+public struct WINML_BINDING_DESC
 {
-	[CRepr, Union]	public struct _Anonymous_e__Union
+	[CRepr, Union]
+	public struct _Anonymous_e__Union
 	{
 		public WINML_TENSOR_BINDING_DESC Tensor;
 		public WINML_SEQUENCE_BINDING_DESC Sequence;
@@ -231,34 +241,40 @@ public enum MLOperatorExecutionType : uint32
 	public using _Anonymous_e__Union Anonymous;
 }
 
-[CRepr]public struct WINML_TENSOR_VARIABLE_DESC
+[CRepr]
+public struct WINML_TENSOR_VARIABLE_DESC
 {
 	public WINML_TENSOR_DATA_TYPE ElementType;
 	public uint32 NumDimensions;
 	public int64* pShape;
 }
 
-[CRepr]public struct WINML_SEQUENCE_VARIABLE_DESC
+[CRepr]
+public struct WINML_SEQUENCE_VARIABLE_DESC
 {
 	public WINML_TENSOR_DATA_TYPE ElementType;
 }
 
-[CRepr]public struct WINML_MAP_VARIABLE_DESC
+[CRepr]
+public struct WINML_MAP_VARIABLE_DESC
 {
 	public WINML_TENSOR_DATA_TYPE KeyType;
 	public WINML_TENSOR_DATA_TYPE Fields;
 }
 
-[CRepr]public struct WINML_IMAGE_VARIABLE_DESC
+[CRepr]
+public struct WINML_IMAGE_VARIABLE_DESC
 {
 	public WINML_TENSOR_DATA_TYPE ElementType;
 	public uint32 NumDimensions;
 	public int64* pShape;
 }
 
-[CRepr]public struct WINML_VARIABLE_DESC
+[CRepr]
+public struct WINML_VARIABLE_DESC
 {
-	[CRepr, Union]	public struct _Anonymous_e__Union
+	[CRepr, Union]
+	public struct _Anonymous_e__Union
 	{
 		public WINML_TENSOR_VARIABLE_DESC Tensor;
 		public WINML_SEQUENCE_VARIABLE_DESC Sequence;
@@ -273,7 +289,8 @@ public enum MLOperatorExecutionType : uint32
 	public using _Anonymous_e__Union Anonymous;
 }
 
-[CRepr]public struct WINML_MODEL_DESC
+[CRepr]
+public struct WINML_MODEL_DESC
 {
 	public PWSTR Author;
 	public PWSTR Name;
@@ -282,9 +299,11 @@ public enum MLOperatorExecutionType : uint32
 	public uint Version;
 }
 
-[CRepr]public struct MLOperatorEdgeDescription
+[CRepr]
+public struct MLOperatorEdgeDescription
 {
-	[CRepr, Union]	public struct _Anonymous_e__Union
+	[CRepr, Union]
+	public struct _Anonymous_e__Union
 	{
 		public uint64 reserved;
 		public MLOperatorTensorDataType tensorDataType;
@@ -294,9 +313,11 @@ public enum MLOperatorExecutionType : uint32
 	public using _Anonymous_e__Union Anonymous;
 }
 
-[CRepr]public struct MLOperatorSchemaEdgeDescription
+[CRepr]
+public struct MLOperatorSchemaEdgeDescription
 {
-	[CRepr, Union]	public struct _Anonymous_e__Union
+	[CRepr, Union]
+	public struct _Anonymous_e__Union
 	{
 		public void* reserved;
 		public PSTR typeLabel;
@@ -308,23 +329,27 @@ public enum MLOperatorExecutionType : uint32
 	public using _Anonymous_e__Union Anonymous;
 }
 
-[CRepr]public struct MLOperatorEdgeTypeConstraint
+[CRepr]
+public struct MLOperatorEdgeTypeConstraint
 {
 	public PSTR typeLabel;
 	public MLOperatorEdgeDescription* allowedTypes;
 	public uint32 allowedTypeCount;
 }
 
-[CRepr]public struct MLOperatorAttribute
+[CRepr]
+public struct MLOperatorAttribute
 {
 	public PSTR name;
 	public MLOperatorAttributeType type;
 	public bool required;
 }
 
-[CRepr]public struct MLOperatorAttributeNameValue
+[CRepr]
+public struct MLOperatorAttributeNameValue
 {
-	[CRepr, Union]	public struct _Anonymous_e__Union
+	[CRepr, Union]
+	public struct _Anonymous_e__Union
 	{
 		public void* reserved;
 		public int64* ints;
@@ -338,7 +363,8 @@ public enum MLOperatorExecutionType : uint32
 	public using _Anonymous_e__Union Anonymous;
 }
 
-[CRepr]public struct MLOperatorSchemaDescription
+[CRepr]
+public struct MLOperatorSchemaDescription
 {
 	public PSTR name;
 	public int32 operatorSetVersionAtLastChange;
@@ -354,13 +380,15 @@ public enum MLOperatorExecutionType : uint32
 	public uint32 defaultAttributeCount;
 }
 
-[CRepr]public struct MLOperatorSetId
+[CRepr]
+public struct MLOperatorSetId
 {
 	public PSTR domain;
 	public int32 version;
 }
 
-[CRepr]public struct MLOperatorKernelDescription
+[CRepr]
+public struct MLOperatorKernelDescription
 {
 	public PSTR domain;
 	public PSTR name;

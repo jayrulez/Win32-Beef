@@ -32,25 +32,29 @@ public enum MF_MEDIASOURCE_STATUS_INFO : int32
 #endregion
 
 #region Structs
-[CRepr]public struct FaceRectInfoBlobHeader
+[CRepr]
+public struct FaceRectInfoBlobHeader
 {
 	public uint32 Size;
 	public uint32 Count;
 }
 
-[CRepr]public struct FaceRectInfo
+[CRepr]
+public struct FaceRectInfo
 {
 	public RECT Region;
 	public int32 confidenceLevel;
 }
 
-[CRepr]public struct FaceCharacterizationBlobHeader
+[CRepr]
+public struct FaceCharacterizationBlobHeader
 {
 	public uint32 Size;
 	public uint32 Count;
 }
 
-[CRepr]public struct FaceCharacterization
+[CRepr]
+public struct FaceCharacterization
 {
 	public uint32 BlinkScoreLeft;
 	public uint32 BlinkScoreRight;
@@ -58,46 +62,53 @@ public enum MF_MEDIASOURCE_STATUS_INFO : int32
 	public uint32 FacialExpressionScore;
 }
 
-[CRepr]public struct CapturedMetadataExposureCompensation
+[CRepr]
+public struct CapturedMetadataExposureCompensation
 {
 	public uint64 Flags;
 	public int32 Value;
 }
 
-[CRepr]public struct CapturedMetadataISOGains
+[CRepr]
+public struct CapturedMetadataISOGains
 {
 	public float AnalogGain;
 	public float DigitalGain;
 }
 
-[CRepr]public struct CapturedMetadataWhiteBalanceGains
+[CRepr]
+public struct CapturedMetadataWhiteBalanceGains
 {
 	public float R;
 	public float G;
 	public float B;
 }
 
-[CRepr]public struct MetadataTimeStamps
+[CRepr]
+public struct MetadataTimeStamps
 {
 	public uint32 Flags;
 	public int64 Device;
 	public int64 Presentation;
 }
 
-[CRepr]public struct HistogramGrid
+[CRepr]
+public struct HistogramGrid
 {
 	public uint32 Width;
 	public uint32 Height;
 	public RECT Region;
 }
 
-[CRepr]public struct HistogramBlobHeader
+[CRepr]
+public struct HistogramBlobHeader
 {
 	public uint32 Size;
 	public uint32 Histograms;
 }
 
-[CRepr]public struct HistogramHeader
+[CRepr]
+public struct HistogramHeader
 {
 	public uint32 Size;
 	public uint32 Bins;
@@ -106,7 +117,8 @@ public enum MF_MEDIASOURCE_STATUS_INFO : int32
 	public HistogramGrid Grid;
 }
 
-[CRepr]public struct HistogramDataHeader
+[CRepr]
+public struct HistogramDataHeader
 {
 	public uint32 Size;
 	public uint32 ChannelMask;

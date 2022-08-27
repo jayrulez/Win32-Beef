@@ -53,13 +53,15 @@ public function void HCN_NOTIFICATION_CALLBACK(uint32 NotificationType, void* Co
 #endregion
 
 #region Structs
-[CRepr]public struct HCN_PORT_RANGE_RESERVATION
+[CRepr]
+public struct HCN_PORT_RANGE_RESERVATION
 {
 	public uint16 startingPort;
 	public uint16 endingPort;
 }
 
-[CRepr]public struct HCN_PORT_RANGE_ENTRY
+[CRepr]
+public struct HCN_PORT_RANGE_ENTRY
 {
 	public Guid OwningPartitionId;
 	public Guid TargetPartitionId;

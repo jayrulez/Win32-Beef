@@ -19,7 +19,8 @@ public function HRESULT PFN_D3D11ON12_CREATE_DEVICE(IUnknown* param0, uint32 par
 #endregion
 
 #region Structs
-[CRepr]public struct D3D11_RESOURCE_FLAGS
+[CRepr]
+public struct D3D11_RESOURCE_FLAGS
 {
 	public uint32 BindFlags;
 	public uint32 MiscFlags;

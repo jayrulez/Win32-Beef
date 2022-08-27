@@ -788,14 +788,16 @@ public function void PMDNS_QUERY_CALLBACK(void* pQueryContext, MDNS_QUERY_HANDLE
 #endregion
 
 #region Structs
-[CRepr]public struct IP4_ARRAY
+[CRepr]
+public struct IP4_ARRAY
 {
 	public uint32 AddrCount;
 	public uint32[1] AddrArray;
 }
 
 #if BF_64_BIT || BF_ARM_64
-[CRepr, Union]public struct IP6_ADDRESS
+[CRepr, Union]
+public struct IP6_ADDRESS
 {
 	public uint64[2] IP6Qword;
 	public uint32[4] IP6Dword;
@@ -804,9 +806,11 @@ public function void PMDNS_QUERY_CALLBACK(void* pQueryContext, MDNS_QUERY_HANDLE
 }
 #endif
 
-[CRepr]public struct DNS_ADDR
+[CRepr]
+public struct DNS_ADDR
 {
-	[CRepr, Union, Packed(1)]	public struct _Data_e__Union
+	[CRepr, Union, Packed(1)]
+	public struct _Data_e__Union
 	{
 		public uint32[8] DnsAddrUserDword;
 	}
@@ -815,7 +819,8 @@ public function void PMDNS_QUERY_CALLBACK(void* pQueryContext, MDNS_QUERY_HANDLE
 	public _Data_e__Union Data;
 }
 
-[CRepr, Packed(1)]public struct DNS_ADDR_ARRAY
+[CRepr, Packed(1)]
+public struct DNS_ADDR_ARRAY
 {
 	public uint32 MaxCount;
 	public uint32 AddrCount;
@@ -829,7 +834,8 @@ public function void PMDNS_QUERY_CALLBACK(void* pQueryContext, MDNS_QUERY_HANDLE
 	public DNS_ADDR[1] AddrArray;
 }
 
-[CRepr, Packed(1)]public struct DNS_HEADER
+[CRepr, Packed(1)]
+public struct DNS_HEADER
 {
 	public uint16 Xid;
 	public uint8 _bitfield1;
@@ -840,20 +846,23 @@ public function void PMDNS_QUERY_CALLBACK(void* pQueryContext, MDNS_QUERY_HANDLE
 	public uint16 AdditionalCount;
 }
 
-[CRepr, Packed(1)]public struct DNS_HEADER_EXT
+[CRepr, Packed(1)]
+public struct DNS_HEADER_EXT
 {
 	public uint16 _bitfield;
 	public uint8 chRcode;
 	public uint8 chVersion;
 }
 
-[CRepr, Packed(1)]public struct DNS_WIRE_QUESTION
+[CRepr, Packed(1)]
+public struct DNS_WIRE_QUESTION
 {
 	public uint16 QuestionType;
 	public uint16 QuestionClass;
 }
 
-[CRepr, Packed(1)]public struct DNS_WIRE_RECORD
+[CRepr, Packed(1)]
+public struct DNS_WIRE_RECORD
 {
 	public uint16 RecordType;
 	public uint16 RecordClass;
@@ -861,22 +870,26 @@ public function void PMDNS_QUERY_CALLBACK(void* pQueryContext, MDNS_QUERY_HANDLE
 	public uint16 DataLength;
 }
 
-[CRepr]public struct DNS_A_DATA
+[CRepr]
+public struct DNS_A_DATA
 {
 	public uint32 IpAddress;
 }
 
-[CRepr]public struct DNS_PTR_DATAW
+[CRepr]
+public struct DNS_PTR_DATAW
 {
 	public PWSTR pNameHost;
 }
 
-[CRepr]public struct DNS_PTR_DATAA
+[CRepr]
+public struct DNS_PTR_DATAA
 {
 	public PSTR pNameHost;
 }
 
-[CRepr]public struct DNS_SOA_DATAW
+[CRepr]
+public struct DNS_SOA_DATAW
 {
 	public PWSTR pNamePrimaryServer;
 	public PWSTR pNameAdministrator;
@@ -887,7 +900,8 @@ public function void PMDNS_QUERY_CALLBACK(void* pQueryContext, MDNS_QUERY_HANDLE
 	public uint32 dwDefaultTtl;
 }
 
-[CRepr]public struct DNS_SOA_DATAA
+[CRepr]
+public struct DNS_SOA_DATAA
 {
 	public PSTR pNamePrimaryServer;
 	public PSTR pNameAdministrator;
@@ -898,63 +912,73 @@ public function void PMDNS_QUERY_CALLBACK(void* pQueryContext, MDNS_QUERY_HANDLE
 	public uint32 dwDefaultTtl;
 }
 
-[CRepr]public struct DNS_MINFO_DATAW
+[CRepr]
+public struct DNS_MINFO_DATAW
 {
 	public PWSTR pNameMailbox;
 	public PWSTR pNameErrorsMailbox;
 }
 
-[CRepr]public struct DNS_MINFO_DATAA
+[CRepr]
+public struct DNS_MINFO_DATAA
 {
 	public PSTR pNameMailbox;
 	public PSTR pNameErrorsMailbox;
 }
 
-[CRepr]public struct DNS_MX_DATAW
+[CRepr]
+public struct DNS_MX_DATAW
 {
 	public PWSTR pNameExchange;
 	public uint16 wPreference;
 	public uint16 Pad;
 }
 
-[CRepr]public struct DNS_MX_DATAA
+[CRepr]
+public struct DNS_MX_DATAA
 {
 	public PSTR pNameExchange;
 	public uint16 wPreference;
 	public uint16 Pad;
 }
 
-[CRepr]public struct DNS_TXT_DATAW
+[CRepr]
+public struct DNS_TXT_DATAW
 {
 	public uint32 dwStringCount;
 	public PWSTR[1] pStringArray;
 }
 
-[CRepr]public struct DNS_TXT_DATAA
+[CRepr]
+public struct DNS_TXT_DATAA
 {
 	public uint32 dwStringCount;
 	public PSTR[1] pStringArray;
 }
 
-[CRepr]public struct DNS_NULL_DATA
+[CRepr]
+public struct DNS_NULL_DATA
 {
 	public uint32 dwByteCount;
 	public uint8[1] Data;
 }
 
-[CRepr]public struct DNS_WKS_DATA
+[CRepr]
+public struct DNS_WKS_DATA
 {
 	public uint32 IpAddress;
 	public uint8 chProtocol;
 	public uint8[1] BitMask;
 }
 
-[CRepr]public struct DNS_AAAA_DATA
+[CRepr]
+public struct DNS_AAAA_DATA
 {
 	public IP6_ADDRESS Ip6Address;
 }
 
-[CRepr]public struct DNS_SIG_DATAW
+[CRepr]
+public struct DNS_SIG_DATAW
 {
 	public uint16 wTypeCovered;
 	public uint8 chAlgorithm;
@@ -968,7 +992,8 @@ public function void PMDNS_QUERY_CALLBACK(void* pQueryContext, MDNS_QUERY_HANDLE
 	public uint8[1] Signature;
 }
 
-[CRepr]public struct DNS_SIG_DATAA
+[CRepr]
+public struct DNS_SIG_DATAA
 {
 	public uint16 wTypeCovered;
 	public uint8 chAlgorithm;
@@ -982,7 +1007,8 @@ public function void PMDNS_QUERY_CALLBACK(void* pQueryContext, MDNS_QUERY_HANDLE
 	public uint8[1] Signature;
 }
 
-[CRepr]public struct DNS_KEY_DATA
+[CRepr]
+public struct DNS_KEY_DATA
 {
 	public uint16 wFlags;
 	public uint8 chProtocol;
@@ -992,13 +1018,15 @@ public function void PMDNS_QUERY_CALLBACK(void* pQueryContext, MDNS_QUERY_HANDLE
 	public uint8[1] Key;
 }
 
-[CRepr]public struct DNS_DHCID_DATA
+[CRepr]
+public struct DNS_DHCID_DATA
 {
 	public uint32 dwByteCount;
 	public uint8[1] DHCID;
 }
 
-[CRepr]public struct DNS_NSEC_DATAW
+[CRepr]
+public struct DNS_NSEC_DATAW
 {
 	public PWSTR pNextDomainName;
 	public uint16 wTypeBitMapsLength;
@@ -1006,7 +1034,8 @@ public function void PMDNS_QUERY_CALLBACK(void* pQueryContext, MDNS_QUERY_HANDLE
 	public uint8[1] TypeBitMaps;
 }
 
-[CRepr]public struct DNS_NSEC_DATAA
+[CRepr]
+public struct DNS_NSEC_DATAA
 {
 	public PSTR pNextDomainName;
 	public uint16 wTypeBitMapsLength;
@@ -1014,7 +1043,8 @@ public function void PMDNS_QUERY_CALLBACK(void* pQueryContext, MDNS_QUERY_HANDLE
 	public uint8[1] TypeBitMaps;
 }
 
-[CRepr]public struct DNS_NSEC3_DATA
+[CRepr]
+public struct DNS_NSEC3_DATA
 {
 	public uint8 chAlgorithm;
 	public uint8 bFlags;
@@ -1025,7 +1055,8 @@ public function void PMDNS_QUERY_CALLBACK(void* pQueryContext, MDNS_QUERY_HANDLE
 	public uint8[1] chData;
 }
 
-[CRepr]public struct DNS_NSEC3PARAM_DATA
+[CRepr]
+public struct DNS_NSEC3PARAM_DATA
 {
 	public uint8 chAlgorithm;
 	public uint8 bFlags;
@@ -1035,7 +1066,8 @@ public function void PMDNS_QUERY_CALLBACK(void* pQueryContext, MDNS_QUERY_HANDLE
 	public uint8[1] pbSalt;
 }
 
-[CRepr]public struct DNS_TLSA_DATA
+[CRepr]
+public struct DNS_TLSA_DATA
 {
 	public uint8 bCertUsage;
 	public uint8 bSelector;
@@ -1045,7 +1077,8 @@ public function void PMDNS_QUERY_CALLBACK(void* pQueryContext, MDNS_QUERY_HANDLE
 	public uint8[1] bCertificateAssociationData;
 }
 
-[CRepr]public struct DNS_DS_DATA
+[CRepr]
+public struct DNS_DS_DATA
 {
 	public uint16 wKeyTag;
 	public uint8 chAlgorithm;
@@ -1055,14 +1088,16 @@ public function void PMDNS_QUERY_CALLBACK(void* pQueryContext, MDNS_QUERY_HANDLE
 	public uint8[1] Digest;
 }
 
-[CRepr]public struct DNS_OPT_DATA
+[CRepr]
+public struct DNS_OPT_DATA
 {
 	public uint16 wDataLength;
 	public uint16 wPad;
 	public uint8[1] Data;
 }
 
-[CRepr]public struct DNS_LOC_DATA
+[CRepr]
+public struct DNS_LOC_DATA
 {
 	public uint16 wVersion;
 	public uint16 wSize;
@@ -1073,21 +1108,24 @@ public function void PMDNS_QUERY_CALLBACK(void* pQueryContext, MDNS_QUERY_HANDLE
 	public uint32 dwAltitude;
 }
 
-[CRepr]public struct DNS_NXT_DATAW
+[CRepr]
+public struct DNS_NXT_DATAW
 {
 	public PWSTR pNameNext;
 	public uint16 wNumTypes;
 	public uint16[1] wTypes;
 }
 
-[CRepr]public struct DNS_NXT_DATAA
+[CRepr]
+public struct DNS_NXT_DATAA
 {
 	public PSTR pNameNext;
 	public uint16 wNumTypes;
 	public uint16[1] wTypes;
 }
 
-[CRepr]public struct DNS_SRV_DATAW
+[CRepr]
+public struct DNS_SRV_DATAW
 {
 	public PWSTR pNameTarget;
 	public uint16 wPriority;
@@ -1096,7 +1134,8 @@ public function void PMDNS_QUERY_CALLBACK(void* pQueryContext, MDNS_QUERY_HANDLE
 	public uint16 Pad;
 }
 
-[CRepr]public struct DNS_SRV_DATAA
+[CRepr]
+public struct DNS_SRV_DATAA
 {
 	public PSTR pNameTarget;
 	public uint16 wPriority;
@@ -1105,7 +1144,8 @@ public function void PMDNS_QUERY_CALLBACK(void* pQueryContext, MDNS_QUERY_HANDLE
 	public uint16 Pad;
 }
 
-[CRepr]public struct DNS_NAPTR_DATAW
+[CRepr]
+public struct DNS_NAPTR_DATAW
 {
 	public uint16 wOrder;
 	public uint16 wPreference;
@@ -1115,7 +1155,8 @@ public function void PMDNS_QUERY_CALLBACK(void* pQueryContext, MDNS_QUERY_HANDLE
 	public PWSTR pReplacement;
 }
 
-[CRepr]public struct DNS_NAPTR_DATAA
+[CRepr]
+public struct DNS_NAPTR_DATAA
 {
 	public uint16 wOrder;
 	public uint16 wPreference;
@@ -1125,13 +1166,15 @@ public function void PMDNS_QUERY_CALLBACK(void* pQueryContext, MDNS_QUERY_HANDLE
 	public PSTR pReplacement;
 }
 
-[CRepr]public struct DNS_ATMA_DATA
+[CRepr]
+public struct DNS_ATMA_DATA
 {
 	public uint8 AddressType;
 	public uint8[20] Address;
 }
 
-[CRepr]public struct DNS_TKEY_DATAW
+[CRepr]
+public struct DNS_TKEY_DATAW
 {
 	public PWSTR pNameAlgorithm;
 	public uint8* pAlgorithmPacket;
@@ -1147,7 +1190,8 @@ public function void PMDNS_QUERY_CALLBACK(void* pQueryContext, MDNS_QUERY_HANDLE
 	public BOOL bPacketPointers;
 }
 
-[CRepr]public struct DNS_TKEY_DATAA
+[CRepr]
+public struct DNS_TKEY_DATAA
 {
 	public PSTR pNameAlgorithm;
 	public uint8* pAlgorithmPacket;
@@ -1163,7 +1207,8 @@ public function void PMDNS_QUERY_CALLBACK(void* pQueryContext, MDNS_QUERY_HANDLE
 	public BOOL bPacketPointers;
 }
 
-[CRepr]public struct DNS_TSIG_DATAW
+[CRepr]
+public struct DNS_TSIG_DATAW
 {
 	public PWSTR pNameAlgorithm;
 	public uint8* pAlgorithmPacket;
@@ -1179,7 +1224,8 @@ public function void PMDNS_QUERY_CALLBACK(void* pQueryContext, MDNS_QUERY_HANDLE
 	public BOOL bPacketPointers;
 }
 
-[CRepr]public struct DNS_TSIG_DATAA
+[CRepr]
+public struct DNS_TSIG_DATAA
 {
 	public PSTR pNameAlgorithm;
 	public uint8* pAlgorithmPacket;
@@ -1195,13 +1241,15 @@ public function void PMDNS_QUERY_CALLBACK(void* pQueryContext, MDNS_QUERY_HANDLE
 	public BOOL bPacketPointers;
 }
 
-[CRepr]public struct DNS_UNKNOWN_DATA
+[CRepr]
+public struct DNS_UNKNOWN_DATA
 {
 	public uint32 dwByteCount;
 	public uint8[1] bData;
 }
 
-[CRepr]public struct DNS_WINS_DATA
+[CRepr]
+public struct DNS_WINS_DATA
 {
 	public uint32 dwMappingFlag;
 	public uint32 dwLookupTimeout;
@@ -1210,7 +1258,8 @@ public function void PMDNS_QUERY_CALLBACK(void* pQueryContext, MDNS_QUERY_HANDLE
 	public uint32[1] WinsServers;
 }
 
-[CRepr]public struct DNS_WINSR_DATAW
+[CRepr]
+public struct DNS_WINSR_DATAW
 {
 	public uint32 dwMappingFlag;
 	public uint32 dwLookupTimeout;
@@ -1218,7 +1267,8 @@ public function void PMDNS_QUERY_CALLBACK(void* pQueryContext, MDNS_QUERY_HANDLE
 	public PWSTR pNameResultDomain;
 }
 
-[CRepr]public struct DNS_WINSR_DATAA
+[CRepr]
+public struct DNS_WINSR_DATAA
 {
 	public uint32 dwMappingFlag;
 	public uint32 dwLookupTimeout;
@@ -1226,20 +1276,24 @@ public function void PMDNS_QUERY_CALLBACK(void* pQueryContext, MDNS_QUERY_HANDLE
 	public PSTR pNameResultDomain;
 }
 
-[CRepr]public struct DNS_RECORD_FLAGS
+[CRepr]
+public struct DNS_RECORD_FLAGS
 {
 	public uint32 _bitfield;
 }
 
-[CRepr]public struct DNS_RECORDW
+[CRepr]
+public struct DNS_RECORDW
 {
-	[CRepr, Union]	public struct _Flags_e__Union
+	[CRepr, Union]
+	public struct _Flags_e__Union
 	{
 		public uint32 DW;
 		public DNS_RECORD_FLAGS S;
 	}
 
-	[CRepr, Union]	public struct _Data_e__Union
+	[CRepr, Union]
+	public struct _Data_e__Union
 	{
 		public DNS_A_DATA A;
 		public DNS_SOA_DATAW SOA;
@@ -1337,15 +1391,18 @@ public function void PMDNS_QUERY_CALLBACK(void* pQueryContext, MDNS_QUERY_HANDLE
 	public _Data_e__Union Data;
 }
 
-[CRepr]public struct _DnsRecordOptW
+[CRepr]
+public struct _DnsRecordOptW
 {
-	[CRepr, Union]	public struct _Flags_e__Union
+	[CRepr, Union]
+	public struct _Flags_e__Union
 	{
 		public uint32 DW;
 		public DNS_RECORD_FLAGS S;
 	}
 
-	[CRepr, Union]	public struct _Data_e__Union
+	[CRepr, Union]
+	public struct _Data_e__Union
 	{
 		public DNS_OPT_DATA OPT;
 		public DNS_OPT_DATA Opt;
@@ -1362,15 +1419,18 @@ public function void PMDNS_QUERY_CALLBACK(void* pQueryContext, MDNS_QUERY_HANDLE
 	public _Data_e__Union Data;
 }
 
-[CRepr]public struct DNS_RECORDA
+[CRepr]
+public struct DNS_RECORDA
 {
-	[CRepr, Union]	public struct _Flags_e__Union
+	[CRepr, Union]
+	public struct _Flags_e__Union
 	{
 		public uint32 DW;
 		public DNS_RECORD_FLAGS S;
 	}
 
-	[CRepr, Union]	public struct _Data_e__Union
+	[CRepr, Union]
+	public struct _Data_e__Union
 	{
 		public DNS_A_DATA A;
 		public DNS_SOA_DATAA SOA;
@@ -1468,15 +1528,18 @@ public function void PMDNS_QUERY_CALLBACK(void* pQueryContext, MDNS_QUERY_HANDLE
 	public _Data_e__Union Data;
 }
 
-[CRepr]public struct _DnsRecordOptA
+[CRepr]
+public struct _DnsRecordOptA
 {
-	[CRepr, Union]	public struct _Flags_e__Union
+	[CRepr, Union]
+	public struct _Flags_e__Union
 	{
 		public uint32 DW;
 		public DNS_RECORD_FLAGS S;
 	}
 
-	[CRepr, Union]	public struct _Data_e__Union
+	[CRepr, Union]
+	public struct _Data_e__Union
 	{
 		public DNS_OPT_DATA OPT;
 		public DNS_OPT_DATA Opt;
@@ -1493,20 +1556,23 @@ public function void PMDNS_QUERY_CALLBACK(void* pQueryContext, MDNS_QUERY_HANDLE
 	public _Data_e__Union Data;
 }
 
-[CRepr]public struct DNS_RRSET
+[CRepr]
+public struct DNS_RRSET
 {
 	public DNS_RECORDA* pFirstRR;
 	public DNS_RECORDA* pLastRR;
 }
 
-[CRepr]public struct DNS_PROXY_INFORMATION
+[CRepr]
+public struct DNS_PROXY_INFORMATION
 {
 	public uint32 version;
 	public DNS_PROXY_INFORMATION_TYPE proxyInformationType;
 	public PWSTR proxyName;
 }
 
-[CRepr]public struct DNS_QUERY_RESULT
+[CRepr]
+public struct DNS_QUERY_RESULT
 {
 	public uint32 Version;
 	public int32 QueryStatus;
@@ -1515,7 +1581,8 @@ public function void PMDNS_QUERY_CALLBACK(void* pQueryContext, MDNS_QUERY_HANDLE
 	public void* Reserved;
 }
 
-[CRepr]public struct DNS_QUERY_REQUEST
+[CRepr]
+public struct DNS_QUERY_REQUEST
 {
 	public uint32 Version;
 	public PWSTR QueryName;
@@ -1527,19 +1594,23 @@ public function void PMDNS_QUERY_CALLBACK(void* pQueryContext, MDNS_QUERY_HANDLE
 	public void* pQueryContext;
 }
 
-[CRepr]public struct DNS_QUERY_CANCEL
+[CRepr]
+public struct DNS_QUERY_CANCEL
 {
 	public CHAR[32] Reserved;
 }
 
-[CRepr]public struct DNS_CUSTOM_SERVER
+[CRepr]
+public struct DNS_CUSTOM_SERVER
 {
-	[CRepr, Union]	public struct _Anonymous1_e__Union
+	[CRepr, Union]
+	public struct _Anonymous1_e__Union
 	{
 		public PWSTR pwszTemplate;
 	}
 
-	[CRepr, Union]	public struct _Anonymous2_e__Union
+	[CRepr, Union]
+	public struct _Anonymous2_e__Union
 	{
 		public CHAR[32] MaxSa;
 	}
@@ -1550,7 +1621,8 @@ public function void PMDNS_QUERY_CALLBACK(void* pQueryContext, MDNS_QUERY_HANDLE
 	public _Anonymous2_e__Union Anonymous2;
 }
 
-[CRepr]public struct DNS_QUERY_REQUEST3
+[CRepr]
+public struct DNS_QUERY_REQUEST3
 {
 	public uint32 Version;
 	public PWSTR QueryName;
@@ -1566,30 +1638,36 @@ public function void PMDNS_QUERY_CALLBACK(void* pQueryContext, MDNS_QUERY_HANDLE
 	public DNS_CUSTOM_SERVER* pCustomServers;
 }
 
-[CRepr]public struct DNS_APPLICATION_SETTINGS
+[CRepr]
+public struct DNS_APPLICATION_SETTINGS
 {
 	public uint32 Version;
 	public uint64 Flags;
 }
 
-[CRepr]public struct DNS_MESSAGE_BUFFER
+[CRepr]
+public struct DNS_MESSAGE_BUFFER
 {
 	public DNS_HEADER MessageHead;
 	public CHAR[1] MessageBody;
 }
 
-[CRepr]public struct DNS_CONNECTION_PROXY_INFO
+[CRepr]
+public struct DNS_CONNECTION_PROXY_INFO
 {
-	[CRepr, Union]	public struct _Anonymous_e__Union
+	[CRepr, Union]
+	public struct _Anonymous_e__Union
 	{
-		[CRepr]		public struct _DNS_CONNECTION_PROXY_INFO_SCRIPT
+		[CRepr]
+		public struct _DNS_CONNECTION_PROXY_INFO_SCRIPT
 		{
 			public PWSTR pwszScript;
 			public PWSTR pwszUsername;
 			public PWSTR pwszPassword;
 		}
 
-		[CRepr]		public struct _DNS_CONNECTION_PROXY_INFO_CONFIG
+		[CRepr]
+		public struct _DNS_CONNECTION_PROXY_INFO_CONFIG
 		{
 			public PWSTR pwszServer;
 			public PWSTR pwszUsername;
@@ -1610,7 +1688,8 @@ public function void PMDNS_QUERY_CALLBACK(void* pQueryContext, MDNS_QUERY_HANDLE
 	public using _Anonymous_e__Union Anonymous;
 }
 
-[CRepr]public struct DNS_CONNECTION_PROXY_INFO_EX
+[CRepr]
+public struct DNS_CONNECTION_PROXY_INFO_EX
 {
 	public DNS_CONNECTION_PROXY_INFO ProxyInfo;
 	public uint32 dwInterfaceIndex;
@@ -1619,42 +1698,49 @@ public function void PMDNS_QUERY_CALLBACK(void* pQueryContext, MDNS_QUERY_HANDLE
 	public HANDLE hConnection;
 }
 
-[CRepr]public struct DNS_CONNECTION_PROXY_ELEMENT
+[CRepr]
+public struct DNS_CONNECTION_PROXY_ELEMENT
 {
 	public DNS_CONNECTION_PROXY_TYPE Type;
 	public DNS_CONNECTION_PROXY_INFO Info;
 }
 
-[CRepr]public struct DNS_CONNECTION_PROXY_LIST
+[CRepr]
+public struct DNS_CONNECTION_PROXY_LIST
 {
 	public uint32 cProxies;
 	public DNS_CONNECTION_PROXY_ELEMENT* pProxies;
 }
 
-[CRepr]public struct DNS_CONNECTION_NAME
+[CRepr]
+public struct DNS_CONNECTION_NAME
 {
 	public char8[65] wszName;
 }
 
-[CRepr]public struct DNS_CONNECTION_NAME_LIST
+[CRepr]
+public struct DNS_CONNECTION_NAME_LIST
 {
 	public uint32 cNames;
 	public DNS_CONNECTION_NAME* pNames;
 }
 
-[CRepr]public struct DNS_CONNECTION_IFINDEX_ENTRY
+[CRepr]
+public struct DNS_CONNECTION_IFINDEX_ENTRY
 {
 	public PWSTR pwszConnectionName;
 	public uint32 dwIfIndex;
 }
 
-[CRepr]public struct DNS_CONNECTION_IFINDEX_LIST
+[CRepr]
+public struct DNS_CONNECTION_IFINDEX_LIST
 {
 	public DNS_CONNECTION_IFINDEX_ENTRY* pConnectionIfIndexEntries;
 	public uint32 nEntries;
 }
 
-[CRepr]public struct DNS_CONNECTION_POLICY_ENTRY
+[CRepr]
+public struct DNS_CONNECTION_POLICY_ENTRY
 {
 	public PWSTR pwszHost;
 	public PWSTR pwszAppId;
@@ -1665,13 +1751,15 @@ public function void PMDNS_QUERY_CALLBACK(void* pQueryContext, MDNS_QUERY_HANDLE
 	public uint32 dwPolicyEntryFlags;
 }
 
-[CRepr]public struct DNS_CONNECTION_POLICY_ENTRY_LIST
+[CRepr]
+public struct DNS_CONNECTION_POLICY_ENTRY_LIST
 {
 	public DNS_CONNECTION_POLICY_ENTRY* pPolicyEntries;
 	public uint32 nEntries;
 }
 
-[CRepr]public struct DNS_SERVICE_INSTANCE
+[CRepr]
+public struct DNS_SERVICE_INSTANCE
 {
 	public PWSTR pszInstanceName;
 	public PWSTR pszHostName;
@@ -1686,14 +1774,17 @@ public function void PMDNS_QUERY_CALLBACK(void* pQueryContext, MDNS_QUERY_HANDLE
 	public uint32 dwInterfaceIndex;
 }
 
-[CRepr]public struct DNS_SERVICE_CANCEL
+[CRepr]
+public struct DNS_SERVICE_CANCEL
 {
 	public void* reserved;
 }
 
-[CRepr]public struct DNS_SERVICE_BROWSE_REQUEST
+[CRepr]
+public struct DNS_SERVICE_BROWSE_REQUEST
 {
-	[CRepr, Union]	public struct _Anonymous_e__Union
+	[CRepr, Union]
+	public struct _Anonymous_e__Union
 	{
 		public PDNS_SERVICE_BROWSE_CALLBACK pBrowseCallback;
 		public PDNS_QUERY_COMPLETION_ROUTINE pBrowseCallbackV2;
@@ -1706,7 +1797,8 @@ public function void PMDNS_QUERY_CALLBACK(void* pQueryContext, MDNS_QUERY_HANDLE
 	public void* pQueryContext;
 }
 
-[CRepr]public struct DNS_SERVICE_RESOLVE_REQUEST
+[CRepr]
+public struct DNS_SERVICE_RESOLVE_REQUEST
 {
 	public uint32 Version;
 	public uint32 InterfaceIndex;
@@ -1715,7 +1807,8 @@ public function void PMDNS_QUERY_CALLBACK(void* pQueryContext, MDNS_QUERY_HANDLE
 	public void* pQueryContext;
 }
 
-[CRepr]public struct DNS_SERVICE_REGISTER_REQUEST
+[CRepr]
+public struct DNS_SERVICE_REGISTER_REQUEST
 {
 	public uint32 Version;
 	public uint32 InterfaceIndex;
@@ -1726,7 +1819,8 @@ public function void PMDNS_QUERY_CALLBACK(void* pQueryContext, MDNS_QUERY_HANDLE
 	public BOOL unicastEnabled;
 }
 
-[CRepr]public struct MDNS_QUERY_HANDLE
+[CRepr]
+public struct MDNS_QUERY_HANDLE
 {
 	public char8[256] nameBuf;
 	public uint16 wType;
@@ -1735,7 +1829,8 @@ public function void PMDNS_QUERY_CALLBACK(void* pQueryContext, MDNS_QUERY_HANDLE
 	public uint32[2] stateNameData;
 }
 
-[CRepr]public struct MDNS_QUERY_REQUEST
+[CRepr]
+public struct MDNS_QUERY_REQUEST
 {
 	public uint32 Version;
 	public uint32 ulRefCount;
@@ -1750,7 +1845,8 @@ public function void PMDNS_QUERY_CALLBACK(void* pQueryContext, MDNS_QUERY_HANDLE
 }
 
 #if BF_32_BIT
-[CRepr, Union]public struct IP6_ADDRESS
+[CRepr, Union]
+public struct IP6_ADDRESS
 {
 	public uint32[4] IP6Dword;
 	public uint16[8] IP6Word;

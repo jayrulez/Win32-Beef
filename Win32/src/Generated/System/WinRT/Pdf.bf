@@ -19,7 +19,8 @@ public function HRESULT PFN_PDF_CREATE_RENDERER(IDXGIDevice* param0, IPdfRendere
 #endregion
 
 #region Structs
-[CRepr]public struct PDF_RENDER_PARAMS
+[CRepr]
+public struct PDF_RENDER_PARAMS
 {
 	public D2D_RECT_F SourceRect;
 	public uint32 DestinationWidth;

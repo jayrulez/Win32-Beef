@@ -106,20 +106,23 @@ public enum DedupCompressionAlgorithm : int32
 #endregion
 
 #region Structs
-[CRepr]public struct DEDUP_CONTAINER_EXTENT
+[CRepr]
+public struct DEDUP_CONTAINER_EXTENT
 {
 	public uint32 ContainerIndex;
 	public int64 StartOffset;
 	public int64 Length;
 }
 
-[CRepr]public struct DDP_FILE_EXTENT
+[CRepr]
+public struct DDP_FILE_EXTENT
 {
 	public int64 Length;
 	public int64 Offset;
 }
 
-[CRepr]public struct DEDUP_CHUNK_INFO_HASH32
+[CRepr]
+public struct DEDUP_CHUNK_INFO_HASH32
 {
 	public uint32 ChunkFlags;
 	public uint64 ChunkOffsetInStream;
@@ -127,12 +130,14 @@ public enum DedupCompressionAlgorithm : int32
 	public uint8[32] HashVal;
 }
 
-[CRepr]public struct DedupHash
+[CRepr]
+public struct DedupHash
 {
 	public uint8[32] Hash;
 }
 
-[CRepr]public struct DedupChunk
+[CRepr]
+public struct DedupChunk
 {
 	public DedupHash Hash;
 	public DedupChunkFlags Flags;
@@ -140,14 +145,16 @@ public enum DedupCompressionAlgorithm : int32
 	public uint32 DataSize;
 }
 
-[CRepr]public struct DedupStreamEntry
+[CRepr]
+public struct DedupStreamEntry
 {
 	public DedupHash Hash;
 	public uint32 LogicalSize;
 	public uint64 Offset;
 }
 
-[CRepr]public struct DedupStream
+[CRepr]
+public struct DedupStream
 {
 	public BSTR Path;
 	public uint64 Offset;

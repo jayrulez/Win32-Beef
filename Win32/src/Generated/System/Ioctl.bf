@@ -3197,7 +3197,8 @@ public function void PIO_IRP_EXT_PROCESS_TRACKED_OFFSET_CALLBACK(IO_IRP_EXT_TRAC
 #endregion
 
 #region Structs
-[CRepr]public struct STORAGE_HOTPLUG_INFO
+[CRepr]
+public struct STORAGE_HOTPLUG_INFO
 {
 	public uint32 Size;
 	public BOOLEAN MediaRemovable;
@@ -3206,14 +3207,16 @@ public function void PIO_IRP_EXT_PROCESS_TRACKED_OFFSET_CALLBACK(IO_IRP_EXT_TRAC
 	public BOOLEAN WriteCacheEnableOverride;
 }
 
-[CRepr]public struct STORAGE_DEVICE_NUMBER
+[CRepr]
+public struct STORAGE_DEVICE_NUMBER
 {
 	public uint32 DeviceType;
 	public uint32 DeviceNumber;
 	public uint32 PartitionNumber;
 }
 
-[CRepr]public struct STORAGE_DEVICE_NUMBERS
+[CRepr]
+public struct STORAGE_DEVICE_NUMBERS
 {
 	public uint32 Version;
 	public uint32 Size;
@@ -3221,7 +3224,8 @@ public function void PIO_IRP_EXT_PROCESS_TRACKED_OFFSET_CALLBACK(IO_IRP_EXT_TRAC
 	public STORAGE_DEVICE_NUMBER[1] Devices;
 }
 
-[CRepr]public struct STORAGE_DEVICE_NUMBER_EX
+[CRepr]
+public struct STORAGE_DEVICE_NUMBER_EX
 {
 	public uint32 Version;
 	public uint32 Size;
@@ -3232,12 +3236,14 @@ public function void PIO_IRP_EXT_PROCESS_TRACKED_OFFSET_CALLBACK(IO_IRP_EXT_TRAC
 	public uint32 PartitionNumber;
 }
 
-[CRepr]public struct STORAGE_BUS_RESET_REQUEST
+[CRepr]
+public struct STORAGE_BUS_RESET_REQUEST
 {
 	public uint8 PathId;
 }
 
-[CRepr]public struct STORAGE_BREAK_RESERVATION_REQUEST
+[CRepr]
+public struct STORAGE_BREAK_RESERVATION_REQUEST
 {
 	public uint32 Length;
 	public uint8 _unused;
@@ -3246,18 +3252,21 @@ public function void PIO_IRP_EXT_PROCESS_TRACKED_OFFSET_CALLBACK(IO_IRP_EXT_TRAC
 	public uint8 Lun;
 }
 
-[CRepr]public struct PREVENT_MEDIA_REMOVAL
+[CRepr]
+public struct PREVENT_MEDIA_REMOVAL
 {
 	public BOOLEAN PreventMediaRemoval;
 }
 
-[CRepr]public struct CLASS_MEDIA_CHANGE_CONTEXT
+[CRepr]
+public struct CLASS_MEDIA_CHANGE_CONTEXT
 {
 	public uint32 MediaChangeCount;
 	public uint32 NewState;
 }
 
-[CRepr]public struct TAPE_STATISTICS
+[CRepr]
+public struct TAPE_STATISTICS
 {
 	public uint32 Version;
 	public uint32 Flags;
@@ -3269,20 +3278,26 @@ public function void PIO_IRP_EXT_PROCESS_TRACKED_OFFSET_CALLBACK(IO_IRP_EXT_TRAC
 	public uint8 CompressionRatioWrites;
 }
 
-[CRepr]public struct TAPE_GET_STATISTICS
+[CRepr]
+public struct TAPE_GET_STATISTICS
 {
 	public uint32 Operation;
 }
 
-[CRepr]public struct DEVICE_MEDIA_INFO
+[CRepr]
+public struct DEVICE_MEDIA_INFO
 {
-	[CRepr, Union]	public struct _DeviceSpecific_e__Union
+	[CRepr, Union]
+	public struct _DeviceSpecific_e__Union
 	{
-		[CRepr]		public struct _TapeInfo_e__Struct
+		[CRepr]
+		public struct _TapeInfo_e__Struct
 		{
-			[CRepr, Union]			public struct _BusSpecificData_e__Union
+			[CRepr, Union]
+			public struct _BusSpecificData_e__Union
 			{
-				[CRepr]				public struct _ScsiInformation_e__Struct
+				[CRepr]
+				public struct _ScsiInformation_e__Struct
 				{
 					public uint8 MediumType;
 					public uint8 DensityCode;
@@ -3298,7 +3313,8 @@ public function void PIO_IRP_EXT_PROCESS_TRACKED_OFFSET_CALLBACK(IO_IRP_EXT_TRAC
 			public _BusSpecificData_e__Union BusSpecificData;
 		}
 
-		[CRepr]		public struct _DiskInfo_e__Struct
+		[CRepr]
+		public struct _DiskInfo_e__Struct
 		{
 			public LARGE_INTEGER Cylinders;
 			public STORAGE_MEDIA_TYPE MediaType;
@@ -3309,7 +3325,8 @@ public function void PIO_IRP_EXT_PROCESS_TRACKED_OFFSET_CALLBACK(IO_IRP_EXT_TRAC
 			public uint32 MediaCharacteristics;
 		}
 
-		[CRepr]		public struct _RemovableDiskInfo_e__Struct
+		[CRepr]
+		public struct _RemovableDiskInfo_e__Struct
 		{
 			public LARGE_INTEGER Cylinders;
 			public STORAGE_MEDIA_TYPE MediaType;
@@ -3328,20 +3345,23 @@ public function void PIO_IRP_EXT_PROCESS_TRACKED_OFFSET_CALLBACK(IO_IRP_EXT_TRAC
 	public _DeviceSpecific_e__Union DeviceSpecific;
 }
 
-[CRepr]public struct GET_MEDIA_TYPES
+[CRepr]
+public struct GET_MEDIA_TYPES
 {
 	public uint32 DeviceType;
 	public uint32 MediaInfoCount;
 	public DEVICE_MEDIA_INFO[1] MediaInfo;
 }
 
-[CRepr]public struct STORAGE_PREDICT_FAILURE
+[CRepr]
+public struct STORAGE_PREDICT_FAILURE
 {
 	public uint32 PredictFailure;
 	public uint8[512] VendorSpecific;
 }
 
-[CRepr]public struct STORAGE_FAILURE_PREDICTION_CONFIG
+[CRepr]
+public struct STORAGE_FAILURE_PREDICTION_CONFIG
 {
 	public uint32 Version;
 	public uint32 Size;
@@ -3350,27 +3370,31 @@ public function void PIO_IRP_EXT_PROCESS_TRACKED_OFFSET_CALLBACK(IO_IRP_EXT_TRAC
 	public uint16 Reserved;
 }
 
-[CRepr]public struct STORAGE_PROPERTY_QUERY
+[CRepr]
+public struct STORAGE_PROPERTY_QUERY
 {
 	public STORAGE_PROPERTY_ID PropertyId;
 	public STORAGE_QUERY_TYPE QueryType;
 	public uint8[1] AdditionalParameters;
 }
 
-[CRepr]public struct STORAGE_PROPERTY_SET
+[CRepr]
+public struct STORAGE_PROPERTY_SET
 {
 	public STORAGE_PROPERTY_ID PropertyId;
 	public STORAGE_SET_TYPE SetType;
 	public uint8[1] AdditionalParameters;
 }
 
-[CRepr]public struct STORAGE_DESCRIPTOR_HEADER
+[CRepr]
+public struct STORAGE_DESCRIPTOR_HEADER
 {
 	public uint32 Version;
 	public uint32 Size;
 }
 
-[CRepr]public struct STORAGE_DEVICE_DESCRIPTOR
+[CRepr]
+public struct STORAGE_DEVICE_DESCRIPTOR
 {
 	public uint32 Version;
 	public uint32 Size;
@@ -3387,7 +3411,8 @@ public function void PIO_IRP_EXT_PROCESS_TRACKED_OFFSET_CALLBACK(IO_IRP_EXT_TRAC
 	public uint8[1] RawDeviceProperties;
 }
 
-[CRepr]public struct STORAGE_ADAPTER_DESCRIPTOR
+[CRepr]
+public struct STORAGE_ADAPTER_DESCRIPTOR
 {
 	public uint32 Version;
 	public uint32 Size;
@@ -3405,7 +3430,8 @@ public function void PIO_IRP_EXT_PROCESS_TRACKED_OFFSET_CALLBACK(IO_IRP_EXT_TRAC
 	public uint8 AddressType;
 }
 
-[CRepr]public struct STORAGE_ACCESS_ALIGNMENT_DESCRIPTOR
+[CRepr]
+public struct STORAGE_ACCESS_ALIGNMENT_DESCRIPTOR
 {
 	public uint32 Version;
 	public uint32 Size;
@@ -3416,18 +3442,22 @@ public function void PIO_IRP_EXT_PROCESS_TRACKED_OFFSET_CALLBACK(IO_IRP_EXT_TRAC
 	public uint32 BytesOffsetForSectorAlignment;
 }
 
-[CRepr]public struct STORAGE_MEDIUM_PRODUCT_TYPE_DESCRIPTOR
+[CRepr]
+public struct STORAGE_MEDIUM_PRODUCT_TYPE_DESCRIPTOR
 {
 	public uint32 Version;
 	public uint32 Size;
 	public uint32 MediumProductType;
 }
 
-[CRepr]public struct STORAGE_MINIPORT_DESCRIPTOR
+[CRepr]
+public struct STORAGE_MINIPORT_DESCRIPTOR
 {
-	[CRepr, Union]	public struct _Flags_e__Union
+	[CRepr, Union]
+	public struct _Flags_e__Union
 	{
-		[CRepr]		public struct _Anonymous_e__Struct
+		[CRepr]
+		public struct _Anonymous_e__Struct
 		{
 			public uint8 _bitfield;
 		}
@@ -3448,7 +3478,8 @@ public function void PIO_IRP_EXT_PROCESS_TRACKED_OFFSET_CALLBACK(IO_IRP_EXT_TRAC
 	public uint32 Reserved1;
 }
 
-[CRepr]public struct STORAGE_IDENTIFIER
+[CRepr]
+public struct STORAGE_IDENTIFIER
 {
 	public STORAGE_IDENTIFIER_CODE_SET CodeSet;
 	public STORAGE_IDENTIFIER_TYPE Type;
@@ -3458,7 +3489,8 @@ public function void PIO_IRP_EXT_PROCESS_TRACKED_OFFSET_CALLBACK(IO_IRP_EXT_TRAC
 	public uint8[1] Identifier;
 }
 
-[CRepr]public struct STORAGE_DEVICE_ID_DESCRIPTOR
+[CRepr]
+public struct STORAGE_DEVICE_ID_DESCRIPTOR
 {
 	public uint32 Version;
 	public uint32 Size;
@@ -3466,28 +3498,32 @@ public function void PIO_IRP_EXT_PROCESS_TRACKED_OFFSET_CALLBACK(IO_IRP_EXT_TRAC
 	public uint8[1] Identifiers;
 }
 
-[CRepr]public struct DEVICE_SEEK_PENALTY_DESCRIPTOR
+[CRepr]
+public struct DEVICE_SEEK_PENALTY_DESCRIPTOR
 {
 	public uint32 Version;
 	public uint32 Size;
 	public BOOLEAN IncursSeekPenalty;
 }
 
-[CRepr]public struct DEVICE_WRITE_AGGREGATION_DESCRIPTOR
+[CRepr]
+public struct DEVICE_WRITE_AGGREGATION_DESCRIPTOR
 {
 	public uint32 Version;
 	public uint32 Size;
 	public BOOLEAN BenefitsFromWriteAggregation;
 }
 
-[CRepr]public struct DEVICE_TRIM_DESCRIPTOR
+[CRepr]
+public struct DEVICE_TRIM_DESCRIPTOR
 {
 	public uint32 Version;
 	public uint32 Size;
 	public BOOLEAN TrimEnabled;
 }
 
-[CRepr]public struct DEVICE_LB_PROVISIONING_DESCRIPTOR
+[CRepr]
+public struct DEVICE_LB_PROVISIONING_DESCRIPTOR
 {
 	public uint32 Version;
 	public uint32 Size;
@@ -3499,7 +3535,8 @@ public function void PIO_IRP_EXT_PROCESS_TRACKED_OFFSET_CALLBACK(IO_IRP_EXT_TRAC
 	public uint32 MaxUnmapBlockDescriptorCount;
 }
 
-[CRepr]public struct STORAGE_LB_PROVISIONING_MAP_RESOURCES
+[CRepr]
+public struct STORAGE_LB_PROVISIONING_MAP_RESOURCES
 {
 	public uint32 Size;
 	public uint32 Version;
@@ -3511,7 +3548,8 @@ public function void PIO_IRP_EXT_PROCESS_TRACKED_OFFSET_CALLBACK(IO_IRP_EXT_TRAC
 	public uint64 UsedMappingResources;
 }
 
-[CRepr]public struct DEVICE_POWER_DESCRIPTOR
+[CRepr]
+public struct DEVICE_POWER_DESCRIPTOR
 {
 	public uint32 Version;
 	public uint32 Size;
@@ -3525,7 +3563,8 @@ public function void PIO_IRP_EXT_PROCESS_TRACKED_OFFSET_CALLBACK(IO_IRP_EXT_TRAC
 	public uint32 IdleTimeoutInMS;
 }
 
-[CRepr]public struct DEVICE_COPY_OFFLOAD_DESCRIPTOR
+[CRepr]
+public struct DEVICE_COPY_OFFLOAD_DESCRIPTOR
 {
 	public uint32 Version;
 	public uint32 Size;
@@ -3540,7 +3579,8 @@ public function void PIO_IRP_EXT_PROCESS_TRACKED_OFFSET_CALLBACK(IO_IRP_EXT_TRAC
 	public uint8[2] Reserved;
 }
 
-[CRepr]public struct STORAGE_DEVICE_RESILIENCY_DESCRIPTOR
+[CRepr]
+public struct STORAGE_DEVICE_RESILIENCY_DESCRIPTOR
 {
 	public uint32 Version;
 	public uint32 Size;
@@ -3552,7 +3592,8 @@ public function void PIO_IRP_EXT_PROCESS_TRACKED_OFFSET_CALLBACK(IO_IRP_EXT_TRAC
 	public uint32 Interleave;
 }
 
-[CRepr]public struct STORAGE_RPMB_DESCRIPTOR
+[CRepr]
+public struct STORAGE_RPMB_DESCRIPTOR
 {
 	public uint32 Version;
 	public uint32 Size;
@@ -3561,7 +3602,8 @@ public function void PIO_IRP_EXT_PROCESS_TRACKED_OFFSET_CALLBACK(IO_IRP_EXT_TRAC
 	public STORAGE_RPMB_FRAME_TYPE FrameFormat;
 }
 
-[CRepr]public struct STORAGE_CRYPTO_CAPABILITY
+[CRepr]
+public struct STORAGE_CRYPTO_CAPABILITY
 {
 	public uint32 Version;
 	public uint32 Size;
@@ -3571,7 +3613,8 @@ public function void PIO_IRP_EXT_PROCESS_TRACKED_OFFSET_CALLBACK(IO_IRP_EXT_TRAC
 	public uint32 DataUnitSizeBitmask;
 }
 
-[CRepr]public struct STORAGE_CRYPTO_DESCRIPTOR
+[CRepr]
+public struct STORAGE_CRYPTO_DESCRIPTOR
 {
 	public uint32 Version;
 	public uint32 Size;
@@ -3580,7 +3623,8 @@ public function void PIO_IRP_EXT_PROCESS_TRACKED_OFFSET_CALLBACK(IO_IRP_EXT_TRAC
 	public STORAGE_CRYPTO_CAPABILITY[1] CryptoCapabilities;
 }
 
-[CRepr]public struct STORAGE_TIER
+[CRepr]
+public struct STORAGE_TIER
 {
 	public Guid Id;
 	public char8[256] Name;
@@ -3591,7 +3635,8 @@ public function void PIO_IRP_EXT_PROCESS_TRACKED_OFFSET_CALLBACK(IO_IRP_EXT_TRAC
 	public STORAGE_TIER_CLASS Class;
 }
 
-[CRepr]public struct STORAGE_DEVICE_TIERING_DESCRIPTOR
+[CRepr]
+public struct STORAGE_DEVICE_TIERING_DESCRIPTOR
 {
 	public uint32 Version;
 	public uint32 Size;
@@ -3601,7 +3646,8 @@ public function void PIO_IRP_EXT_PROCESS_TRACKED_OFFSET_CALLBACK(IO_IRP_EXT_TRAC
 	public STORAGE_TIER[1] Tiers;
 }
 
-[CRepr]public struct STORAGE_DEVICE_FAULT_DOMAIN_DESCRIPTOR
+[CRepr]
+public struct STORAGE_DEVICE_FAULT_DOMAIN_DESCRIPTOR
 {
 	public uint32 Version;
 	public uint32 Size;
@@ -3609,9 +3655,11 @@ public function void PIO_IRP_EXT_PROCESS_TRACKED_OFFSET_CALLBACK(IO_IRP_EXT_TRAC
 	public Guid[1] FaultDomainIds;
 }
 
-[CRepr, Union]public struct STORAGE_PROTOCOL_DATA_SUBVALUE_GET_LOG_PAGE
+[CRepr, Union]
+public struct STORAGE_PROTOCOL_DATA_SUBVALUE_GET_LOG_PAGE
 {
-	[CRepr]	public struct _Anonymous_e__Struct
+	[CRepr]
+	public struct _Anonymous_e__Struct
 	{
 		public uint32 _bitfield;
 	}
@@ -3620,7 +3668,8 @@ public function void PIO_IRP_EXT_PROCESS_TRACKED_OFFSET_CALLBACK(IO_IRP_EXT_TRAC
 	public uint32 AsUlong;
 }
 
-[CRepr]public struct STORAGE_PROTOCOL_SPECIFIC_DATA
+[CRepr]
+public struct STORAGE_PROTOCOL_SPECIFIC_DATA
 {
 	public STORAGE_PROTOCOL_TYPE ProtocolType;
 	public uint32 DataType;
@@ -3634,7 +3683,8 @@ public function void PIO_IRP_EXT_PROCESS_TRACKED_OFFSET_CALLBACK(IO_IRP_EXT_TRAC
 	public uint32 ProtocolDataRequestSubValue4;
 }
 
-[CRepr]public struct STORAGE_PROTOCOL_SPECIFIC_DATA_EXT
+[CRepr]
+public struct STORAGE_PROTOCOL_SPECIFIC_DATA_EXT
 {
 	public STORAGE_PROTOCOL_TYPE ProtocolType;
 	public uint32 DataType;
@@ -3650,21 +3700,24 @@ public function void PIO_IRP_EXT_PROCESS_TRACKED_OFFSET_CALLBACK(IO_IRP_EXT_TRAC
 	public uint32[5] Reserved;
 }
 
-[CRepr]public struct STORAGE_PROTOCOL_DATA_DESCRIPTOR
+[CRepr]
+public struct STORAGE_PROTOCOL_DATA_DESCRIPTOR
 {
 	public uint32 Version;
 	public uint32 Size;
 	public STORAGE_PROTOCOL_SPECIFIC_DATA ProtocolSpecificData;
 }
 
-[CRepr]public struct STORAGE_PROTOCOL_DATA_DESCRIPTOR_EXT
+[CRepr]
+public struct STORAGE_PROTOCOL_DATA_DESCRIPTOR_EXT
 {
 	public uint32 Version;
 	public uint32 Size;
 	public STORAGE_PROTOCOL_SPECIFIC_DATA_EXT ProtocolSpecificData;
 }
 
-[CRepr]public struct STORAGE_TEMPERATURE_INFO
+[CRepr]
+public struct STORAGE_TEMPERATURE_INFO
 {
 	public uint16 Index;
 	public int16 Temperature;
@@ -3677,7 +3730,8 @@ public function void PIO_IRP_EXT_PROCESS_TRACKED_OFFSET_CALLBACK(IO_IRP_EXT_TRAC
 	public uint32 Reserved1;
 }
 
-[CRepr]public struct STORAGE_TEMPERATURE_DATA_DESCRIPTOR
+[CRepr]
+public struct STORAGE_TEMPERATURE_DATA_DESCRIPTOR
 {
 	public uint32 Version;
 	public uint32 Size;
@@ -3689,7 +3743,8 @@ public function void PIO_IRP_EXT_PROCESS_TRACKED_OFFSET_CALLBACK(IO_IRP_EXT_TRAC
 	public STORAGE_TEMPERATURE_INFO[1] TemperatureInfo;
 }
 
-[CRepr]public struct STORAGE_TEMPERATURE_THRESHOLD
+[CRepr]
+public struct STORAGE_TEMPERATURE_THRESHOLD
 {
 	public uint32 Version;
 	public uint32 Size;
@@ -3700,13 +3755,17 @@ public function void PIO_IRP_EXT_PROCESS_TRACKED_OFFSET_CALLBACK(IO_IRP_EXT_TRAC
 	public uint8 Reserved;
 }
 
-[CRepr, Union]public struct STORAGE_SPEC_VERSION
+[CRepr, Union]
+public struct STORAGE_SPEC_VERSION
 {
-	[CRepr]	public struct _Anonymous_e__Struct
+	[CRepr]
+	public struct _Anonymous_e__Struct
 	{
-		[CRepr, Union]		public struct _MinorVersion_e__Union
+		[CRepr, Union]
+		public struct _MinorVersion_e__Union
 		{
-			[CRepr]			public struct _Anonymous_e__Struct
+			[CRepr]
+			public struct _Anonymous_e__Struct
 			{
 				public uint8 SubMinor;
 				public uint8 Minor;
@@ -3724,7 +3783,8 @@ public function void PIO_IRP_EXT_PROCESS_TRACKED_OFFSET_CALLBACK(IO_IRP_EXT_TRAC
 	public uint32 AsUlong;
 }
 
-[CRepr]public struct STORAGE_PHYSICAL_DEVICE_DATA
+[CRepr]
+public struct STORAGE_PHYSICAL_DEVICE_DATA
 {
 	public uint32 DeviceId;
 	public uint32 Role;
@@ -3740,7 +3800,8 @@ public function void PIO_IRP_EXT_PROCESS_TRACKED_OFFSET_CALLBACK(IO_IRP_EXT_TRAC
 	public uint32[2] Reserved;
 }
 
-[CRepr]public struct STORAGE_PHYSICAL_ADAPTER_DATA
+[CRepr]
+public struct STORAGE_PHYSICAL_ADAPTER_DATA
 {
 	public uint32 AdapterId;
 	public STORAGE_COMPONENT_HEALTH_STATUS HealthStatus;
@@ -3755,7 +3816,8 @@ public function void PIO_IRP_EXT_PROCESS_TRACKED_OFFSET_CALLBACK(IO_IRP_EXT_TRAC
 	public uint32[3] Reserved1;
 }
 
-[CRepr]public struct STORAGE_PHYSICAL_NODE_DATA
+[CRepr]
+public struct STORAGE_PHYSICAL_NODE_DATA
 {
 	public uint32 NodeId;
 	public uint32 AdapterCount;
@@ -3767,7 +3829,8 @@ public function void PIO_IRP_EXT_PROCESS_TRACKED_OFFSET_CALLBACK(IO_IRP_EXT_TRAC
 	public uint32[3] Reserved;
 }
 
-[CRepr]public struct STORAGE_PHYSICAL_TOPOLOGY_DESCRIPTOR
+[CRepr]
+public struct STORAGE_PHYSICAL_TOPOLOGY_DESCRIPTOR
 {
 	public uint32 Version;
 	public uint32 Size;
@@ -3776,7 +3839,8 @@ public function void PIO_IRP_EXT_PROCESS_TRACKED_OFFSET_CALLBACK(IO_IRP_EXT_TRAC
 	public STORAGE_PHYSICAL_NODE_DATA[1] Node;
 }
 
-[CRepr]public struct STORAGE_DEVICE_IO_CAPABILITY_DESCRIPTOR
+[CRepr]
+public struct STORAGE_DEVICE_IO_CAPABILITY_DESCRIPTOR
 {
 	public uint32 Version;
 	public uint32 Size;
@@ -3784,18 +3848,22 @@ public function void PIO_IRP_EXT_PROCESS_TRACKED_OFFSET_CALLBACK(IO_IRP_EXT_TRAC
 	public uint32 AdapterMaxIoCount;
 }
 
-[CRepr]public struct STORAGE_DEVICE_ATTRIBUTES_DESCRIPTOR
+[CRepr]
+public struct STORAGE_DEVICE_ATTRIBUTES_DESCRIPTOR
 {
 	public uint32 Version;
 	public uint32 Size;
 	public uint64 Attributes;
 }
 
-[CRepr]public struct STORAGE_OPERATIONAL_REASON
+[CRepr]
+public struct STORAGE_OPERATIONAL_REASON
 {
-	[CRepr, Union]	public struct _RawBytes_e__Union
+	[CRepr, Union]
+	public struct _RawBytes_e__Union
 	{
-		[CRepr]		public struct _ScsiSenseKey_e__Struct
+		[CRepr]
+		public struct _ScsiSenseKey_e__Struct
 		{
 			public uint8 SenseKey;
 			public uint8 ASC;
@@ -3803,7 +3871,8 @@ public function void PIO_IRP_EXT_PROCESS_TRACKED_OFFSET_CALLBACK(IO_IRP_EXT_TRAC
 			public uint8 Reserved;
 		}
 
-		[CRepr]		public struct _NVDIMM_N_e__Struct
+		[CRepr]
+		public struct _NVDIMM_N_e__Struct
 		{
 			public uint8 CriticalHealth;
 			public uint8[2] ModuleHealth;
@@ -3821,7 +3890,8 @@ public function void PIO_IRP_EXT_PROCESS_TRACKED_OFFSET_CALLBACK(IO_IRP_EXT_TRAC
 	public _RawBytes_e__Union RawBytes;
 }
 
-[CRepr]public struct STORAGE_DEVICE_MANAGEMENT_STATUS
+[CRepr]
+public struct STORAGE_DEVICE_MANAGEMENT_STATUS
 {
 	public uint32 Version;
 	public uint32 Size;
@@ -3832,32 +3902,38 @@ public function void PIO_IRP_EXT_PROCESS_TRACKED_OFFSET_CALLBACK(IO_IRP_EXT_TRAC
 	public STORAGE_OPERATIONAL_REASON[1] AdditionalReasons;
 }
 
-[CRepr]public struct STORAGE_ADAPTER_SERIAL_NUMBER
+[CRepr]
+public struct STORAGE_ADAPTER_SERIAL_NUMBER
 {
 	public uint32 Version;
 	public uint32 Size;
 	public char8[128] SerialNumber;
 }
 
-[CRepr]public struct STORAGE_ZONE_GROUP
+[CRepr]
+public struct STORAGE_ZONE_GROUP
 {
 	public uint32 ZoneCount;
 	public STORAGE_ZONE_TYPES ZoneType;
 	public uint64 ZoneSize;
 }
 
-[CRepr]public struct STORAGE_ZONED_DEVICE_DESCRIPTOR
+[CRepr]
+public struct STORAGE_ZONED_DEVICE_DESCRIPTOR
 {
-	[CRepr, Union]	public struct _ZoneAttributes_e__Union
+	[CRepr, Union]
+	public struct _ZoneAttributes_e__Union
 	{
-		[CRepr]		public struct _SequentialRequiredZone_e__Struct
+		[CRepr]
+		public struct _SequentialRequiredZone_e__Struct
 		{
 			public uint32 MaxOpenZoneCount;
 			public BOOLEAN UnrestrictedRead;
 			public uint8[3] Reserved;
 		}
 
-		[CRepr]		public struct _SequentialPreferredZone_e__Struct
+		[CRepr]
+		public struct _SequentialPreferredZone_e__Struct
 		{
 			public uint32 OptimalOpenZoneCount;
 			public uint32 Reserved;
@@ -3876,17 +3952,21 @@ public function void PIO_IRP_EXT_PROCESS_TRACKED_OFFSET_CALLBACK(IO_IRP_EXT_TRAC
 	public STORAGE_ZONE_GROUP[1] ZoneGroup;
 }
 
-[CRepr]public struct DEVICE_LOCATION
+[CRepr]
+public struct DEVICE_LOCATION
 {
-	[CRepr, Union]	public struct _Anonymous_e__Union
+	[CRepr, Union]
+	public struct _Anonymous_e__Union
 	{
-		[CRepr]		public struct _Anonymous1_e__Struct
+		[CRepr]
+		public struct _Anonymous1_e__Struct
 		{
 			public uint32 Channel;
 			public uint32 Device;
 		}
 
-		[CRepr]		public struct _Anonymous2_e__Struct
+		[CRepr]
+		public struct _Anonymous2_e__Struct
 		{
 			public uint32 Target;
 			public uint32 Lun;
@@ -3903,7 +3983,8 @@ public function void PIO_IRP_EXT_PROCESS_TRACKED_OFFSET_CALLBACK(IO_IRP_EXT_TRAC
 	public using _Anonymous_e__Union Anonymous;
 }
 
-[CRepr]public struct STORAGE_DEVICE_LOCATION_DESCRIPTOR
+[CRepr]
+public struct STORAGE_DEVICE_LOCATION_DESCRIPTOR
 {
 	public uint32 Version;
 	public uint32 Size;
@@ -3911,23 +3992,27 @@ public function void PIO_IRP_EXT_PROCESS_TRACKED_OFFSET_CALLBACK(IO_IRP_EXT_TRAC
 	public uint32 StringOffset;
 }
 
-[CRepr]public struct STORAGE_DEVICE_NUMA_PROPERTY
+[CRepr]
+public struct STORAGE_DEVICE_NUMA_PROPERTY
 {
 	public uint32 Version;
 	public uint32 Size;
 	public uint32 NumaNode;
 }
 
-[CRepr]public struct STORAGE_DEVICE_UNSAFE_SHUTDOWN_COUNT
+[CRepr]
+public struct STORAGE_DEVICE_UNSAFE_SHUTDOWN_COUNT
 {
 	public uint32 Version;
 	public uint32 Size;
 	public uint32 UnsafeShutdownCount;
 }
 
-[CRepr]public struct STORAGE_HW_ENDURANCE_INFO
+[CRepr]
+public struct STORAGE_HW_ENDURANCE_INFO
 {
-	[CRepr]	public struct _Flags_e__Struct
+	[CRepr]
+	public struct _Flags_e__Struct
 	{
 		public uint32 _bitfield;
 	}
@@ -3940,28 +4025,32 @@ public function void PIO_IRP_EXT_PROCESS_TRACKED_OFFSET_CALLBACK(IO_IRP_EXT_TRAC
 	public uint8[16] ByteWriteCount;
 }
 
-[CRepr]public struct STORAGE_HW_ENDURANCE_DATA_DESCRIPTOR
+[CRepr]
+public struct STORAGE_HW_ENDURANCE_DATA_DESCRIPTOR
 {
 	public uint32 Version;
 	public uint32 Size;
 	public STORAGE_HW_ENDURANCE_INFO EnduranceInfo;
 }
 
-[CRepr]public struct STORAGE_DEVICE_LED_STATE_DESCRIPTOR
+[CRepr]
+public struct STORAGE_DEVICE_LED_STATE_DESCRIPTOR
 {
 	public uint32 Version;
 	public uint32 Size;
 	public uint64 State;
 }
 
-[CRepr]public struct STORAGE_DEVICE_SELF_ENCRYPTION_PROPERTY
+[CRepr]
+public struct STORAGE_DEVICE_SELF_ENCRYPTION_PROPERTY
 {
 	public uint32 Version;
 	public uint32 Size;
 	public BOOLEAN SupportsSelfEncryption;
 }
 
-[CRepr]public struct STORAGE_FRU_ID_DESCRIPTOR
+[CRepr]
+public struct STORAGE_FRU_ID_DESCRIPTOR
 {
 	public uint32 Version;
 	public uint32 Size;
@@ -3969,13 +4058,15 @@ public function void PIO_IRP_EXT_PROCESS_TRACKED_OFFSET_CALLBACK(IO_IRP_EXT_TRAC
 	public uint8[1] Identifier;
 }
 
-[CRepr]public struct DEVICE_DATA_SET_RANGE
+[CRepr]
+public struct DEVICE_DATA_SET_RANGE
 {
 	public int64 StartingOffset;
 	public uint64 LengthInBytes;
 }
 
-[CRepr]public struct DEVICE_MANAGE_DATA_SET_ATTRIBUTES
+[CRepr]
+public struct DEVICE_MANAGE_DATA_SET_ATTRIBUTES
 {
 	public uint32 Size;
 	public uint32 Action;
@@ -3986,7 +4077,8 @@ public function void PIO_IRP_EXT_PROCESS_TRACKED_OFFSET_CALLBACK(IO_IRP_EXT_TRAC
 	public uint32 DataSetRangesLength;
 }
 
-[CRepr]public struct DEVICE_MANAGE_DATA_SET_ATTRIBUTES_OUTPUT
+[CRepr]
+public struct DEVICE_MANAGE_DATA_SET_ATTRIBUTES_OUTPUT
 {
 	public uint32 Size;
 	public uint32 Action;
@@ -3999,7 +4091,8 @@ public function void PIO_IRP_EXT_PROCESS_TRACKED_OFFSET_CALLBACK(IO_IRP_EXT_TRAC
 	public uint32 OutputBlockLength;
 }
 
-[CRepr]public struct DEVICE_DSM_DEFINITION
+[CRepr]
+public struct DEVICE_DSM_DEFINITION
 {
 	public uint32 Action;
 	public BOOLEAN SingleRange;
@@ -4010,7 +4103,8 @@ public function void PIO_IRP_EXT_PROCESS_TRACKED_OFFSET_CALLBACK(IO_IRP_EXT_TRAC
 	public uint32 OutputBlockLength;
 }
 
-[CRepr]public struct DEVICE_DSM_NOTIFICATION_PARAMETERS
+[CRepr]
+public struct DEVICE_DSM_NOTIFICATION_PARAMETERS
 {
 	public uint32 Size;
 	public uint32 Flags;
@@ -4018,11 +4112,14 @@ public function void PIO_IRP_EXT_PROCESS_TRACKED_OFFSET_CALLBACK(IO_IRP_EXT_TRAC
 	public Guid[1] FileTypeID;
 }
 
-[CRepr]public struct STORAGE_OFFLOAD_TOKEN
+[CRepr]
+public struct STORAGE_OFFLOAD_TOKEN
 {
-	[CRepr, Union]	public struct _Anonymous_e__Union
+	[CRepr, Union]
+	public struct _Anonymous_e__Union
 	{
-		[CRepr]		public struct _StorageOffloadZeroDataToken_e__Struct
+		[CRepr]
+		public struct _StorageOffloadZeroDataToken_e__Struct
 		{
 			public uint8[504] Reserved2;
 		}
@@ -4037,14 +4134,16 @@ public function void PIO_IRP_EXT_PROCESS_TRACKED_OFFSET_CALLBACK(IO_IRP_EXT_TRAC
 	public using _Anonymous_e__Union Anonymous;
 }
 
-[CRepr]public struct DEVICE_DSM_OFFLOAD_READ_PARAMETERS
+[CRepr]
+public struct DEVICE_DSM_OFFLOAD_READ_PARAMETERS
 {
 	public uint32 Flags;
 	public uint32 TimeToLive;
 	public uint32[2] Reserved;
 }
 
-[CRepr]public struct STORAGE_OFFLOAD_READ_OUTPUT
+[CRepr]
+public struct STORAGE_OFFLOAD_READ_OUTPUT
 {
 	public uint32 OffloadReadFlags;
 	public uint32 Reserved;
@@ -4053,7 +4152,8 @@ public function void PIO_IRP_EXT_PROCESS_TRACKED_OFFSET_CALLBACK(IO_IRP_EXT_TRAC
 	public STORAGE_OFFLOAD_TOKEN Token;
 }
 
-[CRepr]public struct DEVICE_DSM_OFFLOAD_WRITE_PARAMETERS
+[CRepr]
+public struct DEVICE_DSM_OFFLOAD_WRITE_PARAMETERS
 {
 	public uint32 Flags;
 	public uint32 Reserved;
@@ -4061,14 +4161,16 @@ public function void PIO_IRP_EXT_PROCESS_TRACKED_OFFSET_CALLBACK(IO_IRP_EXT_TRAC
 	public STORAGE_OFFLOAD_TOKEN Token;
 }
 
-[CRepr]public struct STORAGE_OFFLOAD_WRITE_OUTPUT
+[CRepr]
+public struct STORAGE_OFFLOAD_WRITE_OUTPUT
 {
 	public uint32 OffloadWriteFlags;
 	public uint32 Reserved;
 	public uint64 LengthCopied;
 }
 
-[CRepr]public struct DEVICE_DATA_SET_LBP_STATE_PARAMETERS
+[CRepr]
+public struct DEVICE_DATA_SET_LBP_STATE_PARAMETERS
 {
 	public uint32 Version;
 	public uint32 Size;
@@ -4076,7 +4178,8 @@ public function void PIO_IRP_EXT_PROCESS_TRACKED_OFFSET_CALLBACK(IO_IRP_EXT_TRAC
 	public uint32 OutputVersion;
 }
 
-[CRepr]public struct DEVICE_DATA_SET_LB_PROVISIONING_STATE
+[CRepr]
+public struct DEVICE_DATA_SET_LB_PROVISIONING_STATE
 {
 	public uint32 Size;
 	public uint32 Version;
@@ -4087,7 +4190,8 @@ public function void PIO_IRP_EXT_PROCESS_TRACKED_OFFSET_CALLBACK(IO_IRP_EXT_TRAC
 	public uint32[1] SlabAllocationBitMap;
 }
 
-[CRepr]public struct DEVICE_DATA_SET_LB_PROVISIONING_STATE_V2
+[CRepr]
+public struct DEVICE_DATA_SET_LB_PROVISIONING_STATE_V2
 {
 	public uint32 Size;
 	public uint32 Version;
@@ -4098,26 +4202,30 @@ public function void PIO_IRP_EXT_PROCESS_TRACKED_OFFSET_CALLBACK(IO_IRP_EXT_TRAC
 	public uint32[1] SlabAllocationBitMap;
 }
 
-[CRepr]public struct DEVICE_DATA_SET_REPAIR_PARAMETERS
+[CRepr]
+public struct DEVICE_DATA_SET_REPAIR_PARAMETERS
 {
 	public uint32 NumberOfRepairCopies;
 	public uint32 SourceCopy;
 	public uint32[1] RepairCopies;
 }
 
-[CRepr]public struct DEVICE_DATA_SET_REPAIR_OUTPUT
+[CRepr]
+public struct DEVICE_DATA_SET_REPAIR_OUTPUT
 {
 	public DEVICE_DATA_SET_RANGE ParityExtent;
 }
 
-[CRepr]public struct DEVICE_DATA_SET_SCRUB_OUTPUT
+[CRepr]
+public struct DEVICE_DATA_SET_SCRUB_OUTPUT
 {
 	public uint64 BytesProcessed;
 	public uint64 BytesRepaired;
 	public uint64 BytesFailed;
 }
 
-[CRepr]public struct DEVICE_DATA_SET_SCRUB_EX_OUTPUT
+[CRepr]
+public struct DEVICE_DATA_SET_SCRUB_EX_OUTPUT
 {
 	public uint64 BytesProcessed;
 	public uint64 BytesRepaired;
@@ -4126,7 +4234,8 @@ public function void PIO_IRP_EXT_PROCESS_TRACKED_OFFSET_CALLBACK(IO_IRP_EXT_TRAC
 	public uint64 BytesScrubbed;
 }
 
-[CRepr]public struct DEVICE_DSM_TIERING_QUERY_INPUT
+[CRepr]
+public struct DEVICE_DSM_TIERING_QUERY_INPUT
 {
 	public uint32 Version;
 	public uint32 Size;
@@ -4135,14 +4244,16 @@ public function void PIO_IRP_EXT_PROCESS_TRACKED_OFFSET_CALLBACK(IO_IRP_EXT_TRAC
 	public Guid[1] TierIds;
 }
 
-[CRepr]public struct STORAGE_TIER_REGION
+[CRepr]
+public struct STORAGE_TIER_REGION
 {
 	public Guid TierId;
 	public uint64 Offset;
 	public uint64 Length;
 }
 
-[CRepr]public struct DEVICE_DSM_TIERING_QUERY_OUTPUT
+[CRepr]
+public struct DEVICE_DSM_TIERING_QUERY_OUTPUT
 {
 	public uint32 Version;
 	public uint32 Size;
@@ -4154,26 +4265,30 @@ public function void PIO_IRP_EXT_PROCESS_TRACKED_OFFSET_CALLBACK(IO_IRP_EXT_TRAC
 	public STORAGE_TIER_REGION[1] Regions;
 }
 
-[CRepr]public struct DEVICE_DSM_NVCACHE_CHANGE_PRIORITY_PARAMETERS
+[CRepr]
+public struct DEVICE_DSM_NVCACHE_CHANGE_PRIORITY_PARAMETERS
 {
 	public uint32 Size;
 	public uint8 TargetPriority;
 	public uint8[3] Reserved;
 }
 
-[CRepr]public struct DEVICE_DATA_SET_TOPOLOGY_ID_QUERY_OUTPUT
+[CRepr]
+public struct DEVICE_DATA_SET_TOPOLOGY_ID_QUERY_OUTPUT
 {
 	public uint64 TopologyRangeBytes;
 	public uint8[16] TopologyId;
 }
 
-[CRepr]public struct DEVICE_STORAGE_ADDRESS_RANGE
+[CRepr]
+public struct DEVICE_STORAGE_ADDRESS_RANGE
 {
 	public int64 StartAddress;
 	public uint64 LengthInBytes;
 }
 
-[CRepr]public struct DEVICE_DSM_PHYSICAL_ADDRESSES_OUTPUT
+[CRepr]
+public struct DEVICE_DSM_PHYSICAL_ADDRESSES_OUTPUT
 {
 	public uint32 Version;
 	public uint32 Flags;
@@ -4182,7 +4297,8 @@ public function void PIO_IRP_EXT_PROCESS_TRACKED_OFFSET_CALLBACK(IO_IRP_EXT_TRAC
 	public DEVICE_STORAGE_ADDRESS_RANGE[1] Ranges;
 }
 
-[CRepr]public struct DEVICE_DSM_REPORT_ZONES_PARAMETERS
+[CRepr]
+public struct DEVICE_DSM_REPORT_ZONES_PARAMETERS
 {
 	public uint32 Size;
 	public uint8 ReportOption;
@@ -4190,7 +4306,8 @@ public function void PIO_IRP_EXT_PROCESS_TRACKED_OFFSET_CALLBACK(IO_IRP_EXT_TRAC
 	public uint8[2] Reserved;
 }
 
-[CRepr]public struct STORAGE_ZONE_DESCRIPTOR
+[CRepr]
+public struct STORAGE_ZONE_DESCRIPTOR
 {
 	public uint32 Size;
 	public STORAGE_ZONE_TYPES ZoneType;
@@ -4201,7 +4318,8 @@ public function void PIO_IRP_EXT_PROCESS_TRACKED_OFFSET_CALLBACK(IO_IRP_EXT_TRAC
 	public uint64 WritePointerOffset;
 }
 
-[CRepr]public struct DEVICE_DSM_REPORT_ZONES_DATA
+[CRepr]
+public struct DEVICE_DSM_REPORT_ZONES_DATA
 {
 	public uint32 Size;
 	public uint32 ZoneCount;
@@ -4210,11 +4328,14 @@ public function void PIO_IRP_EXT_PROCESS_TRACKED_OFFSET_CALLBACK(IO_IRP_EXT_TRAC
 	public STORAGE_ZONE_DESCRIPTOR[1] ZoneDescriptors;
 }
 
-[CRepr]public struct DEVICE_STORAGE_RANGE_ATTRIBUTES
+[CRepr]
+public struct DEVICE_STORAGE_RANGE_ATTRIBUTES
 {
-	[CRepr, Union]	public struct _Anonymous_e__Union
+	[CRepr, Union]
+	public struct _Anonymous_e__Union
 	{
-		[CRepr]		public struct _Anonymous_e__Struct
+		[CRepr]
+		public struct _Anonymous_e__Struct
 		{
 			public uint32 _bitfield;
 		}
@@ -4228,7 +4349,8 @@ public function void PIO_IRP_EXT_PROCESS_TRACKED_OFFSET_CALLBACK(IO_IRP_EXT_TRAC
 	public uint32 Reserved;
 }
 
-[CRepr]public struct DEVICE_DSM_RANGE_ERROR_INFO
+[CRepr]
+public struct DEVICE_DSM_RANGE_ERROR_INFO
 {
 	public uint32 Version;
 	public uint32 Flags;
@@ -4237,13 +4359,15 @@ public function void PIO_IRP_EXT_PROCESS_TRACKED_OFFSET_CALLBACK(IO_IRP_EXT_TRAC
 	public DEVICE_STORAGE_RANGE_ATTRIBUTES[1] Ranges;
 }
 
-[CRepr]public struct DEVICE_DSM_LOST_QUERY_PARAMETERS
+[CRepr]
+public struct DEVICE_DSM_LOST_QUERY_PARAMETERS
 {
 	public uint32 Version;
 	public uint64 Granularity;
 }
 
-[CRepr]public struct DEVICE_DSM_LOST_QUERY_OUTPUT
+[CRepr]
+public struct DEVICE_DSM_LOST_QUERY_OUTPUT
 {
 	public uint32 Version;
 	public uint32 Size;
@@ -4252,19 +4376,22 @@ public function void PIO_IRP_EXT_PROCESS_TRACKED_OFFSET_CALLBACK(IO_IRP_EXT_TRAC
 	public uint32[1] BitMap;
 }
 
-[CRepr]public struct DEVICE_DSM_FREE_SPACE_OUTPUT
+[CRepr]
+public struct DEVICE_DSM_FREE_SPACE_OUTPUT
 {
 	public uint32 Version;
 	public uint64 FreeSpace;
 }
 
-[CRepr]public struct DEVICE_DSM_CONVERSION_OUTPUT
+[CRepr]
+public struct DEVICE_DSM_CONVERSION_OUTPUT
 {
 	public uint32 Version;
 	public Guid Source;
 }
 
-[CRepr]public struct STORAGE_GET_BC_PROPERTIES_OUTPUT
+[CRepr]
+public struct STORAGE_GET_BC_PROPERTIES_OUTPUT
 {
 	public uint32 MaximumRequestsPerPeriod;
 	public uint32 MinimumPeriod;
@@ -4274,7 +4401,8 @@ public function void PIO_IRP_EXT_PROCESS_TRACKED_OFFSET_CALLBACK(IO_IRP_EXT_TRAC
 	public uint64 RequestSize;
 }
 
-[CRepr]public struct STORAGE_ALLOCATE_BC_STREAM_INPUT
+[CRepr]
+public struct STORAGE_ALLOCATE_BC_STREAM_INPUT
 {
 	public uint32 Version;
 	public uint32 RequestsPerPeriod;
@@ -4286,18 +4414,21 @@ public function void PIO_IRP_EXT_PROCESS_TRACKED_OFFSET_CALLBACK(IO_IRP_EXT_TRAC
 	public uint32 AccessMode;
 }
 
-[CRepr]public struct STORAGE_ALLOCATE_BC_STREAM_OUTPUT
+[CRepr]
+public struct STORAGE_ALLOCATE_BC_STREAM_OUTPUT
 {
 	public uint64 RequestSize;
 	public uint32 NumOutStandingRequests;
 }
 
-[CRepr]public struct STORAGE_PRIORITY_HINT_SUPPORT
+[CRepr]
+public struct STORAGE_PRIORITY_HINT_SUPPORT
 {
 	public uint32 SupportFlags;
 }
 
-[CRepr]public struct STORAGE_DIAGNOSTIC_REQUEST
+[CRepr]
+public struct STORAGE_DIAGNOSTIC_REQUEST
 {
 	public uint32 Version;
 	public uint32 Size;
@@ -4306,7 +4437,8 @@ public function void PIO_IRP_EXT_PROCESS_TRACKED_OFFSET_CALLBACK(IO_IRP_EXT_TRAC
 	public STORAGE_DIAGNOSTIC_LEVEL Level;
 }
 
-[CRepr]public struct STORAGE_DIAGNOSTIC_DATA
+[CRepr]
+public struct STORAGE_DIAGNOSTIC_DATA
 {
 	public uint32 Version;
 	public uint32 Size;
@@ -4316,7 +4448,8 @@ public function void PIO_IRP_EXT_PROCESS_TRACKED_OFFSET_CALLBACK(IO_IRP_EXT_TRAC
 	public uint8[1] DiagnosticDataBuffer;
 }
 
-[CRepr]public struct PHYSICAL_ELEMENT_STATUS_REQUEST
+[CRepr]
+public struct PHYSICAL_ELEMENT_STATUS_REQUEST
 {
 	public uint32 Version;
 	public uint32 Size;
@@ -4326,7 +4459,8 @@ public function void PIO_IRP_EXT_PROCESS_TRACKED_OFFSET_CALLBACK(IO_IRP_EXT_TRAC
 	public uint8[2] Reserved;
 }
 
-[CRepr]public struct PHYSICAL_ELEMENT_STATUS_DESCRIPTOR
+[CRepr]
+public struct PHYSICAL_ELEMENT_STATUS_DESCRIPTOR
 {
 	public uint32 Version;
 	public uint32 Size;
@@ -4338,7 +4472,8 @@ public function void PIO_IRP_EXT_PROCESS_TRACKED_OFFSET_CALLBACK(IO_IRP_EXT_TRAC
 	public uint32[4] Reserved2;
 }
 
-[CRepr]public struct PHYSICAL_ELEMENT_STATUS
+[CRepr]
+public struct PHYSICAL_ELEMENT_STATUS
 {
 	public uint32 Version;
 	public uint32 Size;
@@ -4349,7 +4484,8 @@ public function void PIO_IRP_EXT_PROCESS_TRACKED_OFFSET_CALLBACK(IO_IRP_EXT_TRAC
 	public PHYSICAL_ELEMENT_STATUS_DESCRIPTOR[1] Descriptors;
 }
 
-[CRepr]public struct REMOVE_ELEMENT_AND_TRUNCATE_REQUEST
+[CRepr]
+public struct REMOVE_ELEMENT_AND_TRUNCATE_REQUEST
 {
 	public uint32 Version;
 	public uint32 Size;
@@ -4358,7 +4494,8 @@ public function void PIO_IRP_EXT_PROCESS_TRACKED_OFFSET_CALLBACK(IO_IRP_EXT_TRAC
 	public uint32 Reserved;
 }
 
-[CRepr]public struct GET_DEVICE_INTERNAL_STATUS_DATA_REQUEST
+[CRepr]
+public struct GET_DEVICE_INTERNAL_STATUS_DATA_REQUEST
 {
 	public uint32 Version;
 	public uint32 Size;
@@ -4366,7 +4503,8 @@ public function void PIO_IRP_EXT_PROCESS_TRACKED_OFFSET_CALLBACK(IO_IRP_EXT_TRAC
 	public DEVICE_INTERNAL_STATUS_DATA_SET RequestDataSet;
 }
 
-[CRepr]public struct DEVICE_INTERNAL_STATUS_DATA
+[CRepr]
+public struct DEVICE_INTERNAL_STATUS_DATA
 {
 	public uint32 Version;
 	public uint32 Size;
@@ -4382,9 +4520,11 @@ public function void PIO_IRP_EXT_PROCESS_TRACKED_OFFSET_CALLBACK(IO_IRP_EXT_TRAC
 	public uint8[1] StatusData;
 }
 
-[CRepr]public struct STORAGE_REINITIALIZE_MEDIA
+[CRepr]
+public struct STORAGE_REINITIALIZE_MEDIA
 {
-	[CRepr]	public struct _SanitizeOption_e__Struct
+	[CRepr]
+	public struct _SanitizeOption_e__Struct
 	{
 		public uint32 _bitfield;
 	}
@@ -4395,14 +4535,16 @@ public function void PIO_IRP_EXT_PROCESS_TRACKED_OFFSET_CALLBACK(IO_IRP_EXT_TRAC
 	public _SanitizeOption_e__Struct SanitizeOption;
 }
 
-[CRepr]public struct STORAGE_MEDIA_SERIAL_NUMBER_DATA
+[CRepr]
+public struct STORAGE_MEDIA_SERIAL_NUMBER_DATA
 {
 	public uint16 Reserved;
 	public uint16 SerialNumberLength;
 	public uint8[1] SerialNumber;
 }
 
-[CRepr]public struct STORAGE_READ_CAPACITY
+[CRepr]
+public struct STORAGE_READ_CAPACITY
 {
 	public uint32 Version;
 	public uint32 Size;
@@ -4411,7 +4553,8 @@ public function void PIO_IRP_EXT_PROCESS_TRACKED_OFFSET_CALLBACK(IO_IRP_EXT_TRAC
 	public LARGE_INTEGER DiskLength;
 }
 
-[CRepr]public struct STORAGE_WRITE_CACHE_PROPERTY
+[CRepr]
+public struct STORAGE_WRITE_CACHE_PROPERTY
 {
 	public uint32 Version;
 	public uint32 Size;
@@ -4424,17 +4567,21 @@ public function void PIO_IRP_EXT_PROCESS_TRACKED_OFFSET_CALLBACK(IO_IRP_EXT_TRAC
 	public BOOLEAN NVCacheEnabled;
 }
 
-[CRepr]public struct PERSISTENT_RESERVE_COMMAND
+[CRepr]
+public struct PERSISTENT_RESERVE_COMMAND
 {
-	[CRepr, Union]	public struct _Anonymous_e__Union
+	[CRepr, Union]
+	public struct _Anonymous_e__Union
 	{
-		[CRepr]		public struct _PR_IN_e__Struct
+		[CRepr]
+		public struct _PR_IN_e__Struct
 		{
 			public uint8 _bitfield;
 			public uint16 AllocationLength;
 		}
 
-		[CRepr]		public struct _PR_OUT_e__Struct
+		[CRepr]
+		public struct _PR_OUT_e__Struct
 		{
 			public uint8 _bitfield1;
 			public uint8 _bitfield2;
@@ -4450,21 +4597,24 @@ public function void PIO_IRP_EXT_PROCESS_TRACKED_OFFSET_CALLBACK(IO_IRP_EXT_TRAC
 	public using _Anonymous_e__Union Anonymous;
 }
 
-[CRepr, Packed(1)]public struct DEVICEDUMP_SUBSECTION_POINTER
+[CRepr, Packed(1)]
+public struct DEVICEDUMP_SUBSECTION_POINTER
 {
 	public uint32 dwSize;
 	public uint32 dwFlags;
 	public uint32 dwOffset;
 }
 
-[CRepr, Packed(1)]public struct DEVICEDUMP_STRUCTURE_VERSION
+[CRepr, Packed(1)]
+public struct DEVICEDUMP_STRUCTURE_VERSION
 {
 	public uint32 dwSignature;
 	public uint32 dwVersion;
 	public uint32 dwSize;
 }
 
-[CRepr, Packed(1)]public struct DEVICEDUMP_SECTION_HEADER
+[CRepr, Packed(1)]
+public struct DEVICEDUMP_SECTION_HEADER
 {
 	public Guid guidDeviceDataId;
 	public uint8[16] sOrganizationID;
@@ -4477,13 +4627,15 @@ public function void PIO_IRP_EXT_PROCESS_TRACKED_OFFSET_CALLBACK(IO_IRP_EXT_TRAC
 	public uint8[132] szIssueDescriptionString;
 }
 
-[CRepr, Packed(1)]public struct GP_LOG_PAGE_DESCRIPTOR
+[CRepr, Packed(1)]
+public struct GP_LOG_PAGE_DESCRIPTOR
 {
 	public uint16 LogAddress;
 	public uint16 LogSectors;
 }
 
-[CRepr, Packed(1)]public struct DEVICEDUMP_PUBLIC_SUBSECTION
+[CRepr, Packed(1)]
+public struct DEVICEDUMP_PUBLIC_SUBSECTION
 {
 	public uint32 dwFlags;
 	public GP_LOG_PAGE_DESCRIPTOR[16] GPLogTable;
@@ -4491,19 +4643,22 @@ public function void PIO_IRP_EXT_PROCESS_TRACKED_OFFSET_CALLBACK(IO_IRP_EXT_TRAC
 	public uint8[1] bData;
 }
 
-[CRepr]public struct DEVICEDUMP_RESTRICTED_SUBSECTION
+[CRepr]
+public struct DEVICEDUMP_RESTRICTED_SUBSECTION
 {
 	public uint8[1] bData;
 }
 
-[CRepr, Packed(1)]public struct DEVICEDUMP_PRIVATE_SUBSECTION
+[CRepr, Packed(1)]
+public struct DEVICEDUMP_PRIVATE_SUBSECTION
 {
 	public uint32 dwFlags;
 	public GP_LOG_PAGE_DESCRIPTOR GPLogId;
 	public uint8[1] bData;
 }
 
-[CRepr, Packed(1)]public struct DEVICEDUMP_STORAGEDEVICE_DATA
+[CRepr, Packed(1)]
+public struct DEVICEDUMP_STORAGEDEVICE_DATA
 {
 	public DEVICEDUMP_STRUCTURE_VERSION Descriptor;
 	public DEVICEDUMP_SECTION_HEADER SectionHeader;
@@ -4514,21 +4669,26 @@ public function void PIO_IRP_EXT_PROCESS_TRACKED_OFFSET_CALLBACK(IO_IRP_EXT_TRAC
 	public DEVICEDUMP_SUBSECTION_POINTER PrivateData;
 }
 
-[CRepr, Packed(1)]public struct DEVICEDUMP_STORAGESTACK_PUBLIC_STATE_RECORD
+[CRepr, Packed(1)]
+public struct DEVICEDUMP_STORAGESTACK_PUBLIC_STATE_RECORD
 {
-	[CRepr, Union]	public struct _StackSpecific_e__Union
+	[CRepr, Union]
+	public struct _StackSpecific_e__Union
 	{
-		[CRepr, Packed(1)]		public struct _StorPort_e__Struct
+		[CRepr, Packed(1)]
+		public struct _StorPort_e__Struct
 		{
 			public uint32 SrbTag;
 		}
 
-		[CRepr, Packed(1)]		public struct _ExternalStack_e__Struct
+		[CRepr, Packed(1)]
+		public struct _ExternalStack_e__Struct
 		{
 			public uint32 dwReserved;
 		}
 
-		[CRepr, Packed(1)]		public struct _AtaPort_e__Struct
+		[CRepr, Packed(1)]
+		public struct _AtaPort_e__Struct
 		{
 			public uint32 dwAtaPortSpecific;
 		}
@@ -4547,7 +4707,8 @@ public function void PIO_IRP_EXT_PROCESS_TRACKED_OFFSET_CALLBACK(IO_IRP_EXT_TRAC
 	public _StackSpecific_e__Union StackSpecific;
 }
 
-[CRepr, Packed(1)]public struct DEVICEDUMP_STORAGESTACK_PUBLIC_DUMP
+[CRepr, Packed(1)]
+public struct DEVICEDUMP_STORAGESTACK_PUBLIC_DUMP
 {
 	public DEVICEDUMP_STRUCTURE_VERSION Descriptor;
 	public uint32 dwReasonForCollection;
@@ -4556,7 +4717,8 @@ public function void PIO_IRP_EXT_PROCESS_TRACKED_OFFSET_CALLBACK(IO_IRP_EXT_TRAC
 	public DEVICEDUMP_STORAGESTACK_PUBLIC_STATE_RECORD[1] RecordArray;
 }
 
-[CRepr]public struct STORAGE_IDLE_POWER
+[CRepr]
+public struct STORAGE_IDLE_POWER
 {
 	public uint32 Version;
 	public uint32 Size;
@@ -4564,14 +4726,16 @@ public function void PIO_IRP_EXT_PROCESS_TRACKED_OFFSET_CALLBACK(IO_IRP_EXT_TRAC
 	public uint32 D3IdleTimeout;
 }
 
-[CRepr]public struct STORAGE_IDLE_POWERUP_REASON
+[CRepr]
+public struct STORAGE_IDLE_POWERUP_REASON
 {
 	public uint32 Version;
 	public uint32 Size;
 	public STORAGE_POWERUP_REASON_TYPE PowerupReason;
 }
 
-[CRepr]public struct STORAGE_DEVICE_POWER_CAP
+[CRepr]
+public struct STORAGE_DEVICE_POWER_CAP
 {
 	public uint32 Version;
 	public uint32 Size;
@@ -4579,7 +4743,8 @@ public function void PIO_IRP_EXT_PROCESS_TRACKED_OFFSET_CALLBACK(IO_IRP_EXT_TRAC
 	public uint64 MaxPower;
 }
 
-[CRepr]public struct STORAGE_RPMB_DATA_FRAME
+[CRepr]
+public struct STORAGE_RPMB_DATA_FRAME
 {
 	public uint8[196] Stuff;
 	public uint8[32] KeyOrMAC;
@@ -4592,18 +4757,22 @@ public function void PIO_IRP_EXT_PROCESS_TRACKED_OFFSET_CALLBACK(IO_IRP_EXT_TRAC
 	public uint8[2] RequestOrResponseType;
 }
 
-[CRepr]public struct STORAGE_EVENT_NOTIFICATION
+[CRepr]
+public struct STORAGE_EVENT_NOTIFICATION
 {
 	public uint32 Version;
 	public uint32 Size;
 	public uint64 Events;
 }
 
-[CRepr]public struct STORAGE_COUNTER
+[CRepr]
+public struct STORAGE_COUNTER
 {
-	[CRepr, Union]	public struct _Value_e__Union
+	[CRepr, Union]
+	public struct _Value_e__Union
 	{
-		[CRepr]		public struct _ManufactureDate_e__Struct
+		[CRepr]
+		public struct _ManufactureDate_e__Struct
 		{
 			public uint32 Week;
 			public uint32 Year;
@@ -4617,7 +4786,8 @@ public function void PIO_IRP_EXT_PROCESS_TRACKED_OFFSET_CALLBACK(IO_IRP_EXT_TRAC
 	public _Value_e__Union Value;
 }
 
-[CRepr]public struct STORAGE_COUNTERS
+[CRepr]
+public struct STORAGE_COUNTERS
 {
 	public uint32 Version;
 	public uint32 Size;
@@ -4625,7 +4795,8 @@ public function void PIO_IRP_EXT_PROCESS_TRACKED_OFFSET_CALLBACK(IO_IRP_EXT_TRAC
 	public STORAGE_COUNTER[1] Counters;
 }
 
-[CRepr]public struct STORAGE_HW_FIRMWARE_INFO_QUERY
+[CRepr]
+public struct STORAGE_HW_FIRMWARE_INFO_QUERY
 {
 	public uint32 Version;
 	public uint32 Size;
@@ -4633,7 +4804,8 @@ public function void PIO_IRP_EXT_PROCESS_TRACKED_OFFSET_CALLBACK(IO_IRP_EXT_TRAC
 	public uint32 Reserved;
 }
 
-[CRepr]public struct STORAGE_HW_FIRMWARE_SLOT_INFO
+[CRepr]
+public struct STORAGE_HW_FIRMWARE_SLOT_INFO
 {
 	public uint32 Version;
 	public uint32 Size;
@@ -4643,7 +4815,8 @@ public function void PIO_IRP_EXT_PROCESS_TRACKED_OFFSET_CALLBACK(IO_IRP_EXT_TRAC
 	public uint8[16] Revision;
 }
 
-[CRepr]public struct STORAGE_HW_FIRMWARE_INFO
+[CRepr]
+public struct STORAGE_HW_FIRMWARE_INFO
 {
 	public uint32 Version;
 	public uint32 Size;
@@ -4658,7 +4831,8 @@ public function void PIO_IRP_EXT_PROCESS_TRACKED_OFFSET_CALLBACK(IO_IRP_EXT_TRAC
 	public STORAGE_HW_FIRMWARE_SLOT_INFO[1] Slot;
 }
 
-[CRepr]public struct STORAGE_HW_FIRMWARE_DOWNLOAD
+[CRepr]
+public struct STORAGE_HW_FIRMWARE_DOWNLOAD
 {
 	public uint32 Version;
 	public uint32 Size;
@@ -4670,7 +4844,8 @@ public function void PIO_IRP_EXT_PROCESS_TRACKED_OFFSET_CALLBACK(IO_IRP_EXT_TRAC
 	public uint8[1] ImageBuffer;
 }
 
-[CRepr]public struct STORAGE_HW_FIRMWARE_DOWNLOAD_V2
+[CRepr]
+public struct STORAGE_HW_FIRMWARE_DOWNLOAD_V2
 {
 	public uint32 Version;
 	public uint32 Size;
@@ -4684,7 +4859,8 @@ public function void PIO_IRP_EXT_PROCESS_TRACKED_OFFSET_CALLBACK(IO_IRP_EXT_TRAC
 	public uint8[1] ImageBuffer;
 }
 
-[CRepr]public struct STORAGE_HW_FIRMWARE_ACTIVATE
+[CRepr]
+public struct STORAGE_HW_FIRMWARE_ACTIVATE
 {
 	public uint32 Version;
 	public uint32 Size;
@@ -4693,7 +4869,8 @@ public function void PIO_IRP_EXT_PROCESS_TRACKED_OFFSET_CALLBACK(IO_IRP_EXT_TRAC
 	public uint8[3] Reserved0;
 }
 
-[CRepr]public struct STORAGE_PROTOCOL_COMMAND
+[CRepr]
+public struct STORAGE_PROTOCOL_COMMAND
 {
 	public uint32 Version;
 	public uint32 Length;
@@ -4716,7 +4893,8 @@ public function void PIO_IRP_EXT_PROCESS_TRACKED_OFFSET_CALLBACK(IO_IRP_EXT_TRAC
 	public uint8[1] Command;
 }
 
-[CRepr]public struct STORAGE_ATTRIBUTE_MGMT
+[CRepr]
+public struct STORAGE_ATTRIBUTE_MGMT
 {
 	public uint32 Version;
 	public uint32 Size;
@@ -4724,12 +4902,14 @@ public function void PIO_IRP_EXT_PROCESS_TRACKED_OFFSET_CALLBACK(IO_IRP_EXT_TRAC
 	public uint32 Attribute;
 }
 
-[CRepr]public struct SCM_PD_HEALTH_NOTIFICATION_DATA
+[CRepr]
+public struct SCM_PD_HEALTH_NOTIFICATION_DATA
 {
 	public Guid DeviceGuid;
 }
 
-[CRepr]public struct SCM_LOGICAL_DEVICE_INSTANCE
+[CRepr]
+public struct SCM_LOGICAL_DEVICE_INSTANCE
 {
 	public uint32 Version;
 	public uint32 Size;
@@ -4737,7 +4917,8 @@ public function void PIO_IRP_EXT_PROCESS_TRACKED_OFFSET_CALLBACK(IO_IRP_EXT_TRAC
 	public char8[256] SymbolicLink;
 }
 
-[CRepr]public struct SCM_LOGICAL_DEVICES
+[CRepr]
+public struct SCM_LOGICAL_DEVICES
 {
 	public uint32 Version;
 	public uint32 Size;
@@ -4745,7 +4926,8 @@ public function void PIO_IRP_EXT_PROCESS_TRACKED_OFFSET_CALLBACK(IO_IRP_EXT_TRAC
 	public SCM_LOGICAL_DEVICE_INSTANCE[1] Devices;
 }
 
-[CRepr]public struct SCM_PHYSICAL_DEVICE_INSTANCE
+[CRepr]
+public struct SCM_PHYSICAL_DEVICE_INSTANCE
 {
 	public uint32 Version;
 	public uint32 Size;
@@ -4753,7 +4935,8 @@ public function void PIO_IRP_EXT_PROCESS_TRACKED_OFFSET_CALLBACK(IO_IRP_EXT_TRAC
 	public char8[256] SymbolicLink;
 }
 
-[CRepr]public struct SCM_PHYSICAL_DEVICES
+[CRepr]
+public struct SCM_PHYSICAL_DEVICES
 {
 	public uint32 Version;
 	public uint32 Size;
@@ -4761,7 +4944,8 @@ public function void PIO_IRP_EXT_PROCESS_TRACKED_OFFSET_CALLBACK(IO_IRP_EXT_TRAC
 	public SCM_PHYSICAL_DEVICE_INSTANCE[1] Devices;
 }
 
-[CRepr]public struct SCM_REGION
+[CRepr]
+public struct SCM_REGION
 {
 	public uint32 Version;
 	public uint32 Size;
@@ -4777,7 +4961,8 @@ public function void PIO_IRP_EXT_PROCESS_TRACKED_OFFSET_CALLBACK(IO_IRP_EXT_TRAC
 	public uint64 RegionOffset;
 }
 
-[CRepr]public struct SCM_REGIONS
+[CRepr]
+public struct SCM_REGIONS
 {
 	public uint32 Version;
 	public uint32 Size;
@@ -4785,7 +4970,8 @@ public function void PIO_IRP_EXT_PROCESS_TRACKED_OFFSET_CALLBACK(IO_IRP_EXT_TRAC
 	public SCM_REGION[1] Regions;
 }
 
-[CRepr]public struct SCM_BUS_PROPERTY_QUERY
+[CRepr]
+public struct SCM_BUS_PROPERTY_QUERY
 {
 	public uint32 Version;
 	public uint32 Size;
@@ -4794,9 +4980,11 @@ public function void PIO_IRP_EXT_PROCESS_TRACKED_OFFSET_CALLBACK(IO_IRP_EXT_TRAC
 	public uint8[1] AdditionalParameters;
 }
 
-[CRepr]public struct SCM_BUS_RUNTIME_FW_ACTIVATION_INFO
+[CRepr]
+public struct SCM_BUS_RUNTIME_FW_ACTIVATION_INFO
 {
-	[CRepr]	public struct _FirmwareActivationCapability_e__Struct
+	[CRepr]
+	public struct _FirmwareActivationCapability_e__Struct
 	{
 		public uint32 _bitfield;
 	}
@@ -4812,9 +5000,11 @@ public function void PIO_IRP_EXT_PROCESS_TRACKED_OFFSET_CALLBACK(IO_IRP_EXT_TRAC
 	public uint64 PlatformSupportedMaxIOAccessQuiesceTimeInUSecs;
 }
 
-[CRepr]public struct SCM_BUS_DEDICATED_MEMORY_DEVICE_INFO
+[CRepr]
+public struct SCM_BUS_DEDICATED_MEMORY_DEVICE_INFO
 {
-	[CRepr]	public struct _Flags_e__Struct
+	[CRepr]
+	public struct _Flags_e__Struct
 	{
 		public uint32 _bitfield;
 	}
@@ -4825,7 +5015,8 @@ public function void PIO_IRP_EXT_PROCESS_TRACKED_OFFSET_CALLBACK(IO_IRP_EXT_TRAC
 	public uint64 DeviceSize;
 }
 
-[CRepr]public struct SCM_BUS_DEDICATED_MEMORY_DEVICES_INFO
+[CRepr]
+public struct SCM_BUS_DEDICATED_MEMORY_DEVICES_INFO
 {
 	public uint32 Version;
 	public uint32 Size;
@@ -4833,7 +5024,8 @@ public function void PIO_IRP_EXT_PROCESS_TRACKED_OFFSET_CALLBACK(IO_IRP_EXT_TRAC
 	public SCM_BUS_DEDICATED_MEMORY_DEVICE_INFO[1] Devices;
 }
 
-[CRepr]public struct SCM_BUS_PROPERTY_SET
+[CRepr]
+public struct SCM_BUS_PROPERTY_SET
 {
 	public uint32 Version;
 	public uint32 Size;
@@ -4842,18 +5034,21 @@ public function void PIO_IRP_EXT_PROCESS_TRACKED_OFFSET_CALLBACK(IO_IRP_EXT_TRAC
 	public uint8[1] AdditionalParameters;
 }
 
-[CRepr]public struct SCM_BUS_DEDICATED_MEMORY_STATE
+[CRepr]
+public struct SCM_BUS_DEDICATED_MEMORY_STATE
 {
 	public BOOLEAN ActivateState;
 }
 
-[CRepr]public struct SCM_INTERLEAVED_PD_INFO
+[CRepr]
+public struct SCM_INTERLEAVED_PD_INFO
 {
 	public uint32 DeviceHandle;
 	public Guid DeviceGuid;
 }
 
-[CRepr]public struct SCM_LD_INTERLEAVE_SET_INFO
+[CRepr]
+public struct SCM_LD_INTERLEAVE_SET_INFO
 {
 	public uint32 Version;
 	public uint32 Size;
@@ -4861,7 +5056,8 @@ public function void PIO_IRP_EXT_PROCESS_TRACKED_OFFSET_CALLBACK(IO_IRP_EXT_TRAC
 	public SCM_INTERLEAVED_PD_INFO[1] InterleaveSet;
 }
 
-[CRepr]public struct SCM_PD_PROPERTY_QUERY
+[CRepr]
+public struct SCM_PD_PROPERTY_QUERY
 {
 	public uint32 Version;
 	public uint32 Size;
@@ -4870,7 +5066,8 @@ public function void PIO_IRP_EXT_PROCESS_TRACKED_OFFSET_CALLBACK(IO_IRP_EXT_TRAC
 	public uint8[1] AdditionalParameters;
 }
 
-[CRepr]public struct SCM_PD_PROPERTY_SET
+[CRepr]
+public struct SCM_PD_PROPERTY_SET
 {
 	public uint32 Version;
 	public uint32 Size;
@@ -4879,18 +5076,21 @@ public function void PIO_IRP_EXT_PROCESS_TRACKED_OFFSET_CALLBACK(IO_IRP_EXT_TRAC
 	public uint8[1] AdditionalParameters;
 }
 
-[CRepr]public struct SCM_PD_RUNTIME_FW_ACTIVATION_ARM_STATE
+[CRepr]
+public struct SCM_PD_RUNTIME_FW_ACTIVATION_ARM_STATE
 {
 	public BOOLEAN ArmState;
 }
 
-[CRepr]public struct SCM_PD_DESCRIPTOR_HEADER
+[CRepr]
+public struct SCM_PD_DESCRIPTOR_HEADER
 {
 	public uint32 Version;
 	public uint32 Size;
 }
 
-[CRepr]public struct SCM_PD_DEVICE_HANDLE
+[CRepr]
+public struct SCM_PD_DEVICE_HANDLE
 {
 	public uint32 Version;
 	public uint32 Size;
@@ -4898,7 +5098,8 @@ public function void PIO_IRP_EXT_PROCESS_TRACKED_OFFSET_CALLBACK(IO_IRP_EXT_TRAC
 	public uint32 DeviceHandle;
 }
 
-[CRepr]public struct SCM_PD_DEVICE_INFO
+[CRepr]
+public struct SCM_PD_DEVICE_INFO
 {
 	public uint32 Version;
 	public uint32 Size;
@@ -4924,13 +5125,15 @@ public function void PIO_IRP_EXT_PROCESS_TRACKED_OFFSET_CALLBACK(IO_IRP_EXT_TRAC
 	public CHAR[1] SerialNumber;
 }
 
-[CRepr]public struct SCM_PD_DEVICE_SPECIFIC_PROPERTY
+[CRepr]
+public struct SCM_PD_DEVICE_SPECIFIC_PROPERTY
 {
 	public char8[128] Name;
 	public int64 Value;
 }
 
-[CRepr]public struct SCM_PD_DEVICE_SPECIFIC_INFO
+[CRepr]
+public struct SCM_PD_DEVICE_SPECIFIC_INFO
 {
 	public uint32 Version;
 	public uint32 Size;
@@ -4938,7 +5141,8 @@ public function void PIO_IRP_EXT_PROCESS_TRACKED_OFFSET_CALLBACK(IO_IRP_EXT_TRAC
 	public SCM_PD_DEVICE_SPECIFIC_PROPERTY[1] DeviceSpecificProperties;
 }
 
-[CRepr]public struct SCM_PD_FIRMWARE_SLOT_INFO
+[CRepr]
+public struct SCM_PD_FIRMWARE_SLOT_INFO
 {
 	public uint32 Version;
 	public uint32 Size;
@@ -4948,7 +5152,8 @@ public function void PIO_IRP_EXT_PROCESS_TRACKED_OFFSET_CALLBACK(IO_IRP_EXT_TRAC
 	public uint8[32] Revision;
 }
 
-[CRepr]public struct SCM_PD_FIRMWARE_INFO
+[CRepr]
+public struct SCM_PD_FIRMWARE_INFO
 {
 	public uint32 Version;
 	public uint32 Size;
@@ -4958,7 +5163,8 @@ public function void PIO_IRP_EXT_PROCESS_TRACKED_OFFSET_CALLBACK(IO_IRP_EXT_TRAC
 	public SCM_PD_FIRMWARE_SLOT_INFO[1] Slots;
 }
 
-[CRepr]public struct SCM_PD_MANAGEMENT_STATUS
+[CRepr]
+public struct SCM_PD_MANAGEMENT_STATUS
 {
 	public uint32 Version;
 	public uint32 Size;
@@ -4969,14 +5175,16 @@ public function void PIO_IRP_EXT_PROCESS_TRACKED_OFFSET_CALLBACK(IO_IRP_EXT_TRAC
 	public SCM_PD_OPERATIONAL_STATUS_REASON[1] AdditionalReasons;
 }
 
-[CRepr]public struct SCM_PD_LOCATION_STRING
+[CRepr]
+public struct SCM_PD_LOCATION_STRING
 {
 	public uint32 Version;
 	public uint32 Size;
 	public char8[1] Location;
 }
 
-[CRepr]public struct SCM_PD_FRU_ID_STRING
+[CRepr]
+public struct SCM_PD_FRU_ID_STRING
 {
 	public uint32 Version;
 	public uint32 Size;
@@ -4984,7 +5192,8 @@ public function void PIO_IRP_EXT_PROCESS_TRACKED_OFFSET_CALLBACK(IO_IRP_EXT_TRAC
 	public uint8[1] Identifier;
 }
 
-[CRepr]public struct SCM_PD_FIRMWARE_DOWNLOAD
+[CRepr]
+public struct SCM_PD_FIRMWARE_DOWNLOAD
 {
 	public uint32 Version;
 	public uint32 Size;
@@ -4996,7 +5205,8 @@ public function void PIO_IRP_EXT_PROCESS_TRACKED_OFFSET_CALLBACK(IO_IRP_EXT_TRAC
 	public uint8[1] FirmwareImage;
 }
 
-[CRepr]public struct SCM_PD_FIRMWARE_ACTIVATE
+[CRepr]
+public struct SCM_PD_FIRMWARE_ACTIVATE
 {
 	public uint32 Version;
 	public uint32 Size;
@@ -5004,7 +5214,8 @@ public function void PIO_IRP_EXT_PROCESS_TRACKED_OFFSET_CALLBACK(IO_IRP_EXT_TRAC
 	public uint8 Slot;
 }
 
-[CRepr]public struct SCM_PD_RUNTIME_FW_ACTIVATION_INFO
+[CRepr]
+public struct SCM_PD_RUNTIME_FW_ACTIVATION_INFO
 {
 	public uint32 Version;
 	public uint32 Size;
@@ -5012,7 +5223,8 @@ public function void PIO_IRP_EXT_PROCESS_TRACKED_OFFSET_CALLBACK(IO_IRP_EXT_TRAC
 	public SCM_PD_FIRMWARE_ACTIVATION_STATE FirmwareActivationState;
 }
 
-[CRepr]public struct SCM_PD_PASSTHROUGH_INPUT
+[CRepr]
+public struct SCM_PD_PASSTHROUGH_INPUT
 {
 	public uint32 Version;
 	public uint32 Size;
@@ -5021,7 +5233,8 @@ public function void PIO_IRP_EXT_PROCESS_TRACKED_OFFSET_CALLBACK(IO_IRP_EXT_TRAC
 	public uint8[1] Data;
 }
 
-[CRepr]public struct SCM_PD_PASSTHROUGH_OUTPUT
+[CRepr]
+public struct SCM_PD_PASSTHROUGH_OUTPUT
 {
 	public uint32 Version;
 	public uint32 Size;
@@ -5030,14 +5243,16 @@ public function void PIO_IRP_EXT_PROCESS_TRACKED_OFFSET_CALLBACK(IO_IRP_EXT_TRAC
 	public uint8[1] Data;
 }
 
-[CRepr]public struct SCM_PD_PASSTHROUGH_INVDIMM_INPUT
+[CRepr]
+public struct SCM_PD_PASSTHROUGH_INVDIMM_INPUT
 {
 	public uint32 Opcode;
 	public uint32 OpcodeParametersLength;
 	public uint8[1] OpcodeParameters;
 }
 
-[CRepr]public struct SCM_PD_PASSTHROUGH_INVDIMM_OUTPUT
+[CRepr]
+public struct SCM_PD_PASSTHROUGH_INVDIMM_OUTPUT
 {
 	public uint16 GeneralStatus;
 	public uint16 ExtendedStatus;
@@ -5045,9 +5260,11 @@ public function void PIO_IRP_EXT_PROCESS_TRACKED_OFFSET_CALLBACK(IO_IRP_EXT_TRAC
 	public uint8[1] OutputData;
 }
 
-[CRepr]public struct SCM_PD_REINITIALIZE_MEDIA_INPUT
+[CRepr]
+public struct SCM_PD_REINITIALIZE_MEDIA_INPUT
 {
-	[CRepr]	public struct _Options_e__Struct
+	[CRepr]
+	public struct _Options_e__Struct
 	{
 		public uint32 _bitfield;
 	}
@@ -5057,14 +5274,16 @@ public function void PIO_IRP_EXT_PROCESS_TRACKED_OFFSET_CALLBACK(IO_IRP_EXT_TRAC
 	public _Options_e__Struct Options;
 }
 
-[CRepr]public struct SCM_PD_REINITIALIZE_MEDIA_OUTPUT
+[CRepr]
+public struct SCM_PD_REINITIALIZE_MEDIA_OUTPUT
 {
 	public uint32 Version;
 	public uint32 Size;
 	public SCM_PD_MEDIA_REINITIALIZATION_STATUS Status;
 }
 
-[CRepr]public struct FORMAT_PARAMETERS
+[CRepr]
+public struct FORMAT_PARAMETERS
 {
 	public MEDIA_TYPE MediaType;
 	public uint32 StartCylinderNumber;
@@ -5073,7 +5292,8 @@ public function void PIO_IRP_EXT_PROCESS_TRACKED_OFFSET_CALLBACK(IO_IRP_EXT_TRAC
 	public uint32 EndHeadNumber;
 }
 
-[CRepr]public struct FORMAT_EX_PARAMETERS
+[CRepr]
+public struct FORMAT_EX_PARAMETERS
 {
 	public MEDIA_TYPE MediaType;
 	public uint32 StartCylinderNumber;
@@ -5085,7 +5305,8 @@ public function void PIO_IRP_EXT_PROCESS_TRACKED_OFFSET_CALLBACK(IO_IRP_EXT_TRAC
 	public uint16[1] SectorNumber;
 }
 
-[CRepr]public struct DISK_GEOMETRY
+[CRepr]
+public struct DISK_GEOMETRY
 {
 	public LARGE_INTEGER Cylinders;
 	public MEDIA_TYPE MediaType;
@@ -5094,7 +5315,8 @@ public function void PIO_IRP_EXT_PROCESS_TRACKED_OFFSET_CALLBACK(IO_IRP_EXT_TRAC
 	public uint32 BytesPerSector;
 }
 
-[CRepr]public struct PARTITION_INFORMATION
+[CRepr]
+public struct PARTITION_INFORMATION
 {
 	public LARGE_INTEGER StartingOffset;
 	public LARGE_INTEGER PartitionLength;
@@ -5106,39 +5328,45 @@ public function void PIO_IRP_EXT_PROCESS_TRACKED_OFFSET_CALLBACK(IO_IRP_EXT_TRAC
 	public BOOLEAN RewritePartition;
 }
 
-[CRepr]public struct SET_PARTITION_INFORMATION
+[CRepr]
+public struct SET_PARTITION_INFORMATION
 {
 	public uint8 PartitionType;
 }
 
-[CRepr]public struct DRIVE_LAYOUT_INFORMATION
+[CRepr]
+public struct DRIVE_LAYOUT_INFORMATION
 {
 	public uint32 PartitionCount;
 	public uint32 Signature;
 	public PARTITION_INFORMATION[1] PartitionEntry;
 }
 
-[CRepr]public struct VERIFY_INFORMATION
+[CRepr]
+public struct VERIFY_INFORMATION
 {
 	public LARGE_INTEGER StartingOffset;
 	public uint32 Length;
 }
 
-[CRepr]public struct REASSIGN_BLOCKS
+[CRepr]
+public struct REASSIGN_BLOCKS
 {
 	public uint16 Reserved;
 	public uint16 Count;
 	public uint32[1] BlockNumber;
 }
 
-[CRepr, Packed(1)]public struct REASSIGN_BLOCKS_EX
+[CRepr, Packed(1)]
+public struct REASSIGN_BLOCKS_EX
 {
 	public uint16 Reserved;
 	public uint16 Count;
 	public LARGE_INTEGER[1] BlockNumber;
 }
 
-[CRepr]public struct PARTITION_INFORMATION_GPT
+[CRepr]
+public struct PARTITION_INFORMATION_GPT
 {
 	public Guid PartitionType;
 	public Guid PartitionId;
@@ -5146,7 +5374,8 @@ public function void PIO_IRP_EXT_PROCESS_TRACKED_OFFSET_CALLBACK(IO_IRP_EXT_TRAC
 	public char8[36] Name;
 }
 
-[CRepr]public struct PARTITION_INFORMATION_MBR
+[CRepr]
+public struct PARTITION_INFORMATION_MBR
 {
 	public uint8 PartitionType;
 	public BOOLEAN BootIndicator;
@@ -5155,9 +5384,11 @@ public function void PIO_IRP_EXT_PROCESS_TRACKED_OFFSET_CALLBACK(IO_IRP_EXT_TRAC
 	public Guid PartitionId;
 }
 
-[CRepr]public struct SET_PARTITION_INFORMATION_EX
+[CRepr]
+public struct SET_PARTITION_INFORMATION_EX
 {
-	[CRepr, Union]	public struct _Anonymous_e__Union
+	[CRepr, Union]
+	public struct _Anonymous_e__Union
 	{
 		public SET_PARTITION_INFORMATION Mbr;
 		public PARTITION_INFORMATION_GPT Gpt;
@@ -5167,20 +5398,24 @@ public function void PIO_IRP_EXT_PROCESS_TRACKED_OFFSET_CALLBACK(IO_IRP_EXT_TRAC
 	public using _Anonymous_e__Union Anonymous;
 }
 
-[CRepr]public struct CREATE_DISK_GPT
+[CRepr]
+public struct CREATE_DISK_GPT
 {
 	public Guid DiskId;
 	public uint32 MaxPartitionCount;
 }
 
-[CRepr]public struct CREATE_DISK_MBR
+[CRepr]
+public struct CREATE_DISK_MBR
 {
 	public uint32 Signature;
 }
 
-[CRepr]public struct CREATE_DISK
+[CRepr]
+public struct CREATE_DISK
 {
-	[CRepr, Union]	public struct _Anonymous_e__Union
+	[CRepr, Union]
+	public struct _Anonymous_e__Union
 	{
 		public CREATE_DISK_MBR Mbr;
 		public CREATE_DISK_GPT Gpt;
@@ -5190,14 +5425,17 @@ public function void PIO_IRP_EXT_PROCESS_TRACKED_OFFSET_CALLBACK(IO_IRP_EXT_TRAC
 	public using _Anonymous_e__Union Anonymous;
 }
 
-[CRepr]public struct GET_LENGTH_INFORMATION
+[CRepr]
+public struct GET_LENGTH_INFORMATION
 {
 	public LARGE_INTEGER Length;
 }
 
-[CRepr]public struct PARTITION_INFORMATION_EX
+[CRepr]
+public struct PARTITION_INFORMATION_EX
 {
-	[CRepr, Union]	public struct _Anonymous_e__Union
+	[CRepr, Union]
+	public struct _Anonymous_e__Union
 	{
 		public PARTITION_INFORMATION_MBR Mbr;
 		public PARTITION_INFORMATION_GPT Gpt;
@@ -5212,7 +5450,8 @@ public function void PIO_IRP_EXT_PROCESS_TRACKED_OFFSET_CALLBACK(IO_IRP_EXT_TRAC
 	public using _Anonymous_e__Union Anonymous;
 }
 
-[CRepr]public struct DRIVE_LAYOUT_INFORMATION_GPT
+[CRepr]
+public struct DRIVE_LAYOUT_INFORMATION_GPT
 {
 	public Guid DiskId;
 	public LARGE_INTEGER StartingUsableOffset;
@@ -5220,15 +5459,18 @@ public function void PIO_IRP_EXT_PROCESS_TRACKED_OFFSET_CALLBACK(IO_IRP_EXT_TRAC
 	public uint32 MaxPartitionCount;
 }
 
-[CRepr]public struct DRIVE_LAYOUT_INFORMATION_MBR
+[CRepr]
+public struct DRIVE_LAYOUT_INFORMATION_MBR
 {
 	public uint32 Signature;
 	public uint32 CheckSum;
 }
 
-[CRepr]public struct DRIVE_LAYOUT_INFORMATION_EX
+[CRepr]
+public struct DRIVE_LAYOUT_INFORMATION_EX
 {
-	[CRepr, Union]	public struct _Anonymous_e__Union
+	[CRepr, Union]
+	public struct _Anonymous_e__Union
 	{
 		public DRIVE_LAYOUT_INFORMATION_MBR Mbr;
 		public DRIVE_LAYOUT_INFORMATION_GPT Gpt;
@@ -5240,7 +5482,8 @@ public function void PIO_IRP_EXT_PROCESS_TRACKED_OFFSET_CALLBACK(IO_IRP_EXT_TRAC
 	public PARTITION_INFORMATION_EX[1] PartitionEntry;
 }
 
-[CRepr]public struct DISK_INT13_INFO
+[CRepr]
+public struct DISK_INT13_INFO
 {
 	public uint16 DriveSelect;
 	public uint32 MaxCylinders;
@@ -5249,7 +5492,8 @@ public function void PIO_IRP_EXT_PROCESS_TRACKED_OFFSET_CALLBACK(IO_IRP_EXT_TRAC
 	public uint16 NumberDrives;
 }
 
-[CRepr]public struct DISK_EX_INT13_INFO
+[CRepr]
+public struct DISK_EX_INT13_INFO
 {
 	public uint16 ExBufferSize;
 	public uint16 ExFlags;
@@ -5261,11 +5505,14 @@ public function void PIO_IRP_EXT_PROCESS_TRACKED_OFFSET_CALLBACK(IO_IRP_EXT_TRAC
 	public uint16 ExReserved;
 }
 
-[CRepr]public struct DISK_DETECTION_INFO
+[CRepr]
+public struct DISK_DETECTION_INFO
 {
-	[CRepr, Union]	public struct _Anonymous_e__Union
+	[CRepr, Union]
+	public struct _Anonymous_e__Union
 	{
-		[CRepr]		public struct _Anonymous_e__Struct
+		[CRepr]
+		public struct _Anonymous_e__Struct
 		{
 			public DISK_INT13_INFO Int13;
 			public DISK_EX_INT13_INFO ExInt13;
@@ -5279,16 +5526,20 @@ public function void PIO_IRP_EXT_PROCESS_TRACKED_OFFSET_CALLBACK(IO_IRP_EXT_TRAC
 	public using _Anonymous_e__Union Anonymous;
 }
 
-[CRepr]public struct DISK_PARTITION_INFO
+[CRepr]
+public struct DISK_PARTITION_INFO
 {
-	[CRepr, Union]	public struct _Anonymous_e__Union
+	[CRepr, Union]
+	public struct _Anonymous_e__Union
 	{
-		[CRepr]		public struct _Gpt_e__Struct
+		[CRepr]
+		public struct _Gpt_e__Struct
 		{
 			public Guid DiskId;
 		}
 
-		[CRepr]		public struct _Mbr_e__Struct
+		[CRepr]
+		public struct _Mbr_e__Struct
 		{
 			public uint32 Signature;
 			public uint32 CheckSum;
@@ -5303,30 +5554,36 @@ public function void PIO_IRP_EXT_PROCESS_TRACKED_OFFSET_CALLBACK(IO_IRP_EXT_TRAC
 	public using _Anonymous_e__Union Anonymous;
 }
 
-[CRepr]public struct DISK_GEOMETRY_EX
+[CRepr]
+public struct DISK_GEOMETRY_EX
 {
 	public DISK_GEOMETRY Geometry;
 	public LARGE_INTEGER DiskSize;
 	public uint8[1] Data;
 }
 
-[CRepr]public struct DISK_CONTROLLER_NUMBER
+[CRepr]
+public struct DISK_CONTROLLER_NUMBER
 {
 	public uint32 ControllerNumber;
 	public uint32 DiskNumber;
 }
 
-[CRepr]public struct DISK_CACHE_INFORMATION
+[CRepr]
+public struct DISK_CACHE_INFORMATION
 {
-	[CRepr, Union]	public struct _Anonymous_e__Union
+	[CRepr, Union]
+	public struct _Anonymous_e__Union
 	{
-		[CRepr]		public struct _BlockPrefetch_e__Struct
+		[CRepr]
+		public struct _BlockPrefetch_e__Struct
 		{
 			public uint16 Minimum;
 			public uint16 Maximum;
 		}
 
-		[CRepr]		public struct _ScalarPrefetch_e__Struct
+		[CRepr]
+		public struct _ScalarPrefetch_e__Struct
 		{
 			public uint16 Minimum;
 			public uint16 Maximum;
@@ -5347,19 +5604,22 @@ public function void PIO_IRP_EXT_PROCESS_TRACKED_OFFSET_CALLBACK(IO_IRP_EXT_TRAC
 	public using _Anonymous_e__Union Anonymous;
 }
 
-[CRepr]public struct DISK_GROW_PARTITION
+[CRepr]
+public struct DISK_GROW_PARTITION
 {
 	public uint32 PartitionNumber;
 	public LARGE_INTEGER BytesToGrow;
 }
 
-[CRepr]public struct HISTOGRAM_BUCKET
+[CRepr]
+public struct HISTOGRAM_BUCKET
 {
 	public uint32 Reads;
 	public uint32 Writes;
 }
 
-[CRepr]public struct DISK_HISTOGRAM
+[CRepr]
+public struct DISK_HISTOGRAM
 {
 	public LARGE_INTEGER DiskSize;
 	public LARGE_INTEGER Start;
@@ -5374,7 +5634,8 @@ public function void PIO_IRP_EXT_PROCESS_TRACKED_OFFSET_CALLBACK(IO_IRP_EXT_TRAC
 	public HISTOGRAM_BUCKET* Histogram;
 }
 
-[CRepr]public struct DISK_PERFORMANCE
+[CRepr]
+public struct DISK_PERFORMANCE
 {
 	public LARGE_INTEGER BytesRead;
 	public LARGE_INTEGER BytesWritten;
@@ -5390,7 +5651,8 @@ public function void PIO_IRP_EXT_PROCESS_TRACKED_OFFSET_CALLBACK(IO_IRP_EXT_TRAC
 	public char8[8] StorageManagerName;
 }
 
-[CRepr]public struct DISK_RECORD
+[CRepr]
+public struct DISK_RECORD
 {
 	public LARGE_INTEGER ByteOffset;
 	public LARGE_INTEGER StartTime;
@@ -5401,39 +5663,45 @@ public function void PIO_IRP_EXT_PROCESS_TRACKED_OFFSET_CALLBACK(IO_IRP_EXT_TRAC
 	public BOOLEAN ReadRequest;
 }
 
-[CRepr]public struct DISK_LOGGING
+[CRepr]
+public struct DISK_LOGGING
 {
 	public uint8 Function;
 	public void* BufferAddress;
 	public uint32 BufferSize;
 }
 
-[CRepr]public struct BIN_RANGE
+[CRepr]
+public struct BIN_RANGE
 {
 	public LARGE_INTEGER StartValue;
 	public LARGE_INTEGER Length;
 }
 
-[CRepr]public struct PERF_BIN
+[CRepr]
+public struct PERF_BIN
 {
 	public uint32 NumberOfBins;
 	public uint32 TypeOfBin;
 	public BIN_RANGE[1] BinsRanges;
 }
 
-[CRepr]public struct BIN_COUNT
+[CRepr]
+public struct BIN_COUNT
 {
 	public BIN_RANGE BinRange;
 	public uint32 BinCount;
 }
 
-[CRepr]public struct BIN_RESULTS
+[CRepr]
+public struct BIN_RESULTS
 {
 	public uint32 NumberOfBins;
 	public BIN_COUNT[1] BinCounts;
 }
 
-[CRepr, Packed(1)]public struct GETVERSIONINPARAMS
+[CRepr, Packed(1)]
+public struct GETVERSIONINPARAMS
 {
 	public uint8 bVersion;
 	public uint8 bRevision;
@@ -5443,7 +5711,8 @@ public function void PIO_IRP_EXT_PROCESS_TRACKED_OFFSET_CALLBACK(IO_IRP_EXT_TRAC
 	public uint32[4] dwReserved;
 }
 
-[CRepr]public struct IDEREGS
+[CRepr]
+public struct IDEREGS
 {
 	public uint8 bFeaturesReg;
 	public uint8 bSectorCountReg;
@@ -5455,7 +5724,8 @@ public function void PIO_IRP_EXT_PROCESS_TRACKED_OFFSET_CALLBACK(IO_IRP_EXT_TRAC
 	public uint8 bReserved;
 }
 
-[CRepr, Packed(1)]public struct SENDCMDINPARAMS
+[CRepr, Packed(1)]
+public struct SENDCMDINPARAMS
 {
 	public uint32 cBufferSize;
 	public IDEREGS irDriveRegs;
@@ -5465,7 +5735,8 @@ public function void PIO_IRP_EXT_PROCESS_TRACKED_OFFSET_CALLBACK(IO_IRP_EXT_TRAC
 	public uint8[1] bBuffer;
 }
 
-[CRepr, Packed(1)]public struct DRIVERSTATUS
+[CRepr, Packed(1)]
+public struct DRIVERSTATUS
 {
 	public uint8 bDriverError;
 	public uint8 bIDEError;
@@ -5473,21 +5744,24 @@ public function void PIO_IRP_EXT_PROCESS_TRACKED_OFFSET_CALLBACK(IO_IRP_EXT_TRAC
 	public uint32[2] dwReserved;
 }
 
-[CRepr, Packed(1)]public struct SENDCMDOUTPARAMS
+[CRepr, Packed(1)]
+public struct SENDCMDOUTPARAMS
 {
 	public uint32 cBufferSize;
 	public DRIVERSTATUS DriverStatus;
 	public uint8[1] bBuffer;
 }
 
-[CRepr]public struct GET_DISK_ATTRIBUTES
+[CRepr]
+public struct GET_DISK_ATTRIBUTES
 {
 	public uint32 Version;
 	public uint32 Reserved1;
 	public uint64 Attributes;
 }
 
-[CRepr]public struct SET_DISK_ATTRIBUTES
+[CRepr]
+public struct SET_DISK_ATTRIBUTES
 {
 	public uint32 Version;
 	public BOOLEAN Persist;
@@ -5497,19 +5771,22 @@ public function void PIO_IRP_EXT_PROCESS_TRACKED_OFFSET_CALLBACK(IO_IRP_EXT_TRAC
 	public uint32[4] Reserved2;
 }
 
-[CRepr]public struct CHANGER_ELEMENT
+[CRepr]
+public struct CHANGER_ELEMENT
 {
 	public ELEMENT_TYPE ElementType;
 	public uint32 ElementAddress;
 }
 
-[CRepr]public struct CHANGER_ELEMENT_LIST
+[CRepr]
+public struct CHANGER_ELEMENT_LIST
 {
 	public CHANGER_ELEMENT Element;
 	public uint32 NumberOfElements;
 }
 
-[CRepr]public struct GET_CHANGER_PARAMETERS
+[CRepr]
+public struct GET_CHANGER_PARAMETERS
 {
 	public uint32 Size;
 	public uint16 NumberTransportElements;
@@ -5541,7 +5818,8 @@ public function void PIO_IRP_EXT_PROCESS_TRACKED_OFFSET_CALLBACK(IO_IRP_EXT_TRAC
 	public uint32[2] Reserved2;
 }
 
-[CRepr]public struct CHANGER_PRODUCT_DATA
+[CRepr]
+public struct CHANGER_PRODUCT_DATA
 {
 	public uint8[8] VendorId;
 	public uint8[16] ProductId;
@@ -5550,19 +5828,22 @@ public function void PIO_IRP_EXT_PROCESS_TRACKED_OFFSET_CALLBACK(IO_IRP_EXT_TRAC
 	public uint8 DeviceType;
 }
 
-[CRepr]public struct CHANGER_SET_ACCESS
+[CRepr]
+public struct CHANGER_SET_ACCESS
 {
 	public CHANGER_ELEMENT Element;
 	public uint32 Control;
 }
 
-[CRepr]public struct CHANGER_READ_ELEMENT_STATUS
+[CRepr]
+public struct CHANGER_READ_ELEMENT_STATUS
 {
 	public CHANGER_ELEMENT_LIST ElementList;
 	public BOOLEAN VolumeTagInfo;
 }
 
-[CRepr]public struct CHANGER_ELEMENT_STATUS
+[CRepr]
+public struct CHANGER_ELEMENT_STATUS
 {
 	public CHANGER_ELEMENT Element;
 	public CHANGER_ELEMENT SrcElementAddress;
@@ -5575,7 +5856,8 @@ public function void PIO_IRP_EXT_PROCESS_TRACKED_OFFSET_CALLBACK(IO_IRP_EXT_TRAC
 	public uint8[36] AlternateVolumeID;
 }
 
-[CRepr]public struct CHANGER_ELEMENT_STATUS_EX
+[CRepr]
+public struct CHANGER_ELEMENT_STATUS_EX
 {
 	public CHANGER_ELEMENT Element;
 	public CHANGER_ELEMENT SrcElementAddress;
@@ -5591,20 +5873,23 @@ public function void PIO_IRP_EXT_PROCESS_TRACKED_OFFSET_CALLBACK(IO_IRP_EXT_TRAC
 	public uint8[32] SerialNumber;
 }
 
-[CRepr]public struct CHANGER_INITIALIZE_ELEMENT_STATUS
+[CRepr]
+public struct CHANGER_INITIALIZE_ELEMENT_STATUS
 {
 	public CHANGER_ELEMENT_LIST ElementList;
 	public BOOLEAN BarCodeScan;
 }
 
-[CRepr]public struct CHANGER_SET_POSITION
+[CRepr]
+public struct CHANGER_SET_POSITION
 {
 	public CHANGER_ELEMENT Transport;
 	public CHANGER_ELEMENT Destination;
 	public BOOLEAN Flip;
 }
 
-[CRepr]public struct CHANGER_EXCHANGE_MEDIUM
+[CRepr]
+public struct CHANGER_EXCHANGE_MEDIUM
 {
 	public CHANGER_ELEMENT Transport;
 	public CHANGER_ELEMENT Source;
@@ -5614,7 +5899,8 @@ public function void PIO_IRP_EXT_PROCESS_TRACKED_OFFSET_CALLBACK(IO_IRP_EXT_TRAC
 	public BOOLEAN Flip2;
 }
 
-[CRepr]public struct CHANGER_MOVE_MEDIUM
+[CRepr]
+public struct CHANGER_MOVE_MEDIUM
 {
 	public CHANGER_ELEMENT Transport;
 	public CHANGER_ELEMENT Source;
@@ -5622,31 +5908,36 @@ public function void PIO_IRP_EXT_PROCESS_TRACKED_OFFSET_CALLBACK(IO_IRP_EXT_TRAC
 	public BOOLEAN Flip;
 }
 
-[CRepr]public struct CHANGER_SEND_VOLUME_TAG_INFORMATION
+[CRepr]
+public struct CHANGER_SEND_VOLUME_TAG_INFORMATION
 {
 	public CHANGER_ELEMENT StartingElement;
 	public uint32 ActionCode;
 	public uint8[40] VolumeIDTemplate;
 }
 
-[CRepr]public struct READ_ELEMENT_ADDRESS_INFO
+[CRepr]
+public struct READ_ELEMENT_ADDRESS_INFO
 {
 	public uint32 NumberOfElements;
 	public CHANGER_ELEMENT_STATUS[1] ElementStatus;
 }
 
-[CRepr]public struct PATHNAME_BUFFER
+[CRepr]
+public struct PATHNAME_BUFFER
 {
 	public uint32 PathNameLength;
 	public char8[1] Name;
 }
 
-[CRepr]public struct FSCTL_QUERY_FAT_BPB_BUFFER
+[CRepr]
+public struct FSCTL_QUERY_FAT_BPB_BUFFER
 {
 	public uint8[36] First0x24BytesOfBootSector;
 }
 
-[CRepr]public struct NTFS_VOLUME_DATA_BUFFER
+[CRepr]
+public struct NTFS_VOLUME_DATA_BUFFER
 {
 	public LARGE_INTEGER VolumeSerialNumber;
 	public LARGE_INTEGER NumberSectors;
@@ -5664,7 +5955,8 @@ public function void PIO_IRP_EXT_PROCESS_TRACKED_OFFSET_CALLBACK(IO_IRP_EXT_TRAC
 	public LARGE_INTEGER MftZoneEnd;
 }
 
-[CRepr]public struct NTFS_EXTENDED_VOLUME_DATA
+[CRepr]
+public struct NTFS_EXTENDED_VOLUME_DATA
 {
 	public uint32 ByteCount;
 	public uint16 MajorVersion;
@@ -5678,7 +5970,8 @@ public function void PIO_IRP_EXT_PROCESS_TRACKED_OFFSET_CALLBACK(IO_IRP_EXT_TRAC
 	public uint32 MaxVolumeTrimByteCount;
 }
 
-[CRepr]public struct REFS_VOLUME_DATA_BUFFER
+[CRepr]
+public struct REFS_VOLUME_DATA_BUFFER
 {
 	public uint32 ByteCount;
 	public uint32 MajorVersion;
@@ -5698,32 +5991,38 @@ public function void PIO_IRP_EXT_PROCESS_TRACKED_OFFSET_CALLBACK(IO_IRP_EXT_TRAC
 	public LARGE_INTEGER[9] Reserved;
 }
 
-[CRepr]public struct STARTING_LCN_INPUT_BUFFER
+[CRepr]
+public struct STARTING_LCN_INPUT_BUFFER
 {
 	public LARGE_INTEGER StartingLcn;
 }
 
-[CRepr]public struct STARTING_LCN_INPUT_BUFFER_EX
+[CRepr]
+public struct STARTING_LCN_INPUT_BUFFER_EX
 {
 	public LARGE_INTEGER StartingLcn;
 	public uint32 Flags;
 }
 
-[CRepr]public struct VOLUME_BITMAP_BUFFER
+[CRepr]
+public struct VOLUME_BITMAP_BUFFER
 {
 	public LARGE_INTEGER StartingLcn;
 	public LARGE_INTEGER BitmapSize;
 	public uint8[1] Buffer;
 }
 
-[CRepr]public struct STARTING_VCN_INPUT_BUFFER
+[CRepr]
+public struct STARTING_VCN_INPUT_BUFFER
 {
 	public LARGE_INTEGER StartingVcn;
 }
 
-[CRepr]public struct RETRIEVAL_POINTERS_BUFFER
+[CRepr]
+public struct RETRIEVAL_POINTERS_BUFFER
 {
-	[CRepr]	public struct _Anonymous_e__Struct
+	[CRepr]
+	public struct _Anonymous_e__Struct
 	{
 		public LARGE_INTEGER NextVcn;
 		public LARGE_INTEGER Lcn;
@@ -5734,9 +6033,11 @@ public function void PIO_IRP_EXT_PROCESS_TRACKED_OFFSET_CALLBACK(IO_IRP_EXT_TRAC
 	public _Anonymous_e__Struct[1] Extents;
 }
 
-[CRepr]public struct RETRIEVAL_POINTERS_AND_REFCOUNT_BUFFER
+[CRepr]
+public struct RETRIEVAL_POINTERS_AND_REFCOUNT_BUFFER
 {
-	[CRepr]	public struct _Anonymous_e__Struct
+	[CRepr]
+	public struct _Anonymous_e__Struct
 	{
 		public LARGE_INTEGER NextVcn;
 		public LARGE_INTEGER Lcn;
@@ -5748,24 +6049,28 @@ public function void PIO_IRP_EXT_PROCESS_TRACKED_OFFSET_CALLBACK(IO_IRP_EXT_TRAC
 	public _Anonymous_e__Struct[1] Extents;
 }
 
-[CRepr]public struct RETRIEVAL_POINTER_COUNT
+[CRepr]
+public struct RETRIEVAL_POINTER_COUNT
 {
 	public uint32 ExtentCount;
 }
 
-[CRepr]public struct NTFS_FILE_RECORD_INPUT_BUFFER
+[CRepr]
+public struct NTFS_FILE_RECORD_INPUT_BUFFER
 {
 	public LARGE_INTEGER FileReferenceNumber;
 }
 
-[CRepr]public struct NTFS_FILE_RECORD_OUTPUT_BUFFER
+[CRepr]
+public struct NTFS_FILE_RECORD_OUTPUT_BUFFER
 {
 	public LARGE_INTEGER FileReferenceNumber;
 	public uint32 FileRecordLength;
 	public uint8[1] FileRecordBuffer;
 }
 
-[CRepr]public struct MOVE_FILE_DATA
+[CRepr]
+public struct MOVE_FILE_DATA
 {
 	public HANDLE FileHandle;
 	public LARGE_INTEGER StartingVcn;
@@ -5773,7 +6078,8 @@ public function void PIO_IRP_EXT_PROCESS_TRACKED_OFFSET_CALLBACK(IO_IRP_EXT_TRAC
 	public uint32 ClusterCount;
 }
 
-[CRepr]public struct MOVE_FILE_RECORD_DATA
+[CRepr]
+public struct MOVE_FILE_RECORD_DATA
 {
 	public HANDLE FileHandle;
 	public LARGE_INTEGER SourceFileRecord;
@@ -5781,7 +6087,8 @@ public function void PIO_IRP_EXT_PROCESS_TRACKED_OFFSET_CALLBACK(IO_IRP_EXT_TRAC
 }
 
 #if BF_64_BIT || BF_ARM_64
-[CRepr]public struct MOVE_FILE_DATA32
+[CRepr]
+public struct MOVE_FILE_DATA32
 {
 	public uint32 FileHandle;
 	public LARGE_INTEGER StartingVcn;
@@ -5790,13 +6097,15 @@ public function void PIO_IRP_EXT_PROCESS_TRACKED_OFFSET_CALLBACK(IO_IRP_EXT_TRAC
 }
 #endif
 
-[CRepr]public struct FIND_BY_SID_DATA
+[CRepr]
+public struct FIND_BY_SID_DATA
 {
 	public uint32 Restart;
 	public SID Sid;
 }
 
-[CRepr]public struct FIND_BY_SID_OUTPUT
+[CRepr]
+public struct FIND_BY_SID_OUTPUT
 {
 	public uint32 NextEntryOffset;
 	public uint32 FileIndex;
@@ -5804,14 +6113,16 @@ public function void PIO_IRP_EXT_PROCESS_TRACKED_OFFSET_CALLBACK(IO_IRP_EXT_TRAC
 	public char8[1] FileName;
 }
 
-[CRepr]public struct MFT_ENUM_DATA_V0
+[CRepr]
+public struct MFT_ENUM_DATA_V0
 {
 	public uint64 StartFileReferenceNumber;
 	public int64 LowUsn;
 	public int64 HighUsn;
 }
 
-[CRepr]public struct MFT_ENUM_DATA_V1
+[CRepr]
+public struct MFT_ENUM_DATA_V1
 {
 	public uint64 StartFileReferenceNumber;
 	public int64 LowUsn;
@@ -5820,19 +6131,22 @@ public function void PIO_IRP_EXT_PROCESS_TRACKED_OFFSET_CALLBACK(IO_IRP_EXT_TRAC
 	public uint16 MaxMajorVersion;
 }
 
-[CRepr]public struct CREATE_USN_JOURNAL_DATA
+[CRepr]
+public struct CREATE_USN_JOURNAL_DATA
 {
 	public uint64 MaximumSize;
 	public uint64 AllocationDelta;
 }
 
-[CRepr]public struct READ_FILE_USN_DATA
+[CRepr]
+public struct READ_FILE_USN_DATA
 {
 	public uint16 MinMajorVersion;
 	public uint16 MaxMajorVersion;
 }
 
-[CRepr]public struct READ_USN_JOURNAL_DATA_V0
+[CRepr]
+public struct READ_USN_JOURNAL_DATA_V0
 {
 	public int64 StartUsn;
 	public uint32 ReasonMask;
@@ -5842,7 +6156,8 @@ public function void PIO_IRP_EXT_PROCESS_TRACKED_OFFSET_CALLBACK(IO_IRP_EXT_TRAC
 	public uint64 UsnJournalID;
 }
 
-[CRepr]public struct READ_USN_JOURNAL_DATA_V1
+[CRepr]
+public struct READ_USN_JOURNAL_DATA_V1
 {
 	public int64 StartUsn;
 	public uint32 ReasonMask;
@@ -5854,7 +6169,8 @@ public function void PIO_IRP_EXT_PROCESS_TRACKED_OFFSET_CALLBACK(IO_IRP_EXT_TRAC
 	public uint16 MaxMajorVersion;
 }
 
-[CRepr]public struct USN_TRACK_MODIFIED_RANGES
+[CRepr]
+public struct USN_TRACK_MODIFIED_RANGES
 {
 	public uint32 Flags;
 	public uint32 Unused;
@@ -5862,12 +6178,14 @@ public function void PIO_IRP_EXT_PROCESS_TRACKED_OFFSET_CALLBACK(IO_IRP_EXT_TRAC
 	public int64 FileSizeThreshold;
 }
 
-[CRepr]public struct USN_RANGE_TRACK_OUTPUT
+[CRepr]
+public struct USN_RANGE_TRACK_OUTPUT
 {
 	public int64 Usn;
 }
 
-[CRepr]public struct USN_RECORD_V2
+[CRepr]
+public struct USN_RECORD_V2
 {
 	public uint32 RecordLength;
 	public uint16 MajorVersion;
@@ -5885,7 +6203,8 @@ public function void PIO_IRP_EXT_PROCESS_TRACKED_OFFSET_CALLBACK(IO_IRP_EXT_TRAC
 	public char8[1] FileName;
 }
 
-[CRepr]public struct USN_RECORD_V3
+[CRepr]
+public struct USN_RECORD_V3
 {
 	public uint32 RecordLength;
 	public uint16 MajorVersion;
@@ -5903,20 +6222,23 @@ public function void PIO_IRP_EXT_PROCESS_TRACKED_OFFSET_CALLBACK(IO_IRP_EXT_TRAC
 	public char8[1] FileName;
 }
 
-[CRepr]public struct USN_RECORD_COMMON_HEADER
+[CRepr]
+public struct USN_RECORD_COMMON_HEADER
 {
 	public uint32 RecordLength;
 	public uint16 MajorVersion;
 	public uint16 MinorVersion;
 }
 
-[CRepr]public struct USN_RECORD_EXTENT
+[CRepr]
+public struct USN_RECORD_EXTENT
 {
 	public int64 Offset;
 	public int64 Length;
 }
 
-[CRepr]public struct USN_RECORD_V4
+[CRepr]
+public struct USN_RECORD_V4
 {
 	public USN_RECORD_COMMON_HEADER Header;
 	public FILE_ID_128 FileReferenceNumber;
@@ -5930,7 +6252,8 @@ public function void PIO_IRP_EXT_PROCESS_TRACKED_OFFSET_CALLBACK(IO_IRP_EXT_TRAC
 	public USN_RECORD_EXTENT[1] Extents;
 }
 
-[CRepr, Union]public struct USN_RECORD_UNION
+[CRepr, Union]
+public struct USN_RECORD_UNION
 {
 	public USN_RECORD_COMMON_HEADER Header;
 	public USN_RECORD_V2 V2;
@@ -5938,7 +6261,8 @@ public function void PIO_IRP_EXT_PROCESS_TRACKED_OFFSET_CALLBACK(IO_IRP_EXT_TRAC
 	public USN_RECORD_V4 V4;
 }
 
-[CRepr]public struct USN_JOURNAL_DATA_V0
+[CRepr]
+public struct USN_JOURNAL_DATA_V0
 {
 	public uint64 UsnJournalID;
 	public int64 FirstUsn;
@@ -5949,7 +6273,8 @@ public function void PIO_IRP_EXT_PROCESS_TRACKED_OFFSET_CALLBACK(IO_IRP_EXT_TRAC
 	public uint64 AllocationDelta;
 }
 
-[CRepr]public struct USN_JOURNAL_DATA_V1
+[CRepr]
+public struct USN_JOURNAL_DATA_V1
 {
 	public uint64 UsnJournalID;
 	public int64 FirstUsn;
@@ -5962,7 +6287,8 @@ public function void PIO_IRP_EXT_PROCESS_TRACKED_OFFSET_CALLBACK(IO_IRP_EXT_TRAC
 	public uint16 MaxSupportedMajorVersion;
 }
 
-[CRepr]public struct USN_JOURNAL_DATA_V2
+[CRepr]
+public struct USN_JOURNAL_DATA_V2
 {
 	public uint64 UsnJournalID;
 	public int64 FirstUsn;
@@ -5978,15 +6304,18 @@ public function void PIO_IRP_EXT_PROCESS_TRACKED_OFFSET_CALLBACK(IO_IRP_EXT_TRAC
 	public int64 RangeTrackFileSizeThreshold;
 }
 
-[CRepr]public struct DELETE_USN_JOURNAL_DATA
+[CRepr]
+public struct DELETE_USN_JOURNAL_DATA
 {
 	public uint64 UsnJournalID;
 	public USN_DELETE_FLAGS DeleteFlags;
 }
 
-[CRepr]public struct MARK_HANDLE_INFO
+[CRepr]
+public struct MARK_HANDLE_INFO
 {
-	[CRepr, Union]	public struct _Anonymous_e__Union
+	[CRepr, Union]
+	public struct _Anonymous_e__Union
 	{
 		public uint32 UsnSourceInfo;
 		public uint32 CopyNumber;
@@ -5998,9 +6327,11 @@ public function void PIO_IRP_EXT_PROCESS_TRACKED_OFFSET_CALLBACK(IO_IRP_EXT_TRAC
 }
 
 #if BF_64_BIT || BF_ARM_64
-[CRepr]public struct MARK_HANDLE_INFO32
+[CRepr]
+public struct MARK_HANDLE_INFO32
 {
-	[CRepr, Union]	public struct _Anonymous_e__Union
+	[CRepr, Union]
+	public struct _Anonymous_e__Union
 	{
 		public uint32 UsnSourceInfo;
 		public uint32 CopyNumber;
@@ -6012,20 +6343,23 @@ public function void PIO_IRP_EXT_PROCESS_TRACKED_OFFSET_CALLBACK(IO_IRP_EXT_TRAC
 }
 #endif
 
-[CRepr]public struct BULK_SECURITY_TEST_DATA
+[CRepr]
+public struct BULK_SECURITY_TEST_DATA
 {
 	public uint32 DesiredAccess;
 	public uint32[1] SecurityIds;
 }
 
-[CRepr]public struct FILE_PREFETCH
+[CRepr]
+public struct FILE_PREFETCH
 {
 	public uint32 Type;
 	public uint32 Count;
 	public uint64[1] Prefetch;
 }
 
-[CRepr]public struct FILE_PREFETCH_EX
+[CRepr]
+public struct FILE_PREFETCH_EX
 {
 	public uint32 Type;
 	public uint32 Count;
@@ -6033,7 +6367,8 @@ public function void PIO_IRP_EXT_PROCESS_TRACKED_OFFSET_CALLBACK(IO_IRP_EXT_TRAC
 	public uint64[1] Prefetch;
 }
 
-[CRepr]public struct FILESYSTEM_STATISTICS
+[CRepr]
+public struct FILESYSTEM_STATISTICS
 {
 	public FILESYSTEM_STATISTICS_TYPE FileSystemType;
 	public uint16 Version;
@@ -6052,7 +6387,8 @@ public function void PIO_IRP_EXT_PROCESS_TRACKED_OFFSET_CALLBACK(IO_IRP_EXT_TRAC
 	public uint32 MetaDataDiskWrites;
 }
 
-[CRepr]public struct FAT_STATISTICS
+[CRepr]
+public struct FAT_STATISTICS
 {
 	public uint32 CreateHits;
 	public uint32 SuccessfulCreates;
@@ -6065,7 +6401,8 @@ public function void PIO_IRP_EXT_PROCESS_TRACKED_OFFSET_CALLBACK(IO_IRP_EXT_TRAC
 	public uint32 NonCachedDiskWrites;
 }
 
-[CRepr]public struct EXFAT_STATISTICS
+[CRepr]
+public struct EXFAT_STATISTICS
 {
 	public uint32 CreateHits;
 	public uint32 SuccessfulCreates;
@@ -6078,9 +6415,11 @@ public function void PIO_IRP_EXT_PROCESS_TRACKED_OFFSET_CALLBACK(IO_IRP_EXT_TRAC
 	public uint32 NonCachedDiskWrites;
 }
 
-[CRepr]public struct NTFS_STATISTICS
+[CRepr]
+public struct NTFS_STATISTICS
 {
-	[CRepr]	public struct _Allocate_e__Struct
+	[CRepr]
+	public struct _Allocate_e__Struct
 	{
 		public uint32 Calls;
 		public uint32 Clusters;
@@ -6094,22 +6433,16 @@ public function void PIO_IRP_EXT_PROCESS_TRACKED_OFFSET_CALLBACK(IO_IRP_EXT_TRAC
 		public uint32 CacheMissClusters;
 	}
 
-	[CRepr]	public struct _BitmapWritesUserLevel_e__Struct
+	[CRepr]
+	public struct _BitmapWritesUserLevel_e__Struct
 	{
 		public uint16 Write;
 		public uint16 Create;
 		public uint16 SetInfo;
 	}
 
-	[CRepr]	public struct _MftWritesUserLevel_e__Struct
-	{
-		public uint16 Write;
-		public uint16 Create;
-		public uint16 SetInfo;
-		public uint16 Flush;
-	}
-
-	[CRepr]	public struct _MftBitmapWritesUserLevel_e__Struct
+	[CRepr]
+	public struct _MftWritesUserLevel_e__Struct
 	{
 		public uint16 Write;
 		public uint16 Create;
@@ -6117,7 +6450,17 @@ public function void PIO_IRP_EXT_PROCESS_TRACKED_OFFSET_CALLBACK(IO_IRP_EXT_TRAC
 		public uint16 Flush;
 	}
 
-	[CRepr]	public struct _Mft2WritesUserLevel_e__Struct
+	[CRepr]
+	public struct _MftBitmapWritesUserLevel_e__Struct
+	{
+		public uint16 Write;
+		public uint16 Create;
+		public uint16 SetInfo;
+		public uint16 Flush;
+	}
+
+	[CRepr]
+	public struct _Mft2WritesUserLevel_e__Struct
 	{
 		public uint16 Write;
 		public uint16 Create;
@@ -6173,7 +6516,8 @@ public function void PIO_IRP_EXT_PROCESS_TRACKED_OFFSET_CALLBACK(IO_IRP_EXT_TRAC
 	public uint32 DiskResourcesExhausted;
 }
 
-[CRepr]public struct FILESYSTEM_STATISTICS_EX
+[CRepr]
+public struct FILESYSTEM_STATISTICS_EX
 {
 	public FILESYSTEM_STATISTICS_TYPE FileSystemType;
 	public uint16 Version;
@@ -6192,9 +6536,11 @@ public function void PIO_IRP_EXT_PROCESS_TRACKED_OFFSET_CALLBACK(IO_IRP_EXT_TRAC
 	public uint64 MetaDataDiskWrites;
 }
 
-[CRepr]public struct NTFS_STATISTICS_EX
+[CRepr]
+public struct NTFS_STATISTICS_EX
 {
-	[CRepr]	public struct _MftBitmapWritesUserLevel_e__Struct
+	[CRepr]
+	public struct _MftBitmapWritesUserLevel_e__Struct
 	{
 		public uint32 Write;
 		public uint32 Create;
@@ -6202,7 +6548,8 @@ public function void PIO_IRP_EXT_PROCESS_TRACKED_OFFSET_CALLBACK(IO_IRP_EXT_TRAC
 		public uint32 Flush;
 	}
 
-	[CRepr]	public struct _Mft2WritesUserLevel_e__Struct
+	[CRepr]
+	public struct _Mft2WritesUserLevel_e__Struct
 	{
 		public uint32 Write;
 		public uint32 Create;
@@ -6210,7 +6557,8 @@ public function void PIO_IRP_EXT_PROCESS_TRACKED_OFFSET_CALLBACK(IO_IRP_EXT_TRAC
 		public uint32 Flush;
 	}
 
-	[CRepr]	public struct _BitmapWritesUserLevel_e__Struct
+	[CRepr]
+	public struct _BitmapWritesUserLevel_e__Struct
 	{
 		public uint32 Write;
 		public uint32 Create;
@@ -6218,7 +6566,8 @@ public function void PIO_IRP_EXT_PROCESS_TRACKED_OFFSET_CALLBACK(IO_IRP_EXT_TRAC
 		public uint32 Flush;
 	}
 
-	[CRepr]	public struct _Allocate_e__Struct
+	[CRepr]
+	public struct _Allocate_e__Struct
 	{
 		public uint32 Calls;
 		public uint32 RunsReturned;
@@ -6232,7 +6581,8 @@ public function void PIO_IRP_EXT_PROCESS_TRACKED_OFFSET_CALLBACK(IO_IRP_EXT_TRAC
 		public uint64 CacheMissClusters;
 	}
 
-	[CRepr]	public struct _MftWritesUserLevel_e__Struct
+	[CRepr]
+	public struct _MftWritesUserLevel_e__Struct
 	{
 		public uint32 Write;
 		public uint32 Create;
@@ -6299,11 +6649,14 @@ public function void PIO_IRP_EXT_PROCESS_TRACKED_OFFSET_CALLBACK(IO_IRP_EXT_TRAC
 	public uint64 NtfsFillStatInfoFromMftRecordBailedBecauseOfNonResReparsePointCount;
 }
 
-[CRepr]public struct FILE_OBJECTID_BUFFER
+[CRepr]
+public struct FILE_OBJECTID_BUFFER
 {
-	[CRepr, Union]	public struct _Anonymous_e__Union
+	[CRepr, Union]
+	public struct _Anonymous_e__Union
 	{
-		[CRepr]		public struct _Anonymous_e__Struct
+		[CRepr]
+		public struct _Anonymous_e__Struct
 		{
 			public uint8[16] BirthVolumeId;
 			public uint8[16] BirthObjectId;
@@ -6318,48 +6671,56 @@ public function void PIO_IRP_EXT_PROCESS_TRACKED_OFFSET_CALLBACK(IO_IRP_EXT_TRAC
 	public using _Anonymous_e__Union Anonymous;
 }
 
-[CRepr]public struct FILE_SET_SPARSE_BUFFER
+[CRepr]
+public struct FILE_SET_SPARSE_BUFFER
 {
 	public BOOLEAN SetSparse;
 }
 
-[CRepr]public struct FILE_ZERO_DATA_INFORMATION
+[CRepr]
+public struct FILE_ZERO_DATA_INFORMATION
 {
 	public LARGE_INTEGER FileOffset;
 	public LARGE_INTEGER BeyondFinalZero;
 }
 
-[CRepr]public struct FILE_ZERO_DATA_INFORMATION_EX
+[CRepr]
+public struct FILE_ZERO_DATA_INFORMATION_EX
 {
 	public LARGE_INTEGER FileOffset;
 	public LARGE_INTEGER BeyondFinalZero;
 	public uint32 Flags;
 }
 
-[CRepr]public struct FILE_ALLOCATED_RANGE_BUFFER
+[CRepr]
+public struct FILE_ALLOCATED_RANGE_BUFFER
 {
 	public LARGE_INTEGER FileOffset;
 	public LARGE_INTEGER Length;
 }
 
-[CRepr]public struct ENCRYPTION_BUFFER
+[CRepr]
+public struct ENCRYPTION_BUFFER
 {
 	public uint32 EncryptionOperation;
 	public uint8[1] Private;
 }
 
-[CRepr]public struct DECRYPTION_STATUS_BUFFER
+[CRepr]
+public struct DECRYPTION_STATUS_BUFFER
 {
 	public BOOLEAN NoEncryptedStreams;
 }
 
-[CRepr]public struct REQUEST_RAW_ENCRYPTED_DATA
+[CRepr]
+public struct REQUEST_RAW_ENCRYPTED_DATA
 {
 	public int64 FileOffset;
 	public uint32 Length;
 }
 
-[CRepr]public struct ENCRYPTED_DATA_INFO
+[CRepr]
+public struct ENCRYPTED_DATA_INFO
 {
 	public uint64 StartingFileOffset;
 	public uint32 OutputBufferOffset;
@@ -6374,7 +6735,8 @@ public function void PIO_IRP_EXT_PROCESS_TRACKED_OFFSET_CALLBACK(IO_IRP_EXT_TRAC
 	public uint32[1] DataBlockSize;
 }
 
-[CRepr]public struct EXTENDED_ENCRYPTED_DATA_INFO
+[CRepr]
+public struct EXTENDED_ENCRYPTED_DATA_INFO
 {
 	public uint32 ExtendedCode;
 	public uint32 Length;
@@ -6382,14 +6744,16 @@ public function void PIO_IRP_EXT_PROCESS_TRACKED_OFFSET_CALLBACK(IO_IRP_EXT_TRAC
 	public uint32 Reserved;
 }
 
-[CRepr]public struct PLEX_READ_DATA_REQUEST
+[CRepr]
+public struct PLEX_READ_DATA_REQUEST
 {
 	public LARGE_INTEGER ByteOffset;
 	public uint32 ByteLength;
 	public uint32 PlexNumber;
 }
 
-[CRepr]public struct SI_COPYFILE
+[CRepr]
+public struct SI_COPYFILE
 {
 	public uint32 SourceFileNameLength;
 	public uint32 DestinationFileNameLength;
@@ -6397,17 +6761,20 @@ public function void PIO_IRP_EXT_PROCESS_TRACKED_OFFSET_CALLBACK(IO_IRP_EXT_TRAC
 	public char8[1] FileNameBuffer;
 }
 
-[CRepr]public struct FILE_MAKE_COMPATIBLE_BUFFER
+[CRepr]
+public struct FILE_MAKE_COMPATIBLE_BUFFER
 {
 	public BOOLEAN CloseDisc;
 }
 
-[CRepr]public struct FILE_SET_DEFECT_MGMT_BUFFER
+[CRepr]
+public struct FILE_SET_DEFECT_MGMT_BUFFER
 {
 	public BOOLEAN Disable;
 }
 
-[CRepr]public struct FILE_QUERY_SPARING_BUFFER
+[CRepr]
+public struct FILE_QUERY_SPARING_BUFFER
 {
 	public uint32 SparingUnitBytes;
 	public BOOLEAN SoftwareSparing;
@@ -6415,7 +6782,8 @@ public function void PIO_IRP_EXT_PROCESS_TRACKED_OFFSET_CALLBACK(IO_IRP_EXT_TRAC
 	public uint32 FreeSpareBlocks;
 }
 
-[CRepr]public struct FILE_QUERY_ON_DISK_VOL_INFO_BUFFER
+[CRepr]
+public struct FILE_QUERY_ON_DISK_VOL_INFO_BUFFER
 {
 	public LARGE_INTEGER DirectoryCount;
 	public LARGE_INTEGER FileCount;
@@ -6430,7 +6798,8 @@ public function void PIO_IRP_EXT_PROCESS_TRACKED_OFFSET_CALLBACK(IO_IRP_EXT_TRAC
 	public char8[34] LastModifyingImplementationInfo;
 }
 
-[CRepr]public struct FILE_INITIATE_REPAIR_OUTPUT_BUFFER
+[CRepr]
+public struct FILE_INITIATE_REPAIR_OUTPUT_BUFFER
 {
 	public uint64 Hint1;
 	public uint64 Hint2;
@@ -6438,14 +6807,16 @@ public function void PIO_IRP_EXT_PROCESS_TRACKED_OFFSET_CALLBACK(IO_IRP_EXT_TRAC
 	public uint32 Status;
 }
 
-[CRepr]public struct SHRINK_VOLUME_INFORMATION
+[CRepr]
+public struct SHRINK_VOLUME_INFORMATION
 {
 	public SHRINK_VOLUME_REQUEST_TYPES ShrinkRequestType;
 	public uint64 Flags;
 	public int64 NewNumberOfSectors;
 }
 
-[CRepr]public struct TXFS_MODIFY_RM
+[CRepr]
+public struct TXFS_MODIFY_RM
 {
 	public TXFS_RMF_LAGS Flags;
 	public uint32 LogContainerCountMax;
@@ -6457,7 +6828,8 @@ public function void PIO_IRP_EXT_PROCESS_TRACKED_OFFSET_CALLBACK(IO_IRP_EXT_TRAC
 	public uint16 LoggingMode;
 }
 
-[CRepr]public struct TXFS_QUERY_RM_INFORMATION
+[CRepr]
+public struct TXFS_QUERY_RM_INFORMATION
 {
 	public uint32 BytesRequired;
 	public uint64 TailLsn;
@@ -6487,7 +6859,8 @@ public function void PIO_IRP_EXT_PROCESS_TRACKED_OFFSET_CALLBACK(IO_IRP_EXT_TRAC
 	public uint32 TmLogPathOffset;
 }
 
-[CRepr]public struct TXFS_ROLLFORWARD_REDO_INFORMATION
+[CRepr]
+public struct TXFS_ROLLFORWARD_REDO_INFORMATION
 {
 	public LARGE_INTEGER LastVirtualClock;
 	public uint64 LastRedoLsn;
@@ -6495,7 +6868,8 @@ public function void PIO_IRP_EXT_PROCESS_TRACKED_OFFSET_CALLBACK(IO_IRP_EXT_TRAC
 	public uint32 Flags;
 }
 
-[CRepr]public struct TXFS_START_RM_INFORMATION
+[CRepr]
+public struct TXFS_START_RM_INFORMATION
 {
 	public uint32 Flags;
 	public uint64 LogContainerSize;
@@ -6511,9 +6885,11 @@ public function void PIO_IRP_EXT_PROCESS_TRACKED_OFFSET_CALLBACK(IO_IRP_EXT_TRAC
 	public char8[1] LogPath;
 }
 
-[CRepr]public struct TXFS_GET_METADATA_INFO_OUT
+[CRepr]
+public struct TXFS_GET_METADATA_INFO_OUT
 {
-	[CRepr]	public struct _TxfFileId_e__Struct
+	[CRepr]
+	public struct _TxfFileId_e__Struct
 	{
 		public int64 LowPart;
 		public int64 HighPart;
@@ -6525,7 +6901,8 @@ public function void PIO_IRP_EXT_PROCESS_TRACKED_OFFSET_CALLBACK(IO_IRP_EXT_TRAC
 	public uint32 TransactionState;
 }
 
-[CRepr]public struct TXFS_LIST_TRANSACTION_LOCKED_FILES_ENTRY
+[CRepr]
+public struct TXFS_LIST_TRANSACTION_LOCKED_FILES_ENTRY
 {
 	public uint64 Offset;
 	public uint32 NameFlags;
@@ -6536,7 +6913,8 @@ public function void PIO_IRP_EXT_PROCESS_TRACKED_OFFSET_CALLBACK(IO_IRP_EXT_TRAC
 	public char8[1] FileName;
 }
 
-[CRepr]public struct TXFS_LIST_TRANSACTION_LOCKED_FILES
+[CRepr]
+public struct TXFS_LIST_TRANSACTION_LOCKED_FILES
 {
 	public Guid KtmTransaction;
 	public uint64 NumberOfFiles;
@@ -6544,7 +6922,8 @@ public function void PIO_IRP_EXT_PROCESS_TRACKED_OFFSET_CALLBACK(IO_IRP_EXT_TRAC
 	public uint64 Offset;
 }
 
-[CRepr]public struct TXFS_LIST_TRANSACTIONS_ENTRY
+[CRepr]
+public struct TXFS_LIST_TRANSACTIONS_ENTRY
 {
 	public Guid TransactionId;
 	public uint32 TransactionState;
@@ -6553,15 +6932,18 @@ public function void PIO_IRP_EXT_PROCESS_TRACKED_OFFSET_CALLBACK(IO_IRP_EXT_TRAC
 	public int64 Reserved3;
 }
 
-[CRepr]public struct TXFS_LIST_TRANSACTIONS
+[CRepr]
+public struct TXFS_LIST_TRANSACTIONS
 {
 	public uint64 NumberOfTransactions;
 	public uint64 BufferSizeRequired;
 }
 
-[CRepr]public struct TXFS_READ_BACKUP_INFORMATION_OUT
+[CRepr]
+public struct TXFS_READ_BACKUP_INFORMATION_OUT
 {
-	[CRepr, Union]	public struct _Anonymous_e__Union
+	[CRepr, Union]
+	public struct _Anonymous_e__Union
 	{
 		public uint32 BufferLength;
 		public uint8[1] Buffer;
@@ -6570,12 +6952,14 @@ public function void PIO_IRP_EXT_PROCESS_TRACKED_OFFSET_CALLBACK(IO_IRP_EXT_TRAC
 	public using _Anonymous_e__Union Anonymous;
 }
 
-[CRepr]public struct TXFS_WRITE_BACKUP_INFORMATION
+[CRepr]
+public struct TXFS_WRITE_BACKUP_INFORMATION
 {
 	public uint8[1] Buffer;
 }
 
-[CRepr]public struct TXFS_GET_TRANSACTED_VERSION
+[CRepr]
+public struct TXFS_GET_TRANSACTED_VERSION
 {
 	public uint32 ThisBaseVersion;
 	public uint32 LatestVersion;
@@ -6584,14 +6968,16 @@ public function void PIO_IRP_EXT_PROCESS_TRACKED_OFFSET_CALLBACK(IO_IRP_EXT_TRAC
 	public uint16 LatestMiniVersion;
 }
 
-[CRepr]public struct TXFS_SAVEPOINT_INFORMATION
+[CRepr]
+public struct TXFS_SAVEPOINT_INFORMATION
 {
 	public HANDLE KtmTransaction;
 	public uint32 ActionCode;
 	public uint32 SavepointId;
 }
 
-[CRepr]public struct TXFS_CREATE_MINIVERSION_INFO
+[CRepr]
+public struct TXFS_CREATE_MINIVERSION_INFO
 {
 	public uint16 StructureVersion;
 	public uint16 StructureLength;
@@ -6599,14 +6985,17 @@ public function void PIO_IRP_EXT_PROCESS_TRACKED_OFFSET_CALLBACK(IO_IRP_EXT_TRAC
 	public uint16 MiniVersion;
 }
 
-[CRepr]public struct TXFS_TRANSACTION_ACTIVE_INFO
+[CRepr]
+public struct TXFS_TRANSACTION_ACTIVE_INFO
 {
 	public BOOLEAN TransactionsActiveAtSnapshot;
 }
 
-[CRepr]public struct BOOT_AREA_INFO
+[CRepr]
+public struct BOOT_AREA_INFO
 {
-	[CRepr]	public struct _Anonymous_e__Struct
+	[CRepr]
+	public struct _Anonymous_e__Struct
 	{
 		public LARGE_INTEGER Offset;
 	}
@@ -6615,12 +7004,14 @@ public function void PIO_IRP_EXT_PROCESS_TRACKED_OFFSET_CALLBACK(IO_IRP_EXT_TRAC
 	public _Anonymous_e__Struct[2] BootSectors;
 }
 
-[CRepr]public struct RETRIEVAL_POINTER_BASE
+[CRepr]
+public struct RETRIEVAL_POINTER_BASE
 {
 	public LARGE_INTEGER FileAreaOffset;
 }
 
-[CRepr]public struct FILE_FS_PERSISTENT_VOLUME_INFORMATION
+[CRepr]
+public struct FILE_FS_PERSISTENT_VOLUME_INFORMATION
 {
 	public uint32 VolumeFlags;
 	public uint32 FlagMask;
@@ -6628,12 +7019,14 @@ public function void PIO_IRP_EXT_PROCESS_TRACKED_OFFSET_CALLBACK(IO_IRP_EXT_TRAC
 	public uint32 Reserved;
 }
 
-[CRepr]public struct FILE_SYSTEM_RECOGNITION_INFORMATION
+[CRepr]
+public struct FILE_SYSTEM_RECOGNITION_INFORMATION
 {
 	public CHAR[9] FileSystem;
 }
 
-[CRepr]public struct REQUEST_OPLOCK_INPUT_BUFFER
+[CRepr]
+public struct REQUEST_OPLOCK_INPUT_BUFFER
 {
 	public uint16 StructureVersion;
 	public uint16 StructureLength;
@@ -6641,7 +7034,8 @@ public function void PIO_IRP_EXT_PROCESS_TRACKED_OFFSET_CALLBACK(IO_IRP_EXT_TRAC
 	public uint32 Flags;
 }
 
-[CRepr]public struct REQUEST_OPLOCK_OUTPUT_BUFFER
+[CRepr]
+public struct REQUEST_OPLOCK_OUTPUT_BUFFER
 {
 	public uint16 StructureVersion;
 	public uint16 StructureLength;
@@ -6652,13 +7046,15 @@ public function void PIO_IRP_EXT_PROCESS_TRACKED_OFFSET_CALLBACK(IO_IRP_EXT_TRAC
 	public uint16 ShareMode;
 }
 
-[CRepr]public struct STORAGE_QUERY_DEPENDENT_VOLUME_REQUEST
+[CRepr]
+public struct STORAGE_QUERY_DEPENDENT_VOLUME_REQUEST
 {
 	public uint32 RequestLevel;
 	public uint32 RequestFlags;
 }
 
-[CRepr]public struct STORAGE_QUERY_DEPENDENT_VOLUME_LEV1_ENTRY
+[CRepr]
+public struct STORAGE_QUERY_DEPENDENT_VOLUME_LEV1_ENTRY
 {
 	public uint32 EntryLength;
 	public uint32 DependencyTypeFlags;
@@ -6666,7 +7062,8 @@ public function void PIO_IRP_EXT_PROCESS_TRACKED_OFFSET_CALLBACK(IO_IRP_EXT_TRAC
 	public VIRTUAL_STORAGE_TYPE VirtualStorageType;
 }
 
-[CRepr]public struct STORAGE_QUERY_DEPENDENT_VOLUME_LEV2_ENTRY
+[CRepr]
+public struct STORAGE_QUERY_DEPENDENT_VOLUME_LEV2_ENTRY
 {
 	public uint32 EntryLength;
 	public uint32 DependencyTypeFlags;
@@ -6683,9 +7080,11 @@ public function void PIO_IRP_EXT_PROCESS_TRACKED_OFFSET_CALLBACK(IO_IRP_EXT_TRAC
 	public uint32 DependentDeviceNameSize;
 }
 
-[CRepr]public struct STORAGE_QUERY_DEPENDENT_VOLUME_RESPONSE
+[CRepr]
+public struct STORAGE_QUERY_DEPENDENT_VOLUME_RESPONSE
 {
-	[CRepr, Union]	public struct _Anonymous_e__Union
+	[CRepr, Union]
+	public struct _Anonymous_e__Union
 	{
 		public STORAGE_QUERY_DEPENDENT_VOLUME_LEV1_ENTRY[1] Lev1Depends;
 		public STORAGE_QUERY_DEPENDENT_VOLUME_LEV2_ENTRY[1] Lev2Depends;
@@ -6696,7 +7095,8 @@ public function void PIO_IRP_EXT_PROCESS_TRACKED_OFFSET_CALLBACK(IO_IRP_EXT_TRAC
 	public using _Anonymous_e__Union Anonymous;
 }
 
-[CRepr]public struct SD_CHANGE_MACHINE_SID_INPUT
+[CRepr]
+public struct SD_CHANGE_MACHINE_SID_INPUT
 {
 	public uint16 CurrentMachineSIDOffset;
 	public uint16 CurrentMachineSIDLength;
@@ -6704,7 +7104,8 @@ public function void PIO_IRP_EXT_PROCESS_TRACKED_OFFSET_CALLBACK(IO_IRP_EXT_TRAC
 	public uint16 NewMachineSIDLength;
 }
 
-[CRepr]public struct SD_CHANGE_MACHINE_SID_OUTPUT
+[CRepr]
+public struct SD_CHANGE_MACHINE_SID_OUTPUT
 {
 	public uint64 NumSDChangedSuccess;
 	public uint64 NumSDChangedFail;
@@ -6715,12 +7116,14 @@ public function void PIO_IRP_EXT_PROCESS_TRACKED_OFFSET_CALLBACK(IO_IRP_EXT_TRAC
 	public uint64 NumMftSDTotal;
 }
 
-[CRepr]public struct SD_QUERY_STATS_INPUT
+[CRepr]
+public struct SD_QUERY_STATS_INPUT
 {
 	public uint32 Reserved;
 }
 
-[CRepr]public struct SD_QUERY_STATS_OUTPUT
+[CRepr]
+public struct SD_QUERY_STATS_OUTPUT
 {
 	public uint64 SdsStreamSize;
 	public uint64 SdsAllocationSize;
@@ -6732,13 +7135,15 @@ public function void PIO_IRP_EXT_PROCESS_TRACKED_OFFSET_CALLBACK(IO_IRP_EXT_TRAC
 	public uint64 NumSDUnused;
 }
 
-[CRepr]public struct SD_ENUM_SDS_INPUT
+[CRepr]
+public struct SD_ENUM_SDS_INPUT
 {
 	public uint64 StartingOffset;
 	public uint64 MaxSDEntriesToReturn;
 }
 
-[CRepr]public struct SD_ENUM_SDS_ENTRY
+[CRepr]
+public struct SD_ENUM_SDS_ENTRY
 {
 	public uint32 Hash;
 	public uint32 SecurityId;
@@ -6747,7 +7152,8 @@ public function void PIO_IRP_EXT_PROCESS_TRACKED_OFFSET_CALLBACK(IO_IRP_EXT_TRAC
 	public uint8[1] Descriptor;
 }
 
-[CRepr]public struct SD_ENUM_SDS_OUTPUT
+[CRepr]
+public struct SD_ENUM_SDS_OUTPUT
 {
 	public uint64 NextOffset;
 	public uint64 NumSDEntriesReturned;
@@ -6755,9 +7161,11 @@ public function void PIO_IRP_EXT_PROCESS_TRACKED_OFFSET_CALLBACK(IO_IRP_EXT_TRAC
 	public SD_ENUM_SDS_ENTRY[1] SDEntry;
 }
 
-[CRepr]public struct SD_GLOBAL_CHANGE_INPUT
+[CRepr]
+public struct SD_GLOBAL_CHANGE_INPUT
 {
-	[CRepr, Union]	public struct _Anonymous_e__Union
+	[CRepr, Union]
+	public struct _Anonymous_e__Union
 	{
 		public SD_CHANGE_MACHINE_SID_INPUT SdChange;
 		public SD_QUERY_STATS_INPUT SdQueryStats;
@@ -6769,9 +7177,11 @@ public function void PIO_IRP_EXT_PROCESS_TRACKED_OFFSET_CALLBACK(IO_IRP_EXT_TRAC
 	public using _Anonymous_e__Union Anonymous;
 }
 
-[CRepr]public struct SD_GLOBAL_CHANGE_OUTPUT
+[CRepr]
+public struct SD_GLOBAL_CHANGE_OUTPUT
 {
-	[CRepr, Union]	public struct _Anonymous_e__Union
+	[CRepr, Union]
+	public struct _Anonymous_e__Union
 	{
 		public SD_CHANGE_MACHINE_SID_OUTPUT SdChange;
 		public SD_QUERY_STATS_OUTPUT SdQueryStats;
@@ -6783,21 +7193,24 @@ public function void PIO_IRP_EXT_PROCESS_TRACKED_OFFSET_CALLBACK(IO_IRP_EXT_TRAC
 	public using _Anonymous_e__Union Anonymous;
 }
 
-[CRepr]public struct LOOKUP_STREAM_FROM_CLUSTER_INPUT
+[CRepr]
+public struct LOOKUP_STREAM_FROM_CLUSTER_INPUT
 {
 	public uint32 Flags;
 	public uint32 NumberOfClusters;
 	public LARGE_INTEGER[1] Cluster;
 }
 
-[CRepr]public struct LOOKUP_STREAM_FROM_CLUSTER_OUTPUT
+[CRepr]
+public struct LOOKUP_STREAM_FROM_CLUSTER_OUTPUT
 {
 	public uint32 Offset;
 	public uint32 NumberOfMatches;
 	public uint32 BufferSizeRequired;
 }
 
-[CRepr]public struct LOOKUP_STREAM_FROM_CLUSTER_ENTRY
+[CRepr]
+public struct LOOKUP_STREAM_FROM_CLUSTER_ENTRY
 {
 	public uint32 OffsetToNext;
 	public uint32 Flags;
@@ -6806,19 +7219,22 @@ public function void PIO_IRP_EXT_PROCESS_TRACKED_OFFSET_CALLBACK(IO_IRP_EXT_TRAC
 	public char8[1] FileName;
 }
 
-[CRepr]public struct FILE_TYPE_NOTIFICATION_INPUT
+[CRepr]
+public struct FILE_TYPE_NOTIFICATION_INPUT
 {
 	public uint32 Flags;
 	public uint32 NumFileTypeIDs;
 	public Guid[1] FileTypeID;
 }
 
-[CRepr]public struct CSV_MGMT_LOCK
+[CRepr]
+public struct CSV_MGMT_LOCK
 {
 	public uint32 Flags;
 }
 
-[CRepr]public struct CSV_NAMESPACE_INFO
+[CRepr]
+public struct CSV_NAMESPACE_INFO
 {
 	public uint32 Version;
 	public uint32 DeviceNumber;
@@ -6826,32 +7242,37 @@ public function void PIO_IRP_EXT_PROCESS_TRACKED_OFFSET_CALLBACK(IO_IRP_EXT_TRAC
 	public uint32 SectorSize;
 }
 
-[CRepr]public struct CSV_CONTROL_PARAM
+[CRepr]
+public struct CSV_CONTROL_PARAM
 {
 	public CSV_CONTROL_OP Operation;
 	public int64 Unused;
 }
 
-[CRepr]public struct CSV_QUERY_REDIRECT_STATE
+[CRepr]
+public struct CSV_QUERY_REDIRECT_STATE
 {
 	public uint32 MdsNodeId;
 	public uint32 DsNodeId;
 	public BOOLEAN FileRedirected;
 }
 
-[CRepr]public struct CSV_QUERY_FILE_REVISION
+[CRepr]
+public struct CSV_QUERY_FILE_REVISION
 {
 	public int64 FileId;
 	public int64[3] FileRevision;
 }
 
-[CRepr]public struct CSV_QUERY_FILE_REVISION_FILE_ID_128
+[CRepr]
+public struct CSV_QUERY_FILE_REVISION_FILE_ID_128
 {
 	public FILE_ID_128 FileId;
 	public int64[3] FileRevision;
 }
 
-[CRepr]public struct CSV_QUERY_MDS_PATH
+[CRepr]
+public struct CSV_QUERY_MDS_PATH
 {
 	public uint32 MdsNodeId;
 	public uint32 DsNodeId;
@@ -6859,7 +7280,8 @@ public function void PIO_IRP_EXT_PROCESS_TRACKED_OFFSET_CALLBACK(IO_IRP_EXT_TRAC
 	public char8[1] Path;
 }
 
-[CRepr]public struct CSV_QUERY_VOLUME_REDIRECT_STATE
+[CRepr]
+public struct CSV_QUERY_VOLUME_REDIRECT_STATE
 {
 	public uint32 MdsNodeId;
 	public uint32 DsNodeId;
@@ -6868,7 +7290,8 @@ public function void PIO_IRP_EXT_PROCESS_TRACKED_OFFSET_CALLBACK(IO_IRP_EXT_TRAC
 	public CSVFS_DISK_CONNECTIVITY DiskConnectivity;
 }
 
-[CRepr]public struct CSV_QUERY_MDS_PATH_V2
+[CRepr]
+public struct CSV_QUERY_MDS_PATH_V2
 {
 	public int64 Version;
 	public uint32 RequiredSize;
@@ -6883,67 +7306,79 @@ public function void PIO_IRP_EXT_PROCESS_TRACKED_OFFSET_CALLBACK(IO_IRP_EXT_TRAC
 	public uint32 PathLength;
 }
 
-[CRepr]public struct CSV_SET_VOLUME_ID
+[CRepr]
+public struct CSV_SET_VOLUME_ID
 {
 	public Guid VolumeId;
 }
 
-[CRepr]public struct CSV_QUERY_VOLUME_ID
+[CRepr]
+public struct CSV_QUERY_VOLUME_ID
 {
 	public Guid VolumeId;
 }
 
-[CRepr]public struct CSV_QUERY_VETO_FILE_DIRECT_IO_OUTPUT
+[CRepr]
+public struct CSV_QUERY_VETO_FILE_DIRECT_IO_OUTPUT
 {
 	public uint64 VetoedFromAltitudeIntegral;
 	public uint64 VetoedFromAltitudeDecimal;
 	public char8[256] Reason;
 }
 
-[CRepr]public struct CSV_IS_OWNED_BY_CSVFS
+[CRepr]
+public struct CSV_IS_OWNED_BY_CSVFS
 {
 	public BOOLEAN OwnedByCSVFS;
 }
 
-[CRepr]public struct FILE_LEVEL_TRIM_RANGE
+[CRepr]
+public struct FILE_LEVEL_TRIM_RANGE
 {
 	public uint64 Offset;
 	public uint64 Length;
 }
 
-[CRepr]public struct FILE_LEVEL_TRIM
+[CRepr]
+public struct FILE_LEVEL_TRIM
 {
 	public uint32 Key;
 	public uint32 NumRanges;
 	public FILE_LEVEL_TRIM_RANGE[1] Ranges;
 }
 
-[CRepr]public struct FILE_LEVEL_TRIM_OUTPUT
+[CRepr]
+public struct FILE_LEVEL_TRIM_OUTPUT
 {
 	public uint32 NumRangesProcessed;
 }
 
-[CRepr]public struct CLUSTER_RANGE
+[CRepr]
+public struct CLUSTER_RANGE
 {
 	public LARGE_INTEGER StartingCluster;
 	public LARGE_INTEGER ClusterCount;
 }
 
-[CRepr]public struct FILE_REFERENCE_RANGE
+[CRepr]
+public struct FILE_REFERENCE_RANGE
 {
 	public uint64 StartingFileReferenceNumber;
 	public uint64 EndingFileReferenceNumber;
 }
 
-[CRepr]public struct QUERY_FILE_LAYOUT_INPUT
+[CRepr]
+public struct QUERY_FILE_LAYOUT_INPUT
 {
-	[CRepr, Union]	public struct _Anonymous_e__Union
+	[CRepr, Union]
+	public struct _Anonymous_e__Union
 	{
 		public uint32 FilterEntryCount;
 		public uint32 NumberOfPairs;
 	}
 
-	[CRepr, Union]	public struct _Filter_e__Union
+	[CRepr, Union]
+	public struct _Filter_e__Union
 	{
 		public CLUSTER_RANGE[1] ClusterRanges;
 		public FILE_REFERENCE_RANGE[1] FileReferenceRanges;
@@ -6957,7 +7392,8 @@ public function void PIO_IRP_EXT_PROCESS_TRACKED_OFFSET_CALLBACK(IO_IRP_EXT_TRAC
 	public _Filter_e__Union Filter;
 }
 
-[CRepr]public struct QUERY_FILE_LAYOUT_OUTPUT
+[CRepr]
+public struct QUERY_FILE_LAYOUT_OUTPUT
 {
 	public uint32 FileEntryCount;
 	public uint32 FirstFileOffset;
@@ -6965,7 +7401,8 @@ public function void PIO_IRP_EXT_PROCESS_TRACKED_OFFSET_CALLBACK(IO_IRP_EXT_TRAC
 	public uint32 Reserved;
 }
 
-[CRepr]public struct FILE_LAYOUT_ENTRY
+[CRepr]
+public struct FILE_LAYOUT_ENTRY
 {
 	public uint32 Version;
 	public uint32 NextFileOffset;
@@ -6978,7 +7415,8 @@ public function void PIO_IRP_EXT_PROCESS_TRACKED_OFFSET_CALLBACK(IO_IRP_EXT_TRAC
 	public uint32 ExtraInfoLength;
 }
 
-[CRepr]public struct FILE_LAYOUT_NAME_ENTRY
+[CRepr]
+public struct FILE_LAYOUT_NAME_ENTRY
 {
 	public uint32 NextNameOffset;
 	public uint32 Flags;
@@ -6988,9 +7426,11 @@ public function void PIO_IRP_EXT_PROCESS_TRACKED_OFFSET_CALLBACK(IO_IRP_EXT_TRAC
 	public char8[1] FileName;
 }
 
-[CRepr]public struct FILE_LAYOUT_INFO_ENTRY
+[CRepr]
+public struct FILE_LAYOUT_INFO_ENTRY
 {
-	[CRepr]	public struct _BasicInformation_e__Struct
+	[CRepr]
+	public struct _BasicInformation_e__Struct
 	{
 		public LARGE_INTEGER CreationTime;
 		public LARGE_INTEGER LastAccessTime;
@@ -7006,7 +7446,8 @@ public function void PIO_IRP_EXT_PROCESS_TRACKED_OFFSET_CALLBACK(IO_IRP_EXT_TRAC
 	public STORAGE_RESERVE_ID StorageReserveId;
 }
 
-[CRepr]public struct STREAM_LAYOUT_ENTRY
+[CRepr]
+public struct STREAM_LAYOUT_ENTRY
 {
 	public uint32 Version;
 	public uint32 NextStreamOffset;
@@ -7021,9 +7462,11 @@ public function void PIO_IRP_EXT_PROCESS_TRACKED_OFFSET_CALLBACK(IO_IRP_EXT_TRAC
 	public char8[1] StreamIdentifier;
 }
 
-[CRepr]public struct STREAM_EXTENT_ENTRY
+[CRepr]
+public struct STREAM_EXTENT_ENTRY
 {
-	[CRepr, Union]	public struct _ExtentInformation_e__Union
+	[CRepr, Union]
+	public struct _ExtentInformation_e__Union
 	{
 		public RETRIEVAL_POINTERS_BUFFER RetrievalPointers;
 	}
@@ -7032,7 +7475,8 @@ public function void PIO_IRP_EXT_PROCESS_TRACKED_OFFSET_CALLBACK(IO_IRP_EXT_TRAC
 	public _ExtentInformation_e__Union ExtentInformation;
 }
 
-[CRepr]public struct FSCTL_GET_INTEGRITY_INFORMATION_BUFFER
+[CRepr]
+public struct FSCTL_GET_INTEGRITY_INFORMATION_BUFFER
 {
 	public uint16 ChecksumAlgorithm;
 	public uint16 Reserved;
@@ -7041,14 +7485,16 @@ public function void PIO_IRP_EXT_PROCESS_TRACKED_OFFSET_CALLBACK(IO_IRP_EXT_TRAC
 	public uint32 ClusterSizeInBytes;
 }
 
-[CRepr]public struct FSCTL_SET_INTEGRITY_INFORMATION_BUFFER
+[CRepr]
+public struct FSCTL_SET_INTEGRITY_INFORMATION_BUFFER
 {
 	public uint16 ChecksumAlgorithm;
 	public uint16 Reserved;
 	public uint32 Flags;
 }
 
-[CRepr]public struct FSCTL_SET_INTEGRITY_INFORMATION_BUFFER_EX
+[CRepr]
+public struct FSCTL_SET_INTEGRITY_INFORMATION_BUFFER_EX
 {
 	public uint8 EnableIntegrity;
 	public uint8 KeepIntegrityStateUnchanged;
@@ -7058,7 +7504,8 @@ public function void PIO_IRP_EXT_PROCESS_TRACKED_OFFSET_CALLBACK(IO_IRP_EXT_TRAC
 	public uint8[7] Reserved2;
 }
 
-[CRepr]public struct FSCTL_OFFLOAD_READ_INPUT
+[CRepr]
+public struct FSCTL_OFFLOAD_READ_INPUT
 {
 	public uint32 Size;
 	public uint32 Flags;
@@ -7068,7 +7515,8 @@ public function void PIO_IRP_EXT_PROCESS_TRACKED_OFFSET_CALLBACK(IO_IRP_EXT_TRAC
 	public uint64 CopyLength;
 }
 
-[CRepr]public struct FSCTL_OFFLOAD_READ_OUTPUT
+[CRepr]
+public struct FSCTL_OFFLOAD_READ_OUTPUT
 {
 	public uint32 Size;
 	public uint32 Flags;
@@ -7076,7 +7524,8 @@ public function void PIO_IRP_EXT_PROCESS_TRACKED_OFFSET_CALLBACK(IO_IRP_EXT_TRAC
 	public uint8[512] Token;
 }
 
-[CRepr]public struct FSCTL_OFFLOAD_WRITE_INPUT
+[CRepr]
+public struct FSCTL_OFFLOAD_WRITE_INPUT
 {
 	public uint32 Size;
 	public uint32 Flags;
@@ -7086,19 +7535,22 @@ public function void PIO_IRP_EXT_PROCESS_TRACKED_OFFSET_CALLBACK(IO_IRP_EXT_TRAC
 	public uint8[512] Token;
 }
 
-[CRepr]public struct FSCTL_OFFLOAD_WRITE_OUTPUT
+[CRepr]
+public struct FSCTL_OFFLOAD_WRITE_OUTPUT
 {
 	public uint32 Size;
 	public uint32 Flags;
 	public uint64 LengthWritten;
 }
 
-[CRepr]public struct SET_PURGE_FAILURE_MODE_INPUT
+[CRepr]
+public struct SET_PURGE_FAILURE_MODE_INPUT
 {
 	public uint32 Flags;
 }
 
-[CRepr]public struct REPAIR_COPIES_INPUT
+[CRepr]
+public struct REPAIR_COPIES_INPUT
 {
 	public uint32 Size;
 	public uint32 Flags;
@@ -7109,14 +7561,16 @@ public function void PIO_IRP_EXT_PROCESS_TRACKED_OFFSET_CALLBACK(IO_IRP_EXT_TRAC
 	public uint32[1] RepairCopies;
 }
 
-[CRepr]public struct REPAIR_COPIES_OUTPUT
+[CRepr]
+public struct REPAIR_COPIES_OUTPUT
 {
 	public uint32 Size;
 	public uint32 Status;
 	public LARGE_INTEGER ResumeFileOffset;
 }
 
-[CRepr]public struct FILE_REGION_INFO
+[CRepr]
+public struct FILE_REGION_INFO
 {
 	public int64 FileOffset;
 	public int64 Length;
@@ -7124,7 +7578,8 @@ public function void PIO_IRP_EXT_PROCESS_TRACKED_OFFSET_CALLBACK(IO_IRP_EXT_TRAC
 	public uint32 Reserved;
 }
 
-[CRepr]public struct FILE_REGION_OUTPUT
+[CRepr]
+public struct FILE_REGION_OUTPUT
 {
 	public uint32 Flags;
 	public uint32 TotalRegionEntryCount;
@@ -7133,20 +7588,23 @@ public function void PIO_IRP_EXT_PROCESS_TRACKED_OFFSET_CALLBACK(IO_IRP_EXT_TRAC
 	public FILE_REGION_INFO[1] Region;
 }
 
-[CRepr]public struct FILE_REGION_INPUT
+[CRepr]
+public struct FILE_REGION_INPUT
 {
 	public int64 FileOffset;
 	public int64 Length;
 	public uint32 DesiredUsage;
 }
 
-[CRepr]public struct WRITE_USN_REASON_INPUT
+[CRepr]
+public struct WRITE_USN_REASON_INPUT
 {
 	public uint32 Flags;
 	public uint32 UsnReasonToWrite;
 }
 
-[CRepr]public struct FILE_STORAGE_TIER
+[CRepr]
+public struct FILE_STORAGE_TIER
 {
 	public Guid Id;
 	public char8[256] Name;
@@ -7157,7 +7615,8 @@ public function void PIO_IRP_EXT_PROCESS_TRACKED_OFFSET_CALLBACK(IO_IRP_EXT_TRAC
 	public FILE_STORAGE_TIER_CLASS Class;
 }
 
-[CRepr]public struct FSCTL_QUERY_STORAGE_CLASSES_OUTPUT
+[CRepr]
+public struct FSCTL_QUERY_STORAGE_CLASSES_OUTPUT
 {
 	public uint32 Version;
 	public uint32 Size;
@@ -7167,11 +7626,14 @@ public function void PIO_IRP_EXT_PROCESS_TRACKED_OFFSET_CALLBACK(IO_IRP_EXT_TRAC
 	public FILE_STORAGE_TIER[1] Tiers;
 }
 
-[CRepr]public struct STREAM_INFORMATION_ENTRY
+[CRepr]
+public struct STREAM_INFORMATION_ENTRY
 {
-	[CRepr, Union]	public struct _StreamInformation
+	[CRepr, Union]
+	public struct _StreamInformation
 	{
-		[CRepr]		public struct _Reparse
+		[CRepr]
+		public struct _Reparse
 		{
 			public uint16 Length;
 			public uint16 Flags;
@@ -7179,13 +7641,15 @@ public function void PIO_IRP_EXT_PROCESS_TRACKED_OFFSET_CALLBACK(IO_IRP_EXT_TRAC
 			public uint32 ReparseDataOffset;
 		}
 
-		[CRepr]		public struct _DesiredStorageClass
+		[CRepr]
+		public struct _DesiredStorageClass
 		{
 			public FILE_STORAGE_TIER_CLASS Class;
 			public uint32 Flags;
 		}
 
-		[CRepr]		public struct _DataStream
+		[CRepr]
+		public struct _DataStream
 		{
 			public uint16 Length;
 			public uint16 Flags;
@@ -7193,7 +7657,8 @@ public function void PIO_IRP_EXT_PROCESS_TRACKED_OFFSET_CALLBACK(IO_IRP_EXT_TRAC
 			public uint64 Vdl;
 		}
 
-		[CRepr]		public struct _Ea
+		[CRepr]
+		public struct _Ea
 		{
 			public uint16 Length;
 			public uint16 Flags;
@@ -7212,7 +7677,8 @@ public function void PIO_IRP_EXT_PROCESS_TRACKED_OFFSET_CALLBACK(IO_IRP_EXT_TRAC
 	public _StreamInformation StreamInformation;
 }
 
-[CRepr]public struct FSCTL_QUERY_REGION_INFO_INPUT
+[CRepr]
+public struct FSCTL_QUERY_REGION_INFO_INPUT
 {
 	public uint32 Version;
 	public uint32 Size;
@@ -7221,14 +7687,16 @@ public function void PIO_IRP_EXT_PROCESS_TRACKED_OFFSET_CALLBACK(IO_IRP_EXT_TRAC
 	public Guid[1] TierIds;
 }
 
-[CRepr]public struct FILE_STORAGE_TIER_REGION
+[CRepr]
+public struct FILE_STORAGE_TIER_REGION
 {
 	public Guid TierId;
 	public uint64 Offset;
 	public uint64 Length;
 }
 
-[CRepr]public struct FSCTL_QUERY_REGION_INFO_OUTPUT
+[CRepr]
+public struct FSCTL_QUERY_REGION_INFO_OUTPUT
 {
 	public uint32 Version;
 	public uint32 Size;
@@ -7240,13 +7708,15 @@ public function void PIO_IRP_EXT_PROCESS_TRACKED_OFFSET_CALLBACK(IO_IRP_EXT_TRAC
 	public FILE_STORAGE_TIER_REGION[1] Regions;
 }
 
-[CRepr]public struct FILE_DESIRED_STORAGE_CLASS_INFORMATION
+[CRepr]
+public struct FILE_DESIRED_STORAGE_CLASS_INFORMATION
 {
 	public FILE_STORAGE_TIER_CLASS Class;
 	public uint32 Flags;
 }
 
-[CRepr]public struct DUPLICATE_EXTENTS_DATA
+[CRepr]
+public struct DUPLICATE_EXTENTS_DATA
 {
 	public HANDLE FileHandle;
 	public LARGE_INTEGER SourceFileOffset;
@@ -7255,7 +7725,8 @@ public function void PIO_IRP_EXT_PROCESS_TRACKED_OFFSET_CALLBACK(IO_IRP_EXT_TRAC
 }
 
 #if BF_64_BIT || BF_ARM_64
-[CRepr]public struct DUPLICATE_EXTENTS_DATA32
+[CRepr]
+public struct DUPLICATE_EXTENTS_DATA32
 {
 	public uint32 FileHandle;
 	public LARGE_INTEGER SourceFileOffset;
@@ -7264,7 +7735,8 @@ public function void PIO_IRP_EXT_PROCESS_TRACKED_OFFSET_CALLBACK(IO_IRP_EXT_TRAC
 }
 #endif
 
-[CRepr]public struct DUPLICATE_EXTENTS_DATA_EX
+[CRepr]
+public struct DUPLICATE_EXTENTS_DATA_EX
 {
 	public uint Size;
 	public HANDLE FileHandle;
@@ -7275,7 +7747,8 @@ public function void PIO_IRP_EXT_PROCESS_TRACKED_OFFSET_CALLBACK(IO_IRP_EXT_TRAC
 }
 
 #if BF_64_BIT || BF_ARM_64
-[CRepr]public struct DUPLICATE_EXTENTS_DATA_EX32
+[CRepr]
+public struct DUPLICATE_EXTENTS_DATA_EX32
 {
 	public uint32 Size;
 	public uint32 FileHandle;
@@ -7286,7 +7759,8 @@ public function void PIO_IRP_EXT_PROCESS_TRACKED_OFFSET_CALLBACK(IO_IRP_EXT_TRAC
 }
 #endif
 
-[CRepr]public struct ASYNC_DUPLICATE_EXTENTS_STATUS
+[CRepr]
+public struct ASYNC_DUPLICATE_EXTENTS_STATUS
 {
 	public uint32 Version;
 	public DUPLICATE_EXTENTS_STATE State;
@@ -7296,7 +7770,8 @@ public function void PIO_IRP_EXT_PROCESS_TRACKED_OFFSET_CALLBACK(IO_IRP_EXT_TRAC
 	public uint64 BytesDuplicated;
 }
 
-[CRepr]public struct REFS_SMR_VOLUME_INFO_OUTPUT
+[CRepr]
+public struct REFS_SMR_VOLUME_INFO_OUTPUT
 {
 	public uint32 Version;
 	public uint32 Flags;
@@ -7311,7 +7786,8 @@ public function void PIO_IRP_EXT_PROCESS_TRACKED_OFFSET_CALLBACK(IO_IRP_EXT_TRAC
 	public uint64[6] Unused;
 }
 
-[CRepr]public struct REFS_SMR_VOLUME_GC_PARAMETERS
+[CRepr]
+public struct REFS_SMR_VOLUME_GC_PARAMETERS
 {
 	public uint32 Version;
 	public uint32 Flags;
@@ -7322,7 +7798,8 @@ public function void PIO_IRP_EXT_PROCESS_TRACKED_OFFSET_CALLBACK(IO_IRP_EXT_TRAC
 	public uint64[8] Unused;
 }
 
-[CRepr]public struct STREAMS_QUERY_PARAMETERS_OUTPUT_BUFFER
+[CRepr]
+public struct STREAMS_QUERY_PARAMETERS_OUTPUT_BUFFER
 {
 	public uint32 OptimalWriteSize;
 	public uint32 StreamGranularitySize;
@@ -7330,31 +7807,36 @@ public function void PIO_IRP_EXT_PROCESS_TRACKED_OFFSET_CALLBACK(IO_IRP_EXT_TRAC
 	public uint32 StreamIdMax;
 }
 
-[CRepr]public struct STREAMS_ASSOCIATE_ID_INPUT_BUFFER
+[CRepr]
+public struct STREAMS_ASSOCIATE_ID_INPUT_BUFFER
 {
 	public uint32 Flags;
 	public uint32 StreamId;
 }
 
-[CRepr]public struct STREAMS_QUERY_ID_OUTPUT_BUFFER
+[CRepr]
+public struct STREAMS_QUERY_ID_OUTPUT_BUFFER
 {
 	public uint32 StreamId;
 }
 
-[CRepr]public struct QUERY_BAD_RANGES_INPUT_RANGE
+[CRepr]
+public struct QUERY_BAD_RANGES_INPUT_RANGE
 {
 	public uint64 StartOffset;
 	public uint64 LengthInBytes;
 }
 
-[CRepr]public struct QUERY_BAD_RANGES_INPUT
+[CRepr]
+public struct QUERY_BAD_RANGES_INPUT
 {
 	public uint32 Flags;
 	public uint32 NumRanges;
 	public QUERY_BAD_RANGES_INPUT_RANGE[1] Ranges;
 }
 
-[CRepr]public struct QUERY_BAD_RANGES_OUTPUT_RANGE
+[CRepr]
+public struct QUERY_BAD_RANGES_OUTPUT_RANGE
 {
 	public uint32 Flags;
 	public uint32 Reserved;
@@ -7362,7 +7844,8 @@ public function void PIO_IRP_EXT_PROCESS_TRACKED_OFFSET_CALLBACK(IO_IRP_EXT_TRAC
 	public uint64 LengthInBytes;
 }
 
-[CRepr]public struct QUERY_BAD_RANGES_OUTPUT
+[CRepr]
+public struct QUERY_BAD_RANGES_OUTPUT
 {
 	public uint32 Flags;
 	public uint32 NumBadRanges;
@@ -7370,7 +7853,8 @@ public function void PIO_IRP_EXT_PROCESS_TRACKED_OFFSET_CALLBACK(IO_IRP_EXT_TRAC
 	public QUERY_BAD_RANGES_OUTPUT_RANGE[1] BadRanges;
 }
 
-[CRepr]public struct SET_DAX_ALLOC_ALIGNMENT_HINT_INPUT
+[CRepr]
+public struct SET_DAX_ALLOC_ALIGNMENT_HINT_INPUT
 {
 	public uint32 Flags;
 	public uint32 AlignmentShift;
@@ -7378,13 +7862,15 @@ public function void PIO_IRP_EXT_PROCESS_TRACKED_OFFSET_CALLBACK(IO_IRP_EXT_TRAC
 	public uint32 FallbackAlignmentShift;
 }
 
-[CRepr]public struct VIRTUAL_STORAGE_SET_BEHAVIOR_INPUT
+[CRepr]
+public struct VIRTUAL_STORAGE_SET_BEHAVIOR_INPUT
 {
 	public uint32 Size;
 	public VIRTUAL_STORAGE_BEHAVIOR_CODE BehaviorCode;
 }
 
-[CRepr]public struct ENCRYPTION_KEY_CTRL_INPUT
+[CRepr]
+public struct ENCRYPTION_KEY_CTRL_INPUT
 {
 	public uint32 HeaderSize;
 	public uint32 StructureSize;
@@ -7395,23 +7881,27 @@ public function void PIO_IRP_EXT_PROCESS_TRACKED_OFFSET_CALLBACK(IO_IRP_EXT_TRAC
 	public uint64 DplCredentialId;
 }
 
-[CRepr]public struct WOF_EXTERNAL_INFO
+[CRepr]
+public struct WOF_EXTERNAL_INFO
 {
 	public uint32 Version;
 	public uint32 Provider;
 }
 
-[CRepr]public struct WOF_EXTERNAL_FILE_ID
+[CRepr]
+public struct WOF_EXTERNAL_FILE_ID
 {
 	public FILE_ID_128 FileId;
 }
 
-[CRepr]public struct WOF_VERSION_INFO
+[CRepr]
+public struct WOF_VERSION_INFO
 {
 	public uint32 WofVersion;
 }
 
-[CRepr]public struct WIM_PROVIDER_EXTERNAL_INFO
+[CRepr]
+public struct WIM_PROVIDER_EXTERNAL_INFO
 {
 	public uint32 Version;
 	public uint32 Flags;
@@ -7419,7 +7909,8 @@ public function void PIO_IRP_EXT_PROCESS_TRACKED_OFFSET_CALLBACK(IO_IRP_EXT_TRAC
 	public uint8[20] ResourceHash;
 }
 
-[CRepr]public struct WIM_PROVIDER_ADD_OVERLAY_INPUT
+[CRepr]
+public struct WIM_PROVIDER_ADD_OVERLAY_INPUT
 {
 	public uint32 WimType;
 	public uint32 WimIndex;
@@ -7427,24 +7918,28 @@ public function void PIO_IRP_EXT_PROCESS_TRACKED_OFFSET_CALLBACK(IO_IRP_EXT_TRAC
 	public uint32 WimFileNameLength;
 }
 
-[CRepr]public struct WIM_PROVIDER_UPDATE_OVERLAY_INPUT
+[CRepr]
+public struct WIM_PROVIDER_UPDATE_OVERLAY_INPUT
 {
 	public LARGE_INTEGER DataSourceId;
 	public uint32 WimFileNameOffset;
 	public uint32 WimFileNameLength;
 }
 
-[CRepr]public struct WIM_PROVIDER_REMOVE_OVERLAY_INPUT
+[CRepr]
+public struct WIM_PROVIDER_REMOVE_OVERLAY_INPUT
 {
 	public LARGE_INTEGER DataSourceId;
 }
 
-[CRepr]public struct WIM_PROVIDER_SUSPEND_OVERLAY_INPUT
+[CRepr]
+public struct WIM_PROVIDER_SUSPEND_OVERLAY_INPUT
 {
 	public LARGE_INTEGER DataSourceId;
 }
 
-[CRepr]public struct WIM_PROVIDER_OVERLAY_ENTRY
+[CRepr]
+public struct WIM_PROVIDER_OVERLAY_ENTRY
 {
 	public uint32 NextEntryOffset;
 	public LARGE_INTEGER DataSourceId;
@@ -7455,42 +7950,49 @@ public function void PIO_IRP_EXT_PROCESS_TRACKED_OFFSET_CALLBACK(IO_IRP_EXT_TRAC
 	public uint32 Flags;
 }
 
-[CRepr]public struct FILE_PROVIDER_EXTERNAL_INFO_V0
+[CRepr]
+public struct FILE_PROVIDER_EXTERNAL_INFO_V0
 {
 	public uint32 Version;
 	public uint32 Algorithm;
 }
 
-[CRepr]public struct FILE_PROVIDER_EXTERNAL_INFO_V1
+[CRepr]
+public struct FILE_PROVIDER_EXTERNAL_INFO_V1
 {
 	public uint32 Version;
 	public uint32 Algorithm;
 	public uint32 Flags;
 }
 
-[CRepr]public struct CONTAINER_VOLUME_STATE
+[CRepr]
+public struct CONTAINER_VOLUME_STATE
 {
 	public uint32 Flags;
 }
 
-[CRepr]public struct CONTAINER_ROOT_INFO_INPUT
+[CRepr]
+public struct CONTAINER_ROOT_INFO_INPUT
 {
 	public uint32 Flags;
 }
 
-[CRepr]public struct CONTAINER_ROOT_INFO_OUTPUT
+[CRepr]
+public struct CONTAINER_ROOT_INFO_OUTPUT
 {
 	public uint16 ContainerRootIdLength;
 	public uint8[1] ContainerRootId;
 }
 
-[CRepr]public struct VIRTUALIZATION_INSTANCE_INFO_INPUT
+[CRepr]
+public struct VIRTUALIZATION_INSTANCE_INFO_INPUT
 {
 	public uint32 NumberOfWorkerThreads;
 	public uint32 Flags;
 }
 
-[CRepr]public struct VIRTUALIZATION_INSTANCE_INFO_INPUT_EX
+[CRepr]
+public struct VIRTUALIZATION_INSTANCE_INFO_INPUT_EX
 {
 	public uint16 HeaderSize;
 	public uint32 Flags;
@@ -7499,24 +8001,28 @@ public function void PIO_IRP_EXT_PROCESS_TRACKED_OFFSET_CALLBACK(IO_IRP_EXT_TRAC
 	public uint16 ProviderMajorVersion;
 }
 
-[CRepr]public struct VIRTUALIZATION_INSTANCE_INFO_OUTPUT
+[CRepr]
+public struct VIRTUALIZATION_INSTANCE_INFO_OUTPUT
 {
 	public Guid VirtualizationInstanceID;
 }
 
-[CRepr]public struct GET_FILTER_FILE_IDENTIFIER_INPUT
+[CRepr]
+public struct GET_FILTER_FILE_IDENTIFIER_INPUT
 {
 	public uint16 AltitudeLength;
 	public char8[1] Altitude;
 }
 
-[CRepr]public struct GET_FILTER_FILE_IDENTIFIER_OUTPUT
+[CRepr]
+public struct GET_FILTER_FILE_IDENTIFIER_OUTPUT
 {
 	public uint16 FilterFileIdentifierLength;
 	public uint8[1] FilterFileIdentifier;
 }
 
-[CRepr]public struct FS_BPIO_INPUT
+[CRepr]
+public struct FS_BPIO_INPUT
 {
 	public FS_BPIO_OPERATIONS Operation;
 	public FS_BPIO_INFLAGS InFlags;
@@ -7524,7 +8030,8 @@ public function void PIO_IRP_EXT_PROCESS_TRACKED_OFFSET_CALLBACK(IO_IRP_EXT_TRAC
 	public uint64 Reserved2;
 }
 
-[CRepr]public struct FS_BPIO_RESULTS
+[CRepr]
+public struct FS_BPIO_RESULTS
 {
 	public uint32 OpStatus;
 	public uint16 FailingDriverNameLen;
@@ -7533,16 +8040,19 @@ public function void PIO_IRP_EXT_PROCESS_TRACKED_OFFSET_CALLBACK(IO_IRP_EXT_TRAC
 	public char8[128] FailureReason;
 }
 
-[CRepr]public struct FS_BPIO_INFO
+[CRepr]
+public struct FS_BPIO_INFO
 {
 	public uint32 ActiveBypassIoCount;
 	public uint16 StorageDriverNameLen;
 	public char8[32] StorageDriverName;
 }
 
-[CRepr]public struct FS_BPIO_OUTPUT
+[CRepr]
+public struct FS_BPIO_OUTPUT
 {
-	[CRepr, Union]	public struct _Anonymous_e__Union
+	[CRepr, Union]
+	public struct _Anonymous_e__Union
 	{
 		public FS_BPIO_RESULTS Enable;
 		public FS_BPIO_RESULTS Query;
@@ -7558,35 +8068,41 @@ public function void PIO_IRP_EXT_PROCESS_TRACKED_OFFSET_CALLBACK(IO_IRP_EXT_TRAC
 	public using _Anonymous_e__Union Anonymous;
 }
 
-[CRepr]public struct SMB_SHARE_FLUSH_AND_PURGE_INPUT
+[CRepr]
+public struct SMB_SHARE_FLUSH_AND_PURGE_INPUT
 {
 	public uint16 Version;
 }
 
-[CRepr]public struct SMB_SHARE_FLUSH_AND_PURGE_OUTPUT
+[CRepr]
+public struct SMB_SHARE_FLUSH_AND_PURGE_OUTPUT
 {
 	public uint32 cEntriesPurged;
 }
 
-[CRepr]public struct DISK_EXTENT
+[CRepr]
+public struct DISK_EXTENT
 {
 	public uint32 DiskNumber;
 	public LARGE_INTEGER StartingOffset;
 	public LARGE_INTEGER ExtentLength;
 }
 
-[CRepr]public struct VOLUME_DISK_EXTENTS
+[CRepr]
+public struct VOLUME_DISK_EXTENTS
 {
 	public uint32 NumberOfDiskExtents;
 	public DISK_EXTENT[1] Extents;
 }
 
-[CRepr]public struct VOLUME_GET_GPT_ATTRIBUTES_INFORMATION
+[CRepr]
+public struct VOLUME_GET_GPT_ATTRIBUTES_INFORMATION
 {
 	public uint64 GptAttributes;
 }
 
-[CRepr]public struct IO_IRP_EXT_TRACK_OFFSET_HEADER
+[CRepr]
+public struct IO_IRP_EXT_TRACK_OFFSET_HEADER
 {
 	public uint16 Validation;
 	public uint16 Flags;

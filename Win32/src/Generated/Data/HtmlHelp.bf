@@ -592,13 +592,15 @@ public function int32 PFNCOLHEAPFREE(void* param0);
 #endregion
 
 #region Structs
-[CRepr]public struct HHN_NOTIFY
+[CRepr]
+public struct HHN_NOTIFY
 {
 	public NMHDR hdr;
 	public PSTR pszUrl;
 }
 
-[CRepr]public struct HH_POPUP
+[CRepr]
+public struct HH_POPUP
 {
 	public int32 cbStruct;
 	public HINSTANCE hinst;
@@ -611,7 +613,8 @@ public function int32 PFNCOLHEAPFREE(void* param0);
 	public int8* pszFont;
 }
 
-[CRepr]public struct HH_AKLINK
+[CRepr]
+public struct HH_AKLINK
 {
 	public int32 cbStruct;
 	public BOOL fReserved;
@@ -623,7 +626,8 @@ public function int32 PFNCOLHEAPFREE(void* param0);
 	public BOOL fIndexOnFail;
 }
 
-[CRepr]public struct HH_ENUM_IT
+[CRepr]
+public struct HH_ENUM_IT
 {
 	public int32 cbStruct;
 	public int32 iType;
@@ -632,21 +636,24 @@ public function int32 PFNCOLHEAPFREE(void* param0);
 	public PSTR pszITDescription;
 }
 
-[CRepr]public struct HH_ENUM_CAT
+[CRepr]
+public struct HH_ENUM_CAT
 {
 	public int32 cbStruct;
 	public PSTR pszCatName;
 	public PSTR pszCatDescription;
 }
 
-[CRepr]public struct HH_SET_INFOTYPE
+[CRepr]
+public struct HH_SET_INFOTYPE
 {
 	public int32 cbStruct;
 	public PSTR pszCatName;
 	public PSTR pszInfoTypeName;
 }
 
-[CRepr]public struct HH_FTS_QUERY
+[CRepr]
+public struct HH_FTS_QUERY
 {
 	public int32 cbStruct;
 	public BOOL fUniCodeStrings;
@@ -658,7 +665,8 @@ public function int32 PFNCOLHEAPFREE(void* param0);
 	public int8* pszWindow;
 }
 
-[CRepr]public struct HH_WINTYPE
+[CRepr]
+public struct HH_WINTYPE
 {
 	public int32 cbStruct;
 	public BOOL fUniCodeStrings;
@@ -698,7 +706,8 @@ public function int32 PFNCOLHEAPFREE(void* param0);
 	public int8* pszCustomTabs;
 }
 
-[CRepr]public struct HHNTRACK
+[CRepr]
+public struct HHNTRACK
 {
 	public NMHDR hdr;
 	public PSTR pszCurUrl;
@@ -706,15 +715,18 @@ public function int32 PFNCOLHEAPFREE(void* param0);
 	public HH_WINTYPE* phhWinType;
 }
 
-[CRepr]public struct HH_GLOBAL_PROPERTY
+[CRepr]
+public struct HH_GLOBAL_PROPERTY
 {
 	public HH_GPROPID id;
 	public VARIANT @var;
 }
 
-[CRepr]public struct CProperty
+[CRepr]
+public struct CProperty
 {
-	[CRepr, Union]	public struct _Anonymous_e__Union
+	[CRepr, Union]
+	public struct _Anonymous_e__Union
 	{
 		public PWSTR lpszwData;
 		public void* lpvData;
@@ -728,19 +740,23 @@ public function int32 PFNCOLHEAPFREE(void* param0);
 	public BOOL fPersist;
 }
 
-[CRepr]public struct IITGroup
+[CRepr]
+public struct IITGroup
 {
 }
 
-[CRepr]public struct IITQuery
+[CRepr]
+public struct IITQuery
 {
 }
 
-[CRepr]public struct IITStopWordList
+[CRepr]
+public struct IITStopWordList
 {
 }
 
-[CRepr]public struct ROWSTATUS
+[CRepr]
+public struct ROWSTATUS
 {
 	public int32 lRowFirst;
 	public int32 cRows;
@@ -748,7 +764,8 @@ public function int32 PFNCOLHEAPFREE(void* param0);
 	public int32 cRowsTotal;
 }
 
-[CRepr]public struct COLUMNSTATUS
+[CRepr]
+public struct COLUMNSTATUS
 {
 	public int32 cPropCount;
 	public int32 cPropsLoaded;

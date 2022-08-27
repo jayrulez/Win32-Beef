@@ -285,7 +285,8 @@ public function BOOL VDMSETCONTEXTPROC(HANDLE param0, HANDLE param1, CONTEXT* pa
 
 #region Structs
 #if BF_64_BIT || BF_ARM_64
-[CRepr]public struct VDMCONTEXT
+[CRepr]
+public struct VDMCONTEXT
 {
 	public uint32 ContextFlags;
 	public uint32 Dr0;
@@ -316,16 +317,20 @@ public function BOOL VDMSETCONTEXTPROC(HANDLE param0, HANDLE param1, CONTEXT* pa
 #endif
 
 #if BF_64_BIT || BF_ARM_64
-[CRepr]public struct VDMLDT_ENTRY
+[CRepr]
+public struct VDMLDT_ENTRY
 {
-	[CRepr, Union]	public struct _HighWord_e__Union
+	[CRepr, Union]
+	public struct _HighWord_e__Union
 	{
-		[CRepr]		public struct _Bits_e__Struct
+		[CRepr]
+		public struct _Bits_e__Struct
 		{
 			public uint32 _bitfield;
 		}
 
-		[CRepr]		public struct _Bytes_e__Struct
+		[CRepr]
+		public struct _Bytes_e__Struct
 		{
 			public uint8 BaseMid;
 			public uint8 Flags1;
@@ -343,7 +348,8 @@ public function BOOL VDMSETCONTEXTPROC(HANDLE param0, HANDLE param1, CONTEXT* pa
 }
 #endif
 
-[CRepr]public struct VDMCONTEXT_WITHOUT_XSAVE
+[CRepr]
+public struct VDMCONTEXT_WITHOUT_XSAVE
 {
 	public uint32 ContextFlags;
 	public uint32 Dr0;
@@ -371,7 +377,8 @@ public function BOOL VDMSETCONTEXTPROC(HANDLE param0, HANDLE param1, CONTEXT* pa
 	public uint32 SegSs;
 }
 
-[CRepr]public struct SEGMENT_NOTE
+[CRepr]
+public struct SEGMENT_NOTE
 {
 	public uint16 Selector1;
 	public uint16 Selector2;
@@ -382,7 +389,8 @@ public function BOOL VDMSETCONTEXTPROC(HANDLE param0, HANDLE param1, CONTEXT* pa
 	public uint32 Length;
 }
 
-[CRepr]public struct IMAGE_NOTE
+[CRepr]
+public struct IMAGE_NOTE
 {
 	public CHAR[10] Module;
 	public CHAR[256] FileName;
@@ -390,7 +398,8 @@ public function BOOL VDMSETCONTEXTPROC(HANDLE param0, HANDLE param1, CONTEXT* pa
 	public uint16 hTask;
 }
 
-[CRepr, Packed(4)]public struct MODULEENTRY
+[CRepr, Packed(4)]
+public struct MODULEENTRY
 {
 	public uint32 dwSize;
 	public CHAR[10] szModule;
@@ -400,14 +409,16 @@ public function BOOL VDMSETCONTEXTPROC(HANDLE param0, HANDLE param1, CONTEXT* pa
 	public uint16 wNext;
 }
 
-[CRepr]public struct TEMP_BP_NOTE
+[CRepr]
+public struct TEMP_BP_NOTE
 {
 	public uint16 Seg;
 	public uint32 Offset;
 	public BOOL bPM;
 }
 
-[CRepr]public struct VDM_SEGINFO
+[CRepr]
+public struct VDM_SEGINFO
 {
 	public uint16 Selector;
 	public uint16 SegNumber;
@@ -417,7 +428,8 @@ public function BOOL VDMSETCONTEXTPROC(HANDLE param0, HANDLE param1, CONTEXT* pa
 	public CHAR[255] FileName;
 }
 
-[CRepr, Packed(4)]public struct GLOBALENTRY
+[CRepr, Packed(4)]
+public struct GLOBALENTRY
 {
 	public uint32 dwSize;
 	public uint32 dwAddress;

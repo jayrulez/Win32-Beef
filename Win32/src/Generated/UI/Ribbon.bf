@@ -195,7 +195,8 @@ public enum UI_OWNERSHIP : int32
 #endregion
 
 #region Structs
-[CRepr]public struct UI_EVENTPARAMS_COMMAND
+[CRepr]
+public struct UI_EVENTPARAMS_COMMAND
 {
 	public uint32 CommandID;
 	public PWSTR CommandName;
@@ -205,9 +206,11 @@ public enum UI_OWNERSHIP : int32
 	public UI_EVENTLOCATION Location;
 }
 
-[CRepr]public struct UI_EVENTPARAMS
+[CRepr]
+public struct UI_EVENTPARAMS
 {
-	[CRepr, Union]	public struct _Anonymous_e__Union
+	[CRepr, Union]
+	public struct _Anonymous_e__Union
 	{
 		public int32 Modes;
 		public UI_EVENTPARAMS_COMMAND Params;

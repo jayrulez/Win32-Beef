@@ -151,7 +151,8 @@ public enum DMO_ENUM_FLAGS : int32
 #endregion
 
 #region Structs
-[CRepr]public struct DMO_MEDIA_TYPE
+[CRepr]
+public struct DMO_MEDIA_TYPE
 {
 	public Guid majortype;
 	public Guid subtype;
@@ -164,7 +165,8 @@ public enum DMO_ENUM_FLAGS : int32
 	public uint8* pbFormat;
 }
 
-[CRepr]public struct DMO_OUTPUT_DATA_BUFFER
+[CRepr]
+public struct DMO_OUTPUT_DATA_BUFFER
 {
 	public IMediaBuffer* pBuffer;
 	public uint32 dwStatus;
@@ -172,7 +174,8 @@ public enum DMO_ENUM_FLAGS : int32
 	public int64 rtTimelength;
 }
 
-[CRepr]public struct DMO_PARTIAL_MEDIATYPE
+[CRepr]
+public struct DMO_PARTIAL_MEDIATYPE
 {
 	public Guid type;
 	public Guid subtype;

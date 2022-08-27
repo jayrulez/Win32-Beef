@@ -756,9 +756,11 @@ public function HRESULT PFNCONTEXTCALL(ComCallData* pParam);
 #endregion
 
 #region Structs
-[CRepr, Union]public struct CY
+[CRepr, Union]
+public struct CY
 {
-	[CRepr]	public struct _Anonymous_e__Struct
+	[CRepr]
+	public struct _Anonymous_e__Struct
 	{
 		public uint32 Lo;
 		public int32 Hi;
@@ -768,7 +770,8 @@ public function HRESULT PFNCONTEXTCALL(ComCallData* pParam);
 	public int64 int64;
 }
 
-[CRepr]public struct CSPLATFORM
+[CRepr]
+public struct CSPLATFORM
 {
 	public uint32 dwPlatformId;
 	public uint32 dwVersionHi;
@@ -776,7 +779,8 @@ public function HRESULT PFNCONTEXTCALL(ComCallData* pParam);
 	public uint32 dwProcessorArch;
 }
 
-[CRepr]public struct QUERYCONTEXT
+[CRepr]
+public struct QUERYCONTEXT
 {
 	public uint32 dwContext;
 	public CSPLATFORM Platform;
@@ -785,17 +789,21 @@ public function HRESULT PFNCONTEXTCALL(ComCallData* pParam);
 	public uint32 dwVersionLo;
 }
 
-[CRepr]public struct uCLSSPEC
+[CRepr]
+public struct uCLSSPEC
 {
-	[CRepr, Union]	public struct _tagged_union_e__Struct
+	[CRepr, Union]
+	public struct _tagged_union_e__Struct
 	{
-		[CRepr]		public struct _ByName_e__Struct
+		[CRepr]
+		public struct _ByName_e__Struct
 		{
 			public PWSTR pPackageName;
 			public Guid PolicyId;
 		}
 
-		[CRepr]		public struct _ByObjectId_e__Struct
+		[CRepr]
+		public struct _ByObjectId_e__Struct
 		{
 			public Guid ObjectId;
 			public Guid PolicyId;
@@ -814,7 +822,8 @@ public function HRESULT PFNCONTEXTCALL(ComCallData* pParam);
 	public _tagged_union_e__Struct tagged_union;
 }
 
-[CRepr]public struct COAUTHIDENTITY
+[CRepr]
+public struct COAUTHIDENTITY
 {
 	public uint16* User;
 	public uint32 UserLength;
@@ -825,7 +834,8 @@ public function HRESULT PFNCONTEXTCALL(ComCallData* pParam);
 	public uint32 Flags;
 }
 
-[CRepr]public struct COAUTHINFO
+[CRepr]
+public struct COAUTHINFO
 {
 	public uint32 dwAuthnSvc;
 	public uint32 dwAuthzSvc;
@@ -836,77 +846,90 @@ public function HRESULT PFNCONTEXTCALL(ComCallData* pParam);
 	public uint32 dwCapabilities;
 }
 
-[CRepr]public struct BYTE_BLOB
+[CRepr]
+public struct BYTE_BLOB
 {
 	public uint32 clSize;
 	public uint8[1] abData;
 }
 
-[CRepr]public struct WORD_BLOB
+[CRepr]
+public struct WORD_BLOB
 {
 	public uint32 clSize;
 	public uint16[1] asData;
 }
 
-[CRepr]public struct DWORD_BLOB
+[CRepr]
+public struct DWORD_BLOB
 {
 	public uint32 clSize;
 	public uint32[1] alData;
 }
 
-[CRepr]public struct FLAGGED_BYTE_BLOB
+[CRepr]
+public struct FLAGGED_BYTE_BLOB
 {
 	public uint32 fFlags;
 	public uint32 clSize;
 	public uint8[1] abData;
 }
 
-[CRepr]public struct FLAGGED_WORD_BLOB
+[CRepr]
+public struct FLAGGED_WORD_BLOB
 {
 	public uint32 fFlags;
 	public uint32 clSize;
 	public uint16[1] asData;
 }
 
-[CRepr]public struct BYTE_SIZEDARR
+[CRepr]
+public struct BYTE_SIZEDARR
 {
 	public uint32 clSize;
 	public uint8* pData;
 }
 
-[CRepr]public struct SHORT_SIZEDARR
+[CRepr]
+public struct SHORT_SIZEDARR
 {
 	public uint32 clSize;
 	public uint16* pData;
 }
 
-[CRepr]public struct LONG_SIZEDARR
+[CRepr]
+public struct LONG_SIZEDARR
 {
 	public uint32 clSize;
 	public uint32* pData;
 }
 
-[CRepr]public struct HYPER_SIZEDARR
+[CRepr]
+public struct HYPER_SIZEDARR
 {
 	public uint32 clSize;
 	public int64* pData;
 }
 
-[CRepr]public struct BLOB
+[CRepr]
+public struct BLOB
 {
 	public uint32 cbSize;
 	public uint8* pBlobData;
 }
 
-[CRepr]public struct IEnumContextProps
+[CRepr]
+public struct IEnumContextProps
 {
 }
 
-[CRepr]public struct IContext
+[CRepr]
+public struct IContext
 {
 }
 
-[CRepr]public struct COSERVERINFO
+[CRepr]
+public struct COSERVERINFO
 {
 	public uint32 dwReserved1;
 	public PWSTR pwszName;
@@ -914,14 +937,16 @@ public function HRESULT PFNCONTEXTCALL(ComCallData* pParam);
 	public uint32 dwReserved2;
 }
 
-[CRepr]public struct MULTI_QI
+[CRepr]
+public struct MULTI_QI
 {
 	public Guid* pIID;
 	public IUnknown* pItf;
 	public HRESULT hr;
 }
 
-[CRepr]public struct STATSTG
+[CRepr]
+public struct STATSTG
 {
 	public PWSTR pwcsName;
 	public uint32 type;
@@ -936,7 +961,8 @@ public function HRESULT PFNCONTEXTCALL(ComCallData* pParam);
 	public uint32 reserved;
 }
 
-[CRepr]public struct RPCOLEMESSAGE
+[CRepr]
+public struct RPCOLEMESSAGE
 {
 	public void* reserved1;
 	public uint32 dataRepresentation;
@@ -947,7 +973,8 @@ public function HRESULT PFNCONTEXTCALL(ComCallData* pParam);
 	public uint32 rpcFlags;
 }
 
-[CRepr]public struct SChannelHookCallInfo
+[CRepr]
+public struct SChannelHookCallInfo
 {
 	public Guid iid;
 	public uint32 cbSize;
@@ -957,7 +984,8 @@ public function HRESULT PFNCONTEXTCALL(ComCallData* pParam);
 	public void* pObject;
 }
 
-[CRepr]public struct SOLE_AUTHENTICATION_SERVICE
+[CRepr]
+public struct SOLE_AUTHENTICATION_SERVICE
 {
 	public uint32 dwAuthnSvc;
 	public uint32 dwAuthzSvc;
@@ -965,25 +993,29 @@ public function HRESULT PFNCONTEXTCALL(ComCallData* pParam);
 	public HRESULT hr;
 }
 
-[CRepr]public struct SOLE_AUTHENTICATION_INFO
+[CRepr]
+public struct SOLE_AUTHENTICATION_INFO
 {
 	public uint32 dwAuthnSvc;
 	public uint32 dwAuthzSvc;
 	public void* pAuthInfo;
 }
 
-[CRepr]public struct SOLE_AUTHENTICATION_LIST
+[CRepr]
+public struct SOLE_AUTHENTICATION_LIST
 {
 	public uint32 cAuthInfo;
 	public SOLE_AUTHENTICATION_INFO* aAuthInfo;
 }
 
-[CRepr]public struct MachineGlobalObjectTableRegistrationToken__
+[CRepr]
+public struct MachineGlobalObjectTableRegistrationToken__
 {
 	public int32 unused;
 }
 
-[CRepr]public struct BIND_OPTS
+[CRepr]
+public struct BIND_OPTS
 {
 	public uint32 cbStruct;
 	public uint32 grfFlags;
@@ -991,7 +1023,8 @@ public function HRESULT PFNCONTEXTCALL(ComCallData* pParam);
 	public uint32 dwTickCountDeadline;
 }
 
-[CRepr]public struct BIND_OPTS2
+[CRepr]
+public struct BIND_OPTS2
 {
 	public BIND_OPTS __AnonymousBase_objidl_L9017_C36;
 	public uint32 dwTrackFlags;
@@ -1000,13 +1033,15 @@ public function HRESULT PFNCONTEXTCALL(ComCallData* pParam);
 	public COSERVERINFO* pServerInfo;
 }
 
-[CRepr]public struct BIND_OPTS3
+[CRepr]
+public struct BIND_OPTS3
 {
 	public BIND_OPTS2 __AnonymousBase_objidl_L9041_C36;
 	public HWND hwnd;
 }
 
-[CRepr]public struct DVTARGETDEVICE
+[CRepr]
+public struct DVTARGETDEVICE
 {
 	public uint32 tdSize;
 	public uint16 tdDriverNameOffset;
@@ -1016,7 +1051,8 @@ public function HRESULT PFNCONTEXTCALL(ComCallData* pParam);
 	public uint8[1] tdData;
 }
 
-[CRepr]public struct FORMATETC
+[CRepr]
+public struct FORMATETC
 {
 	public uint16 cfFormat;
 	public DVTARGETDEVICE* ptd;
@@ -1025,7 +1061,8 @@ public function HRESULT PFNCONTEXTCALL(ComCallData* pParam);
 	public uint32 tymed;
 }
 
-[CRepr]public struct STATDATA
+[CRepr]
+public struct STATDATA
 {
 	public FORMATETC formatetc;
 	public uint32 advf;
@@ -1033,7 +1070,8 @@ public function HRESULT PFNCONTEXTCALL(ComCallData* pParam);
 	public uint32 dwConnection;
 }
 
-[CRepr]public struct RemSTGMEDIUM
+[CRepr]
+public struct RemSTGMEDIUM
 {
 	public uint32 tymed;
 	public uint32 dwHandleType;
@@ -1043,9 +1081,11 @@ public function HRESULT PFNCONTEXTCALL(ComCallData* pParam);
 	public uint8[1] data;
 }
 
-[CRepr]public struct STGMEDIUM
+[CRepr]
+public struct STGMEDIUM
 {
-	[CRepr, Union]	public struct _Anonymous_e__Union
+	[CRepr, Union]
+	public struct _Anonymous_e__Union
 	{
 		public HBITMAP hBitmap;
 		public void* hMetaFilePict;
@@ -1061,9 +1101,11 @@ public function HRESULT PFNCONTEXTCALL(ComCallData* pParam);
 	public IUnknown* pUnkForRelease;
 }
 
-[CRepr]public struct GDI_OBJECT
+[CRepr]
+public struct GDI_OBJECT
 {
-	[CRepr, Union]	public struct _u_e__Struct
+	[CRepr, Union]
+	public struct _u_e__Struct
 	{
 		public userHBITMAP* hBitmap;
 		public userHPALETTE* hPalette;
@@ -1074,11 +1116,14 @@ public function HRESULT PFNCONTEXTCALL(ComCallData* pParam);
 	public _u_e__Struct u;
 }
 
-[CRepr]public struct userSTGMEDIUM
+[CRepr]
+public struct userSTGMEDIUM
 {
-	[CRepr]	public struct _STGMEDIUM_UNION
+	[CRepr]
+	public struct _STGMEDIUM_UNION
 	{
-		[CRepr, Union]		public struct _u_e__Struct
+		[CRepr, Union]
+		public struct _u_e__Struct
 		{
 			public userHMETAFILEPICT* hMetaFilePict;
 			public userHENHMETAFILE* hHEnhMetaFile;
@@ -1096,28 +1141,32 @@ public function HRESULT PFNCONTEXTCALL(ComCallData* pParam);
 	public IUnknown* pUnkForRelease;
 }
 
-[CRepr]public struct userFLAG_STGMEDIUM
+[CRepr]
+public struct userFLAG_STGMEDIUM
 {
 	public int32 ContextFlags;
 	public int32 fPassOwnership;
 	public userSTGMEDIUM Stgmed;
 }
 
-[CRepr]public struct FLAG_STGMEDIUM
+[CRepr]
+public struct FLAG_STGMEDIUM
 {
 	public int32 ContextFlags;
 	public int32 fPassOwnership;
 	public STGMEDIUM Stgmed;
 }
 
-[CRepr]public struct INTERFACEINFO
+[CRepr]
+public struct INTERFACEINFO
 {
 	public IUnknown* pUnk;
 	public Guid iid;
 	public uint16 wMethod;
 }
 
-[CRepr]public struct StorageLayout
+[CRepr]
+public struct StorageLayout
 {
 	public uint32 LayoutType;
 	public PWSTR pwcsElementName;
@@ -1125,21 +1174,24 @@ public function HRESULT PFNCONTEXTCALL(ComCallData* pParam);
 	public LARGE_INTEGER cBytes;
 }
 
-[CRepr]public struct CATEGORYINFO
+[CRepr]
+public struct CATEGORYINFO
 {
 	public Guid catid;
 	public uint32 lcid;
 	public char8[128] szDescription;
 }
 
-[CRepr]public struct ComCallData
+[CRepr]
+public struct ComCallData
 {
 	public uint32 dwDispid;
 	public uint32 dwReserved;
 	public void* pUserDefined;
 }
 
-[CRepr]public struct BINDINFO
+[CRepr]
+public struct BINDINFO
 {
 	public uint32 cbSize;
 	public PWSTR szExtraInfo;
@@ -1157,19 +1209,22 @@ public function HRESULT PFNCONTEXTCALL(ComCallData* pParam);
 	public uint32 dwReserved;
 }
 
-[CRepr]public struct AUTHENTICATEINFO
+[CRepr]
+public struct AUTHENTICATEINFO
 {
 	public uint32 dwFlags;
 	public uint32 dwReserved;
 }
 
-[CRepr]public struct SAFEARRAYBOUND
+[CRepr]
+public struct SAFEARRAYBOUND
 {
 	public uint32 cElements;
 	public int32 lLbound;
 }
 
-[CRepr]public struct SAFEARRAY
+[CRepr]
+public struct SAFEARRAY
 {
 	public uint16 cDims;
 	public uint16 fFeatures;
@@ -1179,15 +1234,20 @@ public function HRESULT PFNCONTEXTCALL(ComCallData* pParam);
 	public SAFEARRAYBOUND[1] rgsabound;
 }
 
-[CRepr]public struct VARIANT
+[CRepr]
+public struct VARIANT
 {
-	[CRepr, Union]	public struct _Anonymous_e__Union
+	[CRepr, Union]
+	public struct _Anonymous_e__Union
 	{
-		[CRepr]		public struct _Anonymous_e__Struct
+		[CRepr]
+		public struct _Anonymous_e__Struct
 		{
-			[CRepr, Union]			public struct _Anonymous_e__Union
+			[CRepr, Union]
+			public struct _Anonymous_e__Union
 			{
-				[CRepr]				public struct _Anonymous_e__Struct
+				[CRepr]
+				public struct _Anonymous_e__Struct
 				{
 					public void* pvRecord;
 					public IRecordInfo* pRecInfo;
@@ -1255,9 +1315,11 @@ public function HRESULT PFNCONTEXTCALL(ComCallData* pParam);
 	public using _Anonymous_e__Union Anonymous;
 }
 
-[CRepr]public struct TYPEDESC
+[CRepr]
+public struct TYPEDESC
 {
-	[CRepr, Union]	public struct _Anonymous_e__Union
+	[CRepr, Union]
+	public struct _Anonymous_e__Union
 	{
 		public TYPEDESC* lptdesc;
 		public ARRAYDESC* lpadesc;
@@ -1268,15 +1330,18 @@ public function HRESULT PFNCONTEXTCALL(ComCallData* pParam);
 	public uint16 vt;
 }
 
-[CRepr]public struct IDLDESC
+[CRepr]
+public struct IDLDESC
 {
 	public uint dwReserved;
 	public uint16 wIDLFlags;
 }
 
-[CRepr]public struct ELEMDESC
+[CRepr]
+public struct ELEMDESC
 {
-	[CRepr, Union]	public struct _Anonymous_e__Union
+	[CRepr, Union]
+	public struct _Anonymous_e__Union
 	{
 		public IDLDESC idldesc;
 		public PARAMDESC paramdesc;
@@ -1286,7 +1351,8 @@ public function HRESULT PFNCONTEXTCALL(ComCallData* pParam);
 	public using _Anonymous_e__Union Anonymous;
 }
 
-[CRepr]public struct TYPEATTR
+[CRepr]
+public struct TYPEATTR
 {
 	public Guid guid;
 	public uint32 lcid;
@@ -1308,7 +1374,8 @@ public function HRESULT PFNCONTEXTCALL(ComCallData* pParam);
 	public IDLDESC idldescType;
 }
 
-[CRepr]public struct DISPPARAMS
+[CRepr]
+public struct DISPPARAMS
 {
 	public VARIANT* rgvarg;
 	public int32* rgdispidNamedArgs;
@@ -1316,7 +1383,8 @@ public function HRESULT PFNCONTEXTCALL(ComCallData* pParam);
 	public uint32 cNamedArgs;
 }
 
-[CRepr]public struct EXCEPINFO
+[CRepr]
+public struct EXCEPINFO
 {
 	public uint16 wCode;
 	public uint16 wReserved;
@@ -1329,7 +1397,8 @@ public function HRESULT PFNCONTEXTCALL(ComCallData* pParam);
 	public int32 scode;
 }
 
-[CRepr]public struct FUNCDESC
+[CRepr]
+public struct FUNCDESC
 {
 	public int32 memid;
 	public int32* lprgscode;
@@ -1345,9 +1414,11 @@ public function HRESULT PFNCONTEXTCALL(ComCallData* pParam);
 	public uint16 wFuncFlags;
 }
 
-[CRepr]public struct VARDESC
+[CRepr]
+public struct VARDESC
 {
-	[CRepr, Union]	public struct _Anonymous_e__Union
+	[CRepr, Union]
+	public struct _Anonymous_e__Union
 	{
 		public uint32 oInst;
 		public VARIANT* lpvarValue;
@@ -1361,26 +1432,30 @@ public function HRESULT PFNCONTEXTCALL(ComCallData* pParam);
 	public VARKIND varkind;
 }
 
-[CRepr]public struct CUSTDATAITEM
+[CRepr]
+public struct CUSTDATAITEM
 {
 	public Guid guid;
 	public VARIANT varValue;
 }
 
-[CRepr]public struct CUSTDATA
+[CRepr]
+public struct CUSTDATA
 {
 	public uint32 cCustData;
 	public CUSTDATAITEM* prgCustData;
 }
 
-[CRepr, Union]public struct BINDPTR
+[CRepr, Union]
+public struct BINDPTR
 {
 	public FUNCDESC* lpfuncdesc;
 	public VARDESC* lpvardesc;
 	public ITypeComp* lptcomp;
 }
 
-[CRepr]public struct TLIBATTR
+[CRepr]
+public struct TLIBATTR
 {
 	public Guid guid;
 	public uint32 lcid;
@@ -1390,7 +1465,8 @@ public function HRESULT PFNCONTEXTCALL(ComCallData* pParam);
 	public uint16 wLibFlags;
 }
 
-[CRepr]public struct CONNECTDATA
+[CRepr]
+public struct CONNECTDATA
 {
 	public IUnknown* pUnk;
 	public uint32 dwCookie;

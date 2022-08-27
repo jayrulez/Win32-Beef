@@ -1921,13 +1921,15 @@ public function HRESULT PShutdownTextServices(IUnknown* pTextServices);
 #endregion
 
 #region Structs
-[CRepr]public struct IMECOMPTEXT
+[CRepr]
+public struct IMECOMPTEXT
 {
 	public int32 cb;
 	public IMECOMPTEXT_FLAGS flags;
 }
 
-[CRepr]public struct TABLEROWPARMS
+[CRepr]
+public struct TABLEROWPARMS
 {
 	public uint8 cbRow;
 	public uint8 cbCell;
@@ -1942,7 +1944,8 @@ public function HRESULT PShutdownTextServices(IUnknown* pTextServices);
 	public uint8 iCell;
 }
 
-[CRepr]public struct TABLECELLPARMS
+[CRepr]
+public struct TABLECELLPARMS
 {
 	public int32 dxWidth;
 	public uint16 _bitfield;
@@ -1959,7 +1962,8 @@ public function HRESULT PShutdownTextServices(IUnknown* pTextServices);
 	public uint32 crForePat;
 }
 
-[CRepr, Packed(4)]public struct RICHEDIT_IMAGE_PARAMETERS
+[CRepr, Packed(4)]
+public struct RICHEDIT_IMAGE_PARAMETERS
 {
 	public int32 xWidth;
 	public int32 yHeight;
@@ -1969,13 +1973,15 @@ public function HRESULT PShutdownTextServices(IUnknown* pTextServices);
 	public IStream* pIStream;
 }
 
-[CRepr, Packed(4)]public struct ENDCOMPOSITIONNOTIFY
+[CRepr, Packed(4)]
+public struct ENDCOMPOSITIONNOTIFY
 {
 	public NMHDR nmhdr;
 	public ENDCOMPOSITIONNOTIFY_CODE dwCode;
 }
 
-[CRepr]public struct CHARFORMATA
+[CRepr]
+public struct CHARFORMATA
 {
 	public uint32 cbSize;
 	public CFM_MASK dwMask;
@@ -1988,7 +1994,8 @@ public function HRESULT PShutdownTextServices(IUnknown* pTextServices);
 	public CHAR[32] szFaceName;
 }
 
-[CRepr]public struct CHARFORMATW
+[CRepr]
+public struct CHARFORMATW
 {
 	public uint32 cbSize;
 	public CFM_MASK dwMask;
@@ -2001,9 +2008,11 @@ public function HRESULT PShutdownTextServices(IUnknown* pTextServices);
 	public char8[32] szFaceName;
 }
 
-[CRepr]public struct CHARFORMAT2W
+[CRepr]
+public struct CHARFORMAT2W
 {
-	[CRepr, Union]	public struct _Anonymous_e__Union
+	[CRepr, Union]
+	public struct _Anonymous_e__Union
 	{
 		public uint32 dwReserved;
 		public uint32 dwCookie;
@@ -2023,9 +2032,11 @@ public function HRESULT PShutdownTextServices(IUnknown* pTextServices);
 	public uint8 bUnderlineColor;
 }
 
-[CRepr]public struct CHARFORMAT2A
+[CRepr]
+public struct CHARFORMAT2A
 {
-	[CRepr, Union]	public struct _Anonymous_e__Union
+	[CRepr, Union]
+	public struct _Anonymous_e__Union
 	{
 		public uint32 dwReserved;
 		public uint32 dwCookie;
@@ -2045,58 +2056,67 @@ public function HRESULT PShutdownTextServices(IUnknown* pTextServices);
 	public uint8 bUnderlineColor;
 }
 
-[CRepr]public struct CHARRANGE
+[CRepr]
+public struct CHARRANGE
 {
 	public int32 cpMin;
 	public int32 cpMax;
 }
 
-[CRepr, Packed(4)]public struct TEXTRANGEA
+[CRepr, Packed(4)]
+public struct TEXTRANGEA
 {
 	public CHARRANGE chrg;
 	public PSTR lpstrText;
 }
 
-[CRepr, Packed(4)]public struct TEXTRANGEW
+[CRepr, Packed(4)]
+public struct TEXTRANGEW
 {
 	public CHARRANGE chrg;
 	public PWSTR lpstrText;
 }
 
-[CRepr, Packed(4)]public struct EDITSTREAM
+[CRepr, Packed(4)]
+public struct EDITSTREAM
 {
 	public uint dwCookie;
 	public uint32 dwError;
 	public EDITSTREAMCALLBACK pfnCallback;
 }
 
-[CRepr, Packed(4)]public struct FINDTEXTA
+[CRepr, Packed(4)]
+public struct FINDTEXTA
 {
 	public CHARRANGE chrg;
 	public PSTR lpstrText;
 }
 
-[CRepr, Packed(4)]public struct FINDTEXTW
+[CRepr, Packed(4)]
+public struct FINDTEXTW
 {
 	public CHARRANGE chrg;
 	public PWSTR lpstrText;
 }
 
-[CRepr, Packed(4)]public struct FINDTEXTEXA
+[CRepr, Packed(4)]
+public struct FINDTEXTEXA
 {
 	public CHARRANGE chrg;
 	public PSTR lpstrText;
 	public CHARRANGE chrgText;
 }
 
-[CRepr, Packed(4)]public struct FINDTEXTEXW
+[CRepr, Packed(4)]
+public struct FINDTEXTEXW
 {
 	public CHARRANGE chrg;
 	public PWSTR lpstrText;
 	public CHARRANGE chrgText;
 }
 
-[CRepr, Packed(4)]public struct FORMATRANGE
+[CRepr, Packed(4)]
+public struct FORMATRANGE
 {
 	public HDC hdc;
 	public HDC hdcTarget;
@@ -2105,9 +2125,11 @@ public function HRESULT PShutdownTextServices(IUnknown* pTextServices);
 	public CHARRANGE chrg;
 }
 
-[CRepr]public struct PARAFORMAT
+[CRepr]
+public struct PARAFORMAT
 {
-	[CRepr, Union]	public struct _Anonymous_e__Union
+	[CRepr, Union]
+	public struct _Anonymous_e__Union
 	{
 		public uint16 wReserved;
 		public uint16 wEffects;
@@ -2125,7 +2147,8 @@ public function HRESULT PShutdownTextServices(IUnknown* pTextServices);
 	public uint32[32] rgxTabs;
 }
 
-[CRepr]public struct PARAFORMAT2
+[CRepr]
+public struct PARAFORMAT2
 {
 	public PARAFORMAT __AnonymousBase_richedit_L1149_C22;
 	public int32 dySpaceBefore;
@@ -2144,7 +2167,8 @@ public function HRESULT PShutdownTextServices(IUnknown* pTextServices);
 	public PARAFORMAT_BORDERS wBorders;
 }
 
-[CRepr, Packed(4)]public struct MSGFILTER
+[CRepr, Packed(4)]
+public struct MSGFILTER
 {
 	public NMHDR nmhdr;
 	public uint32 msg;
@@ -2152,32 +2176,37 @@ public function HRESULT PShutdownTextServices(IUnknown* pTextServices);
 	public LPARAM lParam;
 }
 
-[CRepr, Packed(4)]public struct REQRESIZE
+[CRepr, Packed(4)]
+public struct REQRESIZE
 {
 	public NMHDR nmhdr;
 	public RECT rc;
 }
 
-[CRepr, Packed(4)]public struct SELCHANGE
+[CRepr, Packed(4)]
+public struct SELCHANGE
 {
 	public NMHDR nmhdr;
 	public CHARRANGE chrg;
 	public RICH_EDIT_GET_CONTEXT_MENU_SEL_TYPE seltyp;
 }
 
-[CRepr, Packed(4)]public struct _grouptypingchange
+[CRepr, Packed(4)]
+public struct _grouptypingchange
 {
 	public NMHDR nmhdr;
 	public BOOL fGroupTyping;
 }
 
-[CRepr, Packed(4)]public struct CLIPBOARDFORMAT
+[CRepr, Packed(4)]
+public struct CLIPBOARDFORMAT
 {
 	public NMHDR nmhdr;
 	public uint16 cf;
 }
 
-[CRepr, Packed(4)]public struct GETCONTEXTMENUEX
+[CRepr, Packed(4)]
+public struct GETCONTEXTMENUEX
 {
 	public CHARRANGE chrg;
 	public uint32 dwFlags;
@@ -2185,7 +2214,8 @@ public function HRESULT PShutdownTextServices(IUnknown* pTextServices);
 	public void* pvReserved;
 }
 
-[CRepr, Packed(4)]public struct ENDROPFILES
+[CRepr, Packed(4)]
+public struct ENDROPFILES
 {
 	public NMHDR nmhdr;
 	public HANDLE hDrop;
@@ -2193,7 +2223,8 @@ public function HRESULT PShutdownTextServices(IUnknown* pTextServices);
 	public BOOL fProtected;
 }
 
-[CRepr, Packed(4)]public struct ENPROTECTED
+[CRepr, Packed(4)]
+public struct ENPROTECTED
 {
 	public NMHDR nmhdr;
 	public uint32 msg;
@@ -2202,14 +2233,16 @@ public function HRESULT PShutdownTextServices(IUnknown* pTextServices);
 	public CHARRANGE chrg;
 }
 
-[CRepr, Packed(4)]public struct ENSAVECLIPBOARD
+[CRepr, Packed(4)]
+public struct ENSAVECLIPBOARD
 {
 	public NMHDR nmhdr;
 	public int32 cObjectCount;
 	public int32 cch;
 }
 
-[CRepr, Packed(4)]public struct ENOLEOPFAILED
+[CRepr, Packed(4)]
+public struct ENOLEOPFAILED
 {
 	public NMHDR nmhdr;
 	public int32 iob;
@@ -2217,14 +2250,16 @@ public function HRESULT PShutdownTextServices(IUnknown* pTextServices);
 	public HRESULT hr;
 }
 
-[CRepr, Packed(4)]public struct OBJECTPOSITIONS
+[CRepr, Packed(4)]
+public struct OBJECTPOSITIONS
 {
 	public NMHDR nmhdr;
 	public int32 cObjectCount;
 	public int32* pcpPositions;
 }
 
-[CRepr, Packed(4)]public struct ENLINK
+[CRepr, Packed(4)]
+public struct ENLINK
 {
 	public NMHDR nmhdr;
 	public uint32 msg;
@@ -2233,45 +2268,52 @@ public function HRESULT PShutdownTextServices(IUnknown* pTextServices);
 	public CHARRANGE chrg;
 }
 
-[CRepr, Packed(4)]public struct ENLOWFIRTF
+[CRepr, Packed(4)]
+public struct ENLOWFIRTF
 {
 	public NMHDR nmhdr;
 	public PSTR szControl;
 }
 
-[CRepr, Packed(4)]public struct ENCORRECTTEXT
+[CRepr, Packed(4)]
+public struct ENCORRECTTEXT
 {
 	public NMHDR nmhdr;
 	public CHARRANGE chrg;
 	public RICH_EDIT_GET_CONTEXT_MENU_SEL_TYPE seltyp;
 }
 
-[CRepr, Packed(4)]public struct PUNCTUATION
+[CRepr, Packed(4)]
+public struct PUNCTUATION
 {
 	public uint32 iSize;
 	public PSTR szPunctuation;
 }
 
-[CRepr]public struct COMPCOLOR
+[CRepr]
+public struct COMPCOLOR
 {
 	public uint32 crText;
 	public uint32 crBackground;
 	public uint32 dwEffects;
 }
 
-[CRepr, Packed(4)]public struct REPASTESPECIAL
+[CRepr, Packed(4)]
+public struct REPASTESPECIAL
 {
 	public DVASPECT dwAspect;
 	public uint dwParam;
 }
 
-[CRepr]public struct SETTEXTEX
+[CRepr]
+public struct SETTEXTEX
 {
 	public uint32 flags;
 	public uint32 codepage;
 }
 
-[CRepr, Packed(4)]public struct GETTEXTEX
+[CRepr, Packed(4)]
+public struct GETTEXTEX
 {
 	public uint32 cb;
 	public GETTEXTEX_FLAGS flags;
@@ -2280,46 +2322,53 @@ public function HRESULT PShutdownTextServices(IUnknown* pTextServices);
 	public int32* lpUsedDefChar;
 }
 
-[CRepr]public struct GETTEXTLENGTHEX
+[CRepr]
+public struct GETTEXTLENGTHEX
 {
 	public GETTEXTLENGTHEX_FLAGS flags;
 	public uint32 codepage;
 }
 
-[CRepr]public struct BIDIOPTIONS
+[CRepr]
+public struct BIDIOPTIONS
 {
 	public uint32 cbSize;
 	public uint16 wMask;
 	public uint16 wEffects;
 }
 
-[CRepr]public struct hyphresult
+[CRepr]
+public struct hyphresult
 {
 	public KHYPH khyph;
 	public int32 ichHyph;
 	public char8 chHyph;
 }
 
-[CRepr, Packed(4)]public struct HYPHENATEINFO
+[CRepr, Packed(4)]
+public struct HYPHENATEINFO
 {
 	public int16 cbSize;
 	public int16 dxHyphenateZone;
 	public int pfnHyphenate;
 }
 
-[CRepr]public struct CHANGENOTIFY
+[CRepr]
+public struct CHANGENOTIFY
 {
 	public CHANGETYPE dwChangeType;
 	public void* pvCookieData;
 }
 
-[CRepr, Union]public struct CARET_INFO
+[CRepr, Union]
+public struct CARET_INFO
 {
 	public HBITMAP hbitmap;
 	public CARET_FLAGS caretFlags;
 }
 
-[CRepr]public struct REOBJECT
+[CRepr]
+public struct REOBJECT
 {
 	public uint32 cbStruct;
 	public int32 cp;

@@ -239,9 +239,11 @@ public function HRESULT PFN_WTD_GENERIC_CHAIN_POLICY_CALLBACK(CRYPT_PROVIDER_DAT
 #endregion
 
 #region Structs
-[CRepr]public struct WINTRUST_DATA
+[CRepr]
+public struct WINTRUST_DATA
 {
-	[CRepr, Union]	public struct _Anonymous_e__Union
+	[CRepr, Union]
+	public struct _Anonymous_e__Union
 	{
 		public WINTRUST_FILE_INFO* pFile;
 		public WINTRUST_CATALOG_INFO* pCatalog;
@@ -265,7 +267,8 @@ public function HRESULT PFN_WTD_GENERIC_CHAIN_POLICY_CALLBACK(CRYPT_PROVIDER_DAT
 	public WINTRUST_SIGNATURE_SETTINGS* pSignatureSettings;
 }
 
-[CRepr]public struct WINTRUST_SIGNATURE_SETTINGS
+[CRepr]
+public struct WINTRUST_SIGNATURE_SETTINGS
 {
 	public uint32 cbStruct;
 	public uint32 dwIndex;
@@ -275,7 +278,8 @@ public function HRESULT PFN_WTD_GENERIC_CHAIN_POLICY_CALLBACK(CRYPT_PROVIDER_DAT
 	public CERT_STRONG_SIGN_PARA* pCryptoPolicy;
 }
 
-[CRepr]public struct WINTRUST_FILE_INFO
+[CRepr]
+public struct WINTRUST_FILE_INFO
 {
 	public uint32 cbStruct;
 	public PWSTR pcwszFilePath;
@@ -283,7 +287,8 @@ public function HRESULT PFN_WTD_GENERIC_CHAIN_POLICY_CALLBACK(CRYPT_PROVIDER_DAT
 	public Guid* pgKnownSubject;
 }
 
-[CRepr]public struct WINTRUST_CATALOG_INFO
+[CRepr]
+public struct WINTRUST_CATALOG_INFO
 {
 	public uint32 cbStruct;
 	public uint32 dwCatalogVersion;
@@ -297,7 +302,8 @@ public function HRESULT PFN_WTD_GENERIC_CHAIN_POLICY_CALLBACK(CRYPT_PROVIDER_DAT
 	public int hCatAdmin;
 }
 
-[CRepr]public struct WINTRUST_BLOB_INFO
+[CRepr]
+public struct WINTRUST_BLOB_INFO
 {
 	public uint32 cbStruct;
 	public Guid gSubject;
@@ -308,7 +314,8 @@ public function HRESULT PFN_WTD_GENERIC_CHAIN_POLICY_CALLBACK(CRYPT_PROVIDER_DAT
 	public uint8* pbMemSignedMsg;
 }
 
-[CRepr]public struct WINTRUST_SGNR_INFO
+[CRepr]
+public struct WINTRUST_SGNR_INFO
 {
 	public uint32 cbStruct;
 	public PWSTR pcwszDisplayName;
@@ -317,7 +324,8 @@ public function HRESULT PFN_WTD_GENERIC_CHAIN_POLICY_CALLBACK(CRYPT_PROVIDER_DAT
 	public void** pahStores;
 }
 
-[CRepr]public struct WINTRUST_CERT_INFO
+[CRepr]
+public struct WINTRUST_CERT_INFO
 {
 	public uint32 cbStruct;
 	public PWSTR pcwszDisplayName;
@@ -328,9 +336,11 @@ public function HRESULT PFN_WTD_GENERIC_CHAIN_POLICY_CALLBACK(CRYPT_PROVIDER_DAT
 	public FILETIME* psftVerifyAsOf;
 }
 
-[CRepr]public struct CRYPT_PROVIDER_DATA
+[CRepr]
+public struct CRYPT_PROVIDER_DATA
 {
-	[CRepr, Union]	public struct _Anonymous_e__Union
+	[CRepr, Union]
+	public struct _Anonymous_e__Union
 	{
 		public PROVDATA_SIP* pPDSip;
 	}
@@ -370,7 +380,8 @@ public function HRESULT PFN_WTD_GENERIC_CHAIN_POLICY_CALLBACK(CRYPT_PROVIDER_DAT
 	public WINTRUST_SIGNATURE_SETTINGS* pSigSettings;
 }
 
-[CRepr]public struct CRYPT_PROVIDER_SIGSTATE
+[CRepr]
+public struct CRYPT_PROVIDER_SIGSTATE
 {
 	public uint32 cbStruct;
 	public void** rhSecondarySigs;
@@ -386,7 +397,8 @@ public function HRESULT PFN_WTD_GENERIC_CHAIN_POLICY_CALLBACK(CRYPT_PROVIDER_DAT
 	public SEALING_SIGNATURE_ATTRIBUTE* pSealingSignature;
 }
 
-[CRepr]public struct CRYPT_PROVIDER_FUNCTIONS
+[CRepr]
+public struct CRYPT_PROVIDER_FUNCTIONS
 {
 	public uint32 cbStruct;
 	public PFN_CPD_MEM_ALLOC pfnAlloc;
@@ -406,7 +418,8 @@ public function HRESULT PFN_WTD_GENERIC_CHAIN_POLICY_CALLBACK(CRYPT_PROVIDER_DAT
 	public PFN_PROVIDER_CLEANUP_CALL pfnCleanupPolicy;
 }
 
-[CRepr]public struct CRYPT_PROVUI_FUNCS
+[CRepr]
+public struct CRYPT_PROVUI_FUNCS
 {
 	public uint32 cbStruct;
 	public CRYPT_PROVUI_DATA* psUIData;
@@ -416,7 +429,8 @@ public function HRESULT PFN_WTD_GENERIC_CHAIN_POLICY_CALLBACK(CRYPT_PROVIDER_DAT
 	public PFN_PROVUI_CALL pfnOnAdvancedClickDefault;
 }
 
-[CRepr]public struct CRYPT_PROVUI_DATA
+[CRepr]
+public struct CRYPT_PROVUI_DATA
 {
 	public uint32 cbStruct;
 	public uint32 dwFinalError;
@@ -429,7 +443,8 @@ public function HRESULT PFN_WTD_GENERIC_CHAIN_POLICY_CALLBACK(CRYPT_PROVIDER_DAT
 	public PWSTR pCopyActionTextNotSigned;
 }
 
-[CRepr]public struct CRYPT_PROVIDER_SGNR
+[CRepr]
+public struct CRYPT_PROVIDER_SGNR
 {
 	public uint32 cbStruct;
 	public FILETIME sftVerifyAsOf;
@@ -443,7 +458,8 @@ public function HRESULT PFN_WTD_GENERIC_CHAIN_POLICY_CALLBACK(CRYPT_PROVIDER_DAT
 	public CERT_CHAIN_CONTEXT* pChainContext;
 }
 
-[CRepr]public struct CRYPT_PROVIDER_CERT
+[CRepr]
+public struct CRYPT_PROVIDER_CERT
 {
 	public uint32 cbStruct;
 	public CERT_CONTEXT* pCert;
@@ -462,7 +478,8 @@ public function HRESULT PFN_WTD_GENERIC_CHAIN_POLICY_CALLBACK(CRYPT_PROVIDER_DAT
 	public CERT_CHAIN_ELEMENT* pChainElement;
 }
 
-[CRepr]public struct CRYPT_PROVIDER_PRIVDATA
+[CRepr]
+public struct CRYPT_PROVIDER_PRIVDATA
 {
 	public uint32 cbStruct;
 	public Guid gProviderID;
@@ -470,7 +487,8 @@ public function HRESULT PFN_WTD_GENERIC_CHAIN_POLICY_CALLBACK(CRYPT_PROVIDER_DAT
 	public void* pvProvData;
 }
 
-[CRepr]public struct PROVDATA_SIP
+[CRepr]
+public struct PROVDATA_SIP
 {
 	public uint32 cbStruct;
 	public Guid gSubject;
@@ -481,14 +499,16 @@ public function HRESULT PFN_WTD_GENERIC_CHAIN_POLICY_CALLBACK(CRYPT_PROVIDER_DAT
 	public SIP_INDIRECT_DATA* psIndirectData;
 }
 
-[CRepr]public struct CRYPT_TRUST_REG_ENTRY
+[CRepr]
+public struct CRYPT_TRUST_REG_ENTRY
 {
 	public uint32 cbStruct;
 	public PWSTR pwszDLLName;
 	public PWSTR pwszFunctionName;
 }
 
-[CRepr]public struct CRYPT_REGISTER_ACTIONID
+[CRepr]
+public struct CRYPT_REGISTER_ACTIONID
 {
 	public uint32 cbStruct;
 	public CRYPT_TRUST_REG_ENTRY sInitProvider;
@@ -501,7 +521,8 @@ public function HRESULT PFN_WTD_GENERIC_CHAIN_POLICY_CALLBACK(CRYPT_PROVIDER_DAT
 	public CRYPT_TRUST_REG_ENTRY sCleanupProvider;
 }
 
-[CRepr]public struct CRYPT_PROVIDER_REGDEFUSAGE
+[CRepr]
+public struct CRYPT_PROVIDER_REGDEFUSAGE
 {
 	public uint32 cbStruct;
 	public Guid* pgActionID;
@@ -510,7 +531,8 @@ public function HRESULT PFN_WTD_GENERIC_CHAIN_POLICY_CALLBACK(CRYPT_PROVIDER_DAT
 	public PSTR pwszFreeCallbackDataFunctionName;
 }
 
-[CRepr]public struct CRYPT_PROVIDER_DEFUSAGE
+[CRepr]
+public struct CRYPT_PROVIDER_DEFUSAGE
 {
 	public uint32 cbStruct;
 	public Guid gActionID;
@@ -518,13 +540,15 @@ public function HRESULT PFN_WTD_GENERIC_CHAIN_POLICY_CALLBACK(CRYPT_PROVIDER_DAT
 	public void* pDefSIPClientData;
 }
 
-[CRepr]public struct SPC_SERIALIZED_OBJECT
+[CRepr]
+public struct SPC_SERIALIZED_OBJECT
 {
 	public uint8[16] ClassId;
 	public CRYPTOAPI_BLOB SerializedData;
 }
 
-[CRepr]public struct SPC_SIGINFO
+[CRepr]
+public struct SPC_SIGINFO
 {
 	public uint32 dwSipVersion;
 	public Guid gSIPGuid;
@@ -535,9 +559,11 @@ public function HRESULT PFN_WTD_GENERIC_CHAIN_POLICY_CALLBACK(CRYPT_PROVIDER_DAT
 	public uint32 dwReserved5;
 }
 
-[CRepr]public struct SPC_LINK
+[CRepr]
+public struct SPC_LINK
 {
-	[CRepr, Union]	public struct _Anonymous_e__Union
+	[CRepr, Union]
+	public struct _Anonymous_e__Union
 	{
 		public PWSTR pwszUrl;
 		public SPC_SERIALIZED_OBJECT Moniker;
@@ -548,26 +574,30 @@ public function HRESULT PFN_WTD_GENERIC_CHAIN_POLICY_CALLBACK(CRYPT_PROVIDER_DAT
 	public using _Anonymous_e__Union Anonymous;
 }
 
-[CRepr]public struct SPC_PE_IMAGE_DATA
+[CRepr]
+public struct SPC_PE_IMAGE_DATA
 {
 	public CRYPT_BIT_BLOB Flags;
 	public SPC_LINK* pFile;
 }
 
-[CRepr]public struct SPC_INDIRECT_DATA_CONTENT
+[CRepr]
+public struct SPC_INDIRECT_DATA_CONTENT
 {
 	public CRYPT_ATTRIBUTE_TYPE_VALUE Data;
 	public CRYPT_ALGORITHM_IDENTIFIER DigestAlgorithm;
 	public CRYPTOAPI_BLOB Digest;
 }
 
-[CRepr]public struct SPC_FINANCIAL_CRITERIA
+[CRepr]
+public struct SPC_FINANCIAL_CRITERIA
 {
 	public BOOL fFinancialInfoAvailable;
 	public BOOL fMeetsCriteria;
 }
 
-[CRepr]public struct SPC_IMAGE
+[CRepr]
+public struct SPC_IMAGE
 {
 	public SPC_LINK* pImageLink;
 	public CRYPTOAPI_BLOB Bitmap;
@@ -576,7 +606,8 @@ public function HRESULT PFN_WTD_GENERIC_CHAIN_POLICY_CALLBACK(CRYPT_PROVIDER_DAT
 	public CRYPTOAPI_BLOB GifFile;
 }
 
-[CRepr]public struct SPC_SP_AGENCY_INFO
+[CRepr]
+public struct SPC_SP_AGENCY_INFO
 {
 	public SPC_LINK* pPolicyInformation;
 	public PWSTR pwszPolicyDisplayText;
@@ -584,45 +615,52 @@ public function HRESULT PFN_WTD_GENERIC_CHAIN_POLICY_CALLBACK(CRYPT_PROVIDER_DAT
 	public SPC_LINK* pLogoLink;
 }
 
-[CRepr]public struct SPC_STATEMENT_TYPE
+[CRepr]
+public struct SPC_STATEMENT_TYPE
 {
 	public uint32 cKeyPurposeId;
 	public PSTR* rgpszKeyPurposeId;
 }
 
-[CRepr]public struct SPC_SP_OPUS_INFO
+[CRepr]
+public struct SPC_SP_OPUS_INFO
 {
 	public PWSTR pwszProgramName;
 	public SPC_LINK* pMoreInfo;
 	public SPC_LINK* pPublisherInfo;
 }
 
-[CRepr]public struct CAT_NAMEVALUE
+[CRepr]
+public struct CAT_NAMEVALUE
 {
 	public PWSTR pwszTag;
 	public uint32 fdwFlags;
 	public CRYPTOAPI_BLOB Value;
 }
 
-[CRepr]public struct CAT_MEMBERINFO
+[CRepr]
+public struct CAT_MEMBERINFO
 {
 	public PWSTR pwszSubjGuid;
 	public uint32 dwCertVersion;
 }
 
-[CRepr]public struct CAT_MEMBERINFO2
+[CRepr]
+public struct CAT_MEMBERINFO2
 {
 	public Guid SubjectGuid;
 	public uint32 dwCertVersion;
 }
 
-[CRepr]public struct INTENT_TO_SEAL_ATTRIBUTE
+[CRepr]
+public struct INTENT_TO_SEAL_ATTRIBUTE
 {
 	public uint32 version;
 	public BOOLEAN seal;
 }
 
-[CRepr]public struct SEALING_SIGNATURE_ATTRIBUTE
+[CRepr]
+public struct SEALING_SIGNATURE_ATTRIBUTE
 {
 	public uint32 version;
 	public uint32 signerIndex;
@@ -630,14 +668,16 @@ public function HRESULT PFN_WTD_GENERIC_CHAIN_POLICY_CALLBACK(CRYPT_PROVIDER_DAT
 	public CRYPTOAPI_BLOB encryptedDigest;
 }
 
-[CRepr]public struct SEALING_TIMESTAMP_ATTRIBUTE
+[CRepr]
+public struct SEALING_TIMESTAMP_ATTRIBUTE
 {
 	public uint32 version;
 	public uint32 signerIndex;
 	public CRYPTOAPI_BLOB sealTimeStampToken;
 }
 
-[CRepr]public struct WIN_CERTIFICATE
+[CRepr]
+public struct WIN_CERTIFICATE
 {
 	public uint32 dwLength;
 	public uint16 wRevision;
@@ -645,41 +685,48 @@ public function HRESULT PFN_WTD_GENERIC_CHAIN_POLICY_CALLBACK(CRYPT_PROVIDER_DAT
 	public uint8[1] bCertificate;
 }
 
-[CRepr]public struct WIN_TRUST_ACTDATA_CONTEXT_WITH_SUBJECT
+[CRepr]
+public struct WIN_TRUST_ACTDATA_CONTEXT_WITH_SUBJECT
 {
 	public HANDLE hClientToken;
 	public Guid* SubjectType;
 	public void* Subject;
 }
 
-[CRepr]public struct WIN_TRUST_ACTDATA_SUBJECT_ONLY
+[CRepr]
+public struct WIN_TRUST_ACTDATA_SUBJECT_ONLY
 {
 	public Guid* SubjectType;
 	public void* Subject;
 }
 
-[CRepr]public struct WIN_TRUST_SUBJECT_FILE
+[CRepr]
+public struct WIN_TRUST_SUBJECT_FILE
 {
 	public HANDLE hFile;
 	public PWSTR lpPath;
 }
 
-[CRepr]public struct WIN_TRUST_SUBJECT_FILE_AND_DISPLAY
+[CRepr]
+public struct WIN_TRUST_SUBJECT_FILE_AND_DISPLAY
 {
 	public HANDLE hFile;
 	public PWSTR lpPath;
 	public PWSTR lpDisplayName;
 }
 
-[CRepr]public struct WIN_SPUB_TRUSTED_PUBLISHER_DATA
+[CRepr]
+public struct WIN_SPUB_TRUSTED_PUBLISHER_DATA
 {
 	public HANDLE hClientToken;
 	public WIN_CERTIFICATE* lpCertificate;
 }
 
-[CRepr]public struct WTD_GENERIC_CHAIN_POLICY_SIGNER_INFO
+[CRepr]
+public struct WTD_GENERIC_CHAIN_POLICY_SIGNER_INFO
 {
-	[CRepr, Union]	public struct _Anonymous_e__Union
+	[CRepr, Union]
+	public struct _Anonymous_e__Union
 	{
 		public uint32 cbStruct;
 		public uint32 cbSize;
@@ -694,9 +741,11 @@ public function HRESULT PFN_WTD_GENERIC_CHAIN_POLICY_CALLBACK(CRYPT_PROVIDER_DAT
 	public WTD_GENERIC_CHAIN_POLICY_SIGNER_INFO** rgpCounterSigner;
 }
 
-[CRepr]public struct WTD_GENERIC_CHAIN_POLICY_CREATE_INFO
+[CRepr]
+public struct WTD_GENERIC_CHAIN_POLICY_CREATE_INFO
 {
-	[CRepr, Union]	public struct _Anonymous_e__Union
+	[CRepr, Union]
+	public struct _Anonymous_e__Union
 	{
 		public uint32 cbStruct;
 		public uint32 cbSize;
@@ -709,9 +758,11 @@ public function HRESULT PFN_WTD_GENERIC_CHAIN_POLICY_CALLBACK(CRYPT_PROVIDER_DAT
 	public void* pvReserved;
 }
 
-[CRepr]public struct WTD_GENERIC_CHAIN_POLICY_DATA
+[CRepr]
+public struct WTD_GENERIC_CHAIN_POLICY_DATA
 {
-	[CRepr, Union]	public struct _Anonymous_e__Union
+	[CRepr, Union]
+	public struct _Anonymous_e__Union
 	{
 		public uint32 cbStruct;
 		public uint32 cbSize;
@@ -724,13 +775,15 @@ public function HRESULT PFN_WTD_GENERIC_CHAIN_POLICY_CALLBACK(CRYPT_PROVIDER_DAT
 	public void* pvPolicyArg;
 }
 
-[CRepr]public struct DRIVER_VER_MAJORMINOR
+[CRepr]
+public struct DRIVER_VER_MAJORMINOR
 {
 	public uint32 dwMajor;
 	public uint32 dwMinor;
 }
 
-[CRepr]public struct DRIVER_VER_INFO
+[CRepr]
+public struct DRIVER_VER_INFO
 {
 	public uint32 cbStruct;
 	public uint dwReserved1;
@@ -746,7 +799,8 @@ public function HRESULT PFN_WTD_GENERIC_CHAIN_POLICY_CALLBACK(CRYPT_PROVIDER_DAT
 	public uint32 dwBuildNumberHigh;
 }
 
-[CRepr]public struct CONFIG_CI_PROV_INFO_RESULT
+[CRepr]
+public struct CONFIG_CI_PROV_INFO_RESULT
 {
 	public HRESULT hr;
 	public uint32 dwResult;
@@ -754,7 +808,8 @@ public function HRESULT PFN_WTD_GENERIC_CHAIN_POLICY_CALLBACK(CRYPT_PROVIDER_DAT
 	public BOOLEAN fIsExplicitDeny;
 }
 
-[CRepr]public struct CONFIG_CI_PROV_INFO
+[CRepr]
+public struct CONFIG_CI_PROV_INFO
 {
 	public uint32 cbSize;
 	public uint32 dwPolicies;

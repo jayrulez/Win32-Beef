@@ -610,14 +610,16 @@ public function void DRT_BOOTSTRAP_RESOLVE_CALLBACK(HRESULT hr, void* pvContext,
 #endregion
 
 #region Structs
-[CRepr]public struct PNRP_CLOUD_ID
+[CRepr]
+public struct PNRP_CLOUD_ID
 {
 	public int32 AddressFamily;
 	public PNRP_SCOPE Scope;
 	public uint32 ScopeId;
 }
 
-[CRepr]public struct PNRPINFO_V1
+[CRepr]
+public struct PNRPINFO_V1
 {
 	public uint32 dwSize;
 	public PWSTR lpwszIdentity;
@@ -630,9 +632,11 @@ public function void DRT_BOOTSTRAP_RESOLVE_CALLBACK(HRESULT hr, void* pvContext,
 	public PNRP_REGISTERED_ID_STATE enNameState;
 }
 
-[CRepr]public struct PNRPINFO_V2
+[CRepr]
+public struct PNRPINFO_V2
 {
-	[CRepr, Union]	public struct _Anonymous_e__Union
+	[CRepr, Union]
+	public struct _Anonymous_e__Union
 	{
 		public BLOB blobPayload;
 		public PWSTR pwszPayload;
@@ -651,7 +655,8 @@ public function void DRT_BOOTSTRAP_RESOLVE_CALLBACK(HRESULT hr, void* pvContext,
 	public using _Anonymous_e__Union Anonymous;
 }
 
-[CRepr]public struct PNRPCLOUDINFO
+[CRepr]
+public struct PNRPCLOUDINFO
 {
 	public uint32 dwSize;
 	public PNRP_CLOUD_ID Cloud;
@@ -659,19 +664,22 @@ public function void DRT_BOOTSTRAP_RESOLVE_CALLBACK(HRESULT hr, void* pvContext,
 	public PNRP_CLOUD_FLAGS enCloudFlags;
 }
 
-[CRepr]public struct PEER_VERSION_DATA
+[CRepr]
+public struct PEER_VERSION_DATA
 {
 	public uint16 wVersion;
 	public uint16 wHighestVersion;
 }
 
-[CRepr]public struct PEER_DATA
+[CRepr]
+public struct PEER_DATA
 {
 	public uint32 cbData;
 	public uint8* pbData;
 }
 
-[CRepr]public struct PEER_RECORD
+[CRepr]
+public struct PEER_RECORD
 {
 	public uint32 dwSize;
 	public Guid type;
@@ -688,13 +696,15 @@ public function void DRT_BOOTSTRAP_RESOLVE_CALLBACK(HRESULT hr, void* pvContext,
 	public PEER_DATA data;
 }
 
-[CRepr]public struct PEER_ADDRESS
+[CRepr]
+public struct PEER_ADDRESS
 {
 	public uint32 dwSize;
 	public SOCKADDR_IN6 sin6;
 }
 
-[CRepr]public struct PEER_CONNECTION_INFO
+[CRepr]
+public struct PEER_CONNECTION_INFO
 {
 	public uint32 dwSize;
 	public uint32 dwFlags;
@@ -704,7 +714,8 @@ public function void DRT_BOOTSTRAP_RESOLVE_CALLBACK(HRESULT hr, void* pvContext,
 	public PEER_ADDRESS address;
 }
 
-[CRepr]public struct PEER_EVENT_INCOMING_DATA
+[CRepr]
+public struct PEER_EVENT_INCOMING_DATA
 {
 	public uint32 dwSize;
 	public uint64 ullConnectionId;
@@ -712,7 +723,8 @@ public function void DRT_BOOTSTRAP_RESOLVE_CALLBACK(HRESULT hr, void* pvContext,
 	public PEER_DATA data;
 }
 
-[CRepr]public struct PEER_EVENT_RECORD_CHANGE_DATA
+[CRepr]
+public struct PEER_EVENT_RECORD_CHANGE_DATA
 {
 	public uint32 dwSize;
 	public PEER_RECORD_CHANGE_TYPE changeType;
@@ -720,7 +732,8 @@ public function void DRT_BOOTSTRAP_RESOLVE_CALLBACK(HRESULT hr, void* pvContext,
 	public Guid recordType;
 }
 
-[CRepr]public struct PEER_EVENT_CONNECTION_CHANGE_DATA
+[CRepr]
+public struct PEER_EVENT_CONNECTION_CHANGE_DATA
 {
 	public uint32 dwSize;
 	public PEER_CONNECTION_STATUS status;
@@ -730,13 +743,15 @@ public function void DRT_BOOTSTRAP_RESOLVE_CALLBACK(HRESULT hr, void* pvContext,
 	public HRESULT hrConnectionFailedReason;
 }
 
-[CRepr]public struct PEER_EVENT_SYNCHRONIZED_DATA
+[CRepr]
+public struct PEER_EVENT_SYNCHRONIZED_DATA
 {
 	public uint32 dwSize;
 	public Guid recordType;
 }
 
-[CRepr]public struct PEER_GRAPH_PROPERTIES
+[CRepr]
+public struct PEER_GRAPH_PROPERTIES
 {
 	public uint32 dwSize;
 	public uint32 dwFlags;
@@ -750,7 +765,8 @@ public function void DRT_BOOTSTRAP_RESOLVE_CALLBACK(HRESULT hr, void* pvContext,
 	public uint32 cPresenceMax;
 }
 
-[CRepr]public struct PEER_NODE_INFO
+[CRepr]
+public struct PEER_NODE_INFO
 {
 	public uint32 dwSize;
 	public uint64 ullNodeId;
@@ -760,7 +776,8 @@ public function void DRT_BOOTSTRAP_RESOLVE_CALLBACK(HRESULT hr, void* pvContext,
 	public PWSTR pwzAttributes;
 }
 
-[CRepr]public struct PEER_EVENT_NODE_CHANGE_DATA
+[CRepr]
+public struct PEER_EVENT_NODE_CHANGE_DATA
 {
 	public uint32 dwSize;
 	public PEER_NODE_CHANGE_TYPE changeType;
@@ -768,15 +785,18 @@ public function void DRT_BOOTSTRAP_RESOLVE_CALLBACK(HRESULT hr, void* pvContext,
 	public PWSTR pwzPeerId;
 }
 
-[CRepr]public struct PEER_GRAPH_EVENT_REGISTRATION
+[CRepr]
+public struct PEER_GRAPH_EVENT_REGISTRATION
 {
 	public PEER_GRAPH_EVENT_TYPE eventType;
 	public Guid* pType;
 }
 
-[CRepr]public struct PEER_GRAPH_EVENT_DATA
+[CRepr]
+public struct PEER_GRAPH_EVENT_DATA
 {
-	[CRepr, Union]	public struct _Anonymous_e__Union
+	[CRepr, Union]
+	public struct _Anonymous_e__Union
 	{
 		public PEER_GRAPH_STATUS_FLAGS dwStatus;
 		public PEER_EVENT_INCOMING_DATA incomingData;
@@ -790,7 +810,8 @@ public function void DRT_BOOTSTRAP_RESOLVE_CALLBACK(HRESULT hr, void* pvContext,
 	public using _Anonymous_e__Union Anonymous;
 }
 
-[CRepr]public struct PEER_SECURITY_INTERFACE
+[CRepr]
+public struct PEER_SECURITY_INTERFACE
 {
 	public uint32 dwSize;
 	public PWSTR pwzSspFilename;
@@ -804,7 +825,8 @@ public function void DRT_BOOTSTRAP_RESOLVE_CALLBACK(HRESULT hr, void* pvContext,
 	public PFNPEER_ON_PASSWORD_AUTH_FAILED pfnAuthFailed;
 }
 
-[CRepr]public struct PEER_CREDENTIAL_INFO
+[CRepr]
+public struct PEER_CREDENTIAL_INFO
 {
 	public uint32 dwSize;
 	public uint32 dwFlags;
@@ -818,7 +840,8 @@ public function void DRT_BOOTSTRAP_RESOLVE_CALLBACK(HRESULT hr, void* pvContext,
 	public Guid* pRoles;
 }
 
-[CRepr]public struct PEER_MEMBER
+[CRepr]
+public struct PEER_MEMBER
 {
 	public uint32 dwSize;
 	public uint32 dwFlags;
@@ -830,7 +853,8 @@ public function void DRT_BOOTSTRAP_RESOLVE_CALLBACK(HRESULT hr, void* pvContext,
 	public PEER_CREDENTIAL_INFO* pCredentialInfo;
 }
 
-[CRepr]public struct PEER_INVITATION_INFO
+[CRepr]
+public struct PEER_INVITATION_INFO
 {
 	public uint32 dwSize;
 	public uint32 dwFlags;
@@ -853,7 +877,8 @@ public function void DRT_BOOTSTRAP_RESOLVE_CALLBACK(HRESULT hr, void* pvContext,
 	public PEER_GROUP_AUTHENTICATION_SCHEME authScheme;
 }
 
-[CRepr]public struct PEER_GROUP_PROPERTIES
+[CRepr]
+public struct PEER_GROUP_PROPERTIES
 {
 	public uint32 dwSize;
 	public uint32 dwFlags;
@@ -870,22 +895,26 @@ public function void DRT_BOOTSTRAP_RESOLVE_CALLBACK(HRESULT hr, void* pvContext,
 	public Guid groupPasswordRole;
 }
 
-[CRepr]public struct PEER_EVENT_MEMBER_CHANGE_DATA
+[CRepr]
+public struct PEER_EVENT_MEMBER_CHANGE_DATA
 {
 	public uint32 dwSize;
 	public PEER_MEMBER_CHANGE_TYPE changeType;
 	public PWSTR pwzIdentity;
 }
 
-[CRepr]public struct PEER_GROUP_EVENT_REGISTRATION
+[CRepr]
+public struct PEER_GROUP_EVENT_REGISTRATION
 {
 	public PEER_GROUP_EVENT_TYPE eventType;
 	public Guid* pType;
 }
 
-[CRepr]public struct PEER_GROUP_EVENT_DATA
+[CRepr]
+public struct PEER_GROUP_EVENT_DATA
 {
-	[CRepr, Union]	public struct _Anonymous_e__Union
+	[CRepr, Union]
+	public struct _Anonymous_e__Union
 	{
 		public PEER_GROUP_STATUS dwStatus;
 		public PEER_EVENT_INCOMING_DATA incomingData;
@@ -899,28 +928,32 @@ public function void DRT_BOOTSTRAP_RESOLVE_CALLBACK(HRESULT hr, void* pvContext,
 	public using _Anonymous_e__Union Anonymous;
 }
 
-[CRepr]public struct PEER_NAME_PAIR
+[CRepr]
+public struct PEER_NAME_PAIR
 {
 	public uint32 dwSize;
 	public PWSTR pwzPeerName;
 	public PWSTR pwzFriendlyName;
 }
 
-[CRepr]public struct PEER_APPLICATION
+[CRepr]
+public struct PEER_APPLICATION
 {
 	public Guid id;
 	public PEER_DATA data;
 	public PWSTR pwzDescription;
 }
 
-[CRepr]public struct PEER_OBJECT
+[CRepr]
+public struct PEER_OBJECT
 {
 	public Guid id;
 	public PEER_DATA data;
 	public uint32 dwPublicationScope;
 }
 
-[CRepr]public struct PEER_CONTACT
+[CRepr]
+public struct PEER_CONTACT
 {
 	public PWSTR pwzPeerName;
 	public PWSTR pwzNickName;
@@ -931,41 +964,47 @@ public function void DRT_BOOTSTRAP_RESOLVE_CALLBACK(HRESULT hr, void* pvContext,
 	public PEER_DATA credentials;
 }
 
-[CRepr]public struct PEER_ENDPOINT
+[CRepr]
+public struct PEER_ENDPOINT
 {
 	public PEER_ADDRESS address;
 	public PWSTR pwzEndpointName;
 }
 
-[CRepr]public struct PEER_PEOPLE_NEAR_ME
+[CRepr]
+public struct PEER_PEOPLE_NEAR_ME
 {
 	public PWSTR pwzNickName;
 	public PEER_ENDPOINT endpoint;
 	public Guid id;
 }
 
-[CRepr]public struct PEER_INVITATION
+[CRepr]
+public struct PEER_INVITATION
 {
 	public Guid applicationId;
 	public PEER_DATA applicationData;
 	public PWSTR pwzMessage;
 }
 
-[CRepr]public struct PEER_INVITATION_RESPONSE
+[CRepr]
+public struct PEER_INVITATION_RESPONSE
 {
 	public PEER_INVITATION_RESPONSE_TYPE action;
 	public PWSTR pwzMessage;
 	public HRESULT hrExtendedInfo;
 }
 
-[CRepr]public struct PEER_APP_LAUNCH_INFO
+[CRepr]
+public struct PEER_APP_LAUNCH_INFO
 {
 	public PEER_CONTACT* pContact;
 	public PEER_ENDPOINT* pEndpoint;
 	public PEER_INVITATION* pInvitation;
 }
 
-[CRepr]public struct PEER_APPLICATION_REGISTRATION_INFO
+[CRepr]
+public struct PEER_APPLICATION_REGISTRATION_INFO
 {
 	public PEER_APPLICATION application;
 	public PWSTR pwzApplicationToLaunch;
@@ -973,25 +1012,29 @@ public function void DRT_BOOTSTRAP_RESOLVE_CALLBACK(HRESULT hr, void* pvContext,
 	public uint32 dwPublicationScope;
 }
 
-[CRepr]public struct PEER_PRESENCE_INFO
+[CRepr]
+public struct PEER_PRESENCE_INFO
 {
 	public PEER_PRESENCE_STATUS status;
 	public PWSTR pwzDescriptiveText;
 }
 
-[CRepr]public struct PEER_COLLAB_EVENT_REGISTRATION
+[CRepr]
+public struct PEER_COLLAB_EVENT_REGISTRATION
 {
 	public PEER_COLLAB_EVENT_TYPE eventType;
 	public Guid* pInstance;
 }
 
-[CRepr]public struct PEER_EVENT_WATCHLIST_CHANGED_DATA
+[CRepr]
+public struct PEER_EVENT_WATCHLIST_CHANGED_DATA
 {
 	public PEER_CONTACT* pContact;
 	public PEER_CHANGE_TYPE changeType;
 }
 
-[CRepr]public struct PEER_EVENT_PRESENCE_CHANGED_DATA
+[CRepr]
+public struct PEER_EVENT_PRESENCE_CHANGED_DATA
 {
 	public PEER_CONTACT* pContact;
 	public PEER_ENDPOINT* pEndpoint;
@@ -999,7 +1042,8 @@ public function void DRT_BOOTSTRAP_RESOLVE_CALLBACK(HRESULT hr, void* pvContext,
 	public PEER_PRESENCE_INFO* pPresenceInfo;
 }
 
-[CRepr]public struct PEER_EVENT_APPLICATION_CHANGED_DATA
+[CRepr]
+public struct PEER_EVENT_APPLICATION_CHANGED_DATA
 {
 	public PEER_CONTACT* pContact;
 	public PEER_ENDPOINT* pEndpoint;
@@ -1007,7 +1051,8 @@ public function void DRT_BOOTSTRAP_RESOLVE_CALLBACK(HRESULT hr, void* pvContext,
 	public PEER_APPLICATION* pApplication;
 }
 
-[CRepr]public struct PEER_EVENT_OBJECT_CHANGED_DATA
+[CRepr]
+public struct PEER_EVENT_OBJECT_CHANGED_DATA
 {
 	public PEER_CONTACT* pContact;
 	public PEER_ENDPOINT* pEndpoint;
@@ -1015,27 +1060,32 @@ public function void DRT_BOOTSTRAP_RESOLVE_CALLBACK(HRESULT hr, void* pvContext,
 	public PEER_OBJECT* pObject;
 }
 
-[CRepr]public struct PEER_EVENT_ENDPOINT_CHANGED_DATA
+[CRepr]
+public struct PEER_EVENT_ENDPOINT_CHANGED_DATA
 {
 	public PEER_CONTACT* pContact;
 	public PEER_ENDPOINT* pEndpoint;
 }
 
-[CRepr]public struct PEER_EVENT_PEOPLE_NEAR_ME_CHANGED_DATA
+[CRepr]
+public struct PEER_EVENT_PEOPLE_NEAR_ME_CHANGED_DATA
 {
 	public PEER_CHANGE_TYPE changeType;
 	public PEER_PEOPLE_NEAR_ME* pPeopleNearMe;
 }
 
-[CRepr]public struct PEER_EVENT_REQUEST_STATUS_CHANGED_DATA
+[CRepr]
+public struct PEER_EVENT_REQUEST_STATUS_CHANGED_DATA
 {
 	public PEER_ENDPOINT* pEndpoint;
 	public HRESULT hrChange;
 }
 
-[CRepr]public struct PEER_COLLAB_EVENT_DATA
+[CRepr]
+public struct PEER_COLLAB_EVENT_DATA
 {
-	[CRepr, Union]	public struct _Anonymous_e__Union
+	[CRepr, Union]
+	public struct _Anonymous_e__Union
 	{
 		public PEER_EVENT_WATCHLIST_CHANGED_DATA watchListChangedData;
 		public PEER_EVENT_PRESENCE_CHANGED_DATA presenceChangedData;
@@ -1050,7 +1100,8 @@ public function void DRT_BOOTSTRAP_RESOLVE_CALLBACK(HRESULT hr, void* pvContext,
 	public using _Anonymous_e__Union Anonymous;
 }
 
-[CRepr]public struct PEER_PNRP_ENDPOINT_INFO
+[CRepr]
+public struct PEER_PNRP_ENDPOINT_INFO
 {
 	public PWSTR pwzPeerName;
 	public uint32 cAddresses;
@@ -1059,14 +1110,16 @@ public function void DRT_BOOTSTRAP_RESOLVE_CALLBACK(HRESULT hr, void* pvContext,
 	public PEER_DATA payload;
 }
 
-[CRepr]public struct PEER_PNRP_CLOUD_INFO
+[CRepr]
+public struct PEER_PNRP_CLOUD_INFO
 {
 	public PWSTR pwzCloudName;
 	public PNRP_SCOPE dwScope;
 	public uint32 dwScopeId;
 }
 
-[CRepr]public struct PEER_PNRP_REGISTRATION_INFO
+[CRepr]
+public struct PEER_PNRP_REGISTRATION_INFO
 {
 	public PWSTR pwzCloudName;
 	public PWSTR pwzPublishingIdentity;
@@ -1077,19 +1130,22 @@ public function void DRT_BOOTSTRAP_RESOLVE_CALLBACK(HRESULT hr, void* pvContext,
 	public PEER_DATA payload;
 }
 
-[CRepr]public struct DRT_DATA
+[CRepr]
+public struct DRT_DATA
 {
 	public uint32 cb;
 	public uint8* pb;
 }
 
-[CRepr]public struct DRT_REGISTRATION
+[CRepr]
+public struct DRT_REGISTRATION
 {
 	public DRT_DATA key;
 	public DRT_DATA appData;
 }
 
-[CRepr]public struct DRT_SECURITY_PROVIDER
+[CRepr]
+public struct DRT_SECURITY_PROVIDER
 {
 	public void* pvContext;
 	public int Attach;
@@ -1107,7 +1163,8 @@ public function void DRT_BOOTSTRAP_RESOLVE_CALLBACK(HRESULT hr, void* pvContext,
 	public int VerifyData;
 }
 
-[CRepr]public struct DRT_BOOTSTRAP_PROVIDER
+[CRepr]
+public struct DRT_BOOTSTRAP_PROVIDER
 {
 	public void* pvContext;
 	public int Attach;
@@ -1119,7 +1176,8 @@ public function void DRT_BOOTSTRAP_RESOLVE_CALLBACK(HRESULT hr, void* pvContext,
 	public int Unregister;
 }
 
-[CRepr]public struct DRT_SETTINGS
+[CRepr]
+public struct DRT_SETTINGS
 {
 	public uint32 dwSize;
 	public uint32 cbKey;
@@ -1133,7 +1191,8 @@ public function void DRT_BOOTSTRAP_RESOLVE_CALLBACK(HRESULT hr, void* pvContext,
 	public DRT_SECURITY_MODE eSecurityMode;
 }
 
-[CRepr]public struct DRT_SEARCH_INFO
+[CRepr]
+public struct DRT_SEARCH_INFO
 {
 	public uint32 dwSize;
 	public BOOL fIterative;
@@ -1144,7 +1203,8 @@ public function void DRT_BOOTSTRAP_RESOLVE_CALLBACK(HRESULT hr, void* pvContext,
 	public DRT_DATA* pMinimumKey;
 }
 
-[CRepr]public struct DRT_ADDRESS
+[CRepr]
+public struct DRT_ADDRESS
 {
 	public SOCKADDR_STORAGE socketAddress;
 	public uint32 flags;
@@ -1152,13 +1212,15 @@ public function void DRT_BOOTSTRAP_RESOLVE_CALLBACK(HRESULT hr, void* pvContext,
 	public uint32 latency;
 }
 
-[CRepr]public struct DRT_ADDRESS_LIST
+[CRepr]
+public struct DRT_ADDRESS_LIST
 {
 	public uint32 AddressCount;
 	public DRT_ADDRESS[1] AddressList;
 }
 
-[CRepr]public struct DRT_SEARCH_RESULT
+[CRepr]
+public struct DRT_SEARCH_RESULT
 {
 	public uint32 dwSize;
 	public DRT_MATCH_TYPE type;
@@ -1166,13 +1228,17 @@ public function void DRT_BOOTSTRAP_RESOLVE_CALLBACK(HRESULT hr, void* pvContext,
 	public DRT_REGISTRATION registration;
 }
 
-[CRepr]public struct DRT_EVENT_DATA
+[CRepr]
+public struct DRT_EVENT_DATA
 {
-	[CRepr, Union]	public struct _Anonymous_e__Union
+	[CRepr, Union]
+	public struct _Anonymous_e__Union
 	{
-		[CRepr]		public struct _statusChange_e__Struct
+		[CRepr]
+		public struct _statusChange_e__Struct
 		{
-			[CRepr]			public struct _bootstrapAddresses_e__Struct
+			[CRepr]
+			public struct _bootstrapAddresses_e__Struct
 			{
 				public uint32 cntAddress;
 				public SOCKADDR_STORAGE* pAddresses;
@@ -1182,14 +1248,16 @@ public function void DRT_BOOTSTRAP_RESOLVE_CALLBACK(HRESULT hr, void* pvContext,
 			public _bootstrapAddresses_e__Struct bootstrapAddresses;
 		}
 
-		[CRepr]		public struct _leafsetKeyChange_e__Struct
+		[CRepr]
+		public struct _leafsetKeyChange_e__Struct
 		{
 			public DRT_LEAFSET_KEY_CHANGE_TYPE change;
 			public DRT_DATA localKey;
 			public DRT_DATA remoteKey;
 		}
 
-		[CRepr]		public struct _registrationStateChange_e__Struct
+		[CRepr]
+		public struct _registrationStateChange_e__Struct
 		{
 			public DRT_REGISTRATION_STATE state;
 			public DRT_DATA localKey;
@@ -1206,18 +1274,21 @@ public function void DRT_BOOTSTRAP_RESOLVE_CALLBACK(HRESULT hr, void* pvContext,
 	public using _Anonymous_e__Union Anonymous;
 }
 
-[CRepr]public struct PEERDIST_PUBLICATION_OPTIONS
+[CRepr]
+public struct PEERDIST_PUBLICATION_OPTIONS
 {
 	public uint32 dwVersion;
 	public uint32 dwFlags;
 }
 
-[CRepr]public struct PEERDIST_CONTENT_TAG
+[CRepr]
+public struct PEERDIST_CONTENT_TAG
 {
 	public uint8[16] Data;
 }
 
-[CRepr]public struct PEERDIST_RETRIEVAL_OPTIONS
+[CRepr]
+public struct PEERDIST_RETRIEVAL_OPTIONS
 {
 	public uint32 cbSize;
 	public uint32 dwContentInfoMinVersion;
@@ -1225,7 +1296,8 @@ public function void DRT_BOOTSTRAP_RESOLVE_CALLBACK(HRESULT hr, void* pvContext,
 	public uint32 dwReserved;
 }
 
-[CRepr]public struct PEERDIST_STATUS_INFO
+[CRepr]
+public struct PEERDIST_STATUS_INFO
 {
 	public uint32 cbSize;
 	public PEERDIST_STATUS status;
@@ -1233,7 +1305,8 @@ public function void DRT_BOOTSTRAP_RESOLVE_CALLBACK(HRESULT hr, void* pvContext,
 	public PEERDIST_RETRIEVAL_OPTIONS_CONTENTINFO_VERSION_VALUE dwMaxVer;
 }
 
-[CRepr]public struct PEERDIST_CLIENT_BASIC_INFO
+[CRepr]
+public struct PEERDIST_CLIENT_BASIC_INFO
 {
 	public BOOL fFlashCrowd;
 }

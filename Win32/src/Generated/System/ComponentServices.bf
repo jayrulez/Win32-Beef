@@ -593,7 +593,8 @@ public enum CRMREGFLAGS : int32
 #endregion
 
 #region Structs
-[CRepr]public struct COMSVCSEVENTINFO
+[CRepr]
+public struct COMSVCSEVENTINFO
 {
 	public uint32 cbSize;
 	public uint32 dwPid;
@@ -604,7 +605,8 @@ public enum CRMREGFLAGS : int32
 	public PWSTR sMachineName;
 }
 
-[CRepr]public struct RECYCLE_INFO
+[CRepr]
+public struct RECYCLE_INFO
 {
 	public Guid guidCombaseProcessIdentifier;
 	public int64 ProcessStartTime;
@@ -613,7 +615,8 @@ public enum CRMREGFLAGS : int32
 	public uint32 dwRecycleExpirationTimeout;
 }
 
-[CRepr]public struct HANG_INFO
+[CRepr]
+public struct HANG_INFO
 {
 	public BOOL fAppHangMonitorEnabled;
 	public BOOL fTerminateOnHang;
@@ -623,7 +626,8 @@ public enum CRMREGFLAGS : int32
 	public uint32 dwInfoMsgCount;
 }
 
-[CRepr]public struct CAppStatistics
+[CRepr]
+public struct CAppStatistics
 {
 	public uint32 m_cTotalCalls;
 	public uint32 m_cTotalInstances;
@@ -631,7 +635,8 @@ public enum CRMREGFLAGS : int32
 	public uint32 m_cCallsPerSecond;
 }
 
-[CRepr]public struct CAppData
+[CRepr]
+public struct CAppData
 {
 	public uint32 m_idApp;
 	public char8[40] m_szAppGuid;
@@ -639,7 +644,8 @@ public enum CRMREGFLAGS : int32
 	public CAppStatistics m_AppStatistics;
 }
 
-[CRepr]public struct CCLSIDData
+[CRepr]
+public struct CCLSIDData
 {
 	public Guid m_clsid;
 	public uint32 m_cReferences;
@@ -651,7 +657,8 @@ public enum CRMREGFLAGS : int32
 	public uint32 m_cCallsFailed;
 }
 
-[CRepr]public struct CCLSIDData2
+[CRepr]
+public struct CCLSIDData2
 {
 	public Guid m_clsid;
 	public Guid m_appid;
@@ -668,7 +675,8 @@ public enum CRMREGFLAGS : int32
 	public uint32 m_cCallsFailed;
 }
 
-[CRepr]public struct ApplicationProcessSummary
+[CRepr]
+public struct ApplicationProcessSummary
 {
 	public Guid PartitionIdPrimaryApplication;
 	public Guid ApplicationIdPrimaryApplication;
@@ -681,7 +689,8 @@ public enum CRMREGFLAGS : int32
 	public BOOL IsRecycled;
 }
 
-[CRepr]public struct ApplicationProcessStatistics
+[CRepr]
+public struct ApplicationProcessStatistics
 {
 	public uint32 NumCallsOutstanding;
 	public uint32 NumTrackedComponents;
@@ -693,7 +702,8 @@ public enum CRMREGFLAGS : int32
 	public uint32 Reserved4;
 }
 
-[CRepr]public struct ApplicationProcessRecycleInfo
+[CRepr]
+public struct ApplicationProcessRecycleInfo
 {
 	public BOOL IsRecyclable;
 	public BOOL IsRecycled;
@@ -711,7 +721,8 @@ public enum CRMREGFLAGS : int32
 	public uint32 NumCallsLastReported;
 }
 
-[CRepr]public struct ApplicationSummary
+[CRepr]
+public struct ApplicationSummary
 {
 	public Guid ApplicationInstanceId;
 	public Guid PartitionId;
@@ -722,7 +733,8 @@ public enum CRMREGFLAGS : int32
 	public uint32 NumComponentInstances;
 }
 
-[CRepr]public struct ComponentSummary
+[CRepr]
+public struct ComponentSummary
 {
 	public Guid ApplicationInstanceId;
 	public Guid PartitionId;
@@ -732,7 +744,8 @@ public enum CRMREGFLAGS : int32
 	public PWSTR ApplicationName;
 }
 
-[CRepr]public struct ComponentStatistics
+[CRepr]
+public struct ComponentStatistics
 {
 	public uint32 NumInstances;
 	public uint32 NumBoundReferences;
@@ -749,14 +762,16 @@ public enum CRMREGFLAGS : int32
 	public uint32 Reserved4;
 }
 
-[CRepr]public struct ComponentHangMonitorInfo
+[CRepr]
+public struct ComponentHangMonitorInfo
 {
 	public BOOL IsMonitored;
 	public BOOL TerminateOnHang;
 	public uint32 AvgCallThresholdInMs;
 }
 
-[CRepr]public struct CrmLogRecordRead
+[CRepr]
+public struct CrmLogRecordRead
 {
 	public uint32 dwCrmFlags;
 	public uint32 dwSequenceNumber;

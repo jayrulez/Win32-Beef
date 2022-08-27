@@ -140,21 +140,25 @@ public function HRESULT PINSPECT_MEMORY_CALLBACK(void* context, uint readAddress
 #endregion
 
 #region Structs
-[CRepr]public struct EventRegistrationToken
+[CRepr]
+public struct EventRegistrationToken
 {
 	public int64 value;
 }
 
-[CRepr]public struct ServerInformation
+[CRepr]
+public struct ServerInformation
 {
 	public uint32 dwServerPid;
 	public uint32 dwServerTid;
 	public uint64 ui64ServerAddress;
 }
 
-[CRepr]public struct HSTRING_HEADER
+[CRepr]
+public struct HSTRING_HEADER
 {
-	[CRepr, Union]	public struct _Reserved_e__Union
+	[CRepr, Union]
+	public struct _Reserved_e__Union
 	{
 		public void* Reserved1;
 		public CHAR[24] Reserved2;
@@ -163,14 +167,16 @@ public function HRESULT PINSPECT_MEMORY_CALLBACK(void* context, uint readAddress
 	public _Reserved_e__Union Reserved;
 }
 
-[CRepr]public struct DispatcherQueueOptions
+[CRepr]
+public struct DispatcherQueueOptions
 {
 	public uint32 dwSize;
 	public DISPATCHERQUEUE_THREAD_TYPE threadType;
 	public DISPATCHERQUEUE_THREAD_APARTMENTTYPE apartmentType;
 }
 
-[CRepr]public struct _RO_REGISTRATION_COOKIE
+[CRepr]
+public struct _RO_REGISTRATION_COOKIE
 {
 }
 

@@ -94,16 +94,20 @@ public enum TBS_COMMAND_LOCALITY : uint32
 #endregion
 
 #region Structs
-[CRepr]public struct TBS_CONTEXT_PARAMS
+[CRepr]
+public struct TBS_CONTEXT_PARAMS
 {
 	public uint32 version;
 }
 
-[CRepr]public struct TBS_CONTEXT_PARAMS2
+[CRepr]
+public struct TBS_CONTEXT_PARAMS2
 {
-	[CRepr, Union]	public struct _Anonymous_e__Union
+	[CRepr, Union]
+	public struct _Anonymous_e__Union
 	{
-		[CRepr]		public struct _Anonymous_e__Struct
+		[CRepr]
+		public struct _Anonymous_e__Struct
 		{
 			public uint32 _bitfield;
 		}
@@ -116,13 +120,15 @@ public enum TBS_COMMAND_LOCALITY : uint32
 	public using _Anonymous_e__Union Anonymous;
 }
 
-[CRepr]public struct tdTPM_WNF_PROVISIONING
+[CRepr]
+public struct tdTPM_WNF_PROVISIONING
 {
 	public uint32 status;
 	public uint8[28] message;
 }
 
-[CRepr]public struct TPM_DEVICE_INFO
+[CRepr]
+public struct TPM_DEVICE_INFO
 {
 	public uint32 structVersion;
 	public uint32 tpmVersion;

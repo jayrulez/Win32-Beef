@@ -31,7 +31,8 @@ public enum XAML_REFERENCETRACKER_DISCONNECT : int32
 #endregion
 
 #region Structs
-[CRepr]public struct TrackerHandle__
+[CRepr]
+public struct TrackerHandle__
 {
 	public int32 unused;
 }

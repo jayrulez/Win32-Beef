@@ -454,11 +454,13 @@ public function int32 PDUMP_DEVICE_POWERON_ROUTINE();
 #endregion
 
 #region Structs
-[CRepr]public struct _ADAPTER_OBJECT
+[CRepr]
+public struct _ADAPTER_OBJECT
 {
 }
 
-[CRepr]public struct SCSI_PASS_THROUGH
+[CRepr]
+public struct SCSI_PASS_THROUGH
 {
 	public uint16 Length;
 	public uint8 ScsiStatus;
@@ -475,7 +477,8 @@ public function int32 PDUMP_DEVICE_POWERON_ROUTINE();
 	public uint8[16] Cdb;
 }
 
-[CRepr]public struct SCSI_PASS_THROUGH_DIRECT
+[CRepr]
+public struct SCSI_PASS_THROUGH_DIRECT
 {
 	public uint16 Length;
 	public uint8 ScsiStatus;
@@ -493,7 +496,8 @@ public function int32 PDUMP_DEVICE_POWERON_ROUTINE();
 }
 
 #if BF_64_BIT || BF_ARM_64
-[CRepr]public struct SCSI_PASS_THROUGH32
+[CRepr]
+public struct SCSI_PASS_THROUGH32
 {
 	public uint16 Length;
 	public uint8 ScsiStatus;
@@ -512,7 +516,8 @@ public function int32 PDUMP_DEVICE_POWERON_ROUTINE();
 #endif
 
 #if BF_64_BIT || BF_ARM_64
-[CRepr]public struct SCSI_PASS_THROUGH_DIRECT32
+[CRepr]
+public struct SCSI_PASS_THROUGH_DIRECT32
 {
 	public uint16 Length;
 	public uint8 ScsiStatus;
@@ -530,7 +535,8 @@ public function int32 PDUMP_DEVICE_POWERON_ROUTINE();
 }
 #endif
 
-[CRepr]public struct SCSI_PASS_THROUGH_EX
+[CRepr]
+public struct SCSI_PASS_THROUGH_EX
 {
 	public uint32 Version;
 	public uint32 Length;
@@ -550,7 +556,8 @@ public function int32 PDUMP_DEVICE_POWERON_ROUTINE();
 	public uint8[1] Cdb;
 }
 
-[CRepr]public struct SCSI_PASS_THROUGH_DIRECT_EX
+[CRepr]
+public struct SCSI_PASS_THROUGH_DIRECT_EX
 {
 	public uint32 Version;
 	public uint32 Length;
@@ -571,7 +578,8 @@ public function int32 PDUMP_DEVICE_POWERON_ROUTINE();
 }
 
 #if BF_64_BIT || BF_ARM_64
-[CRepr]public struct SCSI_PASS_THROUGH32_EX
+[CRepr]
+public struct SCSI_PASS_THROUGH32_EX
 {
 	public uint32 Version;
 	public uint32 Length;
@@ -593,7 +601,8 @@ public function int32 PDUMP_DEVICE_POWERON_ROUTINE();
 #endif
 
 #if BF_64_BIT || BF_ARM_64
-[CRepr]public struct SCSI_PASS_THROUGH_DIRECT32_EX
+[CRepr]
+public struct SCSI_PASS_THROUGH_DIRECT32_EX
 {
 	public uint32 Version;
 	public uint32 Length;
@@ -614,7 +623,8 @@ public function int32 PDUMP_DEVICE_POWERON_ROUTINE();
 }
 #endif
 
-[CRepr]public struct ATA_PASS_THROUGH_EX
+[CRepr]
+public struct ATA_PASS_THROUGH_EX
 {
 	public uint16 Length;
 	public uint16 AtaFlags;
@@ -630,7 +640,8 @@ public function int32 PDUMP_DEVICE_POWERON_ROUTINE();
 	public uint8[8] CurrentTaskFile;
 }
 
-[CRepr]public struct ATA_PASS_THROUGH_DIRECT
+[CRepr]
+public struct ATA_PASS_THROUGH_DIRECT
 {
 	public uint16 Length;
 	public uint16 AtaFlags;
@@ -647,7 +658,8 @@ public function int32 PDUMP_DEVICE_POWERON_ROUTINE();
 }
 
 #if BF_64_BIT || BF_ARM_64
-[CRepr]public struct ATA_PASS_THROUGH_EX32
+[CRepr]
+public struct ATA_PASS_THROUGH_EX32
 {
 	public uint16 Length;
 	public uint16 AtaFlags;
@@ -665,7 +677,8 @@ public function int32 PDUMP_DEVICE_POWERON_ROUTINE();
 #endif
 
 #if BF_64_BIT || BF_ARM_64
-[CRepr]public struct ATA_PASS_THROUGH_DIRECT32
+[CRepr]
+public struct ATA_PASS_THROUGH_DIRECT32
 {
 	public uint16 Length;
 	public uint16 AtaFlags;
@@ -682,7 +695,8 @@ public function int32 PDUMP_DEVICE_POWERON_ROUTINE();
 }
 #endif
 
-[CRepr]public struct IDE_IO_CONTROL
+[CRepr]
+public struct IDE_IO_CONTROL
 {
 	public uint32 HeaderLength;
 	public uint8[8] Signature;
@@ -692,7 +706,8 @@ public function int32 PDUMP_DEVICE_POWERON_ROUTINE();
 	public uint32 DataLength;
 }
 
-[CRepr]public struct MPIO_PASS_THROUGH_PATH
+[CRepr]
+public struct MPIO_PASS_THROUGH_PATH
 {
 	public SCSI_PASS_THROUGH PassThrough;
 	public uint32 Version;
@@ -702,7 +717,8 @@ public function int32 PDUMP_DEVICE_POWERON_ROUTINE();
 	public uint64 MpioPathId;
 }
 
-[CRepr]public struct MPIO_PASS_THROUGH_PATH_DIRECT
+[CRepr]
+public struct MPIO_PASS_THROUGH_PATH_DIRECT
 {
 	public SCSI_PASS_THROUGH_DIRECT PassThrough;
 	public uint32 Version;
@@ -712,7 +728,8 @@ public function int32 PDUMP_DEVICE_POWERON_ROUTINE();
 	public uint64 MpioPathId;
 }
 
-[CRepr]public struct MPIO_PASS_THROUGH_PATH_EX
+[CRepr]
+public struct MPIO_PASS_THROUGH_PATH_EX
 {
 	public uint32 PassThroughOffset;
 	public uint32 Version;
@@ -722,7 +739,8 @@ public function int32 PDUMP_DEVICE_POWERON_ROUTINE();
 	public uint64 MpioPathId;
 }
 
-[CRepr]public struct MPIO_PASS_THROUGH_PATH_DIRECT_EX
+[CRepr]
+public struct MPIO_PASS_THROUGH_PATH_DIRECT_EX
 {
 	public uint32 PassThroughOffset;
 	public uint32 Version;
@@ -733,7 +751,8 @@ public function int32 PDUMP_DEVICE_POWERON_ROUTINE();
 }
 
 #if BF_64_BIT || BF_ARM_64
-[CRepr]public struct MPIO_PASS_THROUGH_PATH32
+[CRepr]
+public struct MPIO_PASS_THROUGH_PATH32
 {
 	public SCSI_PASS_THROUGH32 PassThrough;
 	public uint32 Version;
@@ -745,7 +764,8 @@ public function int32 PDUMP_DEVICE_POWERON_ROUTINE();
 #endif
 
 #if BF_64_BIT || BF_ARM_64
-[CRepr]public struct MPIO_PASS_THROUGH_PATH_DIRECT32
+[CRepr]
+public struct MPIO_PASS_THROUGH_PATH_DIRECT32
 {
 	public SCSI_PASS_THROUGH_DIRECT32 PassThrough;
 	public uint32 Version;
@@ -757,7 +777,8 @@ public function int32 PDUMP_DEVICE_POWERON_ROUTINE();
 #endif
 
 #if BF_64_BIT || BF_ARM_64
-[CRepr]public struct MPIO_PASS_THROUGH_PATH32_EX
+[CRepr]
+public struct MPIO_PASS_THROUGH_PATH32_EX
 {
 	public uint32 PassThroughOffset;
 	public uint32 Version;
@@ -769,7 +790,8 @@ public function int32 PDUMP_DEVICE_POWERON_ROUTINE();
 #endif
 
 #if BF_64_BIT || BF_ARM_64
-[CRepr]public struct MPIO_PASS_THROUGH_PATH_DIRECT32_EX
+[CRepr]
+public struct MPIO_PASS_THROUGH_PATH_DIRECT32_EX
 {
 	public uint32 PassThroughOffset;
 	public uint32 Version;
@@ -780,20 +802,23 @@ public function int32 PDUMP_DEVICE_POWERON_ROUTINE();
 }
 #endif
 
-[CRepr]public struct SCSI_BUS_DATA
+[CRepr]
+public struct SCSI_BUS_DATA
 {
 	public uint8 NumberOfLogicalUnits;
 	public uint8 InitiatorBusId;
 	public uint32 InquiryDataOffset;
 }
 
-[CRepr]public struct SCSI_ADAPTER_BUS_INFO
+[CRepr]
+public struct SCSI_ADAPTER_BUS_INFO
 {
 	public uint8 NumberOfBuses;
 	public SCSI_BUS_DATA[1] BusData;
 }
 
-[CRepr]public struct SCSI_INQUIRY_DATA
+[CRepr]
+public struct SCSI_INQUIRY_DATA
 {
 	public uint8 PathId;
 	public uint8 TargetId;
@@ -804,7 +829,8 @@ public function int32 PDUMP_DEVICE_POWERON_ROUTINE();
 	public uint8[1] InquiryData;
 }
 
-[CRepr]public struct SRB_IO_CONTROL
+[CRepr]
+public struct SRB_IO_CONTROL
 {
 	public uint32 HeaderLength;
 	public uint8[8] Signature;
@@ -814,7 +840,8 @@ public function int32 PDUMP_DEVICE_POWERON_ROUTINE();
 	public uint32 Length;
 }
 
-[CRepr]public struct NVCACHE_REQUEST_BLOCK
+[CRepr]
+public struct NVCACHE_REQUEST_BLOCK
 {
 	public uint32 NRBSize;
 	public uint16 Function;
@@ -827,7 +854,8 @@ public function int32 PDUMP_DEVICE_POWERON_ROUTINE();
 	public uint32 NVCacheSubStatus;
 }
 
-[CRepr]public struct NV_FEATURE_PARAMETER
+[CRepr]
+public struct NV_FEATURE_PARAMETER
 {
 	public uint16 NVPowerModeEnabled;
 	public uint16 NVParameterReserv1;
@@ -841,7 +869,8 @@ public function int32 PDUMP_DEVICE_POWERON_ROUTINE();
 	public uint32 DeviceSpinUpTime;
 }
 
-[CRepr]public struct NVCACHE_HINT_PAYLOAD
+[CRepr]
+public struct NVCACHE_HINT_PAYLOAD
 {
 	public uint8 Command;
 	public uint8 Feature7_0;
@@ -858,11 +887,14 @@ public function int32 PDUMP_DEVICE_POWERON_ROUTINE();
 	public uint8[4] Reserved;
 }
 
-[CRepr]public struct NV_SEP_CACHE_PARAMETER
+[CRepr]
+public struct NV_SEP_CACHE_PARAMETER
 {
-	[CRepr, Union]	public struct _Flags_e__Union
+	[CRepr, Union]
+	public struct _Flags_e__Union
 	{
-		[CRepr]		public struct _CacheFlags_e__Struct
+		[CRepr]
+		public struct _CacheFlags_e__Struct
 		{
 			public uint8 _bitfield;
 		}
@@ -879,7 +911,8 @@ public function int32 PDUMP_DEVICE_POWERON_ROUTINE();
 	public uint8[3] ParameterReserve1;
 }
 
-[CRepr]public struct STORAGE_DIAGNOSTIC_MP_REQUEST
+[CRepr]
+public struct STORAGE_DIAGNOSTIC_MP_REQUEST
 {
 	public uint32 Version;
 	public uint32 Size;
@@ -891,13 +924,15 @@ public function int32 PDUMP_DEVICE_POWERON_ROUTINE();
 	public uint8[1] DataBuffer;
 }
 
-[CRepr]public struct MP_DEVICE_DATA_SET_RANGE
+[CRepr]
+public struct MP_DEVICE_DATA_SET_RANGE
 {
 	public int64 StartingOffset;
 	public uint64 LengthInBytes;
 }
 
-[CRepr]public struct DSM_NOTIFICATION_REQUEST_BLOCK
+[CRepr]
+public struct DSM_NOTIFICATION_REQUEST_BLOCK
 {
 	public uint32 Size;
 	public uint32 Version;
@@ -908,7 +943,8 @@ public function int32 PDUMP_DEVICE_POWERON_ROUTINE();
 	public MP_DEVICE_DATA_SET_RANGE[1] DataSetRanges;
 }
 
-[CRepr]public struct HYBRID_REQUEST_BLOCK
+[CRepr]
+public struct HYBRID_REQUEST_BLOCK
 {
 	public uint32 Version;
 	public uint32 Size;
@@ -918,7 +954,8 @@ public function int32 PDUMP_DEVICE_POWERON_ROUTINE();
 	public uint32 DataBufferLength;
 }
 
-[CRepr]public struct NVCACHE_PRIORITY_LEVEL_DESCRIPTOR
+[CRepr]
+public struct NVCACHE_PRIORITY_LEVEL_DESCRIPTOR
 {
 	public uint8 PriorityLevel;
 	public uint8[3] Reserved0;
@@ -929,11 +966,14 @@ public function int32 PDUMP_DEVICE_POWERON_ROUTINE();
 	public uint32 Reserved1;
 }
 
-[CRepr]public struct HYBRID_INFORMATION
+[CRepr]
+public struct HYBRID_INFORMATION
 {
-	[CRepr]	public struct _Priorities_e__Struct
+	[CRepr]
+	public struct _Priorities_e__Struct
 	{
-		[CRepr]		public struct _SupportedCommands_e__Struct
+		[CRepr]
+		public struct _SupportedCommands_e__Struct
 		{
 			public uint32 _bitfield;
 			public uint32 MaxEvictCommands;
@@ -951,7 +991,8 @@ public function int32 PDUMP_DEVICE_POWERON_ROUTINE();
 		public NVCACHE_PRIORITY_LEVEL_DESCRIPTOR[1] Priority;
 	}
 
-	[CRepr]	public struct _Attributes_e__Struct
+	[CRepr]
+	public struct _Attributes_e__Struct
 	{
 		public uint32 _bitfield;
 	}
@@ -968,7 +1009,8 @@ public function int32 PDUMP_DEVICE_POWERON_ROUTINE();
 	public _Priorities_e__Struct Priorities;
 }
 
-[CRepr]public struct HYBRID_DIRTY_THRESHOLDS
+[CRepr]
+public struct HYBRID_DIRTY_THRESHOLDS
 {
 	public uint32 Version;
 	public uint32 Size;
@@ -976,7 +1018,8 @@ public function int32 PDUMP_DEVICE_POWERON_ROUTINE();
 	public uint32 DirtyHighThreshold;
 }
 
-[CRepr]public struct HYBRID_DEMOTE_BY_SIZE
+[CRepr]
+public struct HYBRID_DEMOTE_BY_SIZE
 {
 	public uint32 Version;
 	public uint32 Size;
@@ -987,7 +1030,8 @@ public function int32 PDUMP_DEVICE_POWERON_ROUTINE();
 	public uint64 LbaCount;
 }
 
-[CRepr]public struct FIRMWARE_REQUEST_BLOCK
+[CRepr]
+public struct FIRMWARE_REQUEST_BLOCK
 {
 	public uint32 Version;
 	public uint32 Size;
@@ -997,9 +1041,11 @@ public function int32 PDUMP_DEVICE_POWERON_ROUTINE();
 	public uint32 DataBufferLength;
 }
 
-[CRepr]public struct STORAGE_FIRMWARE_SLOT_INFO
+[CRepr]
+public struct STORAGE_FIRMWARE_SLOT_INFO
 {
-	[CRepr, Union]	public struct _Revision_e__Union
+	[CRepr, Union]
+	public struct _Revision_e__Union
 	{
 		public uint8[8] Info;
 		public uint64 AsUlonglong;
@@ -1011,7 +1057,8 @@ public function int32 PDUMP_DEVICE_POWERON_ROUTINE();
 	public _Revision_e__Union Revision;
 }
 
-[CRepr]public struct STORAGE_FIRMWARE_SLOT_INFO_V2
+[CRepr]
+public struct STORAGE_FIRMWARE_SLOT_INFO_V2
 {
 	public uint8 SlotNumber;
 	public BOOLEAN ReadOnly;
@@ -1019,7 +1066,8 @@ public function int32 PDUMP_DEVICE_POWERON_ROUTINE();
 	public uint8[16] Revision;
 }
 
-[CRepr]public struct STORAGE_FIRMWARE_INFO
+[CRepr]
+public struct STORAGE_FIRMWARE_INFO
 {
 	public uint32 Version;
 	public uint32 Size;
@@ -1031,7 +1079,8 @@ public function int32 PDUMP_DEVICE_POWERON_ROUTINE();
 	public STORAGE_FIRMWARE_SLOT_INFO[1] Slot;
 }
 
-[CRepr]public struct STORAGE_FIRMWARE_INFO_V2
+[CRepr]
+public struct STORAGE_FIRMWARE_INFO_V2
 {
 	public uint32 Version;
 	public uint32 Size;
@@ -1046,7 +1095,8 @@ public function int32 PDUMP_DEVICE_POWERON_ROUTINE();
 	public STORAGE_FIRMWARE_SLOT_INFO_V2[1] Slot;
 }
 
-[CRepr]public struct STORAGE_FIRMWARE_DOWNLOAD
+[CRepr]
+public struct STORAGE_FIRMWARE_DOWNLOAD
 {
 	public uint32 Version;
 	public uint32 Size;
@@ -1055,7 +1105,8 @@ public function int32 PDUMP_DEVICE_POWERON_ROUTINE();
 	public uint8[1] ImageBuffer;
 }
 
-[CRepr]public struct STORAGE_FIRMWARE_DOWNLOAD_V2
+[CRepr]
+public struct STORAGE_FIRMWARE_DOWNLOAD_V2
 {
 	public uint32 Version;
 	public uint32 Size;
@@ -1067,7 +1118,8 @@ public function int32 PDUMP_DEVICE_POWERON_ROUTINE();
 	public uint8[1] ImageBuffer;
 }
 
-[CRepr]public struct STORAGE_FIRMWARE_ACTIVATE
+[CRepr]
+public struct STORAGE_FIRMWARE_ACTIVATE
 {
 	public uint32 Version;
 	public uint32 Size;
@@ -1075,7 +1127,8 @@ public function int32 PDUMP_DEVICE_POWERON_ROUTINE();
 	public uint8[3] Reserved0;
 }
 
-[CRepr]public struct IO_SCSI_CAPABILITIES
+[CRepr]
+public struct IO_SCSI_CAPABILITIES
 {
 	public uint32 Length;
 	public uint32 MaximumTransferLength;
@@ -1087,7 +1140,8 @@ public function int32 PDUMP_DEVICE_POWERON_ROUTINE();
 	public BOOLEAN AdapterUsesPio;
 }
 
-[CRepr]public struct SCSI_ADDRESS
+[CRepr]
+public struct SCSI_ADDRESS
 {
 	public uint32 Length;
 	public uint8 PortNumber;
@@ -1096,13 +1150,15 @@ public function int32 PDUMP_DEVICE_POWERON_ROUTINE();
 	public uint8 Lun;
 }
 
-[CRepr]public struct DUMP_POINTERS_VERSION
+[CRepr]
+public struct DUMP_POINTERS_VERSION
 {
 	public uint32 Version;
 	public uint32 Size;
 }
 
-[CRepr]public struct DUMP_POINTERS
+[CRepr]
+public struct DUMP_POINTERS
 {
 	public _ADAPTER_OBJECT* AdapterObject;
 	public void* MappedRegisterBase;
@@ -1116,7 +1172,8 @@ public function int32 PDUMP_DEVICE_POWERON_ROUTINE();
 	public void* DeviceObject;
 }
 
-[CRepr]public struct DUMP_POINTERS_EX
+[CRepr]
+public struct DUMP_POINTERS_EX
 {
 	public DUMP_POINTERS_VERSION Header;
 	public void* DumpData;
@@ -1136,21 +1193,24 @@ public function int32 PDUMP_DEVICE_POWERON_ROUTINE();
 	public void* DumpDevicePowerOnContext;
 }
 
-[CRepr]public struct DUMP_DRIVER
+[CRepr]
+public struct DUMP_DRIVER
 {
 	public void* DumpDriverList;
 	public char8[15] DriverName;
 	public char8[15] BaseName;
 }
 
-[CRepr]public struct NTSCSI_UNICODE_STRING
+[CRepr]
+public struct NTSCSI_UNICODE_STRING
 {
 	public uint16 Length;
 	public uint16 MaximumLength;
 	public PWSTR Buffer;
 }
 
-[CRepr]public struct DUMP_DRIVER_EX
+[CRepr]
+public struct DUMP_DRIVER_EX
 {
 	public void* DumpDriverList;
 	public char8[15] DriverName;
@@ -1158,9 +1218,11 @@ public function int32 PDUMP_DEVICE_POWERON_ROUTINE();
 	public NTSCSI_UNICODE_STRING DriverFullPath;
 }
 
-[CRepr]public struct STORAGE_ENDURANCE_INFO
+[CRepr]
+public struct STORAGE_ENDURANCE_INFO
 {
-	[CRepr]	public struct _Flags_e__Struct
+	[CRepr]
+	public struct _Flags_e__Struct
 	{
 		public uint32 _bitfield;
 	}
@@ -1173,14 +1235,16 @@ public function int32 PDUMP_DEVICE_POWERON_ROUTINE();
 	public uint8[16] ByteWriteCount;
 }
 
-[CRepr]public struct STORAGE_ENDURANCE_DATA_DESCRIPTOR
+[CRepr]
+public struct STORAGE_ENDURANCE_DATA_DESCRIPTOR
 {
 	public uint32 Version;
 	public uint32 Size;
 	public STORAGE_ENDURANCE_INFO EnduranceInfo;
 }
 
-[CRepr]public struct ISCSI_LOGIN_OPTIONS
+[CRepr]
+public struct ISCSI_LOGIN_OPTIONS
 {
 	public uint32 Version;
 	public uint32 InformationSpecified;
@@ -1197,7 +1261,8 @@ public function int32 PDUMP_DEVICE_POWERON_ROUTINE();
 	public uint8* Password;
 }
 
-[CRepr]public struct IKE_AUTHENTICATION_PRESHARED_KEY
+[CRepr]
+public struct IKE_AUTHENTICATION_PRESHARED_KEY
 {
 	public uint64 SecurityFlags;
 	public uint8 IdType;
@@ -1207,9 +1272,11 @@ public function int32 PDUMP_DEVICE_POWERON_ROUTINE();
 	public uint8* Key;
 }
 
-[CRepr]public struct IKE_AUTHENTICATION_INFORMATION
+[CRepr]
+public struct IKE_AUTHENTICATION_INFORMATION
 {
-	[CRepr, Union]	public struct _Anonymous_e__Union
+	[CRepr, Union]
+	public struct _Anonymous_e__Union
 	{
 		public IKE_AUTHENTICATION_PRESHARED_KEY PsKey;
 	}
@@ -1218,19 +1285,22 @@ public function int32 PDUMP_DEVICE_POWERON_ROUTINE();
 	public using _Anonymous_e__Union Anonymous;
 }
 
-[CRepr]public struct ISCSI_UNIQUE_SESSION_ID
+[CRepr]
+public struct ISCSI_UNIQUE_SESSION_ID
 {
 	public uint64 AdapterUnique;
 	public uint64 AdapterSpecific;
 }
 
-[CRepr]public struct SCSI_LUN_LIST
+[CRepr]
+public struct SCSI_LUN_LIST
 {
 	public uint32 OSLUN;
 	public uint64 TargetLUN;
 }
 
-[CRepr]public struct ISCSI_TARGET_MAPPINGW
+[CRepr]
+public struct ISCSI_TARGET_MAPPINGW
 {
 	public char8[256] InitiatorName;
 	public char8[224] TargetName;
@@ -1242,7 +1312,8 @@ public function int32 PDUMP_DEVICE_POWERON_ROUTINE();
 	public SCSI_LUN_LIST* LUNList;
 }
 
-[CRepr]public struct ISCSI_TARGET_MAPPINGA
+[CRepr]
+public struct ISCSI_TARGET_MAPPINGA
 {
 	public CHAR[256] InitiatorName;
 	public CHAR[224] TargetName;
@@ -1254,21 +1325,24 @@ public function int32 PDUMP_DEVICE_POWERON_ROUTINE();
 	public SCSI_LUN_LIST* LUNList;
 }
 
-[CRepr]public struct ISCSI_TARGET_PORTALW
+[CRepr]
+public struct ISCSI_TARGET_PORTALW
 {
 	public char8[256] SymbolicName;
 	public char8[256] Address;
 	public uint16 Socket;
 }
 
-[CRepr]public struct ISCSI_TARGET_PORTALA
+[CRepr]
+public struct ISCSI_TARGET_PORTALA
 {
 	public CHAR[256] SymbolicName;
 	public CHAR[256] Address;
 	public uint16 Socket;
 }
 
-[CRepr]public struct ISCSI_TARGET_PORTAL_INFOW
+[CRepr]
+public struct ISCSI_TARGET_PORTAL_INFOW
 {
 	public char8[256] InitiatorName;
 	public uint32 InitiatorPortNumber;
@@ -1277,7 +1351,8 @@ public function int32 PDUMP_DEVICE_POWERON_ROUTINE();
 	public uint16 Socket;
 }
 
-[CRepr]public struct ISCSI_TARGET_PORTAL_INFOA
+[CRepr]
+public struct ISCSI_TARGET_PORTAL_INFOA
 {
 	public CHAR[256] InitiatorName;
 	public uint32 InitiatorPortNumber;
@@ -1286,7 +1361,8 @@ public function int32 PDUMP_DEVICE_POWERON_ROUTINE();
 	public uint16 Socket;
 }
 
-[CRepr]public struct ISCSI_TARGET_PORTAL_INFO_EXW
+[CRepr]
+public struct ISCSI_TARGET_PORTAL_INFO_EXW
 {
 	public char8[256] InitiatorName;
 	public uint32 InitiatorPortNumber;
@@ -1297,7 +1373,8 @@ public function int32 PDUMP_DEVICE_POWERON_ROUTINE();
 	public ISCSI_LOGIN_OPTIONS LoginOptions;
 }
 
-[CRepr]public struct ISCSI_TARGET_PORTAL_INFO_EXA
+[CRepr]
+public struct ISCSI_TARGET_PORTAL_INFO_EXA
 {
 	public CHAR[256] InitiatorName;
 	public uint32 InitiatorPortNumber;
@@ -1308,19 +1385,22 @@ public function int32 PDUMP_DEVICE_POWERON_ROUTINE();
 	public ISCSI_LOGIN_OPTIONS LoginOptions;
 }
 
-[CRepr]public struct ISCSI_TARGET_PORTAL_GROUPW
+[CRepr]
+public struct ISCSI_TARGET_PORTAL_GROUPW
 {
 	public uint32 Count;
 	public ISCSI_TARGET_PORTALW[1] Portals;
 }
 
-[CRepr]public struct ISCSI_TARGET_PORTAL_GROUPA
+[CRepr]
+public struct ISCSI_TARGET_PORTAL_GROUPA
 {
 	public uint32 Count;
 	public ISCSI_TARGET_PORTALA[1] Portals;
 }
 
-[CRepr]public struct ISCSI_CONNECTION_INFOW
+[CRepr]
+public struct ISCSI_CONNECTION_INFOW
 {
 	public ISCSI_UNIQUE_SESSION_ID ConnectionId;
 	public PWSTR InitiatorAddress;
@@ -1330,7 +1410,8 @@ public function int32 PDUMP_DEVICE_POWERON_ROUTINE();
 	public uint8[2] CID;
 }
 
-[CRepr]public struct ISCSI_SESSION_INFOW
+[CRepr]
+public struct ISCSI_SESSION_INFOW
 {
 	public ISCSI_UNIQUE_SESSION_ID SessionId;
 	public PWSTR InitiatorName;
@@ -1342,7 +1423,8 @@ public function int32 PDUMP_DEVICE_POWERON_ROUTINE();
 	public ISCSI_CONNECTION_INFOW* Connections;
 }
 
-[CRepr]public struct ISCSI_CONNECTION_INFOA
+[CRepr]
+public struct ISCSI_CONNECTION_INFOA
 {
 	public ISCSI_UNIQUE_SESSION_ID ConnectionId;
 	public PSTR InitiatorAddress;
@@ -1352,7 +1434,8 @@ public function int32 PDUMP_DEVICE_POWERON_ROUTINE();
 	public uint8[2] CID;
 }
 
-[CRepr]public struct ISCSI_SESSION_INFOA
+[CRepr]
+public struct ISCSI_SESSION_INFOA
 {
 	public ISCSI_UNIQUE_SESSION_ID SessionId;
 	public PSTR InitiatorName;
@@ -1364,7 +1447,8 @@ public function int32 PDUMP_DEVICE_POWERON_ROUTINE();
 	public ISCSI_CONNECTION_INFOA* Connections;
 }
 
-[CRepr]public struct ISCSI_CONNECTION_INFO_EX
+[CRepr]
+public struct ISCSI_CONNECTION_INFO_EX
 {
 	public ISCSI_UNIQUE_SESSION_ID ConnectionId;
 	public uint8 State;
@@ -1377,7 +1461,8 @@ public function int32 PDUMP_DEVICE_POWERON_ROUTINE();
 	public uint32 MaxDatagramSize;
 }
 
-[CRepr]public struct ISCSI_SESSION_INFO_EX
+[CRepr]
+public struct ISCSI_SESSION_INFO_EX
 {
 	public ISCSI_UNIQUE_SESSION_ID SessionId;
 	public BOOLEAN InitialR2t;
@@ -1394,7 +1479,8 @@ public function int32 PDUMP_DEVICE_POWERON_ROUTINE();
 	public ISCSI_CONNECTION_INFO_EX* Connections;
 }
 
-[CRepr]public struct ISCSI_DEVICE_ON_SESSIONW
+[CRepr]
+public struct ISCSI_DEVICE_ON_SESSIONW
 {
 	public char8[256] InitiatorName;
 	public char8[224] TargetName;
@@ -1406,7 +1492,8 @@ public function int32 PDUMP_DEVICE_POWERON_ROUTINE();
 	public uint32 DeviceInstance;
 }
 
-[CRepr]public struct ISCSI_DEVICE_ON_SESSIONA
+[CRepr]
+public struct ISCSI_DEVICE_ON_SESSIONA
 {
 	public CHAR[256] InitiatorName;
 	public CHAR[224] TargetName;
@@ -1418,7 +1505,8 @@ public function int32 PDUMP_DEVICE_POWERON_ROUTINE();
 	public uint32 DeviceInstance;
 }
 
-[CRepr]public struct PERSISTENT_ISCSI_LOGIN_INFOW
+[CRepr]
+public struct PERSISTENT_ISCSI_LOGIN_INFOW
 {
 	public char8[224] TargetName;
 	public BOOLEAN IsInformationalSession;
@@ -1430,7 +1518,8 @@ public function int32 PDUMP_DEVICE_POWERON_ROUTINE();
 	public ISCSI_LOGIN_OPTIONS LoginOptions;
 }
 
-[CRepr]public struct PERSISTENT_ISCSI_LOGIN_INFOA
+[CRepr]
+public struct PERSISTENT_ISCSI_LOGIN_INFOA
 {
 	public CHAR[224] TargetName;
 	public BOOLEAN IsInformationalSession;
@@ -1442,7 +1531,8 @@ public function int32 PDUMP_DEVICE_POWERON_ROUTINE();
 	public ISCSI_LOGIN_OPTIONS LoginOptions;
 }
 
-[CRepr]public struct ISCSI_VERSION_INFO
+[CRepr]
+public struct ISCSI_VERSION_INFO
 {
 	public uint32 MajorVersion;
 	public uint32 MinorVersion;

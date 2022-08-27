@@ -85,7 +85,8 @@ public function void PFN_DXCORE_NOTIFICATION_CALLBACK(DXCoreNotificationType not
 #endregion
 
 #region Structs
-[CRepr]public struct DXCoreHardwareID
+[CRepr]
+public struct DXCoreHardwareID
 {
 	public uint32 vendorID;
 	public uint32 deviceID;
@@ -93,7 +94,8 @@ public function void PFN_DXCORE_NOTIFICATION_CALLBACK(DXCoreNotificationType not
 	public uint32 revision;
 }
 
-[CRepr]public struct DXCoreHardwareIDParts
+[CRepr]
+public struct DXCoreHardwareIDParts
 {
 	public uint32 vendorID;
 	public uint32 deviceID;
@@ -102,13 +104,15 @@ public function void PFN_DXCORE_NOTIFICATION_CALLBACK(DXCoreNotificationType not
 	public uint32 revisionID;
 }
 
-[CRepr]public struct DXCoreAdapterMemoryBudgetNodeSegmentGroup
+[CRepr]
+public struct DXCoreAdapterMemoryBudgetNodeSegmentGroup
 {
 	public uint32 nodeIndex;
 	public DXCoreSegmentGroup segmentGroup;
 }
 
-[CRepr]public struct DXCoreAdapterMemoryBudget
+[CRepr]
+public struct DXCoreAdapterMemoryBudget
 {
 	public uint64 budget;
 	public uint64 currentUsage;

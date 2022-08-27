@@ -1417,7 +1417,8 @@ public enum XHR_CERT_ERROR_FLAG : uint32
 #endregion
 
 #region Structs
-[CRepr]public struct XML_ERROR
+[CRepr]
+public struct XML_ERROR
 {
 	public uint32 _nLine;
 	public BSTR _pchBuf;
@@ -1429,7 +1430,8 @@ public enum XHR_CERT_ERROR_FLAG : uint32
 	public uint32 _reserved2;
 }
 
-[CRepr]public struct __msxml6_ReferenceRemainingTypes__
+[CRepr]
+public struct __msxml6_ReferenceRemainingTypes__
 {
 	public DOMNodeType __tagDomNodeType__;
 	public DOMNodeType __domNodeType__;
@@ -1455,7 +1457,8 @@ public enum XHR_CERT_ERROR_FLAG : uint32
 	public SCHEMATYPEVARIETY __schemaTypeVariety__;
 }
 
-[CRepr]public struct XHR_COOKIE
+[CRepr]
+public struct XHR_COOKIE
 {
 	public PWSTR pwszUrl;
 	public PWSTR pwszName;
@@ -1465,7 +1468,8 @@ public enum XHR_CERT_ERROR_FLAG : uint32
 	public uint32 dwFlags;
 }
 
-[CRepr]public struct XHR_CERT
+[CRepr]
+public struct XHR_CERT
 {
 	public uint32 cbCert;
 	public uint8* pbCert;

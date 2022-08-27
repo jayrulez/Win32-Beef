@@ -13,22 +13,26 @@ namespace Win32.System.PasswordManagement;
 #endregion
 
 #region Structs
-[CRepr]public struct CYPHER_BLOCK
+[CRepr]
+public struct CYPHER_BLOCK
 {
 	public CHAR[8] data;
 }
 
-[CRepr]public struct LM_OWF_PASSWORD
+[CRepr]
+public struct LM_OWF_PASSWORD
 {
 	public CYPHER_BLOCK[2] data;
 }
 
-[CRepr]public struct SAMPR_ENCRYPTED_USER_PASSWORD
+[CRepr]
+public struct SAMPR_ENCRYPTED_USER_PASSWORD
 {
 	public uint8[516] Buffer;
 }
 
-[CRepr]public struct ENCRYPTED_LM_OWF_PASSWORD
+[CRepr]
+public struct ENCRYPTED_LM_OWF_PASSWORD
 {
 	public CYPHER_BLOCK[2] data;
 }

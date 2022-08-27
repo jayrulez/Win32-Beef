@@ -3594,7 +3594,8 @@ public function HRESULT PFN_D3D11_CREATE_DEVICE_AND_SWAP_CHAIN(IDXGIAdapter* par
 #endregion
 
 #region Structs
-[CRepr]public struct D3D11_INPUT_ELEMENT_DESC
+[CRepr]
+public struct D3D11_INPUT_ELEMENT_DESC
 {
 	public PSTR SemanticName;
 	public uint32 SemanticIndex;
@@ -3605,7 +3606,8 @@ public function HRESULT PFN_D3D11_CREATE_DEVICE_AND_SWAP_CHAIN(IDXGIAdapter* par
 	public uint32 InstanceDataStepRate;
 }
 
-[CRepr]public struct D3D11_SO_DECLARATION_ENTRY
+[CRepr]
+public struct D3D11_SO_DECLARATION_ENTRY
 {
 	public uint32 Stream;
 	public PSTR SemanticName;
@@ -3615,7 +3617,8 @@ public function HRESULT PFN_D3D11_CREATE_DEVICE_AND_SWAP_CHAIN(IDXGIAdapter* par
 	public uint8 OutputSlot;
 }
 
-[CRepr]public struct D3D11_VIEWPORT
+[CRepr]
+public struct D3D11_VIEWPORT
 {
 	public float TopLeftX;
 	public float TopLeftY;
@@ -3625,7 +3628,8 @@ public function HRESULT PFN_D3D11_CREATE_DEVICE_AND_SWAP_CHAIN(IDXGIAdapter* par
 	public float MaxDepth;
 }
 
-[CRepr]public struct D3D11_DRAW_INSTANCED_INDIRECT_ARGS
+[CRepr]
+public struct D3D11_DRAW_INSTANCED_INDIRECT_ARGS
 {
 	public uint32 VertexCountPerInstance;
 	public uint32 InstanceCount;
@@ -3633,7 +3637,8 @@ public function HRESULT PFN_D3D11_CREATE_DEVICE_AND_SWAP_CHAIN(IDXGIAdapter* par
 	public uint32 StartInstanceLocation;
 }
 
-[CRepr]public struct D3D11_DRAW_INDEXED_INSTANCED_INDIRECT_ARGS
+[CRepr]
+public struct D3D11_DRAW_INDEXED_INSTANCED_INDIRECT_ARGS
 {
 	public uint32 IndexCountPerInstance;
 	public uint32 InstanceCount;
@@ -3642,7 +3647,8 @@ public function HRESULT PFN_D3D11_CREATE_DEVICE_AND_SWAP_CHAIN(IDXGIAdapter* par
 	public uint32 StartInstanceLocation;
 }
 
-[CRepr]public struct D3D11_BOX
+[CRepr]
+public struct D3D11_BOX
 {
 	public uint32 left;
 	public uint32 top;
@@ -3652,7 +3658,8 @@ public function HRESULT PFN_D3D11_CREATE_DEVICE_AND_SWAP_CHAIN(IDXGIAdapter* par
 	public uint32 back;
 }
 
-[CRepr]public struct D3D11_DEPTH_STENCILOP_DESC
+[CRepr]
+public struct D3D11_DEPTH_STENCILOP_DESC
 {
 	public D3D11_STENCIL_OP StencilFailOp;
 	public D3D11_STENCIL_OP StencilDepthFailOp;
@@ -3660,7 +3667,8 @@ public function HRESULT PFN_D3D11_CREATE_DEVICE_AND_SWAP_CHAIN(IDXGIAdapter* par
 	public D3D11_COMPARISON_FUNC StencilFunc;
 }
 
-[CRepr]public struct D3D11_DEPTH_STENCIL_DESC
+[CRepr]
+public struct D3D11_DEPTH_STENCIL_DESC
 {
 	public BOOL DepthEnable;
 	public D3D11_DEPTH_WRITE_MASK DepthWriteMask;
@@ -3672,7 +3680,8 @@ public function HRESULT PFN_D3D11_CREATE_DEVICE_AND_SWAP_CHAIN(IDXGIAdapter* par
 	public D3D11_DEPTH_STENCILOP_DESC BackFace;
 }
 
-[CRepr]public struct D3D11_RENDER_TARGET_BLEND_DESC
+[CRepr]
+public struct D3D11_RENDER_TARGET_BLEND_DESC
 {
 	public BOOL BlendEnable;
 	public D3D11_BLEND SrcBlend;
@@ -3684,14 +3693,16 @@ public function HRESULT PFN_D3D11_CREATE_DEVICE_AND_SWAP_CHAIN(IDXGIAdapter* par
 	public uint8 RenderTargetWriteMask;
 }
 
-[CRepr]public struct D3D11_BLEND_DESC
+[CRepr]
+public struct D3D11_BLEND_DESC
 {
 	public BOOL AlphaToCoverageEnable;
 	public BOOL IndependentBlendEnable;
 	public D3D11_RENDER_TARGET_BLEND_DESC[8] RenderTarget;
 }
 
-[CRepr]public struct D3D11_RASTERIZER_DESC
+[CRepr]
+public struct D3D11_RASTERIZER_DESC
 {
 	public D3D11_FILL_MODE FillMode;
 	public D3D11_CULL_MODE CullMode;
@@ -3705,21 +3716,24 @@ public function HRESULT PFN_D3D11_CREATE_DEVICE_AND_SWAP_CHAIN(IDXGIAdapter* par
 	public BOOL AntialiasedLineEnable;
 }
 
-[CRepr]public struct D3D11_SUBRESOURCE_DATA
+[CRepr]
+public struct D3D11_SUBRESOURCE_DATA
 {
 	public void* pSysMem;
 	public uint32 SysMemPitch;
 	public uint32 SysMemSlicePitch;
 }
 
-[CRepr]public struct D3D11_MAPPED_SUBRESOURCE
+[CRepr]
+public struct D3D11_MAPPED_SUBRESOURCE
 {
 	public void* pData;
 	public uint32 RowPitch;
 	public uint32 DepthPitch;
 }
 
-[CRepr]public struct D3D11_BUFFER_DESC
+[CRepr]
+public struct D3D11_BUFFER_DESC
 {
 	public uint32 ByteWidth;
 	public D3D11_USAGE Usage;
@@ -3729,7 +3743,8 @@ public function HRESULT PFN_D3D11_CREATE_DEVICE_AND_SWAP_CHAIN(IDXGIAdapter* par
 	public uint32 StructureByteStride;
 }
 
-[CRepr]public struct D3D11_TEXTURE1D_DESC
+[CRepr]
+public struct D3D11_TEXTURE1D_DESC
 {
 	public uint32 Width;
 	public uint32 MipLevels;
@@ -3741,7 +3756,8 @@ public function HRESULT PFN_D3D11_CREATE_DEVICE_AND_SWAP_CHAIN(IDXGIAdapter* par
 	public uint32 MiscFlags;
 }
 
-[CRepr]public struct D3D11_TEXTURE2D_DESC
+[CRepr]
+public struct D3D11_TEXTURE2D_DESC
 {
 	public uint32 Width;
 	public uint32 Height;
@@ -3755,7 +3771,8 @@ public function HRESULT PFN_D3D11_CREATE_DEVICE_AND_SWAP_CHAIN(IDXGIAdapter* par
 	public D3D11_RESOURCE_MISC_FLAG MiscFlags;
 }
 
-[CRepr]public struct D3D11_TEXTURE3D_DESC
+[CRepr]
+public struct D3D11_TEXTURE3D_DESC
 {
 	public uint32 Width;
 	public uint32 Height;
@@ -3768,15 +3785,18 @@ public function HRESULT PFN_D3D11_CREATE_DEVICE_AND_SWAP_CHAIN(IDXGIAdapter* par
 	public uint32 MiscFlags;
 }
 
-[CRepr]public struct D3D11_BUFFER_SRV
+[CRepr]
+public struct D3D11_BUFFER_SRV
 {
-	[CRepr, Union]	public struct _Anonymous1_e__Union
+	[CRepr, Union]
+	public struct _Anonymous1_e__Union
 	{
 		public uint32 FirstElement;
 		public uint32 ElementOffset;
 	}
 
-	[CRepr, Union]	public struct _Anonymous2_e__Union
+	[CRepr, Union]
+	public struct _Anonymous2_e__Union
 	{
 		public uint32 NumElements;
 		public uint32 ElementWidth;
@@ -3786,34 +3806,23 @@ public function HRESULT PFN_D3D11_CREATE_DEVICE_AND_SWAP_CHAIN(IDXGIAdapter* par
 	public _Anonymous2_e__Union Anonymous2;
 }
 
-[CRepr]public struct D3D11_BUFFEREX_SRV
+[CRepr]
+public struct D3D11_BUFFEREX_SRV
 {
 	public uint32 FirstElement;
 	public uint32 NumElements;
 	public uint32 Flags;
 }
 
-[CRepr]public struct D3D11_TEX1D_SRV
+[CRepr]
+public struct D3D11_TEX1D_SRV
 {
 	public uint32 MostDetailedMip;
 	public uint32 MipLevels;
 }
 
-[CRepr]public struct D3D11_TEX1D_ARRAY_SRV
-{
-	public uint32 MostDetailedMip;
-	public uint32 MipLevels;
-	public uint32 FirstArraySlice;
-	public uint32 ArraySize;
-}
-
-[CRepr]public struct D3D11_TEX2D_SRV
-{
-	public uint32 MostDetailedMip;
-	public uint32 MipLevels;
-}
-
-[CRepr]public struct D3D11_TEX2D_ARRAY_SRV
+[CRepr]
+public struct D3D11_TEX1D_ARRAY_SRV
 {
 	public uint32 MostDetailedMip;
 	public uint32 MipLevels;
@@ -3821,19 +3830,38 @@ public function HRESULT PFN_D3D11_CREATE_DEVICE_AND_SWAP_CHAIN(IDXGIAdapter* par
 	public uint32 ArraySize;
 }
 
-[CRepr]public struct D3D11_TEX3D_SRV
+[CRepr]
+public struct D3D11_TEX2D_SRV
 {
 	public uint32 MostDetailedMip;
 	public uint32 MipLevels;
 }
 
-[CRepr]public struct D3D11_TEXCUBE_SRV
+[CRepr]
+public struct D3D11_TEX2D_ARRAY_SRV
+{
+	public uint32 MostDetailedMip;
+	public uint32 MipLevels;
+	public uint32 FirstArraySlice;
+	public uint32 ArraySize;
+}
+
+[CRepr]
+public struct D3D11_TEX3D_SRV
 {
 	public uint32 MostDetailedMip;
 	public uint32 MipLevels;
 }
 
-[CRepr]public struct D3D11_TEXCUBE_ARRAY_SRV
+[CRepr]
+public struct D3D11_TEXCUBE_SRV
+{
+	public uint32 MostDetailedMip;
+	public uint32 MipLevels;
+}
+
+[CRepr]
+public struct D3D11_TEXCUBE_ARRAY_SRV
 {
 	public uint32 MostDetailedMip;
 	public uint32 MipLevels;
@@ -3841,20 +3869,24 @@ public function HRESULT PFN_D3D11_CREATE_DEVICE_AND_SWAP_CHAIN(IDXGIAdapter* par
 	public uint32 NumCubes;
 }
 
-[CRepr]public struct D3D11_TEX2DMS_SRV
+[CRepr]
+public struct D3D11_TEX2DMS_SRV
 {
 	public uint32 UnusedField_NothingToDefine;
 }
 
-[CRepr]public struct D3D11_TEX2DMS_ARRAY_SRV
+[CRepr]
+public struct D3D11_TEX2DMS_ARRAY_SRV
 {
 	public uint32 FirstArraySlice;
 	public uint32 ArraySize;
 }
 
-[CRepr]public struct D3D11_SHADER_RESOURCE_VIEW_DESC
+[CRepr]
+public struct D3D11_SHADER_RESOURCE_VIEW_DESC
 {
-	[CRepr, Union]	public struct _Anonymous_e__Union
+	[CRepr, Union]
+	public struct _Anonymous_e__Union
 	{
 		public D3D11_BUFFER_SRV Buffer;
 		public D3D11_TEX1D_SRV Texture1D;
@@ -3874,15 +3906,18 @@ public function HRESULT PFN_D3D11_CREATE_DEVICE_AND_SWAP_CHAIN(IDXGIAdapter* par
 	public using _Anonymous_e__Union Anonymous;
 }
 
-[CRepr]public struct D3D11_BUFFER_RTV
+[CRepr]
+public struct D3D11_BUFFER_RTV
 {
-	[CRepr, Union]	public struct _Anonymous2_e__Union
+	[CRepr, Union]
+	public struct _Anonymous2_e__Union
 	{
 		public uint32 NumElements;
 		public uint32 ElementWidth;
 	}
 
-	[CRepr, Union]	public struct _Anonymous1_e__Union
+	[CRepr, Union]
+	public struct _Anonymous1_e__Union
 	{
 		public uint32 FirstElement;
 		public uint32 ElementOffset;
@@ -3892,51 +3927,60 @@ public function HRESULT PFN_D3D11_CREATE_DEVICE_AND_SWAP_CHAIN(IDXGIAdapter* par
 	public _Anonymous2_e__Union Anonymous2;
 }
 
-[CRepr]public struct D3D11_TEX1D_RTV
+[CRepr]
+public struct D3D11_TEX1D_RTV
 {
 	public uint32 MipSlice;
 }
 
-[CRepr]public struct D3D11_TEX1D_ARRAY_RTV
+[CRepr]
+public struct D3D11_TEX1D_ARRAY_RTV
 {
 	public uint32 MipSlice;
 	public uint32 FirstArraySlice;
 	public uint32 ArraySize;
 }
 
-[CRepr]public struct D3D11_TEX2D_RTV
+[CRepr]
+public struct D3D11_TEX2D_RTV
 {
 	public uint32 MipSlice;
 }
 
-[CRepr]public struct D3D11_TEX2DMS_RTV
+[CRepr]
+public struct D3D11_TEX2DMS_RTV
 {
 	public uint32 UnusedField_NothingToDefine;
 }
 
-[CRepr]public struct D3D11_TEX2D_ARRAY_RTV
+[CRepr]
+public struct D3D11_TEX2D_ARRAY_RTV
 {
 	public uint32 MipSlice;
 	public uint32 FirstArraySlice;
 	public uint32 ArraySize;
 }
 
-[CRepr]public struct D3D11_TEX2DMS_ARRAY_RTV
+[CRepr]
+public struct D3D11_TEX2DMS_ARRAY_RTV
 {
 	public uint32 FirstArraySlice;
 	public uint32 ArraySize;
 }
 
-[CRepr]public struct D3D11_TEX3D_RTV
+[CRepr]
+public struct D3D11_TEX3D_RTV
 {
 	public uint32 MipSlice;
 	public uint32 FirstWSlice;
 	public uint32 WSize;
 }
 
-[CRepr]public struct D3D11_RENDER_TARGET_VIEW_DESC
+[CRepr]
+public struct D3D11_RENDER_TARGET_VIEW_DESC
 {
-	[CRepr, Union]	public struct _Anonymous_e__Union
+	[CRepr, Union]
+	public struct _Anonymous_e__Union
 	{
 		public D3D11_BUFFER_RTV Buffer;
 		public D3D11_TEX1D_RTV Texture1D;
@@ -3953,44 +3997,52 @@ public function HRESULT PFN_D3D11_CREATE_DEVICE_AND_SWAP_CHAIN(IDXGIAdapter* par
 	public using _Anonymous_e__Union Anonymous;
 }
 
-[CRepr]public struct D3D11_TEX1D_DSV
+[CRepr]
+public struct D3D11_TEX1D_DSV
 {
 	public uint32 MipSlice;
 }
 
-[CRepr]public struct D3D11_TEX1D_ARRAY_DSV
-{
-	public uint32 MipSlice;
-	public uint32 FirstArraySlice;
-	public uint32 ArraySize;
-}
-
-[CRepr]public struct D3D11_TEX2D_DSV
-{
-	public uint32 MipSlice;
-}
-
-[CRepr]public struct D3D11_TEX2D_ARRAY_DSV
+[CRepr]
+public struct D3D11_TEX1D_ARRAY_DSV
 {
 	public uint32 MipSlice;
 	public uint32 FirstArraySlice;
 	public uint32 ArraySize;
 }
 
-[CRepr]public struct D3D11_TEX2DMS_DSV
+[CRepr]
+public struct D3D11_TEX2D_DSV
+{
+	public uint32 MipSlice;
+}
+
+[CRepr]
+public struct D3D11_TEX2D_ARRAY_DSV
+{
+	public uint32 MipSlice;
+	public uint32 FirstArraySlice;
+	public uint32 ArraySize;
+}
+
+[CRepr]
+public struct D3D11_TEX2DMS_DSV
 {
 	public uint32 UnusedField_NothingToDefine;
 }
 
-[CRepr]public struct D3D11_TEX2DMS_ARRAY_DSV
+[CRepr]
+public struct D3D11_TEX2DMS_ARRAY_DSV
 {
 	public uint32 FirstArraySlice;
 	public uint32 ArraySize;
 }
 
-[CRepr]public struct D3D11_DEPTH_STENCIL_VIEW_DESC
+[CRepr]
+public struct D3D11_DEPTH_STENCIL_VIEW_DESC
 {
-	[CRepr, Union]	public struct _Anonymous_e__Union
+	[CRepr, Union]
+	public struct _Anonymous_e__Union
 	{
 		public D3D11_TEX1D_DSV Texture1D;
 		public D3D11_TEX1D_ARRAY_DSV Texture1DArray;
@@ -4006,47 +4058,55 @@ public function HRESULT PFN_D3D11_CREATE_DEVICE_AND_SWAP_CHAIN(IDXGIAdapter* par
 	public using _Anonymous_e__Union Anonymous;
 }
 
-[CRepr]public struct D3D11_BUFFER_UAV
+[CRepr]
+public struct D3D11_BUFFER_UAV
 {
 	public uint32 FirstElement;
 	public uint32 NumElements;
 	public uint32 Flags;
 }
 
-[CRepr]public struct D3D11_TEX1D_UAV
+[CRepr]
+public struct D3D11_TEX1D_UAV
 {
 	public uint32 MipSlice;
 }
 
-[CRepr]public struct D3D11_TEX1D_ARRAY_UAV
-{
-	public uint32 MipSlice;
-	public uint32 FirstArraySlice;
-	public uint32 ArraySize;
-}
-
-[CRepr]public struct D3D11_TEX2D_UAV
-{
-	public uint32 MipSlice;
-}
-
-[CRepr]public struct D3D11_TEX2D_ARRAY_UAV
+[CRepr]
+public struct D3D11_TEX1D_ARRAY_UAV
 {
 	public uint32 MipSlice;
 	public uint32 FirstArraySlice;
 	public uint32 ArraySize;
 }
 
-[CRepr]public struct D3D11_TEX3D_UAV
+[CRepr]
+public struct D3D11_TEX2D_UAV
+{
+	public uint32 MipSlice;
+}
+
+[CRepr]
+public struct D3D11_TEX2D_ARRAY_UAV
+{
+	public uint32 MipSlice;
+	public uint32 FirstArraySlice;
+	public uint32 ArraySize;
+}
+
+[CRepr]
+public struct D3D11_TEX3D_UAV
 {
 	public uint32 MipSlice;
 	public uint32 FirstWSlice;
 	public uint32 WSize;
 }
 
-[CRepr]public struct D3D11_UNORDERED_ACCESS_VIEW_DESC
+[CRepr]
+public struct D3D11_UNORDERED_ACCESS_VIEW_DESC
 {
-	[CRepr, Union]	public struct _Anonymous_e__Union
+	[CRepr, Union]
+	public struct _Anonymous_e__Union
 	{
 		public D3D11_BUFFER_UAV Buffer;
 		public D3D11_TEX1D_UAV Texture1D;
@@ -4061,7 +4121,8 @@ public function HRESULT PFN_D3D11_CREATE_DEVICE_AND_SWAP_CHAIN(IDXGIAdapter* par
 	public using _Anonymous_e__Union Anonymous;
 }
 
-[CRepr]public struct D3D11_SAMPLER_DESC
+[CRepr]
+public struct D3D11_SAMPLER_DESC
 {
 	public D3D11_FILTER Filter;
 	public D3D11_TEXTURE_ADDRESS_MODE AddressU;
@@ -4075,19 +4136,22 @@ public function HRESULT PFN_D3D11_CREATE_DEVICE_AND_SWAP_CHAIN(IDXGIAdapter* par
 	public float MaxLOD;
 }
 
-[CRepr]public struct D3D11_QUERY_DESC
+[CRepr]
+public struct D3D11_QUERY_DESC
 {
 	public D3D11_QUERY Query;
 	public uint32 MiscFlags;
 }
 
-[CRepr]public struct D3D11_QUERY_DATA_TIMESTAMP_DISJOINT
+[CRepr]
+public struct D3D11_QUERY_DATA_TIMESTAMP_DISJOINT
 {
 	public uint64 Frequency;
 	public BOOL Disjoint;
 }
 
-[CRepr]public struct D3D11_QUERY_DATA_PIPELINE_STATISTICS
+[CRepr]
+public struct D3D11_QUERY_DATA_PIPELINE_STATISTICS
 {
 	public uint64 IAVertices;
 	public uint64 IAPrimitives;
@@ -4102,26 +4166,30 @@ public function HRESULT PFN_D3D11_CREATE_DEVICE_AND_SWAP_CHAIN(IDXGIAdapter* par
 	public uint64 CSInvocations;
 }
 
-[CRepr]public struct D3D11_QUERY_DATA_SO_STATISTICS
+[CRepr]
+public struct D3D11_QUERY_DATA_SO_STATISTICS
 {
 	public uint64 NumPrimitivesWritten;
 	public uint64 PrimitivesStorageNeeded;
 }
 
-[CRepr]public struct D3D11_COUNTER_DESC
+[CRepr]
+public struct D3D11_COUNTER_DESC
 {
 	public D3D11_COUNTER Counter;
 	public uint32 MiscFlags;
 }
 
-[CRepr]public struct D3D11_COUNTER_INFO
+[CRepr]
+public struct D3D11_COUNTER_INFO
 {
 	public D3D11_COUNTER LastDeviceDependentCounter;
 	public uint32 NumSimultaneousCounters;
 	public uint8 NumDetectableParallelUnits;
 }
 
-[CRepr]public struct D3D11_CLASS_INSTANCE_DESC
+[CRepr]
+public struct D3D11_CLASS_INSTANCE_DESC
 {
 	public uint32 InstanceId;
 	public uint32 InstanceIndex;
@@ -4133,35 +4201,41 @@ public function HRESULT PFN_D3D11_CREATE_DEVICE_AND_SWAP_CHAIN(IDXGIAdapter* par
 	public BOOL Created;
 }
 
-[CRepr]public struct D3D11_FEATURE_DATA_THREADING
+[CRepr]
+public struct D3D11_FEATURE_DATA_THREADING
 {
 	public BOOL DriverConcurrentCreates;
 	public BOOL DriverCommandLists;
 }
 
-[CRepr]public struct D3D11_FEATURE_DATA_DOUBLES
+[CRepr]
+public struct D3D11_FEATURE_DATA_DOUBLES
 {
 	public BOOL DoublePrecisionFloatShaderOps;
 }
 
-[CRepr]public struct D3D11_FEATURE_DATA_FORMAT_SUPPORT
+[CRepr]
+public struct D3D11_FEATURE_DATA_FORMAT_SUPPORT
 {
 	public DXGI_FORMAT InFormat;
 	public uint32 OutFormatSupport;
 }
 
-[CRepr]public struct D3D11_FEATURE_DATA_FORMAT_SUPPORT2
+[CRepr]
+public struct D3D11_FEATURE_DATA_FORMAT_SUPPORT2
 {
 	public DXGI_FORMAT InFormat;
 	public uint32 OutFormatSupport2;
 }
 
-[CRepr]public struct D3D11_FEATURE_DATA_D3D10_X_HARDWARE_OPTIONS
+[CRepr]
+public struct D3D11_FEATURE_DATA_D3D10_X_HARDWARE_OPTIONS
 {
 	public BOOL ComputeShaders_Plus_RawAndStructuredBuffers_Via_Shader_4_x;
 }
 
-[CRepr]public struct D3D11_FEATURE_DATA_D3D11_OPTIONS
+[CRepr]
+public struct D3D11_FEATURE_DATA_D3D11_OPTIONS
 {
 	public BOOL OutputMergerLogicOp;
 	public BOOL UAVOnlyRenderingForcedSampleCount;
@@ -4179,28 +4253,33 @@ public function HRESULT PFN_D3D11_CREATE_DEVICE_AND_SWAP_CHAIN(IDXGIAdapter* par
 	public BOOL ExtendedResourceSharing;
 }
 
-[CRepr]public struct D3D11_FEATURE_DATA_ARCHITECTURE_INFO
+[CRepr]
+public struct D3D11_FEATURE_DATA_ARCHITECTURE_INFO
 {
 	public BOOL TileBasedDeferredRenderer;
 }
 
-[CRepr]public struct D3D11_FEATURE_DATA_D3D9_OPTIONS
+[CRepr]
+public struct D3D11_FEATURE_DATA_D3D9_OPTIONS
 {
 	public BOOL FullNonPow2TextureSupport;
 }
 
-[CRepr]public struct D3D11_FEATURE_DATA_D3D9_SHADOW_SUPPORT
+[CRepr]
+public struct D3D11_FEATURE_DATA_D3D9_SHADOW_SUPPORT
 {
 	public BOOL SupportsDepthAsTextureWithLessEqualComparisonFilter;
 }
 
-[CRepr]public struct D3D11_FEATURE_DATA_SHADER_MIN_PRECISION_SUPPORT
+[CRepr]
+public struct D3D11_FEATURE_DATA_SHADER_MIN_PRECISION_SUPPORT
 {
 	public uint32 PixelShaderMinPrecision;
 	public uint32 AllOtherShaderStagesMinPrecision;
 }
 
-[CRepr]public struct D3D11_FEATURE_DATA_D3D11_OPTIONS1
+[CRepr]
+public struct D3D11_FEATURE_DATA_D3D11_OPTIONS1
 {
 	public D3D11_TILED_RESOURCES_TIER TiledResourcesTier;
 	public BOOL MinMaxFiltering;
@@ -4208,17 +4287,20 @@ public function HRESULT PFN_D3D11_CREATE_DEVICE_AND_SWAP_CHAIN(IDXGIAdapter* par
 	public BOOL MapOnDefaultBuffers;
 }
 
-[CRepr]public struct D3D11_FEATURE_DATA_D3D9_SIMPLE_INSTANCING_SUPPORT
+[CRepr]
+public struct D3D11_FEATURE_DATA_D3D9_SIMPLE_INSTANCING_SUPPORT
 {
 	public BOOL SimpleInstancingSupported;
 }
 
-[CRepr]public struct D3D11_FEATURE_DATA_MARKER_SUPPORT
+[CRepr]
+public struct D3D11_FEATURE_DATA_MARKER_SUPPORT
 {
 	public BOOL Profile;
 }
 
-[CRepr]public struct D3D11_FEATURE_DATA_D3D9_OPTIONS1
+[CRepr]
+public struct D3D11_FEATURE_DATA_D3D9_OPTIONS1
 {
 	public BOOL FullNonPow2TextureSupported;
 	public BOOL DepthAsTextureWithLessEqualComparisonFilterSupported;
@@ -4226,7 +4308,8 @@ public function HRESULT PFN_D3D11_CREATE_DEVICE_AND_SWAP_CHAIN(IDXGIAdapter* par
 	public BOOL TextureCubeFaceRenderTargetWithNonCubeDepthStencilSupported;
 }
 
-[CRepr]public struct D3D11_FEATURE_DATA_D3D11_OPTIONS2
+[CRepr]
+public struct D3D11_FEATURE_DATA_D3D11_OPTIONS2
 {
 	public BOOL PSSpecifiedStencilRefSupported;
 	public BOOL TypedUAVLoadAdditionalFormats;
@@ -4238,38 +4321,45 @@ public function HRESULT PFN_D3D11_CREATE_DEVICE_AND_SWAP_CHAIN(IDXGIAdapter* par
 	public BOOL UnifiedMemoryArchitecture;
 }
 
-[CRepr]public struct D3D11_FEATURE_DATA_D3D11_OPTIONS3
+[CRepr]
+public struct D3D11_FEATURE_DATA_D3D11_OPTIONS3
 {
 	public BOOL VPAndRTArrayIndexFromAnyShaderFeedingRasterizer;
 }
 
-[CRepr]public struct D3D11_FEATURE_DATA_GPU_VIRTUAL_ADDRESS_SUPPORT
+[CRepr]
+public struct D3D11_FEATURE_DATA_GPU_VIRTUAL_ADDRESS_SUPPORT
 {
 	public uint32 MaxGPUVirtualAddressBitsPerResource;
 	public uint32 MaxGPUVirtualAddressBitsPerProcess;
 }
 
-[CRepr]public struct D3D11_FEATURE_DATA_SHADER_CACHE
+[CRepr]
+public struct D3D11_FEATURE_DATA_SHADER_CACHE
 {
 	public uint32 SupportFlags;
 }
 
-[CRepr]public struct D3D11_FEATURE_DATA_DISPLAYABLE
+[CRepr]
+public struct D3D11_FEATURE_DATA_DISPLAYABLE
 {
 	public BOOL DisplayableTexture;
 	public D3D11_SHARED_RESOURCE_TIER SharedResourceTier;
 }
 
-[CRepr]public struct D3D11_FEATURE_DATA_D3D11_OPTIONS5
+[CRepr]
+public struct D3D11_FEATURE_DATA_D3D11_OPTIONS5
 {
 	public D3D11_SHARED_RESOURCE_TIER SharedResourceTier;
 }
 
-[CRepr]public struct CD3D11_VIDEO_DEFAULT
+[CRepr]
+public struct CD3D11_VIDEO_DEFAULT
 {
 }
 
-[CRepr]public struct D3D11_VIDEO_DECODER_DESC
+[CRepr]
+public struct D3D11_VIDEO_DECODER_DESC
 {
 	public Guid Guid;
 	public uint32 SampleWidth;
@@ -4277,7 +4367,8 @@ public function HRESULT PFN_D3D11_CREATE_DEVICE_AND_SWAP_CHAIN(IDXGIAdapter* par
 	public DXGI_FORMAT OutputFormat;
 }
 
-[CRepr]public struct D3D11_VIDEO_DECODER_CONFIG
+[CRepr]
+public struct D3D11_VIDEO_DECODER_CONFIG
 {
 	public Guid guidConfigBitstreamEncryption;
 	public Guid guidConfigMBcontrolEncryption;
@@ -4298,20 +4389,23 @@ public function HRESULT PFN_D3D11_CREATE_DEVICE_AND_SWAP_CHAIN(IDXGIAdapter* par
 	public uint16 ConfigDecoderSpecific;
 }
 
-[CRepr]public struct D3D11_AES_CTR_IV
+[CRepr]
+public struct D3D11_AES_CTR_IV
 {
 	public uint64 IV;
 	public uint64 Count;
 }
 
-[CRepr]public struct D3D11_ENCRYPTED_BLOCK_INFO
+[CRepr]
+public struct D3D11_ENCRYPTED_BLOCK_INFO
 {
 	public uint32 NumEncryptedBytesAtBeginning;
 	public uint32 NumBytesInSkipPattern;
 	public uint32 NumBytesInEncryptPattern;
 }
 
-[CRepr]public struct D3D11_VIDEO_DECODER_BUFFER_DESC
+[CRepr]
+public struct D3D11_VIDEO_DECODER_BUFFER_DESC
 {
 	public D3D11_VIDEO_DECODER_BUFFER_TYPE BufferType;
 	public uint32 BufferIndex;
@@ -4329,7 +4423,8 @@ public function HRESULT PFN_D3D11_CREATE_DEVICE_AND_SWAP_CHAIN(IDXGIAdapter* par
 	public D3D11_ENCRYPTED_BLOCK_INFO EncryptedBlockInfo;
 }
 
-[CRepr]public struct D3D11_VIDEO_DECODER_EXTENSION
+[CRepr]
+public struct D3D11_VIDEO_DECODER_EXTENSION
 {
 	public uint32 Function;
 	public void* pPrivateInputData;
@@ -4340,7 +4435,8 @@ public function HRESULT PFN_D3D11_CREATE_DEVICE_AND_SWAP_CHAIN(IDXGIAdapter* par
 	public ID3D11Resource** ppResourceList;
 }
 
-[CRepr]public struct D3D11_VIDEO_PROCESSOR_CAPS
+[CRepr]
+public struct D3D11_VIDEO_PROCESSOR_CAPS
 {
 	public uint32 DeviceCaps;
 	public uint32 FeatureCaps;
@@ -4353,7 +4449,8 @@ public function HRESULT PFN_D3D11_CREATE_DEVICE_AND_SWAP_CHAIN(IDXGIAdapter* par
 	public uint32 MaxStreamStates;
 }
 
-[CRepr]public struct D3D11_VIDEO_PROCESSOR_RATE_CONVERSION_CAPS
+[CRepr]
+public struct D3D11_VIDEO_PROCESSOR_RATE_CONVERSION_CAPS
 {
 	public uint32 PastFrames;
 	public uint32 FutureFrames;
@@ -4362,7 +4459,8 @@ public function HRESULT PFN_D3D11_CREATE_DEVICE_AND_SWAP_CHAIN(IDXGIAdapter* par
 	public uint32 CustomRateCount;
 }
 
-[CRepr]public struct D3D11_VIDEO_CONTENT_PROTECTION_CAPS
+[CRepr]
+public struct D3D11_VIDEO_CONTENT_PROTECTION_CAPS
 {
 	public uint32 Caps;
 	public uint32 KeyExchangeTypeCount;
@@ -4370,7 +4468,8 @@ public function HRESULT PFN_D3D11_CREATE_DEVICE_AND_SWAP_CHAIN(IDXGIAdapter* par
 	public uint64 ProtectedMemorySize;
 }
 
-[CRepr]public struct D3D11_VIDEO_PROCESSOR_CUSTOM_RATE
+[CRepr]
+public struct D3D11_VIDEO_PROCESSOR_CUSTOM_RATE
 {
 	public DXGI_RATIONAL CustomRate;
 	public uint32 OutputFrames;
@@ -4378,7 +4477,8 @@ public function HRESULT PFN_D3D11_CREATE_DEVICE_AND_SWAP_CHAIN(IDXGIAdapter* par
 	public uint32 InputFramesOrFields;
 }
 
-[CRepr]public struct D3D11_VIDEO_PROCESSOR_FILTER_RANGE
+[CRepr]
+public struct D3D11_VIDEO_PROCESSOR_FILTER_RANGE
 {
 	public int32 Minimum;
 	public int32 Maximum;
@@ -4386,7 +4486,8 @@ public function HRESULT PFN_D3D11_CREATE_DEVICE_AND_SWAP_CHAIN(IDXGIAdapter* par
 	public float Multiplier;
 }
 
-[CRepr]public struct D3D11_VIDEO_PROCESSOR_CONTENT_DESC
+[CRepr]
+public struct D3D11_VIDEO_PROCESSOR_CONTENT_DESC
 {
 	public D3D11_VIDEO_FRAME_FORMAT InputFrameFormat;
 	public DXGI_RATIONAL InputFrameRate;
@@ -4398,7 +4499,8 @@ public function HRESULT PFN_D3D11_CREATE_DEVICE_AND_SWAP_CHAIN(IDXGIAdapter* par
 	public D3D11_VIDEO_USAGE Usage;
 }
 
-[CRepr]public struct D3D11_VIDEO_COLOR_RGBA
+[CRepr]
+public struct D3D11_VIDEO_COLOR_RGBA
 {
 	public float R;
 	public float G;
@@ -4406,7 +4508,8 @@ public function HRESULT PFN_D3D11_CREATE_DEVICE_AND_SWAP_CHAIN(IDXGIAdapter* par
 	public float A;
 }
 
-[CRepr]public struct D3D11_VIDEO_COLOR_YCbCrA
+[CRepr]
+public struct D3D11_VIDEO_COLOR_YCbCrA
 {
 	public float Y;
 	public float Cb;
@@ -4414,9 +4517,11 @@ public function HRESULT PFN_D3D11_CREATE_DEVICE_AND_SWAP_CHAIN(IDXGIAdapter* par
 	public float A;
 }
 
-[CRepr]public struct D3D11_VIDEO_COLOR
+[CRepr]
+public struct D3D11_VIDEO_COLOR
 {
-	[CRepr, Union]	public struct _Anonymous_e__Union
+	[CRepr, Union]
+	public struct _Anonymous_e__Union
 	{
 		public D3D11_VIDEO_COLOR_YCbCrA YCbCr;
 		public D3D11_VIDEO_COLOR_RGBA RGBA;
@@ -4425,12 +4530,14 @@ public function HRESULT PFN_D3D11_CREATE_DEVICE_AND_SWAP_CHAIN(IDXGIAdapter* par
 	public using _Anonymous_e__Union Anonymous;
 }
 
-[CRepr]public struct D3D11_VIDEO_PROCESSOR_COLOR_SPACE
+[CRepr]
+public struct D3D11_VIDEO_PROCESSOR_COLOR_SPACE
 {
 	public uint32 _bitfield;
 }
 
-[CRepr]public struct D3D11_VIDEO_PROCESSOR_STREAM
+[CRepr]
+public struct D3D11_VIDEO_PROCESSOR_STREAM
 {
 	public BOOL Enable;
 	public uint32 OutputIndex;
@@ -4445,19 +4552,22 @@ public function HRESULT PFN_D3D11_CREATE_DEVICE_AND_SWAP_CHAIN(IDXGIAdapter* par
 	public ID3D11VideoProcessorInputView** ppFutureSurfacesRight;
 }
 
-[CRepr]public struct D3D11_OMAC
+[CRepr]
+public struct D3D11_OMAC
 {
 	public uint8[16] Omac;
 }
 
-[CRepr]public struct D3D11_AUTHENTICATED_QUERY_INPUT
+[CRepr]
+public struct D3D11_AUTHENTICATED_QUERY_INPUT
 {
 	public Guid QueryType;
 	public HANDLE hChannel;
 	public uint32 SequenceNumber;
 }
 
-[CRepr]public struct D3D11_AUTHENTICATED_QUERY_OUTPUT
+[CRepr]
+public struct D3D11_AUTHENTICATED_QUERY_OUTPUT
 {
 	public D3D11_OMAC omac;
 	public Guid QueryType;
@@ -4466,9 +4576,11 @@ public function HRESULT PFN_D3D11_CREATE_DEVICE_AND_SWAP_CHAIN(IDXGIAdapter* par
 	public HRESULT ReturnCode;
 }
 
-[CRepr, Union]public struct D3D11_AUTHENTICATED_PROTECTION_FLAGS
+[CRepr, Union]
+public struct D3D11_AUTHENTICATED_PROTECTION_FLAGS
 {
-	[CRepr]	public struct _Flags_e__Struct
+	[CRepr]
+	public struct _Flags_e__Struct
 	{
 		public uint32 _bitfield;
 	}
@@ -4477,31 +4589,36 @@ public function HRESULT PFN_D3D11_CREATE_DEVICE_AND_SWAP_CHAIN(IDXGIAdapter* par
 	public uint32 Value;
 }
 
-[CRepr]public struct D3D11_AUTHENTICATED_QUERY_PROTECTION_OUTPUT
+[CRepr]
+public struct D3D11_AUTHENTICATED_QUERY_PROTECTION_OUTPUT
 {
 	public D3D11_AUTHENTICATED_QUERY_OUTPUT Output;
 	public D3D11_AUTHENTICATED_PROTECTION_FLAGS ProtectionFlags;
 }
 
-[CRepr]public struct D3D11_AUTHENTICATED_QUERY_CHANNEL_TYPE_OUTPUT
+[CRepr]
+public struct D3D11_AUTHENTICATED_QUERY_CHANNEL_TYPE_OUTPUT
 {
 	public D3D11_AUTHENTICATED_QUERY_OUTPUT Output;
 	public D3D11_AUTHENTICATED_CHANNEL_TYPE ChannelType;
 }
 
-[CRepr]public struct D3D11_AUTHENTICATED_QUERY_DEVICE_HANDLE_OUTPUT
+[CRepr]
+public struct D3D11_AUTHENTICATED_QUERY_DEVICE_HANDLE_OUTPUT
 {
 	public D3D11_AUTHENTICATED_QUERY_OUTPUT Output;
 	public HANDLE DeviceHandle;
 }
 
-[CRepr]public struct D3D11_AUTHENTICATED_QUERY_CRYPTO_SESSION_INPUT
+[CRepr]
+public struct D3D11_AUTHENTICATED_QUERY_CRYPTO_SESSION_INPUT
 {
 	public D3D11_AUTHENTICATED_QUERY_INPUT Input;
 	public HANDLE DecoderHandle;
 }
 
-[CRepr]public struct D3D11_AUTHENTICATED_QUERY_CRYPTO_SESSION_OUTPUT
+[CRepr]
+public struct D3D11_AUTHENTICATED_QUERY_CRYPTO_SESSION_OUTPUT
 {
 	public D3D11_AUTHENTICATED_QUERY_OUTPUT Output;
 	public HANDLE DecoderHandle;
@@ -4509,19 +4626,22 @@ public function HRESULT PFN_D3D11_CREATE_DEVICE_AND_SWAP_CHAIN(IDXGIAdapter* par
 	public HANDLE DeviceHandle;
 }
 
-[CRepr]public struct D3D11_AUTHENTICATED_QUERY_RESTRICTED_SHARED_RESOURCE_PROCESS_COUNT_OUTPUT
+[CRepr]
+public struct D3D11_AUTHENTICATED_QUERY_RESTRICTED_SHARED_RESOURCE_PROCESS_COUNT_OUTPUT
 {
 	public D3D11_AUTHENTICATED_QUERY_OUTPUT Output;
 	public uint32 RestrictedSharedResourceProcessCount;
 }
 
-[CRepr]public struct D3D11_AUTHENTICATED_QUERY_RESTRICTED_SHARED_RESOURCE_PROCESS_INPUT
+[CRepr]
+public struct D3D11_AUTHENTICATED_QUERY_RESTRICTED_SHARED_RESOURCE_PROCESS_INPUT
 {
 	public D3D11_AUTHENTICATED_QUERY_INPUT Input;
 	public uint32 ProcessIndex;
 }
 
-[CRepr]public struct D3D11_AUTHENTICATED_QUERY_RESTRICTED_SHARED_RESOURCE_PROCESS_OUTPUT
+[CRepr]
+public struct D3D11_AUTHENTICATED_QUERY_RESTRICTED_SHARED_RESOURCE_PROCESS_OUTPUT
 {
 	public D3D11_AUTHENTICATED_QUERY_OUTPUT Output;
 	public uint32 ProcessIndex;
@@ -4529,20 +4649,23 @@ public function HRESULT PFN_D3D11_CREATE_DEVICE_AND_SWAP_CHAIN(IDXGIAdapter* par
 	public HANDLE ProcessHandle;
 }
 
-[CRepr]public struct D3D11_AUTHENTICATED_QUERY_UNRESTRICTED_PROTECTED_SHARED_RESOURCE_COUNT_OUTPUT
+[CRepr]
+public struct D3D11_AUTHENTICATED_QUERY_UNRESTRICTED_PROTECTED_SHARED_RESOURCE_COUNT_OUTPUT
 {
 	public D3D11_AUTHENTICATED_QUERY_OUTPUT Output;
 	public uint32 UnrestrictedProtectedSharedResourceCount;
 }
 
-[CRepr]public struct D3D11_AUTHENTICATED_QUERY_OUTPUT_ID_COUNT_INPUT
+[CRepr]
+public struct D3D11_AUTHENTICATED_QUERY_OUTPUT_ID_COUNT_INPUT
 {
 	public D3D11_AUTHENTICATED_QUERY_INPUT Input;
 	public HANDLE DeviceHandle;
 	public HANDLE CryptoSessionHandle;
 }
 
-[CRepr]public struct D3D11_AUTHENTICATED_QUERY_OUTPUT_ID_COUNT_OUTPUT
+[CRepr]
+public struct D3D11_AUTHENTICATED_QUERY_OUTPUT_ID_COUNT_OUTPUT
 {
 	public D3D11_AUTHENTICATED_QUERY_OUTPUT Output;
 	public HANDLE DeviceHandle;
@@ -4550,7 +4673,8 @@ public function HRESULT PFN_D3D11_CREATE_DEVICE_AND_SWAP_CHAIN(IDXGIAdapter* par
 	public uint32 OutputIDCount;
 }
 
-[CRepr]public struct D3D11_AUTHENTICATED_QUERY_OUTPUT_ID_INPUT
+[CRepr]
+public struct D3D11_AUTHENTICATED_QUERY_OUTPUT_ID_INPUT
 {
 	public D3D11_AUTHENTICATED_QUERY_INPUT Input;
 	public HANDLE DeviceHandle;
@@ -4558,7 +4682,8 @@ public function HRESULT PFN_D3D11_CREATE_DEVICE_AND_SWAP_CHAIN(IDXGIAdapter* par
 	public uint32 OutputIDIndex;
 }
 
-[CRepr]public struct D3D11_AUTHENTICATED_QUERY_OUTPUT_ID_OUTPUT
+[CRepr]
+public struct D3D11_AUTHENTICATED_QUERY_OUTPUT_ID_OUTPUT
 {
 	public D3D11_AUTHENTICATED_QUERY_OUTPUT Output;
 	public HANDLE DeviceHandle;
@@ -4567,7 +4692,8 @@ public function HRESULT PFN_D3D11_CREATE_DEVICE_AND_SWAP_CHAIN(IDXGIAdapter* par
 	public uint64 OutputID;
 }
 
-[CRepr]public struct D3D11_AUTHENTICATED_QUERY_ACCESSIBILITY_OUTPUT
+[CRepr]
+public struct D3D11_AUTHENTICATED_QUERY_ACCESSIBILITY_OUTPUT
 {
 	public D3D11_AUTHENTICATED_QUERY_OUTPUT Output;
 	public D3D11_BUS_TYPE BusType;
@@ -4575,32 +4701,37 @@ public function HRESULT PFN_D3D11_CREATE_DEVICE_AND_SWAP_CHAIN(IDXGIAdapter* par
 	public BOOL AccessibleInNonContiguousBlocks;
 }
 
-[CRepr]public struct D3D11_AUTHENTICATED_QUERY_ACCESSIBILITY_ENCRYPTION_GUID_COUNT_OUTPUT
+[CRepr]
+public struct D3D11_AUTHENTICATED_QUERY_ACCESSIBILITY_ENCRYPTION_GUID_COUNT_OUTPUT
 {
 	public D3D11_AUTHENTICATED_QUERY_OUTPUT Output;
 	public uint32 EncryptionGuidCount;
 }
 
-[CRepr]public struct D3D11_AUTHENTICATED_QUERY_ACCESSIBILITY_ENCRYPTION_GUID_INPUT
+[CRepr]
+public struct D3D11_AUTHENTICATED_QUERY_ACCESSIBILITY_ENCRYPTION_GUID_INPUT
 {
 	public D3D11_AUTHENTICATED_QUERY_INPUT Input;
 	public uint32 EncryptionGuidIndex;
 }
 
-[CRepr]public struct D3D11_AUTHENTICATED_QUERY_ACCESSIBILITY_ENCRYPTION_GUID_OUTPUT
+[CRepr]
+public struct D3D11_AUTHENTICATED_QUERY_ACCESSIBILITY_ENCRYPTION_GUID_OUTPUT
 {
 	public D3D11_AUTHENTICATED_QUERY_OUTPUT Output;
 	public uint32 EncryptionGuidIndex;
 	public Guid EncryptionGuid;
 }
 
-[CRepr]public struct D3D11_AUTHENTICATED_QUERY_CURRENT_ACCESSIBILITY_ENCRYPTION_OUTPUT
+[CRepr]
+public struct D3D11_AUTHENTICATED_QUERY_CURRENT_ACCESSIBILITY_ENCRYPTION_OUTPUT
 {
 	public D3D11_AUTHENTICATED_QUERY_OUTPUT Output;
 	public Guid EncryptionGuid;
 }
 
-[CRepr]public struct D3D11_AUTHENTICATED_CONFIGURE_INPUT
+[CRepr]
+public struct D3D11_AUTHENTICATED_CONFIGURE_INPUT
 {
 	public D3D11_OMAC omac;
 	public Guid ConfigureType;
@@ -4608,7 +4739,8 @@ public function HRESULT PFN_D3D11_CREATE_DEVICE_AND_SWAP_CHAIN(IDXGIAdapter* par
 	public uint32 SequenceNumber;
 }
 
-[CRepr]public struct D3D11_AUTHENTICATED_CONFIGURE_OUTPUT
+[CRepr]
+public struct D3D11_AUTHENTICATED_CONFIGURE_OUTPUT
 {
 	public D3D11_OMAC omac;
 	public Guid ConfigureType;
@@ -4617,20 +4749,23 @@ public function HRESULT PFN_D3D11_CREATE_DEVICE_AND_SWAP_CHAIN(IDXGIAdapter* par
 	public HRESULT ReturnCode;
 }
 
-[CRepr]public struct D3D11_AUTHENTICATED_CONFIGURE_INITIALIZE_INPUT
+[CRepr]
+public struct D3D11_AUTHENTICATED_CONFIGURE_INITIALIZE_INPUT
 {
 	public D3D11_AUTHENTICATED_CONFIGURE_INPUT Parameters;
 	public uint32 StartSequenceQuery;
 	public uint32 StartSequenceConfigure;
 }
 
-[CRepr]public struct D3D11_AUTHENTICATED_CONFIGURE_PROTECTION_INPUT
+[CRepr]
+public struct D3D11_AUTHENTICATED_CONFIGURE_PROTECTION_INPUT
 {
 	public D3D11_AUTHENTICATED_CONFIGURE_INPUT Parameters;
 	public D3D11_AUTHENTICATED_PROTECTION_FLAGS Protections;
 }
 
-[CRepr]public struct D3D11_AUTHENTICATED_CONFIGURE_CRYPTO_SESSION_INPUT
+[CRepr]
+public struct D3D11_AUTHENTICATED_CONFIGURE_CRYPTO_SESSION_INPUT
 {
 	public D3D11_AUTHENTICATED_CONFIGURE_INPUT Parameters;
 	public HANDLE DecoderHandle;
@@ -4638,7 +4773,8 @@ public function HRESULT PFN_D3D11_CREATE_DEVICE_AND_SWAP_CHAIN(IDXGIAdapter* par
 	public HANDLE DeviceHandle;
 }
 
-[CRepr]public struct D3D11_AUTHENTICATED_CONFIGURE_SHARED_RESOURCE_INPUT
+[CRepr]
+public struct D3D11_AUTHENTICATED_CONFIGURE_SHARED_RESOURCE_INPUT
 {
 	public D3D11_AUTHENTICATED_CONFIGURE_INPUT Parameters;
 	public D3D11_AUTHENTICATED_PROCESS_IDENTIFIER_TYPE ProcessType;
@@ -4646,20 +4782,24 @@ public function HRESULT PFN_D3D11_CREATE_DEVICE_AND_SWAP_CHAIN(IDXGIAdapter* par
 	public BOOL AllowAccess;
 }
 
-[CRepr]public struct D3D11_AUTHENTICATED_CONFIGURE_ACCESSIBLE_ENCRYPTION_INPUT
+[CRepr]
+public struct D3D11_AUTHENTICATED_CONFIGURE_ACCESSIBLE_ENCRYPTION_INPUT
 {
 	public D3D11_AUTHENTICATED_CONFIGURE_INPUT Parameters;
 	public Guid EncryptionGuid;
 }
 
-[CRepr]public struct D3D11_TEX2D_VDOV
+[CRepr]
+public struct D3D11_TEX2D_VDOV
 {
 	public uint32 ArraySlice;
 }
 
-[CRepr]public struct D3D11_VIDEO_DECODER_OUTPUT_VIEW_DESC
+[CRepr]
+public struct D3D11_VIDEO_DECODER_OUTPUT_VIEW_DESC
 {
-	[CRepr, Union]	public struct _Anonymous_e__Union
+	[CRepr, Union]
+	public struct _Anonymous_e__Union
 	{
 		public D3D11_TEX2D_VDOV Texture2D;
 	}
@@ -4669,15 +4809,18 @@ public function HRESULT PFN_D3D11_CREATE_DEVICE_AND_SWAP_CHAIN(IDXGIAdapter* par
 	public using _Anonymous_e__Union Anonymous;
 }
 
-[CRepr]public struct D3D11_TEX2D_VPIV
+[CRepr]
+public struct D3D11_TEX2D_VPIV
 {
 	public uint32 MipSlice;
 	public uint32 ArraySlice;
 }
 
-[CRepr]public struct D3D11_VIDEO_PROCESSOR_INPUT_VIEW_DESC
+[CRepr]
+public struct D3D11_VIDEO_PROCESSOR_INPUT_VIEW_DESC
 {
-	[CRepr, Union]	public struct _Anonymous_e__Union
+	[CRepr, Union]
+	public struct _Anonymous_e__Union
 	{
 		public D3D11_TEX2D_VPIV Texture2D;
 	}
@@ -4687,21 +4830,25 @@ public function HRESULT PFN_D3D11_CREATE_DEVICE_AND_SWAP_CHAIN(IDXGIAdapter* par
 	public using _Anonymous_e__Union Anonymous;
 }
 
-[CRepr]public struct D3D11_TEX2D_VPOV
+[CRepr]
+public struct D3D11_TEX2D_VPOV
 {
 	public uint32 MipSlice;
 }
 
-[CRepr]public struct D3D11_TEX2D_ARRAY_VPOV
+[CRepr]
+public struct D3D11_TEX2D_ARRAY_VPOV
 {
 	public uint32 MipSlice;
 	public uint32 FirstArraySlice;
 	public uint32 ArraySize;
 }
 
-[CRepr]public struct D3D11_VIDEO_PROCESSOR_OUTPUT_VIEW_DESC
+[CRepr]
+public struct D3D11_VIDEO_PROCESSOR_OUTPUT_VIEW_DESC
 {
-	[CRepr, Union]	public struct _Anonymous_e__Union
+	[CRepr, Union]
+	public struct _Anonymous_e__Union
 	{
 		public D3D11_TEX2D_VPOV Texture2D;
 		public D3D11_TEX2D_ARRAY_VPOV Texture2DArray;
@@ -4711,7 +4858,8 @@ public function HRESULT PFN_D3D11_CREATE_DEVICE_AND_SWAP_CHAIN(IDXGIAdapter* par
 	public using _Anonymous_e__Union Anonymous;
 }
 
-[CRepr]public struct D3D11_MESSAGE
+[CRepr]
+public struct D3D11_MESSAGE
 {
 	public D3D11_MESSAGE_CATEGORY Category;
 	public D3D11_MESSAGE_SEVERITY Severity;
@@ -4720,7 +4868,8 @@ public function HRESULT PFN_D3D11_CREATE_DEVICE_AND_SWAP_CHAIN(IDXGIAdapter* par
 	public uint DescriptionByteLength;
 }
 
-[CRepr]public struct D3D11_INFO_QUEUE_FILTER_DESC
+[CRepr]
+public struct D3D11_INFO_QUEUE_FILTER_DESC
 {
 	public uint32 NumCategories;
 	public D3D11_MESSAGE_CATEGORY* pCategoryList;
@@ -4730,13 +4879,15 @@ public function HRESULT PFN_D3D11_CREATE_DEVICE_AND_SWAP_CHAIN(IDXGIAdapter* par
 	public D3D11_MESSAGE_ID* pIDList;
 }
 
-[CRepr]public struct D3D11_INFO_QUEUE_FILTER
+[CRepr]
+public struct D3D11_INFO_QUEUE_FILTER
 {
 	public D3D11_INFO_QUEUE_FILTER_DESC AllowList;
 	public D3D11_INFO_QUEUE_FILTER_DESC DenyList;
 }
 
-[CRepr]public struct D3D11_RENDER_TARGET_BLEND_DESC1
+[CRepr]
+public struct D3D11_RENDER_TARGET_BLEND_DESC1
 {
 	public BOOL BlendEnable;
 	public BOOL LogicOpEnable;
@@ -4750,14 +4901,16 @@ public function HRESULT PFN_D3D11_CREATE_DEVICE_AND_SWAP_CHAIN(IDXGIAdapter* par
 	public uint8 RenderTargetWriteMask;
 }
 
-[CRepr]public struct D3D11_BLEND_DESC1
+[CRepr]
+public struct D3D11_BLEND_DESC1
 {
 	public BOOL AlphaToCoverageEnable;
 	public BOOL IndependentBlendEnable;
 	public D3D11_RENDER_TARGET_BLEND_DESC1[8] RenderTarget;
 }
 
-[CRepr]public struct D3D11_RASTERIZER_DESC1
+[CRepr]
+public struct D3D11_RASTERIZER_DESC1
 {
 	public D3D11_FILL_MODE FillMode;
 	public D3D11_CULL_MODE CullMode;
@@ -4772,13 +4925,15 @@ public function HRESULT PFN_D3D11_CREATE_DEVICE_AND_SWAP_CHAIN(IDXGIAdapter* par
 	public uint32 ForcedSampleCount;
 }
 
-[CRepr]public struct D3D11_VIDEO_DECODER_SUB_SAMPLE_MAPPING_BLOCK
+[CRepr]
+public struct D3D11_VIDEO_DECODER_SUB_SAMPLE_MAPPING_BLOCK
 {
 	public uint32 ClearSize;
 	public uint32 EncryptedSize;
 }
 
-[CRepr]public struct D3D11_VIDEO_DECODER_BUFFER_DESC1
+[CRepr]
+public struct D3D11_VIDEO_DECODER_BUFFER_DESC1
 {
 	public D3D11_VIDEO_DECODER_BUFFER_TYPE BufferType;
 	public uint32 DataOffset;
@@ -4789,7 +4944,8 @@ public function HRESULT PFN_D3D11_CREATE_DEVICE_AND_SWAP_CHAIN(IDXGIAdapter* par
 	public uint32 SubSampleMappingCount;
 }
 
-[CRepr]public struct D3D11_VIDEO_DECODER_BEGIN_FRAME_CRYPTO_SESSION
+[CRepr]
+public struct D3D11_VIDEO_DECODER_BEGIN_FRAME_CRYPTO_SESSION
 {
 	public ID3D11CryptoSession* pCryptoSession;
 	public uint32 BlobSize;
@@ -4799,7 +4955,8 @@ public function HRESULT PFN_D3D11_CREATE_DEVICE_AND_SWAP_CHAIN(IDXGIAdapter* par
 	public void* pPrivateData;
 }
 
-[CRepr]public struct D3D11_VIDEO_PROCESSOR_STREAM_BEHAVIOR_HINT
+[CRepr]
+public struct D3D11_VIDEO_PROCESSOR_STREAM_BEHAVIOR_HINT
 {
 	public BOOL Enable;
 	public uint32 Width;
@@ -4807,14 +4964,16 @@ public function HRESULT PFN_D3D11_CREATE_DEVICE_AND_SWAP_CHAIN(IDXGIAdapter* par
 	public DXGI_FORMAT Format;
 }
 
-[CRepr]public struct D3D11_KEY_EXCHANGE_HW_PROTECTION_INPUT_DATA
+[CRepr]
+public struct D3D11_KEY_EXCHANGE_HW_PROTECTION_INPUT_DATA
 {
 	public uint32 PrivateDataSize;
 	public uint32 HWProtectionDataSize;
 	public uint8[4] pbInput;
 }
 
-[CRepr]public struct D3D11_KEY_EXCHANGE_HW_PROTECTION_OUTPUT_DATA
+[CRepr]
+public struct D3D11_KEY_EXCHANGE_HW_PROTECTION_OUTPUT_DATA
 {
 	public uint32 PrivateDataSize;
 	public uint32 MaxHWProtectionDataSize;
@@ -4824,7 +4983,8 @@ public function HRESULT PFN_D3D11_CREATE_DEVICE_AND_SWAP_CHAIN(IDXGIAdapter* par
 	public uint8[4] pbOutput;
 }
 
-[CRepr]public struct D3D11_KEY_EXCHANGE_HW_PROTECTION_DATA
+[CRepr]
+public struct D3D11_KEY_EXCHANGE_HW_PROTECTION_DATA
 {
 	public uint32 HWProtectionFunctionID;
 	public D3D11_KEY_EXCHANGE_HW_PROTECTION_INPUT_DATA* pInputData;
@@ -4832,7 +4992,8 @@ public function HRESULT PFN_D3D11_CREATE_DEVICE_AND_SWAP_CHAIN(IDXGIAdapter* par
 	public HRESULT Status;
 }
 
-[CRepr]public struct D3D11_VIDEO_SAMPLE_DESC
+[CRepr]
+public struct D3D11_VIDEO_SAMPLE_DESC
 {
 	public uint32 Width;
 	public uint32 Height;
@@ -4840,7 +5001,8 @@ public function HRESULT PFN_D3D11_CREATE_DEVICE_AND_SWAP_CHAIN(IDXGIAdapter* par
 	public DXGI_COLOR_SPACE_TYPE ColorSpace;
 }
 
-[CRepr]public struct D3D11_TILED_RESOURCE_COORDINATE
+[CRepr]
+public struct D3D11_TILED_RESOURCE_COORDINATE
 {
 	public uint32 X;
 	public uint32 Y;
@@ -4848,7 +5010,8 @@ public function HRESULT PFN_D3D11_CREATE_DEVICE_AND_SWAP_CHAIN(IDXGIAdapter* par
 	public uint32 Subresource;
 }
 
-[CRepr]public struct D3D11_TILE_REGION_SIZE
+[CRepr]
+public struct D3D11_TILE_REGION_SIZE
 {
 	public uint32 NumTiles;
 	public BOOL bUseBox;
@@ -4857,7 +5020,8 @@ public function HRESULT PFN_D3D11_CREATE_DEVICE_AND_SWAP_CHAIN(IDXGIAdapter* par
 	public uint16 Depth;
 }
 
-[CRepr]public struct D3D11_SUBRESOURCE_TILING
+[CRepr]
+public struct D3D11_SUBRESOURCE_TILING
 {
 	public uint32 WidthInTiles;
 	public uint16 HeightInTiles;
@@ -4865,14 +5029,16 @@ public function HRESULT PFN_D3D11_CREATE_DEVICE_AND_SWAP_CHAIN(IDXGIAdapter* par
 	public uint32 StartTileIndexInOverallResource;
 }
 
-[CRepr]public struct D3D11_TILE_SHAPE
+[CRepr]
+public struct D3D11_TILE_SHAPE
 {
 	public uint32 WidthInTexels;
 	public uint32 HeightInTexels;
 	public uint32 DepthInTexels;
 }
 
-[CRepr]public struct D3D11_PACKED_MIP_DESC
+[CRepr]
+public struct D3D11_PACKED_MIP_DESC
 {
 	public uint8 NumStandardMips;
 	public uint8 NumPackedMips;
@@ -4880,7 +5046,8 @@ public function HRESULT PFN_D3D11_CREATE_DEVICE_AND_SWAP_CHAIN(IDXGIAdapter* par
 	public uint32 StartTileIndexInOverallResource;
 }
 
-[CRepr]public struct D3D11_TEXTURE2D_DESC1
+[CRepr]
+public struct D3D11_TEXTURE2D_DESC1
 {
 	public uint32 Width;
 	public uint32 Height;
@@ -4895,7 +5062,8 @@ public function HRESULT PFN_D3D11_CREATE_DEVICE_AND_SWAP_CHAIN(IDXGIAdapter* par
 	public D3D11_TEXTURE_LAYOUT TextureLayout;
 }
 
-[CRepr]public struct D3D11_TEXTURE3D_DESC1
+[CRepr]
+public struct D3D11_TEXTURE3D_DESC1
 {
 	public uint32 Width;
 	public uint32 Height;
@@ -4909,7 +5077,8 @@ public function HRESULT PFN_D3D11_CREATE_DEVICE_AND_SWAP_CHAIN(IDXGIAdapter* par
 	public D3D11_TEXTURE_LAYOUT TextureLayout;
 }
 
-[CRepr]public struct D3D11_RASTERIZER_DESC2
+[CRepr]
+public struct D3D11_RASTERIZER_DESC2
 {
 	public D3D11_FILL_MODE FillMode;
 	public D3D11_CULL_MODE CullMode;
@@ -4925,14 +5094,16 @@ public function HRESULT PFN_D3D11_CREATE_DEVICE_AND_SWAP_CHAIN(IDXGIAdapter* par
 	public D3D11_CONSERVATIVE_RASTERIZATION_MODE ConservativeRaster;
 }
 
-[CRepr]public struct D3D11_TEX2D_SRV1
+[CRepr]
+public struct D3D11_TEX2D_SRV1
 {
 	public uint32 MostDetailedMip;
 	public uint32 MipLevels;
 	public uint32 PlaneSlice;
 }
 
-[CRepr]public struct D3D11_TEX2D_ARRAY_SRV1
+[CRepr]
+public struct D3D11_TEX2D_ARRAY_SRV1
 {
 	public uint32 MostDetailedMip;
 	public uint32 MipLevels;
@@ -4941,9 +5112,11 @@ public function HRESULT PFN_D3D11_CREATE_DEVICE_AND_SWAP_CHAIN(IDXGIAdapter* par
 	public uint32 PlaneSlice;
 }
 
-[CRepr]public struct D3D11_SHADER_RESOURCE_VIEW_DESC1
+[CRepr]
+public struct D3D11_SHADER_RESOURCE_VIEW_DESC1
 {
-	[CRepr, Union]	public struct _Anonymous_e__Union
+	[CRepr, Union]
+	public struct _Anonymous_e__Union
 	{
 		public D3D11_BUFFER_SRV Buffer;
 		public D3D11_TEX1D_SRV Texture1D;
@@ -4963,13 +5136,15 @@ public function HRESULT PFN_D3D11_CREATE_DEVICE_AND_SWAP_CHAIN(IDXGIAdapter* par
 	public using _Anonymous_e__Union Anonymous;
 }
 
-[CRepr]public struct D3D11_TEX2D_RTV1
+[CRepr]
+public struct D3D11_TEX2D_RTV1
 {
 	public uint32 MipSlice;
 	public uint32 PlaneSlice;
 }
 
-[CRepr]public struct D3D11_TEX2D_ARRAY_RTV1
+[CRepr]
+public struct D3D11_TEX2D_ARRAY_RTV1
 {
 	public uint32 MipSlice;
 	public uint32 FirstArraySlice;
@@ -4977,9 +5152,11 @@ public function HRESULT PFN_D3D11_CREATE_DEVICE_AND_SWAP_CHAIN(IDXGIAdapter* par
 	public uint32 PlaneSlice;
 }
 
-[CRepr]public struct D3D11_RENDER_TARGET_VIEW_DESC1
+[CRepr]
+public struct D3D11_RENDER_TARGET_VIEW_DESC1
 {
-	[CRepr, Union]	public struct _Anonymous_e__Union
+	[CRepr, Union]
+	public struct _Anonymous_e__Union
 	{
 		public D3D11_BUFFER_RTV Buffer;
 		public D3D11_TEX1D_RTV Texture1D;
@@ -4996,13 +5173,15 @@ public function HRESULT PFN_D3D11_CREATE_DEVICE_AND_SWAP_CHAIN(IDXGIAdapter* par
 	public using _Anonymous_e__Union Anonymous;
 }
 
-[CRepr]public struct D3D11_TEX2D_UAV1
+[CRepr]
+public struct D3D11_TEX2D_UAV1
 {
 	public uint32 MipSlice;
 	public uint32 PlaneSlice;
 }
 
-[CRepr]public struct D3D11_TEX2D_ARRAY_UAV1
+[CRepr]
+public struct D3D11_TEX2D_ARRAY_UAV1
 {
 	public uint32 MipSlice;
 	public uint32 FirstArraySlice;
@@ -5010,9 +5189,11 @@ public function HRESULT PFN_D3D11_CREATE_DEVICE_AND_SWAP_CHAIN(IDXGIAdapter* par
 	public uint32 PlaneSlice;
 }
 
-[CRepr]public struct D3D11_UNORDERED_ACCESS_VIEW_DESC1
+[CRepr]
+public struct D3D11_UNORDERED_ACCESS_VIEW_DESC1
 {
-	[CRepr, Union]	public struct _Anonymous_e__Union
+	[CRepr, Union]
+	public struct _Anonymous_e__Union
 	{
 		public D3D11_BUFFER_UAV Buffer;
 		public D3D11_TEX1D_UAV Texture1D;
@@ -5027,14 +5208,16 @@ public function HRESULT PFN_D3D11_CREATE_DEVICE_AND_SWAP_CHAIN(IDXGIAdapter* par
 	public using _Anonymous_e__Union Anonymous;
 }
 
-[CRepr]public struct D3D11_QUERY_DESC1
+[CRepr]
+public struct D3D11_QUERY_DESC1
 {
 	public D3D11_QUERY Query;
 	public uint32 MiscFlags;
 	public D3D11_CONTEXT_TYPE ContextType;
 }
 
-[CRepr]public struct D3D11_FEATURE_DATA_VIDEO_DECODER_HISTOGRAM
+[CRepr]
+public struct D3D11_FEATURE_DATA_VIDEO_DECODER_HISTOGRAM
 {
 	public D3D11_VIDEO_DECODER_DESC DecoderDesc;
 	public D3D11_VIDEO_DECODER_HISTOGRAM_COMPONENT_FLAGS Components;
@@ -5042,7 +5225,8 @@ public function HRESULT PFN_D3D11_CREATE_DEVICE_AND_SWAP_CHAIN(IDXGIAdapter* par
 	public uint32 CounterBitDepth;
 }
 
-[CRepr]public struct D3D11_VIDEO_DECODER_BUFFER_DESC2
+[CRepr]
+public struct D3D11_VIDEO_DECODER_BUFFER_DESC2
 {
 	public D3D11_VIDEO_DECODER_BUFFER_TYPE BufferType;
 	public uint32 DataOffset;
@@ -5055,12 +5239,14 @@ public function HRESULT PFN_D3D11_CREATE_DEVICE_AND_SWAP_CHAIN(IDXGIAdapter* par
 	public uint32 cBlocksStripeClear;
 }
 
-[CRepr]public struct D3D11_FEATURE_DATA_D3D11_OPTIONS4
+[CRepr]
+public struct D3D11_FEATURE_DATA_D3D11_OPTIONS4
 {
 	public BOOL ExtendedNV12SharedTextureSupported;
 }
 
-[CRepr]public struct D3D11_SIGNATURE_PARAMETER_DESC
+[CRepr]
+public struct D3D11_SIGNATURE_PARAMETER_DESC
 {
 	public PSTR SemanticName;
 	public uint32 SemanticIndex;
@@ -5073,7 +5259,8 @@ public function HRESULT PFN_D3D11_CREATE_DEVICE_AND_SWAP_CHAIN(IDXGIAdapter* par
 	public D3D_MIN_PRECISION MinPrecision;
 }
 
-[CRepr]public struct D3D11_SHADER_BUFFER_DESC
+[CRepr]
+public struct D3D11_SHADER_BUFFER_DESC
 {
 	public PSTR Name;
 	public D3D_CBUFFER_TYPE Type;
@@ -5082,7 +5269,8 @@ public function HRESULT PFN_D3D11_CREATE_DEVICE_AND_SWAP_CHAIN(IDXGIAdapter* par
 	public uint32 uFlags;
 }
 
-[CRepr]public struct D3D11_SHADER_VARIABLE_DESC
+[CRepr]
+public struct D3D11_SHADER_VARIABLE_DESC
 {
 	public PSTR Name;
 	public uint32 StartOffset;
@@ -5095,7 +5283,8 @@ public function HRESULT PFN_D3D11_CREATE_DEVICE_AND_SWAP_CHAIN(IDXGIAdapter* par
 	public uint32 SamplerSize;
 }
 
-[CRepr]public struct D3D11_SHADER_TYPE_DESC
+[CRepr]
+public struct D3D11_SHADER_TYPE_DESC
 {
 	public D3D_SHADER_VARIABLE_CLASS Class;
 	public D3D_SHADER_VARIABLE_TYPE Type;
@@ -5107,7 +5296,8 @@ public function HRESULT PFN_D3D11_CREATE_DEVICE_AND_SWAP_CHAIN(IDXGIAdapter* par
 	public PSTR Name;
 }
 
-[CRepr]public struct D3D11_SHADER_DESC
+[CRepr]
+public struct D3D11_SHADER_DESC
 {
 	public uint32 Version;
 	public PSTR Creator;
@@ -5149,7 +5339,8 @@ public function HRESULT PFN_D3D11_CREATE_DEVICE_AND_SWAP_CHAIN(IDXGIAdapter* par
 	public uint32 cTextureStoreInstructions;
 }
 
-[CRepr]public struct D3D11_SHADER_INPUT_BIND_DESC
+[CRepr]
+public struct D3D11_SHADER_INPUT_BIND_DESC
 {
 	public PSTR Name;
 	public D3D_SHADER_INPUT_TYPE Type;
@@ -5161,14 +5352,16 @@ public function HRESULT PFN_D3D11_CREATE_DEVICE_AND_SWAP_CHAIN(IDXGIAdapter* par
 	public uint32 NumSamples;
 }
 
-[CRepr]public struct D3D11_LIBRARY_DESC
+[CRepr]
+public struct D3D11_LIBRARY_DESC
 {
 	public PSTR Creator;
 	public uint32 Flags;
 	public uint32 FunctionCount;
 }
 
-[CRepr]public struct D3D11_FUNCTION_DESC
+[CRepr]
+public struct D3D11_FUNCTION_DESC
 {
 	public uint32 Version;
 	public PSTR Creator;
@@ -5205,7 +5398,8 @@ public function HRESULT PFN_D3D11_CREATE_DEVICE_AND_SWAP_CHAIN(IDXGIAdapter* par
 	public BOOL Has10Level9PixelShader;
 }
 
-[CRepr]public struct D3D11_PARAMETER_DESC
+[CRepr]
+public struct D3D11_PARAMETER_DESC
 {
 	public PSTR Name;
 	public PSTR SemanticName;
@@ -5221,27 +5415,32 @@ public function HRESULT PFN_D3D11_CREATE_DEVICE_AND_SWAP_CHAIN(IDXGIAdapter* par
 	public uint32 FirstOutComponent;
 }
 
-[CRepr]public struct D3D11_VERTEX_SHADER_TRACE_DESC
+[CRepr]
+public struct D3D11_VERTEX_SHADER_TRACE_DESC
 {
 	public uint64 Invocation;
 }
 
-[CRepr]public struct D3D11_HULL_SHADER_TRACE_DESC
+[CRepr]
+public struct D3D11_HULL_SHADER_TRACE_DESC
 {
 	public uint64 Invocation;
 }
 
-[CRepr]public struct D3D11_DOMAIN_SHADER_TRACE_DESC
+[CRepr]
+public struct D3D11_DOMAIN_SHADER_TRACE_DESC
 {
 	public uint64 Invocation;
 }
 
-[CRepr]public struct D3D11_GEOMETRY_SHADER_TRACE_DESC
+[CRepr]
+public struct D3D11_GEOMETRY_SHADER_TRACE_DESC
 {
 	public uint64 Invocation;
 }
 
-[CRepr]public struct D3D11_PIXEL_SHADER_TRACE_DESC
+[CRepr]
+public struct D3D11_PIXEL_SHADER_TRACE_DESC
 {
 	public uint64 Invocation;
 	public int32 X;
@@ -5249,16 +5448,19 @@ public function HRESULT PFN_D3D11_CREATE_DEVICE_AND_SWAP_CHAIN(IDXGIAdapter* par
 	public uint64 SampleMask;
 }
 
-[CRepr]public struct D3D11_COMPUTE_SHADER_TRACE_DESC
+[CRepr]
+public struct D3D11_COMPUTE_SHADER_TRACE_DESC
 {
 	public uint64 Invocation;
 	public uint32[3] ThreadIDInGroup;
 	public uint32[3] ThreadGroupID;
 }
 
-[CRepr]public struct D3D11_SHADER_TRACE_DESC
+[CRepr]
+public struct D3D11_SHADER_TRACE_DESC
 {
-	[CRepr, Union]	public struct _Anonymous_e__Union
+	[CRepr, Union]
+	public struct _Anonymous_e__Union
 	{
 		public D3D11_VERTEX_SHADER_TRACE_DESC VertexShaderTraceDesc;
 		public D3D11_HULL_SHADER_TRACE_DESC HullShaderTraceDesc;
@@ -5273,7 +5475,8 @@ public function HRESULT PFN_D3D11_CREATE_DEVICE_AND_SWAP_CHAIN(IDXGIAdapter* par
 	public using _Anonymous_e__Union Anonymous;
 }
 
-[CRepr]public struct D3D11_TRACE_STATS
+[CRepr]
+public struct D3D11_TRACE_STATS
 {
 	public D3D11_SHADER_TRACE_DESC TraceDesc;
 	public uint8 NumInvocationsInStamp;
@@ -5300,15 +5503,18 @@ public function HRESULT PFN_D3D11_CREATE_DEVICE_AND_SWAP_CHAIN(IDXGIAdapter* par
 	public uint8[32] DSInputPatchConstantMask;
 }
 
-[CRepr]public struct D3D11_TRACE_VALUE
+[CRepr]
+public struct D3D11_TRACE_VALUE
 {
 	public uint32[4] Bits;
 	public uint8 ValidMask;
 }
 
-[CRepr]public struct D3D11_TRACE_REGISTER
+[CRepr]
+public struct D3D11_TRACE_REGISTER
 {
-	[CRepr, Union]	public struct _Anonymous_e__Union
+	[CRepr, Union]
+	public struct _Anonymous_e__Union
 	{
 		public uint16 Index1D;
 		public uint16[2] Index2D;
@@ -5320,7 +5526,8 @@ public function HRESULT PFN_D3D11_CREATE_DEVICE_AND_SWAP_CHAIN(IDXGIAdapter* par
 	public uint8 Flags;
 }
 
-[CRepr]public struct D3D11_TRACE_STEP
+[CRepr]
+public struct D3D11_TRACE_STEP
 {
 	public uint32 ID;
 	public BOOL InstructionActive;
@@ -5331,7 +5538,8 @@ public function HRESULT PFN_D3D11_CREATE_DEVICE_AND_SWAP_CHAIN(IDXGIAdapter* par
 	public uint64 CurrentGlobalCycle;
 }
 
-[CRepr]public struct D3DX11_FFT_DESC
+[CRepr]
+public struct D3DX11_FFT_DESC
 {
 	public uint32 NumDimensions;
 	public uint32[32] ElementLengths;
@@ -5339,7 +5547,8 @@ public function HRESULT PFN_D3D11_CREATE_DEVICE_AND_SWAP_CHAIN(IDXGIAdapter* par
 	public D3DX11_FFT_DATA_TYPE Type;
 }
 
-[CRepr]public struct D3DX11_FFT_BUFFER_INFO
+[CRepr]
+public struct D3DX11_FFT_BUFFER_INFO
 {
 	public uint32 NumTempBufferSizes;
 	public uint32[4] TempBufferFloatSizes;

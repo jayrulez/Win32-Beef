@@ -2877,107 +2877,133 @@ public function uint32 SET_APP_INSTANCE_CSV_FLAGS(HANDLE ProcessHandle, uint32 M
 #endregion
 
 #region Structs
-[CRepr]public struct _HCLUSTER
+[CRepr]
+public struct _HCLUSTER
 {
 }
 
-[CRepr]public struct _HNODE
+[CRepr]
+public struct _HNODE
 {
 }
 
-[CRepr]public struct _HRESOURCE
+[CRepr]
+public struct _HRESOURCE
 {
 }
 
-[CRepr]public struct _HGROUP
+[CRepr]
+public struct _HGROUP
 {
 }
 
-[CRepr]public struct _HNETWORK
+[CRepr]
+public struct _HNETWORK
 {
 }
 
-[CRepr]public struct _HNETINTERFACE
+[CRepr]
+public struct _HNETINTERFACE
 {
 }
 
-[CRepr]public struct _HCHANGE
+[CRepr]
+public struct _HCHANGE
 {
 }
 
-[CRepr]public struct _HCLUSENUM
+[CRepr]
+public struct _HCLUSENUM
 {
 }
 
-[CRepr]public struct _HGROUPENUM
+[CRepr]
+public struct _HGROUPENUM
 {
 }
 
-[CRepr]public struct _HRESENUM
+[CRepr]
+public struct _HRESENUM
 {
 }
 
-[CRepr]public struct _HNETWORKENUM
+[CRepr]
+public struct _HNETWORKENUM
 {
 }
 
-[CRepr]public struct _HNODEENUM
+[CRepr]
+public struct _HNODEENUM
 {
 }
 
-[CRepr]public struct _HNETINTERFACEENUM
+[CRepr]
+public struct _HNETINTERFACEENUM
 {
 }
 
-[CRepr]public struct _HRESTYPEENUM
+[CRepr]
+public struct _HRESTYPEENUM
 {
 }
 
-[CRepr]public struct _HREGBATCH
+[CRepr]
+public struct _HREGBATCH
 {
 }
 
-[CRepr]public struct _HREGBATCHPORT
+[CRepr]
+public struct _HREGBATCHPORT
 {
 }
 
-[CRepr]public struct _HREGBATCHNOTIFICATION
+[CRepr]
+public struct _HREGBATCHNOTIFICATION
 {
 }
 
-[CRepr]public struct _HREGREADBATCH
+[CRepr]
+public struct _HREGREADBATCH
 {
 }
 
-[CRepr]public struct _HREGREADBATCHREPLY
+[CRepr]
+public struct _HREGREADBATCHREPLY
 {
 }
 
-[CRepr]public struct _HNODEENUMEX
+[CRepr]
+public struct _HNODEENUMEX
 {
 }
 
-[CRepr]public struct _HCLUSENUMEX
+[CRepr]
+public struct _HCLUSENUMEX
 {
 }
 
-[CRepr]public struct _HGROUPENUMEX
+[CRepr]
+public struct _HGROUPENUMEX
 {
 }
 
-[CRepr]public struct _HRESENUMEX
+[CRepr]
+public struct _HRESENUMEX
 {
 }
 
-[CRepr]public struct _HGROUPSET
+[CRepr]
+public struct _HGROUPSET
 {
 }
 
-[CRepr]public struct _HGROUPSETENUM
+[CRepr]
+public struct _HGROUPSETENUM
 {
 }
 
-[CRepr]public struct CLUSTERVERSIONINFO_NT4
+[CRepr]
+public struct CLUSTERVERSIONINFO_NT4
 {
 	public uint32 dwVersionInfoSize;
 	public uint16 MajorVersion;
@@ -2987,7 +3013,8 @@ public function uint32 SET_APP_INSTANCE_CSV_FLAGS(HANDLE ProcessHandle, uint32 M
 	public char8[64] szCSDVersion;
 }
 
-[CRepr]public struct CLUSTERVERSIONINFO
+[CRepr]
+public struct CLUSTERVERSIONINFO
 {
 	public uint32 dwVersionInfoSize;
 	public uint16 MajorVersion;
@@ -3001,21 +3028,24 @@ public function uint32 SET_APP_INSTANCE_CSV_FLAGS(HANDLE ProcessHandle, uint32 M
 	public uint32 dwReserved;
 }
 
-[CRepr]public struct CLUS_STARTING_PARAMS
+[CRepr]
+public struct CLUS_STARTING_PARAMS
 {
 	public uint32 dwSize;
 	public BOOL bForm;
 	public BOOL bFirst;
 }
 
-[CRepr]public struct CLUSCTL_RESOURCE_STATE_CHANGE_REASON_STRUCT
+[CRepr]
+public struct CLUSCTL_RESOURCE_STATE_CHANGE_REASON_STRUCT
 {
 	public uint32 dwSize;
 	public uint32 dwVersion;
 	public CLUSTER_RESOURCE_STATE_CHANGE_REASON eReason;
 }
 
-[CRepr]public struct CLUSTER_BATCH_COMMAND
+[CRepr]
+public struct CLUSTER_BATCH_COMMAND
 {
 	public CLUSTER_REG_COMMAND Command;
 	public uint32 dwOptions;
@@ -3024,7 +3054,8 @@ public function uint32 SET_APP_INSTANCE_CSV_FLAGS(HANDLE ProcessHandle, uint32 M
 	public uint32 cbData;
 }
 
-[CRepr]public struct CLUSTER_READ_BATCH_COMMAND
+[CRepr]
+public struct CLUSTER_READ_BATCH_COMMAND
 {
 	public CLUSTER_REG_COMMAND Command;
 	public uint32 dwOptions;
@@ -3034,7 +3065,8 @@ public function uint32 SET_APP_INSTANCE_CSV_FLAGS(HANDLE ProcessHandle, uint32 M
 	public uint32 cbData;
 }
 
-[CRepr]public struct CLUSTER_ENUM_ITEM
+[CRepr]
+public struct CLUSTER_ENUM_ITEM
 {
 	public uint32 dwVersion;
 	public uint32 dwType;
@@ -3044,46 +3076,54 @@ public function uint32 SET_APP_INSTANCE_CSV_FLAGS(HANDLE ProcessHandle, uint32 M
 	public PWSTR lpszName;
 }
 
-[CRepr]public struct CLUSTER_CREATE_GROUP_INFO
+[CRepr]
+public struct CLUSTER_CREATE_GROUP_INFO
 {
 	public uint32 dwVersion;
 	public CLUSGROUP_TYPE groupType;
 }
 
-[CRepr]public struct CLUSTER_VALIDATE_PATH
+[CRepr]
+public struct CLUSTER_VALIDATE_PATH
 {
 	public char8[1] szPath;
 }
 
-[CRepr]public struct CLUSTER_VALIDATE_DIRECTORY
+[CRepr]
+public struct CLUSTER_VALIDATE_DIRECTORY
 {
 	public char8[1] szPath;
 }
 
-[CRepr]public struct CLUSTER_VALIDATE_NETNAME
+[CRepr]
+public struct CLUSTER_VALIDATE_NETNAME
 {
 	public char8[1] szNetworkName;
 }
 
-[CRepr]public struct CLUSTER_VALIDATE_CSV_FILENAME
+[CRepr]
+public struct CLUSTER_VALIDATE_CSV_FILENAME
 {
 	public char8[1] szFileName;
 }
 
-[CRepr]public struct CLUSTER_SET_PASSWORD_STATUS
+[CRepr]
+public struct CLUSTER_SET_PASSWORD_STATUS
 {
 	public uint32 NodeId;
 	public BOOLEAN SetAttempted;
 	public uint32 ReturnStatus;
 }
 
-[CRepr]public struct CLUSTER_IP_ENTRY
+[CRepr]
+public struct CLUSTER_IP_ENTRY
 {
 	public PWSTR lpszIpAddress;
 	public uint32 dwPrefixLength;
 }
 
-[CRepr]public struct CREATE_CLUSTER_CONFIG
+[CRepr]
+public struct CREATE_CLUSTER_CONFIG
 {
 	public uint32 dwVersion;
 	public PWSTR lpszClusterName;
@@ -3096,7 +3136,8 @@ public function uint32 SET_APP_INSTANCE_CSV_FLAGS(HANDLE ProcessHandle, uint32 M
 	public CLUSTER_MGMT_POINT_RESTYPE managementPointResType;
 }
 
-[CRepr]public struct CREATE_CLUSTER_NAME_ACCOUNT
+[CRepr]
+public struct CREATE_CLUSTER_NAME_ACCOUNT
 {
 	public uint32 dwVersion;
 	public PWSTR lpszClusterName;
@@ -3109,20 +3150,23 @@ public function uint32 SET_APP_INSTANCE_CSV_FLAGS(HANDLE ProcessHandle, uint32 M
 	public BOOLEAN bUpgradeVCOs;
 }
 
-[CRepr]public struct NOTIFY_FILTER_AND_TYPE
+[CRepr]
+public struct NOTIFY_FILTER_AND_TYPE
 {
 	public uint32 dwObjectType;
 	public int64 FilterFlags;
 }
 
-[CRepr]public struct CLUSTER_MEMBERSHIP_INFO
+[CRepr]
+public struct CLUSTER_MEMBERSHIP_INFO
 {
 	public BOOL HasQuorum;
 	public uint32 UpnodesSize;
 	public uint8[1] Upnodes;
 }
 
-[CRepr]public struct CLUSTER_AVAILABILITY_SET_CONFIG
+[CRepr]
+public struct CLUSTER_AVAILABILITY_SET_CONFIG
 {
 	public uint32 dwVersion;
 	public uint32 dwUpdateDomains;
@@ -3130,7 +3174,8 @@ public function uint32 SET_APP_INSTANCE_CSV_FLAGS(HANDLE ProcessHandle, uint32 M
 	public BOOL bReserveSpareNode;
 }
 
-[CRepr]public struct CLUSTER_GROUP_ENUM_ITEM
+[CRepr]
+public struct CLUSTER_GROUP_ENUM_ITEM
 {
 	public uint32 dwVersion;
 	public uint32 cbId;
@@ -3147,7 +3192,8 @@ public function uint32 SET_APP_INSTANCE_CSV_FLAGS(HANDLE ProcessHandle, uint32 M
 	public void* pRoProperties;
 }
 
-[CRepr]public struct CLUSTER_RESOURCE_ENUM_ITEM
+[CRepr]
+public struct CLUSTER_RESOURCE_ENUM_ITEM
 {
 	public uint32 dwVersion;
 	public uint32 cbId;
@@ -3164,39 +3210,46 @@ public function uint32 SET_APP_INSTANCE_CSV_FLAGS(HANDLE ProcessHandle, uint32 M
 	public void* pRoProperties;
 }
 
-[CRepr]public struct GROUP_FAILURE_INFO
+[CRepr]
+public struct GROUP_FAILURE_INFO
 {
 	public uint32 dwFailoverAttemptsRemaining;
 	public uint32 dwFailoverPeriodRemaining;
 }
 
-[CRepr]public struct GROUP_FAILURE_INFO_BUFFER
+[CRepr]
+public struct GROUP_FAILURE_INFO_BUFFER
 {
 	public uint32 dwVersion;
 	public GROUP_FAILURE_INFO Info;
 }
 
-[CRepr]public struct RESOURCE_FAILURE_INFO
+[CRepr]
+public struct RESOURCE_FAILURE_INFO
 {
 	public uint32 dwRestartAttemptsRemaining;
 	public uint32 dwRestartPeriodRemaining;
 }
 
-[CRepr]public struct RESOURCE_FAILURE_INFO_BUFFER
+[CRepr]
+public struct RESOURCE_FAILURE_INFO_BUFFER
 {
 	public uint32 dwVersion;
 	public RESOURCE_FAILURE_INFO Info;
 }
 
-[CRepr]public struct RESOURCE_TERMINAL_FAILURE_INFO_BUFFER
+[CRepr]
+public struct RESOURCE_TERMINAL_FAILURE_INFO_BUFFER
 {
 	public BOOL isTerminalFailure;
 	public uint32 restartPeriodRemaining;
 }
 
-[CRepr, Union]public struct CLUSPROP_SYNTAX
+[CRepr, Union]
+public struct CLUSPROP_SYNTAX
 {
-	[CRepr]	public struct _Anonymous_e__Struct
+	[CRepr]
+	public struct _Anonymous_e__Struct
 	{
 		public uint16 wFormat;
 		public uint16 wType;
@@ -3206,57 +3259,67 @@ public function uint32 SET_APP_INSTANCE_CSV_FLAGS(HANDLE ProcessHandle, uint32 M
 	public using _Anonymous_e__Struct Anonymous;
 }
 
-[CRepr]public struct CLUSPROP_VALUE
+[CRepr]
+public struct CLUSPROP_VALUE
 {
 	public CLUSPROP_SYNTAX Syntax;
 	public uint32 cbLength;
 }
 
-[CRepr]public struct CLUSPROP_BINARY
+[CRepr]
+public struct CLUSPROP_BINARY
 {
 	public CLUSPROP_VALUE __AnonymousBase_clusapi_L5129_C41;
 	public uint8[1] rgb;
 }
 
-[CRepr]public struct CLUSPROP_WORD
+[CRepr]
+public struct CLUSPROP_WORD
 {
 	public CLUSPROP_VALUE __AnonymousBase_clusapi_L5139_C39;
 	public uint16 w;
 }
 
-[CRepr]public struct CLUSPROP_DWORD
+[CRepr]
+public struct CLUSPROP_DWORD
 {
 	public CLUSPROP_VALUE __AnonymousBase_clusapi_L5149_C40;
 	public uint32 dw;
 }
 
-[CRepr]public struct CLUSPROP_LONG
+[CRepr]
+public struct CLUSPROP_LONG
 {
 	public CLUSPROP_VALUE __AnonymousBase_clusapi_L5159_C39;
 	public int32 l;
 }
 
-[CRepr]public struct CLUSPROP_SZ
+[CRepr]
+public struct CLUSPROP_SZ
 {
 	public CLUSPROP_VALUE __AnonymousBase_clusapi_L5169_C37;
 	public char8[1] sz;
 }
 
-[CRepr]public struct CLUSPROP_ULARGE_INTEGER
+[CRepr]
+public struct CLUSPROP_ULARGE_INTEGER
 {
 	public CLUSPROP_VALUE __AnonymousBase_clusapi_L5186_C14;
 	public ULARGE_INTEGER li;
 }
 
-[CRepr]public struct CLUSPROP_LARGE_INTEGER
+[CRepr]
+public struct CLUSPROP_LARGE_INTEGER
 {
 	public CLUSPROP_VALUE __AnonymousBase_clusapi_L5199_C14;
 	public LARGE_INTEGER li;
 }
 
-[CRepr]public struct CLUSPROP_SECURITY_DESCRIPTOR
+[CRepr]
+public struct CLUSPROP_SECURITY_DESCRIPTOR
 {
-	[CRepr, Union]	public struct _Anonymous_e__Union
+	[CRepr, Union]
+	public struct _Anonymous_e__Union
 	{
 		public SECURITY_DESCRIPTOR_RELATIVE sd;
 		public uint8[1] rgbSecurityDescriptor;
@@ -3266,19 +3329,24 @@ public function uint32 SET_APP_INSTANCE_CSV_FLAGS(HANDLE ProcessHandle, uint32 M
 	public using _Anonymous_e__Union Anonymous;
 }
 
-[CRepr]public struct CLUSPROP_FILETIME
+[CRepr]
+public struct CLUSPROP_FILETIME
 {
 	public CLUSPROP_VALUE __AnonymousBase_clusapi_L5225_C14;
 	public FILETIME ft;
 }
 
-[CRepr]public struct CLUS_RESOURCE_CLASS_INFO
+[CRepr]
+public struct CLUS_RESOURCE_CLASS_INFO
 {
-	[CRepr, Union]	public struct _Anonymous_e__Union
+	[CRepr, Union]
+	public struct _Anonymous_e__Union
 	{
-		[CRepr]		public struct _Anonymous_e__Struct
+		[CRepr]
+		public struct _Anonymous_e__Struct
 		{
-			[CRepr, Union]			public struct _Anonymous_e__Union
+			[CRepr, Union]
+			public struct _Anonymous_e__Union
 			{
 				public uint32 dw;
 				public CLUSTER_RESOURCE_CLASS rc;
@@ -3295,26 +3363,30 @@ public function uint32 SET_APP_INSTANCE_CSV_FLAGS(HANDLE ProcessHandle, uint32 M
 	public using _Anonymous_e__Union Anonymous;
 }
 
-[CRepr]public struct CLUSPROP_RESOURCE_CLASS
+[CRepr]
+public struct CLUSPROP_RESOURCE_CLASS
 {
 	public CLUSPROP_VALUE __AnonymousBase_clusapi_L5250_C14;
 	public CLUSTER_RESOURCE_CLASS rc;
 }
 
-[CRepr]public struct CLUSPROP_RESOURCE_CLASS_INFO
+[CRepr]
+public struct CLUSPROP_RESOURCE_CLASS_INFO
 {
 	public CLUSPROP_VALUE __AnonymousBase_clusapi_L5261_C14;
 	public CLUS_RESOURCE_CLASS_INFO __AnonymousBase_clusapi_L5262_C14;
 }
 
-[CRepr, Union]public struct CLUSPROP_REQUIRED_DEPENDENCY
+[CRepr, Union]
+public struct CLUSPROP_REQUIRED_DEPENDENCY
 {
 	public CLUSPROP_VALUE Value;
 	public CLUSPROP_RESOURCE_CLASS ResClass;
 	public CLUSPROP_SZ ResTypeName;
 }
 
-[CRepr]public struct CLUS_FORCE_QUORUM_INFO
+[CRepr]
+public struct CLUS_FORCE_QUORUM_INFO
 {
 	public uint32 dwSize;
 	public uint32 dwNodeBitMask;
@@ -3322,7 +3394,8 @@ public function uint32 SET_APP_INSTANCE_CSV_FLAGS(HANDLE ProcessHandle, uint32 M
 	public char8[1] multiszNodeList;
 }
 
-[CRepr]public struct CLUS_PARTITION_INFO
+[CRepr]
+public struct CLUS_PARTITION_INFO
 {
 	public uint32 dwFlags;
 	public char8[260] szDeviceName;
@@ -3333,7 +3406,8 @@ public function uint32 SET_APP_INSTANCE_CSV_FLAGS(HANDLE ProcessHandle, uint32 M
 	public char8[32] szFileSystem;
 }
 
-[CRepr]public struct CLUS_PARTITION_INFO_EX
+[CRepr]
+public struct CLUS_PARTITION_INFO_EX
 {
 	public uint32 dwFlags;
 	public char8[260] szDeviceName;
@@ -3349,14 +3423,16 @@ public function uint32 SET_APP_INSTANCE_CSV_FLAGS(HANDLE ProcessHandle, uint32 M
 	public Guid VolumeGuid;
 }
 
-[CRepr]public struct CLUS_PARTITION_INFO_EX2
+[CRepr]
+public struct CLUS_PARTITION_INFO_EX2
 {
 	public Guid GptPartitionId;
 	public char8[260] szPartitionName;
 	public uint32 EncryptionFlags;
 }
 
-[CRepr]public struct CLUS_CSV_VOLUME_INFO
+[CRepr]
+public struct CLUS_CSV_VOLUME_INFO
 {
 	public ULARGE_INTEGER VolumeOffset;
 	public uint32 PartitionNumber;
@@ -3366,21 +3442,24 @@ public function uint32 SET_APP_INSTANCE_CSV_FLAGS(HANDLE ProcessHandle, uint32 M
 	public char8[50] szVolumeName;
 }
 
-[CRepr]public struct CLUS_CSV_VOLUME_NAME
+[CRepr]
+public struct CLUS_CSV_VOLUME_NAME
 {
 	public LARGE_INTEGER VolumeOffset;
 	public char8[260] szVolumeName;
 	public char8[263] szRootPath;
 }
 
-[CRepr]public struct CLUSTER_SHARED_VOLUME_STATE_INFO
+[CRepr]
+public struct CLUSTER_SHARED_VOLUME_STATE_INFO
 {
 	public char8[260] szVolumeName;
 	public char8[260] szNodeName;
 	public CLUSTER_SHARED_VOLUME_STATE VolumeState;
 }
 
-[CRepr]public struct CLUSTER_SHARED_VOLUME_STATE_INFO_EX
+[CRepr]
+public struct CLUSTER_SHARED_VOLUME_STATE_INFO_EX
 {
 	public char8[260] szVolumeName;
 	public char8[260] szNodeName;
@@ -3390,9 +3469,11 @@ public function uint32 SET_APP_INSTANCE_CSV_FLAGS(HANDLE ProcessHandle, uint32 M
 	public uint64 VolumeRedirectedIOReason;
 }
 
-[CRepr]public struct CLUSTER_SHARED_VOLUME_RENAME_INPUT_VOLUME
+[CRepr]
+public struct CLUSTER_SHARED_VOLUME_RENAME_INPUT_VOLUME
 {
-	[CRepr, Union]	public struct _Anonymous_e__Union
+	[CRepr, Union]
+	public struct _Anonymous_e__Union
 	{
 		public uint64 VolumeOffset;
 		public char8[260] VolumeId;
@@ -3404,30 +3485,35 @@ public function uint32 SET_APP_INSTANCE_CSV_FLAGS(HANDLE ProcessHandle, uint32 M
 	public using _Anonymous_e__Union Anonymous;
 }
 
-[CRepr]public struct CLUSTER_SHARED_VOLUME_RENAME_INPUT_NAME
+[CRepr]
+public struct CLUSTER_SHARED_VOLUME_RENAME_INPUT_NAME
 {
 	public char8[260] NewVolumeName;
 }
 
-[CRepr]public struct CLUSTER_SHARED_VOLUME_RENAME_INPUT_GUID_NAME
+[CRepr]
+public struct CLUSTER_SHARED_VOLUME_RENAME_INPUT_GUID_NAME
 {
 	public char8[260] NewVolumeName;
 	public char8[50] NewVolumeGuid;
 }
 
-[CRepr]public struct CLUSTER_SHARED_VOLUME_RENAME_INPUT
+[CRepr]
+public struct CLUSTER_SHARED_VOLUME_RENAME_INPUT
 {
 	public CLUSTER_SHARED_VOLUME_RENAME_INPUT_VOLUME __AnonymousBase_clusapi_L5464_C14;
 	public CLUSTER_SHARED_VOLUME_RENAME_INPUT_NAME __AnonymousBase_clusapi_L5465_C14;
 }
 
-[CRepr]public struct CLUSTER_SHARED_VOLUME_RENAME_GUID_INPUT
+[CRepr]
+public struct CLUSTER_SHARED_VOLUME_RENAME_GUID_INPUT
 {
 	public CLUSTER_SHARED_VOLUME_RENAME_INPUT_VOLUME __AnonymousBase_clusapi_L5475_C14;
 	public CLUSTER_SHARED_VOLUME_RENAME_INPUT_GUID_NAME __AnonymousBase_clusapi_L5476_C14;
 }
 
-[CRepr]public struct CLUS_CHKDSK_INFO
+[CRepr]
+public struct CLUS_CHKDSK_INFO
 {
 	public uint32 PartitionNumber;
 	public uint32 ChkdskState;
@@ -3435,54 +3521,64 @@ public function uint32 SET_APP_INSTANCE_CSV_FLAGS(HANDLE ProcessHandle, uint32 M
 	public uint64[1] FileIdList;
 }
 
-[CRepr]public struct CLUS_DISK_NUMBER_INFO
+[CRepr]
+public struct CLUS_DISK_NUMBER_INFO
 {
 	public uint32 DiskNumber;
 	public uint32 BytesPerSector;
 }
 
-[CRepr]public struct CLUS_SHARED_VOLUME_BACKUP_MODE
+[CRepr]
+public struct CLUS_SHARED_VOLUME_BACKUP_MODE
 {
 	public CLUSTER_SHARED_VOLUME_BACKUP_STATE BackupState;
 	public uint32 DelayTimerInSecs;
 	public char8[260] VolumeName;
 }
 
-[CRepr]public struct CLUSPROP_PARTITION_INFO
+[CRepr]
+public struct CLUSPROP_PARTITION_INFO
 {
 	public CLUSPROP_VALUE __AnonymousBase_clusapi_L5507_C14;
 	public CLUS_PARTITION_INFO __AnonymousBase_clusapi_L5508_C14;
 }
 
-[CRepr]public struct CLUSPROP_PARTITION_INFO_EX
+[CRepr]
+public struct CLUSPROP_PARTITION_INFO_EX
 {
 	public CLUSPROP_VALUE __AnonymousBase_clusapi_L5519_C14;
 	public CLUS_PARTITION_INFO_EX __AnonymousBase_clusapi_L5520_C14;
 }
 
-[CRepr]public struct CLUSPROP_PARTITION_INFO_EX2
+[CRepr]
+public struct CLUSPROP_PARTITION_INFO_EX2
 {
 	public CLUSPROP_PARTITION_INFO_EX __AnonymousBase_clusapi_L5533_C14;
 	public CLUS_PARTITION_INFO_EX2 __AnonymousBase_clusapi_L5534_C14;
 }
 
-[CRepr]public struct CLUS_FTSET_INFO
+[CRepr]
+public struct CLUS_FTSET_INFO
 {
 	public uint32 dwRootSignature;
 	public uint32 dwFtType;
 }
 
-[CRepr]public struct CLUSPROP_FTSET_INFO
+[CRepr]
+public struct CLUSPROP_FTSET_INFO
 {
 	public CLUSPROP_VALUE __AnonymousBase_clusapi_L5555_C14;
 	public CLUS_FTSET_INFO __AnonymousBase_clusapi_L5556_C14;
 }
 
-[CRepr]public struct CLUS_SCSI_ADDRESS
+[CRepr]
+public struct CLUS_SCSI_ADDRESS
 {
-	[CRepr, Union]	public struct _Anonymous_e__Union
+	[CRepr, Union]
+	public struct _Anonymous_e__Union
 	{
-		[CRepr]		public struct _Anonymous_e__Struct
+		[CRepr]
+		public struct _Anonymous_e__Struct
 		{
 			public uint8 PortNumber;
 			public uint8 PathId;
@@ -3497,20 +3593,23 @@ public function uint32 SET_APP_INSTANCE_CSV_FLAGS(HANDLE ProcessHandle, uint32 M
 	public using _Anonymous_e__Union Anonymous;
 }
 
-[CRepr]public struct CLUSPROP_SCSI_ADDRESS
+[CRepr]
+public struct CLUSPROP_SCSI_ADDRESS
 {
 	public CLUSPROP_VALUE __AnonymousBase_clusapi_L5583_C14;
 	public CLUS_SCSI_ADDRESS __AnonymousBase_clusapi_L5584_C14;
 }
 
-[CRepr]public struct CLUS_NETNAME_VS_TOKEN_INFO
+[CRepr]
+public struct CLUS_NETNAME_VS_TOKEN_INFO
 {
 	public uint32 ProcessID;
 	public uint32 DesiredAccess;
 	public BOOL InheritHandle;
 }
 
-[CRepr]public struct CLUS_NETNAME_PWD_INFO
+[CRepr]
+public struct CLUS_NETNAME_PWD_INFO
 {
 	public uint32 Flags;
 	public char8[16] Password;
@@ -3518,7 +3617,8 @@ public function uint32 SET_APP_INSTANCE_CSV_FLAGS(HANDLE ProcessHandle, uint32 M
 	public char8[64] ObjectGuid;
 }
 
-[CRepr]public struct CLUS_NETNAME_PWD_INFOEX
+[CRepr]
+public struct CLUS_NETNAME_PWD_INFOEX
 {
 	public uint32 Flags;
 	public char8[128] Password;
@@ -3526,44 +3626,51 @@ public function uint32 SET_APP_INSTANCE_CSV_FLAGS(HANDLE ProcessHandle, uint32 M
 	public char8[64] ObjectGuid;
 }
 
-[CRepr]public struct CLUS_DNN_LEADER_STATUS
+[CRepr]
+public struct CLUS_DNN_LEADER_STATUS
 {
 	public BOOL IsOnline;
 	public BOOL IsFileServerPresent;
 }
 
-[CRepr]public struct CLUS_DNN_SODAFS_CLONE_STATUS
+[CRepr]
+public struct CLUS_DNN_SODAFS_CLONE_STATUS
 {
 	public uint32 NodeId;
 	public CLUSTER_RESOURCE_STATE Status;
 }
 
-[CRepr]public struct CLUS_NETNAME_IP_INFO_ENTRY
+[CRepr]
+public struct CLUS_NETNAME_IP_INFO_ENTRY
 {
 	public uint32 NodeId;
 	public uint32 AddressSize;
 	public uint8[1] Address;
 }
 
-[CRepr]public struct CLUS_NETNAME_IP_INFO_FOR_MULTICHANNEL
+[CRepr]
+public struct CLUS_NETNAME_IP_INFO_FOR_MULTICHANNEL
 {
 	public char8[64] szName;
 	public uint32 NumEntries;
 	public CLUS_NETNAME_IP_INFO_ENTRY[1] IpInfo;
 }
 
-[CRepr]public struct CLUS_MAINTENANCE_MODE_INFO
+[CRepr]
+public struct CLUS_MAINTENANCE_MODE_INFO
 {
 	public BOOL InMaintenance;
 }
 
-[CRepr]public struct CLUS_CSV_MAINTENANCE_MODE_INFO
+[CRepr]
+public struct CLUS_CSV_MAINTENANCE_MODE_INFO
 {
 	public BOOL InMaintenance;
 	public char8[260] VolumeName;
 }
 
-[CRepr]public struct CLUS_MAINTENANCE_MODE_INFOEX
+[CRepr]
+public struct CLUS_MAINTENANCE_MODE_INFOEX
 {
 	public BOOL InMaintenance;
 	public MAINTENANCE_MODE_TYPE_ENUM MaintainenceModeType;
@@ -3571,73 +3678,85 @@ public function uint32 SET_APP_INSTANCE_CSV_FLAGS(HANDLE ProcessHandle, uint32 M
 	public uint32 Signature;
 }
 
-[CRepr]public struct CLUS_SET_MAINTENANCE_MODE_INPUT
+[CRepr]
+public struct CLUS_SET_MAINTENANCE_MODE_INPUT
 {
 	public BOOL InMaintenance;
 	public uint32 ExtraParameterSize;
 	public uint8[1] ExtraParameter;
 }
 
-[CRepr]public struct CLUS_STORAGE_SET_DRIVELETTER
+[CRepr]
+public struct CLUS_STORAGE_SET_DRIVELETTER
 {
 	public uint32 PartitionNumber;
 	public uint32 DriveLetterMask;
 }
 
-[CRepr]public struct CLUS_STORAGE_GET_AVAILABLE_DRIVELETTERS
+[CRepr]
+public struct CLUS_STORAGE_GET_AVAILABLE_DRIVELETTERS
 {
 	public uint32 AvailDrivelettersMask;
 }
 
-[CRepr]public struct CLUS_STORAGE_REMAP_DRIVELETTER
+[CRepr]
+public struct CLUS_STORAGE_REMAP_DRIVELETTER
 {
 	public uint32 CurrentDriveLetterMask;
 	public uint32 TargetDriveLetterMask;
 }
 
-[CRepr]public struct CLUS_PROVIDER_STATE_CHANGE_INFO
+[CRepr]
+public struct CLUS_PROVIDER_STATE_CHANGE_INFO
 {
 	public uint32 dwSize;
 	public CLUSTER_RESOURCE_STATE resourceState;
 	public char8[1] szProviderId;
 }
 
-[CRepr]public struct CLUS_CREATE_INFRASTRUCTURE_FILESERVER_INPUT
+[CRepr]
+public struct CLUS_CREATE_INFRASTRUCTURE_FILESERVER_INPUT
 {
 	public char8[16] FileServerName;
 }
 
-[CRepr]public struct CLUS_CREATE_INFRASTRUCTURE_FILESERVER_OUTPUT
+[CRepr]
+public struct CLUS_CREATE_INFRASTRUCTURE_FILESERVER_OUTPUT
 {
 	public char8[260] FileServerName;
 }
 
-[CRepr]public struct CLUSPROP_LIST
+[CRepr]
+public struct CLUSPROP_LIST
 {
 	public uint32 nPropertyCount;
 	public CLUSPROP_SZ PropertyName;
 }
 
-[CRepr]public struct FILESHARE_CHANGE
+[CRepr]
+public struct FILESHARE_CHANGE
 {
 	public FILESHARE_CHANGE_ENUM Change;
 	public char8[84] ShareName;
 }
 
-[CRepr]public struct FILESHARE_CHANGE_LIST
+[CRepr]
+public struct FILESHARE_CHANGE_LIST
 {
 	public uint32 NumEntries;
 	public FILESHARE_CHANGE[1] ChangeEntry;
 }
 
-[CRepr]public struct CLUSCTL_GROUP_GET_LAST_MOVE_TIME_OUTPUT
+[CRepr]
+public struct CLUSCTL_GROUP_GET_LAST_MOVE_TIME_OUTPUT
 {
 	public uint64 GetTickCount64;
 	public SYSTEMTIME GetSystemTime;
 	public uint32 NodeId;
 }
 
-[CRepr, Union]public struct CLUSPROP_BUFFER_HELPER
+[CRepr, Union]
+public struct CLUSPROP_BUFFER_HELPER
 {
 	public uint8* pb;
 	public uint16* pw;
@@ -3669,25 +3788,29 @@ public function uint32 SET_APP_INSTANCE_CSV_FLAGS(HANDLE ProcessHandle, uint32 M
 	public CLUSPROP_FILETIME* pFileTimeValue;
 }
 
-[CRepr]public struct SR_RESOURCE_TYPE_REPLICATED_PARTITION_INFO
+[CRepr]
+public struct SR_RESOURCE_TYPE_REPLICATED_PARTITION_INFO
 {
 	public uint64 PartitionOffset;
 	public uint32 Capabilities;
 }
 
-[CRepr]public struct SR_RESOURCE_TYPE_REPLICATED_PARTITION_ARRAY
+[CRepr]
+public struct SR_RESOURCE_TYPE_REPLICATED_PARTITION_ARRAY
 {
 	public uint32 Count;
 	public SR_RESOURCE_TYPE_REPLICATED_PARTITION_INFO[1] PartitionArray;
 }
 
-[CRepr]public struct SR_RESOURCE_TYPE_QUERY_ELIGIBLE_LOGDISKS
+[CRepr]
+public struct SR_RESOURCE_TYPE_QUERY_ELIGIBLE_LOGDISKS
 {
 	public Guid DataDiskGuid;
 	public BOOLEAN IncludeOfflineDisks;
 }
 
-[CRepr]public struct SR_RESOURCE_TYPE_QUERY_ELIGIBLE_TARGET_DATADISKS
+[CRepr]
+public struct SR_RESOURCE_TYPE_QUERY_ELIGIBLE_TARGET_DATADISKS
 {
 	public Guid SourceDataDiskGuid;
 	public Guid TargetReplicationGroupGuid;
@@ -3695,25 +3818,29 @@ public function uint32 SET_APP_INSTANCE_CSV_FLAGS(HANDLE ProcessHandle, uint32 M
 	public BOOLEAN IncludeOfflineDisks;
 }
 
-[CRepr]public struct SR_RESOURCE_TYPE_QUERY_ELIGIBLE_SOURCE_DATADISKS
+[CRepr]
+public struct SR_RESOURCE_TYPE_QUERY_ELIGIBLE_SOURCE_DATADISKS
 {
 	public Guid DataDiskGuid;
 	public BOOLEAN IncludeAvailableStoargeDisks;
 }
 
-[CRepr]public struct SR_RESOURCE_TYPE_DISK_INFO
+[CRepr]
+public struct SR_RESOURCE_TYPE_DISK_INFO
 {
 	public SR_DISK_REPLICATION_ELIGIBLE Reason;
 	public Guid DiskGuid;
 }
 
-[CRepr]public struct SR_RESOURCE_TYPE_ELIGIBLE_DISKS_RESULT
+[CRepr]
+public struct SR_RESOURCE_TYPE_ELIGIBLE_DISKS_RESULT
 {
 	public uint16 Count;
 	public SR_RESOURCE_TYPE_DISK_INFO[1] DiskInfo;
 }
 
-[CRepr]public struct SR_RESOURCE_TYPE_REPLICATED_DISK
+[CRepr]
+public struct SR_RESOURCE_TYPE_REPLICATED_DISK
 {
 	public SR_REPLICATED_DISK_TYPE Type;
 	public Guid ClusterDiskResourceGuid;
@@ -3721,13 +3848,15 @@ public function uint32 SET_APP_INSTANCE_CSV_FLAGS(HANDLE ProcessHandle, uint32 M
 	public char8[260] ReplicationGroupName;
 }
 
-[CRepr]public struct SR_RESOURCE_TYPE_REPLICATED_DISKS_RESULT
+[CRepr]
+public struct SR_RESOURCE_TYPE_REPLICATED_DISKS_RESULT
 {
 	public uint16 Count;
 	public SR_RESOURCE_TYPE_REPLICATED_DISK[1] ReplicatedDisks;
 }
 
-[CRepr]public struct SR_RESOURCE_TYPE_ADD_REPLICATION_GROUP
+[CRepr]
+public struct SR_RESOURCE_TYPE_ADD_REPLICATION_GROUP
 {
 	public char8[260] ReplicationGroupName;
 	public char8[260] Description;
@@ -3743,19 +3872,22 @@ public function uint32 SET_APP_INSTANCE_CSV_FLAGS(HANDLE ProcessHandle, uint32 M
 	public char8[260] VolumeNames;
 }
 
-[CRepr]public struct SR_RESOURCE_TYPE_ADD_REPLICATION_GROUP_RESULT
+[CRepr]
+public struct SR_RESOURCE_TYPE_ADD_REPLICATION_GROUP_RESULT
 {
 	public uint32 Result;
 	public char8[260] ErrorString;
 }
 
-[CRepr]public struct CLUSCTL_RESOURCE_TYPE_STORAGE_GET_AVAILABLE_DISKS_EX2_INPUT
+[CRepr]
+public struct CLUSCTL_RESOURCE_TYPE_STORAGE_GET_AVAILABLE_DISKS_EX2_INPUT
 {
 	public uint32 dwFlags;
 	public Guid guidPoolFilter;
 }
 
-[CRepr]public struct RESOURCE_STATUS
+[CRepr]
+public struct RESOURCE_STATUS
 {
 	public CLUSTER_RESOURCE_STATE ResourceState;
 	public uint32 CheckPoint;
@@ -3763,20 +3895,23 @@ public function uint32 SET_APP_INSTANCE_CSV_FLAGS(HANDLE ProcessHandle, uint32 M
 	public HANDLE EventHandle;
 }
 
-[CRepr]public struct NodeUtilizationInfoElement
+[CRepr]
+public struct NodeUtilizationInfoElement
 {
 	public uint64 Id;
 	public uint64 AvailableMemory;
 	public uint64 AvailableMemoryAfterReclamation;
 }
 
-[CRepr]public struct ResourceUtilizationInfoElement
+[CRepr]
+public struct ResourceUtilizationInfoElement
 {
 	public uint64 PhysicalNumaId;
 	public uint64 CurrentMemory;
 }
 
-[CRepr]public struct GET_OPERATION_CONTEXT_PARAMS
+[CRepr]
+public struct GET_OPERATION_CONTEXT_PARAMS
 {
 	public uint32 Size;
 	public uint32 Version;
@@ -3784,7 +3919,8 @@ public function uint32 SET_APP_INSTANCE_CSV_FLAGS(HANDLE ProcessHandle, uint32 M
 	public uint32 Priority;
 }
 
-[CRepr]public struct RESOURCE_STATUS_EX
+[CRepr]
+public struct RESOURCE_STATUS_EX
 {
 	public CLUSTER_RESOURCE_STATE ResourceState;
 	public uint32 CheckPoint;
@@ -3794,7 +3930,8 @@ public function uint32 SET_APP_INSTANCE_CSV_FLAGS(HANDLE ProcessHandle, uint32 M
 	public uint32 WaitHint;
 }
 
-[CRepr]public struct CLRES_V1_FUNCTIONS
+[CRepr]
+public struct CLRES_V1_FUNCTIONS
 {
 	public POPEN_ROUTINE Open;
 	public PCLOSE_ROUTINE Close;
@@ -3809,7 +3946,8 @@ public function uint32 SET_APP_INSTANCE_CSV_FLAGS(HANDLE ProcessHandle, uint32 M
 	public PRESOURCE_TYPE_CONTROL_ROUTINE ResourceTypeControl;
 }
 
-[CRepr]public struct CLRES_V2_FUNCTIONS
+[CRepr]
+public struct CLRES_V2_FUNCTIONS
 {
 	public POPEN_V2_ROUTINE Open;
 	public PCLOSE_ROUTINE Close;
@@ -3825,7 +3963,8 @@ public function uint32 SET_APP_INSTANCE_CSV_FLAGS(HANDLE ProcessHandle, uint32 M
 	public PCANCEL_ROUTINE Cancel;
 }
 
-[CRepr]public struct CLRES_V3_FUNCTIONS
+[CRepr]
+public struct CLRES_V3_FUNCTIONS
 {
 	public POPEN_V2_ROUTINE Open;
 	public PCLOSE_ROUTINE Close;
@@ -3841,7 +3980,8 @@ public function uint32 SET_APP_INSTANCE_CSV_FLAGS(HANDLE ProcessHandle, uint32 M
 	public PCANCEL_ROUTINE Cancel;
 }
 
-[CRepr]public struct CLRES_V4_FUNCTIONS
+[CRepr]
+public struct CLRES_V4_FUNCTIONS
 {
 	public POPEN_V2_ROUTINE Open;
 	public PCLOSE_ROUTINE Close;
@@ -3859,9 +3999,11 @@ public function uint32 SET_APP_INSTANCE_CSV_FLAGS(HANDLE ProcessHandle, uint32 M
 	public PBEGIN_RESTYPECALL_AS_USER_ROUTINE BeginResourceTypeControlAsUser;
 }
 
-[CRepr]public struct CLRES_FUNCTION_TABLE
+[CRepr]
+public struct CLRES_FUNCTION_TABLE
 {
-	[CRepr, Union]	public struct _Anonymous_e__Union
+	[CRepr, Union]
+	public struct _Anonymous_e__Union
 	{
 		public CLRES_V1_FUNCTIONS V1Functions;
 		public CLRES_V2_FUNCTIONS V2Functions;
@@ -3874,30 +4016,35 @@ public function uint32 SET_APP_INSTANCE_CSV_FLAGS(HANDLE ProcessHandle, uint32 M
 	public using _Anonymous_e__Union Anonymous;
 }
 
-[CRepr]public struct RESUTIL_LARGEINT_DATA
+[CRepr]
+public struct RESUTIL_LARGEINT_DATA
 {
 	public LARGE_INTEGER Default;
 	public LARGE_INTEGER Minimum;
 	public LARGE_INTEGER Maximum;
 }
 
-[CRepr]public struct RESUTIL_ULARGEINT_DATA
+[CRepr]
+public struct RESUTIL_ULARGEINT_DATA
 {
 	public ULARGE_INTEGER Default;
 	public ULARGE_INTEGER Minimum;
 	public ULARGE_INTEGER Maximum;
 }
 
-[CRepr]public struct RESUTIL_FILETIME_DATA
+[CRepr]
+public struct RESUTIL_FILETIME_DATA
 {
 	public FILETIME Default;
 	public FILETIME Minimum;
 	public FILETIME Maximum;
 }
 
-[CRepr]public struct RESUTIL_PROPERTY_ITEM
+[CRepr]
+public struct RESUTIL_PROPERTY_ITEM
 {
-	[CRepr, Union]	public struct _Anonymous_e__Union
+	[CRepr, Union]
+	public struct _Anonymous_e__Union
 	{
 		public uint DefaultPtr;
 		public uint32 Default;
@@ -3917,7 +4064,8 @@ public function uint32 SET_APP_INSTANCE_CSV_FLAGS(HANDLE ProcessHandle, uint32 M
 	public uint32 Offset;
 }
 
-[CRepr]public struct CLRES_CALLBACK_FUNCTION_TABLE
+[CRepr]
+public struct CLRES_CALLBACK_FUNCTION_TABLE
 {
 	public PLOG_EVENT_ROUTINE LogEvent;
 	public PSET_RESOURCE_STATUS_ROUTINE_EX SetResourceStatusEx;
@@ -3936,7 +4084,8 @@ public function uint32 SET_APP_INSTANCE_CSV_FLAGS(HANDLE ProcessHandle, uint32 M
 	public PREQUEST_DUMP_ROUTINE RequestDump;
 }
 
-[CRepr]public struct MONITOR_STATE
+[CRepr]
+public struct MONITOR_STATE
 {
 	public LARGE_INTEGER LastUpdate;
 	public RESOURCE_MONITOR_STATE State;
@@ -3944,7 +4093,8 @@ public function uint32 SET_APP_INSTANCE_CSV_FLAGS(HANDLE ProcessHandle, uint32 M
 	public BOOL ResmonStop;
 }
 
-[CRepr]public struct POST_UPGRADE_VERSION_INFO
+[CRepr]
+public struct POST_UPGRADE_VERSION_INFO
 {
 	public uint32 newMajorVersion;
 	public uint32 newUpgradeVersion;
@@ -3953,7 +4103,8 @@ public function uint32 SET_APP_INSTANCE_CSV_FLAGS(HANDLE ProcessHandle, uint32 M
 	public uint32 reserved;
 }
 
-[CRepr]public struct CLUSTER_HEALTH_FAULT
+[CRepr]
+public struct CLUSTER_HEALTH_FAULT
 {
 	public PWSTR Id;
 	public uint32 ErrorType;
@@ -3964,23 +4115,27 @@ public function uint32 SET_APP_INSTANCE_CSV_FLAGS(HANDLE ProcessHandle, uint32 M
 	public uint32 Reserved;
 }
 
-[CRepr]public struct CLUSTER_HEALTH_FAULT_ARRAY
+[CRepr]
+public struct CLUSTER_HEALTH_FAULT_ARRAY
 {
 	public uint32 numFaults;
 	public CLUSTER_HEALTH_FAULT* faults;
 }
 
-[CRepr]public struct CLUS_WORKER
+[CRepr]
+public struct CLUS_WORKER
 {
 	public HANDLE hThread;
 	public BOOL Terminate;
 }
 
-[CRepr]public struct _HCLUSCRYPTPROVIDER
+[CRepr]
+public struct _HCLUSCRYPTPROVIDER
 {
 }
 
-[CRepr]public struct PaxosTagCStruct
+[CRepr]
+public struct PaxosTagCStruct
 {
 	public uint64 __padding__PaxosTagVtable;
 	public uint64 __padding__NextEpochVtable;
@@ -3997,14 +4152,16 @@ public function uint32 SET_APP_INSTANCE_CSV_FLAGS(HANDLE ProcessHandle, uint32 M
 	public uint32 __padding__BoundrySequence;
 }
 
-[CRepr]public struct WitnessTagUpdateHelper
+[CRepr]
+public struct WitnessTagUpdateHelper
 {
 	public int32 Version;
 	public PaxosTagCStruct paxosToSet;
 	public PaxosTagCStruct paxosToValidate;
 }
 
-[CRepr]public struct WitnessTagHelper
+[CRepr]
+public struct WitnessTagHelper
 {
 	public int32 Version;
 	public PaxosTagCStruct paxosToValidate;

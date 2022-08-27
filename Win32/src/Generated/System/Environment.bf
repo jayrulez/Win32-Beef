@@ -112,7 +112,8 @@ public function int32 VBS_BASIC_ENCLAVE_BASIC_CALL_CREATE_THREAD(VBS_BASIC_ENCLA
 #endregion
 
 #region Structs
-[CRepr, Packed(1)]public struct ENCLAVE_IDENTITY
+[CRepr, Packed(1)]
+public struct ENCLAVE_IDENTITY
 {
 	public uint8[32] OwnerId;
 	public uint8[32] UniqueId;
@@ -127,7 +128,8 @@ public function int32 VBS_BASIC_ENCLAVE_BASIC_CALL_CREATE_THREAD(VBS_BASIC_ENCLA
 	public uint32 EnclaveType;
 }
 
-[CRepr, Packed(1)]public struct VBS_ENCLAVE_REPORT_PKG_HEADER
+[CRepr, Packed(1)]
+public struct VBS_ENCLAVE_REPORT_PKG_HEADER
 {
 	public uint32 PackageSize;
 	public uint32 Version;
@@ -137,7 +139,8 @@ public function int32 VBS_BASIC_ENCLAVE_BASIC_CALL_CREATE_THREAD(VBS_BASIC_ENCLA
 	public uint32 Reserved;
 }
 
-[CRepr, Packed(1)]public struct VBS_ENCLAVE_REPORT
+[CRepr, Packed(1)]
+public struct VBS_ENCLAVE_REPORT
 {
 	public uint32 ReportSize;
 	public uint32 ReportVersion;
@@ -145,13 +148,15 @@ public function int32 VBS_BASIC_ENCLAVE_BASIC_CALL_CREATE_THREAD(VBS_BASIC_ENCLA
 	public ENCLAVE_IDENTITY EnclaveIdentity;
 }
 
-[CRepr, Packed(1)]public struct VBS_ENCLAVE_REPORT_VARDATA_HEADER
+[CRepr, Packed(1)]
+public struct VBS_ENCLAVE_REPORT_VARDATA_HEADER
 {
 	public uint32 DataType;
 	public uint32 Size;
 }
 
-[CRepr, Packed(1)]public struct VBS_ENCLAVE_REPORT_MODULE
+[CRepr, Packed(1)]
+public struct VBS_ENCLAVE_REPORT_MODULE
 {
 	public VBS_ENCLAVE_REPORT_VARDATA_HEADER Header;
 	public uint8[32] UniqueId;
@@ -162,7 +167,8 @@ public function int32 VBS_BASIC_ENCLAVE_BASIC_CALL_CREATE_THREAD(VBS_BASIC_ENCLA
 	public char8[1] ModuleName;
 }
 
-[CRepr]public struct ENCLAVE_INFORMATION
+[CRepr]
+public struct ENCLAVE_INFORMATION
 {
 	public uint32 EnclaveType;
 	public uint32 Reserved;
@@ -171,7 +177,8 @@ public function int32 VBS_BASIC_ENCLAVE_BASIC_CALL_CREATE_THREAD(VBS_BASIC_ENCLA
 	public ENCLAVE_IDENTITY Identity;
 }
 
-[CRepr]public struct VBS_BASIC_ENCLAVE_THREAD_DESCRIPTOR32
+[CRepr]
+public struct VBS_BASIC_ENCLAVE_THREAD_DESCRIPTOR32
 {
 	public uint32[4] ThreadContext;
 	public uint32 EntryPoint;
@@ -181,7 +188,8 @@ public function int32 VBS_BASIC_ENCLAVE_BASIC_CALL_CREATE_THREAD(VBS_BASIC_ENCLA
 	public uint32 ExceptionActive;
 }
 
-[CRepr]public struct VBS_BASIC_ENCLAVE_THREAD_DESCRIPTOR64
+[CRepr]
+public struct VBS_BASIC_ENCLAVE_THREAD_DESCRIPTOR64
 {
 	public uint64[4] ThreadContext;
 	public uint64 EntryPoint;
@@ -191,7 +199,8 @@ public function int32 VBS_BASIC_ENCLAVE_BASIC_CALL_CREATE_THREAD(VBS_BASIC_ENCLA
 	public uint32 ExceptionActive;
 }
 
-[CRepr]public struct VBS_BASIC_ENCLAVE_EXCEPTION_AMD64
+[CRepr]
+public struct VBS_BASIC_ENCLAVE_EXCEPTION_AMD64
 {
 	public uint32 ExceptionCode;
 	public uint32 NumberParameters;
@@ -203,7 +212,8 @@ public function int32 VBS_BASIC_ENCLAVE_BASIC_CALL_CREATE_THREAD(VBS_BASIC_ENCLA
 	public uint ExceptionRSP;
 }
 
-[CRepr]public struct ENCLAVE_VBS_BASIC_KEY_REQUEST
+[CRepr]
+public struct ENCLAVE_VBS_BASIC_KEY_REQUEST
 {
 	public uint32 RequestSize;
 	public uint32 Flags;
@@ -212,7 +222,8 @@ public function int32 VBS_BASIC_ENCLAVE_BASIC_CALL_CREATE_THREAD(VBS_BASIC_ENCLA
 	public uint32 CurrentSystemKeyID;
 }
 
-[CRepr]public struct VBS_BASIC_ENCLAVE_SYSCALL_PAGE
+[CRepr]
+public struct VBS_BASIC_ENCLAVE_SYSCALL_PAGE
 {
 	public VBS_BASIC_ENCLAVE_BASIC_CALL_RETURN_FROM_ENCLAVE ReturnFromEnclave;
 	public VBS_BASIC_ENCLAVE_BASIC_CALL_RETURN_FROM_EXCEPTION ReturnFromException;

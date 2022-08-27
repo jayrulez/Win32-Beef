@@ -1367,7 +1367,8 @@ public function uint32 ACMFILTERCHOOSEHOOKPROCW(HWND hwnd, uint32 uMsg, WPARAM w
 #endregion
 
 #region Structs
-[CRepr]public struct AUDIO_VOLUME_NOTIFICATION_DATA
+[CRepr]
+public struct AUDIO_VOLUME_NOTIFICATION_DATA
 {
 	public Guid guidEventContext;
 	public BOOL bMuted;
@@ -1376,9 +1377,11 @@ public function uint32 ACMFILTERCHOOSEHOOKPROCW(HWND hwnd, uint32 uMsg, WPARAM w
 	public float[1] afChannelVolumes;
 }
 
-[CRepr, Packed(1)]public struct WAVEFORMATEXTENSIBLE
+[CRepr, Packed(1)]
+public struct WAVEFORMATEXTENSIBLE
 {
-	[CRepr, Union, Packed(1)]	public struct _Samples_e__Union
+	[CRepr, Union, Packed(1)]
+	public struct _Samples_e__Union
 	{
 		public uint16 wValidBitsPerSample;
 		public uint16 wSamplesPerBlock;
@@ -1391,7 +1394,8 @@ public function uint32 ACMFILTERCHOOSEHOOKPROCW(HWND hwnd, uint32 uMsg, WPARAM w
 	public Guid SubFormat;
 }
 
-[CRepr, Packed(1)]public struct WAVEFILTER
+[CRepr, Packed(1)]
+public struct WAVEFILTER
 {
 	public uint32 cbStruct;
 	public uint32 dwFilterTag;
@@ -1399,20 +1403,23 @@ public function uint32 ACMFILTERCHOOSEHOOKPROCW(HWND hwnd, uint32 uMsg, WPARAM w
 	public uint32[5] dwReserved;
 }
 
-[CRepr, Packed(1)]public struct VOLUMEWAVEFILTER
+[CRepr, Packed(1)]
+public struct VOLUMEWAVEFILTER
 {
 	public WAVEFILTER wfltr;
 	public uint32 dwVolume;
 }
 
-[CRepr, Packed(1)]public struct ECHOWAVEFILTER
+[CRepr, Packed(1)]
+public struct ECHOWAVEFILTER
 {
 	public WAVEFILTER wfltr;
 	public uint32 dwVolume;
 	public uint32 dwDelay;
 }
 
-[CRepr, Packed(1)]public struct WAVEHDR
+[CRepr, Packed(1)]
+public struct WAVEHDR
 {
 	public PSTR lpData;
 	public uint32 dwBufferLength;
@@ -1424,7 +1431,8 @@ public function uint32 ACMFILTERCHOOSEHOOKPROCW(HWND hwnd, uint32 uMsg, WPARAM w
 	public uint reserved;
 }
 
-[CRepr, Packed(1)]public struct WAVEOUTCAPSA
+[CRepr, Packed(1)]
+public struct WAVEOUTCAPSA
 {
 	public uint16 wMid;
 	public uint16 wPid;
@@ -1436,7 +1444,8 @@ public function uint32 ACMFILTERCHOOSEHOOKPROCW(HWND hwnd, uint32 uMsg, WPARAM w
 	public uint32 dwSupport;
 }
 
-[CRepr, Packed(1)]public struct WAVEOUTCAPSW
+[CRepr, Packed(1)]
+public struct WAVEOUTCAPSW
 {
 	public uint16 wMid;
 	public uint16 wPid;
@@ -1448,7 +1457,8 @@ public function uint32 ACMFILTERCHOOSEHOOKPROCW(HWND hwnd, uint32 uMsg, WPARAM w
 	public uint32 dwSupport;
 }
 
-[CRepr, Packed(1)]public struct WAVEOUTCAPS2A
+[CRepr, Packed(1)]
+public struct WAVEOUTCAPS2A
 {
 	public uint16 wMid;
 	public uint16 wPid;
@@ -1463,7 +1473,8 @@ public function uint32 ACMFILTERCHOOSEHOOKPROCW(HWND hwnd, uint32 uMsg, WPARAM w
 	public Guid NameGuid;
 }
 
-[CRepr, Packed(1)]public struct WAVEOUTCAPS2W
+[CRepr, Packed(1)]
+public struct WAVEOUTCAPS2W
 {
 	public uint16 wMid;
 	public uint16 wPid;
@@ -1478,7 +1489,8 @@ public function uint32 ACMFILTERCHOOSEHOOKPROCW(HWND hwnd, uint32 uMsg, WPARAM w
 	public Guid NameGuid;
 }
 
-[CRepr, Packed(1)]public struct WAVEINCAPSA
+[CRepr, Packed(1)]
+public struct WAVEINCAPSA
 {
 	public uint16 wMid;
 	public uint16 wPid;
@@ -1489,7 +1501,8 @@ public function uint32 ACMFILTERCHOOSEHOOKPROCW(HWND hwnd, uint32 uMsg, WPARAM w
 	public uint16 wReserved1;
 }
 
-[CRepr, Packed(1)]public struct WAVEINCAPSW
+[CRepr, Packed(1)]
+public struct WAVEINCAPSW
 {
 	public uint16 wMid;
 	public uint16 wPid;
@@ -1500,7 +1513,8 @@ public function uint32 ACMFILTERCHOOSEHOOKPROCW(HWND hwnd, uint32 uMsg, WPARAM w
 	public uint16 wReserved1;
 }
 
-[CRepr, Packed(1)]public struct WAVEINCAPS2A
+[CRepr, Packed(1)]
+public struct WAVEINCAPS2A
 {
 	public uint16 wMid;
 	public uint16 wPid;
@@ -1514,7 +1528,8 @@ public function uint32 ACMFILTERCHOOSEHOOKPROCW(HWND hwnd, uint32 uMsg, WPARAM w
 	public Guid NameGuid;
 }
 
-[CRepr, Packed(1)]public struct WAVEINCAPS2W
+[CRepr, Packed(1)]
+public struct WAVEINCAPS2W
 {
 	public uint16 wMid;
 	public uint16 wPid;
@@ -1528,7 +1543,8 @@ public function uint32 ACMFILTERCHOOSEHOOKPROCW(HWND hwnd, uint32 uMsg, WPARAM w
 	public Guid NameGuid;
 }
 
-[CRepr, Packed(1)]public struct WAVEFORMAT
+[CRepr, Packed(1)]
+public struct WAVEFORMAT
 {
 	public uint16 wFormatTag;
 	public uint16 nChannels;
@@ -1537,13 +1553,15 @@ public function uint32 ACMFILTERCHOOSEHOOKPROCW(HWND hwnd, uint32 uMsg, WPARAM w
 	public uint16 nBlockAlign;
 }
 
-[CRepr, Packed(1)]public struct PCMWAVEFORMAT
+[CRepr, Packed(1)]
+public struct PCMWAVEFORMAT
 {
 	public WAVEFORMAT wf;
 	public uint16 wBitsPerSample;
 }
 
-[CRepr, Packed(1)]public struct WAVEFORMATEX
+[CRepr, Packed(1)]
+public struct WAVEFORMATEX
 {
 	public uint16 wFormatTag;
 	public uint16 nChannels;
@@ -1554,7 +1572,8 @@ public function uint32 ACMFILTERCHOOSEHOOKPROCW(HWND hwnd, uint32 uMsg, WPARAM w
 	public uint16 cbSize;
 }
 
-[CRepr, Packed(1)]public struct MIDIOUTCAPSA
+[CRepr, Packed(1)]
+public struct MIDIOUTCAPSA
 {
 	public uint16 wMid;
 	public uint16 wPid;
@@ -1567,7 +1586,8 @@ public function uint32 ACMFILTERCHOOSEHOOKPROCW(HWND hwnd, uint32 uMsg, WPARAM w
 	public uint32 dwSupport;
 }
 
-[CRepr, Packed(1)]public struct MIDIOUTCAPSW
+[CRepr, Packed(1)]
+public struct MIDIOUTCAPSW
 {
 	public uint16 wMid;
 	public uint16 wPid;
@@ -1580,7 +1600,8 @@ public function uint32 ACMFILTERCHOOSEHOOKPROCW(HWND hwnd, uint32 uMsg, WPARAM w
 	public uint32 dwSupport;
 }
 
-[CRepr, Packed(1)]public struct MIDIOUTCAPS2A
+[CRepr, Packed(1)]
+public struct MIDIOUTCAPS2A
 {
 	public uint16 wMid;
 	public uint16 wPid;
@@ -1596,7 +1617,8 @@ public function uint32 ACMFILTERCHOOSEHOOKPROCW(HWND hwnd, uint32 uMsg, WPARAM w
 	public Guid NameGuid;
 }
 
-[CRepr, Packed(1)]public struct MIDIOUTCAPS2W
+[CRepr, Packed(1)]
+public struct MIDIOUTCAPS2W
 {
 	public uint16 wMid;
 	public uint16 wPid;
@@ -1612,7 +1634,8 @@ public function uint32 ACMFILTERCHOOSEHOOKPROCW(HWND hwnd, uint32 uMsg, WPARAM w
 	public Guid NameGuid;
 }
 
-[CRepr, Packed(1)]public struct MIDIINCAPSA
+[CRepr, Packed(1)]
+public struct MIDIINCAPSA
 {
 	public uint16 wMid;
 	public uint16 wPid;
@@ -1621,7 +1644,8 @@ public function uint32 ACMFILTERCHOOSEHOOKPROCW(HWND hwnd, uint32 uMsg, WPARAM w
 	public uint32 dwSupport;
 }
 
-[CRepr, Packed(1)]public struct MIDIINCAPSW
+[CRepr, Packed(1)]
+public struct MIDIINCAPSW
 {
 	public uint16 wMid;
 	public uint16 wPid;
@@ -1630,7 +1654,8 @@ public function uint32 ACMFILTERCHOOSEHOOKPROCW(HWND hwnd, uint32 uMsg, WPARAM w
 	public uint32 dwSupport;
 }
 
-[CRepr, Packed(1)]public struct MIDIINCAPS2A
+[CRepr, Packed(1)]
+public struct MIDIINCAPS2A
 {
 	public uint16 wMid;
 	public uint16 wPid;
@@ -1642,7 +1667,8 @@ public function uint32 ACMFILTERCHOOSEHOOKPROCW(HWND hwnd, uint32 uMsg, WPARAM w
 	public Guid NameGuid;
 }
 
-[CRepr, Packed(1)]public struct MIDIINCAPS2W
+[CRepr, Packed(1)]
+public struct MIDIINCAPS2W
 {
 	public uint16 wMid;
 	public uint16 wPid;
@@ -1654,7 +1680,8 @@ public function uint32 ACMFILTERCHOOSEHOOKPROCW(HWND hwnd, uint32 uMsg, WPARAM w
 	public Guid NameGuid;
 }
 
-[CRepr, Packed(1)]public struct MIDIHDR
+[CRepr, Packed(1)]
+public struct MIDIHDR
 {
 	public PSTR lpData;
 	public uint32 dwBufferLength;
@@ -1667,7 +1694,8 @@ public function uint32 ACMFILTERCHOOSEHOOKPROCW(HWND hwnd, uint32 uMsg, WPARAM w
 	public uint[8] dwReserved;
 }
 
-[CRepr, Packed(1)]public struct MIDIEVENT
+[CRepr, Packed(1)]
+public struct MIDIEVENT
 {
 	public uint32 dwDeltaTime;
 	public uint32 dwStreamID;
@@ -1675,26 +1703,30 @@ public function uint32 ACMFILTERCHOOSEHOOKPROCW(HWND hwnd, uint32 uMsg, WPARAM w
 	public uint32[1] dwParms;
 }
 
-[CRepr, Packed(1)]public struct MIDISTRMBUFFVER
+[CRepr, Packed(1)]
+public struct MIDISTRMBUFFVER
 {
 	public uint32 dwVersion;
 	public uint32 dwMid;
 	public uint32 dwOEMVersion;
 }
 
-[CRepr, Packed(1)]public struct MIDIPROPTIMEDIV
+[CRepr, Packed(1)]
+public struct MIDIPROPTIMEDIV
 {
 	public uint32 cbStruct;
 	public uint32 dwTimeDiv;
 }
 
-[CRepr, Packed(1)]public struct MIDIPROPTEMPO
+[CRepr, Packed(1)]
+public struct MIDIPROPTEMPO
 {
 	public uint32 cbStruct;
 	public uint32 dwTempo;
 }
 
-[CRepr, Packed(1)]public struct AUXCAPSA
+[CRepr, Packed(1)]
+public struct AUXCAPSA
 {
 	public uint16 wMid;
 	public uint16 wPid;
@@ -1705,7 +1737,8 @@ public function uint32 ACMFILTERCHOOSEHOOKPROCW(HWND hwnd, uint32 uMsg, WPARAM w
 	public uint32 dwSupport;
 }
 
-[CRepr, Packed(1)]public struct AUXCAPSW
+[CRepr, Packed(1)]
+public struct AUXCAPSW
 {
 	public uint16 wMid;
 	public uint16 wPid;
@@ -1716,7 +1749,8 @@ public function uint32 ACMFILTERCHOOSEHOOKPROCW(HWND hwnd, uint32 uMsg, WPARAM w
 	public uint32 dwSupport;
 }
 
-[CRepr, Packed(1)]public struct AUXCAPS2A
+[CRepr, Packed(1)]
+public struct AUXCAPS2A
 {
 	public uint16 wMid;
 	public uint16 wPid;
@@ -1730,7 +1764,8 @@ public function uint32 ACMFILTERCHOOSEHOOKPROCW(HWND hwnd, uint32 uMsg, WPARAM w
 	public Guid NameGuid;
 }
 
-[CRepr, Packed(1)]public struct AUXCAPS2W
+[CRepr, Packed(1)]
+public struct AUXCAPS2W
 {
 	public uint16 wMid;
 	public uint16 wPid;
@@ -1744,7 +1779,8 @@ public function uint32 ACMFILTERCHOOSEHOOKPROCW(HWND hwnd, uint32 uMsg, WPARAM w
 	public Guid NameGuid;
 }
 
-[CRepr, Packed(1)]public struct MIXERCAPSA
+[CRepr, Packed(1)]
+public struct MIXERCAPSA
 {
 	public uint16 wMid;
 	public uint16 wPid;
@@ -1754,7 +1790,8 @@ public function uint32 ACMFILTERCHOOSEHOOKPROCW(HWND hwnd, uint32 uMsg, WPARAM w
 	public uint32 cDestinations;
 }
 
-[CRepr, Packed(1)]public struct MIXERCAPSW
+[CRepr, Packed(1)]
+public struct MIXERCAPSW
 {
 	public uint16 wMid;
 	public uint16 wPid;
@@ -1764,7 +1801,8 @@ public function uint32 ACMFILTERCHOOSEHOOKPROCW(HWND hwnd, uint32 uMsg, WPARAM w
 	public uint32 cDestinations;
 }
 
-[CRepr, Packed(1)]public struct MIXERCAPS2A
+[CRepr, Packed(1)]
+public struct MIXERCAPS2A
 {
 	public uint16 wMid;
 	public uint16 wPid;
@@ -1777,7 +1815,8 @@ public function uint32 ACMFILTERCHOOSEHOOKPROCW(HWND hwnd, uint32 uMsg, WPARAM w
 	public Guid NameGuid;
 }
 
-[CRepr, Packed(1)]public struct MIXERCAPS2W
+[CRepr, Packed(1)]
+public struct MIXERCAPS2W
 {
 	public uint16 wMid;
 	public uint16 wPid;
@@ -1790,9 +1829,11 @@ public function uint32 ACMFILTERCHOOSEHOOKPROCW(HWND hwnd, uint32 uMsg, WPARAM w
 	public Guid NameGuid;
 }
 
-[CRepr, Packed(1)]public struct MIXERLINEA
+[CRepr, Packed(1)]
+public struct MIXERLINEA
 {
-	[CRepr, Packed(1)]	public struct _Target_e__Struct
+	[CRepr, Packed(1)]
+	public struct _Target_e__Struct
 	{
 		public uint32 dwType;
 		public uint32 dwDeviceID;
@@ -1817,9 +1858,11 @@ public function uint32 ACMFILTERCHOOSEHOOKPROCW(HWND hwnd, uint32 uMsg, WPARAM w
 	public _Target_e__Struct Target;
 }
 
-[CRepr, Packed(1)]public struct MIXERLINEW
+[CRepr, Packed(1)]
+public struct MIXERLINEW
 {
-	[CRepr, Packed(1)]	public struct _Target_e__Struct
+	[CRepr, Packed(1)]
+	public struct _Target_e__Struct
 	{
 		public uint32 dwType;
 		public uint32 dwDeviceID;
@@ -1844,17 +1887,21 @@ public function uint32 ACMFILTERCHOOSEHOOKPROCW(HWND hwnd, uint32 uMsg, WPARAM w
 	public _Target_e__Struct Target;
 }
 
-[CRepr, Packed(1)]public struct MIXERCONTROLA
+[CRepr, Packed(1)]
+public struct MIXERCONTROLA
 {
-	[CRepr, Union, Packed(1)]	public struct _Bounds_e__Union
+	[CRepr, Union, Packed(1)]
+	public struct _Bounds_e__Union
 	{
-		[CRepr, Packed(1)]		public struct _Anonymous2_e__Struct
+		[CRepr, Packed(1)]
+		public struct _Anonymous2_e__Struct
 		{
 			public uint32 dwMinimum;
 			public uint32 dwMaximum;
 		}
 
-		[CRepr, Packed(1)]		public struct _Anonymous1_e__Struct
+		[CRepr, Packed(1)]
+		public struct _Anonymous1_e__Struct
 		{
 			public int32 lMinimum;
 			public int32 lMaximum;
@@ -1865,7 +1912,8 @@ public function uint32 ACMFILTERCHOOSEHOOKPROCW(HWND hwnd, uint32 uMsg, WPARAM w
 		public uint32[6] dwReserved;
 	}
 
-	[CRepr, Union, Packed(1)]	public struct _Metrics_e__Union
+	[CRepr, Union, Packed(1)]
+	public struct _Metrics_e__Union
 	{
 		public uint32 cSteps;
 		public uint32 cbCustomData;
@@ -1883,17 +1931,21 @@ public function uint32 ACMFILTERCHOOSEHOOKPROCW(HWND hwnd, uint32 uMsg, WPARAM w
 	public _Metrics_e__Union Metrics;
 }
 
-[CRepr, Packed(1)]public struct MIXERCONTROLW
+[CRepr, Packed(1)]
+public struct MIXERCONTROLW
 {
-	[CRepr, Union, Packed(1)]	public struct _Bounds_e__Union
+	[CRepr, Union, Packed(1)]
+	public struct _Bounds_e__Union
 	{
-		[CRepr, Packed(1)]		public struct _Anonymous1_e__Struct
+		[CRepr, Packed(1)]
+		public struct _Anonymous1_e__Struct
 		{
 			public int32 lMinimum;
 			public int32 lMaximum;
 		}
 
-		[CRepr, Packed(1)]		public struct _Anonymous2_e__Struct
+		[CRepr, Packed(1)]
+		public struct _Anonymous2_e__Struct
 		{
 			public uint32 dwMinimum;
 			public uint32 dwMaximum;
@@ -1904,7 +1956,8 @@ public function uint32 ACMFILTERCHOOSEHOOKPROCW(HWND hwnd, uint32 uMsg, WPARAM w
 		public uint32[6] dwReserved;
 	}
 
-	[CRepr, Union, Packed(1)]	public struct _Metrics_e__Union
+	[CRepr, Union, Packed(1)]
+	public struct _Metrics_e__Union
 	{
 		public uint32 cSteps;
 		public uint32 cbCustomData;
@@ -1922,9 +1975,11 @@ public function uint32 ACMFILTERCHOOSEHOOKPROCW(HWND hwnd, uint32 uMsg, WPARAM w
 	public _Metrics_e__Union Metrics;
 }
 
-[CRepr, Packed(1)]public struct MIXERLINECONTROLSA
+[CRepr, Packed(1)]
+public struct MIXERLINECONTROLSA
 {
-	[CRepr, Union, Packed(1)]	public struct _Anonymous_e__Union
+	[CRepr, Union, Packed(1)]
+	public struct _Anonymous_e__Union
 	{
 		public uint32 dwControlID;
 		public uint32 dwControlType;
@@ -1938,9 +1993,11 @@ public function uint32 ACMFILTERCHOOSEHOOKPROCW(HWND hwnd, uint32 uMsg, WPARAM w
 	public MIXERCONTROLA* pamxctrl;
 }
 
-[CRepr, Packed(1)]public struct MIXERLINECONTROLSW
+[CRepr, Packed(1)]
+public struct MIXERLINECONTROLSW
 {
-	[CRepr, Union, Packed(1)]	public struct _Anonymous_e__Union
+	[CRepr, Union, Packed(1)]
+	public struct _Anonymous_e__Union
 	{
 		public uint32 dwControlID;
 		public uint32 dwControlType;
@@ -1954,9 +2011,11 @@ public function uint32 ACMFILTERCHOOSEHOOKPROCW(HWND hwnd, uint32 uMsg, WPARAM w
 	public MIXERCONTROLW* pamxctrl;
 }
 
-[CRepr, Packed(1)]public struct MIXERCONTROLDETAILS
+[CRepr, Packed(1)]
+public struct MIXERCONTROLDETAILS
 {
-	[CRepr, Union, Packed(1)]	public struct _Anonymous_e__Union
+	[CRepr, Union, Packed(1)]
+	public struct _Anonymous_e__Union
 	{
 		public HWND hwndOwner;
 		public uint32 cMultipleItems;
@@ -1970,36 +2029,42 @@ public function uint32 ACMFILTERCHOOSEHOOKPROCW(HWND hwnd, uint32 uMsg, WPARAM w
 	public void* paDetails;
 }
 
-[CRepr, Packed(1)]public struct MIXERCONTROLDETAILS_LISTTEXTA
+[CRepr, Packed(1)]
+public struct MIXERCONTROLDETAILS_LISTTEXTA
 {
 	public uint32 dwParam1;
 	public uint32 dwParam2;
 	public CHAR[64] szName;
 }
 
-[CRepr, Packed(1)]public struct MIXERCONTROLDETAILS_LISTTEXTW
+[CRepr, Packed(1)]
+public struct MIXERCONTROLDETAILS_LISTTEXTW
 {
 	public uint32 dwParam1;
 	public uint32 dwParam2;
 	public char8[64] szName;
 }
 
-[CRepr, Packed(1)]public struct MIXERCONTROLDETAILS_BOOLEAN
+[CRepr, Packed(1)]
+public struct MIXERCONTROLDETAILS_BOOLEAN
 {
 	public int32 fValue;
 }
 
-[CRepr, Packed(1)]public struct MIXERCONTROLDETAILS_SIGNED
+[CRepr, Packed(1)]
+public struct MIXERCONTROLDETAILS_SIGNED
 {
 	public int32 lValue;
 }
 
-[CRepr, Packed(1)]public struct MIXERCONTROLDETAILS_UNSIGNED
+[CRepr, Packed(1)]
+public struct MIXERCONTROLDETAILS_UNSIGNED
 {
 	public uint32 dwValue;
 }
 
-[CRepr]public struct AudioClientProperties
+[CRepr]
+public struct AudioClientProperties
 {
 	public uint32 cbSize;
 	public BOOL bIsOffload;
@@ -2007,19 +2072,22 @@ public function uint32 ACMFILTERCHOOSEHOOKPROCW(HWND hwnd, uint32 uMsg, WPARAM w
 	public AUDCLNT_STREAMOPTIONS Options;
 }
 
-[CRepr]public struct AudioClient3ActivationParams
+[CRepr]
+public struct AudioClient3ActivationParams
 {
 	public Guid tracingContextId;
 }
 
-[CRepr]public struct AUDIO_EFFECT
+[CRepr]
+public struct AUDIO_EFFECT
 {
 	public Guid id;
 	public BOOL canSetState;
 	public AUDIO_EFFECT_STATE state;
 }
 
-[CRepr]public struct AMBISONICS_PARAMS
+[CRepr]
+public struct AMBISONICS_PARAMS
 {
 	public uint32 u32Size;
 	public uint32 u32Version;
@@ -2031,7 +2099,8 @@ public function uint32 ACMFILTERCHOOSEHOOKPROCW(HWND hwnd, uint32 uMsg, WPARAM w
 	public uint32* pu32ChannelMap;
 }
 
-[CRepr, Packed(1)]public struct SpatialAudioObjectRenderStreamActivationParams
+[CRepr, Packed(1)]
+public struct SpatialAudioObjectRenderStreamActivationParams
 {
 	public WAVEFORMATEX* ObjectFormat;
 	public AudioObjectType StaticObjectTypeMask;
@@ -2042,7 +2111,8 @@ public function uint32 ACMFILTERCHOOSEHOOKPROCW(HWND hwnd, uint32 uMsg, WPARAM w
 	public ISpatialAudioObjectRenderStreamNotify* NotifyObject;
 }
 
-[CRepr, Packed(1)]public struct SpatialAudioObjectRenderStreamActivationParams2
+[CRepr, Packed(1)]
+public struct SpatialAudioObjectRenderStreamActivationParams2
 {
 	public WAVEFORMATEX* ObjectFormat;
 	public AudioObjectType StaticObjectTypeMask;
@@ -2054,7 +2124,8 @@ public function uint32 ACMFILTERCHOOSEHOOKPROCW(HWND hwnd, uint32 uMsg, WPARAM w
 	public SPATIAL_AUDIO_STREAM_OPTIONS Options;
 }
 
-[CRepr]public struct SpatialAudioClientActivationParams
+[CRepr]
+public struct SpatialAudioClientActivationParams
 {
 	public Guid tracingContextId;
 	public Guid appId;
@@ -2064,33 +2135,38 @@ public function uint32 ACMFILTERCHOOSEHOOKPROCW(HWND hwnd, uint32 uMsg, WPARAM w
 	public int32 minorVersion3;
 }
 
-[CRepr, Packed(1)]public struct SpatialAudioHrtfDirectivity
+[CRepr, Packed(1)]
+public struct SpatialAudioHrtfDirectivity
 {
 	public SpatialAudioHrtfDirectivityType Type;
 	public float Scaling;
 }
 
-[CRepr, Packed(1)]public struct SpatialAudioHrtfDirectivityCardioid
+[CRepr, Packed(1)]
+public struct SpatialAudioHrtfDirectivityCardioid
 {
 	public SpatialAudioHrtfDirectivity directivity;
 	public float Order;
 }
 
-[CRepr, Packed(1)]public struct SpatialAudioHrtfDirectivityCone
+[CRepr, Packed(1)]
+public struct SpatialAudioHrtfDirectivityCone
 {
 	public SpatialAudioHrtfDirectivity directivity;
 	public float InnerAngle;
 	public float OuterAngle;
 }
 
-[CRepr, Union]public struct SpatialAudioHrtfDirectivityUnion
+[CRepr, Union]
+public struct SpatialAudioHrtfDirectivityUnion
 {
 	public SpatialAudioHrtfDirectivityCone Cone;
 	public SpatialAudioHrtfDirectivityCardioid Cardiod;
 	public SpatialAudioHrtfDirectivity Omni;
 }
 
-[CRepr, Packed(1)]public struct SpatialAudioHrtfDistanceDecay
+[CRepr, Packed(1)]
+public struct SpatialAudioHrtfDistanceDecay
 {
 	public SpatialAudioHrtfDistanceDecayType Type;
 	public float MaxGain;
@@ -2099,7 +2175,8 @@ public function uint32 ACMFILTERCHOOSEHOOKPROCW(HWND hwnd, uint32 uMsg, WPARAM w
 	public float CutoffDistance;
 }
 
-[CRepr, Packed(1)]public struct SpatialAudioHrtfActivationParams
+[CRepr, Packed(1)]
+public struct SpatialAudioHrtfActivationParams
 {
 	public WAVEFORMATEX* ObjectFormat;
 	public AudioObjectType StaticObjectTypeMask;
@@ -2114,7 +2191,8 @@ public function uint32 ACMFILTERCHOOSEHOOKPROCW(HWND hwnd, uint32 uMsg, WPARAM w
 	public float* Orientation;
 }
 
-[CRepr, Packed(1)]public struct SpatialAudioHrtfActivationParams2
+[CRepr, Packed(1)]
+public struct SpatialAudioHrtfActivationParams2
 {
 	public WAVEFORMATEX* ObjectFormat;
 	public AudioObjectType StaticObjectTypeMask;
@@ -2130,14 +2208,16 @@ public function uint32 ACMFILTERCHOOSEHOOKPROCW(HWND hwnd, uint32 uMsg, WPARAM w
 	public SPATIAL_AUDIO_STREAM_OPTIONS Options;
 }
 
-[CRepr]public struct DIRECTX_AUDIO_ACTIVATION_PARAMS
+[CRepr]
+public struct DIRECTX_AUDIO_ACTIVATION_PARAMS
 {
 	public uint32 cbDirectXAudioActivationParams;
 	public Guid guidAudioSession;
 	public uint32 dwAudioStreamFlags;
 }
 
-[CRepr]public struct AudioExtensionParams
+[CRepr]
+public struct AudioExtensionParams
 {
 	public LPARAM AddPageParam;
 	public IMMDevice* pEndpoint;
@@ -2145,7 +2225,8 @@ public function uint32 ACMFILTERCHOOSEHOOKPROCW(HWND hwnd, uint32 uMsg, WPARAM w
 	public IMMDevice* pPnpDevnode;
 }
 
-[CRepr, Packed(1)]public struct SpatialAudioMetadataItemsInfo
+[CRepr, Packed(1)]
+public struct SpatialAudioMetadataItemsInfo
 {
 	public uint16 FrameCount;
 	public uint16 ItemCount;
@@ -2153,7 +2234,8 @@ public function uint32 ACMFILTERCHOOSEHOOKPROCW(HWND hwnd, uint32 uMsg, WPARAM w
 	public uint32 MaxValueBufferLength;
 }
 
-[CRepr, Packed(1)]public struct SpatialAudioObjectRenderStreamForMetadataActivationParams
+[CRepr, Packed(1)]
+public struct SpatialAudioObjectRenderStreamForMetadataActivationParams
 {
 	public WAVEFORMATEX* ObjectFormat;
 	public AudioObjectType StaticObjectTypeMask;
@@ -2167,7 +2249,8 @@ public function uint32 ACMFILTERCHOOSEHOOKPROCW(HWND hwnd, uint32 uMsg, WPARAM w
 	public ISpatialAudioObjectRenderStreamNotify* NotifyObject;
 }
 
-[CRepr, Packed(1)]public struct SpatialAudioObjectRenderStreamForMetadataActivationParams2
+[CRepr, Packed(1)]
+public struct SpatialAudioObjectRenderStreamForMetadataActivationParams2
 {
 	public WAVEFORMATEX* ObjectFormat;
 	public AudioObjectType StaticObjectTypeMask;
@@ -2182,15 +2265,18 @@ public function uint32 ACMFILTERCHOOSEHOOKPROCW(HWND hwnd, uint32 uMsg, WPARAM w
 	public SPATIAL_AUDIO_STREAM_OPTIONS Options;
 }
 
-[CRepr]public struct AUDIOCLIENT_PROCESS_LOOPBACK_PARAMS
+[CRepr]
+public struct AUDIOCLIENT_PROCESS_LOOPBACK_PARAMS
 {
 	public uint32 TargetProcessId;
 	public PROCESS_LOOPBACK_MODE ProcessLoopbackMode;
 }
 
-[CRepr]public struct AUDIOCLIENT_ACTIVATION_PARAMS
+[CRepr]
+public struct AUDIOCLIENT_ACTIVATION_PARAMS
 {
-	[CRepr, Union]	public struct _Anonymous_e__Union
+	[CRepr, Union]
+	public struct _Anonymous_e__Union
 	{
 		public AUDIOCLIENT_PROCESS_LOOPBACK_PARAMS ProcessLoopbackParams;
 	}
@@ -2199,7 +2285,8 @@ public function uint32 ACMFILTERCHOOSEHOOKPROCW(HWND hwnd, uint32 uMsg, WPARAM w
 	public using _Anonymous_e__Union Anonymous;
 }
 
-[CRepr, Packed(1)]public struct ACMDRIVERDETAILSA
+[CRepr, Packed(1)]
+public struct ACMDRIVERDETAILSA
 {
 	public uint32 cbStruct;
 	public uint32 fccType;
@@ -2219,7 +2306,8 @@ public function uint32 ACMFILTERCHOOSEHOOKPROCW(HWND hwnd, uint32 uMsg, WPARAM w
 	public CHAR[512] szFeatures;
 }
 
-[CRepr, Packed(1)]public struct ACMDRIVERDETAILSW
+[CRepr, Packed(1)]
+public struct ACMDRIVERDETAILSW
 {
 	public uint32 cbStruct;
 	public uint32 fccType;
@@ -2239,7 +2327,8 @@ public function uint32 ACMFILTERCHOOSEHOOKPROCW(HWND hwnd, uint32 uMsg, WPARAM w
 	public char8[512] szFeatures;
 }
 
-[CRepr, Packed(1)]public struct ACMFORMATTAGDETAILSA
+[CRepr, Packed(1)]
+public struct ACMFORMATTAGDETAILSA
 {
 	public uint32 cbStruct;
 	public uint32 dwFormatTagIndex;
@@ -2250,7 +2339,8 @@ public function uint32 ACMFILTERCHOOSEHOOKPROCW(HWND hwnd, uint32 uMsg, WPARAM w
 	public CHAR[48] szFormatTag;
 }
 
-[CRepr, Packed(1)]public struct ACMFORMATTAGDETAILSW
+[CRepr, Packed(1)]
+public struct ACMFORMATTAGDETAILSW
 {
 	public uint32 cbStruct;
 	public uint32 dwFormatTagIndex;
@@ -2261,7 +2351,8 @@ public function uint32 ACMFILTERCHOOSEHOOKPROCW(HWND hwnd, uint32 uMsg, WPARAM w
 	public char8[48] szFormatTag;
 }
 
-[CRepr, Packed(1)]public struct ACMFORMATDETAILSA
+[CRepr, Packed(1)]
+public struct ACMFORMATDETAILSA
 {
 	public uint32 cbStruct;
 	public uint32 dwFormatIndex;
@@ -2272,7 +2363,8 @@ public function uint32 ACMFILTERCHOOSEHOOKPROCW(HWND hwnd, uint32 uMsg, WPARAM w
 	public CHAR[128] szFormat;
 }
 
-[CRepr, Packed(1)]public struct tACMFORMATDETAILSW
+[CRepr, Packed(1)]
+public struct tACMFORMATDETAILSW
 {
 	public uint32 cbStruct;
 	public uint32 dwFormatIndex;
@@ -2283,7 +2375,8 @@ public function uint32 ACMFILTERCHOOSEHOOKPROCW(HWND hwnd, uint32 uMsg, WPARAM w
 	public char8[128] szFormat;
 }
 
-[CRepr, Packed(1)]public struct ACMFORMATCHOOSEA
+[CRepr, Packed(1)]
+public struct ACMFORMATCHOOSEA
 {
 	public uint32 cbStruct;
 	public uint32 fdwStyle;
@@ -2303,7 +2396,8 @@ public function uint32 ACMFILTERCHOOSEHOOKPROCW(HWND hwnd, uint32 uMsg, WPARAM w
 	public ACMFORMATCHOOSEHOOKPROCA pfnHook;
 }
 
-[CRepr, Packed(1)]public struct ACMFORMATCHOOSEW
+[CRepr, Packed(1)]
+public struct ACMFORMATCHOOSEW
 {
 	public uint32 cbStruct;
 	public uint32 fdwStyle;
@@ -2323,7 +2417,8 @@ public function uint32 ACMFILTERCHOOSEHOOKPROCW(HWND hwnd, uint32 uMsg, WPARAM w
 	public ACMFORMATCHOOSEHOOKPROCW pfnHook;
 }
 
-[CRepr, Packed(1)]public struct ACMFILTERTAGDETAILSA
+[CRepr, Packed(1)]
+public struct ACMFILTERTAGDETAILSA
 {
 	public uint32 cbStruct;
 	public uint32 dwFilterTagIndex;
@@ -2334,7 +2429,8 @@ public function uint32 ACMFILTERCHOOSEHOOKPROCW(HWND hwnd, uint32 uMsg, WPARAM w
 	public CHAR[48] szFilterTag;
 }
 
-[CRepr, Packed(1)]public struct ACMFILTERTAGDETAILSW
+[CRepr, Packed(1)]
+public struct ACMFILTERTAGDETAILSW
 {
 	public uint32 cbStruct;
 	public uint32 dwFilterTagIndex;
@@ -2345,7 +2441,8 @@ public function uint32 ACMFILTERCHOOSEHOOKPROCW(HWND hwnd, uint32 uMsg, WPARAM w
 	public char8[48] szFilterTag;
 }
 
-[CRepr, Packed(1)]public struct ACMFILTERDETAILSA
+[CRepr, Packed(1)]
+public struct ACMFILTERDETAILSA
 {
 	public uint32 cbStruct;
 	public uint32 dwFilterIndex;
@@ -2356,7 +2453,8 @@ public function uint32 ACMFILTERCHOOSEHOOKPROCW(HWND hwnd, uint32 uMsg, WPARAM w
 	public CHAR[128] szFilter;
 }
 
-[CRepr, Packed(1)]public struct ACMFILTERDETAILSW
+[CRepr, Packed(1)]
+public struct ACMFILTERDETAILSW
 {
 	public uint32 cbStruct;
 	public uint32 dwFilterIndex;
@@ -2367,7 +2465,8 @@ public function uint32 ACMFILTERCHOOSEHOOKPROCW(HWND hwnd, uint32 uMsg, WPARAM w
 	public char8[128] szFilter;
 }
 
-[CRepr, Packed(1)]public struct ACMFILTERCHOOSEA
+[CRepr, Packed(1)]
+public struct ACMFILTERCHOOSEA
 {
 	public uint32 cbStruct;
 	public uint32 fdwStyle;
@@ -2387,7 +2486,8 @@ public function uint32 ACMFILTERCHOOSEHOOKPROCW(HWND hwnd, uint32 uMsg, WPARAM w
 	public ACMFILTERCHOOSEHOOKPROCA pfnHook;
 }
 
-[CRepr, Packed(1)]public struct ACMFILTERCHOOSEW
+[CRepr, Packed(1)]
+public struct ACMFILTERCHOOSEW
 {
 	public uint32 cbStruct;
 	public uint32 fdwStyle;
@@ -2408,7 +2508,8 @@ public function uint32 ACMFILTERCHOOSEHOOKPROCW(HWND hwnd, uint32 uMsg, WPARAM w
 }
 
 #if BF_64_BIT || BF_ARM_64
-[CRepr, Packed(1)]public struct ACMSTREAMHEADER
+[CRepr, Packed(1)]
+public struct ACMSTREAMHEADER
 {
 	public uint32 cbStruct;
 	public uint32 fdwStatus;
@@ -2425,7 +2526,8 @@ public function uint32 ACMFILTERCHOOSEHOOKPROCW(HWND hwnd, uint32 uMsg, WPARAM w
 }
 #endif
 
-[CRepr, Packed(1)]public struct tACMDRVOPENDESCA
+[CRepr, Packed(1)]
+public struct tACMDRVOPENDESCA
 {
 	public uint32 cbStruct;
 	public uint32 fccType;
@@ -2438,7 +2540,8 @@ public function uint32 ACMFILTERCHOOSEHOOKPROCW(HWND hwnd, uint32 uMsg, WPARAM w
 	public uint32 dnDevNode;
 }
 
-[CRepr, Packed(1)]public struct tACMDRVOPENDESCW
+[CRepr, Packed(1)]
+public struct tACMDRVOPENDESCW
 {
 	public uint32 cbStruct;
 	public uint32 fccType;
@@ -2451,7 +2554,8 @@ public function uint32 ACMFILTERCHOOSEHOOKPROCW(HWND hwnd, uint32 uMsg, WPARAM w
 	public uint32 dnDevNode;
 }
 
-[CRepr, Packed(1)]public struct ACMDRVSTREAMINSTANCE
+[CRepr, Packed(1)]
+public struct ACMDRVSTREAMINSTANCE
 {
 	public uint32 cbStruct;
 	public WAVEFORMATEX* pwfxSrc;
@@ -2465,7 +2569,8 @@ public function uint32 ACMFILTERCHOOSEHOOKPROCW(HWND hwnd, uint32 uMsg, WPARAM w
 	public HACMSTREAM has;
 }
 
-[CRepr, Packed(1)]public struct ACMDRVSTREAMHEADER
+[CRepr, Packed(1)]
+public struct ACMDRVSTREAMHEADER
 {
 	public uint32 cbStruct;
 	public uint32 fdwStatus;
@@ -2490,7 +2595,8 @@ public function uint32 ACMFILTERCHOOSEHOOKPROCW(HWND hwnd, uint32 uMsg, WPARAM w
 	public uint32 cbPreparedDstLength;
 }
 
-[CRepr, Packed(1)]public struct ACMDRVSTREAMSIZE
+[CRepr, Packed(1)]
+public struct ACMDRVSTREAMSIZE
 {
 	public uint32 cbStruct;
 	public uint32 fdwSize;
@@ -2498,7 +2604,8 @@ public function uint32 ACMFILTERCHOOSEHOOKPROCW(HWND hwnd, uint32 uMsg, WPARAM w
 	public uint32 cbDstLength;
 }
 
-[CRepr, Packed(1)]public struct ACMDRVFORMATSUGGEST
+[CRepr, Packed(1)]
+public struct ACMDRVFORMATSUGGEST
 {
 	public uint32 cbStruct;
 	public uint32 fdwSuggest;
@@ -2509,7 +2616,8 @@ public function uint32 ACMFILTERCHOOSEHOOKPROCW(HWND hwnd, uint32 uMsg, WPARAM w
 }
 
 #if BF_32_BIT
-[CRepr, Packed(1)]public struct ACMSTREAMHEADER
+[CRepr, Packed(1)]
+public struct ACMSTREAMHEADER
 {
 	public uint32 cbStruct;
 	public uint32 fdwStatus;

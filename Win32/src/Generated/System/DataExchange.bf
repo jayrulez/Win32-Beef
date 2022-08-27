@@ -270,51 +270,59 @@ public function HDDEDATA PFNCALLBACK(uint32 wType, uint32 wFmt, HCONV hConv, HSZ
 #endregion
 
 #region Structs
-[CRepr]public struct DDEACK
+[CRepr]
+public struct DDEACK
 {
 	public uint16 _bitfield;
 }
 
-[CRepr]public struct DDEADVISE
-{
-	public uint16 _bitfield;
-	public int16 cfFormat;
-}
-
-[CRepr]public struct DDEDATA
+[CRepr]
+public struct DDEADVISE
 {
 	public uint16 _bitfield;
 	public int16 cfFormat;
-	public uint8[1] Value;
 }
 
-[CRepr]public struct DDEPOKE
+[CRepr]
+public struct DDEDATA
 {
 	public uint16 _bitfield;
 	public int16 cfFormat;
 	public uint8[1] Value;
 }
 
-[CRepr]public struct DDELN
+[CRepr]
+public struct DDEPOKE
+{
+	public uint16 _bitfield;
+	public int16 cfFormat;
+	public uint8[1] Value;
+}
+
+[CRepr]
+public struct DDELN
 {
 	public uint16 _bitfield;
 	public int16 cfFormat;
 }
 
-[CRepr]public struct DDEUP
+[CRepr]
+public struct DDEUP
 {
 	public uint16 _bitfield;
 	public int16 cfFormat;
 	public uint8[1] rgb;
 }
 
-[CRepr]public struct HSZPAIR
+[CRepr]
+public struct HSZPAIR
 {
 	public HSZ hszSvc;
 	public HSZ hszTopic;
 }
 
-[CRepr]public struct CONVCONTEXT
+[CRepr]
+public struct CONVCONTEXT
 {
 	public uint32 cb;
 	public uint32 wFlags;
@@ -325,7 +333,8 @@ public function HDDEDATA PFNCALLBACK(uint32 wType, uint32 wFmt, HCONV hConv, HSZ
 	public SECURITY_QUALITY_OF_SERVICE qos;
 }
 
-[CRepr]public struct CONVINFO
+[CRepr]
+public struct CONVINFO
 {
 	public uint32 cb;
 	public uint hUser;
@@ -345,7 +354,8 @@ public function HDDEDATA PFNCALLBACK(uint32 wType, uint32 wFmt, HCONV hConv, HSZ
 	public HWND hwndPartner;
 }
 
-[CRepr]public struct DDEML_MSG_HOOK_DATA
+[CRepr]
+public struct DDEML_MSG_HOOK_DATA
 {
 	public uint uiLo;
 	public uint uiHi;
@@ -353,7 +363,8 @@ public function HDDEDATA PFNCALLBACK(uint32 wType, uint32 wFmt, HCONV hConv, HSZ
 	public uint32[8] Data;
 }
 
-[CRepr]public struct MONMSGSTRUCT
+[CRepr]
+public struct MONMSGSTRUCT
 {
 	public uint32 cb;
 	public HWND hwndTo;
@@ -365,7 +376,8 @@ public function HDDEDATA PFNCALLBACK(uint32 wType, uint32 wFmt, HCONV hConv, HSZ
 	public DDEML_MSG_HOOK_DATA dmhd;
 }
 
-[CRepr]public struct MONCBSTRUCT
+[CRepr]
+public struct MONCBSTRUCT
 {
 	public uint32 cb;
 	public uint32 dwTime;
@@ -384,7 +396,8 @@ public function HDDEDATA PFNCALLBACK(uint32 wType, uint32 wFmt, HCONV hConv, HSZ
 	public uint32[8] Data;
 }
 
-[CRepr]public struct MONHSZSTRUCTA
+[CRepr]
+public struct MONHSZSTRUCTA
 {
 	public uint32 cb;
 	public BOOL fsAction;
@@ -394,7 +407,8 @@ public function HDDEDATA PFNCALLBACK(uint32 wType, uint32 wFmt, HCONV hConv, HSZ
 	public CHAR[1] str;
 }
 
-[CRepr]public struct MONHSZSTRUCTW
+[CRepr]
+public struct MONHSZSTRUCTW
 {
 	public uint32 cb;
 	public BOOL fsAction;
@@ -404,7 +418,8 @@ public function HDDEDATA PFNCALLBACK(uint32 wType, uint32 wFmt, HCONV hConv, HSZ
 	public char8[1] str;
 }
 
-[CRepr]public struct MONERRSTRUCT
+[CRepr]
+public struct MONERRSTRUCT
 {
 	public uint32 cb;
 	public uint32 wLastError;
@@ -412,7 +427,8 @@ public function HDDEDATA PFNCALLBACK(uint32 wType, uint32 wFmt, HCONV hConv, HSZ
 	public HANDLE hTask;
 }
 
-[CRepr]public struct MONLINKSTRUCT
+[CRepr]
+public struct MONLINKSTRUCT
 {
 	public uint32 cb;
 	public uint32 dwTime;
@@ -428,7 +444,8 @@ public function HDDEDATA PFNCALLBACK(uint32 wType, uint32 wFmt, HCONV hConv, HSZ
 	public HCONV hConvClient;
 }
 
-[CRepr]public struct MONCONVSTRUCT
+[CRepr]
+public struct MONCONVSTRUCT
 {
 	public uint32 cb;
 	public BOOL fConnect;
@@ -440,7 +457,8 @@ public function HDDEDATA PFNCALLBACK(uint32 wType, uint32 wFmt, HCONV hConv, HSZ
 	public HCONV hConvServer;
 }
 
-[CRepr]public struct METAFILEPICT
+[CRepr]
+public struct METAFILEPICT
 {
 	public int32 mm;
 	public int32 xExt;
@@ -448,7 +466,8 @@ public function HDDEDATA PFNCALLBACK(uint32 wType, uint32 wFmt, HCONV hConv, HSZ
 	public HMETAFILE hMF;
 }
 
-[CRepr]public struct COPYDATASTRUCT
+[CRepr]
+public struct COPYDATASTRUCT
 {
 	public uint dwData;
 	public uint32 cbData;

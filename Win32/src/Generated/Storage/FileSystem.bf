@@ -1956,7 +1956,8 @@ public function COPYFILE2_MESSAGE_ACTION PCOPYFILE2_PROGRESS_ROUTINE(COPYFILE2_M
 #endregion
 
 #region Structs
-[CRepr]public struct WIN32_FIND_DATAA
+[CRepr]
+public struct WIN32_FIND_DATAA
 {
 	public uint32 dwFileAttributes;
 	public FILETIME ftCreationTime;
@@ -1970,7 +1971,8 @@ public function COPYFILE2_MESSAGE_ACTION PCOPYFILE2_PROGRESS_ROUTINE(COPYFILE2_M
 	public CHAR[14] cAlternateFileName;
 }
 
-[CRepr]public struct WIN32_FIND_DATAW
+[CRepr]
+public struct WIN32_FIND_DATAW
 {
 	public uint32 dwFileAttributes;
 	public FILETIME ftCreationTime;
@@ -1984,7 +1986,8 @@ public function COPYFILE2_MESSAGE_ACTION PCOPYFILE2_PROGRESS_ROUTINE(COPYFILE2_M
 	public char8[14] cAlternateFileName;
 }
 
-[CRepr]public struct TRANSACTION_NOTIFICATION
+[CRepr]
+public struct TRANSACTION_NOTIFICATION
 {
 	public void* TransactionKey;
 	public uint32 TransactionNotification;
@@ -1992,24 +1995,28 @@ public function COPYFILE2_MESSAGE_ACTION PCOPYFILE2_PROGRESS_ROUTINE(COPYFILE2_M
 	public uint32 ArgumentLength;
 }
 
-[CRepr]public struct TRANSACTION_NOTIFICATION_RECOVERY_ARGUMENT
+[CRepr]
+public struct TRANSACTION_NOTIFICATION_RECOVERY_ARGUMENT
 {
 	public Guid EnlistmentId;
 	public Guid UOW;
 }
 
-[CRepr]public struct TRANSACTION_NOTIFICATION_TM_ONLINE_ARGUMENT
+[CRepr]
+public struct TRANSACTION_NOTIFICATION_TM_ONLINE_ARGUMENT
 {
 	public Guid TmIdentity;
 	public uint32 Flags;
 }
 
-[CRepr]public struct TRANSACTION_NOTIFICATION_SAVEPOINT_ARGUMENT
+[CRepr]
+public struct TRANSACTION_NOTIFICATION_SAVEPOINT_ARGUMENT
 {
 	public uint32 SavepointId;
 }
 
-[CRepr]public struct TRANSACTION_NOTIFICATION_PROPAGATE_ARGUMENT
+[CRepr]
+public struct TRANSACTION_NOTIFICATION_PROPAGATE_ARGUMENT
 {
 	public uint32 PropagationCookie;
 	public Guid UOW;
@@ -2017,13 +2024,15 @@ public function COPYFILE2_MESSAGE_ACTION PCOPYFILE2_PROGRESS_ROUTINE(COPYFILE2_M
 	public uint32 BufferLength;
 }
 
-[CRepr]public struct TRANSACTION_NOTIFICATION_MARSHAL_ARGUMENT
+[CRepr]
+public struct TRANSACTION_NOTIFICATION_MARSHAL_ARGUMENT
 {
 	public uint32 MarshalCookie;
 	public Guid UOW;
 }
 
-[CRepr]public struct KCRM_MARSHAL_HEADER
+[CRepr]
+public struct KCRM_MARSHAL_HEADER
 {
 	public uint32 VersionMajor;
 	public uint32 VersionMinor;
@@ -2031,7 +2040,8 @@ public function COPYFILE2_MESSAGE_ACTION PCOPYFILE2_PROGRESS_ROUTINE(COPYFILE2_M
 	public uint32 Unused;
 }
 
-[CRepr]public struct KCRM_TRANSACTION_BLOB
+[CRepr]
+public struct KCRM_TRANSACTION_BLOB
 {
 	public Guid UOW;
 	public Guid TmIdentity;
@@ -2041,7 +2051,8 @@ public function COPYFILE2_MESSAGE_ACTION PCOPYFILE2_PROGRESS_ROUTINE(COPYFILE2_M
 	public char8[64] Description;
 }
 
-[CRepr]public struct KCRM_PROTOCOL_BLOB
+[CRepr]
+public struct KCRM_PROTOCOL_BLOB
 {
 	public Guid ProtocolId;
 	public uint32 StaticInfoLength;
@@ -2050,7 +2061,8 @@ public function COPYFILE2_MESSAGE_ACTION PCOPYFILE2_PROGRESS_ROUTINE(COPYFILE2_M
 	public uint32 Unused2;
 }
 
-[CRepr]public struct DISK_SPACE_INFORMATION
+[CRepr]
+public struct DISK_SPACE_INFORMATION
 {
 	public uint64 ActualTotalAllocationUnits;
 	public uint64 ActualAvailableAllocationUnits;
@@ -2067,7 +2079,8 @@ public function COPYFILE2_MESSAGE_ACTION PCOPYFILE2_PROGRESS_ROUTINE(COPYFILE2_M
 	public uint32 BytesPerSector;
 }
 
-[CRepr]public struct WIN32_FILE_ATTRIBUTE_DATA
+[CRepr]
+public struct WIN32_FILE_ATTRIBUTE_DATA
 {
 	public uint32 dwFileAttributes;
 	public FILETIME ftCreationTime;
@@ -2077,7 +2090,8 @@ public function COPYFILE2_MESSAGE_ACTION PCOPYFILE2_PROGRESS_ROUTINE(COPYFILE2_M
 	public uint32 nFileSizeLow;
 }
 
-[CRepr]public struct BY_HANDLE_FILE_INFORMATION
+[CRepr]
+public struct BY_HANDLE_FILE_INFORMATION
 {
 	public uint32 dwFileAttributes;
 	public FILETIME ftCreationTime;
@@ -2091,7 +2105,8 @@ public function COPYFILE2_MESSAGE_ACTION PCOPYFILE2_PROGRESS_ROUTINE(COPYFILE2_M
 	public uint32 nFileIndexLow;
 }
 
-[CRepr]public struct CREATEFILE2_EXTENDED_PARAMETERS
+[CRepr]
+public struct CREATEFILE2_EXTENDED_PARAMETERS
 {
 	public uint32 dwSize;
 	public uint32 dwFileAttributes;
@@ -2101,13 +2116,15 @@ public function COPYFILE2_MESSAGE_ACTION PCOPYFILE2_PROGRESS_ROUTINE(COPYFILE2_M
 	public HANDLE hTemplateFile;
 }
 
-[CRepr]public struct WIN32_FIND_STREAM_DATA
+[CRepr]
+public struct WIN32_FIND_STREAM_DATA
 {
 	public LARGE_INTEGER StreamSize;
 	public char8[296] cStreamName;
 }
 
-[CRepr]public struct VS_FIXEDFILEINFO
+[CRepr]
+public struct VS_FIXEDFILEINFO
 {
 	public uint32 dwSignature;
 	public uint32 dwStrucVersion;
@@ -2124,7 +2141,8 @@ public function COPYFILE2_MESSAGE_ACTION PCOPYFILE2_PROGRESS_ROUTINE(COPYFILE2_M
 	public uint32 dwFileDateLS;
 }
 
-[CRepr]public struct NTMS_ASYNC_IO
+[CRepr]
+public struct NTMS_ASYNC_IO
 {
 	public Guid OperationId;
 	public Guid EventId;
@@ -2135,20 +2153,23 @@ public function COPYFILE2_MESSAGE_ACTION PCOPYFILE2_PROGRESS_ROUTINE(COPYFILE2_M
 	public BOOL bOnStateChange;
 }
 
-[CRepr]public struct NTMS_MOUNT_INFORMATION
+[CRepr]
+public struct NTMS_MOUNT_INFORMATION
 {
 	public uint32 dwSize;
 	public void* lpReserved;
 }
 
-[CRepr]public struct NTMS_ALLOCATION_INFORMATION
+[CRepr]
+public struct NTMS_ALLOCATION_INFORMATION
 {
 	public uint32 dwSize;
 	public void* lpReserved;
 	public Guid AllocatedFrom;
 }
 
-[CRepr]public struct NTMS_DRIVEINFORMATIONA
+[CRepr]
+public struct NTMS_DRIVEINFORMATIONA
 {
 	public uint32 Number;
 	public NtmsDriveState State;
@@ -2168,7 +2189,8 @@ public function COPYFILE2_MESSAGE_ACTION PCOPYFILE2_PROGRESS_ROUTINE(COPYFILE2_M
 	public uint32 dwDeferDismountDelay;
 }
 
-[CRepr]public struct NTMS_DRIVEINFORMATIONW
+[CRepr]
+public struct NTMS_DRIVEINFORMATIONW
 {
 	public uint32 Number;
 	public NtmsDriveState State;
@@ -2188,7 +2210,8 @@ public function COPYFILE2_MESSAGE_ACTION PCOPYFILE2_PROGRESS_ROUTINE(COPYFILE2_M
 	public uint32 dwDeferDismountDelay;
 }
 
-[CRepr]public struct NTMS_LIBRARYINFORMATION
+[CRepr]
+public struct NTMS_LIBRARYINFORMATION
 {
 	public NtmsLibraryType LibraryType;
 	public Guid CleanerSlot;
@@ -2215,7 +2238,8 @@ public function COPYFILE2_MESSAGE_ACTION PCOPYFILE2_PROGRESS_ROUTINE(COPYFILE2_M
 	public NtmsLibraryFlags dwFlags;
 }
 
-[CRepr]public struct NTMS_CHANGERINFORMATIONA
+[CRepr]
+public struct NTMS_CHANGERINFORMATIONA
 {
 	public uint32 Number;
 	public Guid ChangerType;
@@ -2229,7 +2253,8 @@ public function COPYFILE2_MESSAGE_ACTION PCOPYFILE2_PROGRESS_ROUTINE(COPYFILE2_M
 	public Guid Library;
 }
 
-[CRepr]public struct NTMS_CHANGERINFORMATIONW
+[CRepr]
+public struct NTMS_CHANGERINFORMATIONW
 {
 	public uint32 Number;
 	public Guid ChangerType;
@@ -2243,14 +2268,16 @@ public function COPYFILE2_MESSAGE_ACTION PCOPYFILE2_PROGRESS_ROUTINE(COPYFILE2_M
 	public Guid Library;
 }
 
-[CRepr]public struct NTMS_STORAGESLOTINFORMATION
+[CRepr]
+public struct NTMS_STORAGESLOTINFORMATION
 {
 	public uint32 Number;
 	public uint32 State;
 	public Guid Library;
 }
 
-[CRepr]public struct NTMS_IEDOORINFORMATION
+[CRepr]
+public struct NTMS_IEDOORINFORMATION
 {
 	public uint32 Number;
 	public NtmsDoorState State;
@@ -2258,7 +2285,8 @@ public function COPYFILE2_MESSAGE_ACTION PCOPYFILE2_PROGRESS_ROUTINE(COPYFILE2_M
 	public Guid Library;
 }
 
-[CRepr]public struct NTMS_IEPORTINFORMATION
+[CRepr]
+public struct NTMS_IEPORTINFORMATION
 {
 	public uint32 Number;
 	public NtmsPortContent Content;
@@ -2267,7 +2295,8 @@ public function COPYFILE2_MESSAGE_ACTION PCOPYFILE2_PROGRESS_ROUTINE(COPYFILE2_M
 	public Guid Library;
 }
 
-[CRepr]public struct NTMS_PMIDINFORMATIONA
+[CRepr]
+public struct NTMS_PMIDINFORMATIONA
 {
 	public Guid CurrentLibrary;
 	public Guid MediaPool;
@@ -2285,7 +2314,8 @@ public function COPYFILE2_MESSAGE_ACTION PCOPYFILE2_PROGRESS_ROUTINE(COPYFILE2_M
 	public Guid MountedPartition;
 }
 
-[CRepr]public struct NTMS_PMIDINFORMATIONW
+[CRepr]
+public struct NTMS_PMIDINFORMATIONW
 {
 	public Guid CurrentLibrary;
 	public Guid MediaPool;
@@ -2303,13 +2333,15 @@ public function COPYFILE2_MESSAGE_ACTION PCOPYFILE2_PROGRESS_ROUTINE(COPYFILE2_M
 	public Guid MountedPartition;
 }
 
-[CRepr]public struct NTMS_LMIDINFORMATION
+[CRepr]
+public struct NTMS_LMIDINFORMATION
 {
 	public Guid MediaPool;
 	public uint32 dwNumberOfPartitions;
 }
 
-[CRepr]public struct NTMS_PARTITIONINFORMATIONA
+[CRepr]
+public struct NTMS_PARTITIONINFORMATIONA
 {
 	public Guid PhysicalMedia;
 	public Guid LogicalMedia;
@@ -2324,7 +2356,8 @@ public function COPYFILE2_MESSAGE_ACTION PCOPYFILE2_PROGRESS_ROUTINE(COPYFILE2_M
 	public LARGE_INTEGER Capacity;
 }
 
-[CRepr]public struct NTMS_PARTITIONINFORMATIONW
+[CRepr]
+public struct NTMS_PARTITIONINFORMATIONW
 {
 	public Guid PhysicalMedia;
 	public Guid LogicalMedia;
@@ -2339,7 +2372,8 @@ public function COPYFILE2_MESSAGE_ACTION PCOPYFILE2_PROGRESS_ROUTINE(COPYFILE2_M
 	public LARGE_INTEGER Capacity;
 }
 
-[CRepr]public struct NTMS_MEDIAPOOLINFORMATION
+[CRepr]
+public struct NTMS_MEDIAPOOLINFORMATION
 {
 	public uint32 PoolType;
 	public Guid MediaType;
@@ -2352,7 +2386,8 @@ public function COPYFILE2_MESSAGE_ACTION PCOPYFILE2_PROGRESS_ROUTINE(COPYFILE2_M
 	public uint32 dwNumberOfMediaPools;
 }
 
-[CRepr]public struct NTMS_MEDIATYPEINFORMATION
+[CRepr]
+public struct NTMS_MEDIATYPEINFORMATION
 {
 	public uint32 MediaType;
 	public uint32 NumberOfSides;
@@ -2360,7 +2395,8 @@ public function COPYFILE2_MESSAGE_ACTION PCOPYFILE2_PROGRESS_ROUTINE(COPYFILE2_M
 	public FILE_DEVICE_TYPE DeviceType;
 }
 
-[CRepr]public struct NTMS_DRIVETYPEINFORMATIONA
+[CRepr]
+public struct NTMS_DRIVETYPEINFORMATIONA
 {
 	public CHAR[128] szVendor;
 	public CHAR[128] szProduct;
@@ -2368,7 +2404,8 @@ public function COPYFILE2_MESSAGE_ACTION PCOPYFILE2_PROGRESS_ROUTINE(COPYFILE2_M
 	public FILE_DEVICE_TYPE DeviceType;
 }
 
-[CRepr]public struct NTMS_DRIVETYPEINFORMATIONW
+[CRepr]
+public struct NTMS_DRIVETYPEINFORMATIONW
 {
 	public char8[128] szVendor;
 	public char8[128] szProduct;
@@ -2376,21 +2413,24 @@ public function COPYFILE2_MESSAGE_ACTION PCOPYFILE2_PROGRESS_ROUTINE(COPYFILE2_M
 	public FILE_DEVICE_TYPE DeviceType;
 }
 
-[CRepr]public struct NTMS_CHANGERTYPEINFORMATIONA
+[CRepr]
+public struct NTMS_CHANGERTYPEINFORMATIONA
 {
 	public CHAR[128] szVendor;
 	public CHAR[128] szProduct;
 	public uint32 DeviceType;
 }
 
-[CRepr]public struct NTMS_CHANGERTYPEINFORMATIONW
+[CRepr]
+public struct NTMS_CHANGERTYPEINFORMATIONW
 {
 	public char8[128] szVendor;
 	public char8[128] szProduct;
 	public uint32 DeviceType;
 }
 
-[CRepr]public struct NTMS_LIBREQUESTINFORMATIONA
+[CRepr]
+public struct NTMS_LIBREQUESTINFORMATIONA
 {
 	public NtmsLmOperation OperationCode;
 	public uint32 OperationOption;
@@ -2410,7 +2450,8 @@ public function COPYFILE2_MESSAGE_ACTION PCOPYFILE2_PROGRESS_ROUTINE(COPYFILE2_M
 	public uint32 dwPriority;
 }
 
-[CRepr]public struct NTMS_LIBREQUESTINFORMATIONW
+[CRepr]
+public struct NTMS_LIBREQUESTINFORMATIONW
 {
 	public NtmsLmOperation OperationCode;
 	public uint32 OperationOption;
@@ -2430,7 +2471,8 @@ public function COPYFILE2_MESSAGE_ACTION PCOPYFILE2_PROGRESS_ROUTINE(COPYFILE2_M
 	public uint32 dwPriority;
 }
 
-[CRepr]public struct NTMS_OPREQUESTINFORMATIONA
+[CRepr]
+public struct NTMS_OPREQUESTINFORMATIONA
 {
 	public NtmsOpreqCommand Request;
 	public SYSTEMTIME Submitted;
@@ -2445,7 +2487,8 @@ public function COPYFILE2_MESSAGE_ACTION PCOPYFILE2_PROGRESS_ROUTINE(COPYFILE2_M
 	public CHAR[64] szComputer;
 }
 
-[CRepr]public struct NTMS_OPREQUESTINFORMATIONW
+[CRepr]
+public struct NTMS_OPREQUESTINFORMATIONW
 {
 	public NtmsOpreqCommand Request;
 	public SYSTEMTIME Submitted;
@@ -2460,7 +2503,8 @@ public function COPYFILE2_MESSAGE_ACTION PCOPYFILE2_PROGRESS_ROUTINE(COPYFILE2_M
 	public char8[64] szComputer;
 }
 
-[CRepr]public struct NTMS_COMPUTERINFORMATION
+[CRepr]
+public struct NTMS_COMPUTERINFORMATION
 {
 	public uint32 dwLibRequestPurgeTime;
 	public uint32 dwOpRequestPurgeTime;
@@ -2469,9 +2513,11 @@ public function COPYFILE2_MESSAGE_ACTION PCOPYFILE2_PROGRESS_ROUTINE(COPYFILE2_M
 	public uint32 dwMediaPoolPolicy;
 }
 
-[CRepr]public struct NTMS_OBJECTINFORMATIONA
+[CRepr]
+public struct NTMS_OBJECTINFORMATIONA
 {
-	[CRepr, Union]	public struct _Info_e__Union
+	[CRepr, Union]
+	public struct _Info_e__Union
 	{
 		public NTMS_DRIVEINFORMATIONA Drive;
 		public NTMS_DRIVETYPEINFORMATIONA DriveType;
@@ -2503,9 +2549,11 @@ public function COPYFILE2_MESSAGE_ACTION PCOPYFILE2_PROGRESS_ROUTINE(COPYFILE2_M
 	public _Info_e__Union Info;
 }
 
-[CRepr]public struct NTMS_OBJECTINFORMATIONW
+[CRepr]
+public struct NTMS_OBJECTINFORMATIONW
 {
-	[CRepr, Union]	public struct _Info_e__Union
+	[CRepr, Union]
+	public struct _Info_e__Union
 	{
 		public NTMS_DRIVEINFORMATIONW Drive;
 		public NTMS_DRIVETYPEINFORMATIONW DriveType;
@@ -2537,7 +2585,8 @@ public function COPYFILE2_MESSAGE_ACTION PCOPYFILE2_PROGRESS_ROUTINE(COPYFILE2_M
 	public _Info_e__Union Info;
 }
 
-[CRepr]public struct NTMS_I1_LIBRARYINFORMATION
+[CRepr]
+public struct NTMS_I1_LIBRARYINFORMATION
 {
 	public uint32 LibraryType;
 	public Guid CleanerSlot;
@@ -2562,7 +2611,8 @@ public function COPYFILE2_MESSAGE_ACTION PCOPYFILE2_PROGRESS_ROUTINE(COPYFILE2_M
 	public Guid Reserved;
 }
 
-[CRepr]public struct NTMS_I1_LIBREQUESTINFORMATIONA
+[CRepr]
+public struct NTMS_I1_LIBREQUESTINFORMATIONA
 {
 	public uint32 OperationCode;
 	public uint32 OperationOption;
@@ -2579,7 +2629,8 @@ public function COPYFILE2_MESSAGE_ACTION PCOPYFILE2_PROGRESS_ROUTINE(COPYFILE2_M
 	public CHAR[64] szComputer;
 }
 
-[CRepr]public struct NTMS_I1_LIBREQUESTINFORMATIONW
+[CRepr]
+public struct NTMS_I1_LIBREQUESTINFORMATIONW
 {
 	public uint32 OperationCode;
 	public uint32 OperationOption;
@@ -2596,7 +2647,8 @@ public function COPYFILE2_MESSAGE_ACTION PCOPYFILE2_PROGRESS_ROUTINE(COPYFILE2_M
 	public char8[64] szComputer;
 }
 
-[CRepr]public struct NTMS_I1_PMIDINFORMATIONA
+[CRepr]
+public struct NTMS_I1_PMIDINFORMATIONA
 {
 	public Guid CurrentLibrary;
 	public Guid MediaPool;
@@ -2611,7 +2663,8 @@ public function COPYFILE2_MESSAGE_ACTION PCOPYFILE2_PROGRESS_ROUTINE(COPYFILE2_M
 	public uint32 dwNumberOfPartitions;
 }
 
-[CRepr]public struct NTMS_I1_PMIDINFORMATIONW
+[CRepr]
+public struct NTMS_I1_PMIDINFORMATIONW
 {
 	public Guid CurrentLibrary;
 	public Guid MediaPool;
@@ -2626,7 +2679,8 @@ public function COPYFILE2_MESSAGE_ACTION PCOPYFILE2_PROGRESS_ROUTINE(COPYFILE2_M
 	public uint32 dwNumberOfPartitions;
 }
 
-[CRepr]public struct NTMS_I1_PARTITIONINFORMATIONA
+[CRepr]
+public struct NTMS_I1_PARTITIONINFORMATIONA
 {
 	public Guid PhysicalMedia;
 	public Guid LogicalMedia;
@@ -2640,7 +2694,8 @@ public function COPYFILE2_MESSAGE_ACTION PCOPYFILE2_PROGRESS_ROUTINE(COPYFILE2_M
 	public uint32 dwAllocateCount;
 }
 
-[CRepr]public struct NTMS_I1_PARTITIONINFORMATIONW
+[CRepr]
+public struct NTMS_I1_PARTITIONINFORMATIONW
 {
 	public Guid PhysicalMedia;
 	public Guid LogicalMedia;
@@ -2654,7 +2709,8 @@ public function COPYFILE2_MESSAGE_ACTION PCOPYFILE2_PROGRESS_ROUTINE(COPYFILE2_M
 	public uint32 dwAllocateCount;
 }
 
-[CRepr]public struct NTMS_I1_OPREQUESTINFORMATIONA
+[CRepr]
+public struct NTMS_I1_OPREQUESTINFORMATIONA
 {
 	public uint32 Request;
 	public SYSTEMTIME Submitted;
@@ -2669,7 +2725,8 @@ public function COPYFILE2_MESSAGE_ACTION PCOPYFILE2_PROGRESS_ROUTINE(COPYFILE2_M
 	public CHAR[64] szComputer;
 }
 
-[CRepr]public struct NTMS_I1_OPREQUESTINFORMATIONW
+[CRepr]
+public struct NTMS_I1_OPREQUESTINFORMATIONW
 {
 	public uint32 Request;
 	public SYSTEMTIME Submitted;
@@ -2684,9 +2741,11 @@ public function COPYFILE2_MESSAGE_ACTION PCOPYFILE2_PROGRESS_ROUTINE(COPYFILE2_M
 	public char8[64] szComputer;
 }
 
-[CRepr]public struct NTMS_I1_OBJECTINFORMATIONA
+[CRepr]
+public struct NTMS_I1_OBJECTINFORMATIONA
 {
-	[CRepr, Union]	public struct _Info_e__Union
+	[CRepr, Union]
+	public struct _Info_e__Union
 	{
 		public NTMS_DRIVEINFORMATIONA Drive;
 		public NTMS_DRIVETYPEINFORMATIONA DriveType;
@@ -2717,9 +2776,11 @@ public function COPYFILE2_MESSAGE_ACTION PCOPYFILE2_PROGRESS_ROUTINE(COPYFILE2_M
 	public _Info_e__Union Info;
 }
 
-[CRepr]public struct NTMS_I1_OBJECTINFORMATIONW
+[CRepr]
+public struct NTMS_I1_OBJECTINFORMATIONW
 {
-	[CRepr, Union]	public struct _Info_e__Union
+	[CRepr, Union]
+	public struct _Info_e__Union
 	{
 		public NTMS_DRIVEINFORMATIONW Drive;
 		public NTMS_DRIVETYPEINFORMATIONW DriveType;
@@ -2750,20 +2811,23 @@ public function COPYFILE2_MESSAGE_ACTION PCOPYFILE2_PROGRESS_ROUTINE(COPYFILE2_M
 	public _Info_e__Union Info;
 }
 
-[CRepr]public struct NTMS_FILESYSTEM_INFO
+[CRepr]
+public struct NTMS_FILESYSTEM_INFO
 {
 	public char8[64] FileSystemType;
 	public char8[256] VolumeName;
 	public uint32 SerialNumber;
 }
 
-[CRepr]public struct NTMS_NOTIFICATIONINFORMATION
+[CRepr]
+public struct NTMS_NOTIFICATIONINFORMATION
 {
 	public NtmsNotificationOperations dwOperation;
 	public Guid ObjectId;
 }
 
-[CRepr]public struct MediaLabelInfo
+[CRepr]
+public struct MediaLabelInfo
 {
 	public char8[64] LabelType;
 	public uint32 LabelIDSize;
@@ -2771,24 +2835,28 @@ public function COPYFILE2_MESSAGE_ACTION PCOPYFILE2_PROGRESS_ROUTINE(COPYFILE2_M
 	public char8[256] LabelAppDescr;
 }
 
-[CRepr]public struct CLS_LSN
+[CRepr]
+public struct CLS_LSN
 {
 	public uint64 Internal;
 }
 
-[CRepr]public struct CLFS_NODE_ID
+[CRepr]
+public struct CLFS_NODE_ID
 {
 	public uint32 cType;
 	public uint32 cbNode;
 }
 
-[CRepr]public struct CLS_WRITE_ENTRY
+[CRepr]
+public struct CLS_WRITE_ENTRY
 {
 	public void* Buffer;
 	public uint32 ByteLength;
 }
 
-[CRepr]public struct CLS_INFORMATION
+[CRepr]
+public struct CLS_INFORMATION
 {
 	public int64 TotalAvailable;
 	public int64 CurrentAvailable;
@@ -2809,25 +2877,29 @@ public function COPYFILE2_MESSAGE_ACTION PCOPYFILE2_PROGRESS_ROUTINE(COPYFILE2_M
 	public Guid Identity;
 }
 
-[CRepr]public struct CLFS_LOG_NAME_INFORMATION
+[CRepr]
+public struct CLFS_LOG_NAME_INFORMATION
 {
 	public uint16 NameLengthInBytes;
 	public char8[1] Name;
 }
 
-[CRepr]public struct CLFS_STREAM_ID_INFORMATION
+[CRepr]
+public struct CLFS_STREAM_ID_INFORMATION
 {
 	public uint8 StreamIdentifier;
 }
 
-[CRepr]public struct CLFS_PHYSICAL_LSN_INFORMATION
+[CRepr]
+public struct CLFS_PHYSICAL_LSN_INFORMATION
 {
 	public uint8 StreamIdentifier;
 	public CLS_LSN VirtualLsn;
 	public CLS_LSN PhysicalLsn;
 }
 
-[CRepr]public struct CLS_CONTAINER_INFORMATION
+[CRepr]
+public struct CLS_CONTAINER_INFORMATION
 {
 	public uint32 FileAttributes;
 	public uint64 CreationTime;
@@ -2842,7 +2914,8 @@ public function COPYFILE2_MESSAGE_ACTION PCOPYFILE2_PROGRESS_ROUTINE(COPYFILE2_M
 	public uint32 LogicalContainerId;
 }
 
-[CRepr]public struct CLS_IO_STATISTICS_HEADER
+[CRepr]
+public struct CLS_IO_STATISTICS_HEADER
 {
 	public uint8 ubMajorVersion;
 	public uint8 ubMinorVersion;
@@ -2851,7 +2924,8 @@ public function COPYFILE2_MESSAGE_ACTION PCOPYFILE2_PROGRESS_ROUTINE(COPYFILE2_M
 	public uint32 coffData;
 }
 
-[CRepr]public struct CLS_IO_STATISTICS
+[CRepr]
+public struct CLS_IO_STATISTICS
 {
 	public CLS_IO_STATISTICS_HEADER hdrIoStats;
 	public uint64 cFlush;
@@ -2860,7 +2934,8 @@ public function COPYFILE2_MESSAGE_ACTION PCOPYFILE2_PROGRESS_ROUTINE(COPYFILE2_M
 	public uint64 cbMetaFlush;
 }
 
-[CRepr]public struct CLS_SCAN_CONTEXT
+[CRepr]
+public struct CLS_SCAN_CONTEXT
 {
 	public CLFS_NODE_ID cidNode;
 	public HANDLE hLog;
@@ -2871,67 +2946,80 @@ public function COPYFILE2_MESSAGE_ACTION PCOPYFILE2_PROGRESS_ROUTINE(COPYFILE2_M
 	public CLS_CONTAINER_INFORMATION* pinfoContainer;
 }
 
-[CRepr]public struct CLS_ARCHIVE_DESCRIPTOR
+[CRepr]
+public struct CLS_ARCHIVE_DESCRIPTOR
 {
 	public uint64 coffLow;
 	public uint64 coffHigh;
 	public CLS_CONTAINER_INFORMATION infoContainer;
 }
 
-[CRepr]public struct CLFS_MGMT_POLICY
+[CRepr]
+public struct CLFS_MGMT_POLICY
 {
-	[CRepr, Union]	public struct _PolicyParameters_e__Union
+	[CRepr, Union]
+	public struct _PolicyParameters_e__Union
 	{
-		[CRepr]		public struct _NewContainerExtension_e__Struct
+		[CRepr]
+		public struct _NewContainerExtension_e__Struct
 		{
 			public uint16 ExtensionLengthInBytes;
 			public char8[1] ExtensionString;
 		}
 
-		[CRepr]		public struct _NewContainerPrefix_e__Struct
+		[CRepr]
+		public struct _NewContainerPrefix_e__Struct
 		{
 			public uint16 PrefixLengthInBytes;
 			public char8[1] PrefixString;
 		}
 
-		[CRepr]		public struct _AutoShrink_e__Struct
+		[CRepr]
+		public struct _AutoShrink_e__Struct
 		{
 			public uint32 Percentage;
 		}
 
-		[CRepr]		public struct _GrowthRate_e__Struct
+		[CRepr]
+		public struct _GrowthRate_e__Struct
 		{
 			public uint32 AbsoluteGrowthInContainers;
 			public uint32 RelativeGrowthPercentage;
 		}
 
-		[CRepr]		public struct _MinimumSize_e__Struct
+		[CRepr]
+		public struct _MinimumSize_e__Struct
 		{
 			public uint32 Containers;
 		}
 
-		[CRepr]		public struct _NewContainerSuffix_e__Struct
+		[CRepr]
+		public struct _NewContainerSuffix_e__Struct
 		{
 			public uint64 NextContainerSuffix;
 		}
 
-		[CRepr]		public struct _LogTail_e__Struct
+		[CRepr]
+		public struct _LogTail_e__Struct
 		{
 			public uint32 MinimumAvailablePercentage;
 			public uint32 MinimumAvailableContainers;
 		}
 
-		[CRepr]		public struct _MaximumSize_e__Struct
+		[CRepr]
+		public struct _MaximumSize_e__Struct
 		{
 			public uint32 Containers;
 		}
 
-		[CRepr]		public struct _AutoGrow_e__Struct
+		[CRepr]
+		public struct _AutoGrow_e__Struct
 		{
 			public uint32 Enabled;
 		}
 
-		[CRepr]		public struct _NewContainerSize_e__Struct
+		[CRepr]
+		public struct _NewContainerSize_e__Struct
 		{
 			public uint32 SizeInBytes;
 		}
@@ -2955,14 +3043,16 @@ public function COPYFILE2_MESSAGE_ACTION PCOPYFILE2_PROGRESS_ROUTINE(COPYFILE2_M
 	public _PolicyParameters_e__Union PolicyParameters;
 }
 
-[CRepr]public struct CLFS_MGMT_NOTIFICATION
+[CRepr]
+public struct CLFS_MGMT_NOTIFICATION
 {
 	public CLFS_MGMT_NOTIFICATION_TYPE Notification;
 	public CLS_LSN Lsn;
 	public uint16 LogIsPinned;
 }
 
-[CRepr]public struct LOG_MANAGEMENT_CALLBACKS
+[CRepr]
+public struct LOG_MANAGEMENT_CALLBACKS
 {
 	public void* CallbackContext;
 	public PLOG_TAIL_ADVANCE_CALLBACK AdvanceTailCallback;
@@ -2970,40 +3060,46 @@ public function COPYFILE2_MESSAGE_ACTION PCOPYFILE2_PROGRESS_ROUTINE(COPYFILE2_M
 	public PLOG_UNPINNED_CALLBACK LogUnpinnedCallback;
 }
 
-[CRepr]public struct DISKQUOTA_USER_INFORMATION
+[CRepr]
+public struct DISKQUOTA_USER_INFORMATION
 {
 	public int64 QuotaUsed;
 	public int64 QuotaThreshold;
 	public int64 QuotaLimit;
 }
 
-[CRepr]public struct EFS_CERTIFICATE_BLOB
+[CRepr]
+public struct EFS_CERTIFICATE_BLOB
 {
 	public uint32 dwCertEncodingType;
 	public uint32 cbData;
 	public uint8* pbData;
 }
 
-[CRepr]public struct EFS_HASH_BLOB
+[CRepr]
+public struct EFS_HASH_BLOB
 {
 	public uint32 cbData;
 	public uint8* pbData;
 }
 
-[CRepr]public struct EFS_RPC_BLOB
+[CRepr]
+public struct EFS_RPC_BLOB
 {
 	public uint32 cbData;
 	public uint8* pbData;
 }
 
-[CRepr]public struct EFS_PIN_BLOB
+[CRepr]
+public struct EFS_PIN_BLOB
 {
 	public uint32 cbPadding;
 	public uint32 cbData;
 	public uint8* pbData;
 }
 
-[CRepr]public struct EFS_KEY_INFO
+[CRepr]
+public struct EFS_KEY_INFO
 {
 	public uint32 dwVersion;
 	public uint32 Entropy;
@@ -3011,38 +3107,44 @@ public function COPYFILE2_MESSAGE_ACTION PCOPYFILE2_PROGRESS_ROUTINE(COPYFILE2_M
 	public uint32 KeyLength;
 }
 
-[CRepr]public struct EFS_COMPATIBILITY_INFO
+[CRepr]
+public struct EFS_COMPATIBILITY_INFO
 {
 	public uint32 EfsVersion;
 }
 
-[CRepr]public struct EFS_VERSION_INFO
+[CRepr]
+public struct EFS_VERSION_INFO
 {
 	public uint32 EfsVersion;
 	public uint32 SubVersion;
 }
 
-[CRepr]public struct EFS_DECRYPTION_STATUS_INFO
+[CRepr]
+public struct EFS_DECRYPTION_STATUS_INFO
 {
 	public uint32 dwDecryptionError;
 	public uint32 dwHashOffset;
 	public uint32 cbHash;
 }
 
-[CRepr]public struct EFS_ENCRYPTION_STATUS_INFO
+[CRepr]
+public struct EFS_ENCRYPTION_STATUS_INFO
 {
 	public BOOL bHasCurrentKey;
 	public uint32 dwEncryptionError;
 }
 
-[CRepr]public struct ENCRYPTION_CERTIFICATE
+[CRepr]
+public struct ENCRYPTION_CERTIFICATE
 {
 	public uint32 cbTotalLength;
 	public SID* pUserSid;
 	public EFS_CERTIFICATE_BLOB* pCertBlob;
 }
 
-[CRepr]public struct ENCRYPTION_CERTIFICATE_HASH
+[CRepr]
+public struct ENCRYPTION_CERTIFICATE_HASH
 {
 	public uint32 cbTotalLength;
 	public SID* pUserSid;
@@ -3050,19 +3152,22 @@ public function COPYFILE2_MESSAGE_ACTION PCOPYFILE2_PROGRESS_ROUTINE(COPYFILE2_M
 	public PWSTR lpDisplayInformation;
 }
 
-[CRepr]public struct ENCRYPTION_CERTIFICATE_HASH_LIST
+[CRepr]
+public struct ENCRYPTION_CERTIFICATE_HASH_LIST
 {
 	public uint32 nCert_Hash;
 	public ENCRYPTION_CERTIFICATE_HASH** pUsers;
 }
 
-[CRepr]public struct ENCRYPTION_CERTIFICATE_LIST
+[CRepr]
+public struct ENCRYPTION_CERTIFICATE_LIST
 {
 	public uint32 nUsers;
 	public ENCRYPTION_CERTIFICATE** pUsers;
 }
 
-[CRepr]public struct ENCRYPTED_FILE_METADATA_SIGNATURE
+[CRepr]
+public struct ENCRYPTED_FILE_METADATA_SIGNATURE
 {
 	public uint32 dwEfsAccessType;
 	public ENCRYPTION_CERTIFICATE_HASH_LIST* pCertificatesAdded;
@@ -3070,20 +3175,23 @@ public function COPYFILE2_MESSAGE_ACTION PCOPYFILE2_PROGRESS_ROUTINE(COPYFILE2_M
 	public EFS_RPC_BLOB* pEfsStreamSignature;
 }
 
-[CRepr]public struct ENCRYPTION_PROTECTOR
+[CRepr]
+public struct ENCRYPTION_PROTECTOR
 {
 	public uint32 cbTotalLength;
 	public SID* pUserSid;
 	public PWSTR lpProtectorDescriptor;
 }
 
-[CRepr]public struct ENCRYPTION_PROTECTOR_LIST
+[CRepr]
+public struct ENCRYPTION_PROTECTOR_LIST
 {
 	public uint32 nProtectors;
 	public ENCRYPTION_PROTECTOR** pProtectors;
 }
 
-[CRepr]public struct WIM_ENTRY_INFO
+[CRepr]
+public struct WIM_ENTRY_INFO
 {
 	public uint32 WimEntryInfoSize;
 	public uint32 WimType;
@@ -3094,27 +3202,32 @@ public function COPYFILE2_MESSAGE_ACTION PCOPYFILE2_PROGRESS_ROUTINE(COPYFILE2_M
 	public uint32 Flags;
 }
 
-[CRepr]public struct WIM_EXTERNAL_FILE_INFO
+[CRepr]
+public struct WIM_EXTERNAL_FILE_INFO
 {
 	public LARGE_INTEGER DataSourceId;
 	public uint8[20] ResourceHash;
 	public uint32 Flags;
 }
 
-[CRepr]public struct WOF_FILE_COMPRESSION_INFO_V0
+[CRepr]
+public struct WOF_FILE_COMPRESSION_INFO_V0
 {
 	public uint32 Algorithm;
 }
 
-[CRepr]public struct WOF_FILE_COMPRESSION_INFO_V1
+[CRepr]
+public struct WOF_FILE_COMPRESSION_INFO_V1
 {
 	public uint32 Algorithm;
 	public uint32 Flags;
 }
 
-[CRepr]public struct TXF_ID
+[CRepr]
+public struct TXF_ID
 {
-	[CRepr, Packed(4)]	public struct _Anonymous_e__Struct
+	[CRepr, Packed(4)]
+	public struct _Anonymous_e__Struct
 	{
 		public int64 LowPart;
 		public int64 HighPart;
@@ -3123,14 +3236,16 @@ public function COPYFILE2_MESSAGE_ACTION PCOPYFILE2_PROGRESS_ROUTINE(COPYFILE2_M
 	public using _Anonymous_e__Struct Anonymous;
 }
 
-[CRepr]public struct TXF_LOG_RECORD_BASE
+[CRepr]
+public struct TXF_LOG_RECORD_BASE
 {
 	public uint16 Version;
 	public TXF_LOG_RECORD_TYPE RecordType;
 	public uint32 RecordLength;
 }
 
-[CRepr, Packed(4)]public struct TXF_LOG_RECORD_WRITE
+[CRepr, Packed(4)]
+public struct TXF_LOG_RECORD_WRITE
 {
 	public uint16 Version;
 	public uint16 RecordType;
@@ -3145,7 +3260,8 @@ public function COPYFILE2_MESSAGE_ACTION PCOPYFILE2_PROGRESS_ROUTINE(COPYFILE2_M
 	public uint32 FileNameByteOffsetInStructure;
 }
 
-[CRepr, Packed(4)]public struct TXF_LOG_RECORD_TRUNCATE
+[CRepr, Packed(4)]
+public struct TXF_LOG_RECORD_TRUNCATE
 {
 	public uint16 Version;
 	public uint16 RecordType;
@@ -3158,7 +3274,8 @@ public function COPYFILE2_MESSAGE_ACTION PCOPYFILE2_PROGRESS_ROUTINE(COPYFILE2_M
 	public uint32 FileNameByteOffsetInStructure;
 }
 
-[CRepr]public struct TXF_LOG_RECORD_AFFECTED_FILE
+[CRepr]
+public struct TXF_LOG_RECORD_AFFECTED_FILE
 {
 	public uint16 Version;
 	public uint32 RecordLength;
@@ -3169,43 +3286,50 @@ public function COPYFILE2_MESSAGE_ACTION PCOPYFILE2_PROGRESS_ROUTINE(COPYFILE2_M
 	public uint32 FileNameByteOffsetInStructure;
 }
 
-[CRepr]public struct VOLUME_FAILOVER_SET
+[CRepr]
+public struct VOLUME_FAILOVER_SET
 {
 	public uint32 NumberOfDisks;
 	public uint32[1] DiskNumbers;
 }
 
-[CRepr]public struct VOLUME_NUMBER
+[CRepr]
+public struct VOLUME_NUMBER
 {
 	public uint32 VolumeNumber;
 	public char8[8] VolumeManagerName;
 }
 
-[CRepr]public struct VOLUME_LOGICAL_OFFSET
+[CRepr]
+public struct VOLUME_LOGICAL_OFFSET
 {
 	public int64 LogicalOffset;
 }
 
-[CRepr]public struct VOLUME_PHYSICAL_OFFSET
+[CRepr]
+public struct VOLUME_PHYSICAL_OFFSET
 {
 	public uint32 DiskNumber;
 	public int64 Offset;
 }
 
-[CRepr]public struct VOLUME_PHYSICAL_OFFSETS
+[CRepr]
+public struct VOLUME_PHYSICAL_OFFSETS
 {
 	public uint32 NumberOfPhysicalOffsets;
 	public VOLUME_PHYSICAL_OFFSET[1] PhysicalOffset;
 }
 
-[CRepr]public struct VOLUME_READ_PLEX_INPUT
+[CRepr]
+public struct VOLUME_READ_PLEX_INPUT
 {
 	public LARGE_INTEGER ByteOffset;
 	public uint32 Length;
 	public uint32 PlexNumber;
 }
 
-[CRepr]public struct VOLUME_SET_GPT_ATTRIBUTES_INFORMATION
+[CRepr]
+public struct VOLUME_SET_GPT_ATTRIBUTES_INFORMATION
 {
 	public uint64 GptAttributes;
 	public BOOLEAN RevertOnClose;
@@ -3214,7 +3338,8 @@ public function COPYFILE2_MESSAGE_ACTION PCOPYFILE2_PROGRESS_ROUTINE(COPYFILE2_M
 	public uint32 Reserved2;
 }
 
-[CRepr]public struct VOLUME_GET_BC_PROPERTIES_INPUT
+[CRepr]
+public struct VOLUME_GET_BC_PROPERTIES_INPUT
 {
 	public uint32 Version;
 	public uint32 Reserved1;
@@ -3224,7 +3349,8 @@ public function COPYFILE2_MESSAGE_ACTION PCOPYFILE2_PROGRESS_ROUTINE(COPYFILE2_M
 	public uint32 AccessMode;
 }
 
-[CRepr]public struct VOLUME_GET_BC_PROPERTIES_OUTPUT
+[CRepr]
+public struct VOLUME_GET_BC_PROPERTIES_OUTPUT
 {
 	public uint32 MaximumRequestsPerPeriod;
 	public uint32 MinimumPeriod;
@@ -3234,7 +3360,8 @@ public function COPYFILE2_MESSAGE_ACTION PCOPYFILE2_PROGRESS_ROUTINE(COPYFILE2_M
 	public uint64 RequestSize;
 }
 
-[CRepr]public struct VOLUME_ALLOCATE_BC_STREAM_INPUT
+[CRepr]
+public struct VOLUME_ALLOCATE_BC_STREAM_INPUT
 {
 	public uint32 Version;
 	public uint32 RequestsPerPeriod;
@@ -3248,55 +3375,64 @@ public function COPYFILE2_MESSAGE_ACTION PCOPYFILE2_PROGRESS_ROUTINE(COPYFILE2_M
 	public uint32 AccessMode;
 }
 
-[CRepr]public struct VOLUME_ALLOCATE_BC_STREAM_OUTPUT
+[CRepr]
+public struct VOLUME_ALLOCATE_BC_STREAM_OUTPUT
 {
 	public uint64 RequestSize;
 	public uint32 NumOutStandingRequests;
 }
 
-[CRepr]public struct FILE_EXTENT
+[CRepr]
+public struct FILE_EXTENT
 {
 	public uint64 VolumeOffset;
 	public uint64 ExtentLength;
 }
 
-[CRepr]public struct VOLUME_CRITICAL_IO
+[CRepr]
+public struct VOLUME_CRITICAL_IO
 {
 	public uint32 AccessType;
 	public uint32 ExtentsCount;
 	public FILE_EXTENT[1] Extents;
 }
 
-[CRepr]public struct VOLUME_ALLOCATION_HINT_INPUT
+[CRepr]
+public struct VOLUME_ALLOCATION_HINT_INPUT
 {
 	public uint32 ClusterSize;
 	public uint32 NumberOfClusters;
 	public int64 StartingClusterNumber;
 }
 
-[CRepr]public struct VOLUME_ALLOCATION_HINT_OUTPUT
+[CRepr]
+public struct VOLUME_ALLOCATION_HINT_OUTPUT
 {
 	public uint32[1] Bitmap;
 }
 
-[CRepr]public struct VOLUME_SHRINK_INFO
+[CRepr]
+public struct VOLUME_SHRINK_INFO
 {
 	public uint64 VolumeSize;
 }
 
-[CRepr]public struct SHARE_INFO_0
+[CRepr]
+public struct SHARE_INFO_0
 {
 	public PWSTR shi0_netname;
 }
 
-[CRepr]public struct SHARE_INFO_1
+[CRepr]
+public struct SHARE_INFO_1
 {
 	public PWSTR shi1_netname;
 	public SHARE_TYPE shi1_type;
 	public PWSTR shi1_remark;
 }
 
-[CRepr]public struct SHARE_INFO_2
+[CRepr]
+public struct SHARE_INFO_2
 {
 	public PWSTR shi2_netname;
 	public SHARE_TYPE shi2_type;
@@ -3308,7 +3444,8 @@ public function COPYFILE2_MESSAGE_ACTION PCOPYFILE2_PROGRESS_ROUTINE(COPYFILE2_M
 	public PWSTR shi2_passwd;
 }
 
-[CRepr]public struct SHARE_INFO_501
+[CRepr]
+public struct SHARE_INFO_501
 {
 	public PWSTR shi501_netname;
 	public SHARE_TYPE shi501_type;
@@ -3316,7 +3453,8 @@ public function COPYFILE2_MESSAGE_ACTION PCOPYFILE2_PROGRESS_ROUTINE(COPYFILE2_M
 	public uint32 shi501_flags;
 }
 
-[CRepr]public struct SHARE_INFO_502
+[CRepr]
+public struct SHARE_INFO_502
 {
 	public PWSTR shi502_netname;
 	public SHARE_TYPE shi502_type;
@@ -3330,7 +3468,8 @@ public function COPYFILE2_MESSAGE_ACTION PCOPYFILE2_PROGRESS_ROUTINE(COPYFILE2_M
 	public SECURITY_DESCRIPTOR* shi502_security_descriptor;
 }
 
-[CRepr]public struct SHARE_INFO_503
+[CRepr]
+public struct SHARE_INFO_503
 {
 	public PWSTR shi503_netname;
 	public SHARE_TYPE shi503_type;
@@ -3345,33 +3484,39 @@ public function COPYFILE2_MESSAGE_ACTION PCOPYFILE2_PROGRESS_ROUTINE(COPYFILE2_M
 	public SECURITY_DESCRIPTOR* shi503_security_descriptor;
 }
 
-[CRepr]public struct SHARE_INFO_1004
+[CRepr]
+public struct SHARE_INFO_1004
 {
 	public PWSTR shi1004_remark;
 }
 
-[CRepr]public struct SHARE_INFO_1005
+[CRepr]
+public struct SHARE_INFO_1005
 {
 	public uint32 shi1005_flags;
 }
 
-[CRepr]public struct SHARE_INFO_1006
+[CRepr]
+public struct SHARE_INFO_1006
 {
 	public uint32 shi1006_max_uses;
 }
 
-[CRepr]public struct SHARE_INFO_1501
+[CRepr]
+public struct SHARE_INFO_1501
 {
 	public uint32 shi1501_reserved;
 	public SECURITY_DESCRIPTOR* shi1501_security_descriptor;
 }
 
-[CRepr]public struct SHARE_INFO_1503
+[CRepr]
+public struct SHARE_INFO_1503
 {
 	public Guid shi1503_sharefilter;
 }
 
-[CRepr]public struct SERVER_ALIAS_INFO_0
+[CRepr]
+public struct SERVER_ALIAS_INFO_0
 {
 	public PWSTR srvai0_alias;
 	public PWSTR srvai0_target;
@@ -3379,12 +3524,14 @@ public function COPYFILE2_MESSAGE_ACTION PCOPYFILE2_PROGRESS_ROUTINE(COPYFILE2_M
 	public uint32 srvai0_reserved;
 }
 
-[CRepr]public struct SESSION_INFO_0
+[CRepr]
+public struct SESSION_INFO_0
 {
 	public PWSTR sesi0_cname;
 }
 
-[CRepr]public struct SESSION_INFO_1
+[CRepr]
+public struct SESSION_INFO_1
 {
 	public PWSTR sesi1_cname;
 	public PWSTR sesi1_username;
@@ -3394,7 +3541,8 @@ public function COPYFILE2_MESSAGE_ACTION PCOPYFILE2_PROGRESS_ROUTINE(COPYFILE2_M
 	public SESSION_INFO_USER_FLAGS sesi1_user_flags;
 }
 
-[CRepr]public struct SESSION_INFO_2
+[CRepr]
+public struct SESSION_INFO_2
 {
 	public PWSTR sesi2_cname;
 	public PWSTR sesi2_username;
@@ -3405,7 +3553,8 @@ public function COPYFILE2_MESSAGE_ACTION PCOPYFILE2_PROGRESS_ROUTINE(COPYFILE2_M
 	public PWSTR sesi2_cltype_name;
 }
 
-[CRepr]public struct SESSION_INFO_10
+[CRepr]
+public struct SESSION_INFO_10
 {
 	public PWSTR sesi10_cname;
 	public PWSTR sesi10_username;
@@ -3413,7 +3562,8 @@ public function COPYFILE2_MESSAGE_ACTION PCOPYFILE2_PROGRESS_ROUTINE(COPYFILE2_M
 	public uint32 sesi10_idle_time;
 }
 
-[CRepr]public struct SESSION_INFO_502
+[CRepr]
+public struct SESSION_INFO_502
 {
 	public PWSTR sesi502_cname;
 	public PWSTR sesi502_username;
@@ -3425,12 +3575,14 @@ public function COPYFILE2_MESSAGE_ACTION PCOPYFILE2_PROGRESS_ROUTINE(COPYFILE2_M
 	public PWSTR sesi502_transport;
 }
 
-[CRepr]public struct CONNECTION_INFO_0
+[CRepr]
+public struct CONNECTION_INFO_0
 {
 	public uint32 coni0_id;
 }
 
-[CRepr]public struct CONNECTION_INFO_1
+[CRepr]
+public struct CONNECTION_INFO_1
 {
 	public uint32 coni1_id;
 	public SHARE_TYPE coni1_type;
@@ -3441,12 +3593,14 @@ public function COPYFILE2_MESSAGE_ACTION PCOPYFILE2_PROGRESS_ROUTINE(COPYFILE2_M
 	public PWSTR coni1_netname;
 }
 
-[CRepr]public struct FILE_INFO_2
+[CRepr]
+public struct FILE_INFO_2
 {
 	public uint32 fi2_id;
 }
 
-[CRepr]public struct FILE_INFO_3
+[CRepr]
+public struct FILE_INFO_3
 {
 	public uint32 fi3_id;
 	public FILE_INFO_FLAGS_PERMISSIONS fi3_permissions;
@@ -3455,7 +3609,8 @@ public function COPYFILE2_MESSAGE_ACTION PCOPYFILE2_PROGRESS_ROUTINE(COPYFILE2_M
 	public PWSTR fi3_username;
 }
 
-[CRepr]public struct SERVER_CERTIFICATE_INFO_0
+[CRepr]
+public struct SERVER_CERTIFICATE_INFO_0
 {
 	public PWSTR srvci0_name;
 	public PWSTR srvci0_subject;
@@ -3471,7 +3626,8 @@ public function COPYFILE2_MESSAGE_ACTION PCOPYFILE2_PROGRESS_ROUTINE(COPYFILE2_M
 	public uint32 srvci0_flags;
 }
 
-[CRepr]public struct STAT_WORKSTATION_0
+[CRepr]
+public struct STAT_WORKSTATION_0
 {
 	public LARGE_INTEGER StatisticsStartTime;
 	public LARGE_INTEGER BytesReceived;
@@ -3515,7 +3671,8 @@ public function COPYFILE2_MESSAGE_ACTION PCOPYFILE2_PROGRESS_ROUTINE(COPYFILE2_M
 	public uint32 CurrentCommands;
 }
 
-[CRepr]public struct STAT_SERVER_0
+[CRepr]
+public struct STAT_SERVER_0
 {
 	public uint32 sts0_start;
 	public uint32 sts0_fopens;
@@ -3536,7 +3693,8 @@ public function COPYFILE2_MESSAGE_ACTION PCOPYFILE2_PROGRESS_ROUTINE(COPYFILE2_M
 	public uint32 sts0_bigbufneed;
 }
 
-[CRepr]public struct FH_OVERLAPPED
+[CRepr]
+public struct FH_OVERLAPPED
 {
 	public uint Internal;
 	public uint InternalHigh;
@@ -3550,7 +3708,8 @@ public function COPYFILE2_MESSAGE_ACTION PCOPYFILE2_PROGRESS_ROUTINE(COPYFILE2_M
 	public uint Reserved4;
 }
 
-[CRepr]public struct FIO_CONTEXT
+[CRepr]
+public struct FIO_CONTEXT
 {
 	public uint32 m_dwTempHack;
 	public uint32 m_dwSignature;
@@ -3559,35 +3718,41 @@ public function COPYFILE2_MESSAGE_ACTION PCOPYFILE2_PROGRESS_ROUTINE(COPYFILE2_M
 	public uint32 m_dwHeaderLength;
 }
 
-[CRepr]public struct NAME_CACHE_CONTEXT
+[CRepr]
+public struct NAME_CACHE_CONTEXT
 {
 	public uint32 m_dwSignature;
 }
 
-[CRepr]public struct IORING_BUFFER_INFO
+[CRepr]
+public struct IORING_BUFFER_INFO
 {
 	public void* Address;
 	public uint32 Length;
 }
 
-[CRepr]public struct IORING_REGISTERED_BUFFER
+[CRepr]
+public struct IORING_REGISTERED_BUFFER
 {
 	public uint32 BufferIndex;
 	public uint32 Offset;
 }
 
-[CRepr]public struct HIORING__
+[CRepr]
+public struct HIORING__
 {
 	public int32 unused;
 }
 
-[CRepr]public struct IORING_CREATE_FLAGS
+[CRepr]
+public struct IORING_CREATE_FLAGS
 {
 	public IORING_CREATE_REQUIRED_FLAGS Required;
 	public IORING_CREATE_ADVISORY_FLAGS Advisory;
 }
 
-[CRepr]public struct IORING_INFO
+[CRepr]
+public struct IORING_INFO
 {
 	public IORING_VERSION IoRingVersion;
 	public IORING_CREATE_FLAGS Flags;
@@ -3595,7 +3760,8 @@ public function COPYFILE2_MESSAGE_ACTION PCOPYFILE2_PROGRESS_ROUTINE(COPYFILE2_M
 	public uint32 CompletionQueueSize;
 }
 
-[CRepr]public struct IORING_CAPABILITIES
+[CRepr]
+public struct IORING_CAPABILITIES
 {
 	public IORING_VERSION MaxVersion;
 	public uint32 MaxSubmissionQueueSize;
@@ -3603,9 +3769,11 @@ public function COPYFILE2_MESSAGE_ACTION PCOPYFILE2_PROGRESS_ROUTINE(COPYFILE2_M
 	public IORING_FEATURE_FLAGS FeatureFlags;
 }
 
-[CRepr]public struct IORING_HANDLE_REF
+[CRepr]
+public struct IORING_HANDLE_REF
 {
-	[CRepr, Union]	public struct HandleUnion
+	[CRepr, Union]
+	public struct HandleUnion
 	{
 		public HANDLE Handle;
 		public uint32 Index;
@@ -3615,9 +3783,11 @@ public function COPYFILE2_MESSAGE_ACTION PCOPYFILE2_PROGRESS_ROUTINE(COPYFILE2_M
 	public HandleUnion Handle;
 }
 
-[CRepr]public struct IORING_BUFFER_REF
+[CRepr]
+public struct IORING_BUFFER_REF
 {
-	[CRepr, Union]	public struct BufferUnion
+	[CRepr, Union]
+	public struct BufferUnion
 	{
 		public void* Address;
 		public IORING_REGISTERED_BUFFER IndexAndOffset;
@@ -3627,19 +3797,22 @@ public function COPYFILE2_MESSAGE_ACTION PCOPYFILE2_PROGRESS_ROUTINE(COPYFILE2_M
 	public BufferUnion Buffer;
 }
 
-[CRepr]public struct IORING_CQE
+[CRepr]
+public struct IORING_CQE
 {
 	public uint UserData;
 	public HRESULT ResultCode;
 	public uint Information;
 }
 
-[CRepr]public struct FILE_ID_128
+[CRepr]
+public struct FILE_ID_128
 {
 	public uint8[16] Identifier;
 }
 
-[CRepr]public struct FILE_NOTIFY_INFORMATION
+[CRepr]
+public struct FILE_NOTIFY_INFORMATION
 {
 	public uint32 NextEntryOffset;
 	public FILE_ACTION Action;
@@ -3647,7 +3820,8 @@ public function COPYFILE2_MESSAGE_ACTION PCOPYFILE2_PROGRESS_ROUTINE(COPYFILE2_M
 	public char8[1] FileName;
 }
 
-[CRepr]public struct FILE_NOTIFY_EXTENDED_INFORMATION
+[CRepr]
+public struct FILE_NOTIFY_EXTENDED_INFORMATION
 {
 	public uint32 NextEntryOffset;
 	public FILE_ACTION Action;
@@ -3665,15 +3839,18 @@ public function COPYFILE2_MESSAGE_ACTION PCOPYFILE2_PROGRESS_ROUTINE(COPYFILE2_M
 	public char8[1] FileName;
 }
 
-[CRepr, Union]public struct FILE_SEGMENT_ELEMENT
+[CRepr, Union]
+public struct FILE_SEGMENT_ELEMENT
 {
 	public void* Buffer;
 	public uint64 Alignment;
 }
 
-[CRepr]public struct REPARSE_GUID_DATA_BUFFER
+[CRepr]
+public struct REPARSE_GUID_DATA_BUFFER
 {
-	[CRepr]	public struct _GenericReparseBuffer_e__Struct
+	[CRepr]
+	public struct _GenericReparseBuffer_e__Struct
 	{
 		public uint8[1] DataBuffer;
 	}
@@ -3685,33 +3862,38 @@ public function COPYFILE2_MESSAGE_ACTION PCOPYFILE2_PROGRESS_ROUTINE(COPYFILE2_M
 	public _GenericReparseBuffer_e__Struct GenericReparseBuffer;
 }
 
-[CRepr]public struct TAPE_ERASE
+[CRepr]
+public struct TAPE_ERASE
 {
 	public ERASE_TAPE_TYPE Type;
 	public BOOLEAN Immediate;
 }
 
-[CRepr]public struct TAPE_PREPARE
+[CRepr]
+public struct TAPE_PREPARE
 {
 	public PREPARE_TAPE_OPERATION Operation;
 	public BOOLEAN Immediate;
 }
 
-[CRepr]public struct TAPE_WRITE_MARKS
+[CRepr]
+public struct TAPE_WRITE_MARKS
 {
 	public TAPEMARK_TYPE Type;
 	public uint32 Count;
 	public BOOLEAN Immediate;
 }
 
-[CRepr]public struct TAPE_GET_POSITION
+[CRepr]
+public struct TAPE_GET_POSITION
 {
 	public TAPE_POSITION_TYPE Type;
 	public uint32 Partition;
 	public LARGE_INTEGER Offset;
 }
 
-[CRepr]public struct TAPE_SET_POSITION
+[CRepr]
+public struct TAPE_SET_POSITION
 {
 	public TAPE_POSITION_METHOD Method;
 	public uint32 Partition;
@@ -3719,7 +3901,8 @@ public function COPYFILE2_MESSAGE_ACTION PCOPYFILE2_PROGRESS_ROUTINE(COPYFILE2_M
 	public BOOLEAN Immediate;
 }
 
-[CRepr]public struct OFSTRUCT
+[CRepr]
+public struct OFSTRUCT
 {
 	public uint8 cBytes;
 	public uint8 fFixedDisk;
@@ -3729,7 +3912,8 @@ public function COPYFILE2_MESSAGE_ACTION PCOPYFILE2_PROGRESS_ROUTINE(COPYFILE2_M
 	public CHAR[128] szPathName;
 }
 
-[CRepr]public struct WIN32_STREAM_ID
+[CRepr]
+public struct WIN32_STREAM_ID
 {
 	public WIN_STREAM_ID dwStreamId;
 	public uint32 dwStreamAttributes;
@@ -3738,11 +3922,14 @@ public function COPYFILE2_MESSAGE_ACTION PCOPYFILE2_PROGRESS_ROUTINE(COPYFILE2_M
 	public char8[1] cStreamName;
 }
 
-[CRepr]public struct COPYFILE2_MESSAGE
+[CRepr]
+public struct COPYFILE2_MESSAGE
 {
-	[CRepr, Union]	public struct _Info_e__Union
+	[CRepr, Union]
+	public struct _Info_e__Union
 	{
-		[CRepr]		public struct _Error_e__Struct
+		[CRepr]
+		public struct _Error_e__Struct
 		{
 			public COPYFILE2_COPY_PHASE CopyPhase;
 			public uint32 dwStreamNumber;
@@ -3755,7 +3942,8 @@ public function COPYFILE2_MESSAGE_ACTION PCOPYFILE2_PROGRESS_ROUTINE(COPYFILE2_M
 			public ULARGE_INTEGER uliTotalBytesTransferred;
 		}
 
-		[CRepr]		public struct _StreamFinished_e__Struct
+		[CRepr]
+		public struct _StreamFinished_e__Struct
 		{
 			public uint32 dwStreamNumber;
 			public uint32 dwReserved;
@@ -3767,7 +3955,8 @@ public function COPYFILE2_MESSAGE_ACTION PCOPYFILE2_PROGRESS_ROUTINE(COPYFILE2_M
 			public ULARGE_INTEGER uliTotalBytesTransferred;
 		}
 
-		[CRepr]		public struct _ChunkFinished_e__Struct
+		[CRepr]
+		public struct _ChunkFinished_e__Struct
 		{
 			public uint32 dwStreamNumber;
 			public uint32 dwFlags;
@@ -3781,12 +3970,14 @@ public function COPYFILE2_MESSAGE_ACTION PCOPYFILE2_PROGRESS_ROUTINE(COPYFILE2_M
 			public ULARGE_INTEGER uliTotalBytesTransferred;
 		}
 
-		[CRepr]		public struct _PollContinue_e__Struct
+		[CRepr]
+		public struct _PollContinue_e__Struct
 		{
 			public uint32 dwReserved;
 		}
 
-		[CRepr]		public struct _ChunkStarted_e__Struct
+		[CRepr]
+		public struct _ChunkStarted_e__Struct
 		{
 			public uint32 dwStreamNumber;
 			public uint32 dwReserved;
@@ -3798,7 +3989,8 @@ public function COPYFILE2_MESSAGE_ACTION PCOPYFILE2_PROGRESS_ROUTINE(COPYFILE2_M
 			public ULARGE_INTEGER uliTotalFileSize;
 		}
 
-		[CRepr]		public struct _StreamStarted_e__Struct
+		[CRepr]
+		public struct _StreamStarted_e__Struct
 		{
 			public uint32 dwStreamNumber;
 			public uint32 dwReserved;
@@ -3821,7 +4013,8 @@ public function COPYFILE2_MESSAGE_ACTION PCOPYFILE2_PROGRESS_ROUTINE(COPYFILE2_M
 	public _Info_e__Union Info;
 }
 
-[CRepr]public struct COPYFILE2_EXTENDED_PARAMETERS
+[CRepr]
+public struct COPYFILE2_EXTENDED_PARAMETERS
 {
 	public uint32 dwSize;
 	public uint32 dwCopyFlags;
@@ -3830,7 +4023,8 @@ public function COPYFILE2_MESSAGE_ACTION PCOPYFILE2_PROGRESS_ROUTINE(COPYFILE2_M
 	public void* pvCallbackContext;
 }
 
-[CRepr]public struct COPYFILE2_EXTENDED_PARAMETERS_V2
+[CRepr]
+public struct COPYFILE2_EXTENDED_PARAMETERS_V2
 {
 	public uint32 dwSize;
 	public uint32 dwCopyFlags;
@@ -3843,7 +4037,8 @@ public function COPYFILE2_MESSAGE_ACTION PCOPYFILE2_PROGRESS_ROUTINE(COPYFILE2_M
 	public void*[8] reserved;
 }
 
-[CRepr]public struct FILE_BASIC_INFO
+[CRepr]
+public struct FILE_BASIC_INFO
 {
 	public LARGE_INTEGER CreationTime;
 	public LARGE_INTEGER LastAccessTime;
@@ -3852,7 +4047,8 @@ public function COPYFILE2_MESSAGE_ACTION PCOPYFILE2_PROGRESS_ROUTINE(COPYFILE2_M
 	public uint32 FileAttributes;
 }
 
-[CRepr]public struct FILE_STANDARD_INFO
+[CRepr]
+public struct FILE_STANDARD_INFO
 {
 	public LARGE_INTEGER AllocationSize;
 	public LARGE_INTEGER EndOfFile;
@@ -3861,15 +4057,18 @@ public function COPYFILE2_MESSAGE_ACTION PCOPYFILE2_PROGRESS_ROUTINE(COPYFILE2_M
 	public BOOLEAN Directory;
 }
 
-[CRepr]public struct FILE_NAME_INFO
+[CRepr]
+public struct FILE_NAME_INFO
 {
 	public uint32 FileNameLength;
 	public char8[1] FileName;
 }
 
-[CRepr]public struct FILE_RENAME_INFO
+[CRepr]
+public struct FILE_RENAME_INFO
 {
-	[CRepr, Union]	public struct _Anonymous_e__Union
+	[CRepr, Union]
+	public struct _Anonymous_e__Union
 	{
 		public BOOLEAN ReplaceIfExists;
 		public uint32 Flags;
@@ -3881,17 +4080,20 @@ public function COPYFILE2_MESSAGE_ACTION PCOPYFILE2_PROGRESS_ROUTINE(COPYFILE2_M
 	public char8[1] FileName;
 }
 
-[CRepr]public struct FILE_ALLOCATION_INFO
+[CRepr]
+public struct FILE_ALLOCATION_INFO
 {
 	public LARGE_INTEGER AllocationSize;
 }
 
-[CRepr]public struct FILE_END_OF_FILE_INFO
+[CRepr]
+public struct FILE_END_OF_FILE_INFO
 {
 	public LARGE_INTEGER EndOfFile;
 }
 
-[CRepr]public struct FILE_STREAM_INFO
+[CRepr]
+public struct FILE_STREAM_INFO
 {
 	public uint32 NextEntryOffset;
 	public uint32 StreamNameLength;
@@ -3900,7 +4102,8 @@ public function COPYFILE2_MESSAGE_ACTION PCOPYFILE2_PROGRESS_ROUTINE(COPYFILE2_M
 	public char8[1] StreamName;
 }
 
-[CRepr]public struct FILE_COMPRESSION_INFO
+[CRepr]
+public struct FILE_COMPRESSION_INFO
 {
 	public LARGE_INTEGER CompressedFileSize;
 	public uint16 CompressionFormat;
@@ -3910,18 +4113,21 @@ public function COPYFILE2_MESSAGE_ACTION PCOPYFILE2_PROGRESS_ROUTINE(COPYFILE2_M
 	public uint8[3] Reserved;
 }
 
-[CRepr]public struct FILE_ATTRIBUTE_TAG_INFO
+[CRepr]
+public struct FILE_ATTRIBUTE_TAG_INFO
 {
 	public uint32 FileAttributes;
 	public uint32 ReparseTag;
 }
 
-[CRepr]public struct FILE_DISPOSITION_INFO
+[CRepr]
+public struct FILE_DISPOSITION_INFO
 {
 	public BOOLEAN DeleteFileA;
 }
 
-[CRepr]public struct FILE_ID_BOTH_DIR_INFO
+[CRepr]
+public struct FILE_ID_BOTH_DIR_INFO
 {
 	public uint32 NextEntryOffset;
 	public uint32 FileIndex;
@@ -3940,7 +4146,8 @@ public function COPYFILE2_MESSAGE_ACTION PCOPYFILE2_PROGRESS_ROUTINE(COPYFILE2_M
 	public char8[1] FileName;
 }
 
-[CRepr]public struct FILE_FULL_DIR_INFO
+[CRepr]
+public struct FILE_FULL_DIR_INFO
 {
 	public uint32 NextEntryOffset;
 	public uint32 FileIndex;
@@ -3956,17 +4163,20 @@ public function COPYFILE2_MESSAGE_ACTION PCOPYFILE2_PROGRESS_ROUTINE(COPYFILE2_M
 	public char8[1] FileName;
 }
 
-[CRepr]public struct FILE_IO_PRIORITY_HINT_INFO
+[CRepr]
+public struct FILE_IO_PRIORITY_HINT_INFO
 {
 	public PRIORITY_HINT PriorityHint;
 }
 
-[CRepr]public struct FILE_ALIGNMENT_INFO
+[CRepr]
+public struct FILE_ALIGNMENT_INFO
 {
 	public uint32 AlignmentRequirement;
 }
 
-[CRepr]public struct FILE_STORAGE_INFO
+[CRepr]
+public struct FILE_STORAGE_INFO
 {
 	public uint32 LogicalBytesPerSector;
 	public uint32 PhysicalBytesPerSectorForAtomicity;
@@ -3977,13 +4187,15 @@ public function COPYFILE2_MESSAGE_ACTION PCOPYFILE2_PROGRESS_ROUTINE(COPYFILE2_M
 	public uint32 ByteOffsetForPartitionAlignment;
 }
 
-[CRepr]public struct FILE_ID_INFO
+[CRepr]
+public struct FILE_ID_INFO
 {
 	public uint64 VolumeSerialNumber;
 	public FILE_ID_128 FileId;
 }
 
-[CRepr]public struct FILE_ID_EXTD_DIR_INFO
+[CRepr]
+public struct FILE_ID_EXTD_DIR_INFO
 {
 	public uint32 NextEntryOffset;
 	public uint32 FileIndex;
@@ -4001,18 +4213,23 @@ public function COPYFILE2_MESSAGE_ACTION PCOPYFILE2_PROGRESS_ROUTINE(COPYFILE2_M
 	public char8[1] FileName;
 }
 
-[CRepr]public struct FILE_REMOTE_PROTOCOL_INFO
+[CRepr]
+public struct FILE_REMOTE_PROTOCOL_INFO
 {
-	[CRepr, Union]	public struct _ProtocolSpecific_e__Union
+	[CRepr, Union]
+	public struct _ProtocolSpecific_e__Union
 	{
-		[CRepr]		public struct _Smb2_e__Struct
+		[CRepr]
+		public struct _Smb2_e__Struct
 		{
-			[CRepr]			public struct _Server_e__Struct
+			[CRepr]
+			public struct _Server_e__Struct
 			{
 				public uint32 Capabilities;
 			}
 
-			[CRepr]			public struct _Share_e__Struct
+			[CRepr]
+			public struct _Share_e__Struct
 			{
 				public uint32 Capabilities;
 				public uint32 CachingFlags;
@@ -4026,7 +4243,8 @@ public function COPYFILE2_MESSAGE_ACTION PCOPYFILE2_PROGRESS_ROUTINE(COPYFILE2_M
 		public uint32[16] Reserved;
 	}
 
-	[CRepr]	public struct _GenericReserved_e__Struct
+	[CRepr]
+	public struct _GenericReserved_e__Struct
 	{
 		public uint32[8] Reserved;
 	}
@@ -4043,9 +4261,11 @@ public function COPYFILE2_MESSAGE_ACTION PCOPYFILE2_PROGRESS_ROUTINE(COPYFILE2_M
 	public _ProtocolSpecific_e__Union ProtocolSpecific;
 }
 
-[CRepr]public struct FILE_ID_DESCRIPTOR
+[CRepr]
+public struct FILE_ID_DESCRIPTOR
 {
-	[CRepr, Union]	public struct _Anonymous_e__Union
+	[CRepr, Union]
+	public struct _Anonymous_e__Union
 	{
 		public LARGE_INTEGER FileId;
 		public Guid ObjectId;

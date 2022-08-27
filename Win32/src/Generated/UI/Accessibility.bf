@@ -2555,14 +2555,16 @@ public function void WINEVENTPROC(HWINEVENTHOOK hWinEventHook, uint32 event, HWN
 #endregion
 
 #region Structs
-[CRepr]public struct MSAAMENUINFO
+[CRepr]
+public struct MSAAMENUINFO
 {
 	public uint32 dwMSAASignature;
 	public uint32 cchWText;
 	public PWSTR pszWText;
 }
 
-[CRepr]public struct UiaRect
+[CRepr]
+public struct UiaRect
 {
 	public double left;
 	public double top;
@@ -2570,39 +2572,45 @@ public function void WINEVENTPROC(HWINEVENTHOOK hWinEventHook, uint32 event, HWN
 	public double height;
 }
 
-[CRepr]public struct UiaPoint
+[CRepr]
+public struct UiaPoint
 {
 	public double x;
 	public double y;
 }
 
-[CRepr]public struct UiaChangeInfo
+[CRepr]
+public struct UiaChangeInfo
 {
 	public int32 uiaId;
 	public VARIANT payload;
 	public VARIANT extraInfo;
 }
 
-[CRepr]public struct UIAutomationParameter
+[CRepr]
+public struct UIAutomationParameter
 {
 	public UIAutomationType type;
 	public void* pData;
 }
 
-[CRepr]public struct UIAutomationPropertyInfo
+[CRepr]
+public struct UIAutomationPropertyInfo
 {
 	public Guid guid;
 	public PWSTR pProgrammaticName;
 	public UIAutomationType type;
 }
 
-[CRepr]public struct UIAutomationEventInfo
+[CRepr]
+public struct UIAutomationEventInfo
 {
 	public Guid guid;
 	public PWSTR pProgrammaticName;
 }
 
-[CRepr]public struct UIAutomationMethodInfo
+[CRepr]
+public struct UIAutomationMethodInfo
 {
 	public PWSTR pProgrammaticName;
 	public BOOL doSetFocus;
@@ -2612,7 +2620,8 @@ public function void WINEVENTPROC(HWINEVENTHOOK hWinEventHook, uint32 event, HWN
 	public PWSTR* pParameterNames;
 }
 
-[CRepr]public struct UIAutomationPatternInfo
+[CRepr]
+public struct UIAutomationPatternInfo
 {
 	public Guid guid;
 	public PWSTR pProgrammaticName;
@@ -2627,18 +2636,21 @@ public function void WINEVENTPROC(HWINEVENTHOOK hWinEventHook, uint32 event, HWN
 	public IUIAutomationPatternHandler* pPatternHandler;
 }
 
-[CRepr]public struct ExtendedProperty
+[CRepr]
+public struct ExtendedProperty
 {
 	public BSTR PropertyName;
 	public BSTR PropertyValue;
 }
 
-[CRepr]public struct UiaCondition
+[CRepr]
+public struct UiaCondition
 {
 	public ConditionType ConditionType;
 }
 
-[CRepr]public struct UiaPropertyCondition
+[CRepr]
+public struct UiaPropertyCondition
 {
 	public ConditionType ConditionType;
 	public int32 PropertyId;
@@ -2646,20 +2658,23 @@ public function void WINEVENTPROC(HWINEVENTHOOK hWinEventHook, uint32 event, HWN
 	public PropertyConditionFlags Flags;
 }
 
-[CRepr]public struct UiaAndOrCondition
+[CRepr]
+public struct UiaAndOrCondition
 {
 	public ConditionType ConditionType;
 	public UiaCondition** ppConditions;
 	public int32 cConditions;
 }
 
-[CRepr]public struct UiaNotCondition
+[CRepr]
+public struct UiaNotCondition
 {
 	public ConditionType ConditionType;
 	public UiaCondition* pCondition;
 }
 
-[CRepr]public struct UiaCacheRequest
+[CRepr]
+public struct UiaCacheRequest
 {
 	public UiaCondition* pViewCondition;
 	public TreeScope Scope;
@@ -2670,7 +2685,8 @@ public function void WINEVENTPROC(HWINEVENTHOOK hWinEventHook, uint32 event, HWN
 	public AutomationElementMode automationElementMode;
 }
 
-[CRepr]public struct UiaFindParams
+[CRepr]
+public struct UiaFindParams
 {
 	public int32 MaxDepth;
 	public BOOL FindFirst;
@@ -2678,13 +2694,15 @@ public function void WINEVENTPROC(HWINEVENTHOOK hWinEventHook, uint32 event, HWN
 	public UiaCondition* pFindCondition;
 }
 
-[CRepr]public struct UiaEventArgs
+[CRepr]
+public struct UiaEventArgs
 {
 	public EventArgsType Type;
 	public int32 EventId;
 }
 
-[CRepr]public struct UiaPropertyChangedEventArgs
+[CRepr]
+public struct UiaPropertyChangedEventArgs
 {
 	public EventArgsType Type;
 	public int32 EventId;
@@ -2693,7 +2711,8 @@ public function void WINEVENTPROC(HWINEVENTHOOK hWinEventHook, uint32 event, HWN
 	public VARIANT NewValue;
 }
 
-[CRepr]public struct UiaStructureChangedEventArgs
+[CRepr]
+public struct UiaStructureChangedEventArgs
 {
 	public EventArgsType Type;
 	public int32 EventId;
@@ -2702,7 +2721,8 @@ public function void WINEVENTPROC(HWINEVENTHOOK hWinEventHook, uint32 event, HWN
 	public int32 cRuntimeIdLen;
 }
 
-[CRepr]public struct UiaTextEditTextChangedEventArgs
+[CRepr]
+public struct UiaTextEditTextChangedEventArgs
 {
 	public EventArgsType Type;
 	public int32 EventId;
@@ -2710,7 +2730,8 @@ public function void WINEVENTPROC(HWINEVENTHOOK hWinEventHook, uint32 event, HWN
 	public SAFEARRAY* pTextChange;
 }
 
-[CRepr]public struct UiaChangesEventArgs
+[CRepr]
+public struct UiaChangesEventArgs
 {
 	public EventArgsType Type;
 	public int32 EventId;
@@ -2718,7 +2739,8 @@ public function void WINEVENTPROC(HWINEVENTHOOK hWinEventHook, uint32 event, HWN
 	public UiaChangeInfo* pUiaChanges;
 }
 
-[CRepr]public struct UiaAsyncContentLoadedEventArgs
+[CRepr]
+public struct UiaAsyncContentLoadedEventArgs
 {
 	public EventArgsType Type;
 	public int32 EventId;
@@ -2726,7 +2748,8 @@ public function void WINEVENTPROC(HWINEVENTHOOK hWinEventHook, uint32 event, HWN
 	public double PercentComplete;
 }
 
-[CRepr]public struct UiaWindowClosedEventArgs
+[CRepr]
+public struct UiaWindowClosedEventArgs
 {
 	public EventArgsType Type;
 	public int32 EventId;
@@ -2734,7 +2757,8 @@ public function void WINEVENTPROC(HWINEVENTHOOK hWinEventHook, uint32 event, HWN
 	public int32 cRuntimeIdLen;
 }
 
-[CRepr]public struct SERIALKEYSA
+[CRepr]
+public struct SERIALKEYSA
 {
 	public uint32 cbSize;
 	public SERIALKEYS_FLAGS dwFlags;
@@ -2745,7 +2769,8 @@ public function void WINEVENTPROC(HWINEVENTHOOK hWinEventHook, uint32 event, HWN
 	public uint32 iActive;
 }
 
-[CRepr]public struct SERIALKEYSW
+[CRepr]
+public struct SERIALKEYSW
 {
 	public uint32 cbSize;
 	public SERIALKEYS_FLAGS dwFlags;
@@ -2756,21 +2781,24 @@ public function void WINEVENTPROC(HWINEVENTHOOK hWinEventHook, uint32 event, HWN
 	public uint32 iActive;
 }
 
-[CRepr]public struct HIGHCONTRASTA
+[CRepr]
+public struct HIGHCONTRASTA
 {
 	public uint32 cbSize;
 	public HIGHCONTRASTW_FLAGS dwFlags;
 	public PSTR lpszDefaultScheme;
 }
 
-[CRepr]public struct HIGHCONTRASTW
+[CRepr]
+public struct HIGHCONTRASTW
 {
 	public uint32 cbSize;
 	public HIGHCONTRASTW_FLAGS dwFlags;
 	public PWSTR lpszDefaultScheme;
 }
 
-[CRepr]public struct FILTERKEYS
+[CRepr]
+public struct FILTERKEYS
 {
 	public uint32 cbSize;
 	public uint32 dwFlags;
@@ -2780,13 +2808,15 @@ public function void WINEVENTPROC(HWINEVENTHOOK hWinEventHook, uint32 event, HWN
 	public uint32 iBounceMSec;
 }
 
-[CRepr]public struct STICKYKEYS
+[CRepr]
+public struct STICKYKEYS
 {
 	public uint32 cbSize;
 	public STICKYKEYS_FLAGS dwFlags;
 }
 
-[CRepr]public struct MOUSEKEYS
+[CRepr]
+public struct MOUSEKEYS
 {
 	public uint32 cbSize;
 	public uint32 dwFlags;
@@ -2797,14 +2827,16 @@ public function void WINEVENTPROC(HWINEVENTHOOK hWinEventHook, uint32 event, HWN
 	public uint32 dwReserved2;
 }
 
-[CRepr]public struct ACCESSTIMEOUT
+[CRepr]
+public struct ACCESSTIMEOUT
 {
 	public uint32 cbSize;
 	public uint32 dwFlags;
 	public uint32 iTimeOutMSec;
 }
 
-[CRepr]public struct SOUNDSENTRYA
+[CRepr]
+public struct SOUNDSENTRYA
 {
 	public uint32 cbSize;
 	public SOUNDSENTRY_FLAGS dwFlags;
@@ -2820,7 +2852,8 @@ public function void WINEVENTPROC(HWINEVENTHOOK hWinEventHook, uint32 event, HWN
 	public uint32 iWindowsEffectOrdinal;
 }
 
-[CRepr]public struct SOUNDSENTRYW
+[CRepr]
+public struct SOUNDSENTRYW
 {
 	public uint32 cbSize;
 	public SOUNDSENTRY_FLAGS dwFlags;
@@ -2836,7 +2869,8 @@ public function void WINEVENTPROC(HWINEVENTHOOK hWinEventHook, uint32 event, HWN
 	public uint32 iWindowsEffectOrdinal;
 }
 
-[CRepr]public struct TOGGLEKEYS
+[CRepr]
+public struct TOGGLEKEYS
 {
 	public uint32 cbSize;
 	public uint32 dwFlags;

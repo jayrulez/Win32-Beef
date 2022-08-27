@@ -51,7 +51,8 @@ public function void PFN_COMPRESS_FREE(void* UserContext, void* Memory);
 #endregion
 
 #region Structs
-[CRepr]public struct COMPRESS_ALLOCATION_ROUTINES
+[CRepr]
+public struct COMPRESS_ALLOCATION_ROUTINES
 {
 	public PFN_COMPRESS_ALLOCATE Allocate;
 	public PFN_COMPRESS_FREE Free;

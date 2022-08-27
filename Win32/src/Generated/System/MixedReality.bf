@@ -19,14 +19,16 @@ public static
 #endregion
 
 #region Structs
-[CRepr]public struct PERCEPTION_PAYLOAD_FIELD
+[CRepr]
+public struct PERCEPTION_PAYLOAD_FIELD
 {
 	public Guid FieldId;
 	public uint32 OffsetInBytes;
 	public uint32 SizeInBytes;
 }
 
-[CRepr]public struct PERCEPTION_STATE_STREAM_TIMESTAMPS
+[CRepr]
+public struct PERCEPTION_STATE_STREAM_TIMESTAMPS
 {
 	public int64 InputTimestampInQpcCounts;
 	public int64 AvailableTimestampInQpcCounts;

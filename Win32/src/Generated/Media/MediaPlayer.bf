@@ -1780,7 +1780,8 @@ public enum WMPSubscriptionDownloadState : int32
 #endregion
 
 #region Structs
-[CRepr]public struct TimedLevel
+[CRepr]
+public struct TimedLevel
 {
 	public uint8[2048] frequency;
 	public uint8[2048] waveform;
@@ -1788,20 +1789,23 @@ public enum WMPSubscriptionDownloadState : int32
 	public int64 timeStamp;
 }
 
-[CRepr]public struct WMPContextMenuInfo
+[CRepr]
+public struct WMPContextMenuInfo
 {
 	public uint32 dwID;
 	public BSTR bstrMenuText;
 	public BSTR bstrHelpText;
 }
 
-[CRepr, Packed(1)]public struct WMP_WMDM_METADATA_ROUND_TRIP_PC2DEVICE
+[CRepr, Packed(1)]
+public struct WMP_WMDM_METADATA_ROUND_TRIP_PC2DEVICE
 {
 	public uint32 dwChangesSinceTransactionID;
 	public uint32 dwResultSetStartingIndex;
 }
 
-[CRepr, Packed(1)]public struct WMP_WMDM_METADATA_ROUND_TRIP_DEVICE2PC
+[CRepr, Packed(1)]
+public struct WMP_WMDM_METADATA_ROUND_TRIP_DEVICE2PC
 {
 	public uint32 dwCurrentTransactionID;
 	public uint32 dwReturnedObjectCount;

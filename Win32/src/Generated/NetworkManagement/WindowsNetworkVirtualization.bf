@@ -54,14 +54,16 @@ public enum WNV_CA_NOTIFICATION_TYPE : int32
 #endregion
 
 #region Structs
-[CRepr]public struct WNV_OBJECT_HEADER
+[CRepr]
+public struct WNV_OBJECT_HEADER
 {
 	public uint8 MajorVersion;
 	public uint8 MinorVersion;
 	public uint32 Size;
 }
 
-[CRepr]public struct WNV_NOTIFICATION_PARAM
+[CRepr]
+public struct WNV_NOTIFICATION_PARAM
 {
 	public WNV_OBJECT_HEADER Header;
 	public WNV_NOTIFICATION_TYPE NotificationType;
@@ -69,9 +71,11 @@ public enum WNV_CA_NOTIFICATION_TYPE : int32
 	public uint8* Buffer;
 }
 
-[CRepr]public struct WNV_IP_ADDRESS
+[CRepr]
+public struct WNV_IP_ADDRESS
 {
-	[CRepr, Union]	public struct _IP_e__Union
+	[CRepr, Union]
+	public struct _IP_e__Union
 	{
 		public IN_ADDR v4;
 		public IN6_ADDR v6;
@@ -81,7 +85,8 @@ public enum WNV_CA_NOTIFICATION_TYPE : int32
 	public _IP_e__Union IP;
 }
 
-[CRepr]public struct WNV_POLICY_MISMATCH_PARAM
+[CRepr]
+public struct WNV_POLICY_MISMATCH_PARAM
 {
 	public uint16 CAFamily;
 	public uint16 PAFamily;
@@ -90,14 +95,16 @@ public enum WNV_CA_NOTIFICATION_TYPE : int32
 	public WNV_IP_ADDRESS PA;
 }
 
-[CRepr]public struct WNV_PROVIDER_ADDRESS_CHANGE_PARAM
+[CRepr]
+public struct WNV_PROVIDER_ADDRESS_CHANGE_PARAM
 {
 	public uint16 PAFamily;
 	public WNV_IP_ADDRESS PA;
 	public NL_DAD_STATE AddressState;
 }
 
-[CRepr]public struct WNV_CUSTOMER_ADDRESS_CHANGE_PARAM
+[CRepr]
+public struct WNV_CUSTOMER_ADDRESS_CHANGE_PARAM
 {
 	public DL_EUI48 MACAddress;
 	public uint16 CAFamily;
@@ -108,9 +115,11 @@ public enum WNV_CA_NOTIFICATION_TYPE : int32
 	public WNV_CA_NOTIFICATION_TYPE NotificationReason;
 }
 
-[CRepr]public struct WNV_OBJECT_CHANGE_PARAM
+[CRepr]
+public struct WNV_OBJECT_CHANGE_PARAM
 {
-	[CRepr, Union]	public struct _ObjectParam_e__Union
+	[CRepr, Union]
+	public struct _ObjectParam_e__Union
 	{
 		public WNV_PROVIDER_ADDRESS_CHANGE_PARAM ProviderAddressChange;
 		public WNV_CUSTOMER_ADDRESS_CHANGE_PARAM CustomerAddressChange;
@@ -120,7 +129,8 @@ public enum WNV_CA_NOTIFICATION_TYPE : int32
 	public _ObjectParam_e__Union ObjectParam;
 }
 
-[CRepr]public struct WNV_REDIRECT_PARAM
+[CRepr]
+public struct WNV_REDIRECT_PARAM
 {
 	public uint16 CAFamily;
 	public uint16 PAFamily;

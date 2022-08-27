@@ -1470,14 +1470,16 @@ public function HRESULT fpCreateIFEDictionaryInstanceType(void** ppvObj);
 #endregion
 
 #region Structs
-[CRepr]public struct COMPOSITIONFORM
+[CRepr]
+public struct COMPOSITIONFORM
 {
 	public uint32 dwStyle;
 	public POINT ptCurrentPos;
 	public RECT rcArea;
 }
 
-[CRepr]public struct CANDIDATEFORM
+[CRepr]
+public struct CANDIDATEFORM
 {
 	public uint32 dwIndex;
 	public uint32 dwStyle;
@@ -1485,7 +1487,8 @@ public function HRESULT fpCreateIFEDictionaryInstanceType(void** ppvObj);
 	public RECT rcArea;
 }
 
-[CRepr]public struct CANDIDATELIST
+[CRepr]
+public struct CANDIDATELIST
 {
 	public uint32 dwSize;
 	public uint32 dwStyle;
@@ -1496,19 +1499,22 @@ public function HRESULT fpCreateIFEDictionaryInstanceType(void** ppvObj);
 	public uint32[1] dwOffset;
 }
 
-[CRepr]public struct REGISTERWORDA
+[CRepr]
+public struct REGISTERWORDA
 {
 	public PSTR lpReading;
 	public PSTR lpWord;
 }
 
-[CRepr]public struct REGISTERWORDW
+[CRepr]
+public struct REGISTERWORDW
 {
 	public PWSTR lpReading;
 	public PWSTR lpWord;
 }
 
-[CRepr]public struct RECONVERTSTRING
+[CRepr]
+public struct RECONVERTSTRING
 {
 	public uint32 dwSize;
 	public uint32 dwVersion;
@@ -1520,19 +1526,22 @@ public function HRESULT fpCreateIFEDictionaryInstanceType(void** ppvObj);
 	public uint32 dwTargetStrOffset;
 }
 
-[CRepr]public struct STYLEBUFA
+[CRepr]
+public struct STYLEBUFA
 {
 	public uint32 dwStyle;
 	public CHAR[32] szDescription;
 }
 
-[CRepr]public struct STYLEBUFW
+[CRepr]
+public struct STYLEBUFW
 {
 	public uint32 dwStyle;
 	public char8[32] szDescription;
 }
 
-[CRepr]public struct IMEMENUITEMINFOA
+[CRepr]
+public struct IMEMENUITEMINFOA
 {
 	public uint32 cbSize;
 	public uint32 fType;
@@ -1545,7 +1554,8 @@ public function HRESULT fpCreateIFEDictionaryInstanceType(void** ppvObj);
 	public HBITMAP hbmpItem;
 }
 
-[CRepr]public struct IMEMENUITEMINFOW
+[CRepr]
+public struct IMEMENUITEMINFOW
 {
 	public uint32 cbSize;
 	public uint32 fType;
@@ -1558,7 +1568,8 @@ public function HRESULT fpCreateIFEDictionaryInstanceType(void** ppvObj);
 	public HBITMAP hbmpItem;
 }
 
-[CRepr]public struct IMECHARPOSITION
+[CRepr]
+public struct IMECHARPOSITION
 {
 	public uint32 dwSize;
 	public uint32 dwCharPos;
@@ -1567,7 +1578,8 @@ public function HRESULT fpCreateIFEDictionaryInstanceType(void** ppvObj);
 	public RECT rcDocument;
 }
 
-[CRepr, Packed(1)]public struct IMEDLG
+[CRepr, Packed(1)]
+public struct IMEDLG
 {
 	public int32 cbIMEDLG;
 	public HWND hwnd;
@@ -1575,15 +1587,18 @@ public function HRESULT fpCreateIFEDictionaryInstanceType(void** ppvObj);
 	public int32 nTabId;
 }
 
-[CRepr, Packed(1)]public struct WDD
+[CRepr, Packed(1)]
+public struct WDD
 {
-	[CRepr, Union, Packed(1)]	public struct _Anonymous2_e__Union
+	[CRepr, Union, Packed(1)]
+	public struct _Anonymous2_e__Union
 	{
 		public uint16 cchRead;
 		public uint16 cchComp;
 	}
 
-	[CRepr, Union, Packed(1)]	public struct _Anonymous1_e__Union
+	[CRepr, Union, Packed(1)]
+	public struct _Anonymous1_e__Union
 	{
 		public uint16 wReadPos;
 		public uint16 wCompPos;
@@ -1599,21 +1614,25 @@ public function HRESULT fpCreateIFEDictionaryInstanceType(void** ppvObj);
 	public void* pReserved;
 }
 
-[CRepr, Packed(1)]public struct MORRSLT
+[CRepr, Packed(1)]
+public struct MORRSLT
 {
-	[CRepr, Union, Packed(1)]	public struct _Anonymous2_e__Union
+	[CRepr, Union, Packed(1)]
+	public struct _Anonymous2_e__Union
 	{
 		public uint16 cchRead;
 		public uint16 cchComp;
 	}
 
-	[CRepr, Union, Packed(1)]	public struct _Anonymous3_e__Union
+	[CRepr, Union, Packed(1)]
+	public struct _Anonymous3_e__Union
 	{
 		public uint16* pchReadIdxWDD;
 		public uint16* pchCompIdxWDD;
 	}
 
-	[CRepr, Union, Packed(1)]	public struct _Anonymous1_e__Union
+	[CRepr, Union, Packed(1)]
+	public struct _Anonymous1_e__Union
 	{
 		public PWSTR pwchRead;
 		public PWSTR pwchComp;
@@ -1634,11 +1653,14 @@ public function HRESULT fpCreateIFEDictionaryInstanceType(void** ppvObj);
 	public char8[1] BLKBuff;
 }
 
-[CRepr, Packed(1)]public struct IMEWRD
+[CRepr, Packed(1)]
+public struct IMEWRD
 {
-	[CRepr, Union, Packed(1)]	public struct _Anonymous_e__Union
+	[CRepr, Union, Packed(1)]
+	public struct _Anonymous_e__Union
 	{
-		[CRepr, Packed(1)]		public struct _Anonymous_e__Struct
+		[CRepr, Packed(1)]
+		public struct _Anonymous_e__Struct
 		{
 			public uint16 nPos1;
 			public uint16 nPos2;
@@ -1657,7 +1679,8 @@ public function HRESULT fpCreateIFEDictionaryInstanceType(void** ppvObj);
 	public void* pvComment;
 }
 
-[CRepr, Packed(1)]public struct IMESHF
+[CRepr, Packed(1)]
+public struct IMESHF
 {
 	public uint16 cbShf;
 	public uint16 verDic;
@@ -1666,34 +1689,40 @@ public function HRESULT fpCreateIFEDictionaryInstanceType(void** ppvObj);
 	public CHAR[128] szCopyright;
 }
 
-[CRepr, Packed(1)]public struct POSTBL
+[CRepr, Packed(1)]
+public struct POSTBL
 {
 	public uint16 nPos;
 	public uint8* szName;
 }
 
-[CRepr, Packed(1)]public struct IMEDP
+[CRepr, Packed(1)]
+public struct IMEDP
 {
 	public IMEWRD wrdModifier;
 	public IMEWRD wrdModifiee;
 	public IMEREL relID;
 }
 
-[CRepr, Packed(1)]public struct IMEKMSINIT
+[CRepr, Packed(1)]
+public struct IMEKMSINIT
 {
 	public int32 cbSize;
 	public HWND hWnd;
 }
 
-[CRepr, Packed(1)]public struct IMEKMSKEY
+[CRepr, Packed(1)]
+public struct IMEKMSKEY
 {
-	[CRepr, Union, Packed(1)]	public struct _Anonymous1_e__Union
+	[CRepr, Union, Packed(1)]
+	public struct _Anonymous1_e__Union
 	{
 		public uint32 dwControl;
 		public uint32 dwNotUsed;
 	}
 
-	[CRepr, Union, Packed(1)]	public struct _Anonymous2_e__Union
+	[CRepr, Union, Packed(1)]
+	public struct _Anonymous2_e__Union
 	{
 		public char8[31] pwszDscr;
 		public char8[31] pwszNoUse;
@@ -1706,7 +1735,8 @@ public function HRESULT fpCreateIFEDictionaryInstanceType(void** ppvObj);
 	public _Anonymous2_e__Union Anonymous2;
 }
 
-[CRepr, Packed(1)]public struct IMEKMS
+[CRepr, Packed(1)]
+public struct IMEKMS
 {
 	public int32 cbSize;
 	public HIMC hIMC;
@@ -1714,14 +1744,16 @@ public function HRESULT fpCreateIFEDictionaryInstanceType(void** ppvObj);
 	public IMEKMSKEY* pKeyList;
 }
 
-[CRepr, Packed(1)]public struct IMEKMSNTFY
+[CRepr, Packed(1)]
+public struct IMEKMSNTFY
 {
 	public int32 cbSize;
 	public HIMC hIMC;
 	public BOOL fSelect;
 }
 
-[CRepr, Packed(1)]public struct IMEKMSKMP
+[CRepr, Packed(1)]
+public struct IMEKMSKMP
 {
 	public int32 cbSize;
 	public HIMC hIMC;
@@ -1732,14 +1764,16 @@ public function HRESULT fpCreateIFEDictionaryInstanceType(void** ppvObj);
 	public IMEKMSKEY* pKeyList;
 }
 
-[CRepr, Packed(1)]public struct IMEKMSINVK
+[CRepr, Packed(1)]
+public struct IMEKMSINVK
 {
 	public int32 cbSize;
 	public HIMC hIMC;
 	public uint32 dwControl;
 }
 
-[CRepr, Packed(1)]public struct IMEKMSFUNCDESC
+[CRepr, Packed(1)]
+public struct IMEKMSFUNCDESC
 {
 	public int32 cbSize;
 	public uint16 idLang;
@@ -1747,7 +1781,8 @@ public function HRESULT fpCreateIFEDictionaryInstanceType(void** ppvObj);
 	public char8[128] pwszDescription;
 }
 
-[CRepr]public struct COMPOSITIONSTRING
+[CRepr]
+public struct COMPOSITIONSTRING
 {
 	public uint32 dwSize;
 	public uint32 dwCompReadAttrLen;
@@ -1776,7 +1811,8 @@ public function HRESULT fpCreateIFEDictionaryInstanceType(void** ppvObj);
 	public uint32 dwPrivateOffset;
 }
 
-[CRepr]public struct GUIDELINE
+[CRepr]
+public struct GUIDELINE
 {
 	public uint32 dwSize;
 	public uint32 dwLevel;
@@ -1787,20 +1823,23 @@ public function HRESULT fpCreateIFEDictionaryInstanceType(void** ppvObj);
 	public uint32 dwPrivateOffset;
 }
 
-[CRepr]public struct TRANSMSG
+[CRepr]
+public struct TRANSMSG
 {
 	public uint32 message;
 	public WPARAM wParam;
 	public LPARAM lParam;
 }
 
-[CRepr]public struct TRANSMSGLIST
+[CRepr]
+public struct TRANSMSGLIST
 {
 	public uint32 uMsgCount;
 	public TRANSMSG[1] TransMsg;
 }
 
-[CRepr]public struct CANDIDATEINFO
+[CRepr]
+public struct CANDIDATEINFO
 {
 	public uint32 dwSize;
 	public uint32 dwCount;
@@ -1809,9 +1848,11 @@ public function HRESULT fpCreateIFEDictionaryInstanceType(void** ppvObj);
 	public uint32 dwPrivateOffset;
 }
 
-[CRepr]public struct INPUTCONTEXT
+[CRepr]
+public struct INPUTCONTEXT
 {
-	[CRepr, Union]	public struct _lfFont_e__Union
+	[CRepr, Union]
+	public struct _lfFont_e__Union
 	{
 		public LOGFONTA A;
 		public LOGFONTW W;
@@ -1836,7 +1877,8 @@ public function HRESULT fpCreateIFEDictionaryInstanceType(void** ppvObj);
 	public uint32[3] dwReserve;
 }
 
-[CRepr]public struct IMEINFO
+[CRepr]
+public struct IMEINFO
 {
 	public uint32 dwPrivateDataSize;
 	public uint32 fdwProperty;
@@ -1847,51 +1889,59 @@ public function HRESULT fpCreateIFEDictionaryInstanceType(void** ppvObj);
 	public uint32 fdwSelectCaps;
 }
 
-[CRepr]public struct SOFTKBDDATA
+[CRepr]
+public struct SOFTKBDDATA
 {
 	public uint32 uCount;
 	public uint16[256] wCode;
 }
 
-[CRepr]public struct APPLETIDLIST
+[CRepr]
+public struct APPLETIDLIST
 {
 	public int32 count;
 	public Guid* pIIDList;
 }
 
-[CRepr]public struct IMESTRINGCANDIDATE
+[CRepr]
+public struct IMESTRINGCANDIDATE
 {
 	public uint32 uCount;
 	public PWSTR[1] lpwstr;
 }
 
-[CRepr]public struct IMEITEM
+[CRepr]
+public struct IMEITEM
 {
 	public int32 cbSize;
 	public int32 iType;
 	public void* lpItemData;
 }
 
-[CRepr]public struct IMEITEMCANDIDATE
+[CRepr]
+public struct IMEITEMCANDIDATE
 {
 	public uint32 uCount;
 	public IMEITEM[1] imeItem;
 }
 
-[CRepr]public struct tabIMESTRINGINFO
+[CRepr]
+public struct tabIMESTRINGINFO
 {
 	public uint32 dwFarEastId;
 	public PWSTR lpwstr;
 }
 
-[CRepr]public struct tabIMEFAREASTINFO
+[CRepr]
+public struct tabIMEFAREASTINFO
 {
 	public uint32 dwSize;
 	public uint32 dwType;
 	public uint32[1] dwData;
 }
 
-[CRepr]public struct IMESTRINGCANDIDATEINFO
+[CRepr]
+public struct IMESTRINGCANDIDATEINFO
 {
 	public uint32 dwFarEastId;
 	public tabIMEFAREASTINFO* lpFarEastInfo;
@@ -1901,7 +1951,8 @@ public function HRESULT fpCreateIFEDictionaryInstanceType(void** ppvObj);
 	public PWSTR[1] lpwstr;
 }
 
-[CRepr]public struct IMECOMPOSITIONSTRINGINFO
+[CRepr]
+public struct IMECOMPOSITIONSTRINGINFO
 {
 	public int32 iCompStrLen;
 	public int32 iCaretPos;
@@ -1911,13 +1962,15 @@ public function HRESULT fpCreateIFEDictionaryInstanceType(void** ppvObj);
 	public int32 iTargetLen;
 }
 
-[CRepr]public struct IMECHARINFO
+[CRepr]
+public struct IMECHARINFO
 {
 	public char8 wch;
 	public uint32 dwCharInfo;
 }
 
-[CRepr]public struct IMEAPPLETCFG
+[CRepr]
+public struct IMEAPPLETCFG
 {
 	public uint32 dwConfig;
 	public char8[64] wchTitle;
@@ -1930,7 +1983,8 @@ public function HRESULT fpCreateIFEDictionaryInstanceType(void** ppvObj);
 	public LPARAM lReserved1;
 }
 
-[CRepr]public struct IMEAPPLETUI
+[CRepr]
+public struct IMEAPPLETUI
 {
 	public HWND hwnd;
 	public uint32 dwStyle;
@@ -1944,7 +1998,8 @@ public function HRESULT fpCreateIFEDictionaryInstanceType(void** ppvObj);
 	public LPARAM lReserved2;
 }
 
-[CRepr]public struct APPLYCANDEXPARAM
+[CRepr]
+public struct APPLYCANDEXPARAM
 {
 	public uint32 dwSize;
 	public PWSTR lpwstrDisplay;

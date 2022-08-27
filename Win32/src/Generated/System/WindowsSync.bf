@@ -209,13 +209,15 @@ public enum SYNC_REGISTRATION_EVENT : int32
 #endregion
 
 #region Structs
-[CRepr]public struct ID_PARAMETER_PAIR
+[CRepr]
+public struct ID_PARAMETER_PAIR
 {
 	public BOOL fIsVariable;
 	public uint16 cbIdSize;
 }
 
-[CRepr]public struct ID_PARAMETERS
+[CRepr]
+public struct ID_PARAMETERS
 {
 	public uint32 dwSize;
 	public ID_PARAMETER_PAIR replicaId;
@@ -223,37 +225,43 @@ public enum SYNC_REGISTRATION_EVENT : int32
 	public ID_PARAMETER_PAIR changeUnitId;
 }
 
-[CRepr]public struct SYNC_SESSION_STATISTICS
+[CRepr]
+public struct SYNC_SESSION_STATISTICS
 {
 	public uint32 dwChangesApplied;
 	public uint32 dwChangesFailed;
 }
 
-[CRepr]public struct SYNC_VERSION
+[CRepr]
+public struct SYNC_VERSION
 {
 	public uint32 dwLastUpdatingReplicaKey;
 	public uint64 ullTickCount;
 }
 
-[CRepr]public struct SYNC_RANGE
+[CRepr]
+public struct SYNC_RANGE
 {
 	public uint8* pbClosedLowerBound;
 	public uint8* pbClosedUpperBound;
 }
 
-[CRepr]public struct SYNC_TIME
+[CRepr]
+public struct SYNC_TIME
 {
 	public uint32 dwDate;
 	public uint32 dwTime;
 }
 
-[CRepr]public struct SYNC_FILTER_CHANGE
+[CRepr]
+public struct SYNC_FILTER_CHANGE
 {
 	public BOOL fMoveIn;
 	public SYNC_VERSION moveVersion;
 }
 
-[CRepr]public struct SyncProviderConfiguration
+[CRepr]
+public struct SyncProviderConfiguration
 {
 	public uint32 dwVersion;
 	public Guid guidInstanceId;
@@ -264,7 +272,8 @@ public enum SYNC_REGISTRATION_EVENT : int32
 	public uint32 dwSupportedArchitecture;
 }
 
-[CRepr]public struct SyncProviderConfigUIConfiguration
+[CRepr]
+public struct SyncProviderConfigUIConfiguration
 {
 	public uint32 dwVersion;
 	public Guid guidInstanceId;

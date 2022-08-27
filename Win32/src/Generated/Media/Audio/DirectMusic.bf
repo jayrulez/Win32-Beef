@@ -541,7 +541,8 @@ public function BOOL LPFNDIRECTSOUNDDEVICEENUMERATECALLBACKW(DSPROPERTY_DIRECTSO
 #endregion
 
 #region Structs
-[CRepr]public struct DLSID
+[CRepr]
+public struct DLSID
 {
 	public uint32 ulData1;
 	public uint16 usData2;
@@ -549,13 +550,15 @@ public function BOOL LPFNDIRECTSOUNDDEVICEENUMERATECALLBACKW(DSPROPERTY_DIRECTSO
 	public uint8[8] abData4;
 }
 
-[CRepr]public struct DLSVERSION
+[CRepr]
+public struct DLSVERSION
 {
 	public uint32 dwVersionMS;
 	public uint32 dwVersionLS;
 }
 
-[CRepr]public struct CONNECTION
+[CRepr]
+public struct CONNECTION
 {
 	public uint16 usSource;
 	public uint16 usControl;
@@ -564,25 +567,29 @@ public function BOOL LPFNDIRECTSOUNDDEVICEENUMERATECALLBACKW(DSPROPERTY_DIRECTSO
 	public int32 lScale;
 }
 
-[CRepr]public struct CONNECTIONLIST
+[CRepr]
+public struct CONNECTIONLIST
 {
 	public uint32 cbSize;
 	public uint32 cConnections;
 }
 
-[CRepr]public struct RGNRANGE
+[CRepr]
+public struct RGNRANGE
 {
 	public uint16 usLow;
 	public uint16 usHigh;
 }
 
-[CRepr]public struct MIDILOCALE
+[CRepr]
+public struct MIDILOCALE
 {
 	public uint32 ulBank;
 	public uint32 ulInstrument;
 }
 
-[CRepr]public struct RGNHEADER
+[CRepr]
+public struct RGNHEADER
 {
 	public RGNRANGE RangeKey;
 	public RGNRANGE RangeVelocity;
@@ -590,18 +597,21 @@ public function BOOL LPFNDIRECTSOUNDDEVICEENUMERATECALLBACKW(DSPROPERTY_DIRECTSO
 	public uint16 usKeyGroup;
 }
 
-[CRepr]public struct INSTHEADER
+[CRepr]
+public struct INSTHEADER
 {
 	public uint32 cRegions;
 	public MIDILOCALE Locale;
 }
 
-[CRepr]public struct DLSHEADER
+[CRepr]
+public struct DLSHEADER
 {
 	public uint32 cInstruments;
 }
 
-[CRepr]public struct WAVELINK
+[CRepr]
+public struct WAVELINK
 {
 	public uint16 fusOptions;
 	public uint16 usPhaseGroup;
@@ -609,18 +619,21 @@ public function BOOL LPFNDIRECTSOUNDDEVICEENUMERATECALLBACKW(DSPROPERTY_DIRECTSO
 	public uint32 ulTableIndex;
 }
 
-[CRepr]public struct POOLCUE
+[CRepr]
+public struct POOLCUE
 {
 	public uint32 ulOffset;
 }
 
-[CRepr]public struct POOLTABLE
+[CRepr]
+public struct POOLTABLE
 {
 	public uint32 cbSize;
 	public uint32 cCues;
 }
 
-[CRepr]public struct _rwsmp
+[CRepr]
+public struct _rwsmp
 {
 	public uint32 cbSize;
 	public uint16 usUnityNote;
@@ -630,7 +643,8 @@ public function BOOL LPFNDIRECTSOUNDDEVICEENUMERATECALLBACKW(DSPROPERTY_DIRECTSO
 	public uint32 cSampleLoops;
 }
 
-[CRepr]public struct _rloop
+[CRepr]
+public struct _rloop
 {
 	public uint32 cbSize;
 	public uint32 ulType;
@@ -638,7 +652,8 @@ public function BOOL LPFNDIRECTSOUNDDEVICEENUMERATECALLBACKW(DSPROPERTY_DIRECTSO
 	public uint32 ulLength;
 }
 
-[CRepr]public struct DMUS_DOWNLOADINFO
+[CRepr]
+public struct DMUS_DOWNLOADINFO
 {
 	public uint32 dwDLType;
 	public uint32 dwDLId;
@@ -646,12 +661,14 @@ public function BOOL LPFNDIRECTSOUNDDEVICEENUMERATECALLBACKW(DSPROPERTY_DIRECTSO
 	public uint32 cbSize;
 }
 
-[CRepr]public struct DMUS_OFFSETTABLE
+[CRepr]
+public struct DMUS_OFFSETTABLE
 {
 	public uint32[1] ulOffsetTable;
 }
 
-[CRepr]public struct DMUS_INSTRUMENT
+[CRepr]
+public struct DMUS_INSTRUMENT
 {
 	public uint32 ulPatch;
 	public uint32 ulFirstRegionIdx;
@@ -661,7 +678,8 @@ public function BOOL LPFNDIRECTSOUNDDEVICEENUMERATECALLBACKW(DSPROPERTY_DIRECTSO
 	public uint32 ulFlags;
 }
 
-[CRepr]public struct DMUS_REGION
+[CRepr]
+public struct DMUS_REGION
 {
 	public RGNRANGE RangeKey;
 	public RGNRANGE RangeVelocity;
@@ -675,7 +693,8 @@ public function BOOL LPFNDIRECTSOUNDDEVICEENUMERATECALLBACKW(DSPROPERTY_DIRECTSO
 	public _rloop[1] WLOOP;
 }
 
-[CRepr]public struct DMUS_LFOPARAMS
+[CRepr]
+public struct DMUS_LFOPARAMS
 {
 	public int32 pcFrequency;
 	public int32 tcDelay;
@@ -685,7 +704,8 @@ public function BOOL LPFNDIRECTSOUNDDEVICEENUMERATECALLBACKW(DSPROPERTY_DIRECTSO
 	public int32 pcMWToPitch;
 }
 
-[CRepr]public struct DMUS_VEGPARAMS
+[CRepr]
+public struct DMUS_VEGPARAMS
 {
 	public int32 tcAttack;
 	public int32 tcDecay;
@@ -695,7 +715,8 @@ public function BOOL LPFNDIRECTSOUNDDEVICEENUMERATECALLBACKW(DSPROPERTY_DIRECTSO
 	public int32 tcKey2Decay;
 }
 
-[CRepr]public struct DMUS_PEGPARAMS
+[CRepr]
+public struct DMUS_PEGPARAMS
 {
 	public int32 tcAttack;
 	public int32 tcDecay;
@@ -706,12 +727,14 @@ public function BOOL LPFNDIRECTSOUNDDEVICEENUMERATECALLBACKW(DSPROPERTY_DIRECTSO
 	public int32 pcRange;
 }
 
-[CRepr]public struct DMUS_MSCPARAMS
+[CRepr]
+public struct DMUS_MSCPARAMS
 {
 	public int32 ptDefaultPan;
 }
 
-[CRepr]public struct DMUS_ARTICPARAMS
+[CRepr]
+public struct DMUS_ARTICPARAMS
 {
 	public DMUS_LFOPARAMS LFO;
 	public DMUS_VEGPARAMS VolEG;
@@ -719,20 +742,23 @@ public function BOOL LPFNDIRECTSOUNDDEVICEENUMERATECALLBACKW(DSPROPERTY_DIRECTSO
 	public DMUS_MSCPARAMS Misc;
 }
 
-[CRepr]public struct DMUS_ARTICULATION
+[CRepr]
+public struct DMUS_ARTICULATION
 {
 	public uint32 ulArt1Idx;
 	public uint32 ulFirstExtCkIdx;
 }
 
-[CRepr]public struct DMUS_ARTICULATION2
+[CRepr]
+public struct DMUS_ARTICULATION2
 {
 	public uint32 ulArtIdx;
 	public uint32 ulFirstExtCkIdx;
 	public uint32 ulNextArtIdx;
 }
 
-[CRepr]public struct DMUS_EXTENSIONCHUNK
+[CRepr]
+public struct DMUS_EXTENSIONCHUNK
 {
 	public uint32 cbSize;
 	public uint32 ulNextExtCkIdx;
@@ -740,19 +766,22 @@ public function BOOL LPFNDIRECTSOUNDDEVICEENUMERATECALLBACKW(DSPROPERTY_DIRECTSO
 	public uint8[4] byExtCk;
 }
 
-[CRepr]public struct DMUS_COPYRIGHT
+[CRepr]
+public struct DMUS_COPYRIGHT
 {
 	public uint32 cbSize;
 	public uint8[4] byCopyright;
 }
 
-[CRepr]public struct DMUS_WAVEDATA
+[CRepr]
+public struct DMUS_WAVEDATA
 {
 	public uint32 cbSize;
 	public uint8[4] byData;
 }
 
-[CRepr]public struct DMUS_WAVE
+[CRepr]
+public struct DMUS_WAVE
 {
 	public uint32 ulFirstExtCkIdx;
 	public uint32 ulCopyrightIdx;
@@ -760,13 +789,15 @@ public function BOOL LPFNDIRECTSOUNDDEVICEENUMERATECALLBACKW(DSPROPERTY_DIRECTSO
 	public WAVEFORMATEX WaveformatEx;
 }
 
-[CRepr]public struct DMUS_NOTERANGE
+[CRepr]
+public struct DMUS_NOTERANGE
 {
 	public uint32 dwLowNote;
 	public uint32 dwHighNote;
 }
 
-[CRepr]public struct DMUS_WAVEARTDL
+[CRepr]
+public struct DMUS_WAVEARTDL
 {
 	public uint32 ulDownloadIdIdx;
 	public uint32 ulBus;
@@ -775,12 +806,14 @@ public function BOOL LPFNDIRECTSOUNDDEVICEENUMERATECALLBACKW(DSPROPERTY_DIRECTSO
 	public uint16 usOptions;
 }
 
-[CRepr]public struct DMUS_WAVEDL
+[CRepr]
+public struct DMUS_WAVEDL
 {
 	public uint32 cbWaveData;
 }
 
-[CRepr, Packed(4)]public struct DMUS_EVENTHEADER
+[CRepr, Packed(4)]
+public struct DMUS_EVENTHEADER
 {
 	public uint32 cbEvent;
 	public uint32 dwChannelGroup;
@@ -788,7 +821,8 @@ public function BOOL LPFNDIRECTSOUNDDEVICEENUMERATECALLBACKW(DSPROPERTY_DIRECTSO
 	public uint32 dwFlags;
 }
 
-[CRepr]public struct DMUS_BUFFERDESC
+[CRepr]
+public struct DMUS_BUFFERDESC
 {
 	public uint32 dwSize;
 	public uint32 dwFlags;
@@ -796,7 +830,8 @@ public function BOOL LPFNDIRECTSOUNDDEVICEENUMERATECALLBACKW(DSPROPERTY_DIRECTSO
 	public uint32 cbBuffer;
 }
 
-[CRepr]public struct DMUS_PORTCAPS
+[CRepr]
+public struct DMUS_PORTCAPS
 {
 	public uint32 dwSize;
 	public uint32 dwFlags;
@@ -811,7 +846,8 @@ public function BOOL LPFNDIRECTSOUNDDEVICEENUMERATECALLBACKW(DSPROPERTY_DIRECTSO
 	public char8[128] wszDescription;
 }
 
-[CRepr]public struct _DMUS_PORTPARAMS
+[CRepr]
+public struct _DMUS_PORTPARAMS
 {
 	public uint32 dwSize;
 	public uint32 dwValidParams;
@@ -823,7 +859,8 @@ public function BOOL LPFNDIRECTSOUNDDEVICEENUMERATECALLBACKW(DSPROPERTY_DIRECTSO
 	public BOOL fShare;
 }
 
-[CRepr]public struct DMUS_PORTPARAMS8
+[CRepr]
+public struct DMUS_PORTPARAMS8
 {
 	public uint32 dwSize;
 	public uint32 dwValidParams;
@@ -836,7 +873,8 @@ public function BOOL LPFNDIRECTSOUNDDEVICEENUMERATECALLBACKW(DSPROPERTY_DIRECTSO
 	public uint32 dwFeatures;
 }
 
-[CRepr]public struct DMUS_SYNTHSTATS
+[CRepr]
+public struct DMUS_SYNTHSTATS
 {
 	public uint32 dwSize;
 	public uint32 dwValidStats;
@@ -848,7 +886,8 @@ public function BOOL LPFNDIRECTSOUNDDEVICEENUMERATECALLBACKW(DSPROPERTY_DIRECTSO
 	public int32 lPeakVolume;
 }
 
-[CRepr]public struct DMUS_SYNTHSTATS8
+[CRepr]
+public struct DMUS_SYNTHSTATS8
 {
 	public uint32 dwSize;
 	public uint32 dwValidStats;
@@ -861,7 +900,8 @@ public function BOOL LPFNDIRECTSOUNDDEVICEENUMERATECALLBACKW(DSPROPERTY_DIRECTSO
 	public uint32 dwSynthMemUse;
 }
 
-[CRepr]public struct DMUS_WAVES_REVERB_PARAMS
+[CRepr]
+public struct DMUS_WAVES_REVERB_PARAMS
 {
 	public float fInGain;
 	public float fReverbMix;
@@ -869,7 +909,8 @@ public function BOOL LPFNDIRECTSOUNDDEVICEENUMERATECALLBACKW(DSPROPERTY_DIRECTSO
 	public float fHighFreqRTRatio;
 }
 
-[CRepr]public struct DMUS_CLOCKINFO7
+[CRepr]
+public struct DMUS_CLOCKINFO7
 {
 	public uint32 dwSize;
 	public DMUS_CLOCKTYPE ctType;
@@ -877,7 +918,8 @@ public function BOOL LPFNDIRECTSOUNDDEVICEENUMERATECALLBACKW(DSPROPERTY_DIRECTSO
 	public char8[128] wszDescription;
 }
 
-[CRepr]public struct DMUS_CLOCKINFO8
+[CRepr]
+public struct DMUS_CLOCKINFO8
 {
 	public uint32 dwSize;
 	public DMUS_CLOCKTYPE ctType;
@@ -886,27 +928,31 @@ public function BOOL LPFNDIRECTSOUNDDEVICEENUMERATECALLBACKW(DSPROPERTY_DIRECTSO
 	public uint32 dwFlags;
 }
 
-[CRepr]public struct DMUS_VOICE_STATE
+[CRepr]
+public struct DMUS_VOICE_STATE
 {
 	public BOOL bExists;
 	public uint64 spPosition;
 }
 
-[CRepr]public struct DSPROPERTY_DIRECTSOUNDDEVICE_WAVEDEVICEMAPPING_A_DATA
+[CRepr]
+public struct DSPROPERTY_DIRECTSOUNDDEVICE_WAVEDEVICEMAPPING_A_DATA
 {
 	public PSTR DeviceName;
 	public DIRECTSOUNDDEVICE_DATAFLOW DataFlow;
 	public Guid DeviceId;
 }
 
-[CRepr]public struct DSPROPERTY_DIRECTSOUNDDEVICE_WAVEDEVICEMAPPING_W_DATA
+[CRepr]
+public struct DSPROPERTY_DIRECTSOUNDDEVICE_WAVEDEVICEMAPPING_W_DATA
 {
 	public PWSTR DeviceName;
 	public DIRECTSOUNDDEVICE_DATAFLOW DataFlow;
 	public Guid DeviceId;
 }
 
-[CRepr]public struct DSPROPERTY_DIRECTSOUNDDEVICE_DESCRIPTION_1_DATA
+[CRepr]
+public struct DSPROPERTY_DIRECTSOUNDDEVICE_DESCRIPTION_1_DATA
 {
 	public Guid DeviceId;
 	public CHAR[256] DescriptionA;
@@ -919,7 +965,8 @@ public function BOOL LPFNDIRECTSOUNDDEVICEENUMERATECALLBACKW(DSPROPERTY_DIRECTSO
 	public uint32 Devnode;
 }
 
-[CRepr]public struct DSPROPERTY_DIRECTSOUNDDEVICE_DESCRIPTION_A_DATA
+[CRepr]
+public struct DSPROPERTY_DIRECTSOUNDDEVICE_DESCRIPTION_A_DATA
 {
 	public DIRECTSOUNDDEVICE_TYPE Type;
 	public DIRECTSOUNDDEVICE_DATAFLOW DataFlow;
@@ -930,7 +977,8 @@ public function BOOL LPFNDIRECTSOUNDDEVICEENUMERATECALLBACKW(DSPROPERTY_DIRECTSO
 	public uint32 WaveDeviceId;
 }
 
-[CRepr]public struct DSPROPERTY_DIRECTSOUNDDEVICE_DESCRIPTION_W_DATA
+[CRepr]
+public struct DSPROPERTY_DIRECTSOUNDDEVICE_DESCRIPTION_W_DATA
 {
 	public DIRECTSOUNDDEVICE_TYPE Type;
 	public DIRECTSOUNDDEVICE_DATAFLOW DataFlow;
@@ -941,25 +989,29 @@ public function BOOL LPFNDIRECTSOUNDDEVICEENUMERATECALLBACKW(DSPROPERTY_DIRECTSO
 	public uint32 WaveDeviceId;
 }
 
-[CRepr]public struct DSPROPERTY_DIRECTSOUNDDEVICE_ENUMERATE_1_DATA
+[CRepr]
+public struct DSPROPERTY_DIRECTSOUNDDEVICE_ENUMERATE_1_DATA
 {
 	public LPFNDIRECTSOUNDDEVICEENUMERATECALLBACK1 Callback;
 	public void* Context;
 }
 
-[CRepr]public struct DSPROPERTY_DIRECTSOUNDDEVICE_ENUMERATE_A_DATA
+[CRepr]
+public struct DSPROPERTY_DIRECTSOUNDDEVICE_ENUMERATE_A_DATA
 {
 	public LPFNDIRECTSOUNDDEVICEENUMERATECALLBACKA Callback;
 	public void* Context;
 }
 
-[CRepr]public struct DSPROPERTY_DIRECTSOUNDDEVICE_ENUMERATE_W_DATA
+[CRepr]
+public struct DSPROPERTY_DIRECTSOUNDDEVICE_ENUMERATE_W_DATA
 {
 	public LPFNDIRECTSOUNDDEVICEENUMERATECALLBACKW Callback;
 	public void* Context;
 }
 
-[CRepr]public struct Tag_DVAudInfo
+[CRepr]
+public struct Tag_DVAudInfo
 {
 	public uint8[2] bAudStyle;
 	public uint8[2] bAudQu;
@@ -970,13 +1022,15 @@ public function BOOL LPFNDIRECTSOUNDDEVICEENUMERATECALLBACKW(DSPROPERTY_DIRECTSO
 	public uint16 wBlkDiv;
 }
 
-[CRepr, Packed(1)]public struct MDEVICECAPSEX
+[CRepr, Packed(1)]
+public struct MDEVICECAPSEX
 {
 	public uint32 cbSize;
 	public void* pCaps;
 }
 
-[CRepr, Packed(1)]public struct MIDIOPENDESC
+[CRepr, Packed(1)]
+public struct MIDIOPENDESC
 {
 	public HMIDI hMidi;
 	public uint dwCallback;

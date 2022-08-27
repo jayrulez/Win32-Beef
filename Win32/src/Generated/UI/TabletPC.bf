@@ -2067,7 +2067,8 @@ public function HRESULT PfnRecoCallback(uint32 param0, uint8* param1, HRECOCONTE
 #endregion
 
 #region Structs
-[CRepr]public struct SYSTEM_EVENT_DATA
+[CRepr]
+public struct SYSTEM_EVENT_DATA
 {
 	public uint8 bModifier;
 	public char8 wKey;
@@ -2077,13 +2078,15 @@ public function HRESULT PfnRecoCallback(uint32 param0, uint8* param1, HRECOCONTE
 	public uint32 dwButtonState;
 }
 
-[CRepr]public struct STROKE_RANGE
+[CRepr]
+public struct STROKE_RANGE
 {
 	public uint32 iStrokeBegin;
 	public uint32 iStrokeEnd;
 }
 
-[CRepr]public struct PROPERTY_METRICS
+[CRepr]
+public struct PROPERTY_METRICS
 {
 	public int32 nLogicalMin;
 	public int32 nLogicalMax;
@@ -2091,13 +2094,15 @@ public function HRESULT PfnRecoCallback(uint32 param0, uint8* param1, HRECOCONTE
 	public float fResolution;
 }
 
-[CRepr]public struct PACKET_PROPERTY
+[CRepr]
+public struct PACKET_PROPERTY
 {
 	public Guid guid;
 	public PROPERTY_METRICS PropertyMetrics;
 }
 
-[CRepr]public struct PACKET_DESCRIPTION
+[CRepr]
+public struct PACKET_DESCRIPTION
 {
 	public uint32 cbPacketSize;
 	public uint32 cPacketProperties;
@@ -2106,7 +2111,8 @@ public function HRESULT PfnRecoCallback(uint32 param0, uint8* param1, HRECOCONTE
 	public Guid* pguidButtons;
 }
 
-[CRepr]public struct INKMETRIC
+[CRepr]
+public struct INKMETRIC
 {
 	public int32 iHeight;
 	public int32 iFontAscent;
@@ -2115,7 +2121,8 @@ public function HRESULT PfnRecoCallback(uint32 param0, uint8* param1, HRECOCONTE
 	public uint32 color;
 }
 
-[CRepr]public struct InkRecoGuide
+[CRepr]
+public struct InkRecoGuide
 {
 	public RECT rectWritingBox;
 	public RECT rectDrawnBox;
@@ -2124,24 +2131,28 @@ public function HRESULT PfnRecoCallback(uint32 param0, uint8* param1, HRECOCONTE
 	public int32 midline;
 }
 
-[CRepr]public struct FLICK_POINT
+[CRepr]
+public struct FLICK_POINT
 {
 	public int32 _bitfield;
 }
 
-[CRepr]public struct FLICK_DATA
+[CRepr]
+public struct FLICK_DATA
 {
 	public int32 _bitfield;
 }
 
-[CRepr]public struct IEC_STROKEINFO
+[CRepr]
+public struct IEC_STROKEINFO
 {
 	public NMHDR nmhdr;
 	public IInkCursor* Cursor;
 	public IInkStrokeDisp* Stroke;
 }
 
-[CRepr]public struct IEC_GESTUREINFO
+[CRepr]
+public struct IEC_GESTUREINFO
 {
 	public NMHDR nmhdr;
 	public IInkCursor* Cursor;
@@ -2149,33 +2160,38 @@ public function HRESULT PfnRecoCallback(uint32 param0, uint8* param1, HRECOCONTE
 	public VARIANT Gestures;
 }
 
-[CRepr]public struct IEC_RECOGNITIONRESULTINFO
+[CRepr]
+public struct IEC_RECOGNITIONRESULTINFO
 {
 	public NMHDR nmhdr;
 	public IInkRecognitionResult* RecognitionResult;
 }
 
-[CRepr]public struct StylusInfo
+[CRepr]
+public struct StylusInfo
 {
 	public uint32 tcid;
 	public uint32 cid;
 	public BOOL bIsInvertedCursor;
 }
 
-[CRepr]public struct GESTURE_DATA
+[CRepr]
+public struct GESTURE_DATA
 {
 	public int32 gestureId;
 	public int32 recoConfidence;
 	public int32 strokeCount;
 }
 
-[CRepr]public struct DYNAMIC_RENDERER_CACHED_DATA
+[CRepr]
+public struct DYNAMIC_RENDERER_CACHED_DATA
 {
 	public int32 strokeId;
 	public IDynamicRenderer* dynamicRenderer;
 }
 
-[CRepr]public struct RECO_GUIDE
+[CRepr]
+public struct RECO_GUIDE
 {
 	public int32 xOrigin;
 	public int32 yOrigin;
@@ -2188,7 +2204,8 @@ public function HRESULT PfnRecoCallback(uint32 param0, uint8* param1, HRECOCONTE
 	public int32 cyMid;
 }
 
-[CRepr]public struct RECO_ATTRS
+[CRepr]
+public struct RECO_ATTRS
 {
 	public uint32 dwRecoCapabilityFlags;
 	public char8[32] awcVendorName;
@@ -2196,38 +2213,44 @@ public function HRESULT PfnRecoCallback(uint32 param0, uint8* param1, HRECOCONTE
 	public uint16[64] awLanguageId;
 }
 
-[CRepr]public struct RECO_RANGE
+[CRepr]
+public struct RECO_RANGE
 {
 	public uint32 iwcBegin;
 	public uint32 cCount;
 }
 
-[CRepr]public struct LINE_SEGMENT
+[CRepr]
+public struct LINE_SEGMENT
 {
 	public POINT PtA;
 	public POINT PtB;
 }
 
-[CRepr]public struct LATTICE_METRICS
+[CRepr]
+public struct LATTICE_METRICS
 {
 	public LINE_SEGMENT lsBaseline;
 	public int16 iMidlineOffset;
 }
 
-[CRepr]public struct RECO_LATTICE_PROPERTY
+[CRepr]
+public struct RECO_LATTICE_PROPERTY
 {
 	public Guid guidProperty;
 	public uint16 cbPropertyValue;
 	public uint8* pPropertyValue;
 }
 
-[CRepr]public struct RECO_LATTICE_PROPERTIES
+[CRepr]
+public struct RECO_LATTICE_PROPERTIES
 {
 	public uint32 cProperties;
 	public RECO_LATTICE_PROPERTY** apProps;
 }
 
-[CRepr]public struct RECO_LATTICE_ELEMENT
+[CRepr]
+public struct RECO_LATTICE_ELEMENT
 {
 	public int32 score;
 	public uint16 type;
@@ -2237,7 +2260,8 @@ public function HRESULT PfnRecoCallback(uint32 param0, uint8* param1, HRECOCONTE
 	public RECO_LATTICE_PROPERTIES epProp;
 }
 
-[CRepr]public struct RECO_LATTICE_COLUMN
+[CRepr]
+public struct RECO_LATTICE_COLUMN
 {
 	public uint32 key;
 	public RECO_LATTICE_PROPERTIES cpProp;
@@ -2247,7 +2271,8 @@ public function HRESULT PfnRecoCallback(uint32 param0, uint8* param1, HRECOCONTE
 	public RECO_LATTICE_ELEMENT* pLatticeElements;
 }
 
-[CRepr]public struct RECO_LATTICE
+[CRepr]
+public struct RECO_LATTICE
 {
 	public uint32 ulColumnCount;
 	public RECO_LATTICE_COLUMN* pLatticeColumns;
@@ -2258,7 +2283,8 @@ public function HRESULT PfnRecoCallback(uint32 param0, uint8* param1, HRECOCONTE
 	public uint32* pulBestResultIndexes;
 }
 
-[CRepr]public struct CHARACTER_RANGE
+[CRepr]
+public struct CHARACTER_RANGE
 {
 	public char8 wcLow;
 	public uint16 cChars;

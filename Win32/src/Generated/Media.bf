@@ -237,11 +237,14 @@ public function void LPTIMECALLBACK(uint32 uTimerID, uint32 uMsg, uint dwUser, u
 #endregion
 
 #region Structs
-[CRepr, Packed(1)]public struct MMTIME
+[CRepr, Packed(1)]
+public struct MMTIME
 {
-	[CRepr, Union, Packed(1)]	public struct _u_e__Union
+	[CRepr, Union, Packed(1)]
+	public struct _u_e__Union
 	{
-		[CRepr]		public struct _smpte_e__Struct
+		[CRepr]
+		public struct _smpte_e__Struct
 		{
 			public uint8 hour;
 			public uint8 min;
@@ -252,7 +255,8 @@ public function void LPTIMECALLBACK(uint32 uTimerID, uint32 uMsg, uint dwUser, u
 			public uint8[2] pad;
 		}
 
-		[CRepr, Packed(1)]		public struct _midi_e__Struct
+		[CRepr, Packed(1)]
+		public struct _midi_e__Struct
 		{
 			public uint32 songptrpos;
 		}
@@ -269,15 +273,18 @@ public function void LPTIMECALLBACK(uint32 uTimerID, uint32 uMsg, uint dwUser, u
 	public _u_e__Union u;
 }
 
-[CRepr]public struct TIMECAPS
+[CRepr]
+public struct TIMECAPS
 {
 	public uint32 wPeriodMin;
 	public uint32 wPeriodMax;
 }
 
-[CRepr, Union]public struct TIMECODE
+[CRepr, Union]
+public struct TIMECODE
 {
-	[CRepr]	public struct _Anonymous_e__Struct
+	[CRepr]
+	public struct _Anonymous_e__Struct
 	{
 		public uint16 wFrameRate;
 		public uint16 wFrameFract;
@@ -288,7 +295,8 @@ public function void LPTIMECALLBACK(uint32 uTimerID, uint32 uMsg, uint dwUser, u
 	public uint64 qw;
 }
 
-[CRepr]public struct TIMECODE_SAMPLE
+[CRepr]
+public struct TIMECODE_SAMPLE
 {
 	public int64 qwTick;
 	public TIMECODE timecode;

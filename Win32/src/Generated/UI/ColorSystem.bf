@@ -340,7 +340,8 @@ public function BOOL PCMSCALLBACKA(COLORMATCHSETUPA* param0, LPARAM param1);
 #endregion
 
 #region Structs
-[CRepr]public struct LOGCOLORSPACEA
+[CRepr]
+public struct LOGCOLORSPACEA
 {
 	public uint32 lcsSignature;
 	public uint32 lcsVersion;
@@ -354,7 +355,8 @@ public function BOOL PCMSCALLBACKA(COLORMATCHSETUPA* param0, LPARAM param1);
 	public CHAR[260] lcsFilename;
 }
 
-[CRepr]public struct LOGCOLORSPACEW
+[CRepr]
+public struct LOGCOLORSPACEW
 {
 	public uint32 lcsSignature;
 	public uint32 lcsVersion;
@@ -368,14 +370,16 @@ public function BOOL PCMSCALLBACKA(COLORMATCHSETUPA* param0, LPARAM param1);
 	public char8[260] lcsFilename;
 }
 
-[CRepr]public struct EMRCREATECOLORSPACE
+[CRepr]
+public struct EMRCREATECOLORSPACE
 {
 	public EMR emr;
 	public uint32 ihCS;
 	public LOGCOLORSPACEA lcs;
 }
 
-[CRepr]public struct EMRCREATECOLORSPACEW
+[CRepr]
+public struct EMRCREATECOLORSPACEW
 {
 	public EMR emr;
 	public uint32 ihCS;
@@ -385,33 +389,38 @@ public function BOOL PCMSCALLBACKA(COLORMATCHSETUPA* param0, LPARAM param1);
 	public uint8[1] Data;
 }
 
-[CRepr]public struct XYZColorF
+[CRepr]
+public struct XYZColorF
 {
 	public float X;
 	public float Y;
 	public float Z;
 }
 
-[CRepr]public struct JChColorF
+[CRepr]
+public struct JChColorF
 {
 	public float J;
 	public float C;
 	public float h;
 }
 
-[CRepr]public struct JabColorF
+[CRepr]
+public struct JabColorF
 {
 	public float J;
 	public float a;
 	public float b;
 }
 
-[CRepr]public struct GamutShellTriangle
+[CRepr]
+public struct GamutShellTriangle
 {
 	public uint32[3] aVertexIndex;
 }
 
-[CRepr]public struct GamutShell
+[CRepr]
+public struct GamutShell
 {
 	public float JMin;
 	public float JMax;
@@ -421,7 +430,8 @@ public function BOOL PCMSCALLBACKA(COLORMATCHSETUPA* param0, LPARAM param1);
 	public GamutShellTriangle* pTriangles;
 }
 
-[CRepr]public struct PrimaryJabColors
+[CRepr]
+public struct PrimaryJabColors
 {
 	public JabColorF red;
 	public JabColorF yellow;
@@ -433,7 +443,8 @@ public function BOOL PCMSCALLBACKA(COLORMATCHSETUPA* param0, LPARAM param1);
 	public JabColorF white;
 }
 
-[CRepr]public struct PrimaryXYZColors
+[CRepr]
+public struct PrimaryXYZColors
 {
 	public XYZColorF red;
 	public XYZColorF yellow;
@@ -445,7 +456,8 @@ public function BOOL PCMSCALLBACKA(COLORMATCHSETUPA* param0, LPARAM param1);
 	public XYZColorF white;
 }
 
-[CRepr]public struct GamutBoundaryDescription
+[CRepr]
+public struct GamutBoundaryDescription
 {
 	public PrimaryJabColors* pPrimaries;
 	public uint32 cNeutralSamples;
@@ -455,13 +467,15 @@ public function BOOL PCMSCALLBACKA(COLORMATCHSETUPA* param0, LPARAM param1);
 	public GamutShell* pPossibleShell;
 }
 
-[CRepr]public struct BlackInformation
+[CRepr]
+public struct BlackInformation
 {
 	public BOOL fBlackOnly;
 	public float blackWeight;
 }
 
-[CRepr]public struct NAMED_PROFILE_INFO
+[CRepr]
+public struct NAMED_PROFILE_INFO
 {
 	public uint32 dwFlags;
 	public uint32 dwCount;
@@ -470,19 +484,22 @@ public function BOOL PCMSCALLBACKA(COLORMATCHSETUPA* param0, LPARAM param1);
 	public int8[32] szSuffix;
 }
 
-[CRepr]public struct GRAYCOLOR
+[CRepr]
+public struct GRAYCOLOR
 {
 	public uint16 gray;
 }
 
-[CRepr]public struct RGBCOLOR
+[CRepr]
+public struct RGBCOLOR
 {
 	public uint16 red;
 	public uint16 green;
 	public uint16 blue;
 }
 
-[CRepr]public struct CMYKCOLOR
+[CRepr]
+public struct CMYKCOLOR
 {
 	public uint16 cyan;
 	public uint16 magenta;
@@ -490,47 +507,55 @@ public function BOOL PCMSCALLBACKA(COLORMATCHSETUPA* param0, LPARAM param1);
 	public uint16 black;
 }
 
-[CRepr]public struct XYZCOLOR
+[CRepr]
+public struct XYZCOLOR
 {
 	public uint16 X;
 	public uint16 Y;
 	public uint16 Z;
 }
 
-[CRepr]public struct YxyCOLOR
+[CRepr]
+public struct YxyCOLOR
 {
 	public uint16 Y;
 	public uint16 x;
 	public uint16 y;
 }
 
-[CRepr]public struct LabCOLOR
+[CRepr]
+public struct LabCOLOR
 {
 	public uint16 L;
 	public uint16 a;
 	public uint16 b;
 }
 
-[CRepr]public struct GENERIC3CHANNEL
+[CRepr]
+public struct GENERIC3CHANNEL
 {
 	public uint16 ch1;
 	public uint16 ch2;
 	public uint16 ch3;
 }
 
-[CRepr]public struct NAMEDCOLOR
+[CRepr]
+public struct NAMEDCOLOR
 {
 	public uint32 dwIndex;
 }
 
-[CRepr]public struct HiFiCOLOR
+[CRepr]
+public struct HiFiCOLOR
 {
 	public uint8[8] channel;
 }
 
-[CRepr, Union]public struct COLOR
+[CRepr, Union]
+public struct COLOR
 {
-	[CRepr]	public struct _Anonymous_e__Struct
+	[CRepr]
+	public struct _Anonymous_e__Struct
 	{
 		public uint32 reserved1;
 		public void* reserved2;
@@ -548,7 +573,8 @@ public function BOOL PCMSCALLBACKA(COLORMATCHSETUPA* param0, LPARAM param1);
 	public using _Anonymous_e__Struct Anonymous;
 }
 
-[CRepr]public struct PROFILEHEADER
+[CRepr]
+public struct PROFILEHEADER
 {
 	public uint32 phSize;
 	public uint32 phCMMType;
@@ -569,14 +595,16 @@ public function BOOL PCMSCALLBACKA(COLORMATCHSETUPA* param0, LPARAM param1);
 	public uint8[44] phReserved;
 }
 
-[CRepr]public struct PROFILE
+[CRepr]
+public struct PROFILE
 {
 	public uint32 dwType;
 	public void* pProfileData;
 	public uint32 cbDataSize;
 }
 
-[CRepr]public struct ENUMTYPEA
+[CRepr]
+public struct ENUMTYPEA
 {
 	public uint32 dwSize;
 	public uint32 dwVersion;
@@ -600,7 +628,8 @@ public function BOOL PCMSCALLBACKA(COLORMATCHSETUPA* param0, LPARAM param1);
 	public uint32 dwDeviceClass;
 }
 
-[CRepr]public struct ENUMTYPEW
+[CRepr]
+public struct ENUMTYPEW
 {
 	public uint32 dwSize;
 	public uint32 dwVersion;
@@ -624,7 +653,8 @@ public function BOOL PCMSCALLBACKA(COLORMATCHSETUPA* param0, LPARAM param1);
 	public uint32 dwDeviceClass;
 }
 
-[CRepr]public struct COLORMATCHSETUPW
+[CRepr]
+public struct COLORMATCHSETUPW
 {
 	public uint32 dwSize;
 	public uint32 dwVersion;
@@ -647,7 +677,8 @@ public function BOOL PCMSCALLBACKA(COLORMATCHSETUPA* param0, LPARAM param1);
 	public LPARAM lParamApplyCallback;
 }
 
-[CRepr]public struct COLORMATCHSETUPA
+[CRepr]
+public struct COLORMATCHSETUPA
 {
 	public uint32 dwSize;
 	public uint32 dwVersion;
@@ -670,13 +701,15 @@ public function BOOL PCMSCALLBACKA(COLORMATCHSETUPA* param0, LPARAM param1);
 	public LPARAM lParamApplyCallback;
 }
 
-[CRepr]public struct WCS_DEVICE_VCGT_CAPABILITIES
+[CRepr]
+public struct WCS_DEVICE_VCGT_CAPABILITIES
 {
 	public uint32 Size;
 	public BOOL SupportsVcgt;
 }
 
-[CRepr]public struct WCS_DEVICE_MHC2_CAPABILITIES
+[CRepr]
+public struct WCS_DEVICE_MHC2_CAPABILITIES
 {
 	public uint32 Size;
 	public BOOL SupportsMhc2;

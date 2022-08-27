@@ -480,16 +480,19 @@ public function uint32 SEC_THREAD_START(void* lpThreadParameter);
 #endregion
 
 #region Structs
-[CRepr]public struct SECURITY_ATTRIBUTES
+[CRepr]
+public struct SECURITY_ATTRIBUTES
 {
 	public uint32 nLength;
 	public void* lpSecurityDescriptor;
 	public BOOL bInheritHandle;
 }
 
-[CRepr]public struct LLFILETIME
+[CRepr]
+public struct LLFILETIME
 {
-	[CRepr, Union]	public struct _Anonymous_e__Union
+	[CRepr, Union]
+	public struct _Anonymous_e__Union
 	{
 		public int64 ll;
 		public FILETIME ft;
@@ -498,7 +501,8 @@ public function uint32 SEC_THREAD_START(void* lpThreadParameter);
 	public using _Anonymous_e__Union Anonymous;
 }
 
-[CRepr]public struct GENERIC_MAPPING
+[CRepr]
+public struct GENERIC_MAPPING
 {
 	public uint32 GenericRead;
 	public uint32 GenericWrite;
@@ -506,18 +510,21 @@ public function uint32 SEC_THREAD_START(void* lpThreadParameter);
 	public uint32 GenericAll;
 }
 
-[CRepr]public struct LUID_AND_ATTRIBUTES
+[CRepr]
+public struct LUID_AND_ATTRIBUTES
 {
 	public LUID Luid;
 	public TOKEN_PRIVILEGES_ATTRIBUTES Attributes;
 }
 
-[CRepr]public struct SID_IDENTIFIER_AUTHORITY
+[CRepr]
+public struct SID_IDENTIFIER_AUTHORITY
 {
 	public uint8[6] Value;
 }
 
-[CRepr]public struct SID
+[CRepr]
+public struct SID
 {
 	public uint8 Revision;
 	public uint8 SubAuthorityCount;
@@ -525,26 +532,30 @@ public function uint32 SEC_THREAD_START(void* lpThreadParameter);
 	public uint32[1] SubAuthority;
 }
 
-[CRepr, Union]public struct SE_SID
+[CRepr, Union]
+public struct SE_SID
 {
 	public SID Sid;
 	public uint8[68] Buffer;
 }
 
-[CRepr]public struct SID_AND_ATTRIBUTES
+[CRepr]
+public struct SID_AND_ATTRIBUTES
 {
 	public PSID Sid;
 	public uint32 Attributes;
 }
 
-[CRepr]public struct SID_AND_ATTRIBUTES_HASH
+[CRepr]
+public struct SID_AND_ATTRIBUTES_HASH
 {
 	public uint32 SidCount;
 	public SID_AND_ATTRIBUTES* SidAttr;
 	public uint[32] Hash;
 }
 
-[CRepr]public struct ACL
+[CRepr]
+public struct ACL
 {
 	public uint8 AclRevision;
 	public uint8 Sbz1;
@@ -553,97 +564,88 @@ public function uint32 SEC_THREAD_START(void* lpThreadParameter);
 	public uint16 Sbz2;
 }
 
-[CRepr]public struct ACE_HEADER
+[CRepr]
+public struct ACE_HEADER
 {
 	public uint8 AceType;
 	public uint8 AceFlags;
 	public uint16 AceSize;
 }
 
-[CRepr]public struct ACCESS_ALLOWED_ACE
+[CRepr]
+public struct ACCESS_ALLOWED_ACE
 {
 	public ACE_HEADER Header;
 	public uint32 Mask;
 	public uint32 SidStart;
 }
 
-[CRepr]public struct ACCESS_DENIED_ACE
+[CRepr]
+public struct ACCESS_DENIED_ACE
 {
 	public ACE_HEADER Header;
 	public uint32 Mask;
 	public uint32 SidStart;
 }
 
-[CRepr]public struct SYSTEM_AUDIT_ACE
+[CRepr]
+public struct SYSTEM_AUDIT_ACE
 {
 	public ACE_HEADER Header;
 	public uint32 Mask;
 	public uint32 SidStart;
 }
 
-[CRepr]public struct SYSTEM_ALARM_ACE
+[CRepr]
+public struct SYSTEM_ALARM_ACE
 {
 	public ACE_HEADER Header;
 	public uint32 Mask;
 	public uint32 SidStart;
 }
 
-[CRepr]public struct SYSTEM_RESOURCE_ATTRIBUTE_ACE
+[CRepr]
+public struct SYSTEM_RESOURCE_ATTRIBUTE_ACE
 {
 	public ACE_HEADER Header;
 	public uint32 Mask;
 	public uint32 SidStart;
 }
 
-[CRepr]public struct SYSTEM_SCOPED_POLICY_ID_ACE
+[CRepr]
+public struct SYSTEM_SCOPED_POLICY_ID_ACE
 {
 	public ACE_HEADER Header;
 	public uint32 Mask;
 	public uint32 SidStart;
 }
 
-[CRepr]public struct SYSTEM_MANDATORY_LABEL_ACE
+[CRepr]
+public struct SYSTEM_MANDATORY_LABEL_ACE
 {
 	public ACE_HEADER Header;
 	public uint32 Mask;
 	public uint32 SidStart;
 }
 
-[CRepr]public struct SYSTEM_PROCESS_TRUST_LABEL_ACE
+[CRepr]
+public struct SYSTEM_PROCESS_TRUST_LABEL_ACE
 {
 	public ACE_HEADER Header;
 	public uint32 Mask;
 	public uint32 SidStart;
 }
 
-[CRepr]public struct SYSTEM_ACCESS_FILTER_ACE
+[CRepr]
+public struct SYSTEM_ACCESS_FILTER_ACE
 {
 	public ACE_HEADER Header;
 	public uint32 Mask;
 	public uint32 SidStart;
 }
 
-[CRepr]public struct ACCESS_ALLOWED_OBJECT_ACE
-{
-	public ACE_HEADER Header;
-	public uint32 Mask;
-	public SYSTEM_AUDIT_OBJECT_ACE_FLAGS Flags;
-	public Guid ObjectType;
-	public Guid InheritedObjectType;
-	public uint32 SidStart;
-}
-
-[CRepr]public struct ACCESS_DENIED_OBJECT_ACE
-{
-	public ACE_HEADER Header;
-	public uint32 Mask;
-	public SYSTEM_AUDIT_OBJECT_ACE_FLAGS Flags;
-	public Guid ObjectType;
-	public Guid InheritedObjectType;
-	public uint32 SidStart;
-}
-
-[CRepr]public struct SYSTEM_AUDIT_OBJECT_ACE
+[CRepr]
+public struct ACCESS_ALLOWED_OBJECT_ACE
 {
 	public ACE_HEADER Header;
 	public uint32 Mask;
@@ -653,7 +655,30 @@ public function uint32 SEC_THREAD_START(void* lpThreadParameter);
 	public uint32 SidStart;
 }
 
-[CRepr]public struct SYSTEM_ALARM_OBJECT_ACE
+[CRepr]
+public struct ACCESS_DENIED_OBJECT_ACE
+{
+	public ACE_HEADER Header;
+	public uint32 Mask;
+	public SYSTEM_AUDIT_OBJECT_ACE_FLAGS Flags;
+	public Guid ObjectType;
+	public Guid InheritedObjectType;
+	public uint32 SidStart;
+}
+
+[CRepr]
+public struct SYSTEM_AUDIT_OBJECT_ACE
+{
+	public ACE_HEADER Header;
+	public uint32 Mask;
+	public SYSTEM_AUDIT_OBJECT_ACE_FLAGS Flags;
+	public Guid ObjectType;
+	public Guid InheritedObjectType;
+	public uint32 SidStart;
+}
+
+[CRepr]
+public struct SYSTEM_ALARM_OBJECT_ACE
 {
 	public ACE_HEADER Header;
 	public uint32 Mask;
@@ -663,45 +688,40 @@ public function uint32 SEC_THREAD_START(void* lpThreadParameter);
 	public uint32 SidStart;
 }
 
-[CRepr]public struct ACCESS_ALLOWED_CALLBACK_ACE
+[CRepr]
+public struct ACCESS_ALLOWED_CALLBACK_ACE
 {
 	public ACE_HEADER Header;
 	public uint32 Mask;
 	public uint32 SidStart;
 }
 
-[CRepr]public struct ACCESS_DENIED_CALLBACK_ACE
+[CRepr]
+public struct ACCESS_DENIED_CALLBACK_ACE
 {
 	public ACE_HEADER Header;
 	public uint32 Mask;
 	public uint32 SidStart;
 }
 
-[CRepr]public struct SYSTEM_AUDIT_CALLBACK_ACE
+[CRepr]
+public struct SYSTEM_AUDIT_CALLBACK_ACE
 {
 	public ACE_HEADER Header;
 	public uint32 Mask;
 	public uint32 SidStart;
 }
 
-[CRepr]public struct SYSTEM_ALARM_CALLBACK_ACE
+[CRepr]
+public struct SYSTEM_ALARM_CALLBACK_ACE
 {
 	public ACE_HEADER Header;
 	public uint32 Mask;
 	public uint32 SidStart;
 }
 
-[CRepr]public struct ACCESS_ALLOWED_CALLBACK_OBJECT_ACE
-{
-	public ACE_HEADER Header;
-	public uint32 Mask;
-	public SYSTEM_AUDIT_OBJECT_ACE_FLAGS Flags;
-	public Guid ObjectType;
-	public Guid InheritedObjectType;
-	public uint32 SidStart;
-}
-
-[CRepr]public struct ACCESS_DENIED_CALLBACK_OBJECT_ACE
+[CRepr]
+public struct ACCESS_ALLOWED_CALLBACK_OBJECT_ACE
 {
 	public ACE_HEADER Header;
 	public uint32 Mask;
@@ -711,7 +731,8 @@ public function uint32 SEC_THREAD_START(void* lpThreadParameter);
 	public uint32 SidStart;
 }
 
-[CRepr]public struct SYSTEM_AUDIT_CALLBACK_OBJECT_ACE
+[CRepr]
+public struct ACCESS_DENIED_CALLBACK_OBJECT_ACE
 {
 	public ACE_HEADER Header;
 	public uint32 Mask;
@@ -721,7 +742,8 @@ public function uint32 SEC_THREAD_START(void* lpThreadParameter);
 	public uint32 SidStart;
 }
 
-[CRepr]public struct SYSTEM_ALARM_CALLBACK_OBJECT_ACE
+[CRepr]
+public struct SYSTEM_AUDIT_CALLBACK_OBJECT_ACE
 {
 	public ACE_HEADER Header;
 	public uint32 Mask;
@@ -731,19 +753,33 @@ public function uint32 SEC_THREAD_START(void* lpThreadParameter);
 	public uint32 SidStart;
 }
 
-[CRepr]public struct ACL_REVISION_INFORMATION
+[CRepr]
+public struct SYSTEM_ALARM_CALLBACK_OBJECT_ACE
+{
+	public ACE_HEADER Header;
+	public uint32 Mask;
+	public SYSTEM_AUDIT_OBJECT_ACE_FLAGS Flags;
+	public Guid ObjectType;
+	public Guid InheritedObjectType;
+	public uint32 SidStart;
+}
+
+[CRepr]
+public struct ACL_REVISION_INFORMATION
 {
 	public uint32 AclRevision;
 }
 
-[CRepr]public struct ACL_SIZE_INFORMATION
+[CRepr]
+public struct ACL_SIZE_INFORMATION
 {
 	public uint32 AceCount;
 	public uint32 AclBytesInUse;
 	public uint32 AclBytesFree;
 }
 
-[CRepr]public struct SECURITY_DESCRIPTOR
+[CRepr]
+public struct SECURITY_DESCRIPTOR
 {
 	public uint8 Revision;
 	public uint8 Sbz1;
@@ -754,33 +790,38 @@ public function uint32 SEC_THREAD_START(void* lpThreadParameter);
 	public ACL* Dacl;
 }
 
-[CRepr]public struct OBJECT_TYPE_LIST
+[CRepr]
+public struct OBJECT_TYPE_LIST
 {
 	public uint16 Level;
 	public uint16 Sbz;
 	public Guid* ObjectType;
 }
 
-[CRepr]public struct PRIVILEGE_SET
+[CRepr]
+public struct PRIVILEGE_SET
 {
 	public uint32 PrivilegeCount;
 	public uint32 Control;
 	public LUID_AND_ATTRIBUTES[1] Privilege;
 }
 
-[CRepr]public struct ACCESS_REASONS
+[CRepr]
+public struct ACCESS_REASONS
 {
 	public uint32[32] Data;
 }
 
-[CRepr]public struct SE_SECURITY_DESCRIPTOR
+[CRepr]
+public struct SE_SECURITY_DESCRIPTOR
 {
 	public uint32 Size;
 	public uint32 Flags;
 	public SECURITY_DESCRIPTOR* SecurityDescriptor;
 }
 
-[CRepr]public struct SE_ACCESS_REQUEST
+[CRepr]
+public struct SE_ACCESS_REQUEST
 {
 	public uint32 Size;
 	public SE_SECURITY_DESCRIPTOR* SeSecurityDescriptor;
@@ -792,7 +833,8 @@ public function uint32 SEC_THREAD_START(void* lpThreadParameter);
 	public OBJECT_TYPE_LIST* ObjectTypeList;
 }
 
-[CRepr]public struct SE_ACCESS_REPLY
+[CRepr]
+public struct SE_ACCESS_REPLY
 {
 	public uint32 Size;
 	public uint32 ResultListCount;
@@ -802,49 +844,58 @@ public function uint32 SEC_THREAD_START(void* lpThreadParameter);
 	public PRIVILEGE_SET** Privileges;
 }
 
-[CRepr]public struct TOKEN_USER
+[CRepr]
+public struct TOKEN_USER
 {
 	public SID_AND_ATTRIBUTES User;
 }
 
-[CRepr]public struct TOKEN_GROUPS
+[CRepr]
+public struct TOKEN_GROUPS
 {
 	public uint32 GroupCount;
 	public SID_AND_ATTRIBUTES[1] Groups;
 }
 
-[CRepr]public struct TOKEN_PRIVILEGES
+[CRepr]
+public struct TOKEN_PRIVILEGES
 {
 	public uint32 PrivilegeCount;
 	public LUID_AND_ATTRIBUTES[1] Privileges;
 }
 
-[CRepr]public struct TOKEN_OWNER
+[CRepr]
+public struct TOKEN_OWNER
 {
 	public PSID Owner;
 }
 
-[CRepr]public struct TOKEN_PRIMARY_GROUP
+[CRepr]
+public struct TOKEN_PRIMARY_GROUP
 {
 	public PSID PrimaryGroup;
 }
 
-[CRepr]public struct TOKEN_DEFAULT_DACL
+[CRepr]
+public struct TOKEN_DEFAULT_DACL
 {
 	public ACL* DefaultDacl;
 }
 
-[CRepr]public struct TOKEN_USER_CLAIMS
+[CRepr]
+public struct TOKEN_USER_CLAIMS
 {
 	public void* UserClaims;
 }
 
-[CRepr]public struct TOKEN_DEVICE_CLAIMS
+[CRepr]
+public struct TOKEN_DEVICE_CLAIMS
 {
 	public void* DeviceClaims;
 }
 
-[CRepr]public struct TOKEN_GROUPS_AND_PRIVILEGES
+[CRepr]
+public struct TOKEN_GROUPS_AND_PRIVILEGES
 {
 	public uint32 SidCount;
 	public uint32 SidLength;
@@ -858,27 +909,32 @@ public function uint32 SEC_THREAD_START(void* lpThreadParameter);
 	public LUID AuthenticationId;
 }
 
-[CRepr]public struct TOKEN_LINKED_TOKEN
+[CRepr]
+public struct TOKEN_LINKED_TOKEN
 {
 	public HANDLE LinkedToken;
 }
 
-[CRepr]public struct TOKEN_ELEVATION
+[CRepr]
+public struct TOKEN_ELEVATION
 {
 	public uint32 TokenIsElevated;
 }
 
-[CRepr]public struct TOKEN_MANDATORY_LABEL
+[CRepr]
+public struct TOKEN_MANDATORY_LABEL
 {
 	public SID_AND_ATTRIBUTES Label;
 }
 
-[CRepr]public struct TOKEN_MANDATORY_POLICY
+[CRepr]
+public struct TOKEN_MANDATORY_POLICY
 {
 	public TOKEN_MANDATORY_POLICY_ID Policy;
 }
 
-[CRepr]public struct TOKEN_ACCESS_INFORMATION
+[CRepr]
+public struct TOKEN_ACCESS_INFORMATION
 {
 	public SID_AND_ATTRIBUTES_HASH* SidHash;
 	public SID_AND_ATTRIBUTES_HASH* RestrictedSidHash;
@@ -895,18 +951,21 @@ public function uint32 SEC_THREAD_START(void* lpThreadParameter);
 	public void* SecurityAttributes;
 }
 
-[CRepr]public struct TOKEN_AUDIT_POLICY
+[CRepr]
+public struct TOKEN_AUDIT_POLICY
 {
 	public uint8[30] PerUserPolicy;
 }
 
-[CRepr]public struct TOKEN_SOURCE
+[CRepr]
+public struct TOKEN_SOURCE
 {
 	public CHAR[8] SourceName;
 	public LUID SourceIdentifier;
 }
 
-[CRepr]public struct TOKEN_STATISTICS
+[CRepr]
+public struct TOKEN_STATISTICS
 {
 	public LUID TokenId;
 	public LUID AuthenticationId;
@@ -920,7 +979,8 @@ public function uint32 SEC_THREAD_START(void* lpThreadParameter);
 	public LUID ModifiedId;
 }
 
-[CRepr]public struct TOKEN_CONTROL
+[CRepr]
+public struct TOKEN_CONTROL
 {
 	public LUID TokenId;
 	public LUID AuthenticationId;
@@ -928,31 +988,37 @@ public function uint32 SEC_THREAD_START(void* lpThreadParameter);
 	public TOKEN_SOURCE TokenSource;
 }
 
-[CRepr]public struct TOKEN_ORIGIN
+[CRepr]
+public struct TOKEN_ORIGIN
 {
 	public LUID OriginatingLogonSession;
 }
 
-[CRepr]public struct TOKEN_APPCONTAINER_INFORMATION
+[CRepr]
+public struct TOKEN_APPCONTAINER_INFORMATION
 {
 	public PSID TokenAppContainer;
 }
 
-[CRepr]public struct CLAIM_SECURITY_ATTRIBUTE_FQBN_VALUE
+[CRepr]
+public struct CLAIM_SECURITY_ATTRIBUTE_FQBN_VALUE
 {
 	public uint64 Version;
 	public PWSTR Name;
 }
 
-[CRepr]public struct CLAIM_SECURITY_ATTRIBUTE_OCTET_STRING_VALUE
+[CRepr]
+public struct CLAIM_SECURITY_ATTRIBUTE_OCTET_STRING_VALUE
 {
 	public void* pValue;
 	public uint32 ValueLength;
 }
 
-[CRepr]public struct CLAIM_SECURITY_ATTRIBUTE_V1
+[CRepr]
+public struct CLAIM_SECURITY_ATTRIBUTE_V1
 {
-	[CRepr, Union]	public struct _Values_e__Union
+	[CRepr, Union]
+	public struct _Values_e__Union
 	{
 		public int64* pInt64;
 		public uint64* pUint64;
@@ -969,9 +1035,11 @@ public function uint32 SEC_THREAD_START(void* lpThreadParameter);
 	public _Values_e__Union Values;
 }
 
-[CRepr]public struct CLAIM_SECURITY_ATTRIBUTE_RELATIVE_V1
+[CRepr]
+public struct CLAIM_SECURITY_ATTRIBUTE_RELATIVE_V1
 {
-	[CRepr, Union]	public struct _Values_e__Union
+	[CRepr, Union]
+	public struct _Values_e__Union
 	{
 		public uint32[1] pInt64;
 		public uint32[1] pUint64;
@@ -988,9 +1056,11 @@ public function uint32 SEC_THREAD_START(void* lpThreadParameter);
 	public _Values_e__Union Values;
 }
 
-[CRepr]public struct CLAIM_SECURITY_ATTRIBUTES_INFORMATION
+[CRepr]
+public struct CLAIM_SECURITY_ATTRIBUTES_INFORMATION
 {
-	[CRepr, Union]	public struct _Attribute_e__Union
+	[CRepr, Union]
+	public struct _Attribute_e__Union
 	{
 		public CLAIM_SECURITY_ATTRIBUTE_V1* pAttributeV1;
 	}
@@ -1001,7 +1071,8 @@ public function uint32 SEC_THREAD_START(void* lpThreadParameter);
 	public _Attribute_e__Union Attribute;
 }
 
-[CRepr]public struct SECURITY_QUALITY_OF_SERVICE
+[CRepr]
+public struct SECURITY_QUALITY_OF_SERVICE
 {
 	public uint32 Length;
 	public SECURITY_IMPERSONATION_LEVEL ImpersonationLevel;
@@ -1009,7 +1080,8 @@ public function uint32 SEC_THREAD_START(void* lpThreadParameter);
 	public BOOLEAN EffectiveOnly;
 }
 
-[CRepr]public struct SE_IMPERSONATION_STATE
+[CRepr]
+public struct SE_IMPERSONATION_STATE
 {
 	public void* Token;
 	public BOOLEAN CopyOnOpen;
@@ -1017,7 +1089,8 @@ public function uint32 SEC_THREAD_START(void* lpThreadParameter);
 	public SECURITY_IMPERSONATION_LEVEL Level;
 }
 
-[CRepr]public struct SECURITY_CAPABILITIES
+[CRepr]
+public struct SECURITY_CAPABILITIES
 {
 	public PSID AppContainerSid;
 	public SID_AND_ATTRIBUTES* Capabilities;
@@ -1025,7 +1098,8 @@ public function uint32 SEC_THREAD_START(void* lpThreadParameter);
 	public uint32 Reserved;
 }
 
-[CRepr]public struct QUOTA_LIMITS
+[CRepr]
+public struct QUOTA_LIMITS
 {
 	public uint PagedPoolLimit;
 	public uint NonPagedPoolLimit;

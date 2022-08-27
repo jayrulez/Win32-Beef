@@ -14,7 +14,8 @@ namespace Win32.System.UserAccessLogging;
 #endregion
 
 #region Structs
-[CRepr]public struct UAL_DATA_BLOB
+[CRepr]
+public struct UAL_DATA_BLOB
 {
 	public uint32 Size;
 	public Guid RoleGuid;

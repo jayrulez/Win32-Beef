@@ -1316,18 +1316,22 @@ public function void PENABLECALLBACK(Guid* SourceId, ENABLECALLBACK_ENABLED_STAT
 #endregion
 
 #region Structs
-[CRepr]public struct WNODE_HEADER
+[CRepr]
+public struct WNODE_HEADER
 {
-	[CRepr, Union]	public struct _Anonymous2_e__Union
+	[CRepr, Union]
+	public struct _Anonymous2_e__Union
 	{
 		public uint32 CountLost;
 		public HANDLE KernelHandle;
 		public LARGE_INTEGER TimeStamp;
 	}
 
-	[CRepr, Union]	public struct _Anonymous1_e__Union
+	[CRepr, Union]
+	public struct _Anonymous1_e__Union
 	{
-		[CRepr]		public struct _Anonymous_e__Struct
+		[CRepr]
+		public struct _Anonymous_e__Struct
 		{
 			public uint32 Version;
 			public uint32 Linkage;
@@ -1346,15 +1350,18 @@ public function void PENABLECALLBACK(Guid* SourceId, ENABLECALLBACK_ENABLED_STAT
 	public uint32 Flags;
 }
 
-[CRepr]public struct OFFSETINSTANCEDATAANDLENGTH
+[CRepr]
+public struct OFFSETINSTANCEDATAANDLENGTH
 {
 	public uint32 OffsetInstanceData;
 	public uint32 LengthInstanceData;
 }
 
-[CRepr]public struct WNODE_ALL_DATA
+[CRepr]
+public struct WNODE_ALL_DATA
 {
-	[CRepr, Union]	public struct _Anonymous_e__Union
+	[CRepr, Union]
+	public struct _Anonymous_e__Union
 	{
 		public uint32 FixedInstanceSize;
 		public OFFSETINSTANCEDATAANDLENGTH[1] OffsetInstanceDataAndLength;
@@ -1367,7 +1374,8 @@ public function void PENABLECALLBACK(Guid* SourceId, ENABLECALLBACK_ENABLED_STAT
 	public using _Anonymous_e__Union Anonymous;
 }
 
-[CRepr]public struct WNODE_SINGLE_INSTANCE
+[CRepr]
+public struct WNODE_SINGLE_INSTANCE
 {
 	public WNODE_HEADER WnodeHeader;
 	public uint32 OffsetInstanceName;
@@ -1377,7 +1385,8 @@ public function void PENABLECALLBACK(Guid* SourceId, ENABLECALLBACK_ENABLED_STAT
 	public uint8[1] VariableData;
 }
 
-[CRepr]public struct WNODE_SINGLE_ITEM
+[CRepr]
+public struct WNODE_SINGLE_ITEM
 {
 	public WNODE_HEADER WnodeHeader;
 	public uint32 OffsetInstanceName;
@@ -1388,7 +1397,8 @@ public function void PENABLECALLBACK(Guid* SourceId, ENABLECALLBACK_ENABLED_STAT
 	public uint8[1] VariableData;
 }
 
-[CRepr]public struct WNODE_METHOD_ITEM
+[CRepr]
+public struct WNODE_METHOD_ITEM
 {
 	public WNODE_HEADER WnodeHeader;
 	public uint32 OffsetInstanceName;
@@ -1399,14 +1409,17 @@ public function void PENABLECALLBACK(Guid* SourceId, ENABLECALLBACK_ENABLED_STAT
 	public uint8[1] VariableData;
 }
 
-[CRepr]public struct WNODE_EVENT_ITEM
+[CRepr]
+public struct WNODE_EVENT_ITEM
 {
 	public WNODE_HEADER WnodeHeader;
 }
 
-[CRepr]public struct WNODE_EVENT_REFERENCE
+[CRepr]
+public struct WNODE_EVENT_REFERENCE
 {
-	[CRepr, Union]	public struct _Anonymous_e__Union
+	[CRepr, Union]
+	public struct _Anonymous_e__Union
 	{
 		public uint32 TargetInstanceIndex;
 		public char8[1] TargetInstanceName;
@@ -1418,15 +1431,18 @@ public function void PENABLECALLBACK(Guid* SourceId, ENABLECALLBACK_ENABLED_STAT
 	public using _Anonymous_e__Union Anonymous;
 }
 
-[CRepr]public struct WNODE_TOO_SMALL
+[CRepr]
+public struct WNODE_TOO_SMALL
 {
 	public WNODE_HEADER WnodeHeader;
 	public uint32 SizeNeeded;
 }
 
-[CRepr]public struct WMIREGGUIDW
+[CRepr]
+public struct WMIREGGUIDW
 {
-	[CRepr, Union]	public struct _Anonymous_e__Union
+	[CRepr, Union]
+	public struct _Anonymous_e__Union
 	{
 		public uint32 InstanceNameList;
 		public uint32 BaseNameOffset;
@@ -1440,7 +1456,8 @@ public function void PENABLECALLBACK(Guid* SourceId, ENABLECALLBACK_ENABLED_STAT
 	public using _Anonymous_e__Union Anonymous;
 }
 
-[CRepr]public struct WMIREGINFOW
+[CRepr]
+public struct WMIREGINFOW
 {
 	public uint32 BufferSize;
 	public uint32 NextWmiRegInfo;
@@ -1450,17 +1467,21 @@ public function void PENABLECALLBACK(Guid* SourceId, ENABLECALLBACK_ENABLED_STAT
 	public WMIREGGUIDW[1] WmiRegGuid;
 }
 
-[CRepr]public struct EVENT_TRACE_HEADER
+[CRepr]
+public struct EVENT_TRACE_HEADER
 {
-	[CRepr, Union]	public struct _Anonymous4_e__Union
+	[CRepr, Union]
+	public struct _Anonymous4_e__Union
 	{
-		[CRepr]		public struct _Anonymous2_e__Struct
+		[CRepr]
+		public struct _Anonymous2_e__Struct
 		{
 			public uint32 ClientContext;
 			public uint32 Flags;
 		}
 
-		[CRepr]		public struct _Anonymous1_e__Struct
+		[CRepr]
+		public struct _Anonymous1_e__Struct
 		{
 			public uint32 KernelTime;
 			public uint32 UserTime;
@@ -1471,9 +1492,11 @@ public function void PENABLECALLBACK(Guid* SourceId, ENABLECALLBACK_ENABLED_STAT
 		public _Anonymous2_e__Struct Anonymous2;
 	}
 
-	[CRepr, Union]	public struct _Anonymous2_e__Union
+	[CRepr, Union]
+	public struct _Anonymous2_e__Union
 	{
-		[CRepr]		public struct _Class_e__Struct
+		[CRepr]
+		public struct _Class_e__Struct
 		{
 			public uint8 Type;
 			public uint8 Level;
@@ -1484,9 +1507,11 @@ public function void PENABLECALLBACK(Guid* SourceId, ENABLECALLBACK_ENABLED_STAT
 		public _Class_e__Struct Class;
 	}
 
-	[CRepr, Union]	public struct _Anonymous1_e__Union
+	[CRepr, Union]
+	public struct _Anonymous1_e__Union
 	{
-		[CRepr]		public struct _Anonymous_e__Struct
+		[CRepr]
+		public struct _Anonymous_e__Struct
 		{
 			public uint8 HeaderType;
 			public uint8 MarkerFlags;
@@ -1496,7 +1521,8 @@ public function void PENABLECALLBACK(Guid* SourceId, ENABLECALLBACK_ENABLED_STAT
 		public using _Anonymous_e__Struct Anonymous;
 	}
 
-	[CRepr, Union]	public struct _Anonymous3_e__Union
+	[CRepr, Union]
+	public struct _Anonymous3_e__Union
 	{
 		public Guid Guid;
 		public uint64 GuidPtr;
@@ -1512,17 +1538,21 @@ public function void PENABLECALLBACK(Guid* SourceId, ENABLECALLBACK_ENABLED_STAT
 	public _Anonymous4_e__Union Anonymous4;
 }
 
-[CRepr]public struct EVENT_INSTANCE_HEADER
+[CRepr]
+public struct EVENT_INSTANCE_HEADER
 {
-	[CRepr, Union]	public struct _Anonymous3_e__Union
+	[CRepr, Union]
+	public struct _Anonymous3_e__Union
 	{
-		[CRepr]		public struct _Anonymous2_e__Struct
+		[CRepr]
+		public struct _Anonymous2_e__Struct
 		{
 			public uint32 EventId;
 			public uint32 Flags;
 		}
 
-		[CRepr]		public struct _Anonymous1_e__Struct
+		[CRepr]
+		public struct _Anonymous1_e__Struct
 		{
 			public uint32 KernelTime;
 			public uint32 UserTime;
@@ -1533,9 +1563,11 @@ public function void PENABLECALLBACK(Guid* SourceId, ENABLECALLBACK_ENABLED_STAT
 		public _Anonymous2_e__Struct Anonymous2;
 	}
 
-	[CRepr, Union]	public struct _Anonymous2_e__Union
+	[CRepr, Union]
+	public struct _Anonymous2_e__Union
 	{
-		[CRepr]		public struct _Class_e__Struct
+		[CRepr]
+		public struct _Class_e__Struct
 		{
 			public uint8 Type;
 			public uint8 Level;
@@ -1546,9 +1578,11 @@ public function void PENABLECALLBACK(Guid* SourceId, ENABLECALLBACK_ENABLED_STAT
 		public _Class_e__Struct Class;
 	}
 
-	[CRepr, Union]	public struct _Anonymous1_e__Union
+	[CRepr, Union]
+	public struct _Anonymous1_e__Union
 	{
-		[CRepr]		public struct _Anonymous_e__Struct
+		[CRepr]
+		public struct _Anonymous_e__Struct
 		{
 			public uint8 HeaderType;
 			public uint8 MarkerFlags;
@@ -1571,18 +1605,22 @@ public function void PENABLECALLBACK(Guid* SourceId, ENABLECALLBACK_ENABLED_STAT
 	public uint64 ParentRegHandle;
 }
 
-[CRepr]public struct MOF_FIELD
+[CRepr]
+public struct MOF_FIELD
 {
 	public uint64 DataPtr;
 	public uint32 Length;
 	public uint32 DataType;
 }
 
-[CRepr]public struct TRACE_LOGFILE_HEADER
+[CRepr]
+public struct TRACE_LOGFILE_HEADER
 {
-	[CRepr, Union]	public struct _Anonymous2_e__Union
+	[CRepr, Union]
+	public struct _Anonymous2_e__Union
 	{
-		[CRepr]		public struct _Anonymous_e__Struct
+		[CRepr]
+		public struct _Anonymous_e__Struct
 		{
 			public uint32 StartBuffers;
 			public uint32 PointerSize;
@@ -1594,9 +1632,11 @@ public function void PENABLECALLBACK(Guid* SourceId, ENABLECALLBACK_ENABLED_STAT
 		public using _Anonymous_e__Struct Anonymous;
 	}
 
-	[CRepr, Union]	public struct _Anonymous1_e__Union
+	[CRepr, Union]
+	public struct _Anonymous1_e__Union
 	{
-		[CRepr]		public struct _VersionDetail_e__Struct
+		[CRepr]
+		public struct _VersionDetail_e__Struct
 		{
 			public uint8 MajorVersion;
 			public uint8 MinorVersion;
@@ -1628,11 +1668,14 @@ public function void PENABLECALLBACK(Guid* SourceId, ENABLECALLBACK_ENABLED_STAT
 	public uint32 BuffersLost;
 }
 
-[CRepr]public struct TRACE_LOGFILE_HEADER32
+[CRepr]
+public struct TRACE_LOGFILE_HEADER32
 {
-	[CRepr, Union]	public struct _Anonymous2_e__Union
+	[CRepr, Union]
+	public struct _Anonymous2_e__Union
 	{
-		[CRepr]		public struct _Anonymous_e__Struct
+		[CRepr]
+		public struct _Anonymous_e__Struct
 		{
 			public uint32 StartBuffers;
 			public uint32 PointerSize;
@@ -1644,9 +1687,11 @@ public function void PENABLECALLBACK(Guid* SourceId, ENABLECALLBACK_ENABLED_STAT
 		public using _Anonymous_e__Struct Anonymous;
 	}
 
-	[CRepr, Union]	public struct _Anonymous1_e__Union
+	[CRepr, Union]
+	public struct _Anonymous1_e__Union
 	{
-		[CRepr]		public struct _VersionDetail_e__Struct
+		[CRepr]
+		public struct _VersionDetail_e__Struct
 		{
 			public uint8 MajorVersion;
 			public uint8 MinorVersion;
@@ -1678,11 +1723,14 @@ public function void PENABLECALLBACK(Guid* SourceId, ENABLECALLBACK_ENABLED_STAT
 	public uint32 BuffersLost;
 }
 
-[CRepr]public struct TRACE_LOGFILE_HEADER64
+[CRepr]
+public struct TRACE_LOGFILE_HEADER64
 {
-	[CRepr, Union]	public struct _Anonymous2_e__Union
+	[CRepr, Union]
+	public struct _Anonymous2_e__Union
 	{
-		[CRepr]		public struct _Anonymous_e__Struct
+		[CRepr]
+		public struct _Anonymous_e__Struct
 		{
 			public uint32 StartBuffers;
 			public uint32 PointerSize;
@@ -1694,9 +1742,11 @@ public function void PENABLECALLBACK(Guid* SourceId, ENABLECALLBACK_ENABLED_STAT
 		public using _Anonymous_e__Struct Anonymous;
 	}
 
-	[CRepr, Union]	public struct _Anonymous1_e__Union
+	[CRepr, Union]
+	public struct _Anonymous1_e__Union
 	{
-		[CRepr]		public struct _VersionDetail_e__Struct
+		[CRepr]
+		public struct _VersionDetail_e__Struct
 		{
 			public uint8 MajorVersion;
 			public uint8 MinorVersion;
@@ -1728,15 +1778,18 @@ public function void PENABLECALLBACK(Guid* SourceId, ENABLECALLBACK_ENABLED_STAT
 	public uint32 BuffersLost;
 }
 
-[CRepr]public struct EVENT_INSTANCE_INFO
+[CRepr]
+public struct EVENT_INSTANCE_INFO
 {
 	public HANDLE RegHandle;
 	public uint32 InstanceId;
 }
 
-[CRepr]public struct EVENT_TRACE_PROPERTIES
+[CRepr]
+public struct EVENT_TRACE_PROPERTIES
 {
-	[CRepr, Union]	public struct _Anonymous_e__Union
+	[CRepr, Union]
+	public struct _Anonymous_e__Union
 	{
 		public int32 AgeLimit;
 		public int32 FlushThreshold;
@@ -1762,11 +1815,14 @@ public function void PENABLECALLBACK(Guid* SourceId, ENABLECALLBACK_ENABLED_STAT
 	public uint32 LoggerNameOffset;
 }
 
-[CRepr]public struct EVENT_TRACE_PROPERTIES_V2
+[CRepr]
+public struct EVENT_TRACE_PROPERTIES_V2
 {
-	[CRepr, Union]	public struct _Anonymous3_e__Union
+	[CRepr, Union]
+	public struct _Anonymous3_e__Union
 	{
-		[CRepr]		public struct _Anonymous_e__Struct
+		[CRepr]
+		public struct _Anonymous_e__Struct
 		{
 			public uint32 _bitfield;
 		}
@@ -1775,9 +1831,11 @@ public function void PENABLECALLBACK(Guid* SourceId, ENABLECALLBACK_ENABLED_STAT
 		public uint64 V2Options;
 	}
 
-	[CRepr, Union]	public struct _Anonymous2_e__Union
+	[CRepr, Union]
+	public struct _Anonymous2_e__Union
 	{
-		[CRepr]		public struct _Anonymous_e__Struct
+		[CRepr]
+		public struct _Anonymous_e__Struct
 		{
 			public uint32 _bitfield;
 		}
@@ -1786,7 +1844,8 @@ public function void PENABLECALLBACK(Guid* SourceId, ENABLECALLBACK_ENABLED_STAT
 		public uint32 V2Control;
 	}
 
-	[CRepr, Union]	public struct _Anonymous1_e__Union
+	[CRepr, Union]
+	public struct _Anonymous1_e__Union
 	{
 		public int32 AgeLimit;
 		public int32 FlushThreshold;
@@ -1816,13 +1875,15 @@ public function void PENABLECALLBACK(Guid* SourceId, ENABLECALLBACK_ENABLED_STAT
 	public _Anonymous3_e__Union Anonymous3;
 }
 
-[CRepr]public struct TRACE_GUID_REGISTRATION
+[CRepr]
+public struct TRACE_GUID_REGISTRATION
 {
 	public Guid* Guid;
 	public HANDLE RegHandle;
 }
 
-[CRepr]public struct TRACE_GUID_PROPERTIES
+[CRepr]
+public struct TRACE_GUID_PROPERTIES
 {
 	public Guid Guid;
 	public uint32 GuidType;
@@ -1832,11 +1893,14 @@ public function void PENABLECALLBACK(Guid* SourceId, ENABLECALLBACK_ENABLED_STAT
 	public BOOLEAN IsEnable;
 }
 
-[CRepr]public struct ETW_BUFFER_CONTEXT
+[CRepr]
+public struct ETW_BUFFER_CONTEXT
 {
-	[CRepr, Union]	public struct _Anonymous_e__Union
+	[CRepr, Union]
+	public struct _Anonymous_e__Union
 	{
-		[CRepr]		public struct _Anonymous_e__Struct
+		[CRepr]
+		public struct _Anonymous_e__Struct
 		{
 			public uint8 ProcessorNumber;
 			public uint8 Alignment;
@@ -1850,7 +1914,8 @@ public function void PENABLECALLBACK(Guid* SourceId, ENABLECALLBACK_ENABLED_STAT
 	public uint16 LoggerId;
 }
 
-[CRepr]public struct TRACE_ENABLE_INFO
+[CRepr]
+public struct TRACE_ENABLE_INFO
 {
 	public uint32 IsEnabled;
 	public uint8 Level;
@@ -1862,7 +1927,8 @@ public function void PENABLECALLBACK(Guid* SourceId, ENABLECALLBACK_ENABLED_STAT
 	public uint64 MatchAllKeyword;
 }
 
-[CRepr]public struct TRACE_PROVIDER_INSTANCE_INFO
+[CRepr]
+public struct TRACE_PROVIDER_INSTANCE_INFO
 {
 	public uint32 NextOffset;
 	public uint32 EnableCount;
@@ -1870,13 +1936,15 @@ public function void PENABLECALLBACK(Guid* SourceId, ENABLECALLBACK_ENABLED_STAT
 	public uint32 Flags;
 }
 
-[CRepr]public struct TRACE_GUID_INFO
+[CRepr]
+public struct TRACE_GUID_INFO
 {
 	public uint32 InstanceCount;
 	public uint32 Reserved;
 }
 
-[CRepr]public struct PROFILE_SOURCE_INFO
+[CRepr]
+public struct PROFILE_SOURCE_INFO
 {
 	public uint32 NextEntryOffset;
 	public uint32 Source;
@@ -1886,23 +1954,27 @@ public function void PENABLECALLBACK(Guid* SourceId, ENABLECALLBACK_ENABLED_STAT
 	public char8[1] Description;
 }
 
-[CRepr]public struct ETW_PMC_COUNTER_OWNER
+[CRepr]
+public struct ETW_PMC_COUNTER_OWNER
 {
 	public ETW_PMC_COUNTER_OWNER_TYPE OwnerType;
 	public uint32 ProfileSource;
 	public uint32 OwnerTag;
 }
 
-[CRepr]public struct ETW_PMC_COUNTER_OWNERSHIP_STATUS
+[CRepr]
+public struct ETW_PMC_COUNTER_OWNERSHIP_STATUS
 {
 	public uint32 ProcessorNumber;
 	public uint32 NumberOfCounters;
 	public ETW_PMC_COUNTER_OWNER[1] CounterOwners;
 }
 
-[CRepr]public struct EVENT_TRACE
+[CRepr]
+public struct EVENT_TRACE
 {
-	[CRepr, Union]	public struct _Anonymous_e__Union
+	[CRepr, Union]
+	public struct _Anonymous_e__Union
 	{
 		public uint32 ClientContext;
 		public ETW_BUFFER_CONTEXT BufferContext;
@@ -1917,15 +1989,18 @@ public function void PENABLECALLBACK(Guid* SourceId, ENABLECALLBACK_ENABLED_STAT
 	public using _Anonymous_e__Union Anonymous;
 }
 
-[CRepr]public struct EVENT_TRACE_LOGFILEW
+[CRepr]
+public struct EVENT_TRACE_LOGFILEW
 {
-	[CRepr, Union]	public struct _Anonymous1_e__Union
+	[CRepr, Union]
+	public struct _Anonymous1_e__Union
 	{
 		public uint32 LogFileMode;
 		public uint32 ProcessTraceMode;
 	}
 
-	[CRepr, Union]	public struct _Anonymous2_e__Union
+	[CRepr, Union]
+	public struct _Anonymous2_e__Union
 	{
 		public PEVENT_CALLBACK EventCallback;
 		public PEVENT_RECORD_CALLBACK EventRecordCallback;
@@ -1947,15 +2022,18 @@ public function void PENABLECALLBACK(Guid* SourceId, ENABLECALLBACK_ENABLED_STAT
 	public void* Context;
 }
 
-[CRepr]public struct EVENT_TRACE_LOGFILEA
+[CRepr]
+public struct EVENT_TRACE_LOGFILEA
 {
-	[CRepr, Union]	public struct _Anonymous1_e__Union
+	[CRepr, Union]
+	public struct _Anonymous1_e__Union
 	{
 		public uint32 LogFileMode;
 		public uint32 ProcessTraceMode;
 	}
 
-	[CRepr, Union]	public struct _Anonymous2_e__Union
+	[CRepr, Union]
+	public struct _Anonymous2_e__Union
 	{
 		public PEVENT_CALLBACK EventCallback;
 		public PEVENT_RECORD_CALLBACK EventRecordCallback;
@@ -1977,7 +2055,8 @@ public function void PENABLECALLBACK(Guid* SourceId, ENABLECALLBACK_ENABLED_STAT
 	public void* Context;
 }
 
-[CRepr]public struct ENABLE_TRACE_PARAMETERS_V1
+[CRepr]
+public struct ENABLE_TRACE_PARAMETERS_V1
 {
 	public uint32 Version;
 	public uint32 EnableProperty;
@@ -1986,7 +2065,8 @@ public function void PENABLECALLBACK(Guid* SourceId, ENABLECALLBACK_ENABLED_STAT
 	public EVENT_FILTER_DESCRIPTOR* EnableFilterDesc;
 }
 
-[CRepr]public struct ENABLE_TRACE_PARAMETERS
+[CRepr]
+public struct ENABLE_TRACE_PARAMETERS
 {
 	public uint32 Version;
 	public uint32 EnableProperty;
@@ -1996,40 +2076,46 @@ public function void PENABLECALLBACK(Guid* SourceId, ENABLECALLBACK_ENABLED_STAT
 	public uint32 FilterDescCount;
 }
 
-[CRepr]public struct CLASSIC_EVENT_ID
+[CRepr]
+public struct CLASSIC_EVENT_ID
 {
 	public Guid EventGuid;
 	public uint8 Type;
 	public uint8[7] Reserved;
 }
 
-[CRepr]public struct TRACE_STACK_CACHING_INFO
+[CRepr]
+public struct TRACE_STACK_CACHING_INFO
 {
 	public BOOLEAN Enabled;
 	public uint32 CacheSize;
 	public uint32 BucketCount;
 }
 
-[CRepr]public struct TRACE_PROFILE_INTERVAL
+[CRepr]
+public struct TRACE_PROFILE_INTERVAL
 {
 	public uint32 Source;
 	public uint32 Interval;
 }
 
-[CRepr]public struct TRACE_VERSION_INFO
+[CRepr]
+public struct TRACE_VERSION_INFO
 {
 	public uint32 EtwTraceProcessingVersion;
 	public uint32 Reserved;
 }
 
-[CRepr]public struct TRACE_PERIODIC_CAPTURE_STATE_INFO
+[CRepr]
+public struct TRACE_PERIODIC_CAPTURE_STATE_INFO
 {
 	public uint32 CaptureStateFrequencyInSeconds;
 	public uint16 ProviderCount;
 	public uint16 Reserved;
 }
 
-[CRepr]public struct ETW_TRACE_PARTITION_INFORMATION
+[CRepr]
+public struct ETW_TRACE_PARTITION_INFORMATION
 {
 	public Guid PartitionId;
 	public Guid ParentId;
@@ -2037,7 +2123,8 @@ public function void PENABLECALLBACK(Guid* SourceId, ENABLECALLBACK_ENABLED_STAT
 	public uint32 PartitionType;
 }
 
-[CRepr]public struct ETW_TRACE_PARTITION_INFORMATION_V2
+[CRepr]
+public struct ETW_TRACE_PARTITION_INFORMATION_V2
 {
 	public int64 QpcOffsetFromRoot;
 	public uint32 PartitionType;
@@ -2045,11 +2132,14 @@ public function void PENABLECALLBACK(Guid* SourceId, ENABLECALLBACK_ENABLED_STAT
 	public PWSTR ParentId;
 }
 
-[CRepr]public struct EVENT_DATA_DESCRIPTOR
+[CRepr]
+public struct EVENT_DATA_DESCRIPTOR
 {
-	[CRepr, Union]	public struct _Anonymous_e__Union
+	[CRepr, Union]
+	public struct _Anonymous_e__Union
 	{
-		[CRepr]		public struct _Anonymous_e__Struct
+		[CRepr]
+		public struct _Anonymous_e__Struct
 		{
 			public uint8 Type;
 			public uint8 Reserved1;
@@ -2065,7 +2155,8 @@ public function void PENABLECALLBACK(Guid* SourceId, ENABLECALLBACK_ENABLED_STAT
 	public using _Anonymous_e__Union Anonymous;
 }
 
-[CRepr]public struct EVENT_DESCRIPTOR
+[CRepr]
+public struct EVENT_DESCRIPTOR
 {
 	public uint16 Id;
 	public uint8 Version;
@@ -2076,14 +2167,16 @@ public function void PENABLECALLBACK(Guid* SourceId, ENABLECALLBACK_ENABLED_STAT
 	public uint64 Keyword;
 }
 
-[CRepr]public struct EVENT_FILTER_DESCRIPTOR
+[CRepr]
+public struct EVENT_FILTER_DESCRIPTOR
 {
 	public uint64 Ptr;
 	public uint32 Size;
 	public uint32 Type;
 }
 
-[CRepr]public struct EVENT_FILTER_HEADER
+[CRepr]
+public struct EVENT_FILTER_HEADER
 {
 	public uint16 Id;
 	public uint8 Version;
@@ -2093,7 +2186,8 @@ public function void PENABLECALLBACK(Guid* SourceId, ENABLECALLBACK_ENABLED_STAT
 	public uint32 NextOffset;
 }
 
-[CRepr]public struct EVENT_FILTER_EVENT_ID
+[CRepr]
+public struct EVENT_FILTER_EVENT_ID
 {
 	public BOOLEAN FilterIn;
 	public uint8 Reserved;
@@ -2101,7 +2195,8 @@ public function void PENABLECALLBACK(Guid* SourceId, ENABLECALLBACK_ENABLED_STAT
 	public uint16[1] Events;
 }
 
-[CRepr]public struct EVENT_FILTER_EVENT_NAME
+[CRepr]
+public struct EVENT_FILTER_EVENT_NAME
 {
 	public uint64 MatchAnyKeyword;
 	public uint64 MatchAllKeyword;
@@ -2111,7 +2206,8 @@ public function void PENABLECALLBACK(Guid* SourceId, ENABLECALLBACK_ENABLED_STAT
 	public uint8[1] Names;
 }
 
-[CRepr]public struct EVENT_FILTER_LEVEL_KW
+[CRepr]
+public struct EVENT_FILTER_LEVEL_KW
 {
 	public uint64 MatchAnyKeyword;
 	public uint64 MatchAllKeyword;
@@ -2119,9 +2215,11 @@ public function void PENABLECALLBACK(Guid* SourceId, ENABLECALLBACK_ENABLED_STAT
 	public BOOLEAN FilterIn;
 }
 
-[CRepr]public struct EVENT_HEADER_EXTENDED_DATA_ITEM
+[CRepr]
+public struct EVENT_HEADER_EXTENDED_DATA_ITEM
 {
-	[CRepr]	public struct _Anonymous_e__Struct
+	[CRepr]
+	public struct _Anonymous_e__Struct
 	{
 		public uint16 _bitfield;
 	}
@@ -2133,73 +2231,87 @@ public function void PENABLECALLBACK(Guid* SourceId, ENABLECALLBACK_ENABLED_STAT
 	public uint64 DataPtr;
 }
 
-[CRepr]public struct EVENT_EXTENDED_ITEM_INSTANCE
+[CRepr]
+public struct EVENT_EXTENDED_ITEM_INSTANCE
 {
 	public uint32 InstanceId;
 	public uint32 ParentInstanceId;
 	public Guid ParentGuid;
 }
 
-[CRepr]public struct EVENT_EXTENDED_ITEM_RELATED_ACTIVITYID
+[CRepr]
+public struct EVENT_EXTENDED_ITEM_RELATED_ACTIVITYID
 {
 	public Guid RelatedActivityId;
 }
 
-[CRepr]public struct EVENT_EXTENDED_ITEM_TS_ID
+[CRepr]
+public struct EVENT_EXTENDED_ITEM_TS_ID
 {
 	public uint32 SessionId;
 }
 
-[CRepr]public struct EVENT_EXTENDED_ITEM_STACK_TRACE32
+[CRepr]
+public struct EVENT_EXTENDED_ITEM_STACK_TRACE32
 {
 	public uint64 MatchId;
 	public uint32[1] Address;
 }
 
-[CRepr]public struct EVENT_EXTENDED_ITEM_STACK_TRACE64
+[CRepr]
+public struct EVENT_EXTENDED_ITEM_STACK_TRACE64
 {
 	public uint64 MatchId;
 	public uint64[1] Address;
 }
 
-[CRepr]public struct EVENT_EXTENDED_ITEM_STACK_KEY32
+[CRepr]
+public struct EVENT_EXTENDED_ITEM_STACK_KEY32
 {
 	public uint64 MatchId;
 	public uint32 StackKey;
 	public uint32 Padding;
 }
 
-[CRepr]public struct EVENT_EXTENDED_ITEM_STACK_KEY64
+[CRepr]
+public struct EVENT_EXTENDED_ITEM_STACK_KEY64
 {
 	public uint64 MatchId;
 	public uint64 StackKey;
 }
 
-[CRepr]public struct EVENT_EXTENDED_ITEM_PEBS_INDEX
+[CRepr]
+public struct EVENT_EXTENDED_ITEM_PEBS_INDEX
 {
 	public uint64 PebsIndex;
 }
 
-[CRepr]public struct EVENT_EXTENDED_ITEM_PMC_COUNTERS
+[CRepr]
+public struct EVENT_EXTENDED_ITEM_PMC_COUNTERS
 {
 	public uint64[1] Counter;
 }
 
-[CRepr]public struct EVENT_EXTENDED_ITEM_PROCESS_START_KEY
+[CRepr]
+public struct EVENT_EXTENDED_ITEM_PROCESS_START_KEY
 {
 	public uint64 ProcessStartKey;
 }
 
-[CRepr]public struct EVENT_EXTENDED_ITEM_EVENT_KEY
+[CRepr]
+public struct EVENT_EXTENDED_ITEM_EVENT_KEY
 {
 	public uint64 Key;
 }
 
-[CRepr]public struct EVENT_HEADER
+[CRepr]
+public struct EVENT_HEADER
 {
-	[CRepr, Union]	public struct _Anonymous_e__Union
+	[CRepr, Union]
+	public struct _Anonymous_e__Union
 	{
-		[CRepr]		public struct _Anonymous_e__Struct
+		[CRepr]
+		public struct _Anonymous_e__Struct
 		{
 			public uint32 KernelTime;
 			public uint32 UserTime;
@@ -2222,7 +2334,8 @@ public function void PENABLECALLBACK(Guid* SourceId, ENABLECALLBACK_ENABLED_STAT
 	public Guid ActivityId;
 }
 
-[CRepr]public struct EVENT_RECORD
+[CRepr]
+public struct EVENT_RECORD
 {
 	public EVENT_HEADER EventHeader;
 	public ETW_BUFFER_CONTEXT BufferContext;
@@ -2233,9 +2346,11 @@ public function void PENABLECALLBACK(Guid* SourceId, ENABLECALLBACK_ENABLED_STAT
 	public void* UserContext;
 }
 
-[CRepr]public struct EVENT_MAP_ENTRY
+[CRepr]
+public struct EVENT_MAP_ENTRY
 {
-	[CRepr, Union]	public struct _Anonymous_e__Union
+	[CRepr, Union]
+	public struct _Anonymous_e__Union
 	{
 		public uint32 Value;
 		public uint32 InputOffset;
@@ -2245,9 +2360,11 @@ public function void PENABLECALLBACK(Guid* SourceId, ENABLECALLBACK_ENABLED_STAT
 	public using _Anonymous_e__Union Anonymous;
 }
 
-[CRepr]public struct EVENT_MAP_INFO
+[CRepr]
+public struct EVENT_MAP_INFO
 {
-	[CRepr, Union]	public struct _Anonymous_e__Union
+	[CRepr, Union]
+	public struct _Anonymous_e__Union
 	{
 		public MAP_VALUETYPE MapEntryValueType;
 		public uint32 FormatStringOffset;
@@ -2260,11 +2377,14 @@ public function void PENABLECALLBACK(Guid* SourceId, ENABLECALLBACK_ENABLED_STAT
 	public EVENT_MAP_ENTRY[1] MapEntryArray;
 }
 
-[CRepr]public struct EVENT_PROPERTY_INFO
+[CRepr]
+public struct EVENT_PROPERTY_INFO
 {
-	[CRepr, Union]	public struct _Anonymous4_e__Union
+	[CRepr, Union]
+	public struct _Anonymous4_e__Union
 	{
-		[CRepr]		public struct _Anonymous_e__Struct
+		[CRepr]
+		public struct _Anonymous_e__Struct
 		{
 			public uint32 _bitfield;
 		}
@@ -2273,29 +2393,34 @@ public function void PENABLECALLBACK(Guid* SourceId, ENABLECALLBACK_ENABLED_STAT
 		public using _Anonymous_e__Struct Anonymous;
 	}
 
-	[CRepr, Union]	public struct _Anonymous2_e__Union
+	[CRepr, Union]
+	public struct _Anonymous2_e__Union
 	{
 		public uint16 count;
 		public uint16 countPropertyIndex;
 	}
 
-	[CRepr, Union]	public struct _Anonymous1_e__Union
+	[CRepr, Union]
+	public struct _Anonymous1_e__Union
 	{
-		[CRepr]		public struct _customSchemaType
+		[CRepr]
+		public struct _customSchemaType
 		{
 			public uint16 InType;
 			public uint16 OutType;
 			public uint32 CustomSchemaOffset;
 		}
 
-		[CRepr]		public struct _nonStructType
+		[CRepr]
+		public struct _nonStructType
 		{
 			public uint16 InType;
 			public uint16 OutType;
 			public uint32 MapNameOffset;
 		}
 
-		[CRepr]		public struct _structType
+		[CRepr]
+		public struct _structType
 		{
 			public uint16 StructStartIndex;
 			public uint16 NumOfStructMembers;
@@ -2307,7 +2432,8 @@ public function void PENABLECALLBACK(Guid* SourceId, ENABLECALLBACK_ENABLED_STAT
 		public _customSchemaType customSchemaType;
 	}
 
-	[CRepr, Union]	public struct _Anonymous3_e__Union
+	[CRepr, Union]
+	public struct _Anonymous3_e__Union
 	{
 		public uint16 length;
 		public uint16 lengthPropertyIndex;
@@ -2321,11 +2447,14 @@ public function void PENABLECALLBACK(Guid* SourceId, ENABLECALLBACK_ENABLED_STAT
 	public _Anonymous4_e__Union Anonymous4;
 }
 
-[CRepr]public struct TRACE_EVENT_INFO
+[CRepr]
+public struct TRACE_EVENT_INFO
 {
-	[CRepr, Union]	public struct _Anonymous3_e__Union
+	[CRepr, Union]
+	public struct _Anonymous3_e__Union
 	{
-		[CRepr]		public struct _Anonymous_e__Struct
+		[CRepr]
+		public struct _Anonymous_e__Struct
 		{
 			public uint32 _bitfield;
 		}
@@ -2334,13 +2463,15 @@ public function void PENABLECALLBACK(Guid* SourceId, ENABLECALLBACK_ENABLED_STAT
 		public using _Anonymous_e__Struct Anonymous;
 	}
 
-	[CRepr, Union]	public struct _Anonymous1_e__Union
+	[CRepr, Union]
+	public struct _Anonymous1_e__Union
 	{
 		public uint32 EventNameOffset;
 		public uint32 ActivityIDNameOffset;
 	}
 
-	[CRepr, Union]	public struct _Anonymous2_e__Union
+	[CRepr, Union]
+	public struct _Anonymous2_e__Union
 	{
 		public uint32 EventAttributesOffset;
 		public uint32 RelatedActivityIDNameOffset;
@@ -2368,21 +2499,24 @@ public function void PENABLECALLBACK(Guid* SourceId, ENABLECALLBACK_ENABLED_STAT
 	public EVENT_PROPERTY_INFO[1] EventPropertyInfoArray;
 }
 
-[CRepr]public struct PROPERTY_DATA_DESCRIPTOR
+[CRepr]
+public struct PROPERTY_DATA_DESCRIPTOR
 {
 	public uint64 PropertyName;
 	public uint32 ArrayIndex;
 	public uint32 Reserved;
 }
 
-[CRepr]public struct PAYLOAD_FILTER_PREDICATE
+[CRepr]
+public struct PAYLOAD_FILTER_PREDICATE
 {
 	public PWSTR FieldName;
 	public uint16 CompareOp;
 	public PWSTR Value;
 }
 
-[CRepr]public struct PROVIDER_FILTER_INFO
+[CRepr]
+public struct PROVIDER_FILTER_INFO
 {
 	public uint8 Id;
 	public uint8 Version;
@@ -2392,42 +2526,48 @@ public function void PENABLECALLBACK(Guid* SourceId, ENABLECALLBACK_ENABLED_STAT
 	public EVENT_PROPERTY_INFO[1] EventPropertyInfoArray;
 }
 
-[CRepr]public struct PROVIDER_FIELD_INFO
+[CRepr]
+public struct PROVIDER_FIELD_INFO
 {
 	public uint32 NameOffset;
 	public uint32 DescriptionOffset;
 	public uint64 Value;
 }
 
-[CRepr]public struct PROVIDER_FIELD_INFOARRAY
+[CRepr]
+public struct PROVIDER_FIELD_INFOARRAY
 {
 	public uint32 NumberOfElements;
 	public EVENT_FIELD_TYPE FieldType;
 	public PROVIDER_FIELD_INFO[1] FieldInfoArray;
 }
 
-[CRepr]public struct TRACE_PROVIDER_INFO
+[CRepr]
+public struct TRACE_PROVIDER_INFO
 {
 	public Guid ProviderGuid;
 	public uint32 SchemaSource;
 	public uint32 ProviderNameOffset;
 }
 
-[CRepr]public struct PROVIDER_ENUMERATION_INFO
+[CRepr]
+public struct PROVIDER_ENUMERATION_INFO
 {
 	public uint32 NumberOfProviders;
 	public uint32 Reserved;
 	public TRACE_PROVIDER_INFO[1] TraceProviderInfoArray;
 }
 
-[CRepr]public struct PROVIDER_EVENT_INFO
+[CRepr]
+public struct PROVIDER_EVENT_INFO
 {
 	public uint32 NumberOfEvents;
 	public uint32 Reserved;
 	public EVENT_DESCRIPTOR[1] EventDescriptorsArray;
 }
 
-[CRepr]public struct TDH_CONTEXT
+[CRepr]
+public struct TDH_CONTEXT
 {
 	public uint64 ParameterValue;
 	public TDH_CONTEXT_TYPE ParameterType;

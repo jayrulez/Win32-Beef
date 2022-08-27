@@ -238,17 +238,21 @@ public function BOOLEAN PSECURE_MEMORY_CACHE_CALLBACK(void* Addr, uint Range);
 #endregion
 
 #region Structs
-[CRepr]public struct PROCESS_HEAP_ENTRY
+[CRepr]
+public struct PROCESS_HEAP_ENTRY
 {
-	[CRepr, Union]	public struct _Anonymous_e__Union
+	[CRepr, Union]
+	public struct _Anonymous_e__Union
 	{
-		[CRepr]		public struct _Block_e__Struct
+		[CRepr]
+		public struct _Block_e__Struct
 		{
 			public HANDLE hMem;
 			public uint32[3] dwReserved;
 		}
 
-		[CRepr]		public struct _Region_e__Struct
+		[CRepr]
+		public struct _Region_e__Struct
 		{
 			public uint32 dwCommittedSize;
 			public uint32 dwUnCommittedSize;
@@ -268,7 +272,8 @@ public function BOOLEAN PSECURE_MEMORY_CACHE_CALLBACK(void* Addr, uint Range);
 	public using _Anonymous_e__Union Anonymous;
 }
 
-[CRepr]public struct HEAP_SUMMARY
+[CRepr]
+public struct HEAP_SUMMARY
 {
 	public uint32 cb;
 	public uint cbAllocated;
@@ -277,17 +282,21 @@ public function BOOLEAN PSECURE_MEMORY_CACHE_CALLBACK(void* Addr, uint Range);
 	public uint cbMaxReserve;
 }
 
-[CRepr]public struct WIN32_MEMORY_RANGE_ENTRY
+[CRepr]
+public struct WIN32_MEMORY_RANGE_ENTRY
 {
 	public void* VirtualAddress;
 	public uint NumberOfBytes;
 }
 
-[CRepr]public struct WIN32_MEMORY_REGION_INFORMATION
+[CRepr]
+public struct WIN32_MEMORY_REGION_INFORMATION
 {
-	[CRepr, Union]	public struct _Anonymous_e__Union
+	[CRepr, Union]
+	public struct _Anonymous_e__Union
 	{
-		[CRepr]		public struct _Anonymous_e__Struct
+		[CRepr]
+		public struct _Anonymous_e__Struct
 		{
 			public uint32 _bitfield;
 		}
@@ -303,7 +312,8 @@ public function BOOLEAN PSECURE_MEMORY_CACHE_CALLBACK(void* Addr, uint Range);
 	public uint CommitSize;
 }
 
-[CRepr]public struct WIN32_MEMORY_PARTITION_INFORMATION
+[CRepr]
+public struct WIN32_MEMORY_PARTITION_INFORMATION
 {
 	public uint32 Flags;
 	public uint32 NumaNode;
@@ -325,7 +335,8 @@ public function BOOLEAN PSECURE_MEMORY_CACHE_CALLBACK(void* Addr, uint Range);
 }
 
 #if BF_64_BIT || BF_ARM_64
-[CRepr]public struct MEMORY_BASIC_INFORMATION
+[CRepr]
+public struct MEMORY_BASIC_INFORMATION
 {
 	public void* BaseAddress;
 	public void* AllocationBase;
@@ -338,7 +349,8 @@ public function BOOLEAN PSECURE_MEMORY_CACHE_CALLBACK(void* Addr, uint Range);
 }
 #endif
 
-[CRepr]public struct MEMORY_BASIC_INFORMATION32
+[CRepr]
+public struct MEMORY_BASIC_INFORMATION32
 {
 	public uint32 BaseAddress;
 	public uint32 AllocationBase;
@@ -349,7 +361,8 @@ public function BOOLEAN PSECURE_MEMORY_CACHE_CALLBACK(void* Addr, uint Range);
 	public PAGE_TYPE Type;
 }
 
-[CRepr]public struct MEMORY_BASIC_INFORMATION64
+[CRepr]
+public struct MEMORY_BASIC_INFORMATION64
 {
 	public uint64 BaseAddress;
 	public uint64 AllocationBase;
@@ -362,15 +375,18 @@ public function BOOLEAN PSECURE_MEMORY_CACHE_CALLBACK(void* Addr, uint Range);
 	public uint32 __alignment2;
 }
 
-[CRepr]public struct CFG_CALL_TARGET_INFO
+[CRepr]
+public struct CFG_CALL_TARGET_INFO
 {
 	public uint Offset;
 	public uint Flags;
 }
 
-[CRepr]public struct MEM_EXTENDED_PARAMETER
+[CRepr]
+public struct MEM_EXTENDED_PARAMETER
 {
-	[CRepr, Union]	public struct _Anonymous2_e__Union
+	[CRepr, Union]
+	public struct _Anonymous2_e__Union
 	{
 		public uint64 ULong64;
 		public void* Pointer;
@@ -379,7 +395,8 @@ public function BOOLEAN PSECURE_MEMORY_CACHE_CALLBACK(void* Addr, uint Range);
 		public uint32 ULong;
 	}
 
-	[CRepr]	public struct _Anonymous1_e__Struct
+	[CRepr]
+	public struct _Anonymous1_e__Struct
 	{
 		public uint64 _bitfield;
 	}
@@ -389,7 +406,8 @@ public function BOOLEAN PSECURE_MEMORY_CACHE_CALLBACK(void* Addr, uint Range);
 }
 
 #if BF_32_BIT
-[CRepr]public struct MEMORY_BASIC_INFORMATION
+[CRepr]
+public struct MEMORY_BASIC_INFORMATION
 {
 	public void* BaseAddress;
 	public void* AllocationBase;

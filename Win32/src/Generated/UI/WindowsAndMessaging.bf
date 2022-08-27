@@ -4041,51 +4041,59 @@ public function void MSGBOXCALLBACK(HELPINFO* lpHelpInfo);
 #endregion
 
 #region Structs
-[CRepr]public struct MESSAGE_RESOURCE_ENTRY
+[CRepr]
+public struct MESSAGE_RESOURCE_ENTRY
 {
 	public uint16 Length;
 	public uint16 Flags;
 	public uint8[1] Text;
 }
 
-[CRepr]public struct MESSAGE_RESOURCE_BLOCK
+[CRepr]
+public struct MESSAGE_RESOURCE_BLOCK
 {
 	public uint32 LowId;
 	public uint32 HighId;
 	public uint32 OffsetToEntries;
 }
 
-[CRepr]public struct MESSAGE_RESOURCE_DATA
+[CRepr]
+public struct MESSAGE_RESOURCE_DATA
 {
 	public uint32 NumberOfBlocks;
 	public MESSAGE_RESOURCE_BLOCK[1] Blocks;
 }
 
-[CRepr]public struct CBT_CREATEWNDA
+[CRepr]
+public struct CBT_CREATEWNDA
 {
 	public CREATESTRUCTA* lpcs;
 	public HWND hwndInsertAfter;
 }
 
-[CRepr]public struct CBT_CREATEWNDW
+[CRepr]
+public struct CBT_CREATEWNDW
 {
 	public CREATESTRUCTW* lpcs;
 	public HWND hwndInsertAfter;
 }
 
-[CRepr]public struct CBTACTIVATESTRUCT
+[CRepr]
+public struct CBTACTIVATESTRUCT
 {
 	public BOOL fMouse;
 	public HWND hWndActive;
 }
 
-[CRepr]public struct SHELLHOOKINFO
+[CRepr]
+public struct SHELLHOOKINFO
 {
 	public HWND hwnd;
 	public RECT rc;
 }
 
-[CRepr]public struct EVENTMSG
+[CRepr]
+public struct EVENTMSG
 {
 	public uint32 message;
 	public uint32 paramL;
@@ -4094,7 +4102,8 @@ public function void MSGBOXCALLBACK(HELPINFO* lpHelpInfo);
 	public HWND hwnd;
 }
 
-[CRepr]public struct CWPSTRUCT
+[CRepr]
+public struct CWPSTRUCT
 {
 	public LPARAM lParam;
 	public WPARAM wParam;
@@ -4102,7 +4111,8 @@ public function void MSGBOXCALLBACK(HELPINFO* lpHelpInfo);
 	public HWND hwnd;
 }
 
-[CRepr]public struct CWPRETSTRUCT
+[CRepr]
+public struct CWPRETSTRUCT
 {
 	public LRESULT lResult;
 	public LPARAM lParam;
@@ -4111,7 +4121,8 @@ public function void MSGBOXCALLBACK(HELPINFO* lpHelpInfo);
 	public HWND hwnd;
 }
 
-[CRepr]public struct KBDLLHOOKSTRUCT
+[CRepr]
+public struct KBDLLHOOKSTRUCT
 {
 	public uint32 vkCode;
 	public uint32 scanCode;
@@ -4120,7 +4131,8 @@ public function void MSGBOXCALLBACK(HELPINFO* lpHelpInfo);
 	public uint dwExtraInfo;
 }
 
-[CRepr]public struct MSLLHOOKSTRUCT
+[CRepr]
+public struct MSLLHOOKSTRUCT
 {
 	public POINT pt;
 	public MOUSEHOOKSTRUCTEX_MOUSE_DATA mouseData;
@@ -4129,7 +4141,8 @@ public function void MSGBOXCALLBACK(HELPINFO* lpHelpInfo);
 	public uint dwExtraInfo;
 }
 
-[CRepr]public struct DEBUGHOOKINFO
+[CRepr]
+public struct DEBUGHOOKINFO
 {
 	public uint32 idThread;
 	public uint32 idThreadInstaller;
@@ -4138,7 +4151,8 @@ public function void MSGBOXCALLBACK(HELPINFO* lpHelpInfo);
 	public int32 code;
 }
 
-[CRepr]public struct MOUSEHOOKSTRUCT
+[CRepr]
+public struct MOUSEHOOKSTRUCT
 {
 	public POINT pt;
 	public HWND hwnd;
@@ -4146,13 +4160,15 @@ public function void MSGBOXCALLBACK(HELPINFO* lpHelpInfo);
 	public uint dwExtraInfo;
 }
 
-[CRepr]public struct MOUSEHOOKSTRUCTEX
+[CRepr]
+public struct MOUSEHOOKSTRUCTEX
 {
 	public MOUSEHOOKSTRUCT __AnonymousBase_winuser_L1166_C46;
 	public MOUSEHOOKSTRUCTEX_MOUSE_DATA mouseData;
 }
 
-[CRepr]public struct HARDWAREHOOKSTRUCT
+[CRepr]
+public struct HARDWAREHOOKSTRUCT
 {
 	public HWND hwnd;
 	public uint32 message;
@@ -4160,7 +4176,8 @@ public function void MSGBOXCALLBACK(HELPINFO* lpHelpInfo);
 	public LPARAM lParam;
 }
 
-[CRepr]public struct WNDCLASSEXA
+[CRepr]
+public struct WNDCLASSEXA
 {
 	public uint32 cbSize;
 	public WNDCLASS_STYLES style;
@@ -4176,7 +4193,8 @@ public function void MSGBOXCALLBACK(HELPINFO* lpHelpInfo);
 	public HICON hIconSm;
 }
 
-[CRepr]public struct WNDCLASSEXW
+[CRepr]
+public struct WNDCLASSEXW
 {
 	public uint32 cbSize;
 	public WNDCLASS_STYLES style;
@@ -4192,7 +4210,8 @@ public function void MSGBOXCALLBACK(HELPINFO* lpHelpInfo);
 	public HICON hIconSm;
 }
 
-[CRepr]public struct WNDCLASSA
+[CRepr]
+public struct WNDCLASSA
 {
 	public WNDCLASS_STYLES style;
 	public WNDPROC lpfnWndProc;
@@ -4206,7 +4225,8 @@ public function void MSGBOXCALLBACK(HELPINFO* lpHelpInfo);
 	public PSTR lpszClassName;
 }
 
-[CRepr]public struct WNDCLASSW
+[CRepr]
+public struct WNDCLASSW
 {
 	public WNDCLASS_STYLES style;
 	public WNDPROC lpfnWndProc;
@@ -4220,7 +4240,8 @@ public function void MSGBOXCALLBACK(HELPINFO* lpHelpInfo);
 	public PWSTR lpszClassName;
 }
 
-[CRepr]public struct MSG
+[CRepr]
+public struct MSG
 {
 	public HWND hwnd;
 	public uint32 message;
@@ -4230,7 +4251,8 @@ public function void MSGBOXCALLBACK(HELPINFO* lpHelpInfo);
 	public POINT pt;
 }
 
-[CRepr]public struct MINMAXINFO
+[CRepr]
+public struct MINMAXINFO
 {
 	public POINT ptReserved;
 	public POINT ptMaxSize;
@@ -4239,14 +4261,16 @@ public function void MSGBOXCALLBACK(HELPINFO* lpHelpInfo);
 	public POINT ptMaxTrackSize;
 }
 
-[CRepr]public struct MDINEXTMENU
+[CRepr]
+public struct MDINEXTMENU
 {
 	public HMENU hmenuIn;
 	public HMENU hmenuNext;
 	public HWND hwndNext;
 }
 
-[CRepr]public struct WINDOWPOS
+[CRepr]
+public struct WINDOWPOS
 {
 	public HWND hwnd;
 	public HWND hwndInsertAfter;
@@ -4257,20 +4281,23 @@ public function void MSGBOXCALLBACK(HELPINFO* lpHelpInfo);
 	public SET_WINDOW_POS_FLAGS flags;
 }
 
-[CRepr]public struct NCCALCSIZE_PARAMS
+[CRepr]
+public struct NCCALCSIZE_PARAMS
 {
 	public RECT[3] rgrc;
 	public WINDOWPOS* lppos;
 }
 
-[CRepr]public struct ACCEL
+[CRepr]
+public struct ACCEL
 {
 	public uint8 fVirt;
 	public uint16 key;
 	public uint16 cmd;
 }
 
-[CRepr]public struct CREATESTRUCTA
+[CRepr]
+public struct CREATESTRUCTA
 {
 	public void* lpCreateParams;
 	public HINSTANCE hInstance;
@@ -4286,7 +4313,8 @@ public function void MSGBOXCALLBACK(HELPINFO* lpHelpInfo);
 	public uint32 dwExStyle;
 }
 
-[CRepr]public struct CREATESTRUCTW
+[CRepr]
+public struct CREATESTRUCTW
 {
 	public void* lpCreateParams;
 	public HINSTANCE hInstance;
@@ -4302,7 +4330,8 @@ public function void MSGBOXCALLBACK(HELPINFO* lpHelpInfo);
 	public uint32 dwExStyle;
 }
 
-[CRepr]public struct WINDOWPLACEMENT
+[CRepr]
+public struct WINDOWPLACEMENT
 {
 	public uint32 length;
 	public WINDOWPLACEMENT_FLAGS flags;
@@ -4312,13 +4341,15 @@ public function void MSGBOXCALLBACK(HELPINFO* lpHelpInfo);
 	public RECT rcNormalPosition;
 }
 
-[CRepr]public struct STYLESTRUCT
+[CRepr]
+public struct STYLESTRUCT
 {
 	public uint32 styleOld;
 	public uint32 styleNew;
 }
 
-[CRepr]public struct UPDATELAYEREDWINDOWINFO
+[CRepr]
+public struct UPDATELAYEREDWINDOWINFO
 {
 	public uint32 cbSize;
 	public HDC hdcDst;
@@ -4332,7 +4363,8 @@ public function void MSGBOXCALLBACK(HELPINFO* lpHelpInfo);
 	public RECT* prcDirty;
 }
 
-[CRepr]public struct FLASHWINFO
+[CRepr]
+public struct FLASHWINFO
 {
 	public uint32 cbSize;
 	public HWND hwnd;
@@ -4341,7 +4373,8 @@ public function void MSGBOXCALLBACK(HELPINFO* lpHelpInfo);
 	public uint32 dwTimeout;
 }
 
-[CRepr, Packed(2)]public struct DLGTEMPLATE
+[CRepr, Packed(2)]
+public struct DLGTEMPLATE
 {
 	public uint32 style;
 	public uint32 dwExtendedStyle;
@@ -4352,7 +4385,8 @@ public function void MSGBOXCALLBACK(HELPINFO* lpHelpInfo);
 	public int16 cy;
 }
 
-[CRepr, Packed(2)]public struct DLGITEMTEMPLATE
+[CRepr, Packed(2)]
+public struct DLGITEMTEMPLATE
 {
 	public uint32 style;
 	public uint32 dwExtendedStyle;
@@ -4363,13 +4397,15 @@ public function void MSGBOXCALLBACK(HELPINFO* lpHelpInfo);
 	public uint16 id;
 }
 
-[CRepr]public struct TPMPARAMS
+[CRepr]
+public struct TPMPARAMS
 {
 	public uint32 cbSize;
 	public RECT rcExclude;
 }
 
-[CRepr]public struct MENUINFO
+[CRepr]
+public struct MENUINFO
 {
 	public uint32 cbSize;
 	public MENUINFO_MASK fMask;
@@ -4380,7 +4416,8 @@ public function void MSGBOXCALLBACK(HELPINFO* lpHelpInfo);
 	public uint dwMenuData;
 }
 
-[CRepr]public struct MENUGETOBJECTINFO
+[CRepr]
+public struct MENUGETOBJECTINFO
 {
 	public MENUGETOBJECTINFO_FLAGS dwFlags;
 	public uint32 uPos;
@@ -4389,7 +4426,8 @@ public function void MSGBOXCALLBACK(HELPINFO* lpHelpInfo);
 	public void* pvObj;
 }
 
-[CRepr]public struct MENUITEMINFOA
+[CRepr]
+public struct MENUITEMINFOA
 {
 	public uint32 cbSize;
 	public MENU_ITEM_MASK fMask;
@@ -4405,7 +4443,8 @@ public function void MSGBOXCALLBACK(HELPINFO* lpHelpInfo);
 	public HBITMAP hbmpItem;
 }
 
-[CRepr]public struct MENUITEMINFOW
+[CRepr]
+public struct MENUITEMINFOW
 {
 	public uint32 cbSize;
 	public MENU_ITEM_MASK fMask;
@@ -4421,7 +4460,8 @@ public function void MSGBOXCALLBACK(HELPINFO* lpHelpInfo);
 	public HBITMAP hbmpItem;
 }
 
-[CRepr]public struct DROPSTRUCT
+[CRepr]
+public struct DROPSTRUCT
 {
 	public HWND hwndSource;
 	public HWND hwndSink;
@@ -4431,7 +4471,8 @@ public function void MSGBOXCALLBACK(HELPINFO* lpHelpInfo);
 	public uint32 dwControlData;
 }
 
-[CRepr]public struct MSGBOXPARAMSA
+[CRepr]
+public struct MSGBOXPARAMSA
 {
 	public uint32 cbSize;
 	public HWND hwndOwner;
@@ -4445,7 +4486,8 @@ public function void MSGBOXCALLBACK(HELPINFO* lpHelpInfo);
 	public uint32 dwLanguageId;
 }
 
-[CRepr]public struct MSGBOXPARAMSW
+[CRepr]
+public struct MSGBOXPARAMSW
 {
 	public uint32 cbSize;
 	public HWND hwndOwner;
@@ -4459,20 +4501,23 @@ public function void MSGBOXCALLBACK(HELPINFO* lpHelpInfo);
 	public uint32 dwLanguageId;
 }
 
-[CRepr]public struct MENUITEMTEMPLATEHEADER
+[CRepr]
+public struct MENUITEMTEMPLATEHEADER
 {
 	public uint16 versionNumber;
 	public uint16 offset;
 }
 
-[CRepr]public struct MENUITEMTEMPLATE
+[CRepr]
+public struct MENUITEMTEMPLATE
 {
 	public uint16 mtOption;
 	public uint16 mtID;
 	public char8[1] mtString;
 }
 
-[CRepr]public struct ICONINFO
+[CRepr]
+public struct ICONINFO
 {
 	public BOOL fIcon;
 	public uint32 xHotspot;
@@ -4481,7 +4526,8 @@ public function void MSGBOXCALLBACK(HELPINFO* lpHelpInfo);
 	public HBITMAP hbmColor;
 }
 
-[CRepr]public struct CURSORSHAPE
+[CRepr]
+public struct CURSORSHAPE
 {
 	public int32 xHotSpot;
 	public int32 yHotSpot;
@@ -4492,7 +4538,8 @@ public function void MSGBOXCALLBACK(HELPINFO* lpHelpInfo);
 	public uint8 BitsPixel;
 }
 
-[CRepr]public struct ICONINFOEXA
+[CRepr]
+public struct ICONINFOEXA
 {
 	public uint32 cbSize;
 	public BOOL fIcon;
@@ -4505,7 +4552,8 @@ public function void MSGBOXCALLBACK(HELPINFO* lpHelpInfo);
 	public CHAR[260] szResName;
 }
 
-[CRepr]public struct ICONINFOEXW
+[CRepr]
+public struct ICONINFOEXW
 {
 	public uint32 cbSize;
 	public BOOL fIcon;
@@ -4518,7 +4566,8 @@ public function void MSGBOXCALLBACK(HELPINFO* lpHelpInfo);
 	public char8[260] szResName;
 }
 
-[CRepr]public struct SCROLLINFO
+[CRepr]
+public struct SCROLLINFO
 {
 	public uint32 cbSize;
 	public SCROLLINFO_MASK fMask;
@@ -4529,7 +4578,8 @@ public function void MSGBOXCALLBACK(HELPINFO* lpHelpInfo);
 	public int32 nTrackPos;
 }
 
-[CRepr]public struct MDICREATESTRUCTA
+[CRepr]
+public struct MDICREATESTRUCTA
 {
 	public PSTR szClass;
 	public PSTR szTitle;
@@ -4542,7 +4592,8 @@ public function void MSGBOXCALLBACK(HELPINFO* lpHelpInfo);
 	public LPARAM lParam;
 }
 
-[CRepr]public struct MDICREATESTRUCTW
+[CRepr]
+public struct MDICREATESTRUCTW
 {
 	public PWSTR szClass;
 	public PWSTR szTitle;
@@ -4555,13 +4606,15 @@ public function void MSGBOXCALLBACK(HELPINFO* lpHelpInfo);
 	public LPARAM lParam;
 }
 
-[CRepr]public struct CLIENTCREATESTRUCT
+[CRepr]
+public struct CLIENTCREATESTRUCT
 {
 	public HANDLE hWindowMenu;
 	public uint32 idFirstChild;
 }
 
-[CRepr]public struct TouchPredictionParameters
+[CRepr]
+public struct TouchPredictionParameters
 {
 	public uint32 cbSize;
 	public uint32 dwLatency;
@@ -4569,7 +4622,8 @@ public function void MSGBOXCALLBACK(HELPINFO* lpHelpInfo);
 	public uint32 bUseHWTimeStamp;
 }
 
-[CRepr]public struct NONCLIENTMETRICSA
+[CRepr]
+public struct NONCLIENTMETRICSA
 {
 	public uint32 cbSize;
 	public int32 iBorderWidth;
@@ -4589,7 +4643,8 @@ public function void MSGBOXCALLBACK(HELPINFO* lpHelpInfo);
 	public int32 iPaddedBorderWidth;
 }
 
-[CRepr]public struct NONCLIENTMETRICSW
+[CRepr]
+public struct NONCLIENTMETRICSW
 {
 	public uint32 cbSize;
 	public int32 iBorderWidth;
@@ -4609,7 +4664,8 @@ public function void MSGBOXCALLBACK(HELPINFO* lpHelpInfo);
 	public int32 iPaddedBorderWidth;
 }
 
-[CRepr]public struct MINIMIZEDMETRICS
+[CRepr]
+public struct MINIMIZEDMETRICS
 {
 	public uint32 cbSize;
 	public int32 iWidth;
@@ -4618,7 +4674,8 @@ public function void MSGBOXCALLBACK(HELPINFO* lpHelpInfo);
 	public MINIMIZEDMETRICS_ARRANGE iArrange;
 }
 
-[CRepr]public struct ICONMETRICSA
+[CRepr]
+public struct ICONMETRICSA
 {
 	public uint32 cbSize;
 	public int32 iHorzSpacing;
@@ -4627,7 +4684,8 @@ public function void MSGBOXCALLBACK(HELPINFO* lpHelpInfo);
 	public LOGFONTA lfFont;
 }
 
-[CRepr]public struct ICONMETRICSW
+[CRepr]
+public struct ICONMETRICSW
 {
 	public uint32 cbSize;
 	public int32 iHorzSpacing;
@@ -4636,20 +4694,23 @@ public function void MSGBOXCALLBACK(HELPINFO* lpHelpInfo);
 	public LOGFONTW lfFont;
 }
 
-[CRepr]public struct ANIMATIONINFO
+[CRepr]
+public struct ANIMATIONINFO
 {
 	public uint32 cbSize;
 	public int32 iMinAnimate;
 }
 
-[CRepr]public struct AUDIODESCRIPTION
+[CRepr]
+public struct AUDIODESCRIPTION
 {
 	public uint32 cbSize;
 	public BOOL Enabled;
 	public uint32 Locale;
 }
 
-[CRepr]public struct GUITHREADINFO
+[CRepr]
+public struct GUITHREADINFO
 {
 	public uint32 cbSize;
 	public GUITHREADINFO_FLAGS flags;
@@ -4662,7 +4723,8 @@ public function void MSGBOXCALLBACK(HELPINFO* lpHelpInfo);
 	public RECT rcCaret;
 }
 
-[CRepr]public struct CURSORINFO
+[CRepr]
+public struct CURSORINFO
 {
 	public uint32 cbSize;
 	public CURSORINFO_FLAGS flags;
@@ -4670,7 +4732,8 @@ public function void MSGBOXCALLBACK(HELPINFO* lpHelpInfo);
 	public POINT ptScreenPos;
 }
 
-[CRepr]public struct WINDOWINFO
+[CRepr]
+public struct WINDOWINFO
 {
 	public uint32 cbSize;
 	public RECT rcWindow;
@@ -4684,14 +4747,16 @@ public function void MSGBOXCALLBACK(HELPINFO* lpHelpInfo);
 	public uint16 wCreatorVersion;
 }
 
-[CRepr]public struct TITLEBARINFO
+[CRepr]
+public struct TITLEBARINFO
 {
 	public uint32 cbSize;
 	public RECT rcTitleBar;
 	public uint32[6] rgstate;
 }
 
-[CRepr]public struct TITLEBARINFOEX
+[CRepr]
+public struct TITLEBARINFOEX
 {
 	public uint32 cbSize;
 	public RECT rcTitleBar;
@@ -4699,7 +4764,8 @@ public function void MSGBOXCALLBACK(HELPINFO* lpHelpInfo);
 	public RECT[6] rgrect;
 }
 
-[CRepr]public struct MENUBARINFO
+[CRepr]
+public struct MENUBARINFO
 {
 	public uint32 cbSize;
 	public RECT rcBar;
@@ -4708,7 +4774,8 @@ public function void MSGBOXCALLBACK(HELPINFO* lpHelpInfo);
 	public int32 _bitfield;
 }
 
-[CRepr]public struct SCROLLBARINFO
+[CRepr]
+public struct SCROLLBARINFO
 {
 	public uint32 cbSize;
 	public RECT rcScrollBar;
@@ -4719,7 +4786,8 @@ public function void MSGBOXCALLBACK(HELPINFO* lpHelpInfo);
 	public uint32[6] rgstate;
 }
 
-[CRepr]public struct ALTTABINFO
+[CRepr]
+public struct ALTTABINFO
 {
 	public uint32 cbSize;
 	public int32 cItems;
@@ -4732,24 +4800,28 @@ public function void MSGBOXCALLBACK(HELPINFO* lpHelpInfo);
 	public POINT ptStart;
 }
 
-[CRepr]public struct CHANGEFILTERSTRUCT
+[CRepr]
+public struct CHANGEFILTERSTRUCT
 {
 	public uint32 cbSize;
 	public MSGFLTINFO_STATUS ExtStatus;
 }
 
-[CRepr]public struct IndexedResourceQualifier
+[CRepr]
+public struct IndexedResourceQualifier
 {
 	public PWSTR name;
 	public PWSTR value;
 }
 
-[CRepr]public struct MrmResourceIndexerHandle
+[CRepr]
+public struct MrmResourceIndexerHandle
 {
 	public void* handle;
 }
 
-[CRepr]public struct MrmResourceIndexerMessage
+[CRepr]
+public struct MrmResourceIndexerMessage
 {
 	public MrmResourceIndexerMessageSeverity severity;
 	public uint32 id;

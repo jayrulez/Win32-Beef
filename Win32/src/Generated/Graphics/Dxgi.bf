@@ -765,7 +765,8 @@ public enum DXGI_Message_Id : int32
 #endregion
 
 #region Structs
-[CRepr]public struct DXGI_RGBA
+[CRepr]
+public struct DXGI_RGBA
 {
 	public float r;
 	public float g;
@@ -773,7 +774,8 @@ public enum DXGI_Message_Id : int32
 	public float a;
 }
 
-[CRepr]public struct DXGI_FRAME_STATISTICS
+[CRepr]
+public struct DXGI_FRAME_STATISTICS
 {
 	public uint32 PresentCount;
 	public uint32 PresentRefreshCount;
@@ -782,13 +784,15 @@ public enum DXGI_Message_Id : int32
 	public LARGE_INTEGER SyncGPUTime;
 }
 
-[CRepr]public struct DXGI_MAPPED_RECT
+[CRepr]
+public struct DXGI_MAPPED_RECT
 {
 	public int32 Pitch;
 	public uint8* pBits;
 }
 
-[CRepr]public struct DXGI_ADAPTER_DESC
+[CRepr]
+public struct DXGI_ADAPTER_DESC
 {
 	public char8[128] Description;
 	public uint32 VendorId;
@@ -801,7 +805,8 @@ public enum DXGI_Message_Id : int32
 	public LUID AdapterLuid;
 }
 
-[CRepr]public struct DXGI_OUTPUT_DESC
+[CRepr]
+public struct DXGI_OUTPUT_DESC
 {
 	public char8[32] DeviceName;
 	public RECT DesktopCoordinates;
@@ -810,12 +815,14 @@ public enum DXGI_Message_Id : int32
 	public HMONITOR Monitor;
 }
 
-[CRepr]public struct DXGI_SHARED_RESOURCE
+[CRepr]
+public struct DXGI_SHARED_RESOURCE
 {
 	public HANDLE Handle;
 }
 
-[CRepr]public struct DXGI_SURFACE_DESC
+[CRepr]
+public struct DXGI_SURFACE_DESC
 {
 	public uint32 Width;
 	public uint32 Height;
@@ -823,7 +830,8 @@ public enum DXGI_Message_Id : int32
 	public DXGI_SAMPLE_DESC SampleDesc;
 }
 
-[CRepr]public struct DXGI_SWAP_CHAIN_DESC
+[CRepr]
+public struct DXGI_SWAP_CHAIN_DESC
 {
 	public DXGI_MODE_DESC BufferDesc;
 	public DXGI_SAMPLE_DESC SampleDesc;
@@ -835,7 +843,8 @@ public enum DXGI_Message_Id : int32
 	public uint32 Flags;
 }
 
-[CRepr]public struct DXGI_ADAPTER_DESC1
+[CRepr]
+public struct DXGI_ADAPTER_DESC1
 {
 	public char8[128] Description;
 	public uint32 VendorId;
@@ -849,32 +858,37 @@ public enum DXGI_Message_Id : int32
 	public uint32 Flags;
 }
 
-[CRepr]public struct DXGI_DISPLAY_COLOR_SPACE
+[CRepr]
+public struct DXGI_DISPLAY_COLOR_SPACE
 {
 	public float[16] PrimaryCoordinates;
 	public float[32] WhitePoints;
 }
 
-[CRepr]public struct DXGI_OUTDUPL_MOVE_RECT
+[CRepr]
+public struct DXGI_OUTDUPL_MOVE_RECT
 {
 	public POINT SourcePoint;
 	public RECT DestinationRect;
 }
 
-[CRepr]public struct DXGI_OUTDUPL_DESC
+[CRepr]
+public struct DXGI_OUTDUPL_DESC
 {
 	public DXGI_MODE_DESC ModeDesc;
 	public DXGI_MODE_ROTATION Rotation;
 	public BOOL DesktopImageInSystemMemory;
 }
 
-[CRepr]public struct DXGI_OUTDUPL_POINTER_POSITION
+[CRepr]
+public struct DXGI_OUTDUPL_POINTER_POSITION
 {
 	public POINT Position;
 	public BOOL Visible;
 }
 
-[CRepr]public struct DXGI_OUTDUPL_POINTER_SHAPE_INFO
+[CRepr]
+public struct DXGI_OUTDUPL_POINTER_SHAPE_INFO
 {
 	public uint32 Type;
 	public uint32 Width;
@@ -883,7 +897,8 @@ public enum DXGI_Message_Id : int32
 	public POINT HotSpot;
 }
 
-[CRepr]public struct DXGI_OUTDUPL_FRAME_INFO
+[CRepr]
+public struct DXGI_OUTDUPL_FRAME_INFO
 {
 	public LARGE_INTEGER LastPresentTime;
 	public LARGE_INTEGER LastMouseUpdateTime;
@@ -895,7 +910,8 @@ public enum DXGI_Message_Id : int32
 	public uint32 PointerShapeBufferSize;
 }
 
-[CRepr]public struct DXGI_MODE_DESC1
+[CRepr]
+public struct DXGI_MODE_DESC1
 {
 	public uint32 Width;
 	public uint32 Height;
@@ -906,7 +922,8 @@ public enum DXGI_Message_Id : int32
 	public BOOL Stereo;
 }
 
-[CRepr]public struct DXGI_SWAP_CHAIN_DESC1
+[CRepr]
+public struct DXGI_SWAP_CHAIN_DESC1
 {
 	public uint32 Width;
 	public uint32 Height;
@@ -921,7 +938,8 @@ public enum DXGI_Message_Id : int32
 	public uint32 Flags;
 }
 
-[CRepr]public struct DXGI_SWAP_CHAIN_FULLSCREEN_DESC
+[CRepr]
+public struct DXGI_SWAP_CHAIN_FULLSCREEN_DESC
 {
 	public DXGI_RATIONAL RefreshRate;
 	public DXGI_MODE_SCANLINE_ORDER ScanlineOrdering;
@@ -929,7 +947,8 @@ public enum DXGI_Message_Id : int32
 	public BOOL Windowed;
 }
 
-[CRepr]public struct DXGI_PRESENT_PARAMETERS
+[CRepr]
+public struct DXGI_PRESENT_PARAMETERS
 {
 	public uint32 DirtyRectsCount;
 	public RECT* pDirtyRects;
@@ -937,7 +956,8 @@ public enum DXGI_Message_Id : int32
 	public POINT* pScrollOffset;
 }
 
-[CRepr]public struct DXGI_ADAPTER_DESC2
+[CRepr]
+public struct DXGI_ADAPTER_DESC2
 {
 	public char8[128] Description;
 	public uint32 VendorId;
@@ -953,7 +973,8 @@ public enum DXGI_Message_Id : int32
 	public DXGI_COMPUTE_PREEMPTION_GRANULARITY ComputePreemptionGranularity;
 }
 
-[CRepr]public struct DXGI_MATRIX_3X2_F
+[CRepr]
+public struct DXGI_MATRIX_3X2_F
 {
 	public float _11;
 	public float _12;
@@ -963,12 +984,14 @@ public enum DXGI_Message_Id : int32
 	public float _32;
 }
 
-[CRepr]public struct DXGI_DECODE_SWAP_CHAIN_DESC
+[CRepr]
+public struct DXGI_DECODE_SWAP_CHAIN_DESC
 {
 	public uint32 Flags;
 }
 
-[CRepr]public struct DXGI_FRAME_STATISTICS_MEDIA
+[CRepr]
+public struct DXGI_FRAME_STATISTICS_MEDIA
 {
 	public uint32 PresentCount;
 	public uint32 PresentRefreshCount;
@@ -979,7 +1002,8 @@ public enum DXGI_Message_Id : int32
 	public uint32 ApprovedPresentDuration;
 }
 
-[CRepr]public struct DXGI_QUERY_VIDEO_MEMORY_INFO
+[CRepr]
+public struct DXGI_QUERY_VIDEO_MEMORY_INFO
 {
 	public uint64 Budget;
 	public uint64 CurrentUsage;
@@ -987,7 +1011,8 @@ public enum DXGI_Message_Id : int32
 	public uint64 CurrentReservation;
 }
 
-[CRepr]public struct DXGI_HDR_METADATA_HDR10
+[CRepr]
+public struct DXGI_HDR_METADATA_HDR10
 {
 	public uint16[2] RedPrimary;
 	public uint16[2] GreenPrimary;
@@ -999,12 +1024,14 @@ public enum DXGI_Message_Id : int32
 	public uint16 MaxFrameAverageLightLevel;
 }
 
-[CRepr]public struct DXGI_HDR_METADATA_HDR10PLUS
+[CRepr]
+public struct DXGI_HDR_METADATA_HDR10PLUS
 {
 	public uint8[72] Data;
 }
 
-[CRepr]public struct DXGI_ADAPTER_DESC3
+[CRepr]
+public struct DXGI_ADAPTER_DESC3
 {
 	public char8[128] Description;
 	public uint32 VendorId;
@@ -1020,7 +1047,8 @@ public enum DXGI_Message_Id : int32
 	public DXGI_COMPUTE_PREEMPTION_GRANULARITY ComputePreemptionGranularity;
 }
 
-[CRepr]public struct DXGI_OUTPUT_DESC1
+[CRepr]
+public struct DXGI_OUTPUT_DESC1
 {
 	public char8[32] DeviceName;
 	public RECT DesktopCoordinates;
@@ -1038,7 +1066,8 @@ public enum DXGI_Message_Id : int32
 	public float MaxFullFrameLuminance;
 }
 
-[CRepr]public struct DXGI_INFO_QUEUE_MESSAGE
+[CRepr]
+public struct DXGI_INFO_QUEUE_MESSAGE
 {
 	public Guid Producer;
 	public DXGI_INFO_QUEUE_MESSAGE_CATEGORY Category;
@@ -1048,7 +1077,8 @@ public enum DXGI_Message_Id : int32
 	public uint DescriptionByteLength;
 }
 
-[CRepr]public struct DXGI_INFO_QUEUE_FILTER_DESC
+[CRepr]
+public struct DXGI_INFO_QUEUE_FILTER_DESC
 {
 	public uint32 NumCategories;
 	public DXGI_INFO_QUEUE_MESSAGE_CATEGORY* pCategoryList;
@@ -1058,7 +1088,8 @@ public enum DXGI_Message_Id : int32
 	public int32* pIDList;
 }
 
-[CRepr]public struct DXGI_INFO_QUEUE_FILTER
+[CRepr]
+public struct DXGI_INFO_QUEUE_FILTER
 {
 	public DXGI_INFO_QUEUE_FILTER_DESC AllowList;
 	public DXGI_INFO_QUEUE_FILTER_DESC DenyList;

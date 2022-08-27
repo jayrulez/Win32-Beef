@@ -23,7 +23,8 @@ public enum EOC_ChangeType : int32
 #endregion
 
 #region Structs
-[CRepr]public struct COMEVENTSYSCHANGEINFO
+[CRepr]
+public struct COMEVENTSYSCHANGEINFO
 {
 	public uint32 cbSize;
 	public EOC_ChangeType changeType;

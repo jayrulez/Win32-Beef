@@ -76,9 +76,11 @@ public function BOOL pCryptSIPGetSealedDigest(SIP_SUBJECTINFO* pSubjectInfo, uin
 #endregion
 
 #region Structs
-[CRepr]public struct SIP_SUBJECTINFO
+[CRepr]
+public struct SIP_SUBJECTINFO
 {
-	[CRepr, Union]	public struct _Anonymous_e__Union
+	[CRepr, Union]
+	public struct _Anonymous_e__Union
 	{
 		public MS_ADDINFO_FLAT* psFlat;
 		public MS_ADDINFO_CATALOGMEMBER* psCatMember;
@@ -105,20 +107,23 @@ public function BOOL pCryptSIPGetSealedDigest(SIP_SUBJECTINFO* pSubjectInfo, uin
 	public void* pClientData;
 }
 
-[CRepr]public struct MS_ADDINFO_FLAT
+[CRepr]
+public struct MS_ADDINFO_FLAT
 {
 	public uint32 cbStruct;
 	public SIP_INDIRECT_DATA* pIndirectData;
 }
 
-[CRepr]public struct MS_ADDINFO_CATALOGMEMBER
+[CRepr]
+public struct MS_ADDINFO_CATALOGMEMBER
 {
 	public uint32 cbStruct;
 	public CRYPTCATSTORE* pStore;
 	public CRYPTCATMEMBER* pMember;
 }
 
-[CRepr]public struct MS_ADDINFO_BLOB
+[CRepr]
+public struct MS_ADDINFO_BLOB
 {
 	public uint32 cbStruct;
 	public uint32 cbMemObject;
@@ -127,7 +132,8 @@ public function BOOL pCryptSIPGetSealedDigest(SIP_SUBJECTINFO* pSubjectInfo, uin
 	public uint8* pbMemSignedMsg;
 }
 
-[CRepr]public struct SIP_CAP_SET_V2
+[CRepr]
+public struct SIP_CAP_SET_V2
 {
 	public uint32 cbSize;
 	public uint32 dwVersion;
@@ -135,9 +141,11 @@ public function BOOL pCryptSIPGetSealedDigest(SIP_SUBJECTINFO* pSubjectInfo, uin
 	public uint32 dwReserved;
 }
 
-[CRepr]public struct SIP_CAP_SET_V3
+[CRepr]
+public struct SIP_CAP_SET_V3
 {
-	[CRepr, Union]	public struct _Anonymous_e__Union
+	[CRepr, Union]
+	public struct _Anonymous_e__Union
 	{
 		public uint32 dwFlags;
 		public uint32 dwReserved;
@@ -149,14 +157,16 @@ public function BOOL pCryptSIPGetSealedDigest(SIP_SUBJECTINFO* pSubjectInfo, uin
 	public using _Anonymous_e__Union Anonymous;
 }
 
-[CRepr]public struct SIP_INDIRECT_DATA
+[CRepr]
+public struct SIP_INDIRECT_DATA
 {
 	public CRYPT_ATTRIBUTE_TYPE_VALUE Data;
 	public CRYPT_ALGORITHM_IDENTIFIER DigestAlgorithm;
 	public CRYPTOAPI_BLOB Digest;
 }
 
-[CRepr]public struct SIP_DISPATCH_INFO
+[CRepr]
+public struct SIP_DISPATCH_INFO
 {
 	public uint32 cbSize;
 	public HANDLE hSIP;
@@ -167,7 +177,8 @@ public function BOOL pCryptSIPGetSealedDigest(SIP_SUBJECTINFO* pSubjectInfo, uin
 	public pCryptSIPRemoveSignedDataMsg pfRemove;
 }
 
-[CRepr]public struct SIP_ADD_NEWPROVIDER
+[CRepr]
+public struct SIP_ADD_NEWPROVIDER
 {
 	public uint32 cbStruct;
 	public Guid* pgSubject;

@@ -1974,7 +1974,8 @@ public function HRESULT DeviceDialogFunction(DEVICEDIALOGDATA* param0);
 #endregion
 
 #region Structs
-[CRepr]public struct WIA_DITHER_PATTERN_DATA
+[CRepr]
+public struct WIA_DITHER_PATTERN_DATA
 {
 	public int32 lSize;
 	public BSTR bstrPatternName;
@@ -1984,19 +1985,22 @@ public function HRESULT DeviceDialogFunction(DEVICEDIALOGDATA* param0);
 	public uint8* pbPattern;
 }
 
-[CRepr]public struct WIA_PROPID_TO_NAME
+[CRepr]
+public struct WIA_PROPID_TO_NAME
 {
 	public uint32 propid;
 	public PWSTR pszName;
 }
 
-[CRepr]public struct WIA_FORMAT_INFO
+[CRepr]
+public struct WIA_FORMAT_INFO
 {
 	public Guid guidFormatID;
 	public int32 lTymed;
 }
 
-[CRepr]public struct WIA_RAW_HEADER
+[CRepr]
+public struct WIA_RAW_HEADER
 {
 	public uint32 Tag;
 	public uint32 Version;
@@ -2019,7 +2023,8 @@ public function HRESULT DeviceDialogFunction(DEVICEDIALOGDATA* param0);
 	public uint32 PaletteSize;
 }
 
-[CRepr]public struct WIA_BARCODE_INFO
+[CRepr]
+public struct WIA_BARCODE_INFO
 {
 	public uint32 Size;
 	public uint32 Type;
@@ -2032,7 +2037,8 @@ public function HRESULT DeviceDialogFunction(DEVICEDIALOGDATA* param0);
 	public char8[1] Text;
 }
 
-[CRepr]public struct WIA_BARCODES
+[CRepr]
+public struct WIA_BARCODES
 {
 	public uint32 Tag;
 	public uint32 Version;
@@ -2041,12 +2047,14 @@ public function HRESULT DeviceDialogFunction(DEVICEDIALOGDATA* param0);
 	public WIA_BARCODE_INFO[1] Barcodes;
 }
 
-[CRepr]public struct WIA_PATCH_CODE_INFO
+[CRepr]
+public struct WIA_PATCH_CODE_INFO
 {
 	public uint32 Type;
 }
 
-[CRepr]public struct WIA_PATCH_CODES
+[CRepr]
+public struct WIA_PATCH_CODES
 {
 	public uint32 Tag;
 	public uint32 Version;
@@ -2055,7 +2063,8 @@ public function HRESULT DeviceDialogFunction(DEVICEDIALOGDATA* param0);
 	public WIA_PATCH_CODE_INFO[1] PatchCodes;
 }
 
-[CRepr]public struct WIA_MICR_INFO
+[CRepr]
+public struct WIA_MICR_INFO
 {
 	public uint32 Size;
 	public uint32 Page;
@@ -2063,7 +2072,8 @@ public function HRESULT DeviceDialogFunction(DEVICEDIALOGDATA* param0);
 	public char8[1] Text;
 }
 
-[CRepr]public struct WIA_MICR
+[CRepr]
+public struct WIA_MICR
 {
 	public uint32 Tag;
 	public uint32 Version;
@@ -2074,7 +2084,8 @@ public function HRESULT DeviceDialogFunction(DEVICEDIALOGDATA* param0);
 	public WIA_MICR_INFO[1] Micr;
 }
 
-[CRepr]public struct WIA_DATA_CALLBACK_HEADER
+[CRepr]
+public struct WIA_DATA_CALLBACK_HEADER
 {
 	public int32 lSize;
 	public Guid guidFormatID;
@@ -2082,7 +2093,8 @@ public function HRESULT DeviceDialogFunction(DEVICEDIALOGDATA* param0);
 	public int32 lPageCount;
 }
 
-[CRepr]public struct WIA_DATA_TRANSFER_INFO
+[CRepr]
+public struct WIA_DATA_TRANSFER_INFO
 {
 	public uint32 ulSize;
 	public uint32 ulSection;
@@ -2093,7 +2105,8 @@ public function HRESULT DeviceDialogFunction(DEVICEDIALOGDATA* param0);
 	public uint32 ulReserved3;
 }
 
-[CRepr]public struct WIA_EXTENDED_TRANSFER_INFO
+[CRepr]
+public struct WIA_EXTENDED_TRANSFER_INFO
 {
 	public uint32 ulSize;
 	public uint32 ulMinBufferSize;
@@ -2102,7 +2115,8 @@ public function HRESULT DeviceDialogFunction(DEVICEDIALOGDATA* param0);
 	public uint32 ulNumBuffers;
 }
 
-[CRepr]public struct WIA_DEV_CAP
+[CRepr]
+public struct WIA_DEV_CAP
 {
 	public Guid guid;
 	public uint32 ulFlags;
@@ -2112,7 +2126,8 @@ public function HRESULT DeviceDialogFunction(DEVICEDIALOGDATA* param0);
 	public BSTR bstrCommandline;
 }
 
-[CRepr]public struct WiaTransferParams
+[CRepr]
+public struct WiaTransferParams
 {
 	public int32 lMessage;
 	public int32 lPercentComplete;
@@ -2120,7 +2135,8 @@ public function HRESULT DeviceDialogFunction(DEVICEDIALOGDATA* param0);
 	public HRESULT hrErrorStatus;
 }
 
-[CRepr]public struct MINIDRV_TRANSFER_CONTEXT
+[CRepr]
+public struct MINIDRV_TRANSFER_CONTEXT
 {
 	public int32 lSize;
 	public int32 lWidthInPixels;
@@ -2151,7 +2167,8 @@ public function HRESULT DeviceDialogFunction(DEVICEDIALOGDATA* param0);
 	public int32 lPrevIfdOffset;
 }
 
-[CRepr]public struct WIA_DEV_CAP_DRV
+[CRepr]
+public struct WIA_DEV_CAP_DRV
 {
 	public Guid* guid;
 	public uint32 ulFlags;
@@ -2160,31 +2177,37 @@ public function HRESULT DeviceDialogFunction(DEVICEDIALOGDATA* param0);
 	public PWSTR wszIcon;
 }
 
-[CRepr]public struct WIA_PROPERTY_INFO
+[CRepr]
+public struct WIA_PROPERTY_INFO
 {
-	[CRepr, Union]	public struct _ValidVal_e__Union
+	[CRepr, Union]
+	public struct _ValidVal_e__Union
 	{
-		[CRepr]		public struct _Flag_e__Struct
+		[CRepr]
+		public struct _Flag_e__Struct
 		{
 			public int32 Nom;
 			public int32 ValidBits;
 		}
 
-		[CRepr]		public struct _ListGuid_e__Struct
+		[CRepr]
+		public struct _ListGuid_e__Struct
 		{
 			public int32 cNumList;
 			public Guid Nom;
 			public Guid* pList;
 		}
 
-		[CRepr]		public struct _List_e__Struct
+		[CRepr]
+		public struct _List_e__Struct
 		{
 			public int32 cNumList;
 			public int32 Nom;
 			public uint8* pList;
 		}
 
-		[CRepr]		public struct _Range_e__Struct
+		[CRepr]
+		public struct _Range_e__Struct
 		{
 			public int32 Min;
 			public int32 Nom;
@@ -2192,26 +2215,30 @@ public function HRESULT DeviceDialogFunction(DEVICEDIALOGDATA* param0);
 			public int32 Inc;
 		}
 
-		[CRepr]		public struct _None_e__Struct
+		[CRepr]
+		public struct _None_e__Struct
 		{
 			public int32 Dummy;
 		}
 
-		[CRepr]		public struct _ListFloat_e__Struct
+		[CRepr]
+		public struct _ListFloat_e__Struct
 		{
 			public int32 cNumList;
 			public double Nom;
 			public uint8* pList;
 		}
 
-		[CRepr]		public struct _ListBStr_e__Struct
+		[CRepr]
+		public struct _ListBStr_e__Struct
 		{
 			public int32 cNumList;
 			public BSTR Nom;
 			public BSTR* pList;
 		}
 
-		[CRepr]		public struct _RangeFloat_e__Struct
+		[CRepr]
+		public struct _RangeFloat_e__Struct
 		{
 			public double Min;
 			public double Nom;
@@ -2234,16 +2261,19 @@ public function HRESULT DeviceDialogFunction(DEVICEDIALOGDATA* param0);
 	public _ValidVal_e__Union ValidVal;
 }
 
-[CRepr]public struct WIA_PROPERTY_CONTEXT
+[CRepr]
+public struct WIA_PROPERTY_CONTEXT
 {
 	public uint32 cProps;
 	public uint32* pProps;
 	public BOOL* pChanged;
 }
 
-[CRepr]public struct WIAS_CHANGED_VALUE_INFO
+[CRepr]
+public struct WIAS_CHANGED_VALUE_INFO
 {
-	[CRepr, Union]	public struct _Old_e__Union
+	[CRepr, Union]
+	public struct _Old_e__Union
 	{
 		public int32 lVal;
 		public float fltVal;
@@ -2251,7 +2281,8 @@ public function HRESULT DeviceDialogFunction(DEVICEDIALOGDATA* param0);
 		public Guid guidVal;
 	}
 
-	[CRepr, Union]	public struct _Current_e__Union
+	[CRepr, Union]
+	public struct _Current_e__Union
 	{
 		public int32 lVal;
 		public float fltVal;
@@ -2265,7 +2296,8 @@ public function HRESULT DeviceDialogFunction(DEVICEDIALOGDATA* param0);
 	public _Current_e__Union Current;
 }
 
-[CRepr]public struct WIAS_DOWN_SAMPLE_INFO
+[CRepr]
+public struct WIAS_DOWN_SAMPLE_INFO
 {
 	public uint32 ulOriginalWidth;
 	public uint32 ulOriginalHeight;
@@ -2281,20 +2313,23 @@ public function HRESULT DeviceDialogFunction(DEVICEDIALOGDATA* param0);
 	public uint8* pDestBuffer;
 }
 
-[CRepr]public struct WIAS_ENDORSER_VALUE
+[CRepr]
+public struct WIAS_ENDORSER_VALUE
 {
 	public PWSTR wszTokenName;
 	public PWSTR wszValue;
 }
 
-[CRepr]public struct WIAS_ENDORSER_INFO
+[CRepr]
+public struct WIAS_ENDORSER_INFO
 {
 	public uint32 ulPageCount;
 	public uint32 ulNumEndorserValues;
 	public WIAS_ENDORSER_VALUE* pEndorserValues;
 }
 
-[CRepr]public struct DEVICEDIALOGDATA2
+[CRepr]
+public struct DEVICEDIALOGDATA2
 {
 	public uint32 cbSize;
 	public IWiaItem2* pIWiaItemRoot;
@@ -2307,7 +2342,8 @@ public function HRESULT DeviceDialogFunction(DEVICEDIALOGDATA* param0);
 	public IWiaItem2* pWiaItem;
 }
 
-[CRepr]public struct DEVICEDIALOGDATA
+[CRepr]
+public struct DEVICEDIALOGDATA
 {
 	public uint32 cbSize;
 	public HWND hwndParent;
@@ -2318,14 +2354,16 @@ public function HRESULT DeviceDialogFunction(DEVICEDIALOGDATA* param0);
 	public IWiaItem** ppWiaItems;
 }
 
-[CRepr]public struct RANGEVALUE
+[CRepr]
+public struct RANGEVALUE
 {
 	public int32 lMin;
 	public int32 lMax;
 	public int32 lStep;
 }
 
-[CRepr]public struct SCANWINDOW
+[CRepr]
+public struct SCANWINDOW
 {
 	public int32 xPos;
 	public int32 yPos;
@@ -2333,7 +2371,8 @@ public function HRESULT DeviceDialogFunction(DEVICEDIALOGDATA* param0);
 	public int32 yExtent;
 }
 
-[CRepr]public struct SCANINFO
+[CRepr]
+public struct SCANINFO
 {
 	public int32 ADF;
 	public int32 TPA;
@@ -2373,7 +2412,8 @@ public function HRESULT DeviceDialogFunction(DEVICEDIALOGDATA* param0);
 	public void* pMicroDriverContext;
 }
 
-[CRepr]public struct VAL
+[CRepr]
+public struct VAL
 {
 	public int32 lVal;
 	public double dblVal;
@@ -2386,7 +2426,8 @@ public function HRESULT DeviceDialogFunction(DEVICEDIALOGDATA* param0);
 	public CHAR[255] szVal;
 }
 
-[CRepr]public struct TWAIN_CAPABILITY
+[CRepr]
+public struct TWAIN_CAPABILITY
 {
 	public int32 lSize;
 	public int32 lMSG;

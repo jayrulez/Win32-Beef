@@ -335,13 +335,15 @@ public enum AppPolicyCreateFileAccess : int32
 #endregion
 
 #region Structs
-[CRepr]public struct APPX_PACKAGE_SETTINGS
+[CRepr]
+public struct APPX_PACKAGE_SETTINGS
 {
 	public BOOL forceZip32;
 	public IUri* hashMethod;
 }
 
-[CRepr]public struct APPX_PACKAGE_WRITER_PAYLOAD_STREAM
+[CRepr]
+public struct APPX_PACKAGE_WRITER_PAYLOAD_STREAM
 {
 	public IStream* inputStream;
 	public PWSTR fileName;
@@ -349,7 +351,8 @@ public enum AppPolicyCreateFileAccess : int32
 	public APPX_COMPRESSION_OPTION compressionOption;
 }
 
-[CRepr]public struct APPX_ENCRYPTED_PACKAGE_SETTINGS
+[CRepr]
+public struct APPX_ENCRYPTED_PACKAGE_SETTINGS
 {
 	public uint32 keyLength;
 	public PWSTR encryptionAlgorithm;
@@ -357,7 +360,8 @@ public enum AppPolicyCreateFileAccess : int32
 	public IUri* blockMapHashAlgorithm;
 }
 
-[CRepr]public struct APPX_ENCRYPTED_PACKAGE_SETTINGS2
+[CRepr]
+public struct APPX_ENCRYPTED_PACKAGE_SETTINGS2
 {
 	public uint32 keyLength;
 	public PWSTR encryptionAlgorithm;
@@ -365,7 +369,8 @@ public enum AppPolicyCreateFileAccess : int32
 	public uint32 options;
 }
 
-[CRepr]public struct APPX_KEY_INFO
+[CRepr]
+public struct APPX_KEY_INFO
 {
 	public uint32 keyLength;
 	public uint32 keyIdLength;
@@ -373,17 +378,21 @@ public enum AppPolicyCreateFileAccess : int32
 	public uint8* keyId;
 }
 
-[CRepr]public struct APPX_ENCRYPTED_EXEMPTIONS
+[CRepr]
+public struct APPX_ENCRYPTED_EXEMPTIONS
 {
 	public uint32 count;
 	public PWSTR* plainTextFiles;
 }
 
-[CRepr]public struct PACKAGE_VERSION
+[CRepr]
+public struct PACKAGE_VERSION
 {
-	[CRepr, Union, Packed(4)]	public struct _Anonymous_e__Union
+	[CRepr, Union, Packed(4)]
+	public struct _Anonymous_e__Union
 	{
-		[CRepr]		public struct _Anonymous_e__Struct
+		[CRepr]
+		public struct _Anonymous_e__Struct
 		{
 			public uint16 Revision;
 			public uint16 Build;
@@ -398,7 +407,8 @@ public enum AppPolicyCreateFileAccess : int32
 	public using _Anonymous_e__Union Anonymous;
 }
 
-[CRepr, Packed(4)]public struct PACKAGE_ID
+[CRepr, Packed(4)]
+public struct PACKAGE_ID
 {
 	public uint32 reserved;
 	public uint32 processorArchitecture;
@@ -409,12 +419,14 @@ public enum AppPolicyCreateFileAccess : int32
 	public PWSTR publisherId;
 }
 
-[CRepr]public struct _PACKAGE_INFO_REFERENCE
+[CRepr]
+public struct _PACKAGE_INFO_REFERENCE
 {
 	public void* reserved;
 }
 
-[CRepr, Packed(4)]public struct PACKAGE_INFO
+[CRepr, Packed(4)]
+public struct PACKAGE_INFO
 {
 	public uint32 reserved;
 	public uint32 flags;
@@ -424,12 +436,14 @@ public enum AppPolicyCreateFileAccess : int32
 	public PACKAGE_ID packageId;
 }
 
-[CRepr]public struct PACKAGEDEPENDENCY_CONTEXT__
+[CRepr]
+public struct PACKAGEDEPENDENCY_CONTEXT__
 {
 	public int32 unused;
 }
 
-[CRepr]public struct PACKAGE_VIRTUALIZATION_CONTEXT_HANDLE__
+[CRepr]
+public struct PACKAGE_VIRTUALIZATION_CONTEXT_HANDLE__
 {
 	public int32 unused;
 }

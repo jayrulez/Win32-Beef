@@ -604,157 +604,180 @@ public enum VIRTUAL_KEY : uint16
 #endregion
 
 #region Structs
-[CRepr]public struct VK_TO_BIT
+[CRepr]
+public struct VK_TO_BIT
 {
 	public uint8 Vk;
 	public uint8 ModBits;
 }
 
-[CRepr]public struct MODIFIERS
+[CRepr]
+public struct MODIFIERS
 {
 	public VK_TO_BIT* pVkToBit;
 	public uint16 wMaxModBits;
 	public uint8[1] ModNumber;
 }
 
-[CRepr]public struct VSC_VK
+[CRepr]
+public struct VSC_VK
 {
 	public uint8 Vsc;
 	public uint16 Vk;
 }
 
-[CRepr]public struct VK_VSC
+[CRepr]
+public struct VK_VSC
 {
 	public uint8 Vk;
 	public uint8 Vsc;
 }
 
-[CRepr]public struct VK_TO_WCHARS1
+[CRepr]
+public struct VK_TO_WCHARS1
 {
 	public uint8 VirtualKey;
 	public uint8 Attributes;
 	public char8[1] wch;
 }
 
-[CRepr]public struct VK_TO_WCHARS2
+[CRepr]
+public struct VK_TO_WCHARS2
 {
 	public uint8 VirtualKey;
 	public uint8 Attributes;
 	public char8[2] wch;
 }
 
-[CRepr]public struct VK_TO_WCHARS3
+[CRepr]
+public struct VK_TO_WCHARS3
 {
 	public uint8 VirtualKey;
 	public uint8 Attributes;
 	public char8[3] wch;
 }
 
-[CRepr]public struct VK_TO_WCHARS4
+[CRepr]
+public struct VK_TO_WCHARS4
 {
 	public uint8 VirtualKey;
 	public uint8 Attributes;
 	public char8[4] wch;
 }
 
-[CRepr]public struct VK_TO_WCHARS5
+[CRepr]
+public struct VK_TO_WCHARS5
 {
 	public uint8 VirtualKey;
 	public uint8 Attributes;
 	public char8[5] wch;
 }
 
-[CRepr]public struct VK_TO_WCHARS6
+[CRepr]
+public struct VK_TO_WCHARS6
 {
 	public uint8 VirtualKey;
 	public uint8 Attributes;
 	public char8[6] wch;
 }
 
-[CRepr]public struct VK_TO_WCHARS7
+[CRepr]
+public struct VK_TO_WCHARS7
 {
 	public uint8 VirtualKey;
 	public uint8 Attributes;
 	public char8[7] wch;
 }
 
-[CRepr]public struct VK_TO_WCHARS8
+[CRepr]
+public struct VK_TO_WCHARS8
 {
 	public uint8 VirtualKey;
 	public uint8 Attributes;
 	public char8[8] wch;
 }
 
-[CRepr]public struct VK_TO_WCHARS9
+[CRepr]
+public struct VK_TO_WCHARS9
 {
 	public uint8 VirtualKey;
 	public uint8 Attributes;
 	public char8[9] wch;
 }
 
-[CRepr]public struct VK_TO_WCHARS10
+[CRepr]
+public struct VK_TO_WCHARS10
 {
 	public uint8 VirtualKey;
 	public uint8 Attributes;
 	public char8[10] wch;
 }
 
-[CRepr]public struct VK_TO_WCHAR_TABLE
+[CRepr]
+public struct VK_TO_WCHAR_TABLE
 {
 	public VK_TO_WCHARS1* pVkToWchars;
 	public uint8 nModifications;
 	public uint8 cbSize;
 }
 
-[CRepr]public struct DEADKEY
+[CRepr]
+public struct DEADKEY
 {
 	public uint32 dwBoth;
 	public char8 wchComposed;
 	public uint16 uFlags;
 }
 
-[CRepr]public struct LIGATURE1
+[CRepr]
+public struct LIGATURE1
 {
 	public uint8 VirtualKey;
 	public uint16 ModificationNumber;
 	public char8[1] wch;
 }
 
-[CRepr]public struct LIGATURE2
+[CRepr]
+public struct LIGATURE2
 {
 	public uint8 VirtualKey;
 	public uint16 ModificationNumber;
 	public char8[2] wch;
 }
 
-[CRepr]public struct LIGATURE3
+[CRepr]
+public struct LIGATURE3
 {
 	public uint8 VirtualKey;
 	public uint16 ModificationNumber;
 	public char8[3] wch;
 }
 
-[CRepr]public struct LIGATURE4
+[CRepr]
+public struct LIGATURE4
 {
 	public uint8 VirtualKey;
 	public uint16 ModificationNumber;
 	public char8[4] wch;
 }
 
-[CRepr]public struct LIGATURE5
+[CRepr]
+public struct LIGATURE5
 {
 	public uint8 VirtualKey;
 	public uint16 ModificationNumber;
 	public char8[5] wch;
 }
 
-[CRepr]public struct VSC_LPWSTR
+[CRepr]
+public struct VSC_LPWSTR
 {
 	public uint8 vsc;
 	public PWSTR pwsz;
 }
 
-[CRepr]public struct tagKbdLayer
+[CRepr]
+public struct tagKbdLayer
 {
 	public MODIFIERS* pCharModifiers;
 	public VK_TO_WCHAR_TABLE* pVkToWcharTable;
@@ -774,13 +797,15 @@ public enum VIRTUAL_KEY : uint16
 	public uint32 dwSubType;
 }
 
-[CRepr]public struct _VK_FUNCTION_PARAM
+[CRepr]
+public struct _VK_FUNCTION_PARAM
 {
 	public uint8 NLSFEProcIndex;
 	public uint32 NLSFEProcParam;
 }
 
-[CRepr]public struct _VK_TO_FUNCTION_TABLE
+[CRepr]
+public struct _VK_TO_FUNCTION_TABLE
 {
 	public uint8 Vk;
 	public uint8 NLSFEProcType;
@@ -790,7 +815,8 @@ public enum VIRTUAL_KEY : uint16
 	public _VK_FUNCTION_PARAM[8] NLSFEProcAlt;
 }
 
-[CRepr]public struct tagKbdNlsLayer
+[CRepr]
+public struct tagKbdNlsLayer
 {
 	public uint16 OEMIdentifier;
 	public uint16 LayoutInformation;
@@ -800,27 +826,31 @@ public enum VIRTUAL_KEY : uint16
 	public uint16* pusMouseVKey;
 }
 
-[CRepr]public struct KBDTABLE_DESC
+[CRepr]
+public struct KBDTABLE_DESC
 {
 	public char8[32] wszDllName;
 	public uint32 dwType;
 	public uint32 dwSubType;
 }
 
-[CRepr]public struct KBDTABLE_MULTI
+[CRepr]
+public struct KBDTABLE_MULTI
 {
 	public uint32 nTables;
 	public KBDTABLE_DESC[8] aKbdTables;
 }
 
-[CRepr]public struct KBD_TYPE_INFO
+[CRepr]
+public struct KBD_TYPE_INFO
 {
 	public uint32 dwVersion;
 	public uint32 dwType;
 	public uint32 dwSubType;
 }
 
-[CRepr]public struct MOUSEMOVEPOINT
+[CRepr]
+public struct MOUSEMOVEPOINT
 {
 	public int32 x;
 	public int32 y;
@@ -828,7 +858,8 @@ public enum VIRTUAL_KEY : uint16
 	public uint dwExtraInfo;
 }
 
-[CRepr]public struct TRACKMOUSEEVENT
+[CRepr]
+public struct TRACKMOUSEEVENT
 {
 	public uint32 cbSize;
 	public TRACKMOUSEEVENT_FLAGS dwFlags;
@@ -836,7 +867,8 @@ public enum VIRTUAL_KEY : uint16
 	public uint32 dwHoverTime;
 }
 
-[CRepr]public struct MOUSEINPUT
+[CRepr]
+public struct MOUSEINPUT
 {
 	public int32 dx;
 	public int32 dy;
@@ -846,7 +878,8 @@ public enum VIRTUAL_KEY : uint16
 	public uint dwExtraInfo;
 }
 
-[CRepr]public struct KEYBDINPUT
+[CRepr]
+public struct KEYBDINPUT
 {
 	public VIRTUAL_KEY wVk;
 	public uint16 wScan;
@@ -855,16 +888,19 @@ public enum VIRTUAL_KEY : uint16
 	public uint dwExtraInfo;
 }
 
-[CRepr]public struct HARDWAREINPUT
+[CRepr]
+public struct HARDWAREINPUT
 {
 	public uint32 uMsg;
 	public uint16 wParamL;
 	public uint16 wParamH;
 }
 
-[CRepr]public struct INPUT
+[CRepr]
+public struct INPUT
 {
-	[CRepr, Union]	public struct _Anonymous_e__Union
+	[CRepr, Union]
+	public struct _Anonymous_e__Union
 	{
 		public MOUSEINPUT mi;
 		public KEYBDINPUT ki;
@@ -875,7 +911,8 @@ public enum VIRTUAL_KEY : uint16
 	public using _Anonymous_e__Union Anonymous;
 }
 
-[CRepr]public struct LASTINPUTINFO
+[CRepr]
+public struct LASTINPUTINFO
 {
 	public uint32 cbSize;
 	public uint32 dwTime;

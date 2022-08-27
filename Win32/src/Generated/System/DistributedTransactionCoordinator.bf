@@ -433,12 +433,14 @@ public function int32 XA_COMPLETE_EPT(int32* param0, int32* param1, int32 param2
 #endregion
 
 #region Structs
-[CRepr]public struct BOID
+[CRepr]
+public struct BOID
 {
 	public uint8[16] rgb;
 }
 
-[CRepr]public struct XACTTRANSINFO
+[CRepr]
+public struct XACTTRANSINFO
 {
 	public BOID uow;
 	public int32 isoLevel;
@@ -449,7 +451,8 @@ public function int32 XA_COMPLETE_EPT(int32* param0, int32* param1, int32 param2
 	public uint32 grfRMSupportedRetaining;
 }
 
-[CRepr]public struct XACTSTATS
+[CRepr]
+public struct XACTSTATS
 {
 	public uint32 cOpen;
 	public uint32 cCommitting;
@@ -461,13 +464,15 @@ public function int32 XA_COMPLETE_EPT(int32* param0, int32* param1, int32 param2
 	public FILETIME timeTransactionsUp;
 }
 
-[CRepr]public struct XACTOPT
+[CRepr]
+public struct XACTOPT
 {
 	public uint32 ulTimeout;
 	public uint8[40] szDescription;
 }
 
-[CRepr]public struct xid_t
+[CRepr]
+public struct xid_t
 {
 	public int32 formatID;
 	public int32 gtrid_length;
@@ -475,7 +480,8 @@ public function int32 XA_COMPLETE_EPT(int32* param0, int32* param1, int32 param2
 	public CHAR[128] data;
 }
 
-[CRepr]public struct xa_switch_t
+[CRepr]
+public struct xa_switch_t
 {
 	public CHAR[32] name;
 	public int32 flags;
@@ -492,13 +498,15 @@ public function int32 XA_COMPLETE_EPT(int32* param0, int32* param1, int32 param2
 	public int xa_complete_entry;
 }
 
-[CRepr]public struct OLE_TM_CONFIG_PARAMS_V1
+[CRepr]
+public struct OLE_TM_CONFIG_PARAMS_V1
 {
 	public uint32 dwVersion;
 	public uint32 dwcConcurrencyHint;
 }
 
-[CRepr]public struct OLE_TM_CONFIG_PARAMS_V2
+[CRepr]
+public struct OLE_TM_CONFIG_PARAMS_V2
 {
 	public uint32 dwVersion;
 	public uint32 dwcConcurrencyHint;
@@ -506,7 +514,8 @@ public function int32 XA_COMPLETE_EPT(int32* param0, int32* param1, int32 param2
 	public Guid clusterResourceId;
 }
 
-[CRepr]public struct _ProxyConfigParams
+[CRepr]
+public struct _ProxyConfigParams
 {
 	public uint16 wcThreadsMax;
 }

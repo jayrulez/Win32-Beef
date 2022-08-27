@@ -382,7 +382,8 @@ public enum __MIDL___MIDL_itf_rdpencomapi_0000_0027_0001 : int32
 #endregion
 
 #region Structs
-[CRepr]public struct __ReferenceRemainingTypes__
+[CRepr]
+public struct __ReferenceRemainingTypes__
 {
 	public CTRL_LEVEL __ctrlLevel__;
 	public ATTENDEE_DISCONNECT_REASON __attendeeDisconnectReason__;

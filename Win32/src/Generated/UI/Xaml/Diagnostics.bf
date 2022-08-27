@@ -91,7 +91,8 @@ public enum VisualElementState : int32
 #endregion
 
 #region Structs
-[CRepr]public struct SourceInfo
+[CRepr]
+public struct SourceInfo
 {
 	public BSTR FileName;
 	public uint32 LineNumber;
@@ -100,14 +101,16 @@ public enum VisualElementState : int32
 	public BSTR Hash;
 }
 
-[CRepr]public struct ParentChildRelation
+[CRepr]
+public struct ParentChildRelation
 {
 	public uint64 Parent;
 	public uint64 Child;
 	public uint32 ChildIndex;
 }
 
-[CRepr]public struct VisualElement
+[CRepr]
+public struct VisualElement
 {
 	public uint64 Handle;
 	public SourceInfo SrcInfo;
@@ -116,7 +119,8 @@ public enum VisualElementState : int32
 	public uint32 NumChildren;
 }
 
-[CRepr]public struct PropertyChainSource
+[CRepr]
+public struct PropertyChainSource
 {
 	public uint64 Handle;
 	public BSTR TargetType;
@@ -125,7 +129,8 @@ public enum VisualElementState : int32
 	public SourceInfo SrcInfo;
 }
 
-[CRepr]public struct PropertyChainValue
+[CRepr]
+public struct PropertyChainValue
 {
 	public uint32 Index;
 	public BSTR Type;
@@ -139,14 +144,16 @@ public enum VisualElementState : int32
 	public uint32 PropertyChainIndex;
 }
 
-[CRepr]public struct EnumType
+[CRepr]
+public struct EnumType
 {
 	public BSTR Name;
 	public SAFEARRAY* ValueInts;
 	public SAFEARRAY* ValueStrings;
 }
 
-[CRepr]public struct CollectionElementValue
+[CRepr]
+public struct CollectionElementValue
 {
 	public uint32 Index;
 	public BSTR ValueType;
@@ -154,7 +161,8 @@ public enum VisualElementState : int32
 	public int64 MetadataBits;
 }
 
-[CRepr]public struct BitmapDescription
+[CRepr]
+public struct BitmapDescription
 {
 	public uint32 Width;
 	public uint32 Height;

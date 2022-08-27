@@ -2966,7 +2966,8 @@ public function BOOL ROUTER_NOTIFY_CALLBACK(uint32 dwCommand, void* pContext, ui
 #endregion
 
 #region Structs
-[CRepr]public struct IBidiRequestVtbl
+[CRepr]
+public struct IBidiRequestVtbl
 {
 	public int QueryInterface;
 	public int AddRef;
@@ -2978,12 +2979,14 @@ public function BOOL ROUTER_NOTIFY_CALLBACK(uint32 dwCommand, void* pContext, ui
 	public int GetEnumCount;
 }
 
-[CRepr]public struct IBidiRequest
+[CRepr]
+public struct IBidiRequest
 {
 	public IBidiRequestVtbl* lpVtbl;
 }
 
-[CRepr]public struct IBidiRequestContainerVtbl
+[CRepr]
+public struct IBidiRequestContainerVtbl
 {
 	public int QueryInterface;
 	public int AddRef;
@@ -2993,12 +2996,14 @@ public function BOOL ROUTER_NOTIFY_CALLBACK(uint32 dwCommand, void* pContext, ui
 	public int GetRequestCount;
 }
 
-[CRepr]public struct IBidiRequestContainer
+[CRepr]
+public struct IBidiRequestContainer
 {
 	public IBidiRequestContainerVtbl* lpVtbl;
 }
 
-[CRepr]public struct IBidiSplVtbl
+[CRepr]
+public struct IBidiSplVtbl
 {
 	public int QueryInterface;
 	public int AddRef;
@@ -3009,12 +3014,14 @@ public function BOOL ROUTER_NOTIFY_CALLBACK(uint32 dwCommand, void* pContext, ui
 	public int MultiSendRecv;
 }
 
-[CRepr]public struct IBidiSpl
+[CRepr]
+public struct IBidiSpl
 {
 	public IBidiSplVtbl* lpVtbl;
 }
 
-[CRepr]public struct IBidiSpl2Vtbl
+[CRepr]
+public struct IBidiSpl2Vtbl
 {
 	public int QueryInterface;
 	public int AddRef;
@@ -3025,12 +3032,14 @@ public function BOOL ROUTER_NOTIFY_CALLBACK(uint32 dwCommand, void* pContext, ui
 	public int SendRecvXMLStream;
 }
 
-[CRepr]public struct IBidiSpl2
+[CRepr]
+public struct IBidiSpl2
 {
 	public IBidiSpl2Vtbl* lpVtbl;
 }
 
-[CRepr]public struct __MIDL___MIDL_itf_imgerror_0000_0000_0001
+[CRepr]
+public struct __MIDL___MIDL_itf_imgerror_0000_0000_0001
 {
 	public BSTR description;
 	public Guid guid;
@@ -3045,7 +3054,8 @@ public function BOOL ROUTER_NOTIFY_CALLBACK(uint32 dwCommand, void* pContext, ui
 	public uint32 exceptionID;
 }
 
-[CRepr]public struct IImgErrorInfoVtbl
+[CRepr]
+public struct IImgErrorInfoVtbl
 {
 	public int QueryInterface;
 	public int AddRef;
@@ -3064,12 +3074,14 @@ public function BOOL ROUTER_NOTIFY_CALLBACK(uint32 dwCommand, void* pContext, ui
 	public int DetachErrorInfo;
 }
 
-[CRepr]public struct IImgErrorInfo
+[CRepr]
+public struct IImgErrorInfo
 {
 	public IImgErrorInfoVtbl* lpVtbl;
 }
 
-[CRepr]public struct IImgCreateErrorInfoVtbl
+[CRepr]
+public struct IImgCreateErrorInfoVtbl
 {
 	public int QueryInterface;
 	public int AddRef;
@@ -3082,12 +3094,14 @@ public function BOOL ROUTER_NOTIFY_CALLBACK(uint32 dwCommand, void* pContext, ui
 	public int AttachToErrorInfo;
 }
 
-[CRepr]public struct IImgCreateErrorInfo
+[CRepr]
+public struct IImgCreateErrorInfo
 {
 	public IImgCreateErrorInfoVtbl* lpVtbl;
 }
 
-[CRepr]public struct IPrintReadStreamVtbl
+[CRepr]
+public struct IPrintReadStreamVtbl
 {
 	public int QueryInterface;
 	public int AddRef;
@@ -3096,12 +3110,14 @@ public function BOOL ROUTER_NOTIFY_CALLBACK(uint32 dwCommand, void* pContext, ui
 	public int ReadBytes;
 }
 
-[CRepr]public struct IPrintReadStream
+[CRepr]
+public struct IPrintReadStream
 {
 	public IPrintReadStreamVtbl* lpVtbl;
 }
 
-[CRepr]public struct IPrintWriteStreamVtbl
+[CRepr]
+public struct IPrintWriteStreamVtbl
 {
 	public int QueryInterface;
 	public int AddRef;
@@ -3110,12 +3126,14 @@ public function BOOL ROUTER_NOTIFY_CALLBACK(uint32 dwCommand, void* pContext, ui
 	public int Close;
 }
 
-[CRepr]public struct IPrintWriteStream
+[CRepr]
+public struct IPrintWriteStream
 {
 	public IPrintWriteStreamVtbl* lpVtbl;
 }
 
-[CRepr]public struct IPrintWriteStreamFlushVtbl
+[CRepr]
+public struct IPrintWriteStreamFlushVtbl
 {
 	public int QueryInterface;
 	public int AddRef;
@@ -3123,12 +3141,14 @@ public function BOOL ROUTER_NOTIFY_CALLBACK(uint32 dwCommand, void* pContext, ui
 	public int FlushData;
 }
 
-[CRepr]public struct IPrintWriteStreamFlush
+[CRepr]
+public struct IPrintWriteStreamFlush
 {
 	public IPrintWriteStreamFlushVtbl* lpVtbl;
 }
 
-[CRepr]public struct IInterFilterCommunicatorVtbl
+[CRepr]
+public struct IInterFilterCommunicatorVtbl
 {
 	public int QueryInterface;
 	public int AddRef;
@@ -3137,12 +3157,14 @@ public function BOOL ROUTER_NOTIFY_CALLBACK(uint32 dwCommand, void* pContext, ui
 	public int RequestWriter;
 }
 
-[CRepr]public struct IInterFilterCommunicator
+[CRepr]
+public struct IInterFilterCommunicator
 {
 	public IInterFilterCommunicatorVtbl* lpVtbl;
 }
 
-[CRepr]public struct IPrintPipelineManagerControlVtbl
+[CRepr]
+public struct IPrintPipelineManagerControlVtbl
 {
 	public int QueryInterface;
 	public int AddRef;
@@ -3151,12 +3173,14 @@ public function BOOL ROUTER_NOTIFY_CALLBACK(uint32 dwCommand, void* pContext, ui
 	public int FilterFinished;
 }
 
-[CRepr]public struct IPrintPipelineManagerControl
+[CRepr]
+public struct IPrintPipelineManagerControl
 {
 	public IPrintPipelineManagerControlVtbl* lpVtbl;
 }
 
-[CRepr]public struct IPrintPipelinePropertyBagVtbl
+[CRepr]
+public struct IPrintPipelinePropertyBagVtbl
 {
 	public int QueryInterface;
 	public int AddRef;
@@ -3166,12 +3190,14 @@ public function BOOL ROUTER_NOTIFY_CALLBACK(uint32 dwCommand, void* pContext, ui
 	public int DeleteProperty;
 }
 
-[CRepr]public struct IPrintPipelinePropertyBag
+[CRepr]
+public struct IPrintPipelinePropertyBag
 {
 	public IPrintPipelinePropertyBagVtbl* lpVtbl;
 }
 
-[CRepr]public struct IPrintPipelineProgressReportVtbl
+[CRepr]
+public struct IPrintPipelineProgressReportVtbl
 {
 	public int QueryInterface;
 	public int AddRef;
@@ -3179,12 +3205,14 @@ public function BOOL ROUTER_NOTIFY_CALLBACK(uint32 dwCommand, void* pContext, ui
 	public int ReportProgress;
 }
 
-[CRepr]public struct IPrintPipelineProgressReport
+[CRepr]
+public struct IPrintPipelineProgressReport
 {
 	public IPrintPipelineProgressReportVtbl* lpVtbl;
 }
 
-[CRepr]public struct IPrintClassObjectFactoryVtbl
+[CRepr]
+public struct IPrintClassObjectFactoryVtbl
 {
 	public int QueryInterface;
 	public int AddRef;
@@ -3192,12 +3220,14 @@ public function BOOL ROUTER_NOTIFY_CALLBACK(uint32 dwCommand, void* pContext, ui
 	public int GetPrintClassObject;
 }
 
-[CRepr]public struct IPrintClassObjectFactory
+[CRepr]
+public struct IPrintClassObjectFactory
 {
 	public IPrintClassObjectFactoryVtbl* lpVtbl;
 }
 
-[CRepr]public struct IPrintPipelineFilterVtbl
+[CRepr]
+public struct IPrintPipelineFilterVtbl
 {
 	public int QueryInterface;
 	public int AddRef;
@@ -3207,12 +3237,14 @@ public function BOOL ROUTER_NOTIFY_CALLBACK(uint32 dwCommand, void* pContext, ui
 	public int StartOperation;
 }
 
-[CRepr]public struct IPrintPipelineFilter
+[CRepr]
+public struct IPrintPipelineFilter
 {
 	public IPrintPipelineFilterVtbl* lpVtbl;
 }
 
-[CRepr]public struct IXpsDocumentProviderVtbl
+[CRepr]
+public struct IXpsDocumentProviderVtbl
 {
 	public int QueryInterface;
 	public int AddRef;
@@ -3220,12 +3252,14 @@ public function BOOL ROUTER_NOTIFY_CALLBACK(uint32 dwCommand, void* pContext, ui
 	public int GetXpsPart;
 }
 
-[CRepr]public struct IXpsDocumentProvider
+[CRepr]
+public struct IXpsDocumentProvider
 {
 	public IXpsDocumentProviderVtbl* lpVtbl;
 }
 
-[CRepr]public struct IXpsDocumentConsumerVtbl
+[CRepr]
+public struct IXpsDocumentConsumerVtbl
 {
 	public int QueryInterface;
 	public int AddRef;
@@ -3239,12 +3273,14 @@ public function BOOL ROUTER_NOTIFY_CALLBACK(uint32 dwCommand, void* pContext, ui
 	public int GetNewEmptyPart;
 }
 
-[CRepr]public struct IXpsDocumentConsumer
+[CRepr]
+public struct IXpsDocumentConsumer
 {
 	public IXpsDocumentConsumerVtbl* lpVtbl;
 }
 
-[CRepr]public struct IXpsDocumentVtbl
+[CRepr]
+public struct IXpsDocumentVtbl
 {
 	public int QueryInterface;
 	public int AddRef;
@@ -3253,12 +3289,14 @@ public function BOOL ROUTER_NOTIFY_CALLBACK(uint32 dwCommand, void* pContext, ui
 	public int SetThumbnail;
 }
 
-[CRepr]public struct IXpsDocument
+[CRepr]
+public struct IXpsDocument
 {
 	public IXpsDocumentVtbl* lpVtbl;
 }
 
-[CRepr]public struct IFixedDocumentSequenceVtbl
+[CRepr]
+public struct IFixedDocumentSequenceVtbl
 {
 	public int QueryInterface;
 	public int AddRef;
@@ -3268,12 +3306,14 @@ public function BOOL ROUTER_NOTIFY_CALLBACK(uint32 dwCommand, void* pContext, ui
 	public int SetPrintTicket;
 }
 
-[CRepr]public struct IFixedDocumentSequence
+[CRepr]
+public struct IFixedDocumentSequence
 {
 	public IFixedDocumentSequenceVtbl* lpVtbl;
 }
 
-[CRepr]public struct IFixedDocumentVtbl
+[CRepr]
+public struct IFixedDocumentVtbl
 {
 	public int QueryInterface;
 	public int AddRef;
@@ -3283,12 +3323,14 @@ public function BOOL ROUTER_NOTIFY_CALLBACK(uint32 dwCommand, void* pContext, ui
 	public int SetPrintTicket;
 }
 
-[CRepr]public struct IFixedDocument
+[CRepr]
+public struct IFixedDocument
 {
 	public IFixedDocumentVtbl* lpVtbl;
 }
 
-[CRepr]public struct IPartBaseVtbl
+[CRepr]
+public struct IPartBaseVtbl
 {
 	public int QueryInterface;
 	public int AddRef;
@@ -3299,12 +3341,14 @@ public function BOOL ROUTER_NOTIFY_CALLBACK(uint32 dwCommand, void* pContext, ui
 	public int SetPartCompression;
 }
 
-[CRepr]public struct IPartBase
+[CRepr]
+public struct IPartBase
 {
 	public IPartBaseVtbl* lpVtbl;
 }
 
-[CRepr]public struct IFixedPageVtbl
+[CRepr]
+public struct IFixedPageVtbl
 {
 	public int QueryInterface;
 	public int AddRef;
@@ -3322,12 +3366,14 @@ public function BOOL ROUTER_NOTIFY_CALLBACK(uint32 dwCommand, void* pContext, ui
 	public int GetXpsPartIterator;
 }
 
-[CRepr]public struct IFixedPage
+[CRepr]
+public struct IFixedPage
 {
 	public IFixedPageVtbl* lpVtbl;
 }
 
-[CRepr]public struct IPartImageVtbl
+[CRepr]
+public struct IPartImageVtbl
 {
 	public int QueryInterface;
 	public int AddRef;
@@ -3340,12 +3386,14 @@ public function BOOL ROUTER_NOTIFY_CALLBACK(uint32 dwCommand, void* pContext, ui
 	public int SetImageContent;
 }
 
-[CRepr]public struct IPartImage
+[CRepr]
+public struct IPartImage
 {
 	public IPartImageVtbl* lpVtbl;
 }
 
-[CRepr]public struct IPartFontVtbl
+[CRepr]
+public struct IPartFontVtbl
 {
 	public int QueryInterface;
 	public int AddRef;
@@ -3359,12 +3407,14 @@ public function BOOL ROUTER_NOTIFY_CALLBACK(uint32 dwCommand, void* pContext, ui
 	public int SetFontOptions;
 }
 
-[CRepr]public struct IPartFont
+[CRepr]
+public struct IPartFont
 {
 	public IPartFontVtbl* lpVtbl;
 }
 
-[CRepr]public struct IPartFont2Vtbl
+[CRepr]
+public struct IPartFont2Vtbl
 {
 	public int QueryInterface;
 	public int AddRef;
@@ -3379,12 +3429,14 @@ public function BOOL ROUTER_NOTIFY_CALLBACK(uint32 dwCommand, void* pContext, ui
 	public int GetFontRestriction;
 }
 
-[CRepr]public struct IPartFont2
+[CRepr]
+public struct IPartFont2
 {
 	public IPartFont2Vtbl* lpVtbl;
 }
 
-[CRepr]public struct IPartThumbnailVtbl
+[CRepr]
+public struct IPartThumbnailVtbl
 {
 	public int QueryInterface;
 	public int AddRef;
@@ -3397,12 +3449,14 @@ public function BOOL ROUTER_NOTIFY_CALLBACK(uint32 dwCommand, void* pContext, ui
 	public int SetThumbnailContent;
 }
 
-[CRepr]public struct IPartThumbnail
+[CRepr]
+public struct IPartThumbnail
 {
 	public IPartThumbnailVtbl* lpVtbl;
 }
 
-[CRepr]public struct IPartPrintTicketVtbl
+[CRepr]
+public struct IPartPrintTicketVtbl
 {
 	public int QueryInterface;
 	public int AddRef;
@@ -3413,12 +3467,14 @@ public function BOOL ROUTER_NOTIFY_CALLBACK(uint32 dwCommand, void* pContext, ui
 	public int SetPartCompression;
 }
 
-[CRepr]public struct IPartPrintTicket
+[CRepr]
+public struct IPartPrintTicket
 {
 	public IPartPrintTicketVtbl* lpVtbl;
 }
 
-[CRepr]public struct IPartColorProfileVtbl
+[CRepr]
+public struct IPartColorProfileVtbl
 {
 	public int QueryInterface;
 	public int AddRef;
@@ -3429,12 +3485,14 @@ public function BOOL ROUTER_NOTIFY_CALLBACK(uint32 dwCommand, void* pContext, ui
 	public int SetPartCompression;
 }
 
-[CRepr]public struct IPartColorProfile
+[CRepr]
+public struct IPartColorProfile
 {
 	public IPartColorProfileVtbl* lpVtbl;
 }
 
-[CRepr]public struct IPartResourceDictionaryVtbl
+[CRepr]
+public struct IPartResourceDictionaryVtbl
 {
 	public int QueryInterface;
 	public int AddRef;
@@ -3445,12 +3503,14 @@ public function BOOL ROUTER_NOTIFY_CALLBACK(uint32 dwCommand, void* pContext, ui
 	public int SetPartCompression;
 }
 
-[CRepr]public struct IPartResourceDictionary
+[CRepr]
+public struct IPartResourceDictionary
 {
 	public IPartResourceDictionaryVtbl* lpVtbl;
 }
 
-[CRepr]public struct IXpsPartIteratorVtbl
+[CRepr]
+public struct IXpsPartIteratorVtbl
 {
 	public int QueryInterface;
 	public int AddRef;
@@ -3461,12 +3521,14 @@ public function BOOL ROUTER_NOTIFY_CALLBACK(uint32 dwCommand, void* pContext, ui
 	public int Next;
 }
 
-[CRepr]public struct IXpsPartIterator
+[CRepr]
+public struct IXpsPartIterator
 {
 	public IXpsPartIteratorVtbl* lpVtbl;
 }
 
-[CRepr]public struct IPrintReadStreamFactoryVtbl
+[CRepr]
+public struct IPrintReadStreamFactoryVtbl
 {
 	public int QueryInterface;
 	public int AddRef;
@@ -3474,12 +3536,14 @@ public function BOOL ROUTER_NOTIFY_CALLBACK(uint32 dwCommand, void* pContext, ui
 	public int GetStream;
 }
 
-[CRepr]public struct IPrintReadStreamFactory
+[CRepr]
+public struct IPrintReadStreamFactory
 {
 	public IPrintReadStreamFactoryVtbl* lpVtbl;
 }
 
-[CRepr]public struct IPartDiscardControlVtbl
+[CRepr]
+public struct IPartDiscardControlVtbl
 {
 	public int QueryInterface;
 	public int AddRef;
@@ -3487,12 +3551,14 @@ public function BOOL ROUTER_NOTIFY_CALLBACK(uint32 dwCommand, void* pContext, ui
 	public int GetDiscardProperties;
 }
 
-[CRepr]public struct IPartDiscardControl
+[CRepr]
+public struct IPartDiscardControl
 {
 	public IPartDiscardControlVtbl* lpVtbl;
 }
 
-[CRepr]public struct OPTPARAM
+[CRepr]
+public struct OPTPARAM
 {
 	public uint16 cbSize;
 	public uint8 Flags;
@@ -3503,7 +3569,8 @@ public function BOOL ROUTER_NOTIFY_CALLBACK(uint32 dwCommand, void* pContext, ui
 	public uint[2] dwReserved;
 }
 
-[CRepr]public struct OPTCOMBO
+[CRepr]
+public struct OPTCOMBO
 {
 	public uint16 cbSize;
 	public uint8 Flags;
@@ -3513,7 +3580,8 @@ public function BOOL ROUTER_NOTIFY_CALLBACK(uint32 dwCommand, void* pContext, ui
 	public uint32[3] dwReserved;
 }
 
-[CRepr]public struct OPTTYPE
+[CRepr]
+public struct OPTTYPE
 {
 	public uint16 cbSize;
 	public uint8 Type;
@@ -3526,15 +3594,18 @@ public function BOOL ROUTER_NOTIFY_CALLBACK(uint32 dwCommand, void* pContext, ui
 	public uint[3] dwReserved;
 }
 
-[CRepr]public struct EXTPUSH
+[CRepr]
+public struct EXTPUSH
 {
-	[CRepr, Union]	public struct _Anonymous2_e__Union
+	[CRepr, Union]
+	public struct _Anonymous2_e__Union
 	{
 		public uint16 DlgTemplateID;
 		public HANDLE hDlgTemplate;
 	}
 
-	[CRepr, Union]	public struct _Anonymous1_e__Union
+	[CRepr, Union]
+	public struct _Anonymous1_e__Union
 	{
 		public DLGPROC DlgProc;
 		public FARPROC pfnCallBack;
@@ -3549,7 +3620,8 @@ public function BOOL ROUTER_NOTIFY_CALLBACK(uint32 dwCommand, void* pContext, ui
 	public uint[3] dwReserved;
 }
 
-[CRepr]public struct EXTCHKBOX
+[CRepr]
+public struct EXTCHKBOX
 {
 	public uint16 cbSize;
 	public uint16 Flags;
@@ -3561,7 +3633,8 @@ public function BOOL ROUTER_NOTIFY_CALLBACK(uint32 dwCommand, void* pContext, ui
 	public uint[2] dwReserved;
 }
 
-[CRepr]public struct OIEXT
+[CRepr]
+public struct OIEXT
 {
 	public uint16 cbSize;
 	public uint16 Flags;
@@ -3570,15 +3643,18 @@ public function BOOL ROUTER_NOTIFY_CALLBACK(uint32 dwCommand, void* pContext, ui
 	public uint[4] dwReserved;
 }
 
-[CRepr]public struct OPTITEM
+[CRepr]
+public struct OPTITEM
 {
-	[CRepr, Union]	public struct _Anonymous2_e__Union
+	[CRepr, Union]
+	public struct _Anonymous2_e__Union
 	{
 		public EXTCHKBOX* pExtChkBox;
 		public EXTPUSH* pExtPush;
 	}
 
-	[CRepr, Union]	public struct _Anonymous1_e__Union
+	[CRepr, Union]
+	public struct _Anonymous1_e__Union
 	{
 		public int32 Sel;
 		public int8* pSel;
@@ -3601,9 +3677,11 @@ public function BOOL ROUTER_NOTIFY_CALLBACK(uint32 dwCommand, void* pContext, ui
 	public uint[3] dwReserved;
 }
 
-[CRepr]public struct CPSUICBPARAM
+[CRepr]
+public struct CPSUICBPARAM
 {
-	[CRepr, Union]	public struct _Anonymous_e__Union
+	[CRepr, Union]
+	public struct _Anonymous_e__Union
 	{
 		public int32 OldSel;
 		public int8* pOldSel;
@@ -3621,9 +3699,11 @@ public function BOOL ROUTER_NOTIFY_CALLBACK(uint32 dwCommand, void* pContext, ui
 	public uint Result;
 }
 
-[CRepr]public struct DLGPAGE
+[CRepr]
+public struct DLGPAGE
 {
-	[CRepr, Union]	public struct _Anonymous_e__Union
+	[CRepr, Union]
+	public struct _Anonymous_e__Union
 	{
 		public uint16 DlgTemplateID;
 		public HANDLE hDlgTemplate;
@@ -3637,7 +3717,8 @@ public function BOOL ROUTER_NOTIFY_CALLBACK(uint32 dwCommand, void* pContext, ui
 	public using _Anonymous_e__Union Anonymous;
 }
 
-[CRepr]public struct COMPROPSHEETUI
+[CRepr]
+public struct COMPROPSHEETUI
 {
 	public uint16 cbSize;
 	public uint16 Flags;
@@ -3657,7 +3738,8 @@ public function BOOL ROUTER_NOTIFY_CALLBACK(uint32 dwCommand, void* pContext, ui
 	public uint[4] dwReserved;
 }
 
-[CRepr]public struct SETRESULT_INFO
+[CRepr]
+public struct SETRESULT_INFO
 {
 	public uint16 cbSize;
 	public uint16 wReserved;
@@ -3665,7 +3747,8 @@ public function BOOL ROUTER_NOTIFY_CALLBACK(uint32 dwCommand, void* pContext, ui
 	public LRESULT Result;
 }
 
-[CRepr]public struct INSERTPSUIPAGE_INFO
+[CRepr]
+public struct INSERTPSUIPAGE_INFO
 {
 	public uint16 cbSize;
 	public uint8 Type;
@@ -3675,7 +3758,8 @@ public function BOOL ROUTER_NOTIFY_CALLBACK(uint32 dwCommand, void* pContext, ui
 	public uint dwData3;
 }
 
-[CRepr]public struct PSPINFO
+[CRepr]
+public struct PSPINFO
 {
 	public uint16 cbSize;
 	public uint16 wReserved;
@@ -3684,13 +3768,15 @@ public function BOOL ROUTER_NOTIFY_CALLBACK(uint32 dwCommand, void* pContext, ui
 	public PFNCOMPROPSHEET pfnComPropSheet;
 }
 
-[CRepr]public struct CPSUIDATABLOCK
+[CRepr]
+public struct CPSUIDATABLOCK
 {
 	public uint32 cbData;
 	public uint8* pbData;
 }
 
-[CRepr]public struct PROPSHEETUI_INFO
+[CRepr]
+public struct PROPSHEETUI_INFO
 {
 	public uint16 cbSize;
 	public uint16 Version;
@@ -3703,7 +3789,8 @@ public function BOOL ROUTER_NOTIFY_CALLBACK(uint32 dwCommand, void* pContext, ui
 	public uint Result;
 }
 
-[CRepr]public struct PROPSHEETUI_GETICON_INFO
+[CRepr]
+public struct PROPSHEETUI_GETICON_INFO
 {
 	public uint16 cbSize;
 	public uint16 Flags;
@@ -3712,9 +3799,11 @@ public function BOOL ROUTER_NOTIFY_CALLBACK(uint32 dwCommand, void* pContext, ui
 	public HICON hIcon;
 }
 
-[CRepr]public struct PROPSHEETUI_INFO_HEADER
+[CRepr]
+public struct PROPSHEETUI_INFO_HEADER
 {
-	[CRepr, Union]	public struct _Anonymous_e__Union
+	[CRepr, Union]
+	public struct _Anonymous_e__Union
 	{
 		public HICON hIcon;
 		public uint IconID;
@@ -3728,7 +3817,8 @@ public function BOOL ROUTER_NOTIFY_CALLBACK(uint32 dwCommand, void* pContext, ui
 	public using _Anonymous_e__Union Anonymous;
 }
 
-[CRepr]public struct PRINTER_INFO_1A
+[CRepr]
+public struct PRINTER_INFO_1A
 {
 	public uint32 Flags;
 	public PSTR pDescription;
@@ -3736,7 +3826,8 @@ public function BOOL ROUTER_NOTIFY_CALLBACK(uint32 dwCommand, void* pContext, ui
 	public PSTR pComment;
 }
 
-[CRepr]public struct PRINTER_INFO_1W
+[CRepr]
+public struct PRINTER_INFO_1W
 {
 	public uint32 Flags;
 	public PWSTR pDescription;
@@ -3744,7 +3835,8 @@ public function BOOL ROUTER_NOTIFY_CALLBACK(uint32 dwCommand, void* pContext, ui
 	public PWSTR pComment;
 }
 
-[CRepr]public struct PRINTER_INFO_2A
+[CRepr]
+public struct PRINTER_INFO_2A
 {
 	public PSTR pServerName;
 	public PSTR pPrinterName;
@@ -3769,7 +3861,8 @@ public function BOOL ROUTER_NOTIFY_CALLBACK(uint32 dwCommand, void* pContext, ui
 	public uint32 AveragePPM;
 }
 
-[CRepr]public struct PRINTER_INFO_2W
+[CRepr]
+public struct PRINTER_INFO_2W
 {
 	public PWSTR pServerName;
 	public PWSTR pPrinterName;
@@ -3794,26 +3887,30 @@ public function BOOL ROUTER_NOTIFY_CALLBACK(uint32 dwCommand, void* pContext, ui
 	public uint32 AveragePPM;
 }
 
-[CRepr]public struct PRINTER_INFO_3
+[CRepr]
+public struct PRINTER_INFO_3
 {
 	public SECURITY_DESCRIPTOR* pSecurityDescriptor;
 }
 
-[CRepr]public struct PRINTER_INFO_4A
+[CRepr]
+public struct PRINTER_INFO_4A
 {
 	public PSTR pPrinterName;
 	public PSTR pServerName;
 	public uint32 Attributes;
 }
 
-[CRepr]public struct PRINTER_INFO_4W
+[CRepr]
+public struct PRINTER_INFO_4W
 {
 	public PWSTR pPrinterName;
 	public PWSTR pServerName;
 	public uint32 Attributes;
 }
 
-[CRepr]public struct PRINTER_INFO_5A
+[CRepr]
+public struct PRINTER_INFO_5A
 {
 	public PSTR pPrinterName;
 	public PSTR pPortName;
@@ -3822,7 +3919,8 @@ public function BOOL ROUTER_NOTIFY_CALLBACK(uint32 dwCommand, void* pContext, ui
 	public uint32 TransmissionRetryTimeout;
 }
 
-[CRepr]public struct PRINTER_INFO_5W
+[CRepr]
+public struct PRINTER_INFO_5W
 {
 	public PWSTR pPrinterName;
 	public PWSTR pPortName;
@@ -3831,44 +3929,52 @@ public function BOOL ROUTER_NOTIFY_CALLBACK(uint32 dwCommand, void* pContext, ui
 	public uint32 TransmissionRetryTimeout;
 }
 
-[CRepr]public struct PRINTER_INFO_6
+[CRepr]
+public struct PRINTER_INFO_6
 {
 	public uint32 dwStatus;
 }
 
-[CRepr]public struct PRINTER_INFO_7A
+[CRepr]
+public struct PRINTER_INFO_7A
 {
 	public PSTR pszObjectGUID;
 	public uint32 dwAction;
 }
 
-[CRepr]public struct PRINTER_INFO_7W
+[CRepr]
+public struct PRINTER_INFO_7W
 {
 	public PWSTR pszObjectGUID;
 	public uint32 dwAction;
 }
 
-[CRepr]public struct PRINTER_INFO_8A
+[CRepr]
+public struct PRINTER_INFO_8A
 {
 	public DEVMODEA* pDevMode;
 }
 
-[CRepr]public struct PRINTER_INFO_8W
+[CRepr]
+public struct PRINTER_INFO_8W
 {
 	public DEVMODEW* pDevMode;
 }
 
-[CRepr]public struct PRINTER_INFO_9A
+[CRepr]
+public struct PRINTER_INFO_9A
 {
 	public DEVMODEA* pDevMode;
 }
 
-[CRepr]public struct PRINTER_INFO_9W
+[CRepr]
+public struct PRINTER_INFO_9W
 {
 	public DEVMODEW* pDevMode;
 }
 
-[CRepr]public struct JOB_INFO_1A
+[CRepr]
+public struct JOB_INFO_1A
 {
 	public uint32 JobId;
 	public PSTR pPrinterName;
@@ -3885,7 +3991,8 @@ public function BOOL ROUTER_NOTIFY_CALLBACK(uint32 dwCommand, void* pContext, ui
 	public SYSTEMTIME Submitted;
 }
 
-[CRepr]public struct JOB_INFO_1W
+[CRepr]
+public struct JOB_INFO_1W
 {
 	public uint32 JobId;
 	public PWSTR pPrinterName;
@@ -3902,7 +4009,8 @@ public function BOOL ROUTER_NOTIFY_CALLBACK(uint32 dwCommand, void* pContext, ui
 	public SYSTEMTIME Submitted;
 }
 
-[CRepr]public struct JOB_INFO_2A
+[CRepr]
+public struct JOB_INFO_2A
 {
 	public uint32 JobId;
 	public PSTR pPrinterName;
@@ -3929,7 +4037,8 @@ public function BOOL ROUTER_NOTIFY_CALLBACK(uint32 dwCommand, void* pContext, ui
 	public uint32 PagesPrinted;
 }
 
-[CRepr]public struct JOB_INFO_2W
+[CRepr]
+public struct JOB_INFO_2W
 {
 	public uint32 JobId;
 	public PWSTR pPrinterName;
@@ -3956,14 +4065,16 @@ public function BOOL ROUTER_NOTIFY_CALLBACK(uint32 dwCommand, void* pContext, ui
 	public uint32 PagesPrinted;
 }
 
-[CRepr]public struct JOB_INFO_3
+[CRepr]
+public struct JOB_INFO_3
 {
 	public uint32 JobId;
 	public uint32 NextJobId;
 	public uint32 Reserved;
 }
 
-[CRepr]public struct JOB_INFO_4A
+[CRepr]
+public struct JOB_INFO_4A
 {
 	public uint32 JobId;
 	public PSTR pPrinterName;
@@ -3991,7 +4102,8 @@ public function BOOL ROUTER_NOTIFY_CALLBACK(uint32 dwCommand, void* pContext, ui
 	public int32 SizeHigh;
 }
 
-[CRepr]public struct JOB_INFO_4W
+[CRepr]
+public struct JOB_INFO_4W
 {
 	public uint32 JobId;
 	public PWSTR pPrinterName;
@@ -4019,29 +4131,34 @@ public function BOOL ROUTER_NOTIFY_CALLBACK(uint32 dwCommand, void* pContext, ui
 	public int32 SizeHigh;
 }
 
-[CRepr]public struct ADDJOB_INFO_1A
+[CRepr]
+public struct ADDJOB_INFO_1A
 {
 	public PSTR Path;
 	public uint32 JobId;
 }
 
-[CRepr]public struct ADDJOB_INFO_1W
+[CRepr]
+public struct ADDJOB_INFO_1W
 {
 	public PWSTR Path;
 	public uint32 JobId;
 }
 
-[CRepr]public struct DRIVER_INFO_1A
+[CRepr]
+public struct DRIVER_INFO_1A
 {
 	public PSTR pName;
 }
 
-[CRepr]public struct DRIVER_INFO_1W
+[CRepr]
+public struct DRIVER_INFO_1W
 {
 	public PWSTR pName;
 }
 
-[CRepr]public struct DRIVER_INFO_2A
+[CRepr]
+public struct DRIVER_INFO_2A
 {
 	public uint32 cVersion;
 	public PSTR pName;
@@ -4051,7 +4168,8 @@ public function BOOL ROUTER_NOTIFY_CALLBACK(uint32 dwCommand, void* pContext, ui
 	public PSTR pConfigFile;
 }
 
-[CRepr]public struct DRIVER_INFO_2W
+[CRepr]
+public struct DRIVER_INFO_2W
 {
 	public uint32 cVersion;
 	public PWSTR pName;
@@ -4061,7 +4179,8 @@ public function BOOL ROUTER_NOTIFY_CALLBACK(uint32 dwCommand, void* pContext, ui
 	public PWSTR pConfigFile;
 }
 
-[CRepr]public struct DRIVER_INFO_3A
+[CRepr]
+public struct DRIVER_INFO_3A
 {
 	public uint32 cVersion;
 	public PSTR pName;
@@ -4075,7 +4194,8 @@ public function BOOL ROUTER_NOTIFY_CALLBACK(uint32 dwCommand, void* pContext, ui
 	public PSTR pDefaultDataType;
 }
 
-[CRepr]public struct DRIVER_INFO_3W
+[CRepr]
+public struct DRIVER_INFO_3W
 {
 	public uint32 cVersion;
 	public PWSTR pName;
@@ -4089,7 +4209,8 @@ public function BOOL ROUTER_NOTIFY_CALLBACK(uint32 dwCommand, void* pContext, ui
 	public PWSTR pDefaultDataType;
 }
 
-[CRepr]public struct DRIVER_INFO_4A
+[CRepr]
+public struct DRIVER_INFO_4A
 {
 	public uint32 cVersion;
 	public PSTR pName;
@@ -4104,7 +4225,8 @@ public function BOOL ROUTER_NOTIFY_CALLBACK(uint32 dwCommand, void* pContext, ui
 	public PSTR pszzPreviousNames;
 }
 
-[CRepr]public struct DRIVER_INFO_4W
+[CRepr]
+public struct DRIVER_INFO_4W
 {
 	public uint32 cVersion;
 	public PWSTR pName;
@@ -4119,7 +4241,8 @@ public function BOOL ROUTER_NOTIFY_CALLBACK(uint32 dwCommand, void* pContext, ui
 	public PWSTR pszzPreviousNames;
 }
 
-[CRepr]public struct DRIVER_INFO_5A
+[CRepr]
+public struct DRIVER_INFO_5A
 {
 	public uint32 cVersion;
 	public PSTR pName;
@@ -4132,7 +4255,8 @@ public function BOOL ROUTER_NOTIFY_CALLBACK(uint32 dwCommand, void* pContext, ui
 	public uint32 dwDriverVersion;
 }
 
-[CRepr]public struct DRIVER_INFO_5W
+[CRepr]
+public struct DRIVER_INFO_5W
 {
 	public uint32 cVersion;
 	public PWSTR pName;
@@ -4145,7 +4269,8 @@ public function BOOL ROUTER_NOTIFY_CALLBACK(uint32 dwCommand, void* pContext, ui
 	public uint32 dwDriverVersion;
 }
 
-[CRepr]public struct DRIVER_INFO_6A
+[CRepr]
+public struct DRIVER_INFO_6A
 {
 	public uint32 cVersion;
 	public PSTR pName;
@@ -4166,7 +4291,8 @@ public function BOOL ROUTER_NOTIFY_CALLBACK(uint32 dwCommand, void* pContext, ui
 	public PSTR pszProvider;
 }
 
-[CRepr]public struct DRIVER_INFO_6W
+[CRepr]
+public struct DRIVER_INFO_6W
 {
 	public uint32 cVersion;
 	public PWSTR pName;
@@ -4187,7 +4313,8 @@ public function BOOL ROUTER_NOTIFY_CALLBACK(uint32 dwCommand, void* pContext, ui
 	public PWSTR pszProvider;
 }
 
-[CRepr]public struct DRIVER_INFO_8A
+[CRepr]
+public struct DRIVER_INFO_8A
 {
 	public uint32 cVersion;
 	public PSTR pName;
@@ -4216,7 +4343,8 @@ public function BOOL ROUTER_NOTIFY_CALLBACK(uint32 dwCommand, void* pContext, ui
 	public uint64 dwlMinInboxDriverVerVersion;
 }
 
-[CRepr]public struct DRIVER_INFO_8W
+[CRepr]
+public struct DRIVER_INFO_8W
 {
 	public uint32 cVersion;
 	public PWSTR pName;
@@ -4245,21 +4373,24 @@ public function BOOL ROUTER_NOTIFY_CALLBACK(uint32 dwCommand, void* pContext, ui
 	public uint64 dwlMinInboxDriverVerVersion;
 }
 
-[CRepr]public struct DOC_INFO_1A
+[CRepr]
+public struct DOC_INFO_1A
 {
 	public PSTR pDocName;
 	public PSTR pOutputFile;
 	public PSTR pDatatype;
 }
 
-[CRepr]public struct DOC_INFO_1W
+[CRepr]
+public struct DOC_INFO_1W
 {
 	public PWSTR pDocName;
 	public PWSTR pOutputFile;
 	public PWSTR pDatatype;
 }
 
-[CRepr]public struct FORM_INFO_1A
+[CRepr]
+public struct FORM_INFO_1A
 {
 	public uint32 Flags;
 	public PSTR pName;
@@ -4267,7 +4398,8 @@ public function BOOL ROUTER_NOTIFY_CALLBACK(uint32 dwCommand, void* pContext, ui
 	public RECTL ImageableArea;
 }
 
-[CRepr]public struct FORM_INFO_1W
+[CRepr]
+public struct FORM_INFO_1W
 {
 	public uint32 Flags;
 	public PWSTR pName;
@@ -4275,7 +4407,8 @@ public function BOOL ROUTER_NOTIFY_CALLBACK(uint32 dwCommand, void* pContext, ui
 	public RECTL ImageableArea;
 }
 
-[CRepr]public struct FORM_INFO_2A
+[CRepr]
+public struct FORM_INFO_2A
 {
 	public uint32 Flags;
 	public PSTR pName;
@@ -4289,7 +4422,8 @@ public function BOOL ROUTER_NOTIFY_CALLBACK(uint32 dwCommand, void* pContext, ui
 	public uint16 wLangId;
 }
 
-[CRepr]public struct FORM_INFO_2W
+[CRepr]
+public struct FORM_INFO_2W
 {
 	public uint32 Flags;
 	public PWSTR pName;
@@ -4303,7 +4437,8 @@ public function BOOL ROUTER_NOTIFY_CALLBACK(uint32 dwCommand, void* pContext, ui
 	public uint16 wLangId;
 }
 
-[CRepr]public struct DOC_INFO_2A
+[CRepr]
+public struct DOC_INFO_2A
 {
 	public PSTR pDocName;
 	public PSTR pOutputFile;
@@ -4312,7 +4447,8 @@ public function BOOL ROUTER_NOTIFY_CALLBACK(uint32 dwCommand, void* pContext, ui
 	public uint32 JobId;
 }
 
-[CRepr]public struct DOC_INFO_2W
+[CRepr]
+public struct DOC_INFO_2W
 {
 	public PWSTR pDocName;
 	public PWSTR pOutputFile;
@@ -4321,7 +4457,8 @@ public function BOOL ROUTER_NOTIFY_CALLBACK(uint32 dwCommand, void* pContext, ui
 	public uint32 JobId;
 }
 
-[CRepr]public struct DOC_INFO_3A
+[CRepr]
+public struct DOC_INFO_3A
 {
 	public PSTR pDocName;
 	public PSTR pOutputFile;
@@ -4329,7 +4466,8 @@ public function BOOL ROUTER_NOTIFY_CALLBACK(uint32 dwCommand, void* pContext, ui
 	public uint32 dwFlags;
 }
 
-[CRepr]public struct DOC_INFO_3W
+[CRepr]
+public struct DOC_INFO_3W
 {
 	public PWSTR pDocName;
 	public PWSTR pOutputFile;
@@ -4337,17 +4475,20 @@ public function BOOL ROUTER_NOTIFY_CALLBACK(uint32 dwCommand, void* pContext, ui
 	public uint32 dwFlags;
 }
 
-[CRepr]public struct PRINTPROCESSOR_INFO_1A
+[CRepr]
+public struct PRINTPROCESSOR_INFO_1A
 {
 	public PSTR pName;
 }
 
-[CRepr]public struct PRINTPROCESSOR_INFO_1W
+[CRepr]
+public struct PRINTPROCESSOR_INFO_1W
 {
 	public PWSTR pName;
 }
 
-[CRepr]public struct PRINTPROCESSOR_CAPS_1
+[CRepr]
+public struct PRINTPROCESSOR_CAPS_1
 {
 	public uint32 dwLevel;
 	public uint32 dwNupOptions;
@@ -4355,7 +4496,8 @@ public function BOOL ROUTER_NOTIFY_CALLBACK(uint32 dwCommand, void* pContext, ui
 	public uint32 dwNumberOfCopies;
 }
 
-[CRepr]public struct PRINTPROCESSOR_CAPS_2
+[CRepr]
+public struct PRINTPROCESSOR_CAPS_2
 {
 	public uint32 dwLevel;
 	public uint32 dwNupOptions;
@@ -4368,17 +4510,20 @@ public function BOOL ROUTER_NOTIFY_CALLBACK(uint32 dwCommand, void* pContext, ui
 	public uint32 dwScalingCaps;
 }
 
-[CRepr]public struct PORT_INFO_1A
+[CRepr]
+public struct PORT_INFO_1A
 {
 	public PSTR pName;
 }
 
-[CRepr]public struct PORT_INFO_1W
+[CRepr]
+public struct PORT_INFO_1W
 {
 	public PWSTR pName;
 }
 
-[CRepr]public struct PORT_INFO_2A
+[CRepr]
+public struct PORT_INFO_2A
 {
 	public PSTR pPortName;
 	public PSTR pMonitorName;
@@ -4387,7 +4532,8 @@ public function BOOL ROUTER_NOTIFY_CALLBACK(uint32 dwCommand, void* pContext, ui
 	public uint32 Reserved;
 }
 
-[CRepr]public struct PORT_INFO_2W
+[CRepr]
+public struct PORT_INFO_2W
 {
 	public PWSTR pPortName;
 	public PWSTR pMonitorName;
@@ -4396,69 +4542,80 @@ public function BOOL ROUTER_NOTIFY_CALLBACK(uint32 dwCommand, void* pContext, ui
 	public uint32 Reserved;
 }
 
-[CRepr]public struct PORT_INFO_3A
+[CRepr]
+public struct PORT_INFO_3A
 {
 	public uint32 dwStatus;
 	public PSTR pszStatus;
 	public uint32 dwSeverity;
 }
 
-[CRepr]public struct PORT_INFO_3W
+[CRepr]
+public struct PORT_INFO_3W
 {
 	public uint32 dwStatus;
 	public PWSTR pszStatus;
 	public uint32 dwSeverity;
 }
 
-[CRepr]public struct MONITOR_INFO_1A
+[CRepr]
+public struct MONITOR_INFO_1A
 {
 	public PSTR pName;
 }
 
-[CRepr]public struct MONITOR_INFO_1W
+[CRepr]
+public struct MONITOR_INFO_1W
 {
 	public PWSTR pName;
 }
 
-[CRepr]public struct MONITOR_INFO_2A
+[CRepr]
+public struct MONITOR_INFO_2A
 {
 	public PSTR pName;
 	public PSTR pEnvironment;
 	public PSTR pDLLName;
 }
 
-[CRepr]public struct MONITOR_INFO_2W
+[CRepr]
+public struct MONITOR_INFO_2W
 {
 	public PWSTR pName;
 	public PWSTR pEnvironment;
 	public PWSTR pDLLName;
 }
 
-[CRepr]public struct DATATYPES_INFO_1A
+[CRepr]
+public struct DATATYPES_INFO_1A
 {
 	public PSTR pName;
 }
 
-[CRepr]public struct DATATYPES_INFO_1W
+[CRepr]
+public struct DATATYPES_INFO_1W
 {
 	public PWSTR pName;
 }
 
-[CRepr]public struct PRINTER_DEFAULTSA
+[CRepr]
+public struct PRINTER_DEFAULTSA
 {
 	public PSTR pDatatype;
 	public DEVMODEA* pDevMode;
 	public uint32 DesiredAccess;
 }
 
-[CRepr]public struct PRINTER_DEFAULTSW
+[CRepr]
+public struct PRINTER_DEFAULTSW
 {
 	public PWSTR pDatatype;
 	public DEVMODEW* pDevMode;
 	public uint32 DesiredAccess;
 }
 
-[CRepr]public struct PRINTER_ENUM_VALUESA
+[CRepr]
+public struct PRINTER_ENUM_VALUESA
 {
 	public PSTR pValueName;
 	public uint32 cbValueName;
@@ -4467,7 +4624,8 @@ public function BOOL ROUTER_NOTIFY_CALLBACK(uint32 dwCommand, void* pContext, ui
 	public uint32 cbData;
 }
 
-[CRepr]public struct PRINTER_ENUM_VALUESW
+[CRepr]
+public struct PRINTER_ENUM_VALUESW
 {
 	public PWSTR pValueName;
 	public uint32 cbValueName;
@@ -4476,7 +4634,8 @@ public function BOOL ROUTER_NOTIFY_CALLBACK(uint32 dwCommand, void* pContext, ui
 	public uint32 cbData;
 }
 
-[CRepr]public struct PRINTER_NOTIFY_OPTIONS_TYPE
+[CRepr]
+public struct PRINTER_NOTIFY_OPTIONS_TYPE
 {
 	public uint16 Type;
 	public uint16 Reserved0;
@@ -4486,7 +4645,8 @@ public function BOOL ROUTER_NOTIFY_CALLBACK(uint32 dwCommand, void* pContext, ui
 	public uint16* pFields;
 }
 
-[CRepr]public struct PRINTER_NOTIFY_OPTIONS
+[CRepr]
+public struct PRINTER_NOTIFY_OPTIONS
 {
 	public uint32 Version;
 	public uint32 Flags;
@@ -4494,11 +4654,14 @@ public function BOOL ROUTER_NOTIFY_CALLBACK(uint32 dwCommand, void* pContext, ui
 	public PRINTER_NOTIFY_OPTIONS_TYPE* pTypes;
 }
 
-[CRepr]public struct PRINTER_NOTIFY_INFO_DATA
+[CRepr]
+public struct PRINTER_NOTIFY_INFO_DATA
 {
-	[CRepr, Union]	public struct _NotifyData_e__Union
+	[CRepr, Union]
+	public struct _NotifyData_e__Union
 	{
-		[CRepr]		public struct _Data_e__Struct
+		[CRepr]
+		public struct _Data_e__Struct
 		{
 			public uint32 cbBuf;
 			public void* pBuf;
@@ -4515,7 +4678,8 @@ public function BOOL ROUTER_NOTIFY_CALLBACK(uint32 dwCommand, void* pContext, ui
 	public _NotifyData_e__Union NotifyData;
 }
 
-[CRepr]public struct PRINTER_NOTIFY_INFO
+[CRepr]
+public struct PRINTER_NOTIFY_INFO
 {
 	public uint32 Version;
 	public uint32 Flags;
@@ -4523,15 +4687,18 @@ public function BOOL ROUTER_NOTIFY_CALLBACK(uint32 dwCommand, void* pContext, ui
 	public PRINTER_NOTIFY_INFO_DATA[1] aData;
 }
 
-[CRepr]public struct BINARY_CONTAINER
+[CRepr]
+public struct BINARY_CONTAINER
 {
 	public uint32 cbBuf;
 	public uint8* pData;
 }
 
-[CRepr]public struct BIDI_DATA
+[CRepr]
+public struct BIDI_DATA
 {
-	[CRepr, Union]	public struct _u_e__Union
+	[CRepr, Union]
+	public struct _u_e__Union
 	{
 		public BOOL bData;
 		public int32 iData;
@@ -4544,14 +4711,16 @@ public function BOOL ROUTER_NOTIFY_CALLBACK(uint32 dwCommand, void* pContext, ui
 	public _u_e__Union u;
 }
 
-[CRepr]public struct BIDI_REQUEST_DATA
+[CRepr]
+public struct BIDI_REQUEST_DATA
 {
 	public uint32 dwReqNumber;
 	public PWSTR pSchema;
 	public BIDI_DATA data;
 }
 
-[CRepr]public struct BIDI_REQUEST_CONTAINER
+[CRepr]
+public struct BIDI_REQUEST_CONTAINER
 {
 	public uint32 Version;
 	public uint32 Flags;
@@ -4559,7 +4728,8 @@ public function BOOL ROUTER_NOTIFY_CALLBACK(uint32 dwCommand, void* pContext, ui
 	public BIDI_REQUEST_DATA[1] aData;
 }
 
-[CRepr]public struct BIDI_RESPONSE_DATA
+[CRepr]
+public struct BIDI_RESPONSE_DATA
 {
 	public uint32 dwResult;
 	public uint32 dwReqNumber;
@@ -4567,7 +4737,8 @@ public function BOOL ROUTER_NOTIFY_CALLBACK(uint32 dwCommand, void* pContext, ui
 	public BIDI_DATA data;
 }
 
-[CRepr]public struct BIDI_RESPONSE_CONTAINER
+[CRepr]
+public struct BIDI_RESPONSE_CONTAINER
 {
 	public uint32 Version;
 	public uint32 Flags;
@@ -4575,55 +4746,64 @@ public function BOOL ROUTER_NOTIFY_CALLBACK(uint32 dwCommand, void* pContext, ui
 	public BIDI_RESPONSE_DATA[1] aData;
 }
 
-[CRepr]public struct PROVIDOR_INFO_1A
+[CRepr]
+public struct PROVIDOR_INFO_1A
 {
 	public PSTR pName;
 	public PSTR pEnvironment;
 	public PSTR pDLLName;
 }
 
-[CRepr]public struct PROVIDOR_INFO_1W
+[CRepr]
+public struct PROVIDOR_INFO_1W
 {
 	public PWSTR pName;
 	public PWSTR pEnvironment;
 	public PWSTR pDLLName;
 }
 
-[CRepr]public struct PROVIDOR_INFO_2A
+[CRepr]
+public struct PROVIDOR_INFO_2A
 {
 	public PSTR pOrder;
 }
 
-[CRepr]public struct PROVIDOR_INFO_2W
+[CRepr]
+public struct PROVIDOR_INFO_2W
 {
 	public PWSTR pOrder;
 }
 
-[CRepr]public struct PRINTER_OPTIONSA
+[CRepr]
+public struct PRINTER_OPTIONSA
 {
 	public uint32 cbSize;
 	public uint32 dwFlags;
 }
 
-[CRepr]public struct PRINTER_OPTIONSW
+[CRepr]
+public struct PRINTER_OPTIONSW
 {
 	public uint32 cbSize;
 	public uint32 dwFlags;
 }
 
-[CRepr]public struct PRINTER_CONNECTION_INFO_1A
+[CRepr]
+public struct PRINTER_CONNECTION_INFO_1A
 {
 	public uint32 dwFlags;
 	public PSTR pszDriverName;
 }
 
-[CRepr]public struct PRINTER_CONNECTION_INFO_1W
+[CRepr]
+public struct PRINTER_CONNECTION_INFO_1W
 {
 	public uint32 dwFlags;
 	public PWSTR pszDriverName;
 }
 
-[CRepr]public struct CORE_PRINTER_DRIVERA
+[CRepr]
+public struct CORE_PRINTER_DRIVERA
 {
 	public Guid CoreDriverGUID;
 	public FILETIME ftDriverDate;
@@ -4631,7 +4811,8 @@ public function BOOL ROUTER_NOTIFY_CALLBACK(uint32 dwCommand, void* pContext, ui
 	public CHAR[260] szPackageID;
 }
 
-[CRepr]public struct CORE_PRINTER_DRIVERW
+[CRepr]
+public struct CORE_PRINTER_DRIVERW
 {
 	public Guid CoreDriverGUID;
 	public FILETIME ftDriverDate;
@@ -4639,11 +4820,14 @@ public function BOOL ROUTER_NOTIFY_CALLBACK(uint32 dwCommand, void* pContext, ui
 	public char8[260] szPackageID;
 }
 
-[CRepr]public struct PrintPropertyValue
+[CRepr]
+public struct PrintPropertyValue
 {
-	[CRepr, Union]	public struct _value_e__Union
+	[CRepr, Union]
+	public struct _value_e__Union
 	{
-		[CRepr]		public struct _propertyBlob_e__Struct
+		[CRepr]
+		public struct _propertyBlob_e__Struct
 		{
 			public uint32 cbBuf;
 			public void* pBuf;
@@ -4660,44 +4844,51 @@ public function BOOL ROUTER_NOTIFY_CALLBACK(uint32 dwCommand, void* pContext, ui
 	public _value_e__Union value;
 }
 
-[CRepr]public struct PrintNamedProperty
+[CRepr]
+public struct PrintNamedProperty
 {
 	public PWSTR propertyName;
 	public PrintPropertyValue propertyValue;
 }
 
-[CRepr]public struct PrintPropertiesCollection
+[CRepr]
+public struct PrintPropertiesCollection
 {
 	public uint32 numberOfProperties;
 	public PrintNamedProperty* propertiesCollection;
 }
 
-[CRepr]public struct PRINT_EXECUTION_DATA
+[CRepr]
+public struct PRINT_EXECUTION_DATA
 {
 	public PRINT_EXECUTION_CONTEXT context;
 	public uint32 clientAppPID;
 }
 
-[CRepr, Packed(1)]public struct MxdcEscapeHeader
+[CRepr, Packed(1)]
+public struct MxdcEscapeHeader
 {
 	public uint32 cbInput;
 	public uint32 cbOutput;
 	public uint32 opCode;
 }
 
-[CRepr, Packed(1)]public struct MxdcGetFileNameData
+[CRepr, Packed(1)]
+public struct MxdcGetFileNameData
 {
 	public uint32 cbOutput;
 	public char8[1] wszData;
 }
 
-[CRepr, Packed(1)]public struct MxdcS0PageData
+[CRepr, Packed(1)]
+public struct MxdcS0PageData
 {
 	public uint32 dwSize;
 	public uint8[1] bData;
 }
 
-[CRepr, Packed(1)]public struct MxdcXpsS0PageResource
+[CRepr, Packed(1)]
+public struct MxdcXpsS0PageResource
 {
 	public uint32 dwSize;
 	public uint32 dwResourceType;
@@ -4706,31 +4897,36 @@ public function BOOL ROUTER_NOTIFY_CALLBACK(uint32 dwCommand, void* pContext, ui
 	public uint8[1] bData;
 }
 
-[CRepr, Packed(1)]public struct MxdcPrintTicketPassthrough
+[CRepr, Packed(1)]
+public struct MxdcPrintTicketPassthrough
 {
 	public uint32 dwDataSize;
 	public uint8[1] bData;
 }
 
-[CRepr]public struct MxdcPrintTicketEscape
+[CRepr]
+public struct MxdcPrintTicketEscape
 {
 	public MxdcEscapeHeader mxdcEscape;
 	public MxdcPrintTicketPassthrough printTicketData;
 }
 
-[CRepr]public struct MxdcS0PagePassthroughEscape
+[CRepr]
+public struct MxdcS0PagePassthroughEscape
 {
 	public MxdcEscapeHeader mxdcEscape;
 	public MxdcS0PageData xpsS0PageData;
 }
 
-[CRepr]public struct MxdcS0PageResourceEscape
+[CRepr]
+public struct MxdcS0PageResourceEscape
 {
 	public MxdcEscapeHeader mxdcEscape;
 	public MxdcXpsS0PageResource xpsS0PageResourcePassthrough;
 }
 
-[CRepr]public struct DEVICEPROPERTYHEADER
+[CRepr]
+public struct DEVICEPROPERTYHEADER
 {
 	public uint16 cbSize;
 	public uint16 Flags;
@@ -4738,7 +4934,8 @@ public function BOOL ROUTER_NOTIFY_CALLBACK(uint32 dwCommand, void* pContext, ui
 	public int8* pszPrinterName;
 }
 
-[CRepr]public struct DOCUMENTPROPERTYHEADER
+[CRepr]
+public struct DOCUMENTPROPERTYHEADER
 {
 	public uint16 cbSize;
 	public uint16 Reserved;
@@ -4750,7 +4947,8 @@ public function BOOL ROUTER_NOTIFY_CALLBACK(uint32 dwCommand, void* pContext, ui
 	public uint32 fMode;
 }
 
-[CRepr]public struct DEVQUERYPRINT_INFO
+[CRepr]
+public struct DEVQUERYPRINT_INFO
 {
 	public uint16 cbSize;
 	public uint16 Level;
@@ -4761,13 +4959,15 @@ public function BOOL ROUTER_NOTIFY_CALLBACK(uint32 dwCommand, void* pContext, ui
 	public uint32 cchNeeded;
 }
 
-[CRepr]public struct DRIVER_UPGRADE_INFO_1
+[CRepr]
+public struct DRIVER_UPGRADE_INFO_1
 {
 	public int8* pPrinterName;
 	public int8* pOldDriverDirectory;
 }
 
-[CRepr]public struct DRIVER_UPGRADE_INFO_2
+[CRepr]
+public struct DRIVER_UPGRADE_INFO_2
 {
 	public int8* pPrinterName;
 	public int8* pOldDriverDirectory;
@@ -4784,7 +4984,8 @@ public function BOOL ROUTER_NOTIFY_CALLBACK(uint32 dwCommand, void* pContext, ui
 	public int8* pszzPreviousNames;
 }
 
-[CRepr]public struct DOCEVENT_FILTER
+[CRepr]
+public struct DOCEVENT_FILTER
 {
 	public uint32 cbSize;
 	public uint32 cElementsAllocated;
@@ -4793,7 +4994,8 @@ public function BOOL ROUTER_NOTIFY_CALLBACK(uint32 dwCommand, void* pContext, ui
 	public uint32[1] aDocEventCall;
 }
 
-[CRepr]public struct DOCEVENT_CREATEDCPRE
+[CRepr]
+public struct DOCEVENT_CREATEDCPRE
 {
 	public PWSTR pszDriver;
 	public PWSTR pszDevice;
@@ -4801,21 +5003,24 @@ public function BOOL ROUTER_NOTIFY_CALLBACK(uint32 dwCommand, void* pContext, ui
 	public BOOL bIC;
 }
 
-[CRepr]public struct DOCEVENT_ESCAPE
+[CRepr]
+public struct DOCEVENT_ESCAPE
 {
 	public int32 iEscape;
 	public int32 cjInput;
 	public void* pvInData;
 }
 
-[CRepr]public struct PRINTER_EVENT_ATTRIBUTES_INFO
+[CRepr]
+public struct PRINTER_EVENT_ATTRIBUTES_INFO
 {
 	public uint32 cbSize;
 	public uint32 dwOldAttributes;
 	public uint32 dwNewAttributes;
 }
 
-[CRepr]public struct ATTRIBUTE_INFO_1
+[CRepr]
+public struct ATTRIBUTE_INFO_1
 {
 	public uint32 dwJobNumberOfPagesPerSide;
 	public uint32 dwDrvNumberOfPagesPerSide;
@@ -4826,7 +5031,8 @@ public function BOOL ROUTER_NOTIFY_CALLBACK(uint32 dwCommand, void* pContext, ui
 	public uint32 dwDrvNumberOfCopies;
 }
 
-[CRepr]public struct ATTRIBUTE_INFO_2
+[CRepr]
+public struct ATTRIBUTE_INFO_2
 {
 	public uint32 dwJobNumberOfPagesPerSide;
 	public uint32 dwDrvNumberOfPagesPerSide;
@@ -4838,7 +5044,8 @@ public function BOOL ROUTER_NOTIFY_CALLBACK(uint32 dwCommand, void* pContext, ui
 	public uint32 dwColorOptimization;
 }
 
-[CRepr]public struct ATTRIBUTE_INFO_3
+[CRepr]
+public struct ATTRIBUTE_INFO_3
 {
 	public uint32 dwJobNumberOfPagesPerSide;
 	public uint32 dwDrvNumberOfPagesPerSide;
@@ -4852,7 +5059,8 @@ public function BOOL ROUTER_NOTIFY_CALLBACK(uint32 dwCommand, void* pContext, ui
 	public int16 dmYResolution;
 }
 
-[CRepr]public struct ATTRIBUTE_INFO_4
+[CRepr]
+public struct ATTRIBUTE_INFO_4
 {
 	public uint32 dwJobNumberOfPagesPerSide;
 	public uint32 dwDrvNumberOfPagesPerSide;
@@ -4871,26 +5079,30 @@ public function BOOL ROUTER_NOTIFY_CALLBACK(uint32 dwCommand, void* pContext, ui
 	public uint32 dwScalingPercentY;
 }
 
-[CRepr]public struct PSCRIPT5_PRIVATE_DEVMODE
+[CRepr]
+public struct PSCRIPT5_PRIVATE_DEVMODE
 {
 	public uint16[57] wReserved;
 	public uint16 wSize;
 }
 
-[CRepr]public struct UNIDRV_PRIVATE_DEVMODE
+[CRepr]
+public struct UNIDRV_PRIVATE_DEVMODE
 {
 	public uint16[4] wReserved;
 	public uint16 wSize;
 }
 
-[CRepr]public struct PUBLISHERINFO
+[CRepr]
+public struct PUBLISHERINFO
 {
 	public uint32 dwMode;
 	public uint16 wMinoutlinePPEM;
 	public uint16 wMaxbitmapPPEM;
 }
 
-[CRepr]public struct OEMDMPARAM
+[CRepr]
+public struct OEMDMPARAM
 {
 	public uint32 cbSize;
 	public void* pdriverobj;
@@ -4903,14 +5115,16 @@ public function BOOL ROUTER_NOTIFY_CALLBACK(uint32 dwCommand, void* pContext, ui
 	public uint32 cbBufSize;
 }
 
-[CRepr]public struct OEM_DMEXTRAHEADER
+[CRepr]
+public struct OEM_DMEXTRAHEADER
 {
 	public uint32 dwSize;
 	public uint32 dwSignature;
 	public uint32 dwVersion;
 }
 
-[CRepr]public struct USERDATA
+[CRepr]
+public struct USERDATA
 {
 	public uint32 dwSize;
 	public uint dwItemID;
@@ -4918,7 +5132,8 @@ public function BOOL ROUTER_NOTIFY_CALLBACK(uint32 dwCommand, void* pContext, ui
 	public uint32[8] dwReserved;
 }
 
-[CRepr]public struct SIMULATE_CAPS_1
+[CRepr]
+public struct SIMULATE_CAPS_1
 {
 	public uint32 dwLevel;
 	public uint32 dwPageOrderFlags;
@@ -4927,19 +5142,22 @@ public function BOOL ROUTER_NOTIFY_CALLBACK(uint32 dwCommand, void* pContext, ui
 	public uint32 dwNupOptions;
 }
 
-[CRepr]public struct OEMUIPROCS
+[CRepr]
+public struct OEMUIPROCS
 {
 	public PFN_DrvGetDriverSetting DrvGetDriverSetting;
 	public PFN_DrvUpdateUISetting DrvUpdateUISetting;
 }
 
-[CRepr]public struct OEMUIOBJ
+[CRepr]
+public struct OEMUIOBJ
 {
 	public uint32 cbSize;
 	public OEMUIPROCS* pOemUIProcs;
 }
 
-[CRepr]public struct OEMCUIPPARAM
+[CRepr]
+public struct OEMCUIPPARAM
 {
 	public uint32 cbSize;
 	public OEMUIOBJ* poemuiobj;
@@ -4958,7 +5176,8 @@ public function BOOL ROUTER_NOTIFY_CALLBACK(uint32 dwCommand, void* pContext, ui
 	public OEMCUIPCALLBACK OEMCUIPCallback;
 }
 
-[CRepr]public struct OEMUIPSPARAM
+[CRepr]
+public struct OEMUIPSPARAM
 {
 	public uint32 cbSize;
 	public OEMUIOBJ* poemuiobj;
@@ -4973,20 +5192,23 @@ public function BOOL ROUTER_NOTIFY_CALLBACK(uint32 dwCommand, void* pContext, ui
 	public void* pOemEntry;
 }
 
-[CRepr]public struct CUSTOMSIZEPARAM
+[CRepr]
+public struct CUSTOMSIZEPARAM
 {
 	public int32 dwOrder;
 	public int32 lMinVal;
 	public int32 lMaxVal;
 }
 
-[CRepr]public struct PRINT_FEATURE_OPTION
+[CRepr]
+public struct PRINT_FEATURE_OPTION
 {
 	public PSTR pszFeature;
 	public PSTR pszOption;
 }
 
-[CRepr]public struct UNIFM_HDR
+[CRepr]
+public struct UNIFM_HDR
 {
 	public uint32 dwSize;
 	public uint32 dwVersion;
@@ -5000,13 +5222,15 @@ public function BOOL ROUTER_NOTIFY_CALLBACK(uint32 dwCommand, void* pContext, ui
 	public uint32[2] dwReserved;
 }
 
-[CRepr]public struct INVOC
+[CRepr]
+public struct INVOC
 {
 	public uint32 dwCount;
 	public uint32 loOffset;
 }
 
-[CRepr]public struct UNIDRVINFO
+[CRepr]
+public struct UNIDRVINFO
 {
 	public uint32 dwSize;
 	public uint32 flGenFlags;
@@ -5023,7 +5247,8 @@ public function BOOL ROUTER_NOTIFY_CALLBACK(uint32 dwCommand, void* pContext, ui
 	public uint16[4] wReserved;
 }
 
-[CRepr]public struct PRINTIFI32
+[CRepr]
+public struct PRINTIFI32
 {
 	public uint32 cjThis;
 	public uint32 cjIfiExtra;
@@ -5086,7 +5311,8 @@ public function BOOL ROUTER_NOTIFY_CALLBACK(uint32 dwCommand, void* pContext, ui
 	public PANOSE panose;
 }
 
-[CRepr]public struct EXTTEXTMETRIC
+[CRepr]
+public struct EXTTEXTMETRIC
 {
 	public int16 emSize;
 	public int16 emPointSize;
@@ -5116,28 +5342,32 @@ public function BOOL ROUTER_NOTIFY_CALLBACK(uint32 dwCommand, void* pContext, ui
 	public uint16 emKernTracks;
 }
 
-[CRepr]public struct WIDTHRUN
+[CRepr]
+public struct WIDTHRUN
 {
 	public uint16 wStartGlyph;
 	public uint16 wGlyphCount;
 	public uint32 loCharWidthOffset;
 }
 
-[CRepr]public struct WIDTHTABLE
+[CRepr]
+public struct WIDTHTABLE
 {
 	public uint32 dwSize;
 	public uint32 dwRunNum;
 	public WIDTHRUN[1] WidthRun;
 }
 
-[CRepr]public struct KERNDATA
+[CRepr]
+public struct KERNDATA
 {
 	public uint32 dwSize;
 	public uint32 dwKernPairNum;
 	public FD_KERNINGPAIR[1] KernPair;
 }
 
-[CRepr]public struct UNI_GLYPHSETDATA
+[CRepr]
+public struct UNI_GLYPHSETDATA
 {
 	public uint32 dwSize;
 	public uint32 dwVersion;
@@ -5152,22 +5382,26 @@ public function BOOL ROUTER_NOTIFY_CALLBACK(uint32 dwCommand, void* pContext, ui
 	public uint32[2] dwReserved;
 }
 
-[CRepr]public struct UNI_CODEPAGEINFO
+[CRepr]
+public struct UNI_CODEPAGEINFO
 {
 	public uint32 dwCodePage;
 	public INVOC SelectSymbolSet;
 	public INVOC UnSelectSymbolSet;
 }
 
-[CRepr]public struct GLYPHRUN
+[CRepr]
+public struct GLYPHRUN
 {
 	public char8 wcLow;
 	public uint16 wGlyphCount;
 }
 
-[CRepr]public struct TRANSDATA
+[CRepr]
+public struct TRANSDATA
 {
-	[CRepr, Union]	public struct _uCode_e__Union
+	[CRepr, Union]
+	public struct _uCode_e__Union
 	{
 		public int16 sCode;
 		public uint8 ubCode;
@@ -5179,14 +5413,16 @@ public function BOOL ROUTER_NOTIFY_CALLBACK(uint32 dwCommand, void* pContext, ui
 	public _uCode_e__Union uCode;
 }
 
-[CRepr]public struct MAPTABLE
+[CRepr]
+public struct MAPTABLE
 {
 	public uint32 dwSize;
 	public uint32 dwGlyphNum;
 	public TRANSDATA[1] Trans;
 }
 
-[CRepr]public struct UFF_FILEHEADER
+[CRepr]
+public struct UFF_FILEHEADER
 {
 	public uint32 dwSignature;
 	public uint32 dwVersion;
@@ -5199,7 +5435,8 @@ public function BOOL ROUTER_NOTIFY_CALLBACK(uint32 dwCommand, void* pContext, ui
 	public uint32[4] dwReserved;
 }
 
-[CRepr]public struct UFF_FONTDIRECTORY
+[CRepr]
+public struct UFF_FONTDIRECTORY
 {
 	public uint32 dwSignature;
 	public uint16 wSize;
@@ -5214,7 +5451,8 @@ public function BOOL ROUTER_NOTIFY_CALLBACK(uint32 dwCommand, void* pContext, ui
 	public uint32 offVarData;
 }
 
-[CRepr]public struct DATA_HEADER
+[CRepr]
+public struct DATA_HEADER
 {
 	public uint32 dwSignature;
 	public uint16 wSize;
@@ -5223,7 +5461,8 @@ public function BOOL ROUTER_NOTIFY_CALLBACK(uint32 dwCommand, void* pContext, ui
 	public uint32 dwReserved;
 }
 
-[CRepr]public struct OEMFONTINSTPARAM
+[CRepr]
+public struct OEMFONTINSTPARAM
 {
 	public uint32 cbSize;
 	public HANDLE hPrinter;
@@ -5233,7 +5472,8 @@ public function BOOL ROUTER_NOTIFY_CALLBACK(uint32 dwCommand, void* pContext, ui
 	public PWSTR pFontInstallerName;
 }
 
-[CRepr]public struct PORT_DATA_1
+[CRepr]
+public struct PORT_DATA_1
 {
 	public char8[64] sztPortName;
 	public uint32 dwVersion;
@@ -5251,7 +5491,8 @@ public function BOOL ROUTER_NOTIFY_CALLBACK(uint32 dwCommand, void* pContext, ui
 	public uint32 dwSNMPDevIndex;
 }
 
-[CRepr]public struct PORT_DATA_2
+[CRepr]
+public struct PORT_DATA_2
 {
 	public char8[64] sztPortName;
 	public uint32 dwVersion;
@@ -5269,14 +5510,16 @@ public function BOOL ROUTER_NOTIFY_CALLBACK(uint32 dwCommand, void* pContext, ui
 	public uint32 dwPortMonitorMibIndex;
 }
 
-[CRepr]public struct PORT_DATA_LIST_1
+[CRepr]
+public struct PORT_DATA_LIST_1
 {
 	public uint32 dwVersion;
 	public uint32 cPortData;
 	public PORT_DATA_2[1] pPortData;
 }
 
-[CRepr]public struct DELETE_PORT_DATA_1
+[CRepr]
+public struct DELETE_PORT_DATA_1
 {
 	public char8[64] psztPortName;
 	public uint8[98] Reserved;
@@ -5284,13 +5527,15 @@ public function BOOL ROUTER_NOTIFY_CALLBACK(uint32 dwCommand, void* pContext, ui
 	public uint32 dwReserved;
 }
 
-[CRepr]public struct CONFIG_INFO_DATA_1
+[CRepr]
+public struct CONFIG_INFO_DATA_1
 {
 	public uint8[128] Reserved;
 	public uint32 dwVersion;
 }
 
-[CRepr]public struct BranchOfficeJobDataPrinted
+[CRepr]
+public struct BranchOfficeJobDataPrinted
 {
 	public uint32 Status;
 	public PWSTR pDocumentName;
@@ -5302,7 +5547,8 @@ public function BOOL ROUTER_NOTIFY_CALLBACK(uint32 dwCommand, void* pContext, ui
 	public uint32 TotalPages;
 }
 
-[CRepr]public struct BranchOfficeJobDataError
+[CRepr]
+public struct BranchOfficeJobDataError
 {
 	public uint32 LastError;
 	public PWSTR pDocumentName;
@@ -5318,7 +5564,8 @@ public function BOOL ROUTER_NOTIFY_CALLBACK(uint32 dwCommand, void* pContext, ui
 	public PWSTR pErrorDescription;
 }
 
-[CRepr]public struct BranchOfficeJobDataRendered
+[CRepr]
+public struct BranchOfficeJobDataRendered
 {
 	public int64 Size;
 	public uint32 ICMMethod;
@@ -5329,21 +5576,25 @@ public function BOOL ROUTER_NOTIFY_CALLBACK(uint32 dwCommand, void* pContext, ui
 	public int16 TTOption;
 }
 
-[CRepr]public struct BranchOfficeJobDataPipelineFailed
+[CRepr]
+public struct BranchOfficeJobDataPipelineFailed
 {
 	public PWSTR pDocumentName;
 	public PWSTR pPrinterName;
 	public PWSTR pExtraErrorInfo;
 }
 
-[CRepr]public struct BranchOfficeLogOfflineFileFull
+[CRepr]
+public struct BranchOfficeLogOfflineFileFull
 {
 	public PWSTR pMachineName;
 }
 
-[CRepr]public struct BranchOfficeJobData
+[CRepr]
+public struct BranchOfficeJobData
 {
-	[CRepr, Union]	public struct _JobInfo_e__Union
+	[CRepr, Union]
+	public struct _JobInfo_e__Union
 	{
 		public BranchOfficeJobDataPrinted LogJobPrinted;
 		public BranchOfficeJobDataRendered LogJobRendered;
@@ -5357,20 +5608,23 @@ public function BOOL ROUTER_NOTIFY_CALLBACK(uint32 dwCommand, void* pContext, ui
 	public _JobInfo_e__Union JobInfo;
 }
 
-[CRepr]public struct BranchOfficeJobDataContainer
+[CRepr]
+public struct BranchOfficeJobDataContainer
 {
 	public uint32 cJobDataEntries;
 	public BranchOfficeJobData[1] JobData;
 }
 
-[CRepr]public struct PRINTER_NOTIFY_INIT
+[CRepr]
+public struct PRINTER_NOTIFY_INIT
 {
 	public uint32 Size;
 	public uint32 Reserved;
 	public uint32 PollTime;
 }
 
-[CRepr]public struct SPLCLIENT_INFO_1
+[CRepr]
+public struct SPLCLIENT_INFO_1
 {
 	public uint32 dwSize;
 	public PWSTR pMachineName;
@@ -5381,24 +5635,28 @@ public function BOOL ROUTER_NOTIFY_CALLBACK(uint32 dwCommand, void* pContext, ui
 	public uint16 wProcessorArchitecture;
 }
 
-[CRepr]public struct _SPLCLIENT_INFO_2_V1
+[CRepr]
+public struct _SPLCLIENT_INFO_2_V1
 {
 	public uint hSplPrinter;
 }
 
 #if BF_64_BIT || BF_ARM_64
-[CRepr]public struct _SPLCLIENT_INFO_2_V2
+[CRepr]
+public struct _SPLCLIENT_INFO_2_V2
 {
 	public uint64 hSplPrinter;
 }
 #endif
 
-[CRepr]public struct _SPLCLIENT_INFO_2_V3
+[CRepr]
+public struct _SPLCLIENT_INFO_2_V3
 {
 	public uint64 hSplPrinter;
 }
 
-[CRepr]public struct SPLCLIENT_INFO_3_VISTA
+[CRepr]
+public struct SPLCLIENT_INFO_3_VISTA
 {
 	public uint32 cbSize;
 	public uint32 dwFlags;
@@ -5412,7 +5670,8 @@ public function BOOL ROUTER_NOTIFY_CALLBACK(uint32 dwCommand, void* pContext, ui
 	public uint64 hSplPrinter;
 }
 
-[CRepr]public struct PRINTPROVIDOR
+[CRepr]
+public struct PRINTPROVIDOR
 {
 	public int fpOpenPrinter;
 	public int fpSetJob;
@@ -5522,7 +5781,8 @@ public function BOOL ROUTER_NOTIFY_CALLBACK(uint32 dwCommand, void* pContext, ui
 	public int fpIppSetPrinterAttributes;
 }
 
-[CRepr]public struct PRINTPROCESSOROPENDATA
+[CRepr]
+public struct PRINTPROCESSOROPENDATA
 {
 	public DEVMODEA* pDevMode;
 	public PWSTR pDatatype;
@@ -5533,7 +5793,8 @@ public function BOOL ROUTER_NOTIFY_CALLBACK(uint32 dwCommand, void* pContext, ui
 	public PWSTR pPrinterName;
 }
 
-[CRepr]public struct MONITORREG
+[CRepr]
+public struct MONITORREG
 {
 	public uint32 cbSize;
 	public int fpCreateKey;
@@ -5548,7 +5809,8 @@ public function BOOL ROUTER_NOTIFY_CALLBACK(uint32 dwCommand, void* pContext, ui
 	public int fpQueryValue;
 }
 
-[CRepr]public struct MONITORINIT
+[CRepr]
+public struct MONITORINIT
 {
 	public uint32 cbSize;
 	public HANDLE hSpooler;
@@ -5558,7 +5820,8 @@ public function BOOL ROUTER_NOTIFY_CALLBACK(uint32 dwCommand, void* pContext, ui
 	public PWSTR pszServerName;
 }
 
-[CRepr]public struct MONITOR
+[CRepr]
+public struct MONITOR
 {
 	public int pfnEnumPorts;
 	public int pfnOpenPort;
@@ -5579,13 +5842,15 @@ public function BOOL ROUTER_NOTIFY_CALLBACK(uint32 dwCommand, void* pContext, ui
 	public int pfnXcvClosePort;
 }
 
-[CRepr]public struct MONITOREX
+[CRepr]
+public struct MONITOREX
 {
 	public uint32 dwMonitorSize;
 	public MONITOR Monitor;
 }
 
-[CRepr]public struct MONITOR2
+[CRepr]
+public struct MONITOR2
 {
 	public uint32 cbSize;
 	public int pfnEnumPorts;
@@ -5612,7 +5877,8 @@ public function BOOL ROUTER_NOTIFY_CALLBACK(uint32 dwCommand, void* pContext, ui
 	public int pfnPowerEvent;
 }
 
-[CRepr]public struct MONITORUI
+[CRepr]
+public struct MONITORUI
 {
 	public uint32 dwMonitorUISize;
 	public int pfnAddPortUI;
@@ -5620,7 +5886,8 @@ public function BOOL ROUTER_NOTIFY_CALLBACK(uint32 dwCommand, void* pContext, ui
 	public int pfnDeletePortUI;
 }
 
-[CRepr]public struct NOTIFICATION_CONFIG_1
+[CRepr]
+public struct NOTIFICATION_CONFIG_1
 {
 	public uint32 cbSize;
 	public uint32 fdwFlags;
@@ -5628,7 +5895,8 @@ public function BOOL ROUTER_NOTIFY_CALLBACK(uint32 dwCommand, void* pContext, ui
 	public void* pContext;
 }
 
-[CRepr]public struct MESSAGEBOX_PARAMS
+[CRepr]
+public struct MESSAGEBOX_PARAMS
 {
 	public uint32 cbSize;
 	public PWSTR pTitle;
@@ -5638,14 +5906,16 @@ public function BOOL ROUTER_NOTIFY_CALLBACK(uint32 dwCommand, void* pContext, ui
 	public BOOL bWait;
 }
 
-[CRepr]public struct SHOWUIPARAMS
+[CRepr]
+public struct SHOWUIPARAMS
 {
 	public UI_TYPE UIType;
 	public MESSAGEBOX_PARAMS MessageBoxParams;
 }
 
 #if BF_32_BIT
-[CRepr]public struct _SPLCLIENT_INFO_2_V2
+[CRepr]
+public struct _SPLCLIENT_INFO_2_V2
 {
 	public uint32 hSplPrinter;
 }

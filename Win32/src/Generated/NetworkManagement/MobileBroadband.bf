@@ -416,7 +416,8 @@ public enum MBN_DEVICE_SERVICES_INTERFACE_STATE : int32
 #endregion
 
 #region Structs
-[CRepr]public struct MBN_INTERFACE_CAPS
+[CRepr]
+public struct MBN_INTERFACE_CAPS
 {
 	public MBN_CELLULAR_CLASS cellularClass;
 	public MBN_VOICE_CLASS voiceClass;
@@ -433,7 +434,8 @@ public enum MBN_DEVICE_SERVICES_INTERFACE_STATE : int32
 	public BSTR firmwareInfo;
 }
 
-[CRepr]public struct MBN_PROVIDER
+[CRepr]
+public struct MBN_PROVIDER
 {
 	public BSTR providerID;
 	public uint32 providerState;
@@ -441,7 +443,8 @@ public enum MBN_DEVICE_SERVICES_INTERFACE_STATE : int32
 	public uint32 dataClass;
 }
 
-[CRepr]public struct MBN_PROVIDER2
+[CRepr]
+public struct MBN_PROVIDER2
 {
 	public MBN_PROVIDER provider;
 	public MBN_CELLULAR_CLASS cellularClass;
@@ -449,14 +452,16 @@ public enum MBN_DEVICE_SERVICES_INTERFACE_STATE : int32
 	public uint32 signalError;
 }
 
-[CRepr]public struct MBN_PIN_INFO
+[CRepr]
+public struct MBN_PIN_INFO
 {
 	public MBN_PIN_STATE pinState;
 	public MBN_PIN_TYPE pinType;
 	public uint32 attemptsRemaining;
 }
 
-[CRepr]public struct MBN_CONTEXT
+[CRepr]
+public struct MBN_CONTEXT
 {
 	public uint32 contextID;
 	public MBN_CONTEXT_TYPE contextType;
@@ -467,26 +472,30 @@ public enum MBN_DEVICE_SERVICES_INTERFACE_STATE : int32
 	public MBN_AUTH_PROTOCOL authType;
 }
 
-[CRepr]public struct MBN_SMS_FILTER
+[CRepr]
+public struct MBN_SMS_FILTER
 {
 	public MBN_SMS_FLAG flag;
 	public uint32 messageIndex;
 }
 
-[CRepr]public struct MBN_SMS_STATUS_INFO
+[CRepr]
+public struct MBN_SMS_STATUS_INFO
 {
 	public uint32 flag;
 	public uint32 messageIndex;
 }
 
-[CRepr]public struct MBN_DEVICE_SERVICE
+[CRepr]
+public struct MBN_DEVICE_SERVICE
 {
 	public BSTR deviceServiceID;
 	public int16 dataWriteSupported;
 	public int16 dataReadSupported;
 }
 
-[CRepr]public struct __mbnapi_ReferenceRemainingTypes__
+[CRepr]
+public struct __mbnapi_ReferenceRemainingTypes__
 {
 	public MBN_BAND_CLASS bandClass;
 	public MBN_CONTEXT_CONSTANTS contextConstants;
@@ -504,7 +513,8 @@ public enum MBN_DEVICE_SERVICES_INTERFACE_STATE : int32
 	public MBN_SMS_STATUS_FLAG smsStatusFlag;
 }
 
-[CRepr]public struct __DummyPinType__
+[CRepr]
+public struct __DummyPinType__
 {
 	public uint32 pinType;
 }

@@ -1628,7 +1628,8 @@ public function HRESULT PFN_D3D10_CREATE_DEVICE_AND_SWAP_CHAIN1(IDXGIAdapter* pa
 #endregion
 
 #region Structs
-[CRepr]public struct D3D10_INPUT_ELEMENT_DESC
+[CRepr]
+public struct D3D10_INPUT_ELEMENT_DESC
 {
 	public PSTR SemanticName;
 	public uint32 SemanticIndex;
@@ -1639,7 +1640,8 @@ public function HRESULT PFN_D3D10_CREATE_DEVICE_AND_SWAP_CHAIN1(IDXGIAdapter* pa
 	public uint32 InstanceDataStepRate;
 }
 
-[CRepr]public struct D3D10_SO_DECLARATION_ENTRY
+[CRepr]
+public struct D3D10_SO_DECLARATION_ENTRY
 {
 	public PSTR SemanticName;
 	public uint32 SemanticIndex;
@@ -1648,7 +1650,8 @@ public function HRESULT PFN_D3D10_CREATE_DEVICE_AND_SWAP_CHAIN1(IDXGIAdapter* pa
 	public uint8 OutputSlot;
 }
 
-[CRepr]public struct D3D10_VIEWPORT
+[CRepr]
+public struct D3D10_VIEWPORT
 {
 	public int32 TopLeftX;
 	public int32 TopLeftY;
@@ -1658,7 +1661,8 @@ public function HRESULT PFN_D3D10_CREATE_DEVICE_AND_SWAP_CHAIN1(IDXGIAdapter* pa
 	public float MaxDepth;
 }
 
-[CRepr]public struct D3D10_BOX
+[CRepr]
+public struct D3D10_BOX
 {
 	public uint32 left;
 	public uint32 top;
@@ -1668,7 +1672,8 @@ public function HRESULT PFN_D3D10_CREATE_DEVICE_AND_SWAP_CHAIN1(IDXGIAdapter* pa
 	public uint32 back;
 }
 
-[CRepr]public struct D3D10_DEPTH_STENCILOP_DESC
+[CRepr]
+public struct D3D10_DEPTH_STENCILOP_DESC
 {
 	public D3D10_STENCIL_OP StencilFailOp;
 	public D3D10_STENCIL_OP StencilDepthFailOp;
@@ -1676,7 +1681,8 @@ public function HRESULT PFN_D3D10_CREATE_DEVICE_AND_SWAP_CHAIN1(IDXGIAdapter* pa
 	public D3D10_COMPARISON_FUNC StencilFunc;
 }
 
-[CRepr]public struct D3D10_DEPTH_STENCIL_DESC
+[CRepr]
+public struct D3D10_DEPTH_STENCIL_DESC
 {
 	public BOOL DepthEnable;
 	public D3D10_DEPTH_WRITE_MASK DepthWriteMask;
@@ -1688,7 +1694,8 @@ public function HRESULT PFN_D3D10_CREATE_DEVICE_AND_SWAP_CHAIN1(IDXGIAdapter* pa
 	public D3D10_DEPTH_STENCILOP_DESC BackFace;
 }
 
-[CRepr]public struct D3D10_BLEND_DESC
+[CRepr]
+public struct D3D10_BLEND_DESC
 {
 	public BOOL AlphaToCoverageEnable;
 	public BOOL[8] BlendEnable;
@@ -1701,7 +1708,8 @@ public function HRESULT PFN_D3D10_CREATE_DEVICE_AND_SWAP_CHAIN1(IDXGIAdapter* pa
 	public uint8[8] RenderTargetWriteMask;
 }
 
-[CRepr]public struct D3D10_RASTERIZER_DESC
+[CRepr]
+public struct D3D10_RASTERIZER_DESC
 {
 	public D3D10_FILL_MODE FillMode;
 	public D3D10_CULL_MODE CullMode;
@@ -1715,14 +1723,16 @@ public function HRESULT PFN_D3D10_CREATE_DEVICE_AND_SWAP_CHAIN1(IDXGIAdapter* pa
 	public BOOL AntialiasedLineEnable;
 }
 
-[CRepr]public struct D3D10_SUBRESOURCE_DATA
+[CRepr]
+public struct D3D10_SUBRESOURCE_DATA
 {
 	public void* pSysMem;
 	public uint32 SysMemPitch;
 	public uint32 SysMemSlicePitch;
 }
 
-[CRepr]public struct D3D10_BUFFER_DESC
+[CRepr]
+public struct D3D10_BUFFER_DESC
 {
 	public uint32 ByteWidth;
 	public D3D10_USAGE Usage;
@@ -1731,7 +1741,8 @@ public function HRESULT PFN_D3D10_CREATE_DEVICE_AND_SWAP_CHAIN1(IDXGIAdapter* pa
 	public uint32 MiscFlags;
 }
 
-[CRepr]public struct D3D10_TEXTURE1D_DESC
+[CRepr]
+public struct D3D10_TEXTURE1D_DESC
 {
 	public uint32 Width;
 	public uint32 MipLevels;
@@ -1743,7 +1754,8 @@ public function HRESULT PFN_D3D10_CREATE_DEVICE_AND_SWAP_CHAIN1(IDXGIAdapter* pa
 	public uint32 MiscFlags;
 }
 
-[CRepr]public struct D3D10_TEXTURE2D_DESC
+[CRepr]
+public struct D3D10_TEXTURE2D_DESC
 {
 	public uint32 Width;
 	public uint32 Height;
@@ -1757,13 +1769,15 @@ public function HRESULT PFN_D3D10_CREATE_DEVICE_AND_SWAP_CHAIN1(IDXGIAdapter* pa
 	public uint32 MiscFlags;
 }
 
-[CRepr]public struct D3D10_MAPPED_TEXTURE2D
+[CRepr]
+public struct D3D10_MAPPED_TEXTURE2D
 {
 	public void* pData;
 	public uint32 RowPitch;
 }
 
-[CRepr]public struct D3D10_TEXTURE3D_DESC
+[CRepr]
+public struct D3D10_TEXTURE3D_DESC
 {
 	public uint32 Width;
 	public uint32 Height;
@@ -1776,22 +1790,26 @@ public function HRESULT PFN_D3D10_CREATE_DEVICE_AND_SWAP_CHAIN1(IDXGIAdapter* pa
 	public uint32 MiscFlags;
 }
 
-[CRepr]public struct D3D10_MAPPED_TEXTURE3D
+[CRepr]
+public struct D3D10_MAPPED_TEXTURE3D
 {
 	public void* pData;
 	public uint32 RowPitch;
 	public uint32 DepthPitch;
 }
 
-[CRepr]public struct D3D10_BUFFER_SRV
+[CRepr]
+public struct D3D10_BUFFER_SRV
 {
-	[CRepr, Union]	public struct _Anonymous1_e__Union
+	[CRepr, Union]
+	public struct _Anonymous1_e__Union
 	{
 		public uint32 FirstElement;
 		public uint32 ElementOffset;
 	}
 
-	[CRepr, Union]	public struct _Anonymous2_e__Union
+	[CRepr, Union]
+	public struct _Anonymous2_e__Union
 	{
 		public uint32 NumElements;
 		public uint32 ElementWidth;
@@ -1801,27 +1819,15 @@ public function HRESULT PFN_D3D10_CREATE_DEVICE_AND_SWAP_CHAIN1(IDXGIAdapter* pa
 	public _Anonymous2_e__Union Anonymous2;
 }
 
-[CRepr]public struct D3D10_TEX1D_SRV
+[CRepr]
+public struct D3D10_TEX1D_SRV
 {
 	public uint32 MostDetailedMip;
 	public uint32 MipLevels;
 }
 
-[CRepr]public struct D3D10_TEX1D_ARRAY_SRV
-{
-	public uint32 MostDetailedMip;
-	public uint32 MipLevels;
-	public uint32 FirstArraySlice;
-	public uint32 ArraySize;
-}
-
-[CRepr]public struct D3D10_TEX2D_SRV
-{
-	public uint32 MostDetailedMip;
-	public uint32 MipLevels;
-}
-
-[CRepr]public struct D3D10_TEX2D_ARRAY_SRV
+[CRepr]
+public struct D3D10_TEX1D_ARRAY_SRV
 {
 	public uint32 MostDetailedMip;
 	public uint32 MipLevels;
@@ -1829,32 +1835,54 @@ public function HRESULT PFN_D3D10_CREATE_DEVICE_AND_SWAP_CHAIN1(IDXGIAdapter* pa
 	public uint32 ArraySize;
 }
 
-[CRepr]public struct D3D10_TEX3D_SRV
+[CRepr]
+public struct D3D10_TEX2D_SRV
 {
 	public uint32 MostDetailedMip;
 	public uint32 MipLevels;
 }
 
-[CRepr]public struct D3D10_TEXCUBE_SRV
+[CRepr]
+public struct D3D10_TEX2D_ARRAY_SRV
+{
+	public uint32 MostDetailedMip;
+	public uint32 MipLevels;
+	public uint32 FirstArraySlice;
+	public uint32 ArraySize;
+}
+
+[CRepr]
+public struct D3D10_TEX3D_SRV
 {
 	public uint32 MostDetailedMip;
 	public uint32 MipLevels;
 }
 
-[CRepr]public struct D3D10_TEX2DMS_SRV
+[CRepr]
+public struct D3D10_TEXCUBE_SRV
+{
+	public uint32 MostDetailedMip;
+	public uint32 MipLevels;
+}
+
+[CRepr]
+public struct D3D10_TEX2DMS_SRV
 {
 	public uint32 UnusedField_NothingToDefine;
 }
 
-[CRepr]public struct D3D10_TEX2DMS_ARRAY_SRV
+[CRepr]
+public struct D3D10_TEX2DMS_ARRAY_SRV
 {
 	public uint32 FirstArraySlice;
 	public uint32 ArraySize;
 }
 
-[CRepr]public struct D3D10_SHADER_RESOURCE_VIEW_DESC
+[CRepr]
+public struct D3D10_SHADER_RESOURCE_VIEW_DESC
 {
-	[CRepr, Union]	public struct _Anonymous_e__Union
+	[CRepr, Union]
+	public struct _Anonymous_e__Union
 	{
 		public D3D10_BUFFER_SRV Buffer;
 		public D3D10_TEX1D_SRV Texture1D;
@@ -1872,15 +1900,18 @@ public function HRESULT PFN_D3D10_CREATE_DEVICE_AND_SWAP_CHAIN1(IDXGIAdapter* pa
 	public using _Anonymous_e__Union Anonymous;
 }
 
-[CRepr]public struct D3D10_BUFFER_RTV
+[CRepr]
+public struct D3D10_BUFFER_RTV
 {
-	[CRepr, Union]	public struct _Anonymous2_e__Union
+	[CRepr, Union]
+	public struct _Anonymous2_e__Union
 	{
 		public uint32 NumElements;
 		public uint32 ElementWidth;
 	}
 
-	[CRepr, Union]	public struct _Anonymous1_e__Union
+	[CRepr, Union]
+	public struct _Anonymous1_e__Union
 	{
 		public uint32 FirstElement;
 		public uint32 ElementOffset;
@@ -1890,51 +1921,60 @@ public function HRESULT PFN_D3D10_CREATE_DEVICE_AND_SWAP_CHAIN1(IDXGIAdapter* pa
 	public _Anonymous2_e__Union Anonymous2;
 }
 
-[CRepr]public struct D3D10_TEX1D_RTV
+[CRepr]
+public struct D3D10_TEX1D_RTV
 {
 	public uint32 MipSlice;
 }
 
-[CRepr]public struct D3D10_TEX1D_ARRAY_RTV
+[CRepr]
+public struct D3D10_TEX1D_ARRAY_RTV
 {
 	public uint32 MipSlice;
 	public uint32 FirstArraySlice;
 	public uint32 ArraySize;
 }
 
-[CRepr]public struct D3D10_TEX2D_RTV
+[CRepr]
+public struct D3D10_TEX2D_RTV
 {
 	public uint32 MipSlice;
 }
 
-[CRepr]public struct D3D10_TEX2DMS_RTV
+[CRepr]
+public struct D3D10_TEX2DMS_RTV
 {
 	public uint32 UnusedField_NothingToDefine;
 }
 
-[CRepr]public struct D3D10_TEX2D_ARRAY_RTV
+[CRepr]
+public struct D3D10_TEX2D_ARRAY_RTV
 {
 	public uint32 MipSlice;
 	public uint32 FirstArraySlice;
 	public uint32 ArraySize;
 }
 
-[CRepr]public struct D3D10_TEX2DMS_ARRAY_RTV
+[CRepr]
+public struct D3D10_TEX2DMS_ARRAY_RTV
 {
 	public uint32 FirstArraySlice;
 	public uint32 ArraySize;
 }
 
-[CRepr]public struct D3D10_TEX3D_RTV
+[CRepr]
+public struct D3D10_TEX3D_RTV
 {
 	public uint32 MipSlice;
 	public uint32 FirstWSlice;
 	public uint32 WSize;
 }
 
-[CRepr]public struct D3D10_RENDER_TARGET_VIEW_DESC
+[CRepr]
+public struct D3D10_RENDER_TARGET_VIEW_DESC
 {
-	[CRepr, Union]	public struct _Anonymous_e__Union
+	[CRepr, Union]
+	public struct _Anonymous_e__Union
 	{
 		public D3D10_BUFFER_RTV Buffer;
 		public D3D10_TEX1D_RTV Texture1D;
@@ -1951,44 +1991,52 @@ public function HRESULT PFN_D3D10_CREATE_DEVICE_AND_SWAP_CHAIN1(IDXGIAdapter* pa
 	public using _Anonymous_e__Union Anonymous;
 }
 
-[CRepr]public struct D3D10_TEX1D_DSV
+[CRepr]
+public struct D3D10_TEX1D_DSV
 {
 	public uint32 MipSlice;
 }
 
-[CRepr]public struct D3D10_TEX1D_ARRAY_DSV
-{
-	public uint32 MipSlice;
-	public uint32 FirstArraySlice;
-	public uint32 ArraySize;
-}
-
-[CRepr]public struct D3D10_TEX2D_DSV
-{
-	public uint32 MipSlice;
-}
-
-[CRepr]public struct D3D10_TEX2D_ARRAY_DSV
+[CRepr]
+public struct D3D10_TEX1D_ARRAY_DSV
 {
 	public uint32 MipSlice;
 	public uint32 FirstArraySlice;
 	public uint32 ArraySize;
 }
 
-[CRepr]public struct D3D10_TEX2DMS_DSV
+[CRepr]
+public struct D3D10_TEX2D_DSV
+{
+	public uint32 MipSlice;
+}
+
+[CRepr]
+public struct D3D10_TEX2D_ARRAY_DSV
+{
+	public uint32 MipSlice;
+	public uint32 FirstArraySlice;
+	public uint32 ArraySize;
+}
+
+[CRepr]
+public struct D3D10_TEX2DMS_DSV
 {
 	public uint32 UnusedField_NothingToDefine;
 }
 
-[CRepr]public struct D3D10_TEX2DMS_ARRAY_DSV
+[CRepr]
+public struct D3D10_TEX2DMS_ARRAY_DSV
 {
 	public uint32 FirstArraySlice;
 	public uint32 ArraySize;
 }
 
-[CRepr]public struct D3D10_DEPTH_STENCIL_VIEW_DESC
+[CRepr]
+public struct D3D10_DEPTH_STENCIL_VIEW_DESC
 {
-	[CRepr, Union]	public struct _Anonymous_e__Union
+	[CRepr, Union]
+	public struct _Anonymous_e__Union
 	{
 		public D3D10_TEX1D_DSV Texture1D;
 		public D3D10_TEX1D_ARRAY_DSV Texture1DArray;
@@ -2003,7 +2051,8 @@ public function HRESULT PFN_D3D10_CREATE_DEVICE_AND_SWAP_CHAIN1(IDXGIAdapter* pa
 	public using _Anonymous_e__Union Anonymous;
 }
 
-[CRepr]public struct D3D10_SAMPLER_DESC
+[CRepr]
+public struct D3D10_SAMPLER_DESC
 {
 	public D3D10_FILTER Filter;
 	public D3D10_TEXTURE_ADDRESS_MODE AddressU;
@@ -2017,19 +2066,22 @@ public function HRESULT PFN_D3D10_CREATE_DEVICE_AND_SWAP_CHAIN1(IDXGIAdapter* pa
 	public float MaxLOD;
 }
 
-[CRepr]public struct D3D10_QUERY_DESC
+[CRepr]
+public struct D3D10_QUERY_DESC
 {
 	public D3D10_QUERY Query;
 	public uint32 MiscFlags;
 }
 
-[CRepr]public struct D3D10_QUERY_DATA_TIMESTAMP_DISJOINT
+[CRepr]
+public struct D3D10_QUERY_DATA_TIMESTAMP_DISJOINT
 {
 	public uint64 Frequency;
 	public BOOL Disjoint;
 }
 
-[CRepr]public struct D3D10_QUERY_DATA_PIPELINE_STATISTICS
+[CRepr]
+public struct D3D10_QUERY_DATA_PIPELINE_STATISTICS
 {
 	public uint64 IAVertices;
 	public uint64 IAPrimitives;
@@ -2041,26 +2093,30 @@ public function HRESULT PFN_D3D10_CREATE_DEVICE_AND_SWAP_CHAIN1(IDXGIAdapter* pa
 	public uint64 PSInvocations;
 }
 
-[CRepr]public struct D3D10_QUERY_DATA_SO_STATISTICS
+[CRepr]
+public struct D3D10_QUERY_DATA_SO_STATISTICS
 {
 	public uint64 NumPrimitivesWritten;
 	public uint64 PrimitivesStorageNeeded;
 }
 
-[CRepr]public struct D3D10_COUNTER_DESC
+[CRepr]
+public struct D3D10_COUNTER_DESC
 {
 	public D3D10_COUNTER Counter;
 	public uint32 MiscFlags;
 }
 
-[CRepr]public struct D3D10_COUNTER_INFO
+[CRepr]
+public struct D3D10_COUNTER_INFO
 {
 	public D3D10_COUNTER LastDeviceDependentCounter;
 	public uint32 NumSimultaneousCounters;
 	public uint8 NumDetectableParallelUnits;
 }
 
-[CRepr]public struct D3D10_MESSAGE
+[CRepr]
+public struct D3D10_MESSAGE
 {
 	public D3D10_MESSAGE_CATEGORY Category;
 	public D3D10_MESSAGE_SEVERITY Severity;
@@ -2069,7 +2125,8 @@ public function HRESULT PFN_D3D10_CREATE_DEVICE_AND_SWAP_CHAIN1(IDXGIAdapter* pa
 	public uint DescriptionByteLength;
 }
 
-[CRepr]public struct D3D10_INFO_QUEUE_FILTER_DESC
+[CRepr]
+public struct D3D10_INFO_QUEUE_FILTER_DESC
 {
 	public uint32 NumCategories;
 	public D3D10_MESSAGE_CATEGORY* pCategoryList;
@@ -2079,13 +2136,15 @@ public function HRESULT PFN_D3D10_CREATE_DEVICE_AND_SWAP_CHAIN1(IDXGIAdapter* pa
 	public D3D10_MESSAGE_ID* pIDList;
 }
 
-[CRepr]public struct D3D10_INFO_QUEUE_FILTER
+[CRepr]
+public struct D3D10_INFO_QUEUE_FILTER
 {
 	public D3D10_INFO_QUEUE_FILTER_DESC AllowList;
 	public D3D10_INFO_QUEUE_FILTER_DESC DenyList;
 }
 
-[CRepr]public struct D3D10_SHADER_DESC
+[CRepr]
+public struct D3D10_SHADER_DESC
 {
 	public uint32 Version;
 	public PSTR Creator;
@@ -2117,7 +2176,8 @@ public function HRESULT PFN_D3D10_CREATE_DEVICE_AND_SWAP_CHAIN1(IDXGIAdapter* pa
 	public uint32 GSMaxOutputVertexCount;
 }
 
-[CRepr]public struct D3D10_SHADER_BUFFER_DESC
+[CRepr]
+public struct D3D10_SHADER_BUFFER_DESC
 {
 	public PSTR Name;
 	public D3D_CBUFFER_TYPE Type;
@@ -2126,7 +2186,8 @@ public function HRESULT PFN_D3D10_CREATE_DEVICE_AND_SWAP_CHAIN1(IDXGIAdapter* pa
 	public uint32 uFlags;
 }
 
-[CRepr]public struct D3D10_SHADER_VARIABLE_DESC
+[CRepr]
+public struct D3D10_SHADER_VARIABLE_DESC
 {
 	public PSTR Name;
 	public uint32 StartOffset;
@@ -2135,7 +2196,8 @@ public function HRESULT PFN_D3D10_CREATE_DEVICE_AND_SWAP_CHAIN1(IDXGIAdapter* pa
 	public void* DefaultValue;
 }
 
-[CRepr]public struct D3D10_SHADER_TYPE_DESC
+[CRepr]
+public struct D3D10_SHADER_TYPE_DESC
 {
 	public D3D_SHADER_VARIABLE_CLASS Class;
 	public D3D_SHADER_VARIABLE_TYPE Type;
@@ -2146,7 +2208,8 @@ public function HRESULT PFN_D3D10_CREATE_DEVICE_AND_SWAP_CHAIN1(IDXGIAdapter* pa
 	public uint32 Offset;
 }
 
-[CRepr]public struct D3D10_SHADER_INPUT_BIND_DESC
+[CRepr]
+public struct D3D10_SHADER_INPUT_BIND_DESC
 {
 	public PSTR Name;
 	public D3D_SHADER_INPUT_TYPE Type;
@@ -2158,7 +2221,8 @@ public function HRESULT PFN_D3D10_CREATE_DEVICE_AND_SWAP_CHAIN1(IDXGIAdapter* pa
 	public uint32 NumSamples;
 }
 
-[CRepr]public struct D3D10_SIGNATURE_PARAMETER_DESC
+[CRepr]
+public struct D3D10_SIGNATURE_PARAMETER_DESC
 {
 	public PSTR SemanticName;
 	public uint32 SemanticIndex;
@@ -2169,7 +2233,8 @@ public function HRESULT PFN_D3D10_CREATE_DEVICE_AND_SWAP_CHAIN1(IDXGIAdapter* pa
 	public uint8 ReadWriteMask;
 }
 
-[CRepr]public struct D3D10_STATE_BLOCK_MASK
+[CRepr]
+public struct D3D10_STATE_BLOCK_MASK
 {
 	public uint8 VS;
 	public uint8[2] VSSamplers;
@@ -2197,7 +2262,8 @@ public function HRESULT PFN_D3D10_CREATE_DEVICE_AND_SWAP_CHAIN1(IDXGIAdapter* pa
 	public uint8 Predication;
 }
 
-[CRepr]public struct D3D10_EFFECT_TYPE_DESC
+[CRepr]
+public struct D3D10_EFFECT_TYPE_DESC
 {
 	public PSTR TypeName;
 	public D3D_SHADER_VARIABLE_CLASS Class;
@@ -2211,7 +2277,8 @@ public function HRESULT PFN_D3D10_CREATE_DEVICE_AND_SWAP_CHAIN1(IDXGIAdapter* pa
 	public uint32 Stride;
 }
 
-[CRepr]public struct D3D10_EFFECT_VARIABLE_DESC
+[CRepr]
+public struct D3D10_EFFECT_VARIABLE_DESC
 {
 	public PSTR Name;
 	public PSTR Semantic;
@@ -2221,7 +2288,8 @@ public function HRESULT PFN_D3D10_CREATE_DEVICE_AND_SWAP_CHAIN1(IDXGIAdapter* pa
 	public uint32 ExplicitBindPoint;
 }
 
-[CRepr]public struct D3D10_EFFECT_SHADER_DESC
+[CRepr]
+public struct D3D10_EFFECT_SHADER_DESC
 {
 	public uint8* pInputSignature;
 	public BOOL IsInline;
@@ -2232,7 +2300,8 @@ public function HRESULT PFN_D3D10_CREATE_DEVICE_AND_SWAP_CHAIN1(IDXGIAdapter* pa
 	public uint32 NumOutputSignatureEntries;
 }
 
-[CRepr]public struct D3D10_PASS_DESC
+[CRepr]
+public struct D3D10_PASS_DESC
 {
 	public PSTR Name;
 	public uint32 Annotations;
@@ -2243,20 +2312,23 @@ public function HRESULT PFN_D3D10_CREATE_DEVICE_AND_SWAP_CHAIN1(IDXGIAdapter* pa
 	public float[4] BlendFactor;
 }
 
-[CRepr]public struct D3D10_PASS_SHADER_DESC
+[CRepr]
+public struct D3D10_PASS_SHADER_DESC
 {
 	public ID3D10EffectShaderVariable* pShaderVariable;
 	public uint32 ShaderIndex;
 }
 
-[CRepr]public struct D3D10_TECHNIQUE_DESC
+[CRepr]
+public struct D3D10_TECHNIQUE_DESC
 {
 	public PSTR Name;
 	public uint32 Passes;
 	public uint32 Annotations;
 }
 
-[CRepr]public struct D3D10_EFFECT_DESC
+[CRepr]
+public struct D3D10_EFFECT_DESC
 {
 	public BOOL IsChildEffect;
 	public uint32 ConstantBuffers;
@@ -2266,7 +2338,8 @@ public function HRESULT PFN_D3D10_CREATE_DEVICE_AND_SWAP_CHAIN1(IDXGIAdapter* pa
 	public uint32 Techniques;
 }
 
-[CRepr]public struct D3D10_RENDER_TARGET_BLEND_DESC1
+[CRepr]
+public struct D3D10_RENDER_TARGET_BLEND_DESC1
 {
 	public BOOL BlendEnable;
 	public D3D10_BLEND SrcBlend;
@@ -2278,14 +2351,16 @@ public function HRESULT PFN_D3D10_CREATE_DEVICE_AND_SWAP_CHAIN1(IDXGIAdapter* pa
 	public uint8 RenderTargetWriteMask;
 }
 
-[CRepr]public struct D3D10_BLEND_DESC1
+[CRepr]
+public struct D3D10_BLEND_DESC1
 {
 	public BOOL AlphaToCoverageEnable;
 	public BOOL IndependentBlendEnable;
 	public D3D10_RENDER_TARGET_BLEND_DESC1[8] RenderTarget;
 }
 
-[CRepr]public struct D3D10_TEXCUBE_ARRAY_SRV1
+[CRepr]
+public struct D3D10_TEXCUBE_ARRAY_SRV1
 {
 	public uint32 MostDetailedMip;
 	public uint32 MipLevels;
@@ -2293,9 +2368,11 @@ public function HRESULT PFN_D3D10_CREATE_DEVICE_AND_SWAP_CHAIN1(IDXGIAdapter* pa
 	public uint32 NumCubes;
 }
 
-[CRepr]public struct D3D10_SHADER_RESOURCE_VIEW_DESC1
+[CRepr]
+public struct D3D10_SHADER_RESOURCE_VIEW_DESC1
 {
-	[CRepr, Union]	public struct _Anonymous_e__Union
+	[CRepr, Union]
+	public struct _Anonymous_e__Union
 	{
 		public D3D10_BUFFER_SRV Buffer;
 		public D3D10_TEX1D_SRV Texture1D;
@@ -2314,7 +2391,8 @@ public function HRESULT PFN_D3D10_CREATE_DEVICE_AND_SWAP_CHAIN1(IDXGIAdapter* pa
 	public using _Anonymous_e__Union Anonymous;
 }
 
-[CRepr]public struct D3D10_SHADER_DEBUG_TOKEN_INFO
+[CRepr]
+public struct D3D10_SHADER_DEBUG_TOKEN_INFO
 {
 	public uint32 File;
 	public uint32 Line;
@@ -2323,7 +2401,8 @@ public function HRESULT PFN_D3D10_CREATE_DEVICE_AND_SWAP_CHAIN1(IDXGIAdapter* pa
 	public uint32 TokenId;
 }
 
-[CRepr]public struct D3D10_SHADER_DEBUG_VAR_INFO
+[CRepr]
+public struct D3D10_SHADER_DEBUG_VAR_INFO
 {
 	public uint32 TokenId;
 	public D3D_SHADER_VARIABLE_TYPE Type;
@@ -2333,7 +2412,8 @@ public function HRESULT PFN_D3D10_CREATE_DEVICE_AND_SWAP_CHAIN1(IDXGIAdapter* pa
 	public uint32 ScopeVarOffset;
 }
 
-[CRepr]public struct D3D10_SHADER_DEBUG_INPUT_INFO
+[CRepr]
+public struct D3D10_SHADER_DEBUG_INPUT_INFO
 {
 	public uint32 Var;
 	public D3D10_SHADER_DEBUG_REGTYPE InitialRegisterSet;
@@ -2343,7 +2423,8 @@ public function HRESULT PFN_D3D10_CREATE_DEVICE_AND_SWAP_CHAIN1(IDXGIAdapter* pa
 	public uint32 InitialValue;
 }
 
-[CRepr]public struct D3D10_SHADER_DEBUG_SCOPEVAR_INFO
+[CRepr]
+public struct D3D10_SHADER_DEBUG_SCOPEVAR_INFO
 {
 	public uint32 TokenId;
 	public D3D10_SHADER_DEBUG_VARTYPE VarType;
@@ -2358,7 +2439,8 @@ public function HRESULT PFN_D3D10_CREATE_DEVICE_AND_SWAP_CHAIN1(IDXGIAdapter* pa
 	public uint32 uFirstVariable;
 }
 
-[CRepr]public struct D3D10_SHADER_DEBUG_SCOPE_INFO
+[CRepr]
+public struct D3D10_SHADER_DEBUG_SCOPE_INFO
 {
 	public D3D10_SHADER_DEBUG_SCOPETYPE ScopeType;
 	public uint32 Name;
@@ -2367,7 +2449,8 @@ public function HRESULT PFN_D3D10_CREATE_DEVICE_AND_SWAP_CHAIN1(IDXGIAdapter* pa
 	public uint32 VariableData;
 }
 
-[CRepr]public struct D3D10_SHADER_DEBUG_OUTPUTVAR
+[CRepr]
+public struct D3D10_SHADER_DEBUG_OUTPUTVAR
 {
 	public uint32 Var;
 	public uint32 uValueMin;
@@ -2380,7 +2463,8 @@ public function HRESULT PFN_D3D10_CREATE_DEVICE_AND_SWAP_CHAIN1(IDXGIAdapter* pa
 	public BOOL bInfPossible;
 }
 
-[CRepr]public struct D3D10_SHADER_DEBUG_OUTPUTREG_INFO
+[CRepr]
+public struct D3D10_SHADER_DEBUG_OUTPUTREG_INFO
 {
 	public D3D10_SHADER_DEBUG_REGTYPE OutputRegisterSet;
 	public uint32 OutputReg;
@@ -2391,7 +2475,8 @@ public function HRESULT PFN_D3D10_CREATE_DEVICE_AND_SWAP_CHAIN1(IDXGIAdapter* pa
 	public uint32 IndexComp;
 }
 
-[CRepr]public struct D3D10_SHADER_DEBUG_INST_INFO
+[CRepr]
+public struct D3D10_SHADER_DEBUG_INST_INFO
 {
 	public uint32 Id;
 	public uint32 Opcode;
@@ -2405,7 +2490,8 @@ public function HRESULT PFN_D3D10_CREATE_DEVICE_AND_SWAP_CHAIN1(IDXGIAdapter* pa
 	public uint32 AccessedVarsInfo;
 }
 
-[CRepr]public struct D3D10_SHADER_DEBUG_FILE_INFO
+[CRepr]
+public struct D3D10_SHADER_DEBUG_FILE_INFO
 {
 	public uint32 FileName;
 	public uint32 FileNameLen;
@@ -2413,7 +2499,8 @@ public function HRESULT PFN_D3D10_CREATE_DEVICE_AND_SWAP_CHAIN1(IDXGIAdapter* pa
 	public uint32 FileLen;
 }
 
-[CRepr]public struct D3D10_SHADER_DEBUG_INFO
+[CRepr]
+public struct D3D10_SHADER_DEBUG_INFO
 {
 	public uint32 Size;
 	public uint32 Creator;

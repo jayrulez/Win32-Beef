@@ -406,17 +406,20 @@ public enum SYNC_ENGINE_STATE_FLAGS : int32
 #endregion
 
 #region Structs
-[CRepr]public struct PROPERTYKEY
+[CRepr]
+public struct PROPERTYKEY
 {
 	public Guid fmtid;
 	public uint32 pid;
 }
 
-[CRepr]public struct SERIALIZEDPROPSTORAGE
+[CRepr]
+public struct SERIALIZEDPROPSTORAGE
 {
 }
 
-[CRepr, Packed(1)]public struct PROPPRG
+[CRepr, Packed(1)]
+public struct PROPPRG
 {
 	public uint16 flPrg;
 	public uint16 flPrgInit;

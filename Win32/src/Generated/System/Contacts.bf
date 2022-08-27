@@ -50,7 +50,8 @@ public enum CONTACT_AGGREGATION_COLLECTION_OPTIONS : int32
 #endregion
 
 #region Structs
-[CRepr]public struct CONTACT_AGGREGATION_BLOB
+[CRepr]
+public struct CONTACT_AGGREGATION_BLOB
 {
 	public uint32 dwCount;
 	public uint8* lpb;

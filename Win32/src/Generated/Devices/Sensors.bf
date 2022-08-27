@@ -772,38 +772,45 @@ public enum AXIS : int32
 #endregion
 
 #region Structs
-[CRepr]public struct SENSOR_VALUE_PAIR
+[CRepr]
+public struct SENSOR_VALUE_PAIR
 {
 	public PROPERTYKEY Key;
 	public PROPVARIANT Value;
 }
 
-[CRepr]public struct SENSOR_COLLECTION_LIST
+[CRepr]
+public struct SENSOR_COLLECTION_LIST
 {
 	public uint32 AllocatedSizeInBytes;
 	public uint32 Count;
 	public SENSOR_VALUE_PAIR[1] List;
 }
 
-[CRepr]public struct SENSOR_PROPERTY_LIST
+[CRepr]
+public struct SENSOR_PROPERTY_LIST
 {
 	public uint32 AllocatedSizeInBytes;
 	public uint32 Count;
 	public PROPERTYKEY[1] List;
 }
 
-[CRepr]public struct VEC3D
+[CRepr]
+public struct VEC3D
 {
 	public float X;
 	public float Y;
 	public float Z;
 }
 
-[CRepr]public struct MATRIX3X3
+[CRepr]
+public struct MATRIX3X3
 {
-	[CRepr, Union]	public struct _Anonymous_e__Union
+	[CRepr, Union]
+	public struct _Anonymous_e__Union
 	{
-		[CRepr]		public struct _Anonymous1_e__Struct
+		[CRepr]
+		public struct _Anonymous1_e__Struct
 		{
 			public float A11;
 			public float A12;
@@ -816,7 +823,8 @@ public enum AXIS : int32
 			public float A33;
 		}
 
-		[CRepr]		public struct _Anonymous2_e__Struct
+		[CRepr]
+		public struct _Anonymous2_e__Struct
 		{
 			public VEC3D V1;
 			public VEC3D V2;
@@ -831,7 +839,8 @@ public enum AXIS : int32
 	public using _Anonymous_e__Union Anonymous;
 }
 
-[CRepr]public struct QUATERNION
+[CRepr]
+public struct QUATERNION
 {
 	public float X;
 	public float Y;

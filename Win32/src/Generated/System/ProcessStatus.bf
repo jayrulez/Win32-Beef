@@ -34,29 +34,34 @@ public function BOOL PENUM_PAGE_FILE_CALLBACKA(void* pContext, ENUM_PAGE_FILE_IN
 #endregion
 
 #region Structs
-[CRepr]public struct MODULEINFO
+[CRepr]
+public struct MODULEINFO
 {
 	public void* lpBaseOfDll;
 	public uint32 SizeOfImage;
 	public void* EntryPoint;
 }
 
-[CRepr]public struct PSAPI_WS_WATCH_INFORMATION
+[CRepr]
+public struct PSAPI_WS_WATCH_INFORMATION
 {
 	public void* FaultingPc;
 	public void* FaultingVa;
 }
 
-[CRepr]public struct PSAPI_WS_WATCH_INFORMATION_EX
+[CRepr]
+public struct PSAPI_WS_WATCH_INFORMATION_EX
 {
 	public PSAPI_WS_WATCH_INFORMATION BasicInfo;
 	public uint FaultingThreadId;
 	public uint Flags;
 }
 
-[CRepr, Union]public struct PSAPI_WORKING_SET_BLOCK
+[CRepr, Union]
+public struct PSAPI_WORKING_SET_BLOCK
 {
-	[CRepr]	public struct _Anonymous_e__Struct
+	[CRepr]
+	public struct _Anonymous_e__Struct
 	{
 		public uint _bitfield;
 	}
@@ -65,22 +70,27 @@ public function BOOL PENUM_PAGE_FILE_CALLBACKA(void* pContext, ENUM_PAGE_FILE_IN
 	public using _Anonymous_e__Struct Anonymous;
 }
 
-[CRepr]public struct PSAPI_WORKING_SET_INFORMATION
+[CRepr]
+public struct PSAPI_WORKING_SET_INFORMATION
 {
 	public uint NumberOfEntries;
 	public PSAPI_WORKING_SET_BLOCK[1] WorkingSetInfo;
 }
 
-[CRepr, Union]public struct PSAPI_WORKING_SET_EX_BLOCK
+[CRepr, Union]
+public struct PSAPI_WORKING_SET_EX_BLOCK
 {
-	[CRepr, Union]	public struct _Anonymous_e__Union
+	[CRepr, Union]
+	public struct _Anonymous_e__Union
 	{
-		[CRepr]		public struct _Anonymous_e__Struct
+		[CRepr]
+		public struct _Anonymous_e__Struct
 		{
 			public uint _bitfield;
 		}
 
-		[CRepr]		public struct _Invalid_e__Struct
+		[CRepr]
+		public struct _Invalid_e__Struct
 		{
 			public uint _bitfield;
 		}
@@ -93,13 +103,15 @@ public function BOOL PENUM_PAGE_FILE_CALLBACKA(void* pContext, ENUM_PAGE_FILE_IN
 	public using _Anonymous_e__Union Anonymous;
 }
 
-[CRepr]public struct PSAPI_WORKING_SET_EX_INFORMATION
+[CRepr]
+public struct PSAPI_WORKING_SET_EX_INFORMATION
 {
 	public void* VirtualAddress;
 	public PSAPI_WORKING_SET_EX_BLOCK VirtualAttributes;
 }
 
-[CRepr]public struct PROCESS_MEMORY_COUNTERS
+[CRepr]
+public struct PROCESS_MEMORY_COUNTERS
 {
 	public uint32 cb;
 	public uint32 PageFaultCount;
@@ -113,7 +125,8 @@ public function BOOL PENUM_PAGE_FILE_CALLBACKA(void* pContext, ENUM_PAGE_FILE_IN
 	public uint PeakPagefileUsage;
 }
 
-[CRepr]public struct PROCESS_MEMORY_COUNTERS_EX
+[CRepr]
+public struct PROCESS_MEMORY_COUNTERS_EX
 {
 	public uint32 cb;
 	public uint32 PageFaultCount;
@@ -128,7 +141,8 @@ public function BOOL PENUM_PAGE_FILE_CALLBACKA(void* pContext, ENUM_PAGE_FILE_IN
 	public uint PrivateUsage;
 }
 
-[CRepr]public struct PERFORMANCE_INFORMATION
+[CRepr]
+public struct PERFORMANCE_INFORMATION
 {
 	public uint32 cb;
 	public uint CommitTotal;
@@ -146,7 +160,8 @@ public function BOOL PENUM_PAGE_FILE_CALLBACKA(void* pContext, ENUM_PAGE_FILE_IN
 	public uint32 ThreadCount;
 }
 
-[CRepr]public struct ENUM_PAGE_FILE_INFORMATION
+[CRepr]
+public struct ENUM_PAGE_FILE_INFORMATION
 {
 	public uint32 cb;
 	public uint32 Reserved;

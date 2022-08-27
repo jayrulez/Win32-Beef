@@ -415,17 +415,21 @@ public enum FORK_VIRTUAL_DISK_FLAG : uint32
 #endregion
 
 #region Structs
-[CRepr]public struct VIRTUAL_STORAGE_TYPE
+[CRepr]
+public struct VIRTUAL_STORAGE_TYPE
 {
 	public uint32 DeviceId;
 	public Guid VendorId;
 }
 
-[CRepr]public struct OPEN_VIRTUAL_DISK_PARAMETERS
+[CRepr]
+public struct OPEN_VIRTUAL_DISK_PARAMETERS
 {
-	[CRepr, Union]	public struct _Anonymous_e__Union
+	[CRepr, Union]
+	public struct _Anonymous_e__Union
 	{
-		[CRepr]		public struct _Version3_e__Struct
+		[CRepr]
+		public struct _Version3_e__Struct
 		{
 			public BOOL GetInfoOnly;
 			public BOOL ReadOnly;
@@ -433,12 +437,14 @@ public enum FORK_VIRTUAL_DISK_FLAG : uint32
 			public Guid SnapshotId;
 		}
 
-		[CRepr]		public struct _Version1_e__Struct
+		[CRepr]
+		public struct _Version1_e__Struct
 		{
 			public uint32 RWDepth;
 		}
 
-		[CRepr]		public struct _Version2_e__Struct
+		[CRepr]
+		public struct _Version2_e__Struct
 		{
 			public BOOL GetInfoOnly;
 			public BOOL ReadOnly;
@@ -454,11 +460,14 @@ public enum FORK_VIRTUAL_DISK_FLAG : uint32
 	public using _Anonymous_e__Union Anonymous;
 }
 
-[CRepr]public struct CREATE_VIRTUAL_DISK_PARAMETERS
+[CRepr]
+public struct CREATE_VIRTUAL_DISK_PARAMETERS
 {
-	[CRepr, Union]	public struct _Anonymous_e__Union
+	[CRepr, Union]
+	public struct _Anonymous_e__Union
 	{
-		[CRepr]		public struct _Version4_e__Struct
+		[CRepr]
+		public struct _Version4_e__Struct
 		{
 			public Guid UniqueId;
 			public uint64 MaximumSize;
@@ -477,7 +486,8 @@ public enum FORK_VIRTUAL_DISK_FLAG : uint32
 			public uint64 DataAlignment;
 		}
 
-		[CRepr]		public struct _Version2_e__Struct
+		[CRepr]
+		public struct _Version2_e__Struct
 		{
 			public Guid UniqueId;
 			public uint64 MaximumSize;
@@ -492,7 +502,8 @@ public enum FORK_VIRTUAL_DISK_FLAG : uint32
 			public Guid ResiliencyGuid;
 		}
 
-		[CRepr]		public struct _Version3_e__Struct
+		[CRepr]
+		public struct _Version3_e__Struct
 		{
 			public Guid UniqueId;
 			public uint64 MaximumSize;
@@ -509,7 +520,8 @@ public enum FORK_VIRTUAL_DISK_FLAG : uint32
 			public VIRTUAL_STORAGE_TYPE BackingStorageType;
 		}
 
-		[CRepr]		public struct _Version1_e__Struct
+		[CRepr]
+		public struct _Version1_e__Struct
 		{
 			public Guid UniqueId;
 			public uint64 MaximumSize;
@@ -529,17 +541,21 @@ public enum FORK_VIRTUAL_DISK_FLAG : uint32
 	public using _Anonymous_e__Union Anonymous;
 }
 
-[CRepr]public struct ATTACH_VIRTUAL_DISK_PARAMETERS
+[CRepr]
+public struct ATTACH_VIRTUAL_DISK_PARAMETERS
 {
-	[CRepr, Union]	public struct _Anonymous_e__Union
+	[CRepr, Union]
+	public struct _Anonymous_e__Union
 	{
-		[CRepr]		public struct _Version2_e__Struct
+		[CRepr]
+		public struct _Version2_e__Struct
 		{
 			public uint64 RestrictedOffset;
 			public uint64 RestrictedLength;
 		}
 
-		[CRepr]		public struct _Version1_e__Struct
+		[CRepr]
+		public struct _Version1_e__Struct
 		{
 			public uint32 Reserved;
 		}
@@ -552,14 +568,16 @@ public enum FORK_VIRTUAL_DISK_FLAG : uint32
 	public using _Anonymous_e__Union Anonymous;
 }
 
-[CRepr]public struct STORAGE_DEPENDENCY_INFO_TYPE_1
+[CRepr]
+public struct STORAGE_DEPENDENCY_INFO_TYPE_1
 {
 	public DEPENDENT_DISK_FLAG DependencyTypeFlags;
 	public uint32 ProviderSpecificFlags;
 	public VIRTUAL_STORAGE_TYPE VirtualStorageType;
 }
 
-[CRepr]public struct STORAGE_DEPENDENCY_INFO_TYPE_2
+[CRepr]
+public struct STORAGE_DEPENDENCY_INFO_TYPE_2
 {
 	public DEPENDENT_DISK_FLAG DependencyTypeFlags;
 	public uint32 ProviderSpecificFlags;
@@ -571,9 +589,11 @@ public enum FORK_VIRTUAL_DISK_FLAG : uint32
 	public PWSTR DependentVolumeRelativePath;
 }
 
-[CRepr]public struct STORAGE_DEPENDENCY_INFO
+[CRepr]
+public struct STORAGE_DEPENDENCY_INFO
 {
-	[CRepr, Union]	public struct _Anonymous_e__Union
+	[CRepr, Union]
+	public struct _Anonymous_e__Union
 	{
 		public STORAGE_DEPENDENCY_INFO_TYPE_1[1] Version1Entries;
 		public STORAGE_DEPENDENCY_INFO_TYPE_2[1] Version2Entries;
@@ -584,18 +604,22 @@ public enum FORK_VIRTUAL_DISK_FLAG : uint32
 	public using _Anonymous_e__Union Anonymous;
 }
 
-[CRepr]public struct GET_VIRTUAL_DISK_INFO
+[CRepr]
+public struct GET_VIRTUAL_DISK_INFO
 {
-	[CRepr, Union]	public struct _Anonymous_e__Union
+	[CRepr, Union]
+	public struct _Anonymous_e__Union
 	{
-		[CRepr]		public struct _PhysicalDisk_e__Struct
+		[CRepr]
+		public struct _PhysicalDisk_e__Struct
 		{
 			public uint32 LogicalSectorSize;
 			public uint32 PhysicalSectorSize;
 			public BOOL IsRemote;
 		}
 
-		[CRepr]		public struct _Size_e__Struct
+		[CRepr]
+		public struct _Size_e__Struct
 		{
 			public uint64 VirtualSize;
 			public uint64 PhysicalSize;
@@ -603,14 +627,16 @@ public enum FORK_VIRTUAL_DISK_FLAG : uint32
 			public uint32 SectorSize;
 		}
 
-		[CRepr]		public struct _ChangeTrackingState_e__Struct
+		[CRepr]
+		public struct _ChangeTrackingState_e__Struct
 		{
 			public BOOL Enabled;
 			public BOOL NewerChanges;
 			public char8[1] MostRecentId;
 		}
 
-		[CRepr]		public struct _ParentLocation_e__Struct
+		[CRepr]
+		public struct _ParentLocation_e__Struct
 		{
 			public BOOL ParentResolved;
 			public char8[1] ParentLocationBuffer;
@@ -637,17 +663,21 @@ public enum FORK_VIRTUAL_DISK_FLAG : uint32
 	public using _Anonymous_e__Union Anonymous;
 }
 
-[CRepr]public struct SET_VIRTUAL_DISK_INFO
+[CRepr]
+public struct SET_VIRTUAL_DISK_INFO
 {
-	[CRepr, Union]	public struct _Anonymous_e__Union
+	[CRepr, Union]
+	public struct _Anonymous_e__Union
 	{
-		[CRepr]		public struct _ParentPathWithDepthInfo_e__Struct
+		[CRepr]
+		public struct _ParentPathWithDepthInfo_e__Struct
 		{
 			public uint32 ChildDepth;
 			public PWSTR ParentFilePath;
 		}
 
-		[CRepr]		public struct _ParentLocator_e__Struct
+		[CRepr]
+		public struct _ParentLocator_e__Struct
 		{
 			public Guid LinkageId;
 			public PWSTR ParentFilePath;
@@ -666,18 +696,22 @@ public enum FORK_VIRTUAL_DISK_FLAG : uint32
 	public using _Anonymous_e__Union Anonymous;
 }
 
-[CRepr]public struct VIRTUAL_DISK_PROGRESS
+[CRepr]
+public struct VIRTUAL_DISK_PROGRESS
 {
 	public uint32 OperationStatus;
 	public uint64 CurrentValue;
 	public uint64 CompletionValue;
 }
 
-[CRepr]public struct COMPACT_VIRTUAL_DISK_PARAMETERS
+[CRepr]
+public struct COMPACT_VIRTUAL_DISK_PARAMETERS
 {
-	[CRepr, Union]	public struct _Anonymous_e__Union
+	[CRepr, Union]
+	public struct _Anonymous_e__Union
 	{
-		[CRepr]		public struct _Version1_e__Struct
+		[CRepr]
+		public struct _Version1_e__Struct
 		{
 			public uint32 Reserved;
 		}
@@ -689,17 +723,21 @@ public enum FORK_VIRTUAL_DISK_FLAG : uint32
 	public using _Anonymous_e__Union Anonymous;
 }
 
-[CRepr]public struct MERGE_VIRTUAL_DISK_PARAMETERS
+[CRepr]
+public struct MERGE_VIRTUAL_DISK_PARAMETERS
 {
-	[CRepr, Union]	public struct _Anonymous_e__Union
+	[CRepr, Union]
+	public struct _Anonymous_e__Union
 	{
-		[CRepr]		public struct _Version2_e__Struct
+		[CRepr]
+		public struct _Version2_e__Struct
 		{
 			public uint32 MergeSourceDepth;
 			public uint32 MergeTargetDepth;
 		}
 
-		[CRepr]		public struct _Version1_e__Struct
+		[CRepr]
+		public struct _Version1_e__Struct
 		{
 			public uint32 MergeDepth;
 		}
@@ -712,11 +750,14 @@ public enum FORK_VIRTUAL_DISK_FLAG : uint32
 	public using _Anonymous_e__Union Anonymous;
 }
 
-[CRepr]public struct EXPAND_VIRTUAL_DISK_PARAMETERS
+[CRepr]
+public struct EXPAND_VIRTUAL_DISK_PARAMETERS
 {
-	[CRepr, Union]	public struct _Anonymous_e__Union
+	[CRepr, Union]
+	public struct _Anonymous_e__Union
 	{
-		[CRepr]		public struct _Version1_e__Struct
+		[CRepr]
+		public struct _Version1_e__Struct
 		{
 			public uint64 NewSize;
 		}
@@ -728,11 +769,14 @@ public enum FORK_VIRTUAL_DISK_FLAG : uint32
 	public using _Anonymous_e__Union Anonymous;
 }
 
-[CRepr]public struct RESIZE_VIRTUAL_DISK_PARAMETERS
+[CRepr]
+public struct RESIZE_VIRTUAL_DISK_PARAMETERS
 {
-	[CRepr, Union]	public struct _Anonymous_e__Union
+	[CRepr, Union]
+	public struct _Anonymous_e__Union
 	{
-		[CRepr]		public struct _Version1_e__Struct
+		[CRepr]
+		public struct _Version1_e__Struct
 		{
 			public uint64 NewSize;
 		}
@@ -744,11 +788,14 @@ public enum FORK_VIRTUAL_DISK_FLAG : uint32
 	public using _Anonymous_e__Union Anonymous;
 }
 
-[CRepr]public struct MIRROR_VIRTUAL_DISK_PARAMETERS
+[CRepr]
+public struct MIRROR_VIRTUAL_DISK_PARAMETERS
 {
-	[CRepr, Union]	public struct _Anonymous_e__Union
+	[CRepr, Union]
+	public struct _Anonymous_e__Union
 	{
-		[CRepr]		public struct _Version1_e__Struct
+		[CRepr]
+		public struct _Version1_e__Struct
 		{
 			public PWSTR MirrorVirtualDiskPath;
 		}
@@ -760,18 +807,22 @@ public enum FORK_VIRTUAL_DISK_FLAG : uint32
 	public using _Anonymous_e__Union Anonymous;
 }
 
-[CRepr]public struct QUERY_CHANGES_VIRTUAL_DISK_RANGE
+[CRepr]
+public struct QUERY_CHANGES_VIRTUAL_DISK_RANGE
 {
 	public uint64 ByteOffset;
 	public uint64 ByteLength;
 	public uint64 Reserved;
 }
 
-[CRepr]public struct TAKE_SNAPSHOT_VHDSET_PARAMETERS
+[CRepr]
+public struct TAKE_SNAPSHOT_VHDSET_PARAMETERS
 {
-	[CRepr, Union]	public struct _Anonymous_e__Union
+	[CRepr, Union]
+	public struct _Anonymous_e__Union
 	{
-		[CRepr]		public struct _Version1_e__Struct
+		[CRepr]
+		public struct _Version1_e__Struct
 		{
 			public Guid SnapshotId;
 		}
@@ -783,11 +834,14 @@ public enum FORK_VIRTUAL_DISK_FLAG : uint32
 	public using _Anonymous_e__Union Anonymous;
 }
 
-[CRepr]public struct DELETE_SNAPSHOT_VHDSET_PARAMETERS
+[CRepr]
+public struct DELETE_SNAPSHOT_VHDSET_PARAMETERS
 {
-	[CRepr, Union]	public struct _Anonymous_e__Union
+	[CRepr, Union]
+	public struct _Anonymous_e__Union
 	{
-		[CRepr]		public struct _Version1_e__Struct
+		[CRepr]
+		public struct _Version1_e__Struct
 		{
 			public Guid SnapshotId;
 		}
@@ -799,11 +853,14 @@ public enum FORK_VIRTUAL_DISK_FLAG : uint32
 	public using _Anonymous_e__Union Anonymous;
 }
 
-[CRepr]public struct MODIFY_VHDSET_PARAMETERS
+[CRepr]
+public struct MODIFY_VHDSET_PARAMETERS
 {
-	[CRepr, Union]	public struct _Anonymous_e__Union
+	[CRepr, Union]
+	public struct _Anonymous_e__Union
 	{
-		[CRepr]		public struct _SnapshotPath_e__Struct
+		[CRepr]
+		public struct _SnapshotPath_e__Struct
 		{
 			public Guid SnapshotId;
 			public PWSTR SnapshotFilePath;
@@ -818,11 +875,14 @@ public enum FORK_VIRTUAL_DISK_FLAG : uint32
 	public using _Anonymous_e__Union Anonymous;
 }
 
-[CRepr]public struct APPLY_SNAPSHOT_VHDSET_PARAMETERS
+[CRepr]
+public struct APPLY_SNAPSHOT_VHDSET_PARAMETERS
 {
-	[CRepr, Union]	public struct _Anonymous_e__Union
+	[CRepr, Union]
+	public struct _Anonymous_e__Union
 	{
-		[CRepr]		public struct _Version1_e__Struct
+		[CRepr]
+		public struct _Version1_e__Struct
 		{
 			public Guid SnapshotId;
 			public Guid LeafSnapshotId;
@@ -835,11 +895,14 @@ public enum FORK_VIRTUAL_DISK_FLAG : uint32
 	public using _Anonymous_e__Union Anonymous;
 }
 
-[CRepr]public struct RAW_SCSI_VIRTUAL_DISK_PARAMETERS
+[CRepr]
+public struct RAW_SCSI_VIRTUAL_DISK_PARAMETERS
 {
-	[CRepr, Union]	public struct _Anonymous_e__Union
+	[CRepr, Union]
+	public struct _Anonymous_e__Union
 	{
-		[CRepr]		public struct _Version1_e__Struct
+		[CRepr]
+		public struct _Version1_e__Struct
 		{
 			public BOOL RSVDHandle;
 			public uint8 DataIn;
@@ -859,11 +922,14 @@ public enum FORK_VIRTUAL_DISK_FLAG : uint32
 	public using _Anonymous_e__Union Anonymous;
 }
 
-[CRepr]public struct RAW_SCSI_VIRTUAL_DISK_RESPONSE
+[CRepr]
+public struct RAW_SCSI_VIRTUAL_DISK_RESPONSE
 {
-	[CRepr, Union]	public struct _Anonymous_e__Union
+	[CRepr, Union]
+	public struct _Anonymous_e__Union
 	{
-		[CRepr]		public struct _Version1_e__Struct
+		[CRepr]
+		public struct _Version1_e__Struct
 		{
 			public uint8 ScsiStatus;
 			public uint8 SenseInfoLength;
@@ -877,11 +943,14 @@ public enum FORK_VIRTUAL_DISK_FLAG : uint32
 	public using _Anonymous_e__Union Anonymous;
 }
 
-[CRepr]public struct FORK_VIRTUAL_DISK_PARAMETERS
+[CRepr]
+public struct FORK_VIRTUAL_DISK_PARAMETERS
 {
-	[CRepr, Union]	public struct _Anonymous_e__Union
+	[CRepr, Union]
+	public struct _Anonymous_e__Union
 	{
-		[CRepr]		public struct _Version1_e__Struct
+		[CRepr]
+		public struct _Version1_e__Struct
 		{
 			public PWSTR ForkedVirtualDiskPath;
 		}

@@ -560,18 +560,22 @@ public function uint32 PGET_SYSTEM_WOW64_DIRECTORY_W(char8* lpBuffer, uint32 uSi
 #endregion
 
 #region Structs
-[CRepr]public struct GROUP_AFFINITY
+[CRepr]
+public struct GROUP_AFFINITY
 {
 	public uint Mask;
 	public uint16 Group;
 	public uint16[3] Reserved;
 }
 
-[CRepr]public struct SYSTEM_INFO
+[CRepr]
+public struct SYSTEM_INFO
 {
-	[CRepr, Union]	public struct _Anonymous_e__Union
+	[CRepr, Union]
+	public struct _Anonymous_e__Union
 	{
-		[CRepr]		public struct _Anonymous_e__Struct
+		[CRepr]
+		public struct _Anonymous_e__Struct
 		{
 			public PROCESSOR_ARCHITECTURE wProcessorArchitecture;
 			public uint16 wReserved;
@@ -593,7 +597,8 @@ public function uint32 PGET_SYSTEM_WOW64_DIRECTORY_W(char8* lpBuffer, uint32 uSi
 	public uint16 wProcessorRevision;
 }
 
-[CRepr]public struct MEMORYSTATUSEX
+[CRepr]
+public struct MEMORYSTATUSEX
 {
 	public uint32 dwLength;
 	public uint32 dwMemoryLoad;
@@ -606,7 +611,8 @@ public function uint32 PGET_SYSTEM_WOW64_DIRECTORY_W(char8* lpBuffer, uint32 uSi
 	public uint64 ullAvailExtendedVirtual;
 }
 
-[CRepr]public struct CACHE_DESCRIPTOR
+[CRepr]
+public struct CACHE_DESCRIPTOR
 {
 	public uint8 Level;
 	public uint8 Associativity;
@@ -615,16 +621,20 @@ public function uint32 PGET_SYSTEM_WOW64_DIRECTORY_W(char8* lpBuffer, uint32 uSi
 	public PROCESSOR_CACHE_TYPE Type;
 }
 
-[CRepr]public struct SYSTEM_LOGICAL_PROCESSOR_INFORMATION
+[CRepr]
+public struct SYSTEM_LOGICAL_PROCESSOR_INFORMATION
 {
-	[CRepr, Union]	public struct _Anonymous_e__Union
+	[CRepr, Union]
+	public struct _Anonymous_e__Union
 	{
-		[CRepr]		public struct _ProcessorCore_e__Struct
+		[CRepr]
+		public struct _ProcessorCore_e__Struct
 		{
 			public uint8 Flags;
 		}
 
-		[CRepr]		public struct _NumaNode_e__Struct
+		[CRepr]
+		public struct _NumaNode_e__Struct
 		{
 			public uint32 NodeNumber;
 		}
@@ -640,7 +650,8 @@ public function uint32 PGET_SYSTEM_WOW64_DIRECTORY_W(char8* lpBuffer, uint32 uSi
 	public using _Anonymous_e__Union Anonymous;
 }
 
-[CRepr]public struct PROCESSOR_RELATIONSHIP
+[CRepr]
+public struct PROCESSOR_RELATIONSHIP
 {
 	public uint8 Flags;
 	public uint8 EfficiencyClass;
@@ -649,9 +660,11 @@ public function uint32 PGET_SYSTEM_WOW64_DIRECTORY_W(char8* lpBuffer, uint32 uSi
 	public GROUP_AFFINITY[1] GroupMask;
 }
 
-[CRepr]public struct NUMA_NODE_RELATIONSHIP
+[CRepr]
+public struct NUMA_NODE_RELATIONSHIP
 {
-	[CRepr, Union]	public struct _Anonymous_e__Union
+	[CRepr, Union]
+	public struct _Anonymous_e__Union
 	{
 		public GROUP_AFFINITY GroupMask;
 		public GROUP_AFFINITY[1] GroupMasks;
@@ -663,9 +676,11 @@ public function uint32 PGET_SYSTEM_WOW64_DIRECTORY_W(char8* lpBuffer, uint32 uSi
 	public using _Anonymous_e__Union Anonymous;
 }
 
-[CRepr]public struct CACHE_RELATIONSHIP
+[CRepr]
+public struct CACHE_RELATIONSHIP
 {
-	[CRepr, Union]	public struct _Anonymous_e__Union
+	[CRepr, Union]
+	public struct _Anonymous_e__Union
 	{
 		public GROUP_AFFINITY GroupMask;
 		public GROUP_AFFINITY[1] GroupMasks;
@@ -681,7 +696,8 @@ public function uint32 PGET_SYSTEM_WOW64_DIRECTORY_W(char8* lpBuffer, uint32 uSi
 	public using _Anonymous_e__Union Anonymous;
 }
 
-[CRepr]public struct PROCESSOR_GROUP_INFO
+[CRepr]
+public struct PROCESSOR_GROUP_INFO
 {
 	public uint8 MaximumProcessorCount;
 	public uint8 ActiveProcessorCount;
@@ -689,7 +705,8 @@ public function uint32 PGET_SYSTEM_WOW64_DIRECTORY_W(char8* lpBuffer, uint32 uSi
 	public uint ActiveProcessorMask;
 }
 
-[CRepr]public struct GROUP_RELATIONSHIP
+[CRepr]
+public struct GROUP_RELATIONSHIP
 {
 	public uint16 MaximumGroupCount;
 	public uint16 ActiveGroupCount;
@@ -697,9 +714,11 @@ public function uint32 PGET_SYSTEM_WOW64_DIRECTORY_W(char8* lpBuffer, uint32 uSi
 	public PROCESSOR_GROUP_INFO[1] GroupInfo;
 }
 
-[CRepr]public struct SYSTEM_LOGICAL_PROCESSOR_INFORMATION_EX
+[CRepr]
+public struct SYSTEM_LOGICAL_PROCESSOR_INFORMATION_EX
 {
-	[CRepr, Union]	public struct _Anonymous_e__Union
+	[CRepr, Union]
+	public struct _Anonymous_e__Union
 	{
 		public PROCESSOR_RELATIONSHIP Processor;
 		public NUMA_NODE_RELATIONSHIP NumaNode;
@@ -712,15 +731,20 @@ public function uint32 PGET_SYSTEM_WOW64_DIRECTORY_W(char8* lpBuffer, uint32 uSi
 	public using _Anonymous_e__Union Anonymous;
 }
 
-[CRepr]public struct SYSTEM_CPU_SET_INFORMATION
+[CRepr]
+public struct SYSTEM_CPU_SET_INFORMATION
 {
-	[CRepr, Union]	public struct _Anonymous_e__Union
+	[CRepr, Union]
+	public struct _Anonymous_e__Union
 	{
-		[CRepr]		public struct _CpuSet_e__Struct
+		[CRepr]
+		public struct _CpuSet_e__Struct
 		{
-			[CRepr, Union]			public struct _Anonymous1_e__Union
+			[CRepr, Union]
+			public struct _Anonymous1_e__Union
 			{
-				[CRepr]				public struct _Anonymous_e__Struct
+				[CRepr]
+				public struct _Anonymous_e__Struct
 				{
 					public uint8 _bitfield;
 				}
@@ -729,7 +753,8 @@ public function uint32 PGET_SYSTEM_WOW64_DIRECTORY_W(char8* lpBuffer, uint32 uSi
 				public using _Anonymous_e__Struct Anonymous;
 			}
 
-			[CRepr, Union]			public struct _Anonymous2_e__Union
+			[CRepr, Union]
+			public struct _Anonymous2_e__Union
 			{
 				public uint32 Reserved;
 				public uint8 SchedulingClass;
@@ -755,22 +780,26 @@ public function uint32 PGET_SYSTEM_WOW64_DIRECTORY_W(char8* lpBuffer, uint32 uSi
 	public using _Anonymous_e__Union Anonymous;
 }
 
-[CRepr]public struct SYSTEM_POOL_ZEROING_INFORMATION
+[CRepr]
+public struct SYSTEM_POOL_ZEROING_INFORMATION
 {
 	public BOOLEAN PoolZeroingSupportPresent;
 }
 
-[CRepr]public struct SYSTEM_PROCESSOR_CYCLE_TIME_INFORMATION
+[CRepr]
+public struct SYSTEM_PROCESSOR_CYCLE_TIME_INFORMATION
 {
 	public uint64 CycleTime;
 }
 
-[CRepr]public struct SYSTEM_SUPPORTED_PROCESSOR_ARCHITECTURES_INFORMATION
+[CRepr]
+public struct SYSTEM_SUPPORTED_PROCESSOR_ARCHITECTURES_INFORMATION
 {
 	public uint32 _bitfield;
 }
 
-[CRepr]public struct OSVERSIONINFOA
+[CRepr]
+public struct OSVERSIONINFOA
 {
 	public uint32 dwOSVersionInfoSize;
 	public uint32 dwMajorVersion;
@@ -780,7 +809,8 @@ public function uint32 PGET_SYSTEM_WOW64_DIRECTORY_W(char8* lpBuffer, uint32 uSi
 	public CHAR[128] szCSDVersion;
 }
 
-[CRepr]public struct OSVERSIONINFOW
+[CRepr]
+public struct OSVERSIONINFOW
 {
 	public uint32 dwOSVersionInfoSize;
 	public uint32 dwMajorVersion;
@@ -790,7 +820,8 @@ public function uint32 PGET_SYSTEM_WOW64_DIRECTORY_W(char8* lpBuffer, uint32 uSi
 	public char8[128] szCSDVersion;
 }
 
-[CRepr]public struct OSVERSIONINFOEXA
+[CRepr]
+public struct OSVERSIONINFOEXA
 {
 	public uint32 dwOSVersionInfoSize;
 	public uint32 dwMajorVersion;
@@ -805,7 +836,8 @@ public function uint32 PGET_SYSTEM_WOW64_DIRECTORY_W(char8* lpBuffer, uint32 uSi
 	public uint8 wReserved;
 }
 
-[CRepr]public struct OSVERSIONINFOEXW
+[CRepr]
+public struct OSVERSIONINFOEXW
 {
 	public uint32 dwOSVersionInfoSize;
 	public uint32 dwMajorVersion;
@@ -820,7 +852,8 @@ public function uint32 PGET_SYSTEM_WOW64_DIRECTORY_W(char8* lpBuffer, uint32 uSi
 	public uint8 wReserved;
 }
 
-[CRepr]public struct MEMORYSTATUS
+[CRepr]
+public struct MEMORYSTATUS
 {
 	public uint32 dwLength;
 	public uint32 dwMemoryLoad;

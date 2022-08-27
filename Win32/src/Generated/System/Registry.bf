@@ -441,14 +441,16 @@ public function uint32 PQUERYHANDLER(void* keycontext, val_context* val_list, ui
 #endregion
 
 #region Structs
-[CRepr]public struct val_context
+[CRepr]
+public struct val_context
 {
 	public int32 valuelen;
 	public void* value_context;
 	public void* val_buff_ptr;
 }
 
-[CRepr]public struct pvalueA
+[CRepr]
+public struct pvalueA
 {
 	public PSTR pv_valuename;
 	public int32 pv_valuelen;
@@ -456,7 +458,8 @@ public function uint32 PQUERYHANDLER(void* keycontext, val_context* val_list, ui
 	public uint32 pv_type;
 }
 
-[CRepr]public struct pvalueW
+[CRepr]
+public struct pvalueW
 {
 	public PWSTR pv_valuename;
 	public int32 pv_valuelen;
@@ -464,7 +467,8 @@ public function uint32 PQUERYHANDLER(void* keycontext, val_context* val_list, ui
 	public uint32 pv_type;
 }
 
-[CRepr]public struct provider_info
+[CRepr]
+public struct provider_info
 {
 	public PQUERYHANDLER pi_R0_1val;
 	public PQUERYHANDLER pi_R0_allvals;
@@ -474,7 +478,8 @@ public function uint32 PQUERYHANDLER(void* keycontext, val_context* val_list, ui
 	public void* pi_key_context;
 }
 
-[CRepr]public struct VALENTA
+[CRepr]
+public struct VALENTA
 {
 	public PSTR ve_valuename;
 	public uint32 ve_valuelen;
@@ -482,7 +487,8 @@ public function uint32 PQUERYHANDLER(void* keycontext, val_context* val_list, ui
 	public REG_VALUE_TYPE ve_type;
 }
 
-[CRepr]public struct VALENTW
+[CRepr]
+public struct VALENTW
 {
 	public PWSTR ve_valuename;
 	public uint32 ve_valuelen;
@@ -490,7 +496,8 @@ public function uint32 PQUERYHANDLER(void* keycontext, val_context* val_list, ui
 	public REG_VALUE_TYPE ve_type;
 }
 
-[CRepr]public struct DSKTLSYSTEMTIME
+[CRepr]
+public struct DSKTLSYSTEMTIME
 {
 	public uint16 wYear;
 	public uint16 wMonth;

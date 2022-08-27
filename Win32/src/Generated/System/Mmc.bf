@@ -483,14 +483,16 @@ public enum MMC_VIEW_TYPE : int32
 #endregion
 
 #region Structs
-[CRepr]public struct MMC_SNAPIN_PROPERTY
+[CRepr]
+public struct MMC_SNAPIN_PROPERTY
 {
 	public PWSTR pszPropName;
 	public VARIANT varValue;
 	public MMC_PROPERTY_ACTION eAction;
 }
 
-[CRepr]public struct MMCBUTTON
+[CRepr]
+public struct MMCBUTTON
 {
 	public int32 nBitmap;
 	public int32 idCommand;
@@ -500,7 +502,8 @@ public enum MMC_VIEW_TYPE : int32
 	public PWSTR lpTooltipText;
 }
 
-[CRepr]public struct RESULTDATAITEM
+[CRepr]
+public struct RESULTDATAITEM
 {
 	public uint32 mask;
 	public BOOL bScopeItem;
@@ -514,14 +517,16 @@ public enum MMC_VIEW_TYPE : int32
 	public int32 iIndent;
 }
 
-[CRepr]public struct RESULTFINDINFO
+[CRepr]
+public struct RESULTFINDINFO
 {
 	public PWSTR psz;
 	public int32 nStart;
 	public uint32 dwOptions;
 }
 
-[CRepr]public struct SCOPEDATAITEM
+[CRepr]
+public struct SCOPEDATAITEM
 {
 	public uint32 mask;
 	public PWSTR displayname;
@@ -534,7 +539,8 @@ public enum MMC_VIEW_TYPE : int32
 	public int ID;
 }
 
-[CRepr]public struct CONTEXTMENUITEM
+[CRepr]
+public struct CONTEXTMENUITEM
 {
 	public PWSTR strName;
 	public PWSTR strStatusBarText;
@@ -544,21 +550,24 @@ public enum MMC_VIEW_TYPE : int32
 	public int32 fSpecialFlags;
 }
 
-[CRepr]public struct MENUBUTTONDATA
+[CRepr]
+public struct MENUBUTTONDATA
 {
 	public int32 idCommand;
 	public int32 x;
 	public int32 y;
 }
 
-[CRepr]public struct MMC_FILTERDATA
+[CRepr]
+public struct MMC_FILTERDATA
 {
 	public PWSTR pszText;
 	public int32 cchTextMax;
 	public int32 lValue;
 }
 
-[CRepr]public struct MMC_RESTORE_VIEW
+[CRepr]
+public struct MMC_RESTORE_VIEW
 {
 	public uint32 dwSize;
 	public int cookie;
@@ -566,67 +575,78 @@ public enum MMC_VIEW_TYPE : int32
 	public int32 lViewOptions;
 }
 
-[CRepr]public struct MMC_EXPANDSYNC_STRUCT
+[CRepr]
+public struct MMC_EXPANDSYNC_STRUCT
 {
 	public BOOL bHandled;
 	public BOOL bExpanding;
 	public int hItem;
 }
 
-[CRepr]public struct MMC_VISIBLE_COLUMNS
+[CRepr]
+public struct MMC_VISIBLE_COLUMNS
 {
 	public int32 nVisibleColumns;
 	public int32[1] rgVisibleCols;
 }
 
-[CRepr]public struct SMMCDataObjects
+[CRepr]
+public struct SMMCDataObjects
 {
 	public uint32 count;
 	public IDataObject*[1] lpDataObject;
 }
 
-[CRepr]public struct SMMCObjectTypes
+[CRepr]
+public struct SMMCObjectTypes
 {
 	public uint32 count;
 	public Guid[1] guid;
 }
 
-[CRepr]public struct SNodeID
+[CRepr]
+public struct SNodeID
 {
 	public uint32 cBytes;
 	public uint8[1] id;
 }
 
-[CRepr]public struct SNodeID2
-{
-	public uint32 dwFlags;
-	public uint32 cBytes;
-	public uint8[1] id;
-}
-
-[CRepr]public struct SColumnSetID
+[CRepr]
+public struct SNodeID2
 {
 	public uint32 dwFlags;
 	public uint32 cBytes;
 	public uint8[1] id;
 }
 
-[CRepr]public struct MMC_TASK_DISPLAY_SYMBOL
+[CRepr]
+public struct SColumnSetID
+{
+	public uint32 dwFlags;
+	public uint32 cBytes;
+	public uint8[1] id;
+}
+
+[CRepr]
+public struct MMC_TASK_DISPLAY_SYMBOL
 {
 	public PWSTR szFontFamilyName;
 	public PWSTR szURLtoEOT;
 	public PWSTR szSymbolString;
 }
 
-[CRepr]public struct MMC_TASK_DISPLAY_BITMAP
+[CRepr]
+public struct MMC_TASK_DISPLAY_BITMAP
 {
 	public PWSTR szMouseOverBitmap;
 	public PWSTR szMouseOffBitmap;
 }
 
-[CRepr]public struct MMC_TASK_DISPLAY_OBJECT
+[CRepr]
+public struct MMC_TASK_DISPLAY_OBJECT
 {
-	[CRepr, Union]	public struct _Anonymous_e__Union
+	[CRepr, Union]
+	public struct _Anonymous_e__Union
 	{
 		public MMC_TASK_DISPLAY_BITMAP uBitmap;
 		public MMC_TASK_DISPLAY_SYMBOL uSymbol;
@@ -636,9 +656,11 @@ public enum MMC_VIEW_TYPE : int32
 	public using _Anonymous_e__Union Anonymous;
 }
 
-[CRepr]public struct MMC_TASK
+[CRepr]
+public struct MMC_TASK
 {
-	[CRepr, Union]	public struct _Anonymous_e__Union
+	[CRepr, Union]
+	public struct _Anonymous_e__Union
 	{
 		public int nCommandID;
 		public PWSTR szActionURL;
@@ -652,14 +674,16 @@ public enum MMC_VIEW_TYPE : int32
 	public using _Anonymous_e__Union Anonymous;
 }
 
-[CRepr]public struct MMC_LISTPAD_INFO
+[CRepr]
+public struct MMC_LISTPAD_INFO
 {
 	public PWSTR szTitle;
 	public PWSTR szButtonText;
 	public int nCommandID;
 }
 
-[CRepr]public struct MMC_COLUMN_DATA
+[CRepr]
+public struct MMC_COLUMN_DATA
 {
 	public int32 nColIndex;
 	public uint32 dwFlags;
@@ -667,35 +691,40 @@ public enum MMC_VIEW_TYPE : int32
 	public uint ulReserved;
 }
 
-[CRepr]public struct MMC_COLUMN_SET_DATA
+[CRepr]
+public struct MMC_COLUMN_SET_DATA
 {
 	public int32 cbSize;
 	public int32 nNumCols;
 	public MMC_COLUMN_DATA* pColData;
 }
 
-[CRepr]public struct MMC_SORT_DATA
+[CRepr]
+public struct MMC_SORT_DATA
 {
 	public int32 nColIndex;
 	public uint32 dwSortOptions;
 	public uint ulReserved;
 }
 
-[CRepr]public struct MMC_SORT_SET_DATA
+[CRepr]
+public struct MMC_SORT_SET_DATA
 {
 	public int32 cbSize;
 	public int32 nNumItems;
 	public MMC_SORT_DATA* pSortData;
 }
 
-[CRepr]public struct RDITEMHDR
+[CRepr]
+public struct RDITEMHDR
 {
 	public uint32 dwFlags;
 	public int cookie;
 	public LPARAM lpReserved;
 }
 
-[CRepr]public struct RDCOMPARE
+[CRepr]
+public struct RDCOMPARE
 {
 	public uint32 cbSize;
 	public uint32 dwFlags;
@@ -705,17 +734,21 @@ public enum MMC_VIEW_TYPE : int32
 	public RDITEMHDR* prdch2;
 }
 
-[CRepr]public struct RESULT_VIEW_TYPE_INFO
+[CRepr]
+public struct RESULT_VIEW_TYPE_INFO
 {
-	[CRepr, Union]	public struct _Anonymous_e__Union
+	[CRepr, Union]
+	public struct _Anonymous_e__Union
 	{
-		[CRepr]		public struct _Anonymous2_e__Struct
+		[CRepr]
+		public struct _Anonymous2_e__Struct
 		{
 			public uint32 dwOCXOptions;
 			public IUnknown* pUnkControl;
 		}
 
-		[CRepr]		public struct _Anonymous1_e__Struct
+		[CRepr]
+		public struct _Anonymous1_e__Struct
 		{
 			public uint32 dwHTMLOptions;
 			public PWSTR pstrURL;
@@ -732,7 +765,8 @@ public enum MMC_VIEW_TYPE : int32
 	public using _Anonymous_e__Union Anonymous;
 }
 
-[CRepr]public struct CONTEXTMENUITEM2
+[CRepr]
+public struct CONTEXTMENUITEM2
 {
 	public PWSTR strName;
 	public PWSTR strStatusBarText;
@@ -743,7 +777,8 @@ public enum MMC_VIEW_TYPE : int32
 	public PWSTR strLanguageIndependentName;
 }
 
-[CRepr]public struct MMC_EXT_VIEW_DATA
+[CRepr]
+public struct MMC_EXT_VIEW_DATA
 {
 	public Guid viewID;
 	public PWSTR pszURL;

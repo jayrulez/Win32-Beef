@@ -1212,53 +1212,61 @@ public enum InputScope : int32
 #endregion
 
 #region Structs
-[CRepr]public struct TS_STATUS
+[CRepr]
+public struct TS_STATUS
 {
 	public uint32 dwDynamicFlags;
 	public uint32 dwStaticFlags;
 }
 
-[CRepr]public struct TS_TEXTCHANGE
+[CRepr]
+public struct TS_TEXTCHANGE
 {
 	public int32 acpStart;
 	public int32 acpOldEnd;
 	public int32 acpNewEnd;
 }
 
-[CRepr]public struct TS_SELECTIONSTYLE
+[CRepr]
+public struct TS_SELECTIONSTYLE
 {
 	public TsActiveSelEnd ase;
 	public BOOL fInterimChar;
 }
 
-[CRepr]public struct TS_SELECTION_ACP
+[CRepr]
+public struct TS_SELECTION_ACP
 {
 	public int32 acpStart;
 	public int32 acpEnd;
 	public TS_SELECTIONSTYLE style;
 }
 
-[CRepr]public struct TS_SELECTION_ANCHOR
+[CRepr]
+public struct TS_SELECTION_ANCHOR
 {
 	public IAnchor* paStart;
 	public IAnchor* paEnd;
 	public TS_SELECTIONSTYLE style;
 }
 
-[CRepr]public struct TS_ATTRVAL
+[CRepr]
+public struct TS_ATTRVAL
 {
 	public Guid idAttr;
 	public uint32 dwOverlapId;
 	public VARIANT varValue;
 }
 
-[CRepr]public struct TS_RUNINFO
+[CRepr]
+public struct TS_RUNINFO
 {
 	public uint32 uCount;
 	public TsRunType type;
 }
 
-[CRepr]public struct TF_LANGBARITEMINFO
+[CRepr]
+public struct TF_LANGBARITEMINFO
 {
 	public Guid clsidService;
 	public Guid guidItem;
@@ -1267,13 +1275,15 @@ public enum InputScope : int32
 	public char8[32] szDescription;
 }
 
-[CRepr]public struct TF_LBBALLOONINFO
+[CRepr]
+public struct TF_LBBALLOONINFO
 {
 	public TfLBBalloonStyle style;
 	public BSTR bstrText;
 }
 
-[CRepr]public struct TF_PERSISTENT_PROPERTY_HEADER_ACP
+[CRepr]
+public struct TF_PERSISTENT_PROPERTY_HEADER_ACP
 {
 	public Guid guidType;
 	public int32 ichStart;
@@ -1283,7 +1293,8 @@ public enum InputScope : int32
 	public Guid clsidTIP;
 }
 
-[CRepr]public struct TF_LANGUAGEPROFILE
+[CRepr]
+public struct TF_LANGUAGEPROFILE
 {
 	public Guid clsid;
 	public uint16 langid;
@@ -1292,32 +1303,37 @@ public enum InputScope : int32
 	public Guid guidProfile;
 }
 
-[CRepr]public struct TF_SELECTIONSTYLE
+[CRepr]
+public struct TF_SELECTIONSTYLE
 {
 	public TfActiveSelEnd ase;
 	public BOOL fInterimChar;
 }
 
-[CRepr]public struct TF_SELECTION
+[CRepr]
+public struct TF_SELECTION
 {
 	public ITfRange* range;
 	public TF_SELECTIONSTYLE style;
 }
 
-[CRepr]public struct TF_PROPERTYVAL
+[CRepr]
+public struct TF_PROPERTYVAL
 {
 	public Guid guidId;
 	public VARIANT varValue;
 }
 
-[CRepr]public struct TF_HALTCOND
+[CRepr]
+public struct TF_HALTCOND
 {
 	public ITfRange* pHaltRange;
 	public TfAnchor aHaltPos;
 	public uint32 dwFlags;
 }
 
-[CRepr]public struct TF_INPUTPROCESSORPROFILE
+[CRepr]
+public struct TF_INPUTPROCESSORPROFILE
 {
 	public uint32 dwProfileType;
 	public uint16 langid;
@@ -1330,15 +1346,18 @@ public enum InputScope : int32
 	public uint32 dwFlags;
 }
 
-[CRepr]public struct TF_PRESERVEDKEY
+[CRepr]
+public struct TF_PRESERVEDKEY
 {
 	public uint32 uVKey;
 	public uint32 uModifiers;
 }
 
-[CRepr]public struct TF_DA_COLOR
+[CRepr]
+public struct TF_DA_COLOR
 {
-	[CRepr, Union]	public struct _Anonymous_e__Union
+	[CRepr, Union]
+	public struct _Anonymous_e__Union
 	{
 		public int32 nIndex;
 		public uint32 cr;
@@ -1348,7 +1367,8 @@ public enum InputScope : int32
 	public using _Anonymous_e__Union Anonymous;
 }
 
-[CRepr]public struct TF_DISPLAYATTRIBUTE
+[CRepr]
+public struct TF_DISPLAYATTRIBUTE
 {
 	public TF_DA_COLOR crText;
 	public TF_DA_COLOR crBk;
@@ -1358,9 +1378,11 @@ public enum InputScope : int32
 	public TF_DA_ATTR_INFO bAttr;
 }
 
-[CRepr]public struct TF_LMLATTELEMENT
+[CRepr]
+public struct TF_LMLATTELEMENT
 {
-	[CRepr, Union]	public struct _Anonymous_e__Union
+	[CRepr, Union]
+	public struct _Anonymous_e__Union
 	{
 		public int32 iCost;
 	}

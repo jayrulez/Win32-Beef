@@ -1449,17 +1449,21 @@ public function void* PDELAYLOAD_FAILURE_DLL_CALLBACK(uint32 NotificationReason,
 #endregion
 
 #region Structs
-[CRepr]public struct _D3DHAL_CALLBACKS
+[CRepr]
+public struct _D3DHAL_CALLBACKS
 {
 }
 
-[CRepr]public struct _D3DHAL_GLOBALDRIVERDATA
+[CRepr]
+public struct _D3DHAL_GLOBALDRIVERDATA
 {
 }
 
-[CRepr]public struct IMAGE_THUNK_DATA64
+[CRepr]
+public struct IMAGE_THUNK_DATA64
 {
-	[CRepr, Union]	public struct _u1_e__Union
+	[CRepr, Union]
+	public struct _u1_e__Union
 	{
 		public uint64 ForwarderString;
 		public uint64 Function;
@@ -1470,9 +1474,11 @@ public function void* PDELAYLOAD_FAILURE_DLL_CALLBACK(uint32 NotificationReason,
 	public _u1_e__Union u1;
 }
 
-[CRepr]public struct IMAGE_THUNK_DATA32
+[CRepr]
+public struct IMAGE_THUNK_DATA32
 {
-	[CRepr, Union]	public struct _u1_e__Union
+	[CRepr, Union]
+	public struct _u1_e__Union
 	{
 		public uint32 ForwarderString;
 		public uint32 Function;
@@ -1483,11 +1489,14 @@ public function void* PDELAYLOAD_FAILURE_DLL_CALLBACK(uint32 NotificationReason,
 	public _u1_e__Union u1;
 }
 
-[CRepr]public struct IMAGE_DELAYLOAD_DESCRIPTOR
+[CRepr]
+public struct IMAGE_DELAYLOAD_DESCRIPTOR
 {
-	[CRepr, Union]	public struct _Attributes_e__Union
+	[CRepr, Union]
+	public struct _Attributes_e__Union
 	{
-		[CRepr]		public struct _Anonymous_e__Struct
+		[CRepr]
+		public struct _Anonymous_e__Struct
 		{
 			public uint32 _bitfield;
 		}
@@ -1506,13 +1515,15 @@ public function void* PDELAYLOAD_FAILURE_DLL_CALLBACK(uint32 NotificationReason,
 	public uint32 TimeDateStamp;
 }
 
-[CRepr]public struct CUSTOM_SYSTEM_EVENT_TRIGGER_CONFIG
+[CRepr]
+public struct CUSTOM_SYSTEM_EVENT_TRIGGER_CONFIG
 {
 	public uint32 Size;
 	public PWSTR TriggerId;
 }
 
-[CRepr]public struct JIT_DEBUG_INFO
+[CRepr]
+public struct JIT_DEBUG_INFO
 {
 	public uint32 dwSize;
 	public uint32 dwProcessorArchitecture;
@@ -1523,21 +1534,24 @@ public function void* PDELAYLOAD_FAILURE_DLL_CALLBACK(uint32 NotificationReason,
 	public uint64 lpContextRecord;
 }
 
-[CRepr]public struct HW_PROFILE_INFOA
+[CRepr]
+public struct HW_PROFILE_INFOA
 {
 	public uint32 dwDockInfo;
 	public CHAR[39] szHwProfileGuid;
 	public CHAR[80] szHwProfileName;
 }
 
-[CRepr]public struct HW_PROFILE_INFOW
+[CRepr]
+public struct HW_PROFILE_INFOW
 {
 	public uint32 dwDockInfo;
 	public char8[39] szHwProfileGuid;
 	public char8[80] szHwProfileName;
 }
 
-[CRepr]public struct ACTCTX_SECTION_KEYED_DATA_2600
+[CRepr]
+public struct ACTCTX_SECTION_KEYED_DATA_2600
 {
 	public uint32 cbSize;
 	public uint32 ulDataFormatVersion;
@@ -1551,7 +1565,8 @@ public function void* PDELAYLOAD_FAILURE_DLL_CALLBACK(uint32 NotificationReason,
 	public uint32 ulAssemblyRosterIndex;
 }
 
-[CRepr]public struct ACTCTX_SECTION_KEYED_DATA_ASSEMBLY_METADATA
+[CRepr]
+public struct ACTCTX_SECTION_KEYED_DATA_ASSEMBLY_METADATA
 {
 	public void* lpInformation;
 	public void* lpSectionBase;
@@ -1560,31 +1575,37 @@ public function void* PDELAYLOAD_FAILURE_DLL_CALLBACK(uint32 NotificationReason,
 	public uint32 ulSectionGlobalDataLength;
 }
 
-[CRepr]public struct ACTIVATION_CONTEXT_BASIC_INFORMATION
+[CRepr]
+public struct ACTIVATION_CONTEXT_BASIC_INFORMATION
 {
 	public HANDLE hActCtx;
 	public uint32 dwFlags;
 }
 
-[CRepr]public struct FILE_CASE_SENSITIVE_INFO
+[CRepr]
+public struct FILE_CASE_SENSITIVE_INFO
 {
 	public uint32 Flags;
 }
 
-[CRepr]public struct FILE_DISPOSITION_INFO_EX
+[CRepr]
+public struct FILE_DISPOSITION_INFO_EX
 {
 	public uint32 Flags;
 }
 
-[CRepr]public struct CLIENT_ID
+[CRepr]
+public struct CLIENT_ID
 {
 	public HANDLE UniqueProcess;
 	public HANDLE UniqueThread;
 }
 
-[CRepr]public struct LDR_DATA_TABLE_ENTRY
+[CRepr]
+public struct LDR_DATA_TABLE_ENTRY
 {
-	[CRepr, Union]	public struct _Anonymous_e__Union
+	[CRepr, Union]
+	public struct _Anonymous_e__Union
 	{
 		public uint32 CheckSum;
 		public void* Reserved6;
@@ -1602,7 +1623,8 @@ public function void* PDELAYLOAD_FAILURE_DLL_CALLBACK(uint32 NotificationReason,
 	public uint32 TimeDateStamp;
 }
 
-[CRepr]public struct OBJECT_ATTRIBUTES
+[CRepr]
+public struct OBJECT_ATTRIBUTES
 {
 	public uint32 Length;
 	public HANDLE RootDirectory;
@@ -1612,9 +1634,11 @@ public function void* PDELAYLOAD_FAILURE_DLL_CALLBACK(uint32 NotificationReason,
 	public void* SecurityQualityOfService;
 }
 
-[CRepr]public struct IO_STATUS_BLOCK
+[CRepr]
+public struct IO_STATUS_BLOCK
 {
-	[CRepr, Union]	public struct _Anonymous_e__Union
+	[CRepr, Union]
+	public struct _Anonymous_e__Union
 	{
 		public NTSTATUS Status;
 		public void* Pointer;
@@ -1624,7 +1648,8 @@ public function void* PDELAYLOAD_FAILURE_DLL_CALLBACK(uint32 NotificationReason,
 	public uint Information;
 }
 
-[CRepr]public struct SYSTEM_PROCESSOR_PERFORMANCE_INFORMATION
+[CRepr]
+public struct SYSTEM_PROCESSOR_PERFORMANCE_INFORMATION
 {
 	public LARGE_INTEGER IdleTime;
 	public LARGE_INTEGER KernelTime;
@@ -1633,7 +1658,8 @@ public function void* PDELAYLOAD_FAILURE_DLL_CALLBACK(uint32 NotificationReason,
 	public uint32 Reserved2;
 }
 
-[CRepr]public struct SYSTEM_PROCESS_INFORMATION
+[CRepr]
+public struct SYSTEM_PROCESS_INFORMATION
 {
 	public uint32 NextEntryOffset;
 	public uint32 NumberOfThreads;
@@ -1660,7 +1686,8 @@ public function void* PDELAYLOAD_FAILURE_DLL_CALLBACK(uint32 NotificationReason,
 	public LARGE_INTEGER[6] Reserved7;
 }
 
-[CRepr]public struct SYSTEM_THREAD_INFORMATION
+[CRepr]
+public struct SYSTEM_THREAD_INFORMATION
 {
 	public LARGE_INTEGER[3] Reserved1;
 	public uint32 Reserved2;
@@ -1673,63 +1700,74 @@ public function void* PDELAYLOAD_FAILURE_DLL_CALLBACK(uint32 NotificationReason,
 	public uint32 WaitReason;
 }
 
-[CRepr]public struct SYSTEM_REGISTRY_QUOTA_INFORMATION
+[CRepr]
+public struct SYSTEM_REGISTRY_QUOTA_INFORMATION
 {
 	public uint32 RegistryQuotaAllowed;
 	public uint32 RegistryQuotaUsed;
 	public void* Reserved1;
 }
 
-[CRepr]public struct SYSTEM_BASIC_INFORMATION
+[CRepr]
+public struct SYSTEM_BASIC_INFORMATION
 {
 	public uint8[24] Reserved1;
 	public void*[4] Reserved2;
 	public int8 NumberOfProcessors;
 }
 
-[CRepr]public struct SYSTEM_TIMEOFDAY_INFORMATION
+[CRepr]
+public struct SYSTEM_TIMEOFDAY_INFORMATION
 {
 	public uint8[48] Reserved1;
 }
 
-[CRepr]public struct SYSTEM_PERFORMANCE_INFORMATION
+[CRepr]
+public struct SYSTEM_PERFORMANCE_INFORMATION
 {
 	public uint8[312] Reserved1;
 }
 
-[CRepr]public struct SYSTEM_EXCEPTION_INFORMATION
+[CRepr]
+public struct SYSTEM_EXCEPTION_INFORMATION
 {
 	public uint8[16] Reserved1;
 }
 
-[CRepr]public struct SYSTEM_LOOKASIDE_INFORMATION
+[CRepr]
+public struct SYSTEM_LOOKASIDE_INFORMATION
 {
 	public uint8[32] Reserved1;
 }
 
-[CRepr]public struct SYSTEM_INTERRUPT_INFORMATION
+[CRepr]
+public struct SYSTEM_INTERRUPT_INFORMATION
 {
 	public uint8[24] Reserved1;
 }
 
-[CRepr]public struct SYSTEM_POLICY_INFORMATION
+[CRepr]
+public struct SYSTEM_POLICY_INFORMATION
 {
 	public void*[2] Reserved1;
 	public uint32[3] Reserved2;
 }
 
-[CRepr]public struct THREAD_NAME_INFORMATION
+[CRepr]
+public struct THREAD_NAME_INFORMATION
 {
 	public UNICODE_STRING ThreadName;
 }
 
-[CRepr]public struct SYSTEM_CODEINTEGRITY_INFORMATION
+[CRepr]
+public struct SYSTEM_CODEINTEGRITY_INFORMATION
 {
 	public uint32 Length;
 	public uint32 CodeIntegrityOptions;
 }
 
-[CRepr]public struct PUBLIC_OBJECT_BASIC_INFORMATION
+[CRepr]
+public struct PUBLIC_OBJECT_BASIC_INFORMATION
 {
 	public uint32 Attributes;
 	public uint32 GrantedAccess;
@@ -1738,13 +1776,15 @@ public function void* PDELAYLOAD_FAILURE_DLL_CALLBACK(uint32 NotificationReason,
 	public uint32[10] Reserved;
 }
 
-[CRepr]public struct PUBLIC_OBJECT_TYPE_INFORMATION
+[CRepr]
+public struct PUBLIC_OBJECT_TYPE_INFORMATION
 {
 	public UNICODE_STRING TypeName;
 	public uint32[22] Reserved;
 }
 
-[CRepr]public struct KEY_VALUE_ENTRY
+[CRepr]
+public struct KEY_VALUE_ENTRY
 {
 	public UNICODE_STRING* ValueName;
 	public uint32 DataLength;
@@ -1752,14 +1792,16 @@ public function void* PDELAYLOAD_FAILURE_DLL_CALLBACK(uint32 NotificationReason,
 	public uint32 Type;
 }
 
-[CRepr]public struct WINSTATIONINFORMATIONW
+[CRepr]
+public struct WINSTATIONINFORMATIONW
 {
 	public uint8[70] Reserved2;
 	public uint32 LogonId;
 	public uint8[1140] Reserved3;
 }
 
-[CRepr]public struct FEATURE_ERROR
+[CRepr]
+public struct FEATURE_ERROR
 {
 	public HRESULT hr;
 	public uint16 lineNumber;
@@ -1777,7 +1819,8 @@ public function void* PDELAYLOAD_FAILURE_DLL_CALLBACK(uint32 NotificationReason,
 	public PSTR originName;
 }
 
-[CRepr]public struct DCICMD
+[CRepr]
+public struct DCICMD
 {
 	public uint32 dwCommand;
 	public uint32 dwParam1;
@@ -1786,7 +1829,8 @@ public function void* PDELAYLOAD_FAILURE_DLL_CALLBACK(uint32 NotificationReason,
 	public uint32 dwReserved;
 }
 
-[CRepr]public struct DCICREATEINPUT
+[CRepr]
+public struct DCICREATEINPUT
 {
 	public DCICMD cmd;
 	public uint32 dwCompression;
@@ -1798,7 +1842,8 @@ public function void* PDELAYLOAD_FAILURE_DLL_CALLBACK(uint32 NotificationReason,
 	public void* lpSurface;
 }
 
-[CRepr]public struct DCISURFACEINFO
+[CRepr]
+public struct DCISURFACEINFO
 {
 	public uint32 dwSize;
 	public uint32 dwDCICaps;
@@ -1819,7 +1864,8 @@ public function void* PDELAYLOAD_FAILURE_DLL_CALLBACK(uint32 NotificationReason,
 	public int DestroySurface;
 }
 
-[CRepr]public struct DCIENUMINPUT
+[CRepr]
+public struct DCIENUMINPUT
 {
 	public DCICMD cmd;
 	public RECT rSrc;
@@ -1828,7 +1874,8 @@ public function void* PDELAYLOAD_FAILURE_DLL_CALLBACK(uint32 NotificationReason,
 	public void* lpContext;
 }
 
-[CRepr]public struct DCIOFFSCREEN
+[CRepr]
+public struct DCIOFFSCREEN
 {
 	public DCISURFACEINFO dciInfo;
 	public int Draw;
@@ -1836,38 +1883,44 @@ public function void* PDELAYLOAD_FAILURE_DLL_CALLBACK(uint32 NotificationReason,
 	public int SetDestination;
 }
 
-[CRepr]public struct DCIOVERLAY
+[CRepr]
+public struct DCIOVERLAY
 {
 	public DCISURFACEINFO dciInfo;
 	public uint32 dwChromakeyValue;
 	public uint32 dwChromakeyMask;
 }
 
-[CRepr]public struct STRENTRYA
+[CRepr]
+public struct STRENTRYA
 {
 	public PSTR pszName;
 	public PSTR pszValue;
 }
 
-[CRepr]public struct STRENTRYW
+[CRepr]
+public struct STRENTRYW
 {
 	public PWSTR pszName;
 	public PWSTR pszValue;
 }
 
-[CRepr]public struct STRTABLEA
+[CRepr]
+public struct STRTABLEA
 {
 	public uint32 cEntries;
 	public STRENTRYA* pse;
 }
 
-[CRepr]public struct STRTABLEW
+[CRepr]
+public struct STRTABLEW
 {
 	public uint32 cEntries;
 	public STRENTRYW* pse;
 }
 
-[CRepr]public struct CABINFOA
+[CRepr]
+public struct CABINFOA
 {
 	public PSTR pszCab;
 	public PSTR pszInf;
@@ -1876,7 +1929,8 @@ public function void* PDELAYLOAD_FAILURE_DLL_CALLBACK(uint32 NotificationReason,
 	public uint32 dwFlags;
 }
 
-[CRepr]public struct CABINFOW
+[CRepr]
+public struct CABINFOW
 {
 	public PWSTR pszCab;
 	public PWSTR pszInf;
@@ -1885,7 +1939,8 @@ public function void* PDELAYLOAD_FAILURE_DLL_CALLBACK(uint32 NotificationReason,
 	public uint32 dwFlags;
 }
 
-[CRepr]public struct PERUSERSECTIONA
+[CRepr]
+public struct PERUSERSECTIONA
 {
 	public CHAR[59] szGUID;
 	public CHAR[128] szDispName;
@@ -1897,7 +1952,8 @@ public function void* PDELAYLOAD_FAILURE_DLL_CALLBACK(uint32 NotificationReason,
 	public BOOL bRollback;
 }
 
-[CRepr]public struct PERUSERSECTIONW
+[CRepr]
+public struct PERUSERSECTIONW
 {
 	public char8[59] szGUID;
 	public char8[128] szDispName;
@@ -1909,7 +1965,8 @@ public function void* PDELAYLOAD_FAILURE_DLL_CALLBACK(uint32 NotificationReason,
 	public BOOL bRollback;
 }
 
-[CRepr]public struct IMESTRUCT
+[CRepr]
+public struct IMESTRUCT
 {
 	public uint32 fnc;
 	public WPARAM wParam;
@@ -1921,7 +1978,8 @@ public function void* PDELAYLOAD_FAILURE_DLL_CALLBACK(uint32 NotificationReason,
 	public LPARAM lParam3;
 }
 
-[CRepr]public struct UNDETERMINESTRUCT
+[CRepr]
+public struct UNDETERMINESTRUCT
 {
 	public uint32 dwSize;
 	public uint32 uDefIMESize;
@@ -1939,7 +1997,8 @@ public function void* PDELAYLOAD_FAILURE_DLL_CALLBACK(uint32 NotificationReason,
 	public uint32 uYomiDelimPos;
 }
 
-[CRepr]public struct STRINGEXSTRUCT
+[CRepr]
+public struct STRINGEXSTRUCT
 {
 	public uint32 dwSize;
 	public uint32 uDeterminePos;
@@ -1948,7 +2007,8 @@ public function void* PDELAYLOAD_FAILURE_DLL_CALLBACK(uint32 NotificationReason,
 	public uint32 uYomiDelimPos;
 }
 
-[CRepr]public struct DATETIME
+[CRepr]
+public struct DATETIME
 {
 	public uint16 year;
 	public uint16 month;
@@ -1958,7 +2018,8 @@ public function void* PDELAYLOAD_FAILURE_DLL_CALLBACK(uint32 NotificationReason,
 	public uint16 sec;
 }
 
-[CRepr]public struct IMEPROA
+[CRepr]
+public struct IMEPROA
 {
 	public HWND hWnd;
 	public DATETIME InstDate;
@@ -1968,7 +2029,8 @@ public function void* PDELAYLOAD_FAILURE_DLL_CALLBACK(uint32 NotificationReason,
 	public uint8[30] szOptions;
 }
 
-[CRepr]public struct IMEPROW
+[CRepr]
+public struct IMEPROW
 {
 	public HWND hWnd;
 	public DATETIME InstDate;
@@ -1978,7 +2040,8 @@ public function void* PDELAYLOAD_FAILURE_DLL_CALLBACK(uint32 NotificationReason,
 	public char8[30] szOptions;
 }
 
-[CRepr]public struct JAVA_TRUST
+[CRepr]
+public struct JAVA_TRUST
 {
 	public uint32 cbSize;
 	public uint32 flag;
@@ -1994,13 +2057,15 @@ public function void* PDELAYLOAD_FAILURE_DLL_CALLBACK(uint32 NotificationReason,
 	public HRESULT hVerify;
 }
 
-[CRepr]public struct TDIEntityID
+[CRepr]
+public struct TDIEntityID
 {
 	public TDIENTITY_ENTITY_TYPE tei_entity;
 	public uint32 tei_instance;
 }
 
-[CRepr]public struct TDIObjectID
+[CRepr]
+public struct TDIObjectID
 {
 	public TDIEntityID toi_entity;
 	public uint32 toi_class;
@@ -2008,36 +2073,42 @@ public function void* PDELAYLOAD_FAILURE_DLL_CALLBACK(uint32 NotificationReason,
 	public uint32 toi_id;
 }
 
-[CRepr]public struct tcp_request_query_information_ex_xp
+[CRepr]
+public struct tcp_request_query_information_ex_xp
 {
 	public TDIObjectID ID;
 	public uint[2] Context;
 }
 
 #if BF_64_BIT || BF_ARM_64
-[CRepr]public struct tcp_request_query_information_ex32_xp
+[CRepr]
+public struct tcp_request_query_information_ex32_xp
 {
 	public TDIObjectID ID;
 	public uint32[4] Context;
 }
 #endif
 
-[CRepr]public struct tcp_request_query_information_ex_w2k
+[CRepr]
+public struct tcp_request_query_information_ex_w2k
 {
 	public TDIObjectID ID;
 	public uint8[16] Context;
 }
 
-[CRepr]public struct tcp_request_set_information_ex
+[CRepr]
+public struct tcp_request_set_information_ex
 {
 	public TDIObjectID ID;
 	public uint32 BufferSize;
 	public uint8[1] Buffer;
 }
 
-[CRepr]public struct TDI_TL_IO_CONTROL_ENDPOINT
+[CRepr]
+public struct TDI_TL_IO_CONTROL_ENDPOINT
 {
-	[CRepr, Union]	public struct _Anonymous_e__Union
+	[CRepr, Union]
+	public struct _Anonymous_e__Union
 	{
 		public uint32 IoControlCode;
 		public uint32 OptionName;
@@ -2052,7 +2123,8 @@ public function void* PDELAYLOAD_FAILURE_DLL_CALLBACK(uint32 NotificationReason,
 	public uint32 OutputBufferLength;
 }
 
-[CRepr]public struct WLDP_HOST_INFORMATION
+[CRepr]
+public struct WLDP_HOST_INFORMATION
 {
 	public uint32 dwRevision;
 	public WLDP_HOST_ID dwHostId;
@@ -2060,7 +2132,8 @@ public function void* PDELAYLOAD_FAILURE_DLL_CALLBACK(uint32 NotificationReason,
 	public HANDLE hSource;
 }
 
-[CRepr]public struct WLDP_DEVICE_SECURITY_INFORMATION
+[CRepr]
+public struct WLDP_DEVICE_SECURITY_INFORMATION
 {
 	public uint32 UnlockIdSize;
 	public uint8* UnlockId;
@@ -2068,9 +2141,11 @@ public function void* PDELAYLOAD_FAILURE_DLL_CALLBACK(uint32 NotificationReason,
 	public PWSTR ManufacturerID;
 }
 
-[CRepr]public struct DELAYLOAD_PROC_DESCRIPTOR
+[CRepr]
+public struct DELAYLOAD_PROC_DESCRIPTOR
 {
-	[CRepr, Union]	public struct _Description_e__Union
+	[CRepr, Union]
+	public struct _Description_e__Union
 	{
 		public PSTR Name;
 		public uint32 Ordinal;
@@ -2081,7 +2156,8 @@ public function void* PDELAYLOAD_FAILURE_DLL_CALLBACK(uint32 NotificationReason,
 }
 
 #if BF_64_BIT || BF_ARM_64
-[CRepr]public struct DELAYLOAD_INFO
+[CRepr]
+public struct DELAYLOAD_INFO
 {
 	public uint32 Size;
 	public IMAGE_DELAYLOAD_DESCRIPTOR* DelayloadDescriptor;
@@ -2095,7 +2171,8 @@ public function void* PDELAYLOAD_FAILURE_DLL_CALLBACK(uint32 NotificationReason,
 #endif
 
 #if BF_32_BIT
-[CRepr]public struct DELAYLOAD_INFO
+[CRepr]
+public struct DELAYLOAD_INFO
 {
 	public uint32 Size;
 	public IMAGE_DELAYLOAD_DESCRIPTOR* DelayloadDescriptor;

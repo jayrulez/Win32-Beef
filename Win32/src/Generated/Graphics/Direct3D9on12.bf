@@ -27,7 +27,8 @@ public function IDirect3D9* PFN_Direct3DCreate9On12(uint32 SDKVersion, D3D9ON12_
 #endregion
 
 #region Structs
-[CRepr]public struct D3D9ON12_ARGS
+[CRepr]
+public struct D3D9ON12_ARGS
 {
 	public BOOL Enable9On12;
 	public IUnknown* pD3D12Device;

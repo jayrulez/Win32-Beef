@@ -2206,11 +2206,13 @@ public function uint32 PDX_GETTRANSFERSTATUS(void* param0, void* param1, DDGETTR
 #endregion
 
 #region Structs
-[CRepr]public struct _DDFXROP
+[CRepr]
+public struct _DDFXROP
 {
 }
 
-[CRepr]public struct DDARGB
+[CRepr]
+public struct DDARGB
 {
 	public uint8 blue;
 	public uint8 green;
@@ -2218,7 +2220,8 @@ public function uint32 PDX_GETTRANSFERSTATUS(void* param0, void* param1, DDGETTR
 	public uint8 alpha;
 }
 
-[CRepr]public struct DDRGBA
+[CRepr]
+public struct DDRGBA
 {
 	public uint8 red;
 	public uint8 green;
@@ -2226,27 +2229,32 @@ public function uint32 PDX_GETTRANSFERSTATUS(void* param0, void* param1, DDGETTR
 	public uint8 alpha;
 }
 
-[CRepr]public struct DDCOLORKEY
+[CRepr]
+public struct DDCOLORKEY
 {
 	public uint32 dwColorSpaceLowValue;
 	public uint32 dwColorSpaceHighValue;
 }
 
-[CRepr]public struct DDBLTFX
+[CRepr]
+public struct DDBLTFX
 {
-	[CRepr, Union]	public struct _Anonymous4_e__Union
+	[CRepr, Union]
+	public struct _Anonymous4_e__Union
 	{
 		public uint32 dwAlphaSrcConst;
 		public IDirectDrawSurface* lpDDSAlphaSrc;
 	}
 
-	[CRepr, Union]	public struct _Anonymous2_e__Union
+	[CRepr, Union]
+	public struct _Anonymous2_e__Union
 	{
 		public uint32 dwZSrcConst;
 		public IDirectDrawSurface* lpDDSZBufferSrc;
 	}
 
-	[CRepr, Union]	public struct _Anonymous5_e__Union
+	[CRepr, Union]
+	public struct _Anonymous5_e__Union
 	{
 		public uint32 dwFillColor;
 		public uint32 dwFillDepth;
@@ -2254,13 +2262,15 @@ public function uint32 PDX_GETTRANSFERSTATUS(void* param0, void* param1, DDGETTR
 		public IDirectDrawSurface* lpDDSPattern;
 	}
 
-	[CRepr, Union]	public struct _Anonymous1_e__Union
+	[CRepr, Union]
+	public struct _Anonymous1_e__Union
 	{
 		public uint32 dwZDestConst;
 		public IDirectDrawSurface* lpDDSZBufferDest;
 	}
 
-	[CRepr, Union]	public struct _Anonymous3_e__Union
+	[CRepr, Union]
+	public struct _Anonymous3_e__Union
 	{
 		public uint32 dwAlphaDestConst;
 		public IDirectDrawSurface* lpDDSAlphaDest;
@@ -2291,19 +2301,23 @@ public function uint32 PDX_GETTRANSFERSTATUS(void* param0, void* param1, DDGETTR
 	public DDCOLORKEY ddckSrcColorkey;
 }
 
-[CRepr]public struct DDSCAPS
+[CRepr]
+public struct DDSCAPS
 {
 	public uint32 dwCaps;
 }
 
-[CRepr]public struct DDOSCAPS
+[CRepr]
+public struct DDOSCAPS
 {
 	public uint32 dwCaps;
 }
 
-[CRepr]public struct DDSCAPSEX
+[CRepr]
+public struct DDSCAPSEX
 {
-	[CRepr, Union]	public struct _Anonymous_e__Union
+	[CRepr, Union]
+	public struct _Anonymous_e__Union
 	{
 		public uint32 dwCaps4;
 		public uint32 dwVolumeDepth;
@@ -2314,9 +2328,11 @@ public function uint32 PDX_GETTRANSFERSTATUS(void* param0, void* param1, DDGETTR
 	public using _Anonymous_e__Union Anonymous;
 }
 
-[CRepr]public struct DDSCAPS2
+[CRepr]
+public struct DDSCAPS2
 {
-	[CRepr, Union]	public struct _Anonymous_e__Union
+	[CRepr, Union]
+	public struct _Anonymous_e__Union
 	{
 		public uint32 dwCaps4;
 		public uint32 dwVolumeDepth;
@@ -2328,7 +2344,8 @@ public function uint32 PDX_GETTRANSFERSTATUS(void* param0, void* param1, DDGETTR
 	public using _Anonymous_e__Union Anonymous;
 }
 
-[CRepr]public struct DDCAPS_DX1
+[CRepr]
+public struct DDCAPS_DX1
 {
 	public uint32 dwSize;
 	public uint32 dwCaps;
@@ -2368,7 +2385,8 @@ public function uint32 PDX_GETTRANSFERSTATUS(void* param0, void* param1, DDGETTR
 	public uint32 dwReserved3;
 }
 
-[CRepr]public struct DDCAPS_DX3
+[CRepr]
+public struct DDCAPS_DX3
 {
 	public uint32 dwSize;
 	public uint32 dwCaps;
@@ -2423,7 +2441,8 @@ public function uint32 PDX_GETTRANSFERSTATUS(void* param0, void* param1, DDGETTR
 	public uint32 dwReserved6;
 }
 
-[CRepr]public struct DDCAPS_DX5
+[CRepr]
+public struct DDCAPS_DX5
 {
 	public uint32 dwSize;
 	public uint32 dwCaps;
@@ -2483,7 +2502,8 @@ public function uint32 PDX_GETTRANSFERSTATUS(void* param0, void* param1, DDGETTR
 	public uint32[8] dwNLVBRops;
 }
 
-[CRepr]public struct DDCAPS_DX6
+[CRepr]
+public struct DDCAPS_DX6
 {
 	public uint32 dwSize;
 	public uint32 dwCaps;
@@ -2544,7 +2564,8 @@ public function uint32 PDX_GETTRANSFERSTATUS(void* param0, void* param1, DDGETTR
 	public DDSCAPS2 ddsCaps;
 }
 
-[CRepr]public struct DDCAPS_DX7
+[CRepr]
+public struct DDCAPS_DX7
 {
 	public uint32 dwSize;
 	public uint32 dwCaps;
@@ -2605,9 +2626,11 @@ public function uint32 PDX_GETTRANSFERSTATUS(void* param0, void* param1, DDGETTR
 	public DDSCAPS2 ddsCaps;
 }
 
-[CRepr]public struct DDPIXELFORMAT
+[CRepr]
+public struct DDPIXELFORMAT
 {
-	[CRepr, Union]	public struct _Anonymous5_e__Union
+	[CRepr, Union]
+	public struct _Anonymous5_e__Union
 	{
 		public uint32 dwRGBAlphaBitMask;
 		public uint32 dwYUVAlphaBitMask;
@@ -2616,9 +2639,11 @@ public function uint32 PDX_GETTRANSFERSTATUS(void* param0, void* param1, DDGETTR
 		public uint32 dwYUVZBitMask;
 	}
 
-	[CRepr, Union]	public struct _Anonymous3_e__Union
+	[CRepr, Union]
+	public struct _Anonymous3_e__Union
 	{
-		[CRepr]		public struct _MultiSampleCaps_e__Struct
+		[CRepr]
+		public struct _MultiSampleCaps_e__Struct
 		{
 			public uint16 wFlipMSTypes;
 			public uint16 wBltMSTypes;
@@ -2631,7 +2656,8 @@ public function uint32 PDX_GETTRANSFERSTATUS(void* param0, void* param1, DDGETTR
 		public _MultiSampleCaps_e__Struct MultiSampleCaps;
 	}
 
-	[CRepr, Union]	public struct _Anonymous1_e__Union
+	[CRepr, Union]
+	public struct _Anonymous1_e__Union
 	{
 		public uint32 dwRGBBitCount;
 		public uint32 dwYUVBitCount;
@@ -2642,7 +2668,8 @@ public function uint32 PDX_GETTRANSFERSTATUS(void* param0, void* param1, DDGETTR
 		public uint32 dwPrivateFormatBitCount;
 	}
 
-	[CRepr, Union]	public struct _Anonymous4_e__Union
+	[CRepr, Union]
+	public struct _Anonymous4_e__Union
 	{
 		public uint32 dwBBitMask;
 		public uint32 dwVBitMask;
@@ -2650,7 +2677,8 @@ public function uint32 PDX_GETTRANSFERSTATUS(void* param0, void* param1, DDGETTR
 		public uint32 dwBumpLuminanceBitMask;
 	}
 
-	[CRepr, Union]	public struct _Anonymous2_e__Union
+	[CRepr, Union]
+	public struct _Anonymous2_e__Union
 	{
 		public uint32 dwRBitMask;
 		public uint32 dwYBitMask;
@@ -2670,15 +2698,18 @@ public function uint32 PDX_GETTRANSFERSTATUS(void* param0, void* param1, DDGETTR
 	public _Anonymous5_e__Union Anonymous5;
 }
 
-[CRepr]public struct DDOVERLAYFX
+[CRepr]
+public struct DDOVERLAYFX
 {
-	[CRepr, Union]	public struct _Anonymous2_e__Union
+	[CRepr, Union]
+	public struct _Anonymous2_e__Union
 	{
 		public uint32 dwAlphaSrcConst;
 		public IDirectDrawSurface* lpDDSAlphaSrc;
 	}
 
-	[CRepr, Union]	public struct _Anonymous1_e__Union
+	[CRepr, Union]
+	public struct _Anonymous1_e__Union
 	{
 		public uint32 dwAlphaDestConst;
 		public IDirectDrawSurface* lpDDSAlphaDest;
@@ -2698,7 +2729,8 @@ public function uint32 PDX_GETTRANSFERSTATUS(void* param0, void* param1, DDGETTR
 	public uint32 dwFlags;
 }
 
-[CRepr]public struct DDBLTBATCH
+[CRepr]
+public struct DDBLTBATCH
 {
 	public RECT* lprDest;
 	public IDirectDrawSurface* lpDDSSrc;
@@ -2707,14 +2739,16 @@ public function uint32 PDX_GETTRANSFERSTATUS(void* param0, void* param1, DDGETTR
 	public DDBLTFX* lpDDBltFx;
 }
 
-[CRepr]public struct DDGAMMARAMP
+[CRepr]
+public struct DDGAMMARAMP
 {
 	public uint16[256] red;
 	public uint16[256] green;
 	public uint16[256] blue;
 }
 
-[CRepr]public struct DDDEVICEIDENTIFIER
+[CRepr]
+public struct DDDEVICEIDENTIFIER
 {
 	public CHAR[512] szDriver;
 	public CHAR[512] szDescription;
@@ -2726,7 +2760,8 @@ public function uint32 PDX_GETTRANSFERSTATUS(void* param0, void* param1, DDGETTR
 	public Guid guidDeviceIdentifier;
 }
 
-[CRepr]public struct DDDEVICEIDENTIFIER2
+[CRepr]
+public struct DDDEVICEIDENTIFIER2
 {
 	public CHAR[512] szDriver;
 	public CHAR[512] szDescription;
@@ -2739,16 +2774,19 @@ public function uint32 PDX_GETTRANSFERSTATUS(void* param0, void* param1, DDGETTR
 	public uint32 dwWHQLLevel;
 }
 
-[CRepr]public struct DDSURFACEDESC
+[CRepr]
+public struct DDSURFACEDESC
 {
-	[CRepr, Union]	public struct _Anonymous2_e__Union
+	[CRepr, Union]
+	public struct _Anonymous2_e__Union
 	{
 		public uint32 dwMipMapCount;
 		public uint32 dwZBufferBitDepth;
 		public uint32 dwRefreshRate;
 	}
 
-	[CRepr, Union]	public struct _Anonymous1_e__Union
+	[CRepr, Union]
+	public struct _Anonymous1_e__Union
 	{
 		public int32 lPitch;
 		public uint32 dwLinearSize;
@@ -2772,34 +2810,40 @@ public function uint32 PDX_GETTRANSFERSTATUS(void* param0, void* param1, DDGETTR
 	public DDSCAPS ddsCaps;
 }
 
-[CRepr]public struct DDSURFACEDESC2
+[CRepr]
+public struct DDSURFACEDESC2
 {
-	[CRepr, Union]	public struct _Anonymous4_e__Union
+	[CRepr, Union]
+	public struct _Anonymous4_e__Union
 	{
 		public DDCOLORKEY ddckCKDestOverlay;
 		public uint32 dwEmptyFaceColor;
 	}
 
-	[CRepr, Union]	public struct _Anonymous2_e__Union
+	[CRepr, Union]
+	public struct _Anonymous2_e__Union
 	{
 		public uint32 dwBackBufferCount;
 		public uint32 dwDepth;
 	}
 
-	[CRepr, Union]	public struct _Anonymous3_e__Union
+	[CRepr, Union]
+	public struct _Anonymous3_e__Union
 	{
 		public uint32 dwMipMapCount;
 		public uint32 dwRefreshRate;
 		public uint32 dwSrcVBHandle;
 	}
 
-	[CRepr, Union]	public struct _Anonymous1_e__Union
+	[CRepr, Union]
+	public struct _Anonymous1_e__Union
 	{
 		public int32 lPitch;
 		public uint32 dwLinearSize;
 	}
 
-	[CRepr, Union]	public struct _Anonymous5_e__Union
+	[CRepr, Union]
+	public struct _Anonymous5_e__Union
 	{
 		public DDPIXELFORMAT ddpfPixelFormat;
 		public uint32 dwFVF;
@@ -2824,7 +2868,8 @@ public function uint32 PDX_GETTRANSFERSTATUS(void* param0, void* param1, DDGETTR
 	public uint32 dwTextureStage;
 }
 
-[CRepr]public struct DDOPTSURFACEDESC
+[CRepr]
+public struct DDOPTSURFACEDESC
 {
 	public uint32 dwSize;
 	public uint32 dwFlags;
@@ -2834,7 +2879,8 @@ public function uint32 PDX_GETTRANSFERSTATUS(void* param0, void* param1, DDGETTR
 	public uint32 dwCompressionRatio;
 }
 
-[CRepr]public struct DDCOLORCONTROL
+[CRepr]
+public struct DDCOLORCONTROL
 {
 	public uint32 dwSize;
 	public uint32 dwFlags;
@@ -2848,19 +2894,23 @@ public function uint32 PDX_GETTRANSFERSTATUS(void* param0, void* param1, DDGETTR
 	public uint32 dwReserved1;
 }
 
-[CRepr]public struct IDDVideoPortContainerVtbl
+[CRepr]
+public struct IDDVideoPortContainerVtbl
 {
 }
 
-[CRepr]public struct IDirectDrawVideoPortVtbl
+[CRepr]
+public struct IDirectDrawVideoPortVtbl
 {
 }
 
-[CRepr]public struct IDirectDrawVideoPortNotifyVtbl
+[CRepr]
+public struct IDirectDrawVideoPortNotifyVtbl
 {
 }
 
-[CRepr]public struct DDVIDEOPORTCONNECT
+[CRepr]
+public struct DDVIDEOPORTCONNECT
 {
 	public uint32 dwSize;
 	public uint32 dwPortWidth;
@@ -2869,7 +2919,8 @@ public function uint32 PDX_GETTRANSFERSTATUS(void* param0, void* param1, DDGETTR
 	public uint dwReserved1;
 }
 
-[CRepr]public struct DDVIDEOPORTCAPS
+[CRepr]
+public struct DDVIDEOPORTCAPS
 {
 	public uint32 dwSize;
 	public uint32 dwFlags;
@@ -2892,7 +2943,8 @@ public function uint32 PDX_GETTRANSFERSTATUS(void* param0, void* param1, DDGETTR
 	public uint16 wNumFilterTapsY;
 }
 
-[CRepr]public struct DDVIDEOPORTDESC
+[CRepr]
+public struct DDVIDEOPORTDESC
 {
 	public uint32 dwSize;
 	public uint32 dwFieldWidth;
@@ -2907,7 +2959,8 @@ public function uint32 PDX_GETTRANSFERSTATUS(void* param0, void* param1, DDGETTR
 	public uint dwReserved3;
 }
 
-[CRepr]public struct DDVIDEOPORTINFO
+[CRepr]
+public struct DDVIDEOPORTINFO
 {
 	public uint32 dwSize;
 	public uint32 dwOriginX;
@@ -2924,7 +2977,8 @@ public function uint32 PDX_GETTRANSFERSTATUS(void* param0, void* param1, DDGETTR
 	public uint dwReserved2;
 }
 
-[CRepr]public struct DDVIDEOPORTBANDWIDTH
+[CRepr]
+public struct DDVIDEOPORTBANDWIDTH
 {
 	public uint32 dwSize;
 	public uint32 dwCaps;
@@ -2936,7 +2990,8 @@ public function uint32 PDX_GETTRANSFERSTATUS(void* param0, void* param1, DDGETTR
 	public uint dwReserved2;
 }
 
-[CRepr]public struct DDVIDEOPORTSTATUS
+[CRepr]
+public struct DDVIDEOPORTSTATUS
 {
 	public uint32 dwSize;
 	public BOOL bInUse;
@@ -2947,7 +3002,8 @@ public function uint32 PDX_GETTRANSFERSTATUS(void* param0, void* param1, DDGETTR
 	public uint dwReserved3;
 }
 
-[CRepr]public struct DDVIDEOPORTNOTIFY
+[CRepr]
+public struct DDVIDEOPORTNOTIFY
 {
 	public LARGE_INTEGER ApproximateTimeStamp;
 	public int32 lField;
@@ -2955,18 +3011,22 @@ public function uint32 PDX_GETTRANSFERSTATUS(void* param0, void* param1, DDGETTR
 	public int32 lDone;
 }
 
-[CRepr]public struct DDKERNELCAPS
+[CRepr]
+public struct DDKERNELCAPS
 {
 	public uint32 dwSize;
 	public uint32 dwCaps;
 	public uint32 dwIRQCaps;
 }
 
-[CRepr]public struct SURFACEALIGNMENT
+[CRepr]
+public struct SURFACEALIGNMENT
 {
-	[CRepr, Union]	public struct _Anonymous_e__Union
+	[CRepr, Union]
+	public struct _Anonymous_e__Union
 	{
-		[CRepr]		public struct _Linear_e__Struct
+		[CRepr]
+		public struct _Linear_e__Struct
 		{
 			public uint32 dwStartAlignment;
 			public uint32 dwPitchAlignment;
@@ -2974,7 +3034,8 @@ public function uint32 PDX_GETTRANSFERSTATUS(void* param0, void* param1, DDGETTR
 			public uint32 dwReserved2;
 		}
 
-		[CRepr]		public struct _Rectangular_e__Struct
+		[CRepr]
+		public struct _Rectangular_e__Struct
 		{
 			public uint32 dwXAlignment;
 			public uint32 dwYAlignment;
@@ -2989,7 +3050,8 @@ public function uint32 PDX_GETTRANSFERSTATUS(void* param0, void* param1, DDGETTR
 	public using _Anonymous_e__Union Anonymous;
 }
 
-[CRepr]public struct HEAPALIGNMENT
+[CRepr]
+public struct HEAPALIGNMENT
 {
 	public uint32 dwSize;
 	public DDSCAPS ddsCaps;
@@ -3003,7 +3065,8 @@ public function uint32 PDX_GETTRANSFERSTATUS(void* param0, void* param1, DDGETTR
 	public SURFACEALIGNMENT FlipTarget;
 }
 
-[CRepr]public struct DD_GETHEAPALIGNMENTDATA
+[CRepr]
+public struct DD_GETHEAPALIGNMENTDATA
 {
 	public uint dwInstance;
 	public uint32 dwHeap;
@@ -3012,7 +3075,8 @@ public function uint32 PDX_GETTRANSFERSTATUS(void* param0, void* param1, DDGETTR
 	public HEAPALIGNMENT Alignment;
 }
 
-[CRepr]public struct VMEML
+[CRepr]
+public struct VMEML
 {
 	public VMEML* next;
 	public uint ptr;
@@ -3020,7 +3084,8 @@ public function uint32 PDX_GETTRANSFERSTATUS(void* param0, void* param1, DDGETTR
 	public BOOL bDiscardable;
 }
 
-[CRepr]public struct VMEMR
+[CRepr]
+public struct VMEMR
 {
 	public VMEMR* next;
 	public VMEMR* prev;
@@ -3039,7 +3104,8 @@ public function uint32 PDX_GETTRANSFERSTATUS(void* param0, void* param1, DDGETTR
 	public BOOL bDiscardable;
 }
 
-[CRepr]public struct VMEMHEAP
+[CRepr]
+public struct VMEMHEAP
 {
 	public uint32 dwFlags;
 	public uint32 stride;
@@ -3060,7 +3126,8 @@ public function uint32 PDX_GETTRANSFERSTATUS(void* param0, void* param1, DDGETTR
 	public uint32 dwAgpCommitMaskSize;
 }
 
-[CRepr]public struct PROCESS_LIST
+[CRepr]
+public struct PROCESS_LIST
 {
 	public PROCESS_LIST* lpLink;
 	public uint32 dwProcessId;
@@ -3069,7 +3136,8 @@ public function uint32 PDX_GETTRANSFERSTATUS(void* param0, void* param1, DDGETTR
 	public uint32 dwZDepth;
 }
 
-[CRepr]public struct DDMONITORINFO
+[CRepr]
+public struct DDMONITORINFO
 {
 	public uint16 Manufacturer;
 	public uint16 Product;
@@ -3085,89 +3153,109 @@ public function uint32 PDX_GETTRANSFERSTATUS(void* param0, void* param1, DDGETTR
 	public int32 ModeReserved3;
 }
 
-[CRepr]public struct IDirectDrawClipperVtbl
+[CRepr]
+public struct IDirectDrawClipperVtbl
 {
 }
 
-[CRepr]public struct IDirectDrawPaletteVtbl
+[CRepr]
+public struct IDirectDrawPaletteVtbl
 {
 }
 
-[CRepr]public struct IDirectDrawSurfaceVtbl
+[CRepr]
+public struct IDirectDrawSurfaceVtbl
 {
 }
 
-[CRepr]public struct IDirectDrawSurface2Vtbl
+[CRepr]
+public struct IDirectDrawSurface2Vtbl
 {
 }
 
-[CRepr]public struct IDirectDrawSurface3Vtbl
+[CRepr]
+public struct IDirectDrawSurface3Vtbl
 {
 }
 
-[CRepr]public struct IDirectDrawSurface4Vtbl
+[CRepr]
+public struct IDirectDrawSurface4Vtbl
 {
 }
 
-[CRepr]public struct IDirectDrawSurface7Vtbl
+[CRepr]
+public struct IDirectDrawSurface7Vtbl
 {
 }
 
-[CRepr]public struct IDirectDrawColorControlVtbl
+[CRepr]
+public struct IDirectDrawColorControlVtbl
 {
 }
 
-[CRepr]public struct IDirectDrawVtbl
+[CRepr]
+public struct IDirectDrawVtbl
 {
 }
 
-[CRepr]public struct IDirectDraw2Vtbl
+[CRepr]
+public struct IDirectDraw2Vtbl
 {
 }
 
-[CRepr]public struct IDirectDraw4Vtbl
+[CRepr]
+public struct IDirectDraw4Vtbl
 {
 }
 
-[CRepr]public struct IDirectDraw7Vtbl
+[CRepr]
+public struct IDirectDraw7Vtbl
 {
 }
 
-[CRepr]public struct IDirectDrawKernelVtbl
+[CRepr]
+public struct IDirectDrawKernelVtbl
 {
 }
 
-[CRepr]public struct IDirectDrawSurfaceKernelVtbl
+[CRepr]
+public struct IDirectDrawSurfaceKernelVtbl
 {
 }
 
-[CRepr]public struct IDirectDrawGammaControlVtbl
+[CRepr]
+public struct IDirectDrawGammaControlVtbl
 {
 }
 
-[CRepr]public struct DD32BITDRIVERDATA
+[CRepr]
+public struct DD32BITDRIVERDATA
 {
 	public CHAR[260] szName;
 	public CHAR[64] szEntryPoint;
 	public uint32 dwContext;
 }
 
-[CRepr]public struct DDVERSIONDATA
+[CRepr]
+public struct DDVERSIONDATA
 {
 	public uint32 dwHALVersion;
 	public uint dwReserved1;
 	public uint dwReserved2;
 }
 
-[CRepr]public struct VIDMEM
+[CRepr]
+public struct VIDMEM
 {
-	[CRepr, Union]	public struct _Anonymous1_e__Union
+	[CRepr, Union]
+	public struct _Anonymous1_e__Union
 	{
 		public uint fpEnd;
 		public uint32 dwWidth;
 	}
 
-	[CRepr, Union]	public struct _Anonymous2_e__Union
+	[CRepr, Union]
+	public struct _Anonymous2_e__Union
 	{
 		public VMEMHEAP* lpHeap;
 		public uint32 dwHeight;
@@ -3181,7 +3269,8 @@ public function uint32 PDX_GETTRANSFERSTATUS(void* param0, void* param1, DDGETTR
 	public _Anonymous2_e__Union Anonymous2;
 }
 
-[CRepr]public struct VIDMEMINFO
+[CRepr]
+public struct VIDMEMINFO
 {
 	public uint fpPrimary;
 	public uint32 dwFlags;
@@ -3198,14 +3287,16 @@ public function uint32 PDX_GETTRANSFERSTATUS(void* param0, void* param1, DDGETTR
 	public VIDMEM* pvmList;
 }
 
-[CRepr]public struct HEAPALIAS
+[CRepr]
+public struct HEAPALIAS
 {
 	public uint fpVidMem;
 	public void* lpAlias;
 	public uint32 dwAliasSize;
 }
 
-[CRepr]public struct HEAPALIASINFO
+[CRepr]
+public struct HEAPALIASINFO
 {
 	public uint32 dwRefCnt;
 	public uint32 dwFlags;
@@ -3213,14 +3304,16 @@ public function uint32 PDX_GETTRANSFERSTATUS(void* param0, void* param1, DDGETTR
 	public HEAPALIAS* lpAliases;
 }
 
-[CRepr]public struct IUNKNOWN_LIST
+[CRepr]
+public struct IUNKNOWN_LIST
 {
 	public IUNKNOWN_LIST* lpLink;
 	public Guid* lpGuid;
 	public IUnknown* lpIUnknown;
 }
 
-[CRepr]public struct DDHAL_DDCALLBACKS
+[CRepr]
+public struct DDHAL_DDCALLBACKS
 {
 	public uint32 dwSize;
 	public uint32 dwFlags;
@@ -3236,7 +3329,8 @@ public function uint32 PDX_GETTRANSFERSTATUS(void* param0, void* param1, DDGETTR
 	public LPDDHAL_FLIPTOGDISURFACE FlipToGDISurface;
 }
 
-[CRepr]public struct DDHAL_DDPALETTECALLBACKS
+[CRepr]
+public struct DDHAL_DDPALETTECALLBACKS
 {
 	public uint32 dwSize;
 	public uint32 dwFlags;
@@ -3244,7 +3338,8 @@ public function uint32 PDX_GETTRANSFERSTATUS(void* param0, void* param1, DDGETTR
 	public LPDDHALPALCB_SETENTRIES SetEntries;
 }
 
-[CRepr]public struct DDHAL_DDSURFACECALLBACKS
+[CRepr]
+public struct DDHAL_DDSURFACECALLBACKS
 {
 	public uint32 dwSize;
 	public uint32 dwFlags;
@@ -3264,7 +3359,8 @@ public function uint32 PDX_GETTRANSFERSTATUS(void* param0, void* param1, DDGETTR
 	public LPDDHALSURFCB_SETPALETTE SetPalette;
 }
 
-[CRepr]public struct DDHAL_DDMISCELLANEOUSCALLBACKS
+[CRepr]
+public struct DDHAL_DDMISCELLANEOUSCALLBACKS
 {
 	public uint32 dwSize;
 	public uint32 dwFlags;
@@ -3274,7 +3370,8 @@ public function uint32 PDX_GETTRANSFERSTATUS(void* param0, void* param1, DDGETTR
 	public LPDDHALSURFCB_GETBLTSTATUS GetSysmemBltStatus;
 }
 
-[CRepr]public struct DDHAL_DDMISCELLANEOUS2CALLBACKS
+[CRepr]
+public struct DDHAL_DDMISCELLANEOUS2CALLBACKS
 {
 	public uint32 dwSize;
 	public uint32 dwFlags;
@@ -3284,7 +3381,8 @@ public function uint32 PDX_GETTRANSFERSTATUS(void* param0, void* param1, DDGETTR
 	public LPDDHAL_DESTROYDDLOCAL DestroyDDLocal;
 }
 
-[CRepr]public struct DDHAL_DDEXEBUFCALLBACKS
+[CRepr]
+public struct DDHAL_DDEXEBUFCALLBACKS
 {
 	public uint32 dwSize;
 	public uint32 dwFlags;
@@ -3295,7 +3393,8 @@ public function uint32 PDX_GETTRANSFERSTATUS(void* param0, void* param1, DDGETTR
 	public LPDDHALEXEBUFCB_UNLOCKEXEBUF UnlockExecuteBuffer;
 }
 
-[CRepr]public struct DDHAL_DDVIDEOPORTCALLBACKS
+[CRepr]
+public struct DDHAL_DDVIDEOPORTCALLBACKS
 {
 	public uint32 dwSize;
 	public uint32 dwFlags;
@@ -3317,14 +3416,16 @@ public function uint32 PDX_GETTRANSFERSTATUS(void* param0, void* param1, DDGETTR
 	public LPDDHALVPORTCB_COLORCONTROL ColorControl;
 }
 
-[CRepr]public struct DDHAL_DDCOLORCONTROLCALLBACKS
+[CRepr]
+public struct DDHAL_DDCOLORCONTROLCALLBACKS
 {
 	public uint32 dwSize;
 	public uint32 dwFlags;
 	public LPDDHALCOLORCB_COLORCONTROL ColorControl;
 }
 
-[CRepr]public struct DDHAL_DDKERNELCALLBACKS
+[CRepr]
+public struct DDHAL_DDKERNELCALLBACKS
 {
 	public uint32 dwSize;
 	public uint32 dwFlags;
@@ -3332,7 +3433,8 @@ public function uint32 PDX_GETTRANSFERSTATUS(void* param0, void* param1, DDGETTR
 	public LPDDHALKERNELCB_SYNCVIDEOPORT SyncVideoPortData;
 }
 
-[CRepr]public struct DDHAL_DDMOTIONCOMPCALLBACKS
+[CRepr]
+public struct DDHAL_DDMOTIONCOMPCALLBACKS
 {
 	public uint32 dwSize;
 	public uint32 dwFlags;
@@ -3348,7 +3450,8 @@ public function uint32 PDX_GETTRANSFERSTATUS(void* param0, void* param1, DDGETTR
 	public LPDDHALMOCOMPCB_DESTROY DestroyMoComp;
 }
 
-[CRepr]public struct DDNONLOCALVIDMEMCAPS
+[CRepr]
+public struct DDNONLOCALVIDMEMCAPS
 {
 	public uint32 dwSize;
 	public uint32 dwNLVBCaps;
@@ -3358,9 +3461,11 @@ public function uint32 PDX_GETTRANSFERSTATUS(void* param0, void* param1, DDGETTR
 	public uint32[8] dwNLVBRops;
 }
 
-[CRepr]public struct DDMORESURFACECAPS
+[CRepr]
+public struct DDMORESURFACECAPS
 {
-	[CRepr]	public struct ExtendedHeapRestrictions
+	[CRepr]
+	public struct ExtendedHeapRestrictions
 	{
 		public DDSCAPSEX ddsCapsEx;
 		public DDSCAPSEX ddsCapsExAlt;
@@ -3371,7 +3476,8 @@ public function uint32 PDX_GETTRANSFERSTATUS(void* param0, void* param1, DDGETTR
 	public ExtendedHeapRestrictions[1] ddsExtendedHeapRestrictions;
 }
 
-[CRepr]public struct DDSTEREOMODE
+[CRepr]
+public struct DDSTEREOMODE
 {
 	public uint32 dwSize;
 	public uint32 dwHeight;
@@ -3381,7 +3487,8 @@ public function uint32 PDX_GETTRANSFERSTATUS(void* param0, void* param1, DDGETTR
 	public BOOL bSupported;
 }
 
-[CRepr]public struct DDRAWI_DDRAWPALETTE_INT
+[CRepr]
+public struct DDRAWI_DDRAWPALETTE_INT
 {
 	public void* lpVtbl;
 	public DDRAWI_DDRAWPALETTE_LCL* lpLcl;
@@ -3389,9 +3496,11 @@ public function uint32 PDX_GETTRANSFERSTATUS(void* param0, void* param1, DDGETTR
 	public uint32 dwIntRefCnt;
 }
 
-[CRepr]public struct DDRAWI_DDRAWPALETTE_GBL
+[CRepr]
+public struct DDRAWI_DDRAWPALETTE_GBL
 {
-	[CRepr, Union]	public struct _Anonymous_e__Union
+	[CRepr, Union]
+	public struct _Anonymous_e__Union
 	{
 		public uint dwReserved1;
 		public HPALETTE hHELGDIPalette;
@@ -3409,7 +3518,8 @@ public function uint32 PDX_GETTRANSFERSTATUS(void* param0, void* param1, DDGETTR
 	public uint32 dwHandle;
 }
 
-[CRepr]public struct DDRAWI_DDRAWPALETTE_LCL
+[CRepr]
+public struct DDRAWI_DDRAWPALETTE_LCL
 {
 	public uint32 lpPalMore;
 	public DDRAWI_DDRAWPALETTE_GBL* lpGbl;
@@ -3423,7 +3533,8 @@ public function uint32 PDX_GETTRANSFERSTATUS(void* param0, void* param1, DDGETTR
 	public uint dwDDRAWReserved3;
 }
 
-[CRepr]public struct DDRAWI_DDRAWCLIPPER_INT
+[CRepr]
+public struct DDRAWI_DDRAWCLIPPER_INT
 {
 	public void* lpVtbl;
 	public DDRAWI_DDRAWCLIPPER_LCL* lpLcl;
@@ -3431,7 +3542,8 @@ public function uint32 PDX_GETTRANSFERSTATUS(void* param0, void* param1, DDGETTR
 	public uint32 dwIntRefCnt;
 }
 
-[CRepr]public struct DDRAWI_DDRAWCLIPPER_GBL
+[CRepr]
+public struct DDRAWI_DDRAWCLIPPER_GBL
 {
 	public uint32 dwRefCnt;
 	public uint32 dwFlags;
@@ -3442,7 +3554,8 @@ public function uint32 PDX_GETTRANSFERSTATUS(void* param0, void* param1, DDGETTR
 	public RGNDATA* lpStaticClipList;
 }
 
-[CRepr]public struct DDRAWI_DDRAWCLIPPER_LCL
+[CRepr]
+public struct DDRAWI_DDRAWCLIPPER_LCL
 {
 	public uint32 lpClipMore;
 	public DDRAWI_DDRAWCLIPPER_GBL* lpGbl;
@@ -3454,7 +3567,8 @@ public function uint32 PDX_GETTRANSFERSTATUS(void* param0, void* param1, DDGETTR
 	public IUnknown* pAddrefedThisOwner;
 }
 
-[CRepr]public struct ATTACHLIST
+[CRepr]
+public struct ATTACHLIST
 {
 	public uint32 dwFlags;
 	public ATTACHLIST* lpLink;
@@ -3462,7 +3576,8 @@ public function uint32 PDX_GETTRANSFERSTATUS(void* param0, void* param1, DDGETTR
 	public DDRAWI_DDRAWSURFACE_INT* lpIAttached;
 }
 
-[CRepr]public struct DBLNODE
+[CRepr]
+public struct DBLNODE
 {
 	public DBLNODE* next;
 	public DBLNODE* prev;
@@ -3470,7 +3585,8 @@ public function uint32 PDX_GETTRANSFERSTATUS(void* param0, void* param1, DDGETTR
 	public DDRAWI_DDRAWSURFACE_INT* object_int;
 }
 
-[CRepr]public struct ACCESSRECTLIST
+[CRepr]
+public struct ACCESSRECTLIST
 {
 	public ACCESSRECTLIST* lpLink;
 	public RECT rDest;
@@ -3480,7 +3596,8 @@ public function uint32 PDX_GETTRANSFERSTATUS(void* param0, void* param1, DDGETTR
 	public HEAPALIASINFO* lpHeapAliasInfo;
 }
 
-[CRepr]public struct DDRAWI_DDRAWSURFACE_INT
+[CRepr]
+public struct DDRAWI_DDRAWSURFACE_INT
 {
 	public void* lpVtbl;
 	public DDRAWI_DDRAWSURFACE_LCL* lpLcl;
@@ -3488,28 +3605,33 @@ public function uint32 PDX_GETTRANSFERSTATUS(void* param0, void* param1, DDGETTR
 	public uint32 dwIntRefCnt;
 }
 
-[CRepr]public struct DDRAWI_DDRAWSURFACE_GBL
+[CRepr]
+public struct DDRAWI_DDRAWSURFACE_GBL
 {
-	[CRepr, Union]	public struct _Anonymous3_e__Union
+	[CRepr, Union]
+	public struct _Anonymous3_e__Union
 	{
 		public DDRAWI_DIRECTDRAW_GBL* lpDD;
 		public void* lpDDHandle;
 	}
 
-	[CRepr, Union]	public struct _Anonymous1_e__Union
+	[CRepr, Union]
+	public struct _Anonymous1_e__Union
 	{
 		public ACCESSRECTLIST* lpRectList;
 		public uint32 dwBlockSizeY;
 		public int32 lSlicePitch;
 	}
 
-	[CRepr, Union]	public struct _Anonymous2_e__Union
+	[CRepr, Union]
+	public struct _Anonymous2_e__Union
 	{
 		public VMEMHEAP* lpVidMemHeap;
 		public uint32 dwBlockSizeX;
 	}
 
-	[CRepr, Union]	public struct _Anonymous4_e__Union
+	[CRepr, Union]
+	public struct _Anonymous4_e__Union
 	{
 		public int32 lPitch;
 		public uint32 dwLinearSize;
@@ -3529,9 +3651,11 @@ public function uint32 PDX_GETTRANSFERSTATUS(void* param0, void* param1, DDGETTR
 	public DDPIXELFORMAT ddpfSurface;
 }
 
-[CRepr]public struct DDRAWI_DDRAWSURFACE_GBL_MORE
+[CRepr]
+public struct DDRAWI_DDRAWSURFACE_GBL_MORE
 {
-	[CRepr, Union]	public struct _Anonymous_e__Union
+	[CRepr, Union]
+	public struct _Anonymous_e__Union
 	{
 		public uint32 dwPhysicalPageTable;
 		public uint fpPhysicalVidMem;
@@ -3558,7 +3682,8 @@ public function uint32 PDX_GETTRANSFERSTATUS(void* param0, void* param1, DDGETTR
 	public uint fpAliasOfVidMem;
 }
 
-[CRepr]public struct DDRAWI_DDRAWSURFACE_MORE
+[CRepr]
+public struct DDRAWI_DDRAWSURFACE_MORE
 {
 	public uint32 dwSize;
 	public IUNKNOWN_LIST* lpIUnknowns;
@@ -3593,15 +3718,18 @@ public function uint32 PDX_GETTRANSFERSTATUS(void* param0, void* param1, DDGETTR
 	public void* lpVB;
 }
 
-[CRepr]public struct DDRAWI_DDRAWSURFACE_LCL
+[CRepr]
+public struct DDRAWI_DDRAWSURFACE_LCL
 {
-	[CRepr, Union]	public struct _Anonymous2_e__Union
+	[CRepr, Union]
+	public struct _Anonymous2_e__Union
 	{
 		public DDRAWI_DDRAWCLIPPER_LCL* lpDDClipper;
 		public DDRAWI_DDRAWCLIPPER_INT* lp16DDClipper;
 	}
 
-	[CRepr, Union]	public struct _Anonymous1_e__Union
+	[CRepr, Union]
+	public struct _Anonymous1_e__Union
 	{
 		public DDRAWI_DDRAWPALETTE_INT* lpDDPalette;
 		public DDRAWI_DDRAWPALETTE_INT* lp16DDPalette;
@@ -3636,7 +3764,8 @@ public function uint32 PDX_GETTRANSFERSTATUS(void* param0, void* param1, DDGETTR
 	public int32 lOverlayY;
 }
 
-[CRepr]public struct DDHALMODEINFO
+[CRepr]
+public struct DDHALMODEINFO
 {
 	public uint32 dwWidth;
 	public uint32 dwHeight;
@@ -3650,7 +3779,8 @@ public function uint32 PDX_GETTRANSFERSTATUS(void* param0, void* param1, DDGETTR
 	public uint32 dwAlphaBitMask;
 }
 
-[CRepr]public struct DDRAWI_DIRECTDRAW_INT
+[CRepr]
+public struct DDRAWI_DIRECTDRAW_INT
 {
 	public void* lpVtbl;
 	public DDRAWI_DIRECTDRAW_LCL* lpLcl;
@@ -3658,7 +3788,8 @@ public function uint32 PDX_GETTRANSFERSTATUS(void* param0, void* param1, DDGETTR
 	public uint32 dwIntRefCnt;
 }
 
-[CRepr]public struct DDHAL_CALLBACKS
+[CRepr]
+public struct DDHAL_CALLBACKS
 {
 	public DDHAL_DDCALLBACKS cbDDCallbacks;
 	public DDHAL_DDSURFACECALLBACKS cbDDSurfaceCallbacks;
@@ -3684,7 +3815,8 @@ public function uint32 PDX_GETTRANSFERSTATUS(void* param0, void* param1, DDGETTR
 	public DDHAL_DDMOTIONCOMPCALLBACKS HALDDMotionComp;
 }
 
-[CRepr]public struct DDCORECAPS
+[CRepr]
+public struct DDCORECAPS
 {
 	public uint32 dwSize;
 	public uint32 dwCaps;
@@ -3739,7 +3871,8 @@ public function uint32 PDX_GETTRANSFERSTATUS(void* param0, void* param1, DDGETTR
 	public uint32 dwSVBCaps2;
 }
 
-[CRepr]public struct DDRAWI_DIRECTDRAW_GBL
+[CRepr]
+public struct DDRAWI_DIRECTDRAW_GBL
 {
 	public uint32 dwRefCnt;
 	public uint32 dwFlags;
@@ -3813,7 +3946,8 @@ public function uint32 PDX_GETTRANSFERSTATUS(void* param0, void* param1, DDGETTR
 	public DDSCAPSEX ddsCapsMore;
 }
 
-[CRepr]public struct DDRAWI_DIRECTDRAW_LCL
+[CRepr]
+public struct DDRAWI_DIRECTDRAW_LCL
 {
 	public uint32 lpDDMore;
 	public DDRAWI_DIRECTDRAW_GBL* lpGbl;
@@ -3843,7 +3977,8 @@ public function uint32 PDX_GETTRANSFERSTATUS(void* param0, void* param1, DDGETTR
 	public LPDDGAMMACALIBRATORPROC lpGammaCalibrator;
 }
 
-[CRepr]public struct DDRAWI_DDVIDEOPORT_INT
+[CRepr]
+public struct DDRAWI_DDVIDEOPORT_INT
 {
 	public void* lpVtbl;
 	public DDRAWI_DDVIDEOPORT_LCL* lpLcl;
@@ -3852,7 +3987,8 @@ public function uint32 PDX_GETTRANSFERSTATUS(void* param0, void* param1, DDGETTR
 	public uint32 dwFlags;
 }
 
-[CRepr]public struct DDRAWI_DDVIDEOPORT_LCL
+[CRepr]
+public struct DDRAWI_DDVIDEOPORT_LCL
 {
 	public DDRAWI_DIRECTDRAW_LCL* lpDD;
 	public DDVIDEOPORTDESC ddvpDesc;
@@ -3878,7 +4014,8 @@ public function uint32 PDX_GETTRANSFERSTATUS(void* param0, void* param1, DDGETTR
 	public DDRAWI_DDVIDEOPORT_INT* lpVPNotify;
 }
 
-[CRepr]public struct DDRAWI_DDMOTIONCOMP_INT
+[CRepr]
+public struct DDRAWI_DDMOTIONCOMP_INT
 {
 	public void* lpVtbl;
 	public DDRAWI_DDMOTIONCOMP_LCL* lpLcl;
@@ -3886,7 +4023,8 @@ public function uint32 PDX_GETTRANSFERSTATUS(void* param0, void* param1, DDGETTR
 	public uint32 dwIntRefCnt;
 }
 
-[CRepr]public struct DDRAWI_DDMOTIONCOMP_LCL
+[CRepr]
+public struct DDRAWI_DDMOTIONCOMP_LCL
 {
 	public DDRAWI_DIRECTDRAW_LCL* lpDD;
 	public Guid guid;
@@ -3905,7 +4043,8 @@ public function uint32 PDX_GETTRANSFERSTATUS(void* param0, void* param1, DDGETTR
 	public void* lpDriverReserved3;
 }
 
-[CRepr]public struct DDHALINFO
+[CRepr]
+public struct DDHALINFO
 {
 	public uint32 dwSize;
 	public DDHAL_DDCALLBACKS* lpDDCallbacks;
@@ -3927,7 +4066,8 @@ public function uint32 PDX_GETTRANSFERSTATUS(void* param0, void* param1, DDGETTR
 	public DDHAL_DDEXEBUFCALLBACKS* lpDDExeBufCallbacks;
 }
 
-[CRepr]public struct DDHALDDRAWFNS
+[CRepr]
+public struct DDHALDDRAWFNS
 {
 	public uint32 dwSize;
 	public LPDDHAL_SETINFO lpSetInfo;
@@ -3935,7 +4075,8 @@ public function uint32 PDX_GETTRANSFERSTATUS(void* param0, void* param1, DDGETTR
 	public LPDDHAL_VIDMEMFREE lpVidMemFree;
 }
 
-[CRepr]public struct DDHAL_BLTDATA
+[CRepr]
+public struct DDHAL_BLTDATA
 {
 	public DDRAWI_DIRECTDRAW_GBL* lpDD;
 	public DDRAWI_DDRAWSURFACE_LCL* lpDDDestSurface;
@@ -3954,7 +4095,8 @@ public function uint32 PDX_GETTRANSFERSTATUS(void* param0, void* param1, DDGETTR
 	public RECT* prDestRects;
 }
 
-[CRepr]public struct DDHAL_LOCKDATA
+[CRepr]
+public struct DDHAL_LOCKDATA
 {
 	public DDRAWI_DIRECTDRAW_GBL* lpDD;
 	public DDRAWI_DDRAWSURFACE_LCL* lpDDSurface;
@@ -3966,7 +4108,8 @@ public function uint32 PDX_GETTRANSFERSTATUS(void* param0, void* param1, DDGETTR
 	public uint32 dwFlags;
 }
 
-[CRepr]public struct DDHAL_UNLOCKDATA
+[CRepr]
+public struct DDHAL_UNLOCKDATA
 {
 	public DDRAWI_DIRECTDRAW_GBL* lpDD;
 	public DDRAWI_DDRAWSURFACE_LCL* lpDDSurface;
@@ -3974,7 +4117,8 @@ public function uint32 PDX_GETTRANSFERSTATUS(void* param0, void* param1, DDGETTR
 	public LPDDHALSURFCB_UNLOCK Unlock;
 }
 
-[CRepr]public struct DDHAL_UPDATEOVERLAYDATA
+[CRepr]
+public struct DDHAL_UPDATEOVERLAYDATA
 {
 	public DDRAWI_DIRECTDRAW_GBL* lpDD;
 	public DDRAWI_DDRAWSURFACE_LCL* lpDDDestSurface;
@@ -3987,7 +4131,8 @@ public function uint32 PDX_GETTRANSFERSTATUS(void* param0, void* param1, DDGETTR
 	public LPDDHALSURFCB_UPDATEOVERLAY UpdateOverlay;
 }
 
-[CRepr]public struct DDHAL_SETOVERLAYPOSITIONDATA
+[CRepr]
+public struct DDHAL_SETOVERLAYPOSITIONDATA
 {
 	public DDRAWI_DIRECTDRAW_GBL* lpDD;
 	public DDRAWI_DDRAWSURFACE_LCL* lpDDSrcSurface;
@@ -3998,7 +4143,8 @@ public function uint32 PDX_GETTRANSFERSTATUS(void* param0, void* param1, DDGETTR
 	public LPDDHALSURFCB_SETOVERLAYPOSITION SetOverlayPosition;
 }
 
-[CRepr]public struct DDHAL_SETPALETTEDATA
+[CRepr]
+public struct DDHAL_SETPALETTEDATA
 {
 	public DDRAWI_DIRECTDRAW_GBL* lpDD;
 	public DDRAWI_DDRAWSURFACE_LCL* lpDDSurface;
@@ -4008,7 +4154,8 @@ public function uint32 PDX_GETTRANSFERSTATUS(void* param0, void* param1, DDGETTR
 	public BOOL Attach;
 }
 
-[CRepr]public struct DDHAL_FLIPDATA
+[CRepr]
+public struct DDHAL_FLIPDATA
 {
 	public DDRAWI_DIRECTDRAW_GBL* lpDD;
 	public DDRAWI_DDRAWSURFACE_LCL* lpSurfCurr;
@@ -4020,7 +4167,8 @@ public function uint32 PDX_GETTRANSFERSTATUS(void* param0, void* param1, DDGETTR
 	public DDRAWI_DDRAWSURFACE_LCL* lpSurfTargLeft;
 }
 
-[CRepr]public struct DDHAL_DESTROYSURFACEDATA
+[CRepr]
+public struct DDHAL_DESTROYSURFACEDATA
 {
 	public DDRAWI_DIRECTDRAW_GBL* lpDD;
 	public DDRAWI_DDRAWSURFACE_LCL* lpDDSurface;
@@ -4028,7 +4176,8 @@ public function uint32 PDX_GETTRANSFERSTATUS(void* param0, void* param1, DDGETTR
 	public LPDDHALSURFCB_DESTROYSURFACE DestroySurface;
 }
 
-[CRepr]public struct DDHAL_SETCLIPLISTDATA
+[CRepr]
+public struct DDHAL_SETCLIPLISTDATA
 {
 	public DDRAWI_DIRECTDRAW_GBL* lpDD;
 	public DDRAWI_DDRAWSURFACE_LCL* lpDDSurface;
@@ -4036,7 +4185,8 @@ public function uint32 PDX_GETTRANSFERSTATUS(void* param0, void* param1, DDGETTR
 	public LPDDHALSURFCB_SETCLIPLIST SetClipList;
 }
 
-[CRepr]public struct DDHAL_ADDATTACHEDSURFACEDATA
+[CRepr]
+public struct DDHAL_ADDATTACHEDSURFACEDATA
 {
 	public DDRAWI_DIRECTDRAW_GBL* lpDD;
 	public DDRAWI_DDRAWSURFACE_LCL* lpDDSurface;
@@ -4045,7 +4195,8 @@ public function uint32 PDX_GETTRANSFERSTATUS(void* param0, void* param1, DDGETTR
 	public LPDDHALSURFCB_ADDATTACHEDSURFACE AddAttachedSurface;
 }
 
-[CRepr]public struct DDHAL_SETCOLORKEYDATA
+[CRepr]
+public struct DDHAL_SETCOLORKEYDATA
 {
 	public DDRAWI_DIRECTDRAW_GBL* lpDD;
 	public DDRAWI_DDRAWSURFACE_LCL* lpDDSurface;
@@ -4055,7 +4206,8 @@ public function uint32 PDX_GETTRANSFERSTATUS(void* param0, void* param1, DDGETTR
 	public LPDDHALSURFCB_SETCOLORKEY SetColorKey;
 }
 
-[CRepr]public struct DDHAL_GETBLTSTATUSDATA
+[CRepr]
+public struct DDHAL_GETBLTSTATUSDATA
 {
 	public DDRAWI_DIRECTDRAW_GBL* lpDD;
 	public DDRAWI_DDRAWSURFACE_LCL* lpDDSurface;
@@ -4064,7 +4216,8 @@ public function uint32 PDX_GETTRANSFERSTATUS(void* param0, void* param1, DDGETTR
 	public LPDDHALSURFCB_GETBLTSTATUS GetBltStatus;
 }
 
-[CRepr]public struct DDHAL_GETFLIPSTATUSDATA
+[CRepr]
+public struct DDHAL_GETFLIPSTATUSDATA
 {
 	public DDRAWI_DIRECTDRAW_GBL* lpDD;
 	public DDRAWI_DDRAWSURFACE_LCL* lpDDSurface;
@@ -4073,7 +4226,8 @@ public function uint32 PDX_GETTRANSFERSTATUS(void* param0, void* param1, DDGETTR
 	public LPDDHALSURFCB_GETFLIPSTATUS GetFlipStatus;
 }
 
-[CRepr]public struct DDHAL_DESTROYPALETTEDATA
+[CRepr]
+public struct DDHAL_DESTROYPALETTEDATA
 {
 	public DDRAWI_DIRECTDRAW_GBL* lpDD;
 	public DDRAWI_DDRAWPALETTE_GBL* lpDDPalette;
@@ -4081,7 +4235,8 @@ public function uint32 PDX_GETTRANSFERSTATUS(void* param0, void* param1, DDGETTR
 	public LPDDHALPALCB_DESTROYPALETTE DestroyPalette;
 }
 
-[CRepr]public struct DDHAL_SETENTRIESDATA
+[CRepr]
+public struct DDHAL_SETENTRIESDATA
 {
 	public DDRAWI_DIRECTDRAW_GBL* lpDD;
 	public DDRAWI_DDRAWPALETTE_GBL* lpDDPalette;
@@ -4092,7 +4247,8 @@ public function uint32 PDX_GETTRANSFERSTATUS(void* param0, void* param1, DDGETTR
 	public LPDDHALPALCB_SETENTRIES SetEntries;
 }
 
-[CRepr]public struct DDHAL_CREATESURFACEDATA
+[CRepr]
+public struct DDHAL_CREATESURFACEDATA
 {
 	public DDRAWI_DIRECTDRAW_GBL* lpDD;
 	public DDSURFACEDESC* lpDDSurfaceDesc;
@@ -4102,7 +4258,8 @@ public function uint32 PDX_GETTRANSFERSTATUS(void* param0, void* param1, DDGETTR
 	public LPDDHAL_CREATESURFACE CreateSurface;
 }
 
-[CRepr]public struct DDHAL_CANCREATESURFACEDATA
+[CRepr]
+public struct DDHAL_CANCREATESURFACEDATA
 {
 	public DDRAWI_DIRECTDRAW_GBL* lpDD;
 	public DDSURFACEDESC* lpDDSurfaceDesc;
@@ -4111,7 +4268,8 @@ public function uint32 PDX_GETTRANSFERSTATUS(void* param0, void* param1, DDGETTR
 	public LPDDHAL_CANCREATESURFACE CanCreateSurface;
 }
 
-[CRepr]public struct DDHAL_CREATEPALETTEDATA
+[CRepr]
+public struct DDHAL_CREATEPALETTEDATA
 {
 	public DDRAWI_DIRECTDRAW_GBL* lpDD;
 	public DDRAWI_DDRAWPALETTE_GBL* lpDDPalette;
@@ -4121,7 +4279,8 @@ public function uint32 PDX_GETTRANSFERSTATUS(void* param0, void* param1, DDGETTR
 	public BOOL is_excl;
 }
 
-[CRepr]public struct DDHAL_WAITFORVERTICALBLANKDATA
+[CRepr]
+public struct DDHAL_WAITFORVERTICALBLANKDATA
 {
 	public DDRAWI_DIRECTDRAW_GBL* lpDD;
 	public uint32 dwFlags;
@@ -4131,14 +4290,16 @@ public function uint32 PDX_GETTRANSFERSTATUS(void* param0, void* param1, DDGETTR
 	public LPDDHAL_WAITFORVERTICALBLANK WaitForVerticalBlank;
 }
 
-[CRepr]public struct DDHAL_DESTROYDRIVERDATA
+[CRepr]
+public struct DDHAL_DESTROYDRIVERDATA
 {
 	public DDRAWI_DIRECTDRAW_GBL* lpDD;
 	public HRESULT ddRVal;
 	public LPDDHAL_DESTROYDRIVER DestroyDriver;
 }
 
-[CRepr]public struct DDHAL_SETMODEDATA
+[CRepr]
+public struct DDHAL_SETMODEDATA
 {
 	public DDRAWI_DIRECTDRAW_GBL* lpDD;
 	public uint32 dwModeIndex;
@@ -4148,7 +4309,8 @@ public function uint32 PDX_GETTRANSFERSTATUS(void* param0, void* param1, DDGETTR
 	public BOOL useRefreshRate;
 }
 
-[CRepr]public struct DDHAL_DRVSETCOLORKEYDATA
+[CRepr]
+public struct DDHAL_DRVSETCOLORKEYDATA
 {
 	public DDRAWI_DDRAWSURFACE_LCL* lpDDSurface;
 	public uint32 dwFlags;
@@ -4157,7 +4319,8 @@ public function uint32 PDX_GETTRANSFERSTATUS(void* param0, void* param1, DDGETTR
 	public LPDDHAL_SETCOLORKEY SetColorKey;
 }
 
-[CRepr]public struct DDHAL_GETSCANLINEDATA
+[CRepr]
+public struct DDHAL_GETSCANLINEDATA
 {
 	public DDRAWI_DIRECTDRAW_GBL* lpDD;
 	public uint32 dwScanLine;
@@ -4165,7 +4328,8 @@ public function uint32 PDX_GETTRANSFERSTATUS(void* param0, void* param1, DDGETTR
 	public LPDDHAL_GETSCANLINE GetScanLine;
 }
 
-[CRepr]public struct DDHAL_SETEXCLUSIVEMODEDATA
+[CRepr]
+public struct DDHAL_SETEXCLUSIVEMODEDATA
 {
 	public DDRAWI_DIRECTDRAW_GBL* lpDD;
 	public uint32 dwEnterExcl;
@@ -4174,7 +4338,8 @@ public function uint32 PDX_GETTRANSFERSTATUS(void* param0, void* param1, DDGETTR
 	public LPDDHAL_SETEXCLUSIVEMODE SetExclusiveMode;
 }
 
-[CRepr]public struct DDHAL_FLIPTOGDISURFACEDATA
+[CRepr]
+public struct DDHAL_FLIPTOGDISURFACEDATA
 {
 	public DDRAWI_DIRECTDRAW_GBL* lpDD;
 	public uint32 dwToGDI;
@@ -4183,7 +4348,8 @@ public function uint32 PDX_GETTRANSFERSTATUS(void* param0, void* param1, DDGETTR
 	public LPDDHAL_FLIPTOGDISURFACE FlipToGDISurface;
 }
 
-[CRepr]public struct DDHAL_CANCREATEVPORTDATA
+[CRepr]
+public struct DDHAL_CANCREATEVPORTDATA
 {
 	public DDRAWI_DIRECTDRAW_LCL* lpDD;
 	public DDVIDEOPORTDESC* lpDDVideoPortDesc;
@@ -4191,7 +4357,8 @@ public function uint32 PDX_GETTRANSFERSTATUS(void* param0, void* param1, DDGETTR
 	public LPDDHALVPORTCB_CANCREATEVIDEOPORT CanCreateVideoPort;
 }
 
-[CRepr]public struct DDHAL_CREATEVPORTDATA
+[CRepr]
+public struct DDHAL_CREATEVPORTDATA
 {
 	public DDRAWI_DIRECTDRAW_LCL* lpDD;
 	public DDVIDEOPORTDESC* lpDDVideoPortDesc;
@@ -4200,7 +4367,8 @@ public function uint32 PDX_GETTRANSFERSTATUS(void* param0, void* param1, DDGETTR
 	public LPDDHALVPORTCB_CREATEVIDEOPORT CreateVideoPort;
 }
 
-[CRepr]public struct DDHAL_FLIPVPORTDATA
+[CRepr]
+public struct DDHAL_FLIPVPORTDATA
 {
 	public DDRAWI_DIRECTDRAW_LCL* lpDD;
 	public DDRAWI_DDVIDEOPORT_LCL* lpVideoPort;
@@ -4210,7 +4378,8 @@ public function uint32 PDX_GETTRANSFERSTATUS(void* param0, void* param1, DDGETTR
 	public LPDDHALVPORTCB_FLIP FlipVideoPort;
 }
 
-[CRepr]public struct DDHAL_GETVPORTBANDWIDTHDATA
+[CRepr]
+public struct DDHAL_GETVPORTBANDWIDTHDATA
 {
 	public DDRAWI_DIRECTDRAW_LCL* lpDD;
 	public DDRAWI_DDVIDEOPORT_LCL* lpVideoPort;
@@ -4223,7 +4392,8 @@ public function uint32 PDX_GETTRANSFERSTATUS(void* param0, void* param1, DDGETTR
 	public LPDDHALVPORTCB_GETBANDWIDTH GetVideoPortBandwidth;
 }
 
-[CRepr]public struct DDHAL_GETVPORTINPUTFORMATDATA
+[CRepr]
+public struct DDHAL_GETVPORTINPUTFORMATDATA
 {
 	public DDRAWI_DIRECTDRAW_LCL* lpDD;
 	public DDRAWI_DDVIDEOPORT_LCL* lpVideoPort;
@@ -4234,7 +4404,8 @@ public function uint32 PDX_GETTRANSFERSTATUS(void* param0, void* param1, DDGETTR
 	public LPDDHALVPORTCB_GETINPUTFORMATS GetVideoPortInputFormats;
 }
 
-[CRepr]public struct DDHAL_GETVPORTOUTPUTFORMATDATA
+[CRepr]
+public struct DDHAL_GETVPORTOUTPUTFORMATDATA
 {
 	public DDRAWI_DIRECTDRAW_LCL* lpDD;
 	public DDRAWI_DDVIDEOPORT_LCL* lpVideoPort;
@@ -4246,7 +4417,8 @@ public function uint32 PDX_GETTRANSFERSTATUS(void* param0, void* param1, DDGETTR
 	public LPDDHALVPORTCB_GETOUTPUTFORMATS GetVideoPortOutputFormats;
 }
 
-[CRepr]public struct DDHAL_GETVPORTFIELDDATA
+[CRepr]
+public struct DDHAL_GETVPORTFIELDDATA
 {
 	public DDRAWI_DIRECTDRAW_LCL* lpDD;
 	public DDRAWI_DDVIDEOPORT_LCL* lpVideoPort;
@@ -4255,7 +4427,8 @@ public function uint32 PDX_GETTRANSFERSTATUS(void* param0, void* param1, DDGETTR
 	public LPDDHALVPORTCB_GETFIELD GetVideoPortField;
 }
 
-[CRepr]public struct DDHAL_GETVPORTLINEDATA
+[CRepr]
+public struct DDHAL_GETVPORTLINEDATA
 {
 	public DDRAWI_DIRECTDRAW_LCL* lpDD;
 	public DDRAWI_DDVIDEOPORT_LCL* lpVideoPort;
@@ -4264,7 +4437,8 @@ public function uint32 PDX_GETTRANSFERSTATUS(void* param0, void* param1, DDGETTR
 	public LPDDHALVPORTCB_GETLINE GetVideoPortLine;
 }
 
-[CRepr]public struct DDHAL_GETVPORTCONNECTDATA
+[CRepr]
+public struct DDHAL_GETVPORTCONNECTDATA
 {
 	public DDRAWI_DIRECTDRAW_LCL* lpDD;
 	public uint32 dwPortId;
@@ -4274,7 +4448,8 @@ public function uint32 PDX_GETTRANSFERSTATUS(void* param0, void* param1, DDGETTR
 	public LPDDHALVPORTCB_GETVPORTCONNECT GetVideoPortConnectInfo;
 }
 
-[CRepr]public struct DDHAL_DESTROYVPORTDATA
+[CRepr]
+public struct DDHAL_DESTROYVPORTDATA
 {
 	public DDRAWI_DIRECTDRAW_LCL* lpDD;
 	public DDRAWI_DDVIDEOPORT_LCL* lpVideoPort;
@@ -4282,7 +4457,8 @@ public function uint32 PDX_GETTRANSFERSTATUS(void* param0, void* param1, DDGETTR
 	public LPDDHALVPORTCB_DESTROYVPORT DestroyVideoPort;
 }
 
-[CRepr]public struct DDHAL_GETVPORTFLIPSTATUSDATA
+[CRepr]
+public struct DDHAL_GETVPORTFLIPSTATUSDATA
 {
 	public DDRAWI_DIRECTDRAW_LCL* lpDD;
 	public uint fpSurface;
@@ -4290,7 +4466,8 @@ public function uint32 PDX_GETTRANSFERSTATUS(void* param0, void* param1, DDGETTR
 	public LPDDHALVPORTCB_GETFLIPSTATUS GetVideoPortFlipStatus;
 }
 
-[CRepr]public struct DDHAL_UPDATEVPORTDATA
+[CRepr]
+public struct DDHAL_UPDATEVPORTDATA
 {
 	public DDRAWI_DIRECTDRAW_LCL* lpDD;
 	public DDRAWI_DDVIDEOPORT_LCL* lpVideoPort;
@@ -4304,7 +4481,8 @@ public function uint32 PDX_GETTRANSFERSTATUS(void* param0, void* param1, DDGETTR
 	public LPDDHALVPORTCB_UPDATE UpdateVideoPort;
 }
 
-[CRepr]public struct DDHAL_WAITFORVPORTSYNCDATA
+[CRepr]
+public struct DDHAL_WAITFORVPORTSYNCDATA
 {
 	public DDRAWI_DIRECTDRAW_LCL* lpDD;
 	public DDRAWI_DDVIDEOPORT_LCL* lpVideoPort;
@@ -4315,7 +4493,8 @@ public function uint32 PDX_GETTRANSFERSTATUS(void* param0, void* param1, DDGETTR
 	public LPDDHALVPORTCB_WAITFORSYNC WaitForVideoPortSync;
 }
 
-[CRepr]public struct DDHAL_GETVPORTSIGNALDATA
+[CRepr]
+public struct DDHAL_GETVPORTSIGNALDATA
 {
 	public DDRAWI_DIRECTDRAW_LCL* lpDD;
 	public DDRAWI_DDVIDEOPORT_LCL* lpVideoPort;
@@ -4324,7 +4503,8 @@ public function uint32 PDX_GETTRANSFERSTATUS(void* param0, void* param1, DDGETTR
 	public LPDDHALVPORTCB_GETSIGNALSTATUS GetVideoSignalStatus;
 }
 
-[CRepr]public struct DDHAL_VPORTCOLORDATA
+[CRepr]
+public struct DDHAL_VPORTCOLORDATA
 {
 	public DDRAWI_DIRECTDRAW_LCL* lpDD;
 	public DDRAWI_DDVIDEOPORT_LCL* lpVideoPort;
@@ -4334,7 +4514,8 @@ public function uint32 PDX_GETTRANSFERSTATUS(void* param0, void* param1, DDGETTR
 	public LPDDHALVPORTCB_COLORCONTROL ColorControl;
 }
 
-[CRepr]public struct DDHAL_COLORCONTROLDATA
+[CRepr]
+public struct DDHAL_COLORCONTROLDATA
 {
 	public DDRAWI_DIRECTDRAW_GBL* lpDD;
 	public DDRAWI_DDRAWSURFACE_LCL* lpDDSurface;
@@ -4344,7 +4525,8 @@ public function uint32 PDX_GETTRANSFERSTATUS(void* param0, void* param1, DDGETTR
 	public LPDDHALCOLORCB_COLORCONTROL ColorControl;
 }
 
-[CRepr]public struct DDHAL_GETDRIVERINFODATA
+[CRepr]
+public struct DDHAL_GETDRIVERINFODATA
 {
 	public uint32 dwSize;
 	public uint32 dwFlags;
@@ -4356,7 +4538,8 @@ public function uint32 PDX_GETTRANSFERSTATUS(void* param0, void* param1, DDGETTR
 	public uint dwContext;
 }
 
-[CRepr]public struct DDHAL_GETAVAILDRIVERMEMORYDATA
+[CRepr]
+public struct DDHAL_GETAVAILDRIVERMEMORYDATA
 {
 	public DDRAWI_DIRECTDRAW_GBL* lpDD;
 	public DDSCAPS DDSCaps;
@@ -4367,7 +4550,8 @@ public function uint32 PDX_GETTRANSFERSTATUS(void* param0, void* param1, DDGETTR
 	public DDSCAPSEX ddsCapsEx;
 }
 
-[CRepr]public struct DDHAL_UPDATENONLOCALHEAPDATA
+[CRepr]
+public struct DDHAL_UPDATENONLOCALHEAPDATA
 {
 	public DDRAWI_DIRECTDRAW_GBL* lpDD;
 	public uint32 dwHeap;
@@ -4378,7 +4562,8 @@ public function uint32 PDX_GETTRANSFERSTATUS(void* param0, void* param1, DDGETTR
 	public LPDDHAL_UPDATENONLOCALHEAP UpdateNonLocalHeap;
 }
 
-[CRepr]public struct DDHAL_GETHEAPALIGNMENTDATA
+[CRepr]
+public struct DDHAL_GETHEAPALIGNMENTDATA
 {
 	public uint dwInstance;
 	public uint32 dwHeap;
@@ -4387,7 +4572,8 @@ public function uint32 PDX_GETTRANSFERSTATUS(void* param0, void* param1, DDGETTR
 	public HEAPALIGNMENT Alignment;
 }
 
-[CRepr]public struct DDHAL_CREATESURFACEEXDATA
+[CRepr]
+public struct DDHAL_CREATESURFACEEXDATA
 {
 	public uint32 dwFlags;
 	public DDRAWI_DIRECTDRAW_LCL* lpDDLcl;
@@ -4395,9 +4581,11 @@ public function uint32 PDX_GETTRANSFERSTATUS(void* param0, void* param1, DDGETTR
 	public HRESULT ddRVal;
 }
 
-[CRepr]public struct DDHAL_GETDRIVERSTATEDATA
+[CRepr]
+public struct DDHAL_GETDRIVERSTATEDATA
 {
-	[CRepr, Union]	public struct _Anonymous_e__Union
+	[CRepr, Union]
+	public struct _Anonymous_e__Union
 	{
 		public uint dwhContext;
 	}
@@ -4409,14 +4597,16 @@ public function uint32 PDX_GETTRANSFERSTATUS(void* param0, void* param1, DDGETTR
 	public HRESULT ddRVal;
 }
 
-[CRepr]public struct DDHAL_DESTROYDDLOCALDATA
+[CRepr]
+public struct DDHAL_DESTROYDDLOCALDATA
 {
 	public uint32 dwFlags;
 	public DDRAWI_DIRECTDRAW_LCL* pDDLcl;
 	public HRESULT ddRVal;
 }
 
-[CRepr]public struct DDHAL_SYNCSURFACEDATA
+[CRepr]
+public struct DDHAL_SYNCSURFACEDATA
 {
 	public uint32 dwSize;
 	public DDRAWI_DIRECTDRAW_LCL* lpDD;
@@ -4435,7 +4625,8 @@ public function uint32 PDX_GETTRANSFERSTATUS(void* param0, void* param1, DDGETTR
 	public HRESULT ddRVal;
 }
 
-[CRepr]public struct DDHAL_SYNCVIDEOPORTDATA
+[CRepr]
+public struct DDHAL_SYNCVIDEOPORTDATA
 {
 	public uint32 dwSize;
 	public DDRAWI_DIRECTDRAW_LCL* lpDD;
@@ -4449,7 +4640,8 @@ public function uint32 PDX_GETTRANSFERSTATUS(void* param0, void* param1, DDGETTR
 	public HRESULT ddRVal;
 }
 
-[CRepr]public struct DDHAL_GETMOCOMPGUIDSDATA
+[CRepr]
+public struct DDHAL_GETMOCOMPGUIDSDATA
 {
 	public DDRAWI_DIRECTDRAW_LCL* lpDD;
 	public uint32 dwNumGuids;
@@ -4458,7 +4650,8 @@ public function uint32 PDX_GETTRANSFERSTATUS(void* param0, void* param1, DDGETTR
 	public LPDDHALMOCOMPCB_GETGUIDS GetMoCompGuids;
 }
 
-[CRepr]public struct DDHAL_GETMOCOMPFORMATSDATA
+[CRepr]
+public struct DDHAL_GETMOCOMPFORMATSDATA
 {
 	public DDRAWI_DIRECTDRAW_LCL* lpDD;
 	public Guid* lpGuid;
@@ -4468,7 +4661,8 @@ public function uint32 PDX_GETTRANSFERSTATUS(void* param0, void* param1, DDGETTR
 	public LPDDHALMOCOMPCB_GETFORMATS GetMoCompFormats;
 }
 
-[CRepr]public struct DDHAL_CREATEMOCOMPDATA
+[CRepr]
+public struct DDHAL_CREATEMOCOMPDATA
 {
 	public DDRAWI_DIRECTDRAW_LCL* lpDD;
 	public DDRAWI_DDMOTIONCOMP_LCL* lpMoComp;
@@ -4482,7 +4676,8 @@ public function uint32 PDX_GETTRANSFERSTATUS(void* param0, void* param1, DDGETTR
 	public LPDDHALMOCOMPCB_CREATE CreateMoComp;
 }
 
-[CRepr]public struct DDMCCOMPBUFFERINFO
+[CRepr]
+public struct DDMCCOMPBUFFERINFO
 {
 	public uint32 dwSize;
 	public uint32 dwNumCompBuffers;
@@ -4493,7 +4688,8 @@ public function uint32 PDX_GETTRANSFERSTATUS(void* param0, void* param1, DDGETTR
 	public DDPIXELFORMAT ddPixelFormat;
 }
 
-[CRepr]public struct DDHAL_GETMOCOMPCOMPBUFFDATA
+[CRepr]
+public struct DDHAL_GETMOCOMPCOMPBUFFDATA
 {
 	public DDRAWI_DIRECTDRAW_LCL* lpDD;
 	public Guid* lpGuid;
@@ -4506,7 +4702,8 @@ public function uint32 PDX_GETTRANSFERSTATUS(void* param0, void* param1, DDGETTR
 	public LPDDHALMOCOMPCB_GETCOMPBUFFINFO GetMoCompBuffInfo;
 }
 
-[CRepr]public struct DDHAL_GETINTERNALMOCOMPDATA
+[CRepr]
+public struct DDHAL_GETINTERNALMOCOMPDATA
 {
 	public DDRAWI_DIRECTDRAW_LCL* lpDD;
 	public Guid* lpGuid;
@@ -4518,7 +4715,8 @@ public function uint32 PDX_GETTRANSFERSTATUS(void* param0, void* param1, DDGETTR
 	public LPDDHALMOCOMPCB_GETINTERNALINFO GetInternalMoCompInfo;
 }
 
-[CRepr]public struct DDHAL_BEGINMOCOMPFRAMEDATA
+[CRepr]
+public struct DDHAL_BEGINMOCOMPFRAMEDATA
 {
 	public DDRAWI_DIRECTDRAW_LCL* lpDD;
 	public DDRAWI_DDMOTIONCOMP_LCL* lpMoComp;
@@ -4531,7 +4729,8 @@ public function uint32 PDX_GETTRANSFERSTATUS(void* param0, void* param1, DDGETTR
 	public LPDDHALMOCOMPCB_BEGINFRAME BeginMoCompFrame;
 }
 
-[CRepr]public struct DDHAL_ENDMOCOMPFRAMEDATA
+[CRepr]
+public struct DDHAL_ENDMOCOMPFRAMEDATA
 {
 	public DDRAWI_DIRECTDRAW_LCL* lpDD;
 	public DDRAWI_DDMOTIONCOMP_LCL* lpMoComp;
@@ -4541,7 +4740,8 @@ public function uint32 PDX_GETTRANSFERSTATUS(void* param0, void* param1, DDGETTR
 	public LPDDHALMOCOMPCB_ENDFRAME EndMoCompFrame;
 }
 
-[CRepr]public struct DDMCBUFFERINFO
+[CRepr]
+public struct DDMCBUFFERINFO
 {
 	public uint32 dwSize;
 	public DDRAWI_DDRAWSURFACE_LCL* lpCompSurface;
@@ -4550,7 +4750,8 @@ public function uint32 PDX_GETTRANSFERSTATUS(void* param0, void* param1, DDGETTR
 	public void* lpPrivate;
 }
 
-[CRepr]public struct DDHAL_RENDERMOCOMPDATA
+[CRepr]
+public struct DDHAL_RENDERMOCOMPDATA
 {
 	public DDRAWI_DIRECTDRAW_LCL* lpDD;
 	public DDRAWI_DDMOTIONCOMP_LCL* lpMoComp;
@@ -4565,7 +4766,8 @@ public function uint32 PDX_GETTRANSFERSTATUS(void* param0, void* param1, DDGETTR
 	public LPDDHALMOCOMPCB_RENDER RenderMoComp;
 }
 
-[CRepr]public struct DDHAL_QUERYMOCOMPSTATUSDATA
+[CRepr]
+public struct DDHAL_QUERYMOCOMPSTATUSDATA
 {
 	public DDRAWI_DIRECTDRAW_LCL* lpDD;
 	public DDRAWI_DDMOTIONCOMP_LCL* lpMoComp;
@@ -4575,7 +4777,8 @@ public function uint32 PDX_GETTRANSFERSTATUS(void* param0, void* param1, DDGETTR
 	public LPDDHALMOCOMPCB_QUERYSTATUS QueryMoCompStatus;
 }
 
-[CRepr]public struct DDHAL_DESTROYMOCOMPDATA
+[CRepr]
+public struct DDHAL_DESTROYMOCOMPDATA
 {
 	public DDRAWI_DIRECTDRAW_LCL* lpDD;
 	public DDRAWI_DDMOTIONCOMP_LCL* lpMoComp;
@@ -4583,27 +4786,33 @@ public function uint32 PDX_GETTRANSFERSTATUS(void* param0, void* param1, DDGETTR
 	public LPDDHALMOCOMPCB_DESTROY DestroyMoComp;
 }
 
-[CRepr]public struct _DD_DESTROYDRIVERDATA
+[CRepr]
+public struct _DD_DESTROYDRIVERDATA
 {
 }
 
-[CRepr]public struct _DD_SETMODEDATA
+[CRepr]
+public struct _DD_SETMODEDATA
 {
 }
 
-[CRepr]public struct _DD_GETVPORTAUTOFLIPSURFACEDATA
+[CRepr]
+public struct _DD_GETVPORTAUTOFLIPSURFACEDATA
 {
 }
 
-[CRepr]public struct VIDEOMEMORY
+[CRepr]
+public struct VIDEOMEMORY
 {
-	[CRepr, Union]	public struct _Anonymous1_e__Union
+	[CRepr, Union]
+	public struct _Anonymous1_e__Union
 	{
 		public uint fpEnd;
 		public uint32 dwWidth;
 	}
 
-	[CRepr, Union]	public struct _Anonymous2_e__Union
+	[CRepr, Union]
+	public struct _Anonymous2_e__Union
 	{
 		public VMEMHEAP* lpHeap;
 		public uint32 dwHeight;
@@ -4617,7 +4826,8 @@ public function uint32 PDX_GETTRANSFERSTATUS(void* param0, void* param1, DDGETTR
 	public _Anonymous2_e__Union Anonymous2;
 }
 
-[CRepr]public struct VIDEOMEMORYINFO
+[CRepr]
+public struct VIDEOMEMORYINFO
 {
 	public uint fpPrimary;
 	public uint32 dwFlags;
@@ -4633,7 +4843,8 @@ public function uint32 PDX_GETTRANSFERSTATUS(void* param0, void* param1, DDGETTR
 	public void* pvPrimary;
 }
 
-[CRepr]public struct DD_CALLBACKS
+[CRepr]
+public struct DD_CALLBACKS
 {
 	public uint32 dwSize;
 	public uint32 dwFlags;
@@ -4648,14 +4859,16 @@ public function uint32 PDX_GETTRANSFERSTATUS(void* param0, void* param1, DDGETTR
 	public PDD_MAPMEMORY MapMemory;
 }
 
-[CRepr]public struct DD_MISCELLANEOUSCALLBACKS
+[CRepr]
+public struct DD_MISCELLANEOUSCALLBACKS
 {
 	public uint32 dwSize;
 	public uint32 dwFlags;
 	public PDD_GETAVAILDRIVERMEMORY GetAvailDriverMemory;
 }
 
-[CRepr]public struct DD_MISCELLANEOUS2CALLBACKS
+[CRepr]
+public struct DD_MISCELLANEOUS2CALLBACKS
 {
 	public uint32 dwSize;
 	public uint32 dwFlags;
@@ -4665,7 +4878,8 @@ public function uint32 PDX_GETTRANSFERSTATUS(void* param0, void* param1, DDGETTR
 	public PDD_DESTROYDDLOCAL DestroyDDLocal;
 }
 
-[CRepr]public struct DD_NTCALLBACKS
+[CRepr]
+public struct DD_NTCALLBACKS
 {
 	public uint32 dwSize;
 	public uint32 dwFlags;
@@ -4674,7 +4888,8 @@ public function uint32 PDX_GETTRANSFERSTATUS(void* param0, void* param1, DDGETTR
 	public PDD_FLIPTOGDISURFACE FlipToGDISurface;
 }
 
-[CRepr]public struct DD_PALETTECALLBACKS
+[CRepr]
+public struct DD_PALETTECALLBACKS
 {
 	public uint32 dwSize;
 	public uint32 dwFlags;
@@ -4682,7 +4897,8 @@ public function uint32 PDX_GETTRANSFERSTATUS(void* param0, void* param1, DDGETTR
 	public PDD_PALCB_SETENTRIES SetEntries;
 }
 
-[CRepr]public struct DD_SURFACECALLBACKS
+[CRepr]
+public struct DD_SURFACECALLBACKS
 {
 	public uint32 dwSize;
 	public uint32 dwFlags;
@@ -4702,7 +4918,8 @@ public function uint32 PDX_GETTRANSFERSTATUS(void* param0, void* param1, DDGETTR
 	public PDD_SURFCB_SETPALETTE SetPalette;
 }
 
-[CRepr]public struct DD_VIDEOPORTCALLBACKS
+[CRepr]
+public struct DD_VIDEOPORTCALLBACKS
 {
 	public uint32 dwSize;
 	public uint32 dwFlags;
@@ -4724,14 +4941,16 @@ public function uint32 PDX_GETTRANSFERSTATUS(void* param0, void* param1, DDGETTR
 	public PDD_VPORTCB_COLORCONTROL ColorControl;
 }
 
-[CRepr]public struct DD_COLORCONTROLCALLBACKS
+[CRepr]
+public struct DD_COLORCONTROLCALLBACKS
 {
 	public uint32 dwSize;
 	public uint32 dwFlags;
 	public PDD_COLORCB_COLORCONTROL ColorControl;
 }
 
-[CRepr]public struct DD_KERNELCALLBACKS
+[CRepr]
+public struct DD_KERNELCALLBACKS
 {
 	public uint32 dwSize;
 	public uint32 dwFlags;
@@ -4739,7 +4958,8 @@ public function uint32 PDX_GETTRANSFERSTATUS(void* param0, void* param1, DDGETTR
 	public PDD_KERNELCB_SYNCVIDEOPORT SyncVideoPortData;
 }
 
-[CRepr]public struct DD_MOTIONCOMPCALLBACKS
+[CRepr]
+public struct DD_MOTIONCOMPCALLBACKS
 {
 	public uint32 dwSize;
 	public uint32 dwFlags;
@@ -4755,7 +4975,8 @@ public function uint32 PDX_GETTRANSFERSTATUS(void* param0, void* param1, DDGETTR
 	public PDD_MOCOMPCB_DESTROY DestroyMoComp;
 }
 
-[CRepr]public struct DD_NONLOCALVIDMEMCAPS
+[CRepr]
+public struct DD_NONLOCALVIDMEMCAPS
 {
 	public uint32 dwSize;
 	public uint32 dwNLVBCaps;
@@ -4765,53 +4986,63 @@ public function uint32 PDX_GETTRANSFERSTATUS(void* param0, void* param1, DDGETTR
 	public uint32[8] dwNLVBRops;
 }
 
-[CRepr]public struct DD_PALETTE_GLOBAL
+[CRepr]
+public struct DD_PALETTE_GLOBAL
 {
 	public uint dwReserved1;
 }
 
-[CRepr]public struct DD_PALETTE_LOCAL
+[CRepr]
+public struct DD_PALETTE_LOCAL
 {
 	public uint32 dwReserved0;
 	public uint dwReserved1;
 }
 
-[CRepr]public struct DD_CLIPPER_GLOBAL
+[CRepr]
+public struct DD_CLIPPER_GLOBAL
 {
 	public uint dwReserved1;
 }
 
-[CRepr]public struct DD_CLIPPER_LOCAL
+[CRepr]
+public struct DD_CLIPPER_LOCAL
 {
 	public uint dwReserved1;
 }
 
-[CRepr]public struct DD_ATTACHLIST
+[CRepr]
+public struct DD_ATTACHLIST
 {
 	public DD_ATTACHLIST* lpLink;
 	public DD_SURFACE_LOCAL* lpAttached;
 }
 
-[CRepr]public struct DD_SURFACE_INT
+[CRepr]
+public struct DD_SURFACE_INT
 {
 	public DD_SURFACE_LOCAL* lpLcl;
 }
 
-[CRepr]public struct DD_SURFACE_GLOBAL
+[CRepr]
+public struct DD_SURFACE_GLOBAL
 {
-	[CRepr, Union]	public struct _Anonymous3_e__Union
+	[CRepr, Union]
+	public struct _Anonymous3_e__Union
 	{
 		public int32 lPitch;
 		public uint32 dwLinearSize;
 	}
 
-	[CRepr, Union]	public struct _Anonymous1_e__Union
+	[CRepr, Union]
+	public struct _Anonymous1_e__Union
 	{
 		public uint32 dwBlockSizeY;
 		public int32 lSlicePitch;
 	}
 
-	[CRepr, Union]	public struct _Anonymous2_e__Union
+	[CRepr, Union]
+	public struct _Anonymous2_e__Union
 	{
 		public VIDEOMEMORY* lpVidMemHeap;
 		public uint32 dwBlockSizeX;
@@ -4832,7 +5063,8 @@ public function uint32 PDX_GETTRANSFERSTATUS(void* param0, void* param1, DDGETTR
 	public HANDLE hCreatorProcess;
 }
 
-[CRepr]public struct DD_SURFACE_MORE
+[CRepr]
+public struct DD_SURFACE_MORE
 {
 	public uint32 dwMipMapCount;
 	public DD_VIDEOPORT_LOCAL* lpVideoPort;
@@ -4841,15 +5073,18 @@ public function uint32 PDX_GETTRANSFERSTATUS(void* param0, void* param1, DDGETTR
 	public uint32 dwSurfaceHandle;
 }
 
-[CRepr]public struct DD_SURFACE_LOCAL
+[CRepr]
+public struct DD_SURFACE_LOCAL
 {
-	[CRepr, Union]	public struct _Anonymous2_e__Union
+	[CRepr, Union]
+	public struct _Anonymous2_e__Union
 	{
 		public DDCOLORKEY ddckCKDestOverlay;
 		public DDCOLORKEY ddckCKDestBlt;
 	}
 
-	[CRepr, Union]	public struct _Anonymous1_e__Union
+	[CRepr, Union]
+	public struct _Anonymous1_e__Union
 	{
 		public DDCOLORKEY ddckCKSrcOverlay;
 		public DDCOLORKEY ddckCKSrcBlt;
@@ -4867,7 +5102,8 @@ public function uint32 PDX_GETTRANSFERSTATUS(void* param0, void* param1, DDGETTR
 	public RECT rcOverlaySrc;
 }
 
-[CRepr]public struct DD_MORECAPS
+[CRepr]
+public struct DD_MORECAPS
 {
 	public uint32 dwSize;
 	public uint32 dwAlphaCaps;
@@ -4880,7 +5116,8 @@ public function uint32 PDX_GETTRANSFERSTATUS(void* param0, void* param1, DDGETTR
 	public uint32 dwSSBFilterCaps;
 }
 
-[CRepr]public struct DDNTCORECAPS
+[CRepr]
+public struct DDNTCORECAPS
 {
 	public uint32 dwSize;
 	public uint32 dwCaps;
@@ -4935,7 +5172,8 @@ public function uint32 PDX_GETTRANSFERSTATUS(void* param0, void* param1, DDGETTR
 	public uint32 dwSVBCaps2;
 }
 
-[CRepr]public struct DD_D3DBUFCALLBACKS
+[CRepr]
+public struct DD_D3DBUFCALLBACKS
 {
 	public uint32 dwSize;
 	public uint32 dwFlags;
@@ -4946,7 +5184,8 @@ public function uint32 PDX_GETTRANSFERSTATUS(void* param0, void* param1, DDGETTR
 	public PDD_SURFCB_UNLOCK UnlockD3DBuffer;
 }
 
-[CRepr]public struct DD_HALINFO_V4
+[CRepr]
+public struct DD_HALINFO_V4
 {
 	public uint32 dwSize;
 	public VIDEOMEMORYINFO vmiData;
@@ -4955,7 +5194,8 @@ public function uint32 PDX_GETTRANSFERSTATUS(void* param0, void* param1, DDGETTR
 	public uint32 dwFlags;
 }
 
-[CRepr]public struct DD_HALINFO
+[CRepr]
+public struct DD_HALINFO
 {
 	public uint32 dwSize;
 	public VIDEOMEMORYINFO vmiData;
@@ -4967,7 +5207,8 @@ public function uint32 PDX_GETTRANSFERSTATUS(void* param0, void* param1, DDGETTR
 	public DD_D3DBUFCALLBACKS* lpD3DBufCallbacks;
 }
 
-[CRepr]public struct DD_DIRECTDRAW_GLOBAL
+[CRepr]
+public struct DD_DIRECTDRAW_GLOBAL
 {
 	public void* dhpdev;
 	public uint dwReserved1;
@@ -4975,12 +5216,14 @@ public function uint32 PDX_GETTRANSFERSTATUS(void* param0, void* param1, DDGETTR
 	public DDVIDEOPORTCAPS* lpDDVideoPortCaps;
 }
 
-[CRepr]public struct DD_DIRECTDRAW_LOCAL
+[CRepr]
+public struct DD_DIRECTDRAW_LOCAL
 {
 	public DD_DIRECTDRAW_GLOBAL* lpGbl;
 }
 
-[CRepr]public struct DD_VIDEOPORT_LOCAL
+[CRepr]
+public struct DD_VIDEOPORT_LOCAL
 {
 	public DD_DIRECTDRAW_LOCAL* lpDD;
 	public DDVIDEOPORTDESC ddvpDesc;
@@ -4994,7 +5237,8 @@ public function uint32 PDX_GETTRANSFERSTATUS(void* param0, void* param1, DDGETTR
 	public uint dwReserved3;
 }
 
-[CRepr]public struct DD_MOTIONCOMP_LOCAL
+[CRepr]
+public struct DD_MOTIONCOMP_LOCAL
 {
 	public DD_DIRECTDRAW_LOCAL* lpDD;
 	public Guid guid;
@@ -5009,9 +5253,11 @@ public function uint32 PDX_GETTRANSFERSTATUS(void* param0, void* param1, DDGETTR
 	public void* lpDriverReserved3;
 }
 
-[CRepr]public struct DD_MORESURFACECAPS
+[CRepr]
+public struct DD_MORESURFACECAPS
 {
-	[CRepr]	public struct NTExtendedHeapRestrictions
+	[CRepr]
+	public struct NTExtendedHeapRestrictions
 	{
 		public DDSCAPSEX ddsCapsEx;
 		public DDSCAPSEX ddsCapsExAlt;
@@ -5022,7 +5268,8 @@ public function uint32 PDX_GETTRANSFERSTATUS(void* param0, void* param1, DDGETTR
 	public NTExtendedHeapRestrictions[1] ddsExtendedHeapRestrictions;
 }
 
-[CRepr]public struct DD_STEREOMODE
+[CRepr]
+public struct DD_STEREOMODE
 {
 	public uint32 dwSize;
 	public uint32 dwHeight;
@@ -5032,7 +5279,8 @@ public function uint32 PDX_GETTRANSFERSTATUS(void* param0, void* param1, DDGETTR
 	public BOOL bSupported;
 }
 
-[CRepr]public struct DD_UPDATENONLOCALHEAPDATA
+[CRepr]
+public struct DD_UPDATENONLOCALHEAPDATA
 {
 	public DD_DIRECTDRAW_GLOBAL* lpDD;
 	public uint32 dwHeap;
@@ -5043,13 +5291,15 @@ public function uint32 PDX_GETTRANSFERSTATUS(void* param0, void* param1, DDGETTR
 	public void* UpdateNonLocalHeap;
 }
 
-[CRepr]public struct DD_NTPRIVATEDRIVERCAPS
+[CRepr]
+public struct DD_NTPRIVATEDRIVERCAPS
 {
 	public uint32 dwSize;
 	public uint32 dwPrivateCaps;
 }
 
-[CRepr]public struct DD_BLTDATA
+[CRepr]
+public struct DD_BLTDATA
 {
 	public DD_DIRECTDRAW_GLOBAL* lpDD;
 	public DD_SURFACE_LOCAL* lpDDDestSurface;
@@ -5070,7 +5320,8 @@ public function uint32 PDX_GETTRANSFERSTATUS(void* param0, void* param1, DDGETTR
 	public DDARGB ddargbScaleFactors;
 }
 
-[CRepr]public struct DD_LOCKDATA
+[CRepr]
+public struct DD_LOCKDATA
 {
 	public DD_DIRECTDRAW_GLOBAL* lpDD;
 	public DD_SURFACE_LOCAL* lpDDSurface;
@@ -5083,7 +5334,8 @@ public function uint32 PDX_GETTRANSFERSTATUS(void* param0, void* param1, DDGETTR
 	public uint fpProcess;
 }
 
-[CRepr]public struct DD_UNLOCKDATA
+[CRepr]
+public struct DD_UNLOCKDATA
 {
 	public DD_DIRECTDRAW_GLOBAL* lpDD;
 	public DD_SURFACE_LOCAL* lpDDSurface;
@@ -5091,7 +5343,8 @@ public function uint32 PDX_GETTRANSFERSTATUS(void* param0, void* param1, DDGETTR
 	public void* Unlock;
 }
 
-[CRepr]public struct DD_UPDATEOVERLAYDATA
+[CRepr]
+public struct DD_UPDATEOVERLAYDATA
 {
 	public DD_DIRECTDRAW_GLOBAL* lpDD;
 	public DD_SURFACE_LOCAL* lpDDDestSurface;
@@ -5104,7 +5357,8 @@ public function uint32 PDX_GETTRANSFERSTATUS(void* param0, void* param1, DDGETTR
 	public void* UpdateOverlay;
 }
 
-[CRepr]public struct DD_SETOVERLAYPOSITIONDATA
+[CRepr]
+public struct DD_SETOVERLAYPOSITIONDATA
 {
 	public DD_DIRECTDRAW_GLOBAL* lpDD;
 	public DD_SURFACE_LOCAL* lpDDSrcSurface;
@@ -5115,7 +5369,8 @@ public function uint32 PDX_GETTRANSFERSTATUS(void* param0, void* param1, DDGETTR
 	public void* SetOverlayPosition;
 }
 
-[CRepr]public struct DD_SETPALETTEDATA
+[CRepr]
+public struct DD_SETPALETTEDATA
 {
 	public DD_DIRECTDRAW_GLOBAL* lpDD;
 	public DD_SURFACE_LOCAL* lpDDSurface;
@@ -5125,7 +5380,8 @@ public function uint32 PDX_GETTRANSFERSTATUS(void* param0, void* param1, DDGETTR
 	public BOOL Attach;
 }
 
-[CRepr]public struct DD_FLIPDATA
+[CRepr]
+public struct DD_FLIPDATA
 {
 	public DD_DIRECTDRAW_GLOBAL* lpDD;
 	public DD_SURFACE_LOCAL* lpSurfCurr;
@@ -5137,7 +5393,8 @@ public function uint32 PDX_GETTRANSFERSTATUS(void* param0, void* param1, DDGETTR
 	public DD_SURFACE_LOCAL* lpSurfTargLeft;
 }
 
-[CRepr]public struct DD_DESTROYSURFACEDATA
+[CRepr]
+public struct DD_DESTROYSURFACEDATA
 {
 	public DD_DIRECTDRAW_GLOBAL* lpDD;
 	public DD_SURFACE_LOCAL* lpDDSurface;
@@ -5145,7 +5402,8 @@ public function uint32 PDX_GETTRANSFERSTATUS(void* param0, void* param1, DDGETTR
 	public void* DestroySurface;
 }
 
-[CRepr]public struct DD_SETCLIPLISTDATA
+[CRepr]
+public struct DD_SETCLIPLISTDATA
 {
 	public DD_DIRECTDRAW_GLOBAL* lpDD;
 	public DD_SURFACE_LOCAL* lpDDSurface;
@@ -5153,7 +5411,8 @@ public function uint32 PDX_GETTRANSFERSTATUS(void* param0, void* param1, DDGETTR
 	public void* SetClipList;
 }
 
-[CRepr]public struct DD_ADDATTACHEDSURFACEDATA
+[CRepr]
+public struct DD_ADDATTACHEDSURFACEDATA
 {
 	public DD_DIRECTDRAW_GLOBAL* lpDD;
 	public DD_SURFACE_LOCAL* lpDDSurface;
@@ -5162,7 +5421,8 @@ public function uint32 PDX_GETTRANSFERSTATUS(void* param0, void* param1, DDGETTR
 	public void* AddAttachedSurface;
 }
 
-[CRepr]public struct DD_SETCOLORKEYDATA
+[CRepr]
+public struct DD_SETCOLORKEYDATA
 {
 	public DD_DIRECTDRAW_GLOBAL* lpDD;
 	public DD_SURFACE_LOCAL* lpDDSurface;
@@ -5172,7 +5432,8 @@ public function uint32 PDX_GETTRANSFERSTATUS(void* param0, void* param1, DDGETTR
 	public void* SetColorKey;
 }
 
-[CRepr]public struct DD_GETBLTSTATUSDATA
+[CRepr]
+public struct DD_GETBLTSTATUSDATA
 {
 	public DD_DIRECTDRAW_GLOBAL* lpDD;
 	public DD_SURFACE_LOCAL* lpDDSurface;
@@ -5181,7 +5442,8 @@ public function uint32 PDX_GETTRANSFERSTATUS(void* param0, void* param1, DDGETTR
 	public void* GetBltStatus;
 }
 
-[CRepr]public struct DD_GETFLIPSTATUSDATA
+[CRepr]
+public struct DD_GETFLIPSTATUSDATA
 {
 	public DD_DIRECTDRAW_GLOBAL* lpDD;
 	public DD_SURFACE_LOCAL* lpDDSurface;
@@ -5190,7 +5452,8 @@ public function uint32 PDX_GETTRANSFERSTATUS(void* param0, void* param1, DDGETTR
 	public void* GetFlipStatus;
 }
 
-[CRepr]public struct DD_DESTROYPALETTEDATA
+[CRepr]
+public struct DD_DESTROYPALETTEDATA
 {
 	public DD_DIRECTDRAW_GLOBAL* lpDD;
 	public DD_PALETTE_GLOBAL* lpDDPalette;
@@ -5198,7 +5461,8 @@ public function uint32 PDX_GETTRANSFERSTATUS(void* param0, void* param1, DDGETTR
 	public void* DestroyPalette;
 }
 
-[CRepr]public struct DD_SETENTRIESDATA
+[CRepr]
+public struct DD_SETENTRIESDATA
 {
 	public DD_DIRECTDRAW_GLOBAL* lpDD;
 	public DD_PALETTE_GLOBAL* lpDDPalette;
@@ -5209,7 +5473,8 @@ public function uint32 PDX_GETTRANSFERSTATUS(void* param0, void* param1, DDGETTR
 	public void* SetEntries;
 }
 
-[CRepr]public struct DD_CREATESURFACEDATA
+[CRepr]
+public struct DD_CREATESURFACEDATA
 {
 	public DD_DIRECTDRAW_GLOBAL* lpDD;
 	public DDSURFACEDESC* lpDDSurfaceDesc;
@@ -5219,7 +5484,8 @@ public function uint32 PDX_GETTRANSFERSTATUS(void* param0, void* param1, DDGETTR
 	public void* CreateSurface;
 }
 
-[CRepr]public struct DD_CANCREATESURFACEDATA
+[CRepr]
+public struct DD_CANCREATESURFACEDATA
 {
 	public DD_DIRECTDRAW_GLOBAL* lpDD;
 	public DDSURFACEDESC* lpDDSurfaceDesc;
@@ -5228,7 +5494,8 @@ public function uint32 PDX_GETTRANSFERSTATUS(void* param0, void* param1, DDGETTR
 	public void* CanCreateSurface;
 }
 
-[CRepr]public struct DD_CREATEPALETTEDATA
+[CRepr]
+public struct DD_CREATEPALETTEDATA
 {
 	public DD_DIRECTDRAW_GLOBAL* lpDD;
 	public DD_PALETTE_GLOBAL* lpDDPalette;
@@ -5238,7 +5505,8 @@ public function uint32 PDX_GETTRANSFERSTATUS(void* param0, void* param1, DDGETTR
 	public BOOL is_excl;
 }
 
-[CRepr]public struct DD_WAITFORVERTICALBLANKDATA
+[CRepr]
+public struct DD_WAITFORVERTICALBLANKDATA
 {
 	public DD_DIRECTDRAW_GLOBAL* lpDD;
 	public uint32 dwFlags;
@@ -5248,7 +5516,8 @@ public function uint32 PDX_GETTRANSFERSTATUS(void* param0, void* param1, DDGETTR
 	public void* WaitForVerticalBlank;
 }
 
-[CRepr]public struct DD_DRVSETCOLORKEYDATA
+[CRepr]
+public struct DD_DRVSETCOLORKEYDATA
 {
 	public DD_SURFACE_LOCAL* lpDDSurface;
 	public uint32 dwFlags;
@@ -5257,7 +5526,8 @@ public function uint32 PDX_GETTRANSFERSTATUS(void* param0, void* param1, DDGETTR
 	public void* SetColorKey;
 }
 
-[CRepr]public struct DD_GETSCANLINEDATA
+[CRepr]
+public struct DD_GETSCANLINEDATA
 {
 	public DD_DIRECTDRAW_GLOBAL* lpDD;
 	public uint32 dwScanLine;
@@ -5265,7 +5535,8 @@ public function uint32 PDX_GETTRANSFERSTATUS(void* param0, void* param1, DDGETTR
 	public void* GetScanLine;
 }
 
-[CRepr]public struct DD_MAPMEMORYDATA
+[CRepr]
+public struct DD_MAPMEMORYDATA
 {
 	public DD_DIRECTDRAW_GLOBAL* lpDD;
 	public BOOL bMap;
@@ -5274,7 +5545,8 @@ public function uint32 PDX_GETTRANSFERSTATUS(void* param0, void* param1, DDGETTR
 	public HRESULT ddRVal;
 }
 
-[CRepr]public struct DD_CANCREATEVPORTDATA
+[CRepr]
+public struct DD_CANCREATEVPORTDATA
 {
 	public DD_DIRECTDRAW_LOCAL* lpDD;
 	public DDVIDEOPORTDESC* lpDDVideoPortDesc;
@@ -5282,7 +5554,8 @@ public function uint32 PDX_GETTRANSFERSTATUS(void* param0, void* param1, DDGETTR
 	public void* CanCreateVideoPort;
 }
 
-[CRepr]public struct DD_CREATEVPORTDATA
+[CRepr]
+public struct DD_CREATEVPORTDATA
 {
 	public DD_DIRECTDRAW_LOCAL* lpDD;
 	public DDVIDEOPORTDESC* lpDDVideoPortDesc;
@@ -5291,7 +5564,8 @@ public function uint32 PDX_GETTRANSFERSTATUS(void* param0, void* param1, DDGETTR
 	public void* CreateVideoPort;
 }
 
-[CRepr]public struct DD_FLIPVPORTDATA
+[CRepr]
+public struct DD_FLIPVPORTDATA
 {
 	public DD_DIRECTDRAW_LOCAL* lpDD;
 	public DD_VIDEOPORT_LOCAL* lpVideoPort;
@@ -5301,7 +5575,8 @@ public function uint32 PDX_GETTRANSFERSTATUS(void* param0, void* param1, DDGETTR
 	public void* FlipVideoPort;
 }
 
-[CRepr]public struct DD_GETVPORTBANDWIDTHDATA
+[CRepr]
+public struct DD_GETVPORTBANDWIDTHDATA
 {
 	public DD_DIRECTDRAW_LOCAL* lpDD;
 	public DD_VIDEOPORT_LOCAL* lpVideoPort;
@@ -5314,7 +5589,8 @@ public function uint32 PDX_GETTRANSFERSTATUS(void* param0, void* param1, DDGETTR
 	public void* GetVideoPortBandwidth;
 }
 
-[CRepr]public struct DD_GETVPORTINPUTFORMATDATA
+[CRepr]
+public struct DD_GETVPORTINPUTFORMATDATA
 {
 	public DD_DIRECTDRAW_LOCAL* lpDD;
 	public DD_VIDEOPORT_LOCAL* lpVideoPort;
@@ -5325,7 +5601,8 @@ public function uint32 PDX_GETTRANSFERSTATUS(void* param0, void* param1, DDGETTR
 	public void* GetVideoPortInputFormats;
 }
 
-[CRepr]public struct DD_GETVPORTOUTPUTFORMATDATA
+[CRepr]
+public struct DD_GETVPORTOUTPUTFORMATDATA
 {
 	public DD_DIRECTDRAW_LOCAL* lpDD;
 	public DD_VIDEOPORT_LOCAL* lpVideoPort;
@@ -5337,7 +5614,8 @@ public function uint32 PDX_GETTRANSFERSTATUS(void* param0, void* param1, DDGETTR
 	public void* GetVideoPortInputFormats;
 }
 
-[CRepr]public struct DD_GETVPORTFIELDDATA
+[CRepr]
+public struct DD_GETVPORTFIELDDATA
 {
 	public DD_DIRECTDRAW_LOCAL* lpDD;
 	public DD_VIDEOPORT_LOCAL* lpVideoPort;
@@ -5346,7 +5624,8 @@ public function uint32 PDX_GETTRANSFERSTATUS(void* param0, void* param1, DDGETTR
 	public void* GetVideoPortField;
 }
 
-[CRepr]public struct DD_GETVPORTLINEDATA
+[CRepr]
+public struct DD_GETVPORTLINEDATA
 {
 	public DD_DIRECTDRAW_LOCAL* lpDD;
 	public DD_VIDEOPORT_LOCAL* lpVideoPort;
@@ -5355,7 +5634,8 @@ public function uint32 PDX_GETTRANSFERSTATUS(void* param0, void* param1, DDGETTR
 	public void* GetVideoPortLine;
 }
 
-[CRepr]public struct DD_GETVPORTCONNECTDATA
+[CRepr]
+public struct DD_GETVPORTCONNECTDATA
 {
 	public DD_DIRECTDRAW_LOCAL* lpDD;
 	public uint32 dwPortId;
@@ -5365,7 +5645,8 @@ public function uint32 PDX_GETTRANSFERSTATUS(void* param0, void* param1, DDGETTR
 	public void* GetVideoPortConnectInfo;
 }
 
-[CRepr]public struct DD_DESTROYVPORTDATA
+[CRepr]
+public struct DD_DESTROYVPORTDATA
 {
 	public DD_DIRECTDRAW_LOCAL* lpDD;
 	public DD_VIDEOPORT_LOCAL* lpVideoPort;
@@ -5373,7 +5654,8 @@ public function uint32 PDX_GETTRANSFERSTATUS(void* param0, void* param1, DDGETTR
 	public void* DestroyVideoPort;
 }
 
-[CRepr]public struct DD_GETVPORTFLIPSTATUSDATA
+[CRepr]
+public struct DD_GETVPORTFLIPSTATUSDATA
 {
 	public DD_DIRECTDRAW_LOCAL* lpDD;
 	public uint fpSurface;
@@ -5381,7 +5663,8 @@ public function uint32 PDX_GETTRANSFERSTATUS(void* param0, void* param1, DDGETTR
 	public void* GetVideoPortFlipStatus;
 }
 
-[CRepr]public struct DD_UPDATEVPORTDATA
+[CRepr]
+public struct DD_UPDATEVPORTDATA
 {
 	public DD_DIRECTDRAW_LOCAL* lpDD;
 	public DD_VIDEOPORT_LOCAL* lpVideoPort;
@@ -5395,7 +5678,8 @@ public function uint32 PDX_GETTRANSFERSTATUS(void* param0, void* param1, DDGETTR
 	public void* UpdateVideoPort;
 }
 
-[CRepr]public struct DD_WAITFORVPORTSYNCDATA
+[CRepr]
+public struct DD_WAITFORVPORTSYNCDATA
 {
 	public DD_DIRECTDRAW_LOCAL* lpDD;
 	public DD_VIDEOPORT_LOCAL* lpVideoPort;
@@ -5406,7 +5690,8 @@ public function uint32 PDX_GETTRANSFERSTATUS(void* param0, void* param1, DDGETTR
 	public void* UpdateVideoPort;
 }
 
-[CRepr]public struct DD_GETVPORTSIGNALDATA
+[CRepr]
+public struct DD_GETVPORTSIGNALDATA
 {
 	public DD_DIRECTDRAW_LOCAL* lpDD;
 	public DD_VIDEOPORT_LOCAL* lpVideoPort;
@@ -5415,7 +5700,8 @@ public function uint32 PDX_GETTRANSFERSTATUS(void* param0, void* param1, DDGETTR
 	public void* GetVideoSignalStatus;
 }
 
-[CRepr]public struct DD_VPORTCOLORDATA
+[CRepr]
+public struct DD_VPORTCOLORDATA
 {
 	public DD_DIRECTDRAW_LOCAL* lpDD;
 	public DD_VIDEOPORT_LOCAL* lpVideoPort;
@@ -5425,7 +5711,8 @@ public function uint32 PDX_GETTRANSFERSTATUS(void* param0, void* param1, DDGETTR
 	public void* ColorControl;
 }
 
-[CRepr]public struct DD_COLORCONTROLDATA
+[CRepr]
+public struct DD_COLORCONTROLDATA
 {
 	public DD_DIRECTDRAW_GLOBAL* lpDD;
 	public DD_SURFACE_LOCAL* lpDDSurface;
@@ -5435,7 +5722,8 @@ public function uint32 PDX_GETTRANSFERSTATUS(void* param0, void* param1, DDGETTR
 	public void* ColorControl;
 }
 
-[CRepr]public struct DD_GETDRIVERINFODATA
+[CRepr]
+public struct DD_GETDRIVERINFODATA
 {
 	public void* dhpdev;
 	public uint32 dwSize;
@@ -5447,7 +5735,8 @@ public function uint32 PDX_GETTRANSFERSTATUS(void* param0, void* param1, DDGETTR
 	public HRESULT ddRVal;
 }
 
-[CRepr]public struct DD_GETAVAILDRIVERMEMORYDATA
+[CRepr]
+public struct DD_GETAVAILDRIVERMEMORYDATA
 {
 	public DD_DIRECTDRAW_GLOBAL* lpDD;
 	public DDSCAPS DDSCaps;
@@ -5457,7 +5746,8 @@ public function uint32 PDX_GETTRANSFERSTATUS(void* param0, void* param1, DDGETTR
 	public void* GetAvailDriverMemory;
 }
 
-[CRepr]public struct DD_FREEDRIVERMEMORYDATA
+[CRepr]
+public struct DD_FREEDRIVERMEMORYDATA
 {
 	public DD_DIRECTDRAW_GLOBAL* lpDD;
 	public DD_SURFACE_LOCAL* lpDDSurface;
@@ -5465,7 +5755,8 @@ public function uint32 PDX_GETTRANSFERSTATUS(void* param0, void* param1, DDGETTR
 	public void* FreeDriverMemory;
 }
 
-[CRepr]public struct DD_SETEXCLUSIVEMODEDATA
+[CRepr]
+public struct DD_SETEXCLUSIVEMODEDATA
 {
 	public DD_DIRECTDRAW_GLOBAL* lpDD;
 	public uint32 dwEnterExcl;
@@ -5474,7 +5765,8 @@ public function uint32 PDX_GETTRANSFERSTATUS(void* param0, void* param1, DDGETTR
 	public void* SetExclusiveMode;
 }
 
-[CRepr]public struct DD_FLIPTOGDISURFACEDATA
+[CRepr]
+public struct DD_FLIPTOGDISURFACEDATA
 {
 	public DD_DIRECTDRAW_GLOBAL* lpDD;
 	public uint32 dwToGDI;
@@ -5483,7 +5775,8 @@ public function uint32 PDX_GETTRANSFERSTATUS(void* param0, void* param1, DDGETTR
 	public void* FlipToGDISurface;
 }
 
-[CRepr]public struct DD_SYNCSURFACEDATA
+[CRepr]
+public struct DD_SYNCSURFACEDATA
 {
 	public DD_DIRECTDRAW_LOCAL* lpDD;
 	public DD_SURFACE_LOCAL* lpDDSurface;
@@ -5498,7 +5791,8 @@ public function uint32 PDX_GETTRANSFERSTATUS(void* param0, void* param1, DDGETTR
 	public HRESULT ddRVal;
 }
 
-[CRepr]public struct DD_SYNCVIDEOPORTDATA
+[CRepr]
+public struct DD_SYNCVIDEOPORTDATA
 {
 	public DD_DIRECTDRAW_LOCAL* lpDD;
 	public DD_VIDEOPORT_LOCAL* lpVideoPort;
@@ -5511,7 +5805,8 @@ public function uint32 PDX_GETTRANSFERSTATUS(void* param0, void* param1, DDGETTR
 	public HRESULT ddRVal;
 }
 
-[CRepr]public struct DD_GETMOCOMPGUIDSDATA
+[CRepr]
+public struct DD_GETMOCOMPGUIDSDATA
 {
 	public DD_DIRECTDRAW_LOCAL* lpDD;
 	public uint32 dwNumGuids;
@@ -5519,7 +5814,8 @@ public function uint32 PDX_GETTRANSFERSTATUS(void* param0, void* param1, DDGETTR
 	public HRESULT ddRVal;
 }
 
-[CRepr]public struct DD_GETMOCOMPFORMATSDATA
+[CRepr]
+public struct DD_GETMOCOMPFORMATSDATA
 {
 	public DD_DIRECTDRAW_LOCAL* lpDD;
 	public Guid* lpGuid;
@@ -5528,7 +5824,8 @@ public function uint32 PDX_GETTRANSFERSTATUS(void* param0, void* param1, DDGETTR
 	public HRESULT ddRVal;
 }
 
-[CRepr]public struct DD_CREATEMOCOMPDATA
+[CRepr]
+public struct DD_CREATEMOCOMPDATA
 {
 	public DD_DIRECTDRAW_LOCAL* lpDD;
 	public DD_MOTIONCOMP_LOCAL* lpMoComp;
@@ -5541,7 +5838,8 @@ public function uint32 PDX_GETTRANSFERSTATUS(void* param0, void* param1, DDGETTR
 	public HRESULT ddRVal;
 }
 
-[CRepr]public struct DDCOMPBUFFERINFO
+[CRepr]
+public struct DDCOMPBUFFERINFO
 {
 	public uint32 dwSize;
 	public uint32 dwNumCompBuffers;
@@ -5552,7 +5850,8 @@ public function uint32 PDX_GETTRANSFERSTATUS(void* param0, void* param1, DDGETTR
 	public DDPIXELFORMAT ddPixelFormat;
 }
 
-[CRepr]public struct DD_GETMOCOMPCOMPBUFFDATA
+[CRepr]
+public struct DD_GETMOCOMPCOMPBUFFDATA
 {
 	public DD_DIRECTDRAW_LOCAL* lpDD;
 	public Guid* lpGuid;
@@ -5564,7 +5863,8 @@ public function uint32 PDX_GETTRANSFERSTATUS(void* param0, void* param1, DDGETTR
 	public HRESULT ddRVal;
 }
 
-[CRepr]public struct DD_GETINTERNALMOCOMPDATA
+[CRepr]
+public struct DD_GETINTERNALMOCOMPDATA
 {
 	public DD_DIRECTDRAW_LOCAL* lpDD;
 	public Guid* lpGuid;
@@ -5575,7 +5875,8 @@ public function uint32 PDX_GETTRANSFERSTATUS(void* param0, void* param1, DDGETTR
 	public HRESULT ddRVal;
 }
 
-[CRepr]public struct DD_BEGINMOCOMPFRAMEDATA
+[CRepr]
+public struct DD_BEGINMOCOMPFRAMEDATA
 {
 	public DD_DIRECTDRAW_LOCAL* lpDD;
 	public DD_MOTIONCOMP_LOCAL* lpMoComp;
@@ -5587,7 +5888,8 @@ public function uint32 PDX_GETTRANSFERSTATUS(void* param0, void* param1, DDGETTR
 	public HRESULT ddRVal;
 }
 
-[CRepr]public struct DD_ENDMOCOMPFRAMEDATA
+[CRepr]
+public struct DD_ENDMOCOMPFRAMEDATA
 {
 	public DD_DIRECTDRAW_LOCAL* lpDD;
 	public DD_MOTIONCOMP_LOCAL* lpMoComp;
@@ -5596,7 +5898,8 @@ public function uint32 PDX_GETTRANSFERSTATUS(void* param0, void* param1, DDGETTR
 	public HRESULT ddRVal;
 }
 
-[CRepr]public struct DDMOCOMPBUFFERINFO
+[CRepr]
+public struct DDMOCOMPBUFFERINFO
 {
 	public uint32 dwSize;
 	public DD_SURFACE_LOCAL* lpCompSurface;
@@ -5605,7 +5908,8 @@ public function uint32 PDX_GETTRANSFERSTATUS(void* param0, void* param1, DDGETTR
 	public void* lpPrivate;
 }
 
-[CRepr]public struct DD_RENDERMOCOMPDATA
+[CRepr]
+public struct DD_RENDERMOCOMPDATA
 {
 	public DD_DIRECTDRAW_LOCAL* lpDD;
 	public DD_MOTIONCOMP_LOCAL* lpMoComp;
@@ -5619,7 +5923,8 @@ public function uint32 PDX_GETTRANSFERSTATUS(void* param0, void* param1, DDGETTR
 	public HRESULT ddRVal;
 }
 
-[CRepr]public struct DD_QUERYMOCOMPSTATUSDATA
+[CRepr]
+public struct DD_QUERYMOCOMPSTATUSDATA
 {
 	public DD_DIRECTDRAW_LOCAL* lpDD;
 	public DD_MOTIONCOMP_LOCAL* lpMoComp;
@@ -5628,14 +5933,16 @@ public function uint32 PDX_GETTRANSFERSTATUS(void* param0, void* param1, DDGETTR
 	public HRESULT ddRVal;
 }
 
-[CRepr]public struct DD_DESTROYMOCOMPDATA
+[CRepr]
+public struct DD_DESTROYMOCOMPDATA
 {
 	public DD_DIRECTDRAW_LOCAL* lpDD;
 	public DD_MOTIONCOMP_LOCAL* lpMoComp;
 	public HRESULT ddRVal;
 }
 
-[CRepr]public struct DD_CREATESURFACEEXDATA
+[CRepr]
+public struct DD_CREATESURFACEEXDATA
 {
 	public uint32 dwFlags;
 	public DD_DIRECTDRAW_LOCAL* lpDDLcl;
@@ -5643,9 +5950,11 @@ public function uint32 PDX_GETTRANSFERSTATUS(void* param0, void* param1, DDGETTR
 	public HRESULT ddRVal;
 }
 
-[CRepr]public struct DD_GETDRIVERSTATEDATA
+[CRepr]
+public struct DD_GETDRIVERSTATEDATA
 {
-	[CRepr, Union]	public struct _Anonymous_e__Union
+	[CRepr, Union]
+	public struct _Anonymous_e__Union
 	{
 		public DD_DIRECTDRAW_GLOBAL* lpDD;
 		public uint dwhContext;
@@ -5658,16 +5967,19 @@ public function uint32 PDX_GETTRANSFERSTATUS(void* param0, void* param1, DDGETTR
 	public HRESULT ddRVal;
 }
 
-[CRepr]public struct DD_DESTROYDDLOCALDATA
+[CRepr]
+public struct DD_DESTROYDDLOCALDATA
 {
 	public uint32 dwFlags;
 	public DD_DIRECTDRAW_LOCAL* pDDLcl;
 	public HRESULT ddRVal;
 }
 
-[CRepr]public struct MDL
+[CRepr]
+public struct MDL
 {
-	[CRepr]	public struct _EPROCESS
+	[CRepr]
+	public struct _EPROCESS
 	{
 	}
 
@@ -5681,7 +5993,8 @@ public function uint32 PDX_GETTRANSFERSTATUS(void* param0, void* param1, DDGETTR
 	public uint32 ByteOffset;
 }
 
-[CRepr]public struct DDSURFACEDATA
+[CRepr]
+public struct DDSURFACEDATA
 {
 	public uint32 ddsCaps;
 	public uint32 dwSurfaceOffset;
@@ -5708,7 +6021,8 @@ public function uint32 PDX_GETTRANSFERSTATUS(void* param0, void* param1, DDGETTR
 	public uint32 dwDriverReserved4;
 }
 
-[CRepr]public struct DDVIDEOPORTDATA
+[CRepr]
+public struct DDVIDEOPORTDATA
 {
 	public uint32 dwVideoPortId;
 	public uint32 dwVPFlags;
@@ -5720,17 +6034,20 @@ public function uint32 PDX_GETTRANSFERSTATUS(void* param0, void* param1, DDGETTR
 	public uint32 dwDriverReserved3;
 }
 
-[CRepr]public struct DX_IRQDATA
+[CRepr]
+public struct DX_IRQDATA
 {
 	public uint32 dwIrqFlags;
 }
 
-[CRepr]public struct DDGETIRQINFO
+[CRepr]
+public struct DDGETIRQINFO
 {
 	public uint32 dwFlags;
 }
 
-[CRepr]public struct DDENABLEIRQINFO
+[CRepr]
+public struct DDENABLEIRQINFO
 {
 	public uint32 dwIRQSources;
 	public uint32 dwLine;
@@ -5738,48 +6055,56 @@ public function uint32 PDX_GETTRANSFERSTATUS(void* param0, void* param1, DDGETTR
 	public DX_IRQDATA* lpIRQData;
 }
 
-[CRepr]public struct DDSKIPNEXTFIELDINFO
+[CRepr]
+public struct DDSKIPNEXTFIELDINFO
 {
 	public DDVIDEOPORTDATA* lpVideoPortData;
 	public uint32 dwSkipFlags;
 }
 
-[CRepr]public struct DDBOBNEXTFIELDINFO
+[CRepr]
+public struct DDBOBNEXTFIELDINFO
 {
 	public DDSURFACEDATA* lpSurface;
 }
 
-[CRepr]public struct DDSETSTATEININFO
+[CRepr]
+public struct DDSETSTATEININFO
 {
 	public DDSURFACEDATA* lpSurfaceData;
 	public DDVIDEOPORTDATA* lpVideoPortData;
 }
 
-[CRepr]public struct DDSETSTATEOUTINFO
+[CRepr]
+public struct DDSETSTATEOUTINFO
 {
 	public BOOL bSoftwareAutoflip;
 	public uint32 dwSurfaceIndex;
 	public uint32 dwVBISurfaceIndex;
 }
 
-[CRepr]public struct DDLOCKININFO
+[CRepr]
+public struct DDLOCKININFO
 {
 	public DDSURFACEDATA* lpSurfaceData;
 }
 
-[CRepr]public struct DDLOCKOUTINFO
+[CRepr]
+public struct DDLOCKOUTINFO
 {
 	public uint dwSurfacePtr;
 }
 
-[CRepr]public struct DDFLIPOVERLAYINFO
+[CRepr]
+public struct DDFLIPOVERLAYINFO
 {
 	public DDSURFACEDATA* lpCurrentSurface;
 	public DDSURFACEDATA* lpTargetSurface;
 	public uint32 dwFlags;
 }
 
-[CRepr]public struct DDFLIPVIDEOPORTINFO
+[CRepr]
+public struct DDFLIPVIDEOPORTINFO
 {
 	public DDVIDEOPORTDATA* lpVideoPortData;
 	public DDSURFACEDATA* lpCurrentSurface;
@@ -5787,39 +6112,46 @@ public function uint32 PDX_GETTRANSFERSTATUS(void* param0, void* param1, DDGETTR
 	public uint32 dwFlipVPFlags;
 }
 
-[CRepr]public struct DDGETPOLARITYININFO
+[CRepr]
+public struct DDGETPOLARITYININFO
 {
 	public DDVIDEOPORTDATA* lpVideoPortData;
 }
 
-[CRepr]public struct DDGETPOLARITYOUTINFO
+[CRepr]
+public struct DDGETPOLARITYOUTINFO
 {
 	public uint32 bPolarity;
 }
 
-[CRepr]public struct DDGETCURRENTAUTOFLIPININFO
+[CRepr]
+public struct DDGETCURRENTAUTOFLIPININFO
 {
 	public DDVIDEOPORTDATA* lpVideoPortData;
 }
 
-[CRepr]public struct DDGETCURRENTAUTOFLIPOUTINFO
+[CRepr]
+public struct DDGETCURRENTAUTOFLIPOUTINFO
 {
 	public uint32 dwSurfaceIndex;
 	public uint32 dwVBISurfaceIndex;
 }
 
-[CRepr]public struct DDGETPREVIOUSAUTOFLIPININFO
+[CRepr]
+public struct DDGETPREVIOUSAUTOFLIPININFO
 {
 	public DDVIDEOPORTDATA* lpVideoPortData;
 }
 
-[CRepr]public struct DDGETPREVIOUSAUTOFLIPOUTINFO
+[CRepr]
+public struct DDGETPREVIOUSAUTOFLIPOUTINFO
 {
 	public uint32 dwSurfaceIndex;
 	public uint32 dwVBISurfaceIndex;
 }
 
-[CRepr]public struct DDTRANSFERININFO
+[CRepr]
+public struct DDTRANSFERININFO
 {
 	public DDSURFACEDATA* lpSurfaceData;
 	public uint32 dwStartLine;
@@ -5829,17 +6161,20 @@ public function uint32 PDX_GETTRANSFERSTATUS(void* param0, void* param1, DDGETTR
 	public MDL* lpDestMDL;
 }
 
-[CRepr]public struct DDTRANSFEROUTINFO
+[CRepr]
+public struct DDTRANSFEROUTINFO
 {
 	public uint32 dwBufferPolarity;
 }
 
-[CRepr]public struct DDGETTRANSFERSTATUSOUTINFO
+[CRepr]
+public struct DDGETTRANSFERSTATUSOUTINFO
 {
 	public uint dwTransferID;
 }
 
-[CRepr]public struct DXAPI_INTERFACE
+[CRepr]
+public struct DXAPI_INTERFACE
 {
 	public uint16 Size;
 	public uint16 Version;

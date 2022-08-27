@@ -15,11 +15,14 @@ public function void LPOVERLAPPED_COMPLETION_ROUTINE(uint32 dwErrorCode, uint32 
 #endregion
 
 #region Structs
-[CRepr]public struct OVERLAPPED
+[CRepr]
+public struct OVERLAPPED
 {
-	[CRepr, Union]	public struct _Anonymous_e__Union
+	[CRepr, Union]
+	public struct _Anonymous_e__Union
 	{
-		[CRepr]		public struct _Anonymous_e__Struct
+		[CRepr]
+		public struct _Anonymous_e__Struct
 		{
 			public uint32 Offset;
 			public uint32 OffsetHigh;
@@ -35,7 +38,8 @@ public function void LPOVERLAPPED_COMPLETION_ROUTINE(uint32 dwErrorCode, uint32 
 	public HANDLE hEvent;
 }
 
-[CRepr]public struct OVERLAPPED_ENTRY
+[CRepr]
+public struct OVERLAPPED_ENTRY
 {
 	public uint lpCompletionKey;
 	public OVERLAPPED* lpOverlapped;

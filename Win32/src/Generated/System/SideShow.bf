@@ -118,20 +118,23 @@ public enum SCF_BUTTON_IDS : int32
 #endregion
 
 #region Structs
-[CRepr]public struct SCF_EVENT_HEADER
+[CRepr]
+public struct SCF_EVENT_HEADER
 {
 	public uint32 PreviousPage;
 	public uint32 TargetPage;
 }
 
-[CRepr]public struct SCF_NAVIGATION_EVENT
+[CRepr]
+public struct SCF_NAVIGATION_EVENT
 {
 	public uint32 PreviousPage;
 	public uint32 TargetPage;
 	public uint32 Button;
 }
 
-[CRepr]public struct SCF_MENUACTION_EVENT
+[CRepr]
+public struct SCF_MENUACTION_EVENT
 {
 	public uint32 PreviousPage;
 	public uint32 TargetPage;
@@ -139,7 +142,8 @@ public enum SCF_BUTTON_IDS : int32
 	public uint32 ItemId;
 }
 
-[CRepr]public struct SCF_CONTEXTMENU_EVENT
+[CRepr]
+public struct SCF_CONTEXTMENU_EVENT
 {
 	public uint32 PreviousPage;
 	public uint32 TargetPage;
@@ -148,7 +152,8 @@ public enum SCF_BUTTON_IDS : int32
 	public uint32 MenuItemId;
 }
 
-[CRepr, Packed(1)]public struct CONTENT_MISSING_EVENT_DATA
+[CRepr, Packed(1)]
+public struct CONTENT_MISSING_EVENT_DATA
 {
 	public uint32 cbContentMissingEventData;
 	public Guid ApplicationId;
@@ -156,7 +161,8 @@ public enum SCF_BUTTON_IDS : int32
 	public uint32 ContentId;
 }
 
-[CRepr, Packed(1)]public struct APPLICATION_EVENT_DATA
+[CRepr, Packed(1)]
+public struct APPLICATION_EVENT_DATA
 {
 	public uint32 cbApplicationEventData;
 	public Guid ApplicationId;
@@ -166,19 +172,22 @@ public enum SCF_BUTTON_IDS : int32
 	public uint8[1] bEventData;
 }
 
-[CRepr, Packed(1)]public struct DEVICE_USER_CHANGE_EVENT_DATA
+[CRepr, Packed(1)]
+public struct DEVICE_USER_CHANGE_EVENT_DATA
 {
 	public uint32 cbDeviceUserChangeEventData;
 	public char8 wszUser;
 }
 
-[CRepr, Packed(1)]public struct NEW_EVENT_DATA_AVAILABLE
+[CRepr, Packed(1)]
+public struct NEW_EVENT_DATA_AVAILABLE
 {
 	public uint32 cbNewEventDataAvailable;
 	public uint32 dwVersion;
 }
 
-[CRepr, Packed(1)]public struct EVENT_DATA_HEADER
+[CRepr, Packed(1)]
+public struct EVENT_DATA_HEADER
 {
 	public uint32 cbEventDataHeader;
 	public Guid guidEventType;

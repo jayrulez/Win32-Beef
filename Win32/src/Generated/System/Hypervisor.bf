@@ -1023,9 +1023,11 @@ public function BOOL FOUND_IMAGE_CALLBACK(void* Context, DOS_IMAGE_INFO* ImageIn
 #endregion
 
 #region Structs
-[CRepr, Union]public struct WHV_CAPABILITY_FEATURES
+[CRepr, Union]
+public struct WHV_CAPABILITY_FEATURES
 {
-	[CRepr]	public struct _Anonymous_e__Struct
+	[CRepr]
+	public struct _Anonymous_e__Struct
 	{
 		public uint64 _bitfield;
 	}
@@ -1034,9 +1036,11 @@ public function BOOL FOUND_IMAGE_CALLBACK(void* Context, DOS_IMAGE_INFO* ImageIn
 	public uint64 AsUINT64;
 }
 
-[CRepr, Union]public struct WHV_EXTENDED_VM_EXITS
+[CRepr, Union]
+public struct WHV_EXTENDED_VM_EXITS
 {
-	[CRepr]	public struct _Anonymous_e__Struct
+	[CRepr]
+	public struct _Anonymous_e__Struct
 	{
 		public uint64 _bitfield;
 	}
@@ -1045,9 +1049,11 @@ public function BOOL FOUND_IMAGE_CALLBACK(void* Context, DOS_IMAGE_INFO* ImageIn
 	public uint64 AsUINT64;
 }
 
-[CRepr, Union]public struct WHV_PROCESSOR_FEATURES
+[CRepr, Union]
+public struct WHV_PROCESSOR_FEATURES
 {
-	[CRepr]	public struct _Anonymous_e__Struct
+	[CRepr]
+	public struct _Anonymous_e__Struct
 	{
 		public uint64 _bitfield;
 	}
@@ -1056,9 +1062,11 @@ public function BOOL FOUND_IMAGE_CALLBACK(void* Context, DOS_IMAGE_INFO* ImageIn
 	public uint64 AsUINT64;
 }
 
-[CRepr, Union]public struct WHV_PROCESSOR_FEATURES1
+[CRepr, Union]
+public struct WHV_PROCESSOR_FEATURES1
 {
-	[CRepr]	public struct _Anonymous_e__Struct
+	[CRepr]
+	public struct _Anonymous_e__Struct
 	{
 		public uint64 _bitfield;
 	}
@@ -1067,11 +1075,14 @@ public function BOOL FOUND_IMAGE_CALLBACK(void* Context, DOS_IMAGE_INFO* ImageIn
 	public uint64 AsUINT64;
 }
 
-[CRepr]public struct WHV_PROCESSOR_FEATURES_BANKS
+[CRepr]
+public struct WHV_PROCESSOR_FEATURES_BANKS
 {
-	[CRepr, Union]	public struct _Anonymous_e__Union
+	[CRepr, Union]
+	public struct _Anonymous_e__Union
 	{
-		[CRepr]		public struct _Anonymous_e__Struct
+		[CRepr]
+		public struct _Anonymous_e__Struct
 		{
 			public WHV_PROCESSOR_FEATURES Bank0;
 			public WHV_PROCESSOR_FEATURES1 Bank1;
@@ -1086,9 +1097,11 @@ public function BOOL FOUND_IMAGE_CALLBACK(void* Context, DOS_IMAGE_INFO* ImageIn
 	public using _Anonymous_e__Union Anonymous;
 }
 
-[CRepr, Union]public struct WHV_SYNTHETIC_PROCESSOR_FEATURES
+[CRepr, Union]
+public struct WHV_SYNTHETIC_PROCESSOR_FEATURES
 {
-	[CRepr]	public struct _Anonymous_e__Struct
+	[CRepr]
+	public struct _Anonymous_e__Struct
 	{
 		public uint64 _bitfield;
 	}
@@ -1097,11 +1110,14 @@ public function BOOL FOUND_IMAGE_CALLBACK(void* Context, DOS_IMAGE_INFO* ImageIn
 	public uint64 AsUINT64;
 }
 
-[CRepr]public struct WHV_SYNTHETIC_PROCESSOR_FEATURES_BANKS
+[CRepr]
+public struct WHV_SYNTHETIC_PROCESSOR_FEATURES_BANKS
 {
-	[CRepr, Union]	public struct _Anonymous_e__Union
+	[CRepr, Union]
+	public struct _Anonymous_e__Union
 	{
-		[CRepr]		public struct _Anonymous_e__Struct
+		[CRepr]
+		public struct _Anonymous_e__Struct
 		{
 			public WHV_SYNTHETIC_PROCESSOR_FEATURES Bank0;
 		}
@@ -1115,9 +1131,11 @@ public function BOOL FOUND_IMAGE_CALLBACK(void* Context, DOS_IMAGE_INFO* ImageIn
 	public using _Anonymous_e__Union Anonymous;
 }
 
-[CRepr, Union]public struct WHV_PROCESSOR_XSAVE_FEATURES
+[CRepr, Union]
+public struct WHV_PROCESSOR_XSAVE_FEATURES
 {
-	[CRepr]	public struct _Anonymous_e__Struct
+	[CRepr]
+	public struct _Anonymous_e__Struct
 	{
 		public uint64 _bitfield;
 	}
@@ -1126,9 +1144,11 @@ public function BOOL FOUND_IMAGE_CALLBACK(void* Context, DOS_IMAGE_INFO* ImageIn
 	public uint64 AsUINT64;
 }
 
-[CRepr, Union]public struct WHV_PROCESSOR_PERFMON_FEATURES
+[CRepr, Union]
+public struct WHV_PROCESSOR_PERFMON_FEATURES
 {
-	[CRepr]	public struct _Anonymous_e__Struct
+	[CRepr]
+	public struct _Anonymous_e__Struct
 	{
 		public uint64 _bitfield;
 	}
@@ -1137,9 +1157,11 @@ public function BOOL FOUND_IMAGE_CALLBACK(void* Context, DOS_IMAGE_INFO* ImageIn
 	public uint64 AsUINT64;
 }
 
-[CRepr, Union]public struct WHV_X64_MSR_EXIT_BITMAP
+[CRepr, Union]
+public struct WHV_X64_MSR_EXIT_BITMAP
 {
-	[CRepr]	public struct _Anonymous_e__Struct
+	[CRepr]
+	public struct _Anonymous_e__Struct
 	{
 		public uint64 _bitfield;
 	}
@@ -1148,15 +1170,18 @@ public function BOOL FOUND_IMAGE_CALLBACK(void* Context, DOS_IMAGE_INFO* ImageIn
 	public using _Anonymous_e__Struct Anonymous;
 }
 
-[CRepr]public struct WHV_MEMORY_RANGE_ENTRY
+[CRepr]
+public struct WHV_MEMORY_RANGE_ENTRY
 {
 	public uint64 GuestAddress;
 	public uint64 SizeInBytes;
 }
 
-[CRepr, Union]public struct WHV_ADVISE_GPA_RANGE_POPULATE_FLAGS
+[CRepr, Union]
+public struct WHV_ADVISE_GPA_RANGE_POPULATE_FLAGS
 {
-	[CRepr]	public struct _Anonymous_e__Struct
+	[CRepr]
+	public struct _Anonymous_e__Struct
 	{
 		public uint32 _bitfield;
 	}
@@ -1165,13 +1190,15 @@ public function BOOL FOUND_IMAGE_CALLBACK(void* Context, DOS_IMAGE_INFO* ImageIn
 	public using _Anonymous_e__Struct Anonymous;
 }
 
-[CRepr]public struct WHV_ADVISE_GPA_RANGE_POPULATE
+[CRepr]
+public struct WHV_ADVISE_GPA_RANGE_POPULATE
 {
 	public WHV_ADVISE_GPA_RANGE_POPULATE_FLAGS Flags;
 	public WHV_MEMORY_ACCESS_TYPE AccessType;
 }
 
-[CRepr]public struct WHV_CAPABILITY_PROCESSOR_FREQUENCY_CAP
+[CRepr]
+public struct WHV_CAPABILITY_PROCESSOR_FREQUENCY_CAP
 {
 	public uint32 _bitfield;
 	public uint32 HighestFrequencyMhz;
@@ -1180,9 +1207,11 @@ public function BOOL FOUND_IMAGE_CALLBACK(void* Context, DOS_IMAGE_INFO* ImageIn
 	public uint32 FrequencyStepMhz;
 }
 
-[CRepr, Union]public struct WHV_SCHEDULER_FEATURES
+[CRepr, Union]
+public struct WHV_SCHEDULER_FEATURES
 {
-	[CRepr]	public struct _Anonymous_e__Struct
+	[CRepr]
+	public struct _Anonymous_e__Struct
 	{
 		public uint64 _bitfield;
 	}
@@ -1191,7 +1220,8 @@ public function BOOL FOUND_IMAGE_CALLBACK(void* Context, DOS_IMAGE_INFO* ImageIn
 	public uint64 AsUINT64;
 }
 
-[CRepr, Union]public struct WHV_CAPABILITY
+[CRepr, Union]
+public struct WHV_CAPABILITY
 {
 	public BOOL HypervisorPresent;
 	public WHV_CAPABILITY_FEATURES Features;
@@ -1212,7 +1242,8 @@ public function BOOL FOUND_IMAGE_CALLBACK(void* Context, DOS_IMAGE_INFO* ImageIn
 	public WHV_SCHEDULER_FEATURES SchedulerFeatures;
 }
 
-[CRepr]public struct WHV_X64_CPUID_RESULT
+[CRepr]
+public struct WHV_X64_CPUID_RESULT
 {
 	public uint32 Function;
 	public uint32[3] Reserved;
@@ -1222,7 +1253,8 @@ public function BOOL FOUND_IMAGE_CALLBACK(void* Context, DOS_IMAGE_INFO* ImageIn
 	public uint32 Edx;
 }
 
-[CRepr]public struct WHV_CPUID_OUTPUT
+[CRepr]
+public struct WHV_CPUID_OUTPUT
 {
 	public uint32 Eax;
 	public uint32 Ebx;
@@ -1230,7 +1262,8 @@ public function BOOL FOUND_IMAGE_CALLBACK(void* Context, DOS_IMAGE_INFO* ImageIn
 	public uint32 Edx;
 }
 
-[CRepr]public struct WHV_X64_CPUID_RESULT2
+[CRepr]
+public struct WHV_X64_CPUID_RESULT2
 {
 	public uint32 Function;
 	public uint32 Index;
@@ -1240,7 +1273,8 @@ public function BOOL FOUND_IMAGE_CALLBACK(void* Context, DOS_IMAGE_INFO* ImageIn
 	public WHV_CPUID_OUTPUT Mask;
 }
 
-[CRepr]public struct WHV_MSR_ACTION_ENTRY
+[CRepr]
+public struct WHV_MSR_ACTION_ENTRY
 {
 	public uint32 Index;
 	public uint8 ReadAction;
@@ -1248,7 +1282,8 @@ public function BOOL FOUND_IMAGE_CALLBACK(void* Context, DOS_IMAGE_INFO* ImageIn
 	public uint16 Reserved;
 }
 
-[CRepr, Union]public struct WHV_PARTITION_PROPERTY
+[CRepr, Union]
+public struct WHV_PARTITION_PROPERTY
 {
 	public WHV_EXTENDED_VM_EXITS ExtendedVmExits;
 	public WHV_PROCESSOR_FEATURES ProcessorFeatures;
@@ -1282,20 +1317,24 @@ public function BOOL FOUND_IMAGE_CALLBACK(void* Context, DOS_IMAGE_INFO* ImageIn
 	public BOOL DisableSmt;
 }
 
-[CRepr]public struct WHV_TRANSLATE_GVA_RESULT
+[CRepr]
+public struct WHV_TRANSLATE_GVA_RESULT
 {
 	public WHV_TRANSLATE_GVA_RESULT_CODE ResultCode;
 	public uint32 Reserved;
 }
 
-[CRepr, Union]public struct WHV_ADVISE_GPA_RANGE
+[CRepr, Union]
+public struct WHV_ADVISE_GPA_RANGE
 {
 	public WHV_ADVISE_GPA_RANGE_POPULATE Populate;
 }
 
-[CRepr, Union]public struct WHV_ACCESS_GPA_CONTROLS
+[CRepr, Union]
+public struct WHV_ACCESS_GPA_CONTROLS
 {
-	[CRepr]	public struct _Anonymous_e__Struct
+	[CRepr]
+	public struct _Anonymous_e__Struct
 	{
 		public WHV_CACHE_TYPE CacheType;
 		public uint32 Reserved;
@@ -1305,9 +1344,11 @@ public function BOOL FOUND_IMAGE_CALLBACK(void* Context, DOS_IMAGE_INFO* ImageIn
 	public using _Anonymous_e__Struct Anonymous;
 }
 
-[CRepr, Union]public struct WHV_UINT128
+[CRepr, Union]
+public struct WHV_UINT128
 {
-	[CRepr]	public struct _Anonymous_e__Struct
+	[CRepr]
+	public struct _Anonymous_e__Struct
 	{
 		public uint64 Low64;
 		public uint64 High64;
@@ -1317,9 +1358,11 @@ public function BOOL FOUND_IMAGE_CALLBACK(void* Context, DOS_IMAGE_INFO* ImageIn
 	public uint32[4] Dword;
 }
 
-[CRepr, Union]public struct WHV_X64_FP_REGISTER
+[CRepr, Union]
+public struct WHV_X64_FP_REGISTER
 {
-	[CRepr]	public struct _Anonymous_e__Struct
+	[CRepr]
+	public struct _Anonymous_e__Struct
 	{
 		public uint64 Mantissa;
 		public uint64 _bitfield;
@@ -1329,13 +1372,17 @@ public function BOOL FOUND_IMAGE_CALLBACK(void* Context, DOS_IMAGE_INFO* ImageIn
 	public WHV_UINT128 AsUINT128;
 }
 
-[CRepr, Union]public struct WHV_X64_FP_CONTROL_STATUS_REGISTER
+[CRepr, Union]
+public struct WHV_X64_FP_CONTROL_STATUS_REGISTER
 {
-	[CRepr]	public struct _Anonymous_e__Struct
+	[CRepr]
+	public struct _Anonymous_e__Struct
 	{
-		[CRepr, Union]		public struct _Anonymous_e__Union
+		[CRepr, Union]
+		public struct _Anonymous_e__Union
 		{
-			[CRepr]			public struct _Anonymous_e__Struct
+			[CRepr]
+			public struct _Anonymous_e__Struct
 			{
 				public uint32 LastFpEip;
 				public uint16 LastFpCs;
@@ -1358,13 +1405,17 @@ public function BOOL FOUND_IMAGE_CALLBACK(void* Context, DOS_IMAGE_INFO* ImageIn
 	public WHV_UINT128 AsUINT128;
 }
 
-[CRepr, Union]public struct WHV_X64_XMM_CONTROL_STATUS_REGISTER
+[CRepr, Union]
+public struct WHV_X64_XMM_CONTROL_STATUS_REGISTER
 {
-	[CRepr]	public struct _Anonymous_e__Struct
+	[CRepr]
+	public struct _Anonymous_e__Struct
 	{
-		[CRepr, Union]		public struct _Anonymous_e__Union
+		[CRepr, Union]
+		public struct _Anonymous_e__Union
 		{
-			[CRepr]			public struct _Anonymous_e__Struct
+			[CRepr]
+			public struct _Anonymous_e__Struct
 			{
 				public uint32 LastFpDp;
 				public uint16 LastFpDs;
@@ -1384,11 +1435,14 @@ public function BOOL FOUND_IMAGE_CALLBACK(void* Context, DOS_IMAGE_INFO* ImageIn
 	public WHV_UINT128 AsUINT128;
 }
 
-[CRepr]public struct WHV_X64_SEGMENT_REGISTER
+[CRepr]
+public struct WHV_X64_SEGMENT_REGISTER
 {
-	[CRepr, Union]	public struct _Anonymous_e__Union
+	[CRepr, Union]
+	public struct _Anonymous_e__Union
 	{
-		[CRepr]		public struct _Anonymous_e__Struct
+		[CRepr]
+		public struct _Anonymous_e__Struct
 		{
 			public uint16 _bitfield;
 		}
@@ -1403,16 +1457,19 @@ public function BOOL FOUND_IMAGE_CALLBACK(void* Context, DOS_IMAGE_INFO* ImageIn
 	public using _Anonymous_e__Union Anonymous;
 }
 
-[CRepr]public struct WHV_X64_TABLE_REGISTER
+[CRepr]
+public struct WHV_X64_TABLE_REGISTER
 {
 	public uint16[3] Pad;
 	public uint16 Limit;
 	public uint64 Base;
 }
 
-[CRepr, Union]public struct WHV_X64_INTERRUPT_STATE_REGISTER
+[CRepr, Union]
+public struct WHV_X64_INTERRUPT_STATE_REGISTER
 {
-	[CRepr]	public struct _Anonymous_e__Struct
+	[CRepr]
+	public struct _Anonymous_e__Struct
 	{
 		public uint64 _bitfield;
 	}
@@ -1421,9 +1478,11 @@ public function BOOL FOUND_IMAGE_CALLBACK(void* Context, DOS_IMAGE_INFO* ImageIn
 	public uint64 AsUINT64;
 }
 
-[CRepr, Union]public struct WHV_X64_PENDING_INTERRUPTION_REGISTER
+[CRepr, Union]
+public struct WHV_X64_PENDING_INTERRUPTION_REGISTER
 {
-	[CRepr]	public struct _Anonymous_e__Struct
+	[CRepr]
+	public struct _Anonymous_e__Struct
 	{
 		public uint32 _bitfield;
 		public uint32 ErrorCode;
@@ -1433,9 +1492,11 @@ public function BOOL FOUND_IMAGE_CALLBACK(void* Context, DOS_IMAGE_INFO* ImageIn
 	public uint64 AsUINT64;
 }
 
-[CRepr, Union]public struct WHV_X64_DELIVERABILITY_NOTIFICATIONS_REGISTER
+[CRepr, Union]
+public struct WHV_X64_DELIVERABILITY_NOTIFICATIONS_REGISTER
 {
-	[CRepr]	public struct _Anonymous_e__Struct
+	[CRepr]
+	public struct _Anonymous_e__Struct
 	{
 		public uint64 _bitfield;
 	}
@@ -1444,9 +1505,11 @@ public function BOOL FOUND_IMAGE_CALLBACK(void* Context, DOS_IMAGE_INFO* ImageIn
 	public uint64 AsUINT64;
 }
 
-[CRepr, Union]public struct WHV_X64_PENDING_EXCEPTION_EVENT
+[CRepr, Union]
+public struct WHV_X64_PENDING_EXCEPTION_EVENT
 {
-	[CRepr]	public struct _Anonymous_e__Struct
+	[CRepr]
+	public struct _Anonymous_e__Struct
 	{
 		public uint32 _bitfield;
 		public uint32 ErrorCode;
@@ -1457,9 +1520,11 @@ public function BOOL FOUND_IMAGE_CALLBACK(void* Context, DOS_IMAGE_INFO* ImageIn
 	public WHV_UINT128 AsUINT128;
 }
 
-[CRepr, Union]public struct WHV_X64_PENDING_EXT_INT_EVENT
+[CRepr, Union]
+public struct WHV_X64_PENDING_EXT_INT_EVENT
 {
-	[CRepr]	public struct _Anonymous_e__Struct
+	[CRepr]
+	public struct _Anonymous_e__Struct
 	{
 		public uint64 _bitfield;
 		public uint64 Reserved2;
@@ -1469,9 +1534,11 @@ public function BOOL FOUND_IMAGE_CALLBACK(void* Context, DOS_IMAGE_INFO* ImageIn
 	public WHV_UINT128 AsUINT128;
 }
 
-[CRepr, Union]public struct WHV_INTERNAL_ACTIVITY_REGISTER
+[CRepr, Union]
+public struct WHV_INTERNAL_ACTIVITY_REGISTER
 {
-	[CRepr]	public struct _Anonymous_e__Struct
+	[CRepr]
+	public struct _Anonymous_e__Struct
 	{
 		public uint64 _bitfield;
 	}
@@ -1480,9 +1547,11 @@ public function BOOL FOUND_IMAGE_CALLBACK(void* Context, DOS_IMAGE_INFO* ImageIn
 	public uint64 AsUINT64;
 }
 
-[CRepr, Union]public struct WHV_X64_PENDING_DEBUG_EXCEPTION
+[CRepr, Union]
+public struct WHV_X64_PENDING_DEBUG_EXCEPTION
 {
-	[CRepr]	public struct _Anonymous_e__Struct
+	[CRepr]
+	public struct _Anonymous_e__Struct
 	{
 		public uint64 _bitfield;
 	}
@@ -1491,14 +1560,16 @@ public function BOOL FOUND_IMAGE_CALLBACK(void* Context, DOS_IMAGE_INFO* ImageIn
 	public using _Anonymous_e__Struct Anonymous;
 }
 
-[CRepr]public struct WHV_SYNIC_SINT_DELIVERABLE_CONTEXT
+[CRepr]
+public struct WHV_SYNIC_SINT_DELIVERABLE_CONTEXT
 {
 	public uint16 DeliverableSints;
 	public uint16 Reserved1;
 	public uint32 Reserved2;
 }
 
-[CRepr, Union]public struct WHV_REGISTER_VALUE
+[CRepr, Union]
+public struct WHV_REGISTER_VALUE
 {
 	public WHV_UINT128 Reg128;
 	public uint64 Reg64;
@@ -1519,9 +1590,11 @@ public function BOOL FOUND_IMAGE_CALLBACK(void* Context, DOS_IMAGE_INFO* ImageIn
 	public WHV_X64_PENDING_DEBUG_EXCEPTION PendingDebugException;
 }
 
-[CRepr, Union]public struct WHV_X64_VP_EXECUTION_STATE
+[CRepr, Union]
+public struct WHV_X64_VP_EXECUTION_STATE
 {
-	[CRepr]	public struct _Anonymous_e__Struct
+	[CRepr]
+	public struct _Anonymous_e__Struct
 	{
 		public uint16 _bitfield;
 	}
@@ -1530,7 +1603,8 @@ public function BOOL FOUND_IMAGE_CALLBACK(void* Context, DOS_IMAGE_INFO* ImageIn
 	public uint16 AsUINT16;
 }
 
-[CRepr]public struct WHV_VP_EXIT_CONTEXT
+[CRepr]
+public struct WHV_VP_EXIT_CONTEXT
 {
 	public WHV_X64_VP_EXECUTION_STATE ExecutionState;
 	public uint8 _bitfield;
@@ -1541,9 +1615,11 @@ public function BOOL FOUND_IMAGE_CALLBACK(void* Context, DOS_IMAGE_INFO* ImageIn
 	public uint64 Rflags;
 }
 
-[CRepr, Union]public struct WHV_MEMORY_ACCESS_INFO
+[CRepr, Union]
+public struct WHV_MEMORY_ACCESS_INFO
 {
-	[CRepr]	public struct _Anonymous_e__Struct
+	[CRepr]
+	public struct _Anonymous_e__Struct
 	{
 		public uint32 _bitfield;
 	}
@@ -1552,7 +1628,8 @@ public function BOOL FOUND_IMAGE_CALLBACK(void* Context, DOS_IMAGE_INFO* ImageIn
 	public uint32 AsUINT32;
 }
 
-[CRepr]public struct WHV_MEMORY_ACCESS_CONTEXT
+[CRepr]
+public struct WHV_MEMORY_ACCESS_CONTEXT
 {
 	public uint8 InstructionByteCount;
 	public uint8[3] Reserved;
@@ -1562,9 +1639,11 @@ public function BOOL FOUND_IMAGE_CALLBACK(void* Context, DOS_IMAGE_INFO* ImageIn
 	public uint64 Gva;
 }
 
-[CRepr, Union]public struct WHV_X64_IO_PORT_ACCESS_INFO
+[CRepr, Union]
+public struct WHV_X64_IO_PORT_ACCESS_INFO
 {
-	[CRepr]	public struct _Anonymous_e__Struct
+	[CRepr]
+	public struct _Anonymous_e__Struct
 	{
 		public uint32 _bitfield;
 	}
@@ -1573,7 +1652,8 @@ public function BOOL FOUND_IMAGE_CALLBACK(void* Context, DOS_IMAGE_INFO* ImageIn
 	public uint32 AsUINT32;
 }
 
-[CRepr]public struct WHV_X64_IO_PORT_ACCESS_CONTEXT
+[CRepr]
+public struct WHV_X64_IO_PORT_ACCESS_CONTEXT
 {
 	public uint8 InstructionByteCount;
 	public uint8[3] Reserved;
@@ -1589,9 +1669,11 @@ public function BOOL FOUND_IMAGE_CALLBACK(void* Context, DOS_IMAGE_INFO* ImageIn
 	public WHV_X64_SEGMENT_REGISTER Es;
 }
 
-[CRepr, Union]public struct WHV_X64_MSR_ACCESS_INFO
+[CRepr, Union]
+public struct WHV_X64_MSR_ACCESS_INFO
 {
-	[CRepr]	public struct _Anonymous_e__Struct
+	[CRepr]
+	public struct _Anonymous_e__Struct
 	{
 		public uint32 _bitfield;
 	}
@@ -1600,7 +1682,8 @@ public function BOOL FOUND_IMAGE_CALLBACK(void* Context, DOS_IMAGE_INFO* ImageIn
 	public uint32 AsUINT32;
 }
 
-[CRepr]public struct WHV_X64_MSR_ACCESS_CONTEXT
+[CRepr]
+public struct WHV_X64_MSR_ACCESS_CONTEXT
 {
 	public WHV_X64_MSR_ACCESS_INFO AccessInfo;
 	public uint32 MsrNumber;
@@ -1608,7 +1691,8 @@ public function BOOL FOUND_IMAGE_CALLBACK(void* Context, DOS_IMAGE_INFO* ImageIn
 	public uint64 Rdx;
 }
 
-[CRepr]public struct WHV_X64_CPUID_ACCESS_CONTEXT
+[CRepr]
+public struct WHV_X64_CPUID_ACCESS_CONTEXT
 {
 	public uint64 Rax;
 	public uint64 Rcx;
@@ -1620,9 +1704,11 @@ public function BOOL FOUND_IMAGE_CALLBACK(void* Context, DOS_IMAGE_INFO* ImageIn
 	public uint64 DefaultResultRbx;
 }
 
-[CRepr, Union]public struct WHV_VP_EXCEPTION_INFO
+[CRepr, Union]
+public struct WHV_VP_EXCEPTION_INFO
 {
-	[CRepr]	public struct _Anonymous_e__Struct
+	[CRepr]
+	public struct _Anonymous_e__Struct
 	{
 		public uint32 _bitfield;
 	}
@@ -1631,7 +1717,8 @@ public function BOOL FOUND_IMAGE_CALLBACK(void* Context, DOS_IMAGE_INFO* ImageIn
 	public uint32 AsUINT32;
 }
 
-[CRepr]public struct WHV_VP_EXCEPTION_CONTEXT
+[CRepr]
+public struct WHV_VP_EXCEPTION_CONTEXT
 {
 	public uint8 InstructionByteCount;
 	public uint8[3] Reserved;
@@ -1643,31 +1730,37 @@ public function BOOL FOUND_IMAGE_CALLBACK(void* Context, DOS_IMAGE_INFO* ImageIn
 	public uint64 ExceptionParameter;
 }
 
-[CRepr]public struct WHV_X64_UNSUPPORTED_FEATURE_CONTEXT
+[CRepr]
+public struct WHV_X64_UNSUPPORTED_FEATURE_CONTEXT
 {
 	public WHV_X64_UNSUPPORTED_FEATURE_CODE FeatureCode;
 	public uint32 Reserved;
 	public uint64 FeatureParameter;
 }
 
-[CRepr]public struct WHV_RUN_VP_CANCELED_CONTEXT
+[CRepr]
+public struct WHV_RUN_VP_CANCELED_CONTEXT
 {
 	public WHV_RUN_VP_CANCEL_REASON CancelReason;
 }
 
-[CRepr]public struct WHV_X64_INTERRUPTION_DELIVERABLE_CONTEXT
+[CRepr]
+public struct WHV_X64_INTERRUPTION_DELIVERABLE_CONTEXT
 {
 	public WHV_X64_PENDING_INTERRUPTION_TYPE DeliverableType;
 }
 
-[CRepr]public struct WHV_X64_APIC_EOI_CONTEXT
+[CRepr]
+public struct WHV_X64_APIC_EOI_CONTEXT
 {
 	public uint32 InterruptVector;
 }
 
-[CRepr, Union]public struct WHV_X64_RDTSC_INFO
+[CRepr, Union]
+public struct WHV_X64_RDTSC_INFO
 {
-	[CRepr]	public struct _Anonymous_e__Struct
+	[CRepr]
+	public struct _Anonymous_e__Struct
 	{
 		public uint64 _bitfield;
 	}
@@ -1676,7 +1769,8 @@ public function BOOL FOUND_IMAGE_CALLBACK(void* Context, DOS_IMAGE_INFO* ImageIn
 	public uint64 AsUINT64;
 }
 
-[CRepr]public struct WHV_X64_RDTSC_CONTEXT
+[CRepr]
+public struct WHV_X64_RDTSC_CONTEXT
 {
 	public uint64 TscAux;
 	public uint64 VirtualOffset;
@@ -1685,12 +1779,14 @@ public function BOOL FOUND_IMAGE_CALLBACK(void* Context, DOS_IMAGE_INFO* ImageIn
 	public WHV_X64_RDTSC_INFO RdtscInfo;
 }
 
-[CRepr]public struct WHV_X64_APIC_SMI_CONTEXT
+[CRepr]
+public struct WHV_X64_APIC_SMI_CONTEXT
 {
 	public uint64 ApicIcr;
 }
 
-[CRepr]public struct WHV_HYPERCALL_CONTEXT
+[CRepr]
+public struct WHV_HYPERCALL_CONTEXT
 {
 	public uint64 Rax;
 	public uint64 Rbx;
@@ -1704,21 +1800,25 @@ public function BOOL FOUND_IMAGE_CALLBACK(void* Context, DOS_IMAGE_INFO* ImageIn
 	public uint64[2] Reserved1;
 }
 
-[CRepr]public struct WHV_X64_APIC_INIT_SIPI_CONTEXT
+[CRepr]
+public struct WHV_X64_APIC_INIT_SIPI_CONTEXT
 {
 	public uint64 ApicIcr;
 }
 
-[CRepr]public struct WHV_X64_APIC_WRITE_CONTEXT
+[CRepr]
+public struct WHV_X64_APIC_WRITE_CONTEXT
 {
 	public WHV_X64_APIC_WRITE_TYPE Type;
 	public uint32 Reserved;
 	public uint64 WriteValue;
 }
 
-[CRepr]public struct WHV_RUN_VP_EXIT_CONTEXT
+[CRepr]
+public struct WHV_RUN_VP_EXIT_CONTEXT
 {
-	[CRepr, Union]	public struct _Anonymous_e__Union
+	[CRepr, Union]
+	public struct _Anonymous_e__Union
 	{
 		public WHV_MEMORY_ACCESS_CONTEXT MemoryAccess;
 		public WHV_X64_IO_PORT_ACCESS_CONTEXT IoPortAccess;
@@ -1743,14 +1843,16 @@ public function BOOL FOUND_IMAGE_CALLBACK(void* Context, DOS_IMAGE_INFO* ImageIn
 	public using _Anonymous_e__Union Anonymous;
 }
 
-[CRepr]public struct WHV_INTERRUPT_CONTROL
+[CRepr]
+public struct WHV_INTERRUPT_CONTROL
 {
 	public uint64 _bitfield;
 	public uint32 Destination;
 	public uint32 Vector;
 }
 
-[CRepr]public struct WHV_DOORBELL_MATCH_DATA
+[CRepr]
+public struct WHV_DOORBELL_MATCH_DATA
 {
 	public uint64 GuestAddress;
 	public uint64 Value;
@@ -1758,26 +1860,30 @@ public function BOOL FOUND_IMAGE_CALLBACK(void* Context, DOS_IMAGE_INFO* ImageIn
 	public uint32 _bitfield;
 }
 
-[CRepr]public struct WHV_PARTITION_MEMORY_COUNTERS
+[CRepr]
+public struct WHV_PARTITION_MEMORY_COUNTERS
 {
 	public uint64 Mapped4KPageCount;
 	public uint64 Mapped2MPageCount;
 	public uint64 Mapped1GPageCount;
 }
 
-[CRepr]public struct WHV_PROCESSOR_RUNTIME_COUNTERS
+[CRepr]
+public struct WHV_PROCESSOR_RUNTIME_COUNTERS
 {
 	public uint64 TotalRuntime100ns;
 	public uint64 HypervisorRuntime100ns;
 }
 
-[CRepr]public struct WHV_PROCESSOR_INTERCEPT_COUNTER
+[CRepr]
+public struct WHV_PROCESSOR_INTERCEPT_COUNTER
 {
 	public uint64 Count;
 	public uint64 Time100ns;
 }
 
-[CRepr]public struct WHV_PROCESSOR_INTERCEPT_COUNTERS
+[CRepr]
+public struct WHV_PROCESSOR_INTERCEPT_COUNTERS
 {
 	public WHV_PROCESSOR_INTERCEPT_COUNTER PageInvalidations;
 	public WHV_PROCESSOR_INTERCEPT_COUNTER ControlRegisterAccesses;
@@ -1795,14 +1901,16 @@ public function BOOL FOUND_IMAGE_CALLBACK(void* Context, DOS_IMAGE_INFO* ImageIn
 	public WHV_PROCESSOR_INTERCEPT_COUNTER RdpmcInstructions;
 }
 
-[CRepr]public struct WHV_PROCESSOR_EVENT_COUNTERS
+[CRepr]
+public struct WHV_PROCESSOR_EVENT_COUNTERS
 {
 	public uint64 PageFaultCount;
 	public uint64 ExceptionCount;
 	public uint64 InterruptCount;
 }
 
-[CRepr]public struct WHV_PROCESSOR_APIC_COUNTERS
+[CRepr]
+public struct WHV_PROCESSOR_APIC_COUNTERS
 {
 	public uint64 MmioAccessCount;
 	public uint64 EoiAccessCount;
@@ -1811,7 +1919,8 @@ public function BOOL FOUND_IMAGE_CALLBACK(void* Context, DOS_IMAGE_INFO* ImageIn
 	public uint64 SelfIpiCount;
 }
 
-[CRepr]public struct WHV_PROCESSOR_SYNTHETIC_FEATURES_COUNTERS
+[CRepr]
+public struct WHV_PROCESSOR_SYNTHETIC_FEATURES_COUNTERS
 {
 	public uint64 SyntheticInterruptsCount;
 	public uint64 LongSpinWaitHypercallsCount;
@@ -1821,7 +1930,8 @@ public function BOOL FOUND_IMAGE_CALLBACK(void* Context, DOS_IMAGE_INFO* ImageIn
 	public uint64 VirtualMmuHypercallsCount;
 }
 
-[CRepr]public struct WHV_SYNIC_EVENT_PARAMETERS
+[CRepr]
+public struct WHV_SYNIC_EVENT_PARAMETERS
 {
 	public uint32 VpIndex;
 	public uint8 TargetSint;
@@ -1829,7 +1939,8 @@ public function BOOL FOUND_IMAGE_CALLBACK(void* Context, DOS_IMAGE_INFO* ImageIn
 	public uint16 FlagNumber;
 }
 
-[CRepr]public struct WHV_SRIOV_RESOURCE_DESCRIPTOR
+[CRepr]
+public struct WHV_SRIOV_RESOURCE_DESCRIPTOR
 {
 	public char8[200] PnpInstanceId;
 	public LUID VirtualFunctionId;
@@ -1837,9 +1948,11 @@ public function BOOL FOUND_IMAGE_CALLBACK(void* Context, DOS_IMAGE_INFO* ImageIn
 	public uint16 Reserved;
 }
 
-[CRepr]public struct WHV_VPCI_DEVICE_NOTIFICATION
+[CRepr]
+public struct WHV_VPCI_DEVICE_NOTIFICATION
 {
-	[CRepr, Union]	public struct _Anonymous_e__Union
+	[CRepr, Union]
+	public struct _Anonymous_e__Union
 	{
 		public uint64 Reserved2;
 	}
@@ -1849,7 +1962,8 @@ public function BOOL FOUND_IMAGE_CALLBACK(void* Context, DOS_IMAGE_INFO* ImageIn
 	public using _Anonymous_e__Union Anonymous;
 }
 
-[CRepr]public struct WHV_VPCI_HARDWARE_IDS
+[CRepr]
+public struct WHV_VPCI_HARDWARE_IDS
 {
 	public uint16 VendorID;
 	public uint16 DeviceID;
@@ -1861,12 +1975,14 @@ public function BOOL FOUND_IMAGE_CALLBACK(void* Context, DOS_IMAGE_INFO* ImageIn
 	public uint16 SubSystemID;
 }
 
-[CRepr]public struct WHV_VPCI_PROBED_BARS
+[CRepr]
+public struct WHV_VPCI_PROBED_BARS
 {
 	public uint32[6] Value;
 }
 
-[CRepr]public struct WHV_VPCI_MMIO_MAPPING
+[CRepr]
+public struct WHV_VPCI_MMIO_MAPPING
 {
 	public WHV_VPCI_DEVICE_REGISTER_SPACE Location;
 	public WHV_VPCI_MMIO_RANGE_FLAGS Flags;
@@ -1875,14 +1991,16 @@ public function BOOL FOUND_IMAGE_CALLBACK(void* Context, DOS_IMAGE_INFO* ImageIn
 	public void* VirtualAddress;
 }
 
-[CRepr]public struct WHV_VPCI_DEVICE_REGISTER
+[CRepr]
+public struct WHV_VPCI_DEVICE_REGISTER
 {
 	public WHV_VPCI_DEVICE_REGISTER_SPACE Location;
 	public uint32 SizeInBytes;
 	public uint64 OffsetInBytes;
 }
 
-[CRepr]public struct WHV_VPCI_INTERRUPT_TARGET
+[CRepr]
+public struct WHV_VPCI_INTERRUPT_TARGET
 {
 	public uint32 Vector;
 	public WHV_VPCI_INTERRUPT_TARGET_FLAGS Flags;
@@ -1890,11 +2008,14 @@ public function BOOL FOUND_IMAGE_CALLBACK(void* Context, DOS_IMAGE_INFO* ImageIn
 	public uint32[1] Processors;
 }
 
-[CRepr]public struct WHV_TRIGGER_PARAMETERS
+[CRepr]
+public struct WHV_TRIGGER_PARAMETERS
 {
-	[CRepr, Union]	public struct _Anonymous_e__Union
+	[CRepr, Union]
+	public struct _Anonymous_e__Union
 	{
-		[CRepr]		public struct _DeviceInterrupt_e__Struct
+		[CRepr]
+		public struct _DeviceInterrupt_e__Struct
 		{
 			public uint64 LogicalDeviceId;
 			public uint64 MsiAddress;
@@ -1912,9 +2033,11 @@ public function BOOL FOUND_IMAGE_CALLBACK(void* Context, DOS_IMAGE_INFO* ImageIn
 	public using _Anonymous_e__Union Anonymous;
 }
 
-[CRepr]public struct WHV_VIRTUAL_PROCESSOR_PROPERTY
+[CRepr]
+public struct WHV_VIRTUAL_PROCESSOR_PROPERTY
 {
-	[CRepr, Union]	public struct _Anonymous_e__Union
+	[CRepr, Union]
+	public struct _Anonymous_e__Union
 	{
 		public uint16 NumaNode;
 		public uint64 Padding;
@@ -1925,11 +2048,14 @@ public function BOOL FOUND_IMAGE_CALLBACK(void* Context, DOS_IMAGE_INFO* ImageIn
 	public using _Anonymous_e__Union Anonymous;
 }
 
-[CRepr]public struct WHV_NOTIFICATION_PORT_PARAMETERS
+[CRepr]
+public struct WHV_NOTIFICATION_PORT_PARAMETERS
 {
-	[CRepr, Union]	public struct _Anonymous_e__Union
+	[CRepr, Union]
+	public struct _Anonymous_e__Union
 	{
-		[CRepr]		public struct _Event_e__Struct
+		[CRepr]
+		public struct _Event_e__Struct
 		{
 			public uint32 ConnectionId;
 		}
@@ -1943,9 +2069,11 @@ public function BOOL FOUND_IMAGE_CALLBACK(void* Context, DOS_IMAGE_INFO* ImageIn
 	public using _Anonymous_e__Union Anonymous;
 }
 
-[CRepr, Union]public struct WHV_EMULATOR_STATUS
+[CRepr, Union]
+public struct WHV_EMULATOR_STATUS
 {
-	[CRepr]	public struct _Anonymous_e__Struct
+	[CRepr]
+	public struct _Anonymous_e__Struct
 	{
 		public uint32 _bitfield;
 	}
@@ -1954,7 +2082,8 @@ public function BOOL FOUND_IMAGE_CALLBACK(void* Context, DOS_IMAGE_INFO* ImageIn
 	public uint32 AsUINT32;
 }
 
-[CRepr]public struct WHV_EMULATOR_MEMORY_ACCESS_INFO
+[CRepr]
+public struct WHV_EMULATOR_MEMORY_ACCESS_INFO
 {
 	public uint64 GpaAddress;
 	public uint8 Direction;
@@ -1962,7 +2091,8 @@ public function BOOL FOUND_IMAGE_CALLBACK(void* Context, DOS_IMAGE_INFO* ImageIn
 	public uint8[8] Data;
 }
 
-[CRepr]public struct WHV_EMULATOR_IO_ACCESS_INFO
+[CRepr]
+public struct WHV_EMULATOR_IO_ACCESS_INFO
 {
 	public uint8 Direction;
 	public uint16 Port;
@@ -1970,7 +2100,8 @@ public function BOOL FOUND_IMAGE_CALLBACK(void* Context, DOS_IMAGE_INFO* ImageIn
 	public uint32 Data;
 }
 
-[CRepr]public struct WHV_EMULATOR_CALLBACKS
+[CRepr]
+public struct WHV_EMULATOR_CALLBACKS
 {
 	public uint32 Size;
 	public uint32 Reserved;
@@ -1981,7 +2112,8 @@ public function BOOL FOUND_IMAGE_CALLBACK(void* Context, DOS_IMAGE_INFO* ImageIn
 	public WHV_EMULATOR_TRANSLATE_GVA_PAGE_CALLBACK WHvEmulatorTranslateGvaPage;
 }
 
-[CRepr]public struct SOCKADDR_HV
+[CRepr]
+public struct SOCKADDR_HV
 {
 	public uint16 Family;
 	public uint16 Reserved;
@@ -1989,7 +2121,8 @@ public function BOOL FOUND_IMAGE_CALLBACK(void* Context, DOS_IMAGE_INFO* ImageIn
 	public Guid ServiceId;
 }
 
-[CRepr]public struct HVSOCKET_ADDRESS_INFO
+[CRepr]
+public struct HVSOCKET_ADDRESS_INFO
 {
 	public Guid SystemId;
 	public Guid VirtualMachineId;
@@ -1997,13 +2130,15 @@ public function BOOL FOUND_IMAGE_CALLBACK(void* Context, DOS_IMAGE_INFO* ImageIn
 	public uint32 Flags;
 }
 
-[CRepr]public struct VM_GENCOUNTER
+[CRepr]
+public struct VM_GENCOUNTER
 {
 	public uint64 GenerationCount;
 	public uint64 GenerationCountHigh;
 }
 
-[CRepr]public struct HDV_PCI_PNP_ID
+[CRepr]
+public struct HDV_PCI_PNP_ID
 {
 	public uint16 VendorID;
 	public uint16 DeviceID;
@@ -2015,7 +2150,8 @@ public function BOOL FOUND_IMAGE_CALLBACK(void* Context, DOS_IMAGE_INFO* ImageIn
 	public uint16 SubSystemID;
 }
 
-[CRepr]public struct HDV_PCI_DEVICE_INTERFACE
+[CRepr]
+public struct HDV_PCI_DEVICE_INTERFACE
 {
 	public HDV_PCI_INTERFACE_VERSION Version;
 	public HDV_PCI_DEVICE_INITIALIZE Initialize;
@@ -2030,20 +2166,24 @@ public function BOOL FOUND_IMAGE_CALLBACK(void* Context, DOS_IMAGE_INFO* ImageIn
 	public HDV_PCI_WRITE_INTERCEPTED_MEMORY WriteInterceptedMemory;
 }
 
-[CRepr]public struct GPA_MEMORY_CHUNK
+[CRepr]
+public struct GPA_MEMORY_CHUNK
 {
 	public uint64 GuestPhysicalStartPageIndex;
 	public uint64 PageCount;
 }
 
-[CRepr, Union]public struct GUEST_OS_INFO
+[CRepr, Union]
+public struct GUEST_OS_INFO
 {
-	[CRepr]	public struct _OpenSource_e__Struct
+	[CRepr]
+	public struct _OpenSource_e__Struct
 	{
 		public uint64 _bitfield;
 	}
 
-	[CRepr]	public struct _ClosedSource_e__Struct
+	[CRepr]
+	public struct _ClosedSource_e__Struct
 	{
 		public uint64 _bitfield;
 	}
@@ -2053,15 +2193,20 @@ public function BOOL FOUND_IMAGE_CALLBACK(void* Context, DOS_IMAGE_INFO* ImageIn
 	public _OpenSource_e__Struct OpenSource;
 }
 
-[CRepr, Union]public struct VIRTUAL_PROCESSOR_REGISTER
+[CRepr, Union]
+public struct VIRTUAL_PROCESSOR_REGISTER
 {
-	[CRepr, Union]	public struct _X64_e__Union
+	[CRepr, Union]
+	public struct _X64_e__Union
 	{
-		[CRepr]		public struct _XmmControlStatus_e__Struct
+		[CRepr]
+		public struct _XmmControlStatus_e__Struct
 		{
-			[CRepr, Union]			public struct _Anonymous_e__Union
+			[CRepr, Union]
+			public struct _Anonymous_e__Union
 			{
-				[CRepr]				public struct _Anonymous_e__Struct
+				[CRepr]
+				public struct _Anonymous_e__Struct
 				{
 					public uint32 LastFpDp;
 					public uint16 LastFpDs;
@@ -2076,11 +2221,14 @@ public function BOOL FOUND_IMAGE_CALLBACK(void* Context, DOS_IMAGE_INFO* ImageIn
 			public uint32 XmmStatusControlMask;
 		}
 
-		[CRepr]		public struct _FpControlStatus_e__Struct
+		[CRepr]
+		public struct _FpControlStatus_e__Struct
 		{
-			[CRepr, Union]			public struct _Anonymous_e__Union
+			[CRepr, Union]
+			public struct _Anonymous_e__Union
 			{
-				[CRepr]				public struct _Anonymous_e__Struct
+				[CRepr]
+				public struct _Anonymous_e__Struct
 				{
 					public uint32 LastFpEip;
 					public uint16 LastFpCs;
@@ -2098,11 +2246,14 @@ public function BOOL FOUND_IMAGE_CALLBACK(void* Context, DOS_IMAGE_INFO* ImageIn
 			public using _Anonymous_e__Union Anonymous;
 		}
 
-		[CRepr]		public struct _Segment_e__Struct
+		[CRepr]
+		public struct _Segment_e__Struct
 		{
-			[CRepr, Union]			public struct _Anonymous_e__Union
+			[CRepr, Union]
+			public struct _Anonymous_e__Union
 			{
-				[CRepr]				public struct _Anonymous_e__Struct
+				[CRepr]
+				public struct _Anonymous_e__Struct
 				{
 					public uint16 _bitfield;
 				}
@@ -2117,7 +2268,8 @@ public function BOOL FOUND_IMAGE_CALLBACK(void* Context, DOS_IMAGE_INFO* ImageIn
 			public using _Anonymous_e__Union Anonymous;
 		}
 
-		[CRepr]		public struct _Table_e__Struct
+		[CRepr]
+		public struct _Table_e__Struct
 		{
 			public uint16 Limit;
 			public uint64 Base;
@@ -2129,7 +2281,8 @@ public function BOOL FOUND_IMAGE_CALLBACK(void* Context, DOS_IMAGE_INFO* ImageIn
 		public _XmmControlStatus_e__Struct XmmControlStatus;
 	}
 
-	[CRepr]	public struct _Reg128_e__Struct
+	[CRepr]
+	public struct _Reg128_e__Struct
 	{
 		public uint64 Low64;
 		public uint64 High64;
@@ -2143,7 +2296,8 @@ public function BOOL FOUND_IMAGE_CALLBACK(void* Context, DOS_IMAGE_INFO* ImageIn
 	public _X64_e__Union X64;
 }
 
-[CRepr]public struct DOS_IMAGE_INFO
+[CRepr]
+public struct DOS_IMAGE_INFO
 {
 	public PSTR PdbName;
 	public uint64 ImageBaseAddress;
@@ -2151,7 +2305,8 @@ public function BOOL FOUND_IMAGE_CALLBACK(void* Context, DOS_IMAGE_INFO* ImageIn
 	public uint32 Timestamp;
 }
 
-[CRepr]public struct MODULE_INFO
+[CRepr]
+public struct MODULE_INFO
 {
 	public PSTR ProcessImageName;
 	public DOS_IMAGE_INFO Image;

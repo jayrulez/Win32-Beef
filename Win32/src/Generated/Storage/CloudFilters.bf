@@ -510,13 +510,15 @@ public function void CF_CALLBACK(CF_CALLBACK_INFO* CallbackInfo, CF_CALLBACK_PAR
 #endregion
 
 #region Structs
-[CRepr]public struct CF_FS_METADATA
+[CRepr]
+public struct CF_FS_METADATA
 {
 	public FILE_BASIC_INFO BasicInfo;
 	public LARGE_INTEGER FileSize;
 }
 
-[CRepr]public struct CF_PLACEHOLDER_CREATE_INFO
+[CRepr]
+public struct CF_PLACEHOLDER_CREATE_INFO
 {
 	public PWSTR RelativeFileName;
 	public CF_FS_METADATA FsMetadata;
@@ -527,7 +529,8 @@ public function void CF_CALLBACK(CF_CALLBACK_INFO* CallbackInfo, CF_CALLBACK_PAR
 	public int64 CreateUsn;
 }
 
-[CRepr]public struct CF_PROCESS_INFO
+[CRepr]
+public struct CF_PROCESS_INFO
 {
 	public uint32 StructSize;
 	public uint32 ProcessId;
@@ -538,46 +541,54 @@ public function void CF_CALLBACK(CF_CALLBACK_INFO* CallbackInfo, CF_CALLBACK_PAR
 	public uint32 SessionId;
 }
 
-[CRepr]public struct CF_PLATFORM_INFO
+[CRepr]
+public struct CF_PLATFORM_INFO
 {
 	public uint32 BuildNumber;
 	public uint32 RevisionNumber;
 	public uint32 IntegrationNumber;
 }
 
-[CRepr]public struct CF_HYDRATION_POLICY_PRIMARY_USHORT
+[CRepr]
+public struct CF_HYDRATION_POLICY_PRIMARY_USHORT
 {
 	public uint16 us;
 }
 
-[CRepr]public struct CF_HYDRATION_POLICY_MODIFIER_USHORT
+[CRepr]
+public struct CF_HYDRATION_POLICY_MODIFIER_USHORT
 {
 	public uint16 us;
 }
 
-[CRepr]public struct CF_HYDRATION_POLICY
+[CRepr]
+public struct CF_HYDRATION_POLICY
 {
 	public CF_HYDRATION_POLICY_PRIMARY_USHORT Primary;
 	public CF_HYDRATION_POLICY_MODIFIER_USHORT Modifier;
 }
 
-[CRepr]public struct CF_POPULATION_POLICY_PRIMARY_USHORT
+[CRepr]
+public struct CF_POPULATION_POLICY_PRIMARY_USHORT
 {
 	public uint16 us;
 }
 
-[CRepr]public struct CF_POPULATION_POLICY_MODIFIER_USHORT
+[CRepr]
+public struct CF_POPULATION_POLICY_MODIFIER_USHORT
 {
 	public uint16 us;
 }
 
-[CRepr]public struct CF_POPULATION_POLICY
+[CRepr]
+public struct CF_POPULATION_POLICY
 {
 	public CF_POPULATION_POLICY_PRIMARY_USHORT Primary;
 	public CF_POPULATION_POLICY_MODIFIER_USHORT Modifier;
 }
 
-[CRepr]public struct CF_SYNC_POLICIES
+[CRepr]
+public struct CF_SYNC_POLICIES
 {
 	public uint32 StructSize;
 	public CF_HYDRATION_POLICY Hydration;
@@ -587,7 +598,8 @@ public function void CF_CALLBACK(CF_CALLBACK_INFO* CallbackInfo, CF_CALLBACK_PAR
 	public CF_PLACEHOLDER_MANAGEMENT_POLICY PlaceholderManagement;
 }
 
-[CRepr]public struct CF_SYNC_REGISTRATION
+[CRepr]
+public struct CF_SYNC_REGISTRATION
 {
 	public uint32 StructSize;
 	public PWSTR ProviderName;
@@ -599,7 +611,8 @@ public function void CF_CALLBACK(CF_CALLBACK_INFO* CallbackInfo, CF_CALLBACK_PAR
 	public Guid ProviderId;
 }
 
-[CRepr]public struct CF_CALLBACK_INFO
+[CRepr]
+public struct CF_CALLBACK_INFO
 {
 	public uint32 StructSize;
 	public CF_CONNECTION_KEY ConnectionKey;
@@ -622,44 +635,54 @@ public function void CF_CALLBACK(CF_CALLBACK_INFO* CallbackInfo, CF_CALLBACK_PAR
 	public LARGE_INTEGER RequestKey;
 }
 
-[CRepr]public struct CF_CALLBACK_PARAMETERS
+[CRepr]
+public struct CF_CALLBACK_PARAMETERS
 {
-	[CRepr, Union]	public struct _Anonymous_e__Union
+	[CRepr, Union]
+	public struct _Anonymous_e__Union
 	{
-		[CRepr]		public struct _Rename_e__Struct
+		[CRepr]
+		public struct _Rename_e__Struct
 		{
 			public CF_CALLBACK_RENAME_FLAGS Flags;
 			public PWSTR TargetPath;
 		}
 
-		[CRepr]		public struct _Delete_e__Struct
+		[CRepr]
+		public struct _Delete_e__Struct
 		{
 			public CF_CALLBACK_DELETE_FLAGS Flags;
 		}
 
-		[CRepr]		public struct _Dehydrate_e__Struct
+		[CRepr]
+		public struct _Dehydrate_e__Struct
 		{
 			public CF_CALLBACK_DEHYDRATE_FLAGS Flags;
 			public CF_CALLBACK_DEHYDRATION_REASON Reason;
 		}
 
-		[CRepr]		public struct _OpenCompletion_e__Struct
+		[CRepr]
+		public struct _OpenCompletion_e__Struct
 		{
 			public CF_CALLBACK_OPEN_COMPLETION_FLAGS Flags;
 		}
 
-		[CRepr]		public struct _ValidateData_e__Struct
+		[CRepr]
+		public struct _ValidateData_e__Struct
 		{
 			public CF_CALLBACK_VALIDATE_DATA_FLAGS Flags;
 			public LARGE_INTEGER RequiredFileOffset;
 			public LARGE_INTEGER RequiredLength;
 		}
 
-		[CRepr]		public struct _Cancel_e__Struct
+		[CRepr]
+		public struct _Cancel_e__Struct
 		{
-			[CRepr, Union]			public struct _Anonymous_e__Union
+			[CRepr, Union]
+			public struct _Anonymous_e__Union
 			{
-				[CRepr]				public struct _FetchData_e__Struct
+				[CRepr]
+				public struct _FetchData_e__Struct
 				{
 					public LARGE_INTEGER FileOffset;
 					public LARGE_INTEGER Length;
@@ -672,30 +695,35 @@ public function void CF_CALLBACK(CF_CALLBACK_INFO* CallbackInfo, CF_CALLBACK_PAR
 			public using _Anonymous_e__Union Anonymous;
 		}
 
-		[CRepr]		public struct _RenameCompletion_e__Struct
+		[CRepr]
+		public struct _RenameCompletion_e__Struct
 		{
 			public CF_CALLBACK_RENAME_COMPLETION_FLAGS Flags;
 			public PWSTR SourcePath;
 		}
 
-		[CRepr]		public struct _DehydrateCompletion_e__Struct
+		[CRepr]
+		public struct _DehydrateCompletion_e__Struct
 		{
 			public CF_CALLBACK_DEHYDRATE_COMPLETION_FLAGS Flags;
 			public CF_CALLBACK_DEHYDRATION_REASON Reason;
 		}
 
-		[CRepr]		public struct _FetchPlaceholders_e__Struct
+		[CRepr]
+		public struct _FetchPlaceholders_e__Struct
 		{
 			public CF_CALLBACK_FETCH_PLACEHOLDERS_FLAGS Flags;
 			public PWSTR Pattern;
 		}
 
-		[CRepr]		public struct _DeleteCompletion_e__Struct
+		[CRepr]
+		public struct _DeleteCompletion_e__Struct
 		{
 			public CF_CALLBACK_DELETE_COMPLETION_FLAGS Flags;
 		}
 
-		[CRepr]		public struct _FetchData_e__Struct
+		[CRepr]
+		public struct _FetchData_e__Struct
 		{
 			public CF_CALLBACK_FETCH_DATA_FLAGS Flags;
 			public LARGE_INTEGER RequiredFileOffset;
@@ -706,7 +734,8 @@ public function void CF_CALLBACK(CF_CALLBACK_INFO* CallbackInfo, CF_CALLBACK_PAR
 			public CF_CALLBACK_DEHYDRATION_REASON LastDehydrationReason;
 		}
 
-		[CRepr]		public struct _CloseCompletion_e__Struct
+		[CRepr]
+		public struct _CloseCompletion_e__Struct
 		{
 			public CF_CALLBACK_CLOSE_COMPLETION_FLAGS Flags;
 		}
@@ -729,13 +758,15 @@ public function void CF_CALLBACK(CF_CALLBACK_INFO* CallbackInfo, CF_CALLBACK_PAR
 	public using _Anonymous_e__Union Anonymous;
 }
 
-[CRepr]public struct CF_CALLBACK_REGISTRATION
+[CRepr]
+public struct CF_CALLBACK_REGISTRATION
 {
 	public CF_CALLBACK_TYPE Type;
 	public CF_CALLBACK Callback;
 }
 
-[CRepr]public struct CF_SYNC_STATUS
+[CRepr]
+public struct CF_SYNC_STATUS
 {
 	public uint32 StructSize;
 	public uint32 Code;
@@ -745,7 +776,8 @@ public function void CF_CALLBACK(CF_CALLBACK_INFO* CallbackInfo, CF_CALLBACK_PAR
 	public uint32 DeviceIdLength;
 }
 
-[CRepr]public struct CF_OPERATION_INFO
+[CRepr]
+public struct CF_OPERATION_INFO
 {
 	public uint32 StructSize;
 	public CF_OPERATION_TYPE Type;
@@ -756,17 +788,21 @@ public function void CF_CALLBACK(CF_CALLBACK_INFO* CallbackInfo, CF_CALLBACK_PAR
 	public LARGE_INTEGER RequestKey;
 }
 
-[CRepr]public struct CF_OPERATION_PARAMETERS
+[CRepr]
+public struct CF_OPERATION_PARAMETERS
 {
-	[CRepr, Union]	public struct _Anonymous_e__Union
+	[CRepr, Union]
+	public struct _Anonymous_e__Union
 	{
-		[CRepr]		public struct _AckRename_e__Struct
+		[CRepr]
+		public struct _AckRename_e__Struct
 		{
 			public CF_OPERATION_ACK_RENAME_FLAGS Flags;
 			public NTSTATUS CompletionStatus;
 		}
 
-		[CRepr]		public struct _TransferPlaceholders_e__Struct
+		[CRepr]
+		public struct _TransferPlaceholders_e__Struct
 		{
 			public CF_OPERATION_TRANSFER_PLACEHOLDERS_FLAGS Flags;
 			public NTSTATUS CompletionStatus;
@@ -776,7 +812,8 @@ public function void CF_CALLBACK(CF_CALLBACK_INFO* CallbackInfo, CF_CALLBACK_PAR
 			public uint32 EntriesProcessed;
 		}
 
-		[CRepr]		public struct _AckData_e__Struct
+		[CRepr]
+		public struct _AckData_e__Struct
 		{
 			public CF_OPERATION_ACK_DATA_FLAGS Flags;
 			public NTSTATUS CompletionStatus;
@@ -784,7 +821,8 @@ public function void CF_CALLBACK(CF_CALLBACK_INFO* CallbackInfo, CF_CALLBACK_PAR
 			public LARGE_INTEGER Length;
 		}
 
-		[CRepr]		public struct _TransferData_e__Struct
+		[CRepr]
+		public struct _TransferData_e__Struct
 		{
 			public CF_OPERATION_TRANSFER_DATA_FLAGS Flags;
 			public NTSTATUS CompletionStatus;
@@ -793,13 +831,15 @@ public function void CF_CALLBACK(CF_CALLBACK_INFO* CallbackInfo, CF_CALLBACK_PAR
 			public LARGE_INTEGER Length;
 		}
 
-		[CRepr]		public struct _AckDelete_e__Struct
+		[CRepr]
+		public struct _AckDelete_e__Struct
 		{
 			public CF_OPERATION_ACK_DELETE_FLAGS Flags;
 			public NTSTATUS CompletionStatus;
 		}
 
-		[CRepr]		public struct _RestartHydration_e__Struct
+		[CRepr]
+		public struct _RestartHydration_e__Struct
 		{
 			public CF_OPERATION_RESTART_HYDRATION_FLAGS Flags;
 			public CF_FS_METADATA* FsMetadata;
@@ -807,7 +847,8 @@ public function void CF_CALLBACK(CF_CALLBACK_INFO* CallbackInfo, CF_CALLBACK_PAR
 			public uint32 FileIdentityLength;
 		}
 
-		[CRepr]		public struct _AckDehydrate_e__Struct
+		[CRepr]
+		public struct _AckDehydrate_e__Struct
 		{
 			public CF_OPERATION_ACK_DEHYDRATE_FLAGS Flags;
 			public NTSTATUS CompletionStatus;
@@ -815,7 +856,8 @@ public function void CF_CALLBACK(CF_CALLBACK_INFO* CallbackInfo, CF_CALLBACK_PAR
 			public uint32 FileIdentityLength;
 		}
 
-		[CRepr]		public struct _RetrieveData_e__Struct
+		[CRepr]
+		public struct _RetrieveData_e__Struct
 		{
 			public CF_OPERATION_RETRIEVE_DATA_FLAGS Flags;
 			public void* Buffer;
@@ -838,13 +880,15 @@ public function void CF_CALLBACK(CF_CALLBACK_INFO* CallbackInfo, CF_CALLBACK_PAR
 	public using _Anonymous_e__Union Anonymous;
 }
 
-[CRepr]public struct CF_FILE_RANGE
+[CRepr]
+public struct CF_FILE_RANGE
 {
 	public LARGE_INTEGER StartingOffset;
 	public LARGE_INTEGER Length;
 }
 
-[CRepr]public struct CF_PLACEHOLDER_BASIC_INFO
+[CRepr]
+public struct CF_PLACEHOLDER_BASIC_INFO
 {
 	public CF_PIN_STATE PinState;
 	public CF_IN_SYNC_STATE InSyncState;
@@ -854,7 +898,8 @@ public function void CF_CALLBACK(CF_CALLBACK_INFO* CallbackInfo, CF_CALLBACK_PAR
 	public uint8[1] FileIdentity;
 }
 
-[CRepr]public struct CF_PLACEHOLDER_STANDARD_INFO
+[CRepr]
+public struct CF_PLACEHOLDER_STANDARD_INFO
 {
 	public LARGE_INTEGER OnDiskDataSize;
 	public LARGE_INTEGER ValidatedDataSize;
@@ -868,19 +913,22 @@ public function void CF_CALLBACK(CF_CALLBACK_INFO* CallbackInfo, CF_CALLBACK_PAR
 	public uint8[1] FileIdentity;
 }
 
-[CRepr]public struct CF_SYNC_ROOT_BASIC_INFO
+[CRepr]
+public struct CF_SYNC_ROOT_BASIC_INFO
 {
 	public LARGE_INTEGER SyncRootFileId;
 }
 
-[CRepr]public struct CF_SYNC_ROOT_PROVIDER_INFO
+[CRepr]
+public struct CF_SYNC_ROOT_PROVIDER_INFO
 {
 	public CF_SYNC_PROVIDER_STATUS ProviderStatus;
 	public char8[256] ProviderName;
 	public char8[256] ProviderVersion;
 }
 
-[CRepr]public struct CF_SYNC_ROOT_STANDARD_INFO
+[CRepr]
+public struct CF_SYNC_ROOT_STANDARD_INFO
 {
 	public LARGE_INTEGER SyncRootFileId;
 	public CF_HYDRATION_POLICY HydrationPolicy;

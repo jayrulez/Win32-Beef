@@ -81,7 +81,8 @@ public enum RESTOREPOINTINFO_EVENT_TYPE : uint32
 #endregion
 
 #region Structs
-[CRepr, Packed(1)]public struct RESTOREPOINTINFOA
+[CRepr, Packed(1)]
+public struct RESTOREPOINTINFOA
 {
 	public RESTOREPOINTINFO_EVENT_TYPE dwEventType;
 	public RESTOREPOINTINFO_TYPE dwRestorePtType;
@@ -89,7 +90,8 @@ public enum RESTOREPOINTINFO_EVENT_TYPE : uint32
 	public CHAR[64] szDescription;
 }
 
-[CRepr, Packed(1)]public struct RESTOREPOINTINFOW
+[CRepr, Packed(1)]
+public struct RESTOREPOINTINFOW
 {
 	public RESTOREPOINTINFO_EVENT_TYPE dwEventType;
 	public RESTOREPOINTINFO_TYPE dwRestorePtType;
@@ -97,7 +99,8 @@ public enum RESTOREPOINTINFO_EVENT_TYPE : uint32
 	public char8[256] szDescription;
 }
 
-[CRepr, Packed(1)]public struct _RESTOREPTINFOEX
+[CRepr, Packed(1)]
+public struct _RESTOREPTINFOEX
 {
 	public FILETIME ftCreation;
 	public uint32 dwEventType;
@@ -106,7 +109,8 @@ public enum RESTOREPOINTINFO_EVENT_TYPE : uint32
 	public char8[256] szDescription;
 }
 
-[CRepr, Packed(1)]public struct STATEMGRSTATUS
+[CRepr, Packed(1)]
+public struct STATEMGRSTATUS
 {
 	public uint32 nStatus;
 	public int64 llSequenceNumber;

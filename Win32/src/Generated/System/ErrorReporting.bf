@@ -278,7 +278,8 @@ public function EFaultRepRetVal pfn_ADDEREXCLUDEDAPPLICATIONW(PWSTR param0);
 #endregion
 
 #region Structs
-[CRepr]public struct WER_REPORT_INFORMATION
+[CRepr]
+public struct WER_REPORT_INFORMATION
 {
 	public uint32 dwSize;
 	public HANDLE hProcess;
@@ -290,7 +291,8 @@ public function EFaultRepRetVal pfn_ADDEREXCLUDEDAPPLICATIONW(PWSTR param0);
 	public HWND hwndParent;
 }
 
-[CRepr]public struct WER_REPORT_INFORMATION_V3
+[CRepr]
+public struct WER_REPORT_INFORMATION_V3
 {
 	public uint32 dwSize;
 	public HANDLE hProcess;
@@ -304,7 +306,8 @@ public function EFaultRepRetVal pfn_ADDEREXCLUDEDAPPLICATIONW(PWSTR param0);
 	public char8[64] wzNamespaceGroup;
 }
 
-[CRepr]public struct WER_DUMP_CUSTOM_OPTIONS
+[CRepr]
+public struct WER_DUMP_CUSTOM_OPTIONS
 {
 	public uint32 dwSize;
 	public uint32 dwMask;
@@ -319,7 +322,8 @@ public function EFaultRepRetVal pfn_ADDEREXCLUDEDAPPLICATIONW(PWSTR param0);
 	public char8[256] wzPreferredModuleList;
 }
 
-[CRepr]public struct WER_DUMP_CUSTOM_OPTIONS_V2
+[CRepr]
+public struct WER_DUMP_CUSTOM_OPTIONS_V2
 {
 	public uint32 dwSize;
 	public uint32 dwMask;
@@ -336,7 +340,8 @@ public function EFaultRepRetVal pfn_ADDEREXCLUDEDAPPLICATIONW(PWSTR param0);
 	public uint32 dwOtherModuleResetFlags;
 }
 
-[CRepr]public struct WER_REPORT_INFORMATION_V4
+[CRepr]
+public struct WER_REPORT_INFORMATION_V4
 {
 	public uint32 dwSize;
 	public HANDLE hProcess;
@@ -353,7 +358,8 @@ public function EFaultRepRetVal pfn_ADDEREXCLUDEDAPPLICATIONW(PWSTR param0);
 	public HANDLE hDeleteFilesImpersonationToken;
 }
 
-[CRepr]public struct WER_REPORT_INFORMATION_V5
+[CRepr]
+public struct WER_REPORT_INFORMATION_V5
 {
 	public uint32 dwSize;
 	public HANDLE hProcess;
@@ -371,7 +377,8 @@ public function EFaultRepRetVal pfn_ADDEREXCLUDEDAPPLICATIONW(PWSTR param0);
 	public WER_SUBMIT_RESULT submitResultMax;
 }
 
-[CRepr]public struct WER_DUMP_CUSTOM_OPTIONS_V3
+[CRepr]
+public struct WER_DUMP_CUSTOM_OPTIONS_V3
 {
 	public uint32 dwSize;
 	public uint32 dwMask;
@@ -391,13 +398,15 @@ public function EFaultRepRetVal pfn_ADDEREXCLUDEDAPPLICATIONW(PWSTR param0);
 	public uint32 dwThreadID;
 }
 
-[CRepr]public struct WER_EXCEPTION_INFORMATION
+[CRepr]
+public struct WER_EXCEPTION_INFORMATION
 {
 	public EXCEPTION_POINTERS* pExceptionPointers;
 	public BOOL bClientPointers;
 }
 
-[CRepr]public struct WER_RUNTIME_EXCEPTION_INFORMATION
+[CRepr]
+public struct WER_RUNTIME_EXCEPTION_INFORMATION
 {
 	public uint32 dwSize;
 	public HANDLE hProcess;
@@ -409,19 +418,22 @@ public function EFaultRepRetVal pfn_ADDEREXCLUDEDAPPLICATIONW(PWSTR param0);
 	public uint32 dwReserved;
 }
 
-[CRepr]public struct WER_REPORT_PARAMETER
+[CRepr]
+public struct WER_REPORT_PARAMETER
 {
 	public char8[129] Name;
 	public char8[260] Value;
 }
 
-[CRepr]public struct WER_REPORT_SIGNATURE
+[CRepr]
+public struct WER_REPORT_SIGNATURE
 {
 	public char8[65] EventName;
 	public WER_REPORT_PARAMETER[10] Parameters;
 }
 
-[CRepr]public struct WER_REPORT_METADATA_V2
+[CRepr]
+public struct WER_REPORT_METADATA_V2
 {
 	public WER_REPORT_SIGNATURE Signature;
 	public Guid BucketId;
@@ -436,7 +448,8 @@ public function EFaultRepRetVal pfn_ADDEREXCLUDEDAPPLICATIONW(PWSTR param0);
 	public PWSTR FileNames;
 }
 
-[CRepr]public struct WER_REPORT_METADATA_V3
+[CRepr]
+public struct WER_REPORT_METADATA_V3
 {
 	public WER_REPORT_SIGNATURE Signature;
 	public Guid BucketId;
@@ -457,7 +470,8 @@ public function EFaultRepRetVal pfn_ADDEREXCLUDEDAPPLICATIONW(PWSTR param0);
 	public uint64 LegacyBucketId;
 }
 
-[CRepr]public struct WER_REPORT_METADATA_V1
+[CRepr]
+public struct WER_REPORT_METADATA_V1
 {
 	public WER_REPORT_SIGNATURE Signature;
 	public Guid BucketId;

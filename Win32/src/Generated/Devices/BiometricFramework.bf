@@ -568,17 +568,21 @@ public function HRESULT PIBIO_FRAMEWORK_VSM_DECRYPT_SAMPLE_FN(WINBIO_PIPELINE* P
 #endregion
 
 #region Structs
-[CRepr]public struct WINBIO_VERSION
+[CRepr]
+public struct WINBIO_VERSION
 {
 	public uint32 MajorVersion;
 	public uint32 MinorVersion;
 }
 
-[CRepr]public struct WINBIO_IDENTITY
+[CRepr]
+public struct WINBIO_IDENTITY
 {
-	[CRepr, Union]	public struct _Value_e__Union
+	[CRepr, Union]
+	public struct _Value_e__Union
 	{
-		[CRepr]		public struct _AccountSid_e__Struct
+		[CRepr]
+		public struct _AccountSid_e__Struct
 		{
 			public uint32 Size;
 			public uint8[68] Data;
@@ -595,14 +599,16 @@ public function HRESULT PIBIO_FRAMEWORK_VSM_DECRYPT_SAMPLE_FN(WINBIO_PIPELINE* P
 	public _Value_e__Union Value;
 }
 
-[CRepr]public struct WINBIO_SECURE_CONNECTION_PARAMS
+[CRepr]
+public struct WINBIO_SECURE_CONNECTION_PARAMS
 {
 	public uint32 PayloadSize;
 	public uint16 Version;
 	public uint16 Flags;
 }
 
-[CRepr]public struct WINBIO_SECURE_CONNECTION_DATA
+[CRepr]
+public struct WINBIO_SECURE_CONNECTION_DATA
 {
 	public uint32 Size;
 	public uint16 Version;
@@ -612,13 +618,15 @@ public function HRESULT PIBIO_FRAMEWORK_VSM_DECRYPT_SAMPLE_FN(WINBIO_PIPELINE* P
 	public uint32 IntermediateCA2Size;
 }
 
-[CRepr]public struct WINBIO_BIR_DATA
+[CRepr]
+public struct WINBIO_BIR_DATA
 {
 	public uint32 Size;
 	public uint32 Offset;
 }
 
-[CRepr]public struct WINBIO_BIR
+[CRepr]
+public struct WINBIO_BIR
 {
 	public WINBIO_BIR_DATA HeaderBlock;
 	public WINBIO_BIR_DATA StandardDataBlock;
@@ -626,15 +634,18 @@ public function HRESULT PIBIO_FRAMEWORK_VSM_DECRYPT_SAMPLE_FN(WINBIO_PIPELINE* P
 	public WINBIO_BIR_DATA SignatureBlock;
 }
 
-[CRepr]public struct WINBIO_REGISTERED_FORMAT
+[CRepr]
+public struct WINBIO_REGISTERED_FORMAT
 {
 	public uint16 Owner;
 	public uint16 Type;
 }
 
-[CRepr]public struct WINBIO_BIR_HEADER
+[CRepr]
+public struct WINBIO_BIR_HEADER
 {
-	[CRepr]	public struct _ValidityPeriod_e__Struct
+	[CRepr]
+	public struct _ValidityPeriod_e__Struct
 	{
 		public LARGE_INTEGER BeginDate;
 		public LARGE_INTEGER EndDate;
@@ -654,7 +665,8 @@ public function HRESULT PIBIO_FRAMEWORK_VSM_DECRYPT_SAMPLE_FN(WINBIO_PIPELINE* P
 	public WINBIO_REGISTERED_FORMAT ProductId;
 }
 
-[CRepr]public struct WINBIO_BDB_ANSI_381_HEADER
+[CRepr]
+public struct WINBIO_BDB_ANSI_381_HEADER
 {
 	public uint64 RecordLength;
 	public uint32 FormatIdentifier;
@@ -673,7 +685,8 @@ public function HRESULT PIBIO_FRAMEWORK_VSM_DECRYPT_SAMPLE_FN(WINBIO_PIPELINE* P
 	public uint16 Reserved;
 }
 
-[CRepr]public struct WINBIO_BDB_ANSI_381_RECORD
+[CRepr]
+public struct WINBIO_BDB_ANSI_381_RECORD
 {
 	public uint32 BlockLength;
 	public uint16 HorizontalLineLength;
@@ -686,7 +699,8 @@ public function HRESULT PIBIO_FRAMEWORK_VSM_DECRYPT_SAMPLE_FN(WINBIO_PIPELINE* P
 	public uint8 Reserved;
 }
 
-[CRepr]public struct WINBIO_SECURE_BUFFER_HEADER_V1
+[CRepr]
+public struct WINBIO_SECURE_BUFFER_HEADER_V1
 {
 	public uint32 Type;
 	public uint32 Size;
@@ -694,11 +708,14 @@ public function HRESULT PIBIO_FRAMEWORK_VSM_DECRYPT_SAMPLE_FN(WINBIO_PIPELINE* P
 	public uint64 ValidationTag;
 }
 
-[CRepr]public struct WINBIO_EVENT
+[CRepr]
+public struct WINBIO_EVENT
 {
-	[CRepr, Union]	public struct _Parameters_e__Union
+	[CRepr, Union]
+	public struct _Parameters_e__Union
 	{
-		[CRepr]		public struct _UnclaimedIdentify_e__Struct
+		[CRepr]
+		public struct _UnclaimedIdentify_e__Struct
 		{
 			public uint32 UnitId;
 			public WINBIO_IDENTITY Identity;
@@ -706,13 +723,15 @@ public function HRESULT PIBIO_FRAMEWORK_VSM_DECRYPT_SAMPLE_FN(WINBIO_PIPELINE* P
 			public uint32 RejectDetail;
 		}
 
-		[CRepr]		public struct _Unclaimed_e__Struct
+		[CRepr]
+		public struct _Unclaimed_e__Struct
 		{
 			public uint32 UnitId;
 			public uint32 RejectDetail;
 		}
 
-		[CRepr]		public struct _Error_e__Struct
+		[CRepr]
+		public struct _Error_e__Struct
 		{
 			public HRESULT ErrorCode;
 		}
@@ -726,9 +745,11 @@ public function HRESULT PIBIO_FRAMEWORK_VSM_DECRYPT_SAMPLE_FN(WINBIO_PIPELINE* P
 	public _Parameters_e__Union Parameters;
 }
 
-[CRepr, Union]public struct WINBIO_PRESENCE_PROPERTIES
+[CRepr, Union]
+public struct WINBIO_PRESENCE_PROPERTIES
 {
-	[CRepr]	public struct _Iris_e__Struct
+	[CRepr]
+	public struct _Iris_e__Struct
 	{
 		public RECT EyeBoundingBox_1;
 		public RECT EyeBoundingBox_2;
@@ -737,9 +758,11 @@ public function HRESULT PIBIO_FRAMEWORK_VSM_DECRYPT_SAMPLE_FN(WINBIO_PIPELINE* P
 		public int32 Distance;
 	}
 
-	[CRepr]	public struct _FacialFeatures_e__Struct
+	[CRepr]
+	public struct _FacialFeatures_e__Struct
 	{
-		[CRepr]		public struct _OpaqueEngineData_e__Struct
+		[CRepr]
+		public struct _OpaqueEngineData_e__Struct
 		{
 			public Guid AdapterId;
 			public uint32[78] Data;
@@ -754,9 +777,11 @@ public function HRESULT PIBIO_FRAMEWORK_VSM_DECRYPT_SAMPLE_FN(WINBIO_PIPELINE* P
 	public _Iris_e__Struct Iris;
 }
 
-[CRepr]public struct WINBIO_PRESENCE
+[CRepr]
+public struct WINBIO_PRESENCE
 {
-	[CRepr]	public struct _Authorization_e__Struct
+	[CRepr]
+	public struct _Authorization_e__Struct
 	{
 		public uint32 Size;
 		public uint8[32] Data;
@@ -773,7 +798,8 @@ public function HRESULT PIBIO_FRAMEWORK_VSM_DECRYPT_SAMPLE_FN(WINBIO_PIPELINE* P
 	public _Authorization_e__Struct Authorization;
 }
 
-[CRepr]public struct WINBIO_BSP_SCHEMA
+[CRepr]
+public struct WINBIO_BSP_SCHEMA
 {
 	public uint32 BiometricFactor;
 	public Guid BspId;
@@ -782,7 +808,8 @@ public function HRESULT PIBIO_FRAMEWORK_VSM_DECRYPT_SAMPLE_FN(WINBIO_PIPELINE* P
 	public WINBIO_VERSION Version;
 }
 
-[CRepr]public struct WINBIO_UNIT_SCHEMA
+[CRepr]
+public struct WINBIO_UNIT_SCHEMA
 {
 	public uint32 UnitId;
 	public uint32 PoolType;
@@ -797,7 +824,8 @@ public function HRESULT PIBIO_FRAMEWORK_VSM_DECRYPT_SAMPLE_FN(WINBIO_PIPELINE* P
 	public WINBIO_VERSION FirmwareVersion;
 }
 
-[CRepr]public struct WINBIO_STORAGE_SCHEMA
+[CRepr]
+public struct WINBIO_STORAGE_SCHEMA
 {
 	public uint32 BiometricFactor;
 	public Guid DatabaseId;
@@ -807,20 +835,25 @@ public function HRESULT PIBIO_FRAMEWORK_VSM_DECRYPT_SAMPLE_FN(WINBIO_PIPELINE* P
 	public uint16[256] ConnectionString;
 }
 
-[CRepr]public struct WINBIO_EXTENDED_SENSOR_INFO
+[CRepr]
+public struct WINBIO_EXTENDED_SENSOR_INFO
 {
-	[CRepr, Union]	public struct _Specific_e__Union
+	[CRepr, Union]
+	public struct _Specific_e__Union
 	{
-		[CRepr]		public struct _Iris_e__Struct
+		[CRepr]
+		public struct _Iris_e__Struct
 		{
 			public RECT FrameSize;
 			public POINT FrameOffset;
 			public uint32 MandatoryOrientation;
 		}
 
-		[CRepr]		public struct _FacialFeatures_e__Struct
+		[CRepr]
+		public struct _FacialFeatures_e__Struct
 		{
-			[CRepr]			public struct _HardwareInfo_e__Struct
+			[CRepr]
+			public struct _HardwareInfo_e__Struct
 			{
 				public char8[260] ColorSensorId;
 				public char8[260] InfraredSensorId;
@@ -833,12 +866,14 @@ public function HRESULT PIBIO_FRAMEWORK_VSM_DECRYPT_SAMPLE_FN(WINBIO_PIPELINE* P
 			public _HardwareInfo_e__Struct HardwareInfo;
 		}
 
-		[CRepr]		public struct _Fingerprint_e__Struct
+		[CRepr]
+		public struct _Fingerprint_e__Struct
 		{
 			public uint32 Reserved;
 		}
 
-		[CRepr]		public struct _Voice_e__Struct
+		[CRepr]
+		public struct _Voice_e__Struct
 		{
 			public uint32 Reserved;
 		}
@@ -855,13 +890,17 @@ public function HRESULT PIBIO_FRAMEWORK_VSM_DECRYPT_SAMPLE_FN(WINBIO_PIPELINE* P
 	public _Specific_e__Union Specific;
 }
 
-[CRepr]public struct WINBIO_EXTENDED_ENGINE_INFO
+[CRepr]
+public struct WINBIO_EXTENDED_ENGINE_INFO
 {
-	[CRepr, Union]	public struct _Specific_e__Union
+	[CRepr, Union]
+	public struct _Specific_e__Union
 	{
-		[CRepr]		public struct _Voice_e__Struct
+		[CRepr]
+		public struct _Voice_e__Struct
 		{
-			[CRepr]			public struct _EnrollmentRequirements_e__Struct
+			[CRepr]
+			public struct _EnrollmentRequirements_e__Struct
 			{
 				public uint32 Null;
 			}
@@ -870,9 +909,11 @@ public function HRESULT PIBIO_FRAMEWORK_VSM_DECRYPT_SAMPLE_FN(WINBIO_PIPELINE* P
 			public _EnrollmentRequirements_e__Struct EnrollmentRequirements;
 		}
 
-		[CRepr]		public struct _Iris_e__Struct
+		[CRepr]
+		public struct _Iris_e__Struct
 		{
-			[CRepr]			public struct _EnrollmentRequirements_e__Struct
+			[CRepr]
+			public struct _EnrollmentRequirements_e__Struct
 			{
 				public uint32 Null;
 			}
@@ -881,9 +922,11 @@ public function HRESULT PIBIO_FRAMEWORK_VSM_DECRYPT_SAMPLE_FN(WINBIO_PIPELINE* P
 			public _EnrollmentRequirements_e__Struct EnrollmentRequirements;
 		}
 
-		[CRepr]		public struct _Fingerprint_e__Struct
+		[CRepr]
+		public struct _Fingerprint_e__Struct
 		{
-			[CRepr]			public struct _EnrollmentRequirements_e__Struct
+			[CRepr]
+			public struct _EnrollmentRequirements_e__Struct
 			{
 				public uint32 GeneralSamples;
 				public uint32 Center;
@@ -897,9 +940,11 @@ public function HRESULT PIBIO_FRAMEWORK_VSM_DECRYPT_SAMPLE_FN(WINBIO_PIPELINE* P
 			public _EnrollmentRequirements_e__Struct EnrollmentRequirements;
 		}
 
-		[CRepr]		public struct _FacialFeatures_e__Struct
+		[CRepr]
+		public struct _FacialFeatures_e__Struct
 		{
-			[CRepr]			public struct _EnrollmentRequirements_e__Struct
+			[CRepr]
+			public struct _EnrollmentRequirements_e__Struct
 			{
 				public uint32 Null;
 			}
@@ -920,26 +965,32 @@ public function HRESULT PIBIO_FRAMEWORK_VSM_DECRYPT_SAMPLE_FN(WINBIO_PIPELINE* P
 	public _Specific_e__Union Specific;
 }
 
-[CRepr]public struct WINBIO_EXTENDED_STORAGE_INFO
+[CRepr]
+public struct WINBIO_EXTENDED_STORAGE_INFO
 {
-	[CRepr, Union]	public struct _Specific_e__Union
+	[CRepr, Union]
+	public struct _Specific_e__Union
 	{
-		[CRepr]		public struct _Iris_e__Struct
+		[CRepr]
+		public struct _Iris_e__Struct
 		{
 			public uint32 Capabilities;
 		}
 
-		[CRepr]		public struct _FacialFeatures_e__Struct
+		[CRepr]
+		public struct _FacialFeatures_e__Struct
 		{
 			public uint32 Capabilities;
 		}
 
-		[CRepr]		public struct _Fingerprint_e__Struct
+		[CRepr]
+		public struct _Fingerprint_e__Struct
 		{
 			public uint32 Capabilities;
 		}
 
-		[CRepr]		public struct _Voice_e__Struct
+		[CRepr]
+		public struct _Voice_e__Struct
 		{
 			public uint32 Capabilities;
 		}
@@ -956,18 +1007,23 @@ public function HRESULT PIBIO_FRAMEWORK_VSM_DECRYPT_SAMPLE_FN(WINBIO_PIPELINE* P
 	public _Specific_e__Union Specific;
 }
 
-[CRepr]public struct WINBIO_EXTENDED_ENROLLMENT_STATUS
+[CRepr]
+public struct WINBIO_EXTENDED_ENROLLMENT_STATUS
 {
-	[CRepr, Union]	public struct _Specific_e__Union
+	[CRepr, Union]
+	public struct _Specific_e__Union
 	{
-		[CRepr]		public struct _Voice_e__Struct
+		[CRepr]
+		public struct _Voice_e__Struct
 		{
 			public uint32 Reserved;
 		}
 
-		[CRepr]		public struct _Iris_e__Struct
+		[CRepr]
+		public struct _Iris_e__Struct
 		{
-			[CRepr]			public struct _Point3D_e__Struct
+			[CRepr]
+			public struct _Point3D_e__Struct
 			{
 				public double X;
 				public double Y;
@@ -985,9 +1041,11 @@ public function HRESULT PIBIO_FRAMEWORK_VSM_DECRYPT_SAMPLE_FN(WINBIO_PIPELINE* P
 			public BOOL StopCaptureAndShowCriticalFeedback;
 		}
 
-		[CRepr]		public struct _FacialFeatures_e__Struct
+		[CRepr]
+		public struct _FacialFeatures_e__Struct
 		{
-			[CRepr]			public struct _OpaqueEngineData_e__Struct
+			[CRepr]
+			public struct _OpaqueEngineData_e__Struct
 			{
 				public Guid AdapterId;
 				public uint32[78] Data;
@@ -998,7 +1056,8 @@ public function HRESULT PIBIO_FRAMEWORK_VSM_DECRYPT_SAMPLE_FN(WINBIO_PIPELINE* P
 			public _OpaqueEngineData_e__Struct OpaqueEngineData;
 		}
 
-		[CRepr]		public struct _Fingerprint_e__Struct
+		[CRepr]
+		public struct _Fingerprint_e__Struct
 		{
 			public uint32 GeneralSamples;
 			public uint32 Center;
@@ -1023,37 +1082,43 @@ public function HRESULT PIBIO_FRAMEWORK_VSM_DECRYPT_SAMPLE_FN(WINBIO_PIPELINE* P
 	public _Specific_e__Union Specific;
 }
 
-[CRepr]public struct WINBIO_EXTENDED_UNIT_STATUS
+[CRepr]
+public struct WINBIO_EXTENDED_UNIT_STATUS
 {
 	public uint32 Availability;
 	public uint32 ReasonCode;
 }
 
-[CRepr]public struct WINBIO_FP_BU_STATE
+[CRepr]
+public struct WINBIO_FP_BU_STATE
 {
 	public BOOL SensorAttached;
 	public HRESULT CreationResult;
 }
 
-[CRepr]public struct WINBIO_ANTI_SPOOF_POLICY
+[CRepr]
+public struct WINBIO_ANTI_SPOOF_POLICY
 {
 	public WINBIO_ANTI_SPOOF_POLICY_ACTION Action;
 	public WINBIO_POLICY_SOURCE Source;
 }
 
-[CRepr]public struct WINBIO_EXTENDED_ENROLLMENT_PARAMETERS
+[CRepr]
+public struct WINBIO_EXTENDED_ENROLLMENT_PARAMETERS
 {
 	public uint Size;
 	public uint8 SubFactor;
 }
 
-[CRepr]public struct WINBIO_ACCOUNT_POLICY
+[CRepr]
+public struct WINBIO_ACCOUNT_POLICY
 {
 	public WINBIO_IDENTITY Identity;
 	public WINBIO_ANTI_SPOOF_POLICY_ACTION AntiSpoofBehavior;
 }
 
-[CRepr]public struct WINBIO_PROTECTION_POLICY
+[CRepr]
+public struct WINBIO_PROTECTION_POLICY
 {
 	public uint32 Version;
 	public WINBIO_IDENTITY Identity;
@@ -1063,7 +1128,8 @@ public function HRESULT PIBIO_FRAMEWORK_VSM_DECRYPT_SAMPLE_FN(WINBIO_PIPELINE* P
 	public uint8[128] Policy;
 }
 
-[CRepr]public struct WINBIO_GESTURE_METADATA
+[CRepr]
+public struct WINBIO_GESTURE_METADATA
 {
 	public uint Size;
 	public uint32 BiometricType;
@@ -1071,35 +1137,42 @@ public function HRESULT PIBIO_FRAMEWORK_VSM_DECRYPT_SAMPLE_FN(WINBIO_PIPELINE* P
 	public uint32 ProtectionType;
 }
 
-[CRepr]public struct WINBIO_ASYNC_RESULT
+[CRepr]
+public struct WINBIO_ASYNC_RESULT
 {
-	[CRepr, Union]	public struct _Parameters_e__Union
+	[CRepr, Union]
+	public struct _Parameters_e__Union
 	{
-		[CRepr]		public struct _GetProtectionPolicy_e__Struct
+		[CRepr]
+		public struct _GetProtectionPolicy_e__Struct
 		{
 			public WINBIO_IDENTITY Identity;
 			public WINBIO_PROTECTION_POLICY Policy;
 		}
 
-		[CRepr]		public struct _EnrollSelect_e__Struct
+		[CRepr]
+		public struct _EnrollSelect_e__Struct
 		{
 			public uint64 SelectorValue;
 		}
 
-		[CRepr]		public struct _VerifyAndReleaseTicket_e__Struct
+		[CRepr]
+		public struct _VerifyAndReleaseTicket_e__Struct
 		{
 			public BOOLEAN Match;
 			public uint32 RejectDetail;
 			public uint64 Ticket;
 		}
 
-		[CRepr]		public struct _EnumBiometricUnits_e__Struct
+		[CRepr]
+		public struct _EnumBiometricUnits_e__Struct
 		{
 			public uint UnitCount;
 			public WINBIO_UNIT_SCHEMA* UnitSchemaArray;
 		}
 
-		[CRepr]		public struct _ControlUnit_e__Struct
+		[CRepr]
+		public struct _ControlUnit_e__Struct
 		{
 			public WINBIO_COMPONENT Component;
 			public uint32 ControlCode;
@@ -1111,7 +1184,8 @@ public function HRESULT PIBIO_FRAMEWORK_VSM_DECRYPT_SAMPLE_FN(WINBIO_PIPELINE* P
 			public uint ReceiveDataSize;
 		}
 
-		[CRepr]		public struct _SetProperty_e__Struct
+		[CRepr]
+		public struct _SetProperty_e__Struct
 		{
 			public uint32 PropertyType;
 			public uint32 PropertyId;
@@ -1121,79 +1195,92 @@ public function HRESULT PIBIO_FRAMEWORK_VSM_DECRYPT_SAMPLE_FN(WINBIO_PIPELINE* P
 			public void* PropertyBuffer;
 		}
 
-		[CRepr]		public struct _DeleteTemplate_e__Struct
+		[CRepr]
+		public struct _DeleteTemplate_e__Struct
 		{
 			public WINBIO_IDENTITY Identity;
 			public uint8 SubFactor;
 		}
 
-		[CRepr]		public struct _EnumEnrollments_e__Struct
+		[CRepr]
+		public struct _EnumEnrollments_e__Struct
 		{
 			public WINBIO_IDENTITY Identity;
 			public uint SubFactorCount;
 			public uint8* SubFactorArray;
 		}
 
-		[CRepr]		public struct _EnrollCapture_e__Struct
+		[CRepr]
+		public struct _EnrollCapture_e__Struct
 		{
 			public uint32 RejectDetail;
 		}
 
-		[CRepr]		public struct _Identify_e__Struct
+		[CRepr]
+		public struct _Identify_e__Struct
 		{
 			public WINBIO_IDENTITY Identity;
 			public uint8 SubFactor;
 			public uint32 RejectDetail;
 		}
 
-		[CRepr]		public struct _MonitorPresence_e__Struct
+		[CRepr]
+		public struct _MonitorPresence_e__Struct
 		{
 			public uint32 ChangeType;
 			public uint PresenceCount;
 			public WINBIO_PRESENCE* PresenceArray;
 		}
 
-		[CRepr]		public struct _EnumDatabases_e__Struct
+		[CRepr]
+		public struct _EnumDatabases_e__Struct
 		{
 			public uint StorageCount;
 			public WINBIO_STORAGE_SCHEMA* StorageSchemaArray;
 		}
 
-		[CRepr]		public struct _GetEvent_e__Struct
+		[CRepr]
+		public struct _GetEvent_e__Struct
 		{
 			public WINBIO_EVENT Event;
 		}
 
-		[CRepr]		public struct _CaptureSample_e__Struct
+		[CRepr]
+		public struct _CaptureSample_e__Struct
 		{
 			public WINBIO_BIR* Sample;
 			public uint SampleSize;
 			public uint32 RejectDetail;
 		}
 
-		[CRepr]		public struct _EnrollBegin_e__Struct
+		[CRepr]
+		public struct _EnrollBegin_e__Struct
 		{
 			public uint8 SubFactor;
 		}
 
-		[CRepr]		public struct _NotifyUnitStatusChange_e__Struct
+		[CRepr]
+		public struct _NotifyUnitStatusChange_e__Struct
 		{
 			public WINBIO_EXTENDED_UNIT_STATUS ExtendedStatus;
 		}
 
-		[CRepr]		public struct _EnumServiceProviders_e__Struct
+		[CRepr]
+		public struct _EnumServiceProviders_e__Struct
 		{
 			public uint BspCount;
 			public WINBIO_BSP_SCHEMA* BspSchemaArray;
 		}
 
-		[CRepr]		public struct _EnrollCommit_e__Struct
+		[CRepr]
+		public struct _EnrollCommit_e__Struct
 		{
 			public WINBIO_IDENTITY Identity;
 			public BOOLEAN IsNewTemplate;
 		}
 
-		[CRepr]		public struct _GetProperty_e__Struct
+		[CRepr]
+		public struct _GetProperty_e__Struct
 		{
 			public uint32 PropertyType;
 			public uint32 PropertyId;
@@ -1203,7 +1290,8 @@ public function HRESULT PIBIO_FRAMEWORK_VSM_DECRYPT_SAMPLE_FN(WINBIO_PIPELINE* P
 			public void* PropertyBuffer;
 		}
 
-		[CRepr]		public struct _IdentifyAndReleaseTicket_e__Struct
+		[CRepr]
+		public struct _IdentifyAndReleaseTicket_e__Struct
 		{
 			public WINBIO_IDENTITY Identity;
 			public uint8 SubFactor;
@@ -1211,7 +1299,8 @@ public function HRESULT PIBIO_FRAMEWORK_VSM_DECRYPT_SAMPLE_FN(WINBIO_PIPELINE* P
 			public uint64 Ticket;
 		}
 
-		[CRepr]		public struct _Verify_e__Struct
+		[CRepr]
+		public struct _Verify_e__Struct
 		{
 			public BOOLEAN Match;
 			public uint32 RejectDetail;
@@ -1250,19 +1339,23 @@ public function HRESULT PIBIO_FRAMEWORK_VSM_DECRYPT_SAMPLE_FN(WINBIO_PIPELINE* P
 	public _Parameters_e__Union Parameters;
 }
 
-[CRepr]public struct _WINIBIO_SENSOR_CONTEXT
+[CRepr]
+public struct _WINIBIO_SENSOR_CONTEXT
 {
 }
 
-[CRepr]public struct _WINIBIO_ENGINE_CONTEXT
+[CRepr]
+public struct _WINIBIO_ENGINE_CONTEXT
 {
 }
 
-[CRepr]public struct _WINIBIO_STORAGE_CONTEXT
+[CRepr]
+public struct _WINIBIO_STORAGE_CONTEXT
 {
 }
 
-[CRepr]public struct WINBIO_STORAGE_RECORD
+[CRepr]
+public struct WINBIO_STORAGE_RECORD
 {
 	public WINBIO_IDENTITY* Identity;
 	public uint8 SubFactor;
@@ -1274,7 +1367,8 @@ public function HRESULT PIBIO_FRAMEWORK_VSM_DECRYPT_SAMPLE_FN(WINBIO_PIPELINE* P
 	public uint PayloadBlobSize;
 }
 
-[CRepr]public struct WINBIO_PIPELINE
+[CRepr]
+public struct WINBIO_PIPELINE
 {
 	public HANDLE SensorHandle;
 	public HANDLE EngineHandle;
@@ -1288,13 +1382,15 @@ public function HRESULT PIBIO_FRAMEWORK_VSM_DECRYPT_SAMPLE_FN(WINBIO_PIPELINE* P
 	public WINBIO_FRAMEWORK_INTERFACE* FrameworkInterface;
 }
 
-[CRepr]public struct WINBIO_ADAPTER_INTERFACE_VERSION
+[CRepr]
+public struct WINBIO_ADAPTER_INTERFACE_VERSION
 {
 	public uint16 MajorVersion;
 	public uint16 MinorVersion;
 }
 
-[CRepr]public struct WINBIO_SENSOR_INTERFACE
+[CRepr]
+public struct WINBIO_SENSOR_INTERFACE
 {
 	public WINBIO_ADAPTER_INTERFACE_VERSION Version;
 	public uint32 Type;
@@ -1333,7 +1429,8 @@ public function HRESULT PIBIO_FRAMEWORK_VSM_DECRYPT_SAMPLE_FN(WINBIO_PIPELINE* P
 	public PIBIO_SENSOR_FINISH_NOTIFY_WAKE_FN FinishNotifyWake;
 }
 
-[CRepr]public struct WINBIO_ENGINE_INTERFACE
+[CRepr]
+public struct WINBIO_ENGINE_INTERFACE
 {
 	public WINBIO_ADAPTER_INTERFACE_VERSION Version;
 	public uint32 Type;
@@ -1382,7 +1479,8 @@ public function HRESULT PIBIO_FRAMEWORK_VSM_DECRYPT_SAMPLE_FN(WINBIO_PIPELINE* P
 	public PIBIO_ENGINE_IDENTIFY_FEATURE_SET_AUTHENTICATED_FN IdentifyFeatureSetAuthenticated;
 }
 
-[CRepr]public struct WINBIO_STORAGE_INTERFACE
+[CRepr]
+public struct WINBIO_STORAGE_INTERFACE
 {
 	public WINBIO_ADAPTER_INTERFACE_VERSION Version;
 	public uint32 Type;
@@ -1420,7 +1518,8 @@ public function HRESULT PIBIO_FRAMEWORK_VSM_DECRYPT_SAMPLE_FN(WINBIO_PIPELINE* P
 	public PIBIO_STORAGE_UPDATE_RECORD_COMMIT_FN UpdateRecordCommit;
 }
 
-[CRepr]public struct WINBIO_FRAMEWORK_INTERFACE
+[CRepr]
+public struct WINBIO_FRAMEWORK_INTERFACE
 {
 	public WINBIO_ADAPTER_INTERFACE_VERSION Version;
 	public uint32 Type;
@@ -1472,7 +1571,8 @@ public function HRESULT PIBIO_FRAMEWORK_VSM_DECRYPT_SAMPLE_FN(WINBIO_PIPELINE* P
 	public PIBIO_FRAMEWORK_VSM_DECRYPT_SAMPLE_FN DecryptSample;
 }
 
-[CRepr]public struct WINBIO_SENSOR_ATTRIBUTES
+[CRepr]
+public struct WINBIO_SENSOR_ATTRIBUTES
 {
 	public uint32 PayloadSize;
 	public HRESULT WinBioHresult;
@@ -1488,26 +1588,30 @@ public function HRESULT PIBIO_FRAMEWORK_VSM_DECRYPT_SAMPLE_FN(WINBIO_PIPELINE* P
 	public WINBIO_REGISTERED_FORMAT[1] SupportedFormat;
 }
 
-[CRepr]public struct WINBIO_DATA
+[CRepr]
+public struct WINBIO_DATA
 {
 	public uint32 Size;
 	public uint8[1] Data;
 }
 
-[CRepr]public struct WINBIO_UPDATE_FIRMWARE
+[CRepr]
+public struct WINBIO_UPDATE_FIRMWARE
 {
 	public uint32 PayloadSize;
 	public WINBIO_DATA FirmwareData;
 }
 
-[CRepr]public struct WINBIO_CALIBRATION_INFO
+[CRepr]
+public struct WINBIO_CALIBRATION_INFO
 {
 	public uint32 PayloadSize;
 	public HRESULT WinBioHresult;
 	public WINBIO_DATA CalibrationData;
 }
 
-[CRepr]public struct WINBIO_DIAGNOSTICS
+[CRepr]
+public struct WINBIO_DIAGNOSTICS
 {
 	public uint32 PayloadSize;
 	public HRESULT WinBioHresult;
@@ -1515,13 +1619,15 @@ public function HRESULT PIBIO_FRAMEWORK_VSM_DECRYPT_SAMPLE_FN(WINBIO_PIPELINE* P
 	public WINBIO_DATA VendorDiagnostics;
 }
 
-[CRepr]public struct WINBIO_BLANK_PAYLOAD
+[CRepr]
+public struct WINBIO_BLANK_PAYLOAD
 {
 	public uint32 PayloadSize;
 	public HRESULT WinBioHresult;
 }
 
-[CRepr]public struct WINBIO_CAPTURE_PARAMETERS
+[CRepr]
+public struct WINBIO_CAPTURE_PARAMETERS
 {
 	public uint32 PayloadSize;
 	public uint8 Purpose;
@@ -1530,7 +1636,8 @@ public function HRESULT PIBIO_FRAMEWORK_VSM_DECRYPT_SAMPLE_FN(WINBIO_PIPELINE* P
 	public uint8 Flags;
 }
 
-[CRepr]public struct WINBIO_CAPTURE_DATA
+[CRepr]
+public struct WINBIO_CAPTURE_DATA
 {
 	public uint32 PayloadSize;
 	public HRESULT WinBioHresult;
@@ -1539,7 +1646,8 @@ public function HRESULT PIBIO_FRAMEWORK_VSM_DECRYPT_SAMPLE_FN(WINBIO_PIPELINE* P
 	public WINBIO_DATA CaptureData;
 }
 
-[CRepr]public struct WINBIO_SUPPORTED_ALGORITHMS
+[CRepr]
+public struct WINBIO_SUPPORTED_ALGORITHMS
 {
 	public uint32 PayloadSize;
 	public HRESULT WinBioHresult;
@@ -1547,27 +1655,31 @@ public function HRESULT PIBIO_FRAMEWORK_VSM_DECRYPT_SAMPLE_FN(WINBIO_PIPELINE* P
 	public WINBIO_DATA AlgorithmData;
 }
 
-[CRepr]public struct WINBIO_GET_INDICATOR
+[CRepr]
+public struct WINBIO_GET_INDICATOR
 {
 	public uint32 PayloadSize;
 	public HRESULT WinBioHresult;
 	public uint32 IndicatorStatus;
 }
 
-[CRepr]public struct WINBIO_SET_INDICATOR
+[CRepr]
+public struct WINBIO_SET_INDICATOR
 {
 	public uint32 PayloadSize;
 	public uint32 IndicatorStatus;
 }
 
-[CRepr]public struct WINBIO_PRIVATE_SENSOR_TYPE_INFO
+[CRepr]
+public struct WINBIO_PRIVATE_SENSOR_TYPE_INFO
 {
 	public uint32 PayloadSize;
 	public HRESULT WinBioHresult;
 	public WINBIO_DATA PrivateSensorTypeInfo;
 }
 
-[CRepr]public struct WINBIO_ENCRYPTED_CAPTURE_PARAMS
+[CRepr]
+public struct WINBIO_ENCRYPTED_CAPTURE_PARAMS
 {
 	public uint32 PayloadSize;
 	public uint8 Purpose;
@@ -1577,7 +1689,8 @@ public function HRESULT PIBIO_FRAMEWORK_VSM_DECRYPT_SAMPLE_FN(WINBIO_PIPELINE* P
 	public uint32 NonceSize;
 }
 
-[CRepr]public struct WINBIO_NOTIFY_WAKE
+[CRepr]
+public struct WINBIO_NOTIFY_WAKE
 {
 	public uint32 PayloadSize;
 	public HRESULT WinBioHresult;

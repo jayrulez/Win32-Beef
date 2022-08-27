@@ -93,7 +93,8 @@ public function void PFN_CDF_PARSE_ERROR_CALLBACK(uint32 dwErrorArea, uint32 dwL
 #endregion
 
 #region Structs
-[CRepr]public struct CRYPTCATSTORE
+[CRepr]
+public struct CRYPTCATSTORE
 {
 	public uint32 cbStruct;
 	public uint32 dwPublicVersion;
@@ -107,7 +108,8 @@ public function void PFN_CDF_PARSE_ERROR_CALLBACK(uint32 dwErrorArea, uint32 dwL
 	public HANDLE hSorted;
 }
 
-[CRepr]public struct CRYPTCATMEMBER
+[CRepr]
+public struct CRYPTCATMEMBER
 {
 	public uint32 cbStruct;
 	public PWSTR pwszReferenceTag;
@@ -122,7 +124,8 @@ public function void PFN_CDF_PARSE_ERROR_CALLBACK(uint32 dwErrorArea, uint32 dwL
 	public CRYPTOAPI_BLOB sEncodedMemberInfo;
 }
 
-[CRepr]public struct CRYPTCATATTRIBUTE
+[CRepr]
+public struct CRYPTCATATTRIBUTE
 {
 	public uint32 cbStruct;
 	public PWSTR pwszReferenceTag;
@@ -132,7 +135,8 @@ public function void PFN_CDF_PARSE_ERROR_CALLBACK(uint32 dwErrorArea, uint32 dwL
 	public uint32 dwReserved;
 }
 
-[CRepr]public struct CRYPTCATCDF
+[CRepr]
+public struct CRYPTCATCDF
 {
 	public uint32 cbStruct;
 	public HANDLE hFile;
@@ -143,7 +147,8 @@ public function void PFN_CDF_PARSE_ERROR_CALLBACK(uint32 dwErrorArea, uint32 dwL
 	public HANDLE hCATStore;
 }
 
-[CRepr]public struct CATALOG_INFO
+[CRepr]
+public struct CATALOG_INFO
 {
 	public uint32 cbStruct;
 	public char8[260] wszCatalogFile;

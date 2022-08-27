@@ -347,22 +347,26 @@ public function uint32 PFNSNMPCLEANUPEX();
 #endregion
 
 #region Structs
-[CRepr, Packed(4)]public struct AsnOctetString
+[CRepr, Packed(4)]
+public struct AsnOctetString
 {
 	public uint8* stream;
 	public uint32 length;
 	public BOOL dynamic;
 }
 
-[CRepr, Packed(4)]public struct AsnObjectIdentifier
+[CRepr, Packed(4)]
+public struct AsnObjectIdentifier
 {
 	public uint32 idLength;
 	public uint32* ids;
 }
 
-[CRepr]public struct AsnAny
+[CRepr]
+public struct AsnAny
 {
-	[CRepr, Union, Packed(4)]	public struct _asnValue_e__Union
+	[CRepr, Union, Packed(4)]
+	public struct _asnValue_e__Union
 	{
 		public int32 number;
 		public uint32 unsigned32;
@@ -382,39 +386,46 @@ public function uint32 PFNSNMPCLEANUPEX();
 	public _asnValue_e__Union asnValue;
 }
 
-[CRepr]public struct SnmpVarBind
+[CRepr]
+public struct SnmpVarBind
 {
 	public AsnObjectIdentifier name;
 	public AsnAny value;
 }
 
-[CRepr, Packed(4)]public struct SnmpVarBindList
+[CRepr, Packed(4)]
+public struct SnmpVarBindList
 {
 	public SnmpVarBind* list;
 	public uint32 len;
 }
 
-[CRepr]public struct smiOCTETS
+[CRepr]
+public struct smiOCTETS
 {
 	public uint32 len;
 	public uint8* ptr;
 }
 
-[CRepr]public struct smiOID
+[CRepr]
+public struct smiOID
 {
 	public uint32 len;
 	public uint32* ptr;
 }
 
-[CRepr]public struct smiCNTR64
+[CRepr]
+public struct smiCNTR64
 {
 	public uint32 hipart;
 	public uint32 lopart;
 }
 
-[CRepr]public struct smiVALUE
+[CRepr]
+public struct smiVALUE
 {
-	[CRepr, Union]	public struct _value_e__Union
+	[CRepr, Union]
+	public struct _value_e__Union
 	{
 		public int32 sNumber;
 		public uint32 uNumber;
@@ -428,7 +439,8 @@ public function uint32 PFNSNMPCLEANUPEX();
 	public _value_e__Union value;
 }
 
-[CRepr]public struct smiVENDORINFO
+[CRepr]
+public struct smiVENDORINFO
 {
 	public CHAR[64] vendorName;
 	public CHAR[64] vendorContact;

@@ -209,7 +209,8 @@ public function HRESULT FNAPONOTIFICATIONCALLBACK(APO_REG_PROPERTIES* pPropertie
 #endregion
 
 #region Structs
-[CRepr]public struct UNCOMPRESSEDAUDIOFORMAT
+[CRepr]
+public struct UNCOMPRESSEDAUDIOFORMAT
 {
 	public Guid guidFormatType;
 	public uint32 dwSamplesPerFrame;
@@ -219,7 +220,8 @@ public function HRESULT FNAPONOTIFICATIONCALLBACK(APO_REG_PROPERTIES* pPropertie
 	public uint32 dwChannelMask;
 }
 
-[CRepr]public struct APO_CONNECTION_PROPERTY
+[CRepr]
+public struct APO_CONNECTION_PROPERTY
 {
 	public uint pBuffer;
 	public uint32 u32ValidFrameCount;
@@ -227,13 +229,15 @@ public function HRESULT FNAPONOTIFICATIONCALLBACK(APO_REG_PROPERTIES* pPropertie
 	public uint32 u32Signature;
 }
 
-[CRepr]public struct APO_CONNECTION_PROPERTY_V2
+[CRepr]
+public struct APO_CONNECTION_PROPERTY_V2
 {
 	public APO_CONNECTION_PROPERTY property;
 	public uint64 u64QPCTime;
 }
 
-[CRepr]public struct APO_CONNECTION_DESCRIPTOR
+[CRepr]
+public struct APO_CONNECTION_DESCRIPTOR
 {
 	public APO_CONNECTION_BUFFER_TYPE Type;
 	public uint pBuffer;
@@ -242,7 +246,8 @@ public function HRESULT FNAPONOTIFICATIONCALLBACK(APO_REG_PROPERTIES* pPropertie
 	public uint32 u32Signature;
 }
 
-[CRepr]public struct APO_REG_PROPERTIES
+[CRepr]
+public struct APO_REG_PROPERTIES
 {
 	public Guid clsid;
 	public APO_FLAG Flags;
@@ -259,13 +264,15 @@ public function HRESULT FNAPONOTIFICATIONCALLBACK(APO_REG_PROPERTIES* pPropertie
 	public Guid[1] iidAPOInterfaceList;
 }
 
-[CRepr]public struct APOInitBaseStruct
+[CRepr]
+public struct APOInitBaseStruct
 {
 	public uint32 cbSize;
 	public Guid clsid;
 }
 
-[CRepr]public struct APOInitSystemEffects
+[CRepr]
+public struct APOInitSystemEffects
 {
 	public APOInitBaseStruct APOInit;
 	public IPropertyStore* pAPOEndpointProperties;
@@ -274,7 +281,8 @@ public function HRESULT FNAPONOTIFICATIONCALLBACK(APO_REG_PROPERTIES* pPropertie
 	public IMMDeviceCollection* pDeviceCollection;
 }
 
-[CRepr]public struct APOInitSystemEffects2
+[CRepr]
+public struct APOInitSystemEffects2
 {
 	public APOInitBaseStruct APOInit;
 	public IPropertyStore* pAPOEndpointProperties;
@@ -287,21 +295,24 @@ public function HRESULT FNAPONOTIFICATIONCALLBACK(APO_REG_PROPERTIES* pPropertie
 	public BOOL InitializeForDiscoveryOnly;
 }
 
-[CRepr]public struct AudioFXExtensionParams
+[CRepr]
+public struct AudioFXExtensionParams
 {
 	public LPARAM AddPageParam;
 	public PWSTR pwstrEndpointID;
 	public IPropertyStore* pFxProperties;
 }
 
-[CRepr]public struct AUDIO_SYSTEMEFFECT
+[CRepr]
+public struct AUDIO_SYSTEMEFFECT
 {
 	public Guid id;
 	public BOOL canSetState;
 	public AUDIO_SYSTEMEFFECT_STATE state;
 }
 
-[CRepr]public struct APOInitSystemEffects3
+[CRepr]
+public struct APOInitSystemEffects3
 {
 	public APOInitBaseStruct APOInit;
 	public IPropertyStore* pAPOEndpointProperties;
@@ -313,20 +324,23 @@ public function HRESULT FNAPONOTIFICATIONCALLBACK(APO_REG_PROPERTIES* pPropertie
 	public BOOL InitializeForDiscoveryOnly;
 }
 
-[CRepr]public struct AUDIO_ENDPOINT_VOLUME_CHANGE_NOTIFICATION
+[CRepr]
+public struct AUDIO_ENDPOINT_VOLUME_CHANGE_NOTIFICATION
 {
 	public IMMDevice* endpoint;
 	public AUDIO_VOLUME_NOTIFICATION_DATA* volume;
 }
 
-[CRepr]public struct AUDIO_ENDPOINT_PROPERTY_CHANGE_NOTIFICATION
+[CRepr]
+public struct AUDIO_ENDPOINT_PROPERTY_CHANGE_NOTIFICATION
 {
 	public IMMDevice* endpoint;
 	public IPropertyStore* propertyStore;
 	public PROPERTYKEY propertyKey;
 }
 
-[CRepr]public struct AUDIO_SYSTEMEFFECTS_PROPERTY_CHANGE_NOTIFICATION
+[CRepr]
+public struct AUDIO_SYSTEMEFFECTS_PROPERTY_CHANGE_NOTIFICATION
 {
 	public IMMDevice* endpoint;
 	public Guid propertyStoreContext;
@@ -335,9 +349,11 @@ public function HRESULT FNAPONOTIFICATIONCALLBACK(APO_REG_PROPERTIES* pPropertie
 	public PROPERTYKEY propertyKey;
 }
 
-[CRepr]public struct APO_NOTIFICATION
+[CRepr]
+public struct APO_NOTIFICATION
 {
-	[CRepr, Union]	public struct _Anonymous_e__Union
+	[CRepr, Union]
+	public struct _Anonymous_e__Union
 	{
 		public AUDIO_ENDPOINT_VOLUME_CHANGE_NOTIFICATION audioEndpointVolumeChange;
 		public AUDIO_ENDPOINT_PROPERTY_CHANGE_NOTIFICATION audioEndpointPropertyChange;
@@ -348,25 +364,30 @@ public function HRESULT FNAPONOTIFICATIONCALLBACK(APO_REG_PROPERTIES* pPropertie
 	public using _Anonymous_e__Union Anonymous;
 }
 
-[CRepr]public struct AUDIO_ENDPOINT_VOLUME_APO_NOTIFICATION_DESCRIPTOR
+[CRepr]
+public struct AUDIO_ENDPOINT_VOLUME_APO_NOTIFICATION_DESCRIPTOR
 {
 	public IMMDevice* device;
 }
 
-[CRepr]public struct AUDIO_ENDPOINT_PROPERTY_CHANGE_APO_NOTIFICATION_DESCRIPTOR
+[CRepr]
+public struct AUDIO_ENDPOINT_PROPERTY_CHANGE_APO_NOTIFICATION_DESCRIPTOR
 {
 	public IMMDevice* device;
 }
 
-[CRepr]public struct AUDIO_SYSTEMEFFECTS_PROPERTY_CHANGE_APO_NOTIFICATION_DESCRIPTOR
+[CRepr]
+public struct AUDIO_SYSTEMEFFECTS_PROPERTY_CHANGE_APO_NOTIFICATION_DESCRIPTOR
 {
 	public IMMDevice* device;
 	public Guid propertyStoreContext;
 }
 
-[CRepr]public struct APO_NOTIFICATION_DESCRIPTOR
+[CRepr]
+public struct APO_NOTIFICATION_DESCRIPTOR
 {
-	[CRepr, Union]	public struct _Anonymous_e__Union
+	[CRepr, Union]
+	public struct _Anonymous_e__Union
 	{
 		public AUDIO_ENDPOINT_VOLUME_APO_NOTIFICATION_DESCRIPTOR audioEndpointVolume;
 		public AUDIO_ENDPOINT_PROPERTY_CHANGE_APO_NOTIFICATION_DESCRIPTOR audioEndpointPropertyChange;

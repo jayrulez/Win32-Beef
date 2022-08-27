@@ -737,13 +737,15 @@ public enum WMDMMessage : int32
 #endregion
 
 #region Structs
-[CRepr]public struct __MACINFO
+[CRepr]
+public struct __MACINFO
 {
 	public BOOL fUsed;
 	public uint8[36] abMacState;
 }
 
-[CRepr]public struct _WAVEFORMATEX
+[CRepr]
+public struct _WAVEFORMATEX
 {
 	public uint16 wFormatTag;
 	public uint16 nChannels;
@@ -754,7 +756,8 @@ public enum WMDMMessage : int32
 	public uint16 cbSize;
 }
 
-[CRepr]public struct _BITMAPINFOHEADER
+[CRepr]
+public struct _BITMAPINFOHEADER
 {
 	public uint32 biSize;
 	public int32 biWidth;
@@ -769,7 +772,8 @@ public enum WMDMMessage : int32
 	public uint32 biClrImportant;
 }
 
-[CRepr]public struct _VIDEOINFOHEADER
+[CRepr]
+public struct _VIDEOINFOHEADER
 {
 	public RECT rcSource;
 	public RECT rcTarget;
@@ -779,13 +783,15 @@ public enum WMDMMessage : int32
 	public _BITMAPINFOHEADER bmiHeader;
 }
 
-[CRepr]public struct WMFILECAPABILITIES
+[CRepr]
+public struct WMFILECAPABILITIES
 {
 	public PWSTR pwszMimeType;
 	public uint32 dwReserved;
 }
 
-[CRepr]public struct OPAQUECOMMAND
+[CRepr]
+public struct OPAQUECOMMAND
 {
 	public Guid guidCommand;
 	public uint32 dwDataLen;
@@ -793,7 +799,8 @@ public enum WMDMMessage : int32
 	public uint8[20] abMAC;
 }
 
-[CRepr]public struct WMDMID
+[CRepr]
+public struct WMDMID
 {
 	public uint32 cbSize;
 	public uint32 dwVendorID;
@@ -801,7 +808,8 @@ public enum WMDMMessage : int32
 	public uint32 SerialNumberLength;
 }
 
-[CRepr]public struct WMDMDATETIME
+[CRepr]
+public struct WMDMDATETIME
 {
 	public uint16 wYear;
 	public uint16 wMonth;
@@ -811,7 +819,8 @@ public enum WMDMMessage : int32
 	public uint16 wSecond;
 }
 
-[CRepr]public struct WMDMRIGHTS
+[CRepr]
+public struct WMDMRIGHTS
 {
 	public uint32 cbSize;
 	public uint32 dwContentType;
@@ -822,29 +831,34 @@ public enum WMDMMessage : int32
 	public WMDMDATETIME ExpirationDate;
 }
 
-[CRepr]public struct WMDMMetadataView
+[CRepr]
+public struct WMDMMetadataView
 {
 	public PWSTR pwszViewName;
 	public uint32 nDepth;
 	public uint16** ppwszTags;
 }
 
-[CRepr]public struct WMDM_PROP_VALUES_RANGE
+[CRepr]
+public struct WMDM_PROP_VALUES_RANGE
 {
 	public PROPVARIANT rangeMin;
 	public PROPVARIANT rangeMax;
 	public PROPVARIANT rangeStep;
 }
 
-[CRepr]public struct WMDM_PROP_VALUES_ENUM
+[CRepr]
+public struct WMDM_PROP_VALUES_ENUM
 {
 	public uint32 cEnumValues;
 	public PROPVARIANT* pValues;
 }
 
-[CRepr]public struct WMDM_PROP_DESC
+[CRepr]
+public struct WMDM_PROP_DESC
 {
-	[CRepr, Union]	public struct _ValidValues_e__Union
+	[CRepr, Union]
+	public struct _ValidValues_e__Union
 	{
 		public WMDM_PROP_VALUES_RANGE ValidValuesRange;
 		public WMDM_PROP_VALUES_ENUM EnumeratedValidValues;
@@ -855,20 +869,23 @@ public enum WMDMMessage : int32
 	public _ValidValues_e__Union ValidValues;
 }
 
-[CRepr]public struct WMDM_PROP_CONFIG
+[CRepr]
+public struct WMDM_PROP_CONFIG
 {
 	public uint32 nPreference;
 	public uint32 nPropDesc;
 	public WMDM_PROP_DESC* pPropDesc;
 }
 
-[CRepr]public struct WMDM_FORMAT_CAPABILITY
+[CRepr]
+public struct WMDM_FORMAT_CAPABILITY
 {
 	public uint32 nPropConfig;
 	public WMDM_PROP_CONFIG* pConfigs;
 }
 
-[CRepr, Union]public struct WMDMDetermineMaxPropStringLen
+[CRepr, Union]
+public struct WMDMDetermineMaxPropStringLen
 {
 	public char8[27] sz001;
 	public char8[31] sz002;
@@ -954,7 +971,8 @@ public enum WMDMMessage : int32
 	public char8[30] sz086;
 }
 
-[CRepr, Packed(1)]public struct MTP_COMMAND_DATA_IN
+[CRepr, Packed(1)]
+public struct MTP_COMMAND_DATA_IN
 {
 	public uint16 OpCode;
 	public uint32 NumParams;
@@ -964,7 +982,8 @@ public enum WMDMMessage : int32
 	public uint8[1] CommandWriteData;
 }
 
-[CRepr, Packed(1)]public struct MTP_COMMAND_DATA_OUT
+[CRepr, Packed(1)]
+public struct MTP_COMMAND_DATA_OUT
 {
 	public uint16 ResponseCode;
 	public uint32 NumParams;

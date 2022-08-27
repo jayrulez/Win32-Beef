@@ -150,7 +150,8 @@ public function HRESULT pD3DDisassemble(void* pSrcData, uint SrcDataSize, uint32
 #endregion
 
 #region Structs
-[CRepr]public struct D3D_SHADER_DATA
+[CRepr]
+public struct D3D_SHADER_DATA
 {
 	public void* pBytecode;
 	public uint BytecodeLength;

@@ -4908,18 +4908,21 @@ public function NTSTATUS PFN_HidP_GetVersionInternal(uint32* Version);
 #endregion
 
 #region Structs
-[CRepr]public struct DICONSTANTFORCE
+[CRepr]
+public struct DICONSTANTFORCE
 {
 	public int32 lMagnitude;
 }
 
-[CRepr]public struct DIRAMPFORCE
+[CRepr]
+public struct DIRAMPFORCE
 {
 	public int32 lStart;
 	public int32 lEnd;
 }
 
-[CRepr]public struct DIPERIODIC
+[CRepr]
+public struct DIPERIODIC
 {
 	public uint32 dwMagnitude;
 	public int32 lOffset;
@@ -4927,7 +4930,8 @@ public function NTSTATUS PFN_HidP_GetVersionInternal(uint32* Version);
 	public uint32 dwPeriod;
 }
 
-[CRepr]public struct DICONDITION
+[CRepr]
+public struct DICONDITION
 {
 	public int32 lOffset;
 	public int32 lPositiveCoefficient;
@@ -4937,7 +4941,8 @@ public function NTSTATUS PFN_HidP_GetVersionInternal(uint32* Version);
 	public int32 lDeadBand;
 }
 
-[CRepr]public struct DICUSTOMFORCE
+[CRepr]
+public struct DICUSTOMFORCE
 {
 	public uint32 cChannels;
 	public uint32 dwSamplePeriod;
@@ -4945,7 +4950,8 @@ public function NTSTATUS PFN_HidP_GetVersionInternal(uint32* Version);
 	public int32* rglForceData;
 }
 
-[CRepr]public struct DIENVELOPE
+[CRepr]
+public struct DIENVELOPE
 {
 	public uint32 dwSize;
 	public uint32 dwAttackLevel;
@@ -4954,7 +4960,8 @@ public function NTSTATUS PFN_HidP_GetVersionInternal(uint32* Version);
 	public uint32 dwFadeTime;
 }
 
-[CRepr]public struct DIEFFECT_DX5
+[CRepr]
+public struct DIEFFECT_DX5
 {
 	public uint32 dwSize;
 	public uint32 dwFlags;
@@ -4971,7 +4978,8 @@ public function NTSTATUS PFN_HidP_GetVersionInternal(uint32* Version);
 	public void* lpvTypeSpecificParams;
 }
 
-[CRepr]public struct DIEFFECT
+[CRepr]
+public struct DIEFFECT
 {
 	public uint32 dwSize;
 	public uint32 dwFlags;
@@ -4989,7 +4997,8 @@ public function NTSTATUS PFN_HidP_GetVersionInternal(uint32* Version);
 	public uint32 dwStartDelay;
 }
 
-[CRepr]public struct DIFILEEFFECT
+[CRepr]
+public struct DIFILEEFFECT
 {
 	public uint32 dwSize;
 	public Guid GuidEffect;
@@ -4997,7 +5006,8 @@ public function NTSTATUS PFN_HidP_GetVersionInternal(uint32* Version);
 	public CHAR[260] szFriendlyName;
 }
 
-[CRepr]public struct DIEFFESCAPE
+[CRepr]
+public struct DIEFFESCAPE
 {
 	public uint32 dwSize;
 	public uint32 dwCommand;
@@ -5007,7 +5017,8 @@ public function NTSTATUS PFN_HidP_GetVersionInternal(uint32* Version);
 	public uint32 cbOutBuffer;
 }
 
-[CRepr]public struct DIDEVCAPS_DX3
+[CRepr]
+public struct DIDEVCAPS_DX3
 {
 	public uint32 dwSize;
 	public uint32 dwFlags;
@@ -5017,7 +5028,8 @@ public function NTSTATUS PFN_HidP_GetVersionInternal(uint32* Version);
 	public uint32 dwPOVs;
 }
 
-[CRepr]public struct DIDEVCAPS
+[CRepr]
+public struct DIDEVCAPS
 {
 	public uint32 dwSize;
 	public uint32 dwFlags;
@@ -5032,7 +5044,8 @@ public function NTSTATUS PFN_HidP_GetVersionInternal(uint32* Version);
 	public uint32 dwFFDriverVersion;
 }
 
-[CRepr]public struct DIOBJECTDATAFORMAT
+[CRepr]
+public struct DIOBJECTDATAFORMAT
 {
 	public Guid* pguid;
 	public uint32 dwOfs;
@@ -5040,7 +5053,8 @@ public function NTSTATUS PFN_HidP_GetVersionInternal(uint32* Version);
 	public uint32 dwFlags;
 }
 
-[CRepr]public struct DIDATAFORMAT
+[CRepr]
+public struct DIDATAFORMAT
 {
 	public uint32 dwSize;
 	public uint32 dwObjSize;
@@ -5050,9 +5064,11 @@ public function NTSTATUS PFN_HidP_GetVersionInternal(uint32* Version);
 	public DIOBJECTDATAFORMAT* rgodf;
 }
 
-[CRepr]public struct DIACTIONA
+[CRepr]
+public struct DIACTIONA
 {
-	[CRepr, Union]	public struct _Anonymous_e__Union
+	[CRepr, Union]
+	public struct _Anonymous_e__Union
 	{
 		public PSTR lptszActionName;
 		public uint32 uResIdString;
@@ -5067,9 +5083,11 @@ public function NTSTATUS PFN_HidP_GetVersionInternal(uint32* Version);
 	public uint32 dwHow;
 }
 
-[CRepr]public struct DIACTIONW
+[CRepr]
+public struct DIACTIONW
 {
-	[CRepr, Union]	public struct _Anonymous_e__Union
+	[CRepr, Union]
+	public struct _Anonymous_e__Union
 	{
 		public PWSTR lptszActionName;
 		public uint32 uResIdString;
@@ -5084,7 +5102,8 @@ public function NTSTATUS PFN_HidP_GetVersionInternal(uint32* Version);
 	public uint32 dwHow;
 }
 
-[CRepr]public struct DIACTIONFORMATA
+[CRepr]
+public struct DIACTIONFORMATA
 {
 	public uint32 dwSize;
 	public uint32 dwActionSize;
@@ -5102,7 +5121,8 @@ public function NTSTATUS PFN_HidP_GetVersionInternal(uint32* Version);
 	public CHAR[260] tszActionMap;
 }
 
-[CRepr]public struct DIACTIONFORMATW
+[CRepr]
+public struct DIACTIONFORMATW
 {
 	public uint32 dwSize;
 	public uint32 dwActionSize;
@@ -5120,7 +5140,8 @@ public function NTSTATUS PFN_HidP_GetVersionInternal(uint32* Version);
 	public char8[260] tszActionMap;
 }
 
-[CRepr]public struct DICOLORSET
+[CRepr]
+public struct DICOLORSET
 {
 	public uint32 dwSize;
 	public uint32 cTextFore;
@@ -5133,7 +5154,8 @@ public function NTSTATUS PFN_HidP_GetVersionInternal(uint32* Version);
 	public uint32 cAreaFill;
 }
 
-[CRepr]public struct DICONFIGUREDEVICESPARAMSA
+[CRepr]
+public struct DICONFIGUREDEVICESPARAMSA
 {
 	public uint32 dwSize;
 	public uint32 dwcUsers;
@@ -5145,7 +5167,8 @@ public function NTSTATUS PFN_HidP_GetVersionInternal(uint32* Version);
 	public IUnknown* lpUnkDDSTarget;
 }
 
-[CRepr]public struct DICONFIGUREDEVICESPARAMSW
+[CRepr]
+public struct DICONFIGUREDEVICESPARAMSW
 {
 	public uint32 dwSize;
 	public uint32 dwcUsers;
@@ -5157,7 +5180,8 @@ public function NTSTATUS PFN_HidP_GetVersionInternal(uint32* Version);
 	public IUnknown* lpUnkDDSTarget;
 }
 
-[CRepr]public struct DIDEVICEIMAGEINFOA
+[CRepr]
+public struct DIDEVICEIMAGEINFOA
 {
 	public CHAR[260] tszImagePath;
 	public uint32 dwFlags;
@@ -5170,7 +5194,8 @@ public function NTSTATUS PFN_HidP_GetVersionInternal(uint32* Version);
 	public uint32 dwTextAlign;
 }
 
-[CRepr]public struct DIDEVICEIMAGEINFOW
+[CRepr]
+public struct DIDEVICEIMAGEINFOW
 {
 	public char8[260] tszImagePath;
 	public uint32 dwFlags;
@@ -5183,7 +5208,8 @@ public function NTSTATUS PFN_HidP_GetVersionInternal(uint32* Version);
 	public uint32 dwTextAlign;
 }
 
-[CRepr]public struct DIDEVICEIMAGEINFOHEADERA
+[CRepr]
+public struct DIDEVICEIMAGEINFOHEADERA
 {
 	public uint32 dwSize;
 	public uint32 dwSizeImageInfo;
@@ -5196,7 +5222,8 @@ public function NTSTATUS PFN_HidP_GetVersionInternal(uint32* Version);
 	public DIDEVICEIMAGEINFOA* lprgImageInfoArray;
 }
 
-[CRepr]public struct DIDEVICEIMAGEINFOHEADERW
+[CRepr]
+public struct DIDEVICEIMAGEINFOHEADERW
 {
 	public uint32 dwSize;
 	public uint32 dwSizeImageInfo;
@@ -5209,7 +5236,8 @@ public function NTSTATUS PFN_HidP_GetVersionInternal(uint32* Version);
 	public DIDEVICEIMAGEINFOW* lprgImageInfoArray;
 }
 
-[CRepr]public struct DIDEVICEOBJECTINSTANCE_DX3A
+[CRepr]
+public struct DIDEVICEOBJECTINSTANCE_DX3A
 {
 	public uint32 dwSize;
 	public Guid guidType;
@@ -5219,7 +5247,8 @@ public function NTSTATUS PFN_HidP_GetVersionInternal(uint32* Version);
 	public CHAR[260] tszName;
 }
 
-[CRepr]public struct DIDEVICEOBJECTINSTANCE_DX3W
+[CRepr]
+public struct DIDEVICEOBJECTINSTANCE_DX3W
 {
 	public uint32 dwSize;
 	public Guid guidType;
@@ -5229,7 +5258,8 @@ public function NTSTATUS PFN_HidP_GetVersionInternal(uint32* Version);
 	public char8[260] tszName;
 }
 
-[CRepr]public struct DIDEVICEOBJECTINSTANCEA
+[CRepr]
+public struct DIDEVICEOBJECTINSTANCEA
 {
 	public uint32 dwSize;
 	public Guid guidType;
@@ -5248,7 +5278,8 @@ public function NTSTATUS PFN_HidP_GetVersionInternal(uint32* Version);
 	public uint16 wReportId;
 }
 
-[CRepr]public struct DIDEVICEOBJECTINSTANCEW
+[CRepr]
+public struct DIDEVICEOBJECTINSTANCEW
 {
 	public uint32 dwSize;
 	public Guid guidType;
@@ -5267,7 +5298,8 @@ public function NTSTATUS PFN_HidP_GetVersionInternal(uint32* Version);
 	public uint16 wReportId;
 }
 
-[CRepr]public struct DIPROPHEADER
+[CRepr]
+public struct DIPROPHEADER
 {
 	public uint32 dwSize;
 	public uint32 dwHeaderSize;
@@ -5275,26 +5307,30 @@ public function NTSTATUS PFN_HidP_GetVersionInternal(uint32* Version);
 	public uint32 dwHow;
 }
 
-[CRepr]public struct DIPROPDWORD
+[CRepr]
+public struct DIPROPDWORD
 {
 	public DIPROPHEADER diph;
 	public uint32 dwData;
 }
 
-[CRepr]public struct DIPROPPOINTER
+[CRepr]
+public struct DIPROPPOINTER
 {
 	public DIPROPHEADER diph;
 	public uint uData;
 }
 
-[CRepr]public struct DIPROPRANGE
+[CRepr]
+public struct DIPROPRANGE
 {
 	public DIPROPHEADER diph;
 	public int32 lMin;
 	public int32 lMax;
 }
 
-[CRepr]public struct DIPROPCAL
+[CRepr]
+public struct DIPROPCAL
 {
 	public DIPROPHEADER diph;
 	public int32 lMin;
@@ -5302,40 +5338,46 @@ public function NTSTATUS PFN_HidP_GetVersionInternal(uint32* Version);
 	public int32 lMax;
 }
 
-[CRepr]public struct DIPROPCALPOV
+[CRepr]
+public struct DIPROPCALPOV
 {
 	public DIPROPHEADER diph;
 	public int32[5] lMin;
 	public int32[5] lMax;
 }
 
-[CRepr]public struct DIPROPGUIDANDPATH
+[CRepr]
+public struct DIPROPGUIDANDPATH
 {
 	public DIPROPHEADER diph;
 	public Guid guidClass;
 	public char8[260] wszPath;
 }
 
-[CRepr]public struct DIPROPSTRING
+[CRepr]
+public struct DIPROPSTRING
 {
 	public DIPROPHEADER diph;
 	public char8[260] wsz;
 }
 
-[CRepr]public struct CPOINT
+[CRepr]
+public struct CPOINT
 {
 	public int32 lP;
 	public uint32 dwLog;
 }
 
-[CRepr]public struct DIPROPCPOINTS
+[CRepr]
+public struct DIPROPCPOINTS
 {
 	public DIPROPHEADER diph;
 	public uint32 dwCPointsNum;
 	public CPOINT[8] cp;
 }
 
-[CRepr]public struct DIDEVICEOBJECTDATA_DX3
+[CRepr]
+public struct DIDEVICEOBJECTDATA_DX3
 {
 	public uint32 dwOfs;
 	public uint32 dwData;
@@ -5343,7 +5385,8 @@ public function NTSTATUS PFN_HidP_GetVersionInternal(uint32* Version);
 	public uint32 dwSequence;
 }
 
-[CRepr]public struct DIDEVICEOBJECTDATA
+[CRepr]
+public struct DIDEVICEOBJECTDATA
 {
 	public uint32 dwOfs;
 	public uint32 dwData;
@@ -5352,7 +5395,8 @@ public function NTSTATUS PFN_HidP_GetVersionInternal(uint32* Version);
 	public uint uAppData;
 }
 
-[CRepr]public struct DIDEVICEINSTANCE_DX3A
+[CRepr]
+public struct DIDEVICEINSTANCE_DX3A
 {
 	public uint32 dwSize;
 	public Guid guidInstance;
@@ -5362,7 +5406,8 @@ public function NTSTATUS PFN_HidP_GetVersionInternal(uint32* Version);
 	public CHAR[260] tszProductName;
 }
 
-[CRepr]public struct DIDEVICEINSTANCE_DX3W
+[CRepr]
+public struct DIDEVICEINSTANCE_DX3W
 {
 	public uint32 dwSize;
 	public Guid guidInstance;
@@ -5372,7 +5417,8 @@ public function NTSTATUS PFN_HidP_GetVersionInternal(uint32* Version);
 	public char8[260] tszProductName;
 }
 
-[CRepr]public struct DIDEVICEINSTANCEA
+[CRepr]
+public struct DIDEVICEINSTANCEA
 {
 	public uint32 dwSize;
 	public Guid guidInstance;
@@ -5385,7 +5431,8 @@ public function NTSTATUS PFN_HidP_GetVersionInternal(uint32* Version);
 	public uint16 wUsage;
 }
 
-[CRepr]public struct DIDEVICEINSTANCEW
+[CRepr]
+public struct DIDEVICEINSTANCEW
 {
 	public uint32 dwSize;
 	public Guid guidInstance;
@@ -5398,7 +5445,8 @@ public function NTSTATUS PFN_HidP_GetVersionInternal(uint32* Version);
 	public uint16 wUsage;
 }
 
-[CRepr]public struct DIEFFECTINFOA
+[CRepr]
+public struct DIEFFECTINFOA
 {
 	public uint32 dwSize;
 	public Guid guid;
@@ -5408,7 +5456,8 @@ public function NTSTATUS PFN_HidP_GetVersionInternal(uint32* Version);
 	public CHAR[260] tszName;
 }
 
-[CRepr]public struct DIEFFECTINFOW
+[CRepr]
+public struct DIEFFECTINFOW
 {
 	public uint32 dwSize;
 	public Guid guid;
@@ -5418,7 +5467,8 @@ public function NTSTATUS PFN_HidP_GetVersionInternal(uint32* Version);
 	public char8[260] tszName;
 }
 
-[CRepr]public struct DIMOUSESTATE
+[CRepr]
+public struct DIMOUSESTATE
 {
 	public int32 lX;
 	public int32 lY;
@@ -5426,7 +5476,8 @@ public function NTSTATUS PFN_HidP_GetVersionInternal(uint32* Version);
 	public uint8[4] rgbButtons;
 }
 
-[CRepr]public struct DIMOUSESTATE2
+[CRepr]
+public struct DIMOUSESTATE2
 {
 	public int32 lX;
 	public int32 lY;
@@ -5434,7 +5485,8 @@ public function NTSTATUS PFN_HidP_GetVersionInternal(uint32* Version);
 	public uint8[8] rgbButtons;
 }
 
-[CRepr]public struct DIJOYSTATE
+[CRepr]
+public struct DIJOYSTATE
 {
 	public int32 lX;
 	public int32 lY;
@@ -5447,7 +5499,8 @@ public function NTSTATUS PFN_HidP_GetVersionInternal(uint32* Version);
 	public uint8[32] rgbButtons;
 }
 
-[CRepr]public struct DIJOYSTATE2
+[CRepr]
+public struct DIJOYSTATE2
 {
 	public int32 lX;
 	public int32 lY;
@@ -5481,33 +5534,38 @@ public function NTSTATUS PFN_HidP_GetVersionInternal(uint32* Version);
 	public int32[2] rglFSlider;
 }
 
-[CRepr]public struct DIOBJECTATTRIBUTES
+[CRepr]
+public struct DIOBJECTATTRIBUTES
 {
 	public uint32 dwFlags;
 	public uint16 wUsagePage;
 	public uint16 wUsage;
 }
 
-[CRepr]public struct DIFFOBJECTATTRIBUTES
+[CRepr]
+public struct DIFFOBJECTATTRIBUTES
 {
 	public uint32 dwFFMaxForce;
 	public uint32 dwFFForceResolution;
 }
 
-[CRepr]public struct DIOBJECTCALIBRATION
+[CRepr]
+public struct DIOBJECTCALIBRATION
 {
 	public int32 lMin;
 	public int32 lCenter;
 	public int32 lMax;
 }
 
-[CRepr]public struct DIPOVCALIBRATION
+[CRepr]
+public struct DIPOVCALIBRATION
 {
 	public int32[5] lMin;
 	public int32[5] lMax;
 }
 
-[CRepr]public struct DIEFFECTATTRIBUTES
+[CRepr]
+public struct DIEFFECTATTRIBUTES
 {
 	public uint32 dwEffectId;
 	public uint32 dwEffType;
@@ -5516,14 +5574,16 @@ public function NTSTATUS PFN_HidP_GetVersionInternal(uint32* Version);
 	public uint32 dwCoords;
 }
 
-[CRepr]public struct DIFFDEVICEATTRIBUTES
+[CRepr]
+public struct DIFFDEVICEATTRIBUTES
 {
 	public uint32 dwFlags;
 	public uint32 dwFFSamplePeriod;
 	public uint32 dwFFMinTimeResolution;
 }
 
-[CRepr]public struct DIDRIVERVERSIONS
+[CRepr]
+public struct DIDRIVERVERSIONS
 {
 	public uint32 dwSize;
 	public uint32 dwFirmwareRevision;
@@ -5531,21 +5591,24 @@ public function NTSTATUS PFN_HidP_GetVersionInternal(uint32* Version);
 	public uint32 dwFFDriverVersion;
 }
 
-[CRepr]public struct DIDEVICESTATE
+[CRepr]
+public struct DIDEVICESTATE
 {
 	public uint32 dwSize;
 	public uint32 dwState;
 	public uint32 dwLoad;
 }
 
-[CRepr]public struct DIHIDFFINITINFO
+[CRepr]
+public struct DIHIDFFINITINFO
 {
 	public uint32 dwSize;
 	public PWSTR pwszDeviceInterface;
 	public Guid GuidInstance;
 }
 
-[CRepr]public struct JOYPOS
+[CRepr]
+public struct JOYPOS
 {
 	public uint32 dwX;
 	public uint32 dwY;
@@ -5555,34 +5618,39 @@ public function NTSTATUS PFN_HidP_GetVersionInternal(uint32* Version);
 	public uint32 dwV;
 }
 
-[CRepr]public struct JOYRANGE
+[CRepr]
+public struct JOYRANGE
 {
 	public JOYPOS jpMin;
 	public JOYPOS jpMax;
 	public JOYPOS jpCenter;
 }
 
-[CRepr]public struct JOYREGUSERVALUES
+[CRepr]
+public struct JOYREGUSERVALUES
 {
 	public uint32 dwTimeOut;
 	public JOYRANGE jrvRanges;
 	public JOYPOS jpDeadZone;
 }
 
-[CRepr]public struct JOYREGHWSETTINGS
+[CRepr]
+public struct JOYREGHWSETTINGS
 {
 	public uint32 dwFlags;
 	public uint32 dwNumButtons;
 }
 
-[CRepr]public struct JOYREGHWVALUES
+[CRepr]
+public struct JOYREGHWVALUES
 {
 	public JOYRANGE jrvHardware;
 	public uint32[4] dwPOVValues;
 	public uint32 dwCalFlags;
 }
 
-[CRepr]public struct JOYREGHWCONFIG
+[CRepr]
+public struct JOYREGHWCONFIG
 {
 	public JOYREGHWSETTINGS hws;
 	public uint32 dwUsageSettings;
@@ -5591,7 +5659,8 @@ public function NTSTATUS PFN_HidP_GetVersionInternal(uint32* Version);
 	public uint32 dwReserved;
 }
 
-[CRepr]public struct JOYCALIBRATE
+[CRepr]
+public struct JOYCALIBRATE
 {
 	public uint32 wXbase;
 	public uint32 wXdelta;
@@ -5601,7 +5670,8 @@ public function NTSTATUS PFN_HidP_GetVersionInternal(uint32* Version);
 	public uint32 wZdelta;
 }
 
-[CRepr]public struct DIJOYTYPEINFO_DX5
+[CRepr]
+public struct DIJOYTYPEINFO_DX5
 {
 	public uint32 dwSize;
 	public JOYREGHWSETTINGS hws;
@@ -5610,7 +5680,8 @@ public function NTSTATUS PFN_HidP_GetVersionInternal(uint32* Version);
 	public char8[260] wszCallout;
 }
 
-[CRepr]public struct DIJOYTYPEINFO_DX6
+[CRepr]
+public struct DIJOYTYPEINFO_DX6
 {
 	public uint32 dwSize;
 	public JOYREGHWSETTINGS hws;
@@ -5621,7 +5692,8 @@ public function NTSTATUS PFN_HidP_GetVersionInternal(uint32* Version);
 	public uint32 dwFlags1;
 }
 
-[CRepr]public struct DIJOYTYPEINFO
+[CRepr]
+public struct DIJOYTYPEINFO
 {
 	public uint32 dwSize;
 	public JOYREGHWSETTINGS hws;
@@ -5634,7 +5706,8 @@ public function NTSTATUS PFN_HidP_GetVersionInternal(uint32* Version);
 	public char8[256] wszMapFile;
 }
 
-[CRepr]public struct DIJOYCONFIG_DX5
+[CRepr]
+public struct DIJOYCONFIG_DX5
 {
 	public uint32 dwSize;
 	public Guid guidInstance;
@@ -5644,7 +5717,8 @@ public function NTSTATUS PFN_HidP_GetVersionInternal(uint32* Version);
 	public char8[256] wszCallout;
 }
 
-[CRepr]public struct DIJOYCONFIG
+[CRepr]
+public struct DIJOYCONFIG
 {
 	public uint32 dwSize;
 	public Guid guidInstance;
@@ -5655,7 +5729,8 @@ public function NTSTATUS PFN_HidP_GetVersionInternal(uint32* Version);
 	public Guid guidGameport;
 }
 
-[CRepr]public struct DIJOYUSERVALUES
+[CRepr]
+public struct DIJOYUSERVALUES
 {
 	public uint32 dwSize;
 	public JOYREGUSERVALUES ruv;
@@ -5663,7 +5738,8 @@ public function NTSTATUS PFN_HidP_GetVersionInternal(uint32* Version);
 	public char8[256] wszGameportEmulator;
 }
 
-[CRepr]public struct KEYBOARD_INPUT_DATA
+[CRepr]
+public struct KEYBOARD_INPUT_DATA
 {
 	public uint16 UnitId;
 	public uint16 MakeCode;
@@ -5672,20 +5748,23 @@ public function NTSTATUS PFN_HidP_GetVersionInternal(uint32* Version);
 	public uint32 ExtraInformation;
 }
 
-[CRepr]public struct KEYBOARD_TYPEMATIC_PARAMETERS
+[CRepr]
+public struct KEYBOARD_TYPEMATIC_PARAMETERS
 {
 	public uint16 UnitId;
 	public uint16 Rate;
 	public uint16 Delay;
 }
 
-[CRepr]public struct KEYBOARD_ID
+[CRepr]
+public struct KEYBOARD_ID
 {
 	public uint8 Type;
 	public uint8 Subtype;
 }
 
-[CRepr]public struct KEYBOARD_ATTRIBUTES
+[CRepr]
+public struct KEYBOARD_ATTRIBUTES
 {
 	public KEYBOARD_ID KeyboardIdentifier;
 	public uint16 KeyboardMode;
@@ -5697,7 +5776,8 @@ public function NTSTATUS PFN_HidP_GetVersionInternal(uint32* Version);
 	public KEYBOARD_TYPEMATIC_PARAMETERS KeyRepeatMaximum;
 }
 
-[CRepr]public struct KEYBOARD_EXTENDED_ATTRIBUTES
+[CRepr]
+public struct KEYBOARD_EXTENDED_ATTRIBUTES
 {
 	public uint8 Version;
 	public uint8 FormFactor;
@@ -5708,41 +5788,49 @@ public function NTSTATUS PFN_HidP_GetVersionInternal(uint32* Version);
 	public uint8 ImplementedInputAssistControls;
 }
 
-[CRepr]public struct KEYBOARD_INDICATOR_PARAMETERS
+[CRepr]
+public struct KEYBOARD_INDICATOR_PARAMETERS
 {
 	public uint16 UnitId;
 	public uint16 LedFlags;
 }
 
-[CRepr]public struct INDICATOR_LIST
+[CRepr]
+public struct INDICATOR_LIST
 {
 	public uint16 MakeCode;
 	public uint16 IndicatorFlags;
 }
 
-[CRepr]public struct KEYBOARD_INDICATOR_TRANSLATION
+[CRepr]
+public struct KEYBOARD_INDICATOR_TRANSLATION
 {
 	public uint16 NumberOfIndicatorKeys;
 	public INDICATOR_LIST[1] IndicatorList;
 }
 
-[CRepr]public struct KEYBOARD_UNIT_ID_PARAMETER
+[CRepr]
+public struct KEYBOARD_UNIT_ID_PARAMETER
 {
 	public uint16 UnitId;
 }
 
-[CRepr]public struct KEYBOARD_IME_STATUS
+[CRepr]
+public struct KEYBOARD_IME_STATUS
 {
 	public uint16 UnitId;
 	public uint32 ImeOpen;
 	public uint32 ImeConvMode;
 }
 
-[CRepr]public struct MOUSE_INPUT_DATA
+[CRepr]
+public struct MOUSE_INPUT_DATA
 {
-	[CRepr, Union]	public struct _Anonymous_e__Union
+	[CRepr, Union]
+	public struct _Anonymous_e__Union
 	{
-		[CRepr]		public struct _Anonymous_e__Struct
+		[CRepr]
+		public struct _Anonymous_e__Struct
 		{
 			public uint16 ButtonFlags;
 			public uint16 ButtonData;
@@ -5761,7 +5849,8 @@ public function NTSTATUS PFN_HidP_GetVersionInternal(uint32* Version);
 	public uint32 ExtraInformation;
 }
 
-[CRepr]public struct MOUSE_ATTRIBUTES
+[CRepr]
+public struct MOUSE_ATTRIBUTES
 {
 	public uint16 MouseIdentifier;
 	public uint16 NumberOfButtons;
@@ -5769,22 +5858,27 @@ public function NTSTATUS PFN_HidP_GetVersionInternal(uint32* Version);
 	public uint32 InputDataQueueLength;
 }
 
-[CRepr]public struct MOUSE_UNIT_ID_PARAMETER
+[CRepr]
+public struct MOUSE_UNIT_ID_PARAMETER
 {
 	public uint16 UnitId;
 }
 
-[CRepr]public struct USAGE_AND_PAGE
+[CRepr]
+public struct USAGE_AND_PAGE
 {
 	public uint16 Usage;
 	public uint16 UsagePage;
 }
 
-[CRepr]public struct HIDP_BUTTON_CAPS
+[CRepr]
+public struct HIDP_BUTTON_CAPS
 {
-	[CRepr, Union]	public struct _Anonymous_e__Union
+	[CRepr, Union]
+	public struct _Anonymous_e__Union
 	{
-		[CRepr]		public struct _Range_e__Struct
+		[CRepr]
+		public struct _Range_e__Struct
 		{
 			public uint16 UsageMin;
 			public uint16 UsageMax;
@@ -5796,7 +5890,8 @@ public function NTSTATUS PFN_HidP_GetVersionInternal(uint32* Version);
 			public uint16 DataIndexMax;
 		}
 
-		[CRepr]		public struct _NotRange_e__Struct
+		[CRepr]
+		public struct _NotRange_e__Struct
 		{
 			public uint16 Usage;
 			public uint16 Reserved1;
@@ -5829,11 +5924,14 @@ public function NTSTATUS PFN_HidP_GetVersionInternal(uint32* Version);
 	public using _Anonymous_e__Union Anonymous;
 }
 
-[CRepr]public struct HIDP_VALUE_CAPS
+[CRepr]
+public struct HIDP_VALUE_CAPS
 {
-	[CRepr, Union]	public struct _Anonymous_e__Union
+	[CRepr, Union]
+	public struct _Anonymous_e__Union
 	{
-		[CRepr]		public struct _Range_e__Struct
+		[CRepr]
+		public struct _Range_e__Struct
 		{
 			public uint16 UsageMin;
 			public uint16 UsageMax;
@@ -5845,7 +5943,8 @@ public function NTSTATUS PFN_HidP_GetVersionInternal(uint32* Version);
 			public uint16 DataIndexMax;
 		}
 
-		[CRepr]		public struct _NotRange_e__Struct
+		[CRepr]
+		public struct _NotRange_e__Struct
 		{
 			public uint16 Usage;
 			public uint16 Reserved1;
@@ -5886,7 +5985,8 @@ public function NTSTATUS PFN_HidP_GetVersionInternal(uint32* Version);
 	public using _Anonymous_e__Union Anonymous;
 }
 
-[CRepr, Packed(4)]public struct HIDP_LINK_COLLECTION_NODE
+[CRepr, Packed(4)]
+public struct HIDP_LINK_COLLECTION_NODE
 {
 	public uint16 LinkUsage;
 	public uint16 LinkUsagePage;
@@ -5898,11 +5998,13 @@ public function NTSTATUS PFN_HidP_GetVersionInternal(uint32* Version);
 	public void* UserContext;
 }
 
-[CRepr]public struct _HIDP_PREPARSED_DATA
+[CRepr]
+public struct _HIDP_PREPARSED_DATA
 {
 }
 
-[CRepr]public struct HIDP_CAPS
+[CRepr]
+public struct HIDP_CAPS
 {
 	public uint16 Usage;
 	public uint16 UsagePage;
@@ -5922,9 +6024,11 @@ public function NTSTATUS PFN_HidP_GetVersionInternal(uint32* Version);
 	public uint16 NumberFeatureDataIndices;
 }
 
-[CRepr]public struct HIDP_DATA
+[CRepr]
+public struct HIDP_DATA
 {
-	[CRepr, Union]	public struct _Anonymous_e__Union
+	[CRepr, Union]
+	public struct _Anonymous_e__Union
 	{
 		public uint32 RawValue;
 		public BOOLEAN On;
@@ -5935,14 +6039,16 @@ public function NTSTATUS PFN_HidP_GetVersionInternal(uint32* Version);
 	public using _Anonymous_e__Union Anonymous;
 }
 
-[CRepr]public struct HIDP_UNKNOWN_TOKEN
+[CRepr]
+public struct HIDP_UNKNOWN_TOKEN
 {
 	public uint8 Token;
 	public uint8[3] Reserved;
 	public uint32 BitField;
 }
 
-[CRepr, Packed(4)]public struct HIDP_EXTENDED_ATTRIBUTES
+[CRepr, Packed(4)]
+public struct HIDP_EXTENDED_ATTRIBUTES
 {
 	public uint8 NumGlobalUnknowns;
 	public uint8[3] Reserved;
@@ -5950,17 +6056,21 @@ public function NTSTATUS PFN_HidP_GetVersionInternal(uint32* Version);
 	public uint32[1] Data;
 }
 
-[CRepr]public struct HIDP_BUTTON_ARRAY_DATA
+[CRepr]
+public struct HIDP_BUTTON_ARRAY_DATA
 {
 	public uint16 ArrayIndex;
 	public BOOLEAN On;
 }
 
-[CRepr]public struct HIDP_KEYBOARD_MODIFIER_STATE
+[CRepr]
+public struct HIDP_KEYBOARD_MODIFIER_STATE
 {
-	[CRepr, Union]	public struct _Anonymous_e__Union
+	[CRepr, Union]
+	public struct _Anonymous_e__Union
 	{
-		[CRepr]		public struct _Anonymous_e__Struct
+		[CRepr]
+		public struct _Anonymous_e__Struct
 		{
 			public uint32 _bitfield;
 		}
@@ -5972,14 +6082,16 @@ public function NTSTATUS PFN_HidP_GetVersionInternal(uint32* Version);
 	public using _Anonymous_e__Union Anonymous;
 }
 
-[CRepr, Packed(4)]public struct HIDD_CONFIGURATION
+[CRepr, Packed(4)]
+public struct HIDD_CONFIGURATION
 {
 	public void* cookie;
 	public uint32 size;
 	public uint32 RingBufferSize;
 }
 
-[CRepr]public struct HIDD_ATTRIBUTES
+[CRepr]
+public struct HIDD_ATTRIBUTES
 {
 	public uint32 Size;
 	public uint16 VendorID;
@@ -5987,14 +6099,16 @@ public function NTSTATUS PFN_HidP_GetVersionInternal(uint32* Version);
 	public uint16 VersionNumber;
 }
 
-[CRepr]public struct HID_XFER_PACKET
+[CRepr]
+public struct HID_XFER_PACKET
 {
 	public uint8* reportBuffer;
 	public uint32 reportBufferLen;
 	public uint8 reportId;
 }
 
-[CRepr]public struct HID_COLLECTION_INFORMATION
+[CRepr]
+public struct HID_COLLECTION_INFORMATION
 {
 	public uint32 DescriptorSize;
 	public BOOLEAN Polled;
@@ -6004,13 +6118,15 @@ public function NTSTATUS PFN_HidP_GetVersionInternal(uint32* Version);
 	public uint16 VersionNumber;
 }
 
-[CRepr]public struct HID_DRIVER_CONFIG
+[CRepr]
+public struct HID_DRIVER_CONFIG
 {
 	public uint32 Size;
 	public uint32 RingBufferSize;
 }
 
-[CRepr]public struct INPUT_BUTTON_ENABLE_INFO
+[CRepr]
+public struct INPUT_BUTTON_ENABLE_INFO
 {
 	public GPIOBUTTONS_BUTTON_TYPE ButtonType;
 	public BOOLEAN Enabled;

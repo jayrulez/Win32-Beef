@@ -3064,7 +3064,8 @@ public function HRESULT LPGETTNEFSTREAMCODEPAGE(IStream* lpStream, uint32* lpulC
 #endregion
 
 #region Structs
-[CRepr, Packed(1)]public struct LINEADDRESSCAPS
+[CRepr, Packed(1)]
+public struct LINEADDRESSCAPS
 {
 	public uint32 dwTotalSize;
 	public uint32 dwNeededSize;
@@ -3125,7 +3126,8 @@ public function HRESULT LPGETTNEFSTREAMCODEPAGE(IStream* lpStream, uint32* lpulC
 	public uint32 dwAvailableMediaModes;
 }
 
-[CRepr, Packed(1)]public struct LINEADDRESSSTATUS
+[CRepr, Packed(1)]
+public struct LINEADDRESSSTATUS
 {
 	public uint32 dwTotalSize;
 	public uint32 dwNeededSize;
@@ -3145,14 +3147,16 @@ public function HRESULT LPGETTNEFSTREAMCODEPAGE(IStream* lpStream, uint32* lpulC
 	public uint32 dwDevSpecificOffset;
 }
 
-[CRepr, Packed(1)]public struct LINEAGENTACTIVITYENTRY
+[CRepr, Packed(1)]
+public struct LINEAGENTACTIVITYENTRY
 {
 	public uint32 dwID;
 	public uint32 dwNameSize;
 	public uint32 dwNameOffset;
 }
 
-[CRepr, Packed(1)]public struct LINEAGENTACTIVITYLIST
+[CRepr, Packed(1)]
+public struct LINEAGENTACTIVITYLIST
 {
 	public uint32 dwTotalSize;
 	public uint32 dwNeededSize;
@@ -3162,7 +3166,8 @@ public function HRESULT LPGETTNEFSTREAMCODEPAGE(IStream* lpStream, uint32* lpulC
 	public uint32 dwListOffset;
 }
 
-[CRepr, Packed(1)]public struct LINEAGENTCAPS
+[CRepr, Packed(1)]
+public struct LINEAGENTCAPS
 {
 	public uint32 dwTotalSize;
 	public uint32 dwNeededSize;
@@ -3181,9 +3186,11 @@ public function HRESULT LPGETTNEFSTREAMCODEPAGE(IStream* lpStream, uint32* lpulC
 	public Guid ProxyGUID;
 }
 
-[CRepr, Packed(1)]public struct LINEAGENTGROUPENTRY
+[CRepr, Packed(1)]
+public struct LINEAGENTGROUPENTRY
 {
-	[CRepr, Packed(1)]	public struct _GroupID_e__Struct
+	[CRepr, Packed(1)]
+	public struct _GroupID_e__Struct
 	{
 		public uint32 dwGroupID1;
 		public uint32 dwGroupID2;
@@ -3196,7 +3203,8 @@ public function HRESULT LPGETTNEFSTREAMCODEPAGE(IStream* lpStream, uint32* lpulC
 	public uint32 dwNameOffset;
 }
 
-[CRepr, Packed(1)]public struct LINEAGENTGROUPLIST
+[CRepr, Packed(1)]
+public struct LINEAGENTGROUPLIST
 {
 	public uint32 dwTotalSize;
 	public uint32 dwNeededSize;
@@ -3206,7 +3214,8 @@ public function HRESULT LPGETTNEFSTREAMCODEPAGE(IStream* lpStream, uint32* lpulC
 	public uint32 dwListOffset;
 }
 
-[CRepr, Packed(1)]public struct LINEAGENTSTATUS
+[CRepr, Packed(1)]
+public struct LINEAGENTSTATUS
 {
 	public uint32 dwTotalSize;
 	public uint32 dwNeededSize;
@@ -3224,7 +3233,8 @@ public function HRESULT LPGETTNEFSTREAMCODEPAGE(IStream* lpStream, uint32* lpulC
 	public uint32 dwValidNextStates;
 }
 
-[CRepr, Packed(1)]public struct LINEAPPINFO
+[CRepr, Packed(1)]
+public struct LINEAPPINFO
 {
 	public uint32 dwMachineNameSize;
 	public uint32 dwMachineNameOffset;
@@ -3238,7 +3248,8 @@ public function HRESULT LPGETTNEFSTREAMCODEPAGE(IStream* lpStream, uint32* lpulC
 	public uint32 dwAddressID;
 }
 
-[CRepr, Packed(1)]public struct LINEAGENTENTRY
+[CRepr, Packed(1)]
+public struct LINEAGENTENTRY
 {
 	public uint32 hAgent;
 	public uint32 dwNameSize;
@@ -3249,7 +3260,8 @@ public function HRESULT LPGETTNEFSTREAMCODEPAGE(IStream* lpStream, uint32* lpulC
 	public uint32 dwPINOffset;
 }
 
-[CRepr, Packed(1)]public struct LINEAGENTLIST
+[CRepr, Packed(1)]
+public struct LINEAGENTLIST
 {
 	public uint32 dwTotalSize;
 	public uint32 dwNeededSize;
@@ -3259,7 +3271,8 @@ public function HRESULT LPGETTNEFSTREAMCODEPAGE(IStream* lpStream, uint32* lpulC
 	public uint32 dwListOffset;
 }
 
-[CRepr, Packed(1)]public struct LINEAGENTINFO
+[CRepr, Packed(1)]
+public struct LINEAGENTINFO
 {
 	public uint32 dwTotalSize;
 	public uint32 dwNeededSize;
@@ -3276,7 +3289,8 @@ public function HRESULT LPGETTNEFSTREAMCODEPAGE(IStream* lpStream, uint32* lpulC
 	public uint32 dwTotalACDWrapUpTime;
 }
 
-[CRepr, Packed(1)]public struct LINEAGENTSESSIONENTRY
+[CRepr, Packed(1)]
+public struct LINEAGENTSESSIONENTRY
 {
 	public uint32 hAgentSession;
 	public uint32 hAgent;
@@ -3284,7 +3298,8 @@ public function HRESULT LPGETTNEFSTREAMCODEPAGE(IStream* lpStream, uint32* lpulC
 	public uint32 dwWorkingAddressID;
 }
 
-[CRepr, Packed(1)]public struct LINEAGENTSESSIONLIST
+[CRepr, Packed(1)]
+public struct LINEAGENTSESSIONLIST
 {
 	public uint32 dwTotalSize;
 	public uint32 dwNeededSize;
@@ -3294,7 +3309,8 @@ public function HRESULT LPGETTNEFSTREAMCODEPAGE(IStream* lpStream, uint32* lpulC
 	public uint32 dwListOffset;
 }
 
-[CRepr, Packed(1)]public struct LINEAGENTSESSIONINFO
+[CRepr, Packed(1)]
+public struct LINEAGENTSESSIONINFO
 {
 	public uint32 dwTotalSize;
 	public uint32 dwNeededSize;
@@ -3315,14 +3331,16 @@ public function HRESULT LPGETTNEFSTREAMCODEPAGE(IStream* lpStream, uint32* lpulC
 	public uint32 dwAverageTimeToAnswer;
 }
 
-[CRepr, Packed(1)]public struct LINEQUEUEENTRY
+[CRepr, Packed(1)]
+public struct LINEQUEUEENTRY
 {
 	public uint32 dwQueueID;
 	public uint32 dwNameSize;
 	public uint32 dwNameOffset;
 }
 
-[CRepr, Packed(1)]public struct LINEQUEUELIST
+[CRepr, Packed(1)]
+public struct LINEQUEUELIST
 {
 	public uint32 dwTotalSize;
 	public uint32 dwNeededSize;
@@ -3332,7 +3350,8 @@ public function HRESULT LPGETTNEFSTREAMCODEPAGE(IStream* lpStream, uint32* lpulC
 	public uint32 dwListOffset;
 }
 
-[CRepr, Packed(1)]public struct LINEQUEUEINFO
+[CRepr, Packed(1)]
+public struct LINEQUEUEINFO
 {
 	public uint32 dwTotalSize;
 	public uint32 dwNeededSize;
@@ -3349,7 +3368,8 @@ public function HRESULT LPGETTNEFSTREAMCODEPAGE(IStream* lpStream, uint32* lpulC
 	public uint32 dwFinalDisposition;
 }
 
-[CRepr, Packed(1)]public struct LINEPROXYREQUESTLIST
+[CRepr, Packed(1)]
+public struct LINEPROXYREQUESTLIST
 {
 	public uint32 dwTotalSize;
 	public uint32 dwNeededSize;
@@ -3359,7 +3379,8 @@ public function HRESULT LPGETTNEFSTREAMCODEPAGE(IStream* lpStream, uint32* lpulC
 	public uint32 dwListOffset;
 }
 
-[CRepr, Packed(1)]public struct LINEDIALPARAMS
+[CRepr, Packed(1)]
+public struct LINEDIALPARAMS
 {
 	public uint32 dwDialPause;
 	public uint32 dwDialSpeed;
@@ -3367,7 +3388,8 @@ public function HRESULT LPGETTNEFSTREAMCODEPAGE(IStream* lpStream, uint32* lpulC
 	public uint32 dwWaitForDialtone;
 }
 
-[CRepr, Packed(1)]public struct LINECALLINFO
+[CRepr, Packed(1)]
+public struct LINECALLINFO
 {
 	public uint32 dwTotalSize;
 	public uint32 dwNeededSize;
@@ -3449,7 +3471,8 @@ public function HRESULT LPGETTNEFSTREAMCODEPAGE(IStream* lpStream, uint32* lpulC
 	public uint32 dwReceivingFlowspecOffset;
 }
 
-[CRepr, Packed(1)]public struct LINECALLLIST
+[CRepr, Packed(1)]
+public struct LINECALLLIST
 {
 	public uint32 dwTotalSize;
 	public uint32 dwNeededSize;
@@ -3459,7 +3482,8 @@ public function HRESULT LPGETTNEFSTREAMCODEPAGE(IStream* lpStream, uint32* lpulC
 	public uint32 dwCallsOffset;
 }
 
-[CRepr, Packed(1)]public struct LINECALLPARAMS
+[CRepr, Packed(1)]
+public struct LINECALLPARAMS
 {
 	public uint32 dwTotalSize;
 	public uint32 dwBearerMode;
@@ -3504,7 +3528,8 @@ public function HRESULT LPGETTNEFSTREAMCODEPAGE(IStream* lpStream, uint32* lpulC
 	public uint32 dwCallingPartyIDOffset;
 }
 
-[CRepr, Packed(1)]public struct LINECALLSTATUS
+[CRepr, Packed(1)]
+public struct LINECALLSTATUS
 {
 	public uint32 dwTotalSize;
 	public uint32 dwNeededSize;
@@ -3519,14 +3544,16 @@ public function HRESULT LPGETTNEFSTREAMCODEPAGE(IStream* lpStream, uint32* lpulC
 	public SYSTEMTIME tStateEntryTime;
 }
 
-[CRepr, Packed(1)]public struct LINECALLTREATMENTENTRY
+[CRepr, Packed(1)]
+public struct LINECALLTREATMENTENTRY
 {
 	public uint32 dwCallTreatmentID;
 	public uint32 dwCallTreatmentNameSize;
 	public uint32 dwCallTreatmentNameOffset;
 }
 
-[CRepr, Packed(1)]public struct LINECARDENTRY
+[CRepr, Packed(1)]
+public struct LINECARDENTRY
 {
 	public uint32 dwPermanentCardID;
 	public uint32 dwCardNameSize;
@@ -3541,7 +3568,8 @@ public function HRESULT LPGETTNEFSTREAMCODEPAGE(IStream* lpStream, uint32* lpulC
 	public uint32 dwOptions;
 }
 
-[CRepr, Packed(1)]public struct LINECOUNTRYENTRY
+[CRepr, Packed(1)]
+public struct LINECOUNTRYENTRY
 {
 	public uint32 dwCountryID;
 	public uint32 dwCountryCode;
@@ -3556,7 +3584,8 @@ public function HRESULT LPGETTNEFSTREAMCODEPAGE(IStream* lpStream, uint32* lpulC
 	public uint32 dwInternationalRuleOffset;
 }
 
-[CRepr, Packed(1)]public struct LINECOUNTRYLIST
+[CRepr, Packed(1)]
+public struct LINECOUNTRYLIST
 {
 	public uint32 dwTotalSize;
 	public uint32 dwNeededSize;
@@ -3566,7 +3595,8 @@ public function HRESULT LPGETTNEFSTREAMCODEPAGE(IStream* lpStream, uint32* lpulC
 	public uint32 dwCountryListOffset;
 }
 
-[CRepr, Packed(1)]public struct LINEDEVCAPS
+[CRepr, Packed(1)]
+public struct LINEDEVCAPS
 {
 	public uint32 dwTotalSize;
 	public uint32 dwNeededSize;
@@ -3625,7 +3655,8 @@ public function HRESULT LPGETTNEFSTREAMCODEPAGE(IStream* lpStream, uint32* lpulC
 	public Guid PermanentLineGuid;
 }
 
-[CRepr, Packed(1)]public struct LINEDEVSTATUS
+[CRepr, Packed(1)]
+public struct LINEDEVSTATUS
 {
 	public uint32 dwTotalSize;
 	public uint32 dwNeededSize;
@@ -3651,7 +3682,8 @@ public function HRESULT LPGETTNEFSTREAMCODEPAGE(IStream* lpStream, uint32* lpulC
 	public uint32 dwAppInfoOffset;
 }
 
-[CRepr, Packed(1)]public struct LINEEXTENSIONID
+[CRepr, Packed(1)]
+public struct LINEEXTENSIONID
 {
 	public uint32 dwExtensionID0;
 	public uint32 dwExtensionID1;
@@ -3659,7 +3691,8 @@ public function HRESULT LPGETTNEFSTREAMCODEPAGE(IStream* lpStream, uint32* lpulC
 	public uint32 dwExtensionID3;
 }
 
-[CRepr, Packed(1)]public struct LINEFORWARD
+[CRepr, Packed(1)]
+public struct LINEFORWARD
 {
 	public uint32 dwForwardMode;
 	public uint32 dwCallerAddressSize;
@@ -3669,14 +3702,16 @@ public function HRESULT LPGETTNEFSTREAMCODEPAGE(IStream* lpStream, uint32* lpulC
 	public uint32 dwDestAddressOffset;
 }
 
-[CRepr, Packed(1)]public struct LINEFORWARDLIST
+[CRepr, Packed(1)]
+public struct LINEFORWARDLIST
 {
 	public uint32 dwTotalSize;
 	public uint32 dwNumEntries;
 	public LINEFORWARD[1] ForwardList;
 }
 
-[CRepr, Packed(1)]public struct LINEGENERATETONE
+[CRepr, Packed(1)]
+public struct LINEGENERATETONE
 {
 	public uint32 dwFrequency;
 	public uint32 dwCadenceOn;
@@ -3684,9 +3719,11 @@ public function HRESULT LPGETTNEFSTREAMCODEPAGE(IStream* lpStream, uint32* lpulC
 	public uint32 dwVolume;
 }
 
-[CRepr, Packed(1)]public struct LINEINITIALIZEEXPARAMS
+[CRepr, Packed(1)]
+public struct LINEINITIALIZEEXPARAMS
 {
-	[CRepr, Union, Packed(1)]	public struct _Handles_e__Union
+	[CRepr, Union, Packed(1)]
+	public struct _Handles_e__Union
 	{
 		public HANDLE hEvent;
 		public HANDLE hCompletionPort;
@@ -3700,7 +3737,8 @@ public function HRESULT LPGETTNEFSTREAMCODEPAGE(IStream* lpStream, uint32* lpulC
 	public uint32 dwCompletionKey;
 }
 
-[CRepr, Packed(1)]public struct LINELOCATIONENTRY
+[CRepr, Packed(1)]
+public struct LINELOCATIONENTRY
 {
 	public uint32 dwPermanentLocationID;
 	public uint32 dwLocationNameSize;
@@ -3721,27 +3759,31 @@ public function HRESULT LPGETTNEFSTREAMCODEPAGE(IStream* lpStream, uint32* lpulC
 	public uint32 dwCancelCallWaitingOffset;
 }
 
-[CRepr, Packed(1)]public struct LINEMEDIACONTROLCALLSTATE
+[CRepr, Packed(1)]
+public struct LINEMEDIACONTROLCALLSTATE
 {
 	public uint32 dwCallStates;
 	public uint32 dwMediaControl;
 }
 
-[CRepr, Packed(1)]public struct LINEMEDIACONTROLDIGIT
+[CRepr, Packed(1)]
+public struct LINEMEDIACONTROLDIGIT
 {
 	public uint32 dwDigit;
 	public uint32 dwDigitModes;
 	public uint32 dwMediaControl;
 }
 
-[CRepr, Packed(1)]public struct LINEMEDIACONTROLMEDIA
+[CRepr, Packed(1)]
+public struct LINEMEDIACONTROLMEDIA
 {
 	public uint32 dwMediaModes;
 	public uint32 dwDuration;
 	public uint32 dwMediaControl;
 }
 
-[CRepr, Packed(1)]public struct LINEMEDIACONTROLTONE
+[CRepr, Packed(1)]
+public struct LINEMEDIACONTROLTONE
 {
 	public uint32 dwAppSpecific;
 	public uint32 dwDuration;
@@ -3751,7 +3793,8 @@ public function HRESULT LPGETTNEFSTREAMCODEPAGE(IStream* lpStream, uint32* lpulC
 	public uint32 dwMediaControl;
 }
 
-[CRepr, Packed(1)]public struct LINEMESSAGE
+[CRepr, Packed(1)]
+public struct LINEMESSAGE
 {
 	public uint32 hDevice;
 	public uint32 dwMessageID;
@@ -3761,7 +3804,8 @@ public function HRESULT LPGETTNEFSTREAMCODEPAGE(IStream* lpStream, uint32* lpulC
 	public uint dwParam3;
 }
 
-[CRepr, Packed(1)]public struct LINEMONITORTONE
+[CRepr, Packed(1)]
+public struct LINEMONITORTONE
 {
 	public uint32 dwAppSpecific;
 	public uint32 dwDuration;
@@ -3770,14 +3814,16 @@ public function HRESULT LPGETTNEFSTREAMCODEPAGE(IStream* lpStream, uint32* lpulC
 	public uint32 dwFrequency3;
 }
 
-[CRepr, Packed(1)]public struct LINEPROVIDERENTRY
+[CRepr, Packed(1)]
+public struct LINEPROVIDERENTRY
 {
 	public uint32 dwPermanentProviderID;
 	public uint32 dwProviderFilenameSize;
 	public uint32 dwProviderFilenameOffset;
 }
 
-[CRepr, Packed(1)]public struct LINEPROVIDERLIST
+[CRepr, Packed(1)]
+public struct LINEPROVIDERLIST
 {
 	public uint32 dwTotalSize;
 	public uint32 dwNeededSize;
@@ -3787,29 +3833,35 @@ public function HRESULT LPGETTNEFSTREAMCODEPAGE(IStream* lpStream, uint32* lpulC
 	public uint32 dwProviderListOffset;
 }
 
-[CRepr, Packed(1)]public struct LINEPROXYREQUEST
+[CRepr, Packed(1)]
+public struct LINEPROXYREQUEST
 {
-	[CRepr, Union]	public struct _Anonymous_e__Union
+	[CRepr, Union]
+	public struct _Anonymous_e__Union
 	{
-		[CRepr, Packed(1)]		public struct _GetQueueInfo_e__Struct
+		[CRepr, Packed(1)]
+		public struct _GetQueueInfo_e__Struct
 		{
 			public uint32 dwQueueID;
 			public LINEQUEUEINFO QueueInfo;
 		}
 
-		[CRepr, Packed(1)]		public struct _GetQueueList_e__Struct
+		[CRepr, Packed(1)]
+		public struct _GetQueueList_e__Struct
 		{
 			public Guid GroupID;
 			public LINEQUEUELIST QueueList;
 		}
 
-		[CRepr, Packed(1)]		public struct _GetAgentSessionInfo_e__Struct
+		[CRepr, Packed(1)]
+		public struct _GetAgentSessionInfo_e__Struct
 		{
 			public uint32 hAgentSession;
 			public LINEAGENTSESSIONINFO SessionInfo;
 		}
 
-		[CRepr, Packed(1)]		public struct _CreateAgentSession_e__Struct
+		[CRepr, Packed(1)]
+		public struct _CreateAgentSession_e__Struct
 		{
 			public uint32 hAgentSession;
 			public uint32 dwAgentPINSize;
@@ -3819,13 +3871,15 @@ public function HRESULT LPGETTNEFSTREAMCODEPAGE(IStream* lpStream, uint32* lpulC
 			public uint32 dwWorkingAddressID;
 		}
 
-		[CRepr, Packed(1)]		public struct _SetAgentMeasurementPeriod_e__Struct
+		[CRepr, Packed(1)]
+		public struct _SetAgentMeasurementPeriod_e__Struct
 		{
 			public uint32 hAgent;
 			public uint32 dwMeasurementPeriod;
 		}
 
-		[CRepr, Packed(1)]		public struct _CreateAgent_e__Struct
+		[CRepr, Packed(1)]
+		public struct _CreateAgent_e__Struct
 		{
 			public uint32 hAgent;
 			public uint32 dwAgentIDSize;
@@ -3834,50 +3888,58 @@ public function HRESULT LPGETTNEFSTREAMCODEPAGE(IStream* lpStream, uint32* lpulC
 			public uint32 dwAgentPINOffset;
 		}
 
-		[CRepr, Packed(1)]		public struct _GetAgentActivityList_e__Struct
+		[CRepr, Packed(1)]
+		public struct _GetAgentActivityList_e__Struct
 		{
 			public uint32 dwAddressID;
 			public LINEAGENTACTIVITYLIST ActivityList;
 		}
 
-		[CRepr, Packed(1)]		public struct _GetAgentStatus_e__Struct
+		[CRepr, Packed(1)]
+		public struct _GetAgentStatus_e__Struct
 		{
 			public uint32 dwAddressID;
 			public LINEAGENTSTATUS AgentStatus;
 		}
 
-		[CRepr, Packed(1)]		public struct _SetAgentActivity_e__Struct
+		[CRepr, Packed(1)]
+		public struct _SetAgentActivity_e__Struct
 		{
 			public uint32 dwAddressID;
 			public uint32 dwActivityID;
 		}
 
-		[CRepr, Packed(1)]		public struct _SetAgentGroup_e__Struct
+		[CRepr, Packed(1)]
+		public struct _SetAgentGroup_e__Struct
 		{
 			public uint32 dwAddressID;
 			public LINEAGENTGROUPLIST GroupList;
 		}
 
-		[CRepr, Packed(1)]		public struct _SetQueueMeasurementPeriod_e__Struct
+		[CRepr, Packed(1)]
+		public struct _SetQueueMeasurementPeriod_e__Struct
 		{
 			public uint32 dwQueueID;
 			public uint32 dwMeasurementPeriod;
 		}
 
-		[CRepr, Packed(1)]		public struct _GetAgentSessionList_e__Struct
+		[CRepr, Packed(1)]
+		public struct _GetAgentSessionList_e__Struct
 		{
 			public uint32 hAgent;
 			public LINEAGENTSESSIONLIST SessionList;
 		}
 
-		[CRepr, Packed(1)]		public struct _SetAgentStateEx_e__Struct
+		[CRepr, Packed(1)]
+		public struct _SetAgentStateEx_e__Struct
 		{
 			public uint32 hAgent;
 			public uint32 dwAgentState;
 			public uint32 dwNextAgentState;
 		}
 
-		[CRepr, Packed(1)]		public struct _AgentSpecific_e__Struct
+		[CRepr, Packed(1)]
+		public struct _AgentSpecific_e__Struct
 		{
 			public uint32 dwAddressID;
 			public uint32 dwAgentExtensionIDIndex;
@@ -3885,38 +3947,44 @@ public function HRESULT LPGETTNEFSTREAMCODEPAGE(IStream* lpStream, uint32* lpulC
 			public uint8[1] Params;
 		}
 
-		[CRepr, Packed(1)]		public struct _SetAgentState_e__Struct
+		[CRepr, Packed(1)]
+		public struct _SetAgentState_e__Struct
 		{
 			public uint32 dwAddressID;
 			public uint32 dwAgentState;
 			public uint32 dwNextAgentState;
 		}
 
-		[CRepr, Packed(1)]		public struct _SetAgentSessionState_e__Struct
+		[CRepr, Packed(1)]
+		public struct _SetAgentSessionState_e__Struct
 		{
 			public uint32 hAgentSession;
 			public uint32 dwAgentSessionState;
 			public uint32 dwNextAgentSessionState;
 		}
 
-		[CRepr, Packed(1)]		public struct _GetAgentGroupList_e__Struct
+		[CRepr, Packed(1)]
+		public struct _GetAgentGroupList_e__Struct
 		{
 			public uint32 dwAddressID;
 			public LINEAGENTGROUPLIST GroupList;
 		}
 
-		[CRepr]		public struct _GetGroupList_e__Struct
+		[CRepr]
+		public struct _GetGroupList_e__Struct
 		{
 			public LINEAGENTGROUPLIST GroupList;
 		}
 
-		[CRepr, Packed(1)]		public struct _GetAgentCaps_e__Struct
+		[CRepr, Packed(1)]
+		public struct _GetAgentCaps_e__Struct
 		{
 			public uint32 dwAddressID;
 			public LINEAGENTCAPS AgentCaps;
 		}
 
-		[CRepr, Packed(1)]		public struct _GetAgentInfo_e__Struct
+		[CRepr, Packed(1)]
+		public struct _GetAgentInfo_e__Struct
 		{
 			public uint32 hAgent;
 			public LINEAGENTINFO AgentInfo;
@@ -3954,7 +4022,8 @@ public function HRESULT LPGETTNEFSTREAMCODEPAGE(IStream* lpStream, uint32* lpulC
 	public using _Anonymous_e__Union Anonymous;
 }
 
-[CRepr]public struct LINEREQMAKECALL
+[CRepr]
+public struct LINEREQMAKECALL
 {
 	public CHAR[80] szDestAddress;
 	public CHAR[40] szAppName;
@@ -3962,7 +4031,8 @@ public function HRESULT LPGETTNEFSTREAMCODEPAGE(IStream* lpStream, uint32* lpulC
 	public CHAR[80] szComment;
 }
 
-[CRepr, Packed(1)]public struct linereqmakecallW_tag
+[CRepr, Packed(1)]
+public struct linereqmakecallW_tag
 {
 	public char8[80] szDestAddress;
 	public char8[40] szAppName;
@@ -3970,7 +4040,8 @@ public function HRESULT LPGETTNEFSTREAMCODEPAGE(IStream* lpStream, uint32* lpulC
 	public char8[80] szComment;
 }
 
-[CRepr, Packed(1)]public struct LINEREQMEDIACALL
+[CRepr, Packed(1)]
+public struct LINEREQMEDIACALL
 {
 	public HWND hWnd;
 	public WPARAM wRequestID;
@@ -3984,7 +4055,8 @@ public function HRESULT LPGETTNEFSTREAMCODEPAGE(IStream* lpStream, uint32* lpulC
 	public CHAR[80] szComment;
 }
 
-[CRepr, Packed(1)]public struct linereqmediacallW_tag
+[CRepr, Packed(1)]
+public struct linereqmediacallW_tag
 {
 	public HWND hWnd;
 	public WPARAM wRequestID;
@@ -3998,14 +4070,16 @@ public function HRESULT LPGETTNEFSTREAMCODEPAGE(IStream* lpStream, uint32* lpulC
 	public char8[80] szComment;
 }
 
-[CRepr, Packed(1)]public struct LINETERMCAPS
+[CRepr, Packed(1)]
+public struct LINETERMCAPS
 {
 	public uint32 dwTermDev;
 	public uint32 dwTermModes;
 	public uint32 dwTermSharing;
 }
 
-[CRepr, Packed(1)]public struct LINETRANSLATECAPS
+[CRepr, Packed(1)]
+public struct LINETRANSLATECAPS
 {
 	public uint32 dwTotalSize;
 	public uint32 dwNeededSize;
@@ -4020,7 +4094,8 @@ public function HRESULT LPGETTNEFSTREAMCODEPAGE(IStream* lpStream, uint32* lpulC
 	public uint32 dwCurrentPreferredCardID;
 }
 
-[CRepr, Packed(1)]public struct LINETRANSLATEOUTPUT
+[CRepr, Packed(1)]
+public struct LINETRANSLATEOUTPUT
 {
 	public uint32 dwTotalSize;
 	public uint32 dwNeededSize;
@@ -4034,7 +4109,8 @@ public function HRESULT LPGETTNEFSTREAMCODEPAGE(IStream* lpStream, uint32* lpulC
 	public uint32 dwTranslateResults;
 }
 
-[CRepr, Packed(1)]public struct PHONEBUTTONINFO
+[CRepr, Packed(1)]
+public struct PHONEBUTTONINFO
 {
 	public uint32 dwTotalSize;
 	public uint32 dwNeededSize;
@@ -4048,7 +4124,8 @@ public function HRESULT LPGETTNEFSTREAMCODEPAGE(IStream* lpStream, uint32* lpulC
 	public uint32 dwButtonState;
 }
 
-[CRepr, Packed(1)]public struct PHONECAPS
+[CRepr, Packed(1)]
+public struct PHONECAPS
 {
 	public uint32 dwTotalSize;
 	public uint32 dwNeededSize;
@@ -4098,7 +4175,8 @@ public function HRESULT LPGETTNEFSTREAMCODEPAGE(IStream* lpStream, uint32* lpulC
 	public Guid PermanentPhoneGuid;
 }
 
-[CRepr, Packed(1)]public struct PHONEEXTENSIONID
+[CRepr, Packed(1)]
+public struct PHONEEXTENSIONID
 {
 	public uint32 dwExtensionID0;
 	public uint32 dwExtensionID1;
@@ -4106,9 +4184,11 @@ public function HRESULT LPGETTNEFSTREAMCODEPAGE(IStream* lpStream, uint32* lpulC
 	public uint32 dwExtensionID3;
 }
 
-[CRepr, Packed(1)]public struct PHONEINITIALIZEEXPARAMS
+[CRepr, Packed(1)]
+public struct PHONEINITIALIZEEXPARAMS
 {
-	[CRepr, Union, Packed(1)]	public struct _Handles_e__Union
+	[CRepr, Union, Packed(1)]
+	public struct _Handles_e__Union
 	{
 		public HANDLE hEvent;
 		public HANDLE hCompletionPort;
@@ -4122,7 +4202,8 @@ public function HRESULT LPGETTNEFSTREAMCODEPAGE(IStream* lpStream, uint32* lpulC
 	public uint32 dwCompletionKey;
 }
 
-[CRepr, Packed(1)]public struct PHONEMESSAGE
+[CRepr, Packed(1)]
+public struct PHONEMESSAGE
 {
 	public uint32 hDevice;
 	public uint32 dwMessageID;
@@ -4132,7 +4213,8 @@ public function HRESULT LPGETTNEFSTREAMCODEPAGE(IStream* lpStream, uint32* lpulC
 	public uint dwParam3;
 }
 
-[CRepr, Packed(1)]public struct PHONESTATUS
+[CRepr, Packed(1)]
+public struct PHONESTATUS
 {
 	public uint32 dwTotalSize;
 	public uint32 dwNeededSize;
@@ -4162,7 +4244,8 @@ public function HRESULT LPGETTNEFSTREAMCODEPAGE(IStream* lpStream, uint32* lpulC
 	public uint32 dwPhoneFeatures;
 }
 
-[CRepr, Packed(1)]public struct VARSTRING
+[CRepr, Packed(1)]
+public struct VARSTRING
 {
 	public uint32 dwTotalSize;
 	public uint32 dwNeededSize;
@@ -4172,52 +4255,62 @@ public function HRESULT LPGETTNEFSTREAMCODEPAGE(IStream* lpStream, uint32* lpulC
 	public uint32 dwStringOffset;
 }
 
-[CRepr]public struct HDRVCALL__
+[CRepr]
+public struct HDRVCALL__
 {
 	public int32 unused;
 }
 
-[CRepr]public struct HDRVLINE__
+[CRepr]
+public struct HDRVLINE__
 {
 	public int32 unused;
 }
 
-[CRepr]public struct HDRVPHONE__
+[CRepr]
+public struct HDRVPHONE__
 {
 	public int32 unused;
 }
 
-[CRepr]public struct HDRVMSPLINE__
+[CRepr]
+public struct HDRVMSPLINE__
 {
 	public int32 unused;
 }
 
-[CRepr]public struct HDRVDIALOGINSTANCE__
+[CRepr]
+public struct HDRVDIALOGINSTANCE__
 {
 	public int32 unused;
 }
 
-[CRepr]public struct HTAPICALL__
+[CRepr]
+public struct HTAPICALL__
 {
 	public int32 unused;
 }
 
-[CRepr]public struct HTAPILINE__
+[CRepr]
+public struct HTAPILINE__
 {
 	public int32 unused;
 }
 
-[CRepr]public struct HTAPIPHONE__
+[CRepr]
+public struct HTAPIPHONE__
 {
 	public int32 unused;
 }
 
-[CRepr]public struct HPROVIDER__
+[CRepr]
+public struct HPROVIDER__
 {
 	public int32 unused;
 }
 
-[CRepr]public struct TUISPICREATEDIALOGINSTANCEPARAMS
+[CRepr]
+public struct TUISPICREATEDIALOGINSTANCEPARAMS
 {
 	public uint32 dwRequestID;
 	public HDRVDIALOGINSTANCE__* hdDlgInst;
@@ -4227,7 +4320,8 @@ public function HRESULT LPGETTNEFSTREAMCODEPAGE(IStream* lpStream, uint32* lpulC
 	public uint32 dwSize;
 }
 
-[CRepr]public struct TAPI_CUSTOMTONE
+[CRepr]
+public struct TAPI_CUSTOMTONE
 {
 	public uint32 dwFrequency;
 	public uint32 dwCadenceOn;
@@ -4235,7 +4329,8 @@ public function HRESULT LPGETTNEFSTREAMCODEPAGE(IStream* lpStream, uint32* lpulC
 	public uint32 dwVolume;
 }
 
-[CRepr]public struct TAPI_DETECTTONE
+[CRepr]
+public struct TAPI_DETECTTONE
 {
 	public uint32 dwAppSpecific;
 	public uint32 dwDuration;
@@ -4244,29 +4339,35 @@ public function HRESULT LPGETTNEFSTREAMCODEPAGE(IStream* lpStream, uint32* lpulC
 	public uint32 dwFrequency3;
 }
 
-[CRepr]public struct MSP_EVENT_INFO
+[CRepr]
+public struct MSP_EVENT_INFO
 {
-	[CRepr, Union]	public struct _Anonymous_e__Union
+	[CRepr, Union]
+	public struct _Anonymous_e__Union
 	{
-		[CRepr]		public struct _MSP_TONE_TERMINAL_EVENT_INFO_e__Struct
+		[CRepr]
+		public struct _MSP_TONE_TERMINAL_EVENT_INFO_e__Struct
 		{
 			public ITTerminal* pToneTerminal;
 			public HRESULT hrErrorCode;
 		}
 
-		[CRepr]		public struct _MSP_ASR_TERMINAL_EVENT_INFO_e__Struct
+		[CRepr]
+		public struct _MSP_ASR_TERMINAL_EVENT_INFO_e__Struct
 		{
 			public ITTerminal* pASRTerminal;
 			public HRESULT hrErrorCode;
 		}
 
-		[CRepr]		public struct _MSP_PRIVATE_EVENT_INFO_e__Struct
+		[CRepr]
+		public struct _MSP_PRIVATE_EVENT_INFO_e__Struct
 		{
 			public IDispatch* pEvent;
 			public int32 lEventCode;
 		}
 
-		[CRepr]		public struct _MSP_CALL_EVENT_INFO_e__Struct
+		[CRepr]
+		public struct _MSP_CALL_EVENT_INFO_e__Struct
 		{
 			public MSP_CALL_EVENT Type;
 			public MSP_CALL_EVENT_CAUSE Cause;
@@ -4275,7 +4376,8 @@ public function HRESULT LPGETTNEFSTREAMCODEPAGE(IStream* lpStream, uint32* lpulC
 			public HRESULT hrError;
 		}
 
-		[CRepr]		public struct _MSP_FILE_TERMINAL_EVENT_INFO_e__Struct
+		[CRepr]
+		public struct _MSP_FILE_TERMINAL_EVENT_INFO_e__Struct
 		{
 			public ITTerminal* pParentFileTerminal;
 			public ITFileTrack* pFileTrack;
@@ -4284,19 +4386,22 @@ public function HRESULT LPGETTNEFSTREAMCODEPAGE(IStream* lpStream, uint32* lpulC
 			public HRESULT hrErrorCode;
 		}
 
-		[CRepr]		public struct _MSP_ADDRESS_EVENT_INFO_e__Struct
+		[CRepr]
+		public struct _MSP_ADDRESS_EVENT_INFO_e__Struct
 		{
 			public MSP_ADDRESS_EVENT Type;
 			public ITTerminal* pTerminal;
 		}
 
-		[CRepr]		public struct _MSP_TSP_DATA_e__Struct
+		[CRepr]
+		public struct _MSP_TSP_DATA_e__Struct
 		{
 			public uint32 dwBufferSize;
 			public uint8[1] pBuffer;
 		}
 
-		[CRepr]		public struct _MSP_TTS_TERMINAL_EVENT_INFO_e__Struct
+		[CRepr]
+		public struct _MSP_TTS_TERMINAL_EVENT_INFO_e__Struct
 		{
 			public ITTerminal* pTTSTerminal;
 			public HRESULT hrErrorCode;
@@ -4318,7 +4423,8 @@ public function HRESULT LPGETTNEFSTREAMCODEPAGE(IStream* lpStream, uint32* lpulC
 	public using _Anonymous_e__Union Anonymous;
 }
 
-[CRepr]public struct STnefProblem
+[CRepr]
+public struct STnefProblem
 {
 	public uint32 ulComponent;
 	public uint32 ulAttribute;
@@ -4326,13 +4432,15 @@ public function HRESULT LPGETTNEFSTREAMCODEPAGE(IStream* lpStream, uint32* lpulC
 	public int32 scode;
 }
 
-[CRepr]public struct STnefProblemArray
+[CRepr]
+public struct STnefProblemArray
 {
 	public uint32 cProblem;
 	public STnefProblem[1] aProblem;
 }
 
-[CRepr, Packed(1)]public struct _renddata
+[CRepr, Packed(1)]
+public struct _renddata
 {
 	public uint16 atyp;
 	public uint32 ulPosition;
@@ -4341,7 +4449,8 @@ public function HRESULT LPGETTNEFSTREAMCODEPAGE(IStream* lpStream, uint32* lpulC
 	public uint32 dwFlags;
 }
 
-[CRepr, Packed(1)]public struct _dtr
+[CRepr, Packed(1)]
+public struct _dtr
 {
 	public uint16 wYear;
 	public uint16 wMonth;
@@ -4352,7 +4461,8 @@ public function HRESULT LPGETTNEFSTREAMCODEPAGE(IStream* lpStream, uint32* lpulC
 	public uint16 wDayOfWeek;
 }
 
-[CRepr]public struct _trp
+[CRepr]
+public struct _trp
 {
 	public uint16 trpid;
 	public uint16 cbgrtrp;
@@ -4360,7 +4470,8 @@ public function HRESULT LPGETTNEFSTREAMCODEPAGE(IStream* lpStream, uint32* lpulC
 	public uint16 cbRgb;
 }
 
-[CRepr]public struct _ADDR_ALIAS
+[CRepr]
+public struct _ADDR_ALIAS
 {
 	public CHAR[41] rgchName;
 	public CHAR[11] rgchEName;
@@ -4369,9 +4480,11 @@ public function HRESULT LPGETTNEFSTREAMCODEPAGE(IStream* lpStream, uint32* lpulC
 	public uint16 type;
 }
 
-[CRepr]public struct NSID
+[CRepr]
+public struct NSID
 {
-	[CRepr, Union]	public struct _address_e__Union
+	[CRepr, Union]
+	public struct _address_e__Union
 	{
 		public _ADDR_ALIAS alias;
 		public CHAR[1] rgchInterNet;

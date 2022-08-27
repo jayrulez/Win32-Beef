@@ -626,23 +626,27 @@ public function void PFN_WdsTransportClientSessionNegotiate(HANDLE hSessionKey, 
 #endregion
 
 #region Structs
-[CRepr]public struct WDS_CLI_CRED
+[CRepr]
+public struct WDS_CLI_CRED
 {
 	public PWSTR pwszUserName;
 	public PWSTR pwszDomain;
 	public PWSTR pwszPassword;
 }
 
-[CRepr]public struct PXE_DHCP_OPTION
+[CRepr]
+public struct PXE_DHCP_OPTION
 {
 	public uint8 OptionType;
 	public uint8 OptionLength;
 	public uint8[1] OptionValue;
 }
 
-[CRepr, Packed(1)]public struct PXE_DHCP_MESSAGE
+[CRepr, Packed(1)]
+public struct PXE_DHCP_MESSAGE
 {
-	[CRepr, Union, Packed(1)]	public struct _Anonymous_e__Union
+	[CRepr, Union, Packed(1)]
+	public struct _Anonymous_e__Union
 	{
 		public uint8[4] bMagicCookie;
 		public uint32 uMagicCookie;
@@ -666,20 +670,23 @@ public function void PFN_WdsTransportClientSessionNegotiate(HANDLE hSessionKey, 
 	public PXE_DHCP_OPTION Option;
 }
 
-[CRepr, Packed(1)]public struct PXE_DHCPV6_OPTION
+[CRepr, Packed(1)]
+public struct PXE_DHCPV6_OPTION
 {
 	public uint16 OptionCode;
 	public uint16 DataLength;
 	public uint8[1] Data;
 }
 
-[CRepr]public struct PXE_DHCPV6_MESSAGE_HEADER
+[CRepr]
+public struct PXE_DHCPV6_MESSAGE_HEADER
 {
 	public uint8 MessageType;
 	public uint8[1] Message;
 }
 
-[CRepr]public struct PXE_DHCPV6_MESSAGE
+[CRepr]
+public struct PXE_DHCPV6_MESSAGE
 {
 	public uint8 MessageType;
 	public uint8 TransactionIDByte1;
@@ -688,7 +695,8 @@ public function void PFN_WdsTransportClientSessionNegotiate(HANDLE hSessionKey, 
 	public PXE_DHCPV6_OPTION[1] Options;
 }
 
-[CRepr]public struct PXE_DHCPV6_RELAY_MESSAGE
+[CRepr]
+public struct PXE_DHCPV6_RELAY_MESSAGE
 {
 	public uint8 MessageType;
 	public uint8 HopCount;
@@ -697,7 +705,8 @@ public function void PFN_WdsTransportClientSessionNegotiate(HANDLE hSessionKey, 
 	public PXE_DHCPV6_OPTION[1] Options;
 }
 
-[CRepr]public struct PXE_PROVIDER
+[CRepr]
+public struct PXE_PROVIDER
 {
 	public uint32 uSizeOfStruct;
 	public PWSTR pwszName;
@@ -706,9 +715,11 @@ public function void PFN_WdsTransportClientSessionNegotiate(HANDLE hSessionKey, 
 	public uint32 uIndex;
 }
 
-[CRepr]public struct PXE_ADDRESS
+[CRepr]
+public struct PXE_ADDRESS
 {
-	[CRepr, Union]	public struct _Anonymous_e__Union
+	[CRepr, Union]
+	public struct _Anonymous_e__Union
 	{
 		public uint8[16] bAddress;
 		public uint32 uIpAddress;
@@ -720,7 +731,8 @@ public function void PFN_WdsTransportClientSessionNegotiate(HANDLE hSessionKey, 
 	public uint16 uPort;
 }
 
-[CRepr]public struct PXE_DHCPV6_NESTED_RELAY_MESSAGE
+[CRepr]
+public struct PXE_DHCPV6_NESTED_RELAY_MESSAGE
 {
 	public PXE_DHCPV6_RELAY_MESSAGE* pRelayMessage;
 	public uint32 cbRelayMessage;
@@ -728,7 +740,8 @@ public function void PFN_WdsTransportClientSessionNegotiate(HANDLE hSessionKey, 
 	public uint16 cbInterfaceIdOption;
 }
 
-[CRepr]public struct WDS_TRANSPORTPROVIDER_INIT_PARAMS
+[CRepr]
+public struct WDS_TRANSPORTPROVIDER_INIT_PARAMS
 {
 	public uint32 ulLength;
 	public uint32 ulMcServerVersion;
@@ -736,20 +749,23 @@ public function void PFN_WdsTransportClientSessionNegotiate(HANDLE hSessionKey, 
 	public HANDLE hProvider;
 }
 
-[CRepr]public struct WDS_TRANSPORTPROVIDER_SETTINGS
+[CRepr]
+public struct WDS_TRANSPORTPROVIDER_SETTINGS
 {
 	public uint32 ulLength;
 	public uint32 ulProviderVersion;
 }
 
-[CRepr]public struct TRANSPORTCLIENT_SESSION_INFO
+[CRepr]
+public struct TRANSPORTCLIENT_SESSION_INFO
 {
 	public uint32 ulStructureLength;
 	public ULARGE_INTEGER ullFileSize;
 	public uint32 ulBlockSize;
 }
 
-[CRepr]public struct WDS_TRANSPORTCLIENT_REQUEST
+[CRepr]
+public struct WDS_TRANSPORTCLIENT_REQUEST
 {
 	public uint32 ulLength;
 	public uint32 ulApiVersion;
@@ -763,7 +779,8 @@ public function void PFN_WdsTransportClientSessionNegotiate(HANDLE hSessionKey, 
 	public uint32 ulProtocolDataLength;
 }
 
-[CRepr]public struct WDS_TRANSPORTCLIENT_CALLBACKS
+[CRepr]
+public struct WDS_TRANSPORTCLIENT_CALLBACKS
 {
 	public PFN_WdsTransportClientSessionStart SessionStart;
 	public PFN_WdsTransportClientSessionStartEx SessionStartEx;

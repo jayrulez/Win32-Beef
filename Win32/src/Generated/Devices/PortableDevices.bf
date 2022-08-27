@@ -2104,7 +2104,8 @@ public enum SYSTEM_RADIO_STATE : int32
 #endregion
 
 #region Structs
-[CRepr]public struct WPD_COMMAND_ACCESS_LOOKUP_ENTRY
+[CRepr]
+public struct WPD_COMMAND_ACCESS_LOOKUP_ENTRY
 {
 	public PROPERTYKEY Command;
 	public uint32 AccessType;

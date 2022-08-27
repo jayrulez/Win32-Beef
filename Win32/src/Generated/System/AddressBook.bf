@@ -513,102 +513,119 @@ public function uint32 LPWABFREEBUFFER(IWABObject* lpWABObject, void* lpBuffer);
 #endregion
 
 #region Structs
-[CRepr]public struct ENTRYID
+[CRepr]
+public struct ENTRYID
 {
 	public uint8[4] abFlags;
 	public uint8[1] ab;
 }
 
-[CRepr]public struct MAPIUID
+[CRepr]
+public struct MAPIUID
 {
 	public uint8[16] ab;
 }
 
-[CRepr]public struct SPropTagArray
+[CRepr]
+public struct SPropTagArray
 {
 	public uint32 cValues;
 	public uint32[1] aulPropTag;
 }
 
-[CRepr]public struct SBinary
+[CRepr]
+public struct SBinary
 {
 	public uint32 cb;
 	public uint8* lpb;
 }
 
-[CRepr]public struct SShortArray
+[CRepr]
+public struct SShortArray
 {
 	public uint32 cValues;
 	public int16* lpi;
 }
 
-[CRepr]public struct SGuidArray
+[CRepr]
+public struct SGuidArray
 {
 	public uint32 cValues;
 	public Guid* lpguid;
 }
 
-[CRepr]public struct SRealArray
+[CRepr]
+public struct SRealArray
 {
 	public uint32 cValues;
 	public float* lpflt;
 }
 
-[CRepr]public struct SLongArray
+[CRepr]
+public struct SLongArray
 {
 	public uint32 cValues;
 	public int32* lpl;
 }
 
-[CRepr]public struct SLargeIntegerArray
+[CRepr]
+public struct SLargeIntegerArray
 {
 	public uint32 cValues;
 	public LARGE_INTEGER* lpli;
 }
 
-[CRepr]public struct SDateTimeArray
+[CRepr]
+public struct SDateTimeArray
 {
 	public uint32 cValues;
 	public FILETIME* lpft;
 }
 
-[CRepr]public struct SAppTimeArray
+[CRepr]
+public struct SAppTimeArray
 {
 	public uint32 cValues;
 	public double* lpat;
 }
 
-[CRepr]public struct SCurrencyArray
+[CRepr]
+public struct SCurrencyArray
 {
 	public uint32 cValues;
 	public CY* lpcur;
 }
 
-[CRepr]public struct SBinaryArray
+[CRepr]
+public struct SBinaryArray
 {
 	public uint32 cValues;
 	public SBinary* lpbin;
 }
 
-[CRepr]public struct SDoubleArray
+[CRepr]
+public struct SDoubleArray
 {
 	public uint32 cValues;
 	public double* lpdbl;
 }
 
-[CRepr]public struct SWStringArray
+[CRepr]
+public struct SWStringArray
 {
 	public uint32 cValues;
 	public PWSTR* lppszW;
 }
 
-[CRepr]public struct SLPSTRArray
+[CRepr]
+public struct SLPSTRArray
 {
 	public uint32 cValues;
 	public PSTR* lppszA;
 }
 
-[CRepr, Union]public struct _PV
+[CRepr, Union]
+public struct _PV
 {
 	public int16 i;
 	public int32 l;
@@ -640,79 +657,91 @@ public function uint32 LPWABFREEBUFFER(IWABObject* lpWABObject, void* lpBuffer);
 	public int32 x;
 }
 
-[CRepr]public struct SPropValue
+[CRepr]
+public struct SPropValue
 {
 	public uint32 ulPropTag;
 	public uint32 dwAlignPad;
 	public _PV Value;
 }
 
-[CRepr]public struct SPropProblem
+[CRepr]
+public struct SPropProblem
 {
 	public uint32 ulIndex;
 	public uint32 ulPropTag;
 	public int32 scode;
 }
 
-[CRepr]public struct SPropProblemArray
+[CRepr]
+public struct SPropProblemArray
 {
 	public uint32 cProblem;
 	public SPropProblem[1] aProblem;
 }
 
-[CRepr]public struct FLATENTRY
+[CRepr]
+public struct FLATENTRY
 {
 	public uint32 cb;
 	public uint8[1] abEntry;
 }
 
-[CRepr]public struct FLATENTRYLIST
+[CRepr]
+public struct FLATENTRYLIST
 {
 	public uint32 cEntries;
 	public uint32 cbEntries;
 	public uint8[1] abEntries;
 }
 
-[CRepr]public struct MTSID
+[CRepr]
+public struct MTSID
 {
 	public uint32 cb;
 	public uint8[1] ab;
 }
 
-[CRepr]public struct FLATMTSIDLIST
+[CRepr]
+public struct FLATMTSIDLIST
 {
 	public uint32 cMTSIDs;
 	public uint32 cbMTSIDs;
 	public uint8[1] abMTSIDs;
 }
 
-[CRepr]public struct ADRENTRY
+[CRepr]
+public struct ADRENTRY
 {
 	public uint32 ulReserved1;
 	public uint32 cValues;
 	public SPropValue* rgPropVals;
 }
 
-[CRepr]public struct ADRLIST
+[CRepr]
+public struct ADRLIST
 {
 	public uint32 cEntries;
 	public ADRENTRY[1] aEntries;
 }
 
-[CRepr]public struct SRow
+[CRepr]
+public struct SRow
 {
 	public uint32 ulAdrEntryPad;
 	public uint32 cValues;
 	public SPropValue* lpProps;
 }
 
-[CRepr]public struct SRowSet
+[CRepr]
+public struct SRowSet
 {
 	public uint32 cRows;
 	public SRow[1] aRow;
 }
 
-[CRepr]public struct MAPIERROR
+[CRepr]
+public struct MAPIERROR
 {
 	public uint32 ulVersion;
 	public int8* lpszError;
@@ -721,7 +750,8 @@ public function uint32 LPWABFREEBUFFER(IWABObject* lpWABObject, void* lpBuffer);
 	public uint32 ulContext;
 }
 
-[CRepr]public struct ERROR_NOTIFICATION
+[CRepr]
+public struct ERROR_NOTIFICATION
 {
 	public uint32 cbEntryID;
 	public ENTRYID* lpEntryID;
@@ -730,7 +760,8 @@ public function uint32 LPWABFREEBUFFER(IWABObject* lpWABObject, void* lpBuffer);
 	public MAPIERROR* lpMAPIError;
 }
 
-[CRepr]public struct NEWMAIL_NOTIFICATION
+[CRepr]
+public struct NEWMAIL_NOTIFICATION
 {
 	public uint32 cbEntryID;
 	public ENTRYID* lpEntryID;
@@ -741,7 +772,8 @@ public function uint32 LPWABFREEBUFFER(IWABObject* lpWABObject, void* lpBuffer);
 	public uint32 ulMessageFlags;
 }
 
-[CRepr]public struct OBJECT_NOTIFICATION
+[CRepr]
+public struct OBJECT_NOTIFICATION
 {
 	public uint32 cbEntryID;
 	public ENTRYID* lpEntryID;
@@ -755,7 +787,8 @@ public function uint32 LPWABFREEBUFFER(IWABObject* lpWABObject, void* lpBuffer);
 	public SPropTagArray* lpPropTagArray;
 }
 
-[CRepr]public struct TABLE_NOTIFICATION
+[CRepr]
+public struct TABLE_NOTIFICATION
 {
 	public uint32 ulTableEvent;
 	public HRESULT hResult;
@@ -765,14 +798,16 @@ public function uint32 LPWABFREEBUFFER(IWABObject* lpWABObject, void* lpBuffer);
 	public uint32 ulPad;
 }
 
-[CRepr]public struct EXTENDED_NOTIFICATION
+[CRepr]
+public struct EXTENDED_NOTIFICATION
 {
 	public uint32 ulEvent;
 	public uint32 cb;
 	public uint8* pbEventParameters;
 }
 
-[CRepr]public struct STATUS_OBJECT_NOTIFICATION
+[CRepr]
+public struct STATUS_OBJECT_NOTIFICATION
 {
 	public uint32 cbEntryID;
 	public ENTRYID* lpEntryID;
@@ -780,9 +815,11 @@ public function uint32 LPWABFREEBUFFER(IWABObject* lpWABObject, void* lpBuffer);
 	public SPropValue* lpPropVals;
 }
 
-[CRepr]public struct NOTIFICATION
+[CRepr]
+public struct NOTIFICATION
 {
-	[CRepr, Union]	public struct _info_e__Union
+	[CRepr, Union]
+	public struct _info_e__Union
 	{
 		public ERROR_NOTIFICATION err;
 		public NEWMAIL_NOTIFICATION newmail;
@@ -797,9 +834,11 @@ public function uint32 LPWABFREEBUFFER(IWABObject* lpWABObject, void* lpBuffer);
 	public _info_e__Union info;
 }
 
-[CRepr]public struct MAPINAMEID
+[CRepr]
+public struct MAPINAMEID
 {
-	[CRepr, Union]	public struct _Kind_e__Union
+	[CRepr, Union]
+	public struct _Kind_e__Union
 	{
 		public int32 lID;
 		public PWSTR lpwstrName;
@@ -810,13 +849,15 @@ public function uint32 LPWABFREEBUFFER(IWABObject* lpWABObject, void* lpBuffer);
 	public _Kind_e__Union Kind;
 }
 
-[CRepr]public struct SSortOrder
+[CRepr]
+public struct SSortOrder
 {
 	public uint32 ulPropTag;
 	public uint32 ulOrder;
 }
 
-[CRepr]public struct SSortOrderSet
+[CRepr]
+public struct SSortOrderSet
 {
 	public uint32 cSorts;
 	public uint32 cCategories;
@@ -824,82 +865,95 @@ public function uint32 LPWABFREEBUFFER(IWABObject* lpWABObject, void* lpBuffer);
 	public SSortOrder[1] aSort;
 }
 
-[CRepr]public struct SAndRestriction
+[CRepr]
+public struct SAndRestriction
 {
 	public uint32 cRes;
 	public SRestriction* lpRes;
 }
 
-[CRepr]public struct SOrRestriction
+[CRepr]
+public struct SOrRestriction
 {
 	public uint32 cRes;
 	public SRestriction* lpRes;
 }
 
-[CRepr]public struct SNotRestriction
+[CRepr]
+public struct SNotRestriction
 {
 	public uint32 ulReserved;
 	public SRestriction* lpRes;
 }
 
-[CRepr]public struct SContentRestriction
+[CRepr]
+public struct SContentRestriction
 {
 	public uint32 ulFuzzyLevel;
 	public uint32 ulPropTag;
 	public SPropValue* lpProp;
 }
 
-[CRepr]public struct SBitMaskRestriction
+[CRepr]
+public struct SBitMaskRestriction
 {
 	public uint32 relBMR;
 	public uint32 ulPropTag;
 	public uint32 ulMask;
 }
 
-[CRepr]public struct SPropertyRestriction
+[CRepr]
+public struct SPropertyRestriction
 {
 	public uint32 relop;
 	public uint32 ulPropTag;
 	public SPropValue* lpProp;
 }
 
-[CRepr]public struct SComparePropsRestriction
+[CRepr]
+public struct SComparePropsRestriction
 {
 	public uint32 relop;
 	public uint32 ulPropTag1;
 	public uint32 ulPropTag2;
 }
 
-[CRepr]public struct SSizeRestriction
+[CRepr]
+public struct SSizeRestriction
 {
 	public uint32 relop;
 	public uint32 ulPropTag;
 	public uint32 cb;
 }
 
-[CRepr]public struct SExistRestriction
+[CRepr]
+public struct SExistRestriction
 {
 	public uint32 ulReserved1;
 	public uint32 ulPropTag;
 	public uint32 ulReserved2;
 }
 
-[CRepr]public struct SSubRestriction
+[CRepr]
+public struct SSubRestriction
 {
 	public uint32 ulSubObject;
 	public SRestriction* lpRes;
 }
 
-[CRepr]public struct SCommentRestriction
+[CRepr]
+public struct SCommentRestriction
 {
 	public uint32 cValues;
 	public SRestriction* lpRes;
 	public SPropValue* lpProp;
 }
 
-[CRepr]public struct SRestriction
+[CRepr]
+public struct SRestriction
 {
-	[CRepr, Union]	public struct _res_e__Union
+	[CRepr, Union]
+	public struct _res_e__Union
 	{
 		public SComparePropsRestriction resCompareProps;
 		public SAndRestriction resAnd;
@@ -918,13 +972,15 @@ public function uint32 LPWABFREEBUFFER(IWABObject* lpWABObject, void* lpBuffer);
 	public _res_e__Union res;
 }
 
-[CRepr]public struct _flaglist
+[CRepr]
+public struct _flaglist
 {
 	public uint32 cFlags;
 	public uint32[1] ulFlag;
 }
 
-[CRepr]public struct ADRPARM
+[CRepr]
+public struct ADRPARM
 {
 	public uint32 cbABContEntryID;
 	public ENTRYID* lpABContEntryID;
@@ -946,13 +1002,15 @@ public function uint32 LPWABFREEBUFFER(IWABObject* lpWABObject, void* lpBuffer);
 	public SRestriction* lpHierRestriction;
 }
 
-[CRepr]public struct DTBLLABEL
+[CRepr]
+public struct DTBLLABEL
 {
 	public uint32 ulbLpszLabelName;
 	public uint32 ulFlags;
 }
 
-[CRepr]public struct DTBLEDIT
+[CRepr]
+public struct DTBLEDIT
 {
 	public uint32 ulbLpszCharsAllowed;
 	public uint32 ulFlags;
@@ -960,14 +1018,16 @@ public function uint32 LPWABFREEBUFFER(IWABObject* lpWABObject, void* lpBuffer);
 	public uint32 ulPropTag;
 }
 
-[CRepr]public struct DTBLLBX
+[CRepr]
+public struct DTBLLBX
 {
 	public uint32 ulFlags;
 	public uint32 ulPRSetProperty;
 	public uint32 ulPRTableName;
 }
 
-[CRepr]public struct DTBLCOMBOBOX
+[CRepr]
+public struct DTBLCOMBOBOX
 {
 	public uint32 ulbLpszCharsAllowed;
 	public uint32 ulFlags;
@@ -976,7 +1036,8 @@ public function uint32 LPWABFREEBUFFER(IWABObject* lpWABObject, void* lpBuffer);
 	public uint32 ulPRTableName;
 }
 
-[CRepr]public struct DTBLDDLBX
+[CRepr]
+public struct DTBLDDLBX
 {
 	public uint32 ulFlags;
 	public uint32 ulPRDisplayProperty;
@@ -984,27 +1045,31 @@ public function uint32 LPWABFREEBUFFER(IWABObject* lpWABObject, void* lpBuffer);
 	public uint32 ulPRTableName;
 }
 
-[CRepr]public struct DTBLCHECKBOX
+[CRepr]
+public struct DTBLCHECKBOX
 {
 	public uint32 ulbLpszLabel;
 	public uint32 ulFlags;
 	public uint32 ulPRPropertyName;
 }
 
-[CRepr]public struct DTBLGROUPBOX
+[CRepr]
+public struct DTBLGROUPBOX
 {
 	public uint32 ulbLpszLabel;
 	public uint32 ulFlags;
 }
 
-[CRepr]public struct DTBLBUTTON
+[CRepr]
+public struct DTBLBUTTON
 {
 	public uint32 ulbLpszLabel;
 	public uint32 ulFlags;
 	public uint32 ulPRControl;
 }
 
-[CRepr]public struct DTBLPAGE
+[CRepr]
+public struct DTBLPAGE
 {
 	public uint32 ulbLpszLabel;
 	public uint32 ulFlags;
@@ -1012,7 +1077,8 @@ public function uint32 LPWABFREEBUFFER(IWABObject* lpWABObject, void* lpBuffer);
 	public uint32 ulContext;
 }
 
-[CRepr]public struct DTBLRADIOBUTTON
+[CRepr]
+public struct DTBLRADIOBUTTON
 {
 	public uint32 ulbLpszLabel;
 	public uint32 ulFlags;
@@ -1021,21 +1087,25 @@ public function uint32 LPWABFREEBUFFER(IWABObject* lpWABObject, void* lpBuffer);
 	public int32 lReturnValue;
 }
 
-[CRepr]public struct DTBLMVLISTBOX
+[CRepr]
+public struct DTBLMVLISTBOX
 {
 	public uint32 ulFlags;
 	public uint32 ulMVPropTag;
 }
 
-[CRepr]public struct DTBLMVDDLBX
+[CRepr]
+public struct DTBLMVDDLBX
 {
 	public uint32 ulFlags;
 	public uint32 ulMVPropTag;
 }
 
-[CRepr]public struct DTCTL
+[CRepr]
+public struct DTCTL
 {
-	[CRepr, Union]	public struct _ctl_e__Union
+	[CRepr, Union]
+	public struct _ctl_e__Union
 	{
 		public void* lpv;
 		public DTBLLABEL* lplabel;
@@ -1061,9 +1131,11 @@ public function uint32 LPWABFREEBUFFER(IWABObject* lpWABObject, void* lpBuffer);
 	public _ctl_e__Union ctl;
 }
 
-[CRepr]public struct DTPAGE
+[CRepr]
+public struct DTPAGE
 {
-	[CRepr, Union]	public struct _Anonymous_e__Union
+	[CRepr, Union]
+	public struct _Anonymous_e__Union
 	{
 		public int8* lpszComponent;
 		public uint32 ulItemID;
@@ -1075,11 +1147,13 @@ public function uint32 LPWABFREEBUFFER(IWABObject* lpWABObject, void* lpBuffer);
 	public DTCTL* lpctl;
 }
 
-[CRepr]public struct _WABACTIONITEM
+[CRepr]
+public struct _WABACTIONITEM
 {
 }
 
-[CRepr]public struct WAB_PARAM
+[CRepr]
+public struct WAB_PARAM
 {
 	public uint32 cbSize;
 	public HWND hwnd;
@@ -1088,7 +1162,8 @@ public function uint32 LPWABFREEBUFFER(IWABObject* lpWABObject, void* lpBuffer);
 	public Guid guidPSExt;
 }
 
-[CRepr]public struct WABIMPORTPARAM
+[CRepr]
+public struct WABIMPORTPARAM
 {
 	public uint32 cbSize;
 	public IAddrBook* lpAdrBook;
@@ -1097,7 +1172,8 @@ public function uint32 LPWABFREEBUFFER(IWABObject* lpWABObject, void* lpBuffer);
 	public PSTR lpszFileName;
 }
 
-[CRepr]public struct WABEXTDISPLAY
+[CRepr]
+public struct WABEXTDISPLAY
 {
 	public uint32 cbSize;
 	public IWABObject* lpWABObject;
@@ -1110,7 +1186,8 @@ public function uint32 LPWABFREEBUFFER(IWABObject* lpWABObject, void* lpBuffer);
 	public int8* lpsz;
 }
 
-[CRepr]public struct NOTIFKEY
+[CRepr]
+public struct NOTIFKEY
 {
 	public uint32 cb;
 	public uint8[1] ab;

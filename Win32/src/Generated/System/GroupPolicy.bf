@@ -413,7 +413,8 @@ public function uint32 PFNGENERATEGROUPPOLICY(uint32 dwFlags, BOOL* pbAbort, PWS
 #endregion
 
 #region Structs
-[CRepr]public struct GROUP_POLICY_OBJECTA
+[CRepr]
+public struct GROUP_POLICY_OBJECTA
 {
 	public uint32 dwOptions;
 	public uint32 dwVersion;
@@ -430,7 +431,8 @@ public function uint32 PFNGENERATEGROUPPOLICY(uint32 dwFlags, BOOL* pbAbort, PWS
 	public PSTR lpLink;
 }
 
-[CRepr]public struct GROUP_POLICY_OBJECTW
+[CRepr]
+public struct GROUP_POLICY_OBJECTW
 {
 	public uint32 dwOptions;
 	public uint32 dwVersion;
@@ -447,7 +449,8 @@ public function uint32 PFNGENERATEGROUPPOLICY(uint32 dwFlags, BOOL* pbAbort, PWS
 	public PWSTR lpLink;
 }
 
-[CRepr]public struct RSOP_TARGET
+[CRepr]
+public struct RSOP_TARGET
 {
 	public PWSTR pwszAccountName;
 	public PWSTR pwszNewSOM;
@@ -457,7 +460,8 @@ public function uint32 PFNGENERATEGROUPPOLICY(uint32 dwFlags, BOOL* pbAbort, PWS
 	public IWbemServices* pWbemServices;
 }
 
-[CRepr]public struct POLICYSETTINGSTATUSINFO
+[CRepr]
+public struct POLICYSETTINGSTATUSINFO
 {
 	public PWSTR szKey;
 	public PWSTR szEventSource;
@@ -468,15 +472,18 @@ public function uint32 PFNGENERATEGROUPPOLICY(uint32 dwFlags, BOOL* pbAbort, PWS
 	public SYSTEMTIME timeLogged;
 }
 
-[CRepr, Union]public struct INSTALLSPEC
+[CRepr, Union]
+public struct INSTALLSPEC
 {
-	[CRepr]	public struct _AppName_e__Struct
+	[CRepr]
+	public struct _AppName_e__Struct
 	{
 		public PWSTR Name;
 		public Guid GPOId;
 	}
 
-	[CRepr]	public struct _COMClass_e__Struct
+	[CRepr]
+	public struct _COMClass_e__Struct
 	{
 		public Guid Clsid;
 		public uint32 ClsCtx;
@@ -488,13 +495,15 @@ public function uint32 PFNGENERATEGROUPPOLICY(uint32 dwFlags, BOOL* pbAbort, PWS
 	public _COMClass_e__Struct COMClass;
 }
 
-[CRepr]public struct INSTALLDATA
+[CRepr]
+public struct INSTALLDATA
 {
 	public INSTALLSPECTYPE Type;
 	public INSTALLSPEC Spec;
 }
 
-[CRepr]public struct LOCALMANAGEDAPPLICATION
+[CRepr]
+public struct LOCALMANAGEDAPPLICATION
 {
 	public PWSTR pszDeploymentName;
 	public PWSTR pszPolicyName;
@@ -502,7 +511,8 @@ public function uint32 PFNGENERATEGROUPPOLICY(uint32 dwFlags, BOOL* pbAbort, PWS
 	public uint32 dwState;
 }
 
-[CRepr]public struct MANAGEDAPPLICATION
+[CRepr]
+public struct MANAGEDAPPLICATION
 {
 	public PWSTR pszPackageName;
 	public PWSTR pszPublisher;
@@ -522,7 +532,8 @@ public function uint32 PFNGENERATEGROUPPOLICY(uint32 dwFlags, BOOL* pbAbort, PWS
 	public BOOL bInstalled;
 }
 
-[CRepr]public struct GPOBROWSEINFO
+[CRepr]
+public struct GPOBROWSEINFO
 {
 	public uint32 dwSize;
 	public uint32 dwFlags;

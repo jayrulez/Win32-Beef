@@ -5136,15 +5136,18 @@ public function int32 EDITWORDBREAKPROCW(PWSTR lpch, int32 ichCurrent, int32 cch
 #endregion
 
 #region Structs
-[CRepr]public struct PROPSHEETPAGEA_V1
+[CRepr]
+public struct PROPSHEETPAGEA_V1
 {
-	[CRepr, Union]	public struct _Anonymous1_e__Union
+	[CRepr, Union]
+	public struct _Anonymous1_e__Union
 	{
 		public PSTR pszTemplate;
 		public DLGTEMPLATE* pResource;
 	}
 
-	[CRepr, Union]	public struct _Anonymous2_e__Union
+	[CRepr, Union]
+	public struct _Anonymous2_e__Union
 	{
 		public HICON hIcon;
 		public PSTR pszIcon;
@@ -5162,15 +5165,18 @@ public function int32 EDITWORDBREAKPROCW(PWSTR lpch, int32 ichCurrent, int32 cch
 	public uint32* pcRefParent;
 }
 
-[CRepr]public struct PROPSHEETPAGEA_V2
+[CRepr]
+public struct PROPSHEETPAGEA_V2
 {
-	[CRepr, Union]	public struct _Anonymous1_e__Union
+	[CRepr, Union]
+	public struct _Anonymous1_e__Union
 	{
 		public PSTR pszTemplate;
 		public DLGTEMPLATE* pResource;
 	}
 
-	[CRepr, Union]	public struct _Anonymous2_e__Union
+	[CRepr, Union]
+	public struct _Anonymous2_e__Union
 	{
 		public HICON hIcon;
 		public PSTR pszIcon;
@@ -5190,15 +5196,18 @@ public function int32 EDITWORDBREAKPROCW(PWSTR lpch, int32 ichCurrent, int32 cch
 	public PSTR pszHeaderSubTitle;
 }
 
-[CRepr]public struct PROPSHEETPAGEA_V3
+[CRepr]
+public struct PROPSHEETPAGEA_V3
 {
-	[CRepr, Union]	public struct _Anonymous1_e__Union
+	[CRepr, Union]
+	public struct _Anonymous1_e__Union
 	{
 		public PSTR pszTemplate;
 		public DLGTEMPLATE* pResource;
 	}
 
-	[CRepr, Union]	public struct _Anonymous2_e__Union
+	[CRepr, Union]
+	public struct _Anonymous2_e__Union
 	{
 		public HICON hIcon;
 		public PSTR pszIcon;
@@ -5219,21 +5228,25 @@ public function int32 EDITWORDBREAKPROCW(PWSTR lpch, int32 ichCurrent, int32 cch
 	public HANDLE hActCtx;
 }
 
-[CRepr]public struct PROPSHEETPAGEA
+[CRepr]
+public struct PROPSHEETPAGEA
 {
-	[CRepr, Union]	public struct _Anonymous3_e__Union
+	[CRepr, Union]
+	public struct _Anonymous3_e__Union
 	{
 		public HBITMAP hbmHeader;
 		public PSTR pszbmHeader;
 	}
 
-	[CRepr, Union]	public struct _Anonymous1_e__Union
+	[CRepr, Union]
+	public struct _Anonymous1_e__Union
 	{
 		public PSTR pszTemplate;
 		public DLGTEMPLATE* pResource;
 	}
 
-	[CRepr, Union]	public struct _Anonymous2_e__Union
+	[CRepr, Union]
+	public struct _Anonymous2_e__Union
 	{
 		public HICON hIcon;
 		public PSTR pszIcon;
@@ -5255,15 +5268,18 @@ public function int32 EDITWORDBREAKPROCW(PWSTR lpch, int32 ichCurrent, int32 cch
 	public _Anonymous3_e__Union Anonymous3;
 }
 
-[CRepr]public struct PROPSHEETPAGEW_V1
+[CRepr]
+public struct PROPSHEETPAGEW_V1
 {
-	[CRepr, Union]	public struct _Anonymous2_e__Union
+	[CRepr, Union]
+	public struct _Anonymous2_e__Union
 	{
 		public HICON hIcon;
 		public PWSTR pszIcon;
 	}
 
-	[CRepr, Union]	public struct _Anonymous1_e__Union
+	[CRepr, Union]
+	public struct _Anonymous1_e__Union
 	{
 		public PWSTR pszTemplate;
 		public DLGTEMPLATE* pResource;
@@ -5281,15 +5297,18 @@ public function int32 EDITWORDBREAKPROCW(PWSTR lpch, int32 ichCurrent, int32 cch
 	public uint32* pcRefParent;
 }
 
-[CRepr]public struct PROPSHEETPAGEW_V2
+[CRepr]
+public struct PROPSHEETPAGEW_V2
 {
-	[CRepr, Union]	public struct _Anonymous2_e__Union
+	[CRepr, Union]
+	public struct _Anonymous2_e__Union
 	{
 		public HICON hIcon;
 		public PWSTR pszIcon;
 	}
 
-	[CRepr, Union]	public struct _Anonymous1_e__Union
+	[CRepr, Union]
+	public struct _Anonymous1_e__Union
 	{
 		public PWSTR pszTemplate;
 		public DLGTEMPLATE* pResource;
@@ -5309,15 +5328,18 @@ public function int32 EDITWORDBREAKPROCW(PWSTR lpch, int32 ichCurrent, int32 cch
 	public PWSTR pszHeaderSubTitle;
 }
 
-[CRepr]public struct PROPSHEETPAGEW_V3
+[CRepr]
+public struct PROPSHEETPAGEW_V3
 {
-	[CRepr, Union]	public struct _Anonymous2_e__Union
+	[CRepr, Union]
+	public struct _Anonymous2_e__Union
 	{
 		public HICON hIcon;
 		public PWSTR pszIcon;
 	}
 
-	[CRepr, Union]	public struct _Anonymous1_e__Union
+	[CRepr, Union]
+	public struct _Anonymous1_e__Union
 	{
 		public PWSTR pszTemplate;
 		public DLGTEMPLATE* pResource;
@@ -5338,21 +5360,25 @@ public function int32 EDITWORDBREAKPROCW(PWSTR lpch, int32 ichCurrent, int32 cch
 	public HANDLE hActCtx;
 }
 
-[CRepr]public struct PROPSHEETPAGEW
+[CRepr]
+public struct PROPSHEETPAGEW
 {
-	[CRepr, Union]	public struct _Anonymous2_e__Union
+	[CRepr, Union]
+	public struct _Anonymous2_e__Union
 	{
 		public HICON hIcon;
 		public PWSTR pszIcon;
 	}
 
-	[CRepr, Union]	public struct _Anonymous1_e__Union
+	[CRepr, Union]
+	public struct _Anonymous1_e__Union
 	{
 		public PWSTR pszTemplate;
 		public DLGTEMPLATE* pResource;
 	}
 
-	[CRepr, Union]	public struct _Anonymous3_e__Union
+	[CRepr, Union]
+	public struct _Anonymous3_e__Union
 	{
 		public HBITMAP hbmHeader;
 		public PWSTR pszbmHeader;
@@ -5374,21 +5400,25 @@ public function int32 EDITWORDBREAKPROCW(PWSTR lpch, int32 ichCurrent, int32 cch
 	public _Anonymous3_e__Union Anonymous3;
 }
 
-[CRepr]public struct PROPSHEETHEADERA_V1
+[CRepr]
+public struct PROPSHEETHEADERA_V1
 {
-	[CRepr, Union]	public struct _Anonymous3_e__Union
+	[CRepr, Union]
+	public struct _Anonymous3_e__Union
 	{
 		public PROPSHEETPAGEA* ppsp;
 		public HPROPSHEETPAGE* phpage;
 	}
 
-	[CRepr, Union]	public struct _Anonymous1_e__Union
+	[CRepr, Union]
+	public struct _Anonymous1_e__Union
 	{
 		public HICON hIcon;
 		public PSTR pszIcon;
 	}
 
-	[CRepr, Union]	public struct _Anonymous2_e__Union
+	[CRepr, Union]
+	public struct _Anonymous2_e__Union
 	{
 		public uint32 nStartPage;
 		public PSTR pStartPage;
@@ -5406,33 +5436,39 @@ public function int32 EDITWORDBREAKPROCW(PWSTR lpch, int32 ichCurrent, int32 cch
 	public PFNPROPSHEETCALLBACK pfnCallback;
 }
 
-[CRepr]public struct PROPSHEETHEADERA_V2
+[CRepr]
+public struct PROPSHEETHEADERA_V2
 {
-	[CRepr, Union]	public struct _Anonymous4_e__Union
+	[CRepr, Union]
+	public struct _Anonymous4_e__Union
 	{
 		public HBITMAP hbmWatermark;
 		public PSTR pszbmWatermark;
 	}
 
-	[CRepr, Union]	public struct _Anonymous2_e__Union
+	[CRepr, Union]
+	public struct _Anonymous2_e__Union
 	{
 		public uint32 nStartPage;
 		public PSTR pStartPage;
 	}
 
-	[CRepr, Union]	public struct _Anonymous3_e__Union
+	[CRepr, Union]
+	public struct _Anonymous3_e__Union
 	{
 		public PROPSHEETPAGEA* ppsp;
 		public HPROPSHEETPAGE* phpage;
 	}
 
-	[CRepr, Union]	public struct _Anonymous1_e__Union
+	[CRepr, Union]
+	public struct _Anonymous1_e__Union
 	{
 		public HICON hIcon;
 		public PSTR pszIcon;
 	}
 
-	[CRepr, Union]	public struct _Anonymous5_e__Union
+	[CRepr, Union]
+	public struct _Anonymous5_e__Union
 	{
 		public HBITMAP hbmHeader;
 		public PSTR pszbmHeader;
@@ -5453,21 +5489,25 @@ public function int32 EDITWORDBREAKPROCW(PWSTR lpch, int32 ichCurrent, int32 cch
 	public _Anonymous5_e__Union Anonymous5;
 }
 
-[CRepr]public struct PROPSHEETHEADERW_V1
+[CRepr]
+public struct PROPSHEETHEADERW_V1
 {
-	[CRepr, Union]	public struct _Anonymous3_e__Union
+	[CRepr, Union]
+	public struct _Anonymous3_e__Union
 	{
 		public PROPSHEETPAGEW* ppsp;
 		public HPROPSHEETPAGE* phpage;
 	}
 
-	[CRepr, Union]	public struct _Anonymous1_e__Union
+	[CRepr, Union]
+	public struct _Anonymous1_e__Union
 	{
 		public HICON hIcon;
 		public PWSTR pszIcon;
 	}
 
-	[CRepr, Union]	public struct _Anonymous2_e__Union
+	[CRepr, Union]
+	public struct _Anonymous2_e__Union
 	{
 		public uint32 nStartPage;
 		public PWSTR pStartPage;
@@ -5485,33 +5525,39 @@ public function int32 EDITWORDBREAKPROCW(PWSTR lpch, int32 ichCurrent, int32 cch
 	public PFNPROPSHEETCALLBACK pfnCallback;
 }
 
-[CRepr]public struct PROPSHEETHEADERW_V2
+[CRepr]
+public struct PROPSHEETHEADERW_V2
 {
-	[CRepr, Union]	public struct _Anonymous4_e__Union
+	[CRepr, Union]
+	public struct _Anonymous4_e__Union
 	{
 		public HBITMAP hbmWatermark;
 		public PWSTR pszbmWatermark;
 	}
 
-	[CRepr, Union]	public struct _Anonymous2_e__Union
+	[CRepr, Union]
+	public struct _Anonymous2_e__Union
 	{
 		public uint32 nStartPage;
 		public PWSTR pStartPage;
 	}
 
-	[CRepr, Union]	public struct _Anonymous3_e__Union
+	[CRepr, Union]
+	public struct _Anonymous3_e__Union
 	{
 		public PROPSHEETPAGEW* ppsp;
 		public HPROPSHEETPAGE* phpage;
 	}
 
-	[CRepr, Union]	public struct _Anonymous1_e__Union
+	[CRepr, Union]
+	public struct _Anonymous1_e__Union
 	{
 		public HICON hIcon;
 		public PWSTR pszIcon;
 	}
 
-	[CRepr, Union]	public struct _Anonymous5_e__Union
+	[CRepr, Union]
+	public struct _Anonymous5_e__Union
 	{
 		public HBITMAP hbmHeader;
 		public PWSTR pszbmHeader;
@@ -5532,32 +5578,37 @@ public function int32 EDITWORDBREAKPROCW(PWSTR lpch, int32 ichCurrent, int32 cch
 	public _Anonymous5_e__Union Anonymous5;
 }
 
-[CRepr]public struct PSHNOTIFY
+[CRepr]
+public struct PSHNOTIFY
 {
 	public NMHDR hdr;
 	public LPARAM lParam;
 }
 
-[CRepr]public struct INITCOMMONCONTROLSEX
+[CRepr]
+public struct INITCOMMONCONTROLSEX
 {
 	public uint32 dwSize;
 	public INITCOMMONCONTROLSEX_ICC dwICC;
 }
 
-[CRepr]public struct COLORSCHEME
+[CRepr]
+public struct COLORSCHEME
 {
 	public uint32 dwSize;
 	public uint32 clrBtnHighlight;
 	public uint32 clrBtnShadow;
 }
 
-[CRepr]public struct NMTOOLTIPSCREATED
+[CRepr]
+public struct NMTOOLTIPSCREATED
 {
 	public NMHDR hdr;
 	public HWND hwndToolTips;
 }
 
-[CRepr]public struct NMMOUSE
+[CRepr]
+public struct NMMOUSE
 {
 	public NMHDR hdr;
 	public uint dwItemSpec;
@@ -5566,7 +5617,8 @@ public function int32 EDITWORDBREAKPROCW(PWSTR lpch, int32 ichCurrent, int32 cch
 	public LPARAM dwHitInfo;
 }
 
-[CRepr]public struct NMOBJECTNOTIFY
+[CRepr]
+public struct NMOBJECTNOTIFY
 {
 	public NMHDR hdr;
 	public int32 iItem;
@@ -5576,14 +5628,16 @@ public function int32 EDITWORDBREAKPROCW(PWSTR lpch, int32 ichCurrent, int32 cch
 	public uint32 dwFlags;
 }
 
-[CRepr]public struct NMKEY
+[CRepr]
+public struct NMKEY
 {
 	public NMHDR hdr;
 	public uint32 nVKey;
 	public uint32 uFlags;
 }
 
-[CRepr]public struct NMCHAR
+[CRepr]
+public struct NMCHAR
 {
 	public NMHDR hdr;
 	public uint32 ch;
@@ -5591,7 +5645,8 @@ public function int32 EDITWORDBREAKPROCW(PWSTR lpch, int32 ichCurrent, int32 cch
 	public uint32 dwItemNext;
 }
 
-[CRepr]public struct NMCUSTOMTEXT
+[CRepr]
+public struct NMCUSTOMTEXT
 {
 	public NMHDR hdr;
 	public HDC hDC;
@@ -5602,7 +5657,8 @@ public function int32 EDITWORDBREAKPROCW(PWSTR lpch, int32 ichCurrent, int32 cch
 	public BOOL fLink;
 }
 
-[CRepr]public struct NMCUSTOMDRAW
+[CRepr]
+public struct NMCUSTOMDRAW
 {
 	public NMHDR hdr;
 	public NMCUSTOMDRAW_DRAW_STAGE dwDrawStage;
@@ -5613,13 +5669,15 @@ public function int32 EDITWORDBREAKPROCW(PWSTR lpch, int32 ichCurrent, int32 cch
 	public LPARAM lItemlParam;
 }
 
-[CRepr]public struct NMTTCUSTOMDRAW
+[CRepr]
+public struct NMTTCUSTOMDRAW
 {
 	public NMCUSTOMDRAW nmcd;
 	public uint32 uDrawFlags;
 }
 
-[CRepr]public struct NMCUSTOMSPLITRECTINFO
+[CRepr]
+public struct NMCUSTOMSPLITRECTINFO
 {
 	public NMHDR hdr;
 	public RECT rcClient;
@@ -5627,7 +5685,8 @@ public function int32 EDITWORDBREAKPROCW(PWSTR lpch, int32 ichCurrent, int32 cch
 	public RECT rcSplit;
 }
 
-[CRepr]public struct IMAGELISTDRAWPARAMS
+[CRepr]
+public struct IMAGELISTDRAWPARAMS
 {
 	public uint32 cbSize;
 	public HIMAGELIST himl;
@@ -5648,7 +5707,8 @@ public function int32 EDITWORDBREAKPROCW(PWSTR lpch, int32 ichCurrent, int32 cch
 	public uint32 crEffect;
 }
 
-[CRepr]public struct IMAGEINFO
+[CRepr]
+public struct IMAGEINFO
 {
 	public HBITMAP hbmImage;
 	public HBITMAP hbmMask;
@@ -5657,19 +5717,22 @@ public function int32 EDITWORDBREAKPROCW(PWSTR lpch, int32 ichCurrent, int32 cch
 	public RECT rcImage;
 }
 
-[CRepr]public struct HD_TEXTFILTERA
+[CRepr]
+public struct HD_TEXTFILTERA
 {
 	public PSTR pszText;
 	public int32 cchTextMax;
 }
 
-[CRepr]public struct HD_TEXTFILTERW
+[CRepr]
+public struct HD_TEXTFILTERW
 {
 	public PWSTR pszText;
 	public int32 cchTextMax;
 }
 
-[CRepr]public struct HDITEMA
+[CRepr]
+public struct HDITEMA
 {
 	public HDI_MASK mask;
 	public int32 cxy;
@@ -5685,7 +5748,8 @@ public function int32 EDITWORDBREAKPROCW(PWSTR lpch, int32 ichCurrent, int32 cch
 	public uint32 state;
 }
 
-[CRepr]public struct HDITEMW
+[CRepr]
+public struct HDITEMW
 {
 	public HDI_MASK mask;
 	public int32 cxy;
@@ -5701,20 +5765,23 @@ public function int32 EDITWORDBREAKPROCW(PWSTR lpch, int32 ichCurrent, int32 cch
 	public uint32 state;
 }
 
-[CRepr]public struct HDLAYOUT
+[CRepr]
+public struct HDLAYOUT
 {
 	public RECT* prc;
 	public WINDOWPOS* pwpos;
 }
 
-[CRepr]public struct HDHITTESTINFO
+[CRepr]
+public struct HDHITTESTINFO
 {
 	public POINT pt;
 	public uint32 flags;
 	public int32 iItem;
 }
 
-[CRepr]public struct NMHEADERA
+[CRepr]
+public struct NMHEADERA
 {
 	public NMHDR hdr;
 	public int32 iItem;
@@ -5722,7 +5789,8 @@ public function int32 EDITWORDBREAKPROCW(PWSTR lpch, int32 ichCurrent, int32 cch
 	public HDITEMA* pitem;
 }
 
-[CRepr]public struct NMHEADERW
+[CRepr]
+public struct NMHEADERW
 {
 	public NMHDR hdr;
 	public int32 iItem;
@@ -5730,7 +5798,8 @@ public function int32 EDITWORDBREAKPROCW(PWSTR lpch, int32 ichCurrent, int32 cch
 	public HDITEMW* pitem;
 }
 
-[CRepr]public struct NMHDDISPINFOW
+[CRepr]
+public struct NMHDDISPINFOW
 {
 	public NMHDR hdr;
 	public int32 iItem;
@@ -5741,7 +5810,8 @@ public function int32 EDITWORDBREAKPROCW(PWSTR lpch, int32 ichCurrent, int32 cch
 	public LPARAM lParam;
 }
 
-[CRepr]public struct NMHDDISPINFOA
+[CRepr]
+public struct NMHDDISPINFOA
 {
 	public NMHDR hdr;
 	public int32 iItem;
@@ -5752,7 +5822,8 @@ public function int32 EDITWORDBREAKPROCW(PWSTR lpch, int32 ichCurrent, int32 cch
 	public LPARAM lParam;
 }
 
-[CRepr]public struct NMHDFILTERBTNCLICK
+[CRepr]
+public struct NMHDFILTERBTNCLICK
 {
 	public NMHDR hdr;
 	public int32 iItem;
@@ -5760,7 +5831,8 @@ public function int32 EDITWORDBREAKPROCW(PWSTR lpch, int32 ichCurrent, int32 cch
 }
 
 #if BF_64_BIT || BF_ARM_64
-[CRepr]public struct TBBUTTON
+[CRepr]
+public struct TBBUTTON
 {
 	public int32 iBitmap;
 	public int32 idCommand;
@@ -5772,13 +5844,15 @@ public function int32 EDITWORDBREAKPROCW(PWSTR lpch, int32 ichCurrent, int32 cch
 }
 #endif
 
-[CRepr]public struct COLORMAP
+[CRepr]
+public struct COLORMAP
 {
 	public uint32 from;
 	public uint32 to;
 }
 
-[CRepr]public struct NMTBCUSTOMDRAW
+[CRepr]
+public struct NMTBCUSTOMDRAW
 {
 	public NMCUSTOMDRAW nmcd;
 	public HBRUSH hbrMonoDither;
@@ -5796,33 +5870,38 @@ public function int32 EDITWORDBREAKPROCW(PWSTR lpch, int32 ichCurrent, int32 cch
 	public int32 iListGap;
 }
 
-[CRepr]public struct TBADDBITMAP
+[CRepr]
+public struct TBADDBITMAP
 {
 	public HINSTANCE hInst;
 	public uint nID;
 }
 
-[CRepr]public struct TBSAVEPARAMSA
+[CRepr]
+public struct TBSAVEPARAMSA
 {
 	public HKEY hkr;
 	public PSTR pszSubKey;
 	public PSTR pszValueName;
 }
 
-[CRepr]public struct TBSAVEPARAMSW
+[CRepr]
+public struct TBSAVEPARAMSW
 {
 	public HKEY hkr;
 	public PWSTR pszSubKey;
 	public PWSTR pszValueName;
 }
 
-[CRepr]public struct TBINSERTMARK
+[CRepr]
+public struct TBINSERTMARK
 {
 	public int32 iButton;
 	public TBINSERTMARK_FLAGS dwFlags;
 }
 
-[CRepr]public struct TBREPLACEBITMAP
+[CRepr]
+public struct TBREPLACEBITMAP
 {
 	public HINSTANCE hInstOld;
 	public uint nIDOld;
@@ -5831,7 +5910,8 @@ public function int32 EDITWORDBREAKPROCW(PWSTR lpch, int32 ichCurrent, int32 cch
 	public int32 nButtons;
 }
 
-[CRepr]public struct TBBUTTONINFOA
+[CRepr]
+public struct TBBUTTONINFOA
 {
 	public uint32 cbSize;
 	public TBBUTTONINFOW_MASK dwMask;
@@ -5845,7 +5925,8 @@ public function int32 EDITWORDBREAKPROCW(PWSTR lpch, int32 ichCurrent, int32 cch
 	public int32 cchText;
 }
 
-[CRepr]public struct TBBUTTONINFOW
+[CRepr]
+public struct TBBUTTONINFOW
 {
 	public uint32 cbSize;
 	public TBBUTTONINFOW_MASK dwMask;
@@ -5859,7 +5940,8 @@ public function int32 EDITWORDBREAKPROCW(PWSTR lpch, int32 ichCurrent, int32 cch
 	public int32 cchText;
 }
 
-[CRepr]public struct TBMETRICS
+[CRepr]
+public struct TBMETRICS
 {
 	public uint32 cbSize;
 	public uint32 dwMask;
@@ -5871,7 +5953,8 @@ public function int32 EDITWORDBREAKPROCW(PWSTR lpch, int32 ichCurrent, int32 cch
 	public int32 cyButtonSpacing;
 }
 
-[CRepr]public struct NMTBHOTITEM
+[CRepr]
+public struct NMTBHOTITEM
 {
 	public NMHDR hdr;
 	public int32 idOld;
@@ -5879,7 +5962,8 @@ public function int32 EDITWORDBREAKPROCW(PWSTR lpch, int32 ichCurrent, int32 cch
 	public NMTBHOTITEM_FLAGS dwFlags;
 }
 
-[CRepr]public struct NMTBSAVE
+[CRepr]
+public struct NMTBSAVE
 {
 	public NMHDR hdr;
 	public uint32* pData;
@@ -5890,7 +5974,8 @@ public function int32 EDITWORDBREAKPROCW(PWSTR lpch, int32 ichCurrent, int32 cch
 	public TBBUTTON tbButton;
 }
 
-[CRepr]public struct NMTBRESTORE
+[CRepr]
+public struct NMTBRESTORE
 {
 	public NMHDR hdr;
 	public uint32* pData;
@@ -5902,7 +5987,8 @@ public function int32 EDITWORDBREAKPROCW(PWSTR lpch, int32 ichCurrent, int32 cch
 	public TBBUTTON tbButton;
 }
 
-[CRepr]public struct NMTBGETINFOTIPA
+[CRepr]
+public struct NMTBGETINFOTIPA
 {
 	public NMHDR hdr;
 	public PSTR pszText;
@@ -5911,7 +5997,8 @@ public function int32 EDITWORDBREAKPROCW(PWSTR lpch, int32 ichCurrent, int32 cch
 	public LPARAM lParam;
 }
 
-[CRepr]public struct NMTBGETINFOTIPW
+[CRepr]
+public struct NMTBGETINFOTIPW
 {
 	public NMHDR hdr;
 	public PWSTR pszText;
@@ -5920,7 +6007,8 @@ public function int32 EDITWORDBREAKPROCW(PWSTR lpch, int32 ichCurrent, int32 cch
 	public LPARAM lParam;
 }
 
-[CRepr]public struct NMTBDISPINFOA
+[CRepr]
+public struct NMTBDISPINFOA
 {
 	public NMHDR hdr;
 	public NMTBDISPINFOW_MASK dwMask;
@@ -5931,7 +6019,8 @@ public function int32 EDITWORDBREAKPROCW(PWSTR lpch, int32 ichCurrent, int32 cch
 	public int32 cchText;
 }
 
-[CRepr]public struct NMTBDISPINFOW
+[CRepr]
+public struct NMTBDISPINFOW
 {
 	public NMHDR hdr;
 	public NMTBDISPINFOW_MASK dwMask;
@@ -5942,7 +6031,8 @@ public function int32 EDITWORDBREAKPROCW(PWSTR lpch, int32 ichCurrent, int32 cch
 	public int32 cchText;
 }
 
-[CRepr]public struct NMTOOLBARA
+[CRepr]
+public struct NMTOOLBARA
 {
 	public NMHDR hdr;
 	public int32 iItem;
@@ -5952,7 +6042,8 @@ public function int32 EDITWORDBREAKPROCW(PWSTR lpch, int32 ichCurrent, int32 cch
 	public RECT rcButton;
 }
 
-[CRepr]public struct NMTOOLBARW
+[CRepr]
+public struct NMTOOLBARW
 {
 	public NMHDR hdr;
 	public int32 iItem;
@@ -5962,14 +6053,16 @@ public function int32 EDITWORDBREAKPROCW(PWSTR lpch, int32 ichCurrent, int32 cch
 	public RECT rcButton;
 }
 
-[CRepr]public struct REBARINFO
+[CRepr]
+public struct REBARINFO
 {
 	public uint32 cbSize;
 	public uint32 fMask;
 	public HIMAGELIST himl;
 }
 
-[CRepr]public struct REBARBANDINFOA
+[CRepr]
+public struct REBARBANDINFOA
 {
 	public uint32 cbSize;
 	public uint32 fMask;
@@ -5995,7 +6088,8 @@ public function int32 EDITWORDBREAKPROCW(PWSTR lpch, int32 ichCurrent, int32 cch
 	public uint32 uChevronState;
 }
 
-[CRepr]public struct REBARBANDINFOW
+[CRepr]
+public struct REBARBANDINFOW
 {
 	public uint32 cbSize;
 	public uint32 fMask;
@@ -6021,7 +6115,8 @@ public function int32 EDITWORDBREAKPROCW(PWSTR lpch, int32 ichCurrent, int32 cch
 	public uint32 uChevronState;
 }
 
-[CRepr]public struct NMREBARCHILDSIZE
+[CRepr]
+public struct NMREBARCHILDSIZE
 {
 	public NMHDR hdr;
 	public uint32 uBand;
@@ -6030,7 +6125,8 @@ public function int32 EDITWORDBREAKPROCW(PWSTR lpch, int32 ichCurrent, int32 cch
 	public RECT rcBand;
 }
 
-[CRepr]public struct NMREBAR
+[CRepr]
+public struct NMREBAR
 {
 	public NMHDR hdr;
 	public NMREBAR_MASK_FLAGS dwMask;
@@ -6040,7 +6136,8 @@ public function int32 EDITWORDBREAKPROCW(PWSTR lpch, int32 ichCurrent, int32 cch
 	public LPARAM lParam;
 }
 
-[CRepr]public struct NMRBAUTOSIZE
+[CRepr]
+public struct NMRBAUTOSIZE
 {
 	public NMHDR hdr;
 	public BOOL fChanged;
@@ -6048,7 +6145,8 @@ public function int32 EDITWORDBREAKPROCW(PWSTR lpch, int32 ichCurrent, int32 cch
 	public RECT rcActual;
 }
 
-[CRepr]public struct NMREBARCHEVRON
+[CRepr]
+public struct NMREBARCHEVRON
 {
 	public NMHDR hdr;
 	public uint32 uBand;
@@ -6058,13 +6156,15 @@ public function int32 EDITWORDBREAKPROCW(PWSTR lpch, int32 ichCurrent, int32 cch
 	public LPARAM lParamNM;
 }
 
-[CRepr]public struct NMREBARSPLITTER
+[CRepr]
+public struct NMREBARSPLITTER
 {
 	public NMHDR hdr;
 	public RECT rcSizing;
 }
 
-[CRepr]public struct NMREBARAUTOBREAK
+[CRepr]
+public struct NMREBARAUTOBREAK
 {
 	public NMHDR hdr;
 	public uint32 uBand;
@@ -6075,14 +6175,16 @@ public function int32 EDITWORDBREAKPROCW(PWSTR lpch, int32 ichCurrent, int32 cch
 	public BOOL fAutoBreak;
 }
 
-[CRepr]public struct RBHITTESTINFO
+[CRepr]
+public struct RBHITTESTINFO
 {
 	public POINT pt;
 	public uint32 flags;
 	public int32 iBand;
 }
 
-[CRepr]public struct TTTOOLINFOA
+[CRepr]
+public struct TTTOOLINFOA
 {
 	public uint32 cbSize;
 	public TTTOOLINFO_FLAGS uFlags;
@@ -6095,7 +6197,8 @@ public function int32 EDITWORDBREAKPROCW(PWSTR lpch, int32 ichCurrent, int32 cch
 	public void* lpReserved;
 }
 
-[CRepr]public struct TTTOOLINFOW
+[CRepr]
+public struct TTTOOLINFOW
 {
 	public uint32 cbSize;
 	public TTTOOLINFO_FLAGS uFlags;
@@ -6108,7 +6211,8 @@ public function int32 EDITWORDBREAKPROCW(PWSTR lpch, int32 ichCurrent, int32 cch
 	public void* lpReserved;
 }
 
-[CRepr]public struct TTGETTITLE
+[CRepr]
+public struct TTGETTITLE
 {
 	public uint32 dwSize;
 	public uint32 uTitleBitmap;
@@ -6116,21 +6220,24 @@ public function int32 EDITWORDBREAKPROCW(PWSTR lpch, int32 ichCurrent, int32 cch
 	public PWSTR pszTitle;
 }
 
-[CRepr]public struct TTHITTESTINFOA
+[CRepr]
+public struct TTHITTESTINFOA
 {
 	public HWND hwnd;
 	public POINT pt;
 	public TTTOOLINFOA ti;
 }
 
-[CRepr]public struct TTHITTESTINFOW
+[CRepr]
+public struct TTHITTESTINFOW
 {
 	public HWND hwnd;
 	public POINT pt;
 	public TTTOOLINFOW ti;
 }
 
-[CRepr]public struct NMTTDISPINFOA
+[CRepr]
+public struct NMTTDISPINFOA
 {
 	public NMHDR hdr;
 	public PSTR lpszText;
@@ -6140,7 +6247,8 @@ public function int32 EDITWORDBREAKPROCW(PWSTR lpch, int32 ichCurrent, int32 cch
 	public LPARAM lParam;
 }
 
-[CRepr]public struct NMTTDISPINFOW
+[CRepr]
+public struct NMTTDISPINFOW
 {
 	public NMHDR hdr;
 	public PWSTR lpszText;
@@ -6150,40 +6258,46 @@ public function int32 EDITWORDBREAKPROCW(PWSTR lpch, int32 ichCurrent, int32 cch
 	public LPARAM lParam;
 }
 
-[CRepr]public struct NMTRBTHUMBPOSCHANGING
+[CRepr]
+public struct NMTRBTHUMBPOSCHANGING
 {
 	public NMHDR hdr;
 	public uint32 dwPos;
 	public int32 nReason;
 }
 
-[CRepr]public struct DRAGLISTINFO
+[CRepr]
+public struct DRAGLISTINFO
 {
 	public DRAGLISTINFO_NOTIFICATION_FLAGS uNotification;
 	public HWND hWnd;
 	public POINT ptCursor;
 }
 
-[CRepr]public struct UDACCEL
+[CRepr]
+public struct UDACCEL
 {
 	public uint32 nSec;
 	public uint32 nInc;
 }
 
-[CRepr]public struct NMUPDOWN
+[CRepr]
+public struct NMUPDOWN
 {
 	public NMHDR hdr;
 	public int32 iPos;
 	public int32 iDelta;
 }
 
-[CRepr]public struct PBRANGE
+[CRepr]
+public struct PBRANGE
 {
 	public int32 iLow;
 	public int32 iHigh;
 }
 
-[CRepr]public struct LITEM
+[CRepr]
+public struct LITEM
 {
 	public uint32 mask;
 	public int32 iLink;
@@ -6193,19 +6307,22 @@ public function int32 EDITWORDBREAKPROCW(PWSTR lpch, int32 ichCurrent, int32 cch
 	public char8[2084] szUrl;
 }
 
-[CRepr]public struct LHITTESTINFO
+[CRepr]
+public struct LHITTESTINFO
 {
 	public POINT pt;
 	public LITEM item;
 }
 
-[CRepr]public struct NMLINK
+[CRepr]
+public struct NMLINK
 {
 	public NMHDR hdr;
 	public LITEM item;
 }
 
-[CRepr]public struct LVITEMA
+[CRepr]
+public struct LVITEMA
 {
 	public uint32 mask;
 	public int32 iItem;
@@ -6224,7 +6341,8 @@ public function int32 EDITWORDBREAKPROCW(PWSTR lpch, int32 ichCurrent, int32 cch
 	public int32 iGroup;
 }
 
-[CRepr]public struct LVITEMW
+[CRepr]
+public struct LVITEMW
 {
 	public uint32 mask;
 	public int32 iItem;
@@ -6243,7 +6361,8 @@ public function int32 EDITWORDBREAKPROCW(PWSTR lpch, int32 ichCurrent, int32 cch
 	public int32 iGroup;
 }
 
-[CRepr]public struct LVFINDINFOA
+[CRepr]
+public struct LVFINDINFOA
 {
 	public LVFINDINFOW_FLAGS flags;
 	public PSTR psz;
@@ -6252,7 +6371,8 @@ public function int32 EDITWORDBREAKPROCW(PWSTR lpch, int32 ichCurrent, int32 cch
 	public uint32 vkDirection;
 }
 
-[CRepr]public struct LVFINDINFOW
+[CRepr]
+public struct LVFINDINFOW
 {
 	public LVFINDINFOW_FLAGS flags;
 	public PWSTR psz;
@@ -6261,7 +6381,8 @@ public function int32 EDITWORDBREAKPROCW(PWSTR lpch, int32 ichCurrent, int32 cch
 	public uint32 vkDirection;
 }
 
-[CRepr]public struct LVHITTESTINFO
+[CRepr]
+public struct LVHITTESTINFO
 {
 	public POINT pt;
 	public LVHITTESTINFO_FLAGS flags;
@@ -6270,7 +6391,8 @@ public function int32 EDITWORDBREAKPROCW(PWSTR lpch, int32 ichCurrent, int32 cch
 	public int32 iGroup;
 }
 
-[CRepr]public struct LVCOLUMNA
+[CRepr]
+public struct LVCOLUMNA
 {
 	public LVCOLUMNW_MASK mask;
 	public LVCOLUMNW_FORMAT fmt;
@@ -6285,7 +6407,8 @@ public function int32 EDITWORDBREAKPROCW(PWSTR lpch, int32 ichCurrent, int32 cch
 	public int32 cxIdeal;
 }
 
-[CRepr]public struct LVCOLUMNW
+[CRepr]
+public struct LVCOLUMNW
 {
 	public LVCOLUMNW_MASK mask;
 	public LVCOLUMNW_FORMAT fmt;
@@ -6300,7 +6423,8 @@ public function int32 EDITWORDBREAKPROCW(PWSTR lpch, int32 ichCurrent, int32 cch
 	public int32 cxIdeal;
 }
 
-[CRepr]public struct LVBKIMAGEA
+[CRepr]
+public struct LVBKIMAGEA
 {
 	public uint32 ulFlags;
 	public HBITMAP hbm;
@@ -6310,7 +6434,8 @@ public function int32 EDITWORDBREAKPROCW(PWSTR lpch, int32 ichCurrent, int32 cch
 	public int32 yOffsetPercent;
 }
 
-[CRepr]public struct LVBKIMAGEW
+[CRepr]
+public struct LVBKIMAGEW
 {
 	public uint32 ulFlags;
 	public HBITMAP hbm;
@@ -6320,7 +6445,8 @@ public function int32 EDITWORDBREAKPROCW(PWSTR lpch, int32 ichCurrent, int32 cch
 	public int32 yOffsetPercent;
 }
 
-[CRepr]public struct LVGROUP
+[CRepr]
+public struct LVGROUP
 {
 	public uint32 cbSize;
 	public LVGROUP_MASK mask;
@@ -6348,7 +6474,8 @@ public function int32 EDITWORDBREAKPROCW(PWSTR lpch, int32 ichCurrent, int32 cch
 	public uint32 cchSubsetTitle;
 }
 
-[CRepr]public struct LVGROUPMETRICS
+[CRepr]
+public struct LVGROUPMETRICS
 {
 	public uint32 cbSize;
 	public uint32 mask;
@@ -6364,14 +6491,16 @@ public function int32 EDITWORDBREAKPROCW(PWSTR lpch, int32 ichCurrent, int32 cch
 	public uint32 crFooter;
 }
 
-[CRepr]public struct LVINSERTGROUPSORTED
+[CRepr]
+public struct LVINSERTGROUPSORTED
 {
 	public PFNLVGROUPCOMPARE pfnGroupCompare;
 	public void* pvData;
 	public LVGROUP lvGroup;
 }
 
-[CRepr]public struct LVTILEVIEWINFO
+[CRepr]
+public struct LVTILEVIEWINFO
 {
 	public uint32 cbSize;
 	public uint32 dwMask;
@@ -6381,7 +6510,8 @@ public function int32 EDITWORDBREAKPROCW(PWSTR lpch, int32 ichCurrent, int32 cch
 	public RECT rcLabelMargin;
 }
 
-[CRepr]public struct LVTILEINFO
+[CRepr]
+public struct LVTILEINFO
 {
 	public uint32 cbSize;
 	public int32 iItem;
@@ -6390,7 +6520,8 @@ public function int32 EDITWORDBREAKPROCW(PWSTR lpch, int32 ichCurrent, int32 cch
 	public int32* piColFmt;
 }
 
-[CRepr]public struct LVINSERTMARK
+[CRepr]
+public struct LVINSERTMARK
 {
 	public uint32 cbSize;
 	public uint32 dwFlags;
@@ -6398,7 +6529,8 @@ public function int32 EDITWORDBREAKPROCW(PWSTR lpch, int32 ichCurrent, int32 cch
 	public uint32 dwReserved;
 }
 
-[CRepr]public struct LVSETINFOTIP
+[CRepr]
+public struct LVSETINFOTIP
 {
 	public uint32 cbSize;
 	public uint32 dwFlags;
@@ -6407,7 +6539,8 @@ public function int32 EDITWORDBREAKPROCW(PWSTR lpch, int32 ichCurrent, int32 cch
 	public int32 iSubItem;
 }
 
-[CRepr]public struct LVFOOTERINFO
+[CRepr]
+public struct LVFOOTERINFO
 {
 	public uint32 mask;
 	public PWSTR pszText;
@@ -6415,7 +6548,8 @@ public function int32 EDITWORDBREAKPROCW(PWSTR lpch, int32 ichCurrent, int32 cch
 	public uint32 cItems;
 }
 
-[CRepr]public struct LVFOOTERITEM
+[CRepr]
+public struct LVFOOTERITEM
 {
 	public LVFOOTERITEM_MASK mask;
 	public int32 iItem;
@@ -6425,13 +6559,15 @@ public function int32 EDITWORDBREAKPROCW(PWSTR lpch, int32 ichCurrent, int32 cch
 	public uint32 stateMask;
 }
 
-[CRepr]public struct LVITEMINDEX
+[CRepr]
+public struct LVITEMINDEX
 {
 	public int32 iItem;
 	public int32 iGroup;
 }
 
-[CRepr]public struct NMLISTVIEW
+[CRepr]
+public struct NMLISTVIEW
 {
 	public NMHDR hdr;
 	public int32 iItem;
@@ -6443,7 +6579,8 @@ public function int32 EDITWORDBREAKPROCW(PWSTR lpch, int32 ichCurrent, int32 cch
 	public LPARAM lParam;
 }
 
-[CRepr]public struct NMITEMACTIVATE
+[CRepr]
+public struct NMITEMACTIVATE
 {
 	public NMHDR hdr;
 	public int32 iItem;
@@ -6456,7 +6593,8 @@ public function int32 EDITWORDBREAKPROCW(PWSTR lpch, int32 ichCurrent, int32 cch
 	public uint32 uKeyFlags;
 }
 
-[CRepr]public struct NMLVCUSTOMDRAW
+[CRepr]
+public struct NMLVCUSTOMDRAW
 {
 	public NMCUSTOMDRAW nmcd;
 	public uint32 clrText;
@@ -6472,28 +6610,32 @@ public function int32 EDITWORDBREAKPROCW(PWSTR lpch, int32 ichCurrent, int32 cch
 	public NMLVCUSTOMDRAW_ALIGN uAlign;
 }
 
-[CRepr]public struct NMLVCACHEHINT
+[CRepr]
+public struct NMLVCACHEHINT
 {
 	public NMHDR hdr;
 	public int32 iFrom;
 	public int32 iTo;
 }
 
-[CRepr]public struct NMLVFINDITEMA
+[CRepr]
+public struct NMLVFINDITEMA
 {
 	public NMHDR hdr;
 	public int32 iStart;
 	public LVFINDINFOA lvfi;
 }
 
-[CRepr]public struct NMLVFINDITEMW
+[CRepr]
+public struct NMLVFINDITEMW
 {
 	public NMHDR hdr;
 	public int32 iStart;
 	public LVFINDINFOW lvfi;
 }
 
-[CRepr]public struct NMLVODSTATECHANGE
+[CRepr]
+public struct NMLVODSTATECHANGE
 {
 	public NMHDR hdr;
 	public int32 iFrom;
@@ -6502,26 +6644,30 @@ public function int32 EDITWORDBREAKPROCW(PWSTR lpch, int32 ichCurrent, int32 cch
 	public uint32 uOldState;
 }
 
-[CRepr]public struct NMLVDISPINFOA
+[CRepr]
+public struct NMLVDISPINFOA
 {
 	public NMHDR hdr;
 	public LVITEMA item;
 }
 
-[CRepr]public struct NMLVDISPINFOW
+[CRepr]
+public struct NMLVDISPINFOW
 {
 	public NMHDR hdr;
 	public LVITEMW item;
 }
 
-[CRepr, Packed(1)]public struct NMLVKEYDOWN
+[CRepr, Packed(1)]
+public struct NMLVKEYDOWN
 {
 	public NMHDR hdr;
 	public uint16 wVKey;
 	public uint32 flags;
 }
 
-[CRepr]public struct NMLVLINK
+[CRepr]
+public struct NMLVLINK
 {
 	public NMHDR hdr;
 	public LITEM link;
@@ -6529,7 +6675,8 @@ public function int32 EDITWORDBREAKPROCW(PWSTR lpch, int32 ichCurrent, int32 cch
 	public int32 iSubItem;
 }
 
-[CRepr]public struct NMLVGETINFOTIPA
+[CRepr]
+public struct NMLVGETINFOTIPA
 {
 	public NMHDR hdr;
 	public uint32 dwFlags;
@@ -6540,7 +6687,8 @@ public function int32 EDITWORDBREAKPROCW(PWSTR lpch, int32 ichCurrent, int32 cch
 	public LPARAM lParam;
 }
 
-[CRepr]public struct NMLVGETINFOTIPW
+[CRepr]
+public struct NMLVGETINFOTIPW
 {
 	public NMHDR hdr;
 	public uint32 dwFlags;
@@ -6551,21 +6699,24 @@ public function int32 EDITWORDBREAKPROCW(PWSTR lpch, int32 ichCurrent, int32 cch
 	public LPARAM lParam;
 }
 
-[CRepr]public struct NMLVSCROLL
+[CRepr]
+public struct NMLVSCROLL
 {
 	public NMHDR hdr;
 	public int32 dx;
 	public int32 dy;
 }
 
-[CRepr]public struct NMLVEMPTYMARKUP
+[CRepr]
+public struct NMLVEMPTYMARKUP
 {
 	public NMHDR hdr;
 	public NMLVEMPTYMARKUP_FLAGS dwFlags;
 	public char8[2084] szMarkup;
 }
 
-[CRepr]public struct NMTVSTATEIMAGECHANGING
+[CRepr]
+public struct NMTVSTATEIMAGECHANGING
 {
 	public NMHDR hdr;
 	public HTREEITEM hti;
@@ -6573,7 +6724,8 @@ public function int32 EDITWORDBREAKPROCW(PWSTR lpch, int32 ichCurrent, int32 cch
 	public int32 iNewStateImageIndex;
 }
 
-[CRepr]public struct TVITEMA
+[CRepr]
+public struct TVITEMA
 {
 	public TVITEM_MASK mask;
 	public HTREEITEM hItem;
@@ -6587,7 +6739,8 @@ public function int32 EDITWORDBREAKPROCW(PWSTR lpch, int32 ichCurrent, int32 cch
 	public LPARAM lParam;
 }
 
-[CRepr]public struct TVITEMW
+[CRepr]
+public struct TVITEMW
 {
 	public TVITEM_MASK mask;
 	public HTREEITEM hItem;
@@ -6601,7 +6754,8 @@ public function int32 EDITWORDBREAKPROCW(PWSTR lpch, int32 ichCurrent, int32 cch
 	public LPARAM lParam;
 }
 
-[CRepr]public struct TVITEMEXA
+[CRepr]
+public struct TVITEMEXA
 {
 	public TVITEM_MASK mask;
 	public HTREEITEM hItem;
@@ -6620,7 +6774,8 @@ public function int32 EDITWORDBREAKPROCW(PWSTR lpch, int32 ichCurrent, int32 cch
 	public int32 iReserved;
 }
 
-[CRepr]public struct TVITEMEXW
+[CRepr]
+public struct TVITEMEXW
 {
 	public TVITEM_MASK mask;
 	public HTREEITEM hItem;
@@ -6639,9 +6794,11 @@ public function int32 EDITWORDBREAKPROCW(PWSTR lpch, int32 ichCurrent, int32 cch
 	public int32 iReserved;
 }
 
-[CRepr]public struct TVINSERTSTRUCTA
+[CRepr]
+public struct TVINSERTSTRUCTA
 {
-	[CRepr, Union]	public struct _Anonymous_e__Union
+	[CRepr, Union]
+	public struct _Anonymous_e__Union
 	{
 		public TVITEMEXA itemex;
 		public TVITEMA item;
@@ -6652,9 +6809,11 @@ public function int32 EDITWORDBREAKPROCW(PWSTR lpch, int32 ichCurrent, int32 cch
 	public using _Anonymous_e__Union Anonymous;
 }
 
-[CRepr]public struct TVINSERTSTRUCTW
+[CRepr]
+public struct TVINSERTSTRUCTW
 {
-	[CRepr, Union]	public struct _Anonymous_e__Union
+	[CRepr, Union]
+	public struct _Anonymous_e__Union
 	{
 		public TVITEMEXW itemex;
 		public TVITEMW item;
@@ -6665,28 +6824,32 @@ public function int32 EDITWORDBREAKPROCW(PWSTR lpch, int32 ichCurrent, int32 cch
 	public using _Anonymous_e__Union Anonymous;
 }
 
-[CRepr]public struct TVHITTESTINFO
+[CRepr]
+public struct TVHITTESTINFO
 {
 	public POINT pt;
 	public TVHITTESTINFO_FLAGS flags;
 	public HTREEITEM hItem;
 }
 
-[CRepr]public struct TVGETITEMPARTRECTINFO
+[CRepr]
+public struct TVGETITEMPARTRECTINFO
 {
 	public HTREEITEM hti;
 	public RECT* prc;
 	public TVITEMPART partID;
 }
 
-[CRepr]public struct TVSORTCB
+[CRepr]
+public struct TVSORTCB
 {
 	public HTREEITEM hParent;
 	public PFNTVCOMPARE lpfnCompare;
 	public LPARAM lParam;
 }
 
-[CRepr]public struct NMTREEVIEWA
+[CRepr]
+public struct NMTREEVIEWA
 {
 	public NMHDR hdr;
 	public uint32 action;
@@ -6695,7 +6858,8 @@ public function int32 EDITWORDBREAKPROCW(PWSTR lpch, int32 ichCurrent, int32 cch
 	public POINT ptDrag;
 }
 
-[CRepr]public struct NMTREEVIEWW
+[CRepr]
+public struct NMTREEVIEWW
 {
 	public NMHDR hdr;
 	public uint32 action;
@@ -6704,38 +6868,44 @@ public function int32 EDITWORDBREAKPROCW(PWSTR lpch, int32 ichCurrent, int32 cch
 	public POINT ptDrag;
 }
 
-[CRepr]public struct NMTVDISPINFOA
+[CRepr]
+public struct NMTVDISPINFOA
 {
 	public NMHDR hdr;
 	public TVITEMA item;
 }
 
-[CRepr]public struct NMTVDISPINFOW
+[CRepr]
+public struct NMTVDISPINFOW
 {
 	public NMHDR hdr;
 	public TVITEMW item;
 }
 
-[CRepr]public struct NMTVDISPINFOEXA
+[CRepr]
+public struct NMTVDISPINFOEXA
 {
 	public NMHDR hdr;
 	public TVITEMEXA item;
 }
 
-[CRepr]public struct NMTVDISPINFOEXW
+[CRepr]
+public struct NMTVDISPINFOEXW
 {
 	public NMHDR hdr;
 	public TVITEMEXW item;
 }
 
-[CRepr, Packed(1)]public struct NMTVKEYDOWN
+[CRepr, Packed(1)]
+public struct NMTVKEYDOWN
 {
 	public NMHDR hdr;
 	public uint16 wVKey;
 	public uint32 flags;
 }
 
-[CRepr]public struct NMTVCUSTOMDRAW
+[CRepr]
+public struct NMTVCUSTOMDRAW
 {
 	public NMCUSTOMDRAW nmcd;
 	public uint32 clrText;
@@ -6743,7 +6913,8 @@ public function int32 EDITWORDBREAKPROCW(PWSTR lpch, int32 ichCurrent, int32 cch
 	public int32 iLevel;
 }
 
-[CRepr]public struct NMTVGETINFOTIPA
+[CRepr]
+public struct NMTVGETINFOTIPA
 {
 	public NMHDR hdr;
 	public PSTR pszText;
@@ -6752,7 +6923,8 @@ public function int32 EDITWORDBREAKPROCW(PWSTR lpch, int32 ichCurrent, int32 cch
 	public LPARAM lParam;
 }
 
-[CRepr]public struct NMTVGETINFOTIPW
+[CRepr]
+public struct NMTVGETINFOTIPW
 {
 	public NMHDR hdr;
 	public PWSTR pszText;
@@ -6761,7 +6933,8 @@ public function int32 EDITWORDBREAKPROCW(PWSTR lpch, int32 ichCurrent, int32 cch
 	public LPARAM lParam;
 }
 
-[CRepr]public struct NMTVITEMCHANGE
+[CRepr]
+public struct NMTVITEMCHANGE
 {
 	public NMHDR hdr;
 	public uint32 uChanged;
@@ -6771,7 +6944,8 @@ public function int32 EDITWORDBREAKPROCW(PWSTR lpch, int32 ichCurrent, int32 cch
 	public LPARAM lParam;
 }
 
-[CRepr]public struct NMTVASYNCDRAW
+[CRepr]
+public struct NMTVASYNCDRAW
 {
 	public NMHDR hdr;
 	public IMAGELISTDRAWPARAMS* pimldp;
@@ -6782,7 +6956,8 @@ public function int32 EDITWORDBREAKPROCW(PWSTR lpch, int32 ichCurrent, int32 cch
 	public int32 iRetImageIndex;
 }
 
-[CRepr]public struct COMBOBOXEXITEMA
+[CRepr]
+public struct COMBOBOXEXITEMA
 {
 	public COMBOBOX_EX_ITEM_FLAGS mask;
 	public int iItem;
@@ -6795,7 +6970,8 @@ public function int32 EDITWORDBREAKPROCW(PWSTR lpch, int32 ichCurrent, int32 cch
 	public LPARAM lParam;
 }
 
-[CRepr]public struct COMBOBOXEXITEMW
+[CRepr]
+public struct COMBOBOXEXITEMW
 {
 	public COMBOBOX_EX_ITEM_FLAGS mask;
 	public int iItem;
@@ -6808,33 +6984,38 @@ public function int32 EDITWORDBREAKPROCW(PWSTR lpch, int32 ichCurrent, int32 cch
 	public LPARAM lParam;
 }
 
-[CRepr]public struct NMCOMBOBOXEXA
+[CRepr]
+public struct NMCOMBOBOXEXA
 {
 	public NMHDR hdr;
 	public COMBOBOXEXITEMA ceItem;
 }
 
-[CRepr]public struct NMCOMBOBOXEXW
+[CRepr]
+public struct NMCOMBOBOXEXW
 {
 	public NMHDR hdr;
 	public COMBOBOXEXITEMW ceItem;
 }
 
-[CRepr]public struct NMCBEDRAGBEGINW
+[CRepr]
+public struct NMCBEDRAGBEGINW
 {
 	public NMHDR hdr;
 	public int32 iItemid;
 	public char8[260] szText;
 }
 
-[CRepr]public struct NMCBEDRAGBEGINA
+[CRepr]
+public struct NMCBEDRAGBEGINA
 {
 	public NMHDR hdr;
 	public int32 iItemid;
 	public CHAR[260] szText;
 }
 
-[CRepr]public struct NMCBEENDEDITW
+[CRepr]
+public struct NMCBEENDEDITW
 {
 	public NMHDR hdr;
 	public BOOL fChanged;
@@ -6843,7 +7024,8 @@ public function int32 EDITWORDBREAKPROCW(PWSTR lpch, int32 ichCurrent, int32 cch
 	public int32 iWhy;
 }
 
-[CRepr]public struct NMCBEENDEDITA
+[CRepr]
+public struct NMCBEENDEDITA
 {
 	public NMHDR hdr;
 	public BOOL fChanged;
@@ -6852,7 +7034,8 @@ public function int32 EDITWORDBREAKPROCW(PWSTR lpch, int32 ichCurrent, int32 cch
 	public int32 iWhy;
 }
 
-[CRepr]public struct TCITEMHEADERA
+[CRepr]
+public struct TCITEMHEADERA
 {
 	public TCITEMHEADERA_MASK mask;
 	public uint32 lpReserved1;
@@ -6862,7 +7045,8 @@ public function int32 EDITWORDBREAKPROCW(PWSTR lpch, int32 ichCurrent, int32 cch
 	public int32 iImage;
 }
 
-[CRepr]public struct TCITEMHEADERW
+[CRepr]
+public struct TCITEMHEADERW
 {
 	public TCITEMHEADERA_MASK mask;
 	public uint32 lpReserved1;
@@ -6872,7 +7056,8 @@ public function int32 EDITWORDBREAKPROCW(PWSTR lpch, int32 ichCurrent, int32 cch
 	public int32 iImage;
 }
 
-[CRepr]public struct TCITEMA
+[CRepr]
+public struct TCITEMA
 {
 	public TCITEMHEADERA_MASK mask;
 	public uint32 dwState;
@@ -6883,7 +7068,8 @@ public function int32 EDITWORDBREAKPROCW(PWSTR lpch, int32 ichCurrent, int32 cch
 	public LPARAM lParam;
 }
 
-[CRepr]public struct TCITEMW
+[CRepr]
+public struct TCITEMW
 {
 	public TCITEMHEADERA_MASK mask;
 	public uint32 dwState;
@@ -6894,20 +7080,23 @@ public function int32 EDITWORDBREAKPROCW(PWSTR lpch, int32 ichCurrent, int32 cch
 	public LPARAM lParam;
 }
 
-[CRepr]public struct TCHITTESTINFO
+[CRepr]
+public struct TCHITTESTINFO
 {
 	public POINT pt;
 	public TCHITTESTINFO_FLAGS flags;
 }
 
-[CRepr, Packed(1)]public struct NMTCKEYDOWN
+[CRepr, Packed(1)]
+public struct NMTCKEYDOWN
 {
 	public NMHDR hdr;
 	public uint16 wVKey;
 	public uint32 flags;
 }
 
-[CRepr]public struct MCHITTESTINFO
+[CRepr]
+public struct MCHITTESTINFO
 {
 	public uint32 cbSize;
 	public POINT pt;
@@ -6919,7 +7108,8 @@ public function int32 EDITWORDBREAKPROCW(PWSTR lpch, int32 ichCurrent, int32 cch
 	public int32 iCol;
 }
 
-[CRepr]public struct MCGRIDINFO
+[CRepr]
+public struct MCGRIDINFO
 {
 	public uint32 cbSize;
 	public MCGRIDINFO_PART dwPart;
@@ -6935,14 +7125,16 @@ public function int32 EDITWORDBREAKPROCW(PWSTR lpch, int32 ichCurrent, int32 cch
 	public uint cchName;
 }
 
-[CRepr]public struct NMSELCHANGE
+[CRepr]
+public struct NMSELCHANGE
 {
 	public NMHDR nmhdr;
 	public SYSTEMTIME stSelStart;
 	public SYSTEMTIME stSelEnd;
 }
 
-[CRepr]public struct NMDAYSTATE
+[CRepr]
+public struct NMDAYSTATE
 {
 	public NMHDR nmhdr;
 	public SYSTEMTIME stStart;
@@ -6950,14 +7142,16 @@ public function int32 EDITWORDBREAKPROCW(PWSTR lpch, int32 ichCurrent, int32 cch
 	public uint32* prgDayState;
 }
 
-[CRepr]public struct NMVIEWCHANGE
+[CRepr]
+public struct NMVIEWCHANGE
 {
 	public NMHDR nmhdr;
 	public uint32 dwOldView;
 	public uint32 dwNewView;
 }
 
-[CRepr]public struct DATETIMEPICKERINFO
+[CRepr]
+public struct DATETIMEPICKERINFO
 {
 	public uint32 cbSize;
 	public RECT rcCheck;
@@ -6969,14 +7163,16 @@ public function int32 EDITWORDBREAKPROCW(PWSTR lpch, int32 ichCurrent, int32 cch
 	public HWND hwndDropDown;
 }
 
-[CRepr]public struct NMDATETIMECHANGE
+[CRepr]
+public struct NMDATETIMECHANGE
 {
 	public NMHDR nmhdr;
 	public uint32 dwFlags;
 	public SYSTEMTIME st;
 }
 
-[CRepr]public struct NMDATETIMESTRINGA
+[CRepr]
+public struct NMDATETIMESTRINGA
 {
 	public NMHDR nmhdr;
 	public PSTR pszUserString;
@@ -6984,7 +7180,8 @@ public function int32 EDITWORDBREAKPROCW(PWSTR lpch, int32 ichCurrent, int32 cch
 	public uint32 dwFlags;
 }
 
-[CRepr]public struct NMDATETIMESTRINGW
+[CRepr]
+public struct NMDATETIMESTRINGW
 {
 	public NMHDR nmhdr;
 	public PWSTR pszUserString;
@@ -6992,7 +7189,8 @@ public function int32 EDITWORDBREAKPROCW(PWSTR lpch, int32 ichCurrent, int32 cch
 	public uint32 dwFlags;
 }
 
-[CRepr]public struct NMDATETIMEWMKEYDOWNA
+[CRepr]
+public struct NMDATETIMEWMKEYDOWNA
 {
 	public NMHDR nmhdr;
 	public int32 nVirtKey;
@@ -7000,7 +7198,8 @@ public function int32 EDITWORDBREAKPROCW(PWSTR lpch, int32 ichCurrent, int32 cch
 	public SYSTEMTIME st;
 }
 
-[CRepr]public struct NMDATETIMEWMKEYDOWNW
+[CRepr]
+public struct NMDATETIMEWMKEYDOWNW
 {
 	public NMHDR nmhdr;
 	public int32 nVirtKey;
@@ -7008,7 +7207,8 @@ public function int32 EDITWORDBREAKPROCW(PWSTR lpch, int32 ichCurrent, int32 cch
 	public SYSTEMTIME st;
 }
 
-[CRepr]public struct NMDATETIMEFORMATA
+[CRepr]
+public struct NMDATETIMEFORMATA
 {
 	public NMHDR nmhdr;
 	public PSTR pszFormat;
@@ -7017,7 +7217,8 @@ public function int32 EDITWORDBREAKPROCW(PWSTR lpch, int32 ichCurrent, int32 cch
 	public CHAR[64] szDisplay;
 }
 
-[CRepr]public struct NMDATETIMEFORMATW
+[CRepr]
+public struct NMDATETIMEFORMATW
 {
 	public NMHDR nmhdr;
 	public PWSTR pszFormat;
@@ -7026,28 +7227,32 @@ public function int32 EDITWORDBREAKPROCW(PWSTR lpch, int32 ichCurrent, int32 cch
 	public char8[64] szDisplay;
 }
 
-[CRepr]public struct NMDATETIMEFORMATQUERYA
+[CRepr]
+public struct NMDATETIMEFORMATQUERYA
 {
 	public NMHDR nmhdr;
 	public PSTR pszFormat;
 	public SIZE szMax;
 }
 
-[CRepr]public struct NMDATETIMEFORMATQUERYW
+[CRepr]
+public struct NMDATETIMEFORMATQUERYW
 {
 	public NMHDR nmhdr;
 	public PWSTR pszFormat;
 	public SIZE szMax;
 }
 
-[CRepr]public struct NMIPADDRESS
+[CRepr]
+public struct NMIPADDRESS
 {
 	public NMHDR hdr;
 	public int32 iField;
 	public int32 iValue;
 }
 
-[CRepr, Packed(1)]public struct NMPGSCROLL
+[CRepr, Packed(1)]
+public struct NMPGSCROLL
 {
 	public NMHDR hdr;
 	public NMPGSCROLL_KEYS fwKeys;
@@ -7058,7 +7263,8 @@ public function int32 EDITWORDBREAKPROCW(PWSTR lpch, int32 ichCurrent, int32 cch
 	public int32 iScroll;
 }
 
-[CRepr]public struct NMPGCALCSIZE
+[CRepr]
+public struct NMPGCALCSIZE
 {
 	public NMHDR hdr;
 	public NMPGCALCSIZE_FLAGS dwFlag;
@@ -7066,7 +7272,8 @@ public function int32 EDITWORDBREAKPROCW(PWSTR lpch, int32 ichCurrent, int32 cch
 	public int32 iHeight;
 }
 
-[CRepr]public struct NMPGHOTITEM
+[CRepr]
+public struct NMPGHOTITEM
 {
 	public NMHDR hdr;
 	public int32 idOld;
@@ -7074,20 +7281,23 @@ public function int32 EDITWORDBREAKPROCW(PWSTR lpch, int32 ichCurrent, int32 cch
 	public uint32 dwFlags;
 }
 
-[CRepr]public struct BUTTON_IMAGELIST
+[CRepr]
+public struct BUTTON_IMAGELIST
 {
 	public HIMAGELIST himl;
 	public RECT margin;
 	public BUTTON_IMAGELIST_ALIGN uAlign;
 }
 
-[CRepr]public struct NMBCHOTITEM
+[CRepr]
+public struct NMBCHOTITEM
 {
 	public NMHDR hdr;
 	public NMTBHOTITEM_FLAGS dwFlags;
 }
 
-[CRepr]public struct BUTTON_SPLITINFO
+[CRepr]
+public struct BUTTON_SPLITINFO
 {
 	public uint32 mask;
 	public HIMAGELIST himlGlyph;
@@ -7095,13 +7305,15 @@ public function int32 EDITWORDBREAKPROCW(PWSTR lpch, int32 ichCurrent, int32 cch
 	public SIZE size;
 }
 
-[CRepr]public struct NMBCDROPDOWN
+[CRepr]
+public struct NMBCDROPDOWN
 {
 	public NMHDR hdr;
 	public RECT rcButton;
 }
 
-[CRepr]public struct EDITBALLOONTIP
+[CRepr]
+public struct EDITBALLOONTIP
 {
 	public uint32 cbStruct;
 	public PWSTR pszTitle;
@@ -7109,7 +7321,8 @@ public function int32 EDITWORDBREAKPROCW(PWSTR lpch, int32 ichCurrent, int32 cch
 	public EDITBALLOONTIP_ICON ttiIcon;
 }
 
-[CRepr]public struct NMSEARCHWEB
+[CRepr]
+public struct NMSEARCHWEB
 {
 	public NMHDR hdr;
 	public EC_SEARCHWEB_ENTRYPOINT entrypoint;
@@ -7117,21 +7330,25 @@ public function int32 EDITWORDBREAKPROCW(PWSTR lpch, int32 ichCurrent, int32 cch
 	public BOOL invokeSucceeded;
 }
 
-[CRepr, Packed(1)]public struct TASKDIALOG_BUTTON
+[CRepr, Packed(1)]
+public struct TASKDIALOG_BUTTON
 {
 	public int32 nButtonID;
 	public PWSTR pszButtonText;
 }
 
-[CRepr, Packed(1)]public struct TASKDIALOGCONFIG
+[CRepr, Packed(1)]
+public struct TASKDIALOGCONFIG
 {
-	[CRepr, Union, Packed(1)]	public struct _Anonymous1_e__Union
+	[CRepr, Union, Packed(1)]
+	public struct _Anonymous1_e__Union
 	{
 		public HICON hMainIcon;
 		public PWSTR pszMainIcon;
 	}
 
-	[CRepr, Union, Packed(1)]	public struct _Anonymous2_e__Union
+	[CRepr, Union, Packed(1)]
+	public struct _Anonymous2_e__Union
 	{
 		public HICON hFooterIcon;
 		public PWSTR pszFooterIcon;
@@ -7163,13 +7380,15 @@ public function int32 EDITWORDBREAKPROCW(PWSTR lpch, int32 ichCurrent, int32 cch
 	public uint32 cxWidth;
 }
 
-[CRepr]public struct DPASTREAMINFO
+[CRepr]
+public struct DPASTREAMINFO
 {
 	public int32 iPos;
 	public void* pvItem;
 }
 
-[CRepr]public struct IMAGELISTSTATS
+[CRepr]
+public struct IMAGELISTSTATS
 {
 	public uint32 cbSize;
 	public int32 cAlloc;
@@ -7177,7 +7396,8 @@ public function int32 EDITWORDBREAKPROCW(PWSTR lpch, int32 ichCurrent, int32 cch
 	public int32 cStandby;
 }
 
-[CRepr]public struct TA_TRANSFORM
+[CRepr]
+public struct TA_TRANSFORM
 {
 	public TA_TRANSFORM_TYPE eTransformType;
 	public uint32 dwTimingFunctionId;
@@ -7186,7 +7406,8 @@ public function int32 EDITWORDBREAKPROCW(PWSTR lpch, int32 ichCurrent, int32 cch
 	public TA_TRANSFORM_FLAG eFlags;
 }
 
-[CRepr]public struct TA_TRANSFORM_2D
+[CRepr]
+public struct TA_TRANSFORM_2D
 {
 	public TA_TRANSFORM header;
 	public float rX;
@@ -7197,14 +7418,16 @@ public function int32 EDITWORDBREAKPROCW(PWSTR lpch, int32 ichCurrent, int32 cch
 	public float rOriginY;
 }
 
-[CRepr]public struct TA_TRANSFORM_OPACITY
+[CRepr]
+public struct TA_TRANSFORM_OPACITY
 {
 	public TA_TRANSFORM header;
 	public float rOpacity;
 	public float rInitialOpacity;
 }
 
-[CRepr]public struct TA_TRANSFORM_CLIP
+[CRepr]
+public struct TA_TRANSFORM_CLIP
 {
 	public TA_TRANSFORM header;
 	public float rLeft;
@@ -7217,12 +7440,14 @@ public function int32 EDITWORDBREAKPROCW(PWSTR lpch, int32 ichCurrent, int32 cch
 	public float rInitialBottom;
 }
 
-[CRepr]public struct TA_TIMINGFUNCTION
+[CRepr]
+public struct TA_TIMINGFUNCTION
 {
 	public TA_TIMINGFUNCTION_TYPE eTimingFunctionType;
 }
 
-[CRepr]public struct TA_CUBIC_BEZIER
+[CRepr]
+public struct TA_CUBIC_BEZIER
 {
 	public TA_TIMINGFUNCTION header;
 	public float rX0;
@@ -7231,14 +7456,16 @@ public function int32 EDITWORDBREAKPROCW(PWSTR lpch, int32 ichCurrent, int32 cch
 	public float rY1;
 }
 
-[CRepr]public struct DTBGOPTS
+[CRepr]
+public struct DTBGOPTS
 {
 	public uint32 dwSize;
 	public uint32 dwFlags;
 	public RECT rcClip;
 }
 
-[CRepr]public struct MARGINS
+[CRepr]
+public struct MARGINS
 {
 	public int32 cxLeftWidth;
 	public int32 cxRightWidth;
@@ -7246,19 +7473,22 @@ public function int32 EDITWORDBREAKPROCW(PWSTR lpch, int32 ichCurrent, int32 cch
 	public int32 cyBottomHeight;
 }
 
-[CRepr]public struct INTLIST
+[CRepr]
+public struct INTLIST
 {
 	public int32 iValueCount;
 	public int32[402] iValues;
 }
 
-[CRepr]public struct WTA_OPTIONS
+[CRepr]
+public struct WTA_OPTIONS
 {
 	public uint32 dwFlags;
 	public uint32 dwMask;
 }
 
-[CRepr]public struct DTTOPTS
+[CRepr]
+public struct DTTOPTS
 {
 	public uint32 dwSize;
 	public uint32 dwFlags;
@@ -7277,7 +7507,8 @@ public function int32 EDITWORDBREAKPROCW(PWSTR lpch, int32 ichCurrent, int32 cch
 	public LPARAM lParam;
 }
 
-[CRepr]public struct BP_ANIMATIONPARAMS
+[CRepr]
+public struct BP_ANIMATIONPARAMS
 {
 	public uint32 cbSize;
 	public uint32 dwFlags;
@@ -7285,7 +7516,8 @@ public function int32 EDITWORDBREAKPROCW(PWSTR lpch, int32 ichCurrent, int32 cch
 	public uint32 dwDuration;
 }
 
-[CRepr]public struct BP_PAINTPARAMS
+[CRepr]
+public struct BP_PAINTPARAMS
 {
 	public uint32 cbSize;
 	public BP_PAINTPARAMS_FLAGS dwFlags;
@@ -7293,7 +7525,8 @@ public function int32 EDITWORDBREAKPROCW(PWSTR lpch, int32 ichCurrent, int32 cch
 	public BLENDFUNCTION* pBlendFunction;
 }
 
-[CRepr]public struct CCSTYLEA
+[CRepr]
+public struct CCSTYLEA
 {
 	public uint32 flStyle;
 	public uint32 flExtStyle;
@@ -7302,7 +7535,8 @@ public function int32 EDITWORDBREAKPROCW(PWSTR lpch, int32 ichCurrent, int32 cch
 	public uint16 wReserved1;
 }
 
-[CRepr]public struct CCSTYLEW
+[CRepr]
+public struct CCSTYLEW
 {
 	public uint32 flStyle;
 	public uint32 flExtStyle;
@@ -7311,21 +7545,24 @@ public function int32 EDITWORDBREAKPROCW(PWSTR lpch, int32 ichCurrent, int32 cch
 	public uint16 wReserved1;
 }
 
-[CRepr]public struct CCSTYLEFLAGA
+[CRepr]
+public struct CCSTYLEFLAGA
 {
 	public uint32 flStyle;
 	public uint32 flStyleMask;
 	public PSTR pszStyle;
 }
 
-[CRepr]public struct CCSTYLEFLAGW
+[CRepr]
+public struct CCSTYLEFLAGW
 {
 	public uint32 flStyle;
 	public uint32 flStyleMask;
 	public PWSTR pszStyle;
 }
 
-[CRepr]public struct CCINFOA
+[CRepr]
+public struct CCINFOA
 {
 	public CHAR[32] szClass;
 	public uint32 flOptions;
@@ -7344,7 +7581,8 @@ public function int32 EDITWORDBREAKPROCW(PWSTR lpch, int32 ichCurrent, int32 cch
 	public uint32 dwReserved2;
 }
 
-[CRepr]public struct CCINFOW
+[CRepr]
+public struct CCINFOW
 {
 	public char8[32] szClass;
 	public uint32 flOptions;
@@ -7363,14 +7601,16 @@ public function int32 EDITWORDBREAKPROCW(PWSTR lpch, int32 ichCurrent, int32 cch
 	public uint32 dwReserved2;
 }
 
-[CRepr]public struct NMHDR
+[CRepr]
+public struct NMHDR
 {
 	public HWND hwndFrom;
 	public uint idFrom;
 	public uint32 code;
 }
 
-[CRepr]public struct MEASUREITEMSTRUCT
+[CRepr]
+public struct MEASUREITEMSTRUCT
 {
 	public uint32 CtlType;
 	public uint32 CtlID;
@@ -7380,7 +7620,8 @@ public function int32 EDITWORDBREAKPROCW(PWSTR lpch, int32 ichCurrent, int32 cch
 	public uint itemData;
 }
 
-[CRepr]public struct DRAWITEMSTRUCT
+[CRepr]
+public struct DRAWITEMSTRUCT
 {
 	public DRAWITEMSTRUCT_CTL_TYPE CtlType;
 	public uint32 CtlID;
@@ -7393,7 +7634,8 @@ public function int32 EDITWORDBREAKPROCW(PWSTR lpch, int32 ichCurrent, int32 cch
 	public uint itemData;
 }
 
-[CRepr]public struct DELETEITEMSTRUCT
+[CRepr]
+public struct DELETEITEMSTRUCT
 {
 	public DRAWITEMSTRUCT_CTL_TYPE CtlType;
 	public uint32 CtlID;
@@ -7402,7 +7644,8 @@ public function int32 EDITWORDBREAKPROCW(PWSTR lpch, int32 ichCurrent, int32 cch
 	public uint itemData;
 }
 
-[CRepr]public struct COMPAREITEMSTRUCT
+[CRepr]
+public struct COMPAREITEMSTRUCT
 {
 	public uint32 CtlType;
 	public uint32 CtlID;
@@ -7414,7 +7657,8 @@ public function int32 EDITWORDBREAKPROCW(PWSTR lpch, int32 ichCurrent, int32 cch
 	public uint32 dwLocaleId;
 }
 
-[CRepr]public struct USAGE_PROPERTIES
+[CRepr]
+public struct USAGE_PROPERTIES
 {
 	public uint16 level;
 	public uint16 page;
@@ -7428,9 +7672,11 @@ public function int32 EDITWORDBREAKPROCW(PWSTR lpch, int32 ichCurrent, int32 cch
 	public int32 physicalMaximum;
 }
 
-[CRepr]public struct POINTER_TYPE_INFO
+[CRepr]
+public struct POINTER_TYPE_INFO
 {
-	[CRepr, Union]	public struct _Anonymous_e__Union
+	[CRepr, Union]
+	public struct _Anonymous_e__Union
 	{
 		public POINTER_TOUCH_INFO touchInfo;
 		public POINTER_PEN_INFO penInfo;
@@ -7440,13 +7686,15 @@ public function int32 EDITWORDBREAKPROCW(PWSTR lpch, int32 ichCurrent, int32 cch
 	public using _Anonymous_e__Union Anonymous;
 }
 
-[CRepr]public struct TOUCH_HIT_TESTING_PROXIMITY_EVALUATION
+[CRepr]
+public struct TOUCH_HIT_TESTING_PROXIMITY_EVALUATION
 {
 	public uint16 score;
 	public POINT adjustedPoint;
 }
 
-[CRepr]public struct TOUCH_HIT_TESTING_INPUT
+[CRepr]
+public struct TOUCH_HIT_TESTING_INPUT
 {
 	public uint32 pointerId;
 	public POINT point;
@@ -7455,7 +7703,8 @@ public function int32 EDITWORDBREAKPROCW(PWSTR lpch, int32 ichCurrent, int32 cch
 	public uint32 orientation;
 }
 
-[CRepr]public struct COMBOBOXINFO
+[CRepr]
+public struct COMBOBOXINFO
 {
 	public uint32 cbSize;
 	public RECT rcItem;
@@ -7466,7 +7715,8 @@ public function int32 EDITWORDBREAKPROCW(PWSTR lpch, int32 ichCurrent, int32 cch
 	public HWND hwndList;
 }
 
-[CRepr]public struct POINTER_DEVICE_INFO
+[CRepr]
+public struct POINTER_DEVICE_INFO
 {
 	public uint32 displayOrientation;
 	public HANDLE device;
@@ -7477,7 +7727,8 @@ public function int32 EDITWORDBREAKPROCW(PWSTR lpch, int32 ichCurrent, int32 cch
 	public char8[520] productString;
 }
 
-[CRepr]public struct POINTER_DEVICE_PROPERTY
+[CRepr]
+public struct POINTER_DEVICE_PROPERTY
 {
 	public int32 logicalMin;
 	public int32 logicalMax;
@@ -7489,14 +7740,16 @@ public function int32 EDITWORDBREAKPROCW(PWSTR lpch, int32 ichCurrent, int32 cch
 	public uint16 usageId;
 }
 
-[CRepr]public struct POINTER_DEVICE_CURSOR_INFO
+[CRepr]
+public struct POINTER_DEVICE_CURSOR_INFO
 {
 	public uint32 cursorId;
 	public POINTER_DEVICE_CURSOR_TYPE cursor;
 }
 
 #if BF_32_BIT
-[CRepr]public struct TBBUTTON
+[CRepr]
+public struct TBBUTTON
 {
 	public int32 iBitmap;
 	public int32 idCommand;

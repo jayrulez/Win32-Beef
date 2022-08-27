@@ -16902,7 +16902,8 @@ public function HRESULT IEISXMLNSREGISTEREDFN(PWSTR lpszURI, Guid* pCLSID);
 #endregion
 
 #region Structs
-[CRepr]public struct HTML_PAINTER_INFO
+[CRepr]
+public struct HTML_PAINTER_INFO
 {
 	public int32 lFlags;
 	public int32 lZOrder;
@@ -16910,7 +16911,8 @@ public function HRESULT IEISXMLNSREGISTEREDFN(PWSTR lpszURI, Guid* pCLSID);
 	public RECT rcExpand;
 }
 
-[CRepr]public struct HTML_PAINT_XFORM
+[CRepr]
+public struct HTML_PAINT_XFORM
 {
 	public float eM11;
 	public float eM12;
@@ -16920,14 +16922,16 @@ public function HRESULT IEISXMLNSREGISTEREDFN(PWSTR lpszURI, Guid* pCLSID);
 	public float eDy;
 }
 
-[CRepr]public struct HTML_PAINT_DRAW_INFO
+[CRepr]
+public struct HTML_PAINT_DRAW_INFO
 {
 	public RECT rcViewport;
 	public HRGN hrgnUpdate;
 	public HTML_PAINT_XFORM xform;
 }
 
-[CRepr]public struct tagNavigateData
+[CRepr]
+public struct tagNavigateData
 {
 	public uint32 ulTarget;
 	public uint32 ulURL;
@@ -16936,26 +16940,31 @@ public function HRESULT IEISXMLNSREGISTEREDFN(PWSTR lpszURI, Guid* pCLSID);
 	public uint32 dwFlags;
 }
 
-[CRepr]public struct IELAUNCHURLINFO
+[CRepr]
+public struct IELAUNCHURLINFO
 {
 	public uint32 cbSize;
 	public uint32 dwCreationFlags;
 	public uint32 dwLaunchOptionFlags;
 }
 
-[CRepr]public struct HTMLPersistEvents
+[CRepr]
+public struct HTMLPersistEvents
 {
 }
 
-[CRepr]public struct LayoutRectEvents
+[CRepr]
+public struct LayoutRectEvents
 {
 }
 
-[CRepr]public struct HostDialogHelper
+[CRepr]
+public struct HostDialogHelper
 {
 }
 
-[CRepr]public struct DOCHOSTUIINFO
+[CRepr]
+public struct DOCHOSTUIINFO
 {
 	public uint32 cbSize;
 	public uint32 dwFlags;
@@ -16964,7 +16973,8 @@ public function HRESULT IEISXMLNSREGISTEREDFN(PWSTR lpszURI, Guid* pCLSID);
 	public PWSTR pchHostNS;
 }
 
-[CRepr]public struct STATURL
+[CRepr]
+public struct STATURL
 {
 	public uint32 cbSize;
 	public PWSTR pwcsUrl;

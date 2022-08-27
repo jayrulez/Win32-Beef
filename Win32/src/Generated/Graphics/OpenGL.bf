@@ -1489,7 +1489,8 @@ public function void GLUnurbsErrorProc(uint32 param0);
 #endregion
 
 #region Structs
-[CRepr]public struct PIXELFORMATDESCRIPTOR
+[CRepr]
+public struct PIXELFORMATDESCRIPTOR
 {
 	public uint16 nSize;
 	public uint16 nVersion;
@@ -1519,19 +1520,22 @@ public function void GLUnurbsErrorProc(uint32 param0);
 	public uint32 dwDamageMask;
 }
 
-[CRepr]public struct EMRPIXELFORMAT
+[CRepr]
+public struct EMRPIXELFORMAT
 {
 	public EMR emr;
 	public PIXELFORMATDESCRIPTOR pfd;
 }
 
-[CRepr]public struct POINTFLOAT
+[CRepr]
+public struct POINTFLOAT
 {
 	public float x;
 	public float y;
 }
 
-[CRepr]public struct GLYPHMETRICSFLOAT
+[CRepr]
+public struct GLYPHMETRICSFLOAT
 {
 	public float gmfBlackBoxX;
 	public float gmfBlackBoxY;
@@ -1540,7 +1544,8 @@ public function void GLUnurbsErrorProc(uint32 param0);
 	public float gmfCellIncY;
 }
 
-[CRepr]public struct LAYERPLANEDESCRIPTOR
+[CRepr]
+public struct LAYERPLANEDESCRIPTOR
 {
 	public uint16 nSize;
 	public uint16 nVersion;
@@ -1568,15 +1573,18 @@ public function void GLUnurbsErrorProc(uint32 param0);
 	public uint32 crTransparent;
 }
 
-[CRepr]public struct GLUnurbs
+[CRepr]
+public struct GLUnurbs
 {
 }
 
-[CRepr]public struct GLUquadric
+[CRepr]
+public struct GLUquadric
 {
 }
 
-[CRepr]public struct GLUtesselator
+[CRepr]
+public struct GLUtesselator
 {
 }
 

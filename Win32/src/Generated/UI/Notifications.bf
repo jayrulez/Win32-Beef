@@ -14,7 +14,8 @@ namespace Win32.UI.Notifications;
 #endregion
 
 #region Structs
-[CRepr]public struct NOTIFICATION_USER_INPUT_DATA
+[CRepr]
+public struct NOTIFICATION_USER_INPUT_DATA
 {
 	public PWSTR Key;
 	public PWSTR Value;

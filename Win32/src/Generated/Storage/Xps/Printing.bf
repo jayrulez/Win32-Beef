@@ -46,7 +46,8 @@ public enum PrintDocumentPackageCompletion : int32
 #endregion
 
 #region Structs
-[CRepr]public struct XPS_JOB_STATUS
+[CRepr]
+public struct XPS_JOB_STATUS
 {
 	public uint32 jobId;
 	public int32 currentDocument;
@@ -56,7 +57,8 @@ public enum PrintDocumentPackageCompletion : int32
 	public HRESULT jobStatus;
 }
 
-[CRepr]public struct PrintDocumentPackageStatus
+[CRepr]
+public struct PrintDocumentPackageStatus
 {
 	public uint32 JobId;
 	public int32 CurrentDocument;

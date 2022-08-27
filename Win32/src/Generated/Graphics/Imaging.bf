@@ -1256,7 +1256,8 @@ public function HRESULT PFNProgressNotification(void* pvData, uint32 uFrameNum, 
 #endregion
 
 #region Structs
-[CRepr]public struct WICRect
+[CRepr]
+public struct WICRect
 {
 	public int32 X;
 	public int32 Y;
@@ -1264,7 +1265,8 @@ public function HRESULT PFNProgressNotification(void* pvData, uint32 uFrameNum, 
 	public int32 Height;
 }
 
-[CRepr]public struct WICBitmapPattern
+[CRepr]
+public struct WICBitmapPattern
 {
 	public ULARGE_INTEGER Position;
 	public uint32 Length;
@@ -1273,7 +1275,8 @@ public function HRESULT PFNProgressNotification(void* pvData, uint32 uFrameNum, 
 	public BOOL EndOfStream;
 }
 
-[CRepr]public struct WICImageParameters
+[CRepr]
+public struct WICImageParameters
 {
 	public D2D1_PIXEL_FORMAT PixelFormat;
 	public float DpiX;
@@ -1284,14 +1287,16 @@ public function HRESULT PFNProgressNotification(void* pvData, uint32 uFrameNum, 
 	public uint32 PixelHeight;
 }
 
-[CRepr]public struct WICBitmapPlaneDescription
+[CRepr]
+public struct WICBitmapPlaneDescription
 {
 	public Guid Format;
 	public uint32 Width;
 	public uint32 Height;
 }
 
-[CRepr]public struct WICBitmapPlane
+[CRepr]
+public struct WICBitmapPlane
 {
 	public Guid Format;
 	public uint8* pbBuffer;
@@ -1299,7 +1304,8 @@ public function HRESULT PFNProgressNotification(void* pvData, uint32 uFrameNum, 
 	public uint32 cbBufferSize;
 }
 
-[CRepr]public struct WICJpegFrameHeader
+[CRepr]
+public struct WICJpegFrameHeader
 {
 	public uint32 Width;
 	public uint32 Height;
@@ -1311,7 +1317,8 @@ public function HRESULT PFNProgressNotification(void* pvData, uint32 uFrameNum, 
 	public uint32 QuantizationTableIndices;
 }
 
-[CRepr]public struct WICJpegScanHeader
+[CRepr]
+public struct WICJpegScanHeader
 {
 	public uint32 cComponents;
 	public uint32 RestartInterval;
@@ -1323,7 +1330,8 @@ public function HRESULT PFNProgressNotification(void* pvData, uint32 uFrameNum, 
 	public uint8 SuccessiveApproximationLow;
 }
 
-[CRepr]public struct WICRawCapabilitiesInfo
+[CRepr]
+public struct WICRawCapabilitiesInfo
 {
 	public uint32 cbSize;
 	public uint32 CodecMajorVersion;
@@ -1345,19 +1353,22 @@ public function HRESULT PFNProgressNotification(void* pvData, uint32 uFrameNum, 
 	public WICRawCapabilities RenderModeSupport;
 }
 
-[CRepr]public struct WICRawToneCurvePoint
+[CRepr]
+public struct WICRawToneCurvePoint
 {
 	public double Input;
 	public double Output;
 }
 
-[CRepr]public struct WICRawToneCurve
+[CRepr]
+public struct WICRawToneCurve
 {
 	public uint32 cPoints;
 	public WICRawToneCurvePoint[1] aPoints;
 }
 
-[CRepr]public struct WICDdsParameters
+[CRepr]
+public struct WICDdsParameters
 {
 	public uint32 Width;
 	public uint32 Height;
@@ -1369,7 +1380,8 @@ public function HRESULT PFNProgressNotification(void* pvData, uint32 uFrameNum, 
 	public WICDdsAlphaMode AlphaMode;
 }
 
-[CRepr]public struct WICDdsFormatInfo
+[CRepr]
+public struct WICDdsFormatInfo
 {
 	public DXGI_FORMAT DxgiFormat;
 	public uint32 BytesPerBlock;
@@ -1377,7 +1389,8 @@ public function HRESULT PFNProgressNotification(void* pvData, uint32 uFrameNum, 
 	public uint32 BlockHeight;
 }
 
-[CRepr]public struct WICMetadataPattern
+[CRepr]
+public struct WICMetadataPattern
 {
 	public ULARGE_INTEGER Position;
 	public uint32 Length;
@@ -1386,7 +1399,8 @@ public function HRESULT PFNProgressNotification(void* pvData, uint32 uFrameNum, 
 	public ULARGE_INTEGER DataOffset;
 }
 
-[CRepr]public struct WICMetadataHeader
+[CRepr]
+public struct WICMetadataHeader
 {
 	public ULARGE_INTEGER Position;
 	public uint32 Length;

@@ -86,14 +86,16 @@ public enum WEB_SOCKET_ACTION : int32
 #endregion
 
 #region Structs
-[CRepr]public struct WEB_SOCKET_PROPERTY
+[CRepr]
+public struct WEB_SOCKET_PROPERTY
 {
 	public WEB_SOCKET_PROPERTY_TYPE Type;
 	public void* pvValue;
 	public uint32 ulValueSize;
 }
 
-[CRepr]public struct WEB_SOCKET_HTTP_HEADER
+[CRepr]
+public struct WEB_SOCKET_HTTP_HEADER
 {
 	public PSTR pcName;
 	public uint32 ulNameLength;
@@ -101,15 +103,18 @@ public enum WEB_SOCKET_ACTION : int32
 	public uint32 ulValueLength;
 }
 
-[CRepr, Union]public struct WEB_SOCKET_BUFFER
+[CRepr, Union]
+public struct WEB_SOCKET_BUFFER
 {
-	[CRepr]	public struct _Data_e__Struct
+	[CRepr]
+	public struct _Data_e__Struct
 	{
 		public uint8* pbBuffer;
 		public uint32 ulBufferLength;
 	}
 
-	[CRepr]	public struct _CloseStatus_e__Struct
+	[CRepr]
+	public struct _CloseStatus_e__Struct
 	{
 		public uint8* pbReason;
 		public uint32 ulReasonLength;

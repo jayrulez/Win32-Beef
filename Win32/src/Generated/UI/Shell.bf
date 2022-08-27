@@ -6812,28 +6812,33 @@ public function void PAPPCONSTRAIN_CHANGE_ROUTINE(BOOLEAN Constrained, void* Con
 #endregion
 
 #region Structs
-[CRepr]public struct _APPSTATE_REGISTRATION
+[CRepr]
+public struct _APPSTATE_REGISTRATION
 {
 }
 
-[CRepr]public struct _APPCONSTRAIN_REGISTRATION
+[CRepr]
+public struct _APPCONSTRAIN_REGISTRATION
 {
 }
 
-[CRepr]public struct APPCATEGORYINFO
+[CRepr]
+public struct APPCATEGORYINFO
 {
 	public uint32 Locale;
 	public PWSTR pszDescription;
 	public Guid AppCategoryId;
 }
 
-[CRepr]public struct APPCATEGORYINFOLIST
+[CRepr]
+public struct APPCATEGORYINFOLIST
 {
 	public uint32 cCategory;
 	public APPCATEGORYINFO* pCategoryInfo;
 }
 
-[CRepr]public struct HELPINFO
+[CRepr]
+public struct HELPINFO
 {
 	public uint32 cbSize;
 	public int32 iContextType;
@@ -6843,21 +6848,24 @@ public function void PAPPCONSTRAIN_CHANGE_ROUTINE(BOOLEAN Constrained, void* Con
 	public POINT MousePos;
 }
 
-[CRepr]public struct MULTIKEYHELPA
+[CRepr]
+public struct MULTIKEYHELPA
 {
 	public uint32 mkSize;
 	public CHAR mkKeylist;
 	public CHAR[1] szKeyphrase;
 }
 
-[CRepr]public struct MULTIKEYHELPW
+[CRepr]
+public struct MULTIKEYHELPW
 {
 	public uint32 mkSize;
 	public char8 mkKeylist;
 	public char8[1] szKeyphrase;
 }
 
-[CRepr]public struct HELPWININFOA
+[CRepr]
+public struct HELPWININFOA
 {
 	public int32 wStructSize;
 	public int32 x;
@@ -6868,7 +6876,8 @@ public function void PAPPCONSTRAIN_CHANGE_ROUTINE(BOOLEAN Constrained, void* Con
 	public CHAR[2] rgchMember;
 }
 
-[CRepr]public struct HELPWININFOW
+[CRepr]
+public struct HELPWININFOW
 {
 	public int32 wStructSize;
 	public int32 x;
@@ -6879,7 +6888,8 @@ public function void PAPPCONSTRAIN_CHANGE_ROUTINE(BOOLEAN Constrained, void* Con
 	public char8[2] rgchMember;
 }
 
-[CRepr]public struct CMINVOKECOMMANDINFO
+[CRepr]
+public struct CMINVOKECOMMANDINFO
 {
 	public uint32 cbSize;
 	public uint32 fMask;
@@ -6892,7 +6902,8 @@ public function void PAPPCONSTRAIN_CHANGE_ROUTINE(BOOLEAN Constrained, void* Con
 	public HANDLE hIcon;
 }
 
-[CRepr]public struct CMINVOKECOMMANDINFOEX
+[CRepr]
+public struct CMINVOKECOMMANDINFOEX
 {
 	public uint32 cbSize;
 	public uint32 fMask;
@@ -6911,7 +6922,8 @@ public function void PAPPCONSTRAIN_CHANGE_ROUTINE(BOOLEAN Constrained, void* Con
 	public POINT ptInvoke;
 }
 
-[CRepr]public struct CMINVOKECOMMANDINFOEX_REMOTE
+[CRepr]
+public struct CMINVOKECOMMANDINFOEX_REMOTE
 {
 	public uint32 cbSize;
 	public uint32 fMask;
@@ -6931,7 +6943,8 @@ public function void PAPPCONSTRAIN_CHANGE_ROUTINE(BOOLEAN Constrained, void* Con
 	public uint32 lpVerbWInt;
 }
 
-[CRepr]public struct PERSIST_FOLDER_TARGET_INFO
+[CRepr]
+public struct PERSIST_FOLDER_TARGET_INFO
 {
 	public ITEMIDLIST* pidlTargetFolder;
 	public char8[260] szTargetParsingName;
@@ -6940,20 +6953,23 @@ public function void PAPPCONSTRAIN_CHANGE_ROUTINE(BOOLEAN Constrained, void* Con
 	public int32 csidl;
 }
 
-[CRepr]public struct EXTRASEARCH
+[CRepr]
+public struct EXTRASEARCH
 {
 	public Guid guidSearch;
 	public char8[80] wszFriendlyName;
 	public char8[2084] wszUrl;
 }
 
-[CRepr]public struct FOLDERSETTINGS
+[CRepr]
+public struct FOLDERSETTINGS
 {
 	public uint32 ViewMode;
 	public uint32 fFlags;
 }
 
-[CRepr]public struct SV2CVW2_PARAMS
+[CRepr]
+public struct SV2CVW2_PARAMS
 {
 	public uint32 cbSize;
 	public IShellView* psvPrev;
@@ -6964,13 +6980,15 @@ public function void PAPPCONSTRAIN_CHANGE_ROUTINE(BOOLEAN Constrained, void* Con
 	public HWND hwndView;
 }
 
-[CRepr]public struct SORTCOLUMN
+[CRepr]
+public struct SORTCOLUMN
 {
 	public PROPERTYKEY propkey;
 	public SORTDIRECTION direction;
 }
 
-[CRepr]public struct CM_COLUMNINFO
+[CRepr]
+public struct CM_COLUMNINFO
 {
 	public uint32 cbSize;
 	public uint32 dwMask;
@@ -6981,19 +6999,22 @@ public function void PAPPCONSTRAIN_CHANGE_ROUTINE(BOOLEAN Constrained, void* Con
 	public char8[80] wszName;
 }
 
-[CRepr]public struct SHELL_ITEM_RESOURCE
+[CRepr]
+public struct SHELL_ITEM_RESOURCE
 {
 	public Guid guidType;
 	public char8[260] szName;
 }
 
-[CRepr]public struct CATEGORY_INFO
+[CRepr]
+public struct CATEGORY_INFO
 {
 	public CATEGORYINFO_FLAGS cif;
 	public char8[260] wszName;
 }
 
-[CRepr]public struct SHDRAGIMAGE
+[CRepr]
+public struct SHDRAGIMAGE
 {
 	public SIZE sizeDragImage;
 	public POINT ptOffset;
@@ -7001,7 +7022,8 @@ public function void PAPPCONSTRAIN_CHANGE_ROUTINE(BOOLEAN Constrained, void* Con
 	public uint32 crColorKey;
 }
 
-[CRepr]public struct DESKBANDINFO
+[CRepr]
+public struct DESKBANDINFO
 {
 	public uint32 dwMask;
 	public POINTL ptMinSize;
@@ -7013,7 +7035,8 @@ public function void PAPPCONSTRAIN_CHANGE_ROUTINE(BOOLEAN Constrained, void* Con
 	public uint32 crBkgnd;
 }
 
-[CRepr]public struct THUMBBUTTON
+[CRepr]
+public struct THUMBBUTTON
 {
 	public THUMBBUTTONMASK dwMask;
 	public uint32 iId;
@@ -7023,14 +7046,16 @@ public function void PAPPCONSTRAIN_CHANGE_ROUTINE(BOOLEAN Constrained, void* Con
 	public THUMBBUTTONFLAGS dwFlags;
 }
 
-[CRepr]public struct BANDSITEINFO
+[CRepr]
+public struct BANDSITEINFO
 {
 	public uint32 dwMask;
 	public uint32 dwState;
 	public uint32 dwStyle;
 }
 
-[CRepr, Packed(1)]public struct DELEGATEITEMID
+[CRepr, Packed(1)]
+public struct DELEGATEITEMID
 {
 	public uint16 cbSize;
 	public uint16 wOuter;
@@ -7038,7 +7063,8 @@ public function void PAPPCONSTRAIN_CHANGE_ROUTINE(BOOLEAN Constrained, void* Con
 	public uint8[1] rgb;
 }
 
-[CRepr]public struct SMDATA
+[CRepr]
+public struct SMDATA
 {
 	public uint32 dwMask;
 	public uint32 dwFlags;
@@ -7054,7 +7080,8 @@ public function void PAPPCONSTRAIN_CHANGE_ROUTINE(BOOLEAN Constrained, void* Con
 	public void* pvUserData;
 }
 
-[CRepr]public struct SMINFO
+[CRepr]
+public struct SMINFO
 {
 	public uint32 dwMask;
 	public uint32 dwType;
@@ -7062,14 +7089,16 @@ public function void PAPPCONSTRAIN_CHANGE_ROUTINE(BOOLEAN Constrained, void* Con
 	public int32 iIcon;
 }
 
-[CRepr]public struct SMCSHCHANGENOTIFYSTRUCT
+[CRepr]
+public struct SMCSHCHANGENOTIFYSTRUCT
 {
 	public int32 lEvent;
 	public ITEMIDLIST* pidl1;
 	public ITEMIDLIST* pidl2;
 }
 
-[CRepr]public struct KNOWNFOLDER_DEFINITION
+[CRepr]
+public struct KNOWNFOLDER_DEFINITION
 {
 	public KF_CATEGORY category;
 	public PWSTR pszName;
@@ -7086,20 +7115,23 @@ public function void PAPPCONSTRAIN_CHANGE_ROUTINE(BOOLEAN Constrained, void* Con
 	public Guid ftidType;
 }
 
-[CRepr]public struct PREVIEWHANDLERFRAMEINFO
+[CRepr]
+public struct PREVIEWHANDLERFRAMEINFO
 {
 	public HACCEL haccel;
 	public uint32 cAccelEntries;
 }
 
-[CRepr]public struct BANNER_NOTIFICATION
+[CRepr]
+public struct BANNER_NOTIFICATION
 {
 	public BANNER_NOTIFICATION_EVENT event;
 	public PWSTR providerIdentity;
 	public PWSTR contentId;
 }
 
-[CRepr]public struct NSTCCUSTOMDRAW
+[CRepr]
+public struct NSTCCUSTOMDRAW
 {
 	public IShellItem* psi;
 	public uint32 uItemState;
@@ -7111,13 +7143,15 @@ public function void PAPPCONSTRAIN_CHANGE_ROUTINE(BOOLEAN Constrained, void* Con
 	public int32 iIndent;
 }
 
-[CRepr, Packed(1)]public struct DATABLOCK_HEADER
+[CRepr, Packed(1)]
+public struct DATABLOCK_HEADER
 {
 	public uint32 cbSize;
 	public uint32 dwSignature;
 }
 
-[CRepr, Packed(1)]public struct NT_CONSOLE_PROPS
+[CRepr, Packed(1)]
+public struct NT_CONSOLE_PROPS
 {
 	public DATABLOCK_HEADER dbh;
 	public uint16 wFillAttribute;
@@ -7142,20 +7176,23 @@ public function void PAPPCONSTRAIN_CHANGE_ROUTINE(BOOLEAN Constrained, void* Con
 	public uint32[16] ColorTable;
 }
 
-[CRepr, Packed(1)]public struct NT_FE_CONSOLE_PROPS
+[CRepr, Packed(1)]
+public struct NT_FE_CONSOLE_PROPS
 {
 	public DATABLOCK_HEADER dbh;
 	public uint32 uCodePage;
 }
 
-[CRepr, Packed(1)]public struct EXP_DARWIN_LINK
+[CRepr, Packed(1)]
+public struct EXP_DARWIN_LINK
 {
 	public DATABLOCK_HEADER dbh;
 	public CHAR[260] szDarwinID;
 	public char8[260] szwDarwinID;
 }
 
-[CRepr, Packed(1)]public struct EXP_SPECIAL_FOLDER
+[CRepr, Packed(1)]
+public struct EXP_SPECIAL_FOLDER
 {
 	public uint32 cbSize;
 	public uint32 dwSignature;
@@ -7163,7 +7200,8 @@ public function void PAPPCONSTRAIN_CHANGE_ROUTINE(BOOLEAN Constrained, void* Con
 	public uint32 cbOffset;
 }
 
-[CRepr, Packed(1)]public struct EXP_SZ_LINK
+[CRepr, Packed(1)]
+public struct EXP_SZ_LINK
 {
 	public uint32 cbSize;
 	public uint32 dwSignature;
@@ -7171,14 +7209,16 @@ public function void PAPPCONSTRAIN_CHANGE_ROUTINE(BOOLEAN Constrained, void* Con
 	public char8[260] swzTarget;
 }
 
-[CRepr, Packed(1)]public struct EXP_PROPERTYSTORAGE
+[CRepr, Packed(1)]
+public struct EXP_PROPERTYSTORAGE
 {
 	public uint32 cbSize;
 	public uint32 dwSignature;
 	public uint8[1] abPropertyStorage;
 }
 
-[CRepr]public struct SHFOLDERCUSTOMSETTINGS
+[CRepr]
+public struct SHFOLDERCUSTOMSETTINGS
 {
 	public uint32 dwSize;
 	public uint32 dwMask;
@@ -7197,7 +7237,8 @@ public function void PAPPCONSTRAIN_CHANGE_ROUTINE(BOOLEAN Constrained, void* Con
 	public uint32 cchLogo;
 }
 
-[CRepr]public struct BROWSEINFOA
+[CRepr]
+public struct BROWSEINFOA
 {
 	public HWND hwndOwner;
 	public ITEMIDLIST* pidlRoot;
@@ -7209,7 +7250,8 @@ public function void PAPPCONSTRAIN_CHANGE_ROUTINE(BOOLEAN Constrained, void* Con
 	public int32 iImage;
 }
 
-[CRepr]public struct BROWSEINFOW
+[CRepr]
+public struct BROWSEINFOW
 {
 	public HWND hwndOwner;
 	public ITEMIDLIST* pidlRoot;
@@ -7221,19 +7263,22 @@ public function void PAPPCONSTRAIN_CHANGE_ROUTINE(BOOLEAN Constrained, void* Con
 	public int32 iImage;
 }
 
-[CRepr]public struct NRESARRAY
+[CRepr]
+public struct NRESARRAY
 {
 	public uint32 cItems;
 	public NETRESOURCEA[1] nr;
 }
 
-[CRepr, Packed(1)]public struct CIDA
+[CRepr, Packed(1)]
+public struct CIDA
 {
 	public uint32 cidl;
 	public uint32[1] aoffset;
 }
 
-[CRepr, Packed(1)]public struct FILEDESCRIPTORA
+[CRepr, Packed(1)]
+public struct FILEDESCRIPTORA
 {
 	public uint32 dwFlags;
 	public Guid clsid;
@@ -7248,7 +7293,8 @@ public function void PAPPCONSTRAIN_CHANGE_ROUTINE(BOOLEAN Constrained, void* Con
 	public CHAR[260] cFileName;
 }
 
-[CRepr, Packed(1)]public struct FILEDESCRIPTORW
+[CRepr, Packed(1)]
+public struct FILEDESCRIPTORW
 {
 	public uint32 dwFlags;
 	public Guid clsid;
@@ -7263,19 +7309,22 @@ public function void PAPPCONSTRAIN_CHANGE_ROUTINE(BOOLEAN Constrained, void* Con
 	public char8[260] cFileName;
 }
 
-[CRepr, Packed(1)]public struct FILEGROUPDESCRIPTORA
+[CRepr, Packed(1)]
+public struct FILEGROUPDESCRIPTORA
 {
 	public uint32 cItems;
 	public FILEDESCRIPTORA[1] fgd;
 }
 
-[CRepr, Packed(1)]public struct FILEGROUPDESCRIPTORW
+[CRepr, Packed(1)]
+public struct FILEGROUPDESCRIPTORW
 {
 	public uint32 cItems;
 	public FILEDESCRIPTORW[1] fgd;
 }
 
-[CRepr, Packed(1)]public struct DROPFILES
+[CRepr, Packed(1)]
+public struct DROPFILES
 {
 	public uint32 pFiles;
 	public POINT pt;
@@ -7283,7 +7332,8 @@ public function void PAPPCONSTRAIN_CHANGE_ROUTINE(BOOLEAN Constrained, void* Con
 	public BOOL fWide;
 }
 
-[CRepr, Packed(1)]public struct FILE_ATTRIBUTES_ARRAY
+[CRepr, Packed(1)]
+public struct FILE_ATTRIBUTES_ARRAY
 {
 	public uint32 cItems;
 	public uint32 dwSumFileAttributes;
@@ -7291,38 +7341,44 @@ public function void PAPPCONSTRAIN_CHANGE_ROUTINE(BOOLEAN Constrained, void* Con
 	public uint32[1] rgdwFileAttributes;
 }
 
-[CRepr, Packed(1)]public struct DROPDESCRIPTION
+[CRepr, Packed(1)]
+public struct DROPDESCRIPTION
 {
 	public DROPIMAGETYPE type;
 	public char8[260] szMessage;
 	public char8[260] szInsert;
 }
 
-[CRepr, Packed(1)]public struct SHChangeNotifyEntry
+[CRepr, Packed(1)]
+public struct SHChangeNotifyEntry
 {
 	public ITEMIDLIST* pidl;
 	public BOOL fRecursive;
 }
 
-[CRepr, Packed(1)]public struct SHARDAPPIDINFO
+[CRepr, Packed(1)]
+public struct SHARDAPPIDINFO
 {
 	public IShellItem* psi;
 	public PWSTR pszAppID;
 }
 
-[CRepr, Packed(1)]public struct SHARDAPPIDINFOIDLIST
+[CRepr, Packed(1)]
+public struct SHARDAPPIDINFOIDLIST
 {
 	public ITEMIDLIST* pidl;
 	public PWSTR pszAppID;
 }
 
-[CRepr, Packed(1)]public struct SHARDAPPIDINFOLINK
+[CRepr, Packed(1)]
+public struct SHARDAPPIDINFOLINK
 {
 	public IShellLinkA* psl;
 	public PWSTR pszAppID;
 }
 
-[CRepr, Packed(1)]public struct SHChangeDWORDAsIDList
+[CRepr, Packed(1)]
+public struct SHChangeDWORDAsIDList
 {
 	public uint16 cb;
 	public uint32 dwItem1;
@@ -7330,7 +7386,8 @@ public function void PAPPCONSTRAIN_CHANGE_ROUTINE(BOOLEAN Constrained, void* Con
 	public uint16 cbZero;
 }
 
-[CRepr, Packed(1)]public struct SHChangeUpdateImageIDList
+[CRepr, Packed(1)]
+public struct SHChangeUpdateImageIDList
 {
 	public uint16 cb;
 	public int32 iIconIndex;
@@ -7341,13 +7398,15 @@ public function void PAPPCONSTRAIN_CHANGE_ROUTINE(BOOLEAN Constrained, void* Con
 	public uint16 cbZero;
 }
 
-[CRepr]public struct SHDESCRIPTIONID
+[CRepr]
+public struct SHDESCRIPTIONID
 {
 	public SHDID_ID dwDescriptionId;
 	public Guid clsid;
 }
 
-[CRepr, Packed(1)]public struct AUTO_SCROLL_DATA
+[CRepr, Packed(1)]
+public struct AUTO_SCROLL_DATA
 {
 	public int32 iNextSample;
 	public uint32 dwLastScroll;
@@ -7356,7 +7415,8 @@ public function void PAPPCONSTRAIN_CHANGE_ROUTINE(BOOLEAN Constrained, void* Con
 	public uint32[3] dwTimes;
 }
 
-[CRepr, Packed(1)]public struct CABINETSTATE
+[CRepr, Packed(1)]
+public struct CABINETSTATE
 {
 	public uint16 cLength;
 	public uint16 nVersion;
@@ -7364,26 +7424,30 @@ public function void PAPPCONSTRAIN_CHANGE_ROUTINE(BOOLEAN Constrained, void* Con
 	public uint32 fMenuEnumFilter;
 }
 
-[CRepr]public struct OPENASINFO
+[CRepr]
+public struct OPENASINFO
 {
 	public PWSTR pcszFile;
 	public PWSTR pcszClass;
 	public OPEN_AS_INFO_FLAGS oaifInFlags;
 }
 
-[CRepr]public struct QCMINFO_IDMAP_PLACEMENT
+[CRepr]
+public struct QCMINFO_IDMAP_PLACEMENT
 {
 	public uint32 id;
 	public uint32 fFlags;
 }
 
-[CRepr]public struct QCMINFO_IDMAP
+[CRepr]
+public struct QCMINFO_IDMAP
 {
 	public uint32 nMaxIds;
 	public QCMINFO_IDMAP_PLACEMENT[1] pIdList;
 }
 
-[CRepr]public struct QCMINFO
+[CRepr]
+public struct QCMINFO
 {
 	public HMENU hmenu;
 	public uint32 indexMenu;
@@ -7392,7 +7456,8 @@ public function void PAPPCONSTRAIN_CHANGE_ROUTINE(BOOLEAN Constrained, void* Con
 	public QCMINFO_IDMAP* pIdMap;
 }
 
-[CRepr]public struct DETAILSINFO
+[CRepr]
+public struct DETAILSINFO
 {
 	public ITEMIDLIST* pidl;
 	public int32 fmt;
@@ -7401,20 +7466,23 @@ public function void PAPPCONSTRAIN_CHANGE_ROUTINE(BOOLEAN Constrained, void* Con
 	public int32 iImage;
 }
 
-[CRepr]public struct SFVM_PROPPAGE_DATA
+[CRepr]
+public struct SFVM_PROPPAGE_DATA
 {
 	public uint32 dwReserved;
 	public LPFNSVADDPROPSHEETPAGE pfn;
 	public LPARAM lParam;
 }
 
-[CRepr]public struct SFVM_HELPTOPIC_DATA
+[CRepr]
+public struct SFVM_HELPTOPIC_DATA
 {
 	public char8[260] wszHelpFile;
 	public char8[260] wszHelpTopic;
 }
 
-[CRepr]public struct ITEMSPACING
+[CRepr]
+public struct ITEMSPACING
 {
 	public int32 cxSmall;
 	public int32 cySmall;
@@ -7422,7 +7490,8 @@ public function void PAPPCONSTRAIN_CHANGE_ROUTINE(BOOLEAN Constrained, void* Con
 	public int32 cyLarge;
 }
 
-[CRepr]public struct SFV_CREATE
+[CRepr]
+public struct SFV_CREATE
 {
 	public uint32 cbSize;
 	public IShellFolder* pshf;
@@ -7430,7 +7499,8 @@ public function void PAPPCONSTRAIN_CHANGE_ROUTINE(BOOLEAN Constrained, void* Con
 	public IShellFolderViewCB* psfvcb;
 }
 
-[CRepr]public struct DEFCONTEXTMENU
+[CRepr]
+public struct DEFCONTEXTMENU
 {
 	public HWND hwnd;
 	public IContextMenuCB* pcmcb;
@@ -7443,7 +7513,8 @@ public function void PAPPCONSTRAIN_CHANGE_ROUTINE(BOOLEAN Constrained, void* Con
 	public HKEY* aKeys;
 }
 
-[CRepr]public struct DFMICS
+[CRepr]
+public struct DFMICS
 {
 	public uint32 cbSize;
 	public uint32 fMask;
@@ -7454,7 +7525,8 @@ public function void PAPPCONSTRAIN_CHANGE_ROUTINE(BOOLEAN Constrained, void* Con
 	public IUnknown* punkSite;
 }
 
-[CRepr]public struct CSFV
+[CRepr]
+public struct CSFV
 {
 	public uint32 cbSize;
 	public IShellFolder* pshf;
@@ -7465,7 +7537,8 @@ public function void PAPPCONSTRAIN_CHANGE_ROUTINE(BOOLEAN Constrained, void* Con
 	public FOLDERVIEWMODE fvm;
 }
 
-[CRepr, Packed(1)]public struct SHELLSTATEA
+[CRepr, Packed(1)]
+public struct SHELLSTATEA
 {
 	public int32 _bitfield1;
 	public uint32 dwWin95Unused;
@@ -7477,7 +7550,8 @@ public function void PAPPCONSTRAIN_CHANGE_ROUTINE(BOOLEAN Constrained, void* Con
 	public int32 _bitfield2;
 }
 
-[CRepr, Packed(1)]public struct SHELLSTATEW
+[CRepr, Packed(1)]
+public struct SHELLSTATEW
 {
 	public int32 _bitfield1;
 	public uint32 dwWin95Unused;
@@ -7489,12 +7563,14 @@ public function void PAPPCONSTRAIN_CHANGE_ROUTINE(BOOLEAN Constrained, void* Con
 	public int32 _bitfield2;
 }
 
-[CRepr, Packed(1)]public struct SHELLFLAGSTATE
+[CRepr, Packed(1)]
+public struct SHELLFLAGSTATE
 {
 	public int32 _bitfield;
 }
 
-[CRepr]public struct BANDINFOSFB
+[CRepr]
+public struct BANDINFOSFB
 {
 	public uint32 dwMask;
 	public uint32 dwStateMask;
@@ -7508,7 +7584,8 @@ public function void PAPPCONSTRAIN_CHANGE_ROUTINE(BOOLEAN Constrained, void* Con
 	public ITEMIDLIST* pidl;
 }
 
-[CRepr, Packed(1)]public struct SHCOLUMNINFO
+[CRepr, Packed(1)]
+public struct SHCOLUMNINFO
 {
 	public PROPERTYKEY scid;
 	public uint16 vt;
@@ -7519,14 +7596,16 @@ public function void PAPPCONSTRAIN_CHANGE_ROUTINE(BOOLEAN Constrained, void* Con
 	public char8[128] wszDescription;
 }
 
-[CRepr]public struct SHCOLUMNINIT
+[CRepr]
+public struct SHCOLUMNINIT
 {
 	public uint32 dwFlags;
 	public uint32 dwReserved;
 	public char8[260] wszFolder;
 }
 
-[CRepr]public struct SHCOLUMNDATA
+[CRepr]
+public struct SHCOLUMNDATA
 {
 	public uint32 dwFlags;
 	public uint32 dwFileAttributes;
@@ -7535,33 +7614,38 @@ public function void PAPPCONSTRAIN_CHANGE_ROUTINE(BOOLEAN Constrained, void* Con
 	public char8[260] wszFile;
 }
 
-[CRepr, Packed(1)]public struct SHChangeProductKeyAsIDList
+[CRepr, Packed(1)]
+public struct SHChangeProductKeyAsIDList
 {
 	public uint16 cb;
 	public char8[39] wszProductKey;
 	public uint16 cbZero;
 }
 
-[CRepr]public struct TBINFO
+[CRepr]
+public struct TBINFO
 {
 	public uint32 cbuttons;
 	public uint32 uFlags;
 }
 
-[CRepr]public struct SFV_SETITEMPOS
+[CRepr]
+public struct SFV_SETITEMPOS
 {
 	public ITEMIDLIST* pidl;
 	public POINT pt;
 }
 
-[CRepr]public struct AASHELLMENUFILENAME
+[CRepr]
+public struct AASHELLMENUFILENAME
 {
 	public int16 cbTotal;
 	public uint8[12] rgbReserved;
 	public char8[1] szFileName;
 }
 
-[CRepr]public struct AASHELLMENUITEM
+[CRepr]
+public struct AASHELLMENUITEM
 {
 	public void* lpReserved1;
 	public int32 iReserved;
@@ -7571,7 +7655,8 @@ public function void PAPPCONSTRAIN_CHANGE_ROUTINE(BOOLEAN Constrained, void* Con
 }
 
 #if BF_64_BIT || BF_ARM_64
-[CRepr]public struct DRAGINFOA
+[CRepr]
+public struct DRAGINFOA
 {
 	public uint32 uSize;
 	public POINT pt;
@@ -7582,7 +7667,8 @@ public function void PAPPCONSTRAIN_CHANGE_ROUTINE(BOOLEAN Constrained, void* Con
 #endif
 
 #if BF_64_BIT || BF_ARM_64
-[CRepr]public struct DRAGINFOW
+[CRepr]
+public struct DRAGINFOW
 {
 	public uint32 uSize;
 	public POINT pt;
@@ -7593,7 +7679,8 @@ public function void PAPPCONSTRAIN_CHANGE_ROUTINE(BOOLEAN Constrained, void* Con
 #endif
 
 #if BF_64_BIT || BF_ARM_64
-[CRepr]public struct APPBARDATA
+[CRepr]
+public struct APPBARDATA
 {
 	public uint32 cbSize;
 	public HWND hWnd;
@@ -7605,7 +7692,8 @@ public function void PAPPCONSTRAIN_CHANGE_ROUTINE(BOOLEAN Constrained, void* Con
 #endif
 
 #if BF_64_BIT || BF_ARM_64
-[CRepr]public struct SHFILEOPSTRUCTA
+[CRepr]
+public struct SHFILEOPSTRUCTA
 {
 	public HWND hwnd;
 	public uint32 wFunc;
@@ -7619,7 +7707,8 @@ public function void PAPPCONSTRAIN_CHANGE_ROUTINE(BOOLEAN Constrained, void* Con
 #endif
 
 #if BF_64_BIT || BF_ARM_64
-[CRepr]public struct SHFILEOPSTRUCTW
+[CRepr]
+public struct SHFILEOPSTRUCTW
 {
 	public HWND hwnd;
 	public uint32 wFunc;
@@ -7633,7 +7722,8 @@ public function void PAPPCONSTRAIN_CHANGE_ROUTINE(BOOLEAN Constrained, void* Con
 #endif
 
 #if BF_64_BIT || BF_ARM_64
-[CRepr]public struct SHNAMEMAPPINGA
+[CRepr]
+public struct SHNAMEMAPPINGA
 {
 	public PSTR pszOldPath;
 	public PSTR pszNewPath;
@@ -7643,7 +7733,8 @@ public function void PAPPCONSTRAIN_CHANGE_ROUTINE(BOOLEAN Constrained, void* Con
 #endif
 
 #if BF_64_BIT || BF_ARM_64
-[CRepr]public struct SHNAMEMAPPINGW
+[CRepr]
+public struct SHNAMEMAPPINGW
 {
 	public PWSTR pszOldPath;
 	public PWSTR pszNewPath;
@@ -7653,9 +7744,11 @@ public function void PAPPCONSTRAIN_CHANGE_ROUTINE(BOOLEAN Constrained, void* Con
 #endif
 
 #if BF_64_BIT || BF_ARM_64
-[CRepr]public struct SHELLEXECUTEINFOA
+[CRepr]
+public struct SHELLEXECUTEINFOA
 {
-	[CRepr, Union]	public struct _Anonymous_e__Union
+	[CRepr, Union]
+	public struct _Anonymous_e__Union
 	{
 		public HANDLE hIcon;
 		public HANDLE hMonitor;
@@ -7680,9 +7773,11 @@ public function void PAPPCONSTRAIN_CHANGE_ROUTINE(BOOLEAN Constrained, void* Con
 #endif
 
 #if BF_64_BIT || BF_ARM_64
-[CRepr]public struct SHELLEXECUTEINFOW
+[CRepr]
+public struct SHELLEXECUTEINFOW
 {
-	[CRepr, Union]	public struct _Anonymous_e__Union
+	[CRepr, Union]
+	public struct _Anonymous_e__Union
 	{
 		public HANDLE hIcon;
 		public HANDLE hMonitor;
@@ -7707,7 +7802,8 @@ public function void PAPPCONSTRAIN_CHANGE_ROUTINE(BOOLEAN Constrained, void* Con
 #endif
 
 #if BF_64_BIT || BF_ARM_64
-[CRepr]public struct SHCREATEPROCESSINFOW
+[CRepr]
+public struct SHCREATEPROCESSINFOW
 {
 	public uint32 cbSize;
 	public uint32 fMask;
@@ -7726,7 +7822,8 @@ public function void PAPPCONSTRAIN_CHANGE_ROUTINE(BOOLEAN Constrained, void* Con
 #endif
 
 #if BF_64_BIT || BF_ARM_64
-[CRepr]public struct ASSOCIATIONELEMENT
+[CRepr]
+public struct ASSOCIATIONELEMENT
 {
 	public ASSOCCLASS ac;
 	public HKEY hkClass;
@@ -7735,7 +7832,8 @@ public function void PAPPCONSTRAIN_CHANGE_ROUTINE(BOOLEAN Constrained, void* Con
 #endif
 
 #if BF_64_BIT || BF_ARM_64
-[CRepr]public struct SHQUERYRBINFO
+[CRepr]
+public struct SHQUERYRBINFO
 {
 	public uint32 cbSize;
 	public int64 i64Size;
@@ -7744,9 +7842,11 @@ public function void PAPPCONSTRAIN_CHANGE_ROUTINE(BOOLEAN Constrained, void* Con
 #endif
 
 #if BF_64_BIT || BF_ARM_64
-[CRepr]public struct NOTIFYICONDATAA
+[CRepr]
+public struct NOTIFYICONDATAA
 {
-	[CRepr, Union]	public struct _Anonymous_e__Union
+	[CRepr, Union]
+	public struct _Anonymous_e__Union
 	{
 		public uint32 uTimeout;
 		public uint32 uVersion;
@@ -7771,9 +7871,11 @@ public function void PAPPCONSTRAIN_CHANGE_ROUTINE(BOOLEAN Constrained, void* Con
 #endif
 
 #if BF_64_BIT || BF_ARM_64
-[CRepr]public struct NOTIFYICONDATAW
+[CRepr]
+public struct NOTIFYICONDATAW
 {
-	[CRepr, Union]	public struct _Anonymous_e__Union
+	[CRepr, Union]
+	public struct _Anonymous_e__Union
 	{
 		public uint32 uTimeout;
 		public uint32 uVersion;
@@ -7798,7 +7900,8 @@ public function void PAPPCONSTRAIN_CHANGE_ROUTINE(BOOLEAN Constrained, void* Con
 #endif
 
 #if BF_64_BIT || BF_ARM_64
-[CRepr]public struct NOTIFYICONIDENTIFIER
+[CRepr]
+public struct NOTIFYICONIDENTIFIER
 {
 	public uint32 cbSize;
 	public HWND hWnd;
@@ -7808,7 +7911,8 @@ public function void PAPPCONSTRAIN_CHANGE_ROUTINE(BOOLEAN Constrained, void* Con
 #endif
 
 #if BF_64_BIT || BF_ARM_64
-[CRepr]public struct SHFILEINFOA
+[CRepr]
+public struct SHFILEINFOA
 {
 	public HICON hIcon;
 	public int32 iIcon;
@@ -7819,7 +7923,8 @@ public function void PAPPCONSTRAIN_CHANGE_ROUTINE(BOOLEAN Constrained, void* Con
 #endif
 
 #if BF_64_BIT || BF_ARM_64
-[CRepr]public struct SHFILEINFOW
+[CRepr]
+public struct SHFILEINFOW
 {
 	public HICON hIcon;
 	public int32 iIcon;
@@ -7830,7 +7935,8 @@ public function void PAPPCONSTRAIN_CHANGE_ROUTINE(BOOLEAN Constrained, void* Con
 #endif
 
 #if BF_64_BIT || BF_ARM_64
-[CRepr]public struct SHSTOCKICONINFO
+[CRepr]
+public struct SHSTOCKICONINFO
 {
 	public uint32 cbSize;
 	public HICON hIcon;
@@ -7841,7 +7947,8 @@ public function void PAPPCONSTRAIN_CHANGE_ROUTINE(BOOLEAN Constrained, void* Con
 #endif
 
 #if BF_64_BIT || BF_ARM_64
-[CRepr]public struct OPEN_PRINTER_PROPS_INFOA
+[CRepr]
+public struct OPEN_PRINTER_PROPS_INFOA
 {
 	public uint32 dwSize;
 	public PSTR pszSheetName;
@@ -7852,7 +7959,8 @@ public function void PAPPCONSTRAIN_CHANGE_ROUTINE(BOOLEAN Constrained, void* Con
 #endif
 
 #if BF_64_BIT || BF_ARM_64
-[CRepr]public struct OPEN_PRINTER_PROPS_INFOW
+[CRepr]
+public struct OPEN_PRINTER_PROPS_INFOW
 {
 	public uint32 dwSize;
 	public PWSTR pszSheetName;
@@ -7862,9 +7970,11 @@ public function void PAPPCONSTRAIN_CHANGE_ROUTINE(BOOLEAN Constrained, void* Con
 }
 #endif
 
-[CRepr]public struct NC_ADDRESS
+[CRepr]
+public struct NC_ADDRESS
 {
-	[CRepr]	public struct NET_ADDRESS_INFO
+	[CRepr]
+	public struct NET_ADDRESS_INFO
 	{
 	}
 
@@ -7873,7 +7983,8 @@ public function void PAPPCONSTRAIN_CHANGE_ROUTINE(BOOLEAN Constrained, void* Con
 	public uint8 PrefixLength;
 }
 
-[CRepr]public struct PARSEDURLA
+[CRepr]
+public struct PARSEDURLA
 {
 	public uint32 cbSize;
 	public PSTR pszProtocol;
@@ -7883,7 +7994,8 @@ public function void PAPPCONSTRAIN_CHANGE_ROUTINE(BOOLEAN Constrained, void* Con
 	public uint32 nScheme;
 }
 
-[CRepr]public struct PARSEDURLW
+[CRepr]
+public struct PARSEDURLW
 {
 	public uint32 cbSize;
 	public PWSTR pszProtocol;
@@ -7893,13 +8005,15 @@ public function void PAPPCONSTRAIN_CHANGE_ROUTINE(BOOLEAN Constrained, void* Con
 	public uint32 nScheme;
 }
 
-[CRepr]public struct QITAB
+[CRepr]
+public struct QITAB
 {
 	public Guid* piid;
 	public uint32 dwOffset;
 }
 
-[CRepr]public struct DLLVERSIONINFO
+[CRepr]
+public struct DLLVERSIONINFO
 {
 	public uint32 cbSize;
 	public uint32 dwMajorVersion;
@@ -7908,14 +8022,16 @@ public function void PAPPCONSTRAIN_CHANGE_ROUTINE(BOOLEAN Constrained, void* Con
 	public uint32 dwPlatformID;
 }
 
-[CRepr]public struct DLLVERSIONINFO2
+[CRepr]
+public struct DLLVERSIONINFO2
 {
 	public DLLVERSIONINFO info1;
 	public uint32 dwFlags;
 	public uint64 ullVersion;
 }
 
-[CRepr]public struct APPINFODATA
+[CRepr]
+public struct APPINFODATA
 {
 	public uint32 cbSize;
 	public uint32 dwMask;
@@ -7939,7 +8055,8 @@ public function void PAPPCONSTRAIN_CHANGE_ROUTINE(BOOLEAN Constrained, void* Con
 	public PWSTR pszUpdateInfoUrl;
 }
 
-[CRepr]public struct SLOWAPPINFO
+[CRepr]
+public struct SLOWAPPINFO
 {
 	public uint64 ullSize;
 	public FILETIME ftLastUsed;
@@ -7947,7 +8064,8 @@ public function void PAPPCONSTRAIN_CHANGE_ROUTINE(BOOLEAN Constrained, void* Con
 	public PWSTR pszImage;
 }
 
-[CRepr]public struct PUBAPPINFO
+[CRepr]
+public struct PUBAPPINFO
 {
 	public uint32 cbSize;
 	public uint32 dwMask;
@@ -7958,7 +8076,8 @@ public function void PAPPCONSTRAIN_CHANGE_ROUTINE(BOOLEAN Constrained, void* Con
 	public SYSTEMTIME stExpire;
 }
 
-[CRepr]public struct CREDENTIAL_PROVIDER_FIELD_DESCRIPTOR
+[CRepr]
+public struct CREDENTIAL_PROVIDER_FIELD_DESCRIPTOR
 {
 	public uint32 dwFieldID;
 	public CREDENTIAL_PROVIDER_FIELD_TYPE cpft;
@@ -7966,7 +8085,8 @@ public function void PAPPCONSTRAIN_CHANGE_ROUTINE(BOOLEAN Constrained, void* Con
 	public Guid guidFieldType;
 }
 
-[CRepr]public struct CREDENTIAL_PROVIDER_CREDENTIAL_SERIALIZATION
+[CRepr]
+public struct CREDENTIAL_PROVIDER_CREDENTIAL_SERIALIZATION
 {
 	public uint32 ulAuthenticationPackage;
 	public Guid clsidCredentialProvider;
@@ -7974,13 +8094,15 @@ public function void PAPPCONSTRAIN_CHANGE_ROUTINE(BOOLEAN Constrained, void* Con
 	public uint8* rgbSerialization;
 }
 
-[CRepr]public struct SYNCMGR_CONFLICT_ID_INFO
+[CRepr]
+public struct SYNCMGR_CONFLICT_ID_INFO
 {
 	public BYTE_BLOB* pblobID;
 	public BYTE_BLOB* pblobExtra;
 }
 
-[CRepr]public struct CONFIRM_CONFLICT_ITEM
+[CRepr]
+public struct CONFIRM_CONFLICT_ITEM
 {
 	public IShellItem2* pShellItem;
 	public PWSTR pszOriginalName;
@@ -7990,18 +8112,21 @@ public function void PAPPCONSTRAIN_CHANGE_ROUTINE(BOOLEAN Constrained, void* Con
 	public SYNCMGR_CONFLICT_ITEM_TYPE nType;
 }
 
-[CRepr]public struct CONFIRM_CONFLICT_RESULT_INFO
+[CRepr]
+public struct CONFIRM_CONFLICT_RESULT_INFO
 {
 	public PWSTR pszNewName;
 	public uint32 iItemIndex;
 }
 
-[CRepr]public struct WTS_THUMBNAILID
+[CRepr]
+public struct WTS_THUMBNAILID
 {
 	public uint8[16] rgbKey;
 }
 
-[CRepr]public struct SYNCMGRPROGRESSITEM
+[CRepr]
+public struct SYNCMGRPROGRESSITEM
 {
 	public uint32 cbSize;
 	public uint32 mask;
@@ -8011,7 +8136,8 @@ public function void PAPPCONSTRAIN_CHANGE_ROUTINE(BOOLEAN Constrained, void* Con
 	public int32 iMaxValue;
 }
 
-[CRepr]public struct SYNCMGRLOGERRORINFO
+[CRepr]
+public struct SYNCMGRLOGERRORINFO
 {
 	public uint32 cbSize;
 	public uint32 mask;
@@ -8020,7 +8146,8 @@ public function void PAPPCONSTRAIN_CHANGE_ROUTINE(BOOLEAN Constrained, void* Con
 	public Guid ItemID;
 }
 
-[CRepr]public struct SYNCMGRITEM
+[CRepr]
+public struct SYNCMGRITEM
 {
 	public uint32 cbSize;
 	public uint32 dwFlags;
@@ -8031,7 +8158,8 @@ public function void PAPPCONSTRAIN_CHANGE_ROUTINE(BOOLEAN Constrained, void* Con
 	public FILETIME ftLastUpdate;
 }
 
-[CRepr]public struct SYNCMGRHANDLERINFO
+[CRepr]
+public struct SYNCMGRHANDLERINFO
 {
 	public uint32 cbSize;
 	public HICON hIcon;
@@ -8039,7 +8167,8 @@ public function void PAPPCONSTRAIN_CHANGE_ROUTINE(BOOLEAN Constrained, void* Con
 	public char8[32] wszHandlerName;
 }
 
-[CRepr]public struct WINDOWDATA
+[CRepr]
+public struct WINDOWDATA
 {
 	public uint32 dwWindowID;
 	public uint32 uiCP;
@@ -8049,19 +8178,22 @@ public function void PAPPCONSTRAIN_CHANGE_ROUTINE(BOOLEAN Constrained, void* Con
 	public PWSTR lpszTitle;
 }
 
-[CRepr]public struct HLITEM
+[CRepr]
+public struct HLITEM
 {
 	public uint32 uHLID;
 	public PWSTR pwzFriendlyName;
 }
 
-[CRepr]public struct HLTBINFO
+[CRepr]
+public struct HLTBINFO
 {
 	public uint32 uDockType;
 	public RECT rcTbPos;
 }
 
-[CRepr]public struct HLBWINFO
+[CRepr]
+public struct HLBWINFO
 {
 	public uint32 cbSize;
 	public uint32 grfHLBWIF;
@@ -8070,7 +8202,8 @@ public function void PAPPCONSTRAIN_CHANGE_ROUTINE(BOOLEAN Constrained, void* Con
 	public HLTBINFO hltbinfo;
 }
 
-[CRepr]public struct BASEBROWSERDATAXP
+[CRepr]
+public struct BASEBROWSERDATAXP
 {
 	public HWND _hwnd;
 	public ITravelLog* _ptl;
@@ -8100,7 +8233,8 @@ public function void PAPPCONSTRAIN_CHANGE_ROUTINE(BOOLEAN Constrained, void* Con
 	public HWND _hwndFrame;
 }
 
-[CRepr]public struct BASEBROWSERDATALH
+[CRepr]
+public struct BASEBROWSERDATALH
 {
 	public HWND _hwnd;
 	public ITravelLog* _ptl;
@@ -8131,14 +8265,16 @@ public function void PAPPCONSTRAIN_CHANGE_ROUTINE(BOOLEAN Constrained, void* Con
 	public int32 _lPhishingFilterStatus;
 }
 
-[CRepr]public struct FOLDERSETDATA
+[CRepr]
+public struct FOLDERSETDATA
 {
 	public FOLDERSETTINGS _fs;
 	public Guid _vidRestore;
 	public uint32 _dwViewPriority;
 }
 
-[CRepr]public struct TOOLBARITEM
+[CRepr]
+public struct TOOLBARITEM
 {
 	public IDockingWindow* ptbar;
 	public RECT rcBorderTool;
@@ -8147,7 +8283,8 @@ public function void PAPPCONSTRAIN_CHANGE_ROUTINE(BOOLEAN Constrained, void* Con
 	public HMONITOR hMon;
 }
 
-[CRepr, Packed(1)]public struct CPLINFO
+[CRepr, Packed(1)]
+public struct CPLINFO
 {
 	public int32 idIcon;
 	public int32 idName;
@@ -8155,7 +8292,8 @@ public function void PAPPCONSTRAIN_CHANGE_ROUTINE(BOOLEAN Constrained, void* Con
 	public int lData;
 }
 
-[CRepr, Packed(1)]public struct NEWCPLINFOA
+[CRepr, Packed(1)]
+public struct NEWCPLINFOA
 {
 	public uint32 dwSize;
 	public uint32 dwFlags;
@@ -8167,7 +8305,8 @@ public function void PAPPCONSTRAIN_CHANGE_ROUTINE(BOOLEAN Constrained, void* Con
 	public CHAR[128] szHelpFile;
 }
 
-[CRepr, Packed(1)]public struct NEWCPLINFOW
+[CRepr, Packed(1)]
+public struct NEWCPLINFOW
 {
 	public uint32 dwSize;
 	public uint32 dwFlags;
@@ -8179,7 +8318,8 @@ public function void PAPPCONSTRAIN_CHANGE_ROUTINE(BOOLEAN Constrained, void* Con
 	public char8[128] szHelpFile;
 }
 
-[CRepr]public struct PROFILEINFOA
+[CRepr]
+public struct PROFILEINFOA
 {
 	public uint32 dwSize;
 	public uint32 dwFlags;
@@ -8191,7 +8331,8 @@ public function void PAPPCONSTRAIN_CHANGE_ROUTINE(BOOLEAN Constrained, void* Con
 	public HANDLE hProfile;
 }
 
-[CRepr]public struct PROFILEINFOW
+[CRepr]
+public struct PROFILEINFOW
 {
 	public uint32 dwSize;
 	public uint32 dwFlags;
@@ -8203,7 +8344,8 @@ public function void PAPPCONSTRAIN_CHANGE_ROUTINE(BOOLEAN Constrained, void* Con
 	public HANDLE hProfile;
 }
 
-[CRepr]public struct urlinvokecommandinfoA
+[CRepr]
+public struct urlinvokecommandinfoA
 {
 	public uint32 dwcbSize;
 	public uint32 dwFlags;
@@ -8211,7 +8353,8 @@ public function void PAPPCONSTRAIN_CHANGE_ROUTINE(BOOLEAN Constrained, void* Con
 	public PSTR pcszVerb;
 }
 
-[CRepr]public struct urlinvokecommandinfoW
+[CRepr]
+public struct urlinvokecommandinfoW
 {
 	public uint32 dwcbSize;
 	public uint32 dwFlags;
@@ -8220,7 +8363,8 @@ public function void PAPPCONSTRAIN_CHANGE_ROUTINE(BOOLEAN Constrained, void* Con
 }
 
 #if BF_32_BIT
-[CRepr, Packed(1)]public struct DRAGINFOA
+[CRepr, Packed(1)]
+public struct DRAGINFOA
 {
 	public uint32 uSize;
 	public POINT pt;
@@ -8231,7 +8375,8 @@ public function void PAPPCONSTRAIN_CHANGE_ROUTINE(BOOLEAN Constrained, void* Con
 #endif
 
 #if BF_32_BIT
-[CRepr, Packed(1)]public struct DRAGINFOW
+[CRepr, Packed(1)]
+public struct DRAGINFOW
 {
 	public uint32 uSize;
 	public POINT pt;
@@ -8242,7 +8387,8 @@ public function void PAPPCONSTRAIN_CHANGE_ROUTINE(BOOLEAN Constrained, void* Con
 #endif
 
 #if BF_32_BIT
-[CRepr, Packed(1)]public struct APPBARDATA
+[CRepr, Packed(1)]
+public struct APPBARDATA
 {
 	public uint32 cbSize;
 	public HWND hWnd;
@@ -8254,7 +8400,8 @@ public function void PAPPCONSTRAIN_CHANGE_ROUTINE(BOOLEAN Constrained, void* Con
 #endif
 
 #if BF_32_BIT
-[CRepr, Packed(1)]public struct SHFILEOPSTRUCTA
+[CRepr, Packed(1)]
+public struct SHFILEOPSTRUCTA
 {
 	public HWND hwnd;
 	public uint32 wFunc;
@@ -8268,7 +8415,8 @@ public function void PAPPCONSTRAIN_CHANGE_ROUTINE(BOOLEAN Constrained, void* Con
 #endif
 
 #if BF_32_BIT
-[CRepr, Packed(1)]public struct SHFILEOPSTRUCTW
+[CRepr, Packed(1)]
+public struct SHFILEOPSTRUCTW
 {
 	public HWND hwnd;
 	public uint32 wFunc;
@@ -8282,7 +8430,8 @@ public function void PAPPCONSTRAIN_CHANGE_ROUTINE(BOOLEAN Constrained, void* Con
 #endif
 
 #if BF_32_BIT
-[CRepr, Packed(1)]public struct SHNAMEMAPPINGA
+[CRepr, Packed(1)]
+public struct SHNAMEMAPPINGA
 {
 	public PSTR pszOldPath;
 	public PSTR pszNewPath;
@@ -8292,7 +8441,8 @@ public function void PAPPCONSTRAIN_CHANGE_ROUTINE(BOOLEAN Constrained, void* Con
 #endif
 
 #if BF_32_BIT
-[CRepr, Packed(1)]public struct SHNAMEMAPPINGW
+[CRepr, Packed(1)]
+public struct SHNAMEMAPPINGW
 {
 	public PWSTR pszOldPath;
 	public PWSTR pszNewPath;
@@ -8302,9 +8452,11 @@ public function void PAPPCONSTRAIN_CHANGE_ROUTINE(BOOLEAN Constrained, void* Con
 #endif
 
 #if BF_32_BIT
-[CRepr, Packed(1)]public struct SHELLEXECUTEINFOA
+[CRepr, Packed(1)]
+public struct SHELLEXECUTEINFOA
 {
-	[CRepr, Union, Packed(1)]	public struct _Anonymous_e__Union
+	[CRepr, Union, Packed(1)]
+	public struct _Anonymous_e__Union
 	{
 		public HANDLE hIcon;
 		public HANDLE hMonitor;
@@ -8329,9 +8481,11 @@ public function void PAPPCONSTRAIN_CHANGE_ROUTINE(BOOLEAN Constrained, void* Con
 #endif
 
 #if BF_32_BIT
-[CRepr, Packed(1)]public struct SHELLEXECUTEINFOW
+[CRepr, Packed(1)]
+public struct SHELLEXECUTEINFOW
 {
-	[CRepr, Union, Packed(1)]	public struct _Anonymous_e__Union
+	[CRepr, Union, Packed(1)]
+	public struct _Anonymous_e__Union
 	{
 		public HANDLE hIcon;
 		public HANDLE hMonitor;
@@ -8356,7 +8510,8 @@ public function void PAPPCONSTRAIN_CHANGE_ROUTINE(BOOLEAN Constrained, void* Con
 #endif
 
 #if BF_32_BIT
-[CRepr, Packed(1)]public struct SHCREATEPROCESSINFOW
+[CRepr, Packed(1)]
+public struct SHCREATEPROCESSINFOW
 {
 	public uint32 cbSize;
 	public uint32 fMask;
@@ -8375,7 +8530,8 @@ public function void PAPPCONSTRAIN_CHANGE_ROUTINE(BOOLEAN Constrained, void* Con
 #endif
 
 #if BF_32_BIT
-[CRepr, Packed(1)]public struct ASSOCIATIONELEMENT
+[CRepr, Packed(1)]
+public struct ASSOCIATIONELEMENT
 {
 	public ASSOCCLASS ac;
 	public HKEY hkClass;
@@ -8384,7 +8540,8 @@ public function void PAPPCONSTRAIN_CHANGE_ROUTINE(BOOLEAN Constrained, void* Con
 #endif
 
 #if BF_32_BIT
-[CRepr, Packed(1)]public struct SHQUERYRBINFO
+[CRepr, Packed(1)]
+public struct SHQUERYRBINFO
 {
 	public uint32 cbSize;
 	public int64 i64Size;
@@ -8393,9 +8550,11 @@ public function void PAPPCONSTRAIN_CHANGE_ROUTINE(BOOLEAN Constrained, void* Con
 #endif
 
 #if BF_32_BIT
-[CRepr, Packed(1)]public struct NOTIFYICONDATAA
+[CRepr, Packed(1)]
+public struct NOTIFYICONDATAA
 {
-	[CRepr, Union, Packed(1)]	public struct _Anonymous_e__Union
+	[CRepr, Union, Packed(1)]
+	public struct _Anonymous_e__Union
 	{
 		public uint32 uTimeout;
 		public uint32 uVersion;
@@ -8420,9 +8579,11 @@ public function void PAPPCONSTRAIN_CHANGE_ROUTINE(BOOLEAN Constrained, void* Con
 #endif
 
 #if BF_32_BIT
-[CRepr, Packed(1)]public struct NOTIFYICONDATAW
+[CRepr, Packed(1)]
+public struct NOTIFYICONDATAW
 {
-	[CRepr, Union, Packed(1)]	public struct _Anonymous_e__Union
+	[CRepr, Union, Packed(1)]
+	public struct _Anonymous_e__Union
 	{
 		public uint32 uTimeout;
 		public uint32 uVersion;
@@ -8447,7 +8608,8 @@ public function void PAPPCONSTRAIN_CHANGE_ROUTINE(BOOLEAN Constrained, void* Con
 #endif
 
 #if BF_32_BIT
-[CRepr, Packed(1)]public struct NOTIFYICONIDENTIFIER
+[CRepr, Packed(1)]
+public struct NOTIFYICONIDENTIFIER
 {
 	public uint32 cbSize;
 	public HWND hWnd;
@@ -8457,7 +8619,8 @@ public function void PAPPCONSTRAIN_CHANGE_ROUTINE(BOOLEAN Constrained, void* Con
 #endif
 
 #if BF_32_BIT
-[CRepr, Packed(1)]public struct SHFILEINFOA
+[CRepr, Packed(1)]
+public struct SHFILEINFOA
 {
 	public HICON hIcon;
 	public int32 iIcon;
@@ -8468,7 +8631,8 @@ public function void PAPPCONSTRAIN_CHANGE_ROUTINE(BOOLEAN Constrained, void* Con
 #endif
 
 #if BF_32_BIT
-[CRepr, Packed(1)]public struct SHFILEINFOW
+[CRepr, Packed(1)]
+public struct SHFILEINFOW
 {
 	public HICON hIcon;
 	public int32 iIcon;
@@ -8479,7 +8643,8 @@ public function void PAPPCONSTRAIN_CHANGE_ROUTINE(BOOLEAN Constrained, void* Con
 #endif
 
 #if BF_32_BIT
-[CRepr, Packed(1)]public struct SHSTOCKICONINFO
+[CRepr, Packed(1)]
+public struct SHSTOCKICONINFO
 {
 	public uint32 cbSize;
 	public HICON hIcon;
@@ -8490,7 +8655,8 @@ public function void PAPPCONSTRAIN_CHANGE_ROUTINE(BOOLEAN Constrained, void* Con
 #endif
 
 #if BF_32_BIT
-[CRepr, Packed(1)]public struct OPEN_PRINTER_PROPS_INFOA
+[CRepr, Packed(1)]
+public struct OPEN_PRINTER_PROPS_INFOA
 {
 	public uint32 dwSize;
 	public PSTR pszSheetName;
@@ -8501,7 +8667,8 @@ public function void PAPPCONSTRAIN_CHANGE_ROUTINE(BOOLEAN Constrained, void* Con
 #endif
 
 #if BF_32_BIT
-[CRepr, Packed(1)]public struct OPEN_PRINTER_PROPS_INFOW
+[CRepr, Packed(1)]
+public struct OPEN_PRINTER_PROPS_INFOW
 {
 	public uint32 dwSize;
 	public PWSTR pszSheetName;

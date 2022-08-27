@@ -486,16 +486,20 @@ public function void PSC_NOTIFICATION_CALLBACK(uint32 dwNotify, void* pCallbackC
 #endregion
 
 #region Structs
-[CRepr]public struct SERVICE_TRIGGER_CUSTOM_STATE_ID
+[CRepr]
+public struct SERVICE_TRIGGER_CUSTOM_STATE_ID
 {
 	public uint32[2] Data;
 }
 
-[CRepr]public struct SERVICE_CUSTOM_SYSTEM_STATE_CHANGE_DATA_ITEM
+[CRepr]
+public struct SERVICE_CUSTOM_SYSTEM_STATE_CHANGE_DATA_ITEM
 {
-	[CRepr, Union]	public struct _u_e__Union
+	[CRepr, Union]
+	public struct _u_e__Union
 	{
-		[CRepr]		public struct _s_e__Struct
+		[CRepr]
+		public struct _s_e__Struct
 		{
 			public uint32 DataOffset;
 			public uint8[1] Data;
@@ -508,23 +512,27 @@ public function void PSC_NOTIFICATION_CALLBACK(uint32 dwNotify, void* pCallbackC
 	public _u_e__Union u;
 }
 
-[CRepr]public struct SERVICE_DESCRIPTIONA
+[CRepr]
+public struct SERVICE_DESCRIPTIONA
 {
 	public PSTR lpDescription;
 }
 
-[CRepr]public struct SERVICE_DESCRIPTIONW
+[CRepr]
+public struct SERVICE_DESCRIPTIONW
 {
 	public PWSTR lpDescription;
 }
 
-[CRepr]public struct SC_ACTION
+[CRepr]
+public struct SC_ACTION
 {
 	public SC_ACTION_TYPE Type;
 	public uint32 Delay;
 }
 
-[CRepr]public struct SERVICE_FAILURE_ACTIONSA
+[CRepr]
+public struct SERVICE_FAILURE_ACTIONSA
 {
 	public uint32 dwResetPeriod;
 	public PSTR lpRebootMsg;
@@ -533,7 +541,8 @@ public function void PSC_NOTIFICATION_CALLBACK(uint32 dwNotify, void* pCallbackC
 	public SC_ACTION* lpsaActions;
 }
 
-[CRepr]public struct SERVICE_FAILURE_ACTIONSW
+[CRepr]
+public struct SERVICE_FAILURE_ACTIONSW
 {
 	public uint32 dwResetPeriod;
 	public PWSTR lpRebootMsg;
@@ -542,44 +551,52 @@ public function void PSC_NOTIFICATION_CALLBACK(uint32 dwNotify, void* pCallbackC
 	public SC_ACTION* lpsaActions;
 }
 
-[CRepr]public struct SERVICE_DELAYED_AUTO_START_INFO
+[CRepr]
+public struct SERVICE_DELAYED_AUTO_START_INFO
 {
 	public BOOL fDelayedAutostart;
 }
 
-[CRepr]public struct SERVICE_FAILURE_ACTIONS_FLAG
+[CRepr]
+public struct SERVICE_FAILURE_ACTIONS_FLAG
 {
 	public BOOL fFailureActionsOnNonCrashFailures;
 }
 
-[CRepr]public struct SERVICE_SID_INFO
+[CRepr]
+public struct SERVICE_SID_INFO
 {
 	public uint32 dwServiceSidType;
 }
 
-[CRepr]public struct SERVICE_REQUIRED_PRIVILEGES_INFOA
+[CRepr]
+public struct SERVICE_REQUIRED_PRIVILEGES_INFOA
 {
 	public PSTR pmszRequiredPrivileges;
 }
 
-[CRepr]public struct SERVICE_REQUIRED_PRIVILEGES_INFOW
+[CRepr]
+public struct SERVICE_REQUIRED_PRIVILEGES_INFOW
 {
 	public PWSTR pmszRequiredPrivileges;
 }
 
-[CRepr]public struct SERVICE_PRESHUTDOWN_INFO
+[CRepr]
+public struct SERVICE_PRESHUTDOWN_INFO
 {
 	public uint32 dwPreshutdownTimeout;
 }
 
-[CRepr]public struct SERVICE_TRIGGER_SPECIFIC_DATA_ITEM
+[CRepr]
+public struct SERVICE_TRIGGER_SPECIFIC_DATA_ITEM
 {
 	public SERVICE_TRIGGER_SPECIFIC_DATA_ITEM_DATA_TYPE dwDataType;
 	public uint32 cbData;
 	public uint8* pData;
 }
 
-[CRepr]public struct SERVICE_TRIGGER
+[CRepr]
+public struct SERVICE_TRIGGER
 {
 	public SERVICE_TRIGGER_TYPE dwTriggerType;
 	public SERVICE_TRIGGER_ACTION dwAction;
@@ -588,31 +605,36 @@ public function void PSC_NOTIFICATION_CALLBACK(uint32 dwNotify, void* pCallbackC
 	public SERVICE_TRIGGER_SPECIFIC_DATA_ITEM* pDataItems;
 }
 
-[CRepr]public struct SERVICE_TRIGGER_INFO
+[CRepr]
+public struct SERVICE_TRIGGER_INFO
 {
 	public uint32 cTriggers;
 	public SERVICE_TRIGGER* pTriggers;
 	public uint8* pReserved;
 }
 
-[CRepr]public struct SERVICE_PREFERRED_NODE_INFO
+[CRepr]
+public struct SERVICE_PREFERRED_NODE_INFO
 {
 	public uint16 usPreferredNode;
 	public BOOLEAN fDelete;
 }
 
-[CRepr]public struct SERVICE_TIMECHANGE_INFO
+[CRepr]
+public struct SERVICE_TIMECHANGE_INFO
 {
 	public LARGE_INTEGER liNewTime;
 	public LARGE_INTEGER liOldTime;
 }
 
-[CRepr]public struct SERVICE_LAUNCH_PROTECTED_INFO
+[CRepr]
+public struct SERVICE_LAUNCH_PROTECTED_INFO
 {
 	public uint32 dwLaunchProtected;
 }
 
-[CRepr]public struct SERVICE_STATUS
+[CRepr]
+public struct SERVICE_STATUS
 {
 	public ENUM_SERVICE_TYPE dwServiceType;
 	public SERVICE_STATUS_CURRENT_STATE dwCurrentState;
@@ -623,7 +645,8 @@ public function void PSC_NOTIFICATION_CALLBACK(uint32 dwNotify, void* pCallbackC
 	public uint32 dwWaitHint;
 }
 
-[CRepr]public struct SERVICE_STATUS_PROCESS
+[CRepr]
+public struct SERVICE_STATUS_PROCESS
 {
 	public ENUM_SERVICE_TYPE dwServiceType;
 	public SERVICE_STATUS_CURRENT_STATE dwCurrentState;
@@ -636,49 +659,56 @@ public function void PSC_NOTIFICATION_CALLBACK(uint32 dwNotify, void* pCallbackC
 	public SERVICE_RUNS_IN_PROCESS dwServiceFlags;
 }
 
-[CRepr]public struct ENUM_SERVICE_STATUSA
+[CRepr]
+public struct ENUM_SERVICE_STATUSA
 {
 	public PSTR lpServiceName;
 	public PSTR lpDisplayName;
 	public SERVICE_STATUS ServiceStatus;
 }
 
-[CRepr]public struct ENUM_SERVICE_STATUSW
+[CRepr]
+public struct ENUM_SERVICE_STATUSW
 {
 	public PWSTR lpServiceName;
 	public PWSTR lpDisplayName;
 	public SERVICE_STATUS ServiceStatus;
 }
 
-[CRepr]public struct ENUM_SERVICE_STATUS_PROCESSA
+[CRepr]
+public struct ENUM_SERVICE_STATUS_PROCESSA
 {
 	public PSTR lpServiceName;
 	public PSTR lpDisplayName;
 	public SERVICE_STATUS_PROCESS ServiceStatusProcess;
 }
 
-[CRepr]public struct ENUM_SERVICE_STATUS_PROCESSW
+[CRepr]
+public struct ENUM_SERVICE_STATUS_PROCESSW
 {
 	public PWSTR lpServiceName;
 	public PWSTR lpDisplayName;
 	public SERVICE_STATUS_PROCESS ServiceStatusProcess;
 }
 
-[CRepr]public struct QUERY_SERVICE_LOCK_STATUSA
+[CRepr]
+public struct QUERY_SERVICE_LOCK_STATUSA
 {
 	public uint32 fIsLocked;
 	public PSTR lpLockOwner;
 	public uint32 dwLockDuration;
 }
 
-[CRepr]public struct QUERY_SERVICE_LOCK_STATUSW
+[CRepr]
+public struct QUERY_SERVICE_LOCK_STATUSW
 {
 	public uint32 fIsLocked;
 	public PWSTR lpLockOwner;
 	public uint32 dwLockDuration;
 }
 
-[CRepr]public struct QUERY_SERVICE_CONFIGA
+[CRepr]
+public struct QUERY_SERVICE_CONFIGA
 {
 	public ENUM_SERVICE_TYPE dwServiceType;
 	public SERVICE_START_TYPE dwStartType;
@@ -691,7 +721,8 @@ public function void PSC_NOTIFICATION_CALLBACK(uint32 dwNotify, void* pCallbackC
 	public PSTR lpDisplayName;
 }
 
-[CRepr]public struct QUERY_SERVICE_CONFIGW
+[CRepr]
+public struct QUERY_SERVICE_CONFIGW
 {
 	public ENUM_SERVICE_TYPE dwServiceType;
 	public SERVICE_START_TYPE dwStartType;
@@ -704,19 +735,22 @@ public function void PSC_NOTIFICATION_CALLBACK(uint32 dwNotify, void* pCallbackC
 	public PWSTR lpDisplayName;
 }
 
-[CRepr]public struct SERVICE_TABLE_ENTRYA
+[CRepr]
+public struct SERVICE_TABLE_ENTRYA
 {
 	public PSTR lpServiceName;
 	public LPSERVICE_MAIN_FUNCTIONA lpServiceProc;
 }
 
-[CRepr]public struct SERVICE_TABLE_ENTRYW
+[CRepr]
+public struct SERVICE_TABLE_ENTRYW
 {
 	public PWSTR lpServiceName;
 	public LPSERVICE_MAIN_FUNCTIONW lpServiceProc;
 }
 
-[CRepr]public struct SERVICE_NOTIFY_1
+[CRepr]
+public struct SERVICE_NOTIFY_1
 {
 	public uint32 dwVersion;
 	public PFN_SC_NOTIFY_CALLBACK pfnNotifyCallback;
@@ -725,7 +759,8 @@ public function void PSC_NOTIFICATION_CALLBACK(uint32 dwNotify, void* pCallbackC
 	public SERVICE_STATUS_PROCESS ServiceStatus;
 }
 
-[CRepr]public struct SERVICE_NOTIFY_2A
+[CRepr]
+public struct SERVICE_NOTIFY_2A
 {
 	public uint32 dwVersion;
 	public PFN_SC_NOTIFY_CALLBACK pfnNotifyCallback;
@@ -736,7 +771,8 @@ public function void PSC_NOTIFICATION_CALLBACK(uint32 dwNotify, void* pCallbackC
 	public PSTR pszServiceNames;
 }
 
-[CRepr]public struct SERVICE_NOTIFY_2W
+[CRepr]
+public struct SERVICE_NOTIFY_2W
 {
 	public uint32 dwVersion;
 	public PFN_SC_NOTIFY_CALLBACK pfnNotifyCallback;
@@ -747,26 +783,30 @@ public function void PSC_NOTIFICATION_CALLBACK(uint32 dwNotify, void* pCallbackC
 	public PWSTR pszServiceNames;
 }
 
-[CRepr]public struct SERVICE_CONTROL_STATUS_REASON_PARAMSA
+[CRepr]
+public struct SERVICE_CONTROL_STATUS_REASON_PARAMSA
 {
 	public uint32 dwReason;
 	public PSTR pszComment;
 	public SERVICE_STATUS_PROCESS ServiceStatus;
 }
 
-[CRepr]public struct SERVICE_CONTROL_STATUS_REASON_PARAMSW
+[CRepr]
+public struct SERVICE_CONTROL_STATUS_REASON_PARAMSW
 {
 	public uint32 dwReason;
 	public PWSTR pszComment;
 	public SERVICE_STATUS_PROCESS ServiceStatus;
 }
 
-[CRepr]public struct SERVICE_START_REASON
+[CRepr]
+public struct SERVICE_START_REASON
 {
 	public uint32 dwReason;
 }
 
-[CRepr]public struct _SC_NOTIFICATION_REGISTRATION
+[CRepr]
+public struct _SC_NOTIFICATION_REGISTRATION
 {
 }
 

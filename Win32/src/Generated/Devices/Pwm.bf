@@ -68,7 +68,8 @@ public enum PWM_POLARITY : int32
 #endregion
 
 #region Structs
-[CRepr]public struct PWM_CONTROLLER_INFO
+[CRepr]
+public struct PWM_CONTROLLER_INFO
 {
 	public uint Size;
 	public uint32 PinCount;
@@ -76,42 +77,50 @@ public enum PWM_POLARITY : int32
 	public uint64 MaximumPeriod;
 }
 
-[CRepr]public struct PWM_CONTROLLER_GET_ACTUAL_PERIOD_OUTPUT
+[CRepr]
+public struct PWM_CONTROLLER_GET_ACTUAL_PERIOD_OUTPUT
 {
 	public uint64 ActualPeriod;
 }
 
-[CRepr]public struct PWM_CONTROLLER_SET_DESIRED_PERIOD_INPUT
+[CRepr]
+public struct PWM_CONTROLLER_SET_DESIRED_PERIOD_INPUT
 {
 	public uint64 DesiredPeriod;
 }
 
-[CRepr]public struct PWM_CONTROLLER_SET_DESIRED_PERIOD_OUTPUT
+[CRepr]
+public struct PWM_CONTROLLER_SET_DESIRED_PERIOD_OUTPUT
 {
 	public uint64 ActualPeriod;
 }
 
-[CRepr]public struct PWM_PIN_GET_ACTIVE_DUTY_CYCLE_PERCENTAGE_OUTPUT
+[CRepr]
+public struct PWM_PIN_GET_ACTIVE_DUTY_CYCLE_PERCENTAGE_OUTPUT
 {
 	public uint64 Percentage;
 }
 
-[CRepr]public struct PWM_PIN_SET_ACTIVE_DUTY_CYCLE_PERCENTAGE_INPUT
+[CRepr]
+public struct PWM_PIN_SET_ACTIVE_DUTY_CYCLE_PERCENTAGE_INPUT
 {
 	public uint64 Percentage;
 }
 
-[CRepr]public struct PWM_PIN_GET_POLARITY_OUTPUT
+[CRepr]
+public struct PWM_PIN_GET_POLARITY_OUTPUT
 {
 	public PWM_POLARITY Polarity;
 }
 
-[CRepr]public struct PWM_PIN_SET_POLARITY_INPUT
+[CRepr]
+public struct PWM_PIN_SET_POLARITY_INPUT
 {
 	public PWM_POLARITY Polarity;
 }
 
-[CRepr]public struct PWM_PIN_IS_STARTED_OUTPUT
+[CRepr]
+public struct PWM_PIN_IS_STARTED_OUTPUT
 {
 	public BOOLEAN IsStarted;
 }

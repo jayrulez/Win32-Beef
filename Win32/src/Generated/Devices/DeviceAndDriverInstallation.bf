@@ -2594,7 +2594,8 @@ public function uint32 PCM_NOTIFY_CALLBACK(HCMNOTIFICATION hNotify, void* Contex
 
 #region Structs
 #if BF_64_BIT || BF_ARM_64
-[CRepr]public struct INFCONTEXT
+[CRepr]
+public struct INFCONTEXT
 {
 	public void* Inf;
 	public void* CurrentInf;
@@ -2604,7 +2605,8 @@ public function uint32 PCM_NOTIFY_CALLBACK(HCMNOTIFICATION hNotify, void* Contex
 #endif
 
 #if BF_64_BIT || BF_ARM_64
-[CRepr]public struct SP_INF_INFORMATION
+[CRepr]
+public struct SP_INF_INFORMATION
 {
 	public SP_INF_STYLE InfStyle;
 	public uint32 InfCount;
@@ -2613,9 +2615,11 @@ public function uint32 PCM_NOTIFY_CALLBACK(HCMNOTIFICATION hNotify, void* Contex
 #endif
 
 #if BF_64_BIT || BF_ARM_64
-[CRepr]public struct SP_ALTPLATFORM_INFO_V3
+[CRepr]
+public struct SP_ALTPLATFORM_INFO_V3
 {
-	[CRepr, Union]	public struct _Anonymous_e__Union
+	[CRepr, Union]
+	public struct _Anonymous_e__Union
 	{
 		public uint16 Reserved;
 		public uint16 Flags;
@@ -2636,9 +2640,11 @@ public function uint32 PCM_NOTIFY_CALLBACK(HCMNOTIFICATION hNotify, void* Contex
 #endif
 
 #if BF_64_BIT || BF_ARM_64
-[CRepr]public struct SP_ALTPLATFORM_INFO_V2
+[CRepr]
+public struct SP_ALTPLATFORM_INFO_V2
 {
-	[CRepr, Union]	public struct _Anonymous_e__Union
+	[CRepr, Union]
+	public struct _Anonymous_e__Union
 	{
 		public uint16 Reserved;
 		public uint16 Flags;
@@ -2656,7 +2662,8 @@ public function uint32 PCM_NOTIFY_CALLBACK(HCMNOTIFICATION hNotify, void* Contex
 #endif
 
 #if BF_64_BIT || BF_ARM_64
-[CRepr]public struct SP_ALTPLATFORM_INFO_V1
+[CRepr]
+public struct SP_ALTPLATFORM_INFO_V1
 {
 	public uint32 cbSize;
 	public VER_PLATFORM Platform;
@@ -2668,7 +2675,8 @@ public function uint32 PCM_NOTIFY_CALLBACK(HCMNOTIFICATION hNotify, void* Contex
 #endif
 
 #if BF_64_BIT || BF_ARM_64
-[CRepr]public struct SP_ORIGINAL_FILE_INFO_A
+[CRepr]
+public struct SP_ORIGINAL_FILE_INFO_A
 {
 	public uint32 cbSize;
 	public CHAR[260] OriginalInfName;
@@ -2677,7 +2685,8 @@ public function uint32 PCM_NOTIFY_CALLBACK(HCMNOTIFICATION hNotify, void* Contex
 #endif
 
 #if BF_64_BIT || BF_ARM_64
-[CRepr]public struct SP_ORIGINAL_FILE_INFO_W
+[CRepr]
+public struct SP_ORIGINAL_FILE_INFO_W
 {
 	public uint32 cbSize;
 	public char8[260] OriginalInfName;
@@ -2686,7 +2695,8 @@ public function uint32 PCM_NOTIFY_CALLBACK(HCMNOTIFICATION hNotify, void* Contex
 #endif
 
 #if BF_64_BIT || BF_ARM_64
-[CRepr]public struct FILEPATHS_A
+[CRepr]
+public struct FILEPATHS_A
 {
 	public PSTR Target;
 	public PSTR Source;
@@ -2696,7 +2706,8 @@ public function uint32 PCM_NOTIFY_CALLBACK(HCMNOTIFICATION hNotify, void* Contex
 #endif
 
 #if BF_64_BIT || BF_ARM_64
-[CRepr]public struct FILEPATHS_W
+[CRepr]
+public struct FILEPATHS_W
 {
 	public PWSTR Target;
 	public PWSTR Source;
@@ -2706,7 +2717,8 @@ public function uint32 PCM_NOTIFY_CALLBACK(HCMNOTIFICATION hNotify, void* Contex
 #endif
 
 #if BF_64_BIT || BF_ARM_64
-[CRepr]public struct FILEPATHS_SIGNERINFO_A
+[CRepr]
+public struct FILEPATHS_SIGNERINFO_A
 {
 	public PSTR Target;
 	public PSTR Source;
@@ -2719,7 +2731,8 @@ public function uint32 PCM_NOTIFY_CALLBACK(HCMNOTIFICATION hNotify, void* Contex
 #endif
 
 #if BF_64_BIT || BF_ARM_64
-[CRepr]public struct FILEPATHS_SIGNERINFO_W
+[CRepr]
+public struct FILEPATHS_SIGNERINFO_W
 {
 	public PWSTR Target;
 	public PWSTR Source;
@@ -2732,7 +2745,8 @@ public function uint32 PCM_NOTIFY_CALLBACK(HCMNOTIFICATION hNotify, void* Contex
 #endif
 
 #if BF_64_BIT || BF_ARM_64
-[CRepr]public struct SOURCE_MEDIA_A
+[CRepr]
+public struct SOURCE_MEDIA_A
 {
 	public PSTR Reserved;
 	public PSTR Tagfile;
@@ -2744,7 +2758,8 @@ public function uint32 PCM_NOTIFY_CALLBACK(HCMNOTIFICATION hNotify, void* Contex
 #endif
 
 #if BF_64_BIT || BF_ARM_64
-[CRepr]public struct SOURCE_MEDIA_W
+[CRepr]
+public struct SOURCE_MEDIA_W
 {
 	public PWSTR Reserved;
 	public PWSTR Tagfile;
@@ -2756,7 +2771,8 @@ public function uint32 PCM_NOTIFY_CALLBACK(HCMNOTIFICATION hNotify, void* Contex
 #endif
 
 #if BF_64_BIT || BF_ARM_64
-[CRepr]public struct CABINET_INFO_A
+[CRepr]
+public struct CABINET_INFO_A
 {
 	public PSTR CabinetPath;
 	public PSTR CabinetFile;
@@ -2767,7 +2783,8 @@ public function uint32 PCM_NOTIFY_CALLBACK(HCMNOTIFICATION hNotify, void* Contex
 #endif
 
 #if BF_64_BIT || BF_ARM_64
-[CRepr]public struct CABINET_INFO_W
+[CRepr]
+public struct CABINET_INFO_W
 {
 	public PWSTR CabinetPath;
 	public PWSTR CabinetFile;
@@ -2778,7 +2795,8 @@ public function uint32 PCM_NOTIFY_CALLBACK(HCMNOTIFICATION hNotify, void* Contex
 #endif
 
 #if BF_64_BIT || BF_ARM_64
-[CRepr]public struct FILE_IN_CABINET_INFO_A
+[CRepr]
+public struct FILE_IN_CABINET_INFO_A
 {
 	public PSTR NameInCabinet;
 	public uint32 FileSize;
@@ -2791,7 +2809,8 @@ public function uint32 PCM_NOTIFY_CALLBACK(HCMNOTIFICATION hNotify, void* Contex
 #endif
 
 #if BF_64_BIT || BF_ARM_64
-[CRepr]public struct FILE_IN_CABINET_INFO_W
+[CRepr]
+public struct FILE_IN_CABINET_INFO_W
 {
 	public PWSTR NameInCabinet;
 	public uint32 FileSize;
@@ -2804,7 +2823,8 @@ public function uint32 PCM_NOTIFY_CALLBACK(HCMNOTIFICATION hNotify, void* Contex
 #endif
 
 #if BF_64_BIT || BF_ARM_64
-[CRepr]public struct SP_REGISTER_CONTROL_STATUSA
+[CRepr]
+public struct SP_REGISTER_CONTROL_STATUSA
 {
 	public uint32 cbSize;
 	public PSTR FileName;
@@ -2814,7 +2834,8 @@ public function uint32 PCM_NOTIFY_CALLBACK(HCMNOTIFICATION hNotify, void* Contex
 #endif
 
 #if BF_64_BIT || BF_ARM_64
-[CRepr]public struct SP_REGISTER_CONTROL_STATUSW
+[CRepr]
+public struct SP_REGISTER_CONTROL_STATUSW
 {
 	public uint32 cbSize;
 	public PWSTR FileName;
@@ -2824,7 +2845,8 @@ public function uint32 PCM_NOTIFY_CALLBACK(HCMNOTIFICATION hNotify, void* Contex
 #endif
 
 #if BF_64_BIT || BF_ARM_64
-[CRepr]public struct SP_FILE_COPY_PARAMS_A
+[CRepr]
+public struct SP_FILE_COPY_PARAMS_A
 {
 	public uint32 cbSize;
 	public void* QueueHandle;
@@ -2842,7 +2864,8 @@ public function uint32 PCM_NOTIFY_CALLBACK(HCMNOTIFICATION hNotify, void* Contex
 #endif
 
 #if BF_64_BIT || BF_ARM_64
-[CRepr]public struct SP_FILE_COPY_PARAMS_W
+[CRepr]
+public struct SP_FILE_COPY_PARAMS_W
 {
 	public uint32 cbSize;
 	public void* QueueHandle;
@@ -2860,7 +2883,8 @@ public function uint32 PCM_NOTIFY_CALLBACK(HCMNOTIFICATION hNotify, void* Contex
 #endif
 
 #if BF_64_BIT || BF_ARM_64
-[CRepr]public struct SP_DEVINFO_DATA
+[CRepr]
+public struct SP_DEVINFO_DATA
 {
 	public uint32 cbSize;
 	public Guid ClassGuid;
@@ -2870,7 +2894,8 @@ public function uint32 PCM_NOTIFY_CALLBACK(HCMNOTIFICATION hNotify, void* Contex
 #endif
 
 #if BF_64_BIT || BF_ARM_64
-[CRepr]public struct SP_DEVICE_INTERFACE_DATA
+[CRepr]
+public struct SP_DEVICE_INTERFACE_DATA
 {
 	public uint32 cbSize;
 	public Guid InterfaceClassGuid;
@@ -2880,7 +2905,8 @@ public function uint32 PCM_NOTIFY_CALLBACK(HCMNOTIFICATION hNotify, void* Contex
 #endif
 
 #if BF_64_BIT || BF_ARM_64
-[CRepr]public struct SP_DEVICE_INTERFACE_DETAIL_DATA_A
+[CRepr]
+public struct SP_DEVICE_INTERFACE_DETAIL_DATA_A
 {
 	public uint32 cbSize;
 	public CHAR[1] DevicePath;
@@ -2888,7 +2914,8 @@ public function uint32 PCM_NOTIFY_CALLBACK(HCMNOTIFICATION hNotify, void* Contex
 #endif
 
 #if BF_64_BIT || BF_ARM_64
-[CRepr]public struct SP_DEVICE_INTERFACE_DETAIL_DATA_W
+[CRepr]
+public struct SP_DEVICE_INTERFACE_DETAIL_DATA_W
 {
 	public uint32 cbSize;
 	public char8[1] DevicePath;
@@ -2896,7 +2923,8 @@ public function uint32 PCM_NOTIFY_CALLBACK(HCMNOTIFICATION hNotify, void* Contex
 #endif
 
 #if BF_64_BIT || BF_ARM_64
-[CRepr]public struct SP_DEVINFO_LIST_DETAIL_DATA_A
+[CRepr]
+public struct SP_DEVINFO_LIST_DETAIL_DATA_A
 {
 	public uint32 cbSize;
 	public Guid ClassGuid;
@@ -2906,7 +2934,8 @@ public function uint32 PCM_NOTIFY_CALLBACK(HCMNOTIFICATION hNotify, void* Contex
 #endif
 
 #if BF_64_BIT || BF_ARM_64
-[CRepr]public struct SP_DEVINFO_LIST_DETAIL_DATA_W
+[CRepr]
+public struct SP_DEVINFO_LIST_DETAIL_DATA_W
 {
 	public uint32 cbSize;
 	public Guid ClassGuid;
@@ -2916,7 +2945,8 @@ public function uint32 PCM_NOTIFY_CALLBACK(HCMNOTIFICATION hNotify, void* Contex
 #endif
 
 #if BF_64_BIT || BF_ARM_64
-[CRepr]public struct SP_DEVINSTALL_PARAMS_A
+[CRepr]
+public struct SP_DEVINSTALL_PARAMS_A
 {
 	public uint32 cbSize;
 	public uint32 Flags;
@@ -2932,7 +2962,8 @@ public function uint32 PCM_NOTIFY_CALLBACK(HCMNOTIFICATION hNotify, void* Contex
 #endif
 
 #if BF_64_BIT || BF_ARM_64
-[CRepr]public struct SP_DEVINSTALL_PARAMS_W
+[CRepr]
+public struct SP_DEVINSTALL_PARAMS_W
 {
 	public uint32 cbSize;
 	public uint32 Flags;
@@ -2948,7 +2979,8 @@ public function uint32 PCM_NOTIFY_CALLBACK(HCMNOTIFICATION hNotify, void* Contex
 #endif
 
 #if BF_64_BIT || BF_ARM_64
-[CRepr]public struct SP_CLASSINSTALL_HEADER
+[CRepr]
+public struct SP_CLASSINSTALL_HEADER
 {
 	public uint32 cbSize;
 	public uint32 InstallFunction;
@@ -2956,7 +2988,8 @@ public function uint32 PCM_NOTIFY_CALLBACK(HCMNOTIFICATION hNotify, void* Contex
 #endif
 
 #if BF_64_BIT || BF_ARM_64
-[CRepr]public struct SP_ENABLECLASS_PARAMS
+[CRepr]
+public struct SP_ENABLECLASS_PARAMS
 {
 	public SP_CLASSINSTALL_HEADER ClassInstallHeader;
 	public Guid ClassGuid;
@@ -2965,7 +2998,8 @@ public function uint32 PCM_NOTIFY_CALLBACK(HCMNOTIFICATION hNotify, void* Contex
 #endif
 
 #if BF_64_BIT || BF_ARM_64
-[CRepr]public struct SP_PROPCHANGE_PARAMS
+[CRepr]
+public struct SP_PROPCHANGE_PARAMS
 {
 	public SP_CLASSINSTALL_HEADER ClassInstallHeader;
 	public uint32 StateChange;
@@ -2975,7 +3009,8 @@ public function uint32 PCM_NOTIFY_CALLBACK(HCMNOTIFICATION hNotify, void* Contex
 #endif
 
 #if BF_64_BIT || BF_ARM_64
-[CRepr]public struct SP_REMOVEDEVICE_PARAMS
+[CRepr]
+public struct SP_REMOVEDEVICE_PARAMS
 {
 	public SP_CLASSINSTALL_HEADER ClassInstallHeader;
 	public uint32 Scope;
@@ -2984,7 +3019,8 @@ public function uint32 PCM_NOTIFY_CALLBACK(HCMNOTIFICATION hNotify, void* Contex
 #endif
 
 #if BF_64_BIT || BF_ARM_64
-[CRepr]public struct SP_UNREMOVEDEVICE_PARAMS
+[CRepr]
+public struct SP_UNREMOVEDEVICE_PARAMS
 {
 	public SP_CLASSINSTALL_HEADER ClassInstallHeader;
 	public uint32 Scope;
@@ -2992,7 +3028,8 @@ public function uint32 PCM_NOTIFY_CALLBACK(HCMNOTIFICATION hNotify, void* Contex
 }
 #endif
 
-[CRepr]public struct SP_SELECTDEVICE_PARAMS_A
+[CRepr]
+public struct SP_SELECTDEVICE_PARAMS_A
 {
 	public SP_CLASSINSTALL_HEADER ClassInstallHeader;
 	public CHAR[60] Title;
@@ -3003,7 +3040,8 @@ public function uint32 PCM_NOTIFY_CALLBACK(HCMNOTIFICATION hNotify, void* Contex
 }
 
 #if BF_64_BIT || BF_ARM_64
-[CRepr]public struct SP_SELECTDEVICE_PARAMS_W
+[CRepr]
+public struct SP_SELECTDEVICE_PARAMS_W
 {
 	public SP_CLASSINSTALL_HEADER ClassInstallHeader;
 	public char8[60] Title;
@@ -3014,7 +3052,8 @@ public function uint32 PCM_NOTIFY_CALLBACK(HCMNOTIFICATION hNotify, void* Contex
 #endif
 
 #if BF_64_BIT || BF_ARM_64
-[CRepr]public struct SP_DETECTDEVICE_PARAMS
+[CRepr]
+public struct SP_DETECTDEVICE_PARAMS
 {
 	public SP_CLASSINSTALL_HEADER ClassInstallHeader;
 	public PDETECT_PROGRESS_NOTIFY DetectProgressNotify;
@@ -3023,7 +3062,8 @@ public function uint32 PCM_NOTIFY_CALLBACK(HCMNOTIFICATION hNotify, void* Contex
 #endif
 
 #if BF_64_BIT || BF_ARM_64
-[CRepr]public struct SP_INSTALLWIZARD_DATA
+[CRepr]
+public struct SP_INSTALLWIZARD_DATA
 {
 	public SP_CLASSINSTALL_HEADER ClassInstallHeader;
 	public uint32 Flags;
@@ -3037,7 +3077,8 @@ public function uint32 PCM_NOTIFY_CALLBACK(HCMNOTIFICATION hNotify, void* Contex
 #endif
 
 #if BF_64_BIT || BF_ARM_64
-[CRepr]public struct SP_NEWDEVICEWIZARD_DATA
+[CRepr]
+public struct SP_NEWDEVICEWIZARD_DATA
 {
 	public SP_CLASSINSTALL_HEADER ClassInstallHeader;
 	public uint32 Flags;
@@ -3047,7 +3088,8 @@ public function uint32 PCM_NOTIFY_CALLBACK(HCMNOTIFICATION hNotify, void* Contex
 }
 #endif
 
-[CRepr]public struct SP_TROUBLESHOOTER_PARAMS_A
+[CRepr]
+public struct SP_TROUBLESHOOTER_PARAMS_A
 {
 	public SP_CLASSINSTALL_HEADER ClassInstallHeader;
 	public CHAR[260] ChmFile;
@@ -3055,7 +3097,8 @@ public function uint32 PCM_NOTIFY_CALLBACK(HCMNOTIFICATION hNotify, void* Contex
 }
 
 #if BF_64_BIT || BF_ARM_64
-[CRepr]public struct SP_TROUBLESHOOTER_PARAMS_W
+[CRepr]
+public struct SP_TROUBLESHOOTER_PARAMS_W
 {
 	public SP_CLASSINSTALL_HEADER ClassInstallHeader;
 	public char8[260] ChmFile;
@@ -3063,14 +3106,16 @@ public function uint32 PCM_NOTIFY_CALLBACK(HCMNOTIFICATION hNotify, void* Contex
 }
 #endif
 
-[CRepr]public struct SP_POWERMESSAGEWAKE_PARAMS_A
+[CRepr]
+public struct SP_POWERMESSAGEWAKE_PARAMS_A
 {
 	public SP_CLASSINSTALL_HEADER ClassInstallHeader;
 	public CHAR[512] PowerMessageWake;
 }
 
 #if BF_64_BIT || BF_ARM_64
-[CRepr]public struct SP_POWERMESSAGEWAKE_PARAMS_W
+[CRepr]
+public struct SP_POWERMESSAGEWAKE_PARAMS_W
 {
 	public SP_CLASSINSTALL_HEADER ClassInstallHeader;
 	public char8[512] PowerMessageWake;
@@ -3078,7 +3123,8 @@ public function uint32 PCM_NOTIFY_CALLBACK(HCMNOTIFICATION hNotify, void* Contex
 #endif
 
 #if BF_64_BIT || BF_ARM_64
-[CRepr]public struct SP_DRVINFO_DATA_V2_A
+[CRepr]
+public struct SP_DRVINFO_DATA_V2_A
 {
 	public uint32 cbSize;
 	public uint32 DriverType;
@@ -3092,7 +3138,8 @@ public function uint32 PCM_NOTIFY_CALLBACK(HCMNOTIFICATION hNotify, void* Contex
 #endif
 
 #if BF_64_BIT || BF_ARM_64
-[CRepr]public struct SP_DRVINFO_DATA_V2_W
+[CRepr]
+public struct SP_DRVINFO_DATA_V2_W
 {
 	public uint32 cbSize;
 	public uint32 DriverType;
@@ -3106,7 +3153,8 @@ public function uint32 PCM_NOTIFY_CALLBACK(HCMNOTIFICATION hNotify, void* Contex
 #endif
 
 #if BF_64_BIT || BF_ARM_64
-[CRepr]public struct SP_DRVINFO_DATA_V1_A
+[CRepr]
+public struct SP_DRVINFO_DATA_V1_A
 {
 	public uint32 cbSize;
 	public uint32 DriverType;
@@ -3118,7 +3166,8 @@ public function uint32 PCM_NOTIFY_CALLBACK(HCMNOTIFICATION hNotify, void* Contex
 #endif
 
 #if BF_64_BIT || BF_ARM_64
-[CRepr]public struct SP_DRVINFO_DATA_V1_W
+[CRepr]
+public struct SP_DRVINFO_DATA_V1_W
 {
 	public uint32 cbSize;
 	public uint32 DriverType;
@@ -3130,7 +3179,8 @@ public function uint32 PCM_NOTIFY_CALLBACK(HCMNOTIFICATION hNotify, void* Contex
 #endif
 
 #if BF_64_BIT || BF_ARM_64
-[CRepr]public struct SP_DRVINFO_DETAIL_DATA_A
+[CRepr]
+public struct SP_DRVINFO_DETAIL_DATA_A
 {
 	public uint32 cbSize;
 	public FILETIME InfDate;
@@ -3145,7 +3195,8 @@ public function uint32 PCM_NOTIFY_CALLBACK(HCMNOTIFICATION hNotify, void* Contex
 #endif
 
 #if BF_64_BIT || BF_ARM_64
-[CRepr]public struct SP_DRVINFO_DETAIL_DATA_W
+[CRepr]
+public struct SP_DRVINFO_DETAIL_DATA_W
 {
 	public uint32 cbSize;
 	public FILETIME InfDate;
@@ -3160,7 +3211,8 @@ public function uint32 PCM_NOTIFY_CALLBACK(HCMNOTIFICATION hNotify, void* Contex
 #endif
 
 #if BF_64_BIT || BF_ARM_64
-[CRepr]public struct SP_DRVINSTALL_PARAMS
+[CRepr]
+public struct SP_DRVINSTALL_PARAMS
 {
 	public uint32 cbSize;
 	public uint32 Rank;
@@ -3171,7 +3223,8 @@ public function uint32 PCM_NOTIFY_CALLBACK(HCMNOTIFICATION hNotify, void* Contex
 #endif
 
 #if BF_64_BIT || BF_ARM_64
-[CRepr]public struct COINSTALLER_CONTEXT_DATA
+[CRepr]
+public struct COINSTALLER_CONTEXT_DATA
 {
 	public BOOL PostProcessing;
 	public uint32 InstallResult;
@@ -3180,7 +3233,8 @@ public function uint32 PCM_NOTIFY_CALLBACK(HCMNOTIFICATION hNotify, void* Contex
 #endif
 
 #if BF_64_BIT || BF_ARM_64
-[CRepr]public struct SP_CLASSIMAGELIST_DATA
+[CRepr]
+public struct SP_CLASSIMAGELIST_DATA
 {
 	public uint32 cbSize;
 	public HIMAGELIST ImageList;
@@ -3189,7 +3243,8 @@ public function uint32 PCM_NOTIFY_CALLBACK(HCMNOTIFICATION hNotify, void* Contex
 #endif
 
 #if BF_64_BIT || BF_ARM_64
-[CRepr]public struct SP_PROPSHEETPAGE_REQUEST
+[CRepr]
+public struct SP_PROPSHEETPAGE_REQUEST
 {
 	public uint32 cbSize;
 	public uint32 PageRequested;
@@ -3199,7 +3254,8 @@ public function uint32 PCM_NOTIFY_CALLBACK(HCMNOTIFICATION hNotify, void* Contex
 #endif
 
 #if BF_64_BIT || BF_ARM_64
-[CRepr]public struct SP_BACKUP_QUEUE_PARAMS_V2_A
+[CRepr]
+public struct SP_BACKUP_QUEUE_PARAMS_V2_A
 {
 	public uint32 cbSize;
 	public CHAR[260] FullInfPath;
@@ -3209,7 +3265,8 @@ public function uint32 PCM_NOTIFY_CALLBACK(HCMNOTIFICATION hNotify, void* Contex
 #endif
 
 #if BF_64_BIT || BF_ARM_64
-[CRepr]public struct SP_BACKUP_QUEUE_PARAMS_V2_W
+[CRepr]
+public struct SP_BACKUP_QUEUE_PARAMS_V2_W
 {
 	public uint32 cbSize;
 	public char8[260] FullInfPath;
@@ -3219,7 +3276,8 @@ public function uint32 PCM_NOTIFY_CALLBACK(HCMNOTIFICATION hNotify, void* Contex
 #endif
 
 #if BF_64_BIT || BF_ARM_64
-[CRepr]public struct SP_BACKUP_QUEUE_PARAMS_V1_A
+[CRepr]
+public struct SP_BACKUP_QUEUE_PARAMS_V1_A
 {
 	public uint32 cbSize;
 	public CHAR[260] FullInfPath;
@@ -3228,7 +3286,8 @@ public function uint32 PCM_NOTIFY_CALLBACK(HCMNOTIFICATION hNotify, void* Contex
 #endif
 
 #if BF_64_BIT || BF_ARM_64
-[CRepr]public struct SP_BACKUP_QUEUE_PARAMS_V1_W
+[CRepr]
+public struct SP_BACKUP_QUEUE_PARAMS_V1_W
 {
 	public uint32 cbSize;
 	public char8[260] FullInfPath;
@@ -3237,7 +3296,8 @@ public function uint32 PCM_NOTIFY_CALLBACK(HCMNOTIFICATION hNotify, void* Contex
 #endif
 
 #if BF_64_BIT || BF_ARM_64
-[CRepr]public struct SP_INF_SIGNER_INFO_V1_A
+[CRepr]
+public struct SP_INF_SIGNER_INFO_V1_A
 {
 	public uint32 cbSize;
 	public CHAR[260] CatalogFile;
@@ -3247,7 +3307,8 @@ public function uint32 PCM_NOTIFY_CALLBACK(HCMNOTIFICATION hNotify, void* Contex
 #endif
 
 #if BF_64_BIT || BF_ARM_64
-[CRepr]public struct SP_INF_SIGNER_INFO_V1_W
+[CRepr]
+public struct SP_INF_SIGNER_INFO_V1_W
 {
 	public uint32 cbSize;
 	public char8[260] CatalogFile;
@@ -3257,7 +3318,8 @@ public function uint32 PCM_NOTIFY_CALLBACK(HCMNOTIFICATION hNotify, void* Contex
 #endif
 
 #if BF_64_BIT || BF_ARM_64
-[CRepr]public struct SP_INF_SIGNER_INFO_V2_A
+[CRepr]
+public struct SP_INF_SIGNER_INFO_V2_A
 {
 	public uint32 cbSize;
 	public CHAR[260] CatalogFile;
@@ -3268,7 +3330,8 @@ public function uint32 PCM_NOTIFY_CALLBACK(HCMNOTIFICATION hNotify, void* Contex
 #endif
 
 #if BF_64_BIT || BF_ARM_64
-[CRepr]public struct SP_INF_SIGNER_INFO_V2_W
+[CRepr]
+public struct SP_INF_SIGNER_INFO_V2_W
 {
 	public uint32 cbSize;
 	public char8[260] CatalogFile;
@@ -3278,7 +3341,8 @@ public function uint32 PCM_NOTIFY_CALLBACK(HCMNOTIFICATION hNotify, void* Contex
 }
 #endif
 
-[CRepr]public struct CONFLICT_DETAILS_A
+[CRepr]
+public struct CONFLICT_DETAILS_A
 {
 	public uint32 CD_ulSize;
 	public uint32 CD_ulMask;
@@ -3288,7 +3352,8 @@ public function uint32 PCM_NOTIFY_CALLBACK(HCMNOTIFICATION hNotify, void* Contex
 	public CHAR[260] CD_szDescription;
 }
 
-[CRepr]public struct CONFLICT_DETAILS_W
+[CRepr]
+public struct CONFLICT_DETAILS_W
 {
 	public uint32 CD_ulSize;
 	public uint32 CD_ulMask;
@@ -3298,7 +3363,8 @@ public function uint32 PCM_NOTIFY_CALLBACK(HCMNOTIFICATION hNotify, void* Contex
 	public char8[260] CD_szDescription;
 }
 
-[CRepr, Packed(1)]public struct MEM_RANGE
+[CRepr, Packed(1)]
+public struct MEM_RANGE
 {
 	public uint64 MR_Align;
 	public uint32 MR_nBytes;
@@ -3308,7 +3374,8 @@ public function uint32 PCM_NOTIFY_CALLBACK(HCMNOTIFICATION hNotify, void* Contex
 	public uint32 MR_Reserved;
 }
 
-[CRepr, Packed(1)]public struct MEM_DES
+[CRepr, Packed(1)]
+public struct MEM_DES
 {
 	public uint32 MD_Count;
 	public uint32 MD_Type;
@@ -3318,13 +3385,15 @@ public function uint32 PCM_NOTIFY_CALLBACK(HCMNOTIFICATION hNotify, void* Contex
 	public uint32 MD_Reserved;
 }
 
-[CRepr]public struct MEM_RESOURCE
+[CRepr]
+public struct MEM_RESOURCE
 {
 	public MEM_DES MEM_Header;
 	public MEM_RANGE[1] MEM_Data;
 }
 
-[CRepr, Packed(1)]public struct Mem_Large_Range_s
+[CRepr, Packed(1)]
+public struct Mem_Large_Range_s
 {
 	public uint64 MLR_Align;
 	public uint64 MLR_nBytes;
@@ -3334,7 +3403,8 @@ public function uint32 PCM_NOTIFY_CALLBACK(HCMNOTIFICATION hNotify, void* Contex
 	public uint32 MLR_Reserved;
 }
 
-[CRepr, Packed(1)]public struct Mem_Large_Des_s
+[CRepr, Packed(1)]
+public struct Mem_Large_Des_s
 {
 	public uint32 MLD_Count;
 	public uint32 MLD_Type;
@@ -3344,13 +3414,15 @@ public function uint32 PCM_NOTIFY_CALLBACK(HCMNOTIFICATION hNotify, void* Contex
 	public uint32 MLD_Reserved;
 }
 
-[CRepr]public struct Mem_Large_Resource_s
+[CRepr]
+public struct Mem_Large_Resource_s
 {
 	public Mem_Large_Des_s MEM_LARGE_Header;
 	public Mem_Large_Range_s[1] MEM_LARGE_Data;
 }
 
-[CRepr, Packed(1)]public struct IO_RANGE
+[CRepr, Packed(1)]
+public struct IO_RANGE
 {
 	public uint64 IOR_Align;
 	public uint32 IOR_nPorts;
@@ -3360,7 +3432,8 @@ public function uint32 PCM_NOTIFY_CALLBACK(HCMNOTIFICATION hNotify, void* Contex
 	public uint64 IOR_Alias;
 }
 
-[CRepr, Packed(1)]public struct IO_DES
+[CRepr, Packed(1)]
+public struct IO_DES
 {
 	public uint32 IOD_Count;
 	public uint32 IOD_Type;
@@ -3369,20 +3442,23 @@ public function uint32 PCM_NOTIFY_CALLBACK(HCMNOTIFICATION hNotify, void* Contex
 	public uint32 IOD_DesFlags;
 }
 
-[CRepr]public struct IO_RESOURCE
+[CRepr]
+public struct IO_RESOURCE
 {
 	public IO_DES IO_Header;
 	public IO_RANGE[1] IO_Data;
 }
 
-[CRepr, Packed(1)]public struct DMA_RANGE
+[CRepr, Packed(1)]
+public struct DMA_RANGE
 {
 	public uint32 DR_Min;
 	public uint32 DR_Max;
 	public uint32 DR_Flags;
 }
 
-[CRepr, Packed(1)]public struct DMA_DES
+[CRepr, Packed(1)]
+public struct DMA_DES
 {
 	public uint32 DD_Count;
 	public uint32 DD_Type;
@@ -3390,20 +3466,23 @@ public function uint32 PCM_NOTIFY_CALLBACK(HCMNOTIFICATION hNotify, void* Contex
 	public uint32 DD_Alloc_Chan;
 }
 
-[CRepr]public struct DMA_RESOURCE
+[CRepr]
+public struct DMA_RESOURCE
 {
 	public DMA_DES DMA_Header;
 	public DMA_RANGE[1] DMA_Data;
 }
 
-[CRepr, Packed(1)]public struct IRQ_RANGE
+[CRepr, Packed(1)]
+public struct IRQ_RANGE
 {
 	public uint32 IRQR_Min;
 	public uint32 IRQR_Max;
 	public uint32 IRQR_Flags;
 }
 
-[CRepr, Packed(1)]public struct IRQ_DES_32
+[CRepr, Packed(1)]
+public struct IRQ_DES_32
 {
 	public uint32 IRQD_Count;
 	public uint32 IRQD_Type;
@@ -3412,7 +3491,8 @@ public function uint32 PCM_NOTIFY_CALLBACK(HCMNOTIFICATION hNotify, void* Contex
 	public uint32 IRQD_Affinity;
 }
 
-[CRepr, Packed(1)]public struct IRQ_DES_64
+[CRepr, Packed(1)]
+public struct IRQ_DES_64
 {
 	public uint32 IRQD_Count;
 	public uint32 IRQD_Type;
@@ -3421,26 +3501,30 @@ public function uint32 PCM_NOTIFY_CALLBACK(HCMNOTIFICATION hNotify, void* Contex
 	public uint64 IRQD_Affinity;
 }
 
-[CRepr]public struct IRQ_RESOURCE_32
+[CRepr]
+public struct IRQ_RESOURCE_32
 {
 	public IRQ_DES_32 IRQ_Header;
 	public IRQ_RANGE[1] IRQ_Data;
 }
 
-[CRepr]public struct IRQ_RESOURCE_64
+[CRepr]
+public struct IRQ_RESOURCE_64
 {
 	public IRQ_DES_64 IRQ_Header;
 	public IRQ_RANGE[1] IRQ_Data;
 }
 
-[CRepr, Packed(1)]public struct DevPrivate_Range_s
+[CRepr, Packed(1)]
+public struct DevPrivate_Range_s
 {
 	public uint32 PR_Data1;
 	public uint32 PR_Data2;
 	public uint32 PR_Data3;
 }
 
-[CRepr, Packed(1)]public struct DevPrivate_Des_s
+[CRepr, Packed(1)]
+public struct DevPrivate_Des_s
 {
 	public uint32 PD_Count;
 	public uint32 PD_Type;
@@ -3450,13 +3534,15 @@ public function uint32 PCM_NOTIFY_CALLBACK(HCMNOTIFICATION hNotify, void* Contex
 	public uint32 PD_Flags;
 }
 
-[CRepr]public struct DevPrivate_Resource_s
+[CRepr]
+public struct DevPrivate_Resource_s
 {
 	public DevPrivate_Des_s PRV_Header;
 	public DevPrivate_Range_s[1] PRV_Data;
 }
 
-[CRepr, Packed(1)]public struct CS_DES
+[CRepr, Packed(1)]
+public struct CS_DES
 {
 	public uint32 CSD_SignatureLength;
 	public uint32 CSD_LegacyDataOffset;
@@ -3466,12 +3552,14 @@ public function uint32 PCM_NOTIFY_CALLBACK(HCMNOTIFICATION hNotify, void* Contex
 	public uint8[1] CSD_Signature;
 }
 
-[CRepr]public struct CS_RESOURCE
+[CRepr]
+public struct CS_RESOURCE
 {
 	public CS_DES CS_Header;
 }
 
-[CRepr, Packed(1)]public struct PCCARD_DES
+[CRepr, Packed(1)]
+public struct PCCARD_DES
 {
 	public uint32 PCD_Count;
 	public uint32 PCD_Type;
@@ -3485,12 +3573,14 @@ public function uint32 PCM_NOTIFY_CALLBACK(HCMNOTIFICATION hNotify, void* Contex
 	public uint8[2] PCD_IoFlags;
 }
 
-[CRepr]public struct PCCARD_RESOURCE
+[CRepr]
+public struct PCCARD_RESOURCE
 {
 	public PCCARD_DES PcCard_Header;
 }
 
-[CRepr, Packed(1)]public struct MFCARD_DES
+[CRepr, Packed(1)]
+public struct MFCARD_DES
 {
 	public uint32 PMF_Count;
 	public uint32 PMF_Type;
@@ -3501,12 +3591,14 @@ public function uint32 PCM_NOTIFY_CALLBACK(HCMNOTIFICATION hNotify, void* Contex
 	public uint32 PMF_ConfigRegisterBase;
 }
 
-[CRepr]public struct MFCARD_RESOURCE
+[CRepr]
+public struct MFCARD_RESOURCE
 {
 	public MFCARD_DES MfCard_Header;
 }
 
-[CRepr, Packed(1)]public struct BUSNUMBER_RANGE
+[CRepr, Packed(1)]
+public struct BUSNUMBER_RANGE
 {
 	public uint32 BUSR_Min;
 	public uint32 BUSR_Max;
@@ -3514,7 +3606,8 @@ public function uint32 PCM_NOTIFY_CALLBACK(HCMNOTIFICATION hNotify, void* Contex
 	public uint32 BUSR_Flags;
 }
 
-[CRepr, Packed(1)]public struct BUSNUMBER_DES
+[CRepr, Packed(1)]
+public struct BUSNUMBER_DES
 {
 	public uint32 BUSD_Count;
 	public uint32 BUSD_Type;
@@ -3523,13 +3616,15 @@ public function uint32 PCM_NOTIFY_CALLBACK(HCMNOTIFICATION hNotify, void* Contex
 	public uint32 BUSD_Alloc_End;
 }
 
-[CRepr]public struct BUSNUMBER_RESOURCE
+[CRepr]
+public struct BUSNUMBER_RESOURCE
 {
 	public BUSNUMBER_DES BusNumber_Header;
 	public BUSNUMBER_RANGE[1] BusNumber_Data;
 }
 
-[CRepr, Packed(1)]public struct Connection_Des_s
+[CRepr, Packed(1)]
+public struct Connection_Des_s
 {
 	public uint32 COND_Type;
 	public uint32 COND_Flags;
@@ -3540,40 +3635,48 @@ public function uint32 PCM_NOTIFY_CALLBACK(HCMNOTIFICATION hNotify, void* Contex
 	public LARGE_INTEGER COND_Id;
 }
 
-[CRepr]public struct Connection_Resource_s
+[CRepr]
+public struct Connection_Resource_s
 {
 	public Connection_Des_s Connection_Header;
 }
 
-[CRepr, Packed(1)]public struct HWProfileInfo_sA
+[CRepr, Packed(1)]
+public struct HWProfileInfo_sA
 {
 	public uint32 HWPI_ulHWProfile;
 	public CHAR[80] HWPI_szFriendlyName;
 	public uint32 HWPI_dwFlags;
 }
 
-[CRepr, Packed(1)]public struct HWProfileInfo_sW
+[CRepr, Packed(1)]
+public struct HWProfileInfo_sW
 {
 	public uint32 HWPI_ulHWProfile;
 	public char8[80] HWPI_szFriendlyName;
 	public uint32 HWPI_dwFlags;
 }
 
-[CRepr]public struct CM_NOTIFY_FILTER
+[CRepr]
+public struct CM_NOTIFY_FILTER
 {
-	[CRepr, Union]	public struct _u_e__Union
+	[CRepr, Union]
+	public struct _u_e__Union
 	{
-		[CRepr]		public struct _DeviceHandle_e__Struct
+		[CRepr]
+		public struct _DeviceHandle_e__Struct
 		{
 			public HANDLE hTarget;
 		}
 
-		[CRepr]		public struct _DeviceInstance_e__Struct
+		[CRepr]
+		public struct _DeviceInstance_e__Struct
 		{
 			public char8[200] InstanceId;
 		}
 
-		[CRepr]		public struct _DeviceInterface_e__Struct
+		[CRepr]
+		public struct _DeviceInterface_e__Struct
 		{
 			public Guid ClassGuid;
 		}
@@ -3590,22 +3693,27 @@ public function uint32 PCM_NOTIFY_CALLBACK(HCMNOTIFICATION hNotify, void* Contex
 	public _u_e__Union u;
 }
 
-[CRepr]public struct CM_NOTIFY_EVENT_DATA
+[CRepr]
+public struct CM_NOTIFY_EVENT_DATA
 {
-	[CRepr, Union]	public struct _u_e__Union
+	[CRepr, Union]
+	public struct _u_e__Union
 	{
-		[CRepr]		public struct _DeviceInstance_e__Struct
+		[CRepr]
+		public struct _DeviceInstance_e__Struct
 		{
 			public char8[1] InstanceId;
 		}
 
-		[CRepr]		public struct _DeviceInterface_e__Struct
+		[CRepr]
+		public struct _DeviceInterface_e__Struct
 		{
 			public Guid ClassGuid;
 			public char8[1] SymbolicLink;
 		}
 
-		[CRepr]		public struct _DeviceHandle_e__Struct
+		[CRepr]
+		public struct _DeviceHandle_e__Struct
 		{
 			public Guid EventGuid;
 			public int32 NameOffset;
@@ -3624,7 +3732,8 @@ public function uint32 PCM_NOTIFY_CALLBACK(HCMNOTIFICATION hNotify, void* Contex
 }
 
 #if BF_32_BIT
-[CRepr, Packed(1)]public struct INFCONTEXT
+[CRepr, Packed(1)]
+public struct INFCONTEXT
 {
 	public void* Inf;
 	public void* CurrentInf;
@@ -3634,7 +3743,8 @@ public function uint32 PCM_NOTIFY_CALLBACK(HCMNOTIFICATION hNotify, void* Contex
 #endif
 
 #if BF_32_BIT
-[CRepr, Packed(1)]public struct SP_INF_INFORMATION
+[CRepr, Packed(1)]
+public struct SP_INF_INFORMATION
 {
 	public SP_INF_STYLE InfStyle;
 	public uint32 InfCount;
@@ -3643,9 +3753,11 @@ public function uint32 PCM_NOTIFY_CALLBACK(HCMNOTIFICATION hNotify, void* Contex
 #endif
 
 #if BF_32_BIT
-[CRepr, Packed(1)]public struct SP_ALTPLATFORM_INFO_V3
+[CRepr, Packed(1)]
+public struct SP_ALTPLATFORM_INFO_V3
 {
-	[CRepr, Union, Packed(1)]	public struct _Anonymous_e__Union
+	[CRepr, Union, Packed(1)]
+	public struct _Anonymous_e__Union
 	{
 		public uint16 Reserved;
 		public uint16 Flags;
@@ -3666,9 +3778,11 @@ public function uint32 PCM_NOTIFY_CALLBACK(HCMNOTIFICATION hNotify, void* Contex
 #endif
 
 #if BF_32_BIT
-[CRepr, Packed(1)]public struct SP_ALTPLATFORM_INFO_V2
+[CRepr, Packed(1)]
+public struct SP_ALTPLATFORM_INFO_V2
 {
-	[CRepr, Union, Packed(1)]	public struct _Anonymous_e__Union
+	[CRepr, Union, Packed(1)]
+	public struct _Anonymous_e__Union
 	{
 		public uint16 Reserved;
 		public uint16 Flags;
@@ -3686,7 +3800,8 @@ public function uint32 PCM_NOTIFY_CALLBACK(HCMNOTIFICATION hNotify, void* Contex
 #endif
 
 #if BF_32_BIT
-[CRepr, Packed(1)]public struct SP_ALTPLATFORM_INFO_V1
+[CRepr, Packed(1)]
+public struct SP_ALTPLATFORM_INFO_V1
 {
 	public uint32 cbSize;
 	public VER_PLATFORM Platform;
@@ -3698,7 +3813,8 @@ public function uint32 PCM_NOTIFY_CALLBACK(HCMNOTIFICATION hNotify, void* Contex
 #endif
 
 #if BF_32_BIT
-[CRepr, Packed(1)]public struct SP_ORIGINAL_FILE_INFO_A
+[CRepr, Packed(1)]
+public struct SP_ORIGINAL_FILE_INFO_A
 {
 	public uint32 cbSize;
 	public CHAR[260] OriginalInfName;
@@ -3707,7 +3823,8 @@ public function uint32 PCM_NOTIFY_CALLBACK(HCMNOTIFICATION hNotify, void* Contex
 #endif
 
 #if BF_32_BIT
-[CRepr, Packed(1)]public struct SP_ORIGINAL_FILE_INFO_W
+[CRepr, Packed(1)]
+public struct SP_ORIGINAL_FILE_INFO_W
 {
 	public uint32 cbSize;
 	public char8[260] OriginalInfName;
@@ -3716,7 +3833,8 @@ public function uint32 PCM_NOTIFY_CALLBACK(HCMNOTIFICATION hNotify, void* Contex
 #endif
 
 #if BF_32_BIT
-[CRepr, Packed(1)]public struct FILEPATHS_A
+[CRepr, Packed(1)]
+public struct FILEPATHS_A
 {
 	public PSTR Target;
 	public PSTR Source;
@@ -3726,7 +3844,8 @@ public function uint32 PCM_NOTIFY_CALLBACK(HCMNOTIFICATION hNotify, void* Contex
 #endif
 
 #if BF_32_BIT
-[CRepr, Packed(1)]public struct FILEPATHS_W
+[CRepr, Packed(1)]
+public struct FILEPATHS_W
 {
 	public PWSTR Target;
 	public PWSTR Source;
@@ -3736,7 +3855,8 @@ public function uint32 PCM_NOTIFY_CALLBACK(HCMNOTIFICATION hNotify, void* Contex
 #endif
 
 #if BF_32_BIT
-[CRepr, Packed(1)]public struct FILEPATHS_SIGNERINFO_A
+[CRepr, Packed(1)]
+public struct FILEPATHS_SIGNERINFO_A
 {
 	public PSTR Target;
 	public PSTR Source;
@@ -3749,7 +3869,8 @@ public function uint32 PCM_NOTIFY_CALLBACK(HCMNOTIFICATION hNotify, void* Contex
 #endif
 
 #if BF_32_BIT
-[CRepr, Packed(1)]public struct FILEPATHS_SIGNERINFO_W
+[CRepr, Packed(1)]
+public struct FILEPATHS_SIGNERINFO_W
 {
 	public PWSTR Target;
 	public PWSTR Source;
@@ -3762,7 +3883,8 @@ public function uint32 PCM_NOTIFY_CALLBACK(HCMNOTIFICATION hNotify, void* Contex
 #endif
 
 #if BF_32_BIT
-[CRepr, Packed(1)]public struct SOURCE_MEDIA_A
+[CRepr, Packed(1)]
+public struct SOURCE_MEDIA_A
 {
 	public PSTR Reserved;
 	public PSTR Tagfile;
@@ -3774,7 +3896,8 @@ public function uint32 PCM_NOTIFY_CALLBACK(HCMNOTIFICATION hNotify, void* Contex
 #endif
 
 #if BF_32_BIT
-[CRepr, Packed(1)]public struct SOURCE_MEDIA_W
+[CRepr, Packed(1)]
+public struct SOURCE_MEDIA_W
 {
 	public PWSTR Reserved;
 	public PWSTR Tagfile;
@@ -3786,7 +3909,8 @@ public function uint32 PCM_NOTIFY_CALLBACK(HCMNOTIFICATION hNotify, void* Contex
 #endif
 
 #if BF_32_BIT
-[CRepr, Packed(1)]public struct CABINET_INFO_A
+[CRepr, Packed(1)]
+public struct CABINET_INFO_A
 {
 	public PSTR CabinetPath;
 	public PSTR CabinetFile;
@@ -3797,7 +3921,8 @@ public function uint32 PCM_NOTIFY_CALLBACK(HCMNOTIFICATION hNotify, void* Contex
 #endif
 
 #if BF_32_BIT
-[CRepr, Packed(1)]public struct CABINET_INFO_W
+[CRepr, Packed(1)]
+public struct CABINET_INFO_W
 {
 	public PWSTR CabinetPath;
 	public PWSTR CabinetFile;
@@ -3808,7 +3933,8 @@ public function uint32 PCM_NOTIFY_CALLBACK(HCMNOTIFICATION hNotify, void* Contex
 #endif
 
 #if BF_32_BIT
-[CRepr, Packed(1)]public struct FILE_IN_CABINET_INFO_A
+[CRepr, Packed(1)]
+public struct FILE_IN_CABINET_INFO_A
 {
 	public PSTR NameInCabinet;
 	public uint32 FileSize;
@@ -3821,7 +3947,8 @@ public function uint32 PCM_NOTIFY_CALLBACK(HCMNOTIFICATION hNotify, void* Contex
 #endif
 
 #if BF_32_BIT
-[CRepr, Packed(1)]public struct FILE_IN_CABINET_INFO_W
+[CRepr, Packed(1)]
+public struct FILE_IN_CABINET_INFO_W
 {
 	public PWSTR NameInCabinet;
 	public uint32 FileSize;
@@ -3834,7 +3961,8 @@ public function uint32 PCM_NOTIFY_CALLBACK(HCMNOTIFICATION hNotify, void* Contex
 #endif
 
 #if BF_32_BIT
-[CRepr, Packed(1)]public struct SP_REGISTER_CONTROL_STATUSA
+[CRepr, Packed(1)]
+public struct SP_REGISTER_CONTROL_STATUSA
 {
 	public uint32 cbSize;
 	public PSTR FileName;
@@ -3844,7 +3972,8 @@ public function uint32 PCM_NOTIFY_CALLBACK(HCMNOTIFICATION hNotify, void* Contex
 #endif
 
 #if BF_32_BIT
-[CRepr, Packed(1)]public struct SP_REGISTER_CONTROL_STATUSW
+[CRepr, Packed(1)]
+public struct SP_REGISTER_CONTROL_STATUSW
 {
 	public uint32 cbSize;
 	public PWSTR FileName;
@@ -3854,7 +3983,8 @@ public function uint32 PCM_NOTIFY_CALLBACK(HCMNOTIFICATION hNotify, void* Contex
 #endif
 
 #if BF_32_BIT
-[CRepr, Packed(1)]public struct SP_FILE_COPY_PARAMS_A
+[CRepr, Packed(1)]
+public struct SP_FILE_COPY_PARAMS_A
 {
 	public uint32 cbSize;
 	public void* QueueHandle;
@@ -3872,7 +4002,8 @@ public function uint32 PCM_NOTIFY_CALLBACK(HCMNOTIFICATION hNotify, void* Contex
 #endif
 
 #if BF_32_BIT
-[CRepr, Packed(1)]public struct SP_FILE_COPY_PARAMS_W
+[CRepr, Packed(1)]
+public struct SP_FILE_COPY_PARAMS_W
 {
 	public uint32 cbSize;
 	public void* QueueHandle;
@@ -3890,7 +4021,8 @@ public function uint32 PCM_NOTIFY_CALLBACK(HCMNOTIFICATION hNotify, void* Contex
 #endif
 
 #if BF_32_BIT
-[CRepr, Packed(1)]public struct SP_DEVINFO_DATA
+[CRepr, Packed(1)]
+public struct SP_DEVINFO_DATA
 {
 	public uint32 cbSize;
 	public Guid ClassGuid;
@@ -3900,7 +4032,8 @@ public function uint32 PCM_NOTIFY_CALLBACK(HCMNOTIFICATION hNotify, void* Contex
 #endif
 
 #if BF_32_BIT
-[CRepr, Packed(1)]public struct SP_DEVICE_INTERFACE_DATA
+[CRepr, Packed(1)]
+public struct SP_DEVICE_INTERFACE_DATA
 {
 	public uint32 cbSize;
 	public Guid InterfaceClassGuid;
@@ -3910,7 +4043,8 @@ public function uint32 PCM_NOTIFY_CALLBACK(HCMNOTIFICATION hNotify, void* Contex
 #endif
 
 #if BF_32_BIT
-[CRepr, Packed(1)]public struct SP_DEVICE_INTERFACE_DETAIL_DATA_A
+[CRepr, Packed(1)]
+public struct SP_DEVICE_INTERFACE_DETAIL_DATA_A
 {
 	public uint32 cbSize;
 	public CHAR[1] DevicePath;
@@ -3918,7 +4052,8 @@ public function uint32 PCM_NOTIFY_CALLBACK(HCMNOTIFICATION hNotify, void* Contex
 #endif
 
 #if BF_32_BIT
-[CRepr, Packed(1)]public struct SP_DEVICE_INTERFACE_DETAIL_DATA_W
+[CRepr, Packed(1)]
+public struct SP_DEVICE_INTERFACE_DETAIL_DATA_W
 {
 	public uint32 cbSize;
 	public char8[1] DevicePath;
@@ -3926,7 +4061,8 @@ public function uint32 PCM_NOTIFY_CALLBACK(HCMNOTIFICATION hNotify, void* Contex
 #endif
 
 #if BF_32_BIT
-[CRepr, Packed(1)]public struct SP_DEVINFO_LIST_DETAIL_DATA_A
+[CRepr, Packed(1)]
+public struct SP_DEVINFO_LIST_DETAIL_DATA_A
 {
 	public uint32 cbSize;
 	public Guid ClassGuid;
@@ -3936,7 +4072,8 @@ public function uint32 PCM_NOTIFY_CALLBACK(HCMNOTIFICATION hNotify, void* Contex
 #endif
 
 #if BF_32_BIT
-[CRepr, Packed(1)]public struct SP_DEVINFO_LIST_DETAIL_DATA_W
+[CRepr, Packed(1)]
+public struct SP_DEVINFO_LIST_DETAIL_DATA_W
 {
 	public uint32 cbSize;
 	public Guid ClassGuid;
@@ -3946,7 +4083,8 @@ public function uint32 PCM_NOTIFY_CALLBACK(HCMNOTIFICATION hNotify, void* Contex
 #endif
 
 #if BF_32_BIT
-[CRepr, Packed(1)]public struct SP_DEVINSTALL_PARAMS_A
+[CRepr, Packed(1)]
+public struct SP_DEVINSTALL_PARAMS_A
 {
 	public uint32 cbSize;
 	public uint32 Flags;
@@ -3962,7 +4100,8 @@ public function uint32 PCM_NOTIFY_CALLBACK(HCMNOTIFICATION hNotify, void* Contex
 #endif
 
 #if BF_32_BIT
-[CRepr, Packed(1)]public struct SP_DEVINSTALL_PARAMS_W
+[CRepr, Packed(1)]
+public struct SP_DEVINSTALL_PARAMS_W
 {
 	public uint32 cbSize;
 	public uint32 Flags;
@@ -3978,7 +4117,8 @@ public function uint32 PCM_NOTIFY_CALLBACK(HCMNOTIFICATION hNotify, void* Contex
 #endif
 
 #if BF_32_BIT
-[CRepr, Packed(1)]public struct SP_CLASSINSTALL_HEADER
+[CRepr, Packed(1)]
+public struct SP_CLASSINSTALL_HEADER
 {
 	public uint32 cbSize;
 	public uint32 InstallFunction;
@@ -3986,7 +4126,8 @@ public function uint32 PCM_NOTIFY_CALLBACK(HCMNOTIFICATION hNotify, void* Contex
 #endif
 
 #if BF_32_BIT
-[CRepr, Packed(1)]public struct SP_ENABLECLASS_PARAMS
+[CRepr, Packed(1)]
+public struct SP_ENABLECLASS_PARAMS
 {
 	public SP_CLASSINSTALL_HEADER ClassInstallHeader;
 	public Guid ClassGuid;
@@ -3995,7 +4136,8 @@ public function uint32 PCM_NOTIFY_CALLBACK(HCMNOTIFICATION hNotify, void* Contex
 #endif
 
 #if BF_32_BIT
-[CRepr, Packed(1)]public struct SP_PROPCHANGE_PARAMS
+[CRepr, Packed(1)]
+public struct SP_PROPCHANGE_PARAMS
 {
 	public SP_CLASSINSTALL_HEADER ClassInstallHeader;
 	public uint32 StateChange;
@@ -4005,7 +4147,8 @@ public function uint32 PCM_NOTIFY_CALLBACK(HCMNOTIFICATION hNotify, void* Contex
 #endif
 
 #if BF_32_BIT
-[CRepr, Packed(1)]public struct SP_REMOVEDEVICE_PARAMS
+[CRepr, Packed(1)]
+public struct SP_REMOVEDEVICE_PARAMS
 {
 	public SP_CLASSINSTALL_HEADER ClassInstallHeader;
 	public uint32 Scope;
@@ -4014,7 +4157,8 @@ public function uint32 PCM_NOTIFY_CALLBACK(HCMNOTIFICATION hNotify, void* Contex
 #endif
 
 #if BF_32_BIT
-[CRepr, Packed(1)]public struct SP_UNREMOVEDEVICE_PARAMS
+[CRepr, Packed(1)]
+public struct SP_UNREMOVEDEVICE_PARAMS
 {
 	public SP_CLASSINSTALL_HEADER ClassInstallHeader;
 	public uint32 Scope;
@@ -4023,7 +4167,8 @@ public function uint32 PCM_NOTIFY_CALLBACK(HCMNOTIFICATION hNotify, void* Contex
 #endif
 
 #if BF_32_BIT
-[CRepr, Packed(1)]public struct SP_SELECTDEVICE_PARAMS_W
+[CRepr, Packed(1)]
+public struct SP_SELECTDEVICE_PARAMS_W
 {
 	public SP_CLASSINSTALL_HEADER ClassInstallHeader;
 	public char8[60] Title;
@@ -4034,7 +4179,8 @@ public function uint32 PCM_NOTIFY_CALLBACK(HCMNOTIFICATION hNotify, void* Contex
 #endif
 
 #if BF_32_BIT
-[CRepr, Packed(1)]public struct SP_DETECTDEVICE_PARAMS
+[CRepr, Packed(1)]
+public struct SP_DETECTDEVICE_PARAMS
 {
 	public SP_CLASSINSTALL_HEADER ClassInstallHeader;
 	public PDETECT_PROGRESS_NOTIFY DetectProgressNotify;
@@ -4043,7 +4189,8 @@ public function uint32 PCM_NOTIFY_CALLBACK(HCMNOTIFICATION hNotify, void* Contex
 #endif
 
 #if BF_32_BIT
-[CRepr, Packed(1)]public struct SP_INSTALLWIZARD_DATA
+[CRepr, Packed(1)]
+public struct SP_INSTALLWIZARD_DATA
 {
 	public SP_CLASSINSTALL_HEADER ClassInstallHeader;
 	public uint32 Flags;
@@ -4057,7 +4204,8 @@ public function uint32 PCM_NOTIFY_CALLBACK(HCMNOTIFICATION hNotify, void* Contex
 #endif
 
 #if BF_32_BIT
-[CRepr, Packed(1)]public struct SP_NEWDEVICEWIZARD_DATA
+[CRepr, Packed(1)]
+public struct SP_NEWDEVICEWIZARD_DATA
 {
 	public SP_CLASSINSTALL_HEADER ClassInstallHeader;
 	public uint32 Flags;
@@ -4068,7 +4216,8 @@ public function uint32 PCM_NOTIFY_CALLBACK(HCMNOTIFICATION hNotify, void* Contex
 #endif
 
 #if BF_32_BIT
-[CRepr, Packed(1)]public struct SP_TROUBLESHOOTER_PARAMS_W
+[CRepr, Packed(1)]
+public struct SP_TROUBLESHOOTER_PARAMS_W
 {
 	public SP_CLASSINSTALL_HEADER ClassInstallHeader;
 	public char8[260] ChmFile;
@@ -4077,7 +4226,8 @@ public function uint32 PCM_NOTIFY_CALLBACK(HCMNOTIFICATION hNotify, void* Contex
 #endif
 
 #if BF_32_BIT
-[CRepr, Packed(1)]public struct SP_POWERMESSAGEWAKE_PARAMS_W
+[CRepr, Packed(1)]
+public struct SP_POWERMESSAGEWAKE_PARAMS_W
 {
 	public SP_CLASSINSTALL_HEADER ClassInstallHeader;
 	public char8[512] PowerMessageWake;
@@ -4085,7 +4235,8 @@ public function uint32 PCM_NOTIFY_CALLBACK(HCMNOTIFICATION hNotify, void* Contex
 #endif
 
 #if BF_32_BIT
-[CRepr, Packed(1)]public struct SP_DRVINFO_DATA_V2_A
+[CRepr, Packed(1)]
+public struct SP_DRVINFO_DATA_V2_A
 {
 	public uint32 cbSize;
 	public uint32 DriverType;
@@ -4099,7 +4250,8 @@ public function uint32 PCM_NOTIFY_CALLBACK(HCMNOTIFICATION hNotify, void* Contex
 #endif
 
 #if BF_32_BIT
-[CRepr, Packed(1)]public struct SP_DRVINFO_DATA_V2_W
+[CRepr, Packed(1)]
+public struct SP_DRVINFO_DATA_V2_W
 {
 	public uint32 cbSize;
 	public uint32 DriverType;
@@ -4113,7 +4265,8 @@ public function uint32 PCM_NOTIFY_CALLBACK(HCMNOTIFICATION hNotify, void* Contex
 #endif
 
 #if BF_32_BIT
-[CRepr, Packed(1)]public struct SP_DRVINFO_DATA_V1_A
+[CRepr, Packed(1)]
+public struct SP_DRVINFO_DATA_V1_A
 {
 	public uint32 cbSize;
 	public uint32 DriverType;
@@ -4125,7 +4278,8 @@ public function uint32 PCM_NOTIFY_CALLBACK(HCMNOTIFICATION hNotify, void* Contex
 #endif
 
 #if BF_32_BIT
-[CRepr, Packed(1)]public struct SP_DRVINFO_DATA_V1_W
+[CRepr, Packed(1)]
+public struct SP_DRVINFO_DATA_V1_W
 {
 	public uint32 cbSize;
 	public uint32 DriverType;
@@ -4137,7 +4291,8 @@ public function uint32 PCM_NOTIFY_CALLBACK(HCMNOTIFICATION hNotify, void* Contex
 #endif
 
 #if BF_32_BIT
-[CRepr, Packed(1)]public struct SP_DRVINFO_DETAIL_DATA_A
+[CRepr, Packed(1)]
+public struct SP_DRVINFO_DETAIL_DATA_A
 {
 	public uint32 cbSize;
 	public FILETIME InfDate;
@@ -4152,7 +4307,8 @@ public function uint32 PCM_NOTIFY_CALLBACK(HCMNOTIFICATION hNotify, void* Contex
 #endif
 
 #if BF_32_BIT
-[CRepr, Packed(1)]public struct SP_DRVINFO_DETAIL_DATA_W
+[CRepr, Packed(1)]
+public struct SP_DRVINFO_DETAIL_DATA_W
 {
 	public uint32 cbSize;
 	public FILETIME InfDate;
@@ -4167,7 +4323,8 @@ public function uint32 PCM_NOTIFY_CALLBACK(HCMNOTIFICATION hNotify, void* Contex
 #endif
 
 #if BF_32_BIT
-[CRepr, Packed(1)]public struct SP_DRVINSTALL_PARAMS
+[CRepr, Packed(1)]
+public struct SP_DRVINSTALL_PARAMS
 {
 	public uint32 cbSize;
 	public uint32 Rank;
@@ -4178,7 +4335,8 @@ public function uint32 PCM_NOTIFY_CALLBACK(HCMNOTIFICATION hNotify, void* Contex
 #endif
 
 #if BF_32_BIT
-[CRepr, Packed(1)]public struct COINSTALLER_CONTEXT_DATA
+[CRepr, Packed(1)]
+public struct COINSTALLER_CONTEXT_DATA
 {
 	public BOOL PostProcessing;
 	public uint32 InstallResult;
@@ -4187,7 +4345,8 @@ public function uint32 PCM_NOTIFY_CALLBACK(HCMNOTIFICATION hNotify, void* Contex
 #endif
 
 #if BF_32_BIT
-[CRepr, Packed(1)]public struct SP_CLASSIMAGELIST_DATA
+[CRepr, Packed(1)]
+public struct SP_CLASSIMAGELIST_DATA
 {
 	public uint32 cbSize;
 	public HIMAGELIST ImageList;
@@ -4196,7 +4355,8 @@ public function uint32 PCM_NOTIFY_CALLBACK(HCMNOTIFICATION hNotify, void* Contex
 #endif
 
 #if BF_32_BIT
-[CRepr, Packed(1)]public struct SP_PROPSHEETPAGE_REQUEST
+[CRepr, Packed(1)]
+public struct SP_PROPSHEETPAGE_REQUEST
 {
 	public uint32 cbSize;
 	public uint32 PageRequested;
@@ -4206,7 +4366,8 @@ public function uint32 PCM_NOTIFY_CALLBACK(HCMNOTIFICATION hNotify, void* Contex
 #endif
 
 #if BF_32_BIT
-[CRepr, Packed(1)]public struct SP_BACKUP_QUEUE_PARAMS_V2_A
+[CRepr, Packed(1)]
+public struct SP_BACKUP_QUEUE_PARAMS_V2_A
 {
 	public uint32 cbSize;
 	public CHAR[260] FullInfPath;
@@ -4216,7 +4377,8 @@ public function uint32 PCM_NOTIFY_CALLBACK(HCMNOTIFICATION hNotify, void* Contex
 #endif
 
 #if BF_32_BIT
-[CRepr, Packed(1)]public struct SP_BACKUP_QUEUE_PARAMS_V2_W
+[CRepr, Packed(1)]
+public struct SP_BACKUP_QUEUE_PARAMS_V2_W
 {
 	public uint32 cbSize;
 	public char8[260] FullInfPath;
@@ -4226,7 +4388,8 @@ public function uint32 PCM_NOTIFY_CALLBACK(HCMNOTIFICATION hNotify, void* Contex
 #endif
 
 #if BF_32_BIT
-[CRepr, Packed(1)]public struct SP_BACKUP_QUEUE_PARAMS_V1_A
+[CRepr, Packed(1)]
+public struct SP_BACKUP_QUEUE_PARAMS_V1_A
 {
 	public uint32 cbSize;
 	public CHAR[260] FullInfPath;
@@ -4235,7 +4398,8 @@ public function uint32 PCM_NOTIFY_CALLBACK(HCMNOTIFICATION hNotify, void* Contex
 #endif
 
 #if BF_32_BIT
-[CRepr, Packed(1)]public struct SP_BACKUP_QUEUE_PARAMS_V1_W
+[CRepr, Packed(1)]
+public struct SP_BACKUP_QUEUE_PARAMS_V1_W
 {
 	public uint32 cbSize;
 	public char8[260] FullInfPath;
@@ -4244,7 +4408,8 @@ public function uint32 PCM_NOTIFY_CALLBACK(HCMNOTIFICATION hNotify, void* Contex
 #endif
 
 #if BF_32_BIT
-[CRepr, Packed(1)]public struct SP_INF_SIGNER_INFO_V1_A
+[CRepr, Packed(1)]
+public struct SP_INF_SIGNER_INFO_V1_A
 {
 	public uint32 cbSize;
 	public CHAR[260] CatalogFile;
@@ -4254,7 +4419,8 @@ public function uint32 PCM_NOTIFY_CALLBACK(HCMNOTIFICATION hNotify, void* Contex
 #endif
 
 #if BF_32_BIT
-[CRepr, Packed(1)]public struct SP_INF_SIGNER_INFO_V1_W
+[CRepr, Packed(1)]
+public struct SP_INF_SIGNER_INFO_V1_W
 {
 	public uint32 cbSize;
 	public char8[260] CatalogFile;
@@ -4264,7 +4430,8 @@ public function uint32 PCM_NOTIFY_CALLBACK(HCMNOTIFICATION hNotify, void* Contex
 #endif
 
 #if BF_32_BIT
-[CRepr, Packed(1)]public struct SP_INF_SIGNER_INFO_V2_A
+[CRepr, Packed(1)]
+public struct SP_INF_SIGNER_INFO_V2_A
 {
 	public uint32 cbSize;
 	public CHAR[260] CatalogFile;
@@ -4275,7 +4442,8 @@ public function uint32 PCM_NOTIFY_CALLBACK(HCMNOTIFICATION hNotify, void* Contex
 #endif
 
 #if BF_32_BIT
-[CRepr, Packed(1)]public struct SP_INF_SIGNER_INFO_V2_W
+[CRepr, Packed(1)]
+public struct SP_INF_SIGNER_INFO_V2_W
 {
 	public uint32 cbSize;
 	public char8[260] CatalogFile;

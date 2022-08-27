@@ -2089,23 +2089,28 @@ public function void PVIDEO_WIN32K_CALLOUT(void* Params);
 #endregion
 
 #region Structs
-[CRepr]public struct DISPLAYCONFIG_RATIONAL
+[CRepr]
+public struct DISPLAYCONFIG_RATIONAL
 {
 	public uint32 Numerator;
 	public uint32 Denominator;
 }
 
-[CRepr]public struct DISPLAYCONFIG_2DREGION
+[CRepr]
+public struct DISPLAYCONFIG_2DREGION
 {
 	public uint32 cx;
 	public uint32 cy;
 }
 
-[CRepr]public struct DISPLAYCONFIG_VIDEO_SIGNAL_INFO
+[CRepr]
+public struct DISPLAYCONFIG_VIDEO_SIGNAL_INFO
 {
-	[CRepr, Union]	public struct _Anonymous_e__Union
+	[CRepr, Union]
+	public struct _Anonymous_e__Union
 	{
-		[CRepr]		public struct _AdditionalSignalInfo_e__Struct
+		[CRepr]
+		public struct _AdditionalSignalInfo_e__Struct
 		{
 			public uint32 _bitfield;
 		}
@@ -2123,7 +2128,8 @@ public function void PVIDEO_WIN32K_CALLOUT(void* Params);
 	public DISPLAYCONFIG_SCANLINE_ORDERING scanLineOrdering;
 }
 
-[CRepr]public struct DISPLAYCONFIG_SOURCE_MODE
+[CRepr]
+public struct DISPLAYCONFIG_SOURCE_MODE
 {
 	public uint32 width;
 	public uint32 height;
@@ -2131,21 +2137,25 @@ public function void PVIDEO_WIN32K_CALLOUT(void* Params);
 	public POINTL position;
 }
 
-[CRepr]public struct DISPLAYCONFIG_TARGET_MODE
+[CRepr]
+public struct DISPLAYCONFIG_TARGET_MODE
 {
 	public DISPLAYCONFIG_VIDEO_SIGNAL_INFO targetVideoSignalInfo;
 }
 
-[CRepr]public struct DISPLAYCONFIG_DESKTOP_IMAGE_INFO
+[CRepr]
+public struct DISPLAYCONFIG_DESKTOP_IMAGE_INFO
 {
 	public POINTL PathSourceSize;
 	public RECTL DesktopImageRegion;
 	public RECTL DesktopImageClip;
 }
 
-[CRepr]public struct DISPLAYCONFIG_MODE_INFO
+[CRepr]
+public struct DISPLAYCONFIG_MODE_INFO
 {
-	[CRepr, Union]	public struct _Anonymous_e__Union
+	[CRepr, Union]
+	public struct _Anonymous_e__Union
 	{
 		public DISPLAYCONFIG_TARGET_MODE targetMode;
 		public DISPLAYCONFIG_SOURCE_MODE sourceMode;
@@ -2158,11 +2168,14 @@ public function void PVIDEO_WIN32K_CALLOUT(void* Params);
 	public using _Anonymous_e__Union Anonymous;
 }
 
-[CRepr]public struct DISPLAYCONFIG_PATH_SOURCE_INFO
+[CRepr]
+public struct DISPLAYCONFIG_PATH_SOURCE_INFO
 {
-	[CRepr, Union]	public struct _Anonymous_e__Union
+	[CRepr, Union]
+	public struct _Anonymous_e__Union
 	{
-		[CRepr]		public struct _Anonymous_e__Struct
+		[CRepr]
+		public struct _Anonymous_e__Struct
 		{
 			public uint32 _bitfield;
 		}
@@ -2177,11 +2190,14 @@ public function void PVIDEO_WIN32K_CALLOUT(void* Params);
 	public uint32 statusFlags;
 }
 
-[CRepr]public struct DISPLAYCONFIG_PATH_TARGET_INFO
+[CRepr]
+public struct DISPLAYCONFIG_PATH_TARGET_INFO
 {
-	[CRepr, Union]	public struct _Anonymous_e__Union
+	[CRepr, Union]
+	public struct _Anonymous_e__Union
 	{
-		[CRepr]		public struct _Anonymous_e__Struct
+		[CRepr]
+		public struct _Anonymous_e__Struct
 		{
 			public uint32 _bitfield;
 		}
@@ -2202,14 +2218,16 @@ public function void PVIDEO_WIN32K_CALLOUT(void* Params);
 	public uint32 statusFlags;
 }
 
-[CRepr]public struct DISPLAYCONFIG_PATH_INFO
+[CRepr]
+public struct DISPLAYCONFIG_PATH_INFO
 {
 	public DISPLAYCONFIG_PATH_SOURCE_INFO sourceInfo;
 	public DISPLAYCONFIG_PATH_TARGET_INFO targetInfo;
 	public uint32 flags;
 }
 
-[CRepr]public struct DISPLAYCONFIG_DEVICE_INFO_HEADER
+[CRepr]
+public struct DISPLAYCONFIG_DEVICE_INFO_HEADER
 {
 	public DISPLAYCONFIG_DEVICE_INFO_TYPE type;
 	public uint32 size;
@@ -2217,17 +2235,21 @@ public function void PVIDEO_WIN32K_CALLOUT(void* Params);
 	public uint32 id;
 }
 
-[CRepr]public struct DISPLAYCONFIG_SOURCE_DEVICE_NAME
+[CRepr]
+public struct DISPLAYCONFIG_SOURCE_DEVICE_NAME
 {
 	public DISPLAYCONFIG_DEVICE_INFO_HEADER header;
 	public char8[32] viewGdiDeviceName;
 }
 
-[CRepr]public struct DISPLAYCONFIG_TARGET_DEVICE_NAME_FLAGS
+[CRepr]
+public struct DISPLAYCONFIG_TARGET_DEVICE_NAME_FLAGS
 {
-	[CRepr, Union]	public struct _Anonymous_e__Union
+	[CRepr, Union]
+	public struct _Anonymous_e__Union
 	{
-		[CRepr]		public struct _Anonymous_e__Struct
+		[CRepr]
+		public struct _Anonymous_e__Struct
 		{
 			public uint32 _bitfield;
 		}
@@ -2239,7 +2261,8 @@ public function void PVIDEO_WIN32K_CALLOUT(void* Params);
 	public using _Anonymous_e__Union Anonymous;
 }
 
-[CRepr]public struct DISPLAYCONFIG_TARGET_DEVICE_NAME
+[CRepr]
+public struct DISPLAYCONFIG_TARGET_DEVICE_NAME
 {
 	public DISPLAYCONFIG_DEVICE_INFO_HEADER header;
 	public DISPLAYCONFIG_TARGET_DEVICE_NAME_FLAGS flags;
@@ -2251,7 +2274,8 @@ public function void PVIDEO_WIN32K_CALLOUT(void* Params);
 	public char8[128] monitorDevicePath;
 }
 
-[CRepr]public struct DISPLAYCONFIG_TARGET_PREFERRED_MODE
+[CRepr]
+public struct DISPLAYCONFIG_TARGET_PREFERRED_MODE
 {
 	public DISPLAYCONFIG_DEVICE_INFO_HEADER header;
 	public uint32 width;
@@ -2259,23 +2283,28 @@ public function void PVIDEO_WIN32K_CALLOUT(void* Params);
 	public DISPLAYCONFIG_TARGET_MODE targetMode;
 }
 
-[CRepr]public struct DISPLAYCONFIG_ADAPTER_NAME
+[CRepr]
+public struct DISPLAYCONFIG_ADAPTER_NAME
 {
 	public DISPLAYCONFIG_DEVICE_INFO_HEADER header;
 	public char8[128] adapterDevicePath;
 }
 
-[CRepr]public struct DISPLAYCONFIG_TARGET_BASE_TYPE
+[CRepr]
+public struct DISPLAYCONFIG_TARGET_BASE_TYPE
 {
 	public DISPLAYCONFIG_DEVICE_INFO_HEADER header;
 	public DISPLAYCONFIG_VIDEO_OUTPUT_TECHNOLOGY baseOutputTechnology;
 }
 
-[CRepr]public struct DISPLAYCONFIG_SET_TARGET_PERSISTENCE
+[CRepr]
+public struct DISPLAYCONFIG_SET_TARGET_PERSISTENCE
 {
-	[CRepr, Union]	public struct _Anonymous_e__Union
+	[CRepr, Union]
+	public struct _Anonymous_e__Union
 	{
-		[CRepr]		public struct _Anonymous_e__Struct
+		[CRepr]
+		public struct _Anonymous_e__Struct
 		{
 			public uint32 _bitfield;
 		}
@@ -2288,11 +2317,14 @@ public function void PVIDEO_WIN32K_CALLOUT(void* Params);
 	public using _Anonymous_e__Union Anonymous;
 }
 
-[CRepr]public struct DISPLAYCONFIG_SUPPORT_VIRTUAL_RESOLUTION
+[CRepr]
+public struct DISPLAYCONFIG_SUPPORT_VIRTUAL_RESOLUTION
 {
-	[CRepr, Union]	public struct _Anonymous_e__Union
+	[CRepr, Union]
+	public struct _Anonymous_e__Union
 	{
-		[CRepr]		public struct _Anonymous_e__Struct
+		[CRepr]
+		public struct _Anonymous_e__Struct
 		{
 			public uint32 _bitfield;
 		}
@@ -2305,11 +2337,14 @@ public function void PVIDEO_WIN32K_CALLOUT(void* Params);
 	public using _Anonymous_e__Union Anonymous;
 }
 
-[CRepr]public struct DISPLAYCONFIG_GET_ADVANCED_COLOR_INFO
+[CRepr]
+public struct DISPLAYCONFIG_GET_ADVANCED_COLOR_INFO
 {
-	[CRepr, Union]	public struct _Anonymous_e__Union
+	[CRepr, Union]
+	public struct _Anonymous_e__Union
 	{
-		[CRepr]		public struct _Anonymous_e__Struct
+		[CRepr]
+		public struct _Anonymous_e__Struct
 		{
 			public uint32 _bitfield;
 		}
@@ -2324,11 +2359,14 @@ public function void PVIDEO_WIN32K_CALLOUT(void* Params);
 	public uint32 bitsPerColorChannel;
 }
 
-[CRepr]public struct DISPLAYCONFIG_SET_ADVANCED_COLOR_STATE
+[CRepr]
+public struct DISPLAYCONFIG_SET_ADVANCED_COLOR_STATE
 {
-	[CRepr, Union]	public struct _Anonymous_e__Union
+	[CRepr, Union]
+	public struct _Anonymous_e__Union
 	{
-		[CRepr]		public struct _Anonymous_e__Struct
+		[CRepr]
+		public struct _Anonymous_e__Struct
 		{
 			public uint32 _bitfield;
 		}
@@ -2341,17 +2379,21 @@ public function void PVIDEO_WIN32K_CALLOUT(void* Params);
 	public using _Anonymous_e__Union Anonymous;
 }
 
-[CRepr]public struct DISPLAYCONFIG_SDR_WHITE_LEVEL
+[CRepr]
+public struct DISPLAYCONFIG_SDR_WHITE_LEVEL
 {
 	public DISPLAYCONFIG_DEVICE_INFO_HEADER header;
 	public uint32 SDRWhiteLevel;
 }
 
-[CRepr]public struct DISPLAYCONFIG_GET_MONITOR_SPECIALIZATION
+[CRepr]
+public struct DISPLAYCONFIG_GET_MONITOR_SPECIALIZATION
 {
-	[CRepr, Union]	public struct _Anonymous_e__Union
+	[CRepr, Union]
+	public struct _Anonymous_e__Union
 	{
-		[CRepr]		public struct _Anonymous_e__Struct
+		[CRepr]
+		public struct _Anonymous_e__Struct
 		{
 			public uint32 _bitfield;
 		}
@@ -2364,11 +2406,14 @@ public function void PVIDEO_WIN32K_CALLOUT(void* Params);
 	public using _Anonymous_e__Union Anonymous;
 }
 
-[CRepr]public struct DISPLAYCONFIG_SET_MONITOR_SPECIALIZATION
+[CRepr]
+public struct DISPLAYCONFIG_SET_MONITOR_SPECIALIZATION
 {
-	[CRepr, Union]	public struct _Anonymous_e__Union
+	[CRepr, Union]
+	public struct _Anonymous_e__Union
 	{
-		[CRepr]		public struct _Anonymous_e__Struct
+		[CRepr]
+		public struct _Anonymous_e__Struct
 		{
 			public uint32 _bitfield;
 		}
@@ -2384,52 +2429,60 @@ public function void PVIDEO_WIN32K_CALLOUT(void* Params);
 	public char8[128] specializationApplicationName;
 }
 
-[CRepr, Packed(1)]public struct PHYSICAL_MONITOR
+[CRepr, Packed(1)]
+public struct PHYSICAL_MONITOR
 {
 	public HANDLE hPhysicalMonitor;
 	public char8[128] szPhysicalMonitorDescription;
 }
 
-[CRepr, Packed(1)]public struct MC_TIMING_REPORT
+[CRepr, Packed(1)]
+public struct MC_TIMING_REPORT
 {
 	public uint32 dwHorizontalFrequencyInHZ;
 	public uint32 dwVerticalFrequencyInHZ;
 	public uint8 bTimingStatusByte;
 }
 
-[CRepr]public struct Sources
+[CRepr]
+public struct Sources
 {
 	public uint32 sourceId;
 	public int32 numTargets;
 	public uint32[1] aTargets;
 }
 
-[CRepr]public struct Adapter
+[CRepr]
+public struct Adapter
 {
 	public char8[128] AdapterName;
 	public int32 numSources;
 	public Sources[1] sources;
 }
 
-[CRepr]public struct Adapters
+[CRepr]
+public struct Adapters
 {
 	public int32 numAdapters;
 	public Adapter[1] adapter;
 }
 
-[CRepr]public struct DisplayMode
+[CRepr]
+public struct DisplayMode
 {
 	public char8[32] DeviceName;
 	public DEVMODEW devMode;
 }
 
-[CRepr]public struct DisplayModes
+[CRepr]
+public struct DisplayModes
 {
 	public int32 numDisplayModes;
 	public DisplayMode[1] displayMode;
 }
 
-[CRepr]public struct VIDEOPARAMETERS
+[CRepr]
+public struct VIDEOPARAMETERS
 {
 	public Guid Guid;
 	public uint32 dwOffset;
@@ -2457,7 +2510,8 @@ public function void PVIDEO_WIN32K_CALLOUT(void* Params);
 }
 
 #if BF_64_BIT || BF_ARM_64
-[CRepr]public struct POINTE
+[CRepr]
+public struct POINTE
 {
 	public float x;
 	public float y;
@@ -2465,20 +2519,23 @@ public function void PVIDEO_WIN32K_CALLOUT(void* Params);
 #endif
 
 #if BF_64_BIT || BF_ARM_64
-[CRepr, Union]public struct FLOAT_LONG
+[CRepr, Union]
+public struct FLOAT_LONG
 {
 	public float e;
 	public int32 l;
 }
 #endif
 
-[CRepr]public struct POINTFIX
+[CRepr]
+public struct POINTFIX
 {
 	public int32 x;
 	public int32 y;
 }
 
-[CRepr]public struct RECTFX
+[CRepr]
+public struct RECTFX
 {
 	public int32 xLeft;
 	public int32 yTop;
@@ -2487,7 +2544,8 @@ public function void PVIDEO_WIN32K_CALLOUT(void* Params);
 }
 
 #if BF_64_BIT || BF_ARM_64
-[CRepr]public struct FD_XFORM
+[CRepr]
+public struct FD_XFORM
 {
 	public float eXX;
 	public float eXY;
@@ -2496,7 +2554,8 @@ public function void PVIDEO_WIN32K_CALLOUT(void* Params);
 }
 #endif
 
-[CRepr]public struct FD_DEVICEMETRICS
+[CRepr]
+public struct FD_DEVICEMETRICS
 {
 	public uint32 flRealizedType;
 	public POINTE pteBase;
@@ -2522,7 +2581,8 @@ public function void PVIDEO_WIN32K_CALLOUT(void* Params);
 	public int32[1] alReserved;
 }
 
-[CRepr]public struct LIGATURE
+[CRepr]
+public struct LIGATURE
 {
 	public uint32 culSize;
 	public PWSTR pwsz;
@@ -2530,7 +2590,8 @@ public function void PVIDEO_WIN32K_CALLOUT(void* Params);
 	public uint32[1] ahglyph;
 }
 
-[CRepr]public struct FD_LIGATURE
+[CRepr]
+public struct FD_LIGATURE
 {
 	public uint32 culThis;
 	public uint32 ulType;
@@ -2538,20 +2599,23 @@ public function void PVIDEO_WIN32K_CALLOUT(void* Params);
 	public LIGATURE[1] alig;
 }
 
-[CRepr]public struct POINTQF
+[CRepr]
+public struct POINTQF
 {
 	public LARGE_INTEGER x;
 	public LARGE_INTEGER y;
 }
 
-[CRepr]public struct WCRUN
+[CRepr]
+public struct WCRUN
 {
 	public char8 wcLow;
 	public uint16 cGlyphs;
 	public uint32* phg;
 }
 
-[CRepr]public struct FD_GLYPHSET
+[CRepr]
+public struct FD_GLYPHSET
 {
 	public uint32 cjThis;
 	public uint32 flAccel;
@@ -2560,7 +2624,8 @@ public function void PVIDEO_WIN32K_CALLOUT(void* Params);
 	public WCRUN[1] awcrun;
 }
 
-[CRepr]public struct FD_GLYPHATTR
+[CRepr]
+public struct FD_GLYPHATTR
 {
 	public uint32 cjThis;
 	public uint32 cGlyphs;
@@ -2568,14 +2633,16 @@ public function void PVIDEO_WIN32K_CALLOUT(void* Params);
 	public uint8[1] aGlyphAttr;
 }
 
-[CRepr]public struct FD_KERNINGPAIR
+[CRepr]
+public struct FD_KERNINGPAIR
 {
 	public char8 wcFirst;
 	public char8 wcSecond;
 	public int16 fwdKern;
 }
 
-[CRepr]public struct FONTDIFF
+[CRepr]
+public struct FONTDIFF
 {
 	public uint8 jReserved1;
 	public uint8 jReserved2;
@@ -2588,7 +2655,8 @@ public function void PVIDEO_WIN32K_CALLOUT(void* Params);
 	public POINTL ptlCaret;
 }
 
-[CRepr]public struct FONTSIM
+[CRepr]
+public struct FONTSIM
 {
 	public int32 dpBold;
 	public int32 dpItalic;
@@ -2596,7 +2664,8 @@ public function void PVIDEO_WIN32K_CALLOUT(void* Params);
 }
 
 #if BF_64_BIT || BF_ARM_64
-[CRepr]public struct IFIMETRICS
+[CRepr]
+public struct IFIMETRICS
 {
 	public uint32 cjThis;
 	public uint32 cjIfiExtra;
@@ -2661,7 +2730,8 @@ public function void PVIDEO_WIN32K_CALLOUT(void* Params);
 }
 #endif
 
-[CRepr]public struct IFIEXTRA
+[CRepr]
+public struct IFIEXTRA
 {
 	public uint32 ulIdentifier;
 	public int32 dpFontSig;
@@ -2671,20 +2741,23 @@ public function void PVIDEO_WIN32K_CALLOUT(void* Params);
 	public uint32[1] aulReserved;
 }
 
-[CRepr]public struct DRVFN
+[CRepr]
+public struct DRVFN
 {
 	public uint32 iFunc;
 	public PFN pfn;
 }
 
-[CRepr]public struct DRVENABLEDATA
+[CRepr]
+public struct DRVENABLEDATA
 {
 	public uint32 iDriverVersion;
 	public uint32 c;
 	public DRVFN* pdrvfn;
 }
 
-[CRepr]public struct DEVINFO
+[CRepr]
+public struct DEVINFO
 {
 	public uint32 flGraphicsCaps;
 	public LOGFONTW lfDefaultFont;
@@ -2699,7 +2772,8 @@ public function void PVIDEO_WIN32K_CALLOUT(void* Params);
 }
 
 #if BF_64_BIT || BF_ARM_64
-[CRepr]public struct LINEATTRS
+[CRepr]
+public struct LINEATTRS
 {
 	public uint32 fl;
 	public uint32 iJoin;
@@ -2713,7 +2787,8 @@ public function void PVIDEO_WIN32K_CALLOUT(void* Params);
 #endif
 
 #if BF_64_BIT || BF_ARM_64
-[CRepr]public struct XFORML
+[CRepr]
+public struct XFORML
 {
 	public float eM11;
 	public float eM12;
@@ -2724,14 +2799,16 @@ public function void PVIDEO_WIN32K_CALLOUT(void* Params);
 }
 #endif
 
-[CRepr]public struct CIECHROMA
+[CRepr]
+public struct CIECHROMA
 {
 	public int32 x;
 	public int32 y;
 	public int32 Y;
 }
 
-[CRepr]public struct COLORINFO
+[CRepr]
+public struct COLORINFO
 {
 	public CIECHROMA Red;
 	public CIECHROMA Green;
@@ -2751,7 +2828,8 @@ public function void PVIDEO_WIN32K_CALLOUT(void* Params);
 	public int32 MagentaInYellowDye;
 }
 
-[CRepr]public struct CDDDXGK_REDIRBITMAPPRESENTINFO
+[CRepr]
+public struct CDDDXGK_REDIRBITMAPPRESENTINFO
 {
 	public uint32 NumDirtyRects;
 	public RECT* DirtyRect;
@@ -2760,7 +2838,8 @@ public function void PVIDEO_WIN32K_CALLOUT(void* Params);
 	public BOOLEAN bDoNotSynchronizeWithDxContent;
 }
 
-[CRepr]public struct GDIINFO
+[CRepr]
+public struct GDIINFO
 {
 	public uint32 ulVersion;
 	public uint32 ulTechnology;
@@ -2809,14 +2888,16 @@ public function void PVIDEO_WIN32K_CALLOUT(void* Params);
 	public uint32 ulPhysicalPixelGamma;
 }
 
-[CRepr]public struct BRUSHOBJ
+[CRepr]
+public struct BRUSHOBJ
 {
 	public uint32 iSolidColor;
 	public void* pvRbrush;
 	public uint32 flColorType;
 }
 
-[CRepr]public struct CLIPOBJ
+[CRepr]
+public struct CLIPOBJ
 {
 	public uint32 iUniq;
 	public RECTL rclBounds;
@@ -2826,7 +2907,8 @@ public function void PVIDEO_WIN32K_CALLOUT(void* Params);
 	public uint8 fjOptions;
 }
 
-[CRepr]public struct DRIVEROBJ
+[CRepr]
+public struct DRIVEROBJ
 {
 	public void* pvObj;
 	public FREEOBJPROC pFreeProc;
@@ -2834,7 +2916,8 @@ public function void PVIDEO_WIN32K_CALLOUT(void* Params);
 	public DHPDEV dhpdev;
 }
 
-[CRepr]public struct FONTOBJ
+[CRepr]
+public struct FONTOBJ
 {
 	public uint32 iUniq;
 	public uint32 iFace;
@@ -2848,23 +2931,27 @@ public function void PVIDEO_WIN32K_CALLOUT(void* Params);
 	public void* pvProducer;
 }
 
-[CRepr]public struct BLENDOBJ
+[CRepr]
+public struct BLENDOBJ
 {
 	public BLENDFUNCTION BlendFunction;
 }
 
-[CRepr]public struct PALOBJ
+[CRepr]
+public struct PALOBJ
 {
 	public uint32 ulReserved;
 }
 
-[CRepr]public struct PATHOBJ
+[CRepr]
+public struct PATHOBJ
 {
 	public uint32 fl;
 	public uint32 cCurves;
 }
 
-[CRepr]public struct SURFOBJ
+[CRepr]
+public struct SURFOBJ
 {
 	public DHSURF dhsurf;
 	public HSURF hsurf;
@@ -2881,7 +2968,8 @@ public function void PVIDEO_WIN32K_CALLOUT(void* Params);
 	public uint16 fjBitmap;
 }
 
-[CRepr]public struct WNDOBJ
+[CRepr]
+public struct WNDOBJ
 {
 	public CLIPOBJ coClient;
 	public void* pvConsumer;
@@ -2889,12 +2977,14 @@ public function void PVIDEO_WIN32K_CALLOUT(void* Params);
 	public SURFOBJ* psoOwner;
 }
 
-[CRepr]public struct XFORMOBJ
+[CRepr]
+public struct XFORMOBJ
 {
 	public uint32 ulReserved;
 }
 
-[CRepr]public struct XLATEOBJ
+[CRepr]
+public struct XLATEOBJ
 {
 	public uint32 iUniq;
 	public uint32 flXlate;
@@ -2904,33 +2994,38 @@ public function void PVIDEO_WIN32K_CALLOUT(void* Params);
 	public uint32* pulXlate;
 }
 
-[CRepr]public struct ENUMRECTS
+[CRepr]
+public struct ENUMRECTS
 {
 	public uint32 c;
 	public RECTL[1] arcl;
 }
 
-[CRepr]public struct GLYPHBITS
+[CRepr]
+public struct GLYPHBITS
 {
 	public POINTL ptlOrigin;
 	public SIZE sizlBitmap;
 	public uint8[1] aj;
 }
 
-[CRepr, Union]public struct GLYPHDEF
+[CRepr, Union]
+public struct GLYPHDEF
 {
 	public GLYPHBITS* pgb;
 	public PATHOBJ* ppo;
 }
 
-[CRepr]public struct GLYPHPOS
+[CRepr]
+public struct GLYPHPOS
 {
 	public uint32 hg;
 	public GLYPHDEF* pgdf;
 	public POINTL ptl;
 }
 
-[CRepr]public struct GLYPHDATA
+[CRepr]
+public struct GLYPHDATA
 {
 	public GLYPHDEF gdf;
 	public uint32 hg;
@@ -2943,7 +3038,8 @@ public function void PVIDEO_WIN32K_CALLOUT(void* Params);
 	public POINTQF ptqD;
 }
 
-[CRepr]public struct STROBJ
+[CRepr]
+public struct STROBJ
 {
 	public uint32 cGlyphs;
 	public uint32 flAccel;
@@ -2953,7 +3049,8 @@ public function void PVIDEO_WIN32K_CALLOUT(void* Params);
 	public PWSTR pwszOrg;
 }
 
-[CRepr]public struct FONTINFO
+[CRepr]
+public struct FONTINFO
 {
 	public uint32 cjThis;
 	public uint32 flCaps;
@@ -2964,20 +3061,23 @@ public function void PVIDEO_WIN32K_CALLOUT(void* Params);
 	public uint32 cjMaxGlyph32;
 }
 
-[CRepr]public struct PATHDATA
+[CRepr]
+public struct PATHDATA
 {
 	public uint32 flags;
 	public uint32 count;
 	public POINTFIX* pptfx;
 }
 
-[CRepr]public struct RUN
+[CRepr]
+public struct RUN
 {
 	public int32 iStart;
 	public int32 iStop;
 }
 
-[CRepr]public struct CLIPLINE
+[CRepr]
+public struct CLIPLINE
 {
 	public POINTFIX ptfxA;
 	public POINTFIX ptfxB;
@@ -2986,7 +3086,8 @@ public function void PVIDEO_WIN32K_CALLOUT(void* Params);
 	public RUN[1] arun;
 }
 
-[CRepr]public struct PERBANDINFO
+[CRepr]
+public struct PERBANDINFO
 {
 	public BOOL bRepeatThisBand;
 	public SIZE szlBand;
@@ -2994,14 +3095,16 @@ public function void PVIDEO_WIN32K_CALLOUT(void* Params);
 	public uint32 ulVertRes;
 }
 
-[CRepr]public struct GAMMARAMP
+[CRepr]
+public struct GAMMARAMP
 {
 	public uint16[256] Red;
 	public uint16[256] Green;
 	public uint16[256] Blue;
 }
 
-[CRepr]public struct DEVHTINFO
+[CRepr]
+public struct DEVHTINFO
 {
 	public uint32 HTFlags;
 	public uint32 HTPatternSize;
@@ -3009,7 +3112,8 @@ public function void PVIDEO_WIN32K_CALLOUT(void* Params);
 	public COLORINFO ColorInfo;
 }
 
-[CRepr]public struct DEVHTADJDATA
+[CRepr]
+public struct DEVHTADJDATA
 {
 	public uint32 DeviceFlags;
 	public uint32 DeviceXDPI;
@@ -3018,21 +3122,24 @@ public function void PVIDEO_WIN32K_CALLOUT(void* Params);
 	public DEVHTINFO* pAdjHTInfo;
 }
 
-[CRepr]public struct TYPE1_FONT
+[CRepr]
+public struct TYPE1_FONT
 {
 	public HANDLE hPFM;
 	public HANDLE hPFB;
 	public uint32 ulIdentifier;
 }
 
-[CRepr]public struct ENGSAFESEMAPHORE
+[CRepr]
+public struct ENGSAFESEMAPHORE
 {
 	public HSEMAPHORE hsem;
 	public int32 lCount;
 }
 
 #if BF_64_BIT || BF_ARM_64
-[CRepr]public struct FLOATOBJ_XFORM
+[CRepr]
+public struct FLOATOBJ_XFORM
 {
 	public float eM11;
 	public float eM12;
@@ -3043,7 +3150,8 @@ public function void PVIDEO_WIN32K_CALLOUT(void* Params);
 }
 #endif
 
-[CRepr]public struct ENG_TIME_FIELDS
+[CRepr]
+public struct ENG_TIME_FIELDS
 {
 	public uint16 usYear;
 	public uint16 usMonth;
@@ -3055,7 +3163,8 @@ public function void PVIDEO_WIN32K_CALLOUT(void* Params);
 	public uint16 usWeekday;
 }
 
-[CRepr]public struct EMFINFO
+[CRepr]
+public struct EMFINFO
 {
 	public uint32 nSize;
 	public HDC hdc;
@@ -3063,13 +3172,15 @@ public function void PVIDEO_WIN32K_CALLOUT(void* Params);
 	public uint8* pvCurrentRecord;
 }
 
-[CRepr]public struct DRH_APIBITMAPDATA
+[CRepr]
+public struct DRH_APIBITMAPDATA
 {
 	public SURFOBJ* pso;
 	public BOOL b;
 }
 
-[CRepr]public struct INDIRECT_DISPLAY_INFO
+[CRepr]
+public struct INDIRECT_DISPLAY_INFO
 {
 	public LUID DisplayAdapterLuid;
 	public uint32 Flags;
@@ -3077,23 +3188,27 @@ public function void PVIDEO_WIN32K_CALLOUT(void* Params);
 	public uint32 DisplayAdapterTargetBase;
 }
 
-[CRepr]public struct VIDEO_VDM
+[CRepr]
+public struct VIDEO_VDM
 {
 	public HANDLE ProcessHandle;
 }
 
-[CRepr]public struct VIDEO_REGISTER_VDM
+[CRepr]
+public struct VIDEO_REGISTER_VDM
 {
 	public uint32 MinimumStateSize;
 }
 
-[CRepr]public struct VIDEO_MONITOR_DESCRIPTOR
+[CRepr]
+public struct VIDEO_MONITOR_DESCRIPTOR
 {
 	public uint32 DescriptorSize;
 	public uint8[1] Descriptor;
 }
 
-[CRepr]public struct DXGK_WIN32K_PARAM_DATA
+[CRepr]
+public struct DXGK_WIN32K_PARAM_DATA
 {
 	public void* PathsArray;
 	public void* ModesArray;
@@ -3102,7 +3217,8 @@ public function void PVIDEO_WIN32K_CALLOUT(void* Params);
 	public uint32 SDCFlags;
 }
 
-[CRepr]public struct VIDEO_WIN32K_CALLBACKS_PARAMS
+[CRepr]
+public struct VIDEO_WIN32K_CALLBACKS_PARAMS
 {
 	public VIDEO_WIN32K_CALLBACKS_PARAMS_TYPE CalloutType;
 	public void* PhysDisp;
@@ -3114,7 +3230,8 @@ public function void PVIDEO_WIN32K_CALLOUT(void* Params);
 	public BOOLEAN WaitForQueueReady;
 }
 
-[CRepr]public struct VIDEO_WIN32K_CALLBACKS
+[CRepr]
+public struct VIDEO_WIN32K_CALLBACKS
 {
 	public void* PhysDisp;
 	public PVIDEO_WIN32K_CALLOUT Callout;
@@ -3123,13 +3240,15 @@ public function void PVIDEO_WIN32K_CALLOUT(void* Params);
 	public uint32 DualviewFlags;
 }
 
-[CRepr]public struct VIDEO_DEVICE_SESSION_STATUS
+[CRepr]
+public struct VIDEO_DEVICE_SESSION_STATUS
 {
 	public uint32 bEnable;
 	public uint32 bSuccess;
 }
 
-[CRepr]public struct VIDEO_HARDWARE_STATE_HEADER
+[CRepr]
+public struct VIDEO_HARDWARE_STATE_HEADER
 {
 	public uint32 Length;
 	public uint8[48] PortValue;
@@ -3163,24 +3282,28 @@ public function void PVIDEO_WIN32K_CALLOUT(void* Params);
 	public void* FrameBufferData;
 }
 
-[CRepr]public struct VIDEO_HARDWARE_STATE
+[CRepr]
+public struct VIDEO_HARDWARE_STATE
 {
 	public VIDEO_HARDWARE_STATE_HEADER* StateHeader;
 	public uint32 StateLength;
 }
 
-[CRepr]public struct VIDEO_NUM_MODES
+[CRepr]
+public struct VIDEO_NUM_MODES
 {
 	public uint32 NumModes;
 	public uint32 ModeInformationLength;
 }
 
-[CRepr]public struct VIDEO_MODE
+[CRepr]
+public struct VIDEO_MODE
 {
 	public uint32 RequestedMode;
 }
 
-[CRepr]public struct VIDEO_MODE_INFORMATION
+[CRepr]
+public struct VIDEO_MODE_INFORMATION
 {
 	public uint32 Length;
 	public uint32 ModeIndex;
@@ -3204,7 +3327,8 @@ public function void PVIDEO_WIN32K_CALLOUT(void* Params);
 	public uint32 DriverSpecificAttributeFlags;
 }
 
-[CRepr]public struct VIDEO_LOAD_FONT_INFORMATION
+[CRepr]
+public struct VIDEO_LOAD_FONT_INFORMATION
 {
 	public uint16 WidthInPixels;
 	public uint16 HeightInPixels;
@@ -3212,14 +3336,16 @@ public function void PVIDEO_WIN32K_CALLOUT(void* Params);
 	public uint8[1] Font;
 }
 
-[CRepr]public struct VIDEO_PALETTE_DATA
+[CRepr]
+public struct VIDEO_PALETTE_DATA
 {
 	public uint16 NumEntries;
 	public uint16 FirstEntry;
 	public uint16[1] Colors;
 }
 
-[CRepr]public struct VIDEO_CLUTDATA
+[CRepr]
+public struct VIDEO_CLUTDATA
 {
 	public uint8 Red;
 	public uint8 Green;
@@ -3227,9 +3353,11 @@ public function void PVIDEO_WIN32K_CALLOUT(void* Params);
 	public uint8 Unused;
 }
 
-[CRepr]public struct VIDEO_CLUT
+[CRepr]
+public struct VIDEO_CLUT
 {
-	[CRepr, Union]	public struct _Anonymous_e__Union
+	[CRepr, Union]
+	public struct _Anonymous_e__Union
 	{
 		public VIDEO_CLUTDATA RgbArray;
 		public uint32 RgbLong;
@@ -3240,13 +3368,15 @@ public function void PVIDEO_WIN32K_CALLOUT(void* Params);
 	public _Anonymous_e__Union[1] LookupTable;
 }
 
-[CRepr]public struct VIDEO_CURSOR_POSITION
+[CRepr]
+public struct VIDEO_CURSOR_POSITION
 {
 	public int16 Column;
 	public int16 Row;
 }
 
-[CRepr]public struct VIDEO_CURSOR_ATTRIBUTES
+[CRepr]
+public struct VIDEO_CURSOR_ATTRIBUTES
 {
 	public uint16 Width;
 	public uint16 Height;
@@ -3256,13 +3386,15 @@ public function void PVIDEO_WIN32K_CALLOUT(void* Params);
 	public uint8 Enable;
 }
 
-[CRepr]public struct VIDEO_POINTER_POSITION
+[CRepr]
+public struct VIDEO_POINTER_POSITION
 {
 	public int16 Column;
 	public int16 Row;
 }
 
-[CRepr]public struct VIDEO_POINTER_ATTRIBUTES
+[CRepr]
+public struct VIDEO_POINTER_ATTRIBUTES
 {
 	public uint32 Flags;
 	public uint32 Width;
@@ -3274,7 +3406,8 @@ public function void PVIDEO_WIN32K_CALLOUT(void* Params);
 	public uint8[1] Pixels;
 }
 
-[CRepr]public struct VIDEO_POINTER_CAPABILITIES
+[CRepr]
+public struct VIDEO_POINTER_CAPABILITIES
 {
 	public uint32 Flags;
 	public uint32 MaxWidth;
@@ -3283,7 +3416,8 @@ public function void PVIDEO_WIN32K_CALLOUT(void* Params);
 	public uint32 HWPtrBitmapEnd;
 }
 
-[CRepr]public struct VIDEO_BANK_SELECT
+[CRepr]
+public struct VIDEO_BANK_SELECT
 {
 	public uint32 Length;
 	public uint32 Size;
@@ -3300,12 +3434,14 @@ public function void PVIDEO_WIN32K_CALLOUT(void* Params);
 	public uint32 PlanarHCDisableCodeOffset;
 }
 
-[CRepr]public struct VIDEO_MEMORY
+[CRepr]
+public struct VIDEO_MEMORY
 {
 	public void* RequestedVirtualAddress;
 }
 
-[CRepr]public struct VIDEO_SHARE_MEMORY
+[CRepr]
+public struct VIDEO_SHARE_MEMORY
 {
 	public HANDLE ProcessHandle;
 	public uint32 ViewOffset;
@@ -3313,14 +3449,16 @@ public function void PVIDEO_WIN32K_CALLOUT(void* Params);
 	public void* RequestedVirtualAddress;
 }
 
-[CRepr]public struct VIDEO_SHARE_MEMORY_INFORMATION
+[CRepr]
+public struct VIDEO_SHARE_MEMORY_INFORMATION
 {
 	public uint32 SharedViewOffset;
 	public uint32 SharedViewSize;
 	public void* VirtualAddress;
 }
 
-[CRepr]public struct VIDEO_MEMORY_INFORMATION
+[CRepr]
+public struct VIDEO_MEMORY_INFORMATION
 {
 	public void* VideoRamBase;
 	public uint32 VideoRamLength;
@@ -3328,14 +3466,16 @@ public function void PVIDEO_WIN32K_CALLOUT(void* Params);
 	public uint32 FrameBufferLength;
 }
 
-[CRepr]public struct VIDEO_PUBLIC_ACCESS_RANGES
+[CRepr]
+public struct VIDEO_PUBLIC_ACCESS_RANGES
 {
 	public uint32 InIoSpace;
 	public uint32 MappedInIoSpace;
 	public void* VirtualAddress;
 }
 
-[CRepr]public struct VIDEO_COLOR_CAPABILITIES
+[CRepr]
+public struct VIDEO_COLOR_CAPABILITIES
 {
 	public uint32 Length;
 	public uint32 AttributeFlags;
@@ -3357,43 +3497,50 @@ public function void PVIDEO_WIN32K_CALLOUT(void* Params);
 	public int32 BlueGamma;
 }
 
-[CRepr]public struct VIDEO_POWER_MANAGEMENT
+[CRepr]
+public struct VIDEO_POWER_MANAGEMENT
 {
 	public uint32 Length;
 	public uint32 DPMSVersion;
 	public uint32 PowerState;
 }
 
-[CRepr]public struct VIDEO_COLOR_LUT_DATA
+[CRepr]
+public struct VIDEO_COLOR_LUT_DATA
 {
 	public uint32 Length;
 	public uint32 LutDataFormat;
 	public uint8[1] LutData;
 }
 
-[CRepr]public struct VIDEO_LUT_RGB256WORDS
+[CRepr]
+public struct VIDEO_LUT_RGB256WORDS
 {
 	public uint16[256] Red;
 	public uint16[256] Green;
 	public uint16[256] Blue;
 }
 
-[CRepr]public struct BANK_POSITION
+[CRepr]
+public struct BANK_POSITION
 {
 	public uint32 ReadBankPosition;
 	public uint32 WriteBankPosition;
 }
 
-[CRepr]public struct DISPLAY_BRIGHTNESS
+[CRepr]
+public struct DISPLAY_BRIGHTNESS
 {
 	public uint8 ucDisplayPolicy;
 	public uint8 ucACBrightness;
 	public uint8 ucDCBrightness;
 }
 
-[CRepr]public struct VIDEO_BRIGHTNESS_POLICY
+[CRepr]
+public struct VIDEO_BRIGHTNESS_POLICY
 {
-	[CRepr]	public struct _Anonymous_e__Struct
+	[CRepr]
+	public struct _Anonymous_e__Struct
 	{
 		public uint8 BatteryLevel;
 		public uint8 Brightness;
@@ -3404,74 +3551,86 @@ public function void PVIDEO_WIN32K_CALLOUT(void* Params);
 	public _Anonymous_e__Struct[1] Level;
 }
 
-[CRepr]public struct FSCNTL_SCREEN_INFO
+[CRepr]
+public struct FSCNTL_SCREEN_INFO
 {
 	public COORD Position;
 	public COORD ScreenSize;
 	public uint32 nNumberOfChars;
 }
 
-[CRepr]public struct FONT_IMAGE_INFO
+[CRepr]
+public struct FONT_IMAGE_INFO
 {
 	public COORD FontSize;
 	public uint8* ImageBits;
 }
 
-[CRepr]public struct CHAR_IMAGE_INFO
+[CRepr]
+public struct CHAR_IMAGE_INFO
 {
 	public CHAR_INFO CharInfo;
 	public FONT_IMAGE_INFO FontImageInfo;
 }
 
-[CRepr]public struct VGA_CHAR
+[CRepr]
+public struct VGA_CHAR
 {
 	public CHAR Char;
 	public CHAR Attributes;
 }
 
-[CRepr]public struct FSVIDEO_COPY_FRAME_BUFFER
+[CRepr]
+public struct FSVIDEO_COPY_FRAME_BUFFER
 {
 	public FSCNTL_SCREEN_INFO SrcScreen;
 	public FSCNTL_SCREEN_INFO DestScreen;
 }
 
-[CRepr]public struct FSVIDEO_WRITE_TO_FRAME_BUFFER
+[CRepr]
+public struct FSVIDEO_WRITE_TO_FRAME_BUFFER
 {
 	public CHAR_IMAGE_INFO* SrcBuffer;
 	public FSCNTL_SCREEN_INFO DestScreen;
 }
 
-[CRepr]public struct FSVIDEO_REVERSE_MOUSE_POINTER
+[CRepr]
+public struct FSVIDEO_REVERSE_MOUSE_POINTER
 {
 	public FSCNTL_SCREEN_INFO Screen;
 	public uint32 dwType;
 }
 
-[CRepr]public struct FSVIDEO_MODE_INFORMATION
+[CRepr]
+public struct FSVIDEO_MODE_INFORMATION
 {
 	public VIDEO_MODE_INFORMATION VideoMode;
 	public VIDEO_MEMORY_INFORMATION VideoMemory;
 }
 
-[CRepr]public struct FSVIDEO_SCREEN_INFORMATION
+[CRepr]
+public struct FSVIDEO_SCREEN_INFORMATION
 {
 	public COORD ScreenSize;
 	public COORD FontSize;
 }
 
-[CRepr]public struct FSVIDEO_CURSOR_POSITION
+[CRepr]
+public struct FSVIDEO_CURSOR_POSITION
 {
 	public VIDEO_CURSOR_POSITION Coord;
 	public uint32 dwType;
 }
 
-[CRepr]public struct ENG_EVENT
+[CRepr]
+public struct ENG_EVENT
 {
 	public void* pKEvent;
 	public uint32 fFlags;
 }
 
-[CRepr]public struct VIDEO_PERFORMANCE_COUNTER
+[CRepr]
+public struct VIDEO_PERFORMANCE_COUNTER
 {
 	public uint64[10] NbOfAllocationEvicted;
 	public uint64[10] NbOfAllocationMarked;
@@ -3496,17 +3655,21 @@ public function void PVIDEO_WIN32K_CALLOUT(void* Params);
 	public uint64 KBytesRotateOut;
 }
 
-[CRepr]public struct VIDEO_QUERY_PERFORMANCE_COUNTER
+[CRepr]
+public struct VIDEO_QUERY_PERFORMANCE_COUNTER
 {
 	public uint32 BufferSize;
 	public VIDEO_PERFORMANCE_COUNTER* Buffer;
 }
 
-[CRepr]public struct PANEL_QUERY_BRIGHTNESS_CAPS
+[CRepr]
+public struct PANEL_QUERY_BRIGHTNESS_CAPS
 {
-	[CRepr, Union]	public struct _Anonymous_e__Union
+	[CRepr, Union]
+	public struct _Anonymous_e__Union
 	{
-		[CRepr]		public struct _Anonymous_e__Struct
+		[CRepr]
+		public struct _Anonymous_e__Struct
 		{
 			public uint32 _bitfield;
 		}
@@ -3519,20 +3682,23 @@ public function void PVIDEO_WIN32K_CALLOUT(void* Params);
 	public using _Anonymous_e__Union Anonymous;
 }
 
-[CRepr]public struct BRIGHTNESS_LEVEL
+[CRepr]
+public struct BRIGHTNESS_LEVEL
 {
 	public uint8 Count;
 	public uint8[103] Level;
 }
 
-[CRepr]public struct BRIGHTNESS_NIT_RANGE
+[CRepr]
+public struct BRIGHTNESS_NIT_RANGE
 {
 	public uint32 MinLevelInMillinit;
 	public uint32 MaxLevelInMillinit;
 	public uint32 StepSizeInMillinit;
 }
 
-[CRepr]public struct BRIGHTNESS_NIT_RANGES
+[CRepr]
+public struct BRIGHTNESS_NIT_RANGES
 {
 	public uint32 NormalRangeCount;
 	public uint32 RangeCount;
@@ -3540,9 +3706,11 @@ public function void PVIDEO_WIN32K_CALLOUT(void* Params);
 	public BRIGHTNESS_NIT_RANGE[16] SupportedRanges;
 }
 
-[CRepr]public struct PANEL_QUERY_BRIGHTNESS_RANGES
+[CRepr]
+public struct PANEL_QUERY_BRIGHTNESS_RANGES
 {
-	[CRepr, Union]	public struct _Anonymous_e__Union
+	[CRepr, Union]
+	public struct _Anonymous_e__Union
 	{
 		public BRIGHTNESS_LEVEL BrightnessLevel;
 		public BRIGHTNESS_NIT_RANGES NitRanges;
@@ -3552,11 +3720,14 @@ public function void PVIDEO_WIN32K_CALLOUT(void* Params);
 	public using _Anonymous_e__Union Anonymous;
 }
 
-[CRepr]public struct PANEL_GET_BRIGHTNESS
+[CRepr]
+public struct PANEL_GET_BRIGHTNESS
 {
-	[CRepr, Union]	public struct _Anonymous_e__Union
+	[CRepr, Union]
+	public struct _Anonymous_e__Union
 	{
-		[CRepr]		public struct _Anonymous_e__Struct
+		[CRepr]
+		public struct _Anonymous_e__Struct
 		{
 			public uint32 CurrentInMillinits;
 			public uint32 TargetInMillinits;
@@ -3570,17 +3741,21 @@ public function void PVIDEO_WIN32K_CALLOUT(void* Params);
 	public using _Anonymous_e__Union Anonymous;
 }
 
-[CRepr]public struct CHROMATICITY_COORDINATE
+[CRepr]
+public struct CHROMATICITY_COORDINATE
 {
 	public float x;
 	public float y;
 }
 
-[CRepr]public struct PANEL_BRIGHTNESS_SENSOR_DATA
+[CRepr]
+public struct PANEL_BRIGHTNESS_SENSOR_DATA
 {
-	[CRepr, Union]	public struct _Anonymous_e__Union
+	[CRepr, Union]
+	public struct _Anonymous_e__Union
 	{
-		[CRepr]		public struct _Anonymous_e__Struct
+		[CRepr]
+		public struct _Anonymous_e__Struct
 		{
 			public uint32 _bitfield;
 		}
@@ -3595,11 +3770,14 @@ public function void PVIDEO_WIN32K_CALLOUT(void* Params);
 	public float ColorTemperature;
 }
 
-[CRepr]public struct PANEL_SET_BRIGHTNESS
+[CRepr]
+public struct PANEL_SET_BRIGHTNESS
 {
-	[CRepr, Union]	public struct _Anonymous_e__Union
+	[CRepr, Union]
+	public struct _Anonymous_e__Union
 	{
-		[CRepr]		public struct _Anonymous_e__Struct
+		[CRepr]
+		public struct _Anonymous_e__Struct
 		{
 			public uint32 Millinits;
 			public uint32 TransitionTimeInMs;
@@ -3614,11 +3792,14 @@ public function void PVIDEO_WIN32K_CALLOUT(void* Params);
 	public using _Anonymous_e__Union Anonymous;
 }
 
-[CRepr]public struct PANEL_SET_BRIGHTNESS_STATE
+[CRepr]
+public struct PANEL_SET_BRIGHTNESS_STATE
 {
-	[CRepr, Union]	public struct _Anonymous_e__Union
+	[CRepr, Union]
+	public struct _Anonymous_e__Union
 	{
-		[CRepr]		public struct _Anonymous_e__Struct
+		[CRepr]
+		public struct _Anonymous_e__Struct
 		{
 			public uint32 _bitfield;
 		}
@@ -3630,35 +3811,42 @@ public function void PVIDEO_WIN32K_CALLOUT(void* Params);
 	public using _Anonymous_e__Union Anonymous;
 }
 
-[CRepr]public struct PANEL_SET_BACKLIGHT_OPTIMIZATION
+[CRepr]
+public struct PANEL_SET_BACKLIGHT_OPTIMIZATION
 {
 	public BACKLIGHT_OPTIMIZATION_LEVEL Level;
 }
 
-[CRepr]public struct BACKLIGHT_REDUCTION_GAMMA_RAMP
+[CRepr]
+public struct BACKLIGHT_REDUCTION_GAMMA_RAMP
 {
 	public uint16[256] R;
 	public uint16[256] G;
 	public uint16[256] B;
 }
 
-[CRepr]public struct PANEL_GET_BACKLIGHT_REDUCTION
+[CRepr]
+public struct PANEL_GET_BACKLIGHT_REDUCTION
 {
 	public uint16 BacklightUsersetting;
 	public uint16 BacklightEffective;
 	public BACKLIGHT_REDUCTION_GAMMA_RAMP GammaRamp;
 }
 
-[CRepr]public struct COLORSPACE_TRANSFORM_DATA_CAP
+[CRepr]
+public struct COLORSPACE_TRANSFORM_DATA_CAP
 {
-	[CRepr, Union]	public struct _Anonymous_e__Union
+	[CRepr, Union]
+	public struct _Anonymous_e__Union
 	{
-		[CRepr]		public struct _Anonymous2_e__Struct
+		[CRepr]
+		public struct _Anonymous2_e__Struct
 		{
 			public uint32 _bitfield;
 		}
 
-		[CRepr]		public struct _Anonymous1_e__Struct
+		[CRepr]
+		public struct _Anonymous1_e__Struct
 		{
 			public uint32 _bitfield;
 		}
@@ -3674,17 +3862,21 @@ public function void PVIDEO_WIN32K_CALLOUT(void* Params);
 	public float NumericRangeMax;
 }
 
-[CRepr]public struct COLORSPACE_TRANSFORM_1DLUT_CAP
+[CRepr]
+public struct COLORSPACE_TRANSFORM_1DLUT_CAP
 {
 	public uint32 NumberOfLUTEntries;
 	public COLORSPACE_TRANSFORM_DATA_CAP DataCap;
 }
 
-[CRepr]public struct COLORSPACE_TRANSFORM_MATRIX_CAP
+[CRepr]
+public struct COLORSPACE_TRANSFORM_MATRIX_CAP
 {
-	[CRepr, Union]	public struct _Anonymous_e__Union
+	[CRepr, Union]
+	public struct _Anonymous_e__Union
 	{
-		[CRepr]		public struct _Anonymous_e__Struct
+		[CRepr]
+		public struct _Anonymous_e__Struct
 		{
 			public uint32 _bitfield;
 		}
@@ -3697,7 +3889,8 @@ public function void PVIDEO_WIN32K_CALLOUT(void* Params);
 	public COLORSPACE_TRANSFORM_DATA_CAP DataCap;
 }
 
-[CRepr]public struct COLORSPACE_TRANSFORM_TARGET_CAPS
+[CRepr]
+public struct COLORSPACE_TRANSFORM_TARGET_CAPS
 {
 	public COLORSPACE_TRANSFORM_TARGET_CAPS_VERSION Version;
 	public COLORSPACE_TRANSFORM_1DLUT_CAP LookupTable1DDegammaCap;
@@ -3705,41 +3898,47 @@ public function void PVIDEO_WIN32K_CALLOUT(void* Params);
 	public COLORSPACE_TRANSFORM_1DLUT_CAP LookupTable1DRegammaCap;
 }
 
-[CRepr]public struct GAMMA_RAMP_RGB256x3x16
+[CRepr]
+public struct GAMMA_RAMP_RGB256x3x16
 {
 	public uint16[256] Red;
 	public uint16[256] Green;
 	public uint16[256] Blue;
 }
 
-[CRepr]public struct GAMMA_RAMP_RGB
+[CRepr]
+public struct GAMMA_RAMP_RGB
 {
 	public float Red;
 	public float Green;
 	public float Blue;
 }
 
-[CRepr]public struct GAMMA_RAMP_DXGI_1
+[CRepr]
+public struct GAMMA_RAMP_DXGI_1
 {
 	public GAMMA_RAMP_RGB Scale;
 	public GAMMA_RAMP_RGB Offset;
 	public GAMMA_RAMP_RGB[1025] GammaCurve;
 }
 
-[CRepr]public struct COLORSPACE_TRANSFORM_3x4
+[CRepr]
+public struct COLORSPACE_TRANSFORM_3x4
 {
 	public float[12] ColorMatrix3x4;
 	public float ScalarMultiplier;
 	public GAMMA_RAMP_RGB[4096] LookupTable1D;
 }
 
-[CRepr]public struct OUTPUT_WIRE_FORMAT
+[CRepr]
+public struct OUTPUT_WIRE_FORMAT
 {
 	public OUTPUT_COLOR_ENCODING ColorEncoding;
 	public uint32 BitsPerPixel;
 }
 
-[CRepr]public struct COLORSPACE_TRANSFORM_MATRIX_V2
+[CRepr]
+public struct COLORSPACE_TRANSFORM_MATRIX_V2
 {
 	public COLORSPACE_TRANSFORM_STAGE_CONTROL StageControlLookupTable1DDegamma;
 	public GAMMA_RAMP_RGB[4096] LookupTable1DDegamma;
@@ -3749,9 +3948,11 @@ public function void PVIDEO_WIN32K_CALLOUT(void* Params);
 	public GAMMA_RAMP_RGB[4096] LookupTable1DRegamma;
 }
 
-[CRepr]public struct COLORSPACE_TRANSFORM
+[CRepr]
+public struct COLORSPACE_TRANSFORM
 {
-	[CRepr, Union]	public struct _Data_e__Union
+	[CRepr, Union]
+	public struct _Data_e__Union
 	{
 		public GAMMA_RAMP_RGB256x3x16 Rgb256x3x16;
 		public GAMMA_RAMP_DXGI_1 Dxgi1;
@@ -3763,19 +3964,22 @@ public function void PVIDEO_WIN32K_CALLOUT(void* Params);
 	public _Data_e__Union Data;
 }
 
-[CRepr]public struct COLORSPACE_TRANSFORM_SET_INPUT
+[CRepr]
+public struct COLORSPACE_TRANSFORM_SET_INPUT
 {
 	public OUTPUT_WIRE_COLOR_SPACE_TYPE OutputWireColorSpaceExpected;
 	public OUTPUT_WIRE_FORMAT OutputWireFormatExpected;
 	public COLORSPACE_TRANSFORM ColorSpaceTransform;
 }
 
-[CRepr]public struct SET_ACTIVE_COLOR_PROFILE_NAME
+[CRepr]
+public struct SET_ACTIVE_COLOR_PROFILE_NAME
 {
 	public char8[1] ColorProfileName;
 }
 
-[CRepr]public struct MIPI_DSI_CAPS
+[CRepr]
+public struct MIPI_DSI_CAPS
 {
 	public uint8 DSITypeMajor;
 	public uint8 DSITypeMinor;
@@ -3797,11 +4001,14 @@ public function void PVIDEO_WIN32K_CALLOUT(void* Params);
 	public uint8 LengthLo;
 }
 
-[CRepr]public struct MIPI_DSI_PACKET
+[CRepr]
+public struct MIPI_DSI_PACKET
 {
-	[CRepr, Union]	public struct _Anonymous2_e__Union
+	[CRepr, Union]
+	public struct _Anonymous2_e__Union
 	{
-		[CRepr]		public struct _Anonymous_e__Struct
+		[CRepr]
+		public struct _Anonymous_e__Struct
 		{
 			public uint8 Data0;
 			public uint8 Data1;
@@ -3811,9 +4018,11 @@ public function void PVIDEO_WIN32K_CALLOUT(void* Params);
 		public uint16 LongWriteWordCount;
 	}
 
-	[CRepr, Union]	public struct _Anonymous1_e__Union
+	[CRepr, Union]
+	public struct _Anonymous1_e__Union
 	{
-		[CRepr]		public struct _Anonymous_e__Struct
+		[CRepr]
+		public struct _Anonymous_e__Struct
 		{
 			public uint8 _bitfield;
 		}
@@ -3828,9 +4037,11 @@ public function void PVIDEO_WIN32K_CALLOUT(void* Params);
 	public uint8[8] Payload;
 }
 
-[CRepr]public struct MIPI_DSI_TRANSMISSION
+[CRepr]
+public struct MIPI_DSI_TRANSMISSION
 {
-	[CRepr]	public struct _Anonymous_e__Struct
+	[CRepr]
+	public struct _Anonymous_e__Struct
 	{
 		public uint16 _bitfield;
 	}
@@ -3846,11 +4057,14 @@ public function void PVIDEO_WIN32K_CALLOUT(void* Params);
 	public MIPI_DSI_PACKET[1] Packets;
 }
 
-[CRepr]public struct MIPI_DSI_RESET
+[CRepr]
+public struct MIPI_DSI_RESET
 {
-	[CRepr, Union]	public struct _Anonymous_e__Union
+	[CRepr, Union]
+	public struct _Anonymous_e__Union
 	{
-		[CRepr]		public struct _Anonymous_e__Struct
+		[CRepr]
+		public struct _Anonymous_e__Struct
 		{
 			public uint32 _bitfield;
 		}
@@ -3864,7 +4078,8 @@ public function void PVIDEO_WIN32K_CALLOUT(void* Params);
 }
 
 #if BF_32_BIT
-[CRepr]public struct POINTE
+[CRepr]
+public struct POINTE
 {
 	public uint32 x;
 	public uint32 y;
@@ -3872,7 +4087,8 @@ public function void PVIDEO_WIN32K_CALLOUT(void* Params);
 #endif
 
 #if BF_32_BIT
-[CRepr, Union]public struct FLOAT_LONG
+[CRepr, Union]
+public struct FLOAT_LONG
 {
 	public uint32 e;
 	public int32 l;
@@ -3880,7 +4096,8 @@ public function void PVIDEO_WIN32K_CALLOUT(void* Params);
 #endif
 
 #if BF_32_BIT
-[CRepr]public struct FD_XFORM
+[CRepr]
+public struct FD_XFORM
 {
 	public uint32 eXX;
 	public uint32 eXY;
@@ -3890,7 +4107,8 @@ public function void PVIDEO_WIN32K_CALLOUT(void* Params);
 #endif
 
 #if BF_32_BIT
-[CRepr]public struct IFIMETRICS
+[CRepr]
+public struct IFIMETRICS
 {
 	public uint32 cjThis;
 	public uint32 cjIfiExtra;
@@ -3955,7 +4173,8 @@ public function void PVIDEO_WIN32K_CALLOUT(void* Params);
 #endif
 
 #if BF_32_BIT
-[CRepr]public struct LINEATTRS
+[CRepr]
+public struct LINEATTRS
 {
 	public uint32 fl;
 	public uint32 iJoin;
@@ -3969,7 +4188,8 @@ public function void PVIDEO_WIN32K_CALLOUT(void* Params);
 #endif
 
 #if BF_32_BIT
-[CRepr]public struct XFORML
+[CRepr]
+public struct XFORML
 {
 	public uint32 eM11;
 	public uint32 eM12;
@@ -3981,7 +4201,8 @@ public function void PVIDEO_WIN32K_CALLOUT(void* Params);
 #endif
 
 #if BF_32_BIT
-[CRepr]public struct FLOATOBJ
+[CRepr]
+public struct FLOATOBJ
 {
 	public uint32 ul1;
 	public uint32 ul2;
@@ -3989,7 +4210,8 @@ public function void PVIDEO_WIN32K_CALLOUT(void* Params);
 #endif
 
 #if BF_32_BIT
-[CRepr]public struct FLOATOBJ_XFORM
+[CRepr]
+public struct FLOATOBJ_XFORM
 {
 	public FLOATOBJ eM11;
 	public FLOATOBJ eM12;

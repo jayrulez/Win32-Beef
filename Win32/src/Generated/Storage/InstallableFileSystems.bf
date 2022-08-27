@@ -268,7 +268,8 @@ public enum INSTANCE_INFORMATION_CLASS : int32
 #endregion
 
 #region Structs
-[CRepr]public struct FILTER_FULL_INFORMATION
+[CRepr]
+public struct FILTER_FULL_INFORMATION
 {
 	public uint32 NextEntryOffset;
 	public uint32 FrameID;
@@ -277,11 +278,14 @@ public enum INSTANCE_INFORMATION_CLASS : int32
 	public char8[1] FilterNameBuffer;
 }
 
-[CRepr]public struct FILTER_AGGREGATE_BASIC_INFORMATION
+[CRepr]
+public struct FILTER_AGGREGATE_BASIC_INFORMATION
 {
-	[CRepr, Union]	public struct _Type_e__Union
+	[CRepr, Union]
+	public struct _Type_e__Union
 	{
-		[CRepr]		public struct _MiniFilter_e__Struct
+		[CRepr]
+		public struct _MiniFilter_e__Struct
 		{
 			public uint32 FrameID;
 			public uint32 NumberOfInstances;
@@ -291,7 +295,8 @@ public enum INSTANCE_INFORMATION_CLASS : int32
 			public uint16 FilterAltitudeBufferOffset;
 		}
 
-		[CRepr]		public struct _LegacyFilter_e__Struct
+		[CRepr]
+		public struct _LegacyFilter_e__Struct
 		{
 			public uint16 FilterNameLength;
 			public uint16 FilterNameBufferOffset;
@@ -306,11 +311,14 @@ public enum INSTANCE_INFORMATION_CLASS : int32
 	public _Type_e__Union Type;
 }
 
-[CRepr]public struct FILTER_AGGREGATE_STANDARD_INFORMATION
+[CRepr]
+public struct FILTER_AGGREGATE_STANDARD_INFORMATION
 {
-	[CRepr, Union]	public struct _Type_e__Union
+	[CRepr, Union]
+	public struct _Type_e__Union
 	{
-		[CRepr]		public struct _MiniFilter_e__Struct
+		[CRepr]
+		public struct _MiniFilter_e__Struct
 		{
 			public uint32 Flags;
 			public uint32 FrameID;
@@ -321,7 +329,8 @@ public enum INSTANCE_INFORMATION_CLASS : int32
 			public uint16 FilterAltitudeBufferOffset;
 		}
 
-		[CRepr]		public struct _LegacyFilter_e__Struct
+		[CRepr]
+		public struct _LegacyFilter_e__Struct
 		{
 			public uint32 Flags;
 			public uint16 FilterNameLength;
@@ -339,13 +348,15 @@ public enum INSTANCE_INFORMATION_CLASS : int32
 	public _Type_e__Union Type;
 }
 
-[CRepr]public struct FILTER_VOLUME_BASIC_INFORMATION
+[CRepr]
+public struct FILTER_VOLUME_BASIC_INFORMATION
 {
 	public uint16 FilterVolumeNameLength;
 	public char8[1] FilterVolumeName;
 }
 
-[CRepr]public struct FILTER_VOLUME_STANDARD_INFORMATION
+[CRepr]
+public struct FILTER_VOLUME_STANDARD_INFORMATION
 {
 	public uint32 NextEntryOffset;
 	public uint32 Flags;
@@ -355,14 +366,16 @@ public enum INSTANCE_INFORMATION_CLASS : int32
 	public char8[1] FilterVolumeName;
 }
 
-[CRepr]public struct INSTANCE_BASIC_INFORMATION
+[CRepr]
+public struct INSTANCE_BASIC_INFORMATION
 {
 	public uint32 NextEntryOffset;
 	public uint16 InstanceNameLength;
 	public uint16 InstanceNameBufferOffset;
 }
 
-[CRepr]public struct INSTANCE_PARTIAL_INFORMATION
+[CRepr]
+public struct INSTANCE_PARTIAL_INFORMATION
 {
 	public uint32 NextEntryOffset;
 	public uint16 InstanceNameLength;
@@ -371,7 +384,8 @@ public enum INSTANCE_INFORMATION_CLASS : int32
 	public uint16 AltitudeBufferOffset;
 }
 
-[CRepr]public struct INSTANCE_FULL_INFORMATION
+[CRepr]
+public struct INSTANCE_FULL_INFORMATION
 {
 	public uint32 NextEntryOffset;
 	public uint16 InstanceNameLength;
@@ -384,11 +398,14 @@ public enum INSTANCE_INFORMATION_CLASS : int32
 	public uint16 FilterNameBufferOffset;
 }
 
-[CRepr]public struct INSTANCE_AGGREGATE_STANDARD_INFORMATION
+[CRepr]
+public struct INSTANCE_AGGREGATE_STANDARD_INFORMATION
 {
-	[CRepr, Union]	public struct _Type_e__Union
+	[CRepr, Union]
+	public struct _Type_e__Union
 	{
-		[CRepr]		public struct _MiniFilter_e__Struct
+		[CRepr]
+		public struct _MiniFilter_e__Struct
 		{
 			public uint32 Flags;
 			public uint32 FrameID;
@@ -404,7 +421,8 @@ public enum INSTANCE_INFORMATION_CLASS : int32
 			public uint32 SupportedFeatures;
 		}
 
-		[CRepr]		public struct _LegacyFilter_e__Struct
+		[CRepr]
+		public struct _LegacyFilter_e__Struct
 		{
 			public uint32 Flags;
 			public uint16 AltitudeLength;
@@ -425,13 +443,15 @@ public enum INSTANCE_INFORMATION_CLASS : int32
 	public _Type_e__Union Type;
 }
 
-[CRepr]public struct FILTER_MESSAGE_HEADER
+[CRepr]
+public struct FILTER_MESSAGE_HEADER
 {
 	public uint32 ReplyLength;
 	public uint64 MessageId;
 }
 
-[CRepr]public struct FILTER_REPLY_HEADER
+[CRepr]
+public struct FILTER_REPLY_HEADER
 {
 	public NTSTATUS Status;
 	public uint64 MessageId;

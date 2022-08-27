@@ -264,31 +264,36 @@ public enum TASK_COMPATIBILITY : int32
 #endregion
 
 #region Structs
-[CRepr]public struct DAILY
+[CRepr]
+public struct DAILY
 {
 	public uint16 DaysInterval;
 }
 
-[CRepr]public struct WEEKLY
+[CRepr]
+public struct WEEKLY
 {
 	public uint16 WeeksInterval;
 	public uint16 rgfDaysOfTheWeek;
 }
 
-[CRepr]public struct MONTHLYDATE
+[CRepr]
+public struct MONTHLYDATE
 {
 	public uint32 rgfDays;
 	public uint16 rgfMonths;
 }
 
-[CRepr]public struct MONTHLYDOW
+[CRepr]
+public struct MONTHLYDOW
 {
 	public uint16 wWhichWeek;
 	public uint16 rgfDaysOfTheWeek;
 	public uint16 rgfMonths;
 }
 
-[CRepr, Union]public struct TRIGGER_TYPE_UNION
+[CRepr, Union]
+public struct TRIGGER_TYPE_UNION
 {
 	public DAILY Daily;
 	public WEEKLY Weekly;
@@ -296,7 +301,8 @@ public enum TASK_COMPATIBILITY : int32
 	public MONTHLYDOW MonthlyDOW;
 }
 
-[CRepr]public struct TASK_TRIGGER
+[CRepr]
+public struct TASK_TRIGGER
 {
 	public uint16 cbTriggerSize;
 	public uint16 Reserved1;
