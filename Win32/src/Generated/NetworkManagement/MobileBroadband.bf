@@ -560,13 +560,13 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMbnConnection*/SelfOuter* self, BSTR* ConnectionID) get_ConnectionID;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMbnConnection*/SelfOuter* self, BSTR* InterfaceID) get_InterfaceID;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMbnConnection*/SelfOuter* self, MBN_CONNECTION_MODE connectionMode, PWSTR strProfile, uint32* requestID) Connect;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMbnConnection*/SelfOuter* self, uint32* requestID) Disconnect;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMbnConnection*/SelfOuter* self, MBN_ACTIVATION_STATE* ConnectionState, BSTR* ProfileName) GetConnectionState;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMbnConnection*/SelfOuter* self, MBN_VOICE_CALL_STATE* voiceCallState) GetVoiceCallState;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMbnConnection*/SelfOuter* self, uint32* networkError) GetActivationNetworkError;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* ConnectionID) get_ConnectionID;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* InterfaceID) get_InterfaceID;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, MBN_CONNECTION_MODE connectionMode, PWSTR strProfile, uint32* requestID) Connect;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* requestID) Disconnect;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, MBN_ACTIVATION_STATE* ConnectionState, BSTR* ProfileName) GetConnectionState;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, MBN_VOICE_CALL_STATE* voiceCallState) GetVoiceCallState;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* networkError) GetActivationNetworkError;
 	}
 
 
@@ -593,10 +593,10 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMbnConnectionEvents*/SelfOuter* self, IMbnConnection* newConnection, uint32 requestID, HRESULT status) OnConnectComplete;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMbnConnectionEvents*/SelfOuter* self, IMbnConnection* newConnection, uint32 requestID, HRESULT status) OnDisconnectComplete;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMbnConnectionEvents*/SelfOuter* self, IMbnConnection* newConnection) OnConnectStateChange;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMbnConnectionEvents*/SelfOuter* self, IMbnConnection* newConnection) OnVoiceCallStateChange;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IMbnConnection* newConnection, uint32 requestID, HRESULT status) OnConnectComplete;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IMbnConnection* newConnection, uint32 requestID, HRESULT status) OnDisconnectComplete;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IMbnConnection* newConnection) OnConnectStateChange;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IMbnConnection* newConnection) OnVoiceCallStateChange;
 	}
 
 
@@ -617,17 +617,17 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMbnInterface*/SelfOuter* self, BSTR* InterfaceID) get_InterfaceID;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMbnInterface*/SelfOuter* self, MBN_INTERFACE_CAPS* interfaceCaps) GetInterfaceCapability;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMbnInterface*/SelfOuter* self, IMbnSubscriberInformation** subscriberInformation) GetSubscriberInformation;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMbnInterface*/SelfOuter* self, MBN_READY_STATE* readyState) GetReadyState;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMbnInterface*/SelfOuter* self, int16* emergencyMode) InEmergencyMode;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMbnInterface*/SelfOuter* self, MBN_PROVIDER* homeProvider) GetHomeProvider;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMbnInterface*/SelfOuter* self, SAFEARRAY** preferredProviders) GetPreferredProviders;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMbnInterface*/SelfOuter* self, SAFEARRAY* preferredProviders, uint32* requestID) SetPreferredProviders;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMbnInterface*/SelfOuter* self, uint32* age, SAFEARRAY** visibleProviders) GetVisibleProviders;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMbnInterface*/SelfOuter* self, uint32* requestID) ScanNetwork;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMbnInterface*/SelfOuter* self, IMbnConnection** mbnConnection) GetConnection;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* InterfaceID) get_InterfaceID;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, MBN_INTERFACE_CAPS* interfaceCaps) GetInterfaceCapability;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IMbnSubscriberInformation** subscriberInformation) GetSubscriberInformation;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, MBN_READY_STATE* readyState) GetReadyState;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* emergencyMode) InEmergencyMode;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, MBN_PROVIDER* homeProvider) GetHomeProvider;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, SAFEARRAY** preferredProviders) GetPreferredProviders;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, SAFEARRAY* preferredProviders, uint32* requestID) SetPreferredProviders;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* age, SAFEARRAY** visibleProviders) GetVisibleProviders;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* requestID) ScanNetwork;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IMbnConnection** mbnConnection) GetConnection;
 	}
 
 
@@ -662,14 +662,14 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMbnInterfaceEvents*/SelfOuter* self, IMbnInterface* newInterface) OnInterfaceCapabilityAvailable;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMbnInterfaceEvents*/SelfOuter* self, IMbnInterface* newInterface) OnSubscriberInformationChange;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMbnInterfaceEvents*/SelfOuter* self, IMbnInterface* newInterface) OnReadyStateChange;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMbnInterfaceEvents*/SelfOuter* self, IMbnInterface* newInterface) OnEmergencyModeChange;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMbnInterfaceEvents*/SelfOuter* self, IMbnInterface* newInterface) OnHomeProviderAvailable;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMbnInterfaceEvents*/SelfOuter* self, IMbnInterface* newInterface) OnPreferredProvidersChange;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMbnInterfaceEvents*/SelfOuter* self, IMbnInterface* newInterface, uint32 requestID, HRESULT status) OnSetPreferredProvidersComplete;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMbnInterfaceEvents*/SelfOuter* self, IMbnInterface* newInterface, uint32 requestID, HRESULT status) OnScanNetworkComplete;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IMbnInterface* newInterface) OnInterfaceCapabilityAvailable;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IMbnInterface* newInterface) OnSubscriberInformationChange;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IMbnInterface* newInterface) OnReadyStateChange;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IMbnInterface* newInterface) OnEmergencyModeChange;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IMbnInterface* newInterface) OnHomeProviderAvailable;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IMbnInterface* newInterface) OnPreferredProvidersChange;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IMbnInterface* newInterface, uint32 requestID, HRESULT status) OnSetPreferredProvidersComplete;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IMbnInterface* newInterface, uint32 requestID, HRESULT status) OnScanNetworkComplete;
 	}
 
 
@@ -698,8 +698,8 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMbnInterfaceManager*/SelfOuter* self, PWSTR interfaceID, IMbnInterface** mbnInterface) GetInterface;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMbnInterfaceManager*/SelfOuter* self, SAFEARRAY** mbnInterfaces) GetInterfaces;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR interfaceID, IMbnInterface** mbnInterface) GetInterface;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, SAFEARRAY** mbnInterfaces) GetInterfaces;
 	}
 
 
@@ -716,8 +716,8 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMbnInterfaceManagerEvents*/SelfOuter* self, IMbnInterface* newInterface) OnInterfaceArrival;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMbnInterfaceManagerEvents*/SelfOuter* self, IMbnInterface* oldInterface) OnInterfaceRemoval;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IMbnInterface* newInterface) OnInterfaceArrival;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IMbnInterface* oldInterface) OnInterfaceRemoval;
 	}
 
 
@@ -734,16 +734,16 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMbnRegistration*/SelfOuter* self, MBN_REGISTER_STATE* registerState) GetRegisterState;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMbnRegistration*/SelfOuter* self, MBN_REGISTER_MODE* registerMode) GetRegisterMode;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMbnRegistration*/SelfOuter* self, BSTR* providerID) GetProviderID;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMbnRegistration*/SelfOuter* self, BSTR* providerName) GetProviderName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMbnRegistration*/SelfOuter* self, BSTR* roamingText) GetRoamingText;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMbnRegistration*/SelfOuter* self, uint32* availableDataClasses) GetAvailableDataClasses;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMbnRegistration*/SelfOuter* self, uint32* currentDataClass) GetCurrentDataClass;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMbnRegistration*/SelfOuter* self, uint32* registrationNetworkError) GetRegistrationNetworkError;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMbnRegistration*/SelfOuter* self, uint32* packetAttachNetworkError) GetPacketAttachNetworkError;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMbnRegistration*/SelfOuter* self, MBN_REGISTER_MODE registerMode, PWSTR providerID, uint32 dataClass, uint32* requestID) SetRegisterMode;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, MBN_REGISTER_STATE* registerState) GetRegisterState;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, MBN_REGISTER_MODE* registerMode) GetRegisterMode;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* providerID) GetProviderID;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* providerName) GetProviderName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* roamingText) GetRoamingText;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* availableDataClasses) GetAvailableDataClasses;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* currentDataClass) GetCurrentDataClass;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* registrationNetworkError) GetRegistrationNetworkError;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* packetAttachNetworkError) GetPacketAttachNetworkError;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, MBN_REGISTER_MODE registerMode, PWSTR providerID, uint32 dataClass, uint32* requestID) SetRegisterMode;
 	}
 
 
@@ -776,10 +776,10 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMbnRegistrationEvents*/SelfOuter* self, IMbnRegistration* newInterface) OnRegisterModeAvailable;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMbnRegistrationEvents*/SelfOuter* self, IMbnRegistration* newInterface) OnRegisterStateChange;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMbnRegistrationEvents*/SelfOuter* self, IMbnRegistration* newInterface) OnPacketServiceStateChange;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMbnRegistrationEvents*/SelfOuter* self, IMbnRegistration* newInterface, uint32 requestID, HRESULT status) OnSetRegisterModeComplete;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IMbnRegistration* newInterface) OnRegisterModeAvailable;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IMbnRegistration* newInterface) OnRegisterStateChange;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IMbnRegistration* newInterface) OnPacketServiceStateChange;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IMbnRegistration* newInterface, uint32 requestID, HRESULT status) OnSetRegisterModeComplete;
 	}
 
 
@@ -800,8 +800,8 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMbnConnectionManager*/SelfOuter* self, PWSTR connectionID, IMbnConnection** mbnConnection) GetConnection;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMbnConnectionManager*/SelfOuter* self, SAFEARRAY** mbnConnections) GetConnections;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR connectionID, IMbnConnection** mbnConnection) GetConnection;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, SAFEARRAY** mbnConnections) GetConnections;
 	}
 
 
@@ -818,8 +818,8 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMbnConnectionManagerEvents*/SelfOuter* self, IMbnConnection* newConnection) OnConnectionArrival;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMbnConnectionManagerEvents*/SelfOuter* self, IMbnConnection* oldConnection) OnConnectionRemoval;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IMbnConnection* newConnection) OnConnectionArrival;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IMbnConnection* oldConnection) OnConnectionRemoval;
 	}
 
 
@@ -836,9 +836,9 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMbnPinManager*/SelfOuter* self, SAFEARRAY** pinList) GetPinList;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMbnPinManager*/SelfOuter* self, MBN_PIN_TYPE pinType, IMbnPin** pin) GetPin;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMbnPinManager*/SelfOuter* self, uint32* requestID) GetPinState;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, SAFEARRAY** pinList) GetPinList;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, MBN_PIN_TYPE pinType, IMbnPin** pin) GetPin;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* requestID) GetPinState;
 	}
 
 
@@ -857,8 +857,8 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMbnPinManagerEvents*/SelfOuter* self, IMbnPinManager* pinManager) OnPinListAvailable;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMbnPinManagerEvents*/SelfOuter* self, IMbnPinManager* pinManager, MBN_PIN_INFO pinInfo, uint32 requestID, HRESULT status) OnGetPinStateComplete;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IMbnPinManager* pinManager) OnPinListAvailable;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IMbnPinManager* pinManager, MBN_PIN_INFO pinInfo, uint32 requestID, HRESULT status) OnGetPinStateComplete;
 	}
 
 
@@ -875,11 +875,11 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMbnPinEvents*/SelfOuter* self, IMbnPin* pin, MBN_PIN_INFO* pinInfo, uint32 requestID, HRESULT status) OnEnableComplete;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMbnPinEvents*/SelfOuter* self, IMbnPin* pin, MBN_PIN_INFO* pinInfo, uint32 requestID, HRESULT status) OnDisableComplete;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMbnPinEvents*/SelfOuter* self, IMbnPin* Pin, MBN_PIN_INFO* pinInfo, uint32 requestID, HRESULT status) OnEnterComplete;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMbnPinEvents*/SelfOuter* self, IMbnPin* Pin, MBN_PIN_INFO* pinInfo, uint32 requestID, HRESULT status) OnChangeComplete;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMbnPinEvents*/SelfOuter* self, IMbnPin* Pin, MBN_PIN_INFO* pinInfo, uint32 requestID, HRESULT status) OnUnblockComplete;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IMbnPin* pin, MBN_PIN_INFO* pinInfo, uint32 requestID, HRESULT status) OnEnableComplete;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IMbnPin* pin, MBN_PIN_INFO* pinInfo, uint32 requestID, HRESULT status) OnDisableComplete;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IMbnPin* Pin, MBN_PIN_INFO* pinInfo, uint32 requestID, HRESULT status) OnEnterComplete;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IMbnPin* Pin, MBN_PIN_INFO* pinInfo, uint32 requestID, HRESULT status) OnChangeComplete;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IMbnPin* Pin, MBN_PIN_INFO* pinInfo, uint32 requestID, HRESULT status) OnUnblockComplete;
 	}
 
 
@@ -902,9 +902,9 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMbnSubscriberInformation*/SelfOuter* self, BSTR* SubscriberID) get_SubscriberID;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMbnSubscriberInformation*/SelfOuter* self, BSTR* SimIccID) get_SimIccID;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMbnSubscriberInformation*/SelfOuter* self, SAFEARRAY** TelephoneNumbers) get_TelephoneNumbers;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* SubscriberID) get_SubscriberID;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* SimIccID) get_SimIccID;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, SAFEARRAY** TelephoneNumbers) get_TelephoneNumbers;
 	}
 
 
@@ -923,8 +923,8 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMbnSignal*/SelfOuter* self, uint32* signalStrength) GetSignalStrength;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMbnSignal*/SelfOuter* self, uint32* signalError) GetSignalError;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* signalStrength) GetSignalStrength;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* signalError) GetSignalError;
 	}
 
 
@@ -941,7 +941,7 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMbnSignalEvents*/SelfOuter* self, IMbnSignal* newInterface) OnSignalStateChange;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IMbnSignal* newInterface) OnSignalStateChange;
 	}
 
 
@@ -956,8 +956,8 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMbnConnectionContext*/SelfOuter* self, SAFEARRAY** provisionedContexts) GetProvisionedContexts;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMbnConnectionContext*/SelfOuter* self, MBN_CONTEXT provisionedContexts, PWSTR providerID, uint32* requestID) SetProvisionedContext;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, SAFEARRAY** provisionedContexts) GetProvisionedContexts;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, MBN_CONTEXT provisionedContexts, PWSTR providerID, uint32* requestID) SetProvisionedContext;
 	}
 
 
@@ -974,8 +974,8 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMbnConnectionContextEvents*/SelfOuter* self, IMbnConnectionContext* newInterface) OnProvisionedContextListChange;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMbnConnectionContextEvents*/SelfOuter* self, IMbnConnectionContext* newInterface, uint32 requestID, HRESULT status) OnSetProvisionedContextComplete;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IMbnConnectionContext* newInterface) OnProvisionedContextListChange;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IMbnConnectionContext* newInterface, uint32 requestID, HRESULT status) OnSetProvisionedContextComplete;
 	}
 
 
@@ -992,9 +992,9 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMbnConnectionProfileManager*/SelfOuter* self, IMbnInterface* mbnInterface, SAFEARRAY** connectionProfiles) GetConnectionProfiles;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMbnConnectionProfileManager*/SelfOuter* self, IMbnInterface* mbnInterface, PWSTR profileName, IMbnConnectionProfile** connectionProfile) GetConnectionProfile;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMbnConnectionProfileManager*/SelfOuter* self, PWSTR xmlProfile) CreateConnectionProfile;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IMbnInterface* mbnInterface, SAFEARRAY** connectionProfiles) GetConnectionProfiles;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IMbnInterface* mbnInterface, PWSTR profileName, IMbnConnectionProfile** connectionProfile) GetConnectionProfile;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR xmlProfile) CreateConnectionProfile;
 	}
 
 
@@ -1013,9 +1013,9 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMbnConnectionProfile*/SelfOuter* self, BSTR* profileData) GetProfileXmlData;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMbnConnectionProfile*/SelfOuter* self, PWSTR strProfile) UpdateProfile;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMbnConnectionProfile*/SelfOuter* self) Delete;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* profileData) GetProfileXmlData;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR strProfile) UpdateProfile;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Delete;
 	}
 
 
@@ -1034,7 +1034,7 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMbnConnectionProfileEvents*/SelfOuter* self, IMbnConnectionProfile* newProfile) OnProfileUpdate;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IMbnConnectionProfile* newProfile) OnProfileUpdate;
 	}
 
 
@@ -1049,12 +1049,12 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMbnSmsConfiguration*/SelfOuter* self, BSTR* scAddress) get_ServiceCenterAddress;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMbnSmsConfiguration*/SelfOuter* self, PWSTR scAddress) put_ServiceCenterAddress;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMbnSmsConfiguration*/SelfOuter* self, uint32* index) get_MaxMessageIndex;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMbnSmsConfiguration*/SelfOuter* self, uint32* shortMsgSize) get_CdmaShortMsgSize;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMbnSmsConfiguration*/SelfOuter* self, MBN_SMS_FORMAT* smsFormat) get_SmsFormat;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMbnSmsConfiguration*/SelfOuter* self, MBN_SMS_FORMAT smsFormat) put_SmsFormat;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* scAddress) get_ServiceCenterAddress;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR scAddress) put_ServiceCenterAddress;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* index) get_MaxMessageIndex;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* shortMsgSize) get_CdmaShortMsgSize;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, MBN_SMS_FORMAT* smsFormat) get_SmsFormat;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, MBN_SMS_FORMAT smsFormat) put_SmsFormat;
 	}
 
 
@@ -1079,10 +1079,10 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMbnSmsReadMsgPdu*/SelfOuter* self, uint32* Index) get_Index;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMbnSmsReadMsgPdu*/SelfOuter* self, MBN_MSG_STATUS* Status) get_Status;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMbnSmsReadMsgPdu*/SelfOuter* self, BSTR* PduData) get_PduData;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMbnSmsReadMsgPdu*/SelfOuter* self, SAFEARRAY** Message) get_Message;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* Index) get_Index;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, MBN_MSG_STATUS* Status) get_Status;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* PduData) get_PduData;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, SAFEARRAY** Message) get_Message;
 	}
 
 
@@ -1103,14 +1103,14 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMbnSmsReadMsgTextCdma*/SelfOuter* self, uint32* Index) get_Index;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMbnSmsReadMsgTextCdma*/SelfOuter* self, MBN_MSG_STATUS* Status) get_Status;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMbnSmsReadMsgTextCdma*/SelfOuter* self, BSTR* Address) get_Address;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMbnSmsReadMsgTextCdma*/SelfOuter* self, BSTR* Timestamp) get_Timestamp;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMbnSmsReadMsgTextCdma*/SelfOuter* self, MBN_SMS_CDMA_ENCODING* EncodingID) get_EncodingID;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMbnSmsReadMsgTextCdma*/SelfOuter* self, MBN_SMS_CDMA_LANG* LanguageID) get_LanguageID;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMbnSmsReadMsgTextCdma*/SelfOuter* self, uint32* SizeInCharacters) get_SizeInCharacters;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMbnSmsReadMsgTextCdma*/SelfOuter* self, SAFEARRAY** Message) get_Message;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* Index) get_Index;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, MBN_MSG_STATUS* Status) get_Status;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* Address) get_Address;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* Timestamp) get_Timestamp;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, MBN_SMS_CDMA_ENCODING* EncodingID) get_EncodingID;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, MBN_SMS_CDMA_LANG* LanguageID) get_LanguageID;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* SizeInCharacters) get_SizeInCharacters;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, SAFEARRAY** Message) get_Message;
 	}
 
 
@@ -1139,14 +1139,14 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMbnSms*/SelfOuter* self, IMbnSmsConfiguration** smsConfiguration) GetSmsConfiguration;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMbnSms*/SelfOuter* self, IMbnSmsConfiguration* smsConfiguration, uint32* requestID) SetSmsConfiguration;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMbnSms*/SelfOuter* self, PWSTR pduData, uint8 size, uint32* requestID) SmsSendPdu;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMbnSms*/SelfOuter* self, PWSTR address, MBN_SMS_CDMA_ENCODING encoding, MBN_SMS_CDMA_LANG language, uint32 sizeInCharacters, SAFEARRAY* message, uint32* requestID) SmsSendCdma;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMbnSms*/SelfOuter* self, SAFEARRAY* message, uint32* requestID) SmsSendCdmaPdu;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMbnSms*/SelfOuter* self, MBN_SMS_FILTER* smsFilter, MBN_SMS_FORMAT smsFormat, uint32* requestID) SmsRead;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMbnSms*/SelfOuter* self, MBN_SMS_FILTER* smsFilter, uint32* requestID) SmsDelete;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMbnSms*/SelfOuter* self, MBN_SMS_STATUS_INFO* smsStatusInfo) GetSmsStatus;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IMbnSmsConfiguration** smsConfiguration) GetSmsConfiguration;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IMbnSmsConfiguration* smsConfiguration, uint32* requestID) SetSmsConfiguration;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR pduData, uint8 size, uint32* requestID) SmsSendPdu;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR address, MBN_SMS_CDMA_ENCODING encoding, MBN_SMS_CDMA_LANG language, uint32 sizeInCharacters, SAFEARRAY* message, uint32* requestID) SmsSendCdma;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, SAFEARRAY* message, uint32* requestID) SmsSendCdmaPdu;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, MBN_SMS_FILTER* smsFilter, MBN_SMS_FORMAT smsFormat, uint32* requestID) SmsRead;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, MBN_SMS_FILTER* smsFilter, uint32* requestID) SmsDelete;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, MBN_SMS_STATUS_INFO* smsStatusInfo) GetSmsStatus;
 	}
 
 
@@ -1175,13 +1175,13 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMbnSmsEvents*/SelfOuter* self, IMbnSms* sms) OnSmsConfigurationChange;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMbnSmsEvents*/SelfOuter* self, IMbnSms* sms, uint32 requestID, HRESULT status) OnSetSmsConfigurationComplete;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMbnSmsEvents*/SelfOuter* self, IMbnSms* sms, uint32 requestID, HRESULT status) OnSmsSendComplete;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMbnSmsEvents*/SelfOuter* self, IMbnSms* sms, MBN_SMS_FORMAT smsFormat, SAFEARRAY* readMsgs, int16 moreMsgs, uint32 requestID, HRESULT status) OnSmsReadComplete;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMbnSmsEvents*/SelfOuter* self, IMbnSms* sms, MBN_SMS_FORMAT smsFormat, SAFEARRAY* readMsgs) OnSmsNewClass0Message;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMbnSmsEvents*/SelfOuter* self, IMbnSms* sms, uint32 requestID, HRESULT status) OnSmsDeleteComplete;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMbnSmsEvents*/SelfOuter* self, IMbnSms* sms) OnSmsStatusChange;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IMbnSms* sms) OnSmsConfigurationChange;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IMbnSms* sms, uint32 requestID, HRESULT status) OnSetSmsConfigurationComplete;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IMbnSms* sms, uint32 requestID, HRESULT status) OnSmsSendComplete;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IMbnSms* sms, MBN_SMS_FORMAT smsFormat, SAFEARRAY* readMsgs, int16 moreMsgs, uint32 requestID, HRESULT status) OnSmsReadComplete;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IMbnSms* sms, MBN_SMS_FORMAT smsFormat, SAFEARRAY* readMsgs) OnSmsNewClass0Message;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IMbnSms* sms, uint32 requestID, HRESULT status) OnSmsDeleteComplete;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IMbnSms* sms) OnSmsStatusChange;
 	}
 
 
@@ -1208,7 +1208,7 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMbnServiceActivation*/SelfOuter* self, SAFEARRAY* vendorSpecificData, uint32* requestID) Activate;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, SAFEARRAY* vendorSpecificData, uint32* requestID) Activate;
 	}
 
 
@@ -1223,7 +1223,7 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMbnServiceActivationEvents*/SelfOuter* self, IMbnServiceActivation* serviceActivation, SAFEARRAY* vendorSpecificData, uint32 requestID, HRESULT status, uint32 networkError) OnActivationComplete;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IMbnServiceActivation* serviceActivation, SAFEARRAY* vendorSpecificData, uint32 requestID, HRESULT status, uint32 networkError) OnActivationComplete;
 	}
 
 
@@ -1238,7 +1238,7 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMbnVendorSpecificOperation*/SelfOuter* self, SAFEARRAY* vendorSpecificData, uint32* requestID) SetVendorSpecific;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, SAFEARRAY* vendorSpecificData, uint32* requestID) SetVendorSpecific;
 	}
 
 
@@ -1253,8 +1253,8 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMbnVendorSpecificEvents*/SelfOuter* self, IMbnVendorSpecificOperation* vendorOperation, SAFEARRAY* vendorSpecificData) OnEventNotification;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMbnVendorSpecificEvents*/SelfOuter* self, IMbnVendorSpecificOperation* vendorOperation, SAFEARRAY* vendorSpecificData, uint32 requestID) OnSetVendorSpecificComplete;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IMbnVendorSpecificOperation* vendorOperation, SAFEARRAY* vendorSpecificData) OnEventNotification;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IMbnVendorSpecificOperation* vendorOperation, SAFEARRAY* vendorSpecificData, uint32 requestID) OnSetVendorSpecificComplete;
 	}
 
 
@@ -1271,8 +1271,8 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMbnConnectionProfileManagerEvents*/SelfOuter* self, IMbnConnectionProfile* newConnectionProfile) OnConnectionProfileArrival;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMbnConnectionProfileManagerEvents*/SelfOuter* self, IMbnConnectionProfile* oldConnectionProfile) OnConnectionProfileRemoval;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IMbnConnectionProfile* newConnectionProfile) OnConnectionProfileArrival;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IMbnConnectionProfile* oldConnectionProfile) OnConnectionProfileRemoval;
 	}
 
 
@@ -1289,9 +1289,9 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMbnRadio*/SelfOuter* self, MBN_RADIO* SoftwareRadioState) get_SoftwareRadioState;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMbnRadio*/SelfOuter* self, MBN_RADIO* HardwareRadioState) get_HardwareRadioState;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMbnRadio*/SelfOuter* self, MBN_RADIO radioState, uint32* requestID) SetSoftwareRadioState;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, MBN_RADIO* SoftwareRadioState) get_SoftwareRadioState;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, MBN_RADIO* HardwareRadioState) get_HardwareRadioState;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, MBN_RADIO radioState, uint32* requestID) SetSoftwareRadioState;
 	}
 
 
@@ -1310,8 +1310,8 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMbnRadioEvents*/SelfOuter* self, IMbnRadio* newInterface) OnRadioStateChange;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMbnRadioEvents*/SelfOuter* self, IMbnRadio* newInterface, uint32 requestID, HRESULT status) OnSetSoftwareRadioStateComplete;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IMbnRadio* newInterface) OnRadioStateChange;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IMbnRadio* newInterface, uint32 requestID, HRESULT status) OnSetSoftwareRadioStateComplete;
 	}
 
 
@@ -1328,12 +1328,12 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMbnMultiCarrier*/SelfOuter* self, MBN_PROVIDER2* homeProvider, uint32* requestID) SetHomeProvider;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMbnMultiCarrier*/SelfOuter* self, SAFEARRAY** preferredMulticarrierProviders) GetPreferredProviders;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMbnMultiCarrier*/SelfOuter* self, uint32* age, SAFEARRAY** visibleProviders) GetVisibleProviders;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMbnMultiCarrier*/SelfOuter* self, SAFEARRAY** cellularClasses) GetSupportedCellularClasses;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMbnMultiCarrier*/SelfOuter* self, MBN_CELLULAR_CLASS* currentCellularClass) GetCurrentCellularClass;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMbnMultiCarrier*/SelfOuter* self, uint32* requestID) ScanNetwork;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, MBN_PROVIDER2* homeProvider, uint32* requestID) SetHomeProvider;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, SAFEARRAY** preferredMulticarrierProviders) GetPreferredProviders;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* age, SAFEARRAY** visibleProviders) GetVisibleProviders;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, SAFEARRAY** cellularClasses) GetSupportedCellularClasses;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, MBN_CELLULAR_CLASS* currentCellularClass) GetCurrentCellularClass;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* requestID) ScanNetwork;
 	}
 
 
@@ -1358,11 +1358,11 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMbnMultiCarrierEvents*/SelfOuter* self, IMbnMultiCarrier* mbnInterface, uint32 requestID, HRESULT status) OnSetHomeProviderComplete;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMbnMultiCarrierEvents*/SelfOuter* self, IMbnMultiCarrier* mbnInterface) OnCurrentCellularClassChange;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMbnMultiCarrierEvents*/SelfOuter* self, IMbnMultiCarrier* mbnInterface) OnPreferredProvidersChange;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMbnMultiCarrierEvents*/SelfOuter* self, IMbnMultiCarrier* mbnInterface, uint32 requestID, HRESULT status) OnScanNetworkComplete;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMbnMultiCarrierEvents*/SelfOuter* self, IMbnMultiCarrier* mbnInterface) OnInterfaceCapabilityChange;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IMbnMultiCarrier* mbnInterface, uint32 requestID, HRESULT status) OnSetHomeProviderComplete;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IMbnMultiCarrier* mbnInterface) OnCurrentCellularClassChange;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IMbnMultiCarrier* mbnInterface) OnPreferredProvidersChange;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IMbnMultiCarrier* mbnInterface, uint32 requestID, HRESULT status) OnScanNetworkComplete;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IMbnMultiCarrier* mbnInterface) OnInterfaceCapabilityChange;
 	}
 
 
@@ -1385,7 +1385,7 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMbnDeviceServiceStateEvents*/SelfOuter* self, BSTR interfaceID, MBN_DEVICE_SERVICE_SESSIONS_STATE stateChange) OnSessionsStateChange;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR interfaceID, MBN_DEVICE_SERVICE_SESSIONS_STATE stateChange) OnSessionsStateChange;
 	}
 
 
@@ -1400,7 +1400,7 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMbnDeviceServicesManager*/SelfOuter* self, BSTR networkInterfaceID, IMbnDeviceServicesContext** mbnDevicesContext) GetDeviceServicesContext;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR networkInterfaceID, IMbnDeviceServicesContext** mbnDevicesContext) GetDeviceServicesContext;
 	}
 
 
@@ -1415,10 +1415,10 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMbnDeviceServicesContext*/SelfOuter* self, SAFEARRAY** deviceServices) EnumerateDeviceServices;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMbnDeviceServicesContext*/SelfOuter* self, BSTR deviceServiceID, IMbnDeviceService** mbnDeviceService) GetDeviceService;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMbnDeviceServicesContext*/SelfOuter* self, uint32* maxCommandSize) get_MaxCommandSize;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMbnDeviceServicesContext*/SelfOuter* self, uint32* maxDataSize) get_MaxDataSize;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, SAFEARRAY** deviceServices) EnumerateDeviceServices;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR deviceServiceID, IMbnDeviceService** mbnDeviceService) GetDeviceService;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* maxCommandSize) get_MaxCommandSize;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* maxDataSize) get_MaxDataSize;
 	}
 
 
@@ -1439,17 +1439,17 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMbnDeviceServicesEvents*/SelfOuter* self, IMbnDeviceService* deviceService, SAFEARRAY* commandIDList, HRESULT status, uint32 requestID) OnQuerySupportedCommandsComplete;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMbnDeviceServicesEvents*/SelfOuter* self, IMbnDeviceService* deviceService, HRESULT status, uint32 requestID) OnOpenCommandSessionComplete;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMbnDeviceServicesEvents*/SelfOuter* self, IMbnDeviceService* deviceService, HRESULT status, uint32 requestID) OnCloseCommandSessionComplete;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMbnDeviceServicesEvents*/SelfOuter* self, IMbnDeviceService* deviceService, uint32 responseID, SAFEARRAY* deviceServiceData, HRESULT status, uint32 requestID) OnSetCommandComplete;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMbnDeviceServicesEvents*/SelfOuter* self, IMbnDeviceService* deviceService, uint32 responseID, SAFEARRAY* deviceServiceData, HRESULT status, uint32 requestID) OnQueryCommandComplete;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMbnDeviceServicesEvents*/SelfOuter* self, IMbnDeviceService* deviceService, uint32 eventID, SAFEARRAY* deviceServiceData) OnEventNotification;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMbnDeviceServicesEvents*/SelfOuter* self, IMbnDeviceService* deviceService, HRESULT status, uint32 requestID) OnOpenDataSessionComplete;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMbnDeviceServicesEvents*/SelfOuter* self, IMbnDeviceService* deviceService, HRESULT status, uint32 requestID) OnCloseDataSessionComplete;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMbnDeviceServicesEvents*/SelfOuter* self, IMbnDeviceService* deviceService, HRESULT status, uint32 requestID) OnWriteDataComplete;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMbnDeviceServicesEvents*/SelfOuter* self, IMbnDeviceService* deviceService, SAFEARRAY* deviceServiceData) OnReadData;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMbnDeviceServicesEvents*/SelfOuter* self, BSTR interfaceID, MBN_DEVICE_SERVICES_INTERFACE_STATE stateChange) OnInterfaceStateChange;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IMbnDeviceService* deviceService, SAFEARRAY* commandIDList, HRESULT status, uint32 requestID) OnQuerySupportedCommandsComplete;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IMbnDeviceService* deviceService, HRESULT status, uint32 requestID) OnOpenCommandSessionComplete;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IMbnDeviceService* deviceService, HRESULT status, uint32 requestID) OnCloseCommandSessionComplete;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IMbnDeviceService* deviceService, uint32 responseID, SAFEARRAY* deviceServiceData, HRESULT status, uint32 requestID) OnSetCommandComplete;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IMbnDeviceService* deviceService, uint32 responseID, SAFEARRAY* deviceServiceData, HRESULT status, uint32 requestID) OnQueryCommandComplete;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IMbnDeviceService* deviceService, uint32 eventID, SAFEARRAY* deviceServiceData) OnEventNotification;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IMbnDeviceService* deviceService, HRESULT status, uint32 requestID) OnOpenDataSessionComplete;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IMbnDeviceService* deviceService, HRESULT status, uint32 requestID) OnCloseDataSessionComplete;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IMbnDeviceService* deviceService, HRESULT status, uint32 requestID) OnWriteDataComplete;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IMbnDeviceService* deviceService, SAFEARRAY* deviceServiceData) OnReadData;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR interfaceID, MBN_DEVICE_SERVICES_INTERFACE_STATE stateChange) OnInterfaceStateChange;
 	}
 
 
@@ -1484,18 +1484,18 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMbnDeviceService*/SelfOuter* self, uint32* requestID) QuerySupportedCommands;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMbnDeviceService*/SelfOuter* self, uint32* requestID) OpenCommandSession;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMbnDeviceService*/SelfOuter* self, uint32* requestID) CloseCommandSession;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMbnDeviceService*/SelfOuter* self, uint32 commandID, SAFEARRAY* deviceServiceData, uint32* requestID) SetCommand;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMbnDeviceService*/SelfOuter* self, uint32 commandID, SAFEARRAY* deviceServiceData, uint32* requestID) QueryCommand;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMbnDeviceService*/SelfOuter* self, uint32* requestID) OpenDataSession;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMbnDeviceService*/SelfOuter* self, uint32* requestID) CloseDataSession;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMbnDeviceService*/SelfOuter* self, SAFEARRAY* deviceServiceData, uint32* requestID) WriteData;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMbnDeviceService*/SelfOuter* self, BSTR* InterfaceID) get_InterfaceID;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMbnDeviceService*/SelfOuter* self, BSTR* DeviceServiceID) get_DeviceServiceID;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMbnDeviceService*/SelfOuter* self, BOOL* value) get_IsCommandSessionOpen;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMbnDeviceService*/SelfOuter* self, BOOL* value) get_IsDataSessionOpen;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* requestID) QuerySupportedCommands;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* requestID) OpenCommandSession;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* requestID) CloseCommandSession;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 commandID, SAFEARRAY* deviceServiceData, uint32* requestID) SetCommand;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 commandID, SAFEARRAY* deviceServiceData, uint32* requestID) QueryCommand;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* requestID) OpenDataSession;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* requestID) CloseDataSession;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, SAFEARRAY* deviceServiceData, uint32* requestID) WriteData;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* InterfaceID) get_InterfaceID;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* DeviceServiceID) get_DeviceServiceID;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BOOL* value) get_IsCommandSessionOpen;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BOOL* value) get_IsDataSessionOpen;
 	}
 
 
@@ -1532,17 +1532,17 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMbnPin*/SelfOuter* self, MBN_PIN_TYPE* PinType) get_PinType;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMbnPin*/SelfOuter* self, MBN_PIN_FORMAT* PinFormat) get_PinFormat;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMbnPin*/SelfOuter* self, uint32* PinLengthMin) get_PinLengthMin;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMbnPin*/SelfOuter* self, uint32* PinLengthMax) get_PinLengthMax;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMbnPin*/SelfOuter* self, MBN_PIN_MODE* PinMode) get_PinMode;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMbnPin*/SelfOuter* self, PWSTR pin, uint32* requestID) Enable;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMbnPin*/SelfOuter* self, PWSTR pin, uint32* requestID) Disable;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMbnPin*/SelfOuter* self, PWSTR pin, uint32* requestID) Enter;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMbnPin*/SelfOuter* self, PWSTR pin, PWSTR newPin, uint32* requestID) Change;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMbnPin*/SelfOuter* self, PWSTR puk, PWSTR newPin, uint32* requestID) Unblock;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMbnPin*/SelfOuter* self, IMbnPinManager** pinManager) GetPinManager;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, MBN_PIN_TYPE* PinType) get_PinType;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, MBN_PIN_FORMAT* PinFormat) get_PinFormat;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* PinLengthMin) get_PinLengthMin;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* PinLengthMax) get_PinLengthMax;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, MBN_PIN_MODE* PinMode) get_PinMode;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR pin, uint32* requestID) Enable;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR pin, uint32* requestID) Disable;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR pin, uint32* requestID) Enter;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR pin, PWSTR newPin, uint32* requestID) Change;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR puk, PWSTR newPin, uint32* requestID) Unblock;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IMbnPinManager** pinManager) GetPinManager;
 	}
 
 

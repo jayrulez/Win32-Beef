@@ -7210,7 +7210,7 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICcgDomainAuthCredentials*/SelfOuter* self, PWSTR pluginInput, PWSTR* domainName, PWSTR* username, PWSTR* password) GetPasswordCredentials;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR pluginInput, PWSTR* domainName, PWSTR* username, PWSTR* password) GetPasswordCredentials;
 	}
 
 

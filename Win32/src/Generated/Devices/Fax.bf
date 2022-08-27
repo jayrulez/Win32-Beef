@@ -1719,23 +1719,23 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxJobStatus*/SelfOuter* self, FAX_JOB_STATUS_ENUM* pStatus) get_Status;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxJobStatus*/SelfOuter* self, int32* plPages) get_Pages;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxJobStatus*/SelfOuter* self, int32* plSize) get_Size;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxJobStatus*/SelfOuter* self, int32* plCurrentPage) get_CurrentPage;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxJobStatus*/SelfOuter* self, int32* plDeviceId) get_DeviceId;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxJobStatus*/SelfOuter* self, BSTR* pbstrCSID) get_CSID;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxJobStatus*/SelfOuter* self, BSTR* pbstrTSID) get_TSID;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxJobStatus*/SelfOuter* self, FAX_JOB_EXTENDED_STATUS_ENUM* pExtendedStatusCode) get_ExtendedStatusCode;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxJobStatus*/SelfOuter* self, BSTR* pbstrExtendedStatus) get_ExtendedStatus;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxJobStatus*/SelfOuter* self, FAX_JOB_OPERATIONS_ENUM* pAvailableOperations) get_AvailableOperations;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxJobStatus*/SelfOuter* self, int32* plRetries) get_Retries;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxJobStatus*/SelfOuter* self, FAX_JOB_TYPE_ENUM* pJobType) get_JobType;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxJobStatus*/SelfOuter* self, double* pdateScheduledTime) get_ScheduledTime;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxJobStatus*/SelfOuter* self, double* pdateTransmissionStart) get_TransmissionStart;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxJobStatus*/SelfOuter* self, double* pdateTransmissionEnd) get_TransmissionEnd;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxJobStatus*/SelfOuter* self, BSTR* pbstrCallerId) get_CallerId;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxJobStatus*/SelfOuter* self, BSTR* pbstrRoutingInformation) get_RoutingInformation;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, FAX_JOB_STATUS_ENUM* pStatus) get_Status;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* plPages) get_Pages;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* plSize) get_Size;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* plCurrentPage) get_CurrentPage;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* plDeviceId) get_DeviceId;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pbstrCSID) get_CSID;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pbstrTSID) get_TSID;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, FAX_JOB_EXTENDED_STATUS_ENUM* pExtendedStatusCode) get_ExtendedStatusCode;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pbstrExtendedStatus) get_ExtendedStatus;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, FAX_JOB_OPERATIONS_ENUM* pAvailableOperations) get_AvailableOperations;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* plRetries) get_Retries;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, FAX_JOB_TYPE_ENUM* pJobType) get_JobType;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, double* pdateScheduledTime) get_ScheduledTime;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, double* pdateTransmissionStart) get_TransmissionStart;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, double* pdateTransmissionEnd) get_TransmissionEnd;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pbstrCallerId) get_CallerId;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pbstrRoutingInformation) get_RoutingInformation;
 	}
 
 
@@ -1782,32 +1782,32 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxServer*/SelfOuter* self, BSTR bstrServerName) Connect;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxServer*/SelfOuter* self, BSTR* pbstrServerName) get_ServerName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxServer*/SelfOuter* self, IFaxDeviceProviders** ppFaxDeviceProviders) GetDeviceProviders;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxServer*/SelfOuter* self, IFaxDevices** ppFaxDevices) GetDevices;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxServer*/SelfOuter* self, IFaxInboundRouting** ppFaxInboundRouting) get_InboundRouting;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxServer*/SelfOuter* self, IFaxFolders** pFaxFolders) get_Folders;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxServer*/SelfOuter* self, IFaxLoggingOptions** ppFaxLoggingOptions) get_LoggingOptions;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxServer*/SelfOuter* self, int32* plMajorVersion) get_MajorVersion;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxServer*/SelfOuter* self, int32* plMinorVersion) get_MinorVersion;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxServer*/SelfOuter* self, int32* plMajorBuild) get_MajorBuild;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxServer*/SelfOuter* self, int32* plMinorBuild) get_MinorBuild;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxServer*/SelfOuter* self, int16* pbDebug) get_Debug;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxServer*/SelfOuter* self, IFaxActivity** ppFaxActivity) get_Activity;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxServer*/SelfOuter* self, IFaxOutboundRouting** ppFaxOutboundRouting) get_OutboundRouting;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxServer*/SelfOuter* self, IFaxReceiptOptions** ppFaxReceiptOptions) get_ReceiptOptions;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxServer*/SelfOuter* self, IFaxSecurity** ppFaxSecurity) get_Security;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxServer*/SelfOuter* self) Disconnect;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxServer*/SelfOuter* self, BSTR bstrGUID, VARIANT* pvProperty) GetExtensionProperty;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxServer*/SelfOuter* self, BSTR bstrGUID, VARIANT vProperty) SetExtensionProperty;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxServer*/SelfOuter* self, FAX_SERVER_EVENTS_TYPE_ENUM EventTypes) ListenToServerEvents;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxServer*/SelfOuter* self, BSTR bstrGUID, BSTR bstrFriendlyName, BSTR bstrImageName, BSTR TspName, int32 lFSPIVersion) RegisterDeviceProvider;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxServer*/SelfOuter* self, BSTR bstrUniqueName) UnregisterDeviceProvider;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxServer*/SelfOuter* self, BSTR bstrExtensionName, BSTR bstrFriendlyName, BSTR bstrImageName, VARIANT vMethods) RegisterInboundRoutingExtension;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxServer*/SelfOuter* self, BSTR bstrExtensionUniqueName) UnregisterInboundRoutingExtension;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxServer*/SelfOuter* self, FAX_SERVER_EVENTS_TYPE_ENUM* pEventTypes) get_RegisteredEvents;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxServer*/SelfOuter* self, FAX_SERVER_APIVERSION_ENUM* pAPIVersion) get_APIVersion;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrServerName) Connect;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pbstrServerName) get_ServerName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IFaxDeviceProviders** ppFaxDeviceProviders) GetDeviceProviders;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IFaxDevices** ppFaxDevices) GetDevices;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IFaxInboundRouting** ppFaxInboundRouting) get_InboundRouting;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IFaxFolders** pFaxFolders) get_Folders;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IFaxLoggingOptions** ppFaxLoggingOptions) get_LoggingOptions;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* plMajorVersion) get_MajorVersion;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* plMinorVersion) get_MinorVersion;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* plMajorBuild) get_MajorBuild;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* plMinorBuild) get_MinorBuild;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* pbDebug) get_Debug;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IFaxActivity** ppFaxActivity) get_Activity;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IFaxOutboundRouting** ppFaxOutboundRouting) get_OutboundRouting;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IFaxReceiptOptions** ppFaxReceiptOptions) get_ReceiptOptions;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IFaxSecurity** ppFaxSecurity) get_Security;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Disconnect;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrGUID, VARIANT* pvProperty) GetExtensionProperty;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrGUID, VARIANT vProperty) SetExtensionProperty;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, FAX_SERVER_EVENTS_TYPE_ENUM EventTypes) ListenToServerEvents;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrGUID, BSTR bstrFriendlyName, BSTR bstrImageName, BSTR TspName, int32 lFSPIVersion) RegisterDeviceProvider;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrUniqueName) UnregisterDeviceProvider;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrExtensionName, BSTR bstrFriendlyName, BSTR bstrImageName, VARIANT vMethods) RegisterInboundRoutingExtension;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrExtensionUniqueName) UnregisterInboundRoutingExtension;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, FAX_SERVER_EVENTS_TYPE_ENUM* pEventTypes) get_RegisteredEvents;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, FAX_SERVER_APIVERSION_ENUM* pAPIVersion) get_APIVersion;
 	}
 
 
@@ -1872,9 +1872,9 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxDeviceProviders*/SelfOuter* self, IUnknown** ppUnk) get__NewEnum;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxDeviceProviders*/SelfOuter* self, VARIANT vIndex, IFaxDeviceProvider** pFaxDeviceProvider) get_Item;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxDeviceProviders*/SelfOuter* self, int32* plCount) get_Count;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IUnknown** ppUnk) get__NewEnum;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT vIndex, IFaxDeviceProvider** pFaxDeviceProvider) get_Item;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* plCount) get_Count;
 	}
 
 
@@ -1893,10 +1893,10 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxDevices*/SelfOuter* self, IUnknown** ppUnk) get__NewEnum;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxDevices*/SelfOuter* self, VARIANT vIndex, IFaxDevice** pFaxDevice) get_Item;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxDevices*/SelfOuter* self, int32* plCount) get_Count;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxDevices*/SelfOuter* self, int32 lId, IFaxDevice** ppFaxDevice) get_ItemById;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IUnknown** ppUnk) get__NewEnum;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT vIndex, IFaxDevice** pFaxDevice) get_Item;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* plCount) get_Count;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 lId, IFaxDevice** ppFaxDevice) get_ItemById;
 	}
 
 
@@ -1917,8 +1917,8 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxInboundRouting*/SelfOuter* self, IFaxInboundRoutingExtensions** pFaxInboundRoutingExtensions) GetExtensions;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxInboundRouting*/SelfOuter* self, IFaxInboundRoutingMethods** pFaxInboundRoutingMethods) GetMethods;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IFaxInboundRoutingExtensions** pFaxInboundRoutingExtensions) GetExtensions;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IFaxInboundRoutingMethods** pFaxInboundRoutingMethods) GetMethods;
 	}
 
 
@@ -1935,10 +1935,10 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxFolders*/SelfOuter* self, IFaxOutgoingQueue** pFaxOutgoingQueue) get_OutgoingQueue;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxFolders*/SelfOuter* self, IFaxIncomingQueue** pFaxIncomingQueue) get_IncomingQueue;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxFolders*/SelfOuter* self, IFaxIncomingArchive** pFaxIncomingArchive) get_IncomingArchive;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxFolders*/SelfOuter* self, IFaxOutgoingArchive** pFaxOutgoingArchive) get_OutgoingArchive;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IFaxOutgoingQueue** pFaxOutgoingQueue) get_OutgoingQueue;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IFaxIncomingQueue** pFaxIncomingQueue) get_IncomingQueue;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IFaxIncomingArchive** pFaxIncomingArchive) get_IncomingArchive;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IFaxOutgoingArchive** pFaxOutgoingArchive) get_OutgoingArchive;
 	}
 
 
@@ -1959,8 +1959,8 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxLoggingOptions*/SelfOuter* self, IFaxEventLogging** pFaxEventLogging) get_EventLogging;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxLoggingOptions*/SelfOuter* self, IFaxActivityLogging** pFaxActivityLogging) get_ActivityLogging;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IFaxEventLogging** pFaxEventLogging) get_EventLogging;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IFaxActivityLogging** pFaxActivityLogging) get_ActivityLogging;
 	}
 
 
@@ -1977,11 +1977,11 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxActivity*/SelfOuter* self, int32* plIncomingMessages) get_IncomingMessages;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxActivity*/SelfOuter* self, int32* plRoutingMessages) get_RoutingMessages;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxActivity*/SelfOuter* self, int32* plOutgoingMessages) get_OutgoingMessages;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxActivity*/SelfOuter* self, int32* plQueuedMessages) get_QueuedMessages;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxActivity*/SelfOuter* self) Refresh;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* plIncomingMessages) get_IncomingMessages;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* plRoutingMessages) get_RoutingMessages;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* plOutgoingMessages) get_OutgoingMessages;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* plQueuedMessages) get_QueuedMessages;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Refresh;
 	}
 
 
@@ -2004,8 +2004,8 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxOutboundRouting*/SelfOuter* self, IFaxOutboundRoutingGroups** pFaxOutboundRoutingGroups) GetGroups;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxOutboundRouting*/SelfOuter* self, IFaxOutboundRoutingRules** pFaxOutboundRoutingRules) GetRules;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IFaxOutboundRoutingGroups** pFaxOutboundRoutingGroups) GetGroups;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IFaxOutboundRoutingRules** pFaxOutboundRoutingRules) GetRules;
 	}
 
 
@@ -2022,24 +2022,24 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxReceiptOptions*/SelfOuter* self, FAX_SMTP_AUTHENTICATION_TYPE_ENUM* pType) get_AuthenticationType;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxReceiptOptions*/SelfOuter* self, FAX_SMTP_AUTHENTICATION_TYPE_ENUM Type) put_AuthenticationType;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxReceiptOptions*/SelfOuter* self, BSTR* pbstrSMTPServer) get_SMTPServer;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxReceiptOptions*/SelfOuter* self, BSTR bstrSMTPServer) put_SMTPServer;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxReceiptOptions*/SelfOuter* self, int32* plSMTPPort) get_SMTPPort;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxReceiptOptions*/SelfOuter* self, int32 lSMTPPort) put_SMTPPort;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxReceiptOptions*/SelfOuter* self, BSTR* pbstrSMTPSender) get_SMTPSender;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxReceiptOptions*/SelfOuter* self, BSTR bstrSMTPSender) put_SMTPSender;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxReceiptOptions*/SelfOuter* self, BSTR* pbstrSMTPUser) get_SMTPUser;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxReceiptOptions*/SelfOuter* self, BSTR bstrSMTPUser) put_SMTPUser;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxReceiptOptions*/SelfOuter* self, FAX_RECEIPT_TYPE_ENUM* pAllowedReceipts) get_AllowedReceipts;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxReceiptOptions*/SelfOuter* self, FAX_RECEIPT_TYPE_ENUM AllowedReceipts) put_AllowedReceipts;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxReceiptOptions*/SelfOuter* self, BSTR* pbstrSMTPPassword) get_SMTPPassword;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxReceiptOptions*/SelfOuter* self, BSTR bstrSMTPPassword) put_SMTPPassword;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxReceiptOptions*/SelfOuter* self) Refresh;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxReceiptOptions*/SelfOuter* self) Save;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxReceiptOptions*/SelfOuter* self, int16* pbUseForInboundRouting) get_UseForInboundRouting;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxReceiptOptions*/SelfOuter* self, int16 bUseForInboundRouting) put_UseForInboundRouting;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, FAX_SMTP_AUTHENTICATION_TYPE_ENUM* pType) get_AuthenticationType;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, FAX_SMTP_AUTHENTICATION_TYPE_ENUM Type) put_AuthenticationType;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pbstrSMTPServer) get_SMTPServer;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrSMTPServer) put_SMTPServer;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* plSMTPPort) get_SMTPPort;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 lSMTPPort) put_SMTPPort;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pbstrSMTPSender) get_SMTPSender;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrSMTPSender) put_SMTPSender;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pbstrSMTPUser) get_SMTPUser;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrSMTPUser) put_SMTPUser;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, FAX_RECEIPT_TYPE_ENUM* pAllowedReceipts) get_AllowedReceipts;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, FAX_RECEIPT_TYPE_ENUM AllowedReceipts) put_AllowedReceipts;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pbstrSMTPPassword) get_SMTPPassword;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrSMTPPassword) put_SMTPPassword;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Refresh;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Save;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* pbUseForInboundRouting) get_UseForInboundRouting;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 bUseForInboundRouting) put_UseForInboundRouting;
 	}
 
 
@@ -2088,13 +2088,13 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxSecurity*/SelfOuter* self, VARIANT* pvDescriptor) get_Descriptor;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxSecurity*/SelfOuter* self, VARIANT vDescriptor) put_Descriptor;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxSecurity*/SelfOuter* self, FAX_ACCESS_RIGHTS_ENUM* pGrantedRights) get_GrantedRights;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxSecurity*/SelfOuter* self) Refresh;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxSecurity*/SelfOuter* self) Save;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxSecurity*/SelfOuter* self, int32* plInformationType) get_InformationType;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxSecurity*/SelfOuter* self, int32 lInformationType) put_InformationType;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT* pvDescriptor) get_Descriptor;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT vDescriptor) put_Descriptor;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, FAX_ACCESS_RIGHTS_ENUM* pGrantedRights) get_GrantedRights;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Refresh;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Save;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* plInformationType) get_InformationType;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 lInformationType) put_InformationType;
 	}
 
 
@@ -2121,40 +2121,40 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxDocument*/SelfOuter* self, BSTR* pbstrBody) get_Body;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxDocument*/SelfOuter* self, BSTR bstrBody) put_Body;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxDocument*/SelfOuter* self, IFaxSender** ppFaxSender) get_Sender;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxDocument*/SelfOuter* self, IFaxRecipients** ppFaxRecipients) get_Recipients;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxDocument*/SelfOuter* self, BSTR* pbstrCoverPage) get_CoverPage;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxDocument*/SelfOuter* self, BSTR bstrCoverPage) put_CoverPage;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxDocument*/SelfOuter* self, BSTR* pbstrSubject) get_Subject;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxDocument*/SelfOuter* self, BSTR bstrSubject) put_Subject;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxDocument*/SelfOuter* self, BSTR* pbstrNote) get_Note;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxDocument*/SelfOuter* self, BSTR bstrNote) put_Note;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxDocument*/SelfOuter* self, double* pdateScheduleTime) get_ScheduleTime;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxDocument*/SelfOuter* self, double dateScheduleTime) put_ScheduleTime;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxDocument*/SelfOuter* self, BSTR* pbstrReceiptAddress) get_ReceiptAddress;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxDocument*/SelfOuter* self, BSTR bstrReceiptAddress) put_ReceiptAddress;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxDocument*/SelfOuter* self, BSTR* pbstrDocumentName) get_DocumentName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxDocument*/SelfOuter* self, BSTR bstrDocumentName) put_DocumentName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxDocument*/SelfOuter* self, int32* plCallHandle) get_CallHandle;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxDocument*/SelfOuter* self, int32 lCallHandle) put_CallHandle;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxDocument*/SelfOuter* self, FAX_COVERPAGE_TYPE_ENUM* pCoverPageType) get_CoverPageType;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxDocument*/SelfOuter* self, FAX_COVERPAGE_TYPE_ENUM CoverPageType) put_CoverPageType;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxDocument*/SelfOuter* self, FAX_SCHEDULE_TYPE_ENUM* pScheduleType) get_ScheduleType;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxDocument*/SelfOuter* self, FAX_SCHEDULE_TYPE_ENUM ScheduleType) put_ScheduleType;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxDocument*/SelfOuter* self, FAX_RECEIPT_TYPE_ENUM* pReceiptType) get_ReceiptType;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxDocument*/SelfOuter* self, FAX_RECEIPT_TYPE_ENUM ReceiptType) put_ReceiptType;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxDocument*/SelfOuter* self, int16* pbUseGrouping) get_GroupBroadcastReceipts;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxDocument*/SelfOuter* self, int16 bUseGrouping) put_GroupBroadcastReceipts;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxDocument*/SelfOuter* self, FAX_PRIORITY_TYPE_ENUM* pPriority) get_Priority;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxDocument*/SelfOuter* self, FAX_PRIORITY_TYPE_ENUM Priority) put_Priority;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxDocument*/SelfOuter* self, IDispatch** ppTapiConnection) get_TapiConnection;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxDocument*/SelfOuter* self, IDispatch* pTapiConnection) putref_TapiConnection;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxDocument*/SelfOuter* self, BSTR bstrFaxServerName, VARIANT* pvFaxOutgoingJobIDs) Submit;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxDocument*/SelfOuter* self, IFaxServer* pFaxServer, VARIANT* pvFaxOutgoingJobIDs) ConnectedSubmit;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxDocument*/SelfOuter* self, int16* pbAttachFax) get_AttachFaxToReceipt;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxDocument*/SelfOuter* self, int16 bAttachFax) put_AttachFaxToReceipt;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pbstrBody) get_Body;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrBody) put_Body;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IFaxSender** ppFaxSender) get_Sender;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IFaxRecipients** ppFaxRecipients) get_Recipients;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pbstrCoverPage) get_CoverPage;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrCoverPage) put_CoverPage;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pbstrSubject) get_Subject;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrSubject) put_Subject;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pbstrNote) get_Note;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrNote) put_Note;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, double* pdateScheduleTime) get_ScheduleTime;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, double dateScheduleTime) put_ScheduleTime;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pbstrReceiptAddress) get_ReceiptAddress;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrReceiptAddress) put_ReceiptAddress;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pbstrDocumentName) get_DocumentName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrDocumentName) put_DocumentName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* plCallHandle) get_CallHandle;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 lCallHandle) put_CallHandle;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, FAX_COVERPAGE_TYPE_ENUM* pCoverPageType) get_CoverPageType;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, FAX_COVERPAGE_TYPE_ENUM CoverPageType) put_CoverPageType;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, FAX_SCHEDULE_TYPE_ENUM* pScheduleType) get_ScheduleType;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, FAX_SCHEDULE_TYPE_ENUM ScheduleType) put_ScheduleType;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, FAX_RECEIPT_TYPE_ENUM* pReceiptType) get_ReceiptType;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, FAX_RECEIPT_TYPE_ENUM ReceiptType) put_ReceiptType;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* pbUseGrouping) get_GroupBroadcastReceipts;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 bUseGrouping) put_GroupBroadcastReceipts;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, FAX_PRIORITY_TYPE_ENUM* pPriority) get_Priority;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, FAX_PRIORITY_TYPE_ENUM Priority) put_Priority;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IDispatch** ppTapiConnection) get_TapiConnection;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IDispatch* pTapiConnection) putref_TapiConnection;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrFaxServerName, VARIANT* pvFaxOutgoingJobIDs) Submit;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IFaxServer* pFaxServer, VARIANT* pvFaxOutgoingJobIDs) ConnectedSubmit;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* pbAttachFax) get_AttachFaxToReceipt;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 bAttachFax) put_AttachFaxToReceipt;
 	}
 
 
@@ -2235,40 +2235,40 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxSender*/SelfOuter* self, BSTR* pbstrBillingCode) get_BillingCode;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxSender*/SelfOuter* self, BSTR bstrBillingCode) put_BillingCode;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxSender*/SelfOuter* self, BSTR* pbstrCity) get_City;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxSender*/SelfOuter* self, BSTR bstrCity) put_City;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxSender*/SelfOuter* self, BSTR* pbstrCompany) get_Company;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxSender*/SelfOuter* self, BSTR bstrCompany) put_Company;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxSender*/SelfOuter* self, BSTR* pbstrCountry) get_Country;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxSender*/SelfOuter* self, BSTR bstrCountry) put_Country;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxSender*/SelfOuter* self, BSTR* pbstrDepartment) get_Department;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxSender*/SelfOuter* self, BSTR bstrDepartment) put_Department;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxSender*/SelfOuter* self, BSTR* pbstrEmail) get_Email;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxSender*/SelfOuter* self, BSTR bstrEmail) put_Email;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxSender*/SelfOuter* self, BSTR* pbstrFaxNumber) get_FaxNumber;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxSender*/SelfOuter* self, BSTR bstrFaxNumber) put_FaxNumber;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxSender*/SelfOuter* self, BSTR* pbstrHomePhone) get_HomePhone;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxSender*/SelfOuter* self, BSTR bstrHomePhone) put_HomePhone;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxSender*/SelfOuter* self, BSTR* pbstrName) get_Name;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxSender*/SelfOuter* self, BSTR bstrName) put_Name;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxSender*/SelfOuter* self, BSTR* pbstrTSID) get_TSID;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxSender*/SelfOuter* self, BSTR bstrTSID) put_TSID;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxSender*/SelfOuter* self, BSTR* pbstrOfficePhone) get_OfficePhone;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxSender*/SelfOuter* self, BSTR bstrOfficePhone) put_OfficePhone;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxSender*/SelfOuter* self, BSTR* pbstrOfficeLocation) get_OfficeLocation;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxSender*/SelfOuter* self, BSTR bstrOfficeLocation) put_OfficeLocation;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxSender*/SelfOuter* self, BSTR* pbstrState) get_State;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxSender*/SelfOuter* self, BSTR bstrState) put_State;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxSender*/SelfOuter* self, BSTR* pbstrStreetAddress) get_StreetAddress;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxSender*/SelfOuter* self, BSTR bstrStreetAddress) put_StreetAddress;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxSender*/SelfOuter* self, BSTR* pbstrTitle) get_Title;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxSender*/SelfOuter* self, BSTR bstrTitle) put_Title;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxSender*/SelfOuter* self, BSTR* pbstrZipCode) get_ZipCode;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxSender*/SelfOuter* self, BSTR bstrZipCode) put_ZipCode;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxSender*/SelfOuter* self) LoadDefaultSender;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxSender*/SelfOuter* self) SaveDefaultSender;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pbstrBillingCode) get_BillingCode;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrBillingCode) put_BillingCode;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pbstrCity) get_City;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrCity) put_City;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pbstrCompany) get_Company;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrCompany) put_Company;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pbstrCountry) get_Country;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrCountry) put_Country;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pbstrDepartment) get_Department;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrDepartment) put_Department;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pbstrEmail) get_Email;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrEmail) put_Email;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pbstrFaxNumber) get_FaxNumber;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrFaxNumber) put_FaxNumber;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pbstrHomePhone) get_HomePhone;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrHomePhone) put_HomePhone;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pbstrName) get_Name;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrName) put_Name;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pbstrTSID) get_TSID;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrTSID) put_TSID;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pbstrOfficePhone) get_OfficePhone;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrOfficePhone) put_OfficePhone;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pbstrOfficeLocation) get_OfficeLocation;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrOfficeLocation) put_OfficeLocation;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pbstrState) get_State;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrState) put_State;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pbstrStreetAddress) get_StreetAddress;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrStreetAddress) put_StreetAddress;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pbstrTitle) get_Title;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrTitle) put_Title;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pbstrZipCode) get_ZipCode;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrZipCode) put_ZipCode;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) LoadDefaultSender;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) SaveDefaultSender;
 	}
 
 
@@ -2349,10 +2349,10 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxRecipient*/SelfOuter* self, BSTR* pbstrFaxNumber) get_FaxNumber;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxRecipient*/SelfOuter* self, BSTR bstrFaxNumber) put_FaxNumber;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxRecipient*/SelfOuter* self, BSTR* pbstrName) get_Name;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxRecipient*/SelfOuter* self, BSTR bstrName) put_Name;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pbstrFaxNumber) get_FaxNumber;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrFaxNumber) put_FaxNumber;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pbstrName) get_Name;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrName) put_Name;
 	}
 
 
@@ -2373,11 +2373,11 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxRecipients*/SelfOuter* self, IUnknown** ppUnk) get__NewEnum;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxRecipients*/SelfOuter* self, int32 lIndex, IFaxRecipient** ppFaxRecipient) get_Item;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxRecipients*/SelfOuter* self, int32* plCount) get_Count;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxRecipients*/SelfOuter* self, BSTR bstrFaxNumber, BSTR bstrRecipientName, IFaxRecipient** ppFaxRecipient) Add;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxRecipients*/SelfOuter* self, int32 lIndex) Remove;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IUnknown** ppUnk) get__NewEnum;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 lIndex, IFaxRecipient** ppFaxRecipient) get_Item;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* plCount) get_Count;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrFaxNumber, BSTR bstrRecipientName, IFaxRecipient** ppFaxRecipient) Add;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 lIndex) Remove;
 	}
 
 
@@ -2400,24 +2400,24 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxIncomingArchive*/SelfOuter* self, int16* pbUseArchive) get_UseArchive;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxIncomingArchive*/SelfOuter* self, int16 bUseArchive) put_UseArchive;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxIncomingArchive*/SelfOuter* self, BSTR* pbstrArchiveFolder) get_ArchiveFolder;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxIncomingArchive*/SelfOuter* self, BSTR bstrArchiveFolder) put_ArchiveFolder;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxIncomingArchive*/SelfOuter* self, int16* pbSizeQuotaWarning) get_SizeQuotaWarning;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxIncomingArchive*/SelfOuter* self, int16 bSizeQuotaWarning) put_SizeQuotaWarning;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxIncomingArchive*/SelfOuter* self, int32* plHighQuotaWaterMark) get_HighQuotaWaterMark;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxIncomingArchive*/SelfOuter* self, int32 lHighQuotaWaterMark) put_HighQuotaWaterMark;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxIncomingArchive*/SelfOuter* self, int32* plLowQuotaWaterMark) get_LowQuotaWaterMark;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxIncomingArchive*/SelfOuter* self, int32 lLowQuotaWaterMark) put_LowQuotaWaterMark;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxIncomingArchive*/SelfOuter* self, int32* plAgeLimit) get_AgeLimit;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxIncomingArchive*/SelfOuter* self, int32 lAgeLimit) put_AgeLimit;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxIncomingArchive*/SelfOuter* self, int32* plSizeLow) get_SizeLow;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxIncomingArchive*/SelfOuter* self, int32* plSizeHigh) get_SizeHigh;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxIncomingArchive*/SelfOuter* self) Refresh;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxIncomingArchive*/SelfOuter* self) Save;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxIncomingArchive*/SelfOuter* self, int32 lPrefetchSize, IFaxIncomingMessageIterator** pFaxIncomingMessageIterator) GetMessages;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxIncomingArchive*/SelfOuter* self, BSTR bstrMessageId, IFaxIncomingMessage** pFaxIncomingMessage) GetMessage;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* pbUseArchive) get_UseArchive;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 bUseArchive) put_UseArchive;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pbstrArchiveFolder) get_ArchiveFolder;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrArchiveFolder) put_ArchiveFolder;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* pbSizeQuotaWarning) get_SizeQuotaWarning;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 bSizeQuotaWarning) put_SizeQuotaWarning;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* plHighQuotaWaterMark) get_HighQuotaWaterMark;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 lHighQuotaWaterMark) put_HighQuotaWaterMark;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* plLowQuotaWaterMark) get_LowQuotaWaterMark;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 lLowQuotaWaterMark) put_LowQuotaWaterMark;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* plAgeLimit) get_AgeLimit;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 lAgeLimit) put_AgeLimit;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* plSizeLow) get_SizeLow;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* plSizeHigh) get_SizeHigh;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Refresh;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Save;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 lPrefetchSize, IFaxIncomingMessageIterator** pFaxIncomingMessageIterator) GetMessages;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrMessageId, IFaxIncomingMessage** pFaxIncomingMessage) GetMessage;
 	}
 
 
@@ -2466,12 +2466,12 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxIncomingQueue*/SelfOuter* self, int16* pbBlocked) get_Blocked;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxIncomingQueue*/SelfOuter* self, int16 bBlocked) put_Blocked;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxIncomingQueue*/SelfOuter* self) Refresh;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxIncomingQueue*/SelfOuter* self) Save;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxIncomingQueue*/SelfOuter* self, IFaxIncomingJobs** pFaxIncomingJobs) GetJobs;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxIncomingQueue*/SelfOuter* self, BSTR bstrJobId, IFaxIncomingJob** pFaxIncomingJob) GetJob;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* pbBlocked) get_Blocked;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 bBlocked) put_Blocked;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Refresh;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Save;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IFaxIncomingJobs** pFaxIncomingJobs) GetJobs;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrJobId, IFaxIncomingJob** pFaxIncomingJob) GetJob;
 	}
 
 
@@ -2496,24 +2496,24 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxOutgoingArchive*/SelfOuter* self, int16* pbUseArchive) get_UseArchive;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxOutgoingArchive*/SelfOuter* self, int16 bUseArchive) put_UseArchive;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxOutgoingArchive*/SelfOuter* self, BSTR* pbstrArchiveFolder) get_ArchiveFolder;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxOutgoingArchive*/SelfOuter* self, BSTR bstrArchiveFolder) put_ArchiveFolder;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxOutgoingArchive*/SelfOuter* self, int16* pbSizeQuotaWarning) get_SizeQuotaWarning;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxOutgoingArchive*/SelfOuter* self, int16 bSizeQuotaWarning) put_SizeQuotaWarning;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxOutgoingArchive*/SelfOuter* self, int32* plHighQuotaWaterMark) get_HighQuotaWaterMark;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxOutgoingArchive*/SelfOuter* self, int32 lHighQuotaWaterMark) put_HighQuotaWaterMark;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxOutgoingArchive*/SelfOuter* self, int32* plLowQuotaWaterMark) get_LowQuotaWaterMark;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxOutgoingArchive*/SelfOuter* self, int32 lLowQuotaWaterMark) put_LowQuotaWaterMark;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxOutgoingArchive*/SelfOuter* self, int32* plAgeLimit) get_AgeLimit;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxOutgoingArchive*/SelfOuter* self, int32 lAgeLimit) put_AgeLimit;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxOutgoingArchive*/SelfOuter* self, int32* plSizeLow) get_SizeLow;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxOutgoingArchive*/SelfOuter* self, int32* plSizeHigh) get_SizeHigh;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxOutgoingArchive*/SelfOuter* self) Refresh;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxOutgoingArchive*/SelfOuter* self) Save;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxOutgoingArchive*/SelfOuter* self, int32 lPrefetchSize, IFaxOutgoingMessageIterator** pFaxOutgoingMessageIterator) GetMessages;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxOutgoingArchive*/SelfOuter* self, BSTR bstrMessageId, IFaxOutgoingMessage** pFaxOutgoingMessage) GetMessage;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* pbUseArchive) get_UseArchive;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 bUseArchive) put_UseArchive;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pbstrArchiveFolder) get_ArchiveFolder;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrArchiveFolder) put_ArchiveFolder;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* pbSizeQuotaWarning) get_SizeQuotaWarning;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 bSizeQuotaWarning) put_SizeQuotaWarning;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* plHighQuotaWaterMark) get_HighQuotaWaterMark;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 lHighQuotaWaterMark) put_HighQuotaWaterMark;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* plLowQuotaWaterMark) get_LowQuotaWaterMark;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 lLowQuotaWaterMark) put_LowQuotaWaterMark;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* plAgeLimit) get_AgeLimit;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 lAgeLimit) put_AgeLimit;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* plSizeLow) get_SizeLow;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* plSizeHigh) get_SizeHigh;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Refresh;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Save;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 lPrefetchSize, IFaxOutgoingMessageIterator** pFaxOutgoingMessageIterator) GetMessages;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrMessageId, IFaxOutgoingMessage** pFaxOutgoingMessage) GetMessage;
 	}
 
 
@@ -2562,30 +2562,30 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxOutgoingQueue*/SelfOuter* self, int16* pbBlocked) get_Blocked;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxOutgoingQueue*/SelfOuter* self, int16 bBlocked) put_Blocked;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxOutgoingQueue*/SelfOuter* self, int16* pbPaused) get_Paused;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxOutgoingQueue*/SelfOuter* self, int16 bPaused) put_Paused;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxOutgoingQueue*/SelfOuter* self, int16* pbAllowPersonalCoverPages) get_AllowPersonalCoverPages;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxOutgoingQueue*/SelfOuter* self, int16 bAllowPersonalCoverPages) put_AllowPersonalCoverPages;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxOutgoingQueue*/SelfOuter* self, int16* pbUseDeviceTSID) get_UseDeviceTSID;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxOutgoingQueue*/SelfOuter* self, int16 bUseDeviceTSID) put_UseDeviceTSID;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxOutgoingQueue*/SelfOuter* self, int32* plRetries) get_Retries;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxOutgoingQueue*/SelfOuter* self, int32 lRetries) put_Retries;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxOutgoingQueue*/SelfOuter* self, int32* plRetryDelay) get_RetryDelay;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxOutgoingQueue*/SelfOuter* self, int32 lRetryDelay) put_RetryDelay;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxOutgoingQueue*/SelfOuter* self, double* pdateDiscountRateStart) get_DiscountRateStart;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxOutgoingQueue*/SelfOuter* self, double dateDiscountRateStart) put_DiscountRateStart;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxOutgoingQueue*/SelfOuter* self, double* pdateDiscountRateEnd) get_DiscountRateEnd;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxOutgoingQueue*/SelfOuter* self, double dateDiscountRateEnd) put_DiscountRateEnd;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxOutgoingQueue*/SelfOuter* self, int32* plAgeLimit) get_AgeLimit;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxOutgoingQueue*/SelfOuter* self, int32 lAgeLimit) put_AgeLimit;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxOutgoingQueue*/SelfOuter* self, int16* pbBranding) get_Branding;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxOutgoingQueue*/SelfOuter* self, int16 bBranding) put_Branding;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxOutgoingQueue*/SelfOuter* self) Refresh;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxOutgoingQueue*/SelfOuter* self) Save;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxOutgoingQueue*/SelfOuter* self, IFaxOutgoingJobs** pFaxOutgoingJobs) GetJobs;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxOutgoingQueue*/SelfOuter* self, BSTR bstrJobId, IFaxOutgoingJob** pFaxOutgoingJob) GetJob;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* pbBlocked) get_Blocked;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 bBlocked) put_Blocked;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* pbPaused) get_Paused;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 bPaused) put_Paused;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* pbAllowPersonalCoverPages) get_AllowPersonalCoverPages;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 bAllowPersonalCoverPages) put_AllowPersonalCoverPages;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* pbUseDeviceTSID) get_UseDeviceTSID;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 bUseDeviceTSID) put_UseDeviceTSID;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* plRetries) get_Retries;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 lRetries) put_Retries;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* plRetryDelay) get_RetryDelay;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 lRetryDelay) put_RetryDelay;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, double* pdateDiscountRateStart) get_DiscountRateStart;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, double dateDiscountRateStart) put_DiscountRateStart;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, double* pdateDiscountRateEnd) get_DiscountRateEnd;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, double dateDiscountRateEnd) put_DiscountRateEnd;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* plAgeLimit) get_AgeLimit;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 lAgeLimit) put_AgeLimit;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* pbBranding) get_Branding;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 bBranding) put_Branding;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Refresh;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Save;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IFaxOutgoingJobs** pFaxOutgoingJobs) GetJobs;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrJobId, IFaxOutgoingJob** pFaxOutgoingJob) GetJob;
 	}
 
 
@@ -2646,12 +2646,12 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxIncomingMessageIterator*/SelfOuter* self, IFaxIncomingMessage** pFaxIncomingMessage) get_Message;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxIncomingMessageIterator*/SelfOuter* self, int32* plPrefetchSize) get_PrefetchSize;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxIncomingMessageIterator*/SelfOuter* self, int32 lPrefetchSize) put_PrefetchSize;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxIncomingMessageIterator*/SelfOuter* self, int16* pbEOF) get_AtEOF;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxIncomingMessageIterator*/SelfOuter* self) MoveFirst;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxIncomingMessageIterator*/SelfOuter* self) MoveNext;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IFaxIncomingMessage** pFaxIncomingMessage) get_Message;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* plPrefetchSize) get_PrefetchSize;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 lPrefetchSize) put_PrefetchSize;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* pbEOF) get_AtEOF;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) MoveFirst;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) MoveNext;
 	}
 
 
@@ -2676,19 +2676,19 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxIncomingMessage*/SelfOuter* self, BSTR* pbstrId) get_Id;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxIncomingMessage*/SelfOuter* self, int32* plPages) get_Pages;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxIncomingMessage*/SelfOuter* self, int32* plSize) get_Size;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxIncomingMessage*/SelfOuter* self, BSTR* pbstrDeviceName) get_DeviceName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxIncomingMessage*/SelfOuter* self, int32* plRetries) get_Retries;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxIncomingMessage*/SelfOuter* self, double* pdateTransmissionStart) get_TransmissionStart;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxIncomingMessage*/SelfOuter* self, double* pdateTransmissionEnd) get_TransmissionEnd;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxIncomingMessage*/SelfOuter* self, BSTR* pbstrCSID) get_CSID;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxIncomingMessage*/SelfOuter* self, BSTR* pbstrTSID) get_TSID;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxIncomingMessage*/SelfOuter* self, BSTR* pbstrCallerId) get_CallerId;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxIncomingMessage*/SelfOuter* self, BSTR* pbstrRoutingInformation) get_RoutingInformation;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxIncomingMessage*/SelfOuter* self, BSTR bstrTiffPath) CopyTiff;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxIncomingMessage*/SelfOuter* self) Delete;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pbstrId) get_Id;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* plPages) get_Pages;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* plSize) get_Size;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pbstrDeviceName) get_DeviceName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* plRetries) get_Retries;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, double* pdateTransmissionStart) get_TransmissionStart;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, double* pdateTransmissionEnd) get_TransmissionEnd;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pbstrCSID) get_CSID;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pbstrTSID) get_TSID;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pbstrCallerId) get_CallerId;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pbstrRoutingInformation) get_RoutingInformation;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrTiffPath) CopyTiff;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Delete;
 	}
 
 
@@ -2727,9 +2727,9 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxOutgoingJobs*/SelfOuter* self, IUnknown** ppUnk) get__NewEnum;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxOutgoingJobs*/SelfOuter* self, VARIANT vIndex, IFaxOutgoingJob** pFaxOutgoingJob) get_Item;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxOutgoingJobs*/SelfOuter* self, int32* plCount) get_Count;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IUnknown** ppUnk) get__NewEnum;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT vIndex, IFaxOutgoingJob** pFaxOutgoingJob) get_Item;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* plCount) get_Count;
 	}
 
 
@@ -2748,37 +2748,37 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxOutgoingJob*/SelfOuter* self, BSTR* pbstrSubject) get_Subject;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxOutgoingJob*/SelfOuter* self, BSTR* pbstrDocumentName) get_DocumentName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxOutgoingJob*/SelfOuter* self, int32* plPages) get_Pages;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxOutgoingJob*/SelfOuter* self, int32* plSize) get_Size;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxOutgoingJob*/SelfOuter* self, BSTR* pbstrSubmissionId) get_SubmissionId;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxOutgoingJob*/SelfOuter* self, BSTR* pbstrId) get_Id;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxOutgoingJob*/SelfOuter* self, double* pdateOriginalScheduledTime) get_OriginalScheduledTime;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxOutgoingJob*/SelfOuter* self, double* pdateSubmissionTime) get_SubmissionTime;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxOutgoingJob*/SelfOuter* self, FAX_RECEIPT_TYPE_ENUM* pReceiptType) get_ReceiptType;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxOutgoingJob*/SelfOuter* self, FAX_PRIORITY_TYPE_ENUM* pPriority) get_Priority;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxOutgoingJob*/SelfOuter* self, IFaxSender** ppFaxSender) get_Sender;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxOutgoingJob*/SelfOuter* self, IFaxRecipient** ppFaxRecipient) get_Recipient;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxOutgoingJob*/SelfOuter* self, int32* plCurrentPage) get_CurrentPage;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxOutgoingJob*/SelfOuter* self, int32* plDeviceId) get_DeviceId;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxOutgoingJob*/SelfOuter* self, FAX_JOB_STATUS_ENUM* pStatus) get_Status;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxOutgoingJob*/SelfOuter* self, FAX_JOB_EXTENDED_STATUS_ENUM* pExtendedStatusCode) get_ExtendedStatusCode;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxOutgoingJob*/SelfOuter* self, BSTR* pbstrExtendedStatus) get_ExtendedStatus;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxOutgoingJob*/SelfOuter* self, FAX_JOB_OPERATIONS_ENUM* pAvailableOperations) get_AvailableOperations;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxOutgoingJob*/SelfOuter* self, int32* plRetries) get_Retries;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxOutgoingJob*/SelfOuter* self, double* pdateScheduledTime) get_ScheduledTime;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxOutgoingJob*/SelfOuter* self, double* pdateTransmissionStart) get_TransmissionStart;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxOutgoingJob*/SelfOuter* self, double* pdateTransmissionEnd) get_TransmissionEnd;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxOutgoingJob*/SelfOuter* self, BSTR* pbstrCSID) get_CSID;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxOutgoingJob*/SelfOuter* self, BSTR* pbstrTSID) get_TSID;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxOutgoingJob*/SelfOuter* self, int16* pbGroupBroadcastReceipts) get_GroupBroadcastReceipts;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxOutgoingJob*/SelfOuter* self) Pause;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxOutgoingJob*/SelfOuter* self) Resume;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxOutgoingJob*/SelfOuter* self) Restart;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxOutgoingJob*/SelfOuter* self, BSTR bstrTiffPath) CopyTiff;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxOutgoingJob*/SelfOuter* self) Refresh;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxOutgoingJob*/SelfOuter* self) Cancel;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pbstrSubject) get_Subject;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pbstrDocumentName) get_DocumentName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* plPages) get_Pages;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* plSize) get_Size;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pbstrSubmissionId) get_SubmissionId;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pbstrId) get_Id;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, double* pdateOriginalScheduledTime) get_OriginalScheduledTime;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, double* pdateSubmissionTime) get_SubmissionTime;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, FAX_RECEIPT_TYPE_ENUM* pReceiptType) get_ReceiptType;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, FAX_PRIORITY_TYPE_ENUM* pPriority) get_Priority;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IFaxSender** ppFaxSender) get_Sender;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IFaxRecipient** ppFaxRecipient) get_Recipient;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* plCurrentPage) get_CurrentPage;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* plDeviceId) get_DeviceId;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, FAX_JOB_STATUS_ENUM* pStatus) get_Status;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, FAX_JOB_EXTENDED_STATUS_ENUM* pExtendedStatusCode) get_ExtendedStatusCode;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pbstrExtendedStatus) get_ExtendedStatus;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, FAX_JOB_OPERATIONS_ENUM* pAvailableOperations) get_AvailableOperations;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* plRetries) get_Retries;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, double* pdateScheduledTime) get_ScheduledTime;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, double* pdateTransmissionStart) get_TransmissionStart;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, double* pdateTransmissionEnd) get_TransmissionEnd;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pbstrCSID) get_CSID;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pbstrTSID) get_TSID;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* pbGroupBroadcastReceipts) get_GroupBroadcastReceipts;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Pause;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Resume;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Restart;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrTiffPath) CopyTiff;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Refresh;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Cancel;
 	}
 
 
@@ -2853,12 +2853,12 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxOutgoingMessageIterator*/SelfOuter* self, IFaxOutgoingMessage** pFaxOutgoingMessage) get_Message;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxOutgoingMessageIterator*/SelfOuter* self, int16* pbEOF) get_AtEOF;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxOutgoingMessageIterator*/SelfOuter* self, int32* plPrefetchSize) get_PrefetchSize;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxOutgoingMessageIterator*/SelfOuter* self, int32 lPrefetchSize) put_PrefetchSize;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxOutgoingMessageIterator*/SelfOuter* self) MoveFirst;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxOutgoingMessageIterator*/SelfOuter* self) MoveNext;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IFaxOutgoingMessage** pFaxOutgoingMessage) get_Message;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* pbEOF) get_AtEOF;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* plPrefetchSize) get_PrefetchSize;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 lPrefetchSize) put_PrefetchSize;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) MoveFirst;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) MoveNext;
 	}
 
 
@@ -2883,25 +2883,25 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxOutgoingMessage*/SelfOuter* self, BSTR* pbstrSubmissionId) get_SubmissionId;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxOutgoingMessage*/SelfOuter* self, BSTR* pbstrId) get_Id;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxOutgoingMessage*/SelfOuter* self, BSTR* pbstrSubject) get_Subject;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxOutgoingMessage*/SelfOuter* self, BSTR* pbstrDocumentName) get_DocumentName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxOutgoingMessage*/SelfOuter* self, int32* plRetries) get_Retries;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxOutgoingMessage*/SelfOuter* self, int32* plPages) get_Pages;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxOutgoingMessage*/SelfOuter* self, int32* plSize) get_Size;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxOutgoingMessage*/SelfOuter* self, double* pdateOriginalScheduledTime) get_OriginalScheduledTime;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxOutgoingMessage*/SelfOuter* self, double* pdateSubmissionTime) get_SubmissionTime;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxOutgoingMessage*/SelfOuter* self, FAX_PRIORITY_TYPE_ENUM* pPriority) get_Priority;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxOutgoingMessage*/SelfOuter* self, IFaxSender** ppFaxSender) get_Sender;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxOutgoingMessage*/SelfOuter* self, IFaxRecipient** ppFaxRecipient) get_Recipient;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxOutgoingMessage*/SelfOuter* self, BSTR* pbstrDeviceName) get_DeviceName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxOutgoingMessage*/SelfOuter* self, double* pdateTransmissionStart) get_TransmissionStart;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxOutgoingMessage*/SelfOuter* self, double* pdateTransmissionEnd) get_TransmissionEnd;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxOutgoingMessage*/SelfOuter* self, BSTR* pbstrCSID) get_CSID;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxOutgoingMessage*/SelfOuter* self, BSTR* pbstrTSID) get_TSID;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxOutgoingMessage*/SelfOuter* self, BSTR bstrTiffPath) CopyTiff;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxOutgoingMessage*/SelfOuter* self) Delete;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pbstrSubmissionId) get_SubmissionId;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pbstrId) get_Id;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pbstrSubject) get_Subject;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pbstrDocumentName) get_DocumentName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* plRetries) get_Retries;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* plPages) get_Pages;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* plSize) get_Size;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, double* pdateOriginalScheduledTime) get_OriginalScheduledTime;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, double* pdateSubmissionTime) get_SubmissionTime;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, FAX_PRIORITY_TYPE_ENUM* pPriority) get_Priority;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IFaxSender** ppFaxSender) get_Sender;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IFaxRecipient** ppFaxRecipient) get_Recipient;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pbstrDeviceName) get_DeviceName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, double* pdateTransmissionStart) get_TransmissionStart;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, double* pdateTransmissionEnd) get_TransmissionEnd;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pbstrCSID) get_CSID;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pbstrTSID) get_TSID;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrTiffPath) CopyTiff;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Delete;
 	}
 
 
@@ -2952,9 +2952,9 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxIncomingJobs*/SelfOuter* self, IUnknown** ppUnk) get__NewEnum;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxIncomingJobs*/SelfOuter* self, VARIANT vIndex, IFaxIncomingJob** pFaxIncomingJob) get_Item;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxIncomingJobs*/SelfOuter* self, int32* plCount) get_Count;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IUnknown** ppUnk) get__NewEnum;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT vIndex, IFaxIncomingJob** pFaxIncomingJob) get_Item;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* plCount) get_Count;
 	}
 
 
@@ -2973,25 +2973,25 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxIncomingJob*/SelfOuter* self, int32* plSize) get_Size;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxIncomingJob*/SelfOuter* self, BSTR* pbstrId) get_Id;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxIncomingJob*/SelfOuter* self, int32* plCurrentPage) get_CurrentPage;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxIncomingJob*/SelfOuter* self, int32* plDeviceId) get_DeviceId;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxIncomingJob*/SelfOuter* self, FAX_JOB_STATUS_ENUM* pStatus) get_Status;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxIncomingJob*/SelfOuter* self, FAX_JOB_EXTENDED_STATUS_ENUM* pExtendedStatusCode) get_ExtendedStatusCode;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxIncomingJob*/SelfOuter* self, BSTR* pbstrExtendedStatus) get_ExtendedStatus;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxIncomingJob*/SelfOuter* self, FAX_JOB_OPERATIONS_ENUM* pAvailableOperations) get_AvailableOperations;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxIncomingJob*/SelfOuter* self, int32* plRetries) get_Retries;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxIncomingJob*/SelfOuter* self, double* pdateTransmissionStart) get_TransmissionStart;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxIncomingJob*/SelfOuter* self, double* pdateTransmissionEnd) get_TransmissionEnd;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxIncomingJob*/SelfOuter* self, BSTR* pbstrCSID) get_CSID;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxIncomingJob*/SelfOuter* self, BSTR* pbstrTSID) get_TSID;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxIncomingJob*/SelfOuter* self, BSTR* pbstrCallerId) get_CallerId;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxIncomingJob*/SelfOuter* self, BSTR* pbstrRoutingInformation) get_RoutingInformation;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxIncomingJob*/SelfOuter* self, FAX_JOB_TYPE_ENUM* pJobType) get_JobType;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxIncomingJob*/SelfOuter* self) Cancel;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxIncomingJob*/SelfOuter* self) Refresh;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxIncomingJob*/SelfOuter* self, BSTR bstrTiffPath) CopyTiff;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* plSize) get_Size;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pbstrId) get_Id;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* plCurrentPage) get_CurrentPage;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* plDeviceId) get_DeviceId;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, FAX_JOB_STATUS_ENUM* pStatus) get_Status;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, FAX_JOB_EXTENDED_STATUS_ENUM* pExtendedStatusCode) get_ExtendedStatusCode;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pbstrExtendedStatus) get_ExtendedStatus;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, FAX_JOB_OPERATIONS_ENUM* pAvailableOperations) get_AvailableOperations;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* plRetries) get_Retries;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, double* pdateTransmissionStart) get_TransmissionStart;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, double* pdateTransmissionEnd) get_TransmissionEnd;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pbstrCSID) get_CSID;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pbstrTSID) get_TSID;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pbstrCallerId) get_CallerId;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pbstrRoutingInformation) get_RoutingInformation;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, FAX_JOB_TYPE_ENUM* pJobType) get_JobType;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Cancel;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Refresh;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrTiffPath) CopyTiff;
 	}
 
 
@@ -3042,18 +3042,18 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxDeviceProvider*/SelfOuter* self, BSTR* pbstrFriendlyName) get_FriendlyName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxDeviceProvider*/SelfOuter* self, BSTR* pbstrImageName) get_ImageName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxDeviceProvider*/SelfOuter* self, BSTR* pbstrUniqueName) get_UniqueName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxDeviceProvider*/SelfOuter* self, BSTR* pbstrTapiProviderName) get_TapiProviderName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxDeviceProvider*/SelfOuter* self, int32* plMajorVersion) get_MajorVersion;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxDeviceProvider*/SelfOuter* self, int32* plMinorVersion) get_MinorVersion;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxDeviceProvider*/SelfOuter* self, int32* plMajorBuild) get_MajorBuild;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxDeviceProvider*/SelfOuter* self, int32* plMinorBuild) get_MinorBuild;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxDeviceProvider*/SelfOuter* self, int16* pbDebug) get_Debug;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxDeviceProvider*/SelfOuter* self, FAX_PROVIDER_STATUS_ENUM* pStatus) get_Status;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxDeviceProvider*/SelfOuter* self, int32* plInitErrorCode) get_InitErrorCode;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxDeviceProvider*/SelfOuter* self, VARIANT* pvDeviceIds) get_DeviceIds;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pbstrFriendlyName) get_FriendlyName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pbstrImageName) get_ImageName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pbstrUniqueName) get_UniqueName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pbstrTapiProviderName) get_TapiProviderName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* plMajorVersion) get_MajorVersion;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* plMinorVersion) get_MinorVersion;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* plMajorBuild) get_MajorBuild;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* plMinorBuild) get_MinorBuild;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* pbDebug) get_Debug;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, FAX_PROVIDER_STATUS_ENUM* pStatus) get_Status;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* plInitErrorCode) get_InitErrorCode;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT* pvDeviceIds) get_DeviceIds;
 	}
 
 
@@ -3090,32 +3090,32 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxDevice*/SelfOuter* self, int32* plId) get_Id;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxDevice*/SelfOuter* self, BSTR* pbstrDeviceName) get_DeviceName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxDevice*/SelfOuter* self, BSTR* pbstrProviderUniqueName) get_ProviderUniqueName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxDevice*/SelfOuter* self, int16* pbPoweredOff) get_PoweredOff;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxDevice*/SelfOuter* self, int16* pbReceivingNow) get_ReceivingNow;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxDevice*/SelfOuter* self, int16* pbSendingNow) get_SendingNow;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxDevice*/SelfOuter* self, VARIANT* pvUsedRoutingMethods) get_UsedRoutingMethods;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxDevice*/SelfOuter* self, BSTR* pbstrDescription) get_Description;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxDevice*/SelfOuter* self, BSTR bstrDescription) put_Description;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxDevice*/SelfOuter* self, int16* pbSendEnabled) get_SendEnabled;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxDevice*/SelfOuter* self, int16 bSendEnabled) put_SendEnabled;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxDevice*/SelfOuter* self, FAX_DEVICE_RECEIVE_MODE_ENUM* pReceiveMode) get_ReceiveMode;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxDevice*/SelfOuter* self, FAX_DEVICE_RECEIVE_MODE_ENUM ReceiveMode) put_ReceiveMode;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxDevice*/SelfOuter* self, int32* plRingsBeforeAnswer) get_RingsBeforeAnswer;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxDevice*/SelfOuter* self, int32 lRingsBeforeAnswer) put_RingsBeforeAnswer;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxDevice*/SelfOuter* self, BSTR* pbstrCSID) get_CSID;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxDevice*/SelfOuter* self, BSTR bstrCSID) put_CSID;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxDevice*/SelfOuter* self, BSTR* pbstrTSID) get_TSID;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxDevice*/SelfOuter* self, BSTR bstrTSID) put_TSID;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxDevice*/SelfOuter* self) Refresh;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxDevice*/SelfOuter* self) Save;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxDevice*/SelfOuter* self, BSTR bstrGUID, VARIANT* pvProperty) GetExtensionProperty;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxDevice*/SelfOuter* self, BSTR bstrGUID, VARIANT vProperty) SetExtensionProperty;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxDevice*/SelfOuter* self, BSTR bstrMethodGUID, int16 bUse) UseRoutingMethod;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxDevice*/SelfOuter* self, int16* pbRingingNow) get_RingingNow;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxDevice*/SelfOuter* self) AnswerCall;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* plId) get_Id;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pbstrDeviceName) get_DeviceName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pbstrProviderUniqueName) get_ProviderUniqueName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* pbPoweredOff) get_PoweredOff;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* pbReceivingNow) get_ReceivingNow;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* pbSendingNow) get_SendingNow;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT* pvUsedRoutingMethods) get_UsedRoutingMethods;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pbstrDescription) get_Description;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrDescription) put_Description;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* pbSendEnabled) get_SendEnabled;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 bSendEnabled) put_SendEnabled;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, FAX_DEVICE_RECEIVE_MODE_ENUM* pReceiveMode) get_ReceiveMode;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, FAX_DEVICE_RECEIVE_MODE_ENUM ReceiveMode) put_ReceiveMode;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* plRingsBeforeAnswer) get_RingsBeforeAnswer;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 lRingsBeforeAnswer) put_RingsBeforeAnswer;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pbstrCSID) get_CSID;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrCSID) put_CSID;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pbstrTSID) get_TSID;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrTSID) put_TSID;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Refresh;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Save;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrGUID, VARIANT* pvProperty) GetExtensionProperty;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrGUID, VARIANT vProperty) SetExtensionProperty;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrMethodGUID, int16 bUse) UseRoutingMethod;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* pbRingingNow) get_RingingNow;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) AnswerCall;
 	}
 
 
@@ -3180,14 +3180,14 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxActivityLogging*/SelfOuter* self, int16* pbLogIncoming) get_LogIncoming;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxActivityLogging*/SelfOuter* self, int16 bLogIncoming) put_LogIncoming;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxActivityLogging*/SelfOuter* self, int16* pbLogOutgoing) get_LogOutgoing;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxActivityLogging*/SelfOuter* self, int16 bLogOutgoing) put_LogOutgoing;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxActivityLogging*/SelfOuter* self, BSTR* pbstrDatabasePath) get_DatabasePath;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxActivityLogging*/SelfOuter* self, BSTR bstrDatabasePath) put_DatabasePath;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxActivityLogging*/SelfOuter* self) Refresh;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxActivityLogging*/SelfOuter* self) Save;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* pbLogIncoming) get_LogIncoming;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 bLogIncoming) put_LogIncoming;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* pbLogOutgoing) get_LogOutgoing;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 bLogOutgoing) put_LogOutgoing;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pbstrDatabasePath) get_DatabasePath;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrDatabasePath) put_DatabasePath;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Refresh;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Save;
 	}
 
 
@@ -3216,16 +3216,16 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxEventLogging*/SelfOuter* self, FAX_LOG_LEVEL_ENUM* pInitEventLevel) get_InitEventsLevel;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxEventLogging*/SelfOuter* self, FAX_LOG_LEVEL_ENUM InitEventLevel) put_InitEventsLevel;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxEventLogging*/SelfOuter* self, FAX_LOG_LEVEL_ENUM* pInboundEventLevel) get_InboundEventsLevel;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxEventLogging*/SelfOuter* self, FAX_LOG_LEVEL_ENUM InboundEventLevel) put_InboundEventsLevel;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxEventLogging*/SelfOuter* self, FAX_LOG_LEVEL_ENUM* pOutboundEventLevel) get_OutboundEventsLevel;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxEventLogging*/SelfOuter* self, FAX_LOG_LEVEL_ENUM OutboundEventLevel) put_OutboundEventsLevel;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxEventLogging*/SelfOuter* self, FAX_LOG_LEVEL_ENUM* pGeneralEventLevel) get_GeneralEventsLevel;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxEventLogging*/SelfOuter* self, FAX_LOG_LEVEL_ENUM GeneralEventLevel) put_GeneralEventsLevel;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxEventLogging*/SelfOuter* self) Refresh;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxEventLogging*/SelfOuter* self) Save;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, FAX_LOG_LEVEL_ENUM* pInitEventLevel) get_InitEventsLevel;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, FAX_LOG_LEVEL_ENUM InitEventLevel) put_InitEventsLevel;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, FAX_LOG_LEVEL_ENUM* pInboundEventLevel) get_InboundEventsLevel;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, FAX_LOG_LEVEL_ENUM InboundEventLevel) put_InboundEventsLevel;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, FAX_LOG_LEVEL_ENUM* pOutboundEventLevel) get_OutboundEventsLevel;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, FAX_LOG_LEVEL_ENUM OutboundEventLevel) put_OutboundEventsLevel;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, FAX_LOG_LEVEL_ENUM* pGeneralEventLevel) get_GeneralEventsLevel;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, FAX_LOG_LEVEL_ENUM GeneralEventLevel) put_GeneralEventsLevel;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Refresh;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Save;
 	}
 
 
@@ -3258,11 +3258,11 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxOutboundRoutingGroups*/SelfOuter* self, IUnknown** ppUnk) get__NewEnum;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxOutboundRoutingGroups*/SelfOuter* self, VARIANT vIndex, IFaxOutboundRoutingGroup** pFaxOutboundRoutingGroup) get_Item;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxOutboundRoutingGroups*/SelfOuter* self, int32* plCount) get_Count;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxOutboundRoutingGroups*/SelfOuter* self, BSTR bstrName, IFaxOutboundRoutingGroup** pFaxOutboundRoutingGroup) Add;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxOutboundRoutingGroups*/SelfOuter* self, VARIANT vIndex) Remove;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IUnknown** ppUnk) get__NewEnum;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT vIndex, IFaxOutboundRoutingGroup** pFaxOutboundRoutingGroup) get_Item;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* plCount) get_Count;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrName, IFaxOutboundRoutingGroup** pFaxOutboundRoutingGroup) Add;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT vIndex) Remove;
 	}
 
 
@@ -3285,9 +3285,9 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxOutboundRoutingGroup*/SelfOuter* self, BSTR* pbstrName) get_Name;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxOutboundRoutingGroup*/SelfOuter* self, FAX_GROUP_STATUS_ENUM* pStatus) get_Status;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxOutboundRoutingGroup*/SelfOuter* self, IFaxDeviceIds** pFaxDeviceIds) get_DeviceIds;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pbstrName) get_Name;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, FAX_GROUP_STATUS_ENUM* pStatus) get_Status;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IFaxDeviceIds** pFaxDeviceIds) get_DeviceIds;
 	}
 
 
@@ -3306,12 +3306,12 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxDeviceIds*/SelfOuter* self, IUnknown** ppUnk) get__NewEnum;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxDeviceIds*/SelfOuter* self, int32 lIndex, int32* plDeviceId) get_Item;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxDeviceIds*/SelfOuter* self, int32* plCount) get_Count;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxDeviceIds*/SelfOuter* self, int32 lDeviceId) Add;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxDeviceIds*/SelfOuter* self, int32 lIndex) Remove;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxDeviceIds*/SelfOuter* self, int32 lDeviceId, int32 lNewOrder) SetOrder;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IUnknown** ppUnk) get__NewEnum;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 lIndex, int32* plDeviceId) get_Item;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* plCount) get_Count;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 lDeviceId) Add;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 lIndex) Remove;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 lDeviceId, int32 lNewOrder) SetOrder;
 	}
 
 
@@ -3336,13 +3336,13 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxOutboundRoutingRules*/SelfOuter* self, IUnknown** ppUnk) get__NewEnum;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxOutboundRoutingRules*/SelfOuter* self, int32 lIndex, IFaxOutboundRoutingRule** pFaxOutboundRoutingRule) get_Item;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxOutboundRoutingRules*/SelfOuter* self, int32* plCount) get_Count;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxOutboundRoutingRules*/SelfOuter* self, int32 lCountryCode, int32 lAreaCode, IFaxOutboundRoutingRule** pFaxOutboundRoutingRule) ItemByCountryAndArea;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxOutboundRoutingRules*/SelfOuter* self, int32 lCountryCode, int32 lAreaCode) RemoveByCountryAndArea;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxOutboundRoutingRules*/SelfOuter* self, int32 lIndex) Remove;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxOutboundRoutingRules*/SelfOuter* self, int32 lCountryCode, int32 lAreaCode, int16 bUseDevice, BSTR bstrGroupName, int32 lDeviceId, IFaxOutboundRoutingRule** pFaxOutboundRoutingRule) Add;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IUnknown** ppUnk) get__NewEnum;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 lIndex, IFaxOutboundRoutingRule** pFaxOutboundRoutingRule) get_Item;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* plCount) get_Count;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 lCountryCode, int32 lAreaCode, IFaxOutboundRoutingRule** pFaxOutboundRoutingRule) ItemByCountryAndArea;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 lCountryCode, int32 lAreaCode) RemoveByCountryAndArea;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 lIndex) Remove;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 lCountryCode, int32 lAreaCode, int16 bUseDevice, BSTR bstrGroupName, int32 lDeviceId, IFaxOutboundRoutingRule** pFaxOutboundRoutingRule) Add;
 	}
 
 
@@ -3369,17 +3369,17 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxOutboundRoutingRule*/SelfOuter* self, int32* plCountryCode) get_CountryCode;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxOutboundRoutingRule*/SelfOuter* self, int32* plAreaCode) get_AreaCode;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxOutboundRoutingRule*/SelfOuter* self, FAX_RULE_STATUS_ENUM* pStatus) get_Status;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxOutboundRoutingRule*/SelfOuter* self, int16* pbUseDevice) get_UseDevice;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxOutboundRoutingRule*/SelfOuter* self, int16 bUseDevice) put_UseDevice;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxOutboundRoutingRule*/SelfOuter* self, int32* plDeviceId) get_DeviceId;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxOutboundRoutingRule*/SelfOuter* self, int32 DeviceId) put_DeviceId;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxOutboundRoutingRule*/SelfOuter* self, BSTR* pbstrGroupName) get_GroupName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxOutboundRoutingRule*/SelfOuter* self, BSTR bstrGroupName) put_GroupName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxOutboundRoutingRule*/SelfOuter* self) Refresh;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxOutboundRoutingRule*/SelfOuter* self) Save;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* plCountryCode) get_CountryCode;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* plAreaCode) get_AreaCode;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, FAX_RULE_STATUS_ENUM* pStatus) get_Status;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* pbUseDevice) get_UseDevice;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 bUseDevice) put_UseDevice;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* plDeviceId) get_DeviceId;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 DeviceId) put_DeviceId;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pbstrGroupName) get_GroupName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrGroupName) put_GroupName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Refresh;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Save;
 	}
 
 
@@ -3414,9 +3414,9 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxInboundRoutingExtensions*/SelfOuter* self, IUnknown** ppUnk) get__NewEnum;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxInboundRoutingExtensions*/SelfOuter* self, VARIANT vIndex, IFaxInboundRoutingExtension** pFaxInboundRoutingExtension) get_Item;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxInboundRoutingExtensions*/SelfOuter* self, int32* plCount) get_Count;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IUnknown** ppUnk) get__NewEnum;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT vIndex, IFaxInboundRoutingExtension** pFaxInboundRoutingExtension) get_Item;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* plCount) get_Count;
 	}
 
 
@@ -3435,17 +3435,17 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxInboundRoutingExtension*/SelfOuter* self, BSTR* pbstrFriendlyName) get_FriendlyName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxInboundRoutingExtension*/SelfOuter* self, BSTR* pbstrImageName) get_ImageName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxInboundRoutingExtension*/SelfOuter* self, BSTR* pbstrUniqueName) get_UniqueName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxInboundRoutingExtension*/SelfOuter* self, int32* plMajorVersion) get_MajorVersion;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxInboundRoutingExtension*/SelfOuter* self, int32* plMinorVersion) get_MinorVersion;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxInboundRoutingExtension*/SelfOuter* self, int32* plMajorBuild) get_MajorBuild;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxInboundRoutingExtension*/SelfOuter* self, int32* plMinorBuild) get_MinorBuild;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxInboundRoutingExtension*/SelfOuter* self, int16* pbDebug) get_Debug;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxInboundRoutingExtension*/SelfOuter* self, FAX_PROVIDER_STATUS_ENUM* pStatus) get_Status;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxInboundRoutingExtension*/SelfOuter* self, int32* plInitErrorCode) get_InitErrorCode;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxInboundRoutingExtension*/SelfOuter* self, VARIANT* pvMethods) get_Methods;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pbstrFriendlyName) get_FriendlyName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pbstrImageName) get_ImageName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pbstrUniqueName) get_UniqueName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* plMajorVersion) get_MajorVersion;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* plMinorVersion) get_MinorVersion;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* plMajorBuild) get_MajorBuild;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* plMinorBuild) get_MinorBuild;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* pbDebug) get_Debug;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, FAX_PROVIDER_STATUS_ENUM* pStatus) get_Status;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* plInitErrorCode) get_InitErrorCode;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT* pvMethods) get_Methods;
 	}
 
 
@@ -3480,9 +3480,9 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxInboundRoutingMethods*/SelfOuter* self, IUnknown** ppUnk) get__NewEnum;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxInboundRoutingMethods*/SelfOuter* self, VARIANT vIndex, IFaxInboundRoutingMethod** pFaxInboundRoutingMethod) get_Item;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxInboundRoutingMethods*/SelfOuter* self, int32* plCount) get_Count;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IUnknown** ppUnk) get__NewEnum;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT vIndex, IFaxInboundRoutingMethod** pFaxInboundRoutingMethod) get_Item;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* plCount) get_Count;
 	}
 
 
@@ -3501,15 +3501,15 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxInboundRoutingMethod*/SelfOuter* self, BSTR* pbstrName) get_Name;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxInboundRoutingMethod*/SelfOuter* self, BSTR* pbstrGUID) get_GUID;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxInboundRoutingMethod*/SelfOuter* self, BSTR* pbstrFunctionName) get_FunctionName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxInboundRoutingMethod*/SelfOuter* self, BSTR* pbstrExtensionFriendlyName) get_ExtensionFriendlyName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxInboundRoutingMethod*/SelfOuter* self, BSTR* pbstrExtensionImageName) get_ExtensionImageName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxInboundRoutingMethod*/SelfOuter* self, int32* plPriority) get_Priority;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxInboundRoutingMethod*/SelfOuter* self, int32 lPriority) put_Priority;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxInboundRoutingMethod*/SelfOuter* self) Refresh;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxInboundRoutingMethod*/SelfOuter* self) Save;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pbstrName) get_Name;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pbstrGUID) get_GUID;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pbstrFunctionName) get_FunctionName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pbstrExtensionFriendlyName) get_ExtensionFriendlyName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pbstrExtensionImageName) get_ExtensionImageName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* plPriority) get_Priority;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 lPriority) put_Priority;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Refresh;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Save;
 	}
 
 
@@ -3540,11 +3540,11 @@ public static
 
 	[CRepr]public struct VTable : IFaxDocument.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxDocument2*/SelfOuter* self, BSTR* pbstrSubmissionId) get_SubmissionId;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxDocument2*/SelfOuter* self, VARIANT* pvBodies) get_Bodies;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxDocument2*/SelfOuter* self, VARIANT vBodies) put_Bodies;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxDocument2*/SelfOuter* self, BSTR bstrFaxServerName, VARIANT* pvFaxOutgoingJobIDs, int32* plErrorBodyFile) Submit2;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxDocument2*/SelfOuter* self, IFaxServer* pFaxServer, VARIANT* pvFaxOutgoingJobIDs, int32* plErrorBodyFile) ConnectedSubmit2;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pbstrSubmissionId) get_SubmissionId;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT* pvBodies) get_Bodies;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT vBodies) put_Bodies;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrFaxServerName, VARIANT* pvFaxOutgoingJobIDs, int32* plErrorBodyFile) Submit2;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IFaxServer* pFaxServer, VARIANT* pvFaxOutgoingJobIDs, int32* plErrorBodyFile) ConnectedSubmit2;
 	}
 
 
@@ -3567,48 +3567,48 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxConfiguration*/SelfOuter* self, int16* pbUseArchive) get_UseArchive;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxConfiguration*/SelfOuter* self, int16 bUseArchive) put_UseArchive;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxConfiguration*/SelfOuter* self, BSTR* pbstrArchiveLocation) get_ArchiveLocation;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxConfiguration*/SelfOuter* self, BSTR bstrArchiveLocation) put_ArchiveLocation;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxConfiguration*/SelfOuter* self, int16* pbSizeQuotaWarning) get_SizeQuotaWarning;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxConfiguration*/SelfOuter* self, int16 bSizeQuotaWarning) put_SizeQuotaWarning;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxConfiguration*/SelfOuter* self, int32* plHighQuotaWaterMark) get_HighQuotaWaterMark;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxConfiguration*/SelfOuter* self, int32 lHighQuotaWaterMark) put_HighQuotaWaterMark;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxConfiguration*/SelfOuter* self, int32* plLowQuotaWaterMark) get_LowQuotaWaterMark;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxConfiguration*/SelfOuter* self, int32 lLowQuotaWaterMark) put_LowQuotaWaterMark;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxConfiguration*/SelfOuter* self, int32* plArchiveAgeLimit) get_ArchiveAgeLimit;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxConfiguration*/SelfOuter* self, int32 lArchiveAgeLimit) put_ArchiveAgeLimit;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxConfiguration*/SelfOuter* self, int32* plSizeLow) get_ArchiveSizeLow;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxConfiguration*/SelfOuter* self, int32* plSizeHigh) get_ArchiveSizeHigh;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxConfiguration*/SelfOuter* self, int16* pbOutgoingBlocked) get_OutgoingQueueBlocked;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxConfiguration*/SelfOuter* self, int16 bOutgoingBlocked) put_OutgoingQueueBlocked;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxConfiguration*/SelfOuter* self, int16* pbOutgoingPaused) get_OutgoingQueuePaused;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxConfiguration*/SelfOuter* self, int16 bOutgoingPaused) put_OutgoingQueuePaused;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxConfiguration*/SelfOuter* self, int16* pbAllowPersonalCoverPages) get_AllowPersonalCoverPages;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxConfiguration*/SelfOuter* self, int16 bAllowPersonalCoverPages) put_AllowPersonalCoverPages;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxConfiguration*/SelfOuter* self, int16* pbUseDeviceTSID) get_UseDeviceTSID;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxConfiguration*/SelfOuter* self, int16 bUseDeviceTSID) put_UseDeviceTSID;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxConfiguration*/SelfOuter* self, int32* plRetries) get_Retries;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxConfiguration*/SelfOuter* self, int32 lRetries) put_Retries;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxConfiguration*/SelfOuter* self, int32* plRetryDelay) get_RetryDelay;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxConfiguration*/SelfOuter* self, int32 lRetryDelay) put_RetryDelay;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxConfiguration*/SelfOuter* self, double* pdateDiscountRateStart) get_DiscountRateStart;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxConfiguration*/SelfOuter* self, double dateDiscountRateStart) put_DiscountRateStart;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxConfiguration*/SelfOuter* self, double* pdateDiscountRateEnd) get_DiscountRateEnd;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxConfiguration*/SelfOuter* self, double dateDiscountRateEnd) put_DiscountRateEnd;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxConfiguration*/SelfOuter* self, int32* plOutgoingQueueAgeLimit) get_OutgoingQueueAgeLimit;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxConfiguration*/SelfOuter* self, int32 lOutgoingQueueAgeLimit) put_OutgoingQueueAgeLimit;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxConfiguration*/SelfOuter* self, int16* pbBranding) get_Branding;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxConfiguration*/SelfOuter* self, int16 bBranding) put_Branding;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxConfiguration*/SelfOuter* self, int16* pbIncomingBlocked) get_IncomingQueueBlocked;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxConfiguration*/SelfOuter* self, int16 bIncomingBlocked) put_IncomingQueueBlocked;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxConfiguration*/SelfOuter* self, int16* pbAutoCreateAccountOnConnect) get_AutoCreateAccountOnConnect;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxConfiguration*/SelfOuter* self, int16 bAutoCreateAccountOnConnect) put_AutoCreateAccountOnConnect;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxConfiguration*/SelfOuter* self, int16* pbIncomingFaxesArePublic) get_IncomingFaxesArePublic;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxConfiguration*/SelfOuter* self, int16 bIncomingFaxesArePublic) put_IncomingFaxesArePublic;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxConfiguration*/SelfOuter* self) Refresh;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxConfiguration*/SelfOuter* self) Save;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* pbUseArchive) get_UseArchive;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 bUseArchive) put_UseArchive;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pbstrArchiveLocation) get_ArchiveLocation;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrArchiveLocation) put_ArchiveLocation;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* pbSizeQuotaWarning) get_SizeQuotaWarning;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 bSizeQuotaWarning) put_SizeQuotaWarning;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* plHighQuotaWaterMark) get_HighQuotaWaterMark;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 lHighQuotaWaterMark) put_HighQuotaWaterMark;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* plLowQuotaWaterMark) get_LowQuotaWaterMark;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 lLowQuotaWaterMark) put_LowQuotaWaterMark;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* plArchiveAgeLimit) get_ArchiveAgeLimit;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 lArchiveAgeLimit) put_ArchiveAgeLimit;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* plSizeLow) get_ArchiveSizeLow;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* plSizeHigh) get_ArchiveSizeHigh;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* pbOutgoingBlocked) get_OutgoingQueueBlocked;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 bOutgoingBlocked) put_OutgoingQueueBlocked;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* pbOutgoingPaused) get_OutgoingQueuePaused;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 bOutgoingPaused) put_OutgoingQueuePaused;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* pbAllowPersonalCoverPages) get_AllowPersonalCoverPages;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 bAllowPersonalCoverPages) put_AllowPersonalCoverPages;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* pbUseDeviceTSID) get_UseDeviceTSID;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 bUseDeviceTSID) put_UseDeviceTSID;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* plRetries) get_Retries;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 lRetries) put_Retries;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* plRetryDelay) get_RetryDelay;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 lRetryDelay) put_RetryDelay;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, double* pdateDiscountRateStart) get_DiscountRateStart;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, double dateDiscountRateStart) put_DiscountRateStart;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, double* pdateDiscountRateEnd) get_DiscountRateEnd;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, double dateDiscountRateEnd) put_DiscountRateEnd;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* plOutgoingQueueAgeLimit) get_OutgoingQueueAgeLimit;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 lOutgoingQueueAgeLimit) put_OutgoingQueueAgeLimit;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* pbBranding) get_Branding;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 bBranding) put_Branding;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* pbIncomingBlocked) get_IncomingQueueBlocked;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 bIncomingBlocked) put_IncomingQueueBlocked;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* pbAutoCreateAccountOnConnect) get_AutoCreateAccountOnConnect;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 bAutoCreateAccountOnConnect) put_AutoCreateAccountOnConnect;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* pbIncomingFaxesArePublic) get_IncomingFaxesArePublic;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 bIncomingFaxesArePublic) put_IncomingFaxesArePublic;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Refresh;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Save;
 	}
 
 
@@ -3705,10 +3705,10 @@ public static
 
 	[CRepr]public struct VTable : IFaxServer.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxServer2*/SelfOuter* self, IFaxConfiguration** ppFaxConfiguration) get_Configuration;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxServer2*/SelfOuter* self, IFaxAccount** ppCurrentAccount) get_CurrentAccount;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxServer2*/SelfOuter* self, IFaxAccountSet** ppFaxAccountSet) get_FaxAccountSet;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxServer2*/SelfOuter* self, IFaxSecurity2** ppFaxSecurity2) get_Security2;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IFaxConfiguration** ppFaxConfiguration) get_Configuration;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IFaxAccount** ppCurrentAccount) get_CurrentAccount;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IFaxAccountSet** ppFaxAccountSet) get_FaxAccountSet;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IFaxSecurity2** ppFaxSecurity2) get_Security2;
 	}
 
 
@@ -3729,10 +3729,10 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxAccountSet*/SelfOuter* self, IFaxAccounts** ppFaxAccounts) GetAccounts;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxAccountSet*/SelfOuter* self, BSTR bstrAccountName, IFaxAccount** pFaxAccount) GetAccount;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxAccountSet*/SelfOuter* self, BSTR bstrAccountName, IFaxAccount** pFaxAccount) AddAccount;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxAccountSet*/SelfOuter* self, BSTR bstrAccountName) RemoveAccount;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IFaxAccounts** ppFaxAccounts) GetAccounts;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrAccountName, IFaxAccount** pFaxAccount) GetAccount;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrAccountName, IFaxAccount** pFaxAccount) AddAccount;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrAccountName) RemoveAccount;
 	}
 
 
@@ -3753,9 +3753,9 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxAccounts*/SelfOuter* self, IUnknown** ppUnk) get__NewEnum;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxAccounts*/SelfOuter* self, VARIANT vIndex, IFaxAccount** pFaxAccount) get_Item;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxAccounts*/SelfOuter* self, int32* plCount) get_Count;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IUnknown** ppUnk) get__NewEnum;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT vIndex, IFaxAccount** pFaxAccount) get_Item;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* plCount) get_Count;
 	}
 
 
@@ -3774,10 +3774,10 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxAccount*/SelfOuter* self, BSTR* pbstrAccountName) get_AccountName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxAccount*/SelfOuter* self, IFaxAccountFolders** ppFolders) get_Folders;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxAccount*/SelfOuter* self, FAX_ACCOUNT_EVENTS_TYPE_ENUM EventTypes) ListenToAccountEvents;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxAccount*/SelfOuter* self, FAX_ACCOUNT_EVENTS_TYPE_ENUM* pRegisteredEvents) get_RegisteredEvents;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pbstrAccountName) get_AccountName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IFaxAccountFolders** ppFolders) get_Folders;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, FAX_ACCOUNT_EVENTS_TYPE_ENUM EventTypes) ListenToAccountEvents;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, FAX_ACCOUNT_EVENTS_TYPE_ENUM* pRegisteredEvents) get_RegisteredEvents;
 	}
 
 
@@ -3798,9 +3798,9 @@ public static
 
 	[CRepr]public struct VTable : IFaxOutgoingJob.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxOutgoingJob2*/SelfOuter* self, int16* pbHasCoverPage) get_HasCoverPage;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxOutgoingJob2*/SelfOuter* self, BSTR* pbstrReceiptAddress) get_ReceiptAddress;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxOutgoingJob2*/SelfOuter* self, FAX_SCHEDULE_TYPE_ENUM* pScheduleType) get_ScheduleType;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* pbHasCoverPage) get_HasCoverPage;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pbstrReceiptAddress) get_ReceiptAddress;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, FAX_SCHEDULE_TYPE_ENUM* pScheduleType) get_ScheduleType;
 	}
 
 
@@ -3819,10 +3819,10 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxAccountFolders*/SelfOuter* self, IFaxAccountOutgoingQueue** pFaxOutgoingQueue) get_OutgoingQueue;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxAccountFolders*/SelfOuter* self, IFaxAccountIncomingQueue** pFaxIncomingQueue) get_IncomingQueue;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxAccountFolders*/SelfOuter* self, IFaxAccountIncomingArchive** pFaxIncomingArchive) get_IncomingArchive;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxAccountFolders*/SelfOuter* self, IFaxAccountOutgoingArchive** pFaxOutgoingArchive) get_OutgoingArchive;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IFaxAccountOutgoingQueue** pFaxOutgoingQueue) get_OutgoingQueue;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IFaxAccountIncomingQueue** pFaxIncomingQueue) get_IncomingQueue;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IFaxAccountIncomingArchive** pFaxIncomingArchive) get_IncomingArchive;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IFaxAccountOutgoingArchive** pFaxOutgoingArchive) get_OutgoingArchive;
 	}
 
 
@@ -3843,8 +3843,8 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxAccountIncomingQueue*/SelfOuter* self, IFaxIncomingJobs** pFaxIncomingJobs) GetJobs;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxAccountIncomingQueue*/SelfOuter* self, BSTR bstrJobId, IFaxIncomingJob** pFaxIncomingJob) GetJob;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IFaxIncomingJobs** pFaxIncomingJobs) GetJobs;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrJobId, IFaxIncomingJob** pFaxIncomingJob) GetJob;
 	}
 
 
@@ -3861,8 +3861,8 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxAccountOutgoingQueue*/SelfOuter* self, IFaxOutgoingJobs** pFaxOutgoingJobs) GetJobs;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxAccountOutgoingQueue*/SelfOuter* self, BSTR bstrJobId, IFaxOutgoingJob** pFaxOutgoingJob) GetJob;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IFaxOutgoingJobs** pFaxOutgoingJobs) GetJobs;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrJobId, IFaxOutgoingJob** pFaxOutgoingJob) GetJob;
 	}
 
 
@@ -3879,13 +3879,13 @@ public static
 
 	[CRepr]public struct VTable : IFaxOutgoingMessage.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxOutgoingMessage2*/SelfOuter* self, int16* pbHasCoverPage) get_HasCoverPage;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxOutgoingMessage2*/SelfOuter* self, FAX_RECEIPT_TYPE_ENUM* pReceiptType) get_ReceiptType;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxOutgoingMessage2*/SelfOuter* self, BSTR* pbstrReceiptAddress) get_ReceiptAddress;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxOutgoingMessage2*/SelfOuter* self, int16* pbRead) get_Read;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxOutgoingMessage2*/SelfOuter* self, int16 bRead) put_Read;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxOutgoingMessage2*/SelfOuter* self) Save;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxOutgoingMessage2*/SelfOuter* self) Refresh;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* pbHasCoverPage) get_HasCoverPage;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, FAX_RECEIPT_TYPE_ENUM* pReceiptType) get_ReceiptType;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pbstrReceiptAddress) get_ReceiptAddress;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* pbRead) get_Read;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 bRead) put_Read;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Save;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Refresh;
 	}
 
 
@@ -3912,11 +3912,11 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxAccountIncomingArchive*/SelfOuter* self, int32* plSizeLow) get_SizeLow;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxAccountIncomingArchive*/SelfOuter* self, int32* plSizeHigh) get_SizeHigh;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxAccountIncomingArchive*/SelfOuter* self) Refresh;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxAccountIncomingArchive*/SelfOuter* self, int32 lPrefetchSize, IFaxIncomingMessageIterator** pFaxIncomingMessageIterator) GetMessages;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxAccountIncomingArchive*/SelfOuter* self, BSTR bstrMessageId, IFaxIncomingMessage** pFaxIncomingMessage) GetMessage;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* plSizeLow) get_SizeLow;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* plSizeHigh) get_SizeHigh;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Refresh;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 lPrefetchSize, IFaxIncomingMessageIterator** pFaxIncomingMessageIterator) GetMessages;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrMessageId, IFaxIncomingMessage** pFaxIncomingMessage) GetMessage;
 	}
 
 
@@ -3939,11 +3939,11 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxAccountOutgoingArchive*/SelfOuter* self, int32* plSizeLow) get_SizeLow;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxAccountOutgoingArchive*/SelfOuter* self, int32* plSizeHigh) get_SizeHigh;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxAccountOutgoingArchive*/SelfOuter* self) Refresh;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxAccountOutgoingArchive*/SelfOuter* self, int32 lPrefetchSize, IFaxOutgoingMessageIterator** pFaxOutgoingMessageIterator) GetMessages;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxAccountOutgoingArchive*/SelfOuter* self, BSTR bstrMessageId, IFaxOutgoingMessage** pFaxOutgoingMessage) GetMessage;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* plSizeLow) get_SizeLow;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* plSizeHigh) get_SizeHigh;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Refresh;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 lPrefetchSize, IFaxOutgoingMessageIterator** pFaxOutgoingMessageIterator) GetMessages;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrMessageId, IFaxOutgoingMessage** pFaxOutgoingMessage) GetMessage;
 	}
 
 
@@ -3966,13 +3966,13 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxSecurity2*/SelfOuter* self, VARIANT* pvDescriptor) get_Descriptor;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxSecurity2*/SelfOuter* self, VARIANT vDescriptor) put_Descriptor;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxSecurity2*/SelfOuter* self, FAX_ACCESS_RIGHTS_ENUM_2* pGrantedRights) get_GrantedRights;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxSecurity2*/SelfOuter* self) Refresh;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxSecurity2*/SelfOuter* self) Save;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxSecurity2*/SelfOuter* self, int32* plInformationType) get_InformationType;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxSecurity2*/SelfOuter* self, int32 lInformationType) put_InformationType;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT* pvDescriptor) get_Descriptor;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT vDescriptor) put_Descriptor;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, FAX_ACCESS_RIGHTS_ENUM_2* pGrantedRights) get_GrantedRights;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Refresh;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Save;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* plInformationType) get_InformationType;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 lInformationType) put_InformationType;
 	}
 
 
@@ -3999,22 +3999,22 @@ public static
 
 	[CRepr]public struct VTable : IFaxIncomingMessage.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxIncomingMessage2*/SelfOuter* self, BSTR* pbstrSubject) get_Subject;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxIncomingMessage2*/SelfOuter* self, BSTR bstrSubject) put_Subject;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxIncomingMessage2*/SelfOuter* self, BSTR* pbstrSenderName) get_SenderName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxIncomingMessage2*/SelfOuter* self, BSTR bstrSenderName) put_SenderName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxIncomingMessage2*/SelfOuter* self, BSTR* pbstrSenderFaxNumber) get_SenderFaxNumber;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxIncomingMessage2*/SelfOuter* self, BSTR bstrSenderFaxNumber) put_SenderFaxNumber;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxIncomingMessage2*/SelfOuter* self, int16* pbHasCoverPage) get_HasCoverPage;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxIncomingMessage2*/SelfOuter* self, int16 bHasCoverPage) put_HasCoverPage;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxIncomingMessage2*/SelfOuter* self, BSTR* pbstrRecipients) get_Recipients;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxIncomingMessage2*/SelfOuter* self, BSTR bstrRecipients) put_Recipients;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxIncomingMessage2*/SelfOuter* self, int16* pbWasReAssigned) get_WasReAssigned;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxIncomingMessage2*/SelfOuter* self, int16* pbRead) get_Read;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxIncomingMessage2*/SelfOuter* self, int16 bRead) put_Read;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxIncomingMessage2*/SelfOuter* self) ReAssign;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxIncomingMessage2*/SelfOuter* self) Save;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFaxIncomingMessage2*/SelfOuter* self) Refresh;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pbstrSubject) get_Subject;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrSubject) put_Subject;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pbstrSenderName) get_SenderName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrSenderName) put_SenderName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pbstrSenderFaxNumber) get_SenderFaxNumber;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrSenderFaxNumber) put_SenderFaxNumber;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* pbHasCoverPage) get_HasCoverPage;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 bHasCoverPage) put_HasCoverPage;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pbstrRecipients) get_Recipients;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrRecipients) put_Recipients;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* pbWasReAssigned) get_WasReAssigned;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* pbRead) get_Read;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 bRead) put_Read;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) ReAssign;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Save;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Refresh;
 	}
 
 
@@ -4071,32 +4071,32 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*_IFaxServerNotify2*/SelfOuter* self, IFaxServer2* pFaxServer, BSTR bstrJobId) OnIncomingJobAdded;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*_IFaxServerNotify2*/SelfOuter* self, IFaxServer2* pFaxServer, BSTR bstrJobId) OnIncomingJobRemoved;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*_IFaxServerNotify2*/SelfOuter* self, IFaxServer2* pFaxServer, BSTR bstrJobId, IFaxJobStatus* pJobStatus) OnIncomingJobChanged;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*_IFaxServerNotify2*/SelfOuter* self, IFaxServer2* pFaxServer, BSTR bstrJobId) OnOutgoingJobAdded;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*_IFaxServerNotify2*/SelfOuter* self, IFaxServer2* pFaxServer, BSTR bstrJobId) OnOutgoingJobRemoved;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*_IFaxServerNotify2*/SelfOuter* self, IFaxServer2* pFaxServer, BSTR bstrJobId, IFaxJobStatus* pJobStatus) OnOutgoingJobChanged;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*_IFaxServerNotify2*/SelfOuter* self, IFaxServer2* pFaxServer, BSTR bstrMessageId) OnIncomingMessageAdded;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*_IFaxServerNotify2*/SelfOuter* self, IFaxServer2* pFaxServer, BSTR bstrMessageId) OnIncomingMessageRemoved;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*_IFaxServerNotify2*/SelfOuter* self, IFaxServer2* pFaxServer, BSTR bstrMessageId) OnOutgoingMessageAdded;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*_IFaxServerNotify2*/SelfOuter* self, IFaxServer2* pFaxServer, BSTR bstrMessageId) OnOutgoingMessageRemoved;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*_IFaxServerNotify2*/SelfOuter* self, IFaxServer2* pFaxServer) OnReceiptOptionsChange;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*_IFaxServerNotify2*/SelfOuter* self, IFaxServer2* pFaxServer) OnActivityLoggingConfigChange;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*_IFaxServerNotify2*/SelfOuter* self, IFaxServer2* pFaxServer) OnSecurityConfigChange;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*_IFaxServerNotify2*/SelfOuter* self, IFaxServer2* pFaxServer) OnEventLoggingConfigChange;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*_IFaxServerNotify2*/SelfOuter* self, IFaxServer2* pFaxServer) OnOutgoingQueueConfigChange;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*_IFaxServerNotify2*/SelfOuter* self, IFaxServer2* pFaxServer) OnOutgoingArchiveConfigChange;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*_IFaxServerNotify2*/SelfOuter* self, IFaxServer2* pFaxServer) OnIncomingArchiveConfigChange;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*_IFaxServerNotify2*/SelfOuter* self, IFaxServer2* pFaxServer) OnDevicesConfigChange;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*_IFaxServerNotify2*/SelfOuter* self, IFaxServer2* pFaxServer) OnOutboundRoutingGroupsConfigChange;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*_IFaxServerNotify2*/SelfOuter* self, IFaxServer2* pFaxServer) OnOutboundRoutingRulesConfigChange;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*_IFaxServerNotify2*/SelfOuter* self, IFaxServer2* pFaxServer, int32 lIncomingMessages, int32 lRoutingMessages, int32 lOutgoingMessages, int32 lQueuedMessages) OnServerActivityChange;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*_IFaxServerNotify2*/SelfOuter* self, IFaxServer2* pFaxServer, int16 bOutgoingQueueBlocked, int16 bOutgoingQueuePaused, int16 bIncomingQueueBlocked) OnQueuesStatusChange;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*_IFaxServerNotify2*/SelfOuter* self, IFaxServer2* pFaxServer, int32 lCallId, int32 lDeviceId, BSTR bstrCallerId) OnNewCall;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*_IFaxServerNotify2*/SelfOuter* self, IFaxServer2* pFaxServer) OnServerShutDown;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*_IFaxServerNotify2*/SelfOuter* self, IFaxServer2* pFaxServer, int32 lDeviceId, int16 bPoweredOff, int16 bSending, int16 bReceiving, int16 bRinging) OnDeviceStatusChange;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*_IFaxServerNotify2*/SelfOuter* self, IFaxServer2* pFaxServer) OnGeneralServerConfigChanged;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IFaxServer2* pFaxServer, BSTR bstrJobId) OnIncomingJobAdded;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IFaxServer2* pFaxServer, BSTR bstrJobId) OnIncomingJobRemoved;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IFaxServer2* pFaxServer, BSTR bstrJobId, IFaxJobStatus* pJobStatus) OnIncomingJobChanged;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IFaxServer2* pFaxServer, BSTR bstrJobId) OnOutgoingJobAdded;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IFaxServer2* pFaxServer, BSTR bstrJobId) OnOutgoingJobRemoved;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IFaxServer2* pFaxServer, BSTR bstrJobId, IFaxJobStatus* pJobStatus) OnOutgoingJobChanged;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IFaxServer2* pFaxServer, BSTR bstrMessageId) OnIncomingMessageAdded;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IFaxServer2* pFaxServer, BSTR bstrMessageId) OnIncomingMessageRemoved;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IFaxServer2* pFaxServer, BSTR bstrMessageId) OnOutgoingMessageAdded;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IFaxServer2* pFaxServer, BSTR bstrMessageId) OnOutgoingMessageRemoved;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IFaxServer2* pFaxServer) OnReceiptOptionsChange;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IFaxServer2* pFaxServer) OnActivityLoggingConfigChange;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IFaxServer2* pFaxServer) OnSecurityConfigChange;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IFaxServer2* pFaxServer) OnEventLoggingConfigChange;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IFaxServer2* pFaxServer) OnOutgoingQueueConfigChange;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IFaxServer2* pFaxServer) OnOutgoingArchiveConfigChange;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IFaxServer2* pFaxServer) OnIncomingArchiveConfigChange;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IFaxServer2* pFaxServer) OnDevicesConfigChange;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IFaxServer2* pFaxServer) OnOutboundRoutingGroupsConfigChange;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IFaxServer2* pFaxServer) OnOutboundRoutingRulesConfigChange;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IFaxServer2* pFaxServer, int32 lIncomingMessages, int32 lRoutingMessages, int32 lOutgoingMessages, int32 lQueuedMessages) OnServerActivityChange;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IFaxServer2* pFaxServer, int16 bOutgoingQueueBlocked, int16 bOutgoingQueuePaused, int16 bIncomingQueueBlocked) OnQueuesStatusChange;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IFaxServer2* pFaxServer, int32 lCallId, int32 lDeviceId, BSTR bstrCallerId) OnNewCall;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IFaxServer2* pFaxServer) OnServerShutDown;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IFaxServer2* pFaxServer, int32 lDeviceId, int16 bPoweredOff, int16 bSending, int16 bReceiving, int16 bRinging) OnDeviceStatusChange;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IFaxServer2* pFaxServer) OnGeneralServerConfigChanged;
 	}
 
 
@@ -4173,17 +4173,17 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*_IFaxAccountNotify*/SelfOuter* self, IFaxAccount* pFaxAccount, BSTR bstrJobId) OnIncomingJobAdded;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*_IFaxAccountNotify*/SelfOuter* self, IFaxAccount* pFaxAccount, BSTR bstrJobId) OnIncomingJobRemoved;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*_IFaxAccountNotify*/SelfOuter* self, IFaxAccount* pFaxAccount, BSTR bstrJobId, IFaxJobStatus* pJobStatus) OnIncomingJobChanged;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*_IFaxAccountNotify*/SelfOuter* self, IFaxAccount* pFaxAccount, BSTR bstrJobId) OnOutgoingJobAdded;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*_IFaxAccountNotify*/SelfOuter* self, IFaxAccount* pFaxAccount, BSTR bstrJobId) OnOutgoingJobRemoved;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*_IFaxAccountNotify*/SelfOuter* self, IFaxAccount* pFaxAccount, BSTR bstrJobId, IFaxJobStatus* pJobStatus) OnOutgoingJobChanged;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*_IFaxAccountNotify*/SelfOuter* self, IFaxAccount* pFaxAccount, BSTR bstrMessageId, int16 fAddedToReceiveFolder) OnIncomingMessageAdded;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*_IFaxAccountNotify*/SelfOuter* self, IFaxAccount* pFaxAccount, BSTR bstrMessageId, int16 fRemovedFromReceiveFolder) OnIncomingMessageRemoved;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*_IFaxAccountNotify*/SelfOuter* self, IFaxAccount* pFaxAccount, BSTR bstrMessageId) OnOutgoingMessageAdded;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*_IFaxAccountNotify*/SelfOuter* self, IFaxAccount* pFaxAccount, BSTR bstrMessageId) OnOutgoingMessageRemoved;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*_IFaxAccountNotify*/SelfOuter* self, IFaxServer2* pFaxServer) OnServerShutDown;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IFaxAccount* pFaxAccount, BSTR bstrJobId) OnIncomingJobAdded;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IFaxAccount* pFaxAccount, BSTR bstrJobId) OnIncomingJobRemoved;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IFaxAccount* pFaxAccount, BSTR bstrJobId, IFaxJobStatus* pJobStatus) OnIncomingJobChanged;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IFaxAccount* pFaxAccount, BSTR bstrJobId) OnOutgoingJobAdded;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IFaxAccount* pFaxAccount, BSTR bstrJobId) OnOutgoingJobRemoved;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IFaxAccount* pFaxAccount, BSTR bstrJobId, IFaxJobStatus* pJobStatus) OnOutgoingJobChanged;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IFaxAccount* pFaxAccount, BSTR bstrMessageId, int16 fAddedToReceiveFolder) OnIncomingMessageAdded;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IFaxAccount* pFaxAccount, BSTR bstrMessageId, int16 fRemovedFromReceiveFolder) OnIncomingMessageRemoved;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IFaxAccount* pFaxAccount, BSTR bstrMessageId) OnOutgoingMessageAdded;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IFaxAccount* pFaxAccount, BSTR bstrMessageId) OnOutgoingMessageRemoved;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IFaxServer2* pFaxServer) OnServerShutDown;
 	}
 
 
@@ -4230,21 +4230,21 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IStillImageW*/SelfOuter* self, HINSTANCE hinst, uint32 dwVersion) Initialize;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IStillImageW*/SelfOuter* self, uint32 dwType, uint32 dwFlags, uint32* pdwItemsReturned, void** ppBuffer) GetDeviceList;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IStillImageW*/SelfOuter* self, PWSTR pwszDeviceName, void** ppBuffer) GetDeviceInfo;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IStillImageW*/SelfOuter* self, PWSTR pwszDeviceName, uint32 dwMode, IStiDevice** pDevice, IUnknown* punkOuter) CreateDevice;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IStillImageW*/SelfOuter* self, PWSTR pwszDeviceName, PWSTR pValueName, uint32* pType, uint8* pData, uint32* cbData) GetDeviceValue;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IStillImageW*/SelfOuter* self, PWSTR pwszDeviceName, PWSTR pValueName, uint32 Type, uint8* pData, uint32 cbData) SetDeviceValue;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IStillImageW*/SelfOuter* self, char16* pwszDeviceName, uint32* pdwEventCode, char16* pwszEventName) GetSTILaunchInformation;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IStillImageW*/SelfOuter* self, PWSTR pwszAppName, PWSTR pwszCommandLine) RegisterLaunchApplication;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IStillImageW*/SelfOuter* self, PWSTR pwszAppName) UnregisterLaunchApplication;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IStillImageW*/SelfOuter* self, PWSTR pwszDeviceName, BOOL bNewState) EnableHwNotifications;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IStillImageW*/SelfOuter* self, PWSTR pwszDeviceName, BOOL* pbCurrentState) GetHwNotificationState;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IStillImageW*/SelfOuter* self, PWSTR pwszDeviceName) RefreshDeviceBus;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IStillImageW*/SelfOuter* self, PWSTR pwszDeviceName, PWSTR pwszAppName, STINOTIFY* pStiNotify) LaunchApplicationForDevice;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IStillImageW*/SelfOuter* self, STI_DEVICE_INFORMATIONW* param0) SetupDeviceParameters;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IStillImageW*/SelfOuter* self, uint32 dwMessageType, PWSTR pszMessage) WriteToErrorLog;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HINSTANCE hinst, uint32 dwVersion) Initialize;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwType, uint32 dwFlags, uint32* pdwItemsReturned, void** ppBuffer) GetDeviceList;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR pwszDeviceName, void** ppBuffer) GetDeviceInfo;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR pwszDeviceName, uint32 dwMode, IStiDevice** pDevice, IUnknown* punkOuter) CreateDevice;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR pwszDeviceName, PWSTR pValueName, uint32* pType, uint8* pData, uint32* cbData) GetDeviceValue;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR pwszDeviceName, PWSTR pValueName, uint32 Type, uint8* pData, uint32 cbData) SetDeviceValue;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, char16* pwszDeviceName, uint32* pdwEventCode, char16* pwszEventName) GetSTILaunchInformation;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR pwszAppName, PWSTR pwszCommandLine) RegisterLaunchApplication;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR pwszAppName) UnregisterLaunchApplication;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR pwszDeviceName, BOOL bNewState) EnableHwNotifications;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR pwszDeviceName, BOOL* pbCurrentState) GetHwNotificationState;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR pwszDeviceName) RefreshDeviceBus;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR pwszDeviceName, PWSTR pwszAppName, STINOTIFY* pStiNotify) LaunchApplicationForDevice;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, STI_DEVICE_INFORMATIONW* param0) SetupDeviceParameters;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwMessageType, PWSTR pszMessage) WriteToErrorLog;
 	}
 
 
@@ -4287,23 +4287,23 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IStiDevice*/SelfOuter* self, HINSTANCE hinst, PWSTR pwszDeviceName, uint32 dwVersion, uint32 dwMode) Initialize;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IStiDevice*/SelfOuter* self, STI_DEV_CAPS* pDevCaps) GetCapabilities;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IStiDevice*/SelfOuter* self, STI_DEVICE_STATUS* pDevStatus) GetStatus;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IStiDevice*/SelfOuter* self) DeviceReset;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IStiDevice*/SelfOuter* self, STI_DIAG* pBuffer) Diagnostic;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IStiDevice*/SelfOuter* self, uint32 EscapeFunction, void* lpInData, uint32 cbInDataSize, void* pOutData, uint32 dwOutDataSize, uint32* pdwActualData) Escape;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IStiDevice*/SelfOuter* self, uint32* pdwLastDeviceError) GetLastError;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IStiDevice*/SelfOuter* self, uint32 dwTimeOut) LockDevice;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IStiDevice*/SelfOuter* self) UnLockDevice;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IStiDevice*/SelfOuter* self, void* lpBuffer, uint32* lpdwNumberOfBytes, OVERLAPPED* lpOverlapped) RawReadData;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IStiDevice*/SelfOuter* self, void* lpBuffer, uint32 nNumberOfBytes, OVERLAPPED* lpOverlapped) RawWriteData;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IStiDevice*/SelfOuter* self, void* lpBuffer, uint32* lpdwNumberOfBytes, OVERLAPPED* lpOverlapped) RawReadCommand;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IStiDevice*/SelfOuter* self, void* lpBuffer, uint32 nNumberOfBytes, OVERLAPPED* lpOverlapped) RawWriteCommand;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IStiDevice*/SelfOuter* self, STISUBSCRIBE* lpSubsribe) Subscribe;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IStiDevice*/SelfOuter* self, STINOTIFY* lpNotify) GetLastNotificationData;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IStiDevice*/SelfOuter* self) UnSubscribe;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IStiDevice*/SelfOuter* self, _ERROR_INFOW* pLastErrorInfo) GetLastErrorInfo;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HINSTANCE hinst, PWSTR pwszDeviceName, uint32 dwVersion, uint32 dwMode) Initialize;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, STI_DEV_CAPS* pDevCaps) GetCapabilities;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, STI_DEVICE_STATUS* pDevStatus) GetStatus;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) DeviceReset;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, STI_DIAG* pBuffer) Diagnostic;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 EscapeFunction, void* lpInData, uint32 cbInDataSize, void* pOutData, uint32 dwOutDataSize, uint32* pdwActualData) Escape;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pdwLastDeviceError) GetLastError;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwTimeOut) LockDevice;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) UnLockDevice;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, void* lpBuffer, uint32* lpdwNumberOfBytes, OVERLAPPED* lpOverlapped) RawReadData;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, void* lpBuffer, uint32 nNumberOfBytes, OVERLAPPED* lpOverlapped) RawWriteData;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, void* lpBuffer, uint32* lpdwNumberOfBytes, OVERLAPPED* lpOverlapped) RawReadCommand;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, void* lpBuffer, uint32 nNumberOfBytes, OVERLAPPED* lpOverlapped) RawWriteCommand;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, STISUBSCRIBE* lpSubsribe) Subscribe;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, STINOTIFY* lpNotify) GetLastNotificationData;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) UnSubscribe;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, _ERROR_INFOW* pLastErrorInfo) GetLastErrorInfo;
 	}
 
 
@@ -4350,17 +4350,17 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IStiDeviceControl*/SelfOuter* self, uint32 dwDeviceType, uint32 dwMode, PWSTR pwszPortName, uint32 dwFlags) Initialize;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IStiDeviceControl*/SelfOuter* self, void* lpBuffer, uint32* lpdwNumberOfBytes, OVERLAPPED* lpOverlapped) RawReadData;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IStiDeviceControl*/SelfOuter* self, void* lpBuffer, uint32 nNumberOfBytes, OVERLAPPED* lpOverlapped) RawWriteData;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IStiDeviceControl*/SelfOuter* self, void* lpBuffer, uint32* lpdwNumberOfBytes, OVERLAPPED* lpOverlapped) RawReadCommand;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IStiDeviceControl*/SelfOuter* self, void* lpBuffer, uint32 nNumberOfBytes, OVERLAPPED* lpOverlapped) RawWriteCommand;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IStiDeviceControl*/SelfOuter* self, uint32 EscapeFunction, void* lpInData, uint32 cbInDataSize, void* pOutData, uint32 dwOutDataSize, uint32* pdwActualData) RawDeviceControl;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IStiDeviceControl*/SelfOuter* self, uint32* lpdwLastError) GetLastError;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IStiDeviceControl*/SelfOuter* self, char16* lpszDevicePath, uint32 cwDevicePathSize) GetMyDevicePortName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IStiDeviceControl*/SelfOuter* self, HANDLE* lph) GetMyDeviceHandle;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IStiDeviceControl*/SelfOuter* self, uint32* pdwOpenMode) GetMyDeviceOpenMode;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IStiDeviceControl*/SelfOuter* self, uint32 dwMessageType, PWSTR pszMessage, uint32 dwErrorCode) WriteToErrorLog;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwDeviceType, uint32 dwMode, PWSTR pwszPortName, uint32 dwFlags) Initialize;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, void* lpBuffer, uint32* lpdwNumberOfBytes, OVERLAPPED* lpOverlapped) RawReadData;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, void* lpBuffer, uint32 nNumberOfBytes, OVERLAPPED* lpOverlapped) RawWriteData;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, void* lpBuffer, uint32* lpdwNumberOfBytes, OVERLAPPED* lpOverlapped) RawReadCommand;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, void* lpBuffer, uint32 nNumberOfBytes, OVERLAPPED* lpOverlapped) RawWriteCommand;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 EscapeFunction, void* lpInData, uint32 cbInDataSize, void* pOutData, uint32 dwOutDataSize, uint32* pdwActualData) RawDeviceControl;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* lpdwLastError) GetLastError;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, char16* lpszDevicePath, uint32 cwDevicePathSize) GetMyDevicePortName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HANDLE* lph) GetMyDeviceHandle;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pdwOpenMode) GetMyDeviceOpenMode;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwMessageType, PWSTR pszMessage, uint32 dwErrorCode) WriteToErrorLog;
 	}
 
 
@@ -4395,22 +4395,22 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IStiUSD*/SelfOuter* self, IStiDeviceControl* pHelDcb, uint32 dwStiVersion, HKEY hParametersKey) Initialize;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IStiUSD*/SelfOuter* self, STI_USD_CAPS* pDevCaps) GetCapabilities;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IStiUSD*/SelfOuter* self, STI_DEVICE_STATUS* pDevStatus) GetStatus;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IStiUSD*/SelfOuter* self) DeviceReset;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IStiUSD*/SelfOuter* self, STI_DIAG* pBuffer) Diagnostic;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IStiUSD*/SelfOuter* self, uint32 EscapeFunction, void* lpInData, uint32 cbInDataSize, void* pOutData, uint32 cbOutDataSize, uint32* pdwActualData) Escape;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IStiUSD*/SelfOuter* self, uint32* pdwLastDeviceError) GetLastError;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IStiUSD*/SelfOuter* self) LockDevice;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IStiUSD*/SelfOuter* self) UnLockDevice;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IStiUSD*/SelfOuter* self, void* lpBuffer, uint32* lpdwNumberOfBytes, OVERLAPPED* lpOverlapped) RawReadData;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IStiUSD*/SelfOuter* self, void* lpBuffer, uint32 nNumberOfBytes, OVERLAPPED* lpOverlapped) RawWriteData;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IStiUSD*/SelfOuter* self, void* lpBuffer, uint32* lpdwNumberOfBytes, OVERLAPPED* lpOverlapped) RawReadCommand;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IStiUSD*/SelfOuter* self, void* lpBuffer, uint32 nNumberOfBytes, OVERLAPPED* lpOverlapped) RawWriteCommand;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IStiUSD*/SelfOuter* self, HANDLE hEvent) SetNotificationHandle;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IStiUSD*/SelfOuter* self, STINOTIFY* lpNotify) GetNotificationData;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IStiUSD*/SelfOuter* self, _ERROR_INFOW* pLastErrorInfo) GetLastErrorInfo;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IStiDeviceControl* pHelDcb, uint32 dwStiVersion, HKEY hParametersKey) Initialize;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, STI_USD_CAPS* pDevCaps) GetCapabilities;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, STI_DEVICE_STATUS* pDevStatus) GetStatus;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) DeviceReset;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, STI_DIAG* pBuffer) Diagnostic;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 EscapeFunction, void* lpInData, uint32 cbInDataSize, void* pOutData, uint32 cbOutDataSize, uint32* pdwActualData) Escape;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pdwLastDeviceError) GetLastError;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) LockDevice;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) UnLockDevice;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, void* lpBuffer, uint32* lpdwNumberOfBytes, OVERLAPPED* lpOverlapped) RawReadData;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, void* lpBuffer, uint32 nNumberOfBytes, OVERLAPPED* lpOverlapped) RawWriteData;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, void* lpBuffer, uint32* lpdwNumberOfBytes, OVERLAPPED* lpOverlapped) RawReadCommand;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, void* lpBuffer, uint32 nNumberOfBytes, OVERLAPPED* lpOverlapped) RawWriteCommand;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HANDLE hEvent) SetNotificationHandle;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, STINOTIFY* lpNotify) GetNotificationData;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, _ERROR_INFOW* pLastErrorInfo) GetLastErrorInfo;
 	}
 
 

@@ -89,8 +89,8 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPresentationBuffer*/SelfOuter* self, HANDLE* availableEventHandle) GetAvailableEvent;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPresentationBuffer*/SelfOuter* self, uint8* isAvailable) IsAvailable;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HANDLE* availableEventHandle) GetAvailableEvent;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint8* isAvailable) IsAvailable;
 	}
 
 
@@ -107,7 +107,7 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] void(/*IPresentationContent*/SelfOuter* self, uint tag) SetTag;
+		protected new function [CallingConvention(.Stdcall)] void(SelfOuter* self, uint tag) SetTag;
 	}
 
 
@@ -122,14 +122,14 @@ public static
 
 	[CRepr]public struct VTable : IPresentationContent.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPresentationSurface*/SelfOuter* self, IPresentationBuffer* presentationBuffer) SetBuffer;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPresentationSurface*/SelfOuter* self, DXGI_COLOR_SPACE_TYPE colorSpace) SetColorSpace;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPresentationSurface*/SelfOuter* self, DXGI_ALPHA_MODE alphaMode) SetAlphaMode;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPresentationSurface*/SelfOuter* self, RECT* sourceRect) SetSourceRect;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPresentationSurface*/SelfOuter* self, PresentationTransform* transform) SetTransform;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPresentationSurface*/SelfOuter* self, IUnknown* output) RestrictToOutput;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPresentationSurface*/SelfOuter* self, uint8 value) SetDisableReadback;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPresentationSurface*/SelfOuter* self, float leftLetterboxSize, float topLetterboxSize, float rightLetterboxSize, float bottomLetterboxSize) SetLetterboxingMargins;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IPresentationBuffer* presentationBuffer) SetBuffer;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, DXGI_COLOR_SPACE_TYPE colorSpace) SetColorSpace;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, DXGI_ALPHA_MODE alphaMode) SetAlphaMode;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, RECT* sourceRect) SetSourceRect;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PresentationTransform* transform) SetTransform;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IUnknown* output) RestrictToOutput;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint8 value) SetDisableReadback;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, float leftLetterboxSize, float topLetterboxSize, float rightLetterboxSize, float bottomLetterboxSize) SetLetterboxingMargins;
 	}
 
 
@@ -158,8 +158,8 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] uint64(/*IPresentStatistics*/SelfOuter* self) GetPresentId;
-		protected new function [CallingConvention(.Stdcall)] PresentStatisticsKind(/*IPresentStatistics*/SelfOuter* self) GetKind;
+		protected new function [CallingConvention(.Stdcall)] uint64(SelfOuter* self) GetPresentId;
+		protected new function [CallingConvention(.Stdcall)] PresentStatisticsKind(SelfOuter* self) GetKind;
 	}
 
 
@@ -176,19 +176,19 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPresentationManager*/SelfOuter* self, IUnknown* resource, IPresentationBuffer** presentationBuffer) AddBufferFromResource;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPresentationManager*/SelfOuter* self, HANDLE compositionSurfaceHandle, IPresentationSurface** presentationSurface) CreatePresentationSurface;
-		protected new function [CallingConvention(.Stdcall)] uint64(/*IPresentationManager*/SelfOuter* self) GetNextPresentId;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPresentationManager*/SelfOuter* self, SystemInterruptTime targetTime) SetTargetTime;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPresentationManager*/SelfOuter* self, SystemInterruptTime preferredDuration, SystemInterruptTime deviationTolerance) SetPreferredPresentDuration;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPresentationManager*/SelfOuter* self, uint8 forceVsyncInterrupt) ForceVSyncInterrupt;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPresentationManager*/SelfOuter* self) Present;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPresentationManager*/SelfOuter* self, ref Guid riid, void** fence) GetPresentRetiringFence;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPresentationManager*/SelfOuter* self, uint64 presentIdToCancelFrom) CancelPresentsFrom;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPresentationManager*/SelfOuter* self, HANDLE* lostEventHandle) GetLostEvent;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPresentationManager*/SelfOuter* self, HANDLE* presentStatisticsAvailableEventHandle) GetPresentStatisticsAvailableEvent;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPresentationManager*/SelfOuter* self, PresentStatisticsKind presentStatisticsKind, uint8 enabled) EnablePresentStatisticsKind;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPresentationManager*/SelfOuter* self, IPresentStatistics** nextPresentStatistics) GetNextPresentStatistics;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IUnknown* resource, IPresentationBuffer** presentationBuffer) AddBufferFromResource;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HANDLE compositionSurfaceHandle, IPresentationSurface** presentationSurface) CreatePresentationSurface;
+		protected new function [CallingConvention(.Stdcall)] uint64(SelfOuter* self) GetNextPresentId;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, SystemInterruptTime targetTime) SetTargetTime;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, SystemInterruptTime preferredDuration, SystemInterruptTime deviationTolerance) SetPreferredPresentDuration;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint8 forceVsyncInterrupt) ForceVSyncInterrupt;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Present;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid riid, void** fence) GetPresentRetiringFence;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint64 presentIdToCancelFrom) CancelPresentsFrom;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HANDLE* lostEventHandle) GetLostEvent;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HANDLE* presentStatisticsAvailableEventHandle) GetPresentStatisticsAvailableEvent;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PresentStatisticsKind presentStatisticsKind, uint8 enabled) EnablePresentStatisticsKind;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IPresentStatistics** nextPresentStatistics) GetNextPresentStatistics;
 	}
 
 
@@ -227,9 +227,9 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] uint8(/*IPresentationFactory*/SelfOuter* self) IsPresentationSupported;
-		protected new function [CallingConvention(.Stdcall)] uint8(/*IPresentationFactory*/SelfOuter* self) IsPresentationSupportedWithIndependentFlip;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPresentationFactory*/SelfOuter* self, IPresentationManager** ppPresentationManager) CreatePresentationManager;
+		protected new function [CallingConvention(.Stdcall)] uint8(SelfOuter* self) IsPresentationSupported;
+		protected new function [CallingConvention(.Stdcall)] uint8(SelfOuter* self) IsPresentationSupportedWithIndependentFlip;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IPresentationManager** ppPresentationManager) CreatePresentationManager;
 	}
 
 
@@ -248,8 +248,8 @@ public static
 
 	[CRepr]public struct VTable : IPresentStatistics.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] uint64(/*IPresentStatusPresentStatistics*/SelfOuter* self) GetCompositionFrameId;
-		protected new function [CallingConvention(.Stdcall)] PresentStatus(/*IPresentStatusPresentStatistics*/SelfOuter* self) GetPresentStatus;
+		protected new function [CallingConvention(.Stdcall)] uint64(SelfOuter* self) GetCompositionFrameId;
+		protected new function [CallingConvention(.Stdcall)] PresentStatus(SelfOuter* self) GetPresentStatus;
 	}
 
 
@@ -266,9 +266,9 @@ public static
 
 	[CRepr]public struct VTable : IPresentStatistics.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] uint(/*ICompositionFramePresentStatistics*/SelfOuter* self) GetContentTag;
-		protected new function [CallingConvention(.Stdcall)] uint64(/*ICompositionFramePresentStatistics*/SelfOuter* self) GetCompositionFrameId;
-		protected new function [CallingConvention(.Stdcall)] void(/*ICompositionFramePresentStatistics*/SelfOuter* self, uint32* displayInstanceArrayCount, CompositionFrameDisplayInstance** displayInstanceArray) GetDisplayInstanceArray;
+		protected new function [CallingConvention(.Stdcall)] uint(SelfOuter* self) GetContentTag;
+		protected new function [CallingConvention(.Stdcall)] uint64(SelfOuter* self) GetCompositionFrameId;
+		protected new function [CallingConvention(.Stdcall)] void(SelfOuter* self, uint32* displayInstanceArrayCount, CompositionFrameDisplayInstance** displayInstanceArray) GetDisplayInstanceArray;
 	}
 
 
@@ -287,11 +287,11 @@ public static
 
 	[CRepr]public struct VTable : IPresentStatistics.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] LUID(/*IIndependentFlipFramePresentStatistics*/SelfOuter* self) GetOutputAdapterLUID;
-		protected new function [CallingConvention(.Stdcall)] uint32(/*IIndependentFlipFramePresentStatistics*/SelfOuter* self) GetOutputVidPnSourceId;
-		protected new function [CallingConvention(.Stdcall)] uint(/*IIndependentFlipFramePresentStatistics*/SelfOuter* self) GetContentTag;
-		protected new function [CallingConvention(.Stdcall)] SystemInterruptTime(/*IIndependentFlipFramePresentStatistics*/SelfOuter* self) GetDisplayedTime;
-		protected new function [CallingConvention(.Stdcall)] SystemInterruptTime(/*IIndependentFlipFramePresentStatistics*/SelfOuter* self) GetPresentDuration;
+		protected new function [CallingConvention(.Stdcall)] LUID(SelfOuter* self) GetOutputAdapterLUID;
+		protected new function [CallingConvention(.Stdcall)] uint32(SelfOuter* self) GetOutputVidPnSourceId;
+		protected new function [CallingConvention(.Stdcall)] uint(SelfOuter* self) GetContentTag;
+		protected new function [CallingConvention(.Stdcall)] SystemInterruptTime(SelfOuter* self) GetDisplayedTime;
+		protected new function [CallingConvention(.Stdcall)] SystemInterruptTime(SelfOuter* self) GetPresentDuration;
 	}
 
 

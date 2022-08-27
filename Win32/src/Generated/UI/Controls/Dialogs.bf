@@ -1296,9 +1296,9 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPrintDialogCallback*/SelfOuter* self) InitDone;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPrintDialogCallback*/SelfOuter* self) SelectionChange;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPrintDialogCallback*/SelfOuter* self, HWND hDlg, uint32 uMsg, WPARAM wParam, LPARAM lParam, LRESULT* pResult) HandleMessage;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) InitDone;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) SelectionChange;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HWND hDlg, uint32 uMsg, WPARAM wParam, LPARAM lParam, LRESULT* pResult) HandleMessage;
 	}
 
 
@@ -1317,9 +1317,9 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPrintDialogServices*/SelfOuter* self, DEVMODEA* pDevMode, uint32* pcbSize) GetCurrentDevMode;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPrintDialogServices*/SelfOuter* self, char16* pPrinterName, uint32* pcchSize) GetCurrentPrinterName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPrintDialogServices*/SelfOuter* self, char16* pPortName, uint32* pcchSize) GetCurrentPortName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, DEVMODEA* pDevMode, uint32* pcbSize) GetCurrentDevMode;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, char16* pPrinterName, uint32* pcchSize) GetCurrentPrinterName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, char16* pPortName, uint32* pcchSize) GetCurrentPortName;
 	}
 
 

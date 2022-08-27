@@ -667,18 +667,18 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGPM*/SelfOuter* self, BSTR bstrDomain, BSTR bstrDomainController, int32 lDCFlags, IGPMDomain** pIGPMDomain) GetDomain;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGPM*/SelfOuter* self, BSTR bstrBackupDir, IGPMBackupDir** pIGPMBackupDir) GetBackupDir;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGPM*/SelfOuter* self, BSTR bstrForest, BSTR bstrDomain, BSTR bstrDomainController, int32 lDCFlags, IGPMSitesContainer** ppIGPMSitesContainer) GetSitesContainer;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGPM*/SelfOuter* self, GPMRSOPMode gpmRSoPMode, BSTR bstrNamespace, int32 lFlags, IGPMRSOP** ppIGPMRSOP) GetRSOP;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGPM*/SelfOuter* self, BSTR bstrTrustee, GPMPermissionType perm, int16 bInheritable, IGPMPermission** ppPerm) CreatePermission;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGPM*/SelfOuter* self, IGPMSearchCriteria** ppIGPMSearchCriteria) CreateSearchCriteria;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGPM*/SelfOuter* self, BSTR bstrTrustee, IGPMTrustee** ppIGPMTrustee) CreateTrustee;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGPM*/SelfOuter* self, IGPMCSECollection** ppIGPMCSECollection) GetClientSideExtensions;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGPM*/SelfOuter* self, IGPMConstants** ppIGPMConstants) GetConstants;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGPM*/SelfOuter* self, BSTR bstrMigrationTablePath, IGPMMigrationTable** ppMigrationTable) GetMigrationTable;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGPM*/SelfOuter* self, IGPMMigrationTable** ppMigrationTable) CreateMigrationTable;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGPM*/SelfOuter* self, BSTR bstrAdmPath) InitializeReporting;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrDomain, BSTR bstrDomainController, int32 lDCFlags, IGPMDomain** pIGPMDomain) GetDomain;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrBackupDir, IGPMBackupDir** pIGPMBackupDir) GetBackupDir;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrForest, BSTR bstrDomain, BSTR bstrDomainController, int32 lDCFlags, IGPMSitesContainer** ppIGPMSitesContainer) GetSitesContainer;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, GPMRSOPMode gpmRSoPMode, BSTR bstrNamespace, int32 lFlags, IGPMRSOP** ppIGPMRSOP) GetRSOP;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrTrustee, GPMPermissionType perm, int16 bInheritable, IGPMPermission** ppPerm) CreatePermission;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IGPMSearchCriteria** ppIGPMSearchCriteria) CreateSearchCriteria;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrTrustee, IGPMTrustee** ppIGPMTrustee) CreateTrustee;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IGPMCSECollection** ppIGPMCSECollection) GetClientSideExtensions;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IGPMConstants** ppIGPMConstants) GetConstants;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrMigrationTablePath, IGPMMigrationTable** ppMigrationTable) GetMigrationTable;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IGPMMigrationTable** ppMigrationTable) CreateMigrationTable;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrAdmPath) InitializeReporting;
 	}
 
 
@@ -715,16 +715,16 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGPMDomain*/SelfOuter* self, BSTR* pVal) get_DomainController;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGPMDomain*/SelfOuter* self, BSTR* pVal) get_Domain;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGPMDomain*/SelfOuter* self, IGPMGPO** ppNewGPO) CreateGPO;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGPMDomain*/SelfOuter* self, BSTR bstrGuid, IGPMGPO** ppGPO) GetGPO;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGPMDomain*/SelfOuter* self, IGPMSearchCriteria* pIGPMSearchCriteria, IGPMGPOCollection** ppIGPMGPOCollection) SearchGPOs;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGPMDomain*/SelfOuter* self, IGPMBackup* pIGPMBackup, int32 lDCFlags, VARIANT* pvarGPMProgress, VARIANT* pvarGPMCancel, IGPMResult** ppIGPMResult) RestoreGPO;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGPMDomain*/SelfOuter* self, BSTR bstrPath, IGPMSOM** ppSOM) GetSOM;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGPMDomain*/SelfOuter* self, IGPMSearchCriteria* pIGPMSearchCriteria, IGPMSOMCollection** ppIGPMSOMCollection) SearchSOMs;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGPMDomain*/SelfOuter* self, BSTR bstrPath, IGPMWMIFilter** ppWMIFilter) GetWMIFilter;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGPMDomain*/SelfOuter* self, IGPMSearchCriteria* pIGPMSearchCriteria, IGPMWMIFilterCollection** ppIGPMWMIFilterCollection) SearchWMIFilters;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pVal) get_DomainController;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pVal) get_Domain;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IGPMGPO** ppNewGPO) CreateGPO;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrGuid, IGPMGPO** ppGPO) GetGPO;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IGPMSearchCriteria* pIGPMSearchCriteria, IGPMGPOCollection** ppIGPMGPOCollection) SearchGPOs;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IGPMBackup* pIGPMBackup, int32 lDCFlags, VARIANT* pvarGPMProgress, VARIANT* pvarGPMCancel, IGPMResult** ppIGPMResult) RestoreGPO;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrPath, IGPMSOM** ppSOM) GetSOM;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IGPMSearchCriteria* pIGPMSearchCriteria, IGPMSOMCollection** ppIGPMSOMCollection) SearchSOMs;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrPath, IGPMWMIFilter** ppWMIFilter) GetWMIFilter;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IGPMSearchCriteria* pIGPMSearchCriteria, IGPMWMIFilterCollection** ppIGPMWMIFilterCollection) SearchWMIFilters;
 	}
 
 
@@ -757,9 +757,9 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGPMBackupDir*/SelfOuter* self, BSTR* pVal) get_BackupDirectory;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGPMBackupDir*/SelfOuter* self, BSTR bstrID, IGPMBackup** ppBackup) GetBackup;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGPMBackupDir*/SelfOuter* self, IGPMSearchCriteria* pIGPMSearchCriteria, IGPMBackupCollection** ppIGPMBackupCollection) SearchBackups;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pVal) get_BackupDirectory;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrID, IGPMBackup** ppBackup) GetBackup;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IGPMSearchCriteria* pIGPMSearchCriteria, IGPMBackupCollection** ppIGPMBackupCollection) SearchBackups;
 	}
 
 
@@ -778,11 +778,11 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGPMSitesContainer*/SelfOuter* self, BSTR* pVal) get_DomainController;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGPMSitesContainer*/SelfOuter* self, BSTR* pVal) get_Domain;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGPMSitesContainer*/SelfOuter* self, BSTR* pVal) get_Forest;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGPMSitesContainer*/SelfOuter* self, BSTR bstrSiteName, IGPMSOM** ppSOM) GetSite;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGPMSitesContainer*/SelfOuter* self, IGPMSearchCriteria* pIGPMSearchCriteria, IGPMSOMCollection** ppIGPMSOMCollection) SearchSites;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pVal) get_DomainController;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pVal) get_Domain;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pVal) get_Forest;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrSiteName, IGPMSOM** ppSOM) GetSite;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IGPMSearchCriteria* pIGPMSearchCriteria, IGPMSOMCollection** ppIGPMSOMCollection) SearchSites;
 	}
 
 
@@ -805,7 +805,7 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGPMSearchCriteria*/SelfOuter* self, GPMSearchProperty searchProperty, GPMSearchOperation searchOperation, VARIANT varValue) Add;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, GPMSearchProperty searchProperty, GPMSearchOperation searchOperation, VARIANT varValue) Add;
 	}
 
 
@@ -820,11 +820,11 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGPMTrustee*/SelfOuter* self, BSTR* bstrVal) get_TrusteeSid;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGPMTrustee*/SelfOuter* self, BSTR* bstrVal) get_TrusteeName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGPMTrustee*/SelfOuter* self, BSTR* bstrVal) get_TrusteeDomain;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGPMTrustee*/SelfOuter* self, BSTR* pVal) get_TrusteeDSPath;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGPMTrustee*/SelfOuter* self, int32* lVal) get_TrusteeType;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* bstrVal) get_TrusteeSid;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* bstrVal) get_TrusteeName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* bstrVal) get_TrusteeDomain;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pVal) get_TrusteeDSPath;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* lVal) get_TrusteeType;
 	}
 
 
@@ -847,11 +847,11 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGPMPermission*/SelfOuter* self, int16* pVal) get_Inherited;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGPMPermission*/SelfOuter* self, int16* pVal) get_Inheritable;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGPMPermission*/SelfOuter* self, int16* pVal) get_Denied;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGPMPermission*/SelfOuter* self, GPMPermissionType* pVal) get_Permission;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGPMPermission*/SelfOuter* self, IGPMTrustee** ppIGPMTrustee) get_Trustee;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* pVal) get_Inherited;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* pVal) get_Inheritable;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* pVal) get_Denied;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, GPMPermissionType* pVal) get_Permission;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IGPMTrustee** ppIGPMTrustee) get_Trustee;
 	}
 
 
@@ -874,12 +874,12 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGPMSecurityInfo*/SelfOuter* self, int32* pVal) get_Count;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGPMSecurityInfo*/SelfOuter* self, int32 lIndex, VARIANT* pVal) get_Item;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGPMSecurityInfo*/SelfOuter* self, IEnumVARIANT** ppEnum) get__NewEnum;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGPMSecurityInfo*/SelfOuter* self, IGPMPermission* pPerm) Add;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGPMSecurityInfo*/SelfOuter* self, IGPMPermission* pPerm) Remove;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGPMSecurityInfo*/SelfOuter* self, BSTR bstrTrustee) RemoveTrustee;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* pVal) get_Count;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 lIndex, VARIANT* pVal) get_Item;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IEnumVARIANT** ppEnum) get__NewEnum;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IGPMPermission* pPerm) Add;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IGPMPermission* pPerm) Remove;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrTrustee) RemoveTrustee;
 	}
 
 
@@ -904,16 +904,16 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGPMBackup*/SelfOuter* self, BSTR* pVal) get_ID;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGPMBackup*/SelfOuter* self, BSTR* pVal) get_GPOID;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGPMBackup*/SelfOuter* self, BSTR* pVal) get_GPODomain;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGPMBackup*/SelfOuter* self, BSTR* pVal) get_GPODisplayName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGPMBackup*/SelfOuter* self, double* pVal) get_Timestamp;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGPMBackup*/SelfOuter* self, BSTR* pVal) get_Comment;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGPMBackup*/SelfOuter* self, BSTR* pVal) get_BackupDir;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGPMBackup*/SelfOuter* self) Delete;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGPMBackup*/SelfOuter* self, GPMReportType gpmReportType, VARIANT* pvarGPMProgress, VARIANT* pvarGPMCancel, IGPMResult** ppIGPMResult) GenerateReport;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGPMBackup*/SelfOuter* self, GPMReportType gpmReportType, BSTR bstrTargetFilePath, IGPMResult** ppIGPMResult) GenerateReportToFile;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pVal) get_ID;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pVal) get_GPOID;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pVal) get_GPODomain;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pVal) get_GPODisplayName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, double* pVal) get_Timestamp;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pVal) get_Comment;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pVal) get_BackupDir;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Delete;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, GPMReportType gpmReportType, VARIANT* pvarGPMProgress, VARIANT* pvarGPMCancel, IGPMResult** ppIGPMResult) GenerateReport;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, GPMReportType gpmReportType, BSTR bstrTargetFilePath, IGPMResult** ppIGPMResult) GenerateReportToFile;
 	}
 
 
@@ -946,9 +946,9 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGPMBackupCollection*/SelfOuter* self, int32* pVal) get_Count;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGPMBackupCollection*/SelfOuter* self, int32 lIndex, VARIANT* pVal) get_Item;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGPMBackupCollection*/SelfOuter* self, IEnumVARIANT** ppIGPMBackup) get__NewEnum;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* pVal) get_Count;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 lIndex, VARIANT* pVal) get_Item;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IEnumVARIANT** ppIGPMBackup) get__NewEnum;
 	}
 
 
@@ -967,16 +967,16 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGPMSOM*/SelfOuter* self, int16* pVal) get_GPOInheritanceBlocked;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGPMSOM*/SelfOuter* self, int16 newVal) put_GPOInheritanceBlocked;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGPMSOM*/SelfOuter* self, BSTR* pVal) get_Name;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGPMSOM*/SelfOuter* self, BSTR* pVal) get_Path;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGPMSOM*/SelfOuter* self, int32 lLinkPos, IGPMGPO* pGPO, IGPMGPOLink** ppNewGPOLink) CreateGPOLink;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGPMSOM*/SelfOuter* self, GPMSOMType* pVal) get_Type;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGPMSOM*/SelfOuter* self, IGPMGPOLinksCollection** ppGPOLinks) GetGPOLinks;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGPMSOM*/SelfOuter* self, IGPMGPOLinksCollection** ppGPOLinks) GetInheritedGPOLinks;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGPMSOM*/SelfOuter* self, IGPMSecurityInfo** ppSecurityInfo) GetSecurityInfo;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGPMSOM*/SelfOuter* self, IGPMSecurityInfo* pSecurityInfo) SetSecurityInfo;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* pVal) get_GPOInheritanceBlocked;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 newVal) put_GPOInheritanceBlocked;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pVal) get_Name;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pVal) get_Path;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 lLinkPos, IGPMGPO* pGPO, IGPMGPOLink** ppNewGPOLink) CreateGPOLink;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, GPMSOMType* pVal) get_Type;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IGPMGPOLinksCollection** ppGPOLinks) GetGPOLinks;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IGPMGPOLinksCollection** ppGPOLinks) GetInheritedGPOLinks;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IGPMSecurityInfo** ppSecurityInfo) GetSecurityInfo;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IGPMSecurityInfo* pSecurityInfo) SetSecurityInfo;
 	}
 
 
@@ -1009,9 +1009,9 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGPMSOMCollection*/SelfOuter* self, int32* pVal) get_Count;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGPMSOMCollection*/SelfOuter* self, int32 lIndex, VARIANT* pVal) get_Item;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGPMSOMCollection*/SelfOuter* self, IEnumVARIANT** ppIGPMSOM) get__NewEnum;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* pVal) get_Count;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 lIndex, VARIANT* pVal) get_Item;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IEnumVARIANT** ppIGPMSOM) get__NewEnum;
 	}
 
 
@@ -1030,14 +1030,14 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGPMWMIFilter*/SelfOuter* self, BSTR* pVal) get_Path;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGPMWMIFilter*/SelfOuter* self, BSTR newVal) put_Name;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGPMWMIFilter*/SelfOuter* self, BSTR* pVal) get_Name;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGPMWMIFilter*/SelfOuter* self, BSTR newVal) put_Description;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGPMWMIFilter*/SelfOuter* self, BSTR* pVal) get_Description;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGPMWMIFilter*/SelfOuter* self, VARIANT* pQryList) GetQueryList;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGPMWMIFilter*/SelfOuter* self, IGPMSecurityInfo** ppSecurityInfo) GetSecurityInfo;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGPMWMIFilter*/SelfOuter* self, IGPMSecurityInfo* pSecurityInfo) SetSecurityInfo;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pVal) get_Path;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR newVal) put_Name;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pVal) get_Name;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR newVal) put_Description;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pVal) get_Description;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT* pQryList) GetQueryList;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IGPMSecurityInfo** ppSecurityInfo) GetSecurityInfo;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IGPMSecurityInfo* pSecurityInfo) SetSecurityInfo;
 	}
 
 
@@ -1066,9 +1066,9 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGPMWMIFilterCollection*/SelfOuter* self, int32* pVal) get_Count;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGPMWMIFilterCollection*/SelfOuter* self, int32 lIndex, VARIANT* pVal) get_Item;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGPMWMIFilterCollection*/SelfOuter* self, IEnumVARIANT** pVal) get__NewEnum;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* pVal) get_Count;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 lIndex, VARIANT* pVal) get_Item;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IEnumVARIANT** pVal) get__NewEnum;
 	}
 
 
@@ -1087,41 +1087,41 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGPMRSOP*/SelfOuter* self, GPMRSOPMode* pVal) get_Mode;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGPMRSOP*/SelfOuter* self, BSTR* bstrVal) get_Namespace;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGPMRSOP*/SelfOuter* self, BSTR bstrVal) put_LoggingComputer;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGPMRSOP*/SelfOuter* self, BSTR* bstrVal) get_LoggingComputer;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGPMRSOP*/SelfOuter* self, BSTR bstrVal) put_LoggingUser;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGPMRSOP*/SelfOuter* self, BSTR* bstrVal) get_LoggingUser;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGPMRSOP*/SelfOuter* self, int32 lVal) put_LoggingFlags;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGPMRSOP*/SelfOuter* self, int32* lVal) get_LoggingFlags;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGPMRSOP*/SelfOuter* self, int32 lVal) put_PlanningFlags;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGPMRSOP*/SelfOuter* self, int32* lVal) get_PlanningFlags;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGPMRSOP*/SelfOuter* self, BSTR bstrVal) put_PlanningDomainController;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGPMRSOP*/SelfOuter* self, BSTR* bstrVal) get_PlanningDomainController;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGPMRSOP*/SelfOuter* self, BSTR bstrVal) put_PlanningSiteName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGPMRSOP*/SelfOuter* self, BSTR* bstrVal) get_PlanningSiteName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGPMRSOP*/SelfOuter* self, BSTR bstrVal) put_PlanningUser;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGPMRSOP*/SelfOuter* self, BSTR* bstrVal) get_PlanningUser;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGPMRSOP*/SelfOuter* self, BSTR bstrVal) put_PlanningUserSOM;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGPMRSOP*/SelfOuter* self, BSTR* bstrVal) get_PlanningUserSOM;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGPMRSOP*/SelfOuter* self, VARIANT varVal) put_PlanningUserWMIFilters;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGPMRSOP*/SelfOuter* self, VARIANT* varVal) get_PlanningUserWMIFilters;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGPMRSOP*/SelfOuter* self, VARIANT varVal) put_PlanningUserSecurityGroups;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGPMRSOP*/SelfOuter* self, VARIANT* varVal) get_PlanningUserSecurityGroups;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGPMRSOP*/SelfOuter* self, BSTR bstrVal) put_PlanningComputer;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGPMRSOP*/SelfOuter* self, BSTR* bstrVal) get_PlanningComputer;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGPMRSOP*/SelfOuter* self, BSTR bstrVal) put_PlanningComputerSOM;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGPMRSOP*/SelfOuter* self, BSTR* bstrVal) get_PlanningComputerSOM;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGPMRSOP*/SelfOuter* self, VARIANT varVal) put_PlanningComputerWMIFilters;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGPMRSOP*/SelfOuter* self, VARIANT* varVal) get_PlanningComputerWMIFilters;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGPMRSOP*/SelfOuter* self, VARIANT varVal) put_PlanningComputerSecurityGroups;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGPMRSOP*/SelfOuter* self, VARIANT* varVal) get_PlanningComputerSecurityGroups;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGPMRSOP*/SelfOuter* self, VARIANT* varVal) LoggingEnumerateUsers;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGPMRSOP*/SelfOuter* self) CreateQueryResults;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGPMRSOP*/SelfOuter* self) ReleaseQueryResults;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGPMRSOP*/SelfOuter* self, GPMReportType gpmReportType, VARIANT* pvarGPMProgress, VARIANT* pvarGPMCancel, IGPMResult** ppIGPMResult) GenerateReport;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGPMRSOP*/SelfOuter* self, GPMReportType gpmReportType, BSTR bstrTargetFilePath, IGPMResult** ppIGPMResult) GenerateReportToFile;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, GPMRSOPMode* pVal) get_Mode;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* bstrVal) get_Namespace;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrVal) put_LoggingComputer;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* bstrVal) get_LoggingComputer;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrVal) put_LoggingUser;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* bstrVal) get_LoggingUser;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 lVal) put_LoggingFlags;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* lVal) get_LoggingFlags;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 lVal) put_PlanningFlags;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* lVal) get_PlanningFlags;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrVal) put_PlanningDomainController;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* bstrVal) get_PlanningDomainController;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrVal) put_PlanningSiteName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* bstrVal) get_PlanningSiteName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrVal) put_PlanningUser;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* bstrVal) get_PlanningUser;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrVal) put_PlanningUserSOM;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* bstrVal) get_PlanningUserSOM;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT varVal) put_PlanningUserWMIFilters;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT* varVal) get_PlanningUserWMIFilters;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT varVal) put_PlanningUserSecurityGroups;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT* varVal) get_PlanningUserSecurityGroups;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrVal) put_PlanningComputer;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* bstrVal) get_PlanningComputer;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrVal) put_PlanningComputerSOM;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* bstrVal) get_PlanningComputerSOM;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT varVal) put_PlanningComputerWMIFilters;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT* varVal) get_PlanningComputerWMIFilters;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT varVal) put_PlanningComputerSecurityGroups;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT* varVal) get_PlanningComputerSecurityGroups;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT* varVal) LoggingEnumerateUsers;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) CreateQueryResults;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) ReleaseQueryResults;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, GPMReportType gpmReportType, VARIANT* pvarGPMProgress, VARIANT* pvarGPMCancel, IGPMResult** ppIGPMResult) GenerateReport;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, GPMReportType gpmReportType, BSTR bstrTargetFilePath, IGPMResult** ppIGPMResult) GenerateReportToFile;
 	}
 
 
@@ -1204,35 +1204,35 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGPMGPO*/SelfOuter* self, BSTR* pVal) get_DisplayName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGPMGPO*/SelfOuter* self, BSTR newVal) put_DisplayName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGPMGPO*/SelfOuter* self, BSTR* pVal) get_Path;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGPMGPO*/SelfOuter* self, BSTR* pVal) get_ID;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGPMGPO*/SelfOuter* self, BSTR* pVal) get_DomainName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGPMGPO*/SelfOuter* self, double* pDate) get_CreationTime;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGPMGPO*/SelfOuter* self, double* pDate) get_ModificationTime;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGPMGPO*/SelfOuter* self, int32* pVal) get_UserDSVersionNumber;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGPMGPO*/SelfOuter* self, int32* pVal) get_ComputerDSVersionNumber;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGPMGPO*/SelfOuter* self, int32* pVal) get_UserSysvolVersionNumber;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGPMGPO*/SelfOuter* self, int32* pVal) get_ComputerSysvolVersionNumber;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGPMGPO*/SelfOuter* self, IGPMWMIFilter** ppIGPMWMIFilter) GetWMIFilter;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGPMGPO*/SelfOuter* self, IGPMWMIFilter* pIGPMWMIFilter) SetWMIFilter;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGPMGPO*/SelfOuter* self, int16 vbEnabled) SetUserEnabled;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGPMGPO*/SelfOuter* self, int16 vbEnabled) SetComputerEnabled;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGPMGPO*/SelfOuter* self, int16* pvbEnabled) IsUserEnabled;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGPMGPO*/SelfOuter* self, int16* pvbEnabled) IsComputerEnabled;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGPMGPO*/SelfOuter* self, IGPMSecurityInfo** ppSecurityInfo) GetSecurityInfo;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGPMGPO*/SelfOuter* self, IGPMSecurityInfo* pSecurityInfo) SetSecurityInfo;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGPMGPO*/SelfOuter* self) Delete;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGPMGPO*/SelfOuter* self, BSTR bstrBackupDir, BSTR bstrComment, VARIANT* pvarGPMProgress, VARIANT* pvarGPMCancel, IGPMResult** ppIGPMResult) Backup;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGPMGPO*/SelfOuter* self, int32 lFlags, IGPMBackup* pIGPMBackup, VARIANT* pvarMigrationTable, VARIANT* pvarGPMProgress, VARIANT* pvarGPMCancel, IGPMResult** ppIGPMResult) Import;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGPMGPO*/SelfOuter* self, GPMReportType gpmReportType, VARIANT* pvarGPMProgress, VARIANT* pvarGPMCancel, IGPMResult** ppIGPMResult) GenerateReport;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGPMGPO*/SelfOuter* self, GPMReportType gpmReportType, BSTR bstrTargetFilePath, IGPMResult** ppIGPMResult) GenerateReportToFile;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGPMGPO*/SelfOuter* self, int32 lFlags, IGPMDomain* pIGPMDomain, VARIANT* pvarNewDisplayName, VARIANT* pvarMigrationTable, VARIANT* pvarGPMProgress, VARIANT* pvarGPMCancel, IGPMResult** ppIGPMResult) CopyTo;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGPMGPO*/SelfOuter* self, int32 lFlags, IDispatch* pSD) SetSecurityDescriptor;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGPMGPO*/SelfOuter* self, int32 lFlags, IDispatch** ppSD) GetSecurityDescriptor;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGPMGPO*/SelfOuter* self, int16* pvbConsistent) IsACLConsistent;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGPMGPO*/SelfOuter* self) MakeACLConsistent;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pVal) get_DisplayName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR newVal) put_DisplayName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pVal) get_Path;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pVal) get_ID;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pVal) get_DomainName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, double* pDate) get_CreationTime;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, double* pDate) get_ModificationTime;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* pVal) get_UserDSVersionNumber;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* pVal) get_ComputerDSVersionNumber;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* pVal) get_UserSysvolVersionNumber;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* pVal) get_ComputerSysvolVersionNumber;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IGPMWMIFilter** ppIGPMWMIFilter) GetWMIFilter;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IGPMWMIFilter* pIGPMWMIFilter) SetWMIFilter;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 vbEnabled) SetUserEnabled;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 vbEnabled) SetComputerEnabled;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* pvbEnabled) IsUserEnabled;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* pvbEnabled) IsComputerEnabled;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IGPMSecurityInfo** ppSecurityInfo) GetSecurityInfo;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IGPMSecurityInfo* pSecurityInfo) SetSecurityInfo;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Delete;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrBackupDir, BSTR bstrComment, VARIANT* pvarGPMProgress, VARIANT* pvarGPMCancel, IGPMResult** ppIGPMResult) Backup;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 lFlags, IGPMBackup* pIGPMBackup, VARIANT* pvarMigrationTable, VARIANT* pvarGPMProgress, VARIANT* pvarGPMCancel, IGPMResult** ppIGPMResult) Import;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, GPMReportType gpmReportType, VARIANT* pvarGPMProgress, VARIANT* pvarGPMCancel, IGPMResult** ppIGPMResult) GenerateReport;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, GPMReportType gpmReportType, BSTR bstrTargetFilePath, IGPMResult** ppIGPMResult) GenerateReportToFile;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 lFlags, IGPMDomain* pIGPMDomain, VARIANT* pvarNewDisplayName, VARIANT* pvarMigrationTable, VARIANT* pvarGPMProgress, VARIANT* pvarGPMCancel, IGPMResult** ppIGPMResult) CopyTo;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 lFlags, IDispatch* pSD) SetSecurityDescriptor;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 lFlags, IDispatch** ppSD) GetSecurityDescriptor;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* pvbConsistent) IsACLConsistent;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) MakeACLConsistent;
 	}
 
 
@@ -1303,9 +1303,9 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGPMGPOCollection*/SelfOuter* self, int32* pVal) get_Count;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGPMGPOCollection*/SelfOuter* self, int32 lIndex, VARIANT* pVal) get_Item;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGPMGPOCollection*/SelfOuter* self, IEnumVARIANT** ppIGPMGPOs) get__NewEnum;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* pVal) get_Count;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 lIndex, VARIANT* pVal) get_Item;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IEnumVARIANT** ppIGPMGPOs) get__NewEnum;
 	}
 
 
@@ -1324,15 +1324,15 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGPMGPOLink*/SelfOuter* self, BSTR* pVal) get_GPOID;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGPMGPOLink*/SelfOuter* self, BSTR* pVal) get_GPODomain;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGPMGPOLink*/SelfOuter* self, int16* pVal) get_Enabled;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGPMGPOLink*/SelfOuter* self, int16 newVal) put_Enabled;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGPMGPOLink*/SelfOuter* self, int16* pVal) get_Enforced;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGPMGPOLink*/SelfOuter* self, int16 newVal) put_Enforced;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGPMGPOLink*/SelfOuter* self, int32* lVal) get_SOMLinkOrder;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGPMGPOLink*/SelfOuter* self, IGPMSOM** ppIGPMSOM) get_SOM;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGPMGPOLink*/SelfOuter* self) Delete;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pVal) get_GPOID;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pVal) get_GPODomain;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* pVal) get_Enabled;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 newVal) put_Enabled;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* pVal) get_Enforced;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 newVal) put_Enforced;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* lVal) get_SOMLinkOrder;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IGPMSOM** ppIGPMSOM) get_SOM;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Delete;
 	}
 
 
@@ -1363,9 +1363,9 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGPMGPOLinksCollection*/SelfOuter* self, int32* pVal) get_Count;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGPMGPOLinksCollection*/SelfOuter* self, int32 lIndex, VARIANT* pVal) get_Item;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGPMGPOLinksCollection*/SelfOuter* self, IEnumVARIANT** ppIGPMLinks) get__NewEnum;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* pVal) get_Count;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 lIndex, VARIANT* pVal) get_Item;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IEnumVARIANT** ppIGPMLinks) get__NewEnum;
 	}
 
 
@@ -1384,9 +1384,9 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGPMCSECollection*/SelfOuter* self, int32* pVal) get_Count;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGPMCSECollection*/SelfOuter* self, int32 lIndex, VARIANT* pVal) get_Item;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGPMCSECollection*/SelfOuter* self, IEnumVARIANT** ppIGPMCSEs) get__NewEnum;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* pVal) get_Count;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 lIndex, VARIANT* pVal) get_Item;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IEnumVARIANT** ppIGPMCSEs) get__NewEnum;
 	}
 
 
@@ -1405,10 +1405,10 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGPMClientSideExtension*/SelfOuter* self, BSTR* pVal) get_ID;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGPMClientSideExtension*/SelfOuter* self, BSTR* pVal) get_DisplayName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGPMClientSideExtension*/SelfOuter* self, int16* pvbEnabled) IsUserEnabled;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGPMClientSideExtension*/SelfOuter* self, int16* pvbEnabled) IsComputerEnabled;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pVal) get_ID;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pVal) get_DisplayName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* pvbEnabled) IsUserEnabled;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* pvbEnabled) IsComputerEnabled;
 	}
 
 
@@ -1429,7 +1429,7 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGPMAsyncCancel*/SelfOuter* self) Cancel;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Cancel;
 	}
 
 
@@ -1444,7 +1444,7 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGPMAsyncProgress*/SelfOuter* self, int32 lProgressNumerator, int32 lProgressDenominator, HRESULT hrStatus, VARIANT* pResult, IGPMStatusMsgCollection* ppIGPMStatusMsgCollection) Status;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 lProgressNumerator, int32 lProgressDenominator, HRESULT hrStatus, VARIANT* pResult, IGPMStatusMsgCollection* ppIGPMStatusMsgCollection) Status;
 	}
 
 
@@ -1459,9 +1459,9 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGPMStatusMsgCollection*/SelfOuter* self, int32* pVal) get_Count;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGPMStatusMsgCollection*/SelfOuter* self, int32 lIndex, VARIANT* pVal) get_Item;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGPMStatusMsgCollection*/SelfOuter* self, IEnumVARIANT** pVal) get__NewEnum;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* pVal) get_Count;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 lIndex, VARIANT* pVal) get_Item;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IEnumVARIANT** pVal) get__NewEnum;
 	}
 
 
@@ -1480,12 +1480,12 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGPMStatusMessage*/SelfOuter* self, BSTR* pVal) get_ObjectPath;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGPMStatusMessage*/SelfOuter* self) ErrorCode;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGPMStatusMessage*/SelfOuter* self, BSTR* pVal) get_ExtensionName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGPMStatusMessage*/SelfOuter* self, BSTR* pVal) get_SettingsName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGPMStatusMessage*/SelfOuter* self) OperationCode;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGPMStatusMessage*/SelfOuter* self, BSTR* pVal) get_Message;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pVal) get_ObjectPath;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) ErrorCode;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pVal) get_ExtensionName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pVal) get_SettingsName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) OperationCode;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pVal) get_Message;
 	}
 
 
@@ -1510,66 +1510,66 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGPMConstants*/SelfOuter* self, GPMPermissionType* pVal) get_PermGPOApply;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGPMConstants*/SelfOuter* self, GPMPermissionType* pVal) get_PermGPORead;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGPMConstants*/SelfOuter* self, GPMPermissionType* pVal) get_PermGPOEdit;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGPMConstants*/SelfOuter* self, GPMPermissionType* pVal) get_PermGPOEditSecurityAndDelete;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGPMConstants*/SelfOuter* self, GPMPermissionType* pVal) get_PermGPOCustom;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGPMConstants*/SelfOuter* self, GPMPermissionType* pVal) get_PermWMIFilterEdit;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGPMConstants*/SelfOuter* self, GPMPermissionType* pVal) get_PermWMIFilterFullControl;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGPMConstants*/SelfOuter* self, GPMPermissionType* pVal) get_PermWMIFilterCustom;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGPMConstants*/SelfOuter* self, GPMPermissionType* pVal) get_PermSOMLink;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGPMConstants*/SelfOuter* self, GPMPermissionType* pVal) get_PermSOMLogging;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGPMConstants*/SelfOuter* self, GPMPermissionType* pVal) get_PermSOMPlanning;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGPMConstants*/SelfOuter* self, GPMPermissionType* pVal) get_PermSOMGPOCreate;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGPMConstants*/SelfOuter* self, GPMPermissionType* pVal) get_PermSOMWMICreate;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGPMConstants*/SelfOuter* self, GPMPermissionType* pVal) get_PermSOMWMIFullControl;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGPMConstants*/SelfOuter* self, GPMSearchProperty* pVal) get_SearchPropertyGPOPermissions;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGPMConstants*/SelfOuter* self, GPMSearchProperty* pVal) get_SearchPropertyGPOEffectivePermissions;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGPMConstants*/SelfOuter* self, GPMSearchProperty* pVal) get_SearchPropertyGPODisplayName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGPMConstants*/SelfOuter* self, GPMSearchProperty* pVal) get_SearchPropertyGPOWMIFilter;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGPMConstants*/SelfOuter* self, GPMSearchProperty* pVal) get_SearchPropertyGPOID;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGPMConstants*/SelfOuter* self, GPMSearchProperty* pVal) get_SearchPropertyGPOComputerExtensions;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGPMConstants*/SelfOuter* self, GPMSearchProperty* pVal) get_SearchPropertyGPOUserExtensions;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGPMConstants*/SelfOuter* self, GPMSearchProperty* pVal) get_SearchPropertySOMLinks;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGPMConstants*/SelfOuter* self, GPMSearchProperty* pVal) get_SearchPropertyGPODomain;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGPMConstants*/SelfOuter* self, GPMSearchProperty* pVal) get_SearchPropertyBackupMostRecent;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGPMConstants*/SelfOuter* self, GPMSearchOperation* pVal) get_SearchOpEquals;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGPMConstants*/SelfOuter* self, GPMSearchOperation* pVal) get_SearchOpContains;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGPMConstants*/SelfOuter* self, GPMSearchOperation* pVal) get_SearchOpNotContains;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGPMConstants*/SelfOuter* self, GPMSearchOperation* pVal) get_SearchOpNotEquals;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGPMConstants*/SelfOuter* self, int32* pVal) get_UsePDC;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGPMConstants*/SelfOuter* self, int32* pVal) get_UseAnyDC;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGPMConstants*/SelfOuter* self, int32* pVal) get_DoNotUseW2KDC;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGPMConstants*/SelfOuter* self, GPMSOMType* pVal) get_SOMSite;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGPMConstants*/SelfOuter* self, GPMSOMType* pVal) get_SOMDomain;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGPMConstants*/SelfOuter* self, GPMSOMType* pVal) get_SOMOU;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGPMConstants*/SelfOuter* self, int16 vbOwner, int16 vbGroup, int16 vbDACL, int16 vbSACL, int32* pVal) get_SecurityFlags;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGPMConstants*/SelfOuter* self, int32* pVal) get_DoNotValidateDC;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGPMConstants*/SelfOuter* self, GPMReportType* pVal) get_ReportHTML;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGPMConstants*/SelfOuter* self, GPMReportType* pVal) get_ReportXML;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGPMConstants*/SelfOuter* self, GPMRSOPMode* pVal) get_RSOPModeUnknown;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGPMConstants*/SelfOuter* self, GPMRSOPMode* pVal) get_RSOPModePlanning;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGPMConstants*/SelfOuter* self, GPMRSOPMode* pVal) get_RSOPModeLogging;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGPMConstants*/SelfOuter* self, GPMEntryType* pVal) get_EntryTypeUser;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGPMConstants*/SelfOuter* self, GPMEntryType* pVal) get_EntryTypeComputer;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGPMConstants*/SelfOuter* self, GPMEntryType* pVal) get_EntryTypeLocalGroup;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGPMConstants*/SelfOuter* self, GPMEntryType* pVal) get_EntryTypeGlobalGroup;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGPMConstants*/SelfOuter* self, GPMEntryType* pVal) get_EntryTypeUniversalGroup;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGPMConstants*/SelfOuter* self, GPMEntryType* pVal) get_EntryTypeUNCPath;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGPMConstants*/SelfOuter* self, GPMEntryType* pVal) get_EntryTypeUnknown;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGPMConstants*/SelfOuter* self, GPMDestinationOption* pVal) get_DestinationOptionSameAsSource;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGPMConstants*/SelfOuter* self, GPMDestinationOption* pVal) get_DestinationOptionNone;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGPMConstants*/SelfOuter* self, GPMDestinationOption* pVal) get_DestinationOptionByRelativeName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGPMConstants*/SelfOuter* self, GPMDestinationOption* pVal) get_DestinationOptionSet;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGPMConstants*/SelfOuter* self, int32* pVal) get_MigrationTableOnly;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGPMConstants*/SelfOuter* self, int32* pVal) get_ProcessSecurity;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGPMConstants*/SelfOuter* self, int32* pVal) get_RsopLoggingNoComputer;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGPMConstants*/SelfOuter* self, int32* pVal) get_RsopLoggingNoUser;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGPMConstants*/SelfOuter* self, int32* pVal) get_RsopPlanningAssumeSlowLink;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGPMConstants*/SelfOuter* self, int16 vbMerge, int32* pVal) get_RsopPlanningLoopbackOption;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGPMConstants*/SelfOuter* self, int32* pVal) get_RsopPlanningAssumeUserWQLFilterTrue;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGPMConstants*/SelfOuter* self, int32* pVal) get_RsopPlanningAssumeCompWQLFilterTrue;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, GPMPermissionType* pVal) get_PermGPOApply;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, GPMPermissionType* pVal) get_PermGPORead;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, GPMPermissionType* pVal) get_PermGPOEdit;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, GPMPermissionType* pVal) get_PermGPOEditSecurityAndDelete;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, GPMPermissionType* pVal) get_PermGPOCustom;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, GPMPermissionType* pVal) get_PermWMIFilterEdit;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, GPMPermissionType* pVal) get_PermWMIFilterFullControl;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, GPMPermissionType* pVal) get_PermWMIFilterCustom;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, GPMPermissionType* pVal) get_PermSOMLink;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, GPMPermissionType* pVal) get_PermSOMLogging;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, GPMPermissionType* pVal) get_PermSOMPlanning;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, GPMPermissionType* pVal) get_PermSOMGPOCreate;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, GPMPermissionType* pVal) get_PermSOMWMICreate;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, GPMPermissionType* pVal) get_PermSOMWMIFullControl;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, GPMSearchProperty* pVal) get_SearchPropertyGPOPermissions;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, GPMSearchProperty* pVal) get_SearchPropertyGPOEffectivePermissions;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, GPMSearchProperty* pVal) get_SearchPropertyGPODisplayName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, GPMSearchProperty* pVal) get_SearchPropertyGPOWMIFilter;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, GPMSearchProperty* pVal) get_SearchPropertyGPOID;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, GPMSearchProperty* pVal) get_SearchPropertyGPOComputerExtensions;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, GPMSearchProperty* pVal) get_SearchPropertyGPOUserExtensions;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, GPMSearchProperty* pVal) get_SearchPropertySOMLinks;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, GPMSearchProperty* pVal) get_SearchPropertyGPODomain;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, GPMSearchProperty* pVal) get_SearchPropertyBackupMostRecent;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, GPMSearchOperation* pVal) get_SearchOpEquals;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, GPMSearchOperation* pVal) get_SearchOpContains;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, GPMSearchOperation* pVal) get_SearchOpNotContains;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, GPMSearchOperation* pVal) get_SearchOpNotEquals;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* pVal) get_UsePDC;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* pVal) get_UseAnyDC;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* pVal) get_DoNotUseW2KDC;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, GPMSOMType* pVal) get_SOMSite;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, GPMSOMType* pVal) get_SOMDomain;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, GPMSOMType* pVal) get_SOMOU;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 vbOwner, int16 vbGroup, int16 vbDACL, int16 vbSACL, int32* pVal) get_SecurityFlags;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* pVal) get_DoNotValidateDC;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, GPMReportType* pVal) get_ReportHTML;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, GPMReportType* pVal) get_ReportXML;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, GPMRSOPMode* pVal) get_RSOPModeUnknown;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, GPMRSOPMode* pVal) get_RSOPModePlanning;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, GPMRSOPMode* pVal) get_RSOPModeLogging;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, GPMEntryType* pVal) get_EntryTypeUser;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, GPMEntryType* pVal) get_EntryTypeComputer;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, GPMEntryType* pVal) get_EntryTypeLocalGroup;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, GPMEntryType* pVal) get_EntryTypeGlobalGroup;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, GPMEntryType* pVal) get_EntryTypeUniversalGroup;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, GPMEntryType* pVal) get_EntryTypeUNCPath;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, GPMEntryType* pVal) get_EntryTypeUnknown;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, GPMDestinationOption* pVal) get_DestinationOptionSameAsSource;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, GPMDestinationOption* pVal) get_DestinationOptionNone;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, GPMDestinationOption* pVal) get_DestinationOptionByRelativeName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, GPMDestinationOption* pVal) get_DestinationOptionSet;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* pVal) get_MigrationTableOnly;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* pVal) get_ProcessSecurity;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* pVal) get_RsopLoggingNoComputer;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* pVal) get_RsopLoggingNoUser;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* pVal) get_RsopPlanningAssumeSlowLink;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 vbMerge, int32* pVal) get_RsopPlanningLoopbackOption;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* pVal) get_RsopPlanningAssumeUserWQLFilterTrue;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* pVal) get_RsopPlanningAssumeCompWQLFilterTrue;
 	}
 
 
@@ -1702,9 +1702,9 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGPMResult*/SelfOuter* self, IGPMStatusMsgCollection** ppIGPMStatusMsgCollection) get_Status;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGPMResult*/SelfOuter* self, VARIANT* pvarResult) get_Result;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGPMResult*/SelfOuter* self) OverallStatus;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IGPMStatusMsgCollection** ppIGPMStatusMsgCollection) get_Status;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT* pvarResult) get_Result;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) OverallStatus;
 	}
 
 
@@ -1723,9 +1723,9 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGPMMapEntryCollection*/SelfOuter* self, int32* pVal) get_Count;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGPMMapEntryCollection*/SelfOuter* self, int32 lIndex, VARIANT* pVal) get_Item;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGPMMapEntryCollection*/SelfOuter* self, IEnumVARIANT** pVal) get__NewEnum;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* pVal) get_Count;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 lIndex, VARIANT* pVal) get_Item;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IEnumVARIANT** pVal) get__NewEnum;
 	}
 
 
@@ -1744,10 +1744,10 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGPMMapEntry*/SelfOuter* self, BSTR* pbstrSource) get_Source;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGPMMapEntry*/SelfOuter* self, BSTR* pbstrDestination) get_Destination;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGPMMapEntry*/SelfOuter* self, GPMDestinationOption* pgpmDestOption) get_DestinationOption;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGPMMapEntry*/SelfOuter* self, GPMEntryType* pgpmEntryType) get_EntryType;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pbstrSource) get_Source;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pbstrDestination) get_Destination;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, GPMDestinationOption* pgpmDestOption) get_DestinationOption;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, GPMEntryType* pgpmEntryType) get_EntryType;
 	}
 
 
@@ -1768,14 +1768,14 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGPMMigrationTable*/SelfOuter* self, BSTR bstrMigrationTablePath) Save;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGPMMigrationTable*/SelfOuter* self, int32 lFlags, VARIANT @var) Add;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGPMMigrationTable*/SelfOuter* self, BSTR bstrSource, GPMEntryType gpmEntryType, VARIANT* pvarDestination, IGPMMapEntry** ppEntry) AddEntry;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGPMMigrationTable*/SelfOuter* self, BSTR bstrSource, IGPMMapEntry** ppEntry) GetEntry;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGPMMigrationTable*/SelfOuter* self, BSTR bstrSource) DeleteEntry;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGPMMigrationTable*/SelfOuter* self, BSTR bstrSource, VARIANT* pvarDestination, IGPMMapEntry** ppEntry) UpdateDestination;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGPMMigrationTable*/SelfOuter* self, IGPMResult** ppResult) Validate;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGPMMigrationTable*/SelfOuter* self, IGPMMapEntryCollection** ppEntries) GetEntries;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrMigrationTablePath) Save;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 lFlags, VARIANT @var) Add;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrSource, GPMEntryType gpmEntryType, VARIANT* pvarDestination, IGPMMapEntry** ppEntry) AddEntry;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrSource, IGPMMapEntry** ppEntry) GetEntry;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrSource) DeleteEntry;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrSource, VARIANT* pvarDestination, IGPMMapEntry** ppEntry) UpdateDestination;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IGPMResult** ppResult) Validate;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IGPMMapEntryCollection** ppEntries) GetEntries;
 	}
 
 
@@ -1804,10 +1804,10 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGPMBackupDirEx*/SelfOuter* self, BSTR* pbstrBackupDir) get_BackupDir;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGPMBackupDirEx*/SelfOuter* self, GPMBackupType* pgpmBackupType) get_BackupType;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGPMBackupDirEx*/SelfOuter* self, BSTR bstrID, VARIANT* pvarBackup) GetBackup;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGPMBackupDirEx*/SelfOuter* self, IGPMSearchCriteria* pIGPMSearchCriteria, VARIANT* pvarBackupCollection) SearchBackups;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pbstrBackupDir) get_BackupDir;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, GPMBackupType* pgpmBackupType) get_BackupType;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrID, VARIANT* pvarBackup) GetBackup;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IGPMSearchCriteria* pIGPMSearchCriteria, VARIANT* pvarBackupCollection) SearchBackups;
 	}
 
 
@@ -1828,9 +1828,9 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGPMStarterGPOBackupCollection*/SelfOuter* self, int32* pVal) get_Count;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGPMStarterGPOBackupCollection*/SelfOuter* self, int32 lIndex, VARIANT* pVal) get_Item;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGPMStarterGPOBackupCollection*/SelfOuter* self, IEnumVARIANT** ppIGPMTmplBackup) get__NewEnum;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* pVal) get_Count;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 lIndex, VARIANT* pVal) get_Item;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IEnumVARIANT** ppIGPMTmplBackup) get__NewEnum;
 	}
 
 
@@ -1849,17 +1849,17 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGPMStarterGPOBackup*/SelfOuter* self, BSTR* pbstrBackupDir) get_BackupDir;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGPMStarterGPOBackup*/SelfOuter* self, BSTR* pbstrComment) get_Comment;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGPMStarterGPOBackup*/SelfOuter* self, BSTR* pbstrDisplayName) get_DisplayName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGPMStarterGPOBackup*/SelfOuter* self, BSTR* pbstrTemplateDomain) get_Domain;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGPMStarterGPOBackup*/SelfOuter* self, BSTR* pbstrTemplateID) get_StarterGPOID;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGPMStarterGPOBackup*/SelfOuter* self, BSTR* pbstrID) get_ID;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGPMStarterGPOBackup*/SelfOuter* self, double* pTimestamp) get_Timestamp;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGPMStarterGPOBackup*/SelfOuter* self, GPMStarterGPOType* pType) get_Type;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGPMStarterGPOBackup*/SelfOuter* self) Delete;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGPMStarterGPOBackup*/SelfOuter* self, GPMReportType gpmReportType, VARIANT* pvarGPMProgress, VARIANT* pvarGPMCancel, IGPMResult** ppIGPMResult) GenerateReport;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGPMStarterGPOBackup*/SelfOuter* self, GPMReportType gpmReportType, BSTR bstrTargetFilePath, IGPMResult** ppIGPMResult) GenerateReportToFile;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pbstrBackupDir) get_BackupDir;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pbstrComment) get_Comment;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pbstrDisplayName) get_DisplayName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pbstrTemplateDomain) get_Domain;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pbstrTemplateID) get_StarterGPOID;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pbstrID) get_ID;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, double* pTimestamp) get_Timestamp;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, GPMStarterGPOType* pType) get_Type;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Delete;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, GPMReportType gpmReportType, VARIANT* pvarGPMProgress, VARIANT* pvarGPMCancel, IGPMResult** ppIGPMResult) GenerateReport;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, GPMReportType gpmReportType, BSTR bstrTargetFilePath, IGPMResult** ppIGPMResult) GenerateReportToFile;
 	}
 
 
@@ -1894,8 +1894,8 @@ public static
 
 	[CRepr]public struct VTable : IGPM.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGPM2*/SelfOuter* self, BSTR bstrBackupDir, GPMBackupType backupDirType, IGPMBackupDirEx** ppIGPMBackupDirEx) GetBackupDirEx;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGPM2*/SelfOuter* self, BSTR bstrAdmPath, int32 reportingOptions) InitializeReportingEx;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrBackupDir, GPMBackupType backupDirType, IGPMBackupDirEx** ppIGPMBackupDirEx) GetBackupDirEx;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrAdmPath, int32 reportingOptions) InitializeReportingEx;
 	}
 
 
@@ -1912,27 +1912,27 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGPMStarterGPO*/SelfOuter* self, BSTR* pVal) get_DisplayName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGPMStarterGPO*/SelfOuter* self, BSTR newVal) put_DisplayName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGPMStarterGPO*/SelfOuter* self, BSTR* pVal) get_Description;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGPMStarterGPO*/SelfOuter* self, BSTR newVal) put_Description;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGPMStarterGPO*/SelfOuter* self, BSTR* pVal) get_Author;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGPMStarterGPO*/SelfOuter* self, BSTR* pVal) get_Product;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGPMStarterGPO*/SelfOuter* self, double* pVal) get_CreationTime;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGPMStarterGPO*/SelfOuter* self, BSTR* pVal) get_ID;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGPMStarterGPO*/SelfOuter* self, double* pVal) get_ModifiedTime;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGPMStarterGPO*/SelfOuter* self, GPMStarterGPOType* pVal) get_Type;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGPMStarterGPO*/SelfOuter* self, uint16* pVal) get_ComputerVersion;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGPMStarterGPO*/SelfOuter* self, uint16* pVal) get_UserVersion;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGPMStarterGPO*/SelfOuter* self, BSTR* pVal) get_StarterGPOVersion;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGPMStarterGPO*/SelfOuter* self) Delete;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGPMStarterGPO*/SelfOuter* self, BSTR bstrSaveFile, int16 bOverwrite, int16 bSaveAsSystem, VARIANT* bstrLanguage, VARIANT* bstrAuthor, VARIANT* bstrProduct, VARIANT* bstrUniqueID, VARIANT* bstrVersion, VARIANT* pvarGPMProgress, VARIANT* pvarGPMCancel, IGPMResult** ppIGPMResult) Save;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGPMStarterGPO*/SelfOuter* self, BSTR bstrBackupDir, BSTR bstrComment, VARIANT* pvarGPMProgress, VARIANT* pvarGPMCancel, IGPMResult** ppIGPMResult) Backup;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGPMStarterGPO*/SelfOuter* self, VARIANT* pvarNewDisplayName, VARIANT* pvarGPMProgress, VARIANT* pvarGPMCancel, IGPMResult** ppIGPMResult) CopyTo;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGPMStarterGPO*/SelfOuter* self, GPMReportType gpmReportType, VARIANT* pvarGPMProgress, VARIANT* pvarGPMCancel, IGPMResult** ppIGPMResult) GenerateReport;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGPMStarterGPO*/SelfOuter* self, GPMReportType gpmReportType, BSTR bstrTargetFilePath, IGPMResult** ppIGPMResult) GenerateReportToFile;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGPMStarterGPO*/SelfOuter* self, IGPMSecurityInfo** ppSecurityInfo) GetSecurityInfo;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGPMStarterGPO*/SelfOuter* self, IGPMSecurityInfo* pSecurityInfo) SetSecurityInfo;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pVal) get_DisplayName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR newVal) put_DisplayName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pVal) get_Description;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR newVal) put_Description;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pVal) get_Author;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pVal) get_Product;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, double* pVal) get_CreationTime;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pVal) get_ID;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, double* pVal) get_ModifiedTime;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, GPMStarterGPOType* pVal) get_Type;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint16* pVal) get_ComputerVersion;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint16* pVal) get_UserVersion;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pVal) get_StarterGPOVersion;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Delete;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrSaveFile, int16 bOverwrite, int16 bSaveAsSystem, VARIANT* bstrLanguage, VARIANT* bstrAuthor, VARIANT* bstrProduct, VARIANT* bstrUniqueID, VARIANT* bstrVersion, VARIANT* pvarGPMProgress, VARIANT* pvarGPMCancel, IGPMResult** ppIGPMResult) Save;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrBackupDir, BSTR bstrComment, VARIANT* pvarGPMProgress, VARIANT* pvarGPMCancel, IGPMResult** ppIGPMResult) Backup;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT* pvarNewDisplayName, VARIANT* pvarGPMProgress, VARIANT* pvarGPMCancel, IGPMResult** ppIGPMResult) CopyTo;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, GPMReportType gpmReportType, VARIANT* pvarGPMProgress, VARIANT* pvarGPMCancel, IGPMResult** ppIGPMResult) GenerateReport;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, GPMReportType gpmReportType, BSTR bstrTargetFilePath, IGPMResult** ppIGPMResult) GenerateReportToFile;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IGPMSecurityInfo** ppSecurityInfo) GetSecurityInfo;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IGPMSecurityInfo* pSecurityInfo) SetSecurityInfo;
 	}
 
 
@@ -1987,9 +1987,9 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGPMStarterGPOCollection*/SelfOuter* self, int32* pVal) get_Count;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGPMStarterGPOCollection*/SelfOuter* self, int32 lIndex, VARIANT* pVal) get_Item;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGPMStarterGPOCollection*/SelfOuter* self, IEnumVARIANT** ppIGPMTemplates) get__NewEnum;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* pVal) get_Count;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 lIndex, VARIANT* pVal) get_Item;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IEnumVARIANT** ppIGPMTemplates) get__NewEnum;
 	}
 
 
@@ -2008,12 +2008,12 @@ public static
 
 	[CRepr]public struct VTable : IGPMDomain.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGPMDomain2*/SelfOuter* self, IGPMStarterGPO** ppnewTemplate) CreateStarterGPO;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGPMDomain2*/SelfOuter* self, IGPMStarterGPO* pGPOTemplate, IGPMGPO** ppnewGPO) CreateGPOFromStarterGPO;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGPMDomain2*/SelfOuter* self, BSTR bstrGuid, IGPMStarterGPO** ppTemplate) GetStarterGPO;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGPMDomain2*/SelfOuter* self, IGPMSearchCriteria* pIGPMSearchCriteria, IGPMStarterGPOCollection** ppIGPMTemplateCollection) SearchStarterGPOs;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGPMDomain2*/SelfOuter* self, BSTR bstrLoadFile, int16 bOverwrite, VARIANT* pvarGPMProgress, VARIANT* pvarGPMCancel, IGPMResult** ppIGPMResult) LoadStarterGPO;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGPMDomain2*/SelfOuter* self, IGPMStarterGPOBackup* pIGPMTmplBackup, VARIANT* pvarGPMProgress, VARIANT* pvarGPMCancel, IGPMResult** ppIGPMResult) RestoreStarterGPO;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IGPMStarterGPO** ppnewTemplate) CreateStarterGPO;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IGPMStarterGPO* pGPOTemplate, IGPMGPO** ppnewGPO) CreateGPOFromStarterGPO;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrGuid, IGPMStarterGPO** ppTemplate) GetStarterGPO;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IGPMSearchCriteria* pIGPMSearchCriteria, IGPMStarterGPOCollection** ppIGPMTemplateCollection) SearchStarterGPOs;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrLoadFile, int16 bOverwrite, VARIANT* pvarGPMProgress, VARIANT* pvarGPMCancel, IGPMResult** ppIGPMResult) LoadStarterGPO;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IGPMStarterGPOBackup* pIGPMTmplBackup, VARIANT* pvarGPMProgress, VARIANT* pvarGPMCancel, IGPMResult** ppIGPMResult) RestoreStarterGPO;
 	}
 
 
@@ -2038,21 +2038,21 @@ public static
 
 	[CRepr]public struct VTable : IGPMConstants.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGPMConstants2*/SelfOuter* self, GPMBackupType* pVal) get_BackupTypeGPO;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGPMConstants2*/SelfOuter* self, GPMBackupType* pVal) get_BackupTypeStarterGPO;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGPMConstants2*/SelfOuter* self, GPMStarterGPOType* pVal) get_StarterGPOTypeSystem;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGPMConstants2*/SelfOuter* self, GPMStarterGPOType* pVal) get_StarterGPOTypeCustom;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGPMConstants2*/SelfOuter* self, GPMSearchProperty* pVal) get_SearchPropertyStarterGPOPermissions;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGPMConstants2*/SelfOuter* self, GPMSearchProperty* pVal) get_SearchPropertyStarterGPOEffectivePermissions;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGPMConstants2*/SelfOuter* self, GPMSearchProperty* pVal) get_SearchPropertyStarterGPODisplayName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGPMConstants2*/SelfOuter* self, GPMSearchProperty* pVal) get_SearchPropertyStarterGPOID;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGPMConstants2*/SelfOuter* self, GPMSearchProperty* pVal) get_SearchPropertyStarterGPODomain;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGPMConstants2*/SelfOuter* self, GPMPermissionType* pVal) get_PermStarterGPORead;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGPMConstants2*/SelfOuter* self, GPMPermissionType* pVal) get_PermStarterGPOEdit;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGPMConstants2*/SelfOuter* self, GPMPermissionType* pVal) get_PermStarterGPOFullControl;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGPMConstants2*/SelfOuter* self, GPMPermissionType* pVal) get_PermStarterGPOCustom;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGPMConstants2*/SelfOuter* self, GPMReportingOptions* pVal) get_ReportLegacy;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGPMConstants2*/SelfOuter* self, GPMReportingOptions* pVal) get_ReportComments;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, GPMBackupType* pVal) get_BackupTypeGPO;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, GPMBackupType* pVal) get_BackupTypeStarterGPO;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, GPMStarterGPOType* pVal) get_StarterGPOTypeSystem;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, GPMStarterGPOType* pVal) get_StarterGPOTypeCustom;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, GPMSearchProperty* pVal) get_SearchPropertyStarterGPOPermissions;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, GPMSearchProperty* pVal) get_SearchPropertyStarterGPOEffectivePermissions;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, GPMSearchProperty* pVal) get_SearchPropertyStarterGPODisplayName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, GPMSearchProperty* pVal) get_SearchPropertyStarterGPOID;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, GPMSearchProperty* pVal) get_SearchPropertyStarterGPODomain;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, GPMPermissionType* pVal) get_PermStarterGPORead;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, GPMPermissionType* pVal) get_PermStarterGPOEdit;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, GPMPermissionType* pVal) get_PermStarterGPOFullControl;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, GPMPermissionType* pVal) get_PermStarterGPOCustom;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, GPMReportingOptions* pVal) get_ReportLegacy;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, GPMReportingOptions* pVal) get_ReportComments;
 	}
 
 
@@ -2095,8 +2095,8 @@ public static
 
 	[CRepr]public struct VTable : IGPMGPO.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGPMGPO2*/SelfOuter* self, BSTR* pVal) get_Description;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGPMGPO2*/SelfOuter* self, BSTR newVal) put_Description;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pVal) get_Description;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR newVal) put_Description;
 	}
 
 
@@ -2113,10 +2113,10 @@ public static
 
 	[CRepr]public struct VTable : IGPMDomain2.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGPMDomain3*/SelfOuter* self, GPMReportType gpmReportType, VARIANT* pvarGPMProgress, VARIANT* pvarGPMCancel, IGPMResult** ppIGPMResult) GenerateReport;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGPMDomain3*/SelfOuter* self, BSTR* pVal) get_InfrastructureDC;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGPMDomain3*/SelfOuter* self, BSTR newVal) put_InfrastructureDC;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGPMDomain3*/SelfOuter* self, uint32 dwFlags) put_InfrastructureFlags;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, GPMReportType gpmReportType, VARIANT* pvarGPMProgress, VARIANT* pvarGPMCancel, IGPMResult** ppIGPMResult) GenerateReport;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pVal) get_InfrastructureDC;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR newVal) put_InfrastructureDC;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwFlags) put_InfrastructureFlags;
 	}
 
 
@@ -2137,9 +2137,9 @@ public static
 
 	[CRepr]public struct VTable : IGPMGPO2.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGPMGPO3*/SelfOuter* self, BSTR* pVal) get_InfrastructureDC;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGPMGPO3*/SelfOuter* self, BSTR newVal) put_InfrastructureDC;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGPMGPO3*/SelfOuter* self, uint32 dwFlags) put_InfrastructureFlags;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pVal) get_InfrastructureDC;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR newVal) put_InfrastructureDC;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwFlags) put_InfrastructureFlags;
 	}
 
 
@@ -2158,15 +2158,15 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGPEInformation*/SelfOuter* self, char16* pszName, int32 cchMaxLength) GetName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGPEInformation*/SelfOuter* self, char16* pszName, int32 cchMaxLength) GetDisplayName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGPEInformation*/SelfOuter* self, uint32 dwSection, HKEY* hKey) GetRegistryKey;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGPEInformation*/SelfOuter* self, uint32 dwSection, char16* pszPath, int32 cchMaxPath) GetDSPath;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGPEInformation*/SelfOuter* self, uint32 dwSection, char16* pszPath, int32 cchMaxPath) GetFileSysPath;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGPEInformation*/SelfOuter* self, uint32* dwOptions) GetOptions;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGPEInformation*/SelfOuter* self, GROUP_POLICY_OBJECT_TYPE* gpoType) COM_GetType;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGPEInformation*/SelfOuter* self, GROUP_POLICY_HINT_TYPE* gpHint) GetHint;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGPEInformation*/SelfOuter* self, BOOL bMachine, BOOL bAdd, ref Guid pGuidExtension, ref Guid pGuidSnapin) PolicyChanged;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, char16* pszName, int32 cchMaxLength) GetName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, char16* pszName, int32 cchMaxLength) GetDisplayName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwSection, HKEY* hKey) GetRegistryKey;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwSection, char16* pszPath, int32 cchMaxPath) GetDSPath;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwSection, char16* pszPath, int32 cchMaxPath) GetFileSysPath;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* dwOptions) GetOptions;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, GROUP_POLICY_OBJECT_TYPE* gpoType) COM_GetType;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, GROUP_POLICY_HINT_TYPE* gpHint) GetHint;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BOOL bMachine, BOOL bAdd, ref Guid pGuidExtension, ref Guid pGuidSnapin) PolicyChanged;
 	}
 
 
@@ -2197,24 +2197,24 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGroupPolicyObject*/SelfOuter* self, PWSTR pszDomainName, PWSTR pszDisplayName, uint32 dwFlags) New;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGroupPolicyObject*/SelfOuter* self, PWSTR pszPath, uint32 dwFlags) OpenDSGPO;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGroupPolicyObject*/SelfOuter* self, uint32 dwFlags) OpenLocalMachineGPO;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGroupPolicyObject*/SelfOuter* self, PWSTR pszComputerName, uint32 dwFlags) OpenRemoteMachineGPO;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGroupPolicyObject*/SelfOuter* self, BOOL bMachine, BOOL bAdd, ref Guid pGuidExtension, ref Guid pGuid) Save;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGroupPolicyObject*/SelfOuter* self) Delete;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGroupPolicyObject*/SelfOuter* self, char16* pszName, int32 cchMaxLength) GetName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGroupPolicyObject*/SelfOuter* self, char16* pszName, int32 cchMaxLength) GetDisplayName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGroupPolicyObject*/SelfOuter* self, PWSTR pszName) SetDisplayName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGroupPolicyObject*/SelfOuter* self, char16* pszPath, int32 cchMaxLength) GetPath;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGroupPolicyObject*/SelfOuter* self, uint32 dwSection, char16* pszPath, int32 cchMaxPath) GetDSPath;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGroupPolicyObject*/SelfOuter* self, uint32 dwSection, char16* pszPath, int32 cchMaxPath) GetFileSysPath;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGroupPolicyObject*/SelfOuter* self, uint32 dwSection, HKEY* hKey) GetRegistryKey;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGroupPolicyObject*/SelfOuter* self, uint32* dwOptions) GetOptions;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGroupPolicyObject*/SelfOuter* self, uint32 dwOptions, uint32 dwMask) SetOptions;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGroupPolicyObject*/SelfOuter* self, GROUP_POLICY_OBJECT_TYPE* gpoType) COM_GetType;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGroupPolicyObject*/SelfOuter* self, char16* pszName, int32 cchMaxLength) GetMachineName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGroupPolicyObject*/SelfOuter* self, HPROPSHEETPAGE** hPages, uint32* uPageCount) GetPropertySheetPages;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR pszDomainName, PWSTR pszDisplayName, uint32 dwFlags) New;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR pszPath, uint32 dwFlags) OpenDSGPO;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwFlags) OpenLocalMachineGPO;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR pszComputerName, uint32 dwFlags) OpenRemoteMachineGPO;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BOOL bMachine, BOOL bAdd, ref Guid pGuidExtension, ref Guid pGuid) Save;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Delete;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, char16* pszName, int32 cchMaxLength) GetName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, char16* pszName, int32 cchMaxLength) GetDisplayName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR pszName) SetDisplayName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, char16* pszPath, int32 cchMaxLength) GetPath;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwSection, char16* pszPath, int32 cchMaxPath) GetDSPath;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwSection, char16* pszPath, int32 cchMaxPath) GetFileSysPath;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwSection, HKEY* hKey) GetRegistryKey;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* dwOptions) GetOptions;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwOptions, uint32 dwMask) SetOptions;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, GROUP_POLICY_OBJECT_TYPE* gpoType) COM_GetType;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, char16* pszName, int32 cchMaxLength) GetMachineName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HPROPSHEETPAGE** hPages, uint32* uPageCount) GetPropertySheetPages;
 	}
 
 
@@ -2263,9 +2263,9 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRSOPInformation*/SelfOuter* self, uint32 dwSection, char16* pszName, int32 cchMaxLength) GetNamespace;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRSOPInformation*/SelfOuter* self, uint32* pdwFlags) COM_GetFlags;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRSOPInformation*/SelfOuter* self, PWSTR pszEventSource, PWSTR pszEventLogName, PWSTR pszEventTime, uint32 dwEventID, PWSTR* ppszText) GetEventLogEntryText;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwSection, char16* pszName, int32 cchMaxLength) GetNamespace;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pdwFlags) COM_GetFlags;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR pszEventSource, PWSTR pszEventLogName, PWSTR pszEventTime, uint32 dwEventID, PWSTR* ppszText) GetEventLogEntryText;
 	}
 
 

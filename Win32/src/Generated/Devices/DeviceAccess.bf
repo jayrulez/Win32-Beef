@@ -126,7 +126,7 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDeviceRequestCompletionCallback*/SelfOuter* self, HRESULT requestResult, uint32 bytesReturned) Invoke;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HRESULT requestResult, uint32 bytesReturned) Invoke;
 	}
 
 
@@ -141,9 +141,9 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDeviceIoControl*/SelfOuter* self, uint32 ioControlCode, uint8* inputBuffer, uint32 inputBufferSize, uint8* outputBuffer, uint32 outputBufferSize, uint32* bytesReturned) DeviceIoControlSync;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDeviceIoControl*/SelfOuter* self, uint32 ioControlCode, uint8* inputBuffer, uint32 inputBufferSize, uint8* outputBuffer, uint32 outputBufferSize, IDeviceRequestCompletionCallback* requestCompletionCallback, uint* cancelContext) DeviceIoControlAsync;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDeviceIoControl*/SelfOuter* self, uint cancelContext) CancelOperation;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 ioControlCode, uint8* inputBuffer, uint32 inputBufferSize, uint8* outputBuffer, uint32 outputBufferSize, uint32* bytesReturned) DeviceIoControlSync;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 ioControlCode, uint8* inputBuffer, uint32 inputBufferSize, uint8* outputBuffer, uint32 outputBufferSize, IDeviceRequestCompletionCallback* requestCompletionCallback, uint* cancelContext) DeviceIoControlAsync;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint cancelContext) CancelOperation;
 	}
 
 
@@ -162,10 +162,10 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICreateDeviceAccessAsync*/SelfOuter* self) Cancel;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICreateDeviceAccessAsync*/SelfOuter* self, uint32 timeout) Wait;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICreateDeviceAccessAsync*/SelfOuter* self) Close;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICreateDeviceAccessAsync*/SelfOuter* self, ref Guid riid, void** deviceAccess) GetResult;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Cancel;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 timeout) Wait;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Close;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid riid, void** deviceAccess) GetResult;
 	}
 
 

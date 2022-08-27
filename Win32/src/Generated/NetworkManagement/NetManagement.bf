@@ -6981,10 +6981,10 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnumNetCfgBindingInterface*/SelfOuter* self, uint32 celt, INetCfgBindingInterface** rgelt, uint32* pceltFetched) Next;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnumNetCfgBindingInterface*/SelfOuter* self, uint32 celt) Skip;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnumNetCfgBindingInterface*/SelfOuter* self) Reset;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnumNetCfgBindingInterface*/SelfOuter* self, IEnumNetCfgBindingInterface** ppenum) Clone;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 celt, INetCfgBindingInterface** rgelt, uint32* pceltFetched) Next;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 celt) Skip;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Reset;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IEnumNetCfgBindingInterface** ppenum) Clone;
 	}
 
 
@@ -7005,10 +7005,10 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnumNetCfgBindingPath*/SelfOuter* self, uint32 celt, INetCfgBindingPath** rgelt, uint32* pceltFetched) Next;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnumNetCfgBindingPath*/SelfOuter* self, uint32 celt) Skip;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnumNetCfgBindingPath*/SelfOuter* self) Reset;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnumNetCfgBindingPath*/SelfOuter* self, IEnumNetCfgBindingPath** ppenum) Clone;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 celt, INetCfgBindingPath** rgelt, uint32* pceltFetched) Next;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 celt) Skip;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Reset;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IEnumNetCfgBindingPath** ppenum) Clone;
 	}
 
 
@@ -7029,10 +7029,10 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnumNetCfgComponent*/SelfOuter* self, uint32 celt, INetCfgComponent** rgelt, uint32* pceltFetched) Next;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnumNetCfgComponent*/SelfOuter* self, uint32 celt) Skip;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnumNetCfgComponent*/SelfOuter* self) Reset;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnumNetCfgComponent*/SelfOuter* self, IEnumNetCfgComponent** ppenum) Clone;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 celt, INetCfgComponent** rgelt, uint32* pceltFetched) Next;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 celt) Skip;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Reset;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IEnumNetCfgComponent** ppenum) Clone;
 	}
 
 
@@ -7053,13 +7053,13 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*INetCfg*/SelfOuter* self, void* pvReserved) Initialize;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*INetCfg*/SelfOuter* self) Uninitialize;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*INetCfg*/SelfOuter* self) Apply;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*INetCfg*/SelfOuter* self) Cancel;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*INetCfg*/SelfOuter* self, ref Guid pguidClass, IEnumNetCfgComponent** ppenumComponent) EnumComponents;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*INetCfg*/SelfOuter* self, PWSTR pszwInfId, INetCfgComponent** pComponent) FindComponent;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*INetCfg*/SelfOuter* self, ref Guid pguidClass, ref Guid riid, void** ppvObject) QueryNetCfgClass;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, void* pvReserved) Initialize;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Uninitialize;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Apply;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Cancel;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid pguidClass, IEnumNetCfgComponent** ppenumComponent) EnumComponents;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR pszwInfId, INetCfgComponent** pComponent) FindComponent;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid pguidClass, ref Guid riid, void** ppvObject) QueryNetCfgClass;
 	}
 
 
@@ -7086,9 +7086,9 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*INetCfgLock*/SelfOuter* self, uint32 cmsTimeout, PWSTR pszwClientDescription, PWSTR* ppszwClientDescription) AcquireWriteLock;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*INetCfgLock*/SelfOuter* self) ReleaseWriteLock;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*INetCfgLock*/SelfOuter* self, PWSTR* ppszwClientDescription) IsWriteLocked;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 cmsTimeout, PWSTR pszwClientDescription, PWSTR* ppszwClientDescription) AcquireWriteLock;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) ReleaseWriteLock;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR* ppszwClientDescription) IsWriteLocked;
 	}
 
 
@@ -7107,9 +7107,9 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*INetCfgBindingInterface*/SelfOuter* self, PWSTR* ppszwInterfaceName) GetName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*INetCfgBindingInterface*/SelfOuter* self, INetCfgComponent** ppnccItem) GetUpperComponent;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*INetCfgBindingInterface*/SelfOuter* self, INetCfgComponent** ppnccItem) GetLowerComponent;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR* ppszwInterfaceName) GetName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, INetCfgComponent** ppnccItem) GetUpperComponent;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, INetCfgComponent** ppnccItem) GetLowerComponent;
 	}
 
 
@@ -7128,14 +7128,14 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*INetCfgBindingPath*/SelfOuter* self, INetCfgBindingPath* pPath) IsSamePathAs;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*INetCfgBindingPath*/SelfOuter* self, INetCfgBindingPath* pPath) IsSubPathOf;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*INetCfgBindingPath*/SelfOuter* self) IsEnabled;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*INetCfgBindingPath*/SelfOuter* self, BOOL fEnable) Enable;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*INetCfgBindingPath*/SelfOuter* self, PWSTR* ppszwPathToken) GetPathToken;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*INetCfgBindingPath*/SelfOuter* self, INetCfgComponent** ppComponent) GetOwner;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*INetCfgBindingPath*/SelfOuter* self, uint32* pcInterfaces) GetDepth;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*INetCfgBindingPath*/SelfOuter* self, IEnumNetCfgBindingInterface** ppenumInterface) EnumBindingInterfaces;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, INetCfgBindingPath* pPath) IsSamePathAs;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, INetCfgBindingPath* pPath) IsSubPathOf;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) IsEnabled;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BOOL fEnable) Enable;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR* ppszwPathToken) GetPathToken;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, INetCfgComponent** ppComponent) GetOwner;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pcInterfaces) GetDepth;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IEnumNetCfgBindingInterface** ppenumInterface) EnumBindingInterfaces;
 	}
 
 
@@ -7164,8 +7164,8 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*INetCfgClass*/SelfOuter* self, PWSTR pszwInfId, INetCfgComponent** ppnccItem) FindComponent;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*INetCfgClass*/SelfOuter* self, IEnumNetCfgComponent** ppenumComponent) EnumComponents;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR pszwInfId, INetCfgComponent** ppnccItem) FindComponent;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IEnumNetCfgComponent** ppenumComponent) EnumComponents;
 	}
 
 
@@ -7182,9 +7182,9 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*INetCfgClassSetup*/SelfOuter* self, HWND hwndParent, OBO_TOKEN* pOboToken, INetCfgComponent** ppnccItem) SelectAndInstall;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*INetCfgClassSetup*/SelfOuter* self, PWSTR pszwInfId, OBO_TOKEN* pOboToken, uint32 dwSetupFlags, uint32 dwUpgradeFromBuildNo, PWSTR pszwAnswerFile, PWSTR pszwAnswerSections, INetCfgComponent** ppnccItem) Install;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*INetCfgClassSetup*/SelfOuter* self, INetCfgComponent* pComponent, OBO_TOKEN* pOboToken, PWSTR* pmszwRefs) DeInstall;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HWND hwndParent, OBO_TOKEN* pOboToken, INetCfgComponent** ppnccItem) SelectAndInstall;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR pszwInfId, OBO_TOKEN* pOboToken, uint32 dwSetupFlags, uint32 dwUpgradeFromBuildNo, PWSTR pszwAnswerFile, PWSTR pszwAnswerSections, INetCfgComponent** ppnccItem) Install;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, INetCfgComponent* pComponent, OBO_TOKEN* pOboToken, PWSTR* pmszwRefs) DeInstall;
 	}
 
 
@@ -7203,7 +7203,7 @@ public static
 
 	[CRepr]public struct VTable : INetCfgClassSetup.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*INetCfgClassSetup2*/SelfOuter* self, INetCfgComponent* pIComp, uint32 dwSetupFlags, uint32 dwUpgradeFromBuildNo) UpdateNonEnumeratedComponent;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, INetCfgComponent* pIComp, uint32 dwSetupFlags, uint32 dwUpgradeFromBuildNo) UpdateNonEnumeratedComponent;
 	}
 
 
@@ -7218,18 +7218,18 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*INetCfgComponent*/SelfOuter* self, PWSTR* ppszwDisplayName) GetDisplayName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*INetCfgComponent*/SelfOuter* self, PWSTR pszwDisplayName) SetDisplayName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*INetCfgComponent*/SelfOuter* self, PWSTR* pszwHelpText) GetHelpText;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*INetCfgComponent*/SelfOuter* self, PWSTR* ppszwId) GetId;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*INetCfgComponent*/SelfOuter* self, uint32* pdwCharacteristics) GetCharacteristics;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*INetCfgComponent*/SelfOuter* self, ref Guid pGuid) GetInstanceGuid;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*INetCfgComponent*/SelfOuter* self, PWSTR* ppszwDevNodeId) GetPnpDevNodeId;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*INetCfgComponent*/SelfOuter* self, ref Guid pGuid) GetClassGuid;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*INetCfgComponent*/SelfOuter* self, PWSTR* ppszwBindName) GetBindName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*INetCfgComponent*/SelfOuter* self, uint32* pulStatus) GetDeviceStatus;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*INetCfgComponent*/SelfOuter* self, HKEY* phkey) OpenParamKey;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*INetCfgComponent*/SelfOuter* self, HWND hwndParent, uint32 dwFlags, IUnknown* punkContext) RaisePropertyUi;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR* ppszwDisplayName) GetDisplayName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR pszwDisplayName) SetDisplayName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR* pszwHelpText) GetHelpText;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR* ppszwId) GetId;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pdwCharacteristics) GetCharacteristics;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid pGuid) GetInstanceGuid;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR* ppszwDevNodeId) GetPnpDevNodeId;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid pGuid) GetClassGuid;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR* ppszwBindName) GetBindName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pulStatus) GetDeviceStatus;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HKEY* phkey) OpenParamKey;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HWND hwndParent, uint32 dwFlags, IUnknown* punkContext) RaisePropertyUi;
 	}
 
 
@@ -7266,14 +7266,14 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*INetCfgComponentBindings*/SelfOuter* self, INetCfgComponent* pnccItem) BindTo;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*INetCfgComponentBindings*/SelfOuter* self, INetCfgComponent* pnccItem) UnbindFrom;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*INetCfgComponentBindings*/SelfOuter* self, uint32 dwFlags, PWSTR pszwInterfaceName) SupportsBindingInterface;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*INetCfgComponentBindings*/SelfOuter* self, INetCfgComponent* pnccItem) IsBoundTo;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*INetCfgComponentBindings*/SelfOuter* self, INetCfgComponent* pnccItem) IsBindableTo;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*INetCfgComponentBindings*/SelfOuter* self, uint32 dwFlags, IEnumNetCfgBindingPath** ppIEnum) EnumBindingPaths;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*INetCfgComponentBindings*/SelfOuter* self, INetCfgBindingPath* pncbItemSrc, INetCfgBindingPath* pncbItemDest) MoveBefore;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*INetCfgComponentBindings*/SelfOuter* self, INetCfgBindingPath* pncbItemSrc, INetCfgBindingPath* pncbItemDest) MoveAfter;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, INetCfgComponent* pnccItem) BindTo;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, INetCfgComponent* pnccItem) UnbindFrom;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwFlags, PWSTR pszwInterfaceName) SupportsBindingInterface;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, INetCfgComponent* pnccItem) IsBoundTo;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, INetCfgComponent* pnccItem) IsBindableTo;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwFlags, IEnumNetCfgBindingPath** ppIEnum) EnumBindingPaths;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, INetCfgBindingPath* pncbItemSrc, INetCfgBindingPath* pncbItemDest) MoveBefore;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, INetCfgBindingPath* pncbItemSrc, INetCfgBindingPath* pncbItemDest) MoveAfter;
 	}
 
 
@@ -7302,10 +7302,10 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*INetCfgSysPrep*/SelfOuter* self, PWSTR pwszSection, PWSTR pwszKey, uint32 dwValue) HrSetupSetFirstDword;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*INetCfgSysPrep*/SelfOuter* self, PWSTR pwszSection, PWSTR pwszKey, PWSTR pwszValue) HrSetupSetFirstString;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*INetCfgSysPrep*/SelfOuter* self, PWSTR pwszSection, PWSTR pwszKey, BOOL fValue) HrSetupSetFirstStringAsBool;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*INetCfgSysPrep*/SelfOuter* self, PWSTR pwszSection, PWSTR pwszKey, PWSTR pmszValue) HrSetupSetFirstMultiSzField;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR pwszSection, PWSTR pwszKey, uint32 dwValue) HrSetupSetFirstDword;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR pwszSection, PWSTR pwszKey, PWSTR pwszValue) HrSetupSetFirstString;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR pwszSection, PWSTR pwszKey, BOOL fValue) HrSetupSetFirstStringAsBool;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR pwszSection, PWSTR pwszKey, PWSTR pmszValue) HrSetupSetFirstMultiSzField;
 	}
 
 
@@ -7326,7 +7326,7 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*INetCfgPnpReconfigCallback*/SelfOuter* self, NCPNP_RECONFIG_LAYER Layer, PWSTR pszwUpper, PWSTR pszwLower, void* pvData, uint32 dwSizeOfData) SendPnpReconfig;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, NCPNP_RECONFIG_LAYER Layer, PWSTR pszwUpper, PWSTR pszwLower, void* pvData, uint32 dwSizeOfData) SendPnpReconfig;
 	}
 
 
@@ -7341,10 +7341,10 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*INetCfgComponentControl*/SelfOuter* self, INetCfgComponent* pIComp, INetCfg* pINetCfg, BOOL fInstalling) Initialize;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*INetCfgComponentControl*/SelfOuter* self) ApplyRegistryChanges;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*INetCfgComponentControl*/SelfOuter* self, INetCfgPnpReconfigCallback* pICallback) ApplyPnpChanges;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*INetCfgComponentControl*/SelfOuter* self) CancelChanges;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, INetCfgComponent* pIComp, INetCfg* pINetCfg, BOOL fInstalling) Initialize;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) ApplyRegistryChanges;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, INetCfgPnpReconfigCallback* pICallback) ApplyPnpChanges;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) CancelChanges;
 	}
 
 
@@ -7365,10 +7365,10 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*INetCfgComponentSetup*/SelfOuter* self, uint32 dwSetupFlags) Install;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*INetCfgComponentSetup*/SelfOuter* self, uint32 dwSetupFlags, uint32 dwUpgradeFomBuildNo) Upgrade;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*INetCfgComponentSetup*/SelfOuter* self, PWSTR pszwAnswerFile, PWSTR pszwAnswerSections) ReadAnswerFile;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*INetCfgComponentSetup*/SelfOuter* self) Removing;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwSetupFlags) Install;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwSetupFlags, uint32 dwUpgradeFomBuildNo) Upgrade;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR pszwAnswerFile, PWSTR pszwAnswerSections) ReadAnswerFile;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Removing;
 	}
 
 
@@ -7389,12 +7389,12 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*INetCfgComponentPropertyUi*/SelfOuter* self, IUnknown* pUnkReserved) QueryPropertyUi;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*INetCfgComponentPropertyUi*/SelfOuter* self, IUnknown* pUnkReserved) SetContext;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*INetCfgComponentPropertyUi*/SelfOuter* self, uint32* pdwDefPages, uint8** pahpspPrivate, uint32* pcPages, HWND hwndParent, PWSTR* pszStartPage) MergePropPages;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*INetCfgComponentPropertyUi*/SelfOuter* self, HWND hwndSheet) ValidateProperties;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*INetCfgComponentPropertyUi*/SelfOuter* self) ApplyProperties;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*INetCfgComponentPropertyUi*/SelfOuter* self) CancelProperties;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IUnknown* pUnkReserved) QueryPropertyUi;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IUnknown* pUnkReserved) SetContext;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pdwDefPages, uint8** pahpspPrivate, uint32* pcPages, HWND hwndParent, PWSTR* pszStartPage) MergePropPages;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HWND hwndSheet) ValidateProperties;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) ApplyProperties;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) CancelProperties;
 	}
 
 
@@ -7419,8 +7419,8 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*INetCfgComponentNotifyBinding*/SelfOuter* self, uint32 dwChangeFlag, INetCfgBindingPath* pIPath) QueryBindingPath;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*INetCfgComponentNotifyBinding*/SelfOuter* self, uint32 dwChangeFlag, INetCfgBindingPath* pIPath) NotifyBindingPath;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwChangeFlag, INetCfgBindingPath* pIPath) QueryBindingPath;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwChangeFlag, INetCfgBindingPath* pIPath) NotifyBindingPath;
 	}
 
 
@@ -7437,10 +7437,10 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*INetCfgComponentNotifyGlobal*/SelfOuter* self, uint32* dwNotifications) GetSupportedNotifications;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*INetCfgComponentNotifyGlobal*/SelfOuter* self, uint32 dwChangeFlag, INetCfgBindingPath* pIPath) SysQueryBindingPath;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*INetCfgComponentNotifyGlobal*/SelfOuter* self, uint32 dwChangeFlag, INetCfgBindingPath* pIPath) SysNotifyBindingPath;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*INetCfgComponentNotifyGlobal*/SelfOuter* self, uint32 dwChangeFlag, INetCfgComponent* pIComp) SysNotifyComponent;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* dwNotifications) GetSupportedNotifications;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwChangeFlag, INetCfgBindingPath* pIPath) SysQueryBindingPath;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwChangeFlag, INetCfgBindingPath* pIPath) SysNotifyBindingPath;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwChangeFlag, INetCfgComponent* pIComp) SysNotifyComponent;
 	}
 
 
@@ -7461,9 +7461,9 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*INetCfgComponentUpperEdge*/SelfOuter* self, INetCfgComponent* pAdapter, uint32* pdwNumInterfaces, ref Guid ppguidInterfaceIds) GetInterfaceIdsForAdapter;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*INetCfgComponentUpperEdge*/SelfOuter* self) AddInterfacesToAdapter;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*INetCfgComponentUpperEdge*/SelfOuter* self, INetCfgComponent* pAdapter, uint32 dwNumInterfaces, ref Guid pguidInterfaceIds) RemoveInterfacesFromAdapter;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, INetCfgComponent* pAdapter, uint32* pdwNumInterfaces, ref Guid ppguidInterfaceIds) GetInterfaceIdsForAdapter;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) AddInterfacesToAdapter;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, INetCfgComponent* pAdapter, uint32 dwNumInterfaces, ref Guid pguidInterfaceIds) RemoveInterfacesFromAdapter;
 	}
 
 
@@ -7482,7 +7482,7 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*INetLanConnectionUiInfo*/SelfOuter* self, ref Guid pguid) GetDeviceGuid;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid pguid) GetDeviceGuid;
 	}
 
 
@@ -7497,7 +7497,7 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*INetRasConnectionIpUiInfo*/SelfOuter* self, RASCON_IPUI* pInfo) GetUiInfo;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, RASCON_IPUI* pInfo) GetUiInfo;
 	}
 
 
@@ -7512,8 +7512,8 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*INetCfgComponentSysPrep*/SelfOuter* self, INetCfgSysPrep* pncsp, PWSTR pszwAnswerSections, ref Guid pAdapterInstanceGuid) SaveAdapterParameters;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*INetCfgComponentSysPrep*/SelfOuter* self, PWSTR pszwAnswerFile, PWSTR pszwAnswerSection, ref Guid pAdapterInstanceGuid) RestoreAdapterParameters;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, INetCfgSysPrep* pncsp, PWSTR pszwAnswerSections, ref Guid pAdapterInstanceGuid) SaveAdapterParameters;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR pszwAnswerFile, PWSTR pszwAnswerSection, ref Guid pAdapterInstanceGuid) RestoreAdapterParameters;
 	}
 
 
@@ -7530,8 +7530,8 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IProvisioningDomain*/SelfOuter* self, PWSTR pszwPathToFolder) Add;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IProvisioningDomain*/SelfOuter* self, PWSTR pszwDomain, PWSTR pszwLanguage, PWSTR pszwXPathQuery, IXMLDOMNodeList** Nodes) Query;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR pszwPathToFolder) Add;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR pszwDomain, PWSTR pszwLanguage, PWSTR pszwXPathQuery, IXMLDOMNodeList** Nodes) Query;
 	}
 
 
@@ -7548,7 +7548,7 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IProvisioningProfileWireless*/SelfOuter* self, BSTR bstrXMLWirelessConfigProfile, BSTR bstrXMLConnectionConfigProfile, ref Guid pAdapterInstanceGuid, uint32* pulStatus) CreateProfile;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrXMLWirelessConfigProfile, BSTR bstrXMLConnectionConfigProfile, ref Guid pAdapterInstanceGuid, uint32* pulStatus) CreateProfile;
 	}
 
 

@@ -743,8 +743,8 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWPCProviderState*/SelfOuter* self) Enable;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWPCProviderState*/SelfOuter* self) Disable;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Enable;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Disable;
 	}
 
 
@@ -761,9 +761,9 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWPCProviderConfig*/SelfOuter* self, BSTR bstrSID, BSTR* pbstrUserSummary) GetUserSummary;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWPCProviderConfig*/SelfOuter* self, HWND hWnd, BSTR bstrSID) Configure;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWPCProviderConfig*/SelfOuter* self, HWND hWnd, BSTR bstrPath, WPCFLAG_RESTRICTION dwFlags) RequestOverride;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrSID, BSTR* pbstrUserSummary) GetUserSummary;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HWND hWnd, BSTR bstrSID) Configure;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HWND hWnd, BSTR bstrPath, WPCFLAG_RESTRICTION dwFlags) RequestOverride;
 	}
 
 
@@ -782,9 +782,9 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWPCSettings*/SelfOuter* self, BOOL* pfRequired) IsLoggingRequired;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWPCSettings*/SelfOuter* self, SYSTEMTIME* pTime) GetLastSettingsChangeTime;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWPCSettings*/SelfOuter* self, WPCFLAG_RESTRICTION* pdwRestrictions) GetRestrictions;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BOOL* pfRequired) IsLoggingRequired;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, SYSTEMTIME* pTime) GetLastSettingsChangeTime;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, WPCFLAG_RESTRICTION* pdwRestrictions) GetRestrictions;
 	}
 
 
@@ -803,7 +803,7 @@ public static
 
 	[CRepr]public struct VTable : IWPCSettings.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWPCGamesSettings*/SelfOuter* self, Guid guidAppID, uint32* pdwReasons) IsBlocked;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, Guid guidAppID, uint32* pdwReasons) IsBlocked;
 	}
 
 
@@ -818,8 +818,8 @@ public static
 
 	[CRepr]public struct VTable : IWPCSettings.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWPCWebSettings*/SelfOuter* self, WPCFLAG_WEB_SETTING* pdwSettings) GetSettings;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWPCWebSettings*/SelfOuter* self, HWND hWnd, PWSTR pcszURL, uint32 cURLs, PWSTR* ppcszSubURLs, BOOL* pfChanged) RequestURLOverride;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, WPCFLAG_WEB_SETTING* pdwSettings) GetSettings;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HWND hWnd, PWSTR pcszURL, uint32 cURLs, PWSTR* ppcszSubURLs, BOOL* pfChanged) RequestURLOverride;
 	}
 
 
@@ -836,10 +836,10 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWindowsParentalControlsCore*/SelfOuter* self, WPCFLAG_VISIBILITY* peVisibility) GetVisibility;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWindowsParentalControlsCore*/SelfOuter* self, PWSTR pcszSID, IWPCSettings** ppSettings) GetUserSettings;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWindowsParentalControlsCore*/SelfOuter* self, PWSTR pcszSID, IWPCWebSettings** ppSettings) GetWebSettings;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWindowsParentalControlsCore*/SelfOuter* self, ref Guid pguidID, PWSTR* ppszName) GetWebFilterInfo;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, WPCFLAG_VISIBILITY* peVisibility) GetVisibility;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR pcszSID, IWPCSettings** ppSettings) GetUserSettings;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR pcszSID, IWPCWebSettings** ppSettings) GetWebSettings;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid pguidID, PWSTR* ppszName) GetWebFilterInfo;
 	}
 
 
@@ -860,7 +860,7 @@ public static
 
 	[CRepr]public struct VTable : IWindowsParentalControlsCore.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWindowsParentalControls*/SelfOuter* self, PWSTR pcszSID, IWPCGamesSettings** ppSettings) GetGamesSettings;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR pcszSID, IWPCGamesSettings** ppSettings) GetGamesSettings;
 	}
 
 
@@ -875,7 +875,7 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWPCProviderSupport*/SelfOuter* self, ref Guid pguidProvider) GetCurrent;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid pguidProvider) GetCurrent;
 	}
 
 

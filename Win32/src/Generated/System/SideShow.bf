@@ -224,8 +224,8 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISideShowSession*/SelfOuter* self, ref Guid in_applicationId, ref Guid in_endpointId, ISideShowContentManager** out_ppIContent) RegisterContent;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISideShowSession*/SelfOuter* self, ref Guid in_applicationId, ISideShowNotificationManager** out_ppINotification) RegisterNotifications;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid in_applicationId, ref Guid in_endpointId, ISideShowContentManager** out_ppIContent) RegisterContent;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid in_applicationId, ISideShowNotificationManager** out_ppINotification) RegisterNotifications;
 	}
 
 
@@ -242,9 +242,9 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISideShowNotificationManager*/SelfOuter* self, ISideShowNotification* in_pINotification) Show;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISideShowNotificationManager*/SelfOuter* self, uint32 in_notificationId) Revoke;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISideShowNotificationManager*/SelfOuter* self) RevokeAll;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ISideShowNotification* in_pINotification) Show;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 in_notificationId) Revoke;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) RevokeAll;
 	}
 
 
@@ -263,16 +263,16 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISideShowNotification*/SelfOuter* self, uint32* out_pNotificationId) get_NotificationId;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISideShowNotification*/SelfOuter* self, uint32 in_notificationId) put_NotificationId;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISideShowNotification*/SelfOuter* self, PWSTR* out_ppwszTitle) get_Title;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISideShowNotification*/SelfOuter* self, PWSTR in_pwszTitle) put_Title;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISideShowNotification*/SelfOuter* self, PWSTR* out_ppwszMessage) get_Message;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISideShowNotification*/SelfOuter* self, PWSTR in_pwszMessage) put_Message;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISideShowNotification*/SelfOuter* self, HICON* out_phIcon) get_Image;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISideShowNotification*/SelfOuter* self, HICON in_hIcon) put_Image;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISideShowNotification*/SelfOuter* self, SYSTEMTIME* out_pTime) get_ExpirationTime;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISideShowNotification*/SelfOuter* self, SYSTEMTIME* in_pTime) put_ExpirationTime;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* out_pNotificationId) get_NotificationId;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 in_notificationId) put_NotificationId;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR* out_ppwszTitle) get_Title;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR in_pwszTitle) put_Title;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR* out_ppwszMessage) get_Message;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR in_pwszMessage) put_Message;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HICON* out_phIcon) get_Image;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HICON in_hIcon) put_Image;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, SYSTEMTIME* out_pTime) get_ExpirationTime;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, SYSTEMTIME* in_pTime) put_ExpirationTime;
 	}
 
 
@@ -305,11 +305,11 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISideShowContentManager*/SelfOuter* self, ISideShowContent* in_pIContent) Add;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISideShowContentManager*/SelfOuter* self, uint32 in_contentId) Remove;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISideShowContentManager*/SelfOuter* self) RemoveAll;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISideShowContentManager*/SelfOuter* self, ISideShowEvents* in_pIEvents) SetEventSink;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISideShowContentManager*/SelfOuter* self, ISideShowCapabilitiesCollection** out_ppCollection) GetDeviceCapabilities;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ISideShowContent* in_pIContent) Add;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 in_contentId) Remove;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) RemoveAll;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ISideShowEvents* in_pIEvents) SetEventSink;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ISideShowCapabilitiesCollection** out_ppCollection) GetDeviceCapabilities;
 	}
 
 
@@ -332,9 +332,9 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISideShowContent*/SelfOuter* self, ISideShowCapabilities* in_pICapabilities, uint32* out_pdwSize, uint8** out_ppbData) GetContent;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISideShowContent*/SelfOuter* self, uint32* out_pcontentId) get_ContentId;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISideShowContent*/SelfOuter* self, BOOL* out_pfDifferentiateContent) get_DifferentiateContent;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ISideShowCapabilities* in_pICapabilities, uint32* out_pdwSize, uint8** out_ppbData) GetContent;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* out_pcontentId) get_ContentId;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BOOL* out_pfDifferentiateContent) get_DifferentiateContent;
 	}
 
 
@@ -353,10 +353,10 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISideShowEvents*/SelfOuter* self, uint32 in_contentId, ISideShowContent** out_ppIContent) ContentMissing;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISideShowEvents*/SelfOuter* self, ISideShowCapabilities* in_pICapabilities, uint32 in_dwEventId, uint32 in_dwEventSize, uint8* in_pbEventData) ApplicationEvent;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISideShowEvents*/SelfOuter* self, ISideShowCapabilities* in_pIDevice) DeviceAdded;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISideShowEvents*/SelfOuter* self, ISideShowCapabilities* in_pIDevice) DeviceRemoved;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 in_contentId, ISideShowContent** out_ppIContent) ContentMissing;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ISideShowCapabilities* in_pICapabilities, uint32 in_dwEventId, uint32 in_dwEventSize, uint8* in_pbEventData) ApplicationEvent;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ISideShowCapabilities* in_pIDevice) DeviceAdded;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ISideShowCapabilities* in_pIDevice) DeviceRemoved;
 	}
 
 
@@ -377,7 +377,7 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISideShowCapabilities*/SelfOuter* self, PROPERTYKEY* in_keyCapability, PROPVARIANT* inout_pValue) GetCapability;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PROPERTYKEY* in_keyCapability, PROPVARIANT* inout_pValue) GetCapability;
 	}
 
 
@@ -392,8 +392,8 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISideShowCapabilitiesCollection*/SelfOuter* self, uint32* out_pdwCount) GetCount;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISideShowCapabilitiesCollection*/SelfOuter* self, uint32 in_dwIndex, ISideShowCapabilities** out_ppCapabilities) GetAt;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* out_pdwCount) GetCount;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 in_dwIndex, ISideShowCapabilities** out_ppCapabilities) GetAt;
 	}
 
 
@@ -410,7 +410,7 @@ public static
 
 	[CRepr]public struct VTable : ISideShowCapabilities.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISideShowBulkCapabilities*/SelfOuter* self, ISideShowKeyCollection* in_keyCollection, ISideShowPropVariantCollection** inout_pValues) GetCapabilities;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ISideShowKeyCollection* in_keyCollection, ISideShowPropVariantCollection** inout_pValues) GetCapabilities;
 	}
 
 
@@ -425,11 +425,11 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISideShowKeyCollection*/SelfOuter* self, PROPERTYKEY* Key) Add;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISideShowKeyCollection*/SelfOuter* self) Clear;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISideShowKeyCollection*/SelfOuter* self, uint32 dwIndex, PROPERTYKEY* pKey) GetAt;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISideShowKeyCollection*/SelfOuter* self, uint32* pcElems) GetCount;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISideShowKeyCollection*/SelfOuter* self, uint32 dwIndex) RemoveAt;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PROPERTYKEY* Key) Add;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Clear;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwIndex, PROPERTYKEY* pKey) GetAt;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pcElems) GetCount;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwIndex) RemoveAt;
 	}
 
 
@@ -452,11 +452,11 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISideShowPropVariantCollection*/SelfOuter* self, PROPVARIANT* pValue) Add;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISideShowPropVariantCollection*/SelfOuter* self) Clear;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISideShowPropVariantCollection*/SelfOuter* self, uint32 dwIndex, PROPVARIANT* pValue) GetAt;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISideShowPropVariantCollection*/SelfOuter* self, uint32* pcElems) GetCount;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISideShowPropVariantCollection*/SelfOuter* self, uint32 dwIndex) RemoveAt;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PROPVARIANT* pValue) Add;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Clear;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwIndex, PROPVARIANT* pValue) GetAt;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pcElems) GetCount;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwIndex) RemoveAt;
 	}
 
 

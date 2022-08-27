@@ -4304,10 +4304,10 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGetClusterUIInfo*/SelfOuter* self, BSTR lpszName, int32* pcchName) GetClusterName;
-		protected new function [CallingConvention(.Stdcall)] uint32(/*IGetClusterUIInfo*/SelfOuter* self) GetLocale;
-		protected new function [CallingConvention(.Stdcall)] HFONT(/*IGetClusterUIInfo*/SelfOuter* self) GetFont;
-		protected new function [CallingConvention(.Stdcall)] HICON(/*IGetClusterUIInfo*/SelfOuter* self) GetIcon;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR lpszName, int32* pcchName) GetClusterName;
+		protected new function [CallingConvention(.Stdcall)] uint32(SelfOuter* self) GetLocale;
+		protected new function [CallingConvention(.Stdcall)] HFONT(SelfOuter* self) GetFont;
+		protected new function [CallingConvention(.Stdcall)] HICON(SelfOuter* self) GetIcon;
 	}
 
 
@@ -4328,9 +4328,9 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGetClusterDataInfo*/SelfOuter* self, BSTR lpszName, int32* pcchName) GetClusterName;
-		protected new function [CallingConvention(.Stdcall)] _HCLUSTER*(/*IGetClusterDataInfo*/SelfOuter* self) GetClusterHandle;
-		protected new function [CallingConvention(.Stdcall)] int32(/*IGetClusterDataInfo*/SelfOuter* self) GetObjectCount;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR lpszName, int32* pcchName) GetClusterName;
+		protected new function [CallingConvention(.Stdcall)] _HCLUSTER*(SelfOuter* self) GetClusterHandle;
+		protected new function [CallingConvention(.Stdcall)] int32(SelfOuter* self) GetObjectCount;
 	}
 
 
@@ -4349,8 +4349,8 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGetClusterObjectInfo*/SelfOuter* self, int32 lObjIndex, BSTR lpszName, int32* pcchName) GetObjectName;
-		protected new function [CallingConvention(.Stdcall)] CLUADMEX_OBJECT_TYPE(/*IGetClusterObjectInfo*/SelfOuter* self, int32 lObjIndex) GetObjectType;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 lObjIndex, BSTR lpszName, int32* pcchName) GetObjectName;
+		protected new function [CallingConvention(.Stdcall)] CLUADMEX_OBJECT_TYPE(SelfOuter* self, int32 lObjIndex) GetObjectType;
 	}
 
 
@@ -4367,7 +4367,7 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] _HNODE*(/*IGetClusterNodeInfo*/SelfOuter* self, int32 lObjIndex) GetNodeHandle;
+		protected new function [CallingConvention(.Stdcall)] _HNODE*(SelfOuter* self, int32 lObjIndex) GetNodeHandle;
 	}
 
 
@@ -4382,7 +4382,7 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] _HGROUP*(/*IGetClusterGroupInfo*/SelfOuter* self, int32 lObjIndex) GetGroupHandle;
+		protected new function [CallingConvention(.Stdcall)] _HGROUP*(SelfOuter* self, int32 lObjIndex) GetGroupHandle;
 	}
 
 
@@ -4397,9 +4397,9 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] _HRESOURCE*(/*IGetClusterResourceInfo*/SelfOuter* self, int32 lObjIndex) GetResourceHandle;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGetClusterResourceInfo*/SelfOuter* self, int32 lObjIndex, BSTR lpszResTypeName, int32* pcchResTypeName) GetResourceTypeName;
-		protected new function [CallingConvention(.Stdcall)] BOOL(/*IGetClusterResourceInfo*/SelfOuter* self, int32 lObjIndex, BSTR lpszNetName, uint32* pcchNetName) GetResourceNetworkName;
+		protected new function [CallingConvention(.Stdcall)] _HRESOURCE*(SelfOuter* self, int32 lObjIndex) GetResourceHandle;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 lObjIndex, BSTR lpszResTypeName, int32* pcchResTypeName) GetResourceTypeName;
+		protected new function [CallingConvention(.Stdcall)] BOOL(SelfOuter* self, int32 lObjIndex, BSTR lpszNetName, uint32* pcchNetName) GetResourceNetworkName;
 	}
 
 
@@ -4418,7 +4418,7 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] _HNETWORK*(/*IGetClusterNetworkInfo*/SelfOuter* self, int32 lObjIndex) GetNetworkHandle;
+		protected new function [CallingConvention(.Stdcall)] _HNETWORK*(SelfOuter* self, int32 lObjIndex) GetNetworkHandle;
 	}
 
 
@@ -4433,7 +4433,7 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] _HNETINTERFACE*(/*IGetClusterNetInterfaceInfo*/SelfOuter* self, int32 lObjIndex) GetNetInterfaceHandle;
+		protected new function [CallingConvention(.Stdcall)] _HNETINTERFACE*(SelfOuter* self, int32 lObjIndex) GetNetInterfaceHandle;
 	}
 
 
@@ -4448,7 +4448,7 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWCPropertySheetCallback*/SelfOuter* self, int32* hpage) AddPropertySheetPage;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* hpage) AddPropertySheetPage;
 	}
 
 
@@ -4463,7 +4463,7 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWEExtendPropertySheet*/SelfOuter* self, IUnknown* piData, IWCPropertySheetCallback* piCallback) CreatePropertySheetPages;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IUnknown* piData, IWCPropertySheetCallback* piCallback) CreatePropertySheetPages;
 	}
 
 
@@ -4478,8 +4478,8 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWCWizardCallback*/SelfOuter* self, int32* hpage) AddWizardPage;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWCWizardCallback*/SelfOuter* self, int32* hpage, BOOL bEnable) EnableNext;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* hpage) AddWizardPage;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* hpage, BOOL bEnable) EnableNext;
 	}
 
 
@@ -4496,7 +4496,7 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWEExtendWizard*/SelfOuter* self, IUnknown* piData, IWCWizardCallback* piCallback) CreateWizardPages;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IUnknown* piData, IWCWizardCallback* piCallback) CreateWizardPages;
 	}
 
 
@@ -4511,7 +4511,7 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWCContextMenuCallback*/SelfOuter* self, BSTR lpszName, BSTR lpszStatusBarText, uint32 nCommandID, uint32 nSubmenuCommandID, uint32 uFlags) AddExtensionMenuItem;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR lpszName, BSTR lpszStatusBarText, uint32 nCommandID, uint32 nSubmenuCommandID, uint32 uFlags) AddExtensionMenuItem;
 	}
 
 
@@ -4526,7 +4526,7 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWEExtendContextMenu*/SelfOuter* self, IUnknown* piData, IWCContextMenuCallback* piCallback) AddContextMenuItems;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IUnknown* piData, IWCContextMenuCallback* piCallback) AddContextMenuItems;
 	}
 
 
@@ -4541,7 +4541,7 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWEInvokeCommand*/SelfOuter* self, uint32 nCommandID, IUnknown* piData) InvokeCommand;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 nCommandID, IUnknown* piData) InvokeCommand;
 	}
 
 
@@ -4556,8 +4556,8 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWCWizard97Callback*/SelfOuter* self, int32* hpage) AddWizard97Page;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWCWizard97Callback*/SelfOuter* self, int32* hpage, BOOL bEnable) EnableNext;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* hpage) AddWizard97Page;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* hpage, BOOL bEnable) EnableNext;
 	}
 
 
@@ -4574,7 +4574,7 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWEExtendWizard97*/SelfOuter* self, IUnknown* piData, IWCWizard97Callback* piCallback) CreateWizard97Pages;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IUnknown* piData, IWCWizard97Callback* piCallback) CreateWizard97Pages;
 	}
 
 
@@ -4589,9 +4589,9 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusApplication*/SelfOuter* self, ISDomainNames** ppDomains) get_DomainNames;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusApplication*/SelfOuter* self, BSTR bstrDomainName, ISClusterNames** ppClusters) get_ClusterNames;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusApplication*/SelfOuter* self, BSTR bstrClusterName, ISCluster** pCluster) OpenCluster;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ISDomainNames** ppDomains) get_DomainNames;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrDomainName, ISClusterNames** ppClusters) get_ClusterNames;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrClusterName, ISCluster** pCluster) OpenCluster;
 	}
 
 
@@ -4610,10 +4610,10 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISDomainNames*/SelfOuter* self, int32* plCount) get_Count;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISDomainNames*/SelfOuter* self, IUnknown** retval) get__NewEnum;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISDomainNames*/SelfOuter* self) Refresh;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISDomainNames*/SelfOuter* self, VARIANT varIndex, BSTR* pbstrDomainName) get_Item;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* plCount) get_Count;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IUnknown** retval) get__NewEnum;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Refresh;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT varIndex, BSTR* pbstrDomainName) get_Item;
 	}
 
 
@@ -4634,11 +4634,11 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusterNames*/SelfOuter* self, int32* plCount) get_Count;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusterNames*/SelfOuter* self, IUnknown** retval) get__NewEnum;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusterNames*/SelfOuter* self) Refresh;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusterNames*/SelfOuter* self, VARIANT varIndex, BSTR* pbstrClusterName) get_Item;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusterNames*/SelfOuter* self, BSTR* pbstrDomainName) get_DomainName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* plCount) get_Count;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IUnknown** retval) get__NewEnum;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Refresh;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT varIndex, BSTR* pbstrClusterName) get_Item;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pbstrDomainName) get_DomainName;
 	}
 
 
@@ -4661,7 +4661,7 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusRefObject*/SelfOuter* self, uint* phandle) get_Handle;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint* phandle) get_Handle;
 	}
 
 
@@ -4676,16 +4676,16 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusVersion*/SelfOuter* self, BSTR* pbstrClusterName) get_Name;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusVersion*/SelfOuter* self, int32* pnMajorVersion) get_MajorVersion;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusVersion*/SelfOuter* self, int32* pnMinorVersion) get_MinorVersion;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusVersion*/SelfOuter* self, int16* pnBuildNumber) get_BuildNumber;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusVersion*/SelfOuter* self, BSTR* pbstrVendorId) get_VendorId;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusVersion*/SelfOuter* self, BSTR* pbstrCSDVersion) get_CSDVersion;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusVersion*/SelfOuter* self, int32* pnClusterHighestVersion) get_ClusterHighestVersion;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusVersion*/SelfOuter* self, int32* pnClusterLowestVersion) get_ClusterLowestVersion;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusVersion*/SelfOuter* self, int32* pnFlags) get_Flags;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusVersion*/SelfOuter* self, VARIANT* pvarMixedVersion) get_MixedVersion;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pbstrClusterName) get_Name;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* pnMajorVersion) get_MajorVersion;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* pnMinorVersion) get_MinorVersion;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* pnBuildNumber) get_BuildNumber;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pbstrVendorId) get_VendorId;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pbstrCSDVersion) get_CSDVersion;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* pnClusterHighestVersion) get_ClusterHighestVersion;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* pnClusterLowestVersion) get_ClusterLowestVersion;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* pnFlags) get_Flags;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT* pvarMixedVersion) get_MixedVersion;
 	}
 
 
@@ -4718,27 +4718,27 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISCluster*/SelfOuter* self, ISClusProperties** ppProperties) get_CommonProperties;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISCluster*/SelfOuter* self, ISClusProperties** ppProperties) get_PrivateProperties;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISCluster*/SelfOuter* self, ISClusProperties** ppProperties) get_CommonROProperties;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISCluster*/SelfOuter* self, ISClusProperties** ppProperties) get_PrivateROProperties;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISCluster*/SelfOuter* self, uint* phandle) get_Handle;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISCluster*/SelfOuter* self, BSTR bstrClusterName) Open;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISCluster*/SelfOuter* self, BSTR* pbstrName) get_Name;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISCluster*/SelfOuter* self, BSTR bstrClusterName) put_Name;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISCluster*/SelfOuter* self, ISClusVersion** ppClusVersion) get_Version;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISCluster*/SelfOuter* self, ISClusResource* pClusterResource) put_QuorumResource;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISCluster*/SelfOuter* self, ISClusResource** pClusterResource) get_QuorumResource;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISCluster*/SelfOuter* self, int32* pnLogSize) get_QuorumLogSize;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISCluster*/SelfOuter* self, int32 nLogSize) put_QuorumLogSize;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISCluster*/SelfOuter* self, BSTR* ppPath) get_QuorumPath;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISCluster*/SelfOuter* self, BSTR pPath) put_QuorumPath;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISCluster*/SelfOuter* self, ISClusNodes** ppNodes) get_Nodes;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISCluster*/SelfOuter* self, ISClusResGroups** ppClusterResourceGroups) get_ResourceGroups;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISCluster*/SelfOuter* self, ISClusResources** ppClusterResources) get_Resources;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISCluster*/SelfOuter* self, ISClusResTypes** ppResourceTypes) get_ResourceTypes;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISCluster*/SelfOuter* self, ISClusNetworks** ppNetworks) get_Networks;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISCluster*/SelfOuter* self, ISClusNetInterfaces** ppNetInterfaces) get_NetInterfaces;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ISClusProperties** ppProperties) get_CommonProperties;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ISClusProperties** ppProperties) get_PrivateProperties;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ISClusProperties** ppProperties) get_CommonROProperties;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ISClusProperties** ppProperties) get_PrivateROProperties;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint* phandle) get_Handle;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrClusterName) Open;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pbstrName) get_Name;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrClusterName) put_Name;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ISClusVersion** ppClusVersion) get_Version;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ISClusResource* pClusterResource) put_QuorumResource;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ISClusResource** pClusterResource) get_QuorumResource;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* pnLogSize) get_QuorumLogSize;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 nLogSize) put_QuorumLogSize;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* ppPath) get_QuorumPath;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR pPath) put_QuorumPath;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ISClusNodes** ppNodes) get_Nodes;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ISClusResGroups** ppClusterResourceGroups) get_ResourceGroups;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ISClusResources** ppClusterResources) get_Resources;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ISClusResTypes** ppResourceTypes) get_ResourceTypes;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ISClusNetworks** ppNetworks) get_Networks;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ISClusNetInterfaces** ppNetInterfaces) get_NetInterfaces;
 	}
 
 
@@ -4793,20 +4793,20 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusNode*/SelfOuter* self, ISClusProperties** ppProperties) get_CommonProperties;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusNode*/SelfOuter* self, ISClusProperties** ppProperties) get_PrivateProperties;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusNode*/SelfOuter* self, ISClusProperties** ppProperties) get_CommonROProperties;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusNode*/SelfOuter* self, ISClusProperties** ppProperties) get_PrivateROProperties;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusNode*/SelfOuter* self, BSTR* pbstrName) get_Name;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusNode*/SelfOuter* self, uint* phandle) get_Handle;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusNode*/SelfOuter* self, BSTR* pbstrNodeID) get_NodeID;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusNode*/SelfOuter* self, CLUSTER_NODE_STATE* dwState) get_State;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusNode*/SelfOuter* self) Pause;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusNode*/SelfOuter* self) Resume;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusNode*/SelfOuter* self) Evict;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusNode*/SelfOuter* self, ISClusResGroups** ppResourceGroups) get_ResourceGroups;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusNode*/SelfOuter* self, ISCluster** ppCluster) get_Cluster;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusNode*/SelfOuter* self, ISClusNodeNetInterfaces** ppClusNetInterfaces) get_NetInterfaces;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ISClusProperties** ppProperties) get_CommonProperties;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ISClusProperties** ppProperties) get_PrivateProperties;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ISClusProperties** ppProperties) get_CommonROProperties;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ISClusProperties** ppProperties) get_PrivateROProperties;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pbstrName) get_Name;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint* phandle) get_Handle;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pbstrNodeID) get_NodeID;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, CLUSTER_NODE_STATE* dwState) get_State;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Pause;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Resume;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Evict;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ISClusResGroups** ppResourceGroups) get_ResourceGroups;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ISCluster** ppCluster) get_Cluster;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ISClusNodeNetInterfaces** ppClusNetInterfaces) get_NetInterfaces;
 	}
 
 
@@ -4847,10 +4847,10 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusNodes*/SelfOuter* self, int32* plCount) get_Count;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusNodes*/SelfOuter* self, IUnknown** retval) get__NewEnum;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusNodes*/SelfOuter* self) Refresh;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusNodes*/SelfOuter* self, VARIANT varIndex, ISClusNode** ppNode) get_Item;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* plCount) get_Count;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IUnknown** retval) get__NewEnum;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Refresh;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT varIndex, ISClusNode** ppNode) get_Item;
 	}
 
 
@@ -4871,17 +4871,17 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusNetwork*/SelfOuter* self, ISClusProperties** ppProperties) get_CommonProperties;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusNetwork*/SelfOuter* self, ISClusProperties** ppProperties) get_PrivateProperties;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusNetwork*/SelfOuter* self, ISClusProperties** ppProperties) get_CommonROProperties;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusNetwork*/SelfOuter* self, ISClusProperties** ppProperties) get_PrivateROProperties;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusNetwork*/SelfOuter* self, uint* phandle) get_Handle;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusNetwork*/SelfOuter* self, BSTR* pbstrName) get_Name;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusNetwork*/SelfOuter* self, BSTR bstrNetworkName) put_Name;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusNetwork*/SelfOuter* self, BSTR* pbstrNetworkID) get_NetworkID;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusNetwork*/SelfOuter* self, CLUSTER_NETWORK_STATE* dwState) get_State;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusNetwork*/SelfOuter* self, ISClusNetworkNetInterfaces** ppClusNetInterfaces) get_NetInterfaces;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusNetwork*/SelfOuter* self, ISCluster** ppCluster) get_Cluster;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ISClusProperties** ppProperties) get_CommonProperties;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ISClusProperties** ppProperties) get_PrivateProperties;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ISClusProperties** ppProperties) get_CommonROProperties;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ISClusProperties** ppProperties) get_PrivateROProperties;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint* phandle) get_Handle;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pbstrName) get_Name;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrNetworkName) put_Name;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pbstrNetworkID) get_NetworkID;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, CLUSTER_NETWORK_STATE* dwState) get_State;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ISClusNetworkNetInterfaces** ppClusNetInterfaces) get_NetInterfaces;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ISCluster** ppCluster) get_Cluster;
 	}
 
 
@@ -4916,10 +4916,10 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusNetworks*/SelfOuter* self, int32* plCount) get_Count;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusNetworks*/SelfOuter* self, IUnknown** retval) get__NewEnum;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusNetworks*/SelfOuter* self) Refresh;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusNetworks*/SelfOuter* self, VARIANT varIndex, ISClusNetwork** ppClusNetwork) get_Item;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* plCount) get_Count;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IUnknown** retval) get__NewEnum;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Refresh;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT varIndex, ISClusNetwork** ppClusNetwork) get_Item;
 	}
 
 
@@ -4940,14 +4940,14 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusNetInterface*/SelfOuter* self, ISClusProperties** ppProperties) get_CommonProperties;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusNetInterface*/SelfOuter* self, ISClusProperties** ppProperties) get_PrivateProperties;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusNetInterface*/SelfOuter* self, ISClusProperties** ppProperties) get_CommonROProperties;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusNetInterface*/SelfOuter* self, ISClusProperties** ppProperties) get_PrivateROProperties;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusNetInterface*/SelfOuter* self, BSTR* pbstrName) get_Name;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusNetInterface*/SelfOuter* self, uint* phandle) get_Handle;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusNetInterface*/SelfOuter* self, CLUSTER_NETINTERFACE_STATE* dwState) get_State;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusNetInterface*/SelfOuter* self, ISCluster** ppCluster) get_Cluster;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ISClusProperties** ppProperties) get_CommonProperties;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ISClusProperties** ppProperties) get_PrivateProperties;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ISClusProperties** ppProperties) get_CommonROProperties;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ISClusProperties** ppProperties) get_PrivateROProperties;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pbstrName) get_Name;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint* phandle) get_Handle;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, CLUSTER_NETINTERFACE_STATE* dwState) get_State;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ISCluster** ppCluster) get_Cluster;
 	}
 
 
@@ -4976,10 +4976,10 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusNetInterfaces*/SelfOuter* self, int32* plCount) get_Count;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusNetInterfaces*/SelfOuter* self, IUnknown** retval) get__NewEnum;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusNetInterfaces*/SelfOuter* self) Refresh;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusNetInterfaces*/SelfOuter* self, VARIANT varIndex, ISClusNetInterface** ppClusNetInterface) get_Item;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* plCount) get_Count;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IUnknown** retval) get__NewEnum;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Refresh;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT varIndex, ISClusNetInterface** ppClusNetInterface) get_Item;
 	}
 
 
@@ -5000,10 +5000,10 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusNodeNetInterfaces*/SelfOuter* self, int32* plCount) get_Count;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusNodeNetInterfaces*/SelfOuter* self, IUnknown** retval) get__NewEnum;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusNodeNetInterfaces*/SelfOuter* self) Refresh;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusNodeNetInterfaces*/SelfOuter* self, VARIANT varIndex, ISClusNetInterface** ppClusNetInterface) get_Item;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* plCount) get_Count;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IUnknown** retval) get__NewEnum;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Refresh;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT varIndex, ISClusNetInterface** ppClusNetInterface) get_Item;
 	}
 
 
@@ -5024,10 +5024,10 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusNetworkNetInterfaces*/SelfOuter* self, int32* plCount) get_Count;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusNetworkNetInterfaces*/SelfOuter* self, IUnknown** retval) get__NewEnum;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusNetworkNetInterfaces*/SelfOuter* self) Refresh;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusNetworkNetInterfaces*/SelfOuter* self, VARIANT varIndex, ISClusNetInterface** ppClusNetInterface) get_Item;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* plCount) get_Count;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IUnknown** retval) get__NewEnum;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Refresh;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT varIndex, ISClusNetInterface** ppClusNetInterface) get_Item;
 	}
 
 
@@ -5048,22 +5048,22 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusResGroup*/SelfOuter* self, ISClusProperties** ppProperties) get_CommonProperties;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusResGroup*/SelfOuter* self, ISClusProperties** ppProperties) get_PrivateProperties;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusResGroup*/SelfOuter* self, ISClusProperties** ppProperties) get_CommonROProperties;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusResGroup*/SelfOuter* self, ISClusProperties** ppProperties) get_PrivateROProperties;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusResGroup*/SelfOuter* self, uint* phandle) get_Handle;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusResGroup*/SelfOuter* self, BSTR* pbstrName) get_Name;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusResGroup*/SelfOuter* self, BSTR bstrGroupName) put_Name;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusResGroup*/SelfOuter* self, CLUSTER_GROUP_STATE* dwState) get_State;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusResGroup*/SelfOuter* self, ISClusNode** ppOwnerNode) get_OwnerNode;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusResGroup*/SelfOuter* self, ISClusResGroupResources** ppClusterGroupResources) get_Resources;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusResGroup*/SelfOuter* self, ISClusResGroupPreferredOwnerNodes** ppOwnerNodes) get_PreferredOwnerNodes;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusResGroup*/SelfOuter* self) Delete;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusResGroup*/SelfOuter* self, VARIANT varTimeout, VARIANT varNode, VARIANT* pvarPending) Online;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusResGroup*/SelfOuter* self, VARIANT varTimeout, VARIANT varNode, VARIANT* pvarPending) Move;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusResGroup*/SelfOuter* self, VARIANT varTimeout, VARIANT* pvarPending) Offline;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusResGroup*/SelfOuter* self, ISCluster** ppCluster) get_Cluster;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ISClusProperties** ppProperties) get_CommonProperties;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ISClusProperties** ppProperties) get_PrivateProperties;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ISClusProperties** ppProperties) get_CommonROProperties;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ISClusProperties** ppProperties) get_PrivateROProperties;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint* phandle) get_Handle;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pbstrName) get_Name;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrGroupName) put_Name;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, CLUSTER_GROUP_STATE* dwState) get_State;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ISClusNode** ppOwnerNode) get_OwnerNode;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ISClusResGroupResources** ppClusterGroupResources) get_Resources;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ISClusResGroupPreferredOwnerNodes** ppOwnerNodes) get_PreferredOwnerNodes;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Delete;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT varTimeout, VARIANT varNode, VARIANT* pvarPending) Online;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT varTimeout, VARIANT varNode, VARIANT* pvarPending) Move;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT varTimeout, VARIANT* pvarPending) Offline;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ISCluster** ppCluster) get_Cluster;
 	}
 
 
@@ -5108,12 +5108,12 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusResGroups*/SelfOuter* self, int32* plCount) get_Count;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusResGroups*/SelfOuter* self, IUnknown** retval) get__NewEnum;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusResGroups*/SelfOuter* self) Refresh;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusResGroups*/SelfOuter* self, VARIANT varIndex, ISClusResGroup** ppClusResGroup) get_Item;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusResGroups*/SelfOuter* self, BSTR bstrResourceGroupName, ISClusResGroup** ppResourceGroup) CreateItem;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusResGroups*/SelfOuter* self, VARIANT varIndex) DeleteItem;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* plCount) get_Count;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IUnknown** retval) get__NewEnum;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Refresh;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT varIndex, ISClusResGroup** ppClusResGroup) get_Item;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrResourceGroupName, ISClusResGroup** ppResourceGroup) CreateItem;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT varIndex) DeleteItem;
 	}
 
 
@@ -5138,38 +5138,38 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusResource*/SelfOuter* self, ISClusProperties** ppProperties) get_CommonProperties;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusResource*/SelfOuter* self, ISClusProperties** ppProperties) get_PrivateProperties;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusResource*/SelfOuter* self, ISClusProperties** ppProperties) get_CommonROProperties;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusResource*/SelfOuter* self, ISClusProperties** ppProperties) get_PrivateROProperties;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusResource*/SelfOuter* self, uint* phandle) get_Handle;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusResource*/SelfOuter* self, BSTR* pbstrName) get_Name;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusResource*/SelfOuter* self, BSTR bstrResourceName) put_Name;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusResource*/SelfOuter* self, CLUSTER_RESOURCE_STATE* dwState) get_State;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusResource*/SelfOuter* self, CLUS_FLAGS* dwCoreFlag) get_CoreFlag;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusResource*/SelfOuter* self, BSTR bstrDevicePath, int32 lMaxLogSize) BecomeQuorumResource;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusResource*/SelfOuter* self) Delete;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusResource*/SelfOuter* self) Fail;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusResource*/SelfOuter* self, int32 nTimeout, VARIANT* pvarPending) Online;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusResource*/SelfOuter* self, int32 nTimeout, VARIANT* pvarPending) Offline;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusResource*/SelfOuter* self, ISClusResGroup* pResourceGroup) ChangeResourceGroup;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusResource*/SelfOuter* self, ISClusNode* pNode) AddResourceNode;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusResource*/SelfOuter* self, ISClusNode* pNode) RemoveResourceNode;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusResource*/SelfOuter* self, ISClusResource* pResource, VARIANT* pvarDependent) CanResourceBeDependent;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusResource*/SelfOuter* self, ISClusResPossibleOwnerNodes** ppOwnerNodes) get_PossibleOwnerNodes;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusResource*/SelfOuter* self, ISClusResDependencies** ppResDependencies) get_Dependencies;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusResource*/SelfOuter* self, ISClusResDependents** ppResDependents) get_Dependents;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusResource*/SelfOuter* self, ISClusResGroup** ppResGroup) get_Group;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusResource*/SelfOuter* self, ISClusNode** ppOwnerNode) get_OwnerNode;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusResource*/SelfOuter* self, ISCluster** ppCluster) get_Cluster;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusResource*/SelfOuter* self, CLUSTER_RESOURCE_CLASS* prcClassInfo) get_ClassInfo;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusResource*/SelfOuter* self, ISClusDisk** ppDisk) get_Disk;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusResource*/SelfOuter* self, ISClusRegistryKeys** ppRegistryKeys) get_RegistryKeys;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusResource*/SelfOuter* self, ISClusCryptoKeys** ppCryptoKeys) get_CryptoKeys;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusResource*/SelfOuter* self, BSTR* pbstrTypeName) get_TypeName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusResource*/SelfOuter* self, ISClusResType** ppResourceType) get_Type;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusResource*/SelfOuter* self, BOOL* pbMaintenanceMode) get_MaintenanceMode;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusResource*/SelfOuter* self, BOOL bMaintenanceMode) put_MaintenanceMode;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ISClusProperties** ppProperties) get_CommonProperties;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ISClusProperties** ppProperties) get_PrivateProperties;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ISClusProperties** ppProperties) get_CommonROProperties;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ISClusProperties** ppProperties) get_PrivateROProperties;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint* phandle) get_Handle;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pbstrName) get_Name;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrResourceName) put_Name;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, CLUSTER_RESOURCE_STATE* dwState) get_State;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, CLUS_FLAGS* dwCoreFlag) get_CoreFlag;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrDevicePath, int32 lMaxLogSize) BecomeQuorumResource;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Delete;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Fail;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 nTimeout, VARIANT* pvarPending) Online;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 nTimeout, VARIANT* pvarPending) Offline;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ISClusResGroup* pResourceGroup) ChangeResourceGroup;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ISClusNode* pNode) AddResourceNode;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ISClusNode* pNode) RemoveResourceNode;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ISClusResource* pResource, VARIANT* pvarDependent) CanResourceBeDependent;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ISClusResPossibleOwnerNodes** ppOwnerNodes) get_PossibleOwnerNodes;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ISClusResDependencies** ppResDependencies) get_Dependencies;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ISClusResDependents** ppResDependents) get_Dependents;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ISClusResGroup** ppResGroup) get_Group;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ISClusNode** ppOwnerNode) get_OwnerNode;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ISCluster** ppCluster) get_Cluster;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, CLUSTER_RESOURCE_CLASS* prcClassInfo) get_ClassInfo;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ISClusDisk** ppDisk) get_Disk;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ISClusRegistryKeys** ppRegistryKeys) get_RegistryKeys;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ISClusCryptoKeys** ppCryptoKeys) get_CryptoKeys;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pbstrTypeName) get_TypeName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ISClusResType** ppResourceType) get_Type;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BOOL* pbMaintenanceMode) get_MaintenanceMode;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BOOL bMaintenanceMode) put_MaintenanceMode;
 	}
 
 
@@ -5246,14 +5246,14 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusResDependencies*/SelfOuter* self, int32* plCount) get_Count;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusResDependencies*/SelfOuter* self, IUnknown** retval) get__NewEnum;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusResDependencies*/SelfOuter* self) Refresh;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusResDependencies*/SelfOuter* self, VARIANT varIndex, ISClusResource** ppClusResource) get_Item;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusResDependencies*/SelfOuter* self, BSTR bstrResourceName, BSTR bstrResourceType, CLUSTER_RESOURCE_CREATE_FLAGS dwFlags, ISClusResource** ppClusterResource) CreateItem;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusResDependencies*/SelfOuter* self, VARIANT varIndex) DeleteItem;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusResDependencies*/SelfOuter* self, ISClusResource* pResource) AddItem;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusResDependencies*/SelfOuter* self, VARIANT varIndex) RemoveItem;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* plCount) get_Count;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IUnknown** retval) get__NewEnum;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Refresh;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT varIndex, ISClusResource** ppClusResource) get_Item;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrResourceName, BSTR bstrResourceType, CLUSTER_RESOURCE_CREATE_FLAGS dwFlags, ISClusResource** ppClusterResource) CreateItem;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT varIndex) DeleteItem;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ISClusResource* pResource) AddItem;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT varIndex) RemoveItem;
 	}
 
 
@@ -5282,12 +5282,12 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusResGroupResources*/SelfOuter* self, int32* plCount) get_Count;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusResGroupResources*/SelfOuter* self, IUnknown** retval) get__NewEnum;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusResGroupResources*/SelfOuter* self) Refresh;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusResGroupResources*/SelfOuter* self, VARIANT varIndex, ISClusResource** ppClusResource) get_Item;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusResGroupResources*/SelfOuter* self, BSTR bstrResourceName, BSTR bstrResourceType, CLUSTER_RESOURCE_CREATE_FLAGS dwFlags, ISClusResource** ppClusterResource) CreateItem;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusResGroupResources*/SelfOuter* self, VARIANT varIndex) DeleteItem;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* plCount) get_Count;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IUnknown** retval) get__NewEnum;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Refresh;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT varIndex, ISClusResource** ppClusResource) get_Item;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrResourceName, BSTR bstrResourceType, CLUSTER_RESOURCE_CREATE_FLAGS dwFlags, ISClusResource** ppClusterResource) CreateItem;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT varIndex) DeleteItem;
 	}
 
 
@@ -5312,12 +5312,12 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusResTypeResources*/SelfOuter* self, int32* plCount) get_Count;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusResTypeResources*/SelfOuter* self, IUnknown** retval) get__NewEnum;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusResTypeResources*/SelfOuter* self) Refresh;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusResTypeResources*/SelfOuter* self, VARIANT varIndex, ISClusResource** ppClusResource) get_Item;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusResTypeResources*/SelfOuter* self, BSTR bstrResourceName, BSTR bstrGroupName, CLUSTER_RESOURCE_CREATE_FLAGS dwFlags, ISClusResource** ppClusterResource) CreateItem;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusResTypeResources*/SelfOuter* self, VARIANT varIndex) DeleteItem;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* plCount) get_Count;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IUnknown** retval) get__NewEnum;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Refresh;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT varIndex, ISClusResource** ppClusResource) get_Item;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrResourceName, BSTR bstrGroupName, CLUSTER_RESOURCE_CREATE_FLAGS dwFlags, ISClusResource** ppClusterResource) CreateItem;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT varIndex) DeleteItem;
 	}
 
 
@@ -5342,12 +5342,12 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusResources*/SelfOuter* self, int32* plCount) get_Count;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusResources*/SelfOuter* self, IUnknown** retval) get__NewEnum;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusResources*/SelfOuter* self) Refresh;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusResources*/SelfOuter* self, VARIANT varIndex, ISClusResource** ppClusResource) get_Item;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusResources*/SelfOuter* self, BSTR bstrResourceName, BSTR bstrResourceType, BSTR bstrGroupName, CLUSTER_RESOURCE_CREATE_FLAGS dwFlags, ISClusResource** ppClusterResource) CreateItem;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusResources*/SelfOuter* self, VARIANT varIndex) DeleteItem;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* plCount) get_Count;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IUnknown** retval) get__NewEnum;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Refresh;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT varIndex, ISClusResource** ppClusResource) get_Item;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrResourceName, BSTR bstrResourceType, BSTR bstrGroupName, CLUSTER_RESOURCE_CREATE_FLAGS dwFlags, ISClusResource** ppClusterResource) CreateItem;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT varIndex) DeleteItem;
 	}
 
 
@@ -5372,15 +5372,15 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusResGroupPreferredOwnerNodes*/SelfOuter* self, int32* plCount) get_Count;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusResGroupPreferredOwnerNodes*/SelfOuter* self, IUnknown** retval) get__NewEnum;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusResGroupPreferredOwnerNodes*/SelfOuter* self) Refresh;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusResGroupPreferredOwnerNodes*/SelfOuter* self, VARIANT varIndex, ISClusNode** ppNode) get_Item;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusResGroupPreferredOwnerNodes*/SelfOuter* self, ISClusNode* pNode, int32 nPosition) InsertItem;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusResGroupPreferredOwnerNodes*/SelfOuter* self, VARIANT varIndex) RemoveItem;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusResGroupPreferredOwnerNodes*/SelfOuter* self, VARIANT* pvarModified) get_Modified;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusResGroupPreferredOwnerNodes*/SelfOuter* self) SaveChanges;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusResGroupPreferredOwnerNodes*/SelfOuter* self, ISClusNode* pNode) AddItem;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* plCount) get_Count;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IUnknown** retval) get__NewEnum;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Refresh;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT varIndex, ISClusNode** ppNode) get_Item;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ISClusNode* pNode, int32 nPosition) InsertItem;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT varIndex) RemoveItem;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT* pvarModified) get_Modified;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) SaveChanges;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ISClusNode* pNode) AddItem;
 	}
 
 
@@ -5411,13 +5411,13 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusResPossibleOwnerNodes*/SelfOuter* self, int32* plCount) get_Count;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusResPossibleOwnerNodes*/SelfOuter* self, IUnknown** retval) get__NewEnum;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusResPossibleOwnerNodes*/SelfOuter* self) Refresh;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusResPossibleOwnerNodes*/SelfOuter* self, VARIANT varIndex, ISClusNode** ppNode) get_Item;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusResPossibleOwnerNodes*/SelfOuter* self, ISClusNode* pNode) AddItem;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusResPossibleOwnerNodes*/SelfOuter* self, VARIANT varIndex) RemoveItem;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusResPossibleOwnerNodes*/SelfOuter* self, VARIANT* pvarModified) get_Modified;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* plCount) get_Count;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IUnknown** retval) get__NewEnum;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Refresh;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT varIndex, ISClusNode** ppNode) get_Item;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ISClusNode* pNode) AddItem;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT varIndex) RemoveItem;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT* pvarModified) get_Modified;
 	}
 
 
@@ -5444,10 +5444,10 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusResTypePossibleOwnerNodes*/SelfOuter* self, int32* plCount) get_Count;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusResTypePossibleOwnerNodes*/SelfOuter* self, IUnknown** retval) get__NewEnum;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusResTypePossibleOwnerNodes*/SelfOuter* self) Refresh;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusResTypePossibleOwnerNodes*/SelfOuter* self, VARIANT varIndex, ISClusNode** ppNode) get_Item;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* plCount) get_Count;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IUnknown** retval) get__NewEnum;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Refresh;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT varIndex, ISClusNode** ppNode) get_Item;
 	}
 
 
@@ -5468,16 +5468,16 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusResType*/SelfOuter* self, ISClusProperties** ppProperties) get_CommonProperties;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusResType*/SelfOuter* self, ISClusProperties** ppProperties) get_PrivateProperties;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusResType*/SelfOuter* self, ISClusProperties** ppProperties) get_CommonROProperties;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusResType*/SelfOuter* self, ISClusProperties** ppProperties) get_PrivateROProperties;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusResType*/SelfOuter* self, BSTR* pbstrName) get_Name;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusResType*/SelfOuter* self) Delete;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusResType*/SelfOuter* self, ISCluster** ppCluster) get_Cluster;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusResType*/SelfOuter* self, ISClusResTypeResources** ppClusterResTypeResources) get_Resources;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusResType*/SelfOuter* self, ISClusResTypePossibleOwnerNodes** ppOwnerNodes) get_PossibleOwnerNodes;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusResType*/SelfOuter* self, ISClusDisks** ppAvailableDisks) get_AvailableDisks;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ISClusProperties** ppProperties) get_CommonProperties;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ISClusProperties** ppProperties) get_PrivateProperties;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ISClusProperties** ppProperties) get_CommonROProperties;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ISClusProperties** ppProperties) get_PrivateROProperties;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pbstrName) get_Name;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Delete;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ISCluster** ppCluster) get_Cluster;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ISClusResTypeResources** ppClusterResTypeResources) get_Resources;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ISClusResTypePossibleOwnerNodes** ppOwnerNodes) get_PossibleOwnerNodes;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ISClusDisks** ppAvailableDisks) get_AvailableDisks;
 	}
 
 
@@ -5510,12 +5510,12 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusResTypes*/SelfOuter* self, int32* plCount) get_Count;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusResTypes*/SelfOuter* self, IUnknown** retval) get__NewEnum;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusResTypes*/SelfOuter* self) Refresh;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusResTypes*/SelfOuter* self, VARIANT varIndex, ISClusResType** ppClusResType) get_Item;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusResTypes*/SelfOuter* self, BSTR bstrResourceTypeName, BSTR bstrDisplayName, BSTR bstrResourceTypeDll, int32 dwLooksAlivePollInterval, int32 dwIsAlivePollInterval, ISClusResType** ppResourceType) CreateItem;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusResTypes*/SelfOuter* self, VARIANT varIndex) DeleteItem;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* plCount) get_Count;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IUnknown** retval) get__NewEnum;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Refresh;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT varIndex, ISClusResType** ppClusResType) get_Item;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrResourceTypeName, BSTR bstrDisplayName, BSTR bstrResourceTypeDll, int32 dwLooksAlivePollInterval, int32 dwIsAlivePollInterval, ISClusResType** ppResourceType) CreateItem;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT varIndex) DeleteItem;
 	}
 
 
@@ -5540,21 +5540,21 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusProperty*/SelfOuter* self, BSTR* pbstrName) get_Name;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusProperty*/SelfOuter* self, int32* pLength) get_Length;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusProperty*/SelfOuter* self, int32* pCount) get_ValueCount;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusProperty*/SelfOuter* self, ISClusPropertyValues** ppClusterPropertyValues) get_Values;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusProperty*/SelfOuter* self, VARIANT* pvarValue) get_Value;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusProperty*/SelfOuter* self, VARIANT varValue) put_Value;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusProperty*/SelfOuter* self, CLUSTER_PROPERTY_TYPE* pType) get_Type;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusProperty*/SelfOuter* self, CLUSTER_PROPERTY_TYPE Type) put_Type;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusProperty*/SelfOuter* self, CLUSTER_PROPERTY_FORMAT* pFormat) get_Format;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusProperty*/SelfOuter* self, CLUSTER_PROPERTY_FORMAT Format) put_Format;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusProperty*/SelfOuter* self, VARIANT* pvarReadOnly) get_ReadOnly;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusProperty*/SelfOuter* self, VARIANT* pvarPrivate) get_Private;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusProperty*/SelfOuter* self, VARIANT* pvarCommon) get_Common;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusProperty*/SelfOuter* self, VARIANT* pvarModified) get_Modified;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusProperty*/SelfOuter* self) UseDefaultValue;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pbstrName) get_Name;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* pLength) get_Length;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* pCount) get_ValueCount;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ISClusPropertyValues** ppClusterPropertyValues) get_Values;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT* pvarValue) get_Value;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT varValue) put_Value;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, CLUSTER_PROPERTY_TYPE* pType) get_Type;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, CLUSTER_PROPERTY_TYPE Type) put_Type;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, CLUSTER_PROPERTY_FORMAT* pFormat) get_Format;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, CLUSTER_PROPERTY_FORMAT Format) put_Format;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT* pvarReadOnly) get_ReadOnly;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT* pvarPrivate) get_Private;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT* pvarCommon) get_Common;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT* pvarModified) get_Modified;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) UseDefaultValue;
 	}
 
 
@@ -5597,15 +5597,15 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusPropertyValue*/SelfOuter* self, VARIANT* pvarValue) get_Value;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusPropertyValue*/SelfOuter* self, VARIANT varValue) put_Value;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusPropertyValue*/SelfOuter* self, CLUSTER_PROPERTY_TYPE* pType) get_Type;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusPropertyValue*/SelfOuter* self, CLUSTER_PROPERTY_TYPE Type) put_Type;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusPropertyValue*/SelfOuter* self, CLUSTER_PROPERTY_FORMAT* pFormat) get_Format;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusPropertyValue*/SelfOuter* self, CLUSTER_PROPERTY_FORMAT Format) put_Format;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusPropertyValue*/SelfOuter* self, int32* pLength) get_Length;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusPropertyValue*/SelfOuter* self, int32* pCount) get_DataCount;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusPropertyValue*/SelfOuter* self, ISClusPropertyValueData** ppClusterPropertyValueData) get_Data;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT* pvarValue) get_Value;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT varValue) put_Value;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, CLUSTER_PROPERTY_TYPE* pType) get_Type;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, CLUSTER_PROPERTY_TYPE Type) put_Type;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, CLUSTER_PROPERTY_FORMAT* pFormat) get_Format;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, CLUSTER_PROPERTY_FORMAT Format) put_Format;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* pLength) get_Length;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* pCount) get_DataCount;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ISClusPropertyValueData** ppClusterPropertyValueData) get_Data;
 	}
 
 
@@ -5636,11 +5636,11 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusPropertyValues*/SelfOuter* self, int32* plCount) get_Count;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusPropertyValues*/SelfOuter* self, IUnknown** retval) get__NewEnum;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusPropertyValues*/SelfOuter* self, VARIANT varIndex, ISClusPropertyValue** ppPropertyValue) get_Item;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusPropertyValues*/SelfOuter* self, BSTR bstrName, VARIANT varValue, ISClusPropertyValue** ppPropertyValue) CreateItem;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusPropertyValues*/SelfOuter* self, VARIANT varIndex) RemoveItem;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* plCount) get_Count;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IUnknown** retval) get__NewEnum;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT varIndex, ISClusPropertyValue** ppPropertyValue) get_Item;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrName, VARIANT varValue, ISClusPropertyValue** ppPropertyValue) CreateItem;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT varIndex) RemoveItem;
 	}
 
 
@@ -5663,17 +5663,17 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusProperties*/SelfOuter* self, int32* plCount) get_Count;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusProperties*/SelfOuter* self, IUnknown** retval) get__NewEnum;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusProperties*/SelfOuter* self) Refresh;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusProperties*/SelfOuter* self, VARIANT varIndex, ISClusProperty** ppClusProperty) get_Item;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusProperties*/SelfOuter* self, BSTR bstrName, VARIANT varValue, ISClusProperty** pProperty) CreateItem;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusProperties*/SelfOuter* self, VARIANT varIndex) UseDefaultValue;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusProperties*/SelfOuter* self, VARIANT* pvarStatusCode) SaveChanges;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusProperties*/SelfOuter* self, VARIANT* pvarReadOnly) get_ReadOnly;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusProperties*/SelfOuter* self, VARIANT* pvarPrivate) get_Private;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusProperties*/SelfOuter* self, VARIANT* pvarCommon) get_Common;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusProperties*/SelfOuter* self, VARIANT* pvarModified) get_Modified;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* plCount) get_Count;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IUnknown** retval) get__NewEnum;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Refresh;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT varIndex, ISClusProperty** ppClusProperty) get_Item;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrName, VARIANT varValue, ISClusProperty** pProperty) CreateItem;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT varIndex) UseDefaultValue;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT* pvarStatusCode) SaveChanges;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT* pvarReadOnly) get_ReadOnly;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT* pvarPrivate) get_Private;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT* pvarCommon) get_Common;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT* pvarModified) get_Modified;
 	}
 
 
@@ -5708,11 +5708,11 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusPropertyValueData*/SelfOuter* self, int32* plCount) get_Count;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusPropertyValueData*/SelfOuter* self, IUnknown** retval) get__NewEnum;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusPropertyValueData*/SelfOuter* self, VARIANT varIndex, VARIANT* pvarValue) get_Item;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusPropertyValueData*/SelfOuter* self, VARIANT varValue, VARIANT* pvarData) CreateItem;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusPropertyValueData*/SelfOuter* self, VARIANT varIndex) RemoveItem;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* plCount) get_Count;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IUnknown** retval) get__NewEnum;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT varIndex, VARIANT* pvarValue) get_Item;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT varValue, VARIANT* pvarData) CreateItem;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT varIndex) RemoveItem;
 	}
 
 
@@ -5735,13 +5735,13 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusPartition*/SelfOuter* self, int32* plFlags) get_Flags;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusPartition*/SelfOuter* self, BSTR* pbstrDeviceName) get_DeviceName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusPartition*/SelfOuter* self, BSTR* pbstrVolumeLabel) get_VolumeLabel;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusPartition*/SelfOuter* self, int32* plSerialNumber) get_SerialNumber;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusPartition*/SelfOuter* self, int32* plMaximumComponentLength) get_MaximumComponentLength;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusPartition*/SelfOuter* self, int32* plFileSystemFlags) get_FileSystemFlags;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusPartition*/SelfOuter* self, BSTR* pbstrFileSystem) get_FileSystem;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* plFlags) get_Flags;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pbstrDeviceName) get_DeviceName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pbstrVolumeLabel) get_VolumeLabel;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* plSerialNumber) get_SerialNumber;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* plMaximumComponentLength) get_MaximumComponentLength;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* plFileSystemFlags) get_FileSystemFlags;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pbstrFileSystem) get_FileSystem;
 	}
 
 
@@ -5768,11 +5768,11 @@ public static
 
 	[CRepr]public struct VTable : ISClusPartition.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusPartitionEx*/SelfOuter* self, int32* plTotalSize) get_TotalSize;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusPartitionEx*/SelfOuter* self, int32* plFreeSpace) get_FreeSpace;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusPartitionEx*/SelfOuter* self, int32* plDeviceNumber) get_DeviceNumber;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusPartitionEx*/SelfOuter* self, int32* plPartitionNumber) get_PartitionNumber;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusPartitionEx*/SelfOuter* self, BSTR* pbstrVolumeGuid) get_VolumeGuid;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* plTotalSize) get_TotalSize;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* plFreeSpace) get_FreeSpace;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* plDeviceNumber) get_DeviceNumber;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* plPartitionNumber) get_PartitionNumber;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pbstrVolumeGuid) get_VolumeGuid;
 	}
 
 
@@ -5795,9 +5795,9 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusPartitions*/SelfOuter* self, int32* plCount) get_Count;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusPartitions*/SelfOuter* self, IUnknown** retval) get__NewEnum;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusPartitions*/SelfOuter* self, VARIANT varIndex, ISClusPartition** ppPartition) get_Item;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* plCount) get_Count;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IUnknown** retval) get__NewEnum;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT varIndex, ISClusPartition** ppPartition) get_Item;
 	}
 
 
@@ -5816,10 +5816,10 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusDisk*/SelfOuter* self, int32* plSignature) get_Signature;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusDisk*/SelfOuter* self, ISClusScsiAddress** ppScsiAddress) get_ScsiAddress;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusDisk*/SelfOuter* self, int32* plDiskNumber) get_DiskNumber;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusDisk*/SelfOuter* self, ISClusPartitions** ppPartitions) get_Partitions;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* plSignature) get_Signature;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ISClusScsiAddress** ppScsiAddress) get_ScsiAddress;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* plDiskNumber) get_DiskNumber;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ISClusPartitions** ppPartitions) get_Partitions;
 	}
 
 
@@ -5840,9 +5840,9 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusDisks*/SelfOuter* self, int32* plCount) get_Count;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusDisks*/SelfOuter* self, IUnknown** retval) get__NewEnum;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusDisks*/SelfOuter* self, VARIANT varIndex, ISClusDisk** ppDisk) get_Item;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* plCount) get_Count;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IUnknown** retval) get__NewEnum;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT varIndex, ISClusDisk** ppDisk) get_Item;
 	}
 
 
@@ -5861,10 +5861,10 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusScsiAddress*/SelfOuter* self, VARIANT* pvarPortNumber) get_PortNumber;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusScsiAddress*/SelfOuter* self, VARIANT* pvarPathId) get_PathId;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusScsiAddress*/SelfOuter* self, VARIANT* pvarTargetId) get_TargetId;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusScsiAddress*/SelfOuter* self, VARIANT* pvarLun) get_Lun;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT* pvarPortNumber) get_PortNumber;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT* pvarPathId) get_PathId;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT* pvarTargetId) get_TargetId;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT* pvarLun) get_Lun;
 	}
 
 
@@ -5885,12 +5885,12 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusRegistryKeys*/SelfOuter* self, int32* plCount) get_Count;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusRegistryKeys*/SelfOuter* self, IUnknown** retval) get__NewEnum;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusRegistryKeys*/SelfOuter* self) Refresh;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusRegistryKeys*/SelfOuter* self, VARIANT varIndex, BSTR* pbstrRegistryKey) get_Item;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusRegistryKeys*/SelfOuter* self, BSTR bstrRegistryKey) AddItem;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusRegistryKeys*/SelfOuter* self, VARIANT varIndex) RemoveItem;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* plCount) get_Count;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IUnknown** retval) get__NewEnum;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Refresh;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT varIndex, BSTR* pbstrRegistryKey) get_Item;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrRegistryKey) AddItem;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT varIndex) RemoveItem;
 	}
 
 
@@ -5915,12 +5915,12 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusCryptoKeys*/SelfOuter* self, int32* plCount) get_Count;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusCryptoKeys*/SelfOuter* self, IUnknown** retval) get__NewEnum;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusCryptoKeys*/SelfOuter* self) Refresh;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusCryptoKeys*/SelfOuter* self, VARIANT varIndex, BSTR* pbstrCyrptoKey) get_Item;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusCryptoKeys*/SelfOuter* self, BSTR bstrCryptoKey) AddItem;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusCryptoKeys*/SelfOuter* self, VARIANT varIndex) RemoveItem;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* plCount) get_Count;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IUnknown** retval) get__NewEnum;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Refresh;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT varIndex, BSTR* pbstrCyrptoKey) get_Item;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrCryptoKey) AddItem;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT varIndex) RemoveItem;
 	}
 
 
@@ -5945,14 +5945,14 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusResDependents*/SelfOuter* self, int32* plCount) get_Count;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusResDependents*/SelfOuter* self, IUnknown** retval) get__NewEnum;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusResDependents*/SelfOuter* self) Refresh;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusResDependents*/SelfOuter* self, VARIANT varIndex, ISClusResource** ppClusResource) get_Item;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusResDependents*/SelfOuter* self, BSTR bstrResourceName, BSTR bstrResourceType, CLUSTER_RESOURCE_CREATE_FLAGS dwFlags, ISClusResource** ppClusterResource) CreateItem;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusResDependents*/SelfOuter* self, VARIANT varIndex) DeleteItem;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusResDependents*/SelfOuter* self, ISClusResource* pResource) AddItem;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISClusResDependents*/SelfOuter* self, VARIANT varIndex) RemoveItem;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* plCount) get_Count;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IUnknown** retval) get__NewEnum;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Refresh;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT varIndex, ISClusResource** ppClusResource) get_Item;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrResourceName, BSTR bstrResourceType, CLUSTER_RESOURCE_CREATE_FLAGS dwFlags, ISClusResource** ppClusterResource) CreateItem;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT varIndex) DeleteItem;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ISClusResource* pResource) AddItem;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT varIndex) RemoveItem;
 	}
 
 

@@ -735,17 +735,17 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDeviceModelPlugIn*/SelfOuter* self, BSTR bstrXml, uint32 cNumModels, uint32 iModelPosition) Initialize;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDeviceModelPlugIn*/SelfOuter* self, uint32* pNumChannels) GetNumChannels;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDeviceModelPlugIn*/SelfOuter* self, uint32 cColors, uint32 cChannels, float* pDeviceValues, XYZColorF* pXYZColors) DeviceToColorimetricColors;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDeviceModelPlugIn*/SelfOuter* self, uint32 cColors, uint32 cChannels, XYZColorF* pXYZColors, float* pDeviceValues) ColorimetricToDeviceColors;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDeviceModelPlugIn*/SelfOuter* self, uint32 cColors, uint32 cChannels, XYZColorF* pXYZColors, BlackInformation* pBlackInformation, float* pDeviceValues) ColorimetricToDeviceColorsWithBlack;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDeviceModelPlugIn*/SelfOuter* self, uint32 iModelPosition, IDeviceModelPlugIn* pIDeviceModelOther) SetTransformDeviceModelInfo;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDeviceModelPlugIn*/SelfOuter* self, PrimaryXYZColors* pPrimaryColor) GetPrimarySamples;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDeviceModelPlugIn*/SelfOuter* self, uint32* pNumVertices, uint32* pNumTriangles) GetGamutBoundaryMeshSize;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDeviceModelPlugIn*/SelfOuter* self, uint32 cChannels, uint32 cVertices, uint32 cTriangles, float* pVertices, GamutShellTriangle* pTriangles) GetGamutBoundaryMesh;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDeviceModelPlugIn*/SelfOuter* self, uint32* pcColors) GetNeutralAxisSize;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDeviceModelPlugIn*/SelfOuter* self, uint32 cColors, XYZColorF* pXYZColors) GetNeutralAxis;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrXml, uint32 cNumModels, uint32 iModelPosition) Initialize;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pNumChannels) GetNumChannels;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 cColors, uint32 cChannels, float* pDeviceValues, XYZColorF* pXYZColors) DeviceToColorimetricColors;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 cColors, uint32 cChannels, XYZColorF* pXYZColors, float* pDeviceValues) ColorimetricToDeviceColors;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 cColors, uint32 cChannels, XYZColorF* pXYZColors, BlackInformation* pBlackInformation, float* pDeviceValues) ColorimetricToDeviceColorsWithBlack;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 iModelPosition, IDeviceModelPlugIn* pIDeviceModelOther) SetTransformDeviceModelInfo;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PrimaryXYZColors* pPrimaryColor) GetPrimarySamples;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pNumVertices, uint32* pNumTriangles) GetGamutBoundaryMeshSize;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 cChannels, uint32 cVertices, uint32 cTriangles, float* pVertices, GamutShellTriangle* pTriangles) GetGamutBoundaryMesh;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pcColors) GetNeutralAxisSize;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 cColors, XYZColorF* pXYZColors) GetNeutralAxis;
 	}
 
 
@@ -780,8 +780,8 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGamutMapModelPlugIn*/SelfOuter* self, BSTR bstrXml, IDeviceModelPlugIn* pSrcPlugIn, IDeviceModelPlugIn* pDestPlugIn, GamutBoundaryDescription* pSrcGBD, GamutBoundaryDescription* pDestGBD) Initialize;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGamutMapModelPlugIn*/SelfOuter* self, uint32 cColors, JChColorF* pInputColors, JChColorF* pOutputColors) SourceToDestinationAppearanceColors;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrXml, IDeviceModelPlugIn* pSrcPlugIn, IDeviceModelPlugIn* pDestPlugIn, GamutBoundaryDescription* pSrcGBD, GamutBoundaryDescription* pDestGBD) Initialize;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 cColors, JChColorF* pInputColors, JChColorF* pOutputColors) SourceToDestinationAppearanceColors;
 	}
 
 

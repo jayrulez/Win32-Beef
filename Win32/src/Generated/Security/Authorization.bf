@@ -1078,57 +1078,57 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAzAuthorizationStore*/SelfOuter* self, BSTR* pbstrDescription) get_Description;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAzAuthorizationStore*/SelfOuter* self, BSTR bstrDescription) put_Description;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAzAuthorizationStore*/SelfOuter* self, BSTR* pbstrApplicationData) get_ApplicationData;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAzAuthorizationStore*/SelfOuter* self, BSTR bstrApplicationData) put_ApplicationData;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAzAuthorizationStore*/SelfOuter* self, int32* plProp) get_DomainTimeout;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAzAuthorizationStore*/SelfOuter* self, int32 lProp) put_DomainTimeout;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAzAuthorizationStore*/SelfOuter* self, int32* plProp) get_ScriptEngineTimeout;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAzAuthorizationStore*/SelfOuter* self, int32 lProp) put_ScriptEngineTimeout;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAzAuthorizationStore*/SelfOuter* self, int32* plProp) get_MaxScriptEngines;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAzAuthorizationStore*/SelfOuter* self, int32 lProp) put_MaxScriptEngines;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAzAuthorizationStore*/SelfOuter* self, BOOL* pbProp) get_GenerateAudits;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAzAuthorizationStore*/SelfOuter* self, BOOL bProp) put_GenerateAudits;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAzAuthorizationStore*/SelfOuter* self, BOOL* pfProp) get_Writable;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAzAuthorizationStore*/SelfOuter* self, int32 lPropId, VARIANT varReserved, VARIANT* pvarProp) GetProperty;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAzAuthorizationStore*/SelfOuter* self, int32 lPropId, VARIANT varProp, VARIANT varReserved) SetProperty;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAzAuthorizationStore*/SelfOuter* self, AZ_PROP_CONSTANTS lPropId, VARIANT varProp, VARIANT varReserved) AddPropertyItem;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAzAuthorizationStore*/SelfOuter* self, int32 lPropId, VARIANT varProp, VARIANT varReserved) DeletePropertyItem;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAzAuthorizationStore*/SelfOuter* self, VARIANT* pvarAdmins) get_PolicyAdministrators;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAzAuthorizationStore*/SelfOuter* self, VARIANT* pvarReaders) get_PolicyReaders;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAzAuthorizationStore*/SelfOuter* self, BSTR bstrAdmin, VARIANT varReserved) AddPolicyAdministrator;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAzAuthorizationStore*/SelfOuter* self, BSTR bstrAdmin, VARIANT varReserved) DeletePolicyAdministrator;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAzAuthorizationStore*/SelfOuter* self, BSTR bstrReader, VARIANT varReserved) AddPolicyReader;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAzAuthorizationStore*/SelfOuter* self, BSTR bstrReader, VARIANT varReserved) DeletePolicyReader;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAzAuthorizationStore*/SelfOuter* self, AZ_PROP_CONSTANTS lFlags, BSTR bstrPolicyURL, VARIANT varReserved) Initialize;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAzAuthorizationStore*/SelfOuter* self, VARIANT varReserved) UpdateCache;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAzAuthorizationStore*/SelfOuter* self, VARIANT varReserved) Delete;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAzAuthorizationStore*/SelfOuter* self, IAzApplications** ppAppCollection) get_Applications;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAzAuthorizationStore*/SelfOuter* self, BSTR bstrApplicationName, VARIANT varReserved, IAzApplication** ppApplication) OpenApplication;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAzAuthorizationStore*/SelfOuter* self, BSTR bstrApplicationName, VARIANT varReserved, IAzApplication** ppApplication) CreateApplication;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAzAuthorizationStore*/SelfOuter* self, BSTR bstrApplicationName, VARIANT varReserved) DeleteApplication;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAzAuthorizationStore*/SelfOuter* self, IAzApplicationGroups** ppGroupCollection) get_ApplicationGroups;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAzAuthorizationStore*/SelfOuter* self, BSTR bstrGroupName, VARIANT varReserved, IAzApplicationGroup** ppGroup) CreateApplicationGroup;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAzAuthorizationStore*/SelfOuter* self, BSTR bstrGroupName, VARIANT varReserved, IAzApplicationGroup** ppGroup) OpenApplicationGroup;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAzAuthorizationStore*/SelfOuter* self, BSTR bstrGroupName, VARIANT varReserved) DeleteApplicationGroup;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAzAuthorizationStore*/SelfOuter* self, int32 lFlags, VARIANT varReserved) Submit;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAzAuthorizationStore*/SelfOuter* self, VARIANT* pvarDelegatedPolicyUsers) get_DelegatedPolicyUsers;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAzAuthorizationStore*/SelfOuter* self, BSTR bstrDelegatedPolicyUser, VARIANT varReserved) AddDelegatedPolicyUser;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAzAuthorizationStore*/SelfOuter* self, BSTR bstrDelegatedPolicyUser, VARIANT varReserved) DeleteDelegatedPolicyUser;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAzAuthorizationStore*/SelfOuter* self, BSTR* pbstrTargetMachine) get_TargetMachine;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAzAuthorizationStore*/SelfOuter* self, BOOL* pbApplyStoreSacl) get_ApplyStoreSacl;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAzAuthorizationStore*/SelfOuter* self, BOOL bApplyStoreSacl) put_ApplyStoreSacl;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAzAuthorizationStore*/SelfOuter* self, VARIANT* pvarAdmins) get_PolicyAdministratorsName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAzAuthorizationStore*/SelfOuter* self, VARIANT* pvarReaders) get_PolicyReadersName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAzAuthorizationStore*/SelfOuter* self, BSTR bstrAdmin, VARIANT varReserved) AddPolicyAdministratorName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAzAuthorizationStore*/SelfOuter* self, BSTR bstrAdmin, VARIANT varReserved) DeletePolicyAdministratorName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAzAuthorizationStore*/SelfOuter* self, BSTR bstrReader, VARIANT varReserved) AddPolicyReaderName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAzAuthorizationStore*/SelfOuter* self, BSTR bstrReader, VARIANT varReserved) DeletePolicyReaderName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAzAuthorizationStore*/SelfOuter* self, VARIANT* pvarDelegatedPolicyUsers) get_DelegatedPolicyUsersName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAzAuthorizationStore*/SelfOuter* self, BSTR bstrDelegatedPolicyUser, VARIANT varReserved) AddDelegatedPolicyUserName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAzAuthorizationStore*/SelfOuter* self, BSTR bstrDelegatedPolicyUser, VARIANT varReserved) DeleteDelegatedPolicyUserName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAzAuthorizationStore*/SelfOuter* self, BSTR bstrApplicationName, int32 lFlag) CloseApplication;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pbstrDescription) get_Description;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrDescription) put_Description;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pbstrApplicationData) get_ApplicationData;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrApplicationData) put_ApplicationData;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* plProp) get_DomainTimeout;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 lProp) put_DomainTimeout;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* plProp) get_ScriptEngineTimeout;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 lProp) put_ScriptEngineTimeout;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* plProp) get_MaxScriptEngines;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 lProp) put_MaxScriptEngines;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BOOL* pbProp) get_GenerateAudits;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BOOL bProp) put_GenerateAudits;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BOOL* pfProp) get_Writable;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 lPropId, VARIANT varReserved, VARIANT* pvarProp) GetProperty;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 lPropId, VARIANT varProp, VARIANT varReserved) SetProperty;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, AZ_PROP_CONSTANTS lPropId, VARIANT varProp, VARIANT varReserved) AddPropertyItem;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 lPropId, VARIANT varProp, VARIANT varReserved) DeletePropertyItem;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT* pvarAdmins) get_PolicyAdministrators;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT* pvarReaders) get_PolicyReaders;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrAdmin, VARIANT varReserved) AddPolicyAdministrator;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrAdmin, VARIANT varReserved) DeletePolicyAdministrator;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrReader, VARIANT varReserved) AddPolicyReader;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrReader, VARIANT varReserved) DeletePolicyReader;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, AZ_PROP_CONSTANTS lFlags, BSTR bstrPolicyURL, VARIANT varReserved) Initialize;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT varReserved) UpdateCache;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT varReserved) Delete;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IAzApplications** ppAppCollection) get_Applications;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrApplicationName, VARIANT varReserved, IAzApplication** ppApplication) OpenApplication;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrApplicationName, VARIANT varReserved, IAzApplication** ppApplication) CreateApplication;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrApplicationName, VARIANT varReserved) DeleteApplication;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IAzApplicationGroups** ppGroupCollection) get_ApplicationGroups;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrGroupName, VARIANT varReserved, IAzApplicationGroup** ppGroup) CreateApplicationGroup;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrGroupName, VARIANT varReserved, IAzApplicationGroup** ppGroup) OpenApplicationGroup;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrGroupName, VARIANT varReserved) DeleteApplicationGroup;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 lFlags, VARIANT varReserved) Submit;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT* pvarDelegatedPolicyUsers) get_DelegatedPolicyUsers;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrDelegatedPolicyUser, VARIANT varReserved) AddDelegatedPolicyUser;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrDelegatedPolicyUser, VARIANT varReserved) DeleteDelegatedPolicyUser;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pbstrTargetMachine) get_TargetMachine;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BOOL* pbApplyStoreSacl) get_ApplyStoreSacl;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BOOL bApplyStoreSacl) put_ApplyStoreSacl;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT* pvarAdmins) get_PolicyAdministratorsName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT* pvarReaders) get_PolicyReadersName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrAdmin, VARIANT varReserved) AddPolicyAdministratorName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrAdmin, VARIANT varReserved) DeletePolicyAdministratorName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrReader, VARIANT varReserved) AddPolicyReaderName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrReader, VARIANT varReserved) DeletePolicyReaderName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT* pvarDelegatedPolicyUsers) get_DelegatedPolicyUsersName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrDelegatedPolicyUser, VARIANT varReserved) AddDelegatedPolicyUserName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrDelegatedPolicyUser, VARIANT varReserved) DeleteDelegatedPolicyUserName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrApplicationName, int32 lFlag) CloseApplication;
 	}
 
 
@@ -1243,8 +1243,8 @@ public static
 
 	[CRepr]public struct VTable : IAzAuthorizationStore.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAzAuthorizationStore2*/SelfOuter* self, BSTR bstrApplicationName, VARIANT varReserved, IAzApplication2** ppApplication) OpenApplication2;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAzAuthorizationStore2*/SelfOuter* self, BSTR bstrApplicationName, VARIANT varReserved, IAzApplication2** ppApplication) CreateApplication2;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrApplicationName, VARIANT varReserved, IAzApplication2** ppApplication) OpenApplication2;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrApplicationName, VARIANT varReserved, IAzApplication2** ppApplication) CreateApplication2;
 	}
 
 
@@ -1261,11 +1261,11 @@ public static
 
 	[CRepr]public struct VTable : IAzAuthorizationStore2.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAzAuthorizationStore3*/SelfOuter* self, int16* pbIsUpdateNeeded) IsUpdateNeeded;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAzAuthorizationStore3*/SelfOuter* self, int16* pbSupported) BizruleGroupSupported;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAzAuthorizationStore3*/SelfOuter* self, int32 lFunctionalLevel) UpgradeStoresFunctionalLevel;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAzAuthorizationStore3*/SelfOuter* self, int32 lFunctionalLevel, int16* pbSupported) IsFunctionalLevelUpgradeSupported;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAzAuthorizationStore3*/SelfOuter* self, int32* plMajorVersion, int32* plMinorVersion) GetSchemaVersion;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* pbIsUpdateNeeded) IsUpdateNeeded;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* pbSupported) BizruleGroupSupported;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 lFunctionalLevel) UpgradeStoresFunctionalLevel;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 lFunctionalLevel, int16* pbSupported) IsFunctionalLevelUpgradeSupported;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* plMajorVersion, int32* plMinorVersion) GetSchemaVersion;
 	}
 
 
@@ -1288,67 +1288,67 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAzApplication*/SelfOuter* self, BSTR* pbstrName) get_Name;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAzApplication*/SelfOuter* self, BSTR bstrName) put_Name;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAzApplication*/SelfOuter* self, BSTR* pbstrDescription) get_Description;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAzApplication*/SelfOuter* self, BSTR bstrDescription) put_Description;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAzApplication*/SelfOuter* self, BSTR* pbstrApplicationData) get_ApplicationData;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAzApplication*/SelfOuter* self, BSTR bstrApplicationData) put_ApplicationData;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAzApplication*/SelfOuter* self, BSTR* pbstrProp) get_AuthzInterfaceClsid;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAzApplication*/SelfOuter* self, BSTR bstrProp) put_AuthzInterfaceClsid;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAzApplication*/SelfOuter* self, BSTR* pbstrProp) get_Version;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAzApplication*/SelfOuter* self, BSTR bstrProp) put_Version;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAzApplication*/SelfOuter* self, BOOL* pbProp) get_GenerateAudits;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAzApplication*/SelfOuter* self, BOOL bProp) put_GenerateAudits;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAzApplication*/SelfOuter* self, BOOL* pbProp) get_ApplyStoreSacl;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAzApplication*/SelfOuter* self, BOOL bProp) put_ApplyStoreSacl;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAzApplication*/SelfOuter* self, BOOL* pfProp) get_Writable;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAzApplication*/SelfOuter* self, int32 lPropId, VARIANT varReserved, VARIANT* pvarProp) GetProperty;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAzApplication*/SelfOuter* self, int32 lPropId, VARIANT varProp, VARIANT varReserved) SetProperty;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAzApplication*/SelfOuter* self, VARIANT* pvarAdmins) get_PolicyAdministrators;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAzApplication*/SelfOuter* self, VARIANT* pvarReaders) get_PolicyReaders;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAzApplication*/SelfOuter* self, BSTR bstrAdmin, VARIANT varReserved) AddPolicyAdministrator;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAzApplication*/SelfOuter* self, BSTR bstrAdmin, VARIANT varReserved) DeletePolicyAdministrator;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAzApplication*/SelfOuter* self, BSTR bstrReader, VARIANT varReserved) AddPolicyReader;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAzApplication*/SelfOuter* self, BSTR bstrReader, VARIANT varReserved) DeletePolicyReader;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAzApplication*/SelfOuter* self, IAzScopes** ppScopeCollection) get_Scopes;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAzApplication*/SelfOuter* self, BSTR bstrScopeName, VARIANT varReserved, IAzScope** ppScope) OpenScope;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAzApplication*/SelfOuter* self, BSTR bstrScopeName, VARIANT varReserved, IAzScope** ppScope) CreateScope;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAzApplication*/SelfOuter* self, BSTR bstrScopeName, VARIANT varReserved) DeleteScope;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAzApplication*/SelfOuter* self, IAzOperations** ppOperationCollection) get_Operations;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAzApplication*/SelfOuter* self, BSTR bstrOperationName, VARIANT varReserved, IAzOperation** ppOperation) OpenOperation;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAzApplication*/SelfOuter* self, BSTR bstrOperationName, VARIANT varReserved, IAzOperation** ppOperation) CreateOperation;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAzApplication*/SelfOuter* self, BSTR bstrOperationName, VARIANT varReserved) DeleteOperation;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAzApplication*/SelfOuter* self, IAzTasks** ppTaskCollection) get_Tasks;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAzApplication*/SelfOuter* self, BSTR bstrTaskName, VARIANT varReserved, IAzTask** ppTask) OpenTask;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAzApplication*/SelfOuter* self, BSTR bstrTaskName, VARIANT varReserved, IAzTask** ppTask) CreateTask;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAzApplication*/SelfOuter* self, BSTR bstrTaskName, VARIANT varReserved) DeleteTask;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAzApplication*/SelfOuter* self, IAzApplicationGroups** ppGroupCollection) get_ApplicationGroups;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAzApplication*/SelfOuter* self, BSTR bstrGroupName, VARIANT varReserved, IAzApplicationGroup** ppGroup) OpenApplicationGroup;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAzApplication*/SelfOuter* self, BSTR bstrGroupName, VARIANT varReserved, IAzApplicationGroup** ppGroup) CreateApplicationGroup;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAzApplication*/SelfOuter* self, BSTR bstrGroupName, VARIANT varReserved) DeleteApplicationGroup;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAzApplication*/SelfOuter* self, IAzRoles** ppRoleCollection) get_Roles;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAzApplication*/SelfOuter* self, BSTR bstrRoleName, VARIANT varReserved, IAzRole** ppRole) OpenRole;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAzApplication*/SelfOuter* self, BSTR bstrRoleName, VARIANT varReserved, IAzRole** ppRole) CreateRole;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAzApplication*/SelfOuter* self, BSTR bstrRoleName, VARIANT varReserved) DeleteRole;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAzApplication*/SelfOuter* self, uint64 ullTokenHandle, VARIANT varReserved, IAzClientContext** ppClientContext) InitializeClientContextFromToken;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAzApplication*/SelfOuter* self, int32 lPropId, VARIANT varProp, VARIANT varReserved) AddPropertyItem;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAzApplication*/SelfOuter* self, int32 lPropId, VARIANT varProp, VARIANT varReserved) DeletePropertyItem;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAzApplication*/SelfOuter* self, int32 lFlags, VARIANT varReserved) Submit;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAzApplication*/SelfOuter* self, BSTR ClientName, BSTR DomainName, VARIANT varReserved, IAzClientContext** ppClientContext) InitializeClientContextFromName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAzApplication*/SelfOuter* self, VARIANT* pvarDelegatedPolicyUsers) get_DelegatedPolicyUsers;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAzApplication*/SelfOuter* self, BSTR bstrDelegatedPolicyUser, VARIANT varReserved) AddDelegatedPolicyUser;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAzApplication*/SelfOuter* self, BSTR bstrDelegatedPolicyUser, VARIANT varReserved) DeleteDelegatedPolicyUser;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAzApplication*/SelfOuter* self, BSTR SidString, int32 lOptions, VARIANT varReserved, IAzClientContext** ppClientContext) InitializeClientContextFromStringSid;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAzApplication*/SelfOuter* self, VARIANT* pvarAdmins) get_PolicyAdministratorsName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAzApplication*/SelfOuter* self, VARIANT* pvarReaders) get_PolicyReadersName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAzApplication*/SelfOuter* self, BSTR bstrAdmin, VARIANT varReserved) AddPolicyAdministratorName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAzApplication*/SelfOuter* self, BSTR bstrAdmin, VARIANT varReserved) DeletePolicyAdministratorName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAzApplication*/SelfOuter* self, BSTR bstrReader, VARIANT varReserved) AddPolicyReaderName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAzApplication*/SelfOuter* self, BSTR bstrReader, VARIANT varReserved) DeletePolicyReaderName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAzApplication*/SelfOuter* self, VARIANT* pvarDelegatedPolicyUsers) get_DelegatedPolicyUsersName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAzApplication*/SelfOuter* self, BSTR bstrDelegatedPolicyUser, VARIANT varReserved) AddDelegatedPolicyUserName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAzApplication*/SelfOuter* self, BSTR bstrDelegatedPolicyUser, VARIANT varReserved) DeleteDelegatedPolicyUserName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pbstrName) get_Name;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrName) put_Name;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pbstrDescription) get_Description;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrDescription) put_Description;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pbstrApplicationData) get_ApplicationData;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrApplicationData) put_ApplicationData;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pbstrProp) get_AuthzInterfaceClsid;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrProp) put_AuthzInterfaceClsid;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pbstrProp) get_Version;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrProp) put_Version;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BOOL* pbProp) get_GenerateAudits;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BOOL bProp) put_GenerateAudits;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BOOL* pbProp) get_ApplyStoreSacl;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BOOL bProp) put_ApplyStoreSacl;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BOOL* pfProp) get_Writable;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 lPropId, VARIANT varReserved, VARIANT* pvarProp) GetProperty;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 lPropId, VARIANT varProp, VARIANT varReserved) SetProperty;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT* pvarAdmins) get_PolicyAdministrators;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT* pvarReaders) get_PolicyReaders;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrAdmin, VARIANT varReserved) AddPolicyAdministrator;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrAdmin, VARIANT varReserved) DeletePolicyAdministrator;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrReader, VARIANT varReserved) AddPolicyReader;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrReader, VARIANT varReserved) DeletePolicyReader;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IAzScopes** ppScopeCollection) get_Scopes;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrScopeName, VARIANT varReserved, IAzScope** ppScope) OpenScope;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrScopeName, VARIANT varReserved, IAzScope** ppScope) CreateScope;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrScopeName, VARIANT varReserved) DeleteScope;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IAzOperations** ppOperationCollection) get_Operations;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrOperationName, VARIANT varReserved, IAzOperation** ppOperation) OpenOperation;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrOperationName, VARIANT varReserved, IAzOperation** ppOperation) CreateOperation;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrOperationName, VARIANT varReserved) DeleteOperation;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IAzTasks** ppTaskCollection) get_Tasks;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrTaskName, VARIANT varReserved, IAzTask** ppTask) OpenTask;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrTaskName, VARIANT varReserved, IAzTask** ppTask) CreateTask;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrTaskName, VARIANT varReserved) DeleteTask;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IAzApplicationGroups** ppGroupCollection) get_ApplicationGroups;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrGroupName, VARIANT varReserved, IAzApplicationGroup** ppGroup) OpenApplicationGroup;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrGroupName, VARIANT varReserved, IAzApplicationGroup** ppGroup) CreateApplicationGroup;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrGroupName, VARIANT varReserved) DeleteApplicationGroup;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IAzRoles** ppRoleCollection) get_Roles;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrRoleName, VARIANT varReserved, IAzRole** ppRole) OpenRole;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrRoleName, VARIANT varReserved, IAzRole** ppRole) CreateRole;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrRoleName, VARIANT varReserved) DeleteRole;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint64 ullTokenHandle, VARIANT varReserved, IAzClientContext** ppClientContext) InitializeClientContextFromToken;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 lPropId, VARIANT varProp, VARIANT varReserved) AddPropertyItem;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 lPropId, VARIANT varProp, VARIANT varReserved) DeletePropertyItem;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 lFlags, VARIANT varReserved) Submit;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR ClientName, BSTR DomainName, VARIANT varReserved, IAzClientContext** ppClientContext) InitializeClientContextFromName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT* pvarDelegatedPolicyUsers) get_DelegatedPolicyUsers;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrDelegatedPolicyUser, VARIANT varReserved) AddDelegatedPolicyUser;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrDelegatedPolicyUser, VARIANT varReserved) DeleteDelegatedPolicyUser;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR SidString, int32 lOptions, VARIANT varReserved, IAzClientContext** ppClientContext) InitializeClientContextFromStringSid;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT* pvarAdmins) get_PolicyAdministratorsName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT* pvarReaders) get_PolicyReadersName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrAdmin, VARIANT varReserved) AddPolicyAdministratorName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrAdmin, VARIANT varReserved) DeletePolicyAdministratorName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrReader, VARIANT varReserved) AddPolicyReaderName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrReader, VARIANT varReserved) DeletePolicyReaderName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT* pvarDelegatedPolicyUsers) get_DelegatedPolicyUsersName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrDelegatedPolicyUser, VARIANT varReserved) AddDelegatedPolicyUserName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrDelegatedPolicyUser, VARIANT varReserved) DeleteDelegatedPolicyUserName;
 	}
 
 
@@ -1483,8 +1483,8 @@ public static
 
 	[CRepr]public struct VTable : IAzApplication.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAzApplication2*/SelfOuter* self, uint32 ulTokenHandleLowPart, uint32 ulTokenHandleHighPart, VARIANT varReserved, IAzClientContext2** ppClientContext) InitializeClientContextFromToken2;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAzApplication2*/SelfOuter* self, BSTR IdentifyingString, VARIANT varReserved, IAzClientContext2** ppClientContext) InitializeClientContext2;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 ulTokenHandleLowPart, uint32 ulTokenHandleHighPart, VARIANT varReserved, IAzClientContext2** ppClientContext) InitializeClientContextFromToken2;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR IdentifyingString, VARIANT varReserved, IAzClientContext2** ppClientContext) InitializeClientContext2;
 	}
 
 
@@ -1501,9 +1501,9 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAzApplications*/SelfOuter* self, int32 Index, VARIANT* pvarObtPtr) get_Item;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAzApplications*/SelfOuter* self, int32* plCount) get_Count;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAzApplications*/SelfOuter* self, IUnknown** ppEnumPtr) get__NewEnum;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 Index, VARIANT* pvarObtPtr) get_Item;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* plCount) get_Count;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IUnknown** ppEnumPtr) get__NewEnum;
 	}
 
 
@@ -1522,18 +1522,18 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAzOperation*/SelfOuter* self, BSTR* pbstrName) get_Name;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAzOperation*/SelfOuter* self, BSTR bstrName) put_Name;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAzOperation*/SelfOuter* self, BSTR* pbstrDescription) get_Description;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAzOperation*/SelfOuter* self, BSTR bstrDescription) put_Description;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAzOperation*/SelfOuter* self, BSTR* pbstrApplicationData) get_ApplicationData;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAzOperation*/SelfOuter* self, BSTR bstrApplicationData) put_ApplicationData;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAzOperation*/SelfOuter* self, int32* plProp) get_OperationID;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAzOperation*/SelfOuter* self, int32 lProp) put_OperationID;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAzOperation*/SelfOuter* self, BOOL* pfProp) get_Writable;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAzOperation*/SelfOuter* self, int32 lPropId, VARIANT varReserved, VARIANT* pvarProp) GetProperty;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAzOperation*/SelfOuter* self, int32 lPropId, VARIANT varProp, VARIANT varReserved) SetProperty;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAzOperation*/SelfOuter* self, int32 lFlags, VARIANT varReserved) Submit;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pbstrName) get_Name;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrName) put_Name;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pbstrDescription) get_Description;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrDescription) put_Description;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pbstrApplicationData) get_ApplicationData;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrApplicationData) put_ApplicationData;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* plProp) get_OperationID;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 lProp) put_OperationID;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BOOL* pfProp) get_Writable;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 lPropId, VARIANT varReserved, VARIANT* pvarProp) GetProperty;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 lPropId, VARIANT varProp, VARIANT varReserved) SetProperty;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 lFlags, VARIANT varReserved) Submit;
 	}
 
 
@@ -1570,9 +1570,9 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAzOperations*/SelfOuter* self, int32 Index, VARIANT* pvarObtPtr) get_Item;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAzOperations*/SelfOuter* self, int32* plCount) get_Count;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAzOperations*/SelfOuter* self, IUnknown** ppEnumPtr) get__NewEnum;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 Index, VARIANT* pvarObtPtr) get_Item;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* plCount) get_Count;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IUnknown** ppEnumPtr) get__NewEnum;
 	}
 
 
@@ -1591,32 +1591,32 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAzTask*/SelfOuter* self, BSTR* pbstrName) get_Name;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAzTask*/SelfOuter* self, BSTR bstrName) put_Name;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAzTask*/SelfOuter* self, BSTR* pbstrDescription) get_Description;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAzTask*/SelfOuter* self, BSTR bstrDescription) put_Description;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAzTask*/SelfOuter* self, BSTR* pbstrApplicationData) get_ApplicationData;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAzTask*/SelfOuter* self, BSTR bstrApplicationData) put_ApplicationData;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAzTask*/SelfOuter* self, BSTR* pbstrProp) get_BizRule;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAzTask*/SelfOuter* self, BSTR bstrProp) put_BizRule;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAzTask*/SelfOuter* self, BSTR* pbstrProp) get_BizRuleLanguage;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAzTask*/SelfOuter* self, BSTR bstrProp) put_BizRuleLanguage;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAzTask*/SelfOuter* self, BSTR* pbstrProp) get_BizRuleImportedPath;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAzTask*/SelfOuter* self, BSTR bstrProp) put_BizRuleImportedPath;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAzTask*/SelfOuter* self, BOOL* pfProp) get_IsRoleDefinition;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAzTask*/SelfOuter* self, BOOL fProp) put_IsRoleDefinition;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAzTask*/SelfOuter* self, VARIANT* pvarProp) get_Operations;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAzTask*/SelfOuter* self, VARIANT* pvarProp) get_Tasks;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAzTask*/SelfOuter* self, BSTR bstrOp, VARIANT varReserved) AddOperation;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAzTask*/SelfOuter* self, BSTR bstrOp, VARIANT varReserved) DeleteOperation;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAzTask*/SelfOuter* self, BSTR bstrTask, VARIANT varReserved) AddTask;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAzTask*/SelfOuter* self, BSTR bstrTask, VARIANT varReserved) DeleteTask;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAzTask*/SelfOuter* self, BOOL* pfProp) get_Writable;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAzTask*/SelfOuter* self, int32 lPropId, VARIANT varReserved, VARIANT* pvarProp) GetProperty;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAzTask*/SelfOuter* self, int32 lPropId, VARIANT varProp, VARIANT varReserved) SetProperty;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAzTask*/SelfOuter* self, int32 lPropId, VARIANT varProp, VARIANT varReserved) AddPropertyItem;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAzTask*/SelfOuter* self, int32 lPropId, VARIANT varProp, VARIANT varReserved) DeletePropertyItem;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAzTask*/SelfOuter* self, int32 lFlags, VARIANT varReserved) Submit;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pbstrName) get_Name;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrName) put_Name;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pbstrDescription) get_Description;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrDescription) put_Description;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pbstrApplicationData) get_ApplicationData;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrApplicationData) put_ApplicationData;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pbstrProp) get_BizRule;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrProp) put_BizRule;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pbstrProp) get_BizRuleLanguage;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrProp) put_BizRuleLanguage;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pbstrProp) get_BizRuleImportedPath;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrProp) put_BizRuleImportedPath;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BOOL* pfProp) get_IsRoleDefinition;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BOOL fProp) put_IsRoleDefinition;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT* pvarProp) get_Operations;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT* pvarProp) get_Tasks;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrOp, VARIANT varReserved) AddOperation;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrOp, VARIANT varReserved) DeleteOperation;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrTask, VARIANT varReserved) AddTask;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrTask, VARIANT varReserved) DeleteTask;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BOOL* pfProp) get_Writable;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 lPropId, VARIANT varReserved, VARIANT* pvarProp) GetProperty;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 lPropId, VARIANT varProp, VARIANT varReserved) SetProperty;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 lPropId, VARIANT varProp, VARIANT varReserved) AddPropertyItem;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 lPropId, VARIANT varProp, VARIANT varReserved) DeletePropertyItem;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 lFlags, VARIANT varReserved) Submit;
 	}
 
 
@@ -1681,9 +1681,9 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAzTasks*/SelfOuter* self, int32 Index, VARIANT* pvarObtPtr) get_Item;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAzTasks*/SelfOuter* self, int32* plCount) get_Count;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAzTasks*/SelfOuter* self, IUnknown** ppEnumPtr) get__NewEnum;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 Index, VARIANT* pvarObtPtr) get_Item;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* plCount) get_Count;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IUnknown** ppEnumPtr) get__NewEnum;
 	}
 
 
@@ -1702,44 +1702,44 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAzScope*/SelfOuter* self, BSTR* pbstrName) get_Name;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAzScope*/SelfOuter* self, BSTR bstrName) put_Name;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAzScope*/SelfOuter* self, BSTR* pbstrDescription) get_Description;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAzScope*/SelfOuter* self, BSTR bstrDescription) put_Description;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAzScope*/SelfOuter* self, BSTR* pbstrApplicationData) get_ApplicationData;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAzScope*/SelfOuter* self, BSTR bstrApplicationData) put_ApplicationData;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAzScope*/SelfOuter* self, BOOL* pfProp) get_Writable;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAzScope*/SelfOuter* self, int32 lPropId, VARIANT varReserved, VARIANT* pvarProp) GetProperty;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAzScope*/SelfOuter* self, int32 lPropId, VARIANT varProp, VARIANT varReserved) SetProperty;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAzScope*/SelfOuter* self, int32 lPropId, VARIANT varProp, VARIANT varReserved) AddPropertyItem;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAzScope*/SelfOuter* self, int32 lPropId, VARIANT varProp, VARIANT varReserved) DeletePropertyItem;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAzScope*/SelfOuter* self, VARIANT* pvarAdmins) get_PolicyAdministrators;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAzScope*/SelfOuter* self, VARIANT* pvarReaders) get_PolicyReaders;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAzScope*/SelfOuter* self, BSTR bstrAdmin, VARIANT varReserved) AddPolicyAdministrator;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAzScope*/SelfOuter* self, BSTR bstrAdmin, VARIANT varReserved) DeletePolicyAdministrator;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAzScope*/SelfOuter* self, BSTR bstrReader, VARIANT varReserved) AddPolicyReader;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAzScope*/SelfOuter* self, BSTR bstrReader, VARIANT varReserved) DeletePolicyReader;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAzScope*/SelfOuter* self, IAzApplicationGroups** ppGroupCollection) get_ApplicationGroups;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAzScope*/SelfOuter* self, BSTR bstrGroupName, VARIANT varReserved, IAzApplicationGroup** ppGroup) OpenApplicationGroup;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAzScope*/SelfOuter* self, BSTR bstrGroupName, VARIANT varReserved, IAzApplicationGroup** ppGroup) CreateApplicationGroup;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAzScope*/SelfOuter* self, BSTR bstrGroupName, VARIANT varReserved) DeleteApplicationGroup;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAzScope*/SelfOuter* self, IAzRoles** ppRoleCollection) get_Roles;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAzScope*/SelfOuter* self, BSTR bstrRoleName, VARIANT varReserved, IAzRole** ppRole) OpenRole;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAzScope*/SelfOuter* self, BSTR bstrRoleName, VARIANT varReserved, IAzRole** ppRole) CreateRole;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAzScope*/SelfOuter* self, BSTR bstrRoleName, VARIANT varReserved) DeleteRole;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAzScope*/SelfOuter* self, IAzTasks** ppTaskCollection) get_Tasks;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAzScope*/SelfOuter* self, BSTR bstrTaskName, VARIANT varReserved, IAzTask** ppTask) OpenTask;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAzScope*/SelfOuter* self, BSTR bstrTaskName, VARIANT varReserved, IAzTask** ppTask) CreateTask;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAzScope*/SelfOuter* self, BSTR bstrTaskName, VARIANT varReserved) DeleteTask;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAzScope*/SelfOuter* self, int32 lFlags, VARIANT varReserved) Submit;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAzScope*/SelfOuter* self, BOOL* pfProp) get_CanBeDelegated;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAzScope*/SelfOuter* self, BOOL* pfProp) get_BizrulesWritable;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAzScope*/SelfOuter* self, VARIANT* pvarAdmins) get_PolicyAdministratorsName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAzScope*/SelfOuter* self, VARIANT* pvarReaders) get_PolicyReadersName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAzScope*/SelfOuter* self, BSTR bstrAdmin, VARIANT varReserved) AddPolicyAdministratorName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAzScope*/SelfOuter* self, BSTR bstrAdmin, VARIANT varReserved) DeletePolicyAdministratorName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAzScope*/SelfOuter* self, BSTR bstrReader, VARIANT varReserved) AddPolicyReaderName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAzScope*/SelfOuter* self, BSTR bstrReader, VARIANT varReserved) DeletePolicyReaderName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pbstrName) get_Name;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrName) put_Name;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pbstrDescription) get_Description;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrDescription) put_Description;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pbstrApplicationData) get_ApplicationData;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrApplicationData) put_ApplicationData;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BOOL* pfProp) get_Writable;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 lPropId, VARIANT varReserved, VARIANT* pvarProp) GetProperty;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 lPropId, VARIANT varProp, VARIANT varReserved) SetProperty;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 lPropId, VARIANT varProp, VARIANT varReserved) AddPropertyItem;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 lPropId, VARIANT varProp, VARIANT varReserved) DeletePropertyItem;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT* pvarAdmins) get_PolicyAdministrators;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT* pvarReaders) get_PolicyReaders;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrAdmin, VARIANT varReserved) AddPolicyAdministrator;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrAdmin, VARIANT varReserved) DeletePolicyAdministrator;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrReader, VARIANT varReserved) AddPolicyReader;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrReader, VARIANT varReserved) DeletePolicyReader;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IAzApplicationGroups** ppGroupCollection) get_ApplicationGroups;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrGroupName, VARIANT varReserved, IAzApplicationGroup** ppGroup) OpenApplicationGroup;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrGroupName, VARIANT varReserved, IAzApplicationGroup** ppGroup) CreateApplicationGroup;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrGroupName, VARIANT varReserved) DeleteApplicationGroup;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IAzRoles** ppRoleCollection) get_Roles;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrRoleName, VARIANT varReserved, IAzRole** ppRole) OpenRole;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrRoleName, VARIANT varReserved, IAzRole** ppRole) CreateRole;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrRoleName, VARIANT varReserved) DeleteRole;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IAzTasks** ppTaskCollection) get_Tasks;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrTaskName, VARIANT varReserved, IAzTask** ppTask) OpenTask;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrTaskName, VARIANT varReserved, IAzTask** ppTask) CreateTask;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrTaskName, VARIANT varReserved) DeleteTask;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 lFlags, VARIANT varReserved) Submit;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BOOL* pfProp) get_CanBeDelegated;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BOOL* pfProp) get_BizrulesWritable;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT* pvarAdmins) get_PolicyAdministratorsName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT* pvarReaders) get_PolicyReadersName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrAdmin, VARIANT varReserved) AddPolicyAdministratorName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrAdmin, VARIANT varReserved) DeletePolicyAdministratorName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrReader, VARIANT varReserved) AddPolicyReaderName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrReader, VARIANT varReserved) DeletePolicyReaderName;
 	}
 
 
@@ -1828,9 +1828,9 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAzScopes*/SelfOuter* self, int32 Index, VARIANT* pvarObtPtr) get_Item;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAzScopes*/SelfOuter* self, int32* plCount) get_Count;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAzScopes*/SelfOuter* self, IUnknown** ppEnumPtr) get__NewEnum;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 Index, VARIANT* pvarObtPtr) get_Item;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* plCount) get_Count;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IUnknown** ppEnumPtr) get__NewEnum;
 	}
 
 
@@ -1849,38 +1849,38 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAzApplicationGroup*/SelfOuter* self, BSTR* pbstrName) get_Name;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAzApplicationGroup*/SelfOuter* self, BSTR bstrName) put_Name;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAzApplicationGroup*/SelfOuter* self, int32* plProp) get_Type;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAzApplicationGroup*/SelfOuter* self, int32 lProp) put_Type;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAzApplicationGroup*/SelfOuter* self, BSTR* pbstrProp) get_LdapQuery;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAzApplicationGroup*/SelfOuter* self, BSTR bstrProp) put_LdapQuery;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAzApplicationGroup*/SelfOuter* self, VARIANT* pvarProp) get_AppMembers;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAzApplicationGroup*/SelfOuter* self, VARIANT* pvarProp) get_AppNonMembers;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAzApplicationGroup*/SelfOuter* self, VARIANT* pvarProp) get_Members;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAzApplicationGroup*/SelfOuter* self, VARIANT* pvarProp) get_NonMembers;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAzApplicationGroup*/SelfOuter* self, BSTR* pbstrDescription) get_Description;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAzApplicationGroup*/SelfOuter* self, BSTR bstrDescription) put_Description;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAzApplicationGroup*/SelfOuter* self, BSTR bstrProp, VARIANT varReserved) AddAppMember;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAzApplicationGroup*/SelfOuter* self, BSTR bstrProp, VARIANT varReserved) DeleteAppMember;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAzApplicationGroup*/SelfOuter* self, BSTR bstrProp, VARIANT varReserved) AddAppNonMember;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAzApplicationGroup*/SelfOuter* self, BSTR bstrProp, VARIANT varReserved) DeleteAppNonMember;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAzApplicationGroup*/SelfOuter* self, BSTR bstrProp, VARIANT varReserved) AddMember;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAzApplicationGroup*/SelfOuter* self, BSTR bstrProp, VARIANT varReserved) DeleteMember;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAzApplicationGroup*/SelfOuter* self, BSTR bstrProp, VARIANT varReserved) AddNonMember;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAzApplicationGroup*/SelfOuter* self, BSTR bstrProp, VARIANT varReserved) DeleteNonMember;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAzApplicationGroup*/SelfOuter* self, BOOL* pfProp) get_Writable;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAzApplicationGroup*/SelfOuter* self, int32 lPropId, VARIANT varReserved, VARIANT* pvarProp) GetProperty;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAzApplicationGroup*/SelfOuter* self, int32 lPropId, VARIANT varProp, VARIANT varReserved) SetProperty;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAzApplicationGroup*/SelfOuter* self, int32 lPropId, VARIANT varProp, VARIANT varReserved) AddPropertyItem;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAzApplicationGroup*/SelfOuter* self, int32 lPropId, VARIANT varProp, VARIANT varReserved) DeletePropertyItem;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAzApplicationGroup*/SelfOuter* self, int32 lFlags, VARIANT varReserved) Submit;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAzApplicationGroup*/SelfOuter* self, BSTR bstrProp, VARIANT varReserved) AddMemberName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAzApplicationGroup*/SelfOuter* self, BSTR bstrProp, VARIANT varReserved) DeleteMemberName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAzApplicationGroup*/SelfOuter* self, BSTR bstrProp, VARIANT varReserved) AddNonMemberName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAzApplicationGroup*/SelfOuter* self, BSTR bstrProp, VARIANT varReserved) DeleteNonMemberName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAzApplicationGroup*/SelfOuter* self, VARIANT* pvarProp) get_MembersName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAzApplicationGroup*/SelfOuter* self, VARIANT* pvarProp) get_NonMembersName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pbstrName) get_Name;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrName) put_Name;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* plProp) get_Type;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 lProp) put_Type;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pbstrProp) get_LdapQuery;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrProp) put_LdapQuery;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT* pvarProp) get_AppMembers;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT* pvarProp) get_AppNonMembers;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT* pvarProp) get_Members;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT* pvarProp) get_NonMembers;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pbstrDescription) get_Description;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrDescription) put_Description;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrProp, VARIANT varReserved) AddAppMember;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrProp, VARIANT varReserved) DeleteAppMember;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrProp, VARIANT varReserved) AddAppNonMember;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrProp, VARIANT varReserved) DeleteAppNonMember;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrProp, VARIANT varReserved) AddMember;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrProp, VARIANT varReserved) DeleteMember;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrProp, VARIANT varReserved) AddNonMember;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrProp, VARIANT varReserved) DeleteNonMember;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BOOL* pfProp) get_Writable;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 lPropId, VARIANT varReserved, VARIANT* pvarProp) GetProperty;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 lPropId, VARIANT varProp, VARIANT varReserved) SetProperty;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 lPropId, VARIANT varProp, VARIANT varReserved) AddPropertyItem;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 lPropId, VARIANT varProp, VARIANT varReserved) DeletePropertyItem;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 lFlags, VARIANT varReserved) Submit;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrProp, VARIANT varReserved) AddMemberName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrProp, VARIANT varReserved) DeleteMemberName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrProp, VARIANT varReserved) AddNonMemberName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrProp, VARIANT varReserved) DeleteNonMemberName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT* pvarProp) get_MembersName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT* pvarProp) get_NonMembersName;
 	}
 
 
@@ -1957,9 +1957,9 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAzApplicationGroups*/SelfOuter* self, int32 Index, VARIANT* pvarObtPtr) get_Item;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAzApplicationGroups*/SelfOuter* self, int32* plCount) get_Count;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAzApplicationGroups*/SelfOuter* self, IUnknown** ppEnumPtr) get__NewEnum;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 Index, VARIANT* pvarObtPtr) get_Item;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* plCount) get_Count;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IUnknown** ppEnumPtr) get__NewEnum;
 	}
 
 
@@ -1978,33 +1978,33 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAzRole*/SelfOuter* self, BSTR* pbstrName) get_Name;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAzRole*/SelfOuter* self, BSTR bstrName) put_Name;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAzRole*/SelfOuter* self, BSTR* pbstrDescription) get_Description;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAzRole*/SelfOuter* self, BSTR bstrDescription) put_Description;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAzRole*/SelfOuter* self, BSTR* pbstrApplicationData) get_ApplicationData;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAzRole*/SelfOuter* self, BSTR bstrApplicationData) put_ApplicationData;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAzRole*/SelfOuter* self, BSTR bstrProp, VARIANT varReserved) AddAppMember;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAzRole*/SelfOuter* self, BSTR bstrProp, VARIANT varReserved) DeleteAppMember;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAzRole*/SelfOuter* self, BSTR bstrProp, VARIANT varReserved) AddTask;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAzRole*/SelfOuter* self, BSTR bstrProp, VARIANT varReserved) DeleteTask;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAzRole*/SelfOuter* self, BSTR bstrProp, VARIANT varReserved) AddOperation;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAzRole*/SelfOuter* self, BSTR bstrProp, VARIANT varReserved) DeleteOperation;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAzRole*/SelfOuter* self, BSTR bstrProp, VARIANT varReserved) AddMember;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAzRole*/SelfOuter* self, BSTR bstrProp, VARIANT varReserved) DeleteMember;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAzRole*/SelfOuter* self, BOOL* pfProp) get_Writable;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAzRole*/SelfOuter* self, int32 lPropId, VARIANT varReserved, VARIANT* pvarProp) GetProperty;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAzRole*/SelfOuter* self, int32 lPropId, VARIANT varProp, VARIANT varReserved) SetProperty;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAzRole*/SelfOuter* self, VARIANT* pvarProp) get_AppMembers;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAzRole*/SelfOuter* self, VARIANT* pvarProp) get_Members;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAzRole*/SelfOuter* self, VARIANT* pvarProp) get_Operations;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAzRole*/SelfOuter* self, VARIANT* pvarProp) get_Tasks;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAzRole*/SelfOuter* self, int32 lPropId, VARIANT varProp, VARIANT varReserved) AddPropertyItem;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAzRole*/SelfOuter* self, int32 lPropId, VARIANT varProp, VARIANT varReserved) DeletePropertyItem;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAzRole*/SelfOuter* self, int32 lFlags, VARIANT varReserved) Submit;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAzRole*/SelfOuter* self, BSTR bstrProp, VARIANT varReserved) AddMemberName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAzRole*/SelfOuter* self, BSTR bstrProp, VARIANT varReserved) DeleteMemberName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAzRole*/SelfOuter* self, VARIANT* pvarProp) get_MembersName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pbstrName) get_Name;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrName) put_Name;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pbstrDescription) get_Description;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrDescription) put_Description;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pbstrApplicationData) get_ApplicationData;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrApplicationData) put_ApplicationData;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrProp, VARIANT varReserved) AddAppMember;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrProp, VARIANT varReserved) DeleteAppMember;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrProp, VARIANT varReserved) AddTask;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrProp, VARIANT varReserved) DeleteTask;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrProp, VARIANT varReserved) AddOperation;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrProp, VARIANT varReserved) DeleteOperation;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrProp, VARIANT varReserved) AddMember;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrProp, VARIANT varReserved) DeleteMember;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BOOL* pfProp) get_Writable;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 lPropId, VARIANT varReserved, VARIANT* pvarProp) GetProperty;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 lPropId, VARIANT varProp, VARIANT varReserved) SetProperty;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT* pvarProp) get_AppMembers;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT* pvarProp) get_Members;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT* pvarProp) get_Operations;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT* pvarProp) get_Tasks;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 lPropId, VARIANT varProp, VARIANT varReserved) AddPropertyItem;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 lPropId, VARIANT varProp, VARIANT varReserved) DeletePropertyItem;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 lFlags, VARIANT varReserved) Submit;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrProp, VARIANT varReserved) AddMemberName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrProp, VARIANT varReserved) DeleteMemberName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT* pvarProp) get_MembersName;
 	}
 
 
@@ -2071,9 +2071,9 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAzRoles*/SelfOuter* self, int32 Index, VARIANT* pvarObtPtr) get_Item;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAzRoles*/SelfOuter* self, int32* plCount) get_Count;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAzRoles*/SelfOuter* self, IUnknown** ppEnumPtr) get__NewEnum;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 Index, VARIANT* pvarObtPtr) get_Item;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* plCount) get_Count;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IUnknown** ppEnumPtr) get__NewEnum;
 	}
 
 
@@ -2092,19 +2092,19 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAzClientContext*/SelfOuter* self, BSTR bstrObjectName, VARIANT varScopeNames, VARIANT varOperations, VARIANT varParameterNames, VARIANT varParameterValues, VARIANT varInterfaceNames, VARIANT varInterfaceFlags, VARIANT varInterfaces, VARIANT* pvarResults) AccessCheck;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAzClientContext*/SelfOuter* self, BSTR* pbstrBusinessRuleString) GetBusinessRuleString;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAzClientContext*/SelfOuter* self, BSTR* pbstrProp) get_UserDn;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAzClientContext*/SelfOuter* self, BSTR* pbstrProp) get_UserSamCompat;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAzClientContext*/SelfOuter* self, BSTR* pbstrProp) get_UserDisplay;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAzClientContext*/SelfOuter* self, BSTR* pbstrProp) get_UserGuid;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAzClientContext*/SelfOuter* self, BSTR* pbstrProp) get_UserCanonical;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAzClientContext*/SelfOuter* self, BSTR* pbstrProp) get_UserUpn;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAzClientContext*/SelfOuter* self, BSTR* pbstrProp) get_UserDnsSamCompat;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAzClientContext*/SelfOuter* self, int32 lPropId, VARIANT varReserved, VARIANT* pvarProp) GetProperty;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAzClientContext*/SelfOuter* self, BSTR bstrScopeName, VARIANT* pvarRoleNames) GetRoles;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAzClientContext*/SelfOuter* self, BSTR* pbstrProp) get_RoleForAccessCheck;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAzClientContext*/SelfOuter* self, BSTR bstrProp) put_RoleForAccessCheck;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrObjectName, VARIANT varScopeNames, VARIANT varOperations, VARIANT varParameterNames, VARIANT varParameterValues, VARIANT varInterfaceNames, VARIANT varInterfaceFlags, VARIANT varInterfaces, VARIANT* pvarResults) AccessCheck;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pbstrBusinessRuleString) GetBusinessRuleString;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pbstrProp) get_UserDn;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pbstrProp) get_UserSamCompat;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pbstrProp) get_UserDisplay;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pbstrProp) get_UserGuid;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pbstrProp) get_UserCanonical;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pbstrProp) get_UserUpn;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pbstrProp) get_UserDnsSamCompat;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 lPropId, VARIANT varReserved, VARIANT* pvarProp) GetProperty;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrScopeName, VARIANT* pvarRoleNames) GetRoles;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pbstrProp) get_RoleForAccessCheck;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrProp) put_RoleForAccessCheck;
 	}
 
 
@@ -2143,12 +2143,12 @@ public static
 
 	[CRepr]public struct VTable : IAzClientContext.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAzClientContext2*/SelfOuter* self, int32 lOptions, int32 PageSize, VARIANT* pvarCursor, VARIANT* pvarScopeNames) GetAssignedScopesPage;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAzClientContext2*/SelfOuter* self, VARIANT varRoles, BSTR bstrScopeName) AddRoles;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAzClientContext2*/SelfOuter* self, VARIANT varApplicationGroups) AddApplicationGroups;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAzClientContext2*/SelfOuter* self, VARIANT varStringSids) AddStringSids;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAzClientContext2*/SelfOuter* self, BSTR bstrLDAPQueryDN) put_LDAPQueryDN;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAzClientContext2*/SelfOuter* self, BSTR* pbstrLDAPQueryDN) get_LDAPQueryDN;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 lOptions, int32 PageSize, VARIANT* pvarCursor, VARIANT* pvarScopeNames) GetAssignedScopesPage;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT varRoles, BSTR bstrScopeName) AddRoles;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT varApplicationGroups) AddApplicationGroups;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT varStringSids) AddStringSids;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrLDAPQueryDN) put_LDAPQueryDN;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pbstrLDAPQueryDN) get_LDAPQueryDN;
 	}
 
 
@@ -2173,10 +2173,10 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAzBizRuleContext*/SelfOuter* self, BOOL bResult) put_BusinessRuleResult;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAzBizRuleContext*/SelfOuter* self, BSTR bstrBusinessRuleString) put_BusinessRuleString;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAzBizRuleContext*/SelfOuter* self, BSTR* pbstrBusinessRuleString) get_BusinessRuleString;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAzBizRuleContext*/SelfOuter* self, BSTR bstrParameterName, VARIANT* pvarParameterValue) GetParameter;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BOOL bResult) put_BusinessRuleResult;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrBusinessRuleString) put_BusinessRuleString;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pbstrBusinessRuleString) get_BusinessRuleString;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrParameterName, VARIANT* pvarParameterValue) GetParameter;
 	}
 
 
@@ -2197,12 +2197,12 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAzBizRuleParameters*/SelfOuter* self, BSTR bstrParameterName, VARIANT varParameterValue) AddParameter;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAzBizRuleParameters*/SelfOuter* self, VARIANT varParameterNames, VARIANT varParameterValues) AddParameters;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAzBizRuleParameters*/SelfOuter* self, BSTR bstrParameterName, VARIANT* pvarParameterValue) GetParameterValue;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAzBizRuleParameters*/SelfOuter* self, BSTR varParameterName) Remove;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAzBizRuleParameters*/SelfOuter* self) RemoveAll;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAzBizRuleParameters*/SelfOuter* self, uint32* plCount) get_Count;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrParameterName, VARIANT varParameterValue) AddParameter;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT varParameterNames, VARIANT varParameterValues) AddParameters;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrParameterName, VARIANT* pvarParameterValue) GetParameterValue;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR varParameterName) Remove;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) RemoveAll;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* plCount) get_Count;
 	}
 
 
@@ -2227,12 +2227,12 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAzBizRuleInterfaces*/SelfOuter* self, BSTR bstrInterfaceName, int32 lInterfaceFlag, VARIANT varInterface) AddInterface;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAzBizRuleInterfaces*/SelfOuter* self, VARIANT varInterfaceNames, VARIANT varInterfaceFlags, VARIANT varInterfaces) AddInterfaces;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAzBizRuleInterfaces*/SelfOuter* self, BSTR bstrInterfaceName, int32* lInterfaceFlag, VARIANT* varInterface) GetInterfaceValue;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAzBizRuleInterfaces*/SelfOuter* self, BSTR bstrInterfaceName) Remove;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAzBizRuleInterfaces*/SelfOuter* self) RemoveAll;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAzBizRuleInterfaces*/SelfOuter* self, uint32* plCount) get_Count;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrInterfaceName, int32 lInterfaceFlag, VARIANT varInterface) AddInterface;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT varInterfaceNames, VARIANT varInterfaceFlags, VARIANT varInterfaces) AddInterfaces;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrInterfaceName, int32* lInterfaceFlag, VARIANT* varInterface) GetInterfaceValue;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrInterfaceName) Remove;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) RemoveAll;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* plCount) get_Count;
 	}
 
 
@@ -2257,14 +2257,14 @@ public static
 
 	[CRepr]public struct VTable : IAzClientContext2.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAzClientContext3*/SelfOuter* self, BSTR bstrObjectName, BSTR bstrScopeName, int32 lOperation, uint32* plResult) AccessCheck2;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAzClientContext3*/SelfOuter* self, BSTR bstrScopeName, BSTR bstrRoleName, int16* pbIsInRole) IsInRoleAssignment;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAzClientContext3*/SelfOuter* self, BSTR bstrScopeName, IAzOperations** ppOperationCollection) GetOperations;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAzClientContext3*/SelfOuter* self, BSTR bstrScopeName, IAzTasks** ppTaskCollection) GetTasks;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAzClientContext3*/SelfOuter* self, IAzBizRuleParameters** ppBizRuleParam) get_BizRuleParameters;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAzClientContext3*/SelfOuter* self, IAzBizRuleInterfaces** ppBizRuleInterfaces) get_BizRuleInterfaces;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAzClientContext3*/SelfOuter* self, BSTR bstrScopeName, AZ_PROP_CONSTANTS ulOptions, VARIANT* pGroupArray) GetGroups;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAzClientContext3*/SelfOuter* self, VARIANT* pStringSidArray) get_Sids;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrObjectName, BSTR bstrScopeName, int32 lOperation, uint32* plResult) AccessCheck2;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrScopeName, BSTR bstrRoleName, int16* pbIsInRole) IsInRoleAssignment;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrScopeName, IAzOperations** ppOperationCollection) GetOperations;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrScopeName, IAzTasks** ppTaskCollection) GetTasks;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IAzBizRuleParameters** ppBizRuleParam) get_BizRuleParameters;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IAzBizRuleInterfaces** ppBizRuleInterfaces) get_BizRuleInterfaces;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrScopeName, AZ_PROP_CONSTANTS ulOptions, VARIANT* pGroupArray) GetGroups;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT* pStringSidArray) get_Sids;
 	}
 
 
@@ -2293,14 +2293,14 @@ public static
 
 	[CRepr]public struct VTable : IAzScope.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAzScope2*/SelfOuter* self, IAzRoleDefinitions** ppRoleDefinitions) get_RoleDefinitions;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAzScope2*/SelfOuter* self, BSTR bstrRoleDefinitionName, IAzRoleDefinition** ppRoleDefinitions) CreateRoleDefinition;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAzScope2*/SelfOuter* self, BSTR bstrRoleDefinitionName, IAzRoleDefinition** ppRoleDefinitions) OpenRoleDefinition;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAzScope2*/SelfOuter* self, BSTR bstrRoleDefinitionName) DeleteRoleDefinition;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAzScope2*/SelfOuter* self, IAzRoleAssignments** ppRoleAssignments) get_RoleAssignments;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAzScope2*/SelfOuter* self, BSTR bstrRoleAssignmentName, IAzRoleAssignment** ppRoleAssignment) CreateRoleAssignment;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAzScope2*/SelfOuter* self, BSTR bstrRoleAssignmentName, IAzRoleAssignment** ppRoleAssignment) OpenRoleAssignment;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAzScope2*/SelfOuter* self, BSTR bstrRoleAssignmentName) DeleteRoleAssignment;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IAzRoleDefinitions** ppRoleDefinitions) get_RoleDefinitions;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrRoleDefinitionName, IAzRoleDefinition** ppRoleDefinitions) CreateRoleDefinition;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrRoleDefinitionName, IAzRoleDefinition** ppRoleDefinitions) OpenRoleDefinition;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrRoleDefinitionName) DeleteRoleDefinition;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IAzRoleAssignments** ppRoleAssignments) get_RoleAssignments;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrRoleAssignmentName, IAzRoleAssignment** ppRoleAssignment) CreateRoleAssignment;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrRoleAssignmentName, IAzRoleAssignment** ppRoleAssignment) OpenRoleAssignment;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrRoleAssignmentName) DeleteRoleAssignment;
 	}
 
 
@@ -2329,20 +2329,20 @@ public static
 
 	[CRepr]public struct VTable : IAzApplication2.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAzApplication3*/SelfOuter* self, BSTR bstrScopeName, int16* pbExist) ScopeExists;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAzApplication3*/SelfOuter* self, BSTR bstrScopeName, IAzScope2** ppScope2) OpenScope2;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAzApplication3*/SelfOuter* self, BSTR bstrScopeName, IAzScope2** ppScope2) CreateScope2;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAzApplication3*/SelfOuter* self, BSTR bstrScopeName) DeleteScope2;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAzApplication3*/SelfOuter* self, IAzRoleDefinitions** ppRoleDefinitions) get_RoleDefinitions;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAzApplication3*/SelfOuter* self, BSTR bstrRoleDefinitionName, IAzRoleDefinition** ppRoleDefinitions) CreateRoleDefinition;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAzApplication3*/SelfOuter* self, BSTR bstrRoleDefinitionName, IAzRoleDefinition** ppRoleDefinitions) OpenRoleDefinition;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAzApplication3*/SelfOuter* self, BSTR bstrRoleDefinitionName) DeleteRoleDefinition;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAzApplication3*/SelfOuter* self, IAzRoleAssignments** ppRoleAssignments) get_RoleAssignments;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAzApplication3*/SelfOuter* self, BSTR bstrRoleAssignmentName, IAzRoleAssignment** ppRoleAssignment) CreateRoleAssignment;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAzApplication3*/SelfOuter* self, BSTR bstrRoleAssignmentName, IAzRoleAssignment** ppRoleAssignment) OpenRoleAssignment;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAzApplication3*/SelfOuter* self, BSTR bstrRoleAssignmentName) DeleteRoleAssignment;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAzApplication3*/SelfOuter* self, int16* pbEnabled) get_BizRulesEnabled;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAzApplication3*/SelfOuter* self, int16 bEnabled) put_BizRulesEnabled;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrScopeName, int16* pbExist) ScopeExists;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrScopeName, IAzScope2** ppScope2) OpenScope2;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrScopeName, IAzScope2** ppScope2) CreateScope2;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrScopeName) DeleteScope2;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IAzRoleDefinitions** ppRoleDefinitions) get_RoleDefinitions;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrRoleDefinitionName, IAzRoleDefinition** ppRoleDefinitions) CreateRoleDefinition;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrRoleDefinitionName, IAzRoleDefinition** ppRoleDefinitions) OpenRoleDefinition;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrRoleDefinitionName) DeleteRoleDefinition;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IAzRoleAssignments** ppRoleAssignments) get_RoleAssignments;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrRoleAssignmentName, IAzRoleAssignment** ppRoleAssignment) CreateRoleAssignment;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrRoleAssignmentName, IAzRoleAssignment** ppRoleAssignment) OpenRoleAssignment;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrRoleAssignmentName) DeleteRoleAssignment;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* pbEnabled) get_BizRulesEnabled;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 bEnabled) put_BizRulesEnabled;
 	}
 
 
@@ -2383,7 +2383,7 @@ public static
 
 	[CRepr]public struct VTable : IAzOperation.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAzOperation2*/SelfOuter* self, BSTR bstrScopeName, int16 bRecursive, IAzRoleAssignments** ppRoleAssignments) RoleAssignments;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrScopeName, int16 bRecursive, IAzRoleAssignments** ppRoleAssignments) RoleAssignments;
 	}
 
 
@@ -2398,9 +2398,9 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAzRoleDefinitions*/SelfOuter* self, int32 Index, VARIANT* pvarObtPtr) get_Item;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAzRoleDefinitions*/SelfOuter* self, int32* plCount) get_Count;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAzRoleDefinitions*/SelfOuter* self, IUnknown** ppEnumPtr) get__NewEnum;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 Index, VARIANT* pvarObtPtr) get_Item;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* plCount) get_Count;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IUnknown** ppEnumPtr) get__NewEnum;
 	}
 
 
@@ -2419,10 +2419,10 @@ public static
 
 	[CRepr]public struct VTable : IAzTask.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAzRoleDefinition*/SelfOuter* self, BSTR bstrScopeName, int16 bRecursive, IAzRoleAssignments** ppRoleAssignments) RoleAssignments;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAzRoleDefinition*/SelfOuter* self, BSTR bstrRoleDefinition) AddRoleDefinition;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAzRoleDefinition*/SelfOuter* self, BSTR bstrRoleDefinition) DeleteRoleDefinition;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAzRoleDefinition*/SelfOuter* self, IAzRoleDefinitions** ppRoleDefinitions) get_RoleDefinitions;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrScopeName, int16 bRecursive, IAzRoleAssignments** ppRoleAssignments) RoleAssignments;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrRoleDefinition) AddRoleDefinition;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrRoleDefinition) DeleteRoleDefinition;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IAzRoleDefinitions** ppRoleDefinitions) get_RoleDefinitions;
 	}
 
 
@@ -2443,10 +2443,10 @@ public static
 
 	[CRepr]public struct VTable : IAzRole.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAzRoleAssignment*/SelfOuter* self, BSTR bstrRoleDefinition) AddRoleDefinition;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAzRoleAssignment*/SelfOuter* self, BSTR bstrRoleDefinition) DeleteRoleDefinition;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAzRoleAssignment*/SelfOuter* self, IAzRoleDefinitions** ppRoleDefinitions) get_RoleDefinitions;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAzRoleAssignment*/SelfOuter* self, IAzScope** ppScope) get_Scope;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrRoleDefinition) AddRoleDefinition;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrRoleDefinition) DeleteRoleDefinition;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IAzRoleDefinitions** ppRoleDefinitions) get_RoleDefinitions;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IAzScope** ppScope) get_Scope;
 	}
 
 
@@ -2467,9 +2467,9 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAzRoleAssignments*/SelfOuter* self, int32 Index, VARIANT* pvarObtPtr) get_Item;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAzRoleAssignments*/SelfOuter* self, int32* plCount) get_Count;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAzRoleAssignments*/SelfOuter* self, IUnknown** ppEnumPtr) get__NewEnum;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 Index, VARIANT* pvarObtPtr) get_Item;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* plCount) get_Count;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IUnknown** ppEnumPtr) get__NewEnum;
 	}
 
 
@@ -2488,8 +2488,8 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAzPrincipalLocator*/SelfOuter* self, IAzNameResolver** ppNameResolver) get_NameResolver;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAzPrincipalLocator*/SelfOuter* self, IAzObjectPicker** ppObjectPicker) get_ObjectPicker;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IAzNameResolver** ppNameResolver) get_NameResolver;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IAzObjectPicker** ppObjectPicker) get_ObjectPicker;
 	}
 
 
@@ -2506,8 +2506,8 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAzNameResolver*/SelfOuter* self, BSTR bstrSid, int32* pSidType, BSTR* pbstrName) NameFromSid;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAzNameResolver*/SelfOuter* self, VARIANT vSids, VARIANT* pvSidTypes, VARIANT* pvNames) NamesFromSids;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrSid, int32* pSidType, BSTR* pbstrName) NameFromSid;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT vSids, VARIANT* pvSidTypes, VARIANT* pvNames) NamesFromSids;
 	}
 
 
@@ -2524,8 +2524,8 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAzObjectPicker*/SelfOuter* self, HWND hParentWnd, BSTR bstrTitle, VARIANT* pvSidTypes, VARIANT* pvNames, VARIANT* pvSids) GetPrincipals;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAzObjectPicker*/SelfOuter* self, BSTR* pbstrName) get_Name;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HWND hParentWnd, BSTR bstrTitle, VARIANT* pvSidTypes, VARIANT* pvNames, VARIANT* pvSids) GetPrincipals;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pbstrName) get_Name;
 	}
 
 
@@ -2542,13 +2542,13 @@ public static
 
 	[CRepr]public struct VTable : IAzApplicationGroup.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAzApplicationGroup2*/SelfOuter* self, BSTR* pbstrProp) get_BizRule;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAzApplicationGroup2*/SelfOuter* self, BSTR bstrProp) put_BizRule;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAzApplicationGroup2*/SelfOuter* self, BSTR* pbstrProp) get_BizRuleLanguage;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAzApplicationGroup2*/SelfOuter* self, BSTR bstrProp) put_BizRuleLanguage;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAzApplicationGroup2*/SelfOuter* self, BSTR* pbstrProp) get_BizRuleImportedPath;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAzApplicationGroup2*/SelfOuter* self, BSTR bstrProp) put_BizRuleImportedPath;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAzApplicationGroup2*/SelfOuter* self, BSTR bstrScopeName, int16 bRecursive, IAzRoleAssignments** ppRoleAssignments) RoleAssignments;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pbstrProp) get_BizRule;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrProp) put_BizRule;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pbstrProp) get_BizRuleLanguage;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrProp) put_BizRuleLanguage;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pbstrProp) get_BizRuleImportedPath;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrProp) put_BizRuleImportedPath;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrScopeName, int16 bRecursive, IAzRoleAssignments** ppRoleAssignments) RoleAssignments;
 	}
 
 
@@ -2575,7 +2575,7 @@ public static
 
 	[CRepr]public struct VTable : IAzTask.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAzTask2*/SelfOuter* self, BSTR bstrScopeName, int16 bRecursive, IAzRoleAssignments** ppRoleAssignments) RoleAssignments;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrScopeName, int16 bRecursive, IAzRoleAssignments** ppRoleAssignments) RoleAssignments;
 	}
 
 

@@ -5104,11 +5104,11 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDot11AdHocManager*/SelfOuter* self, PWSTR Name, PWSTR Password, int32 GeographicalId, IDot11AdHocInterface* pInterface, IDot11AdHocSecuritySettings* pSecurity, ref Guid pContextGuid, IDot11AdHocNetwork** pIAdHoc) CreateNetwork;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDot11AdHocManager*/SelfOuter* self, IDot11AdHocNetwork* pIAdHoc, BOOLEAN fSaveProfile, BOOLEAN fMakeSavedProfileUserSpecific) CommitCreatedNetwork;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDot11AdHocManager*/SelfOuter* self, ref Guid pContextGuid, IEnumDot11AdHocNetworks** ppEnum) GetIEnumDot11AdHocNetworks;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDot11AdHocManager*/SelfOuter* self, IEnumDot11AdHocInterfaces** ppEnum) GetIEnumDot11AdHocInterfaces;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDot11AdHocManager*/SelfOuter* self, ref Guid NetworkSignature, IDot11AdHocNetwork** pNetwork) GetNetwork;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR Name, PWSTR Password, int32 GeographicalId, IDot11AdHocInterface* pInterface, IDot11AdHocSecuritySettings* pSecurity, ref Guid pContextGuid, IDot11AdHocNetwork** pIAdHoc) CreateNetwork;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IDot11AdHocNetwork* pIAdHoc, BOOLEAN fSaveProfile, BOOLEAN fMakeSavedProfileUserSpecific) CommitCreatedNetwork;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid pContextGuid, IEnumDot11AdHocNetworks** ppEnum) GetIEnumDot11AdHocNetworks;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IEnumDot11AdHocInterfaces** ppEnum) GetIEnumDot11AdHocInterfaces;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid NetworkSignature, IDot11AdHocNetwork** pNetwork) GetNetwork;
 	}
 
 
@@ -5131,10 +5131,10 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDot11AdHocManagerNotificationSink*/SelfOuter* self, IDot11AdHocNetwork* pIAdHocNetwork) OnNetworkAdd;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDot11AdHocManagerNotificationSink*/SelfOuter* self, ref Guid Signature) OnNetworkRemove;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDot11AdHocManagerNotificationSink*/SelfOuter* self, IDot11AdHocInterface* pIAdHocInterface) OnInterfaceAdd;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDot11AdHocManagerNotificationSink*/SelfOuter* self, ref Guid Signature) OnInterfaceRemove;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IDot11AdHocNetwork* pIAdHocNetwork) OnNetworkAdd;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid Signature) OnNetworkRemove;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IDot11AdHocInterface* pIAdHocInterface) OnInterfaceAdd;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid Signature) OnInterfaceRemove;
 	}
 
 
@@ -5155,10 +5155,10 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnumDot11AdHocNetworks*/SelfOuter* self, uint32 cElt, IDot11AdHocNetwork** rgElt, uint32* pcEltFetched) Next;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnumDot11AdHocNetworks*/SelfOuter* self, uint32 cElt) Skip;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnumDot11AdHocNetworks*/SelfOuter* self) Reset;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnumDot11AdHocNetworks*/SelfOuter* self, IEnumDot11AdHocNetworks** ppEnum) Clone;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 cElt, IDot11AdHocNetwork** rgElt, uint32* pcEltFetched) Next;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 cElt) Skip;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Reset;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IEnumDot11AdHocNetworks** ppEnum) Clone;
 	}
 
 
@@ -5179,18 +5179,18 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDot11AdHocNetwork*/SelfOuter* self, DOT11_ADHOC_NETWORK_CONNECTION_STATUS* eStatus) GetStatus;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDot11AdHocNetwork*/SelfOuter* self, PWSTR* ppszwSSID) GetSSID;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDot11AdHocNetwork*/SelfOuter* self, uint8* pf11d) HasProfile;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDot11AdHocNetwork*/SelfOuter* self, PWSTR* ppszwProfileName) GetProfileName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDot11AdHocNetwork*/SelfOuter* self) DeleteProfile;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDot11AdHocNetwork*/SelfOuter* self, uint32* puStrengthValue, uint32* puStrengthMax) GetSignalQuality;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDot11AdHocNetwork*/SelfOuter* self, IDot11AdHocSecuritySettings** pAdHocSecuritySetting) GetSecuritySetting;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDot11AdHocNetwork*/SelfOuter* self, ref Guid pContextGuid) GetContextGuid;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDot11AdHocNetwork*/SelfOuter* self, ref Guid pSignature) GetSignature;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDot11AdHocNetwork*/SelfOuter* self, IDot11AdHocInterface** pAdHocInterface) GetInterface;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDot11AdHocNetwork*/SelfOuter* self, PWSTR Passphrase, int32 GeographicalId, BOOLEAN fSaveProfile, BOOLEAN fMakeSavedProfileUserSpecific) Connect;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDot11AdHocNetwork*/SelfOuter* self) Disconnect;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, DOT11_ADHOC_NETWORK_CONNECTION_STATUS* eStatus) GetStatus;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR* ppszwSSID) GetSSID;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint8* pf11d) HasProfile;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR* ppszwProfileName) GetProfileName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) DeleteProfile;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* puStrengthValue, uint32* puStrengthMax) GetSignalQuality;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IDot11AdHocSecuritySettings** pAdHocSecuritySetting) GetSecuritySetting;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid pContextGuid) GetContextGuid;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid pSignature) GetSignature;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IDot11AdHocInterface** pAdHocInterface) GetInterface;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR Passphrase, int32 GeographicalId, BOOLEAN fSaveProfile, BOOLEAN fMakeSavedProfileUserSpecific) Connect;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Disconnect;
 	}
 
 
@@ -5227,8 +5227,8 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDot11AdHocNetworkNotificationSink*/SelfOuter* self, DOT11_ADHOC_NETWORK_CONNECTION_STATUS eStatus) OnStatusChange;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDot11AdHocNetworkNotificationSink*/SelfOuter* self, DOT11_ADHOC_CONNECT_FAIL_REASON eFailReason) OnConnectFail;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, DOT11_ADHOC_NETWORK_CONNECTION_STATUS eStatus) OnStatusChange;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, DOT11_ADHOC_CONNECT_FAIL_REASON eFailReason) OnConnectFail;
 	}
 
 
@@ -5245,15 +5245,15 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDot11AdHocInterface*/SelfOuter* self, ref Guid pSignature) GetDeviceSignature;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDot11AdHocInterface*/SelfOuter* self, PWSTR* ppszName) GetFriendlyName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDot11AdHocInterface*/SelfOuter* self, uint8* pf11d) IsDot11d;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDot11AdHocInterface*/SelfOuter* self, uint8* pfAdHocCapable) IsAdHocCapable;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDot11AdHocInterface*/SelfOuter* self, uint8* pfIsRadioOn) IsRadioOn;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDot11AdHocInterface*/SelfOuter* self, IDot11AdHocNetwork** ppNetwork) GetActiveNetwork;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDot11AdHocInterface*/SelfOuter* self, IEnumDot11AdHocSecuritySettings** ppEnum) GetIEnumSecuritySettings;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDot11AdHocInterface*/SelfOuter* self, ref Guid pFilterGuid, IEnumDot11AdHocNetworks** ppEnum) GetIEnumDot11AdHocNetworks;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDot11AdHocInterface*/SelfOuter* self, DOT11_ADHOC_NETWORK_CONNECTION_STATUS* pState) GetStatus;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid pSignature) GetDeviceSignature;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR* ppszName) GetFriendlyName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint8* pf11d) IsDot11d;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint8* pfAdHocCapable) IsAdHocCapable;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint8* pfIsRadioOn) IsRadioOn;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IDot11AdHocNetwork** ppNetwork) GetActiveNetwork;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IEnumDot11AdHocSecuritySettings** ppEnum) GetIEnumSecuritySettings;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid pFilterGuid, IEnumDot11AdHocNetworks** ppEnum) GetIEnumDot11AdHocNetworks;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, DOT11_ADHOC_NETWORK_CONNECTION_STATUS* pState) GetStatus;
 	}
 
 
@@ -5284,10 +5284,10 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnumDot11AdHocInterfaces*/SelfOuter* self, uint32 cElt, IDot11AdHocInterface** rgElt, uint32* pcEltFetched) Next;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnumDot11AdHocInterfaces*/SelfOuter* self, uint32 cElt) Skip;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnumDot11AdHocInterfaces*/SelfOuter* self) Reset;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnumDot11AdHocInterfaces*/SelfOuter* self, IEnumDot11AdHocInterfaces** ppEnum) Clone;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 cElt, IDot11AdHocInterface** rgElt, uint32* pcEltFetched) Next;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 cElt) Skip;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Reset;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IEnumDot11AdHocInterfaces** ppEnum) Clone;
 	}
 
 
@@ -5308,10 +5308,10 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnumDot11AdHocSecuritySettings*/SelfOuter* self, uint32 cElt, IDot11AdHocSecuritySettings** rgElt, uint32* pcEltFetched) Next;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnumDot11AdHocSecuritySettings*/SelfOuter* self, uint32 cElt) Skip;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnumDot11AdHocSecuritySettings*/SelfOuter* self) Reset;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnumDot11AdHocSecuritySettings*/SelfOuter* self, IEnumDot11AdHocSecuritySettings** ppEnum) Clone;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 cElt, IDot11AdHocSecuritySettings** rgElt, uint32* pcEltFetched) Next;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 cElt) Skip;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Reset;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IEnumDot11AdHocSecuritySettings** ppEnum) Clone;
 	}
 
 
@@ -5332,8 +5332,8 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDot11AdHocSecuritySettings*/SelfOuter* self, DOT11_ADHOC_AUTH_ALGORITHM* pAuth) GetDot11AuthAlgorithm;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDot11AdHocSecuritySettings*/SelfOuter* self, DOT11_ADHOC_CIPHER_ALGORITHM* pCipher) GetDot11CipherAlgorithm;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, DOT11_ADHOC_AUTH_ALGORITHM* pAuth) GetDot11AuthAlgorithm;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, DOT11_ADHOC_CIPHER_ALGORITHM* pCipher) GetDot11CipherAlgorithm;
 	}
 
 
@@ -5350,7 +5350,7 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDot11AdHocInterfaceNotificationSink*/SelfOuter* self, DOT11_ADHOC_NETWORK_CONNECTION_STATUS eStatus) OnConnectionStatusChange;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, DOT11_ADHOC_NETWORK_CONNECTION_STATUS eStatus) OnConnectionStatusChange;
 	}
 
 

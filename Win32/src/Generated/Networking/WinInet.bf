@@ -2986,7 +2986,7 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDialEventSink*/SelfOuter* self, uint32 dwEvent, uint32 dwStatus) OnEvent;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwEvent, uint32 dwStatus) OnEvent;
 	}
 
 
@@ -3001,13 +3001,13 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDialEngine*/SelfOuter* self, PWSTR pwzConnectoid, IDialEventSink* pIDES) Initialize;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDialEngine*/SelfOuter* self, PWSTR pwzProperty, PWSTR pwzValue, uint32 dwBufSize) GetProperty;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDialEngine*/SelfOuter* self, PWSTR pwzProperty, PWSTR pwzValue) SetProperty;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDialEngine*/SelfOuter* self) Dial;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDialEngine*/SelfOuter* self) HangUp;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDialEngine*/SelfOuter* self, uint32* pdwState) GetConnectedState;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDialEngine*/SelfOuter* self, uint* pdwHandle) GetConnectHandle;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR pwzConnectoid, IDialEventSink* pIDES) Initialize;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR pwzProperty, PWSTR pwzValue, uint32 dwBufSize) GetProperty;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR pwzProperty, PWSTR pwzValue) SetProperty;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Dial;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) HangUp;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pdwState) GetConnectedState;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint* pdwHandle) GetConnectHandle;
 	}
 
 
@@ -3034,8 +3034,8 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDialBranding*/SelfOuter* self, PWSTR pwzConnectoid) Initialize;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDialBranding*/SelfOuter* self, uint32 dwIndex, HBITMAP* phBitmap) GetBitmap;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR pwzConnectoid) Initialize;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwIndex, HBITMAP* phBitmap) GetBitmap;
 	}
 
 
@@ -3052,7 +3052,7 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IProofOfPossessionCookieInfoManager*/SelfOuter* self, PWSTR uri, uint32* cookieInfoCount, ProofOfPossessionCookieInfo** cookieInfo) GetCookieInfoForUri;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR uri, uint32* cookieInfoCount, ProofOfPossessionCookieInfo** cookieInfo) GetCookieInfoForUri;
 	}
 
 
@@ -3067,7 +3067,7 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IProofOfPossessionCookieInfoManager2*/SelfOuter* self, IInspectable* webAccount, PWSTR uri, uint32* cookieInfoCount, ProofOfPossessionCookieInfo** cookieInfo) GetCookieInfoWithUriForAccount;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IInspectable* webAccount, PWSTR uri, uint32* cookieInfoCount, ProofOfPossessionCookieInfo** cookieInfo) GetCookieInfoWithUriForAccount;
 	}
 
 

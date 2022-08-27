@@ -643,10 +643,10 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnumSTATSTG*/SelfOuter* self, uint32 celt, STATSTG* rgelt, uint32* pceltFetched) Next;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnumSTATSTG*/SelfOuter* self, uint32 celt) Skip;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnumSTATSTG*/SelfOuter* self) Reset;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnumSTATSTG*/SelfOuter* self, IEnumSTATSTG** ppenum) Clone;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 celt, STATSTG* rgelt, uint32* pceltFetched) Next;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 celt) Skip;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Reset;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IEnumSTATSTG** ppenum) Clone;
 	}
 
 
@@ -667,21 +667,21 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IStorage*/SelfOuter* self, PWSTR pwcsName, uint32 grfMode, uint32 reserved1, uint32 reserved2, IStream** ppstm) CreateStream;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IStorage*/SelfOuter* self, PWSTR pwcsName, void* reserved1, uint32 grfMode, uint32 reserved2, IStream** ppstm) OpenStream;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IStorage*/SelfOuter* self, PWSTR pwcsName, uint32 grfMode, uint32 reserved1, uint32 reserved2, IStorage** ppstg) CreateStorage;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IStorage*/SelfOuter* self, PWSTR pwcsName, IStorage* pstgPriority, uint32 grfMode, uint16** snbExclude, uint32 reserved, IStorage** ppstg) OpenStorage;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IStorage*/SelfOuter* self, uint32 ciidExclude, ref Guid rgiidExclude, uint16** snbExclude, IStorage* pstgDest) CopyTo;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IStorage*/SelfOuter* self, PWSTR pwcsName, IStorage* pstgDest, PWSTR pwcsNewName, uint32 grfFlags) MoveElementTo;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IStorage*/SelfOuter* self, uint32 grfCommitFlags) Commit;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IStorage*/SelfOuter* self) Revert;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IStorage*/SelfOuter* self, uint32 reserved1, void* reserved2, uint32 reserved3, IEnumSTATSTG** ppenum) EnumElements;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IStorage*/SelfOuter* self, PWSTR pwcsName) DestroyElement;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IStorage*/SelfOuter* self, PWSTR pwcsOldName, PWSTR pwcsNewName) RenameElement;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IStorage*/SelfOuter* self, PWSTR pwcsName, FILETIME* pctime, FILETIME* patime, FILETIME* pmtime) SetElementTimes;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IStorage*/SelfOuter* self, ref Guid clsid) SetClass;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IStorage*/SelfOuter* self, uint32 grfStateBits, uint32 grfMask) SetStateBits;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IStorage*/SelfOuter* self, STATSTG* pstatstg, uint32 grfStatFlag) Stat;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR pwcsName, uint32 grfMode, uint32 reserved1, uint32 reserved2, IStream** ppstm) CreateStream;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR pwcsName, void* reserved1, uint32 grfMode, uint32 reserved2, IStream** ppstm) OpenStream;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR pwcsName, uint32 grfMode, uint32 reserved1, uint32 reserved2, IStorage** ppstg) CreateStorage;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR pwcsName, IStorage* pstgPriority, uint32 grfMode, uint16** snbExclude, uint32 reserved, IStorage** ppstg) OpenStorage;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 ciidExclude, ref Guid rgiidExclude, uint16** snbExclude, IStorage* pstgDest) CopyTo;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR pwcsName, IStorage* pstgDest, PWSTR pwcsNewName, uint32 grfFlags) MoveElementTo;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 grfCommitFlags) Commit;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Revert;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 reserved1, void* reserved2, uint32 reserved3, IEnumSTATSTG** ppenum) EnumElements;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR pwcsName) DestroyElement;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR pwcsOldName, PWSTR pwcsNewName) RenameElement;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR pwcsName, FILETIME* pctime, FILETIME* patime, FILETIME* pmtime) SetElementTimes;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid clsid) SetClass;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 grfStateBits, uint32 grfMask) SetStateBits;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, STATSTG* pstatstg, uint32 grfStatFlag) Stat;
 	}
 
 
@@ -724,12 +724,12 @@ public static
 
 	[CRepr]public struct VTable : IPersist.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPersistStorage*/SelfOuter* self) IsDirty;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPersistStorage*/SelfOuter* self, IStorage* pStg) InitNew;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPersistStorage*/SelfOuter* self, IStorage* pStg) Load;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPersistStorage*/SelfOuter* self, IStorage* pStgSave, BOOL fSameAsLoad) Save;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPersistStorage*/SelfOuter* self, IStorage* pStgNew) SaveCompleted;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPersistStorage*/SelfOuter* self) HandsOffStorage;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) IsDirty;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IStorage* pStg) InitNew;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IStorage* pStg) Load;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IStorage* pStgSave, BOOL fSameAsLoad) Save;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IStorage* pStgNew) SaveCompleted;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) HandsOffStorage;
 	}
 
 
@@ -754,13 +754,13 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ILockBytes*/SelfOuter* self, ULARGE_INTEGER ulOffset, void* pv, uint32 cb, uint32* pcbRead) ReadAt;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ILockBytes*/SelfOuter* self, ULARGE_INTEGER ulOffset, void* pv, uint32 cb, uint32* pcbWritten) WriteAt;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ILockBytes*/SelfOuter* self) Flush;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ILockBytes*/SelfOuter* self, ULARGE_INTEGER cb) SetSize;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ILockBytes*/SelfOuter* self, ULARGE_INTEGER libOffset, ULARGE_INTEGER cb, uint32 dwLockType) LockRegion;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ILockBytes*/SelfOuter* self, ULARGE_INTEGER libOffset, ULARGE_INTEGER cb, uint32 dwLockType) UnlockRegion;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ILockBytes*/SelfOuter* self, STATSTG* pstatstg, uint32 grfStatFlag) Stat;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ULARGE_INTEGER ulOffset, void* pv, uint32 cb, uint32* pcbRead) ReadAt;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ULARGE_INTEGER ulOffset, void* pv, uint32 cb, uint32* pcbWritten) WriteAt;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Flush;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ULARGE_INTEGER cb) SetSize;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ULARGE_INTEGER libOffset, ULARGE_INTEGER cb, uint32 dwLockType) LockRegion;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ULARGE_INTEGER libOffset, ULARGE_INTEGER cb, uint32 dwLockType) UnlockRegion;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, STATSTG* pstatstg, uint32 grfStatFlag) Stat;
 	}
 
 
@@ -787,7 +787,7 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRootStorage*/SelfOuter* self, PWSTR pszFile) SwitchToFile;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR pszFile) SwitchToFile;
 	}
 
 
@@ -802,10 +802,10 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFillLockBytes*/SelfOuter* self, void* pv, uint32 cb, uint32* pcbWritten) FillAppend;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFillLockBytes*/SelfOuter* self, ULARGE_INTEGER ulOffset, void* pv, uint32 cb, uint32* pcbWritten) FillAt;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFillLockBytes*/SelfOuter* self, ULARGE_INTEGER ulSize) SetFillSize;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFillLockBytes*/SelfOuter* self, BOOL bCanceled) Terminate;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, void* pv, uint32 cb, uint32* pcbWritten) FillAppend;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ULARGE_INTEGER ulOffset, void* pv, uint32 cb, uint32* pcbWritten) FillAt;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ULARGE_INTEGER ulSize) SetFillSize;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BOOL bCanceled) Terminate;
 	}
 
 
@@ -826,11 +826,11 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ILayoutStorage*/SelfOuter* self, StorageLayout* pStorageLayout, uint32 nEntries, uint32 glfInterleavedFlag) LayoutScript;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ILayoutStorage*/SelfOuter* self) BeginMonitor;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ILayoutStorage*/SelfOuter* self) EndMonitor;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ILayoutStorage*/SelfOuter* self, PWSTR pwcsNewDfName) ReLayoutDocfile;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ILayoutStorage*/SelfOuter* self, ILockBytes* pILockBytes) ReLayoutDocfileOnILockBytes;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, StorageLayout* pStorageLayout, uint32 nEntries, uint32 glfInterleavedFlag) LayoutScript;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) BeginMonitor;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) EndMonitor;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR pwcsNewDfName) ReLayoutDocfile;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ILockBytes* pILockBytes) ReLayoutDocfileOnILockBytes;
 	}
 
 
@@ -853,9 +853,9 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDirectWriterLock*/SelfOuter* self, uint32 dwTimeout) WaitForWriteAccess;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDirectWriterLock*/SelfOuter* self) ReleaseWriteAccess;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDirectWriterLock*/SelfOuter* self) HaveWriteAccess;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwTimeout) WaitForWriteAccess;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) ReleaseWriteAccess;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) HaveWriteAccess;
 	}
 
 
@@ -874,18 +874,18 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPropertyStorage*/SelfOuter* self, uint32 cpspec, PROPSPEC* rgpspec, PROPVARIANT* rgpropvar) ReadMultiple;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPropertyStorage*/SelfOuter* self, uint32 cpspec, PROPSPEC* rgpspec, PROPVARIANT* rgpropvar, uint32 propidNameFirst) WriteMultiple;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPropertyStorage*/SelfOuter* self, uint32 cpspec, PROPSPEC* rgpspec) DeleteMultiple;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPropertyStorage*/SelfOuter* self, uint32 cpropid, uint32* rgpropid, PWSTR* rglpwstrName) ReadPropertyNames;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPropertyStorage*/SelfOuter* self, uint32 cpropid, uint32* rgpropid, PWSTR* rglpwstrName) WritePropertyNames;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPropertyStorage*/SelfOuter* self, uint32 cpropid, uint32* rgpropid) DeletePropertyNames;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPropertyStorage*/SelfOuter* self, uint32 grfCommitFlags) Commit;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPropertyStorage*/SelfOuter* self) Revert;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPropertyStorage*/SelfOuter* self, IEnumSTATPROPSTG** ppenum) Enum;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPropertyStorage*/SelfOuter* self, FILETIME* pctime, FILETIME* patime, FILETIME* pmtime) SetTimes;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPropertyStorage*/SelfOuter* self, ref Guid clsid) SetClass;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPropertyStorage*/SelfOuter* self, STATPROPSETSTG* pstatpsstg) Stat;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 cpspec, PROPSPEC* rgpspec, PROPVARIANT* rgpropvar) ReadMultiple;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 cpspec, PROPSPEC* rgpspec, PROPVARIANT* rgpropvar, uint32 propidNameFirst) WriteMultiple;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 cpspec, PROPSPEC* rgpspec) DeleteMultiple;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 cpropid, uint32* rgpropid, PWSTR* rglpwstrName) ReadPropertyNames;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 cpropid, uint32* rgpropid, PWSTR* rglpwstrName) WritePropertyNames;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 cpropid, uint32* rgpropid) DeletePropertyNames;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 grfCommitFlags) Commit;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Revert;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IEnumSTATPROPSTG** ppenum) Enum;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, FILETIME* pctime, FILETIME* patime, FILETIME* pmtime) SetTimes;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid clsid) SetClass;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, STATPROPSETSTG* pstatpsstg) Stat;
 	}
 
 
@@ -922,10 +922,10 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPropertySetStorage*/SelfOuter* self, ref Guid rfmtid, ref Guid pclsid, uint32 grfFlags, uint32 grfMode, IPropertyStorage** ppprstg) Create;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPropertySetStorage*/SelfOuter* self, ref Guid rfmtid, uint32 grfMode, IPropertyStorage** ppprstg) Open;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPropertySetStorage*/SelfOuter* self, ref Guid rfmtid) Delete;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPropertySetStorage*/SelfOuter* self, IEnumSTATPROPSETSTG** ppenum) Enum;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid rfmtid, ref Guid pclsid, uint32 grfFlags, uint32 grfMode, IPropertyStorage** ppprstg) Create;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid rfmtid, uint32 grfMode, IPropertyStorage** ppprstg) Open;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid rfmtid) Delete;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IEnumSTATPROPSETSTG** ppenum) Enum;
 	}
 
 
@@ -946,10 +946,10 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnumSTATPROPSTG*/SelfOuter* self, uint32 celt, STATPROPSTG* rgelt, uint32* pceltFetched) Next;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnumSTATPROPSTG*/SelfOuter* self, uint32 celt) Skip;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnumSTATPROPSTG*/SelfOuter* self) Reset;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnumSTATPROPSTG*/SelfOuter* self, IEnumSTATPROPSTG** ppenum) Clone;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 celt, STATPROPSTG* rgelt, uint32* pceltFetched) Next;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 celt) Skip;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Reset;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IEnumSTATPROPSTG** ppenum) Clone;
 	}
 
 
@@ -970,10 +970,10 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnumSTATPROPSETSTG*/SelfOuter* self, uint32 celt, STATPROPSETSTG* rgelt, uint32* pceltFetched) Next;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnumSTATPROPSETSTG*/SelfOuter* self, uint32 celt) Skip;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnumSTATPROPSETSTG*/SelfOuter* self) Reset;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnumSTATPROPSETSTG*/SelfOuter* self, IEnumSTATPROPSETSTG** ppenum) Clone;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 celt, STATPROPSETSTG* rgelt, uint32* pceltFetched) Next;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 celt) Skip;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Reset;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IEnumSTATPROPSETSTG** ppenum) Clone;
 	}
 
 
@@ -994,8 +994,8 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPropertyBag*/SelfOuter* self, PWSTR pszPropName, VARIANT* pVar, IErrorLog* pErrorLog) Read;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPropertyBag*/SelfOuter* self, PWSTR pszPropName, VARIANT* pVar) Write;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR pszPropName, VARIANT* pVar, IErrorLog* pErrorLog) Read;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR pszPropName, VARIANT* pVar) Write;
 	}
 
 
@@ -1012,11 +1012,11 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPropertyBag2*/SelfOuter* self, uint32 cProperties, PROPBAG2* pPropBag, IErrorLog* pErrLog, VARIANT* pvarValue, HRESULT* phrError) Read;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPropertyBag2*/SelfOuter* self, uint32 cProperties, PROPBAG2* pPropBag, VARIANT* pvarValue) Write;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPropertyBag2*/SelfOuter* self, uint32* pcProperties) CountProperties;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPropertyBag2*/SelfOuter* self, uint32 iProperty, uint32 cProperties, PROPBAG2* pPropBag, uint32* pcProperties) GetPropertyInfo;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPropertyBag2*/SelfOuter* self, PWSTR pstrName, uint32 dwHint, IUnknown* pUnkObject, IErrorLog* pErrLog) LoadObject;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 cProperties, PROPBAG2* pPropBag, IErrorLog* pErrLog, VARIANT* pvarValue, HRESULT* phrError) Read;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 cProperties, PROPBAG2* pPropBag, VARIANT* pvarValue) Write;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pcProperties) CountProperties;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 iProperty, uint32 cProperties, PROPBAG2* pPropBag, uint32* pcProperties) GetPropertyInfo;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR pstrName, uint32 dwHint, IUnknown* pUnkObject, IErrorLog* pErrLog) LoadObject;
 	}
 
 

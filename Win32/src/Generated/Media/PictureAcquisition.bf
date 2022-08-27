@@ -195,15 +195,15 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPhotoAcquireItem*/SelfOuter* self, BSTR* pbstrItemName) GetItemName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPhotoAcquireItem*/SelfOuter* self, SIZE sizeThumbnail, HBITMAP* phbmpThumbnail) GetThumbnail;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPhotoAcquireItem*/SelfOuter* self, PROPERTYKEY* key, PROPVARIANT* pv) GetProperty;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPhotoAcquireItem*/SelfOuter* self, PROPERTYKEY* key, PROPVARIANT* pv) SetProperty;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPhotoAcquireItem*/SelfOuter* self, IStream** ppStream) GetStream;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPhotoAcquireItem*/SelfOuter* self, BOOL* pfCanDelete) CanDelete;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPhotoAcquireItem*/SelfOuter* self) Delete;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPhotoAcquireItem*/SelfOuter* self, uint32* pnCount) GetSubItemCount;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPhotoAcquireItem*/SelfOuter* self, uint32 nItemIndex, IPhotoAcquireItem** ppPhotoAcquireItem) GetSubItemAt;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pbstrItemName) GetItemName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, SIZE sizeThumbnail, HBITMAP* phbmpThumbnail) GetThumbnail;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PROPERTYKEY* key, PROPVARIANT* pv) GetProperty;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PROPERTYKEY* key, PROPVARIANT* pv) SetProperty;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IStream** ppStream) GetStream;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BOOL* pfCanDelete) CanDelete;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Delete;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pnCount) GetSubItemCount;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 nItemIndex, IPhotoAcquireItem** ppPhotoAcquireItem) GetSubItemAt;
 	}
 
 
@@ -234,16 +234,16 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IUserInputString*/SelfOuter* self, BSTR* pbstrSubmitButtonText) GetSubmitButtonText;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IUserInputString*/SelfOuter* self, BSTR* pbstrPromptTitle) GetPrompt;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IUserInputString*/SelfOuter* self, BSTR* pbstrStringId) GetStringId;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IUserInputString*/SelfOuter* self, USER_INPUT_STRING_TYPE* pnStringType) GetStringType;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IUserInputString*/SelfOuter* self, BSTR* pbstrTooltipText) GetTooltipText;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IUserInputString*/SelfOuter* self, uint32* pcchMaxLength) GetMaxLength;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IUserInputString*/SelfOuter* self, BSTR* pbstrDefault) GetDefault;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IUserInputString*/SelfOuter* self, uint32* pnMruCount) GetMruCount;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IUserInputString*/SelfOuter* self, uint32 nIndex, BSTR* pbstrMruEntry) GetMruEntryAt;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IUserInputString*/SelfOuter* self, uint32 nSize, HBITMAP* phBitmap, HICON* phIcon) GetImage;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pbstrSubmitButtonText) GetSubmitButtonText;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pbstrPromptTitle) GetPrompt;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pbstrStringId) GetStringId;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, USER_INPUT_STRING_TYPE* pnStringType) GetStringType;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pbstrTooltipText) GetTooltipText;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pcchMaxLength) GetMaxLength;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pbstrDefault) GetDefault;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pnMruCount) GetMruCount;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 nIndex, BSTR* pbstrMruEntry) GetMruEntryAt;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 nSize, HBITMAP* phBitmap, HICON* phIcon) GetImage;
 	}
 
 
@@ -276,25 +276,25 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPhotoAcquireProgressCB*/SelfOuter* self, BOOL* pfCancelled) Cancelled;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPhotoAcquireProgressCB*/SelfOuter* self, IPhotoAcquireSource* pPhotoAcquireSource) StartEnumeration;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPhotoAcquireProgressCB*/SelfOuter* self, IPhotoAcquireItem* pPhotoAcquireItem) FoundItem;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPhotoAcquireProgressCB*/SelfOuter* self, HRESULT hr) EndEnumeration;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPhotoAcquireProgressCB*/SelfOuter* self, IPhotoAcquireSource* pPhotoAcquireSource) StartTransfer;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPhotoAcquireProgressCB*/SelfOuter* self, uint32 nItemIndex, IPhotoAcquireItem* pPhotoAcquireItem) StartItemTransfer;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPhotoAcquireProgressCB*/SelfOuter* self, PWSTR pszDirectory) DirectoryCreated;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPhotoAcquireProgressCB*/SelfOuter* self, BOOL fOverall, uint32 nPercent) UpdateTransferPercent;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPhotoAcquireProgressCB*/SelfOuter* self, uint32 nItemIndex, IPhotoAcquireItem* pPhotoAcquireItem, HRESULT hr) EndItemTransfer;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPhotoAcquireProgressCB*/SelfOuter* self, HRESULT hr) EndTransfer;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPhotoAcquireProgressCB*/SelfOuter* self, IPhotoAcquireSource* pPhotoAcquireSource) StartDelete;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPhotoAcquireProgressCB*/SelfOuter* self, uint32 nItemIndex, IPhotoAcquireItem* pPhotoAcquireItem) StartItemDelete;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPhotoAcquireProgressCB*/SelfOuter* self, uint32 nPercent) UpdateDeletePercent;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPhotoAcquireProgressCB*/SelfOuter* self, uint32 nItemIndex, IPhotoAcquireItem* pPhotoAcquireItem, HRESULT hr) EndItemDelete;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPhotoAcquireProgressCB*/SelfOuter* self, HRESULT hr) EndDelete;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPhotoAcquireProgressCB*/SelfOuter* self, HRESULT hr) EndSession;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPhotoAcquireProgressCB*/SelfOuter* self, BOOL* pfDeleteAfterAcquire) GetDeleteAfterAcquire;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPhotoAcquireProgressCB*/SelfOuter* self, HRESULT hr, PWSTR pszErrorMessage, ERROR_ADVISE_MESSAGE_TYPE nMessageType, ERROR_ADVISE_RESULT* pnErrorAdviseResult) ErrorAdvise;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPhotoAcquireProgressCB*/SelfOuter* self, ref Guid riidType, IUnknown* pUnknown, PROPVARIANT* pPropVarResult, PROPVARIANT* pPropVarDefault) GetUserInput;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BOOL* pfCancelled) Cancelled;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IPhotoAcquireSource* pPhotoAcquireSource) StartEnumeration;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IPhotoAcquireItem* pPhotoAcquireItem) FoundItem;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HRESULT hr) EndEnumeration;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IPhotoAcquireSource* pPhotoAcquireSource) StartTransfer;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 nItemIndex, IPhotoAcquireItem* pPhotoAcquireItem) StartItemTransfer;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR pszDirectory) DirectoryCreated;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BOOL fOverall, uint32 nPercent) UpdateTransferPercent;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 nItemIndex, IPhotoAcquireItem* pPhotoAcquireItem, HRESULT hr) EndItemTransfer;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HRESULT hr) EndTransfer;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IPhotoAcquireSource* pPhotoAcquireSource) StartDelete;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 nItemIndex, IPhotoAcquireItem* pPhotoAcquireItem) StartItemDelete;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 nPercent) UpdateDeletePercent;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 nItemIndex, IPhotoAcquireItem* pPhotoAcquireItem, HRESULT hr) EndItemDelete;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HRESULT hr) EndDelete;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HRESULT hr) EndSession;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BOOL* pfDeleteAfterAcquire) GetDeleteAfterAcquire;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HRESULT hr, PWSTR pszErrorMessage, ERROR_ADVISE_MESSAGE_TYPE nMessageType, ERROR_ADVISE_RESULT* pnErrorAdviseResult) ErrorAdvise;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid riidType, IUnknown* pUnknown, PROPVARIANT* pPropVarResult, PROPVARIANT* pPropVarDefault) GetUserInput;
 	}
 
 
@@ -345,7 +345,7 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPhotoProgressActionCB*/SelfOuter* self, HWND hWndParent) DoAction;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HWND hWndParent) DoAction;
 	}
 
 
@@ -360,24 +360,24 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPhotoProgressDialog*/SelfOuter* self, HWND hwndParent) Create;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPhotoProgressDialog*/SelfOuter* self, HWND* phwndProgressDialog) GetWindow;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPhotoProgressDialog*/SelfOuter* self) Destroy;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPhotoProgressDialog*/SelfOuter* self, PWSTR pszTitle) SetTitle;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPhotoProgressDialog*/SelfOuter* self, PROGRESS_DIALOG_CHECKBOX_ID nCheckboxId, BOOL fShow) ShowCheckbox;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPhotoProgressDialog*/SelfOuter* self, PROGRESS_DIALOG_CHECKBOX_ID nCheckboxId, PWSTR pszCheckboxText) SetCheckboxText;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPhotoProgressDialog*/SelfOuter* self, PROGRESS_DIALOG_CHECKBOX_ID nCheckboxId, BOOL fChecked) SetCheckboxCheck;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPhotoProgressDialog*/SelfOuter* self, PROGRESS_DIALOG_CHECKBOX_ID nCheckboxId, PWSTR pszCheckboxTooltipText) SetCheckboxTooltip;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPhotoProgressDialog*/SelfOuter* self, PROGRESS_DIALOG_CHECKBOX_ID nCheckboxId, BOOL* pfChecked) IsCheckboxChecked;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPhotoProgressDialog*/SelfOuter* self, PWSTR pszTitle) SetCaption;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPhotoProgressDialog*/SelfOuter* self, PROGRESS_DIALOG_IMAGE_TYPE nImageType, HICON hIcon, HBITMAP hBitmap) SetImage;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPhotoProgressDialog*/SelfOuter* self, int32 nPercent) SetPercentComplete;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPhotoProgressDialog*/SelfOuter* self, PWSTR pszProgressText) SetProgressText;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPhotoProgressDialog*/SelfOuter* self, IPhotoProgressActionCB* pPhotoProgressActionCB) SetActionLinkCallback;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPhotoProgressDialog*/SelfOuter* self, PWSTR pszCaption) SetActionLinkText;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPhotoProgressDialog*/SelfOuter* self, BOOL fShow) ShowActionLink;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPhotoProgressDialog*/SelfOuter* self, BOOL* pfCancelled) IsCancelled;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPhotoProgressDialog*/SelfOuter* self, ref Guid riidType, IUnknown* pUnknown, PROPVARIANT* pPropVarResult, PROPVARIANT* pPropVarDefault) GetUserInput;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HWND hwndParent) Create;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HWND* phwndProgressDialog) GetWindow;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Destroy;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR pszTitle) SetTitle;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PROGRESS_DIALOG_CHECKBOX_ID nCheckboxId, BOOL fShow) ShowCheckbox;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PROGRESS_DIALOG_CHECKBOX_ID nCheckboxId, PWSTR pszCheckboxText) SetCheckboxText;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PROGRESS_DIALOG_CHECKBOX_ID nCheckboxId, BOOL fChecked) SetCheckboxCheck;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PROGRESS_DIALOG_CHECKBOX_ID nCheckboxId, PWSTR pszCheckboxTooltipText) SetCheckboxTooltip;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PROGRESS_DIALOG_CHECKBOX_ID nCheckboxId, BOOL* pfChecked) IsCheckboxChecked;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR pszTitle) SetCaption;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PROGRESS_DIALOG_IMAGE_TYPE nImageType, HICON hIcon, HBITMAP hBitmap) SetImage;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 nPercent) SetPercentComplete;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR pszProgressText) SetProgressText;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IPhotoProgressActionCB* pPhotoProgressActionCB) SetActionLinkCallback;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR pszCaption) SetActionLinkText;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BOOL fShow) ShowActionLink;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BOOL* pfCancelled) IsCancelled;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid riidType, IUnknown* pUnknown, PROPVARIANT* pPropVarResult, PROPVARIANT* pPropVarDefault) GetUserInput;
 	}
 
 
@@ -426,14 +426,14 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPhotoAcquireSource*/SelfOuter* self, BSTR* pbstrFriendlyName) GetFriendlyName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPhotoAcquireSource*/SelfOuter* self, uint32 nSize, HICON* phLargeIcon, HICON* phSmallIcon) GetDeviceIcons;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPhotoAcquireSource*/SelfOuter* self, BOOL fForceEnumeration, IPhotoAcquireProgressCB* pPhotoAcquireProgressCB, uint32* pnItemCount) InitializeItemList;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPhotoAcquireSource*/SelfOuter* self, uint32* pnItemCount) GetItemCount;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPhotoAcquireSource*/SelfOuter* self, uint32 nIndex, IPhotoAcquireItem** ppPhotoAcquireItem) GetItemAt;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPhotoAcquireSource*/SelfOuter* self, IPhotoAcquireSettings** ppPhotoAcquireSettings) GetPhotoAcquireSettings;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPhotoAcquireSource*/SelfOuter* self, BSTR* pbstrDeviceId) GetDeviceId;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPhotoAcquireSource*/SelfOuter* self, ref Guid riid, void** ppv) BindToObject;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pbstrFriendlyName) GetFriendlyName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 nSize, HICON* phLargeIcon, HICON* phSmallIcon) GetDeviceIcons;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BOOL fForceEnumeration, IPhotoAcquireProgressCB* pPhotoAcquireProgressCB, uint32* pnItemCount) InitializeItemList;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pnItemCount) GetItemCount;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 nIndex, IPhotoAcquireItem** ppPhotoAcquireItem) GetItemAt;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IPhotoAcquireSettings** ppPhotoAcquireSettings) GetPhotoAcquireSettings;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pbstrDeviceId) GetDeviceId;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid riid, void** ppv) BindToObject;
 	}
 
 
@@ -462,9 +462,9 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPhotoAcquire*/SelfOuter* self, PWSTR pszDevice, IPhotoAcquireSource** ppPhotoAcquireSource) CreatePhotoSource;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPhotoAcquire*/SelfOuter* self, IPhotoAcquireSource* pPhotoAcquireSource, BOOL fShowProgress, HWND hWndParent, PWSTR pszApplicationName, IPhotoAcquireProgressCB* pPhotoAcquireProgressCB) Acquire;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPhotoAcquire*/SelfOuter* self, IEnumString** ppEnumFilePaths) EnumResults;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR pszDevice, IPhotoAcquireSource** ppPhotoAcquireSource) CreatePhotoSource;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IPhotoAcquireSource* pPhotoAcquireSource, BOOL fShowProgress, HWND hWndParent, PWSTR pszApplicationName, IPhotoAcquireProgressCB* pPhotoAcquireProgressCB) Acquire;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IEnumString** ppEnumFilePaths) EnumResults;
 	}
 
 
@@ -483,19 +483,19 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPhotoAcquireSettings*/SelfOuter* self, PWSTR pszRegistryKey) InitializeFromRegistry;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPhotoAcquireSettings*/SelfOuter* self, uint32 dwPhotoAcquireFlags) SetFlags;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPhotoAcquireSettings*/SelfOuter* self, PWSTR pszTemplate) SetOutputFilenameTemplate;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPhotoAcquireSettings*/SelfOuter* self, uint32 dwWidth) SetSequencePaddingWidth;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPhotoAcquireSettings*/SelfOuter* self, BOOL fZeroPad) SetSequenceZeroPadding;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPhotoAcquireSettings*/SelfOuter* self, PWSTR pszGroupTag) SetGroupTag;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPhotoAcquireSettings*/SelfOuter* self, FILETIME* pftAcquisitionTime) SetAcquisitionTime;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPhotoAcquireSettings*/SelfOuter* self, uint32* pdwPhotoAcquireFlags) COM_GetFlags;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPhotoAcquireSettings*/SelfOuter* self, BSTR* pbstrTemplate) GetOutputFilenameTemplate;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPhotoAcquireSettings*/SelfOuter* self, uint32* pdwWidth) GetSequencePaddingWidth;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPhotoAcquireSettings*/SelfOuter* self, BOOL* pfZeroPad) GetSequenceZeroPadding;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPhotoAcquireSettings*/SelfOuter* self, BSTR* pbstrGroupTag) GetGroupTag;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPhotoAcquireSettings*/SelfOuter* self, FILETIME* pftAcquisitionTime) GetAcquisitionTime;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR pszRegistryKey) InitializeFromRegistry;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwPhotoAcquireFlags) SetFlags;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR pszTemplate) SetOutputFilenameTemplate;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwWidth) SetSequencePaddingWidth;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BOOL fZeroPad) SetSequenceZeroPadding;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR pszGroupTag) SetGroupTag;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, FILETIME* pftAcquisitionTime) SetAcquisitionTime;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pdwPhotoAcquireFlags) COM_GetFlags;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pbstrTemplate) GetOutputFilenameTemplate;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pdwWidth) GetSequencePaddingWidth;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BOOL* pfZeroPad) GetSequenceZeroPadding;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pbstrGroupTag) GetGroupTag;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, FILETIME* pftAcquisitionTime) GetAcquisitionTime;
 	}
 
 
@@ -534,11 +534,11 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPhotoAcquireOptionsDialog*/SelfOuter* self, PWSTR pszRegistryRoot) Initialize;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPhotoAcquireOptionsDialog*/SelfOuter* self, HWND hWndParent, HWND* phWndDialog) Create;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPhotoAcquireOptionsDialog*/SelfOuter* self) Destroy;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPhotoAcquireOptionsDialog*/SelfOuter* self, HWND hWndParent, int* ppnReturnCode) DoModal;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPhotoAcquireOptionsDialog*/SelfOuter* self) SaveData;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR pszRegistryRoot) Initialize;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HWND hWndParent, HWND* phWndDialog) Create;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Destroy;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HWND hWndParent, int* ppnReturnCode) DoModal;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) SaveData;
 	}
 
 
@@ -561,9 +561,9 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPhotoAcquireDeviceSelectionDialog*/SelfOuter* self, PWSTR pszTitle) SetTitle;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPhotoAcquireDeviceSelectionDialog*/SelfOuter* self, PWSTR pszSubmitButtonText) SetSubmitButtonText;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPhotoAcquireDeviceSelectionDialog*/SelfOuter* self, HWND hWndParent, uint32 dwDeviceFlags, BSTR* pbstrDeviceId, DEVICE_SELECTION_DEVICE_TYPE* pnDeviceType) DoModal;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR pszTitle) SetTitle;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR pszSubmitButtonText) SetSubmitButtonText;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HWND hWndParent, uint32 dwDeviceFlags, BSTR* pbstrDeviceId, DEVICE_SELECTION_DEVICE_TYPE* pnDeviceType) DoModal;
 	}
 
 
@@ -582,10 +582,10 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPhotoAcquirePlugin*/SelfOuter* self, IPhotoAcquireSource* pPhotoAcquireSource, IPhotoAcquireProgressCB* pPhotoAcquireProgressCB) Initialize;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPhotoAcquirePlugin*/SelfOuter* self, uint32 dwAcquireStage, IPhotoAcquireItem* pPhotoAcquireItem, IStream* pOriginalItemStream, PWSTR pszFinalFilename, IPropertyStore* pPropertyStore) ProcessItem;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPhotoAcquirePlugin*/SelfOuter* self, HRESULT hr) TransferComplete;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPhotoAcquirePlugin*/SelfOuter* self, HWND hWndParent) DisplayConfigureDialog;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IPhotoAcquireSource* pPhotoAcquireSource, IPhotoAcquireProgressCB* pPhotoAcquireProgressCB) Initialize;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwAcquireStage, IPhotoAcquireItem* pPhotoAcquireItem, IStream* pOriginalItemStream, PWSTR pszFinalFilename, IPropertyStore* pPropertyStore) ProcessItem;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HRESULT hr) TransferComplete;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HWND hWndParent) DisplayConfigureDialog;
 	}
 
 

@@ -4239,10 +4239,10 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICloneViewHelper*/SelfOuter* self, PWSTR wszAdaptorName, uint32* pulCount, uint32* pulID, uint32 ulFlags) GetConnectedIDs;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICloneViewHelper*/SelfOuter* self, PWSTR wszAdaptorName, uint32 ulSourceID, uint32* pulCount, uint32* pulTargetID) GetActiveTopology;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICloneViewHelper*/SelfOuter* self, PWSTR wszAdaptorName, uint32 ulSourceID, uint32 ulCount, uint32* pulTargetID) SetActiveTopology;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICloneViewHelper*/SelfOuter* self, BOOL fFinalCall) Commit;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR wszAdaptorName, uint32* pulCount, uint32* pulID, uint32 ulFlags) GetConnectedIDs;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR wszAdaptorName, uint32 ulSourceID, uint32* pulCount, uint32* pulTargetID) GetActiveTopology;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR wszAdaptorName, uint32 ulSourceID, uint32 ulCount, uint32* pulTargetID) SetActiveTopology;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BOOL fFinalCall) Commit;
 	}
 
 
@@ -4263,12 +4263,12 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IViewHelper*/SelfOuter* self, PWSTR wszAdaptorName, uint32* pulCount, uint32* pulID, uint32 ulFlags) GetConnectedIDs;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IViewHelper*/SelfOuter* self, PWSTR wszAdaptorName, uint32 ulSourceID, uint32* pulCount, uint32* pulTargetID) GetActiveTopology;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IViewHelper*/SelfOuter* self, PWSTR wszAdaptorName, uint32 ulSourceID, uint32 ulCount, uint32* pulTargetID) SetActiveTopology;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IViewHelper*/SelfOuter* self) Commit;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IViewHelper*/SelfOuter* self, IStream* pIStream, uint32* pulStatus) SetConfiguration;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IViewHelper*/SelfOuter* self) GetProceedOnNewConfiguration;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR wszAdaptorName, uint32* pulCount, uint32* pulID, uint32 ulFlags) GetConnectedIDs;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR wszAdaptorName, uint32 ulSourceID, uint32* pulCount, uint32* pulTargetID) GetActiveTopology;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR wszAdaptorName, uint32 ulSourceID, uint32 ulCount, uint32* pulTargetID) SetActiveTopology;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Commit;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IStream* pIStream, uint32* pulStatus) SetConfiguration;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) GetProceedOnNewConfiguration;
 	}
 
 

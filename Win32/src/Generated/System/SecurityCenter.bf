@@ -100,13 +100,13 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWscProduct*/SelfOuter* self, BSTR* pVal) get_ProductName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWscProduct*/SelfOuter* self, WSC_SECURITY_PRODUCT_STATE* pVal) get_ProductState;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWscProduct*/SelfOuter* self, WSC_SECURITY_SIGNATURE_STATUS* pVal) get_SignatureStatus;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWscProduct*/SelfOuter* self, BSTR* pVal) get_RemediationPath;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWscProduct*/SelfOuter* self, BSTR* pVal) get_ProductStateTimestamp;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWscProduct*/SelfOuter* self, BSTR* pVal) get_ProductGuid;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWscProduct*/SelfOuter* self, BOOL* pVal) get_ProductIsDefault;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pVal) get_ProductName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, WSC_SECURITY_PRODUCT_STATE* pVal) get_ProductState;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, WSC_SECURITY_SIGNATURE_STATUS* pVal) get_SignatureStatus;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pVal) get_RemediationPath;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pVal) get_ProductStateTimestamp;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pVal) get_ProductGuid;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BOOL* pVal) get_ProductIsDefault;
 	}
 
 
@@ -133,12 +133,12 @@ public static
 
 	[CRepr]public struct VTable : IWscProduct.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWscProduct2*/SelfOuter* self, WSC_SECURITY_PRODUCT_SUBSTATUS* peStatus) get_AntivirusScanSubstatus;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWscProduct2*/SelfOuter* self, WSC_SECURITY_PRODUCT_SUBSTATUS* peStatus) get_AntivirusSettingsSubstatus;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWscProduct2*/SelfOuter* self, WSC_SECURITY_PRODUCT_SUBSTATUS* peStatus) get_AntivirusProtectionUpdateSubstatus;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWscProduct2*/SelfOuter* self, WSC_SECURITY_PRODUCT_SUBSTATUS* peStatus) get_FirewallDomainProfileSubstatus;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWscProduct2*/SelfOuter* self, WSC_SECURITY_PRODUCT_SUBSTATUS* peStatus) get_FirewallPrivateProfileSubstatus;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWscProduct2*/SelfOuter* self, WSC_SECURITY_PRODUCT_SUBSTATUS* peStatus) get_FirewallPublicProfileSubstatus;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, WSC_SECURITY_PRODUCT_SUBSTATUS* peStatus) get_AntivirusScanSubstatus;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, WSC_SECURITY_PRODUCT_SUBSTATUS* peStatus) get_AntivirusSettingsSubstatus;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, WSC_SECURITY_PRODUCT_SUBSTATUS* peStatus) get_AntivirusProtectionUpdateSubstatus;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, WSC_SECURITY_PRODUCT_SUBSTATUS* peStatus) get_FirewallDomainProfileSubstatus;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, WSC_SECURITY_PRODUCT_SUBSTATUS* peStatus) get_FirewallPrivateProfileSubstatus;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, WSC_SECURITY_PRODUCT_SUBSTATUS* peStatus) get_FirewallPublicProfileSubstatus;
 	}
 
 
@@ -163,7 +163,7 @@ public static
 
 	[CRepr]public struct VTable : IWscProduct2.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWscProduct3*/SelfOuter* self, uint32* pdwDays) get_AntivirusDaysUntilExpired;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pdwDays) get_AntivirusDaysUntilExpired;
 	}
 
 
@@ -178,9 +178,9 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWSCProductList*/SelfOuter* self, WSC_SECURITY_PROVIDER provider) Initialize;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWSCProductList*/SelfOuter* self, int32* pVal) get_Count;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWSCProductList*/SelfOuter* self, uint32 index, IWscProduct** pVal) get_Item;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, WSC_SECURITY_PROVIDER provider) Initialize;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* pVal) get_Count;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 index, IWscProduct** pVal) get_Item;
 	}
 
 
@@ -199,7 +199,7 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWSCDefaultProduct*/SelfOuter* self, SECURITY_PRODUCT_TYPE eType, BSTR pGuid) SetDefaultProduct;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, SECURITY_PRODUCT_TYPE eType, BSTR pGuid) SetDefaultProduct;
 	}
 
 

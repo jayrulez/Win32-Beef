@@ -4212,8 +4212,8 @@ public static
 
 	[CRepr]public struct VTable : IInspectable.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IContentPrefetcherTaskTrigger*/SelfOuter* self, PWSTR packageFullName) TriggerContentPrefetcherTask;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IContentPrefetcherTaskTrigger*/SelfOuter* self, PWSTR packageFullName, uint8* isRegistered) IsRegisteredForContentPrefetch;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR packageFullName) TriggerContentPrefetcherTask;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR packageFullName, uint8* isRegistered) IsRegisteredForContentPrefetch;
 	}
 
 

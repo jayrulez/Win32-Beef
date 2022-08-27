@@ -40,7 +40,7 @@ public static
 
 	[CRepr]public struct VTable : IInspectable.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISoftwareBitmapNative*/SelfOuter* self, ref Guid riid, void** ppv) GetData;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid riid, void** ppv) GetData;
 	}
 
 
@@ -55,8 +55,8 @@ public static
 
 	[CRepr]public struct VTable : IInspectable.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISoftwareBitmapNativeFactory*/SelfOuter* self, IWICBitmap* data, BOOL forceReadOnly, ref Guid riid, void** ppv) CreateFromWICBitmap;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISoftwareBitmapNativeFactory*/SelfOuter* self, IMF2DBuffer2* data, ref Guid subtype, uint32 width, uint32 height, BOOL forceReadOnly, MFVideoArea* minDisplayAperture, ref Guid riid, void** ppv) CreateFromMF2DBuffer2;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IWICBitmap* data, BOOL forceReadOnly, ref Guid riid, void** ppv) CreateFromWICBitmap;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IMF2DBuffer2* data, ref Guid subtype, uint32 width, uint32 height, BOOL forceReadOnly, MFVideoArea* minDisplayAperture, ref Guid riid, void** ppv) CreateFromMF2DBuffer2;
 	}
 
 

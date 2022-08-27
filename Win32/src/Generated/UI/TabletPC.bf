@@ -2391,18 +2391,18 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkRectangle*/SelfOuter* self, int32* Units) get_Top;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkRectangle*/SelfOuter* self, int32 Units) put_Top;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkRectangle*/SelfOuter* self, int32* Units) get_Left;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkRectangle*/SelfOuter* self, int32 Units) put_Left;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkRectangle*/SelfOuter* self, int32* Units) get_Bottom;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkRectangle*/SelfOuter* self, int32 Units) put_Bottom;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkRectangle*/SelfOuter* self, int32* Units) get_Right;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkRectangle*/SelfOuter* self, int32 Units) put_Right;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkRectangle*/SelfOuter* self, RECT* Rect) get_Data;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkRectangle*/SelfOuter* self, RECT Rect) put_Data;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkRectangle*/SelfOuter* self, int32* Top, int32* Left, int32* Bottom, int32* Right) GetRectangle;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkRectangle*/SelfOuter* self, int32 Top, int32 Left, int32 Bottom, int32 Right) SetRectangle;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* Units) get_Top;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 Units) put_Top;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* Units) get_Left;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 Units) put_Left;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* Units) get_Bottom;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 Units) put_Bottom;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* Units) get_Right;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 Units) put_Right;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, RECT* Rect) get_Data;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, RECT Rect) put_Data;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* Top, int32* Left, int32* Bottom, int32* Right) GetRectangle;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 Top, int32 Left, int32 Bottom, int32 Right) SetRectangle;
 	}
 
 
@@ -2439,9 +2439,9 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkExtendedProperty*/SelfOuter* self, BSTR* Guid) get_Guid;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkExtendedProperty*/SelfOuter* self, VARIANT* Data) get_Data;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkExtendedProperty*/SelfOuter* self, VARIANT Data) put_Data;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* Guid) get_Guid;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT* Data) get_Data;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT Data) put_Data;
 	}
 
 
@@ -2460,13 +2460,13 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkExtendedProperties*/SelfOuter* self, int32* Count) get_Count;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkExtendedProperties*/SelfOuter* self, IUnknown** _NewEnum) get__NewEnum;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkExtendedProperties*/SelfOuter* self, VARIANT Identifier, IInkExtendedProperty** Item) Item;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkExtendedProperties*/SelfOuter* self, BSTR Guid, VARIANT Data, IInkExtendedProperty** InkExtendedProperty) Add;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkExtendedProperties*/SelfOuter* self, VARIANT Identifier) Remove;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkExtendedProperties*/SelfOuter* self) Clear;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkExtendedProperties*/SelfOuter* self, BSTR Guid, int16* DoesPropertyExist) DoesPropertyExist;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* Count) get_Count;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IUnknown** _NewEnum) get__NewEnum;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT Identifier, IInkExtendedProperty** Item) Item;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR Guid, VARIANT Data, IInkExtendedProperty** InkExtendedProperty) Add;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT Identifier) Remove;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Clear;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR Guid, int16* DoesPropertyExist) DoesPropertyExist;
 	}
 
 
@@ -2493,26 +2493,26 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkDrawingAttributes*/SelfOuter* self, int32* CurrentColor) get_Color;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkDrawingAttributes*/SelfOuter* self, int32 NewColor) put_Color;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkDrawingAttributes*/SelfOuter* self, float* CurrentWidth) get_Width;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkDrawingAttributes*/SelfOuter* self, float NewWidth) put_Width;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkDrawingAttributes*/SelfOuter* self, float* CurrentHeight) get_Height;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkDrawingAttributes*/SelfOuter* self, float NewHeight) put_Height;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkDrawingAttributes*/SelfOuter* self, int16* Flag) get_FitToCurve;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkDrawingAttributes*/SelfOuter* self, int16 Flag) put_FitToCurve;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkDrawingAttributes*/SelfOuter* self, int16* Flag) get_IgnorePressure;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkDrawingAttributes*/SelfOuter* self, int16 Flag) put_IgnorePressure;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkDrawingAttributes*/SelfOuter* self, int16* Flag) get_AntiAliased;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkDrawingAttributes*/SelfOuter* self, int16 Flag) put_AntiAliased;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkDrawingAttributes*/SelfOuter* self, int32* CurrentTransparency) get_Transparency;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkDrawingAttributes*/SelfOuter* self, int32 NewTransparency) put_Transparency;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkDrawingAttributes*/SelfOuter* self, InkRasterOperation* CurrentRasterOperation) get_RasterOperation;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkDrawingAttributes*/SelfOuter* self, InkRasterOperation NewRasterOperation) put_RasterOperation;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkDrawingAttributes*/SelfOuter* self, InkPenTip* CurrentPenTip) get_PenTip;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkDrawingAttributes*/SelfOuter* self, InkPenTip NewPenTip) put_PenTip;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkDrawingAttributes*/SelfOuter* self, IInkExtendedProperties** Properties) get_ExtendedProperties;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkDrawingAttributes*/SelfOuter* self, IInkDrawingAttributes** DrawingAttributes) Clone;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* CurrentColor) get_Color;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 NewColor) put_Color;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, float* CurrentWidth) get_Width;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, float NewWidth) put_Width;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, float* CurrentHeight) get_Height;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, float NewHeight) put_Height;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* Flag) get_FitToCurve;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 Flag) put_FitToCurve;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* Flag) get_IgnorePressure;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 Flag) put_IgnorePressure;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* Flag) get_AntiAliased;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 Flag) put_AntiAliased;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* CurrentTransparency) get_Transparency;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 NewTransparency) put_Transparency;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, InkRasterOperation* CurrentRasterOperation) get_RasterOperation;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, InkRasterOperation NewRasterOperation) put_RasterOperation;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, InkPenTip* CurrentPenTip) get_PenTip;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, InkPenTip NewPenTip) put_PenTip;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IInkExtendedProperties** Properties) get_ExtendedProperties;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IInkDrawingAttributes** DrawingAttributes) Clone;
 	}
 
 
@@ -2565,28 +2565,28 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkTransform*/SelfOuter* self) Reset;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkTransform*/SelfOuter* self, float HorizontalComponent, float VerticalComponent) Translate;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkTransform*/SelfOuter* self, float Degrees, float x, float y) Rotate;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkTransform*/SelfOuter* self, int16 Horizontally, int16 Vertically) Reflect;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkTransform*/SelfOuter* self, float HorizontalComponent, float VerticalComponent) Shear;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkTransform*/SelfOuter* self, float HorizontalMultiplier, float VerticalMultiplier) ScaleTransform;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkTransform*/SelfOuter* self, float* eM11, float* eM12, float* eM21, float* eM22, float* eDx, float* eDy) GetTransform;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkTransform*/SelfOuter* self, float eM11, float eM12, float eM21, float eM22, float eDx, float eDy) SetTransform;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkTransform*/SelfOuter* self, float* Value) get_eM11;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkTransform*/SelfOuter* self, float Value) put_eM11;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkTransform*/SelfOuter* self, float* Value) get_eM12;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkTransform*/SelfOuter* self, float Value) put_eM12;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkTransform*/SelfOuter* self, float* Value) get_eM21;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkTransform*/SelfOuter* self, float Value) put_eM21;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkTransform*/SelfOuter* self, float* Value) get_eM22;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkTransform*/SelfOuter* self, float Value) put_eM22;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkTransform*/SelfOuter* self, float* Value) get_eDx;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkTransform*/SelfOuter* self, float Value) put_eDx;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkTransform*/SelfOuter* self, float* Value) get_eDy;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkTransform*/SelfOuter* self, float Value) put_eDy;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkTransform*/SelfOuter* self, XFORM* XForm) get_Data;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkTransform*/SelfOuter* self, XFORM XForm) put_Data;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Reset;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, float HorizontalComponent, float VerticalComponent) Translate;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, float Degrees, float x, float y) Rotate;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 Horizontally, int16 Vertically) Reflect;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, float HorizontalComponent, float VerticalComponent) Shear;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, float HorizontalMultiplier, float VerticalMultiplier) ScaleTransform;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, float* eM11, float* eM12, float* eM21, float* eM22, float* eDx, float* eDy) GetTransform;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, float eM11, float eM12, float eM21, float eM22, float eDx, float eDy) SetTransform;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, float* Value) get_eM11;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, float Value) put_eM11;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, float* Value) get_eM12;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, float Value) put_eM12;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, float* Value) get_eM21;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, float Value) put_eM21;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, float* Value) get_eM22;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, float Value) put_eM22;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, float* Value) get_eDx;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, float Value) put_eDx;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, float* Value) get_eDy;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, float Value) put_eDy;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, XFORM* XForm) get_Data;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, XFORM XForm) put_Data;
 	}
 
 
@@ -2643,9 +2643,9 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkGesture*/SelfOuter* self, InkRecognitionConfidence* Confidence) get_Confidence;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkGesture*/SelfOuter* self, InkApplicationGesture* Id) get_Id;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkGesture*/SelfOuter* self, int32* X, int32* Y) GetHotPoint;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, InkRecognitionConfidence* Confidence) get_Confidence;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, InkApplicationGesture* Id) get_Id;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* X, int32* Y) GetHotPoint;
 	}
 
 
@@ -2664,13 +2664,13 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkCursor*/SelfOuter* self, BSTR* Name) get_Name;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkCursor*/SelfOuter* self, int32* Id) get_Id;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkCursor*/SelfOuter* self, int16* Status) get_Inverted;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkCursor*/SelfOuter* self, IInkDrawingAttributes** Attributes) get_DrawingAttributes;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkCursor*/SelfOuter* self, IInkDrawingAttributes* Attributes) putref_DrawingAttributes;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkCursor*/SelfOuter* self, IInkTablet** Tablet) get_Tablet;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkCursor*/SelfOuter* self, IInkCursorButtons** Buttons) get_Buttons;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* Name) get_Name;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* Id) get_Id;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* Status) get_Inverted;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IInkDrawingAttributes** Attributes) get_DrawingAttributes;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IInkDrawingAttributes* Attributes) putref_DrawingAttributes;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IInkTablet** Tablet) get_Tablet;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IInkCursorButtons** Buttons) get_Buttons;
 	}
 
 
@@ -2697,9 +2697,9 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkCursors*/SelfOuter* self, int32* Count) get_Count;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkCursors*/SelfOuter* self, IUnknown** _NewEnum) get__NewEnum;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkCursors*/SelfOuter* self, int32 Index, IInkCursor** Cursor) Item;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* Count) get_Count;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IUnknown** _NewEnum) get__NewEnum;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 Index, IInkCursor** Cursor) Item;
 	}
 
 
@@ -2718,9 +2718,9 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkCursorButton*/SelfOuter* self, BSTR* Name) get_Name;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkCursorButton*/SelfOuter* self, BSTR* Id) get_Id;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkCursorButton*/SelfOuter* self, InkCursorButtonState* CurrentState) get_State;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* Name) get_Name;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* Id) get_Id;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, InkCursorButtonState* CurrentState) get_State;
 	}
 
 
@@ -2739,9 +2739,9 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkCursorButtons*/SelfOuter* self, int32* Count) get_Count;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkCursorButtons*/SelfOuter* self, IUnknown** _NewEnum) get__NewEnum;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkCursorButtons*/SelfOuter* self, VARIANT Identifier, IInkCursorButton** Button) Item;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* Count) get_Count;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IUnknown** _NewEnum) get__NewEnum;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT Identifier, IInkCursorButton** Button) Item;
 	}
 
 
@@ -2760,12 +2760,12 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkTablet*/SelfOuter* self, BSTR* Name) get_Name;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkTablet*/SelfOuter* self, BSTR* Id) get_PlugAndPlayId;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkTablet*/SelfOuter* self, IInkRectangle** Rectangle) get_MaximumInputRectangle;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkTablet*/SelfOuter* self, TabletHardwareCapabilities* Capabilities) get_HardwareCapabilities;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkTablet*/SelfOuter* self, BSTR packetPropertyName, int16* Supported) IsPacketPropertySupported;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkTablet*/SelfOuter* self, BSTR propertyName, int32* Minimum, int32* Maximum, TabletPropertyMetricUnit* Units, float* Resolution) GetPropertyMetrics;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* Name) get_Name;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* Id) get_PlugAndPlayId;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IInkRectangle** Rectangle) get_MaximumInputRectangle;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, TabletHardwareCapabilities* Capabilities) get_HardwareCapabilities;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR packetPropertyName, int16* Supported) IsPacketPropertySupported;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR propertyName, int32* Minimum, int32* Maximum, TabletPropertyMetricUnit* Units, float* Resolution) GetPropertyMetrics;
 	}
 
 
@@ -2790,7 +2790,7 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkTablet2*/SelfOuter* self, TabletDeviceKind* Kind) get_DeviceKind;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, TabletDeviceKind* Kind) get_DeviceKind;
 	}
 
 
@@ -2805,8 +2805,8 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkTablet3*/SelfOuter* self, int16* pIsMultiTouch) get_IsMultiTouch;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkTablet3*/SelfOuter* self, uint32* pMaximumCursors) get_MaximumCursors;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* pIsMultiTouch) get_IsMultiTouch;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pMaximumCursors) get_MaximumCursors;
 	}
 
 
@@ -2823,11 +2823,11 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkTablets*/SelfOuter* self, int32* Count) get_Count;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkTablets*/SelfOuter* self, IUnknown** _NewEnum) get__NewEnum;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkTablets*/SelfOuter* self, IInkTablet** DefaultTablet) get_DefaultTablet;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkTablets*/SelfOuter* self, int32 Index, IInkTablet** Tablet) Item;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkTablets*/SelfOuter* self, BSTR packetPropertyName, int16* Supported) IsPacketPropertySupported;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* Count) get_Count;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IUnknown** _NewEnum) get__NewEnum;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IInkTablet** DefaultTablet) get_DefaultTablet;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 Index, IInkTablet** Tablet) Item;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR packetPropertyName, int16* Supported) IsPacketPropertySupported;
 	}
 
 
@@ -2850,39 +2850,39 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkStrokeDisp*/SelfOuter* self, int32* ID) get_ID;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkStrokeDisp*/SelfOuter* self, VARIANT* Points) get_BezierPoints;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkStrokeDisp*/SelfOuter* self, IInkDrawingAttributes** DrawAttrs) get_DrawingAttributes;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkStrokeDisp*/SelfOuter* self, IInkDrawingAttributes* DrawAttrs) putref_DrawingAttributes;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkStrokeDisp*/SelfOuter* self, IInkDisp** Ink) get_Ink;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkStrokeDisp*/SelfOuter* self, IInkExtendedProperties** Properties) get_ExtendedProperties;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkStrokeDisp*/SelfOuter* self, VARIANT* Cusps) get_PolylineCusps;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkStrokeDisp*/SelfOuter* self, VARIANT* Cusps) get_BezierCusps;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkStrokeDisp*/SelfOuter* self, VARIANT* Intersections) get_SelfIntersections;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkStrokeDisp*/SelfOuter* self, int32* plCount) get_PacketCount;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkStrokeDisp*/SelfOuter* self, int32* plSize) get_PacketSize;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkStrokeDisp*/SelfOuter* self, VARIANT* PacketDescription) get_PacketDescription;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkStrokeDisp*/SelfOuter* self, int16* Deleted) get_Deleted;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkStrokeDisp*/SelfOuter* self, InkBoundingBoxMode BoundingBoxMode, IInkRectangle** Rectangle) GetBoundingBox;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkStrokeDisp*/SelfOuter* self, IInkStrokes* Strokes, VARIANT* Intersections) FindIntersections;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkStrokeDisp*/SelfOuter* self, IInkRectangle* Rectangle, VARIANT* Intersections) GetRectangleIntersections;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkStrokeDisp*/SelfOuter* self, IInkRectangle* Rectangle) Clip;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkStrokeDisp*/SelfOuter* self, int32 X, int32 Y, float Radius, int16* Intersects) HitTestCircle;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkStrokeDisp*/SelfOuter* self, int32 X, int32 Y, float* Distance, float* Point) NearestPoint;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkStrokeDisp*/SelfOuter* self, float SplitAt, IInkStrokeDisp** NewStroke) Split;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkStrokeDisp*/SelfOuter* self, BSTR PropertyName, int32* Minimum, int32* Maximum, TabletPropertyMetricUnit* Units, float* Resolution) GetPacketDescriptionPropertyMetrics;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkStrokeDisp*/SelfOuter* self, int32 Index, int32 Count, VARIANT* Points) GetPoints;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkStrokeDisp*/SelfOuter* self, VARIANT Points, int32 Index, int32 Count, int32* NumberOfPointsSet) SetPoints;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkStrokeDisp*/SelfOuter* self, int32 Index, int32 Count, VARIANT* PacketData) GetPacketData;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkStrokeDisp*/SelfOuter* self, BSTR PropertyName, int32 Index, int32 Count, VARIANT* PacketValues) GetPacketValuesByProperty;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkStrokeDisp*/SelfOuter* self, BSTR bstrPropertyName, VARIANT PacketValues, int32 Index, int32 Count, int32* NumberOfPacketsSet) SetPacketValuesByProperty;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkStrokeDisp*/SelfOuter* self, int32 FittingError, VARIANT* FlattenedBezierPoints) GetFlattenedBezierPoints;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkStrokeDisp*/SelfOuter* self, IInkTransform* Transform, int16 ApplyOnPenWidth) Transform;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkStrokeDisp*/SelfOuter* self, IInkRectangle* Rectangle) ScaleToRectangle;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkStrokeDisp*/SelfOuter* self, float HorizontalComponent, float VerticalComponent) Move;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkStrokeDisp*/SelfOuter* self, float Degrees, float x, float y) Rotate;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkStrokeDisp*/SelfOuter* self, float HorizontalMultiplier, float VerticalMultiplier) Shear;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkStrokeDisp*/SelfOuter* self, float HorizontalMultiplier, float VerticalMultiplier) ScaleTransform;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* ID) get_ID;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT* Points) get_BezierPoints;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IInkDrawingAttributes** DrawAttrs) get_DrawingAttributes;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IInkDrawingAttributes* DrawAttrs) putref_DrawingAttributes;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IInkDisp** Ink) get_Ink;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IInkExtendedProperties** Properties) get_ExtendedProperties;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT* Cusps) get_PolylineCusps;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT* Cusps) get_BezierCusps;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT* Intersections) get_SelfIntersections;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* plCount) get_PacketCount;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* plSize) get_PacketSize;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT* PacketDescription) get_PacketDescription;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* Deleted) get_Deleted;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, InkBoundingBoxMode BoundingBoxMode, IInkRectangle** Rectangle) GetBoundingBox;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IInkStrokes* Strokes, VARIANT* Intersections) FindIntersections;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IInkRectangle* Rectangle, VARIANT* Intersections) GetRectangleIntersections;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IInkRectangle* Rectangle) Clip;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 X, int32 Y, float Radius, int16* Intersects) HitTestCircle;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 X, int32 Y, float* Distance, float* Point) NearestPoint;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, float SplitAt, IInkStrokeDisp** NewStroke) Split;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR PropertyName, int32* Minimum, int32* Maximum, TabletPropertyMetricUnit* Units, float* Resolution) GetPacketDescriptionPropertyMetrics;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 Index, int32 Count, VARIANT* Points) GetPoints;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT Points, int32 Index, int32 Count, int32* NumberOfPointsSet) SetPoints;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 Index, int32 Count, VARIANT* PacketData) GetPacketData;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR PropertyName, int32 Index, int32 Count, VARIANT* PacketValues) GetPacketValuesByProperty;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrPropertyName, VARIANT PacketValues, int32 Index, int32 Count, int32* NumberOfPacketsSet) SetPacketValuesByProperty;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 FittingError, VARIANT* FlattenedBezierPoints) GetFlattenedBezierPoints;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IInkTransform* Transform, int16 ApplyOnPenWidth) Transform;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IInkRectangle* Rectangle) ScaleToRectangle;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, float HorizontalComponent, float VerticalComponent) Move;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, float Degrees, float x, float y) Rotate;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, float HorizontalMultiplier, float VerticalMultiplier) Shear;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, float HorizontalMultiplier, float VerticalMultiplier) ScaleTransform;
 	}
 
 
@@ -2961,26 +2961,26 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkStrokes*/SelfOuter* self, int32* Count) get_Count;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkStrokes*/SelfOuter* self, IUnknown** _NewEnum) get__NewEnum;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkStrokes*/SelfOuter* self, IInkDisp** Ink) get_Ink;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkStrokes*/SelfOuter* self, IInkRecognitionResult** RecognitionResult) get_RecognitionResult;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkStrokes*/SelfOuter* self, BSTR* ToString) COM_ToString;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkStrokes*/SelfOuter* self, int32 Index, IInkStrokeDisp** Stroke) Item;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkStrokes*/SelfOuter* self, IInkStrokeDisp* InkStroke) Add;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkStrokes*/SelfOuter* self, IInkStrokes* InkStrokes) AddStrokes;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkStrokes*/SelfOuter* self, IInkStrokeDisp* InkStroke) Remove;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkStrokes*/SelfOuter* self, IInkStrokes* InkStrokes) RemoveStrokes;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkStrokes*/SelfOuter* self, IInkDrawingAttributes* DrawAttrs) ModifyDrawingAttributes;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkStrokes*/SelfOuter* self, InkBoundingBoxMode BoundingBoxMode, IInkRectangle** BoundingBox) GetBoundingBox;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkStrokes*/SelfOuter* self, IInkTransform* Transform, int16 ApplyOnPenWidth) Transform;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkStrokes*/SelfOuter* self, IInkRectangle* Rectangle) ScaleToRectangle;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkStrokes*/SelfOuter* self, float HorizontalComponent, float VerticalComponent) Move;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkStrokes*/SelfOuter* self, float Degrees, float x, float y) Rotate;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkStrokes*/SelfOuter* self, float HorizontalMultiplier, float VerticalMultiplier) Shear;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkStrokes*/SelfOuter* self, float HorizontalMultiplier, float VerticalMultiplier) ScaleTransform;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkStrokes*/SelfOuter* self, IInkRectangle* Rectangle) Clip;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkStrokes*/SelfOuter* self) RemoveRecognitionResult;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* Count) get_Count;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IUnknown** _NewEnum) get__NewEnum;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IInkDisp** Ink) get_Ink;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IInkRecognitionResult** RecognitionResult) get_RecognitionResult;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* ToString) COM_ToString;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 Index, IInkStrokeDisp** Stroke) Item;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IInkStrokeDisp* InkStroke) Add;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IInkStrokes* InkStrokes) AddStrokes;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IInkStrokeDisp* InkStroke) Remove;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IInkStrokes* InkStrokes) RemoveStrokes;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IInkDrawingAttributes* DrawAttrs) ModifyDrawingAttributes;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, InkBoundingBoxMode BoundingBoxMode, IInkRectangle** BoundingBox) GetBoundingBox;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IInkTransform* Transform, int16 ApplyOnPenWidth) Transform;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IInkRectangle* Rectangle) ScaleToRectangle;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, float HorizontalComponent, float VerticalComponent) Move;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, float Degrees, float x, float y) Rotate;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, float HorizontalMultiplier, float VerticalMultiplier) Shear;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, float HorizontalMultiplier, float VerticalMultiplier) ScaleTransform;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IInkRectangle* Rectangle) Clip;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) RemoveRecognitionResult;
 	}
 
 
@@ -3033,12 +3033,12 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkCustomStrokes*/SelfOuter* self, int32* Count) get_Count;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkCustomStrokes*/SelfOuter* self, IUnknown** _NewEnum) get__NewEnum;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkCustomStrokes*/SelfOuter* self, VARIANT Identifier, IInkStrokes** Strokes) Item;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkCustomStrokes*/SelfOuter* self, BSTR Name, IInkStrokes* Strokes) Add;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkCustomStrokes*/SelfOuter* self, VARIANT Identifier) Remove;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkCustomStrokes*/SelfOuter* self) Clear;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* Count) get_Count;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IUnknown** _NewEnum) get__NewEnum;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT Identifier, IInkStrokes** Strokes) Item;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR Name, IInkStrokes* Strokes) Add;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT Identifier) Remove;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Clear;
 	}
 
 
@@ -3075,31 +3075,31 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkDisp*/SelfOuter* self, IInkStrokes** Strokes) get_Strokes;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkDisp*/SelfOuter* self, IInkExtendedProperties** Properties) get_ExtendedProperties;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkDisp*/SelfOuter* self, int16* Dirty) get_Dirty;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkDisp*/SelfOuter* self, int16 Dirty) put_Dirty;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkDisp*/SelfOuter* self, IInkCustomStrokes** ppunkInkCustomStrokes) get_CustomStrokes;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkDisp*/SelfOuter* self, InkBoundingBoxMode BoundingBoxMode, IInkRectangle** Rectangle) GetBoundingBox;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkDisp*/SelfOuter* self, IInkStrokes* Strokes) DeleteStrokes;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkDisp*/SelfOuter* self, IInkStrokeDisp* Stroke) DeleteStroke;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkDisp*/SelfOuter* self, IInkStrokes* Strokes, InkExtractFlags ExtractFlags, IInkDisp** ExtractedInk) ExtractStrokes;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkDisp*/SelfOuter* self, IInkRectangle* Rectangle, InkExtractFlags extractFlags, IInkDisp** ExtractedInk) ExtractWithRectangle;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkDisp*/SelfOuter* self, IInkRectangle* Rectangle) Clip;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkDisp*/SelfOuter* self, IInkDisp** NewInk) Clone;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkDisp*/SelfOuter* self, int32 X, int32 Y, float radius, IInkStrokes** Strokes) HitTestCircle;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkDisp*/SelfOuter* self, IInkRectangle* SelectionRectangle, float IntersectPercent, IInkStrokes** Strokes) HitTestWithRectangle;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkDisp*/SelfOuter* self, VARIANT Points, float IntersectPercent, VARIANT* LassoPoints, IInkStrokes** Strokes) HitTestWithLasso;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkDisp*/SelfOuter* self, int32 X, int32 Y, float* PointOnStroke, float* DistanceFromPacket, IInkStrokeDisp** Stroke) NearestPoint;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkDisp*/SelfOuter* self, VARIANT StrokeIds, IInkStrokes** Strokes) CreateStrokes;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkDisp*/SelfOuter* self, IInkStrokes* SourceStrokes, IInkRectangle* TargetRectangle) AddStrokesAtRectangle;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkDisp*/SelfOuter* self, InkPersistenceFormat PersistenceFormat, InkPersistenceCompressionMode CompressionMode, VARIANT* Data) Save;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkDisp*/SelfOuter* self, VARIANT Data) Load;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkDisp*/SelfOuter* self, VARIANT PacketData, VARIANT PacketDescription, IInkStrokeDisp** Stroke) CreateStroke;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkDisp*/SelfOuter* self, IInkRectangle* Rectangle, InkClipboardFormats ClipboardFormats, InkClipboardModes ClipboardModes, IDataObject** DataObject) ClipboardCopyWithRectangle;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkDisp*/SelfOuter* self, IInkStrokes* strokes, InkClipboardFormats ClipboardFormats, InkClipboardModes ClipboardModes, IDataObject** DataObject) ClipboardCopy;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkDisp*/SelfOuter* self, IDataObject* DataObject, int16* CanPaste) CanPaste;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkDisp*/SelfOuter* self, int32 x, int32 y, IDataObject* DataObject, IInkStrokes** Strokes) ClipboardPaste;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IInkStrokes** Strokes) get_Strokes;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IInkExtendedProperties** Properties) get_ExtendedProperties;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* Dirty) get_Dirty;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 Dirty) put_Dirty;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IInkCustomStrokes** ppunkInkCustomStrokes) get_CustomStrokes;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, InkBoundingBoxMode BoundingBoxMode, IInkRectangle** Rectangle) GetBoundingBox;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IInkStrokes* Strokes) DeleteStrokes;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IInkStrokeDisp* Stroke) DeleteStroke;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IInkStrokes* Strokes, InkExtractFlags ExtractFlags, IInkDisp** ExtractedInk) ExtractStrokes;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IInkRectangle* Rectangle, InkExtractFlags extractFlags, IInkDisp** ExtractedInk) ExtractWithRectangle;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IInkRectangle* Rectangle) Clip;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IInkDisp** NewInk) Clone;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 X, int32 Y, float radius, IInkStrokes** Strokes) HitTestCircle;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IInkRectangle* SelectionRectangle, float IntersectPercent, IInkStrokes** Strokes) HitTestWithRectangle;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT Points, float IntersectPercent, VARIANT* LassoPoints, IInkStrokes** Strokes) HitTestWithLasso;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 X, int32 Y, float* PointOnStroke, float* DistanceFromPacket, IInkStrokeDisp** Stroke) NearestPoint;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT StrokeIds, IInkStrokes** Strokes) CreateStrokes;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IInkStrokes* SourceStrokes, IInkRectangle* TargetRectangle) AddStrokesAtRectangle;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, InkPersistenceFormat PersistenceFormat, InkPersistenceCompressionMode CompressionMode, VARIANT* Data) Save;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT Data) Load;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT PacketData, VARIANT PacketDescription, IInkStrokeDisp** Stroke) CreateStroke;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IInkRectangle* Rectangle, InkClipboardFormats ClipboardFormats, InkClipboardModes ClipboardModes, IDataObject** DataObject) ClipboardCopyWithRectangle;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IInkStrokes* strokes, InkClipboardFormats ClipboardFormats, InkClipboardModes ClipboardModes, IDataObject** DataObject) ClipboardCopy;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IDataObject* DataObject, int16* CanPaste) CanPaste;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 x, int32 y, IDataObject* DataObject, IInkStrokes** Strokes) ClipboardPaste;
 	}
 
 
@@ -3174,21 +3174,21 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkRenderer*/SelfOuter* self, IInkTransform* ViewTransform) GetViewTransform;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkRenderer*/SelfOuter* self, IInkTransform* ViewTransform) SetViewTransform;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkRenderer*/SelfOuter* self, IInkTransform* ObjectTransform) GetObjectTransform;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkRenderer*/SelfOuter* self, IInkTransform* ObjectTransform) SetObjectTransform;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkRenderer*/SelfOuter* self, int hDC, IInkStrokes* Strokes) Draw;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkRenderer*/SelfOuter* self, int hDC, IInkStrokeDisp* Stroke, IInkDrawingAttributes* DrawingAttributes) DrawStroke;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkRenderer*/SelfOuter* self, int hDC, int32* x, int32* y) PixelToInkSpace;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkRenderer*/SelfOuter* self, int hdcDisplay, int32* x, int32* y) InkSpaceToPixel;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkRenderer*/SelfOuter* self, int hDC, VARIANT* Points) PixelToInkSpaceFromPoints;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkRenderer*/SelfOuter* self, int hDC, VARIANT* Points) InkSpaceToPixelFromPoints;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkRenderer*/SelfOuter* self, IInkStrokes* Strokes, IInkRectangle** Rectangle) Measure;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkRenderer*/SelfOuter* self, IInkStrokeDisp* Stroke, IInkDrawingAttributes* DrawingAttributes, IInkRectangle** Rectangle) MeasureStroke;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkRenderer*/SelfOuter* self, float HorizontalComponent, float VerticalComponent) Move;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkRenderer*/SelfOuter* self, float Degrees, float x, float y) Rotate;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkRenderer*/SelfOuter* self, float HorizontalMultiplier, float VerticalMultiplier, int16 ApplyOnPenWidth) ScaleTransform;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IInkTransform* ViewTransform) GetViewTransform;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IInkTransform* ViewTransform) SetViewTransform;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IInkTransform* ObjectTransform) GetObjectTransform;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IInkTransform* ObjectTransform) SetObjectTransform;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int hDC, IInkStrokes* Strokes) Draw;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int hDC, IInkStrokeDisp* Stroke, IInkDrawingAttributes* DrawingAttributes) DrawStroke;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int hDC, int32* x, int32* y) PixelToInkSpace;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int hdcDisplay, int32* x, int32* y) InkSpaceToPixel;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int hDC, VARIANT* Points) PixelToInkSpaceFromPoints;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int hDC, VARIANT* Points) InkSpaceToPixelFromPoints;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IInkStrokes* Strokes, IInkRectangle** Rectangle) Measure;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IInkStrokeDisp* Stroke, IInkDrawingAttributes* DrawingAttributes, IInkRectangle** Rectangle) MeasureStroke;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, float HorizontalComponent, float VerticalComponent) Move;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, float Degrees, float x, float y) Rotate;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, float HorizontalMultiplier, float VerticalMultiplier, int16 ApplyOnPenWidth) ScaleTransform;
 	}
 
 
@@ -3231,46 +3231,46 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkCollector*/SelfOuter* self, int* CurrentWindow) get_hWnd;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkCollector*/SelfOuter* self, int NewWindow) put_hWnd;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkCollector*/SelfOuter* self, int16* Collecting) get_Enabled;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkCollector*/SelfOuter* self, int16 Collecting) put_Enabled;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkCollector*/SelfOuter* self, IInkDrawingAttributes** CurrentAttributes) get_DefaultDrawingAttributes;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkCollector*/SelfOuter* self, IInkDrawingAttributes* NewAttributes) putref_DefaultDrawingAttributes;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkCollector*/SelfOuter* self, IInkRenderer** CurrentInkRenderer) get_Renderer;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkCollector*/SelfOuter* self, IInkRenderer* NewInkRenderer) putref_Renderer;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkCollector*/SelfOuter* self, IInkDisp** Ink) get_Ink;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkCollector*/SelfOuter* self, IInkDisp* NewInk) putref_Ink;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkCollector*/SelfOuter* self, int16* AutoRedraw) get_AutoRedraw;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkCollector*/SelfOuter* self, int16 AutoRedraw) put_AutoRedraw;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkCollector*/SelfOuter* self, int16* Collecting) get_CollectingInk;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkCollector*/SelfOuter* self, InkCollectionMode* Mode) get_CollectionMode;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkCollector*/SelfOuter* self, InkCollectionMode Mode) put_CollectionMode;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkCollector*/SelfOuter* self, int16* Enabled) get_DynamicRendering;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkCollector*/SelfOuter* self, int16 Enabled) put_DynamicRendering;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkCollector*/SelfOuter* self, VARIANT* PacketGuids) get_DesiredPacketDescription;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkCollector*/SelfOuter* self, VARIANT PacketGuids) put_DesiredPacketDescription;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkCollector*/SelfOuter* self, IPictureDisp** MouseIcon) get_MouseIcon;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkCollector*/SelfOuter* self, IPictureDisp* MouseIcon) put_MouseIcon;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkCollector*/SelfOuter* self, IPictureDisp* MouseIcon) putref_MouseIcon;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkCollector*/SelfOuter* self, InkMousePointer* MousePointer) get_MousePointer;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkCollector*/SelfOuter* self, InkMousePointer MousePointer) put_MousePointer;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkCollector*/SelfOuter* self, IInkCursors** Cursors) get_Cursors;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkCollector*/SelfOuter* self, int32* MarginX) get_MarginX;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkCollector*/SelfOuter* self, int32 MarginX) put_MarginX;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkCollector*/SelfOuter* self, int32* MarginY) get_MarginY;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkCollector*/SelfOuter* self, int32 MarginY) put_MarginY;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkCollector*/SelfOuter* self, IInkTablet** SingleTablet) get_Tablet;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkCollector*/SelfOuter* self, int16* Support) get_SupportHighContrastInk;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkCollector*/SelfOuter* self, int16 Support) put_SupportHighContrastInk;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkCollector*/SelfOuter* self, InkApplicationGesture Gesture, int16 Listen) SetGestureStatus;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkCollector*/SelfOuter* self, InkApplicationGesture Gesture, int16* Listening) GetGestureStatus;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkCollector*/SelfOuter* self, IInkRectangle** WindowInputRectangle) GetWindowInputRectangle;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkCollector*/SelfOuter* self, IInkRectangle* WindowInputRectangle) SetWindowInputRectangle;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkCollector*/SelfOuter* self, int16 UseMouseForInput) SetAllTabletsMode;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkCollector*/SelfOuter* self, IInkTablet* Tablet) SetSingleTabletIntegratedMode;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkCollector*/SelfOuter* self, InkCollectorEventInterest EventId, int16* Listen) GetEventInterest;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkCollector*/SelfOuter* self, InkCollectorEventInterest EventId, int16 Listen) SetEventInterest;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int* CurrentWindow) get_hWnd;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int NewWindow) put_hWnd;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* Collecting) get_Enabled;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 Collecting) put_Enabled;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IInkDrawingAttributes** CurrentAttributes) get_DefaultDrawingAttributes;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IInkDrawingAttributes* NewAttributes) putref_DefaultDrawingAttributes;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IInkRenderer** CurrentInkRenderer) get_Renderer;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IInkRenderer* NewInkRenderer) putref_Renderer;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IInkDisp** Ink) get_Ink;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IInkDisp* NewInk) putref_Ink;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* AutoRedraw) get_AutoRedraw;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 AutoRedraw) put_AutoRedraw;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* Collecting) get_CollectingInk;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, InkCollectionMode* Mode) get_CollectionMode;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, InkCollectionMode Mode) put_CollectionMode;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* Enabled) get_DynamicRendering;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 Enabled) put_DynamicRendering;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT* PacketGuids) get_DesiredPacketDescription;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT PacketGuids) put_DesiredPacketDescription;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IPictureDisp** MouseIcon) get_MouseIcon;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IPictureDisp* MouseIcon) put_MouseIcon;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IPictureDisp* MouseIcon) putref_MouseIcon;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, InkMousePointer* MousePointer) get_MousePointer;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, InkMousePointer MousePointer) put_MousePointer;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IInkCursors** Cursors) get_Cursors;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* MarginX) get_MarginX;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 MarginX) put_MarginX;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* MarginY) get_MarginY;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 MarginY) put_MarginY;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IInkTablet** SingleTablet) get_Tablet;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* Support) get_SupportHighContrastInk;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 Support) put_SupportHighContrastInk;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, InkApplicationGesture Gesture, int16 Listen) SetGestureStatus;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, InkApplicationGesture Gesture, int16* Listening) GetGestureStatus;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IInkRectangle** WindowInputRectangle) GetWindowInputRectangle;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IInkRectangle* WindowInputRectangle) SetWindowInputRectangle;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 UseMouseForInput) SetAllTabletsMode;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IInkTablet* Tablet) SetSingleTabletIntegratedMode;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, InkCollectorEventInterest EventId, int16* Listen) GetEventInterest;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, InkCollectorEventInterest EventId, int16 Listen) SetEventInterest;
 	}
 
 
@@ -3375,60 +3375,60 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkOverlay*/SelfOuter* self, int* CurrentWindow) get_hWnd;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkOverlay*/SelfOuter* self, int NewWindow) put_hWnd;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkOverlay*/SelfOuter* self, int16* Collecting) get_Enabled;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkOverlay*/SelfOuter* self, int16 Collecting) put_Enabled;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkOverlay*/SelfOuter* self, IInkDrawingAttributes** CurrentAttributes) get_DefaultDrawingAttributes;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkOverlay*/SelfOuter* self, IInkDrawingAttributes* NewAttributes) putref_DefaultDrawingAttributes;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkOverlay*/SelfOuter* self, IInkRenderer** CurrentInkRenderer) get_Renderer;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkOverlay*/SelfOuter* self, IInkRenderer* NewInkRenderer) putref_Renderer;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkOverlay*/SelfOuter* self, IInkDisp** Ink) get_Ink;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkOverlay*/SelfOuter* self, IInkDisp* NewInk) putref_Ink;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkOverlay*/SelfOuter* self, int16* AutoRedraw) get_AutoRedraw;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkOverlay*/SelfOuter* self, int16 AutoRedraw) put_AutoRedraw;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkOverlay*/SelfOuter* self, int16* Collecting) get_CollectingInk;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkOverlay*/SelfOuter* self, InkCollectionMode* Mode) get_CollectionMode;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkOverlay*/SelfOuter* self, InkCollectionMode Mode) put_CollectionMode;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkOverlay*/SelfOuter* self, int16* Enabled) get_DynamicRendering;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkOverlay*/SelfOuter* self, int16 Enabled) put_DynamicRendering;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkOverlay*/SelfOuter* self, VARIANT* PacketGuids) get_DesiredPacketDescription;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkOverlay*/SelfOuter* self, VARIANT PacketGuids) put_DesiredPacketDescription;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkOverlay*/SelfOuter* self, IPictureDisp** MouseIcon) get_MouseIcon;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkOverlay*/SelfOuter* self, IPictureDisp* MouseIcon) put_MouseIcon;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkOverlay*/SelfOuter* self, IPictureDisp* MouseIcon) putref_MouseIcon;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkOverlay*/SelfOuter* self, InkMousePointer* MousePointer) get_MousePointer;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkOverlay*/SelfOuter* self, InkMousePointer MousePointer) put_MousePointer;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkOverlay*/SelfOuter* self, InkOverlayEditingMode* EditingMode) get_EditingMode;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkOverlay*/SelfOuter* self, InkOverlayEditingMode EditingMode) put_EditingMode;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkOverlay*/SelfOuter* self, IInkStrokes** Selection) get_Selection;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkOverlay*/SelfOuter* self, IInkStrokes* Selection) put_Selection;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkOverlay*/SelfOuter* self, InkOverlayEraserMode* EraserMode) get_EraserMode;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkOverlay*/SelfOuter* self, InkOverlayEraserMode EraserMode) put_EraserMode;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkOverlay*/SelfOuter* self, int32* EraserWidth) get_EraserWidth;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkOverlay*/SelfOuter* self, int32 newEraserWidth) put_EraserWidth;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkOverlay*/SelfOuter* self, InkOverlayAttachMode* AttachMode) get_AttachMode;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkOverlay*/SelfOuter* self, InkOverlayAttachMode AttachMode) put_AttachMode;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkOverlay*/SelfOuter* self, IInkCursors** Cursors) get_Cursors;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkOverlay*/SelfOuter* self, int32* MarginX) get_MarginX;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkOverlay*/SelfOuter* self, int32 MarginX) put_MarginX;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkOverlay*/SelfOuter* self, int32* MarginY) get_MarginY;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkOverlay*/SelfOuter* self, int32 MarginY) put_MarginY;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkOverlay*/SelfOuter* self, IInkTablet** SingleTablet) get_Tablet;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkOverlay*/SelfOuter* self, int16* Support) get_SupportHighContrastInk;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkOverlay*/SelfOuter* self, int16 Support) put_SupportHighContrastInk;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkOverlay*/SelfOuter* self, int16* Support) get_SupportHighContrastSelectionUI;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkOverlay*/SelfOuter* self, int16 Support) put_SupportHighContrastSelectionUI;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkOverlay*/SelfOuter* self, int32 x, int32 y, SelectionHitResult* SelArea) HitTestSelection;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkOverlay*/SelfOuter* self, IInkRectangle* Rect) Draw;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkOverlay*/SelfOuter* self, InkApplicationGesture Gesture, int16 Listen) SetGestureStatus;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkOverlay*/SelfOuter* self, InkApplicationGesture Gesture, int16* Listening) GetGestureStatus;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkOverlay*/SelfOuter* self, IInkRectangle** WindowInputRectangle) GetWindowInputRectangle;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkOverlay*/SelfOuter* self, IInkRectangle* WindowInputRectangle) SetWindowInputRectangle;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkOverlay*/SelfOuter* self, int16 UseMouseForInput) SetAllTabletsMode;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkOverlay*/SelfOuter* self, IInkTablet* Tablet) SetSingleTabletIntegratedMode;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkOverlay*/SelfOuter* self, InkCollectorEventInterest EventId, int16* Listen) GetEventInterest;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkOverlay*/SelfOuter* self, InkCollectorEventInterest EventId, int16 Listen) SetEventInterest;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int* CurrentWindow) get_hWnd;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int NewWindow) put_hWnd;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* Collecting) get_Enabled;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 Collecting) put_Enabled;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IInkDrawingAttributes** CurrentAttributes) get_DefaultDrawingAttributes;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IInkDrawingAttributes* NewAttributes) putref_DefaultDrawingAttributes;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IInkRenderer** CurrentInkRenderer) get_Renderer;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IInkRenderer* NewInkRenderer) putref_Renderer;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IInkDisp** Ink) get_Ink;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IInkDisp* NewInk) putref_Ink;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* AutoRedraw) get_AutoRedraw;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 AutoRedraw) put_AutoRedraw;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* Collecting) get_CollectingInk;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, InkCollectionMode* Mode) get_CollectionMode;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, InkCollectionMode Mode) put_CollectionMode;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* Enabled) get_DynamicRendering;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 Enabled) put_DynamicRendering;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT* PacketGuids) get_DesiredPacketDescription;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT PacketGuids) put_DesiredPacketDescription;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IPictureDisp** MouseIcon) get_MouseIcon;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IPictureDisp* MouseIcon) put_MouseIcon;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IPictureDisp* MouseIcon) putref_MouseIcon;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, InkMousePointer* MousePointer) get_MousePointer;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, InkMousePointer MousePointer) put_MousePointer;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, InkOverlayEditingMode* EditingMode) get_EditingMode;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, InkOverlayEditingMode EditingMode) put_EditingMode;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IInkStrokes** Selection) get_Selection;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IInkStrokes* Selection) put_Selection;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, InkOverlayEraserMode* EraserMode) get_EraserMode;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, InkOverlayEraserMode EraserMode) put_EraserMode;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* EraserWidth) get_EraserWidth;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 newEraserWidth) put_EraserWidth;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, InkOverlayAttachMode* AttachMode) get_AttachMode;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, InkOverlayAttachMode AttachMode) put_AttachMode;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IInkCursors** Cursors) get_Cursors;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* MarginX) get_MarginX;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 MarginX) put_MarginX;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* MarginY) get_MarginY;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 MarginY) put_MarginY;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IInkTablet** SingleTablet) get_Tablet;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* Support) get_SupportHighContrastInk;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 Support) put_SupportHighContrastInk;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* Support) get_SupportHighContrastSelectionUI;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 Support) put_SupportHighContrastSelectionUI;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 x, int32 y, SelectionHitResult* SelArea) HitTestSelection;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IInkRectangle* Rect) Draw;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, InkApplicationGesture Gesture, int16 Listen) SetGestureStatus;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, InkApplicationGesture Gesture, int16* Listening) GetGestureStatus;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IInkRectangle** WindowInputRectangle) GetWindowInputRectangle;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IInkRectangle* WindowInputRectangle) SetWindowInputRectangle;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 UseMouseForInput) SetAllTabletsMode;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IInkTablet* Tablet) SetSingleTabletIntegratedMode;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, InkCollectorEventInterest EventId, int16* Listen) GetEventInterest;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, InkCollectorEventInterest EventId, int16 Listen) SetEventInterest;
 	}
 
 
@@ -3561,65 +3561,65 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkPicture*/SelfOuter* self, int* CurrentWindow) get_hWnd;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkPicture*/SelfOuter* self, IInkDrawingAttributes** CurrentAttributes) get_DefaultDrawingAttributes;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkPicture*/SelfOuter* self, IInkDrawingAttributes* NewAttributes) putref_DefaultDrawingAttributes;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkPicture*/SelfOuter* self, IInkRenderer** CurrentInkRenderer) get_Renderer;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkPicture*/SelfOuter* self, IInkRenderer* NewInkRenderer) putref_Renderer;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkPicture*/SelfOuter* self, IInkDisp** Ink) get_Ink;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkPicture*/SelfOuter* self, IInkDisp* NewInk) putref_Ink;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkPicture*/SelfOuter* self, int16* AutoRedraw) get_AutoRedraw;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkPicture*/SelfOuter* self, int16 AutoRedraw) put_AutoRedraw;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkPicture*/SelfOuter* self, int16* Collecting) get_CollectingInk;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkPicture*/SelfOuter* self, InkCollectionMode* Mode) get_CollectionMode;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkPicture*/SelfOuter* self, InkCollectionMode Mode) put_CollectionMode;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkPicture*/SelfOuter* self, int16* Enabled) get_DynamicRendering;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkPicture*/SelfOuter* self, int16 Enabled) put_DynamicRendering;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkPicture*/SelfOuter* self, VARIANT* PacketGuids) get_DesiredPacketDescription;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkPicture*/SelfOuter* self, VARIANT PacketGuids) put_DesiredPacketDescription;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkPicture*/SelfOuter* self, IPictureDisp** MouseIcon) get_MouseIcon;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkPicture*/SelfOuter* self, IPictureDisp* MouseIcon) put_MouseIcon;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkPicture*/SelfOuter* self, IPictureDisp* MouseIcon) putref_MouseIcon;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkPicture*/SelfOuter* self, InkMousePointer* MousePointer) get_MousePointer;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkPicture*/SelfOuter* self, InkMousePointer MousePointer) put_MousePointer;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkPicture*/SelfOuter* self, InkOverlayEditingMode* EditingMode) get_EditingMode;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkPicture*/SelfOuter* self, InkOverlayEditingMode EditingMode) put_EditingMode;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkPicture*/SelfOuter* self, IInkStrokes** Selection) get_Selection;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkPicture*/SelfOuter* self, IInkStrokes* Selection) put_Selection;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkPicture*/SelfOuter* self, InkOverlayEraserMode* EraserMode) get_EraserMode;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkPicture*/SelfOuter* self, InkOverlayEraserMode EraserMode) put_EraserMode;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkPicture*/SelfOuter* self, int32* EraserWidth) get_EraserWidth;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkPicture*/SelfOuter* self, int32 newEraserWidth) put_EraserWidth;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkPicture*/SelfOuter* self, IPictureDisp* pPicture) putref_Picture;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkPicture*/SelfOuter* self, IPictureDisp* pPicture) put_Picture;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkPicture*/SelfOuter* self, IPictureDisp** ppPicture) get_Picture;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkPicture*/SelfOuter* self, InkPictureSizeMode smNewSizeMode) put_SizeMode;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkPicture*/SelfOuter* self, InkPictureSizeMode* smSizeMode) get_SizeMode;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkPicture*/SelfOuter* self, uint32 newColor) put_BackColor;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkPicture*/SelfOuter* self, uint32* pColor) get_BackColor;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkPicture*/SelfOuter* self, IInkCursors** Cursors) get_Cursors;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkPicture*/SelfOuter* self, int32* MarginX) get_MarginX;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkPicture*/SelfOuter* self, int32 MarginX) put_MarginX;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkPicture*/SelfOuter* self, int32* MarginY) get_MarginY;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkPicture*/SelfOuter* self, int32 MarginY) put_MarginY;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkPicture*/SelfOuter* self, IInkTablet** SingleTablet) get_Tablet;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkPicture*/SelfOuter* self, int16* Support) get_SupportHighContrastInk;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkPicture*/SelfOuter* self, int16 Support) put_SupportHighContrastInk;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkPicture*/SelfOuter* self, int16* Support) get_SupportHighContrastSelectionUI;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkPicture*/SelfOuter* self, int16 Support) put_SupportHighContrastSelectionUI;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkPicture*/SelfOuter* self, int32 x, int32 y, SelectionHitResult* SelArea) HitTestSelection;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkPicture*/SelfOuter* self, InkApplicationGesture Gesture, int16 Listen) SetGestureStatus;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkPicture*/SelfOuter* self, InkApplicationGesture Gesture, int16* Listening) GetGestureStatus;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkPicture*/SelfOuter* self, IInkRectangle** WindowInputRectangle) GetWindowInputRectangle;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkPicture*/SelfOuter* self, IInkRectangle* WindowInputRectangle) SetWindowInputRectangle;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkPicture*/SelfOuter* self, int16 UseMouseForInput) SetAllTabletsMode;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkPicture*/SelfOuter* self, IInkTablet* Tablet) SetSingleTabletIntegratedMode;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkPicture*/SelfOuter* self, InkCollectorEventInterest EventId, int16* Listen) GetEventInterest;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkPicture*/SelfOuter* self, InkCollectorEventInterest EventId, int16 Listen) SetEventInterest;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkPicture*/SelfOuter* self, int16* Collecting) get_InkEnabled;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkPicture*/SelfOuter* self, int16 Collecting) put_InkEnabled;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkPicture*/SelfOuter* self, int16* pbool) get_Enabled;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkPicture*/SelfOuter* self, int16 vbool) put_Enabled;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int* CurrentWindow) get_hWnd;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IInkDrawingAttributes** CurrentAttributes) get_DefaultDrawingAttributes;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IInkDrawingAttributes* NewAttributes) putref_DefaultDrawingAttributes;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IInkRenderer** CurrentInkRenderer) get_Renderer;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IInkRenderer* NewInkRenderer) putref_Renderer;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IInkDisp** Ink) get_Ink;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IInkDisp* NewInk) putref_Ink;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* AutoRedraw) get_AutoRedraw;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 AutoRedraw) put_AutoRedraw;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* Collecting) get_CollectingInk;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, InkCollectionMode* Mode) get_CollectionMode;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, InkCollectionMode Mode) put_CollectionMode;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* Enabled) get_DynamicRendering;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 Enabled) put_DynamicRendering;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT* PacketGuids) get_DesiredPacketDescription;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT PacketGuids) put_DesiredPacketDescription;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IPictureDisp** MouseIcon) get_MouseIcon;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IPictureDisp* MouseIcon) put_MouseIcon;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IPictureDisp* MouseIcon) putref_MouseIcon;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, InkMousePointer* MousePointer) get_MousePointer;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, InkMousePointer MousePointer) put_MousePointer;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, InkOverlayEditingMode* EditingMode) get_EditingMode;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, InkOverlayEditingMode EditingMode) put_EditingMode;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IInkStrokes** Selection) get_Selection;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IInkStrokes* Selection) put_Selection;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, InkOverlayEraserMode* EraserMode) get_EraserMode;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, InkOverlayEraserMode EraserMode) put_EraserMode;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* EraserWidth) get_EraserWidth;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 newEraserWidth) put_EraserWidth;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IPictureDisp* pPicture) putref_Picture;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IPictureDisp* pPicture) put_Picture;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IPictureDisp** ppPicture) get_Picture;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, InkPictureSizeMode smNewSizeMode) put_SizeMode;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, InkPictureSizeMode* smSizeMode) get_SizeMode;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 newColor) put_BackColor;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pColor) get_BackColor;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IInkCursors** Cursors) get_Cursors;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* MarginX) get_MarginX;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 MarginX) put_MarginX;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* MarginY) get_MarginY;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 MarginY) put_MarginY;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IInkTablet** SingleTablet) get_Tablet;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* Support) get_SupportHighContrastInk;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 Support) put_SupportHighContrastInk;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* Support) get_SupportHighContrastSelectionUI;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 Support) put_SupportHighContrastSelectionUI;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 x, int32 y, SelectionHitResult* SelArea) HitTestSelection;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, InkApplicationGesture Gesture, int16 Listen) SetGestureStatus;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, InkApplicationGesture Gesture, int16* Listening) GetGestureStatus;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IInkRectangle** WindowInputRectangle) GetWindowInputRectangle;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IInkRectangle* WindowInputRectangle) SetWindowInputRectangle;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 UseMouseForInput) SetAllTabletsMode;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IInkTablet* Tablet) SetSingleTabletIntegratedMode;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, InkCollectorEventInterest EventId, int16* Listen) GetEventInterest;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, InkCollectorEventInterest EventId, int16 Listen) SetEventInterest;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* Collecting) get_InkEnabled;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 Collecting) put_InkEnabled;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* pbool) get_Enabled;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 vbool) put_Enabled;
 	}
 
 
@@ -3762,13 +3762,13 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkRecognizer*/SelfOuter* self, BSTR* Name) get_Name;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkRecognizer*/SelfOuter* self, BSTR* Vendor) get_Vendor;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkRecognizer*/SelfOuter* self, InkRecognizerCapabilities* CapabilitiesFlags) get_Capabilities;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkRecognizer*/SelfOuter* self, VARIANT* Languages) get_Languages;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkRecognizer*/SelfOuter* self, VARIANT* SupportedProperties) get_SupportedProperties;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkRecognizer*/SelfOuter* self, VARIANT* PreferredPacketDescription) get_PreferredPacketDescription;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkRecognizer*/SelfOuter* self, IInkRecognizerContext** Context) CreateRecognizerContext;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* Name) get_Name;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* Vendor) get_Vendor;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, InkRecognizerCapabilities* CapabilitiesFlags) get_Capabilities;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT* Languages) get_Languages;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT* SupportedProperties) get_SupportedProperties;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT* PreferredPacketDescription) get_PreferredPacketDescription;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IInkRecognizerContext** Context) CreateRecognizerContext;
 	}
 
 
@@ -3795,8 +3795,8 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkRecognizer2*/SelfOuter* self, BSTR* pbstrId) get_Id;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkRecognizer2*/SelfOuter* self, VARIANT* UnicodeRanges) get_UnicodeRanges;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pbstrId) get_Id;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT* UnicodeRanges) get_UnicodeRanges;
 	}
 
 
@@ -3813,10 +3813,10 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkRecognizers*/SelfOuter* self, int32* Count) get_Count;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkRecognizers*/SelfOuter* self, IUnknown** _NewEnum) get__NewEnum;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkRecognizers*/SelfOuter* self, int32 lcid, IInkRecognizer** DefaultRecognizer) GetDefaultRecognizer;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkRecognizers*/SelfOuter* self, int32 Index, IInkRecognizer** InkRecognizer) Item;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* Count) get_Count;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IUnknown** _NewEnum) get__NewEnum;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 lcid, IInkRecognizer** DefaultRecognizer) GetDefaultRecognizer;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 Index, IInkRecognizer** InkRecognizer) Item;
 	}
 
 
@@ -3849,30 +3849,30 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkRecognizerContext*/SelfOuter* self, IInkStrokes** Strokes) get_Strokes;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkRecognizerContext*/SelfOuter* self, IInkStrokes* Strokes) putref_Strokes;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkRecognizerContext*/SelfOuter* self, InkRecognizerCharacterAutoCompletionMode* Mode) get_CharacterAutoCompletionMode;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkRecognizerContext*/SelfOuter* self, InkRecognizerCharacterAutoCompletionMode Mode) put_CharacterAutoCompletionMode;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkRecognizerContext*/SelfOuter* self, BSTR* Factoid) get_Factoid;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkRecognizerContext*/SelfOuter* self, BSTR factoid) put_Factoid;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkRecognizerContext*/SelfOuter* self, IInkRecognizerGuide** RecognizerGuide) get_Guide;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkRecognizerContext*/SelfOuter* self, IInkRecognizerGuide* RecognizerGuide) putref_Guide;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkRecognizerContext*/SelfOuter* self, BSTR* Prefix) get_PrefixText;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkRecognizerContext*/SelfOuter* self, BSTR Prefix) put_PrefixText;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkRecognizerContext*/SelfOuter* self, BSTR* Suffix) get_SuffixText;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkRecognizerContext*/SelfOuter* self, BSTR Suffix) put_SuffixText;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkRecognizerContext*/SelfOuter* self, InkRecognitionModes* Modes) get_RecognitionFlags;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkRecognizerContext*/SelfOuter* self, InkRecognitionModes Modes) put_RecognitionFlags;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkRecognizerContext*/SelfOuter* self, IInkWordList** WordList) get_WordList;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkRecognizerContext*/SelfOuter* self, IInkWordList* WordList) putref_WordList;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkRecognizerContext*/SelfOuter* self, IInkRecognizer** Recognizer) get_Recognizer;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkRecognizerContext*/SelfOuter* self, InkRecognitionStatus* RecognitionStatus, IInkRecognitionResult** RecognitionResult) Recognize;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkRecognizerContext*/SelfOuter* self) StopBackgroundRecognition;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkRecognizerContext*/SelfOuter* self) EndInkInput;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkRecognizerContext*/SelfOuter* self, VARIANT CustomData) BackgroundRecognize;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkRecognizerContext*/SelfOuter* self, VARIANT CustomData) BackgroundRecognizeWithAlternates;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkRecognizerContext*/SelfOuter* self, IInkRecognizerContext** RecoContext) Clone;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkRecognizerContext*/SelfOuter* self, BSTR String, int16* Supported) IsStringSupported;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IInkStrokes** Strokes) get_Strokes;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IInkStrokes* Strokes) putref_Strokes;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, InkRecognizerCharacterAutoCompletionMode* Mode) get_CharacterAutoCompletionMode;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, InkRecognizerCharacterAutoCompletionMode Mode) put_CharacterAutoCompletionMode;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* Factoid) get_Factoid;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR factoid) put_Factoid;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IInkRecognizerGuide** RecognizerGuide) get_Guide;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IInkRecognizerGuide* RecognizerGuide) putref_Guide;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* Prefix) get_PrefixText;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR Prefix) put_PrefixText;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* Suffix) get_SuffixText;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR Suffix) put_SuffixText;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, InkRecognitionModes* Modes) get_RecognitionFlags;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, InkRecognitionModes Modes) put_RecognitionFlags;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IInkWordList** WordList) get_WordList;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IInkWordList* WordList) putref_WordList;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IInkRecognizer** Recognizer) get_Recognizer;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, InkRecognitionStatus* RecognitionStatus, IInkRecognitionResult** RecognitionResult) Recognize;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) StopBackgroundRecognition;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) EndInkInput;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT CustomData) BackgroundRecognize;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT CustomData) BackgroundRecognizeWithAlternates;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IInkRecognizerContext** RecoContext) Clone;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR String, int16* Supported) IsStringSupported;
 	}
 
 
@@ -3933,8 +3933,8 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkRecognizerContext2*/SelfOuter* self, VARIANT* UnicodeRanges) get_EnabledUnicodeRanges;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkRecognizerContext2*/SelfOuter* self, VARIANT UnicodeRanges) put_EnabledUnicodeRanges;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT* UnicodeRanges) get_EnabledUnicodeRanges;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT UnicodeRanges) put_EnabledUnicodeRanges;
 	}
 
 
@@ -3951,13 +3951,13 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkRecognitionResult*/SelfOuter* self, BSTR* TopString) get_TopString;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkRecognitionResult*/SelfOuter* self, IInkRecognitionAlternate** TopAlternate) get_TopAlternate;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkRecognitionResult*/SelfOuter* self, InkRecognitionConfidence* TopConfidence) get_TopConfidence;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkRecognitionResult*/SelfOuter* self, IInkStrokes** Strokes) get_Strokes;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkRecognitionResult*/SelfOuter* self, int32 selectionStart, int32 selectionLength, int32 maximumAlternates, IInkRecognitionAlternates** AlternatesFromSelection) AlternatesFromSelection;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkRecognitionResult*/SelfOuter* self, IInkRecognitionAlternate* Alternate) ModifyTopAlternate;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkRecognitionResult*/SelfOuter* self) SetResultOnStrokes;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* TopString) get_TopString;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IInkRecognitionAlternate** TopAlternate) get_TopAlternate;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, InkRecognitionConfidence* TopConfidence) get_TopConfidence;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IInkStrokes** Strokes) get_Strokes;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 selectionStart, int32 selectionLength, int32 maximumAlternates, IInkRecognitionAlternates** AlternatesFromSelection) AlternatesFromSelection;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IInkRecognitionAlternate* Alternate) ModifyTopAlternate;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) SetResultOnStrokes;
 	}
 
 
@@ -3984,21 +3984,21 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkRecognitionAlternate*/SelfOuter* self, BSTR* RecoString) get_String;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkRecognitionAlternate*/SelfOuter* self, InkRecognitionConfidence* Confidence) get_Confidence;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkRecognitionAlternate*/SelfOuter* self, VARIANT* Baseline) get_Baseline;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkRecognitionAlternate*/SelfOuter* self, VARIANT* Midline) get_Midline;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkRecognitionAlternate*/SelfOuter* self, VARIANT* Ascender) get_Ascender;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkRecognitionAlternate*/SelfOuter* self, VARIANT* Descender) get_Descender;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkRecognitionAlternate*/SelfOuter* self, int32* LineNumber) get_LineNumber;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkRecognitionAlternate*/SelfOuter* self, IInkStrokes** Strokes) get_Strokes;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkRecognitionAlternate*/SelfOuter* self, IInkRecognitionAlternates** LineAlternates) get_LineAlternates;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkRecognitionAlternate*/SelfOuter* self, IInkRecognitionAlternates** ConfidenceAlternates) get_ConfidenceAlternates;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkRecognitionAlternate*/SelfOuter* self, IInkStrokes* Strokes, IInkStrokes** GetStrokesFromStrokeRanges) GetStrokesFromStrokeRanges;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkRecognitionAlternate*/SelfOuter* self, int32* selectionStart, int32* selectionLength, IInkStrokes** GetStrokesFromTextRange) GetStrokesFromTextRange;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkRecognitionAlternate*/SelfOuter* self, IInkStrokes* Strokes, int32* selectionStart, int32* selectionLength) GetTextRangeFromStrokes;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkRecognitionAlternate*/SelfOuter* self, BSTR PropertyType, IInkRecognitionAlternates** AlternatesWithConstantPropertyValues) AlternatesWithConstantPropertyValues;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkRecognitionAlternate*/SelfOuter* self, BSTR PropertyType, VARIANT* PropertyValue) GetPropertyValue;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* RecoString) get_String;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, InkRecognitionConfidence* Confidence) get_Confidence;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT* Baseline) get_Baseline;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT* Midline) get_Midline;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT* Ascender) get_Ascender;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT* Descender) get_Descender;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* LineNumber) get_LineNumber;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IInkStrokes** Strokes) get_Strokes;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IInkRecognitionAlternates** LineAlternates) get_LineAlternates;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IInkRecognitionAlternates** ConfidenceAlternates) get_ConfidenceAlternates;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IInkStrokes* Strokes, IInkStrokes** GetStrokesFromStrokeRanges) GetStrokesFromStrokeRanges;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* selectionStart, int32* selectionLength, IInkStrokes** GetStrokesFromTextRange) GetStrokesFromTextRange;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IInkStrokes* Strokes, int32* selectionStart, int32* selectionLength) GetTextRangeFromStrokes;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR PropertyType, IInkRecognitionAlternates** AlternatesWithConstantPropertyValues) AlternatesWithConstantPropertyValues;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR PropertyType, VARIANT* PropertyValue) GetPropertyValue;
 	}
 
 
@@ -4041,10 +4041,10 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkRecognitionAlternates*/SelfOuter* self, int32* Count) get_Count;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkRecognitionAlternates*/SelfOuter* self, IUnknown** _NewEnum) get__NewEnum;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkRecognitionAlternates*/SelfOuter* self, IInkStrokes** Strokes) get_Strokes;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkRecognitionAlternates*/SelfOuter* self, int32 Index, IInkRecognitionAlternate** InkRecoAlternate) Item;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* Count) get_Count;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IUnknown** _NewEnum) get__NewEnum;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IInkStrokes** Strokes) get_Strokes;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 Index, IInkRecognitionAlternate** InkRecoAlternate) Item;
 	}
 
 
@@ -4065,18 +4065,18 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkRecognizerGuide*/SelfOuter* self, IInkRectangle** Rectangle) get_WritingBox;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkRecognizerGuide*/SelfOuter* self, IInkRectangle* Rectangle) put_WritingBox;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkRecognizerGuide*/SelfOuter* self, IInkRectangle** Rectangle) get_DrawnBox;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkRecognizerGuide*/SelfOuter* self, IInkRectangle* Rectangle) put_DrawnBox;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkRecognizerGuide*/SelfOuter* self, int32* Units) get_Rows;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkRecognizerGuide*/SelfOuter* self, int32 Units) put_Rows;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkRecognizerGuide*/SelfOuter* self, int32* Units) get_Columns;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkRecognizerGuide*/SelfOuter* self, int32 Units) put_Columns;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkRecognizerGuide*/SelfOuter* self, int32* Units) get_Midline;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkRecognizerGuide*/SelfOuter* self, int32 Units) put_Midline;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkRecognizerGuide*/SelfOuter* self, InkRecoGuide* pRecoGuide) get_GuideData;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkRecognizerGuide*/SelfOuter* self, InkRecoGuide recoGuide) put_GuideData;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IInkRectangle** Rectangle) get_WritingBox;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IInkRectangle* Rectangle) put_WritingBox;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IInkRectangle** Rectangle) get_DrawnBox;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IInkRectangle* Rectangle) put_DrawnBox;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* Units) get_Rows;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 Units) put_Rows;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* Units) get_Columns;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 Units) put_Columns;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* Units) get_Midline;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 Units) put_Midline;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, InkRecoGuide* pRecoGuide) get_GuideData;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, InkRecoGuide recoGuide) put_GuideData;
 	}
 
 
@@ -4113,9 +4113,9 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkWordList*/SelfOuter* self, BSTR NewWord) AddWord;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkWordList*/SelfOuter* self, BSTR RemoveWord) RemoveWord;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkWordList*/SelfOuter* self, IInkWordList* MergeWordList) Merge;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR NewWord) AddWord;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR RemoveWord) RemoveWord;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IInkWordList* MergeWordList) Merge;
 	}
 
 
@@ -4134,7 +4134,7 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkWordList2*/SelfOuter* self, BSTR NewWords) AddWords;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR NewWords) AddWords;
 	}
 
 
@@ -4161,12 +4161,12 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkLineInfo*/SelfOuter* self, INKMETRIC* pim) SetFormat;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkLineInfo*/SelfOuter* self, INKMETRIC* pim) GetFormat;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkLineInfo*/SelfOuter* self, INKMETRIC* pim, uint32* pnWidth) GetInkExtent;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkLineInfo*/SelfOuter* self, uint32 nCandidateNum, PWSTR pwcRecogWord, uint32* pcwcRecogWord, uint32 dwFlags) GetCandidate;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkLineInfo*/SelfOuter* self, uint32 nCandidateNum, PWSTR strRecogWord) SetCandidate;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkLineInfo*/SelfOuter* self) Recognize;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, INKMETRIC* pim) SetFormat;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, INKMETRIC* pim) GetFormat;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, INKMETRIC* pim, uint32* pnWidth) GetInkExtent;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 nCandidateNum, PWSTR pwcRecogWord, uint32* pcwcRecogWord, uint32 dwFlags) GetCandidate;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 nCandidateNum, PWSTR strRecogWord) SetCandidate;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Recognize;
 	}
 
 
@@ -4203,13 +4203,13 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkDivider*/SelfOuter* self, IInkStrokes** Strokes) get_Strokes;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkDivider*/SelfOuter* self, IInkStrokes* Strokes) putref_Strokes;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkDivider*/SelfOuter* self, IInkRecognizerContext** RecognizerContext) get_RecognizerContext;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkDivider*/SelfOuter* self, IInkRecognizerContext* RecognizerContext) putref_RecognizerContext;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkDivider*/SelfOuter* self, int32* LineHeight) get_LineHeight;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkDivider*/SelfOuter* self, int32 LineHeight) put_LineHeight;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkDivider*/SelfOuter* self, IInkDivisionResult** InkDivisionResult) Divide;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IInkStrokes** Strokes) get_Strokes;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IInkStrokes* Strokes) putref_Strokes;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IInkRecognizerContext** RecognizerContext) get_RecognizerContext;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IInkRecognizerContext* RecognizerContext) putref_RecognizerContext;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* LineHeight) get_LineHeight;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 LineHeight) put_LineHeight;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IInkDivisionResult** InkDivisionResult) Divide;
 	}
 
 
@@ -4236,8 +4236,8 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkDivisionResult*/SelfOuter* self, IInkStrokes** Strokes) get_Strokes;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkDivisionResult*/SelfOuter* self, InkDivisionType divisionType, IInkDivisionUnits** InkDivisionUnits) ResultByType;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IInkStrokes** Strokes) get_Strokes;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, InkDivisionType divisionType, IInkDivisionUnits** InkDivisionUnits) ResultByType;
 	}
 
 
@@ -4254,10 +4254,10 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkDivisionUnit*/SelfOuter* self, IInkStrokes** Strokes) get_Strokes;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkDivisionUnit*/SelfOuter* self, InkDivisionType* divisionType) get_DivisionType;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkDivisionUnit*/SelfOuter* self, BSTR* RecoString) get_RecognizedString;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkDivisionUnit*/SelfOuter* self, IInkTransform** RotationTransform) get_RotationTransform;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IInkStrokes** Strokes) get_Strokes;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, InkDivisionType* divisionType) get_DivisionType;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* RecoString) get_RecognizedString;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IInkTransform** RotationTransform) get_RotationTransform;
 	}
 
 
@@ -4278,9 +4278,9 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkDivisionUnits*/SelfOuter* self, int32* Count) get_Count;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkDivisionUnits*/SelfOuter* self, IUnknown** _NewEnum) get__NewEnum;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkDivisionUnits*/SelfOuter* self, int32 Index, IInkDivisionUnit** InkDivisionUnit) Item;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* Count) get_Count;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IUnknown** _NewEnum) get__NewEnum;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 Index, IInkDivisionUnit** InkDivisionUnit) Item;
 	}
 
 
@@ -4299,31 +4299,31 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPenInputPanel*/SelfOuter* self, int16* Busy) get_Busy;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPenInputPanel*/SelfOuter* self, BSTR* Factoid) get_Factoid;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPenInputPanel*/SelfOuter* self, BSTR Factoid) put_Factoid;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPenInputPanel*/SelfOuter* self, int32* AttachedEditWindow) get_AttachedEditWindow;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPenInputPanel*/SelfOuter* self, int32 AttachedEditWindow) put_AttachedEditWindow;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPenInputPanel*/SelfOuter* self, PanelType* CurrentPanel) get_CurrentPanel;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPenInputPanel*/SelfOuter* self, PanelType CurrentPanel) put_CurrentPanel;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPenInputPanel*/SelfOuter* self, PanelType* pDefaultPanel) get_DefaultPanel;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPenInputPanel*/SelfOuter* self, PanelType DefaultPanel) put_DefaultPanel;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPenInputPanel*/SelfOuter* self, int16* Visible) get_Visible;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPenInputPanel*/SelfOuter* self, int16 Visible) put_Visible;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPenInputPanel*/SelfOuter* self, int32* Top) get_Top;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPenInputPanel*/SelfOuter* self, int32* Left) get_Left;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPenInputPanel*/SelfOuter* self, int32* Width) get_Width;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPenInputPanel*/SelfOuter* self, int32* Height) get_Height;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPenInputPanel*/SelfOuter* self, int32* VerticalOffset) get_VerticalOffset;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPenInputPanel*/SelfOuter* self, int32 VerticalOffset) put_VerticalOffset;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPenInputPanel*/SelfOuter* self, int32* HorizontalOffset) get_HorizontalOffset;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPenInputPanel*/SelfOuter* self, int32 HorizontalOffset) put_HorizontalOffset;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPenInputPanel*/SelfOuter* self, int16* pAutoShow) get_AutoShow;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPenInputPanel*/SelfOuter* self, int16 AutoShow) put_AutoShow;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPenInputPanel*/SelfOuter* self, int32 Left, int32 Top) MoveTo;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPenInputPanel*/SelfOuter* self) CommitPendingInput;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPenInputPanel*/SelfOuter* self) Refresh;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPenInputPanel*/SelfOuter* self, int16 Enable) EnableTsf;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* Busy) get_Busy;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* Factoid) get_Factoid;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR Factoid) put_Factoid;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* AttachedEditWindow) get_AttachedEditWindow;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 AttachedEditWindow) put_AttachedEditWindow;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PanelType* CurrentPanel) get_CurrentPanel;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PanelType CurrentPanel) put_CurrentPanel;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PanelType* pDefaultPanel) get_DefaultPanel;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PanelType DefaultPanel) put_DefaultPanel;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* Visible) get_Visible;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 Visible) put_Visible;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* Top) get_Top;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* Left) get_Left;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* Width) get_Width;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* Height) get_Height;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* VerticalOffset) get_VerticalOffset;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 VerticalOffset) put_VerticalOffset;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* HorizontalOffset) get_HorizontalOffset;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 HorizontalOffset) put_HorizontalOffset;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* pAutoShow) get_AutoShow;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 AutoShow) put_AutoShow;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 Left, int32 Top) MoveTo;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) CommitPendingInput;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Refresh;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 Enable) EnableTsf;
 	}
 
 
@@ -4398,8 +4398,8 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IHandwrittenTextInsertion*/SelfOuter* self, SAFEARRAY* psaAlternates, uint32 locale, BOOL fAlternateContainsAutoSpacingInformation) InsertRecognitionResultsArray;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IHandwrittenTextInsertion*/SelfOuter* self, IInkRecognitionResult* pIInkRecoResult, uint32 locale, BOOL fAlternateContainsAutoSpacingInformation) InsertInkRecognitionResult;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, SAFEARRAY* psaAlternates, uint32 locale, BOOL fAlternateContainsAutoSpacingInformation) InsertRecognitionResultsArray;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IInkRecognitionResult* pIInkRecoResult, uint32 locale, BOOL fAlternateContainsAutoSpacingInformation) InsertInkRecognitionResult;
 	}
 
 
@@ -4416,18 +4416,18 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITextInputPanelEventSink*/SelfOuter* self, InPlaceState oldInPlaceState, InPlaceState newInPlaceState) InPlaceStateChanging;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITextInputPanelEventSink*/SelfOuter* self, InPlaceState oldInPlaceState, InPlaceState newInPlaceState) InPlaceStateChanged;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITextInputPanelEventSink*/SelfOuter* self, RECT oldBoundingRectangle, RECT newBoundingRectangle) InPlaceSizeChanging;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITextInputPanelEventSink*/SelfOuter* self, RECT oldBoundingRectangle, RECT newBoundingRectangle) InPlaceSizeChanged;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITextInputPanelEventSink*/SelfOuter* self, PanelInputArea oldInputArea, PanelInputArea newInputArea) InputAreaChanging;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITextInputPanelEventSink*/SelfOuter* self, PanelInputArea oldInputArea, PanelInputArea newInputArea) InputAreaChanged;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITextInputPanelEventSink*/SelfOuter* self, CorrectionMode oldCorrectionMode, CorrectionMode newCorrectionMode) CorrectionModeChanging;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITextInputPanelEventSink*/SelfOuter* self, CorrectionMode oldCorrectionMode, CorrectionMode newCorrectionMode) CorrectionModeChanged;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITextInputPanelEventSink*/SelfOuter* self, BOOL oldVisible, BOOL newVisible) InPlaceVisibilityChanging;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITextInputPanelEventSink*/SelfOuter* self, BOOL oldVisible, BOOL newVisible) InPlaceVisibilityChanged;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITextInputPanelEventSink*/SelfOuter* self, SAFEARRAY* Ink) TextInserting;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITextInputPanelEventSink*/SelfOuter* self, SAFEARRAY* Ink) TextInserted;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, InPlaceState oldInPlaceState, InPlaceState newInPlaceState) InPlaceStateChanging;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, InPlaceState oldInPlaceState, InPlaceState newInPlaceState) InPlaceStateChanged;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, RECT oldBoundingRectangle, RECT newBoundingRectangle) InPlaceSizeChanging;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, RECT oldBoundingRectangle, RECT newBoundingRectangle) InPlaceSizeChanged;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PanelInputArea oldInputArea, PanelInputArea newInputArea) InputAreaChanging;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PanelInputArea oldInputArea, PanelInputArea newInputArea) InputAreaChanged;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, CorrectionMode oldCorrectionMode, CorrectionMode newCorrectionMode) CorrectionModeChanging;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, CorrectionMode oldCorrectionMode, CorrectionMode newCorrectionMode) CorrectionModeChanged;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BOOL oldVisible, BOOL newVisible) InPlaceVisibilityChanging;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BOOL oldVisible, BOOL newVisible) InPlaceVisibilityChanged;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, SAFEARRAY* Ink) TextInserting;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, SAFEARRAY* Ink) TextInserted;
 	}
 
 
@@ -4464,31 +4464,31 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITextInputPanel*/SelfOuter* self, HWND* AttachedEditWindow) get_AttachedEditWindow;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITextInputPanel*/SelfOuter* self, HWND AttachedEditWindow) put_AttachedEditWindow;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITextInputPanel*/SelfOuter* self, InteractionMode* CurrentInteractionMode) get_CurrentInteractionMode;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITextInputPanel*/SelfOuter* self, InPlaceState* State) get_DefaultInPlaceState;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITextInputPanel*/SelfOuter* self, InPlaceState State) put_DefaultInPlaceState;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITextInputPanel*/SelfOuter* self, InPlaceState* State) get_CurrentInPlaceState;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITextInputPanel*/SelfOuter* self, PanelInputArea* Area) get_DefaultInputArea;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITextInputPanel*/SelfOuter* self, PanelInputArea Area) put_DefaultInputArea;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITextInputPanel*/SelfOuter* self, PanelInputArea* Area) get_CurrentInputArea;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITextInputPanel*/SelfOuter* self, CorrectionMode* Mode) get_CurrentCorrectionMode;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITextInputPanel*/SelfOuter* self, InPlaceDirection* Direction) get_PreferredInPlaceDirection;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITextInputPanel*/SelfOuter* self, InPlaceDirection Direction) put_PreferredInPlaceDirection;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITextInputPanel*/SelfOuter* self, BOOL* Expand) get_ExpandPostInsertionCorrection;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITextInputPanel*/SelfOuter* self, BOOL Expand) put_ExpandPostInsertionCorrection;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITextInputPanel*/SelfOuter* self, BOOL* Visible) get_InPlaceVisibleOnFocus;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITextInputPanel*/SelfOuter* self, BOOL Visible) put_InPlaceVisibleOnFocus;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITextInputPanel*/SelfOuter* self, RECT* BoundingRectangle) get_InPlaceBoundingRectangle;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITextInputPanel*/SelfOuter* self, int32* Height) get_PopUpCorrectionHeight;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITextInputPanel*/SelfOuter* self, int32* Height) get_PopDownCorrectionHeight;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITextInputPanel*/SelfOuter* self) CommitPendingInput;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITextInputPanel*/SelfOuter* self, BOOL Visible) SetInPlaceVisibility;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITextInputPanel*/SelfOuter* self, int32 xPosition, int32 yPosition, CorrectionPosition position) SetInPlacePosition;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITextInputPanel*/SelfOuter* self, int32 xPosition, int32 yPosition) SetInPlaceHoverTargetPosition;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITextInputPanel*/SelfOuter* self, ITextInputPanelEventSink* EventSink, uint32 EventMask) Advise;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITextInputPanel*/SelfOuter* self, ITextInputPanelEventSink* EventSink) Unadvise;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HWND* AttachedEditWindow) get_AttachedEditWindow;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HWND AttachedEditWindow) put_AttachedEditWindow;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, InteractionMode* CurrentInteractionMode) get_CurrentInteractionMode;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, InPlaceState* State) get_DefaultInPlaceState;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, InPlaceState State) put_DefaultInPlaceState;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, InPlaceState* State) get_CurrentInPlaceState;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PanelInputArea* Area) get_DefaultInputArea;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PanelInputArea Area) put_DefaultInputArea;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PanelInputArea* Area) get_CurrentInputArea;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, CorrectionMode* Mode) get_CurrentCorrectionMode;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, InPlaceDirection* Direction) get_PreferredInPlaceDirection;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, InPlaceDirection Direction) put_PreferredInPlaceDirection;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BOOL* Expand) get_ExpandPostInsertionCorrection;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BOOL Expand) put_ExpandPostInsertionCorrection;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BOOL* Visible) get_InPlaceVisibleOnFocus;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BOOL Visible) put_InPlaceVisibleOnFocus;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, RECT* BoundingRectangle) get_InPlaceBoundingRectangle;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* Height) get_PopUpCorrectionHeight;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* Height) get_PopDownCorrectionHeight;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) CommitPendingInput;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BOOL Visible) SetInPlaceVisibility;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 xPosition, int32 yPosition, CorrectionPosition position) SetInPlacePosition;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 xPosition, int32 yPosition) SetInPlaceHoverTargetPosition;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ITextInputPanelEventSink* EventSink, uint32 EventMask) Advise;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ITextInputPanelEventSink* EventSink) Unadvise;
 	}
 
 
@@ -4551,10 +4551,10 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInputPanelWindowHandle*/SelfOuter* self, int32* AttachedEditWindow) get_AttachedEditWindow32;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInputPanelWindowHandle*/SelfOuter* self, int32 AttachedEditWindow) put_AttachedEditWindow32;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInputPanelWindowHandle*/SelfOuter* self, int64* AttachedEditWindow) get_AttachedEditWindow64;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInputPanelWindowHandle*/SelfOuter* self, int64 AttachedEditWindow) put_AttachedEditWindow64;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* AttachedEditWindow) get_AttachedEditWindow32;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 AttachedEditWindow) put_AttachedEditWindow32;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int64* AttachedEditWindow) get_AttachedEditWindow64;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int64 AttachedEditWindow) put_AttachedEditWindow64;
 	}
 
 
@@ -4575,7 +4575,7 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITextInputPanelRunInfo*/SelfOuter* self, BOOL* pfRunning) IsTipRunning;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BOOL* pfRunning) IsTipRunning;
 	}
 
 
@@ -4590,83 +4590,83 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkEdit*/SelfOuter* self, InkEditStatus* pStatus) get_Status;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkEdit*/SelfOuter* self, int16* pVal) get_UseMouseForInput;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkEdit*/SelfOuter* self, int16 newVal) put_UseMouseForInput;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkEdit*/SelfOuter* self, InkMode* pVal) get_InkMode;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkEdit*/SelfOuter* self, InkMode newVal) put_InkMode;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkEdit*/SelfOuter* self, InkInsertMode* pVal) get_InkInsertMode;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkEdit*/SelfOuter* self, InkInsertMode newVal) put_InkInsertMode;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkEdit*/SelfOuter* self, IInkDrawingAttributes** pVal) get_DrawingAttributes;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkEdit*/SelfOuter* self, IInkDrawingAttributes* newVal) putref_DrawingAttributes;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkEdit*/SelfOuter* self, int32* pVal) get_RecognitionTimeout;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkEdit*/SelfOuter* self, int32 newVal) put_RecognitionTimeout;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkEdit*/SelfOuter* self, IInkRecognizer** pVal) get_Recognizer;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkEdit*/SelfOuter* self, IInkRecognizer* newVal) putref_Recognizer;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkEdit*/SelfOuter* self, BSTR* pVal) get_Factoid;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkEdit*/SelfOuter* self, BSTR newVal) put_Factoid;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkEdit*/SelfOuter* self, VARIANT* pSelInk) get_SelInks;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkEdit*/SelfOuter* self, VARIANT SelInk) put_SelInks;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkEdit*/SelfOuter* self, InkDisplayMode* pInkDisplayMode) get_SelInksDisplayMode;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkEdit*/SelfOuter* self, InkDisplayMode InkDisplayMode) put_SelInksDisplayMode;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkEdit*/SelfOuter* self) Recognize;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkEdit*/SelfOuter* self, InkApplicationGesture Gesture, int16* pListen) GetGestureStatus;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkEdit*/SelfOuter* self, InkApplicationGesture Gesture, int16 Listen) SetGestureStatus;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkEdit*/SelfOuter* self, uint32 clr) put_BackColor;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkEdit*/SelfOuter* self, uint32* pclr) get_BackColor;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkEdit*/SelfOuter* self, AppearanceConstants* pAppearance) get_Appearance;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkEdit*/SelfOuter* self, AppearanceConstants pAppearance) put_Appearance;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkEdit*/SelfOuter* self, BorderStyleConstants* pBorderStyle) get_BorderStyle;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkEdit*/SelfOuter* self, BorderStyleConstants pBorderStyle) put_BorderStyle;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkEdit*/SelfOuter* self, uint32* pohHwnd) get_Hwnd;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkEdit*/SelfOuter* self, IFontDisp** ppFont) get_Font;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkEdit*/SelfOuter* self, IFontDisp* ppFont) putref_Font;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkEdit*/SelfOuter* self, BSTR* pbstrText) get_Text;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkEdit*/SelfOuter* self, BSTR pbstrText) put_Text;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkEdit*/SelfOuter* self, IPictureDisp** MouseIcon) get_MouseIcon;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkEdit*/SelfOuter* self, IPictureDisp* MouseIcon) put_MouseIcon;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkEdit*/SelfOuter* self, IPictureDisp* MouseIcon) putref_MouseIcon;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkEdit*/SelfOuter* self, InkMousePointer* MousePointer) get_MousePointer;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkEdit*/SelfOuter* self, InkMousePointer MousePointer) put_MousePointer;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkEdit*/SelfOuter* self, int16* pVal) get_Locked;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkEdit*/SelfOuter* self, int16 newVal) put_Locked;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkEdit*/SelfOuter* self, int16* pVal) get_Enabled;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkEdit*/SelfOuter* self, int16 newVal) put_Enabled;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkEdit*/SelfOuter* self, int32* plMaxLength) get_MaxLength;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkEdit*/SelfOuter* self, int32 lMaxLength) put_MaxLength;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkEdit*/SelfOuter* self, int16* pVal) get_MultiLine;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkEdit*/SelfOuter* self, int16 newVal) put_MultiLine;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkEdit*/SelfOuter* self, ScrollBarsConstants* pVal) get_ScrollBars;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkEdit*/SelfOuter* self, ScrollBarsConstants newVal) put_ScrollBars;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkEdit*/SelfOuter* self, int16* pVal) get_DisableNoScroll;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkEdit*/SelfOuter* self, int16 newVal) put_DisableNoScroll;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkEdit*/SelfOuter* self, VARIANT* pvarSelAlignment) get_SelAlignment;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkEdit*/SelfOuter* self, VARIANT pvarSelAlignment) put_SelAlignment;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkEdit*/SelfOuter* self, VARIANT* pvarSelBold) get_SelBold;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkEdit*/SelfOuter* self, VARIANT pvarSelBold) put_SelBold;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkEdit*/SelfOuter* self, VARIANT* pvarSelItalic) get_SelItalic;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkEdit*/SelfOuter* self, VARIANT pvarSelItalic) put_SelItalic;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkEdit*/SelfOuter* self, VARIANT* pvarSelUnderline) get_SelUnderline;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkEdit*/SelfOuter* self, VARIANT pvarSelUnderline) put_SelUnderline;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkEdit*/SelfOuter* self, VARIANT* pvarSelColor) get_SelColor;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkEdit*/SelfOuter* self, VARIANT pvarSelColor) put_SelColor;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkEdit*/SelfOuter* self, VARIANT* pvarSelFontName) get_SelFontName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkEdit*/SelfOuter* self, VARIANT pvarSelFontName) put_SelFontName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkEdit*/SelfOuter* self, VARIANT* pvarSelFontSize) get_SelFontSize;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkEdit*/SelfOuter* self, VARIANT pvarSelFontSize) put_SelFontSize;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkEdit*/SelfOuter* self, VARIANT* pvarSelCharOffset) get_SelCharOffset;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkEdit*/SelfOuter* self, VARIANT pvarSelCharOffset) put_SelCharOffset;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkEdit*/SelfOuter* self, BSTR* pbstrTextRTF) get_TextRTF;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkEdit*/SelfOuter* self, BSTR pbstrTextRTF) put_TextRTF;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkEdit*/SelfOuter* self, int32* plSelStart) get_SelStart;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkEdit*/SelfOuter* self, int32 plSelStart) put_SelStart;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkEdit*/SelfOuter* self, int32* plSelLength) get_SelLength;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkEdit*/SelfOuter* self, int32 plSelLength) put_SelLength;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkEdit*/SelfOuter* self, BSTR* pbstrSelText) get_SelText;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkEdit*/SelfOuter* self, BSTR pbstrSelText) put_SelText;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkEdit*/SelfOuter* self, BSTR* pbstrSelRTF) get_SelRTF;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkEdit*/SelfOuter* self, BSTR pbstrSelRTF) put_SelRTF;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkEdit*/SelfOuter* self) Refresh;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, InkEditStatus* pStatus) get_Status;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* pVal) get_UseMouseForInput;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 newVal) put_UseMouseForInput;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, InkMode* pVal) get_InkMode;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, InkMode newVal) put_InkMode;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, InkInsertMode* pVal) get_InkInsertMode;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, InkInsertMode newVal) put_InkInsertMode;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IInkDrawingAttributes** pVal) get_DrawingAttributes;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IInkDrawingAttributes* newVal) putref_DrawingAttributes;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* pVal) get_RecognitionTimeout;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 newVal) put_RecognitionTimeout;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IInkRecognizer** pVal) get_Recognizer;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IInkRecognizer* newVal) putref_Recognizer;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pVal) get_Factoid;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR newVal) put_Factoid;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT* pSelInk) get_SelInks;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT SelInk) put_SelInks;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, InkDisplayMode* pInkDisplayMode) get_SelInksDisplayMode;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, InkDisplayMode InkDisplayMode) put_SelInksDisplayMode;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Recognize;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, InkApplicationGesture Gesture, int16* pListen) GetGestureStatus;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, InkApplicationGesture Gesture, int16 Listen) SetGestureStatus;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 clr) put_BackColor;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pclr) get_BackColor;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, AppearanceConstants* pAppearance) get_Appearance;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, AppearanceConstants pAppearance) put_Appearance;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BorderStyleConstants* pBorderStyle) get_BorderStyle;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BorderStyleConstants pBorderStyle) put_BorderStyle;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pohHwnd) get_Hwnd;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IFontDisp** ppFont) get_Font;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IFontDisp* ppFont) putref_Font;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pbstrText) get_Text;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR pbstrText) put_Text;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IPictureDisp** MouseIcon) get_MouseIcon;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IPictureDisp* MouseIcon) put_MouseIcon;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IPictureDisp* MouseIcon) putref_MouseIcon;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, InkMousePointer* MousePointer) get_MousePointer;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, InkMousePointer MousePointer) put_MousePointer;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* pVal) get_Locked;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 newVal) put_Locked;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* pVal) get_Enabled;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 newVal) put_Enabled;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* plMaxLength) get_MaxLength;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 lMaxLength) put_MaxLength;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* pVal) get_MultiLine;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 newVal) put_MultiLine;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ScrollBarsConstants* pVal) get_ScrollBars;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ScrollBarsConstants newVal) put_ScrollBars;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* pVal) get_DisableNoScroll;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 newVal) put_DisableNoScroll;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT* pvarSelAlignment) get_SelAlignment;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT pvarSelAlignment) put_SelAlignment;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT* pvarSelBold) get_SelBold;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT pvarSelBold) put_SelBold;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT* pvarSelItalic) get_SelItalic;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT pvarSelItalic) put_SelItalic;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT* pvarSelUnderline) get_SelUnderline;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT pvarSelUnderline) put_SelUnderline;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT* pvarSelColor) get_SelColor;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT pvarSelColor) put_SelColor;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT* pvarSelFontName) get_SelFontName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT pvarSelFontName) put_SelFontName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT* pvarSelFontSize) get_SelFontSize;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT pvarSelFontSize) put_SelFontSize;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT* pvarSelCharOffset) get_SelCharOffset;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT pvarSelCharOffset) put_SelCharOffset;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pbstrTextRTF) get_TextRTF;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR pbstrTextRTF) put_TextRTF;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* plSelStart) get_SelStart;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 plSelStart) put_SelStart;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* plSelLength) get_SelLength;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 plSelLength) put_SelLength;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pbstrSelText) get_SelText;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR pbstrSelText) put_SelText;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pbstrSelRTF) get_SelRTF;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR pbstrSelRTF) put_SelRTF;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Refresh;
 	}
 
 
@@ -4845,23 +4845,23 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMathInputControl*/SelfOuter* self) Show;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMathInputControl*/SelfOuter* self) Hide;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMathInputControl*/SelfOuter* self, int16* pvbShown) IsVisible;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMathInputControl*/SelfOuter* self, int32* Left, int32* Top, int32* Right, int32* Bottom) GetPosition;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMathInputControl*/SelfOuter* self, int32 Left, int32 Top, int32 Right, int32 Bottom) SetPosition;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMathInputControl*/SelfOuter* self) Clear;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMathInputControl*/SelfOuter* self, int32 Element, int16 Paint) SetCustomPaint;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMathInputControl*/SelfOuter* self, BSTR CaptionText) SetCaptionText;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMathInputControl*/SelfOuter* self, IInkDisp* Ink) LoadInk;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMathInputControl*/SelfOuter* self, int OwnerWindow) SetOwnerWindow;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMathInputControl*/SelfOuter* self, int16 Extended) EnableExtendedButtons;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMathInputControl*/SelfOuter* self, int32* Height) GetPreviewHeight;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMathInputControl*/SelfOuter* self, int32 Height) SetPreviewHeight;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMathInputControl*/SelfOuter* self, int16 AutoGrow) EnableAutoGrow;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMathInputControl*/SelfOuter* self, BSTR FunctionName) AddFunctionName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMathInputControl*/SelfOuter* self, BSTR FunctionName) RemoveFunctionName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMathInputControl*/SelfOuter* self, IPictureDisp** HoverImage) GetHoverIcon;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Show;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Hide;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* pvbShown) IsVisible;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* Left, int32* Top, int32* Right, int32* Bottom) GetPosition;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 Left, int32 Top, int32 Right, int32 Bottom) SetPosition;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Clear;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 Element, int16 Paint) SetCustomPaint;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR CaptionText) SetCaptionText;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IInkDisp* Ink) LoadInk;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int OwnerWindow) SetOwnerWindow;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 Extended) EnableExtendedButtons;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* Height) GetPreviewHeight;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 Height) SetPreviewHeight;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 AutoGrow) EnableAutoGrow;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR FunctionName) AddFunctionName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR FunctionName) RemoveFunctionName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IPictureDisp** HoverImage) GetHoverIcon;
 	}
 
 
@@ -4920,37 +4920,37 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRealTimeStylus*/SelfOuter* self, BOOL* pfEnable) get_Enabled;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRealTimeStylus*/SelfOuter* self, BOOL fEnable) put_Enabled;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRealTimeStylus*/SelfOuter* self, HANDLE_PTR* phwnd) get_HWND;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRealTimeStylus*/SelfOuter* self, HANDLE_PTR hwnd) put_HWND;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRealTimeStylus*/SelfOuter* self, RECT* prcWndInputRect) get_WindowInputRectangle;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRealTimeStylus*/SelfOuter* self, RECT* prcWndInputRect) put_WindowInputRectangle;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRealTimeStylus*/SelfOuter* self, uint32 iIndex, IStylusSyncPlugin* piPlugin) AddStylusSyncPlugin;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRealTimeStylus*/SelfOuter* self, uint32 iIndex, IStylusSyncPlugin** ppiPlugin) RemoveStylusSyncPlugin;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRealTimeStylus*/SelfOuter* self) RemoveAllStylusSyncPlugins;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRealTimeStylus*/SelfOuter* self, uint32 iIndex, IStylusSyncPlugin** ppiPlugin) GetStylusSyncPlugin;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRealTimeStylus*/SelfOuter* self, uint32* pcPlugins) GetStylusSyncPluginCount;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRealTimeStylus*/SelfOuter* self, uint32 iIndex, IStylusAsyncPlugin* piPlugin) AddStylusAsyncPlugin;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRealTimeStylus*/SelfOuter* self, uint32 iIndex, IStylusAsyncPlugin** ppiPlugin) RemoveStylusAsyncPlugin;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRealTimeStylus*/SelfOuter* self) RemoveAllStylusAsyncPlugins;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRealTimeStylus*/SelfOuter* self, uint32 iIndex, IStylusAsyncPlugin** ppiPlugin) GetStylusAsyncPlugin;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRealTimeStylus*/SelfOuter* self, uint32* pcPlugins) GetStylusAsyncPluginCount;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRealTimeStylus*/SelfOuter* self, IRealTimeStylus** ppiRTS) get_ChildRealTimeStylusPlugin;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRealTimeStylus*/SelfOuter* self, IRealTimeStylus* piRTS) putref_ChildRealTimeStylusPlugin;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRealTimeStylus*/SelfOuter* self, StylusQueue sq, ref Guid pGuidId, uint32 cbData, uint8* pbData) AddCustomStylusDataToQueue;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRealTimeStylus*/SelfOuter* self) ClearStylusQueues;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRealTimeStylus*/SelfOuter* self, BOOL fUseMouseForInput) SetAllTabletsMode;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRealTimeStylus*/SelfOuter* self, IInkTablet* piTablet) SetSingleTabletMode;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRealTimeStylus*/SelfOuter* self, IInkTablet** ppiSingleTablet) GetTablet;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRealTimeStylus*/SelfOuter* self, IInkTablet* piTablet, uint32* ptcid) GetTabletContextIdFromTablet;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRealTimeStylus*/SelfOuter* self, uint32 tcid, IInkTablet** ppiTablet) GetTabletFromTabletContextId;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRealTimeStylus*/SelfOuter* self, uint32* pcTcidCount, uint32** ppTcids) GetAllTabletContextIds;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRealTimeStylus*/SelfOuter* self, IInkCursors** ppiInkCursors) GetStyluses;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRealTimeStylus*/SelfOuter* self, uint32 sid, IInkCursor** ppiInkCursor) GetStylusForId;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRealTimeStylus*/SelfOuter* self, uint32 cProperties, ref Guid pPropertyGuids) SetDesiredPacketDescription;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRealTimeStylus*/SelfOuter* self, uint32* pcProperties, ref Guid ppPropertyGuids) GetDesiredPacketDescription;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRealTimeStylus*/SelfOuter* self, uint32 tcid, float* pfInkToDeviceScaleX, float* pfInkToDeviceScaleY, uint32* pcPacketProperties, PACKET_PROPERTY** ppPacketProperties) GetPacketDescriptionData;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BOOL* pfEnable) get_Enabled;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BOOL fEnable) put_Enabled;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HANDLE_PTR* phwnd) get_HWND;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HANDLE_PTR hwnd) put_HWND;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, RECT* prcWndInputRect) get_WindowInputRectangle;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, RECT* prcWndInputRect) put_WindowInputRectangle;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 iIndex, IStylusSyncPlugin* piPlugin) AddStylusSyncPlugin;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 iIndex, IStylusSyncPlugin** ppiPlugin) RemoveStylusSyncPlugin;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) RemoveAllStylusSyncPlugins;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 iIndex, IStylusSyncPlugin** ppiPlugin) GetStylusSyncPlugin;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pcPlugins) GetStylusSyncPluginCount;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 iIndex, IStylusAsyncPlugin* piPlugin) AddStylusAsyncPlugin;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 iIndex, IStylusAsyncPlugin** ppiPlugin) RemoveStylusAsyncPlugin;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) RemoveAllStylusAsyncPlugins;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 iIndex, IStylusAsyncPlugin** ppiPlugin) GetStylusAsyncPlugin;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pcPlugins) GetStylusAsyncPluginCount;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IRealTimeStylus** ppiRTS) get_ChildRealTimeStylusPlugin;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IRealTimeStylus* piRTS) putref_ChildRealTimeStylusPlugin;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, StylusQueue sq, ref Guid pGuidId, uint32 cbData, uint8* pbData) AddCustomStylusDataToQueue;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) ClearStylusQueues;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BOOL fUseMouseForInput) SetAllTabletsMode;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IInkTablet* piTablet) SetSingleTabletMode;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IInkTablet** ppiSingleTablet) GetTablet;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IInkTablet* piTablet, uint32* ptcid) GetTabletContextIdFromTablet;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 tcid, IInkTablet** ppiTablet) GetTabletFromTabletContextId;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pcTcidCount, uint32** ppTcids) GetAllTabletContextIds;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IInkCursors** ppiInkCursors) GetStyluses;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 sid, IInkCursor** ppiInkCursor) GetStylusForId;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 cProperties, ref Guid pPropertyGuids) SetDesiredPacketDescription;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pcProperties, ref Guid ppPropertyGuids) GetDesiredPacketDescription;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 tcid, float* pfInkToDeviceScaleX, float* pfInkToDeviceScaleY, uint32* pcPacketProperties, PACKET_PROPERTY** ppPacketProperties) GetPacketDescriptionData;
 	}
 
 
@@ -5025,8 +5025,8 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRealTimeStylus2*/SelfOuter* self, BOOL* pfEnable) get_FlicksEnabled;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRealTimeStylus2*/SelfOuter* self, BOOL fEnable) put_FlicksEnabled;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BOOL* pfEnable) get_FlicksEnabled;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BOOL fEnable) put_FlicksEnabled;
 	}
 
 
@@ -5043,8 +5043,8 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRealTimeStylus3*/SelfOuter* self, BOOL* pfEnable) get_MultiTouchEnabled;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRealTimeStylus3*/SelfOuter* self, BOOL fEnable) put_MultiTouchEnabled;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BOOL* pfEnable) get_MultiTouchEnabled;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BOOL fEnable) put_MultiTouchEnabled;
 	}
 
 
@@ -5061,8 +5061,8 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRealTimeStylusSynchronization*/SelfOuter* self, RealTimeStylusLockType lock) AcquireLock;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRealTimeStylusSynchronization*/SelfOuter* self, RealTimeStylusLockType lock) ReleaseLock;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, RealTimeStylusLockType lock) AcquireLock;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, RealTimeStylusLockType lock) ReleaseLock;
 	}
 
 
@@ -5079,12 +5079,12 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IStrokeBuilder*/SelfOuter* self, uint32 cPktBuffLength, int32* pPackets, uint32 cPacketProperties, PACKET_PROPERTY* pPacketProperties, float fInkToDeviceScaleX, float fInkToDeviceScaleY, IInkStrokeDisp** ppIInkStroke) CreateStroke;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IStrokeBuilder*/SelfOuter* self, uint32 tcid, uint32 sid, int32* pPacket, uint32 cPacketProperties, PACKET_PROPERTY* pPacketProperties, float fInkToDeviceScaleX, float fInkToDeviceScaleY, IInkStrokeDisp** ppIInkStroke) BeginStroke;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IStrokeBuilder*/SelfOuter* self, uint32 tcid, uint32 sid, uint32 cPktBuffLength, int32* pPackets) AppendPackets;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IStrokeBuilder*/SelfOuter* self, uint32 tcid, uint32 sid, IInkStrokeDisp** ppIInkStroke, RECT* pDirtyRect) EndStroke;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IStrokeBuilder*/SelfOuter* self, IInkDisp** ppiInkObj) get_Ink;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IStrokeBuilder*/SelfOuter* self, IInkDisp* piInkObj) putref_Ink;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 cPktBuffLength, int32* pPackets, uint32 cPacketProperties, PACKET_PROPERTY* pPacketProperties, float fInkToDeviceScaleX, float fInkToDeviceScaleY, IInkStrokeDisp** ppIInkStroke) CreateStroke;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 tcid, uint32 sid, int32* pPacket, uint32 cPacketProperties, PACKET_PROPERTY* pPacketProperties, float fInkToDeviceScaleX, float fInkToDeviceScaleY, IInkStrokeDisp** ppIInkStroke) BeginStroke;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 tcid, uint32 sid, uint32 cPktBuffLength, int32* pPackets) AppendPackets;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 tcid, uint32 sid, IInkStrokeDisp** ppIInkStroke, RECT* pDirtyRect) EndStroke;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IInkDisp** ppiInkObj) get_Ink;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IInkDisp* piInkObj) putref_Ink;
 	}
 
 
@@ -5109,23 +5109,23 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IStylusPlugin*/SelfOuter* self, IRealTimeStylus* piRtsSrc, uint32 cTcidCount, uint32* pTcids) RealTimeStylusEnabled;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IStylusPlugin*/SelfOuter* self, IRealTimeStylus* piRtsSrc, uint32 cTcidCount, uint32* pTcids) RealTimeStylusDisabled;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IStylusPlugin*/SelfOuter* self, IRealTimeStylus* piRtsSrc, uint32 tcid, uint32 sid) StylusInRange;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IStylusPlugin*/SelfOuter* self, IRealTimeStylus* piRtsSrc, uint32 tcid, uint32 sid) StylusOutOfRange;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IStylusPlugin*/SelfOuter* self, IRealTimeStylus* piRtsSrc, StylusInfo* pStylusInfo, uint32 cPropCountPerPkt, int32* pPacket, int32** ppInOutPkt) StylusDown;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IStylusPlugin*/SelfOuter* self, IRealTimeStylus* piRtsSrc, StylusInfo* pStylusInfo, uint32 cPropCountPerPkt, int32* pPacket, int32** ppInOutPkt) StylusUp;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IStylusPlugin*/SelfOuter* self, IRealTimeStylus* piRtsSrc, uint32 sid, ref Guid pGuidStylusButton, POINT* pStylusPos) StylusButtonDown;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IStylusPlugin*/SelfOuter* self, IRealTimeStylus* piRtsSrc, uint32 sid, ref Guid pGuidStylusButton, POINT* pStylusPos) StylusButtonUp;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IStylusPlugin*/SelfOuter* self, IRealTimeStylus* piRtsSrc, StylusInfo* pStylusInfo, uint32 cPktCount, uint32 cPktBuffLength, int32* pPackets, uint32* pcInOutPkts, int32** ppInOutPkts) InAirPackets;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IStylusPlugin*/SelfOuter* self, IRealTimeStylus* piRtsSrc, StylusInfo* pStylusInfo, uint32 cPktCount, uint32 cPktBuffLength, int32* pPackets, uint32* pcInOutPkts, int32** ppInOutPkts) Packets;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IStylusPlugin*/SelfOuter* self, IRealTimeStylus* piRtsSrc, ref Guid pGuidId, uint32 cbData, uint8* pbData) CustomStylusDataAdded;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IStylusPlugin*/SelfOuter* self, IRealTimeStylus* piRtsSrc, uint32 tcid, uint32 sid, uint16 event, SYSTEM_EVENT_DATA eventdata) SystemEvent;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IStylusPlugin*/SelfOuter* self, IRealTimeStylus* piRtsSrc, IInkTablet* piTablet) TabletAdded;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IStylusPlugin*/SelfOuter* self, IRealTimeStylus* piRtsSrc, int32 iTabletIndex) TabletRemoved;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IStylusPlugin*/SelfOuter* self, IRealTimeStylus* piRtsSrc, IStylusPlugin* piPlugin, RealTimeStylusDataInterest dataInterest, HRESULT hrErrorCode, int* lptrKey) Error;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IStylusPlugin*/SelfOuter* self, IRealTimeStylus* piRtsSrc) UpdateMapping;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IStylusPlugin*/SelfOuter* self, RealTimeStylusDataInterest* pDataInterest) DataInterest;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IRealTimeStylus* piRtsSrc, uint32 cTcidCount, uint32* pTcids) RealTimeStylusEnabled;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IRealTimeStylus* piRtsSrc, uint32 cTcidCount, uint32* pTcids) RealTimeStylusDisabled;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IRealTimeStylus* piRtsSrc, uint32 tcid, uint32 sid) StylusInRange;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IRealTimeStylus* piRtsSrc, uint32 tcid, uint32 sid) StylusOutOfRange;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IRealTimeStylus* piRtsSrc, StylusInfo* pStylusInfo, uint32 cPropCountPerPkt, int32* pPacket, int32** ppInOutPkt) StylusDown;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IRealTimeStylus* piRtsSrc, StylusInfo* pStylusInfo, uint32 cPropCountPerPkt, int32* pPacket, int32** ppInOutPkt) StylusUp;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IRealTimeStylus* piRtsSrc, uint32 sid, ref Guid pGuidStylusButton, POINT* pStylusPos) StylusButtonDown;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IRealTimeStylus* piRtsSrc, uint32 sid, ref Guid pGuidStylusButton, POINT* pStylusPos) StylusButtonUp;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IRealTimeStylus* piRtsSrc, StylusInfo* pStylusInfo, uint32 cPktCount, uint32 cPktBuffLength, int32* pPackets, uint32* pcInOutPkts, int32** ppInOutPkts) InAirPackets;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IRealTimeStylus* piRtsSrc, StylusInfo* pStylusInfo, uint32 cPktCount, uint32 cPktBuffLength, int32* pPackets, uint32* pcInOutPkts, int32** ppInOutPkts) Packets;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IRealTimeStylus* piRtsSrc, ref Guid pGuidId, uint32 cbData, uint8* pbData) CustomStylusDataAdded;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IRealTimeStylus* piRtsSrc, uint32 tcid, uint32 sid, uint16 event, SYSTEM_EVENT_DATA eventdata) SystemEvent;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IRealTimeStylus* piRtsSrc, IInkTablet* piTablet) TabletAdded;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IRealTimeStylus* piRtsSrc, int32 iTabletIndex) TabletRemoved;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IRealTimeStylus* piRtsSrc, IStylusPlugin* piPlugin, RealTimeStylusDataInterest dataInterest, HRESULT hrErrorCode, int* lptrKey) Error;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IRealTimeStylus* piRtsSrc) UpdateMapping;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, RealTimeStylusDataInterest* pDataInterest) DataInterest;
 	}
 
 
@@ -5196,21 +5196,21 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDynamicRenderer*/SelfOuter* self, BOOL* bEnabled) get_Enabled;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDynamicRenderer*/SelfOuter* self, BOOL bEnabled) put_Enabled;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDynamicRenderer*/SelfOuter* self, HANDLE_PTR* hwnd) get_HWND;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDynamicRenderer*/SelfOuter* self, HANDLE_PTR hwnd) put_HWND;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDynamicRenderer*/SelfOuter* self, RECT* prcClipRect) get_ClipRectangle;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDynamicRenderer*/SelfOuter* self, RECT* prcClipRect) put_ClipRectangle;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDynamicRenderer*/SelfOuter* self, HANDLE_PTR* phClipRgn) get_ClipRegion;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDynamicRenderer*/SelfOuter* self, HANDLE_PTR hClipRgn) put_ClipRegion;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDynamicRenderer*/SelfOuter* self, IInkDrawingAttributes** ppiDA) get_DrawingAttributes;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDynamicRenderer*/SelfOuter* self, IInkDrawingAttributes* piDA) putref_DrawingAttributes;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDynamicRenderer*/SelfOuter* self, BOOL* pfCacheData) get_DataCacheEnabled;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDynamicRenderer*/SelfOuter* self, BOOL fCacheData) put_DataCacheEnabled;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDynamicRenderer*/SelfOuter* self, uint32 strokeId) ReleaseCachedData;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDynamicRenderer*/SelfOuter* self) Refresh;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDynamicRenderer*/SelfOuter* self, HANDLE_PTR hDC) Draw;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BOOL* bEnabled) get_Enabled;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BOOL bEnabled) put_Enabled;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HANDLE_PTR* hwnd) get_HWND;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HANDLE_PTR hwnd) put_HWND;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, RECT* prcClipRect) get_ClipRectangle;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, RECT* prcClipRect) put_ClipRectangle;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HANDLE_PTR* phClipRgn) get_ClipRegion;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HANDLE_PTR hClipRgn) put_ClipRegion;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IInkDrawingAttributes** ppiDA) get_DrawingAttributes;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IInkDrawingAttributes* piDA) putref_DrawingAttributes;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BOOL* pfCacheData) get_DataCacheEnabled;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BOOL fCacheData) put_DataCacheEnabled;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 strokeId) ReleaseCachedData;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Refresh;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HANDLE_PTR hDC) Draw;
 	}
 
 
@@ -5253,12 +5253,12 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGestureRecognizer*/SelfOuter* self, BOOL* pfEnabled) get_Enabled;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGestureRecognizer*/SelfOuter* self, BOOL fEnabled) put_Enabled;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGestureRecognizer*/SelfOuter* self, int32* pcStrokes) get_MaxStrokeCount;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGestureRecognizer*/SelfOuter* self, int32 cStrokes) put_MaxStrokeCount;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGestureRecognizer*/SelfOuter* self, uint32 cGestures, int32* pGestures) EnableGestures;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGestureRecognizer*/SelfOuter* self) Reset;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BOOL* pfEnabled) get_Enabled;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BOOL fEnabled) put_Enabled;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* pcStrokes) get_MaxStrokeCount;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 cStrokes) put_MaxStrokeCount;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 cGestures, int32* pGestures) EnableGestures;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Reset;
 	}
 
 
@@ -5283,8 +5283,8 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITipAutoCompleteProvider*/SelfOuter* self, BSTR bstrPendingText) UpdatePendingText;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITipAutoCompleteProvider*/SelfOuter* self, BOOL fShow) Show;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrPendingText) UpdatePendingText;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BOOL fShow) Show;
 	}
 
 
@@ -5301,11 +5301,11 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITipAutoCompleteClient*/SelfOuter* self, HWND hWndField, ITipAutoCompleteProvider* pIProvider) AdviseProvider;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITipAutoCompleteClient*/SelfOuter* self, HWND hWndField, ITipAutoCompleteProvider* pIProvider) UnadviseProvider;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITipAutoCompleteClient*/SelfOuter* self) UserSelection;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITipAutoCompleteClient*/SelfOuter* self, RECT* prcACList, RECT* prcField, RECT* prcModifiedACList, BOOL* pfShownAboveTip) PreferredRects;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITipAutoCompleteClient*/SelfOuter* self, HWND hWndList, BOOL* pfAllowShowing) RequestShowUI;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HWND hWndField, ITipAutoCompleteProvider* pIProvider) AdviseProvider;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HWND hWndField, ITipAutoCompleteProvider* pIProvider) UnadviseProvider;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) UserSelection;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, RECT* prcACList, RECT* prcField, RECT* prcModifiedACList, BOOL* pfShownAboveTip) PreferredRects;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HWND hWndList, BOOL* pfAllowShowing) RequestShowUI;
 	}
 
 

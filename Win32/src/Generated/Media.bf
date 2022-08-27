@@ -321,10 +321,10 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IReferenceClock*/SelfOuter* self, int64* pTime) GetTime;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IReferenceClock*/SelfOuter* self, int64 baseTime, int64 streamTime, HANDLE hEvent, uint* pdwAdviseCookie) AdviseTime;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IReferenceClock*/SelfOuter* self, int64 startTime, int64 periodTime, HANDLE hSemaphore, uint* pdwAdviseCookie) AdvisePeriodic;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IReferenceClock*/SelfOuter* self, uint dwAdviseCookie) Unadvise;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int64* pTime) GetTime;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int64 baseTime, int64 streamTime, HANDLE hEvent, uint* pdwAdviseCookie) AdviseTime;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int64 startTime, int64 periodTime, HANDLE hSemaphore, uint* pdwAdviseCookie) AdvisePeriodic;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint dwAdviseCookie) Unadvise;
 	}
 
 
@@ -345,8 +345,8 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IReferenceClockTimerControl*/SelfOuter* self, int64 timerResolution) SetDefaultTimerResolution;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IReferenceClockTimerControl*/SelfOuter* self, int64* pTimerResolution) GetDefaultTimerResolution;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int64 timerResolution) SetDefaultTimerResolution;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int64* pTimerResolution) GetDefaultTimerResolution;
 	}
 
 

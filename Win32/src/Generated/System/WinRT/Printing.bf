@@ -34,8 +34,8 @@ public static
 
 	[CRepr]public struct VTable : IInspectable.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPrinting3DManagerInterop*/SelfOuter* self, HWND appWindow, ref Guid riid, void** printManager) GetForWindow;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPrinting3DManagerInterop*/SelfOuter* self, HWND appWindow, ref Guid riid, void** asyncOperation) ShowPrintUIForWindowAsync;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HWND appWindow, ref Guid riid, void** printManager) GetForWindow;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HWND appWindow, ref Guid riid, void** asyncOperation) ShowPrintUIForWindowAsync;
 	}
 
 
@@ -52,8 +52,8 @@ public static
 
 	[CRepr]public struct VTable : IInspectable.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPrintManagerInterop*/SelfOuter* self, HWND appWindow, ref Guid riid, void** printManager) GetForWindow;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPrintManagerInterop*/SelfOuter* self, HWND appWindow, ref Guid riid, void** asyncOperation) ShowPrintUIForWindowAsync;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HWND appWindow, ref Guid riid, void** printManager) GetForWindow;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HWND appWindow, ref Guid riid, void** asyncOperation) ShowPrintUIForWindowAsync;
 	}
 
 
@@ -70,11 +70,11 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPrintWorkflowXpsReceiver*/SelfOuter* self, IStream* documentSequencePrintTicket) SetDocumentSequencePrintTicket;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPrintWorkflowXpsReceiver*/SelfOuter* self, PWSTR documentSequenceUri) SetDocumentSequenceUri;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPrintWorkflowXpsReceiver*/SelfOuter* self, uint32 documentId, IStream* documentPrintTicket, PWSTR documentUri) AddDocumentData;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPrintWorkflowXpsReceiver*/SelfOuter* self, uint32 documentId, uint32 pageId, IXpsOMPageReference* pageReference, PWSTR pageUri) AddPage;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPrintWorkflowXpsReceiver*/SelfOuter* self) Close;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IStream* documentSequencePrintTicket) SetDocumentSequencePrintTicket;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR documentSequenceUri) SetDocumentSequenceUri;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 documentId, IStream* documentPrintTicket, PWSTR documentUri) AddDocumentData;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 documentId, uint32 pageId, IXpsOMPageReference* pageReference, PWSTR pageUri) AddPage;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Close;
 	}
 
 
@@ -97,7 +97,7 @@ public static
 
 	[CRepr]public struct VTable : IPrintWorkflowXpsReceiver.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPrintWorkflowXpsReceiver2*/SelfOuter* self, HRESULT XpsError) Failed;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HRESULT XpsError) Failed;
 	}
 
 
@@ -112,8 +112,8 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPrintWorkflowObjectModelSourceFileContentNative*/SelfOuter* self, IPrintWorkflowXpsReceiver* receiver) StartXpsOMGeneration;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPrintWorkflowObjectModelSourceFileContentNative*/SelfOuter* self, IXpsOMObjectFactory1** value) get_ObjectFactory;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IPrintWorkflowXpsReceiver* receiver) StartXpsOMGeneration;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IXpsOMObjectFactory1** value) get_ObjectFactory;
 	}
 
 
@@ -130,7 +130,7 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPrintWorkflowXpsObjectModelTargetPackageNative*/SelfOuter* self, IXpsDocumentPackageTarget** value) get_DocumentPackageTarget;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IXpsDocumentPackageTarget** value) get_DocumentPackageTarget;
 	}
 
 
@@ -145,9 +145,9 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPrintWorkflowConfigurationNative*/SelfOuter* self, IPrinterQueue** value) get_PrinterQueue;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPrintWorkflowConfigurationNative*/SelfOuter* self, IPrinterPropertyBag** value) get_DriverProperties;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPrintWorkflowConfigurationNative*/SelfOuter* self, IPrinterPropertyBag** value) get_UserProperties;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IPrinterQueue** value) get_PrinterQueue;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IPrinterPropertyBag** value) get_DriverProperties;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IPrinterPropertyBag** value) get_UserProperties;
 	}
 
 

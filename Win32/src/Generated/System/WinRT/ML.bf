@@ -33,7 +33,7 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ILearningModelOperatorProviderNative*/SelfOuter* self, IMLOperatorRegistry** ppOperatorRegistry) GetRegistry;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IMLOperatorRegistry** ppOperatorRegistry) GetRegistry;
 	}
 
 
@@ -48,8 +48,8 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITensorNative*/SelfOuter* self, uint8** value, uint32* capacity) GetBuffer;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITensorNative*/SelfOuter* self, ID3D12Resource** result) GetD3D12Resource;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint8** value, uint32* capacity) GetBuffer;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ID3D12Resource** result) GetD3D12Resource;
 	}
 
 
@@ -66,7 +66,7 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITensorStaticsNative*/SelfOuter* self, ID3D12Resource* value, int64* shape, int32 shapeCount, IUnknown** result) CreateFromD3D12Resource;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ID3D12Resource* value, int64* shape, int32 shapeCount, IUnknown** result) CreateFromD3D12Resource;
 	}
 
 
@@ -81,7 +81,7 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ILearningModelDeviceFactoryNative*/SelfOuter* self, ID3D12CommandQueue* value, IUnknown** result) CreateFromD3D12CommandQueue;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ID3D12CommandQueue* value, IUnknown** result) CreateFromD3D12CommandQueue;
 	}
 
 
@@ -96,7 +96,7 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ILearningModelSessionOptionsNative*/SelfOuter* self, uint32 intraOpNumThreads) SetIntraOpNumThreadsOverride;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 intraOpNumThreads) SetIntraOpNumThreadsOverride;
 	}
 
 

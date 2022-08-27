@@ -2426,13 +2426,13 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IValidate*/SelfOuter* self, PWSTR szDatabase) OpenDatabase;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IValidate*/SelfOuter* self, PWSTR szCUBFile) OpenCUB;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IValidate*/SelfOuter* self) CloseDatabase;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IValidate*/SelfOuter* self) CloseCUB;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IValidate*/SelfOuter* self, LPDISPLAYVAL pDisplayFunction, void* pContext) SetDisplay;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IValidate*/SelfOuter* self, LPEVALCOMCALLBACK pStatusFunction, void* pContext) SetStatus;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IValidate*/SelfOuter* self, PWSTR wzICEs) Validate;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR szDatabase) OpenDatabase;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR szCUBFile) OpenCUB;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) CloseDatabase;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) CloseCUB;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, LPDISPLAYVAL pDisplayFunction, void* pContext) SetDisplay;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, LPEVALCOMCALLBACK pStatusFunction, void* pContext) SetStatus;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR wzICEs) Validate;
 	}
 
 
@@ -2459,10 +2459,10 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnumMsmString*/SelfOuter* self, uint32 cFetch, BSTR* rgbstrStrings, uint32* pcFetched) Next;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnumMsmString*/SelfOuter* self, uint32 cSkip) Skip;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnumMsmString*/SelfOuter* self) Reset;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnumMsmString*/SelfOuter* self, IEnumMsmString** pemsmStrings) Clone;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 cFetch, BSTR* rgbstrStrings, uint32* pcFetched) Next;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 cSkip) Skip;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Reset;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IEnumMsmString** pemsmStrings) Clone;
 	}
 
 
@@ -2483,9 +2483,9 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMsmStrings*/SelfOuter* self, int32 Item, BSTR* Return) get_Item;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMsmStrings*/SelfOuter* self, int32* Count) get_Count;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMsmStrings*/SelfOuter* self, IUnknown** NewEnum) get__NewEnum;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 Item, BSTR* Return) get_Item;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* Count) get_Count;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IUnknown** NewEnum) get__NewEnum;
 	}
 
 
@@ -2504,13 +2504,13 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMsmError*/SelfOuter* self, msmErrorType* ErrorType) get_Type;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMsmError*/SelfOuter* self, BSTR* ErrorPath) get_Path;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMsmError*/SelfOuter* self, int16* ErrorLanguage) get_Language;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMsmError*/SelfOuter* self, BSTR* ErrorTable) get_DatabaseTable;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMsmError*/SelfOuter* self, IMsmStrings** ErrorKeys) get_DatabaseKeys;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMsmError*/SelfOuter* self, BSTR* ErrorTable) get_ModuleTable;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMsmError*/SelfOuter* self, IMsmStrings** ErrorKeys) get_ModuleKeys;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, msmErrorType* ErrorType) get_Type;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* ErrorPath) get_Path;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* ErrorLanguage) get_Language;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* ErrorTable) get_DatabaseTable;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IMsmStrings** ErrorKeys) get_DatabaseKeys;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* ErrorTable) get_ModuleTable;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IMsmStrings** ErrorKeys) get_ModuleKeys;
 	}
 
 
@@ -2537,10 +2537,10 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnumMsmError*/SelfOuter* self, uint32 cFetch, IMsmError** rgmsmErrors, uint32* pcFetched) Next;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnumMsmError*/SelfOuter* self, uint32 cSkip) Skip;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnumMsmError*/SelfOuter* self) Reset;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnumMsmError*/SelfOuter* self, IEnumMsmError** pemsmErrors) Clone;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 cFetch, IMsmError** rgmsmErrors, uint32* pcFetched) Next;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 cSkip) Skip;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Reset;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IEnumMsmError** pemsmErrors) Clone;
 	}
 
 
@@ -2561,9 +2561,9 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMsmErrors*/SelfOuter* self, int32 Item, IMsmError** Return) get_Item;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMsmErrors*/SelfOuter* self, int32* Count) get_Count;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMsmErrors*/SelfOuter* self, IUnknown** NewEnum) get__NewEnum;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 Item, IMsmError** Return) get_Item;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* Count) get_Count;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IUnknown** NewEnum) get__NewEnum;
 	}
 
 
@@ -2582,9 +2582,9 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMsmDependency*/SelfOuter* self, BSTR* Module) get_Module;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMsmDependency*/SelfOuter* self, int16* Language) get_Language;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMsmDependency*/SelfOuter* self, BSTR* Version) get_Version;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* Module) get_Module;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* Language) get_Language;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* Version) get_Version;
 	}
 
 
@@ -2603,10 +2603,10 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnumMsmDependency*/SelfOuter* self, uint32 cFetch, IMsmDependency** rgmsmDependencies, uint32* pcFetched) Next;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnumMsmDependency*/SelfOuter* self, uint32 cSkip) Skip;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnumMsmDependency*/SelfOuter* self) Reset;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnumMsmDependency*/SelfOuter* self, IEnumMsmDependency** pemsmDependencies) Clone;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 cFetch, IMsmDependency** rgmsmDependencies, uint32* pcFetched) Next;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 cSkip) Skip;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Reset;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IEnumMsmDependency** pemsmDependencies) Clone;
 	}
 
 
@@ -2627,9 +2627,9 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMsmDependencies*/SelfOuter* self, int32 Item, IMsmDependency** Return) get_Item;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMsmDependencies*/SelfOuter* self, int32* Count) get_Count;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMsmDependencies*/SelfOuter* self, IUnknown** NewEnum) get__NewEnum;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 Item, IMsmDependency** Return) get_Item;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* Count) get_Count;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IUnknown** NewEnum) get__NewEnum;
 	}
 
 
@@ -2648,19 +2648,19 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMsmMerge*/SelfOuter* self, BSTR Path) OpenDatabase;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMsmMerge*/SelfOuter* self, BSTR Path, int16 Language) OpenModule;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMsmMerge*/SelfOuter* self, int16 Commit) CloseDatabase;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMsmMerge*/SelfOuter* self) CloseModule;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMsmMerge*/SelfOuter* self, BSTR Path) OpenLog;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMsmMerge*/SelfOuter* self) CloseLog;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMsmMerge*/SelfOuter* self, BSTR Message) Log;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMsmMerge*/SelfOuter* self, IMsmErrors** Errors) get_Errors;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMsmMerge*/SelfOuter* self, IMsmDependencies** Dependencies) get_Dependencies;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMsmMerge*/SelfOuter* self, BSTR Feature, BSTR RedirectDir) Merge;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMsmMerge*/SelfOuter* self, BSTR Feature) Connect;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMsmMerge*/SelfOuter* self, BSTR FileName) ExtractCAB;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMsmMerge*/SelfOuter* self, BSTR Path) ExtractFiles;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR Path) OpenDatabase;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR Path, int16 Language) OpenModule;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 Commit) CloseDatabase;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) CloseModule;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR Path) OpenLog;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) CloseLog;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR Message) Log;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IMsmErrors** Errors) get_Errors;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IMsmDependencies** Dependencies) get_Dependencies;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR Feature, BSTR RedirectDir) Merge;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR Feature) Connect;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR FileName) ExtractCAB;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR Path) ExtractFiles;
 	}
 
 
@@ -2699,7 +2699,7 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMsmGetFiles*/SelfOuter* self, IMsmStrings** Files) get_ModuleFiles;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IMsmStrings** Files) get_ModuleFiles;
 	}
 
 
@@ -2714,15 +2714,15 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAssemblyName*/SelfOuter* self, uint32 PropertyId, void* pvProperty, uint32 cbProperty) SetProperty;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAssemblyName*/SelfOuter* self, uint32 PropertyId, void* pvProperty, uint32* pcbProperty) GetProperty;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAssemblyName*/SelfOuter* self) Finalize;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAssemblyName*/SelfOuter* self, char16* szDisplayName, uint32* pccDisplayName, uint32 dwDisplayFlags) GetDisplayName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAssemblyName*/SelfOuter* self, ref Guid refIID, IUnknown* pUnkReserved1, IUnknown* pUnkReserved2, PWSTR szReserved, int64 llReserved, void* pvReserved, uint32 cbReserved, void** ppReserved) Reserved;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAssemblyName*/SelfOuter* self, uint32* lpcwBuffer, char16* pwzName) GetName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAssemblyName*/SelfOuter* self, uint32* pdwVersionHi, uint32* pdwVersionLow) GetVersion;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAssemblyName*/SelfOuter* self, IAssemblyName* pName, uint32 dwCmpFlags) IsEqual;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAssemblyName*/SelfOuter* self, IAssemblyName** pName) Clone;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 PropertyId, void* pvProperty, uint32 cbProperty) SetProperty;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 PropertyId, void* pvProperty, uint32* pcbProperty) GetProperty;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Finalize;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, char16* szDisplayName, uint32* pccDisplayName, uint32 dwDisplayFlags) GetDisplayName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid refIID, IUnknown* pUnkReserved1, IUnknown* pUnkReserved2, PWSTR szReserved, int64 llReserved, void* pvReserved, uint32 cbReserved, void** ppReserved) Reserved;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* lpcwBuffer, char16* pwzName) GetName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pdwVersionHi, uint32* pdwVersionLow) GetVersion;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IAssemblyName* pName, uint32 dwCmpFlags) IsEqual;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IAssemblyName** pName) Clone;
 	}
 
 
@@ -2753,9 +2753,9 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAssemblyCacheItem*/SelfOuter* self, uint32 dwFlags, PWSTR pszStreamName, uint32 dwFormat, uint32 dwFormatFlags, IStream** ppIStream, ULARGE_INTEGER* puliMaxSize) CreateStream;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAssemblyCacheItem*/SelfOuter* self, uint32 dwFlags, uint32* pulDisposition) Commit;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAssemblyCacheItem*/SelfOuter* self) AbortItem;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwFlags, PWSTR pszStreamName, uint32 dwFormat, uint32 dwFormatFlags, IStream** ppIStream, ULARGE_INTEGER* puliMaxSize) CreateStream;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwFlags, uint32* pulDisposition) Commit;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) AbortItem;
 	}
 
 
@@ -2774,11 +2774,11 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAssemblyCache*/SelfOuter* self, uint32 dwFlags, PWSTR pszAssemblyName, FUSION_INSTALL_REFERENCE* pRefData, IASSEMBLYCACHE_UNINSTALL_DISPOSITION* pulDisposition) UninstallAssembly;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAssemblyCache*/SelfOuter* self, QUERYASMINFO_FLAGS dwFlags, PWSTR pszAssemblyName, ASSEMBLY_INFO* pAsmInfo) QueryAssemblyInfo;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAssemblyCache*/SelfOuter* self, uint32 dwFlags, void* pvReserved, IAssemblyCacheItem** ppAsmItem, PWSTR pszAssemblyName) CreateAssemblyCacheItem;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAssemblyCache*/SelfOuter* self, IUnknown** ppUnk) Reserved;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAssemblyCache*/SelfOuter* self, uint32 dwFlags, PWSTR pszManifestFilePath, FUSION_INSTALL_REFERENCE* pRefData) InstallAssembly;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwFlags, PWSTR pszAssemblyName, FUSION_INSTALL_REFERENCE* pRefData, IASSEMBLYCACHE_UNINSTALL_DISPOSITION* pulDisposition) UninstallAssembly;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, QUERYASMINFO_FLAGS dwFlags, PWSTR pszAssemblyName, ASSEMBLY_INFO* pAsmInfo) QueryAssemblyInfo;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwFlags, void* pvReserved, IAssemblyCacheItem** ppAsmItem, PWSTR pszAssemblyName) CreateAssemblyCacheItem;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IUnknown** ppUnk) Reserved;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwFlags, PWSTR pszManifestFilePath, FUSION_INSTALL_REFERENCE* pRefData) InstallAssembly;
 	}
 
 
@@ -2801,61 +2801,61 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPMApplicationInfo*/SelfOuter* self, ref Guid pProductID) get_ProductID;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPMApplicationInfo*/SelfOuter* self, ref Guid pInstanceID) get_InstanceID;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPMApplicationInfo*/SelfOuter* self, ref Guid pOfferID) get_OfferID;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPMApplicationInfo*/SelfOuter* self, BSTR* pDefaultTask) get_DefaultTask;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPMApplicationInfo*/SelfOuter* self, BSTR* pAppTitle) get_AppTitle;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPMApplicationInfo*/SelfOuter* self, BSTR* pAppIconPath) get_IconPath;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPMApplicationInfo*/SelfOuter* self, BOOL* pIsNotified) get_NotificationState;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPMApplicationInfo*/SelfOuter* self, PM_APPLICATION_INSTALL_TYPE* pAppInstallType) get_AppInstallType;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPMApplicationInfo*/SelfOuter* self, PM_APPLICATION_STATE* pState) get_State;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPMApplicationInfo*/SelfOuter* self, BOOL* pIsRevoked) get_IsRevoked;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPMApplicationInfo*/SelfOuter* self, BOOL* pIsUpdateAvailable) get_UpdateAvailable;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPMApplicationInfo*/SelfOuter* self, FILETIME* pInstallDate) get_InstallDate;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPMApplicationInfo*/SelfOuter* self, BOOL* pIsUninstallable) get_IsUninstallable;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPMApplicationInfo*/SelfOuter* self, BOOL* pIsThemable) get_IsThemable;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPMApplicationInfo*/SelfOuter* self, BOOL* pIsTrial) get_IsTrial;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPMApplicationInfo*/SelfOuter* self, BSTR* pInstallPath) get_InstallPath;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPMApplicationInfo*/SelfOuter* self, BSTR* pDataRoot) get_DataRoot;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPMApplicationInfo*/SelfOuter* self, PM_APP_GENRE* pGenre) get_Genre;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPMApplicationInfo*/SelfOuter* self, BSTR* pPublisher) get_Publisher;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPMApplicationInfo*/SelfOuter* self, BSTR* pAuthor) get_Author;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPMApplicationInfo*/SelfOuter* self, BSTR* pDescription) get_Description;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPMApplicationInfo*/SelfOuter* self, BSTR* pVersion) get_Version;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPMApplicationInfo*/SelfOuter* self, BSTR* pImageUrn, BSTR* pParameters) get_InvocationInfo;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPMApplicationInfo*/SelfOuter* self, uint8* pMajorVer) get_AppPlatMajorVersion;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPMApplicationInfo*/SelfOuter* self, uint8* pMinorVer) get_AppPlatMinorVersion;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPMApplicationInfo*/SelfOuter* self, ref Guid pPublisherID) get_PublisherID;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPMApplicationInfo*/SelfOuter* self, BOOL* pIsMultiCore) get_IsMultiCore;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPMApplicationInfo*/SelfOuter* self, BSTR* pSID) get_SID;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPMApplicationInfo*/SelfOuter* self, uint8* pMajorVer) get_AppPlatMajorVersionLightUp;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPMApplicationInfo*/SelfOuter* self, uint8* pMinorVer) get_AppPlatMinorVersionLightUp;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPMApplicationInfo*/SelfOuter* self, BOOL IsUpdateAvailable) set_UpdateAvailable;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPMApplicationInfo*/SelfOuter* self, BOOL IsNotified) set_NotificationState;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPMApplicationInfo*/SelfOuter* self, BSTR AppIconPath) set_IconPath;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPMApplicationInfo*/SelfOuter* self, BOOL IsUninstallable) set_UninstallableState;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPMApplicationInfo*/SelfOuter* self, BOOL* pIsPinable) get_IsPinableOnKidZone;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPMApplicationInfo*/SelfOuter* self, BOOL* pIsPreinstalled) get_IsOriginallyPreInstalled;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPMApplicationInfo*/SelfOuter* self, BOOL* pIsInstallOnSD) get_IsInstallOnSD;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPMApplicationInfo*/SelfOuter* self, BOOL* pIsOptoutOnSD) get_IsOptoutOnSD;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPMApplicationInfo*/SelfOuter* self, BOOL* pIsOptoutBackupRestore) get_IsOptoutBackupRestore;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPMApplicationInfo*/SelfOuter* self, BOOL IsDisabled) set_EnterpriseDisabled;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPMApplicationInfo*/SelfOuter* self, BOOL IsUninstallable) set_EnterpriseUninstallable;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPMApplicationInfo*/SelfOuter* self, BOOL* IsDisabled) get_EnterpriseDisabled;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPMApplicationInfo*/SelfOuter* self, BOOL* IsUninstallable) get_EnterpriseUninstallable;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPMApplicationInfo*/SelfOuter* self, BOOL* pIsVisible) get_IsVisibleOnAppList;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPMApplicationInfo*/SelfOuter* self, BOOL* pIsInboxApp) get_IsInboxApp;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPMApplicationInfo*/SelfOuter* self, ref Guid pStorageID) get_StorageID;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPMApplicationInfo*/SelfOuter* self, PM_STARTAPPBLOB* pBlob) get_StartAppBlob;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPMApplicationInfo*/SelfOuter* self, BOOL* pIsMovable) get_IsMovable;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPMApplicationInfo*/SelfOuter* self, PM_TILE_HUBTYPE* HubType) get_DeploymentAppEnumerationHubFilter;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPMApplicationInfo*/SelfOuter* self, FILETIME* pModifiedDate) get_ModifiedDate;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPMApplicationInfo*/SelfOuter* self, BOOL* pIsRestored) get_IsOriginallyRestored;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPMApplicationInfo*/SelfOuter* self, BOOL* pfDeferMdilBind) get_ShouldDeferMdilBind;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPMApplicationInfo*/SelfOuter* self, BOOL* pfIsFullyPreInstall) get_IsFullyPreInstall;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPMApplicationInfo*/SelfOuter* self, BOOL fIsMdilMaintenanceNeeded) set_IsMdilMaintenanceNeeded;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPMApplicationInfo*/SelfOuter* self, BSTR AppTitle) set_Title;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid pProductID) get_ProductID;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid pInstanceID) get_InstanceID;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid pOfferID) get_OfferID;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pDefaultTask) get_DefaultTask;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pAppTitle) get_AppTitle;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pAppIconPath) get_IconPath;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BOOL* pIsNotified) get_NotificationState;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PM_APPLICATION_INSTALL_TYPE* pAppInstallType) get_AppInstallType;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PM_APPLICATION_STATE* pState) get_State;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BOOL* pIsRevoked) get_IsRevoked;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BOOL* pIsUpdateAvailable) get_UpdateAvailable;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, FILETIME* pInstallDate) get_InstallDate;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BOOL* pIsUninstallable) get_IsUninstallable;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BOOL* pIsThemable) get_IsThemable;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BOOL* pIsTrial) get_IsTrial;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pInstallPath) get_InstallPath;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pDataRoot) get_DataRoot;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PM_APP_GENRE* pGenre) get_Genre;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pPublisher) get_Publisher;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pAuthor) get_Author;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pDescription) get_Description;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pVersion) get_Version;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pImageUrn, BSTR* pParameters) get_InvocationInfo;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint8* pMajorVer) get_AppPlatMajorVersion;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint8* pMinorVer) get_AppPlatMinorVersion;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid pPublisherID) get_PublisherID;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BOOL* pIsMultiCore) get_IsMultiCore;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pSID) get_SID;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint8* pMajorVer) get_AppPlatMajorVersionLightUp;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint8* pMinorVer) get_AppPlatMinorVersionLightUp;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BOOL IsUpdateAvailable) set_UpdateAvailable;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BOOL IsNotified) set_NotificationState;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR AppIconPath) set_IconPath;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BOOL IsUninstallable) set_UninstallableState;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BOOL* pIsPinable) get_IsPinableOnKidZone;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BOOL* pIsPreinstalled) get_IsOriginallyPreInstalled;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BOOL* pIsInstallOnSD) get_IsInstallOnSD;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BOOL* pIsOptoutOnSD) get_IsOptoutOnSD;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BOOL* pIsOptoutBackupRestore) get_IsOptoutBackupRestore;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BOOL IsDisabled) set_EnterpriseDisabled;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BOOL IsUninstallable) set_EnterpriseUninstallable;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BOOL* IsDisabled) get_EnterpriseDisabled;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BOOL* IsUninstallable) get_EnterpriseUninstallable;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BOOL* pIsVisible) get_IsVisibleOnAppList;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BOOL* pIsInboxApp) get_IsInboxApp;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid pStorageID) get_StorageID;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PM_STARTAPPBLOB* pBlob) get_StartAppBlob;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BOOL* pIsMovable) get_IsMovable;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PM_TILE_HUBTYPE* HubType) get_DeploymentAppEnumerationHubFilter;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, FILETIME* pModifiedDate) get_ModifiedDate;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BOOL* pIsRestored) get_IsOriginallyRestored;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BOOL* pfDeferMdilBind) get_ShouldDeferMdilBind;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BOOL* pfIsFullyPreInstall) get_IsFullyPreInstall;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BOOL fIsMdilMaintenanceNeeded) set_IsMdilMaintenanceNeeded;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR AppTitle) set_Title;
 	}
 
 
@@ -2978,9 +2978,9 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPMTilePropertyInfo*/SelfOuter* self, uint32* pPropID) get_PropertyID;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPMTilePropertyInfo*/SelfOuter* self, BSTR* pPropValue) get_PropertyValue;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPMTilePropertyInfo*/SelfOuter* self, BSTR PropValue) set_Property;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pPropID) get_PropertyID;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pPropValue) get_PropertyValue;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR PropValue) set_Property;
 	}
 
 
@@ -2999,7 +2999,7 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPMTilePropertyEnumerator*/SelfOuter* self, IPMTilePropertyInfo** ppPropInfo) get_Next;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IPMTilePropertyInfo** ppPropInfo) get_Next;
 	}
 
 
@@ -3014,30 +3014,30 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPMTileInfo*/SelfOuter* self, ref Guid pProductID) get_ProductID;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPMTileInfo*/SelfOuter* self, BSTR* pTileID) get_TileID;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPMTileInfo*/SelfOuter* self, TILE_TEMPLATE_TYPE* pTemplateType) get_TemplateType;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPMTileInfo*/SelfOuter* self, PM_TILE_HUBTYPE HubType, BOOL* pPinned) get_HubPinnedState;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPMTileInfo*/SelfOuter* self, PM_TILE_HUBTYPE HubType, uint32* pPosition) get_HubPosition;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPMTileInfo*/SelfOuter* self, BOOL* pIsNotified) get_IsNotified;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPMTileInfo*/SelfOuter* self, BOOL* pIsDefault) get_IsDefault;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPMTileInfo*/SelfOuter* self, BSTR* pTaskID) get_TaskID;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPMTileInfo*/SelfOuter* self, PM_STARTTILE_TYPE* pStartTileType) get_TileType;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPMTileInfo*/SelfOuter* self, BOOL* pIsThemable) get_IsThemable;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPMTileInfo*/SelfOuter* self, uint32 PropID, IPMTilePropertyInfo** ppPropInfo) get_PropertyById;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPMTileInfo*/SelfOuter* self, BSTR* pImageUrn, BSTR* pParameters) get_InvocationInfo;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPMTileInfo*/SelfOuter* self, IPMTilePropertyEnumerator** ppTilePropEnum) get_PropertyEnum;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPMTileInfo*/SelfOuter* self, PM_TILE_HUBTYPE HubType, PM_TILE_SIZE* pSize) get_HubTileSize;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPMTileInfo*/SelfOuter* self, PM_TILE_HUBTYPE HubType, uint32 Position) set_HubPosition;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPMTileInfo*/SelfOuter* self, BOOL Notified) set_NotifiedState;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPMTileInfo*/SelfOuter* self, PM_TILE_HUBTYPE HubType, BOOL Pinned) set_HubPinnedState;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPMTileInfo*/SelfOuter* self, PM_TILE_HUBTYPE HubType, PM_TILE_SIZE Size) set_HubTileSize;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPMTileInfo*/SelfOuter* self, BSTR TaskName, BSTR TaskParameters) set_InvocationInfo;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPMTileInfo*/SelfOuter* self, PM_STARTTILEBLOB* pBlob) get_StartTileBlob;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPMTileInfo*/SelfOuter* self, BOOL* pIsRestoring) get_IsRestoring;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPMTileInfo*/SelfOuter* self, BOOL* pIsAutoRestoreDisabled) get_IsAutoRestoreDisabled;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPMTileInfo*/SelfOuter* self, BOOL Restoring) set_IsRestoring;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPMTileInfo*/SelfOuter* self, BOOL AutoRestoreDisabled) set_IsAutoRestoreDisabled;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid pProductID) get_ProductID;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pTileID) get_TileID;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, TILE_TEMPLATE_TYPE* pTemplateType) get_TemplateType;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PM_TILE_HUBTYPE HubType, BOOL* pPinned) get_HubPinnedState;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PM_TILE_HUBTYPE HubType, uint32* pPosition) get_HubPosition;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BOOL* pIsNotified) get_IsNotified;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BOOL* pIsDefault) get_IsDefault;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pTaskID) get_TaskID;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PM_STARTTILE_TYPE* pStartTileType) get_TileType;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BOOL* pIsThemable) get_IsThemable;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 PropID, IPMTilePropertyInfo** ppPropInfo) get_PropertyById;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pImageUrn, BSTR* pParameters) get_InvocationInfo;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IPMTilePropertyEnumerator** ppTilePropEnum) get_PropertyEnum;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PM_TILE_HUBTYPE HubType, PM_TILE_SIZE* pSize) get_HubTileSize;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PM_TILE_HUBTYPE HubType, uint32 Position) set_HubPosition;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BOOL Notified) set_NotifiedState;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PM_TILE_HUBTYPE HubType, BOOL Pinned) set_HubPinnedState;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PM_TILE_HUBTYPE HubType, PM_TILE_SIZE Size) set_HubTileSize;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR TaskName, BSTR TaskParameters) set_InvocationInfo;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PM_STARTTILEBLOB* pBlob) get_StartTileBlob;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BOOL* pIsRestoring) get_IsRestoring;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BOOL* pIsAutoRestoreDisabled) get_IsAutoRestoreDisabled;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BOOL Restoring) set_IsRestoring;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BOOL AutoRestoreDisabled) set_IsAutoRestoreDisabled;
 	}
 
 
@@ -3098,7 +3098,7 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPMTileInfoEnumerator*/SelfOuter* self, IPMTileInfo** ppTileInfo) get_Next;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IPMTileInfo** ppTileInfo) get_Next;
 	}
 
 
@@ -3113,7 +3113,7 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPMApplicationInfoEnumerator*/SelfOuter* self, IPMApplicationInfo** ppAppInfo) get_Next;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IPMApplicationInfo** ppAppInfo) get_Next;
 	}
 
 
@@ -3128,30 +3128,30 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPMLiveTileJobInfo*/SelfOuter* self, ref Guid pProductID) get_ProductID;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPMLiveTileJobInfo*/SelfOuter* self, BSTR* pTileID) get_TileID;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPMLiveTileJobInfo*/SelfOuter* self, FILETIME* pNextSchedule) get_NextSchedule;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPMLiveTileJobInfo*/SelfOuter* self, FILETIME ftNextSchedule) set_NextSchedule;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPMLiveTileJobInfo*/SelfOuter* self, FILETIME* pStartSchedule) get_StartSchedule;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPMLiveTileJobInfo*/SelfOuter* self, FILETIME ftStartSchedule) set_StartSchedule;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPMLiveTileJobInfo*/SelfOuter* self, uint32* pIntervalDuration) get_IntervalDuration;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPMLiveTileJobInfo*/SelfOuter* self, uint32 ulIntervalDuration) set_IntervalDuration;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPMLiveTileJobInfo*/SelfOuter* self, BOOL* IsRunForever) get_RunForever;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPMLiveTileJobInfo*/SelfOuter* self, BOOL fRunForever) set_RunForever;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPMLiveTileJobInfo*/SelfOuter* self, uint32* pMaxRunCount) get_MaxRunCount;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPMLiveTileJobInfo*/SelfOuter* self, uint32 ulMaxRunCount) set_MaxRunCount;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPMLiveTileJobInfo*/SelfOuter* self, uint32* pRunCount) get_RunCount;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPMLiveTileJobInfo*/SelfOuter* self, uint32 ulRunCount) set_RunCount;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPMLiveTileJobInfo*/SelfOuter* self, uint32* pRecurrenceType) get_RecurrenceType;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPMLiveTileJobInfo*/SelfOuter* self, uint32 ulRecurrenceType) set_RecurrenceType;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPMLiveTileJobInfo*/SelfOuter* self, uint8** pTileXml, uint32* pcbTileXml) get_TileXML;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPMLiveTileJobInfo*/SelfOuter* self, uint8* pTileXml, uint32 cbTileXml) set_TileXML;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPMLiveTileJobInfo*/SelfOuter* self, uint8** pUrlXML, uint32* pcbUrlXML) get_UrlXML;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPMLiveTileJobInfo*/SelfOuter* self, uint8* pUrlXML, uint32 cbUrlXML) set_UrlXML;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPMLiveTileJobInfo*/SelfOuter* self, uint32* pAttemptCount) get_AttemptCount;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPMLiveTileJobInfo*/SelfOuter* self, uint32 ulAttemptCount) set_AttemptCount;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPMLiveTileJobInfo*/SelfOuter* self, uint32* pDownloadState) get_DownloadState;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPMLiveTileJobInfo*/SelfOuter* self, uint32 ulDownloadState) set_DownloadState;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid pProductID) get_ProductID;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pTileID) get_TileID;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, FILETIME* pNextSchedule) get_NextSchedule;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, FILETIME ftNextSchedule) set_NextSchedule;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, FILETIME* pStartSchedule) get_StartSchedule;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, FILETIME ftStartSchedule) set_StartSchedule;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pIntervalDuration) get_IntervalDuration;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 ulIntervalDuration) set_IntervalDuration;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BOOL* IsRunForever) get_RunForever;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BOOL fRunForever) set_RunForever;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pMaxRunCount) get_MaxRunCount;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 ulMaxRunCount) set_MaxRunCount;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pRunCount) get_RunCount;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 ulRunCount) set_RunCount;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pRecurrenceType) get_RecurrenceType;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 ulRecurrenceType) set_RecurrenceType;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint8** pTileXml, uint32* pcbTileXml) get_TileXML;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint8* pTileXml, uint32 cbTileXml) set_TileXML;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint8** pUrlXML, uint32* pcbUrlXML) get_UrlXML;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint8* pUrlXML, uint32 cbUrlXML) set_UrlXML;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pAttemptCount) get_AttemptCount;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 ulAttemptCount) set_AttemptCount;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pDownloadState) get_DownloadState;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 ulDownloadState) set_DownloadState;
 	}
 
 
@@ -3212,7 +3212,7 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPMLiveTileJobInfoEnumerator*/SelfOuter* self, IPMLiveTileJobInfo** ppLiveTileJobInfo) get_Next;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IPMLiveTileJobInfo** ppLiveTileJobInfo) get_Next;
 	}
 
 
@@ -3227,41 +3227,41 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPMDeploymentManager*/SelfOuter* self, Guid productID) ReportDownloadBegin;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPMDeploymentManager*/SelfOuter* self, Guid productID, uint16 usProgress) ReportDownloadProgress;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPMDeploymentManager*/SelfOuter* self, Guid productID, HRESULT hrResult) ReportDownloadComplete;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPMDeploymentManager*/SelfOuter* self, PM_INSTALLINFO* pInstallInfo) BeginInstall;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPMDeploymentManager*/SelfOuter* self, PM_UPDATEINFO* pUpdateInfo) BeginUpdate;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPMDeploymentManager*/SelfOuter* self, PM_INSTALLINFO* pInstallInfo) BeginDeployPackage;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPMDeploymentManager*/SelfOuter* self, PM_UPDATEINFO_LEGACY* pUpdateInfo) BeginUpdateDeployedPackageLegacy;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPMDeploymentManager*/SelfOuter* self, Guid productID) BeginUninstall;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPMDeploymentManager*/SelfOuter* self, PM_INSTALLINFO* pInstallInfo) BeginEnterpriseAppInstall;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPMDeploymentManager*/SelfOuter* self, PM_UPDATEINFO* pUpdateInfo) BeginEnterpriseAppUpdate;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPMDeploymentManager*/SelfOuter* self, Guid productID, Guid offerID, uint8* pbLicense, uint32 cbLicense) BeginUpdateLicense;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPMDeploymentManager*/SelfOuter* self, BSTR PackagePath, uint8** ppbChallenge, uint32* pcbChallenge, uint8** ppbKID, uint32* pcbKID, uint8** ppbDeviceID, uint32* pcbDeviceID, uint8** ppbSaltValue, uint32* pcbSaltValue, uint8** ppbKGVValue, uint32* pcbKGVValue) GetLicenseChallenge;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPMDeploymentManager*/SelfOuter* self, Guid ProductID, uint8** ppbChallenge, uint32* pcbLicense) GetLicenseChallengeByProductID;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPMDeploymentManager*/SelfOuter* self, Guid ProductID, uint8** ppbChallenge, uint32* pcbLicense, uint8** ppbKID, uint32* pcbKID, uint8** ppbDeviceID, uint32* pcbDeviceID, uint8** ppbSaltValue, uint32* pcbSaltValue, uint8** ppbKGVValue, uint32* pcbKGVValue) GetLicenseChallengeByProductID2;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPMDeploymentManager*/SelfOuter* self, Guid productID) RevokeLicense;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPMDeploymentManager*/SelfOuter* self, Guid ProductID, SAFEARRAY* FileNames) RebindMdilBinaries;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPMDeploymentManager*/SelfOuter* self, Guid ProductID, Guid InstanceID) RebindAllMdilBinaries;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPMDeploymentManager*/SelfOuter* self, Guid ProductID, SAFEARRAY* AssemblyPaths) RegenerateXbf;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPMDeploymentManager*/SelfOuter* self, Guid ProductID) GenerateXbfForCurrentLocale;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPMDeploymentManager*/SelfOuter* self, Guid ProductID, BSTR XMLpath) BeginProvision;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPMDeploymentManager*/SelfOuter* self, Guid ProductID) BeginDeprovision;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPMDeploymentManager*/SelfOuter* self, Guid ProductID) ReindexSQLCEDatabases;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPMDeploymentManager*/SelfOuter* self, uint32 RequiredMaintenanceOperations, uint32* pcApplications) SetApplicationsNeedMaintenance;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPMDeploymentManager*/SelfOuter* self, Guid ProductID) UpdateChamberProfile;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPMDeploymentManager*/SelfOuter* self, Guid productId, PWSTR publisherName, BOOL* pIsAllowed) EnterprisePolicyIsApplicationAllowed;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPMDeploymentManager*/SelfOuter* self, PM_UPDATEINFO* pUpdateInfo) BeginUpdateDeployedPackage;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPMDeploymentManager*/SelfOuter* self, Guid productID) ReportRestoreCancelled;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPMDeploymentManager*/SelfOuter* self, PWSTR resourceString, BSTR* pResolvedResourceString) ResolveResourceString;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPMDeploymentManager*/SelfOuter* self) UpdateCapabilitiesForModernApps;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPMDeploymentManager*/SelfOuter* self, Guid productId) ReportDownloadStatusUpdate;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPMDeploymentManager*/SelfOuter* self, Guid productID, uint32 removalOptions) BeginUninstallWithOptions;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPMDeploymentManager*/SelfOuter* self) BindDeferredMdilBinaries;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPMDeploymentManager*/SelfOuter* self, BSTR PackageFamilyName) GenerateXamlLightupXbfForCurrentLocale;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPMDeploymentManager*/SelfOuter* self, Guid productID, uint8* pbLicense, uint32 cbLicense, uint8* pbPlayReadyHeader, uint32 cbPlayReadyHeader) AddLicenseForAppx;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPMDeploymentManager*/SelfOuter* self) FixJunctionsForAppsOnSDCard;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, Guid productID) ReportDownloadBegin;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, Guid productID, uint16 usProgress) ReportDownloadProgress;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, Guid productID, HRESULT hrResult) ReportDownloadComplete;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PM_INSTALLINFO* pInstallInfo) BeginInstall;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PM_UPDATEINFO* pUpdateInfo) BeginUpdate;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PM_INSTALLINFO* pInstallInfo) BeginDeployPackage;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PM_UPDATEINFO_LEGACY* pUpdateInfo) BeginUpdateDeployedPackageLegacy;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, Guid productID) BeginUninstall;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PM_INSTALLINFO* pInstallInfo) BeginEnterpriseAppInstall;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PM_UPDATEINFO* pUpdateInfo) BeginEnterpriseAppUpdate;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, Guid productID, Guid offerID, uint8* pbLicense, uint32 cbLicense) BeginUpdateLicense;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR PackagePath, uint8** ppbChallenge, uint32* pcbChallenge, uint8** ppbKID, uint32* pcbKID, uint8** ppbDeviceID, uint32* pcbDeviceID, uint8** ppbSaltValue, uint32* pcbSaltValue, uint8** ppbKGVValue, uint32* pcbKGVValue) GetLicenseChallenge;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, Guid ProductID, uint8** ppbChallenge, uint32* pcbLicense) GetLicenseChallengeByProductID;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, Guid ProductID, uint8** ppbChallenge, uint32* pcbLicense, uint8** ppbKID, uint32* pcbKID, uint8** ppbDeviceID, uint32* pcbDeviceID, uint8** ppbSaltValue, uint32* pcbSaltValue, uint8** ppbKGVValue, uint32* pcbKGVValue) GetLicenseChallengeByProductID2;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, Guid productID) RevokeLicense;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, Guid ProductID, SAFEARRAY* FileNames) RebindMdilBinaries;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, Guid ProductID, Guid InstanceID) RebindAllMdilBinaries;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, Guid ProductID, SAFEARRAY* AssemblyPaths) RegenerateXbf;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, Guid ProductID) GenerateXbfForCurrentLocale;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, Guid ProductID, BSTR XMLpath) BeginProvision;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, Guid ProductID) BeginDeprovision;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, Guid ProductID) ReindexSQLCEDatabases;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 RequiredMaintenanceOperations, uint32* pcApplications) SetApplicationsNeedMaintenance;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, Guid ProductID) UpdateChamberProfile;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, Guid productId, PWSTR publisherName, BOOL* pIsAllowed) EnterprisePolicyIsApplicationAllowed;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PM_UPDATEINFO* pUpdateInfo) BeginUpdateDeployedPackage;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, Guid productID) ReportRestoreCancelled;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR resourceString, BSTR* pResolvedResourceString) ResolveResourceString;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) UpdateCapabilitiesForModernApps;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, Guid productId) ReportDownloadStatusUpdate;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, Guid productID, uint32 removalOptions) BeginUninstallWithOptions;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) BindDeferredMdilBinaries;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR PackageFamilyName) GenerateXamlLightupXbfForCurrentLocale;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, Guid productID, uint8* pbLicense, uint32 cbLicense, uint8* pbPlayReadyHeader, uint32 cbPlayReadyHeader) AddLicenseForAppx;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) FixJunctionsForAppsOnSDCard;
 	}
 
 
@@ -3344,24 +3344,24 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPMEnumerationManager*/SelfOuter* self, IPMApplicationInfoEnumerator** ppAppEnum, PM_ENUM_FILTER Filter) get_AllApplications;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPMEnumerationManager*/SelfOuter* self, IPMTileInfoEnumerator** ppTileEnum, PM_ENUM_FILTER Filter) get_AllTiles;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPMEnumerationManager*/SelfOuter* self, IPMTaskInfoEnumerator** ppTaskEnum, PM_ENUM_FILTER Filter) get_AllTasks;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPMEnumerationManager*/SelfOuter* self, IPMExtensionInfoEnumerator** ppExtensionEnum, PM_ENUM_FILTER Filter) get_AllExtensions;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPMEnumerationManager*/SelfOuter* self, IPMBackgroundServiceAgentInfoEnumerator** ppBSAEnum, PM_ENUM_FILTER Filter) get_AllBackgroundServiceAgents;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPMEnumerationManager*/SelfOuter* self, IPMBackgroundWorkerInfoEnumerator** ppBSWEnum, PM_ENUM_FILTER Filter) get_AllBackgroundWorkers;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPMEnumerationManager*/SelfOuter* self, Guid ProductID, IPMApplicationInfo** ppAppInfo) get_ApplicationInfo;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPMEnumerationManager*/SelfOuter* self, Guid ProductID, BSTR TileID, IPMTileInfo** ppTileInfo) get_TileInfo;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPMEnumerationManager*/SelfOuter* self, Guid ProductID, BSTR TaskID, IPMTaskInfo** ppTaskInfo) get_TaskInfo;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPMEnumerationManager*/SelfOuter* self, Guid ProductID, PWSTR TaskID, IPMTaskInfo** ppTaskInfo) get_TaskInfoEx;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPMEnumerationManager*/SelfOuter* self, uint32 BSAID, IPMBackgroundServiceAgentInfo** ppTaskInfo) get_BackgroundServiceAgentInfo;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPMEnumerationManager*/SelfOuter* self, IPMLiveTileJobInfoEnumerator** ppLiveTileJobEnum) get_AllLiveTileJobs;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPMEnumerationManager*/SelfOuter* self, Guid ProductID, BSTR TileID, PM_LIVETILE_RECURRENCE_TYPE RecurrenceType, IPMLiveTileJobInfo** ppLiveTileJobInfo) get_LiveTileJob;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPMEnumerationManager*/SelfOuter* self, Guid ProductID, IPMApplicationInfo** ppAppInfo) get_ApplicationInfoExternal;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPMEnumerationManager*/SelfOuter* self, BSTR FileType, PM_LOGO_SIZE LogoSize, BSTR* pLogo) get_FileHandlerGenericLogo;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPMEnumerationManager*/SelfOuter* self, BSTR SysAppID0, BSTR SysAppID1, IPMApplicationInfo** ppAppInfo) get_ApplicationInfoFromAccessClaims;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPMEnumerationManager*/SelfOuter* self, PM_ENUM_FILTER Filter, uint32* pcTiles, PM_STARTTILEBLOB** ppTileBlobs) get_StartTileEnumeratorBlob;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPMEnumerationManager*/SelfOuter* self, PM_ENUM_FILTER Filter, uint32* pcApps, PM_STARTAPPBLOB** ppAppBlobs) get_StartAppEnumeratorBlob;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IPMApplicationInfoEnumerator** ppAppEnum, PM_ENUM_FILTER Filter) get_AllApplications;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IPMTileInfoEnumerator** ppTileEnum, PM_ENUM_FILTER Filter) get_AllTiles;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IPMTaskInfoEnumerator** ppTaskEnum, PM_ENUM_FILTER Filter) get_AllTasks;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IPMExtensionInfoEnumerator** ppExtensionEnum, PM_ENUM_FILTER Filter) get_AllExtensions;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IPMBackgroundServiceAgentInfoEnumerator** ppBSAEnum, PM_ENUM_FILTER Filter) get_AllBackgroundServiceAgents;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IPMBackgroundWorkerInfoEnumerator** ppBSWEnum, PM_ENUM_FILTER Filter) get_AllBackgroundWorkers;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, Guid ProductID, IPMApplicationInfo** ppAppInfo) get_ApplicationInfo;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, Guid ProductID, BSTR TileID, IPMTileInfo** ppTileInfo) get_TileInfo;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, Guid ProductID, BSTR TaskID, IPMTaskInfo** ppTaskInfo) get_TaskInfo;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, Guid ProductID, PWSTR TaskID, IPMTaskInfo** ppTaskInfo) get_TaskInfoEx;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 BSAID, IPMBackgroundServiceAgentInfo** ppTaskInfo) get_BackgroundServiceAgentInfo;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IPMLiveTileJobInfoEnumerator** ppLiveTileJobEnum) get_AllLiveTileJobs;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, Guid ProductID, BSTR TileID, PM_LIVETILE_RECURRENCE_TYPE RecurrenceType, IPMLiveTileJobInfo** ppLiveTileJobInfo) get_LiveTileJob;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, Guid ProductID, IPMApplicationInfo** ppAppInfo) get_ApplicationInfoExternal;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR FileType, PM_LOGO_SIZE LogoSize, BSTR* pLogo) get_FileHandlerGenericLogo;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR SysAppID0, BSTR SysAppID1, IPMApplicationInfo** ppAppInfo) get_ApplicationInfoFromAccessClaims;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PM_ENUM_FILTER Filter, uint32* pcTiles, PM_STARTTILEBLOB** ppTileBlobs) get_StartTileEnumeratorBlob;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PM_ENUM_FILTER Filter, uint32* pcApps, PM_STARTAPPBLOB** ppAppBlobs) get_StartAppEnumeratorBlob;
 	}
 
 
@@ -3410,27 +3410,27 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPMTaskInfo*/SelfOuter* self, ref Guid pProductID) get_ProductID;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPMTaskInfo*/SelfOuter* self, BSTR* pTaskID) get_TaskID;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPMTaskInfo*/SelfOuter* self, BSTR* pNavigationPage) get_NavigationPage;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPMTaskInfo*/SelfOuter* self, PM_TASK_TRANSITION* pTaskTransition) get_TaskTransition;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPMTaskInfo*/SelfOuter* self, PACKMAN_RUNTIME* pRuntimetype) get_RuntimeType;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPMTaskInfo*/SelfOuter* self, PM_ACTIVATION_POLICY* pActivationPolicy) get_ActivationPolicy;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPMTaskInfo*/SelfOuter* self, PM_TASK_TYPE* pTaskType) get_TaskType;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPMTaskInfo*/SelfOuter* self, BSTR* pImageUrn, BSTR* pParameters) get_InvocationInfo;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPMTaskInfo*/SelfOuter* self, BSTR* pImagePath) get_ImagePath;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPMTaskInfo*/SelfOuter* self, BSTR* pImageParams) get_ImageParams;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPMTaskInfo*/SelfOuter* self, BSTR* pInstallRootFolder) get_InstallRootFolder;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPMTaskInfo*/SelfOuter* self, BSTR* pDataRootFolder) get_DataRootFolder;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPMTaskInfo*/SelfOuter* self, BOOL* pIsSingleInstanceHost) get_IsSingleInstanceHost;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPMTaskInfo*/SelfOuter* self, BOOL* pIsInteropEnabled) get_IsInteropEnabled;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPMTaskInfo*/SelfOuter* self, PM_APPLICATION_STATE* pApplicationState) get_ApplicationState;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPMTaskInfo*/SelfOuter* self, PM_APPLICATION_INSTALL_TYPE* pInstallType) get_InstallType;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPMTaskInfo*/SelfOuter* self, uint8* pTargetMajorVersion, uint8* pTargetMinorVersion) get_Version;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPMTaskInfo*/SelfOuter* self, uint16* pBitsPerPixel) get_BitsPerPixel;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPMTaskInfo*/SelfOuter* self, BOOL* pSuppressesDehydration) get_SuppressesDehydration;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPMTaskInfo*/SelfOuter* self, BSTR* pBackgroundExecutionAbilities) get_BackgroundExecutionAbilities;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPMTaskInfo*/SelfOuter* self, BOOL* pIsOptedIn) get_IsOptedForExtendedMem;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid pProductID) get_ProductID;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pTaskID) get_TaskID;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pNavigationPage) get_NavigationPage;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PM_TASK_TRANSITION* pTaskTransition) get_TaskTransition;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PACKMAN_RUNTIME* pRuntimetype) get_RuntimeType;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PM_ACTIVATION_POLICY* pActivationPolicy) get_ActivationPolicy;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PM_TASK_TYPE* pTaskType) get_TaskType;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pImageUrn, BSTR* pParameters) get_InvocationInfo;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pImagePath) get_ImagePath;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pImageParams) get_ImageParams;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pInstallRootFolder) get_InstallRootFolder;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pDataRootFolder) get_DataRootFolder;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BOOL* pIsSingleInstanceHost) get_IsSingleInstanceHost;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BOOL* pIsInteropEnabled) get_IsInteropEnabled;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PM_APPLICATION_STATE* pApplicationState) get_ApplicationState;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PM_APPLICATION_INSTALL_TYPE* pInstallType) get_InstallType;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint8* pTargetMajorVersion, uint8* pTargetMinorVersion) get_Version;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint16* pBitsPerPixel) get_BitsPerPixel;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BOOL* pSuppressesDehydration) get_SuppressesDehydration;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pBackgroundExecutionAbilities) get_BackgroundExecutionAbilities;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BOOL* pIsOptedIn) get_IsOptedForExtendedMem;
 	}
 
 
@@ -3485,7 +3485,7 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPMTaskInfoEnumerator*/SelfOuter* self, IPMTaskInfo** ppTaskInfo) get_Next;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IPMTaskInfo** ppTaskInfo) get_Next;
 	}
 
 
@@ -3500,12 +3500,12 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPMExtensionInfo*/SelfOuter* self, ref Guid pSupplierPID) get_SupplierPID;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPMExtensionInfo*/SelfOuter* self, BSTR* pSupplierTID) get_SupplierTaskID;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPMExtensionInfo*/SelfOuter* self, BSTR* pTitle) get_Title;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPMExtensionInfo*/SelfOuter* self, BSTR* pIconPath) get_IconPath;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPMExtensionInfo*/SelfOuter* self, BSTR* pFilePath) get_ExtraFile;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPMExtensionInfo*/SelfOuter* self, BSTR* pImageUrn, BSTR* pParameters) get_InvocationInfo;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid pSupplierPID) get_SupplierPID;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pSupplierTID) get_SupplierTaskID;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pTitle) get_Title;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pIconPath) get_IconPath;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pFilePath) get_ExtraFile;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pImageUrn, BSTR* pParameters) get_InvocationInfo;
 	}
 
 
@@ -3530,13 +3530,13 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPMExtensionFileExtensionInfo*/SelfOuter* self, BSTR* pName) get_Name;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPMExtensionFileExtensionInfo*/SelfOuter* self, BSTR* pDisplayName) get_DisplayName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPMExtensionFileExtensionInfo*/SelfOuter* self, PM_LOGO_SIZE LogoSize, BSTR* pLogo) get_Logo;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPMExtensionFileExtensionInfo*/SelfOuter* self, BSTR FileType, BSTR* pContentType) get_ContentType;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPMExtensionFileExtensionInfo*/SelfOuter* self, BSTR ContentType, BSTR* pFileType) get_FileType;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPMExtensionFileExtensionInfo*/SelfOuter* self, BSTR* pImageUrn, BSTR* pParameters) get_InvocationInfo;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPMExtensionFileExtensionInfo*/SelfOuter* self, uint32* pcbTypes, BSTR** ppTypes) get_AllFileTypes;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pName) get_Name;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pDisplayName) get_DisplayName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PM_LOGO_SIZE LogoSize, BSTR* pLogo) get_Logo;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR FileType, BSTR* pContentType) get_ContentType;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR ContentType, BSTR* pFileType) get_FileType;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pImageUrn, BSTR* pParameters) get_InvocationInfo;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pcbTypes, BSTR** ppTypes) get_AllFileTypes;
 	}
 
 
@@ -3563,8 +3563,8 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPMExtensionProtocolInfo*/SelfOuter* self, BSTR* pProtocol) get_Protocol;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPMExtensionProtocolInfo*/SelfOuter* self, BSTR* pImageUrn, BSTR* pParameters) get_InvocationInfo;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pProtocol) get_Protocol;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pImageUrn, BSTR* pParameters) get_InvocationInfo;
 	}
 
 
@@ -3581,9 +3581,9 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPMExtensionShareTargetInfo*/SelfOuter* self, uint32* pcTypes, BSTR** ppTypes) get_AllFileTypes;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPMExtensionShareTargetInfo*/SelfOuter* self, uint32* pcDataFormats, BSTR** ppDataFormats) get_AllDataFormats;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPMExtensionShareTargetInfo*/SelfOuter* self, BOOL* pSupportsAllTypes) get_SupportsAllFileTypes;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pcTypes, BSTR** ppTypes) get_AllFileTypes;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pcDataFormats, BSTR** ppDataFormats) get_AllDataFormats;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BOOL* pSupportsAllTypes) get_SupportsAllFileTypes;
 	}
 
 
@@ -3602,7 +3602,7 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPMExtensionContractInfo*/SelfOuter* self, BSTR* pAUMID, BSTR* pArgs) get_InvocationInfo;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pAUMID, BSTR* pArgs) get_InvocationInfo;
 	}
 
 
@@ -3617,8 +3617,8 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPMExtensionFileOpenPickerInfo*/SelfOuter* self, uint32* pcTypes, BSTR** ppTypes) get_AllFileTypes;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPMExtensionFileOpenPickerInfo*/SelfOuter* self, BOOL* pSupportsAllTypes) get_SupportsAllFileTypes;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pcTypes, BSTR** ppTypes) get_AllFileTypes;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BOOL* pSupportsAllTypes) get_SupportsAllFileTypes;
 	}
 
 
@@ -3635,8 +3635,8 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPMExtensionFileSavePickerInfo*/SelfOuter* self, uint32* pcTypes, BSTR** ppTypes) get_AllFileTypes;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPMExtensionFileSavePickerInfo*/SelfOuter* self, BOOL* pSupportsAllTypes) get_SupportsAllFileTypes;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pcTypes, BSTR** ppTypes) get_AllFileTypes;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BOOL* pSupportsAllTypes) get_SupportsAllFileTypes;
 	}
 
 
@@ -3653,7 +3653,7 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPMExtensionCachedFileUpdaterInfo*/SelfOuter* self, BOOL* pSupportsUpdates) get_SupportsUpdates;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BOOL* pSupportsUpdates) get_SupportsUpdates;
 	}
 
 
@@ -3668,7 +3668,7 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPMExtensionInfoEnumerator*/SelfOuter* self, IPMExtensionInfo** ppExtensionInfo) get_Next;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IPMExtensionInfo** ppExtensionInfo) get_Next;
 	}
 
 
@@ -3683,20 +3683,20 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPMBackgroundServiceAgentInfo*/SelfOuter* self, ref Guid pProductID) get_ProductID;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPMBackgroundServiceAgentInfo*/SelfOuter* self, BSTR* pTaskID) get_TaskID;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPMBackgroundServiceAgentInfo*/SelfOuter* self, uint32* pBSAID) get_BSAID;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPMBackgroundServiceAgentInfo*/SelfOuter* self, BSTR* pBGSpecifier) get_BGSpecifier;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPMBackgroundServiceAgentInfo*/SelfOuter* self, BSTR* pBGName) get_BGName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPMBackgroundServiceAgentInfo*/SelfOuter* self, BSTR* pBGSource) get_BGSource;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPMBackgroundServiceAgentInfo*/SelfOuter* self, BSTR* pBGType) get_BGType;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPMBackgroundServiceAgentInfo*/SelfOuter* self, BOOL* pIsPeriodic) get_IsPeriodic;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPMBackgroundServiceAgentInfo*/SelfOuter* self, BOOL* pIsScheduled) get_IsScheduled;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPMBackgroundServiceAgentInfo*/SelfOuter* self, BOOL* pIsScheduleAllowed) get_IsScheduleAllowed;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPMBackgroundServiceAgentInfo*/SelfOuter* self, BSTR* pDescription) get_Description;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPMBackgroundServiceAgentInfo*/SelfOuter* self, BOOL* pLaunchOnBoot) get_IsLaunchOnBoot;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPMBackgroundServiceAgentInfo*/SelfOuter* self, BOOL IsScheduled) set_IsScheduled;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPMBackgroundServiceAgentInfo*/SelfOuter* self, BOOL IsScheduleAllowed) set_IsScheduleAllowed;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid pProductID) get_ProductID;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pTaskID) get_TaskID;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pBSAID) get_BSAID;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pBGSpecifier) get_BGSpecifier;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pBGName) get_BGName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pBGSource) get_BGSource;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pBGType) get_BGType;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BOOL* pIsPeriodic) get_IsPeriodic;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BOOL* pIsScheduled) get_IsScheduled;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BOOL* pIsScheduleAllowed) get_IsScheduleAllowed;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pDescription) get_Description;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BOOL* pLaunchOnBoot) get_IsLaunchOnBoot;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BOOL IsScheduled) set_IsScheduled;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BOOL IsScheduleAllowed) set_IsScheduleAllowed;
 	}
 
 
@@ -3737,12 +3737,12 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPMBackgroundWorkerInfo*/SelfOuter* self, ref Guid pProductID) get_ProductID;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPMBackgroundWorkerInfo*/SelfOuter* self, BSTR* pTaskID) get_TaskID;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPMBackgroundWorkerInfo*/SelfOuter* self, BSTR* pBGName) get_BGName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPMBackgroundWorkerInfo*/SelfOuter* self, uint32* pMaxStartupLatency) get_MaxStartupLatency;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPMBackgroundWorkerInfo*/SelfOuter* self, uint32* pExpectedRuntime) get_ExpectedRuntime;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPMBackgroundWorkerInfo*/SelfOuter* self, BOOL* pIsBootWorker) get_IsBootWorker;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid pProductID) get_ProductID;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pTaskID) get_TaskID;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pBGName) get_BGName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pMaxStartupLatency) get_MaxStartupLatency;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pExpectedRuntime) get_ExpectedRuntime;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BOOL* pIsBootWorker) get_IsBootWorker;
 	}
 
 
@@ -3767,7 +3767,7 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPMBackgroundServiceAgentInfoEnumerator*/SelfOuter* self, IPMBackgroundServiceAgentInfo** ppBSAInfo) get_Next;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IPMBackgroundServiceAgentInfo** ppBSAInfo) get_Next;
 	}
 
 
@@ -3782,7 +3782,7 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPMBackgroundWorkerInfoEnumerator*/SelfOuter* self, IPMBackgroundWorkerInfo** ppBWInfo) get_Next;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IPMBackgroundWorkerInfo** ppBWInfo) get_Next;
 	}
 
 

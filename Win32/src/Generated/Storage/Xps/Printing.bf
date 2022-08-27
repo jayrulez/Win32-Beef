@@ -91,7 +91,7 @@ public static
 
 	[CRepr]public struct VTable : ISequentialStream.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsPrintJobStream*/SelfOuter* self) Close;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Close;
 	}
 
 
@@ -106,8 +106,8 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsPrintJob*/SelfOuter* self) Cancel;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsPrintJob*/SelfOuter* self, XPS_JOB_STATUS* jobStatus) GetJobStatus;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Cancel;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, XPS_JOB_STATUS* jobStatus) GetJobStatus;
 	}
 
 
@@ -124,9 +124,9 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPrintDocumentPackageTarget*/SelfOuter* self, uint32* targetCount, ref Guid targetTypes) GetPackageTargetTypes;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPrintDocumentPackageTarget*/SelfOuter* self, ref Guid guidTargetType, ref Guid riid, void** ppvTarget) GetPackageTarget;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPrintDocumentPackageTarget*/SelfOuter* self) Cancel;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* targetCount, ref Guid targetTypes) GetPackageTargetTypes;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid guidTargetType, ref Guid riid, void** ppvTarget) GetPackageTarget;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Cancel;
 	}
 
 
@@ -145,7 +145,7 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPrintDocumentPackageStatusEvent*/SelfOuter* self, PrintDocumentPackageStatus* packageStatus) PackageStatusUpdated;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PrintDocumentPackageStatus* packageStatus) PackageStatusUpdated;
 	}
 
 
@@ -160,7 +160,7 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPrintDocumentPackageTargetFactory*/SelfOuter* self, PWSTR printerName, PWSTR jobName, IStream* jobOutputStream, IStream* jobPrintTicketStream, IPrintDocumentPackageTarget** docPackageTarget) CreateDocumentPackageTargetForPrintJob;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR printerName, PWSTR jobName, IStream* jobOutputStream, IStream* jobPrintTicketStream, IPrintDocumentPackageTarget** docPackageTarget) CreateDocumentPackageTargetForPrintJob;
 	}
 
 

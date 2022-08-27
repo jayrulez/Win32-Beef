@@ -31,7 +31,7 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IIsolatedEnvironmentInterop*/SelfOuter* self, HWND containerHwnd, HWND* hostHwnd) GetHostHwndInterop;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HWND containerHwnd, HWND* hostHwnd) GetHostHwndInterop;
 	}
 
 

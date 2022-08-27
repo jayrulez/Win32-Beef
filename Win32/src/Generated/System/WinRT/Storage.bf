@@ -77,7 +77,7 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRandomAccessStreamFileAccessMode*/SelfOuter* self, uint32* fileAccessMode) GetMode;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* fileAccessMode) GetMode;
 	}
 
 
@@ -92,7 +92,7 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IUnbufferedFileHandleOplockCallback*/SelfOuter* self) OnBrokenCallback;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) OnBrokenCallback;
 	}
 
 
@@ -107,8 +107,8 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IUnbufferedFileHandleProvider*/SelfOuter* self, IUnbufferedFileHandleOplockCallback* oplockBreakCallback, uint* fileHandle) OpenUnbufferedFileHandle;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IUnbufferedFileHandleProvider*/SelfOuter* self) CloseUnbufferedFileHandle;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IUnbufferedFileHandleOplockCallback* oplockBreakCallback, uint* fileHandle) OpenUnbufferedFileHandle;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) CloseUnbufferedFileHandle;
 	}
 
 
@@ -125,7 +125,7 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOplockBreakingHandler*/SelfOuter* self) OplockBreaking;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) OplockBreaking;
 	}
 
 
@@ -140,7 +140,7 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IStorageItemHandleAccess*/SelfOuter* self, HANDLE_ACCESS_OPTIONS accessOptions, HANDLE_SHARING_OPTIONS sharingOptions, HANDLE_OPTIONS options, IOplockBreakingHandler* oplockBreakingHandler, HANDLE* interopHandle) Create;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HANDLE_ACCESS_OPTIONS accessOptions, HANDLE_SHARING_OPTIONS sharingOptions, HANDLE_OPTIONS options, IOplockBreakingHandler* oplockBreakingHandler, HANDLE* interopHandle) Create;
 	}
 
 
@@ -155,7 +155,7 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IStorageFolderHandleAccess*/SelfOuter* self, PWSTR fileName, HANDLE_CREATION_OPTIONS creationOptions, HANDLE_ACCESS_OPTIONS accessOptions, HANDLE_SHARING_OPTIONS sharingOptions, HANDLE_OPTIONS options, IOplockBreakingHandler* oplockBreakingHandler, HANDLE* interopHandle) Create;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR fileName, HANDLE_CREATION_OPTIONS creationOptions, HANDLE_ACCESS_OPTIONS accessOptions, HANDLE_SHARING_OPTIONS sharingOptions, HANDLE_OPTIONS options, IOplockBreakingHandler* oplockBreakingHandler, HANDLE* interopHandle) Create;
 	}
 
 

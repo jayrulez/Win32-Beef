@@ -117,10 +117,10 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICatalog*/SelfOuter* self, BSTR bstrCollName, IDispatch** ppCatalogCollection) GetCollection;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICatalog*/SelfOuter* self, BSTR bstrConnectString, IDispatch** ppCatalogCollection) Connect;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICatalog*/SelfOuter* self, int32* retval) get_MajorVersion;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICatalog*/SelfOuter* self, int32* retval) get_MinorVersion;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrCollName, IDispatch** ppCatalogCollection) GetCollection;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrConnectString, IDispatch** ppCatalogCollection) Connect;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* retval) get_MajorVersion;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* retval) get_MinorVersion;
 	}
 
 
@@ -141,10 +141,10 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IComponentUtil*/SelfOuter* self, BSTR bstrDLLFile, BSTR bstrTypelibFile, BSTR bstrProxyStubDLLFile) InstallComponent;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IComponentUtil*/SelfOuter* self, BSTR bstrCLSID) ImportComponent;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IComponentUtil*/SelfOuter* self, BSTR bstrProgID) ImportComponentByName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IComponentUtil*/SelfOuter* self, BSTR bstrDLLFile, BSTR bstrTypelibFile, SAFEARRAY** aCLSIDs) GetCLSIDs;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrDLLFile, BSTR bstrTypelibFile, BSTR bstrProxyStubDLLFile) InstallComponent;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrCLSID) ImportComponent;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrProgID) ImportComponentByName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrDLLFile, BSTR bstrTypelibFile, SAFEARRAY** aCLSIDs) GetCLSIDs;
 	}
 
 
@@ -165,9 +165,9 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPackageUtil*/SelfOuter* self, BSTR bstrPackageFile, BSTR bstrInstallPath, int32 lOptions) InstallPackage;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPackageUtil*/SelfOuter* self, BSTR bstrPackageID, BSTR bstrPackageFile, int32 lOptions) ExportPackage;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPackageUtil*/SelfOuter* self, BSTR bstrPackageID) ShutdownPackage;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrPackageFile, BSTR bstrInstallPath, int32 lOptions) InstallPackage;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrPackageID, BSTR bstrPackageFile, int32 lOptions) ExportPackage;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrPackageID) ShutdownPackage;
 	}
 
 
@@ -186,8 +186,8 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRemoteComponentUtil*/SelfOuter* self, BSTR bstrServer, BSTR bstrPackageID, BSTR bstrCLSID) InstallRemoteComponent;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRemoteComponentUtil*/SelfOuter* self, BSTR bstrServer, BSTR bstrPackageName, BSTR bstrProgID) InstallRemoteComponentByName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrServer, BSTR bstrPackageID, BSTR bstrCLSID) InstallRemoteComponent;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrServer, BSTR bstrPackageName, BSTR bstrProgID) InstallRemoteComponentByName;
 	}
 
 
@@ -204,8 +204,8 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRoleAssociationUtil*/SelfOuter* self, BSTR bstrRoleID) AssociateRole;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRoleAssociationUtil*/SelfOuter* self, BSTR bstrRoleName) AssociateRoleByName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrRoleID) AssociateRole;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrRoleName) AssociateRoleByName;
 	}
 
 

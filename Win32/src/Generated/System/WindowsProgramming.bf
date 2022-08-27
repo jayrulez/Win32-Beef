@@ -2214,11 +2214,11 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] void(/*ICameraUIControlEventCallback*/SelfOuter* self) OnStartupComplete;
-		protected new function [CallingConvention(.Stdcall)] void(/*ICameraUIControlEventCallback*/SelfOuter* self) OnSuspendComplete;
-		protected new function [CallingConvention(.Stdcall)] void(/*ICameraUIControlEventCallback*/SelfOuter* self, PWSTR pszPath) OnItemCaptured;
-		protected new function [CallingConvention(.Stdcall)] void(/*ICameraUIControlEventCallback*/SelfOuter* self, PWSTR pszPath) OnItemDeleted;
-		protected new function [CallingConvention(.Stdcall)] void(/*ICameraUIControlEventCallback*/SelfOuter* self) OnClosed;
+		protected new function [CallingConvention(.Stdcall)] void(SelfOuter* self) OnStartupComplete;
+		protected new function [CallingConvention(.Stdcall)] void(SelfOuter* self) OnSuspendComplete;
+		protected new function [CallingConvention(.Stdcall)] void(SelfOuter* self, PWSTR pszPath) OnItemCaptured;
+		protected new function [CallingConvention(.Stdcall)] void(SelfOuter* self, PWSTR pszPath) OnItemDeleted;
+		protected new function [CallingConvention(.Stdcall)] void(SelfOuter* self) OnClosed;
 	}
 
 
@@ -2241,14 +2241,14 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICameraUIControl*/SelfOuter* self, IUnknown* pWindow, CameraUIControlMode mode, CameraUIControlLinearSelectionMode selectionMode, CameraUIControlCaptureMode captureMode, CameraUIControlPhotoFormat photoFormat, CameraUIControlVideoFormat videoFormat, BOOL bHasCloseButton, ICameraUIControlEventCallback* pEventCallback) Show;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICameraUIControl*/SelfOuter* self) Close;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICameraUIControl*/SelfOuter* self, BOOL* pbDeferralRequired) Suspend;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICameraUIControl*/SelfOuter* self) Resume;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICameraUIControl*/SelfOuter* self, CameraUIControlViewType* pViewType) GetCurrentViewType;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICameraUIControl*/SelfOuter* self, BSTR* pbstrActiveItemPath) GetActiveItem;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICameraUIControl*/SelfOuter* self, SAFEARRAY** ppSelectedItemPaths) GetSelectedItems;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICameraUIControl*/SelfOuter* self, PWSTR pszPath) RemoveCapturedItem;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IUnknown* pWindow, CameraUIControlMode mode, CameraUIControlLinearSelectionMode selectionMode, CameraUIControlCaptureMode captureMode, CameraUIControlPhotoFormat photoFormat, CameraUIControlVideoFormat videoFormat, BOOL bHasCloseButton, ICameraUIControlEventCallback* pEventCallback) Show;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Close;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BOOL* pbDeferralRequired) Suspend;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Resume;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, CameraUIControlViewType* pViewType) GetCurrentViewType;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pbstrActiveItemPath) GetActiveItem;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, SAFEARRAY** ppSelectedItemPaths) GetSelectedItems;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR pszPath) RemoveCapturedItem;
 	}
 
 
@@ -2277,11 +2277,11 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEditionUpgradeHelper*/SelfOuter* self, BOOL* isAllowed) CanUpgrade;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEditionUpgradeHelper*/SelfOuter* self, PWSTR contentId) UpdateOperatingSystem;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEditionUpgradeHelper*/SelfOuter* self) ShowProductKeyUI;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEditionUpgradeHelper*/SelfOuter* self, PWSTR* contentId) GetOsProductContentId;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEditionUpgradeHelper*/SelfOuter* self, BOOL* isGenuine) GetGenuineLocalStatus;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BOOL* isAllowed) CanUpgrade;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR contentId) UpdateOperatingSystem;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) ShowProductKeyUI;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR* contentId) GetOsProductContentId;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BOOL* isGenuine) GetGenuineLocalStatus;
 	}
 
 
@@ -2304,7 +2304,7 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWindowsLockModeHelper*/SelfOuter* self, BOOL* isSmode) GetSMode;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BOOL* isSmode) GetSMode;
 	}
 
 
@@ -2319,10 +2319,10 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEditionUpgradeBroker*/SelfOuter* self, uint32 parentHandle) InitializeParentWindow;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEditionUpgradeBroker*/SelfOuter* self, BSTR parameter) UpdateOperatingSystem;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEditionUpgradeBroker*/SelfOuter* self) ShowProductKeyUI;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEditionUpgradeBroker*/SelfOuter* self) CanUpgrade;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 parentHandle) InitializeParentWindow;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR parameter) UpdateOperatingSystem;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) ShowProductKeyUI;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) CanUpgrade;
 	}
 
 
@@ -2343,7 +2343,7 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IContainerActivationHelper*/SelfOuter* self, int16* isAllowed) CanActivateClientVM;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* isAllowed) CanActivateClientVM;
 	}
 
 
@@ -2358,7 +2358,7 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IClipServiceNotificationHelper*/SelfOuter* self, BSTR titleText, BSTR bodyText, BSTR packageName, BSTR appId, BSTR launchCommand) ShowToast;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR titleText, BSTR bodyText, BSTR packageName, BSTR appId, BSTR launchCommand) ShowToast;
 	}
 
 
@@ -2373,7 +2373,7 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] BOOL(/*IDefaultBrowserSyncSettings*/SelfOuter* self) IsEnabled;
+		protected new function [CallingConvention(.Stdcall)] BOOL(SelfOuter* self) IsEnabled;
 	}
 
 
@@ -2388,7 +2388,7 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDeleteBrowsingHistory*/SelfOuter* self, uint32 dwFlags) DeleteBrowsingHistory;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwFlags) DeleteBrowsingHistory;
 	}
 
 

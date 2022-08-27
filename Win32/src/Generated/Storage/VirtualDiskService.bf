@@ -2355,10 +2355,10 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnumVdsObject*/SelfOuter* self, uint32 celt, IUnknown** ppObjectArray, uint32* pcFetched) Next;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnumVdsObject*/SelfOuter* self, uint32 celt) Skip;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnumVdsObject*/SelfOuter* self) Reset;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnumVdsObject*/SelfOuter* self, IEnumVdsObject** ppEnum) Clone;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 celt, IUnknown** ppObjectArray, uint32* pcFetched) Next;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 celt) Skip;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Reset;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IEnumVdsObject** ppEnum) Clone;
 	}
 
 
@@ -2379,9 +2379,9 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IVdsAsync*/SelfOuter* self) Cancel;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IVdsAsync*/SelfOuter* self, HRESULT* pHrResult, VDS_ASYNC_OUTPUT* pAsyncOut) Wait;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IVdsAsync*/SelfOuter* self, HRESULT* pHrResult, uint32* pulPercentCompleted) QueryStatus;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Cancel;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HRESULT* pHrResult, VDS_ASYNC_OUTPUT* pAsyncOut) Wait;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HRESULT* pHrResult, uint32* pulPercentCompleted) QueryStatus;
 	}
 
 
@@ -2400,7 +2400,7 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IVdsAdviseSink*/SelfOuter* self, int32 lNumberOfNotifications, VDS_NOTIFICATION* pNotificationArray) OnNotify;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 lNumberOfNotifications, VDS_NOTIFICATION* pNotificationArray) OnNotify;
 	}
 
 
@@ -2415,7 +2415,7 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IVdsProvider*/SelfOuter* self, VDS_PROVIDER_PROP* pProviderProp) GetProperties;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VDS_PROVIDER_PROP* pProviderProp) GetProperties;
 	}
 
 
@@ -2430,7 +2430,7 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IVdsProviderSupport*/SelfOuter* self, uint32* ulVersionSupport) GetVersionSupport;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* ulVersionSupport) GetVersionSupport;
 	}
 
 
@@ -2445,9 +2445,9 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IVdsProviderPrivate*/SelfOuter* self, Guid ObjectId, VDS_OBJECT_TYPE type, IUnknown** ppObjectUnk) GetObject;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IVdsProviderPrivate*/SelfOuter* self, PWSTR pwszMachineName, IUnknown* pCallbackObject) OnLoad;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IVdsProviderPrivate*/SelfOuter* self, BOOL bForceUnload) OnUnload;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, Guid ObjectId, VDS_OBJECT_TYPE type, IUnknown** ppObjectUnk) GetObject;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR pwszMachineName, IUnknown* pCallbackObject) OnLoad;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BOOL bForceUnload) OnUnload;
 	}
 
 
@@ -2466,9 +2466,9 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IVdsHwProvider*/SelfOuter* self, IEnumVdsObject** ppEnum) QuerySubSystems;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IVdsHwProvider*/SelfOuter* self) Reenumerate;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IVdsHwProvider*/SelfOuter* self) Refresh;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IEnumVdsObject** ppEnum) QuerySubSystems;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Reenumerate;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Refresh;
 	}
 
 
@@ -2487,7 +2487,7 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IVdsHwProviderType*/SelfOuter* self, VDS_HWPROVIDER_TYPE* pType) GetProviderType;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VDS_HWPROVIDER_TYPE* pType) GetProviderType;
 	}
 
 
@@ -2502,7 +2502,7 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IVdsHwProviderType2*/SelfOuter* self, VDS_HWPROVIDER_TYPE* pType) GetProviderType2;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VDS_HWPROVIDER_TYPE* pType) GetProviderType2;
 	}
 
 
@@ -2517,9 +2517,9 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IVdsHwProviderStoragePools*/SelfOuter* self, uint32 ulFlags, uint64 ullRemainingFreeSpace, VDS_POOL_ATTRIBUTES* pPoolAttributes, IEnumVdsObject** ppEnum) QueryStoragePools;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IVdsHwProviderStoragePools*/SelfOuter* self, VDS_LUN_TYPE type, uint64 ullSizeInBytes, Guid StoragePoolId, PWSTR pwszUnmaskingList, VDS_HINTS2* pHints2, IVdsAsync** ppAsync) CreateLunInStoragePool;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IVdsHwProviderStoragePools*/SelfOuter* self, VDS_LUN_TYPE type, Guid StoragePoolId, VDS_HINTS2* pHints2, uint64* pullMaxLunSize) QueryMaxLunCreateSizeInStoragePool;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 ulFlags, uint64 ullRemainingFreeSpace, VDS_POOL_ATTRIBUTES* pPoolAttributes, IEnumVdsObject** ppEnum) QueryStoragePools;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VDS_LUN_TYPE type, uint64 ullSizeInBytes, Guid StoragePoolId, PWSTR pwszUnmaskingList, VDS_HINTS2* pHints2, IVdsAsync** ppAsync) CreateLunInStoragePool;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VDS_LUN_TYPE type, Guid StoragePoolId, VDS_HINTS2* pHints2, uint64* pullMaxLunSize) QueryMaxLunCreateSizeInStoragePool;
 	}
 
 
@@ -2538,18 +2538,18 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IVdsSubSystem*/SelfOuter* self, VDS_SUB_SYSTEM_PROP* pSubSystemProp) GetProperties;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IVdsSubSystem*/SelfOuter* self, IVdsProvider** ppProvider) GetProvider;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IVdsSubSystem*/SelfOuter* self, IEnumVdsObject** ppEnum) QueryControllers;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IVdsSubSystem*/SelfOuter* self, IEnumVdsObject** ppEnum) QueryLuns;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IVdsSubSystem*/SelfOuter* self, IEnumVdsObject** ppEnum) QueryDrives;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IVdsSubSystem*/SelfOuter* self, int16 sBusNumber, int16 sSlotNumber, IVdsDrive** ppDrive) GetDrive;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IVdsSubSystem*/SelfOuter* self) Reenumerate;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IVdsSubSystem*/SelfOuter* self, ref Guid pOnlineControllerIdArray, int32 lNumberOfOnlineControllers, ref Guid pOfflineControllerIdArray, int32 lNumberOfOfflineControllers) SetControllerStatus;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IVdsSubSystem*/SelfOuter* self, VDS_LUN_TYPE type, uint64 ullSizeInBytes, ref Guid pDriveIdArray, int32 lNumberOfDrives, PWSTR pwszUnmaskingList, VDS_HINTS* pHints, IVdsAsync** ppAsync) CreateLun;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IVdsSubSystem*/SelfOuter* self, Guid DriveToBeReplaced, Guid ReplacementDrive) ReplaceDrive;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IVdsSubSystem*/SelfOuter* self, VDS_SUB_SYSTEM_STATUS status) SetStatus;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IVdsSubSystem*/SelfOuter* self, VDS_LUN_TYPE type, ref Guid pDriveIdArray, int32 lNumberOfDrives, VDS_HINTS* pHints, uint64* pullMaxLunSize) QueryMaxLunCreateSize;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VDS_SUB_SYSTEM_PROP* pSubSystemProp) GetProperties;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IVdsProvider** ppProvider) GetProvider;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IEnumVdsObject** ppEnum) QueryControllers;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IEnumVdsObject** ppEnum) QueryLuns;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IEnumVdsObject** ppEnum) QueryDrives;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 sBusNumber, int16 sSlotNumber, IVdsDrive** ppDrive) GetDrive;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Reenumerate;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid pOnlineControllerIdArray, int32 lNumberOfOnlineControllers, ref Guid pOfflineControllerIdArray, int32 lNumberOfOfflineControllers) SetControllerStatus;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VDS_LUN_TYPE type, uint64 ullSizeInBytes, ref Guid pDriveIdArray, int32 lNumberOfDrives, PWSTR pwszUnmaskingList, VDS_HINTS* pHints, IVdsAsync** ppAsync) CreateLun;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, Guid DriveToBeReplaced, Guid ReplacementDrive) ReplaceDrive;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VDS_SUB_SYSTEM_STATUS status) SetStatus;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VDS_LUN_TYPE type, ref Guid pDriveIdArray, int32 lNumberOfDrives, VDS_HINTS* pHints, uint64* pullMaxLunSize) QueryMaxLunCreateSize;
 	}
 
 
@@ -2586,10 +2586,10 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IVdsSubSystem2*/SelfOuter* self, VDS_SUB_SYSTEM_PROP2* pSubSystemProp2) GetProperties2;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IVdsSubSystem2*/SelfOuter* self, int16 sBusNumber, int16 sSlotNumber, uint32 ulEnclosureNumber, IVdsDrive** ppDrive) GetDrive2;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IVdsSubSystem2*/SelfOuter* self, VDS_LUN_TYPE type, uint64 ullSizeInBytes, ref Guid pDriveIdArray, int32 lNumberOfDrives, PWSTR pwszUnmaskingList, VDS_HINTS2* pHints2, IVdsAsync** ppAsync) CreateLun2;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IVdsSubSystem2*/SelfOuter* self, VDS_LUN_TYPE type, ref Guid pDriveIdArray, int32 lNumberOfDrives, VDS_HINTS2* pHints2, uint64* pullMaxLunSize) QueryMaxLunCreateSize2;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VDS_SUB_SYSTEM_PROP2* pSubSystemProp2) GetProperties2;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 sBusNumber, int16 sSlotNumber, uint32 ulEnclosureNumber, IVdsDrive** ppDrive) GetDrive2;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VDS_LUN_TYPE type, uint64 ullSizeInBytes, ref Guid pDriveIdArray, int32 lNumberOfDrives, PWSTR pwszUnmaskingList, VDS_HINTS2* pHints2, IVdsAsync** ppAsync) CreateLun2;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VDS_LUN_TYPE type, ref Guid pDriveIdArray, int32 lNumberOfDrives, VDS_HINTS2* pHints2, uint64* pullMaxLunSize) QueryMaxLunCreateSize2;
 	}
 
 
@@ -2610,7 +2610,7 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IVdsSubSystemNaming*/SelfOuter* self, PWSTR pwszFriendlyName) SetFriendlyName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR pwszFriendlyName) SetFriendlyName;
 	}
 
 
@@ -2625,10 +2625,10 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IVdsSubSystemIscsi*/SelfOuter* self, IEnumVdsObject** ppEnum) QueryTargets;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IVdsSubSystemIscsi*/SelfOuter* self, IEnumVdsObject** ppEnum) QueryPortals;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IVdsSubSystemIscsi*/SelfOuter* self, PWSTR pwszIscsiName, PWSTR pwszFriendlyName, IVdsAsync** ppAsync) CreateTarget;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IVdsSubSystemIscsi*/SelfOuter* self, VDS_ISCSI_IPSEC_KEY* pIpsecKey) SetIpsecGroupPresharedKey;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IEnumVdsObject** ppEnum) QueryTargets;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IEnumVdsObject** ppEnum) QueryPortals;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR pwszIscsiName, PWSTR pwszFriendlyName, IVdsAsync** ppAsync) CreateTarget;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VDS_ISCSI_IPSEC_KEY* pIpsecKey) SetIpsecGroupPresharedKey;
 	}
 
 
@@ -2649,7 +2649,7 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IVdsSubSystemInterconnect*/SelfOuter* self, uint32* pulSupportedInterconnectsFlag) GetSupportedInterconnects;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pulSupportedInterconnectsFlag) GetSupportedInterconnects;
 	}
 
 
@@ -2664,11 +2664,11 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IVdsControllerPort*/SelfOuter* self, VDS_PORT_PROP* pPortProp) GetProperties;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IVdsControllerPort*/SelfOuter* self, IVdsController** ppController) GetController;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IVdsControllerPort*/SelfOuter* self, IEnumVdsObject** ppEnum) QueryAssociatedLuns;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IVdsControllerPort*/SelfOuter* self) Reset;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IVdsControllerPort*/SelfOuter* self, VDS_PORT_STATUS status) SetStatus;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VDS_PORT_PROP* pPortProp) GetProperties;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IVdsController** ppController) GetController;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IEnumVdsObject** ppEnum) QueryAssociatedLuns;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Reset;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VDS_PORT_STATUS status) SetStatus;
 	}
 
 
@@ -2691,14 +2691,14 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IVdsController*/SelfOuter* self, VDS_CONTROLLER_PROP* pControllerProp) GetProperties;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IVdsController*/SelfOuter* self, IVdsSubSystem** ppSubSystem) GetSubSystem;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IVdsController*/SelfOuter* self, int16 sPortNumber, VDS_PORT_PROP* pPortProp) GetPortProperties;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IVdsController*/SelfOuter* self) FlushCache;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IVdsController*/SelfOuter* self) InvalidateCache;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IVdsController*/SelfOuter* self) Reset;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IVdsController*/SelfOuter* self, IEnumVdsObject** ppEnum) QueryAssociatedLuns;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IVdsController*/SelfOuter* self, VDS_CONTROLLER_STATUS status) SetStatus;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VDS_CONTROLLER_PROP* pControllerProp) GetProperties;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IVdsSubSystem** ppSubSystem) GetSubSystem;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 sPortNumber, VDS_PORT_PROP* pPortProp) GetPortProperties;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) FlushCache;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) InvalidateCache;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Reset;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IEnumVdsObject** ppEnum) QueryAssociatedLuns;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VDS_CONTROLLER_STATUS status) SetStatus;
 	}
 
 
@@ -2727,7 +2727,7 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IVdsControllerControllerPort*/SelfOuter* self, IEnumVdsObject** ppEnum) QueryControllerPorts;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IEnumVdsObject** ppEnum) QueryControllerPorts;
 	}
 
 
@@ -2742,12 +2742,12 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IVdsDrive*/SelfOuter* self, VDS_DRIVE_PROP* pDriveProp) GetProperties;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IVdsDrive*/SelfOuter* self, IVdsSubSystem** ppSubSystem) GetSubSystem;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IVdsDrive*/SelfOuter* self, VDS_DRIVE_EXTENT** ppExtentArray, int32* plNumberOfExtents) QueryExtents;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IVdsDrive*/SelfOuter* self, uint32 ulFlags) SetFlags;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IVdsDrive*/SelfOuter* self, uint32 ulFlags) ClearFlags;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IVdsDrive*/SelfOuter* self, VDS_DRIVE_STATUS status) SetStatus;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VDS_DRIVE_PROP* pDriveProp) GetProperties;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IVdsSubSystem** ppSubSystem) GetSubSystem;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VDS_DRIVE_EXTENT** ppExtentArray, int32* plNumberOfExtents) QueryExtents;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 ulFlags) SetFlags;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 ulFlags) ClearFlags;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VDS_DRIVE_STATUS status) SetStatus;
 	}
 
 
@@ -2772,7 +2772,7 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IVdsDrive2*/SelfOuter* self, VDS_DRIVE_PROP2* pDriveProp2) GetProperties2;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VDS_DRIVE_PROP2* pDriveProp2) GetProperties2;
 	}
 
 
@@ -2787,23 +2787,23 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IVdsLun*/SelfOuter* self, VDS_LUN_PROP* pLunProp) GetProperties;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IVdsLun*/SelfOuter* self, IVdsSubSystem** ppSubSystem) GetSubSystem;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IVdsLun*/SelfOuter* self, VDS_LUN_INFORMATION* pLunInfo) GetIdentificationData;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IVdsLun*/SelfOuter* self, IEnumVdsObject** ppEnum) QueryActiveControllers;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IVdsLun*/SelfOuter* self, uint64 ullNumberOfBytesToAdd, ref Guid pDriveIdArray, int32 lNumberOfDrives, IVdsAsync** ppAsync) Extend;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IVdsLun*/SelfOuter* self, uint64 ullNumberOfBytesToRemove, IVdsAsync** ppAsync) Shrink;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IVdsLun*/SelfOuter* self, IEnumVdsObject** ppEnum) QueryPlexes;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IVdsLun*/SelfOuter* self, Guid lunId, IVdsAsync** ppAsync) AddPlex;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IVdsLun*/SelfOuter* self, Guid plexId, IVdsAsync** ppAsync) RemovePlex;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IVdsLun*/SelfOuter* self, IVdsAsync** ppAsync) Recover;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IVdsLun*/SelfOuter* self, PWSTR pwszUnmaskingList) SetMask;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IVdsLun*/SelfOuter* self) Delete;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IVdsLun*/SelfOuter* self, ref Guid pActiveControllerIdArray, int32 lNumberOfActiveControllers, ref Guid pInactiveControllerIdArray, int32 lNumberOfInactiveControllers) AssociateControllers;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IVdsLun*/SelfOuter* self, VDS_HINTS* pHints) QueryHints;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IVdsLun*/SelfOuter* self, VDS_HINTS* pHints) ApplyHints;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IVdsLun*/SelfOuter* self, VDS_LUN_STATUS status) SetStatus;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IVdsLun*/SelfOuter* self, ref Guid pDriveIdArray, int32 lNumberOfDrives, uint64* pullMaxBytesToBeAdded) QueryMaxLunExtendSize;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VDS_LUN_PROP* pLunProp) GetProperties;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IVdsSubSystem** ppSubSystem) GetSubSystem;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VDS_LUN_INFORMATION* pLunInfo) GetIdentificationData;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IEnumVdsObject** ppEnum) QueryActiveControllers;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint64 ullNumberOfBytesToAdd, ref Guid pDriveIdArray, int32 lNumberOfDrives, IVdsAsync** ppAsync) Extend;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint64 ullNumberOfBytesToRemove, IVdsAsync** ppAsync) Shrink;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IEnumVdsObject** ppEnum) QueryPlexes;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, Guid lunId, IVdsAsync** ppAsync) AddPlex;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, Guid plexId, IVdsAsync** ppAsync) RemovePlex;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IVdsAsync** ppAsync) Recover;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR pwszUnmaskingList) SetMask;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Delete;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid pActiveControllerIdArray, int32 lNumberOfActiveControllers, ref Guid pInactiveControllerIdArray, int32 lNumberOfInactiveControllers) AssociateControllers;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VDS_HINTS* pHints) QueryHints;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VDS_HINTS* pHints) ApplyHints;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VDS_LUN_STATUS status) SetStatus;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid pDriveIdArray, int32 lNumberOfDrives, uint64* pullMaxBytesToBeAdded) QueryMaxLunExtendSize;
 	}
 
 
@@ -2850,8 +2850,8 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IVdsLun2*/SelfOuter* self, VDS_HINTS2* pHints2) QueryHints2;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IVdsLun2*/SelfOuter* self, VDS_HINTS2* pHints2) ApplyHints2;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VDS_HINTS2* pHints2) QueryHints2;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VDS_HINTS2* pHints2) ApplyHints2;
 	}
 
 
@@ -2868,7 +2868,7 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IVdsLunNaming*/SelfOuter* self, PWSTR pwszFriendlyName) SetFriendlyName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR pwszFriendlyName) SetFriendlyName;
 	}
 
 
@@ -2883,7 +2883,7 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IVdsLunNumber*/SelfOuter* self, uint32* pulLunNumber) GetLunNumber;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pulLunNumber) GetLunNumber;
 	}
 
 
@@ -2898,8 +2898,8 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IVdsLunControllerPorts*/SelfOuter* self, ref Guid pActiveControllerPortIdArray, int32 lNumberOfActiveControllerPorts, ref Guid pInactiveControllerPortIdArray, int32 lNumberOfInactiveControllerPorts) AssociateControllerPorts;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IVdsLunControllerPorts*/SelfOuter* self, IEnumVdsObject** ppEnum) QueryActiveControllerPorts;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid pActiveControllerPortIdArray, int32 lNumberOfActiveControllerPorts, ref Guid pInactiveControllerPortIdArray, int32 lNumberOfInactiveControllerPorts) AssociateControllerPorts;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IEnumVdsObject** ppEnum) QueryActiveControllerPorts;
 	}
 
 
@@ -2916,10 +2916,10 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IVdsLunMpio*/SelfOuter* self, VDS_PATH_INFO** ppPaths, int32* plNumberOfPaths) GetPathInfo;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IVdsLunMpio*/SelfOuter* self, VDS_LOADBALANCE_POLICY_ENUM* pPolicy, VDS_PATH_POLICY** ppPaths, int32* plNumberOfPaths) GetLoadBalancePolicy;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IVdsLunMpio*/SelfOuter* self, VDS_LOADBALANCE_POLICY_ENUM policy, VDS_PATH_POLICY* pPaths, int32 lNumberOfPaths) SetLoadBalancePolicy;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IVdsLunMpio*/SelfOuter* self, uint32* pulLbFlags) GetSupportedLbPolicies;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VDS_PATH_INFO** ppPaths, int32* plNumberOfPaths) GetPathInfo;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VDS_LOADBALANCE_POLICY_ENUM* pPolicy, VDS_PATH_POLICY** ppPaths, int32* plNumberOfPaths) GetLoadBalancePolicy;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VDS_LOADBALANCE_POLICY_ENUM policy, VDS_PATH_POLICY* pPaths, int32 lNumberOfPaths) SetLoadBalancePolicy;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pulLbFlags) GetSupportedLbPolicies;
 	}
 
 
@@ -2940,8 +2940,8 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IVdsLunIscsi*/SelfOuter* self, ref Guid pTargetIdArray, int32 lNumberOfTargets) AssociateTargets;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IVdsLunIscsi*/SelfOuter* self, IEnumVdsObject** ppEnum) QueryAssociatedTargets;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid pTargetIdArray, int32 lNumberOfTargets) AssociateTargets;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IEnumVdsObject** ppEnum) QueryAssociatedTargets;
 	}
 
 
@@ -2958,11 +2958,11 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IVdsLunPlex*/SelfOuter* self, VDS_LUN_PLEX_PROP* pPlexProp) GetProperties;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IVdsLunPlex*/SelfOuter* self, IVdsLun** ppLun) GetLun;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IVdsLunPlex*/SelfOuter* self, VDS_DRIVE_EXTENT** ppExtentArray, int32* plNumberOfExtents) QueryExtents;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IVdsLunPlex*/SelfOuter* self, VDS_HINTS* pHints) QueryHints;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IVdsLunPlex*/SelfOuter* self, VDS_HINTS* pHints) ApplyHints;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VDS_LUN_PLEX_PROP* pPlexProp) GetProperties;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IVdsLun** ppLun) GetLun;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VDS_DRIVE_EXTENT** ppExtentArray, int32* plNumberOfExtents) QueryExtents;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VDS_HINTS* pHints) QueryHints;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VDS_HINTS* pHints) ApplyHints;
 	}
 
 
@@ -2985,13 +2985,13 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IVdsIscsiPortal*/SelfOuter* self, VDS_ISCSI_PORTAL_PROP* pPortalProp) GetProperties;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IVdsIscsiPortal*/SelfOuter* self, IVdsSubSystem** ppSubSystem) GetSubSystem;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IVdsIscsiPortal*/SelfOuter* self, IEnumVdsObject** ppEnum) QueryAssociatedPortalGroups;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IVdsIscsiPortal*/SelfOuter* self, VDS_ISCSI_PORTAL_STATUS status) SetStatus;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IVdsIscsiPortal*/SelfOuter* self, VDS_IPADDRESS* pTunnelAddress, VDS_IPADDRESS* pDestinationAddress) SetIpsecTunnelAddress;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IVdsIscsiPortal*/SelfOuter* self, VDS_IPADDRESS* pInitiatorPortalAddress, uint64* pullSecurityFlags) GetIpsecSecurity;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IVdsIscsiPortal*/SelfOuter* self, VDS_IPADDRESS* pInitiatorPortalAddress, uint64 ullSecurityFlags, VDS_ISCSI_IPSEC_KEY* pIpsecKey) SetIpsecSecurity;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VDS_ISCSI_PORTAL_PROP* pPortalProp) GetProperties;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IVdsSubSystem** ppSubSystem) GetSubSystem;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IEnumVdsObject** ppEnum) QueryAssociatedPortalGroups;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VDS_ISCSI_PORTAL_STATUS status) SetStatus;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VDS_IPADDRESS* pTunnelAddress, VDS_IPADDRESS* pDestinationAddress) SetIpsecTunnelAddress;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VDS_IPADDRESS* pInitiatorPortalAddress, uint64* pullSecurityFlags) GetIpsecSecurity;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VDS_IPADDRESS* pInitiatorPortalAddress, uint64 ullSecurityFlags, VDS_ISCSI_IPSEC_KEY* pIpsecKey) SetIpsecSecurity;
 	}
 
 
@@ -3018,16 +3018,16 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IVdsIscsiTarget*/SelfOuter* self, VDS_ISCSI_TARGET_PROP* pTargetProp) GetProperties;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IVdsIscsiTarget*/SelfOuter* self, IVdsSubSystem** ppSubSystem) GetSubSystem;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IVdsIscsiTarget*/SelfOuter* self, IEnumVdsObject** ppEnum) QueryPortalGroups;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IVdsIscsiTarget*/SelfOuter* self, IEnumVdsObject** ppEnum) QueryAssociatedLuns;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IVdsIscsiTarget*/SelfOuter* self, IVdsAsync** ppAsync) CreatePortalGroup;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IVdsIscsiTarget*/SelfOuter* self, IVdsAsync** ppAsync) Delete;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IVdsIscsiTarget*/SelfOuter* self, PWSTR pwszFriendlyName) SetFriendlyName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IVdsIscsiTarget*/SelfOuter* self, VDS_ISCSI_SHARED_SECRET* pTargetSharedSecret, PWSTR pwszInitiatorName) SetSharedSecret;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IVdsIscsiTarget*/SelfOuter* self, PWSTR pwszInitiatorName, VDS_ISCSI_SHARED_SECRET* pInitiatorSharedSecret) RememberInitiatorSharedSecret;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IVdsIscsiTarget*/SelfOuter* self, PWSTR** pppwszInitiatorList, int32* plNumberOfInitiators) GetConnectedInitiators;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VDS_ISCSI_TARGET_PROP* pTargetProp) GetProperties;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IVdsSubSystem** ppSubSystem) GetSubSystem;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IEnumVdsObject** ppEnum) QueryPortalGroups;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IEnumVdsObject** ppEnum) QueryAssociatedLuns;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IVdsAsync** ppAsync) CreatePortalGroup;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IVdsAsync** ppAsync) Delete;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR pwszFriendlyName) SetFriendlyName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VDS_ISCSI_SHARED_SECRET* pTargetSharedSecret, PWSTR pwszInitiatorName) SetSharedSecret;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR pwszInitiatorName, VDS_ISCSI_SHARED_SECRET* pInitiatorSharedSecret) RememberInitiatorSharedSecret;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR** pppwszInitiatorList, int32* plNumberOfInitiators) GetConnectedInitiators;
 	}
 
 
@@ -3060,12 +3060,12 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IVdsIscsiPortalGroup*/SelfOuter* self, VDS_ISCSI_PORTALGROUP_PROP* pPortalGroupProp) GetProperties;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IVdsIscsiPortalGroup*/SelfOuter* self, IVdsIscsiTarget** ppTarget) GetTarget;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IVdsIscsiPortalGroup*/SelfOuter* self, IEnumVdsObject** ppEnum) QueryAssociatedPortals;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IVdsIscsiPortalGroup*/SelfOuter* self, Guid portalId, IVdsAsync** ppAsync) AddPortal;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IVdsIscsiPortalGroup*/SelfOuter* self, Guid portalId, IVdsAsync** ppAsync) RemovePortal;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IVdsIscsiPortalGroup*/SelfOuter* self, IVdsAsync** ppAsync) Delete;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VDS_ISCSI_PORTALGROUP_PROP* pPortalGroupProp) GetProperties;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IVdsIscsiTarget** ppTarget) GetTarget;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IEnumVdsObject** ppEnum) QueryAssociatedPortals;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, Guid portalId, IVdsAsync** ppAsync) AddPortal;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, Guid portalId, IVdsAsync** ppAsync) RemovePortal;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IVdsAsync** ppAsync) Delete;
 	}
 
 
@@ -3090,12 +3090,12 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IVdsStoragePool*/SelfOuter* self, IVdsProvider** ppProvider) GetProvider;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IVdsStoragePool*/SelfOuter* self, VDS_STORAGE_POOL_PROP* pStoragePoolProp) GetProperties;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IVdsStoragePool*/SelfOuter* self, VDS_POOL_ATTRIBUTES* pStoragePoolAttributes) GetAttributes;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IVdsStoragePool*/SelfOuter* self, VDS_STORAGE_POOL_DRIVE_EXTENT** ppExtentArray, int32* plNumberOfExtents) QueryDriveExtents;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IVdsStoragePool*/SelfOuter* self, IEnumVdsObject** ppEnum) QueryAllocatedLuns;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IVdsStoragePool*/SelfOuter* self, IEnumVdsObject** ppEnum) QueryAllocatedStoragePools;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IVdsProvider** ppProvider) GetProvider;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VDS_STORAGE_POOL_PROP* pStoragePoolProp) GetProperties;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VDS_POOL_ATTRIBUTES* pStoragePoolAttributes) GetAttributes;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VDS_STORAGE_POOL_DRIVE_EXTENT** ppExtentArray, int32* plNumberOfExtents) QueryDriveExtents;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IEnumVdsObject** ppEnum) QueryAllocatedLuns;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IEnumVdsObject** ppEnum) QueryAllocatedStoragePools;
 	}
 
 
@@ -3120,9 +3120,9 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IVdsMaintenance*/SelfOuter* self, VDS_MAINTENANCE_OPERATION operation) StartMaintenance;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IVdsMaintenance*/SelfOuter* self, VDS_MAINTENANCE_OPERATION operation) StopMaintenance;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IVdsMaintenance*/SelfOuter* self, VDS_MAINTENANCE_OPERATION operation, uint32 ulCount) PulseMaintenance;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VDS_MAINTENANCE_OPERATION operation) StartMaintenance;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VDS_MAINTENANCE_OPERATION operation) StopMaintenance;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VDS_MAINTENANCE_OPERATION operation, uint32 ulCount) PulseMaintenance;
 	}
 
 
@@ -3141,7 +3141,7 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IVdsHwProviderPrivate*/SelfOuter* self, PWSTR pwszDevicePath, VDS_LUN_INFORMATION* pVdsLunInformation, ref Guid pLunId) QueryIfCreatedLun;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR pwszDevicePath, VDS_LUN_INFORMATION* pVdsLunInformation, ref Guid pLunId) QueryIfCreatedLun;
 	}
 
 
@@ -3156,7 +3156,7 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IVdsHwProviderPrivateMpio*/SelfOuter* self, VDS_HBAPORT_PROP hbaPortProp, VDS_PATH_STATUS status) SetAllPathStatusesFromHbaPort;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VDS_HBAPORT_PROP hbaPortProp, VDS_PATH_STATUS status) SetAllPathStatusesFromHbaPort;
 	}
 
 
@@ -3171,8 +3171,8 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IVdsAdmin*/SelfOuter* self, Guid providerId, Guid providerClsid, PWSTR pwszName, VDS_PROVIDER_TYPE type, PWSTR pwszMachineName, PWSTR pwszVersion, Guid guidVersionId) RegisterProvider;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IVdsAdmin*/SelfOuter* self, Guid providerId) UnregisterProvider;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, Guid providerId, Guid providerClsid, PWSTR pwszName, VDS_PROVIDER_TYPE type, PWSTR pwszMachineName, PWSTR pwszVersion, Guid guidVersionId) RegisterProvider;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, Guid providerId) UnregisterProvider;
 	}
 
 

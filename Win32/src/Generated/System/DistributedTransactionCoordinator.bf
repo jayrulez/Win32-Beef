@@ -537,9 +537,9 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITransaction*/SelfOuter* self, BOOL fRetaining, uint32 grfTC, uint32 grfRM) Commit;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITransaction*/SelfOuter* self, BOID* pboidReason, BOOL fRetaining, BOOL fAsync) Abort;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITransaction*/SelfOuter* self, XACTTRANSINFO* pinfo) GetTransactionInfo;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BOOL fRetaining, uint32 grfTC, uint32 grfRM) Commit;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BOID* pboidReason, BOOL fRetaining, BOOL fAsync) Abort;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, XACTTRANSINFO* pinfo) GetTransactionInfo;
 	}
 
 
@@ -558,7 +558,7 @@ public static
 
 	[CRepr]public struct VTable : ITransaction.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITransactionCloner*/SelfOuter* self, ITransaction** ppITransaction) CloneWithCommitDisabled;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ITransaction** ppITransaction) CloneWithCommitDisabled;
 	}
 
 
@@ -573,7 +573,7 @@ public static
 
 	[CRepr]public struct VTable : ITransactionCloner.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITransaction2*/SelfOuter* self, XACTTRANSINFO* pinfo) GetTransactionInfo2;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, XACTTRANSINFO* pinfo) GetTransactionInfo2;
 	}
 
 
@@ -588,8 +588,8 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITransactionDispenser*/SelfOuter* self, ITransactionOptions** ppOptions) GetOptionsObject;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITransactionDispenser*/SelfOuter* self, IUnknown* punkOuter, int32 isoLevel, uint32 isoFlags, ITransactionOptions* pOptions, ITransaction** ppTransaction) BeginTransaction;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ITransactionOptions** ppOptions) GetOptionsObject;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IUnknown* punkOuter, int32 isoLevel, uint32 isoFlags, ITransactionOptions* pOptions, ITransaction** ppTransaction) BeginTransaction;
 	}
 
 
@@ -606,8 +606,8 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITransactionOptions*/SelfOuter* self, XACTOPT* pOptions) SetOptions;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITransactionOptions*/SelfOuter* self, XACTOPT* pOptions) GetOptions;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, XACTOPT* pOptions) SetOptions;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, XACTOPT* pOptions) GetOptions;
 	}
 
 
@@ -624,10 +624,10 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITransactionOutcomeEvents*/SelfOuter* self, BOOL fRetaining, BOID* pNewUOW, HRESULT hr) Committed;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITransactionOutcomeEvents*/SelfOuter* self, BOID* pboidReason, BOOL fRetaining, BOID* pNewUOW, HRESULT hr) Aborted;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITransactionOutcomeEvents*/SelfOuter* self, uint32 dwDecision, BOID* pboidReason, HRESULT hr) HeuristicDecision;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITransactionOutcomeEvents*/SelfOuter* self) Indoubt;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BOOL fRetaining, BOID* pNewUOW, HRESULT hr) Committed;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BOID* pboidReason, BOOL fRetaining, BOID* pNewUOW, HRESULT hr) Aborted;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwDecision, BOID* pboidReason, HRESULT hr) HeuristicDecision;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Indoubt;
 	}
 
 
@@ -648,8 +648,8 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITmNodeName*/SelfOuter* self, uint32* pcbNodeNameSize) GetNodeNameSize;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITmNodeName*/SelfOuter* self, uint32 cbNodeNameBufferSize, PWSTR pNodeNameBuffer) GetNodeName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pcbNodeNameSize) GetNodeNameSize;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 cbNodeNameBufferSize, PWSTR pNodeNameBuffer) GetNodeName;
 	}
 
 
@@ -666,7 +666,7 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IKernelTransaction*/SelfOuter* self, HANDLE* pHandle) GetHandle;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HANDLE* pHandle) GetHandle;
 	}
 
 
@@ -681,10 +681,10 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITransactionResourceAsync*/SelfOuter* self, BOOL fRetaining, uint32 grfRM, BOOL fWantMoniker, BOOL fSinglePhase) PrepareRequest;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITransactionResourceAsync*/SelfOuter* self, uint32 grfRM, BOID* pNewUOW) CommitRequest;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITransactionResourceAsync*/SelfOuter* self, BOID* pboidReason, BOOL fRetaining, BOID* pNewUOW) AbortRequest;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITransactionResourceAsync*/SelfOuter* self) TMDown;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BOOL fRetaining, uint32 grfRM, BOOL fWantMoniker, BOOL fSinglePhase) PrepareRequest;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 grfRM, BOID* pNewUOW) CommitRequest;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BOID* pboidReason, BOOL fRetaining, BOID* pNewUOW) AbortRequest;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) TMDown;
 	}
 
 
@@ -705,8 +705,8 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITransactionLastResourceAsync*/SelfOuter* self, uint32 grfRM) DelegateCommit;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITransactionLastResourceAsync*/SelfOuter* self, BOID* pNewUOW) ForgetRequest;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 grfRM) DelegateCommit;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BOID* pNewUOW) ForgetRequest;
 	}
 
 
@@ -723,10 +723,10 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITransactionResource*/SelfOuter* self, BOOL fRetaining, uint32 grfRM, BOOL fWantMoniker, BOOL fSinglePhase) PrepareRequest;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITransactionResource*/SelfOuter* self, uint32 grfRM, BOID* pNewUOW) CommitRequest;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITransactionResource*/SelfOuter* self, BOID* pboidReason, BOOL fRetaining, BOID* pNewUOW) AbortRequest;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITransactionResource*/SelfOuter* self) TMDown;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BOOL fRetaining, uint32 grfRM, BOOL fWantMoniker, BOOL fSinglePhase) PrepareRequest;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 grfRM, BOID* pNewUOW) CommitRequest;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BOID* pboidReason, BOOL fRetaining, BOID* pNewUOW) AbortRequest;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) TMDown;
 	}
 
 
@@ -747,9 +747,9 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITransactionEnlistmentAsync*/SelfOuter* self, HRESULT hr, IMoniker* pmk, BOID* pboidReason) PrepareRequestDone;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITransactionEnlistmentAsync*/SelfOuter* self, HRESULT hr) CommitRequestDone;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITransactionEnlistmentAsync*/SelfOuter* self, HRESULT hr) AbortRequestDone;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HRESULT hr, IMoniker* pmk, BOID* pboidReason) PrepareRequestDone;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HRESULT hr) CommitRequestDone;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HRESULT hr) AbortRequestDone;
 	}
 
 
@@ -768,7 +768,7 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITransactionLastEnlistmentAsync*/SelfOuter* self, XACTSTAT XactStat, BOID* pboidReason) TransactionOutcome;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, XACTSTAT XactStat, BOID* pboidReason) TransactionOutcome;
 	}
 
 
@@ -783,8 +783,8 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITransactionExportFactory*/SelfOuter* self, ref Guid pclsid) GetRemoteClassId;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITransactionExportFactory*/SelfOuter* self, uint32 cbWhereabouts, uint8* rgbWhereabouts, ITransactionExport** ppExport) Create;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid pclsid) GetRemoteClassId;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 cbWhereabouts, uint8* rgbWhereabouts, ITransactionExport** ppExport) Create;
 	}
 
 
@@ -801,8 +801,8 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITransactionImportWhereabouts*/SelfOuter* self, uint32* pcbWhereabouts) GetWhereaboutsSize;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITransactionImportWhereabouts*/SelfOuter* self, uint32 cbWhereabouts, uint8* rgbWhereabouts, uint32* pcbUsed) GetWhereabouts;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pcbWhereabouts) GetWhereaboutsSize;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 cbWhereabouts, uint8* rgbWhereabouts, uint32* pcbUsed) GetWhereabouts;
 	}
 
 
@@ -819,8 +819,8 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITransactionExport*/SelfOuter* self, IUnknown* punkTransaction, uint32* pcbTransactionCookie) Export;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITransactionExport*/SelfOuter* self, IUnknown* punkTransaction, uint32 cbTransactionCookie, uint8* rgbTransactionCookie, uint32* pcbUsed) GetTransactionCookie;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IUnknown* punkTransaction, uint32* pcbTransactionCookie) Export;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IUnknown* punkTransaction, uint32 cbTransactionCookie, uint8* rgbTransactionCookie, uint32* pcbUsed) GetTransactionCookie;
 	}
 
 
@@ -837,7 +837,7 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITransactionImport*/SelfOuter* self, uint32 cbTransactionCookie, uint8* rgbTransactionCookie, ref Guid piid, void** ppvTransaction) Import;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 cbTransactionCookie, uint8* rgbTransactionCookie, ref Guid piid, void** ppvTransaction) Import;
 	}
 
 
@@ -852,8 +852,8 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITipTransaction*/SelfOuter* self, uint8* i_pszRemoteTmUrl, PSTR* o_ppszRemoteTxUrl) Push;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITipTransaction*/SelfOuter* self, PSTR* o_ppszLocalTxUrl) GetTransactionUrl;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint8* i_pszRemoteTmUrl, PSTR* o_ppszRemoteTxUrl) Push;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PSTR* o_ppszLocalTxUrl) GetTransactionUrl;
 	}
 
 
@@ -870,9 +870,9 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITipHelper*/SelfOuter* self, uint8* i_pszTxUrl, ITransaction** o_ppITransaction) Pull;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITipHelper*/SelfOuter* self, uint8* i_pszTxUrl, ITipPullSink* i_pTipPullSink, ITransaction** o_ppITransaction) PullAsync;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITipHelper*/SelfOuter* self, uint8** o_ppszLocalTmUrl) GetLocalTmUrl;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint8* i_pszTxUrl, ITransaction** o_ppITransaction) Pull;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint8* i_pszTxUrl, ITipPullSink* i_pTipPullSink, ITransaction** o_ppITransaction) PullAsync;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint8** o_ppszLocalTmUrl) GetLocalTmUrl;
 	}
 
 
@@ -891,7 +891,7 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITipPullSink*/SelfOuter* self, HRESULT i_hrPull) PullComplete;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HRESULT i_hrPull) PullComplete;
 	}
 
 
@@ -906,19 +906,19 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDtcNetworkAccessConfig*/SelfOuter* self, BOOL* pbAnyNetworkAccess) GetAnyNetworkAccess;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDtcNetworkAccessConfig*/SelfOuter* self, BOOL bAnyNetworkAccess) SetAnyNetworkAccess;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDtcNetworkAccessConfig*/SelfOuter* self, BOOL* pbNetworkAdministrationAccess) GetNetworkAdministrationAccess;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDtcNetworkAccessConfig*/SelfOuter* self, BOOL bNetworkAdministrationAccess) SetNetworkAdministrationAccess;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDtcNetworkAccessConfig*/SelfOuter* self, BOOL* pbNetworkTransactionAccess) GetNetworkTransactionAccess;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDtcNetworkAccessConfig*/SelfOuter* self, BOOL bNetworkTransactionAccess) SetNetworkTransactionAccess;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDtcNetworkAccessConfig*/SelfOuter* self, BOOL* pbNetworkClientAccess) GetNetworkClientAccess;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDtcNetworkAccessConfig*/SelfOuter* self, BOOL bNetworkClientAccess) SetNetworkClientAccess;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDtcNetworkAccessConfig*/SelfOuter* self, BOOL* pbNetworkTIPAccess) GetNetworkTIPAccess;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDtcNetworkAccessConfig*/SelfOuter* self, BOOL bNetworkTIPAccess) SetNetworkTIPAccess;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDtcNetworkAccessConfig*/SelfOuter* self, BOOL* pbXAAccess) GetXAAccess;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDtcNetworkAccessConfig*/SelfOuter* self, BOOL bXAAccess) SetXAAccess;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDtcNetworkAccessConfig*/SelfOuter* self) RestartDtcService;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BOOL* pbAnyNetworkAccess) GetAnyNetworkAccess;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BOOL bAnyNetworkAccess) SetAnyNetworkAccess;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BOOL* pbNetworkAdministrationAccess) GetNetworkAdministrationAccess;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BOOL bNetworkAdministrationAccess) SetNetworkAdministrationAccess;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BOOL* pbNetworkTransactionAccess) GetNetworkTransactionAccess;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BOOL bNetworkTransactionAccess) SetNetworkTransactionAccess;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BOOL* pbNetworkClientAccess) GetNetworkClientAccess;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BOOL bNetworkClientAccess) SetNetworkClientAccess;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BOOL* pbNetworkTIPAccess) GetNetworkTIPAccess;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BOOL bNetworkTIPAccess) SetNetworkTIPAccess;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BOOL* pbXAAccess) GetXAAccess;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BOOL bXAAccess) SetXAAccess;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) RestartDtcService;
 	}
 
 
@@ -957,12 +957,12 @@ public static
 
 	[CRepr]public struct VTable : IDtcNetworkAccessConfig.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDtcNetworkAccessConfig2*/SelfOuter* self, BOOL* pbInbound) GetNetworkInboundAccess;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDtcNetworkAccessConfig2*/SelfOuter* self, BOOL* pbOutbound) GetNetworkOutboundAccess;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDtcNetworkAccessConfig2*/SelfOuter* self, BOOL bInbound) SetNetworkInboundAccess;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDtcNetworkAccessConfig2*/SelfOuter* self, BOOL bOutbound) SetNetworkOutboundAccess;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDtcNetworkAccessConfig2*/SelfOuter* self, AUTHENTICATION_LEVEL* pAuthLevel) GetAuthenticationLevel;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDtcNetworkAccessConfig2*/SelfOuter* self, AUTHENTICATION_LEVEL AuthLevel) SetAuthenticationLevel;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BOOL* pbInbound) GetNetworkInboundAccess;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BOOL* pbOutbound) GetNetworkOutboundAccess;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BOOL bInbound) SetNetworkInboundAccess;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BOOL bOutbound) SetNetworkOutboundAccess;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, AUTHENTICATION_LEVEL* pAuthLevel) GetAuthenticationLevel;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, AUTHENTICATION_LEVEL AuthLevel) SetAuthenticationLevel;
 	}
 
 
@@ -987,8 +987,8 @@ public static
 
 	[CRepr]public struct VTable : IDtcNetworkAccessConfig2.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDtcNetworkAccessConfig3*/SelfOuter* self, BOOL* pbLUAccess) GetLUAccess;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDtcNetworkAccessConfig3*/SelfOuter* self, BOOL bLUAccess) SetLUAccess;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BOOL* pbLUAccess) GetLUAccess;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BOOL bLUAccess) SetLUAccess;
 	}
 
 
@@ -1005,10 +1005,10 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDtcToXaMapper*/SelfOuter* self, PSTR pszDSN, PSTR pszClientDllName, uint32* pdwRMCookie) RequestNewResourceManager;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDtcToXaMapper*/SelfOuter* self, uint32* pdwITransaction, uint32 dwRMCookie, xid_t* pXid) TranslateTridToXid;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDtcToXaMapper*/SelfOuter* self, uint32 dwRMCookie, uint32* pdwITransaction) EnlistResourceManager;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDtcToXaMapper*/SelfOuter* self, uint32 dwRMCookie) ReleaseResourceManager;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PSTR pszDSN, PSTR pszClientDllName, uint32* pdwRMCookie) RequestNewResourceManager;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pdwITransaction, uint32 dwRMCookie, xid_t* pXid) TranslateTridToXid;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwRMCookie, uint32* pdwITransaction) EnlistResourceManager;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwRMCookie) ReleaseResourceManager;
 	}
 
 
@@ -1029,7 +1029,7 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDtcToXaHelperFactory*/SelfOuter* self, PSTR pszDSN, PSTR pszClientDllName, ref Guid pguidRm, IDtcToXaHelper** ppXaHelper) Create;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PSTR pszDSN, PSTR pszClientDllName, ref Guid pguidRm, IDtcToXaHelper** ppXaHelper) Create;
 	}
 
 
@@ -1044,8 +1044,8 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDtcToXaHelper*/SelfOuter* self, BOOL i_fDoRecovery) Close;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDtcToXaHelper*/SelfOuter* self, ITransaction* pITransaction, ref Guid pguidBqual, xid_t* pXid) TranslateTridToXid;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BOOL i_fDoRecovery) Close;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ITransaction* pITransaction, ref Guid pguidBqual, xid_t* pXid) TranslateTridToXid;
 	}
 
 
@@ -1062,10 +1062,10 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDtcToXaHelperSinglePipe*/SelfOuter* self, PSTR pszDSN, PSTR pszClientDll, uint32* pdwRMCookie) XARMCreate;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDtcToXaHelperSinglePipe*/SelfOuter* self, uint32* pdwITrans, uint32 dwRMCookie, xid_t* pxid) ConvertTridToXID;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDtcToXaHelperSinglePipe*/SelfOuter* self, uint32 dwRMCookie, ITransaction* i_pITransaction, ITransactionResourceAsync* i_pITransRes, ITransactionEnlistmentAsync** o_ppITransEnslitment) EnlistWithRM;
-		protected new function [CallingConvention(.Stdcall)] void(/*IDtcToXaHelperSinglePipe*/SelfOuter* self, uint32 i_dwRMCookie, BOOL i_fNormal) ReleaseRMCookie;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PSTR pszDSN, PSTR pszClientDll, uint32* pdwRMCookie) XARMCreate;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pdwITrans, uint32 dwRMCookie, xid_t* pxid) ConvertTridToXID;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwRMCookie, ITransaction* i_pITransaction, ITransactionResourceAsync* i_pITransRes, ITransactionEnlistmentAsync** o_ppITransEnslitment) EnlistWithRM;
+		protected new function [CallingConvention(.Stdcall)] void(SelfOuter* self, uint32 i_dwRMCookie, BOOL i_fNormal) ReleaseRMCookie;
 	}
 
 
@@ -1086,7 +1086,7 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXATransLookup*/SelfOuter* self, ITransaction** ppTransaction) Lookup;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ITransaction** ppTransaction) Lookup;
 	}
 
 
@@ -1101,7 +1101,7 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXATransLookup2*/SelfOuter* self, xid_t* pXID, ITransaction** ppTransaction) Lookup;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, xid_t* pXID, ITransaction** ppTransaction) Lookup;
 	}
 
 
@@ -1116,7 +1116,7 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IResourceManagerSink*/SelfOuter* self) TMDown;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) TMDown;
 	}
 
 
@@ -1131,10 +1131,10 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IResourceManager*/SelfOuter* self, ITransaction* pTransaction, ITransactionResourceAsync* pRes, BOID* pUOW, int32* pisoLevel, ITransactionEnlistmentAsync** ppEnlist) Enlist;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IResourceManager*/SelfOuter* self, uint8* pPrepInfo, uint32 cbPrepInfo, uint32 lTimeout, XACTSTAT* pXactStat) Reenlist;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IResourceManager*/SelfOuter* self) ReenlistmentComplete;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IResourceManager*/SelfOuter* self, ref Guid iid, void** ppvObject) GetDistributedTransactionManager;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ITransaction* pTransaction, ITransactionResourceAsync* pRes, BOID* pUOW, int32* pisoLevel, ITransactionEnlistmentAsync** ppEnlist) Enlist;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint8* pPrepInfo, uint32 cbPrepInfo, uint32 lTimeout, XACTSTAT* pXactStat) Reenlist;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) ReenlistmentComplete;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid iid, void** ppvObject) GetDistributedTransactionManager;
 	}
 
 
@@ -1155,8 +1155,8 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ILastResourceManager*/SelfOuter* self, uint8* pPrepInfo, uint32 cbPrepInfo) TransactionCommitted;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ILastResourceManager*/SelfOuter* self) RecoveryDone;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint8* pPrepInfo, uint32 cbPrepInfo) TransactionCommitted;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) RecoveryDone;
 	}
 
 
@@ -1173,8 +1173,8 @@ public static
 
 	[CRepr]public struct VTable : IResourceManager.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IResourceManager2*/SelfOuter* self, ITransaction* pTransaction, ITransactionResourceAsync* pResAsync, BOID* pUOW, int32* pisoLevel, xid_t* pXid, ITransactionEnlistmentAsync** ppEnlist) Enlist2;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IResourceManager2*/SelfOuter* self, xid_t* pXid, uint32 dwTimeout, XACTSTAT* pXactStat) Reenlist2;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ITransaction* pTransaction, ITransactionResourceAsync* pResAsync, BOID* pUOW, int32* pisoLevel, xid_t* pXid, ITransactionEnlistmentAsync** ppEnlist) Enlist2;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, xid_t* pXid, uint32 dwTimeout, XACTSTAT* pXactStat) Reenlist2;
 	}
 
 
@@ -1191,7 +1191,7 @@ public static
 
 	[CRepr]public struct VTable : IResourceManager2.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IResourceManagerRejoinable*/SelfOuter* self, uint8* pPrepInfo, uint32 cbPrepInfo, uint32 lTimeout, XACTSTAT* pXactStat) Rejoin;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint8* pPrepInfo, uint32 cbPrepInfo, uint32 lTimeout, XACTSTAT* pXactStat) Rejoin;
 	}
 
 
@@ -1206,8 +1206,8 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXAConfig*/SelfOuter* self, Guid clsidHelperDll) Initialize;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXAConfig*/SelfOuter* self) Terminate;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, Guid clsidHelperDll) Initialize;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Terminate;
 	}
 
 
@@ -1224,8 +1224,8 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRMHelper*/SelfOuter* self, uint32 dwcTotalNumberOfRMs) RMCount;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRMHelper*/SelfOuter* self, xa_switch_t* pXa_Switch, BOOL fCDeclCallingConv, PSTR pszOpenString, PSTR pszCloseString, Guid guidRMRecovery) RMInfo;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwcTotalNumberOfRMs) RMCount;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, xa_switch_t* pXa_Switch, BOOL fCDeclCallingConv, PSTR pszOpenString, PSTR pszCloseString, Guid guidRMRecovery) RMInfo;
 	}
 
 
@@ -1242,7 +1242,7 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXAObtainRMInfo*/SelfOuter* self, IRMHelper* pIRMHelper) ObtainRMInfo;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IRMHelper* pIRMHelper) ObtainRMInfo;
 	}
 
 
@@ -1257,7 +1257,7 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IResourceManagerFactory*/SelfOuter* self, ref Guid pguidRM, PSTR pszRMName, IResourceManagerSink* pIResMgrSink, IResourceManager** ppResMgr) Create;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid pguidRM, PSTR pszRMName, IResourceManagerSink* pIResMgrSink, IResourceManager** ppResMgr) Create;
 	}
 
 
@@ -1272,7 +1272,7 @@ public static
 
 	[CRepr]public struct VTable : IResourceManagerFactory.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IResourceManagerFactory2*/SelfOuter* self, ref Guid pguidRM, PSTR pszRMName, IResourceManagerSink* pIResMgrSink, ref Guid riidRequested, void** ppvResMgr) CreateEx;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid pguidRM, PSTR pszRMName, IResourceManagerSink* pIResMgrSink, ref Guid riidRequested, void** ppvResMgr) CreateEx;
 	}
 
 
@@ -1287,8 +1287,8 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPrepareInfo*/SelfOuter* self, uint32* pcbPrepInfo) GetPrepareInfoSize;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPrepareInfo*/SelfOuter* self, uint8* pPrepInfo) GetPrepareInfo;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pcbPrepInfo) GetPrepareInfoSize;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint8* pPrepInfo) GetPrepareInfo;
 	}
 
 
@@ -1305,8 +1305,8 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPrepareInfo2*/SelfOuter* self, uint32* pcbPrepInfo) GetPrepareInfoSize;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPrepareInfo2*/SelfOuter* self, uint32 cbPrepareInfo, uint8* pPrepInfo) GetPrepareInfo;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pcbPrepInfo) GetPrepareInfoSize;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 cbPrepareInfo, uint8* pPrepInfo) GetPrepareInfo;
 	}
 
 
@@ -1323,7 +1323,7 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGetDispenser*/SelfOuter* self, ref Guid iid, void** ppvObject) GetDispenser;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid iid, void** ppvObject) GetDispenser;
 	}
 
 
@@ -1338,7 +1338,7 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITransactionVoterBallotAsync2*/SelfOuter* self, HRESULT hr, BOID* pboidReason) VoteRequestDone;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HRESULT hr, BOID* pboidReason) VoteRequestDone;
 	}
 
 
@@ -1353,7 +1353,7 @@ public static
 
 	[CRepr]public struct VTable : ITransactionOutcomeEvents.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITransactionVoterNotifyAsync2*/SelfOuter* self) VoteRequest;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) VoteRequest;
 	}
 
 
@@ -1368,7 +1368,7 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITransactionVoterFactory2*/SelfOuter* self, ITransaction* pTransaction, ITransactionVoterNotifyAsync2* pVoterNotify, ITransactionVoterBallotAsync2** ppVoterBallot) Create;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ITransaction* pTransaction, ITransactionVoterNotifyAsync2* pVoterNotify, ITransactionVoterBallotAsync2** ppVoterBallot) Create;
 	}
 
 
@@ -1383,11 +1383,11 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITransactionPhase0EnlistmentAsync*/SelfOuter* self) Enable;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITransactionPhase0EnlistmentAsync*/SelfOuter* self) WaitForEnlistment;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITransactionPhase0EnlistmentAsync*/SelfOuter* self) Phase0Done;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITransactionPhase0EnlistmentAsync*/SelfOuter* self) Unenlist;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITransactionPhase0EnlistmentAsync*/SelfOuter* self, ITransaction** ppITransaction) GetTransaction;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Enable;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) WaitForEnlistment;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Phase0Done;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Unenlist;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ITransaction** ppITransaction) GetTransaction;
 	}
 
 
@@ -1410,8 +1410,8 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITransactionPhase0NotifyAsync*/SelfOuter* self, BOOL fAbortingHint) Phase0Request;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITransactionPhase0NotifyAsync*/SelfOuter* self, HRESULT status) EnlistCompleted;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BOOL fAbortingHint) Phase0Request;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HRESULT status) EnlistCompleted;
 	}
 
 
@@ -1428,7 +1428,7 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITransactionPhase0Factory*/SelfOuter* self, ITransactionPhase0NotifyAsync* pPhase0Notify, ITransactionPhase0EnlistmentAsync** ppPhase0Enlistment) Create;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ITransactionPhase0NotifyAsync* pPhase0Notify, ITransactionPhase0EnlistmentAsync** ppPhase0Enlistment) Create;
 	}
 
 
@@ -1443,11 +1443,11 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITransactionTransmitter*/SelfOuter* self, ITransaction* pTransaction) Set;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITransactionTransmitter*/SelfOuter* self, uint32* pcbToken) GetPropagationTokenSize;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITransactionTransmitter*/SelfOuter* self, uint32 cbToken, uint8* rgbToken, uint32* pcbUsed) MarshalPropagationToken;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITransactionTransmitter*/SelfOuter* self, uint32 cbReturnToken, uint8* rgbReturnToken) UnmarshalReturnToken;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITransactionTransmitter*/SelfOuter* self) Reset;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ITransaction* pTransaction) Set;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pcbToken) GetPropagationTokenSize;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 cbToken, uint8* rgbToken, uint32* pcbUsed) MarshalPropagationToken;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 cbReturnToken, uint8* rgbReturnToken) UnmarshalReturnToken;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Reset;
 	}
 
 
@@ -1470,7 +1470,7 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITransactionTransmitterFactory*/SelfOuter* self, ITransactionTransmitter** ppTransmitter) Create;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ITransactionTransmitter** ppTransmitter) Create;
 	}
 
 
@@ -1485,10 +1485,10 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITransactionReceiver*/SelfOuter* self, uint32 cbToken, uint8* rgbToken, ITransaction** ppTransaction) UnmarshalPropagationToken;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITransactionReceiver*/SelfOuter* self, uint32* pcbReturnToken) GetReturnTokenSize;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITransactionReceiver*/SelfOuter* self, uint32 cbReturnToken, uint8* rgbReturnToken, uint32* pcbUsed) MarshalReturnToken;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITransactionReceiver*/SelfOuter* self) Reset;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 cbToken, uint8* rgbToken, ITransaction** ppTransaction) UnmarshalPropagationToken;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pcbReturnToken) GetReturnTokenSize;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 cbReturnToken, uint8* rgbReturnToken, uint32* pcbUsed) MarshalReturnToken;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Reset;
 	}
 
 
@@ -1509,7 +1509,7 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITransactionReceiverFactory*/SelfOuter* self, ITransactionReceiver** ppReceiver) Create;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ITransactionReceiver** ppReceiver) Create;
 	}
 
 
@@ -1524,8 +1524,8 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDtcLuConfigure*/SelfOuter* self, uint8* pucLuPair, uint32 cbLuPair) Add;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDtcLuConfigure*/SelfOuter* self, uint8* pucLuPair, uint32 cbLuPair) Delete;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint8* pucLuPair, uint32 cbLuPair) Add;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint8* pucLuPair, uint32 cbLuPair) Delete;
 	}
 
 
@@ -1554,7 +1554,7 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDtcLuRecoveryFactory*/SelfOuter* self, uint8* pucLuPair, uint32 cbLuPair, IDtcLuRecovery** ppRecovery) Create;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint8* pucLuPair, uint32 cbLuPair, IDtcLuRecovery** ppRecovery) Create;
 	}
 
 
@@ -1569,19 +1569,19 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDtcLuRecoveryInitiatedByDtcTransWork*/SelfOuter* self, uint32* pcbOurLogName, uint32* pcbRemoteLogName) GetLogNameSizes;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDtcLuRecoveryInitiatedByDtcTransWork*/SelfOuter* self, _DtcLu_Xln* pXln, uint8* pOurLogName, uint8* pRemoteLogName, uint32* pdwProtocol) GetOurXln;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDtcLuRecoveryInitiatedByDtcTransWork*/SelfOuter* self, _DtcLu_Xln_Confirmation Confirmation) HandleConfirmationFromOurXln;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDtcLuRecoveryInitiatedByDtcTransWork*/SelfOuter* self, _DtcLu_Xln Xln, uint8* pRemoteLogName, uint32 cbRemoteLogName, uint32 dwProtocol, _DtcLu_Xln_Confirmation* pConfirmation) HandleTheirXlnResponse;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDtcLuRecoveryInitiatedByDtcTransWork*/SelfOuter* self, _DtcLu_Xln_Error Error) HandleErrorFromOurXln;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDtcLuRecoveryInitiatedByDtcTransWork*/SelfOuter* self, BOOL* fCompareStates) CheckForCompareStates;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDtcLuRecoveryInitiatedByDtcTransWork*/SelfOuter* self, uint32* pcbOurTransId) GetOurTransIdSize;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDtcLuRecoveryInitiatedByDtcTransWork*/SelfOuter* self, uint8* pOurTransId, _DtcLu_CompareState* pCompareState) GetOurCompareStates;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDtcLuRecoveryInitiatedByDtcTransWork*/SelfOuter* self, _DtcLu_CompareState CompareState, _DtcLu_CompareStates_Confirmation* pConfirmation) HandleTheirCompareStatesResponse;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDtcLuRecoveryInitiatedByDtcTransWork*/SelfOuter* self, _DtcLu_CompareStates_Error Error) HandleErrorFromOurCompareStates;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDtcLuRecoveryInitiatedByDtcTransWork*/SelfOuter* self) ConversationLost;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDtcLuRecoveryInitiatedByDtcTransWork*/SelfOuter* self, int32* plRecoverySeqNum) GetRecoverySeqNum;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDtcLuRecoveryInitiatedByDtcTransWork*/SelfOuter* self, int32 lNewRecoverySeqNum) ObsoleteRecoverySeqNum;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pcbOurLogName, uint32* pcbRemoteLogName) GetLogNameSizes;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, _DtcLu_Xln* pXln, uint8* pOurLogName, uint8* pRemoteLogName, uint32* pdwProtocol) GetOurXln;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, _DtcLu_Xln_Confirmation Confirmation) HandleConfirmationFromOurXln;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, _DtcLu_Xln Xln, uint8* pRemoteLogName, uint32 cbRemoteLogName, uint32 dwProtocol, _DtcLu_Xln_Confirmation* pConfirmation) HandleTheirXlnResponse;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, _DtcLu_Xln_Error Error) HandleErrorFromOurXln;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BOOL* fCompareStates) CheckForCompareStates;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pcbOurTransId) GetOurTransIdSize;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint8* pOurTransId, _DtcLu_CompareState* pCompareState) GetOurCompareStates;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, _DtcLu_CompareState CompareState, _DtcLu_CompareStates_Confirmation* pConfirmation) HandleTheirCompareStatesResponse;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, _DtcLu_CompareStates_Error Error) HandleErrorFromOurCompareStates;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) ConversationLost;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* plRecoverySeqNum) GetRecoverySeqNum;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 lNewRecoverySeqNum) ObsoleteRecoverySeqNum;
 	}
 
 
@@ -1620,7 +1620,7 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDtcLuRecoveryInitiatedByDtcStatusWork*/SelfOuter* self, int32 lRecoverySeqNum) HandleCheckLuStatus;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 lRecoverySeqNum) HandleCheckLuStatus;
 	}
 
 
@@ -1635,7 +1635,7 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDtcLuRecoveryInitiatedByDtc*/SelfOuter* self, _DtcLu_LocalRecovery_Work* pWork, void** ppv) GetWork;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, _DtcLu_LocalRecovery_Work* pWork, void** ppv) GetWork;
 	}
 
 
@@ -1650,14 +1650,14 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDtcLuRecoveryInitiatedByLuWork*/SelfOuter* self, int32 lRecoverySeqNum, _DtcLu_Xln Xln, uint8* pRemoteLogName, uint32 cbRemoteLogName, uint8* pOurLogName, uint32 cbOurLogName, uint32 dwProtocol, _DtcLu_Xln_Response* pResponse) HandleTheirXln;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDtcLuRecoveryInitiatedByLuWork*/SelfOuter* self, uint32* pcbOurLogName) GetOurLogNameSize;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDtcLuRecoveryInitiatedByLuWork*/SelfOuter* self, _DtcLu_Xln* pXln, uint8* pOurLogName, uint32* pdwProtocol) GetOurXln;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDtcLuRecoveryInitiatedByLuWork*/SelfOuter* self, _DtcLu_Xln_Confirmation Confirmation) HandleConfirmationOfOurXln;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDtcLuRecoveryInitiatedByLuWork*/SelfOuter* self, uint8* pRemoteTransId, uint32 cbRemoteTransId, _DtcLu_CompareState CompareState, _DtcLu_CompareStates_Response* pResponse, _DtcLu_CompareState* pCompareState) HandleTheirCompareStates;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDtcLuRecoveryInitiatedByLuWork*/SelfOuter* self, _DtcLu_CompareStates_Confirmation Confirmation) HandleConfirmationOfOurCompareStates;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDtcLuRecoveryInitiatedByLuWork*/SelfOuter* self, _DtcLu_CompareStates_Error Error) HandleErrorFromOurCompareStates;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDtcLuRecoveryInitiatedByLuWork*/SelfOuter* self) ConversationLost;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 lRecoverySeqNum, _DtcLu_Xln Xln, uint8* pRemoteLogName, uint32 cbRemoteLogName, uint8* pOurLogName, uint32 cbOurLogName, uint32 dwProtocol, _DtcLu_Xln_Response* pResponse) HandleTheirXln;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pcbOurLogName) GetOurLogNameSize;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, _DtcLu_Xln* pXln, uint8* pOurLogName, uint32* pdwProtocol) GetOurXln;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, _DtcLu_Xln_Confirmation Confirmation) HandleConfirmationOfOurXln;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint8* pRemoteTransId, uint32 cbRemoteTransId, _DtcLu_CompareState CompareState, _DtcLu_CompareStates_Response* pResponse, _DtcLu_CompareState* pCompareState) HandleTheirCompareStates;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, _DtcLu_CompareStates_Confirmation Confirmation) HandleConfirmationOfOurCompareStates;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, _DtcLu_CompareStates_Error Error) HandleErrorFromOurCompareStates;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) ConversationLost;
 	}
 
 
@@ -1686,7 +1686,7 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDtcLuRecoveryInitiatedByLu*/SelfOuter* self, IDtcLuRecoveryInitiatedByLuWork** ppWork) GetObjectToHandleWorkFromLu;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IDtcLuRecoveryInitiatedByLuWork** ppWork) GetObjectToHandleWorkFromLu;
 	}
 
 
@@ -1701,12 +1701,12 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDtcLuRmEnlistment*/SelfOuter* self, BOOL fConversationLost) Unplug;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDtcLuRmEnlistment*/SelfOuter* self) BackedOut;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDtcLuRmEnlistment*/SelfOuter* self) BackOut;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDtcLuRmEnlistment*/SelfOuter* self) Committed;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDtcLuRmEnlistment*/SelfOuter* self) Forget;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDtcLuRmEnlistment*/SelfOuter* self) RequestCommit;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BOOL fConversationLost) Unplug;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) BackedOut;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) BackOut;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Committed;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Forget;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) RequestCommit;
 	}
 
 
@@ -1731,15 +1731,15 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDtcLuRmEnlistmentSink*/SelfOuter* self) AckUnplug;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDtcLuRmEnlistmentSink*/SelfOuter* self) TmDown;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDtcLuRmEnlistmentSink*/SelfOuter* self) SessionLost;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDtcLuRmEnlistmentSink*/SelfOuter* self) BackedOut;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDtcLuRmEnlistmentSink*/SelfOuter* self) BackOut;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDtcLuRmEnlistmentSink*/SelfOuter* self) Committed;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDtcLuRmEnlistmentSink*/SelfOuter* self) Forget;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDtcLuRmEnlistmentSink*/SelfOuter* self) Prepare;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDtcLuRmEnlistmentSink*/SelfOuter* self) RequestCommit;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) AckUnplug;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) TmDown;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) SessionLost;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) BackedOut;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) BackOut;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Committed;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Forget;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Prepare;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) RequestCommit;
 	}
 
 
@@ -1770,7 +1770,7 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDtcLuRmEnlistmentFactory*/SelfOuter* self, uint8* pucLuPair, uint32 cbLuPair, ITransaction* pITransaction, uint8* pTransId, uint32 cbTransId, IDtcLuRmEnlistmentSink* pRmEnlistmentSink, IDtcLuRmEnlistment** ppRmEnlistment) Create;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint8* pucLuPair, uint32 cbLuPair, ITransaction* pITransaction, uint8* pTransId, uint32 cbTransId, IDtcLuRmEnlistmentSink* pRmEnlistmentSink, IDtcLuRmEnlistment** ppRmEnlistment) Create;
 	}
 
 
@@ -1785,13 +1785,13 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDtcLuSubordinateDtc*/SelfOuter* self, BOOL fConversationLost) Unplug;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDtcLuSubordinateDtc*/SelfOuter* self) BackedOut;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDtcLuSubordinateDtc*/SelfOuter* self) BackOut;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDtcLuSubordinateDtc*/SelfOuter* self) Committed;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDtcLuSubordinateDtc*/SelfOuter* self) Forget;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDtcLuSubordinateDtc*/SelfOuter* self) Prepare;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDtcLuSubordinateDtc*/SelfOuter* self) RequestCommit;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BOOL fConversationLost) Unplug;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) BackedOut;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) BackOut;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Committed;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Forget;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Prepare;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) RequestCommit;
 	}
 
 
@@ -1818,14 +1818,14 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDtcLuSubordinateDtcSink*/SelfOuter* self) AckUnplug;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDtcLuSubordinateDtcSink*/SelfOuter* self) TmDown;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDtcLuSubordinateDtcSink*/SelfOuter* self) SessionLost;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDtcLuSubordinateDtcSink*/SelfOuter* self) BackedOut;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDtcLuSubordinateDtcSink*/SelfOuter* self) BackOut;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDtcLuSubordinateDtcSink*/SelfOuter* self) Committed;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDtcLuSubordinateDtcSink*/SelfOuter* self) Forget;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDtcLuSubordinateDtcSink*/SelfOuter* self) RequestCommit;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) AckUnplug;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) TmDown;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) SessionLost;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) BackedOut;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) BackOut;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Committed;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Forget;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) RequestCommit;
 	}
 
 
@@ -1854,7 +1854,7 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDtcLuSubordinateDtcFactory*/SelfOuter* self, uint8* pucLuPair, uint32 cbLuPair, IUnknown* punkTransactionOuter, int32 isoLevel, uint32 isoFlags, ITransactionOptions* pOptions, ITransaction** ppTransaction, uint8* pTransId, uint32 cbTransId, IDtcLuSubordinateDtcSink* pSubordinateDtcSink, IDtcLuSubordinateDtc** ppSubordinateDtc) Create;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint8* pucLuPair, uint32 cbLuPair, IUnknown* punkTransactionOuter, int32 isoLevel, uint32 isoFlags, ITransactionOptions* pOptions, ITransaction** ppTransaction, uint8* pTransId, uint32 cbTransId, IDtcLuSubordinateDtcSink* pSubordinateDtcSink, IDtcLuSubordinateDtc** ppSubordinateDtc) Create;
 	}
 
 

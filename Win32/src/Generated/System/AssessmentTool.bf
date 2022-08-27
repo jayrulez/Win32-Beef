@@ -94,9 +94,9 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IProvideWinSATAssessmentInfo*/SelfOuter* self, float* score) get_Score;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IProvideWinSATAssessmentInfo*/SelfOuter* self, BSTR* title) get_Title;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IProvideWinSATAssessmentInfo*/SelfOuter* self, BSTR* description) get_Description;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, float* score) get_Score;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* title) get_Title;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* description) get_Description;
 	}
 
 
@@ -115,11 +115,11 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IProvideWinSATResultsInfo*/SelfOuter* self, WINSAT_ASSESSMENT_TYPE assessment, IProvideWinSATAssessmentInfo** ppinfo) GetAssessmentInfo;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IProvideWinSATResultsInfo*/SelfOuter* self, WINSAT_ASSESSMENT_STATE* state) get_AssessmentState;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IProvideWinSATResultsInfo*/SelfOuter* self, VARIANT* fileTime) get_AssessmentDateTime;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IProvideWinSATResultsInfo*/SelfOuter* self, float* level) get_SystemRating;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IProvideWinSATResultsInfo*/SelfOuter* self, BSTR* description) get_RatingStateDesc;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, WINSAT_ASSESSMENT_TYPE assessment, IProvideWinSATAssessmentInfo** ppinfo) GetAssessmentInfo;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, WINSAT_ASSESSMENT_STATE* state) get_AssessmentState;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT* fileTime) get_AssessmentDateTime;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, float* level) get_SystemRating;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* description) get_RatingStateDesc;
 	}
 
 
@@ -142,8 +142,8 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IQueryRecentWinSATAssessment*/SelfOuter* self, BSTR xPath, BSTR namespaces, IXMLDOMNodeList** ppDomNodeList) get_XML;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IQueryRecentWinSATAssessment*/SelfOuter* self, IProvideWinSATResultsInfo** ppWinSATAssessmentInfo) get_Info;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR xPath, BSTR namespaces, IXMLDOMNodeList** ppDomNodeList) get_XML;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IProvideWinSATResultsInfo** ppWinSATAssessmentInfo) get_Info;
 	}
 
 
@@ -160,7 +160,7 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IProvideWinSATVisuals*/SelfOuter* self, WINSAT_BITMAP_SIZE bitmapSize, WINSAT_ASSESSMENT_STATE state, float rating, HBITMAP* pBitmap) get_Bitmap;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, WINSAT_BITMAP_SIZE bitmapSize, WINSAT_ASSESSMENT_STATE state, float rating, HBITMAP* pBitmap) get_Bitmap;
 	}
 
 
@@ -175,7 +175,7 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IQueryAllWinSATAssessments*/SelfOuter* self, BSTR xPath, BSTR namespaces, IXMLDOMNodeList** ppDomNodeList) get_AllXML;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR xPath, BSTR namespaces, IXMLDOMNodeList** ppDomNodeList) get_AllXML;
 	}
 
 
@@ -190,8 +190,8 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWinSATInitiateEvents*/SelfOuter* self, HRESULT hresult, PWSTR strDescription) WinSATComplete;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWinSATInitiateEvents*/SelfOuter* self, uint32 uCurrentTick, uint32 uTickTotal, PWSTR strCurrentState) WinSATUpdate;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HRESULT hresult, PWSTR strDescription) WinSATComplete;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 uCurrentTick, uint32 uTickTotal, PWSTR strCurrentState) WinSATUpdate;
 	}
 
 
@@ -208,9 +208,9 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInitiateWinSATAssessment*/SelfOuter* self, PWSTR cmdLine, IWinSATInitiateEvents* pCallbacks, HWND callerHwnd) InitiateAssessment;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInitiateWinSATAssessment*/SelfOuter* self, IWinSATInitiateEvents* pCallbacks, HWND callerHwnd) InitiateFormalAssessment;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInitiateWinSATAssessment*/SelfOuter* self) CancelAssessment;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR cmdLine, IWinSATInitiateEvents* pCallbacks, HWND callerHwnd) InitiateAssessment;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IWinSATInitiateEvents* pCallbacks, HWND callerHwnd) InitiateFormalAssessment;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) CancelAssessment;
 	}
 
 
@@ -229,7 +229,7 @@ public static
 
 	[CRepr]public struct VTable : IAccessible.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAccessibleWinSAT*/SelfOuter* self, PWSTR wsName, PWSTR wsValue, PWSTR wsDesc) SetAccessiblityData;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR wsName, PWSTR wsValue, PWSTR wsDesc) SetAccessiblityData;
 	}
 
 
@@ -244,7 +244,7 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IQueryOEMWinSATCustomization*/SelfOuter* self, WINSAT_OEM_DATA_TYPE* state) GetOEMPrePopulationInfo;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, WINSAT_OEM_DATA_TYPE* state) GetOEMPrePopulationInfo;
 	}
 
 

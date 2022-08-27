@@ -991,9 +991,9 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ILocationReport*/SelfOuter* self, ref Guid pSensorID) GetSensorID;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ILocationReport*/SelfOuter* self, SYSTEMTIME* pCreationTime) GetTimestamp;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ILocationReport*/SelfOuter* self, PROPERTYKEY* pKey, PROPVARIANT* pValue) GetValue;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid pSensorID) GetSensorID;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, SYSTEMTIME* pCreationTime) GetTimestamp;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PROPERTYKEY* pKey, PROPVARIANT* pValue) GetValue;
 	}
 
 
@@ -1012,11 +1012,11 @@ public static
 
 	[CRepr]public struct VTable : ILocationReport.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ILatLongReport*/SelfOuter* self, double* pLatitude) GetLatitude;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ILatLongReport*/SelfOuter* self, double* pLongitude) GetLongitude;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ILatLongReport*/SelfOuter* self, double* pErrorRadius) GetErrorRadius;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ILatLongReport*/SelfOuter* self, double* pAltitude) GetAltitude;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ILatLongReport*/SelfOuter* self, double* pAltitudeError) GetAltitudeError;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, double* pLatitude) GetLatitude;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, double* pLongitude) GetLongitude;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, double* pErrorRadius) GetErrorRadius;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, double* pAltitude) GetAltitude;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, double* pAltitudeError) GetAltitudeError;
 	}
 
 
@@ -1039,13 +1039,13 @@ public static
 
 	[CRepr]public struct VTable : ILocationReport.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICivicAddressReport*/SelfOuter* self, BSTR* pbstrAddress1) GetAddressLine1;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICivicAddressReport*/SelfOuter* self, BSTR* pbstrAddress2) GetAddressLine2;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICivicAddressReport*/SelfOuter* self, BSTR* pbstrCity) GetCity;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICivicAddressReport*/SelfOuter* self, BSTR* pbstrStateProvince) GetStateProvince;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICivicAddressReport*/SelfOuter* self, BSTR* pbstrPostalCode) GetPostalCode;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICivicAddressReport*/SelfOuter* self, BSTR* pbstrCountryRegion) GetCountryRegion;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICivicAddressReport*/SelfOuter* self, uint32* pDetailLevel) GetDetailLevel;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pbstrAddress1) GetAddressLine1;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pbstrAddress2) GetAddressLine2;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pbstrCity) GetCity;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pbstrStateProvince) GetStateProvince;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pbstrPostalCode) GetPostalCode;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pbstrCountryRegion) GetCountryRegion;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pDetailLevel) GetDetailLevel;
 	}
 
 
@@ -1072,15 +1072,15 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ILocation*/SelfOuter* self, ILocationEvents* pEvents, ref Guid reportType, uint32 dwRequestedReportInterval) RegisterForReport;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ILocation*/SelfOuter* self, ref Guid reportType) UnregisterForReport;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ILocation*/SelfOuter* self, ref Guid reportType, ILocationReport** ppLocationReport) GetReport;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ILocation*/SelfOuter* self, ref Guid reportType, LOCATION_REPORT_STATUS* pStatus) GetReportStatus;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ILocation*/SelfOuter* self, ref Guid reportType, uint32* pMilliseconds) GetReportInterval;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ILocation*/SelfOuter* self, ref Guid reportType, uint32 millisecondsRequested) SetReportInterval;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ILocation*/SelfOuter* self, ref Guid reportType, LOCATION_DESIRED_ACCURACY* pDesiredAccuracy) GetDesiredAccuracy;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ILocation*/SelfOuter* self, ref Guid reportType, LOCATION_DESIRED_ACCURACY desiredAccuracy) SetDesiredAccuracy;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ILocation*/SelfOuter* self, HWND hParent, ref Guid pReportTypes, uint32 count, BOOL fModal) RequestPermissions;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ILocationEvents* pEvents, ref Guid reportType, uint32 dwRequestedReportInterval) RegisterForReport;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid reportType) UnregisterForReport;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid reportType, ILocationReport** ppLocationReport) GetReport;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid reportType, LOCATION_REPORT_STATUS* pStatus) GetReportStatus;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid reportType, uint32* pMilliseconds) GetReportInterval;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid reportType, uint32 millisecondsRequested) SetReportInterval;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid reportType, LOCATION_DESIRED_ACCURACY* pDesiredAccuracy) GetDesiredAccuracy;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid reportType, LOCATION_DESIRED_ACCURACY desiredAccuracy) SetDesiredAccuracy;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HWND hParent, ref Guid pReportTypes, uint32 count, BOOL fModal) RequestPermissions;
 	}
 
 
@@ -1111,8 +1111,8 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ILocationPower*/SelfOuter* self) Connect;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ILocationPower*/SelfOuter* self) Disconnect;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Connect;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Disconnect;
 	}
 
 
@@ -1129,8 +1129,8 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDefaultLocation*/SelfOuter* self, ref Guid reportType, ILocationReport* pLocationReport) SetReport;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDefaultLocation*/SelfOuter* self, ref Guid reportType, ILocationReport** ppLocationReport) GetReport;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid reportType, ILocationReport* pLocationReport) SetReport;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid reportType, ILocationReport** ppLocationReport) GetReport;
 	}
 
 
@@ -1147,8 +1147,8 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ILocationEvents*/SelfOuter* self, ref Guid reportType, ILocationReport* pLocationReport) OnLocationChanged;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ILocationEvents*/SelfOuter* self, ref Guid reportType, LOCATION_REPORT_STATUS newStatus) OnStatusChanged;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid reportType, ILocationReport* pLocationReport) OnLocationChanged;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid reportType, LOCATION_REPORT_STATUS newStatus) OnStatusChanged;
 	}
 
 
@@ -1165,12 +1165,12 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDispLatLongReport*/SelfOuter* self, double* pVal) get_Latitude;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDispLatLongReport*/SelfOuter* self, double* pVal) get_Longitude;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDispLatLongReport*/SelfOuter* self, double* pVal) get_ErrorRadius;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDispLatLongReport*/SelfOuter* self, double* pVal) get_Altitude;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDispLatLongReport*/SelfOuter* self, double* pVal) get_AltitudeError;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDispLatLongReport*/SelfOuter* self, double* pVal) get_Timestamp;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, double* pVal) get_Latitude;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, double* pVal) get_Longitude;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, double* pVal) get_ErrorRadius;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, double* pVal) get_Altitude;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, double* pVal) get_AltitudeError;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, double* pVal) get_Timestamp;
 	}
 
 
@@ -1195,14 +1195,14 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDispCivicAddressReport*/SelfOuter* self, BSTR* pAddress1) get_AddressLine1;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDispCivicAddressReport*/SelfOuter* self, BSTR* pAddress2) get_AddressLine2;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDispCivicAddressReport*/SelfOuter* self, BSTR* pCity) get_City;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDispCivicAddressReport*/SelfOuter* self, BSTR* pStateProvince) get_StateProvince;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDispCivicAddressReport*/SelfOuter* self, BSTR* pPostalCode) get_PostalCode;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDispCivicAddressReport*/SelfOuter* self, BSTR* pCountryRegion) get_CountryRegion;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDispCivicAddressReport*/SelfOuter* self, uint32* pDetailLevel) get_DetailLevel;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDispCivicAddressReport*/SelfOuter* self, double* pVal) get_Timestamp;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pAddress1) get_AddressLine1;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pAddress2) get_AddressLine2;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pCity) get_City;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pStateProvince) get_StateProvince;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pPostalCode) get_PostalCode;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pCountryRegion) get_CountryRegion;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pDetailLevel) get_DetailLevel;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, double* pVal) get_Timestamp;
 	}
 
 
@@ -1231,14 +1231,14 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ILocationReportFactory*/SelfOuter* self, uint32 requestedReportInterval) ListenForReports;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ILocationReportFactory*/SelfOuter* self) StopListeningForReports;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ILocationReportFactory*/SelfOuter* self, uint32* pVal) get_Status;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ILocationReportFactory*/SelfOuter* self, uint32* pMilliseconds) get_ReportInterval;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ILocationReportFactory*/SelfOuter* self, uint32 millisecondsRequested) put_ReportInterval;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ILocationReportFactory*/SelfOuter* self, uint32* pDesiredAccuracy) get_DesiredAccuracy;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ILocationReportFactory*/SelfOuter* self, uint32 desiredAccuracy) put_DesiredAccuracy;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ILocationReportFactory*/SelfOuter* self, uint32* hWnd) RequestPermissions;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 requestedReportInterval) ListenForReports;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) StopListeningForReports;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pVal) get_Status;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pMilliseconds) get_ReportInterval;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 millisecondsRequested) put_ReportInterval;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pDesiredAccuracy) get_DesiredAccuracy;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 desiredAccuracy) put_DesiredAccuracy;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* hWnd) RequestPermissions;
 	}
 
 
@@ -1267,7 +1267,7 @@ public static
 
 	[CRepr]public struct VTable : ILocationReportFactory.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ILatLongReportFactory*/SelfOuter* self, IDispLatLongReport** pVal) get_LatLongReport;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IDispLatLongReport** pVal) get_LatLongReport;
 	}
 
 
@@ -1282,7 +1282,7 @@ public static
 
 	[CRepr]public struct VTable : ILocationReportFactory.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICivicAddressReportFactory*/SelfOuter* self, IDispCivicAddressReport** pVal) get_CivicAddressReport;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IDispCivicAddressReport** pVal) get_CivicAddressReport;
 	}
 
 

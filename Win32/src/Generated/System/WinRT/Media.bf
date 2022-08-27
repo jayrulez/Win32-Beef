@@ -41,7 +41,7 @@ public static
 
 	[CRepr]public struct VTable : IInspectable.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAudioFrameNative*/SelfOuter* self, ref Guid riid, void** ppv) GetData;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid riid, void** ppv) GetData;
 	}
 
 
@@ -56,8 +56,8 @@ public static
 
 	[CRepr]public struct VTable : IInspectable.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IVideoFrameNative*/SelfOuter* self, ref Guid riid, void** ppv) GetData;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IVideoFrameNative*/SelfOuter* self, ref Guid riid, void** ppv) GetDevice;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid riid, void** ppv) GetData;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid riid, void** ppv) GetDevice;
 	}
 
 
@@ -74,7 +74,7 @@ public static
 
 	[CRepr]public struct VTable : IInspectable.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAudioFrameNativeFactory*/SelfOuter* self, IMFSample* data, BOOL forceReadOnly, ref Guid riid, void** ppv) CreateFromMFSample;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IMFSample* data, BOOL forceReadOnly, ref Guid riid, void** ppv) CreateFromMFSample;
 	}
 
 
@@ -89,7 +89,7 @@ public static
 
 	[CRepr]public struct VTable : IInspectable.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IVideoFrameNativeFactory*/SelfOuter* self, IMFSample* data, ref Guid subtype, uint32 width, uint32 height, BOOL forceReadOnly, MFVideoArea* minDisplayAperture, IMFDXGIDeviceManager* device, ref Guid riid, void** ppv) CreateFromMFSample;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IMFSample* data, ref Guid subtype, uint32 width, uint32 height, BOOL forceReadOnly, MFVideoArea* minDisplayAperture, IMFDXGIDeviceManager* device, ref Guid riid, void** ppv) CreateFromMFSample;
 	}
 
 

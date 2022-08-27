@@ -537,17 +537,17 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWCNDevice*/SelfOuter* self, WCN_PASSWORD_TYPE Type, uint32 dwPasswordLength, uint8* pbPassword) SetPassword;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWCNDevice*/SelfOuter* self, IWCNConnectNotify* pNotify) Connect;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWCNDevice*/SelfOuter* self, WCN_ATTRIBUTE_TYPE AttributeType, uint32 dwMaxBufferSize, uint8* pbBuffer, uint32* pdwBufferUsed) GetAttribute;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWCNDevice*/SelfOuter* self, WCN_ATTRIBUTE_TYPE AttributeType, uint32* puInteger) GetIntegerAttribute;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWCNDevice*/SelfOuter* self, WCN_ATTRIBUTE_TYPE AttributeType, uint32 cchMaxString, char16* wszString) GetStringAttribute;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWCNDevice*/SelfOuter* self, uint32 cchMaxStringLength, char16* wszProfile) GetNetworkProfile;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWCNDevice*/SelfOuter* self, PWSTR pszProfileXml) SetNetworkProfile;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWCNDevice*/SelfOuter* self, WCN_VENDOR_EXTENSION_SPEC* pVendorExtSpec, uint32 dwMaxBufferSize, uint8* pbBuffer, uint32* pdwBufferUsed) GetVendorExtension;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWCNDevice*/SelfOuter* self, WCN_VENDOR_EXTENSION_SPEC* pVendorExtSpec, uint32 cbBuffer, uint8* pbBuffer) SetVendorExtension;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWCNDevice*/SelfOuter* self) Unadvise;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWCNDevice*/SelfOuter* self, WCN_PASSWORD_TYPE Type, uint32 dwOOBPasswordID, uint32 dwPasswordLength, uint8* pbPassword, uint32 dwRemotePublicKeyHashLength, uint8* pbRemotePublicKeyHash, uint32 dwDHKeyBlobLength, uint8* pbDHKeyBlob) SetNFCPasswordParams;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, WCN_PASSWORD_TYPE Type, uint32 dwPasswordLength, uint8* pbPassword) SetPassword;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IWCNConnectNotify* pNotify) Connect;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, WCN_ATTRIBUTE_TYPE AttributeType, uint32 dwMaxBufferSize, uint8* pbBuffer, uint32* pdwBufferUsed) GetAttribute;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, WCN_ATTRIBUTE_TYPE AttributeType, uint32* puInteger) GetIntegerAttribute;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, WCN_ATTRIBUTE_TYPE AttributeType, uint32 cchMaxString, char16* wszString) GetStringAttribute;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 cchMaxStringLength, char16* wszProfile) GetNetworkProfile;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR pszProfileXml) SetNetworkProfile;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, WCN_VENDOR_EXTENSION_SPEC* pVendorExtSpec, uint32 dwMaxBufferSize, uint8* pbBuffer, uint32* pdwBufferUsed) GetVendorExtension;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, WCN_VENDOR_EXTENSION_SPEC* pVendorExtSpec, uint32 cbBuffer, uint8* pbBuffer) SetVendorExtension;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Unadvise;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, WCN_PASSWORD_TYPE Type, uint32 dwOOBPasswordID, uint32 dwPasswordLength, uint8* pbPassword, uint32 dwRemotePublicKeyHashLength, uint8* pbRemotePublicKeyHash, uint32 dwDHKeyBlobLength, uint8* pbDHKeyBlob) SetNFCPasswordParams;
 	}
 
 
@@ -582,8 +582,8 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWCNConnectNotify*/SelfOuter* self) ConnectSucceeded;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWCNConnectNotify*/SelfOuter* self, HRESULT hrFailure) ConnectFailed;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) ConnectSucceeded;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HRESULT hrFailure) ConnectFailed;
 	}
 
 

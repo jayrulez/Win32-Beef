@@ -213,13 +213,13 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISecurityInformation*/SelfOuter* self, SI_OBJECT_INFO* pObjectInfo) GetObjectInformation;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISecurityInformation*/SelfOuter* self, OBJECT_SECURITY_INFORMATION RequestedInformation, SECURITY_DESCRIPTOR** ppSecurityDescriptor, BOOL fDefault) GetSecurity;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISecurityInformation*/SelfOuter* self, OBJECT_SECURITY_INFORMATION SecurityInformation, SECURITY_DESCRIPTOR* pSecurityDescriptor) SetSecurity;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISecurityInformation*/SelfOuter* self, ref Guid pguidObjectType, SECURITY_INFO_PAGE_FLAGS dwFlags, SI_ACCESS** ppAccess, uint32* pcAccesses, uint32* piDefaultAccess) GetAccessRights;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISecurityInformation*/SelfOuter* self, ref Guid pguidObjectType, uint8* pAceFlags, uint32* pMask) MapGeneric;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISecurityInformation*/SelfOuter* self, SI_INHERIT_TYPE** ppInheritTypes, uint32* pcInheritTypes) GetInheritTypes;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISecurityInformation*/SelfOuter* self, HWND hwnd, PSPCB_MESSAGE uMsg, SI_PAGE_TYPE uPage) PropertySheetPageCallback;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, SI_OBJECT_INFO* pObjectInfo) GetObjectInformation;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, OBJECT_SECURITY_INFORMATION RequestedInformation, SECURITY_DESCRIPTOR** ppSecurityDescriptor, BOOL fDefault) GetSecurity;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, OBJECT_SECURITY_INFORMATION SecurityInformation, SECURITY_DESCRIPTOR* pSecurityDescriptor) SetSecurity;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid pguidObjectType, SECURITY_INFO_PAGE_FLAGS dwFlags, SI_ACCESS** ppAccess, uint32* pcAccesses, uint32* piDefaultAccess) GetAccessRights;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid pguidObjectType, uint8* pAceFlags, uint32* pMask) MapGeneric;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, SI_INHERIT_TYPE** ppInheritTypes, uint32* pcInheritTypes) GetInheritTypes;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HWND hwnd, PSPCB_MESSAGE uMsg, SI_PAGE_TYPE uPage) PropertySheetPageCallback;
 	}
 
 
@@ -246,8 +246,8 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] BOOL(/*ISecurityInformation2*/SelfOuter* self, ACL* pDacl) IsDaclCanonical;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISecurityInformation2*/SelfOuter* self, uint32 cSids, PSID* rgpSids, IDataObject** ppdo) LookupSids;
+		protected new function [CallingConvention(.Stdcall)] BOOL(SelfOuter* self, ACL* pDacl) IsDaclCanonical;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 cSids, PSID* rgpSids, IDataObject** ppdo) LookupSids;
 	}
 
 
@@ -264,7 +264,7 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEffectivePermission*/SelfOuter* self, ref Guid pguidObjectType, PSID pUserSid, PWSTR pszServerName, SECURITY_DESCRIPTOR* pSD, OBJECT_TYPE_LIST** ppObjectTypeList, uint32* pcObjectTypeListLength, uint32** ppGrantedAccessList, uint32* pcGrantedAccessListLength) GetEffectivePermission;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid pguidObjectType, PSID pUserSid, PWSTR pszServerName, SECURITY_DESCRIPTOR* pSD, OBJECT_TYPE_LIST** ppObjectTypeList, uint32* pcObjectTypeListLength, uint32** ppGrantedAccessList, uint32* pcGrantedAccessListLength) GetEffectivePermission;
 	}
 
 
@@ -279,7 +279,7 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISecurityObjectTypeInfo*/SelfOuter* self, uint32 si, ACL* pACL, INHERITED_FROMA** ppInheritArray) GetInheritSource;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 si, ACL* pACL, INHERITED_FROMA** ppInheritArray) GetInheritSource;
 	}
 
 
@@ -294,8 +294,8 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISecurityInformation3*/SelfOuter* self, PWSTR* ppszResourceName) GetFullResourceName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISecurityInformation3*/SelfOuter* self, HWND hWnd, SI_PAGE_TYPE uPage) OpenElevatedEditor;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR* ppszResourceName) GetFullResourceName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HWND hWnd, SI_PAGE_TYPE uPage) OpenElevatedEditor;
 	}
 
 
@@ -312,7 +312,7 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISecurityInformation4*/SelfOuter* self, SECURITY_OBJECT** pSecurityObjects, uint32* pSecurityObjectCount) GetSecondarySecurity;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, SECURITY_OBJECT** pSecurityObjects, uint32* pSecurityObjectCount) GetSecondarySecurity;
 	}
 
 
@@ -327,7 +327,7 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEffectivePermission2*/SelfOuter* self, PSID pSid, PSID pDeviceSid, PWSTR pszServerName, SECURITY_OBJECT* pSecurityObjects, uint32 dwSecurityObjectCount, TOKEN_GROUPS* pUserGroups, AUTHZ_SID_OPERATION* pAuthzUserGroupsOperations, TOKEN_GROUPS* pDeviceGroups, AUTHZ_SID_OPERATION* pAuthzDeviceGroupsOperations, AUTHZ_SECURITY_ATTRIBUTES_INFORMATION* pAuthzUserClaims, AUTHZ_SECURITY_ATTRIBUTE_OPERATION* pAuthzUserClaimsOperations, AUTHZ_SECURITY_ATTRIBUTES_INFORMATION* pAuthzDeviceClaims, AUTHZ_SECURITY_ATTRIBUTE_OPERATION* pAuthzDeviceClaimsOperations, EFFPERM_RESULT_LIST* pEffpermResultLists) ComputeEffectivePermissionWithSecondarySecurity;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PSID pSid, PSID pDeviceSid, PWSTR pszServerName, SECURITY_OBJECT* pSecurityObjects, uint32 dwSecurityObjectCount, TOKEN_GROUPS* pUserGroups, AUTHZ_SID_OPERATION* pAuthzUserGroupsOperations, TOKEN_GROUPS* pDeviceGroups, AUTHZ_SID_OPERATION* pAuthzDeviceGroupsOperations, AUTHZ_SECURITY_ATTRIBUTES_INFORMATION* pAuthzUserClaims, AUTHZ_SECURITY_ATTRIBUTE_OPERATION* pAuthzUserClaimsOperations, AUTHZ_SECURITY_ATTRIBUTES_INFORMATION* pAuthzDeviceClaims, AUTHZ_SECURITY_ATTRIBUTE_OPERATION* pAuthzDeviceClaimsOperations, EFFPERM_RESULT_LIST* pEffpermResultLists) ComputeEffectivePermissionWithSecondarySecurity;
 	}
 
 

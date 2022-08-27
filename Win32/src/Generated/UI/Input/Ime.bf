@@ -2037,10 +2037,10 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFECommon*/SelfOuter* self, uint8* szName, int32 cszName) IsDefaultIME;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFECommon*/SelfOuter* self) SetDefaultIME;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFECommon*/SelfOuter* self, IMEDLG* pimedlg) InvokeWordRegDialog;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFECommon*/SelfOuter* self, IMEDLG* pimedlg) InvokeDictToolDialog;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint8* szName, int32 cszName) IsDefaultIME;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) SetDefaultIME;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IMEDLG* pimedlg) InvokeWordRegDialog;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IMEDLG* pimedlg) InvokeDictToolDialog;
 	}
 
 
@@ -2061,12 +2061,12 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFELanguage*/SelfOuter* self) Open;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFELanguage*/SelfOuter* self) Close;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFELanguage*/SelfOuter* self, uint32 dwRequest, uint32 dwCMode, int32 cwchInput, PWSTR pwchInput, uint32* pfCInfo, MORRSLT** ppResult) GetJMorphResult;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFELanguage*/SelfOuter* self, uint32* pdwCaps) GetConversionModeCaps;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFELanguage*/SelfOuter* self, BSTR string, int32 start, int32 length, BSTR* phonetic) GetPhonetic;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFELanguage*/SelfOuter* self, BSTR string, int32 start, int32 length, BSTR* result) GetConversion;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Open;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Close;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwRequest, uint32 dwCMode, int32 cwchInput, PWSTR pwchInput, uint32* pfCInfo, MORRSLT** ppResult) GetJMorphResult;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pdwCaps) GetConversionModeCaps;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR string, int32 start, int32 length, BSTR* phonetic) GetPhonetic;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR string, int32 start, int32 length, BSTR* result) GetConversion;
 	}
 
 
@@ -2091,23 +2091,23 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFEDictionary*/SelfOuter* self, uint8* pchDictPath, IMESHF* pshf) Open;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFEDictionary*/SelfOuter* self) Close;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFEDictionary*/SelfOuter* self, uint8* pchDictPath, IMESHF* pshf, IMEFMT* pjfmt, uint32* pulType) GetHeader;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFEDictionary*/SelfOuter* self, HWND hwnd) DisplayProperty;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFEDictionary*/SelfOuter* self, POSTBL** prgPosTbl, int32* pcPosTbl) GetPosTable;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFEDictionary*/SelfOuter* self, PWSTR pwchFirst, PWSTR pwchLast, PWSTR pwchDisplay, uint32 ulPos, uint32 ulSelect, uint32 ulWordSrc, uint8* pchBuffer, uint32 cbBuffer, uint32* pcWrd) GetWords;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFEDictionary*/SelfOuter* self, uint8* pchBuffer, uint32 cbBuffer, uint32* pcWrd) NextWords;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFEDictionary*/SelfOuter* self, PSTR pchDictPath, IMESHF* pshf) Create;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFEDictionary*/SelfOuter* self, IMESHF* pshf) SetHeader;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFEDictionary*/SelfOuter* self, IMEWRD* pwrd) ExistWord;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFEDictionary*/SelfOuter* self, IMEDP* pdp) ExistDependency;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFEDictionary*/SelfOuter* self, IMEREG reg, IMEWRD* pwrd) RegisterWord;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFEDictionary*/SelfOuter* self, IMEREG reg, IMEDP* pdp) RegisterDependency;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFEDictionary*/SelfOuter* self, PWSTR pwchKakariReading, PWSTR pwchKakariDisplay, uint32 ulKakariPos, PWSTR pwchUkeReading, PWSTR pwchUkeDisplay, uint32 ulUkePos, IMEREL jrel, uint32 ulWordSrc, uint8* pchBuffer, uint32 cbBuffer, uint32* pcdp) GetDependencies;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFEDictionary*/SelfOuter* self, uint8* pchBuffer, uint32 cbBuffer, uint32* pcDp) NextDependencies;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFEDictionary*/SelfOuter* self, PSTR pchDic, PFNLOG pfnLog, IMEREG reg) ConvertFromOldMSIME;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFEDictionary*/SelfOuter* self) ConvertFromUserToSys;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint8* pchDictPath, IMESHF* pshf) Open;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Close;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint8* pchDictPath, IMESHF* pshf, IMEFMT* pjfmt, uint32* pulType) GetHeader;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HWND hwnd) DisplayProperty;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, POSTBL** prgPosTbl, int32* pcPosTbl) GetPosTable;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR pwchFirst, PWSTR pwchLast, PWSTR pwchDisplay, uint32 ulPos, uint32 ulSelect, uint32 ulWordSrc, uint8* pchBuffer, uint32 cbBuffer, uint32* pcWrd) GetWords;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint8* pchBuffer, uint32 cbBuffer, uint32* pcWrd) NextWords;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PSTR pchDictPath, IMESHF* pshf) Create;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IMESHF* pshf) SetHeader;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IMEWRD* pwrd) ExistWord;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IMEDP* pdp) ExistDependency;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IMEREG reg, IMEWRD* pwrd) RegisterWord;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IMEREG reg, IMEDP* pdp) RegisterDependency;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR pwchKakariReading, PWSTR pwchKakariDisplay, uint32 ulKakariPos, PWSTR pwchUkeReading, PWSTR pwchUkeDisplay, uint32 ulUkePos, IMEREL jrel, uint32 ulWordSrc, uint8* pchBuffer, uint32 cbBuffer, uint32* pcdp) GetDependencies;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint8* pchBuffer, uint32 cbBuffer, uint32* pcDp) NextDependencies;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PSTR pchDic, PFNLOG pfnLog, IMEREG reg) ConvertFromOldMSIME;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) ConvertFromUserToSys;
 	}
 
 
@@ -2154,7 +2154,7 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IImeSpecifyApplets*/SelfOuter* self, ref Guid refiid, APPLETIDLIST* lpIIDList) GetAppletIIDList;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid refiid, APPLETIDLIST* lpIIDList) GetAppletIIDList;
 	}
 
 
@@ -2169,11 +2169,11 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IImePadApplet*/SelfOuter* self, IUnknown* lpIImePad) Initialize;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IImePadApplet*/SelfOuter* self) Terminate;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IImePadApplet*/SelfOuter* self, IMEAPPLETCFG* lpAppletCfg) GetAppletConfig;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IImePadApplet*/SelfOuter* self, HWND hwndParent, IMEAPPLETUI* lpImeAppletUI) CreateUI;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IImePadApplet*/SelfOuter* self, IUnknown* lpImePad, int32 notify, WPARAM wParam, LPARAM lParam) Notify;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IUnknown* lpIImePad) Initialize;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Terminate;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IMEAPPLETCFG* lpAppletCfg) GetAppletConfig;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HWND hwndParent, IMEAPPLETUI* lpImeAppletUI) CreateUI;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IUnknown* lpImePad, int32 notify, WPARAM wParam, LPARAM lParam) Notify;
 	}
 
 
@@ -2196,7 +2196,7 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IImePad*/SelfOuter* self, IImePadApplet* pIImePadApplet, IME_PAD_REQUEST_FLAGS reqId, WPARAM wParam, LPARAM lParam) Request;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IImePadApplet* pIImePadApplet, IME_PAD_REQUEST_FLAGS reqId, WPARAM wParam, LPARAM lParam) Request;
 	}
 
 
@@ -2211,8 +2211,8 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IImePlugInDictDictionaryList*/SelfOuter* self, SAFEARRAY** prgDictionaryGUID, SAFEARRAY** prgDateCreated, SAFEARRAY** prgfEncrypted) GetDictionariesInUse;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IImePlugInDictDictionaryList*/SelfOuter* self, BSTR bstrDictionaryGUID) DeleteDictionary;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, SAFEARRAY** prgDictionaryGUID, SAFEARRAY** prgDateCreated, SAFEARRAY** prgfEncrypted) GetDictionariesInUse;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrDictionaryGUID) DeleteDictionary;
 	}
 
 
@@ -2229,10 +2229,10 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnumRegisterWordA*/SelfOuter* self, IEnumRegisterWordA** ppEnum) Clone;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnumRegisterWordA*/SelfOuter* self, uint32 ulCount, REGISTERWORDA* rgRegisterWord, uint32* pcFetched) Next;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnumRegisterWordA*/SelfOuter* self) Reset;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnumRegisterWordA*/SelfOuter* self, uint32 ulCount) Skip;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IEnumRegisterWordA** ppEnum) Clone;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 ulCount, REGISTERWORDA* rgRegisterWord, uint32* pcFetched) Next;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Reset;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 ulCount) Skip;
 	}
 
 
@@ -2253,10 +2253,10 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnumRegisterWordW*/SelfOuter* self, IEnumRegisterWordW** ppEnum) Clone;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnumRegisterWordW*/SelfOuter* self, uint32 ulCount, REGISTERWORDW* rgRegisterWord, uint32* pcFetched) Next;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnumRegisterWordW*/SelfOuter* self) Reset;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnumRegisterWordW*/SelfOuter* self, uint32 ulCount) Skip;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IEnumRegisterWordW** ppEnum) Clone;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 ulCount, REGISTERWORDW* rgRegisterWord, uint32* pcFetched) Next;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Reset;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 ulCount) Skip;
 	}
 
 
@@ -2277,10 +2277,10 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnumInputContext*/SelfOuter* self, IEnumInputContext** ppEnum) Clone;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnumInputContext*/SelfOuter* self, uint32 ulCount, HIMC* rgInputContext, uint32* pcFetched) Next;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnumInputContext*/SelfOuter* self) Reset;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnumInputContext*/SelfOuter* self, uint32 ulCount) Skip;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IEnumInputContext** ppEnum) Clone;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 ulCount, HIMC* rgInputContext, uint32* pcFetched) Next;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Reset;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 ulCount) Skip;
 	}
 
 
@@ -2301,8 +2301,8 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IActiveIMMRegistrar*/SelfOuter* self, ref Guid rclsid, uint16 lgid, PWSTR pszIconFile, PWSTR pszDesc) RegisterIME;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IActiveIMMRegistrar*/SelfOuter* self, ref Guid rclsid) UnregisterIME;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid rclsid, uint16 lgid, PWSTR pszIconFile, PWSTR pszDesc) RegisterIME;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid rclsid) UnregisterIME;
 	}
 
 
@@ -2319,11 +2319,11 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IActiveIMMMessagePumpOwner*/SelfOuter* self) Start;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IActiveIMMMessagePumpOwner*/SelfOuter* self) End;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IActiveIMMMessagePumpOwner*/SelfOuter* self, MSG* pMsg) OnTranslateMessage;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IActiveIMMMessagePumpOwner*/SelfOuter* self, uint32* pdwCookie) Pause;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IActiveIMMMessagePumpOwner*/SelfOuter* self, uint32 dwCookie) Resume;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Start;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) End;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, MSG* pMsg) OnTranslateMessage;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pdwCookie) Pause;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwCookie) Resume;
 	}
 
 
@@ -2346,74 +2346,74 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IActiveIMMApp*/SelfOuter* self, HWND hWnd, HIMC hIME, HIMC* phPrev) AssociateContext;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IActiveIMMApp*/SelfOuter* self, HKL hKL, HWND hWnd, uint32 dwMode, REGISTERWORDA* pData) ConfigureIMEA;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IActiveIMMApp*/SelfOuter* self, HKL hKL, HWND hWnd, uint32 dwMode, REGISTERWORDW* pData) ConfigureIMEW;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IActiveIMMApp*/SelfOuter* self, HIMC* phIMC) CreateContext;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IActiveIMMApp*/SelfOuter* self, HIMC hIME) DestroyContext;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IActiveIMMApp*/SelfOuter* self, HKL hKL, PSTR szReading, uint32 dwStyle, PSTR szRegister, void* pData, IEnumRegisterWordA** pEnum) EnumRegisterWordA;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IActiveIMMApp*/SelfOuter* self, HKL hKL, PWSTR szReading, uint32 dwStyle, PWSTR szRegister, void* pData, IEnumRegisterWordW** pEnum) EnumRegisterWordW;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IActiveIMMApp*/SelfOuter* self, HKL hKL, HIMC hIMC, uint32 uEscape, void* pData, LRESULT* plResult) EscapeA;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IActiveIMMApp*/SelfOuter* self, HKL hKL, HIMC hIMC, uint32 uEscape, void* pData, LRESULT* plResult) EscapeW;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IActiveIMMApp*/SelfOuter* self, HIMC hIMC, uint32 dwIndex, uint32 uBufLen, CANDIDATELIST* pCandList, uint32* puCopied) GetCandidateListA;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IActiveIMMApp*/SelfOuter* self, HIMC hIMC, uint32 dwIndex, uint32 uBufLen, CANDIDATELIST* pCandList, uint32* puCopied) GetCandidateListW;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IActiveIMMApp*/SelfOuter* self, HIMC hIMC, uint32* pdwListSize, uint32* pdwBufLen) GetCandidateListCountA;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IActiveIMMApp*/SelfOuter* self, HIMC hIMC, uint32* pdwListSize, uint32* pdwBufLen) GetCandidateListCountW;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IActiveIMMApp*/SelfOuter* self, HIMC hIMC, uint32 dwIndex, CANDIDATEFORM* pCandidate) GetCandidateWindow;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IActiveIMMApp*/SelfOuter* self, HIMC hIMC, LOGFONTA* plf) GetCompositionFontA;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IActiveIMMApp*/SelfOuter* self, HIMC hIMC, LOGFONTW* plf) GetCompositionFontW;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IActiveIMMApp*/SelfOuter* self, HIMC hIMC, uint32 dwIndex, uint32 dwBufLen, int32* plCopied, void* pBuf) GetCompositionStringA;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IActiveIMMApp*/SelfOuter* self, HIMC hIMC, uint32 dwIndex, uint32 dwBufLen, int32* plCopied, void* pBuf) GetCompositionStringW;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IActiveIMMApp*/SelfOuter* self, HIMC hIMC, COMPOSITIONFORM* pCompForm) GetCompositionWindow;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IActiveIMMApp*/SelfOuter* self, HWND hWnd, HIMC* phIMC) GetContext;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IActiveIMMApp*/SelfOuter* self, HKL hKL, HIMC hIMC, PSTR pSrc, uint32 uBufLen, uint32 uFlag, CANDIDATELIST* pDst, uint32* puCopied) GetConversionListA;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IActiveIMMApp*/SelfOuter* self, HKL hKL, HIMC hIMC, PWSTR pSrc, uint32 uBufLen, uint32 uFlag, CANDIDATELIST* pDst, uint32* puCopied) GetConversionListW;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IActiveIMMApp*/SelfOuter* self, HIMC hIMC, uint32* pfdwConversion, uint32* pfdwSentence) GetConversionStatus;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IActiveIMMApp*/SelfOuter* self, HWND hWnd, HWND* phDefWnd) GetDefaultIMEWnd;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IActiveIMMApp*/SelfOuter* self, HKL hKL, uint32 uBufLen, PSTR szDescription, uint32* puCopied) GetDescriptionA;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IActiveIMMApp*/SelfOuter* self, HKL hKL, uint32 uBufLen, PWSTR szDescription, uint32* puCopied) GetDescriptionW;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IActiveIMMApp*/SelfOuter* self, HIMC hIMC, uint32 dwIndex, uint32 dwBufLen, PSTR pBuf, uint32* pdwResult) GetGuideLineA;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IActiveIMMApp*/SelfOuter* self, HIMC hIMC, uint32 dwIndex, uint32 dwBufLen, PWSTR pBuf, uint32* pdwResult) GetGuideLineW;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IActiveIMMApp*/SelfOuter* self, HKL hKL, uint32 uBufLen, PSTR szFileName, uint32* puCopied) GetIMEFileNameA;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IActiveIMMApp*/SelfOuter* self, HKL hKL, uint32 uBufLen, PWSTR szFileName, uint32* puCopied) GetIMEFileNameW;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IActiveIMMApp*/SelfOuter* self, HIMC hIMC) GetOpenStatus;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IActiveIMMApp*/SelfOuter* self, HKL hKL, uint32 fdwIndex, uint32* pdwProperty) GetProperty;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IActiveIMMApp*/SelfOuter* self, HKL hKL, uint32 nItem, STYLEBUFA* pStyleBuf, uint32* puCopied) GetRegisterWordStyleA;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IActiveIMMApp*/SelfOuter* self, HKL hKL, uint32 nItem, STYLEBUFW* pStyleBuf, uint32* puCopied) GetRegisterWordStyleW;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IActiveIMMApp*/SelfOuter* self, HIMC hIMC, POINT* pptPos) GetStatusWindowPos;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IActiveIMMApp*/SelfOuter* self, HWND hWnd, uint32* puVirtualKey) GetVirtualKey;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IActiveIMMApp*/SelfOuter* self, PSTR szIMEFileName, PSTR szLayoutText, HKL* phKL) InstallIMEA;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IActiveIMMApp*/SelfOuter* self, PWSTR szIMEFileName, PWSTR szLayoutText, HKL* phKL) InstallIMEW;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IActiveIMMApp*/SelfOuter* self, HKL hKL) IsIME;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IActiveIMMApp*/SelfOuter* self, HWND hWndIME, uint32 msg, WPARAM wParam, LPARAM lParam) IsUIMessageA;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IActiveIMMApp*/SelfOuter* self, HWND hWndIME, uint32 msg, WPARAM wParam, LPARAM lParam) IsUIMessageW;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IActiveIMMApp*/SelfOuter* self, HIMC hIMC, uint32 dwAction, uint32 dwIndex, uint32 dwValue) NotifyIME;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IActiveIMMApp*/SelfOuter* self, HKL hKL, PSTR szReading, uint32 dwStyle, PSTR szRegister) RegisterWordA;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IActiveIMMApp*/SelfOuter* self, HKL hKL, PWSTR szReading, uint32 dwStyle, PWSTR szRegister) RegisterWordW;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IActiveIMMApp*/SelfOuter* self, HWND hWnd, HIMC hIMC) ReleaseContext;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IActiveIMMApp*/SelfOuter* self, HIMC hIMC, CANDIDATEFORM* pCandidate) SetCandidateWindow;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IActiveIMMApp*/SelfOuter* self, HIMC hIMC, LOGFONTA* plf) SetCompositionFontA;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IActiveIMMApp*/SelfOuter* self, HIMC hIMC, LOGFONTW* plf) SetCompositionFontW;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IActiveIMMApp*/SelfOuter* self, HIMC hIMC, uint32 dwIndex, void* pComp, uint32 dwCompLen, void* pRead, uint32 dwReadLen) SetCompositionStringA;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IActiveIMMApp*/SelfOuter* self, HIMC hIMC, uint32 dwIndex, void* pComp, uint32 dwCompLen, void* pRead, uint32 dwReadLen) SetCompositionStringW;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IActiveIMMApp*/SelfOuter* self, HIMC hIMC, COMPOSITIONFORM* pCompForm) SetCompositionWindow;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IActiveIMMApp*/SelfOuter* self, HIMC hIMC, uint32 fdwConversion, uint32 fdwSentence) SetConversionStatus;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IActiveIMMApp*/SelfOuter* self, HIMC hIMC, BOOL fOpen) SetOpenStatus;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IActiveIMMApp*/SelfOuter* self, HIMC hIMC, POINT* pptPos) SetStatusWindowPos;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IActiveIMMApp*/SelfOuter* self, HWND hWnd, uint32 dwHotKeyID) SimulateHotKey;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IActiveIMMApp*/SelfOuter* self, HKL hKL, PSTR szReading, uint32 dwStyle, PSTR szUnregister) UnregisterWordA;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IActiveIMMApp*/SelfOuter* self, HKL hKL, PWSTR szReading, uint32 dwStyle, PWSTR szUnregister) UnregisterWordW;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IActiveIMMApp*/SelfOuter* self, BOOL fRestoreLayout) Activate;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IActiveIMMApp*/SelfOuter* self) Deactivate;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IActiveIMMApp*/SelfOuter* self, HWND hWnd, uint32 Msg, WPARAM wParam, LPARAM lParam, LRESULT* plResult) OnDefWindowProc;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IActiveIMMApp*/SelfOuter* self, uint16* aaClassList, uint32 uSize) FilterClientWindows;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IActiveIMMApp*/SelfOuter* self, HKL hKL, uint32* uCodePage) GetCodePageA;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IActiveIMMApp*/SelfOuter* self, HKL hKL, uint16* plid) GetLangId;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IActiveIMMApp*/SelfOuter* self, HWND hWnd, HIMC hIMC, uint32 dwFlags) AssociateContextEx;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IActiveIMMApp*/SelfOuter* self, uint32 idThread) DisableIME;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IActiveIMMApp*/SelfOuter* self, HIMC hIMC, uint32 dwFlags, uint32 dwType, IMEMENUITEMINFOA* pImeParentMenu, IMEMENUITEMINFOA* pImeMenu, uint32 dwSize, uint32* pdwResult) GetImeMenuItemsA;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IActiveIMMApp*/SelfOuter* self, HIMC hIMC, uint32 dwFlags, uint32 dwType, IMEMENUITEMINFOW* pImeParentMenu, IMEMENUITEMINFOW* pImeMenu, uint32 dwSize, uint32* pdwResult) GetImeMenuItemsW;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IActiveIMMApp*/SelfOuter* self, uint32 idThread, IEnumInputContext** ppEnum) EnumInputContext;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HWND hWnd, HIMC hIME, HIMC* phPrev) AssociateContext;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HKL hKL, HWND hWnd, uint32 dwMode, REGISTERWORDA* pData) ConfigureIMEA;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HKL hKL, HWND hWnd, uint32 dwMode, REGISTERWORDW* pData) ConfigureIMEW;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HIMC* phIMC) CreateContext;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HIMC hIME) DestroyContext;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HKL hKL, PSTR szReading, uint32 dwStyle, PSTR szRegister, void* pData, IEnumRegisterWordA** pEnum) EnumRegisterWordA;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HKL hKL, PWSTR szReading, uint32 dwStyle, PWSTR szRegister, void* pData, IEnumRegisterWordW** pEnum) EnumRegisterWordW;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HKL hKL, HIMC hIMC, uint32 uEscape, void* pData, LRESULT* plResult) EscapeA;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HKL hKL, HIMC hIMC, uint32 uEscape, void* pData, LRESULT* plResult) EscapeW;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HIMC hIMC, uint32 dwIndex, uint32 uBufLen, CANDIDATELIST* pCandList, uint32* puCopied) GetCandidateListA;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HIMC hIMC, uint32 dwIndex, uint32 uBufLen, CANDIDATELIST* pCandList, uint32* puCopied) GetCandidateListW;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HIMC hIMC, uint32* pdwListSize, uint32* pdwBufLen) GetCandidateListCountA;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HIMC hIMC, uint32* pdwListSize, uint32* pdwBufLen) GetCandidateListCountW;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HIMC hIMC, uint32 dwIndex, CANDIDATEFORM* pCandidate) GetCandidateWindow;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HIMC hIMC, LOGFONTA* plf) GetCompositionFontA;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HIMC hIMC, LOGFONTW* plf) GetCompositionFontW;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HIMC hIMC, uint32 dwIndex, uint32 dwBufLen, int32* plCopied, void* pBuf) GetCompositionStringA;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HIMC hIMC, uint32 dwIndex, uint32 dwBufLen, int32* plCopied, void* pBuf) GetCompositionStringW;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HIMC hIMC, COMPOSITIONFORM* pCompForm) GetCompositionWindow;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HWND hWnd, HIMC* phIMC) GetContext;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HKL hKL, HIMC hIMC, PSTR pSrc, uint32 uBufLen, uint32 uFlag, CANDIDATELIST* pDst, uint32* puCopied) GetConversionListA;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HKL hKL, HIMC hIMC, PWSTR pSrc, uint32 uBufLen, uint32 uFlag, CANDIDATELIST* pDst, uint32* puCopied) GetConversionListW;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HIMC hIMC, uint32* pfdwConversion, uint32* pfdwSentence) GetConversionStatus;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HWND hWnd, HWND* phDefWnd) GetDefaultIMEWnd;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HKL hKL, uint32 uBufLen, PSTR szDescription, uint32* puCopied) GetDescriptionA;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HKL hKL, uint32 uBufLen, PWSTR szDescription, uint32* puCopied) GetDescriptionW;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HIMC hIMC, uint32 dwIndex, uint32 dwBufLen, PSTR pBuf, uint32* pdwResult) GetGuideLineA;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HIMC hIMC, uint32 dwIndex, uint32 dwBufLen, PWSTR pBuf, uint32* pdwResult) GetGuideLineW;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HKL hKL, uint32 uBufLen, PSTR szFileName, uint32* puCopied) GetIMEFileNameA;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HKL hKL, uint32 uBufLen, PWSTR szFileName, uint32* puCopied) GetIMEFileNameW;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HIMC hIMC) GetOpenStatus;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HKL hKL, uint32 fdwIndex, uint32* pdwProperty) GetProperty;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HKL hKL, uint32 nItem, STYLEBUFA* pStyleBuf, uint32* puCopied) GetRegisterWordStyleA;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HKL hKL, uint32 nItem, STYLEBUFW* pStyleBuf, uint32* puCopied) GetRegisterWordStyleW;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HIMC hIMC, POINT* pptPos) GetStatusWindowPos;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HWND hWnd, uint32* puVirtualKey) GetVirtualKey;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PSTR szIMEFileName, PSTR szLayoutText, HKL* phKL) InstallIMEA;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR szIMEFileName, PWSTR szLayoutText, HKL* phKL) InstallIMEW;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HKL hKL) IsIME;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HWND hWndIME, uint32 msg, WPARAM wParam, LPARAM lParam) IsUIMessageA;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HWND hWndIME, uint32 msg, WPARAM wParam, LPARAM lParam) IsUIMessageW;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HIMC hIMC, uint32 dwAction, uint32 dwIndex, uint32 dwValue) NotifyIME;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HKL hKL, PSTR szReading, uint32 dwStyle, PSTR szRegister) RegisterWordA;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HKL hKL, PWSTR szReading, uint32 dwStyle, PWSTR szRegister) RegisterWordW;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HWND hWnd, HIMC hIMC) ReleaseContext;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HIMC hIMC, CANDIDATEFORM* pCandidate) SetCandidateWindow;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HIMC hIMC, LOGFONTA* plf) SetCompositionFontA;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HIMC hIMC, LOGFONTW* plf) SetCompositionFontW;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HIMC hIMC, uint32 dwIndex, void* pComp, uint32 dwCompLen, void* pRead, uint32 dwReadLen) SetCompositionStringA;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HIMC hIMC, uint32 dwIndex, void* pComp, uint32 dwCompLen, void* pRead, uint32 dwReadLen) SetCompositionStringW;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HIMC hIMC, COMPOSITIONFORM* pCompForm) SetCompositionWindow;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HIMC hIMC, uint32 fdwConversion, uint32 fdwSentence) SetConversionStatus;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HIMC hIMC, BOOL fOpen) SetOpenStatus;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HIMC hIMC, POINT* pptPos) SetStatusWindowPos;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HWND hWnd, uint32 dwHotKeyID) SimulateHotKey;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HKL hKL, PSTR szReading, uint32 dwStyle, PSTR szUnregister) UnregisterWordA;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HKL hKL, PWSTR szReading, uint32 dwStyle, PWSTR szUnregister) UnregisterWordW;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BOOL fRestoreLayout) Activate;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Deactivate;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HWND hWnd, uint32 Msg, WPARAM wParam, LPARAM lParam, LRESULT* plResult) OnDefWindowProc;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint16* aaClassList, uint32 uSize) FilterClientWindows;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HKL hKL, uint32* uCodePage) GetCodePageA;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HKL hKL, uint16* plid) GetLangId;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HWND hWnd, HIMC hIMC, uint32 dwFlags) AssociateContextEx;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 idThread) DisableIME;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HIMC hIMC, uint32 dwFlags, uint32 dwType, IMEMENUITEMINFOA* pImeParentMenu, IMEMENUITEMINFOA* pImeMenu, uint32 dwSize, uint32* pdwResult) GetImeMenuItemsA;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HIMC hIMC, uint32 dwFlags, uint32 dwType, IMEMENUITEMINFOW* pImeParentMenu, IMEMENUITEMINFOW* pImeMenu, uint32 dwSize, uint32* pdwResult) GetImeMenuItemsW;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 idThread, IEnumInputContext** ppEnum) EnumInputContext;
 	}
 
 
@@ -2562,94 +2562,94 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IActiveIMMIME*/SelfOuter* self, HWND hWnd, HIMC hIME, HIMC* phPrev) AssociateContext;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IActiveIMMIME*/SelfOuter* self, HKL hKL, HWND hWnd, uint32 dwMode, REGISTERWORDA* pData) ConfigureIMEA;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IActiveIMMIME*/SelfOuter* self, HKL hKL, HWND hWnd, uint32 dwMode, REGISTERWORDW* pData) ConfigureIMEW;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IActiveIMMIME*/SelfOuter* self, HIMC* phIMC) CreateContext;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IActiveIMMIME*/SelfOuter* self, HIMC hIME) DestroyContext;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IActiveIMMIME*/SelfOuter* self, HKL hKL, PSTR szReading, uint32 dwStyle, PSTR szRegister, void* pData, IEnumRegisterWordA** pEnum) EnumRegisterWordA;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IActiveIMMIME*/SelfOuter* self, HKL hKL, PWSTR szReading, uint32 dwStyle, PWSTR szRegister, void* pData, IEnumRegisterWordW** pEnum) EnumRegisterWordW;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IActiveIMMIME*/SelfOuter* self, HKL hKL, HIMC hIMC, uint32 uEscape, void* pData, LRESULT* plResult) EscapeA;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IActiveIMMIME*/SelfOuter* self, HKL hKL, HIMC hIMC, uint32 uEscape, void* pData, LRESULT* plResult) EscapeW;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IActiveIMMIME*/SelfOuter* self, HIMC hIMC, uint32 dwIndex, uint32 uBufLen, CANDIDATELIST* pCandList, uint32* puCopied) GetCandidateListA;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IActiveIMMIME*/SelfOuter* self, HIMC hIMC, uint32 dwIndex, uint32 uBufLen, CANDIDATELIST* pCandList, uint32* puCopied) GetCandidateListW;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IActiveIMMIME*/SelfOuter* self, HIMC hIMC, uint32* pdwListSize, uint32* pdwBufLen) GetCandidateListCountA;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IActiveIMMIME*/SelfOuter* self, HIMC hIMC, uint32* pdwListSize, uint32* pdwBufLen) GetCandidateListCountW;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IActiveIMMIME*/SelfOuter* self, HIMC hIMC, uint32 dwIndex, CANDIDATEFORM* pCandidate) GetCandidateWindow;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IActiveIMMIME*/SelfOuter* self, HIMC hIMC, LOGFONTA* plf) GetCompositionFontA;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IActiveIMMIME*/SelfOuter* self, HIMC hIMC, LOGFONTW* plf) GetCompositionFontW;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IActiveIMMIME*/SelfOuter* self, HIMC hIMC, uint32 dwIndex, uint32 dwBufLen, int32* plCopied, void* pBuf) GetCompositionStringA;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IActiveIMMIME*/SelfOuter* self, HIMC hIMC, uint32 dwIndex, uint32 dwBufLen, int32* plCopied, void* pBuf) GetCompositionStringW;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IActiveIMMIME*/SelfOuter* self, HIMC hIMC, COMPOSITIONFORM* pCompForm) GetCompositionWindow;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IActiveIMMIME*/SelfOuter* self, HWND hWnd, HIMC* phIMC) GetContext;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IActiveIMMIME*/SelfOuter* self, HKL hKL, HIMC hIMC, PSTR pSrc, uint32 uBufLen, uint32 uFlag, CANDIDATELIST* pDst, uint32* puCopied) GetConversionListA;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IActiveIMMIME*/SelfOuter* self, HKL hKL, HIMC hIMC, PWSTR pSrc, uint32 uBufLen, uint32 uFlag, CANDIDATELIST* pDst, uint32* puCopied) GetConversionListW;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IActiveIMMIME*/SelfOuter* self, HIMC hIMC, uint32* pfdwConversion, uint32* pfdwSentence) GetConversionStatus;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IActiveIMMIME*/SelfOuter* self, HWND hWnd, HWND* phDefWnd) GetDefaultIMEWnd;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IActiveIMMIME*/SelfOuter* self, HKL hKL, uint32 uBufLen, PSTR szDescription, uint32* puCopied) GetDescriptionA;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IActiveIMMIME*/SelfOuter* self, HKL hKL, uint32 uBufLen, PWSTR szDescription, uint32* puCopied) GetDescriptionW;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IActiveIMMIME*/SelfOuter* self, HIMC hIMC, uint32 dwIndex, uint32 dwBufLen, PSTR pBuf, uint32* pdwResult) GetGuideLineA;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IActiveIMMIME*/SelfOuter* self, HIMC hIMC, uint32 dwIndex, uint32 dwBufLen, PWSTR pBuf, uint32* pdwResult) GetGuideLineW;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IActiveIMMIME*/SelfOuter* self, HKL hKL, uint32 uBufLen, PSTR szFileName, uint32* puCopied) GetIMEFileNameA;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IActiveIMMIME*/SelfOuter* self, HKL hKL, uint32 uBufLen, PWSTR szFileName, uint32* puCopied) GetIMEFileNameW;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IActiveIMMIME*/SelfOuter* self, HIMC hIMC) GetOpenStatus;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IActiveIMMIME*/SelfOuter* self, HKL hKL, uint32 fdwIndex, uint32* pdwProperty) GetProperty;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IActiveIMMIME*/SelfOuter* self, HKL hKL, uint32 nItem, STYLEBUFA* pStyleBuf, uint32* puCopied) GetRegisterWordStyleA;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IActiveIMMIME*/SelfOuter* self, HKL hKL, uint32 nItem, STYLEBUFW* pStyleBuf, uint32* puCopied) GetRegisterWordStyleW;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IActiveIMMIME*/SelfOuter* self, HIMC hIMC, POINT* pptPos) GetStatusWindowPos;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IActiveIMMIME*/SelfOuter* self, HWND hWnd, uint32* puVirtualKey) GetVirtualKey;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IActiveIMMIME*/SelfOuter* self, PSTR szIMEFileName, PSTR szLayoutText, HKL* phKL) InstallIMEA;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IActiveIMMIME*/SelfOuter* self, PWSTR szIMEFileName, PWSTR szLayoutText, HKL* phKL) InstallIMEW;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IActiveIMMIME*/SelfOuter* self, HKL hKL) IsIME;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IActiveIMMIME*/SelfOuter* self, HWND hWndIME, uint32 msg, WPARAM wParam, LPARAM lParam) IsUIMessageA;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IActiveIMMIME*/SelfOuter* self, HWND hWndIME, uint32 msg, WPARAM wParam, LPARAM lParam) IsUIMessageW;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IActiveIMMIME*/SelfOuter* self, HIMC hIMC, uint32 dwAction, uint32 dwIndex, uint32 dwValue) NotifyIME;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IActiveIMMIME*/SelfOuter* self, HKL hKL, PSTR szReading, uint32 dwStyle, PSTR szRegister) RegisterWordA;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IActiveIMMIME*/SelfOuter* self, HKL hKL, PWSTR szReading, uint32 dwStyle, PWSTR szRegister) RegisterWordW;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IActiveIMMIME*/SelfOuter* self, HWND hWnd, HIMC hIMC) ReleaseContext;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IActiveIMMIME*/SelfOuter* self, HIMC hIMC, CANDIDATEFORM* pCandidate) SetCandidateWindow;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IActiveIMMIME*/SelfOuter* self, HIMC hIMC, LOGFONTA* plf) SetCompositionFontA;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IActiveIMMIME*/SelfOuter* self, HIMC hIMC, LOGFONTW* plf) SetCompositionFontW;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IActiveIMMIME*/SelfOuter* self, HIMC hIMC, uint32 dwIndex, void* pComp, uint32 dwCompLen, void* pRead, uint32 dwReadLen) SetCompositionStringA;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IActiveIMMIME*/SelfOuter* self, HIMC hIMC, uint32 dwIndex, void* pComp, uint32 dwCompLen, void* pRead, uint32 dwReadLen) SetCompositionStringW;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IActiveIMMIME*/SelfOuter* self, HIMC hIMC, COMPOSITIONFORM* pCompForm) SetCompositionWindow;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IActiveIMMIME*/SelfOuter* self, HIMC hIMC, uint32 fdwConversion, uint32 fdwSentence) SetConversionStatus;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IActiveIMMIME*/SelfOuter* self, HIMC hIMC, BOOL fOpen) SetOpenStatus;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IActiveIMMIME*/SelfOuter* self, HIMC hIMC, POINT* pptPos) SetStatusWindowPos;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IActiveIMMIME*/SelfOuter* self, HWND hWnd, uint32 dwHotKeyID) SimulateHotKey;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IActiveIMMIME*/SelfOuter* self, HKL hKL, PSTR szReading, uint32 dwStyle, PSTR szUnregister) UnregisterWordA;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IActiveIMMIME*/SelfOuter* self, HKL hKL, PWSTR szReading, uint32 dwStyle, PWSTR szUnregister) UnregisterWordW;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IActiveIMMIME*/SelfOuter* self, HIMC hIMC) GenerateMessage;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IActiveIMMIME*/SelfOuter* self, HIMC hIMC, INPUTCONTEXT** ppIMC) LockIMC;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IActiveIMMIME*/SelfOuter* self, HIMC hIMC) UnlockIMC;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IActiveIMMIME*/SelfOuter* self, HIMC hIMC, uint32* pdwLockCount) GetIMCLockCount;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IActiveIMMIME*/SelfOuter* self, uint32 dwSize, HIMCC* phIMCC) CreateIMCC;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IActiveIMMIME*/SelfOuter* self, HIMCC hIMCC) DestroyIMCC;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IActiveIMMIME*/SelfOuter* self, HIMCC hIMCC, void** ppv) LockIMCC;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IActiveIMMIME*/SelfOuter* self, HIMCC hIMCC) UnlockIMCC;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IActiveIMMIME*/SelfOuter* self, HIMCC hIMCC, uint32 dwSize, HIMCC* phIMCC) ReSizeIMCC;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IActiveIMMIME*/SelfOuter* self, HIMCC hIMCC, uint32* pdwSize) GetIMCCSize;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IActiveIMMIME*/SelfOuter* self, HIMCC hIMCC, uint32* pdwLockCount) GetIMCCLockCount;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IActiveIMMIME*/SelfOuter* self, uint32 dwHotKeyID, uint32* puModifiers, uint32* puVKey, HKL* phKL) GetHotKey;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IActiveIMMIME*/SelfOuter* self, uint32 dwHotKeyID, uint32 uModifiers, uint32 uVKey, HKL hKL) SetHotKey;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IActiveIMMIME*/SelfOuter* self, uint32 uType, HWND hOwner, int32 x, int32 y, HWND* phSoftKbdWnd) CreateSoftKeyboard;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IActiveIMMIME*/SelfOuter* self, HWND hSoftKbdWnd) DestroySoftKeyboard;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IActiveIMMIME*/SelfOuter* self, HWND hSoftKbdWnd, int32 nCmdShow) ShowSoftKeyboard;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IActiveIMMIME*/SelfOuter* self, HKL hKL, uint32* uCodePage) GetCodePageA;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IActiveIMMIME*/SelfOuter* self, HKL hKL, uint16* plid) GetLangId;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IActiveIMMIME*/SelfOuter* self, uint16 lgidIME, uint8 bVk, uint8 bScan, uint32 dwFlags, uint32 dwExtraInfo) KeybdEvent;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IActiveIMMIME*/SelfOuter* self) LockModal;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IActiveIMMIME*/SelfOuter* self) UnlockModal;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IActiveIMMIME*/SelfOuter* self, HWND hWnd, HIMC hIMC, uint32 dwFlags) AssociateContextEx;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IActiveIMMIME*/SelfOuter* self, uint32 idThread) DisableIME;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IActiveIMMIME*/SelfOuter* self, HIMC hIMC, uint32 dwFlags, uint32 dwType, IMEMENUITEMINFOA* pImeParentMenu, IMEMENUITEMINFOA* pImeMenu, uint32 dwSize, uint32* pdwResult) GetImeMenuItemsA;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IActiveIMMIME*/SelfOuter* self, HIMC hIMC, uint32 dwFlags, uint32 dwType, IMEMENUITEMINFOW* pImeParentMenu, IMEMENUITEMINFOW* pImeMenu, uint32 dwSize, uint32* pdwResult) GetImeMenuItemsW;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IActiveIMMIME*/SelfOuter* self, uint32 idThread, IEnumInputContext** ppEnum) EnumInputContext;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IActiveIMMIME*/SelfOuter* self, HIMC hIMC, WPARAM wParam, LPARAM lParam, LRESULT* plResult) RequestMessageA;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IActiveIMMIME*/SelfOuter* self, HIMC hIMC, WPARAM wParam, LPARAM lParam, LRESULT* plResult) RequestMessageW;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IActiveIMMIME*/SelfOuter* self, HWND hWnd, uint32 uMsg, WPARAM wParam, LPARAM lParam, LRESULT* plResult) SendIMCA;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IActiveIMMIME*/SelfOuter* self, HWND hWnd, uint32 uMsg, WPARAM wParam, LPARAM lParam, LRESULT* plResult) SendIMCW;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IActiveIMMIME*/SelfOuter* self) IsSleeping;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HWND hWnd, HIMC hIME, HIMC* phPrev) AssociateContext;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HKL hKL, HWND hWnd, uint32 dwMode, REGISTERWORDA* pData) ConfigureIMEA;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HKL hKL, HWND hWnd, uint32 dwMode, REGISTERWORDW* pData) ConfigureIMEW;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HIMC* phIMC) CreateContext;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HIMC hIME) DestroyContext;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HKL hKL, PSTR szReading, uint32 dwStyle, PSTR szRegister, void* pData, IEnumRegisterWordA** pEnum) EnumRegisterWordA;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HKL hKL, PWSTR szReading, uint32 dwStyle, PWSTR szRegister, void* pData, IEnumRegisterWordW** pEnum) EnumRegisterWordW;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HKL hKL, HIMC hIMC, uint32 uEscape, void* pData, LRESULT* plResult) EscapeA;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HKL hKL, HIMC hIMC, uint32 uEscape, void* pData, LRESULT* plResult) EscapeW;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HIMC hIMC, uint32 dwIndex, uint32 uBufLen, CANDIDATELIST* pCandList, uint32* puCopied) GetCandidateListA;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HIMC hIMC, uint32 dwIndex, uint32 uBufLen, CANDIDATELIST* pCandList, uint32* puCopied) GetCandidateListW;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HIMC hIMC, uint32* pdwListSize, uint32* pdwBufLen) GetCandidateListCountA;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HIMC hIMC, uint32* pdwListSize, uint32* pdwBufLen) GetCandidateListCountW;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HIMC hIMC, uint32 dwIndex, CANDIDATEFORM* pCandidate) GetCandidateWindow;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HIMC hIMC, LOGFONTA* plf) GetCompositionFontA;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HIMC hIMC, LOGFONTW* plf) GetCompositionFontW;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HIMC hIMC, uint32 dwIndex, uint32 dwBufLen, int32* plCopied, void* pBuf) GetCompositionStringA;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HIMC hIMC, uint32 dwIndex, uint32 dwBufLen, int32* plCopied, void* pBuf) GetCompositionStringW;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HIMC hIMC, COMPOSITIONFORM* pCompForm) GetCompositionWindow;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HWND hWnd, HIMC* phIMC) GetContext;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HKL hKL, HIMC hIMC, PSTR pSrc, uint32 uBufLen, uint32 uFlag, CANDIDATELIST* pDst, uint32* puCopied) GetConversionListA;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HKL hKL, HIMC hIMC, PWSTR pSrc, uint32 uBufLen, uint32 uFlag, CANDIDATELIST* pDst, uint32* puCopied) GetConversionListW;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HIMC hIMC, uint32* pfdwConversion, uint32* pfdwSentence) GetConversionStatus;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HWND hWnd, HWND* phDefWnd) GetDefaultIMEWnd;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HKL hKL, uint32 uBufLen, PSTR szDescription, uint32* puCopied) GetDescriptionA;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HKL hKL, uint32 uBufLen, PWSTR szDescription, uint32* puCopied) GetDescriptionW;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HIMC hIMC, uint32 dwIndex, uint32 dwBufLen, PSTR pBuf, uint32* pdwResult) GetGuideLineA;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HIMC hIMC, uint32 dwIndex, uint32 dwBufLen, PWSTR pBuf, uint32* pdwResult) GetGuideLineW;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HKL hKL, uint32 uBufLen, PSTR szFileName, uint32* puCopied) GetIMEFileNameA;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HKL hKL, uint32 uBufLen, PWSTR szFileName, uint32* puCopied) GetIMEFileNameW;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HIMC hIMC) GetOpenStatus;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HKL hKL, uint32 fdwIndex, uint32* pdwProperty) GetProperty;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HKL hKL, uint32 nItem, STYLEBUFA* pStyleBuf, uint32* puCopied) GetRegisterWordStyleA;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HKL hKL, uint32 nItem, STYLEBUFW* pStyleBuf, uint32* puCopied) GetRegisterWordStyleW;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HIMC hIMC, POINT* pptPos) GetStatusWindowPos;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HWND hWnd, uint32* puVirtualKey) GetVirtualKey;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PSTR szIMEFileName, PSTR szLayoutText, HKL* phKL) InstallIMEA;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR szIMEFileName, PWSTR szLayoutText, HKL* phKL) InstallIMEW;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HKL hKL) IsIME;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HWND hWndIME, uint32 msg, WPARAM wParam, LPARAM lParam) IsUIMessageA;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HWND hWndIME, uint32 msg, WPARAM wParam, LPARAM lParam) IsUIMessageW;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HIMC hIMC, uint32 dwAction, uint32 dwIndex, uint32 dwValue) NotifyIME;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HKL hKL, PSTR szReading, uint32 dwStyle, PSTR szRegister) RegisterWordA;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HKL hKL, PWSTR szReading, uint32 dwStyle, PWSTR szRegister) RegisterWordW;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HWND hWnd, HIMC hIMC) ReleaseContext;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HIMC hIMC, CANDIDATEFORM* pCandidate) SetCandidateWindow;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HIMC hIMC, LOGFONTA* plf) SetCompositionFontA;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HIMC hIMC, LOGFONTW* plf) SetCompositionFontW;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HIMC hIMC, uint32 dwIndex, void* pComp, uint32 dwCompLen, void* pRead, uint32 dwReadLen) SetCompositionStringA;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HIMC hIMC, uint32 dwIndex, void* pComp, uint32 dwCompLen, void* pRead, uint32 dwReadLen) SetCompositionStringW;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HIMC hIMC, COMPOSITIONFORM* pCompForm) SetCompositionWindow;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HIMC hIMC, uint32 fdwConversion, uint32 fdwSentence) SetConversionStatus;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HIMC hIMC, BOOL fOpen) SetOpenStatus;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HIMC hIMC, POINT* pptPos) SetStatusWindowPos;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HWND hWnd, uint32 dwHotKeyID) SimulateHotKey;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HKL hKL, PSTR szReading, uint32 dwStyle, PSTR szUnregister) UnregisterWordA;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HKL hKL, PWSTR szReading, uint32 dwStyle, PWSTR szUnregister) UnregisterWordW;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HIMC hIMC) GenerateMessage;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HIMC hIMC, INPUTCONTEXT** ppIMC) LockIMC;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HIMC hIMC) UnlockIMC;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HIMC hIMC, uint32* pdwLockCount) GetIMCLockCount;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwSize, HIMCC* phIMCC) CreateIMCC;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HIMCC hIMCC) DestroyIMCC;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HIMCC hIMCC, void** ppv) LockIMCC;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HIMCC hIMCC) UnlockIMCC;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HIMCC hIMCC, uint32 dwSize, HIMCC* phIMCC) ReSizeIMCC;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HIMCC hIMCC, uint32* pdwSize) GetIMCCSize;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HIMCC hIMCC, uint32* pdwLockCount) GetIMCCLockCount;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwHotKeyID, uint32* puModifiers, uint32* puVKey, HKL* phKL) GetHotKey;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwHotKeyID, uint32 uModifiers, uint32 uVKey, HKL hKL) SetHotKey;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 uType, HWND hOwner, int32 x, int32 y, HWND* phSoftKbdWnd) CreateSoftKeyboard;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HWND hSoftKbdWnd) DestroySoftKeyboard;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HWND hSoftKbdWnd, int32 nCmdShow) ShowSoftKeyboard;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HKL hKL, uint32* uCodePage) GetCodePageA;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HKL hKL, uint16* plid) GetLangId;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint16 lgidIME, uint8 bVk, uint8 bScan, uint32 dwFlags, uint32 dwExtraInfo) KeybdEvent;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) LockModal;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) UnlockModal;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HWND hWnd, HIMC hIMC, uint32 dwFlags) AssociateContextEx;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 idThread) DisableIME;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HIMC hIMC, uint32 dwFlags, uint32 dwType, IMEMENUITEMINFOA* pImeParentMenu, IMEMENUITEMINFOA* pImeMenu, uint32 dwSize, uint32* pdwResult) GetImeMenuItemsA;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HIMC hIMC, uint32 dwFlags, uint32 dwType, IMEMENUITEMINFOW* pImeParentMenu, IMEMENUITEMINFOW* pImeMenu, uint32 dwSize, uint32* pdwResult) GetImeMenuItemsW;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 idThread, IEnumInputContext** ppEnum) EnumInputContext;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HIMC hIMC, WPARAM wParam, LPARAM lParam, LRESULT* plResult) RequestMessageA;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HIMC hIMC, WPARAM wParam, LPARAM lParam, LRESULT* plResult) RequestMessageW;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HWND hWnd, uint32 uMsg, WPARAM wParam, LPARAM lParam, LRESULT* plResult) SendIMCA;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HWND hWnd, uint32 uMsg, WPARAM wParam, LPARAM lParam, LRESULT* plResult) SendIMCW;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) IsSleeping;
 	}
 
 
@@ -2838,23 +2838,23 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IActiveIME*/SelfOuter* self, uint32 dwSystemInfoFlags, IMEINFO* pIMEInfo, PWSTR szWndClass, uint32* pdwPrivate) Inquire;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IActiveIME*/SelfOuter* self, HIMC hIMC, PWSTR szSource, uint32 uFlag, uint32 uBufLen, CANDIDATELIST* pDest, uint32* puCopied) ConversionList;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IActiveIME*/SelfOuter* self, HKL hKL, HWND hWnd, uint32 dwMode, REGISTERWORDW* pRegisterWord) Configure;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IActiveIME*/SelfOuter* self, uint32 uReserved) Destroy;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IActiveIME*/SelfOuter* self, HIMC hIMC, uint32 uEscape, void* pData, LRESULT* plResult) Escape;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IActiveIME*/SelfOuter* self, HIMC hIMC, BOOL fFlag) SetActiveContext;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IActiveIME*/SelfOuter* self, HIMC hIMC, uint32 uVirKey, uint32 lParam, uint8* pbKeyState) ProcessKey;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IActiveIME*/SelfOuter* self, HIMC hIMC, uint32 dwAction, uint32 dwIndex, uint32 dwValue) Notify;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IActiveIME*/SelfOuter* self, HIMC hIMC, BOOL fSelect) Select;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IActiveIME*/SelfOuter* self, HIMC hIMC, uint32 dwIndex, void* pComp, uint32 dwCompLen, void* pRead, uint32 dwReadLen) SetCompositionString;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IActiveIME*/SelfOuter* self, uint32 uVirKey, uint32 uScanCode, uint8* pbKeyState, uint32 fuState, HIMC hIMC, uint32* pdwTransBuf, uint32* puSize) ToAsciiEx;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IActiveIME*/SelfOuter* self, PWSTR szReading, uint32 dwStyle, PWSTR szString) RegisterWord;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IActiveIME*/SelfOuter* self, PWSTR szReading, uint32 dwStyle, PWSTR szString) UnregisterWord;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IActiveIME*/SelfOuter* self, uint32 nItem, STYLEBUFW* pStyleBuf, uint32* puBufSize) GetRegisterWordStyle;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IActiveIME*/SelfOuter* self, PWSTR szReading, uint32 dwStyle, PWSTR szRegister, void* pData, IEnumRegisterWordW** ppEnum) EnumRegisterWord;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IActiveIME*/SelfOuter* self, uint32* uCodePage) GetCodePageA;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IActiveIME*/SelfOuter* self, uint16* plid) GetLangId;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwSystemInfoFlags, IMEINFO* pIMEInfo, PWSTR szWndClass, uint32* pdwPrivate) Inquire;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HIMC hIMC, PWSTR szSource, uint32 uFlag, uint32 uBufLen, CANDIDATELIST* pDest, uint32* puCopied) ConversionList;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HKL hKL, HWND hWnd, uint32 dwMode, REGISTERWORDW* pRegisterWord) Configure;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 uReserved) Destroy;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HIMC hIMC, uint32 uEscape, void* pData, LRESULT* plResult) Escape;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HIMC hIMC, BOOL fFlag) SetActiveContext;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HIMC hIMC, uint32 uVirKey, uint32 lParam, uint8* pbKeyState) ProcessKey;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HIMC hIMC, uint32 dwAction, uint32 dwIndex, uint32 dwValue) Notify;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HIMC hIMC, BOOL fSelect) Select;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HIMC hIMC, uint32 dwIndex, void* pComp, uint32 dwCompLen, void* pRead, uint32 dwReadLen) SetCompositionString;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 uVirKey, uint32 uScanCode, uint8* pbKeyState, uint32 fuState, HIMC hIMC, uint32* pdwTransBuf, uint32* puSize) ToAsciiEx;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR szReading, uint32 dwStyle, PWSTR szString) RegisterWord;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR szReading, uint32 dwStyle, PWSTR szString) UnregisterWord;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 nItem, STYLEBUFW* pStyleBuf, uint32* puBufSize) GetRegisterWordStyle;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR szReading, uint32 dwStyle, PWSTR szRegister, void* pData, IEnumRegisterWordW** ppEnum) EnumRegisterWord;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* uCodePage) GetCodePageA;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint16* plid) GetLangId;
 	}
 
 
@@ -2901,8 +2901,8 @@ public static
 
 	[CRepr]public struct VTable : IActiveIME.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IActiveIME2*/SelfOuter* self) Sleep;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IActiveIME2*/SelfOuter* self, BOOL fDead) Unsleep;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Sleep;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BOOL fDead) Unsleep;
 	}
 
 

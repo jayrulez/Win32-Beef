@@ -480,11 +480,11 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxFactory*/SelfOuter* self, IStream* outputStream, APPX_PACKAGE_SETTINGS* settings, IAppxPackageWriter** packageWriter) CreatePackageWriter;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxFactory*/SelfOuter* self, IStream* inputStream, IAppxPackageReader** packageReader) CreatePackageReader;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxFactory*/SelfOuter* self, IStream* inputStream, IAppxManifestReader** manifestReader) CreateManifestReader;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxFactory*/SelfOuter* self, IStream* inputStream, IAppxBlockMapReader** blockMapReader) CreateBlockMapReader;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxFactory*/SelfOuter* self, IStream* blockMapStream, PWSTR signatureFileName, IAppxBlockMapReader** blockMapReader) CreateValidatedBlockMapReader;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IStream* outputStream, APPX_PACKAGE_SETTINGS* settings, IAppxPackageWriter** packageWriter) CreatePackageWriter;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IStream* inputStream, IAppxPackageReader** packageReader) CreatePackageReader;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IStream* inputStream, IAppxManifestReader** manifestReader) CreateManifestReader;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IStream* inputStream, IAppxBlockMapReader** blockMapReader) CreateBlockMapReader;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IStream* blockMapStream, PWSTR signatureFileName, IAppxBlockMapReader** blockMapReader) CreateValidatedBlockMapReader;
 	}
 
 
@@ -507,9 +507,9 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxFactory2*/SelfOuter* self, IStream* inputStream, IAppxContentGroupMapReader** contentGroupMapReader) CreateContentGroupMapReader;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxFactory2*/SelfOuter* self, IStream* inputStream, IAppxSourceContentGroupMapReader** reader) CreateSourceContentGroupMapReader;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxFactory2*/SelfOuter* self, IStream* stream, IAppxContentGroupMapWriter** contentGroupMapWriter) CreateContentGroupMapWriter;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IStream* inputStream, IAppxContentGroupMapReader** contentGroupMapReader) CreateContentGroupMapReader;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IStream* inputStream, IAppxSourceContentGroupMapReader** reader) CreateSourceContentGroupMapReader;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IStream* stream, IAppxContentGroupMapWriter** contentGroupMapWriter) CreateContentGroupMapWriter;
 	}
 
 
@@ -528,11 +528,11 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxPackageReader*/SelfOuter* self, IAppxBlockMapReader** blockMapReader) GetBlockMap;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxPackageReader*/SelfOuter* self, APPX_FOOTPRINT_FILE_TYPE type, IAppxFile** file) GetFootprintFile;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxPackageReader*/SelfOuter* self, PWSTR fileName, IAppxFile** file) GetPayloadFile;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxPackageReader*/SelfOuter* self, IAppxFilesEnumerator** filesEnumerator) GetPayloadFiles;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxPackageReader*/SelfOuter* self, IAppxManifestReader** manifestReader) GetManifest;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IAppxBlockMapReader** blockMapReader) GetBlockMap;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, APPX_FOOTPRINT_FILE_TYPE type, IAppxFile** file) GetFootprintFile;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR fileName, IAppxFile** file) GetPayloadFile;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IAppxFilesEnumerator** filesEnumerator) GetPayloadFiles;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IAppxManifestReader** manifestReader) GetManifest;
 	}
 
 
@@ -555,8 +555,8 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxPackageWriter*/SelfOuter* self, PWSTR fileName, PWSTR contentType, APPX_COMPRESSION_OPTION compressionOption, IStream* inputStream) AddPayloadFile;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxPackageWriter*/SelfOuter* self, IStream* manifest) Close;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR fileName, PWSTR contentType, APPX_COMPRESSION_OPTION compressionOption, IStream* inputStream) AddPayloadFile;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IStream* manifest) Close;
 	}
 
 
@@ -573,7 +573,7 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxPackageWriter2*/SelfOuter* self, IStream* manifest, IStream* contentGroupMap) Close;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IStream* manifest, IStream* contentGroupMap) Close;
 	}
 
 
@@ -588,7 +588,7 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxPackageWriter3*/SelfOuter* self, uint32 fileCount, APPX_PACKAGE_WRITER_PAYLOAD_STREAM* payloadFiles, uint64 memoryLimit) AddPayloadFiles;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 fileCount, APPX_PACKAGE_WRITER_PAYLOAD_STREAM* payloadFiles, uint64 memoryLimit) AddPayloadFiles;
 	}
 
 
@@ -603,11 +603,11 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxFile*/SelfOuter* self, APPX_COMPRESSION_OPTION* compressionOption) GetCompressionOption;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxFile*/SelfOuter* self, PWSTR* contentType) GetContentType;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxFile*/SelfOuter* self, PWSTR* fileName) GetName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxFile*/SelfOuter* self, uint64* size) GetSize;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxFile*/SelfOuter* self, IStream** stream) GetStream;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, APPX_COMPRESSION_OPTION* compressionOption) GetCompressionOption;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR* contentType) GetContentType;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR* fileName) GetName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint64* size) GetSize;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IStream** stream) GetStream;
 	}
 
 
@@ -630,9 +630,9 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxFilesEnumerator*/SelfOuter* self, IAppxFile** file) GetCurrent;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxFilesEnumerator*/SelfOuter* self, BOOL* hasCurrent) GetHasCurrent;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxFilesEnumerator*/SelfOuter* self, BOOL* hasNext) MoveNext;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IAppxFile** file) GetCurrent;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BOOL* hasCurrent) GetHasCurrent;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BOOL* hasNext) MoveNext;
 	}
 
 
@@ -651,10 +651,10 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxBlockMapReader*/SelfOuter* self, PWSTR filename, IAppxBlockMapFile** file) GetFile;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxBlockMapReader*/SelfOuter* self, IAppxBlockMapFilesEnumerator** enumerator) GetFiles;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxBlockMapReader*/SelfOuter* self, IUri** hashMethod) GetHashMethod;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxBlockMapReader*/SelfOuter* self, IStream** blockMapStream) GetStream;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR filename, IAppxBlockMapFile** file) GetFile;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IAppxBlockMapFilesEnumerator** enumerator) GetFiles;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IUri** hashMethod) GetHashMethod;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IStream** blockMapStream) GetStream;
 	}
 
 
@@ -675,11 +675,11 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxBlockMapFile*/SelfOuter* self, IAppxBlockMapBlocksEnumerator** blocks) GetBlocks;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxBlockMapFile*/SelfOuter* self, uint32* lfhSize) GetLocalFileHeaderSize;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxBlockMapFile*/SelfOuter* self, PWSTR* name) GetName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxBlockMapFile*/SelfOuter* self, uint64* size) GetUncompressedSize;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxBlockMapFile*/SelfOuter* self, IStream* fileStream, BOOL* isValid) ValidateFileHash;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IAppxBlockMapBlocksEnumerator** blocks) GetBlocks;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* lfhSize) GetLocalFileHeaderSize;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR* name) GetName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint64* size) GetUncompressedSize;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IStream* fileStream, BOOL* isValid) ValidateFileHash;
 	}
 
 
@@ -702,9 +702,9 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxBlockMapFilesEnumerator*/SelfOuter* self, IAppxBlockMapFile** file) GetCurrent;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxBlockMapFilesEnumerator*/SelfOuter* self, BOOL* hasCurrent) GetHasCurrent;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxBlockMapFilesEnumerator*/SelfOuter* self, BOOL* hasCurrent) MoveNext;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IAppxBlockMapFile** file) GetCurrent;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BOOL* hasCurrent) GetHasCurrent;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BOOL* hasCurrent) MoveNext;
 	}
 
 
@@ -723,8 +723,8 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxBlockMapBlock*/SelfOuter* self, uint32* bufferSize, uint8** buffer) GetHash;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxBlockMapBlock*/SelfOuter* self, uint32* size) GetCompressedSize;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* bufferSize, uint8** buffer) GetHash;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* size) GetCompressedSize;
 	}
 
 
@@ -741,9 +741,9 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxBlockMapBlocksEnumerator*/SelfOuter* self, IAppxBlockMapBlock** block) GetCurrent;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxBlockMapBlocksEnumerator*/SelfOuter* self, BOOL* hasCurrent) GetHasCurrent;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxBlockMapBlocksEnumerator*/SelfOuter* self, BOOL* hasNext) MoveNext;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IAppxBlockMapBlock** block) GetCurrent;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BOOL* hasCurrent) GetHasCurrent;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BOOL* hasNext) MoveNext;
 	}
 
 
@@ -762,15 +762,15 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxManifestReader*/SelfOuter* self, IAppxManifestPackageId** packageId) GetPackageId;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxManifestReader*/SelfOuter* self, IAppxManifestProperties** packageProperties) GetProperties;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxManifestReader*/SelfOuter* self, IAppxManifestPackageDependenciesEnumerator** dependencies) GetPackageDependencies;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxManifestReader*/SelfOuter* self, APPX_CAPABILITIES* capabilities) GetCapabilities;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxManifestReader*/SelfOuter* self, IAppxManifestResourcesEnumerator** resources) GetResources;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxManifestReader*/SelfOuter* self, IAppxManifestDeviceCapabilitiesEnumerator** deviceCapabilities) GetDeviceCapabilities;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxManifestReader*/SelfOuter* self, PWSTR name, uint64* value) GetPrerequisite;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxManifestReader*/SelfOuter* self, IAppxManifestApplicationsEnumerator** applications) GetApplications;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxManifestReader*/SelfOuter* self, IStream** manifestStream) GetStream;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IAppxManifestPackageId** packageId) GetPackageId;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IAppxManifestProperties** packageProperties) GetProperties;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IAppxManifestPackageDependenciesEnumerator** dependencies) GetPackageDependencies;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, APPX_CAPABILITIES* capabilities) GetCapabilities;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IAppxManifestResourcesEnumerator** resources) GetResources;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IAppxManifestDeviceCapabilitiesEnumerator** deviceCapabilities) GetDeviceCapabilities;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR name, uint64* value) GetPrerequisite;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IAppxManifestApplicationsEnumerator** applications) GetApplications;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IStream** manifestStream) GetStream;
 	}
 
 
@@ -801,7 +801,7 @@ public static
 
 	[CRepr]public struct VTable : IAppxManifestReader.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxManifestReader2*/SelfOuter* self, IAppxManifestQualifiedResourcesEnumerator** resources) GetQualifiedResources;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IAppxManifestQualifiedResourcesEnumerator** resources) GetQualifiedResources;
 	}
 
 
@@ -816,8 +816,8 @@ public static
 
 	[CRepr]public struct VTable : IAppxManifestReader2.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxManifestReader3*/SelfOuter* self, APPX_CAPABILITY_CLASS_TYPE capabilityClass, IAppxManifestCapabilitiesEnumerator** capabilities) GetCapabilitiesByCapabilityClass;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxManifestReader3*/SelfOuter* self, IAppxManifestTargetDeviceFamiliesEnumerator** targetDeviceFamilies) GetTargetDeviceFamilies;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, APPX_CAPABILITY_CLASS_TYPE capabilityClass, IAppxManifestCapabilitiesEnumerator** capabilities) GetCapabilitiesByCapabilityClass;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IAppxManifestTargetDeviceFamiliesEnumerator** targetDeviceFamilies) GetTargetDeviceFamilies;
 	}
 
 
@@ -834,7 +834,7 @@ public static
 
 	[CRepr]public struct VTable : IAppxManifestReader3.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxManifestReader4*/SelfOuter* self, IAppxManifestOptionalPackageInfo** optionalPackageInfo) GetOptionalPackageInfo;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IAppxManifestOptionalPackageInfo** optionalPackageInfo) GetOptionalPackageInfo;
 	}
 
 
@@ -849,7 +849,7 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxManifestReader5*/SelfOuter* self, IAppxManifestMainPackageDependenciesEnumerator** mainPackageDependencies) GetMainPackageDependencies;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IAppxManifestMainPackageDependenciesEnumerator** mainPackageDependencies) GetMainPackageDependencies;
 	}
 
 
@@ -864,7 +864,7 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxManifestReader6*/SelfOuter* self, BOOL* isNonQualifiedResourcePackage) GetIsNonQualifiedResourcePackage;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BOOL* isNonQualifiedResourcePackage) GetIsNonQualifiedResourcePackage;
 	}
 
 
@@ -879,9 +879,9 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxManifestReader7*/SelfOuter* self, IAppxManifestDriverDependenciesEnumerator** driverDependencies) GetDriverDependencies;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxManifestReader7*/SelfOuter* self, IAppxManifestOSPackageDependenciesEnumerator** osPackageDependencies) GetOSPackageDependencies;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxManifestReader7*/SelfOuter* self, IAppxManifestHostRuntimeDependenciesEnumerator** hostRuntimeDependencies) GetHostRuntimeDependencies;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IAppxManifestDriverDependenciesEnumerator** driverDependencies) GetDriverDependencies;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IAppxManifestOSPackageDependenciesEnumerator** osPackageDependencies) GetOSPackageDependencies;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IAppxManifestHostRuntimeDependenciesEnumerator** hostRuntimeDependencies) GetHostRuntimeDependencies;
 	}
 
 
@@ -900,9 +900,9 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxManifestDriverDependenciesEnumerator*/SelfOuter* self, IAppxManifestDriverDependency** driverDependency) GetCurrent;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxManifestDriverDependenciesEnumerator*/SelfOuter* self, BOOL* hasCurrent) GetHasCurrent;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxManifestDriverDependenciesEnumerator*/SelfOuter* self, BOOL* hasNext) MoveNext;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IAppxManifestDriverDependency** driverDependency) GetCurrent;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BOOL* hasCurrent) GetHasCurrent;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BOOL* hasNext) MoveNext;
 	}
 
 
@@ -921,7 +921,7 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxManifestDriverDependency*/SelfOuter* self, IAppxManifestDriverConstraintsEnumerator** driverConstraints) GetDriverConstraints;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IAppxManifestDriverConstraintsEnumerator** driverConstraints) GetDriverConstraints;
 	}
 
 
@@ -936,9 +936,9 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxManifestDriverConstraintsEnumerator*/SelfOuter* self, IAppxManifestDriverConstraint** driverConstraint) GetCurrent;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxManifestDriverConstraintsEnumerator*/SelfOuter* self, BOOL* hasCurrent) GetHasCurrent;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxManifestDriverConstraintsEnumerator*/SelfOuter* self, BOOL* hasNext) MoveNext;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IAppxManifestDriverConstraint** driverConstraint) GetCurrent;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BOOL* hasCurrent) GetHasCurrent;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BOOL* hasNext) MoveNext;
 	}
 
 
@@ -957,9 +957,9 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxManifestDriverConstraint*/SelfOuter* self, PWSTR* name) GetName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxManifestDriverConstraint*/SelfOuter* self, uint64* minVersion) GetMinVersion;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxManifestDriverConstraint*/SelfOuter* self, PWSTR* minDate) GetMinDate;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR* name) GetName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint64* minVersion) GetMinVersion;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR* minDate) GetMinDate;
 	}
 
 
@@ -978,9 +978,9 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxManifestOSPackageDependenciesEnumerator*/SelfOuter* self, IAppxManifestOSPackageDependency** osPackageDependency) GetCurrent;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxManifestOSPackageDependenciesEnumerator*/SelfOuter* self, BOOL* hasCurrent) GetHasCurrent;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxManifestOSPackageDependenciesEnumerator*/SelfOuter* self, BOOL* hasNext) MoveNext;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IAppxManifestOSPackageDependency** osPackageDependency) GetCurrent;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BOOL* hasCurrent) GetHasCurrent;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BOOL* hasNext) MoveNext;
 	}
 
 
@@ -999,8 +999,8 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxManifestOSPackageDependency*/SelfOuter* self, PWSTR* name) GetName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxManifestOSPackageDependency*/SelfOuter* self, uint64* version) GetVersion;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR* name) GetName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint64* version) GetVersion;
 	}
 
 
@@ -1017,9 +1017,9 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxManifestHostRuntimeDependenciesEnumerator*/SelfOuter* self, IAppxManifestHostRuntimeDependency** hostRuntimeDependency) GetCurrent;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxManifestHostRuntimeDependenciesEnumerator*/SelfOuter* self, BOOL* hasCurrent) GetHasCurrent;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxManifestHostRuntimeDependenciesEnumerator*/SelfOuter* self, BOOL* hasNext) MoveNext;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IAppxManifestHostRuntimeDependency** hostRuntimeDependency) GetCurrent;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BOOL* hasCurrent) GetHasCurrent;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BOOL* hasNext) MoveNext;
 	}
 
 
@@ -1038,9 +1038,9 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxManifestHostRuntimeDependency*/SelfOuter* self, PWSTR* name) GetName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxManifestHostRuntimeDependency*/SelfOuter* self, PWSTR* publisher) GetPublisher;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxManifestHostRuntimeDependency*/SelfOuter* self, uint64* minVersion) GetMinVersion;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR* name) GetName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR* publisher) GetPublisher;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint64* minVersion) GetMinVersion;
 	}
 
 
@@ -1059,7 +1059,7 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxManifestHostRuntimeDependency2*/SelfOuter* self, PWSTR* packageFamilyName) GetPackageFamilyName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR* packageFamilyName) GetPackageFamilyName;
 	}
 
 
@@ -1074,8 +1074,8 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxManifestOptionalPackageInfo*/SelfOuter* self, BOOL* isOptionalPackage) GetIsOptionalPackage;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxManifestOptionalPackageInfo*/SelfOuter* self, PWSTR* mainPackageName) GetMainPackageName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BOOL* isOptionalPackage) GetIsOptionalPackage;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR* mainPackageName) GetMainPackageName;
 	}
 
 
@@ -1092,9 +1092,9 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxManifestMainPackageDependenciesEnumerator*/SelfOuter* self, IAppxManifestMainPackageDependency** mainPackageDependency) GetCurrent;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxManifestMainPackageDependenciesEnumerator*/SelfOuter* self, BOOL* hasCurrent) GetHasCurrent;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxManifestMainPackageDependenciesEnumerator*/SelfOuter* self, BOOL* hasNext) MoveNext;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IAppxManifestMainPackageDependency** mainPackageDependency) GetCurrent;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BOOL* hasCurrent) GetHasCurrent;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BOOL* hasNext) MoveNext;
 	}
 
 
@@ -1113,9 +1113,9 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxManifestMainPackageDependency*/SelfOuter* self, PWSTR* name) GetName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxManifestMainPackageDependency*/SelfOuter* self, PWSTR* publisher) GetPublisher;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxManifestMainPackageDependency*/SelfOuter* self, PWSTR* packageFamilyName) GetPackageFamilyName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR* name) GetName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR* publisher) GetPublisher;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR* packageFamilyName) GetPackageFamilyName;
 	}
 
 
@@ -1134,14 +1134,14 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxManifestPackageId*/SelfOuter* self, PWSTR* name) GetName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxManifestPackageId*/SelfOuter* self, APPX_PACKAGE_ARCHITECTURE* architecture) GetArchitecture;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxManifestPackageId*/SelfOuter* self, PWSTR* publisher) GetPublisher;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxManifestPackageId*/SelfOuter* self, uint64* packageVersion) GetVersion;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxManifestPackageId*/SelfOuter* self, PWSTR* resourceId) GetResourceId;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxManifestPackageId*/SelfOuter* self, PWSTR other, BOOL* isSame) ComparePublisher;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxManifestPackageId*/SelfOuter* self, PWSTR* packageFullName) GetPackageFullName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxManifestPackageId*/SelfOuter* self, PWSTR* packageFamilyName) GetPackageFamilyName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR* name) GetName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, APPX_PACKAGE_ARCHITECTURE* architecture) GetArchitecture;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR* publisher) GetPublisher;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint64* packageVersion) GetVersion;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR* resourceId) GetResourceId;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR other, BOOL* isSame) ComparePublisher;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR* packageFullName) GetPackageFullName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR* packageFamilyName) GetPackageFamilyName;
 	}
 
 
@@ -1170,7 +1170,7 @@ public static
 
 	[CRepr]public struct VTable : IAppxManifestPackageId.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxManifestPackageId2*/SelfOuter* self, APPX_PACKAGE_ARCHITECTURE2* architecture) GetArchitecture2;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, APPX_PACKAGE_ARCHITECTURE2* architecture) GetArchitecture2;
 	}
 
 
@@ -1185,8 +1185,8 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxManifestProperties*/SelfOuter* self, PWSTR name, BOOL* value) GetBoolValue;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxManifestProperties*/SelfOuter* self, PWSTR name, PWSTR* value) GetStringValue;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR name, BOOL* value) GetBoolValue;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR name, PWSTR* value) GetStringValue;
 	}
 
 
@@ -1203,9 +1203,9 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxManifestTargetDeviceFamiliesEnumerator*/SelfOuter* self, IAppxManifestTargetDeviceFamily** targetDeviceFamily) GetCurrent;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxManifestTargetDeviceFamiliesEnumerator*/SelfOuter* self, BOOL* hasCurrent) GetHasCurrent;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxManifestTargetDeviceFamiliesEnumerator*/SelfOuter* self, BOOL* hasNext) MoveNext;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IAppxManifestTargetDeviceFamily** targetDeviceFamily) GetCurrent;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BOOL* hasCurrent) GetHasCurrent;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BOOL* hasNext) MoveNext;
 	}
 
 
@@ -1224,9 +1224,9 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxManifestTargetDeviceFamily*/SelfOuter* self, PWSTR* name) GetName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxManifestTargetDeviceFamily*/SelfOuter* self, uint64* minVersion) GetMinVersion;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxManifestTargetDeviceFamily*/SelfOuter* self, uint64* maxVersionTested) GetMaxVersionTested;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR* name) GetName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint64* minVersion) GetMinVersion;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint64* maxVersionTested) GetMaxVersionTested;
 	}
 
 
@@ -1245,9 +1245,9 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxManifestPackageDependenciesEnumerator*/SelfOuter* self, IAppxManifestPackageDependency** dependency) GetCurrent;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxManifestPackageDependenciesEnumerator*/SelfOuter* self, BOOL* hasCurrent) GetHasCurrent;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxManifestPackageDependenciesEnumerator*/SelfOuter* self, BOOL* hasNext) MoveNext;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IAppxManifestPackageDependency** dependency) GetCurrent;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BOOL* hasCurrent) GetHasCurrent;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BOOL* hasNext) MoveNext;
 	}
 
 
@@ -1266,9 +1266,9 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxManifestPackageDependency*/SelfOuter* self, PWSTR* name) GetName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxManifestPackageDependency*/SelfOuter* self, PWSTR* publisher) GetPublisher;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxManifestPackageDependency*/SelfOuter* self, uint64* minVersion) GetMinVersion;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR* name) GetName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR* publisher) GetPublisher;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint64* minVersion) GetMinVersion;
 	}
 
 
@@ -1287,7 +1287,7 @@ public static
 
 	[CRepr]public struct VTable : IAppxManifestPackageDependency.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxManifestPackageDependency2*/SelfOuter* self, uint16* maxMajorVersionTested) GetMaxMajorVersionTested;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint16* maxMajorVersionTested) GetMaxMajorVersionTested;
 	}
 
 
@@ -1302,7 +1302,7 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxManifestPackageDependency3*/SelfOuter* self, BOOL* isOptional) GetIsOptional;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BOOL* isOptional) GetIsOptional;
 	}
 
 
@@ -1317,9 +1317,9 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxManifestResourcesEnumerator*/SelfOuter* self, PWSTR* resource) GetCurrent;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxManifestResourcesEnumerator*/SelfOuter* self, BOOL* hasCurrent) GetHasCurrent;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxManifestResourcesEnumerator*/SelfOuter* self, BOOL* hasNext) MoveNext;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR* resource) GetCurrent;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BOOL* hasCurrent) GetHasCurrent;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BOOL* hasNext) MoveNext;
 	}
 
 
@@ -1338,9 +1338,9 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxManifestDeviceCapabilitiesEnumerator*/SelfOuter* self, PWSTR* deviceCapability) GetCurrent;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxManifestDeviceCapabilitiesEnumerator*/SelfOuter* self, BOOL* hasCurrent) GetHasCurrent;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxManifestDeviceCapabilitiesEnumerator*/SelfOuter* self, BOOL* hasNext) MoveNext;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR* deviceCapability) GetCurrent;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BOOL* hasCurrent) GetHasCurrent;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BOOL* hasNext) MoveNext;
 	}
 
 
@@ -1359,9 +1359,9 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxManifestCapabilitiesEnumerator*/SelfOuter* self, PWSTR* capability) GetCurrent;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxManifestCapabilitiesEnumerator*/SelfOuter* self, BOOL* hasCurrent) GetHasCurrent;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxManifestCapabilitiesEnumerator*/SelfOuter* self, BOOL* hasNext) MoveNext;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR* capability) GetCurrent;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BOOL* hasCurrent) GetHasCurrent;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BOOL* hasNext) MoveNext;
 	}
 
 
@@ -1380,9 +1380,9 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxManifestApplicationsEnumerator*/SelfOuter* self, IAppxManifestApplication** application) GetCurrent;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxManifestApplicationsEnumerator*/SelfOuter* self, BOOL* hasCurrent) GetHasCurrent;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxManifestApplicationsEnumerator*/SelfOuter* self, BOOL* hasNext) MoveNext;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IAppxManifestApplication** application) GetCurrent;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BOOL* hasCurrent) GetHasCurrent;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BOOL* hasNext) MoveNext;
 	}
 
 
@@ -1401,8 +1401,8 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxManifestApplication*/SelfOuter* self, PWSTR name, PWSTR* value) GetStringValue;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxManifestApplication*/SelfOuter* self, PWSTR* appUserModelId) GetAppUserModelId;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR name, PWSTR* value) GetStringValue;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR* appUserModelId) GetAppUserModelId;
 	}
 
 
@@ -1419,9 +1419,9 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxManifestQualifiedResourcesEnumerator*/SelfOuter* self, IAppxManifestQualifiedResource** resource) GetCurrent;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxManifestQualifiedResourcesEnumerator*/SelfOuter* self, BOOL* hasCurrent) GetHasCurrent;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxManifestQualifiedResourcesEnumerator*/SelfOuter* self, BOOL* hasNext) MoveNext;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IAppxManifestQualifiedResource** resource) GetCurrent;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BOOL* hasCurrent) GetHasCurrent;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BOOL* hasNext) MoveNext;
 	}
 
 
@@ -1440,9 +1440,9 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxManifestQualifiedResource*/SelfOuter* self, PWSTR* language) GetLanguage;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxManifestQualifiedResource*/SelfOuter* self, uint32* scale) GetScale;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxManifestQualifiedResource*/SelfOuter* self, DX_FEATURE_LEVEL* dxFeatureLevel) GetDXFeatureLevel;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR* language) GetLanguage;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* scale) GetScale;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, DX_FEATURE_LEVEL* dxFeatureLevel) GetDXFeatureLevel;
 	}
 
 
@@ -1461,9 +1461,9 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxBundleFactory*/SelfOuter* self, IStream* outputStream, uint64 bundleVersion, IAppxBundleWriter** bundleWriter) CreateBundleWriter;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxBundleFactory*/SelfOuter* self, IStream* inputStream, IAppxBundleReader** bundleReader) CreateBundleReader;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxBundleFactory*/SelfOuter* self, IStream* inputStream, IAppxBundleManifestReader** manifestReader) CreateBundleManifestReader;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IStream* outputStream, uint64 bundleVersion, IAppxBundleWriter** bundleWriter) CreateBundleWriter;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IStream* inputStream, IAppxBundleReader** bundleReader) CreateBundleReader;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IStream* inputStream, IAppxBundleManifestReader** manifestReader) CreateBundleManifestReader;
 	}
 
 
@@ -1482,8 +1482,8 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxBundleWriter*/SelfOuter* self, PWSTR fileName, IStream* packageStream) AddPayloadPackage;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxBundleWriter*/SelfOuter* self) Close;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR fileName, IStream* packageStream) AddPayloadPackage;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Close;
 	}
 
 
@@ -1500,7 +1500,7 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxBundleWriter2*/SelfOuter* self, PWSTR fileName, IStream* inputStream) AddExternalPackageReference;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR fileName, IStream* inputStream) AddExternalPackageReference;
 	}
 
 
@@ -1515,8 +1515,8 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxBundleWriter3*/SelfOuter* self, PWSTR fileName, IStream* inputStream) AddPackageReference;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxBundleWriter3*/SelfOuter* self, PWSTR hashMethodString) Close;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR fileName, IStream* inputStream) AddPackageReference;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR hashMethodString) Close;
 	}
 
 
@@ -1533,9 +1533,9 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxBundleWriter4*/SelfOuter* self, PWSTR fileName, IStream* packageStream, BOOL isDefaultApplicablePackage) AddPayloadPackage;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxBundleWriter4*/SelfOuter* self, PWSTR fileName, IStream* inputStream, BOOL isDefaultApplicablePackage) AddPackageReference;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxBundleWriter4*/SelfOuter* self, PWSTR fileName, IStream* inputStream, BOOL isDefaultApplicablePackage) AddExternalPackageReference;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR fileName, IStream* packageStream, BOOL isDefaultApplicablePackage) AddPayloadPackage;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR fileName, IStream* inputStream, BOOL isDefaultApplicablePackage) AddPackageReference;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR fileName, IStream* inputStream, BOOL isDefaultApplicablePackage) AddExternalPackageReference;
 	}
 
 
@@ -1554,11 +1554,11 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxBundleReader*/SelfOuter* self, APPX_BUNDLE_FOOTPRINT_FILE_TYPE fileType, IAppxFile** footprintFile) GetFootprintFile;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxBundleReader*/SelfOuter* self, IAppxBlockMapReader** blockMapReader) GetBlockMap;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxBundleReader*/SelfOuter* self, IAppxBundleManifestReader** manifestReader) GetManifest;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxBundleReader*/SelfOuter* self, IAppxFilesEnumerator** payloadPackages) GetPayloadPackages;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxBundleReader*/SelfOuter* self, PWSTR fileName, IAppxFile** payloadPackage) GetPayloadPackage;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, APPX_BUNDLE_FOOTPRINT_FILE_TYPE fileType, IAppxFile** footprintFile) GetFootprintFile;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IAppxBlockMapReader** blockMapReader) GetBlockMap;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IAppxBundleManifestReader** manifestReader) GetManifest;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IAppxFilesEnumerator** payloadPackages) GetPayloadPackages;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR fileName, IAppxFile** payloadPackage) GetPayloadPackage;
 	}
 
 
@@ -1581,9 +1581,9 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxBundleManifestReader*/SelfOuter* self, IAppxManifestPackageId** packageId) GetPackageId;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxBundleManifestReader*/SelfOuter* self, IAppxBundleManifestPackageInfoEnumerator** packageInfoItems) GetPackageInfoItems;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxBundleManifestReader*/SelfOuter* self, IStream** manifestStream) GetStream;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IAppxManifestPackageId** packageId) GetPackageId;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IAppxBundleManifestPackageInfoEnumerator** packageInfoItems) GetPackageInfoItems;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IStream** manifestStream) GetStream;
 	}
 
 
@@ -1602,7 +1602,7 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxBundleManifestReader2*/SelfOuter* self, IAppxBundleManifestOptionalBundleInfoEnumerator** optionalBundles) GetOptionalBundles;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IAppxBundleManifestOptionalBundleInfoEnumerator** optionalBundles) GetOptionalBundles;
 	}
 
 
@@ -1617,9 +1617,9 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxBundleManifestPackageInfoEnumerator*/SelfOuter* self, IAppxBundleManifestPackageInfo** packageInfo) GetCurrent;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxBundleManifestPackageInfoEnumerator*/SelfOuter* self, BOOL* hasCurrent) GetHasCurrent;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxBundleManifestPackageInfoEnumerator*/SelfOuter* self, BOOL* hasNext) MoveNext;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IAppxBundleManifestPackageInfo** packageInfo) GetCurrent;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BOOL* hasCurrent) GetHasCurrent;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BOOL* hasNext) MoveNext;
 	}
 
 
@@ -1638,12 +1638,12 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxBundleManifestPackageInfo*/SelfOuter* self, APPX_BUNDLE_PAYLOAD_PACKAGE_TYPE* packageType) GetPackageType;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxBundleManifestPackageInfo*/SelfOuter* self, IAppxManifestPackageId** packageId) GetPackageId;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxBundleManifestPackageInfo*/SelfOuter* self, PWSTR* fileName) GetFileName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxBundleManifestPackageInfo*/SelfOuter* self, uint64* offset) GetOffset;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxBundleManifestPackageInfo*/SelfOuter* self, uint64* size) GetSize;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxBundleManifestPackageInfo*/SelfOuter* self, IAppxManifestQualifiedResourcesEnumerator** resources) GetResources;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, APPX_BUNDLE_PAYLOAD_PACKAGE_TYPE* packageType) GetPackageType;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IAppxManifestPackageId** packageId) GetPackageId;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR* fileName) GetFileName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint64* offset) GetOffset;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint64* size) GetSize;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IAppxManifestQualifiedResourcesEnumerator** resources) GetResources;
 	}
 
 
@@ -1668,9 +1668,9 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxBundleManifestPackageInfo2*/SelfOuter* self, BOOL* isPackageReference) GetIsPackageReference;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxBundleManifestPackageInfo2*/SelfOuter* self, BOOL* isNonQualifiedResourcePackage) GetIsNonQualifiedResourcePackage;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxBundleManifestPackageInfo2*/SelfOuter* self, BOOL* isDefaultApplicablePackage) GetIsDefaultApplicablePackage;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BOOL* isPackageReference) GetIsPackageReference;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BOOL* isNonQualifiedResourcePackage) GetIsNonQualifiedResourcePackage;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BOOL* isDefaultApplicablePackage) GetIsDefaultApplicablePackage;
 	}
 
 
@@ -1689,7 +1689,7 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxBundleManifestPackageInfo3*/SelfOuter* self, IAppxManifestTargetDeviceFamiliesEnumerator** targetDeviceFamilies) GetTargetDeviceFamilies;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IAppxManifestTargetDeviceFamiliesEnumerator** targetDeviceFamilies) GetTargetDeviceFamilies;
 	}
 
 
@@ -1704,7 +1704,7 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxBundleManifestPackageInfo4*/SelfOuter* self, BOOL* isStub) GetIsStub;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BOOL* isStub) GetIsStub;
 	}
 
 
@@ -1719,9 +1719,9 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxBundleManifestOptionalBundleInfoEnumerator*/SelfOuter* self, IAppxBundleManifestOptionalBundleInfo** optionalBundle) GetCurrent;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxBundleManifestOptionalBundleInfoEnumerator*/SelfOuter* self, BOOL* hasCurrent) GetHasCurrent;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxBundleManifestOptionalBundleInfoEnumerator*/SelfOuter* self, BOOL* hasNext) MoveNext;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IAppxBundleManifestOptionalBundleInfo** optionalBundle) GetCurrent;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BOOL* hasCurrent) GetHasCurrent;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BOOL* hasNext) MoveNext;
 	}
 
 
@@ -1740,9 +1740,9 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxBundleManifestOptionalBundleInfo*/SelfOuter* self, IAppxManifestPackageId** packageId) GetPackageId;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxBundleManifestOptionalBundleInfo*/SelfOuter* self, PWSTR* fileName) GetFileName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxBundleManifestOptionalBundleInfo*/SelfOuter* self, IAppxBundleManifestPackageInfoEnumerator** packageInfoItems) GetPackageInfoItems;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IAppxManifestPackageId** packageId) GetPackageId;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR* fileName) GetFileName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IAppxBundleManifestPackageInfoEnumerator** packageInfoItems) GetPackageInfoItems;
 	}
 
 
@@ -1761,9 +1761,9 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxContentGroupFilesEnumerator*/SelfOuter* self, PWSTR* file) GetCurrent;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxContentGroupFilesEnumerator*/SelfOuter* self, BOOL* hasCurrent) GetHasCurrent;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxContentGroupFilesEnumerator*/SelfOuter* self, BOOL* hasNext) MoveNext;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR* file) GetCurrent;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BOOL* hasCurrent) GetHasCurrent;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BOOL* hasNext) MoveNext;
 	}
 
 
@@ -1782,8 +1782,8 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxContentGroup*/SelfOuter* self, PWSTR* groupName) GetName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxContentGroup*/SelfOuter* self, IAppxContentGroupFilesEnumerator** enumerator) GetFiles;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR* groupName) GetName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IAppxContentGroupFilesEnumerator** enumerator) GetFiles;
 	}
 
 
@@ -1800,9 +1800,9 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxContentGroupsEnumerator*/SelfOuter* self, IAppxContentGroup** stream) GetCurrent;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxContentGroupsEnumerator*/SelfOuter* self, BOOL* hasCurrent) GetHasCurrent;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxContentGroupsEnumerator*/SelfOuter* self, BOOL* hasNext) MoveNext;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IAppxContentGroup** stream) GetCurrent;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BOOL* hasCurrent) GetHasCurrent;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BOOL* hasNext) MoveNext;
 	}
 
 
@@ -1821,8 +1821,8 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxContentGroupMapReader*/SelfOuter* self, IAppxContentGroup** requiredGroup) GetRequiredGroup;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxContentGroupMapReader*/SelfOuter* self, IAppxContentGroupsEnumerator** automaticGroupsEnumerator) GetAutomaticGroups;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IAppxContentGroup** requiredGroup) GetRequiredGroup;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IAppxContentGroupsEnumerator** automaticGroupsEnumerator) GetAutomaticGroups;
 	}
 
 
@@ -1839,8 +1839,8 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxSourceContentGroupMapReader*/SelfOuter* self, IAppxContentGroup** requiredGroup) GetRequiredGroup;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxSourceContentGroupMapReader*/SelfOuter* self, IAppxContentGroupsEnumerator** automaticGroupsEnumerator) GetAutomaticGroups;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IAppxContentGroup** requiredGroup) GetRequiredGroup;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IAppxContentGroupsEnumerator** automaticGroupsEnumerator) GetAutomaticGroups;
 	}
 
 
@@ -1857,9 +1857,9 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxContentGroupMapWriter*/SelfOuter* self, PWSTR groupName) AddAutomaticGroup;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxContentGroupMapWriter*/SelfOuter* self, PWSTR fileName) AddAutomaticFile;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxContentGroupMapWriter*/SelfOuter* self) Close;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR groupName) AddAutomaticGroup;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR fileName) AddAutomaticFile;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Close;
 	}
 
 
@@ -1878,8 +1878,8 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxPackagingDiagnosticEventSink*/SelfOuter* self, APPX_PACKAGING_CONTEXT_CHANGE_TYPE changeType, int32 contextId, PSTR contextName, PWSTR contextMessage, PWSTR detailsMessage) ReportContextChange;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxPackagingDiagnosticEventSink*/SelfOuter* self, PWSTR errorMessage) ReportError;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, APPX_PACKAGING_CONTEXT_CHANGE_TYPE changeType, int32 contextId, PSTR contextName, PWSTR contextMessage, PWSTR detailsMessage) ReportContextChange;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR errorMessage) ReportError;
 	}
 
 
@@ -1896,7 +1896,7 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxPackagingDiagnosticEventSinkManager*/SelfOuter* self, IAppxPackagingDiagnosticEventSink* sink) SetSinkForProcess;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IAppxPackagingDiagnosticEventSink* sink) SetSinkForProcess;
 	}
 
 
@@ -1911,14 +1911,14 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxEncryptionFactory*/SelfOuter* self, IStream* inputStream, IStream* outputStream, APPX_ENCRYPTED_PACKAGE_SETTINGS* settings, APPX_KEY_INFO* keyInfo, APPX_ENCRYPTED_EXEMPTIONS* exemptedFiles) EncryptPackage;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxEncryptionFactory*/SelfOuter* self, IStream* inputStream, IStream* outputStream, APPX_KEY_INFO* keyInfo) DecryptPackage;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxEncryptionFactory*/SelfOuter* self, IStream* outputStream, IStream* manifestStream, APPX_ENCRYPTED_PACKAGE_SETTINGS* settings, APPX_KEY_INFO* keyInfo, APPX_ENCRYPTED_EXEMPTIONS* exemptedFiles, IAppxEncryptedPackageWriter** packageWriter) CreateEncryptedPackageWriter;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxEncryptionFactory*/SelfOuter* self, IStream* inputStream, APPX_KEY_INFO* keyInfo, IAppxPackageReader** packageReader) CreateEncryptedPackageReader;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxEncryptionFactory*/SelfOuter* self, IStream* inputStream, IStream* outputStream, APPX_ENCRYPTED_PACKAGE_SETTINGS* settings, APPX_KEY_INFO* keyInfo, APPX_ENCRYPTED_EXEMPTIONS* exemptedFiles) EncryptBundle;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxEncryptionFactory*/SelfOuter* self, IStream* inputStream, IStream* outputStream, APPX_KEY_INFO* keyInfo) DecryptBundle;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxEncryptionFactory*/SelfOuter* self, IStream* outputStream, uint64 bundleVersion, APPX_ENCRYPTED_PACKAGE_SETTINGS* settings, APPX_KEY_INFO* keyInfo, APPX_ENCRYPTED_EXEMPTIONS* exemptedFiles, IAppxEncryptedBundleWriter** bundleWriter) CreateEncryptedBundleWriter;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxEncryptionFactory*/SelfOuter* self, IStream* inputStream, APPX_KEY_INFO* keyInfo, IAppxBundleReader** bundleReader) CreateEncryptedBundleReader;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IStream* inputStream, IStream* outputStream, APPX_ENCRYPTED_PACKAGE_SETTINGS* settings, APPX_KEY_INFO* keyInfo, APPX_ENCRYPTED_EXEMPTIONS* exemptedFiles) EncryptPackage;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IStream* inputStream, IStream* outputStream, APPX_KEY_INFO* keyInfo) DecryptPackage;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IStream* outputStream, IStream* manifestStream, APPX_ENCRYPTED_PACKAGE_SETTINGS* settings, APPX_KEY_INFO* keyInfo, APPX_ENCRYPTED_EXEMPTIONS* exemptedFiles, IAppxEncryptedPackageWriter** packageWriter) CreateEncryptedPackageWriter;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IStream* inputStream, APPX_KEY_INFO* keyInfo, IAppxPackageReader** packageReader) CreateEncryptedPackageReader;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IStream* inputStream, IStream* outputStream, APPX_ENCRYPTED_PACKAGE_SETTINGS* settings, APPX_KEY_INFO* keyInfo, APPX_ENCRYPTED_EXEMPTIONS* exemptedFiles) EncryptBundle;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IStream* inputStream, IStream* outputStream, APPX_KEY_INFO* keyInfo) DecryptBundle;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IStream* outputStream, uint64 bundleVersion, APPX_ENCRYPTED_PACKAGE_SETTINGS* settings, APPX_KEY_INFO* keyInfo, APPX_ENCRYPTED_EXEMPTIONS* exemptedFiles, IAppxEncryptedBundleWriter** bundleWriter) CreateEncryptedBundleWriter;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IStream* inputStream, APPX_KEY_INFO* keyInfo, IAppxBundleReader** bundleReader) CreateEncryptedBundleReader;
 	}
 
 
@@ -1947,7 +1947,7 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxEncryptionFactory2*/SelfOuter* self, IStream* outputStream, IStream* manifestStream, IStream* contentGroupMapStream, APPX_ENCRYPTED_PACKAGE_SETTINGS* settings, APPX_KEY_INFO* keyInfo, APPX_ENCRYPTED_EXEMPTIONS* exemptedFiles, IAppxEncryptedPackageWriter** packageWriter) CreateEncryptedPackageWriter;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IStream* outputStream, IStream* manifestStream, IStream* contentGroupMapStream, APPX_ENCRYPTED_PACKAGE_SETTINGS* settings, APPX_KEY_INFO* keyInfo, APPX_ENCRYPTED_EXEMPTIONS* exemptedFiles, IAppxEncryptedPackageWriter** packageWriter) CreateEncryptedPackageWriter;
 	}
 
 
@@ -1962,10 +1962,10 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxEncryptionFactory3*/SelfOuter* self, IStream* inputStream, IStream* outputStream, APPX_ENCRYPTED_PACKAGE_SETTINGS2* settings, APPX_KEY_INFO* keyInfo, APPX_ENCRYPTED_EXEMPTIONS* exemptedFiles) EncryptPackage;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxEncryptionFactory3*/SelfOuter* self, IStream* outputStream, IStream* manifestStream, IStream* contentGroupMapStream, APPX_ENCRYPTED_PACKAGE_SETTINGS2* settings, APPX_KEY_INFO* keyInfo, APPX_ENCRYPTED_EXEMPTIONS* exemptedFiles, IAppxEncryptedPackageWriter** packageWriter) CreateEncryptedPackageWriter;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxEncryptionFactory3*/SelfOuter* self, IStream* inputStream, IStream* outputStream, APPX_ENCRYPTED_PACKAGE_SETTINGS2* settings, APPX_KEY_INFO* keyInfo, APPX_ENCRYPTED_EXEMPTIONS* exemptedFiles) EncryptBundle;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxEncryptionFactory3*/SelfOuter* self, IStream* outputStream, uint64 bundleVersion, APPX_ENCRYPTED_PACKAGE_SETTINGS2* settings, APPX_KEY_INFO* keyInfo, APPX_ENCRYPTED_EXEMPTIONS* exemptedFiles, IAppxEncryptedBundleWriter** bundleWriter) CreateEncryptedBundleWriter;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IStream* inputStream, IStream* outputStream, APPX_ENCRYPTED_PACKAGE_SETTINGS2* settings, APPX_KEY_INFO* keyInfo, APPX_ENCRYPTED_EXEMPTIONS* exemptedFiles) EncryptPackage;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IStream* outputStream, IStream* manifestStream, IStream* contentGroupMapStream, APPX_ENCRYPTED_PACKAGE_SETTINGS2* settings, APPX_KEY_INFO* keyInfo, APPX_ENCRYPTED_EXEMPTIONS* exemptedFiles, IAppxEncryptedPackageWriter** packageWriter) CreateEncryptedPackageWriter;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IStream* inputStream, IStream* outputStream, APPX_ENCRYPTED_PACKAGE_SETTINGS2* settings, APPX_KEY_INFO* keyInfo, APPX_ENCRYPTED_EXEMPTIONS* exemptedFiles) EncryptBundle;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IStream* outputStream, uint64 bundleVersion, APPX_ENCRYPTED_PACKAGE_SETTINGS2* settings, APPX_KEY_INFO* keyInfo, APPX_ENCRYPTED_EXEMPTIONS* exemptedFiles, IAppxEncryptedBundleWriter** bundleWriter) CreateEncryptedBundleWriter;
 	}
 
 
@@ -1986,7 +1986,7 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxEncryptionFactory4*/SelfOuter* self, IStream* inputStream, IStream* outputStream, APPX_ENCRYPTED_PACKAGE_SETTINGS2* settings, APPX_KEY_INFO* keyInfo, APPX_ENCRYPTED_EXEMPTIONS* exemptedFiles, uint64 memoryLimit) EncryptPackage;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IStream* inputStream, IStream* outputStream, APPX_ENCRYPTED_PACKAGE_SETTINGS2* settings, APPX_KEY_INFO* keyInfo, APPX_ENCRYPTED_EXEMPTIONS* exemptedFiles, uint64 memoryLimit) EncryptPackage;
 	}
 
 
@@ -2001,8 +2001,8 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxEncryptedPackageWriter*/SelfOuter* self, PWSTR fileName, APPX_COMPRESSION_OPTION compressionOption, IStream* inputStream) AddPayloadFileEncrypted;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxEncryptedPackageWriter*/SelfOuter* self) Close;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR fileName, APPX_COMPRESSION_OPTION compressionOption, IStream* inputStream) AddPayloadFileEncrypted;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Close;
 	}
 
 
@@ -2019,7 +2019,7 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxEncryptedPackageWriter2*/SelfOuter* self, uint32 fileCount, APPX_PACKAGE_WRITER_PAYLOAD_STREAM* payloadFiles, uint64 memoryLimit) AddPayloadFilesEncrypted;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 fileCount, APPX_PACKAGE_WRITER_PAYLOAD_STREAM* payloadFiles, uint64 memoryLimit) AddPayloadFilesEncrypted;
 	}
 
 
@@ -2034,8 +2034,8 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxEncryptedBundleWriter*/SelfOuter* self, PWSTR fileName, IStream* packageStream) AddPayloadPackageEncrypted;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxEncryptedBundleWriter*/SelfOuter* self) Close;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR fileName, IStream* packageStream) AddPayloadPackageEncrypted;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Close;
 	}
 
 
@@ -2052,7 +2052,7 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxEncryptedBundleWriter2*/SelfOuter* self, PWSTR fileName, IStream* inputStream) AddExternalPackageReference;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR fileName, IStream* inputStream) AddExternalPackageReference;
 	}
 
 
@@ -2067,8 +2067,8 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxEncryptedBundleWriter3*/SelfOuter* self, PWSTR fileName, IStream* packageStream, BOOL isDefaultApplicablePackage) AddPayloadPackageEncrypted;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxEncryptedBundleWriter3*/SelfOuter* self, PWSTR fileName, IStream* inputStream, BOOL isDefaultApplicablePackage) AddExternalPackageReference;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR fileName, IStream* packageStream, BOOL isDefaultApplicablePackage) AddPayloadPackageEncrypted;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR fileName, IStream* inputStream, BOOL isDefaultApplicablePackage) AddExternalPackageReference;
 	}
 
 
@@ -2085,12 +2085,12 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxPackageEditor*/SelfOuter* self, PWSTR workingDirectory) SetWorkingDirectory;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxPackageEditor*/SelfOuter* self, IStream* updatedPackageStream, IStream* baselinePackageStream, IStream* deltaPackageStream) CreateDeltaPackage;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxPackageEditor*/SelfOuter* self, IStream* updatedPackageStream, IStream* baselineBlockMapStream, PWSTR baselinePackageFullName, IStream* deltaPackageStream) CreateDeltaPackageUsingBaselineBlockMap;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxPackageEditor*/SelfOuter* self, IStream* baselinePackageStream, IStream* deltaPackageStream, APPX_PACKAGE_EDITOR_UPDATE_PACKAGE_OPTION updateOption) UpdatePackage;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxPackageEditor*/SelfOuter* self, IStream* baselineEncryptedPackageStream, IStream* deltaPackageStream, APPX_PACKAGE_EDITOR_UPDATE_PACKAGE_OPTION updateOption, APPX_ENCRYPTED_PACKAGE_SETTINGS2* settings, APPX_KEY_INFO* keyInfo) UpdateEncryptedPackage;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppxPackageEditor*/SelfOuter* self, IStream* packageStream, IStream* updatedManifestStream, BOOL isPackageEncrypted, APPX_PACKAGE_EDITOR_UPDATE_PACKAGE_MANIFEST_OPTIONS options) UpdatePackageManifest;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR workingDirectory) SetWorkingDirectory;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IStream* updatedPackageStream, IStream* baselinePackageStream, IStream* deltaPackageStream) CreateDeltaPackage;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IStream* updatedPackageStream, IStream* baselineBlockMapStream, PWSTR baselinePackageFullName, IStream* deltaPackageStream) CreateDeltaPackageUsingBaselineBlockMap;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IStream* baselinePackageStream, IStream* deltaPackageStream, APPX_PACKAGE_EDITOR_UPDATE_PACKAGE_OPTION updateOption) UpdatePackage;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IStream* baselineEncryptedPackageStream, IStream* deltaPackageStream, APPX_PACKAGE_EDITOR_UPDATE_PACKAGE_OPTION updateOption, APPX_ENCRYPTED_PACKAGE_SETTINGS2* settings, APPX_KEY_INFO* keyInfo) UpdateEncryptedPackage;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IStream* packageStream, IStream* updatedManifestStream, BOOL isPackageEncrypted, APPX_PACKAGE_EDITOR_UPDATE_PACKAGE_MANIFEST_OPTIONS options) UpdatePackageManifest;
 	}
 
 

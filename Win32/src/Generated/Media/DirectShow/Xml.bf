@@ -40,9 +40,9 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXMLGraphBuilder*/SelfOuter* self, IGraphBuilder* pGraph, IXMLElement* pxml) BuildFromXML;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXMLGraphBuilder*/SelfOuter* self, IGraphBuilder* pGraph, BSTR* pbstrxml) SaveToXML;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXMLGraphBuilder*/SelfOuter* self, IGraphBuilder* pGraph, PWSTR wszFileName, PWSTR wszBaseURL) BuildFromXMLFile;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IGraphBuilder* pGraph, IXMLElement* pxml) BuildFromXML;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IGraphBuilder* pGraph, BSTR* pbstrxml) SaveToXML;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IGraphBuilder* pGraph, PWSTR wszFileName, PWSTR wszBaseURL) BuildFromXMLFile;
 	}
 
 

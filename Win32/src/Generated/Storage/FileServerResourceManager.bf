@@ -838,11 +838,11 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsrmObject*/SelfOuter* self, ref Guid id) get_Id;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsrmObject*/SelfOuter* self, BSTR* description) get_Description;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsrmObject*/SelfOuter* self, BSTR description) put_Description;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsrmObject*/SelfOuter* self) Delete;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsrmObject*/SelfOuter* self) Commit;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid id) get_Id;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* description) get_Description;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR description) put_Description;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Delete;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Commit;
 	}
 
 
@@ -865,13 +865,13 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsrmCollection*/SelfOuter* self, IUnknown** unknown) get__NewEnum;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsrmCollection*/SelfOuter* self, int32 index, VARIANT* item) get_Item;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsrmCollection*/SelfOuter* self, int32* count) get_Count;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsrmCollection*/SelfOuter* self, FsrmCollectionState* state) get_State;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsrmCollection*/SelfOuter* self) Cancel;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsrmCollection*/SelfOuter* self, int32 waitSeconds, int16* completed) WaitForCompletion;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsrmCollection*/SelfOuter* self, Guid id, VARIANT* entry) GetById;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IUnknown** unknown) get__NewEnum;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 index, VARIANT* item) get_Item;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* count) get_Count;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, FsrmCollectionState* state) get_State;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Cancel;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 waitSeconds, int16* completed) WaitForCompletion;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, Guid id, VARIANT* entry) GetById;
 	}
 
 
@@ -898,10 +898,10 @@ public static
 
 	[CRepr]public struct VTable : IFsrmCollection.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsrmMutableCollection*/SelfOuter* self, VARIANT item) Add;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsrmMutableCollection*/SelfOuter* self, int32 index) Remove;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsrmMutableCollection*/SelfOuter* self, Guid id) RemoveById;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsrmMutableCollection*/SelfOuter* self, IFsrmMutableCollection** collection) Clone;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT item) Add;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 index) Remove;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, Guid id) RemoveById;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IFsrmMutableCollection** collection) Clone;
 	}
 
 
@@ -922,7 +922,7 @@ public static
 
 	[CRepr]public struct VTable : IFsrmMutableCollection.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsrmCommittableCollection*/SelfOuter* self, FsrmCommitOptions options, IFsrmCollection** results) Commit;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, FsrmCommitOptions options, IFsrmCollection** results) Commit;
 	}
 
 
@@ -937,11 +937,11 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsrmAction*/SelfOuter* self, ref Guid id) get_Id;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsrmAction*/SelfOuter* self, FsrmActionType* actionType) get_ActionType;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsrmAction*/SelfOuter* self, int32* minutes) get_RunLimitInterval;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsrmAction*/SelfOuter* self, int32 minutes) put_RunLimitInterval;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsrmAction*/SelfOuter* self) Delete;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid id) get_Id;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, FsrmActionType* actionType) get_ActionType;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* minutes) get_RunLimitInterval;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 minutes) put_RunLimitInterval;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Delete;
 	}
 
 
@@ -964,20 +964,20 @@ public static
 
 	[CRepr]public struct VTable : IFsrmAction.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsrmActionEmail*/SelfOuter* self, BSTR* mailFrom) get_MailFrom;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsrmActionEmail*/SelfOuter* self, BSTR mailFrom) put_MailFrom;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsrmActionEmail*/SelfOuter* self, BSTR* mailReplyTo) get_MailReplyTo;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsrmActionEmail*/SelfOuter* self, BSTR mailReplyTo) put_MailReplyTo;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsrmActionEmail*/SelfOuter* self, BSTR* mailTo) get_MailTo;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsrmActionEmail*/SelfOuter* self, BSTR mailTo) put_MailTo;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsrmActionEmail*/SelfOuter* self, BSTR* mailCc) get_MailCc;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsrmActionEmail*/SelfOuter* self, BSTR mailCc) put_MailCc;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsrmActionEmail*/SelfOuter* self, BSTR* mailBcc) get_MailBcc;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsrmActionEmail*/SelfOuter* self, BSTR mailBcc) put_MailBcc;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsrmActionEmail*/SelfOuter* self, BSTR* mailSubject) get_MailSubject;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsrmActionEmail*/SelfOuter* self, BSTR mailSubject) put_MailSubject;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsrmActionEmail*/SelfOuter* self, BSTR* messageText) get_MessageText;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsrmActionEmail*/SelfOuter* self, BSTR messageText) put_MessageText;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* mailFrom) get_MailFrom;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR mailFrom) put_MailFrom;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* mailReplyTo) get_MailReplyTo;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR mailReplyTo) put_MailReplyTo;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* mailTo) get_MailTo;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR mailTo) put_MailTo;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* mailCc) get_MailCc;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR mailCc) put_MailCc;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* mailBcc) get_MailBcc;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR mailBcc) put_MailBcc;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* mailSubject) get_MailSubject;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR mailSubject) put_MailSubject;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* messageText) get_MessageText;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR messageText) put_MessageText;
 	}
 
 
@@ -1018,8 +1018,8 @@ public static
 
 	[CRepr]public struct VTable : IFsrmActionEmail.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsrmActionEmail2*/SelfOuter* self, int32* attachmentFileListSize) get_AttachmentFileListSize;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsrmActionEmail2*/SelfOuter* self, int32 attachmentFileListSize) put_AttachmentFileListSize;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* attachmentFileListSize) get_AttachmentFileListSize;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 attachmentFileListSize) put_AttachmentFileListSize;
 	}
 
 
@@ -1036,10 +1036,10 @@ public static
 
 	[CRepr]public struct VTable : IFsrmAction.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsrmActionReport*/SelfOuter* self, SAFEARRAY** reportTypes) get_ReportTypes;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsrmActionReport*/SelfOuter* self, SAFEARRAY* reportTypes) put_ReportTypes;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsrmActionReport*/SelfOuter* self, BSTR* mailTo) get_MailTo;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsrmActionReport*/SelfOuter* self, BSTR mailTo) put_MailTo;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, SAFEARRAY** reportTypes) get_ReportTypes;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, SAFEARRAY* reportTypes) put_ReportTypes;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* mailTo) get_MailTo;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR mailTo) put_MailTo;
 	}
 
 
@@ -1060,10 +1060,10 @@ public static
 
 	[CRepr]public struct VTable : IFsrmAction.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsrmActionEventLog*/SelfOuter* self, FsrmEventType* eventType) get_EventType;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsrmActionEventLog*/SelfOuter* self, FsrmEventType eventType) put_EventType;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsrmActionEventLog*/SelfOuter* self, BSTR* messageText) get_MessageText;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsrmActionEventLog*/SelfOuter* self, BSTR messageText) put_MessageText;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, FsrmEventType* eventType) get_EventType;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, FsrmEventType eventType) put_EventType;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* messageText) get_MessageText;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR messageText) put_MessageText;
 	}
 
 
@@ -1084,20 +1084,20 @@ public static
 
 	[CRepr]public struct VTable : IFsrmAction.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsrmActionCommand*/SelfOuter* self, BSTR* executablePath) get_ExecutablePath;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsrmActionCommand*/SelfOuter* self, BSTR executablePath) put_ExecutablePath;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsrmActionCommand*/SelfOuter* self, BSTR* arguments) get_Arguments;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsrmActionCommand*/SelfOuter* self, BSTR arguments) put_Arguments;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsrmActionCommand*/SelfOuter* self, FsrmAccountType* account) get_Account;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsrmActionCommand*/SelfOuter* self, FsrmAccountType account) put_Account;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsrmActionCommand*/SelfOuter* self, BSTR* workingDirectory) get_WorkingDirectory;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsrmActionCommand*/SelfOuter* self, BSTR workingDirectory) put_WorkingDirectory;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsrmActionCommand*/SelfOuter* self, int16* monitorCommand) get_MonitorCommand;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsrmActionCommand*/SelfOuter* self, int16 monitorCommand) put_MonitorCommand;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsrmActionCommand*/SelfOuter* self, int32* minutes) get_KillTimeOut;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsrmActionCommand*/SelfOuter* self, int32 minutes) put_KillTimeOut;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsrmActionCommand*/SelfOuter* self, int16* logResults) get_LogResult;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsrmActionCommand*/SelfOuter* self, int16 logResults) put_LogResult;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* executablePath) get_ExecutablePath;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR executablePath) put_ExecutablePath;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* arguments) get_Arguments;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR arguments) put_Arguments;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, FsrmAccountType* account) get_Account;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, FsrmAccountType account) put_Account;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* workingDirectory) get_WorkingDirectory;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR workingDirectory) put_WorkingDirectory;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* monitorCommand) get_MonitorCommand;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 monitorCommand) put_MonitorCommand;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* minutes) get_KillTimeOut;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 minutes) put_KillTimeOut;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* logResults) get_LogResult;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 logResults) put_LogResult;
 	}
 
 
@@ -1138,19 +1138,19 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsrmSetting*/SelfOuter* self, BSTR* smtpServer) get_SmtpServer;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsrmSetting*/SelfOuter* self, BSTR smtpServer) put_SmtpServer;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsrmSetting*/SelfOuter* self, BSTR* mailFrom) get_MailFrom;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsrmSetting*/SelfOuter* self, BSTR mailFrom) put_MailFrom;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsrmSetting*/SelfOuter* self, BSTR* adminEmail) get_AdminEmail;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsrmSetting*/SelfOuter* self, BSTR adminEmail) put_AdminEmail;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsrmSetting*/SelfOuter* self, int16* disableCommandLine) get_DisableCommandLine;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsrmSetting*/SelfOuter* self, int16 disableCommandLine) put_DisableCommandLine;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsrmSetting*/SelfOuter* self, int16* enableScreeningAudit) get_EnableScreeningAudit;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsrmSetting*/SelfOuter* self, int16 enableScreeningAudit) put_EnableScreeningAudit;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsrmSetting*/SelfOuter* self, BSTR mailTo) EmailTest;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsrmSetting*/SelfOuter* self, FsrmActionType actionType, int32 delayTimeMinutes) SetActionRunLimitInterval;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsrmSetting*/SelfOuter* self, FsrmActionType actionType, int32* delayTimeMinutes) GetActionRunLimitInterval;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* smtpServer) get_SmtpServer;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR smtpServer) put_SmtpServer;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* mailFrom) get_MailFrom;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR mailFrom) put_MailFrom;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* adminEmail) get_AdminEmail;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR adminEmail) put_AdminEmail;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* disableCommandLine) get_DisableCommandLine;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 disableCommandLine) put_DisableCommandLine;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* enableScreeningAudit) get_EnableScreeningAudit;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 enableScreeningAudit) put_EnableScreeningAudit;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR mailTo) EmailTest;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, FsrmActionType actionType, int32 delayTimeMinutes) SetActionRunLimitInterval;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, FsrmActionType actionType, int32* delayTimeMinutes) GetActionRunLimitInterval;
 	}
 
 
@@ -1189,7 +1189,7 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsrmPathMapper*/SelfOuter* self, BSTR localPath, SAFEARRAY** sharePaths) GetSharePathsForLocalPath;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR localPath, SAFEARRAY** sharePaths) GetSharePathsForLocalPath;
 	}
 
 
@@ -1204,12 +1204,12 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsrmExportImport*/SelfOuter* self, BSTR filePath, VARIANT* fileGroupNamesSafeArray, BSTR remoteHost) ExportFileGroups;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsrmExportImport*/SelfOuter* self, BSTR filePath, VARIANT* fileGroupNamesSafeArray, BSTR remoteHost, IFsrmCommittableCollection** fileGroups) ImportFileGroups;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsrmExportImport*/SelfOuter* self, BSTR filePath, VARIANT* templateNamesSafeArray, BSTR remoteHost) ExportFileScreenTemplates;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsrmExportImport*/SelfOuter* self, BSTR filePath, VARIANT* templateNamesSafeArray, BSTR remoteHost, IFsrmCommittableCollection** templates) ImportFileScreenTemplates;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsrmExportImport*/SelfOuter* self, BSTR filePath, VARIANT* templateNamesSafeArray, BSTR remoteHost) ExportQuotaTemplates;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsrmExportImport*/SelfOuter* self, BSTR filePath, VARIANT* templateNamesSafeArray, BSTR remoteHost, IFsrmCommittableCollection** templates) ImportQuotaTemplates;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR filePath, VARIANT* fileGroupNamesSafeArray, BSTR remoteHost) ExportFileGroups;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR filePath, VARIANT* fileGroupNamesSafeArray, BSTR remoteHost, IFsrmCommittableCollection** fileGroups) ImportFileGroups;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR filePath, VARIANT* templateNamesSafeArray, BSTR remoteHost) ExportFileScreenTemplates;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR filePath, VARIANT* templateNamesSafeArray, BSTR remoteHost, IFsrmCommittableCollection** templates) ImportFileScreenTemplates;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR filePath, VARIANT* templateNamesSafeArray, BSTR remoteHost) ExportQuotaTemplates;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR filePath, VARIANT* templateNamesSafeArray, BSTR remoteHost, IFsrmCommittableCollection** templates) ImportQuotaTemplates;
 	}
 
 
@@ -1234,8 +1234,8 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsrmDerivedObjectsResult*/SelfOuter* self, IFsrmCollection** derivedObjects) get_DerivedObjects;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsrmDerivedObjectsResult*/SelfOuter* self, IFsrmCollection** results) get_Results;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IFsrmCollection** derivedObjects) get_DerivedObjects;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IFsrmCollection** results) get_Results;
 	}
 
 
@@ -1252,7 +1252,7 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsrmAccessDeniedRemediationClient*/SelfOuter* self, uint parentWnd, BSTR accessPath, AdrClientErrorType errorType, int32 flags, BSTR windowTitle, BSTR windowMessage, int32* result) Show;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint parentWnd, BSTR accessPath, AdrClientErrorType errorType, int32 flags, BSTR windowTitle, BSTR windowMessage, int32* result) Show;
 	}
 
 
@@ -1267,16 +1267,16 @@ public static
 
 	[CRepr]public struct VTable : IFsrmObject.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsrmQuotaBase*/SelfOuter* self, VARIANT* quotaLimit) get_QuotaLimit;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsrmQuotaBase*/SelfOuter* self, VARIANT quotaLimit) put_QuotaLimit;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsrmQuotaBase*/SelfOuter* self, int32* quotaFlags) get_QuotaFlags;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsrmQuotaBase*/SelfOuter* self, int32 quotaFlags) put_QuotaFlags;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsrmQuotaBase*/SelfOuter* self, SAFEARRAY** thresholds) get_Thresholds;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsrmQuotaBase*/SelfOuter* self, int32 threshold) AddThreshold;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsrmQuotaBase*/SelfOuter* self, int32 threshold) DeleteThreshold;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsrmQuotaBase*/SelfOuter* self, int32 threshold, int32 newThreshold) ModifyThreshold;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsrmQuotaBase*/SelfOuter* self, int32 threshold, FsrmActionType actionType, IFsrmAction** action) CreateThresholdAction;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsrmQuotaBase*/SelfOuter* self, int32 threshold, IFsrmCollection** actions) EnumThresholdActions;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT* quotaLimit) get_QuotaLimit;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT quotaLimit) put_QuotaLimit;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* quotaFlags) get_QuotaFlags;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 quotaFlags) put_QuotaFlags;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, SAFEARRAY** thresholds) get_Thresholds;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 threshold) AddThreshold;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 threshold) DeleteThreshold;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 threshold, int32 newThreshold) ModifyThreshold;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 threshold, FsrmActionType actionType, IFsrmAction** action) CreateThresholdAction;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 threshold, IFsrmCollection** actions) EnumThresholdActions;
 	}
 
 
@@ -1309,12 +1309,12 @@ public static
 
 	[CRepr]public struct VTable : IFsrmQuotaBase.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsrmQuotaObject*/SelfOuter* self, BSTR* path) get_Path;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsrmQuotaObject*/SelfOuter* self, BSTR* userSid) get_UserSid;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsrmQuotaObject*/SelfOuter* self, BSTR* userAccount) get_UserAccount;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsrmQuotaObject*/SelfOuter* self, BSTR* quotaTemplateName) get_SourceTemplateName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsrmQuotaObject*/SelfOuter* self, int16* matches) get_MatchesSourceTemplate;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsrmQuotaObject*/SelfOuter* self, BSTR quotaTemplateName) ApplyTemplate;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* path) get_Path;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* userSid) get_UserSid;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* userAccount) get_UserAccount;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* quotaTemplateName) get_SourceTemplateName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* matches) get_MatchesSourceTemplate;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR quotaTemplateName) ApplyTemplate;
 	}
 
 
@@ -1339,11 +1339,11 @@ public static
 
 	[CRepr]public struct VTable : IFsrmQuotaObject.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsrmQuota*/SelfOuter* self, VARIANT* used) get_QuotaUsed;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsrmQuota*/SelfOuter* self, VARIANT* peakUsage) get_QuotaPeakUsage;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsrmQuota*/SelfOuter* self, double* peakUsageDateTime) get_QuotaPeakUsageTime;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsrmQuota*/SelfOuter* self) ResetPeakUsage;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsrmQuota*/SelfOuter* self) RefreshUsageProperties;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT* used) get_QuotaUsed;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT* peakUsage) get_QuotaPeakUsage;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, double* peakUsageDateTime) get_QuotaPeakUsageTime;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) ResetPeakUsage;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) RefreshUsageProperties;
 	}
 
 
@@ -1366,9 +1366,9 @@ public static
 
 	[CRepr]public struct VTable : IFsrmQuotaObject.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsrmAutoApplyQuota*/SelfOuter* self, SAFEARRAY** folders) get_ExcludeFolders;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsrmAutoApplyQuota*/SelfOuter* self, SAFEARRAY* folders) put_ExcludeFolders;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsrmAutoApplyQuota*/SelfOuter* self, FsrmCommitOptions commitOptions, FsrmTemplateApplyOptions applyOptions, IFsrmDerivedObjectsResult** derivedObjectsResult) CommitAndUpdateDerived;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, SAFEARRAY** folders) get_ExcludeFolders;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, SAFEARRAY* folders) put_ExcludeFolders;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, FsrmCommitOptions commitOptions, FsrmTemplateApplyOptions applyOptions, IFsrmDerivedObjectsResult** derivedObjectsResult) CommitAndUpdateDerived;
 	}
 
 
@@ -1387,18 +1387,18 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsrmQuotaManager*/SelfOuter* self, SAFEARRAY** variables) get_ActionVariables;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsrmQuotaManager*/SelfOuter* self, SAFEARRAY** descriptions) get_ActionVariableDescriptions;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsrmQuotaManager*/SelfOuter* self, BSTR path, IFsrmQuota** quota) CreateQuota;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsrmQuotaManager*/SelfOuter* self, BSTR quotaTemplateName, BSTR path, IFsrmAutoApplyQuota** quota) CreateAutoApplyQuota;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsrmQuotaManager*/SelfOuter* self, BSTR path, IFsrmQuota** quota) GetQuota;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsrmQuotaManager*/SelfOuter* self, BSTR path, IFsrmAutoApplyQuota** quota) GetAutoApplyQuota;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsrmQuotaManager*/SelfOuter* self, BSTR path, IFsrmQuota** quota) GetRestrictiveQuota;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsrmQuotaManager*/SelfOuter* self, BSTR path, FsrmEnumOptions options, IFsrmCommittableCollection** quotas) EnumQuotas;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsrmQuotaManager*/SelfOuter* self, BSTR path, FsrmEnumOptions options, IFsrmCommittableCollection** quotas) EnumAutoApplyQuotas;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsrmQuotaManager*/SelfOuter* self, BSTR path, FsrmEnumOptions options, IFsrmCommittableCollection** quotas) EnumEffectiveQuotas;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsrmQuotaManager*/SelfOuter* self, BSTR strPath) Scan;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsrmQuotaManager*/SelfOuter* self, IFsrmCommittableCollection** collection) CreateQuotaCollection;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, SAFEARRAY** variables) get_ActionVariables;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, SAFEARRAY** descriptions) get_ActionVariableDescriptions;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR path, IFsrmQuota** quota) CreateQuota;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR quotaTemplateName, BSTR path, IFsrmAutoApplyQuota** quota) CreateAutoApplyQuota;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR path, IFsrmQuota** quota) GetQuota;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR path, IFsrmAutoApplyQuota** quota) GetAutoApplyQuota;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR path, IFsrmQuota** quota) GetRestrictiveQuota;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR path, FsrmEnumOptions options, IFsrmCommittableCollection** quotas) EnumQuotas;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR path, FsrmEnumOptions options, IFsrmCommittableCollection** quotas) EnumAutoApplyQuotas;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR path, FsrmEnumOptions options, IFsrmCommittableCollection** quotas) EnumEffectiveQuotas;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR strPath) Scan;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IFsrmCommittableCollection** collection) CreateQuotaCollection;
 	}
 
 
@@ -1435,7 +1435,7 @@ public static
 
 	[CRepr]public struct VTable : IFsrmQuotaManager.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsrmQuotaManagerEx*/SelfOuter* self, BSTR path, FsrmEnumOptions options, int16* affected) IsAffectedByQuota;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR path, FsrmEnumOptions options, int16* affected) IsAffectedByQuota;
 	}
 
 
@@ -1450,10 +1450,10 @@ public static
 
 	[CRepr]public struct VTable : IFsrmQuotaBase.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsrmQuotaTemplate*/SelfOuter* self, BSTR* name) get_Name;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsrmQuotaTemplate*/SelfOuter* self, BSTR name) put_Name;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsrmQuotaTemplate*/SelfOuter* self, BSTR quotaTemplateName) CopyTemplate;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsrmQuotaTemplate*/SelfOuter* self, FsrmCommitOptions commitOptions, FsrmTemplateApplyOptions applyOptions, IFsrmDerivedObjectsResult** derivedObjectsResult) CommitAndUpdateDerived;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* name) get_Name;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR name) put_Name;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR quotaTemplateName) CopyTemplate;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, FsrmCommitOptions commitOptions, FsrmTemplateApplyOptions applyOptions, IFsrmDerivedObjectsResult** derivedObjectsResult) CommitAndUpdateDerived;
 	}
 
 
@@ -1474,8 +1474,8 @@ public static
 
 	[CRepr]public struct VTable : IFsrmQuotaTemplate.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsrmQuotaTemplateImported*/SelfOuter* self, int16* overwrite) get_OverwriteOnCommit;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsrmQuotaTemplateImported*/SelfOuter* self, int16 overwrite) put_OverwriteOnCommit;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* overwrite) get_OverwriteOnCommit;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 overwrite) put_OverwriteOnCommit;
 	}
 
 
@@ -1492,11 +1492,11 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsrmQuotaTemplateManager*/SelfOuter* self, IFsrmQuotaTemplate** quotaTemplate) CreateTemplate;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsrmQuotaTemplateManager*/SelfOuter* self, BSTR name, IFsrmQuotaTemplate** quotaTemplate) GetTemplate;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsrmQuotaTemplateManager*/SelfOuter* self, FsrmEnumOptions options, IFsrmCommittableCollection** quotaTemplates) EnumTemplates;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsrmQuotaTemplateManager*/SelfOuter* self, VARIANT* quotaTemplateNamesArray, BSTR* serializedQuotaTemplates) ExportTemplates;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsrmQuotaTemplateManager*/SelfOuter* self, BSTR serializedQuotaTemplates, VARIANT* quotaTemplateNamesArray, IFsrmCommittableCollection** quotaTemplates) ImportTemplates;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IFsrmQuotaTemplate** quotaTemplate) CreateTemplate;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR name, IFsrmQuotaTemplate** quotaTemplate) GetTemplate;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, FsrmEnumOptions options, IFsrmCommittableCollection** quotaTemplates) EnumTemplates;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT* quotaTemplateNamesArray, BSTR* serializedQuotaTemplates) ExportTemplates;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR serializedQuotaTemplates, VARIANT* quotaTemplateNamesArray, IFsrmCommittableCollection** quotaTemplates) ImportTemplates;
 	}
 
 
@@ -1519,12 +1519,12 @@ public static
 
 	[CRepr]public struct VTable : IFsrmObject.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsrmFileGroup*/SelfOuter* self, BSTR* name) get_Name;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsrmFileGroup*/SelfOuter* self, BSTR name) put_Name;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsrmFileGroup*/SelfOuter* self, IFsrmMutableCollection** members) get_Members;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsrmFileGroup*/SelfOuter* self, IFsrmMutableCollection* members) put_Members;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsrmFileGroup*/SelfOuter* self, IFsrmMutableCollection** nonMembers) get_NonMembers;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsrmFileGroup*/SelfOuter* self, IFsrmMutableCollection* nonMembers) put_NonMembers;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* name) get_Name;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR name) put_Name;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IFsrmMutableCollection** members) get_Members;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IFsrmMutableCollection* members) put_Members;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IFsrmMutableCollection** nonMembers) get_NonMembers;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IFsrmMutableCollection* nonMembers) put_NonMembers;
 	}
 
 
@@ -1549,8 +1549,8 @@ public static
 
 	[CRepr]public struct VTable : IFsrmFileGroup.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsrmFileGroupImported*/SelfOuter* self, int16* overwrite) get_OverwriteOnCommit;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsrmFileGroupImported*/SelfOuter* self, int16 overwrite) put_OverwriteOnCommit;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* overwrite) get_OverwriteOnCommit;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 overwrite) put_OverwriteOnCommit;
 	}
 
 
@@ -1567,11 +1567,11 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsrmFileGroupManager*/SelfOuter* self, IFsrmFileGroup** fileGroup) CreateFileGroup;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsrmFileGroupManager*/SelfOuter* self, BSTR name, IFsrmFileGroup** fileGroup) GetFileGroup;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsrmFileGroupManager*/SelfOuter* self, FsrmEnumOptions options, IFsrmCommittableCollection** fileGroups) EnumFileGroups;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsrmFileGroupManager*/SelfOuter* self, VARIANT* fileGroupNamesArray, BSTR* serializedFileGroups) ExportFileGroups;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsrmFileGroupManager*/SelfOuter* self, BSTR serializedFileGroups, VARIANT* fileGroupNamesArray, IFsrmCommittableCollection** fileGroups) ImportFileGroups;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IFsrmFileGroup** fileGroup) CreateFileGroup;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR name, IFsrmFileGroup** fileGroup) GetFileGroup;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, FsrmEnumOptions options, IFsrmCommittableCollection** fileGroups) EnumFileGroups;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT* fileGroupNamesArray, BSTR* serializedFileGroups) ExportFileGroups;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR serializedFileGroups, VARIANT* fileGroupNamesArray, IFsrmCommittableCollection** fileGroups) ImportFileGroups;
 	}
 
 
@@ -1594,12 +1594,12 @@ public static
 
 	[CRepr]public struct VTable : IFsrmObject.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsrmFileScreenBase*/SelfOuter* self, IFsrmMutableCollection** blockList) get_BlockedFileGroups;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsrmFileScreenBase*/SelfOuter* self, IFsrmMutableCollection* blockList) put_BlockedFileGroups;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsrmFileScreenBase*/SelfOuter* self, int32* fileScreenFlags) get_FileScreenFlags;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsrmFileScreenBase*/SelfOuter* self, int32 fileScreenFlags) put_FileScreenFlags;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsrmFileScreenBase*/SelfOuter* self, FsrmActionType actionType, IFsrmAction** action) CreateAction;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsrmFileScreenBase*/SelfOuter* self, IFsrmCollection** actions) EnumActions;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IFsrmMutableCollection** blockList) get_BlockedFileGroups;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IFsrmMutableCollection* blockList) put_BlockedFileGroups;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* fileScreenFlags) get_FileScreenFlags;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 fileScreenFlags) put_FileScreenFlags;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, FsrmActionType actionType, IFsrmAction** action) CreateAction;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IFsrmCollection** actions) EnumActions;
 	}
 
 
@@ -1624,12 +1624,12 @@ public static
 
 	[CRepr]public struct VTable : IFsrmFileScreenBase.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsrmFileScreen*/SelfOuter* self, BSTR* path) get_Path;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsrmFileScreen*/SelfOuter* self, BSTR* fileScreenTemplateName) get_SourceTemplateName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsrmFileScreen*/SelfOuter* self, int16* matches) get_MatchesSourceTemplate;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsrmFileScreen*/SelfOuter* self, BSTR* userSid) get_UserSid;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsrmFileScreen*/SelfOuter* self, BSTR* userAccount) get_UserAccount;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsrmFileScreen*/SelfOuter* self, BSTR fileScreenTemplateName) ApplyTemplate;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* path) get_Path;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* fileScreenTemplateName) get_SourceTemplateName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* matches) get_MatchesSourceTemplate;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* userSid) get_UserSid;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* userAccount) get_UserAccount;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR fileScreenTemplateName) ApplyTemplate;
 	}
 
 
@@ -1654,9 +1654,9 @@ public static
 
 	[CRepr]public struct VTable : IFsrmObject.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsrmFileScreenException*/SelfOuter* self, BSTR* path) get_Path;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsrmFileScreenException*/SelfOuter* self, IFsrmMutableCollection** allowList) get_AllowedFileGroups;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsrmFileScreenException*/SelfOuter* self, IFsrmMutableCollection* allowList) put_AllowedFileGroups;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* path) get_Path;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IFsrmMutableCollection** allowList) get_AllowedFileGroups;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IFsrmMutableCollection* allowList) put_AllowedFileGroups;
 	}
 
 
@@ -1675,15 +1675,15 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsrmFileScreenManager*/SelfOuter* self, SAFEARRAY** variables) get_ActionVariables;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsrmFileScreenManager*/SelfOuter* self, SAFEARRAY** descriptions) get_ActionVariableDescriptions;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsrmFileScreenManager*/SelfOuter* self, BSTR path, IFsrmFileScreen** fileScreen) CreateFileScreen;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsrmFileScreenManager*/SelfOuter* self, BSTR path, IFsrmFileScreen** fileScreen) GetFileScreen;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsrmFileScreenManager*/SelfOuter* self, BSTR path, FsrmEnumOptions options, IFsrmCommittableCollection** fileScreens) EnumFileScreens;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsrmFileScreenManager*/SelfOuter* self, BSTR path, IFsrmFileScreenException** fileScreenException) CreateFileScreenException;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsrmFileScreenManager*/SelfOuter* self, BSTR path, IFsrmFileScreenException** fileScreenException) GetFileScreenException;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsrmFileScreenManager*/SelfOuter* self, BSTR path, FsrmEnumOptions options, IFsrmCommittableCollection** fileScreenExceptions) EnumFileScreenExceptions;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsrmFileScreenManager*/SelfOuter* self, IFsrmCommittableCollection** collection) CreateFileScreenCollection;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, SAFEARRAY** variables) get_ActionVariables;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, SAFEARRAY** descriptions) get_ActionVariableDescriptions;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR path, IFsrmFileScreen** fileScreen) CreateFileScreen;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR path, IFsrmFileScreen** fileScreen) GetFileScreen;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR path, FsrmEnumOptions options, IFsrmCommittableCollection** fileScreens) EnumFileScreens;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR path, IFsrmFileScreenException** fileScreenException) CreateFileScreenException;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR path, IFsrmFileScreenException** fileScreenException) GetFileScreenException;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR path, FsrmEnumOptions options, IFsrmCommittableCollection** fileScreenExceptions) EnumFileScreenExceptions;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IFsrmCommittableCollection** collection) CreateFileScreenCollection;
 	}
 
 
@@ -1714,10 +1714,10 @@ public static
 
 	[CRepr]public struct VTable : IFsrmFileScreenBase.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsrmFileScreenTemplate*/SelfOuter* self, BSTR* name) get_Name;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsrmFileScreenTemplate*/SelfOuter* self, BSTR name) put_Name;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsrmFileScreenTemplate*/SelfOuter* self, BSTR fileScreenTemplateName) CopyTemplate;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsrmFileScreenTemplate*/SelfOuter* self, FsrmCommitOptions commitOptions, FsrmTemplateApplyOptions applyOptions, IFsrmDerivedObjectsResult** derivedObjectsResult) CommitAndUpdateDerived;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* name) get_Name;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR name) put_Name;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR fileScreenTemplateName) CopyTemplate;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, FsrmCommitOptions commitOptions, FsrmTemplateApplyOptions applyOptions, IFsrmDerivedObjectsResult** derivedObjectsResult) CommitAndUpdateDerived;
 	}
 
 
@@ -1738,8 +1738,8 @@ public static
 
 	[CRepr]public struct VTable : IFsrmFileScreenTemplate.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsrmFileScreenTemplateImported*/SelfOuter* self, int16* overwrite) get_OverwriteOnCommit;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsrmFileScreenTemplateImported*/SelfOuter* self, int16 overwrite) put_OverwriteOnCommit;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* overwrite) get_OverwriteOnCommit;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 overwrite) put_OverwriteOnCommit;
 	}
 
 
@@ -1756,11 +1756,11 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsrmFileScreenTemplateManager*/SelfOuter* self, IFsrmFileScreenTemplate** fileScreenTemplate) CreateTemplate;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsrmFileScreenTemplateManager*/SelfOuter* self, BSTR name, IFsrmFileScreenTemplate** fileScreenTemplate) GetTemplate;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsrmFileScreenTemplateManager*/SelfOuter* self, FsrmEnumOptions options, IFsrmCommittableCollection** fileScreenTemplates) EnumTemplates;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsrmFileScreenTemplateManager*/SelfOuter* self, VARIANT* fileScreenTemplateNamesArray, BSTR* serializedFileScreenTemplates) ExportTemplates;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsrmFileScreenTemplateManager*/SelfOuter* self, BSTR serializedFileScreenTemplates, VARIANT* fileScreenTemplateNamesArray, IFsrmCommittableCollection** fileScreenTemplates) ImportTemplates;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IFsrmFileScreenTemplate** fileScreenTemplate) CreateTemplate;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR name, IFsrmFileScreenTemplate** fileScreenTemplate) GetTemplate;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, FsrmEnumOptions options, IFsrmCommittableCollection** fileScreenTemplates) EnumTemplates;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT* fileScreenTemplateNamesArray, BSTR* serializedFileScreenTemplates) ExportTemplates;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR serializedFileScreenTemplates, VARIANT* fileScreenTemplateNamesArray, IFsrmCommittableCollection** fileScreenTemplates) ImportTemplates;
 	}
 
 
@@ -1783,16 +1783,16 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsrmReportManager*/SelfOuter* self, FsrmEnumOptions options, IFsrmCollection** reportJobs) EnumReportJobs;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsrmReportManager*/SelfOuter* self, IFsrmReportJob** reportJob) CreateReportJob;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsrmReportManager*/SelfOuter* self, BSTR taskName, IFsrmReportJob** reportJob) GetReportJob;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsrmReportManager*/SelfOuter* self, FsrmReportGenerationContext context, BSTR* path) GetOutputDirectory;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsrmReportManager*/SelfOuter* self, FsrmReportGenerationContext context, BSTR path) SetOutputDirectory;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsrmReportManager*/SelfOuter* self, FsrmReportType reportType, FsrmReportFilter filter, int16* valid) IsFilterValidForReportType;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsrmReportManager*/SelfOuter* self, FsrmReportType reportType, FsrmReportFilter filter, VARIANT* filterValue) GetDefaultFilter;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsrmReportManager*/SelfOuter* self, FsrmReportType reportType, FsrmReportFilter filter, VARIANT filterValue) SetDefaultFilter;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsrmReportManager*/SelfOuter* self, FsrmReportLimit limit, VARIANT* limitValue) GetReportSizeLimit;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsrmReportManager*/SelfOuter* self, FsrmReportLimit limit, VARIANT limitValue) SetReportSizeLimit;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, FsrmEnumOptions options, IFsrmCollection** reportJobs) EnumReportJobs;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IFsrmReportJob** reportJob) CreateReportJob;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR taskName, IFsrmReportJob** reportJob) GetReportJob;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, FsrmReportGenerationContext context, BSTR* path) GetOutputDirectory;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, FsrmReportGenerationContext context, BSTR path) SetOutputDirectory;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, FsrmReportType reportType, FsrmReportFilter filter, int16* valid) IsFilterValidForReportType;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, FsrmReportType reportType, FsrmReportFilter filter, VARIANT* filterValue) GetDefaultFilter;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, FsrmReportType reportType, FsrmReportFilter filter, VARIANT filterValue) SetDefaultFilter;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, FsrmReportLimit limit, VARIANT* limitValue) GetReportSizeLimit;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, FsrmReportLimit limit, VARIANT limitValue) SetReportSizeLimit;
 	}
 
 
@@ -1825,23 +1825,23 @@ public static
 
 	[CRepr]public struct VTable : IFsrmObject.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsrmReportJob*/SelfOuter* self, BSTR* taskName) get_Task;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsrmReportJob*/SelfOuter* self, BSTR taskName) put_Task;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsrmReportJob*/SelfOuter* self, SAFEARRAY** namespaceRoots) get_NamespaceRoots;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsrmReportJob*/SelfOuter* self, SAFEARRAY* namespaceRoots) put_NamespaceRoots;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsrmReportJob*/SelfOuter* self, SAFEARRAY** formats) get_Formats;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsrmReportJob*/SelfOuter* self, SAFEARRAY* formats) put_Formats;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsrmReportJob*/SelfOuter* self, BSTR* mailTo) get_MailTo;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsrmReportJob*/SelfOuter* self, BSTR mailTo) put_MailTo;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsrmReportJob*/SelfOuter* self, FsrmReportRunningStatus* runningStatus) get_RunningStatus;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsrmReportJob*/SelfOuter* self, double* lastRun) get_LastRun;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsrmReportJob*/SelfOuter* self, BSTR* lastError) get_LastError;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsrmReportJob*/SelfOuter* self, BSTR* path) get_LastGeneratedInDirectory;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsrmReportJob*/SelfOuter* self, IFsrmCollection** reports) EnumReports;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsrmReportJob*/SelfOuter* self, FsrmReportType reportType, IFsrmReport** report) CreateReport;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsrmReportJob*/SelfOuter* self, FsrmReportGenerationContext context) Run;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsrmReportJob*/SelfOuter* self, int32 waitSeconds, int16* completed) WaitForCompletion;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsrmReportJob*/SelfOuter* self) Cancel;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* taskName) get_Task;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR taskName) put_Task;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, SAFEARRAY** namespaceRoots) get_NamespaceRoots;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, SAFEARRAY* namespaceRoots) put_NamespaceRoots;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, SAFEARRAY** formats) get_Formats;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, SAFEARRAY* formats) put_Formats;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* mailTo) get_MailTo;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR mailTo) put_MailTo;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, FsrmReportRunningStatus* runningStatus) get_RunningStatus;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, double* lastRun) get_LastRun;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* lastError) get_LastError;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* path) get_LastGeneratedInDirectory;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IFsrmCollection** reports) EnumReports;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, FsrmReportType reportType, IFsrmReport** report) CreateReport;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, FsrmReportGenerationContext context) Run;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 waitSeconds, int16* completed) WaitForCompletion;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Cancel;
 	}
 
 
@@ -1888,15 +1888,15 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsrmReport*/SelfOuter* self, FsrmReportType* reportType) get_Type;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsrmReport*/SelfOuter* self, BSTR* name) get_Name;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsrmReport*/SelfOuter* self, BSTR name) put_Name;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsrmReport*/SelfOuter* self, BSTR* description) get_Description;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsrmReport*/SelfOuter* self, BSTR description) put_Description;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsrmReport*/SelfOuter* self, BSTR* prefix) get_LastGeneratedFileNamePrefix;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsrmReport*/SelfOuter* self, FsrmReportFilter filter, VARIANT* filterValue) GetFilter;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsrmReport*/SelfOuter* self, FsrmReportFilter filter, VARIANT filterValue) SetFilter;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsrmReport*/SelfOuter* self) Delete;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, FsrmReportType* reportType) get_Type;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* name) get_Name;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR name) put_Name;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* description) get_Description;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR description) put_Description;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* prefix) get_LastGeneratedFileNamePrefix;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, FsrmReportFilter filter, VARIANT* filterValue) GetFilter;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, FsrmReportFilter filter, VARIANT filterValue) SetFilter;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Delete;
 	}
 
 
@@ -1927,10 +1927,10 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsrmReportScheduler*/SelfOuter* self, VARIANT* namespacesSafeArray) VerifyNamespaces;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsrmReportScheduler*/SelfOuter* self, BSTR taskName, VARIANT* namespacesSafeArray, BSTR serializedTask) CreateScheduleTask;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsrmReportScheduler*/SelfOuter* self, BSTR taskName, VARIANT* namespacesSafeArray, BSTR serializedTask) ModifyScheduleTask;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsrmReportScheduler*/SelfOuter* self, BSTR taskName) DeleteScheduleTask;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT* namespacesSafeArray) VerifyNamespaces;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR taskName, VARIANT* namespacesSafeArray, BSTR serializedTask) CreateScheduleTask;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR taskName, VARIANT* namespacesSafeArray, BSTR serializedTask) ModifyScheduleTask;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR taskName) DeleteScheduleTask;
 	}
 
 
@@ -1951,11 +1951,11 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsrmFileManagementJobManager*/SelfOuter* self, SAFEARRAY** variables) get_ActionVariables;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsrmFileManagementJobManager*/SelfOuter* self, SAFEARRAY** descriptions) get_ActionVariableDescriptions;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsrmFileManagementJobManager*/SelfOuter* self, FsrmEnumOptions options, IFsrmCollection** fileManagementJobs) EnumFileManagementJobs;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsrmFileManagementJobManager*/SelfOuter* self, IFsrmFileManagementJob** fileManagementJob) CreateFileManagementJob;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsrmFileManagementJobManager*/SelfOuter* self, BSTR name, IFsrmFileManagementJob** fileManagementJob) GetFileManagementJob;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, SAFEARRAY** variables) get_ActionVariables;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, SAFEARRAY** descriptions) get_ActionVariableDescriptions;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, FsrmEnumOptions options, IFsrmCollection** fileManagementJobs) EnumFileManagementJobs;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IFsrmFileManagementJob** fileManagementJob) CreateFileManagementJob;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR name, IFsrmFileManagementJob** fileManagementJob) GetFileManagementJob;
 	}
 
 
@@ -1978,55 +1978,55 @@ public static
 
 	[CRepr]public struct VTable : IFsrmObject.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsrmFileManagementJob*/SelfOuter* self, BSTR* name) get_Name;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsrmFileManagementJob*/SelfOuter* self, BSTR name) put_Name;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsrmFileManagementJob*/SelfOuter* self, SAFEARRAY** namespaceRoots) get_NamespaceRoots;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsrmFileManagementJob*/SelfOuter* self, SAFEARRAY* namespaceRoots) put_NamespaceRoots;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsrmFileManagementJob*/SelfOuter* self, int16* enabled) get_Enabled;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsrmFileManagementJob*/SelfOuter* self, int16 enabled) put_Enabled;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsrmFileManagementJob*/SelfOuter* self, FsrmFileManagementType* operationType) get_OperationType;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsrmFileManagementJob*/SelfOuter* self, FsrmFileManagementType operationType) put_OperationType;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsrmFileManagementJob*/SelfOuter* self, BSTR* expirationDirectory) get_ExpirationDirectory;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsrmFileManagementJob*/SelfOuter* self, BSTR expirationDirectory) put_ExpirationDirectory;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsrmFileManagementJob*/SelfOuter* self, IFsrmActionCommand** action) get_CustomAction;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsrmFileManagementJob*/SelfOuter* self, SAFEARRAY** notifications) get_Notifications;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsrmFileManagementJob*/SelfOuter* self, int32* loggingFlags) get_Logging;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsrmFileManagementJob*/SelfOuter* self, int32 loggingFlags) put_Logging;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsrmFileManagementJob*/SelfOuter* self, int16* reportEnabled) get_ReportEnabled;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsrmFileManagementJob*/SelfOuter* self, int16 reportEnabled) put_ReportEnabled;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsrmFileManagementJob*/SelfOuter* self, SAFEARRAY** formats) get_Formats;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsrmFileManagementJob*/SelfOuter* self, SAFEARRAY* formats) put_Formats;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsrmFileManagementJob*/SelfOuter* self, BSTR* mailTo) get_MailTo;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsrmFileManagementJob*/SelfOuter* self, BSTR mailTo) put_MailTo;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsrmFileManagementJob*/SelfOuter* self, int32* daysSinceCreation) get_DaysSinceFileCreated;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsrmFileManagementJob*/SelfOuter* self, int32 daysSinceCreation) put_DaysSinceFileCreated;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsrmFileManagementJob*/SelfOuter* self, int32* daysSinceAccess) get_DaysSinceFileLastAccessed;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsrmFileManagementJob*/SelfOuter* self, int32 daysSinceAccess) put_DaysSinceFileLastAccessed;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsrmFileManagementJob*/SelfOuter* self, int32* daysSinceModify) get_DaysSinceFileLastModified;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsrmFileManagementJob*/SelfOuter* self, int32 daysSinceModify) put_DaysSinceFileLastModified;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsrmFileManagementJob*/SelfOuter* self, IFsrmCollection** propertyConditions) get_PropertyConditions;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsrmFileManagementJob*/SelfOuter* self, double* fromDate) get_FromDate;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsrmFileManagementJob*/SelfOuter* self, double fromDate) put_FromDate;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsrmFileManagementJob*/SelfOuter* self, BSTR* taskName) get_Task;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsrmFileManagementJob*/SelfOuter* self, BSTR taskName) put_Task;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsrmFileManagementJob*/SelfOuter* self, SAFEARRAY** parameters) get_Parameters;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsrmFileManagementJob*/SelfOuter* self, SAFEARRAY* parameters) put_Parameters;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsrmFileManagementJob*/SelfOuter* self, FsrmReportRunningStatus* runningStatus) get_RunningStatus;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsrmFileManagementJob*/SelfOuter* self, BSTR* lastError) get_LastError;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsrmFileManagementJob*/SelfOuter* self, BSTR* path) get_LastReportPathWithoutExtension;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsrmFileManagementJob*/SelfOuter* self, double* lastRun) get_LastRun;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsrmFileManagementJob*/SelfOuter* self, BSTR* fileNamePattern) get_FileNamePattern;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsrmFileManagementJob*/SelfOuter* self, BSTR fileNamePattern) put_FileNamePattern;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsrmFileManagementJob*/SelfOuter* self, FsrmReportGenerationContext context) Run;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsrmFileManagementJob*/SelfOuter* self, int32 waitSeconds, int16* completed) WaitForCompletion;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsrmFileManagementJob*/SelfOuter* self) Cancel;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsrmFileManagementJob*/SelfOuter* self, int32 days) AddNotification;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsrmFileManagementJob*/SelfOuter* self, int32 days) DeleteNotification;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsrmFileManagementJob*/SelfOuter* self, int32 days, int32 newDays) ModifyNotification;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsrmFileManagementJob*/SelfOuter* self, int32 days, FsrmActionType actionType, IFsrmAction** action) CreateNotificationAction;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsrmFileManagementJob*/SelfOuter* self, int32 days, IFsrmCollection** actions) EnumNotificationActions;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsrmFileManagementJob*/SelfOuter* self, BSTR name, IFsrmPropertyCondition** propertyCondition) CreatePropertyCondition;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsrmFileManagementJob*/SelfOuter* self, IFsrmActionCommand** customAction) CreateCustomAction;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* name) get_Name;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR name) put_Name;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, SAFEARRAY** namespaceRoots) get_NamespaceRoots;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, SAFEARRAY* namespaceRoots) put_NamespaceRoots;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* enabled) get_Enabled;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 enabled) put_Enabled;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, FsrmFileManagementType* operationType) get_OperationType;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, FsrmFileManagementType operationType) put_OperationType;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* expirationDirectory) get_ExpirationDirectory;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR expirationDirectory) put_ExpirationDirectory;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IFsrmActionCommand** action) get_CustomAction;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, SAFEARRAY** notifications) get_Notifications;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* loggingFlags) get_Logging;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 loggingFlags) put_Logging;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* reportEnabled) get_ReportEnabled;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 reportEnabled) put_ReportEnabled;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, SAFEARRAY** formats) get_Formats;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, SAFEARRAY* formats) put_Formats;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* mailTo) get_MailTo;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR mailTo) put_MailTo;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* daysSinceCreation) get_DaysSinceFileCreated;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 daysSinceCreation) put_DaysSinceFileCreated;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* daysSinceAccess) get_DaysSinceFileLastAccessed;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 daysSinceAccess) put_DaysSinceFileLastAccessed;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* daysSinceModify) get_DaysSinceFileLastModified;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 daysSinceModify) put_DaysSinceFileLastModified;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IFsrmCollection** propertyConditions) get_PropertyConditions;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, double* fromDate) get_FromDate;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, double fromDate) put_FromDate;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* taskName) get_Task;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR taskName) put_Task;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, SAFEARRAY** parameters) get_Parameters;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, SAFEARRAY* parameters) put_Parameters;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, FsrmReportRunningStatus* runningStatus) get_RunningStatus;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* lastError) get_LastError;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* path) get_LastReportPathWithoutExtension;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, double* lastRun) get_LastRun;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* fileNamePattern) get_FileNamePattern;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR fileNamePattern) put_FileNamePattern;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, FsrmReportGenerationContext context) Run;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 waitSeconds, int16* completed) WaitForCompletion;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Cancel;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 days) AddNotification;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 days) DeleteNotification;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 days, int32 newDays) ModifyNotification;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 days, FsrmActionType actionType, IFsrmAction** action) CreateNotificationAction;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 days, IFsrmCollection** actions) EnumNotificationActions;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR name, IFsrmPropertyCondition** propertyCondition) CreatePropertyCondition;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IFsrmActionCommand** customAction) CreateCustomAction;
 	}
 
 
@@ -2137,13 +2137,13 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsrmPropertyCondition*/SelfOuter* self, BSTR* name) get_Name;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsrmPropertyCondition*/SelfOuter* self, BSTR name) put_Name;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsrmPropertyCondition*/SelfOuter* self, FsrmPropertyConditionType* type) get_Type;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsrmPropertyCondition*/SelfOuter* self, FsrmPropertyConditionType type) put_Type;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsrmPropertyCondition*/SelfOuter* self, BSTR* value) get_Value;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsrmPropertyCondition*/SelfOuter* self, BSTR value) put_Value;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsrmPropertyCondition*/SelfOuter* self) Delete;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* name) get_Name;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR name) put_Name;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, FsrmPropertyConditionType* type) get_Type;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, FsrmPropertyConditionType type) put_Type;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* value) get_Value;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR value) put_Value;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Delete;
 	}
 
 
@@ -2170,8 +2170,8 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsrmFileCondition*/SelfOuter* self, FsrmFileConditionType* pVal) get_Type;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsrmFileCondition*/SelfOuter* self) Delete;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, FsrmFileConditionType* pVal) get_Type;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Delete;
 	}
 
 
@@ -2188,16 +2188,16 @@ public static
 
 	[CRepr]public struct VTable : IFsrmFileCondition.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsrmFileConditionProperty*/SelfOuter* self, BSTR* pVal) get_PropertyName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsrmFileConditionProperty*/SelfOuter* self, BSTR newVal) put_PropertyName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsrmFileConditionProperty*/SelfOuter* self, FsrmFileSystemPropertyId* pVal) get_PropertyId;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsrmFileConditionProperty*/SelfOuter* self, FsrmFileSystemPropertyId newVal) put_PropertyId;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsrmFileConditionProperty*/SelfOuter* self, FsrmPropertyConditionType* pVal) get_Operator;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsrmFileConditionProperty*/SelfOuter* self, FsrmPropertyConditionType newVal) put_Operator;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsrmFileConditionProperty*/SelfOuter* self, FsrmPropertyValueType* pVal) get_ValueType;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsrmFileConditionProperty*/SelfOuter* self, FsrmPropertyValueType newVal) put_ValueType;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsrmFileConditionProperty*/SelfOuter* self, VARIANT* pVal) get_Value;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsrmFileConditionProperty*/SelfOuter* self, VARIANT newVal) put_Value;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pVal) get_PropertyName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR newVal) put_PropertyName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, FsrmFileSystemPropertyId* pVal) get_PropertyId;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, FsrmFileSystemPropertyId newVal) put_PropertyId;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, FsrmPropertyConditionType* pVal) get_Operator;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, FsrmPropertyConditionType newVal) put_Operator;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, FsrmPropertyValueType* pVal) get_ValueType;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, FsrmPropertyValueType newVal) put_ValueType;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT* pVal) get_Value;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT newVal) put_Value;
 	}
 
 
@@ -2230,16 +2230,16 @@ public static
 
 	[CRepr]public struct VTable : IFsrmObject.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsrmPropertyDefinition*/SelfOuter* self, BSTR* name) get_Name;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsrmPropertyDefinition*/SelfOuter* self, BSTR name) put_Name;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsrmPropertyDefinition*/SelfOuter* self, FsrmPropertyDefinitionType* type) get_Type;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsrmPropertyDefinition*/SelfOuter* self, FsrmPropertyDefinitionType type) put_Type;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsrmPropertyDefinition*/SelfOuter* self, SAFEARRAY** possibleValues) get_PossibleValues;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsrmPropertyDefinition*/SelfOuter* self, SAFEARRAY* possibleValues) put_PossibleValues;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsrmPropertyDefinition*/SelfOuter* self, SAFEARRAY** valueDescriptions) get_ValueDescriptions;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsrmPropertyDefinition*/SelfOuter* self, SAFEARRAY* valueDescriptions) put_ValueDescriptions;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsrmPropertyDefinition*/SelfOuter* self, SAFEARRAY** parameters) get_Parameters;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsrmPropertyDefinition*/SelfOuter* self, SAFEARRAY* parameters) put_Parameters;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* name) get_Name;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR name) put_Name;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, FsrmPropertyDefinitionType* type) get_Type;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, FsrmPropertyDefinitionType type) put_Type;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, SAFEARRAY** possibleValues) get_PossibleValues;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, SAFEARRAY* possibleValues) put_PossibleValues;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, SAFEARRAY** valueDescriptions) get_ValueDescriptions;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, SAFEARRAY* valueDescriptions) put_ValueDescriptions;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, SAFEARRAY** parameters) get_Parameters;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, SAFEARRAY* parameters) put_Parameters;
 	}
 
 
@@ -2272,11 +2272,11 @@ public static
 
 	[CRepr]public struct VTable : IFsrmPropertyDefinition.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsrmPropertyDefinition2*/SelfOuter* self, int32* propertyDefinitionFlags) get_PropertyDefinitionFlags;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsrmPropertyDefinition2*/SelfOuter* self, BSTR* name) get_DisplayName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsrmPropertyDefinition2*/SelfOuter* self, BSTR name) put_DisplayName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsrmPropertyDefinition2*/SelfOuter* self, int32* appliesTo) get_AppliesTo;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsrmPropertyDefinition2*/SelfOuter* self, IFsrmCollection** valueDefinitions) get_ValueDefinitions;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* propertyDefinitionFlags) get_PropertyDefinitionFlags;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* name) get_DisplayName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR name) put_DisplayName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* appliesTo) get_AppliesTo;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IFsrmCollection** valueDefinitions) get_ValueDefinitions;
 	}
 
 
@@ -2299,10 +2299,10 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsrmPropertyDefinitionValue*/SelfOuter* self, BSTR* name) get_Name;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsrmPropertyDefinitionValue*/SelfOuter* self, BSTR* displayName) get_DisplayName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsrmPropertyDefinitionValue*/SelfOuter* self, BSTR* description) get_Description;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsrmPropertyDefinitionValue*/SelfOuter* self, BSTR* uniqueID) get_UniqueID;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* name) get_Name;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* displayName) get_DisplayName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* description) get_Description;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* uniqueID) get_UniqueID;
 	}
 
 
@@ -2323,10 +2323,10 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsrmProperty*/SelfOuter* self, BSTR* name) get_Name;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsrmProperty*/SelfOuter* self, BSTR* value) get_Value;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsrmProperty*/SelfOuter* self, SAFEARRAY** sources) get_Sources;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsrmProperty*/SelfOuter* self, int32* flags) get_PropertyFlags;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* name) get_Name;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* value) get_Value;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, SAFEARRAY** sources) get_Sources;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* flags) get_PropertyFlags;
 	}
 
 
@@ -2347,18 +2347,18 @@ public static
 
 	[CRepr]public struct VTable : IFsrmObject.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsrmRule*/SelfOuter* self, BSTR* name) get_Name;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsrmRule*/SelfOuter* self, BSTR name) put_Name;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsrmRule*/SelfOuter* self, FsrmRuleType* ruleType) get_RuleType;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsrmRule*/SelfOuter* self, BSTR* moduleDefinitionName) get_ModuleDefinitionName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsrmRule*/SelfOuter* self, BSTR moduleDefinitionName) put_ModuleDefinitionName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsrmRule*/SelfOuter* self, SAFEARRAY** namespaceRoots) get_NamespaceRoots;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsrmRule*/SelfOuter* self, SAFEARRAY* namespaceRoots) put_NamespaceRoots;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsrmRule*/SelfOuter* self, int32* ruleFlags) get_RuleFlags;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsrmRule*/SelfOuter* self, int32 ruleFlags) put_RuleFlags;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsrmRule*/SelfOuter* self, SAFEARRAY** parameters) get_Parameters;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsrmRule*/SelfOuter* self, SAFEARRAY* parameters) put_Parameters;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsrmRule*/SelfOuter* self, VARIANT* lastModified) get_LastModified;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* name) get_Name;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR name) put_Name;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, FsrmRuleType* ruleType) get_RuleType;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* moduleDefinitionName) get_ModuleDefinitionName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR moduleDefinitionName) put_ModuleDefinitionName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, SAFEARRAY** namespaceRoots) get_NamespaceRoots;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, SAFEARRAY* namespaceRoots) put_NamespaceRoots;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* ruleFlags) get_RuleFlags;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 ruleFlags) put_RuleFlags;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, SAFEARRAY** parameters) get_Parameters;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, SAFEARRAY* parameters) put_Parameters;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT* lastModified) get_LastModified;
 	}
 
 
@@ -2395,12 +2395,12 @@ public static
 
 	[CRepr]public struct VTable : IFsrmRule.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsrmClassificationRule*/SelfOuter* self, FsrmExecutionOption* executionOption) get_ExecutionOption;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsrmClassificationRule*/SelfOuter* self, FsrmExecutionOption executionOption) put_ExecutionOption;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsrmClassificationRule*/SelfOuter* self, BSTR* property) get_PropertyAffected;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsrmClassificationRule*/SelfOuter* self, BSTR property) put_PropertyAffected;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsrmClassificationRule*/SelfOuter* self, BSTR* value) get_Value;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsrmClassificationRule*/SelfOuter* self, BSTR value) put_Value;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, FsrmExecutionOption* executionOption) get_ExecutionOption;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, FsrmExecutionOption executionOption) put_ExecutionOption;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* property) get_PropertyAffected;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR property) put_PropertyAffected;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* value) get_Value;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR value) put_Value;
 	}
 
 
@@ -2425,25 +2425,25 @@ public static
 
 	[CRepr]public struct VTable : IFsrmObject.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsrmPipelineModuleDefinition*/SelfOuter* self, BSTR* moduleClsid) get_ModuleClsid;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsrmPipelineModuleDefinition*/SelfOuter* self, BSTR moduleClsid) put_ModuleClsid;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsrmPipelineModuleDefinition*/SelfOuter* self, BSTR* name) get_Name;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsrmPipelineModuleDefinition*/SelfOuter* self, BSTR name) put_Name;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsrmPipelineModuleDefinition*/SelfOuter* self, BSTR* company) get_Company;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsrmPipelineModuleDefinition*/SelfOuter* self, BSTR company) put_Company;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsrmPipelineModuleDefinition*/SelfOuter* self, BSTR* version) get_Version;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsrmPipelineModuleDefinition*/SelfOuter* self, BSTR version) put_Version;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsrmPipelineModuleDefinition*/SelfOuter* self, FsrmPipelineModuleType* moduleType) get_ModuleType;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsrmPipelineModuleDefinition*/SelfOuter* self, int16* enabled) get_Enabled;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsrmPipelineModuleDefinition*/SelfOuter* self, int16 enabled) put_Enabled;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsrmPipelineModuleDefinition*/SelfOuter* self, int16* needsFileContent) get_NeedsFileContent;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsrmPipelineModuleDefinition*/SelfOuter* self, int16 needsFileContent) put_NeedsFileContent;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsrmPipelineModuleDefinition*/SelfOuter* self, FsrmAccountType* retrievalAccount) get_Account;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsrmPipelineModuleDefinition*/SelfOuter* self, FsrmAccountType retrievalAccount) put_Account;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsrmPipelineModuleDefinition*/SelfOuter* self, SAFEARRAY** supportedExtensions) get_SupportedExtensions;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsrmPipelineModuleDefinition*/SelfOuter* self, SAFEARRAY* supportedExtensions) put_SupportedExtensions;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsrmPipelineModuleDefinition*/SelfOuter* self, SAFEARRAY** parameters) get_Parameters;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsrmPipelineModuleDefinition*/SelfOuter* self, SAFEARRAY* parameters) put_Parameters;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* moduleClsid) get_ModuleClsid;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR moduleClsid) put_ModuleClsid;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* name) get_Name;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR name) put_Name;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* company) get_Company;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR company) put_Company;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* version) get_Version;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR version) put_Version;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, FsrmPipelineModuleType* moduleType) get_ModuleType;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* enabled) get_Enabled;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 enabled) put_Enabled;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* needsFileContent) get_NeedsFileContent;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 needsFileContent) put_NeedsFileContent;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, FsrmAccountType* retrievalAccount) get_Account;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, FsrmAccountType retrievalAccount) put_Account;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, SAFEARRAY** supportedExtensions) get_SupportedExtensions;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, SAFEARRAY* supportedExtensions) put_SupportedExtensions;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, SAFEARRAY** parameters) get_Parameters;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, SAFEARRAY* parameters) put_Parameters;
 	}
 
 
@@ -2494,12 +2494,12 @@ public static
 
 	[CRepr]public struct VTable : IFsrmPipelineModuleDefinition.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsrmClassifierModuleDefinition*/SelfOuter* self, SAFEARRAY** propertiesAffected) get_PropertiesAffected;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsrmClassifierModuleDefinition*/SelfOuter* self, SAFEARRAY* propertiesAffected) put_PropertiesAffected;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsrmClassifierModuleDefinition*/SelfOuter* self, SAFEARRAY** propertiesUsed) get_PropertiesUsed;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsrmClassifierModuleDefinition*/SelfOuter* self, SAFEARRAY* propertiesUsed) put_PropertiesUsed;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsrmClassifierModuleDefinition*/SelfOuter* self, int16* needsExplicitValue) get_NeedsExplicitValue;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsrmClassifierModuleDefinition*/SelfOuter* self, int16 needsExplicitValue) put_NeedsExplicitValue;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, SAFEARRAY** propertiesAffected) get_PropertiesAffected;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, SAFEARRAY* propertiesAffected) put_PropertiesAffected;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, SAFEARRAY** propertiesUsed) get_PropertiesUsed;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, SAFEARRAY* propertiesUsed) put_PropertiesUsed;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* needsExplicitValue) get_NeedsExplicitValue;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 needsExplicitValue) put_NeedsExplicitValue;
 	}
 
 
@@ -2524,12 +2524,12 @@ public static
 
 	[CRepr]public struct VTable : IFsrmPipelineModuleDefinition.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsrmStorageModuleDefinition*/SelfOuter* self, FsrmStorageModuleCaps* capabilities) get_Capabilities;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsrmStorageModuleDefinition*/SelfOuter* self, FsrmStorageModuleCaps capabilities) put_Capabilities;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsrmStorageModuleDefinition*/SelfOuter* self, FsrmStorageModuleType* storageType) get_StorageType;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsrmStorageModuleDefinition*/SelfOuter* self, FsrmStorageModuleType storageType) put_StorageType;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsrmStorageModuleDefinition*/SelfOuter* self, int16* updatesFileContent) get_UpdatesFileContent;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsrmStorageModuleDefinition*/SelfOuter* self, int16 updatesFileContent) put_UpdatesFileContent;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, FsrmStorageModuleCaps* capabilities) get_Capabilities;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, FsrmStorageModuleCaps capabilities) put_Capabilities;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, FsrmStorageModuleType* storageType) get_StorageType;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, FsrmStorageModuleType storageType) put_StorageType;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* updatesFileContent) get_UpdatesFileContent;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 updatesFileContent) put_UpdatesFileContent;
 	}
 
 
@@ -2554,33 +2554,33 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsrmClassificationManager*/SelfOuter* self, SAFEARRAY** formats) get_ClassificationReportFormats;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsrmClassificationManager*/SelfOuter* self, SAFEARRAY* formats) put_ClassificationReportFormats;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsrmClassificationManager*/SelfOuter* self, int32* logging) get_Logging;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsrmClassificationManager*/SelfOuter* self, int32 logging) put_Logging;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsrmClassificationManager*/SelfOuter* self, BSTR* mailTo) get_ClassificationReportMailTo;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsrmClassificationManager*/SelfOuter* self, BSTR mailTo) put_ClassificationReportMailTo;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsrmClassificationManager*/SelfOuter* self, int16* reportEnabled) get_ClassificationReportEnabled;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsrmClassificationManager*/SelfOuter* self, int16 reportEnabled) put_ClassificationReportEnabled;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsrmClassificationManager*/SelfOuter* self, BSTR* lastReportPath) get_ClassificationLastReportPathWithoutExtension;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsrmClassificationManager*/SelfOuter* self, BSTR* lastError) get_ClassificationLastError;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsrmClassificationManager*/SelfOuter* self, FsrmReportRunningStatus* runningStatus) get_ClassificationRunningStatus;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsrmClassificationManager*/SelfOuter* self, FsrmEnumOptions options, IFsrmCollection** propertyDefinitions) EnumPropertyDefinitions;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsrmClassificationManager*/SelfOuter* self, IFsrmPropertyDefinition** propertyDefinition) CreatePropertyDefinition;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsrmClassificationManager*/SelfOuter* self, BSTR propertyName, IFsrmPropertyDefinition** propertyDefinition) GetPropertyDefinition;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsrmClassificationManager*/SelfOuter* self, FsrmRuleType ruleType, FsrmEnumOptions options, IFsrmCollection** Rules) EnumRules;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsrmClassificationManager*/SelfOuter* self, FsrmRuleType ruleType, IFsrmRule** Rule) CreateRule;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsrmClassificationManager*/SelfOuter* self, BSTR ruleName, FsrmRuleType ruleType, IFsrmRule** Rule) GetRule;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsrmClassificationManager*/SelfOuter* self, FsrmPipelineModuleType moduleType, FsrmEnumOptions options, IFsrmCollection** moduleDefinitions) EnumModuleDefinitions;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsrmClassificationManager*/SelfOuter* self, FsrmPipelineModuleType moduleType, IFsrmPipelineModuleDefinition** moduleDefinition) CreateModuleDefinition;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsrmClassificationManager*/SelfOuter* self, BSTR moduleName, FsrmPipelineModuleType moduleType, IFsrmPipelineModuleDefinition** moduleDefinition) GetModuleDefinition;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsrmClassificationManager*/SelfOuter* self, FsrmReportGenerationContext context, BSTR reserved) RunClassification;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsrmClassificationManager*/SelfOuter* self, int32 waitSeconds, int16* completed) WaitForClassificationCompletion;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsrmClassificationManager*/SelfOuter* self) CancelClassification;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsrmClassificationManager*/SelfOuter* self, BSTR filePath, FsrmGetFilePropertyOptions options, IFsrmCollection** fileProperties) EnumFileProperties;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsrmClassificationManager*/SelfOuter* self, BSTR filePath, BSTR propertyName, FsrmGetFilePropertyOptions options, IFsrmProperty** property) GetFileProperty;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsrmClassificationManager*/SelfOuter* self, BSTR filePath, BSTR propertyName, BSTR propertyValue) SetFileProperty;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsrmClassificationManager*/SelfOuter* self, BSTR filePath, BSTR property) ClearFileProperty;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, SAFEARRAY** formats) get_ClassificationReportFormats;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, SAFEARRAY* formats) put_ClassificationReportFormats;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* logging) get_Logging;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 logging) put_Logging;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* mailTo) get_ClassificationReportMailTo;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR mailTo) put_ClassificationReportMailTo;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* reportEnabled) get_ClassificationReportEnabled;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 reportEnabled) put_ClassificationReportEnabled;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* lastReportPath) get_ClassificationLastReportPathWithoutExtension;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* lastError) get_ClassificationLastError;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, FsrmReportRunningStatus* runningStatus) get_ClassificationRunningStatus;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, FsrmEnumOptions options, IFsrmCollection** propertyDefinitions) EnumPropertyDefinitions;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IFsrmPropertyDefinition** propertyDefinition) CreatePropertyDefinition;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR propertyName, IFsrmPropertyDefinition** propertyDefinition) GetPropertyDefinition;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, FsrmRuleType ruleType, FsrmEnumOptions options, IFsrmCollection** Rules) EnumRules;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, FsrmRuleType ruleType, IFsrmRule** Rule) CreateRule;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR ruleName, FsrmRuleType ruleType, IFsrmRule** Rule) GetRule;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, FsrmPipelineModuleType moduleType, FsrmEnumOptions options, IFsrmCollection** moduleDefinitions) EnumModuleDefinitions;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, FsrmPipelineModuleType moduleType, IFsrmPipelineModuleDefinition** moduleDefinition) CreateModuleDefinition;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR moduleName, FsrmPipelineModuleType moduleType, IFsrmPipelineModuleDefinition** moduleDefinition) GetModuleDefinition;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, FsrmReportGenerationContext context, BSTR reserved) RunClassification;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 waitSeconds, int16* completed) WaitForClassificationCompletion;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) CancelClassification;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR filePath, FsrmGetFilePropertyOptions options, IFsrmCollection** fileProperties) EnumFileProperties;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR filePath, BSTR propertyName, FsrmGetFilePropertyOptions options, IFsrmProperty** property) GetFileProperty;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR filePath, BSTR propertyName, BSTR propertyValue) SetFileProperty;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR filePath, BSTR property) ClearFileProperty;
 	}
 
 
@@ -2647,7 +2647,7 @@ public static
 
 	[CRepr]public struct VTable : IFsrmClassificationManager.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsrmClassificationManager2*/SelfOuter* self, SAFEARRAY* filePaths, SAFEARRAY* propertyNames, SAFEARRAY* propertyValues, FsrmGetFilePropertyOptions options) ClassifyFiles;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, SAFEARRAY* filePaths, SAFEARRAY* propertyNames, SAFEARRAY* propertyValues, FsrmGetFilePropertyOptions options) ClassifyFiles;
 	}
 
 
@@ -2662,27 +2662,27 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsrmPropertyBag*/SelfOuter* self, BSTR* name) get_Name;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsrmPropertyBag*/SelfOuter* self, BSTR* path) get_RelativePath;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsrmPropertyBag*/SelfOuter* self, BSTR* volumeName) get_VolumeName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsrmPropertyBag*/SelfOuter* self, BSTR* relativeNamespaceRoot) get_RelativeNamespaceRoot;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsrmPropertyBag*/SelfOuter* self, uint32* volumeId) get_VolumeIndex;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsrmPropertyBag*/SelfOuter* self, VARIANT* fileId) get_FileId;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsrmPropertyBag*/SelfOuter* self, VARIANT* parentDirectoryId) get_ParentDirectoryId;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsrmPropertyBag*/SelfOuter* self, VARIANT* size) get_Size;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsrmPropertyBag*/SelfOuter* self, VARIANT* sizeAllocated) get_SizeAllocated;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsrmPropertyBag*/SelfOuter* self, VARIANT* creationTime) get_CreationTime;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsrmPropertyBag*/SelfOuter* self, VARIANT* lastAccessTime) get_LastAccessTime;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsrmPropertyBag*/SelfOuter* self, VARIANT* lastModificationTime) get_LastModificationTime;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsrmPropertyBag*/SelfOuter* self, uint32* attributes) get_Attributes;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsrmPropertyBag*/SelfOuter* self, BSTR* ownerSid) get_OwnerSid;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsrmPropertyBag*/SelfOuter* self, SAFEARRAY** filePropertyNames) get_FilePropertyNames;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsrmPropertyBag*/SelfOuter* self, SAFEARRAY** messages) get_Messages;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsrmPropertyBag*/SelfOuter* self, uint32* flags) get_PropertyBagFlags;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsrmPropertyBag*/SelfOuter* self, BSTR name, IFsrmProperty** fileProperty) GetFileProperty;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsrmPropertyBag*/SelfOuter* self, BSTR name, BSTR value) SetFileProperty;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsrmPropertyBag*/SelfOuter* self, BSTR message) AddMessage;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsrmPropertyBag*/SelfOuter* self, FsrmFileStreamingMode accessMode, FsrmFileStreamingInterfaceType interfaceType, VARIANT* pStreamInterface) GetFileStreamInterface;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* name) get_Name;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* path) get_RelativePath;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* volumeName) get_VolumeName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* relativeNamespaceRoot) get_RelativeNamespaceRoot;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* volumeId) get_VolumeIndex;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT* fileId) get_FileId;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT* parentDirectoryId) get_ParentDirectoryId;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT* size) get_Size;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT* sizeAllocated) get_SizeAllocated;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT* creationTime) get_CreationTime;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT* lastAccessTime) get_LastAccessTime;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT* lastModificationTime) get_LastModificationTime;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* attributes) get_Attributes;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* ownerSid) get_OwnerSid;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, SAFEARRAY** filePropertyNames) get_FilePropertyNames;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, SAFEARRAY** messages) get_Messages;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* flags) get_PropertyBagFlags;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR name, IFsrmProperty** fileProperty) GetFileProperty;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR name, BSTR value) SetFileProperty;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR message) AddMessage;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, FsrmFileStreamingMode accessMode, FsrmFileStreamingInterfaceType interfaceType, VARIANT* pStreamInterface) GetFileStreamInterface;
 	}
 
 
@@ -2737,8 +2737,8 @@ public static
 
 	[CRepr]public struct VTable : IFsrmPropertyBag.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsrmPropertyBag2*/SelfOuter* self, FsrmPropertyBagField field, VARIANT* value) GetFieldValue;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsrmPropertyBag2*/SelfOuter* self, IFsrmCollection** props) GetUntrustedInFileProperties;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, FsrmPropertyBagField field, VARIANT* value) GetFieldValue;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IFsrmCollection** props) GetUntrustedInFileProperties;
 	}
 
 
@@ -2755,8 +2755,8 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsrmPipelineModuleImplementation*/SelfOuter* self, IFsrmPipelineModuleDefinition* moduleDefinition, IFsrmPipelineModuleConnector** moduleConnector) OnLoad;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsrmPipelineModuleImplementation*/SelfOuter* self) OnUnload;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IFsrmPipelineModuleDefinition* moduleDefinition, IFsrmPipelineModuleConnector** moduleConnector) OnLoad;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) OnUnload;
 	}
 
 
@@ -2773,12 +2773,12 @@ public static
 
 	[CRepr]public struct VTable : IFsrmPipelineModuleImplementation.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsrmClassifierModuleImplementation*/SelfOuter* self, VARIANT* lastModified) get_LastModified;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsrmClassifierModuleImplementation*/SelfOuter* self, IFsrmCollection* rules, IFsrmCollection* propertyDefinitions) UseRulesAndDefinitions;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsrmClassifierModuleImplementation*/SelfOuter* self, IFsrmPropertyBag* propertyBag, SAFEARRAY* arrayRuleIds) OnBeginFile;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsrmClassifierModuleImplementation*/SelfOuter* self, BSTR property, BSTR value, int16* applyValue, Guid idRule, Guid idPropDef) DoesPropertyValueApply;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsrmClassifierModuleImplementation*/SelfOuter* self, BSTR property, BSTR* value, Guid idRule, Guid idPropDef) GetPropertyValueToApply;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsrmClassifierModuleImplementation*/SelfOuter* self) OnEndFile;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT* lastModified) get_LastModified;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IFsrmCollection* rules, IFsrmCollection* propertyDefinitions) UseRulesAndDefinitions;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IFsrmPropertyBag* propertyBag, SAFEARRAY* arrayRuleIds) OnBeginFile;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR property, BSTR value, int16* applyValue, Guid idRule, Guid idPropDef) DoesPropertyValueApply;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR property, BSTR* value, Guid idRule, Guid idPropDef) GetPropertyValueToApply;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) OnEndFile;
 	}
 
 
@@ -2803,9 +2803,9 @@ public static
 
 	[CRepr]public struct VTable : IFsrmPipelineModuleImplementation.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsrmStorageModuleImplementation*/SelfOuter* self, IFsrmCollection* propertyDefinitions) UseDefinitions;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsrmStorageModuleImplementation*/SelfOuter* self, IFsrmPropertyBag* propertyBag) LoadProperties;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsrmStorageModuleImplementation*/SelfOuter* self, IFsrmPropertyBag* propertyBag) SaveProperties;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IFsrmCollection* propertyDefinitions) UseDefinitions;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IFsrmPropertyBag* propertyBag) LoadProperties;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IFsrmPropertyBag* propertyBag) SaveProperties;
 	}
 
 
@@ -2824,11 +2824,11 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsrmPipelineModuleConnector*/SelfOuter* self, IFsrmPipelineModuleImplementation** pipelineModuleImplementation) get_ModuleImplementation;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsrmPipelineModuleConnector*/SelfOuter* self, BSTR* userName) get_ModuleName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsrmPipelineModuleConnector*/SelfOuter* self, BSTR* userAccount) get_HostingUserAccount;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsrmPipelineModuleConnector*/SelfOuter* self, int32* pid) get_HostingProcessPid;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsrmPipelineModuleConnector*/SelfOuter* self, IFsrmPipelineModuleDefinition* moduleDefinition, IFsrmPipelineModuleImplementation* moduleImplementation) Bind;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IFsrmPipelineModuleImplementation** pipelineModuleImplementation) get_ModuleImplementation;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* userName) get_ModuleName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* userAccount) get_HostingUserAccount;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* pid) get_HostingProcessPid;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IFsrmPipelineModuleDefinition* moduleDefinition, IFsrmPipelineModuleImplementation* moduleImplementation) Bind;
 	}
 
 

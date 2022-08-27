@@ -90,7 +90,7 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWsbApplicationBackupSupport*/SelfOuter* self, PWSTR wszWriterMetadata, PWSTR wszComponentName, PWSTR wszComponentLogicalPath, uint32 cVolumes, PWSTR* rgwszSourceVolumePath, PWSTR* rgwszSnapshotVolumePath, IWsbApplicationAsync** ppAsync) CheckConsistency;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR wszWriterMetadata, PWSTR wszComponentName, PWSTR wszComponentLogicalPath, uint32 cVolumes, PWSTR* rgwszSourceVolumePath, PWSTR* rgwszSnapshotVolumePath, IWsbApplicationAsync** ppAsync) CheckConsistency;
 	}
 
 
@@ -105,10 +105,10 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWsbApplicationRestoreSupport*/SelfOuter* self, PWSTR wszWriterMetadata, PWSTR wszComponentName, PWSTR wszComponentLogicalPath, BOOLEAN bNoRollForward) PreRestore;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWsbApplicationRestoreSupport*/SelfOuter* self, PWSTR wszWriterMetadata, PWSTR wszComponentName, PWSTR wszComponentLogicalPath, BOOLEAN bNoRollForward) PostRestore;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWsbApplicationRestoreSupport*/SelfOuter* self, uint32 cComponents, PWSTR* rgComponentName, PWSTR* rgComponentLogicalPaths, PWSTR** prgComponentName, PWSTR** prgComponentLogicalPath) OrderComponents;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWsbApplicationRestoreSupport*/SelfOuter* self, uint8* pbRollForwardSupported) IsRollForwardSupported;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR wszWriterMetadata, PWSTR wszComponentName, PWSTR wszComponentLogicalPath, BOOLEAN bNoRollForward) PreRestore;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR wszWriterMetadata, PWSTR wszComponentName, PWSTR wszComponentLogicalPath, BOOLEAN bNoRollForward) PostRestore;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 cComponents, PWSTR* rgComponentName, PWSTR* rgComponentLogicalPaths, PWSTR** prgComponentName, PWSTR** prgComponentLogicalPath) OrderComponents;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint8* pbRollForwardSupported) IsRollForwardSupported;
 	}
 
 
@@ -129,8 +129,8 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWsbApplicationAsync*/SelfOuter* self, HRESULT* phrResult) QueryStatus;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWsbApplicationAsync*/SelfOuter* self) Abort;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HRESULT* phrResult) QueryStatus;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Abort;
 	}
 
 

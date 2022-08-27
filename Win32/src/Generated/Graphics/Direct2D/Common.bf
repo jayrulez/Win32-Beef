@@ -401,13 +401,13 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] void(/*ID2D1SimplifiedGeometrySink*/SelfOuter* self, D2D1_FILL_MODE fillMode) SetFillMode;
-		protected new function [CallingConvention(.Stdcall)] void(/*ID2D1SimplifiedGeometrySink*/SelfOuter* self, D2D1_PATH_SEGMENT vertexFlags) SetSegmentFlags;
-		protected new function [CallingConvention(.Stdcall)] void(/*ID2D1SimplifiedGeometrySink*/SelfOuter* self, D2D_POINT_2F startPoint, D2D1_FIGURE_BEGIN figureBegin) BeginFigure;
-		protected new function [CallingConvention(.Stdcall)] void(/*ID2D1SimplifiedGeometrySink*/SelfOuter* self, D2D_POINT_2F* points, uint32 pointsCount) AddLines;
-		protected new function [CallingConvention(.Stdcall)] void(/*ID2D1SimplifiedGeometrySink*/SelfOuter* self, D2D1_BEZIER_SEGMENT* beziers, uint32 beziersCount) AddBeziers;
-		protected new function [CallingConvention(.Stdcall)] void(/*ID2D1SimplifiedGeometrySink*/SelfOuter* self, D2D1_FIGURE_END figureEnd) EndFigure;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID2D1SimplifiedGeometrySink*/SelfOuter* self) Close;
+		protected new function [CallingConvention(.Stdcall)] void(SelfOuter* self, D2D1_FILL_MODE fillMode) SetFillMode;
+		protected new function [CallingConvention(.Stdcall)] void(SelfOuter* self, D2D1_PATH_SEGMENT vertexFlags) SetSegmentFlags;
+		protected new function [CallingConvention(.Stdcall)] void(SelfOuter* self, D2D_POINT_2F startPoint, D2D1_FIGURE_BEGIN figureBegin) BeginFigure;
+		protected new function [CallingConvention(.Stdcall)] void(SelfOuter* self, D2D_POINT_2F* points, uint32 pointsCount) AddLines;
+		protected new function [CallingConvention(.Stdcall)] void(SelfOuter* self, D2D1_BEZIER_SEGMENT* beziers, uint32 beziersCount) AddBeziers;
+		protected new function [CallingConvention(.Stdcall)] void(SelfOuter* self, D2D1_FIGURE_END figureEnd) EndFigure;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Close;
 	}
 
 

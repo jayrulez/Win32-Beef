@@ -963,15 +963,15 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISdoMachine*/SelfOuter* self, BSTR bstrComputerName) Attach;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISdoMachine*/SelfOuter* self, IUnknown** ppDictionarySDO) GetDictionarySDO;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISdoMachine*/SelfOuter* self, IASDATASTORE eDataStore, BSTR bstrServiceName, IUnknown** ppServiceSDO) GetServiceSDO;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISdoMachine*/SelfOuter* self, IASDATASTORE eDataStore, BSTR bstrUserName, IUnknown** ppUserSDO) GetUserSDO;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISdoMachine*/SelfOuter* self, IASOSTYPE* eOSType) GetOSType;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISdoMachine*/SelfOuter* self, IASDOMAINTYPE* eDomainType) GetDomainType;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISdoMachine*/SelfOuter* self, int16* boolDirectoryAvailable) IsDirectoryAvailable;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISdoMachine*/SelfOuter* self, BSTR* bstrComputerName) GetAttachedComputer;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISdoMachine*/SelfOuter* self, IUnknown** ppSDOSchema) GetSDOSchema;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrComputerName) Attach;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IUnknown** ppDictionarySDO) GetDictionarySDO;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IASDATASTORE eDataStore, BSTR bstrServiceName, IUnknown** ppServiceSDO) GetServiceSDO;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IASDATASTORE eDataStore, BSTR bstrUserName, IUnknown** ppUserSDO) GetUserSDO;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IASOSTYPE* eOSType) GetOSType;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IASDOMAINTYPE* eDomainType) GetDomainType;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* boolDirectoryAvailable) IsDirectoryAvailable;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* bstrComputerName) GetAttachedComputer;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IUnknown** ppSDOSchema) GetSDOSchema;
 	}
 
 
@@ -1002,11 +1002,11 @@ public static
 
 	[CRepr]public struct VTable : ISdoMachine.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISdoMachine2*/SelfOuter* self, BSTR bstrServiceName, IUnknown** ppTemplatesSDO) GetTemplatesSDO;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISdoMachine2*/SelfOuter* self) EnableTemplates;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISdoMachine2*/SelfOuter* self, BSTR bstrServiceName, IUnknown** ppConfigRoot, IUnknown** ppTemplatesRoot, int16 bForcedSync) SyncConfigAgainstTemplates;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISdoMachine2*/SelfOuter* self, IUnknown* pLocalTemplatesRoot, BSTR bstrRemoteMachineName) ImportRemoteTemplates;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISdoMachine2*/SelfOuter* self) Reload;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrServiceName, IUnknown** ppTemplatesSDO) GetTemplatesSDO;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) EnableTemplates;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrServiceName, IUnknown** ppConfigRoot, IUnknown** ppTemplatesRoot, int16 bForcedSync) SyncConfigAgainstTemplates;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IUnknown* pLocalTemplatesRoot, BSTR bstrRemoteMachineName) ImportRemoteTemplates;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Reload;
 	}
 
 
@@ -1029,10 +1029,10 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISdoServiceControl*/SelfOuter* self) StartService;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISdoServiceControl*/SelfOuter* self) StopService;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISdoServiceControl*/SelfOuter* self, int32* status) GetServiceStatus;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISdoServiceControl*/SelfOuter* self) ResetService;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) StartService;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) StopService;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* status) GetServiceStatus;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) ResetService;
 	}
 
 
@@ -1053,13 +1053,13 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISdo*/SelfOuter* self, int32 Id, IUnknown** ppPropertyInfo) GetPropertyInfo;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISdo*/SelfOuter* self, int32 Id, VARIANT* pValue) GetProperty;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISdo*/SelfOuter* self, int32 Id, VARIANT* pValue) PutProperty;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISdo*/SelfOuter* self, int32 Id) ResetProperty;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISdo*/SelfOuter* self) Apply;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISdo*/SelfOuter* self) Restore;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISdo*/SelfOuter* self, IUnknown** ppEnumVARIANT) get__NewEnum;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 Id, IUnknown** ppPropertyInfo) GetPropertyInfo;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 Id, VARIANT* pValue) GetProperty;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 Id, VARIANT* pValue) PutProperty;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 Id) ResetProperty;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Apply;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Restore;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IUnknown** ppEnumVARIANT) get__NewEnum;
 	}
 
 
@@ -1086,14 +1086,14 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISdoCollection*/SelfOuter* self, int32* pCount) get_Count;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISdoCollection*/SelfOuter* self, BSTR bstrName, IDispatch** ppItem) Add;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISdoCollection*/SelfOuter* self, IDispatch* pItem) Remove;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISdoCollection*/SelfOuter* self) RemoveAll;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISdoCollection*/SelfOuter* self) Reload;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISdoCollection*/SelfOuter* self, BSTR bstrName, int16* pBool) IsNameUnique;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISdoCollection*/SelfOuter* self, VARIANT* Name, IDispatch** pItem) Item;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISdoCollection*/SelfOuter* self, IUnknown** ppEnumVARIANT) get__NewEnum;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* pCount) get_Count;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrName, IDispatch** ppItem) Add;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IDispatch* pItem) Remove;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) RemoveAll;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Reload;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrName, int16* pBool) IsNameUnique;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT* Name, IDispatch** pItem) Item;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IUnknown** ppEnumVARIANT) get__NewEnum;
 	}
 
 
@@ -1122,9 +1122,9 @@ public static
 
 	[CRepr]public struct VTable : ISdo.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITemplateSdo*/SelfOuter* self, BSTR bstrName, IDispatch* pCollection, IDispatch** ppItem) AddToCollection;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITemplateSdo*/SelfOuter* self, BSTR bstrName, IDispatch* pSdoTarget, IDispatch** ppItem) AddToSdo;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITemplateSdo*/SelfOuter* self, IDispatch* pSdoTarget, int32 id) AddToSdoAsProperty;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrName, IDispatch* pCollection, IDispatch** ppItem) AddToCollection;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrName, IDispatch* pSdoTarget, IDispatch** ppItem) AddToSdo;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IDispatch* pSdoTarget, int32 id) AddToSdoAsProperty;
 	}
 
 
@@ -1143,11 +1143,11 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISdoDictionaryOld*/SelfOuter* self, VARIANT* Id, VARIANT* pValues) EnumAttributes;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISdoDictionaryOld*/SelfOuter* self, ATTRIBUTEID Id, VARIANT* pInfoIDs, VARIANT* pInfoValues) GetAttributeInfo;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISdoDictionaryOld*/SelfOuter* self, ATTRIBUTEID Id, VARIANT* pValueIds, VARIANT* pValuesDesc) EnumAttributeValues;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISdoDictionaryOld*/SelfOuter* self, ATTRIBUTEID Id, IDispatch** ppAttributeObject) CreateAttribute;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISdoDictionaryOld*/SelfOuter* self, BSTR bstrAttributeName, ATTRIBUTEID* pId) GetAttributeID;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT* Id, VARIANT* pValues) EnumAttributes;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ATTRIBUTEID Id, VARIANT* pInfoIDs, VARIANT* pInfoValues) GetAttributeInfo;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ATTRIBUTEID Id, VARIANT* pValueIds, VARIANT* pValuesDesc) EnumAttributeValues;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ATTRIBUTEID Id, IDispatch** ppAttributeObject) CreateAttribute;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrAttributeName, ATTRIBUTEID* pId) GetAttributeID;
 	}
 
 

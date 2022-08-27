@@ -41,7 +41,7 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDDEInitializer*/SelfOuter* self, PWSTR fileExtensionOrProtocol, CreateProcessMethod method, PWSTR currentDirectory, IShellItem* execTarget, IUnknown* site, PWSTR application, PWSTR targetFile, PWSTR arguments, PWSTR verb) Initialize;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR fileExtensionOrProtocol, CreateProcessMethod method, PWSTR currentDirectory, IShellItem* execTarget, IUnknown* site, PWSTR application, PWSTR targetFile, PWSTR arguments, PWSTR verb) Initialize;
 	}
 
 

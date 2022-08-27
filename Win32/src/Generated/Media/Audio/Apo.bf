@@ -415,10 +415,10 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAudioMediaType*/SelfOuter* self, BOOL* pfCompressed) IsCompressedFormat;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAudioMediaType*/SelfOuter* self, IAudioMediaType* pIAudioType, uint32* pdwFlags) IsEqual;
-		protected new function [CallingConvention(.Stdcall)] WAVEFORMATEX*(/*IAudioMediaType*/SelfOuter* self) GetAudioFormat;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAudioMediaType*/SelfOuter* self, UNCOMPRESSEDAUDIOFORMAT* pUncompressedAudioFormat) GetUncompressedAudioFormat;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BOOL* pfCompressed) IsCompressedFormat;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IAudioMediaType* pIAudioType, uint32* pdwFlags) IsEqual;
+		protected new function [CallingConvention(.Stdcall)] WAVEFORMATEX*(SelfOuter* self) GetAudioFormat;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, UNCOMPRESSEDAUDIOFORMAT* pUncompressedAudioFormat) GetUncompressedAudioFormat;
 	}
 
 
@@ -439,9 +439,9 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] void(/*IAudioProcessingObjectRT*/SelfOuter* self, uint32 u32NumInputConnections, APO_CONNECTION_PROPERTY** ppInputConnections, uint32 u32NumOutputConnections, APO_CONNECTION_PROPERTY** ppOutputConnections) APOProcess;
-		protected new function [CallingConvention(.Stdcall)] uint32(/*IAudioProcessingObjectRT*/SelfOuter* self, uint32 u32OutputFrameCount) CalcInputFrames;
-		protected new function [CallingConvention(.Stdcall)] uint32(/*IAudioProcessingObjectRT*/SelfOuter* self, uint32 u32InputFrameCount) CalcOutputFrames;
+		protected new function [CallingConvention(.Stdcall)] void(SelfOuter* self, uint32 u32NumInputConnections, APO_CONNECTION_PROPERTY** ppInputConnections, uint32 u32NumOutputConnections, APO_CONNECTION_PROPERTY** ppOutputConnections) APOProcess;
+		protected new function [CallingConvention(.Stdcall)] uint32(SelfOuter* self, uint32 u32OutputFrameCount) CalcInputFrames;
+		protected new function [CallingConvention(.Stdcall)] uint32(SelfOuter* self, uint32 u32InputFrameCount) CalcOutputFrames;
 	}
 
 
@@ -460,8 +460,8 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAudioProcessingObjectVBR*/SelfOuter* self, uint32 u32MaxOutputFrameCount, uint32* pu32InputFrameCount) CalcMaxInputFrames;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAudioProcessingObjectVBR*/SelfOuter* self, uint32 u32MaxInputFrameCount, uint32* pu32OutputFrameCount) CalcMaxOutputFrames;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 u32MaxOutputFrameCount, uint32* pu32InputFrameCount) CalcMaxInputFrames;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 u32MaxInputFrameCount, uint32* pu32OutputFrameCount) CalcMaxOutputFrames;
 	}
 
 
@@ -478,8 +478,8 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAudioProcessingObjectConfiguration*/SelfOuter* self, uint32 u32NumInputConnections, APO_CONNECTION_DESCRIPTOR** ppInputConnections, uint32 u32NumOutputConnections, APO_CONNECTION_DESCRIPTOR** ppOutputConnections) LockForProcess;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAudioProcessingObjectConfiguration*/SelfOuter* self) UnlockForProcess;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 u32NumInputConnections, APO_CONNECTION_DESCRIPTOR** ppInputConnections, uint32 u32NumOutputConnections, APO_CONNECTION_DESCRIPTOR** ppOutputConnections) LockForProcess;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) UnlockForProcess;
 	}
 
 
@@ -496,13 +496,13 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAudioProcessingObject*/SelfOuter* self) Reset;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAudioProcessingObject*/SelfOuter* self, int64* pTime) GetLatency;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAudioProcessingObject*/SelfOuter* self, APO_REG_PROPERTIES** ppRegProps) GetRegistrationProperties;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAudioProcessingObject*/SelfOuter* self, uint32 cbDataSize, uint8* pbyData) Initialize;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAudioProcessingObject*/SelfOuter* self, IAudioMediaType* pOppositeFormat, IAudioMediaType* pRequestedInputFormat, IAudioMediaType** ppSupportedInputFormat) IsInputFormatSupported;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAudioProcessingObject*/SelfOuter* self, IAudioMediaType* pOppositeFormat, IAudioMediaType* pRequestedOutputFormat, IAudioMediaType** ppSupportedOutputFormat) IsOutputFormatSupported;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAudioProcessingObject*/SelfOuter* self, uint32* pu32ChannelCount) GetInputChannelCount;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Reset;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int64* pTime) GetLatency;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, APO_REG_PROPERTIES** ppRegProps) GetRegistrationProperties;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 cbDataSize, uint8* pbyData) Initialize;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IAudioMediaType* pOppositeFormat, IAudioMediaType* pRequestedInputFormat, IAudioMediaType** ppSupportedInputFormat) IsInputFormatSupported;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IAudioMediaType* pOppositeFormat, IAudioMediaType* pRequestedOutputFormat, IAudioMediaType** ppSupportedOutputFormat) IsOutputFormatSupported;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pu32ChannelCount) GetInputChannelCount;
 	}
 
 
@@ -529,7 +529,7 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAudioDeviceModulesClient*/SelfOuter* self, IUnknown* pAudioDeviceModulesManager) SetAudioDeviceModulesManager;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IUnknown* pAudioDeviceModulesManager) SetAudioDeviceModulesManager;
 	}
 
 
@@ -556,7 +556,7 @@ public static
 
 	[CRepr]public struct VTable : IAudioSystemEffects.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAudioSystemEffects2*/SelfOuter* self, ref Guid ppEffectsIds, uint32* pcEffects, HANDLE Event) GetEffectsList;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid ppEffectsIds, uint32* pcEffects, HANDLE Event) GetEffectsList;
 	}
 
 
@@ -571,9 +571,9 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAudioSystemEffectsCustomFormats*/SelfOuter* self, uint32* pcFormats) GetFormatCount;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAudioSystemEffectsCustomFormats*/SelfOuter* self, uint32 nFormat, IAudioMediaType** ppFormat) GetFormat;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAudioSystemEffectsCustomFormats*/SelfOuter* self, uint32 nFormat, PWSTR* ppwstrFormatRep) GetFormatRepresentation;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pcFormats) GetFormatCount;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 nFormat, IAudioMediaType** ppFormat) GetFormat;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 nFormat, PWSTR* ppwstrFormatRep) GetFormatRepresentation;
 	}
 
 
@@ -592,9 +592,9 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IApoAuxiliaryInputConfiguration*/SelfOuter* self, uint32 dwInputId, uint32 cbDataSize, uint8* pbyData, APO_CONNECTION_DESCRIPTOR* pInputConnection) AddAuxiliaryInput;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IApoAuxiliaryInputConfiguration*/SelfOuter* self, uint32 dwInputId) RemoveAuxiliaryInput;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IApoAuxiliaryInputConfiguration*/SelfOuter* self, IAudioMediaType* pRequestedInputFormat, IAudioMediaType** ppSupportedInputFormat) IsInputFormatSupported;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwInputId, uint32 cbDataSize, uint8* pbyData, APO_CONNECTION_DESCRIPTOR* pInputConnection) AddAuxiliaryInput;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwInputId) RemoveAuxiliaryInput;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IAudioMediaType* pRequestedInputFormat, IAudioMediaType** ppSupportedInputFormat) IsInputFormatSupported;
 	}
 
 
@@ -613,7 +613,7 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] void(/*IApoAuxiliaryInputRT*/SelfOuter* self, uint32 dwInputId, APO_CONNECTION_PROPERTY* pInputConnection) AcceptInput;
+		protected new function [CallingConvention(.Stdcall)] void(SelfOuter* self, uint32 dwInputId, APO_CONNECTION_PROPERTY* pInputConnection) AcceptInput;
 	}
 
 
@@ -640,8 +640,8 @@ public static
 
 	[CRepr]public struct VTable : IAudioSystemEffects2.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAudioSystemEffects3*/SelfOuter* self, AUDIO_SYSTEMEFFECT** effects, uint32* numEffects, HANDLE event) GetControllableSystemEffectsList;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAudioSystemEffects3*/SelfOuter* self, Guid effectId, AUDIO_SYSTEMEFFECT_STATE state) SetAudioSystemEffectState;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, AUDIO_SYSTEMEFFECT** effects, uint32* numEffects, HANDLE event) GetControllableSystemEffectsList;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, Guid effectId, AUDIO_SYSTEMEFFECT_STATE state) SetAudioSystemEffectState;
 	}
 
 
@@ -658,7 +658,7 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAudioProcessingObjectRTQueueService*/SelfOuter* self, uint32* workQueueId) GetRealTimeWorkQueue;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* workQueueId) GetRealTimeWorkQueue;
 	}
 
 
@@ -673,7 +673,7 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] void(/*IAudioProcessingObjectLoggingService*/SelfOuter* self, APO_LOG_LEVEL level, PWSTR format) ApoLog;
+		protected new function [CallingConvention(.Stdcall)] void(SelfOuter* self, APO_LOG_LEVEL level, PWSTR format) ApoLog;
 	}
 
 
@@ -688,8 +688,8 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAudioProcessingObjectNotifications*/SelfOuter* self, APO_NOTIFICATION_DESCRIPTOR** apoNotifications, uint32* count) GetApoNotificationRegistrationInfo;
-		protected new function [CallingConvention(.Stdcall)] void(/*IAudioProcessingObjectNotifications*/SelfOuter* self, APO_NOTIFICATION* apoNotification) HandleNotification;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, APO_NOTIFICATION_DESCRIPTOR** apoNotifications, uint32* count) GetApoNotificationRegistrationInfo;
+		protected new function [CallingConvention(.Stdcall)] void(SelfOuter* self, APO_NOTIFICATION* apoNotification) HandleNotification;
 	}
 
 

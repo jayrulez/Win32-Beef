@@ -37,8 +37,8 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWebApplicationScriptEvents*/SelfOuter* self, IHTMLWindow2* htmlWindow) BeforeScriptExecute;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWebApplicationScriptEvents*/SelfOuter* self, IHTMLWindow2* htmlWindow, IActiveScriptError* scriptError, PWSTR url, BOOL errorHandled) ScriptError;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IHTMLWindow2* htmlWindow) BeforeScriptExecute;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IHTMLWindow2* htmlWindow, IActiveScriptError* scriptError, PWSTR url, BOOL errorHandled) ScriptError;
 	}
 
 
@@ -55,12 +55,12 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWebApplicationNavigationEvents*/SelfOuter* self, IHTMLWindow2* htmlWindow, PWSTR url, uint32 navigationFlags, PWSTR targetFrameName) BeforeNavigate;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWebApplicationNavigationEvents*/SelfOuter* self, IHTMLWindow2* htmlWindow, PWSTR url) NavigateComplete;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWebApplicationNavigationEvents*/SelfOuter* self, IHTMLWindow2* htmlWindow, PWSTR url, PWSTR targetFrameName, uint32 statusCode) NavigateError;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWebApplicationNavigationEvents*/SelfOuter* self, IHTMLWindow2* htmlWindow, PWSTR url) DocumentComplete;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWebApplicationNavigationEvents*/SelfOuter* self) DownloadBegin;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWebApplicationNavigationEvents*/SelfOuter* self) DownloadComplete;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IHTMLWindow2* htmlWindow, PWSTR url, uint32 navigationFlags, PWSTR targetFrameName) BeforeNavigate;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IHTMLWindow2* htmlWindow, PWSTR url) NavigateComplete;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IHTMLWindow2* htmlWindow, PWSTR url, PWSTR targetFrameName, uint32 statusCode) NavigateError;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IHTMLWindow2* htmlWindow, PWSTR url) DocumentComplete;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) DownloadBegin;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) DownloadComplete;
 	}
 
 
@@ -85,7 +85,7 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWebApplicationUIEvents*/SelfOuter* self, uint32 securityProblem, HRESULT* result) SecurityProblem;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 securityProblem, HRESULT* result) SecurityProblem;
 	}
 
 
@@ -100,8 +100,8 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWebApplicationUpdateEvents*/SelfOuter* self) OnPaint;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWebApplicationUpdateEvents*/SelfOuter* self) OnCssChanged;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) OnPaint;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) OnCssChanged;
 	}
 
 
@@ -118,11 +118,11 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWebApplicationHost*/SelfOuter* self, HWND* hwnd) get_HWND;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWebApplicationHost*/SelfOuter* self, IHTMLDocument2** htmlDocument) get_Document;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWebApplicationHost*/SelfOuter* self) Refresh;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWebApplicationHost*/SelfOuter* self, ref Guid interfaceId, IUnknown* callback, uint32* cookie) Advise;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWebApplicationHost*/SelfOuter* self, uint32 cookie) Unadvise;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HWND* hwnd) get_HWND;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IHTMLDocument2** htmlDocument) get_Document;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Refresh;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid interfaceId, IUnknown* callback, uint32* cookie) Advise;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 cookie) Unadvise;
 	}
 
 
@@ -145,7 +145,7 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWebApplicationActivation*/SelfOuter* self) CancelPendingActivation;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) CancelPendingActivation;
 	}
 
 
@@ -160,7 +160,7 @@ public static
 
 	[CRepr]public struct VTable : IServiceProvider.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWebApplicationAuthoringMode*/SelfOuter* self, BSTR* designModeDllPath) get_AuthoringClientBinary;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* designModeDllPath) get_AuthoringClientBinary;
 	}
 
 

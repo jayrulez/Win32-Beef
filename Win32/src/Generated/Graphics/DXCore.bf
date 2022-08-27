@@ -137,16 +137,16 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] bool(/*IDXCoreAdapter*/SelfOuter* self) IsValid;
-		protected new function [CallingConvention(.Stdcall)] bool(/*IDXCoreAdapter*/SelfOuter* self, ref Guid attributeGUID) IsAttributeSupported;
-		protected new function [CallingConvention(.Stdcall)] bool(/*IDXCoreAdapter*/SelfOuter* self, DXCoreAdapterProperty property) IsPropertySupported;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDXCoreAdapter*/SelfOuter* self, DXCoreAdapterProperty property, uint bufferSize, void* propertyData) GetProperty;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDXCoreAdapter*/SelfOuter* self, DXCoreAdapterProperty property, uint* bufferSize) GetPropertySize;
-		protected new function [CallingConvention(.Stdcall)] bool(/*IDXCoreAdapter*/SelfOuter* self, DXCoreAdapterState property) IsQueryStateSupported;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDXCoreAdapter*/SelfOuter* self, DXCoreAdapterState state, uint inputStateDetailsSize, void* inputStateDetails, uint outputBufferSize, void* outputBuffer) QueryState;
-		protected new function [CallingConvention(.Stdcall)] bool(/*IDXCoreAdapter*/SelfOuter* self, DXCoreAdapterState property) IsSetStateSupported;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDXCoreAdapter*/SelfOuter* self, DXCoreAdapterState state, uint inputStateDetailsSize, void* inputStateDetails, uint inputDataSize, void* inputData) SetState;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDXCoreAdapter*/SelfOuter* self, ref Guid riid, void** ppvFactory) GetFactory;
+		protected new function [CallingConvention(.Stdcall)] bool(SelfOuter* self) IsValid;
+		protected new function [CallingConvention(.Stdcall)] bool(SelfOuter* self, ref Guid attributeGUID) IsAttributeSupported;
+		protected new function [CallingConvention(.Stdcall)] bool(SelfOuter* self, DXCoreAdapterProperty property) IsPropertySupported;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, DXCoreAdapterProperty property, uint bufferSize, void* propertyData) GetProperty;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, DXCoreAdapterProperty property, uint* bufferSize) GetPropertySize;
+		protected new function [CallingConvention(.Stdcall)] bool(SelfOuter* self, DXCoreAdapterState property) IsQueryStateSupported;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, DXCoreAdapterState state, uint inputStateDetailsSize, void* inputStateDetails, uint outputBufferSize, void* outputBuffer) QueryState;
+		protected new function [CallingConvention(.Stdcall)] bool(SelfOuter* self, DXCoreAdapterState property) IsSetStateSupported;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, DXCoreAdapterState state, uint inputStateDetailsSize, void* inputStateDetails, uint inputDataSize, void* inputData) SetState;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid riid, void** ppvFactory) GetFactory;
 	}
 
 
@@ -179,12 +179,12 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDXCoreAdapterList*/SelfOuter* self, uint32 index, ref Guid riid, void** ppvAdapter) GetAdapter;
-		protected new function [CallingConvention(.Stdcall)] uint32(/*IDXCoreAdapterList*/SelfOuter* self) GetAdapterCount;
-		protected new function [CallingConvention(.Stdcall)] bool(/*IDXCoreAdapterList*/SelfOuter* self) IsStale;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDXCoreAdapterList*/SelfOuter* self, ref Guid riid, void** ppvFactory) GetFactory;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDXCoreAdapterList*/SelfOuter* self, uint32 numPreferences, DXCoreAdapterPreference* preferences) Sort;
-		protected new function [CallingConvention(.Stdcall)] bool(/*IDXCoreAdapterList*/SelfOuter* self, DXCoreAdapterPreference preference) IsAdapterPreferenceSupported;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 index, ref Guid riid, void** ppvAdapter) GetAdapter;
+		protected new function [CallingConvention(.Stdcall)] uint32(SelfOuter* self) GetAdapterCount;
+		protected new function [CallingConvention(.Stdcall)] bool(SelfOuter* self) IsStale;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid riid, void** ppvFactory) GetFactory;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 numPreferences, DXCoreAdapterPreference* preferences) Sort;
+		protected new function [CallingConvention(.Stdcall)] bool(SelfOuter* self, DXCoreAdapterPreference preference) IsAdapterPreferenceSupported;
 	}
 
 
@@ -209,11 +209,11 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDXCoreAdapterFactory*/SelfOuter* self, uint32 numAttributes, ref Guid filterAttributes, ref Guid riid, void** ppvAdapterList) CreateAdapterList;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDXCoreAdapterFactory*/SelfOuter* self, LUID* adapterLUID, ref Guid riid, void** ppvAdapter) GetAdapterByLuid;
-		protected new function [CallingConvention(.Stdcall)] bool(/*IDXCoreAdapterFactory*/SelfOuter* self, DXCoreNotificationType notificationType) IsNotificationTypeSupported;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDXCoreAdapterFactory*/SelfOuter* self, IUnknown* dxCoreObject, DXCoreNotificationType notificationType, PFN_DXCORE_NOTIFICATION_CALLBACK callbackFunction, void* callbackContext, uint32* eventCookie) RegisterEventNotification;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDXCoreAdapterFactory*/SelfOuter* self, uint32 eventCookie) UnregisterEventNotification;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 numAttributes, ref Guid filterAttributes, ref Guid riid, void** ppvAdapterList) CreateAdapterList;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, LUID* adapterLUID, ref Guid riid, void** ppvAdapter) GetAdapterByLuid;
+		protected new function [CallingConvention(.Stdcall)] bool(SelfOuter* self, DXCoreNotificationType notificationType) IsNotificationTypeSupported;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IUnknown* dxCoreObject, DXCoreNotificationType notificationType, PFN_DXCORE_NOTIFICATION_CALLBACK callbackFunction, void* callbackContext, uint32* eventCookie) RegisterEventNotification;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 eventCookie) UnregisterEventNotification;
 	}
 
 

@@ -1033,10 +1033,10 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWMDMMetaData*/SelfOuter* self, WMDM_TAG_DATATYPE Type, PWSTR pwszTagName, uint8* pValue, uint32 iLength) AddItem;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWMDMMetaData*/SelfOuter* self, PWSTR pwszTagName, WMDM_TAG_DATATYPE* pType, uint8** pValue, uint32* pcbLength) QueryByName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWMDMMetaData*/SelfOuter* self, uint32 iIndex, uint16** ppwszName, WMDM_TAG_DATATYPE* pType, uint8** ppValue, uint32* pcbLength) QueryByIndex;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWMDMMetaData*/SelfOuter* self, uint32* iCount) GetItemCount;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, WMDM_TAG_DATATYPE Type, PWSTR pwszTagName, uint8* pValue, uint32 iLength) AddItem;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR pwszTagName, WMDM_TAG_DATATYPE* pType, uint8** pValue, uint32* pcbLength) QueryByName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 iIndex, uint16** ppwszName, WMDM_TAG_DATATYPE* pType, uint8** ppValue, uint32* pcbLength) QueryByIndex;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* iCount) GetItemCount;
 	}
 
 
@@ -1057,9 +1057,9 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWMDeviceManager*/SelfOuter* self, uint32* pdwRevision) GetRevision;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWMDeviceManager*/SelfOuter* self, uint32* pdwCount) GetDeviceCount;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWMDeviceManager*/SelfOuter* self, IWMDMEnumDevice** ppEnumDevice) EnumDevices;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pdwRevision) GetRevision;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pdwCount) GetDeviceCount;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IWMDMEnumDevice** ppEnumDevice) EnumDevices;
 	}
 
 
@@ -1078,9 +1078,9 @@ public static
 
 	[CRepr]public struct VTable : IWMDeviceManager.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWMDeviceManager2*/SelfOuter* self, PWSTR pwszCanonicalName, IWMDMDevice** ppDevice) GetDeviceFromCanonicalName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWMDeviceManager2*/SelfOuter* self, IWMDMEnumDevice** ppEnumDevice) EnumDevices2;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWMDeviceManager2*/SelfOuter* self) Reinitialize;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR pwszCanonicalName, IWMDMDevice** ppDevice) GetDeviceFromCanonicalName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IWMDMEnumDevice** ppEnumDevice) EnumDevices2;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Reinitialize;
 	}
 
 
@@ -1099,7 +1099,7 @@ public static
 
 	[CRepr]public struct VTable : IWMDeviceManager2.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWMDeviceManager3*/SelfOuter* self, uint32 dwEnumPref) SetDeviceEnumPreference;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwEnumPref) SetDeviceEnumPreference;
 	}
 
 
@@ -1114,13 +1114,13 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWMDMStorageGlobals*/SelfOuter* self, uint32* pdwCapabilities) GetCapabilities;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWMDMStorageGlobals*/SelfOuter* self, WMDMID* pSerialNum, uint8* abMac) GetSerialNumber;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWMDMStorageGlobals*/SelfOuter* self, uint32* pdwTotalSizeLow, uint32* pdwTotalSizeHigh) GetTotalSize;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWMDMStorageGlobals*/SelfOuter* self, uint32* pdwFreeLow, uint32* pdwFreeHigh) GetTotalFree;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWMDMStorageGlobals*/SelfOuter* self, uint32* pdwBadLow, uint32* pdwBadHigh) GetTotalBad;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWMDMStorageGlobals*/SelfOuter* self, uint32* pdwStatus) GetStatus;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWMDMStorageGlobals*/SelfOuter* self, uint32 fuMode, IWMDMProgress* pProgress) Initialize;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pdwCapabilities) GetCapabilities;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, WMDMID* pSerialNum, uint8* abMac) GetSerialNumber;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pdwTotalSizeLow, uint32* pdwTotalSizeHigh) GetTotalSize;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pdwFreeLow, uint32* pdwFreeHigh) GetTotalFree;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pdwBadLow, uint32* pdwBadHigh) GetTotalBad;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pdwStatus) GetStatus;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 fuMode, IWMDMProgress* pProgress) Initialize;
 	}
 
 
@@ -1147,15 +1147,15 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWMDMStorage*/SelfOuter* self, uint32 dwAttributes, _WAVEFORMATEX* pFormat) SetAttributes;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWMDMStorage*/SelfOuter* self, IWMDMStorageGlobals** ppStorageGlobals) GetStorageGlobals;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWMDMStorage*/SelfOuter* self, uint32* pdwAttributes, _WAVEFORMATEX* pFormat) GetAttributes;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWMDMStorage*/SelfOuter* self, char16* pwszName, uint32 nMaxChars) GetName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWMDMStorage*/SelfOuter* self, WMDMDATETIME* pDateTimeUTC) GetDate;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWMDMStorage*/SelfOuter* self, uint32* pdwSizeLow, uint32* pdwSizeHigh) GetSize;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWMDMStorage*/SelfOuter* self, WMDMRIGHTS** ppRights, uint32* pnRightsCount, uint8* abMac) GetRights;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWMDMStorage*/SelfOuter* self, IWMDMEnumStorage** pEnumStorage) EnumStorage;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWMDMStorage*/SelfOuter* self, OPAQUECOMMAND* pCommand) SendOpaqueCommand;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwAttributes, _WAVEFORMATEX* pFormat) SetAttributes;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IWMDMStorageGlobals** ppStorageGlobals) GetStorageGlobals;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pdwAttributes, _WAVEFORMATEX* pFormat) GetAttributes;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, char16* pwszName, uint32 nMaxChars) GetName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, WMDMDATETIME* pDateTimeUTC) GetDate;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pdwSizeLow, uint32* pdwSizeHigh) GetSize;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, WMDMRIGHTS** ppRights, uint32* pnRightsCount, uint8* abMac) GetRights;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IWMDMEnumStorage** pEnumStorage) EnumStorage;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, OPAQUECOMMAND* pCommand) SendOpaqueCommand;
 	}
 
 
@@ -1186,9 +1186,9 @@ public static
 
 	[CRepr]public struct VTable : IWMDMStorage.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWMDMStorage2*/SelfOuter* self, PWSTR pszStorageName, IWMDMStorage** ppStorage) GetStorage;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWMDMStorage2*/SelfOuter* self, uint32 dwAttributes, uint32 dwAttributesEx, _WAVEFORMATEX* pFormat, _VIDEOINFOHEADER* pVideoFormat) SetAttributes2;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWMDMStorage2*/SelfOuter* self, uint32* pdwAttributes, uint32* pdwAttributesEx, _WAVEFORMATEX* pAudioFormat, _VIDEOINFOHEADER* pVideoFormat) GetAttributes2;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR pszStorageName, IWMDMStorage** ppStorage) GetStorage;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwAttributes, uint32 dwAttributesEx, _WAVEFORMATEX* pFormat, _VIDEOINFOHEADER* pVideoFormat) SetAttributes2;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pdwAttributes, uint32* pdwAttributesEx, _WAVEFORMATEX* pAudioFormat, _VIDEOINFOHEADER* pVideoFormat) GetAttributes2;
 	}
 
 
@@ -1207,10 +1207,10 @@ public static
 
 	[CRepr]public struct VTable : IWMDMStorage2.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWMDMStorage3*/SelfOuter* self, IWMDMMetaData** ppMetadata) GetMetadata;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWMDMStorage3*/SelfOuter* self, IWMDMMetaData* pMetadata) SetMetadata;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWMDMStorage3*/SelfOuter* self, IWMDMMetaData** ppMetadata) CreateEmptyMetadataObject;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWMDMStorage3*/SelfOuter* self, WMDM_STORAGE_ENUM_MODE* pMode, uint32 nViews, WMDMMetadataView* pViews) SetEnumPreference;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IWMDMMetaData** ppMetadata) GetMetadata;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IWMDMMetaData* pMetadata) SetMetadata;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IWMDMMetaData** ppMetadata) CreateEmptyMetadataObject;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, WMDM_STORAGE_ENUM_MODE* pMode, uint32 nViews, WMDMMetadataView* pViews) SetEnumPreference;
 	}
 
 
@@ -1231,12 +1231,12 @@ public static
 
 	[CRepr]public struct VTable : IWMDMStorage3.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWMDMStorage4*/SelfOuter* self, uint32 dwRefs, IWMDMStorage** ppIWMDMStorage) SetReferences;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWMDMStorage4*/SelfOuter* self, uint32* pdwRefs, IWMDMStorage*** pppIWMDMStorage) GetReferences;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWMDMStorage4*/SelfOuter* self, IWMDMProgress3* pIProgressCallback, WMDMRIGHTS** ppRights, uint32* pnRightsCount) GetRightsWithProgress;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWMDMStorage4*/SelfOuter* self, uint32 cProperties, PWSTR* ppwszPropNames, IWMDMMetaData** ppMetadata) GetSpecifiedMetadata;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWMDMStorage4*/SelfOuter* self, WMDM_FIND_SCOPE findScope, PWSTR pwszUniqueID, IWMDMStorage** ppStorage) FindStorage;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWMDMStorage4*/SelfOuter* self, IWMDMStorage** ppStorage) GetParent;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwRefs, IWMDMStorage** ppIWMDMStorage) SetReferences;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pdwRefs, IWMDMStorage*** pppIWMDMStorage) GetReferences;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IWMDMProgress3* pIProgressCallback, WMDMRIGHTS** ppRights, uint32* pnRightsCount) GetRightsWithProgress;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 cProperties, PWSTR* ppwszPropNames, IWMDMMetaData** ppMetadata) GetSpecifiedMetadata;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, WMDM_FIND_SCOPE findScope, PWSTR pwszUniqueID, IWMDMStorage** ppStorage) FindStorage;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IWMDMStorage** ppStorage) GetParent;
 	}
 
 
@@ -1261,16 +1261,16 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWMDMOperation*/SelfOuter* self) BeginRead;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWMDMOperation*/SelfOuter* self) BeginWrite;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWMDMOperation*/SelfOuter* self, char16* pwszName, uint32 nMaxChars) GetObjectName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWMDMOperation*/SelfOuter* self, char16* pwszName, uint32 nMaxChars) SetObjectName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWMDMOperation*/SelfOuter* self, uint32* pdwAttributes, _WAVEFORMATEX* pFormat) GetObjectAttributes;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWMDMOperation*/SelfOuter* self, uint32 dwAttributes, _WAVEFORMATEX* pFormat) SetObjectAttributes;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWMDMOperation*/SelfOuter* self, uint32* pdwSize, uint32* pdwSizeHigh) GetObjectTotalSize;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWMDMOperation*/SelfOuter* self, uint32 dwSize, uint32 dwSizeHigh) SetObjectTotalSize;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWMDMOperation*/SelfOuter* self, uint8* pData, uint32* pdwSize, uint8* abMac) TransferObjectData;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWMDMOperation*/SelfOuter* self, HRESULT* phCompletionCode, IUnknown* pNewObject) End;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) BeginRead;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) BeginWrite;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, char16* pwszName, uint32 nMaxChars) GetObjectName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, char16* pwszName, uint32 nMaxChars) SetObjectName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pdwAttributes, _WAVEFORMATEX* pFormat) GetObjectAttributes;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwAttributes, _WAVEFORMATEX* pFormat) SetObjectAttributes;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pdwSize, uint32* pdwSizeHigh) GetObjectTotalSize;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwSize, uint32 dwSizeHigh) SetObjectTotalSize;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint8* pData, uint32* pdwSize, uint8* abMac) TransferObjectData;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HRESULT* phCompletionCode, IUnknown* pNewObject) End;
 	}
 
 
@@ -1303,8 +1303,8 @@ public static
 
 	[CRepr]public struct VTable : IWMDMOperation.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWMDMOperation2*/SelfOuter* self, uint32 dwAttributes, uint32 dwAttributesEx, _WAVEFORMATEX* pFormat, _VIDEOINFOHEADER* pVideoFormat) SetObjectAttributes2;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWMDMOperation2*/SelfOuter* self, uint32* pdwAttributes, uint32* pdwAttributesEx, _WAVEFORMATEX* pAudioFormat, _VIDEOINFOHEADER* pVideoFormat) GetObjectAttributes2;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwAttributes, uint32 dwAttributesEx, _WAVEFORMATEX* pFormat, _VIDEOINFOHEADER* pVideoFormat) SetObjectAttributes2;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pdwAttributes, uint32* pdwAttributesEx, _WAVEFORMATEX* pAudioFormat, _VIDEOINFOHEADER* pVideoFormat) GetObjectAttributes2;
 	}
 
 
@@ -1321,7 +1321,7 @@ public static
 
 	[CRepr]public struct VTable : IWMDMOperation.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWMDMOperation3*/SelfOuter* self, uint8* pData, uint32* pdwSize) TransferObjectDataOnClearChannel;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint8* pData, uint32* pdwSize) TransferObjectDataOnClearChannel;
 	}
 
 
@@ -1336,9 +1336,9 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWMDMProgress*/SelfOuter* self, uint32 dwEstimatedTicks) Begin;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWMDMProgress*/SelfOuter* self, uint32 dwTranspiredTicks) Progress;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWMDMProgress*/SelfOuter* self) End;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwEstimatedTicks) Begin;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwTranspiredTicks) Progress;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) End;
 	}
 
 
@@ -1357,7 +1357,7 @@ public static
 
 	[CRepr]public struct VTable : IWMDMProgress.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWMDMProgress2*/SelfOuter* self, HRESULT hrCompletionCode) End2;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HRESULT hrCompletionCode) End2;
 	}
 
 
@@ -1372,9 +1372,9 @@ public static
 
 	[CRepr]public struct VTable : IWMDMProgress2.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWMDMProgress3*/SelfOuter* self, Guid EventId, uint32 dwEstimatedTicks, OPAQUECOMMAND* pContext) Begin3;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWMDMProgress3*/SelfOuter* self, Guid EventId, uint32 dwTranspiredTicks, OPAQUECOMMAND* pContext) Progress3;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWMDMProgress3*/SelfOuter* self, Guid EventId, HRESULT hrCompletionCode, OPAQUECOMMAND* pContext) End3;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, Guid EventId, uint32 dwEstimatedTicks, OPAQUECOMMAND* pContext) Begin3;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, Guid EventId, uint32 dwTranspiredTicks, OPAQUECOMMAND* pContext) Progress3;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, Guid EventId, HRESULT hrCompletionCode, OPAQUECOMMAND* pContext) End3;
 	}
 
 
@@ -1393,17 +1393,17 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWMDMDevice*/SelfOuter* self, char16* pwszName, uint32 nMaxChars) GetName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWMDMDevice*/SelfOuter* self, char16* pwszName, uint32 nMaxChars) GetManufacturer;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWMDMDevice*/SelfOuter* self, uint32* pdwVersion) GetVersion;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWMDMDevice*/SelfOuter* self, uint32* pdwType) COM_GetType;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWMDMDevice*/SelfOuter* self, WMDMID* pSerialNumber, uint8* abMac) GetSerialNumber;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWMDMDevice*/SelfOuter* self, uint32* pdwPowerSource, uint32* pdwPercentRemaining) GetPowerSource;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWMDMDevice*/SelfOuter* self, uint32* pdwStatus) GetStatus;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWMDMDevice*/SelfOuter* self, uint32* hIcon) GetDeviceIcon;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWMDMDevice*/SelfOuter* self, IWMDMEnumStorage** ppEnumStorage) EnumStorage;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWMDMDevice*/SelfOuter* self, _WAVEFORMATEX** ppFormatEx, uint32* pnFormatCount, PWSTR** pppwszMimeType, uint32* pnMimeTypeCount) GetFormatSupport;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWMDMDevice*/SelfOuter* self, OPAQUECOMMAND* pCommand) SendOpaqueCommand;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, char16* pwszName, uint32 nMaxChars) GetName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, char16* pwszName, uint32 nMaxChars) GetManufacturer;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pdwVersion) GetVersion;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pdwType) COM_GetType;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, WMDMID* pSerialNumber, uint8* abMac) GetSerialNumber;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pdwPowerSource, uint32* pdwPercentRemaining) GetPowerSource;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pdwStatus) GetStatus;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* hIcon) GetDeviceIcon;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IWMDMEnumStorage** ppEnumStorage) EnumStorage;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, _WAVEFORMATEX** ppFormatEx, uint32* pnFormatCount, PWSTR** pppwszMimeType, uint32* pnMimeTypeCount) GetFormatSupport;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, OPAQUECOMMAND* pCommand) SendOpaqueCommand;
 	}
 
 
@@ -1438,10 +1438,10 @@ public static
 
 	[CRepr]public struct VTable : IWMDMDevice.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWMDMDevice2*/SelfOuter* self, PWSTR pszStorageName, IWMDMStorage** ppStorage) GetStorage;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWMDMDevice2*/SelfOuter* self, uint32 dwFlags, _WAVEFORMATEX** ppAudioFormatEx, uint32* pnAudioFormatCount, _VIDEOINFOHEADER** ppVideoFormatEx, uint32* pnVideoFormatCount, WMFILECAPABILITIES** ppFileType, uint32* pnFileTypeCount) GetFormatSupport2;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWMDMDevice2*/SelfOuter* self, ISpecifyPropertyPages** ppSpecifyPropPages, IUnknown*** pppUnknowns, uint32* pcUnks) GetSpecifyPropertyPages;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWMDMDevice2*/SelfOuter* self, char16* pwszPnPName, uint32 nMaxChars) GetCanonicalName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR pszStorageName, IWMDMStorage** ppStorage) GetStorage;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwFlags, _WAVEFORMATEX** ppAudioFormatEx, uint32* pnAudioFormatCount, _VIDEOINFOHEADER** ppVideoFormatEx, uint32* pnVideoFormatCount, WMFILECAPABILITIES** ppFileType, uint32* pnFileTypeCount) GetFormatSupport2;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ISpecifyPropertyPages** ppSpecifyPropPages, IUnknown*** pppUnknowns, uint32* pcUnks) GetSpecifyPropertyPages;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, char16* pwszPnPName, uint32 nMaxChars) GetCanonicalName;
 	}
 
 
@@ -1462,11 +1462,11 @@ public static
 
 	[CRepr]public struct VTable : IWMDMDevice2.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWMDMDevice3*/SelfOuter* self, PWSTR pwszPropName, PROPVARIANT* pValue) GetProperty;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWMDMDevice3*/SelfOuter* self, PWSTR pwszPropName, PROPVARIANT* pValue) SetProperty;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWMDMDevice3*/SelfOuter* self, WMDM_FORMATCODE format, WMDM_FORMAT_CAPABILITY* pFormatSupport) GetFormatCapability;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWMDMDevice3*/SelfOuter* self, uint32 dwIoControlCode, uint8* lpInBuffer, uint32 nInBufferSize, uint8* lpOutBuffer, uint32* pnOutBufferSize) DeviceIoControl;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWMDMDevice3*/SelfOuter* self, WMDM_FIND_SCOPE findScope, PWSTR pwszUniqueID, IWMDMStorage** ppStorage) FindStorage;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR pwszPropName, PROPVARIANT* pValue) GetProperty;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR pwszPropName, PROPVARIANT* pValue) SetProperty;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, WMDM_FORMATCODE format, WMDM_FORMAT_CAPABILITY* pFormatSupport) GetFormatCapability;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwIoControlCode, uint8* lpInBuffer, uint32 nInBufferSize, uint8* lpOutBuffer, uint32* pnOutBufferSize) DeviceIoControl;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, WMDM_FIND_SCOPE findScope, PWSTR pwszUniqueID, IWMDMStorage** ppStorage) FindStorage;
 	}
 
 
@@ -1489,8 +1489,8 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWMDMDeviceSession*/SelfOuter* self, WMDM_SESSION_TYPE type, uint8* pCtx, uint32 dwSizeCtx) BeginSession;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWMDMDeviceSession*/SelfOuter* self, WMDM_SESSION_TYPE type, uint8* pCtx, uint32 dwSizeCtx) EndSession;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, WMDM_SESSION_TYPE type, uint8* pCtx, uint32 dwSizeCtx) BeginSession;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, WMDM_SESSION_TYPE type, uint8* pCtx, uint32 dwSizeCtx) EndSession;
 	}
 
 
@@ -1507,10 +1507,10 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWMDMEnumDevice*/SelfOuter* self, uint32 celt, IWMDMDevice** ppDevice, uint32* pceltFetched) Next;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWMDMEnumDevice*/SelfOuter* self, uint32 celt, uint32* pceltFetched) Skip;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWMDMEnumDevice*/SelfOuter* self) Reset;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWMDMEnumDevice*/SelfOuter* self, IWMDMEnumDevice** ppEnumDevice) Clone;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 celt, IWMDMDevice** ppDevice, uint32* pceltFetched) Next;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 celt, uint32* pceltFetched) Skip;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Reset;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IWMDMEnumDevice** ppEnumDevice) Clone;
 	}
 
 
@@ -1531,14 +1531,14 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWMDMDeviceControl*/SelfOuter* self, uint32* pdwStatus) GetStatus;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWMDMDeviceControl*/SelfOuter* self, uint32* pdwCapabilitiesMask) GetCapabilities;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWMDMDeviceControl*/SelfOuter* self) Play;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWMDMDeviceControl*/SelfOuter* self, _WAVEFORMATEX* pFormat) Record;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWMDMDeviceControl*/SelfOuter* self) Pause;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWMDMDeviceControl*/SelfOuter* self) Resume;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWMDMDeviceControl*/SelfOuter* self) Stop;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWMDMDeviceControl*/SelfOuter* self, uint32 fuMode, int32 nOffset) Seek;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pdwStatus) GetStatus;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pdwCapabilitiesMask) GetCapabilities;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Play;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, _WAVEFORMATEX* pFormat) Record;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Pause;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Resume;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Stop;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 fuMode, int32 nOffset) Seek;
 	}
 
 
@@ -1567,10 +1567,10 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWMDMEnumStorage*/SelfOuter* self, uint32 celt, IWMDMStorage** ppStorage, uint32* pceltFetched) Next;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWMDMEnumStorage*/SelfOuter* self, uint32 celt, uint32* pceltFetched) Skip;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWMDMEnumStorage*/SelfOuter* self) Reset;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWMDMEnumStorage*/SelfOuter* self, IWMDMEnumStorage** ppEnumStorage) Clone;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 celt, IWMDMStorage** ppStorage, uint32* pceltFetched) Next;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 celt, uint32* pceltFetched) Skip;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Reset;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IWMDMEnumStorage** ppEnumStorage) Clone;
 	}
 
 
@@ -1591,11 +1591,11 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWMDMStorageControl*/SelfOuter* self, uint32 fuMode, PWSTR pwszFile, IWMDMOperation* pOperation, IWMDMProgress* pProgress, IWMDMStorage** ppNewObject) Insert;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWMDMStorageControl*/SelfOuter* self, uint32 fuMode, IWMDMProgress* pProgress) Delete;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWMDMStorageControl*/SelfOuter* self, uint32 fuMode, PWSTR pwszNewName, IWMDMProgress* pProgress) Rename;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWMDMStorageControl*/SelfOuter* self, uint32 fuMode, PWSTR pwszFile, IWMDMProgress* pProgress, IWMDMOperation* pOperation) Read;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWMDMStorageControl*/SelfOuter* self, uint32 fuMode, IWMDMStorage* pTargetObject, IWMDMProgress* pProgress) Move;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 fuMode, PWSTR pwszFile, IWMDMOperation* pOperation, IWMDMProgress* pProgress, IWMDMStorage** ppNewObject) Insert;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 fuMode, IWMDMProgress* pProgress) Delete;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 fuMode, PWSTR pwszNewName, IWMDMProgress* pProgress) Rename;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 fuMode, PWSTR pwszFile, IWMDMProgress* pProgress, IWMDMOperation* pOperation) Read;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 fuMode, IWMDMStorage* pTargetObject, IWMDMProgress* pProgress) Move;
 	}
 
 
@@ -1618,7 +1618,7 @@ public static
 
 	[CRepr]public struct VTable : IWMDMStorageControl.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWMDMStorageControl2*/SelfOuter* self, uint32 fuMode, PWSTR pwszFileSource, PWSTR pwszFileDest, IWMDMOperation* pOperation, IWMDMProgress* pProgress, IUnknown* pUnknown, IWMDMStorage** ppNewObject) Insert2;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 fuMode, PWSTR pwszFileSource, PWSTR pwszFileDest, IWMDMOperation* pOperation, IWMDMProgress* pProgress, IUnknown* pUnknown, IWMDMStorage** ppNewObject) Insert2;
 	}
 
 
@@ -1633,7 +1633,7 @@ public static
 
 	[CRepr]public struct VTable : IWMDMStorageControl2.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWMDMStorageControl3*/SelfOuter* self, uint32 fuMode, uint32 fuType, PWSTR pwszFileSource, PWSTR pwszFileDest, IWMDMOperation* pOperation, IWMDMProgress* pProgress, IWMDMMetaData* pMetaData, IUnknown* pUnknown, IWMDMStorage** ppNewObject) Insert3;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 fuMode, uint32 fuType, PWSTR pwszFileSource, PWSTR pwszFileDest, IWMDMOperation* pOperation, IWMDMProgress* pProgress, IWMDMMetaData* pMetaData, IUnknown* pUnknown, IWMDMStorage** ppNewObject) Insert3;
 	}
 
 
@@ -1648,13 +1648,13 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWMDMObjectInfo*/SelfOuter* self, uint32* pdwLength) GetPlayLength;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWMDMObjectInfo*/SelfOuter* self, uint32 dwLength) SetPlayLength;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWMDMObjectInfo*/SelfOuter* self, uint32* pdwOffset) GetPlayOffset;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWMDMObjectInfo*/SelfOuter* self, uint32 dwOffset) SetPlayOffset;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWMDMObjectInfo*/SelfOuter* self, uint32* pdwLength) GetTotalLength;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWMDMObjectInfo*/SelfOuter* self, uint32* pdwLastPos) GetLastPlayPosition;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWMDMObjectInfo*/SelfOuter* self, uint32* pdwLongestPos) GetLongestPlayPosition;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pdwLength) GetPlayLength;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwLength) SetPlayLength;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pdwOffset) GetPlayOffset;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwOffset) SetPlayOffset;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pdwLength) GetTotalLength;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pdwLastPos) GetLastPlayPosition;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pdwLongestPos) GetLongestPlayPosition;
 	}
 
 
@@ -1681,7 +1681,7 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWMDMRevoked*/SelfOuter* self, PWSTR* ppwszRevocationURL, uint32* pdwBufferLen, uint32* pdwRevokedBitFlag) GetRevocationURL;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR* ppwszRevocationURL, uint32* pdwBufferLen, uint32* pdwRevokedBitFlag) GetRevocationURL;
 	}
 
 
@@ -1696,7 +1696,7 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWMDMNotification*/SelfOuter* self, uint32 dwMessageType, PWSTR pwszCanonicalName) WMDMMessage;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwMessageType, PWSTR pwszCanonicalName) WMDMMessage;
 	}
 
 
@@ -1711,8 +1711,8 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMDServiceProvider*/SelfOuter* self, uint32* pdwCount) GetDeviceCount;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMDServiceProvider*/SelfOuter* self, IMDSPEnumDevice** ppEnumDevice) EnumDevices;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pdwCount) GetDeviceCount;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IMDSPEnumDevice** ppEnumDevice) EnumDevices;
 	}
 
 
@@ -1729,7 +1729,7 @@ public static
 
 	[CRepr]public struct VTable : IMDServiceProvider.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMDServiceProvider2*/SelfOuter* self, PWSTR pwszDevicePath, uint32* pdwCount, IMDSPDevice*** pppDeviceArray) CreateDevice;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR pwszDevicePath, uint32* pdwCount, IMDSPDevice*** pppDeviceArray) CreateDevice;
 	}
 
 
@@ -1744,7 +1744,7 @@ public static
 
 	[CRepr]public struct VTable : IMDServiceProvider2.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMDServiceProvider3*/SelfOuter* self, uint32 dwEnumPref) SetDeviceEnumPreference;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwEnumPref) SetDeviceEnumPreference;
 	}
 
 
@@ -1759,10 +1759,10 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMDSPEnumDevice*/SelfOuter* self, uint32 celt, IMDSPDevice** ppDevice, uint32* pceltFetched) Next;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMDSPEnumDevice*/SelfOuter* self, uint32 celt, uint32* pceltFetched) Skip;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMDSPEnumDevice*/SelfOuter* self) Reset;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMDSPEnumDevice*/SelfOuter* self, IMDSPEnumDevice** ppEnumDevice) Clone;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 celt, IMDSPDevice** ppDevice, uint32* pceltFetched) Next;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 celt, uint32* pceltFetched) Skip;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Reset;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IMDSPEnumDevice** ppEnumDevice) Clone;
 	}
 
 
@@ -1783,17 +1783,17 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMDSPDevice*/SelfOuter* self, char16* pwszName, uint32 nMaxChars) GetName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMDSPDevice*/SelfOuter* self, char16* pwszName, uint32 nMaxChars) GetManufacturer;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMDSPDevice*/SelfOuter* self, uint32* pdwVersion) GetVersion;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMDSPDevice*/SelfOuter* self, uint32* pdwType) COM_GetType;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMDSPDevice*/SelfOuter* self, WMDMID* pSerialNumber, uint8* abMac) GetSerialNumber;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMDSPDevice*/SelfOuter* self, uint32* pdwPowerSource, uint32* pdwPercentRemaining) GetPowerSource;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMDSPDevice*/SelfOuter* self, uint32* pdwStatus) GetStatus;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMDSPDevice*/SelfOuter* self, uint32* hIcon) GetDeviceIcon;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMDSPDevice*/SelfOuter* self, IMDSPEnumStorage** ppEnumStorage) EnumStorage;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMDSPDevice*/SelfOuter* self, _WAVEFORMATEX** pFormatEx, uint32* pnFormatCount, PWSTR** pppwszMimeType, uint32* pnMimeTypeCount) GetFormatSupport;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMDSPDevice*/SelfOuter* self, OPAQUECOMMAND* pCommand) SendOpaqueCommand;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, char16* pwszName, uint32 nMaxChars) GetName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, char16* pwszName, uint32 nMaxChars) GetManufacturer;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pdwVersion) GetVersion;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pdwType) COM_GetType;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, WMDMID* pSerialNumber, uint8* abMac) GetSerialNumber;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pdwPowerSource, uint32* pdwPercentRemaining) GetPowerSource;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pdwStatus) GetStatus;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* hIcon) GetDeviceIcon;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IMDSPEnumStorage** ppEnumStorage) EnumStorage;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, _WAVEFORMATEX** pFormatEx, uint32* pnFormatCount, PWSTR** pppwszMimeType, uint32* pnMimeTypeCount) GetFormatSupport;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, OPAQUECOMMAND* pCommand) SendOpaqueCommand;
 	}
 
 
@@ -1828,10 +1828,10 @@ public static
 
 	[CRepr]public struct VTable : IMDSPDevice.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMDSPDevice2*/SelfOuter* self, PWSTR pszStorageName, IMDSPStorage** ppStorage) GetStorage;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMDSPDevice2*/SelfOuter* self, uint32 dwFlags, _WAVEFORMATEX** ppAudioFormatEx, uint32* pnAudioFormatCount, _VIDEOINFOHEADER** ppVideoFormatEx, uint32* pnVideoFormatCount, WMFILECAPABILITIES** ppFileType, uint32* pnFileTypeCount) GetFormatSupport2;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMDSPDevice2*/SelfOuter* self, ISpecifyPropertyPages** ppSpecifyPropPages, IUnknown*** pppUnknowns, uint32* pcUnks) GetSpecifyPropertyPages;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMDSPDevice2*/SelfOuter* self, char16* pwszPnPName, uint32 nMaxChars) GetCanonicalName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR pszStorageName, IMDSPStorage** ppStorage) GetStorage;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwFlags, _WAVEFORMATEX** ppAudioFormatEx, uint32* pnAudioFormatCount, _VIDEOINFOHEADER** ppVideoFormatEx, uint32* pnVideoFormatCount, WMFILECAPABILITIES** ppFileType, uint32* pnFileTypeCount) GetFormatSupport2;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ISpecifyPropertyPages** ppSpecifyPropPages, IUnknown*** pppUnknowns, uint32* pcUnks) GetSpecifyPropertyPages;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, char16* pwszPnPName, uint32 nMaxChars) GetCanonicalName;
 	}
 
 
@@ -1852,11 +1852,11 @@ public static
 
 	[CRepr]public struct VTable : IMDSPDevice2.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMDSPDevice3*/SelfOuter* self, PWSTR pwszPropName, PROPVARIANT* pValue) GetProperty;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMDSPDevice3*/SelfOuter* self, PWSTR pwszPropName, PROPVARIANT* pValue) SetProperty;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMDSPDevice3*/SelfOuter* self, WMDM_FORMATCODE format, WMDM_FORMAT_CAPABILITY* pFormatSupport) GetFormatCapability;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMDSPDevice3*/SelfOuter* self, uint32 dwIoControlCode, uint8* lpInBuffer, uint32 nInBufferSize, uint8* lpOutBuffer, uint32* pnOutBufferSize) DeviceIoControl;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMDSPDevice3*/SelfOuter* self, WMDM_FIND_SCOPE findScope, PWSTR pwszUniqueID, IMDSPStorage** ppStorage) FindStorage;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR pwszPropName, PROPVARIANT* pValue) GetProperty;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR pwszPropName, PROPVARIANT* pValue) SetProperty;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, WMDM_FORMATCODE format, WMDM_FORMAT_CAPABILITY* pFormatSupport) GetFormatCapability;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwIoControlCode, uint8* lpInBuffer, uint32 nInBufferSize, uint8* lpOutBuffer, uint32* pnOutBufferSize) DeviceIoControl;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, WMDM_FIND_SCOPE findScope, PWSTR pwszUniqueID, IMDSPStorage** ppStorage) FindStorage;
 	}
 
 
@@ -1879,14 +1879,14 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMDSPDeviceControl*/SelfOuter* self, uint32* pdwStatus) GetDCStatus;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMDSPDeviceControl*/SelfOuter* self, uint32* pdwCapabilitiesMask) GetCapabilities;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMDSPDeviceControl*/SelfOuter* self) Play;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMDSPDeviceControl*/SelfOuter* self, _WAVEFORMATEX* pFormat) Record;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMDSPDeviceControl*/SelfOuter* self) Pause;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMDSPDeviceControl*/SelfOuter* self) Resume;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMDSPDeviceControl*/SelfOuter* self) Stop;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMDSPDeviceControl*/SelfOuter* self, uint32 fuMode, int32 nOffset) Seek;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pdwStatus) GetDCStatus;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pdwCapabilitiesMask) GetCapabilities;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Play;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, _WAVEFORMATEX* pFormat) Record;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Pause;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Resume;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Stop;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 fuMode, int32 nOffset) Seek;
 	}
 
 
@@ -1915,10 +1915,10 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMDSPEnumStorage*/SelfOuter* self, uint32 celt, IMDSPStorage** ppStorage, uint32* pceltFetched) Next;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMDSPEnumStorage*/SelfOuter* self, uint32 celt, uint32* pceltFetched) Skip;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMDSPEnumStorage*/SelfOuter* self) Reset;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMDSPEnumStorage*/SelfOuter* self, IMDSPEnumStorage** ppEnumStorage) Clone;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 celt, IMDSPStorage** ppStorage, uint32* pceltFetched) Next;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 celt, uint32* pceltFetched) Skip;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Reset;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IMDSPEnumStorage** ppEnumStorage) Clone;
 	}
 
 
@@ -1939,16 +1939,16 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMDSPStorage*/SelfOuter* self, uint32 dwAttributes, _WAVEFORMATEX* pFormat) SetAttributes;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMDSPStorage*/SelfOuter* self, IMDSPStorageGlobals** ppStorageGlobals) GetStorageGlobals;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMDSPStorage*/SelfOuter* self, uint32* pdwAttributes, _WAVEFORMATEX* pFormat) GetAttributes;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMDSPStorage*/SelfOuter* self, char16* pwszName, uint32 nMaxChars) GetName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMDSPStorage*/SelfOuter* self, WMDMDATETIME* pDateTimeUTC) GetDate;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMDSPStorage*/SelfOuter* self, uint32* pdwSizeLow, uint32* pdwSizeHigh) GetSize;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMDSPStorage*/SelfOuter* self, WMDMRIGHTS** ppRights, uint32* pnRightsCount, uint8* abMac) GetRights;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMDSPStorage*/SelfOuter* self, uint32 dwAttributes, _WAVEFORMATEX* pFormat, PWSTR pwszName, IMDSPStorage** ppNewStorage) CreateStorage;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMDSPStorage*/SelfOuter* self, IMDSPEnumStorage** ppEnumStorage) EnumStorage;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMDSPStorage*/SelfOuter* self, OPAQUECOMMAND* pCommand) SendOpaqueCommand;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwAttributes, _WAVEFORMATEX* pFormat) SetAttributes;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IMDSPStorageGlobals** ppStorageGlobals) GetStorageGlobals;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pdwAttributes, _WAVEFORMATEX* pFormat) GetAttributes;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, char16* pwszName, uint32 nMaxChars) GetName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, WMDMDATETIME* pDateTimeUTC) GetDate;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pdwSizeLow, uint32* pdwSizeHigh) GetSize;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, WMDMRIGHTS** ppRights, uint32* pnRightsCount, uint8* abMac) GetRights;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwAttributes, _WAVEFORMATEX* pFormat, PWSTR pwszName, IMDSPStorage** ppNewStorage) CreateStorage;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IMDSPEnumStorage** ppEnumStorage) EnumStorage;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, OPAQUECOMMAND* pCommand) SendOpaqueCommand;
 	}
 
 
@@ -1981,10 +1981,10 @@ public static
 
 	[CRepr]public struct VTable : IMDSPStorage.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMDSPStorage2*/SelfOuter* self, PWSTR pszStorageName, IMDSPStorage** ppStorage) GetStorage;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMDSPStorage2*/SelfOuter* self, uint32 dwAttributes, uint32 dwAttributesEx, _WAVEFORMATEX* pAudioFormat, _VIDEOINFOHEADER* pVideoFormat, PWSTR pwszName, uint64 qwFileSize, IMDSPStorage** ppNewStorage) CreateStorage2;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMDSPStorage2*/SelfOuter* self, uint32 dwAttributes, uint32 dwAttributesEx, _WAVEFORMATEX* pAudioFormat, _VIDEOINFOHEADER* pVideoFormat) SetAttributes2;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMDSPStorage2*/SelfOuter* self, uint32* pdwAttributes, uint32* pdwAttributesEx, _WAVEFORMATEX* pAudioFormat, _VIDEOINFOHEADER* pVideoFormat) GetAttributes2;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR pszStorageName, IMDSPStorage** ppStorage) GetStorage;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwAttributes, uint32 dwAttributesEx, _WAVEFORMATEX* pAudioFormat, _VIDEOINFOHEADER* pVideoFormat, PWSTR pwszName, uint64 qwFileSize, IMDSPStorage** ppNewStorage) CreateStorage2;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwAttributes, uint32 dwAttributesEx, _WAVEFORMATEX* pAudioFormat, _VIDEOINFOHEADER* pVideoFormat) SetAttributes2;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pdwAttributes, uint32* pdwAttributesEx, _WAVEFORMATEX* pAudioFormat, _VIDEOINFOHEADER* pVideoFormat) GetAttributes2;
 	}
 
 
@@ -2005,8 +2005,8 @@ public static
 
 	[CRepr]public struct VTable : IMDSPStorage2.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMDSPStorage3*/SelfOuter* self, IWMDMMetaData* pMetadata) GetMetadata;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMDSPStorage3*/SelfOuter* self, IWMDMMetaData* pMetadata) SetMetadata;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IWMDMMetaData* pMetadata) GetMetadata;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IWMDMMetaData* pMetadata) SetMetadata;
 	}
 
 
@@ -2023,12 +2023,12 @@ public static
 
 	[CRepr]public struct VTable : IMDSPStorage3.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMDSPStorage4*/SelfOuter* self, uint32 dwRefs, IMDSPStorage** ppISPStorage) SetReferences;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMDSPStorage4*/SelfOuter* self, uint32* pdwRefs, IMDSPStorage*** pppISPStorage) GetReferences;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMDSPStorage4*/SelfOuter* self, uint32 dwAttributes, PWSTR pwszName, IWMDMMetaData* pMetadata, uint64 qwFileSize, IMDSPStorage** ppNewStorage) CreateStorageWithMetadata;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMDSPStorage4*/SelfOuter* self, uint32 cProperties, PWSTR* ppwszPropNames, IWMDMMetaData* pMetadata) GetSpecifiedMetadata;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMDSPStorage4*/SelfOuter* self, WMDM_FIND_SCOPE findScope, PWSTR pwszUniqueID, IMDSPStorage** ppStorage) FindStorage;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMDSPStorage4*/SelfOuter* self, IMDSPStorage** ppStorage) GetParent;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwRefs, IMDSPStorage** ppISPStorage) SetReferences;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pdwRefs, IMDSPStorage*** pppISPStorage) GetReferences;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwAttributes, PWSTR pwszName, IWMDMMetaData* pMetadata, uint64 qwFileSize, IMDSPStorage** ppNewStorage) CreateStorageWithMetadata;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 cProperties, PWSTR* ppwszPropNames, IWMDMMetaData* pMetadata) GetSpecifiedMetadata;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, WMDM_FIND_SCOPE findScope, PWSTR pwszUniqueID, IMDSPStorage** ppStorage) FindStorage;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IMDSPStorage** ppStorage) GetParent;
 	}
 
 
@@ -2053,15 +2053,15 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMDSPStorageGlobals*/SelfOuter* self, uint32* pdwCapabilities) GetCapabilities;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMDSPStorageGlobals*/SelfOuter* self, WMDMID* pSerialNum, uint8* abMac) GetSerialNumber;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMDSPStorageGlobals*/SelfOuter* self, uint32* pdwTotalSizeLow, uint32* pdwTotalSizeHigh) GetTotalSize;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMDSPStorageGlobals*/SelfOuter* self, uint32* pdwFreeLow, uint32* pdwFreeHigh) GetTotalFree;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMDSPStorageGlobals*/SelfOuter* self, uint32* pdwBadLow, uint32* pdwBadHigh) GetTotalBad;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMDSPStorageGlobals*/SelfOuter* self, uint32* pdwStatus) GetStatus;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMDSPStorageGlobals*/SelfOuter* self, uint32 fuMode, IWMDMProgress* pProgress) Initialize;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMDSPStorageGlobals*/SelfOuter* self, IMDSPDevice** ppDevice) GetDevice;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMDSPStorageGlobals*/SelfOuter* self, IMDSPStorage** ppRoot) GetRootStorage;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pdwCapabilities) GetCapabilities;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, WMDMID* pSerialNum, uint8* abMac) GetSerialNumber;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pdwTotalSizeLow, uint32* pdwTotalSizeHigh) GetTotalSize;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pdwFreeLow, uint32* pdwFreeHigh) GetTotalFree;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pdwBadLow, uint32* pdwBadHigh) GetTotalBad;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pdwStatus) GetStatus;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 fuMode, IWMDMProgress* pProgress) Initialize;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IMDSPDevice** ppDevice) GetDevice;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IMDSPStorage** ppRoot) GetRootStorage;
 	}
 
 
@@ -2092,13 +2092,13 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMDSPObjectInfo*/SelfOuter* self, uint32* pdwLength) GetPlayLength;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMDSPObjectInfo*/SelfOuter* self, uint32 dwLength) SetPlayLength;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMDSPObjectInfo*/SelfOuter* self, uint32* pdwOffset) GetPlayOffset;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMDSPObjectInfo*/SelfOuter* self, uint32 dwOffset) SetPlayOffset;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMDSPObjectInfo*/SelfOuter* self, uint32* pdwLength) GetTotalLength;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMDSPObjectInfo*/SelfOuter* self, uint32* pdwLastPos) GetLastPlayPosition;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMDSPObjectInfo*/SelfOuter* self, uint32* pdwLongestPos) GetLongestPlayPosition;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pdwLength) GetPlayLength;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwLength) SetPlayLength;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pdwOffset) GetPlayOffset;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwOffset) SetPlayOffset;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pdwLength) GetTotalLength;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pdwLastPos) GetLastPlayPosition;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pdwLongestPos) GetLongestPlayPosition;
 	}
 
 
@@ -2125,14 +2125,14 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMDSPObject*/SelfOuter* self, uint32 fuMode) Open;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMDSPObject*/SelfOuter* self, uint8* pData, uint32* pdwSize, uint8* abMac) Read;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMDSPObject*/SelfOuter* self, uint8* pData, uint32* pdwSize, uint8* abMac) Write;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMDSPObject*/SelfOuter* self, uint32 fuMode, IWMDMProgress* pProgress) Delete;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMDSPObject*/SelfOuter* self, uint32 fuFlags, uint32 dwOffset) Seek;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMDSPObject*/SelfOuter* self, PWSTR pwszNewName, IWMDMProgress* pProgress) Rename;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMDSPObject*/SelfOuter* self, uint32 fuMode, IWMDMProgress* pProgress, IMDSPStorage* pTarget) Move;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMDSPObject*/SelfOuter* self) Close;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 fuMode) Open;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint8* pData, uint32* pdwSize, uint8* abMac) Read;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint8* pData, uint32* pdwSize, uint8* abMac) Write;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 fuMode, IWMDMProgress* pProgress) Delete;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 fuFlags, uint32 dwOffset) Seek;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR pwszNewName, IWMDMProgress* pProgress) Rename;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 fuMode, IWMDMProgress* pProgress, IMDSPStorage* pTarget) Move;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Close;
 	}
 
 
@@ -2161,8 +2161,8 @@ public static
 
 	[CRepr]public struct VTable : IMDSPObject.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMDSPObject2*/SelfOuter* self, uint8* pData, uint32* pdwSize) ReadOnClearChannel;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMDSPObject2*/SelfOuter* self, uint8* pData, uint32* pdwSize) WriteOnClearChannel;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint8* pData, uint32* pdwSize) ReadOnClearChannel;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint8* pData, uint32* pdwSize) WriteOnClearChannel;
 	}
 
 
@@ -2179,7 +2179,7 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMDSPDirectTransfer*/SelfOuter* self, PWSTR pwszSourceFilePath, IWMDMOperation* pSourceOperation, uint32 fuFlags, PWSTR pwszDestinationName, IWMDMMetaData* pSourceMetaData, IWMDMProgress* pTransferProgress, IMDSPStorage** ppNewObject) TransferToDevice;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR pwszSourceFilePath, IWMDMOperation* pSourceOperation, uint32 fuFlags, PWSTR pwszDestinationName, IWMDMMetaData* pSourceMetaData, IWMDMProgress* pTransferProgress, IMDSPStorage** ppNewObject) TransferToDevice;
 	}
 
 
@@ -2194,7 +2194,7 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMDSPRevoked*/SelfOuter* self, PWSTR* ppwszRevocationURL, uint32* pdwBufferLen) GetRevocationURL;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR* ppwszRevocationURL, uint32* pdwBufferLen) GetRevocationURL;
 	}
 
 
@@ -2209,7 +2209,7 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISCPSecureAuthenticate*/SelfOuter* self, ISCPSecureQuery** ppSecureQuery) GetSecureQuery;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ISCPSecureQuery** ppSecureQuery) GetSecureQuery;
 	}
 
 
@@ -2224,7 +2224,7 @@ public static
 
 	[CRepr]public struct VTable : ISCPSecureAuthenticate.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISCPSecureAuthenticate2*/SelfOuter* self, ISCPSession** ppSCPSession) GetSCPSession;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ISCPSession** ppSCPSession) GetSCPSession;
 	}
 
 
@@ -2239,10 +2239,10 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISCPSecureQuery*/SelfOuter* self, uint32* pfuFlags, uint32* pdwMinRightsData, uint32* pdwMinExamineData, uint32* pdwMinDecideData, uint8* abMac) GetDataDemands;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISCPSecureQuery*/SelfOuter* self, uint32 fuFlags, PWSTR pwszExtension, uint8* pData, uint32 dwSize, uint8* abMac) ExamineData;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISCPSecureQuery*/SelfOuter* self, uint32 fuFlags, uint8* pData, uint32 dwSize, uint32 dwAppSec, uint8* pbSPSessionKey, uint32 dwSessionKeyLen, IMDSPStorageGlobals* pStorageGlobals, ISCPSecureExchange** ppExchange, uint8* abMac) MakeDecision;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISCPSecureQuery*/SelfOuter* self, uint8* pData, uint32 dwSize, uint8* pbSPSessionKey, uint32 dwSessionKeyLen, IMDSPStorageGlobals* pStgGlobals, WMDMRIGHTS** ppRights, uint32* pnRightsCount, uint8* abMac) GetRights;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pfuFlags, uint32* pdwMinRightsData, uint32* pdwMinExamineData, uint32* pdwMinDecideData, uint8* abMac) GetDataDemands;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 fuFlags, PWSTR pwszExtension, uint8* pData, uint32 dwSize, uint8* abMac) ExamineData;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 fuFlags, uint8* pData, uint32 dwSize, uint32 dwAppSec, uint8* pbSPSessionKey, uint32 dwSessionKeyLen, IMDSPStorageGlobals* pStorageGlobals, ISCPSecureExchange** ppExchange, uint8* abMac) MakeDecision;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint8* pData, uint32 dwSize, uint8* pbSPSessionKey, uint32 dwSessionKeyLen, IMDSPStorageGlobals* pStgGlobals, WMDMRIGHTS** ppRights, uint32* pnRightsCount, uint8* abMac) GetRights;
 	}
 
 
@@ -2263,7 +2263,7 @@ public static
 
 	[CRepr]public struct VTable : ISCPSecureQuery.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISCPSecureQuery2*/SelfOuter* self, uint32 fuFlags, uint8* pData, uint32 dwSize, uint32 dwAppSec, uint8* pbSPSessionKey, uint32 dwSessionKeyLen, IMDSPStorageGlobals* pStorageGlobals, uint8* pAppCertApp, uint32 dwAppCertAppLen, uint8* pAppCertSP, uint32 dwAppCertSPLen, PWSTR* pszRevocationURL, uint32* pdwRevocationURLLen, uint32* pdwRevocationBitFlag, uint64* pqwFileSize, IUnknown* pUnknown, ISCPSecureExchange** ppExchange, uint8* abMac) MakeDecision2;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 fuFlags, uint8* pData, uint32 dwSize, uint32 dwAppSec, uint8* pbSPSessionKey, uint32 dwSessionKeyLen, IMDSPStorageGlobals* pStorageGlobals, uint8* pAppCertApp, uint32 dwAppCertAppLen, uint8* pAppCertSP, uint32 dwAppCertSPLen, PWSTR* pszRevocationURL, uint32* pdwRevocationURLLen, uint32* pdwRevocationBitFlag, uint64* pqwFileSize, IUnknown* pUnknown, ISCPSecureExchange** ppExchange, uint8* abMac) MakeDecision2;
 	}
 
 
@@ -2278,9 +2278,9 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISCPSecureExchange*/SelfOuter* self, uint8* pData, uint32 dwSize, uint32* pfuReadyFlags, uint8* abMac) TransferContainerData;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISCPSecureExchange*/SelfOuter* self, uint8* pData, uint32* pdwSize, uint8* abMac) ObjectData;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISCPSecureExchange*/SelfOuter* self) TransferComplete;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint8* pData, uint32 dwSize, uint32* pfuReadyFlags, uint8* abMac) TransferContainerData;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint8* pData, uint32* pdwSize, uint8* abMac) ObjectData;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) TransferComplete;
 	}
 
 
@@ -2299,7 +2299,7 @@ public static
 
 	[CRepr]public struct VTable : ISCPSecureExchange.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISCPSecureExchange2*/SelfOuter* self, uint8* pData, uint32 dwSize, IWMDMProgress3* pProgressCallback, uint32* pfuReadyFlags, uint8* abMac) TransferContainerData2;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint8* pData, uint32 dwSize, IWMDMProgress3* pProgressCallback, uint32* pfuReadyFlags, uint8* abMac) TransferContainerData2;
 	}
 
 
@@ -2314,9 +2314,9 @@ public static
 
 	[CRepr]public struct VTable : ISCPSecureExchange2.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISCPSecureExchange3*/SelfOuter* self, IMDSPDevice* pDevice, uint8* pData, uint32 dwSize, IWMDMProgress3* pProgressCallback, uint32* pfuReadyFlags) TransferContainerDataOnClearChannel;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISCPSecureExchange3*/SelfOuter* self, IMDSPDevice* pDevice, uint8* pData, uint32* pdwSize) GetObjectDataOnClearChannel;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISCPSecureExchange3*/SelfOuter* self, IMDSPDevice* pDevice) TransferCompleteForDevice;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IMDSPDevice* pDevice, uint8* pData, uint32 dwSize, IWMDMProgress3* pProgressCallback, uint32* pfuReadyFlags) TransferContainerDataOnClearChannel;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IMDSPDevice* pDevice, uint8* pData, uint32* pdwSize) GetObjectDataOnClearChannel;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IMDSPDevice* pDevice) TransferCompleteForDevice;
 	}
 
 
@@ -2335,9 +2335,9 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISCPSession*/SelfOuter* self, IMDSPDevice* pIDevice, uint8* pCtx, uint32 dwSizeCtx) BeginSession;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISCPSession*/SelfOuter* self, uint8* pCtx, uint32 dwSizeCtx) EndSession;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISCPSession*/SelfOuter* self, ISCPSecureQuery** ppSecureQuery) GetSecureQuery;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IMDSPDevice* pIDevice, uint8* pCtx, uint32 dwSizeCtx) BeginSession;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint8* pCtx, uint32 dwSizeCtx) EndSession;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ISCPSecureQuery** ppSecureQuery) GetSecureQuery;
 	}
 
 
@@ -2356,8 +2356,8 @@ public static
 
 	[CRepr]public struct VTable : ISCPSecureQuery2.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISCPSecureQuery3*/SelfOuter* self, uint8* pData, uint32 dwSize, uint8* pbSPSessionKey, uint32 dwSessionKeyLen, IMDSPStorageGlobals* pStgGlobals, IWMDMProgress3* pProgressCallback, WMDMRIGHTS** ppRights, uint32* pnRightsCount) GetRightsOnClearChannel;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISCPSecureQuery3*/SelfOuter* self, uint32 fuFlags, uint8* pData, uint32 dwSize, uint32 dwAppSec, uint8* pbSPSessionKey, uint32 dwSessionKeyLen, IMDSPStorageGlobals* pStorageGlobals, IWMDMProgress3* pProgressCallback, uint8* pAppCertApp, uint32 dwAppCertAppLen, uint8* pAppCertSP, uint32 dwAppCertSPLen, PWSTR* pszRevocationURL, uint32* pdwRevocationURLLen, uint32* pdwRevocationBitFlag, uint64* pqwFileSize, IUnknown* pUnknown, ISCPSecureExchange** ppExchange) MakeDecisionOnClearChannel;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint8* pData, uint32 dwSize, uint8* pbSPSessionKey, uint32 dwSessionKeyLen, IMDSPStorageGlobals* pStgGlobals, IWMDMProgress3* pProgressCallback, WMDMRIGHTS** ppRights, uint32* pnRightsCount) GetRightsOnClearChannel;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 fuFlags, uint8* pData, uint32 dwSize, uint32 dwAppSec, uint8* pbSPSessionKey, uint32 dwSessionKeyLen, IMDSPStorageGlobals* pStorageGlobals, IWMDMProgress3* pProgressCallback, uint8* pAppCertApp, uint32 dwAppCertAppLen, uint8* pAppCertSP, uint32 dwAppCertSPLen, PWSTR* pszRevocationURL, uint32* pdwRevocationURLLen, uint32* pdwRevocationBitFlag, uint64* pqwFileSize, IUnknown* pUnknown, ISCPSecureExchange** ppExchange) MakeDecisionOnClearChannel;
 	}
 
 
@@ -2374,8 +2374,8 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IComponentAuthenticate*/SelfOuter* self, uint32 dwProtocolID, uint32 dwPass, uint8* pbDataIn, uint32 dwDataInLen, uint8** ppbDataOut, uint32* pdwDataOutLen) SACAuth;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IComponentAuthenticate*/SelfOuter* self, uint32** ppdwProtocols, uint32* pdwProtocolCount) SACGetProtocols;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwProtocolID, uint32 dwPass, uint8* pbDataIn, uint32 dwDataInLen, uint8** ppbDataOut, uint32* pdwDataOutLen) SACAuth;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32** ppdwProtocols, uint32* pdwProtocolCount) SACGetProtocols;
 	}
 
 
@@ -2392,15 +2392,15 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWMDMLogger*/SelfOuter* self, BOOL* pfEnabled) IsEnabled;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWMDMLogger*/SelfOuter* self, BOOL fEnable) Enable;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWMDMLogger*/SelfOuter* self, PSTR pszFilename, uint32 nMaxChars) GetLogFileName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWMDMLogger*/SelfOuter* self, PSTR pszFilename) SetLogFileName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWMDMLogger*/SelfOuter* self, uint32 dwFlags, PSTR pszSrcName, PSTR pszLog) LogString;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWMDMLogger*/SelfOuter* self, uint32 dwFlags, PSTR pszSrcName, PSTR pszLogFormat, uint32 dwLog) LogDword;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWMDMLogger*/SelfOuter* self) Reset;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWMDMLogger*/SelfOuter* self, uint32* pdwMaxSize, uint32* pdwShrinkToSize) GetSizeParams;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWMDMLogger*/SelfOuter* self, uint32 dwMaxSize, uint32 dwShrinkToSize) SetSizeParams;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BOOL* pfEnabled) IsEnabled;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BOOL fEnable) Enable;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PSTR pszFilename, uint32 nMaxChars) GetLogFileName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PSTR pszFilename) SetLogFileName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwFlags, PSTR pszSrcName, PSTR pszLog) LogString;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwFlags, PSTR pszSrcName, PSTR pszLogFormat, uint32 dwLog) LogDword;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Reset;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pdwMaxSize, uint32* pdwShrinkToSize) GetSizeParams;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwMaxSize, uint32 dwShrinkToSize) SetSizeParams;
 	}
 
 

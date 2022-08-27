@@ -73,11 +73,11 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRendezvousSession*/SelfOuter* self, RENDEZVOUS_SESSION_STATE* pSessionState) get_State;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRendezvousSession*/SelfOuter* self, BSTR* bstrUserName) get_RemoteUser;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRendezvousSession*/SelfOuter* self, int32* pFlags) get_Flags;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRendezvousSession*/SelfOuter* self, BSTR bstrData) SendContextData;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRendezvousSession*/SelfOuter* self, HRESULT hr, BSTR bstrAppData) Terminate;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, RENDEZVOUS_SESSION_STATE* pSessionState) get_State;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* bstrUserName) get_RemoteUser;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* pFlags) get_Flags;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrData) SendContextData;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HRESULT hr, BSTR bstrAppData) Terminate;
 	}
 
 
@@ -112,7 +112,7 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRendezvousApplication*/SelfOuter* self, IUnknown* pRendezvousSession) SetRendezvousSession;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IUnknown* pRendezvousSession) SetRendezvousSession;
 	}
 
 

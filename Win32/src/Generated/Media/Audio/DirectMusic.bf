@@ -1057,15 +1057,15 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDirectMusic*/SelfOuter* self, uint32 dwIndex, DMUS_PORTCAPS* pPortCaps) EnumPort;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDirectMusic*/SelfOuter* self, DMUS_BUFFERDESC* pBufferDesc, IDirectMusicBuffer** ppBuffer, IUnknown* pUnkOuter) CreateMusicBuffer;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDirectMusic*/SelfOuter* self, ref Guid rclsidPort, DMUS_PORTPARAMS8* pPortParams, IDirectMusicPort** ppPort, IUnknown* pUnkOuter) CreatePort;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDirectMusic*/SelfOuter* self, uint32 dwIndex, DMUS_CLOCKINFO8* lpClockInfo) EnumMasterClock;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDirectMusic*/SelfOuter* self, ref Guid pguidClock, IReferenceClock** ppReferenceClock) GetMasterClock;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDirectMusic*/SelfOuter* self, ref Guid rguidClock) SetMasterClock;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDirectMusic*/SelfOuter* self, BOOL fEnable) Activate;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDirectMusic*/SelfOuter* self, ref Guid pguidPort) GetDefaultPort;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDirectMusic*/SelfOuter* self, IDirectSound* pDirectSound, HWND hWnd) SetDirectSound;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwIndex, DMUS_PORTCAPS* pPortCaps) EnumPort;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, DMUS_BUFFERDESC* pBufferDesc, IDirectMusicBuffer** ppBuffer, IUnknown* pUnkOuter) CreateMusicBuffer;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid rclsidPort, DMUS_PORTPARAMS8* pPortParams, IDirectMusicPort** ppPort, IUnknown* pUnkOuter) CreatePort;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwIndex, DMUS_CLOCKINFO8* lpClockInfo) EnumMasterClock;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid pguidClock, IReferenceClock** ppReferenceClock) GetMasterClock;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid rguidClock) SetMasterClock;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BOOL fEnable) Activate;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid pguidPort) GetDefaultPort;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IDirectSound* pDirectSound, HWND hWnd) SetDirectSound;
 	}
 
 
@@ -1096,7 +1096,7 @@ public static
 
 	[CRepr]public struct VTable : IDirectMusic.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDirectMusic8*/SelfOuter* self, IReferenceClock* pClock) SetExternalMasterClock;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IReferenceClock* pClock) SetExternalMasterClock;
 	}
 
 
@@ -1111,19 +1111,19 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDirectMusicBuffer*/SelfOuter* self) Flush;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDirectMusicBuffer*/SelfOuter* self, int64* prtTime) TotalTime;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDirectMusicBuffer*/SelfOuter* self, int64 rt, uint32 dwChannelGroup, uint32 dwChannelMessage) PackStructured;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDirectMusicBuffer*/SelfOuter* self, int64 rt, uint32 dwChannelGroup, uint32 cb, uint8* lpb) PackUnstructured;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDirectMusicBuffer*/SelfOuter* self) ResetReadPtr;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDirectMusicBuffer*/SelfOuter* self, int64* prt, uint32* pdwChannelGroup, uint32* pdwLength, uint8** ppData) GetNextEvent;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDirectMusicBuffer*/SelfOuter* self, uint8** ppData) GetRawBufferPtr;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDirectMusicBuffer*/SelfOuter* self, int64* prt) GetStartTime;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDirectMusicBuffer*/SelfOuter* self, uint32* pcb) GetUsedBytes;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDirectMusicBuffer*/SelfOuter* self, uint32* pcb) GetMaxBytes;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDirectMusicBuffer*/SelfOuter* self, ref Guid pGuidFormat) GetBufferFormat;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDirectMusicBuffer*/SelfOuter* self, int64 rt) SetStartTime;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDirectMusicBuffer*/SelfOuter* self, uint32 cb) SetUsedBytes;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Flush;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int64* prtTime) TotalTime;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int64 rt, uint32 dwChannelGroup, uint32 dwChannelMessage) PackStructured;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int64 rt, uint32 dwChannelGroup, uint32 cb, uint8* lpb) PackUnstructured;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) ResetReadPtr;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int64* prt, uint32* pdwChannelGroup, uint32* pdwLength, uint8** ppData) GetNextEvent;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint8** ppData) GetRawBufferPtr;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int64* prt) GetStartTime;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pcb) GetUsedBytes;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pcb) GetMaxBytes;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid pGuidFormat) GetBufferFormat;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int64 rt) SetStartTime;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 cb) SetUsedBytes;
 	}
 
 
@@ -1162,8 +1162,8 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDirectMusicInstrument*/SelfOuter* self, uint32* pdwPatch) GetPatch;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDirectMusicInstrument*/SelfOuter* self, uint32 dwPatch) SetPatch;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pdwPatch) GetPatch;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwPatch) SetPatch;
 	}
 
 
@@ -1192,8 +1192,8 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDirectMusicCollection*/SelfOuter* self, uint32 dwPatch, IDirectMusicInstrument** ppInstrument) GetInstrument;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDirectMusicCollection*/SelfOuter* self, uint32 dwIndex, uint32* pdwPatch, PWSTR pwszName, uint32 dwNameLen) EnumInstrument;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwPatch, IDirectMusicInstrument** ppInstrument) GetInstrument;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwIndex, uint32* pdwPatch, PWSTR pwszName, uint32 dwNameLen) EnumInstrument;
 	}
 
 
@@ -1210,7 +1210,7 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDirectMusicDownload*/SelfOuter* self, void** ppvBuffer, uint32* pdwSize) GetBuffer;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, void** ppvBuffer, uint32* pdwSize) GetBuffer;
 	}
 
 
@@ -1225,12 +1225,12 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDirectMusicPortDownload*/SelfOuter* self, uint32 dwDLId, IDirectMusicDownload** ppIDMDownload) GetBuffer;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDirectMusicPortDownload*/SelfOuter* self, uint32 dwSize, IDirectMusicDownload** ppIDMDownload) AllocateBuffer;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDirectMusicPortDownload*/SelfOuter* self, uint32* pdwStartDLId, uint32 dwCount) GetDLId;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDirectMusicPortDownload*/SelfOuter* self, uint32* pdwAppend) GetAppend;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDirectMusicPortDownload*/SelfOuter* self, IDirectMusicDownload* pIDMDownload) Download;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDirectMusicPortDownload*/SelfOuter* self, IDirectMusicDownload* pIDMDownload) Unload;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwDLId, IDirectMusicDownload** ppIDMDownload) GetBuffer;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwSize, IDirectMusicDownload** ppIDMDownload) AllocateBuffer;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pdwStartDLId, uint32 dwCount) GetDLId;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pdwAppend) GetAppend;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IDirectMusicDownload* pIDMDownload) Download;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IDirectMusicDownload* pIDMDownload) Unload;
 	}
 
 
@@ -1255,23 +1255,23 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDirectMusicPort*/SelfOuter* self, IDirectMusicBuffer* pBuffer) PlayBuffer;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDirectMusicPort*/SelfOuter* self, HANDLE hEvent) SetReadNotificationHandle;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDirectMusicPort*/SelfOuter* self, IDirectMusicBuffer* pBuffer) Read;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDirectMusicPort*/SelfOuter* self, IDirectMusicInstrument* pInstrument, IDirectMusicDownloadedInstrument** ppDownloadedInstrument, DMUS_NOTERANGE* pNoteRanges, uint32 dwNumNoteRanges) DownloadInstrument;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDirectMusicPort*/SelfOuter* self, IDirectMusicDownloadedInstrument* pDownloadedInstrument) UnloadInstrument;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDirectMusicPort*/SelfOuter* self, IReferenceClock** ppClock) GetLatencyClock;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDirectMusicPort*/SelfOuter* self, DMUS_SYNTHSTATS* pStats) GetRunningStats;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDirectMusicPort*/SelfOuter* self) Compact;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDirectMusicPort*/SelfOuter* self, DMUS_PORTCAPS* pPortCaps) GetCaps;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDirectMusicPort*/SelfOuter* self, uint32 dwIoControlCode, void* lpInBuffer, uint32 nInBufferSize, void* lpOutBuffer, uint32 nOutBufferSize, uint32* lpBytesReturned, OVERLAPPED* lpOverlapped) DeviceIoControl;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDirectMusicPort*/SelfOuter* self, uint32 dwChannelGroups) SetNumChannelGroups;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDirectMusicPort*/SelfOuter* self, uint32* pdwChannelGroups) GetNumChannelGroups;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDirectMusicPort*/SelfOuter* self, BOOL fActive) Activate;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDirectMusicPort*/SelfOuter* self, uint32 dwChannelGroup, uint32 dwChannel, uint32 dwPriority) SetChannelPriority;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDirectMusicPort*/SelfOuter* self, uint32 dwChannelGroup, uint32 dwChannel, uint32* pdwPriority) GetChannelPriority;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDirectMusicPort*/SelfOuter* self, IDirectSound* pDirectSound, IDirectSoundBuffer* pDirectSoundBuffer) SetDirectSound;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDirectMusicPort*/SelfOuter* self, WAVEFORMATEX* pWaveFormatEx, uint32* pdwWaveFormatExSize, uint32* pdwBufferSize) GetFormat;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IDirectMusicBuffer* pBuffer) PlayBuffer;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HANDLE hEvent) SetReadNotificationHandle;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IDirectMusicBuffer* pBuffer) Read;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IDirectMusicInstrument* pInstrument, IDirectMusicDownloadedInstrument** ppDownloadedInstrument, DMUS_NOTERANGE* pNoteRanges, uint32 dwNumNoteRanges) DownloadInstrument;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IDirectMusicDownloadedInstrument* pDownloadedInstrument) UnloadInstrument;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IReferenceClock** ppClock) GetLatencyClock;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, DMUS_SYNTHSTATS* pStats) GetRunningStats;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Compact;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, DMUS_PORTCAPS* pPortCaps) GetCaps;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwIoControlCode, void* lpInBuffer, uint32 nInBufferSize, void* lpOutBuffer, uint32 nOutBufferSize, uint32* lpBytesReturned, OVERLAPPED* lpOverlapped) DeviceIoControl;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwChannelGroups) SetNumChannelGroups;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pdwChannelGroups) GetNumChannelGroups;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BOOL fActive) Activate;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwChannelGroup, uint32 dwChannel, uint32 dwPriority) SetChannelPriority;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwChannelGroup, uint32 dwChannel, uint32* pdwPriority) GetChannelPriority;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IDirectSound* pDirectSound, IDirectSoundBuffer* pDirectSoundBuffer) SetDirectSound;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, WAVEFORMATEX* pWaveFormatEx, uint32* pdwWaveFormatExSize, uint32* pdwBufferSize) GetFormat;
 	}
 
 
@@ -1318,7 +1318,7 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDirectMusicThru*/SelfOuter* self, uint32 dwSourceChannelGroup, uint32 dwSourceChannel, uint32 dwDestinationChannelGroup, uint32 dwDestinationChannel, IDirectMusicPort* pDestinationPort) ThruChannel;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwSourceChannelGroup, uint32 dwSourceChannel, uint32 dwDestinationChannelGroup, uint32 dwDestinationChannel, IDirectMusicPort* pDestinationPort) ThruChannel;
 	}
 
 
@@ -1333,23 +1333,23 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDirectMusicSynth*/SelfOuter* self, DMUS_PORTPARAMS8* pPortParams) Open;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDirectMusicSynth*/SelfOuter* self) Close;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDirectMusicSynth*/SelfOuter* self, uint32 dwGroups) SetNumChannelGroups;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDirectMusicSynth*/SelfOuter* self, HANDLE* phDownload, void* pvData, int32* pbFree) Download;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDirectMusicSynth*/SelfOuter* self, HANDLE hDownload, int lpFreeHandle, HANDLE hUserData) Unload;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDirectMusicSynth*/SelfOuter* self, int64 rt, uint8* pbBuffer, uint32 cbBuffer) PlayBuffer;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDirectMusicSynth*/SelfOuter* self, DMUS_SYNTHSTATS* pStats) GetRunningStats;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDirectMusicSynth*/SelfOuter* self, DMUS_PORTCAPS* pCaps) GetPortCaps;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDirectMusicSynth*/SelfOuter* self, IReferenceClock* pClock) SetMasterClock;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDirectMusicSynth*/SelfOuter* self, IReferenceClock** ppClock) GetLatencyClock;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDirectMusicSynth*/SelfOuter* self, BOOL fEnable) Activate;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDirectMusicSynth*/SelfOuter* self, IDirectMusicSynthSink* pSynthSink) SetSynthSink;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDirectMusicSynth*/SelfOuter* self, int16* pBuffer, uint32 dwLength, int64 llPosition) Render;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDirectMusicSynth*/SelfOuter* self, uint32 dwChannelGroup, uint32 dwChannel, uint32 dwPriority) SetChannelPriority;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDirectMusicSynth*/SelfOuter* self, uint32 dwChannelGroup, uint32 dwChannel, uint32* pdwPriority) GetChannelPriority;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDirectMusicSynth*/SelfOuter* self, WAVEFORMATEX* pWaveFormatEx, uint32* pdwWaveFormatExSize) GetFormat;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDirectMusicSynth*/SelfOuter* self, uint32* pdwAppend) GetAppend;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, DMUS_PORTPARAMS8* pPortParams) Open;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Close;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwGroups) SetNumChannelGroups;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HANDLE* phDownload, void* pvData, int32* pbFree) Download;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HANDLE hDownload, int lpFreeHandle, HANDLE hUserData) Unload;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int64 rt, uint8* pbBuffer, uint32 cbBuffer) PlayBuffer;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, DMUS_SYNTHSTATS* pStats) GetRunningStats;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, DMUS_PORTCAPS* pCaps) GetPortCaps;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IReferenceClock* pClock) SetMasterClock;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IReferenceClock** ppClock) GetLatencyClock;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BOOL fEnable) Activate;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IDirectMusicSynthSink* pSynthSink) SetSynthSink;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* pBuffer, uint32 dwLength, int64 llPosition) Render;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwChannelGroup, uint32 dwChannel, uint32 dwPriority) SetChannelPriority;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwChannelGroup, uint32 dwChannel, uint32* pdwPriority) GetChannelPriority;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, WAVEFORMATEX* pWaveFormatEx, uint32* pdwWaveFormatExSize) GetFormat;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pdwAppend) GetAppend;
 	}
 
 
@@ -1396,11 +1396,11 @@ public static
 
 	[CRepr]public struct VTable : IDirectMusicSynth.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDirectMusicSynth8*/SelfOuter* self, int64 rt, uint32 dwVoiceId, uint32 dwChannelGroup, uint32 dwChannel, uint32 dwDLId, int32 prPitch, int32 vrVolume, uint64 stVoiceStart, uint64 stLoopStart, uint64 stLoopEnd) PlayVoice;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDirectMusicSynth8*/SelfOuter* self, int64 rt, uint32 dwVoiceId) StopVoice;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDirectMusicSynth8*/SelfOuter* self, uint32* dwVoice, uint32 cbVoice, DMUS_VOICE_STATE* dwVoiceState) GetVoiceState;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDirectMusicSynth8*/SelfOuter* self, uint32 dwDownloadID, uint32 dwFlags) Refresh;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDirectMusicSynth8*/SelfOuter* self, uint32 dwChannelGroup, uint32 dwChannel, uint32* pdwBuses, uint32 cBuses) AssignChannelToBuses;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int64 rt, uint32 dwVoiceId, uint32 dwChannelGroup, uint32 dwChannel, uint32 dwDLId, int32 prPitch, int32 vrVolume, uint64 stVoiceStart, uint64 stLoopStart, uint64 stLoopEnd) PlayVoice;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int64 rt, uint32 dwVoiceId) StopVoice;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* dwVoice, uint32 cbVoice, DMUS_VOICE_STATE* dwVoiceState) GetVoiceState;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwDownloadID, uint32 dwFlags) Refresh;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwChannelGroup, uint32 dwChannel, uint32* pdwBuses, uint32 cBuses) AssignChannelToBuses;
 	}
 
 
@@ -1423,14 +1423,14 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDirectMusicSynthSink*/SelfOuter* self, IDirectMusicSynth* pSynth) Init;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDirectMusicSynthSink*/SelfOuter* self, IReferenceClock* pClock) SetMasterClock;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDirectMusicSynthSink*/SelfOuter* self, IReferenceClock** ppClock) GetLatencyClock;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDirectMusicSynthSink*/SelfOuter* self, BOOL fEnable) Activate;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDirectMusicSynthSink*/SelfOuter* self, int64 llSampleTime, int64* prfTime) SampleToRefTime;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDirectMusicSynthSink*/SelfOuter* self, int64 rfTime, int64* pllSampleTime) RefTimeToSample;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDirectMusicSynthSink*/SelfOuter* self, IDirectSound* pDirectSound, IDirectSoundBuffer* pDirectSoundBuffer) SetDirectSound;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDirectMusicSynthSink*/SelfOuter* self, uint32* pdwBufferSizeInSamples) GetDesiredBufferSize;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IDirectMusicSynth* pSynth) Init;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IReferenceClock* pClock) SetMasterClock;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IReferenceClock** ppClock) GetLatencyClock;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BOOL fEnable) Activate;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int64 llSampleTime, int64* prfTime) SampleToRefTime;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int64 rfTime, int64* pllSampleTime) RefTimeToSample;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IDirectSound* pDirectSound, IDirectSoundBuffer* pDirectSoundBuffer) SetDirectSound;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pdwBufferSizeInSamples) GetDesiredBufferSize;
 	}
 
 

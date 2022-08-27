@@ -156,9 +156,9 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISceSvcAttachmentPersistInfo*/SelfOuter* self, int8* lpTemplateName, void** scesvcHandle, void** ppvData, BOOL* pbOverwriteAll) Save;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISceSvcAttachmentPersistInfo*/SelfOuter* self, int8* lpTemplateName) IsDirty;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISceSvcAttachmentPersistInfo*/SelfOuter* self, void* pvData) FreeBuffer;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int8* lpTemplateName, void** scesvcHandle, void** ppvData, BOOL* pbOverwriteAll) Save;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int8* lpTemplateName) IsDirty;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, void* pvData) FreeBuffer;
 	}
 
 
@@ -177,10 +177,10 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISceSvcAttachmentData*/SelfOuter* self, void* scesvcHandle, SCESVC_INFO_TYPE sceType, void** ppvData, uint32* psceEnumHandle) GetData;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISceSvcAttachmentData*/SelfOuter* self, int8* lpServiceName, int8* lpTemplateName, ISceSvcAttachmentPersistInfo* lpSceSvcPersistInfo, void** pscesvcHandle) Initialize;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISceSvcAttachmentData*/SelfOuter* self, void* pvData) FreeBuffer;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISceSvcAttachmentData*/SelfOuter* self, void* scesvcHandle) CloseHandle;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, void* scesvcHandle, SCESVC_INFO_TYPE sceType, void** ppvData, uint32* psceEnumHandle) GetData;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int8* lpServiceName, int8* lpTemplateName, ISceSvcAttachmentPersistInfo* lpSceSvcPersistInfo, void** pscesvcHandle) Initialize;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, void* pvData) FreeBuffer;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, void* scesvcHandle) CloseHandle;
 	}
 
 

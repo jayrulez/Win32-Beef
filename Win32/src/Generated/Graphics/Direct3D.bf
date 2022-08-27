@@ -895,8 +895,8 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] void*(/*ID3DBlob*/SelfOuter* self) GetBufferPointer;
-		protected new function [CallingConvention(.Stdcall)] uint(/*ID3DBlob*/SelfOuter* self) GetBufferSize;
+		protected new function [CallingConvention(.Stdcall)] void*(SelfOuter* self) GetBufferPointer;
+		protected new function [CallingConvention(.Stdcall)] uint(SelfOuter* self) GetBufferSize;
 	}
 
 
@@ -913,8 +913,8 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID3DDestructionNotifier*/SelfOuter* self, PFN_DESTRUCTION_CALLBACK callbackFn, void* pData, uint32* pCallbackID) RegisterDestructionCallback;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID3DDestructionNotifier*/SelfOuter* self, uint32 callbackID) UnregisterDestructionCallback;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PFN_DESTRUCTION_CALLBACK callbackFn, void* pData, uint32* pCallbackID) RegisterDestructionCallback;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 callbackID) UnregisterDestructionCallback;
 	}
 
 
@@ -931,8 +931,8 @@ public static
 
 	[CRepr]public struct VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID3DInclude*/SelfOuter* self, D3D_INCLUDE_TYPE IncludeType, PSTR pFileName, void* pParentData, void** ppData, uint32* pBytes) Open;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID3DInclude*/SelfOuter* self, void* pData) Close;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, D3D_INCLUDE_TYPE IncludeType, PSTR pFileName, void* pParentData, void** ppData, uint32* pBytes) Open;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, void* pData) Close;
 	}
 
 

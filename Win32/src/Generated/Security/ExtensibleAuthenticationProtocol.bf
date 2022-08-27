@@ -1244,8 +1244,8 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRouterProtocolConfig*/SelfOuter* self, PWSTR pszMachineName, uint32 dwTransportId, uint32 dwProtocolId, HWND hWnd, uint32 dwFlags, IUnknown* pRouter, uint uReserved1) AddProtocol;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRouterProtocolConfig*/SelfOuter* self, PWSTR pszMachineName, uint32 dwTransportId, uint32 dwProtocolId, HWND hWnd, uint32 dwFlags, IUnknown* pRouter, uint uReserved1) RemoveProtocol;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR pszMachineName, uint32 dwTransportId, uint32 dwProtocolId, HWND hWnd, uint32 dwFlags, IUnknown* pRouter, uint uReserved1) AddProtocol;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR pszMachineName, uint32 dwTransportId, uint32 dwProtocolId, HWND hWnd, uint32 dwFlags, IUnknown* pRouter, uint uReserved1) RemoveProtocol;
 	}
 
 
@@ -1262,11 +1262,11 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAuthenticationProviderConfig*/SelfOuter* self, PWSTR pszMachineName, uint* puConnectionParam) Initialize;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAuthenticationProviderConfig*/SelfOuter* self, uint uConnectionParam) Uninitialize;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAuthenticationProviderConfig*/SelfOuter* self, uint uConnectionParam, HWND hWnd, uint32 dwFlags, uint uReserved1, uint uReserved2) Configure;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAuthenticationProviderConfig*/SelfOuter* self, uint uConnectionParam, uint uReserved1, uint uReserved2) Activate;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAuthenticationProviderConfig*/SelfOuter* self, uint uConnectionParam, uint uReserved1, uint uReserved2) Deactivate;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR pszMachineName, uint* puConnectionParam) Initialize;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint uConnectionParam) Uninitialize;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint uConnectionParam, HWND hWnd, uint32 dwFlags, uint uReserved1, uint uReserved2) Configure;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint uConnectionParam, uint uReserved1, uint uReserved2) Activate;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint uConnectionParam, uint uReserved1, uint uReserved2) Deactivate;
 	}
 
 
@@ -1289,11 +1289,11 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAccountingProviderConfig*/SelfOuter* self, PWSTR pszMachineName, uint* puConnectionParam) Initialize;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAccountingProviderConfig*/SelfOuter* self, uint uConnectionParam) Uninitialize;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAccountingProviderConfig*/SelfOuter* self, uint uConnectionParam, HWND hWnd, uint32 dwFlags, uint uReserved1, uint uReserved2) Configure;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAccountingProviderConfig*/SelfOuter* self, uint uConnectionParam, uint uReserved1, uint uReserved2) Activate;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAccountingProviderConfig*/SelfOuter* self, uint uConnectionParam, uint uReserved1, uint uReserved2) Deactivate;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR pszMachineName, uint* puConnectionParam) Initialize;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint uConnectionParam) Uninitialize;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint uConnectionParam, HWND hWnd, uint32 dwFlags, uint uReserved1, uint uReserved2) Configure;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint uConnectionParam, uint uReserved1, uint uReserved2) Activate;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint uConnectionParam, uint uReserved1, uint uReserved2) Deactivate;
 	}
 
 
@@ -1316,11 +1316,11 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEAPProviderConfig*/SelfOuter* self, PWSTR pszMachineName, uint32 dwEapTypeId, uint* puConnectionParam) Initialize;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEAPProviderConfig*/SelfOuter* self, uint32 dwEapTypeId, uint uConnectionParam) Uninitialize;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEAPProviderConfig*/SelfOuter* self, uint32 dwEapTypeId, uint uConnectionParam, HWND hWnd, uint uReserved1, uint uReserved2) ServerInvokeConfigUI;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEAPProviderConfig*/SelfOuter* self, uint32 dwEapTypeId, uint uConnectionParam, HWND hwndParent, uint32 dwFlags, uint8* pConnectionDataIn, uint32 dwSizeOfConnectionDataIn, uint8** ppConnectionDataOut, uint32* pdwSizeOfConnectionDataOut) RouterInvokeConfigUI;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEAPProviderConfig*/SelfOuter* self, uint32 dwEapTypeId, uint uConnectionParam, HWND hwndParent, uint32 dwFlags, uint8* pConnectionDataIn, uint32 dwSizeOfConnectionDataIn, uint8* pUserDataIn, uint32 dwSizeOfUserDataIn, uint8** ppUserDataOut, uint32* pdwSizeOfUserDataOut) RouterInvokeCredentialsUI;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR pszMachineName, uint32 dwEapTypeId, uint* puConnectionParam) Initialize;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwEapTypeId, uint uConnectionParam) Uninitialize;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwEapTypeId, uint uConnectionParam, HWND hWnd, uint uReserved1, uint uReserved2) ServerInvokeConfigUI;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwEapTypeId, uint uConnectionParam, HWND hwndParent, uint32 dwFlags, uint8* pConnectionDataIn, uint32 dwSizeOfConnectionDataIn, uint8** ppConnectionDataOut, uint32* pdwSizeOfConnectionDataOut) RouterInvokeConfigUI;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwEapTypeId, uint uConnectionParam, HWND hwndParent, uint32 dwFlags, uint8* pConnectionDataIn, uint32 dwSizeOfConnectionDataIn, uint8* pUserDataIn, uint32 dwSizeOfUserDataIn, uint8** ppUserDataOut, uint32* pdwSizeOfUserDataOut) RouterInvokeCredentialsUI;
 	}
 
 
@@ -1343,8 +1343,8 @@ public static
 
 	[CRepr]public struct VTable : IEAPProviderConfig.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEAPProviderConfig2*/SelfOuter* self, uint32 dwEapTypeId, uint uConnectionParam, HWND hWnd, uint8* pConfigDataIn, uint32 dwSizeOfConfigDataIn, uint8** ppConfigDataOut, uint32* pdwSizeOfConfigDataOut) ServerInvokeConfigUI2;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEAPProviderConfig2*/SelfOuter* self, uint32 dwEapTypeId, uint8** ppConfigDataOut, uint32* pdwSizeOfConfigDataOut) GetGlobalConfig;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwEapTypeId, uint uConnectionParam, HWND hWnd, uint8* pConfigDataIn, uint32 dwSizeOfConfigDataIn, uint8** ppConfigDataOut, uint32* pdwSizeOfConfigDataOut) ServerInvokeConfigUI2;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwEapTypeId, uint8** ppConfigDataOut, uint32* pdwSizeOfConfigDataOut) GetGlobalConfig;
 	}
 
 
@@ -1361,7 +1361,7 @@ public static
 
 	[CRepr]public struct VTable : IEAPProviderConfig2.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEAPProviderConfig3*/SelfOuter* self, uint32 dwEapTypeId, uint uConnectionParam, HWND hWnd, uint8* pConfigDataIn, uint32 dwSizeOfConfigDataIn, uint8** ppConfigDataOut, uint32* pdwSizeOfConfigDataOut, uint uReserved) ServerInvokeCertificateConfigUI;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwEapTypeId, uint uConnectionParam, HWND hWnd, uint8* pConfigDataIn, uint32 dwSizeOfConfigDataIn, uint8** ppConfigDataOut, uint32* pdwSizeOfConfigDataOut, uint uReserved) ServerInvokeCertificateConfigUI;
 	}
 
 

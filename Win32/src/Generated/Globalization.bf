@@ -5667,10 +5667,10 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISpellingError*/SelfOuter* self, uint32* value) get_StartIndex;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISpellingError*/SelfOuter* self, uint32* value) get_Length;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISpellingError*/SelfOuter* self, CORRECTIVE_ACTION* value) get_CorrectiveAction;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISpellingError*/SelfOuter* self, PWSTR* value) get_Replacement;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* value) get_StartIndex;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* value) get_Length;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, CORRECTIVE_ACTION* value) get_CorrectiveAction;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR* value) get_Replacement;
 	}
 
 
@@ -5691,7 +5691,7 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnumSpellingError*/SelfOuter* self, ISpellingError** value) Next;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ISpellingError** value) Next;
 	}
 
 
@@ -5706,10 +5706,10 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOptionDescription*/SelfOuter* self, PWSTR* value) get_Id;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOptionDescription*/SelfOuter* self, PWSTR* value) get_Heading;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOptionDescription*/SelfOuter* self, PWSTR* value) get_Description;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOptionDescription*/SelfOuter* self, IEnumString** value) get_Labels;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR* value) get_Id;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR* value) get_Heading;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR* value) get_Description;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IEnumString** value) get_Labels;
 	}
 
 
@@ -5730,7 +5730,7 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISpellCheckerChangedEventHandler*/SelfOuter* self, ISpellChecker* sender) Invoke;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ISpellChecker* sender) Invoke;
 	}
 
 
@@ -5745,20 +5745,20 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISpellChecker*/SelfOuter* self, PWSTR* value) get_LanguageTag;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISpellChecker*/SelfOuter* self, PWSTR text, IEnumSpellingError** value) Check;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISpellChecker*/SelfOuter* self, PWSTR word, IEnumString** value) Suggest;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISpellChecker*/SelfOuter* self, PWSTR word) Add;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISpellChecker*/SelfOuter* self, PWSTR word) Ignore;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISpellChecker*/SelfOuter* self, PWSTR from, PWSTR to) AutoCorrect;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISpellChecker*/SelfOuter* self, PWSTR optionId, uint8* value) GetOptionValue;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISpellChecker*/SelfOuter* self, IEnumString** value) get_OptionIds;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISpellChecker*/SelfOuter* self, PWSTR* value) get_Id;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISpellChecker*/SelfOuter* self, PWSTR* value) get_LocalizedName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISpellChecker*/SelfOuter* self, ISpellCheckerChangedEventHandler* handler, uint32* eventCookie) add_SpellCheckerChanged;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISpellChecker*/SelfOuter* self, uint32 eventCookie) remove_SpellCheckerChanged;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISpellChecker*/SelfOuter* self, PWSTR optionId, IOptionDescription** value) GetOptionDescription;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISpellChecker*/SelfOuter* self, PWSTR text, IEnumSpellingError** value) ComprehensiveCheck;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR* value) get_LanguageTag;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR text, IEnumSpellingError** value) Check;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR word, IEnumString** value) Suggest;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR word) Add;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR word) Ignore;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR from, PWSTR to) AutoCorrect;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR optionId, uint8* value) GetOptionValue;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IEnumString** value) get_OptionIds;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR* value) get_Id;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR* value) get_LocalizedName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ISpellCheckerChangedEventHandler* handler, uint32* eventCookie) add_SpellCheckerChanged;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 eventCookie) remove_SpellCheckerChanged;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR optionId, IOptionDescription** value) GetOptionDescription;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR text, IEnumSpellingError** value) ComprehensiveCheck;
 	}
 
 
@@ -5799,7 +5799,7 @@ public static
 
 	[CRepr]public struct VTable : ISpellChecker.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISpellChecker2*/SelfOuter* self, PWSTR word) Remove;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR word) Remove;
 	}
 
 
@@ -5814,9 +5814,9 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISpellCheckerFactory*/SelfOuter* self, IEnumString** value) get_SupportedLanguages;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISpellCheckerFactory*/SelfOuter* self, PWSTR languageTag, BOOL* value) IsSupported;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISpellCheckerFactory*/SelfOuter* self, PWSTR languageTag, ISpellChecker** value) CreateSpellChecker;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IEnumString** value) get_SupportedLanguages;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR languageTag, BOOL* value) IsSupported;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR languageTag, ISpellChecker** value) CreateSpellChecker;
 	}
 
 
@@ -5835,8 +5835,8 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IUserDictionariesRegistrar*/SelfOuter* self, PWSTR dictionaryPath, PWSTR languageTag) RegisterUserDictionary;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IUserDictionariesRegistrar*/SelfOuter* self, PWSTR dictionaryPath, PWSTR languageTag) UnregisterUserDictionary;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR dictionaryPath, PWSTR languageTag) RegisterUserDictionary;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR dictionaryPath, PWSTR languageTag) UnregisterUserDictionary;
 	}
 
 
@@ -5853,16 +5853,16 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISpellCheckProvider*/SelfOuter* self, PWSTR* value) get_LanguageTag;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISpellCheckProvider*/SelfOuter* self, PWSTR text, IEnumSpellingError** value) Check;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISpellCheckProvider*/SelfOuter* self, PWSTR word, IEnumString** value) Suggest;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISpellCheckProvider*/SelfOuter* self, PWSTR optionId, uint8* value) GetOptionValue;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISpellCheckProvider*/SelfOuter* self, PWSTR optionId, uint8 value) SetOptionValue;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISpellCheckProvider*/SelfOuter* self, IEnumString** value) get_OptionIds;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISpellCheckProvider*/SelfOuter* self, PWSTR* value) get_Id;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISpellCheckProvider*/SelfOuter* self, PWSTR* value) get_LocalizedName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISpellCheckProvider*/SelfOuter* self, PWSTR optionId, IOptionDescription** value) GetOptionDescription;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISpellCheckProvider*/SelfOuter* self, WORDLIST_TYPE wordlistType, IEnumString* words) InitializeWordlist;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR* value) get_LanguageTag;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR text, IEnumSpellingError** value) Check;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR word, IEnumString** value) Suggest;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR optionId, uint8* value) GetOptionValue;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR optionId, uint8 value) SetOptionValue;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IEnumString** value) get_OptionIds;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR* value) get_Id;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR* value) get_LocalizedName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR optionId, IOptionDescription** value) GetOptionDescription;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, WORDLIST_TYPE wordlistType, IEnumString* words) InitializeWordlist;
 	}
 
 
@@ -5895,7 +5895,7 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IComprehensiveSpellCheckProvider*/SelfOuter* self, PWSTR text, IEnumSpellingError** value) ComprehensiveCheck;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR text, IEnumSpellingError** value) ComprehensiveCheck;
 	}
 
 
@@ -5910,9 +5910,9 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISpellCheckProviderFactory*/SelfOuter* self, IEnumString** value) get_SupportedLanguages;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISpellCheckProviderFactory*/SelfOuter* self, PWSTR languageTag, BOOL* value) IsSupported;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISpellCheckProviderFactory*/SelfOuter* self, PWSTR languageTag, ISpellCheckProvider** value) CreateSpellCheckProvider;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IEnumString** value) get_SupportedLanguages;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR languageTag, BOOL* value) IsSupported;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR languageTag, ISpellCheckProvider** value) CreateSpellCheckProvider;
 	}
 
 
@@ -5931,11 +5931,11 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMLangStringBufW*/SelfOuter* self, int32* plFlags, int32* pcchBuf) GetStatus;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMLangStringBufW*/SelfOuter* self, int32 cchOffset, int32 cchMaxLock, uint16** ppszBuf, int32* pcchBuf) LockBuf;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMLangStringBufW*/SelfOuter* self, PWSTR pszBuf, int32 cchOffset, int32 cchWrite) UnlockBuf;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMLangStringBufW*/SelfOuter* self, int32 cchOffset, int32 cchMaxInsert, int32* pcchActual) Insert;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMLangStringBufW*/SelfOuter* self, int32 cchOffset, int32 cchDelete) Delete;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* plFlags, int32* pcchBuf) GetStatus;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 cchOffset, int32 cchMaxLock, uint16** ppszBuf, int32* pcchBuf) LockBuf;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR pszBuf, int32 cchOffset, int32 cchWrite) UnlockBuf;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 cchOffset, int32 cchMaxInsert, int32* pcchActual) Insert;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 cchOffset, int32 cchDelete) Delete;
 	}
 
 
@@ -5958,11 +5958,11 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMLangStringBufA*/SelfOuter* self, int32* plFlags, int32* pcchBuf) GetStatus;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMLangStringBufA*/SelfOuter* self, int32 cchOffset, int32 cchMaxLock, CHAR** ppszBuf, int32* pcchBuf) LockBuf;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMLangStringBufA*/SelfOuter* self, PSTR pszBuf, int32 cchOffset, int32 cchWrite) UnlockBuf;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMLangStringBufA*/SelfOuter* self, int32 cchOffset, int32 cchMaxInsert, int32* pcchActual) Insert;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMLangStringBufA*/SelfOuter* self, int32 cchOffset, int32 cchDelete) Delete;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* plFlags, int32* pcchBuf) GetStatus;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 cchOffset, int32 cchMaxLock, CHAR** ppszBuf, int32* pcchBuf) LockBuf;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PSTR pszBuf, int32 cchOffset, int32 cchWrite) UnlockBuf;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 cchOffset, int32 cchMaxInsert, int32* pcchActual) Insert;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 cchOffset, int32 cchDelete) Delete;
 	}
 
 
@@ -5985,10 +5985,10 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMLangString*/SelfOuter* self, BOOL fNoAccess) Sync;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMLangString*/SelfOuter* self, int32* plLen) GetLength;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMLangString*/SelfOuter* self, int32 lDestPos, int32 lDestLen, IUnknown* pSrcMLStr, int32 lSrcPos, int32 lSrcLen) SetMLStr;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMLangString*/SelfOuter* self, int32 lSrcPos, int32 lSrcLen, IUnknown* pUnkOuter, uint32 dwClsContext, ref Guid piid, IUnknown** ppDestMLStr, int32* plDestPos, int32* plDestLen) GetMLStr;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BOOL fNoAccess) Sync;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* plLen) GetLength;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 lDestPos, int32 lDestLen, IUnknown* pSrcMLStr, int32 lSrcPos, int32 lSrcLen) SetMLStr;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 lSrcPos, int32 lSrcLen, IUnknown* pUnkOuter, uint32 dwClsContext, ref Guid piid, IUnknown** ppDestMLStr, int32* plDestPos, int32* plDestLen) GetMLStr;
 	}
 
 
@@ -6009,14 +6009,14 @@ public static
 
 	[CRepr]public struct VTable : IMLangString.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMLangStringWStr*/SelfOuter* self, int32 lDestPos, int32 lDestLen, char16* pszSrc, int32 cchSrc, int32* pcchActual, int32* plActualLen) SetWStr;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMLangStringWStr*/SelfOuter* self, int32 lDestPos, int32 lDestLen, IMLangStringBufW* pSrcBuf, int32* pcchActual, int32* plActualLen) SetStrBufW;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMLangStringWStr*/SelfOuter* self, int32 lSrcPos, int32 lSrcLen, char16* pszDest, int32 cchDest, int32* pcchActual, int32* plActualLen) GetWStr;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMLangStringWStr*/SelfOuter* self, int32 lSrcPos, int32 lSrcMaxLen, IMLangStringBufW** ppDestBuf, int32* plDestLen) GetStrBufW;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMLangStringWStr*/SelfOuter* self, int32 lSrcPos, int32 lSrcLen, int32 lFlags, int32 cchRequest, PWSTR* ppszDest, int32* pcchDest, int32* plDestLen) LockWStr;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMLangStringWStr*/SelfOuter* self, char16* pszSrc, int32 cchSrc, int32* pcchActual, int32* plActualLen) UnlockWStr;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMLangStringWStr*/SelfOuter* self, int32 lDestPos, int32 lDestLen, uint32 locale) SetLocale;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMLangStringWStr*/SelfOuter* self, int32 lSrcPos, int32 lSrcMaxLen, uint32* plocale, int32* plLocalePos, int32* plLocaleLen) GetLocale;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 lDestPos, int32 lDestLen, char16* pszSrc, int32 cchSrc, int32* pcchActual, int32* plActualLen) SetWStr;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 lDestPos, int32 lDestLen, IMLangStringBufW* pSrcBuf, int32* pcchActual, int32* plActualLen) SetStrBufW;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 lSrcPos, int32 lSrcLen, char16* pszDest, int32 cchDest, int32* pcchActual, int32* plActualLen) GetWStr;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 lSrcPos, int32 lSrcMaxLen, IMLangStringBufW** ppDestBuf, int32* plDestLen) GetStrBufW;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 lSrcPos, int32 lSrcLen, int32 lFlags, int32 cchRequest, PWSTR* ppszDest, int32* pcchDest, int32* plDestLen) LockWStr;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, char16* pszSrc, int32 cchSrc, int32* pcchActual, int32* plActualLen) UnlockWStr;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 lDestPos, int32 lDestLen, uint32 locale) SetLocale;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 lSrcPos, int32 lSrcMaxLen, uint32* plocale, int32* plLocalePos, int32* plLocaleLen) GetLocale;
 	}
 
 
@@ -6045,14 +6045,14 @@ public static
 
 	[CRepr]public struct VTable : IMLangString.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMLangStringAStr*/SelfOuter* self, int32 lDestPos, int32 lDestLen, uint32 uCodePage, uint8* pszSrc, int32 cchSrc, int32* pcchActual, int32* plActualLen) SetAStr;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMLangStringAStr*/SelfOuter* self, int32 lDestPos, int32 lDestLen, uint32 uCodePage, IMLangStringBufA* pSrcBuf, int32* pcchActual, int32* plActualLen) SetStrBufA;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMLangStringAStr*/SelfOuter* self, int32 lSrcPos, int32 lSrcLen, uint32 uCodePageIn, uint32* puCodePageOut, uint8* pszDest, int32 cchDest, int32* pcchActual, int32* plActualLen) GetAStr;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMLangStringAStr*/SelfOuter* self, int32 lSrcPos, int32 lSrcMaxLen, uint32* puDestCodePage, IMLangStringBufA** ppDestBuf, int32* plDestLen) GetStrBufA;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMLangStringAStr*/SelfOuter* self, int32 lSrcPos, int32 lSrcLen, int32 lFlags, uint32 uCodePageIn, int32 cchRequest, uint32* puCodePageOut, PSTR* ppszDest, int32* pcchDest, int32* plDestLen) LockAStr;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMLangStringAStr*/SelfOuter* self, uint8* pszSrc, int32 cchSrc, int32* pcchActual, int32* plActualLen) UnlockAStr;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMLangStringAStr*/SelfOuter* self, int32 lDestPos, int32 lDestLen, uint32 locale) SetLocale;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMLangStringAStr*/SelfOuter* self, int32 lSrcPos, int32 lSrcMaxLen, uint32* plocale, int32* plLocalePos, int32* plLocaleLen) GetLocale;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 lDestPos, int32 lDestLen, uint32 uCodePage, uint8* pszSrc, int32 cchSrc, int32* pcchActual, int32* plActualLen) SetAStr;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 lDestPos, int32 lDestLen, uint32 uCodePage, IMLangStringBufA* pSrcBuf, int32* pcchActual, int32* plActualLen) SetStrBufA;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 lSrcPos, int32 lSrcLen, uint32 uCodePageIn, uint32* puCodePageOut, uint8* pszDest, int32 cchDest, int32* pcchActual, int32* plActualLen) GetAStr;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 lSrcPos, int32 lSrcMaxLen, uint32* puDestCodePage, IMLangStringBufA** ppDestBuf, int32* plDestLen) GetStrBufA;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 lSrcPos, int32 lSrcLen, int32 lFlags, uint32 uCodePageIn, int32 cchRequest, uint32* puCodePageOut, PSTR* ppszDest, int32* pcchDest, int32* plDestLen) LockAStr;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint8* pszSrc, int32 cchSrc, int32* pcchActual, int32* plActualLen) UnlockAStr;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 lDestPos, int32 lDestLen, uint32 locale) SetLocale;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 lSrcPos, int32 lSrcMaxLen, uint32* plocale, int32* plLocalePos, int32* plLocaleLen) GetLocale;
 	}
 
 
@@ -6081,9 +6081,9 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMLangLineBreakConsole*/SelfOuter* self, IMLangString* pSrcMLStr, int32 lSrcPos, int32 lSrcLen, int32 cMinColumns, int32 cMaxColumns, int32* plLineLen, int32* plSkipLen) BreakLineML;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMLangLineBreakConsole*/SelfOuter* self, uint32 locale, char16* pszSrc, int32 cchSrc, int32 cMaxColumns, int32* pcchLine, int32* pcchSkip) BreakLineW;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMLangLineBreakConsole*/SelfOuter* self, uint32 locale, uint32 uCodePage, uint8* pszSrc, int32 cchSrc, int32 cMaxColumns, int32* pcchLine, int32* pcchSkip) BreakLineA;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IMLangString* pSrcMLStr, int32 lSrcPos, int32 lSrcLen, int32 cMinColumns, int32 cMaxColumns, int32* plLineLen, int32* plSkipLen) BreakLineML;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 locale, char16* pszSrc, int32 cchSrc, int32 cMaxColumns, int32* pcchLine, int32* pcchSkip) BreakLineW;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 locale, uint32 uCodePage, uint8* pszSrc, int32 cchSrc, int32 cMaxColumns, int32* pcchLine, int32* pcchSkip) BreakLineA;
 	}
 
 
@@ -6102,10 +6102,10 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnumCodePage*/SelfOuter* self, IEnumCodePage** ppEnum) Clone;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnumCodePage*/SelfOuter* self, uint32 celt, MIMECPINFO* rgelt, uint32* pceltFetched) Next;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnumCodePage*/SelfOuter* self) Reset;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnumCodePage*/SelfOuter* self, uint32 celt) Skip;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IEnumCodePage** ppEnum) Clone;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 celt, MIMECPINFO* rgelt, uint32* pceltFetched) Next;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Reset;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 celt) Skip;
 	}
 
 
@@ -6126,10 +6126,10 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnumRfc1766*/SelfOuter* self, IEnumRfc1766** ppEnum) Clone;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnumRfc1766*/SelfOuter* self, uint32 celt, RFC1766INFO* rgelt, uint32* pceltFetched) Next;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnumRfc1766*/SelfOuter* self) Reset;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnumRfc1766*/SelfOuter* self, uint32 celt) Skip;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IEnumRfc1766** ppEnum) Clone;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 celt, RFC1766INFO* rgelt, uint32* pceltFetched) Next;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Reset;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 celt) Skip;
 	}
 
 
@@ -6150,10 +6150,10 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnumScript*/SelfOuter* self, IEnumScript** ppEnum) Clone;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnumScript*/SelfOuter* self, uint32 celt, SCRIPTINFO* rgelt, uint32* pceltFetched) Next;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnumScript*/SelfOuter* self) Reset;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnumScript*/SelfOuter* self, uint32 celt) Skip;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IEnumScript** ppEnum) Clone;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 celt, SCRIPTINFO* rgelt, uint32* pceltFetched) Next;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Reset;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 celt) Skip;
 	}
 
 
@@ -6174,13 +6174,13 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMLangConvertCharset*/SelfOuter* self, uint32 uiSrcCodePage, uint32 uiDstCodePage, uint32 dwProperty) Initialize;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMLangConvertCharset*/SelfOuter* self, uint32* puiSrcCodePage) GetSourceCodePage;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMLangConvertCharset*/SelfOuter* self, uint32* puiDstCodePage) GetDestinationCodePage;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMLangConvertCharset*/SelfOuter* self, uint32* pdwProperty) GetProperty;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMLangConvertCharset*/SelfOuter* self, uint8* pSrcStr, uint32* pcSrcSize, uint8* pDstStr, uint32* pcDstSize) DoConversion;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMLangConvertCharset*/SelfOuter* self, PSTR pSrcStr, uint32* pcSrcSize, char16* pDstStr, uint32* pcDstSize) DoConversionToUnicode;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMLangConvertCharset*/SelfOuter* self, char16* pSrcStr, uint32* pcSrcSize, PSTR pDstStr, uint32* pcDstSize) DoConversionFromUnicode;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 uiSrcCodePage, uint32 uiDstCodePage, uint32 dwProperty) Initialize;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* puiSrcCodePage) GetSourceCodePage;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* puiDstCodePage) GetDestinationCodePage;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pdwProperty) GetProperty;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint8* pSrcStr, uint32* pcSrcSize, uint8* pDstStr, uint32* pcDstSize) DoConversion;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PSTR pSrcStr, uint32* pcSrcSize, char16* pDstStr, uint32* pcDstSize) DoConversionToUnicode;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, char16* pSrcStr, uint32* pcSrcSize, PSTR pDstStr, uint32* pcDstSize) DoConversionFromUnicode;
 	}
 
 
@@ -6207,21 +6207,21 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMultiLanguage*/SelfOuter* self, uint32* pcCodePage) GetNumberOfCodePageInfo;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMultiLanguage*/SelfOuter* self, uint32 uiCodePage, MIMECPINFO* pCodePageInfo) GetCodePageInfo;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMultiLanguage*/SelfOuter* self, uint32 uiCodePage, uint32* puiFamilyCodePage) GetFamilyCodePage;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMultiLanguage*/SelfOuter* self, uint32 grfFlags, IEnumCodePage** ppEnumCodePage) EnumCodePages;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMultiLanguage*/SelfOuter* self, BSTR Charset, MIMECSETINFO* pCharsetInfo) GetCharsetInfo;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMultiLanguage*/SelfOuter* self, uint32 dwSrcEncoding, uint32 dwDstEncoding) IsConvertible;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMultiLanguage*/SelfOuter* self, uint32* pdwMode, uint32 dwSrcEncoding, uint32 dwDstEncoding, uint8* pSrcStr, uint32* pcSrcSize, uint8* pDstStr, uint32* pcDstSize) ConvertString;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMultiLanguage*/SelfOuter* self, uint32* pdwMode, uint32 dwEncoding, PSTR pSrcStr, uint32* pcSrcSize, char16* pDstStr, uint32* pcDstSize) ConvertStringToUnicode;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMultiLanguage*/SelfOuter* self, uint32* pdwMode, uint32 dwEncoding, char16* pSrcStr, uint32* pcSrcSize, PSTR pDstStr, uint32* pcDstSize) ConvertStringFromUnicode;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMultiLanguage*/SelfOuter* self) ConvertStringReset;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMultiLanguage*/SelfOuter* self, uint32 Locale, BSTR* pbstrRfc1766) GetRfc1766FromLcid;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMultiLanguage*/SelfOuter* self, uint32* pLocale, BSTR bstrRfc1766) GetLcidFromRfc1766;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMultiLanguage*/SelfOuter* self, IEnumRfc1766** ppEnumRfc1766) EnumRfc1766;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMultiLanguage*/SelfOuter* self, uint32 Locale, RFC1766INFO* pRfc1766Info) GetRfc1766Info;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMultiLanguage*/SelfOuter* self, uint32 uiSrcCodePage, uint32 uiDstCodePage, uint32 dwProperty, IMLangConvertCharset** ppMLangConvertCharset) CreateConvertCharset;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pcCodePage) GetNumberOfCodePageInfo;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 uiCodePage, MIMECPINFO* pCodePageInfo) GetCodePageInfo;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 uiCodePage, uint32* puiFamilyCodePage) GetFamilyCodePage;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 grfFlags, IEnumCodePage** ppEnumCodePage) EnumCodePages;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR Charset, MIMECSETINFO* pCharsetInfo) GetCharsetInfo;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwSrcEncoding, uint32 dwDstEncoding) IsConvertible;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pdwMode, uint32 dwSrcEncoding, uint32 dwDstEncoding, uint8* pSrcStr, uint32* pcSrcSize, uint8* pDstStr, uint32* pcDstSize) ConvertString;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pdwMode, uint32 dwEncoding, PSTR pSrcStr, uint32* pcSrcSize, char16* pDstStr, uint32* pcDstSize) ConvertStringToUnicode;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pdwMode, uint32 dwEncoding, char16* pSrcStr, uint32* pcSrcSize, PSTR pDstStr, uint32* pcDstSize) ConvertStringFromUnicode;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) ConvertStringReset;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 Locale, BSTR* pbstrRfc1766) GetRfc1766FromLcid;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pLocale, BSTR bstrRfc1766) GetLcidFromRfc1766;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IEnumRfc1766** ppEnumRfc1766) EnumRfc1766;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 Locale, RFC1766INFO* pRfc1766Info) GetRfc1766Info;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 uiSrcCodePage, uint32 uiDstCodePage, uint32 dwProperty, IMLangConvertCharset** ppMLangConvertCharset) CreateConvertCharset;
 	}
 
 
@@ -6264,33 +6264,33 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMultiLanguage2*/SelfOuter* self, uint32* pcCodePage) GetNumberOfCodePageInfo;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMultiLanguage2*/SelfOuter* self, uint32 uiCodePage, uint16 LangId, MIMECPINFO* pCodePageInfo) GetCodePageInfo;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMultiLanguage2*/SelfOuter* self, uint32 uiCodePage, uint32* puiFamilyCodePage) GetFamilyCodePage;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMultiLanguage2*/SelfOuter* self, uint32 grfFlags, uint16 LangId, IEnumCodePage** ppEnumCodePage) EnumCodePages;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMultiLanguage2*/SelfOuter* self, BSTR Charset, MIMECSETINFO* pCharsetInfo) GetCharsetInfo;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMultiLanguage2*/SelfOuter* self, uint32 dwSrcEncoding, uint32 dwDstEncoding) IsConvertible;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMultiLanguage2*/SelfOuter* self, uint32* pdwMode, uint32 dwSrcEncoding, uint32 dwDstEncoding, uint8* pSrcStr, uint32* pcSrcSize, uint8* pDstStr, uint32* pcDstSize) ConvertString;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMultiLanguage2*/SelfOuter* self, uint32* pdwMode, uint32 dwEncoding, PSTR pSrcStr, uint32* pcSrcSize, char16* pDstStr, uint32* pcDstSize) ConvertStringToUnicode;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMultiLanguage2*/SelfOuter* self, uint32* pdwMode, uint32 dwEncoding, char16* pSrcStr, uint32* pcSrcSize, PSTR pDstStr, uint32* pcDstSize) ConvertStringFromUnicode;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMultiLanguage2*/SelfOuter* self) ConvertStringReset;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMultiLanguage2*/SelfOuter* self, uint32 Locale, BSTR* pbstrRfc1766) GetRfc1766FromLcid;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMultiLanguage2*/SelfOuter* self, uint32* pLocale, BSTR bstrRfc1766) GetLcidFromRfc1766;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMultiLanguage2*/SelfOuter* self, uint16 LangId, IEnumRfc1766** ppEnumRfc1766) EnumRfc1766;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMultiLanguage2*/SelfOuter* self, uint32 Locale, uint16 LangId, RFC1766INFO* pRfc1766Info) GetRfc1766Info;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMultiLanguage2*/SelfOuter* self, uint32 uiSrcCodePage, uint32 uiDstCodePage, uint32 dwProperty, IMLangConvertCharset** ppMLangConvertCharset) CreateConvertCharset;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMultiLanguage2*/SelfOuter* self, uint32* pdwMode, uint32 dwFlag, PWSTR lpFallBack, uint32 dwSrcEncoding, uint32 dwDstEncoding, IStream* pstmIn, IStream* pstmOut) ConvertStringInIStream;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMultiLanguage2*/SelfOuter* self, uint32* pdwMode, uint32 dwEncoding, PSTR pSrcStr, uint32* pcSrcSize, char16* pDstStr, uint32* pcDstSize, uint32 dwFlag, PWSTR lpFallBack) ConvertStringToUnicodeEx;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMultiLanguage2*/SelfOuter* self, uint32* pdwMode, uint32 dwEncoding, char16* pSrcStr, uint32* pcSrcSize, PSTR pDstStr, uint32* pcDstSize, uint32 dwFlag, PWSTR lpFallBack) ConvertStringFromUnicodeEx;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMultiLanguage2*/SelfOuter* self, uint32 dwFlag, uint32 dwPrefWinCodePage, IStream* pstmIn, DetectEncodingInfo* lpEncoding, int32* pnScores) DetectCodepageInIStream;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMultiLanguage2*/SelfOuter* self, uint32 dwFlag, uint32 dwPrefWinCodePage, PSTR pSrcStr, int32* pcSrcSize, DetectEncodingInfo* lpEncoding, int32* pnScores) DetectInputCodepage;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMultiLanguage2*/SelfOuter* self, uint32 uiCodePage, HWND hwnd) ValidateCodePage;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMultiLanguage2*/SelfOuter* self, uint32 uiCodePage, uint32 lcid, char16* lpWideCharStr, int32 cchWideChar) GetCodePageDescription;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMultiLanguage2*/SelfOuter* self, uint32 uiCodePage) IsCodePageInstallable;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMultiLanguage2*/SelfOuter* self, MIMECONTF dwSource) SetMimeDBSource;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMultiLanguage2*/SelfOuter* self, uint32* pnScripts) GetNumberOfScripts;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMultiLanguage2*/SelfOuter* self, uint32 dwFlags, uint16 LangId, IEnumScript** ppEnumScript) EnumScripts;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMultiLanguage2*/SelfOuter* self, uint32 uiCodePage, HWND hwnd, uint32 dwfIODControl) ValidateCodePageEx;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pcCodePage) GetNumberOfCodePageInfo;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 uiCodePage, uint16 LangId, MIMECPINFO* pCodePageInfo) GetCodePageInfo;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 uiCodePage, uint32* puiFamilyCodePage) GetFamilyCodePage;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 grfFlags, uint16 LangId, IEnumCodePage** ppEnumCodePage) EnumCodePages;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR Charset, MIMECSETINFO* pCharsetInfo) GetCharsetInfo;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwSrcEncoding, uint32 dwDstEncoding) IsConvertible;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pdwMode, uint32 dwSrcEncoding, uint32 dwDstEncoding, uint8* pSrcStr, uint32* pcSrcSize, uint8* pDstStr, uint32* pcDstSize) ConvertString;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pdwMode, uint32 dwEncoding, PSTR pSrcStr, uint32* pcSrcSize, char16* pDstStr, uint32* pcDstSize) ConvertStringToUnicode;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pdwMode, uint32 dwEncoding, char16* pSrcStr, uint32* pcSrcSize, PSTR pDstStr, uint32* pcDstSize) ConvertStringFromUnicode;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) ConvertStringReset;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 Locale, BSTR* pbstrRfc1766) GetRfc1766FromLcid;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pLocale, BSTR bstrRfc1766) GetLcidFromRfc1766;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint16 LangId, IEnumRfc1766** ppEnumRfc1766) EnumRfc1766;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 Locale, uint16 LangId, RFC1766INFO* pRfc1766Info) GetRfc1766Info;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 uiSrcCodePage, uint32 uiDstCodePage, uint32 dwProperty, IMLangConvertCharset** ppMLangConvertCharset) CreateConvertCharset;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pdwMode, uint32 dwFlag, PWSTR lpFallBack, uint32 dwSrcEncoding, uint32 dwDstEncoding, IStream* pstmIn, IStream* pstmOut) ConvertStringInIStream;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pdwMode, uint32 dwEncoding, PSTR pSrcStr, uint32* pcSrcSize, char16* pDstStr, uint32* pcDstSize, uint32 dwFlag, PWSTR lpFallBack) ConvertStringToUnicodeEx;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pdwMode, uint32 dwEncoding, char16* pSrcStr, uint32* pcSrcSize, PSTR pDstStr, uint32* pcDstSize, uint32 dwFlag, PWSTR lpFallBack) ConvertStringFromUnicodeEx;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwFlag, uint32 dwPrefWinCodePage, IStream* pstmIn, DetectEncodingInfo* lpEncoding, int32* pnScores) DetectCodepageInIStream;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwFlag, uint32 dwPrefWinCodePage, PSTR pSrcStr, int32* pcSrcSize, DetectEncodingInfo* lpEncoding, int32* pnScores) DetectInputCodepage;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 uiCodePage, HWND hwnd) ValidateCodePage;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 uiCodePage, uint32 lcid, char16* lpWideCharStr, int32 cchWideChar) GetCodePageDescription;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 uiCodePage) IsCodePageInstallable;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, MIMECONTF dwSource) SetMimeDBSource;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pnScripts) GetNumberOfScripts;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwFlags, uint16 LangId, IEnumScript** ppEnumScript) EnumScripts;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 uiCodePage, HWND hwnd, uint32 dwfIODControl) ValidateCodePageEx;
 	}
 
 
@@ -6357,10 +6357,10 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMLangCodePages*/SelfOuter* self, char16 chSrc, uint32* pdwCodePages) GetCharCodePages;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMLangCodePages*/SelfOuter* self, char16* pszSrc, int32 cchSrc, uint32 dwPriorityCodePages, uint32* pdwCodePages, int32* pcchCodePages) GetStrCodePages;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMLangCodePages*/SelfOuter* self, uint32 uCodePage, uint32* pdwCodePages) CodePageToCodePages;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMLangCodePages*/SelfOuter* self, uint32 dwCodePages, uint32 uDefaultCodePage, uint32* puCodePage) CodePagesToCodePage;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, char16 chSrc, uint32* pdwCodePages) GetCharCodePages;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, char16* pszSrc, int32 cchSrc, uint32 dwPriorityCodePages, uint32* pdwCodePages, int32* pcchCodePages) GetStrCodePages;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 uCodePage, uint32* pdwCodePages) CodePageToCodePages;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwCodePages, uint32 uDefaultCodePage, uint32* puCodePage) CodePagesToCodePage;
 	}
 
 
@@ -6381,10 +6381,10 @@ public static
 
 	[CRepr]public struct VTable : IMLangCodePages.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMLangFontLink*/SelfOuter* self, HDC hDC, HFONT hFont, uint32* pdwCodePages) GetFontCodePages;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMLangFontLink*/SelfOuter* self, HDC hDC, uint32 dwCodePages, HFONT hSrcFont, HFONT* phDestFont) MapFont;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMLangFontLink*/SelfOuter* self, HFONT hFont) ReleaseFont;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMLangFontLink*/SelfOuter* self) ResetFontMapping;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HDC hDC, HFONT hFont, uint32* pdwCodePages) GetFontCodePages;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HDC hDC, uint32 dwCodePages, HFONT hSrcFont, HFONT* phDestFont) MapFont;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HFONT hFont) ReleaseFont;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) ResetFontMapping;
 	}
 
 
@@ -6405,13 +6405,13 @@ public static
 
 	[CRepr]public struct VTable : IMLangCodePages.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMLangFontLink2*/SelfOuter* self, HDC hDC, HFONT hFont, uint32* pdwCodePages) GetFontCodePages;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMLangFontLink2*/SelfOuter* self, HFONT hFont) ReleaseFont;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMLangFontLink2*/SelfOuter* self) ResetFontMapping;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMLangFontLink2*/SelfOuter* self, HDC hDC, uint32 dwCodePages, char16 chSrc, HFONT* pFont) MapFont;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMLangFontLink2*/SelfOuter* self, HDC hDC, uint32* puiRanges, UNICODERANGE* pUranges) GetFontUnicodeRanges;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMLangFontLink2*/SelfOuter* self, uint8 sid, uint32 dwFlags, uint32* puiFonts, tagSCRIPFONTINFO* pScriptFont) GetScriptFontInfo;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMLangFontLink2*/SelfOuter* self, uint32 uiCodePage, uint8* pSid) CodePageToScriptID;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HDC hDC, HFONT hFont, uint32* pdwCodePages) GetFontCodePages;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HFONT hFont) ReleaseFont;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) ResetFontMapping;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HDC hDC, uint32 dwCodePages, char16 chSrc, HFONT* pFont) MapFont;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HDC hDC, uint32* puiRanges, UNICODERANGE* pUranges) GetFontUnicodeRanges;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint8 sid, uint32 dwFlags, uint32* puiFonts, tagSCRIPFONTINFO* pScriptFont) GetScriptFontInfo;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 uiCodePage, uint8* pSid) CodePageToScriptID;
 	}
 
 
@@ -6438,8 +6438,8 @@ public static
 
 	[CRepr]public struct VTable : IMultiLanguage2.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMultiLanguage3*/SelfOuter* self, uint32 dwFlags, char16* lpWideCharStr, uint32 cchWideChar, uint32* puiPreferredCodePages, uint32 nPreferredCodePages, uint32* puiDetectedCodePages, uint32* pnDetectedCodePages, PWSTR lpSpecialChar) DetectOutboundCodePage;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMultiLanguage3*/SelfOuter* self, uint32 dwFlags, IStream* pStrIn, uint32* puiPreferredCodePages, uint32 nPreferredCodePages, uint32* puiDetectedCodePages, uint32* pnDetectedCodePages, PWSTR lpSpecialChar) DetectOutboundCodePageInIStream;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwFlags, char16* lpWideCharStr, uint32 cchWideChar, uint32* puiPreferredCodePages, uint32 nPreferredCodePages, uint32* puiDetectedCodePages, uint32* pnDetectedCodePages, PWSTR lpSpecialChar) DetectOutboundCodePage;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwFlags, IStream* pStrIn, uint32* puiPreferredCodePages, uint32 nPreferredCodePages, uint32* puiDetectedCodePages, uint32* pnDetectedCodePages, PWSTR lpSpecialChar) DetectOutboundCodePageInIStream;
 	}
 
 

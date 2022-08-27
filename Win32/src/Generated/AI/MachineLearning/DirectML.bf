@@ -2041,10 +2041,10 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDMLObject*/SelfOuter* self, ref Guid guid, uint32* dataSize, void* data) GetPrivateData;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDMLObject*/SelfOuter* self, ref Guid guid, uint32 dataSize, void* data) SetPrivateData;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDMLObject*/SelfOuter* self, ref Guid guid, IUnknown* data) SetPrivateDataInterface;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDMLObject*/SelfOuter* self, PWSTR name) SetName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid guid, uint32* dataSize, void* data) GetPrivateData;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid guid, uint32 dataSize, void* data) SetPrivateData;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid guid, IUnknown* data) SetPrivateDataInterface;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR name) SetName;
 	}
 
 
@@ -2065,16 +2065,16 @@ public static
 
 	[CRepr]public struct VTable : IDMLObject.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDMLDevice*/SelfOuter* self, DML_FEATURE feature, uint32 featureQueryDataSize, void* featureQueryData, uint32 featureSupportDataSize, void* featureSupportData) CheckFeatureSupport;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDMLDevice*/SelfOuter* self, DML_OPERATOR_DESC* desc, ref Guid riid, void** ppv) CreateOperator;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDMLDevice*/SelfOuter* self, IDMLOperator* op, DML_EXECUTION_FLAGS flags, ref Guid riid, void** ppv) CompileOperator;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDMLDevice*/SelfOuter* self, uint32 operatorCount, IDMLCompiledOperator** operators, ref Guid riid, void** ppv) CreateOperatorInitializer;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDMLDevice*/SelfOuter* self, ref Guid riid, void** ppv) CreateCommandRecorder;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDMLDevice*/SelfOuter* self, DML_BINDING_TABLE_DESC* desc, ref Guid riid, void** ppv) CreateBindingTable;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDMLDevice*/SelfOuter* self, uint32 count, IDMLPageable** ppObjects) Evict;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDMLDevice*/SelfOuter* self, uint32 count, IDMLPageable** ppObjects) MakeResident;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDMLDevice*/SelfOuter* self) GetDeviceRemovedReason;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDMLDevice*/SelfOuter* self, ref Guid riid, void** ppv) GetParentDevice;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, DML_FEATURE feature, uint32 featureQueryDataSize, void* featureQueryData, uint32 featureSupportDataSize, void* featureSupportData) CheckFeatureSupport;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, DML_OPERATOR_DESC* desc, ref Guid riid, void** ppv) CreateOperator;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IDMLOperator* op, DML_EXECUTION_FLAGS flags, ref Guid riid, void** ppv) CompileOperator;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 operatorCount, IDMLCompiledOperator** operators, ref Guid riid, void** ppv) CreateOperatorInitializer;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid riid, void** ppv) CreateCommandRecorder;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, DML_BINDING_TABLE_DESC* desc, ref Guid riid, void** ppv) CreateBindingTable;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 count, IDMLPageable** ppObjects) Evict;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 count, IDMLPageable** ppObjects) MakeResident;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) GetDeviceRemovedReason;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid riid, void** ppv) GetParentDevice;
 	}
 
 
@@ -2107,7 +2107,7 @@ public static
 
 	[CRepr]public struct VTable : IDMLObject.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDMLDeviceChild*/SelfOuter* self, ref Guid riid, void** ppv) GetDevice;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid riid, void** ppv) GetDevice;
 	}
 
 
@@ -2146,7 +2146,7 @@ public static
 
 	[CRepr]public struct VTable : IDMLPageable.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] DML_BINDING_PROPERTIES(/*IDMLDispatchable*/SelfOuter* self) GetBindingProperties;
+		protected new function [CallingConvention(.Stdcall)] DML_BINDING_PROPERTIES(SelfOuter* self) GetBindingProperties;
 	}
 
 
@@ -2173,7 +2173,7 @@ public static
 
 	[CRepr]public struct VTable : IDMLDispatchable.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDMLOperatorInitializer*/SelfOuter* self, uint32 operatorCount, IDMLCompiledOperator** operators) Reset;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 operatorCount, IDMLCompiledOperator** operators) Reset;
 	}
 
 
@@ -2188,11 +2188,11 @@ public static
 
 	[CRepr]public struct VTable : IDMLDeviceChild.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] void(/*IDMLBindingTable*/SelfOuter* self, uint32 bindingCount, DML_BINDING_DESC* bindings) BindInputs;
-		protected new function [CallingConvention(.Stdcall)] void(/*IDMLBindingTable*/SelfOuter* self, uint32 bindingCount, DML_BINDING_DESC* bindings) BindOutputs;
-		protected new function [CallingConvention(.Stdcall)] void(/*IDMLBindingTable*/SelfOuter* self, DML_BINDING_DESC* binding) BindTemporaryResource;
-		protected new function [CallingConvention(.Stdcall)] void(/*IDMLBindingTable*/SelfOuter* self, DML_BINDING_DESC* binding) BindPersistentResource;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDMLBindingTable*/SelfOuter* self, DML_BINDING_TABLE_DESC* desc) Reset;
+		protected new function [CallingConvention(.Stdcall)] void(SelfOuter* self, uint32 bindingCount, DML_BINDING_DESC* bindings) BindInputs;
+		protected new function [CallingConvention(.Stdcall)] void(SelfOuter* self, uint32 bindingCount, DML_BINDING_DESC* bindings) BindOutputs;
+		protected new function [CallingConvention(.Stdcall)] void(SelfOuter* self, DML_BINDING_DESC* binding) BindTemporaryResource;
+		protected new function [CallingConvention(.Stdcall)] void(SelfOuter* self, DML_BINDING_DESC* binding) BindPersistentResource;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, DML_BINDING_TABLE_DESC* desc) Reset;
 	}
 
 
@@ -2215,7 +2215,7 @@ public static
 
 	[CRepr]public struct VTable : IDMLDeviceChild.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] void(/*IDMLCommandRecorder*/SelfOuter* self, ID3D12CommandList* commandList, IDMLDispatchable* dispatchable, IDMLBindingTable* bindings) RecordDispatch;
+		protected new function [CallingConvention(.Stdcall)] void(SelfOuter* self, ID3D12CommandList* commandList, IDMLDispatchable* dispatchable, IDMLBindingTable* bindings) RecordDispatch;
 	}
 
 
@@ -2230,7 +2230,7 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] void(/*IDMLDebugDevice*/SelfOuter* self, BOOL mute) SetMuteDebugOutput;
+		protected new function [CallingConvention(.Stdcall)] void(SelfOuter* self, BOOL mute) SetMuteDebugOutput;
 	}
 
 
@@ -2245,7 +2245,7 @@ public static
 
 	[CRepr]public struct VTable : IDMLDevice.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDMLDevice1*/SelfOuter* self, DML_GRAPH_DESC* desc, DML_EXECUTION_FLAGS flags, ref Guid riid, void** ppv) CompileGraph;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, DML_GRAPH_DESC* desc, DML_EXECUTION_FLAGS flags, ref Guid riid, void** ppv) CompileGraph;
 	}
 
 

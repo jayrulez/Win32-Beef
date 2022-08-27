@@ -478,31 +478,31 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOfflineFilesEvents*/SelfOuter* self, PWSTR pszOldPath, PWSTR pszNewPath) CacheMoved;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOfflineFilesEvents*/SelfOuter* self) CacheIsFull;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOfflineFilesEvents*/SelfOuter* self) CacheIsCorrupted;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOfflineFilesEvents*/SelfOuter* self, BOOL bEnabled) Enabled;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOfflineFilesEvents*/SelfOuter* self, BOOL bWasEncrypted, BOOL bWasPartial, BOOL bIsEncrypted, BOOL bIsPartial) EncryptionChanged;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOfflineFilesEvents*/SelfOuter* self, ref Guid rSyncId) SyncBegin;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOfflineFilesEvents*/SelfOuter* self, ref Guid rSyncId, PWSTR pszFile, HRESULT hrResult) SyncFileResult;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOfflineFilesEvents*/SelfOuter* self, PWSTR pszConflictPath, FILETIME* pftConflictDateTime, OFFLINEFILES_SYNC_STATE ConflictSyncState) SyncConflictRecAdded;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOfflineFilesEvents*/SelfOuter* self, PWSTR pszConflictPath, FILETIME* pftConflictDateTime, OFFLINEFILES_SYNC_STATE ConflictSyncState) SyncConflictRecUpdated;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOfflineFilesEvents*/SelfOuter* self, PWSTR pszConflictPath, FILETIME* pftConflictDateTime, OFFLINEFILES_SYNC_STATE ConflictSyncState) SyncConflictRecRemoved;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOfflineFilesEvents*/SelfOuter* self, ref Guid rSyncId, HRESULT hrResult) SyncEnd;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOfflineFilesEvents*/SelfOuter* self) NetTransportArrived;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOfflineFilesEvents*/SelfOuter* self) NoNetTransports;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOfflineFilesEvents*/SelfOuter* self, PWSTR pszPath, OFFLINEFILES_ITEM_TYPE ItemType) ItemDisconnected;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOfflineFilesEvents*/SelfOuter* self, PWSTR pszPath, OFFLINEFILES_ITEM_TYPE ItemType) ItemReconnected;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOfflineFilesEvents*/SelfOuter* self, PWSTR pszPath, OFFLINEFILES_ITEM_TYPE ItemType) ItemAvailableOffline;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOfflineFilesEvents*/SelfOuter* self, PWSTR pszPath, OFFLINEFILES_ITEM_TYPE ItemType) ItemNotAvailableOffline;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOfflineFilesEvents*/SelfOuter* self, PWSTR pszPath, OFFLINEFILES_ITEM_TYPE ItemType) ItemPinned;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOfflineFilesEvents*/SelfOuter* self, PWSTR pszPath, OFFLINEFILES_ITEM_TYPE ItemType) ItemNotPinned;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOfflineFilesEvents*/SelfOuter* self, PWSTR pszPath, OFFLINEFILES_ITEM_TYPE ItemType, BOOL bModifiedData, BOOL bModifiedAttributes) ItemModified;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOfflineFilesEvents*/SelfOuter* self, PWSTR pszPath, OFFLINEFILES_ITEM_TYPE ItemType) ItemAddedToCache;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOfflineFilesEvents*/SelfOuter* self, PWSTR pszPath, OFFLINEFILES_ITEM_TYPE ItemType) ItemDeletedFromCache;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOfflineFilesEvents*/SelfOuter* self, PWSTR pszOldPath, PWSTR pszNewPath, OFFLINEFILES_ITEM_TYPE ItemType) ItemRenamed;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOfflineFilesEvents*/SelfOuter* self) DataLost;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOfflineFilesEvents*/SelfOuter* self) Ping;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR pszOldPath, PWSTR pszNewPath) CacheMoved;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) CacheIsFull;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) CacheIsCorrupted;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BOOL bEnabled) Enabled;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BOOL bWasEncrypted, BOOL bWasPartial, BOOL bIsEncrypted, BOOL bIsPartial) EncryptionChanged;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid rSyncId) SyncBegin;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid rSyncId, PWSTR pszFile, HRESULT hrResult) SyncFileResult;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR pszConflictPath, FILETIME* pftConflictDateTime, OFFLINEFILES_SYNC_STATE ConflictSyncState) SyncConflictRecAdded;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR pszConflictPath, FILETIME* pftConflictDateTime, OFFLINEFILES_SYNC_STATE ConflictSyncState) SyncConflictRecUpdated;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR pszConflictPath, FILETIME* pftConflictDateTime, OFFLINEFILES_SYNC_STATE ConflictSyncState) SyncConflictRecRemoved;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid rSyncId, HRESULT hrResult) SyncEnd;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) NetTransportArrived;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) NoNetTransports;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR pszPath, OFFLINEFILES_ITEM_TYPE ItemType) ItemDisconnected;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR pszPath, OFFLINEFILES_ITEM_TYPE ItemType) ItemReconnected;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR pszPath, OFFLINEFILES_ITEM_TYPE ItemType) ItemAvailableOffline;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR pszPath, OFFLINEFILES_ITEM_TYPE ItemType) ItemNotAvailableOffline;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR pszPath, OFFLINEFILES_ITEM_TYPE ItemType) ItemPinned;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR pszPath, OFFLINEFILES_ITEM_TYPE ItemType) ItemNotPinned;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR pszPath, OFFLINEFILES_ITEM_TYPE ItemType, BOOL bModifiedData, BOOL bModifiedAttributes) ItemModified;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR pszPath, OFFLINEFILES_ITEM_TYPE ItemType) ItemAddedToCache;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR pszPath, OFFLINEFILES_ITEM_TYPE ItemType) ItemDeletedFromCache;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR pszOldPath, PWSTR pszNewPath, OFFLINEFILES_ITEM_TYPE ItemType) ItemRenamed;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) DataLost;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Ping;
 	}
 
 
@@ -565,15 +565,15 @@ public static
 
 	[CRepr]public struct VTable : IOfflineFilesEvents.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOfflineFilesEvents2*/SelfOuter* self) ItemReconnectBegin;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOfflineFilesEvents2*/SelfOuter* self) ItemReconnectEnd;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOfflineFilesEvents2*/SelfOuter* self) CacheEvictBegin;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOfflineFilesEvents2*/SelfOuter* self) CacheEvictEnd;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOfflineFilesEvents2*/SelfOuter* self, uint32 dwSyncControlFlags) BackgroundSyncBegin;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOfflineFilesEvents2*/SelfOuter* self, uint32 dwSyncControlFlags) BackgroundSyncEnd;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOfflineFilesEvents2*/SelfOuter* self) PolicyChangeDetected;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOfflineFilesEvents2*/SelfOuter* self) PreferenceChangeDetected;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOfflineFilesEvents2*/SelfOuter* self) SettingsChangesApplied;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) ItemReconnectBegin;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) ItemReconnectEnd;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) CacheEvictBegin;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) CacheEvictEnd;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwSyncControlFlags) BackgroundSyncBegin;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwSyncControlFlags) BackgroundSyncEnd;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) PolicyChangeDetected;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) PreferenceChangeDetected;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) SettingsChangesApplied;
 	}
 
 
@@ -604,9 +604,9 @@ public static
 
 	[CRepr]public struct VTable : IOfflineFilesEvents2.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOfflineFilesEvents3*/SelfOuter* self, PWSTR pszPath, OFFLINEFILES_EVENTS EventType, OFFLINEFILES_ITEM_TYPE ItemType, BOOL bModifiedData, BOOL bModifiedAttributes, PWSTR pzsOldPath) TransparentCacheItemNotify;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOfflineFilesEvents3*/SelfOuter* self, PWSTR pszPath) PrefetchFileBegin;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOfflineFilesEvents3*/SelfOuter* self, PWSTR pszPath, HRESULT hrResult) PrefetchFileEnd;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR pszPath, OFFLINEFILES_EVENTS EventType, OFFLINEFILES_ITEM_TYPE ItemType, BOOL bModifiedData, BOOL bModifiedAttributes, PWSTR pzsOldPath) TransparentCacheItemNotify;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR pszPath) PrefetchFileBegin;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR pszPath, HRESULT hrResult) PrefetchFileEnd;
 	}
 
 
@@ -625,8 +625,8 @@ public static
 
 	[CRepr]public struct VTable : IOfflineFilesEvents3.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOfflineFilesEvents4*/SelfOuter* self) PrefetchCloseHandleBegin;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOfflineFilesEvents4*/SelfOuter* self, uint32 dwClosedHandleCount, uint32 dwOpenHandleCount, HRESULT hrResult) PrefetchCloseHandleEnd;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) PrefetchCloseHandleBegin;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwClosedHandleCount, uint32 dwOpenHandleCount, HRESULT hrResult) PrefetchCloseHandleEnd;
 	}
 
 
@@ -643,9 +643,9 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOfflineFilesEventsFilter*/SelfOuter* self, PWSTR* ppszFilter, OFFLINEFILES_PATHFILTER_MATCH* pMatch) GetPathFilter;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOfflineFilesEventsFilter*/SelfOuter* self, uint32 cElements, OFFLINEFILES_EVENTS* prgEvents, uint32* pcEvents) GetIncludedEvents;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOfflineFilesEventsFilter*/SelfOuter* self, uint32 cElements, OFFLINEFILES_EVENTS* prgEvents, uint32* pcEvents) GetExcludedEvents;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR* ppszFilter, OFFLINEFILES_PATHFILTER_MATCH* pMatch) GetPathFilter;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 cElements, OFFLINEFILES_EVENTS* prgEvents, uint32* pcEvents) GetIncludedEvents;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 cElements, OFFLINEFILES_EVENTS* prgEvents, uint32* pcEvents) GetExcludedEvents;
 	}
 
 
@@ -664,8 +664,8 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOfflineFilesErrorInfo*/SelfOuter* self, BYTE_BLOB** ppBlob) GetRawData;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOfflineFilesErrorInfo*/SelfOuter* self, PWSTR* ppszDescription) GetDescription;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BYTE_BLOB** ppBlob) GetRawData;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR* ppszDescription) GetDescription;
 	}
 
 
@@ -682,9 +682,9 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOfflineFilesSyncErrorItemInfo*/SelfOuter* self, uint32* pdwAttributes) GetFileAttributes;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOfflineFilesSyncErrorItemInfo*/SelfOuter* self, FILETIME* pftLastWrite, FILETIME* pftChange) GetFileTimes;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOfflineFilesSyncErrorItemInfo*/SelfOuter* self, LARGE_INTEGER* pSize) GetFileSize;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pdwAttributes) GetFileAttributes;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, FILETIME* pftLastWrite, FILETIME* pftChange) GetFileTimes;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, LARGE_INTEGER* pSize) GetFileSize;
 	}
 
 
@@ -703,13 +703,13 @@ public static
 
 	[CRepr]public struct VTable : IOfflineFilesErrorInfo.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOfflineFilesSyncErrorInfo*/SelfOuter* self, OFFLINEFILES_SYNC_OPERATION* pSyncOp) GetSyncOperation;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOfflineFilesSyncErrorInfo*/SelfOuter* self, uint32* pdwItemChangeFlags) GetItemChangeFlags;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOfflineFilesSyncErrorInfo*/SelfOuter* self, BOOL* pbLocalEnumerated, BOOL* pbRemoteEnumerated, BOOL* pbOriginalEnumerated) InfoEnumerated;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOfflineFilesSyncErrorInfo*/SelfOuter* self, BOOL* pbLocalInfo, BOOL* pbRemoteInfo, BOOL* pbOriginalInfo) InfoAvailable;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOfflineFilesSyncErrorInfo*/SelfOuter* self, IOfflineFilesSyncErrorItemInfo** ppInfo) GetLocalInfo;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOfflineFilesSyncErrorInfo*/SelfOuter* self, IOfflineFilesSyncErrorItemInfo** ppInfo) GetRemoteInfo;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOfflineFilesSyncErrorInfo*/SelfOuter* self, IOfflineFilesSyncErrorItemInfo** ppInfo) GetOriginalInfo;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, OFFLINEFILES_SYNC_OPERATION* pSyncOp) GetSyncOperation;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pdwItemChangeFlags) GetItemChangeFlags;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BOOL* pbLocalEnumerated, BOOL* pbRemoteEnumerated, BOOL* pbOriginalEnumerated) InfoEnumerated;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BOOL* pbLocalInfo, BOOL* pbRemoteInfo, BOOL* pbOriginalInfo) InfoAvailable;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IOfflineFilesSyncErrorItemInfo** ppInfo) GetLocalInfo;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IOfflineFilesSyncErrorItemInfo** ppInfo) GetRemoteInfo;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IOfflineFilesSyncErrorItemInfo** ppInfo) GetOriginalInfo;
 	}
 
 
@@ -736,9 +736,9 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOfflineFilesProgress*/SelfOuter* self, BOOL* pbAbort) Begin;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOfflineFilesProgress*/SelfOuter* self, BOOL* pbAbort) QueryAbort;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOfflineFilesProgress*/SelfOuter* self, HRESULT hrResult) End;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BOOL* pbAbort) Begin;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BOOL* pbAbort) QueryAbort;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HRESULT hrResult) End;
 	}
 
 
@@ -757,8 +757,8 @@ public static
 
 	[CRepr]public struct VTable : IOfflineFilesProgress.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOfflineFilesSimpleProgress*/SelfOuter* self, PWSTR pszFile, OFFLINEFILES_OP_RESPONSE* pResponse) ItemBegin;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOfflineFilesSimpleProgress*/SelfOuter* self, PWSTR pszFile, HRESULT hrResult, OFFLINEFILES_OP_RESPONSE* pResponse) ItemResult;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR pszFile, OFFLINEFILES_OP_RESPONSE* pResponse) ItemBegin;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR pszFile, HRESULT hrResult, OFFLINEFILES_OP_RESPONSE* pResponse) ItemResult;
 	}
 
 
@@ -775,8 +775,8 @@ public static
 
 	[CRepr]public struct VTable : IOfflineFilesProgress.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOfflineFilesSyncProgress*/SelfOuter* self, PWSTR pszFile, OFFLINEFILES_OP_RESPONSE* pResponse) SyncItemBegin;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOfflineFilesSyncProgress*/SelfOuter* self, PWSTR pszFile, HRESULT hrResult, IOfflineFilesSyncErrorInfo* pErrorInfo, OFFLINEFILES_OP_RESPONSE* pResponse) SyncItemResult;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR pszFile, OFFLINEFILES_OP_RESPONSE* pResponse) SyncItemBegin;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR pszFile, HRESULT hrResult, IOfflineFilesSyncErrorInfo* pErrorInfo, OFFLINEFILES_OP_RESPONSE* pResponse) SyncItemResult;
 	}
 
 
@@ -793,7 +793,7 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOfflineFilesSyncConflictHandler*/SelfOuter* self, PWSTR pszPath, uint32 fStateKnown, OFFLINEFILES_SYNC_STATE state, uint32 fChangeDetails, OFFLINEFILES_SYNC_CONFLICT_RESOLVE* pConflictResolution, PWSTR* ppszNewName) ResolveConflict;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR pszPath, uint32 fStateKnown, OFFLINEFILES_SYNC_STATE state, uint32 fChangeDetails, OFFLINEFILES_SYNC_CONFLICT_RESOLVE* pConflictResolution, PWSTR* ppszNewName) ResolveConflict;
 	}
 
 
@@ -808,9 +808,9 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOfflineFilesItemFilter*/SelfOuter* self, uint64* pullFlags, uint64* pullMask) GetFilterFlags;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOfflineFilesItemFilter*/SelfOuter* self, FILETIME* pftTime, BOOL* pbEvalTimeOfDay, OFFLINEFILES_ITEM_TIME* pTimeType, OFFLINEFILES_COMPARE* pCompare) GetTimeFilter;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOfflineFilesItemFilter*/SelfOuter* self, char16* pszPattern, uint32 cchPattern) GetPatternFilter;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint64* pullFlags, uint64* pullMask) GetFilterFlags;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, FILETIME* pftTime, BOOL* pbEvalTimeOfDay, OFFLINEFILES_ITEM_TIME* pTimeType, OFFLINEFILES_COMPARE* pCompare) GetTimeFilter;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, char16* pszPattern, uint32 cchPattern) GetPatternFilter;
 	}
 
 
@@ -829,11 +829,11 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOfflineFilesItem*/SelfOuter* self, OFFLINEFILES_ITEM_TYPE* pItemType) GetItemType;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOfflineFilesItem*/SelfOuter* self, PWSTR* ppszPath) GetPath;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOfflineFilesItem*/SelfOuter* self, IOfflineFilesItem** ppItem) GetParentItem;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOfflineFilesItem*/SelfOuter* self, uint32 dwQueryFlags) Refresh;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOfflineFilesItem*/SelfOuter* self, BOOL* pbMarkedForDeletion) IsMarkedForDeletion;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, OFFLINEFILES_ITEM_TYPE* pItemType) GetItemType;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR* ppszPath) GetPath;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IOfflineFilesItem** ppItem) GetParentItem;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwQueryFlags) Refresh;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BOOL* pbMarkedForDeletion) IsMarkedForDeletion;
 	}
 
 
@@ -892,8 +892,8 @@ public static
 
 	[CRepr]public struct VTable : IOfflineFilesItem.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOfflineFilesFileItem*/SelfOuter* self, BOOL* pbIsSparse) IsSparse;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOfflineFilesFileItem*/SelfOuter* self, BOOL* pbIsEncrypted) IsEncrypted;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BOOL* pbIsSparse) IsSparse;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BOOL* pbIsEncrypted) IsEncrypted;
 	}
 
 
@@ -910,10 +910,10 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnumOfflineFilesItems*/SelfOuter* self, uint32 celt, IOfflineFilesItem** rgelt, uint32* pceltFetched) Next;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnumOfflineFilesItems*/SelfOuter* self, uint32 celt) Skip;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnumOfflineFilesItems*/SelfOuter* self) Reset;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnumOfflineFilesItems*/SelfOuter* self, IEnumOfflineFilesItems** ppenum) Clone;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 celt, IOfflineFilesItem** rgelt, uint32* pceltFetched) Next;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 celt) Skip;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Reset;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IEnumOfflineFilesItems** ppenum) Clone;
 	}
 
 
@@ -934,8 +934,8 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOfflineFilesItemContainer*/SelfOuter* self, uint32 dwQueryFlags, IEnumOfflineFilesItems** ppenum) EnumItems;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOfflineFilesItemContainer*/SelfOuter* self, IOfflineFilesItemFilter* pIncludeFileFilter, IOfflineFilesItemFilter* pIncludeDirFilter, IOfflineFilesItemFilter* pExcludeFileFilter, IOfflineFilesItemFilter* pExcludeDirFilter, uint32 dwEnumFlags, uint32 dwQueryFlags, IEnumOfflineFilesItems** ppenum) EnumItemsEx;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwQueryFlags, IEnumOfflineFilesItems** ppenum) EnumItems;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IOfflineFilesItemFilter* pIncludeFileFilter, IOfflineFilesItemFilter* pIncludeDirFilter, IOfflineFilesItemFilter* pExcludeFileFilter, IOfflineFilesItemFilter* pExcludeDirFilter, uint32 dwEnumFlags, uint32 dwQueryFlags, IEnumOfflineFilesItems** ppenum) EnumItemsEx;
 	}
 
 
@@ -952,12 +952,12 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOfflineFilesChangeInfo*/SelfOuter* self, BOOL* pbDirty) IsDirty;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOfflineFilesChangeInfo*/SelfOuter* self, BOOL* pbDeletedOffline) IsDeletedOffline;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOfflineFilesChangeInfo*/SelfOuter* self, BOOL* pbCreatedOffline) IsCreatedOffline;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOfflineFilesChangeInfo*/SelfOuter* self, BOOL* pbLocallyModifiedData) IsLocallyModifiedData;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOfflineFilesChangeInfo*/SelfOuter* self, BOOL* pbLocallyModifiedAttributes) IsLocallyModifiedAttributes;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOfflineFilesChangeInfo*/SelfOuter* self, BOOL* pbLocallyModifiedTime) IsLocallyModifiedTime;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BOOL* pbDirty) IsDirty;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BOOL* pbDeletedOffline) IsDeletedOffline;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BOOL* pbCreatedOffline) IsCreatedOffline;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BOOL* pbLocallyModifiedData) IsLocallyModifiedData;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BOOL* pbLocallyModifiedAttributes) IsLocallyModifiedAttributes;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BOOL* pbLocallyModifiedTime) IsLocallyModifiedTime;
 	}
 
 
@@ -982,8 +982,8 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOfflineFilesDirtyInfo*/SelfOuter* self, LARGE_INTEGER* pDirtyByteCount) LocalDirtyByteCount;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOfflineFilesDirtyInfo*/SelfOuter* self, LARGE_INTEGER* pDirtyByteCount) RemoteDirtyByteCount;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, LARGE_INTEGER* pDirtyByteCount) LocalDirtyByteCount;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, LARGE_INTEGER* pDirtyByteCount) RemoteDirtyByteCount;
 	}
 
 
@@ -1000,9 +1000,9 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOfflineFilesFileSysInfo*/SelfOuter* self, OFFLINEFILES_ITEM_COPY copy, uint32* pdwAttributes) GetAttributes;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOfflineFilesFileSysInfo*/SelfOuter* self, OFFLINEFILES_ITEM_COPY copy, FILETIME* pftCreationTime, FILETIME* pftLastWriteTime, FILETIME* pftChangeTime, FILETIME* pftLastAccessTime) GetTimes;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOfflineFilesFileSysInfo*/SelfOuter* self, OFFLINEFILES_ITEM_COPY copy, LARGE_INTEGER* pSize) GetFileSize;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, OFFLINEFILES_ITEM_COPY copy, uint32* pdwAttributes) GetAttributes;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, OFFLINEFILES_ITEM_COPY copy, FILETIME* pftCreationTime, FILETIME* pftLastWriteTime, FILETIME* pftChangeTime, FILETIME* pftLastAccessTime) GetTimes;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, OFFLINEFILES_ITEM_COPY copy, LARGE_INTEGER* pSize) GetFileSize;
 	}
 
 
@@ -1021,11 +1021,11 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOfflineFilesPinInfo*/SelfOuter* self, BOOL* pbPinned) IsPinned;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOfflineFilesPinInfo*/SelfOuter* self, BOOL* pbPinnedForUser, BOOL* pbInherit) IsPinnedForUser;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOfflineFilesPinInfo*/SelfOuter* self, BOOL* pbPinnedForUser, BOOL* pbInherit) IsPinnedForUserByPolicy;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOfflineFilesPinInfo*/SelfOuter* self, BOOL* pbPinnedForComputer, BOOL* pbInherit) IsPinnedForComputer;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOfflineFilesPinInfo*/SelfOuter* self, BOOL* pbPinnedForFolderRedirection, BOOL* pbInherit) IsPinnedForFolderRedirection;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BOOL* pbPinned) IsPinned;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BOOL* pbPinnedForUser, BOOL* pbInherit) IsPinnedForUser;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BOOL* pbPinnedForUser, BOOL* pbInherit) IsPinnedForUserByPolicy;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BOOL* pbPinnedForComputer, BOOL* pbInherit) IsPinnedForComputer;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BOOL* pbPinnedForFolderRedirection, BOOL* pbInherit) IsPinnedForFolderRedirection;
 	}
 
 
@@ -1048,7 +1048,7 @@ public static
 
 	[CRepr]public struct VTable : IOfflineFilesPinInfo.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOfflineFilesPinInfo2*/SelfOuter* self, BOOL* pbPartlyPinned) IsPartlyPinned;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BOOL* pbPartlyPinned) IsPartlyPinned;
 	}
 
 
@@ -1063,7 +1063,7 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOfflineFilesTransparentCacheInfo*/SelfOuter* self, BOOL* pbTransparentlyCached) IsTransparentlyCached;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BOOL* pbTransparentlyCached) IsTransparentlyCached;
 	}
 
 
@@ -1078,7 +1078,7 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOfflineFilesGhostInfo*/SelfOuter* self, BOOL* pbGhosted) IsGhosted;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BOOL* pbGhosted) IsGhosted;
 	}
 
 
@@ -1093,10 +1093,10 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOfflineFilesConnectionInfo*/SelfOuter* self, OFFLINEFILES_CONNECT_STATE* pConnectState, OFFLINEFILES_OFFLINE_REASON* pOfflineReason) GetConnectState;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOfflineFilesConnectionInfo*/SelfOuter* self, HWND hwndParent, uint32 dwFlags, OFFLINEFILES_CONNECT_STATE ConnectState) SetConnectState;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOfflineFilesConnectionInfo*/SelfOuter* self, HWND hwndParent, uint32 dwFlags) TransitionOnline;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOfflineFilesConnectionInfo*/SelfOuter* self, HWND hwndParent, uint32 dwFlags, BOOL bForceOpenFilesClosed, BOOL* pbOpenFilesPreventedTransition) TransitionOffline;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, OFFLINEFILES_CONNECT_STATE* pConnectState, OFFLINEFILES_OFFLINE_REASON* pOfflineReason) GetConnectState;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HWND hwndParent, uint32 dwFlags, OFFLINEFILES_CONNECT_STATE ConnectState) SetConnectState;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HWND hwndParent, uint32 dwFlags) TransitionOnline;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HWND hwndParent, uint32 dwFlags, BOOL bForceOpenFilesClosed, BOOL* pbOpenFilesPreventedTransition) TransitionOffline;
 	}
 
 
@@ -1117,9 +1117,9 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOfflineFilesShareInfo*/SelfOuter* self, IOfflineFilesShareItem** ppShareItem) GetShareItem;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOfflineFilesShareInfo*/SelfOuter* self, OFFLINEFILES_CACHING_MODE* pCachingMode) GetShareCachingMode;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOfflineFilesShareInfo*/SelfOuter* self, BOOL* pbIsDfsJunction) IsShareDfsJunction;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IOfflineFilesShareItem** ppShareItem) GetShareItem;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, OFFLINEFILES_CACHING_MODE* pCachingMode) GetShareCachingMode;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BOOL* pbIsDfsJunction) IsShareDfsJunction;
 	}
 
 
@@ -1138,7 +1138,7 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOfflineFilesSuspend*/SelfOuter* self, BOOL bSuspend) SuspendRoot;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BOOL bSuspend) SuspendRoot;
 	}
 
 
@@ -1153,7 +1153,7 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOfflineFilesSuspendInfo*/SelfOuter* self, BOOL* pbSuspended, BOOL* pbSuspendedRoot) IsSuspended;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BOOL* pbSuspended, BOOL* pbSuspendedRoot) IsSuspended;
 	}
 
 
@@ -1168,15 +1168,15 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOfflineFilesSetting*/SelfOuter* self, PWSTR* ppszName) GetName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOfflineFilesSetting*/SelfOuter* self, OFFLINEFILES_SETTING_VALUE_TYPE* pType) GetValueType;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOfflineFilesSetting*/SelfOuter* self, VARIANT* pvarValue, uint32 dwScope) GetPreference;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOfflineFilesSetting*/SelfOuter* self, uint32* pdwScope) GetPreferenceScope;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOfflineFilesSetting*/SelfOuter* self, VARIANT* pvarValue, uint32 dwScope) SetPreference;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOfflineFilesSetting*/SelfOuter* self, uint32 dwScope) DeletePreference;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOfflineFilesSetting*/SelfOuter* self, VARIANT* pvarValue, uint32 dwScope) GetPolicy;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOfflineFilesSetting*/SelfOuter* self, uint32* pdwScope) GetPolicyScope;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOfflineFilesSetting*/SelfOuter* self, VARIANT* pvarValue, BOOL* pbSetByPolicy) GetValue;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR* ppszName) GetName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, OFFLINEFILES_SETTING_VALUE_TYPE* pType) GetValueType;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT* pvarValue, uint32 dwScope) GetPreference;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pdwScope) GetPreferenceScope;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT* pvarValue, uint32 dwScope) SetPreference;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwScope) DeletePreference;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT* pvarValue, uint32 dwScope) GetPolicy;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pdwScope) GetPolicyScope;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT* pvarValue, BOOL* pbSetByPolicy) GetValue;
 	}
 
 
@@ -1207,10 +1207,10 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnumOfflineFilesSettings*/SelfOuter* self, uint32 celt, IOfflineFilesSetting** rgelt, uint32* pceltFetched) Next;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnumOfflineFilesSettings*/SelfOuter* self, uint32 celt) Skip;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnumOfflineFilesSettings*/SelfOuter* self) Reset;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnumOfflineFilesSettings*/SelfOuter* self, IEnumOfflineFilesSettings** ppenum) Clone;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 celt, IOfflineFilesSetting** rgelt, uint32* pceltFetched) Next;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 celt) Skip;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Reset;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IEnumOfflineFilesSettings** ppenum) Clone;
 	}
 
 
@@ -1231,23 +1231,23 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOfflineFilesCache*/SelfOuter* self, HWND hwndParent, PWSTR* rgpszPaths, uint32 cPaths, BOOL bAsync, uint32 dwSyncControl, IOfflineFilesSyncConflictHandler* pISyncConflictHandler, IOfflineFilesSyncProgress* pIProgress, ref Guid pSyncId) Synchronize;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOfflineFilesCache*/SelfOuter* self, PWSTR* rgpszPaths, uint32 cPaths, uint32 dwFlags, BOOL bAsync, IOfflineFilesSimpleProgress* pIProgress) DeleteItems;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOfflineFilesCache*/SelfOuter* self, PWSTR pszUser, PWSTR* rgpszPaths, uint32 cPaths, uint32 dwFlags, BOOL bAsync, IOfflineFilesSimpleProgress* pIProgress) DeleteItemsForUser;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOfflineFilesCache*/SelfOuter* self, HWND hwndParent, PWSTR* rgpszPaths, uint32 cPaths, BOOL bDeep, BOOL bAsync, uint32 dwPinControlFlags, IOfflineFilesSyncProgress* pIProgress) Pin;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOfflineFilesCache*/SelfOuter* self, HWND hwndParent, PWSTR* rgpszPaths, uint32 cPaths, BOOL bDeep, BOOL bAsync, uint32 dwPinControlFlags, IOfflineFilesSyncProgress* pIProgress) Unpin;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOfflineFilesCache*/SelfOuter* self, BOOL* pbEncrypted, BOOL* pbPartial) GetEncryptionStatus;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOfflineFilesCache*/SelfOuter* self, HWND hwndParent, BOOL bEncrypt, uint32 dwEncryptionControlFlags, BOOL bAsync, IOfflineFilesSyncProgress* pIProgress) Encrypt;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOfflineFilesCache*/SelfOuter* self, PWSTR pszPath, uint32 dwQueryFlags, IOfflineFilesItem** ppItem) FindItem;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOfflineFilesCache*/SelfOuter* self, PWSTR pszPath, IOfflineFilesItemFilter* pIncludeFileFilter, IOfflineFilesItemFilter* pIncludeDirFilter, IOfflineFilesItemFilter* pExcludeFileFilter, IOfflineFilesItemFilter* pExcludeDirFilter, uint32 dwQueryFlags, IOfflineFilesItem** ppItem) FindItemEx;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOfflineFilesCache*/SelfOuter* self, PWSTR pszPathOriginal, PWSTR pszPathNew, BOOL bReplaceIfExists) RenameItem;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOfflineFilesCache*/SelfOuter* self, PWSTR* ppszPath) GetLocation;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOfflineFilesCache*/SelfOuter* self, uint64* pcbVolumeTotal, uint64* pcbLimit, uint64* pcbUsed, uint64* pcbUnpinnedLimit, uint64* pcbUnpinnedUsed) GetDiskSpaceInformation;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOfflineFilesCache*/SelfOuter* self, uint64 cbLimit, uint64 cbUnpinnedLimit) SetDiskSpaceLimits;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOfflineFilesCache*/SelfOuter* self, IOfflineFilesSyncProgress* pPinProgress, IOfflineFilesSyncProgress* pUnpinProgress) ProcessAdminPinPolicy;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOfflineFilesCache*/SelfOuter* self, PWSTR pszSettingName, IOfflineFilesSetting** ppSetting) GetSettingObject;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOfflineFilesCache*/SelfOuter* self, IEnumOfflineFilesSettings** ppEnum) EnumSettingObjects;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOfflineFilesCache*/SelfOuter* self, PWSTR pszPath, BOOL* pbCacheable, OFFLINEFILES_CACHING_MODE* pShareCachingMode) IsPathCacheable;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HWND hwndParent, PWSTR* rgpszPaths, uint32 cPaths, BOOL bAsync, uint32 dwSyncControl, IOfflineFilesSyncConflictHandler* pISyncConflictHandler, IOfflineFilesSyncProgress* pIProgress, ref Guid pSyncId) Synchronize;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR* rgpszPaths, uint32 cPaths, uint32 dwFlags, BOOL bAsync, IOfflineFilesSimpleProgress* pIProgress) DeleteItems;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR pszUser, PWSTR* rgpszPaths, uint32 cPaths, uint32 dwFlags, BOOL bAsync, IOfflineFilesSimpleProgress* pIProgress) DeleteItemsForUser;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HWND hwndParent, PWSTR* rgpszPaths, uint32 cPaths, BOOL bDeep, BOOL bAsync, uint32 dwPinControlFlags, IOfflineFilesSyncProgress* pIProgress) Pin;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HWND hwndParent, PWSTR* rgpszPaths, uint32 cPaths, BOOL bDeep, BOOL bAsync, uint32 dwPinControlFlags, IOfflineFilesSyncProgress* pIProgress) Unpin;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BOOL* pbEncrypted, BOOL* pbPartial) GetEncryptionStatus;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HWND hwndParent, BOOL bEncrypt, uint32 dwEncryptionControlFlags, BOOL bAsync, IOfflineFilesSyncProgress* pIProgress) Encrypt;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR pszPath, uint32 dwQueryFlags, IOfflineFilesItem** ppItem) FindItem;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR pszPath, IOfflineFilesItemFilter* pIncludeFileFilter, IOfflineFilesItemFilter* pIncludeDirFilter, IOfflineFilesItemFilter* pExcludeFileFilter, IOfflineFilesItemFilter* pExcludeDirFilter, uint32 dwQueryFlags, IOfflineFilesItem** ppItem) FindItemEx;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR pszPathOriginal, PWSTR pszPathNew, BOOL bReplaceIfExists) RenameItem;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR* ppszPath) GetLocation;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint64* pcbVolumeTotal, uint64* pcbLimit, uint64* pcbUsed, uint64* pcbUnpinnedLimit, uint64* pcbUnpinnedUsed) GetDiskSpaceInformation;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint64 cbLimit, uint64 cbUnpinnedLimit) SetDiskSpaceLimits;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IOfflineFilesSyncProgress* pPinProgress, IOfflineFilesSyncProgress* pUnpinProgress) ProcessAdminPinPolicy;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR pszSettingName, IOfflineFilesSetting** ppSetting) GetSettingObject;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IEnumOfflineFilesSettings** ppEnum) EnumSettingObjects;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR pszPath, BOOL* pbCacheable, OFFLINEFILES_CACHING_MODE* pShareCachingMode) IsPathCacheable;
 	}
 
 
@@ -1294,7 +1294,7 @@ public static
 
 	[CRepr]public struct VTable : IOfflineFilesCache.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOfflineFilesCache2*/SelfOuter* self, PWSTR pszPathOriginal, PWSTR pszPathNew, BOOL bReplaceIfExists) RenameItemEx;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR pszPathOriginal, PWSTR pszPathNew, BOOL bReplaceIfExists) RenameItemEx;
 	}
 
 

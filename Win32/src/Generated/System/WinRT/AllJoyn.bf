@@ -31,7 +31,7 @@ public static
 
 	[CRepr]public struct VTable : IInspectable.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWindowsDevicesAllJoynBusAttachmentInterop*/SelfOuter* self, uint64* value) get_Win32Handle;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint64* value) get_Win32Handle;
 	}
 
 
@@ -46,7 +46,7 @@ public static
 
 	[CRepr]public struct VTable : IInspectable.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWindowsDevicesAllJoynBusAttachmentFactoryInterop*/SelfOuter* self, uint64 win32handle, uint8 enableAboutData, ref Guid riid, void** ppv) CreateFromWin32Handle;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint64 win32handle, uint8 enableAboutData, ref Guid riid, void** ppv) CreateFromWin32Handle;
 	}
 
 
@@ -61,9 +61,9 @@ public static
 
 	[CRepr]public struct VTable : IInspectable.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWindowsDevicesAllJoynBusObjectInterop*/SelfOuter* self, void* context, HSTRING interfaceName, int callback) AddPropertyGetHandler;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWindowsDevicesAllJoynBusObjectInterop*/SelfOuter* self, void* context, HSTRING interfaceName, int callback) AddPropertySetHandler;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWindowsDevicesAllJoynBusObjectInterop*/SelfOuter* self, uint64* value) get_Win32Handle;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, void* context, HSTRING interfaceName, int callback) AddPropertyGetHandler;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, void* context, HSTRING interfaceName, int callback) AddPropertySetHandler;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint64* value) get_Win32Handle;
 	}
 
 
@@ -82,7 +82,7 @@ public static
 
 	[CRepr]public struct VTable : IInspectable.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWindowsDevicesAllJoynBusObjectFactoryInterop*/SelfOuter* self, uint64 win32handle, ref Guid riid, void** ppv) CreateFromWin32Handle;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint64 win32handle, ref Guid riid, void** ppv) CreateFromWin32Handle;
 	}
 
 

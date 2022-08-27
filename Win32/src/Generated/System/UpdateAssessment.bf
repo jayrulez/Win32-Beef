@@ -85,7 +85,7 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWaaSAssessor*/SelfOuter* self, OSUpdateAssessment* result) GetOSUpdateAssessment;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, OSUpdateAssessment* result) GetOSUpdateAssessment;
 	}
 
 

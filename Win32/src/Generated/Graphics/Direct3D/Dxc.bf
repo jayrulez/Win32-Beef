@@ -136,8 +136,8 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] void*(/*IDxcBlob*/SelfOuter* self) GetBufferPointer;
-		protected new function [CallingConvention(.Stdcall)] uint(/*IDxcBlob*/SelfOuter* self) GetBufferSize;
+		protected new function [CallingConvention(.Stdcall)] void*(SelfOuter* self) GetBufferPointer;
+		protected new function [CallingConvention(.Stdcall)] uint(SelfOuter* self) GetBufferSize;
 	}
 
 
@@ -154,7 +154,7 @@ public static
 
 	[CRepr]public struct VTable : IDxcBlob.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDxcBlobEncoding*/SelfOuter* self, BOOL* pKnown, DXC_CP* pCodePage) GetEncoding;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BOOL* pKnown, DXC_CP* pCodePage) GetEncoding;
 	}
 
 
@@ -169,8 +169,8 @@ public static
 
 	[CRepr]public struct VTable : IDxcBlobEncoding.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] PWSTR(/*IDxcBlobUtf16*/SelfOuter* self) GetStringPointer;
-		protected new function [CallingConvention(.Stdcall)] uint(/*IDxcBlobUtf16*/SelfOuter* self) GetStringLength;
+		protected new function [CallingConvention(.Stdcall)] PWSTR(SelfOuter* self) GetStringPointer;
+		protected new function [CallingConvention(.Stdcall)] uint(SelfOuter* self) GetStringLength;
 	}
 
 
@@ -187,8 +187,8 @@ public static
 
 	[CRepr]public struct VTable : IDxcBlobEncoding.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] PSTR(/*IDxcBlobUtf8*/SelfOuter* self) GetStringPointer;
-		protected new function [CallingConvention(.Stdcall)] uint(/*IDxcBlobUtf8*/SelfOuter* self) GetStringLength;
+		protected new function [CallingConvention(.Stdcall)] PSTR(SelfOuter* self) GetStringPointer;
+		protected new function [CallingConvention(.Stdcall)] uint(SelfOuter* self) GetStringLength;
 	}
 
 
@@ -205,7 +205,7 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDxcIncludeHandler*/SelfOuter* self, PWSTR pFilename, IDxcBlob** ppIncludeSource) LoadSource;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR pFilename, IDxcBlob** ppIncludeSource) LoadSource;
 	}
 
 
@@ -220,11 +220,11 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] PWSTR*(/*IDxcCompilerArgs*/SelfOuter* self) GetArguments;
-		protected new function [CallingConvention(.Stdcall)] uint32(/*IDxcCompilerArgs*/SelfOuter* self) GetCount;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDxcCompilerArgs*/SelfOuter* self, PWSTR* pArguments, uint32 argCount) AddArguments;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDxcCompilerArgs*/SelfOuter* self, PSTR* pArguments, uint32 argCount) AddArgumentsUTF8;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDxcCompilerArgs*/SelfOuter* self, DxcDefine* pDefines, uint32 defineCount) AddDefines;
+		protected new function [CallingConvention(.Stdcall)] PWSTR*(SelfOuter* self) GetArguments;
+		protected new function [CallingConvention(.Stdcall)] uint32(SelfOuter* self) GetCount;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR* pArguments, uint32 argCount) AddArguments;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PSTR* pArguments, uint32 argCount) AddArgumentsUTF8;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, DxcDefine* pDefines, uint32 defineCount) AddDefines;
 	}
 
 
@@ -247,16 +247,16 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDxcLibrary*/SelfOuter* self, IMalloc* pMalloc) SetMalloc;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDxcLibrary*/SelfOuter* self, IDxcBlob* pBlob, uint32 offset, uint32 length, IDxcBlob** ppResult) CreateBlobFromBlob;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDxcLibrary*/SelfOuter* self, PWSTR pFileName, DXC_CP* codePage, IDxcBlobEncoding** pBlobEncoding) CreateBlobFromFile;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDxcLibrary*/SelfOuter* self, void* pText, uint32 size, DXC_CP codePage, IDxcBlobEncoding** pBlobEncoding) CreateBlobWithEncodingFromPinned;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDxcLibrary*/SelfOuter* self, void* pText, uint32 size, DXC_CP codePage, IDxcBlobEncoding** pBlobEncoding) CreateBlobWithEncodingOnHeapCopy;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDxcLibrary*/SelfOuter* self, void* pText, IMalloc* pIMalloc, uint32 size, DXC_CP codePage, IDxcBlobEncoding** pBlobEncoding) CreateBlobWithEncodingOnMalloc;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDxcLibrary*/SelfOuter* self, IDxcIncludeHandler** ppResult) CreateIncludeHandler;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDxcLibrary*/SelfOuter* self, IDxcBlob* pBlob, IStream** ppStream) CreateStreamFromBlobReadOnly;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDxcLibrary*/SelfOuter* self, IDxcBlob* pBlob, IDxcBlobEncoding** pBlobEncoding) GetBlobAsUtf8;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDxcLibrary*/SelfOuter* self, IDxcBlob* pBlob, IDxcBlobEncoding** pBlobEncoding) GetBlobAsUtf16;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IMalloc* pMalloc) SetMalloc;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IDxcBlob* pBlob, uint32 offset, uint32 length, IDxcBlob** ppResult) CreateBlobFromBlob;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR pFileName, DXC_CP* codePage, IDxcBlobEncoding** pBlobEncoding) CreateBlobFromFile;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, void* pText, uint32 size, DXC_CP codePage, IDxcBlobEncoding** pBlobEncoding) CreateBlobWithEncodingFromPinned;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, void* pText, uint32 size, DXC_CP codePage, IDxcBlobEncoding** pBlobEncoding) CreateBlobWithEncodingOnHeapCopy;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, void* pText, IMalloc* pIMalloc, uint32 size, DXC_CP codePage, IDxcBlobEncoding** pBlobEncoding) CreateBlobWithEncodingOnMalloc;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IDxcIncludeHandler** ppResult) CreateIncludeHandler;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IDxcBlob* pBlob, IStream** ppStream) CreateStreamFromBlobReadOnly;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IDxcBlob* pBlob, IDxcBlobEncoding** pBlobEncoding) GetBlobAsUtf8;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IDxcBlob* pBlob, IDxcBlobEncoding** pBlobEncoding) GetBlobAsUtf16;
 	}
 
 
@@ -289,9 +289,9 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDxcOperationResult*/SelfOuter* self, HRESULT* pStatus) GetStatus;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDxcOperationResult*/SelfOuter* self, IDxcBlob** ppResult) GetResult;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDxcOperationResult*/SelfOuter* self, IDxcBlobEncoding** ppErrors) GetErrorBuffer;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HRESULT* pStatus) GetStatus;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IDxcBlob** ppResult) GetResult;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IDxcBlobEncoding** ppErrors) GetErrorBuffer;
 	}
 
 
@@ -310,9 +310,9 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDxcCompiler*/SelfOuter* self, IDxcBlob* pSource, PWSTR pSourceName, PWSTR pEntryPoint, PWSTR pTargetProfile, PWSTR* pArguments, uint32 argCount, DxcDefine* pDefines, uint32 defineCount, IDxcIncludeHandler* pIncludeHandler, IDxcOperationResult** ppResult) Compile;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDxcCompiler*/SelfOuter* self, IDxcBlob* pSource, PWSTR pSourceName, PWSTR* pArguments, uint32 argCount, DxcDefine* pDefines, uint32 defineCount, IDxcIncludeHandler* pIncludeHandler, IDxcOperationResult** ppResult) Preprocess;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDxcCompiler*/SelfOuter* self, IDxcBlob* pSource, IDxcBlobEncoding** ppDisassembly) Disassemble;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IDxcBlob* pSource, PWSTR pSourceName, PWSTR pEntryPoint, PWSTR pTargetProfile, PWSTR* pArguments, uint32 argCount, DxcDefine* pDefines, uint32 defineCount, IDxcIncludeHandler* pIncludeHandler, IDxcOperationResult** ppResult) Compile;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IDxcBlob* pSource, PWSTR pSourceName, PWSTR* pArguments, uint32 argCount, DxcDefine* pDefines, uint32 defineCount, IDxcIncludeHandler* pIncludeHandler, IDxcOperationResult** ppResult) Preprocess;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IDxcBlob* pSource, IDxcBlobEncoding** ppDisassembly) Disassemble;
 	}
 
 
@@ -331,7 +331,7 @@ public static
 
 	[CRepr]public struct VTable : IDxcCompiler.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDxcCompiler2*/SelfOuter* self, IDxcBlob* pSource, PWSTR pSourceName, PWSTR pEntryPoint, PWSTR pTargetProfile, PWSTR* pArguments, uint32 argCount, DxcDefine* pDefines, uint32 defineCount, IDxcIncludeHandler* pIncludeHandler, IDxcOperationResult** ppResult, PWSTR* ppDebugBlobName, IDxcBlob** ppDebugBlob) CompileWithDebug;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IDxcBlob* pSource, PWSTR pSourceName, PWSTR pEntryPoint, PWSTR pTargetProfile, PWSTR* pArguments, uint32 argCount, DxcDefine* pDefines, uint32 defineCount, IDxcIncludeHandler* pIncludeHandler, IDxcOperationResult** ppResult, PWSTR* ppDebugBlobName, IDxcBlob** ppDebugBlob) CompileWithDebug;
 	}
 
 
@@ -346,8 +346,8 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDxcLinker*/SelfOuter* self, PWSTR pLibName, IDxcBlob* pLib) RegisterLibrary;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDxcLinker*/SelfOuter* self, PWSTR pEntryName, PWSTR pTargetProfile, PWSTR* pLibNames, uint32 libCount, PWSTR* pArguments, uint32 argCount, IDxcOperationResult** ppResult) Link;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR pLibName, IDxcBlob* pLib) RegisterLibrary;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR pEntryName, PWSTR pTargetProfile, PWSTR* pLibNames, uint32 libCount, PWSTR* pArguments, uint32 argCount, IDxcOperationResult** ppResult) Link;
 	}
 
 
@@ -364,19 +364,19 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDxcUtils*/SelfOuter* self, IDxcBlob* pBlob, uint32 offset, uint32 length, IDxcBlob** ppResult) CreateBlobFromBlob;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDxcUtils*/SelfOuter* self, void* pData, uint32 size, DXC_CP codePage, IDxcBlobEncoding** pBlobEncoding) CreateBlobFromPinned;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDxcUtils*/SelfOuter* self, void* pData, IMalloc* pIMalloc, uint32 size, DXC_CP codePage, IDxcBlobEncoding** pBlobEncoding) MoveToBlob;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDxcUtils*/SelfOuter* self, void* pData, uint32 size, DXC_CP codePage, IDxcBlobEncoding** pBlobEncoding) CreateBlob;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDxcUtils*/SelfOuter* self, PWSTR pFileName, DXC_CP* pCodePage, IDxcBlobEncoding** pBlobEncoding) LoadFile;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDxcUtils*/SelfOuter* self, IDxcBlob* pBlob, IStream** ppStream) CreateReadOnlyStreamFromBlob;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDxcUtils*/SelfOuter* self, IDxcIncludeHandler** ppResult) CreateDefaultIncludeHandler;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDxcUtils*/SelfOuter* self, IDxcBlob* pBlob, IDxcBlobUtf8** pBlobEncoding) GetBlobAsUtf8;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDxcUtils*/SelfOuter* self, IDxcBlob* pBlob, IDxcBlobUtf16** pBlobEncoding) GetBlobAsUtf16;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDxcUtils*/SelfOuter* self, DxcBuffer* pShader, uint32 DxcPart, void** ppPartData, uint32* pPartSizeInBytes) GetDxilContainerPart;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDxcUtils*/SelfOuter* self, DxcBuffer* pData, ref Guid iid, void** ppvReflection) CreateReflection;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDxcUtils*/SelfOuter* self, PWSTR pSourceName, PWSTR pEntryPoint, PWSTR pTargetProfile, PWSTR* pArguments, uint32 argCount, DxcDefine* pDefines, uint32 defineCount, IDxcCompilerArgs** ppArgs) BuildArguments;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDxcUtils*/SelfOuter* self, IDxcBlob* pPDBBlob, IDxcBlob** ppHash, IDxcBlob** ppContainer) GetPDBContents;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IDxcBlob* pBlob, uint32 offset, uint32 length, IDxcBlob** ppResult) CreateBlobFromBlob;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, void* pData, uint32 size, DXC_CP codePage, IDxcBlobEncoding** pBlobEncoding) CreateBlobFromPinned;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, void* pData, IMalloc* pIMalloc, uint32 size, DXC_CP codePage, IDxcBlobEncoding** pBlobEncoding) MoveToBlob;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, void* pData, uint32 size, DXC_CP codePage, IDxcBlobEncoding** pBlobEncoding) CreateBlob;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR pFileName, DXC_CP* pCodePage, IDxcBlobEncoding** pBlobEncoding) LoadFile;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IDxcBlob* pBlob, IStream** ppStream) CreateReadOnlyStreamFromBlob;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IDxcIncludeHandler** ppResult) CreateDefaultIncludeHandler;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IDxcBlob* pBlob, IDxcBlobUtf8** pBlobEncoding) GetBlobAsUtf8;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IDxcBlob* pBlob, IDxcBlobUtf16** pBlobEncoding) GetBlobAsUtf16;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, DxcBuffer* pShader, uint32 DxcPart, void** ppPartData, uint32* pPartSizeInBytes) GetDxilContainerPart;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, DxcBuffer* pData, ref Guid iid, void** ppvReflection) CreateReflection;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR pSourceName, PWSTR pEntryPoint, PWSTR pTargetProfile, PWSTR* pArguments, uint32 argCount, DxcDefine* pDefines, uint32 defineCount, IDxcCompilerArgs** ppArgs) BuildArguments;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IDxcBlob* pPDBBlob, IDxcBlob** ppHash, IDxcBlob** ppContainer) GetPDBContents;
 	}
 
 
@@ -415,11 +415,11 @@ public static
 
 	[CRepr]public struct VTable : IDxcOperationResult.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] BOOL(/*IDxcResult*/SelfOuter* self, DXC_OUT_KIND dxcOutKind) HasOutput;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDxcResult*/SelfOuter* self, DXC_OUT_KIND dxcOutKind, ref Guid iid, void** ppvObject, IDxcBlobUtf16** ppOutputName) GetOutput;
-		protected new function [CallingConvention(.Stdcall)] uint32(/*IDxcResult*/SelfOuter* self) GetNumOutputs;
-		protected new function [CallingConvention(.Stdcall)] DXC_OUT_KIND(/*IDxcResult*/SelfOuter* self, uint32 Index) GetOutputByIndex;
-		protected new function [CallingConvention(.Stdcall)] DXC_OUT_KIND(/*IDxcResult*/SelfOuter* self) PrimaryOutput;
+		protected new function [CallingConvention(.Stdcall)] BOOL(SelfOuter* self, DXC_OUT_KIND dxcOutKind) HasOutput;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, DXC_OUT_KIND dxcOutKind, ref Guid iid, void** ppvObject, IDxcBlobUtf16** ppOutputName) GetOutput;
+		protected new function [CallingConvention(.Stdcall)] uint32(SelfOuter* self) GetNumOutputs;
+		protected new function [CallingConvention(.Stdcall)] DXC_OUT_KIND(SelfOuter* self, uint32 Index) GetOutputByIndex;
+		protected new function [CallingConvention(.Stdcall)] DXC_OUT_KIND(SelfOuter* self) PrimaryOutput;
 	}
 
 
@@ -442,8 +442,8 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] uint32(/*IDxcExtraOutputs*/SelfOuter* self) GetOutputCount;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDxcExtraOutputs*/SelfOuter* self, uint32 uIndex, ref Guid iid, void** ppvObject, IDxcBlobUtf16** ppOutputType, IDxcBlobUtf16** ppOutputName) GetOutput;
+		protected new function [CallingConvention(.Stdcall)] uint32(SelfOuter* self) GetOutputCount;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 uIndex, ref Guid iid, void** ppvObject, IDxcBlobUtf16** ppOutputType, IDxcBlobUtf16** ppOutputName) GetOutput;
 	}
 
 
@@ -460,8 +460,8 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDxcCompiler3*/SelfOuter* self, DxcBuffer* pSource, PWSTR* pArguments, uint32 argCount, IDxcIncludeHandler* pIncludeHandler, ref Guid riid, void** ppResult) Compile;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDxcCompiler3*/SelfOuter* self, DxcBuffer* pObject, ref Guid riid, void** ppResult) Disassemble;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, DxcBuffer* pSource, PWSTR* pArguments, uint32 argCount, IDxcIncludeHandler* pIncludeHandler, ref Guid riid, void** ppResult) Compile;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, DxcBuffer* pObject, ref Guid riid, void** ppResult) Disassemble;
 	}
 
 
@@ -478,7 +478,7 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDxcValidator*/SelfOuter* self, IDxcBlob* pShader, uint32 Flags, IDxcOperationResult** ppResult) Validate;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IDxcBlob* pShader, uint32 Flags, IDxcOperationResult** ppResult) Validate;
 	}
 
 
@@ -493,7 +493,7 @@ public static
 
 	[CRepr]public struct VTable : IDxcValidator.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDxcValidator2*/SelfOuter* self, IDxcBlob* pShader, uint32 Flags, DxcBuffer* pOptDebugBitcode, IDxcOperationResult** ppResult) ValidateWithDebug;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IDxcBlob* pShader, uint32 Flags, DxcBuffer* pOptDebugBitcode, IDxcOperationResult** ppResult) ValidateWithDebug;
 	}
 
 
@@ -508,10 +508,10 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDxcContainerBuilder*/SelfOuter* self, IDxcBlob* pDxilContainerHeader) Load;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDxcContainerBuilder*/SelfOuter* self, uint32 fourCC, IDxcBlob* pSource) AddPart;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDxcContainerBuilder*/SelfOuter* self, uint32 fourCC) RemovePart;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDxcContainerBuilder*/SelfOuter* self, IDxcOperationResult** ppResult) SerializeContainer;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IDxcBlob* pDxilContainerHeader) Load;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 fourCC, IDxcBlob* pSource) AddPart;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 fourCC) RemovePart;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IDxcOperationResult** ppResult) SerializeContainer;
 	}
 
 
@@ -532,7 +532,7 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDxcAssembler*/SelfOuter* self, IDxcBlob* pShader, IDxcOperationResult** ppResult) AssembleToContainer;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IDxcBlob* pShader, IDxcOperationResult** ppResult) AssembleToContainer;
 	}
 
 
@@ -547,12 +547,12 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDxcContainerReflection*/SelfOuter* self, IDxcBlob* pContainer) Load;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDxcContainerReflection*/SelfOuter* self, uint32* pResult) GetPartCount;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDxcContainerReflection*/SelfOuter* self, uint32 idx, uint32* pResult) GetPartKind;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDxcContainerReflection*/SelfOuter* self, uint32 idx, IDxcBlob** ppResult) GetPartContent;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDxcContainerReflection*/SelfOuter* self, uint32 kind, uint32* pResult) FindFirstPartKind;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDxcContainerReflection*/SelfOuter* self, uint32 idx, ref Guid iid, void** ppvObject) GetPartReflection;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IDxcBlob* pContainer) Load;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pResult) GetPartCount;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 idx, uint32* pResult) GetPartKind;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 idx, IDxcBlob** ppResult) GetPartContent;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 kind, uint32* pResult) FindFirstPartKind;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 idx, ref Guid iid, void** ppvObject) GetPartReflection;
 	}
 
 
@@ -577,11 +577,11 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDxcOptimizerPass*/SelfOuter* self, PWSTR* ppResult) GetOptionName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDxcOptimizerPass*/SelfOuter* self, PWSTR* ppResult) GetDescription;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDxcOptimizerPass*/SelfOuter* self, uint32* pCount) GetOptionArgCount;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDxcOptimizerPass*/SelfOuter* self, uint32 argIndex, PWSTR* ppResult) GetOptionArgName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDxcOptimizerPass*/SelfOuter* self, uint32 argIndex, PWSTR* ppResult) GetOptionArgDescription;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR* ppResult) GetOptionName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR* ppResult) GetDescription;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pCount) GetOptionArgCount;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 argIndex, PWSTR* ppResult) GetOptionArgName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 argIndex, PWSTR* ppResult) GetOptionArgDescription;
 	}
 
 
@@ -604,9 +604,9 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDxcOptimizer*/SelfOuter* self, uint32* pCount) GetAvailablePassCount;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDxcOptimizer*/SelfOuter* self, uint32 index, IDxcOptimizerPass** ppResult) GetAvailablePass;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDxcOptimizer*/SelfOuter* self, IDxcBlob* pBlob, PWSTR* ppOptions, uint32 optionCount, IDxcBlob** pOutputModule, IDxcBlobEncoding** ppOutputText) RunOptimizer;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pCount) GetAvailablePassCount;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 index, IDxcOptimizerPass** ppResult) GetAvailablePass;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IDxcBlob* pBlob, PWSTR* ppOptions, uint32 optionCount, IDxcBlob** pOutputModule, IDxcBlobEncoding** ppOutputText) RunOptimizer;
 	}
 
 
@@ -625,8 +625,8 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDxcVersionInfo*/SelfOuter* self, uint32* pMajor, uint32* pMinor) GetVersion;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDxcVersionInfo*/SelfOuter* self, uint32* pFlags) COM_GetFlags;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pMajor, uint32* pMinor) GetVersion;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pFlags) COM_GetFlags;
 	}
 
 
@@ -643,7 +643,7 @@ public static
 
 	[CRepr]public struct VTable : IDxcVersionInfo.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDxcVersionInfo2*/SelfOuter* self, uint32* pCommitCount, int8** pCommitHash) GetCommitInfo;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pCommitCount, int8** pCommitHash) GetCommitInfo;
 	}
 
 
@@ -658,7 +658,7 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDxcVersionInfo3*/SelfOuter* self, int8** pVersionString) GetCustomVersionString;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int8** pVersionString) GetCustomVersionString;
 	}
 
 
@@ -673,30 +673,30 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDxcPdbUtils*/SelfOuter* self, IDxcBlob* pPdbOrDxil) Load;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDxcPdbUtils*/SelfOuter* self, uint32* pCount) GetSourceCount;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDxcPdbUtils*/SelfOuter* self, uint32 uIndex, IDxcBlobEncoding** ppResult) GetSource;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDxcPdbUtils*/SelfOuter* self, uint32 uIndex, BSTR* pResult) GetSourceName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDxcPdbUtils*/SelfOuter* self, uint32* pCount) GetFlagCount;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDxcPdbUtils*/SelfOuter* self, uint32 uIndex, BSTR* pResult) GetFlag;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDxcPdbUtils*/SelfOuter* self, uint32* pCount) GetArgCount;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDxcPdbUtils*/SelfOuter* self, uint32 uIndex, BSTR* pResult) GetArg;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDxcPdbUtils*/SelfOuter* self, uint32* pCount) GetArgPairCount;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDxcPdbUtils*/SelfOuter* self, uint32 uIndex, BSTR* pName, BSTR* pValue) GetArgPair;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDxcPdbUtils*/SelfOuter* self, uint32* pCount) GetDefineCount;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDxcPdbUtils*/SelfOuter* self, uint32 uIndex, BSTR* pResult) GetDefine;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDxcPdbUtils*/SelfOuter* self, BSTR* pResult) GetTargetProfile;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDxcPdbUtils*/SelfOuter* self, BSTR* pResult) GetEntryPoint;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDxcPdbUtils*/SelfOuter* self, BSTR* pResult) GetMainFileName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDxcPdbUtils*/SelfOuter* self, IDxcBlob** ppResult) GetHash;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDxcPdbUtils*/SelfOuter* self, BSTR* pResult) GetName;
-		protected new function [CallingConvention(.Stdcall)] BOOL(/*IDxcPdbUtils*/SelfOuter* self) IsFullPDB;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDxcPdbUtils*/SelfOuter* self, IDxcBlob** ppFullPDB) GetFullPDB;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDxcPdbUtils*/SelfOuter* self, IDxcVersionInfo** ppVersionInfo) GetVersionInfo;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDxcPdbUtils*/SelfOuter* self, IDxcCompiler3* pCompiler) SetCompiler;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDxcPdbUtils*/SelfOuter* self, IDxcResult** ppResult) CompileForFullPDB;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDxcPdbUtils*/SelfOuter* self, DxcArgPair* pArgPairs, uint32 uNumArgPairs) OverrideArgs;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDxcPdbUtils*/SelfOuter* self, PWSTR pRootSignature) OverrideRootSignature;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IDxcBlob* pPdbOrDxil) Load;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pCount) GetSourceCount;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 uIndex, IDxcBlobEncoding** ppResult) GetSource;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 uIndex, BSTR* pResult) GetSourceName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pCount) GetFlagCount;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 uIndex, BSTR* pResult) GetFlag;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pCount) GetArgCount;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 uIndex, BSTR* pResult) GetArg;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pCount) GetArgPairCount;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 uIndex, BSTR* pName, BSTR* pValue) GetArgPair;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pCount) GetDefineCount;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 uIndex, BSTR* pResult) GetDefine;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pResult) GetTargetProfile;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pResult) GetEntryPoint;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pResult) GetMainFileName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IDxcBlob** ppResult) GetHash;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pResult) GetName;
+		protected new function [CallingConvention(.Stdcall)] BOOL(SelfOuter* self) IsFullPDB;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IDxcBlob** ppFullPDB) GetFullPDB;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IDxcVersionInfo** ppVersionInfo) GetVersionInfo;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IDxcCompiler3* pCompiler) SetCompiler;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IDxcResult** ppResult) CompileForFullPDB;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, DxcArgPair* pArgPairs, uint32 uNumArgPairs) OverrideArgs;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR pRootSignature) OverrideRootSignature;
 	}
 
 

@@ -43,8 +43,8 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWindowsMediaLibrarySharingDeviceProperty*/SelfOuter* self, BSTR* name) get_Name;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWindowsMediaLibrarySharingDeviceProperty*/SelfOuter* self, VARIANT* value) get_Value;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* name) get_Name;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT* value) get_Value;
 	}
 
 
@@ -61,9 +61,9 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWindowsMediaLibrarySharingDeviceProperties*/SelfOuter* self, int32 index, IWindowsMediaLibrarySharingDeviceProperty** property) get_Item;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWindowsMediaLibrarySharingDeviceProperties*/SelfOuter* self, int32* count) get_Count;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWindowsMediaLibrarySharingDeviceProperties*/SelfOuter* self, BSTR name, IWindowsMediaLibrarySharingDeviceProperty** property) GetProperty;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 index, IWindowsMediaLibrarySharingDeviceProperty** property) get_Item;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* count) get_Count;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR name, IWindowsMediaLibrarySharingDeviceProperty** property) GetProperty;
 	}
 
 
@@ -82,10 +82,10 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWindowsMediaLibrarySharingDevice*/SelfOuter* self, BSTR* deviceID) get_DeviceID;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWindowsMediaLibrarySharingDevice*/SelfOuter* self, WindowsMediaLibrarySharingDeviceAuthorizationStatus* authorization) get_Authorization;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWindowsMediaLibrarySharingDevice*/SelfOuter* self, WindowsMediaLibrarySharingDeviceAuthorizationStatus authorization) put_Authorization;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWindowsMediaLibrarySharingDevice*/SelfOuter* self, IWindowsMediaLibrarySharingDeviceProperties** deviceProperties) get_Properties;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* deviceID) get_DeviceID;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, WindowsMediaLibrarySharingDeviceAuthorizationStatus* authorization) get_Authorization;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, WindowsMediaLibrarySharingDeviceAuthorizationStatus authorization) put_Authorization;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IWindowsMediaLibrarySharingDeviceProperties** deviceProperties) get_Properties;
 	}
 
 
@@ -106,9 +106,9 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWindowsMediaLibrarySharingDevices*/SelfOuter* self, int32 index, IWindowsMediaLibrarySharingDevice** device) get_Item;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWindowsMediaLibrarySharingDevices*/SelfOuter* self, int32* count) get_Count;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWindowsMediaLibrarySharingDevices*/SelfOuter* self, BSTR deviceID, IWindowsMediaLibrarySharingDevice** device) GetDevice;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 index, IWindowsMediaLibrarySharingDevice** device) get_Item;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* count) get_Count;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR deviceID, IWindowsMediaLibrarySharingDevice** device) GetDevice;
 	}
 
 
@@ -127,25 +127,25 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWindowsMediaLibrarySharingServices*/SelfOuter* self, BSTR device) showShareMediaCPL;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWindowsMediaLibrarySharingServices*/SelfOuter* self, int16* sharingEnabled) get_userHomeMediaSharingState;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWindowsMediaLibrarySharingServices*/SelfOuter* self, int16 sharingEnabled) put_userHomeMediaSharingState;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWindowsMediaLibrarySharingServices*/SelfOuter* self, BSTR* libraryName) get_userHomeMediaSharingLibraryName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWindowsMediaLibrarySharingServices*/SelfOuter* self, BSTR libraryName) put_userHomeMediaSharingLibraryName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWindowsMediaLibrarySharingServices*/SelfOuter* self, int16* sharingAllowed) get_computerHomeMediaSharingAllowedState;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWindowsMediaLibrarySharingServices*/SelfOuter* self, int16 sharingAllowed) put_computerHomeMediaSharingAllowedState;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWindowsMediaLibrarySharingServices*/SelfOuter* self, int16* sharingEnabled) get_userInternetMediaSharingState;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWindowsMediaLibrarySharingServices*/SelfOuter* self, int16 sharingEnabled) put_userInternetMediaSharingState;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWindowsMediaLibrarySharingServices*/SelfOuter* self, int16* sharingAllowed) get_computerInternetMediaSharingAllowedState;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWindowsMediaLibrarySharingServices*/SelfOuter* self, int16 sharingAllowed) put_computerInternetMediaSharingAllowedState;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWindowsMediaLibrarySharingServices*/SelfOuter* self, BSTR* securityGroup) get_internetMediaSharingSecurityGroup;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWindowsMediaLibrarySharingServices*/SelfOuter* self, BSTR securityGroup) put_internetMediaSharingSecurityGroup;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWindowsMediaLibrarySharingServices*/SelfOuter* self, int16* sharingEnabled) get_allowSharingToAllDevices;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWindowsMediaLibrarySharingServices*/SelfOuter* self, int16 sharingEnabled) put_allowSharingToAllDevices;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWindowsMediaLibrarySharingServices*/SelfOuter* self, BSTR MACAddresses, BSTR friendlyName, int16 authorization) setDefaultAuthorization;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWindowsMediaLibrarySharingServices*/SelfOuter* self, BSTR MACAddress, int16 authorizationState) setAuthorizationState;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWindowsMediaLibrarySharingServices*/SelfOuter* self, IWindowsMediaLibrarySharingDevices** devices) getAllDevices;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWindowsMediaLibrarySharingServices*/SelfOuter* self, int16* customSettingsApplied) get_customSettingsApplied;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR device) showShareMediaCPL;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* sharingEnabled) get_userHomeMediaSharingState;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 sharingEnabled) put_userHomeMediaSharingState;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* libraryName) get_userHomeMediaSharingLibraryName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR libraryName) put_userHomeMediaSharingLibraryName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* sharingAllowed) get_computerHomeMediaSharingAllowedState;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 sharingAllowed) put_computerHomeMediaSharingAllowedState;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* sharingEnabled) get_userInternetMediaSharingState;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 sharingEnabled) put_userInternetMediaSharingState;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* sharingAllowed) get_computerInternetMediaSharingAllowedState;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 sharingAllowed) put_computerInternetMediaSharingAllowedState;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* securityGroup) get_internetMediaSharingSecurityGroup;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR securityGroup) put_internetMediaSharingSecurityGroup;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* sharingEnabled) get_allowSharingToAllDevices;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 sharingEnabled) put_allowSharingToAllDevices;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR MACAddresses, BSTR friendlyName, int16 authorization) setDefaultAuthorization;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR MACAddress, int16 authorizationState) setAuthorizationState;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IWindowsMediaLibrarySharingDevices** devices) getAllDevices;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* customSettingsApplied) get_customSettingsApplied;
 	}
 
 

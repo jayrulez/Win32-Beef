@@ -221,9 +221,9 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IItemEnumerator*/SelfOuter* self, VARIANT* Item) Current;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IItemEnumerator*/SelfOuter* self, BOOL* ItemValid) MoveNext;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IItemEnumerator*/SelfOuter* self) Reset;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT* Item) Current;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BOOL* ItemValid) MoveNext;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Reset;
 	}
 
 
@@ -242,10 +242,10 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISettingsIdentity*/SelfOuter* self, void* Reserved, PWSTR Name, BSTR* Value) GetAttribute;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISettingsIdentity*/SelfOuter* self, void* Reserved, PWSTR Name, PWSTR Value) SetAttribute;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISettingsIdentity*/SelfOuter* self, uint32* Flags) COM_GetFlags;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISettingsIdentity*/SelfOuter* self, uint32 Flags) SetFlags;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, void* Reserved, PWSTR Name, BSTR* Value) GetAttribute;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, void* Reserved, PWSTR Name, PWSTR Value) SetAttribute;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* Flags) COM_GetFlags;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 Flags) SetFlags;
 	}
 
 
@@ -266,27 +266,27 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITargetInfo*/SelfOuter* self, WcmTargetMode* TargetMode) GetTargetMode;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITargetInfo*/SelfOuter* self, WcmTargetMode TargetMode) SetTargetMode;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITargetInfo*/SelfOuter* self, BSTR* TemporaryStoreLocation) GetTemporaryStoreLocation;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITargetInfo*/SelfOuter* self, PWSTR TemporaryStoreLocation) SetTemporaryStoreLocation;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITargetInfo*/SelfOuter* self, BSTR* TargetID) GetTargetID;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITargetInfo*/SelfOuter* self, Guid TargetID) SetTargetID;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITargetInfo*/SelfOuter* self, BSTR* ProcessorArchitecture) GetTargetProcessorArchitecture;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITargetInfo*/SelfOuter* self, PWSTR ProcessorArchitecture) SetTargetProcessorArchitecture;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITargetInfo*/SelfOuter* self, BOOL Offline, PWSTR Property, BSTR* Value) GetProperty;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITargetInfo*/SelfOuter* self, BOOL Offline, PWSTR Property, PWSTR Value) SetProperty;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITargetInfo*/SelfOuter* self, IItemEnumerator** Enumerator) GetEnumerator;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITargetInfo*/SelfOuter* self, BOOL Offline, PWSTR Location, BSTR* ExpandedLocation) ExpandTarget;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITargetInfo*/SelfOuter* self, BOOL Offline, PWSTR Location, BSTR* ExpandedLocation) ExpandTargetPath;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITargetInfo*/SelfOuter* self, PWSTR Module, PWSTR Path) SetModulePath;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITargetInfo*/SelfOuter* self, PWSTR Module, HINSTANCE* ModuleHandle) LoadModule;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITargetInfo*/SelfOuter* self, PWSTR InstallerModule, uint8* Wow64Context) SetWow64Context;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITargetInfo*/SelfOuter* self, PWSTR ClientArchitecture, PWSTR Value, BSTR* TranslatedValue) TranslateWow64;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITargetInfo*/SelfOuter* self, PWSTR pwzHiveDir) SetSchemaHiveLocation;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITargetInfo*/SelfOuter* self, BSTR* pHiveLocation) GetSchemaHiveLocation;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITargetInfo*/SelfOuter* self, PWSTR pwzMountName) SetSchemaHiveMountName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITargetInfo*/SelfOuter* self, BSTR* pMountName) GetSchemaHiveMountName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, WcmTargetMode* TargetMode) GetTargetMode;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, WcmTargetMode TargetMode) SetTargetMode;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* TemporaryStoreLocation) GetTemporaryStoreLocation;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR TemporaryStoreLocation) SetTemporaryStoreLocation;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* TargetID) GetTargetID;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, Guid TargetID) SetTargetID;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* ProcessorArchitecture) GetTargetProcessorArchitecture;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR ProcessorArchitecture) SetTargetProcessorArchitecture;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BOOL Offline, PWSTR Property, BSTR* Value) GetProperty;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BOOL Offline, PWSTR Property, PWSTR Value) SetProperty;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IItemEnumerator** Enumerator) GetEnumerator;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BOOL Offline, PWSTR Location, BSTR* ExpandedLocation) ExpandTarget;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BOOL Offline, PWSTR Location, BSTR* ExpandedLocation) ExpandTargetPath;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR Module, PWSTR Path) SetModulePath;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR Module, HINSTANCE* ModuleHandle) LoadModule;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR InstallerModule, uint8* Wow64Context) SetWow64Context;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR ClientArchitecture, PWSTR Value, BSTR* TranslatedValue) TranslateWow64;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR pwzHiveDir) SetSchemaHiveLocation;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pHiveLocation) GetSchemaHiveLocation;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR pwzMountName) SetSchemaHiveMountName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pMountName) GetSchemaHiveMountName;
 	}
 
 
@@ -341,22 +341,22 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISettingsEngine*/SelfOuter* self, WcmNamespaceEnumerationFlags Flags, void* Reserved, IItemEnumerator** Namespaces) GetNamespaces;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISettingsEngine*/SelfOuter* self, ISettingsIdentity* SettingsID, WcmNamespaceAccess Access, void* Reserved, ISettingsNamespace** NamespaceItem) GetNamespace;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISettingsEngine*/SelfOuter* self, int32 HResult, BSTR* Message) GetErrorDescription;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISettingsEngine*/SelfOuter* self, ISettingsIdentity** SettingsID) CreateSettingsIdentity;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISettingsEngine*/SelfOuter* self, void* Reserved, WcmUserStatus* Status) GetStoreStatus;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISettingsEngine*/SelfOuter* self, uint32 Flags) LoadStore;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISettingsEngine*/SelfOuter* self, void* Reserved) UnloadStore;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISettingsEngine*/SelfOuter* self, ISettingsIdentity* SettingsID, IStream* Stream, BOOL PushSettings, VARIANT* Results) RegisterNamespace;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISettingsEngine*/SelfOuter* self, ISettingsIdentity* SettingsID, BOOL RemoveSettings) UnregisterNamespace;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISettingsEngine*/SelfOuter* self, ITargetInfo** Target) CreateTargetInfo;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISettingsEngine*/SelfOuter* self, ITargetInfo** Target) GetTargetInfo;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISettingsEngine*/SelfOuter* self, ITargetInfo* Target) SetTargetInfo;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISettingsEngine*/SelfOuter* self, uint32 Flags, void* Reserved, ISettingsContext** SettingsContext) CreateSettingsContext;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISettingsEngine*/SelfOuter* self, ISettingsContext* SettingsContext) SetSettingsContext;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISettingsEngine*/SelfOuter* self, ISettingsContext* SettingsContext, PWSTR** pppwzIdentities, uint* pcIdentities) ApplySettingsContext;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISettingsEngine*/SelfOuter* self, ISettingsContext** SettingsContext) GetSettingsContext;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, WcmNamespaceEnumerationFlags Flags, void* Reserved, IItemEnumerator** Namespaces) GetNamespaces;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ISettingsIdentity* SettingsID, WcmNamespaceAccess Access, void* Reserved, ISettingsNamespace** NamespaceItem) GetNamespace;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 HResult, BSTR* Message) GetErrorDescription;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ISettingsIdentity** SettingsID) CreateSettingsIdentity;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, void* Reserved, WcmUserStatus* Status) GetStoreStatus;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 Flags) LoadStore;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, void* Reserved) UnloadStore;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ISettingsIdentity* SettingsID, IStream* Stream, BOOL PushSettings, VARIANT* Results) RegisterNamespace;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ISettingsIdentity* SettingsID, BOOL RemoveSettings) UnregisterNamespace;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ITargetInfo** Target) CreateTargetInfo;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ITargetInfo** Target) GetTargetInfo;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ITargetInfo* Target) SetTargetInfo;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 Flags, void* Reserved, ISettingsContext** SettingsContext) CreateSettingsContext;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ISettingsContext* SettingsContext) SetSettingsContext;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ISettingsContext* SettingsContext, PWSTR** pppwzIdentities, uint* pcIdentities) ApplySettingsContext;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ISettingsContext** SettingsContext) GetSettingsContext;
 	}
 
 
@@ -401,28 +401,28 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISettingsItem*/SelfOuter* self, BSTR* Name) GetName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISettingsItem*/SelfOuter* self, VARIANT* Value) GetValue;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISettingsItem*/SelfOuter* self, VARIANT* Value) SetValue;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISettingsItem*/SelfOuter* self, WcmSettingType* Type) GetSettingType;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISettingsItem*/SelfOuter* self, WcmDataType* Type) GetDataType;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISettingsItem*/SelfOuter* self, uint8** Data, uint32* DataSize) GetValueRaw;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISettingsItem*/SelfOuter* self, int32 DataType, uint8* Data, uint32 DataSize) SetValueRaw;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISettingsItem*/SelfOuter* self, BOOL* ItemHasChild) HasChild;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISettingsItem*/SelfOuter* self, IItemEnumerator** Children) Children;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISettingsItem*/SelfOuter* self, PWSTR Name, ISettingsItem** Child) GetChild;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISettingsItem*/SelfOuter* self, PWSTR Path, ISettingsItem** Setting) GetSettingByPath;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISettingsItem*/SelfOuter* self, PWSTR Path, ISettingsItem** Setting) CreateSettingByPath;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISettingsItem*/SelfOuter* self, PWSTR Path) RemoveSettingByPath;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISettingsItem*/SelfOuter* self, BSTR* KeyName, WcmDataType* DataType) GetListKeyInformation;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISettingsItem*/SelfOuter* self, VARIANT* KeyData, ISettingsItem** Child) CreateListElement;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISettingsItem*/SelfOuter* self, PWSTR ElementName) RemoveListElement;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISettingsItem*/SelfOuter* self, IItemEnumerator** Attributes) Attributes;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISettingsItem*/SelfOuter* self, PWSTR Name, VARIANT* Value) GetAttribute;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISettingsItem*/SelfOuter* self, BSTR* Path) GetPath;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISettingsItem*/SelfOuter* self, WcmRestrictionFacets* RestrictionFacets) GetRestrictionFacets;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISettingsItem*/SelfOuter* self, WcmRestrictionFacets RestrictionFacet, VARIANT* FacetData) GetRestriction;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISettingsItem*/SelfOuter* self, VARIANT* Value) GetKeyValue;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* Name) GetName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT* Value) GetValue;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT* Value) SetValue;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, WcmSettingType* Type) GetSettingType;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, WcmDataType* Type) GetDataType;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint8** Data, uint32* DataSize) GetValueRaw;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 DataType, uint8* Data, uint32 DataSize) SetValueRaw;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BOOL* ItemHasChild) HasChild;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IItemEnumerator** Children) Children;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR Name, ISettingsItem** Child) GetChild;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR Path, ISettingsItem** Setting) GetSettingByPath;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR Path, ISettingsItem** Setting) CreateSettingByPath;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR Path) RemoveSettingByPath;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* KeyName, WcmDataType* DataType) GetListKeyInformation;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT* KeyData, ISettingsItem** Child) CreateListElement;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR ElementName) RemoveListElement;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IItemEnumerator** Attributes) Attributes;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR Name, VARIANT* Value) GetAttribute;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* Path) GetPath;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, WcmRestrictionFacets* RestrictionFacets) GetRestrictionFacets;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, WcmRestrictionFacets RestrictionFacet, VARIANT* FacetData) GetRestriction;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT* Value) GetKeyValue;
 	}
 
 
@@ -479,13 +479,13 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISettingsNamespace*/SelfOuter* self, ISettingsIdentity** SettingsID) GetIdentity;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISettingsNamespace*/SelfOuter* self, IItemEnumerator** Settings) Settings;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISettingsNamespace*/SelfOuter* self, BOOL PushSettings, ISettingsResult** Result) Save;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISettingsNamespace*/SelfOuter* self, PWSTR Path, ISettingsItem** Setting) GetSettingByPath;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISettingsNamespace*/SelfOuter* self, PWSTR Path, ISettingsItem** Setting) CreateSettingByPath;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISettingsNamespace*/SelfOuter* self, PWSTR Path) RemoveSettingByPath;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISettingsNamespace*/SelfOuter* self, PWSTR Name, VARIANT* Value) GetAttribute;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ISettingsIdentity** SettingsID) GetIdentity;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IItemEnumerator** Settings) Settings;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BOOL PushSettings, ISettingsResult** Result) Save;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR Path, ISettingsItem** Setting) GetSettingByPath;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR Path, ISettingsItem** Setting) CreateSettingByPath;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR Path) RemoveSettingByPath;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR Name, VARIANT* Value) GetAttribute;
 	}
 
 
@@ -512,12 +512,12 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISettingsResult*/SelfOuter* self, BSTR* description) GetDescription;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISettingsResult*/SelfOuter* self, HRESULT* hrOut) GetErrorCode;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISettingsResult*/SelfOuter* self, BSTR* description) GetContextDescription;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISettingsResult*/SelfOuter* self, uint32* dwLine) GetLine;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISettingsResult*/SelfOuter* self, uint32* dwColumn) GetColumn;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISettingsResult*/SelfOuter* self, BSTR* file) GetSource;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* description) GetDescription;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HRESULT* hrOut) GetErrorCode;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* description) GetContextDescription;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* dwLine) GetLine;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* dwColumn) GetColumn;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* file) GetSource;
 	}
 
 
@@ -542,13 +542,13 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISettingsContext*/SelfOuter* self, IStream* pStream, ITargetInfo* pTarget) Serialize;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISettingsContext*/SelfOuter* self, IStream* pStream, ITargetInfo* pTarget, ISettingsResult*** pppResults, uint* pcResultCount) Deserialize;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISettingsContext*/SelfOuter* self, void* pUserData) SetUserData;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISettingsContext*/SelfOuter* self, void** pUserData) GetUserData;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISettingsContext*/SelfOuter* self, IItemEnumerator** ppNamespaceIds) GetNamespaces;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISettingsContext*/SelfOuter* self, ISettingsIdentity* pIdentity, IItemEnumerator** ppAddedSettings, IItemEnumerator** ppModifiedSettings, IItemEnumerator** ppDeletedSettings) GetStoredSettings;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISettingsContext*/SelfOuter* self, ISettingsIdentity* pIdentity, PWSTR pwzSetting) RevertSetting;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IStream* pStream, ITargetInfo* pTarget) Serialize;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IStream* pStream, ITargetInfo* pTarget, ISettingsResult*** pppResults, uint* pcResultCount) Deserialize;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, void* pUserData) SetUserData;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, void** pUserData) GetUserData;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IItemEnumerator** ppNamespaceIds) GetNamespaces;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ISettingsIdentity* pIdentity, IItemEnumerator** ppAddedSettings, IItemEnumerator** ppModifiedSettings, IItemEnumerator** ppDeletedSettings) GetStoredSettings;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ISettingsIdentity* pIdentity, PWSTR pwzSetting) RevertSetting;
 	}
 
 

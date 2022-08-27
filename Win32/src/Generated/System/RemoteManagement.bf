@@ -1590,10 +1590,10 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWSMan*/SelfOuter* self, BSTR connection, int32 flags, IDispatch* connectionOptions, IDispatch** session) CreateSession;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWSMan*/SelfOuter* self, IDispatch** connectionOptions) CreateConnectionOptions;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWSMan*/SelfOuter* self, BSTR* value) get_CommandLine;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWSMan*/SelfOuter* self, BSTR* value) get_Error;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR connection, int32 flags, IDispatch* connectionOptions, IDispatch** session) CreateSession;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IDispatch** connectionOptions) CreateConnectionOptions;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* value) get_CommandLine;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* value) get_Error;
 	}
 
 
@@ -1614,26 +1614,26 @@ public static
 
 	[CRepr]public struct VTable : IWSMan.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWSManEx*/SelfOuter* self, BSTR strResourceLocator, IDispatch** newResourceLocator) CreateResourceLocator;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWSManEx*/SelfOuter* self, int32* flags) SessionFlagUTF8;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWSManEx*/SelfOuter* self, int32* flags) SessionFlagCredUsernamePassword;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWSManEx*/SelfOuter* self, int32* flags) SessionFlagSkipCACheck;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWSManEx*/SelfOuter* self, int32* flags) SessionFlagSkipCNCheck;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWSManEx*/SelfOuter* self, int32* flags) SessionFlagUseDigest;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWSManEx*/SelfOuter* self, int32* flags) SessionFlagUseNegotiate;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWSManEx*/SelfOuter* self, int32* flags) SessionFlagUseBasic;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWSManEx*/SelfOuter* self, int32* flags) SessionFlagUseKerberos;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWSManEx*/SelfOuter* self, int32* flags) SessionFlagNoEncryption;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWSManEx*/SelfOuter* self, int32* flags) SessionFlagEnableSPNServerPort;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWSManEx*/SelfOuter* self, int32* flags) SessionFlagUseNoAuthentication;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWSManEx*/SelfOuter* self, int32* flags) EnumerationFlagNonXmlText;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWSManEx*/SelfOuter* self, int32* flags) EnumerationFlagReturnEPR;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWSManEx*/SelfOuter* self, int32* flags) EnumerationFlagReturnObjectAndEPR;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWSManEx*/SelfOuter* self, uint32 errorNumber, BSTR* errorMessage) GetErrorMessage;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWSManEx*/SelfOuter* self, int32* flags) EnumerationFlagHierarchyDeep;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWSManEx*/SelfOuter* self, int32* flags) EnumerationFlagHierarchyShallow;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWSManEx*/SelfOuter* self, int32* flags) EnumerationFlagHierarchyDeepBasePropsOnly;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWSManEx*/SelfOuter* self, int32* flags) EnumerationFlagReturnObject;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR strResourceLocator, IDispatch** newResourceLocator) CreateResourceLocator;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* flags) SessionFlagUTF8;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* flags) SessionFlagCredUsernamePassword;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* flags) SessionFlagSkipCACheck;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* flags) SessionFlagSkipCNCheck;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* flags) SessionFlagUseDigest;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* flags) SessionFlagUseNegotiate;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* flags) SessionFlagUseBasic;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* flags) SessionFlagUseKerberos;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* flags) SessionFlagNoEncryption;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* flags) SessionFlagEnableSPNServerPort;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* flags) SessionFlagUseNoAuthentication;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* flags) EnumerationFlagNonXmlText;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* flags) EnumerationFlagReturnEPR;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* flags) EnumerationFlagReturnObjectAndEPR;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 errorNumber, BSTR* errorMessage) GetErrorMessage;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* flags) EnumerationFlagHierarchyDeep;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* flags) EnumerationFlagHierarchyShallow;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* flags) EnumerationFlagHierarchyDeepBasePropsOnly;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* flags) EnumerationFlagReturnObject;
 	}
 
 
@@ -1686,7 +1686,7 @@ public static
 
 	[CRepr]public struct VTable : IWSManEx.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWSManEx2*/SelfOuter* self, int32* flags) SessionFlagUseClientCertificate;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* flags) SessionFlagUseClientCertificate;
 	}
 
 
@@ -1701,13 +1701,13 @@ public static
 
 	[CRepr]public struct VTable : IWSManEx2.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWSManEx3*/SelfOuter* self, int32* flags) SessionFlagUTF16;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWSManEx3*/SelfOuter* self, int32* flags) SessionFlagUseCredSsp;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWSManEx3*/SelfOuter* self, int32* flags) EnumerationFlagAssociationInstance;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWSManEx3*/SelfOuter* self, int32* flags) EnumerationFlagAssociatedInstance;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWSManEx3*/SelfOuter* self, int32* flags) SessionFlagSkipRevocationCheck;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWSManEx3*/SelfOuter* self, int32* flags) SessionFlagAllowNegotiateImplicitCredentials;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWSManEx3*/SelfOuter* self, int32* flags) SessionFlagUseSsl;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* flags) SessionFlagUTF16;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* flags) SessionFlagUseCredSsp;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* flags) EnumerationFlagAssociationInstance;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* flags) EnumerationFlagAssociatedInstance;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* flags) SessionFlagSkipRevocationCheck;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* flags) SessionFlagAllowNegotiateImplicitCredentials;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* flags) SessionFlagUseSsl;
 	}
 
 
@@ -1734,9 +1734,9 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWSManConnectionOptions*/SelfOuter* self, BSTR* name) get_UserName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWSManConnectionOptions*/SelfOuter* self, BSTR name) put_UserName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWSManConnectionOptions*/SelfOuter* self, BSTR password) put_Password;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* name) get_UserName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR name) put_UserName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR password) put_Password;
 	}
 
 
@@ -1755,8 +1755,8 @@ public static
 
 	[CRepr]public struct VTable : IWSManConnectionOptions.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWSManConnectionOptionsEx*/SelfOuter* self, BSTR* thumbprint) get_CertificateThumbprint;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWSManConnectionOptionsEx*/SelfOuter* self, BSTR thumbprint) put_CertificateThumbprint;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* thumbprint) get_CertificateThumbprint;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR thumbprint) put_CertificateThumbprint;
 	}
 
 
@@ -1773,14 +1773,14 @@ public static
 
 	[CRepr]public struct VTable : IWSManConnectionOptionsEx.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWSManConnectionOptionsEx2*/SelfOuter* self, int32 accessType, int32 authenticationMechanism, BSTR userName, BSTR password) SetProxy;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWSManConnectionOptionsEx2*/SelfOuter* self, int32* value) ProxyIEConfig;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWSManConnectionOptionsEx2*/SelfOuter* self, int32* value) ProxyWinHttpConfig;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWSManConnectionOptionsEx2*/SelfOuter* self, int32* value) ProxyAutoDetect;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWSManConnectionOptionsEx2*/SelfOuter* self, int32* value) ProxyNoProxyServer;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWSManConnectionOptionsEx2*/SelfOuter* self, int32* value) ProxyAuthenticationUseNegotiate;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWSManConnectionOptionsEx2*/SelfOuter* self, int32* value) ProxyAuthenticationUseBasic;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWSManConnectionOptionsEx2*/SelfOuter* self, int32* value) ProxyAuthenticationUseDigest;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 accessType, int32 authenticationMechanism, BSTR userName, BSTR password) SetProxy;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* value) ProxyIEConfig;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* value) ProxyWinHttpConfig;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* value) ProxyAutoDetect;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* value) ProxyNoProxyServer;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* value) ProxyAuthenticationUseNegotiate;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* value) ProxyAuthenticationUseBasic;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* value) ProxyAuthenticationUseDigest;
 	}
 
 
@@ -1809,18 +1809,18 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWSManSession*/SelfOuter* self, VARIANT resourceUri, int32 flags, BSTR* resource) Get;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWSManSession*/SelfOuter* self, VARIANT resourceUri, BSTR resource, int32 flags, BSTR* resultResource) Put;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWSManSession*/SelfOuter* self, VARIANT resourceUri, BSTR resource, int32 flags, BSTR* newUri) Create;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWSManSession*/SelfOuter* self, VARIANT resourceUri, int32 flags) Delete;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWSManSession*/SelfOuter* self, BSTR actionUri, VARIANT resourceUri, BSTR parameters, int32 flags, BSTR* result) Invoke;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWSManSession*/SelfOuter* self, VARIANT resourceUri, BSTR filter, BSTR dialect, int32 flags, IDispatch** resultSet) Enumerate;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWSManSession*/SelfOuter* self, int32 flags, BSTR* result) Identify;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWSManSession*/SelfOuter* self, BSTR* value) get_Error;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWSManSession*/SelfOuter* self, int32* value) get_BatchItems;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWSManSession*/SelfOuter* self, int32 value) put_BatchItems;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWSManSession*/SelfOuter* self, int32* value) get_Timeout;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWSManSession*/SelfOuter* self, int32 value) put_Timeout;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT resourceUri, int32 flags, BSTR* resource) Get;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT resourceUri, BSTR resource, int32 flags, BSTR* resultResource) Put;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT resourceUri, BSTR resource, int32 flags, BSTR* newUri) Create;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT resourceUri, int32 flags) Delete;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR actionUri, VARIANT resourceUri, BSTR parameters, int32 flags, BSTR* result) Invoke;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT resourceUri, BSTR filter, BSTR dialect, int32 flags, IDispatch** resultSet) Enumerate;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 flags, BSTR* result) Identify;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* value) get_Error;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* value) get_BatchItems;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 value) put_BatchItems;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* value) get_Timeout;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 value) put_Timeout;
 	}
 
 
@@ -1857,9 +1857,9 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWSManEnumerator*/SelfOuter* self, BSTR* resource) ReadItem;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWSManEnumerator*/SelfOuter* self, int16* eos) get_AtEndOfStream;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWSManEnumerator*/SelfOuter* self, BSTR* value) get_Error;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* resource) ReadItem;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* eos) get_AtEndOfStream;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* value) get_Error;
 	}
 
 
@@ -1878,19 +1878,19 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWSManResourceLocator*/SelfOuter* self, BSTR uri) put_ResourceURI;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWSManResourceLocator*/SelfOuter* self, BSTR* uri) get_ResourceURI;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWSManResourceLocator*/SelfOuter* self, BSTR resourceSelName, VARIANT selValue) AddSelector;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWSManResourceLocator*/SelfOuter* self) ClearSelectors;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWSManResourceLocator*/SelfOuter* self, BSTR* text) get_FragmentPath;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWSManResourceLocator*/SelfOuter* self, BSTR text) put_FragmentPath;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWSManResourceLocator*/SelfOuter* self, BSTR* text) get_FragmentDialect;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWSManResourceLocator*/SelfOuter* self, BSTR text) put_FragmentDialect;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWSManResourceLocator*/SelfOuter* self, BSTR OptionName, VARIANT OptionValue, BOOL mustComply) AddOption;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWSManResourceLocator*/SelfOuter* self, BOOL mustUnderstand) put_MustUnderstandOptions;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWSManResourceLocator*/SelfOuter* self, BOOL* mustUnderstand) get_MustUnderstandOptions;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWSManResourceLocator*/SelfOuter* self) ClearOptions;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWSManResourceLocator*/SelfOuter* self, BSTR* value) get_Error;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR uri) put_ResourceURI;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* uri) get_ResourceURI;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR resourceSelName, VARIANT selValue) AddSelector;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) ClearSelectors;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* text) get_FragmentPath;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR text) put_FragmentPath;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* text) get_FragmentDialect;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR text) put_FragmentDialect;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR OptionName, VARIANT OptionValue, BOOL mustComply) AddOption;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BOOL mustUnderstand) put_MustUnderstandOptions;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BOOL* mustUnderstand) get_MustUnderstandOptions;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) ClearOptions;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* value) get_Error;
 	}
 
 
@@ -1941,7 +1941,7 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWSManInternal*/SelfOuter* self, IDispatch* session, VARIANT resourceUri, int32 flags, BSTR* resource) ConfigSDDL;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IDispatch* session, VARIANT resourceUri, int32 flags, BSTR* resource) ConfigSDDL;
 	}
 
 

@@ -142,10 +142,10 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGameExplorer*/SelfOuter* self, BSTR bstrGDFBinaryPath, BSTR bstrGameInstallDirectory, GAME_INSTALL_SCOPE installScope, ref Guid pguidInstanceID) AddGame;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGameExplorer*/SelfOuter* self, Guid guidInstanceID) RemoveGame;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGameExplorer*/SelfOuter* self, Guid guidInstanceID) UpdateGame;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGameExplorer*/SelfOuter* self, BSTR bstrGDFBinaryPath, BOOL* pfHasAccess) VerifyAccess;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrGDFBinaryPath, BSTR bstrGameInstallDirectory, GAME_INSTALL_SCOPE installScope, ref Guid pguidInstanceID) AddGame;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, Guid guidInstanceID) RemoveGame;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, Guid guidInstanceID) UpdateGame;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrGDFBinaryPath, BOOL* pfHasAccess) VerifyAccess;
 	}
 
 
@@ -166,18 +166,18 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGameStatistics*/SelfOuter* self, uint32* cch) GetMaxCategoryLength;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGameStatistics*/SelfOuter* self, uint32* cch) GetMaxNameLength;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGameStatistics*/SelfOuter* self, uint32* cch) GetMaxValueLength;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGameStatistics*/SelfOuter* self, uint16* pMax) GetMaxCategories;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGameStatistics*/SelfOuter* self, uint16* pMax) GetMaxStatsPerCategory;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGameStatistics*/SelfOuter* self, uint16 categoryIndex, PWSTR title) SetCategoryTitle;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGameStatistics*/SelfOuter* self, uint16 categoryIndex, PWSTR* pTitle) GetCategoryTitle;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGameStatistics*/SelfOuter* self, uint16 categoryIndex, uint16 statIndex, PWSTR* pName, PWSTR* pValue) GetStatistic;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGameStatistics*/SelfOuter* self, uint16 categoryIndex, uint16 statIndex, PWSTR name, PWSTR value) SetStatistic;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGameStatistics*/SelfOuter* self, BOOL trackChanges) Save;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGameStatistics*/SelfOuter* self, uint32 categoryIndex) SetLastPlayedCategory;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGameStatistics*/SelfOuter* self, uint32* pCategoryIndex) GetLastPlayedCategory;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* cch) GetMaxCategoryLength;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* cch) GetMaxNameLength;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* cch) GetMaxValueLength;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint16* pMax) GetMaxCategories;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint16* pMax) GetMaxStatsPerCategory;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint16 categoryIndex, PWSTR title) SetCategoryTitle;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint16 categoryIndex, PWSTR* pTitle) GetCategoryTitle;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint16 categoryIndex, uint16 statIndex, PWSTR* pName, PWSTR* pValue) GetStatistic;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint16 categoryIndex, uint16 statIndex, PWSTR name, PWSTR value) SetStatistic;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BOOL trackChanges) Save;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 categoryIndex) SetLastPlayedCategory;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pCategoryIndex) GetLastPlayedCategory;
 	}
 
 
@@ -214,8 +214,8 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGameStatisticsMgr*/SelfOuter* self, PWSTR GDFBinaryPath, GAMESTATS_OPEN_TYPE openType, GAMESTATS_OPEN_RESULT* pOpenResult, IGameStatistics** ppiStats) GetGameStatistics;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGameStatisticsMgr*/SelfOuter* self, PWSTR GDFBinaryPath) RemoveGameStatistics;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR GDFBinaryPath, GAMESTATS_OPEN_TYPE openType, GAMESTATS_OPEN_RESULT* pOpenResult, IGameStatistics** ppiStats) GetGameStatistics;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR GDFBinaryPath) RemoveGameStatistics;
 	}
 
 
@@ -232,9 +232,9 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGameExplorer2*/SelfOuter* self, PWSTR binaryGDFPath, PWSTR installDirectory, GAME_INSTALL_SCOPE installScope) InstallGame;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGameExplorer2*/SelfOuter* self, PWSTR binaryGDFPath) UninstallGame;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGameExplorer2*/SelfOuter* self, PWSTR binaryGDFPath, BOOL* pHasAccess) CheckAccess;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR binaryGDFPath, PWSTR installDirectory, GAME_INSTALL_SCOPE installScope) InstallGame;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR binaryGDFPath) UninstallGame;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR binaryGDFPath, BOOL* pHasAccess) CheckAccess;
 	}
 
 
@@ -253,12 +253,12 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXblIdpAuthManager*/SelfOuter* self, PWSTR msaAccountId, PWSTR xuid) SetGamerAccount;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXblIdpAuthManager*/SelfOuter* self, PWSTR* msaAccountId, PWSTR* xuid) GetGamerAccount;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXblIdpAuthManager*/SelfOuter* self, PWSTR appSid, PWSTR msaAccountId) SetAppViewInitialized;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXblIdpAuthManager*/SelfOuter* self, PWSTR* environment) GetEnvironment;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXblIdpAuthManager*/SelfOuter* self, PWSTR* sandbox) GetSandbox;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXblIdpAuthManager*/SelfOuter* self, PWSTR msaAccountId, PWSTR appSid, PWSTR msaTarget, PWSTR msaPolicy, PWSTR httpMethod, PWSTR uri, PWSTR headers, uint8* body, uint32 bodySize, BOOL forceRefresh, IXblIdpAuthTokenResult** result) GetTokenAndSignatureWithTokenResult;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR msaAccountId, PWSTR xuid) SetGamerAccount;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR* msaAccountId, PWSTR* xuid) GetGamerAccount;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR appSid, PWSTR msaAccountId) SetAppViewInitialized;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR* environment) GetEnvironment;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR* sandbox) GetSandbox;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR msaAccountId, PWSTR appSid, PWSTR msaTarget, PWSTR msaPolicy, PWSTR httpMethod, PWSTR uri, PWSTR headers, uint8* body, uint32 bodySize, BOOL forceRefresh, IXblIdpAuthTokenResult** result) GetTokenAndSignatureWithTokenResult;
 	}
 
 
@@ -283,26 +283,26 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXblIdpAuthTokenResult*/SelfOuter* self, XBL_IDP_AUTH_TOKEN_STATUS* status) GetStatus;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXblIdpAuthTokenResult*/SelfOuter* self, HRESULT* errorCode) GetErrorCode;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXblIdpAuthTokenResult*/SelfOuter* self, PWSTR* token) GetToken;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXblIdpAuthTokenResult*/SelfOuter* self, PWSTR* signature) GetSignature;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXblIdpAuthTokenResult*/SelfOuter* self, PWSTR* sandbox) GetSandbox;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXblIdpAuthTokenResult*/SelfOuter* self, PWSTR* environment) GetEnvironment;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXblIdpAuthTokenResult*/SelfOuter* self, PWSTR* msaAccountId) GetMsaAccountId;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXblIdpAuthTokenResult*/SelfOuter* self, PWSTR* xuid) GetXuid;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXblIdpAuthTokenResult*/SelfOuter* self, PWSTR* gamertag) GetGamertag;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXblIdpAuthTokenResult*/SelfOuter* self, PWSTR* ageGroup) GetAgeGroup;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXblIdpAuthTokenResult*/SelfOuter* self, PWSTR* privileges) GetPrivileges;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXblIdpAuthTokenResult*/SelfOuter* self, PWSTR* msaTarget) GetMsaTarget;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXblIdpAuthTokenResult*/SelfOuter* self, PWSTR* msaPolicy) GetMsaPolicy;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXblIdpAuthTokenResult*/SelfOuter* self, PWSTR* msaAppId) GetMsaAppId;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXblIdpAuthTokenResult*/SelfOuter* self, PWSTR* redirect) GetRedirect;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXblIdpAuthTokenResult*/SelfOuter* self, PWSTR* message) GetMessage;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXblIdpAuthTokenResult*/SelfOuter* self, PWSTR* helpId) GetHelpId;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXblIdpAuthTokenResult*/SelfOuter* self, PWSTR* enforcementBans) GetEnforcementBans;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXblIdpAuthTokenResult*/SelfOuter* self, PWSTR* restrictions) GetRestrictions;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXblIdpAuthTokenResult*/SelfOuter* self, PWSTR* titleRestrictions) GetTitleRestrictions;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, XBL_IDP_AUTH_TOKEN_STATUS* status) GetStatus;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HRESULT* errorCode) GetErrorCode;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR* token) GetToken;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR* signature) GetSignature;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR* sandbox) GetSandbox;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR* environment) GetEnvironment;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR* msaAccountId) GetMsaAccountId;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR* xuid) GetXuid;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR* gamertag) GetGamertag;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR* ageGroup) GetAgeGroup;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR* privileges) GetPrivileges;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR* msaTarget) GetMsaTarget;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR* msaPolicy) GetMsaPolicy;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR* msaAppId) GetMsaAppId;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR* redirect) GetRedirect;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR* message) GetMessage;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR* helpId) GetHelpId;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR* enforcementBans) GetEnforcementBans;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR* restrictions) GetRestrictions;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR* titleRestrictions) GetTitleRestrictions;
 	}
 
 
@@ -355,9 +355,9 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXblIdpAuthTokenResult2*/SelfOuter* self, PWSTR* value) GetModernGamertag;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXblIdpAuthTokenResult2*/SelfOuter* self, PWSTR* value) GetModernGamertagSuffix;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXblIdpAuthTokenResult2*/SelfOuter* self, PWSTR* value) GetUniqueModernGamertag;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR* value) GetModernGamertag;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR* value) GetModernGamertagSuffix;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR* value) GetUniqueModernGamertag;
 	}
 
 

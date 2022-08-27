@@ -46,7 +46,7 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkCommitRequestHandler*/SelfOuter* self) OnCommitRequested;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) OnCommitRequested;
 	}
 
 
@@ -61,11 +61,11 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkPresenterDesktop*/SelfOuter* self, IUnknown* rootVisual, IUnknown* device) SetRootVisual;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkPresenterDesktop*/SelfOuter* self, IInkCommitRequestHandler* handler) SetCommitRequestHandler;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkPresenterDesktop*/SelfOuter* self, float* width, float* height) GetSize;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkPresenterDesktop*/SelfOuter* self, float width, float height) SetSize;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkPresenterDesktop*/SelfOuter* self) OnHighContrastChanged;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IUnknown* rootVisual, IUnknown* device) SetRootVisual;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IInkCommitRequestHandler* handler) SetCommitRequestHandler;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, float* width, float* height) GetSize;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, float width, float height) SetSize;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) OnHighContrastChanged;
 	}
 
 
@@ -88,7 +88,7 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkHostWorkItem*/SelfOuter* self) Invoke;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Invoke;
 	}
 
 
@@ -103,9 +103,9 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkDesktopHost*/SelfOuter* self, IInkHostWorkItem* workItem) QueueWorkItem;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkDesktopHost*/SelfOuter* self, ref Guid riid, void** ppv) CreateInkPresenter;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkDesktopHost*/SelfOuter* self, IUnknown* rootVisual, float width, float height, ref Guid riid, void** ppv) CreateAndInitializeInkPresenter;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IInkHostWorkItem* workItem) QueueWorkItem;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid riid, void** ppv) CreateInkPresenter;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IUnknown* rootVisual, float width, float height, ref Guid riid, void** ppv) CreateAndInitializeInkPresenter;
 	}
 
 
@@ -124,7 +124,7 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkD2DRenderer*/SelfOuter* self, IUnknown* pD2D1DeviceContext, IUnknown* pInkStrokeIterable, BOOL fHighContrast) Draw;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IUnknown* pD2D1DeviceContext, IUnknown* pInkStrokeIterable, BOOL fHighContrast) Draw;
 	}
 
 
@@ -139,7 +139,7 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInkD2DRenderer2*/SelfOuter* self, IUnknown* pD2D1DeviceContext, IUnknown* pInkStrokeIterable, INK_HIGH_CONTRAST_ADJUSTMENT highContrastAdjustment) Draw;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IUnknown* pD2D1DeviceContext, IUnknown* pInkStrokeIterable, INK_HIGH_CONTRAST_ADJUSTMENT highContrastAdjustment) Draw;
 	}
 
 

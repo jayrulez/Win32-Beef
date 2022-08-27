@@ -7781,35 +7781,35 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IImageList*/SelfOuter* self, HBITMAP hbmImage, HBITMAP hbmMask, int32* pi) Add;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IImageList*/SelfOuter* self, int32 i, HICON hicon, int32* pi) ReplaceIcon;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IImageList*/SelfOuter* self, int32 iImage, int32 iOverlay) SetOverlayImage;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IImageList*/SelfOuter* self, int32 i, HBITMAP hbmImage, HBITMAP hbmMask) Replace;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IImageList*/SelfOuter* self, HBITMAP hbmImage, uint32 crMask, int32* pi) AddMasked;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IImageList*/SelfOuter* self, IMAGELISTDRAWPARAMS* pimldp) Draw;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IImageList*/SelfOuter* self, int32 i) Remove;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IImageList*/SelfOuter* self, int32 i, uint32 flags, HICON* picon) GetIcon;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IImageList*/SelfOuter* self, int32 i, IMAGEINFO* pImageInfo) GetImageInfo;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IImageList*/SelfOuter* self, int32 iDst, IUnknown* punkSrc, int32 iSrc, uint32 uFlags) Copy;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IImageList*/SelfOuter* self, int32 i1, IUnknown* punk2, int32 i2, int32 dx, int32 dy, ref Guid riid, void** ppv) Merge;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IImageList*/SelfOuter* self, ref Guid riid, void** ppv) Clone;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IImageList*/SelfOuter* self, int32 i, RECT* prc) GetImageRect;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IImageList*/SelfOuter* self, int32* cx, int32* cy) GetIconSize;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IImageList*/SelfOuter* self, int32 cx, int32 cy) SetIconSize;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IImageList*/SelfOuter* self, int32* pi) GetImageCount;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IImageList*/SelfOuter* self, uint32 uNewCount) SetImageCount;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IImageList*/SelfOuter* self, uint32 clrBk, uint32* pclr) SetBkColor;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IImageList*/SelfOuter* self, uint32* pclr) GetBkColor;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IImageList*/SelfOuter* self, int32 iTrack, int32 dxHotspot, int32 dyHotspot) BeginDrag;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IImageList*/SelfOuter* self) EndDrag;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IImageList*/SelfOuter* self, HWND hwndLock, int32 x, int32 y) DragEnter;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IImageList*/SelfOuter* self, HWND hwndLock) DragLeave;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IImageList*/SelfOuter* self, int32 x, int32 y) DragMove;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IImageList*/SelfOuter* self, IUnknown* punk, int32 iDrag, int32 dxHotspot, int32 dyHotspot) SetDragCursorImage;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IImageList*/SelfOuter* self, BOOL fShow) DragShowNolock;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IImageList*/SelfOuter* self, POINT* ppt, POINT* pptHotspot, ref Guid riid, void** ppv) GetDragImage;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IImageList*/SelfOuter* self, int32 i, IMAGE_LIST_ITEM_FLAGS* dwFlags) GetItemFlags;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IImageList*/SelfOuter* self, int32 iOverlay, int32* piIndex) GetOverlayImage;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HBITMAP hbmImage, HBITMAP hbmMask, int32* pi) Add;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 i, HICON hicon, int32* pi) ReplaceIcon;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 iImage, int32 iOverlay) SetOverlayImage;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 i, HBITMAP hbmImage, HBITMAP hbmMask) Replace;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HBITMAP hbmImage, uint32 crMask, int32* pi) AddMasked;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IMAGELISTDRAWPARAMS* pimldp) Draw;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 i) Remove;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 i, uint32 flags, HICON* picon) GetIcon;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 i, IMAGEINFO* pImageInfo) GetImageInfo;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 iDst, IUnknown* punkSrc, int32 iSrc, uint32 uFlags) Copy;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 i1, IUnknown* punk2, int32 i2, int32 dx, int32 dy, ref Guid riid, void** ppv) Merge;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid riid, void** ppv) Clone;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 i, RECT* prc) GetImageRect;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* cx, int32* cy) GetIconSize;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 cx, int32 cy) SetIconSize;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* pi) GetImageCount;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 uNewCount) SetImageCount;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 clrBk, uint32* pclr) SetBkColor;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pclr) GetBkColor;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 iTrack, int32 dxHotspot, int32 dyHotspot) BeginDrag;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) EndDrag;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HWND hwndLock, int32 x, int32 y) DragEnter;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HWND hwndLock) DragLeave;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 x, int32 y) DragMove;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IUnknown* punk, int32 iDrag, int32 dxHotspot, int32 dyHotspot) SetDragCursorImage;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BOOL fShow) DragShowNolock;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, POINT* ppt, POINT* pptHotspot, ref Guid riid, void** ppv) GetDragImage;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 i, IMAGE_LIST_ITEM_FLAGS* dwFlags) GetItemFlags;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 iOverlay, int32* piIndex) GetOverlayImage;
 	}
 
 
@@ -7880,18 +7880,18 @@ public static
 
 	[CRepr]public struct VTable : IImageList.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IImageList2*/SelfOuter* self, int32 cxNewIconSize, int32 cyNewIconSize) Resize;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IImageList2*/SelfOuter* self, int32 iImage, uint32 dwFlags, int32* pcx, int32* pcy) GetOriginalSize;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IImageList2*/SelfOuter* self, int32 iImage, int32 cx, int32 cy) SetOriginalSize;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IImageList2*/SelfOuter* self, IUnknown* punk) SetCallback;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IImageList2*/SelfOuter* self, ref Guid riid, void** ppv) GetCallback;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IImageList2*/SelfOuter* self, int32 iImage, uint32 dwFlags) ForceImagePresent;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IImageList2*/SelfOuter* self, int32 iFirstImage, int32 iLastImage, uint32 dwFlags) DiscardImages;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IImageList2*/SelfOuter* self, IMAGELISTDRAWPARAMS* pimldp) PreloadImages;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IImageList2*/SelfOuter* self, IMAGELISTSTATS* pils) GetStatistics;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IImageList2*/SelfOuter* self, int32 cx, int32 cy, IMAGELIST_CREATION_FLAGS flags, int32 cInitial, int32 cGrow) Initialize;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IImageList2*/SelfOuter* self, int32 i, HBITMAP hbmImage, HBITMAP hbmMask, IUnknown* punk, uint32 dwFlags) Replace2;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IImageList2*/SelfOuter* self, int32 i, UI.Controls.IImageList* pil, int32 iSrc, IUnknown* punk, uint32 dwFlags) ReplaceFromImageList;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 cxNewIconSize, int32 cyNewIconSize) Resize;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 iImage, uint32 dwFlags, int32* pcx, int32* pcy) GetOriginalSize;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 iImage, int32 cx, int32 cy) SetOriginalSize;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IUnknown* punk) SetCallback;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid riid, void** ppv) GetCallback;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 iImage, uint32 dwFlags) ForceImagePresent;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 iFirstImage, int32 iLastImage, uint32 dwFlags) DiscardImages;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IMAGELISTDRAWPARAMS* pimldp) PreloadImages;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IMAGELISTSTATS* pils) GetStatistics;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 cx, int32 cy, IMAGELIST_CREATION_FLAGS flags, int32 cInitial, int32 cGrow) Initialize;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 i, HBITMAP hbmImage, HBITMAP hbmMask, IUnknown* punk, uint32 dwFlags) Replace2;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 i, UI.Controls.IImageList* pil, int32 iSrc, IUnknown* punk, uint32 dwFlags) ReplaceFromImageList;
 	}
 
 

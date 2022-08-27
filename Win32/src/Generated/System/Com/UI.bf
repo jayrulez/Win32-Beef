@@ -34,8 +34,8 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IThumbnailExtractor*/SelfOuter* self, IStorage* pStg, uint32 ulLength, uint32 ulHeight, uint32* pulOutputLength, uint32* pulOutputHeight, HBITMAP* phOutputBitmap) ExtractThumbnail;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IThumbnailExtractor*/SelfOuter* self, IStorage* pStg) OnFileUpdated;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IStorage* pStg, uint32 ulLength, uint32 ulHeight, uint32* pulOutputLength, uint32* pulOutputHeight, HBITMAP* phOutputBitmap) ExtractThumbnail;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IStorage* pStg) OnFileUpdated;
 	}
 
 
@@ -52,7 +52,7 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDummyHICONIncluder*/SelfOuter* self, HICON h1, HDC h2) Dummy;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HICON h1, HDC h2) Dummy;
 	}
 
 

@@ -923,7 +923,7 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQQuery*/SelfOuter* self, VARIANT* QueueGuid, VARIANT* ServiceTypeGuid, VARIANT* Label, VARIANT* CreateTime, VARIANT* ModifyTime, VARIANT* RelServiceType, VARIANT* RelLabel, VARIANT* RelCreateTime, VARIANT* RelModifyTime, IMSMQQueueInfos** ppqinfos) LookupQueue;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT* QueueGuid, VARIANT* ServiceTypeGuid, VARIANT* Label, VARIANT* CreateTime, VARIANT* ModifyTime, VARIANT* RelServiceType, VARIANT* RelLabel, VARIANT* RelCreateTime, VARIANT* RelModifyTime, IMSMQQueueInfos** ppqinfos) LookupQueue;
 	}
 
 
@@ -938,36 +938,36 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQQueueInfo*/SelfOuter* self, BSTR* pbstrGuidQueue) get_QueueGuid;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQQueueInfo*/SelfOuter* self, BSTR* pbstrGuidServiceType) get_ServiceTypeGuid;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQQueueInfo*/SelfOuter* self, BSTR bstrGuidServiceType) put_ServiceTypeGuid;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQQueueInfo*/SelfOuter* self, BSTR* pbstrLabel) get_Label;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQQueueInfo*/SelfOuter* self, BSTR bstrLabel) put_Label;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQQueueInfo*/SelfOuter* self, BSTR* pbstrPathName) get_PathName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQQueueInfo*/SelfOuter* self, BSTR bstrPathName) put_PathName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQQueueInfo*/SelfOuter* self, BSTR* pbstrFormatName) get_FormatName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQQueueInfo*/SelfOuter* self, BSTR bstrFormatName) put_FormatName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQQueueInfo*/SelfOuter* self, int16* pisTransactional) get_IsTransactional;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQQueueInfo*/SelfOuter* self, int32* plPrivLevel) get_PrivLevel;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQQueueInfo*/SelfOuter* self, int32 lPrivLevel) put_PrivLevel;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQQueueInfo*/SelfOuter* self, int32* plJournal) get_Journal;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQQueueInfo*/SelfOuter* self, int32 lJournal) put_Journal;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQQueueInfo*/SelfOuter* self, int32* plQuota) get_Quota;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQQueueInfo*/SelfOuter* self, int32 lQuota) put_Quota;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQQueueInfo*/SelfOuter* self, int32* plBasePriority) get_BasePriority;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQQueueInfo*/SelfOuter* self, int32 lBasePriority) put_BasePriority;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQQueueInfo*/SelfOuter* self, VARIANT* pvarCreateTime) get_CreateTime;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQQueueInfo*/SelfOuter* self, VARIANT* pvarModifyTime) get_ModifyTime;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQQueueInfo*/SelfOuter* self, int32* plAuthenticate) get_Authenticate;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQQueueInfo*/SelfOuter* self, int32 lAuthenticate) put_Authenticate;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQQueueInfo*/SelfOuter* self, int32* plJournalQuota) get_JournalQuota;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQQueueInfo*/SelfOuter* self, int32 lJournalQuota) put_JournalQuota;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQQueueInfo*/SelfOuter* self, int16* pisWorldReadable) get_IsWorldReadable;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQQueueInfo*/SelfOuter* self, VARIANT* IsTransactional, VARIANT* IsWorldReadable) Create;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQQueueInfo*/SelfOuter* self) Delete;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQQueueInfo*/SelfOuter* self, int32 Access, int32 ShareMode, IMSMQQueue** ppq) Open;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQQueueInfo*/SelfOuter* self) Refresh;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQQueueInfo*/SelfOuter* self) Update;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pbstrGuidQueue) get_QueueGuid;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pbstrGuidServiceType) get_ServiceTypeGuid;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrGuidServiceType) put_ServiceTypeGuid;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pbstrLabel) get_Label;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrLabel) put_Label;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pbstrPathName) get_PathName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrPathName) put_PathName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pbstrFormatName) get_FormatName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrFormatName) put_FormatName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* pisTransactional) get_IsTransactional;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* plPrivLevel) get_PrivLevel;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 lPrivLevel) put_PrivLevel;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* plJournal) get_Journal;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 lJournal) put_Journal;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* plQuota) get_Quota;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 lQuota) put_Quota;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* plBasePriority) get_BasePriority;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 lBasePriority) put_BasePriority;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT* pvarCreateTime) get_CreateTime;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT* pvarModifyTime) get_ModifyTime;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* plAuthenticate) get_Authenticate;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 lAuthenticate) put_Authenticate;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* plJournalQuota) get_JournalQuota;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 lJournalQuota) put_JournalQuota;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* pisWorldReadable) get_IsWorldReadable;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT* IsTransactional, VARIANT* IsWorldReadable) Create;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Delete;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 Access, int32 ShareMode, IMSMQQueue** ppq) Open;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Refresh;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Update;
 	}
 
 
@@ -1040,40 +1040,40 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQQueueInfo2*/SelfOuter* self, BSTR* pbstrGuidQueue) get_QueueGuid;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQQueueInfo2*/SelfOuter* self, BSTR* pbstrGuidServiceType) get_ServiceTypeGuid;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQQueueInfo2*/SelfOuter* self, BSTR bstrGuidServiceType) put_ServiceTypeGuid;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQQueueInfo2*/SelfOuter* self, BSTR* pbstrLabel) get_Label;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQQueueInfo2*/SelfOuter* self, BSTR bstrLabel) put_Label;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQQueueInfo2*/SelfOuter* self, BSTR* pbstrPathName) get_PathName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQQueueInfo2*/SelfOuter* self, BSTR bstrPathName) put_PathName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQQueueInfo2*/SelfOuter* self, BSTR* pbstrFormatName) get_FormatName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQQueueInfo2*/SelfOuter* self, BSTR bstrFormatName) put_FormatName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQQueueInfo2*/SelfOuter* self, int16* pisTransactional) get_IsTransactional;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQQueueInfo2*/SelfOuter* self, int32* plPrivLevel) get_PrivLevel;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQQueueInfo2*/SelfOuter* self, int32 lPrivLevel) put_PrivLevel;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQQueueInfo2*/SelfOuter* self, int32* plJournal) get_Journal;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQQueueInfo2*/SelfOuter* self, int32 lJournal) put_Journal;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQQueueInfo2*/SelfOuter* self, int32* plQuota) get_Quota;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQQueueInfo2*/SelfOuter* self, int32 lQuota) put_Quota;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQQueueInfo2*/SelfOuter* self, int32* plBasePriority) get_BasePriority;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQQueueInfo2*/SelfOuter* self, int32 lBasePriority) put_BasePriority;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQQueueInfo2*/SelfOuter* self, VARIANT* pvarCreateTime) get_CreateTime;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQQueueInfo2*/SelfOuter* self, VARIANT* pvarModifyTime) get_ModifyTime;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQQueueInfo2*/SelfOuter* self, int32* plAuthenticate) get_Authenticate;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQQueueInfo2*/SelfOuter* self, int32 lAuthenticate) put_Authenticate;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQQueueInfo2*/SelfOuter* self, int32* plJournalQuota) get_JournalQuota;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQQueueInfo2*/SelfOuter* self, int32 lJournalQuota) put_JournalQuota;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQQueueInfo2*/SelfOuter* self, int16* pisWorldReadable) get_IsWorldReadable;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQQueueInfo2*/SelfOuter* self, VARIANT* IsTransactional, VARIANT* IsWorldReadable) Create;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQQueueInfo2*/SelfOuter* self) Delete;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQQueueInfo2*/SelfOuter* self, int32 Access, int32 ShareMode, IMSMQQueue2** ppq) Open;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQQueueInfo2*/SelfOuter* self) Refresh;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQQueueInfo2*/SelfOuter* self) Update;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQQueueInfo2*/SelfOuter* self, BSTR* pbstrPathNameDNS) get_PathNameDNS;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQQueueInfo2*/SelfOuter* self, IDispatch** ppcolProperties) get_Properties;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQQueueInfo2*/SelfOuter* self, VARIANT* pvarSecurity) get_Security;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQQueueInfo2*/SelfOuter* self, VARIANT varSecurity) put_Security;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pbstrGuidQueue) get_QueueGuid;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pbstrGuidServiceType) get_ServiceTypeGuid;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrGuidServiceType) put_ServiceTypeGuid;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pbstrLabel) get_Label;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrLabel) put_Label;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pbstrPathName) get_PathName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrPathName) put_PathName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pbstrFormatName) get_FormatName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrFormatName) put_FormatName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* pisTransactional) get_IsTransactional;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* plPrivLevel) get_PrivLevel;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 lPrivLevel) put_PrivLevel;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* plJournal) get_Journal;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 lJournal) put_Journal;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* plQuota) get_Quota;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 lQuota) put_Quota;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* plBasePriority) get_BasePriority;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 lBasePriority) put_BasePriority;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT* pvarCreateTime) get_CreateTime;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT* pvarModifyTime) get_ModifyTime;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* plAuthenticate) get_Authenticate;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 lAuthenticate) put_Authenticate;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* plJournalQuota) get_JournalQuota;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 lJournalQuota) put_JournalQuota;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* pisWorldReadable) get_IsWorldReadable;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT* IsTransactional, VARIANT* IsWorldReadable) Create;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Delete;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 Access, int32 ShareMode, IMSMQQueue2** ppq) Open;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Refresh;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Update;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pbstrPathNameDNS) get_PathNameDNS;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IDispatch** ppcolProperties) get_Properties;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT* pvarSecurity) get_Security;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT varSecurity) put_Security;
 	}
 
 
@@ -1154,45 +1154,45 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQQueueInfo3*/SelfOuter* self, BSTR* pbstrGuidQueue) get_QueueGuid;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQQueueInfo3*/SelfOuter* self, BSTR* pbstrGuidServiceType) get_ServiceTypeGuid;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQQueueInfo3*/SelfOuter* self, BSTR bstrGuidServiceType) put_ServiceTypeGuid;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQQueueInfo3*/SelfOuter* self, BSTR* pbstrLabel) get_Label;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQQueueInfo3*/SelfOuter* self, BSTR bstrLabel) put_Label;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQQueueInfo3*/SelfOuter* self, BSTR* pbstrPathName) get_PathName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQQueueInfo3*/SelfOuter* self, BSTR bstrPathName) put_PathName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQQueueInfo3*/SelfOuter* self, BSTR* pbstrFormatName) get_FormatName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQQueueInfo3*/SelfOuter* self, BSTR bstrFormatName) put_FormatName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQQueueInfo3*/SelfOuter* self, int16* pisTransactional) get_IsTransactional;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQQueueInfo3*/SelfOuter* self, int32* plPrivLevel) get_PrivLevel;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQQueueInfo3*/SelfOuter* self, int32 lPrivLevel) put_PrivLevel;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQQueueInfo3*/SelfOuter* self, int32* plJournal) get_Journal;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQQueueInfo3*/SelfOuter* self, int32 lJournal) put_Journal;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQQueueInfo3*/SelfOuter* self, int32* plQuota) get_Quota;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQQueueInfo3*/SelfOuter* self, int32 lQuota) put_Quota;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQQueueInfo3*/SelfOuter* self, int32* plBasePriority) get_BasePriority;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQQueueInfo3*/SelfOuter* self, int32 lBasePriority) put_BasePriority;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQQueueInfo3*/SelfOuter* self, VARIANT* pvarCreateTime) get_CreateTime;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQQueueInfo3*/SelfOuter* self, VARIANT* pvarModifyTime) get_ModifyTime;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQQueueInfo3*/SelfOuter* self, int32* plAuthenticate) get_Authenticate;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQQueueInfo3*/SelfOuter* self, int32 lAuthenticate) put_Authenticate;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQQueueInfo3*/SelfOuter* self, int32* plJournalQuota) get_JournalQuota;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQQueueInfo3*/SelfOuter* self, int32 lJournalQuota) put_JournalQuota;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQQueueInfo3*/SelfOuter* self, int16* pisWorldReadable) get_IsWorldReadable;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQQueueInfo3*/SelfOuter* self, VARIANT* IsTransactional, VARIANT* IsWorldReadable) Create;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQQueueInfo3*/SelfOuter* self) Delete;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQQueueInfo3*/SelfOuter* self, int32 Access, int32 ShareMode, IMSMQQueue3** ppq) Open;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQQueueInfo3*/SelfOuter* self) Refresh;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQQueueInfo3*/SelfOuter* self) Update;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQQueueInfo3*/SelfOuter* self, BSTR* pbstrPathNameDNS) get_PathNameDNS;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQQueueInfo3*/SelfOuter* self, IDispatch** ppcolProperties) get_Properties;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQQueueInfo3*/SelfOuter* self, VARIANT* pvarSecurity) get_Security;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQQueueInfo3*/SelfOuter* self, VARIANT varSecurity) put_Security;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQQueueInfo3*/SelfOuter* self, int16* pisTransactional) get_IsTransactional2;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQQueueInfo3*/SelfOuter* self, int16* pisWorldReadable) get_IsWorldReadable2;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQQueueInfo3*/SelfOuter* self, BSTR* pbstrMulticastAddress) get_MulticastAddress;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQQueueInfo3*/SelfOuter* self, BSTR bstrMulticastAddress) put_MulticastAddress;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQQueueInfo3*/SelfOuter* self, BSTR* pbstrADsPath) get_ADsPath;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pbstrGuidQueue) get_QueueGuid;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pbstrGuidServiceType) get_ServiceTypeGuid;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrGuidServiceType) put_ServiceTypeGuid;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pbstrLabel) get_Label;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrLabel) put_Label;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pbstrPathName) get_PathName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrPathName) put_PathName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pbstrFormatName) get_FormatName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrFormatName) put_FormatName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* pisTransactional) get_IsTransactional;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* plPrivLevel) get_PrivLevel;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 lPrivLevel) put_PrivLevel;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* plJournal) get_Journal;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 lJournal) put_Journal;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* plQuota) get_Quota;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 lQuota) put_Quota;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* plBasePriority) get_BasePriority;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 lBasePriority) put_BasePriority;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT* pvarCreateTime) get_CreateTime;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT* pvarModifyTime) get_ModifyTime;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* plAuthenticate) get_Authenticate;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 lAuthenticate) put_Authenticate;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* plJournalQuota) get_JournalQuota;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 lJournalQuota) put_JournalQuota;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* pisWorldReadable) get_IsWorldReadable;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT* IsTransactional, VARIANT* IsWorldReadable) Create;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Delete;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 Access, int32 ShareMode, IMSMQQueue3** ppq) Open;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Refresh;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Update;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pbstrPathNameDNS) get_PathNameDNS;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IDispatch** ppcolProperties) get_Properties;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT* pvarSecurity) get_Security;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT varSecurity) put_Security;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* pisTransactional) get_IsTransactional2;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* pisWorldReadable) get_IsWorldReadable2;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pbstrMulticastAddress) get_MulticastAddress;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrMulticastAddress) put_MulticastAddress;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pbstrADsPath) get_ADsPath;
 	}
 
 
@@ -1283,45 +1283,45 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQQueueInfo4*/SelfOuter* self, BSTR* pbstrGuidQueue) get_QueueGuid;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQQueueInfo4*/SelfOuter* self, BSTR* pbstrGuidServiceType) get_ServiceTypeGuid;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQQueueInfo4*/SelfOuter* self, BSTR bstrGuidServiceType) put_ServiceTypeGuid;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQQueueInfo4*/SelfOuter* self, BSTR* pbstrLabel) get_Label;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQQueueInfo4*/SelfOuter* self, BSTR bstrLabel) put_Label;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQQueueInfo4*/SelfOuter* self, BSTR* pbstrPathName) get_PathName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQQueueInfo4*/SelfOuter* self, BSTR bstrPathName) put_PathName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQQueueInfo4*/SelfOuter* self, BSTR* pbstrFormatName) get_FormatName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQQueueInfo4*/SelfOuter* self, BSTR bstrFormatName) put_FormatName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQQueueInfo4*/SelfOuter* self, int16* pisTransactional) get_IsTransactional;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQQueueInfo4*/SelfOuter* self, int32* plPrivLevel) get_PrivLevel;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQQueueInfo4*/SelfOuter* self, int32 lPrivLevel) put_PrivLevel;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQQueueInfo4*/SelfOuter* self, int32* plJournal) get_Journal;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQQueueInfo4*/SelfOuter* self, int32 lJournal) put_Journal;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQQueueInfo4*/SelfOuter* self, int32* plQuota) get_Quota;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQQueueInfo4*/SelfOuter* self, int32 lQuota) put_Quota;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQQueueInfo4*/SelfOuter* self, int32* plBasePriority) get_BasePriority;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQQueueInfo4*/SelfOuter* self, int32 lBasePriority) put_BasePriority;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQQueueInfo4*/SelfOuter* self, VARIANT* pvarCreateTime) get_CreateTime;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQQueueInfo4*/SelfOuter* self, VARIANT* pvarModifyTime) get_ModifyTime;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQQueueInfo4*/SelfOuter* self, int32* plAuthenticate) get_Authenticate;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQQueueInfo4*/SelfOuter* self, int32 lAuthenticate) put_Authenticate;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQQueueInfo4*/SelfOuter* self, int32* plJournalQuota) get_JournalQuota;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQQueueInfo4*/SelfOuter* self, int32 lJournalQuota) put_JournalQuota;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQQueueInfo4*/SelfOuter* self, int16* pisWorldReadable) get_IsWorldReadable;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQQueueInfo4*/SelfOuter* self, VARIANT* IsTransactional, VARIANT* IsWorldReadable) Create;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQQueueInfo4*/SelfOuter* self) Delete;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQQueueInfo4*/SelfOuter* self, int32 Access, int32 ShareMode, IMSMQQueue4** ppq) Open;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQQueueInfo4*/SelfOuter* self) Refresh;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQQueueInfo4*/SelfOuter* self) Update;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQQueueInfo4*/SelfOuter* self, BSTR* pbstrPathNameDNS) get_PathNameDNS;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQQueueInfo4*/SelfOuter* self, IDispatch** ppcolProperties) get_Properties;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQQueueInfo4*/SelfOuter* self, VARIANT* pvarSecurity) get_Security;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQQueueInfo4*/SelfOuter* self, VARIANT varSecurity) put_Security;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQQueueInfo4*/SelfOuter* self, int16* pisTransactional) get_IsTransactional2;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQQueueInfo4*/SelfOuter* self, int16* pisWorldReadable) get_IsWorldReadable2;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQQueueInfo4*/SelfOuter* self, BSTR* pbstrMulticastAddress) get_MulticastAddress;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQQueueInfo4*/SelfOuter* self, BSTR bstrMulticastAddress) put_MulticastAddress;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQQueueInfo4*/SelfOuter* self, BSTR* pbstrADsPath) get_ADsPath;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pbstrGuidQueue) get_QueueGuid;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pbstrGuidServiceType) get_ServiceTypeGuid;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrGuidServiceType) put_ServiceTypeGuid;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pbstrLabel) get_Label;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrLabel) put_Label;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pbstrPathName) get_PathName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrPathName) put_PathName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pbstrFormatName) get_FormatName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrFormatName) put_FormatName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* pisTransactional) get_IsTransactional;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* plPrivLevel) get_PrivLevel;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 lPrivLevel) put_PrivLevel;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* plJournal) get_Journal;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 lJournal) put_Journal;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* plQuota) get_Quota;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 lQuota) put_Quota;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* plBasePriority) get_BasePriority;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 lBasePriority) put_BasePriority;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT* pvarCreateTime) get_CreateTime;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT* pvarModifyTime) get_ModifyTime;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* plAuthenticate) get_Authenticate;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 lAuthenticate) put_Authenticate;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* plJournalQuota) get_JournalQuota;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 lJournalQuota) put_JournalQuota;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* pisWorldReadable) get_IsWorldReadable;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT* IsTransactional, VARIANT* IsWorldReadable) Create;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Delete;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 Access, int32 ShareMode, IMSMQQueue4** ppq) Open;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Refresh;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Update;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pbstrPathNameDNS) get_PathNameDNS;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IDispatch** ppcolProperties) get_Properties;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT* pvarSecurity) get_Security;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT varSecurity) put_Security;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* pisTransactional) get_IsTransactional2;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* pisWorldReadable) get_IsWorldReadable2;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pbstrMulticastAddress) get_MulticastAddress;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrMulticastAddress) put_MulticastAddress;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pbstrADsPath) get_ADsPath;
 	}
 
 
@@ -1412,19 +1412,19 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQQueue*/SelfOuter* self, int32* plAccess) get_Access;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQQueue*/SelfOuter* self, int32* plShareMode) get_ShareMode;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQQueue*/SelfOuter* self, IMSMQQueueInfo** ppqinfo) get_QueueInfo;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQQueue*/SelfOuter* self, int32* plHandle) get_Handle;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQQueue*/SelfOuter* self, int16* pisOpen) get_IsOpen;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQQueue*/SelfOuter* self) Close;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQQueue*/SelfOuter* self, VARIANT* Transaction, VARIANT* WantDestinationQueue, VARIANT* WantBody, VARIANT* ReceiveTimeout, IMSMQMessage** ppmsg) Receive;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQQueue*/SelfOuter* self, VARIANT* WantDestinationQueue, VARIANT* WantBody, VARIANT* ReceiveTimeout, IMSMQMessage** ppmsg) Peek;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQQueue*/SelfOuter* self, IMSMQEvent* Event, VARIANT* Cursor, VARIANT* ReceiveTimeout) EnableNotification;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQQueue*/SelfOuter* self) Reset;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQQueue*/SelfOuter* self, VARIANT* Transaction, VARIANT* WantDestinationQueue, VARIANT* WantBody, VARIANT* ReceiveTimeout, IMSMQMessage** ppmsg) ReceiveCurrent;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQQueue*/SelfOuter* self, VARIANT* WantDestinationQueue, VARIANT* WantBody, VARIANT* ReceiveTimeout, IMSMQMessage** ppmsg) PeekNext;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQQueue*/SelfOuter* self, VARIANT* WantDestinationQueue, VARIANT* WantBody, VARIANT* ReceiveTimeout, IMSMQMessage** ppmsg) PeekCurrent;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* plAccess) get_Access;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* plShareMode) get_ShareMode;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IMSMQQueueInfo** ppqinfo) get_QueueInfo;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* plHandle) get_Handle;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* pisOpen) get_IsOpen;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Close;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT* Transaction, VARIANT* WantDestinationQueue, VARIANT* WantBody, VARIANT* ReceiveTimeout, IMSMQMessage** ppmsg) Receive;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT* WantDestinationQueue, VARIANT* WantBody, VARIANT* ReceiveTimeout, IMSMQMessage** ppmsg) Peek;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IMSMQEvent* Event, VARIANT* Cursor, VARIANT* ReceiveTimeout) EnableNotification;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Reset;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT* Transaction, VARIANT* WantDestinationQueue, VARIANT* WantBody, VARIANT* ReceiveTimeout, IMSMQMessage** ppmsg) ReceiveCurrent;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT* WantDestinationQueue, VARIANT* WantBody, VARIANT* ReceiveTimeout, IMSMQMessage** ppmsg) PeekNext;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT* WantDestinationQueue, VARIANT* WantBody, VARIANT* ReceiveTimeout, IMSMQMessage** ppmsg) PeekCurrent;
 	}
 
 
@@ -1463,25 +1463,25 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQQueue2*/SelfOuter* self, int32* plAccess) get_Access;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQQueue2*/SelfOuter* self, int32* plShareMode) get_ShareMode;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQQueue2*/SelfOuter* self, IMSMQQueueInfo2** ppqinfo) get_QueueInfo;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQQueue2*/SelfOuter* self, int32* plHandle) get_Handle;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQQueue2*/SelfOuter* self, int16* pisOpen) get_IsOpen;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQQueue2*/SelfOuter* self) Close;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQQueue2*/SelfOuter* self, VARIANT* Transaction, VARIANT* WantDestinationQueue, VARIANT* WantBody, VARIANT* ReceiveTimeout, IMSMQMessage** ppmsg) Receive_v1;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQQueue2*/SelfOuter* self, VARIANT* WantDestinationQueue, VARIANT* WantBody, VARIANT* ReceiveTimeout, IMSMQMessage** ppmsg) Peek_v1;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQQueue2*/SelfOuter* self, IMSMQEvent2* Event, VARIANT* Cursor, VARIANT* ReceiveTimeout) EnableNotification;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQQueue2*/SelfOuter* self) Reset;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQQueue2*/SelfOuter* self, VARIANT* Transaction, VARIANT* WantDestinationQueue, VARIANT* WantBody, VARIANT* ReceiveTimeout, IMSMQMessage** ppmsg) ReceiveCurrent_v1;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQQueue2*/SelfOuter* self, VARIANT* WantDestinationQueue, VARIANT* WantBody, VARIANT* ReceiveTimeout, IMSMQMessage** ppmsg) PeekNext_v1;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQQueue2*/SelfOuter* self, VARIANT* WantDestinationQueue, VARIANT* WantBody, VARIANT* ReceiveTimeout, IMSMQMessage** ppmsg) PeekCurrent_v1;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQQueue2*/SelfOuter* self, VARIANT* Transaction, VARIANT* WantDestinationQueue, VARIANT* WantBody, VARIANT* ReceiveTimeout, VARIANT* WantConnectorType, IMSMQMessage2** ppmsg) Receive;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQQueue2*/SelfOuter* self, VARIANT* WantDestinationQueue, VARIANT* WantBody, VARIANT* ReceiveTimeout, VARIANT* WantConnectorType, IMSMQMessage2** ppmsg) Peek;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQQueue2*/SelfOuter* self, VARIANT* Transaction, VARIANT* WantDestinationQueue, VARIANT* WantBody, VARIANT* ReceiveTimeout, VARIANT* WantConnectorType, IMSMQMessage2** ppmsg) ReceiveCurrent;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQQueue2*/SelfOuter* self, VARIANT* WantDestinationQueue, VARIANT* WantBody, VARIANT* ReceiveTimeout, VARIANT* WantConnectorType, IMSMQMessage2** ppmsg) PeekNext;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQQueue2*/SelfOuter* self, VARIANT* WantDestinationQueue, VARIANT* WantBody, VARIANT* ReceiveTimeout, VARIANT* WantConnectorType, IMSMQMessage2** ppmsg) PeekCurrent;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQQueue2*/SelfOuter* self, IDispatch** ppcolProperties) get_Properties;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* plAccess) get_Access;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* plShareMode) get_ShareMode;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IMSMQQueueInfo2** ppqinfo) get_QueueInfo;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* plHandle) get_Handle;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* pisOpen) get_IsOpen;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Close;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT* Transaction, VARIANT* WantDestinationQueue, VARIANT* WantBody, VARIANT* ReceiveTimeout, IMSMQMessage** ppmsg) Receive_v1;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT* WantDestinationQueue, VARIANT* WantBody, VARIANT* ReceiveTimeout, IMSMQMessage** ppmsg) Peek_v1;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IMSMQEvent2* Event, VARIANT* Cursor, VARIANT* ReceiveTimeout) EnableNotification;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Reset;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT* Transaction, VARIANT* WantDestinationQueue, VARIANT* WantBody, VARIANT* ReceiveTimeout, IMSMQMessage** ppmsg) ReceiveCurrent_v1;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT* WantDestinationQueue, VARIANT* WantBody, VARIANT* ReceiveTimeout, IMSMQMessage** ppmsg) PeekNext_v1;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT* WantDestinationQueue, VARIANT* WantBody, VARIANT* ReceiveTimeout, IMSMQMessage** ppmsg) PeekCurrent_v1;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT* Transaction, VARIANT* WantDestinationQueue, VARIANT* WantBody, VARIANT* ReceiveTimeout, VARIANT* WantConnectorType, IMSMQMessage2** ppmsg) Receive;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT* WantDestinationQueue, VARIANT* WantBody, VARIANT* ReceiveTimeout, VARIANT* WantConnectorType, IMSMQMessage2** ppmsg) Peek;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT* Transaction, VARIANT* WantDestinationQueue, VARIANT* WantBody, VARIANT* ReceiveTimeout, VARIANT* WantConnectorType, IMSMQMessage2** ppmsg) ReceiveCurrent;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT* WantDestinationQueue, VARIANT* WantBody, VARIANT* ReceiveTimeout, VARIANT* WantConnectorType, IMSMQMessage2** ppmsg) PeekNext;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT* WantDestinationQueue, VARIANT* WantBody, VARIANT* ReceiveTimeout, VARIANT* WantConnectorType, IMSMQMessage2** ppmsg) PeekCurrent;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IDispatch** ppcolProperties) get_Properties;
 	}
 
 
@@ -1532,38 +1532,38 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQQueue3*/SelfOuter* self, int32* plAccess) get_Access;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQQueue3*/SelfOuter* self, int32* plShareMode) get_ShareMode;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQQueue3*/SelfOuter* self, IMSMQQueueInfo3** ppqinfo) get_QueueInfo;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQQueue3*/SelfOuter* self, int32* plHandle) get_Handle;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQQueue3*/SelfOuter* self, int16* pisOpen) get_IsOpen;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQQueue3*/SelfOuter* self) Close;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQQueue3*/SelfOuter* self, VARIANT* Transaction, VARIANT* WantDestinationQueue, VARIANT* WantBody, VARIANT* ReceiveTimeout, IMSMQMessage** ppmsg) Receive_v1;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQQueue3*/SelfOuter* self, VARIANT* WantDestinationQueue, VARIANT* WantBody, VARIANT* ReceiveTimeout, IMSMQMessage** ppmsg) Peek_v1;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQQueue3*/SelfOuter* self, IMSMQEvent3* Event, VARIANT* Cursor, VARIANT* ReceiveTimeout) EnableNotification;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQQueue3*/SelfOuter* self) Reset;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQQueue3*/SelfOuter* self, VARIANT* Transaction, VARIANT* WantDestinationQueue, VARIANT* WantBody, VARIANT* ReceiveTimeout, IMSMQMessage** ppmsg) ReceiveCurrent_v1;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQQueue3*/SelfOuter* self, VARIANT* WantDestinationQueue, VARIANT* WantBody, VARIANT* ReceiveTimeout, IMSMQMessage** ppmsg) PeekNext_v1;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQQueue3*/SelfOuter* self, VARIANT* WantDestinationQueue, VARIANT* WantBody, VARIANT* ReceiveTimeout, IMSMQMessage** ppmsg) PeekCurrent_v1;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQQueue3*/SelfOuter* self, VARIANT* Transaction, VARIANT* WantDestinationQueue, VARIANT* WantBody, VARIANT* ReceiveTimeout, VARIANT* WantConnectorType, IMSMQMessage3** ppmsg) Receive;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQQueue3*/SelfOuter* self, VARIANT* WantDestinationQueue, VARIANT* WantBody, VARIANT* ReceiveTimeout, VARIANT* WantConnectorType, IMSMQMessage3** ppmsg) Peek;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQQueue3*/SelfOuter* self, VARIANT* Transaction, VARIANT* WantDestinationQueue, VARIANT* WantBody, VARIANT* ReceiveTimeout, VARIANT* WantConnectorType, IMSMQMessage3** ppmsg) ReceiveCurrent;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQQueue3*/SelfOuter* self, VARIANT* WantDestinationQueue, VARIANT* WantBody, VARIANT* ReceiveTimeout, VARIANT* WantConnectorType, IMSMQMessage3** ppmsg) PeekNext;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQQueue3*/SelfOuter* self, VARIANT* WantDestinationQueue, VARIANT* WantBody, VARIANT* ReceiveTimeout, VARIANT* WantConnectorType, IMSMQMessage3** ppmsg) PeekCurrent;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQQueue3*/SelfOuter* self, IDispatch** ppcolProperties) get_Properties;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQQueue3*/SelfOuter* self, VARIANT* pvarHandle) get_Handle2;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQQueue3*/SelfOuter* self, VARIANT LookupId, VARIANT* Transaction, VARIANT* WantDestinationQueue, VARIANT* WantBody, VARIANT* WantConnectorType, IMSMQMessage3** ppmsg) ReceiveByLookupId;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQQueue3*/SelfOuter* self, VARIANT LookupId, VARIANT* Transaction, VARIANT* WantDestinationQueue, VARIANT* WantBody, VARIANT* WantConnectorType, IMSMQMessage3** ppmsg) ReceiveNextByLookupId;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQQueue3*/SelfOuter* self, VARIANT LookupId, VARIANT* Transaction, VARIANT* WantDestinationQueue, VARIANT* WantBody, VARIANT* WantConnectorType, IMSMQMessage3** ppmsg) ReceivePreviousByLookupId;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQQueue3*/SelfOuter* self, VARIANT* Transaction, VARIANT* WantDestinationQueue, VARIANT* WantBody, VARIANT* WantConnectorType, IMSMQMessage3** ppmsg) ReceiveFirstByLookupId;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQQueue3*/SelfOuter* self, VARIANT* Transaction, VARIANT* WantDestinationQueue, VARIANT* WantBody, VARIANT* WantConnectorType, IMSMQMessage3** ppmsg) ReceiveLastByLookupId;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQQueue3*/SelfOuter* self, VARIANT LookupId, VARIANT* WantDestinationQueue, VARIANT* WantBody, VARIANT* WantConnectorType, IMSMQMessage3** ppmsg) PeekByLookupId;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQQueue3*/SelfOuter* self, VARIANT LookupId, VARIANT* WantDestinationQueue, VARIANT* WantBody, VARIANT* WantConnectorType, IMSMQMessage3** ppmsg) PeekNextByLookupId;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQQueue3*/SelfOuter* self, VARIANT LookupId, VARIANT* WantDestinationQueue, VARIANT* WantBody, VARIANT* WantConnectorType, IMSMQMessage3** ppmsg) PeekPreviousByLookupId;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQQueue3*/SelfOuter* self, VARIANT* WantDestinationQueue, VARIANT* WantBody, VARIANT* WantConnectorType, IMSMQMessage3** ppmsg) PeekFirstByLookupId;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQQueue3*/SelfOuter* self, VARIANT* WantDestinationQueue, VARIANT* WantBody, VARIANT* WantConnectorType, IMSMQMessage3** ppmsg) PeekLastByLookupId;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQQueue3*/SelfOuter* self) Purge;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQQueue3*/SelfOuter* self, int16* pisOpen) get_IsOpen2;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* plAccess) get_Access;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* plShareMode) get_ShareMode;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IMSMQQueueInfo3** ppqinfo) get_QueueInfo;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* plHandle) get_Handle;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* pisOpen) get_IsOpen;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Close;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT* Transaction, VARIANT* WantDestinationQueue, VARIANT* WantBody, VARIANT* ReceiveTimeout, IMSMQMessage** ppmsg) Receive_v1;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT* WantDestinationQueue, VARIANT* WantBody, VARIANT* ReceiveTimeout, IMSMQMessage** ppmsg) Peek_v1;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IMSMQEvent3* Event, VARIANT* Cursor, VARIANT* ReceiveTimeout) EnableNotification;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Reset;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT* Transaction, VARIANT* WantDestinationQueue, VARIANT* WantBody, VARIANT* ReceiveTimeout, IMSMQMessage** ppmsg) ReceiveCurrent_v1;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT* WantDestinationQueue, VARIANT* WantBody, VARIANT* ReceiveTimeout, IMSMQMessage** ppmsg) PeekNext_v1;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT* WantDestinationQueue, VARIANT* WantBody, VARIANT* ReceiveTimeout, IMSMQMessage** ppmsg) PeekCurrent_v1;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT* Transaction, VARIANT* WantDestinationQueue, VARIANT* WantBody, VARIANT* ReceiveTimeout, VARIANT* WantConnectorType, IMSMQMessage3** ppmsg) Receive;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT* WantDestinationQueue, VARIANT* WantBody, VARIANT* ReceiveTimeout, VARIANT* WantConnectorType, IMSMQMessage3** ppmsg) Peek;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT* Transaction, VARIANT* WantDestinationQueue, VARIANT* WantBody, VARIANT* ReceiveTimeout, VARIANT* WantConnectorType, IMSMQMessage3** ppmsg) ReceiveCurrent;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT* WantDestinationQueue, VARIANT* WantBody, VARIANT* ReceiveTimeout, VARIANT* WantConnectorType, IMSMQMessage3** ppmsg) PeekNext;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT* WantDestinationQueue, VARIANT* WantBody, VARIANT* ReceiveTimeout, VARIANT* WantConnectorType, IMSMQMessage3** ppmsg) PeekCurrent;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IDispatch** ppcolProperties) get_Properties;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT* pvarHandle) get_Handle2;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT LookupId, VARIANT* Transaction, VARIANT* WantDestinationQueue, VARIANT* WantBody, VARIANT* WantConnectorType, IMSMQMessage3** ppmsg) ReceiveByLookupId;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT LookupId, VARIANT* Transaction, VARIANT* WantDestinationQueue, VARIANT* WantBody, VARIANT* WantConnectorType, IMSMQMessage3** ppmsg) ReceiveNextByLookupId;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT LookupId, VARIANT* Transaction, VARIANT* WantDestinationQueue, VARIANT* WantBody, VARIANT* WantConnectorType, IMSMQMessage3** ppmsg) ReceivePreviousByLookupId;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT* Transaction, VARIANT* WantDestinationQueue, VARIANT* WantBody, VARIANT* WantConnectorType, IMSMQMessage3** ppmsg) ReceiveFirstByLookupId;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT* Transaction, VARIANT* WantDestinationQueue, VARIANT* WantBody, VARIANT* WantConnectorType, IMSMQMessage3** ppmsg) ReceiveLastByLookupId;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT LookupId, VARIANT* WantDestinationQueue, VARIANT* WantBody, VARIANT* WantConnectorType, IMSMQMessage3** ppmsg) PeekByLookupId;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT LookupId, VARIANT* WantDestinationQueue, VARIANT* WantBody, VARIANT* WantConnectorType, IMSMQMessage3** ppmsg) PeekNextByLookupId;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT LookupId, VARIANT* WantDestinationQueue, VARIANT* WantBody, VARIANT* WantConnectorType, IMSMQMessage3** ppmsg) PeekPreviousByLookupId;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT* WantDestinationQueue, VARIANT* WantBody, VARIANT* WantConnectorType, IMSMQMessage3** ppmsg) PeekFirstByLookupId;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT* WantDestinationQueue, VARIANT* WantBody, VARIANT* WantConnectorType, IMSMQMessage3** ppmsg) PeekLastByLookupId;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Purge;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* pisOpen) get_IsOpen2;
 	}
 
 
@@ -1640,39 +1640,39 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQQueue4*/SelfOuter* self, int32* plAccess) get_Access;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQQueue4*/SelfOuter* self, int32* plShareMode) get_ShareMode;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQQueue4*/SelfOuter* self, IMSMQQueueInfo4** ppqinfo) get_QueueInfo;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQQueue4*/SelfOuter* self, int32* plHandle) get_Handle;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQQueue4*/SelfOuter* self, int16* pisOpen) get_IsOpen;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQQueue4*/SelfOuter* self) Close;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQQueue4*/SelfOuter* self, VARIANT* Transaction, VARIANT* WantDestinationQueue, VARIANT* WantBody, VARIANT* ReceiveTimeout, IMSMQMessage** ppmsg) Receive_v1;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQQueue4*/SelfOuter* self, VARIANT* WantDestinationQueue, VARIANT* WantBody, VARIANT* ReceiveTimeout, IMSMQMessage** ppmsg) Peek_v1;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQQueue4*/SelfOuter* self, IMSMQEvent3* Event, VARIANT* Cursor, VARIANT* ReceiveTimeout) EnableNotification;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQQueue4*/SelfOuter* self) Reset;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQQueue4*/SelfOuter* self, VARIANT* Transaction, VARIANT* WantDestinationQueue, VARIANT* WantBody, VARIANT* ReceiveTimeout, IMSMQMessage** ppmsg) ReceiveCurrent_v1;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQQueue4*/SelfOuter* self, VARIANT* WantDestinationQueue, VARIANT* WantBody, VARIANT* ReceiveTimeout, IMSMQMessage** ppmsg) PeekNext_v1;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQQueue4*/SelfOuter* self, VARIANT* WantDestinationQueue, VARIANT* WantBody, VARIANT* ReceiveTimeout, IMSMQMessage** ppmsg) PeekCurrent_v1;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQQueue4*/SelfOuter* self, VARIANT* Transaction, VARIANT* WantDestinationQueue, VARIANT* WantBody, VARIANT* ReceiveTimeout, VARIANT* WantConnectorType, IMSMQMessage4** ppmsg) Receive;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQQueue4*/SelfOuter* self, VARIANT* WantDestinationQueue, VARIANT* WantBody, VARIANT* ReceiveTimeout, VARIANT* WantConnectorType, IMSMQMessage4** ppmsg) Peek;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQQueue4*/SelfOuter* self, VARIANT* Transaction, VARIANT* WantDestinationQueue, VARIANT* WantBody, VARIANT* ReceiveTimeout, VARIANT* WantConnectorType, IMSMQMessage4** ppmsg) ReceiveCurrent;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQQueue4*/SelfOuter* self, VARIANT* WantDestinationQueue, VARIANT* WantBody, VARIANT* ReceiveTimeout, VARIANT* WantConnectorType, IMSMQMessage4** ppmsg) PeekNext;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQQueue4*/SelfOuter* self, VARIANT* WantDestinationQueue, VARIANT* WantBody, VARIANT* ReceiveTimeout, VARIANT* WantConnectorType, IMSMQMessage4** ppmsg) PeekCurrent;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQQueue4*/SelfOuter* self, IDispatch** ppcolProperties) get_Properties;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQQueue4*/SelfOuter* self, VARIANT* pvarHandle) get_Handle2;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQQueue4*/SelfOuter* self, VARIANT LookupId, VARIANT* Transaction, VARIANT* WantDestinationQueue, VARIANT* WantBody, VARIANT* WantConnectorType, IMSMQMessage4** ppmsg) ReceiveByLookupId;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQQueue4*/SelfOuter* self, VARIANT LookupId, VARIANT* Transaction, VARIANT* WantDestinationQueue, VARIANT* WantBody, VARIANT* WantConnectorType, IMSMQMessage4** ppmsg) ReceiveNextByLookupId;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQQueue4*/SelfOuter* self, VARIANT LookupId, VARIANT* Transaction, VARIANT* WantDestinationQueue, VARIANT* WantBody, VARIANT* WantConnectorType, IMSMQMessage4** ppmsg) ReceivePreviousByLookupId;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQQueue4*/SelfOuter* self, VARIANT* Transaction, VARIANT* WantDestinationQueue, VARIANT* WantBody, VARIANT* WantConnectorType, IMSMQMessage4** ppmsg) ReceiveFirstByLookupId;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQQueue4*/SelfOuter* self, VARIANT* Transaction, VARIANT* WantDestinationQueue, VARIANT* WantBody, VARIANT* WantConnectorType, IMSMQMessage4** ppmsg) ReceiveLastByLookupId;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQQueue4*/SelfOuter* self, VARIANT LookupId, VARIANT* WantDestinationQueue, VARIANT* WantBody, VARIANT* WantConnectorType, IMSMQMessage4** ppmsg) PeekByLookupId;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQQueue4*/SelfOuter* self, VARIANT LookupId, VARIANT* WantDestinationQueue, VARIANT* WantBody, VARIANT* WantConnectorType, IMSMQMessage4** ppmsg) PeekNextByLookupId;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQQueue4*/SelfOuter* self, VARIANT LookupId, VARIANT* WantDestinationQueue, VARIANT* WantBody, VARIANT* WantConnectorType, IMSMQMessage4** ppmsg) PeekPreviousByLookupId;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQQueue4*/SelfOuter* self, VARIANT* WantDestinationQueue, VARIANT* WantBody, VARIANT* WantConnectorType, IMSMQMessage4** ppmsg) PeekFirstByLookupId;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQQueue4*/SelfOuter* self, VARIANT* WantDestinationQueue, VARIANT* WantBody, VARIANT* WantConnectorType, IMSMQMessage4** ppmsg) PeekLastByLookupId;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQQueue4*/SelfOuter* self) Purge;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQQueue4*/SelfOuter* self, int16* pisOpen) get_IsOpen2;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQQueue4*/SelfOuter* self, VARIANT LookupId, VARIANT* Transaction, VARIANT* WantDestinationQueue, VARIANT* WantBody, VARIANT* WantConnectorType, IMSMQMessage4** ppmsg) ReceiveByLookupIdAllowPeek;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* plAccess) get_Access;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* plShareMode) get_ShareMode;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IMSMQQueueInfo4** ppqinfo) get_QueueInfo;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* plHandle) get_Handle;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* pisOpen) get_IsOpen;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Close;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT* Transaction, VARIANT* WantDestinationQueue, VARIANT* WantBody, VARIANT* ReceiveTimeout, IMSMQMessage** ppmsg) Receive_v1;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT* WantDestinationQueue, VARIANT* WantBody, VARIANT* ReceiveTimeout, IMSMQMessage** ppmsg) Peek_v1;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IMSMQEvent3* Event, VARIANT* Cursor, VARIANT* ReceiveTimeout) EnableNotification;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Reset;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT* Transaction, VARIANT* WantDestinationQueue, VARIANT* WantBody, VARIANT* ReceiveTimeout, IMSMQMessage** ppmsg) ReceiveCurrent_v1;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT* WantDestinationQueue, VARIANT* WantBody, VARIANT* ReceiveTimeout, IMSMQMessage** ppmsg) PeekNext_v1;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT* WantDestinationQueue, VARIANT* WantBody, VARIANT* ReceiveTimeout, IMSMQMessage** ppmsg) PeekCurrent_v1;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT* Transaction, VARIANT* WantDestinationQueue, VARIANT* WantBody, VARIANT* ReceiveTimeout, VARIANT* WantConnectorType, IMSMQMessage4** ppmsg) Receive;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT* WantDestinationQueue, VARIANT* WantBody, VARIANT* ReceiveTimeout, VARIANT* WantConnectorType, IMSMQMessage4** ppmsg) Peek;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT* Transaction, VARIANT* WantDestinationQueue, VARIANT* WantBody, VARIANT* ReceiveTimeout, VARIANT* WantConnectorType, IMSMQMessage4** ppmsg) ReceiveCurrent;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT* WantDestinationQueue, VARIANT* WantBody, VARIANT* ReceiveTimeout, VARIANT* WantConnectorType, IMSMQMessage4** ppmsg) PeekNext;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT* WantDestinationQueue, VARIANT* WantBody, VARIANT* ReceiveTimeout, VARIANT* WantConnectorType, IMSMQMessage4** ppmsg) PeekCurrent;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IDispatch** ppcolProperties) get_Properties;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT* pvarHandle) get_Handle2;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT LookupId, VARIANT* Transaction, VARIANT* WantDestinationQueue, VARIANT* WantBody, VARIANT* WantConnectorType, IMSMQMessage4** ppmsg) ReceiveByLookupId;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT LookupId, VARIANT* Transaction, VARIANT* WantDestinationQueue, VARIANT* WantBody, VARIANT* WantConnectorType, IMSMQMessage4** ppmsg) ReceiveNextByLookupId;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT LookupId, VARIANT* Transaction, VARIANT* WantDestinationQueue, VARIANT* WantBody, VARIANT* WantConnectorType, IMSMQMessage4** ppmsg) ReceivePreviousByLookupId;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT* Transaction, VARIANT* WantDestinationQueue, VARIANT* WantBody, VARIANT* WantConnectorType, IMSMQMessage4** ppmsg) ReceiveFirstByLookupId;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT* Transaction, VARIANT* WantDestinationQueue, VARIANT* WantBody, VARIANT* WantConnectorType, IMSMQMessage4** ppmsg) ReceiveLastByLookupId;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT LookupId, VARIANT* WantDestinationQueue, VARIANT* WantBody, VARIANT* WantConnectorType, IMSMQMessage4** ppmsg) PeekByLookupId;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT LookupId, VARIANT* WantDestinationQueue, VARIANT* WantBody, VARIANT* WantConnectorType, IMSMQMessage4** ppmsg) PeekNextByLookupId;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT LookupId, VARIANT* WantDestinationQueue, VARIANT* WantBody, VARIANT* WantConnectorType, IMSMQMessage4** ppmsg) PeekPreviousByLookupId;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT* WantDestinationQueue, VARIANT* WantBody, VARIANT* WantConnectorType, IMSMQMessage4** ppmsg) PeekFirstByLookupId;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT* WantDestinationQueue, VARIANT* WantBody, VARIANT* WantConnectorType, IMSMQMessage4** ppmsg) PeekLastByLookupId;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Purge;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* pisOpen) get_IsOpen2;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT LookupId, VARIANT* Transaction, VARIANT* WantDestinationQueue, VARIANT* WantBody, VARIANT* WantConnectorType, IMSMQMessage4** ppmsg) ReceiveByLookupIdAllowPeek;
 	}
 
 
@@ -1751,55 +1751,55 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQMessage*/SelfOuter* self, int32* plClass) get_Class;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQMessage*/SelfOuter* self, int32* plPrivLevel) get_PrivLevel;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQMessage*/SelfOuter* self, int32 lPrivLevel) put_PrivLevel;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQMessage*/SelfOuter* self, int32* plAuthLevel) get_AuthLevel;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQMessage*/SelfOuter* self, int32 lAuthLevel) put_AuthLevel;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQMessage*/SelfOuter* self, int16* pisAuthenticated) get_IsAuthenticated;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQMessage*/SelfOuter* self, int32* plDelivery) get_Delivery;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQMessage*/SelfOuter* self, int32 lDelivery) put_Delivery;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQMessage*/SelfOuter* self, int32* plTrace) get_Trace;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQMessage*/SelfOuter* self, int32 lTrace) put_Trace;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQMessage*/SelfOuter* self, int32* plPriority) get_Priority;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQMessage*/SelfOuter* self, int32 lPriority) put_Priority;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQMessage*/SelfOuter* self, int32* plJournal) get_Journal;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQMessage*/SelfOuter* self, int32 lJournal) put_Journal;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQMessage*/SelfOuter* self, IMSMQQueueInfo** ppqinfoResponse) get_ResponseQueueInfo;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQMessage*/SelfOuter* self, IMSMQQueueInfo* pqinfoResponse) putref_ResponseQueueInfo;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQMessage*/SelfOuter* self, int32* plAppSpecific) get_AppSpecific;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQMessage*/SelfOuter* self, int32 lAppSpecific) put_AppSpecific;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQMessage*/SelfOuter* self, BSTR* pbstrGuidSrcMachine) get_SourceMachineGuid;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQMessage*/SelfOuter* self, int32* pcbBody) get_BodyLength;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQMessage*/SelfOuter* self, VARIANT* pvarBody) get_Body;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQMessage*/SelfOuter* self, VARIANT varBody) put_Body;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQMessage*/SelfOuter* self, IMSMQQueueInfo** ppqinfoAdmin) get_AdminQueueInfo;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQMessage*/SelfOuter* self, IMSMQQueueInfo* pqinfoAdmin) putref_AdminQueueInfo;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQMessage*/SelfOuter* self, VARIANT* pvarMsgId) get_Id;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQMessage*/SelfOuter* self, VARIANT* pvarMsgId) get_CorrelationId;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQMessage*/SelfOuter* self, VARIANT varMsgId) put_CorrelationId;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQMessage*/SelfOuter* self, int32* plAck) get_Ack;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQMessage*/SelfOuter* self, int32 lAck) put_Ack;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQMessage*/SelfOuter* self, BSTR* pbstrLabel) get_Label;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQMessage*/SelfOuter* self, BSTR bstrLabel) put_Label;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQMessage*/SelfOuter* self, int32* plMaxTimeToReachQueue) get_MaxTimeToReachQueue;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQMessage*/SelfOuter* self, int32 lMaxTimeToReachQueue) put_MaxTimeToReachQueue;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQMessage*/SelfOuter* self, int32* plMaxTimeToReceive) get_MaxTimeToReceive;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQMessage*/SelfOuter* self, int32 lMaxTimeToReceive) put_MaxTimeToReceive;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQMessage*/SelfOuter* self, int32* plHashAlg) get_HashAlgorithm;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQMessage*/SelfOuter* self, int32 lHashAlg) put_HashAlgorithm;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQMessage*/SelfOuter* self, int32* plEncryptAlg) get_EncryptAlgorithm;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQMessage*/SelfOuter* self, int32 lEncryptAlg) put_EncryptAlgorithm;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQMessage*/SelfOuter* self, VARIANT* pvarSentTime) get_SentTime;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQMessage*/SelfOuter* self, VARIANT* plArrivedTime) get_ArrivedTime;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQMessage*/SelfOuter* self, IMSMQQueueInfo** ppqinfoDest) get_DestinationQueueInfo;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQMessage*/SelfOuter* self, VARIANT* pvarSenderCert) get_SenderCertificate;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQMessage*/SelfOuter* self, VARIANT varSenderCert) put_SenderCertificate;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQMessage*/SelfOuter* self, VARIANT* pvarSenderId) get_SenderId;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQMessage*/SelfOuter* self, int32* plSenderIdType) get_SenderIdType;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQMessage*/SelfOuter* self, int32 lSenderIdType) put_SenderIdType;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQMessage*/SelfOuter* self, IMSMQQueue* DestinationQueue, VARIANT* Transaction) Send;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQMessage*/SelfOuter* self) AttachCurrentSecurityContext;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* plClass) get_Class;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* plPrivLevel) get_PrivLevel;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 lPrivLevel) put_PrivLevel;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* plAuthLevel) get_AuthLevel;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 lAuthLevel) put_AuthLevel;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* pisAuthenticated) get_IsAuthenticated;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* plDelivery) get_Delivery;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 lDelivery) put_Delivery;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* plTrace) get_Trace;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 lTrace) put_Trace;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* plPriority) get_Priority;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 lPriority) put_Priority;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* plJournal) get_Journal;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 lJournal) put_Journal;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IMSMQQueueInfo** ppqinfoResponse) get_ResponseQueueInfo;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IMSMQQueueInfo* pqinfoResponse) putref_ResponseQueueInfo;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* plAppSpecific) get_AppSpecific;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 lAppSpecific) put_AppSpecific;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pbstrGuidSrcMachine) get_SourceMachineGuid;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* pcbBody) get_BodyLength;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT* pvarBody) get_Body;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT varBody) put_Body;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IMSMQQueueInfo** ppqinfoAdmin) get_AdminQueueInfo;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IMSMQQueueInfo* pqinfoAdmin) putref_AdminQueueInfo;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT* pvarMsgId) get_Id;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT* pvarMsgId) get_CorrelationId;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT varMsgId) put_CorrelationId;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* plAck) get_Ack;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 lAck) put_Ack;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pbstrLabel) get_Label;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrLabel) put_Label;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* plMaxTimeToReachQueue) get_MaxTimeToReachQueue;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 lMaxTimeToReachQueue) put_MaxTimeToReachQueue;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* plMaxTimeToReceive) get_MaxTimeToReceive;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 lMaxTimeToReceive) put_MaxTimeToReceive;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* plHashAlg) get_HashAlgorithm;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 lHashAlg) put_HashAlgorithm;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* plEncryptAlg) get_EncryptAlgorithm;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 lEncryptAlg) put_EncryptAlgorithm;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT* pvarSentTime) get_SentTime;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT* plArrivedTime) get_ArrivedTime;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IMSMQQueueInfo** ppqinfoDest) get_DestinationQueueInfo;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT* pvarSenderCert) get_SenderCertificate;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT varSenderCert) put_SenderCertificate;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT* pvarSenderId) get_SenderId;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* plSenderIdType) get_SenderIdType;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 lSenderIdType) put_SenderIdType;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IMSMQQueue* DestinationQueue, VARIANT* Transaction) Send;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) AttachCurrentSecurityContext;
 	}
 
 
@@ -1910,8 +1910,8 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQQueueInfos*/SelfOuter* self) Reset;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQQueueInfos*/SelfOuter* self, IMSMQQueueInfo** ppqinfoNext) Next;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Reset;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IMSMQQueueInfo** ppqinfoNext) Next;
 	}
 
 
@@ -1928,9 +1928,9 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQQueueInfos2*/SelfOuter* self) Reset;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQQueueInfos2*/SelfOuter* self, IMSMQQueueInfo2** ppqinfoNext) Next;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQQueueInfos2*/SelfOuter* self, IDispatch** ppcolProperties) get_Properties;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Reset;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IMSMQQueueInfo2** ppqinfoNext) Next;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IDispatch** ppcolProperties) get_Properties;
 	}
 
 
@@ -1949,9 +1949,9 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQQueueInfos3*/SelfOuter* self) Reset;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQQueueInfos3*/SelfOuter* self, IMSMQQueueInfo3** ppqinfoNext) Next;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQQueueInfos3*/SelfOuter* self, IDispatch** ppcolProperties) get_Properties;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Reset;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IMSMQQueueInfo3** ppqinfoNext) Next;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IDispatch** ppcolProperties) get_Properties;
 	}
 
 
@@ -1970,9 +1970,9 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQQueueInfos4*/SelfOuter* self) Reset;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQQueueInfos4*/SelfOuter* self, IMSMQQueueInfo4** ppqinfoNext) Next;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQQueueInfos4*/SelfOuter* self, IDispatch** ppcolProperties) get_Properties;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Reset;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IMSMQQueueInfo4** ppqinfoNext) Next;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IDispatch** ppcolProperties) get_Properties;
 	}
 
 
@@ -2003,7 +2003,7 @@ public static
 
 	[CRepr]public struct VTable : IMSMQEvent.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQEvent2*/SelfOuter* self, IDispatch** ppcolProperties) get_Properties;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IDispatch** ppcolProperties) get_Properties;
 	}
 
 
@@ -2030,9 +2030,9 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQTransaction*/SelfOuter* self, int32* plTransaction) get_Transaction;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQTransaction*/SelfOuter* self, VARIANT* fRetaining, VARIANT* grfTC, VARIANT* grfRM) Commit;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQTransaction*/SelfOuter* self, VARIANT* fRetaining, VARIANT* fAsync) Abort;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* plTransaction) get_Transaction;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT* fRetaining, VARIANT* grfTC, VARIANT* grfRM) Commit;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT* fRetaining, VARIANT* fAsync) Abort;
 	}
 
 
@@ -2051,7 +2051,7 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQCoordinatedTransactionDispenser*/SelfOuter* self, IMSMQTransaction** ptransaction) BeginTransaction;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IMSMQTransaction** ptransaction) BeginTransaction;
 	}
 
 
@@ -2066,7 +2066,7 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQTransactionDispenser*/SelfOuter* self, IMSMQTransaction** ptransaction) BeginTransaction;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IMSMQTransaction** ptransaction) BeginTransaction;
 	}
 
 
@@ -2081,8 +2081,8 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQQuery2*/SelfOuter* self, VARIANT* QueueGuid, VARIANT* ServiceTypeGuid, VARIANT* Label, VARIANT* CreateTime, VARIANT* ModifyTime, VARIANT* RelServiceType, VARIANT* RelLabel, VARIANT* RelCreateTime, VARIANT* RelModifyTime, IMSMQQueueInfos2** ppqinfos) LookupQueue;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQQuery2*/SelfOuter* self, IDispatch** ppcolProperties) get_Properties;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT* QueueGuid, VARIANT* ServiceTypeGuid, VARIANT* Label, VARIANT* CreateTime, VARIANT* ModifyTime, VARIANT* RelServiceType, VARIANT* RelLabel, VARIANT* RelCreateTime, VARIANT* RelModifyTime, IMSMQQueueInfos2** ppqinfos) LookupQueue;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IDispatch** ppcolProperties) get_Properties;
 	}
 
 
@@ -2099,9 +2099,9 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQQuery3*/SelfOuter* self, VARIANT* QueueGuid, VARIANT* ServiceTypeGuid, VARIANT* Label, VARIANT* CreateTime, VARIANT* ModifyTime, VARIANT* RelServiceType, VARIANT* RelLabel, VARIANT* RelCreateTime, VARIANT* RelModifyTime, IMSMQQueueInfos3** ppqinfos) LookupQueue_v2;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQQuery3*/SelfOuter* self, IDispatch** ppcolProperties) get_Properties;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQQuery3*/SelfOuter* self, VARIANT* QueueGuid, VARIANT* ServiceTypeGuid, VARIANT* Label, VARIANT* CreateTime, VARIANT* ModifyTime, VARIANT* RelServiceType, VARIANT* RelLabel, VARIANT* RelCreateTime, VARIANT* RelModifyTime, VARIANT* MulticastAddress, VARIANT* RelMulticastAddress, IMSMQQueueInfos3** ppqinfos) LookupQueue;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT* QueueGuid, VARIANT* ServiceTypeGuid, VARIANT* Label, VARIANT* CreateTime, VARIANT* ModifyTime, VARIANT* RelServiceType, VARIANT* RelLabel, VARIANT* RelCreateTime, VARIANT* RelModifyTime, IMSMQQueueInfos3** ppqinfos) LookupQueue_v2;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IDispatch** ppcolProperties) get_Properties;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT* QueueGuid, VARIANT* ServiceTypeGuid, VARIANT* Label, VARIANT* CreateTime, VARIANT* ModifyTime, VARIANT* RelServiceType, VARIANT* RelLabel, VARIANT* RelCreateTime, VARIANT* RelModifyTime, VARIANT* MulticastAddress, VARIANT* RelMulticastAddress, IMSMQQueueInfos3** ppqinfos) LookupQueue;
 	}
 
 
@@ -2120,9 +2120,9 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQQuery4*/SelfOuter* self, VARIANT* QueueGuid, VARIANT* ServiceTypeGuid, VARIANT* Label, VARIANT* CreateTime, VARIANT* ModifyTime, VARIANT* RelServiceType, VARIANT* RelLabel, VARIANT* RelCreateTime, VARIANT* RelModifyTime, IMSMQQueueInfos4** ppqinfos) LookupQueue_v2;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQQuery4*/SelfOuter* self, IDispatch** ppcolProperties) get_Properties;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQQuery4*/SelfOuter* self, VARIANT* QueueGuid, VARIANT* ServiceTypeGuid, VARIANT* Label, VARIANT* CreateTime, VARIANT* ModifyTime, VARIANT* RelServiceType, VARIANT* RelLabel, VARIANT* RelCreateTime, VARIANT* RelModifyTime, VARIANT* MulticastAddress, VARIANT* RelMulticastAddress, IMSMQQueueInfos4** ppqinfos) LookupQueue;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT* QueueGuid, VARIANT* ServiceTypeGuid, VARIANT* Label, VARIANT* CreateTime, VARIANT* ModifyTime, VARIANT* RelServiceType, VARIANT* RelLabel, VARIANT* RelCreateTime, VARIANT* RelModifyTime, IMSMQQueueInfos4** ppqinfos) LookupQueue_v2;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IDispatch** ppcolProperties) get_Properties;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT* QueueGuid, VARIANT* ServiceTypeGuid, VARIANT* Label, VARIANT* CreateTime, VARIANT* ModifyTime, VARIANT* RelServiceType, VARIANT* RelLabel, VARIANT* RelCreateTime, VARIANT* RelModifyTime, VARIANT* MulticastAddress, VARIANT* RelMulticastAddress, IMSMQQueueInfos4** ppqinfos) LookupQueue;
 	}
 
 
@@ -2141,81 +2141,81 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQMessage2*/SelfOuter* self, int32* plClass) get_Class;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQMessage2*/SelfOuter* self, int32* plPrivLevel) get_PrivLevel;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQMessage2*/SelfOuter* self, int32 lPrivLevel) put_PrivLevel;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQMessage2*/SelfOuter* self, int32* plAuthLevel) get_AuthLevel;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQMessage2*/SelfOuter* self, int32 lAuthLevel) put_AuthLevel;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQMessage2*/SelfOuter* self, int16* pisAuthenticated) get_IsAuthenticated;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQMessage2*/SelfOuter* self, int32* plDelivery) get_Delivery;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQMessage2*/SelfOuter* self, int32 lDelivery) put_Delivery;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQMessage2*/SelfOuter* self, int32* plTrace) get_Trace;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQMessage2*/SelfOuter* self, int32 lTrace) put_Trace;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQMessage2*/SelfOuter* self, int32* plPriority) get_Priority;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQMessage2*/SelfOuter* self, int32 lPriority) put_Priority;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQMessage2*/SelfOuter* self, int32* plJournal) get_Journal;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQMessage2*/SelfOuter* self, int32 lJournal) put_Journal;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQMessage2*/SelfOuter* self, IMSMQQueueInfo** ppqinfoResponse) get_ResponseQueueInfo_v1;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQMessage2*/SelfOuter* self, IMSMQQueueInfo* pqinfoResponse) putref_ResponseQueueInfo_v1;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQMessage2*/SelfOuter* self, int32* plAppSpecific) get_AppSpecific;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQMessage2*/SelfOuter* self, int32 lAppSpecific) put_AppSpecific;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQMessage2*/SelfOuter* self, BSTR* pbstrGuidSrcMachine) get_SourceMachineGuid;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQMessage2*/SelfOuter* self, int32* pcbBody) get_BodyLength;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQMessage2*/SelfOuter* self, VARIANT* pvarBody) get_Body;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQMessage2*/SelfOuter* self, VARIANT varBody) put_Body;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQMessage2*/SelfOuter* self, IMSMQQueueInfo** ppqinfoAdmin) get_AdminQueueInfo_v1;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQMessage2*/SelfOuter* self, IMSMQQueueInfo* pqinfoAdmin) putref_AdminQueueInfo_v1;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQMessage2*/SelfOuter* self, VARIANT* pvarMsgId) get_Id;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQMessage2*/SelfOuter* self, VARIANT* pvarMsgId) get_CorrelationId;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQMessage2*/SelfOuter* self, VARIANT varMsgId) put_CorrelationId;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQMessage2*/SelfOuter* self, int32* plAck) get_Ack;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQMessage2*/SelfOuter* self, int32 lAck) put_Ack;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQMessage2*/SelfOuter* self, BSTR* pbstrLabel) get_Label;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQMessage2*/SelfOuter* self, BSTR bstrLabel) put_Label;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQMessage2*/SelfOuter* self, int32* plMaxTimeToReachQueue) get_MaxTimeToReachQueue;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQMessage2*/SelfOuter* self, int32 lMaxTimeToReachQueue) put_MaxTimeToReachQueue;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQMessage2*/SelfOuter* self, int32* plMaxTimeToReceive) get_MaxTimeToReceive;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQMessage2*/SelfOuter* self, int32 lMaxTimeToReceive) put_MaxTimeToReceive;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQMessage2*/SelfOuter* self, int32* plHashAlg) get_HashAlgorithm;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQMessage2*/SelfOuter* self, int32 lHashAlg) put_HashAlgorithm;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQMessage2*/SelfOuter* self, int32* plEncryptAlg) get_EncryptAlgorithm;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQMessage2*/SelfOuter* self, int32 lEncryptAlg) put_EncryptAlgorithm;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQMessage2*/SelfOuter* self, VARIANT* pvarSentTime) get_SentTime;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQMessage2*/SelfOuter* self, VARIANT* plArrivedTime) get_ArrivedTime;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQMessage2*/SelfOuter* self, IMSMQQueueInfo2** ppqinfoDest) get_DestinationQueueInfo;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQMessage2*/SelfOuter* self, VARIANT* pvarSenderCert) get_SenderCertificate;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQMessage2*/SelfOuter* self, VARIANT varSenderCert) put_SenderCertificate;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQMessage2*/SelfOuter* self, VARIANT* pvarSenderId) get_SenderId;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQMessage2*/SelfOuter* self, int32* plSenderIdType) get_SenderIdType;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQMessage2*/SelfOuter* self, int32 lSenderIdType) put_SenderIdType;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQMessage2*/SelfOuter* self, IMSMQQueue2* DestinationQueue, VARIANT* Transaction) Send;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQMessage2*/SelfOuter* self) AttachCurrentSecurityContext;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQMessage2*/SelfOuter* self, int32* plSenderVersion) get_SenderVersion;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQMessage2*/SelfOuter* self, VARIANT* pvarExtension) get_Extension;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQMessage2*/SelfOuter* self, VARIANT varExtension) put_Extension;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQMessage2*/SelfOuter* self, BSTR* pbstrGuidConnectorType) get_ConnectorTypeGuid;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQMessage2*/SelfOuter* self, BSTR bstrGuidConnectorType) put_ConnectorTypeGuid;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQMessage2*/SelfOuter* self, IMSMQQueueInfo2** ppqinfoXactStatus) get_TransactionStatusQueueInfo;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQMessage2*/SelfOuter* self, VARIANT* pvarDestSymmKey) get_DestinationSymmetricKey;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQMessage2*/SelfOuter* self, VARIANT varDestSymmKey) put_DestinationSymmetricKey;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQMessage2*/SelfOuter* self, VARIANT* pvarSignature) get_Signature;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQMessage2*/SelfOuter* self, VARIANT varSignature) put_Signature;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQMessage2*/SelfOuter* self, int32* plAuthProvType) get_AuthenticationProviderType;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQMessage2*/SelfOuter* self, int32 lAuthProvType) put_AuthenticationProviderType;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQMessage2*/SelfOuter* self, BSTR* pbstrAuthProvName) get_AuthenticationProviderName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQMessage2*/SelfOuter* self, BSTR bstrAuthProvName) put_AuthenticationProviderName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQMessage2*/SelfOuter* self, VARIANT varSenderId) put_SenderId;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQMessage2*/SelfOuter* self, int32* plMsgClass) get_MsgClass;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQMessage2*/SelfOuter* self, int32 lMsgClass) put_MsgClass;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQMessage2*/SelfOuter* self, IDispatch** ppcolProperties) get_Properties;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQMessage2*/SelfOuter* self, VARIANT* pvarXactId) get_TransactionId;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQMessage2*/SelfOuter* self, int16* pisFirstInXact) get_IsFirstInTransaction;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQMessage2*/SelfOuter* self, int16* pisLastInXact) get_IsLastInTransaction;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQMessage2*/SelfOuter* self, IMSMQQueueInfo2** ppqinfoResponse) get_ResponseQueueInfo;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQMessage2*/SelfOuter* self, IMSMQQueueInfo2* pqinfoResponse) putref_ResponseQueueInfo;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQMessage2*/SelfOuter* self, IMSMQQueueInfo2** ppqinfoAdmin) get_AdminQueueInfo;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQMessage2*/SelfOuter* self, IMSMQQueueInfo2* pqinfoAdmin) putref_AdminQueueInfo;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQMessage2*/SelfOuter* self, int16* psReceivedAuthenticationLevel) get_ReceivedAuthenticationLevel;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* plClass) get_Class;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* plPrivLevel) get_PrivLevel;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 lPrivLevel) put_PrivLevel;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* plAuthLevel) get_AuthLevel;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 lAuthLevel) put_AuthLevel;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* pisAuthenticated) get_IsAuthenticated;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* plDelivery) get_Delivery;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 lDelivery) put_Delivery;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* plTrace) get_Trace;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 lTrace) put_Trace;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* plPriority) get_Priority;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 lPriority) put_Priority;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* plJournal) get_Journal;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 lJournal) put_Journal;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IMSMQQueueInfo** ppqinfoResponse) get_ResponseQueueInfo_v1;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IMSMQQueueInfo* pqinfoResponse) putref_ResponseQueueInfo_v1;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* plAppSpecific) get_AppSpecific;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 lAppSpecific) put_AppSpecific;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pbstrGuidSrcMachine) get_SourceMachineGuid;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* pcbBody) get_BodyLength;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT* pvarBody) get_Body;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT varBody) put_Body;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IMSMQQueueInfo** ppqinfoAdmin) get_AdminQueueInfo_v1;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IMSMQQueueInfo* pqinfoAdmin) putref_AdminQueueInfo_v1;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT* pvarMsgId) get_Id;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT* pvarMsgId) get_CorrelationId;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT varMsgId) put_CorrelationId;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* plAck) get_Ack;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 lAck) put_Ack;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pbstrLabel) get_Label;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrLabel) put_Label;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* plMaxTimeToReachQueue) get_MaxTimeToReachQueue;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 lMaxTimeToReachQueue) put_MaxTimeToReachQueue;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* plMaxTimeToReceive) get_MaxTimeToReceive;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 lMaxTimeToReceive) put_MaxTimeToReceive;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* plHashAlg) get_HashAlgorithm;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 lHashAlg) put_HashAlgorithm;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* plEncryptAlg) get_EncryptAlgorithm;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 lEncryptAlg) put_EncryptAlgorithm;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT* pvarSentTime) get_SentTime;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT* plArrivedTime) get_ArrivedTime;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IMSMQQueueInfo2** ppqinfoDest) get_DestinationQueueInfo;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT* pvarSenderCert) get_SenderCertificate;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT varSenderCert) put_SenderCertificate;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT* pvarSenderId) get_SenderId;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* plSenderIdType) get_SenderIdType;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 lSenderIdType) put_SenderIdType;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IMSMQQueue2* DestinationQueue, VARIANT* Transaction) Send;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) AttachCurrentSecurityContext;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* plSenderVersion) get_SenderVersion;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT* pvarExtension) get_Extension;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT varExtension) put_Extension;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pbstrGuidConnectorType) get_ConnectorTypeGuid;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrGuidConnectorType) put_ConnectorTypeGuid;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IMSMQQueueInfo2** ppqinfoXactStatus) get_TransactionStatusQueueInfo;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT* pvarDestSymmKey) get_DestinationSymmetricKey;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT varDestSymmKey) put_DestinationSymmetricKey;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT* pvarSignature) get_Signature;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT varSignature) put_Signature;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* plAuthProvType) get_AuthenticationProviderType;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 lAuthProvType) put_AuthenticationProviderType;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pbstrAuthProvName) get_AuthenticationProviderName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrAuthProvName) put_AuthenticationProviderName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT varSenderId) put_SenderId;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* plMsgClass) get_MsgClass;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 lMsgClass) put_MsgClass;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IDispatch** ppcolProperties) get_Properties;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT* pvarXactId) get_TransactionId;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* pisFirstInXact) get_IsFirstInTransaction;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* pisLastInXact) get_IsLastInTransaction;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IMSMQQueueInfo2** ppqinfoResponse) get_ResponseQueueInfo;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IMSMQQueueInfo2* pqinfoResponse) putref_ResponseQueueInfo;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IMSMQQueueInfo2** ppqinfoAdmin) get_AdminQueueInfo;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IMSMQQueueInfo2* pqinfoAdmin) putref_AdminQueueInfo;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* psReceivedAuthenticationLevel) get_ReceivedAuthenticationLevel;
 	}
 
 
@@ -2378,97 +2378,97 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQMessage3*/SelfOuter* self, int32* plClass) get_Class;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQMessage3*/SelfOuter* self, int32* plPrivLevel) get_PrivLevel;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQMessage3*/SelfOuter* self, int32 lPrivLevel) put_PrivLevel;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQMessage3*/SelfOuter* self, int32* plAuthLevel) get_AuthLevel;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQMessage3*/SelfOuter* self, int32 lAuthLevel) put_AuthLevel;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQMessage3*/SelfOuter* self, int16* pisAuthenticated) get_IsAuthenticated;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQMessage3*/SelfOuter* self, int32* plDelivery) get_Delivery;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQMessage3*/SelfOuter* self, int32 lDelivery) put_Delivery;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQMessage3*/SelfOuter* self, int32* plTrace) get_Trace;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQMessage3*/SelfOuter* self, int32 lTrace) put_Trace;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQMessage3*/SelfOuter* self, int32* plPriority) get_Priority;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQMessage3*/SelfOuter* self, int32 lPriority) put_Priority;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQMessage3*/SelfOuter* self, int32* plJournal) get_Journal;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQMessage3*/SelfOuter* self, int32 lJournal) put_Journal;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQMessage3*/SelfOuter* self, IMSMQQueueInfo** ppqinfoResponse) get_ResponseQueueInfo_v1;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQMessage3*/SelfOuter* self, IMSMQQueueInfo* pqinfoResponse) putref_ResponseQueueInfo_v1;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQMessage3*/SelfOuter* self, int32* plAppSpecific) get_AppSpecific;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQMessage3*/SelfOuter* self, int32 lAppSpecific) put_AppSpecific;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQMessage3*/SelfOuter* self, BSTR* pbstrGuidSrcMachine) get_SourceMachineGuid;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQMessage3*/SelfOuter* self, int32* pcbBody) get_BodyLength;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQMessage3*/SelfOuter* self, VARIANT* pvarBody) get_Body;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQMessage3*/SelfOuter* self, VARIANT varBody) put_Body;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQMessage3*/SelfOuter* self, IMSMQQueueInfo** ppqinfoAdmin) get_AdminQueueInfo_v1;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQMessage3*/SelfOuter* self, IMSMQQueueInfo* pqinfoAdmin) putref_AdminQueueInfo_v1;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQMessage3*/SelfOuter* self, VARIANT* pvarMsgId) get_Id;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQMessage3*/SelfOuter* self, VARIANT* pvarMsgId) get_CorrelationId;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQMessage3*/SelfOuter* self, VARIANT varMsgId) put_CorrelationId;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQMessage3*/SelfOuter* self, int32* plAck) get_Ack;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQMessage3*/SelfOuter* self, int32 lAck) put_Ack;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQMessage3*/SelfOuter* self, BSTR* pbstrLabel) get_Label;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQMessage3*/SelfOuter* self, BSTR bstrLabel) put_Label;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQMessage3*/SelfOuter* self, int32* plMaxTimeToReachQueue) get_MaxTimeToReachQueue;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQMessage3*/SelfOuter* self, int32 lMaxTimeToReachQueue) put_MaxTimeToReachQueue;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQMessage3*/SelfOuter* self, int32* plMaxTimeToReceive) get_MaxTimeToReceive;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQMessage3*/SelfOuter* self, int32 lMaxTimeToReceive) put_MaxTimeToReceive;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQMessage3*/SelfOuter* self, int32* plHashAlg) get_HashAlgorithm;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQMessage3*/SelfOuter* self, int32 lHashAlg) put_HashAlgorithm;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQMessage3*/SelfOuter* self, int32* plEncryptAlg) get_EncryptAlgorithm;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQMessage3*/SelfOuter* self, int32 lEncryptAlg) put_EncryptAlgorithm;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQMessage3*/SelfOuter* self, VARIANT* pvarSentTime) get_SentTime;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQMessage3*/SelfOuter* self, VARIANT* plArrivedTime) get_ArrivedTime;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQMessage3*/SelfOuter* self, IMSMQQueueInfo3** ppqinfoDest) get_DestinationQueueInfo;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQMessage3*/SelfOuter* self, VARIANT* pvarSenderCert) get_SenderCertificate;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQMessage3*/SelfOuter* self, VARIANT varSenderCert) put_SenderCertificate;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQMessage3*/SelfOuter* self, VARIANT* pvarSenderId) get_SenderId;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQMessage3*/SelfOuter* self, int32* plSenderIdType) get_SenderIdType;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQMessage3*/SelfOuter* self, int32 lSenderIdType) put_SenderIdType;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQMessage3*/SelfOuter* self, IDispatch* DestinationQueue, VARIANT* Transaction) Send;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQMessage3*/SelfOuter* self) AttachCurrentSecurityContext;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQMessage3*/SelfOuter* self, int32* plSenderVersion) get_SenderVersion;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQMessage3*/SelfOuter* self, VARIANT* pvarExtension) get_Extension;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQMessage3*/SelfOuter* self, VARIANT varExtension) put_Extension;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQMessage3*/SelfOuter* self, BSTR* pbstrGuidConnectorType) get_ConnectorTypeGuid;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQMessage3*/SelfOuter* self, BSTR bstrGuidConnectorType) put_ConnectorTypeGuid;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQMessage3*/SelfOuter* self, IMSMQQueueInfo3** ppqinfoXactStatus) get_TransactionStatusQueueInfo;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQMessage3*/SelfOuter* self, VARIANT* pvarDestSymmKey) get_DestinationSymmetricKey;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQMessage3*/SelfOuter* self, VARIANT varDestSymmKey) put_DestinationSymmetricKey;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQMessage3*/SelfOuter* self, VARIANT* pvarSignature) get_Signature;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQMessage3*/SelfOuter* self, VARIANT varSignature) put_Signature;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQMessage3*/SelfOuter* self, int32* plAuthProvType) get_AuthenticationProviderType;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQMessage3*/SelfOuter* self, int32 lAuthProvType) put_AuthenticationProviderType;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQMessage3*/SelfOuter* self, BSTR* pbstrAuthProvName) get_AuthenticationProviderName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQMessage3*/SelfOuter* self, BSTR bstrAuthProvName) put_AuthenticationProviderName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQMessage3*/SelfOuter* self, VARIANT varSenderId) put_SenderId;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQMessage3*/SelfOuter* self, int32* plMsgClass) get_MsgClass;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQMessage3*/SelfOuter* self, int32 lMsgClass) put_MsgClass;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQMessage3*/SelfOuter* self, IDispatch** ppcolProperties) get_Properties;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQMessage3*/SelfOuter* self, VARIANT* pvarXactId) get_TransactionId;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQMessage3*/SelfOuter* self, int16* pisFirstInXact) get_IsFirstInTransaction;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQMessage3*/SelfOuter* self, int16* pisLastInXact) get_IsLastInTransaction;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQMessage3*/SelfOuter* self, IMSMQQueueInfo2** ppqinfoResponse) get_ResponseQueueInfo_v2;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQMessage3*/SelfOuter* self, IMSMQQueueInfo2* pqinfoResponse) putref_ResponseQueueInfo_v2;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQMessage3*/SelfOuter* self, IMSMQQueueInfo2** ppqinfoAdmin) get_AdminQueueInfo_v2;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQMessage3*/SelfOuter* self, IMSMQQueueInfo2* pqinfoAdmin) putref_AdminQueueInfo_v2;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQMessage3*/SelfOuter* self, int16* psReceivedAuthenticationLevel) get_ReceivedAuthenticationLevel;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQMessage3*/SelfOuter* self, IMSMQQueueInfo3** ppqinfoResponse) get_ResponseQueueInfo;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQMessage3*/SelfOuter* self, IMSMQQueueInfo3* pqinfoResponse) putref_ResponseQueueInfo;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQMessage3*/SelfOuter* self, IMSMQQueueInfo3** ppqinfoAdmin) get_AdminQueueInfo;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQMessage3*/SelfOuter* self, IMSMQQueueInfo3* pqinfoAdmin) putref_AdminQueueInfo;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQMessage3*/SelfOuter* self, IDispatch** ppdestResponse) get_ResponseDestination;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQMessage3*/SelfOuter* self, IDispatch* pdestResponse) putref_ResponseDestination;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQMessage3*/SelfOuter* self, IDispatch** ppdestDestination) get_Destination;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQMessage3*/SelfOuter* self, VARIANT* pvarLookupId) get_LookupId;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQMessage3*/SelfOuter* self, int16* pisAuthenticated) get_IsAuthenticated2;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQMessage3*/SelfOuter* self, int16* pisFirstInXact) get_IsFirstInTransaction2;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQMessage3*/SelfOuter* self, int16* pisLastInXact) get_IsLastInTransaction2;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQMessage3*/SelfOuter* self) AttachCurrentSecurityContext2;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQMessage3*/SelfOuter* self, BSTR* pbstrSoapEnvelope) get_SoapEnvelope;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQMessage3*/SelfOuter* self, VARIANT* pvarCompoundMessage) get_CompoundMessage;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQMessage3*/SelfOuter* self, BSTR bstrSoapHeader) put_SoapHeader;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQMessage3*/SelfOuter* self, BSTR bstrSoapBody) put_SoapBody;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* plClass) get_Class;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* plPrivLevel) get_PrivLevel;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 lPrivLevel) put_PrivLevel;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* plAuthLevel) get_AuthLevel;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 lAuthLevel) put_AuthLevel;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* pisAuthenticated) get_IsAuthenticated;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* plDelivery) get_Delivery;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 lDelivery) put_Delivery;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* plTrace) get_Trace;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 lTrace) put_Trace;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* plPriority) get_Priority;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 lPriority) put_Priority;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* plJournal) get_Journal;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 lJournal) put_Journal;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IMSMQQueueInfo** ppqinfoResponse) get_ResponseQueueInfo_v1;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IMSMQQueueInfo* pqinfoResponse) putref_ResponseQueueInfo_v1;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* plAppSpecific) get_AppSpecific;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 lAppSpecific) put_AppSpecific;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pbstrGuidSrcMachine) get_SourceMachineGuid;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* pcbBody) get_BodyLength;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT* pvarBody) get_Body;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT varBody) put_Body;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IMSMQQueueInfo** ppqinfoAdmin) get_AdminQueueInfo_v1;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IMSMQQueueInfo* pqinfoAdmin) putref_AdminQueueInfo_v1;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT* pvarMsgId) get_Id;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT* pvarMsgId) get_CorrelationId;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT varMsgId) put_CorrelationId;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* plAck) get_Ack;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 lAck) put_Ack;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pbstrLabel) get_Label;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrLabel) put_Label;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* plMaxTimeToReachQueue) get_MaxTimeToReachQueue;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 lMaxTimeToReachQueue) put_MaxTimeToReachQueue;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* plMaxTimeToReceive) get_MaxTimeToReceive;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 lMaxTimeToReceive) put_MaxTimeToReceive;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* plHashAlg) get_HashAlgorithm;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 lHashAlg) put_HashAlgorithm;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* plEncryptAlg) get_EncryptAlgorithm;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 lEncryptAlg) put_EncryptAlgorithm;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT* pvarSentTime) get_SentTime;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT* plArrivedTime) get_ArrivedTime;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IMSMQQueueInfo3** ppqinfoDest) get_DestinationQueueInfo;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT* pvarSenderCert) get_SenderCertificate;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT varSenderCert) put_SenderCertificate;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT* pvarSenderId) get_SenderId;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* plSenderIdType) get_SenderIdType;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 lSenderIdType) put_SenderIdType;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IDispatch* DestinationQueue, VARIANT* Transaction) Send;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) AttachCurrentSecurityContext;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* plSenderVersion) get_SenderVersion;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT* pvarExtension) get_Extension;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT varExtension) put_Extension;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pbstrGuidConnectorType) get_ConnectorTypeGuid;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrGuidConnectorType) put_ConnectorTypeGuid;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IMSMQQueueInfo3** ppqinfoXactStatus) get_TransactionStatusQueueInfo;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT* pvarDestSymmKey) get_DestinationSymmetricKey;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT varDestSymmKey) put_DestinationSymmetricKey;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT* pvarSignature) get_Signature;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT varSignature) put_Signature;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* plAuthProvType) get_AuthenticationProviderType;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 lAuthProvType) put_AuthenticationProviderType;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pbstrAuthProvName) get_AuthenticationProviderName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrAuthProvName) put_AuthenticationProviderName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT varSenderId) put_SenderId;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* plMsgClass) get_MsgClass;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 lMsgClass) put_MsgClass;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IDispatch** ppcolProperties) get_Properties;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT* pvarXactId) get_TransactionId;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* pisFirstInXact) get_IsFirstInTransaction;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* pisLastInXact) get_IsLastInTransaction;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IMSMQQueueInfo2** ppqinfoResponse) get_ResponseQueueInfo_v2;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IMSMQQueueInfo2* pqinfoResponse) putref_ResponseQueueInfo_v2;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IMSMQQueueInfo2** ppqinfoAdmin) get_AdminQueueInfo_v2;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IMSMQQueueInfo2* pqinfoAdmin) putref_AdminQueueInfo_v2;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* psReceivedAuthenticationLevel) get_ReceivedAuthenticationLevel;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IMSMQQueueInfo3** ppqinfoResponse) get_ResponseQueueInfo;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IMSMQQueueInfo3* pqinfoResponse) putref_ResponseQueueInfo;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IMSMQQueueInfo3** ppqinfoAdmin) get_AdminQueueInfo;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IMSMQQueueInfo3* pqinfoAdmin) putref_AdminQueueInfo;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IDispatch** ppdestResponse) get_ResponseDestination;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IDispatch* pdestResponse) putref_ResponseDestination;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IDispatch** ppdestDestination) get_Destination;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT* pvarLookupId) get_LookupId;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* pisAuthenticated) get_IsAuthenticated2;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* pisFirstInXact) get_IsFirstInTransaction2;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* pisLastInXact) get_IsLastInTransaction2;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) AttachCurrentSecurityContext2;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pbstrSoapEnvelope) get_SoapEnvelope;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT* pvarCompoundMessage) get_CompoundMessage;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrSoapHeader) put_SoapHeader;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrSoapBody) put_SoapBody;
 	}
 
 
@@ -2663,97 +2663,97 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQMessage4*/SelfOuter* self, int32* plClass) get_Class;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQMessage4*/SelfOuter* self, int32* plPrivLevel) get_PrivLevel;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQMessage4*/SelfOuter* self, int32 lPrivLevel) put_PrivLevel;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQMessage4*/SelfOuter* self, int32* plAuthLevel) get_AuthLevel;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQMessage4*/SelfOuter* self, int32 lAuthLevel) put_AuthLevel;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQMessage4*/SelfOuter* self, int16* pisAuthenticated) get_IsAuthenticated;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQMessage4*/SelfOuter* self, int32* plDelivery) get_Delivery;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQMessage4*/SelfOuter* self, int32 lDelivery) put_Delivery;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQMessage4*/SelfOuter* self, int32* plTrace) get_Trace;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQMessage4*/SelfOuter* self, int32 lTrace) put_Trace;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQMessage4*/SelfOuter* self, int32* plPriority) get_Priority;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQMessage4*/SelfOuter* self, int32 lPriority) put_Priority;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQMessage4*/SelfOuter* self, int32* plJournal) get_Journal;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQMessage4*/SelfOuter* self, int32 lJournal) put_Journal;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQMessage4*/SelfOuter* self, IMSMQQueueInfo** ppqinfoResponse) get_ResponseQueueInfo_v1;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQMessage4*/SelfOuter* self, IMSMQQueueInfo* pqinfoResponse) putref_ResponseQueueInfo_v1;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQMessage4*/SelfOuter* self, int32* plAppSpecific) get_AppSpecific;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQMessage4*/SelfOuter* self, int32 lAppSpecific) put_AppSpecific;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQMessage4*/SelfOuter* self, BSTR* pbstrGuidSrcMachine) get_SourceMachineGuid;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQMessage4*/SelfOuter* self, int32* pcbBody) get_BodyLength;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQMessage4*/SelfOuter* self, VARIANT* pvarBody) get_Body;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQMessage4*/SelfOuter* self, VARIANT varBody) put_Body;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQMessage4*/SelfOuter* self, IMSMQQueueInfo** ppqinfoAdmin) get_AdminQueueInfo_v1;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQMessage4*/SelfOuter* self, IMSMQQueueInfo* pqinfoAdmin) putref_AdminQueueInfo_v1;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQMessage4*/SelfOuter* self, VARIANT* pvarMsgId) get_Id;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQMessage4*/SelfOuter* self, VARIANT* pvarMsgId) get_CorrelationId;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQMessage4*/SelfOuter* self, VARIANT varMsgId) put_CorrelationId;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQMessage4*/SelfOuter* self, int32* plAck) get_Ack;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQMessage4*/SelfOuter* self, int32 lAck) put_Ack;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQMessage4*/SelfOuter* self, BSTR* pbstrLabel) get_Label;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQMessage4*/SelfOuter* self, BSTR bstrLabel) put_Label;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQMessage4*/SelfOuter* self, int32* plMaxTimeToReachQueue) get_MaxTimeToReachQueue;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQMessage4*/SelfOuter* self, int32 lMaxTimeToReachQueue) put_MaxTimeToReachQueue;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQMessage4*/SelfOuter* self, int32* plMaxTimeToReceive) get_MaxTimeToReceive;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQMessage4*/SelfOuter* self, int32 lMaxTimeToReceive) put_MaxTimeToReceive;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQMessage4*/SelfOuter* self, int32* plHashAlg) get_HashAlgorithm;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQMessage4*/SelfOuter* self, int32 lHashAlg) put_HashAlgorithm;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQMessage4*/SelfOuter* self, int32* plEncryptAlg) get_EncryptAlgorithm;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQMessage4*/SelfOuter* self, int32 lEncryptAlg) put_EncryptAlgorithm;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQMessage4*/SelfOuter* self, VARIANT* pvarSentTime) get_SentTime;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQMessage4*/SelfOuter* self, VARIANT* plArrivedTime) get_ArrivedTime;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQMessage4*/SelfOuter* self, IMSMQQueueInfo4** ppqinfoDest) get_DestinationQueueInfo;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQMessage4*/SelfOuter* self, VARIANT* pvarSenderCert) get_SenderCertificate;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQMessage4*/SelfOuter* self, VARIANT varSenderCert) put_SenderCertificate;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQMessage4*/SelfOuter* self, VARIANT* pvarSenderId) get_SenderId;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQMessage4*/SelfOuter* self, int32* plSenderIdType) get_SenderIdType;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQMessage4*/SelfOuter* self, int32 lSenderIdType) put_SenderIdType;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQMessage4*/SelfOuter* self, IDispatch* DestinationQueue, VARIANT* Transaction) Send;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQMessage4*/SelfOuter* self) AttachCurrentSecurityContext;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQMessage4*/SelfOuter* self, int32* plSenderVersion) get_SenderVersion;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQMessage4*/SelfOuter* self, VARIANT* pvarExtension) get_Extension;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQMessage4*/SelfOuter* self, VARIANT varExtension) put_Extension;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQMessage4*/SelfOuter* self, BSTR* pbstrGuidConnectorType) get_ConnectorTypeGuid;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQMessage4*/SelfOuter* self, BSTR bstrGuidConnectorType) put_ConnectorTypeGuid;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQMessage4*/SelfOuter* self, IMSMQQueueInfo4** ppqinfoXactStatus) get_TransactionStatusQueueInfo;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQMessage4*/SelfOuter* self, VARIANT* pvarDestSymmKey) get_DestinationSymmetricKey;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQMessage4*/SelfOuter* self, VARIANT varDestSymmKey) put_DestinationSymmetricKey;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQMessage4*/SelfOuter* self, VARIANT* pvarSignature) get_Signature;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQMessage4*/SelfOuter* self, VARIANT varSignature) put_Signature;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQMessage4*/SelfOuter* self, int32* plAuthProvType) get_AuthenticationProviderType;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQMessage4*/SelfOuter* self, int32 lAuthProvType) put_AuthenticationProviderType;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQMessage4*/SelfOuter* self, BSTR* pbstrAuthProvName) get_AuthenticationProviderName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQMessage4*/SelfOuter* self, BSTR bstrAuthProvName) put_AuthenticationProviderName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQMessage4*/SelfOuter* self, VARIANT varSenderId) put_SenderId;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQMessage4*/SelfOuter* self, int32* plMsgClass) get_MsgClass;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQMessage4*/SelfOuter* self, int32 lMsgClass) put_MsgClass;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQMessage4*/SelfOuter* self, IDispatch** ppcolProperties) get_Properties;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQMessage4*/SelfOuter* self, VARIANT* pvarXactId) get_TransactionId;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQMessage4*/SelfOuter* self, int16* pisFirstInXact) get_IsFirstInTransaction;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQMessage4*/SelfOuter* self, int16* pisLastInXact) get_IsLastInTransaction;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQMessage4*/SelfOuter* self, IMSMQQueueInfo2** ppqinfoResponse) get_ResponseQueueInfo_v2;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQMessage4*/SelfOuter* self, IMSMQQueueInfo2* pqinfoResponse) putref_ResponseQueueInfo_v2;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQMessage4*/SelfOuter* self, IMSMQQueueInfo2** ppqinfoAdmin) get_AdminQueueInfo_v2;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQMessage4*/SelfOuter* self, IMSMQQueueInfo2* pqinfoAdmin) putref_AdminQueueInfo_v2;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQMessage4*/SelfOuter* self, int16* psReceivedAuthenticationLevel) get_ReceivedAuthenticationLevel;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQMessage4*/SelfOuter* self, IMSMQQueueInfo4** ppqinfoResponse) get_ResponseQueueInfo;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQMessage4*/SelfOuter* self, IMSMQQueueInfo4* pqinfoResponse) putref_ResponseQueueInfo;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQMessage4*/SelfOuter* self, IMSMQQueueInfo4** ppqinfoAdmin) get_AdminQueueInfo;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQMessage4*/SelfOuter* self, IMSMQQueueInfo4* pqinfoAdmin) putref_AdminQueueInfo;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQMessage4*/SelfOuter* self, IDispatch** ppdestResponse) get_ResponseDestination;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQMessage4*/SelfOuter* self, IDispatch* pdestResponse) putref_ResponseDestination;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQMessage4*/SelfOuter* self, IDispatch** ppdestDestination) get_Destination;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQMessage4*/SelfOuter* self, VARIANT* pvarLookupId) get_LookupId;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQMessage4*/SelfOuter* self, int16* pisAuthenticated) get_IsAuthenticated2;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQMessage4*/SelfOuter* self, int16* pisFirstInXact) get_IsFirstInTransaction2;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQMessage4*/SelfOuter* self, int16* pisLastInXact) get_IsLastInTransaction2;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQMessage4*/SelfOuter* self) AttachCurrentSecurityContext2;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQMessage4*/SelfOuter* self, BSTR* pbstrSoapEnvelope) get_SoapEnvelope;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQMessage4*/SelfOuter* self, VARIANT* pvarCompoundMessage) get_CompoundMessage;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQMessage4*/SelfOuter* self, BSTR bstrSoapHeader) put_SoapHeader;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQMessage4*/SelfOuter* self, BSTR bstrSoapBody) put_SoapBody;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* plClass) get_Class;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* plPrivLevel) get_PrivLevel;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 lPrivLevel) put_PrivLevel;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* plAuthLevel) get_AuthLevel;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 lAuthLevel) put_AuthLevel;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* pisAuthenticated) get_IsAuthenticated;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* plDelivery) get_Delivery;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 lDelivery) put_Delivery;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* plTrace) get_Trace;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 lTrace) put_Trace;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* plPriority) get_Priority;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 lPriority) put_Priority;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* plJournal) get_Journal;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 lJournal) put_Journal;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IMSMQQueueInfo** ppqinfoResponse) get_ResponseQueueInfo_v1;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IMSMQQueueInfo* pqinfoResponse) putref_ResponseQueueInfo_v1;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* plAppSpecific) get_AppSpecific;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 lAppSpecific) put_AppSpecific;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pbstrGuidSrcMachine) get_SourceMachineGuid;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* pcbBody) get_BodyLength;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT* pvarBody) get_Body;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT varBody) put_Body;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IMSMQQueueInfo** ppqinfoAdmin) get_AdminQueueInfo_v1;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IMSMQQueueInfo* pqinfoAdmin) putref_AdminQueueInfo_v1;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT* pvarMsgId) get_Id;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT* pvarMsgId) get_CorrelationId;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT varMsgId) put_CorrelationId;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* plAck) get_Ack;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 lAck) put_Ack;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pbstrLabel) get_Label;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrLabel) put_Label;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* plMaxTimeToReachQueue) get_MaxTimeToReachQueue;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 lMaxTimeToReachQueue) put_MaxTimeToReachQueue;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* plMaxTimeToReceive) get_MaxTimeToReceive;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 lMaxTimeToReceive) put_MaxTimeToReceive;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* plHashAlg) get_HashAlgorithm;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 lHashAlg) put_HashAlgorithm;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* plEncryptAlg) get_EncryptAlgorithm;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 lEncryptAlg) put_EncryptAlgorithm;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT* pvarSentTime) get_SentTime;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT* plArrivedTime) get_ArrivedTime;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IMSMQQueueInfo4** ppqinfoDest) get_DestinationQueueInfo;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT* pvarSenderCert) get_SenderCertificate;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT varSenderCert) put_SenderCertificate;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT* pvarSenderId) get_SenderId;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* plSenderIdType) get_SenderIdType;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 lSenderIdType) put_SenderIdType;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IDispatch* DestinationQueue, VARIANT* Transaction) Send;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) AttachCurrentSecurityContext;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* plSenderVersion) get_SenderVersion;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT* pvarExtension) get_Extension;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT varExtension) put_Extension;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pbstrGuidConnectorType) get_ConnectorTypeGuid;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrGuidConnectorType) put_ConnectorTypeGuid;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IMSMQQueueInfo4** ppqinfoXactStatus) get_TransactionStatusQueueInfo;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT* pvarDestSymmKey) get_DestinationSymmetricKey;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT varDestSymmKey) put_DestinationSymmetricKey;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT* pvarSignature) get_Signature;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT varSignature) put_Signature;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* plAuthProvType) get_AuthenticationProviderType;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 lAuthProvType) put_AuthenticationProviderType;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pbstrAuthProvName) get_AuthenticationProviderName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrAuthProvName) put_AuthenticationProviderName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT varSenderId) put_SenderId;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* plMsgClass) get_MsgClass;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 lMsgClass) put_MsgClass;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IDispatch** ppcolProperties) get_Properties;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT* pvarXactId) get_TransactionId;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* pisFirstInXact) get_IsFirstInTransaction;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* pisLastInXact) get_IsLastInTransaction;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IMSMQQueueInfo2** ppqinfoResponse) get_ResponseQueueInfo_v2;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IMSMQQueueInfo2* pqinfoResponse) putref_ResponseQueueInfo_v2;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IMSMQQueueInfo2** ppqinfoAdmin) get_AdminQueueInfo_v2;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IMSMQQueueInfo2* pqinfoAdmin) putref_AdminQueueInfo_v2;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* psReceivedAuthenticationLevel) get_ReceivedAuthenticationLevel;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IMSMQQueueInfo4** ppqinfoResponse) get_ResponseQueueInfo;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IMSMQQueueInfo4* pqinfoResponse) putref_ResponseQueueInfo;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IMSMQQueueInfo4** ppqinfoAdmin) get_AdminQueueInfo;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IMSMQQueueInfo4* pqinfoAdmin) putref_AdminQueueInfo;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IDispatch** ppdestResponse) get_ResponseDestination;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IDispatch* pdestResponse) putref_ResponseDestination;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IDispatch** ppdestDestination) get_Destination;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT* pvarLookupId) get_LookupId;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* pisAuthenticated) get_IsAuthenticated2;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* pisFirstInXact) get_IsFirstInTransaction2;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* pisLastInXact) get_IsLastInTransaction2;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) AttachCurrentSecurityContext2;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pbstrSoapEnvelope) get_SoapEnvelope;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT* pvarCompoundMessage) get_CompoundMessage;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrSoapHeader) put_SoapHeader;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrSoapBody) put_SoapBody;
 	}
 
 
@@ -2948,9 +2948,9 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQPrivateEvent*/SelfOuter* self, int32* phwnd) get_Hwnd;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQPrivateEvent*/SelfOuter* self, IMSMQQueue* pq, int32 msgcursor) FireArrivedEvent;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQPrivateEvent*/SelfOuter* self, IMSMQQueue* pq, HRESULT hrStatus, int32 msgcursor) FireArrivedErrorEvent;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* phwnd) get_Hwnd;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IMSMQQueue* pq, int32 msgcursor) FireArrivedEvent;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IMSMQQueue* pq, HRESULT hrStatus, int32 msgcursor) FireArrivedErrorEvent;
 	}
 
 
@@ -2981,8 +2981,8 @@ public static
 
 	[CRepr]public struct VTable : IMSMQTransaction.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQTransaction2*/SelfOuter* self, VARIANT varTransaction) InitNew;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQTransaction2*/SelfOuter* self, IDispatch** ppcolProperties) get_Properties;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT varTransaction) InitNew;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IDispatch** ppcolProperties) get_Properties;
 	}
 
 
@@ -2999,7 +2999,7 @@ public static
 
 	[CRepr]public struct VTable : IMSMQTransaction2.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQTransaction3*/SelfOuter* self, VARIANT* pvarITransaction) get_ITransaction;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT* pvarITransaction) get_ITransaction;
 	}
 
 
@@ -3014,8 +3014,8 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQCoordinatedTransactionDispenser2*/SelfOuter* self, IMSMQTransaction2** ptransaction) BeginTransaction;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQCoordinatedTransactionDispenser2*/SelfOuter* self, IDispatch** ppcolProperties) get_Properties;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IMSMQTransaction2** ptransaction) BeginTransaction;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IDispatch** ppcolProperties) get_Properties;
 	}
 
 
@@ -3032,8 +3032,8 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQCoordinatedTransactionDispenser3*/SelfOuter* self, IMSMQTransaction3** ptransaction) BeginTransaction;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQCoordinatedTransactionDispenser3*/SelfOuter* self, IDispatch** ppcolProperties) get_Properties;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IMSMQTransaction3** ptransaction) BeginTransaction;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IDispatch** ppcolProperties) get_Properties;
 	}
 
 
@@ -3050,8 +3050,8 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQTransactionDispenser2*/SelfOuter* self, IMSMQTransaction2** ptransaction) BeginTransaction;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQTransactionDispenser2*/SelfOuter* self, IDispatch** ppcolProperties) get_Properties;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IMSMQTransaction2** ptransaction) BeginTransaction;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IDispatch** ppcolProperties) get_Properties;
 	}
 
 
@@ -3068,8 +3068,8 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQTransactionDispenser3*/SelfOuter* self, IMSMQTransaction3** ptransaction) BeginTransaction;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQTransactionDispenser3*/SelfOuter* self, IDispatch** ppcolProperties) get_Properties;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IMSMQTransaction3** ptransaction) BeginTransaction;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IDispatch** ppcolProperties) get_Properties;
 	}
 
 
@@ -3086,7 +3086,7 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQApplication*/SelfOuter* self, BSTR MachineName, BSTR* pbstrGuid) MachineIdOfMachineName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR MachineName, BSTR* pbstrGuid) MachineIdOfMachineName;
 	}
 
 
@@ -3101,13 +3101,13 @@ public static
 
 	[CRepr]public struct VTable : IMSMQApplication.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQApplication2*/SelfOuter* self, VARIANT* Flags, VARIANT* ExternalCertificate) RegisterCertificate;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQApplication2*/SelfOuter* self, BSTR bstrGuid, BSTR* pbstrMachineName) MachineNameOfMachineId;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQApplication2*/SelfOuter* self, int16* psMSMQVersionMajor) get_MSMQVersionMajor;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQApplication2*/SelfOuter* self, int16* psMSMQVersionMinor) get_MSMQVersionMinor;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQApplication2*/SelfOuter* self, int16* psMSMQVersionBuild) get_MSMQVersionBuild;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQApplication2*/SelfOuter* self, int16* pfIsDsEnabled) get_IsDsEnabled;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQApplication2*/SelfOuter* self, IDispatch** ppcolProperties) get_Properties;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT* Flags, VARIANT* ExternalCertificate) RegisterCertificate;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrGuid, BSTR* pbstrMachineName) MachineNameOfMachineId;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* psMSMQVersionMajor) get_MSMQVersionMajor;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* psMSMQVersionMinor) get_MSMQVersionMinor;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* psMSMQVersionBuild) get_MSMQVersionBuild;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* pfIsDsEnabled) get_IsDsEnabled;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IDispatch** ppcolProperties) get_Properties;
 	}
 
 
@@ -3134,16 +3134,16 @@ public static
 
 	[CRepr]public struct VTable : IMSMQApplication2.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQApplication3*/SelfOuter* self, VARIANT* pvActiveQueues) get_ActiveQueues;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQApplication3*/SelfOuter* self, VARIANT* pvPrivateQueues) get_PrivateQueues;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQApplication3*/SelfOuter* self, BSTR* pbstrDirectoryServiceServer) get_DirectoryServiceServer;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQApplication3*/SelfOuter* self, int16* pfIsConnected) get_IsConnected;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQApplication3*/SelfOuter* self, VARIANT* pvBytesInAllQueues) get_BytesInAllQueues;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQApplication3*/SelfOuter* self, BSTR bstrMachine) put_Machine;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQApplication3*/SelfOuter* self, BSTR* pbstrMachine) get_Machine;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQApplication3*/SelfOuter* self) Connect;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQApplication3*/SelfOuter* self) Disconnect;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQApplication3*/SelfOuter* self) Tidy;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT* pvActiveQueues) get_ActiveQueues;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT* pvPrivateQueues) get_PrivateQueues;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pbstrDirectoryServiceServer) get_DirectoryServiceServer;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* pfIsConnected) get_IsConnected;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT* pvBytesInAllQueues) get_BytesInAllQueues;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrMachine) put_Machine;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pbstrMachine) get_Machine;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Connect;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Disconnect;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Tidy;
 	}
 
 
@@ -3176,20 +3176,20 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQDestination*/SelfOuter* self) Open;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQDestination*/SelfOuter* self) Close;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQDestination*/SelfOuter* self, int16* pfIsOpen) get_IsOpen;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQDestination*/SelfOuter* self, IDispatch** ppIADs) get_IADs;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQDestination*/SelfOuter* self, IDispatch* pIADs) putref_IADs;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQDestination*/SelfOuter* self, BSTR* pbstrADsPath) get_ADsPath;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQDestination*/SelfOuter* self, BSTR bstrADsPath) put_ADsPath;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQDestination*/SelfOuter* self, BSTR* pbstrPathName) get_PathName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQDestination*/SelfOuter* self, BSTR bstrPathName) put_PathName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQDestination*/SelfOuter* self, BSTR* pbstrFormatName) get_FormatName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQDestination*/SelfOuter* self, BSTR bstrFormatName) put_FormatName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQDestination*/SelfOuter* self, IDispatch** ppDestinations) get_Destinations;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQDestination*/SelfOuter* self, IDispatch* pDestinations) putref_Destinations;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQDestination*/SelfOuter* self, IDispatch** ppcolProperties) get_Properties;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Open;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Close;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* pfIsOpen) get_IsOpen;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IDispatch** ppIADs) get_IADs;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IDispatch* pIADs) putref_IADs;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pbstrADsPath) get_ADsPath;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrADsPath) put_ADsPath;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pbstrPathName) get_PathName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrPathName) put_PathName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pbstrFormatName) get_FormatName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrFormatName) put_FormatName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IDispatch** ppDestinations) get_Destinations;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IDispatch* pDestinations) putref_Destinations;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IDispatch** ppcolProperties) get_Properties;
 	}
 
 
@@ -3230,8 +3230,8 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQPrivateDestination*/SelfOuter* self, VARIANT* pvarHandle) get_Handle;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQPrivateDestination*/SelfOuter* self, VARIANT varHandle) put_Handle;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT* pvarHandle) get_Handle;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT varHandle) put_Handle;
 	}
 
 
@@ -3248,9 +3248,9 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQCollection*/SelfOuter* self, VARIANT* Index, VARIANT* pvarRet) Item;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQCollection*/SelfOuter* self, int32* pCount) get_Count;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQCollection*/SelfOuter* self, IUnknown** ppunk) _NewEnum;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT* Index, VARIANT* pvarRet) Item;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* pCount) get_Count;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IUnknown** ppunk) _NewEnum;
 	}
 
 
@@ -3269,15 +3269,15 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQManagement*/SelfOuter* self, VARIANT* Machine, VARIANT* Pathname, VARIANT* FormatName) Init;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQManagement*/SelfOuter* self, BSTR* pbstrFormatName) get_FormatName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQManagement*/SelfOuter* self, BSTR* pbstrMachine) get_Machine;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQManagement*/SelfOuter* self, int32* plMessageCount) get_MessageCount;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQManagement*/SelfOuter* self, int32* plForeignStatus) get_ForeignStatus;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQManagement*/SelfOuter* self, int32* plQueueType) get_QueueType;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQManagement*/SelfOuter* self, int16* pfIsLocal) get_IsLocal;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQManagement*/SelfOuter* self, int32* plTransactionalStatus) get_TransactionalStatus;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQManagement*/SelfOuter* self, VARIANT* pvBytesInQueue) get_BytesInQueue;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT* Machine, VARIANT* Pathname, VARIANT* FormatName) Init;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pbstrFormatName) get_FormatName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pbstrMachine) get_Machine;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* plMessageCount) get_MessageCount;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* plForeignStatus) get_ForeignStatus;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* plQueueType) get_QueueType;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* pfIsLocal) get_IsLocal;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* plTransactionalStatus) get_TransactionalStatus;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT* pvBytesInQueue) get_BytesInQueue;
 	}
 
 
@@ -3308,12 +3308,12 @@ public static
 
 	[CRepr]public struct VTable : IMSMQManagement.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQOutgoingQueueManagement*/SelfOuter* self, int32* plState) get_State;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQOutgoingQueueManagement*/SelfOuter* self, VARIANT* pvNextHops) get_NextHops;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQOutgoingQueueManagement*/SelfOuter* self, IMSMQCollection** ppCollection) EodGetSendInfo;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQOutgoingQueueManagement*/SelfOuter* self) Resume;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQOutgoingQueueManagement*/SelfOuter* self) Pause;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQOutgoingQueueManagement*/SelfOuter* self) EodResend;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* plState) get_State;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT* pvNextHops) get_NextHops;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IMSMQCollection** ppCollection) EodGetSendInfo;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Resume;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Pause;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) EodResend;
 	}
 
 
@@ -3338,9 +3338,9 @@ public static
 
 	[CRepr]public struct VTable : IMSMQManagement.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQQueueManagement*/SelfOuter* self, int32* plJournalMessageCount) get_JournalMessageCount;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQQueueManagement*/SelfOuter* self, VARIANT* pvBytesInJournal) get_BytesInJournal;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSMQQueueManagement*/SelfOuter* self, VARIANT* pvCollection) EodGetReceiveInfo;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* plJournalMessageCount) get_JournalMessageCount;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT* pvBytesInJournal) get_BytesInJournal;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT* pvCollection) EodGetReceiveInfo;
 	}
 
 

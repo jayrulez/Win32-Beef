@@ -145,9 +145,9 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*_IManipulationEvents*/SelfOuter* self, float x, float y) ManipulationStarted;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*_IManipulationEvents*/SelfOuter* self, float x, float y, float translationDeltaX, float translationDeltaY, float scaleDelta, float expansionDelta, float rotationDelta, float cumulativeTranslationX, float cumulativeTranslationY, float cumulativeScale, float cumulativeExpansion, float cumulativeRotation) ManipulationDelta;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*_IManipulationEvents*/SelfOuter* self, float x, float y, float cumulativeTranslationX, float cumulativeTranslationY, float cumulativeScale, float cumulativeExpansion, float cumulativeRotation) ManipulationCompleted;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, float x, float y) ManipulationStarted;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, float x, float y, float translationDeltaX, float translationDeltaY, float scaleDelta, float expansionDelta, float rotationDelta, float cumulativeTranslationX, float cumulativeTranslationY, float cumulativeScale, float cumulativeExpansion, float cumulativeRotation) ManipulationDelta;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, float x, float y, float cumulativeTranslationX, float cumulativeTranslationY, float cumulativeScale, float cumulativeExpansion, float cumulativeRotation) ManipulationCompleted;
 	}
 
 
@@ -166,55 +166,55 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInertiaProcessor*/SelfOuter* self, float* x) get_InitialOriginX;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInertiaProcessor*/SelfOuter* self, float x) put_InitialOriginX;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInertiaProcessor*/SelfOuter* self, float* y) get_InitialOriginY;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInertiaProcessor*/SelfOuter* self, float y) put_InitialOriginY;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInertiaProcessor*/SelfOuter* self, float* x) get_InitialVelocityX;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInertiaProcessor*/SelfOuter* self, float x) put_InitialVelocityX;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInertiaProcessor*/SelfOuter* self, float* y) get_InitialVelocityY;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInertiaProcessor*/SelfOuter* self, float y) put_InitialVelocityY;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInertiaProcessor*/SelfOuter* self, float* velocity) get_InitialAngularVelocity;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInertiaProcessor*/SelfOuter* self, float velocity) put_InitialAngularVelocity;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInertiaProcessor*/SelfOuter* self, float* velocity) get_InitialExpansionVelocity;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInertiaProcessor*/SelfOuter* self, float velocity) put_InitialExpansionVelocity;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInertiaProcessor*/SelfOuter* self, float* radius) get_InitialRadius;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInertiaProcessor*/SelfOuter* self, float radius) put_InitialRadius;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInertiaProcessor*/SelfOuter* self, float* left) get_BoundaryLeft;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInertiaProcessor*/SelfOuter* self, float left) put_BoundaryLeft;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInertiaProcessor*/SelfOuter* self, float* top) get_BoundaryTop;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInertiaProcessor*/SelfOuter* self, float top) put_BoundaryTop;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInertiaProcessor*/SelfOuter* self, float* right) get_BoundaryRight;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInertiaProcessor*/SelfOuter* self, float right) put_BoundaryRight;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInertiaProcessor*/SelfOuter* self, float* bottom) get_BoundaryBottom;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInertiaProcessor*/SelfOuter* self, float bottom) put_BoundaryBottom;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInertiaProcessor*/SelfOuter* self, float* left) get_ElasticMarginLeft;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInertiaProcessor*/SelfOuter* self, float left) put_ElasticMarginLeft;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInertiaProcessor*/SelfOuter* self, float* top) get_ElasticMarginTop;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInertiaProcessor*/SelfOuter* self, float top) put_ElasticMarginTop;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInertiaProcessor*/SelfOuter* self, float* right) get_ElasticMarginRight;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInertiaProcessor*/SelfOuter* self, float right) put_ElasticMarginRight;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInertiaProcessor*/SelfOuter* self, float* bottom) get_ElasticMarginBottom;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInertiaProcessor*/SelfOuter* self, float bottom) put_ElasticMarginBottom;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInertiaProcessor*/SelfOuter* self, float* displacement) get_DesiredDisplacement;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInertiaProcessor*/SelfOuter* self, float displacement) put_DesiredDisplacement;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInertiaProcessor*/SelfOuter* self, float* rotation) get_DesiredRotation;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInertiaProcessor*/SelfOuter* self, float rotation) put_DesiredRotation;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInertiaProcessor*/SelfOuter* self, float* expansion) get_DesiredExpansion;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInertiaProcessor*/SelfOuter* self, float expansion) put_DesiredExpansion;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInertiaProcessor*/SelfOuter* self, float* deceleration) get_DesiredDeceleration;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInertiaProcessor*/SelfOuter* self, float deceleration) put_DesiredDeceleration;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInertiaProcessor*/SelfOuter* self, float* deceleration) get_DesiredAngularDeceleration;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInertiaProcessor*/SelfOuter* self, float deceleration) put_DesiredAngularDeceleration;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInertiaProcessor*/SelfOuter* self, float* deceleration) get_DesiredExpansionDeceleration;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInertiaProcessor*/SelfOuter* self, float deceleration) put_DesiredExpansionDeceleration;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInertiaProcessor*/SelfOuter* self, uint32* timestamp) get_InitialTimestamp;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInertiaProcessor*/SelfOuter* self, uint32 timestamp) put_InitialTimestamp;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInertiaProcessor*/SelfOuter* self) Reset;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInertiaProcessor*/SelfOuter* self, BOOL* completed) Process;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInertiaProcessor*/SelfOuter* self, uint32 timestamp, BOOL* completed) ProcessTime;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInertiaProcessor*/SelfOuter* self) Complete;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInertiaProcessor*/SelfOuter* self, uint32 timestamp) CompleteTime;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, float* x) get_InitialOriginX;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, float x) put_InitialOriginX;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, float* y) get_InitialOriginY;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, float y) put_InitialOriginY;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, float* x) get_InitialVelocityX;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, float x) put_InitialVelocityX;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, float* y) get_InitialVelocityY;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, float y) put_InitialVelocityY;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, float* velocity) get_InitialAngularVelocity;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, float velocity) put_InitialAngularVelocity;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, float* velocity) get_InitialExpansionVelocity;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, float velocity) put_InitialExpansionVelocity;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, float* radius) get_InitialRadius;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, float radius) put_InitialRadius;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, float* left) get_BoundaryLeft;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, float left) put_BoundaryLeft;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, float* top) get_BoundaryTop;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, float top) put_BoundaryTop;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, float* right) get_BoundaryRight;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, float right) put_BoundaryRight;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, float* bottom) get_BoundaryBottom;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, float bottom) put_BoundaryBottom;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, float* left) get_ElasticMarginLeft;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, float left) put_ElasticMarginLeft;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, float* top) get_ElasticMarginTop;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, float top) put_ElasticMarginTop;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, float* right) get_ElasticMarginRight;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, float right) put_ElasticMarginRight;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, float* bottom) get_ElasticMarginBottom;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, float bottom) put_ElasticMarginBottom;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, float* displacement) get_DesiredDisplacement;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, float displacement) put_DesiredDisplacement;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, float* rotation) get_DesiredRotation;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, float rotation) put_DesiredRotation;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, float* expansion) get_DesiredExpansion;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, float expansion) put_DesiredExpansion;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, float* deceleration) get_DesiredDeceleration;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, float deceleration) put_DesiredDeceleration;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, float* deceleration) get_DesiredAngularDeceleration;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, float deceleration) put_DesiredAngularDeceleration;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, float* deceleration) get_DesiredExpansionDeceleration;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, float deceleration) put_DesiredExpansionDeceleration;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* timestamp) get_InitialTimestamp;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 timestamp) put_InitialTimestamp;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Reset;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BOOL* completed) Process;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 timestamp, BOOL* completed) ProcessTime;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Complete;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 timestamp) CompleteTime;
 	}
 
 
@@ -325,27 +325,27 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IManipulationProcessor*/SelfOuter* self, MANIPULATION_PROCESSOR_MANIPULATIONS* manipulations) get_SupportedManipulations;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IManipulationProcessor*/SelfOuter* self, MANIPULATION_PROCESSOR_MANIPULATIONS manipulations) put_SupportedManipulations;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IManipulationProcessor*/SelfOuter* self, float* pivotPointX) get_PivotPointX;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IManipulationProcessor*/SelfOuter* self, float pivotPointX) put_PivotPointX;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IManipulationProcessor*/SelfOuter* self, float* pivotPointY) get_PivotPointY;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IManipulationProcessor*/SelfOuter* self, float pivotPointY) put_PivotPointY;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IManipulationProcessor*/SelfOuter* self, float* pivotRadius) get_PivotRadius;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IManipulationProcessor*/SelfOuter* self, float pivotRadius) put_PivotRadius;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IManipulationProcessor*/SelfOuter* self) CompleteManipulation;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IManipulationProcessor*/SelfOuter* self, uint32 manipulatorId, float x, float y) ProcessDown;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IManipulationProcessor*/SelfOuter* self, uint32 manipulatorId, float x, float y) ProcessMove;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IManipulationProcessor*/SelfOuter* self, uint32 manipulatorId, float x, float y) ProcessUp;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IManipulationProcessor*/SelfOuter* self, uint32 manipulatorId, float x, float y, uint32 timestamp) ProcessDownWithTime;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IManipulationProcessor*/SelfOuter* self, uint32 manipulatorId, float x, float y, uint32 timestamp) ProcessMoveWithTime;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IManipulationProcessor*/SelfOuter* self, uint32 manipulatorId, float x, float y, uint32 timestamp) ProcessUpWithTime;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IManipulationProcessor*/SelfOuter* self, float* velocityX) GetVelocityX;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IManipulationProcessor*/SelfOuter* self, float* velocityY) GetVelocityY;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IManipulationProcessor*/SelfOuter* self, float* expansionVelocity) GetExpansionVelocity;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IManipulationProcessor*/SelfOuter* self, float* angularVelocity) GetAngularVelocity;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IManipulationProcessor*/SelfOuter* self, float* minRadius) get_MinimumScaleRotateRadius;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IManipulationProcessor*/SelfOuter* self, float minRadius) put_MinimumScaleRotateRadius;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, MANIPULATION_PROCESSOR_MANIPULATIONS* manipulations) get_SupportedManipulations;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, MANIPULATION_PROCESSOR_MANIPULATIONS manipulations) put_SupportedManipulations;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, float* pivotPointX) get_PivotPointX;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, float pivotPointX) put_PivotPointX;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, float* pivotPointY) get_PivotPointY;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, float pivotPointY) put_PivotPointY;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, float* pivotRadius) get_PivotRadius;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, float pivotRadius) put_PivotRadius;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) CompleteManipulation;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 manipulatorId, float x, float y) ProcessDown;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 manipulatorId, float x, float y) ProcessMove;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 manipulatorId, float x, float y) ProcessUp;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 manipulatorId, float x, float y, uint32 timestamp) ProcessDownWithTime;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 manipulatorId, float x, float y, uint32 timestamp) ProcessMoveWithTime;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 manipulatorId, float x, float y, uint32 timestamp) ProcessUpWithTime;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, float* velocityX) GetVelocityX;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, float* velocityY) GetVelocityY;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, float* expansionVelocity) GetExpansionVelocity;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, float* angularVelocity) GetAngularVelocity;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, float* minRadius) get_MinimumScaleRotateRadius;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, float minRadius) put_MinimumScaleRotateRadius;
 	}
 
 

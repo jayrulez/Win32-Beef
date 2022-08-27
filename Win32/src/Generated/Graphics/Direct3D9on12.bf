@@ -54,9 +54,9 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDirect3DDevice9On12*/SelfOuter* self, ref Guid riid, void** ppvDevice) GetD3D12Device;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDirect3DDevice9On12*/SelfOuter* self, IDirect3DResource9* pResource, ID3D12CommandQueue* pCommandQueue, ref Guid riid, void** ppvResource12) UnwrapUnderlyingResource;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDirect3DDevice9On12*/SelfOuter* self, IDirect3DResource9* pResource, uint32 NumSync, uint64* pSignalValues, ID3D12Fence** ppFences) ReturnUnderlyingResource;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid riid, void** ppvDevice) GetD3D12Device;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IDirect3DResource9* pResource, ID3D12CommandQueue* pCommandQueue, ref Guid riid, void** ppvResource12) UnwrapUnderlyingResource;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IDirect3DResource9* pResource, uint32 NumSync, uint64* pSignalValues, ID3D12Fence** ppFences) ReturnUnderlyingResource;
 	}
 
 

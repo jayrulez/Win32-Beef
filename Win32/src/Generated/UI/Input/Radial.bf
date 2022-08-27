@@ -31,7 +31,7 @@ public static
 
 	[CRepr]public struct VTable : IInspectable.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRadialControllerInterop*/SelfOuter* self, HWND hwnd, ref Guid riid, void** ppv) CreateForWindow;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HWND hwnd, ref Guid riid, void** ppv) CreateForWindow;
 	}
 
 
@@ -46,7 +46,7 @@ public static
 
 	[CRepr]public struct VTable : IInspectable.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRadialControllerConfigurationInterop*/SelfOuter* self, HWND hwnd, ref Guid riid, void** ppv) GetForWindow;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HWND hwnd, ref Guid riid, void** ppv) GetForWindow;
 	}
 
 
@@ -61,7 +61,7 @@ public static
 
 	[CRepr]public struct VTable : IInspectable.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRadialControllerIndependentInputSourceInterop*/SelfOuter* self, HWND hwnd, ref Guid riid, void** ppv) CreateForWindow;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HWND hwnd, ref Guid riid, void** ppv) CreateForWindow;
 	}
 
 

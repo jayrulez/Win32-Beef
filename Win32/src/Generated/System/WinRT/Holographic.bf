@@ -32,11 +32,11 @@ public static
 
 	[CRepr]public struct VTable : IInspectable.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IHolographicCameraInterop*/SelfOuter* self, ID3D12Device* pDevice, D3D12_RESOURCE_DESC* pTexture2DDesc, ID3D12Resource** ppCreatedTexture2DResource) CreateDirect3D12BackBufferResource;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IHolographicCameraInterop*/SelfOuter* self, ID3D12Device* pDevice, D3D12_RESOURCE_DESC* pTexture2DDesc, ID3D12ProtectedResourceSession* pProtectedResourceSession, ID3D12Resource** ppCreatedTexture2DResource) CreateDirect3D12HardwareProtectedBackBufferResource;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IHolographicCameraInterop*/SelfOuter* self, ID3D12Resource* pResourceToAcquire, ID3D12CommandQueue* pCommandQueue) AcquireDirect3D12BufferResource;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IHolographicCameraInterop*/SelfOuter* self, ID3D12Resource* pResourceToAcquire, ID3D12CommandQueue* pCommandQueue, uint64 duration) AcquireDirect3D12BufferResourceWithTimeout;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IHolographicCameraInterop*/SelfOuter* self, ID3D12Resource* pResourceToUnacquire) UnacquireDirect3D12BufferResource;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ID3D12Device* pDevice, D3D12_RESOURCE_DESC* pTexture2DDesc, ID3D12Resource** ppCreatedTexture2DResource) CreateDirect3D12BackBufferResource;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ID3D12Device* pDevice, D3D12_RESOURCE_DESC* pTexture2DDesc, ID3D12ProtectedResourceSession* pProtectedResourceSession, ID3D12Resource** ppCreatedTexture2DResource) CreateDirect3D12HardwareProtectedBackBufferResource;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ID3D12Resource* pResourceToAcquire, ID3D12CommandQueue* pCommandQueue) AcquireDirect3D12BufferResource;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ID3D12Resource* pResourceToAcquire, ID3D12CommandQueue* pCommandQueue, uint64 duration) AcquireDirect3D12BufferResourceWithTimeout;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ID3D12Resource* pResourceToUnacquire) UnacquireDirect3D12BufferResource;
 	}
 
 
@@ -59,8 +59,8 @@ public static
 
 	[CRepr]public struct VTable : IInspectable.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IHolographicCameraRenderingParametersInterop*/SelfOuter* self, ID3D12Resource* pColorResourceToCommit, ID3D12Fence* pColorResourceFence, uint64 colorResourceFenceSignalValue) CommitDirect3D12Resource;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IHolographicCameraRenderingParametersInterop*/SelfOuter* self, ID3D12Resource* pColorResourceToCommit, ID3D12Fence* pColorResourceFence, uint64 colorResourceFenceSignalValue, ID3D12Resource* pDepthResourceToCommit, ID3D12Fence* pDepthResourceFence, uint64 depthResourceFenceSignalValue) CommitDirect3D12ResourceWithDepthData;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ID3D12Resource* pColorResourceToCommit, ID3D12Fence* pColorResourceFence, uint64 colorResourceFenceSignalValue) CommitDirect3D12Resource;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ID3D12Resource* pColorResourceToCommit, ID3D12Fence* pColorResourceFence, uint64 colorResourceFenceSignalValue, ID3D12Resource* pDepthResourceToCommit, ID3D12Fence* pDepthResourceFence, uint64 depthResourceFenceSignalValue) CommitDirect3D12ResourceWithDepthData;
 	}
 
 
@@ -77,11 +77,11 @@ public static
 
 	[CRepr]public struct VTable : IInspectable.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IHolographicQuadLayerInterop*/SelfOuter* self, ID3D12Device* pDevice, D3D12_RESOURCE_DESC* pTexture2DDesc, ID3D12Resource** ppTexture2DResource) CreateDirect3D12ContentBufferResource;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IHolographicQuadLayerInterop*/SelfOuter* self, ID3D12Device* pDevice, D3D12_RESOURCE_DESC* pTexture2DDesc, ID3D12ProtectedResourceSession* pProtectedResourceSession, ID3D12Resource** ppCreatedTexture2DResource) CreateDirect3D12HardwareProtectedContentBufferResource;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IHolographicQuadLayerInterop*/SelfOuter* self, ID3D12Resource* pResourceToAcquire, ID3D12CommandQueue* pCommandQueue) AcquireDirect3D12BufferResource;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IHolographicQuadLayerInterop*/SelfOuter* self, ID3D12Resource* pResourceToAcquire, ID3D12CommandQueue* pCommandQueue, uint64 duration) AcquireDirect3D12BufferResourceWithTimeout;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IHolographicQuadLayerInterop*/SelfOuter* self, ID3D12Resource* pResourceToUnacquire) UnacquireDirect3D12BufferResource;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ID3D12Device* pDevice, D3D12_RESOURCE_DESC* pTexture2DDesc, ID3D12Resource** ppTexture2DResource) CreateDirect3D12ContentBufferResource;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ID3D12Device* pDevice, D3D12_RESOURCE_DESC* pTexture2DDesc, ID3D12ProtectedResourceSession* pProtectedResourceSession, ID3D12Resource** ppCreatedTexture2DResource) CreateDirect3D12HardwareProtectedContentBufferResource;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ID3D12Resource* pResourceToAcquire, ID3D12CommandQueue* pCommandQueue) AcquireDirect3D12BufferResource;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ID3D12Resource* pResourceToAcquire, ID3D12CommandQueue* pCommandQueue, uint64 duration) AcquireDirect3D12BufferResourceWithTimeout;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ID3D12Resource* pResourceToUnacquire) UnacquireDirect3D12BufferResource;
 	}
 
 
@@ -104,7 +104,7 @@ public static
 
 	[CRepr]public struct VTable : IInspectable.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IHolographicQuadLayerUpdateParametersInterop*/SelfOuter* self, ID3D12Resource* pColorResourceToCommit, ID3D12Fence* pColorResourceFence, uint64 colorResourceFenceSignalValue) CommitDirect3D12Resource;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ID3D12Resource* pColorResourceToCommit, ID3D12Fence* pColorResourceFence, uint64 colorResourceFenceSignalValue) CommitDirect3D12Resource;
 	}
 
 

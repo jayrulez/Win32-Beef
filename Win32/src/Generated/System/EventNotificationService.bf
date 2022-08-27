@@ -89,11 +89,11 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISensNetwork*/SelfOuter* self, BSTR bstrConnection, uint32 ulType, SENS_QOCINFO* lpQOCInfo) ConnectionMade;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISensNetwork*/SelfOuter* self, BSTR bstrConnection, uint32 ulType) ConnectionMadeNoQOCInfo;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISensNetwork*/SelfOuter* self, BSTR bstrConnection, SENS_CONNECTION_TYPE ulType) ConnectionLost;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISensNetwork*/SelfOuter* self, BSTR bstrDestination, BSTR bstrConnection, uint32 ulType, SENS_QOCINFO* lpQOCInfo) DestinationReachable;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISensNetwork*/SelfOuter* self, BSTR bstrDestination, BSTR bstrConnection, uint32 ulType) DestinationReachableNoQOCInfo;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrConnection, uint32 ulType, SENS_QOCINFO* lpQOCInfo) ConnectionMade;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrConnection, uint32 ulType) ConnectionMadeNoQOCInfo;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrConnection, SENS_CONNECTION_TYPE ulType) ConnectionLost;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrDestination, BSTR bstrConnection, uint32 ulType, SENS_QOCINFO* lpQOCInfo) DestinationReachable;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrDestination, BSTR bstrConnection, uint32 ulType) DestinationReachableNoQOCInfo;
 	}
 
 
@@ -116,9 +116,9 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISensOnNow*/SelfOuter* self) OnACPower;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISensOnNow*/SelfOuter* self, uint32 dwBatteryLifePercent) OnBatteryPower;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISensOnNow*/SelfOuter* self, uint32 dwBatteryLifePercent) BatteryLow;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) OnACPower;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwBatteryLifePercent) OnBatteryPower;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwBatteryLifePercent) BatteryLow;
 	}
 
 
@@ -137,13 +137,13 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISensLogon*/SelfOuter* self, BSTR bstrUserName) Logon;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISensLogon*/SelfOuter* self, BSTR bstrUserName) Logoff;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISensLogon*/SelfOuter* self, BSTR bstrUserName) StartShell;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISensLogon*/SelfOuter* self, BSTR bstrUserName) DisplayLock;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISensLogon*/SelfOuter* self, BSTR bstrUserName) DisplayUnlock;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISensLogon*/SelfOuter* self, BSTR bstrUserName) StartScreenSaver;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISensLogon*/SelfOuter* self, BSTR bstrUserName) StopScreenSaver;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrUserName) Logon;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrUserName) Logoff;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrUserName) StartShell;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrUserName) DisplayLock;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrUserName) DisplayUnlock;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrUserName) StartScreenSaver;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrUserName) StopScreenSaver;
 	}
 
 
@@ -170,11 +170,11 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISensLogon2*/SelfOuter* self, BSTR bstrUserName, uint32 dwSessionId) Logon;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISensLogon2*/SelfOuter* self, BSTR bstrUserName, uint32 dwSessionId) Logoff;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISensLogon2*/SelfOuter* self, BSTR bstrUserName, uint32 dwSessionId) SessionDisconnect;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISensLogon2*/SelfOuter* self, BSTR bstrUserName, uint32 dwSessionId) SessionReconnect;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISensLogon2*/SelfOuter* self, BSTR bstrUserName, uint32 dwSessionId) PostShell;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrUserName, uint32 dwSessionId) Logon;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrUserName, uint32 dwSessionId) Logoff;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrUserName, uint32 dwSessionId) SessionDisconnect;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrUserName, uint32 dwSessionId) SessionReconnect;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrUserName, uint32 dwSessionId) PostShell;
 	}
 
 

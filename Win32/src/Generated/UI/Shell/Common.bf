@@ -173,8 +173,8 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IObjectArray*/SelfOuter* self, uint32* pcObjects) GetCount;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IObjectArray*/SelfOuter* self, uint32 uiIndex, ref Guid riid, void** ppv) GetAt;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pcObjects) GetCount;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 uiIndex, ref Guid riid, void** ppv) GetAt;
 	}
 
 
@@ -191,10 +191,10 @@ public static
 
 	[CRepr]public struct VTable : IObjectArray.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IObjectCollection*/SelfOuter* self, IUnknown* punk) AddObject;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IObjectCollection*/SelfOuter* self, IObjectArray* poaSource) AddFromArray;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IObjectCollection*/SelfOuter* self, uint32 uiIndex) RemoveObjectAt;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IObjectCollection*/SelfOuter* self) Clear;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IUnknown* punk) AddObject;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IObjectArray* poaSource) AddFromArray;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 uiIndex) RemoveObjectAt;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Clear;
 	}
 
 

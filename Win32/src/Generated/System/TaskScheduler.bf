@@ -349,9 +349,9 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITaskTrigger*/SelfOuter* self, TASK_TRIGGER* pTrigger) SetTrigger;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITaskTrigger*/SelfOuter* self, TASK_TRIGGER* pTrigger) GetTrigger;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITaskTrigger*/SelfOuter* self, PWSTR* ppwszTrigger) GetTriggerString;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, TASK_TRIGGER* pTrigger) SetTrigger;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, TASK_TRIGGER* pTrigger) GetTrigger;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR* ppwszTrigger) GetTriggerString;
 	}
 
 
@@ -370,35 +370,35 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IScheduledWorkItem*/SelfOuter* self, uint16* piNewTrigger, ITaskTrigger** ppTrigger) CreateTrigger;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IScheduledWorkItem*/SelfOuter* self, uint16 iTrigger) DeleteTrigger;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IScheduledWorkItem*/SelfOuter* self, uint16* pwCount) GetTriggerCount;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IScheduledWorkItem*/SelfOuter* self, uint16 iTrigger, ITaskTrigger** ppTrigger) GetTrigger;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IScheduledWorkItem*/SelfOuter* self, uint16 iTrigger, PWSTR* ppwszTrigger) GetTriggerString;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IScheduledWorkItem*/SelfOuter* self, SYSTEMTIME* pstBegin, SYSTEMTIME* pstEnd, uint16* pCount, SYSTEMTIME** rgstTaskTimes) GetRunTimes;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IScheduledWorkItem*/SelfOuter* self, SYSTEMTIME* pstNextRun) GetNextRunTime;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IScheduledWorkItem*/SelfOuter* self, uint16 wIdleMinutes, uint16 wDeadlineMinutes) SetIdleWait;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IScheduledWorkItem*/SelfOuter* self, uint16* pwIdleMinutes, uint16* pwDeadlineMinutes) GetIdleWait;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IScheduledWorkItem*/SelfOuter* self) Run;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IScheduledWorkItem*/SelfOuter* self) Terminate;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IScheduledWorkItem*/SelfOuter* self, HWND hParent, uint32 dwReserved) EditWorkItem;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IScheduledWorkItem*/SelfOuter* self, SYSTEMTIME* pstLastRun) GetMostRecentRunTime;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IScheduledWorkItem*/SelfOuter* self, HRESULT* phrStatus) GetStatus;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IScheduledWorkItem*/SelfOuter* self, uint32* pdwExitCode) GetExitCode;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IScheduledWorkItem*/SelfOuter* self, PWSTR pwszComment) SetComment;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IScheduledWorkItem*/SelfOuter* self, PWSTR* ppwszComment) GetComment;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IScheduledWorkItem*/SelfOuter* self, PWSTR pwszCreator) SetCreator;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IScheduledWorkItem*/SelfOuter* self, PWSTR* ppwszCreator) GetCreator;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IScheduledWorkItem*/SelfOuter* self, uint16 cbData, uint8* rgbData) SetWorkItemData;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IScheduledWorkItem*/SelfOuter* self, uint16* pcbData, uint8** prgbData) GetWorkItemData;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IScheduledWorkItem*/SelfOuter* self, uint16 wRetryCount) SetErrorRetryCount;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IScheduledWorkItem*/SelfOuter* self, uint16* pwRetryCount) GetErrorRetryCount;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IScheduledWorkItem*/SelfOuter* self, uint16 wRetryInterval) SetErrorRetryInterval;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IScheduledWorkItem*/SelfOuter* self, uint16* pwRetryInterval) GetErrorRetryInterval;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IScheduledWorkItem*/SelfOuter* self, uint32 dwFlags) SetFlags;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IScheduledWorkItem*/SelfOuter* self, uint32* pdwFlags) COM_GetFlags;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IScheduledWorkItem*/SelfOuter* self, PWSTR pwszAccountName, PWSTR pwszPassword) SetAccountInformation;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IScheduledWorkItem*/SelfOuter* self, PWSTR* ppwszAccountName) GetAccountInformation;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint16* piNewTrigger, ITaskTrigger** ppTrigger) CreateTrigger;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint16 iTrigger) DeleteTrigger;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint16* pwCount) GetTriggerCount;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint16 iTrigger, ITaskTrigger** ppTrigger) GetTrigger;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint16 iTrigger, PWSTR* ppwszTrigger) GetTriggerString;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, SYSTEMTIME* pstBegin, SYSTEMTIME* pstEnd, uint16* pCount, SYSTEMTIME** rgstTaskTimes) GetRunTimes;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, SYSTEMTIME* pstNextRun) GetNextRunTime;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint16 wIdleMinutes, uint16 wDeadlineMinutes) SetIdleWait;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint16* pwIdleMinutes, uint16* pwDeadlineMinutes) GetIdleWait;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Run;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Terminate;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HWND hParent, uint32 dwReserved) EditWorkItem;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, SYSTEMTIME* pstLastRun) GetMostRecentRunTime;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HRESULT* phrStatus) GetStatus;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pdwExitCode) GetExitCode;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR pwszComment) SetComment;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR* ppwszComment) GetComment;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR pwszCreator) SetCreator;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR* ppwszCreator) GetCreator;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint16 cbData, uint8* rgbData) SetWorkItemData;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint16* pcbData, uint8** prgbData) GetWorkItemData;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint16 wRetryCount) SetErrorRetryCount;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint16* pwRetryCount) GetErrorRetryCount;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint16 wRetryInterval) SetErrorRetryInterval;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint16* pwRetryInterval) GetErrorRetryInterval;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwFlags) SetFlags;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pdwFlags) COM_GetFlags;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR pwszAccountName, PWSTR pwszPassword) SetAccountInformation;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR* ppwszAccountName) GetAccountInformation;
 	}
 
 
@@ -469,18 +469,18 @@ public static
 
 	[CRepr]public struct VTable : IScheduledWorkItem.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITask*/SelfOuter* self, PWSTR pwszApplicationName) SetApplicationName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITask*/SelfOuter* self, PWSTR* ppwszApplicationName) GetApplicationName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITask*/SelfOuter* self, PWSTR pwszParameters) SetParameters;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITask*/SelfOuter* self, PWSTR* ppwszParameters) GetParameters;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITask*/SelfOuter* self, PWSTR pwszWorkingDirectory) SetWorkingDirectory;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITask*/SelfOuter* self, PWSTR* ppwszWorkingDirectory) GetWorkingDirectory;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITask*/SelfOuter* self, uint32 dwPriority) SetPriority;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITask*/SelfOuter* self, uint32* pdwPriority) GetPriority;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITask*/SelfOuter* self, uint32 dwFlags) SetTaskFlags;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITask*/SelfOuter* self, uint32* pdwFlags) GetTaskFlags;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITask*/SelfOuter* self, uint32 dwMaxRunTimeMS) SetMaxRunTime;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITask*/SelfOuter* self, uint32* pdwMaxRunTimeMS) GetMaxRunTime;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR pwszApplicationName) SetApplicationName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR* ppwszApplicationName) GetApplicationName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR pwszParameters) SetParameters;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR* ppwszParameters) GetParameters;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR pwszWorkingDirectory) SetWorkingDirectory;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR* ppwszWorkingDirectory) GetWorkingDirectory;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwPriority) SetPriority;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pdwPriority) GetPriority;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwFlags) SetTaskFlags;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pdwFlags) GetTaskFlags;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwMaxRunTimeMS) SetMaxRunTime;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pdwMaxRunTimeMS) GetMaxRunTime;
 	}
 
 
@@ -517,10 +517,10 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnumWorkItems*/SelfOuter* self, uint32 celt, PWSTR** rgpwszNames, uint32* pceltFetched) Next;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnumWorkItems*/SelfOuter* self, uint32 celt) Skip;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnumWorkItems*/SelfOuter* self) Reset;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnumWorkItems*/SelfOuter* self, IEnumWorkItems** ppEnumWorkItems) Clone;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 celt, PWSTR** rgpwszNames, uint32* pceltFetched) Next;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 celt) Skip;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Reset;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IEnumWorkItems** ppEnumWorkItems) Clone;
 	}
 
 
@@ -541,14 +541,14 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITaskScheduler*/SelfOuter* self, PWSTR pwszComputer) SetTargetComputer;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITaskScheduler*/SelfOuter* self, PWSTR* ppwszComputer) GetTargetComputer;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITaskScheduler*/SelfOuter* self, IEnumWorkItems** ppEnumWorkItems) Enum;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITaskScheduler*/SelfOuter* self, PWSTR pwszName, ref Guid riid, IUnknown** ppUnk) Activate;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITaskScheduler*/SelfOuter* self, PWSTR pwszName) Delete;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITaskScheduler*/SelfOuter* self, PWSTR pwszTaskName, ref Guid rclsid, ref Guid riid, IUnknown** ppUnk) NewWorkItem;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITaskScheduler*/SelfOuter* self, PWSTR pwszTaskName, IScheduledWorkItem* pWorkItem) AddWorkItem;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITaskScheduler*/SelfOuter* self, PWSTR pwszName, ref Guid riid) IsOfType;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR pwszComputer) SetTargetComputer;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR* ppwszComputer) GetTargetComputer;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IEnumWorkItems** ppEnumWorkItems) Enum;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR pwszName, ref Guid riid, IUnknown** ppUnk) Activate;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR pwszName) Delete;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR pwszTaskName, ref Guid rclsid, ref Guid riid, IUnknown** ppUnk) NewWorkItem;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR pwszTaskName, IScheduledWorkItem* pWorkItem) AddWorkItem;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR pwszName, ref Guid riid) IsOfType;
 	}
 
 
@@ -577,7 +577,7 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IProvideTaskPage*/SelfOuter* self, TASKPAGE tpType, BOOL fPersistChanges, HPROPSHEETPAGE* phPage) GetPage;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, TASKPAGE tpType, BOOL fPersistChanges, HPROPSHEETPAGE* phPage) GetPage;
 	}
 
 
@@ -592,9 +592,9 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITaskFolderCollection*/SelfOuter* self, int32* pCount) get_Count;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITaskFolderCollection*/SelfOuter* self, VARIANT index, ITaskFolder** ppFolder) get_Item;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITaskFolderCollection*/SelfOuter* self, IUnknown** ppEnum) get__NewEnum;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* pCount) get_Count;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT index, ITaskFolder** ppFolder) get_Item;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IUnknown** ppEnum) get__NewEnum;
 	}
 
 
@@ -613,15 +613,15 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITaskService*/SelfOuter* self, BSTR path, ITaskFolder** ppFolder) GetFolder;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITaskService*/SelfOuter* self, int32 flags, IRunningTaskCollection** ppRunningTasks) GetRunningTasks;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITaskService*/SelfOuter* self, uint32 flags, ITaskDefinition** ppDefinition) NewTask;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITaskService*/SelfOuter* self, VARIANT serverName, VARIANT user, VARIANT domain, VARIANT password) Connect;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITaskService*/SelfOuter* self, int16* pConnected) get_Connected;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITaskService*/SelfOuter* self, BSTR* pServer) get_TargetServer;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITaskService*/SelfOuter* self, BSTR* pUser) get_ConnectedUser;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITaskService*/SelfOuter* self, BSTR* pDomain) get_ConnectedDomain;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITaskService*/SelfOuter* self, uint32* pVersion) get_HighestVersion;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR path, ITaskFolder** ppFolder) GetFolder;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 flags, IRunningTaskCollection** ppRunningTasks) GetRunningTasks;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 flags, ITaskDefinition** ppDefinition) NewTask;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT serverName, VARIANT user, VARIANT domain, VARIANT password) Connect;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* pConnected) get_Connected;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pServer) get_TargetServer;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pUser) get_ConnectedUser;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pDomain) get_ConnectedDomain;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pVersion) get_HighestVersion;
 	}
 
 
@@ -652,10 +652,10 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITaskHandler*/SelfOuter* self, IUnknown* pHandlerServices, BSTR data) Start;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITaskHandler*/SelfOuter* self, HRESULT* pRetCode) Stop;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITaskHandler*/SelfOuter* self) Pause;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITaskHandler*/SelfOuter* self) Resume;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IUnknown* pHandlerServices, BSTR data) Start;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HRESULT* pRetCode) Stop;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Pause;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Resume;
 	}
 
 
@@ -676,8 +676,8 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITaskHandlerStatus*/SelfOuter* self, int16 percentComplete, BSTR statusMessage) UpdateStatus;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITaskHandlerStatus*/SelfOuter* self, HRESULT taskErrCode) TaskCompleted;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 percentComplete, BSTR statusMessage) UpdateStatus;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HRESULT taskErrCode) TaskCompleted;
 	}
 
 
@@ -694,9 +694,9 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITaskVariables*/SelfOuter* self, BSTR* pInput) GetInput;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITaskVariables*/SelfOuter* self, BSTR input) SetOutput;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITaskVariables*/SelfOuter* self, BSTR* pContext) GetContext;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pInput) GetInput;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR input) SetOutput;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pContext) GetContext;
 	}
 
 
@@ -715,10 +715,10 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITaskNamedValuePair*/SelfOuter* self, BSTR* pName) get_Name;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITaskNamedValuePair*/SelfOuter* self, BSTR name) put_Name;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITaskNamedValuePair*/SelfOuter* self, BSTR* pValue) get_Value;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITaskNamedValuePair*/SelfOuter* self, BSTR value) put_Value;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pName) get_Name;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR name) put_Name;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pValue) get_Value;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR value) put_Value;
 	}
 
 
@@ -739,12 +739,12 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITaskNamedValueCollection*/SelfOuter* self, int32* pCount) get_Count;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITaskNamedValueCollection*/SelfOuter* self, int32 index, ITaskNamedValuePair** ppPair) get_Item;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITaskNamedValueCollection*/SelfOuter* self, IUnknown** ppEnum) get__NewEnum;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITaskNamedValueCollection*/SelfOuter* self, BSTR name, BSTR value, ITaskNamedValuePair** ppPair) Create;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITaskNamedValueCollection*/SelfOuter* self, int32 index) Remove;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITaskNamedValueCollection*/SelfOuter* self) Clear;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* pCount) get_Count;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 index, ITaskNamedValuePair** ppPair) get_Item;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IUnknown** ppEnum) get__NewEnum;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR name, BSTR value, ITaskNamedValuePair** ppPair) Create;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 index) Remove;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Clear;
 	}
 
 
@@ -769,14 +769,14 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRunningTask*/SelfOuter* self, BSTR* pName) get_Name;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRunningTask*/SelfOuter* self, BSTR* pGuid) get_InstanceGuid;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRunningTask*/SelfOuter* self, BSTR* pPath) get_Path;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRunningTask*/SelfOuter* self, TASK_STATE* pState) get_State;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRunningTask*/SelfOuter* self, BSTR* pName) get_CurrentAction;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRunningTask*/SelfOuter* self) Stop;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRunningTask*/SelfOuter* self) Refresh;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRunningTask*/SelfOuter* self, uint32* pPID) get_EnginePID;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pName) get_Name;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pGuid) get_InstanceGuid;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pPath) get_Path;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, TASK_STATE* pState) get_State;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pName) get_CurrentAction;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Stop;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Refresh;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pPID) get_EnginePID;
 	}
 
 
@@ -805,9 +805,9 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRunningTaskCollection*/SelfOuter* self, int32* pCount) get_Count;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRunningTaskCollection*/SelfOuter* self, VARIANT index, IRunningTask** ppRunningTask) get_Item;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRunningTaskCollection*/SelfOuter* self, IUnknown** ppEnum) get__NewEnum;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* pCount) get_Count;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT index, IRunningTask** ppRunningTask) get_Item;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IUnknown** ppEnum) get__NewEnum;
 	}
 
 
@@ -826,24 +826,24 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRegisteredTask*/SelfOuter* self, BSTR* pName) get_Name;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRegisteredTask*/SelfOuter* self, BSTR* pPath) get_Path;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRegisteredTask*/SelfOuter* self, TASK_STATE* pState) get_State;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRegisteredTask*/SelfOuter* self, int16* pEnabled) get_Enabled;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRegisteredTask*/SelfOuter* self, int16 enabled) put_Enabled;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRegisteredTask*/SelfOuter* self, VARIANT @params, IRunningTask** ppRunningTask) Run;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRegisteredTask*/SelfOuter* self, VARIANT @params, int32 flags, int32 sessionID, BSTR user, IRunningTask** ppRunningTask) RunEx;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRegisteredTask*/SelfOuter* self, int32 flags, IRunningTaskCollection** ppRunningTasks) GetInstances;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRegisteredTask*/SelfOuter* self, double* pLastRunTime) get_LastRunTime;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRegisteredTask*/SelfOuter* self, int32* pLastTaskResult) get_LastTaskResult;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRegisteredTask*/SelfOuter* self, int32* pNumberOfMissedRuns) get_NumberOfMissedRuns;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRegisteredTask*/SelfOuter* self, double* pNextRunTime) get_NextRunTime;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRegisteredTask*/SelfOuter* self, ITaskDefinition** ppDefinition) get_Definition;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRegisteredTask*/SelfOuter* self, BSTR* pXml) get_Xml;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRegisteredTask*/SelfOuter* self, int32 securityInformation, BSTR* pSddl) GetSecurityDescriptor;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRegisteredTask*/SelfOuter* self, BSTR sddl, int32 flags) SetSecurityDescriptor;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRegisteredTask*/SelfOuter* self, int32 flags) Stop;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRegisteredTask*/SelfOuter* self, SYSTEMTIME* pstStart, SYSTEMTIME* pstEnd, uint32* pCount, SYSTEMTIME** pRunTimes) GetRunTimes;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pName) get_Name;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pPath) get_Path;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, TASK_STATE* pState) get_State;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* pEnabled) get_Enabled;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 enabled) put_Enabled;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT @params, IRunningTask** ppRunningTask) Run;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT @params, int32 flags, int32 sessionID, BSTR user, IRunningTask** ppRunningTask) RunEx;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 flags, IRunningTaskCollection** ppRunningTasks) GetInstances;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, double* pLastRunTime) get_LastRunTime;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* pLastTaskResult) get_LastTaskResult;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* pNumberOfMissedRuns) get_NumberOfMissedRuns;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, double* pNextRunTime) get_NextRunTime;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ITaskDefinition** ppDefinition) get_Definition;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pXml) get_Xml;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 securityInformation, BSTR* pSddl) GetSecurityDescriptor;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR sddl, int32 flags) SetSecurityDescriptor;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 flags) Stop;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, SYSTEMTIME* pstStart, SYSTEMTIME* pstEnd, uint32* pCount, SYSTEMTIME** pRunTimes) GetRunTimes;
 	}
 
 
@@ -892,19 +892,19 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITrigger*/SelfOuter* self, TASK_TRIGGER_TYPE2* pType) get_Type;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITrigger*/SelfOuter* self, BSTR* pId) get_Id;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITrigger*/SelfOuter* self, BSTR id) put_Id;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITrigger*/SelfOuter* self, IRepetitionPattern** ppRepeat) get_Repetition;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITrigger*/SelfOuter* self, IRepetitionPattern* pRepeat) put_Repetition;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITrigger*/SelfOuter* self, BSTR* pTimeLimit) get_ExecutionTimeLimit;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITrigger*/SelfOuter* self, BSTR timelimit) put_ExecutionTimeLimit;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITrigger*/SelfOuter* self, BSTR* pStart) get_StartBoundary;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITrigger*/SelfOuter* self, BSTR start) put_StartBoundary;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITrigger*/SelfOuter* self, BSTR* pEnd) get_EndBoundary;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITrigger*/SelfOuter* self, BSTR end) put_EndBoundary;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITrigger*/SelfOuter* self, int16* pEnabled) get_Enabled;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITrigger*/SelfOuter* self, int16 enabled) put_Enabled;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, TASK_TRIGGER_TYPE2* pType) get_Type;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pId) get_Id;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR id) put_Id;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IRepetitionPattern** ppRepeat) get_Repetition;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IRepetitionPattern* pRepeat) put_Repetition;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pTimeLimit) get_ExecutionTimeLimit;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR timelimit) put_ExecutionTimeLimit;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pStart) get_StartBoundary;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR start) put_StartBoundary;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pEnd) get_EndBoundary;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR end) put_EndBoundary;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* pEnabled) get_Enabled;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 enabled) put_Enabled;
 	}
 
 
@@ -955,10 +955,10 @@ public static
 
 	[CRepr]public struct VTable : ITrigger.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ILogonTrigger*/SelfOuter* self, BSTR* pDelay) get_Delay;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ILogonTrigger*/SelfOuter* self, BSTR delay) put_Delay;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ILogonTrigger*/SelfOuter* self, BSTR* pUser) get_UserId;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ILogonTrigger*/SelfOuter* self, BSTR user) put_UserId;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pDelay) get_Delay;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR delay) put_Delay;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pUser) get_UserId;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR user) put_UserId;
 	}
 
 
@@ -979,12 +979,12 @@ public static
 
 	[CRepr]public struct VTable : ITrigger.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISessionStateChangeTrigger*/SelfOuter* self, BSTR* pDelay) get_Delay;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISessionStateChangeTrigger*/SelfOuter* self, BSTR delay) put_Delay;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISessionStateChangeTrigger*/SelfOuter* self, BSTR* pUser) get_UserId;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISessionStateChangeTrigger*/SelfOuter* self, BSTR user) put_UserId;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISessionStateChangeTrigger*/SelfOuter* self, TASK_SESSION_STATE_CHANGE_TYPE* pType) get_StateChange;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISessionStateChangeTrigger*/SelfOuter* self, TASK_SESSION_STATE_CHANGE_TYPE type) put_StateChange;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pDelay) get_Delay;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR delay) put_Delay;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pUser) get_UserId;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR user) put_UserId;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, TASK_SESSION_STATE_CHANGE_TYPE* pType) get_StateChange;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, TASK_SESSION_STATE_CHANGE_TYPE type) put_StateChange;
 	}
 
 
@@ -1009,12 +1009,12 @@ public static
 
 	[CRepr]public struct VTable : ITrigger.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEventTrigger*/SelfOuter* self, BSTR* pQuery) get_Subscription;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEventTrigger*/SelfOuter* self, BSTR query) put_Subscription;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEventTrigger*/SelfOuter* self, BSTR* pDelay) get_Delay;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEventTrigger*/SelfOuter* self, BSTR delay) put_Delay;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEventTrigger*/SelfOuter* self, ITaskNamedValueCollection** ppNamedXPaths) get_ValueQueries;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEventTrigger*/SelfOuter* self, ITaskNamedValueCollection* pNamedXPaths) put_ValueQueries;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pQuery) get_Subscription;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR query) put_Subscription;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pDelay) get_Delay;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR delay) put_Delay;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ITaskNamedValueCollection** ppNamedXPaths) get_ValueQueries;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ITaskNamedValueCollection* pNamedXPaths) put_ValueQueries;
 	}
 
 
@@ -1039,8 +1039,8 @@ public static
 
 	[CRepr]public struct VTable : ITrigger.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITimeTrigger*/SelfOuter* self, BSTR* pRandomDelay) get_RandomDelay;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITimeTrigger*/SelfOuter* self, BSTR randomDelay) put_RandomDelay;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pRandomDelay) get_RandomDelay;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR randomDelay) put_RandomDelay;
 	}
 
 
@@ -1057,10 +1057,10 @@ public static
 
 	[CRepr]public struct VTable : ITrigger.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDailyTrigger*/SelfOuter* self, int16* pDays) get_DaysInterval;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDailyTrigger*/SelfOuter* self, int16 days) put_DaysInterval;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDailyTrigger*/SelfOuter* self, BSTR* pRandomDelay) get_RandomDelay;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDailyTrigger*/SelfOuter* self, BSTR randomDelay) put_RandomDelay;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* pDays) get_DaysInterval;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 days) put_DaysInterval;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pRandomDelay) get_RandomDelay;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR randomDelay) put_RandomDelay;
 	}
 
 
@@ -1081,12 +1081,12 @@ public static
 
 	[CRepr]public struct VTable : ITrigger.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWeeklyTrigger*/SelfOuter* self, int16* pDays) get_DaysOfWeek;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWeeklyTrigger*/SelfOuter* self, int16 days) put_DaysOfWeek;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWeeklyTrigger*/SelfOuter* self, int16* pWeeks) get_WeeksInterval;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWeeklyTrigger*/SelfOuter* self, int16 weeks) put_WeeksInterval;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWeeklyTrigger*/SelfOuter* self, BSTR* pRandomDelay) get_RandomDelay;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWeeklyTrigger*/SelfOuter* self, BSTR randomDelay) put_RandomDelay;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* pDays) get_DaysOfWeek;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 days) put_DaysOfWeek;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* pWeeks) get_WeeksInterval;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 weeks) put_WeeksInterval;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pRandomDelay) get_RandomDelay;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR randomDelay) put_RandomDelay;
 	}
 
 
@@ -1111,14 +1111,14 @@ public static
 
 	[CRepr]public struct VTable : ITrigger.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMonthlyTrigger*/SelfOuter* self, int32* pDays) get_DaysOfMonth;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMonthlyTrigger*/SelfOuter* self, int32 days) put_DaysOfMonth;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMonthlyTrigger*/SelfOuter* self, int16* pMonths) get_MonthsOfYear;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMonthlyTrigger*/SelfOuter* self, int16 months) put_MonthsOfYear;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMonthlyTrigger*/SelfOuter* self, int16* pLastDay) get_RunOnLastDayOfMonth;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMonthlyTrigger*/SelfOuter* self, int16 lastDay) put_RunOnLastDayOfMonth;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMonthlyTrigger*/SelfOuter* self, BSTR* pRandomDelay) get_RandomDelay;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMonthlyTrigger*/SelfOuter* self, BSTR randomDelay) put_RandomDelay;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* pDays) get_DaysOfMonth;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 days) put_DaysOfMonth;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* pMonths) get_MonthsOfYear;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 months) put_MonthsOfYear;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* pLastDay) get_RunOnLastDayOfMonth;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 lastDay) put_RunOnLastDayOfMonth;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pRandomDelay) get_RandomDelay;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR randomDelay) put_RandomDelay;
 	}
 
 
@@ -1147,16 +1147,16 @@ public static
 
 	[CRepr]public struct VTable : ITrigger.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMonthlyDOWTrigger*/SelfOuter* self, int16* pDays) get_DaysOfWeek;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMonthlyDOWTrigger*/SelfOuter* self, int16 days) put_DaysOfWeek;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMonthlyDOWTrigger*/SelfOuter* self, int16* pWeeks) get_WeeksOfMonth;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMonthlyDOWTrigger*/SelfOuter* self, int16 weeks) put_WeeksOfMonth;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMonthlyDOWTrigger*/SelfOuter* self, int16* pMonths) get_MonthsOfYear;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMonthlyDOWTrigger*/SelfOuter* self, int16 months) put_MonthsOfYear;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMonthlyDOWTrigger*/SelfOuter* self, int16* pLastWeek) get_RunOnLastWeekOfMonth;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMonthlyDOWTrigger*/SelfOuter* self, int16 lastWeek) put_RunOnLastWeekOfMonth;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMonthlyDOWTrigger*/SelfOuter* self, BSTR* pRandomDelay) get_RandomDelay;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMonthlyDOWTrigger*/SelfOuter* self, BSTR randomDelay) put_RandomDelay;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* pDays) get_DaysOfWeek;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 days) put_DaysOfWeek;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* pWeeks) get_WeeksOfMonth;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 weeks) put_WeeksOfMonth;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* pMonths) get_MonthsOfYear;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 months) put_MonthsOfYear;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* pLastWeek) get_RunOnLastWeekOfMonth;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 lastWeek) put_RunOnLastWeekOfMonth;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pRandomDelay) get_RandomDelay;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR randomDelay) put_RandomDelay;
 	}
 
 
@@ -1189,8 +1189,8 @@ public static
 
 	[CRepr]public struct VTable : ITrigger.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IBootTrigger*/SelfOuter* self, BSTR* pDelay) get_Delay;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IBootTrigger*/SelfOuter* self, BSTR delay) put_Delay;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pDelay) get_Delay;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR delay) put_Delay;
 	}
 
 
@@ -1207,8 +1207,8 @@ public static
 
 	[CRepr]public struct VTable : ITrigger.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRegistrationTrigger*/SelfOuter* self, BSTR* pDelay) get_Delay;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRegistrationTrigger*/SelfOuter* self, BSTR delay) put_Delay;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pDelay) get_Delay;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR delay) put_Delay;
 	}
 
 
@@ -1225,9 +1225,9 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAction*/SelfOuter* self, BSTR* pId) get_Id;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAction*/SelfOuter* self, BSTR Id) put_Id;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAction*/SelfOuter* self, TASK_ACTION_TYPE* pType) get_Type;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pId) get_Id;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR Id) put_Id;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, TASK_ACTION_TYPE* pType) get_Type;
 	}
 
 
@@ -1246,12 +1246,12 @@ public static
 
 	[CRepr]public struct VTable : IAction.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IExecAction*/SelfOuter* self, BSTR* pPath) get_Path;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IExecAction*/SelfOuter* self, BSTR path) put_Path;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IExecAction*/SelfOuter* self, BSTR* pArgument) get_Arguments;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IExecAction*/SelfOuter* self, BSTR argument) put_Arguments;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IExecAction*/SelfOuter* self, BSTR* pWorkingDirectory) get_WorkingDirectory;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IExecAction*/SelfOuter* self, BSTR workingDirectory) put_WorkingDirectory;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pPath) get_Path;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR path) put_Path;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pArgument) get_Arguments;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR argument) put_Arguments;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pWorkingDirectory) get_WorkingDirectory;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR workingDirectory) put_WorkingDirectory;
 	}
 
 
@@ -1276,8 +1276,8 @@ public static
 
 	[CRepr]public struct VTable : IExecAction.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IExecAction2*/SelfOuter* self, int16* pHideAppWindow) get_HideAppWindow;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IExecAction2*/SelfOuter* self, int16 hideAppWindow) put_HideAppWindow;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* pHideAppWindow) get_HideAppWindow;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 hideAppWindow) put_HideAppWindow;
 	}
 
 
@@ -1294,10 +1294,10 @@ public static
 
 	[CRepr]public struct VTable : IAction.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShowMessageAction*/SelfOuter* self, BSTR* pTitle) get_Title;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShowMessageAction*/SelfOuter* self, BSTR title) put_Title;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShowMessageAction*/SelfOuter* self, BSTR* pMessageBody) get_MessageBody;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShowMessageAction*/SelfOuter* self, BSTR messageBody) put_MessageBody;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pTitle) get_Title;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR title) put_Title;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pMessageBody) get_MessageBody;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR messageBody) put_MessageBody;
 	}
 
 
@@ -1318,10 +1318,10 @@ public static
 
 	[CRepr]public struct VTable : IAction.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IComHandlerAction*/SelfOuter* self, BSTR* pClsid) get_ClassId;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IComHandlerAction*/SelfOuter* self, BSTR clsid) put_ClassId;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IComHandlerAction*/SelfOuter* self, BSTR* pData) get_Data;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IComHandlerAction*/SelfOuter* self, BSTR data) put_Data;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pClsid) get_ClassId;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR clsid) put_ClassId;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pData) get_Data;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR data) put_Data;
 	}
 
 
@@ -1342,26 +1342,26 @@ public static
 
 	[CRepr]public struct VTable : IAction.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEmailAction*/SelfOuter* self, BSTR* pServer) get_Server;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEmailAction*/SelfOuter* self, BSTR server) put_Server;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEmailAction*/SelfOuter* self, BSTR* pSubject) get_Subject;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEmailAction*/SelfOuter* self, BSTR subject) put_Subject;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEmailAction*/SelfOuter* self, BSTR* pTo) get_To;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEmailAction*/SelfOuter* self, BSTR to) put_To;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEmailAction*/SelfOuter* self, BSTR* pCc) get_Cc;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEmailAction*/SelfOuter* self, BSTR cc) put_Cc;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEmailAction*/SelfOuter* self, BSTR* pBcc) get_Bcc;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEmailAction*/SelfOuter* self, BSTR bcc) put_Bcc;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEmailAction*/SelfOuter* self, BSTR* pReplyTo) get_ReplyTo;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEmailAction*/SelfOuter* self, BSTR replyTo) put_ReplyTo;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEmailAction*/SelfOuter* self, BSTR* pFrom) get_From;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEmailAction*/SelfOuter* self, BSTR from) put_From;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEmailAction*/SelfOuter* self, ITaskNamedValueCollection** ppHeaderFields) get_HeaderFields;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEmailAction*/SelfOuter* self, ITaskNamedValueCollection* pHeaderFields) put_HeaderFields;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEmailAction*/SelfOuter* self, BSTR* pBody) get_Body;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEmailAction*/SelfOuter* self, BSTR body) put_Body;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEmailAction*/SelfOuter* self, SAFEARRAY** pAttachements) get_Attachments;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEmailAction*/SelfOuter* self, SAFEARRAY* pAttachements) put_Attachments;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pServer) get_Server;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR server) put_Server;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pSubject) get_Subject;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR subject) put_Subject;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pTo) get_To;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR to) put_To;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pCc) get_Cc;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR cc) put_Cc;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pBcc) get_Bcc;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bcc) put_Bcc;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pReplyTo) get_ReplyTo;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR replyTo) put_ReplyTo;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pFrom) get_From;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR from) put_From;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ITaskNamedValueCollection** ppHeaderFields) get_HeaderFields;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ITaskNamedValueCollection* pHeaderFields) put_HeaderFields;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pBody) get_Body;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR body) put_Body;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, SAFEARRAY** pAttachements) get_Attachments;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, SAFEARRAY* pAttachements) put_Attachments;
 	}
 
 
@@ -1414,12 +1414,12 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITriggerCollection*/SelfOuter* self, int32* pCount) get_Count;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITriggerCollection*/SelfOuter* self, int32 index, ITrigger** ppTrigger) get_Item;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITriggerCollection*/SelfOuter* self, IUnknown** ppEnum) get__NewEnum;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITriggerCollection*/SelfOuter* self, TASK_TRIGGER_TYPE2 type, ITrigger** ppTrigger) Create;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITriggerCollection*/SelfOuter* self, VARIANT index) Remove;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITriggerCollection*/SelfOuter* self) Clear;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* pCount) get_Count;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 index, ITrigger** ppTrigger) get_Item;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IUnknown** ppEnum) get__NewEnum;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, TASK_TRIGGER_TYPE2 type, ITrigger** ppTrigger) Create;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT index) Remove;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Clear;
 	}
 
 
@@ -1444,16 +1444,16 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IActionCollection*/SelfOuter* self, int32* pCount) get_Count;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IActionCollection*/SelfOuter* self, int32 index, IAction** ppAction) get_Item;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IActionCollection*/SelfOuter* self, IUnknown** ppEnum) get__NewEnum;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IActionCollection*/SelfOuter* self, BSTR* pText) get_XmlText;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IActionCollection*/SelfOuter* self, BSTR text) put_XmlText;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IActionCollection*/SelfOuter* self, TASK_ACTION_TYPE type, IAction** ppAction) Create;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IActionCollection*/SelfOuter* self, VARIANT index) Remove;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IActionCollection*/SelfOuter* self) Clear;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IActionCollection*/SelfOuter* self, BSTR* pContext) get_Context;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IActionCollection*/SelfOuter* self, BSTR context) put_Context;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* pCount) get_Count;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 index, IAction** ppAction) get_Item;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IUnknown** ppEnum) get__NewEnum;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pText) get_XmlText;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR text) put_XmlText;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, TASK_ACTION_TYPE type, IAction** ppAction) Create;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT index) Remove;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Clear;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pContext) get_Context;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR context) put_Context;
 	}
 
 
@@ -1486,18 +1486,18 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPrincipal*/SelfOuter* self, BSTR* pId) get_Id;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPrincipal*/SelfOuter* self, BSTR Id) put_Id;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPrincipal*/SelfOuter* self, BSTR* pName) get_DisplayName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPrincipal*/SelfOuter* self, BSTR name) put_DisplayName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPrincipal*/SelfOuter* self, BSTR* pUser) get_UserId;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPrincipal*/SelfOuter* self, BSTR user) put_UserId;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPrincipal*/SelfOuter* self, TASK_LOGON_TYPE* pLogon) get_LogonType;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPrincipal*/SelfOuter* self, TASK_LOGON_TYPE logon) put_LogonType;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPrincipal*/SelfOuter* self, BSTR* pGroup) get_GroupId;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPrincipal*/SelfOuter* self, BSTR group) put_GroupId;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPrincipal*/SelfOuter* self, TASK_RUNLEVEL_TYPE* pRunLevel) get_RunLevel;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPrincipal*/SelfOuter* self, TASK_RUNLEVEL_TYPE runLevel) put_RunLevel;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pId) get_Id;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR Id) put_Id;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pName) get_DisplayName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR name) put_DisplayName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pUser) get_UserId;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR user) put_UserId;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, TASK_LOGON_TYPE* pLogon) get_LogonType;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, TASK_LOGON_TYPE logon) put_LogonType;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pGroup) get_GroupId;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR group) put_GroupId;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, TASK_RUNLEVEL_TYPE* pRunLevel) get_RunLevel;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, TASK_RUNLEVEL_TYPE runLevel) put_RunLevel;
 	}
 
 
@@ -1534,11 +1534,11 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPrincipal2*/SelfOuter* self, TASK_PROCESSTOKENSID_TYPE* pProcessTokenSidType) get_ProcessTokenSidType;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPrincipal2*/SelfOuter* self, TASK_PROCESSTOKENSID_TYPE processTokenSidType) put_ProcessTokenSidType;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPrincipal2*/SelfOuter* self, int32* pCount) get_RequiredPrivilegeCount;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPrincipal2*/SelfOuter* self, int32 index, BSTR* pPrivilege) get_RequiredPrivilege;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPrincipal2*/SelfOuter* self, BSTR privilege) AddRequiredPrivilege;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, TASK_PROCESSTOKENSID_TYPE* pProcessTokenSidType) get_ProcessTokenSidType;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, TASK_PROCESSTOKENSID_TYPE processTokenSidType) put_ProcessTokenSidType;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* pCount) get_RequiredPrivilegeCount;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 index, BSTR* pPrivilege) get_RequiredPrivilege;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR privilege) AddRequiredPrivilege;
 	}
 
 
@@ -1561,24 +1561,24 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRegistrationInfo*/SelfOuter* self, BSTR* pDescription) get_Description;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRegistrationInfo*/SelfOuter* self, BSTR description) put_Description;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRegistrationInfo*/SelfOuter* self, BSTR* pAuthor) get_Author;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRegistrationInfo*/SelfOuter* self, BSTR author) put_Author;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRegistrationInfo*/SelfOuter* self, BSTR* pVersion) get_Version;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRegistrationInfo*/SelfOuter* self, BSTR version) put_Version;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRegistrationInfo*/SelfOuter* self, BSTR* pDate) get_Date;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRegistrationInfo*/SelfOuter* self, BSTR date) put_Date;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRegistrationInfo*/SelfOuter* self, BSTR* pDocumentation) get_Documentation;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRegistrationInfo*/SelfOuter* self, BSTR documentation) put_Documentation;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRegistrationInfo*/SelfOuter* self, BSTR* pText) get_XmlText;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRegistrationInfo*/SelfOuter* self, BSTR text) put_XmlText;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRegistrationInfo*/SelfOuter* self, BSTR* pUri) get_URI;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRegistrationInfo*/SelfOuter* self, BSTR uri) put_URI;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRegistrationInfo*/SelfOuter* self, VARIANT* pSddl) get_SecurityDescriptor;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRegistrationInfo*/SelfOuter* self, VARIANT sddl) put_SecurityDescriptor;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRegistrationInfo*/SelfOuter* self, BSTR* pSource) get_Source;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRegistrationInfo*/SelfOuter* self, BSTR source) put_Source;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pDescription) get_Description;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR description) put_Description;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pAuthor) get_Author;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR author) put_Author;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pVersion) get_Version;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR version) put_Version;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pDate) get_Date;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR date) put_Date;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pDocumentation) get_Documentation;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR documentation) put_Documentation;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pText) get_XmlText;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR text) put_XmlText;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pUri) get_URI;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR uri) put_URI;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT* pSddl) get_SecurityDescriptor;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT sddl) put_SecurityDescriptor;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pSource) get_Source;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR source) put_Source;
 	}
 
 
@@ -1627,20 +1627,20 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITaskDefinition*/SelfOuter* self, IRegistrationInfo** ppRegistrationInfo) get_RegistrationInfo;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITaskDefinition*/SelfOuter* self, IRegistrationInfo* pRegistrationInfo) put_RegistrationInfo;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITaskDefinition*/SelfOuter* self, ITriggerCollection** ppTriggers) get_Triggers;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITaskDefinition*/SelfOuter* self, ITriggerCollection* pTriggers) put_Triggers;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITaskDefinition*/SelfOuter* self, ITaskSettings** ppSettings) get_Settings;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITaskDefinition*/SelfOuter* self, ITaskSettings* pSettings) put_Settings;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITaskDefinition*/SelfOuter* self, BSTR* pData) get_Data;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITaskDefinition*/SelfOuter* self, BSTR data) put_Data;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITaskDefinition*/SelfOuter* self, IPrincipal** ppPrincipal) get_Principal;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITaskDefinition*/SelfOuter* self, IPrincipal* pPrincipal) put_Principal;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITaskDefinition*/SelfOuter* self, IActionCollection** ppActions) get_Actions;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITaskDefinition*/SelfOuter* self, IActionCollection* pActions) put_Actions;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITaskDefinition*/SelfOuter* self, BSTR* pXml) get_XmlText;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITaskDefinition*/SelfOuter* self, BSTR xml) put_XmlText;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IRegistrationInfo** ppRegistrationInfo) get_RegistrationInfo;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IRegistrationInfo* pRegistrationInfo) put_RegistrationInfo;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ITriggerCollection** ppTriggers) get_Triggers;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ITriggerCollection* pTriggers) put_Triggers;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ITaskSettings** ppSettings) get_Settings;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ITaskSettings* pSettings) put_Settings;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pData) get_Data;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR data) put_Data;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IPrincipal** ppPrincipal) get_Principal;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IPrincipal* pPrincipal) put_Principal;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IActionCollection** ppActions) get_Actions;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IActionCollection* pActions) put_Actions;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pXml) get_XmlText;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR xml) put_XmlText;
 	}
 
 
@@ -1681,46 +1681,46 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITaskSettings*/SelfOuter* self, int16* pAllowDemandStart) get_AllowDemandStart;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITaskSettings*/SelfOuter* self, int16 allowDemandStart) put_AllowDemandStart;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITaskSettings*/SelfOuter* self, BSTR* pRestartInterval) get_RestartInterval;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITaskSettings*/SelfOuter* self, BSTR restartInterval) put_RestartInterval;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITaskSettings*/SelfOuter* self, int32* pRestartCount) get_RestartCount;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITaskSettings*/SelfOuter* self, int32 restartCount) put_RestartCount;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITaskSettings*/SelfOuter* self, TASK_INSTANCES_POLICY* pPolicy) get_MultipleInstances;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITaskSettings*/SelfOuter* self, TASK_INSTANCES_POLICY policy) put_MultipleInstances;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITaskSettings*/SelfOuter* self, int16* pStopIfOnBatteries) get_StopIfGoingOnBatteries;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITaskSettings*/SelfOuter* self, int16 stopIfOnBatteries) put_StopIfGoingOnBatteries;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITaskSettings*/SelfOuter* self, int16* pDisallowStart) get_DisallowStartIfOnBatteries;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITaskSettings*/SelfOuter* self, int16 disallowStart) put_DisallowStartIfOnBatteries;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITaskSettings*/SelfOuter* self, int16* pAllowHardTerminate) get_AllowHardTerminate;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITaskSettings*/SelfOuter* self, int16 allowHardTerminate) put_AllowHardTerminate;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITaskSettings*/SelfOuter* self, int16* pStartWhenAvailable) get_StartWhenAvailable;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITaskSettings*/SelfOuter* self, int16 startWhenAvailable) put_StartWhenAvailable;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITaskSettings*/SelfOuter* self, BSTR* pText) get_XmlText;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITaskSettings*/SelfOuter* self, BSTR text) put_XmlText;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITaskSettings*/SelfOuter* self, int16* pRunOnlyIfNetworkAvailable) get_RunOnlyIfNetworkAvailable;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITaskSettings*/SelfOuter* self, int16 runOnlyIfNetworkAvailable) put_RunOnlyIfNetworkAvailable;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITaskSettings*/SelfOuter* self, BSTR* pExecutionTimeLimit) get_ExecutionTimeLimit;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITaskSettings*/SelfOuter* self, BSTR executionTimeLimit) put_ExecutionTimeLimit;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITaskSettings*/SelfOuter* self, int16* pEnabled) get_Enabled;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITaskSettings*/SelfOuter* self, int16 enabled) put_Enabled;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITaskSettings*/SelfOuter* self, BSTR* pExpirationDelay) get_DeleteExpiredTaskAfter;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITaskSettings*/SelfOuter* self, BSTR expirationDelay) put_DeleteExpiredTaskAfter;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITaskSettings*/SelfOuter* self, int32* pPriority) get_Priority;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITaskSettings*/SelfOuter* self, int32 priority) put_Priority;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITaskSettings*/SelfOuter* self, TASK_COMPATIBILITY* pCompatLevel) get_Compatibility;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITaskSettings*/SelfOuter* self, TASK_COMPATIBILITY compatLevel) put_Compatibility;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITaskSettings*/SelfOuter* self, int16* pHidden) get_Hidden;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITaskSettings*/SelfOuter* self, int16 hidden) put_Hidden;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITaskSettings*/SelfOuter* self, IIdleSettings** ppIdleSettings) get_IdleSettings;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITaskSettings*/SelfOuter* self, IIdleSettings* pIdleSettings) put_IdleSettings;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITaskSettings*/SelfOuter* self, int16* pRunOnlyIfIdle) get_RunOnlyIfIdle;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITaskSettings*/SelfOuter* self, int16 runOnlyIfIdle) put_RunOnlyIfIdle;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITaskSettings*/SelfOuter* self, int16* pWake) get_WakeToRun;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITaskSettings*/SelfOuter* self, int16 wake) put_WakeToRun;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITaskSettings*/SelfOuter* self, INetworkSettings** ppNetworkSettings) get_NetworkSettings;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITaskSettings*/SelfOuter* self, INetworkSettings* pNetworkSettings) put_NetworkSettings;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* pAllowDemandStart) get_AllowDemandStart;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 allowDemandStart) put_AllowDemandStart;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pRestartInterval) get_RestartInterval;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR restartInterval) put_RestartInterval;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* pRestartCount) get_RestartCount;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 restartCount) put_RestartCount;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, TASK_INSTANCES_POLICY* pPolicy) get_MultipleInstances;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, TASK_INSTANCES_POLICY policy) put_MultipleInstances;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* pStopIfOnBatteries) get_StopIfGoingOnBatteries;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 stopIfOnBatteries) put_StopIfGoingOnBatteries;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* pDisallowStart) get_DisallowStartIfOnBatteries;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 disallowStart) put_DisallowStartIfOnBatteries;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* pAllowHardTerminate) get_AllowHardTerminate;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 allowHardTerminate) put_AllowHardTerminate;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* pStartWhenAvailable) get_StartWhenAvailable;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 startWhenAvailable) put_StartWhenAvailable;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pText) get_XmlText;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR text) put_XmlText;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* pRunOnlyIfNetworkAvailable) get_RunOnlyIfNetworkAvailable;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 runOnlyIfNetworkAvailable) put_RunOnlyIfNetworkAvailable;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pExecutionTimeLimit) get_ExecutionTimeLimit;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR executionTimeLimit) put_ExecutionTimeLimit;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* pEnabled) get_Enabled;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 enabled) put_Enabled;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pExpirationDelay) get_DeleteExpiredTaskAfter;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR expirationDelay) put_DeleteExpiredTaskAfter;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* pPriority) get_Priority;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 priority) put_Priority;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, TASK_COMPATIBILITY* pCompatLevel) get_Compatibility;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, TASK_COMPATIBILITY compatLevel) put_Compatibility;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* pHidden) get_Hidden;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 hidden) put_Hidden;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IIdleSettings** ppIdleSettings) get_IdleSettings;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IIdleSettings* pIdleSettings) put_IdleSettings;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* pRunOnlyIfIdle) get_RunOnlyIfIdle;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 runOnlyIfIdle) put_RunOnlyIfIdle;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* pWake) get_WakeToRun;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 wake) put_WakeToRun;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, INetworkSettings** ppNetworkSettings) get_NetworkSettings;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, INetworkSettings* pNetworkSettings) put_NetworkSettings;
 	}
 
 
@@ -1813,10 +1813,10 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITaskSettings2*/SelfOuter* self, int16* pDisallowStart) get_DisallowStartOnRemoteAppSession;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITaskSettings2*/SelfOuter* self, int16 disallowStart) put_DisallowStartOnRemoteAppSession;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITaskSettings2*/SelfOuter* self, int16* pUseUnifiedEngine) get_UseUnifiedSchedulingEngine;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITaskSettings2*/SelfOuter* self, int16 useUnifiedEngine) put_UseUnifiedSchedulingEngine;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* pDisallowStart) get_DisallowStartOnRemoteAppSession;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 disallowStart) put_DisallowStartOnRemoteAppSession;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* pUseUnifiedEngine) get_UseUnifiedSchedulingEngine;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 useUnifiedEngine) put_UseUnifiedSchedulingEngine;
 	}
 
 
@@ -1837,15 +1837,15 @@ public static
 
 	[CRepr]public struct VTable : ITaskSettings.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITaskSettings3*/SelfOuter* self, int16* pDisallowStart) get_DisallowStartOnRemoteAppSession;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITaskSettings3*/SelfOuter* self, int16 disallowStart) put_DisallowStartOnRemoteAppSession;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITaskSettings3*/SelfOuter* self, int16* pUseUnifiedEngine) get_UseUnifiedSchedulingEngine;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITaskSettings3*/SelfOuter* self, int16 useUnifiedEngine) put_UseUnifiedSchedulingEngine;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITaskSettings3*/SelfOuter* self, IMaintenanceSettings** ppMaintenanceSettings) get_MaintenanceSettings;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITaskSettings3*/SelfOuter* self, IMaintenanceSettings* pMaintenanceSettings) put_MaintenanceSettings;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITaskSettings3*/SelfOuter* self, IMaintenanceSettings** ppMaintenanceSettings) CreateMaintenanceSettings;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITaskSettings3*/SelfOuter* self, int16* pVolatile) get_Volatile;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITaskSettings3*/SelfOuter* self, int16 Volatile) put_Volatile;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* pDisallowStart) get_DisallowStartOnRemoteAppSession;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 disallowStart) put_DisallowStartOnRemoteAppSession;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* pUseUnifiedEngine) get_UseUnifiedSchedulingEngine;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 useUnifiedEngine) put_UseUnifiedSchedulingEngine;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IMaintenanceSettings** ppMaintenanceSettings) get_MaintenanceSettings;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IMaintenanceSettings* pMaintenanceSettings) put_MaintenanceSettings;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IMaintenanceSettings** ppMaintenanceSettings) CreateMaintenanceSettings;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* pVolatile) get_Volatile;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 Volatile) put_Volatile;
 	}
 
 
@@ -1876,12 +1876,12 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMaintenanceSettings*/SelfOuter* self, BSTR value) put_Period;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMaintenanceSettings*/SelfOuter* self, BSTR* target) get_Period;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMaintenanceSettings*/SelfOuter* self, BSTR value) put_Deadline;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMaintenanceSettings*/SelfOuter* self, BSTR* target) get_Deadline;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMaintenanceSettings*/SelfOuter* self, int16 value) put_Exclusive;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMaintenanceSettings*/SelfOuter* self, int16* target) get_Exclusive;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR value) put_Period;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* target) get_Period;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR value) put_Deadline;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* target) get_Deadline;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 value) put_Exclusive;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* target) get_Exclusive;
 	}
 
 
@@ -1906,9 +1906,9 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRegisteredTaskCollection*/SelfOuter* self, int32* pCount) get_Count;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRegisteredTaskCollection*/SelfOuter* self, VARIANT index, IRegisteredTask** ppRegisteredTask) get_Item;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRegisteredTaskCollection*/SelfOuter* self, IUnknown** ppEnum) get__NewEnum;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* pCount) get_Count;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT index, IRegisteredTask** ppRegisteredTask) get_Item;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IUnknown** ppEnum) get__NewEnum;
 	}
 
 
@@ -1927,19 +1927,19 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITaskFolder*/SelfOuter* self, BSTR* pName) get_Name;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITaskFolder*/SelfOuter* self, BSTR* pPath) get_Path;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITaskFolder*/SelfOuter* self, BSTR path, ITaskFolder** ppFolder) GetFolder;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITaskFolder*/SelfOuter* self, int32 flags, ITaskFolderCollection** ppFolders) GetFolders;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITaskFolder*/SelfOuter* self, BSTR subFolderName, VARIANT sddl, ITaskFolder** ppFolder) CreateFolder;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITaskFolder*/SelfOuter* self, BSTR subFolderName, int32 flags) DeleteFolder;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITaskFolder*/SelfOuter* self, BSTR path, IRegisteredTask** ppTask) GetTask;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITaskFolder*/SelfOuter* self, int32 flags, IRegisteredTaskCollection** ppTasks) GetTasks;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITaskFolder*/SelfOuter* self, BSTR name, int32 flags) DeleteTask;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITaskFolder*/SelfOuter* self, BSTR path, BSTR xmlText, int32 flags, VARIANT userId, VARIANT password, TASK_LOGON_TYPE logonType, VARIANT sddl, IRegisteredTask** ppTask) RegisterTask;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITaskFolder*/SelfOuter* self, BSTR path, ITaskDefinition* pDefinition, int32 flags, VARIANT userId, VARIANT password, TASK_LOGON_TYPE logonType, VARIANT sddl, IRegisteredTask** ppTask) RegisterTaskDefinition;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITaskFolder*/SelfOuter* self, int32 securityInformation, BSTR* pSddl) GetSecurityDescriptor;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITaskFolder*/SelfOuter* self, BSTR sddl, int32 flags) SetSecurityDescriptor;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pName) get_Name;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pPath) get_Path;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR path, ITaskFolder** ppFolder) GetFolder;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 flags, ITaskFolderCollection** ppFolders) GetFolders;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR subFolderName, VARIANT sddl, ITaskFolder** ppFolder) CreateFolder;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR subFolderName, int32 flags) DeleteFolder;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR path, IRegisteredTask** ppTask) GetTask;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 flags, IRegisteredTaskCollection** ppTasks) GetTasks;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR name, int32 flags) DeleteTask;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR path, BSTR xmlText, int32 flags, VARIANT userId, VARIANT password, TASK_LOGON_TYPE logonType, VARIANT sddl, IRegisteredTask** ppTask) RegisterTask;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR path, ITaskDefinition* pDefinition, int32 flags, VARIANT userId, VARIANT password, TASK_LOGON_TYPE logonType, VARIANT sddl, IRegisteredTask** ppTask) RegisterTaskDefinition;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 securityInformation, BSTR* pSddl) GetSecurityDescriptor;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR sddl, int32 flags) SetSecurityDescriptor;
 	}
 
 
@@ -1978,14 +1978,14 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IIdleSettings*/SelfOuter* self, BSTR* pDelay) get_IdleDuration;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IIdleSettings*/SelfOuter* self, BSTR delay) put_IdleDuration;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IIdleSettings*/SelfOuter* self, BSTR* pTimeout) get_WaitTimeout;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IIdleSettings*/SelfOuter* self, BSTR timeout) put_WaitTimeout;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IIdleSettings*/SelfOuter* self, int16* pStop) get_StopOnIdleEnd;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IIdleSettings*/SelfOuter* self, int16 stop) put_StopOnIdleEnd;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IIdleSettings*/SelfOuter* self, int16* pRestart) get_RestartOnIdle;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IIdleSettings*/SelfOuter* self, int16 restart) put_RestartOnIdle;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pDelay) get_IdleDuration;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR delay) put_IdleDuration;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pTimeout) get_WaitTimeout;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR timeout) put_WaitTimeout;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* pStop) get_StopOnIdleEnd;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 stop) put_StopOnIdleEnd;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* pRestart) get_RestartOnIdle;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 restart) put_RestartOnIdle;
 	}
 
 
@@ -2014,10 +2014,10 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*INetworkSettings*/SelfOuter* self, BSTR* pName) get_Name;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*INetworkSettings*/SelfOuter* self, BSTR name) put_Name;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*INetworkSettings*/SelfOuter* self, BSTR* pId) get_Id;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*INetworkSettings*/SelfOuter* self, BSTR id) put_Id;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pName) get_Name;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR name) put_Name;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pId) get_Id;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR id) put_Id;
 	}
 
 
@@ -2038,12 +2038,12 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRepetitionPattern*/SelfOuter* self, BSTR* pInterval) get_Interval;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRepetitionPattern*/SelfOuter* self, BSTR interval) put_Interval;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRepetitionPattern*/SelfOuter* self, BSTR* pDuration) get_Duration;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRepetitionPattern*/SelfOuter* self, BSTR duration) put_Duration;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRepetitionPattern*/SelfOuter* self, int16* pStop) get_StopAtDurationEnd;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRepetitionPattern*/SelfOuter* self, int16 stop) put_StopAtDurationEnd;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pInterval) get_Interval;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR interval) put_Interval;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pDuration) get_Duration;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR duration) put_Duration;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* pStop) get_StopAtDurationEnd;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 stop) put_StopAtDurationEnd;
 	}
 
 

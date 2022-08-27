@@ -1237,10 +1237,10 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscMaster2*/SelfOuter* self, IEnumVARIANT** ppunk) get__NewEnum;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscMaster2*/SelfOuter* self, int32 index, BSTR* value) get_Item;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscMaster2*/SelfOuter* self, int32* value) get_Count;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscMaster2*/SelfOuter* self, int16* value) get_IsSupportedEnvironment;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IEnumVARIANT** ppunk) get__NewEnum;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 index, BSTR* value) get_Item;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* value) get_Count;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* value) get_IsSupportedEnvironment;
 	}
 
 
@@ -1261,8 +1261,8 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*DDiscMaster2Events*/SelfOuter* self, IDispatch* object, BSTR uniqueId) NotifyDeviceAdded;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*DDiscMaster2Events*/SelfOuter* self, IDispatch* object, BSTR uniqueId) NotifyDeviceRemoved;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IDispatch* object, BSTR uniqueId) NotifyDeviceAdded;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IDispatch* object, BSTR uniqueId) NotifyDeviceRemoved;
 	}
 
 
@@ -1279,24 +1279,24 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscRecorder2Ex*/SelfOuter* self, uint8* Cdb, uint32 CdbSize, uint8* SenseBuffer, uint32 Timeout) SendCommandNoData;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscRecorder2Ex*/SelfOuter* self, uint8* Cdb, uint32 CdbSize, uint8* SenseBuffer, uint32 Timeout, uint8* Buffer, uint32 BufferSize) SendCommandSendDataToDevice;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscRecorder2Ex*/SelfOuter* self, uint8* Cdb, uint32 CdbSize, uint8* SenseBuffer, uint32 Timeout, uint8* Buffer, uint32 BufferSize, uint32* BufferFetched) SendCommandGetDataFromDevice;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscRecorder2Ex*/SelfOuter* self, uint32 format, uint32 address, uint32 layer, uint32 agid, uint8** data, uint32* count) ReadDvdStructure;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscRecorder2Ex*/SelfOuter* self, uint32 format, uint8* data, uint32 count) SendDvdStructure;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscRecorder2Ex*/SelfOuter* self, uint8** data, uint32* byteSize) GetAdapterDescriptor;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscRecorder2Ex*/SelfOuter* self, uint8** data, uint32* byteSize) GetDeviceDescriptor;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscRecorder2Ex*/SelfOuter* self, uint8** discInformation, uint32* byteSize) GetDiscInformation;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscRecorder2Ex*/SelfOuter* self, uint32 address, IMAPI_READ_TRACK_ADDRESS_TYPE addressType, uint8** trackInformation, uint32* byteSize) GetTrackInformation;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscRecorder2Ex*/SelfOuter* self, IMAPI_FEATURE_PAGE_TYPE requestedFeature, BOOLEAN currentFeatureOnly, uint8** featureData, uint32* byteSize) GetFeaturePage;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscRecorder2Ex*/SelfOuter* self, IMAPI_MODE_PAGE_TYPE requestedModePage, IMAPI_MODE_PAGE_REQUEST_TYPE requestType, uint8** modePageData, uint32* byteSize) GetModePage;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscRecorder2Ex*/SelfOuter* self, IMAPI_MODE_PAGE_REQUEST_TYPE requestType, uint8* data, uint32 byteSize) SetModePage;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscRecorder2Ex*/SelfOuter* self, BOOLEAN currentFeatureOnly, IMAPI_FEATURE_PAGE_TYPE** featureData, uint32* byteSize) GetSupportedFeaturePages;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscRecorder2Ex*/SelfOuter* self, BOOLEAN currentOnly, IMAPI_PROFILE_TYPE** profileTypes, uint32* validProfiles) GetSupportedProfiles;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscRecorder2Ex*/SelfOuter* self, IMAPI_MODE_PAGE_REQUEST_TYPE requestType, IMAPI_MODE_PAGE_TYPE** modePageTypes, uint32* validPages) GetSupportedModePages;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscRecorder2Ex*/SelfOuter* self, uint32* value) GetByteAlignmentMask;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscRecorder2Ex*/SelfOuter* self, uint32* value) GetMaximumNonPageAlignedTransferSize;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscRecorder2Ex*/SelfOuter* self, uint32* value) GetMaximumPageAlignedTransferSize;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint8* Cdb, uint32 CdbSize, uint8* SenseBuffer, uint32 Timeout) SendCommandNoData;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint8* Cdb, uint32 CdbSize, uint8* SenseBuffer, uint32 Timeout, uint8* Buffer, uint32 BufferSize) SendCommandSendDataToDevice;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint8* Cdb, uint32 CdbSize, uint8* SenseBuffer, uint32 Timeout, uint8* Buffer, uint32 BufferSize, uint32* BufferFetched) SendCommandGetDataFromDevice;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 format, uint32 address, uint32 layer, uint32 agid, uint8** data, uint32* count) ReadDvdStructure;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 format, uint8* data, uint32 count) SendDvdStructure;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint8** data, uint32* byteSize) GetAdapterDescriptor;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint8** data, uint32* byteSize) GetDeviceDescriptor;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint8** discInformation, uint32* byteSize) GetDiscInformation;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 address, IMAPI_READ_TRACK_ADDRESS_TYPE addressType, uint8** trackInformation, uint32* byteSize) GetTrackInformation;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IMAPI_FEATURE_PAGE_TYPE requestedFeature, BOOLEAN currentFeatureOnly, uint8** featureData, uint32* byteSize) GetFeaturePage;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IMAPI_MODE_PAGE_TYPE requestedModePage, IMAPI_MODE_PAGE_REQUEST_TYPE requestType, uint8** modePageData, uint32* byteSize) GetModePage;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IMAPI_MODE_PAGE_REQUEST_TYPE requestType, uint8* data, uint32 byteSize) SetModePage;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BOOLEAN currentFeatureOnly, IMAPI_FEATURE_PAGE_TYPE** featureData, uint32* byteSize) GetSupportedFeaturePages;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BOOLEAN currentOnly, IMAPI_PROFILE_TYPE** profileTypes, uint32* validProfiles) GetSupportedProfiles;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IMAPI_MODE_PAGE_REQUEST_TYPE requestType, IMAPI_MODE_PAGE_TYPE** modePageTypes, uint32* validPages) GetSupportedModePages;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* value) GetByteAlignmentMask;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* value) GetMaximumNonPageAlignedTransferSize;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* value) GetMaximumPageAlignedTransferSize;
 	}
 
 
@@ -1345,27 +1345,27 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscRecorder2*/SelfOuter* self) EjectMedia;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscRecorder2*/SelfOuter* self) CloseTray;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscRecorder2*/SelfOuter* self, int16 force, BSTR __MIDL__IDiscRecorder20000) AcquireExclusiveAccess;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscRecorder2*/SelfOuter* self) ReleaseExclusiveAccess;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscRecorder2*/SelfOuter* self) DisableMcn;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscRecorder2*/SelfOuter* self) EnableMcn;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscRecorder2*/SelfOuter* self, BSTR recorderUniqueId) InitializeDiscRecorder;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscRecorder2*/SelfOuter* self, BSTR* value) get_ActiveDiscRecorder;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscRecorder2*/SelfOuter* self, BSTR* value) get_VendorId;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscRecorder2*/SelfOuter* self, BSTR* value) get_ProductId;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscRecorder2*/SelfOuter* self, BSTR* value) get_ProductRevision;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscRecorder2*/SelfOuter* self, BSTR* value) get_VolumeName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscRecorder2*/SelfOuter* self, SAFEARRAY** value) get_VolumePathNames;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscRecorder2*/SelfOuter* self, int16* value) get_DeviceCanLoadMedia;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscRecorder2*/SelfOuter* self, int32* legacyDeviceNumber) get_LegacyDeviceNumber;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscRecorder2*/SelfOuter* self, SAFEARRAY** value) get_SupportedFeaturePages;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscRecorder2*/SelfOuter* self, SAFEARRAY** value) get_CurrentFeaturePages;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscRecorder2*/SelfOuter* self, SAFEARRAY** value) get_SupportedProfiles;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscRecorder2*/SelfOuter* self, SAFEARRAY** value) get_CurrentProfiles;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscRecorder2*/SelfOuter* self, SAFEARRAY** value) get_SupportedModePages;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscRecorder2*/SelfOuter* self, BSTR* value) get_ExclusiveAccessOwner;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) EjectMedia;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) CloseTray;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 force, BSTR __MIDL__IDiscRecorder20000) AcquireExclusiveAccess;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) ReleaseExclusiveAccess;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) DisableMcn;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) EnableMcn;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR recorderUniqueId) InitializeDiscRecorder;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* value) get_ActiveDiscRecorder;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* value) get_VendorId;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* value) get_ProductId;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* value) get_ProductRevision;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* value) get_VolumeName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, SAFEARRAY** value) get_VolumePathNames;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* value) get_DeviceCanLoadMedia;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* legacyDeviceNumber) get_LegacyDeviceNumber;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, SAFEARRAY** value) get_SupportedFeaturePages;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, SAFEARRAY** value) get_CurrentFeaturePages;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, SAFEARRAY** value) get_SupportedProfiles;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, SAFEARRAY** value) get_CurrentProfiles;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, SAFEARRAY** value) get_SupportedModePages;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* value) get_ExclusiveAccessOwner;
 	}
 
 
@@ -1420,19 +1420,19 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWriteEngine2*/SelfOuter* self, IStream* data, int32 startingBlockAddress, int32 numberOfBlocks) WriteSection;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWriteEngine2*/SelfOuter* self) CancelWrite;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWriteEngine2*/SelfOuter* self, IDiscRecorder2Ex* value) put_Recorder;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWriteEngine2*/SelfOuter* self, IDiscRecorder2Ex** value) get_Recorder;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWriteEngine2*/SelfOuter* self, int16 value) put_UseStreamingWrite12;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWriteEngine2*/SelfOuter* self, int16* value) get_UseStreamingWrite12;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWriteEngine2*/SelfOuter* self, int32 value) put_StartingSectorsPerSecond;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWriteEngine2*/SelfOuter* self, int32* value) get_StartingSectorsPerSecond;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWriteEngine2*/SelfOuter* self, int32 value) put_EndingSectorsPerSecond;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWriteEngine2*/SelfOuter* self, int32* value) get_EndingSectorsPerSecond;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWriteEngine2*/SelfOuter* self, int32 value) put_BytesPerSector;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWriteEngine2*/SelfOuter* self, int32* value) get_BytesPerSector;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWriteEngine2*/SelfOuter* self, int16* value) get_WriteInProgress;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IStream* data, int32 startingBlockAddress, int32 numberOfBlocks) WriteSection;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) CancelWrite;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IDiscRecorder2Ex* value) put_Recorder;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IDiscRecorder2Ex** value) get_Recorder;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 value) put_UseStreamingWrite12;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* value) get_UseStreamingWrite12;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 value) put_StartingSectorsPerSecond;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* value) get_StartingSectorsPerSecond;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 value) put_EndingSectorsPerSecond;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* value) get_EndingSectorsPerSecond;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 value) put_BytesPerSector;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* value) get_BytesPerSector;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* value) get_WriteInProgress;
 	}
 
 
@@ -1471,13 +1471,13 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWriteEngine2EventArgs*/SelfOuter* self, int32* value) get_StartLba;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWriteEngine2EventArgs*/SelfOuter* self, int32* value) get_SectorCount;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWriteEngine2EventArgs*/SelfOuter* self, int32* value) get_LastReadLba;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWriteEngine2EventArgs*/SelfOuter* self, int32* value) get_LastWrittenLba;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWriteEngine2EventArgs*/SelfOuter* self, int32* value) get_TotalSystemBuffer;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWriteEngine2EventArgs*/SelfOuter* self, int32* value) get_UsedSystemBuffer;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWriteEngine2EventArgs*/SelfOuter* self, int32* value) get_FreeSystemBuffer;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* value) get_StartLba;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* value) get_SectorCount;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* value) get_LastReadLba;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* value) get_LastWrittenLba;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* value) get_TotalSystemBuffer;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* value) get_UsedSystemBuffer;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* value) get_FreeSystemBuffer;
 	}
 
 
@@ -1504,7 +1504,7 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*DWriteEngine2Events*/SelfOuter* self, IDispatch* object, IDispatch* progress) Update;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IDispatch* object, IDispatch* progress) Update;
 	}
 
 
@@ -1519,11 +1519,11 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscFormat2*/SelfOuter* self, IDiscRecorder2* recorder, int16* value) IsRecorderSupported;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscFormat2*/SelfOuter* self, IDiscRecorder2* recorder, int16* value) IsCurrentMediaSupported;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscFormat2*/SelfOuter* self, int16* value) get_MediaPhysicallyBlank;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscFormat2*/SelfOuter* self, int16* value) get_MediaHeuristicallyBlank;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscFormat2*/SelfOuter* self, SAFEARRAY** value) get_SupportedMediaTypes;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IDiscRecorder2* recorder, int16* value) IsRecorderSupported;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IDiscRecorder2* recorder, int16* value) IsCurrentMediaSupported;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* value) get_MediaPhysicallyBlank;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* value) get_MediaHeuristicallyBlank;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, SAFEARRAY** value) get_SupportedMediaTypes;
 	}
 
 
@@ -1546,14 +1546,14 @@ public static
 
 	[CRepr]public struct VTable : IDiscFormat2.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscFormat2Erase*/SelfOuter* self, IDiscRecorder2* value) put_Recorder;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscFormat2Erase*/SelfOuter* self, IDiscRecorder2** value) get_Recorder;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscFormat2Erase*/SelfOuter* self, int16 value) put_FullErase;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscFormat2Erase*/SelfOuter* self, int16* value) get_FullErase;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscFormat2Erase*/SelfOuter* self, IMAPI_MEDIA_PHYSICAL_TYPE* value) get_CurrentPhysicalMediaType;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscFormat2Erase*/SelfOuter* self, BSTR value) put_ClientName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscFormat2Erase*/SelfOuter* self, BSTR* value) get_ClientName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscFormat2Erase*/SelfOuter* self) EraseMedia;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IDiscRecorder2* value) put_Recorder;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IDiscRecorder2** value) get_Recorder;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 value) put_FullErase;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* value) get_FullErase;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IMAPI_MEDIA_PHYSICAL_TYPE* value) get_CurrentPhysicalMediaType;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR value) put_ClientName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* value) get_ClientName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) EraseMedia;
 	}
 
 
@@ -1582,7 +1582,7 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*DDiscFormat2EraseEvents*/SelfOuter* self, IDispatch* object, int32 elapsedSeconds, int32 estimatedTotalSeconds) Update;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IDispatch* object, int32 elapsedSeconds, int32 estimatedTotalSeconds) Update;
 	}
 
 
@@ -1597,38 +1597,38 @@ public static
 
 	[CRepr]public struct VTable : IDiscFormat2.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscFormat2Data*/SelfOuter* self, IDiscRecorder2* value) put_Recorder;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscFormat2Data*/SelfOuter* self, IDiscRecorder2** value) get_Recorder;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscFormat2Data*/SelfOuter* self, int16 value) put_BufferUnderrunFreeDisabled;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscFormat2Data*/SelfOuter* self, int16* value) get_BufferUnderrunFreeDisabled;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscFormat2Data*/SelfOuter* self, int16 value) put_PostgapAlreadyInImage;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscFormat2Data*/SelfOuter* self, int16* value) get_PostgapAlreadyInImage;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscFormat2Data*/SelfOuter* self, IMAPI_FORMAT2_DATA_MEDIA_STATE* value) get_CurrentMediaStatus;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscFormat2Data*/SelfOuter* self, IMAPI_MEDIA_WRITE_PROTECT_STATE* value) get_WriteProtectStatus;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscFormat2Data*/SelfOuter* self, int32* value) get_TotalSectorsOnMedia;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscFormat2Data*/SelfOuter* self, int32* value) get_FreeSectorsOnMedia;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscFormat2Data*/SelfOuter* self, int32* value) get_NextWritableAddress;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscFormat2Data*/SelfOuter* self, int32* value) get_StartAddressOfPreviousSession;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscFormat2Data*/SelfOuter* self, int32* value) get_LastWrittenAddressOfPreviousSession;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscFormat2Data*/SelfOuter* self, int16 value) put_ForceMediaToBeClosed;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscFormat2Data*/SelfOuter* self, int16* value) get_ForceMediaToBeClosed;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscFormat2Data*/SelfOuter* self, int16 value) put_DisableConsumerDvdCompatibilityMode;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscFormat2Data*/SelfOuter* self, int16* value) get_DisableConsumerDvdCompatibilityMode;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscFormat2Data*/SelfOuter* self, IMAPI_MEDIA_PHYSICAL_TYPE* value) get_CurrentPhysicalMediaType;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscFormat2Data*/SelfOuter* self, BSTR value) put_ClientName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscFormat2Data*/SelfOuter* self, BSTR* value) get_ClientName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscFormat2Data*/SelfOuter* self, int32* value) get_RequestedWriteSpeed;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscFormat2Data*/SelfOuter* self, int16* value) get_RequestedRotationTypeIsPureCAV;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscFormat2Data*/SelfOuter* self, int32* value) get_CurrentWriteSpeed;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscFormat2Data*/SelfOuter* self, int16* value) get_CurrentRotationTypeIsPureCAV;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscFormat2Data*/SelfOuter* self, SAFEARRAY** supportedSpeeds) get_SupportedWriteSpeeds;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscFormat2Data*/SelfOuter* self, SAFEARRAY** supportedSpeedDescriptors) get_SupportedWriteSpeedDescriptors;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscFormat2Data*/SelfOuter* self, int16 value) put_ForceOverwrite;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscFormat2Data*/SelfOuter* self, int16* value) get_ForceOverwrite;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscFormat2Data*/SelfOuter* self, SAFEARRAY** value) get_MultisessionInterfaces;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscFormat2Data*/SelfOuter* self, IStream* data) Write;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscFormat2Data*/SelfOuter* self) CancelWrite;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscFormat2Data*/SelfOuter* self, int32 RequestedSectorsPerSecond, int16 RotationTypeIsPureCAV) SetWriteSpeed;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IDiscRecorder2* value) put_Recorder;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IDiscRecorder2** value) get_Recorder;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 value) put_BufferUnderrunFreeDisabled;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* value) get_BufferUnderrunFreeDisabled;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 value) put_PostgapAlreadyInImage;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* value) get_PostgapAlreadyInImage;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IMAPI_FORMAT2_DATA_MEDIA_STATE* value) get_CurrentMediaStatus;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IMAPI_MEDIA_WRITE_PROTECT_STATE* value) get_WriteProtectStatus;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* value) get_TotalSectorsOnMedia;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* value) get_FreeSectorsOnMedia;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* value) get_NextWritableAddress;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* value) get_StartAddressOfPreviousSession;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* value) get_LastWrittenAddressOfPreviousSession;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 value) put_ForceMediaToBeClosed;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* value) get_ForceMediaToBeClosed;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 value) put_DisableConsumerDvdCompatibilityMode;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* value) get_DisableConsumerDvdCompatibilityMode;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IMAPI_MEDIA_PHYSICAL_TYPE* value) get_CurrentPhysicalMediaType;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR value) put_ClientName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* value) get_ClientName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* value) get_RequestedWriteSpeed;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* value) get_RequestedRotationTypeIsPureCAV;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* value) get_CurrentWriteSpeed;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* value) get_CurrentRotationTypeIsPureCAV;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, SAFEARRAY** supportedSpeeds) get_SupportedWriteSpeeds;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, SAFEARRAY** supportedSpeedDescriptors) get_SupportedWriteSpeedDescriptors;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 value) put_ForceOverwrite;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* value) get_ForceOverwrite;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, SAFEARRAY** value) get_MultisessionInterfaces;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IStream* data) Write;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) CancelWrite;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 RequestedSectorsPerSecond, int16 RotationTypeIsPureCAV) SetWriteSpeed;
 	}
 
 
@@ -1705,7 +1705,7 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*DDiscFormat2DataEvents*/SelfOuter* self, IDispatch* object, IDispatch* progress) Update;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IDispatch* object, IDispatch* progress) Update;
 	}
 
 
@@ -1720,10 +1720,10 @@ public static
 
 	[CRepr]public struct VTable : IWriteEngine2EventArgs.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscFormat2DataEventArgs*/SelfOuter* self, int32* value) get_ElapsedTime;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscFormat2DataEventArgs*/SelfOuter* self, int32* value) get_RemainingTime;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscFormat2DataEventArgs*/SelfOuter* self, int32* value) get_TotalTime;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscFormat2DataEventArgs*/SelfOuter* self, IMAPI_FORMAT2_DATA_WRITE_ACTION* value) get_CurrentAction;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* value) get_ElapsedTime;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* value) get_RemainingTime;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* value) get_TotalTime;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IMAPI_FORMAT2_DATA_WRITE_ACTION* value) get_CurrentAction;
 	}
 
 
@@ -1744,31 +1744,31 @@ public static
 
 	[CRepr]public struct VTable : IDiscFormat2.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscFormat2TrackAtOnce*/SelfOuter* self) PrepareMedia;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscFormat2TrackAtOnce*/SelfOuter* self, IStream* data) AddAudioTrack;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscFormat2TrackAtOnce*/SelfOuter* self) CancelAddTrack;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscFormat2TrackAtOnce*/SelfOuter* self) ReleaseMedia;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscFormat2TrackAtOnce*/SelfOuter* self, int32 RequestedSectorsPerSecond, int16 RotationTypeIsPureCAV) SetWriteSpeed;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscFormat2TrackAtOnce*/SelfOuter* self, IDiscRecorder2* value) put_Recorder;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscFormat2TrackAtOnce*/SelfOuter* self, IDiscRecorder2** value) get_Recorder;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscFormat2TrackAtOnce*/SelfOuter* self, int16 value) put_BufferUnderrunFreeDisabled;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscFormat2TrackAtOnce*/SelfOuter* self, int16* value) get_BufferUnderrunFreeDisabled;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscFormat2TrackAtOnce*/SelfOuter* self, int32* value) get_NumberOfExistingTracks;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscFormat2TrackAtOnce*/SelfOuter* self, int32* value) get_TotalSectorsOnMedia;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscFormat2TrackAtOnce*/SelfOuter* self, int32* value) get_FreeSectorsOnMedia;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscFormat2TrackAtOnce*/SelfOuter* self, int32* value) get_UsedSectorsOnMedia;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscFormat2TrackAtOnce*/SelfOuter* self, int16 value) put_DoNotFinalizeMedia;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscFormat2TrackAtOnce*/SelfOuter* self, int16* value) get_DoNotFinalizeMedia;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscFormat2TrackAtOnce*/SelfOuter* self, SAFEARRAY** value) get_ExpectedTableOfContents;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscFormat2TrackAtOnce*/SelfOuter* self, IMAPI_MEDIA_PHYSICAL_TYPE* value) get_CurrentPhysicalMediaType;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscFormat2TrackAtOnce*/SelfOuter* self, BSTR value) put_ClientName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscFormat2TrackAtOnce*/SelfOuter* self, BSTR* value) get_ClientName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscFormat2TrackAtOnce*/SelfOuter* self, int32* value) get_RequestedWriteSpeed;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscFormat2TrackAtOnce*/SelfOuter* self, int16* value) get_RequestedRotationTypeIsPureCAV;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscFormat2TrackAtOnce*/SelfOuter* self, int32* value) get_CurrentWriteSpeed;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscFormat2TrackAtOnce*/SelfOuter* self, int16* value) get_CurrentRotationTypeIsPureCAV;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscFormat2TrackAtOnce*/SelfOuter* self, SAFEARRAY** supportedSpeeds) get_SupportedWriteSpeeds;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscFormat2TrackAtOnce*/SelfOuter* self, SAFEARRAY** supportedSpeedDescriptors) get_SupportedWriteSpeedDescriptors;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) PrepareMedia;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IStream* data) AddAudioTrack;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) CancelAddTrack;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) ReleaseMedia;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 RequestedSectorsPerSecond, int16 RotationTypeIsPureCAV) SetWriteSpeed;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IDiscRecorder2* value) put_Recorder;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IDiscRecorder2** value) get_Recorder;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 value) put_BufferUnderrunFreeDisabled;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* value) get_BufferUnderrunFreeDisabled;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* value) get_NumberOfExistingTracks;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* value) get_TotalSectorsOnMedia;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* value) get_FreeSectorsOnMedia;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* value) get_UsedSectorsOnMedia;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 value) put_DoNotFinalizeMedia;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* value) get_DoNotFinalizeMedia;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, SAFEARRAY** value) get_ExpectedTableOfContents;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IMAPI_MEDIA_PHYSICAL_TYPE* value) get_CurrentPhysicalMediaType;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR value) put_ClientName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* value) get_ClientName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* value) get_RequestedWriteSpeed;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* value) get_RequestedRotationTypeIsPureCAV;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* value) get_CurrentWriteSpeed;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* value) get_CurrentRotationTypeIsPureCAV;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, SAFEARRAY** supportedSpeeds) get_SupportedWriteSpeeds;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, SAFEARRAY** supportedSpeedDescriptors) get_SupportedWriteSpeedDescriptors;
 	}
 
 
@@ -1831,7 +1831,7 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*DDiscFormat2TrackAtOnceEvents*/SelfOuter* self, IDispatch* object, IDispatch* progress) Update;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IDispatch* object, IDispatch* progress) Update;
 	}
 
 
@@ -1846,10 +1846,10 @@ public static
 
 	[CRepr]public struct VTable : IWriteEngine2EventArgs.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscFormat2TrackAtOnceEventArgs*/SelfOuter* self, int32* value) get_CurrentTrackNumber;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscFormat2TrackAtOnceEventArgs*/SelfOuter* self, IMAPI_FORMAT2_TAO_WRITE_ACTION* value) get_CurrentAction;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscFormat2TrackAtOnceEventArgs*/SelfOuter* self, int32* value) get_ElapsedTime;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscFormat2TrackAtOnceEventArgs*/SelfOuter* self, int32* value) get_RemainingTime;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* value) get_CurrentTrackNumber;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IMAPI_FORMAT2_TAO_WRITE_ACTION* value) get_CurrentAction;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* value) get_ElapsedTime;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* value) get_RemainingTime;
 	}
 
 
@@ -1870,30 +1870,30 @@ public static
 
 	[CRepr]public struct VTable : IDiscFormat2.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscFormat2RawCD*/SelfOuter* self) PrepareMedia;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscFormat2RawCD*/SelfOuter* self, IStream* data) WriteMedia;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscFormat2RawCD*/SelfOuter* self, IStream* data, int32 streamLeadInSectors) WriteMedia2;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscFormat2RawCD*/SelfOuter* self) CancelWrite;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscFormat2RawCD*/SelfOuter* self) ReleaseMedia;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscFormat2RawCD*/SelfOuter* self, int32 RequestedSectorsPerSecond, int16 RotationTypeIsPureCAV) SetWriteSpeed;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscFormat2RawCD*/SelfOuter* self, IDiscRecorder2* value) put_Recorder;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscFormat2RawCD*/SelfOuter* self, IDiscRecorder2** value) get_Recorder;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscFormat2RawCD*/SelfOuter* self, int16 value) put_BufferUnderrunFreeDisabled;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscFormat2RawCD*/SelfOuter* self, int16* value) get_BufferUnderrunFreeDisabled;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscFormat2RawCD*/SelfOuter* self, int32* value) get_StartOfNextSession;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscFormat2RawCD*/SelfOuter* self, int32* value) get_LastPossibleStartOfLeadout;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscFormat2RawCD*/SelfOuter* self, IMAPI_MEDIA_PHYSICAL_TYPE* value) get_CurrentPhysicalMediaType;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscFormat2RawCD*/SelfOuter* self, SAFEARRAY** value) get_SupportedSectorTypes;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscFormat2RawCD*/SelfOuter* self, IMAPI_FORMAT2_RAW_CD_DATA_SECTOR_TYPE value) put_RequestedSectorType;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscFormat2RawCD*/SelfOuter* self, IMAPI_FORMAT2_RAW_CD_DATA_SECTOR_TYPE* value) get_RequestedSectorType;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscFormat2RawCD*/SelfOuter* self, BSTR value) put_ClientName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscFormat2RawCD*/SelfOuter* self, BSTR* value) get_ClientName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscFormat2RawCD*/SelfOuter* self, int32* value) get_RequestedWriteSpeed;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscFormat2RawCD*/SelfOuter* self, int16* value) get_RequestedRotationTypeIsPureCAV;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscFormat2RawCD*/SelfOuter* self, int32* value) get_CurrentWriteSpeed;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscFormat2RawCD*/SelfOuter* self, int16* value) get_CurrentRotationTypeIsPureCAV;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscFormat2RawCD*/SelfOuter* self, SAFEARRAY** supportedSpeeds) get_SupportedWriteSpeeds;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscFormat2RawCD*/SelfOuter* self, SAFEARRAY** supportedSpeedDescriptors) get_SupportedWriteSpeedDescriptors;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) PrepareMedia;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IStream* data) WriteMedia;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IStream* data, int32 streamLeadInSectors) WriteMedia2;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) CancelWrite;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) ReleaseMedia;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 RequestedSectorsPerSecond, int16 RotationTypeIsPureCAV) SetWriteSpeed;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IDiscRecorder2* value) put_Recorder;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IDiscRecorder2** value) get_Recorder;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 value) put_BufferUnderrunFreeDisabled;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* value) get_BufferUnderrunFreeDisabled;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* value) get_StartOfNextSession;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* value) get_LastPossibleStartOfLeadout;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IMAPI_MEDIA_PHYSICAL_TYPE* value) get_CurrentPhysicalMediaType;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, SAFEARRAY** value) get_SupportedSectorTypes;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IMAPI_FORMAT2_RAW_CD_DATA_SECTOR_TYPE value) put_RequestedSectorType;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IMAPI_FORMAT2_RAW_CD_DATA_SECTOR_TYPE* value) get_RequestedSectorType;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR value) put_ClientName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* value) get_ClientName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* value) get_RequestedWriteSpeed;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* value) get_RequestedRotationTypeIsPureCAV;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* value) get_CurrentWriteSpeed;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* value) get_CurrentRotationTypeIsPureCAV;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, SAFEARRAY** supportedSpeeds) get_SupportedWriteSpeeds;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, SAFEARRAY** supportedSpeedDescriptors) get_SupportedWriteSpeedDescriptors;
 	}
 
 
@@ -1954,7 +1954,7 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*DDiscFormat2RawCDEvents*/SelfOuter* self, IDispatch* object, IDispatch* progress) Update;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IDispatch* object, IDispatch* progress) Update;
 	}
 
 
@@ -1969,9 +1969,9 @@ public static
 
 	[CRepr]public struct VTable : IWriteEngine2EventArgs.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscFormat2RawCDEventArgs*/SelfOuter* self, IMAPI_FORMAT2_RAW_CD_WRITE_ACTION* value) get_CurrentAction;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscFormat2RawCDEventArgs*/SelfOuter* self, int32* value) get_ElapsedTime;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscFormat2RawCDEventArgs*/SelfOuter* self, int32* value) get_RemainingTime;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IMAPI_FORMAT2_RAW_CD_WRITE_ACTION* value) get_CurrentAction;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* value) get_ElapsedTime;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* value) get_RemainingTime;
 	}
 
 
@@ -1990,8 +1990,8 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IBurnVerification*/SelfOuter* self, IMAPI_BURN_VERIFICATION_LEVEL value) put_BurnVerificationLevel;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IBurnVerification*/SelfOuter* self, IMAPI_BURN_VERIFICATION_LEVEL* value) get_BurnVerificationLevel;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IMAPI_BURN_VERIFICATION_LEVEL value) put_BurnVerificationLevel;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IMAPI_BURN_VERIFICATION_LEVEL* value) get_BurnVerificationLevel;
 	}
 
 
@@ -2008,9 +2008,9 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWriteSpeedDescriptor*/SelfOuter* self, IMAPI_MEDIA_PHYSICAL_TYPE* value) get_MediaType;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWriteSpeedDescriptor*/SelfOuter* self, int16* value) get_RotationTypeIsPureCAV;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWriteSpeedDescriptor*/SelfOuter* self, int32* value) get_WriteSpeed;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IMAPI_MEDIA_PHYSICAL_TYPE* value) get_MediaType;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* value) get_RotationTypeIsPureCAV;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* value) get_WriteSpeed;
 	}
 
 
@@ -2029,10 +2029,10 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMultisession*/SelfOuter* self, int16* value) get_IsSupportedOnCurrentMediaState;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMultisession*/SelfOuter* self, int16 value) put_InUse;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMultisession*/SelfOuter* self, int16* value) get_InUse;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMultisession*/SelfOuter* self, IDiscRecorder2** value) get_ImportRecorder;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* value) get_IsSupportedOnCurrentMediaState;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 value) put_InUse;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* value) get_InUse;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IDiscRecorder2** value) get_ImportRecorder;
 	}
 
 
@@ -2053,11 +2053,11 @@ public static
 
 	[CRepr]public struct VTable : IMultisession.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMultisessionSequential*/SelfOuter* self, int16* value) get_IsFirstDataSession;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMultisessionSequential*/SelfOuter* self, int32* value) get_StartAddressOfPreviousSession;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMultisessionSequential*/SelfOuter* self, int32* value) get_LastWrittenAddressOfPreviousSession;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMultisessionSequential*/SelfOuter* self, int32* value) get_NextWritableAddress;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMultisessionSequential*/SelfOuter* self, int32* value) get_FreeSectorsOnMedia;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* value) get_IsFirstDataSession;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* value) get_StartAddressOfPreviousSession;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* value) get_LastWrittenAddressOfPreviousSession;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* value) get_NextWritableAddress;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* value) get_FreeSectorsOnMedia;
 	}
 
 
@@ -2080,7 +2080,7 @@ public static
 
 	[CRepr]public struct VTable : IMultisessionSequential.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMultisessionSequential2*/SelfOuter* self, int32* value) get_WriteUnitSize;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* value) get_WriteUnitSize;
 	}
 
 
@@ -2095,9 +2095,9 @@ public static
 
 	[CRepr]public struct VTable : IMultisession.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMultisessionRandomWrite*/SelfOuter* self, int32* value) get_WriteUnitSize;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMultisessionRandomWrite*/SelfOuter* self, int32* value) get_LastWrittenAddress;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMultisessionRandomWrite*/SelfOuter* self, int32* value) get_TotalSectorsOnMedia;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* value) get_WriteUnitSize;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* value) get_LastWrittenAddress;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* value) get_TotalSectorsOnMedia;
 	}
 
 
@@ -2116,10 +2116,10 @@ public static
 
 	[CRepr]public struct VTable : IStream.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IStreamPseudoRandomBased*/SelfOuter* self, uint32 value) put_Seed;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IStreamPseudoRandomBased*/SelfOuter* self, uint32* value) get_Seed;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IStreamPseudoRandomBased*/SelfOuter* self, uint32* values, uint32 eCount) put_ExtendedSeed;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IStreamPseudoRandomBased*/SelfOuter* self, uint32** values, uint32* eCount) get_ExtendedSeed;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 value) put_Seed;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* value) get_Seed;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* values, uint32 eCount) put_ExtendedSeed;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32** values, uint32* eCount) get_ExtendedSeed;
 	}
 
 
@@ -2140,10 +2140,10 @@ public static
 
 	[CRepr]public struct VTable : IStream.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IStreamConcatenate*/SelfOuter* self, IStream* stream1, IStream* stream2) Initialize;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IStreamConcatenate*/SelfOuter* self, IStream** streams, uint32 streamCount) Initialize2;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IStreamConcatenate*/SelfOuter* self, IStream* stream) Append;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IStreamConcatenate*/SelfOuter* self, IStream** streams, uint32 streamCount) Append2;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IStream* stream1, IStream* stream2) Initialize;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IStream** streams, uint32 streamCount) Initialize2;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IStream* stream) Append;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IStream** streams, uint32 streamCount) Append2;
 	}
 
 
@@ -2164,7 +2164,7 @@ public static
 
 	[CRepr]public struct VTable : IStream.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IStreamInterleave*/SelfOuter* self, IStream** streams, uint32* interleaveSizes, uint32 streamCount) Initialize;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IStream** streams, uint32* interleaveSizes, uint32 streamCount) Initialize;
 	}
 
 
@@ -2179,25 +2179,25 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRawCDImageCreator*/SelfOuter* self, IStream** resultStream) CreateResultImage;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRawCDImageCreator*/SelfOuter* self, IMAPI_CD_SECTOR_TYPE dataType, IStream* data, int32* trackIndex) AddTrack;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRawCDImageCreator*/SelfOuter* self, IStream* data) AddSpecialPregap;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRawCDImageCreator*/SelfOuter* self, IStream* subcode) AddSubcodeRWGenerator;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRawCDImageCreator*/SelfOuter* self, IMAPI_FORMAT2_RAW_CD_DATA_SECTOR_TYPE value) put_ResultingImageType;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRawCDImageCreator*/SelfOuter* self, IMAPI_FORMAT2_RAW_CD_DATA_SECTOR_TYPE* value) get_ResultingImageType;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRawCDImageCreator*/SelfOuter* self, int32* value) get_StartOfLeadout;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRawCDImageCreator*/SelfOuter* self, int32 value) put_StartOfLeadoutLimit;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRawCDImageCreator*/SelfOuter* self, int32* value) get_StartOfLeadoutLimit;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRawCDImageCreator*/SelfOuter* self, int16 value) put_DisableGaplessAudio;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRawCDImageCreator*/SelfOuter* self, int16* value) get_DisableGaplessAudio;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRawCDImageCreator*/SelfOuter* self, BSTR value) put_MediaCatalogNumber;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRawCDImageCreator*/SelfOuter* self, BSTR* value) get_MediaCatalogNumber;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRawCDImageCreator*/SelfOuter* self, int32 value) put_StartingTrackNumber;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRawCDImageCreator*/SelfOuter* self, int32* value) get_StartingTrackNumber;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRawCDImageCreator*/SelfOuter* self, int32 trackIndex, IRawCDImageTrackInfo** value) get_TrackInfo;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRawCDImageCreator*/SelfOuter* self, int32* value) get_NumberOfExistingTracks;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRawCDImageCreator*/SelfOuter* self, int32* value) get_LastUsedUserSectorInImage;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRawCDImageCreator*/SelfOuter* self, SAFEARRAY** value) get_ExpectedTableOfContents;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IStream** resultStream) CreateResultImage;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IMAPI_CD_SECTOR_TYPE dataType, IStream* data, int32* trackIndex) AddTrack;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IStream* data) AddSpecialPregap;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IStream* subcode) AddSubcodeRWGenerator;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IMAPI_FORMAT2_RAW_CD_DATA_SECTOR_TYPE value) put_ResultingImageType;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IMAPI_FORMAT2_RAW_CD_DATA_SECTOR_TYPE* value) get_ResultingImageType;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* value) get_StartOfLeadout;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 value) put_StartOfLeadoutLimit;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* value) get_StartOfLeadoutLimit;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 value) put_DisableGaplessAudio;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* value) get_DisableGaplessAudio;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR value) put_MediaCatalogNumber;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* value) get_MediaCatalogNumber;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 value) put_StartingTrackNumber;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* value) get_StartingTrackNumber;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 trackIndex, IRawCDImageTrackInfo** value) get_TrackInfo;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* value) get_NumberOfExistingTracks;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* value) get_LastUsedUserSectorInImage;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, SAFEARRAY** value) get_ExpectedTableOfContents;
 	}
 
 
@@ -2248,19 +2248,19 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRawCDImageTrackInfo*/SelfOuter* self, int32* value) get_StartingLba;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRawCDImageTrackInfo*/SelfOuter* self, int32* value) get_SectorCount;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRawCDImageTrackInfo*/SelfOuter* self, int32* value) get_TrackNumber;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRawCDImageTrackInfo*/SelfOuter* self, IMAPI_CD_SECTOR_TYPE* value) get_SectorType;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRawCDImageTrackInfo*/SelfOuter* self, BSTR* value) get_ISRC;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRawCDImageTrackInfo*/SelfOuter* self, BSTR value) put_ISRC;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRawCDImageTrackInfo*/SelfOuter* self, IMAPI_CD_TRACK_DIGITAL_COPY_SETTING* value) get_DigitalAudioCopySetting;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRawCDImageTrackInfo*/SelfOuter* self, IMAPI_CD_TRACK_DIGITAL_COPY_SETTING value) put_DigitalAudioCopySetting;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRawCDImageTrackInfo*/SelfOuter* self, int16* value) get_AudioHasPreemphasis;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRawCDImageTrackInfo*/SelfOuter* self, int16 value) put_AudioHasPreemphasis;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRawCDImageTrackInfo*/SelfOuter* self, SAFEARRAY** value) get_TrackIndexes;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRawCDImageTrackInfo*/SelfOuter* self, int32 lbaOffset) AddTrackIndex;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRawCDImageTrackInfo*/SelfOuter* self, int32 lbaOffset) ClearTrackIndex;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* value) get_StartingLba;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* value) get_SectorCount;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* value) get_TrackNumber;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IMAPI_CD_SECTOR_TYPE* value) get_SectorType;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* value) get_ISRC;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR value) put_ISRC;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IMAPI_CD_TRACK_DIGITAL_COPY_SETTING* value) get_DigitalAudioCopySetting;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IMAPI_CD_TRACK_DIGITAL_COPY_SETTING value) put_DigitalAudioCopySetting;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* value) get_AudioHasPreemphasis;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 value) put_AudioHasPreemphasis;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, SAFEARRAY** value) get_TrackIndexes;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 lbaOffset) AddTrackIndex;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 lbaOffset) ClearTrackIndex;
 	}
 
 
@@ -2299,8 +2299,8 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IBlockRange*/SelfOuter* self, int32* value) get_StartLba;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IBlockRange*/SelfOuter* self, int32* value) get_EndLba;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* value) get_StartLba;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* value) get_EndLba;
 	}
 
 
@@ -2317,7 +2317,7 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IBlockRangeList*/SelfOuter* self, SAFEARRAY** value) get_BlockRanges;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, SAFEARRAY** value) get_BlockRanges;
 	}
 
 
@@ -2332,15 +2332,15 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IBootOptions*/SelfOuter* self, IStream** pVal) get_BootImage;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IBootOptions*/SelfOuter* self, BSTR* pVal) get_Manufacturer;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IBootOptions*/SelfOuter* self, BSTR newVal) put_Manufacturer;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IBootOptions*/SelfOuter* self, PlatformId* pVal) get_PlatformId;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IBootOptions*/SelfOuter* self, PlatformId newVal) put_PlatformId;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IBootOptions*/SelfOuter* self, EmulationType* pVal) get_Emulation;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IBootOptions*/SelfOuter* self, EmulationType newVal) put_Emulation;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IBootOptions*/SelfOuter* self, uint32* pVal) get_ImageSize;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IBootOptions*/SelfOuter* self, IStream* newVal) AssignBootImage;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IStream** pVal) get_BootImage;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pVal) get_Manufacturer;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR newVal) put_Manufacturer;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PlatformId* pVal) get_PlatformId;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PlatformId newVal) put_PlatformId;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, EmulationType* pVal) get_Emulation;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, EmulationType newVal) put_Emulation;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pVal) get_ImageSize;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IStream* newVal) AssignBootImage;
 	}
 
 
@@ -2371,10 +2371,10 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IProgressItem*/SelfOuter* self, BSTR* desc) get_Description;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IProgressItem*/SelfOuter* self, uint32* block) get_FirstBlock;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IProgressItem*/SelfOuter* self, uint32* block) get_LastBlock;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IProgressItem*/SelfOuter* self, uint32* blocks) get_BlockCount;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* desc) get_Description;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* block) get_FirstBlock;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* block) get_LastBlock;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* blocks) get_BlockCount;
 	}
 
 
@@ -2395,10 +2395,10 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnumProgressItems*/SelfOuter* self, uint32 celt, IProgressItem** rgelt, uint32* pceltFetched) Next;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnumProgressItems*/SelfOuter* self, uint32 celt) Skip;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnumProgressItems*/SelfOuter* self) Reset;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnumProgressItems*/SelfOuter* self, IEnumProgressItems** ppEnum) Clone;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 celt, IProgressItem** rgelt, uint32* pceltFetched) Next;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 celt) Skip;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Reset;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IEnumProgressItems** ppEnum) Clone;
 	}
 
 
@@ -2419,12 +2419,12 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IProgressItems*/SelfOuter* self, IEnumVARIANT** NewEnum) get__NewEnum;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IProgressItems*/SelfOuter* self, int32 Index, IProgressItem** item) get_Item;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IProgressItems*/SelfOuter* self, int32* Count) get_Count;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IProgressItems*/SelfOuter* self, uint32 block, IProgressItem** item) ProgressItemFromBlock;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IProgressItems*/SelfOuter* self, BSTR description, IProgressItem** item) ProgressItemFromDescription;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IProgressItems*/SelfOuter* self, IEnumProgressItems** NewEnum) get_EnumProgressItems;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IEnumVARIANT** NewEnum) get__NewEnum;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 Index, IProgressItem** item) get_Item;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* Count) get_Count;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 block, IProgressItem** item) ProgressItemFromBlock;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR description, IProgressItem** item) ProgressItemFromDescription;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IEnumProgressItems** NewEnum) get_EnumProgressItems;
 	}
 
 
@@ -2449,11 +2449,11 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFileSystemImageResult*/SelfOuter* self, IStream** pVal) get_ImageStream;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFileSystemImageResult*/SelfOuter* self, IProgressItems** pVal) get_ProgressItems;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFileSystemImageResult*/SelfOuter* self, int32* pVal) get_TotalBlocks;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFileSystemImageResult*/SelfOuter* self, int32* pVal) get_BlockSize;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFileSystemImageResult*/SelfOuter* self, BSTR* pVal) get_DiscId;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IStream** pVal) get_ImageStream;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IProgressItems** pVal) get_ProgressItems;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* pVal) get_TotalBlocks;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* pVal) get_BlockSize;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pVal) get_DiscId;
 	}
 
 
@@ -2476,7 +2476,7 @@ public static
 
 	[CRepr]public struct VTable : IFileSystemImageResult.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFileSystemImageResult2*/SelfOuter* self, IBlockRangeList** pVal) get_ModifiedBlocks;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IBlockRangeList** pVal) get_ModifiedBlocks;
 	}
 
 
@@ -2491,18 +2491,18 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsiItem*/SelfOuter* self, BSTR* pVal) get_Name;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsiItem*/SelfOuter* self, BSTR* pVal) get_FullPath;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsiItem*/SelfOuter* self, double* pVal) get_CreationTime;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsiItem*/SelfOuter* self, double newVal) put_CreationTime;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsiItem*/SelfOuter* self, double* pVal) get_LastAccessedTime;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsiItem*/SelfOuter* self, double newVal) put_LastAccessedTime;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsiItem*/SelfOuter* self, double* pVal) get_LastModifiedTime;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsiItem*/SelfOuter* self, double newVal) put_LastModifiedTime;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsiItem*/SelfOuter* self, int16* pVal) get_IsHidden;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsiItem*/SelfOuter* self, int16 newVal) put_IsHidden;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsiItem*/SelfOuter* self, FsiFileSystems fileSystem, BSTR* pVal) FileSystemName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsiItem*/SelfOuter* self, FsiFileSystems fileSystem, BSTR* pVal) FileSystemPath;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pVal) get_Name;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pVal) get_FullPath;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, double* pVal) get_CreationTime;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, double newVal) put_CreationTime;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, double* pVal) get_LastAccessedTime;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, double newVal) put_LastAccessedTime;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, double* pVal) get_LastModifiedTime;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, double newVal) put_LastModifiedTime;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* pVal) get_IsHidden;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 newVal) put_IsHidden;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, FsiFileSystems fileSystem, BSTR* pVal) FileSystemName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, FsiFileSystems fileSystem, BSTR* pVal) FileSystemPath;
 	}
 
 
@@ -2539,10 +2539,10 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnumFsiItems*/SelfOuter* self, uint32 celt, IFsiItem** rgelt, uint32* pceltFetched) Next;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnumFsiItems*/SelfOuter* self, uint32 celt) Skip;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnumFsiItems*/SelfOuter* self) Reset;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnumFsiItems*/SelfOuter* self, IEnumFsiItems** ppEnum) Clone;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 celt, IFsiItem** rgelt, uint32* pceltFetched) Next;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 celt) Skip;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Reset;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IEnumFsiItems** ppEnum) Clone;
 	}
 
 
@@ -2563,11 +2563,11 @@ public static
 
 	[CRepr]public struct VTable : IFsiItem.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsiFileItem*/SelfOuter* self, int64* pVal) get_DataSize;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsiFileItem*/SelfOuter* self, int32* pVal) get_DataSize32BitLow;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsiFileItem*/SelfOuter* self, int32* pVal) get_DataSize32BitHigh;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsiFileItem*/SelfOuter* self, IStream** pVal) get_Data;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsiFileItem*/SelfOuter* self, IStream* newVal) put_Data;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int64* pVal) get_DataSize;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* pVal) get_DataSize32BitLow;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* pVal) get_DataSize32BitHigh;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IStream** pVal) get_Data;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IStream* newVal) put_Data;
 	}
 
 
@@ -2590,12 +2590,12 @@ public static
 
 	[CRepr]public struct VTable : IFsiFileItem.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsiFileItem2*/SelfOuter* self, IFsiNamedStreams** streams) get_FsiNamedStreams;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsiFileItem2*/SelfOuter* self, int16* pVal) get_IsNamedStream;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsiFileItem2*/SelfOuter* self, BSTR name, IStream* streamData) AddStream;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsiFileItem2*/SelfOuter* self, BSTR name) RemoveStream;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsiFileItem2*/SelfOuter* self, int16* pVal) get_IsRealTime;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsiFileItem2*/SelfOuter* self, int16 newVal) put_IsRealTime;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IFsiNamedStreams** streams) get_FsiNamedStreams;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* pVal) get_IsNamedStream;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR name, IStream* streamData) AddStream;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR name) RemoveStream;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* pVal) get_IsRealTime;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 newVal) put_IsRealTime;
 	}
 
 
@@ -2620,10 +2620,10 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsiNamedStreams*/SelfOuter* self, IEnumVARIANT** NewEnum) get__NewEnum;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsiNamedStreams*/SelfOuter* self, int32 index, IFsiFileItem2** item) get_Item;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsiNamedStreams*/SelfOuter* self, int32* count) get_Count;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsiNamedStreams*/SelfOuter* self, IEnumFsiItems** NewEnum) get_EnumNamedStreams;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IEnumVARIANT** NewEnum) get__NewEnum;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 index, IFsiFileItem2** item) get_Item;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* count) get_Count;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IEnumFsiItems** NewEnum) get_EnumNamedStreams;
 	}
 
 
@@ -2644,16 +2644,16 @@ public static
 
 	[CRepr]public struct VTable : IFsiItem.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsiDirectoryItem*/SelfOuter* self, IEnumVARIANT** NewEnum) get__NewEnum;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsiDirectoryItem*/SelfOuter* self, BSTR path, IFsiItem** item) get_Item;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsiDirectoryItem*/SelfOuter* self, int32* Count) get_Count;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsiDirectoryItem*/SelfOuter* self, IEnumFsiItems** NewEnum) get_EnumFsiItems;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsiDirectoryItem*/SelfOuter* self, BSTR path) AddDirectory;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsiDirectoryItem*/SelfOuter* self, BSTR path, IStream* fileData) AddFile;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsiDirectoryItem*/SelfOuter* self, BSTR sourceDirectory, int16 includeBaseDirectory) AddTree;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsiDirectoryItem*/SelfOuter* self, IFsiItem* item) Add;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsiDirectoryItem*/SelfOuter* self, BSTR path) Remove;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsiDirectoryItem*/SelfOuter* self, BSTR path) RemoveTree;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IEnumVARIANT** NewEnum) get__NewEnum;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR path, IFsiItem** item) get_Item;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* Count) get_Count;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IEnumFsiItems** NewEnum) get_EnumFsiItems;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR path) AddDirectory;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR path, IStream* fileData) AddFile;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR sourceDirectory, int16 includeBaseDirectory) AddTree;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IFsiItem* item) Add;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR path) Remove;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR path) RemoveTree;
 	}
 
 
@@ -2686,7 +2686,7 @@ public static
 
 	[CRepr]public struct VTable : IFsiDirectoryItem.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFsiDirectoryItem2*/SelfOuter* self, BSTR sourceDirectory, int16 includeBaseDirectory) AddTreeWithNamedStreams;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR sourceDirectory, int16 includeBaseDirectory) AddTreeWithNamedStreams;
 	}
 
 
@@ -2701,56 +2701,56 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFileSystemImage*/SelfOuter* self, IFsiDirectoryItem** pVal) get_Root;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFileSystemImage*/SelfOuter* self, int32* pVal) get_SessionStartBlock;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFileSystemImage*/SelfOuter* self, int32 newVal) put_SessionStartBlock;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFileSystemImage*/SelfOuter* self, int32* pVal) get_FreeMediaBlocks;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFileSystemImage*/SelfOuter* self, int32 newVal) put_FreeMediaBlocks;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFileSystemImage*/SelfOuter* self, IDiscRecorder2* discRecorder) SetMaxMediaBlocksFromDevice;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFileSystemImage*/SelfOuter* self, int32* pVal) get_UsedBlocks;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFileSystemImage*/SelfOuter* self, BSTR* pVal) get_VolumeName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFileSystemImage*/SelfOuter* self, BSTR newVal) put_VolumeName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFileSystemImage*/SelfOuter* self, BSTR* pVal) get_ImportedVolumeName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFileSystemImage*/SelfOuter* self, IBootOptions** pVal) get_BootImageOptions;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFileSystemImage*/SelfOuter* self, IBootOptions* newVal) put_BootImageOptions;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFileSystemImage*/SelfOuter* self, int32* pVal) get_FileCount;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFileSystemImage*/SelfOuter* self, int32* pVal) get_DirectoryCount;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFileSystemImage*/SelfOuter* self, BSTR* pVal) get_WorkingDirectory;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFileSystemImage*/SelfOuter* self, BSTR newVal) put_WorkingDirectory;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFileSystemImage*/SelfOuter* self, int32* pVal) get_ChangePoint;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFileSystemImage*/SelfOuter* self, int16* pVal) get_StrictFileSystemCompliance;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFileSystemImage*/SelfOuter* self, int16 newVal) put_StrictFileSystemCompliance;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFileSystemImage*/SelfOuter* self, int16* pVal) get_UseRestrictedCharacterSet;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFileSystemImage*/SelfOuter* self, int16 newVal) put_UseRestrictedCharacterSet;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFileSystemImage*/SelfOuter* self, FsiFileSystems* pVal) get_FileSystemsToCreate;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFileSystemImage*/SelfOuter* self, FsiFileSystems newVal) put_FileSystemsToCreate;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFileSystemImage*/SelfOuter* self, FsiFileSystems* pVal) get_FileSystemsSupported;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFileSystemImage*/SelfOuter* self, int32 newVal) put_UDFRevision;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFileSystemImage*/SelfOuter* self, int32* pVal) get_UDFRevision;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFileSystemImage*/SelfOuter* self, SAFEARRAY** pVal) get_UDFRevisionsSupported;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFileSystemImage*/SelfOuter* self, IDiscRecorder2* discRecorder) ChooseImageDefaults;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFileSystemImage*/SelfOuter* self, IMAPI_MEDIA_PHYSICAL_TYPE value) ChooseImageDefaultsForMediaType;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFileSystemImage*/SelfOuter* self, int32 newVal) put_ISO9660InterchangeLevel;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFileSystemImage*/SelfOuter* self, int32* pVal) get_ISO9660InterchangeLevel;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFileSystemImage*/SelfOuter* self, SAFEARRAY** pVal) get_ISO9660InterchangeLevelsSupported;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFileSystemImage*/SelfOuter* self, IFileSystemImageResult** resultStream) CreateResultImage;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFileSystemImage*/SelfOuter* self, BSTR fullPath, FsiItemType* itemType) Exists;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFileSystemImage*/SelfOuter* self, BSTR* discIdentifier) CalculateDiscIdentifier;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFileSystemImage*/SelfOuter* self, IDiscRecorder2* discRecorder, FsiFileSystems* fileSystems) IdentifyFileSystemsOnDisc;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFileSystemImage*/SelfOuter* self, FsiFileSystems fileSystems, FsiFileSystems* importDefault) GetDefaultFileSystemForImport;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFileSystemImage*/SelfOuter* self, FsiFileSystems* importedFileSystem) ImportFileSystem;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFileSystemImage*/SelfOuter* self, FsiFileSystems fileSystemToUse) ImportSpecificFileSystem;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFileSystemImage*/SelfOuter* self, int32 changePoint) RollbackToChangePoint;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFileSystemImage*/SelfOuter* self) LockInChangePoint;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFileSystemImage*/SelfOuter* self, BSTR name, IFsiDirectoryItem** newItem) CreateDirectoryItem;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFileSystemImage*/SelfOuter* self, BSTR name, IFsiFileItem** newItem) CreateFileItem;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFileSystemImage*/SelfOuter* self, BSTR* pVal) get_VolumeNameUDF;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFileSystemImage*/SelfOuter* self, BSTR* pVal) get_VolumeNameJoliet;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFileSystemImage*/SelfOuter* self, BSTR* pVal) get_VolumeNameISO9660;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFileSystemImage*/SelfOuter* self, int16* pVal) get_StageFiles;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFileSystemImage*/SelfOuter* self, int16 newVal) put_StageFiles;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFileSystemImage*/SelfOuter* self, SAFEARRAY** pVal) get_MultisessionInterfaces;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFileSystemImage*/SelfOuter* self, SAFEARRAY* newVal) put_MultisessionInterfaces;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IFsiDirectoryItem** pVal) get_Root;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* pVal) get_SessionStartBlock;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 newVal) put_SessionStartBlock;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* pVal) get_FreeMediaBlocks;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 newVal) put_FreeMediaBlocks;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IDiscRecorder2* discRecorder) SetMaxMediaBlocksFromDevice;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* pVal) get_UsedBlocks;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pVal) get_VolumeName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR newVal) put_VolumeName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pVal) get_ImportedVolumeName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IBootOptions** pVal) get_BootImageOptions;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IBootOptions* newVal) put_BootImageOptions;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* pVal) get_FileCount;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* pVal) get_DirectoryCount;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pVal) get_WorkingDirectory;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR newVal) put_WorkingDirectory;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* pVal) get_ChangePoint;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* pVal) get_StrictFileSystemCompliance;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 newVal) put_StrictFileSystemCompliance;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* pVal) get_UseRestrictedCharacterSet;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 newVal) put_UseRestrictedCharacterSet;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, FsiFileSystems* pVal) get_FileSystemsToCreate;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, FsiFileSystems newVal) put_FileSystemsToCreate;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, FsiFileSystems* pVal) get_FileSystemsSupported;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 newVal) put_UDFRevision;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* pVal) get_UDFRevision;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, SAFEARRAY** pVal) get_UDFRevisionsSupported;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IDiscRecorder2* discRecorder) ChooseImageDefaults;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IMAPI_MEDIA_PHYSICAL_TYPE value) ChooseImageDefaultsForMediaType;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 newVal) put_ISO9660InterchangeLevel;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* pVal) get_ISO9660InterchangeLevel;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, SAFEARRAY** pVal) get_ISO9660InterchangeLevelsSupported;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IFileSystemImageResult** resultStream) CreateResultImage;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR fullPath, FsiItemType* itemType) Exists;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* discIdentifier) CalculateDiscIdentifier;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IDiscRecorder2* discRecorder, FsiFileSystems* fileSystems) IdentifyFileSystemsOnDisc;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, FsiFileSystems fileSystems, FsiFileSystems* importDefault) GetDefaultFileSystemForImport;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, FsiFileSystems* importedFileSystem) ImportFileSystem;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, FsiFileSystems fileSystemToUse) ImportSpecificFileSystem;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 changePoint) RollbackToChangePoint;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) LockInChangePoint;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR name, IFsiDirectoryItem** newItem) CreateDirectoryItem;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR name, IFsiFileItem** newItem) CreateFileItem;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pVal) get_VolumeNameUDF;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pVal) get_VolumeNameJoliet;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pVal) get_VolumeNameISO9660;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* pVal) get_StageFiles;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 newVal) put_StageFiles;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, SAFEARRAY** pVal) get_MultisessionInterfaces;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, SAFEARRAY* newVal) put_MultisessionInterfaces;
 	}
 
 
@@ -2863,8 +2863,8 @@ public static
 
 	[CRepr]public struct VTable : IFileSystemImage.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFileSystemImage2*/SelfOuter* self, SAFEARRAY** pVal) get_BootImageOptionsArray;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFileSystemImage2*/SelfOuter* self, SAFEARRAY* newVal) put_BootImageOptionsArray;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, SAFEARRAY** pVal) get_BootImageOptionsArray;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, SAFEARRAY* newVal) put_BootImageOptionsArray;
 	}
 
 
@@ -2881,9 +2881,9 @@ public static
 
 	[CRepr]public struct VTable : IFileSystemImage2.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFileSystemImage3*/SelfOuter* self, int16* pVal) get_CreateRedundantUdfMetadataFiles;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFileSystemImage3*/SelfOuter* self, int16 newVal) put_CreateRedundantUdfMetadataFiles;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFileSystemImage3*/SelfOuter* self, FsiFileSystems fileSystemToProbe, int16* isAppendable) ProbeSpecificFileSystem;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* pVal) get_CreateRedundantUdfMetadataFiles;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 newVal) put_CreateRedundantUdfMetadataFiles;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, FsiFileSystems fileSystemToProbe, int16* isAppendable) ProbeSpecificFileSystem;
 	}
 
 
@@ -2902,7 +2902,7 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*DFileSystemImageEvents*/SelfOuter* self, IDispatch* object, BSTR currentFile, int32 copiedSectors, int32 totalSectors) Update;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IDispatch* object, BSTR currentFile, int32 copiedSectors, int32 totalSectors) Update;
 	}
 
 
@@ -2917,7 +2917,7 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*DFileSystemImageImportEvents*/SelfOuter* self, IDispatch* object, FsiFileSystems fileSystem, BSTR currentItem, int32 importedDirectoryItems, int32 totalDirectoryItems, int32 importedFileItems, int32 totalFileItems) UpdateImport;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IDispatch* object, FsiFileSystems fileSystem, BSTR currentItem, int32 importedDirectoryItems, int32 totalDirectoryItems, int32 importedFileItems, int32 totalFileItems) UpdateImport;
 	}
 
 
@@ -2932,11 +2932,11 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IIsoImageManager*/SelfOuter* self, BSTR* pVal) get_Path;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IIsoImageManager*/SelfOuter* self, IStream** data) get_Stream;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IIsoImageManager*/SelfOuter* self, BSTR Val) SetPath;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IIsoImageManager*/SelfOuter* self, IStream* data) SetStream;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IIsoImageManager*/SelfOuter* self) Validate;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pVal) get_Path;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IStream** data) get_Stream;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR Val) SetPath;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IStream* data) SetStream;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Validate;
 	}
 
 
@@ -2959,21 +2959,21 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscRecorder*/SelfOuter* self, uint8* pbyUniqueID, uint32 nulIDSize, uint32 nulDriveNumber) Init;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscRecorder*/SelfOuter* self, uint8* pbyUniqueID, uint32 ulBufferSize, uint32* pulReturnSizeRequired) GetRecorderGUID;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscRecorder*/SelfOuter* self, RECORDER_TYPES* fTypeCode) GetRecorderType;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscRecorder*/SelfOuter* self, BSTR* pbstrVendorID, BSTR* pbstrProductID, BSTR* pbstrRevision) GetDisplayNames;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscRecorder*/SelfOuter* self, BSTR* pbstrBasePnPID) GetBasePnPID;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscRecorder*/SelfOuter* self, BSTR* pbstrPath) GetPath;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscRecorder*/SelfOuter* self, IPropertyStorage** ppPropStg) GetRecorderProperties;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscRecorder*/SelfOuter* self, IPropertyStorage* pPropStg) SetRecorderProperties;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscRecorder*/SelfOuter* self, DISC_RECORDER_STATE_FLAGS* pulDevStateFlags) GetRecorderState;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscRecorder*/SelfOuter* self) OpenExclusive;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscRecorder*/SelfOuter* self, MEDIA_TYPES* fMediaType, MEDIA_FLAGS* fMediaFlags) QueryMediaType;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscRecorder*/SelfOuter* self, uint8* pbSessions, uint8* pbLastTrack, uint32* ulStartAddress, uint32* ulNextWritable, uint32* ulFreeBlocks) QueryMediaInfo;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscRecorder*/SelfOuter* self) Eject;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscRecorder*/SelfOuter* self, uint8 bFullErase) Erase;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscRecorder*/SelfOuter* self) Close;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint8* pbyUniqueID, uint32 nulIDSize, uint32 nulDriveNumber) Init;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint8* pbyUniqueID, uint32 ulBufferSize, uint32* pulReturnSizeRequired) GetRecorderGUID;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, RECORDER_TYPES* fTypeCode) GetRecorderType;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pbstrVendorID, BSTR* pbstrProductID, BSTR* pbstrRevision) GetDisplayNames;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pbstrBasePnPID) GetBasePnPID;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pbstrPath) GetPath;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IPropertyStorage** ppPropStg) GetRecorderProperties;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IPropertyStorage* pPropStg) SetRecorderProperties;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, DISC_RECORDER_STATE_FLAGS* pulDevStateFlags) GetRecorderState;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) OpenExclusive;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, MEDIA_TYPES* fMediaType, MEDIA_FLAGS* fMediaFlags) QueryMediaType;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint8* pbSessions, uint8* pbLastTrack, uint32* ulStartAddress, uint32* ulNextWritable, uint32* ulFreeBlocks) QueryMediaInfo;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Eject;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint8 bFullErase) Erase;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Close;
 	}
 
 
@@ -3016,10 +3016,10 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnumDiscRecorders*/SelfOuter* self, uint32 cRecorders, IDiscRecorder** ppRecorder, uint32* pcFetched) Next;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnumDiscRecorders*/SelfOuter* self, uint32 cRecorders) Skip;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnumDiscRecorders*/SelfOuter* self) Reset;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnumDiscRecorders*/SelfOuter* self, IEnumDiscRecorders** ppEnum) Clone;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 cRecorders, IDiscRecorder** ppRecorder, uint32* pcFetched) Next;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 cRecorders) Skip;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Reset;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IEnumDiscRecorders** ppEnum) Clone;
 	}
 
 
@@ -3040,10 +3040,10 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnumDiscMasterFormats*/SelfOuter* self, uint32 cFormats, ref Guid lpiidFormatID, uint32* pcFetched) Next;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnumDiscMasterFormats*/SelfOuter* self, uint32 cFormats) Skip;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnumDiscMasterFormats*/SelfOuter* self) Reset;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnumDiscMasterFormats*/SelfOuter* self, IEnumDiscMasterFormats** ppEnum) Clone;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 cFormats, ref Guid lpiidFormatID, uint32* pcFetched) Next;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 cFormats) Skip;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Reset;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IEnumDiscMasterFormats** ppEnum) Clone;
 	}
 
 
@@ -3064,14 +3064,14 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRedbookDiscMaster*/SelfOuter* self, int32* pnTracks) GetTotalAudioTracks;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRedbookDiscMaster*/SelfOuter* self, int32* pnBlocks) GetTotalAudioBlocks;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRedbookDiscMaster*/SelfOuter* self, int32* pnBlocks) GetUsedAudioBlocks;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRedbookDiscMaster*/SelfOuter* self, int32* pnBlocks) GetAvailableAudioTrackBlocks;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRedbookDiscMaster*/SelfOuter* self, int32* pnBlockBytes) GetAudioBlockSize;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRedbookDiscMaster*/SelfOuter* self, int32 nBlocks) CreateAudioTrack;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRedbookDiscMaster*/SelfOuter* self, uint8* pby, int32 cb) AddAudioTrackBlocks;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRedbookDiscMaster*/SelfOuter* self) CloseAudioTrack;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* pnTracks) GetTotalAudioTracks;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* pnBlocks) GetTotalAudioBlocks;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* pnBlocks) GetUsedAudioBlocks;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* pnBlocks) GetAvailableAudioTrackBlocks;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* pnBlockBytes) GetAudioBlockSize;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 nBlocks) CreateAudioTrack;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint8* pby, int32 cb) AddAudioTrackBlocks;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) CloseAudioTrack;
 	}
 
 
@@ -3100,12 +3100,12 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IJolietDiscMaster*/SelfOuter* self, int32* pnBlocks) GetTotalDataBlocks;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IJolietDiscMaster*/SelfOuter* self, int32* pnBlocks) GetUsedDataBlocks;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IJolietDiscMaster*/SelfOuter* self, int32* pnBlockBytes) GetDataBlockSize;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IJolietDiscMaster*/SelfOuter* self, IStorage* pStorage, int32 lFileOverwrite) AddData;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IJolietDiscMaster*/SelfOuter* self, IPropertyStorage** ppPropStg) GetJolietProperties;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IJolietDiscMaster*/SelfOuter* self, IPropertyStorage* pPropStg) SetJolietProperties;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* pnBlocks) GetTotalDataBlocks;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* pnBlocks) GetUsedDataBlocks;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* pnBlockBytes) GetDataBlockSize;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IStorage* pStorage, int32 lFileOverwrite) AddData;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IPropertyStorage** ppPropStg) GetJolietProperties;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IPropertyStorage* pPropStg) SetJolietProperties;
 	}
 
 
@@ -3130,15 +3130,15 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscMasterProgressEvents*/SelfOuter* self, uint8* pbCancel) QueryCancel;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscMasterProgressEvents*/SelfOuter* self) NotifyPnPActivity;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscMasterProgressEvents*/SelfOuter* self, int32 nCompletedSteps, int32 nTotalSteps) NotifyAddProgress;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscMasterProgressEvents*/SelfOuter* self, int32 nCompleted, int32 nTotal) NotifyBlockProgress;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscMasterProgressEvents*/SelfOuter* self, int32 nCurrentTrack, int32 nTotalTracks) NotifyTrackProgress;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscMasterProgressEvents*/SelfOuter* self, int32 nEstimatedSeconds) NotifyPreparingBurn;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscMasterProgressEvents*/SelfOuter* self, int32 nEstimatedSeconds) NotifyClosingDisc;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscMasterProgressEvents*/SelfOuter* self, HRESULT status) NotifyBurnComplete;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscMasterProgressEvents*/SelfOuter* self, HRESULT status) NotifyEraseComplete;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint8* pbCancel) QueryCancel;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) NotifyPnPActivity;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 nCompletedSteps, int32 nTotalSteps) NotifyAddProgress;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 nCompleted, int32 nTotal) NotifyBlockProgress;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 nCurrentTrack, int32 nTotalTracks) NotifyTrackProgress;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 nEstimatedSeconds) NotifyPreparingBurn;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 nEstimatedSeconds) NotifyClosingDisc;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HRESULT status) NotifyBurnComplete;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HRESULT status) NotifyEraseComplete;
 	}
 
 
@@ -3169,18 +3169,18 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscMaster*/SelfOuter* self) Open;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscMaster*/SelfOuter* self, IEnumDiscMasterFormats** ppEnum) EnumDiscMasterFormats;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscMaster*/SelfOuter* self, ref Guid lpiid) GetActiveDiscMasterFormat;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscMaster*/SelfOuter* self, ref Guid riid, void** ppUnk) SetActiveDiscMasterFormat;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscMaster*/SelfOuter* self, IEnumDiscRecorders** ppEnum) EnumDiscRecorders;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscMaster*/SelfOuter* self, IDiscRecorder** ppRecorder) GetActiveDiscRecorder;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscMaster*/SelfOuter* self, IDiscRecorder* pRecorder) SetActiveDiscRecorder;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscMaster*/SelfOuter* self) ClearFormatContent;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscMaster*/SelfOuter* self, IDiscMasterProgressEvents* pEvents, uint* pvCookie) ProgressAdvise;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscMaster*/SelfOuter* self, uint vCookie) ProgressUnadvise;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscMaster*/SelfOuter* self, uint8 bSimulate, uint8 bEjectAfterBurn) RecordDisc;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscMaster*/SelfOuter* self) Close;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Open;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IEnumDiscMasterFormats** ppEnum) EnumDiscMasterFormats;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid lpiid) GetActiveDiscMasterFormat;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid riid, void** ppUnk) SetActiveDiscMasterFormat;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IEnumDiscRecorders** ppEnum) EnumDiscRecorders;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IDiscRecorder** ppRecorder) GetActiveDiscRecorder;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IDiscRecorder* pRecorder) SetActiveDiscRecorder;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) ClearFormatContent;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IDiscMasterProgressEvents* pEvents, uint* pvCookie) ProgressAdvise;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint vCookie) ProgressUnadvise;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint8 bSimulate, uint8 bEjectAfterBurn) RecordDisc;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Close;
 	}
 
 

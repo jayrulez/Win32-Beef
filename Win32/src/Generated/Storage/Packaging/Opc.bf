@@ -343,9 +343,9 @@ public static
 
 	[CRepr]public struct VTable : IUri.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOpcUri*/SelfOuter* self, IOpcPartUri** relationshipPartUri) GetRelationshipsPartUri;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOpcUri*/SelfOuter* self, IOpcPartUri* targetPartUri, IUri** relativeUri) GetRelativeUri;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOpcUri*/SelfOuter* self, IUri* relativeUri, IOpcPartUri** combinedUri) CombinePartUri;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IOpcPartUri** relationshipPartUri) GetRelationshipsPartUri;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IOpcPartUri* targetPartUri, IUri** relativeUri) GetRelativeUri;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IUri* relativeUri, IOpcPartUri** combinedUri) CombinePartUri;
 	}
 
 
@@ -364,9 +364,9 @@ public static
 
 	[CRepr]public struct VTable : IOpcUri.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOpcPartUri*/SelfOuter* self, IOpcPartUri* partUri, int32* comparisonResult) ComparePartUri;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOpcPartUri*/SelfOuter* self, IOpcUri** sourceUri) GetSourceUri;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOpcPartUri*/SelfOuter* self, BOOL* isRelationshipUri) IsRelationshipsPartUri;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IOpcPartUri* partUri, int32* comparisonResult) ComparePartUri;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IOpcUri** sourceUri) GetSourceUri;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BOOL* isRelationshipUri) IsRelationshipsPartUri;
 	}
 
 
@@ -385,8 +385,8 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOpcPackage*/SelfOuter* self, IOpcPartSet** partSet) GetPartSet;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOpcPackage*/SelfOuter* self, IOpcRelationshipSet** relationshipSet) GetRelationshipSet;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IOpcPartSet** partSet) GetPartSet;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IOpcRelationshipSet** relationshipSet) GetRelationshipSet;
 	}
 
 
@@ -403,11 +403,11 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOpcPart*/SelfOuter* self, IOpcRelationshipSet** relationshipSet) GetRelationshipSet;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOpcPart*/SelfOuter* self, IStream** stream) GetContentStream;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOpcPart*/SelfOuter* self, IOpcPartUri** name) GetName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOpcPart*/SelfOuter* self, PWSTR* contentType) GetContentType;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOpcPart*/SelfOuter* self, OPC_COMPRESSION_OPTIONS* compressionOptions) GetCompressionOptions;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IOpcRelationshipSet** relationshipSet) GetRelationshipSet;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IStream** stream) GetContentStream;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IOpcPartUri** name) GetName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR* contentType) GetContentType;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, OPC_COMPRESSION_OPTIONS* compressionOptions) GetCompressionOptions;
 	}
 
 
@@ -430,11 +430,11 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOpcRelationship*/SelfOuter* self, PWSTR* relationshipIdentifier) GetId;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOpcRelationship*/SelfOuter* self, PWSTR* relationshipType) GetRelationshipType;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOpcRelationship*/SelfOuter* self, IOpcUri** sourceUri) GetSourceUri;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOpcRelationship*/SelfOuter* self, IUri** targetUri) GetTargetUri;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOpcRelationship*/SelfOuter* self, OPC_URI_TARGET_MODE* targetMode) GetTargetMode;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR* relationshipIdentifier) GetId;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR* relationshipType) GetRelationshipType;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IOpcUri** sourceUri) GetSourceUri;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IUri** targetUri) GetTargetUri;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, OPC_URI_TARGET_MODE* targetMode) GetTargetMode;
 	}
 
 
@@ -457,11 +457,11 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOpcPartSet*/SelfOuter* self, IOpcPartUri* name, IOpcPart** part) GetPart;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOpcPartSet*/SelfOuter* self, IOpcPartUri* name, PWSTR contentType, OPC_COMPRESSION_OPTIONS compressionOptions, IOpcPart** part) CreatePart;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOpcPartSet*/SelfOuter* self, IOpcPartUri* name) DeletePart;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOpcPartSet*/SelfOuter* self, IOpcPartUri* name, BOOL* partExists) PartExists;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOpcPartSet*/SelfOuter* self, IOpcPartEnumerator** partEnumerator) GetEnumerator;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IOpcPartUri* name, IOpcPart** part) GetPart;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IOpcPartUri* name, PWSTR contentType, OPC_COMPRESSION_OPTIONS compressionOptions, IOpcPart** part) CreatePart;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IOpcPartUri* name) DeletePart;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IOpcPartUri* name, BOOL* partExists) PartExists;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IOpcPartEnumerator** partEnumerator) GetEnumerator;
 	}
 
 
@@ -484,13 +484,13 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOpcRelationshipSet*/SelfOuter* self, PWSTR relationshipIdentifier, IOpcRelationship** relationship) GetRelationship;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOpcRelationshipSet*/SelfOuter* self, PWSTR relationshipIdentifier, PWSTR relationshipType, IUri* targetUri, OPC_URI_TARGET_MODE targetMode, IOpcRelationship** relationship) CreateRelationship;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOpcRelationshipSet*/SelfOuter* self, PWSTR relationshipIdentifier) DeleteRelationship;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOpcRelationshipSet*/SelfOuter* self, PWSTR relationshipIdentifier, BOOL* relationshipExists) RelationshipExists;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOpcRelationshipSet*/SelfOuter* self, IOpcRelationshipEnumerator** relationshipEnumerator) GetEnumerator;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOpcRelationshipSet*/SelfOuter* self, PWSTR relationshipType, IOpcRelationshipEnumerator** relationshipEnumerator) GetEnumeratorForType;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOpcRelationshipSet*/SelfOuter* self, IStream** contents) GetRelationshipsContentStream;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR relationshipIdentifier, IOpcRelationship** relationship) GetRelationship;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR relationshipIdentifier, PWSTR relationshipType, IUri* targetUri, OPC_URI_TARGET_MODE targetMode, IOpcRelationship** relationship) CreateRelationship;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR relationshipIdentifier) DeleteRelationship;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR relationshipIdentifier, BOOL* relationshipExists) RelationshipExists;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IOpcRelationshipEnumerator** relationshipEnumerator) GetEnumerator;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR relationshipType, IOpcRelationshipEnumerator** relationshipEnumerator) GetEnumeratorForType;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IStream** contents) GetRelationshipsContentStream;
 	}
 
 
@@ -517,10 +517,10 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOpcPartEnumerator*/SelfOuter* self, BOOL* hasNext) MoveNext;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOpcPartEnumerator*/SelfOuter* self, BOOL* hasPrevious) MovePrevious;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOpcPartEnumerator*/SelfOuter* self, IOpcPart** part) GetCurrent;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOpcPartEnumerator*/SelfOuter* self, IOpcPartEnumerator** copy) Clone;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BOOL* hasNext) MoveNext;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BOOL* hasPrevious) MovePrevious;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IOpcPart** part) GetCurrent;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IOpcPartEnumerator** copy) Clone;
 	}
 
 
@@ -541,10 +541,10 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOpcRelationshipEnumerator*/SelfOuter* self, BOOL* hasNext) MoveNext;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOpcRelationshipEnumerator*/SelfOuter* self, BOOL* hasPrevious) MovePrevious;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOpcRelationshipEnumerator*/SelfOuter* self, IOpcRelationship** relationship) GetCurrent;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOpcRelationshipEnumerator*/SelfOuter* self, IOpcRelationshipEnumerator** copy) Clone;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BOOL* hasNext) MoveNext;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BOOL* hasPrevious) MovePrevious;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IOpcRelationship** relationship) GetCurrent;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IOpcRelationshipEnumerator** copy) Clone;
 	}
 
 
@@ -565,11 +565,11 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOpcSignaturePartReference*/SelfOuter* self, IOpcPartUri** partName) GetPartName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOpcSignaturePartReference*/SelfOuter* self, PWSTR* contentType) GetContentType;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOpcSignaturePartReference*/SelfOuter* self, PWSTR* digestMethod) GetDigestMethod;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOpcSignaturePartReference*/SelfOuter* self, uint8** digestValue, uint32* count) GetDigestValue;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOpcSignaturePartReference*/SelfOuter* self, OPC_CANONICALIZATION_METHOD* transformMethod) GetTransformMethod;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IOpcPartUri** partName) GetPartName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR* contentType) GetContentType;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR* digestMethod) GetDigestMethod;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint8** digestValue, uint32* count) GetDigestValue;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, OPC_CANONICALIZATION_METHOD* transformMethod) GetTransformMethod;
 	}
 
 
@@ -592,12 +592,12 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOpcSignatureRelationshipReference*/SelfOuter* self, IOpcUri** sourceUri) GetSourceUri;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOpcSignatureRelationshipReference*/SelfOuter* self, PWSTR* digestMethod) GetDigestMethod;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOpcSignatureRelationshipReference*/SelfOuter* self, uint8** digestValue, uint32* count) GetDigestValue;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOpcSignatureRelationshipReference*/SelfOuter* self, OPC_CANONICALIZATION_METHOD* transformMethod) GetTransformMethod;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOpcSignatureRelationshipReference*/SelfOuter* self, OPC_RELATIONSHIPS_SIGNING_OPTION* relationshipSigningOption) GetRelationshipSigningOption;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOpcSignatureRelationshipReference*/SelfOuter* self, IOpcRelationshipSelectorEnumerator** selectorEnumerator) GetRelationshipSelectorEnumerator;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IOpcUri** sourceUri) GetSourceUri;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR* digestMethod) GetDigestMethod;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint8** digestValue, uint32* count) GetDigestValue;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, OPC_CANONICALIZATION_METHOD* transformMethod) GetTransformMethod;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, OPC_RELATIONSHIPS_SIGNING_OPTION* relationshipSigningOption) GetRelationshipSigningOption;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IOpcRelationshipSelectorEnumerator** selectorEnumerator) GetRelationshipSelectorEnumerator;
 	}
 
 
@@ -622,8 +622,8 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOpcRelationshipSelector*/SelfOuter* self, OPC_RELATIONSHIP_SELECTOR* selector) GetSelectorType;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOpcRelationshipSelector*/SelfOuter* self, PWSTR* selectionCriterion) GetSelectionCriterion;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, OPC_RELATIONSHIP_SELECTOR* selector) GetSelectorType;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR* selectionCriterion) GetSelectionCriterion;
 	}
 
 
@@ -640,12 +640,12 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOpcSignatureReference*/SelfOuter* self, PWSTR* referenceId) GetId;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOpcSignatureReference*/SelfOuter* self, IUri** referenceUri) GetUri;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOpcSignatureReference*/SelfOuter* self, PWSTR* type) COM_GetType;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOpcSignatureReference*/SelfOuter* self, OPC_CANONICALIZATION_METHOD* transformMethod) GetTransformMethod;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOpcSignatureReference*/SelfOuter* self, PWSTR* digestMethod) GetDigestMethod;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOpcSignatureReference*/SelfOuter* self, uint8** digestValue, uint32* count) GetDigestValue;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR* referenceId) GetId;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IUri** referenceUri) GetUri;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR* type) COM_GetType;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, OPC_CANONICALIZATION_METHOD* transformMethod) GetTransformMethod;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR* digestMethod) GetDigestMethod;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint8** digestValue, uint32* count) GetDigestValue;
 	}
 
 
@@ -670,7 +670,7 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOpcSignatureCustomObject*/SelfOuter* self, uint8** xmlMarkup, uint32* count) GetXml;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint8** xmlMarkup, uint32* count) GetXml;
 	}
 
 
@@ -685,21 +685,21 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOpcDigitalSignature*/SelfOuter* self, PWSTR** prefixes, PWSTR** namespaces, uint32* count) GetNamespaces;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOpcDigitalSignature*/SelfOuter* self, PWSTR* signatureId) GetSignatureId;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOpcDigitalSignature*/SelfOuter* self, IOpcPartUri** signaturePartName) GetSignaturePartName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOpcDigitalSignature*/SelfOuter* self, PWSTR* signatureMethod) GetSignatureMethod;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOpcDigitalSignature*/SelfOuter* self, OPC_CANONICALIZATION_METHOD* canonicalizationMethod) GetCanonicalizationMethod;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOpcDigitalSignature*/SelfOuter* self, uint8** signatureValue, uint32* count) GetSignatureValue;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOpcDigitalSignature*/SelfOuter* self, IOpcSignaturePartReferenceEnumerator** partReferenceEnumerator) GetSignaturePartReferenceEnumerator;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOpcDigitalSignature*/SelfOuter* self, IOpcSignatureRelationshipReferenceEnumerator** relationshipReferenceEnumerator) GetSignatureRelationshipReferenceEnumerator;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOpcDigitalSignature*/SelfOuter* self, PWSTR* signingTime) GetSigningTime;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOpcDigitalSignature*/SelfOuter* self, OPC_SIGNATURE_TIME_FORMAT* timeFormat) GetTimeFormat;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOpcDigitalSignature*/SelfOuter* self, IOpcSignatureReference** packageObjectReference) GetPackageObjectReference;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOpcDigitalSignature*/SelfOuter* self, IOpcCertificateEnumerator** certificateEnumerator) GetCertificateEnumerator;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOpcDigitalSignature*/SelfOuter* self, IOpcSignatureReferenceEnumerator** customReferenceEnumerator) GetCustomReferenceEnumerator;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOpcDigitalSignature*/SelfOuter* self, IOpcSignatureCustomObjectEnumerator** customObjectEnumerator) GetCustomObjectEnumerator;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOpcDigitalSignature*/SelfOuter* self, uint8** signatureXml, uint32* count) GetSignatureXml;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR** prefixes, PWSTR** namespaces, uint32* count) GetNamespaces;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR* signatureId) GetSignatureId;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IOpcPartUri** signaturePartName) GetSignaturePartName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR* signatureMethod) GetSignatureMethod;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, OPC_CANONICALIZATION_METHOD* canonicalizationMethod) GetCanonicalizationMethod;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint8** signatureValue, uint32* count) GetSignatureValue;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IOpcSignaturePartReferenceEnumerator** partReferenceEnumerator) GetSignaturePartReferenceEnumerator;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IOpcSignatureRelationshipReferenceEnumerator** relationshipReferenceEnumerator) GetSignatureRelationshipReferenceEnumerator;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR* signingTime) GetSigningTime;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, OPC_SIGNATURE_TIME_FORMAT* timeFormat) GetTimeFormat;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IOpcSignatureReference** packageObjectReference) GetPackageObjectReference;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IOpcCertificateEnumerator** certificateEnumerator) GetCertificateEnumerator;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IOpcSignatureReferenceEnumerator** customReferenceEnumerator) GetCustomReferenceEnumerator;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IOpcSignatureCustomObjectEnumerator** customObjectEnumerator) GetCustomObjectEnumerator;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint8** signatureXml, uint32* count) GetSignatureXml;
 	}
 
 
@@ -742,23 +742,23 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOpcSigningOptions*/SelfOuter* self, PWSTR* signatureId) GetSignatureId;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOpcSigningOptions*/SelfOuter* self, PWSTR signatureId) SetSignatureId;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOpcSigningOptions*/SelfOuter* self, PWSTR* signatureMethod) GetSignatureMethod;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOpcSigningOptions*/SelfOuter* self, PWSTR signatureMethod) SetSignatureMethod;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOpcSigningOptions*/SelfOuter* self, PWSTR* digestMethod) GetDefaultDigestMethod;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOpcSigningOptions*/SelfOuter* self, PWSTR digestMethod) SetDefaultDigestMethod;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOpcSigningOptions*/SelfOuter* self, OPC_CERTIFICATE_EMBEDDING_OPTION* embeddingOption) GetCertificateEmbeddingOption;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOpcSigningOptions*/SelfOuter* self, OPC_CERTIFICATE_EMBEDDING_OPTION embeddingOption) SetCertificateEmbeddingOption;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOpcSigningOptions*/SelfOuter* self, OPC_SIGNATURE_TIME_FORMAT* timeFormat) GetTimeFormat;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOpcSigningOptions*/SelfOuter* self, OPC_SIGNATURE_TIME_FORMAT timeFormat) SetTimeFormat;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOpcSigningOptions*/SelfOuter* self, IOpcSignaturePartReferenceSet** partReferenceSet) GetSignaturePartReferenceSet;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOpcSigningOptions*/SelfOuter* self, IOpcSignatureRelationshipReferenceSet** relationshipReferenceSet) GetSignatureRelationshipReferenceSet;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOpcSigningOptions*/SelfOuter* self, IOpcSignatureCustomObjectSet** customObjectSet) GetCustomObjectSet;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOpcSigningOptions*/SelfOuter* self, IOpcSignatureReferenceSet** customReferenceSet) GetCustomReferenceSet;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOpcSigningOptions*/SelfOuter* self, IOpcCertificateSet** certificateSet) GetCertificateSet;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOpcSigningOptions*/SelfOuter* self, IOpcPartUri** signaturePartName) GetSignaturePartName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOpcSigningOptions*/SelfOuter* self, IOpcPartUri* signaturePartName) SetSignaturePartName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR* signatureId) GetSignatureId;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR signatureId) SetSignatureId;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR* signatureMethod) GetSignatureMethod;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR signatureMethod) SetSignatureMethod;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR* digestMethod) GetDefaultDigestMethod;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR digestMethod) SetDefaultDigestMethod;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, OPC_CERTIFICATE_EMBEDDING_OPTION* embeddingOption) GetCertificateEmbeddingOption;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, OPC_CERTIFICATE_EMBEDDING_OPTION embeddingOption) SetCertificateEmbeddingOption;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, OPC_SIGNATURE_TIME_FORMAT* timeFormat) GetTimeFormat;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, OPC_SIGNATURE_TIME_FORMAT timeFormat) SetTimeFormat;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IOpcSignaturePartReferenceSet** partReferenceSet) GetSignaturePartReferenceSet;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IOpcSignatureRelationshipReferenceSet** relationshipReferenceSet) GetSignatureRelationshipReferenceSet;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IOpcSignatureCustomObjectSet** customObjectSet) GetCustomObjectSet;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IOpcSignatureReferenceSet** customReferenceSet) GetCustomReferenceSet;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IOpcCertificateSet** certificateSet) GetCertificateSet;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IOpcPartUri** signaturePartName) GetSignaturePartName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IOpcPartUri* signaturePartName) SetSignaturePartName;
 	}
 
 
@@ -805,14 +805,14 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOpcDigitalSignatureManager*/SelfOuter* self, IOpcPartUri** signatureOriginPartName) GetSignatureOriginPartName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOpcDigitalSignatureManager*/SelfOuter* self, IOpcPartUri* signatureOriginPartName) SetSignatureOriginPartName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOpcDigitalSignatureManager*/SelfOuter* self, IOpcDigitalSignatureEnumerator** signatureEnumerator) GetSignatureEnumerator;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOpcDigitalSignatureManager*/SelfOuter* self, IOpcPartUri* signaturePartName) RemoveSignature;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOpcDigitalSignatureManager*/SelfOuter* self, IOpcSigningOptions** signingOptions) CreateSigningOptions;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOpcDigitalSignatureManager*/SelfOuter* self, IOpcDigitalSignature* signature, CERT_CONTEXT* certificate, OPC_SIGNATURE_VALIDATION_RESULT* validationResult) Validate;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOpcDigitalSignatureManager*/SelfOuter* self, CERT_CONTEXT* certificate, IOpcSigningOptions* signingOptions, IOpcDigitalSignature** digitalSignature) Sign;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOpcDigitalSignatureManager*/SelfOuter* self, IOpcPartUri* signaturePartName, uint8* newSignatureXml, uint32 count, IOpcDigitalSignature** digitalSignature) ReplaceSignatureXml;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IOpcPartUri** signatureOriginPartName) GetSignatureOriginPartName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IOpcPartUri* signatureOriginPartName) SetSignatureOriginPartName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IOpcDigitalSignatureEnumerator** signatureEnumerator) GetSignatureEnumerator;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IOpcPartUri* signaturePartName) RemoveSignature;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IOpcSigningOptions** signingOptions) CreateSigningOptions;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IOpcDigitalSignature* signature, CERT_CONTEXT* certificate, OPC_SIGNATURE_VALIDATION_RESULT* validationResult) Validate;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, CERT_CONTEXT* certificate, IOpcSigningOptions* signingOptions, IOpcDigitalSignature** digitalSignature) Sign;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IOpcPartUri* signaturePartName, uint8* newSignatureXml, uint32 count, IOpcDigitalSignature** digitalSignature) ReplaceSignatureXml;
 	}
 
 
@@ -841,10 +841,10 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOpcSignaturePartReferenceEnumerator*/SelfOuter* self, BOOL* hasNext) MoveNext;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOpcSignaturePartReferenceEnumerator*/SelfOuter* self, BOOL* hasPrevious) MovePrevious;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOpcSignaturePartReferenceEnumerator*/SelfOuter* self, IOpcSignaturePartReference** partReference) GetCurrent;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOpcSignaturePartReferenceEnumerator*/SelfOuter* self, IOpcSignaturePartReferenceEnumerator** copy) Clone;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BOOL* hasNext) MoveNext;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BOOL* hasPrevious) MovePrevious;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IOpcSignaturePartReference** partReference) GetCurrent;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IOpcSignaturePartReferenceEnumerator** copy) Clone;
 	}
 
 
@@ -865,10 +865,10 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOpcSignatureRelationshipReferenceEnumerator*/SelfOuter* self, BOOL* hasNext) MoveNext;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOpcSignatureRelationshipReferenceEnumerator*/SelfOuter* self, BOOL* hasPrevious) MovePrevious;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOpcSignatureRelationshipReferenceEnumerator*/SelfOuter* self, IOpcSignatureRelationshipReference** relationshipReference) GetCurrent;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOpcSignatureRelationshipReferenceEnumerator*/SelfOuter* self, IOpcSignatureRelationshipReferenceEnumerator** copy) Clone;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BOOL* hasNext) MoveNext;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BOOL* hasPrevious) MovePrevious;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IOpcSignatureRelationshipReference** relationshipReference) GetCurrent;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IOpcSignatureRelationshipReferenceEnumerator** copy) Clone;
 	}
 
 
@@ -889,10 +889,10 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOpcRelationshipSelectorEnumerator*/SelfOuter* self, BOOL* hasNext) MoveNext;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOpcRelationshipSelectorEnumerator*/SelfOuter* self, BOOL* hasPrevious) MovePrevious;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOpcRelationshipSelectorEnumerator*/SelfOuter* self, IOpcRelationshipSelector** relationshipSelector) GetCurrent;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOpcRelationshipSelectorEnumerator*/SelfOuter* self, IOpcRelationshipSelectorEnumerator** copy) Clone;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BOOL* hasNext) MoveNext;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BOOL* hasPrevious) MovePrevious;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IOpcRelationshipSelector** relationshipSelector) GetCurrent;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IOpcRelationshipSelectorEnumerator** copy) Clone;
 	}
 
 
@@ -913,10 +913,10 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOpcSignatureReferenceEnumerator*/SelfOuter* self, BOOL* hasNext) MoveNext;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOpcSignatureReferenceEnumerator*/SelfOuter* self, BOOL* hasPrevious) MovePrevious;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOpcSignatureReferenceEnumerator*/SelfOuter* self, IOpcSignatureReference** reference) GetCurrent;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOpcSignatureReferenceEnumerator*/SelfOuter* self, IOpcSignatureReferenceEnumerator** copy) Clone;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BOOL* hasNext) MoveNext;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BOOL* hasPrevious) MovePrevious;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IOpcSignatureReference** reference) GetCurrent;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IOpcSignatureReferenceEnumerator** copy) Clone;
 	}
 
 
@@ -937,10 +937,10 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOpcSignatureCustomObjectEnumerator*/SelfOuter* self, BOOL* hasNext) MoveNext;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOpcSignatureCustomObjectEnumerator*/SelfOuter* self, BOOL* hasPrevious) MovePrevious;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOpcSignatureCustomObjectEnumerator*/SelfOuter* self, IOpcSignatureCustomObject** customObject) GetCurrent;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOpcSignatureCustomObjectEnumerator*/SelfOuter* self, IOpcSignatureCustomObjectEnumerator** copy) Clone;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BOOL* hasNext) MoveNext;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BOOL* hasPrevious) MovePrevious;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IOpcSignatureCustomObject** customObject) GetCurrent;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IOpcSignatureCustomObjectEnumerator** copy) Clone;
 	}
 
 
@@ -961,10 +961,10 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOpcCertificateEnumerator*/SelfOuter* self, BOOL* hasNext) MoveNext;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOpcCertificateEnumerator*/SelfOuter* self, BOOL* hasPrevious) MovePrevious;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOpcCertificateEnumerator*/SelfOuter* self, CERT_CONTEXT** certificate) GetCurrent;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOpcCertificateEnumerator*/SelfOuter* self, IOpcCertificateEnumerator** copy) Clone;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BOOL* hasNext) MoveNext;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BOOL* hasPrevious) MovePrevious;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, CERT_CONTEXT** certificate) GetCurrent;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IOpcCertificateEnumerator** copy) Clone;
 	}
 
 
@@ -985,10 +985,10 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOpcDigitalSignatureEnumerator*/SelfOuter* self, BOOL* hasNext) MoveNext;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOpcDigitalSignatureEnumerator*/SelfOuter* self, BOOL* hasPrevious) MovePrevious;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOpcDigitalSignatureEnumerator*/SelfOuter* self, IOpcDigitalSignature** digitalSignature) GetCurrent;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOpcDigitalSignatureEnumerator*/SelfOuter* self, IOpcDigitalSignatureEnumerator** copy) Clone;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BOOL* hasNext) MoveNext;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BOOL* hasPrevious) MovePrevious;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IOpcDigitalSignature** digitalSignature) GetCurrent;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IOpcDigitalSignatureEnumerator** copy) Clone;
 	}
 
 
@@ -1009,9 +1009,9 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOpcSignaturePartReferenceSet*/SelfOuter* self, IOpcPartUri* partUri, PWSTR digestMethod, OPC_CANONICALIZATION_METHOD transformMethod, IOpcSignaturePartReference** partReference) Create;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOpcSignaturePartReferenceSet*/SelfOuter* self, IOpcSignaturePartReference* partReference) Delete;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOpcSignaturePartReferenceSet*/SelfOuter* self, IOpcSignaturePartReferenceEnumerator** partReferenceEnumerator) GetEnumerator;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IOpcPartUri* partUri, PWSTR digestMethod, OPC_CANONICALIZATION_METHOD transformMethod, IOpcSignaturePartReference** partReference) Create;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IOpcSignaturePartReference* partReference) Delete;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IOpcSignaturePartReferenceEnumerator** partReferenceEnumerator) GetEnumerator;
 	}
 
 
@@ -1030,10 +1030,10 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOpcSignatureRelationshipReferenceSet*/SelfOuter* self, IOpcUri* sourceUri, PWSTR digestMethod, OPC_RELATIONSHIPS_SIGNING_OPTION relationshipSigningOption, IOpcRelationshipSelectorSet* selectorSet, OPC_CANONICALIZATION_METHOD transformMethod, IOpcSignatureRelationshipReference** relationshipReference) Create;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOpcSignatureRelationshipReferenceSet*/SelfOuter* self, IOpcRelationshipSelectorSet** selectorSet) CreateRelationshipSelectorSet;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOpcSignatureRelationshipReferenceSet*/SelfOuter* self, IOpcSignatureRelationshipReference* relationshipReference) Delete;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOpcSignatureRelationshipReferenceSet*/SelfOuter* self, IOpcSignatureRelationshipReferenceEnumerator** relationshipReferenceEnumerator) GetEnumerator;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IOpcUri* sourceUri, PWSTR digestMethod, OPC_RELATIONSHIPS_SIGNING_OPTION relationshipSigningOption, IOpcRelationshipSelectorSet* selectorSet, OPC_CANONICALIZATION_METHOD transformMethod, IOpcSignatureRelationshipReference** relationshipReference) Create;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IOpcRelationshipSelectorSet** selectorSet) CreateRelationshipSelectorSet;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IOpcSignatureRelationshipReference* relationshipReference) Delete;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IOpcSignatureRelationshipReferenceEnumerator** relationshipReferenceEnumerator) GetEnumerator;
 	}
 
 
@@ -1054,9 +1054,9 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOpcRelationshipSelectorSet*/SelfOuter* self, OPC_RELATIONSHIP_SELECTOR selector, PWSTR selectionCriterion, IOpcRelationshipSelector** relationshipSelector) Create;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOpcRelationshipSelectorSet*/SelfOuter* self, IOpcRelationshipSelector* relationshipSelector) Delete;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOpcRelationshipSelectorSet*/SelfOuter* self, IOpcRelationshipSelectorEnumerator** relationshipSelectorEnumerator) GetEnumerator;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, OPC_RELATIONSHIP_SELECTOR selector, PWSTR selectionCriterion, IOpcRelationshipSelector** relationshipSelector) Create;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IOpcRelationshipSelector* relationshipSelector) Delete;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IOpcRelationshipSelectorEnumerator** relationshipSelectorEnumerator) GetEnumerator;
 	}
 
 
@@ -1075,9 +1075,9 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOpcSignatureReferenceSet*/SelfOuter* self, IUri* referenceUri, PWSTR referenceId, PWSTR type, PWSTR digestMethod, OPC_CANONICALIZATION_METHOD transformMethod, IOpcSignatureReference** reference) Create;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOpcSignatureReferenceSet*/SelfOuter* self, IOpcSignatureReference* reference) Delete;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOpcSignatureReferenceSet*/SelfOuter* self, IOpcSignatureReferenceEnumerator** referenceEnumerator) GetEnumerator;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IUri* referenceUri, PWSTR referenceId, PWSTR type, PWSTR digestMethod, OPC_CANONICALIZATION_METHOD transformMethod, IOpcSignatureReference** reference) Create;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IOpcSignatureReference* reference) Delete;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IOpcSignatureReferenceEnumerator** referenceEnumerator) GetEnumerator;
 	}
 
 
@@ -1096,9 +1096,9 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOpcSignatureCustomObjectSet*/SelfOuter* self, uint8* xmlMarkup, uint32 count, IOpcSignatureCustomObject** customObject) Create;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOpcSignatureCustomObjectSet*/SelfOuter* self, IOpcSignatureCustomObject* customObject) Delete;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOpcSignatureCustomObjectSet*/SelfOuter* self, IOpcSignatureCustomObjectEnumerator** customObjectEnumerator) GetEnumerator;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint8* xmlMarkup, uint32 count, IOpcSignatureCustomObject** customObject) Create;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IOpcSignatureCustomObject* customObject) Delete;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IOpcSignatureCustomObjectEnumerator** customObjectEnumerator) GetEnumerator;
 	}
 
 
@@ -1117,9 +1117,9 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOpcCertificateSet*/SelfOuter* self, CERT_CONTEXT* certificate) Add;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOpcCertificateSet*/SelfOuter* self, CERT_CONTEXT* certificate) Remove;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOpcCertificateSet*/SelfOuter* self, IOpcCertificateEnumerator** certificateEnumerator) GetEnumerator;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, CERT_CONTEXT* certificate) Add;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, CERT_CONTEXT* certificate) Remove;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IOpcCertificateEnumerator** certificateEnumerator) GetEnumerator;
 	}
 
 
@@ -1138,13 +1138,13 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOpcFactory*/SelfOuter* self, IOpcUri** rootUri) CreatePackageRootUri;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOpcFactory*/SelfOuter* self, PWSTR pwzUri, IOpcPartUri** partUri) CreatePartUri;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOpcFactory*/SelfOuter* self, PWSTR filename, OPC_STREAM_IO_MODE ioMode, SECURITY_ATTRIBUTES* securityAttributes, uint32 dwFlagsAndAttributes, IStream** stream) CreateStreamOnFile;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOpcFactory*/SelfOuter* self, IOpcPackage** package) CreatePackage;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOpcFactory*/SelfOuter* self, IStream* stream, OPC_READ_FLAGS flags, IOpcPackage** package) ReadPackageFromStream;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOpcFactory*/SelfOuter* self, IOpcPackage* package, OPC_WRITE_FLAGS flags, IStream* stream) WritePackageToStream;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOpcFactory*/SelfOuter* self, IOpcPackage* package, IOpcDigitalSignatureManager** signatureManager) CreateDigitalSignatureManager;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IOpcUri** rootUri) CreatePackageRootUri;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR pwzUri, IOpcPartUri** partUri) CreatePartUri;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR filename, OPC_STREAM_IO_MODE ioMode, SECURITY_ATTRIBUTES* securityAttributes, uint32 dwFlagsAndAttributes, IStream** stream) CreateStreamOnFile;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IOpcPackage** package) CreatePackage;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IStream* stream, OPC_READ_FLAGS flags, IOpcPackage** package) ReadPackageFromStream;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IOpcPackage* package, OPC_WRITE_FLAGS flags, IStream* stream) WritePackageToStream;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IOpcPackage* package, IOpcDigitalSignatureManager** signatureManager) CreateDigitalSignatureManager;
 	}
 
 

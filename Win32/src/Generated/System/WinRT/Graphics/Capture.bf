@@ -32,8 +32,8 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGraphicsCaptureItemInterop*/SelfOuter* self, HWND window, ref Guid riid, void** result) CreateForWindow;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGraphicsCaptureItemInterop*/SelfOuter* self, HMONITOR monitor, ref Guid riid, void** result) CreateForMonitor;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HWND window, ref Guid riid, void** result) CreateForWindow;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HMONITOR monitor, ref Guid riid, void** result) CreateForMonitor;
 	}
 
 

@@ -461,7 +461,7 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInitializeWithFile*/SelfOuter* self, PWSTR pszFilePath, uint32 grfMode) Initialize;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR pszFilePath, uint32 grfMode) Initialize;
 	}
 
 
@@ -476,7 +476,7 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInitializeWithStream*/SelfOuter* self, IStream* pstream, uint32 grfMode) Initialize;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IStream* pstream, uint32 grfMode) Initialize;
 	}
 
 
@@ -491,11 +491,11 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPropertyStore*/SelfOuter* self, uint32* cProps) GetCount;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPropertyStore*/SelfOuter* self, uint32 iProp, PROPERTYKEY* pkey) GetAt;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPropertyStore*/SelfOuter* self, PROPERTYKEY* key, PROPVARIANT* pv) GetValue;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPropertyStore*/SelfOuter* self, PROPERTYKEY* key, PROPVARIANT* propvar) SetValue;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPropertyStore*/SelfOuter* self) Commit;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* cProps) GetCount;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 iProp, PROPERTYKEY* pkey) GetAt;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PROPERTYKEY* key, PROPVARIANT* pv) GetValue;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PROPERTYKEY* key, PROPVARIANT* propvar) SetValue;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Commit;
 	}
 
 
@@ -518,10 +518,10 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*INamedPropertyStore*/SelfOuter* self, PWSTR pszName, PROPVARIANT* ppropvar) GetNamedValue;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*INamedPropertyStore*/SelfOuter* self, PWSTR pszName, PROPVARIANT* propvar) SetNamedValue;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*INamedPropertyStore*/SelfOuter* self, uint32* pdwCount) GetNameCount;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*INamedPropertyStore*/SelfOuter* self, uint32 iProp, BSTR* pbstrName) GetNameAt;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR pszName, PROPVARIANT* ppropvar) GetNamedValue;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR pszName, PROPVARIANT* propvar) SetNamedValue;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pdwCount) GetNameCount;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 iProp, BSTR* pbstrName) GetNameAt;
 	}
 
 
@@ -542,8 +542,8 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IObjectWithPropertyKey*/SelfOuter* self, PROPERTYKEY* key) SetPropertyKey;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IObjectWithPropertyKey*/SelfOuter* self, PROPERTYKEY* pkey) GetPropertyKey;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PROPERTYKEY* key) SetPropertyKey;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PROPERTYKEY* pkey) GetPropertyKey;
 	}
 
 
@@ -560,7 +560,7 @@ public static
 
 	[CRepr]public struct VTable : IObjectWithPropertyKey.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPropertyChange*/SelfOuter* self, PROPVARIANT* propvarIn, PROPVARIANT* ppropvarOut) ApplyToPropVariant;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PROPVARIANT* propvarIn, PROPVARIANT* ppropvarOut) ApplyToPropVariant;
 	}
 
 
@@ -575,13 +575,13 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPropertyChangeArray*/SelfOuter* self, uint32* pcOperations) GetCount;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPropertyChangeArray*/SelfOuter* self, uint32 iIndex, ref Guid riid, void** ppv) GetAt;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPropertyChangeArray*/SelfOuter* self, uint32 iIndex, IPropertyChange* ppropChange) InsertAt;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPropertyChangeArray*/SelfOuter* self, IPropertyChange* ppropChange) Append;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPropertyChangeArray*/SelfOuter* self, IPropertyChange* ppropChange) AppendOrReplace;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPropertyChangeArray*/SelfOuter* self, uint32 iIndex) RemoveAt;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPropertyChangeArray*/SelfOuter* self, PROPERTYKEY* key) IsKeyInArray;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pcOperations) GetCount;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 iIndex, ref Guid riid, void** ppv) GetAt;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 iIndex, IPropertyChange* ppropChange) InsertAt;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IPropertyChange* ppropChange) Append;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IPropertyChange* ppropChange) AppendOrReplace;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 iIndex) RemoveAt;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PROPERTYKEY* key) IsKeyInArray;
 	}
 
 
@@ -608,7 +608,7 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPropertyStoreCapabilities*/SelfOuter* self, PROPERTYKEY* key) IsPropertyWritable;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PROPERTYKEY* key) IsPropertyWritable;
 	}
 
 
@@ -623,10 +623,10 @@ public static
 
 	[CRepr]public struct VTable : IPropertyStore.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPropertyStoreCache*/SelfOuter* self, PROPERTYKEY* key, PSC_STATE* pstate) GetState;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPropertyStoreCache*/SelfOuter* self, PROPERTYKEY* key, PROPVARIANT* ppropvar, PSC_STATE* pstate) GetValueAndState;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPropertyStoreCache*/SelfOuter* self, PROPERTYKEY* key, PSC_STATE state) SetState;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPropertyStoreCache*/SelfOuter* self, PROPERTYKEY* key, PROPVARIANT* ppropvar, PSC_STATE state) SetValueAndState;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PROPERTYKEY* key, PSC_STATE* pstate) GetState;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PROPERTYKEY* key, PROPVARIANT* ppropvar, PSC_STATE* pstate) GetValueAndState;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PROPERTYKEY* key, PSC_STATE state) SetState;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PROPERTYKEY* key, PROPVARIANT* ppropvar, PSC_STATE state) SetValueAndState;
 	}
 
 
@@ -647,11 +647,11 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPropertyEnumType*/SelfOuter* self, PROPENUMTYPE* penumtype) GetEnumType;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPropertyEnumType*/SelfOuter* self, PROPVARIANT* ppropvar) GetValue;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPropertyEnumType*/SelfOuter* self, PROPVARIANT* ppropvarMin) GetRangeMinValue;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPropertyEnumType*/SelfOuter* self, PROPVARIANT* ppropvarSet) GetRangeSetValue;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPropertyEnumType*/SelfOuter* self, PWSTR* ppszDisplay) GetDisplayText;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PROPENUMTYPE* penumtype) GetEnumType;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PROPVARIANT* ppropvar) GetValue;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PROPVARIANT* ppropvarMin) GetRangeMinValue;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PROPVARIANT* ppropvarSet) GetRangeSetValue;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR* ppszDisplay) GetDisplayText;
 	}
 
 
@@ -674,7 +674,7 @@ public static
 
 	[CRepr]public struct VTable : IPropertyEnumType.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPropertyEnumType2*/SelfOuter* self, PWSTR* ppszImageRes) GetImageReference;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR* ppszImageRes) GetImageReference;
 	}
 
 
@@ -689,10 +689,10 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPropertyEnumTypeList*/SelfOuter* self, uint32* pctypes) GetCount;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPropertyEnumTypeList*/SelfOuter* self, uint32 itype, ref Guid riid, void** ppv) GetAt;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPropertyEnumTypeList*/SelfOuter* self, uint32 nIndex, ref Guid riid, void** ppv) GetConditionAt;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPropertyEnumTypeList*/SelfOuter* self, PROPVARIANT* propvarCmp, uint32* pnIndex) FindMatchingIndex;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pctypes) GetCount;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 itype, ref Guid riid, void** ppv) GetAt;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 nIndex, ref Guid riid, void** ppv) GetConditionAt;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PROPVARIANT* propvarCmp, uint32* pnIndex) FindMatchingIndex;
 	}
 
 
@@ -713,27 +713,27 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPropertyDescription*/SelfOuter* self, PROPERTYKEY* pkey) GetPropertyKey;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPropertyDescription*/SelfOuter* self, PWSTR* ppszName) GetCanonicalName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPropertyDescription*/SelfOuter* self, uint16* pvartype) GetPropertyType;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPropertyDescription*/SelfOuter* self, PWSTR* ppszName) GetDisplayName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPropertyDescription*/SelfOuter* self, PWSTR* ppszInvite) GetEditInvitation;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPropertyDescription*/SelfOuter* self, PROPDESC_TYPE_FLAGS mask, PROPDESC_TYPE_FLAGS* ppdtFlags) GetTypeFlags;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPropertyDescription*/SelfOuter* self, PROPDESC_VIEW_FLAGS* ppdvFlags) GetViewFlags;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPropertyDescription*/SelfOuter* self, uint32* pcxChars) GetDefaultColumnWidth;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPropertyDescription*/SelfOuter* self, PROPDESC_DISPLAYTYPE* pdisplaytype) GetDisplayType;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPropertyDescription*/SelfOuter* self, uint32* pcsFlags) GetColumnState;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPropertyDescription*/SelfOuter* self, PROPDESC_GROUPING_RANGE* pgr) GetGroupingRange;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPropertyDescription*/SelfOuter* self, PROPDESC_RELATIVEDESCRIPTION_TYPE* prdt) GetRelativeDescriptionType;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPropertyDescription*/SelfOuter* self, PROPVARIANT* propvar1, PROPVARIANT* propvar2, PWSTR* ppszDesc1, PWSTR* ppszDesc2) GetRelativeDescription;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPropertyDescription*/SelfOuter* self, PROPDESC_SORTDESCRIPTION* psd) GetSortDescription;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPropertyDescription*/SelfOuter* self, BOOL fDescending, PWSTR* ppszDescription) GetSortDescriptionLabel;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPropertyDescription*/SelfOuter* self, PROPDESC_AGGREGATION_TYPE* paggtype) GetAggregationType;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPropertyDescription*/SelfOuter* self, PROPDESC_CONDITION_TYPE* pcontype, CONDITION_OPERATION* popDefault) GetConditionType;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPropertyDescription*/SelfOuter* self, ref Guid riid, void** ppv) GetEnumTypeList;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPropertyDescription*/SelfOuter* self, PROPVARIANT* ppropvar) CoerceToCanonicalValue;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPropertyDescription*/SelfOuter* self, PROPVARIANT* propvar, PROPDESC_FORMAT_FLAGS pdfFlags, PWSTR* ppszDisplay) FormatForDisplay;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPropertyDescription*/SelfOuter* self, PROPVARIANT* propvar) IsValueCanonical;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PROPERTYKEY* pkey) GetPropertyKey;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR* ppszName) GetCanonicalName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint16* pvartype) GetPropertyType;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR* ppszName) GetDisplayName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR* ppszInvite) GetEditInvitation;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PROPDESC_TYPE_FLAGS mask, PROPDESC_TYPE_FLAGS* ppdtFlags) GetTypeFlags;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PROPDESC_VIEW_FLAGS* ppdvFlags) GetViewFlags;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pcxChars) GetDefaultColumnWidth;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PROPDESC_DISPLAYTYPE* pdisplaytype) GetDisplayType;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pcsFlags) GetColumnState;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PROPDESC_GROUPING_RANGE* pgr) GetGroupingRange;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PROPDESC_RELATIVEDESCRIPTION_TYPE* prdt) GetRelativeDescriptionType;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PROPVARIANT* propvar1, PROPVARIANT* propvar2, PWSTR* ppszDesc1, PWSTR* ppszDesc2) GetRelativeDescription;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PROPDESC_SORTDESCRIPTION* psd) GetSortDescription;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BOOL fDescending, PWSTR* ppszDescription) GetSortDescriptionLabel;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PROPDESC_AGGREGATION_TYPE* paggtype) GetAggregationType;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PROPDESC_CONDITION_TYPE* pcontype, CONDITION_OPERATION* popDefault) GetConditionType;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid riid, void** ppv) GetEnumTypeList;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PROPVARIANT* ppropvar) CoerceToCanonicalValue;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PROPVARIANT* propvar, PROPDESC_FORMAT_FLAGS pdfFlags, PWSTR* ppszDisplay) FormatForDisplay;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PROPVARIANT* propvar) IsValueCanonical;
 	}
 
 
@@ -788,7 +788,7 @@ public static
 
 	[CRepr]public struct VTable : IPropertyDescription.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPropertyDescription2*/SelfOuter* self, PROPVARIANT* propvar, PWSTR* ppszImageRes) GetImageReferenceForValue;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PROPVARIANT* propvar, PWSTR* ppszImageRes) GetImageReferenceForValue;
 	}
 
 
@@ -803,8 +803,8 @@ public static
 
 	[CRepr]public struct VTable : IPropertyDescription.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPropertyDescriptionAliasInfo*/SelfOuter* self, ref Guid riid, void** ppv) GetSortByAlias;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPropertyDescriptionAliasInfo*/SelfOuter* self, ref Guid riid, void** ppv) GetAdditionalSortByAliases;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid riid, void** ppv) GetSortByAlias;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid riid, void** ppv) GetAdditionalSortByAliases;
 	}
 
 
@@ -821,10 +821,10 @@ public static
 
 	[CRepr]public struct VTable : IPropertyDescription.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPropertyDescriptionSearchInfo*/SelfOuter* self, PROPDESC_SEARCHINFO_FLAGS* ppdsiFlags) GetSearchInfoFlags;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPropertyDescriptionSearchInfo*/SelfOuter* self, PROPDESC_COLUMNINDEX_TYPE* ppdciType) GetColumnIndexType;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPropertyDescriptionSearchInfo*/SelfOuter* self, PWSTR* ppszProjection) GetProjectionString;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPropertyDescriptionSearchInfo*/SelfOuter* self, uint32* pcbMaxSize) GetMaxSize;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PROPDESC_SEARCHINFO_FLAGS* ppdsiFlags) GetSearchInfoFlags;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PROPDESC_COLUMNINDEX_TYPE* ppdciType) GetColumnIndexType;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR* ppszProjection) GetProjectionString;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pcbMaxSize) GetMaxSize;
 	}
 
 
@@ -845,7 +845,7 @@ public static
 
 	[CRepr]public struct VTable : IPropertyDescription.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPropertyDescriptionRelatedPropertyInfo*/SelfOuter* self, PWSTR pszRelationshipName, ref Guid riid, void** ppv) GetRelatedProperty;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR pszRelationshipName, ref Guid riid, void** ppv) GetRelatedProperty;
 	}
 
 
@@ -860,15 +860,15 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPropertySystem*/SelfOuter* self, PROPERTYKEY* propkey, ref Guid riid, void** ppv) GetPropertyDescription;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPropertySystem*/SelfOuter* self, PWSTR pszCanonicalName, ref Guid riid, void** ppv) GetPropertyDescriptionByName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPropertySystem*/SelfOuter* self, PWSTR pszPropList, ref Guid riid, void** ppv) GetPropertyDescriptionListFromString;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPropertySystem*/SelfOuter* self, PROPDESC_ENUMFILTER filterOn, ref Guid riid, void** ppv) EnumeratePropertyDescriptions;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPropertySystem*/SelfOuter* self, PROPERTYKEY* key, PROPVARIANT* propvar, PROPDESC_FORMAT_FLAGS pdff, char16* pszText, uint32 cchText) FormatForDisplay;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPropertySystem*/SelfOuter* self, PROPERTYKEY* key, PROPVARIANT* propvar, PROPDESC_FORMAT_FLAGS pdff, PWSTR* ppszDisplay) FormatForDisplayAlloc;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPropertySystem*/SelfOuter* self, PWSTR pszPath) RegisterPropertySchema;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPropertySystem*/SelfOuter* self, PWSTR pszPath) UnregisterPropertySchema;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPropertySystem*/SelfOuter* self) RefreshPropertySchema;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PROPERTYKEY* propkey, ref Guid riid, void** ppv) GetPropertyDescription;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR pszCanonicalName, ref Guid riid, void** ppv) GetPropertyDescriptionByName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR pszPropList, ref Guid riid, void** ppv) GetPropertyDescriptionListFromString;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PROPDESC_ENUMFILTER filterOn, ref Guid riid, void** ppv) EnumeratePropertyDescriptions;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PROPERTYKEY* key, PROPVARIANT* propvar, PROPDESC_FORMAT_FLAGS pdff, char16* pszText, uint32 cchText) FormatForDisplay;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PROPERTYKEY* key, PROPVARIANT* propvar, PROPDESC_FORMAT_FLAGS pdff, PWSTR* ppszDisplay) FormatForDisplayAlloc;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR pszPath) RegisterPropertySchema;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR pszPath) UnregisterPropertySchema;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) RefreshPropertySchema;
 	}
 
 
@@ -899,8 +899,8 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPropertyDescriptionList*/SelfOuter* self, uint32* pcElem) GetCount;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPropertyDescriptionList*/SelfOuter* self, uint32 iElem, ref Guid riid, void** ppv) GetAt;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pcElem) GetCount;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 iElem, ref Guid riid, void** ppv) GetAt;
 	}
 
 
@@ -917,8 +917,8 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPropertyStoreFactory*/SelfOuter* self, GETPROPERTYSTOREFLAGS flags, IUnknown* pUnkFactory, ref Guid riid, void** ppv) GetPropertyStore;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPropertyStoreFactory*/SelfOuter* self, PROPERTYKEY* rgKeys, uint32 cKeys, GETPROPERTYSTOREFLAGS flags, ref Guid riid, void** ppv) GetPropertyStoreForKeys;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, GETPROPERTYSTOREFLAGS flags, IUnknown* pUnkFactory, ref Guid riid, void** ppv) GetPropertyStore;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PROPERTYKEY* rgKeys, uint32 cKeys, GETPROPERTYSTOREFLAGS flags, ref Guid riid, void** ppv) GetPropertyStoreForKeys;
 	}
 
 
@@ -935,7 +935,7 @@ public static
 
 	[CRepr]public struct VTable : IPropertyStoreFactory.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDelayedPropertyStoreFactory*/SelfOuter* self, GETPROPERTYSTOREFLAGS flags, uint32 dwStoreId, ref Guid riid, void** ppv) GetDelayedPropertyStore;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, GETPROPERTYSTOREFLAGS flags, uint32 dwStoreId, ref Guid riid, void** ppv) GetDelayedPropertyStore;
 	}
 
 
@@ -950,9 +950,9 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPersistSerializedPropStorage*/SelfOuter* self, int32 flags) SetFlags;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPersistSerializedPropStorage*/SelfOuter* self, SERIALIZEDPROPSTORAGE* psps, uint32 cb) SetPropertyStorage;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPersistSerializedPropStorage*/SelfOuter* self, SERIALIZEDPROPSTORAGE** ppsps, uint32* pcb) GetPropertyStorage;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 flags) SetFlags;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, SERIALIZEDPROPSTORAGE* psps, uint32 cb) SetPropertyStorage;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, SERIALIZEDPROPSTORAGE** ppsps, uint32* pcb) GetPropertyStorage;
 	}
 
 
@@ -971,8 +971,8 @@ public static
 
 	[CRepr]public struct VTable : IPersistSerializedPropStorage.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPersistSerializedPropStorage2*/SelfOuter* self, uint32* pcb) GetPropertyStorageSize;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPersistSerializedPropStorage2*/SelfOuter* self, SERIALIZEDPROPSTORAGE* psps, uint32 cb, uint32* pcbWritten) GetPropertyStorageBuffer;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pcb) GetPropertyStorageSize;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, SERIALIZEDPROPSTORAGE* psps, uint32 cb, uint32* pcbWritten) GetPropertyStorageBuffer;
 	}
 
 
@@ -989,7 +989,7 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPropertySystemChangeNotify*/SelfOuter* self) SchemaRefreshed;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) SchemaRefreshed;
 	}
 
 
@@ -1004,7 +1004,7 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICreateObject*/SelfOuter* self, ref Guid clsid, IUnknown* pUnkOuter, ref Guid riid, void** ppv) CreateObject;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid clsid, IUnknown* pUnkOuter, ref Guid riid, void** ppv) CreateObject;
 	}
 
 
@@ -1019,14 +1019,14 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPropertyUI*/SelfOuter* self, PWSTR pszName, ref Guid pfmtid, uint32* ppid, uint32* pchEaten) ParsePropertyName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPropertyUI*/SelfOuter* self, ref Guid fmtid, uint32 pid, char16* pwszText, uint32 cchText) GetCannonicalName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPropertyUI*/SelfOuter* self, ref Guid fmtid, uint32 pid, PROPERTYUI_NAME_FLAGS flags, char16* pwszText, uint32 cchText) GetDisplayName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPropertyUI*/SelfOuter* self, ref Guid fmtid, uint32 pid, char16* pwszText, uint32 cchText) GetPropertyDescription;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPropertyUI*/SelfOuter* self, ref Guid fmtid, uint32 pid, uint32* pcxChars) GetDefaultWidth;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPropertyUI*/SelfOuter* self, ref Guid fmtid, uint32 pid, PROPERTYUI_FLAGS* pflags) COM_GetFlags;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPropertyUI*/SelfOuter* self, ref Guid fmtid, uint32 pid, PROPVARIANT* ppropvar, PROPERTYUI_FORMAT_FLAGS puiff, char16* pwszText, uint32 cchText) FormatForDisplay;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPropertyUI*/SelfOuter* self, ref Guid fmtid, uint32 pid, char16* pwszHelpFile, uint32 cch, uint32* puHelpID) GetHelpInfo;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR pszName, ref Guid pfmtid, uint32* ppid, uint32* pchEaten) ParsePropertyName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid fmtid, uint32 pid, char16* pwszText, uint32 cchText) GetCannonicalName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid fmtid, uint32 pid, PROPERTYUI_NAME_FLAGS flags, char16* pwszText, uint32 cchText) GetDisplayName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid fmtid, uint32 pid, char16* pwszText, uint32 cchText) GetPropertyDescription;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid fmtid, uint32 pid, uint32* pcxChars) GetDefaultWidth;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid fmtid, uint32 pid, PROPERTYUI_FLAGS* pflags) COM_GetFlags;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid fmtid, uint32 pid, PROPVARIANT* ppropvar, PROPERTYUI_FORMAT_FLAGS puiff, char16* pwszText, uint32 cchText) FormatForDisplay;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid fmtid, uint32 pid, char16* pwszHelpFile, uint32 cch, uint32* puHelpID) GetHelpInfo;
 	}
 
 

@@ -71,7 +71,7 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAudioEndpointFormatControl*/SelfOuter* self, uint32 ResetFlags) ResetToDefault;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 ResetFlags) ResetToDefault;
 	}
 
 
@@ -86,9 +86,9 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAudioEndpointOffloadStreamVolume*/SelfOuter* self, uint32* pu32ChannelCount) GetVolumeChannelCount;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAudioEndpointOffloadStreamVolume*/SelfOuter* self, uint32 u32ChannelCount, float* pf32Volumes, AUDIO_CURVE_TYPE u32CurveType, int64* pCurveDuration) SetChannelVolumes;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAudioEndpointOffloadStreamVolume*/SelfOuter* self, uint32 u32ChannelCount, float* pf32Volumes) GetChannelVolumes;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pu32ChannelCount) GetVolumeChannelCount;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 u32ChannelCount, float* pf32Volumes, AUDIO_CURVE_TYPE u32CurveType, int64* pCurveDuration) SetChannelVolumes;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 u32ChannelCount, float* pf32Volumes) GetChannelVolumes;
 	}
 
 
@@ -107,8 +107,8 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAudioEndpointOffloadStreamMute*/SelfOuter* self, uint8 bMuted) SetMute;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAudioEndpointOffloadStreamMute*/SelfOuter* self, uint8* pbMuted) GetMute;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint8 bMuted) SetMute;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint8* pbMuted) GetMute;
 	}
 
 
@@ -125,8 +125,8 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAudioEndpointOffloadStreamMeter*/SelfOuter* self, uint32* pu32ChannelCount) GetMeterChannelCount;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAudioEndpointOffloadStreamMeter*/SelfOuter* self, uint32 u32ChannelCount, float* pf32PeakValues) GetMeteringData;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pu32ChannelCount) GetMeterChannelCount;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 u32ChannelCount, float* pf32PeakValues) GetMeteringData;
 	}
 
 
@@ -143,8 +143,8 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] BOOL(/*IAudioEndpointLastBufferControl*/SelfOuter* self) IsLastBufferControlSupported;
-		protected new function [CallingConvention(.Stdcall)] void(/*IAudioEndpointLastBufferControl*/SelfOuter* self, APO_CONNECTION_PROPERTY* pConnectionProperty) ReleaseOutputDataPointerForLastBuffer;
+		protected new function [CallingConvention(.Stdcall)] BOOL(SelfOuter* self) IsLastBufferControlSupported;
+		protected new function [CallingConvention(.Stdcall)] void(SelfOuter* self, APO_CONNECTION_PROPERTY* pConnectionProperty) ReleaseOutputDataPointerForLastBuffer;
 	}
 
 
@@ -161,8 +161,8 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAudioLfxControl*/SelfOuter* self, BOOL bEnabled) SetLocalEffectsState;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAudioLfxControl*/SelfOuter* self, BOOL* pbEnabled) GetLocalEffectsState;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BOOL bEnabled) SetLocalEffectsState;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BOOL* pbEnabled) GetLocalEffectsState;
 	}
 
 
@@ -179,11 +179,11 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IHardwareAudioEngineBase*/SelfOuter* self, PWSTR _pwstrDeviceId, uint32 _uConnectorId, uint32* _pAvailableConnectorInstanceCount) GetAvailableOffloadConnectorCount;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IHardwareAudioEngineBase*/SelfOuter* self, IMMDevice* pDevice, BOOL _bRequestDeviceFormat, WAVEFORMATEX** _ppwfxFormat) GetEngineFormat;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IHardwareAudioEngineBase*/SelfOuter* self, IMMDevice* pDevice, WAVEFORMATEX* _pwfxFormat) SetEngineDeviceFormat;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IHardwareAudioEngineBase*/SelfOuter* self, IMMDevice* pDevice, BOOL _bEnable) SetGfxState;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IHardwareAudioEngineBase*/SelfOuter* self, IMMDevice* pDevice, BOOL* _pbEnable) GetGfxState;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR _pwstrDeviceId, uint32 _uConnectorId, uint32* _pAvailableConnectorInstanceCount) GetAvailableOffloadConnectorCount;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IMMDevice* pDevice, BOOL _bRequestDeviceFormat, WAVEFORMATEX** _ppwfxFormat) GetEngineFormat;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IMMDevice* pDevice, WAVEFORMATEX* _pwfxFormat) SetEngineDeviceFormat;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IMMDevice* pDevice, BOOL _bEnable) SetGfxState;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IMMDevice* pDevice, BOOL* _pbEnable) GetGfxState;
 	}
 
 
@@ -206,7 +206,7 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAudioEndpointVolumeCallback*/SelfOuter* self, AUDIO_VOLUME_NOTIFICATION_DATA* pNotify) OnNotify;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, AUDIO_VOLUME_NOTIFICATION_DATA* pNotify) OnNotify;
 	}
 
 
@@ -221,24 +221,24 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAudioEndpointVolume*/SelfOuter* self, IAudioEndpointVolumeCallback* pNotify) RegisterControlChangeNotify;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAudioEndpointVolume*/SelfOuter* self, IAudioEndpointVolumeCallback* pNotify) UnregisterControlChangeNotify;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAudioEndpointVolume*/SelfOuter* self, uint32* pnChannelCount) GetChannelCount;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAudioEndpointVolume*/SelfOuter* self, float fLevelDB, ref Guid pguidEventContext) SetMasterVolumeLevel;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAudioEndpointVolume*/SelfOuter* self, float fLevel, ref Guid pguidEventContext) SetMasterVolumeLevelScalar;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAudioEndpointVolume*/SelfOuter* self, float* pfLevelDB) GetMasterVolumeLevel;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAudioEndpointVolume*/SelfOuter* self, float* pfLevel) GetMasterVolumeLevelScalar;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAudioEndpointVolume*/SelfOuter* self, uint32 nChannel, float fLevelDB, ref Guid pguidEventContext) SetChannelVolumeLevel;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAudioEndpointVolume*/SelfOuter* self, uint32 nChannel, float fLevel, ref Guid pguidEventContext) SetChannelVolumeLevelScalar;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAudioEndpointVolume*/SelfOuter* self, uint32 nChannel, float* pfLevelDB) GetChannelVolumeLevel;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAudioEndpointVolume*/SelfOuter* self, uint32 nChannel, float* pfLevel) GetChannelVolumeLevelScalar;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAudioEndpointVolume*/SelfOuter* self, BOOL bMute, ref Guid pguidEventContext) SetMute;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAudioEndpointVolume*/SelfOuter* self, BOOL* pbMute) GetMute;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAudioEndpointVolume*/SelfOuter* self, uint32* pnStep, uint32* pnStepCount) GetVolumeStepInfo;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAudioEndpointVolume*/SelfOuter* self, ref Guid pguidEventContext) VolumeStepUp;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAudioEndpointVolume*/SelfOuter* self, ref Guid pguidEventContext) VolumeStepDown;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAudioEndpointVolume*/SelfOuter* self, uint32* pdwHardwareSupportMask) QueryHardwareSupport;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAudioEndpointVolume*/SelfOuter* self, float* pflVolumeMindB, float* pflVolumeMaxdB, float* pflVolumeIncrementdB) GetVolumeRange;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IAudioEndpointVolumeCallback* pNotify) RegisterControlChangeNotify;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IAudioEndpointVolumeCallback* pNotify) UnregisterControlChangeNotify;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pnChannelCount) GetChannelCount;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, float fLevelDB, ref Guid pguidEventContext) SetMasterVolumeLevel;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, float fLevel, ref Guid pguidEventContext) SetMasterVolumeLevelScalar;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, float* pfLevelDB) GetMasterVolumeLevel;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, float* pfLevel) GetMasterVolumeLevelScalar;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 nChannel, float fLevelDB, ref Guid pguidEventContext) SetChannelVolumeLevel;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 nChannel, float fLevel, ref Guid pguidEventContext) SetChannelVolumeLevelScalar;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 nChannel, float* pfLevelDB) GetChannelVolumeLevel;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 nChannel, float* pfLevel) GetChannelVolumeLevelScalar;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BOOL bMute, ref Guid pguidEventContext) SetMute;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BOOL* pbMute) GetMute;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pnStep, uint32* pnStepCount) GetVolumeStepInfo;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid pguidEventContext) VolumeStepUp;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid pguidEventContext) VolumeStepDown;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pdwHardwareSupportMask) QueryHardwareSupport;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, float* pflVolumeMindB, float* pflVolumeMaxdB, float* pflVolumeIncrementdB) GetVolumeRange;
 	}
 
 
@@ -287,7 +287,7 @@ public static
 
 	[CRepr]public struct VTable : IAudioEndpointVolume.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAudioEndpointVolumeEx*/SelfOuter* self, uint32 iChannel, float* pflVolumeMindB, float* pflVolumeMaxdB, float* pflVolumeIncrementdB) GetVolumeRangeChannel;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 iChannel, float* pflVolumeMindB, float* pflVolumeMaxdB, float* pflVolumeIncrementdB) GetVolumeRangeChannel;
 	}
 
 
@@ -302,10 +302,10 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAudioMeterInformation*/SelfOuter* self, float* pfPeak) GetPeakValue;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAudioMeterInformation*/SelfOuter* self, uint32* pnChannelCount) GetMeteringChannelCount;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAudioMeterInformation*/SelfOuter* self, uint32 u32ChannelCount, float* afPeakValues) GetChannelsPeakValues;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAudioMeterInformation*/SelfOuter* self, uint32* pdwHardwareSupportMask) QueryHardwareSupport;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, float* pfPeak) GetPeakValue;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pnChannelCount) GetMeteringChannelCount;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 u32ChannelCount, float* afPeakValues) GetChannelsPeakValues;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pdwHardwareSupportMask) QueryHardwareSupport;
 	}
 
 

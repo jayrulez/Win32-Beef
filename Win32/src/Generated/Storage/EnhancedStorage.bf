@@ -2711,8 +2711,8 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnumEnhancedStorageACT*/SelfOuter* self, IEnhancedStorageACT*** pppIEnhancedStorageACTs, uint32* pcEnhancedStorageACTs) GetACTs;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnumEnhancedStorageACT*/SelfOuter* self, PWSTR szVolume, IEnhancedStorageACT** ppIEnhancedStorageACT) GetMatchingACT;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IEnhancedStorageACT*** pppIEnhancedStorageACTs, uint32* pcEnhancedStorageACTs) GetACTs;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR szVolume, IEnhancedStorageACT** ppIEnhancedStorageACT) GetMatchingACT;
 	}
 
 
@@ -2729,12 +2729,12 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnhancedStorageACT*/SelfOuter* self, uint32 hwndParent, uint32 dwFlags) Authorize;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnhancedStorageACT*/SelfOuter* self) Unauthorize;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnhancedStorageACT*/SelfOuter* self, ACT_AUTHORIZATION_STATE* pState) GetAuthorizationState;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnhancedStorageACT*/SelfOuter* self, PWSTR* ppwszVolume) GetMatchingVolume;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnhancedStorageACT*/SelfOuter* self, PWSTR* ppwszIdentity) GetUniqueIdentity;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnhancedStorageACT*/SelfOuter* self, IEnhancedStorageSilo*** pppIEnhancedStorageSilos, uint32* pcEnhancedStorageSilos) GetSilos;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 hwndParent, uint32 dwFlags) Authorize;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Unauthorize;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ACT_AUTHORIZATION_STATE* pState) GetAuthorizationState;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR* ppwszVolume) GetMatchingVolume;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR* ppwszIdentity) GetUniqueIdentity;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IEnhancedStorageSilo*** pppIEnhancedStorageSilos, uint32* pcEnhancedStorageSilos) GetSilos;
 	}
 
 
@@ -2759,8 +2759,8 @@ public static
 
 	[CRepr]public struct VTable : IEnhancedStorageACT.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnhancedStorageACT2*/SelfOuter* self, PWSTR* ppwszDeviceName) GetDeviceName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnhancedStorageACT2*/SelfOuter* self, BOOL* pIsDeviceRemovable) IsDeviceRemovable;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR* ppwszDeviceName) GetDeviceName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BOOL* pIsDeviceRemovable) IsDeviceRemovable;
 	}
 
 
@@ -2777,9 +2777,9 @@ public static
 
 	[CRepr]public struct VTable : IEnhancedStorageACT2.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnhancedStorageACT3*/SelfOuter* self, uint32 dwFlags) UnauthorizeEx;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnhancedStorageACT3*/SelfOuter* self, BOOL* pIsQueueFrozen) IsQueueFrozen;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnhancedStorageACT3*/SelfOuter* self, BOOL* pShellExtSupport) GetShellExtSupport;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwFlags) UnauthorizeEx;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BOOL* pIsQueueFrozen) IsQueueFrozen;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BOOL* pShellExtSupport) GetShellExtSupport;
 	}
 
 
@@ -2798,11 +2798,11 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnhancedStorageSilo*/SelfOuter* self, SILO_INFO* pSiloInfo) GetInfo;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnhancedStorageSilo*/SelfOuter* self, IEnhancedStorageSiloAction*** pppIEnhancedStorageSiloActions, uint32* pcEnhancedStorageSiloActions) GetActions;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnhancedStorageSilo*/SelfOuter* self, uint8 Command, uint8* pbCommandBuffer, uint32 cbCommandBuffer, uint8* pbResponseBuffer, uint32* pcbResponseBuffer) SendCommand;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnhancedStorageSilo*/SelfOuter* self, IPortableDevice** ppIPortableDevice) GetPortableDevice;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnhancedStorageSilo*/SelfOuter* self, PWSTR* ppwszSiloDevicePath) GetDevicePath;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, SILO_INFO* pSiloInfo) GetInfo;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IEnhancedStorageSiloAction*** pppIEnhancedStorageSiloActions, uint32* pcEnhancedStorageSiloActions) GetActions;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint8 Command, uint8* pbCommandBuffer, uint32 cbCommandBuffer, uint8* pbResponseBuffer, uint32* pcbResponseBuffer) SendCommand;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IPortableDevice** ppIPortableDevice) GetPortableDevice;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR* ppwszSiloDevicePath) GetDevicePath;
 	}
 
 
@@ -2825,9 +2825,9 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnhancedStorageSiloAction*/SelfOuter* self, PWSTR* ppwszActionName) GetName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnhancedStorageSiloAction*/SelfOuter* self, PWSTR* ppwszActionDescription) GetDescription;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnhancedStorageSiloAction*/SelfOuter* self) Invoke;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR* ppwszActionName) GetName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR* ppwszActionDescription) GetDescription;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Invoke;
 	}
 
 

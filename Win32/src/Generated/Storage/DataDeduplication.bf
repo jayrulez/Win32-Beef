@@ -185,9 +185,9 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDedupReadFileCallback*/SelfOuter* self, BSTR FileFullPath, int64 FileOffset, uint32 SizeToRead, uint8* FileBuffer, uint32* ReturnedSize, uint32 Flags) ReadBackupFile;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDedupReadFileCallback*/SelfOuter* self, uint32 NumberOfContainers, BSTR* ContainerPaths, uint32* ReadPlanEntries, DEDUP_CONTAINER_EXTENT** ReadPlan) OrderContainersRestore;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDedupReadFileCallback*/SelfOuter* self, BSTR FileFullPath, uint32 NumberOfReads, DDP_FILE_EXTENT* ReadOffsets) PreviewContainerRead;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR FileFullPath, int64 FileOffset, uint32 SizeToRead, uint8* FileBuffer, uint32* ReturnedSize, uint32 Flags) ReadBackupFile;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 NumberOfContainers, BSTR* ContainerPaths, uint32* ReadPlanEntries, DEDUP_CONTAINER_EXTENT** ReadPlan) OrderContainersRestore;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR FileFullPath, uint32 NumberOfReads, DDP_FILE_EXTENT* ReadOffsets) PreviewContainerRead;
 	}
 
 
@@ -206,7 +206,7 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDedupBackupSupport*/SelfOuter* self, uint32 NumberOfFiles, BSTR* FileFullPaths, IDedupReadFileCallback* Store, uint32 Flags, HRESULT* FileResults) RestoreFiles;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 NumberOfFiles, BSTR* FileFullPaths, IDedupReadFileCallback* Store, uint32 Flags, HRESULT* FileResults) RestoreFiles;
 	}
 
 
@@ -221,10 +221,10 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDedupChunkLibrary*/SelfOuter* self) InitializeForPushBuffers;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDedupChunkLibrary*/SelfOuter* self) Uninitialize;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDedupChunkLibrary*/SelfOuter* self, uint32 dwParamType, VARIANT vParamValue) SetParameter;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDedupChunkLibrary*/SelfOuter* self, Guid iidIteratorInterfaceID, IUnknown** ppChunksEnum) StartChunking;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) InitializeForPushBuffers;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Uninitialize;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwParamType, VARIANT vParamValue) SetParameter;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, Guid iidIteratorInterfaceID, IUnknown** ppChunksEnum) StartChunking;
 	}
 
 
@@ -245,10 +245,10 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDedupIterateChunksHash32*/SelfOuter* self, uint8* pBuffer, uint32 ulBufferLength) PushBuffer;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDedupIterateChunksHash32*/SelfOuter* self, uint32 ulMaxChunks, DEDUP_CHUNK_INFO_HASH32* pArrChunks, uint32* pulFetched) Next;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDedupIterateChunksHash32*/SelfOuter* self) Drain;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDedupIterateChunksHash32*/SelfOuter* self) Reset;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint8* pBuffer, uint32 ulBufferLength) PushBuffer;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 ulMaxChunks, DEDUP_CHUNK_INFO_HASH32* pArrChunks, uint32* pulFetched) Next;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Drain;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Reset;
 	}
 
 
@@ -269,18 +269,18 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDedupDataPort*/SelfOuter* self, DedupDataPortVolumeStatus* pStatus, uint32* pDataHeadroomMb) GetStatus;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDedupDataPort*/SelfOuter* self, uint32 Count, DedupHash* pHashes, ref Guid pRequestId) LookupChunks;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDedupDataPort*/SelfOuter* self, uint32 ChunkCount, DedupChunk* pChunkMetadata, uint32 DataByteCount, uint8* pChunkData, ref Guid pRequestId) InsertChunks;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDedupDataPort*/SelfOuter* self, uint32 ChunkCount, DedupChunk* pChunkMetadata, uint32 DataByteCount, IStream* pChunkDataStream, ref Guid pRequestId) InsertChunksWithStream;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDedupDataPort*/SelfOuter* self, uint32 StreamCount, DedupStream* pStreams, uint32 EntryCount, DedupStreamEntry* pEntries, ref Guid pRequestId) CommitStreams;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDedupDataPort*/SelfOuter* self, uint32 StreamCount, DedupStream* pStreams, uint32 EntryCount, IStream* pEntriesStream, ref Guid pRequestId) CommitStreamsWithStream;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDedupDataPort*/SelfOuter* self, uint32 StreamCount, BSTR* pStreamPaths, ref Guid pRequestId) GetStreams;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDedupDataPort*/SelfOuter* self, Guid RequestId, uint32 MaxWaitMs, uint32 StreamEntryIndex, uint32* pStreamCount, DedupStream** ppStreams, uint32* pEntryCount, DedupStreamEntry** ppEntries, DedupDataPortRequestStatus* pStatus, HRESULT** ppItemResults) GetStreamsResults;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDedupDataPort*/SelfOuter* self, uint32 Count, DedupHash* pHashes, ref Guid pRequestId) GetChunks;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDedupDataPort*/SelfOuter* self, Guid RequestId, uint32 MaxWaitMs, uint32 ChunkIndex, uint32* pChunkCount, DedupChunk** ppChunkMetadata, uint32* pDataByteCount, uint8** ppChunkData, DedupDataPortRequestStatus* pStatus, HRESULT** ppItemResults) GetChunksResults;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDedupDataPort*/SelfOuter* self, Guid RequestId, DedupDataPortRequestStatus* pStatus) GetRequestStatus;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDedupDataPort*/SelfOuter* self, Guid RequestId, uint32 MaxWaitMs, HRESULT* pBatchResult, uint32* pBatchCount, DedupDataPortRequestStatus* pStatus, HRESULT** ppItemResults) GetRequestResults;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, DedupDataPortVolumeStatus* pStatus, uint32* pDataHeadroomMb) GetStatus;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 Count, DedupHash* pHashes, ref Guid pRequestId) LookupChunks;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 ChunkCount, DedupChunk* pChunkMetadata, uint32 DataByteCount, uint8* pChunkData, ref Guid pRequestId) InsertChunks;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 ChunkCount, DedupChunk* pChunkMetadata, uint32 DataByteCount, IStream* pChunkDataStream, ref Guid pRequestId) InsertChunksWithStream;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 StreamCount, DedupStream* pStreams, uint32 EntryCount, DedupStreamEntry* pEntries, ref Guid pRequestId) CommitStreams;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 StreamCount, DedupStream* pStreams, uint32 EntryCount, IStream* pEntriesStream, ref Guid pRequestId) CommitStreamsWithStream;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 StreamCount, BSTR* pStreamPaths, ref Guid pRequestId) GetStreams;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, Guid RequestId, uint32 MaxWaitMs, uint32 StreamEntryIndex, uint32* pStreamCount, DedupStream** ppStreams, uint32* pEntryCount, DedupStreamEntry** ppEntries, DedupDataPortRequestStatus* pStatus, HRESULT** ppItemResults) GetStreamsResults;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 Count, DedupHash* pHashes, ref Guid pRequestId) GetChunks;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, Guid RequestId, uint32 MaxWaitMs, uint32 ChunkIndex, uint32* pChunkCount, DedupChunk** ppChunkMetadata, uint32* pDataByteCount, uint8** ppChunkData, DedupDataPortRequestStatus* pStatus, HRESULT** ppItemResults) GetChunksResults;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, Guid RequestId, DedupDataPortRequestStatus* pStatus) GetRequestStatus;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, Guid RequestId, uint32 MaxWaitMs, HRESULT* pBatchResult, uint32* pBatchCount, DedupDataPortRequestStatus* pStatus, HRESULT** ppItemResults) GetRequestResults;
 	}
 
 
@@ -317,9 +317,9 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDedupDataPortManager*/SelfOuter* self, uint32* pMinChunkSize, uint32* pMaxChunkSize, DedupChunkingAlgorithm* pChunkingAlgorithm, DedupHashingAlgorithm* pHashingAlgorithm, DedupCompressionAlgorithm* pCompressionAlgorithm) GetConfiguration;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDedupDataPortManager*/SelfOuter* self, uint32 Options, BSTR Path, DedupDataPortVolumeStatus* pStatus) GetVolumeStatus;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDedupDataPortManager*/SelfOuter* self, uint32 Options, BSTR Path, IDedupDataPort** ppDataPort) GetVolumeDataPort;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pMinChunkSize, uint32* pMaxChunkSize, DedupChunkingAlgorithm* pChunkingAlgorithm, DedupHashingAlgorithm* pHashingAlgorithm, DedupCompressionAlgorithm* pCompressionAlgorithm) GetConfiguration;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 Options, BSTR Path, DedupDataPortVolumeStatus* pStatus) GetVolumeStatus;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 Options, BSTR Path, IDedupDataPort** ppDataPort) GetVolumeDataPort;
 	}
 
 

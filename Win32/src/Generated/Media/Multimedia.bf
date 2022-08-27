@@ -11054,17 +11054,17 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAVIStream*/SelfOuter* self, LPARAM lParam1, LPARAM lParam2) Create;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAVIStream*/SelfOuter* self, AVISTREAMINFOW* psi, int32 lSize) Info;
-		protected new function [CallingConvention(.Stdcall)] int32(/*IAVIStream*/SelfOuter* self, int32 lPos, int32 lFlags) FindSample;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAVIStream*/SelfOuter* self, int32 lPos, void* lpFormat, int32* lpcbFormat) ReadFormat;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAVIStream*/SelfOuter* self, int32 lPos, void* lpFormat, int32 cbFormat) SetFormat;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAVIStream*/SelfOuter* self, int32 lStart, int32 lSamples, void* lpBuffer, int32 cbBuffer, int32* plBytes, int32* plSamples) Read;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAVIStream*/SelfOuter* self, int32 lStart, int32 lSamples, void* lpBuffer, int32 cbBuffer, uint32 dwFlags, int32* plSampWritten, int32* plBytesWritten) Write;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAVIStream*/SelfOuter* self, int32 lStart, int32 lSamples) Delete;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAVIStream*/SelfOuter* self, uint32 fcc, void* lp, int32* lpcb) ReadData;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAVIStream*/SelfOuter* self, uint32 fcc, void* lp, int32 cb) WriteData;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAVIStream*/SelfOuter* self, AVISTREAMINFOW* lpInfo, int32 cbInfo) SetInfo;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, LPARAM lParam1, LPARAM lParam2) Create;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, AVISTREAMINFOW* psi, int32 lSize) Info;
+		protected new function [CallingConvention(.Stdcall)] int32(SelfOuter* self, int32 lPos, int32 lFlags) FindSample;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 lPos, void* lpFormat, int32* lpcbFormat) ReadFormat;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 lPos, void* lpFormat, int32 cbFormat) SetFormat;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 lStart, int32 lSamples, void* lpBuffer, int32 cbBuffer, int32* plBytes, int32* plSamples) Read;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 lStart, int32 lSamples, void* lpBuffer, int32 cbBuffer, uint32 dwFlags, int32* plSampWritten, int32* plBytesWritten) Write;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 lStart, int32 lSamples) Delete;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 fcc, void* lp, int32* lpcb) ReadData;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 fcc, void* lp, int32 cb) WriteData;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, AVISTREAMINFOW* lpInfo, int32 cbInfo) SetInfo;
 	}
 
 
@@ -11099,8 +11099,8 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAVIStreaming*/SelfOuter* self, int32 lStart, int32 lEnd, int32 lRate) Begin;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAVIStreaming*/SelfOuter* self) End;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 lStart, int32 lEnd, int32 lRate) Begin;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) End;
 	}
 
 
@@ -11117,11 +11117,11 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAVIEditStream*/SelfOuter* self, int32* plStart, int32* plLength, IAVIStream** ppResult) Cut;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAVIEditStream*/SelfOuter* self, int32* plStart, int32* plLength, IAVIStream** ppResult) Copy;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAVIEditStream*/SelfOuter* self, int32* plPos, int32* plLength, IAVIStream* pstream, int32 lStart, int32 lEnd) Paste;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAVIEditStream*/SelfOuter* self, IAVIStream** ppResult) Clone;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAVIEditStream*/SelfOuter* self, AVISTREAMINFOW* lpInfo, int32 cbInfo) SetInfo;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* plStart, int32* plLength, IAVIStream** ppResult) Cut;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* plStart, int32* plLength, IAVIStream** ppResult) Copy;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* plPos, int32* plLength, IAVIStream* pstream, int32 lStart, int32 lEnd) Paste;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IAVIStream** ppResult) Clone;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, AVISTREAMINFOW* lpInfo, int32 cbInfo) SetInfo;
 	}
 
 
@@ -11144,7 +11144,7 @@ public static
 
 	[CRepr]public struct VTable : IPersistFile.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAVIPersistFile*/SelfOuter* self) Reserved1;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Reserved1;
 	}
 
 
@@ -11159,13 +11159,13 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAVIFile*/SelfOuter* self, AVIFILEINFOW* pfi, int32 lSize) Info;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAVIFile*/SelfOuter* self, IAVIStream** ppStream, uint32 fccType, int32 lParam) GetStream;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAVIFile*/SelfOuter* self, IAVIStream** ppStream, AVISTREAMINFOW* psi) CreateStream;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAVIFile*/SelfOuter* self, uint32 ckid, void* lpData, int32 cbData) WriteData;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAVIFile*/SelfOuter* self, uint32 ckid, void* lpData, int32* lpcbData) ReadData;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAVIFile*/SelfOuter* self) EndRecord;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAVIFile*/SelfOuter* self, uint32 fccType, int32 lParam) DeleteStream;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, AVIFILEINFOW* pfi, int32 lSize) Info;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IAVIStream** ppStream, uint32 fccType, int32 lParam) GetStream;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IAVIStream** ppStream, AVISTREAMINFOW* psi) CreateStream;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 ckid, void* lpData, int32 cbData) WriteData;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 ckid, void* lpData, int32* lpcbData) ReadData;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) EndRecord;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 fccType, int32 lParam) DeleteStream;
 	}
 
 
@@ -11192,10 +11192,10 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] void*(/*IGetFrame*/SelfOuter* self, int32 lPos) GetFrame;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGetFrame*/SelfOuter* self, int32 lStart, int32 lEnd, int32 lRate) Begin;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGetFrame*/SelfOuter* self) End;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGetFrame*/SelfOuter* self, BITMAPINFOHEADER* lpbi, void* lpBits, int32 x, int32 y, int32 dx, int32 dy) SetFormat;
+		protected new function [CallingConvention(.Stdcall)] void*(SelfOuter* self, int32 lPos) GetFrame;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 lStart, int32 lEnd, int32 lRate) Begin;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) End;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BITMAPINFOHEADER* lpbi, void* lpBits, int32 x, int32 y, int32 dx, int32 dy) SetFormat;
 	}
 
 

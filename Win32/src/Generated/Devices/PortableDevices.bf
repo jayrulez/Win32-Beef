@@ -2168,10 +2168,10 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWpdSerializer*/SelfOuter* self, uint8* pBuffer, uint32 dwInputBufferLength, IPortableDeviceValues** ppParams) GetIPortableDeviceValuesFromBuffer;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWpdSerializer*/SelfOuter* self, uint32 dwOutputBufferLength, IPortableDeviceValues* pResults, uint8* pBuffer, uint32* pdwBytesWritten) WriteIPortableDeviceValuesToBuffer;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWpdSerializer*/SelfOuter* self, IPortableDeviceValues* pSource, uint8** ppBuffer, uint32* pdwBufferSize) GetBufferFromIPortableDeviceValues;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWpdSerializer*/SelfOuter* self, IPortableDeviceValues* pSource, uint32* pdwSize) GetSerializedSize;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint8* pBuffer, uint32 dwInputBufferLength, IPortableDeviceValues** ppParams) GetIPortableDeviceValuesFromBuffer;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwOutputBufferLength, IPortableDeviceValues* pResults, uint8* pBuffer, uint32* pdwBytesWritten) WriteIPortableDeviceValuesToBuffer;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IPortableDeviceValues* pSource, uint8** ppBuffer, uint32* pdwBufferSize) GetBufferFromIPortableDeviceValues;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IPortableDeviceValues* pSource, uint32* pdwSize) GetSerializedSize;
 	}
 
 
@@ -2192,46 +2192,46 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPortableDeviceValues*/SelfOuter* self, uint32* pcelt) GetCount;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPortableDeviceValues*/SelfOuter* self, uint32 index, PROPERTYKEY* pKey, PROPVARIANT* pValue) GetAt;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPortableDeviceValues*/SelfOuter* self, PROPERTYKEY* key, PROPVARIANT* pValue) SetValue;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPortableDeviceValues*/SelfOuter* self, PROPERTYKEY* key, PROPVARIANT* pValue) GetValue;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPortableDeviceValues*/SelfOuter* self, PROPERTYKEY* key, PWSTR Value) SetStringValue;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPortableDeviceValues*/SelfOuter* self, PROPERTYKEY* key, PWSTR* pValue) GetStringValue;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPortableDeviceValues*/SelfOuter* self, PROPERTYKEY* key, uint32 Value) SetUnsignedIntegerValue;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPortableDeviceValues*/SelfOuter* self, PROPERTYKEY* key, uint32* pValue) GetUnsignedIntegerValue;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPortableDeviceValues*/SelfOuter* self, PROPERTYKEY* key, int32 Value) SetSignedIntegerValue;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPortableDeviceValues*/SelfOuter* self, PROPERTYKEY* key, int32* pValue) GetSignedIntegerValue;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPortableDeviceValues*/SelfOuter* self, PROPERTYKEY* key, uint64 Value) SetUnsignedLargeIntegerValue;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPortableDeviceValues*/SelfOuter* self, PROPERTYKEY* key, uint64* pValue) GetUnsignedLargeIntegerValue;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPortableDeviceValues*/SelfOuter* self, PROPERTYKEY* key, int64 Value) SetSignedLargeIntegerValue;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPortableDeviceValues*/SelfOuter* self, PROPERTYKEY* key, int64* pValue) GetSignedLargeIntegerValue;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPortableDeviceValues*/SelfOuter* self, PROPERTYKEY* key, float Value) SetFloatValue;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPortableDeviceValues*/SelfOuter* self, PROPERTYKEY* key, float* pValue) GetFloatValue;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPortableDeviceValues*/SelfOuter* self, PROPERTYKEY* key, HRESULT Value) SetErrorValue;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPortableDeviceValues*/SelfOuter* self, PROPERTYKEY* key, HRESULT* pValue) GetErrorValue;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPortableDeviceValues*/SelfOuter* self, PROPERTYKEY* key, PROPERTYKEY* Value) SetKeyValue;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPortableDeviceValues*/SelfOuter* self, PROPERTYKEY* key, PROPERTYKEY* pValue) GetKeyValue;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPortableDeviceValues*/SelfOuter* self, PROPERTYKEY* key, BOOL Value) SetBoolValue;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPortableDeviceValues*/SelfOuter* self, PROPERTYKEY* key, BOOL* pValue) GetBoolValue;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPortableDeviceValues*/SelfOuter* self, PROPERTYKEY* key, IUnknown* pValue) SetIUnknownValue;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPortableDeviceValues*/SelfOuter* self, PROPERTYKEY* key, IUnknown** ppValue) GetIUnknownValue;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPortableDeviceValues*/SelfOuter* self, PROPERTYKEY* key, ref Guid Value) SetGuidValue;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPortableDeviceValues*/SelfOuter* self, PROPERTYKEY* key, ref Guid pValue) GetGuidValue;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPortableDeviceValues*/SelfOuter* self, PROPERTYKEY* key, uint8* pValue, uint32 cbValue) SetBufferValue;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPortableDeviceValues*/SelfOuter* self, PROPERTYKEY* key, uint8** ppValue, uint32* pcbValue) GetBufferValue;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPortableDeviceValues*/SelfOuter* self, PROPERTYKEY* key, IPortableDeviceValues* pValue) SetIPortableDeviceValuesValue;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPortableDeviceValues*/SelfOuter* self, PROPERTYKEY* key, IPortableDeviceValues** ppValue) GetIPortableDeviceValuesValue;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPortableDeviceValues*/SelfOuter* self, PROPERTYKEY* key, IPortableDevicePropVariantCollection* pValue) SetIPortableDevicePropVariantCollectionValue;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPortableDeviceValues*/SelfOuter* self, PROPERTYKEY* key, IPortableDevicePropVariantCollection** ppValue) GetIPortableDevicePropVariantCollectionValue;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPortableDeviceValues*/SelfOuter* self, PROPERTYKEY* key, IPortableDeviceKeyCollection* pValue) SetIPortableDeviceKeyCollectionValue;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPortableDeviceValues*/SelfOuter* self, PROPERTYKEY* key, IPortableDeviceKeyCollection** ppValue) GetIPortableDeviceKeyCollectionValue;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPortableDeviceValues*/SelfOuter* self, PROPERTYKEY* key, IPortableDeviceValuesCollection* pValue) SetIPortableDeviceValuesCollectionValue;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPortableDeviceValues*/SelfOuter* self, PROPERTYKEY* key, IPortableDeviceValuesCollection** ppValue) GetIPortableDeviceValuesCollectionValue;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPortableDeviceValues*/SelfOuter* self, PROPERTYKEY* key) RemoveValue;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPortableDeviceValues*/SelfOuter* self, IPropertyStore* pStore) CopyValuesFromPropertyStore;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPortableDeviceValues*/SelfOuter* self, IPropertyStore* pStore) CopyValuesToPropertyStore;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPortableDeviceValues*/SelfOuter* self) Clear;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pcelt) GetCount;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 index, PROPERTYKEY* pKey, PROPVARIANT* pValue) GetAt;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PROPERTYKEY* key, PROPVARIANT* pValue) SetValue;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PROPERTYKEY* key, PROPVARIANT* pValue) GetValue;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PROPERTYKEY* key, PWSTR Value) SetStringValue;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PROPERTYKEY* key, PWSTR* pValue) GetStringValue;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PROPERTYKEY* key, uint32 Value) SetUnsignedIntegerValue;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PROPERTYKEY* key, uint32* pValue) GetUnsignedIntegerValue;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PROPERTYKEY* key, int32 Value) SetSignedIntegerValue;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PROPERTYKEY* key, int32* pValue) GetSignedIntegerValue;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PROPERTYKEY* key, uint64 Value) SetUnsignedLargeIntegerValue;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PROPERTYKEY* key, uint64* pValue) GetUnsignedLargeIntegerValue;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PROPERTYKEY* key, int64 Value) SetSignedLargeIntegerValue;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PROPERTYKEY* key, int64* pValue) GetSignedLargeIntegerValue;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PROPERTYKEY* key, float Value) SetFloatValue;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PROPERTYKEY* key, float* pValue) GetFloatValue;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PROPERTYKEY* key, HRESULT Value) SetErrorValue;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PROPERTYKEY* key, HRESULT* pValue) GetErrorValue;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PROPERTYKEY* key, PROPERTYKEY* Value) SetKeyValue;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PROPERTYKEY* key, PROPERTYKEY* pValue) GetKeyValue;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PROPERTYKEY* key, BOOL Value) SetBoolValue;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PROPERTYKEY* key, BOOL* pValue) GetBoolValue;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PROPERTYKEY* key, IUnknown* pValue) SetIUnknownValue;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PROPERTYKEY* key, IUnknown** ppValue) GetIUnknownValue;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PROPERTYKEY* key, ref Guid Value) SetGuidValue;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PROPERTYKEY* key, ref Guid pValue) GetGuidValue;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PROPERTYKEY* key, uint8* pValue, uint32 cbValue) SetBufferValue;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PROPERTYKEY* key, uint8** ppValue, uint32* pcbValue) GetBufferValue;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PROPERTYKEY* key, IPortableDeviceValues* pValue) SetIPortableDeviceValuesValue;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PROPERTYKEY* key, IPortableDeviceValues** ppValue) GetIPortableDeviceValuesValue;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PROPERTYKEY* key, IPortableDevicePropVariantCollection* pValue) SetIPortableDevicePropVariantCollectionValue;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PROPERTYKEY* key, IPortableDevicePropVariantCollection** ppValue) GetIPortableDevicePropVariantCollectionValue;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PROPERTYKEY* key, IPortableDeviceKeyCollection* pValue) SetIPortableDeviceKeyCollectionValue;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PROPERTYKEY* key, IPortableDeviceKeyCollection** ppValue) GetIPortableDeviceKeyCollectionValue;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PROPERTYKEY* key, IPortableDeviceValuesCollection* pValue) SetIPortableDeviceValuesCollectionValue;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PROPERTYKEY* key, IPortableDeviceValuesCollection** ppValue) GetIPortableDeviceValuesCollectionValue;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PROPERTYKEY* key) RemoveValue;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IPropertyStore* pStore) CopyValuesFromPropertyStore;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IPropertyStore* pStore) CopyValuesToPropertyStore;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Clear;
 	}
 
 
@@ -2324,11 +2324,11 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPortableDeviceKeyCollection*/SelfOuter* self, uint32* pcElems) GetCount;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPortableDeviceKeyCollection*/SelfOuter* self, uint32 dwIndex, PROPERTYKEY* pKey) GetAt;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPortableDeviceKeyCollection*/SelfOuter* self, PROPERTYKEY* Key) Add;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPortableDeviceKeyCollection*/SelfOuter* self) Clear;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPortableDeviceKeyCollection*/SelfOuter* self, uint32 dwIndex) RemoveAt;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pcElems) GetCount;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwIndex, PROPERTYKEY* pKey) GetAt;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PROPERTYKEY* Key) Add;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Clear;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwIndex) RemoveAt;
 	}
 
 
@@ -2351,13 +2351,13 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPortableDevicePropVariantCollection*/SelfOuter* self, uint32* pcElems) GetCount;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPortableDevicePropVariantCollection*/SelfOuter* self, uint32 dwIndex, PROPVARIANT* pValue) GetAt;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPortableDevicePropVariantCollection*/SelfOuter* self, PROPVARIANT* pValue) Add;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPortableDevicePropVariantCollection*/SelfOuter* self, uint16* pvt) COM_GetType;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPortableDevicePropVariantCollection*/SelfOuter* self, uint16 vt) ChangeType;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPortableDevicePropVariantCollection*/SelfOuter* self) Clear;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPortableDevicePropVariantCollection*/SelfOuter* self, uint32 dwIndex) RemoveAt;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pcElems) GetCount;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwIndex, PROPVARIANT* pValue) GetAt;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PROPVARIANT* pValue) Add;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint16* pvt) COM_GetType;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint16 vt) ChangeType;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Clear;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwIndex) RemoveAt;
 	}
 
 
@@ -2384,11 +2384,11 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPortableDeviceValuesCollection*/SelfOuter* self, uint32* pcElems) GetCount;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPortableDeviceValuesCollection*/SelfOuter* self, uint32 dwIndex, IPortableDeviceValues** ppValues) GetAt;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPortableDeviceValuesCollection*/SelfOuter* self, IPortableDeviceValues* pValues) Add;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPortableDeviceValuesCollection*/SelfOuter* self) Clear;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPortableDeviceValuesCollection*/SelfOuter* self, uint32 dwIndex) RemoveAt;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pcElems) GetCount;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwIndex, IPortableDeviceValues** ppValues) GetAt;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IPortableDeviceValues* pValues) Add;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Clear;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwIndex) RemoveAt;
 	}
 
 
@@ -2411,13 +2411,13 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPortableDeviceManager*/SelfOuter* self, PWSTR* pPnPDeviceIDs, uint32* pcPnPDeviceIDs) GetDevices;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPortableDeviceManager*/SelfOuter* self) RefreshDeviceList;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPortableDeviceManager*/SelfOuter* self, PWSTR pszPnPDeviceID, PWSTR pDeviceFriendlyName, uint32* pcchDeviceFriendlyName) GetDeviceFriendlyName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPortableDeviceManager*/SelfOuter* self, PWSTR pszPnPDeviceID, PWSTR pDeviceDescription, uint32* pcchDeviceDescription) GetDeviceDescription;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPortableDeviceManager*/SelfOuter* self, PWSTR pszPnPDeviceID, PWSTR pDeviceManufacturer, uint32* pcchDeviceManufacturer) GetDeviceManufacturer;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPortableDeviceManager*/SelfOuter* self, PWSTR pszPnPDeviceID, PWSTR pszDevicePropertyName, uint8* pData, uint32* pcbData, uint32* pdwType) GetDeviceProperty;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPortableDeviceManager*/SelfOuter* self, PWSTR* pPnPDeviceIDs, uint32* pcPnPDeviceIDs) GetPrivateDevices;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR* pPnPDeviceIDs, uint32* pcPnPDeviceIDs) GetDevices;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) RefreshDeviceList;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR pszPnPDeviceID, PWSTR pDeviceFriendlyName, uint32* pcchDeviceFriendlyName) GetDeviceFriendlyName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR pszPnPDeviceID, PWSTR pDeviceDescription, uint32* pcchDeviceDescription) GetDeviceDescription;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR pszPnPDeviceID, PWSTR pDeviceManufacturer, uint32* pcchDeviceManufacturer) GetDeviceManufacturer;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR pszPnPDeviceID, PWSTR pszDevicePropertyName, uint8* pData, uint32* pcbData, uint32* pdwType) GetDeviceProperty;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR* pPnPDeviceIDs, uint32* pcPnPDeviceIDs) GetPrivateDevices;
 	}
 
 
@@ -2444,15 +2444,15 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPortableDevice*/SelfOuter* self, PWSTR pszPnPDeviceID, IPortableDeviceValues* pClientInfo) Open;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPortableDevice*/SelfOuter* self, uint32 dwFlags, IPortableDeviceValues* pParameters, IPortableDeviceValues** ppResults) SendCommand;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPortableDevice*/SelfOuter* self, IPortableDeviceContent** ppContent) Content;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPortableDevice*/SelfOuter* self, IPortableDeviceCapabilities** ppCapabilities) Capabilities;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPortableDevice*/SelfOuter* self) Cancel;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPortableDevice*/SelfOuter* self) Close;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPortableDevice*/SelfOuter* self, uint32 dwFlags, IPortableDeviceEventCallback* pCallback, IPortableDeviceValues* pParameters, PWSTR* ppszCookie) Advise;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPortableDevice*/SelfOuter* self, PWSTR pszCookie) Unadvise;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPortableDevice*/SelfOuter* self, PWSTR* ppszPnPDeviceID) GetPnPDeviceID;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR pszPnPDeviceID, IPortableDeviceValues* pClientInfo) Open;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwFlags, IPortableDeviceValues* pParameters, IPortableDeviceValues** ppResults) SendCommand;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IPortableDeviceContent** ppContent) Content;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IPortableDeviceCapabilities** ppCapabilities) Capabilities;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Cancel;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Close;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwFlags, IPortableDeviceEventCallback* pCallback, IPortableDeviceValues* pParameters, PWSTR* ppszCookie) Advise;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR pszCookie) Unadvise;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR* ppszPnPDeviceID) GetPnPDeviceID;
 	}
 
 
@@ -2483,16 +2483,16 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPortableDeviceContent*/SelfOuter* self, uint32 dwFlags, PWSTR pszParentObjectID, IPortableDeviceValues* pFilter, IEnumPortableDeviceObjectIDs** ppEnum) EnumObjects;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPortableDeviceContent*/SelfOuter* self, IPortableDeviceProperties** ppProperties) Properties;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPortableDeviceContent*/SelfOuter* self, IPortableDeviceResources** ppResources) Transfer;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPortableDeviceContent*/SelfOuter* self, IPortableDeviceValues* pValues, PWSTR* ppszObjectID) CreateObjectWithPropertiesOnly;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPortableDeviceContent*/SelfOuter* self, IPortableDeviceValues* pValues, IStream** ppData, uint32* pdwOptimalWriteBufferSize, PWSTR* ppszCookie) CreateObjectWithPropertiesAndData;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPortableDeviceContent*/SelfOuter* self, uint32 dwOptions, IPortableDevicePropVariantCollection* pObjectIDs, IPortableDevicePropVariantCollection** ppResults) Delete;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPortableDeviceContent*/SelfOuter* self, IPortableDevicePropVariantCollection* pPersistentUniqueIDs, IPortableDevicePropVariantCollection** ppObjectIDs) GetObjectIDsFromPersistentUniqueIDs;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPortableDeviceContent*/SelfOuter* self) Cancel;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPortableDeviceContent*/SelfOuter* self, IPortableDevicePropVariantCollection* pObjectIDs, PWSTR pszDestinationFolderObjectID, IPortableDevicePropVariantCollection** ppResults) Move;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPortableDeviceContent*/SelfOuter* self, IPortableDevicePropVariantCollection* pObjectIDs, PWSTR pszDestinationFolderObjectID, IPortableDevicePropVariantCollection** ppResults) Copy;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwFlags, PWSTR pszParentObjectID, IPortableDeviceValues* pFilter, IEnumPortableDeviceObjectIDs** ppEnum) EnumObjects;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IPortableDeviceProperties** ppProperties) Properties;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IPortableDeviceResources** ppResources) Transfer;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IPortableDeviceValues* pValues, PWSTR* ppszObjectID) CreateObjectWithPropertiesOnly;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IPortableDeviceValues* pValues, IStream** ppData, uint32* pdwOptimalWriteBufferSize, PWSTR* ppszCookie) CreateObjectWithPropertiesAndData;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwOptions, IPortableDevicePropVariantCollection* pObjectIDs, IPortableDevicePropVariantCollection** ppResults) Delete;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IPortableDevicePropVariantCollection* pPersistentUniqueIDs, IPortableDevicePropVariantCollection** ppObjectIDs) GetObjectIDsFromPersistentUniqueIDs;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Cancel;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IPortableDevicePropVariantCollection* pObjectIDs, PWSTR pszDestinationFolderObjectID, IPortableDevicePropVariantCollection** ppResults) Move;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IPortableDevicePropVariantCollection* pObjectIDs, PWSTR pszDestinationFolderObjectID, IPortableDevicePropVariantCollection** ppResults) Copy;
 	}
 
 
@@ -2525,7 +2525,7 @@ public static
 
 	[CRepr]public struct VTable : IPortableDeviceContent.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPortableDeviceContent2*/SelfOuter* self, PWSTR pszObjectID, IPortableDeviceValues* pProperties, IStream** ppData, uint32* pdwOptimalWriteBufferSize) UpdateObjectWithPropertiesAndData;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR pszObjectID, IPortableDeviceValues* pProperties, IStream** ppData, uint32* pdwOptimalWriteBufferSize) UpdateObjectWithPropertiesAndData;
 	}
 
 
@@ -2540,11 +2540,11 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnumPortableDeviceObjectIDs*/SelfOuter* self, uint32 cObjects, PWSTR* pObjIDs, uint32* pcFetched) Next;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnumPortableDeviceObjectIDs*/SelfOuter* self, uint32 cObjects) Skip;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnumPortableDeviceObjectIDs*/SelfOuter* self) Reset;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnumPortableDeviceObjectIDs*/SelfOuter* self, IEnumPortableDeviceObjectIDs** ppEnum) Clone;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnumPortableDeviceObjectIDs*/SelfOuter* self) Cancel;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 cObjects, PWSTR* pObjIDs, uint32* pcFetched) Next;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 cObjects) Skip;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Reset;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IEnumPortableDeviceObjectIDs** ppEnum) Clone;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Cancel;
 	}
 
 
@@ -2567,12 +2567,12 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPortableDeviceProperties*/SelfOuter* self, PWSTR pszObjectID, IPortableDeviceKeyCollection** ppKeys) GetSupportedProperties;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPortableDeviceProperties*/SelfOuter* self, PWSTR pszObjectID, PROPERTYKEY* Key, IPortableDeviceValues** ppAttributes) GetPropertyAttributes;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPortableDeviceProperties*/SelfOuter* self, PWSTR pszObjectID, IPortableDeviceKeyCollection* pKeys, IPortableDeviceValues** ppValues) GetValues;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPortableDeviceProperties*/SelfOuter* self, PWSTR pszObjectID, IPortableDeviceValues* pValues, IPortableDeviceValues** ppResults) SetValues;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPortableDeviceProperties*/SelfOuter* self, PWSTR pszObjectID, IPortableDeviceKeyCollection* pKeys) Delete;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPortableDeviceProperties*/SelfOuter* self) Cancel;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR pszObjectID, IPortableDeviceKeyCollection** ppKeys) GetSupportedProperties;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR pszObjectID, PROPERTYKEY* Key, IPortableDeviceValues** ppAttributes) GetPropertyAttributes;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR pszObjectID, IPortableDeviceKeyCollection* pKeys, IPortableDeviceValues** ppValues) GetValues;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR pszObjectID, IPortableDeviceValues* pValues, IPortableDeviceValues** ppResults) SetValues;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR pszObjectID, IPortableDeviceKeyCollection* pKeys) Delete;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Cancel;
 	}
 
 
@@ -2597,12 +2597,12 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPortableDeviceResources*/SelfOuter* self, PWSTR pszObjectID, IPortableDeviceKeyCollection** ppKeys) GetSupportedResources;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPortableDeviceResources*/SelfOuter* self, PWSTR pszObjectID, PROPERTYKEY* Key, IPortableDeviceValues** ppResourceAttributes) GetResourceAttributes;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPortableDeviceResources*/SelfOuter* self, PWSTR pszObjectID, PROPERTYKEY* Key, uint32 dwMode, uint32* pdwOptimalBufferSize, IStream** ppStream) GetStream;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPortableDeviceResources*/SelfOuter* self, PWSTR pszObjectID, IPortableDeviceKeyCollection* pKeys) Delete;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPortableDeviceResources*/SelfOuter* self) Cancel;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPortableDeviceResources*/SelfOuter* self, IPortableDeviceValues* pResourceAttributes, IStream** ppData, uint32* pdwOptimalWriteBufferSize, PWSTR* ppszCookie) CreateResource;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR pszObjectID, IPortableDeviceKeyCollection** ppKeys) GetSupportedResources;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR pszObjectID, PROPERTYKEY* Key, IPortableDeviceValues** ppResourceAttributes) GetResourceAttributes;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR pszObjectID, PROPERTYKEY* Key, uint32 dwMode, uint32* pdwOptimalBufferSize, IStream** ppStream) GetStream;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR pszObjectID, IPortableDeviceKeyCollection* pKeys) Delete;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Cancel;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IPortableDeviceValues* pResourceAttributes, IStream** ppData, uint32* pdwOptimalWriteBufferSize, PWSTR* ppszCookie) CreateResource;
 	}
 
 
@@ -2627,17 +2627,17 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPortableDeviceCapabilities*/SelfOuter* self, IPortableDeviceKeyCollection** ppCommands) GetSupportedCommands;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPortableDeviceCapabilities*/SelfOuter* self, PROPERTYKEY* Command, IPortableDeviceValues** ppOptions) GetCommandOptions;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPortableDeviceCapabilities*/SelfOuter* self, IPortableDevicePropVariantCollection** ppCategories) GetFunctionalCategories;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPortableDeviceCapabilities*/SelfOuter* self, ref Guid Category, IPortableDevicePropVariantCollection** ppObjectIDs) GetFunctionalObjects;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPortableDeviceCapabilities*/SelfOuter* self, ref Guid Category, IPortableDevicePropVariantCollection** ppContentTypes) GetSupportedContentTypes;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPortableDeviceCapabilities*/SelfOuter* self, ref Guid ContentType, IPortableDevicePropVariantCollection** ppFormats) GetSupportedFormats;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPortableDeviceCapabilities*/SelfOuter* self, ref Guid Format, IPortableDeviceKeyCollection** ppKeys) GetSupportedFormatProperties;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPortableDeviceCapabilities*/SelfOuter* self, ref Guid Format, PROPERTYKEY* Key, IPortableDeviceValues** ppAttributes) GetFixedPropertyAttributes;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPortableDeviceCapabilities*/SelfOuter* self) Cancel;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPortableDeviceCapabilities*/SelfOuter* self, IPortableDevicePropVariantCollection** ppEvents) GetSupportedEvents;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPortableDeviceCapabilities*/SelfOuter* self, ref Guid Event, IPortableDeviceValues** ppOptions) GetEventOptions;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IPortableDeviceKeyCollection** ppCommands) GetSupportedCommands;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PROPERTYKEY* Command, IPortableDeviceValues** ppOptions) GetCommandOptions;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IPortableDevicePropVariantCollection** ppCategories) GetFunctionalCategories;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid Category, IPortableDevicePropVariantCollection** ppObjectIDs) GetFunctionalObjects;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid Category, IPortableDevicePropVariantCollection** ppContentTypes) GetSupportedContentTypes;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid ContentType, IPortableDevicePropVariantCollection** ppFormats) GetSupportedFormats;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid Format, IPortableDeviceKeyCollection** ppKeys) GetSupportedFormatProperties;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid Format, PROPERTYKEY* Key, IPortableDeviceValues** ppAttributes) GetFixedPropertyAttributes;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Cancel;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IPortableDevicePropVariantCollection** ppEvents) GetSupportedEvents;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid Event, IPortableDeviceValues** ppOptions) GetEventOptions;
 	}
 
 
@@ -2672,7 +2672,7 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPortableDeviceEventCallback*/SelfOuter* self, IPortableDeviceValues* pEventParameters) OnEvent;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IPortableDeviceValues* pEventParameters) OnEvent;
 	}
 
 
@@ -2687,8 +2687,8 @@ public static
 
 	[CRepr]public struct VTable : IStream.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPortableDeviceDataStream*/SelfOuter* self, PWSTR* ppszObjectID) GetObjectID;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPortableDeviceDataStream*/SelfOuter* self) Cancel;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR* ppszObjectID) GetObjectID;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Cancel;
 	}
 
 
@@ -2705,8 +2705,8 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPortableDeviceUnitsStream*/SelfOuter* self, LARGE_INTEGER dlibMove, WPD_STREAM_UNITS units, uint32 dwOrigin, ULARGE_INTEGER* plibNewPosition) SeekInUnits;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPortableDeviceUnitsStream*/SelfOuter* self) Cancel;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, LARGE_INTEGER dlibMove, WPD_STREAM_UNITS units, uint32 dwOrigin, ULARGE_INTEGER* plibNewPosition) SeekInUnits;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Cancel;
 	}
 
 
@@ -2723,11 +2723,11 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPortableDevicePropertiesBulk*/SelfOuter* self, IPortableDevicePropVariantCollection* pObjectIDs, IPortableDeviceKeyCollection* pKeys, IPortableDevicePropertiesBulkCallback* pCallback, ref Guid pContext) QueueGetValuesByObjectList;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPortableDevicePropertiesBulk*/SelfOuter* self, ref Guid pguidObjectFormat, PWSTR pszParentObjectID, uint32 dwDepth, IPortableDeviceKeyCollection* pKeys, IPortableDevicePropertiesBulkCallback* pCallback, ref Guid pContext) QueueGetValuesByObjectFormat;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPortableDevicePropertiesBulk*/SelfOuter* self, IPortableDeviceValuesCollection* pObjectValues, IPortableDevicePropertiesBulkCallback* pCallback, ref Guid pContext) QueueSetValuesByObjectList;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPortableDevicePropertiesBulk*/SelfOuter* self, ref Guid pContext) Start;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPortableDevicePropertiesBulk*/SelfOuter* self, ref Guid pContext) Cancel;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IPortableDevicePropVariantCollection* pObjectIDs, IPortableDeviceKeyCollection* pKeys, IPortableDevicePropertiesBulkCallback* pCallback, ref Guid pContext) QueueGetValuesByObjectList;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid pguidObjectFormat, PWSTR pszParentObjectID, uint32 dwDepth, IPortableDeviceKeyCollection* pKeys, IPortableDevicePropertiesBulkCallback* pCallback, ref Guid pContext) QueueGetValuesByObjectFormat;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IPortableDeviceValuesCollection* pObjectValues, IPortableDevicePropertiesBulkCallback* pCallback, ref Guid pContext) QueueSetValuesByObjectList;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid pContext) Start;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid pContext) Cancel;
 	}
 
 
@@ -2750,9 +2750,9 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPortableDevicePropertiesBulkCallback*/SelfOuter* self, ref Guid pContext) OnStart;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPortableDevicePropertiesBulkCallback*/SelfOuter* self, ref Guid pContext, IPortableDeviceValuesCollection* pResults) OnProgress;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPortableDevicePropertiesBulkCallback*/SelfOuter* self, ref Guid pContext, HRESULT hrStatus) OnEnd;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid pContext) OnStart;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid pContext, IPortableDeviceValuesCollection* pResults) OnProgress;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid pContext, HRESULT hrStatus) OnEnd;
 	}
 
 
@@ -2771,8 +2771,8 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPortableDeviceServiceManager*/SelfOuter* self, PWSTR pszPnPDeviceID, ref Guid guidServiceCategory, PWSTR* pServices, uint32* pcServices) GetDeviceServices;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPortableDeviceServiceManager*/SelfOuter* self, PWSTR pszPnPServiceID, PWSTR* ppszPnPDeviceID) GetDeviceForService;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR pszPnPDeviceID, ref Guid guidServiceCategory, PWSTR* pServices, uint32* pcServices) GetDeviceServices;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR pszPnPServiceID, PWSTR* ppszPnPDeviceID) GetDeviceForService;
 	}
 
 
@@ -2789,17 +2789,17 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPortableDeviceService*/SelfOuter* self, PWSTR pszPnPServiceID, IPortableDeviceValues* pClientInfo) Open;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPortableDeviceService*/SelfOuter* self, IPortableDeviceServiceCapabilities** ppCapabilities) Capabilities;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPortableDeviceService*/SelfOuter* self, IPortableDeviceContent2** ppContent) Content;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPortableDeviceService*/SelfOuter* self, IPortableDeviceServiceMethods** ppMethods) Methods;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPortableDeviceService*/SelfOuter* self) Cancel;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPortableDeviceService*/SelfOuter* self) Close;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPortableDeviceService*/SelfOuter* self, PWSTR* ppszServiceObjectID) GetServiceObjectID;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPortableDeviceService*/SelfOuter* self, PWSTR* ppszPnPServiceID) GetPnPServiceID;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPortableDeviceService*/SelfOuter* self, uint32 dwFlags, IPortableDeviceEventCallback* pCallback, IPortableDeviceValues* pParameters, PWSTR* ppszCookie) Advise;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPortableDeviceService*/SelfOuter* self, PWSTR pszCookie) Unadvise;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPortableDeviceService*/SelfOuter* self, uint32 dwFlags, IPortableDeviceValues* pParameters, IPortableDeviceValues** ppResults) SendCommand;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR pszPnPServiceID, IPortableDeviceValues* pClientInfo) Open;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IPortableDeviceServiceCapabilities** ppCapabilities) Capabilities;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IPortableDeviceContent2** ppContent) Content;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IPortableDeviceServiceMethods** ppMethods) Methods;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Cancel;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Close;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR* ppszServiceObjectID) GetServiceObjectID;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR* ppszPnPServiceID) GetPnPServiceID;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwFlags, IPortableDeviceEventCallback* pCallback, IPortableDeviceValues* pParameters, PWSTR* ppszCookie) Advise;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR pszCookie) Unadvise;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwFlags, IPortableDeviceValues* pParameters, IPortableDeviceValues** ppResults) SendCommand;
 	}
 
 
@@ -2834,22 +2834,22 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPortableDeviceServiceCapabilities*/SelfOuter* self, IPortableDevicePropVariantCollection** ppMethods) GetSupportedMethods;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPortableDeviceServiceCapabilities*/SelfOuter* self, ref Guid Format, IPortableDevicePropVariantCollection** ppMethods) GetSupportedMethodsByFormat;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPortableDeviceServiceCapabilities*/SelfOuter* self, ref Guid Method, IPortableDeviceValues** ppAttributes) GetMethodAttributes;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPortableDeviceServiceCapabilities*/SelfOuter* self, ref Guid Method, PROPERTYKEY* Parameter, IPortableDeviceValues** ppAttributes) GetMethodParameterAttributes;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPortableDeviceServiceCapabilities*/SelfOuter* self, IPortableDevicePropVariantCollection** ppFormats) GetSupportedFormats;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPortableDeviceServiceCapabilities*/SelfOuter* self, ref Guid Format, IPortableDeviceValues** ppAttributes) GetFormatAttributes;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPortableDeviceServiceCapabilities*/SelfOuter* self, ref Guid Format, IPortableDeviceKeyCollection** ppKeys) GetSupportedFormatProperties;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPortableDeviceServiceCapabilities*/SelfOuter* self, ref Guid Format, PROPERTYKEY* Property, IPortableDeviceValues** ppAttributes) GetFormatPropertyAttributes;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPortableDeviceServiceCapabilities*/SelfOuter* self, IPortableDevicePropVariantCollection** ppEvents) GetSupportedEvents;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPortableDeviceServiceCapabilities*/SelfOuter* self, ref Guid Event, IPortableDeviceValues** ppAttributes) GetEventAttributes;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPortableDeviceServiceCapabilities*/SelfOuter* self, ref Guid Event, PROPERTYKEY* Parameter, IPortableDeviceValues** ppAttributes) GetEventParameterAttributes;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPortableDeviceServiceCapabilities*/SelfOuter* self, uint32 dwInheritanceType, IPortableDevicePropVariantCollection** ppServices) GetInheritedServices;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPortableDeviceServiceCapabilities*/SelfOuter* self, ref Guid Format, IPortableDeviceValuesCollection** ppRenderingProfiles) GetFormatRenderingProfiles;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPortableDeviceServiceCapabilities*/SelfOuter* self, IPortableDeviceKeyCollection** ppCommands) GetSupportedCommands;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPortableDeviceServiceCapabilities*/SelfOuter* self, PROPERTYKEY* Command, IPortableDeviceValues** ppOptions) GetCommandOptions;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPortableDeviceServiceCapabilities*/SelfOuter* self) Cancel;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IPortableDevicePropVariantCollection** ppMethods) GetSupportedMethods;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid Format, IPortableDevicePropVariantCollection** ppMethods) GetSupportedMethodsByFormat;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid Method, IPortableDeviceValues** ppAttributes) GetMethodAttributes;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid Method, PROPERTYKEY* Parameter, IPortableDeviceValues** ppAttributes) GetMethodParameterAttributes;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IPortableDevicePropVariantCollection** ppFormats) GetSupportedFormats;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid Format, IPortableDeviceValues** ppAttributes) GetFormatAttributes;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid Format, IPortableDeviceKeyCollection** ppKeys) GetSupportedFormatProperties;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid Format, PROPERTYKEY* Property, IPortableDeviceValues** ppAttributes) GetFormatPropertyAttributes;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IPortableDevicePropVariantCollection** ppEvents) GetSupportedEvents;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid Event, IPortableDeviceValues** ppAttributes) GetEventAttributes;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid Event, PROPERTYKEY* Parameter, IPortableDeviceValues** ppAttributes) GetEventParameterAttributes;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwInheritanceType, IPortableDevicePropVariantCollection** ppServices) GetInheritedServices;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid Format, IPortableDeviceValuesCollection** ppRenderingProfiles) GetFormatRenderingProfiles;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IPortableDeviceKeyCollection** ppCommands) GetSupportedCommands;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PROPERTYKEY* Command, IPortableDeviceValues** ppOptions) GetCommandOptions;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Cancel;
 	}
 
 
@@ -2894,9 +2894,9 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPortableDeviceServiceMethods*/SelfOuter* self, ref Guid Method, IPortableDeviceValues* pParameters, IPortableDeviceValues** ppResults) Invoke;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPortableDeviceServiceMethods*/SelfOuter* self, ref Guid Method, IPortableDeviceValues* pParameters, IPortableDeviceServiceMethodCallback* pCallback) InvokeAsync;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPortableDeviceServiceMethods*/SelfOuter* self, IPortableDeviceServiceMethodCallback* pCallback) Cancel;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid Method, IPortableDeviceValues* pParameters, IPortableDeviceValues** ppResults) Invoke;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid Method, IPortableDeviceValues* pParameters, IPortableDeviceServiceMethodCallback* pCallback) InvokeAsync;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IPortableDeviceServiceMethodCallback* pCallback) Cancel;
 	}
 
 
@@ -2915,7 +2915,7 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPortableDeviceServiceMethodCallback*/SelfOuter* self, HRESULT hrStatus, IPortableDeviceValues* pResults) OnComplete;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HRESULT hrStatus, IPortableDeviceValues* pResults) OnComplete;
 	}
 
 
@@ -2930,8 +2930,8 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPortableDeviceServiceActivation*/SelfOuter* self, PWSTR pszPnPServiceID, IPortableDeviceValues* pClientInfo, IPortableDeviceServiceOpenCallback* pCallback) OpenAsync;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPortableDeviceServiceActivation*/SelfOuter* self) CancelOpenAsync;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR pszPnPServiceID, IPortableDeviceValues* pClientInfo, IPortableDeviceServiceOpenCallback* pCallback) OpenAsync;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) CancelOpenAsync;
 	}
 
 
@@ -2948,7 +2948,7 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPortableDeviceServiceOpenCallback*/SelfOuter* self, HRESULT hrStatus) OnComplete;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HRESULT hrStatus) OnComplete;
 	}
 
 
@@ -2963,7 +2963,7 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPortableDeviceDispatchFactory*/SelfOuter* self, PWSTR pszPnPDeviceID, IDispatch** ppDeviceDispatch) GetDeviceDispatch;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR pszPnPDeviceID, IDispatch** ppDeviceDispatch) GetDeviceDispatch;
 	}
 
 
@@ -2978,8 +2978,8 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPortableDeviceWebControl*/SelfOuter* self, BSTR deviceId, IDispatch** ppDevice) GetDeviceFromId;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPortableDeviceWebControl*/SelfOuter* self, BSTR deviceId, IDispatch* pCompletionHandler, IDispatch* pErrorHandler) GetDeviceFromIdAsync;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR deviceId, IDispatch** ppDevice) GetDeviceFromId;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR deviceId, IDispatch* pCompletionHandler, IDispatch* pErrorHandler) GetDeviceFromIdAsync;
 	}
 
 
@@ -2996,10 +2996,10 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnumPortableDeviceConnectors*/SelfOuter* self, uint32 cRequested, IPortableDeviceConnector** pConnectors, uint32* pcFetched) Next;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnumPortableDeviceConnectors*/SelfOuter* self, uint32 cConnectors) Skip;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnumPortableDeviceConnectors*/SelfOuter* self) Reset;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnumPortableDeviceConnectors*/SelfOuter* self, IEnumPortableDeviceConnectors** ppEnum) Clone;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 cRequested, IPortableDeviceConnector** pConnectors, uint32* pcFetched) Next;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 cConnectors) Skip;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Reset;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IEnumPortableDeviceConnectors** ppEnum) Clone;
 	}
 
 
@@ -3020,12 +3020,12 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPortableDeviceConnector*/SelfOuter* self, IConnectionRequestCallback* pCallback) Connect;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPortableDeviceConnector*/SelfOuter* self, IConnectionRequestCallback* pCallback) Disconnect;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPortableDeviceConnector*/SelfOuter* self, IConnectionRequestCallback* pCallback) Cancel;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPortableDeviceConnector*/SelfOuter* self, DEVPROPKEY* pPropertyKey, uint32* pPropertyType, uint8** ppData, uint32* pcbData) GetProperty;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPortableDeviceConnector*/SelfOuter* self, DEVPROPKEY* pPropertyKey, uint32 PropertyType, uint8* pData, uint32 cbData) SetProperty;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPortableDeviceConnector*/SelfOuter* self, PWSTR* ppwszPnPID) GetPnPID;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IConnectionRequestCallback* pCallback) Connect;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IConnectionRequestCallback* pCallback) Disconnect;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IConnectionRequestCallback* pCallback) Cancel;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, DEVPROPKEY* pPropertyKey, uint32* pPropertyType, uint8** ppData, uint32* pcbData) GetProperty;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, DEVPROPKEY* pPropertyKey, uint32 PropertyType, uint8* pData, uint32 cbData) SetProperty;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR* ppwszPnPID) GetPnPID;
 	}
 
 
@@ -3050,7 +3050,7 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IConnectionRequestCallback*/SelfOuter* self, HRESULT hrStatus) OnComplete;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HRESULT hrStatus) OnComplete;
 	}
 
 
@@ -3065,8 +3065,8 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMediaRadioManager*/SelfOuter* self, IRadioInstanceCollection** ppCollection) GetRadioInstances;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMediaRadioManager*/SelfOuter* self, SYSTEM_RADIO_STATE sysRadioState, uint32 uTimeoutSec) OnSystemRadioStateChange;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IRadioInstanceCollection** ppCollection) GetRadioInstances;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, SYSTEM_RADIO_STATE sysRadioState, uint32 uTimeoutSec) OnSystemRadioStateChange;
 	}
 
 
@@ -3083,8 +3083,8 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRadioInstanceCollection*/SelfOuter* self, uint32* pcInstance) GetCount;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRadioInstanceCollection*/SelfOuter* self, uint32 uIndex, IRadioInstance** ppRadioInstance) GetAt;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pcInstance) GetCount;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 uIndex, IRadioInstance** ppRadioInstance) GetAt;
 	}
 
 
@@ -3101,13 +3101,13 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRadioInstance*/SelfOuter* self, ref Guid pguidSignature) GetRadioManagerSignature;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRadioInstance*/SelfOuter* self, BSTR* pbstrId) GetInstanceSignature;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRadioInstance*/SelfOuter* self, uint32 lcid, BSTR* pbstrName) GetFriendlyName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRadioInstance*/SelfOuter* self, DEVICE_RADIO_STATE* pRadioState) GetRadioState;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRadioInstance*/SelfOuter* self, DEVICE_RADIO_STATE radioState, uint32 uTimeoutSec) SetRadioState;
-		protected new function [CallingConvention(.Stdcall)] BOOL(/*IRadioInstance*/SelfOuter* self) IsMultiComm;
-		protected new function [CallingConvention(.Stdcall)] BOOL(/*IRadioInstance*/SelfOuter* self) IsAssociatingDevice;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid pguidSignature) GetRadioManagerSignature;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pbstrId) GetInstanceSignature;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 lcid, BSTR* pbstrName) GetFriendlyName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, DEVICE_RADIO_STATE* pRadioState) GetRadioState;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, DEVICE_RADIO_STATE radioState, uint32 uTimeoutSec) SetRadioState;
+		protected new function [CallingConvention(.Stdcall)] BOOL(SelfOuter* self) IsMultiComm;
+		protected new function [CallingConvention(.Stdcall)] BOOL(SelfOuter* self) IsAssociatingDevice;
 	}
 
 
@@ -3134,9 +3134,9 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMediaRadioManagerNotifySink*/SelfOuter* self, IRadioInstance* pRadioInstance) OnInstanceAdd;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMediaRadioManagerNotifySink*/SelfOuter* self, BSTR bstrRadioInstanceId) OnInstanceRemove;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMediaRadioManagerNotifySink*/SelfOuter* self, BSTR bstrRadioInstanceId, DEVICE_RADIO_STATE radioState) OnInstanceRadioChange;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IRadioInstance* pRadioInstance) OnInstanceAdd;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrRadioInstanceId) OnInstanceRemove;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrRadioInstanceId, DEVICE_RADIO_STATE radioState) OnInstanceRadioChange;
 	}
 
 

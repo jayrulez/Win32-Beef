@@ -657,8 +657,8 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMShareable*/SelfOuter* self, IUnknown** owner) GetOwner;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMShareable*/SelfOuter* self, XPS_OBJECT_TYPE* type) COM_GetType;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IUnknown** owner) GetOwner;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, XPS_OBJECT_TYPE* type) COM_GetType;
 	}
 
 
@@ -675,31 +675,31 @@ public static
 
 	[CRepr]public struct VTable : IXpsOMShareable.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMVisual*/SelfOuter* self, IXpsOMMatrixTransform** matrixTransform) GetTransform;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMVisual*/SelfOuter* self, IXpsOMMatrixTransform** matrixTransform) GetTransformLocal;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMVisual*/SelfOuter* self, IXpsOMMatrixTransform* matrixTransform) SetTransformLocal;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMVisual*/SelfOuter* self, PWSTR* key) GetTransformLookup;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMVisual*/SelfOuter* self, PWSTR key) SetTransformLookup;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMVisual*/SelfOuter* self, IXpsOMGeometry** clipGeometry) GetClipGeometry;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMVisual*/SelfOuter* self, IXpsOMGeometry** clipGeometry) GetClipGeometryLocal;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMVisual*/SelfOuter* self, IXpsOMGeometry* clipGeometry) SetClipGeometryLocal;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMVisual*/SelfOuter* self, PWSTR* key) GetClipGeometryLookup;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMVisual*/SelfOuter* self, PWSTR key) SetClipGeometryLookup;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMVisual*/SelfOuter* self, float* opacity) GetOpacity;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMVisual*/SelfOuter* self, float opacity) SetOpacity;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMVisual*/SelfOuter* self, IXpsOMBrush** opacityMaskBrush) GetOpacityMaskBrush;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMVisual*/SelfOuter* self, IXpsOMBrush** opacityMaskBrush) GetOpacityMaskBrushLocal;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMVisual*/SelfOuter* self, IXpsOMBrush* opacityMaskBrush) SetOpacityMaskBrushLocal;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMVisual*/SelfOuter* self, PWSTR* key) GetOpacityMaskBrushLookup;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMVisual*/SelfOuter* self, PWSTR key) SetOpacityMaskBrushLookup;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMVisual*/SelfOuter* self, PWSTR* name) GetName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMVisual*/SelfOuter* self, PWSTR name) SetName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMVisual*/SelfOuter* self, BOOL* isHyperlink) GetIsHyperlinkTarget;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMVisual*/SelfOuter* self, BOOL isHyperlink) SetIsHyperlinkTarget;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMVisual*/SelfOuter* self, IUri** hyperlinkUri) GetHyperlinkNavigateUri;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMVisual*/SelfOuter* self, IUri* hyperlinkUri) SetHyperlinkNavigateUri;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMVisual*/SelfOuter* self, PWSTR* language) GetLanguage;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMVisual*/SelfOuter* self, PWSTR language) SetLanguage;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IXpsOMMatrixTransform** matrixTransform) GetTransform;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IXpsOMMatrixTransform** matrixTransform) GetTransformLocal;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IXpsOMMatrixTransform* matrixTransform) SetTransformLocal;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR* key) GetTransformLookup;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR key) SetTransformLookup;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IXpsOMGeometry** clipGeometry) GetClipGeometry;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IXpsOMGeometry** clipGeometry) GetClipGeometryLocal;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IXpsOMGeometry* clipGeometry) SetClipGeometryLocal;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR* key) GetClipGeometryLookup;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR key) SetClipGeometryLookup;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, float* opacity) GetOpacity;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, float opacity) SetOpacity;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IXpsOMBrush** opacityMaskBrush) GetOpacityMaskBrush;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IXpsOMBrush** opacityMaskBrush) GetOpacityMaskBrushLocal;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IXpsOMBrush* opacityMaskBrush) SetOpacityMaskBrushLocal;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR* key) GetOpacityMaskBrushLookup;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR key) SetOpacityMaskBrushLookup;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR* name) GetName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR name) SetName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BOOL* isHyperlink) GetIsHyperlinkTarget;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BOOL isHyperlink) SetIsHyperlinkTarget;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IUri** hyperlinkUri) GetHyperlinkNavigateUri;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IUri* hyperlinkUri) SetHyperlinkNavigateUri;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR* language) GetLanguage;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR language) SetLanguage;
 	}
 
 
@@ -762,8 +762,8 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMPart*/SelfOuter* self, IOpcPartUri** partUri) GetPartName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMPart*/SelfOuter* self, IOpcPartUri* partUri) SetPartName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IOpcPartUri** partUri) GetPartName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IOpcPartUri* partUri) SetPartName;
 	}
 
 
@@ -780,24 +780,24 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMGlyphsEditor*/SelfOuter* self) ApplyEdits;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMGlyphsEditor*/SelfOuter* self, PWSTR* unicodeString) GetUnicodeString;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMGlyphsEditor*/SelfOuter* self, PWSTR unicodeString) SetUnicodeString;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMGlyphsEditor*/SelfOuter* self, uint32* indexCount) GetGlyphIndexCount;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMGlyphsEditor*/SelfOuter* self, uint32* indexCount, XPS_GLYPH_INDEX* glyphIndices) GetGlyphIndices;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMGlyphsEditor*/SelfOuter* self, uint32 indexCount, XPS_GLYPH_INDEX* glyphIndices) SetGlyphIndices;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMGlyphsEditor*/SelfOuter* self, uint32* glyphMappingCount) GetGlyphMappingCount;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMGlyphsEditor*/SelfOuter* self, uint32* glyphMappingCount, XPS_GLYPH_MAPPING* glyphMappings) GetGlyphMappings;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMGlyphsEditor*/SelfOuter* self, uint32 glyphMappingCount, XPS_GLYPH_MAPPING* glyphMappings) SetGlyphMappings;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMGlyphsEditor*/SelfOuter* self, uint32* prohibitedCaretStopCount) GetProhibitedCaretStopCount;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMGlyphsEditor*/SelfOuter* self, uint32* count, uint32* prohibitedCaretStops) GetProhibitedCaretStops;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMGlyphsEditor*/SelfOuter* self, uint32 count, uint32* prohibitedCaretStops) SetProhibitedCaretStops;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMGlyphsEditor*/SelfOuter* self, uint32* bidiLevel) GetBidiLevel;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMGlyphsEditor*/SelfOuter* self, uint32 bidiLevel) SetBidiLevel;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMGlyphsEditor*/SelfOuter* self, BOOL* isSideways) GetIsSideways;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMGlyphsEditor*/SelfOuter* self, BOOL isSideways) SetIsSideways;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMGlyphsEditor*/SelfOuter* self, PWSTR* deviceFontName) GetDeviceFontName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMGlyphsEditor*/SelfOuter* self, PWSTR deviceFontName) SetDeviceFontName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) ApplyEdits;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR* unicodeString) GetUnicodeString;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR unicodeString) SetUnicodeString;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* indexCount) GetGlyphIndexCount;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* indexCount, XPS_GLYPH_INDEX* glyphIndices) GetGlyphIndices;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 indexCount, XPS_GLYPH_INDEX* glyphIndices) SetGlyphIndices;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* glyphMappingCount) GetGlyphMappingCount;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* glyphMappingCount, XPS_GLYPH_MAPPING* glyphMappings) GetGlyphMappings;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 glyphMappingCount, XPS_GLYPH_MAPPING* glyphMappings) SetGlyphMappings;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* prohibitedCaretStopCount) GetProhibitedCaretStopCount;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* count, uint32* prohibitedCaretStops) GetProhibitedCaretStops;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 count, uint32* prohibitedCaretStops) SetProhibitedCaretStops;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* bidiLevel) GetBidiLevel;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 bidiLevel) SetBidiLevel;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BOOL* isSideways) GetIsSideways;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BOOL isSideways) SetIsSideways;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR* deviceFontName) GetDeviceFontName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR deviceFontName) SetDeviceFontName;
 	}
 
 
@@ -846,33 +846,33 @@ public static
 
 	[CRepr]public struct VTable : IXpsOMVisual.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMGlyphs*/SelfOuter* self, PWSTR* unicodeString) GetUnicodeString;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMGlyphs*/SelfOuter* self, uint32* indexCount) GetGlyphIndexCount;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMGlyphs*/SelfOuter* self, uint32* indexCount, XPS_GLYPH_INDEX* glyphIndices) GetGlyphIndices;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMGlyphs*/SelfOuter* self, uint32* glyphMappingCount) GetGlyphMappingCount;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMGlyphs*/SelfOuter* self, uint32* glyphMappingCount, XPS_GLYPH_MAPPING* glyphMappings) GetGlyphMappings;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMGlyphs*/SelfOuter* self, uint32* prohibitedCaretStopCount) GetProhibitedCaretStopCount;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMGlyphs*/SelfOuter* self, uint32* prohibitedCaretStopCount, uint32* prohibitedCaretStops) GetProhibitedCaretStops;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMGlyphs*/SelfOuter* self, uint32* bidiLevel) GetBidiLevel;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMGlyphs*/SelfOuter* self, BOOL* isSideways) GetIsSideways;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMGlyphs*/SelfOuter* self, PWSTR* deviceFontName) GetDeviceFontName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMGlyphs*/SelfOuter* self, XPS_STYLE_SIMULATION* styleSimulations) GetStyleSimulations;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMGlyphs*/SelfOuter* self, XPS_STYLE_SIMULATION styleSimulations) SetStyleSimulations;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMGlyphs*/SelfOuter* self, XPS_POINT* origin) GetOrigin;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMGlyphs*/SelfOuter* self, XPS_POINT* origin) SetOrigin;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMGlyphs*/SelfOuter* self, float* fontRenderingEmSize) GetFontRenderingEmSize;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMGlyphs*/SelfOuter* self, float fontRenderingEmSize) SetFontRenderingEmSize;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMGlyphs*/SelfOuter* self, IXpsOMFontResource** fontResource) GetFontResource;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMGlyphs*/SelfOuter* self, IXpsOMFontResource* fontResource) SetFontResource;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMGlyphs*/SelfOuter* self, int16* fontFaceIndex) GetFontFaceIndex;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMGlyphs*/SelfOuter* self, int16 fontFaceIndex) SetFontFaceIndex;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMGlyphs*/SelfOuter* self, IXpsOMBrush** fillBrush) GetFillBrush;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMGlyphs*/SelfOuter* self, IXpsOMBrush** fillBrush) GetFillBrushLocal;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMGlyphs*/SelfOuter* self, IXpsOMBrush* fillBrush) SetFillBrushLocal;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMGlyphs*/SelfOuter* self, PWSTR* key) GetFillBrushLookup;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMGlyphs*/SelfOuter* self, PWSTR key) SetFillBrushLookup;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMGlyphs*/SelfOuter* self, IXpsOMGlyphsEditor** editor) GetGlyphsEditor;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMGlyphs*/SelfOuter* self, IXpsOMGlyphs** glyphs) Clone;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR* unicodeString) GetUnicodeString;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* indexCount) GetGlyphIndexCount;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* indexCount, XPS_GLYPH_INDEX* glyphIndices) GetGlyphIndices;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* glyphMappingCount) GetGlyphMappingCount;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* glyphMappingCount, XPS_GLYPH_MAPPING* glyphMappings) GetGlyphMappings;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* prohibitedCaretStopCount) GetProhibitedCaretStopCount;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* prohibitedCaretStopCount, uint32* prohibitedCaretStops) GetProhibitedCaretStops;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* bidiLevel) GetBidiLevel;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BOOL* isSideways) GetIsSideways;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR* deviceFontName) GetDeviceFontName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, XPS_STYLE_SIMULATION* styleSimulations) GetStyleSimulations;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, XPS_STYLE_SIMULATION styleSimulations) SetStyleSimulations;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, XPS_POINT* origin) GetOrigin;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, XPS_POINT* origin) SetOrigin;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, float* fontRenderingEmSize) GetFontRenderingEmSize;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, float fontRenderingEmSize) SetFontRenderingEmSize;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IXpsOMFontResource** fontResource) GetFontResource;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IXpsOMFontResource* fontResource) SetFontResource;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* fontFaceIndex) GetFontFaceIndex;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 fontFaceIndex) SetFontFaceIndex;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IXpsOMBrush** fillBrush) GetFillBrush;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IXpsOMBrush** fillBrush) GetFillBrushLocal;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IXpsOMBrush* fillBrush) SetFillBrushLocal;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR* key) GetFillBrushLookup;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR key) SetFillBrushLookup;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IXpsOMGlyphsEditor** editor) GetGlyphsEditor;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IXpsOMGlyphs** glyphs) Clone;
 	}
 
 
@@ -939,12 +939,12 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMDashCollection*/SelfOuter* self, uint32* count) GetCount;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMDashCollection*/SelfOuter* self, uint32 index, XPS_DASH* dash) GetAt;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMDashCollection*/SelfOuter* self, uint32 index, XPS_DASH* dash) InsertAt;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMDashCollection*/SelfOuter* self, uint32 index) RemoveAt;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMDashCollection*/SelfOuter* self, uint32 index, XPS_DASH* dash) SetAt;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMDashCollection*/SelfOuter* self, XPS_DASH* dash) Append;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* count) GetCount;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 index, XPS_DASH* dash) GetAt;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 index, XPS_DASH* dash) InsertAt;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 index) RemoveAt;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 index, XPS_DASH* dash) SetAt;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, XPS_DASH* dash) Append;
 	}
 
 
@@ -969,9 +969,9 @@ public static
 
 	[CRepr]public struct VTable : IXpsOMShareable.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMMatrixTransform*/SelfOuter* self, XPS_MATRIX* matrix) GetMatrix;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMMatrixTransform*/SelfOuter* self, XPS_MATRIX* matrix) SetMatrix;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMMatrixTransform*/SelfOuter* self, IXpsOMMatrixTransform** matrixTransform) Clone;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, XPS_MATRIX* matrix) GetMatrix;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, XPS_MATRIX* matrix) SetMatrix;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IXpsOMMatrixTransform** matrixTransform) Clone;
 	}
 
 
@@ -990,15 +990,15 @@ public static
 
 	[CRepr]public struct VTable : IXpsOMShareable.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMGeometry*/SelfOuter* self, IXpsOMGeometryFigureCollection** figures) GetFigures;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMGeometry*/SelfOuter* self, XPS_FILL_RULE* fillRule) GetFillRule;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMGeometry*/SelfOuter* self, XPS_FILL_RULE fillRule) SetFillRule;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMGeometry*/SelfOuter* self, IXpsOMMatrixTransform** transform) GetTransform;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMGeometry*/SelfOuter* self, IXpsOMMatrixTransform** transform) GetTransformLocal;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMGeometry*/SelfOuter* self, IXpsOMMatrixTransform* transform) SetTransformLocal;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMGeometry*/SelfOuter* self, PWSTR* lookup) GetTransformLookup;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMGeometry*/SelfOuter* self, PWSTR lookup) SetTransformLookup;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMGeometry*/SelfOuter* self, IXpsOMGeometry** geometry) Clone;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IXpsOMGeometryFigureCollection** figures) GetFigures;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, XPS_FILL_RULE* fillRule) GetFillRule;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, XPS_FILL_RULE fillRule) SetFillRule;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IXpsOMMatrixTransform** transform) GetTransform;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IXpsOMMatrixTransform** transform) GetTransformLocal;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IXpsOMMatrixTransform* transform) SetTransformLocal;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR* lookup) GetTransformLookup;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR lookup) SetTransformLookup;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IXpsOMGeometry** geometry) Clone;
 	}
 
 
@@ -1029,21 +1029,21 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMGeometryFigure*/SelfOuter* self, IXpsOMGeometry** owner) GetOwner;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMGeometryFigure*/SelfOuter* self, uint32* dataCount, float* segmentData) GetSegmentData;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMGeometryFigure*/SelfOuter* self, uint32* segmentCount, XPS_SEGMENT_TYPE* segmentTypes) GetSegmentTypes;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMGeometryFigure*/SelfOuter* self, uint32* segmentCount, BOOL* segmentStrokes) GetSegmentStrokes;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMGeometryFigure*/SelfOuter* self, uint32 segmentCount, uint32 segmentDataCount, XPS_SEGMENT_TYPE* segmentTypes, float* segmentData, BOOL* segmentStrokes) SetSegments;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMGeometryFigure*/SelfOuter* self, XPS_POINT* startPoint) GetStartPoint;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMGeometryFigure*/SelfOuter* self, XPS_POINT* startPoint) SetStartPoint;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMGeometryFigure*/SelfOuter* self, BOOL* isClosed) GetIsClosed;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMGeometryFigure*/SelfOuter* self, BOOL isClosed) SetIsClosed;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMGeometryFigure*/SelfOuter* self, BOOL* isFilled) GetIsFilled;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMGeometryFigure*/SelfOuter* self, BOOL isFilled) SetIsFilled;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMGeometryFigure*/SelfOuter* self, uint32* segmentCount) GetSegmentCount;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMGeometryFigure*/SelfOuter* self, uint32* segmentDataCount) GetSegmentDataCount;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMGeometryFigure*/SelfOuter* self, XPS_SEGMENT_STROKE_PATTERN* segmentStrokePattern) GetSegmentStrokePattern;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMGeometryFigure*/SelfOuter* self, IXpsOMGeometryFigure** geometryFigure) Clone;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IXpsOMGeometry** owner) GetOwner;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* dataCount, float* segmentData) GetSegmentData;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* segmentCount, XPS_SEGMENT_TYPE* segmentTypes) GetSegmentTypes;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* segmentCount, BOOL* segmentStrokes) GetSegmentStrokes;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 segmentCount, uint32 segmentDataCount, XPS_SEGMENT_TYPE* segmentTypes, float* segmentData, BOOL* segmentStrokes) SetSegments;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, XPS_POINT* startPoint) GetStartPoint;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, XPS_POINT* startPoint) SetStartPoint;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BOOL* isClosed) GetIsClosed;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BOOL isClosed) SetIsClosed;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BOOL* isFilled) GetIsFilled;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BOOL isFilled) SetIsFilled;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* segmentCount) GetSegmentCount;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* segmentDataCount) GetSegmentDataCount;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, XPS_SEGMENT_STROKE_PATTERN* segmentStrokePattern) GetSegmentStrokePattern;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IXpsOMGeometryFigure** geometryFigure) Clone;
 	}
 
 
@@ -1086,12 +1086,12 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMGeometryFigureCollection*/SelfOuter* self, uint32* count) GetCount;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMGeometryFigureCollection*/SelfOuter* self, uint32 index, IXpsOMGeometryFigure** geometryFigure) GetAt;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMGeometryFigureCollection*/SelfOuter* self, uint32 index, IXpsOMGeometryFigure* geometryFigure) InsertAt;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMGeometryFigureCollection*/SelfOuter* self, uint32 index) RemoveAt;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMGeometryFigureCollection*/SelfOuter* self, uint32 index, IXpsOMGeometryFigure* geometryFigure) SetAt;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMGeometryFigureCollection*/SelfOuter* self, IXpsOMGeometryFigure* geometryFigure) Append;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* count) GetCount;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 index, IXpsOMGeometryFigure** geometryFigure) GetAt;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 index, IXpsOMGeometryFigure* geometryFigure) InsertAt;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 index) RemoveAt;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 index, IXpsOMGeometryFigure* geometryFigure) SetAt;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IXpsOMGeometryFigure* geometryFigure) Append;
 	}
 
 
@@ -1116,43 +1116,43 @@ public static
 
 	[CRepr]public struct VTable : IXpsOMVisual.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMPath*/SelfOuter* self, IXpsOMGeometry** geometry) GetGeometry;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMPath*/SelfOuter* self, IXpsOMGeometry** geometry) GetGeometryLocal;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMPath*/SelfOuter* self, IXpsOMGeometry* geometry) SetGeometryLocal;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMPath*/SelfOuter* self, PWSTR* lookup) GetGeometryLookup;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMPath*/SelfOuter* self, PWSTR lookup) SetGeometryLookup;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMPath*/SelfOuter* self, PWSTR* shortDescription) GetAccessibilityShortDescription;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMPath*/SelfOuter* self, PWSTR shortDescription) SetAccessibilityShortDescription;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMPath*/SelfOuter* self, PWSTR* longDescription) GetAccessibilityLongDescription;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMPath*/SelfOuter* self, PWSTR longDescription) SetAccessibilityLongDescription;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMPath*/SelfOuter* self, BOOL* snapsToPixels) GetSnapsToPixels;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMPath*/SelfOuter* self, BOOL snapsToPixels) SetSnapsToPixels;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMPath*/SelfOuter* self, IXpsOMBrush** brush) GetStrokeBrush;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMPath*/SelfOuter* self, IXpsOMBrush** brush) GetStrokeBrushLocal;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMPath*/SelfOuter* self, IXpsOMBrush* brush) SetStrokeBrushLocal;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMPath*/SelfOuter* self, PWSTR* lookup) GetStrokeBrushLookup;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMPath*/SelfOuter* self, PWSTR lookup) SetStrokeBrushLookup;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMPath*/SelfOuter* self, IXpsOMDashCollection** strokeDashes) GetStrokeDashes;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMPath*/SelfOuter* self, XPS_DASH_CAP* strokeDashCap) GetStrokeDashCap;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMPath*/SelfOuter* self, XPS_DASH_CAP strokeDashCap) SetStrokeDashCap;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMPath*/SelfOuter* self, float* strokeDashOffset) GetStrokeDashOffset;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMPath*/SelfOuter* self, float strokeDashOffset) SetStrokeDashOffset;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMPath*/SelfOuter* self, XPS_LINE_CAP* strokeStartLineCap) GetStrokeStartLineCap;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMPath*/SelfOuter* self, XPS_LINE_CAP strokeStartLineCap) SetStrokeStartLineCap;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMPath*/SelfOuter* self, XPS_LINE_CAP* strokeEndLineCap) GetStrokeEndLineCap;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMPath*/SelfOuter* self, XPS_LINE_CAP strokeEndLineCap) SetStrokeEndLineCap;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMPath*/SelfOuter* self, XPS_LINE_JOIN* strokeLineJoin) GetStrokeLineJoin;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMPath*/SelfOuter* self, XPS_LINE_JOIN strokeLineJoin) SetStrokeLineJoin;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMPath*/SelfOuter* self, float* strokeMiterLimit) GetStrokeMiterLimit;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMPath*/SelfOuter* self, float strokeMiterLimit) SetStrokeMiterLimit;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMPath*/SelfOuter* self, float* strokeThickness) GetStrokeThickness;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMPath*/SelfOuter* self, float strokeThickness) SetStrokeThickness;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMPath*/SelfOuter* self, IXpsOMBrush** brush) GetFillBrush;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMPath*/SelfOuter* self, IXpsOMBrush** brush) GetFillBrushLocal;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMPath*/SelfOuter* self, IXpsOMBrush* brush) SetFillBrushLocal;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMPath*/SelfOuter* self, PWSTR* lookup) GetFillBrushLookup;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMPath*/SelfOuter* self, PWSTR lookup) SetFillBrushLookup;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMPath*/SelfOuter* self, IXpsOMPath** path) Clone;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IXpsOMGeometry** geometry) GetGeometry;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IXpsOMGeometry** geometry) GetGeometryLocal;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IXpsOMGeometry* geometry) SetGeometryLocal;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR* lookup) GetGeometryLookup;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR lookup) SetGeometryLookup;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR* shortDescription) GetAccessibilityShortDescription;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR shortDescription) SetAccessibilityShortDescription;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR* longDescription) GetAccessibilityLongDescription;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR longDescription) SetAccessibilityLongDescription;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BOOL* snapsToPixels) GetSnapsToPixels;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BOOL snapsToPixels) SetSnapsToPixels;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IXpsOMBrush** brush) GetStrokeBrush;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IXpsOMBrush** brush) GetStrokeBrushLocal;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IXpsOMBrush* brush) SetStrokeBrushLocal;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR* lookup) GetStrokeBrushLookup;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR lookup) SetStrokeBrushLookup;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IXpsOMDashCollection** strokeDashes) GetStrokeDashes;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, XPS_DASH_CAP* strokeDashCap) GetStrokeDashCap;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, XPS_DASH_CAP strokeDashCap) SetStrokeDashCap;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, float* strokeDashOffset) GetStrokeDashOffset;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, float strokeDashOffset) SetStrokeDashOffset;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, XPS_LINE_CAP* strokeStartLineCap) GetStrokeStartLineCap;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, XPS_LINE_CAP strokeStartLineCap) SetStrokeStartLineCap;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, XPS_LINE_CAP* strokeEndLineCap) GetStrokeEndLineCap;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, XPS_LINE_CAP strokeEndLineCap) SetStrokeEndLineCap;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, XPS_LINE_JOIN* strokeLineJoin) GetStrokeLineJoin;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, XPS_LINE_JOIN strokeLineJoin) SetStrokeLineJoin;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, float* strokeMiterLimit) GetStrokeMiterLimit;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, float strokeMiterLimit) SetStrokeMiterLimit;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, float* strokeThickness) GetStrokeThickness;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, float strokeThickness) SetStrokeThickness;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IXpsOMBrush** brush) GetFillBrush;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IXpsOMBrush** brush) GetFillBrushLocal;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IXpsOMBrush* brush) SetFillBrushLocal;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR* lookup) GetFillBrushLookup;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR lookup) SetFillBrushLookup;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IXpsOMPath** path) Clone;
 	}
 
 
@@ -1239,8 +1239,8 @@ public static
 
 	[CRepr]public struct VTable : IXpsOMShareable.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMBrush*/SelfOuter* self, float* opacity) GetOpacity;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMBrush*/SelfOuter* self, float opacity) SetOpacity;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, float* opacity) GetOpacity;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, float opacity) SetOpacity;
 	}
 
 
@@ -1257,12 +1257,12 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMGradientStopCollection*/SelfOuter* self, uint32* count) GetCount;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMGradientStopCollection*/SelfOuter* self, uint32 index, IXpsOMGradientStop** stop) GetAt;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMGradientStopCollection*/SelfOuter* self, uint32 index, IXpsOMGradientStop* stop) InsertAt;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMGradientStopCollection*/SelfOuter* self, uint32 index) RemoveAt;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMGradientStopCollection*/SelfOuter* self, uint32 index, IXpsOMGradientStop* stop) SetAt;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMGradientStopCollection*/SelfOuter* self, IXpsOMGradientStop* stop) Append;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* count) GetCount;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 index, IXpsOMGradientStop** stop) GetAt;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 index, IXpsOMGradientStop* stop) InsertAt;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 index) RemoveAt;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 index, IXpsOMGradientStop* stop) SetAt;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IXpsOMGradientStop* stop) Append;
 	}
 
 
@@ -1287,9 +1287,9 @@ public static
 
 	[CRepr]public struct VTable : IXpsOMBrush.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMSolidColorBrush*/SelfOuter* self, XPS_COLOR* color, IXpsOMColorProfileResource** colorProfile) GetColor;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMSolidColorBrush*/SelfOuter* self, XPS_COLOR* color, IXpsOMColorProfileResource* colorProfile) SetColor;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMSolidColorBrush*/SelfOuter* self, IXpsOMSolidColorBrush** solidColorBrush) Clone;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, XPS_COLOR* color, IXpsOMColorProfileResource** colorProfile) GetColor;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, XPS_COLOR* color, IXpsOMColorProfileResource* colorProfile) SetColor;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IXpsOMSolidColorBrush** solidColorBrush) Clone;
 	}
 
 
@@ -1308,17 +1308,17 @@ public static
 
 	[CRepr]public struct VTable : IXpsOMBrush.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMTileBrush*/SelfOuter* self, IXpsOMMatrixTransform** transform) GetTransform;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMTileBrush*/SelfOuter* self, IXpsOMMatrixTransform** transform) GetTransformLocal;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMTileBrush*/SelfOuter* self, IXpsOMMatrixTransform* transform) SetTransformLocal;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMTileBrush*/SelfOuter* self, PWSTR* key) GetTransformLookup;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMTileBrush*/SelfOuter* self, PWSTR key) SetTransformLookup;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMTileBrush*/SelfOuter* self, XPS_RECT* viewbox) GetViewbox;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMTileBrush*/SelfOuter* self, XPS_RECT* viewbox) SetViewbox;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMTileBrush*/SelfOuter* self, XPS_RECT* viewport) GetViewport;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMTileBrush*/SelfOuter* self, XPS_RECT* viewport) SetViewport;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMTileBrush*/SelfOuter* self, XPS_TILE_MODE* tileMode) GetTileMode;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMTileBrush*/SelfOuter* self, XPS_TILE_MODE tileMode) SetTileMode;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IXpsOMMatrixTransform** transform) GetTransform;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IXpsOMMatrixTransform** transform) GetTransformLocal;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IXpsOMMatrixTransform* transform) SetTransformLocal;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR* key) GetTransformLookup;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR key) SetTransformLookup;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, XPS_RECT* viewbox) GetViewbox;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, XPS_RECT* viewbox) SetViewbox;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, XPS_RECT* viewport) GetViewport;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, XPS_RECT* viewport) SetViewport;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, XPS_TILE_MODE* tileMode) GetTileMode;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, XPS_TILE_MODE tileMode) SetTileMode;
 	}
 
 
@@ -1353,12 +1353,12 @@ public static
 
 	[CRepr]public struct VTable : IXpsOMTileBrush.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMVisualBrush*/SelfOuter* self, IXpsOMVisual** visual) GetVisual;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMVisualBrush*/SelfOuter* self, IXpsOMVisual** visual) GetVisualLocal;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMVisualBrush*/SelfOuter* self, IXpsOMVisual* visual) SetVisualLocal;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMVisualBrush*/SelfOuter* self, PWSTR* lookup) GetVisualLookup;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMVisualBrush*/SelfOuter* self, PWSTR lookup) SetVisualLookup;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMVisualBrush*/SelfOuter* self, IXpsOMVisualBrush** visualBrush) Clone;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IXpsOMVisual** visual) GetVisual;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IXpsOMVisual** visual) GetVisualLocal;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IXpsOMVisual* visual) SetVisualLocal;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR* lookup) GetVisualLookup;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR lookup) SetVisualLookup;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IXpsOMVisualBrush** visualBrush) Clone;
 	}
 
 
@@ -1383,11 +1383,11 @@ public static
 
 	[CRepr]public struct VTable : IXpsOMTileBrush.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMImageBrush*/SelfOuter* self, IXpsOMImageResource** imageResource) GetImageResource;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMImageBrush*/SelfOuter* self, IXpsOMImageResource* imageResource) SetImageResource;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMImageBrush*/SelfOuter* self, IXpsOMColorProfileResource** colorProfileResource) GetColorProfileResource;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMImageBrush*/SelfOuter* self, IXpsOMColorProfileResource* colorProfileResource) SetColorProfileResource;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMImageBrush*/SelfOuter* self, IXpsOMImageBrush** imageBrush) Clone;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IXpsOMImageResource** imageResource) GetImageResource;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IXpsOMImageResource* imageResource) SetImageResource;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IXpsOMColorProfileResource** colorProfileResource) GetColorProfileResource;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IXpsOMColorProfileResource* colorProfileResource) SetColorProfileResource;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IXpsOMImageBrush** imageBrush) Clone;
 	}
 
 
@@ -1410,12 +1410,12 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMGradientStop*/SelfOuter* self, IXpsOMGradientBrush** owner) GetOwner;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMGradientStop*/SelfOuter* self, float* offset) GetOffset;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMGradientStop*/SelfOuter* self, float offset) SetOffset;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMGradientStop*/SelfOuter* self, XPS_COLOR* color, IXpsOMColorProfileResource** colorProfile) GetColor;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMGradientStop*/SelfOuter* self, XPS_COLOR* color, IXpsOMColorProfileResource* colorProfile) SetColor;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMGradientStop*/SelfOuter* self, IXpsOMGradientStop** gradientStop) Clone;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IXpsOMGradientBrush** owner) GetOwner;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, float* offset) GetOffset;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, float offset) SetOffset;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, XPS_COLOR* color, IXpsOMColorProfileResource** colorProfile) GetColor;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, XPS_COLOR* color, IXpsOMColorProfileResource* colorProfile) SetColor;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IXpsOMGradientStop** gradientStop) Clone;
 	}
 
 
@@ -1440,16 +1440,16 @@ public static
 
 	[CRepr]public struct VTable : IXpsOMBrush.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMGradientBrush*/SelfOuter* self, IXpsOMGradientStopCollection** gradientStops) GetGradientStops;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMGradientBrush*/SelfOuter* self, IXpsOMMatrixTransform** transform) GetTransform;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMGradientBrush*/SelfOuter* self, IXpsOMMatrixTransform** transform) GetTransformLocal;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMGradientBrush*/SelfOuter* self, IXpsOMMatrixTransform* transform) SetTransformLocal;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMGradientBrush*/SelfOuter* self, PWSTR* key) GetTransformLookup;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMGradientBrush*/SelfOuter* self, PWSTR key) SetTransformLookup;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMGradientBrush*/SelfOuter* self, XPS_SPREAD_METHOD* spreadMethod) GetSpreadMethod;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMGradientBrush*/SelfOuter* self, XPS_SPREAD_METHOD spreadMethod) SetSpreadMethod;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMGradientBrush*/SelfOuter* self, XPS_COLOR_INTERPOLATION* colorInterpolationMode) GetColorInterpolationMode;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMGradientBrush*/SelfOuter* self, XPS_COLOR_INTERPOLATION colorInterpolationMode) SetColorInterpolationMode;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IXpsOMGradientStopCollection** gradientStops) GetGradientStops;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IXpsOMMatrixTransform** transform) GetTransform;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IXpsOMMatrixTransform** transform) GetTransformLocal;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IXpsOMMatrixTransform* transform) SetTransformLocal;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR* key) GetTransformLookup;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR key) SetTransformLookup;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, XPS_SPREAD_METHOD* spreadMethod) GetSpreadMethod;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, XPS_SPREAD_METHOD spreadMethod) SetSpreadMethod;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, XPS_COLOR_INTERPOLATION* colorInterpolationMode) GetColorInterpolationMode;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, XPS_COLOR_INTERPOLATION colorInterpolationMode) SetColorInterpolationMode;
 	}
 
 
@@ -1482,11 +1482,11 @@ public static
 
 	[CRepr]public struct VTable : IXpsOMGradientBrush.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMLinearGradientBrush*/SelfOuter* self, XPS_POINT* startPoint) GetStartPoint;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMLinearGradientBrush*/SelfOuter* self, XPS_POINT* startPoint) SetStartPoint;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMLinearGradientBrush*/SelfOuter* self, XPS_POINT* endPoint) GetEndPoint;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMLinearGradientBrush*/SelfOuter* self, XPS_POINT* endPoint) SetEndPoint;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMLinearGradientBrush*/SelfOuter* self, IXpsOMLinearGradientBrush** linearGradientBrush) Clone;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, XPS_POINT* startPoint) GetStartPoint;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, XPS_POINT* startPoint) SetStartPoint;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, XPS_POINT* endPoint) GetEndPoint;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, XPS_POINT* endPoint) SetEndPoint;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IXpsOMLinearGradientBrush** linearGradientBrush) Clone;
 	}
 
 
@@ -1509,13 +1509,13 @@ public static
 
 	[CRepr]public struct VTable : IXpsOMGradientBrush.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMRadialGradientBrush*/SelfOuter* self, XPS_POINT* center) GetCenter;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMRadialGradientBrush*/SelfOuter* self, XPS_POINT* center) SetCenter;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMRadialGradientBrush*/SelfOuter* self, XPS_SIZE* radiiSizes) GetRadiiSizes;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMRadialGradientBrush*/SelfOuter* self, XPS_SIZE* radiiSizes) SetRadiiSizes;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMRadialGradientBrush*/SelfOuter* self, XPS_POINT* origin) GetGradientOrigin;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMRadialGradientBrush*/SelfOuter* self, XPS_POINT* origin) SetGradientOrigin;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMRadialGradientBrush*/SelfOuter* self, IXpsOMRadialGradientBrush** radialGradientBrush) Clone;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, XPS_POINT* center) GetCenter;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, XPS_POINT* center) SetCenter;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, XPS_SIZE* radiiSizes) GetRadiiSizes;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, XPS_SIZE* radiiSizes) SetRadiiSizes;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, XPS_POINT* origin) GetGradientOrigin;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, XPS_POINT* origin) SetGradientOrigin;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IXpsOMRadialGradientBrush** radialGradientBrush) Clone;
 	}
 
 
@@ -1554,10 +1554,10 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMPartResources*/SelfOuter* self, IXpsOMFontResourceCollection** fontResources) GetFontResources;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMPartResources*/SelfOuter* self, IXpsOMImageResourceCollection** imageResources) GetImageResources;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMPartResources*/SelfOuter* self, IXpsOMColorProfileResourceCollection** colorProfileResources) GetColorProfileResources;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMPartResources*/SelfOuter* self, IXpsOMRemoteDictionaryResourceCollection** dictionaryResources) GetRemoteDictionaryResources;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IXpsOMFontResourceCollection** fontResources) GetFontResources;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IXpsOMImageResourceCollection** imageResources) GetImageResources;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IXpsOMColorProfileResourceCollection** colorProfileResources) GetColorProfileResources;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IXpsOMRemoteDictionaryResourceCollection** dictionaryResources) GetRemoteDictionaryResources;
 	}
 
 
@@ -1578,16 +1578,16 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMDictionary*/SelfOuter* self, IUnknown** owner) GetOwner;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMDictionary*/SelfOuter* self, uint32* count) GetCount;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMDictionary*/SelfOuter* self, uint32 index, PWSTR* key, IXpsOMShareable** entry) GetAt;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMDictionary*/SelfOuter* self, PWSTR key, IXpsOMShareable* beforeEntry, IXpsOMShareable** entry) GetByKey;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMDictionary*/SelfOuter* self, IXpsOMShareable* entry, uint32* index) GetIndex;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMDictionary*/SelfOuter* self, PWSTR key, IXpsOMShareable* entry) Append;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMDictionary*/SelfOuter* self, uint32 index, PWSTR key, IXpsOMShareable* entry) InsertAt;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMDictionary*/SelfOuter* self, uint32 index) RemoveAt;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMDictionary*/SelfOuter* self, uint32 index, PWSTR key, IXpsOMShareable* entry) SetAt;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMDictionary*/SelfOuter* self, IXpsOMDictionary** dictionary) Clone;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IUnknown** owner) GetOwner;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* count) GetCount;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 index, PWSTR* key, IXpsOMShareable** entry) GetAt;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR key, IXpsOMShareable* beforeEntry, IXpsOMShareable** entry) GetByKey;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IXpsOMShareable* entry, uint32* index) GetIndex;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR key, IXpsOMShareable* entry) Append;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 index, PWSTR key, IXpsOMShareable* entry) InsertAt;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 index) RemoveAt;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 index, PWSTR key, IXpsOMShareable* entry) SetAt;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IXpsOMDictionary** dictionary) Clone;
 	}
 
 
@@ -1620,9 +1620,9 @@ public static
 
 	[CRepr]public struct VTable : IXpsOMResource.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMFontResource*/SelfOuter* self, IStream** readerStream) GetStream;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMFontResource*/SelfOuter* self, IStream* sourceStream, XPS_FONT_EMBEDDING embeddingOption, IOpcPartUri* partName) SetContent;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMFontResource*/SelfOuter* self, XPS_FONT_EMBEDDING* embeddingOption) GetEmbeddingOption;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IStream** readerStream) GetStream;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IStream* sourceStream, XPS_FONT_EMBEDDING embeddingOption, IOpcPartUri* partName) SetContent;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, XPS_FONT_EMBEDDING* embeddingOption) GetEmbeddingOption;
 	}
 
 
@@ -1641,13 +1641,13 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMFontResourceCollection*/SelfOuter* self, uint32* count) GetCount;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMFontResourceCollection*/SelfOuter* self, uint32 index, IXpsOMFontResource** value) GetAt;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMFontResourceCollection*/SelfOuter* self, uint32 index, IXpsOMFontResource* value) SetAt;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMFontResourceCollection*/SelfOuter* self, uint32 index, IXpsOMFontResource* value) InsertAt;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMFontResourceCollection*/SelfOuter* self, IXpsOMFontResource* value) Append;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMFontResourceCollection*/SelfOuter* self, uint32 index) RemoveAt;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMFontResourceCollection*/SelfOuter* self, IOpcPartUri* partName, IXpsOMFontResource** part) GetByPartName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* count) GetCount;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 index, IXpsOMFontResource** value) GetAt;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 index, IXpsOMFontResource* value) SetAt;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 index, IXpsOMFontResource* value) InsertAt;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IXpsOMFontResource* value) Append;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 index) RemoveAt;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IOpcPartUri* partName, IXpsOMFontResource** part) GetByPartName;
 	}
 
 
@@ -1674,9 +1674,9 @@ public static
 
 	[CRepr]public struct VTable : IXpsOMResource.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMImageResource*/SelfOuter* self, IStream** readerStream) GetStream;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMImageResource*/SelfOuter* self, IStream* sourceStream, XPS_IMAGE_TYPE imageType, IOpcPartUri* partName) SetContent;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMImageResource*/SelfOuter* self, XPS_IMAGE_TYPE* imageType) GetImageType;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IStream** readerStream) GetStream;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IStream* sourceStream, XPS_IMAGE_TYPE imageType, IOpcPartUri* partName) SetContent;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, XPS_IMAGE_TYPE* imageType) GetImageType;
 	}
 
 
@@ -1695,13 +1695,13 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMImageResourceCollection*/SelfOuter* self, uint32* count) GetCount;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMImageResourceCollection*/SelfOuter* self, uint32 index, IXpsOMImageResource** object) GetAt;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMImageResourceCollection*/SelfOuter* self, uint32 index, IXpsOMImageResource* object) InsertAt;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMImageResourceCollection*/SelfOuter* self, uint32 index) RemoveAt;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMImageResourceCollection*/SelfOuter* self, uint32 index, IXpsOMImageResource* object) SetAt;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMImageResourceCollection*/SelfOuter* self, IXpsOMImageResource* object) Append;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMImageResourceCollection*/SelfOuter* self, IOpcPartUri* partName, IXpsOMImageResource** part) GetByPartName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* count) GetCount;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 index, IXpsOMImageResource** object) GetAt;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 index, IXpsOMImageResource* object) InsertAt;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 index) RemoveAt;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 index, IXpsOMImageResource* object) SetAt;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IXpsOMImageResource* object) Append;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IOpcPartUri* partName, IXpsOMImageResource** part) GetByPartName;
 	}
 
 
@@ -1728,8 +1728,8 @@ public static
 
 	[CRepr]public struct VTable : IXpsOMResource.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMColorProfileResource*/SelfOuter* self, IStream** stream) GetStream;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMColorProfileResource*/SelfOuter* self, IStream* sourceStream, IOpcPartUri* partName) SetContent;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IStream** stream) GetStream;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IStream* sourceStream, IOpcPartUri* partName) SetContent;
 	}
 
 
@@ -1746,13 +1746,13 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMColorProfileResourceCollection*/SelfOuter* self, uint32* count) GetCount;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMColorProfileResourceCollection*/SelfOuter* self, uint32 index, IXpsOMColorProfileResource** object) GetAt;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMColorProfileResourceCollection*/SelfOuter* self, uint32 index, IXpsOMColorProfileResource* object) InsertAt;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMColorProfileResourceCollection*/SelfOuter* self, uint32 index) RemoveAt;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMColorProfileResourceCollection*/SelfOuter* self, uint32 index, IXpsOMColorProfileResource* object) SetAt;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMColorProfileResourceCollection*/SelfOuter* self, IXpsOMColorProfileResource* object) Append;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMColorProfileResourceCollection*/SelfOuter* self, IOpcPartUri* partName, IXpsOMColorProfileResource** part) GetByPartName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* count) GetCount;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 index, IXpsOMColorProfileResource** object) GetAt;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 index, IXpsOMColorProfileResource* object) InsertAt;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 index) RemoveAt;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 index, IXpsOMColorProfileResource* object) SetAt;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IXpsOMColorProfileResource* object) Append;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IOpcPartUri* partName, IXpsOMColorProfileResource** part) GetByPartName;
 	}
 
 
@@ -1779,8 +1779,8 @@ public static
 
 	[CRepr]public struct VTable : IXpsOMResource.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMPrintTicketResource*/SelfOuter* self, IStream** stream) GetStream;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMPrintTicketResource*/SelfOuter* self, IStream* sourceStream, IOpcPartUri* partName) SetContent;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IStream** stream) GetStream;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IStream* sourceStream, IOpcPartUri* partName) SetContent;
 	}
 
 
@@ -1797,8 +1797,8 @@ public static
 
 	[CRepr]public struct VTable : IXpsOMResource.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMRemoteDictionaryResource*/SelfOuter* self, IXpsOMDictionary** dictionary) GetDictionary;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMRemoteDictionaryResource*/SelfOuter* self, IXpsOMDictionary* dictionary) SetDictionary;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IXpsOMDictionary** dictionary) GetDictionary;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IXpsOMDictionary* dictionary) SetDictionary;
 	}
 
 
@@ -1815,13 +1815,13 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMRemoteDictionaryResourceCollection*/SelfOuter* self, uint32* count) GetCount;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMRemoteDictionaryResourceCollection*/SelfOuter* self, uint32 index, IXpsOMRemoteDictionaryResource** object) GetAt;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMRemoteDictionaryResourceCollection*/SelfOuter* self, uint32 index, IXpsOMRemoteDictionaryResource* object) InsertAt;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMRemoteDictionaryResourceCollection*/SelfOuter* self, uint32 index) RemoveAt;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMRemoteDictionaryResourceCollection*/SelfOuter* self, uint32 index, IXpsOMRemoteDictionaryResource* object) SetAt;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMRemoteDictionaryResourceCollection*/SelfOuter* self, IXpsOMRemoteDictionaryResource* object) Append;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMRemoteDictionaryResourceCollection*/SelfOuter* self, IOpcPartUri* partName, IXpsOMRemoteDictionaryResource** remoteDictionaryResource) GetByPartName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* count) GetCount;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 index, IXpsOMRemoteDictionaryResource** object) GetAt;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 index, IXpsOMRemoteDictionaryResource* object) InsertAt;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 index) RemoveAt;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 index, IXpsOMRemoteDictionaryResource* object) SetAt;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IXpsOMRemoteDictionaryResource* object) Append;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IOpcPartUri* partName, IXpsOMRemoteDictionaryResource** remoteDictionaryResource) GetByPartName;
 	}
 
 
@@ -1848,13 +1848,13 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMSignatureBlockResourceCollection*/SelfOuter* self, uint32* count) GetCount;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMSignatureBlockResourceCollection*/SelfOuter* self, uint32 index, IXpsOMSignatureBlockResource** signatureBlockResource) GetAt;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMSignatureBlockResourceCollection*/SelfOuter* self, uint32 index, IXpsOMSignatureBlockResource* signatureBlockResource) InsertAt;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMSignatureBlockResourceCollection*/SelfOuter* self, uint32 index) RemoveAt;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMSignatureBlockResourceCollection*/SelfOuter* self, uint32 index, IXpsOMSignatureBlockResource* signatureBlockResource) SetAt;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMSignatureBlockResourceCollection*/SelfOuter* self, IXpsOMSignatureBlockResource* signatureBlockResource) Append;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMSignatureBlockResourceCollection*/SelfOuter* self, IOpcPartUri* partName, IXpsOMSignatureBlockResource** signatureBlockResource) GetByPartName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* count) GetCount;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 index, IXpsOMSignatureBlockResource** signatureBlockResource) GetAt;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 index, IXpsOMSignatureBlockResource* signatureBlockResource) InsertAt;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 index) RemoveAt;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 index, IXpsOMSignatureBlockResource* signatureBlockResource) SetAt;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IXpsOMSignatureBlockResource* signatureBlockResource) Append;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IOpcPartUri* partName, IXpsOMSignatureBlockResource** signatureBlockResource) GetByPartName;
 	}
 
 
@@ -1881,9 +1881,9 @@ public static
 
 	[CRepr]public struct VTable : IXpsOMResource.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMDocumentStructureResource*/SelfOuter* self, IXpsOMDocument** owner) GetOwner;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMDocumentStructureResource*/SelfOuter* self, IStream** stream) GetStream;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMDocumentStructureResource*/SelfOuter* self, IStream* sourceStream, IOpcPartUri* partName) SetContent;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IXpsOMDocument** owner) GetOwner;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IStream** stream) GetStream;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IStream* sourceStream, IOpcPartUri* partName) SetContent;
 	}
 
 
@@ -1902,9 +1902,9 @@ public static
 
 	[CRepr]public struct VTable : IXpsOMResource.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMStoryFragmentsResource*/SelfOuter* self, IXpsOMPageReference** owner) GetOwner;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMStoryFragmentsResource*/SelfOuter* self, IStream** stream) GetStream;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMStoryFragmentsResource*/SelfOuter* self, IStream* sourceStream, IOpcPartUri* partName) SetContent;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IXpsOMPageReference** owner) GetOwner;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IStream** stream) GetStream;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IStream* sourceStream, IOpcPartUri* partName) SetContent;
 	}
 
 
@@ -1923,9 +1923,9 @@ public static
 
 	[CRepr]public struct VTable : IXpsOMResource.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMSignatureBlockResource*/SelfOuter* self, IXpsOMDocument** owner) GetOwner;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMSignatureBlockResource*/SelfOuter* self, IStream** stream) GetStream;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMSignatureBlockResource*/SelfOuter* self, IStream* sourceStream, IOpcPartUri* partName) SetContent;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IXpsOMDocument** owner) GetOwner;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IStream** stream) GetStream;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IStream* sourceStream, IOpcPartUri* partName) SetContent;
 	}
 
 
@@ -1944,12 +1944,12 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMVisualCollection*/SelfOuter* self, uint32* count) GetCount;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMVisualCollection*/SelfOuter* self, uint32 index, IXpsOMVisual** object) GetAt;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMVisualCollection*/SelfOuter* self, uint32 index, IXpsOMVisual* object) InsertAt;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMVisualCollection*/SelfOuter* self, uint32 index) RemoveAt;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMVisualCollection*/SelfOuter* self, uint32 index, IXpsOMVisual* object) SetAt;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMVisualCollection*/SelfOuter* self, IXpsOMVisual* object) Append;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* count) GetCount;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 index, IXpsOMVisual** object) GetAt;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 index, IXpsOMVisual* object) InsertAt;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 index) RemoveAt;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 index, IXpsOMVisual* object) SetAt;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IXpsOMVisual* object) Append;
 	}
 
 
@@ -1974,19 +1974,19 @@ public static
 
 	[CRepr]public struct VTable : IXpsOMVisual.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMCanvas*/SelfOuter* self, IXpsOMVisualCollection** visuals) GetVisuals;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMCanvas*/SelfOuter* self, BOOL* useAliasedEdgeMode) GetUseAliasedEdgeMode;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMCanvas*/SelfOuter* self, BOOL useAliasedEdgeMode) SetUseAliasedEdgeMode;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMCanvas*/SelfOuter* self, PWSTR* shortDescription) GetAccessibilityShortDescription;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMCanvas*/SelfOuter* self, PWSTR shortDescription) SetAccessibilityShortDescription;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMCanvas*/SelfOuter* self, PWSTR* longDescription) GetAccessibilityLongDescription;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMCanvas*/SelfOuter* self, PWSTR longDescription) SetAccessibilityLongDescription;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMCanvas*/SelfOuter* self, IXpsOMDictionary** resourceDictionary) GetDictionary;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMCanvas*/SelfOuter* self, IXpsOMDictionary** resourceDictionary) GetDictionaryLocal;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMCanvas*/SelfOuter* self, IXpsOMDictionary* resourceDictionary) SetDictionaryLocal;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMCanvas*/SelfOuter* self, IXpsOMRemoteDictionaryResource** remoteDictionaryResource) GetDictionaryResource;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMCanvas*/SelfOuter* self, IXpsOMRemoteDictionaryResource* remoteDictionaryResource) SetDictionaryResource;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMCanvas*/SelfOuter* self, IXpsOMCanvas** canvas) Clone;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IXpsOMVisualCollection** visuals) GetVisuals;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BOOL* useAliasedEdgeMode) GetUseAliasedEdgeMode;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BOOL useAliasedEdgeMode) SetUseAliasedEdgeMode;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR* shortDescription) GetAccessibilityShortDescription;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR shortDescription) SetAccessibilityShortDescription;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR* longDescription) GetAccessibilityLongDescription;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR longDescription) SetAccessibilityLongDescription;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IXpsOMDictionary** resourceDictionary) GetDictionary;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IXpsOMDictionary** resourceDictionary) GetDictionaryLocal;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IXpsOMDictionary* resourceDictionary) SetDictionaryLocal;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IXpsOMRemoteDictionaryResource** remoteDictionaryResource) GetDictionaryResource;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IXpsOMRemoteDictionaryResource* remoteDictionaryResource) SetDictionaryResource;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IXpsOMCanvas** canvas) Clone;
 	}
 
 
@@ -2025,28 +2025,28 @@ public static
 
 	[CRepr]public struct VTable : IXpsOMPart.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMPage*/SelfOuter* self, IXpsOMPageReference** pageReference) GetOwner;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMPage*/SelfOuter* self, IXpsOMVisualCollection** visuals) GetVisuals;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMPage*/SelfOuter* self, XPS_SIZE* pageDimensions) GetPageDimensions;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMPage*/SelfOuter* self, XPS_SIZE* pageDimensions) SetPageDimensions;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMPage*/SelfOuter* self, XPS_RECT* contentBox) GetContentBox;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMPage*/SelfOuter* self, XPS_RECT* contentBox) SetContentBox;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMPage*/SelfOuter* self, XPS_RECT* bleedBox) GetBleedBox;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMPage*/SelfOuter* self, XPS_RECT* bleedBox) SetBleedBox;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMPage*/SelfOuter* self, PWSTR* language) GetLanguage;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMPage*/SelfOuter* self, PWSTR language) SetLanguage;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMPage*/SelfOuter* self, PWSTR* name) GetName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMPage*/SelfOuter* self, PWSTR name) SetName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMPage*/SelfOuter* self, BOOL* isHyperlinkTarget) GetIsHyperlinkTarget;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMPage*/SelfOuter* self, BOOL isHyperlinkTarget) SetIsHyperlinkTarget;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMPage*/SelfOuter* self, IXpsOMDictionary** resourceDictionary) GetDictionary;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMPage*/SelfOuter* self, IXpsOMDictionary** resourceDictionary) GetDictionaryLocal;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMPage*/SelfOuter* self, IXpsOMDictionary* resourceDictionary) SetDictionaryLocal;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMPage*/SelfOuter* self, IXpsOMRemoteDictionaryResource** remoteDictionaryResource) GetDictionaryResource;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMPage*/SelfOuter* self, IXpsOMRemoteDictionaryResource* remoteDictionaryResource) SetDictionaryResource;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMPage*/SelfOuter* self, ISequentialStream* stream, BOOL optimizeMarkupSize) Write;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMPage*/SelfOuter* self, XPS_OBJECT_TYPE type, PWSTR* key) GenerateUnusedLookupKey;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMPage*/SelfOuter* self, IXpsOMPage** page) Clone;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IXpsOMPageReference** pageReference) GetOwner;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IXpsOMVisualCollection** visuals) GetVisuals;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, XPS_SIZE* pageDimensions) GetPageDimensions;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, XPS_SIZE* pageDimensions) SetPageDimensions;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, XPS_RECT* contentBox) GetContentBox;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, XPS_RECT* contentBox) SetContentBox;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, XPS_RECT* bleedBox) GetBleedBox;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, XPS_RECT* bleedBox) SetBleedBox;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR* language) GetLanguage;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR language) SetLanguage;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR* name) GetName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR name) SetName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BOOL* isHyperlinkTarget) GetIsHyperlinkTarget;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BOOL isHyperlinkTarget) SetIsHyperlinkTarget;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IXpsOMDictionary** resourceDictionary) GetDictionary;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IXpsOMDictionary** resourceDictionary) GetDictionaryLocal;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IXpsOMDictionary* resourceDictionary) SetDictionaryLocal;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IXpsOMRemoteDictionaryResource** remoteDictionaryResource) GetDictionaryResource;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IXpsOMRemoteDictionaryResource* remoteDictionaryResource) SetDictionaryResource;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ISequentialStream* stream, BOOL optimizeMarkupSize) Write;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, XPS_OBJECT_TYPE type, PWSTR* key) GenerateUnusedLookupKey;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IXpsOMPage** page) Clone;
 	}
 
 
@@ -2103,23 +2103,23 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMPageReference*/SelfOuter* self, IXpsOMDocument** document) GetOwner;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMPageReference*/SelfOuter* self, IXpsOMPage** page) GetPage;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMPageReference*/SelfOuter* self, IXpsOMPage* page) SetPage;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMPageReference*/SelfOuter* self) DiscardPage;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMPageReference*/SelfOuter* self, BOOL* isPageLoaded) IsPageLoaded;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMPageReference*/SelfOuter* self, XPS_SIZE* pageDimensions) GetAdvisoryPageDimensions;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMPageReference*/SelfOuter* self, XPS_SIZE* pageDimensions) SetAdvisoryPageDimensions;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMPageReference*/SelfOuter* self, IXpsOMStoryFragmentsResource** storyFragmentsResource) GetStoryFragmentsResource;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMPageReference*/SelfOuter* self, IXpsOMStoryFragmentsResource* storyFragmentsResource) SetStoryFragmentsResource;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMPageReference*/SelfOuter* self, IXpsOMPrintTicketResource** printTicketResource) GetPrintTicketResource;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMPageReference*/SelfOuter* self, IXpsOMPrintTicketResource* printTicketResource) SetPrintTicketResource;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMPageReference*/SelfOuter* self, IXpsOMImageResource** imageResource) GetThumbnailResource;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMPageReference*/SelfOuter* self, IXpsOMImageResource* imageResource) SetThumbnailResource;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMPageReference*/SelfOuter* self, IXpsOMNameCollection** linkTargets) CollectLinkTargets;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMPageReference*/SelfOuter* self, IXpsOMPartResources** partResources) CollectPartResources;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMPageReference*/SelfOuter* self, BOOL* restrictedFonts) HasRestrictedFonts;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMPageReference*/SelfOuter* self, IXpsOMPageReference** pageReference) Clone;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IXpsOMDocument** document) GetOwner;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IXpsOMPage** page) GetPage;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IXpsOMPage* page) SetPage;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) DiscardPage;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BOOL* isPageLoaded) IsPageLoaded;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, XPS_SIZE* pageDimensions) GetAdvisoryPageDimensions;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, XPS_SIZE* pageDimensions) SetAdvisoryPageDimensions;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IXpsOMStoryFragmentsResource** storyFragmentsResource) GetStoryFragmentsResource;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IXpsOMStoryFragmentsResource* storyFragmentsResource) SetStoryFragmentsResource;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IXpsOMPrintTicketResource** printTicketResource) GetPrintTicketResource;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IXpsOMPrintTicketResource* printTicketResource) SetPrintTicketResource;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IXpsOMImageResource** imageResource) GetThumbnailResource;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IXpsOMImageResource* imageResource) SetThumbnailResource;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IXpsOMNameCollection** linkTargets) CollectLinkTargets;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IXpsOMPartResources** partResources) CollectPartResources;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BOOL* restrictedFonts) HasRestrictedFonts;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IXpsOMPageReference** pageReference) Clone;
 	}
 
 
@@ -2166,12 +2166,12 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMPageReferenceCollection*/SelfOuter* self, uint32* count) GetCount;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMPageReferenceCollection*/SelfOuter* self, uint32 index, IXpsOMPageReference** pageReference) GetAt;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMPageReferenceCollection*/SelfOuter* self, uint32 index, IXpsOMPageReference* pageReference) InsertAt;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMPageReferenceCollection*/SelfOuter* self, uint32 index) RemoveAt;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMPageReferenceCollection*/SelfOuter* self, uint32 index, IXpsOMPageReference* pageReference) SetAt;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMPageReferenceCollection*/SelfOuter* self, IXpsOMPageReference* pageReference) Append;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* count) GetCount;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 index, IXpsOMPageReference** pageReference) GetAt;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 index, IXpsOMPageReference* pageReference) InsertAt;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 index) RemoveAt;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 index, IXpsOMPageReference* pageReference) SetAt;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IXpsOMPageReference* pageReference) Append;
 	}
 
 
@@ -2196,14 +2196,14 @@ public static
 
 	[CRepr]public struct VTable : IXpsOMPart.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMDocument*/SelfOuter* self, IXpsOMDocumentSequence** documentSequence) GetOwner;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMDocument*/SelfOuter* self, IXpsOMPageReferenceCollection** pageReferences) GetPageReferences;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMDocument*/SelfOuter* self, IXpsOMPrintTicketResource** printTicketResource) GetPrintTicketResource;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMDocument*/SelfOuter* self, IXpsOMPrintTicketResource* printTicketResource) SetPrintTicketResource;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMDocument*/SelfOuter* self, IXpsOMDocumentStructureResource** documentStructureResource) GetDocumentStructureResource;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMDocument*/SelfOuter* self, IXpsOMDocumentStructureResource* documentStructureResource) SetDocumentStructureResource;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMDocument*/SelfOuter* self, IXpsOMSignatureBlockResourceCollection** signatureBlockResources) GetSignatureBlockResources;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMDocument*/SelfOuter* self, IXpsOMDocument** document) Clone;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IXpsOMDocumentSequence** documentSequence) GetOwner;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IXpsOMPageReferenceCollection** pageReferences) GetPageReferences;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IXpsOMPrintTicketResource** printTicketResource) GetPrintTicketResource;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IXpsOMPrintTicketResource* printTicketResource) SetPrintTicketResource;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IXpsOMDocumentStructureResource** documentStructureResource) GetDocumentStructureResource;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IXpsOMDocumentStructureResource* documentStructureResource) SetDocumentStructureResource;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IXpsOMSignatureBlockResourceCollection** signatureBlockResources) GetSignatureBlockResources;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IXpsOMDocument** document) Clone;
 	}
 
 
@@ -2232,12 +2232,12 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMDocumentCollection*/SelfOuter* self, uint32* count) GetCount;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMDocumentCollection*/SelfOuter* self, uint32 index, IXpsOMDocument** document) GetAt;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMDocumentCollection*/SelfOuter* self, uint32 index, IXpsOMDocument* document) InsertAt;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMDocumentCollection*/SelfOuter* self, uint32 index) RemoveAt;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMDocumentCollection*/SelfOuter* self, uint32 index, IXpsOMDocument* document) SetAt;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMDocumentCollection*/SelfOuter* self, IXpsOMDocument* document) Append;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* count) GetCount;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 index, IXpsOMDocument** document) GetAt;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 index, IXpsOMDocument* document) InsertAt;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 index) RemoveAt;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 index, IXpsOMDocument* document) SetAt;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IXpsOMDocument* document) Append;
 	}
 
 
@@ -2262,10 +2262,10 @@ public static
 
 	[CRepr]public struct VTable : IXpsOMPart.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMDocumentSequence*/SelfOuter* self, IXpsOMPackage** package) GetOwner;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMDocumentSequence*/SelfOuter* self, IXpsOMDocumentCollection** documents) GetDocuments;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMDocumentSequence*/SelfOuter* self, IXpsOMPrintTicketResource** printTicketResource) GetPrintTicketResource;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMDocumentSequence*/SelfOuter* self, IXpsOMPrintTicketResource* printTicketResource) SetPrintTicketResource;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IXpsOMPackage** package) GetOwner;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IXpsOMDocumentCollection** documents) GetDocuments;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IXpsOMPrintTicketResource** printTicketResource) GetPrintTicketResource;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IXpsOMPrintTicketResource* printTicketResource) SetPrintTicketResource;
 	}
 
 
@@ -2286,40 +2286,40 @@ public static
 
 	[CRepr]public struct VTable : IXpsOMPart.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMCoreProperties*/SelfOuter* self, IXpsOMPackage** package) GetOwner;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMCoreProperties*/SelfOuter* self, PWSTR* category) GetCategory;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMCoreProperties*/SelfOuter* self, PWSTR category) SetCategory;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMCoreProperties*/SelfOuter* self, PWSTR* contentStatus) GetContentStatus;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMCoreProperties*/SelfOuter* self, PWSTR contentStatus) SetContentStatus;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMCoreProperties*/SelfOuter* self, PWSTR* contentType) GetContentType;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMCoreProperties*/SelfOuter* self, PWSTR contentType) SetContentType;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMCoreProperties*/SelfOuter* self, SYSTEMTIME* created) GetCreated;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMCoreProperties*/SelfOuter* self, SYSTEMTIME* created) SetCreated;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMCoreProperties*/SelfOuter* self, PWSTR* creator) GetCreator;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMCoreProperties*/SelfOuter* self, PWSTR creator) SetCreator;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMCoreProperties*/SelfOuter* self, PWSTR* description) GetDescription;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMCoreProperties*/SelfOuter* self, PWSTR description) SetDescription;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMCoreProperties*/SelfOuter* self, PWSTR* identifier) GetIdentifier;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMCoreProperties*/SelfOuter* self, PWSTR identifier) SetIdentifier;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMCoreProperties*/SelfOuter* self, PWSTR* keywords) GetKeywords;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMCoreProperties*/SelfOuter* self, PWSTR keywords) SetKeywords;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMCoreProperties*/SelfOuter* self, PWSTR* language) GetLanguage;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMCoreProperties*/SelfOuter* self, PWSTR language) SetLanguage;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMCoreProperties*/SelfOuter* self, PWSTR* lastModifiedBy) GetLastModifiedBy;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMCoreProperties*/SelfOuter* self, PWSTR lastModifiedBy) SetLastModifiedBy;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMCoreProperties*/SelfOuter* self, SYSTEMTIME* lastPrinted) GetLastPrinted;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMCoreProperties*/SelfOuter* self, SYSTEMTIME* lastPrinted) SetLastPrinted;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMCoreProperties*/SelfOuter* self, SYSTEMTIME* modified) GetModified;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMCoreProperties*/SelfOuter* self, SYSTEMTIME* modified) SetModified;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMCoreProperties*/SelfOuter* self, PWSTR* revision) GetRevision;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMCoreProperties*/SelfOuter* self, PWSTR revision) SetRevision;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMCoreProperties*/SelfOuter* self, PWSTR* subject) GetSubject;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMCoreProperties*/SelfOuter* self, PWSTR subject) SetSubject;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMCoreProperties*/SelfOuter* self, PWSTR* title) GetTitle;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMCoreProperties*/SelfOuter* self, PWSTR title) SetTitle;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMCoreProperties*/SelfOuter* self, PWSTR* version) GetVersion;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMCoreProperties*/SelfOuter* self, PWSTR version) SetVersion;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMCoreProperties*/SelfOuter* self, IXpsOMCoreProperties** coreProperties) Clone;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IXpsOMPackage** package) GetOwner;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR* category) GetCategory;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR category) SetCategory;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR* contentStatus) GetContentStatus;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR contentStatus) SetContentStatus;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR* contentType) GetContentType;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR contentType) SetContentType;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, SYSTEMTIME* created) GetCreated;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, SYSTEMTIME* created) SetCreated;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR* creator) GetCreator;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR creator) SetCreator;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR* description) GetDescription;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR description) SetDescription;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR* identifier) GetIdentifier;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR identifier) SetIdentifier;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR* keywords) GetKeywords;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR keywords) SetKeywords;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR* language) GetLanguage;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR language) SetLanguage;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR* lastModifiedBy) GetLastModifiedBy;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR lastModifiedBy) SetLastModifiedBy;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, SYSTEMTIME* lastPrinted) GetLastPrinted;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, SYSTEMTIME* lastPrinted) SetLastPrinted;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, SYSTEMTIME* modified) GetModified;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, SYSTEMTIME* modified) SetModified;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR* revision) GetRevision;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR revision) SetRevision;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR* subject) GetSubject;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR subject) SetSubject;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR* title) GetTitle;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR title) SetTitle;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR* version) GetVersion;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR version) SetVersion;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IXpsOMCoreProperties** coreProperties) Clone;
 	}
 
 
@@ -2400,16 +2400,16 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMPackage*/SelfOuter* self, IXpsOMDocumentSequence** documentSequence) GetDocumentSequence;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMPackage*/SelfOuter* self, IXpsOMDocumentSequence* documentSequence) SetDocumentSequence;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMPackage*/SelfOuter* self, IXpsOMCoreProperties** coreProperties) GetCoreProperties;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMPackage*/SelfOuter* self, IXpsOMCoreProperties* coreProperties) SetCoreProperties;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMPackage*/SelfOuter* self, IOpcPartUri** discardControlPartUri) GetDiscardControlPartName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMPackage*/SelfOuter* self, IOpcPartUri* discardControlPartUri) SetDiscardControlPartName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMPackage*/SelfOuter* self, IXpsOMImageResource** imageResource) GetThumbnailResource;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMPackage*/SelfOuter* self, IXpsOMImageResource* imageResource) SetThumbnailResource;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMPackage*/SelfOuter* self, PWSTR fileName, SECURITY_ATTRIBUTES* securityAttributes, uint32 flagsAndAttributes, BOOL optimizeMarkupSize) WriteToFile;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMPackage*/SelfOuter* self, ISequentialStream* stream, BOOL optimizeMarkupSize) WriteToStream;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IXpsOMDocumentSequence** documentSequence) GetDocumentSequence;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IXpsOMDocumentSequence* documentSequence) SetDocumentSequence;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IXpsOMCoreProperties** coreProperties) GetCoreProperties;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IXpsOMCoreProperties* coreProperties) SetCoreProperties;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IOpcPartUri** discardControlPartUri) GetDiscardControlPartName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IOpcPartUri* discardControlPartUri) SetDiscardControlPartName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IXpsOMImageResource** imageResource) GetThumbnailResource;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IXpsOMImageResource* imageResource) SetThumbnailResource;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR fileName, SECURITY_ATTRIBUTES* securityAttributes, uint32 flagsAndAttributes, BOOL optimizeMarkupSize) WriteToFile;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ISequentialStream* stream, BOOL optimizeMarkupSize) WriteToStream;
 	}
 
 
@@ -2442,43 +2442,43 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMObjectFactory*/SelfOuter* self, IXpsOMPackage** package) CreatePackage;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMObjectFactory*/SelfOuter* self, PWSTR filename, BOOL reuseObjects, IXpsOMPackage** package) CreatePackageFromFile;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMObjectFactory*/SelfOuter* self, IStream* stream, BOOL reuseObjects, IXpsOMPackage** package) CreatePackageFromStream;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMObjectFactory*/SelfOuter* self, IStream* acquiredStream, IOpcPartUri* partUri, IXpsOMStoryFragmentsResource** storyFragmentsResource) CreateStoryFragmentsResource;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMObjectFactory*/SelfOuter* self, IStream* acquiredStream, IOpcPartUri* partUri, IXpsOMDocumentStructureResource** documentStructureResource) CreateDocumentStructureResource;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMObjectFactory*/SelfOuter* self, IStream* acquiredStream, IOpcPartUri* partUri, IXpsOMSignatureBlockResource** signatureBlockResource) CreateSignatureBlockResource;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMObjectFactory*/SelfOuter* self, IXpsOMDictionary* dictionary, IOpcPartUri* partUri, IXpsOMRemoteDictionaryResource** remoteDictionaryResource) CreateRemoteDictionaryResource;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMObjectFactory*/SelfOuter* self, IStream* dictionaryMarkupStream, IOpcPartUri* dictionaryPartUri, IXpsOMPartResources* resources, IXpsOMRemoteDictionaryResource** dictionaryResource) CreateRemoteDictionaryResourceFromStream;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMObjectFactory*/SelfOuter* self, IXpsOMPartResources** partResources) CreatePartResources;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMObjectFactory*/SelfOuter* self, IOpcPartUri* partUri, IXpsOMDocumentSequence** documentSequence) CreateDocumentSequence;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMObjectFactory*/SelfOuter* self, IOpcPartUri* partUri, IXpsOMDocument** document) CreateDocument;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMObjectFactory*/SelfOuter* self, XPS_SIZE* advisoryPageDimensions, IXpsOMPageReference** pageReference) CreatePageReference;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMObjectFactory*/SelfOuter* self, XPS_SIZE* pageDimensions, PWSTR language, IOpcPartUri* partUri, IXpsOMPage** page) CreatePage;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMObjectFactory*/SelfOuter* self, IStream* pageMarkupStream, IOpcPartUri* partUri, IXpsOMPartResources* resources, BOOL reuseObjects, IXpsOMPage** page) CreatePageFromStream;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMObjectFactory*/SelfOuter* self, IXpsOMCanvas** canvas) CreateCanvas;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMObjectFactory*/SelfOuter* self, IXpsOMFontResource* fontResource, IXpsOMGlyphs** glyphs) CreateGlyphs;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMObjectFactory*/SelfOuter* self, IXpsOMPath** path) CreatePath;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMObjectFactory*/SelfOuter* self, IXpsOMGeometry** geometry) CreateGeometry;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMObjectFactory*/SelfOuter* self, XPS_POINT* startPoint, IXpsOMGeometryFigure** figure) CreateGeometryFigure;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMObjectFactory*/SelfOuter* self, XPS_MATRIX* matrix, IXpsOMMatrixTransform** transform) CreateMatrixTransform;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMObjectFactory*/SelfOuter* self, XPS_COLOR* color, IXpsOMColorProfileResource* colorProfile, IXpsOMSolidColorBrush** solidColorBrush) CreateSolidColorBrush;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMObjectFactory*/SelfOuter* self, IStream* acquiredStream, IOpcPartUri* partUri, IXpsOMColorProfileResource** colorProfileResource) CreateColorProfileResource;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMObjectFactory*/SelfOuter* self, IXpsOMImageResource* image, XPS_RECT* viewBox, XPS_RECT* viewPort, IXpsOMImageBrush** imageBrush) CreateImageBrush;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMObjectFactory*/SelfOuter* self, XPS_RECT* viewBox, XPS_RECT* viewPort, IXpsOMVisualBrush** visualBrush) CreateVisualBrush;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMObjectFactory*/SelfOuter* self, IStream* acquiredStream, XPS_IMAGE_TYPE contentType, IOpcPartUri* partUri, IXpsOMImageResource** imageResource) CreateImageResource;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMObjectFactory*/SelfOuter* self, IStream* acquiredStream, IOpcPartUri* partUri, IXpsOMPrintTicketResource** printTicketResource) CreatePrintTicketResource;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMObjectFactory*/SelfOuter* self, IStream* acquiredStream, XPS_FONT_EMBEDDING fontEmbedding, IOpcPartUri* partUri, BOOL isObfSourceStream, IXpsOMFontResource** fontResource) CreateFontResource;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMObjectFactory*/SelfOuter* self, XPS_COLOR* color, IXpsOMColorProfileResource* colorProfile, float offset, IXpsOMGradientStop** gradientStop) CreateGradientStop;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMObjectFactory*/SelfOuter* self, IXpsOMGradientStop* gradStop1, IXpsOMGradientStop* gradStop2, XPS_POINT* startPoint, XPS_POINT* endPoint, IXpsOMLinearGradientBrush** linearGradientBrush) CreateLinearGradientBrush;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMObjectFactory*/SelfOuter* self, IXpsOMGradientStop* gradStop1, IXpsOMGradientStop* gradStop2, XPS_POINT* centerPoint, XPS_POINT* gradientOrigin, XPS_SIZE* radiiSizes, IXpsOMRadialGradientBrush** radialGradientBrush) CreateRadialGradientBrush;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMObjectFactory*/SelfOuter* self, IOpcPartUri* partUri, IXpsOMCoreProperties** coreProperties) CreateCoreProperties;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMObjectFactory*/SelfOuter* self, IXpsOMDictionary** dictionary) CreateDictionary;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMObjectFactory*/SelfOuter* self, IXpsOMPartUriCollection** partUriCollection) CreatePartUriCollection;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMObjectFactory*/SelfOuter* self, PWSTR fileName, SECURITY_ATTRIBUTES* securityAttributes, uint32 flagsAndAttributes, BOOL optimizeMarkupSize, XPS_INTERLEAVING interleaving, IOpcPartUri* documentSequencePartName, IXpsOMCoreProperties* coreProperties, IXpsOMImageResource* packageThumbnail, IXpsOMPrintTicketResource* documentSequencePrintTicket, IOpcPartUri* discardControlPartName, IXpsOMPackageWriter** packageWriter) CreatePackageWriterOnFile;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMObjectFactory*/SelfOuter* self, ISequentialStream* outputStream, BOOL optimizeMarkupSize, XPS_INTERLEAVING interleaving, IOpcPartUri* documentSequencePartName, IXpsOMCoreProperties* coreProperties, IXpsOMImageResource* packageThumbnail, IXpsOMPrintTicketResource* documentSequencePrintTicket, IOpcPartUri* discardControlPartName, IXpsOMPackageWriter** packageWriter) CreatePackageWriterOnStream;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMObjectFactory*/SelfOuter* self, PWSTR uri, IOpcPartUri** partUri) CreatePartUri;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMObjectFactory*/SelfOuter* self, PWSTR filename, IStream** stream) CreateReadOnlyStreamOnFile;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IXpsOMPackage** package) CreatePackage;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR filename, BOOL reuseObjects, IXpsOMPackage** package) CreatePackageFromFile;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IStream* stream, BOOL reuseObjects, IXpsOMPackage** package) CreatePackageFromStream;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IStream* acquiredStream, IOpcPartUri* partUri, IXpsOMStoryFragmentsResource** storyFragmentsResource) CreateStoryFragmentsResource;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IStream* acquiredStream, IOpcPartUri* partUri, IXpsOMDocumentStructureResource** documentStructureResource) CreateDocumentStructureResource;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IStream* acquiredStream, IOpcPartUri* partUri, IXpsOMSignatureBlockResource** signatureBlockResource) CreateSignatureBlockResource;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IXpsOMDictionary* dictionary, IOpcPartUri* partUri, IXpsOMRemoteDictionaryResource** remoteDictionaryResource) CreateRemoteDictionaryResource;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IStream* dictionaryMarkupStream, IOpcPartUri* dictionaryPartUri, IXpsOMPartResources* resources, IXpsOMRemoteDictionaryResource** dictionaryResource) CreateRemoteDictionaryResourceFromStream;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IXpsOMPartResources** partResources) CreatePartResources;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IOpcPartUri* partUri, IXpsOMDocumentSequence** documentSequence) CreateDocumentSequence;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IOpcPartUri* partUri, IXpsOMDocument** document) CreateDocument;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, XPS_SIZE* advisoryPageDimensions, IXpsOMPageReference** pageReference) CreatePageReference;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, XPS_SIZE* pageDimensions, PWSTR language, IOpcPartUri* partUri, IXpsOMPage** page) CreatePage;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IStream* pageMarkupStream, IOpcPartUri* partUri, IXpsOMPartResources* resources, BOOL reuseObjects, IXpsOMPage** page) CreatePageFromStream;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IXpsOMCanvas** canvas) CreateCanvas;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IXpsOMFontResource* fontResource, IXpsOMGlyphs** glyphs) CreateGlyphs;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IXpsOMPath** path) CreatePath;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IXpsOMGeometry** geometry) CreateGeometry;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, XPS_POINT* startPoint, IXpsOMGeometryFigure** figure) CreateGeometryFigure;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, XPS_MATRIX* matrix, IXpsOMMatrixTransform** transform) CreateMatrixTransform;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, XPS_COLOR* color, IXpsOMColorProfileResource* colorProfile, IXpsOMSolidColorBrush** solidColorBrush) CreateSolidColorBrush;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IStream* acquiredStream, IOpcPartUri* partUri, IXpsOMColorProfileResource** colorProfileResource) CreateColorProfileResource;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IXpsOMImageResource* image, XPS_RECT* viewBox, XPS_RECT* viewPort, IXpsOMImageBrush** imageBrush) CreateImageBrush;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, XPS_RECT* viewBox, XPS_RECT* viewPort, IXpsOMVisualBrush** visualBrush) CreateVisualBrush;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IStream* acquiredStream, XPS_IMAGE_TYPE contentType, IOpcPartUri* partUri, IXpsOMImageResource** imageResource) CreateImageResource;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IStream* acquiredStream, IOpcPartUri* partUri, IXpsOMPrintTicketResource** printTicketResource) CreatePrintTicketResource;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IStream* acquiredStream, XPS_FONT_EMBEDDING fontEmbedding, IOpcPartUri* partUri, BOOL isObfSourceStream, IXpsOMFontResource** fontResource) CreateFontResource;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, XPS_COLOR* color, IXpsOMColorProfileResource* colorProfile, float offset, IXpsOMGradientStop** gradientStop) CreateGradientStop;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IXpsOMGradientStop* gradStop1, IXpsOMGradientStop* gradStop2, XPS_POINT* startPoint, XPS_POINT* endPoint, IXpsOMLinearGradientBrush** linearGradientBrush) CreateLinearGradientBrush;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IXpsOMGradientStop* gradStop1, IXpsOMGradientStop* gradStop2, XPS_POINT* centerPoint, XPS_POINT* gradientOrigin, XPS_SIZE* radiiSizes, IXpsOMRadialGradientBrush** radialGradientBrush) CreateRadialGradientBrush;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IOpcPartUri* partUri, IXpsOMCoreProperties** coreProperties) CreateCoreProperties;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IXpsOMDictionary** dictionary) CreateDictionary;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IXpsOMPartUriCollection** partUriCollection) CreatePartUriCollection;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR fileName, SECURITY_ATTRIBUTES* securityAttributes, uint32 flagsAndAttributes, BOOL optimizeMarkupSize, XPS_INTERLEAVING interleaving, IOpcPartUri* documentSequencePartName, IXpsOMCoreProperties* coreProperties, IXpsOMImageResource* packageThumbnail, IXpsOMPrintTicketResource* documentSequencePrintTicket, IOpcPartUri* discardControlPartName, IXpsOMPackageWriter** packageWriter) CreatePackageWriterOnFile;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ISequentialStream* outputStream, BOOL optimizeMarkupSize, XPS_INTERLEAVING interleaving, IOpcPartUri* documentSequencePartName, IXpsOMCoreProperties* coreProperties, IXpsOMImageResource* packageThumbnail, IXpsOMPrintTicketResource* documentSequencePrintTicket, IOpcPartUri* discardControlPartName, IXpsOMPackageWriter** packageWriter) CreatePackageWriterOnStream;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR uri, IOpcPartUri** partUri) CreatePartUri;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR filename, IStream** stream) CreateReadOnlyStreamOnFile;
 	}
 
 
@@ -2565,8 +2565,8 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMNameCollection*/SelfOuter* self, uint32* count) GetCount;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMNameCollection*/SelfOuter* self, uint32 index, PWSTR* name) GetAt;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* count) GetCount;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 index, PWSTR* name) GetAt;
 	}
 
 
@@ -2583,12 +2583,12 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMPartUriCollection*/SelfOuter* self, uint32* count) GetCount;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMPartUriCollection*/SelfOuter* self, uint32 index, IOpcPartUri** partUri) GetAt;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMPartUriCollection*/SelfOuter* self, uint32 index, IOpcPartUri* partUri) InsertAt;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMPartUriCollection*/SelfOuter* self, uint32 index) RemoveAt;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMPartUriCollection*/SelfOuter* self, uint32 index, IOpcPartUri* partUri) SetAt;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMPartUriCollection*/SelfOuter* self, IOpcPartUri* partUri) Append;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* count) GetCount;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 index, IOpcPartUri** partUri) GetAt;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 index, IOpcPartUri* partUri) InsertAt;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 index) RemoveAt;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 index, IOpcPartUri* partUri) SetAt;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IOpcPartUri* partUri) Append;
 	}
 
 
@@ -2613,11 +2613,11 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMPackageWriter*/SelfOuter* self, IOpcPartUri* documentPartName, IXpsOMPrintTicketResource* documentPrintTicket, IXpsOMDocumentStructureResource* documentStructure, IXpsOMSignatureBlockResourceCollection* signatureBlockResources, IXpsOMPartUriCollection* restrictedFonts) StartNewDocument;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMPackageWriter*/SelfOuter* self, IXpsOMPage* page, XPS_SIZE* advisoryPageDimensions, IXpsOMPartUriCollection* discardableResourceParts, IXpsOMStoryFragmentsResource* storyFragments, IXpsOMPrintTicketResource* pagePrintTicket, IXpsOMImageResource* pageThumbnail) AddPage;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMPackageWriter*/SelfOuter* self, IXpsOMResource* resource) AddResource;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMPackageWriter*/SelfOuter* self) Close;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMPackageWriter*/SelfOuter* self, BOOL* isClosed) IsClosed;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IOpcPartUri* documentPartName, IXpsOMPrintTicketResource* documentPrintTicket, IXpsOMDocumentStructureResource* documentStructure, IXpsOMSignatureBlockResourceCollection* signatureBlockResources, IXpsOMPartUriCollection* restrictedFonts) StartNewDocument;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IXpsOMPage* page, XPS_SIZE* advisoryPageDimensions, IXpsOMPartUriCollection* discardableResourceParts, IXpsOMStoryFragmentsResource* storyFragments, IXpsOMPrintTicketResource* pagePrintTicket, IXpsOMImageResource* pageThumbnail) AddPage;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IXpsOMResource* resource) AddResource;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Close;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BOOL* isClosed) IsClosed;
 	}
 
 
@@ -2640,7 +2640,7 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMPackageTarget*/SelfOuter* self, IOpcPartUri* documentSequencePartName, IXpsOMPrintTicketResource* documentSequencePrintTicket, IOpcPartUri* discardControlPartName, IXpsOMPackageWriter** packageWriter) CreateXpsOMPackageWriter;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IOpcPartUri* documentSequencePartName, IXpsOMPrintTicketResource* documentSequencePrintTicket, IOpcPartUri* discardControlPartName, IXpsOMPackageWriter** packageWriter) CreateXpsOMPackageWriter;
 	}
 
 
@@ -2655,7 +2655,7 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMThumbnailGenerator*/SelfOuter* self, IXpsOMPage* page, XPS_IMAGE_TYPE thumbnailType, XPS_THUMBNAIL_SIZE thumbnailSize, IOpcPartUri* imageResourcePartName, IXpsOMImageResource** imageResource) GenerateThumbnail;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IXpsOMPage* page, XPS_IMAGE_TYPE thumbnailType, XPS_THUMBNAIL_SIZE thumbnailSize, IOpcPartUri* imageResourcePartName, IXpsOMImageResource** imageResource) GenerateThumbnail;
 	}
 
 
@@ -2670,18 +2670,18 @@ public static
 
 	[CRepr]public struct VTable : IXpsOMObjectFactory.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMObjectFactory1*/SelfOuter* self, PWSTR filename, XPS_DOCUMENT_TYPE* documentType) GetDocumentTypeFromFile;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMObjectFactory1*/SelfOuter* self, IStream* xpsDocumentStream, XPS_DOCUMENT_TYPE* documentType) GetDocumentTypeFromStream;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMObjectFactory1*/SelfOuter* self, IXpsOMImageResource* imageResource) ConvertHDPhotoToJpegXR;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMObjectFactory1*/SelfOuter* self, IXpsOMImageResource* imageResource) ConvertJpegXRToHDPhoto;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMObjectFactory1*/SelfOuter* self, PWSTR fileName, SECURITY_ATTRIBUTES* securityAttributes, uint32 flagsAndAttributes, BOOL optimizeMarkupSize, XPS_INTERLEAVING interleaving, IOpcPartUri* documentSequencePartName, IXpsOMCoreProperties* coreProperties, IXpsOMImageResource* packageThumbnail, IXpsOMPrintTicketResource* documentSequencePrintTicket, IOpcPartUri* discardControlPartName, XPS_DOCUMENT_TYPE documentType, IXpsOMPackageWriter** packageWriter) CreatePackageWriterOnFile1;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMObjectFactory1*/SelfOuter* self, ISequentialStream* outputStream, BOOL optimizeMarkupSize, XPS_INTERLEAVING interleaving, IOpcPartUri* documentSequencePartName, IXpsOMCoreProperties* coreProperties, IXpsOMImageResource* packageThumbnail, IXpsOMPrintTicketResource* documentSequencePrintTicket, IOpcPartUri* discardControlPartName, XPS_DOCUMENT_TYPE documentType, IXpsOMPackageWriter** packageWriter) CreatePackageWriterOnStream1;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMObjectFactory1*/SelfOuter* self, IXpsOMPackage1** package) CreatePackage1;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMObjectFactory1*/SelfOuter* self, IStream* stream, BOOL reuseObjects, IXpsOMPackage1** package) CreatePackageFromStream1;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMObjectFactory1*/SelfOuter* self, PWSTR filename, BOOL reuseObjects, IXpsOMPackage1** package) CreatePackageFromFile1;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMObjectFactory1*/SelfOuter* self, XPS_SIZE* pageDimensions, PWSTR language, IOpcPartUri* partUri, IXpsOMPage1** page) CreatePage1;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMObjectFactory1*/SelfOuter* self, IStream* pageMarkupStream, IOpcPartUri* partUri, IXpsOMPartResources* resources, BOOL reuseObjects, IXpsOMPage1** page) CreatePageFromStream1;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMObjectFactory1*/SelfOuter* self, IStream* dictionaryMarkupStream, IOpcPartUri* partUri, IXpsOMPartResources* resources, IXpsOMRemoteDictionaryResource** dictionaryResource) CreateRemoteDictionaryResourceFromStream1;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR filename, XPS_DOCUMENT_TYPE* documentType) GetDocumentTypeFromFile;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IStream* xpsDocumentStream, XPS_DOCUMENT_TYPE* documentType) GetDocumentTypeFromStream;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IXpsOMImageResource* imageResource) ConvertHDPhotoToJpegXR;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IXpsOMImageResource* imageResource) ConvertJpegXRToHDPhoto;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR fileName, SECURITY_ATTRIBUTES* securityAttributes, uint32 flagsAndAttributes, BOOL optimizeMarkupSize, XPS_INTERLEAVING interleaving, IOpcPartUri* documentSequencePartName, IXpsOMCoreProperties* coreProperties, IXpsOMImageResource* packageThumbnail, IXpsOMPrintTicketResource* documentSequencePrintTicket, IOpcPartUri* discardControlPartName, XPS_DOCUMENT_TYPE documentType, IXpsOMPackageWriter** packageWriter) CreatePackageWriterOnFile1;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ISequentialStream* outputStream, BOOL optimizeMarkupSize, XPS_INTERLEAVING interleaving, IOpcPartUri* documentSequencePartName, IXpsOMCoreProperties* coreProperties, IXpsOMImageResource* packageThumbnail, IXpsOMPrintTicketResource* documentSequencePrintTicket, IOpcPartUri* discardControlPartName, XPS_DOCUMENT_TYPE documentType, IXpsOMPackageWriter** packageWriter) CreatePackageWriterOnStream1;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IXpsOMPackage1** package) CreatePackage1;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IStream* stream, BOOL reuseObjects, IXpsOMPackage1** package) CreatePackageFromStream1;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR filename, BOOL reuseObjects, IXpsOMPackage1** package) CreatePackageFromFile1;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, XPS_SIZE* pageDimensions, PWSTR language, IOpcPartUri* partUri, IXpsOMPage1** page) CreatePage1;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IStream* pageMarkupStream, IOpcPartUri* partUri, IXpsOMPartResources* resources, BOOL reuseObjects, IXpsOMPage1** page) CreatePageFromStream1;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IStream* dictionaryMarkupStream, IOpcPartUri* partUri, IXpsOMPartResources* resources, IXpsOMRemoteDictionaryResource** dictionaryResource) CreateRemoteDictionaryResourceFromStream1;
 	}
 
 
@@ -2718,9 +2718,9 @@ public static
 
 	[CRepr]public struct VTable : IXpsOMPackage.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMPackage1*/SelfOuter* self, XPS_DOCUMENT_TYPE* documentType) GetDocumentType;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMPackage1*/SelfOuter* self, PWSTR fileName, SECURITY_ATTRIBUTES* securityAttributes, uint32 flagsAndAttributes, BOOL optimizeMarkupSize, XPS_DOCUMENT_TYPE documentType) WriteToFile1;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMPackage1*/SelfOuter* self, ISequentialStream* outputStream, BOOL optimizeMarkupSize, XPS_DOCUMENT_TYPE documentType) WriteToStream1;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, XPS_DOCUMENT_TYPE* documentType) GetDocumentType;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR fileName, SECURITY_ATTRIBUTES* securityAttributes, uint32 flagsAndAttributes, BOOL optimizeMarkupSize, XPS_DOCUMENT_TYPE documentType) WriteToFile1;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ISequentialStream* outputStream, BOOL optimizeMarkupSize, XPS_DOCUMENT_TYPE documentType) WriteToStream1;
 	}
 
 
@@ -2739,8 +2739,8 @@ public static
 
 	[CRepr]public struct VTable : IXpsOMPage.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMPage1*/SelfOuter* self, XPS_DOCUMENT_TYPE* documentType) GetDocumentType;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMPage1*/SelfOuter* self, ISequentialStream* stream, BOOL optimizeMarkupSize, XPS_DOCUMENT_TYPE documentType) Write1;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, XPS_DOCUMENT_TYPE* documentType) GetDocumentType;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ISequentialStream* stream, BOOL optimizeMarkupSize, XPS_DOCUMENT_TYPE documentType) Write1;
 	}
 
 
@@ -2757,9 +2757,9 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsDocumentPackageTarget*/SelfOuter* self, IOpcPartUri* documentSequencePartName, IOpcPartUri* discardControlPartName, IXpsOMPackageWriter** packageWriter) GetXpsOMPackageWriter;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsDocumentPackageTarget*/SelfOuter* self, IXpsOMObjectFactory** xpsFactory) GetXpsOMFactory;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsDocumentPackageTarget*/SelfOuter* self, XPS_DOCUMENT_TYPE* documentType) GetXpsType;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IOpcPartUri* documentSequencePartName, IOpcPartUri* discardControlPartName, IXpsOMPackageWriter** packageWriter) GetXpsOMPackageWriter;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IXpsOMObjectFactory** xpsFactory) GetXpsOMFactory;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, XPS_DOCUMENT_TYPE* documentType) GetXpsType;
 	}
 
 
@@ -2778,8 +2778,8 @@ public static
 
 	[CRepr]public struct VTable : IXpsOMRemoteDictionaryResource.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMRemoteDictionaryResource1*/SelfOuter* self, XPS_DOCUMENT_TYPE* documentType) GetDocumentType;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMRemoteDictionaryResource1*/SelfOuter* self, ISequentialStream* stream, XPS_DOCUMENT_TYPE documentType) Write1;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, XPS_DOCUMENT_TYPE* documentType) GetDocumentType;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ISequentialStream* stream, XPS_DOCUMENT_TYPE documentType) Write1;
 	}
 
 
@@ -2796,8 +2796,8 @@ public static
 
 	[CRepr]public struct VTable : IXpsOMPackageWriter.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMPackageWriter3D*/SelfOuter* self, IOpcPartUri* texturePartName, IStream* textureData) AddModelTexture;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsOMPackageWriter3D*/SelfOuter* self, IOpcPartUri* printTicketPartName, IStream* printTicketData) SetModelPrintTicket;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IOpcPartUri* texturePartName, IStream* textureData) AddModelTexture;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IOpcPartUri* printTicketPartName, IStream* printTicketData) SetModelPrintTicket;
 	}
 
 
@@ -2814,8 +2814,8 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsDocumentPackageTarget3D*/SelfOuter* self, IOpcPartUri* documentSequencePartName, IOpcPartUri* discardControlPartName, IOpcPartUri* modelPartName, IStream* modelData, IXpsOMPackageWriter3D** packageWriter) GetXpsOMPackageWriter3D;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsDocumentPackageTarget3D*/SelfOuter* self, IXpsOMObjectFactory** xpsFactory) GetXpsOMFactory;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IOpcPartUri* documentSequencePartName, IOpcPartUri* discardControlPartName, IOpcPartUri* modelPartName, IStream* modelData, IXpsOMPackageWriter3D** packageWriter) GetXpsOMPackageWriter3D;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IXpsOMObjectFactory** xpsFactory) GetXpsOMFactory;
 	}
 
 
@@ -2832,23 +2832,23 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsSigningOptions*/SelfOuter* self, PWSTR* signatureId) GetSignatureId;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsSigningOptions*/SelfOuter* self, PWSTR signatureId) SetSignatureId;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsSigningOptions*/SelfOuter* self, PWSTR* signatureMethod) GetSignatureMethod;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsSigningOptions*/SelfOuter* self, PWSTR signatureMethod) SetSignatureMethod;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsSigningOptions*/SelfOuter* self, PWSTR* digestMethod) GetDigestMethod;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsSigningOptions*/SelfOuter* self, PWSTR digestMethod) SetDigestMethod;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsSigningOptions*/SelfOuter* self, IOpcPartUri** signaturePartName) GetSignaturePartName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsSigningOptions*/SelfOuter* self, IOpcPartUri* signaturePartName) SetSignaturePartName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsSigningOptions*/SelfOuter* self, XPS_SIGN_POLICY* policy) GetPolicy;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsSigningOptions*/SelfOuter* self, XPS_SIGN_POLICY policy) SetPolicy;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsSigningOptions*/SelfOuter* self, OPC_SIGNATURE_TIME_FORMAT* timeFormat) GetSigningTimeFormat;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsSigningOptions*/SelfOuter* self, OPC_SIGNATURE_TIME_FORMAT timeFormat) SetSigningTimeFormat;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsSigningOptions*/SelfOuter* self, IOpcSignatureCustomObjectSet** customObjectSet) GetCustomObjects;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsSigningOptions*/SelfOuter* self, IOpcSignatureReferenceSet** customReferenceSet) GetCustomReferences;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsSigningOptions*/SelfOuter* self, IOpcCertificateSet** certificateSet) GetCertificateSet;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsSigningOptions*/SelfOuter* self, XPS_SIGN_FLAGS* flags) COM_GetFlags;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsSigningOptions*/SelfOuter* self, XPS_SIGN_FLAGS flags) SetFlags;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR* signatureId) GetSignatureId;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR signatureId) SetSignatureId;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR* signatureMethod) GetSignatureMethod;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR signatureMethod) SetSignatureMethod;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR* digestMethod) GetDigestMethod;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR digestMethod) SetDigestMethod;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IOpcPartUri** signaturePartName) GetSignaturePartName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IOpcPartUri* signaturePartName) SetSignaturePartName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, XPS_SIGN_POLICY* policy) GetPolicy;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, XPS_SIGN_POLICY policy) SetPolicy;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, OPC_SIGNATURE_TIME_FORMAT* timeFormat) GetSigningTimeFormat;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, OPC_SIGNATURE_TIME_FORMAT timeFormat) SetSigningTimeFormat;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IOpcSignatureCustomObjectSet** customObjectSet) GetCustomObjects;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IOpcSignatureReferenceSet** customReferenceSet) GetCustomReferences;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IOpcCertificateSet** certificateSet) GetCertificateSet;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, XPS_SIGN_FLAGS* flags) COM_GetFlags;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, XPS_SIGN_FLAGS flags) SetFlags;
 	}
 
 
@@ -2895,9 +2895,9 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsSignatureCollection*/SelfOuter* self, uint32* count) GetCount;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsSignatureCollection*/SelfOuter* self, uint32 index, IXpsSignature** signature) GetAt;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsSignatureCollection*/SelfOuter* self, uint32 index) RemoveAt;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* count) GetCount;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 index, IXpsSignature** signature) GetAt;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 index) RemoveAt;
 	}
 
 
@@ -2916,18 +2916,18 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsSignature*/SelfOuter* self, PWSTR* sigId) GetSignatureId;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsSignature*/SelfOuter* self, uint8** signatureHashValue, uint32* count) GetSignatureValue;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsSignature*/SelfOuter* self, IOpcCertificateEnumerator** certificateEnumerator) GetCertificateEnumerator;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsSignature*/SelfOuter* self, PWSTR* sigDateTimeString) GetSigningTime;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsSignature*/SelfOuter* self, OPC_SIGNATURE_TIME_FORMAT* timeFormat) GetSigningTimeFormat;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsSignature*/SelfOuter* self, IOpcPartUri** signaturePartName) GetSignaturePartName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsSignature*/SelfOuter* self, CERT_CONTEXT* x509Certificate, XPS_SIGNATURE_STATUS* sigStatus) Verify;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsSignature*/SelfOuter* self, XPS_SIGN_POLICY* policy) GetPolicy;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsSignature*/SelfOuter* self, IOpcSignatureCustomObjectEnumerator** customObjectEnumerator) GetCustomObjectEnumerator;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsSignature*/SelfOuter* self, IOpcSignatureReferenceEnumerator** customReferenceEnumerator) GetCustomReferenceEnumerator;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsSignature*/SelfOuter* self, uint8** signatureXml, uint32* count) GetSignatureXml;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsSignature*/SelfOuter* self, uint8* signatureXml, uint32 count) SetSignatureXml;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR* sigId) GetSignatureId;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint8** signatureHashValue, uint32* count) GetSignatureValue;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IOpcCertificateEnumerator** certificateEnumerator) GetCertificateEnumerator;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR* sigDateTimeString) GetSigningTime;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, OPC_SIGNATURE_TIME_FORMAT* timeFormat) GetSigningTimeFormat;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IOpcPartUri** signaturePartName) GetSignaturePartName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, CERT_CONTEXT* x509Certificate, XPS_SIGNATURE_STATUS* sigStatus) Verify;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, XPS_SIGN_POLICY* policy) GetPolicy;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IOpcSignatureCustomObjectEnumerator** customObjectEnumerator) GetCustomObjectEnumerator;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IOpcSignatureReferenceEnumerator** customReferenceEnumerator) GetCustomReferenceEnumerator;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint8** signatureXml, uint32* count) GetSignatureXml;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint8* signatureXml, uint32 count) SetSignatureXml;
 	}
 
 
@@ -2964,9 +2964,9 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsSignatureBlockCollection*/SelfOuter* self, uint32* count) GetCount;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsSignatureBlockCollection*/SelfOuter* self, uint32 index, IXpsSignatureBlock** signatureBlock) GetAt;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsSignatureBlockCollection*/SelfOuter* self, uint32 index) RemoveAt;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* count) GetCount;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 index, IXpsSignatureBlock** signatureBlock) GetAt;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 index) RemoveAt;
 	}
 
 
@@ -2985,11 +2985,11 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsSignatureBlock*/SelfOuter* self, IXpsSignatureRequestCollection** requests) GetRequests;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsSignatureBlock*/SelfOuter* self, IOpcPartUri** partName) GetPartName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsSignatureBlock*/SelfOuter* self, uint32* fixedDocumentIndex) GetDocumentIndex;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsSignatureBlock*/SelfOuter* self, IOpcPartUri** fixedDocumentName) GetDocumentName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsSignatureBlock*/SelfOuter* self, PWSTR requestId, IXpsSignatureRequest** signatureRequest) CreateRequest;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IXpsSignatureRequestCollection** requests) GetRequests;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IOpcPartUri** partName) GetPartName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* fixedDocumentIndex) GetDocumentIndex;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IOpcPartUri** fixedDocumentName) GetDocumentName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR requestId, IXpsSignatureRequest** signatureRequest) CreateRequest;
 	}
 
 
@@ -3012,9 +3012,9 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsSignatureRequestCollection*/SelfOuter* self, uint32* count) GetCount;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsSignatureRequestCollection*/SelfOuter* self, uint32 index, IXpsSignatureRequest** signatureRequest) GetAt;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsSignatureRequestCollection*/SelfOuter* self, uint32 index) RemoveAt;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* count) GetCount;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 index, IXpsSignatureRequest** signatureRequest) GetAt;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 index) RemoveAt;
 	}
 
 
@@ -3033,18 +3033,18 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsSignatureRequest*/SelfOuter* self, PWSTR* intent) GetIntent;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsSignatureRequest*/SelfOuter* self, PWSTR intent) SetIntent;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsSignatureRequest*/SelfOuter* self, PWSTR* signerName) GetRequestedSigner;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsSignatureRequest*/SelfOuter* self, PWSTR signerName) SetRequestedSigner;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsSignatureRequest*/SelfOuter* self, PWSTR* dateString) GetRequestSignByDate;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsSignatureRequest*/SelfOuter* self, PWSTR dateString) SetRequestSignByDate;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsSignatureRequest*/SelfOuter* self, PWSTR* place) GetSigningLocale;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsSignatureRequest*/SelfOuter* self, PWSTR place) SetSigningLocale;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsSignatureRequest*/SelfOuter* self, int32* pageIndex, IOpcPartUri** pagePartName, float* x, float* y) GetSpotLocation;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsSignatureRequest*/SelfOuter* self, int32 pageIndex, float x, float y) SetSpotLocation;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsSignatureRequest*/SelfOuter* self, PWSTR* requestId) GetRequestId;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsSignatureRequest*/SelfOuter* self, IXpsSignature** signature) GetSignature;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR* intent) GetIntent;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR intent) SetIntent;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR* signerName) GetRequestedSigner;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR signerName) SetRequestedSigner;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR* dateString) GetRequestSignByDate;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR dateString) SetRequestSignByDate;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR* place) GetSigningLocale;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR place) SetSigningLocale;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* pageIndex, IOpcPartUri** pagePartName, float* x, float* y) GetSpotLocation;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 pageIndex, float x, float y) SetSpotLocation;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR* requestId) GetRequestId;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IXpsSignature** signature) GetSignature;
 	}
 
 
@@ -3081,17 +3081,17 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsSignatureManager*/SelfOuter* self, PWSTR fileName) LoadPackageFile;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsSignatureManager*/SelfOuter* self, IStream* stream) LoadPackageStream;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsSignatureManager*/SelfOuter* self, IXpsSigningOptions* signOptions, CERT_CONTEXT* x509Certificate, IXpsSignature** signature) Sign;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsSignatureManager*/SelfOuter* self, IOpcPartUri** signatureOriginPartName) GetSignatureOriginPartName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsSignatureManager*/SelfOuter* self, IOpcPartUri* signatureOriginPartName) SetSignatureOriginPartName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsSignatureManager*/SelfOuter* self, IXpsSignatureCollection** signatures) GetSignatures;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsSignatureManager*/SelfOuter* self, IOpcPartUri* partName, uint32 fixedDocumentIndex, IXpsSignatureBlock** signatureBlock) AddSignatureBlock;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsSignatureManager*/SelfOuter* self, IXpsSignatureBlockCollection** signatureBlocks) GetSignatureBlocks;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsSignatureManager*/SelfOuter* self, IXpsSigningOptions** signingOptions) CreateSigningOptions;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsSignatureManager*/SelfOuter* self, PWSTR fileName, SECURITY_ATTRIBUTES* securityAttributes, uint32 flagsAndAttributes) SavePackageToFile;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXpsSignatureManager*/SelfOuter* self, IStream* stream) SavePackageToStream;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR fileName) LoadPackageFile;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IStream* stream) LoadPackageStream;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IXpsSigningOptions* signOptions, CERT_CONTEXT* x509Certificate, IXpsSignature** signature) Sign;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IOpcPartUri** signatureOriginPartName) GetSignatureOriginPartName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IOpcPartUri* signatureOriginPartName) SetSignatureOriginPartName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IXpsSignatureCollection** signatures) GetSignatures;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IOpcPartUri* partName, uint32 fixedDocumentIndex, IXpsSignatureBlock** signatureBlock) AddSignatureBlock;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IXpsSignatureBlockCollection** signatureBlocks) GetSignatureBlocks;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IXpsSigningOptions** signingOptions) CreateSigningOptions;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR fileName, SECURITY_ATTRIBUTES* securityAttributes, uint32 flagsAndAttributes) SavePackageToFile;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IStream* stream) SavePackageToStream;
 	}
 
 

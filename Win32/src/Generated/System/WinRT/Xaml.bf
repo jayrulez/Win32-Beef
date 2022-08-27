@@ -54,9 +54,9 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISurfaceImageSourceNative*/SelfOuter* self, IDXGIDevice* device) SetDevice;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISurfaceImageSourceNative*/SelfOuter* self, RECT updateRect, IDXGISurface** surface, POINT* offset) BeginDraw;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISurfaceImageSourceNative*/SelfOuter* self) EndDraw;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IDXGIDevice* device) SetDevice;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, RECT updateRect, IDXGISurface** surface, POINT* offset) BeginDraw;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) EndDraw;
 	}
 
 
@@ -75,7 +75,7 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IVirtualSurfaceUpdatesCallbackNative*/SelfOuter* self) UpdatesNeeded;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) UpdatesNeeded;
 	}
 
 
@@ -90,12 +90,12 @@ public static
 
 	[CRepr]public struct VTable : ISurfaceImageSourceNative.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IVirtualSurfaceImageSourceNative*/SelfOuter* self, RECT updateRect) Invalidate;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IVirtualSurfaceImageSourceNative*/SelfOuter* self, uint32* count) GetUpdateRectCount;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IVirtualSurfaceImageSourceNative*/SelfOuter* self, RECT* updates, uint32 count) GetUpdateRects;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IVirtualSurfaceImageSourceNative*/SelfOuter* self, RECT* bounds) GetVisibleBounds;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IVirtualSurfaceImageSourceNative*/SelfOuter* self, IVirtualSurfaceUpdatesCallbackNative* callback) RegisterForUpdatesNeeded;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IVirtualSurfaceImageSourceNative*/SelfOuter* self, int32 newWidth, int32 newHeight) Resize;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, RECT updateRect) Invalidate;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* count) GetUpdateRectCount;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, RECT* updates, uint32 count) GetUpdateRects;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, RECT* bounds) GetVisibleBounds;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IVirtualSurfaceUpdatesCallbackNative* callback) RegisterForUpdatesNeeded;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 newWidth, int32 newHeight) Resize;
 	}
 
 
@@ -120,7 +120,7 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISwapChainBackgroundPanelNative*/SelfOuter* self, IDXGISwapChain* swapChain) SetSwapChain;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IDXGISwapChain* swapChain) SetSwapChain;
 	}
 
 
@@ -135,7 +135,7 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISurfaceImageSourceManagerNative*/SelfOuter* self, IUnknown* device) FlushAllSurfacesWithDevice;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IUnknown* device) FlushAllSurfacesWithDevice;
 	}
 
 
@@ -150,11 +150,11 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISurfaceImageSourceNativeWithD2D*/SelfOuter* self, IUnknown* device) SetDevice;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISurfaceImageSourceNativeWithD2D*/SelfOuter* self, RECT* updateRect, ref Guid iid, void** updateObject, POINT* offset) BeginDraw;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISurfaceImageSourceNativeWithD2D*/SelfOuter* self) EndDraw;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISurfaceImageSourceNativeWithD2D*/SelfOuter* self) SuspendDraw;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISurfaceImageSourceNativeWithD2D*/SelfOuter* self) ResumeDraw;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IUnknown* device) SetDevice;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, RECT* updateRect, ref Guid iid, void** updateObject, POINT* offset) BeginDraw;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) EndDraw;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) SuspendDraw;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) ResumeDraw;
 	}
 
 
@@ -177,7 +177,7 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISwapChainPanelNative*/SelfOuter* self, IDXGISwapChain* swapChain) SetSwapChain;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IDXGISwapChain* swapChain) SetSwapChain;
 	}
 
 
@@ -192,7 +192,7 @@ public static
 
 	[CRepr]public struct VTable : ISwapChainPanelNative.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISwapChainPanelNative2*/SelfOuter* self, HANDLE swapChainHandle) SetSwapChainHandle;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HANDLE swapChainHandle) SetSwapChainHandle;
 	}
 
 
@@ -207,8 +207,8 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDesktopWindowXamlSourceNative*/SelfOuter* self, HWND parentWnd) AttachToWindow;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDesktopWindowXamlSourceNative*/SelfOuter* self, HWND* hWnd) get_WindowHandle;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HWND parentWnd) AttachToWindow;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HWND* hWnd) get_WindowHandle;
 	}
 
 
@@ -225,7 +225,7 @@ public static
 
 	[CRepr]public struct VTable : IDesktopWindowXamlSourceNative.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDesktopWindowXamlSourceNative2*/SelfOuter* self, MSG* message, BOOL* result) PreTranslateMessage;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, MSG* message, BOOL* result) PreTranslateMessage;
 	}
 
 
@@ -240,10 +240,10 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] uint32(/*IReferenceTrackerTarget*/SelfOuter* self) AddRefFromReferenceTracker;
-		protected new function [CallingConvention(.Stdcall)] uint32(/*IReferenceTrackerTarget*/SelfOuter* self) ReleaseFromReferenceTracker;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IReferenceTrackerTarget*/SelfOuter* self) Peg;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IReferenceTrackerTarget*/SelfOuter* self) Unpeg;
+		protected new function [CallingConvention(.Stdcall)] uint32(SelfOuter* self) AddRefFromReferenceTracker;
+		protected new function [CallingConvention(.Stdcall)] uint32(SelfOuter* self) ReleaseFromReferenceTracker;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Peg;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Unpeg;
 	}
 
 
@@ -264,13 +264,13 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IReferenceTracker*/SelfOuter* self) ConnectFromTrackerSource;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IReferenceTracker*/SelfOuter* self) DisconnectFromTrackerSource;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IReferenceTracker*/SelfOuter* self, IFindReferenceTargetsCallback* callback) FindTrackerTargets;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IReferenceTracker*/SelfOuter* self, IReferenceTrackerManager** value) GetReferenceTrackerManager;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IReferenceTracker*/SelfOuter* self) AddRefFromTrackerSource;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IReferenceTracker*/SelfOuter* self) ReleaseFromTrackerSource;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IReferenceTracker*/SelfOuter* self) PegFromTrackerSource;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) ConnectFromTrackerSource;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) DisconnectFromTrackerSource;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IFindReferenceTargetsCallback* callback) FindTrackerTargets;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IReferenceTrackerManager** value) GetReferenceTrackerManager;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) AddRefFromTrackerSource;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) ReleaseFromTrackerSource;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) PegFromTrackerSource;
 	}
 
 
@@ -297,10 +297,10 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IReferenceTrackerManager*/SelfOuter* self) ReferenceTrackingStarted;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IReferenceTrackerManager*/SelfOuter* self, uint8 findFailed) FindTrackerTargetsCompleted;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IReferenceTrackerManager*/SelfOuter* self) ReferenceTrackingCompleted;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IReferenceTrackerManager*/SelfOuter* self, IReferenceTrackerHost* value) SetReferenceTrackerHost;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) ReferenceTrackingStarted;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint8 findFailed) FindTrackerTargetsCompleted;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) ReferenceTrackingCompleted;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IReferenceTrackerHost* value) SetReferenceTrackerHost;
 	}
 
 
@@ -321,7 +321,7 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFindReferenceTargetsCallback*/SelfOuter* self, IReferenceTrackerTarget* target) FoundTrackerTarget;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IReferenceTrackerTarget* target) FoundTrackerTarget;
 	}
 
 
@@ -336,12 +336,12 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IReferenceTrackerHost*/SelfOuter* self, XAML_REFERENCETRACKER_DISCONNECT options) DisconnectUnusedReferenceSources;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IReferenceTrackerHost*/SelfOuter* self) ReleaseDisconnectedReferenceSources;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IReferenceTrackerHost*/SelfOuter* self) NotifyEndOfReferenceTrackingOnThread;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IReferenceTrackerHost*/SelfOuter* self, IUnknown* unknown, IReferenceTrackerTarget** newReference) GetTrackerTarget;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IReferenceTrackerHost*/SelfOuter* self, uint64 bytesAllocated) AddMemoryPressure;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IReferenceTrackerHost*/SelfOuter* self, uint64 bytesAllocated) RemoveMemoryPressure;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, XAML_REFERENCETRACKER_DISCONNECT options) DisconnectUnusedReferenceSources;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) ReleaseDisconnectedReferenceSources;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) NotifyEndOfReferenceTrackingOnThread;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IUnknown* unknown, IReferenceTrackerTarget** newReference) GetTrackerTarget;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint64 bytesAllocated) AddMemoryPressure;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint64 bytesAllocated) RemoveMemoryPressure;
 	}
 
 
@@ -378,10 +378,10 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITrackerOwner*/SelfOuter* self, TrackerHandle__** returnValue) CreateTrackerHandle;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITrackerOwner*/SelfOuter* self, TrackerHandle__* handle) DeleteTrackerHandle;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITrackerOwner*/SelfOuter* self, TrackerHandle__* handle, IUnknown* value) SetTrackerValue;
-		protected new function [CallingConvention(.Stdcall)] uint8(/*ITrackerOwner*/SelfOuter* self, TrackerHandle__* handle, IUnknown** returnValue) TryGetSafeTrackerValue;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, TrackerHandle__** returnValue) CreateTrackerHandle;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, TrackerHandle__* handle) DeleteTrackerHandle;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, TrackerHandle__* handle, IUnknown* value) SetTrackerValue;
+		protected new function [CallingConvention(.Stdcall)] uint8(SelfOuter* self, TrackerHandle__* handle, IUnknown** returnValue) TryGetSafeTrackerValue;
 	}
 
 

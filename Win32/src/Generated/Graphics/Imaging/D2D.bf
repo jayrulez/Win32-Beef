@@ -33,9 +33,9 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWICImageEncoder*/SelfOuter* self, ID2D1Image* pImage, IWICBitmapFrameEncode* pFrameEncode, WICImageParameters* pImageParameters) WriteFrame;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWICImageEncoder*/SelfOuter* self, ID2D1Image* pImage, IWICBitmapFrameEncode* pFrameEncode, WICImageParameters* pImageParameters) WriteFrameThumbnail;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWICImageEncoder*/SelfOuter* self, ID2D1Image* pImage, IWICBitmapEncoder* pEncoder, WICImageParameters* pImageParameters) WriteThumbnail;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ID2D1Image* pImage, IWICBitmapFrameEncode* pFrameEncode, WICImageParameters* pImageParameters) WriteFrame;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ID2D1Image* pImage, IWICBitmapFrameEncode* pFrameEncode, WICImageParameters* pImageParameters) WriteFrameThumbnail;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ID2D1Image* pImage, IWICBitmapEncoder* pEncoder, WICImageParameters* pImageParameters) WriteThumbnail;
 	}
 
 
@@ -54,7 +54,7 @@ public static
 
 	[CRepr]public struct VTable : IWICImagingFactory.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWICImagingFactory2*/SelfOuter* self, ID2D1Device* pD2DDevice, IWICImageEncoder** ppWICImageEncoder) CreateImageEncoder;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ID2D1Device* pD2DDevice, IWICImageEncoder** ppWICImageEncoder) CreateImageEncoder;
 	}
 
 

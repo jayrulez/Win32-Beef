@@ -212,8 +212,8 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFhTarget*/SelfOuter* self, FH_TARGET_PROPERTY_TYPE PropertyType, BSTR* PropertyValue) GetStringProperty;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFhTarget*/SelfOuter* self, FH_TARGET_PROPERTY_TYPE PropertyType, uint64* PropertyValue) GetNumericalProperty;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, FH_TARGET_PROPERTY_TYPE PropertyType, BSTR* PropertyValue) GetStringProperty;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, FH_TARGET_PROPERTY_TYPE PropertyType, uint64* PropertyValue) GetNumericalProperty;
 	}
 
 
@@ -230,8 +230,8 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFhScopeIterator*/SelfOuter* self) MoveToNextItem;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFhScopeIterator*/SelfOuter* self, BSTR* Item) GetItem;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) MoveToNextItem;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* Item) GetItem;
 	}
 
 
@@ -248,20 +248,20 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFhConfigMgr*/SelfOuter* self) LoadConfiguration;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFhConfigMgr*/SelfOuter* self, BOOL OverwriteIfExists) CreateDefaultConfiguration;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFhConfigMgr*/SelfOuter* self) SaveConfiguration;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFhConfigMgr*/SelfOuter* self, BOOL Add, FH_PROTECTED_ITEM_CATEGORY Category, BSTR Item) AddRemoveExcludeRule;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFhConfigMgr*/SelfOuter* self, BOOL Include, FH_PROTECTED_ITEM_CATEGORY Category, IFhScopeIterator** Iterator) GetIncludeExcludeRules;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFhConfigMgr*/SelfOuter* self, FH_LOCAL_POLICY_TYPE LocalPolicyType, uint64* PolicyValue) GetLocalPolicy;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFhConfigMgr*/SelfOuter* self, FH_LOCAL_POLICY_TYPE LocalPolicyType, uint64 PolicyValue) SetLocalPolicy;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFhConfigMgr*/SelfOuter* self, FH_BACKUP_STATUS* BackupStatus) GetBackupStatus;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFhConfigMgr*/SelfOuter* self, FH_BACKUP_STATUS BackupStatus) SetBackupStatus;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFhConfigMgr*/SelfOuter* self, IFhTarget** DefaultTarget) GetDefaultTarget;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFhConfigMgr*/SelfOuter* self, BSTR TargetUrl, FH_DEVICE_VALIDATION_RESULT* ValidationResult) ValidateTarget;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFhConfigMgr*/SelfOuter* self, BSTR TargetUrl, BSTR TargetName) ProvisionAndSetNewTarget;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFhConfigMgr*/SelfOuter* self, BOOL Recommend) ChangeDefaultTargetRecommendation;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFhConfigMgr*/SelfOuter* self, uint32* ProtectionState, BSTR* ProtectedUntilTime) QueryProtectionStatus;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) LoadConfiguration;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BOOL OverwriteIfExists) CreateDefaultConfiguration;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) SaveConfiguration;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BOOL Add, FH_PROTECTED_ITEM_CATEGORY Category, BSTR Item) AddRemoveExcludeRule;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BOOL Include, FH_PROTECTED_ITEM_CATEGORY Category, IFhScopeIterator** Iterator) GetIncludeExcludeRules;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, FH_LOCAL_POLICY_TYPE LocalPolicyType, uint64* PolicyValue) GetLocalPolicy;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, FH_LOCAL_POLICY_TYPE LocalPolicyType, uint64 PolicyValue) SetLocalPolicy;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, FH_BACKUP_STATUS* BackupStatus) GetBackupStatus;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, FH_BACKUP_STATUS BackupStatus) SetBackupStatus;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IFhTarget** DefaultTarget) GetDefaultTarget;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR TargetUrl, FH_DEVICE_VALIDATION_RESULT* ValidationResult) ValidateTarget;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR TargetUrl, BSTR TargetName) ProvisionAndSetNewTarget;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BOOL Recommend) ChangeDefaultTargetRecommendation;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* ProtectionState, BSTR* ProtectedUntilTime) QueryProtectionStatus;
 	}
 
 
@@ -302,11 +302,11 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFhReassociation*/SelfOuter* self, BSTR TargetUrl, FH_DEVICE_VALIDATION_RESULT* ValidationResult) ValidateTarget;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFhReassociation*/SelfOuter* self, BSTR TargetUrl) ScanTargetForConfigurations;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFhReassociation*/SelfOuter* self, uint32 Index, BSTR* UserName, BSTR* PcName, FILETIME* BackupTime) GetConfigurationDetails;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFhReassociation*/SelfOuter* self, uint32 Index) SelectConfiguration;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFhReassociation*/SelfOuter* self, BOOL OverwriteIfExists) PerformReassociation;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR TargetUrl, FH_DEVICE_VALIDATION_RESULT* ValidationResult) ValidateTarget;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR TargetUrl) ScanTargetForConfigurations;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 Index, BSTR* UserName, BSTR* PcName, FILETIME* BackupTime) GetConfigurationDetails;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 Index) SelectConfiguration;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BOOL OverwriteIfExists) PerformReassociation;
 	}
 
 

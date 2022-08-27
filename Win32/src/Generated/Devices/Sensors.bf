@@ -877,11 +877,11 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISensorManager*/SelfOuter* self, ref Guid sensorCategory, ISensorCollection** ppSensorsFound) GetSensorsByCategory;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISensorManager*/SelfOuter* self, ref Guid sensorType, ISensorCollection** ppSensorsFound) GetSensorsByType;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISensorManager*/SelfOuter* self, ref Guid sensorID, ISensor** ppSensor) GetSensorByID;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISensorManager*/SelfOuter* self, ISensorManagerEvents* pEvents) SetEventSink;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISensorManager*/SelfOuter* self, HWND hParent, ISensorCollection* pSensors, BOOL fModal) RequestPermissions;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid sensorCategory, ISensorCollection** ppSensorsFound) GetSensorsByCategory;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid sensorType, ISensorCollection** ppSensorsFound) GetSensorsByType;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid sensorID, ISensor** ppSensor) GetSensorByID;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ISensorManagerEvents* pEvents) SetEventSink;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HWND hParent, ISensorCollection* pSensors, BOOL fModal) RequestPermissions;
 	}
 
 
@@ -904,8 +904,8 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ILocationPermissions*/SelfOuter* self, BOOL* pfEnabled) GetGlobalLocationPermission;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ILocationPermissions*/SelfOuter* self, uint32 dwClientThreadId) CheckLocationCapability;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BOOL* pfEnabled) GetGlobalLocationPermission;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwClientThreadId) CheckLocationCapability;
 	}
 
 
@@ -922,12 +922,12 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISensorCollection*/SelfOuter* self, uint32 ulIndex, ISensor** ppSensor) GetAt;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISensorCollection*/SelfOuter* self, uint32* pCount) GetCount;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISensorCollection*/SelfOuter* self, ISensor* pSensor) Add;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISensorCollection*/SelfOuter* self, ISensor* pSensor) Remove;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISensorCollection*/SelfOuter* self, ref Guid sensorID) RemoveByID;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISensorCollection*/SelfOuter* self) Clear;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 ulIndex, ISensor** ppSensor) GetAt;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pCount) GetCount;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ISensor* pSensor) Add;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ISensor* pSensor) Remove;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid sensorID) RemoveByID;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Clear;
 	}
 
 
@@ -952,21 +952,21 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISensor*/SelfOuter* self, ref Guid pID) GetID;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISensor*/SelfOuter* self, ref Guid pSensorCategory) GetCategory;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISensor*/SelfOuter* self, ref Guid pSensorType) COM_GetType;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISensor*/SelfOuter* self, BSTR* pFriendlyName) GetFriendlyName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISensor*/SelfOuter* self, PROPERTYKEY* key, PROPVARIANT* pProperty) GetProperty;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISensor*/SelfOuter* self, IPortableDeviceKeyCollection* pKeys, IPortableDeviceValues** ppProperties) GetProperties;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISensor*/SelfOuter* self, IPortableDeviceKeyCollection** ppDataFields) GetSupportedDataFields;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISensor*/SelfOuter* self, IPortableDeviceValues* pProperties, IPortableDeviceValues** ppResults) SetProperties;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISensor*/SelfOuter* self, PROPERTYKEY* key, int16* pIsSupported) SupportsDataField;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISensor*/SelfOuter* self, SensorState* pState) GetState;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISensor*/SelfOuter* self, ISensorDataReport** ppDataReport) GetData;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISensor*/SelfOuter* self, ref Guid eventGuid, int16* pIsSupported) SupportsEvent;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISensor*/SelfOuter* self, ref Guid ppValues, uint32* pCount) GetEventInterest;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISensor*/SelfOuter* self, ref Guid pValues, uint32 count) SetEventInterest;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISensor*/SelfOuter* self, ISensorEvents* pEvents) SetEventSink;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid pID) GetID;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid pSensorCategory) GetCategory;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid pSensorType) COM_GetType;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pFriendlyName) GetFriendlyName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PROPERTYKEY* key, PROPVARIANT* pProperty) GetProperty;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IPortableDeviceKeyCollection* pKeys, IPortableDeviceValues** ppProperties) GetProperties;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IPortableDeviceKeyCollection** ppDataFields) GetSupportedDataFields;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IPortableDeviceValues* pProperties, IPortableDeviceValues** ppResults) SetProperties;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PROPERTYKEY* key, int16* pIsSupported) SupportsDataField;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, SensorState* pState) GetState;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ISensorDataReport** ppDataReport) GetData;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid eventGuid, int16* pIsSupported) SupportsEvent;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid ppValues, uint32* pCount) GetEventInterest;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid pValues, uint32 count) SetEventInterest;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ISensorEvents* pEvents) SetEventSink;
 	}
 
 
@@ -1009,9 +1009,9 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISensorDataReport*/SelfOuter* self, SYSTEMTIME* pTimeStamp) GetTimestamp;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISensorDataReport*/SelfOuter* self, PROPERTYKEY* pKey, PROPVARIANT* pValue) GetSensorValue;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISensorDataReport*/SelfOuter* self, IPortableDeviceKeyCollection* pKeys, IPortableDeviceValues** ppValues) GetSensorValues;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, SYSTEMTIME* pTimeStamp) GetTimestamp;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PROPERTYKEY* pKey, PROPVARIANT* pValue) GetSensorValue;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IPortableDeviceKeyCollection* pKeys, IPortableDeviceValues** ppValues) GetSensorValues;
 	}
 
 
@@ -1030,7 +1030,7 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISensorManagerEvents*/SelfOuter* self, ISensor* pSensor, SensorState state) OnSensorEnter;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ISensor* pSensor, SensorState state) OnSensorEnter;
 	}
 
 
@@ -1045,10 +1045,10 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISensorEvents*/SelfOuter* self, ISensor* pSensor, SensorState state) OnStateChanged;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISensorEvents*/SelfOuter* self, ISensor* pSensor, ISensorDataReport* pNewData) OnDataUpdated;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISensorEvents*/SelfOuter* self, ISensor* pSensor, ref Guid eventID, IPortableDeviceValues* pEventData) OnEvent;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISensorEvents*/SelfOuter* self, ref Guid ID) OnLeave;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ISensor* pSensor, SensorState state) OnStateChanged;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ISensor* pSensor, ISensorDataReport* pNewData) OnDataUpdated;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ISensor* pSensor, ref Guid eventID, IPortableDeviceValues* pEventData) OnEvent;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid ID) OnLeave;
 	}
 
 

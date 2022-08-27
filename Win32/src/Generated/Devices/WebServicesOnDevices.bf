@@ -773,8 +773,8 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWSDAddress*/SelfOuter* self, char16* pszBuffer, uint32 cchLength, BOOL fSafe) Serialize;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWSDAddress*/SelfOuter* self, PWSTR pszBuffer) Deserialize;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, char16* pszBuffer, uint32 cchLength, BOOL fSafe) Serialize;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR pszBuffer) Deserialize;
 	}
 
 
@@ -791,11 +791,11 @@ public static
 
 	[CRepr]public struct VTable : IWSDAddress.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWSDTransportAddress*/SelfOuter* self, uint16* pwPort) GetPort;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWSDTransportAddress*/SelfOuter* self, uint16 wPort) SetPort;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWSDTransportAddress*/SelfOuter* self, PWSTR* ppszAddress) GetTransportAddress;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWSDTransportAddress*/SelfOuter* self, BOOL fSafe, PWSTR* ppszAddress) GetTransportAddressEx;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWSDTransportAddress*/SelfOuter* self, PWSTR pszAddress) SetTransportAddress;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint16* pwPort) GetPort;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint16 wPort) SetPort;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR* ppszAddress) GetTransportAddress;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BOOL fSafe, PWSTR* ppszAddress) GetTransportAddressEx;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR pszAddress) SetTransportAddress;
 	}
 
 
@@ -818,11 +818,11 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWSDMessageParameters*/SelfOuter* self, IWSDAddress** ppAddress) GetLocalAddress;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWSDMessageParameters*/SelfOuter* self, IWSDAddress* pAddress) SetLocalAddress;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWSDMessageParameters*/SelfOuter* self, IWSDAddress** ppAddress) GetRemoteAddress;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWSDMessageParameters*/SelfOuter* self, IWSDAddress* pAddress) SetRemoteAddress;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWSDMessageParameters*/SelfOuter* self, IWSDMessageParameters** ppTxParams) GetLowerParameters;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IWSDAddress** ppAddress) GetLocalAddress;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IWSDAddress* pAddress) SetLocalAddress;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IWSDAddress** ppAddress) GetRemoteAddress;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IWSDAddress* pAddress) SetRemoteAddress;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IWSDMessageParameters** ppTxParams) GetLowerParameters;
 	}
 
 
@@ -845,8 +845,8 @@ public static
 
 	[CRepr]public struct VTable : IWSDMessageParameters.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWSDUdpMessageParameters*/SelfOuter* self, WSDUdpRetransmitParams* pParams) SetRetransmitParams;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWSDUdpMessageParameters*/SelfOuter* self, WSDUdpRetransmitParams* pParams) GetRetransmitParams;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, WSDUdpRetransmitParams* pParams) SetRetransmitParams;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, WSDUdpRetransmitParams* pParams) GetRetransmitParams;
 	}
 
 
@@ -863,16 +863,16 @@ public static
 
 	[CRepr]public struct VTable : IWSDTransportAddress.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWSDUdpAddress*/SelfOuter* self, SOCKADDR_STORAGE* pSockAddr) SetSockaddr;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWSDUdpAddress*/SelfOuter* self, SOCKADDR_STORAGE* pSockAddr) GetSockaddr;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWSDUdpAddress*/SelfOuter* self, BOOL fExclusive) SetExclusive;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWSDUdpAddress*/SelfOuter* self) GetExclusive;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWSDUdpAddress*/SelfOuter* self, WSDUdpMessageType messageType) SetMessageType;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWSDUdpAddress*/SelfOuter* self, WSDUdpMessageType* pMessageType) GetMessageType;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWSDUdpAddress*/SelfOuter* self, uint32 dwTTL) SetTTL;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWSDUdpAddress*/SelfOuter* self, uint32* pdwTTL) GetTTL;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWSDUdpAddress*/SelfOuter* self, ref Guid pAlias) SetAlias;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWSDUdpAddress*/SelfOuter* self, ref Guid pAlias) GetAlias;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, SOCKADDR_STORAGE* pSockAddr) SetSockaddr;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, SOCKADDR_STORAGE* pSockAddr) GetSockaddr;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BOOL fExclusive) SetExclusive;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) GetExclusive;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, WSDUdpMessageType messageType) SetMessageType;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, WSDUdpMessageType* pMessageType) GetMessageType;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwTTL) SetTTL;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pdwTTL) GetTTL;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid pAlias) SetAlias;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid pAlias) GetAlias;
 	}
 
 
@@ -905,15 +905,15 @@ public static
 
 	[CRepr]public struct VTable : IWSDMessageParameters.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWSDHttpMessageParameters*/SelfOuter* self, PWSTR pszHeaders) SetInboundHttpHeaders;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWSDHttpMessageParameters*/SelfOuter* self, PWSTR* ppszHeaders) GetInboundHttpHeaders;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWSDHttpMessageParameters*/SelfOuter* self, PWSTR pszHeaders) SetOutboundHttpHeaders;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWSDHttpMessageParameters*/SelfOuter* self, PWSTR* ppszHeaders) GetOutboundHttpHeaders;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWSDHttpMessageParameters*/SelfOuter* self, PWSTR pszId) SetID;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWSDHttpMessageParameters*/SelfOuter* self, PWSTR* ppszId) GetID;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWSDHttpMessageParameters*/SelfOuter* self, IUnknown* pContext) SetContext;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWSDHttpMessageParameters*/SelfOuter* self, IUnknown** ppContext) GetContext;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWSDHttpMessageParameters*/SelfOuter* self) Clear;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR pszHeaders) SetInboundHttpHeaders;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR* ppszHeaders) GetInboundHttpHeaders;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR pszHeaders) SetOutboundHttpHeaders;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR* ppszHeaders) GetOutboundHttpHeaders;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR pszId) SetID;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR* ppszId) GetID;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IUnknown* pContext) SetContext;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IUnknown** ppContext) GetContext;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Clear;
 	}
 
 
@@ -944,10 +944,10 @@ public static
 
 	[CRepr]public struct VTable : IWSDTransportAddress.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWSDHttpAddress*/SelfOuter* self) GetSecure;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWSDHttpAddress*/SelfOuter* self, BOOL fSecure) SetSecure;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWSDHttpAddress*/SelfOuter* self, PWSTR* ppszPath) GetPath;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWSDHttpAddress*/SelfOuter* self, PWSTR pszPath) SetPath;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) GetSecure;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BOOL fSecure) SetSecure;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR* ppszPath) GetPath;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR pszPath) SetPath;
 	}
 
 
@@ -968,8 +968,8 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWSDSSLClientCertificate*/SelfOuter* self, CERT_CONTEXT** ppCertContext) GetClientCertificate;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWSDSSLClientCertificate*/SelfOuter* self, HANDLE* phToken) GetMappedAccessToken;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, CERT_CONTEXT** ppCertContext) GetClientCertificate;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HANDLE* phToken) GetMappedAccessToken;
 	}
 
 
@@ -986,8 +986,8 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWSDHttpAuthParameters*/SelfOuter* self, HANDLE* phToken) GetClientAccessToken;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWSDHttpAuthParameters*/SelfOuter* self, uint32* pAuthType) GetAuthType;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HANDLE* phToken) GetClientAccessToken;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pAuthType) GetAuthType;
 	}
 
 
@@ -1004,11 +1004,11 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWSDSignatureProperty*/SelfOuter* self, BOOL* pbSigned) IsMessageSigned;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWSDSignatureProperty*/SelfOuter* self, BOOL* pbSignatureTrusted) IsMessageSignatureTrusted;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWSDSignatureProperty*/SelfOuter* self, uint8* pbKeyInfo, uint32* pdwKeyInfoSize) GetKeyInfo;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWSDSignatureProperty*/SelfOuter* self, uint8* pbSignature, uint32* pdwSignatureSize) GetSignature;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWSDSignatureProperty*/SelfOuter* self, uint8* pbSignedInfoHash, uint32* pdwHashSize) GetSignedInfoHash;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BOOL* pbSigned) IsMessageSigned;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BOOL* pbSignatureTrusted) IsMessageSignatureTrusted;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint8* pbKeyInfo, uint32* pdwKeyInfoSize) GetKeyInfo;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint8* pbSignature, uint32* pdwSignatureSize) GetSignature;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint8* pbSignedInfoHash, uint32* pdwHashSize) GetSignedInfoHash;
 	}
 
 
@@ -1043,9 +1043,9 @@ public static
 
 	[CRepr]public struct VTable : IWSDAttachment.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWSDOutboundAttachment*/SelfOuter* self, uint8* pBuffer, uint32 dwBytesToWrite, uint32* pdwNumberOfBytesWritten) Write;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWSDOutboundAttachment*/SelfOuter* self) Close;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWSDOutboundAttachment*/SelfOuter* self) Abort;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint8* pBuffer, uint32 dwBytesToWrite, uint32* pdwNumberOfBytesWritten) Write;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Close;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Abort;
 	}
 
 
@@ -1064,8 +1064,8 @@ public static
 
 	[CRepr]public struct VTable : IWSDAttachment.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWSDInboundAttachment*/SelfOuter* self, uint8* pBuffer, uint32 dwBytesToRead, uint32* pdwNumberOfBytesRead) Read;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWSDInboundAttachment*/SelfOuter* self) Close;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint8* pBuffer, uint32 dwBytesToRead, uint32* pdwNumberOfBytesRead) Read;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Close;
 	}
 
 
@@ -1082,10 +1082,10 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWSDXMLContext*/SelfOuter* self, PWSTR pszUri, PWSTR pszSuggestedPrefix, WSDXML_NAMESPACE** ppNamespace) AddNamespace;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWSDXMLContext*/SelfOuter* self, PWSTR pszUri, PWSTR pszName, WSDXML_NAME** ppName) AddNameToNamespace;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWSDXMLContext*/SelfOuter* self, WSDXML_NAMESPACE** pNamespaces, uint16 wNamespacesCount, uint8 bLayerNumber) SetNamespaces;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWSDXMLContext*/SelfOuter* self, WSDXML_TYPE** pTypes, uint32 dwTypesCount, uint8 bLayerNumber) SetTypes;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR pszUri, PWSTR pszSuggestedPrefix, WSDXML_NAMESPACE** ppNamespace) AddNamespace;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR pszUri, PWSTR pszName, WSDXML_NAME** ppName) AddNameToNamespace;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, WSDXML_NAMESPACE** pNamespaces, uint16 wNamespacesCount, uint8 bLayerNumber) SetNamespaces;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, WSDXML_TYPE** pTypes, uint32 dwTypesCount, uint8 bLayerNumber) SetTypes;
 	}
 
 
@@ -1106,13 +1106,13 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWSDiscoveryProvider*/SelfOuter* self, uint32 dwAddressFamily) SetAddressFamily;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWSDiscoveryProvider*/SelfOuter* self, IWSDiscoveryProviderNotify* pSink) Attach;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWSDiscoveryProvider*/SelfOuter* self) Detach;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWSDiscoveryProvider*/SelfOuter* self, PWSTR pszId, PWSTR pszTag) SearchById;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWSDiscoveryProvider*/SelfOuter* self, PWSTR pszAddress, PWSTR pszTag) SearchByAddress;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWSDiscoveryProvider*/SelfOuter* self, WSD_NAME_LIST* pTypesList, WSD_URI_LIST* pScopesList, PWSTR pszMatchBy, PWSTR pszTag) SearchByType;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWSDiscoveryProvider*/SelfOuter* self, IWSDXMLContext** ppContext) GetXMLContext;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwAddressFamily) SetAddressFamily;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IWSDiscoveryProviderNotify* pSink) Attach;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Detach;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR pszId, PWSTR pszTag) SearchById;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR pszAddress, PWSTR pszTag) SearchByAddress;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, WSD_NAME_LIST* pTypesList, WSD_URI_LIST* pScopesList, PWSTR pszMatchBy, PWSTR pszTag) SearchByType;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IWSDXMLContext** ppContext) GetXMLContext;
 	}
 
 
@@ -1139,10 +1139,10 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWSDiscoveryProviderNotify*/SelfOuter* self, IWSDiscoveredService* pService) Add;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWSDiscoveryProviderNotify*/SelfOuter* self, IWSDiscoveredService* pService) Remove;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWSDiscoveryProviderNotify*/SelfOuter* self, HRESULT hr, PWSTR pszTag) SearchFailed;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWSDiscoveryProviderNotify*/SelfOuter* self, PWSTR pszTag) SearchComplete;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IWSDiscoveredService* pService) Add;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IWSDiscoveredService* pService) Remove;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HRESULT hr, PWSTR pszTag) SearchFailed;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR pszTag) SearchComplete;
 	}
 
 
@@ -1163,17 +1163,17 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWSDiscoveredService*/SelfOuter* self, WSD_ENDPOINT_REFERENCE** ppEndpointReference) GetEndpointReference;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWSDiscoveredService*/SelfOuter* self, WSD_NAME_LIST** ppTypesList) GetTypes;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWSDiscoveredService*/SelfOuter* self, WSD_URI_LIST** ppScopesList) GetScopes;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWSDiscoveredService*/SelfOuter* self, WSD_URI_LIST** ppXAddrsList) GetXAddrs;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWSDiscoveredService*/SelfOuter* self, uint64* pullMetadataVersion) GetMetadataVersion;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWSDiscoveredService*/SelfOuter* self, WSDXML_ELEMENT** ppHeaderAny, WSDXML_ELEMENT** ppBodyAny) GetExtendedDiscoXML;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWSDiscoveredService*/SelfOuter* self, PWSTR* ppszTag) GetProbeResolveTag;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWSDiscoveredService*/SelfOuter* self, PWSTR* ppszRemoteTransportAddress) GetRemoteTransportAddress;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWSDiscoveredService*/SelfOuter* self, PWSTR* ppszLocalTransportAddress) GetLocalTransportAddress;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWSDiscoveredService*/SelfOuter* self, ref Guid pGuid) GetLocalInterfaceGUID;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWSDiscoveredService*/SelfOuter* self, uint64* pullInstanceId) GetInstanceId;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, WSD_ENDPOINT_REFERENCE** ppEndpointReference) GetEndpointReference;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, WSD_NAME_LIST** ppTypesList) GetTypes;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, WSD_URI_LIST** ppScopesList) GetScopes;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, WSD_URI_LIST** ppXAddrsList) GetXAddrs;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint64* pullMetadataVersion) GetMetadataVersion;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, WSDXML_ELEMENT** ppHeaderAny, WSDXML_ELEMENT** ppBodyAny) GetExtendedDiscoXML;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR* ppszTag) GetProbeResolveTag;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR* ppszRemoteTransportAddress) GetRemoteTransportAddress;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR* ppszLocalTransportAddress) GetLocalTransportAddress;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid pGuid) GetLocalInterfaceGUID;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint64* pullInstanceId) GetInstanceId;
 	}
 
 
@@ -1208,19 +1208,19 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWSDiscoveryPublisher*/SelfOuter* self, uint32 dwAddressFamily) SetAddressFamily;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWSDiscoveryPublisher*/SelfOuter* self, IWSDiscoveryPublisherNotify* pSink) RegisterNotificationSink;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWSDiscoveryPublisher*/SelfOuter* self, IWSDiscoveryPublisherNotify* pSink) UnRegisterNotificationSink;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWSDiscoveryPublisher*/SelfOuter* self, PWSTR pszId, uint64 ullMetadataVersion, uint64 ullInstanceId, uint64 ullMessageNumber, PWSTR pszSessionId, WSD_NAME_LIST* pTypesList, WSD_URI_LIST* pScopesList, WSD_URI_LIST* pXAddrsList) Publish;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWSDiscoveryPublisher*/SelfOuter* self, PWSTR pszId, uint64 ullInstanceId, uint64 ullMessageNumber, PWSTR pszSessionId, WSDXML_ELEMENT* pAny) UnPublish;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWSDiscoveryPublisher*/SelfOuter* self, WSD_SOAP_MESSAGE* pProbeMessage, IWSDMessageParameters* pMessageParameters, PWSTR pszId, uint64 ullMetadataVersion, uint64 ullInstanceId, uint64 ullMessageNumber, PWSTR pszSessionId, WSD_NAME_LIST* pTypesList, WSD_URI_LIST* pScopesList, WSD_URI_LIST* pXAddrsList) MatchProbe;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWSDiscoveryPublisher*/SelfOuter* self, WSD_SOAP_MESSAGE* pResolveMessage, IWSDMessageParameters* pMessageParameters, PWSTR pszId, uint64 ullMetadataVersion, uint64 ullInstanceId, uint64 ullMessageNumber, PWSTR pszSessionId, WSD_NAME_LIST* pTypesList, WSD_URI_LIST* pScopesList, WSD_URI_LIST* pXAddrsList) MatchResolve;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWSDiscoveryPublisher*/SelfOuter* self, PWSTR pszId, uint64 ullMetadataVersion, uint64 ullInstanceId, uint64 ullMessageNumber, PWSTR pszSessionId, WSD_NAME_LIST* pTypesList, WSD_URI_LIST* pScopesList, WSD_URI_LIST* pXAddrsList, WSDXML_ELEMENT* pHeaderAny, WSDXML_ELEMENT* pReferenceParameterAny, WSDXML_ELEMENT* pPolicyAny, WSDXML_ELEMENT* pEndpointReferenceAny, WSDXML_ELEMENT* pAny) PublishEx;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWSDiscoveryPublisher*/SelfOuter* self, WSD_SOAP_MESSAGE* pProbeMessage, IWSDMessageParameters* pMessageParameters, PWSTR pszId, uint64 ullMetadataVersion, uint64 ullInstanceId, uint64 ullMessageNumber, PWSTR pszSessionId, WSD_NAME_LIST* pTypesList, WSD_URI_LIST* pScopesList, WSD_URI_LIST* pXAddrsList, WSDXML_ELEMENT* pHeaderAny, WSDXML_ELEMENT* pReferenceParameterAny, WSDXML_ELEMENT* pPolicyAny, WSDXML_ELEMENT* pEndpointReferenceAny, WSDXML_ELEMENT* pAny) MatchProbeEx;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWSDiscoveryPublisher*/SelfOuter* self, WSD_SOAP_MESSAGE* pResolveMessage, IWSDMessageParameters* pMessageParameters, PWSTR pszId, uint64 ullMetadataVersion, uint64 ullInstanceId, uint64 ullMessageNumber, PWSTR pszSessionId, WSD_NAME_LIST* pTypesList, WSD_URI_LIST* pScopesList, WSD_URI_LIST* pXAddrsList, WSDXML_ELEMENT* pHeaderAny, WSDXML_ELEMENT* pReferenceParameterAny, WSDXML_ELEMENT* pPolicyAny, WSDXML_ELEMENT* pEndpointReferenceAny, WSDXML_ELEMENT* pAny) MatchResolveEx;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWSDiscoveryPublisher*/SelfOuter* self, IWSDScopeMatchingRule* pScopeMatchingRule) RegisterScopeMatchingRule;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWSDiscoveryPublisher*/SelfOuter* self, IWSDScopeMatchingRule* pScopeMatchingRule) UnRegisterScopeMatchingRule;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWSDiscoveryPublisher*/SelfOuter* self, IWSDXMLContext** ppContext) GetXMLContext;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwAddressFamily) SetAddressFamily;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IWSDiscoveryPublisherNotify* pSink) RegisterNotificationSink;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IWSDiscoveryPublisherNotify* pSink) UnRegisterNotificationSink;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR pszId, uint64 ullMetadataVersion, uint64 ullInstanceId, uint64 ullMessageNumber, PWSTR pszSessionId, WSD_NAME_LIST* pTypesList, WSD_URI_LIST* pScopesList, WSD_URI_LIST* pXAddrsList) Publish;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR pszId, uint64 ullInstanceId, uint64 ullMessageNumber, PWSTR pszSessionId, WSDXML_ELEMENT* pAny) UnPublish;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, WSD_SOAP_MESSAGE* pProbeMessage, IWSDMessageParameters* pMessageParameters, PWSTR pszId, uint64 ullMetadataVersion, uint64 ullInstanceId, uint64 ullMessageNumber, PWSTR pszSessionId, WSD_NAME_LIST* pTypesList, WSD_URI_LIST* pScopesList, WSD_URI_LIST* pXAddrsList) MatchProbe;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, WSD_SOAP_MESSAGE* pResolveMessage, IWSDMessageParameters* pMessageParameters, PWSTR pszId, uint64 ullMetadataVersion, uint64 ullInstanceId, uint64 ullMessageNumber, PWSTR pszSessionId, WSD_NAME_LIST* pTypesList, WSD_URI_LIST* pScopesList, WSD_URI_LIST* pXAddrsList) MatchResolve;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR pszId, uint64 ullMetadataVersion, uint64 ullInstanceId, uint64 ullMessageNumber, PWSTR pszSessionId, WSD_NAME_LIST* pTypesList, WSD_URI_LIST* pScopesList, WSD_URI_LIST* pXAddrsList, WSDXML_ELEMENT* pHeaderAny, WSDXML_ELEMENT* pReferenceParameterAny, WSDXML_ELEMENT* pPolicyAny, WSDXML_ELEMENT* pEndpointReferenceAny, WSDXML_ELEMENT* pAny) PublishEx;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, WSD_SOAP_MESSAGE* pProbeMessage, IWSDMessageParameters* pMessageParameters, PWSTR pszId, uint64 ullMetadataVersion, uint64 ullInstanceId, uint64 ullMessageNumber, PWSTR pszSessionId, WSD_NAME_LIST* pTypesList, WSD_URI_LIST* pScopesList, WSD_URI_LIST* pXAddrsList, WSDXML_ELEMENT* pHeaderAny, WSDXML_ELEMENT* pReferenceParameterAny, WSDXML_ELEMENT* pPolicyAny, WSDXML_ELEMENT* pEndpointReferenceAny, WSDXML_ELEMENT* pAny) MatchProbeEx;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, WSD_SOAP_MESSAGE* pResolveMessage, IWSDMessageParameters* pMessageParameters, PWSTR pszId, uint64 ullMetadataVersion, uint64 ullInstanceId, uint64 ullMessageNumber, PWSTR pszSessionId, WSD_NAME_LIST* pTypesList, WSD_URI_LIST* pScopesList, WSD_URI_LIST* pXAddrsList, WSDXML_ELEMENT* pHeaderAny, WSDXML_ELEMENT* pReferenceParameterAny, WSDXML_ELEMENT* pPolicyAny, WSDXML_ELEMENT* pEndpointReferenceAny, WSDXML_ELEMENT* pAny) MatchResolveEx;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IWSDScopeMatchingRule* pScopeMatchingRule) RegisterScopeMatchingRule;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IWSDScopeMatchingRule* pScopeMatchingRule) UnRegisterScopeMatchingRule;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IWSDXMLContext** ppContext) GetXMLContext;
 	}
 
 
@@ -1259,8 +1259,8 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWSDiscoveryPublisherNotify*/SelfOuter* self, WSD_SOAP_MESSAGE* pSoap, IWSDMessageParameters* pMessageParameters) ProbeHandler;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWSDiscoveryPublisherNotify*/SelfOuter* self, WSD_SOAP_MESSAGE* pSoap, IWSDMessageParameters* pMessageParameters) ResolveHandler;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, WSD_SOAP_MESSAGE* pSoap, IWSDMessageParameters* pMessageParameters) ProbeHandler;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, WSD_SOAP_MESSAGE* pSoap, IWSDMessageParameters* pMessageParameters) ResolveHandler;
 	}
 
 
@@ -1277,8 +1277,8 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWSDScopeMatchingRule*/SelfOuter* self, PWSTR* ppszScopeMatchingRule) GetScopeRule;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWSDScopeMatchingRule*/SelfOuter* self, PWSTR pszScope1, PWSTR pszScope2, BOOL* pfMatch) MatchScopes;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR* ppszScopeMatchingRule) GetScopeRule;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR pszScope1, PWSTR pszScope2, BOOL* pfMatch) MatchScopes;
 	}
 
 
@@ -1295,13 +1295,13 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWSDEndpointProxy*/SelfOuter* self, void* pBody, WSD_OPERATION* pOperation) SendOneWayRequest;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWSDEndpointProxy*/SelfOuter* self, void* pBody, WSD_OPERATION* pOperation, WSD_SYNCHRONOUS_RESPONSE_CONTEXT* pResponseContext) SendTwoWayRequest;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWSDEndpointProxy*/SelfOuter* self, void* pBody, WSD_OPERATION* pOperation, IUnknown* pAsyncState, IWSDAsyncCallback* pCallback, IWSDAsyncResult** pResult) SendTwoWayRequestAsync;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWSDEndpointProxy*/SelfOuter* self, IWSDAsyncResult* pAsyncResult) AbortAsyncOperation;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWSDEndpointProxy*/SelfOuter* self, WSD_SOAP_FAULT* pFault) ProcessFault;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWSDEndpointProxy*/SelfOuter* self, PWSTR* ppszErrorInfo) GetErrorInfo;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWSDEndpointProxy*/SelfOuter* self, WSD_SOAP_FAULT** ppFault) GetFaultInfo;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, void* pBody, WSD_OPERATION* pOperation) SendOneWayRequest;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, void* pBody, WSD_OPERATION* pOperation, WSD_SYNCHRONOUS_RESPONSE_CONTEXT* pResponseContext) SendTwoWayRequest;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, void* pBody, WSD_OPERATION* pOperation, IUnknown* pAsyncState, IWSDAsyncCallback* pCallback, IWSDAsyncResult** pResult) SendTwoWayRequestAsync;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IWSDAsyncResult* pAsyncResult) AbortAsyncOperation;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, WSD_SOAP_FAULT* pFault) ProcessFault;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR* ppszErrorInfo) GetErrorInfo;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, WSD_SOAP_FAULT** ppFault) GetFaultInfo;
 	}
 
 
@@ -1328,7 +1328,7 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWSDMetadataExchange*/SelfOuter* self, WSD_METADATA_SECTION_LIST** MetadataOut) GetMetadata;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, WSD_METADATA_SECTION_LIST** MetadataOut) GetMetadata;
 	}
 
 
@@ -1343,13 +1343,13 @@ public static
 
 	[CRepr]public struct VTable : IWSDMetadataExchange.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWSDServiceProxy*/SelfOuter* self, IWSDAsyncResult** ppResult) BeginGetMetadata;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWSDServiceProxy*/SelfOuter* self, IWSDAsyncResult* pResult, WSD_METADATA_SECTION_LIST** ppMetadata) EndGetMetadata;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWSDServiceProxy*/SelfOuter* self, WSD_SERVICE_METADATA** ppServiceMetadata) GetServiceMetadata;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWSDServiceProxy*/SelfOuter* self, WSD_OPERATION* pOperation, IUnknown* pUnknown, WSDXML_ELEMENT* pAny, WSDXML_ELEMENT** ppAny) SubscribeToOperation;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWSDServiceProxy*/SelfOuter* self, WSD_OPERATION* pOperation) UnsubscribeToOperation;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWSDServiceProxy*/SelfOuter* self, IWSDEventingStatus* pStatus) SetEventingStatusCallback;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWSDServiceProxy*/SelfOuter* self, IWSDEndpointProxy** ppProxy) GetEndpointProxy;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IWSDAsyncResult** ppResult) BeginGetMetadata;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IWSDAsyncResult* pResult, WSD_METADATA_SECTION_LIST** ppMetadata) EndGetMetadata;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, WSD_SERVICE_METADATA** ppServiceMetadata) GetServiceMetadata;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, WSD_OPERATION* pOperation, IUnknown* pUnknown, WSDXML_ELEMENT* pAny, WSDXML_ELEMENT** ppAny) SubscribeToOperation;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, WSD_OPERATION* pOperation) UnsubscribeToOperation;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IWSDEventingStatus* pStatus) SetEventingStatusCallback;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IWSDEndpointProxy** ppProxy) GetEndpointProxy;
 	}
 
 
@@ -1376,18 +1376,18 @@ public static
 
 	[CRepr]public struct VTable : IWSDServiceProxy.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWSDServiceProxyEventing*/SelfOuter* self, WSD_OPERATION* pOperations, uint32 dwOperationCount, IUnknown* pUnknown, WSD_EVENTING_EXPIRES* pExpires, WSDXML_ELEMENT* pAny, WSD_EVENTING_EXPIRES** ppExpires, WSDXML_ELEMENT** ppAny) SubscribeToMultipleOperations;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWSDServiceProxyEventing*/SelfOuter* self, WSD_OPERATION* pOperations, uint32 dwOperationCount, IUnknown* pUnknown, WSD_EVENTING_EXPIRES* pExpires, WSDXML_ELEMENT* pAny, IUnknown* pAsyncState, IWSDAsyncCallback* pAsyncCallback, IWSDAsyncResult** ppResult) BeginSubscribeToMultipleOperations;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWSDServiceProxyEventing*/SelfOuter* self, WSD_OPERATION* pOperations, uint32 dwOperationCount, IWSDAsyncResult* pResult, WSD_EVENTING_EXPIRES** ppExpires, WSDXML_ELEMENT** ppAny) EndSubscribeToMultipleOperations;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWSDServiceProxyEventing*/SelfOuter* self, WSD_OPERATION* pOperations, uint32 dwOperationCount, WSDXML_ELEMENT* pAny) UnsubscribeToMultipleOperations;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWSDServiceProxyEventing*/SelfOuter* self, WSD_OPERATION* pOperations, uint32 dwOperationCount, WSDXML_ELEMENT* pAny, IUnknown* pAsyncState, IWSDAsyncCallback* pAsyncCallback, IWSDAsyncResult** ppResult) BeginUnsubscribeToMultipleOperations;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWSDServiceProxyEventing*/SelfOuter* self, WSD_OPERATION* pOperations, uint32 dwOperationCount, IWSDAsyncResult* pResult) EndUnsubscribeToMultipleOperations;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWSDServiceProxyEventing*/SelfOuter* self, WSD_OPERATION* pOperations, uint32 dwOperationCount, WSD_EVENTING_EXPIRES* pExpires, WSDXML_ELEMENT* pAny, WSD_EVENTING_EXPIRES** ppExpires, WSDXML_ELEMENT** ppAny) RenewMultipleOperations;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWSDServiceProxyEventing*/SelfOuter* self, WSD_OPERATION* pOperations, uint32 dwOperationCount, WSD_EVENTING_EXPIRES* pExpires, WSDXML_ELEMENT* pAny, IUnknown* pAsyncState, IWSDAsyncCallback* pAsyncCallback, IWSDAsyncResult** ppResult) BeginRenewMultipleOperations;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWSDServiceProxyEventing*/SelfOuter* self, WSD_OPERATION* pOperations, uint32 dwOperationCount, IWSDAsyncResult* pResult, WSD_EVENTING_EXPIRES** ppExpires, WSDXML_ELEMENT** ppAny) EndRenewMultipleOperations;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWSDServiceProxyEventing*/SelfOuter* self, WSD_OPERATION* pOperations, uint32 dwOperationCount, WSDXML_ELEMENT* pAny, WSD_EVENTING_EXPIRES** ppExpires, WSDXML_ELEMENT** ppAny) GetStatusForMultipleOperations;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWSDServiceProxyEventing*/SelfOuter* self, WSD_OPERATION* pOperations, uint32 dwOperationCount, WSDXML_ELEMENT* pAny, IUnknown* pAsyncState, IWSDAsyncCallback* pAsyncCallback, IWSDAsyncResult** ppResult) BeginGetStatusForMultipleOperations;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWSDServiceProxyEventing*/SelfOuter* self, WSD_OPERATION* pOperations, uint32 dwOperationCount, IWSDAsyncResult* pResult, WSD_EVENTING_EXPIRES** ppExpires, WSDXML_ELEMENT** ppAny) EndGetStatusForMultipleOperations;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, WSD_OPERATION* pOperations, uint32 dwOperationCount, IUnknown* pUnknown, WSD_EVENTING_EXPIRES* pExpires, WSDXML_ELEMENT* pAny, WSD_EVENTING_EXPIRES** ppExpires, WSDXML_ELEMENT** ppAny) SubscribeToMultipleOperations;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, WSD_OPERATION* pOperations, uint32 dwOperationCount, IUnknown* pUnknown, WSD_EVENTING_EXPIRES* pExpires, WSDXML_ELEMENT* pAny, IUnknown* pAsyncState, IWSDAsyncCallback* pAsyncCallback, IWSDAsyncResult** ppResult) BeginSubscribeToMultipleOperations;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, WSD_OPERATION* pOperations, uint32 dwOperationCount, IWSDAsyncResult* pResult, WSD_EVENTING_EXPIRES** ppExpires, WSDXML_ELEMENT** ppAny) EndSubscribeToMultipleOperations;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, WSD_OPERATION* pOperations, uint32 dwOperationCount, WSDXML_ELEMENT* pAny) UnsubscribeToMultipleOperations;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, WSD_OPERATION* pOperations, uint32 dwOperationCount, WSDXML_ELEMENT* pAny, IUnknown* pAsyncState, IWSDAsyncCallback* pAsyncCallback, IWSDAsyncResult** ppResult) BeginUnsubscribeToMultipleOperations;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, WSD_OPERATION* pOperations, uint32 dwOperationCount, IWSDAsyncResult* pResult) EndUnsubscribeToMultipleOperations;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, WSD_OPERATION* pOperations, uint32 dwOperationCount, WSD_EVENTING_EXPIRES* pExpires, WSDXML_ELEMENT* pAny, WSD_EVENTING_EXPIRES** ppExpires, WSDXML_ELEMENT** ppAny) RenewMultipleOperations;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, WSD_OPERATION* pOperations, uint32 dwOperationCount, WSD_EVENTING_EXPIRES* pExpires, WSDXML_ELEMENT* pAny, IUnknown* pAsyncState, IWSDAsyncCallback* pAsyncCallback, IWSDAsyncResult** ppResult) BeginRenewMultipleOperations;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, WSD_OPERATION* pOperations, uint32 dwOperationCount, IWSDAsyncResult* pResult, WSD_EVENTING_EXPIRES** ppExpires, WSDXML_ELEMENT** ppAny) EndRenewMultipleOperations;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, WSD_OPERATION* pOperations, uint32 dwOperationCount, WSDXML_ELEMENT* pAny, WSD_EVENTING_EXPIRES** ppExpires, WSDXML_ELEMENT** ppAny) GetStatusForMultipleOperations;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, WSD_OPERATION* pOperations, uint32 dwOperationCount, WSDXML_ELEMENT* pAny, IUnknown* pAsyncState, IWSDAsyncCallback* pAsyncCallback, IWSDAsyncResult** ppResult) BeginGetStatusForMultipleOperations;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, WSD_OPERATION* pOperations, uint32 dwOperationCount, IWSDAsyncResult* pResult, WSD_EVENTING_EXPIRES** ppExpires, WSDXML_ELEMENT** ppAny) EndGetStatusForMultipleOperations;
 	}
 
 
@@ -1424,16 +1424,16 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWSDDeviceProxy*/SelfOuter* self, PWSTR pszDeviceId, IWSDAddress* pDeviceAddress, PWSTR pszLocalId, IWSDXMLContext* pContext, IWSDDeviceProxy* pSponsor) Init;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWSDDeviceProxy*/SelfOuter* self, IWSDAsyncResult** ppResult) BeginGetMetadata;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWSDDeviceProxy*/SelfOuter* self, IWSDAsyncResult* pResult) EndGetMetadata;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWSDDeviceProxy*/SelfOuter* self, WSD_HOST_METADATA** ppHostMetadata) GetHostMetadata;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWSDDeviceProxy*/SelfOuter* self, WSD_THIS_MODEL_METADATA** ppManufacturerMetadata) GetThisModelMetadata;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWSDDeviceProxy*/SelfOuter* self, WSD_THIS_DEVICE_METADATA** ppThisDeviceMetadata) GetThisDeviceMetadata;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWSDDeviceProxy*/SelfOuter* self, WSD_METADATA_SECTION_LIST** ppMetadata) GetAllMetadata;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWSDDeviceProxy*/SelfOuter* self, PWSTR pszServiceId, IWSDServiceProxy** ppServiceProxy) GetServiceProxyById;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWSDDeviceProxy*/SelfOuter* self, WSDXML_NAME* pType, IWSDServiceProxy** ppServiceProxy) GetServiceProxyByType;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWSDDeviceProxy*/SelfOuter* self, IWSDEndpointProxy** ppProxy) GetEndpointProxy;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR pszDeviceId, IWSDAddress* pDeviceAddress, PWSTR pszLocalId, IWSDXMLContext* pContext, IWSDDeviceProxy* pSponsor) Init;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IWSDAsyncResult** ppResult) BeginGetMetadata;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IWSDAsyncResult* pResult) EndGetMetadata;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, WSD_HOST_METADATA** ppHostMetadata) GetHostMetadata;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, WSD_THIS_MODEL_METADATA** ppManufacturerMetadata) GetThisModelMetadata;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, WSD_THIS_DEVICE_METADATA** ppThisDeviceMetadata) GetThisDeviceMetadata;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, WSD_METADATA_SECTION_LIST** ppMetadata) GetAllMetadata;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR pszServiceId, IWSDServiceProxy** ppServiceProxy) GetServiceProxyById;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, WSDXML_NAME* pType, IWSDServiceProxy** ppServiceProxy) GetServiceProxyByType;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IWSDEndpointProxy** ppProxy) GetEndpointProxy;
 	}
 
 
@@ -1466,13 +1466,13 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWSDAsyncResult*/SelfOuter* self, IWSDAsyncCallback* pCallback, IUnknown* pAsyncState) SetCallback;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWSDAsyncResult*/SelfOuter* self, HANDLE hWaitHandle) SetWaitHandle;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWSDAsyncResult*/SelfOuter* self) HasCompleted;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWSDAsyncResult*/SelfOuter* self, IUnknown** ppAsyncState) GetAsyncState;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWSDAsyncResult*/SelfOuter* self) Abort;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWSDAsyncResult*/SelfOuter* self, WSD_EVENT* pEvent) GetEvent;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWSDAsyncResult*/SelfOuter* self, IWSDEndpointProxy** ppEndpoint) GetEndpointProxy;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IWSDAsyncCallback* pCallback, IUnknown* pAsyncState) SetCallback;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HANDLE hWaitHandle) SetWaitHandle;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) HasCompleted;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IUnknown** ppAsyncState) GetAsyncState;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Abort;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, WSD_EVENT* pEvent) GetEvent;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IWSDEndpointProxy** ppEndpoint) GetEndpointProxy;
 	}
 
 
@@ -1499,7 +1499,7 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWSDAsyncCallback*/SelfOuter* self, IWSDAsyncResult* pAsyncResult, IUnknown* pAsyncState) AsyncOperationComplete;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IWSDAsyncResult* pAsyncResult, IUnknown* pAsyncState) AsyncOperationComplete;
 	}
 
 
@@ -1514,9 +1514,9 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] void(/*IWSDEventingStatus*/SelfOuter* self, PWSTR pszSubscriptionAction) SubscriptionRenewed;
-		protected new function [CallingConvention(.Stdcall)] void(/*IWSDEventingStatus*/SelfOuter* self, PWSTR pszSubscriptionAction, HRESULT hr) SubscriptionRenewalFailed;
-		protected new function [CallingConvention(.Stdcall)] void(/*IWSDEventingStatus*/SelfOuter* self, PWSTR pszSubscriptionAction) SubscriptionEnded;
+		protected new function [CallingConvention(.Stdcall)] void(SelfOuter* self, PWSTR pszSubscriptionAction) SubscriptionRenewed;
+		protected new function [CallingConvention(.Stdcall)] void(SelfOuter* self, PWSTR pszSubscriptionAction, HRESULT hr) SubscriptionRenewalFailed;
+		protected new function [CallingConvention(.Stdcall)] void(SelfOuter* self, PWSTR pszSubscriptionAction) SubscriptionEnded;
 	}
 
 
@@ -1535,18 +1535,18 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWSDDeviceHost*/SelfOuter* self, PWSTR pszLocalId, IWSDXMLContext* pContext, IWSDAddress** ppHostAddresses, uint32 dwHostAddressCount) Init;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWSDDeviceHost*/SelfOuter* self, uint64 ullInstanceId, WSD_URI_LIST* pScopeList, IWSDDeviceHostNotify* pNotificationSink) Start;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWSDDeviceHost*/SelfOuter* self) Stop;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWSDDeviceHost*/SelfOuter* self) Terminate;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWSDDeviceHost*/SelfOuter* self, WSD_PORT_TYPE* pPortType) RegisterPortType;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWSDDeviceHost*/SelfOuter* self, WSD_THIS_MODEL_METADATA* pThisModelMetadata, WSD_THIS_DEVICE_METADATA* pThisDeviceMetadata, WSD_HOST_METADATA* pHostMetadata, WSD_METADATA_SECTION_LIST* pCustomMetadata) SetMetadata;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWSDDeviceHost*/SelfOuter* self, PWSTR pszServiceId, IUnknown* pService) RegisterService;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWSDDeviceHost*/SelfOuter* self, PWSTR pszServiceId) RetireService;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWSDDeviceHost*/SelfOuter* self, PWSTR pszServiceId, PWSTR pszEndpointAddress, WSD_PORT_TYPE* pPortType, WSDXML_NAME* pPortName, WSDXML_ELEMENT* pAny, IUnknown* pService) AddDynamicService;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWSDDeviceHost*/SelfOuter* self, PWSTR pszServiceId) RemoveDynamicService;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWSDDeviceHost*/SelfOuter* self, PWSTR pszServiceId, BOOL fDiscoverable) SetServiceDiscoverable;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWSDDeviceHost*/SelfOuter* self, PWSTR pszServiceId, void* pBody, WSD_OPERATION* pOperation) SignalEvent;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR pszLocalId, IWSDXMLContext* pContext, IWSDAddress** ppHostAddresses, uint32 dwHostAddressCount) Init;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint64 ullInstanceId, WSD_URI_LIST* pScopeList, IWSDDeviceHostNotify* pNotificationSink) Start;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Stop;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Terminate;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, WSD_PORT_TYPE* pPortType) RegisterPortType;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, WSD_THIS_MODEL_METADATA* pThisModelMetadata, WSD_THIS_DEVICE_METADATA* pThisDeviceMetadata, WSD_HOST_METADATA* pHostMetadata, WSD_METADATA_SECTION_LIST* pCustomMetadata) SetMetadata;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR pszServiceId, IUnknown* pService) RegisterService;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR pszServiceId) RetireService;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR pszServiceId, PWSTR pszEndpointAddress, WSD_PORT_TYPE* pPortType, WSDXML_NAME* pPortName, WSDXML_ELEMENT* pAny, IUnknown* pService) AddDynamicService;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR pszServiceId) RemoveDynamicService;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR pszServiceId, BOOL fDiscoverable) SetServiceDiscoverable;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR pszServiceId, void* pBody, WSD_OPERATION* pOperation) SignalEvent;
 	}
 
 
@@ -1583,7 +1583,7 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWSDDeviceHostNotify*/SelfOuter* self, PWSTR pszServiceId, IUnknown** ppService) GetService;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR pszServiceId, IUnknown** ppService) GetService;
 	}
 
 
@@ -1598,8 +1598,8 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWSDServiceMessaging*/SelfOuter* self, void* pBody, WSD_OPERATION* pOperation, IWSDMessageParameters* pMessageParameters) SendResponse;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWSDServiceMessaging*/SelfOuter* self, WSD_SOAP_HEADER* pRequestHeader, IWSDMessageParameters* pMessageParameters, WSD_SOAP_FAULT* pFault) FaultRequest;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, void* pBody, WSD_OPERATION* pOperation, IWSDMessageParameters* pMessageParameters) SendResponse;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, WSD_SOAP_HEADER* pRequestHeader, IWSDMessageParameters* pMessageParameters, WSD_SOAP_FAULT* pFault) FaultRequest;
 	}
 
 

@@ -43,7 +43,7 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IIsolatedAppLauncher*/SelfOuter* self, PWSTR appUserModelId, PWSTR arguments, IsolatedAppLauncherTelemetryParameters* telemetryParameters) Launch;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR appUserModelId, PWSTR arguments, IsolatedAppLauncherTelemetryParameters* telemetryParameters) Launch;
 	}
 
 

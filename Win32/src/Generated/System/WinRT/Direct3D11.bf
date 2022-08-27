@@ -33,7 +33,7 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDirect3DDxgiInterfaceAccess*/SelfOuter* self, ref Guid iid, void** p) GetInterface;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid iid, void** p) GetInterface;
 	}
 
 

@@ -870,10 +870,10 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWdsTransportCacheable*/SelfOuter* self, int16* pbDirty) get_Dirty;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWdsTransportCacheable*/SelfOuter* self) Discard;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWdsTransportCacheable*/SelfOuter* self) Refresh;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWdsTransportCacheable*/SelfOuter* self) Commit;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* pbDirty) get_Dirty;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Discard;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Refresh;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Commit;
 	}
 
 
@@ -894,9 +894,9 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWdsTransportCollection*/SelfOuter* self, uint32* pulCount) get_Count;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWdsTransportCollection*/SelfOuter* self, uint32 ulIndex, IDispatch** ppVal) get_Item;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWdsTransportCollection*/SelfOuter* self, IUnknown** ppVal) get__NewEnum;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pulCount) get_Count;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 ulIndex, IDispatch** ppVal) get_Item;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IUnknown** ppVal) get__NewEnum;
 	}
 
 
@@ -915,7 +915,7 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWdsTransportManager*/SelfOuter* self, BSTR bszServerName, IWdsTransportServer** ppWdsTransportServer) GetWdsTransportServer;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bszServerName, IWdsTransportServer** ppWdsTransportServer) GetWdsTransportServer;
 	}
 
 
@@ -930,11 +930,11 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWdsTransportServer*/SelfOuter* self, BSTR* pbszName) get_Name;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWdsTransportServer*/SelfOuter* self, IWdsTransportSetupManager** ppWdsTransportSetupManager) get_SetupManager;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWdsTransportServer*/SelfOuter* self, IWdsTransportConfigurationManager** ppWdsTransportConfigurationManager) get_ConfigurationManager;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWdsTransportServer*/SelfOuter* self, IWdsTransportNamespaceManager** ppWdsTransportNamespaceManager) get_NamespaceManager;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWdsTransportServer*/SelfOuter* self, uint32 ulClientId, WDSTRANSPORT_DISCONNECT_TYPE DisconnectionType) DisconnectClient;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pbszName) get_Name;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IWdsTransportSetupManager** ppWdsTransportSetupManager) get_SetupManager;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IWdsTransportConfigurationManager** ppWdsTransportConfigurationManager) get_ConfigurationManager;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IWdsTransportNamespaceManager** ppWdsTransportNamespaceManager) get_NamespaceManager;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 ulClientId, WDSTRANSPORT_DISCONNECT_TYPE DisconnectionType) DisconnectClient;
 	}
 
 
@@ -957,7 +957,7 @@ public static
 
 	[CRepr]public struct VTable : IWdsTransportServer.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWdsTransportServer2*/SelfOuter* self, IWdsTransportTftpManager** ppWdsTransportTftpManager) get_TftpManager;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IWdsTransportTftpManager** ppWdsTransportTftpManager) get_TftpManager;
 	}
 
 
@@ -972,11 +972,11 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWdsTransportSetupManager*/SelfOuter* self, uint64* pullVersion) get_Version;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWdsTransportSetupManager*/SelfOuter* self, uint32* pulInstalledFeatures) get_InstalledFeatures;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWdsTransportSetupManager*/SelfOuter* self, uint32* pulProtocols) get_Protocols;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWdsTransportSetupManager*/SelfOuter* self, BSTR bszName, BSTR bszDescription, BSTR bszFilePath, BSTR bszInitializationRoutine) RegisterContentProvider;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWdsTransportSetupManager*/SelfOuter* self, BSTR bszName) DeregisterContentProvider;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint64* pullVersion) get_Version;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pulInstalledFeatures) get_InstalledFeatures;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pulProtocols) get_Protocols;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bszName, BSTR bszDescription, BSTR bszFilePath, BSTR bszInitializationRoutine) RegisterContentProvider;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bszName) DeregisterContentProvider;
 	}
 
 
@@ -999,8 +999,8 @@ public static
 
 	[CRepr]public struct VTable : IWdsTransportSetupManager.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWdsTransportSetupManager2*/SelfOuter* self, uint32* pulTftpCapabilities) get_TftpCapabilities;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWdsTransportSetupManager2*/SelfOuter* self, IWdsTransportCollection** ppProviderCollection) get_ContentProviders;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pulTftpCapabilities) get_TftpCapabilities;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IWdsTransportCollection** ppProviderCollection) get_ContentProviders;
 	}
 
 
@@ -1017,15 +1017,15 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWdsTransportConfigurationManager*/SelfOuter* self, IWdsTransportServicePolicy** ppWdsTransportServicePolicy) get_ServicePolicy;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWdsTransportConfigurationManager*/SelfOuter* self, IWdsTransportDiagnosticsPolicy** ppWdsTransportDiagnosticsPolicy) get_DiagnosticsPolicy;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWdsTransportConfigurationManager*/SelfOuter* self, int16 bRealtimeStatus, int16* pbServicesRunning) get_WdsTransportServicesRunning;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWdsTransportConfigurationManager*/SelfOuter* self) EnableWdsTransportServices;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWdsTransportConfigurationManager*/SelfOuter* self) DisableWdsTransportServices;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWdsTransportConfigurationManager*/SelfOuter* self) StartWdsTransportServices;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWdsTransportConfigurationManager*/SelfOuter* self) StopWdsTransportServices;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWdsTransportConfigurationManager*/SelfOuter* self) RestartWdsTransportServices;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWdsTransportConfigurationManager*/SelfOuter* self, WDSTRANSPORT_SERVICE_NOTIFICATION ServiceNotification) NotifyWdsTransportServices;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IWdsTransportServicePolicy** ppWdsTransportServicePolicy) get_ServicePolicy;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IWdsTransportDiagnosticsPolicy** ppWdsTransportDiagnosticsPolicy) get_DiagnosticsPolicy;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 bRealtimeStatus, int16* pbServicesRunning) get_WdsTransportServicesRunning;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) EnableWdsTransportServices;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) DisableWdsTransportServices;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) StartWdsTransportServices;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) StopWdsTransportServices;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) RestartWdsTransportServices;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, WDSTRANSPORT_SERVICE_NOTIFICATION ServiceNotification) NotifyWdsTransportServices;
 	}
 
 
@@ -1056,7 +1056,7 @@ public static
 
 	[CRepr]public struct VTable : IWdsTransportConfigurationManager.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWdsTransportConfigurationManager2*/SelfOuter* self, IWdsTransportMulticastSessionPolicy** ppWdsTransportMulticastSessionPolicy) get_MulticastSessionPolicy;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IWdsTransportMulticastSessionPolicy** ppWdsTransportMulticastSessionPolicy) get_MulticastSessionPolicy;
 	}
 
 
@@ -1071,9 +1071,9 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWdsTransportNamespaceManager*/SelfOuter* self, WDSTRANSPORT_NAMESPACE_TYPE NamespaceType, BSTR bszNamespaceName, BSTR bszContentProvider, BSTR bszConfiguration, IWdsTransportNamespace** ppWdsTransportNamespace) CreateNamespace;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWdsTransportNamespaceManager*/SelfOuter* self, BSTR bszNamespaceName, IWdsTransportNamespace** ppWdsTransportNamespace) RetrieveNamespace;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWdsTransportNamespaceManager*/SelfOuter* self, BSTR bszContentProvider, BSTR bszNamespaceName, int16 bIncludeTombstones, IWdsTransportCollection** ppWdsTransportNamespaces) RetrieveNamespaces;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, WDSTRANSPORT_NAMESPACE_TYPE NamespaceType, BSTR bszNamespaceName, BSTR bszContentProvider, BSTR bszConfiguration, IWdsTransportNamespace** ppWdsTransportNamespace) CreateNamespace;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bszNamespaceName, IWdsTransportNamespace** ppWdsTransportNamespace) RetrieveNamespace;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bszContentProvider, BSTR bszNamespaceName, int16 bIncludeTombstones, IWdsTransportCollection** ppWdsTransportNamespaces) RetrieveNamespaces;
 	}
 
 
@@ -1092,7 +1092,7 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWdsTransportTftpManager*/SelfOuter* self, IWdsTransportCollection** ppWdsTransportTftpClients) RetrieveTftpClients;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IWdsTransportCollection** ppWdsTransportTftpClients) RetrieveTftpClients;
 	}
 
 
@@ -1107,18 +1107,18 @@ public static
 
 	[CRepr]public struct VTable : IWdsTransportCacheable.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWdsTransportServicePolicy*/SelfOuter* self, WDSTRANSPORT_IP_ADDRESS_TYPE AddressType, WDSTRANSPORT_IP_ADDRESS_SOURCE_TYPE* pSourceType) get_IpAddressSource;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWdsTransportServicePolicy*/SelfOuter* self, WDSTRANSPORT_IP_ADDRESS_TYPE AddressType, WDSTRANSPORT_IP_ADDRESS_SOURCE_TYPE SourceType) put_IpAddressSource;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWdsTransportServicePolicy*/SelfOuter* self, WDSTRANSPORT_IP_ADDRESS_TYPE AddressType, BSTR* pbszStartIpAddress) get_StartIpAddress;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWdsTransportServicePolicy*/SelfOuter* self, WDSTRANSPORT_IP_ADDRESS_TYPE AddressType, BSTR bszStartIpAddress) put_StartIpAddress;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWdsTransportServicePolicy*/SelfOuter* self, WDSTRANSPORT_IP_ADDRESS_TYPE AddressType, BSTR* pbszEndIpAddress) get_EndIpAddress;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWdsTransportServicePolicy*/SelfOuter* self, WDSTRANSPORT_IP_ADDRESS_TYPE AddressType, BSTR bszEndIpAddress) put_EndIpAddress;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWdsTransportServicePolicy*/SelfOuter* self, uint32* pulStartPort) get_StartPort;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWdsTransportServicePolicy*/SelfOuter* self, uint32 ulStartPort) put_StartPort;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWdsTransportServicePolicy*/SelfOuter* self, uint32* pulEndPort) get_EndPort;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWdsTransportServicePolicy*/SelfOuter* self, uint32 ulEndPort) put_EndPort;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWdsTransportServicePolicy*/SelfOuter* self, WDSTRANSPORT_NETWORK_PROFILE_TYPE* pProfileType) get_NetworkProfile;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWdsTransportServicePolicy*/SelfOuter* self, WDSTRANSPORT_NETWORK_PROFILE_TYPE ProfileType) put_NetworkProfile;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, WDSTRANSPORT_IP_ADDRESS_TYPE AddressType, WDSTRANSPORT_IP_ADDRESS_SOURCE_TYPE* pSourceType) get_IpAddressSource;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, WDSTRANSPORT_IP_ADDRESS_TYPE AddressType, WDSTRANSPORT_IP_ADDRESS_SOURCE_TYPE SourceType) put_IpAddressSource;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, WDSTRANSPORT_IP_ADDRESS_TYPE AddressType, BSTR* pbszStartIpAddress) get_StartIpAddress;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, WDSTRANSPORT_IP_ADDRESS_TYPE AddressType, BSTR bszStartIpAddress) put_StartIpAddress;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, WDSTRANSPORT_IP_ADDRESS_TYPE AddressType, BSTR* pbszEndIpAddress) get_EndIpAddress;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, WDSTRANSPORT_IP_ADDRESS_TYPE AddressType, BSTR bszEndIpAddress) put_EndIpAddress;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pulStartPort) get_StartPort;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 ulStartPort) put_StartPort;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pulEndPort) get_EndPort;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 ulEndPort) put_EndPort;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, WDSTRANSPORT_NETWORK_PROFILE_TYPE* pProfileType) get_NetworkProfile;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, WDSTRANSPORT_NETWORK_PROFILE_TYPE ProfileType) put_NetworkProfile;
 	}
 
 
@@ -1155,12 +1155,12 @@ public static
 
 	[CRepr]public struct VTable : IWdsTransportServicePolicy.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWdsTransportServicePolicy2*/SelfOuter* self, WDSTRANSPORT_UDP_PORT_POLICY* pUdpPortPolicy) get_UdpPortPolicy;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWdsTransportServicePolicy2*/SelfOuter* self, WDSTRANSPORT_UDP_PORT_POLICY UdpPortPolicy) put_UdpPortPolicy;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWdsTransportServicePolicy2*/SelfOuter* self, uint32* pulTftpMaximumBlockSize) get_TftpMaximumBlockSize;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWdsTransportServicePolicy2*/SelfOuter* self, uint32 ulTftpMaximumBlockSize) put_TftpMaximumBlockSize;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWdsTransportServicePolicy2*/SelfOuter* self, int16* pbEnableTftpVariableWindowExtension) get_EnableTftpVariableWindowExtension;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWdsTransportServicePolicy2*/SelfOuter* self, int16 bEnableTftpVariableWindowExtension) put_EnableTftpVariableWindowExtension;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, WDSTRANSPORT_UDP_PORT_POLICY* pUdpPortPolicy) get_UdpPortPolicy;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, WDSTRANSPORT_UDP_PORT_POLICY UdpPortPolicy) put_UdpPortPolicy;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pulTftpMaximumBlockSize) get_TftpMaximumBlockSize;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 ulTftpMaximumBlockSize) put_TftpMaximumBlockSize;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* pbEnableTftpVariableWindowExtension) get_EnableTftpVariableWindowExtension;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 bEnableTftpVariableWindowExtension) put_EnableTftpVariableWindowExtension;
 	}
 
 
@@ -1185,10 +1185,10 @@ public static
 
 	[CRepr]public struct VTable : IWdsTransportCacheable.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWdsTransportDiagnosticsPolicy*/SelfOuter* self, int16* pbEnabled) get_Enabled;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWdsTransportDiagnosticsPolicy*/SelfOuter* self, int16 bEnabled) put_Enabled;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWdsTransportDiagnosticsPolicy*/SelfOuter* self, uint32* pulComponents) get_Components;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWdsTransportDiagnosticsPolicy*/SelfOuter* self, uint32 ulComponents) put_Components;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* pbEnabled) get_Enabled;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 bEnabled) put_Enabled;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pulComponents) get_Components;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 ulComponents) put_Components;
 	}
 
 
@@ -1209,14 +1209,14 @@ public static
 
 	[CRepr]public struct VTable : IWdsTransportCacheable.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWdsTransportMulticastSessionPolicy*/SelfOuter* self, WDSTRANSPORT_SLOW_CLIENT_HANDLING_TYPE* pSlowClientHandling) get_SlowClientHandling;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWdsTransportMulticastSessionPolicy*/SelfOuter* self, WDSTRANSPORT_SLOW_CLIENT_HANDLING_TYPE SlowClientHandling) put_SlowClientHandling;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWdsTransportMulticastSessionPolicy*/SelfOuter* self, uint32* pulThreshold) get_AutoDisconnectThreshold;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWdsTransportMulticastSessionPolicy*/SelfOuter* self, uint32 ulThreshold) put_AutoDisconnectThreshold;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWdsTransportMulticastSessionPolicy*/SelfOuter* self, uint32* pulStreamCount) get_MultistreamStreamCount;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWdsTransportMulticastSessionPolicy*/SelfOuter* self, uint32 ulStreamCount) put_MultistreamStreamCount;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWdsTransportMulticastSessionPolicy*/SelfOuter* self, int16* pbClientFallback) get_SlowClientFallback;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWdsTransportMulticastSessionPolicy*/SelfOuter* self, int16 bClientFallback) put_SlowClientFallback;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, WDSTRANSPORT_SLOW_CLIENT_HANDLING_TYPE* pSlowClientHandling) get_SlowClientHandling;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, WDSTRANSPORT_SLOW_CLIENT_HANDLING_TYPE SlowClientHandling) put_SlowClientHandling;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pulThreshold) get_AutoDisconnectThreshold;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 ulThreshold) put_AutoDisconnectThreshold;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pulStreamCount) get_MultistreamStreamCount;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 ulStreamCount) put_MultistreamStreamCount;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* pbClientFallback) get_SlowClientFallback;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 bClientFallback) put_SlowClientFallback;
 	}
 
 
@@ -1245,27 +1245,27 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWdsTransportNamespace*/SelfOuter* self, WDSTRANSPORT_NAMESPACE_TYPE* pType) get_Type;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWdsTransportNamespace*/SelfOuter* self, uint32* pulId) get_Id;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWdsTransportNamespace*/SelfOuter* self, BSTR* pbszName) get_Name;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWdsTransportNamespace*/SelfOuter* self, BSTR bszName) put_Name;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWdsTransportNamespace*/SelfOuter* self, BSTR* pbszFriendlyName) get_FriendlyName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWdsTransportNamespace*/SelfOuter* self, BSTR bszFriendlyName) put_FriendlyName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWdsTransportNamespace*/SelfOuter* self, BSTR* pbszDescription) get_Description;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWdsTransportNamespace*/SelfOuter* self, BSTR bszDescription) put_Description;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWdsTransportNamespace*/SelfOuter* self, BSTR* pbszContentProvider) get_ContentProvider;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWdsTransportNamespace*/SelfOuter* self, BSTR bszContentProvider) put_ContentProvider;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWdsTransportNamespace*/SelfOuter* self, BSTR* pbszConfiguration) get_Configuration;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWdsTransportNamespace*/SelfOuter* self, BSTR bszConfiguration) put_Configuration;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWdsTransportNamespace*/SelfOuter* self, int16* pbRegistered) get_Registered;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWdsTransportNamespace*/SelfOuter* self, int16* pbTombstoned) get_Tombstoned;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWdsTransportNamespace*/SelfOuter* self, double* pTombstoneTime) get_TombstoneTime;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWdsTransportNamespace*/SelfOuter* self, int16* pbTransmissionStarted) get_TransmissionStarted;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWdsTransportNamespace*/SelfOuter* self) Register;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWdsTransportNamespace*/SelfOuter* self, int16 bTerminateSessions) Deregister;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWdsTransportNamespace*/SelfOuter* self, IWdsTransportNamespace** ppWdsTransportNamespaceClone) Clone;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWdsTransportNamespace*/SelfOuter* self) Refresh;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWdsTransportNamespace*/SelfOuter* self, IWdsTransportCollection** ppWdsTransportContents) RetrieveContents;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, WDSTRANSPORT_NAMESPACE_TYPE* pType) get_Type;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pulId) get_Id;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pbszName) get_Name;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bszName) put_Name;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pbszFriendlyName) get_FriendlyName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bszFriendlyName) put_FriendlyName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pbszDescription) get_Description;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bszDescription) put_Description;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pbszContentProvider) get_ContentProvider;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bszContentProvider) put_ContentProvider;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pbszConfiguration) get_Configuration;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bszConfiguration) put_Configuration;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* pbRegistered) get_Registered;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* pbTombstoned) get_Tombstoned;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, double* pTombstoneTime) get_TombstoneTime;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* pbTransmissionStarted) get_TransmissionStarted;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Register;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 bTerminateSessions) Deregister;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IWdsTransportNamespace** ppWdsTransportNamespaceClone) Clone;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Refresh;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IWdsTransportCollection** ppWdsTransportContents) RetrieveContents;
 	}
 
 
@@ -1332,7 +1332,7 @@ public static
 
 	[CRepr]public struct VTable : IWdsTransportNamespace.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWdsTransportNamespaceScheduledCast*/SelfOuter* self) StartTransmission;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) StartTransmission;
 	}
 
 
@@ -1359,10 +1359,10 @@ public static
 
 	[CRepr]public struct VTable : IWdsTransportNamespaceScheduledCast.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWdsTransportNamespaceScheduledCastAutoStart*/SelfOuter* self, uint32* pulMinimumClients) get_MinimumClients;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWdsTransportNamespaceScheduledCastAutoStart*/SelfOuter* self, uint32 ulMinimumClients) put_MinimumClients;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWdsTransportNamespaceScheduledCastAutoStart*/SelfOuter* self, double* pStartTime) get_StartTime;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWdsTransportNamespaceScheduledCastAutoStart*/SelfOuter* self, double StartTime) put_StartTime;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pulMinimumClients) get_MinimumClients;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 ulMinimumClients) put_MinimumClients;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, double* pStartTime) get_StartTime;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, double StartTime) put_StartTime;
 	}
 
 
@@ -1383,11 +1383,11 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWdsTransportContent*/SelfOuter* self, IWdsTransportNamespace** ppWdsTransportNamespace) get_Namespace;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWdsTransportContent*/SelfOuter* self, uint32* pulId) get_Id;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWdsTransportContent*/SelfOuter* self, BSTR* pbszName) get_Name;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWdsTransportContent*/SelfOuter* self, IWdsTransportCollection** ppWdsTransportSessions) RetrieveSessions;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWdsTransportContent*/SelfOuter* self) Terminate;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IWdsTransportNamespace** ppWdsTransportNamespace) get_Namespace;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pulId) get_Id;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pbszName) get_Name;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IWdsTransportCollection** ppWdsTransportSessions) RetrieveSessions;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Terminate;
 	}
 
 
@@ -1410,14 +1410,14 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWdsTransportSession*/SelfOuter* self, IWdsTransportContent** ppWdsTransportContent) get_Content;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWdsTransportSession*/SelfOuter* self, uint32* pulId) get_Id;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWdsTransportSession*/SelfOuter* self, BSTR* pbszNetworkInterfaceName) get_NetworkInterfaceName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWdsTransportSession*/SelfOuter* self, BSTR* pbszNetworkInterfaceAddress) get_NetworkInterfaceAddress;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWdsTransportSession*/SelfOuter* self, uint32* pulTransferRate) get_TransferRate;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWdsTransportSession*/SelfOuter* self, uint32* pulMasterClientId) get_MasterClientId;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWdsTransportSession*/SelfOuter* self, IWdsTransportCollection** ppWdsTransportClients) RetrieveClients;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWdsTransportSession*/SelfOuter* self) Terminate;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IWdsTransportContent** ppWdsTransportContent) get_Content;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pulId) get_Id;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pbszNetworkInterfaceName) get_NetworkInterfaceName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pbszNetworkInterfaceAddress) get_NetworkInterfaceAddress;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pulTransferRate) get_TransferRate;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pulMasterClientId) get_MasterClientId;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IWdsTransportCollection** ppWdsTransportClients) RetrieveClients;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Terminate;
 	}
 
 
@@ -1446,18 +1446,18 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWdsTransportClient*/SelfOuter* self, IWdsTransportSession** ppWdsTransportSession) get_Session;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWdsTransportClient*/SelfOuter* self, uint32* pulId) get_Id;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWdsTransportClient*/SelfOuter* self, BSTR* pbszName) get_Name;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWdsTransportClient*/SelfOuter* self, BSTR* pbszMacAddress) get_MacAddress;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWdsTransportClient*/SelfOuter* self, BSTR* pbszIpAddress) get_IpAddress;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWdsTransportClient*/SelfOuter* self, uint32* pulPercentCompletion) get_PercentCompletion;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWdsTransportClient*/SelfOuter* self, uint32* pulJoinDuration) get_JoinDuration;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWdsTransportClient*/SelfOuter* self, uint32* pulCpuUtilization) get_CpuUtilization;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWdsTransportClient*/SelfOuter* self, uint32* pulMemoryUtilization) get_MemoryUtilization;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWdsTransportClient*/SelfOuter* self, uint32* pulNetworkUtilization) get_NetworkUtilization;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWdsTransportClient*/SelfOuter* self, BSTR* pbszUserIdentity) get_UserIdentity;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWdsTransportClient*/SelfOuter* self, WDSTRANSPORT_DISCONNECT_TYPE DisconnectionType) Disconnect;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IWdsTransportSession** ppWdsTransportSession) get_Session;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pulId) get_Id;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pbszName) get_Name;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pbszMacAddress) get_MacAddress;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pbszIpAddress) get_IpAddress;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pulPercentCompletion) get_PercentCompletion;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pulJoinDuration) get_JoinDuration;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pulCpuUtilization) get_CpuUtilization;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pulMemoryUtilization) get_MemoryUtilization;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pulNetworkUtilization) get_NetworkUtilization;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pbszUserIdentity) get_UserIdentity;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, WDSTRANSPORT_DISCONNECT_TYPE DisconnectionType) Disconnect;
 	}
 
 
@@ -1494,13 +1494,13 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWdsTransportTftpClient*/SelfOuter* self, BSTR* pbszFileName) get_FileName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWdsTransportTftpClient*/SelfOuter* self, BSTR* pbszIpAddress) get_IpAddress;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWdsTransportTftpClient*/SelfOuter* self, uint32* pulTimeout) get_Timeout;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWdsTransportTftpClient*/SelfOuter* self, uint64* pul64CurrentOffset) get_CurrentFileOffset;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWdsTransportTftpClient*/SelfOuter* self, uint64* pul64FileSize) get_FileSize;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWdsTransportTftpClient*/SelfOuter* self, uint32* pulBlockSize) get_BlockSize;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWdsTransportTftpClient*/SelfOuter* self, uint32* pulWindowSize) get_WindowSize;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pbszFileName) get_FileName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pbszIpAddress) get_IpAddress;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pulTimeout) get_Timeout;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint64* pul64CurrentOffset) get_CurrentFileOffset;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint64* pul64FileSize) get_FileSize;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pulBlockSize) get_BlockSize;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pulWindowSize) get_WindowSize;
 	}
 
 
@@ -1527,10 +1527,10 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWdsTransportContentProvider*/SelfOuter* self, BSTR* pbszName) get_Name;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWdsTransportContentProvider*/SelfOuter* self, BSTR* pbszDescription) get_Description;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWdsTransportContentProvider*/SelfOuter* self, BSTR* pbszFilePath) get_FilePath;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWdsTransportContentProvider*/SelfOuter* self, BSTR* pbszInitializationRoutine) get_InitializationRoutine;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pbszName) get_Name;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pbszDescription) get_Description;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pbszFilePath) get_FilePath;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pbszInitializationRoutine) get_InitializationRoutine;
 	}
 
 

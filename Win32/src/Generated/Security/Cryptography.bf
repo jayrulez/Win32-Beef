@@ -7854,18 +7854,18 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICertSrvSetupKeyInformation*/SelfOuter* self, BSTR* pVal) get_ProviderName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICertSrvSetupKeyInformation*/SelfOuter* self, BSTR bstrVal) put_ProviderName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICertSrvSetupKeyInformation*/SelfOuter* self, int32* pVal) get_Length;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICertSrvSetupKeyInformation*/SelfOuter* self, int32 lVal) put_Length;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICertSrvSetupKeyInformation*/SelfOuter* self, int16* pVal) get_Existing;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICertSrvSetupKeyInformation*/SelfOuter* self, int16 bVal) put_Existing;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICertSrvSetupKeyInformation*/SelfOuter* self, BSTR* pVal) get_ContainerName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICertSrvSetupKeyInformation*/SelfOuter* self, BSTR bstrVal) put_ContainerName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICertSrvSetupKeyInformation*/SelfOuter* self, BSTR* pVal) get_HashAlgorithm;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICertSrvSetupKeyInformation*/SelfOuter* self, BSTR bstrVal) put_HashAlgorithm;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICertSrvSetupKeyInformation*/SelfOuter* self, VARIANT* pVal) get_ExistingCACertificate;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICertSrvSetupKeyInformation*/SelfOuter* self, VARIANT varVal) put_ExistingCACertificate;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pVal) get_ProviderName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrVal) put_ProviderName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* pVal) get_Length;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 lVal) put_Length;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* pVal) get_Existing;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 bVal) put_Existing;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pVal) get_ContainerName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrVal) put_ContainerName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pVal) get_HashAlgorithm;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrVal) put_HashAlgorithm;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT* pVal) get_ExistingCACertificate;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT varVal) put_ExistingCACertificate;
 	}
 
 
@@ -7902,10 +7902,10 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICertSrvSetupKeyInformationCollection*/SelfOuter* self, IUnknown** ppVal) get__NewEnum;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICertSrvSetupKeyInformationCollection*/SelfOuter* self, int32 Index, VARIANT* pVal) get_Item;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICertSrvSetupKeyInformationCollection*/SelfOuter* self, int32* pVal) get_Count;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICertSrvSetupKeyInformationCollection*/SelfOuter* self, ICertSrvSetupKeyInformation* pIKeyInformation) Add;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IUnknown** ppVal) get__NewEnum;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 Index, VARIANT* pVal) get_Item;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* pVal) get_Count;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ICertSrvSetupKeyInformation* pIKeyInformation) Add;
 	}
 
 
@@ -7926,26 +7926,26 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICertSrvSetup*/SelfOuter* self, int32* pVal) get_CAErrorId;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICertSrvSetup*/SelfOuter* self, BSTR* pVal) get_CAErrorString;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICertSrvSetup*/SelfOuter* self, int16 bServer, int16 bClient) InitializeDefaults;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICertSrvSetup*/SelfOuter* self, CASetupProperty propertyId, VARIANT* pPropertyValue) GetCASetupProperty;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICertSrvSetup*/SelfOuter* self, CASetupProperty propertyId, VARIANT* pPropertyValue) SetCASetupProperty;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICertSrvSetup*/SelfOuter* self, CASetupProperty propertyId, int16* pbEditable) IsPropertyEditable;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICertSrvSetup*/SelfOuter* self, VARIANT* pCATypes) GetSupportedCATypes;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICertSrvSetup*/SelfOuter* self, VARIANT* pVal) GetProviderNameList;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICertSrvSetup*/SelfOuter* self, BSTR bstrProviderName, VARIANT* pVal) GetKeyLengthList;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICertSrvSetup*/SelfOuter* self, BSTR bstrProviderName, VARIANT* pVal) GetHashAlgorithmList;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICertSrvSetup*/SelfOuter* self, BSTR bstrProviderName, VARIANT* pVal) GetPrivateKeyContainerList;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICertSrvSetup*/SelfOuter* self, ICertSrvSetupKeyInformationCollection** ppVal) GetExistingCACertificates;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICertSrvSetup*/SelfOuter* self, BSTR bstrFileName, BSTR bstrPasswd, int16 bOverwriteExistingKey, ICertSrvSetupKeyInformation** ppVal) CAImportPFX;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICertSrvSetup*/SelfOuter* self, BSTR bstrCADN, int16 bIgnoreUnicode, int16 bOverwriteExistingKey, int16 bOverwriteExistingCAInDS) SetCADistinguishedName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICertSrvSetup*/SelfOuter* self, BSTR bstrDBDirectory, BSTR bstrLogDirectory, BSTR bstrSharedFolder, int16 bForceOverwrite) SetDatabaseInformation;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICertSrvSetup*/SelfOuter* self, BSTR bstrCAConfiguration) SetParentCAInformation;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICertSrvSetup*/SelfOuter* self, BSTR bstrCAConfiguration) SetWebCAInformation;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICertSrvSetup*/SelfOuter* self) Install;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICertSrvSetup*/SelfOuter* self, int16 bClientOnly) PreUnInstall;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICertSrvSetup*/SelfOuter* self) PostUnInstall;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* pVal) get_CAErrorId;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pVal) get_CAErrorString;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 bServer, int16 bClient) InitializeDefaults;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, CASetupProperty propertyId, VARIANT* pPropertyValue) GetCASetupProperty;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, CASetupProperty propertyId, VARIANT* pPropertyValue) SetCASetupProperty;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, CASetupProperty propertyId, int16* pbEditable) IsPropertyEditable;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT* pCATypes) GetSupportedCATypes;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT* pVal) GetProviderNameList;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrProviderName, VARIANT* pVal) GetKeyLengthList;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrProviderName, VARIANT* pVal) GetHashAlgorithmList;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrProviderName, VARIANT* pVal) GetPrivateKeyContainerList;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ICertSrvSetupKeyInformationCollection** ppVal) GetExistingCACertificates;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrFileName, BSTR bstrPasswd, int16 bOverwriteExistingKey, ICertSrvSetupKeyInformation** ppVal) CAImportPFX;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrCADN, int16 bIgnoreUnicode, int16 bOverwriteExistingKey, int16 bOverwriteExistingCAInDS) SetCADistinguishedName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrDBDirectory, BSTR bstrLogDirectory, BSTR bstrSharedFolder, int16 bForceOverwrite) SetDatabaseInformation;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrCAConfiguration) SetParentCAInformation;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrCAConfiguration) SetWebCAInformation;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Install;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 bClientOnly) PreUnInstall;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) PostUnInstall;
 	}
 
 
@@ -7998,18 +7998,18 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSCEPSetup*/SelfOuter* self, int32* pVal) get_MSCEPErrorId;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSCEPSetup*/SelfOuter* self, BSTR* pVal) get_MSCEPErrorString;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSCEPSetup*/SelfOuter* self) InitializeDefaults;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSCEPSetup*/SelfOuter* self, MSCEPSetupProperty propertyId, VARIANT* pVal) GetMSCEPSetupProperty;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSCEPSetup*/SelfOuter* self, MSCEPSetupProperty propertyId, VARIANT* pPropertyValue) SetMSCEPSetupProperty;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSCEPSetup*/SelfOuter* self, BSTR bstrUserName, BSTR bstrPassword) SetAccountInformation;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSCEPSetup*/SelfOuter* self, int16* pbEmpty) IsMSCEPStoreEmpty;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSCEPSetup*/SelfOuter* self, int16 bExchange, VARIANT* pVal) GetProviderNameList;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSCEPSetup*/SelfOuter* self, int16 bExchange, BSTR bstrProviderName, VARIANT* pVal) GetKeyLengthList;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSCEPSetup*/SelfOuter* self) Install;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSCEPSetup*/SelfOuter* self) PreUnInstall;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMSCEPSetup*/SelfOuter* self) PostUnInstall;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* pVal) get_MSCEPErrorId;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pVal) get_MSCEPErrorString;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) InitializeDefaults;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, MSCEPSetupProperty propertyId, VARIANT* pVal) GetMSCEPSetupProperty;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, MSCEPSetupProperty propertyId, VARIANT* pPropertyValue) SetMSCEPSetupProperty;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrUserName, BSTR bstrPassword) SetAccountInformation;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* pbEmpty) IsMSCEPStoreEmpty;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 bExchange, VARIANT* pVal) GetProviderNameList;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 bExchange, BSTR bstrProviderName, VARIANT* pVal) GetKeyLengthList;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Install;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) PreUnInstall;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) PostUnInstall;
 	}
 
 
@@ -8046,13 +8046,13 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICertificateEnrollmentServerSetup*/SelfOuter* self, BSTR* pVal) get_ErrorString;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICertificateEnrollmentServerSetup*/SelfOuter* self) InitializeInstallDefaults;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICertificateEnrollmentServerSetup*/SelfOuter* self, CESSetupProperty propertyId, VARIANT* pPropertyValue) GetProperty;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICertificateEnrollmentServerSetup*/SelfOuter* self, CESSetupProperty propertyId, VARIANT* pPropertyValue) SetProperty;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICertificateEnrollmentServerSetup*/SelfOuter* self, BSTR bstrUsername, BSTR bstrPassword) SetApplicationPoolCredentials;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICertificateEnrollmentServerSetup*/SelfOuter* self) Install;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICertificateEnrollmentServerSetup*/SelfOuter* self, VARIANT* pCAConfig, VARIANT* pAuthentication) UnInstall;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pVal) get_ErrorString;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) InitializeInstallDefaults;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, CESSetupProperty propertyId, VARIANT* pPropertyValue) GetProperty;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, CESSetupProperty propertyId, VARIANT* pPropertyValue) SetProperty;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrUsername, BSTR bstrPassword) SetApplicationPoolCredentials;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Install;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT* pCAConfig, VARIANT* pAuthentication) UnInstall;
 	}
 
 
@@ -8079,12 +8079,12 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICertificateEnrollmentPolicyServerSetup*/SelfOuter* self, BSTR* pVal) get_ErrorString;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICertificateEnrollmentPolicyServerSetup*/SelfOuter* self) InitializeInstallDefaults;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICertificateEnrollmentPolicyServerSetup*/SelfOuter* self, CEPSetupProperty propertyId, VARIANT* pPropertyValue) GetProperty;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICertificateEnrollmentPolicyServerSetup*/SelfOuter* self, CEPSetupProperty propertyId, VARIANT* pPropertyValue) SetProperty;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICertificateEnrollmentPolicyServerSetup*/SelfOuter* self) Install;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICertificateEnrollmentPolicyServerSetup*/SelfOuter* self, VARIANT* pAuthKeyBasedRenewal) UnInstall;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pVal) get_ErrorString;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) InitializeInstallDefaults;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, CEPSetupProperty propertyId, VARIANT* pPropertyValue) GetProperty;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, CEPSetupProperty propertyId, VARIANT* pPropertyValue) SetProperty;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Install;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT* pAuthKeyBasedRenewal) UnInstall;
 	}
 
 

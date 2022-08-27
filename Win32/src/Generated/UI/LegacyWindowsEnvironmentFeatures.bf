@@ -91,8 +91,8 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEmptyVolumeCacheCallBack*/SelfOuter* self, uint64 dwlSpaceUsed, uint32 dwFlags, PWSTR pcwszStatus) ScanProgress;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEmptyVolumeCacheCallBack*/SelfOuter* self, uint64 dwlSpaceFreed, uint64 dwlSpaceToFree, uint32 dwFlags, PWSTR pcwszStatus) PurgeProgress;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint64 dwlSpaceUsed, uint32 dwFlags, PWSTR pcwszStatus) ScanProgress;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint64 dwlSpaceFreed, uint64 dwlSpaceToFree, uint32 dwFlags, PWSTR pcwszStatus) PurgeProgress;
 	}
 
 
@@ -109,11 +109,11 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEmptyVolumeCache*/SelfOuter* self, HKEY hkRegKey, PWSTR pcwszVolume, PWSTR* ppwszDisplayName, PWSTR* ppwszDescription, uint32* pdwFlags) Initialize;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEmptyVolumeCache*/SelfOuter* self, uint64* pdwlSpaceUsed, IEmptyVolumeCacheCallBack* picb) GetSpaceUsed;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEmptyVolumeCache*/SelfOuter* self, uint64 dwlSpaceToFree, IEmptyVolumeCacheCallBack* picb) Purge;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEmptyVolumeCache*/SelfOuter* self, HWND hwnd) ShowProperties;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEmptyVolumeCache*/SelfOuter* self, uint32* pdwFlags) Deactivate;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HKEY hkRegKey, PWSTR pcwszVolume, PWSTR* ppwszDisplayName, PWSTR* ppwszDescription, uint32* pdwFlags) Initialize;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint64* pdwlSpaceUsed, IEmptyVolumeCacheCallBack* picb) GetSpaceUsed;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint64 dwlSpaceToFree, IEmptyVolumeCacheCallBack* picb) Purge;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HWND hwnd) ShowProperties;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pdwFlags) Deactivate;
 	}
 
 
@@ -136,7 +136,7 @@ public static
 
 	[CRepr]public struct VTable : IEmptyVolumeCache.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEmptyVolumeCache2*/SelfOuter* self, HKEY hkRegKey, PWSTR pcwszVolume, PWSTR pcwszKeyName, PWSTR* ppwszDisplayName, PWSTR* ppwszDescription, PWSTR* ppwszBtnText, uint32* pdwFlags) InitializeEx;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HKEY hkRegKey, PWSTR pcwszVolume, PWSTR pcwszKeyName, PWSTR* ppwszDisplayName, PWSTR* ppwszDescription, PWSTR* ppwszBtnText, uint32* pdwFlags) InitializeEx;
 	}
 
 
@@ -151,8 +151,8 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IReconcileInitiator*/SelfOuter* self, IUnknown* punkForAbort) SetAbortCallback;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IReconcileInitiator*/SelfOuter* self, uint32 ulProgress, uint32 ulProgressMax) SetProgressFeedback;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IUnknown* punkForAbort) SetAbortCallback;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 ulProgress, uint32 ulProgressMax) SetProgressFeedback;
 	}
 
 
@@ -169,8 +169,8 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IReconcilableObject*/SelfOuter* self, IReconcileInitiator* pInitiator, uint32 dwFlags, HWND hwndOwner, HWND hwndProgressFeedback, uint32 ulcInput, IMoniker** rgpmkOtherInput, int32* plOutIndex, IStorage* pstgNewResidues, void* pvReserved) Reconcile;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IReconcilableObject*/SelfOuter* self, uint32* pulProgressMax) GetProgressFeedbackMaxEstimate;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IReconcileInitiator* pInitiator, uint32 dwFlags, HWND hwndOwner, HWND hwndProgressFeedback, uint32 ulcInput, IMoniker** rgpmkOtherInput, int32* plOutIndex, IStorage* pstgNewResidues, void* pvReserved) Reconcile;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pulProgressMax) GetProgressFeedbackMaxEstimate;
 	}
 
 
@@ -187,7 +187,7 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IBriefcaseInitiator*/SelfOuter* self, IMoniker* pmk) IsMonikerInBriefcase;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IMoniker* pmk) IsMonikerInBriefcase;
 	}
 
 
@@ -202,10 +202,10 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IActiveDesktopP*/SelfOuter* self, uint32 dwFlags) SetSafeMode;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IActiveDesktopP*/SelfOuter* self) EnsureUpdateHTML;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IActiveDesktopP*/SelfOuter* self, PWSTR pwszSchemeName, uint32 dwFlags) SetScheme;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IActiveDesktopP*/SelfOuter* self, char16* pwszSchemeName, uint32* pdwcchBuffer, uint32 dwFlags) GetScheme;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwFlags) SetSafeMode;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) EnsureUpdateHTML;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR pwszSchemeName, uint32 dwFlags) SetScheme;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, char16* pwszSchemeName, uint32* pdwcchBuffer, uint32 dwFlags) GetScheme;
 	}
 
 
@@ -226,10 +226,10 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IADesktopP2*/SelfOuter* self) ReReadWallpaper;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IADesktopP2*/SelfOuter* self, uint32* pdwFlags, uint32 dwMask) GetADObjectFlags;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IADesktopP2*/SelfOuter* self) UpdateAllDesktopSubscriptions;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IADesktopP2*/SelfOuter* self, IOleObject* pOleObj) MakeDynamicChanges;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) ReReadWallpaper;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pdwFlags, uint32 dwMask) GetADObjectFlags;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) UpdateAllDesktopSubscriptions;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IOleObject* pOleObj) MakeDynamicChanges;
 	}
 
 

@@ -8148,9 +8148,9 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IKsControl*/SelfOuter* self, KSIDENTIFIER* Property, uint32 PropertyLength, void* PropertyData, uint32 DataLength, uint32* BytesReturned) KsProperty;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IKsControl*/SelfOuter* self, KSIDENTIFIER* Method, uint32 MethodLength, void* MethodData, uint32 DataLength, uint32* BytesReturned) KsMethod;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IKsControl*/SelfOuter* self, KSIDENTIFIER* Event, uint32 EventLength, void* EventData, uint32 DataLength, uint32* BytesReturned) KsEvent;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, KSIDENTIFIER* Property, uint32 PropertyLength, void* PropertyData, uint32 DataLength, uint32* BytesReturned) KsProperty;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, KSIDENTIFIER* Method, uint32 MethodLength, void* MethodData, uint32 DataLength, uint32* BytesReturned) KsMethod;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, KSIDENTIFIER* Event, uint32 EventLength, void* EventData, uint32 DataLength, uint32* BytesReturned) KsEvent;
 	}
 
 
@@ -8169,8 +8169,8 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IKsFormatSupport*/SelfOuter* self, KSDATAFORMAT* pKsFormat, uint32 cbFormat, BOOL* pbSupported) IsFormatSupported;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IKsFormatSupport*/SelfOuter* self, KSDATAFORMAT** ppKsFormat) GetDevicePreferredFormat;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, KSDATAFORMAT* pKsFormat, uint32 cbFormat, BOOL* pbSupported) IsFormatSupported;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, KSDATAFORMAT** ppKsFormat) GetDevicePreferredFormat;
 	}
 
 
@@ -8187,8 +8187,8 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IKsJackDescription*/SelfOuter* self, uint32* pcJacks) GetJackCount;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IKsJackDescription*/SelfOuter* self, uint32 nJack, KSJACK_DESCRIPTION* pDescription) GetJackDescription;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pcJacks) GetJackCount;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 nJack, KSJACK_DESCRIPTION* pDescription) GetJackDescription;
 	}
 
 
@@ -8205,8 +8205,8 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IKsJackDescription2*/SelfOuter* self, uint32* pcJacks) GetJackCount;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IKsJackDescription2*/SelfOuter* self, uint32 nJack, KSJACK_DESCRIPTION2* pDescription2) GetJackDescription2;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pcJacks) GetJackCount;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 nJack, KSJACK_DESCRIPTION2* pDescription2) GetJackDescription2;
 	}
 
 
@@ -8223,7 +8223,7 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IKsJackSinkInformation*/SelfOuter* self, KSJACK_SINK_INFORMATION* pJackSinkInformation) GetJackSinkInformation;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, KSJACK_SINK_INFORMATION* pJackSinkInformation) GetJackSinkInformation;
 	}
 
 
@@ -8238,7 +8238,7 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IKsJackContainerId*/SelfOuter* self, ref Guid pJackContainerId) GetJackContainerId;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid pJackContainerId) GetJackContainerId;
 	}
 
 
@@ -8253,9 +8253,9 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IKsPropertySet*/SelfOuter* self, ref Guid PropSet, uint32 Id, void* InstanceData, uint32 InstanceLength, void* PropertyData, uint32 DataLength) Set;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IKsPropertySet*/SelfOuter* self, ref Guid PropSet, uint32 Id, void* InstanceData, uint32 InstanceLength, void* PropertyData, uint32 DataLength, uint32* BytesReturned) Get;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IKsPropertySet*/SelfOuter* self, ref Guid PropSet, uint32 Id, uint32* TypeSupport) QuerySupported;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid PropSet, uint32 Id, void* InstanceData, uint32 InstanceLength, void* PropertyData, uint32 DataLength) Set;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid PropSet, uint32 Id, void* InstanceData, uint32 InstanceLength, void* PropertyData, uint32 DataLength, uint32* BytesReturned) Get;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid PropSet, uint32 Id, uint32* TypeSupport) QuerySupported;
 	}
 
 
@@ -8274,8 +8274,8 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IKsAggregateControl*/SelfOuter* self, ref Guid AggregateClass) KsAddAggregate;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IKsAggregateControl*/SelfOuter* self, ref Guid AggregateClass) KsRemoveAggregate;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid AggregateClass) KsAddAggregate;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid AggregateClass) KsRemoveAggregate;
 	}
 
 
@@ -8292,7 +8292,7 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IKsTopology*/SelfOuter* self, uint32 NodeId, uint32 Flags, uint32 DesiredAccess, IUnknown* UnkOuter, ref Guid InterfaceId, void** Interface) CreateNodeInstance;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 NodeId, uint32 Flags, uint32 DesiredAccess, IUnknown* UnkOuter, ref Guid InterfaceId, void** Interface) CreateNodeInstance;
 	}
 
 

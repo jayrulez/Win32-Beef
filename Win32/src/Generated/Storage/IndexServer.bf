@@ -476,11 +476,11 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] int32(/*IFilter*/SelfOuter* self, uint32 grfFlags, uint32 cAttributes, FULLPROPSPEC* aAttributes, uint32* pFlags) Init;
-		protected new function [CallingConvention(.Stdcall)] int32(/*IFilter*/SelfOuter* self, STAT_CHUNK* pStat) GetChunk;
-		protected new function [CallingConvention(.Stdcall)] int32(/*IFilter*/SelfOuter* self, uint32* pcwcBuffer, char16* awcBuffer) GetText;
-		protected new function [CallingConvention(.Stdcall)] int32(/*IFilter*/SelfOuter* self, PROPVARIANT** ppPropValue) GetValue;
-		protected new function [CallingConvention(.Stdcall)] int32(/*IFilter*/SelfOuter* self, FILTERREGION origPos, ref Guid riid, void** ppunk) BindRegion;
+		protected new function [CallingConvention(.Stdcall)] int32(SelfOuter* self, uint32 grfFlags, uint32 cAttributes, FULLPROPSPEC* aAttributes, uint32* pFlags) Init;
+		protected new function [CallingConvention(.Stdcall)] int32(SelfOuter* self, STAT_CHUNK* pStat) GetChunk;
+		protected new function [CallingConvention(.Stdcall)] int32(SelfOuter* self, uint32* pcwcBuffer, char16* awcBuffer) GetText;
+		protected new function [CallingConvention(.Stdcall)] int32(SelfOuter* self, PROPVARIANT** ppPropValue) GetValue;
+		protected new function [CallingConvention(.Stdcall)] int32(SelfOuter* self, FILTERREGION origPos, ref Guid riid, void** ppunk) BindRegion;
 	}
 
 
@@ -503,8 +503,8 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPhraseSink*/SelfOuter* self, PWSTR pwcNoun, uint32 cwcNoun, PWSTR pwcModifier, uint32 cwcModifier, uint32 ulAttachmentType) PutSmallPhrase;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPhraseSink*/SelfOuter* self, PWSTR pwcPhrase, uint32 cwcPhrase) PutPhrase;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR pwcNoun, uint32 cwcNoun, PWSTR pwcModifier, uint32 cwcModifier, uint32 ulAttachmentType) PutSmallPhrase;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR pwcPhrase, uint32 cwcPhrase) PutPhrase;
 	}
 
 

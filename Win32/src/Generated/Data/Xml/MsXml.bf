@@ -1543,7 +1543,7 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXMLDOMImplementation*/SelfOuter* self, BSTR feature, BSTR version, int16* hasFeature) hasFeature;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR feature, BSTR version, int16* hasFeature) hasFeature;
 	}
 
 
@@ -1558,42 +1558,42 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXMLDOMNode*/SelfOuter* self, BSTR* name) get_nodeName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXMLDOMNode*/SelfOuter* self, VARIANT* value) get_nodeValue;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXMLDOMNode*/SelfOuter* self, VARIANT value) put_nodeValue;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXMLDOMNode*/SelfOuter* self, DOMNodeType* type) get_nodeType;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXMLDOMNode*/SelfOuter* self, IXMLDOMNode** parent) get_parentNode;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXMLDOMNode*/SelfOuter* self, IXMLDOMNodeList** childList) get_childNodes;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXMLDOMNode*/SelfOuter* self, IXMLDOMNode** firstChild) get_firstChild;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXMLDOMNode*/SelfOuter* self, IXMLDOMNode** lastChild) get_lastChild;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXMLDOMNode*/SelfOuter* self, IXMLDOMNode** previousSibling) get_previousSibling;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXMLDOMNode*/SelfOuter* self, IXMLDOMNode** nextSibling) get_nextSibling;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXMLDOMNode*/SelfOuter* self, IXMLDOMNamedNodeMap** attributeMap) get_attributes;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXMLDOMNode*/SelfOuter* self, IXMLDOMNode* newChild, VARIANT refChild, IXMLDOMNode** outNewChild) insertBefore;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXMLDOMNode*/SelfOuter* self, IXMLDOMNode* newChild, IXMLDOMNode* oldChild, IXMLDOMNode** outOldChild) replaceChild;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXMLDOMNode*/SelfOuter* self, IXMLDOMNode* childNode, IXMLDOMNode** oldChild) removeChild;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXMLDOMNode*/SelfOuter* self, IXMLDOMNode* newChild, IXMLDOMNode** outNewChild) appendChild;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXMLDOMNode*/SelfOuter* self, int16* hasChild) hasChildNodes;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXMLDOMNode*/SelfOuter* self, IXMLDOMDocument** XMLDOMDocument) get_ownerDocument;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXMLDOMNode*/SelfOuter* self, int16 deep, IXMLDOMNode** cloneRoot) cloneNode;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXMLDOMNode*/SelfOuter* self, BSTR* nodeType) get_nodeTypeString;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXMLDOMNode*/SelfOuter* self, BSTR* text) get_text;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXMLDOMNode*/SelfOuter* self, BSTR text) put_text;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXMLDOMNode*/SelfOuter* self, int16* isSpecified) get_specified;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXMLDOMNode*/SelfOuter* self, IXMLDOMNode** definitionNode) get_definition;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXMLDOMNode*/SelfOuter* self, VARIANT* typedValue) get_nodeTypedValue;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXMLDOMNode*/SelfOuter* self, VARIANT typedValue) put_nodeTypedValue;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXMLDOMNode*/SelfOuter* self, VARIANT* dataTypeName) get_dataType;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXMLDOMNode*/SelfOuter* self, BSTR dataTypeName) put_dataType;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXMLDOMNode*/SelfOuter* self, BSTR* xmlString) get_xml;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXMLDOMNode*/SelfOuter* self, IXMLDOMNode* stylesheet, BSTR* xmlString) transformNode;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXMLDOMNode*/SelfOuter* self, BSTR queryString, IXMLDOMNodeList** resultList) selectNodes;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXMLDOMNode*/SelfOuter* self, BSTR queryString, IXMLDOMNode** resultNode) selectSingleNode;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXMLDOMNode*/SelfOuter* self, int16* isParsed) get_parsed;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXMLDOMNode*/SelfOuter* self, BSTR* namespaceURI) get_namespaceURI;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXMLDOMNode*/SelfOuter* self, BSTR* prefixString) get_prefix;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXMLDOMNode*/SelfOuter* self, BSTR* nameString) get_baseName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXMLDOMNode*/SelfOuter* self, IXMLDOMNode* stylesheet, VARIANT outputObject) transformNodeToObject;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* name) get_nodeName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT* value) get_nodeValue;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT value) put_nodeValue;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, DOMNodeType* type) get_nodeType;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IXMLDOMNode** parent) get_parentNode;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IXMLDOMNodeList** childList) get_childNodes;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IXMLDOMNode** firstChild) get_firstChild;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IXMLDOMNode** lastChild) get_lastChild;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IXMLDOMNode** previousSibling) get_previousSibling;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IXMLDOMNode** nextSibling) get_nextSibling;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IXMLDOMNamedNodeMap** attributeMap) get_attributes;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IXMLDOMNode* newChild, VARIANT refChild, IXMLDOMNode** outNewChild) insertBefore;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IXMLDOMNode* newChild, IXMLDOMNode* oldChild, IXMLDOMNode** outOldChild) replaceChild;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IXMLDOMNode* childNode, IXMLDOMNode** oldChild) removeChild;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IXMLDOMNode* newChild, IXMLDOMNode** outNewChild) appendChild;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* hasChild) hasChildNodes;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IXMLDOMDocument** XMLDOMDocument) get_ownerDocument;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 deep, IXMLDOMNode** cloneRoot) cloneNode;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* nodeType) get_nodeTypeString;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* text) get_text;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR text) put_text;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* isSpecified) get_specified;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IXMLDOMNode** definitionNode) get_definition;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT* typedValue) get_nodeTypedValue;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT typedValue) put_nodeTypedValue;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT* dataTypeName) get_dataType;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR dataTypeName) put_dataType;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* xmlString) get_xml;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IXMLDOMNode* stylesheet, BSTR* xmlString) transformNode;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR queryString, IXMLDOMNodeList** resultList) selectNodes;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR queryString, IXMLDOMNode** resultNode) selectSingleNode;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* isParsed) get_parsed;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* namespaceURI) get_namespaceURI;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* prefixString) get_prefix;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* nameString) get_baseName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IXMLDOMNode* stylesheet, VARIANT outputObject) transformNodeToObject;
 	}
 
 
@@ -1690,39 +1690,39 @@ public static
 
 	[CRepr]public struct VTable : IXMLDOMNode.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXMLDOMDocument*/SelfOuter* self, IXMLDOMDocumentType** documentType) get_doctype;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXMLDOMDocument*/SelfOuter* self, IXMLDOMImplementation** impl) get_implementation;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXMLDOMDocument*/SelfOuter* self, IXMLDOMElement** DOMElement) get_documentElement;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXMLDOMDocument*/SelfOuter* self, IXMLDOMElement* DOMElement) putref_documentElement;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXMLDOMDocument*/SelfOuter* self, BSTR tagName, IXMLDOMElement** element) createElement;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXMLDOMDocument*/SelfOuter* self, IXMLDOMDocumentFragment** docFrag) createDocumentFragment;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXMLDOMDocument*/SelfOuter* self, BSTR data, IXMLDOMText** text) createTextNode;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXMLDOMDocument*/SelfOuter* self, BSTR data, IXMLDOMComment** comment) createComment;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXMLDOMDocument*/SelfOuter* self, BSTR data, IXMLDOMCDATASection** cdata) createCDATASection;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXMLDOMDocument*/SelfOuter* self, BSTR target, BSTR data, IXMLDOMProcessingInstruction** pi) createProcessingInstruction;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXMLDOMDocument*/SelfOuter* self, BSTR name, IXMLDOMAttribute** attribute) createAttribute;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXMLDOMDocument*/SelfOuter* self, BSTR name, IXMLDOMEntityReference** entityRef) createEntityReference;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXMLDOMDocument*/SelfOuter* self, BSTR tagName, IXMLDOMNodeList** resultList) getElementsByTagName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXMLDOMDocument*/SelfOuter* self, VARIANT Type, BSTR name, BSTR namespaceURI, IXMLDOMNode** node) createNode;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXMLDOMDocument*/SelfOuter* self, BSTR idString, IXMLDOMNode** node) nodeFromID;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXMLDOMDocument*/SelfOuter* self, VARIANT xmlSource, int16* isSuccessful) load;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXMLDOMDocument*/SelfOuter* self, int32* value) get_readyState;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXMLDOMDocument*/SelfOuter* self, IXMLDOMParseError** errorObj) get_parseError;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXMLDOMDocument*/SelfOuter* self, BSTR* urlString) get_url;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXMLDOMDocument*/SelfOuter* self, int16* isAsync) get_async;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXMLDOMDocument*/SelfOuter* self, int16 isAsync) put_async;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXMLDOMDocument*/SelfOuter* self) abort;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXMLDOMDocument*/SelfOuter* self, BSTR bstrXML, int16* isSuccessful) loadXML;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXMLDOMDocument*/SelfOuter* self, VARIANT destination) save;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXMLDOMDocument*/SelfOuter* self, int16* isValidating) get_validateOnParse;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXMLDOMDocument*/SelfOuter* self, int16 isValidating) put_validateOnParse;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXMLDOMDocument*/SelfOuter* self, int16* isResolving) get_resolveExternals;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXMLDOMDocument*/SelfOuter* self, int16 isResolving) put_resolveExternals;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXMLDOMDocument*/SelfOuter* self, int16* isPreserving) get_preserveWhiteSpace;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXMLDOMDocument*/SelfOuter* self, int16 isPreserving) put_preserveWhiteSpace;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXMLDOMDocument*/SelfOuter* self, VARIANT readystatechangeSink) put_onreadystatechange;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXMLDOMDocument*/SelfOuter* self, VARIANT ondataavailableSink) put_ondataavailable;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXMLDOMDocument*/SelfOuter* self, VARIANT ontransformnodeSink) put_ontransformnode;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IXMLDOMDocumentType** documentType) get_doctype;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IXMLDOMImplementation** impl) get_implementation;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IXMLDOMElement** DOMElement) get_documentElement;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IXMLDOMElement* DOMElement) putref_documentElement;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR tagName, IXMLDOMElement** element) createElement;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IXMLDOMDocumentFragment** docFrag) createDocumentFragment;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR data, IXMLDOMText** text) createTextNode;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR data, IXMLDOMComment** comment) createComment;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR data, IXMLDOMCDATASection** cdata) createCDATASection;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR target, BSTR data, IXMLDOMProcessingInstruction** pi) createProcessingInstruction;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR name, IXMLDOMAttribute** attribute) createAttribute;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR name, IXMLDOMEntityReference** entityRef) createEntityReference;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR tagName, IXMLDOMNodeList** resultList) getElementsByTagName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT Type, BSTR name, BSTR namespaceURI, IXMLDOMNode** node) createNode;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR idString, IXMLDOMNode** node) nodeFromID;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT xmlSource, int16* isSuccessful) load;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* value) get_readyState;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IXMLDOMParseError** errorObj) get_parseError;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* urlString) get_url;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* isAsync) get_async;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 isAsync) put_async;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) abort;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrXML, int16* isSuccessful) loadXML;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT destination) save;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* isValidating) get_validateOnParse;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 isValidating) put_validateOnParse;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* isResolving) get_resolveExternals;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 isResolving) put_resolveExternals;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* isPreserving) get_preserveWhiteSpace;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 isPreserving) put_preserveWhiteSpace;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT readystatechangeSink) put_onreadystatechange;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT ondataavailableSink) put_ondataavailable;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT ontransformnodeSink) put_ontransformnode;
 	}
 
 
@@ -1801,11 +1801,11 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXMLDOMNodeList*/SelfOuter* self, int32 index, IXMLDOMNode** listItem) get_item;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXMLDOMNodeList*/SelfOuter* self, int32* listLength) get_length;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXMLDOMNodeList*/SelfOuter* self, IXMLDOMNode** nextItem) nextNode;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXMLDOMNodeList*/SelfOuter* self) reset;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXMLDOMNodeList*/SelfOuter* self, IUnknown** ppUnk) get__newEnum;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 index, IXMLDOMNode** listItem) get_item;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* listLength) get_length;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IXMLDOMNode** nextItem) nextNode;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) reset;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IUnknown** ppUnk) get__newEnum;
 	}
 
 
@@ -1828,16 +1828,16 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXMLDOMNamedNodeMap*/SelfOuter* self, BSTR name, IXMLDOMNode** namedItem) getNamedItem;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXMLDOMNamedNodeMap*/SelfOuter* self, IXMLDOMNode* newItem, IXMLDOMNode** nameItem) setNamedItem;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXMLDOMNamedNodeMap*/SelfOuter* self, BSTR name, IXMLDOMNode** namedItem) removeNamedItem;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXMLDOMNamedNodeMap*/SelfOuter* self, int32 index, IXMLDOMNode** listItem) get_item;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXMLDOMNamedNodeMap*/SelfOuter* self, int32* listLength) get_length;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXMLDOMNamedNodeMap*/SelfOuter* self, BSTR baseName, BSTR namespaceURI, IXMLDOMNode** qualifiedItem) getQualifiedItem;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXMLDOMNamedNodeMap*/SelfOuter* self, BSTR baseName, BSTR namespaceURI, IXMLDOMNode** qualifiedItem) removeQualifiedItem;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXMLDOMNamedNodeMap*/SelfOuter* self, IXMLDOMNode** nextItem) nextNode;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXMLDOMNamedNodeMap*/SelfOuter* self) reset;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXMLDOMNamedNodeMap*/SelfOuter* self, IUnknown** ppUnk) get__newEnum;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR name, IXMLDOMNode** namedItem) getNamedItem;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IXMLDOMNode* newItem, IXMLDOMNode** nameItem) setNamedItem;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR name, IXMLDOMNode** namedItem) removeNamedItem;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 index, IXMLDOMNode** listItem) get_item;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* listLength) get_length;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR baseName, BSTR namespaceURI, IXMLDOMNode** qualifiedItem) getQualifiedItem;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR baseName, BSTR namespaceURI, IXMLDOMNode** qualifiedItem) removeQualifiedItem;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IXMLDOMNode** nextItem) nextNode;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) reset;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IUnknown** ppUnk) get__newEnum;
 	}
 
 
@@ -1870,14 +1870,14 @@ public static
 
 	[CRepr]public struct VTable : IXMLDOMNode.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXMLDOMCharacterData*/SelfOuter* self, BSTR* data) get_data;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXMLDOMCharacterData*/SelfOuter* self, BSTR data) put_data;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXMLDOMCharacterData*/SelfOuter* self, int32* dataLength) get_length;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXMLDOMCharacterData*/SelfOuter* self, int32 offset, int32 count, BSTR* data) substringData;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXMLDOMCharacterData*/SelfOuter* self, BSTR data) appendData;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXMLDOMCharacterData*/SelfOuter* self, int32 offset, BSTR data) insertData;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXMLDOMCharacterData*/SelfOuter* self, int32 offset, int32 count) deleteData;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXMLDOMCharacterData*/SelfOuter* self, int32 offset, int32 count, BSTR data) replaceData;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* data) get_data;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR data) put_data;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* dataLength) get_length;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 offset, int32 count, BSTR* data) substringData;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR data) appendData;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 offset, BSTR data) insertData;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 offset, int32 count) deleteData;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 offset, int32 count, BSTR data) replaceData;
 	}
 
 
@@ -1906,9 +1906,9 @@ public static
 
 	[CRepr]public struct VTable : IXMLDOMNode.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXMLDOMAttribute*/SelfOuter* self, BSTR* attributeName) get_name;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXMLDOMAttribute*/SelfOuter* self, VARIANT* attributeValue) get_value;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXMLDOMAttribute*/SelfOuter* self, VARIANT attributeValue) put_value;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* attributeName) get_name;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT* attributeValue) get_value;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT attributeValue) put_value;
 	}
 
 
@@ -1927,15 +1927,15 @@ public static
 
 	[CRepr]public struct VTable : IXMLDOMNode.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXMLDOMElement*/SelfOuter* self, BSTR* tagName) get_tagName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXMLDOMElement*/SelfOuter* self, BSTR name, VARIANT* value) getAttribute;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXMLDOMElement*/SelfOuter* self, BSTR name, VARIANT value) setAttribute;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXMLDOMElement*/SelfOuter* self, BSTR name) removeAttribute;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXMLDOMElement*/SelfOuter* self, BSTR name, IXMLDOMAttribute** attributeNode) getAttributeNode;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXMLDOMElement*/SelfOuter* self, IXMLDOMAttribute* DOMAttribute, IXMLDOMAttribute** attributeNode) setAttributeNode;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXMLDOMElement*/SelfOuter* self, IXMLDOMAttribute* DOMAttribute, IXMLDOMAttribute** attributeNode) removeAttributeNode;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXMLDOMElement*/SelfOuter* self, BSTR tagName, IXMLDOMNodeList** resultList) getElementsByTagName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXMLDOMElement*/SelfOuter* self) normalize;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* tagName) get_tagName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR name, VARIANT* value) getAttribute;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR name, VARIANT value) setAttribute;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR name) removeAttribute;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR name, IXMLDOMAttribute** attributeNode) getAttributeNode;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IXMLDOMAttribute* DOMAttribute, IXMLDOMAttribute** attributeNode) setAttributeNode;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IXMLDOMAttribute* DOMAttribute, IXMLDOMAttribute** attributeNode) removeAttributeNode;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR tagName, IXMLDOMNodeList** resultList) getElementsByTagName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) normalize;
 	}
 
 
@@ -1966,7 +1966,7 @@ public static
 
 	[CRepr]public struct VTable : IXMLDOMCharacterData.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXMLDOMText*/SelfOuter* self, int32 offset, IXMLDOMText** rightHandTextNode) splitText;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 offset, IXMLDOMText** rightHandTextNode) splitText;
 	}
 
 
@@ -1993,9 +1993,9 @@ public static
 
 	[CRepr]public struct VTable : IXMLDOMNode.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXMLDOMProcessingInstruction*/SelfOuter* self, BSTR* name) get_target;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXMLDOMProcessingInstruction*/SelfOuter* self, BSTR* value) get_data;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXMLDOMProcessingInstruction*/SelfOuter* self, BSTR value) put_data;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* name) get_target;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* value) get_data;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR value) put_data;
 	}
 
 
@@ -2026,9 +2026,9 @@ public static
 
 	[CRepr]public struct VTable : IXMLDOMNode.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXMLDOMDocumentType*/SelfOuter* self, BSTR* rootName) get_name;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXMLDOMDocumentType*/SelfOuter* self, IXMLDOMNamedNodeMap** entityMap) get_entities;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXMLDOMDocumentType*/SelfOuter* self, IXMLDOMNamedNodeMap** notationMap) get_notations;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* rootName) get_name;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IXMLDOMNamedNodeMap** entityMap) get_entities;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IXMLDOMNamedNodeMap** notationMap) get_notations;
 	}
 
 
@@ -2047,8 +2047,8 @@ public static
 
 	[CRepr]public struct VTable : IXMLDOMNode.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXMLDOMNotation*/SelfOuter* self, VARIANT* publicID) get_publicId;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXMLDOMNotation*/SelfOuter* self, VARIANT* systemID) get_systemId;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT* publicID) get_publicId;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT* systemID) get_systemId;
 	}
 
 
@@ -2065,9 +2065,9 @@ public static
 
 	[CRepr]public struct VTable : IXMLDOMNode.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXMLDOMEntity*/SelfOuter* self, VARIANT* publicID) get_publicId;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXMLDOMEntity*/SelfOuter* self, VARIANT* systemID) get_systemId;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXMLDOMEntity*/SelfOuter* self, BSTR* name) get_notationName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT* publicID) get_publicId;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT* systemID) get_systemId;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* name) get_notationName;
 	}
 
 
@@ -2098,13 +2098,13 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXMLDOMParseError*/SelfOuter* self, int32* errorCode) get_errorCode;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXMLDOMParseError*/SelfOuter* self, BSTR* urlString) get_url;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXMLDOMParseError*/SelfOuter* self, BSTR* reasonString) get_reason;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXMLDOMParseError*/SelfOuter* self, BSTR* sourceString) get_srcText;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXMLDOMParseError*/SelfOuter* self, int32* lineNumber) get_line;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXMLDOMParseError*/SelfOuter* self, int32* linePosition) get_linepos;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXMLDOMParseError*/SelfOuter* self, int32* filePosition) get_filepos;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* errorCode) get_errorCode;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* urlString) get_url;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* reasonString) get_reason;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* sourceString) get_srcText;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* lineNumber) get_line;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* linePosition) get_linepos;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* filePosition) get_filepos;
 	}
 
 
@@ -2131,15 +2131,15 @@ public static
 
 	[CRepr]public struct VTable : IXMLDOMNode.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXTLRuntime*/SelfOuter* self, IXMLDOMNode* pNode, int32* pID) uniqueID;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXTLRuntime*/SelfOuter* self, IXMLDOMNode* pNode, int32* pDepth) depth;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXTLRuntime*/SelfOuter* self, IXMLDOMNode* pNode, int32* pNumber) childNumber;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXTLRuntime*/SelfOuter* self, BSTR bstrNodeName, IXMLDOMNode* pNode, int32* pNumber) ancestorChildNumber;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXTLRuntime*/SelfOuter* self, IXMLDOMNode* pNode, int32* pNumber) absoluteChildNumber;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXTLRuntime*/SelfOuter* self, int32 lIndex, BSTR bstrFormat, BSTR* pbstrFormattedString) formatIndex;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXTLRuntime*/SelfOuter* self, double dblNumber, BSTR bstrFormat, BSTR* pbstrFormattedString) formatNumber;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXTLRuntime*/SelfOuter* self, VARIANT varDate, BSTR bstrFormat, VARIANT varDestLocale, BSTR* pbstrFormattedString) formatDate;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXTLRuntime*/SelfOuter* self, VARIANT varTime, BSTR bstrFormat, VARIANT varDestLocale, BSTR* pbstrFormattedString) formatTime;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IXMLDOMNode* pNode, int32* pID) uniqueID;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IXMLDOMNode* pNode, int32* pDepth) depth;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IXMLDOMNode* pNode, int32* pNumber) childNumber;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrNodeName, IXMLDOMNode* pNode, int32* pNumber) ancestorChildNumber;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IXMLDOMNode* pNode, int32* pNumber) absoluteChildNumber;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 lIndex, BSTR bstrFormat, BSTR* pbstrFormattedString) formatIndex;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, double dblNumber, BSTR bstrFormat, BSTR* pbstrFormattedString) formatNumber;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT varDate, BSTR bstrFormat, VARIANT varDestLocale, BSTR* pbstrFormattedString) formatDate;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT varTime, BSTR bstrFormat, VARIANT varDestLocale, BSTR* pbstrFormattedString) formatTime;
 	}
 
 
@@ -2182,20 +2182,20 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXMLHttpRequest*/SelfOuter* self, BSTR bstrMethod, BSTR bstrUrl, VARIANT varAsync, VARIANT bstrUser, VARIANT bstrPassword) open;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXMLHttpRequest*/SelfOuter* self, BSTR bstrHeader, BSTR bstrValue) setRequestHeader;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXMLHttpRequest*/SelfOuter* self, BSTR bstrHeader, BSTR* pbstrValue) getResponseHeader;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXMLHttpRequest*/SelfOuter* self, BSTR* pbstrHeaders) getAllResponseHeaders;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXMLHttpRequest*/SelfOuter* self, VARIANT varBody) send;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXMLHttpRequest*/SelfOuter* self) abort;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXMLHttpRequest*/SelfOuter* self, int32* plStatus) get_status;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXMLHttpRequest*/SelfOuter* self, BSTR* pbstrStatus) get_statusText;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXMLHttpRequest*/SelfOuter* self, IDispatch** ppBody) get_responseXML;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXMLHttpRequest*/SelfOuter* self, BSTR* pbstrBody) get_responseText;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXMLHttpRequest*/SelfOuter* self, VARIANT* pvarBody) get_responseBody;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXMLHttpRequest*/SelfOuter* self, VARIANT* pvarBody) get_responseStream;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXMLHttpRequest*/SelfOuter* self, int32* plState) get_readyState;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXMLHttpRequest*/SelfOuter* self, IDispatch* pReadyStateSink) put_onreadystatechange;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrMethod, BSTR bstrUrl, VARIANT varAsync, VARIANT bstrUser, VARIANT bstrPassword) open;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrHeader, BSTR bstrValue) setRequestHeader;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrHeader, BSTR* pbstrValue) getResponseHeader;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pbstrHeaders) getAllResponseHeaders;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT varBody) send;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) abort;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* plStatus) get_status;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pbstrStatus) get_statusText;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IDispatch** ppBody) get_responseXML;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pbstrBody) get_responseText;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT* pvarBody) get_responseBody;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT* pvarBody) get_responseStream;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* plState) get_readyState;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IDispatch* pReadyStateSink) put_onreadystatechange;
 	}
 
 
@@ -2236,11 +2236,11 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXMLDSOControl*/SelfOuter* self, IXMLDOMDocument** ppDoc) get_XMLDocument;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXMLDSOControl*/SelfOuter* self, IXMLDOMDocument* ppDoc) put_XMLDocument;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXMLDSOControl*/SelfOuter* self, BOOL* fJavaDSOCompatible) get_JavaDSOCompatible;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXMLDSOControl*/SelfOuter* self, BOOL fJavaDSOCompatible) put_JavaDSOCompatible;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXMLDSOControl*/SelfOuter* self, int32* state) get_readyState;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IXMLDOMDocument** ppDoc) get_XMLDocument;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IXMLDOMDocument* ppDoc) put_XMLDocument;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BOOL* fJavaDSOCompatible) get_JavaDSOCompatible;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BOOL fJavaDSOCompatible) put_JavaDSOCompatible;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* state) get_readyState;
 	}
 
 
@@ -2263,10 +2263,10 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXMLElementCollection*/SelfOuter* self, int32 v) put_length;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXMLElementCollection*/SelfOuter* self, int32* p) get_length;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXMLElementCollection*/SelfOuter* self, IUnknown** ppUnk) get__newEnum;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXMLElementCollection*/SelfOuter* self, VARIANT var1, VARIANT var2, IDispatch** ppDisp) item;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 v) put_length;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* p) get_length;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IUnknown** ppUnk) get__newEnum;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT var1, VARIANT var2, IDispatch** ppDisp) item;
 	}
 
 
@@ -2287,20 +2287,20 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXMLDocument*/SelfOuter* self, IXMLElement** p) get_root;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXMLDocument*/SelfOuter* self, BSTR* p) get_fileSize;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXMLDocument*/SelfOuter* self, BSTR* p) get_fileModifiedDate;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXMLDocument*/SelfOuter* self, BSTR* p) get_fileUpdatedDate;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXMLDocument*/SelfOuter* self, BSTR* p) get_URL;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXMLDocument*/SelfOuter* self, BSTR p) put_URL;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXMLDocument*/SelfOuter* self, BSTR* p) get_mimeType;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXMLDocument*/SelfOuter* self, int32* pl) get_readyState;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXMLDocument*/SelfOuter* self, BSTR* p) get_charset;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXMLDocument*/SelfOuter* self, BSTR p) put_charset;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXMLDocument*/SelfOuter* self, BSTR* p) get_version;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXMLDocument*/SelfOuter* self, BSTR* p) get_doctype;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXMLDocument*/SelfOuter* self, BSTR* p) get_dtdURL;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXMLDocument*/SelfOuter* self, VARIANT vType, VARIANT var1, IXMLElement** ppElem) createElement;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IXMLElement** p) get_root;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* p) get_fileSize;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* p) get_fileModifiedDate;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* p) get_fileUpdatedDate;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* p) get_URL;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR p) put_URL;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* p) get_mimeType;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* pl) get_readyState;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* p) get_charset;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR p) put_charset;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* p) get_version;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* p) get_doctype;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* p) get_dtdURL;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT vType, VARIANT var1, IXMLElement** ppElem) createElement;
 	}
 
 
@@ -2341,22 +2341,22 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXMLDocument2*/SelfOuter* self, IXMLElement2** p) get_root;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXMLDocument2*/SelfOuter* self, BSTR* p) get_fileSize;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXMLDocument2*/SelfOuter* self, BSTR* p) get_fileModifiedDate;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXMLDocument2*/SelfOuter* self, BSTR* p) get_fileUpdatedDate;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXMLDocument2*/SelfOuter* self, BSTR* p) get_URL;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXMLDocument2*/SelfOuter* self, BSTR p) put_URL;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXMLDocument2*/SelfOuter* self, BSTR* p) get_mimeType;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXMLDocument2*/SelfOuter* self, int32* pl) get_readyState;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXMLDocument2*/SelfOuter* self, BSTR* p) get_charset;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXMLDocument2*/SelfOuter* self, BSTR p) put_charset;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXMLDocument2*/SelfOuter* self, BSTR* p) get_version;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXMLDocument2*/SelfOuter* self, BSTR* p) get_doctype;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXMLDocument2*/SelfOuter* self, BSTR* p) get_dtdURL;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXMLDocument2*/SelfOuter* self, VARIANT vType, VARIANT var1, IXMLElement2** ppElem) createElement;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXMLDocument2*/SelfOuter* self, int16* pf) get_async;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXMLDocument2*/SelfOuter* self, int16 f) put_async;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IXMLElement2** p) get_root;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* p) get_fileSize;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* p) get_fileModifiedDate;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* p) get_fileUpdatedDate;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* p) get_URL;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR p) put_URL;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* p) get_mimeType;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* pl) get_readyState;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* p) get_charset;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR p) put_charset;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* p) get_version;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* p) get_doctype;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* p) get_dtdURL;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT vType, VARIANT var1, IXMLElement2** ppElem) createElement;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* pf) get_async;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 f) put_async;
 	}
 
 
@@ -2401,18 +2401,18 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXMLElement*/SelfOuter* self, BSTR* p) get_tagName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXMLElement*/SelfOuter* self, BSTR p) put_tagName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXMLElement*/SelfOuter* self, IXMLElement** ppParent) get_parent;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXMLElement*/SelfOuter* self, BSTR strPropertyName, VARIANT PropertyValue) setAttribute;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXMLElement*/SelfOuter* self, BSTR strPropertyName, VARIANT* PropertyValue) getAttribute;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXMLElement*/SelfOuter* self, BSTR strPropertyName) removeAttribute;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXMLElement*/SelfOuter* self, IXMLElementCollection** pp) get_children;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXMLElement*/SelfOuter* self, int32* plType) get_type;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXMLElement*/SelfOuter* self, BSTR* p) get_text;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXMLElement*/SelfOuter* self, BSTR p) put_text;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXMLElement*/SelfOuter* self, IXMLElement* pChildElem, int32 lIndex, int32 lReserved) addChild;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXMLElement*/SelfOuter* self, IXMLElement* pChildElem) removeChild;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* p) get_tagName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR p) put_tagName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IXMLElement** ppParent) get_parent;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR strPropertyName, VARIANT PropertyValue) setAttribute;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR strPropertyName, VARIANT* PropertyValue) getAttribute;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR strPropertyName) removeAttribute;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IXMLElementCollection** pp) get_children;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* plType) get_type;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* p) get_text;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR p) put_text;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IXMLElement* pChildElem, int32 lIndex, int32 lReserved) addChild;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IXMLElement* pChildElem) removeChild;
 	}
 
 
@@ -2449,19 +2449,19 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXMLElement2*/SelfOuter* self, BSTR* p) get_tagName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXMLElement2*/SelfOuter* self, BSTR p) put_tagName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXMLElement2*/SelfOuter* self, IXMLElement2** ppParent) get_parent;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXMLElement2*/SelfOuter* self, BSTR strPropertyName, VARIANT PropertyValue) setAttribute;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXMLElement2*/SelfOuter* self, BSTR strPropertyName, VARIANT* PropertyValue) getAttribute;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXMLElement2*/SelfOuter* self, BSTR strPropertyName) removeAttribute;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXMLElement2*/SelfOuter* self, IXMLElementCollection** pp) get_children;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXMLElement2*/SelfOuter* self, int32* plType) get_type;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXMLElement2*/SelfOuter* self, BSTR* p) get_text;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXMLElement2*/SelfOuter* self, BSTR p) put_text;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXMLElement2*/SelfOuter* self, IXMLElement2* pChildElem, int32 lIndex, int32 lReserved) addChild;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXMLElement2*/SelfOuter* self, IXMLElement2* pChildElem) removeChild;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXMLElement2*/SelfOuter* self, IXMLElementCollection** pp) get_attributes;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* p) get_tagName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR p) put_tagName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IXMLElement2** ppParent) get_parent;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR strPropertyName, VARIANT PropertyValue) setAttribute;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR strPropertyName, VARIANT* PropertyValue) getAttribute;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR strPropertyName) removeAttribute;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IXMLElementCollection** pp) get_children;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* plType) get_type;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* p) get_text;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR p) put_text;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IXMLElement2* pChildElem, int32 lIndex, int32 lReserved) addChild;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IXMLElement2* pChildElem) removeChild;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IXMLElementCollection** pp) get_attributes;
 	}
 
 
@@ -2500,8 +2500,8 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXMLAttribute*/SelfOuter* self, BSTR* n) get_name;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXMLAttribute*/SelfOuter* self, BSTR* v) get_value;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* n) get_name;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* v) get_value;
 	}
 
 
@@ -2518,7 +2518,7 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXMLError*/SelfOuter* self, XML_ERROR* pErrorReturn) GetErrorInfo;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, XML_ERROR* pErrorReturn) GetErrorInfo;
 	}
 
 
@@ -2533,12 +2533,12 @@ public static
 
 	[CRepr]public struct VTable : IXMLDOMDocument.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXMLDOMDocument2*/SelfOuter* self, IXMLDOMSchemaCollection** namespaceCollection) get_namespaces;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXMLDOMDocument2*/SelfOuter* self, VARIANT* otherCollection) get_schemas;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXMLDOMDocument2*/SelfOuter* self, VARIANT otherCollection) putref_schemas;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXMLDOMDocument2*/SelfOuter* self, IXMLDOMParseError** errorObj) validate;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXMLDOMDocument2*/SelfOuter* self, BSTR name, VARIANT value) setProperty;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXMLDOMDocument2*/SelfOuter* self, BSTR name, VARIANT* value) getProperty;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IXMLDOMSchemaCollection** namespaceCollection) get_namespaces;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT* otherCollection) get_schemas;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT otherCollection) putref_schemas;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IXMLDOMParseError** errorObj) validate;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR name, VARIANT value) setProperty;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR name, VARIANT* value) getProperty;
 	}
 
 
@@ -2563,8 +2563,8 @@ public static
 
 	[CRepr]public struct VTable : IXMLDOMDocument2.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXMLDOMDocument3*/SelfOuter* self, IXMLDOMNode* node, IXMLDOMParseError** errorObj) validateNode;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXMLDOMDocument3*/SelfOuter* self, IXMLDOMNode* node, int16 deep, IXMLDOMNode** clone) importNode;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IXMLDOMNode* node, IXMLDOMParseError** errorObj) validateNode;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IXMLDOMNode* node, int16 deep, IXMLDOMNode** clone) importNode;
 	}
 
 
@@ -2581,13 +2581,13 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXMLDOMSchemaCollection*/SelfOuter* self, BSTR namespaceURI, VARIANT @var) add;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXMLDOMSchemaCollection*/SelfOuter* self, BSTR namespaceURI, IXMLDOMNode** schemaNode) get;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXMLDOMSchemaCollection*/SelfOuter* self, BSTR namespaceURI) remove;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXMLDOMSchemaCollection*/SelfOuter* self, int32* length) get_length;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXMLDOMSchemaCollection*/SelfOuter* self, int32 index, BSTR* length) get_namespaceURI;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXMLDOMSchemaCollection*/SelfOuter* self, IXMLDOMSchemaCollection* otherCollection) addCollection;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXMLDOMSchemaCollection*/SelfOuter* self, IUnknown** ppUnk) get__newEnum;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR namespaceURI, VARIANT @var) add;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR namespaceURI, IXMLDOMNode** schemaNode) get;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR namespaceURI) remove;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* length) get_length;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 index, BSTR* length) get_namespaceURI;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IXMLDOMSchemaCollection* otherCollection) addCollection;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IUnknown** ppUnk) get__newEnum;
 	}
 
 
@@ -2614,17 +2614,17 @@ public static
 
 	[CRepr]public struct VTable : IXMLDOMNodeList.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXMLDOMSelection*/SelfOuter* self, BSTR* expression) get_expr;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXMLDOMSelection*/SelfOuter* self, BSTR expression) put_expr;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXMLDOMSelection*/SelfOuter* self, IXMLDOMNode** ppNode) get_context;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXMLDOMSelection*/SelfOuter* self, IXMLDOMNode* pNode) putref_context;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXMLDOMSelection*/SelfOuter* self, IXMLDOMNode** ppNode) peekNode;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXMLDOMSelection*/SelfOuter* self, IXMLDOMNode* pNode, IXMLDOMNode** ppNode) matches;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXMLDOMSelection*/SelfOuter* self, IXMLDOMNode** ppNode) removeNext;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXMLDOMSelection*/SelfOuter* self) removeAll;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXMLDOMSelection*/SelfOuter* self, IXMLDOMSelection** ppNode) clone;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXMLDOMSelection*/SelfOuter* self, BSTR name, VARIANT* value) getProperty;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXMLDOMSelection*/SelfOuter* self, BSTR name, VARIANT value) setProperty;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* expression) get_expr;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR expression) put_expr;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IXMLDOMNode** ppNode) get_context;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IXMLDOMNode* pNode) putref_context;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IXMLDOMNode** ppNode) peekNode;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IXMLDOMNode* pNode, IXMLDOMNode** ppNode) matches;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IXMLDOMNode** ppNode) removeNext;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) removeAll;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IXMLDOMSelection** ppNode) clone;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR name, VARIANT* value) getProperty;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR name, VARIANT value) setProperty;
 	}
 
 
@@ -2659,10 +2659,10 @@ public static
 
 	[CRepr]public struct VTable : IXMLDOMParseError.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXMLDOMParseError2*/SelfOuter* self, BSTR* xpathexpr) get_errorXPath;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXMLDOMParseError2*/SelfOuter* self, IXMLDOMParseErrorCollection** allErrors) get_allErrors;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXMLDOMParseError2*/SelfOuter* self, int32 index, BSTR* param1) errorParameters;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXMLDOMParseError2*/SelfOuter* self, int32* count) get_errorParametersCount;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* xpathexpr) get_errorXPath;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IXMLDOMParseErrorCollection** allErrors) get_allErrors;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 index, BSTR* param1) errorParameters;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* count) get_errorParametersCount;
 	}
 
 
@@ -2683,11 +2683,11 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXMLDOMParseErrorCollection*/SelfOuter* self, int32 index, IXMLDOMParseError2** error) get_item;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXMLDOMParseErrorCollection*/SelfOuter* self, int32* length) get_length;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXMLDOMParseErrorCollection*/SelfOuter* self, IXMLDOMParseError2** error) get_next;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXMLDOMParseErrorCollection*/SelfOuter* self) reset;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXMLDOMParseErrorCollection*/SelfOuter* self, IUnknown** ppunk) get__newEnum;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 index, IXMLDOMParseError2** error) get_item;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* length) get_length;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IXMLDOMParseError2** error) get_next;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) reset;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IUnknown** ppunk) get__newEnum;
 	}
 
 
@@ -2710,20 +2710,20 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXSLProcessor*/SelfOuter* self, VARIANT @var) put_input;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXSLProcessor*/SelfOuter* self, VARIANT* pVar) get_input;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXSLProcessor*/SelfOuter* self, IXSLTemplate** ppTemplate) get_ownerTemplate;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXSLProcessor*/SelfOuter* self, BSTR mode, BSTR namespaceURI) setStartMode;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXSLProcessor*/SelfOuter* self, BSTR* mode) get_startMode;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXSLProcessor*/SelfOuter* self, BSTR* namespaceURI) get_startModeURI;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXSLProcessor*/SelfOuter* self, VARIANT output) put_output;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXSLProcessor*/SelfOuter* self, VARIANT* pOutput) get_output;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXSLProcessor*/SelfOuter* self, int16* pDone) transform;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXSLProcessor*/SelfOuter* self) reset;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXSLProcessor*/SelfOuter* self, int32* pReadyState) get_readyState;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXSLProcessor*/SelfOuter* self, BSTR baseName, VARIANT parameter, BSTR namespaceURI) addParameter;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXSLProcessor*/SelfOuter* self, IDispatch* obj, BSTR namespaceURI) addObject;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXSLProcessor*/SelfOuter* self, IXMLDOMNode** stylesheet) get_stylesheet;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT @var) put_input;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT* pVar) get_input;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IXSLTemplate** ppTemplate) get_ownerTemplate;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR mode, BSTR namespaceURI) setStartMode;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* mode) get_startMode;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* namespaceURI) get_startModeURI;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT output) put_output;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT* pOutput) get_output;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* pDone) transform;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) reset;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* pReadyState) get_readyState;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR baseName, VARIANT parameter, BSTR namespaceURI) addParameter;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IDispatch* obj, BSTR namespaceURI) addObject;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IXMLDOMNode** stylesheet) get_stylesheet;
 	}
 
 
@@ -2764,9 +2764,9 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXSLTemplate*/SelfOuter* self, IXMLDOMNode* stylesheet) putref_stylesheet;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXSLTemplate*/SelfOuter* self, IXMLDOMNode** stylesheet) get_stylesheet;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXSLTemplate*/SelfOuter* self, IXSLProcessor** ppProcessor) createProcessor;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IXMLDOMNode* stylesheet) putref_stylesheet;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IXMLDOMNode** stylesheet) get_stylesheet;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IXSLProcessor** ppProcessor) createProcessor;
 	}
 
 
@@ -2785,20 +2785,20 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXMLHTTPRequest*/SelfOuter* self, BSTR bstrMethod, BSTR bstrUrl, VARIANT varAsync, VARIANT bstrUser, VARIANT bstrPassword) open;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXMLHTTPRequest*/SelfOuter* self, BSTR bstrHeader, BSTR bstrValue) setRequestHeader;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXMLHTTPRequest*/SelfOuter* self, BSTR bstrHeader, BSTR* pbstrValue) getResponseHeader;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXMLHTTPRequest*/SelfOuter* self, BSTR* pbstrHeaders) getAllResponseHeaders;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXMLHTTPRequest*/SelfOuter* self, VARIANT varBody) send;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXMLHTTPRequest*/SelfOuter* self) abort;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXMLHTTPRequest*/SelfOuter* self, int32* plStatus) get_status;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXMLHTTPRequest*/SelfOuter* self, BSTR* pbstrStatus) get_statusText;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXMLHTTPRequest*/SelfOuter* self, IDispatch** ppBody) get_responseXML;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXMLHTTPRequest*/SelfOuter* self, BSTR* pbstrBody) get_responseText;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXMLHTTPRequest*/SelfOuter* self, VARIANT* pvarBody) get_responseBody;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXMLHTTPRequest*/SelfOuter* self, VARIANT* pvarBody) get_responseStream;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXMLHTTPRequest*/SelfOuter* self, int32* plState) get_readyState;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXMLHTTPRequest*/SelfOuter* self, IDispatch* pReadyStateSink) put_onreadystatechange;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrMethod, BSTR bstrUrl, VARIANT varAsync, VARIANT bstrUser, VARIANT bstrPassword) open;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrHeader, BSTR bstrValue) setRequestHeader;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrHeader, BSTR* pbstrValue) getResponseHeader;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pbstrHeaders) getAllResponseHeaders;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT varBody) send;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) abort;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* plStatus) get_status;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pbstrStatus) get_statusText;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IDispatch** ppBody) get_responseXML;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pbstrBody) get_responseText;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT* pvarBody) get_responseBody;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT* pvarBody) get_responseStream;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* plState) get_readyState;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IDispatch* pReadyStateSink) put_onreadystatechange;
 	}
 
 
@@ -2839,10 +2839,10 @@ public static
 
 	[CRepr]public struct VTable : IXMLHTTPRequest.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IServerXMLHTTPRequest*/SelfOuter* self, int32 resolveTimeout, int32 connectTimeout, int32 sendTimeout, int32 receiveTimeout) setTimeouts;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IServerXMLHTTPRequest*/SelfOuter* self, VARIANT timeoutInSeconds, int16* isSuccessful) waitForResponse;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IServerXMLHTTPRequest*/SelfOuter* self, SERVERXMLHTTP_OPTION option, VARIANT* value) getOption;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IServerXMLHTTPRequest*/SelfOuter* self, SERVERXMLHTTP_OPTION option, VARIANT value) setOption;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 resolveTimeout, int32 connectTimeout, int32 sendTimeout, int32 receiveTimeout) setTimeouts;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT timeoutInSeconds, int16* isSuccessful) waitForResponse;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, SERVERXMLHTTP_OPTION option, VARIANT* value) getOption;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, SERVERXMLHTTP_OPTION option, VARIANT value) setOption;
 	}
 
 
@@ -2863,8 +2863,8 @@ public static
 
 	[CRepr]public struct VTable : IServerXMLHTTPRequest.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IServerXMLHTTPRequest2*/SelfOuter* self, SXH_PROXY_SETTING proxySetting, VARIANT varProxyServer, VARIANT varBypassList) setProxy;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IServerXMLHTTPRequest2*/SelfOuter* self, BSTR bstrUserName, BSTR bstrPassword) setProxyCredentials;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, SXH_PROXY_SETTING proxySetting, VARIANT varProxyServer, VARIANT varBypassList) setProxy;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrUserName, BSTR bstrPassword) setProxyCredentials;
 	}
 
 
@@ -2881,24 +2881,24 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISAXXMLReader*/SelfOuter* self, PWSTR pwchName, int16* pvfValue) getFeature;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISAXXMLReader*/SelfOuter* self, PWSTR pwchName, int16 vfValue) putFeature;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISAXXMLReader*/SelfOuter* self, PWSTR pwchName, VARIANT* pvarValue) getProperty;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISAXXMLReader*/SelfOuter* self, PWSTR pwchName, VARIANT varValue) putProperty;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISAXXMLReader*/SelfOuter* self, ISAXEntityResolver** ppResolver) getEntityResolver;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISAXXMLReader*/SelfOuter* self, ISAXEntityResolver* pResolver) putEntityResolver;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISAXXMLReader*/SelfOuter* self, ISAXContentHandler** ppHandler) getContentHandler;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISAXXMLReader*/SelfOuter* self, ISAXContentHandler* pHandler) putContentHandler;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISAXXMLReader*/SelfOuter* self, ISAXDTDHandler** ppHandler) getDTDHandler;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISAXXMLReader*/SelfOuter* self, ISAXDTDHandler* pHandler) putDTDHandler;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISAXXMLReader*/SelfOuter* self, ISAXErrorHandler** ppHandler) getErrorHandler;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISAXXMLReader*/SelfOuter* self, ISAXErrorHandler* pHandler) putErrorHandler;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISAXXMLReader*/SelfOuter* self, uint16** ppwchBaseUrl) getBaseURL;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISAXXMLReader*/SelfOuter* self, PWSTR pwchBaseUrl) putBaseURL;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISAXXMLReader*/SelfOuter* self, uint16** ppwchSecureBaseUrl) getSecureBaseURL;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISAXXMLReader*/SelfOuter* self, PWSTR pwchSecureBaseUrl) putSecureBaseURL;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISAXXMLReader*/SelfOuter* self, VARIANT varInput) parse;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISAXXMLReader*/SelfOuter* self, PWSTR pwchUrl) parseURL;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR pwchName, int16* pvfValue) getFeature;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR pwchName, int16 vfValue) putFeature;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR pwchName, VARIANT* pvarValue) getProperty;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR pwchName, VARIANT varValue) putProperty;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ISAXEntityResolver** ppResolver) getEntityResolver;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ISAXEntityResolver* pResolver) putEntityResolver;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ISAXContentHandler** ppHandler) getContentHandler;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ISAXContentHandler* pHandler) putContentHandler;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ISAXDTDHandler** ppHandler) getDTDHandler;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ISAXDTDHandler* pHandler) putDTDHandler;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ISAXErrorHandler** ppHandler) getErrorHandler;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ISAXErrorHandler* pHandler) putErrorHandler;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint16** ppwchBaseUrl) getBaseURL;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR pwchBaseUrl) putBaseURL;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint16** ppwchSecureBaseUrl) getSecureBaseURL;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR pwchSecureBaseUrl) putSecureBaseURL;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT varInput) parse;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR pwchUrl) parseURL;
 	}
 
 
@@ -2947,8 +2947,8 @@ public static
 
 	[CRepr]public struct VTable : ISAXXMLReader.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISAXXMLFilter*/SelfOuter* self, ISAXXMLReader** ppReader) getParent;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISAXXMLFilter*/SelfOuter* self, ISAXXMLReader* pReader) putParent;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ISAXXMLReader** ppReader) getParent;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ISAXXMLReader* pReader) putParent;
 	}
 
 
@@ -2965,10 +2965,10 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISAXLocator*/SelfOuter* self, int32* pnColumn) getColumnNumber;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISAXLocator*/SelfOuter* self, int32* pnLine) getLineNumber;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISAXLocator*/SelfOuter* self, uint16** ppwchPublicId) getPublicId;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISAXLocator*/SelfOuter* self, uint16** ppwchSystemId) getSystemId;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* pnColumn) getColumnNumber;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* pnLine) getLineNumber;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint16** ppwchPublicId) getPublicId;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint16** ppwchSystemId) getSystemId;
 	}
 
 
@@ -2989,7 +2989,7 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISAXEntityResolver*/SelfOuter* self, PWSTR pwchPublicId, PWSTR pwchSystemId, VARIANT* pvarInput) resolveEntity;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR pwchPublicId, PWSTR pwchSystemId, VARIANT* pvarInput) resolveEntity;
 	}
 
 
@@ -3004,17 +3004,17 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISAXContentHandler*/SelfOuter* self, ISAXLocator* pLocator) putDocumentLocator;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISAXContentHandler*/SelfOuter* self) startDocument;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISAXContentHandler*/SelfOuter* self) endDocument;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISAXContentHandler*/SelfOuter* self, PWSTR pwchPrefix, int32 cchPrefix, PWSTR pwchUri, int32 cchUri) startPrefixMapping;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISAXContentHandler*/SelfOuter* self, PWSTR pwchPrefix, int32 cchPrefix) endPrefixMapping;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISAXContentHandler*/SelfOuter* self, PWSTR pwchNamespaceUri, int32 cchNamespaceUri, PWSTR pwchLocalName, int32 cchLocalName, PWSTR pwchQName, int32 cchQName, ISAXAttributes* pAttributes) startElement;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISAXContentHandler*/SelfOuter* self, PWSTR pwchNamespaceUri, int32 cchNamespaceUri, PWSTR pwchLocalName, int32 cchLocalName, PWSTR pwchQName, int32 cchQName) endElement;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISAXContentHandler*/SelfOuter* self, PWSTR pwchChars, int32 cchChars) characters;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISAXContentHandler*/SelfOuter* self, PWSTR pwchChars, int32 cchChars) ignorableWhitespace;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISAXContentHandler*/SelfOuter* self, PWSTR pwchTarget, int32 cchTarget, PWSTR pwchData, int32 cchData) processingInstruction;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISAXContentHandler*/SelfOuter* self, PWSTR pwchName, int32 cchName) skippedEntity;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ISAXLocator* pLocator) putDocumentLocator;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) startDocument;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) endDocument;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR pwchPrefix, int32 cchPrefix, PWSTR pwchUri, int32 cchUri) startPrefixMapping;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR pwchPrefix, int32 cchPrefix) endPrefixMapping;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR pwchNamespaceUri, int32 cchNamespaceUri, PWSTR pwchLocalName, int32 cchLocalName, PWSTR pwchQName, int32 cchQName, ISAXAttributes* pAttributes) startElement;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR pwchNamespaceUri, int32 cchNamespaceUri, PWSTR pwchLocalName, int32 cchLocalName, PWSTR pwchQName, int32 cchQName) endElement;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR pwchChars, int32 cchChars) characters;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR pwchChars, int32 cchChars) ignorableWhitespace;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR pwchTarget, int32 cchTarget, PWSTR pwchData, int32 cchData) processingInstruction;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR pwchName, int32 cchName) skippedEntity;
 	}
 
 
@@ -3049,8 +3049,8 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISAXDTDHandler*/SelfOuter* self, PWSTR pwchName, int32 cchName, PWSTR pwchPublicId, int32 cchPublicId, PWSTR pwchSystemId, int32 cchSystemId) notationDecl;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISAXDTDHandler*/SelfOuter* self, PWSTR pwchName, int32 cchName, PWSTR pwchPublicId, int32 cchPublicId, PWSTR pwchSystemId, int32 cchSystemId, PWSTR pwchNotationName, int32 cchNotationName) unparsedEntityDecl;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR pwchName, int32 cchName, PWSTR pwchPublicId, int32 cchPublicId, PWSTR pwchSystemId, int32 cchSystemId) notationDecl;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR pwchName, int32 cchName, PWSTR pwchPublicId, int32 cchPublicId, PWSTR pwchSystemId, int32 cchSystemId, PWSTR pwchNotationName, int32 cchNotationName) unparsedEntityDecl;
 	}
 
 
@@ -3067,9 +3067,9 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISAXErrorHandler*/SelfOuter* self, ISAXLocator* pLocator, PWSTR pwchErrorMessage, HRESULT hrErrorCode) error;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISAXErrorHandler*/SelfOuter* self, ISAXLocator* pLocator, PWSTR pwchErrorMessage, HRESULT hrErrorCode) fatalError;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISAXErrorHandler*/SelfOuter* self, ISAXLocator* pLocator, PWSTR pwchErrorMessage, HRESULT hrErrorCode) ignorableWarning;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ISAXLocator* pLocator, PWSTR pwchErrorMessage, HRESULT hrErrorCode) error;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ISAXLocator* pLocator, PWSTR pwchErrorMessage, HRESULT hrErrorCode) fatalError;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ISAXLocator* pLocator, PWSTR pwchErrorMessage, HRESULT hrErrorCode) ignorableWarning;
 	}
 
 
@@ -3088,13 +3088,13 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISAXLexicalHandler*/SelfOuter* self, PWSTR pwchName, int32 cchName, PWSTR pwchPublicId, int32 cchPublicId, PWSTR pwchSystemId, int32 cchSystemId) startDTD;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISAXLexicalHandler*/SelfOuter* self) endDTD;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISAXLexicalHandler*/SelfOuter* self, PWSTR pwchName, int32 cchName) startEntity;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISAXLexicalHandler*/SelfOuter* self, PWSTR pwchName, int32 cchName) endEntity;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISAXLexicalHandler*/SelfOuter* self) startCDATA;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISAXLexicalHandler*/SelfOuter* self) endCDATA;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISAXLexicalHandler*/SelfOuter* self, PWSTR pwchChars, int32 cchChars) comment;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR pwchName, int32 cchName, PWSTR pwchPublicId, int32 cchPublicId, PWSTR pwchSystemId, int32 cchSystemId) startDTD;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) endDTD;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR pwchName, int32 cchName) startEntity;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR pwchName, int32 cchName) endEntity;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) startCDATA;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) endCDATA;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR pwchChars, int32 cchChars) comment;
 	}
 
 
@@ -3121,10 +3121,10 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISAXDeclHandler*/SelfOuter* self, PWSTR pwchName, int32 cchName, PWSTR pwchModel, int32 cchModel) elementDecl;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISAXDeclHandler*/SelfOuter* self, PWSTR pwchElementName, int32 cchElementName, PWSTR pwchAttributeName, int32 cchAttributeName, PWSTR pwchType, int32 cchType, PWSTR pwchValueDefault, int32 cchValueDefault, PWSTR pwchValue, int32 cchValue) attributeDecl;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISAXDeclHandler*/SelfOuter* self, PWSTR pwchName, int32 cchName, PWSTR pwchValue, int32 cchValue) internalEntityDecl;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISAXDeclHandler*/SelfOuter* self, PWSTR pwchName, int32 cchName, PWSTR pwchPublicId, int32 cchPublicId, PWSTR pwchSystemId, int32 cchSystemId) externalEntityDecl;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR pwchName, int32 cchName, PWSTR pwchModel, int32 cchModel) elementDecl;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR pwchElementName, int32 cchElementName, PWSTR pwchAttributeName, int32 cchAttributeName, PWSTR pwchType, int32 cchType, PWSTR pwchValueDefault, int32 cchValueDefault, PWSTR pwchValue, int32 cchValue) attributeDecl;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR pwchName, int32 cchName, PWSTR pwchValue, int32 cchValue) internalEntityDecl;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR pwchName, int32 cchName, PWSTR pwchPublicId, int32 cchPublicId, PWSTR pwchSystemId, int32 cchSystemId) externalEntityDecl;
 	}
 
 
@@ -3145,19 +3145,19 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISAXAttributes*/SelfOuter* self, int32* pnLength) getLength;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISAXAttributes*/SelfOuter* self, int32 nIndex, uint16** ppwchUri, int32* pcchUri) getURI;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISAXAttributes*/SelfOuter* self, int32 nIndex, uint16** ppwchLocalName, int32* pcchLocalName) getLocalName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISAXAttributes*/SelfOuter* self, int32 nIndex, uint16** ppwchQName, int32* pcchQName) getQName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISAXAttributes*/SelfOuter* self, int32 nIndex, uint16** ppwchUri, int32* pcchUri, uint16** ppwchLocalName, int32* pcchLocalName, uint16** ppwchQName, int32* pcchQName) getName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISAXAttributes*/SelfOuter* self, PWSTR pwchUri, int32 cchUri, PWSTR pwchLocalName, int32 cchLocalName, int32* pnIndex) getIndexFromName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISAXAttributes*/SelfOuter* self, PWSTR pwchQName, int32 cchQName, int32* pnIndex) getIndexFromQName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISAXAttributes*/SelfOuter* self, int32 nIndex, uint16** ppwchType, int32* pcchType) getType;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISAXAttributes*/SelfOuter* self, PWSTR pwchUri, int32 cchUri, PWSTR pwchLocalName, int32 cchLocalName, uint16** ppwchType, int32* pcchType) getTypeFromName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISAXAttributes*/SelfOuter* self, PWSTR pwchQName, int32 cchQName, uint16** ppwchType, int32* pcchType) getTypeFromQName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISAXAttributes*/SelfOuter* self, int32 nIndex, uint16** ppwchValue, int32* pcchValue) getValue;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISAXAttributes*/SelfOuter* self, PWSTR pwchUri, int32 cchUri, PWSTR pwchLocalName, int32 cchLocalName, uint16** ppwchValue, int32* pcchValue) getValueFromName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISAXAttributes*/SelfOuter* self, PWSTR pwchQName, int32 cchQName, uint16** ppwchValue, int32* pcchValue) getValueFromQName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* pnLength) getLength;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 nIndex, uint16** ppwchUri, int32* pcchUri) getURI;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 nIndex, uint16** ppwchLocalName, int32* pcchLocalName) getLocalName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 nIndex, uint16** ppwchQName, int32* pcchQName) getQName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 nIndex, uint16** ppwchUri, int32* pcchUri, uint16** ppwchLocalName, int32* pcchLocalName, uint16** ppwchQName, int32* pcchQName) getName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR pwchUri, int32 cchUri, PWSTR pwchLocalName, int32 cchLocalName, int32* pnIndex) getIndexFromName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR pwchQName, int32 cchQName, int32* pnIndex) getIndexFromQName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 nIndex, uint16** ppwchType, int32* pcchType) getType;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR pwchUri, int32 cchUri, PWSTR pwchLocalName, int32 cchLocalName, uint16** ppwchType, int32* pcchType) getTypeFromName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR pwchQName, int32 cchQName, uint16** ppwchType, int32* pcchType) getTypeFromQName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 nIndex, uint16** ppwchValue, int32* pcchValue) getValue;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR pwchUri, int32 cchUri, PWSTR pwchLocalName, int32 cchLocalName, uint16** ppwchValue, int32* pcchValue) getValueFromName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR pwchQName, int32 cchQName, uint16** ppwchValue, int32* pcchValue) getValueFromQName;
 	}
 
 
@@ -3196,24 +3196,24 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IVBSAXXMLReader*/SelfOuter* self, BSTR strName, int16* fValue) getFeature;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IVBSAXXMLReader*/SelfOuter* self, BSTR strName, int16 fValue) putFeature;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IVBSAXXMLReader*/SelfOuter* self, BSTR strName, VARIANT* varValue) getProperty;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IVBSAXXMLReader*/SelfOuter* self, BSTR strName, VARIANT varValue) putProperty;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IVBSAXXMLReader*/SelfOuter* self, IVBSAXEntityResolver** oResolver) get_entityResolver;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IVBSAXXMLReader*/SelfOuter* self, IVBSAXEntityResolver* oResolver) putref_entityResolver;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IVBSAXXMLReader*/SelfOuter* self, IVBSAXContentHandler** oHandler) get_contentHandler;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IVBSAXXMLReader*/SelfOuter* self, IVBSAXContentHandler* oHandler) putref_contentHandler;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IVBSAXXMLReader*/SelfOuter* self, IVBSAXDTDHandler** oHandler) get_dtdHandler;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IVBSAXXMLReader*/SelfOuter* self, IVBSAXDTDHandler* oHandler) putref_dtdHandler;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IVBSAXXMLReader*/SelfOuter* self, IVBSAXErrorHandler** oHandler) get_errorHandler;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IVBSAXXMLReader*/SelfOuter* self, IVBSAXErrorHandler* oHandler) putref_errorHandler;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IVBSAXXMLReader*/SelfOuter* self, BSTR* strBaseURL) get_baseURL;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IVBSAXXMLReader*/SelfOuter* self, BSTR strBaseURL) put_baseURL;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IVBSAXXMLReader*/SelfOuter* self, BSTR* strSecureBaseURL) get_secureBaseURL;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IVBSAXXMLReader*/SelfOuter* self, BSTR strSecureBaseURL) put_secureBaseURL;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IVBSAXXMLReader*/SelfOuter* self, VARIANT varInput) parse;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IVBSAXXMLReader*/SelfOuter* self, BSTR strURL) parseURL;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR strName, int16* fValue) getFeature;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR strName, int16 fValue) putFeature;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR strName, VARIANT* varValue) getProperty;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR strName, VARIANT varValue) putProperty;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IVBSAXEntityResolver** oResolver) get_entityResolver;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IVBSAXEntityResolver* oResolver) putref_entityResolver;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IVBSAXContentHandler** oHandler) get_contentHandler;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IVBSAXContentHandler* oHandler) putref_contentHandler;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IVBSAXDTDHandler** oHandler) get_dtdHandler;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IVBSAXDTDHandler* oHandler) putref_dtdHandler;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IVBSAXErrorHandler** oHandler) get_errorHandler;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IVBSAXErrorHandler* oHandler) putref_errorHandler;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* strBaseURL) get_baseURL;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR strBaseURL) put_baseURL;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* strSecureBaseURL) get_secureBaseURL;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR strSecureBaseURL) put_secureBaseURL;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT varInput) parse;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR strURL) parseURL;
 	}
 
 
@@ -3262,8 +3262,8 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IVBSAXXMLFilter*/SelfOuter* self, IVBSAXXMLReader** oReader) get_parent;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IVBSAXXMLFilter*/SelfOuter* self, IVBSAXXMLReader* oReader) putref_parent;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IVBSAXXMLReader** oReader) get_parent;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IVBSAXXMLReader* oReader) putref_parent;
 	}
 
 
@@ -3280,10 +3280,10 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IVBSAXLocator*/SelfOuter* self, int32* nColumn) get_columnNumber;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IVBSAXLocator*/SelfOuter* self, int32* nLine) get_lineNumber;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IVBSAXLocator*/SelfOuter* self, BSTR* strPublicId) get_publicId;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IVBSAXLocator*/SelfOuter* self, BSTR* strSystemId) get_systemId;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* nColumn) get_columnNumber;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* nLine) get_lineNumber;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* strPublicId) get_publicId;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* strSystemId) get_systemId;
 	}
 
 
@@ -3304,7 +3304,7 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IVBSAXEntityResolver*/SelfOuter* self, BSTR* strPublicId, BSTR* strSystemId, VARIANT* varInput) resolveEntity;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* strPublicId, BSTR* strSystemId, VARIANT* varInput) resolveEntity;
 	}
 
 
@@ -3319,17 +3319,17 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IVBSAXContentHandler*/SelfOuter* self, IVBSAXLocator* oLocator) putref_documentLocator;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IVBSAXContentHandler*/SelfOuter* self) startDocument;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IVBSAXContentHandler*/SelfOuter* self) endDocument;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IVBSAXContentHandler*/SelfOuter* self, BSTR* strPrefix, BSTR* strURI) startPrefixMapping;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IVBSAXContentHandler*/SelfOuter* self, BSTR* strPrefix) endPrefixMapping;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IVBSAXContentHandler*/SelfOuter* self, BSTR* strNamespaceURI, BSTR* strLocalName, BSTR* strQName, IVBSAXAttributes* oAttributes) startElement;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IVBSAXContentHandler*/SelfOuter* self, BSTR* strNamespaceURI, BSTR* strLocalName, BSTR* strQName) endElement;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IVBSAXContentHandler*/SelfOuter* self, BSTR* strChars) characters;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IVBSAXContentHandler*/SelfOuter* self, BSTR* strChars) ignorableWhitespace;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IVBSAXContentHandler*/SelfOuter* self, BSTR* strTarget, BSTR* strData) processingInstruction;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IVBSAXContentHandler*/SelfOuter* self, BSTR* strName) skippedEntity;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IVBSAXLocator* oLocator) putref_documentLocator;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) startDocument;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) endDocument;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* strPrefix, BSTR* strURI) startPrefixMapping;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* strPrefix) endPrefixMapping;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* strNamespaceURI, BSTR* strLocalName, BSTR* strQName, IVBSAXAttributes* oAttributes) startElement;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* strNamespaceURI, BSTR* strLocalName, BSTR* strQName) endElement;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* strChars) characters;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* strChars) ignorableWhitespace;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* strTarget, BSTR* strData) processingInstruction;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* strName) skippedEntity;
 	}
 
 
@@ -3364,8 +3364,8 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IVBSAXDTDHandler*/SelfOuter* self, BSTR* strName, BSTR* strPublicId, BSTR* strSystemId) notationDecl;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IVBSAXDTDHandler*/SelfOuter* self, BSTR* strName, BSTR* strPublicId, BSTR* strSystemId, BSTR* strNotationName) unparsedEntityDecl;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* strName, BSTR* strPublicId, BSTR* strSystemId) notationDecl;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* strName, BSTR* strPublicId, BSTR* strSystemId, BSTR* strNotationName) unparsedEntityDecl;
 	}
 
 
@@ -3382,9 +3382,9 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IVBSAXErrorHandler*/SelfOuter* self, IVBSAXLocator* oLocator, BSTR* strErrorMessage, int32 nErrorCode) error;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IVBSAXErrorHandler*/SelfOuter* self, IVBSAXLocator* oLocator, BSTR* strErrorMessage, int32 nErrorCode) fatalError;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IVBSAXErrorHandler*/SelfOuter* self, IVBSAXLocator* oLocator, BSTR* strErrorMessage, int32 nErrorCode) ignorableWarning;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IVBSAXLocator* oLocator, BSTR* strErrorMessage, int32 nErrorCode) error;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IVBSAXLocator* oLocator, BSTR* strErrorMessage, int32 nErrorCode) fatalError;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IVBSAXLocator* oLocator, BSTR* strErrorMessage, int32 nErrorCode) ignorableWarning;
 	}
 
 
@@ -3403,13 +3403,13 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IVBSAXLexicalHandler*/SelfOuter* self, BSTR* strName, BSTR* strPublicId, BSTR* strSystemId) startDTD;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IVBSAXLexicalHandler*/SelfOuter* self) endDTD;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IVBSAXLexicalHandler*/SelfOuter* self, BSTR* strName) startEntity;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IVBSAXLexicalHandler*/SelfOuter* self, BSTR* strName) endEntity;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IVBSAXLexicalHandler*/SelfOuter* self) startCDATA;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IVBSAXLexicalHandler*/SelfOuter* self) endCDATA;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IVBSAXLexicalHandler*/SelfOuter* self, BSTR* strChars) comment;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* strName, BSTR* strPublicId, BSTR* strSystemId) startDTD;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) endDTD;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* strName) startEntity;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* strName) endEntity;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) startCDATA;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) endCDATA;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* strChars) comment;
 	}
 
 
@@ -3436,10 +3436,10 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IVBSAXDeclHandler*/SelfOuter* self, BSTR* strName, BSTR* strModel) elementDecl;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IVBSAXDeclHandler*/SelfOuter* self, BSTR* strElementName, BSTR* strAttributeName, BSTR* strType, BSTR* strValueDefault, BSTR* strValue) attributeDecl;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IVBSAXDeclHandler*/SelfOuter* self, BSTR* strName, BSTR* strValue) internalEntityDecl;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IVBSAXDeclHandler*/SelfOuter* self, BSTR* strName, BSTR* strPublicId, BSTR* strSystemId) externalEntityDecl;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* strName, BSTR* strModel) elementDecl;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* strElementName, BSTR* strAttributeName, BSTR* strType, BSTR* strValueDefault, BSTR* strValue) attributeDecl;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* strName, BSTR* strValue) internalEntityDecl;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* strName, BSTR* strPublicId, BSTR* strSystemId) externalEntityDecl;
 	}
 
 
@@ -3460,18 +3460,18 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IVBSAXAttributes*/SelfOuter* self, int32* nLength) get_length;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IVBSAXAttributes*/SelfOuter* self, int32 nIndex, BSTR* strURI) getURI;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IVBSAXAttributes*/SelfOuter* self, int32 nIndex, BSTR* strLocalName) getLocalName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IVBSAXAttributes*/SelfOuter* self, int32 nIndex, BSTR* strQName) getQName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IVBSAXAttributes*/SelfOuter* self, BSTR strURI, BSTR strLocalName, int32* nIndex) getIndexFromName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IVBSAXAttributes*/SelfOuter* self, BSTR strQName, int32* nIndex) getIndexFromQName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IVBSAXAttributes*/SelfOuter* self, int32 nIndex, BSTR* strType) getType;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IVBSAXAttributes*/SelfOuter* self, BSTR strURI, BSTR strLocalName, BSTR* strType) getTypeFromName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IVBSAXAttributes*/SelfOuter* self, BSTR strQName, BSTR* strType) getTypeFromQName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IVBSAXAttributes*/SelfOuter* self, int32 nIndex, BSTR* strValue) getValue;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IVBSAXAttributes*/SelfOuter* self, BSTR strURI, BSTR strLocalName, BSTR* strValue) getValueFromName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IVBSAXAttributes*/SelfOuter* self, BSTR strQName, BSTR* strValue) getValueFromQName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* nLength) get_length;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 nIndex, BSTR* strURI) getURI;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 nIndex, BSTR* strLocalName) getLocalName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 nIndex, BSTR* strQName) getQName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR strURI, BSTR strLocalName, int32* nIndex) getIndexFromName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR strQName, int32* nIndex) getIndexFromQName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 nIndex, BSTR* strType) getType;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR strURI, BSTR strLocalName, BSTR* strType) getTypeFromName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR strQName, BSTR* strType) getTypeFromQName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 nIndex, BSTR* strValue) getValue;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR strURI, BSTR strLocalName, BSTR* strValue) getValueFromName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR strQName, BSTR* strValue) getValueFromQName;
 	}
 
 
@@ -3508,23 +3508,23 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMXWriter*/SelfOuter* self, VARIANT varDestination) put_output;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMXWriter*/SelfOuter* self, VARIANT* varDestination) get_output;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMXWriter*/SelfOuter* self, BSTR strEncoding) put_encoding;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMXWriter*/SelfOuter* self, BSTR* strEncoding) get_encoding;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMXWriter*/SelfOuter* self, int16 fWriteByteOrderMark) put_byteOrderMark;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMXWriter*/SelfOuter* self, int16* fWriteByteOrderMark) get_byteOrderMark;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMXWriter*/SelfOuter* self, int16 fIndentMode) put_indent;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMXWriter*/SelfOuter* self, int16* fIndentMode) get_indent;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMXWriter*/SelfOuter* self, int16 fValue) put_standalone;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMXWriter*/SelfOuter* self, int16* fValue) get_standalone;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMXWriter*/SelfOuter* self, int16 fValue) put_omitXMLDeclaration;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMXWriter*/SelfOuter* self, int16* fValue) get_omitXMLDeclaration;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMXWriter*/SelfOuter* self, BSTR strVersion) put_version;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMXWriter*/SelfOuter* self, BSTR* strVersion) get_version;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMXWriter*/SelfOuter* self, int16 fValue) put_disableOutputEscaping;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMXWriter*/SelfOuter* self, int16* fValue) get_disableOutputEscaping;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMXWriter*/SelfOuter* self) flush;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT varDestination) put_output;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT* varDestination) get_output;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR strEncoding) put_encoding;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* strEncoding) get_encoding;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 fWriteByteOrderMark) put_byteOrderMark;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* fWriteByteOrderMark) get_byteOrderMark;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 fIndentMode) put_indent;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* fIndentMode) get_indent;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 fValue) put_standalone;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* fValue) get_standalone;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 fValue) put_omitXMLDeclaration;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* fValue) get_omitXMLDeclaration;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR strVersion) put_version;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* strVersion) get_version;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 fValue) put_disableOutputEscaping;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* fValue) get_disableOutputEscaping;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) flush;
 	}
 
 
@@ -3571,17 +3571,17 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMXAttributes*/SelfOuter* self, BSTR strURI, BSTR strLocalName, BSTR strQName, BSTR strType, BSTR strValue) addAttribute;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMXAttributes*/SelfOuter* self, VARIANT varAtts, int32 nIndex) addAttributeFromIndex;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMXAttributes*/SelfOuter* self) clear;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMXAttributes*/SelfOuter* self, int32 nIndex) removeAttribute;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMXAttributes*/SelfOuter* self, int32 nIndex, BSTR strURI, BSTR strLocalName, BSTR strQName, BSTR strType, BSTR strValue) setAttribute;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMXAttributes*/SelfOuter* self, VARIANT varAtts) setAttributes;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMXAttributes*/SelfOuter* self, int32 nIndex, BSTR strLocalName) setLocalName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMXAttributes*/SelfOuter* self, int32 nIndex, BSTR strQName) setQName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMXAttributes*/SelfOuter* self, int32 nIndex, BSTR strType) setType;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMXAttributes*/SelfOuter* self, int32 nIndex, BSTR strURI) setURI;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMXAttributes*/SelfOuter* self, int32 nIndex, BSTR strValue) setValue;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR strURI, BSTR strLocalName, BSTR strQName, BSTR strType, BSTR strValue) addAttribute;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT varAtts, int32 nIndex) addAttributeFromIndex;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) clear;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 nIndex) removeAttribute;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 nIndex, BSTR strURI, BSTR strLocalName, BSTR strQName, BSTR strType, BSTR strValue) setAttribute;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT varAtts) setAttributes;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 nIndex, BSTR strLocalName) setLocalName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 nIndex, BSTR strQName) setQName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 nIndex, BSTR strType) setType;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 nIndex, BSTR strURI) setURI;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 nIndex, BSTR strValue) setValue;
 	}
 
 
@@ -3616,9 +3616,9 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMXReaderControl*/SelfOuter* self) abort;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMXReaderControl*/SelfOuter* self) resume;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMXReaderControl*/SelfOuter* self) suspend;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) abort;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) resume;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) suspend;
 	}
 
 
@@ -3637,7 +3637,7 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMXSchemaDeclHandler*/SelfOuter* self, ISchemaElement* oSchemaElement) schemaElementDecl;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ISchemaElement* oSchemaElement) schemaElementDecl;
 	}
 
 
@@ -3652,9 +3652,9 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMXNamespacePrefixes*/SelfOuter* self, int32 index, BSTR* prefix) get_item;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMXNamespacePrefixes*/SelfOuter* self, int32* length) get_length;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMXNamespacePrefixes*/SelfOuter* self, IUnknown** ppUnk) get__newEnum;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 index, BSTR* prefix) get_item;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* length) get_length;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IUnknown** ppUnk) get__newEnum;
 	}
 
 
@@ -3673,17 +3673,17 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IVBMXNamespaceManager*/SelfOuter* self, int16 fOverride) put_allowOverride;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IVBMXNamespaceManager*/SelfOuter* self, int16* fOverride) get_allowOverride;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IVBMXNamespaceManager*/SelfOuter* self) reset;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IVBMXNamespaceManager*/SelfOuter* self) pushContext;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IVBMXNamespaceManager*/SelfOuter* self, IXMLDOMNode* contextNode, int16 fDeep) pushNodeContext;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IVBMXNamespaceManager*/SelfOuter* self) popContext;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IVBMXNamespaceManager*/SelfOuter* self, BSTR prefix, BSTR namespaceURI) declarePrefix;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IVBMXNamespaceManager*/SelfOuter* self, IMXNamespacePrefixes** prefixes) getDeclaredPrefixes;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IVBMXNamespaceManager*/SelfOuter* self, BSTR namespaceURI, IMXNamespacePrefixes** prefixes) getPrefixes;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IVBMXNamespaceManager*/SelfOuter* self, BSTR prefix, VARIANT* uri) getURI;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IVBMXNamespaceManager*/SelfOuter* self, BSTR strPrefix, IXMLDOMNode* contextNode, VARIANT* uri) getURIFromNode;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 fOverride) put_allowOverride;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* fOverride) get_allowOverride;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) reset;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) pushContext;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IXMLDOMNode* contextNode, int16 fDeep) pushNodeContext;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) popContext;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR prefix, BSTR namespaceURI) declarePrefix;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IMXNamespacePrefixes** prefixes) getDeclaredPrefixes;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR namespaceURI, IMXNamespacePrefixes** prefixes) getPrefixes;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR prefix, VARIANT* uri) getURI;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR strPrefix, IXMLDOMNode* contextNode, VARIANT* uri) getURIFromNode;
 	}
 
 
@@ -3718,16 +3718,16 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMXNamespaceManager*/SelfOuter* self, int16 fOverride) putAllowOverride;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMXNamespaceManager*/SelfOuter* self, int16* fOverride) getAllowOverride;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMXNamespaceManager*/SelfOuter* self) reset;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMXNamespaceManager*/SelfOuter* self) pushContext;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMXNamespaceManager*/SelfOuter* self, IXMLDOMNode* contextNode, int16 fDeep) pushNodeContext;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMXNamespaceManager*/SelfOuter* self) popContext;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMXNamespaceManager*/SelfOuter* self, PWSTR prefix, PWSTR namespaceURI) declarePrefix;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMXNamespaceManager*/SelfOuter* self, int32 nIndex, char16* pwchPrefix, int32* pcchPrefix) getDeclaredPrefix;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMXNamespaceManager*/SelfOuter* self, PWSTR pwszNamespaceURI, int32 nIndex, char16* pwchPrefix, int32* pcchPrefix) getPrefix;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMXNamespaceManager*/SelfOuter* self, PWSTR pwchPrefix, IXMLDOMNode* pContextNode, char16* pwchUri, int32* pcchUri) getURI;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 fOverride) putAllowOverride;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* fOverride) getAllowOverride;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) reset;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) pushContext;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IXMLDOMNode* contextNode, int16 fDeep) pushNodeContext;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) popContext;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR prefix, PWSTR namespaceURI) declarePrefix;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 nIndex, char16* pwchPrefix, int32* pcchPrefix) getDeclaredPrefix;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR pwszNamespaceURI, int32 nIndex, char16* pwchPrefix, int32* pcchPrefix) getPrefix;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR pwchPrefix, IXMLDOMNode* pContextNode, char16* pwchUri, int32* pcchUri) getURI;
 	}
 
 
@@ -3760,18 +3760,18 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMXXMLFilter*/SelfOuter* self, BSTR strName, int16* fValue) getFeature;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMXXMLFilter*/SelfOuter* self, BSTR strName, int16 fValue) putFeature;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMXXMLFilter*/SelfOuter* self, BSTR strName, VARIANT* varValue) getProperty;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMXXMLFilter*/SelfOuter* self, BSTR strName, VARIANT varValue) putProperty;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMXXMLFilter*/SelfOuter* self, IUnknown** oResolver) get_entityResolver;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMXXMLFilter*/SelfOuter* self, IUnknown* oResolver) putref_entityResolver;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMXXMLFilter*/SelfOuter* self, IUnknown** oHandler) get_contentHandler;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMXXMLFilter*/SelfOuter* self, IUnknown* oHandler) putref_contentHandler;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMXXMLFilter*/SelfOuter* self, IUnknown** oHandler) get_dtdHandler;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMXXMLFilter*/SelfOuter* self, IUnknown* oHandler) putref_dtdHandler;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMXXMLFilter*/SelfOuter* self, IUnknown** oHandler) get_errorHandler;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMXXMLFilter*/SelfOuter* self, IUnknown* oHandler) putref_errorHandler;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR strName, int16* fValue) getFeature;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR strName, int16 fValue) putFeature;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR strName, VARIANT* varValue) getProperty;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR strName, VARIANT varValue) putProperty;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IUnknown** oResolver) get_entityResolver;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IUnknown* oResolver) putref_entityResolver;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IUnknown** oHandler) get_contentHandler;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IUnknown* oHandler) putref_contentHandler;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IUnknown** oHandler) get_dtdHandler;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IUnknown* oHandler) putref_dtdHandler;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IUnknown** oHandler) get_errorHandler;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IUnknown* oHandler) putref_errorHandler;
 	}
 
 
@@ -3808,11 +3808,11 @@ public static
 
 	[CRepr]public struct VTable : IXMLDOMSchemaCollection.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXMLDOMSchemaCollection2*/SelfOuter* self) validate;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXMLDOMSchemaCollection2*/SelfOuter* self, int16 validateOnLoad) put_validateOnLoad;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXMLDOMSchemaCollection2*/SelfOuter* self, int16* validateOnLoad) get_validateOnLoad;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXMLDOMSchemaCollection2*/SelfOuter* self, BSTR namespaceURI, ISchema** schema) getSchema;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXMLDOMSchemaCollection2*/SelfOuter* self, IXMLDOMNode* node, ISchemaItem** item) getDeclaration;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) validate;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 validateOnLoad) put_validateOnLoad;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* validateOnLoad) get_validateOnLoad;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR namespaceURI, ISchema** schema) getSchema;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IXMLDOMNode* node, ISchemaItem** item) getDeclaration;
 	}
 
 
@@ -3835,9 +3835,9 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISchemaStringCollection*/SelfOuter* self, int32 index, BSTR* bstr) get_item;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISchemaStringCollection*/SelfOuter* self, int32* length) get_length;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISchemaStringCollection*/SelfOuter* self, IUnknown** ppunk) get__newEnum;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 index, BSTR* bstr) get_item;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* length) get_length;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IUnknown** ppunk) get__newEnum;
 	}
 
 
@@ -3856,11 +3856,11 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISchemaItemCollection*/SelfOuter* self, int32 index, ISchemaItem** item) get_item;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISchemaItemCollection*/SelfOuter* self, BSTR name, ISchemaItem** item) itemByName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISchemaItemCollection*/SelfOuter* self, BSTR name, BSTR namespaceURI, ISchemaItem** item) itemByQName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISchemaItemCollection*/SelfOuter* self, int32* length) get_length;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISchemaItemCollection*/SelfOuter* self, IUnknown** ppunk) get__newEnum;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 index, ISchemaItem** item) get_item;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR name, ISchemaItem** item) itemByName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR name, BSTR namespaceURI, ISchemaItem** item) itemByQName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* length) get_length;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IUnknown** ppunk) get__newEnum;
 	}
 
 
@@ -3883,13 +3883,13 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISchemaItem*/SelfOuter* self, BSTR* name) get_name;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISchemaItem*/SelfOuter* self, BSTR* namespaceURI) get_namespaceURI;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISchemaItem*/SelfOuter* self, ISchema** schema) get_schema;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISchemaItem*/SelfOuter* self, BSTR* id) get_id;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISchemaItem*/SelfOuter* self, SOMITEMTYPE* itemType) get_itemType;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISchemaItem*/SelfOuter* self, IVBSAXAttributes** attributes) get_unhandledAttributes;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISchemaItem*/SelfOuter* self, IUnknown* annotationSink, int16* isWritten) writeAnnotation;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* name) get_name;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* namespaceURI) get_namespaceURI;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ISchema** schema) get_schema;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* id) get_id;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, SOMITEMTYPE* itemType) get_itemType;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IVBSAXAttributes** attributes) get_unhandledAttributes;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IUnknown* annotationSink, int16* isWritten) writeAnnotation;
 	}
 
 
@@ -3916,15 +3916,15 @@ public static
 
 	[CRepr]public struct VTable : ISchemaItem.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISchema*/SelfOuter* self, BSTR* targetNamespace) get_targetNamespace;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISchema*/SelfOuter* self, BSTR* version) get_version;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISchema*/SelfOuter* self, ISchemaItemCollection** types) get_types;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISchema*/SelfOuter* self, ISchemaItemCollection** elements) get_elements;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISchema*/SelfOuter* self, ISchemaItemCollection** attributes) get_attributes;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISchema*/SelfOuter* self, ISchemaItemCollection** attributeGroups) get_attributeGroups;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISchema*/SelfOuter* self, ISchemaItemCollection** modelGroups) get_modelGroups;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISchema*/SelfOuter* self, ISchemaItemCollection** notations) get_notations;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISchema*/SelfOuter* self, ISchemaStringCollection** schemaLocations) get_schemaLocations;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* targetNamespace) get_targetNamespace;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* version) get_version;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ISchemaItemCollection** types) get_types;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ISchemaItemCollection** elements) get_elements;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ISchemaItemCollection** attributes) get_attributes;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ISchemaItemCollection** attributeGroups) get_attributeGroups;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ISchemaItemCollection** modelGroups) get_modelGroups;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ISchemaItemCollection** notations) get_notations;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ISchemaStringCollection** schemaLocations) get_schemaLocations;
 	}
 
 
@@ -3955,8 +3955,8 @@ public static
 
 	[CRepr]public struct VTable : ISchemaItem.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISchemaParticle*/SelfOuter* self, VARIANT* minOccurs) get_minOccurs;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISchemaParticle*/SelfOuter* self, VARIANT* maxOccurs) get_maxOccurs;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT* minOccurs) get_minOccurs;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT* maxOccurs) get_maxOccurs;
 	}
 
 
@@ -3973,12 +3973,12 @@ public static
 
 	[CRepr]public struct VTable : ISchemaItem.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISchemaAttribute*/SelfOuter* self, ISchemaType** type) get_type;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISchemaAttribute*/SelfOuter* self, ISchemaComplexType** @scope) get_scope;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISchemaAttribute*/SelfOuter* self, BSTR* defaultValue) get_defaultValue;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISchemaAttribute*/SelfOuter* self, BSTR* fixedValue) get_fixedValue;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISchemaAttribute*/SelfOuter* self, SCHEMAUSE* use) get_use;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISchemaAttribute*/SelfOuter* self, int16* reference) get_isReference;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ISchemaType** type) get_type;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ISchemaComplexType** @scope) get_scope;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* defaultValue) get_defaultValue;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* fixedValue) get_fixedValue;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, SCHEMAUSE* use) get_use;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* reference) get_isReference;
 	}
 
 
@@ -4003,17 +4003,17 @@ public static
 
 	[CRepr]public struct VTable : ISchemaParticle.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISchemaElement*/SelfOuter* self, ISchemaType** type) get_type;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISchemaElement*/SelfOuter* self, ISchemaComplexType** @scope) get_scope;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISchemaElement*/SelfOuter* self, BSTR* defaultValue) get_defaultValue;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISchemaElement*/SelfOuter* self, BSTR* fixedValue) get_fixedValue;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISchemaElement*/SelfOuter* self, int16* nillable) get_isNillable;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISchemaElement*/SelfOuter* self, ISchemaItemCollection** constraints) get_identityConstraints;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISchemaElement*/SelfOuter* self, ISchemaElement** element) get_substitutionGroup;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISchemaElement*/SelfOuter* self, SCHEMADERIVATIONMETHOD* exclusions) get_substitutionGroupExclusions;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISchemaElement*/SelfOuter* self, SCHEMADERIVATIONMETHOD* disallowed) get_disallowedSubstitutions;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISchemaElement*/SelfOuter* self, int16* @abstract) get_isAbstract;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISchemaElement*/SelfOuter* self, int16* reference) get_isReference;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ISchemaType** type) get_type;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ISchemaComplexType** @scope) get_scope;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* defaultValue) get_defaultValue;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* fixedValue) get_fixedValue;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* nillable) get_isNillable;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ISchemaItemCollection** constraints) get_identityConstraints;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ISchemaElement** element) get_substitutionGroup;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, SCHEMADERIVATIONMETHOD* exclusions) get_substitutionGroupExclusions;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, SCHEMADERIVATIONMETHOD* disallowed) get_disallowedSubstitutions;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* @abstract) get_isAbstract;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* reference) get_isReference;
 	}
 
 
@@ -4048,23 +4048,23 @@ public static
 
 	[CRepr]public struct VTable : ISchemaItem.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISchemaType*/SelfOuter* self, ISchemaItemCollection** baseTypes) get_baseTypes;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISchemaType*/SelfOuter* self, SCHEMADERIVATIONMETHOD* final) get_final;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISchemaType*/SelfOuter* self, SCHEMATYPEVARIETY* variety) get_variety;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISchemaType*/SelfOuter* self, SCHEMADERIVATIONMETHOD* derivedBy) get_derivedBy;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISchemaType*/SelfOuter* self, BSTR data, int16* valid) isValid;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISchemaType*/SelfOuter* self, BSTR* minExclusive) get_minExclusive;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISchemaType*/SelfOuter* self, BSTR* minInclusive) get_minInclusive;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISchemaType*/SelfOuter* self, BSTR* maxExclusive) get_maxExclusive;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISchemaType*/SelfOuter* self, BSTR* maxInclusive) get_maxInclusive;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISchemaType*/SelfOuter* self, VARIANT* totalDigits) get_totalDigits;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISchemaType*/SelfOuter* self, VARIANT* fractionDigits) get_fractionDigits;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISchemaType*/SelfOuter* self, VARIANT* length) get_length;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISchemaType*/SelfOuter* self, VARIANT* minLength) get_minLength;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISchemaType*/SelfOuter* self, VARIANT* maxLength) get_maxLength;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISchemaType*/SelfOuter* self, ISchemaStringCollection** enumeration) get_enumeration;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISchemaType*/SelfOuter* self, SCHEMAWHITESPACE* whitespace) get_whitespace;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISchemaType*/SelfOuter* self, ISchemaStringCollection** patterns) get_patterns;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ISchemaItemCollection** baseTypes) get_baseTypes;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, SCHEMADERIVATIONMETHOD* final) get_final;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, SCHEMATYPEVARIETY* variety) get_variety;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, SCHEMADERIVATIONMETHOD* derivedBy) get_derivedBy;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR data, int16* valid) isValid;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* minExclusive) get_minExclusive;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* minInclusive) get_minInclusive;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* maxExclusive) get_maxExclusive;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* maxInclusive) get_maxInclusive;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT* totalDigits) get_totalDigits;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT* fractionDigits) get_fractionDigits;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT* length) get_length;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT* minLength) get_minLength;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT* maxLength) get_maxLength;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ISchemaStringCollection** enumeration) get_enumeration;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, SCHEMAWHITESPACE* whitespace) get_whitespace;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ISchemaStringCollection** patterns) get_patterns;
 	}
 
 
@@ -4111,12 +4111,12 @@ public static
 
 	[CRepr]public struct VTable : ISchemaType.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISchemaComplexType*/SelfOuter* self, int16* @abstract) get_isAbstract;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISchemaComplexType*/SelfOuter* self, ISchemaAny** anyAttribute) get_anyAttribute;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISchemaComplexType*/SelfOuter* self, ISchemaItemCollection** attributes) get_attributes;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISchemaComplexType*/SelfOuter* self, SCHEMACONTENTTYPE* contentType) get_contentType;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISchemaComplexType*/SelfOuter* self, ISchemaModelGroup** contentModel) get_contentModel;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISchemaComplexType*/SelfOuter* self, SCHEMADERIVATIONMETHOD* prohibited) get_prohibitedSubstitutions;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* @abstract) get_isAbstract;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ISchemaAny** anyAttribute) get_anyAttribute;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ISchemaItemCollection** attributes) get_attributes;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, SCHEMACONTENTTYPE* contentType) get_contentType;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ISchemaModelGroup** contentModel) get_contentModel;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, SCHEMADERIVATIONMETHOD* prohibited) get_prohibitedSubstitutions;
 	}
 
 
@@ -4141,8 +4141,8 @@ public static
 
 	[CRepr]public struct VTable : ISchemaItem.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISchemaAttributeGroup*/SelfOuter* self, ISchemaAny** anyAttribute) get_anyAttribute;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISchemaAttributeGroup*/SelfOuter* self, ISchemaItemCollection** attributes) get_attributes;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ISchemaAny** anyAttribute) get_anyAttribute;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ISchemaItemCollection** attributes) get_attributes;
 	}
 
 
@@ -4159,7 +4159,7 @@ public static
 
 	[CRepr]public struct VTable : ISchemaParticle.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISchemaModelGroup*/SelfOuter* self, ISchemaItemCollection** particles) get_particles;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ISchemaItemCollection** particles) get_particles;
 	}
 
 
@@ -4174,8 +4174,8 @@ public static
 
 	[CRepr]public struct VTable : ISchemaParticle.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISchemaAny*/SelfOuter* self, ISchemaStringCollection** namespaces) get_namespaces;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISchemaAny*/SelfOuter* self, SCHEMAPROCESSCONTENTS* processContents) get_processContents;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ISchemaStringCollection** namespaces) get_namespaces;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, SCHEMAPROCESSCONTENTS* processContents) get_processContents;
 	}
 
 
@@ -4192,9 +4192,9 @@ public static
 
 	[CRepr]public struct VTable : ISchemaItem.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISchemaIdentityConstraint*/SelfOuter* self, BSTR* selector) get_selector;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISchemaIdentityConstraint*/SelfOuter* self, ISchemaStringCollection** fields) get_fields;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISchemaIdentityConstraint*/SelfOuter* self, ISchemaIdentityConstraint** key) get_referencedKey;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* selector) get_selector;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ISchemaStringCollection** fields) get_fields;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ISchemaIdentityConstraint** key) get_referencedKey;
 	}
 
 
@@ -4213,8 +4213,8 @@ public static
 
 	[CRepr]public struct VTable : ISchemaItem.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISchemaNotation*/SelfOuter* self, BSTR* uri) get_systemIdentifier;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISchemaNotation*/SelfOuter* self, BSTR* uri) get_publicIdentifier;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* uri) get_systemIdentifier;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* uri) get_publicIdentifier;
 	}
 
 
@@ -4231,11 +4231,11 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXMLHTTPRequest2Callback*/SelfOuter* self, IXMLHTTPRequest2* pXHR, PWSTR pwszRedirectUrl) OnRedirect;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXMLHTTPRequest2Callback*/SelfOuter* self, IXMLHTTPRequest2* pXHR, uint32 dwStatus, PWSTR pwszStatus) OnHeadersAvailable;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXMLHTTPRequest2Callback*/SelfOuter* self, IXMLHTTPRequest2* pXHR, ISequentialStream* pResponseStream) OnDataAvailable;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXMLHTTPRequest2Callback*/SelfOuter* self, IXMLHTTPRequest2* pXHR, ISequentialStream* pResponseStream) OnResponseReceived;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXMLHTTPRequest2Callback*/SelfOuter* self, IXMLHTTPRequest2* pXHR, HRESULT hrError) OnError;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IXMLHTTPRequest2* pXHR, PWSTR pwszRedirectUrl) OnRedirect;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IXMLHTTPRequest2* pXHR, uint32 dwStatus, PWSTR pwszStatus) OnHeadersAvailable;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IXMLHTTPRequest2* pXHR, ISequentialStream* pResponseStream) OnDataAvailable;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IXMLHTTPRequest2* pXHR, ISequentialStream* pResponseStream) OnResponseReceived;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IXMLHTTPRequest2* pXHR, HRESULT hrError) OnError;
 	}
 
 
@@ -4258,16 +4258,16 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXMLHTTPRequest2*/SelfOuter* self, PWSTR pwszMethod, PWSTR pwszUrl, IXMLHTTPRequest2Callback* pStatusCallback, PWSTR pwszUserName, PWSTR pwszPassword, PWSTR pwszProxyUserName, PWSTR pwszProxyPassword) Open;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXMLHTTPRequest2*/SelfOuter* self, ISequentialStream* pBody, uint64 cbBody) Send;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXMLHTTPRequest2*/SelfOuter* self) Abort;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXMLHTTPRequest2*/SelfOuter* self, XHR_COOKIE* pCookie, uint32* pdwCookieState) SetCookie;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXMLHTTPRequest2*/SelfOuter* self, ISequentialStream* pSequentialStream) SetCustomResponseStream;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXMLHTTPRequest2*/SelfOuter* self, XHR_PROPERTY eProperty, uint64 ullValue) SetProperty;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXMLHTTPRequest2*/SelfOuter* self, PWSTR pwszHeader, PWSTR pwszValue) SetRequestHeader;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXMLHTTPRequest2*/SelfOuter* self, uint16** ppwszHeaders) GetAllResponseHeaders;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXMLHTTPRequest2*/SelfOuter* self, PWSTR pwszUrl, PWSTR pwszName, uint32 dwFlags, uint32* pcCookies, XHR_COOKIE** ppCookies) GetCookie;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXMLHTTPRequest2*/SelfOuter* self, PWSTR pwszHeader, uint16** ppwszValue) GetResponseHeader;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR pwszMethod, PWSTR pwszUrl, IXMLHTTPRequest2Callback* pStatusCallback, PWSTR pwszUserName, PWSTR pwszPassword, PWSTR pwszProxyUserName, PWSTR pwszProxyPassword) Open;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ISequentialStream* pBody, uint64 cbBody) Send;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Abort;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, XHR_COOKIE* pCookie, uint32* pdwCookieState) SetCookie;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ISequentialStream* pSequentialStream) SetCustomResponseStream;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, XHR_PROPERTY eProperty, uint64 ullValue) SetProperty;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR pwszHeader, PWSTR pwszValue) SetRequestHeader;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint16** ppwszHeaders) GetAllResponseHeaders;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR pwszUrl, PWSTR pwszName, uint32 dwFlags, uint32* pcCookies, XHR_COOKIE** ppCookies) GetCookie;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR pwszHeader, uint16** ppwszValue) GetResponseHeader;
 	}
 
 
@@ -4300,8 +4300,8 @@ public static
 
 	[CRepr]public struct VTable : IXMLHTTPRequest2Callback.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXMLHTTPRequest3Callback*/SelfOuter* self, IXMLHTTPRequest3* pXHR, uint32 dwCertificateErrors, uint32 cServerCertificateChain, XHR_CERT* rgServerCertificateChain) OnServerCertificateReceived;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXMLHTTPRequest3Callback*/SelfOuter* self, IXMLHTTPRequest3* pXHR, uint32 cIssuerList, uint16** rgpwszIssuerList) OnClientCertificateRequested;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IXMLHTTPRequest3* pXHR, uint32 dwCertificateErrors, uint32 cServerCertificateChain, XHR_CERT* rgServerCertificateChain) OnServerCertificateReceived;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IXMLHTTPRequest3* pXHR, uint32 cIssuerList, uint16** rgpwszIssuerList) OnClientCertificateRequested;
 	}
 
 
@@ -4318,7 +4318,7 @@ public static
 
 	[CRepr]public struct VTable : IXMLHTTPRequest2.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IXMLHTTPRequest3*/SelfOuter* self, uint32 cbClientCertificateHash, uint8* pbClientCertificateHash, PWSTR pwszPin) SetClientCertificate;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 cbClientCertificateHash, uint8* pbClientCertificateHash, PWSTR pwszPin) SetClientCertificate;
 	}
 
 

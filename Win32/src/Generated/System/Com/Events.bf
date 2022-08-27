@@ -69,12 +69,12 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEventSystem*/SelfOuter* self, BSTR progID, BSTR queryCriteria, int32* errorIndex, IUnknown** ppInterface) Query;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEventSystem*/SelfOuter* self, BSTR ProgID, IUnknown* pInterface) Store;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEventSystem*/SelfOuter* self, BSTR progID, BSTR queryCriteria, int32* errorIndex) Remove;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEventSystem*/SelfOuter* self, BSTR* pbstrEventClassID) get_EventObjectChangeEventClassID;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEventSystem*/SelfOuter* self, BSTR progID, BSTR queryCriteria, IUnknown** ppInterface) QueryS;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEventSystem*/SelfOuter* self, BSTR progID, BSTR queryCriteria) RemoveS;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR progID, BSTR queryCriteria, int32* errorIndex, IUnknown** ppInterface) Query;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR ProgID, IUnknown* pInterface) Store;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR progID, BSTR queryCriteria, int32* errorIndex) Remove;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pbstrEventClassID) get_EventObjectChangeEventClassID;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR progID, BSTR queryCriteria, IUnknown** ppInterface) QueryS;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR progID, BSTR queryCriteria) RemoveS;
 	}
 
 
@@ -99,20 +99,20 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEventPublisher*/SelfOuter* self, BSTR* pbstrPublisherID) get_PublisherID;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEventPublisher*/SelfOuter* self, BSTR bstrPublisherID) put_PublisherID;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEventPublisher*/SelfOuter* self, BSTR* pbstrPublisherName) get_PublisherName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEventPublisher*/SelfOuter* self, BSTR bstrPublisherName) put_PublisherName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEventPublisher*/SelfOuter* self, BSTR* pbstrPublisherType) get_PublisherType;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEventPublisher*/SelfOuter* self, BSTR bstrPublisherType) put_PublisherType;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEventPublisher*/SelfOuter* self, BSTR* pbstrOwnerSID) get_OwnerSID;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEventPublisher*/SelfOuter* self, BSTR bstrOwnerSID) put_OwnerSID;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEventPublisher*/SelfOuter* self, BSTR* pbstrDescription) get_Description;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEventPublisher*/SelfOuter* self, BSTR bstrDescription) put_Description;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEventPublisher*/SelfOuter* self, BSTR bstrPropertyName, VARIANT* propertyValue) GetDefaultProperty;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEventPublisher*/SelfOuter* self, BSTR bstrPropertyName, VARIANT* propertyValue) PutDefaultProperty;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEventPublisher*/SelfOuter* self, BSTR bstrPropertyName) RemoveDefaultProperty;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEventPublisher*/SelfOuter* self, IEventObjectCollection** collection) GetDefaultPropertyCollection;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pbstrPublisherID) get_PublisherID;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrPublisherID) put_PublisherID;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pbstrPublisherName) get_PublisherName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrPublisherName) put_PublisherName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pbstrPublisherType) get_PublisherType;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrPublisherType) put_PublisherType;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pbstrOwnerSID) get_OwnerSID;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrOwnerSID) put_OwnerSID;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pbstrDescription) get_Description;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrDescription) put_Description;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrPropertyName, VARIANT* propertyValue) GetDefaultProperty;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrPropertyName, VARIANT* propertyValue) PutDefaultProperty;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrPropertyName) RemoveDefaultProperty;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IEventObjectCollection** collection) GetDefaultPropertyCollection;
 	}
 
 
@@ -153,20 +153,20 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEventClass*/SelfOuter* self, BSTR* pbstrEventClassID) get_EventClassID;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEventClass*/SelfOuter* self, BSTR bstrEventClassID) put_EventClassID;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEventClass*/SelfOuter* self, BSTR* pbstrEventClassName) get_EventClassName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEventClass*/SelfOuter* self, BSTR bstrEventClassName) put_EventClassName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEventClass*/SelfOuter* self, BSTR* pbstrOwnerSID) get_OwnerSID;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEventClass*/SelfOuter* self, BSTR bstrOwnerSID) put_OwnerSID;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEventClass*/SelfOuter* self, BSTR* pbstrFiringInterfaceID) get_FiringInterfaceID;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEventClass*/SelfOuter* self, BSTR bstrFiringInterfaceID) put_FiringInterfaceID;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEventClass*/SelfOuter* self, BSTR* pbstrDescription) get_Description;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEventClass*/SelfOuter* self, BSTR bstrDescription) put_Description;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEventClass*/SelfOuter* self, BSTR* pbstrCustomConfigCLSID) get_CustomConfigCLSID;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEventClass*/SelfOuter* self, BSTR bstrCustomConfigCLSID) put_CustomConfigCLSID;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEventClass*/SelfOuter* self, BSTR* pbstrTypeLib) get_TypeLib;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEventClass*/SelfOuter* self, BSTR bstrTypeLib) put_TypeLib;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pbstrEventClassID) get_EventClassID;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrEventClassID) put_EventClassID;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pbstrEventClassName) get_EventClassName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrEventClassName) put_EventClassName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pbstrOwnerSID) get_OwnerSID;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrOwnerSID) put_OwnerSID;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pbstrFiringInterfaceID) get_FiringInterfaceID;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrFiringInterfaceID) put_FiringInterfaceID;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pbstrDescription) get_Description;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrDescription) put_Description;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pbstrCustomConfigCLSID) get_CustomConfigCLSID;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrCustomConfigCLSID) put_CustomConfigCLSID;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pbstrTypeLib) get_TypeLib;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrTypeLib) put_TypeLib;
 	}
 
 
@@ -207,14 +207,14 @@ public static
 
 	[CRepr]public struct VTable : IEventClass.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEventClass2*/SelfOuter* self, BSTR* pbstrPublisherID) get_PublisherID;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEventClass2*/SelfOuter* self, BSTR bstrPublisherID) put_PublisherID;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEventClass2*/SelfOuter* self, BSTR* pbstrPubFilCLSID) get_MultiInterfacePublisherFilterCLSID;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEventClass2*/SelfOuter* self, BSTR bstrPubFilCLSID) put_MultiInterfacePublisherFilterCLSID;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEventClass2*/SelfOuter* self, BOOL* pfAllowInprocActivation) get_AllowInprocActivation;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEventClass2*/SelfOuter* self, BOOL fAllowInprocActivation) put_AllowInprocActivation;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEventClass2*/SelfOuter* self, BOOL* pfFireInParallel) get_FireInParallel;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEventClass2*/SelfOuter* self, BOOL fFireInParallel) put_FireInParallel;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pbstrPublisherID) get_PublisherID;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrPublisherID) put_PublisherID;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pbstrPubFilCLSID) get_MultiInterfacePublisherFilterCLSID;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrPubFilCLSID) put_MultiInterfacePublisherFilterCLSID;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BOOL* pfAllowInprocActivation) get_AllowInprocActivation;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BOOL fAllowInprocActivation) put_AllowInprocActivation;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BOOL* pfFireInParallel) get_FireInParallel;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BOOL fFireInParallel) put_FireInParallel;
 	}
 
 
@@ -243,40 +243,40 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEventSubscription*/SelfOuter* self, BSTR* pbstrSubscriptionID) get_SubscriptionID;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEventSubscription*/SelfOuter* self, BSTR bstrSubscriptionID) put_SubscriptionID;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEventSubscription*/SelfOuter* self, BSTR* pbstrSubscriptionName) get_SubscriptionName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEventSubscription*/SelfOuter* self, BSTR bstrSubscriptionName) put_SubscriptionName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEventSubscription*/SelfOuter* self, BSTR* pbstrPublisherID) get_PublisherID;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEventSubscription*/SelfOuter* self, BSTR bstrPublisherID) put_PublisherID;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEventSubscription*/SelfOuter* self, BSTR* pbstrEventClassID) get_EventClassID;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEventSubscription*/SelfOuter* self, BSTR bstrEventClassID) put_EventClassID;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEventSubscription*/SelfOuter* self, BSTR* pbstrMethodName) get_MethodName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEventSubscription*/SelfOuter* self, BSTR bstrMethodName) put_MethodName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEventSubscription*/SelfOuter* self, BSTR* pbstrSubscriberCLSID) get_SubscriberCLSID;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEventSubscription*/SelfOuter* self, BSTR bstrSubscriberCLSID) put_SubscriberCLSID;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEventSubscription*/SelfOuter* self, IUnknown** ppSubscriberInterface) get_SubscriberInterface;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEventSubscription*/SelfOuter* self, IUnknown* pSubscriberInterface) put_SubscriberInterface;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEventSubscription*/SelfOuter* self, BOOL* pfPerUser) get_PerUser;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEventSubscription*/SelfOuter* self, BOOL fPerUser) put_PerUser;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEventSubscription*/SelfOuter* self, BSTR* pbstrOwnerSID) get_OwnerSID;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEventSubscription*/SelfOuter* self, BSTR bstrOwnerSID) put_OwnerSID;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEventSubscription*/SelfOuter* self, BOOL* pfEnabled) get_Enabled;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEventSubscription*/SelfOuter* self, BOOL fEnabled) put_Enabled;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEventSubscription*/SelfOuter* self, BSTR* pbstrDescription) get_Description;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEventSubscription*/SelfOuter* self, BSTR bstrDescription) put_Description;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEventSubscription*/SelfOuter* self, BSTR* pbstrMachineName) get_MachineName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEventSubscription*/SelfOuter* self, BSTR bstrMachineName) put_MachineName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEventSubscription*/SelfOuter* self, BSTR bstrPropertyName, VARIANT* propertyValue) GetPublisherProperty;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEventSubscription*/SelfOuter* self, BSTR bstrPropertyName, VARIANT* propertyValue) PutPublisherProperty;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEventSubscription*/SelfOuter* self, BSTR bstrPropertyName) RemovePublisherProperty;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEventSubscription*/SelfOuter* self, IEventObjectCollection** collection) GetPublisherPropertyCollection;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEventSubscription*/SelfOuter* self, BSTR bstrPropertyName, VARIANT* propertyValue) GetSubscriberProperty;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEventSubscription*/SelfOuter* self, BSTR bstrPropertyName, VARIANT* propertyValue) PutSubscriberProperty;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEventSubscription*/SelfOuter* self, BSTR bstrPropertyName) RemoveSubscriberProperty;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEventSubscription*/SelfOuter* self, IEventObjectCollection** collection) GetSubscriberPropertyCollection;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEventSubscription*/SelfOuter* self, BSTR* pbstrInterfaceID) get_InterfaceID;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEventSubscription*/SelfOuter* self, BSTR bstrInterfaceID) put_InterfaceID;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pbstrSubscriptionID) get_SubscriptionID;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrSubscriptionID) put_SubscriptionID;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pbstrSubscriptionName) get_SubscriptionName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrSubscriptionName) put_SubscriptionName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pbstrPublisherID) get_PublisherID;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrPublisherID) put_PublisherID;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pbstrEventClassID) get_EventClassID;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrEventClassID) put_EventClassID;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pbstrMethodName) get_MethodName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrMethodName) put_MethodName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pbstrSubscriberCLSID) get_SubscriberCLSID;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrSubscriberCLSID) put_SubscriberCLSID;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IUnknown** ppSubscriberInterface) get_SubscriberInterface;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IUnknown* pSubscriberInterface) put_SubscriberInterface;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BOOL* pfPerUser) get_PerUser;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BOOL fPerUser) put_PerUser;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pbstrOwnerSID) get_OwnerSID;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrOwnerSID) put_OwnerSID;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BOOL* pfEnabled) get_Enabled;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BOOL fEnabled) put_Enabled;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pbstrDescription) get_Description;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrDescription) put_Description;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pbstrMachineName) get_MachineName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrMachineName) put_MachineName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrPropertyName, VARIANT* propertyValue) GetPublisherProperty;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrPropertyName, VARIANT* propertyValue) PutPublisherProperty;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrPropertyName) RemovePublisherProperty;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IEventObjectCollection** collection) GetPublisherPropertyCollection;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrPropertyName, VARIANT* propertyValue) GetSubscriberProperty;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrPropertyName, VARIANT* propertyValue) PutSubscriberProperty;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrPropertyName) RemoveSubscriberProperty;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IEventObjectCollection** collection) GetSubscriberPropertyCollection;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pbstrInterfaceID) get_InterfaceID;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrInterfaceID) put_InterfaceID;
 	}
 
 
@@ -357,7 +357,7 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFiringControl*/SelfOuter* self, IEventSubscription* subscription) FireSubscription;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IEventSubscription* subscription) FireSubscription;
 	}
 
 
@@ -372,8 +372,8 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPublisherFilter*/SelfOuter* self, BSTR methodName, IDispatch* dispUserDefined) Initialize;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPublisherFilter*/SelfOuter* self, BSTR methodName, IFiringControl* firingControl) PrepareToFire;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR methodName, IDispatch* dispUserDefined) Initialize;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR methodName, IFiringControl* firingControl) PrepareToFire;
 	}
 
 
@@ -390,8 +390,8 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMultiInterfacePublisherFilter*/SelfOuter* self, IMultiInterfaceEventControl* pEIC) Initialize;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMultiInterfacePublisherFilter*/SelfOuter* self, ref Guid iid, BSTR methodName, IFiringControl* firingControl) PrepareToFire;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IMultiInterfaceEventControl* pEIC) Initialize;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid iid, BSTR methodName, IFiringControl* firingControl) PrepareToFire;
 	}
 
 
@@ -408,9 +408,9 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEventObjectChange*/SelfOuter* self, EOC_ChangeType changeType, BSTR bstrSubscriptionID) ChangedSubscription;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEventObjectChange*/SelfOuter* self, EOC_ChangeType changeType, BSTR bstrEventClassID) ChangedEventClass;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEventObjectChange*/SelfOuter* self, EOC_ChangeType changeType, BSTR bstrPublisherID) ChangedPublisher;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, EOC_ChangeType changeType, BSTR bstrSubscriptionID) ChangedSubscription;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, EOC_ChangeType changeType, BSTR bstrEventClassID) ChangedEventClass;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, EOC_ChangeType changeType, BSTR bstrPublisherID) ChangedPublisher;
 	}
 
 
@@ -429,8 +429,8 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEventObjectChange2*/SelfOuter* self, COMEVENTSYSCHANGEINFO* pInfo) ChangedSubscription;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEventObjectChange2*/SelfOuter* self, COMEVENTSYSCHANGEINFO* pInfo) ChangedEventClass;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, COMEVENTSYSCHANGEINFO* pInfo) ChangedSubscription;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, COMEVENTSYSCHANGEINFO* pInfo) ChangedEventClass;
 	}
 
 
@@ -447,10 +447,10 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnumEventObject*/SelfOuter* self, IEnumEventObject** ppInterface) Clone;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnumEventObject*/SelfOuter* self, uint32 cReqElem, IUnknown** ppInterface, uint32* cRetElem) Next;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnumEventObject*/SelfOuter* self) Reset;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEnumEventObject*/SelfOuter* self, uint32 cSkipElem) Skip;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IEnumEventObject** ppInterface) Clone;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 cReqElem, IUnknown** ppInterface, uint32* cRetElem) Next;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Reset;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 cSkipElem) Skip;
 	}
 
 
@@ -471,12 +471,12 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEventObjectCollection*/SelfOuter* self, IUnknown** ppUnkEnum) get__NewEnum;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEventObjectCollection*/SelfOuter* self, BSTR objectID, VARIANT* pItem) get_Item;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEventObjectCollection*/SelfOuter* self, IEnumEventObject** ppEnum) get_NewEnum;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEventObjectCollection*/SelfOuter* self, int32* pCount) get_Count;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEventObjectCollection*/SelfOuter* self, VARIANT* item, BSTR objectID) Add;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEventObjectCollection*/SelfOuter* self, BSTR objectID) Remove;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IUnknown** ppUnkEnum) get__NewEnum;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR objectID, VARIANT* pItem) get_Item;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IEnumEventObject** ppEnum) get_NewEnum;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* pCount) get_Count;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT* item, BSTR objectID) Add;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR objectID) Remove;
 	}
 
 
@@ -501,10 +501,10 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEventProperty*/SelfOuter* self, BSTR* propertyName) get_Name;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEventProperty*/SelfOuter* self, BSTR propertyName) put_Name;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEventProperty*/SelfOuter* self, VARIANT* propertyValue) get_Value;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEventProperty*/SelfOuter* self, VARIANT* propertyValue) put_Value;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* propertyName) get_Name;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR propertyName) put_Name;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT* propertyValue) get_Value;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT* propertyValue) put_Value;
 	}
 
 
@@ -525,11 +525,11 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEventControl*/SelfOuter* self, BSTR methodName, IPublisherFilter* pPublisherFilter) SetPublisherFilter;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEventControl*/SelfOuter* self, BOOL* pfAllowInprocActivation) get_AllowInprocActivation;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEventControl*/SelfOuter* self, BOOL fAllowInprocActivation) put_AllowInprocActivation;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEventControl*/SelfOuter* self, BSTR methodName, BSTR optionalCriteria, int32* optionalErrorIndex, IEventObjectCollection** ppCollection) GetSubscriptions;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEventControl*/SelfOuter* self, BSTR methodName, BSTR criteria, int32* errorIndex) SetDefaultQuery;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR methodName, IPublisherFilter* pPublisherFilter) SetPublisherFilter;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BOOL* pfAllowInprocActivation) get_AllowInprocActivation;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BOOL fAllowInprocActivation) put_AllowInprocActivation;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR methodName, BSTR optionalCriteria, int32* optionalErrorIndex, IEventObjectCollection** ppCollection) GetSubscriptions;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR methodName, BSTR criteria, int32* errorIndex) SetDefaultQuery;
 	}
 
 
@@ -552,13 +552,13 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMultiInterfaceEventControl*/SelfOuter* self, IMultiInterfacePublisherFilter* classFilter) SetMultiInterfacePublisherFilter;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMultiInterfaceEventControl*/SelfOuter* self, ref Guid eventIID, BSTR bstrMethodName, BSTR optionalCriteria, int32* optionalErrorIndex, IEventObjectCollection** ppCollection) GetSubscriptions;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMultiInterfaceEventControl*/SelfOuter* self, ref Guid eventIID, BSTR bstrMethodName, BSTR bstrCriteria, int32* errorIndex) SetDefaultQuery;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMultiInterfaceEventControl*/SelfOuter* self, BOOL* pfAllowInprocActivation) get_AllowInprocActivation;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMultiInterfaceEventControl*/SelfOuter* self, BOOL fAllowInprocActivation) put_AllowInprocActivation;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMultiInterfaceEventControl*/SelfOuter* self, BOOL* pfFireInParallel) get_FireInParallel;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMultiInterfaceEventControl*/SelfOuter* self, BOOL fFireInParallel) put_FireInParallel;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IMultiInterfacePublisherFilter* classFilter) SetMultiInterfacePublisherFilter;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid eventIID, BSTR bstrMethodName, BSTR optionalCriteria, int32* optionalErrorIndex, IEventObjectCollection** ppCollection) GetSubscriptions;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid eventIID, BSTR bstrMethodName, BSTR bstrCriteria, int32* errorIndex) SetDefaultQuery;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BOOL* pfAllowInprocActivation) get_AllowInprocActivation;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BOOL fAllowInprocActivation) put_AllowInprocActivation;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BOOL* pfFireInParallel) get_FireInParallel;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BOOL fFireInParallel) put_FireInParallel;
 	}
 
 

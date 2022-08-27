@@ -463,8 +463,8 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRDPSRAPIDebug*/SelfOuter* self, BSTR CLXCmdLine) put_CLXCmdLine;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRDPSRAPIDebug*/SelfOuter* self, BSTR* pCLXCmdLine) get_CLXCmdLine;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR CLXCmdLine) put_CLXCmdLine;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pCLXCmdLine) get_CLXCmdLine;
 	}
 
 
@@ -481,7 +481,7 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRDPSRAPIPerfCounterLogger*/SelfOuter* self, int64 lValue) LogValue;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int64 lValue) LogValue;
 	}
 
 
@@ -496,7 +496,7 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRDPSRAPIPerfCounterLoggingManager*/SelfOuter* self, BSTR bstrCounterName, IRDPSRAPIPerfCounterLogger** ppLogger) CreateLogger;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrCounterName, IRDPSRAPIPerfCounterLogger** ppLogger) CreateLogger;
 	}
 
 
@@ -511,11 +511,11 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRDPSRAPIAudioStream*/SelfOuter* self, int64* pnPeriodInHundredNsIntervals) Initialize;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRDPSRAPIAudioStream*/SelfOuter* self) Start;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRDPSRAPIAudioStream*/SelfOuter* self) Stop;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRDPSRAPIAudioStream*/SelfOuter* self, uint8** ppbData, uint32* pcbData, uint64* pTimestamp) GetBuffer;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRDPSRAPIAudioStream*/SelfOuter* self) FreeBuffer;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int64* pnPeriodInHundredNsIntervals) Initialize;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Start;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Stop;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint8** ppbData, uint32* pcbData, uint64* pTimestamp) GetBuffer;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) FreeBuffer;
 	}
 
 
@@ -538,7 +538,7 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRDPSRAPIClipboardUseEvents*/SelfOuter* self, uint32 clipboardFormat, IDispatch* pAttendee, int16* pRetVal) OnPasteFromClipboard;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 clipboardFormat, IDispatch* pAttendee, int16* pRetVal) OnPasteFromClipboard;
 	}
 
 
@@ -553,13 +553,13 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRDPSRAPIWindow*/SelfOuter* self, int32* pRetVal) get_Id;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRDPSRAPIWindow*/SelfOuter* self, IRDPSRAPIApplication** pApplication) get_Application;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRDPSRAPIWindow*/SelfOuter* self, int16* pRetVal) get_Shared;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRDPSRAPIWindow*/SelfOuter* self, int16 NewVal) put_Shared;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRDPSRAPIWindow*/SelfOuter* self, BSTR* pRetVal) get_Name;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRDPSRAPIWindow*/SelfOuter* self) Show;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRDPSRAPIWindow*/SelfOuter* self, uint32* pdwFlags) get_Flags;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* pRetVal) get_Id;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IRDPSRAPIApplication** pApplication) get_Application;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* pRetVal) get_Shared;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 NewVal) put_Shared;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pRetVal) get_Name;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Show;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pdwFlags) get_Flags;
 	}
 
 
@@ -586,8 +586,8 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRDPSRAPIWindowList*/SelfOuter* self, IUnknown** retval) get__NewEnum;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRDPSRAPIWindowList*/SelfOuter* self, int32 item, IRDPSRAPIWindow** pWindow) get_Item;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IUnknown** retval) get__NewEnum;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 item, IRDPSRAPIWindow** pWindow) get_Item;
 	}
 
 
@@ -604,12 +604,12 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRDPSRAPIApplication*/SelfOuter* self, IRDPSRAPIWindowList** pWindowList) get_Windows;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRDPSRAPIApplication*/SelfOuter* self, int32* pRetVal) get_Id;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRDPSRAPIApplication*/SelfOuter* self, int16* pRetVal) get_Shared;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRDPSRAPIApplication*/SelfOuter* self, int16 NewVal) put_Shared;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRDPSRAPIApplication*/SelfOuter* self, BSTR* pRetVal) get_Name;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRDPSRAPIApplication*/SelfOuter* self, uint32* pdwFlags) get_Flags;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IRDPSRAPIWindowList** pWindowList) get_Windows;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* pRetVal) get_Id;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* pRetVal) get_Shared;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 NewVal) put_Shared;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pRetVal) get_Name;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pdwFlags) get_Flags;
 	}
 
 
@@ -634,8 +634,8 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRDPSRAPIApplicationList*/SelfOuter* self, IUnknown** retval) get__NewEnum;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRDPSRAPIApplicationList*/SelfOuter* self, int32 item, IRDPSRAPIApplication** pApplication) get_Item;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IUnknown** retval) get__NewEnum;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 item, IRDPSRAPIApplication** pApplication) get_Item;
 	}
 
 
@@ -652,10 +652,10 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRDPSRAPIApplicationFilter*/SelfOuter* self, IRDPSRAPIApplicationList** pApplications) get_Applications;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRDPSRAPIApplicationFilter*/SelfOuter* self, IRDPSRAPIWindowList** pWindows) get_Windows;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRDPSRAPIApplicationFilter*/SelfOuter* self, int16* pRetVal) get_Enabled;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRDPSRAPIApplicationFilter*/SelfOuter* self, int16 NewVal) put_Enabled;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IRDPSRAPIApplicationList** pApplications) get_Applications;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IRDPSRAPIWindowList** pWindows) get_Windows;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* pRetVal) get_Enabled;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 NewVal) put_Enabled;
 	}
 
 
@@ -676,8 +676,8 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRDPSRAPISessionProperties*/SelfOuter* self, BSTR PropertyName, VARIANT* pVal) get_Property;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRDPSRAPISessionProperties*/SelfOuter* self, BSTR PropertyName, VARIANT newVal) put_Property;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR PropertyName, VARIANT* pVal) get_Property;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR PropertyName, VARIANT newVal) put_Property;
 	}
 
 
@@ -694,13 +694,13 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRDPSRAPIInvitation*/SelfOuter* self, BSTR* pbstrVal) get_ConnectionString;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRDPSRAPIInvitation*/SelfOuter* self, BSTR* pbstrVal) get_GroupName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRDPSRAPIInvitation*/SelfOuter* self, BSTR* pbstrVal) get_Password;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRDPSRAPIInvitation*/SelfOuter* self, int32* pRetVal) get_AttendeeLimit;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRDPSRAPIInvitation*/SelfOuter* self, int32 NewVal) put_AttendeeLimit;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRDPSRAPIInvitation*/SelfOuter* self, int16* pRetVal) get_Revoked;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRDPSRAPIInvitation*/SelfOuter* self, int16 NewVal) put_Revoked;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pbstrVal) get_ConnectionString;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pbstrVal) get_GroupName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pbstrVal) get_Password;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* pRetVal) get_AttendeeLimit;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 NewVal) put_AttendeeLimit;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* pRetVal) get_Revoked;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 NewVal) put_Revoked;
 	}
 
 
@@ -727,10 +727,10 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRDPSRAPIInvitationManager*/SelfOuter* self, IUnknown** retval) get__NewEnum;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRDPSRAPIInvitationManager*/SelfOuter* self, VARIANT item, IRDPSRAPIInvitation** ppInvitation) get_Item;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRDPSRAPIInvitationManager*/SelfOuter* self, int32* pRetVal) get_Count;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRDPSRAPIInvitationManager*/SelfOuter* self, BSTR bstrAuthString, BSTR bstrGroupName, BSTR bstrPassword, int32 AttendeeLimit, IRDPSRAPIInvitation** ppInvitation) CreateInvitation;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IUnknown** retval) get__NewEnum;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT item, IRDPSRAPIInvitation** ppInvitation) get_Item;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* pRetVal) get_Count;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrAuthString, BSTR bstrGroupName, BSTR bstrPassword, int32 AttendeeLimit, IRDPSRAPIInvitation** ppInvitation) CreateInvitation;
 	}
 
 
@@ -751,11 +751,11 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRDPSRAPITcpConnectionInfo*/SelfOuter* self, int32* plProtocol) get_Protocol;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRDPSRAPITcpConnectionInfo*/SelfOuter* self, int32* plPort) get_LocalPort;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRDPSRAPITcpConnectionInfo*/SelfOuter* self, BSTR* pbsrLocalIP) get_LocalIP;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRDPSRAPITcpConnectionInfo*/SelfOuter* self, int32* plPort) get_PeerPort;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRDPSRAPITcpConnectionInfo*/SelfOuter* self, BSTR* pbstrIP) get_PeerIP;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* plProtocol) get_Protocol;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* plPort) get_LocalPort;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pbsrLocalIP) get_LocalIP;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* plPort) get_PeerPort;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pbstrIP) get_PeerIP;
 	}
 
 
@@ -778,14 +778,14 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRDPSRAPIAttendee*/SelfOuter* self, int32* pId) get_Id;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRDPSRAPIAttendee*/SelfOuter* self, BSTR* pVal) get_RemoteName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRDPSRAPIAttendee*/SelfOuter* self, CTRL_LEVEL* pVal) get_ControlLevel;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRDPSRAPIAttendee*/SelfOuter* self, CTRL_LEVEL pNewVal) put_ControlLevel;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRDPSRAPIAttendee*/SelfOuter* self, IRDPSRAPIInvitation** ppVal) get_Invitation;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRDPSRAPIAttendee*/SelfOuter* self) TerminateConnection;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRDPSRAPIAttendee*/SelfOuter* self, int32* plFlags) get_Flags;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRDPSRAPIAttendee*/SelfOuter* self, IUnknown** ppVal) get_ConnectivityInfo;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* pId) get_Id;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pVal) get_RemoteName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, CTRL_LEVEL* pVal) get_ControlLevel;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, CTRL_LEVEL pNewVal) put_ControlLevel;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IRDPSRAPIInvitation** ppVal) get_Invitation;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) TerminateConnection;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* plFlags) get_Flags;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IUnknown** ppVal) get_ConnectivityInfo;
 	}
 
 
@@ -814,8 +814,8 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRDPSRAPIAttendeeManager*/SelfOuter* self, IUnknown** retval) get__NewEnum;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRDPSRAPIAttendeeManager*/SelfOuter* self, int32 id, IRDPSRAPIAttendee** ppItem) get_Item;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IUnknown** retval) get__NewEnum;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 id, IRDPSRAPIAttendee** ppItem) get_Item;
 	}
 
 
@@ -832,9 +832,9 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRDPSRAPIAttendeeDisconnectInfo*/SelfOuter* self, IRDPSRAPIAttendee** retval) get_Attendee;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRDPSRAPIAttendeeDisconnectInfo*/SelfOuter* self, ATTENDEE_DISCONNECT_REASON* pReason) get_Reason;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRDPSRAPIAttendeeDisconnectInfo*/SelfOuter* self, int32* pVal) get_Code;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IRDPSRAPIAttendee** retval) get_Attendee;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ATTENDEE_DISCONNECT_REASON* pReason) get_Reason;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* pVal) get_Code;
 	}
 
 
@@ -853,11 +853,11 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRDPSRAPIVirtualChannel*/SelfOuter* self, BSTR bstrData, int32 lAttendeeId, uint32 ChannelSendFlags) SendData;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRDPSRAPIVirtualChannel*/SelfOuter* self, int32 lAttendeeId, CHANNEL_ACCESS_ENUM AccessType) SetAccess;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRDPSRAPIVirtualChannel*/SelfOuter* self, BSTR* pbstrName) get_Name;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRDPSRAPIVirtualChannel*/SelfOuter* self, int32* plFlags) get_Flags;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRDPSRAPIVirtualChannel*/SelfOuter* self, CHANNEL_PRIORITY* pPriority) get_Priority;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrData, int32 lAttendeeId, uint32 ChannelSendFlags) SendData;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 lAttendeeId, CHANNEL_ACCESS_ENUM AccessType) SetAccess;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pbstrName) get_Name;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* plFlags) get_Flags;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, CHANNEL_PRIORITY* pPriority) get_Priority;
 	}
 
 
@@ -880,9 +880,9 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRDPSRAPIVirtualChannelManager*/SelfOuter* self, IUnknown** retval) get__NewEnum;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRDPSRAPIVirtualChannelManager*/SelfOuter* self, VARIANT item, IRDPSRAPIVirtualChannel** pChannel) get_Item;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRDPSRAPIVirtualChannelManager*/SelfOuter* self, BSTR bstrChannelName, CHANNEL_PRIORITY Priority, uint32 ChannelFlags, IRDPSRAPIVirtualChannel** ppChannel) CreateVirtualChannel;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IUnknown** retval) get__NewEnum;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT item, IRDPSRAPIVirtualChannel** pChannel) get_Item;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrChannelName, CHANNEL_PRIORITY Priority, uint32 ChannelFlags, IRDPSRAPIVirtualChannel** ppChannel) CreateVirtualChannel;
 	}
 
 
@@ -901,20 +901,20 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRDPSRAPIViewer*/SelfOuter* self, BSTR bstrConnectionString, BSTR bstrName, BSTR bstrPassword) Connect;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRDPSRAPIViewer*/SelfOuter* self) Disconnect;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRDPSRAPIViewer*/SelfOuter* self, IRDPSRAPIAttendeeManager** ppVal) get_Attendees;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRDPSRAPIViewer*/SelfOuter* self, IRDPSRAPIInvitationManager** ppVal) get_Invitations;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRDPSRAPIViewer*/SelfOuter* self, IRDPSRAPIApplicationFilter** ppVal) get_ApplicationFilter;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRDPSRAPIViewer*/SelfOuter* self, IRDPSRAPIVirtualChannelManager** ppVal) get_VirtualChannelManager;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRDPSRAPIViewer*/SelfOuter* self, int16 vbSmartSizing) put_SmartSizing;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRDPSRAPIViewer*/SelfOuter* self, int16* pvbSmartSizing) get_SmartSizing;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRDPSRAPIViewer*/SelfOuter* self, CTRL_LEVEL CtrlLevel) RequestControl;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRDPSRAPIViewer*/SelfOuter* self, BSTR bstrDisconnectedText) put_DisconnectedText;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRDPSRAPIViewer*/SelfOuter* self, BSTR* pbstrDisconnectedText) get_DisconnectedText;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRDPSRAPIViewer*/SelfOuter* self, int32 Bpp) RequestColorDepthChange;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRDPSRAPIViewer*/SelfOuter* self, IRDPSRAPISessionProperties** ppVal) get_Properties;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRDPSRAPIViewer*/SelfOuter* self, BSTR bstrConnectionString, BSTR bstrUserName, BSTR bstrPassword, BSTR* pbstrReverseConnectString) StartReverseConnectListener;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrConnectionString, BSTR bstrName, BSTR bstrPassword) Connect;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Disconnect;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IRDPSRAPIAttendeeManager** ppVal) get_Attendees;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IRDPSRAPIInvitationManager** ppVal) get_Invitations;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IRDPSRAPIApplicationFilter** ppVal) get_ApplicationFilter;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IRDPSRAPIVirtualChannelManager** ppVal) get_VirtualChannelManager;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 vbSmartSizing) put_SmartSizing;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* pvbSmartSizing) get_SmartSizing;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, CTRL_LEVEL CtrlLevel) RequestControl;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrDisconnectedText) put_DisconnectedText;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pbstrDisconnectedText) get_DisconnectedText;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 Bpp) RequestColorDepthChange;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IRDPSRAPISessionProperties** ppVal) get_Properties;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrConnectionString, BSTR bstrUserName, BSTR bstrPassword, BSTR* pbstrReverseConnectString) StartReverseConnectListener;
 	}
 
 
@@ -955,14 +955,14 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRDPViewerInputSink*/SelfOuter* self, RDPSRAPI_MOUSE_BUTTON_TYPE buttonType, int16 vbButtonDown, uint32 xPos, uint32 yPos) SendMouseButtonEvent;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRDPViewerInputSink*/SelfOuter* self, uint32 xPos, uint32 yPos) SendMouseMoveEvent;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRDPViewerInputSink*/SelfOuter* self, uint16 wheelRotation) SendMouseWheelEvent;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRDPViewerInputSink*/SelfOuter* self, RDPSRAPI_KBD_CODE_TYPE codeType, uint16 keycode, int16 vbKeyUp, int16 vbRepeat, int16 vbExtended) SendKeyboardEvent;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRDPViewerInputSink*/SelfOuter* self, uint32 syncFlags) SendSyncEvent;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRDPViewerInputSink*/SelfOuter* self) BeginTouchFrame;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRDPViewerInputSink*/SelfOuter* self, uint32 contactId, uint32 event, int32 x, int32 y) AddTouchInput;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRDPViewerInputSink*/SelfOuter* self) EndTouchFrame;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, RDPSRAPI_MOUSE_BUTTON_TYPE buttonType, int16 vbButtonDown, uint32 xPos, uint32 yPos) SendMouseButtonEvent;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 xPos, uint32 yPos) SendMouseMoveEvent;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint16 wheelRotation) SendMouseWheelEvent;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, RDPSRAPI_KBD_CODE_TYPE codeType, uint16 keycode, int16 vbKeyUp, int16 vbRepeat, int16 vbExtended) SendKeyboardEvent;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 syncFlags) SendSyncEvent;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) BeginTouchFrame;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 contactId, uint32 event, int32 x, int32 y) AddTouchInput;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) EndTouchFrame;
 	}
 
 
@@ -991,10 +991,10 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRDPSRAPIFrameBuffer*/SelfOuter* self, int32* plWidth) get_Width;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRDPSRAPIFrameBuffer*/SelfOuter* self, int32* plHeight) get_Height;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRDPSRAPIFrameBuffer*/SelfOuter* self, int32* plBpp) get_Bpp;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRDPSRAPIFrameBuffer*/SelfOuter* self, int32 x, int32 y, int32 Width, int32 Heigth, SAFEARRAY** ppBits) GetFrameBufferBits;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* plWidth) get_Width;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* plHeight) get_Height;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* plBpp) get_Bpp;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 x, int32 y, int32 Width, int32 Heigth, SAFEARRAY** ppBits) GetFrameBufferBits;
 	}
 
 
@@ -1015,16 +1015,16 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRDPSRAPITransportStreamBuffer*/SelfOuter* self, uint8** ppbStorage) get_Storage;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRDPSRAPITransportStreamBuffer*/SelfOuter* self, int32* plMaxStore) get_StorageSize;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRDPSRAPITransportStreamBuffer*/SelfOuter* self, int32* plRetVal) get_PayloadSize;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRDPSRAPITransportStreamBuffer*/SelfOuter* self, int32 lVal) put_PayloadSize;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRDPSRAPITransportStreamBuffer*/SelfOuter* self, int32* plRetVal) get_PayloadOffset;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRDPSRAPITransportStreamBuffer*/SelfOuter* self, int32 lRetVal) put_PayloadOffset;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRDPSRAPITransportStreamBuffer*/SelfOuter* self, int32* plFlags) get_Flags;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRDPSRAPITransportStreamBuffer*/SelfOuter* self, int32 lFlags) put_Flags;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRDPSRAPITransportStreamBuffer*/SelfOuter* self, IUnknown** ppContext) get_Context;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRDPSRAPITransportStreamBuffer*/SelfOuter* self, IUnknown* pContext) put_Context;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint8** ppbStorage) get_Storage;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* plMaxStore) get_StorageSize;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* plRetVal) get_PayloadSize;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 lVal) put_PayloadSize;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* plRetVal) get_PayloadOffset;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 lRetVal) put_PayloadOffset;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* plFlags) get_Flags;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 lFlags) put_Flags;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IUnknown** ppContext) get_Context;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IUnknown* pContext) put_Context;
 	}
 
 
@@ -1057,9 +1057,9 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] void(/*IRDPSRAPITransportStreamEvents*/SelfOuter* self, IRDPSRAPITransportStreamBuffer* pBuffer) OnWriteCompleted;
-		protected new function [CallingConvention(.Stdcall)] void(/*IRDPSRAPITransportStreamEvents*/SelfOuter* self, IRDPSRAPITransportStreamBuffer* pBuffer) OnReadCompleted;
-		protected new function [CallingConvention(.Stdcall)] void(/*IRDPSRAPITransportStreamEvents*/SelfOuter* self, HRESULT hrReason) OnStreamClosed;
+		protected new function [CallingConvention(.Stdcall)] void(SelfOuter* self, IRDPSRAPITransportStreamBuffer* pBuffer) OnWriteCompleted;
+		protected new function [CallingConvention(.Stdcall)] void(SelfOuter* self, IRDPSRAPITransportStreamBuffer* pBuffer) OnReadCompleted;
+		protected new function [CallingConvention(.Stdcall)] void(SelfOuter* self, HRESULT hrReason) OnStreamClosed;
 	}
 
 
@@ -1078,12 +1078,12 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRDPSRAPITransportStream*/SelfOuter* self, int32 maxPayload, IRDPSRAPITransportStreamBuffer** ppBuffer) AllocBuffer;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRDPSRAPITransportStream*/SelfOuter* self, IRDPSRAPITransportStreamBuffer* pBuffer) FreeBuffer;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRDPSRAPITransportStream*/SelfOuter* self, IRDPSRAPITransportStreamBuffer* pBuffer) WriteBuffer;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRDPSRAPITransportStream*/SelfOuter* self, IRDPSRAPITransportStreamBuffer* pBuffer) ReadBuffer;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRDPSRAPITransportStream*/SelfOuter* self, IRDPSRAPITransportStreamEvents* pCallbacks) Open;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRDPSRAPITransportStream*/SelfOuter* self) Close;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 maxPayload, IRDPSRAPITransportStreamBuffer** ppBuffer) AllocBuffer;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IRDPSRAPITransportStreamBuffer* pBuffer) FreeBuffer;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IRDPSRAPITransportStreamBuffer* pBuffer) WriteBuffer;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IRDPSRAPITransportStreamBuffer* pBuffer) ReadBuffer;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IRDPSRAPITransportStreamEvents* pCallbacks) Open;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Close;
 	}
 
 
@@ -1108,20 +1108,20 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRDPSRAPISharingSession*/SelfOuter* self) Open;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRDPSRAPISharingSession*/SelfOuter* self) Close;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRDPSRAPISharingSession*/SelfOuter* self, int32 colorDepth) put_ColorDepth;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRDPSRAPISharingSession*/SelfOuter* self, int32* pColorDepth) get_ColorDepth;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRDPSRAPISharingSession*/SelfOuter* self, IRDPSRAPISessionProperties** ppVal) get_Properties;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRDPSRAPISharingSession*/SelfOuter* self, IRDPSRAPIAttendeeManager** ppVal) get_Attendees;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRDPSRAPISharingSession*/SelfOuter* self, IRDPSRAPIInvitationManager** ppVal) get_Invitations;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRDPSRAPISharingSession*/SelfOuter* self, IRDPSRAPIApplicationFilter** ppVal) get_ApplicationFilter;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRDPSRAPISharingSession*/SelfOuter* self, IRDPSRAPIVirtualChannelManager** ppVal) get_VirtualChannelManager;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRDPSRAPISharingSession*/SelfOuter* self) Pause;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRDPSRAPISharingSession*/SelfOuter* self) Resume;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRDPSRAPISharingSession*/SelfOuter* self, BSTR bstrConnectionString) ConnectToClient;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRDPSRAPISharingSession*/SelfOuter* self, int32 left, int32 top, int32 right, int32 bottom) SetDesktopSharedRect;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRDPSRAPISharingSession*/SelfOuter* self, int32* pleft, int32* ptop, int32* pright, int32* pbottom) GetDesktopSharedRect;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Open;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Close;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 colorDepth) put_ColorDepth;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* pColorDepth) get_ColorDepth;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IRDPSRAPISessionProperties** ppVal) get_Properties;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IRDPSRAPIAttendeeManager** ppVal) get_Attendees;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IRDPSRAPIInvitationManager** ppVal) get_Invitations;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IRDPSRAPIApplicationFilter** ppVal) get_ApplicationFilter;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IRDPSRAPIVirtualChannelManager** ppVal) get_VirtualChannelManager;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Pause;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Resume;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrConnectionString) ConnectToClient;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 left, int32 top, int32 right, int32 bottom) SetDesktopSharedRect;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* pleft, int32* ptop, int32* pright, int32* pbottom) GetDesktopSharedRect;
 	}
 
 
@@ -1162,9 +1162,9 @@ public static
 
 	[CRepr]public struct VTable : IRDPSRAPISharingSession.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRDPSRAPISharingSession2*/SelfOuter* self, IRDPSRAPITransportStream* pStream, BSTR bstrGroup, BSTR bstrAuthenticatedAttendeeName) ConnectUsingTransportStream;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRDPSRAPISharingSession2*/SelfOuter* self, IRDPSRAPIFrameBuffer** ppVal) get_FrameBuffer;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRDPSRAPISharingSession2*/SelfOuter* self, IRDPSRAPIAttendee* pAttendee, CTRL_LEVEL RequestedLevel, int32 ReasonCode) SendControlLevelChangeResponse;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IRDPSRAPITransportStream* pStream, BSTR bstrGroup, BSTR bstrAuthenticatedAttendeeName) ConnectUsingTransportStream;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IRDPSRAPIFrameBuffer** ppVal) get_FrameBuffer;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IRDPSRAPIAttendee* pAttendee, CTRL_LEVEL RequestedLevel, int32 ReasonCode) SendControlLevelChangeResponse;
 	}
 
 

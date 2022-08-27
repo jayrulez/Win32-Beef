@@ -197,7 +197,7 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAgileReference*/SelfOuter* self, ref Guid riid, void** ppvObjectReference) Resolve;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid riid, void** ppvObjectReference) Resolve;
 	}
 
 
@@ -212,7 +212,7 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] void(/*IApartmentShutdown*/SelfOuter* self, uint64 ui64ApartmentIdentifier) OnUninitialize;
+		protected new function [CallingConvention(.Stdcall)] void(SelfOuter* self, uint64 ui64ApartmentIdentifier) OnUninitialize;
 	}
 
 
@@ -227,7 +227,7 @@ public static
 
 	[CRepr]public struct VTable : IInspectable.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISpatialInteractionManagerInterop*/SelfOuter* self, HWND window, ref Guid riid, void** spatialInteractionManager) GetForWindow;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HWND window, ref Guid riid, void** spatialInteractionManager) GetForWindow;
 	}
 
 
@@ -242,7 +242,7 @@ public static
 
 	[CRepr]public struct VTable : IInspectable.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IHolographicSpaceInterop*/SelfOuter* self, HWND window, ref Guid riid, void** holographicSpace) CreateForWindow;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HWND window, ref Guid riid, void** holographicSpace) CreateForWindow;
 	}
 
 
@@ -257,9 +257,9 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInspectable*/SelfOuter* self, uint32* iidCount, ref Guid iids) GetIids;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInspectable*/SelfOuter* self, HSTRING* className) GetRuntimeClassName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInspectable*/SelfOuter* self, TrustLevel* trustLevel) GetTrustLevel;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* iidCount, ref Guid iids) GetIids;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HSTRING* className) GetRuntimeClassName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, TrustLevel* trustLevel) GetTrustLevel;
 	}
 
 
@@ -278,9 +278,9 @@ public static
 
 	[CRepr]public struct VTable : IInspectable.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAccountsSettingsPaneInterop*/SelfOuter* self, HWND appWindow, ref Guid riid, void** accountsSettingsPane) GetForWindow;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAccountsSettingsPaneInterop*/SelfOuter* self, HWND appWindow, ref Guid riid, void** asyncAction) ShowManageAccountsForWindowAsync;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAccountsSettingsPaneInterop*/SelfOuter* self, HWND appWindow, ref Guid riid, void** asyncAction) ShowAddAccountForWindowAsync;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HWND appWindow, ref Guid riid, void** accountsSettingsPane) GetForWindow;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HWND appWindow, ref Guid riid, void** asyncAction) ShowManageAccountsForWindowAsync;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HWND appWindow, ref Guid riid, void** asyncAction) ShowAddAccountForWindowAsync;
 	}
 
 
@@ -299,7 +299,7 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAppServiceConnectionExtendedExecution*/SelfOuter* self, ref Guid riid, void** operation) OpenForExtendedExecutionAsync;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid riid, void** operation) OpenForExtendedExecutionAsync;
 	}
 
 
@@ -314,7 +314,7 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICorrelationVectorSource*/SelfOuter* self, HSTRING* cv) get_CorrelationVector;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HSTRING* cv) get_CorrelationVector;
 	}
 
 
@@ -329,8 +329,8 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICastingEventHandler*/SelfOuter* self, CASTING_CONNECTION_STATE newState) OnStateChanged;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICastingEventHandler*/SelfOuter* self, CASTING_CONNECTION_ERROR_STATUS errorStatus, PWSTR errorMessage) OnError;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, CASTING_CONNECTION_STATE newState) OnStateChanged;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, CASTING_CONNECTION_ERROR_STATUS errorStatus, PWSTR errorMessage) OnError;
 	}
 
 
@@ -347,11 +347,11 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICastingController*/SelfOuter* self, IUnknown* castingEngine, IUnknown* castingSource) Initialize;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICastingController*/SelfOuter* self) Connect;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICastingController*/SelfOuter* self) Disconnect;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICastingController*/SelfOuter* self, ICastingEventHandler* eventHandler, uint32* cookie) Advise;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICastingController*/SelfOuter* self, uint32 cookie) UnAdvise;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IUnknown* castingEngine, IUnknown* castingSource) Initialize;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Connect;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Disconnect;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ICastingEventHandler* eventHandler, uint32* cookie) Advise;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 cookie) UnAdvise;
 	}
 
 
@@ -374,8 +374,8 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICastingSourceInfo*/SelfOuter* self, ICastingController** controller) GetController;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICastingSourceInfo*/SelfOuter* self, INamedPropertyStore** props) GetProperties;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ICastingController** controller) GetController;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, INamedPropertyStore** props) GetProperties;
 	}
 
 
@@ -392,7 +392,7 @@ public static
 
 	[CRepr]public struct VTable : IInspectable.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDragDropManagerInterop*/SelfOuter* self, HWND hwnd, ref Guid riid, void** ppv) GetForWindow;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HWND hwnd, ref Guid riid, void** ppv) GetForWindow;
 	}
 
 
@@ -407,7 +407,7 @@ public static
 
 	[CRepr]public struct VTable : IInspectable.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IInputPaneInterop*/SelfOuter* self, HWND appWindow, ref Guid riid, void** inputPane) GetForWindow;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HWND appWindow, ref Guid riid, void** inputPane) GetForWindow;
 	}
 
 
@@ -422,8 +422,8 @@ public static
 
 	[CRepr]public struct VTable : IInspectable.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPlayToManagerInterop*/SelfOuter* self, HWND appWindow, ref Guid riid, void** playToManager) GetForWindow;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPlayToManagerInterop*/SelfOuter* self, HWND appWindow) ShowPlayToUIForWindow;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HWND appWindow, ref Guid riid, void** playToManager) GetForWindow;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HWND appWindow) ShowPlayToUIForWindow;
 	}
 
 
@@ -440,9 +440,9 @@ public static
 
 	[CRepr]public struct VTable : IInspectable.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICorrelationVectorInformation*/SelfOuter* self, HSTRING* cv) get_LastCorrelationVectorForThread;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICorrelationVectorInformation*/SelfOuter* self, HSTRING* cv) get_NextCorrelationVectorForThread;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICorrelationVectorInformation*/SelfOuter* self, HSTRING cv) put_NextCorrelationVectorForThread;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HSTRING* cv) get_LastCorrelationVectorForThread;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HSTRING* cv) get_NextCorrelationVectorForThread;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HSTRING cv) put_NextCorrelationVectorForThread;
 	}
 
 
@@ -461,7 +461,7 @@ public static
 
 	[CRepr]public struct VTable : IInspectable.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IUIViewSettingsInterop*/SelfOuter* self, HWND hwnd, ref Guid riid, void** ppv) GetForWindow;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HWND hwnd, ref Guid riid, void** ppv) GetForWindow;
 	}
 
 
@@ -476,7 +476,7 @@ public static
 
 	[CRepr]public struct VTable : IInspectable.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IUserActivityInterop*/SelfOuter* self, HWND window, ref Guid iid, void** value) CreateSessionForWindow;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HWND window, ref Guid iid, void** value) CreateSessionForWindow;
 	}
 
 
@@ -491,7 +491,7 @@ public static
 
 	[CRepr]public struct VTable : IInspectable.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IUserActivitySourceHostInterop*/SelfOuter* self, HSTRING activitySourceHost) SetActivitySourceHost;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HSTRING activitySourceHost) SetActivitySourceHost;
 	}
 
 
@@ -506,7 +506,7 @@ public static
 
 	[CRepr]public struct VTable : IInspectable.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IUserActivityRequestManagerInterop*/SelfOuter* self, HWND window, ref Guid iid, void** value) GetForWindow;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HWND window, ref Guid iid, void** value) GetForWindow;
 	}
 
 
@@ -521,7 +521,7 @@ public static
 
 	[CRepr]public struct VTable : IInspectable.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IUserConsentVerifierInterop*/SelfOuter* self, HWND appWindow, HSTRING message, ref Guid riid, void** asyncOperation) RequestVerificationForWindowAsync;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HWND appWindow, HSTRING message, ref Guid riid, void** asyncOperation) RequestVerificationForWindowAsync;
 	}
 
 
@@ -536,8 +536,8 @@ public static
 
 	[CRepr]public struct VTable : IInspectable.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWebAuthenticationCoreManagerInterop*/SelfOuter* self, HWND appWindow, IInspectable* request, ref Guid riid, void** asyncInfo) RequestTokenForWindowAsync;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWebAuthenticationCoreManagerInterop*/SelfOuter* self, HWND appWindow, IInspectable* request, IInspectable* webAccount, ref Guid riid, void** asyncInfo) RequestTokenWithWebAccountForWindowAsync;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HWND appWindow, IInspectable* request, ref Guid riid, void** asyncInfo) RequestTokenForWindowAsync;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HWND appWindow, IInspectable* request, IInspectable* webAccount, ref Guid riid, void** asyncInfo) RequestTokenWithWebAccountForWindowAsync;
 	}
 
 
@@ -554,8 +554,8 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRestrictedErrorInfo*/SelfOuter* self, BSTR* description, HRESULT* error, BSTR* restrictedDescription, BSTR* capabilitySid) GetErrorDetails;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRestrictedErrorInfo*/SelfOuter* self, BSTR* reference) GetReference;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* description, HRESULT* error, BSTR* restrictedDescription, BSTR* capabilitySid) GetErrorDetails;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* reference) GetReference;
 	}
 
 
@@ -572,7 +572,7 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ILanguageExceptionErrorInfo*/SelfOuter* self, IUnknown** languageException) GetLanguageException;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IUnknown** languageException) GetLanguageException;
 	}
 
 
@@ -587,7 +587,7 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ILanguageExceptionTransform*/SelfOuter* self, IRestrictedErrorInfo** restrictedErrorInfo) GetTransformedRestrictedErrorInfo;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IRestrictedErrorInfo** restrictedErrorInfo) GetTransformedRestrictedErrorInfo;
 	}
 
 
@@ -602,7 +602,7 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ILanguageExceptionStackBackTrace*/SelfOuter* self, uint32 maxFramesToCapture, uint* stackBackTrace, uint32* framesCaptured) GetStackBackTrace;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 maxFramesToCapture, uint* stackBackTrace, uint32* framesCaptured) GetStackBackTrace;
 	}
 
 
@@ -617,9 +617,9 @@ public static
 
 	[CRepr]public struct VTable : ILanguageExceptionErrorInfo.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ILanguageExceptionErrorInfo2*/SelfOuter* self, ILanguageExceptionErrorInfo2** previousLanguageExceptionErrorInfo) GetPreviousLanguageExceptionErrorInfo;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ILanguageExceptionErrorInfo2*/SelfOuter* self, IUnknown* languageException) CapturePropagationContext;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ILanguageExceptionErrorInfo2*/SelfOuter* self, ILanguageExceptionErrorInfo2** propagatedLanguageExceptionErrorInfoHead) GetPropagationContextHead;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ILanguageExceptionErrorInfo2** previousLanguageExceptionErrorInfo) GetPreviousLanguageExceptionErrorInfo;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IUnknown* languageException) CapturePropagationContext;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ILanguageExceptionErrorInfo2** propagatedLanguageExceptionErrorInfoHead) GetPropagationContextHead;
 	}
 
 
@@ -638,7 +638,7 @@ public static
 
 	[CRepr]public struct VTable : IInspectable.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IActivationFactory*/SelfOuter* self, IInspectable** instance) ActivateInstance;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IInspectable** instance) ActivateInstance;
 	}
 
 
@@ -653,7 +653,7 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IBufferByteAccess*/SelfOuter* self, uint8** value) Buffer;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint8** value) Buffer;
 	}
 
 
@@ -668,16 +668,16 @@ public static
 
 	[CRepr]public struct VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRoSimpleMetaDataBuilder*/SelfOuter* self, Guid iid) SetWinRtInterface;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRoSimpleMetaDataBuilder*/SelfOuter* self, Guid iid) SetDelegate;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRoSimpleMetaDataBuilder*/SelfOuter* self, PWSTR name, PWSTR defaultInterfaceName, ref Guid defaultInterfaceIID) SetInterfaceGroupSimpleDefault;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRoSimpleMetaDataBuilder*/SelfOuter* self, PWSTR name, uint32 elementCount, PWSTR* defaultInterfaceNameElements) SetInterfaceGroupParameterizedDefault;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRoSimpleMetaDataBuilder*/SelfOuter* self, PWSTR name, PWSTR defaultInterfaceName, ref Guid defaultInterfaceIID) SetRuntimeClassSimpleDefault;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRoSimpleMetaDataBuilder*/SelfOuter* self, PWSTR name, uint32 elementCount, PWSTR* defaultInterfaceNameElements) SetRuntimeClassParameterizedDefault;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRoSimpleMetaDataBuilder*/SelfOuter* self, PWSTR name, uint32 numFields, PWSTR* fieldTypeNames) SetStruct;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRoSimpleMetaDataBuilder*/SelfOuter* self, PWSTR name, PWSTR baseType) SetEnum;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRoSimpleMetaDataBuilder*/SelfOuter* self, Guid piid, uint32 numArgs) SetParameterizedInterface;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRoSimpleMetaDataBuilder*/SelfOuter* self, Guid piid, uint32 numArgs) SetParameterizedDelegate;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, Guid iid) SetWinRtInterface;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, Guid iid) SetDelegate;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR name, PWSTR defaultInterfaceName, ref Guid defaultInterfaceIID) SetInterfaceGroupSimpleDefault;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR name, uint32 elementCount, PWSTR* defaultInterfaceNameElements) SetInterfaceGroupParameterizedDefault;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR name, PWSTR defaultInterfaceName, ref Guid defaultInterfaceIID) SetRuntimeClassSimpleDefault;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR name, uint32 elementCount, PWSTR* defaultInterfaceNameElements) SetRuntimeClassParameterizedDefault;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR name, uint32 numFields, PWSTR* fieldTypeNames) SetStruct;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR name, PWSTR baseType) SetEnum;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, Guid piid, uint32 numArgs) SetParameterizedInterface;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, Guid piid, uint32 numArgs) SetParameterizedDelegate;
 	}
 
 
@@ -710,7 +710,7 @@ public static
 
 	[CRepr]public struct VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRoMetaDataLocator*/SelfOuter* self, PWSTR nameElement, IRoSimpleMetaDataBuilder* metaDataDestination) Locate;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR nameElement, IRoSimpleMetaDataBuilder* metaDataDestination) Locate;
 	}
 
 
@@ -725,7 +725,7 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMemoryBufferByteAccess*/SelfOuter* self, uint8** value, uint32* capacity) GetBuffer;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint8** value, uint32* capacity) GetBuffer;
 	}
 
 
@@ -740,7 +740,7 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWeakReference*/SelfOuter* self, ref Guid riid, void** objectReference) Resolve;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid riid, void** objectReference) Resolve;
 	}
 
 
@@ -755,7 +755,7 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWeakReferenceSource*/SelfOuter* self, IWeakReference** weakReference) GetWeakReference;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IWeakReference** weakReference) GetWeakReference;
 	}
 
 
@@ -770,7 +770,7 @@ public static
 
 	[CRepr]public struct VTable : IInspectable.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISystemMediaTransportControlsInterop*/SelfOuter* self, HWND appWindow, ref Guid riid, void** mediaTransportControl) GetForWindow;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HWND appWindow, ref Guid riid, void** mediaTransportControl) GetForWindow;
 	}
 
 
@@ -785,7 +785,7 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShareWindowCommandEventArgsInterop*/SelfOuter* self, HWND* value) GetWindow;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HWND* value) GetWindow;
 	}
 
 
@@ -800,7 +800,7 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IShareWindowCommandSourceInterop*/SelfOuter* self, HWND appWindow, ref Guid riid, void** shareWindowCommandSource) GetForWindow;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HWND appWindow, ref Guid riid, void** shareWindowCommandSource) GetForWindow;
 	}
 
 
@@ -815,7 +815,7 @@ public static
 
 	[CRepr]public struct VTable : IInspectable.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMessageDispatcher*/SelfOuter* self) PumpMessages;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) PumpMessages;
 	}
 
 

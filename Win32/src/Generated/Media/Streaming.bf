@@ -142,26 +142,26 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMFDeviceTransform*/SelfOuter* self, IMFAttributes* pAttributes) InitializeTransform;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMFDeviceTransform*/SelfOuter* self, uint32 dwInputStreamID, uint32 dwTypeIndex, IMFMediaType** pMediaType) GetInputAvailableType;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMFDeviceTransform*/SelfOuter* self, uint32 dwInputStreamID, IMFMediaType** pMediaType) GetInputCurrentType;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMFDeviceTransform*/SelfOuter* self, uint32 dwInputStreamID, IMFAttributes** ppAttributes) GetInputStreamAttributes;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMFDeviceTransform*/SelfOuter* self, uint32 dwOutputStreamID, uint32 dwTypeIndex, IMFMediaType** pMediaType) GetOutputAvailableType;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMFDeviceTransform*/SelfOuter* self, uint32 dwOutputStreamID, IMFMediaType** pMediaType) GetOutputCurrentType;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMFDeviceTransform*/SelfOuter* self, uint32 dwOutputStreamID, IMFAttributes** ppAttributes) GetOutputStreamAttributes;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMFDeviceTransform*/SelfOuter* self, uint32* pcInputStreams, uint32* pcOutputStreams) GetStreamCount;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMFDeviceTransform*/SelfOuter* self, uint32 dwInputIDArraySize, uint32* pdwInputStreamIds, uint32 dwOutputIDArraySize, uint32* pdwOutputStreamIds) GetStreamIDs;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMFDeviceTransform*/SelfOuter* self, uint32 dwInputStreamID, IMFMediaEvent* pEvent) ProcessEvent;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMFDeviceTransform*/SelfOuter* self, uint32 dwInputStreamID, IMFSample* pSample, uint32 dwFlags) ProcessInput;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMFDeviceTransform*/SelfOuter* self, MFT_MESSAGE_TYPE eMessage, uint ulParam) ProcessMessage;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMFDeviceTransform*/SelfOuter* self, uint32 dwFlags, uint32 cOutputBufferCount, MFT_OUTPUT_DATA_BUFFER* pOutputSample, uint32* pdwStatus) ProcessOutput;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMFDeviceTransform*/SelfOuter* self, uint32 dwStreamID, IMFMediaType* pMediaType, DeviceStreamState value, uint32 dwFlags) SetInputStreamState;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMFDeviceTransform*/SelfOuter* self, uint32 dwStreamID, DeviceStreamState* value) GetInputStreamState;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMFDeviceTransform*/SelfOuter* self, uint32 dwStreamID, IMFMediaType* pMediaType, DeviceStreamState value, uint32 dwFlags) SetOutputStreamState;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMFDeviceTransform*/SelfOuter* self, uint32 dwStreamID, DeviceStreamState* value) GetOutputStreamState;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMFDeviceTransform*/SelfOuter* self, uint32 dwStreamID, DeviceStreamState* value, IMFMediaType** ppMediaType) GetInputStreamPreferredState;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMFDeviceTransform*/SelfOuter* self, uint32 dwStreamIndex, uint32 dwFlags) FlushInputStream;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMFDeviceTransform*/SelfOuter* self, uint32 dwStreamIndex, uint32 dwFlags) FlushOutputStream;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IMFAttributes* pAttributes) InitializeTransform;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwInputStreamID, uint32 dwTypeIndex, IMFMediaType** pMediaType) GetInputAvailableType;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwInputStreamID, IMFMediaType** pMediaType) GetInputCurrentType;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwInputStreamID, IMFAttributes** ppAttributes) GetInputStreamAttributes;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwOutputStreamID, uint32 dwTypeIndex, IMFMediaType** pMediaType) GetOutputAvailableType;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwOutputStreamID, IMFMediaType** pMediaType) GetOutputCurrentType;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwOutputStreamID, IMFAttributes** ppAttributes) GetOutputStreamAttributes;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pcInputStreams, uint32* pcOutputStreams) GetStreamCount;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwInputIDArraySize, uint32* pdwInputStreamIds, uint32 dwOutputIDArraySize, uint32* pdwOutputStreamIds) GetStreamIDs;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwInputStreamID, IMFMediaEvent* pEvent) ProcessEvent;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwInputStreamID, IMFSample* pSample, uint32 dwFlags) ProcessInput;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, MFT_MESSAGE_TYPE eMessage, uint ulParam) ProcessMessage;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwFlags, uint32 cOutputBufferCount, MFT_OUTPUT_DATA_BUFFER* pOutputSample, uint32* pdwStatus) ProcessOutput;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwStreamID, IMFMediaType* pMediaType, DeviceStreamState value, uint32 dwFlags) SetInputStreamState;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwStreamID, DeviceStreamState* value) GetInputStreamState;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwStreamID, IMFMediaType* pMediaType, DeviceStreamState value, uint32 dwFlags) SetOutputStreamState;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwStreamID, DeviceStreamState* value) GetOutputStreamState;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwStreamID, DeviceStreamState* value, IMFMediaType** ppMediaType) GetInputStreamPreferredState;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwStreamIndex, uint32 dwFlags) FlushInputStream;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwStreamIndex, uint32 dwFlags) FlushOutputStream;
 	}
 
 
@@ -214,7 +214,7 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMFDeviceTransformCallback*/SelfOuter* self, IMFAttributes* pCallbackAttributes, uint32 pinId) OnBufferSent;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IMFAttributes* pCallbackAttributes, uint32 pinId) OnBufferSent;
 	}
 
 

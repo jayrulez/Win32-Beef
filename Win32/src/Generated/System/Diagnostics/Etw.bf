@@ -2594,18 +2594,18 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITraceEvent*/SelfOuter* self, ITraceEvent** NewEvent) Clone;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITraceEvent*/SelfOuter* self, void** UserContext) GetUserContext;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITraceEvent*/SelfOuter* self, EVENT_RECORD** EventRecord) GetEventRecord;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITraceEvent*/SelfOuter* self, uint8* Payload, uint32 PayloadSize) SetPayload;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITraceEvent*/SelfOuter* self, EVENT_DESCRIPTOR* EventDescriptor) SetEventDescriptor;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITraceEvent*/SelfOuter* self, uint32 ProcessId) SetProcessId;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITraceEvent*/SelfOuter* self, uint32 ProcessorIndex) SetProcessorIndex;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITraceEvent*/SelfOuter* self, uint32 ThreadId) SetThreadId;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITraceEvent*/SelfOuter* self, uint32 KernelTime, uint32 UserTime) SetThreadTimes;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITraceEvent*/SelfOuter* self, ref Guid ActivityId) SetActivityId;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITraceEvent*/SelfOuter* self, LARGE_INTEGER* TimeStamp) SetTimeStamp;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITraceEvent*/SelfOuter* self, ref Guid ProviderId) SetProviderId;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ITraceEvent** NewEvent) Clone;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, void** UserContext) GetUserContext;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, EVENT_RECORD** EventRecord) GetEventRecord;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint8* Payload, uint32 PayloadSize) SetPayload;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, EVENT_DESCRIPTOR* EventDescriptor) SetEventDescriptor;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 ProcessId) SetProcessId;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 ProcessorIndex) SetProcessorIndex;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 ThreadId) SetThreadId;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 KernelTime, uint32 UserTime) SetThreadTimes;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid ActivityId) SetActivityId;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, LARGE_INTEGER* TimeStamp) SetTimeStamp;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid ProviderId) SetProviderId;
 	}
 
 
@@ -2642,9 +2642,9 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITraceEventCallback*/SelfOuter* self, ITraceEvent* HeaderEvent, ITraceRelogger* Relogger) OnBeginProcessTrace;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITraceEventCallback*/SelfOuter* self, ITraceRelogger* Relogger) OnFinalizeProcessTrace;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITraceEventCallback*/SelfOuter* self, ITraceEvent* Event, ITraceRelogger* Relogger) OnEvent;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ITraceEvent* HeaderEvent, ITraceRelogger* Relogger) OnBeginProcessTrace;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ITraceRelogger* Relogger) OnFinalizeProcessTrace;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ITraceEvent* Event, ITraceRelogger* Relogger) OnEvent;
 	}
 
 
@@ -2663,15 +2663,15 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITraceRelogger*/SelfOuter* self, BSTR LogfileName, void* UserContext, uint64* TraceHandle) AddLogfileTraceStream;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITraceRelogger*/SelfOuter* self, BSTR LoggerName, void* UserContext, uint64* TraceHandle) AddRealtimeTraceStream;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITraceRelogger*/SelfOuter* self, ITraceEventCallback* Callback) RegisterCallback;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITraceRelogger*/SelfOuter* self, ITraceEvent* Event) Inject;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITraceRelogger*/SelfOuter* self, uint64 TraceHandle, uint32 Flags, ITraceEvent** Event) CreateEventInstance;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITraceRelogger*/SelfOuter* self) ProcessTrace;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITraceRelogger*/SelfOuter* self, BSTR LogfileName) SetOutputFilename;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITraceRelogger*/SelfOuter* self, BOOLEAN CompressionMode) SetCompressionMode;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITraceRelogger*/SelfOuter* self) Cancel;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR LogfileName, void* UserContext, uint64* TraceHandle) AddLogfileTraceStream;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR LoggerName, void* UserContext, uint64* TraceHandle) AddRealtimeTraceStream;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ITraceEventCallback* Callback) RegisterCallback;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ITraceEvent* Event) Inject;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint64 TraceHandle, uint32 Flags, ITraceEvent** Event) CreateEventInstance;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) ProcessTrace;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR LogfileName) SetOutputFilename;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BOOLEAN CompressionMode) SetCompressionMode;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Cancel;
 	}
 
 

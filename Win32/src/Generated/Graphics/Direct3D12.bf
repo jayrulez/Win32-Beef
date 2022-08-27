@@ -5834,10 +5834,10 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID3D12Object*/SelfOuter* self, ref Guid guid, uint32* pDataSize, void* pData) GetPrivateData;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID3D12Object*/SelfOuter* self, ref Guid guid, uint32 DataSize, void* pData) SetPrivateData;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID3D12Object*/SelfOuter* self, ref Guid guid, IUnknown* pData) SetPrivateDataInterface;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID3D12Object*/SelfOuter* self, PWSTR Name) SetName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid guid, uint32* pDataSize, void* pData) GetPrivateData;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid guid, uint32 DataSize, void* pData) SetPrivateData;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid guid, IUnknown* pData) SetPrivateDataInterface;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR Name) SetName;
 	}
 
 
@@ -5858,7 +5858,7 @@ public static
 
 	[CRepr]public struct VTable : ID3D12Object.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID3D12DeviceChild*/SelfOuter* self, ref Guid riid, void** ppvDevice) GetDevice;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid riid, void** ppvDevice) GetDevice;
 	}
 
 
@@ -5885,7 +5885,7 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] D3D12_ROOT_SIGNATURE_DESC*(/*ID3D12RootSignatureDeserializer*/SelfOuter* self) GetRootSignatureDesc;
+		protected new function [CallingConvention(.Stdcall)] D3D12_ROOT_SIGNATURE_DESC*(SelfOuter* self) GetRootSignatureDesc;
 	}
 
 
@@ -5900,8 +5900,8 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID3D12VersionedRootSignatureDeserializer*/SelfOuter* self, D3D_ROOT_SIGNATURE_VERSION convertToVersion, D3D12_VERSIONED_ROOT_SIGNATURE_DESC** ppDesc) GetRootSignatureDescAtVersion;
-		protected new function [CallingConvention(.Stdcall)] D3D12_VERSIONED_ROOT_SIGNATURE_DESC*(/*ID3D12VersionedRootSignatureDeserializer*/SelfOuter* self) GetUnconvertedRootSignatureDesc;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, D3D_ROOT_SIGNATURE_VERSION convertToVersion, D3D12_VERSIONED_ROOT_SIGNATURE_DESC** ppDesc) GetRootSignatureDescAtVersion;
+		protected new function [CallingConvention(.Stdcall)] D3D12_VERSIONED_ROOT_SIGNATURE_DESC*(SelfOuter* self) GetUnconvertedRootSignatureDesc;
 	}
 
 
@@ -5930,7 +5930,7 @@ public static
 
 	[CRepr]public struct VTable : ID3D12Pageable.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] D3D12_HEAP_DESC(/*ID3D12Heap*/SelfOuter* self) GetDesc;
+		protected new function [CallingConvention(.Stdcall)] D3D12_HEAP_DESC(SelfOuter* self) GetDesc;
 	}
 
 
@@ -5945,13 +5945,13 @@ public static
 
 	[CRepr]public struct VTable : ID3D12Pageable.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID3D12Resource*/SelfOuter* self, uint32 Subresource, D3D12_RANGE* pReadRange, void** ppData) Map;
-		protected new function [CallingConvention(.Stdcall)] void(/*ID3D12Resource*/SelfOuter* self, uint32 Subresource, D3D12_RANGE* pWrittenRange) Unmap;
-		protected new function [CallingConvention(.Stdcall)] D3D12_RESOURCE_DESC(/*ID3D12Resource*/SelfOuter* self) GetDesc;
-		protected new function [CallingConvention(.Stdcall)] uint64(/*ID3D12Resource*/SelfOuter* self) GetGPUVirtualAddress;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID3D12Resource*/SelfOuter* self, uint32 DstSubresource, D3D12_BOX* pDstBox, void* pSrcData, uint32 SrcRowPitch, uint32 SrcDepthPitch) WriteToSubresource;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID3D12Resource*/SelfOuter* self, void* pDstData, uint32 DstRowPitch, uint32 DstDepthPitch, uint32 SrcSubresource, D3D12_BOX* pSrcBox) ReadFromSubresource;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID3D12Resource*/SelfOuter* self, D3D12_HEAP_PROPERTIES* pHeapProperties, D3D12_HEAP_FLAGS* pHeapFlags) GetHeapProperties;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 Subresource, D3D12_RANGE* pReadRange, void** ppData) Map;
+		protected new function [CallingConvention(.Stdcall)] void(SelfOuter* self, uint32 Subresource, D3D12_RANGE* pWrittenRange) Unmap;
+		protected new function [CallingConvention(.Stdcall)] D3D12_RESOURCE_DESC(SelfOuter* self) GetDesc;
+		protected new function [CallingConvention(.Stdcall)] uint64(SelfOuter* self) GetGPUVirtualAddress;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 DstSubresource, D3D12_BOX* pDstBox, void* pSrcData, uint32 SrcRowPitch, uint32 SrcDepthPitch) WriteToSubresource;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, void* pDstData, uint32 DstRowPitch, uint32 DstDepthPitch, uint32 SrcSubresource, D3D12_BOX* pSrcBox) ReadFromSubresource;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, D3D12_HEAP_PROPERTIES* pHeapProperties, D3D12_HEAP_FLAGS* pHeapFlags) GetHeapProperties;
 	}
 
 
@@ -5978,7 +5978,7 @@ public static
 
 	[CRepr]public struct VTable : ID3D12Pageable.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID3D12CommandAllocator*/SelfOuter* self) Reset;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Reset;
 	}
 
 
@@ -5993,9 +5993,9 @@ public static
 
 	[CRepr]public struct VTable : ID3D12Pageable.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] uint64(/*ID3D12Fence*/SelfOuter* self) GetCompletedValue;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID3D12Fence*/SelfOuter* self, uint64 Value, HANDLE hEvent) SetEventOnCompletion;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID3D12Fence*/SelfOuter* self, uint64 Value) Signal;
+		protected new function [CallingConvention(.Stdcall)] uint64(SelfOuter* self) GetCompletedValue;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint64 Value, HANDLE hEvent) SetEventOnCompletion;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint64 Value) Signal;
 	}
 
 
@@ -6014,7 +6014,7 @@ public static
 
 	[CRepr]public struct VTable : ID3D12Fence.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] D3D12_FENCE_FLAGS(/*ID3D12Fence1*/SelfOuter* self) GetCreationFlags;
+		protected new function [CallingConvention(.Stdcall)] D3D12_FENCE_FLAGS(SelfOuter* self) GetCreationFlags;
 	}
 
 
@@ -6029,7 +6029,7 @@ public static
 
 	[CRepr]public struct VTable : ID3D12Pageable.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID3D12PipelineState*/SelfOuter* self, ID3DBlob** ppBlob) GetCachedBlob;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ID3DBlob** ppBlob) GetCachedBlob;
 	}
 
 
@@ -6044,9 +6044,9 @@ public static
 
 	[CRepr]public struct VTable : ID3D12Pageable.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] D3D12_DESCRIPTOR_HEAP_DESC(/*ID3D12DescriptorHeap*/SelfOuter* self) GetDesc;
-		protected new function [CallingConvention(.Stdcall)] D3D12_CPU_DESCRIPTOR_HANDLE(/*ID3D12DescriptorHeap*/SelfOuter* self) GetCPUDescriptorHandleForHeapStart;
-		protected new function [CallingConvention(.Stdcall)] D3D12_GPU_DESCRIPTOR_HANDLE(/*ID3D12DescriptorHeap*/SelfOuter* self) GetGPUDescriptorHandleForHeapStart;
+		protected new function [CallingConvention(.Stdcall)] D3D12_DESCRIPTOR_HEAP_DESC(SelfOuter* self) GetDesc;
+		protected new function [CallingConvention(.Stdcall)] D3D12_CPU_DESCRIPTOR_HANDLE(SelfOuter* self) GetCPUDescriptorHandleForHeapStart;
+		protected new function [CallingConvention(.Stdcall)] D3D12_GPU_DESCRIPTOR_HANDLE(SelfOuter* self) GetGPUDescriptorHandleForHeapStart;
 	}
 
 
@@ -6089,7 +6089,7 @@ public static
 
 	[CRepr]public struct VTable : ID3D12DeviceChild.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] D3D12_COMMAND_LIST_TYPE(/*ID3D12CommandList*/SelfOuter* self) COM_GetType;
+		protected new function [CallingConvention(.Stdcall)] D3D12_COMMAND_LIST_TYPE(SelfOuter* self) COM_GetType;
 	}
 
 
@@ -6104,57 +6104,57 @@ public static
 
 	[CRepr]public struct VTable : ID3D12CommandList.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID3D12GraphicsCommandList*/SelfOuter* self) Close;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID3D12GraphicsCommandList*/SelfOuter* self, ID3D12CommandAllocator* pAllocator, ID3D12PipelineState* pInitialState) Reset;
-		protected new function [CallingConvention(.Stdcall)] void(/*ID3D12GraphicsCommandList*/SelfOuter* self, ID3D12PipelineState* pPipelineState) ClearState;
-		protected new function [CallingConvention(.Stdcall)] void(/*ID3D12GraphicsCommandList*/SelfOuter* self, uint32 VertexCountPerInstance, uint32 InstanceCount, uint32 StartVertexLocation, uint32 StartInstanceLocation) DrawInstanced;
-		protected new function [CallingConvention(.Stdcall)] void(/*ID3D12GraphicsCommandList*/SelfOuter* self, uint32 IndexCountPerInstance, uint32 InstanceCount, uint32 StartIndexLocation, int32 BaseVertexLocation, uint32 StartInstanceLocation) DrawIndexedInstanced;
-		protected new function [CallingConvention(.Stdcall)] void(/*ID3D12GraphicsCommandList*/SelfOuter* self, uint32 ThreadGroupCountX, uint32 ThreadGroupCountY, uint32 ThreadGroupCountZ) Dispatch;
-		protected new function [CallingConvention(.Stdcall)] void(/*ID3D12GraphicsCommandList*/SelfOuter* self, ID3D12Resource* pDstBuffer, uint64 DstOffset, ID3D12Resource* pSrcBuffer, uint64 SrcOffset, uint64 NumBytes) CopyBufferRegion;
-		protected new function [CallingConvention(.Stdcall)] void(/*ID3D12GraphicsCommandList*/SelfOuter* self, D3D12_TEXTURE_COPY_LOCATION* pDst, uint32 DstX, uint32 DstY, uint32 DstZ, D3D12_TEXTURE_COPY_LOCATION* pSrc, D3D12_BOX* pSrcBox) CopyTextureRegion;
-		protected new function [CallingConvention(.Stdcall)] void(/*ID3D12GraphicsCommandList*/SelfOuter* self, ID3D12Resource* pDstResource, ID3D12Resource* pSrcResource) CopyResource;
-		protected new function [CallingConvention(.Stdcall)] void(/*ID3D12GraphicsCommandList*/SelfOuter* self, ID3D12Resource* pTiledResource, D3D12_TILED_RESOURCE_COORDINATE* pTileRegionStartCoordinate, D3D12_TILE_REGION_SIZE* pTileRegionSize, ID3D12Resource* pBuffer, uint64 BufferStartOffsetInBytes, D3D12_TILE_COPY_FLAGS Flags) CopyTiles;
-		protected new function [CallingConvention(.Stdcall)] void(/*ID3D12GraphicsCommandList*/SelfOuter* self, ID3D12Resource* pDstResource, uint32 DstSubresource, ID3D12Resource* pSrcResource, uint32 SrcSubresource, DXGI_FORMAT Format) ResolveSubresource;
-		protected new function [CallingConvention(.Stdcall)] void(/*ID3D12GraphicsCommandList*/SelfOuter* self, D3D_PRIMITIVE_TOPOLOGY PrimitiveTopology) IASetPrimitiveTopology;
-		protected new function [CallingConvention(.Stdcall)] void(/*ID3D12GraphicsCommandList*/SelfOuter* self, uint32 NumViewports, D3D12_VIEWPORT* pViewports) RSSetViewports;
-		protected new function [CallingConvention(.Stdcall)] void(/*ID3D12GraphicsCommandList*/SelfOuter* self, uint32 NumRects, RECT* pRects) RSSetScissorRects;
-		protected new function [CallingConvention(.Stdcall)] void(/*ID3D12GraphicsCommandList*/SelfOuter* self, float* BlendFactor) OMSetBlendFactor;
-		protected new function [CallingConvention(.Stdcall)] void(/*ID3D12GraphicsCommandList*/SelfOuter* self, uint32 StencilRef) OMSetStencilRef;
-		protected new function [CallingConvention(.Stdcall)] void(/*ID3D12GraphicsCommandList*/SelfOuter* self, ID3D12PipelineState* pPipelineState) SetPipelineState;
-		protected new function [CallingConvention(.Stdcall)] void(/*ID3D12GraphicsCommandList*/SelfOuter* self, uint32 NumBarriers, D3D12_RESOURCE_BARRIER* pBarriers) ResourceBarrier;
-		protected new function [CallingConvention(.Stdcall)] void(/*ID3D12GraphicsCommandList*/SelfOuter* self, ID3D12GraphicsCommandList* pCommandList) ExecuteBundle;
-		protected new function [CallingConvention(.Stdcall)] void(/*ID3D12GraphicsCommandList*/SelfOuter* self, uint32 NumDescriptorHeaps, ID3D12DescriptorHeap** ppDescriptorHeaps) SetDescriptorHeaps;
-		protected new function [CallingConvention(.Stdcall)] void(/*ID3D12GraphicsCommandList*/SelfOuter* self, ID3D12RootSignature* pRootSignature) SetComputeRootSignature;
-		protected new function [CallingConvention(.Stdcall)] void(/*ID3D12GraphicsCommandList*/SelfOuter* self, ID3D12RootSignature* pRootSignature) SetGraphicsRootSignature;
-		protected new function [CallingConvention(.Stdcall)] void(/*ID3D12GraphicsCommandList*/SelfOuter* self, uint32 RootParameterIndex, D3D12_GPU_DESCRIPTOR_HANDLE BaseDescriptor) SetComputeRootDescriptorTable;
-		protected new function [CallingConvention(.Stdcall)] void(/*ID3D12GraphicsCommandList*/SelfOuter* self, uint32 RootParameterIndex, D3D12_GPU_DESCRIPTOR_HANDLE BaseDescriptor) SetGraphicsRootDescriptorTable;
-		protected new function [CallingConvention(.Stdcall)] void(/*ID3D12GraphicsCommandList*/SelfOuter* self, uint32 RootParameterIndex, uint32 SrcData, uint32 DestOffsetIn32BitValues) SetComputeRoot32BitConstant;
-		protected new function [CallingConvention(.Stdcall)] void(/*ID3D12GraphicsCommandList*/SelfOuter* self, uint32 RootParameterIndex, uint32 SrcData, uint32 DestOffsetIn32BitValues) SetGraphicsRoot32BitConstant;
-		protected new function [CallingConvention(.Stdcall)] void(/*ID3D12GraphicsCommandList*/SelfOuter* self, uint32 RootParameterIndex, uint32 Num32BitValuesToSet, void* pSrcData, uint32 DestOffsetIn32BitValues) SetComputeRoot32BitConstants;
-		protected new function [CallingConvention(.Stdcall)] void(/*ID3D12GraphicsCommandList*/SelfOuter* self, uint32 RootParameterIndex, uint32 Num32BitValuesToSet, void* pSrcData, uint32 DestOffsetIn32BitValues) SetGraphicsRoot32BitConstants;
-		protected new function [CallingConvention(.Stdcall)] void(/*ID3D12GraphicsCommandList*/SelfOuter* self, uint32 RootParameterIndex, uint64 BufferLocation) SetComputeRootConstantBufferView;
-		protected new function [CallingConvention(.Stdcall)] void(/*ID3D12GraphicsCommandList*/SelfOuter* self, uint32 RootParameterIndex, uint64 BufferLocation) SetGraphicsRootConstantBufferView;
-		protected new function [CallingConvention(.Stdcall)] void(/*ID3D12GraphicsCommandList*/SelfOuter* self, uint32 RootParameterIndex, uint64 BufferLocation) SetComputeRootShaderResourceView;
-		protected new function [CallingConvention(.Stdcall)] void(/*ID3D12GraphicsCommandList*/SelfOuter* self, uint32 RootParameterIndex, uint64 BufferLocation) SetGraphicsRootShaderResourceView;
-		protected new function [CallingConvention(.Stdcall)] void(/*ID3D12GraphicsCommandList*/SelfOuter* self, uint32 RootParameterIndex, uint64 BufferLocation) SetComputeRootUnorderedAccessView;
-		protected new function [CallingConvention(.Stdcall)] void(/*ID3D12GraphicsCommandList*/SelfOuter* self, uint32 RootParameterIndex, uint64 BufferLocation) SetGraphicsRootUnorderedAccessView;
-		protected new function [CallingConvention(.Stdcall)] void(/*ID3D12GraphicsCommandList*/SelfOuter* self, D3D12_INDEX_BUFFER_VIEW* pView) IASetIndexBuffer;
-		protected new function [CallingConvention(.Stdcall)] void(/*ID3D12GraphicsCommandList*/SelfOuter* self, uint32 StartSlot, uint32 NumViews, D3D12_VERTEX_BUFFER_VIEW* pViews) IASetVertexBuffers;
-		protected new function [CallingConvention(.Stdcall)] void(/*ID3D12GraphicsCommandList*/SelfOuter* self, uint32 StartSlot, uint32 NumViews, D3D12_STREAM_OUTPUT_BUFFER_VIEW* pViews) SOSetTargets;
-		protected new function [CallingConvention(.Stdcall)] void(/*ID3D12GraphicsCommandList*/SelfOuter* self, uint32 NumRenderTargetDescriptors, D3D12_CPU_DESCRIPTOR_HANDLE* pRenderTargetDescriptors, BOOL RTsSingleHandleToDescriptorRange, D3D12_CPU_DESCRIPTOR_HANDLE* pDepthStencilDescriptor) OMSetRenderTargets;
-		protected new function [CallingConvention(.Stdcall)] void(/*ID3D12GraphicsCommandList*/SelfOuter* self, D3D12_CPU_DESCRIPTOR_HANDLE DepthStencilView, D3D12_CLEAR_FLAGS ClearFlags, float Depth, uint8 Stencil, uint32 NumRects, RECT* pRects) ClearDepthStencilView;
-		protected new function [CallingConvention(.Stdcall)] void(/*ID3D12GraphicsCommandList*/SelfOuter* self, D3D12_CPU_DESCRIPTOR_HANDLE RenderTargetView, float* ColorRGBA, uint32 NumRects, RECT* pRects) ClearRenderTargetView;
-		protected new function [CallingConvention(.Stdcall)] void(/*ID3D12GraphicsCommandList*/SelfOuter* self, D3D12_GPU_DESCRIPTOR_HANDLE ViewGPUHandleInCurrentHeap, D3D12_CPU_DESCRIPTOR_HANDLE ViewCPUHandle, ID3D12Resource* pResource, uint32* Values, uint32 NumRects, RECT* pRects) ClearUnorderedAccessViewUint;
-		protected new function [CallingConvention(.Stdcall)] void(/*ID3D12GraphicsCommandList*/SelfOuter* self, D3D12_GPU_DESCRIPTOR_HANDLE ViewGPUHandleInCurrentHeap, D3D12_CPU_DESCRIPTOR_HANDLE ViewCPUHandle, ID3D12Resource* pResource, float* Values, uint32 NumRects, RECT* pRects) ClearUnorderedAccessViewFloat;
-		protected new function [CallingConvention(.Stdcall)] void(/*ID3D12GraphicsCommandList*/SelfOuter* self, ID3D12Resource* pResource, D3D12_DISCARD_REGION* pRegion) DiscardResource;
-		protected new function [CallingConvention(.Stdcall)] void(/*ID3D12GraphicsCommandList*/SelfOuter* self, ID3D12QueryHeap* pQueryHeap, D3D12_QUERY_TYPE Type, uint32 Index) BeginQuery;
-		protected new function [CallingConvention(.Stdcall)] void(/*ID3D12GraphicsCommandList*/SelfOuter* self, ID3D12QueryHeap* pQueryHeap, D3D12_QUERY_TYPE Type, uint32 Index) EndQuery;
-		protected new function [CallingConvention(.Stdcall)] void(/*ID3D12GraphicsCommandList*/SelfOuter* self, ID3D12QueryHeap* pQueryHeap, D3D12_QUERY_TYPE Type, uint32 StartIndex, uint32 NumQueries, ID3D12Resource* pDestinationBuffer, uint64 AlignedDestinationBufferOffset) ResolveQueryData;
-		protected new function [CallingConvention(.Stdcall)] void(/*ID3D12GraphicsCommandList*/SelfOuter* self, ID3D12Resource* pBuffer, uint64 AlignedBufferOffset, D3D12_PREDICATION_OP Operation) SetPredication;
-		protected new function [CallingConvention(.Stdcall)] void(/*ID3D12GraphicsCommandList*/SelfOuter* self, uint32 Metadata, void* pData, uint32 Size) SetMarker;
-		protected new function [CallingConvention(.Stdcall)] void(/*ID3D12GraphicsCommandList*/SelfOuter* self, uint32 Metadata, void* pData, uint32 Size) BeginEvent;
-		protected new function [CallingConvention(.Stdcall)] void(/*ID3D12GraphicsCommandList*/SelfOuter* self) EndEvent;
-		protected new function [CallingConvention(.Stdcall)] void(/*ID3D12GraphicsCommandList*/SelfOuter* self, ID3D12CommandSignature* pCommandSignature, uint32 MaxCommandCount, ID3D12Resource* pArgumentBuffer, uint64 ArgumentBufferOffset, ID3D12Resource* pCountBuffer, uint64 CountBufferOffset) ExecuteIndirect;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Close;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ID3D12CommandAllocator* pAllocator, ID3D12PipelineState* pInitialState) Reset;
+		protected new function [CallingConvention(.Stdcall)] void(SelfOuter* self, ID3D12PipelineState* pPipelineState) ClearState;
+		protected new function [CallingConvention(.Stdcall)] void(SelfOuter* self, uint32 VertexCountPerInstance, uint32 InstanceCount, uint32 StartVertexLocation, uint32 StartInstanceLocation) DrawInstanced;
+		protected new function [CallingConvention(.Stdcall)] void(SelfOuter* self, uint32 IndexCountPerInstance, uint32 InstanceCount, uint32 StartIndexLocation, int32 BaseVertexLocation, uint32 StartInstanceLocation) DrawIndexedInstanced;
+		protected new function [CallingConvention(.Stdcall)] void(SelfOuter* self, uint32 ThreadGroupCountX, uint32 ThreadGroupCountY, uint32 ThreadGroupCountZ) Dispatch;
+		protected new function [CallingConvention(.Stdcall)] void(SelfOuter* self, ID3D12Resource* pDstBuffer, uint64 DstOffset, ID3D12Resource* pSrcBuffer, uint64 SrcOffset, uint64 NumBytes) CopyBufferRegion;
+		protected new function [CallingConvention(.Stdcall)] void(SelfOuter* self, D3D12_TEXTURE_COPY_LOCATION* pDst, uint32 DstX, uint32 DstY, uint32 DstZ, D3D12_TEXTURE_COPY_LOCATION* pSrc, D3D12_BOX* pSrcBox) CopyTextureRegion;
+		protected new function [CallingConvention(.Stdcall)] void(SelfOuter* self, ID3D12Resource* pDstResource, ID3D12Resource* pSrcResource) CopyResource;
+		protected new function [CallingConvention(.Stdcall)] void(SelfOuter* self, ID3D12Resource* pTiledResource, D3D12_TILED_RESOURCE_COORDINATE* pTileRegionStartCoordinate, D3D12_TILE_REGION_SIZE* pTileRegionSize, ID3D12Resource* pBuffer, uint64 BufferStartOffsetInBytes, D3D12_TILE_COPY_FLAGS Flags) CopyTiles;
+		protected new function [CallingConvention(.Stdcall)] void(SelfOuter* self, ID3D12Resource* pDstResource, uint32 DstSubresource, ID3D12Resource* pSrcResource, uint32 SrcSubresource, DXGI_FORMAT Format) ResolveSubresource;
+		protected new function [CallingConvention(.Stdcall)] void(SelfOuter* self, D3D_PRIMITIVE_TOPOLOGY PrimitiveTopology) IASetPrimitiveTopology;
+		protected new function [CallingConvention(.Stdcall)] void(SelfOuter* self, uint32 NumViewports, D3D12_VIEWPORT* pViewports) RSSetViewports;
+		protected new function [CallingConvention(.Stdcall)] void(SelfOuter* self, uint32 NumRects, RECT* pRects) RSSetScissorRects;
+		protected new function [CallingConvention(.Stdcall)] void(SelfOuter* self, float* BlendFactor) OMSetBlendFactor;
+		protected new function [CallingConvention(.Stdcall)] void(SelfOuter* self, uint32 StencilRef) OMSetStencilRef;
+		protected new function [CallingConvention(.Stdcall)] void(SelfOuter* self, ID3D12PipelineState* pPipelineState) SetPipelineState;
+		protected new function [CallingConvention(.Stdcall)] void(SelfOuter* self, uint32 NumBarriers, D3D12_RESOURCE_BARRIER* pBarriers) ResourceBarrier;
+		protected new function [CallingConvention(.Stdcall)] void(SelfOuter* self, ID3D12GraphicsCommandList* pCommandList) ExecuteBundle;
+		protected new function [CallingConvention(.Stdcall)] void(SelfOuter* self, uint32 NumDescriptorHeaps, ID3D12DescriptorHeap** ppDescriptorHeaps) SetDescriptorHeaps;
+		protected new function [CallingConvention(.Stdcall)] void(SelfOuter* self, ID3D12RootSignature* pRootSignature) SetComputeRootSignature;
+		protected new function [CallingConvention(.Stdcall)] void(SelfOuter* self, ID3D12RootSignature* pRootSignature) SetGraphicsRootSignature;
+		protected new function [CallingConvention(.Stdcall)] void(SelfOuter* self, uint32 RootParameterIndex, D3D12_GPU_DESCRIPTOR_HANDLE BaseDescriptor) SetComputeRootDescriptorTable;
+		protected new function [CallingConvention(.Stdcall)] void(SelfOuter* self, uint32 RootParameterIndex, D3D12_GPU_DESCRIPTOR_HANDLE BaseDescriptor) SetGraphicsRootDescriptorTable;
+		protected new function [CallingConvention(.Stdcall)] void(SelfOuter* self, uint32 RootParameterIndex, uint32 SrcData, uint32 DestOffsetIn32BitValues) SetComputeRoot32BitConstant;
+		protected new function [CallingConvention(.Stdcall)] void(SelfOuter* self, uint32 RootParameterIndex, uint32 SrcData, uint32 DestOffsetIn32BitValues) SetGraphicsRoot32BitConstant;
+		protected new function [CallingConvention(.Stdcall)] void(SelfOuter* self, uint32 RootParameterIndex, uint32 Num32BitValuesToSet, void* pSrcData, uint32 DestOffsetIn32BitValues) SetComputeRoot32BitConstants;
+		protected new function [CallingConvention(.Stdcall)] void(SelfOuter* self, uint32 RootParameterIndex, uint32 Num32BitValuesToSet, void* pSrcData, uint32 DestOffsetIn32BitValues) SetGraphicsRoot32BitConstants;
+		protected new function [CallingConvention(.Stdcall)] void(SelfOuter* self, uint32 RootParameterIndex, uint64 BufferLocation) SetComputeRootConstantBufferView;
+		protected new function [CallingConvention(.Stdcall)] void(SelfOuter* self, uint32 RootParameterIndex, uint64 BufferLocation) SetGraphicsRootConstantBufferView;
+		protected new function [CallingConvention(.Stdcall)] void(SelfOuter* self, uint32 RootParameterIndex, uint64 BufferLocation) SetComputeRootShaderResourceView;
+		protected new function [CallingConvention(.Stdcall)] void(SelfOuter* self, uint32 RootParameterIndex, uint64 BufferLocation) SetGraphicsRootShaderResourceView;
+		protected new function [CallingConvention(.Stdcall)] void(SelfOuter* self, uint32 RootParameterIndex, uint64 BufferLocation) SetComputeRootUnorderedAccessView;
+		protected new function [CallingConvention(.Stdcall)] void(SelfOuter* self, uint32 RootParameterIndex, uint64 BufferLocation) SetGraphicsRootUnorderedAccessView;
+		protected new function [CallingConvention(.Stdcall)] void(SelfOuter* self, D3D12_INDEX_BUFFER_VIEW* pView) IASetIndexBuffer;
+		protected new function [CallingConvention(.Stdcall)] void(SelfOuter* self, uint32 StartSlot, uint32 NumViews, D3D12_VERTEX_BUFFER_VIEW* pViews) IASetVertexBuffers;
+		protected new function [CallingConvention(.Stdcall)] void(SelfOuter* self, uint32 StartSlot, uint32 NumViews, D3D12_STREAM_OUTPUT_BUFFER_VIEW* pViews) SOSetTargets;
+		protected new function [CallingConvention(.Stdcall)] void(SelfOuter* self, uint32 NumRenderTargetDescriptors, D3D12_CPU_DESCRIPTOR_HANDLE* pRenderTargetDescriptors, BOOL RTsSingleHandleToDescriptorRange, D3D12_CPU_DESCRIPTOR_HANDLE* pDepthStencilDescriptor) OMSetRenderTargets;
+		protected new function [CallingConvention(.Stdcall)] void(SelfOuter* self, D3D12_CPU_DESCRIPTOR_HANDLE DepthStencilView, D3D12_CLEAR_FLAGS ClearFlags, float Depth, uint8 Stencil, uint32 NumRects, RECT* pRects) ClearDepthStencilView;
+		protected new function [CallingConvention(.Stdcall)] void(SelfOuter* self, D3D12_CPU_DESCRIPTOR_HANDLE RenderTargetView, float* ColorRGBA, uint32 NumRects, RECT* pRects) ClearRenderTargetView;
+		protected new function [CallingConvention(.Stdcall)] void(SelfOuter* self, D3D12_GPU_DESCRIPTOR_HANDLE ViewGPUHandleInCurrentHeap, D3D12_CPU_DESCRIPTOR_HANDLE ViewCPUHandle, ID3D12Resource* pResource, uint32* Values, uint32 NumRects, RECT* pRects) ClearUnorderedAccessViewUint;
+		protected new function [CallingConvention(.Stdcall)] void(SelfOuter* self, D3D12_GPU_DESCRIPTOR_HANDLE ViewGPUHandleInCurrentHeap, D3D12_CPU_DESCRIPTOR_HANDLE ViewCPUHandle, ID3D12Resource* pResource, float* Values, uint32 NumRects, RECT* pRects) ClearUnorderedAccessViewFloat;
+		protected new function [CallingConvention(.Stdcall)] void(SelfOuter* self, ID3D12Resource* pResource, D3D12_DISCARD_REGION* pRegion) DiscardResource;
+		protected new function [CallingConvention(.Stdcall)] void(SelfOuter* self, ID3D12QueryHeap* pQueryHeap, D3D12_QUERY_TYPE Type, uint32 Index) BeginQuery;
+		protected new function [CallingConvention(.Stdcall)] void(SelfOuter* self, ID3D12QueryHeap* pQueryHeap, D3D12_QUERY_TYPE Type, uint32 Index) EndQuery;
+		protected new function [CallingConvention(.Stdcall)] void(SelfOuter* self, ID3D12QueryHeap* pQueryHeap, D3D12_QUERY_TYPE Type, uint32 StartIndex, uint32 NumQueries, ID3D12Resource* pDestinationBuffer, uint64 AlignedDestinationBufferOffset) ResolveQueryData;
+		protected new function [CallingConvention(.Stdcall)] void(SelfOuter* self, ID3D12Resource* pBuffer, uint64 AlignedBufferOffset, D3D12_PREDICATION_OP Operation) SetPredication;
+		protected new function [CallingConvention(.Stdcall)] void(SelfOuter* self, uint32 Metadata, void* pData, uint32 Size) SetMarker;
+		protected new function [CallingConvention(.Stdcall)] void(SelfOuter* self, uint32 Metadata, void* pData, uint32 Size) BeginEvent;
+		protected new function [CallingConvention(.Stdcall)] void(SelfOuter* self) EndEvent;
+		protected new function [CallingConvention(.Stdcall)] void(SelfOuter* self, ID3D12CommandSignature* pCommandSignature, uint32 MaxCommandCount, ID3D12Resource* pArgumentBuffer, uint64 ArgumentBufferOffset, ID3D12Resource* pCountBuffer, uint64 CountBufferOffset) ExecuteIndirect;
 	}
 
 
@@ -6269,12 +6269,12 @@ public static
 
 	[CRepr]public struct VTable : ID3D12GraphicsCommandList.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] void(/*ID3D12GraphicsCommandList1*/SelfOuter* self, ID3D12Resource* pDstBuffer, uint64 DstOffset, ID3D12Resource* pSrcBuffer, uint64 SrcOffset, uint32 Dependencies, ID3D12Resource** ppDependentResources, D3D12_SUBRESOURCE_RANGE_UINT64* pDependentSubresourceRanges) AtomicCopyBufferUINT;
-		protected new function [CallingConvention(.Stdcall)] void(/*ID3D12GraphicsCommandList1*/SelfOuter* self, ID3D12Resource* pDstBuffer, uint64 DstOffset, ID3D12Resource* pSrcBuffer, uint64 SrcOffset, uint32 Dependencies, ID3D12Resource** ppDependentResources, D3D12_SUBRESOURCE_RANGE_UINT64* pDependentSubresourceRanges) AtomicCopyBufferUINT64;
-		protected new function [CallingConvention(.Stdcall)] void(/*ID3D12GraphicsCommandList1*/SelfOuter* self, float Min, float Max) OMSetDepthBounds;
-		protected new function [CallingConvention(.Stdcall)] void(/*ID3D12GraphicsCommandList1*/SelfOuter* self, uint32 NumSamplesPerPixel, uint32 NumPixels, D3D12_SAMPLE_POSITION* pSamplePositions) SetSamplePositions;
-		protected new function [CallingConvention(.Stdcall)] void(/*ID3D12GraphicsCommandList1*/SelfOuter* self, ID3D12Resource* pDstResource, uint32 DstSubresource, uint32 DstX, uint32 DstY, ID3D12Resource* pSrcResource, uint32 SrcSubresource, RECT* pSrcRect, DXGI_FORMAT Format, D3D12_RESOLVE_MODE ResolveMode) ResolveSubresourceRegion;
-		protected new function [CallingConvention(.Stdcall)] void(/*ID3D12GraphicsCommandList1*/SelfOuter* self, uint32 Mask) SetViewInstanceMask;
+		protected new function [CallingConvention(.Stdcall)] void(SelfOuter* self, ID3D12Resource* pDstBuffer, uint64 DstOffset, ID3D12Resource* pSrcBuffer, uint64 SrcOffset, uint32 Dependencies, ID3D12Resource** ppDependentResources, D3D12_SUBRESOURCE_RANGE_UINT64* pDependentSubresourceRanges) AtomicCopyBufferUINT;
+		protected new function [CallingConvention(.Stdcall)] void(SelfOuter* self, ID3D12Resource* pDstBuffer, uint64 DstOffset, ID3D12Resource* pSrcBuffer, uint64 SrcOffset, uint32 Dependencies, ID3D12Resource** ppDependentResources, D3D12_SUBRESOURCE_RANGE_UINT64* pDependentSubresourceRanges) AtomicCopyBufferUINT64;
+		protected new function [CallingConvention(.Stdcall)] void(SelfOuter* self, float Min, float Max) OMSetDepthBounds;
+		protected new function [CallingConvention(.Stdcall)] void(SelfOuter* self, uint32 NumSamplesPerPixel, uint32 NumPixels, D3D12_SAMPLE_POSITION* pSamplePositions) SetSamplePositions;
+		protected new function [CallingConvention(.Stdcall)] void(SelfOuter* self, ID3D12Resource* pDstResource, uint32 DstSubresource, uint32 DstX, uint32 DstY, ID3D12Resource* pSrcResource, uint32 SrcSubresource, RECT* pSrcRect, DXGI_FORMAT Format, D3D12_RESOLVE_MODE ResolveMode) ResolveSubresourceRegion;
+		protected new function [CallingConvention(.Stdcall)] void(SelfOuter* self, uint32 Mask) SetViewInstanceMask;
 	}
 
 
@@ -6299,7 +6299,7 @@ public static
 
 	[CRepr]public struct VTable : ID3D12GraphicsCommandList1.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] void(/*ID3D12GraphicsCommandList2*/SelfOuter* self, uint32 Count, D3D12_WRITEBUFFERIMMEDIATE_PARAMETER* pParams, D3D12_WRITEBUFFERIMMEDIATE_MODE* pModes) WriteBufferImmediate;
+		protected new function [CallingConvention(.Stdcall)] void(SelfOuter* self, uint32 Count, D3D12_WRITEBUFFERIMMEDIATE_PARAMETER* pParams, D3D12_WRITEBUFFERIMMEDIATE_MODE* pModes) WriteBufferImmediate;
 	}
 
 
@@ -6314,17 +6314,17 @@ public static
 
 	[CRepr]public struct VTable : ID3D12Pageable.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] void(/*ID3D12CommandQueue*/SelfOuter* self, ID3D12Resource* pResource, uint32 NumResourceRegions, D3D12_TILED_RESOURCE_COORDINATE* pResourceRegionStartCoordinates, D3D12_TILE_REGION_SIZE* pResourceRegionSizes, ID3D12Heap* pHeap, uint32 NumRanges, D3D12_TILE_RANGE_FLAGS* pRangeFlags, uint32* pHeapRangeStartOffsets, uint32* pRangeTileCounts, D3D12_TILE_MAPPING_FLAGS Flags) UpdateTileMappings;
-		protected new function [CallingConvention(.Stdcall)] void(/*ID3D12CommandQueue*/SelfOuter* self, ID3D12Resource* pDstResource, D3D12_TILED_RESOURCE_COORDINATE* pDstRegionStartCoordinate, ID3D12Resource* pSrcResource, D3D12_TILED_RESOURCE_COORDINATE* pSrcRegionStartCoordinate, D3D12_TILE_REGION_SIZE* pRegionSize, D3D12_TILE_MAPPING_FLAGS Flags) CopyTileMappings;
-		protected new function [CallingConvention(.Stdcall)] void(/*ID3D12CommandQueue*/SelfOuter* self, uint32 NumCommandLists, ID3D12CommandList** ppCommandLists) ExecuteCommandLists;
-		protected new function [CallingConvention(.Stdcall)] void(/*ID3D12CommandQueue*/SelfOuter* self, uint32 Metadata, void* pData, uint32 Size) SetMarker;
-		protected new function [CallingConvention(.Stdcall)] void(/*ID3D12CommandQueue*/SelfOuter* self, uint32 Metadata, void* pData, uint32 Size) BeginEvent;
-		protected new function [CallingConvention(.Stdcall)] void(/*ID3D12CommandQueue*/SelfOuter* self) EndEvent;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID3D12CommandQueue*/SelfOuter* self, ID3D12Fence* pFence, uint64 Value) Signal;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID3D12CommandQueue*/SelfOuter* self, ID3D12Fence* pFence, uint64 Value) Wait;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID3D12CommandQueue*/SelfOuter* self, uint64* pFrequency) GetTimestampFrequency;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID3D12CommandQueue*/SelfOuter* self, uint64* pGpuTimestamp, uint64* pCpuTimestamp) GetClockCalibration;
-		protected new function [CallingConvention(.Stdcall)] D3D12_COMMAND_QUEUE_DESC(/*ID3D12CommandQueue*/SelfOuter* self) GetDesc;
+		protected new function [CallingConvention(.Stdcall)] void(SelfOuter* self, ID3D12Resource* pResource, uint32 NumResourceRegions, D3D12_TILED_RESOURCE_COORDINATE* pResourceRegionStartCoordinates, D3D12_TILE_REGION_SIZE* pResourceRegionSizes, ID3D12Heap* pHeap, uint32 NumRanges, D3D12_TILE_RANGE_FLAGS* pRangeFlags, uint32* pHeapRangeStartOffsets, uint32* pRangeTileCounts, D3D12_TILE_MAPPING_FLAGS Flags) UpdateTileMappings;
+		protected new function [CallingConvention(.Stdcall)] void(SelfOuter* self, ID3D12Resource* pDstResource, D3D12_TILED_RESOURCE_COORDINATE* pDstRegionStartCoordinate, ID3D12Resource* pSrcResource, D3D12_TILED_RESOURCE_COORDINATE* pSrcRegionStartCoordinate, D3D12_TILE_REGION_SIZE* pRegionSize, D3D12_TILE_MAPPING_FLAGS Flags) CopyTileMappings;
+		protected new function [CallingConvention(.Stdcall)] void(SelfOuter* self, uint32 NumCommandLists, ID3D12CommandList** ppCommandLists) ExecuteCommandLists;
+		protected new function [CallingConvention(.Stdcall)] void(SelfOuter* self, uint32 Metadata, void* pData, uint32 Size) SetMarker;
+		protected new function [CallingConvention(.Stdcall)] void(SelfOuter* self, uint32 Metadata, void* pData, uint32 Size) BeginEvent;
+		protected new function [CallingConvention(.Stdcall)] void(SelfOuter* self) EndEvent;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ID3D12Fence* pFence, uint64 Value) Signal;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ID3D12Fence* pFence, uint64 Value) Wait;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint64* pFrequency) GetTimestampFrequency;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint64* pGpuTimestamp, uint64* pCpuTimestamp) GetClockCalibration;
+		protected new function [CallingConvention(.Stdcall)] D3D12_COMMAND_QUEUE_DESC(SelfOuter* self) GetDesc;
 	}
 
 
@@ -6359,43 +6359,43 @@ public static
 
 	[CRepr]public struct VTable : ID3D12Object.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] uint32(/*ID3D12Device*/SelfOuter* self) GetNodeCount;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID3D12Device*/SelfOuter* self, D3D12_COMMAND_QUEUE_DESC* pDesc, ref Guid riid, void** ppCommandQueue) CreateCommandQueue;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID3D12Device*/SelfOuter* self, D3D12_COMMAND_LIST_TYPE type, ref Guid riid, void** ppCommandAllocator) CreateCommandAllocator;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID3D12Device*/SelfOuter* self, D3D12_GRAPHICS_PIPELINE_STATE_DESC* pDesc, ref Guid riid, void** ppPipelineState) CreateGraphicsPipelineState;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID3D12Device*/SelfOuter* self, D3D12_COMPUTE_PIPELINE_STATE_DESC* pDesc, ref Guid riid, void** ppPipelineState) CreateComputePipelineState;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID3D12Device*/SelfOuter* self, uint32 nodeMask, D3D12_COMMAND_LIST_TYPE type, ID3D12CommandAllocator* pCommandAllocator, ID3D12PipelineState* pInitialState, ref Guid riid, void** ppCommandList) CreateCommandList;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID3D12Device*/SelfOuter* self, D3D12_FEATURE Feature, void* pFeatureSupportData, uint32 FeatureSupportDataSize) CheckFeatureSupport;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID3D12Device*/SelfOuter* self, D3D12_DESCRIPTOR_HEAP_DESC* pDescriptorHeapDesc, ref Guid riid, void** ppvHeap) CreateDescriptorHeap;
-		protected new function [CallingConvention(.Stdcall)] uint32(/*ID3D12Device*/SelfOuter* self, D3D12_DESCRIPTOR_HEAP_TYPE DescriptorHeapType) GetDescriptorHandleIncrementSize;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID3D12Device*/SelfOuter* self, uint32 nodeMask, void* pBlobWithRootSignature, uint blobLengthInBytes, ref Guid riid, void** ppvRootSignature) CreateRootSignature;
-		protected new function [CallingConvention(.Stdcall)] void(/*ID3D12Device*/SelfOuter* self, D3D12_CONSTANT_BUFFER_VIEW_DESC* pDesc, D3D12_CPU_DESCRIPTOR_HANDLE DestDescriptor) CreateConstantBufferView;
-		protected new function [CallingConvention(.Stdcall)] void(/*ID3D12Device*/SelfOuter* self, ID3D12Resource* pResource, D3D12_SHADER_RESOURCE_VIEW_DESC* pDesc, D3D12_CPU_DESCRIPTOR_HANDLE DestDescriptor) CreateShaderResourceView;
-		protected new function [CallingConvention(.Stdcall)] void(/*ID3D12Device*/SelfOuter* self, ID3D12Resource* pResource, ID3D12Resource* pCounterResource, D3D12_UNORDERED_ACCESS_VIEW_DESC* pDesc, D3D12_CPU_DESCRIPTOR_HANDLE DestDescriptor) CreateUnorderedAccessView;
-		protected new function [CallingConvention(.Stdcall)] void(/*ID3D12Device*/SelfOuter* self, ID3D12Resource* pResource, D3D12_RENDER_TARGET_VIEW_DESC* pDesc, D3D12_CPU_DESCRIPTOR_HANDLE DestDescriptor) CreateRenderTargetView;
-		protected new function [CallingConvention(.Stdcall)] void(/*ID3D12Device*/SelfOuter* self, ID3D12Resource* pResource, D3D12_DEPTH_STENCIL_VIEW_DESC* pDesc, D3D12_CPU_DESCRIPTOR_HANDLE DestDescriptor) CreateDepthStencilView;
-		protected new function [CallingConvention(.Stdcall)] void(/*ID3D12Device*/SelfOuter* self, D3D12_SAMPLER_DESC* pDesc, D3D12_CPU_DESCRIPTOR_HANDLE DestDescriptor) CreateSampler;
-		protected new function [CallingConvention(.Stdcall)] void(/*ID3D12Device*/SelfOuter* self, uint32 NumDestDescriptorRanges, D3D12_CPU_DESCRIPTOR_HANDLE* pDestDescriptorRangeStarts, uint32* pDestDescriptorRangeSizes, uint32 NumSrcDescriptorRanges, D3D12_CPU_DESCRIPTOR_HANDLE* pSrcDescriptorRangeStarts, uint32* pSrcDescriptorRangeSizes, D3D12_DESCRIPTOR_HEAP_TYPE DescriptorHeapsType) CopyDescriptors;
-		protected new function [CallingConvention(.Stdcall)] void(/*ID3D12Device*/SelfOuter* self, uint32 NumDescriptors, D3D12_CPU_DESCRIPTOR_HANDLE DestDescriptorRangeStart, D3D12_CPU_DESCRIPTOR_HANDLE SrcDescriptorRangeStart, D3D12_DESCRIPTOR_HEAP_TYPE DescriptorHeapsType) CopyDescriptorsSimple;
-		protected new function [CallingConvention(.Stdcall)] D3D12_RESOURCE_ALLOCATION_INFO(/*ID3D12Device*/SelfOuter* self, uint32 visibleMask, uint32 numResourceDescs, D3D12_RESOURCE_DESC* pResourceDescs) GetResourceAllocationInfo;
-		protected new function [CallingConvention(.Stdcall)] D3D12_HEAP_PROPERTIES(/*ID3D12Device*/SelfOuter* self, uint32 nodeMask, D3D12_HEAP_TYPE heapType) GetCustomHeapProperties;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID3D12Device*/SelfOuter* self, D3D12_HEAP_PROPERTIES* pHeapProperties, D3D12_HEAP_FLAGS HeapFlags, D3D12_RESOURCE_DESC* pDesc, D3D12_RESOURCE_STATES InitialResourceState, D3D12_CLEAR_VALUE* pOptimizedClearValue, ref Guid riidResource, void** ppvResource) CreateCommittedResource;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID3D12Device*/SelfOuter* self, D3D12_HEAP_DESC* pDesc, ref Guid riid, void** ppvHeap) CreateHeap;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID3D12Device*/SelfOuter* self, ID3D12Heap* pHeap, uint64 HeapOffset, D3D12_RESOURCE_DESC* pDesc, D3D12_RESOURCE_STATES InitialState, D3D12_CLEAR_VALUE* pOptimizedClearValue, ref Guid riid, void** ppvResource) CreatePlacedResource;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID3D12Device*/SelfOuter* self, D3D12_RESOURCE_DESC* pDesc, D3D12_RESOURCE_STATES InitialState, D3D12_CLEAR_VALUE* pOptimizedClearValue, ref Guid riid, void** ppvResource) CreateReservedResource;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID3D12Device*/SelfOuter* self, ID3D12DeviceChild* pObject, SECURITY_ATTRIBUTES* pAttributes, uint32 Access, PWSTR Name, HANDLE* pHandle) CreateSharedHandle;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID3D12Device*/SelfOuter* self, HANDLE NTHandle, ref Guid riid, void** ppvObj) OpenSharedHandle;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID3D12Device*/SelfOuter* self, PWSTR Name, uint32 Access, HANDLE* pNTHandle) OpenSharedHandleByName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID3D12Device*/SelfOuter* self, uint32 NumObjects, ID3D12Pageable** ppObjects) MakeResident;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID3D12Device*/SelfOuter* self, uint32 NumObjects, ID3D12Pageable** ppObjects) Evict;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID3D12Device*/SelfOuter* self, uint64 InitialValue, D3D12_FENCE_FLAGS Flags, ref Guid riid, void** ppFence) CreateFence;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID3D12Device*/SelfOuter* self) GetDeviceRemovedReason;
-		protected new function [CallingConvention(.Stdcall)] void(/*ID3D12Device*/SelfOuter* self, D3D12_RESOURCE_DESC* pResourceDesc, uint32 FirstSubresource, uint32 NumSubresources, uint64 BaseOffset, D3D12_PLACED_SUBRESOURCE_FOOTPRINT* pLayouts, uint32* pNumRows, uint64* pRowSizeInBytes, uint64* pTotalBytes) GetCopyableFootprints;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID3D12Device*/SelfOuter* self, D3D12_QUERY_HEAP_DESC* pDesc, ref Guid riid, void** ppvHeap) CreateQueryHeap;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID3D12Device*/SelfOuter* self, BOOL Enable) SetStablePowerState;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID3D12Device*/SelfOuter* self, D3D12_COMMAND_SIGNATURE_DESC* pDesc, ID3D12RootSignature* pRootSignature, ref Guid riid, void** ppvCommandSignature) CreateCommandSignature;
-		protected new function [CallingConvention(.Stdcall)] void(/*ID3D12Device*/SelfOuter* self, ID3D12Resource* pTiledResource, uint32* pNumTilesForEntireResource, D3D12_PACKED_MIP_INFO* pPackedMipDesc, D3D12_TILE_SHAPE* pStandardTileShapeForNonPackedMips, uint32* pNumSubresourceTilings, uint32 FirstSubresourceTilingToGet, D3D12_SUBRESOURCE_TILING* pSubresourceTilingsForNonPackedMips) GetResourceTiling;
-		protected new function [CallingConvention(.Stdcall)] LUID(/*ID3D12Device*/SelfOuter* self) GetAdapterLuid;
+		protected new function [CallingConvention(.Stdcall)] uint32(SelfOuter* self) GetNodeCount;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, D3D12_COMMAND_QUEUE_DESC* pDesc, ref Guid riid, void** ppCommandQueue) CreateCommandQueue;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, D3D12_COMMAND_LIST_TYPE type, ref Guid riid, void** ppCommandAllocator) CreateCommandAllocator;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, D3D12_GRAPHICS_PIPELINE_STATE_DESC* pDesc, ref Guid riid, void** ppPipelineState) CreateGraphicsPipelineState;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, D3D12_COMPUTE_PIPELINE_STATE_DESC* pDesc, ref Guid riid, void** ppPipelineState) CreateComputePipelineState;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 nodeMask, D3D12_COMMAND_LIST_TYPE type, ID3D12CommandAllocator* pCommandAllocator, ID3D12PipelineState* pInitialState, ref Guid riid, void** ppCommandList) CreateCommandList;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, D3D12_FEATURE Feature, void* pFeatureSupportData, uint32 FeatureSupportDataSize) CheckFeatureSupport;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, D3D12_DESCRIPTOR_HEAP_DESC* pDescriptorHeapDesc, ref Guid riid, void** ppvHeap) CreateDescriptorHeap;
+		protected new function [CallingConvention(.Stdcall)] uint32(SelfOuter* self, D3D12_DESCRIPTOR_HEAP_TYPE DescriptorHeapType) GetDescriptorHandleIncrementSize;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 nodeMask, void* pBlobWithRootSignature, uint blobLengthInBytes, ref Guid riid, void** ppvRootSignature) CreateRootSignature;
+		protected new function [CallingConvention(.Stdcall)] void(SelfOuter* self, D3D12_CONSTANT_BUFFER_VIEW_DESC* pDesc, D3D12_CPU_DESCRIPTOR_HANDLE DestDescriptor) CreateConstantBufferView;
+		protected new function [CallingConvention(.Stdcall)] void(SelfOuter* self, ID3D12Resource* pResource, D3D12_SHADER_RESOURCE_VIEW_DESC* pDesc, D3D12_CPU_DESCRIPTOR_HANDLE DestDescriptor) CreateShaderResourceView;
+		protected new function [CallingConvention(.Stdcall)] void(SelfOuter* self, ID3D12Resource* pResource, ID3D12Resource* pCounterResource, D3D12_UNORDERED_ACCESS_VIEW_DESC* pDesc, D3D12_CPU_DESCRIPTOR_HANDLE DestDescriptor) CreateUnorderedAccessView;
+		protected new function [CallingConvention(.Stdcall)] void(SelfOuter* self, ID3D12Resource* pResource, D3D12_RENDER_TARGET_VIEW_DESC* pDesc, D3D12_CPU_DESCRIPTOR_HANDLE DestDescriptor) CreateRenderTargetView;
+		protected new function [CallingConvention(.Stdcall)] void(SelfOuter* self, ID3D12Resource* pResource, D3D12_DEPTH_STENCIL_VIEW_DESC* pDesc, D3D12_CPU_DESCRIPTOR_HANDLE DestDescriptor) CreateDepthStencilView;
+		protected new function [CallingConvention(.Stdcall)] void(SelfOuter* self, D3D12_SAMPLER_DESC* pDesc, D3D12_CPU_DESCRIPTOR_HANDLE DestDescriptor) CreateSampler;
+		protected new function [CallingConvention(.Stdcall)] void(SelfOuter* self, uint32 NumDestDescriptorRanges, D3D12_CPU_DESCRIPTOR_HANDLE* pDestDescriptorRangeStarts, uint32* pDestDescriptorRangeSizes, uint32 NumSrcDescriptorRanges, D3D12_CPU_DESCRIPTOR_HANDLE* pSrcDescriptorRangeStarts, uint32* pSrcDescriptorRangeSizes, D3D12_DESCRIPTOR_HEAP_TYPE DescriptorHeapsType) CopyDescriptors;
+		protected new function [CallingConvention(.Stdcall)] void(SelfOuter* self, uint32 NumDescriptors, D3D12_CPU_DESCRIPTOR_HANDLE DestDescriptorRangeStart, D3D12_CPU_DESCRIPTOR_HANDLE SrcDescriptorRangeStart, D3D12_DESCRIPTOR_HEAP_TYPE DescriptorHeapsType) CopyDescriptorsSimple;
+		protected new function [CallingConvention(.Stdcall)] D3D12_RESOURCE_ALLOCATION_INFO(SelfOuter* self, uint32 visibleMask, uint32 numResourceDescs, D3D12_RESOURCE_DESC* pResourceDescs) GetResourceAllocationInfo;
+		protected new function [CallingConvention(.Stdcall)] D3D12_HEAP_PROPERTIES(SelfOuter* self, uint32 nodeMask, D3D12_HEAP_TYPE heapType) GetCustomHeapProperties;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, D3D12_HEAP_PROPERTIES* pHeapProperties, D3D12_HEAP_FLAGS HeapFlags, D3D12_RESOURCE_DESC* pDesc, D3D12_RESOURCE_STATES InitialResourceState, D3D12_CLEAR_VALUE* pOptimizedClearValue, ref Guid riidResource, void** ppvResource) CreateCommittedResource;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, D3D12_HEAP_DESC* pDesc, ref Guid riid, void** ppvHeap) CreateHeap;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ID3D12Heap* pHeap, uint64 HeapOffset, D3D12_RESOURCE_DESC* pDesc, D3D12_RESOURCE_STATES InitialState, D3D12_CLEAR_VALUE* pOptimizedClearValue, ref Guid riid, void** ppvResource) CreatePlacedResource;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, D3D12_RESOURCE_DESC* pDesc, D3D12_RESOURCE_STATES InitialState, D3D12_CLEAR_VALUE* pOptimizedClearValue, ref Guid riid, void** ppvResource) CreateReservedResource;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ID3D12DeviceChild* pObject, SECURITY_ATTRIBUTES* pAttributes, uint32 Access, PWSTR Name, HANDLE* pHandle) CreateSharedHandle;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HANDLE NTHandle, ref Guid riid, void** ppvObj) OpenSharedHandle;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR Name, uint32 Access, HANDLE* pNTHandle) OpenSharedHandleByName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 NumObjects, ID3D12Pageable** ppObjects) MakeResident;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 NumObjects, ID3D12Pageable** ppObjects) Evict;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint64 InitialValue, D3D12_FENCE_FLAGS Flags, ref Guid riid, void** ppFence) CreateFence;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) GetDeviceRemovedReason;
+		protected new function [CallingConvention(.Stdcall)] void(SelfOuter* self, D3D12_RESOURCE_DESC* pResourceDesc, uint32 FirstSubresource, uint32 NumSubresources, uint64 BaseOffset, D3D12_PLACED_SUBRESOURCE_FOOTPRINT* pLayouts, uint32* pNumRows, uint64* pRowSizeInBytes, uint64* pTotalBytes) GetCopyableFootprints;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, D3D12_QUERY_HEAP_DESC* pDesc, ref Guid riid, void** ppvHeap) CreateQueryHeap;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BOOL Enable) SetStablePowerState;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, D3D12_COMMAND_SIGNATURE_DESC* pDesc, ID3D12RootSignature* pRootSignature, ref Guid riid, void** ppvCommandSignature) CreateCommandSignature;
+		protected new function [CallingConvention(.Stdcall)] void(SelfOuter* self, ID3D12Resource* pTiledResource, uint32* pNumTilesForEntireResource, D3D12_PACKED_MIP_INFO* pPackedMipDesc, D3D12_TILE_SHAPE* pStandardTileShapeForNonPackedMips, uint32* pNumSubresourceTilings, uint32 FirstSubresourceTilingToGet, D3D12_SUBRESOURCE_TILING* pSubresourceTilingsForNonPackedMips) GetResourceTiling;
+		protected new function [CallingConvention(.Stdcall)] LUID(SelfOuter* self) GetAdapterLuid;
 	}
 
 
@@ -6482,11 +6482,11 @@ public static
 
 	[CRepr]public struct VTable : ID3D12DeviceChild.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID3D12PipelineLibrary*/SelfOuter* self, PWSTR pName, ID3D12PipelineState* pPipeline) StorePipeline;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID3D12PipelineLibrary*/SelfOuter* self, PWSTR pName, D3D12_GRAPHICS_PIPELINE_STATE_DESC* pDesc, ref Guid riid, void** ppPipelineState) LoadGraphicsPipeline;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID3D12PipelineLibrary*/SelfOuter* self, PWSTR pName, D3D12_COMPUTE_PIPELINE_STATE_DESC* pDesc, ref Guid riid, void** ppPipelineState) LoadComputePipeline;
-		protected new function [CallingConvention(.Stdcall)] uint(/*ID3D12PipelineLibrary*/SelfOuter* self) GetSerializedSize;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID3D12PipelineLibrary*/SelfOuter* self, void* pData, uint DataSizeInBytes) Serialize;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR pName, ID3D12PipelineState* pPipeline) StorePipeline;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR pName, D3D12_GRAPHICS_PIPELINE_STATE_DESC* pDesc, ref Guid riid, void** ppPipelineState) LoadGraphicsPipeline;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR pName, D3D12_COMPUTE_PIPELINE_STATE_DESC* pDesc, ref Guid riid, void** ppPipelineState) LoadComputePipeline;
+		protected new function [CallingConvention(.Stdcall)] uint(SelfOuter* self) GetSerializedSize;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, void* pData, uint DataSizeInBytes) Serialize;
 	}
 
 
@@ -6509,7 +6509,7 @@ public static
 
 	[CRepr]public struct VTable : ID3D12PipelineLibrary.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID3D12PipelineLibrary1*/SelfOuter* self, PWSTR pName, D3D12_PIPELINE_STATE_STREAM_DESC* pDesc, ref Guid riid, void** ppPipelineState) LoadPipeline;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR pName, D3D12_PIPELINE_STATE_STREAM_DESC* pDesc, ref Guid riid, void** ppPipelineState) LoadPipeline;
 	}
 
 
@@ -6524,9 +6524,9 @@ public static
 
 	[CRepr]public struct VTable : ID3D12Device.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID3D12Device1*/SelfOuter* self, void* pLibraryBlob, uint BlobLength, ref Guid riid, void** ppPipelineLibrary) CreatePipelineLibrary;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID3D12Device1*/SelfOuter* self, ID3D12Fence** ppFences, uint64* pFenceValues, uint32 NumFences, D3D12_MULTIPLE_FENCE_WAIT_FLAGS Flags, HANDLE hEvent) SetEventOnMultipleFenceCompletion;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID3D12Device1*/SelfOuter* self, uint32 NumObjects, ID3D12Pageable** ppObjects, D3D12_RESIDENCY_PRIORITY* pPriorities) SetResidencyPriority;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, void* pLibraryBlob, uint BlobLength, ref Guid riid, void** ppPipelineLibrary) CreatePipelineLibrary;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ID3D12Fence** ppFences, uint64* pFenceValues, uint32 NumFences, D3D12_MULTIPLE_FENCE_WAIT_FLAGS Flags, HANDLE hEvent) SetEventOnMultipleFenceCompletion;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 NumObjects, ID3D12Pageable** ppObjects, D3D12_RESIDENCY_PRIORITY* pPriorities) SetResidencyPriority;
 	}
 
 
@@ -6545,7 +6545,7 @@ public static
 
 	[CRepr]public struct VTable : ID3D12Device1.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID3D12Device2*/SelfOuter* self, D3D12_PIPELINE_STATE_STREAM_DESC* pDesc, ref Guid riid, void** ppPipelineState) CreatePipelineState;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, D3D12_PIPELINE_STATE_STREAM_DESC* pDesc, ref Guid riid, void** ppPipelineState) CreatePipelineState;
 	}
 
 
@@ -6560,9 +6560,9 @@ public static
 
 	[CRepr]public struct VTable : ID3D12Device2.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID3D12Device3*/SelfOuter* self, void* pAddress, ref Guid riid, void** ppvHeap) OpenExistingHeapFromAddress;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID3D12Device3*/SelfOuter* self, HANDLE hFileMapping, ref Guid riid, void** ppvHeap) OpenExistingHeapFromFileMapping;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID3D12Device3*/SelfOuter* self, D3D12_RESIDENCY_FLAGS Flags, uint32 NumObjects, ID3D12Pageable** ppObjects, ID3D12Fence* pFenceToSignal, uint64 FenceValueToSignal) EnqueueMakeResident;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, void* pAddress, ref Guid riid, void** ppvHeap) OpenExistingHeapFromAddress;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HANDLE hFileMapping, ref Guid riid, void** ppvHeap) OpenExistingHeapFromFileMapping;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, D3D12_RESIDENCY_FLAGS Flags, uint32 NumObjects, ID3D12Pageable** ppObjects, ID3D12Fence* pFenceToSignal, uint64 FenceValueToSignal) EnqueueMakeResident;
 	}
 
 
@@ -6581,8 +6581,8 @@ public static
 
 	[CRepr]public struct VTable : ID3D12DeviceChild.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID3D12ProtectedSession*/SelfOuter* self, ref Guid riid, void** ppFence) GetStatusFence;
-		protected new function [CallingConvention(.Stdcall)] D3D12_PROTECTED_SESSION_STATUS(/*ID3D12ProtectedSession*/SelfOuter* self) GetSessionStatus;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid riid, void** ppFence) GetStatusFence;
+		protected new function [CallingConvention(.Stdcall)] D3D12_PROTECTED_SESSION_STATUS(SelfOuter* self) GetSessionStatus;
 	}
 
 
@@ -6599,7 +6599,7 @@ public static
 
 	[CRepr]public struct VTable : ID3D12ProtectedSession.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] D3D12_PROTECTED_RESOURCE_SESSION_DESC(/*ID3D12ProtectedResourceSession*/SelfOuter* self) GetDesc;
+		protected new function [CallingConvention(.Stdcall)] D3D12_PROTECTED_RESOURCE_SESSION_DESC(SelfOuter* self) GetDesc;
 	}
 
 
@@ -6614,12 +6614,12 @@ public static
 
 	[CRepr]public struct VTable : ID3D12Device3.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID3D12Device4*/SelfOuter* self, uint32 nodeMask, D3D12_COMMAND_LIST_TYPE type, D3D12_COMMAND_LIST_FLAGS flags, ref Guid riid, void** ppCommandList) CreateCommandList1;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID3D12Device4*/SelfOuter* self, D3D12_PROTECTED_RESOURCE_SESSION_DESC* pDesc, ref Guid riid, void** ppSession) CreateProtectedResourceSession;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID3D12Device4*/SelfOuter* self, D3D12_HEAP_PROPERTIES* pHeapProperties, D3D12_HEAP_FLAGS HeapFlags, D3D12_RESOURCE_DESC* pDesc, D3D12_RESOURCE_STATES InitialResourceState, D3D12_CLEAR_VALUE* pOptimizedClearValue, ID3D12ProtectedResourceSession* pProtectedSession, ref Guid riidResource, void** ppvResource) CreateCommittedResource1;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID3D12Device4*/SelfOuter* self, D3D12_HEAP_DESC* pDesc, ID3D12ProtectedResourceSession* pProtectedSession, ref Guid riid, void** ppvHeap) CreateHeap1;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID3D12Device4*/SelfOuter* self, D3D12_RESOURCE_DESC* pDesc, D3D12_RESOURCE_STATES InitialState, D3D12_CLEAR_VALUE* pOptimizedClearValue, ID3D12ProtectedResourceSession* pProtectedSession, ref Guid riid, void** ppvResource) CreateReservedResource1;
-		protected new function [CallingConvention(.Stdcall)] D3D12_RESOURCE_ALLOCATION_INFO(/*ID3D12Device4*/SelfOuter* self, uint32 visibleMask, uint32 numResourceDescs, D3D12_RESOURCE_DESC* pResourceDescs, D3D12_RESOURCE_ALLOCATION_INFO1* pResourceAllocationInfo1) GetResourceAllocationInfo1;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 nodeMask, D3D12_COMMAND_LIST_TYPE type, D3D12_COMMAND_LIST_FLAGS flags, ref Guid riid, void** ppCommandList) CreateCommandList1;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, D3D12_PROTECTED_RESOURCE_SESSION_DESC* pDesc, ref Guid riid, void** ppSession) CreateProtectedResourceSession;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, D3D12_HEAP_PROPERTIES* pHeapProperties, D3D12_HEAP_FLAGS HeapFlags, D3D12_RESOURCE_DESC* pDesc, D3D12_RESOURCE_STATES InitialResourceState, D3D12_CLEAR_VALUE* pOptimizedClearValue, ID3D12ProtectedResourceSession* pProtectedSession, ref Guid riidResource, void** ppvResource) CreateCommittedResource1;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, D3D12_HEAP_DESC* pDesc, ID3D12ProtectedResourceSession* pProtectedSession, ref Guid riid, void** ppvHeap) CreateHeap1;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, D3D12_RESOURCE_DESC* pDesc, D3D12_RESOURCE_STATES InitialState, D3D12_CLEAR_VALUE* pOptimizedClearValue, ID3D12ProtectedResourceSession* pProtectedSession, ref Guid riid, void** ppvResource) CreateReservedResource1;
+		protected new function [CallingConvention(.Stdcall)] D3D12_RESOURCE_ALLOCATION_INFO(SelfOuter* self, uint32 visibleMask, uint32 numResourceDescs, D3D12_RESOURCE_DESC* pResourceDescs, D3D12_RESOURCE_ALLOCATION_INFO1* pResourceAllocationInfo1) GetResourceAllocationInfo1;
 	}
 
 
@@ -6644,7 +6644,7 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] void(/*ID3D12LifetimeOwner*/SelfOuter* self, D3D12_LIFETIME_STATE NewState) LifetimeStateUpdated;
+		protected new function [CallingConvention(.Stdcall)] void(SelfOuter* self, D3D12_LIFETIME_STATE NewState) LifetimeStateUpdated;
 	}
 
 
@@ -6659,10 +6659,10 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] LUID(/*ID3D12SwapChainAssistant*/SelfOuter* self) GetLUID;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID3D12SwapChainAssistant*/SelfOuter* self, ref Guid riid, void** ppv) GetSwapChainObject;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID3D12SwapChainAssistant*/SelfOuter* self, ref Guid riidResource, void** ppvResource, ref Guid riidQueue, void** ppvQueue) GetCurrentResourceAndCommandQueue;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID3D12SwapChainAssistant*/SelfOuter* self) InsertImplicitSync;
+		protected new function [CallingConvention(.Stdcall)] LUID(SelfOuter* self) GetLUID;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid riid, void** ppv) GetSwapChainObject;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid riidResource, void** ppvResource, ref Guid riidQueue, void** ppvQueue) GetCurrentResourceAndCommandQueue;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) InsertImplicitSync;
 	}
 
 
@@ -6683,7 +6683,7 @@ public static
 
 	[CRepr]public struct VTable : ID3D12DeviceChild.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID3D12LifetimeTracker*/SelfOuter* self, ID3D12DeviceChild* pObject) DestroyOwnedObject;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ID3D12DeviceChild* pObject) DestroyOwnedObject;
 	}
 
 
@@ -6710,10 +6710,10 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] void*(/*ID3D12StateObjectProperties*/SelfOuter* self, PWSTR pExportName) GetShaderIdentifier;
-		protected new function [CallingConvention(.Stdcall)] uint64(/*ID3D12StateObjectProperties*/SelfOuter* self, PWSTR pExportName) GetShaderStackSize;
-		protected new function [CallingConvention(.Stdcall)] uint64(/*ID3D12StateObjectProperties*/SelfOuter* self) GetPipelineStackSize;
-		protected new function [CallingConvention(.Stdcall)] void(/*ID3D12StateObjectProperties*/SelfOuter* self, uint64 PipelineStackSizeInBytes) SetPipelineStackSize;
+		protected new function [CallingConvention(.Stdcall)] void*(SelfOuter* self, PWSTR pExportName) GetShaderIdentifier;
+		protected new function [CallingConvention(.Stdcall)] uint64(SelfOuter* self, PWSTR pExportName) GetShaderStackSize;
+		protected new function [CallingConvention(.Stdcall)] uint64(SelfOuter* self) GetPipelineStackSize;
+		protected new function [CallingConvention(.Stdcall)] void(SelfOuter* self, uint64 PipelineStackSizeInBytes) SetPipelineStackSize;
 	}
 
 
@@ -6734,14 +6734,14 @@ public static
 
 	[CRepr]public struct VTable : ID3D12Device4.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID3D12Device5*/SelfOuter* self, ID3D12LifetimeOwner* pOwner, ref Guid riid, void** ppvTracker) CreateLifetimeTracker;
-		protected new function [CallingConvention(.Stdcall)] void(/*ID3D12Device5*/SelfOuter* self) RemoveDevice;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID3D12Device5*/SelfOuter* self, uint32* pNumMetaCommands, D3D12_META_COMMAND_DESC* pDescs) EnumerateMetaCommands;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID3D12Device5*/SelfOuter* self, ref Guid CommandId, D3D12_META_COMMAND_PARAMETER_STAGE Stage, uint32* pTotalStructureSizeInBytes, uint32* pParameterCount, D3D12_META_COMMAND_PARAMETER_DESC* pParameterDescs) EnumerateMetaCommandParameters;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID3D12Device5*/SelfOuter* self, ref Guid CommandId, uint32 NodeMask, void* pCreationParametersData, uint CreationParametersDataSizeInBytes, ref Guid riid, void** ppMetaCommand) CreateMetaCommand;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID3D12Device5*/SelfOuter* self, D3D12_STATE_OBJECT_DESC* pDesc, ref Guid riid, void** ppStateObject) CreateStateObject;
-		protected new function [CallingConvention(.Stdcall)] void(/*ID3D12Device5*/SelfOuter* self, D3D12_BUILD_RAYTRACING_ACCELERATION_STRUCTURE_INPUTS* pDesc, D3D12_RAYTRACING_ACCELERATION_STRUCTURE_PREBUILD_INFO* pInfo) GetRaytracingAccelerationStructurePrebuildInfo;
-		protected new function [CallingConvention(.Stdcall)] D3D12_DRIVER_MATCHING_IDENTIFIER_STATUS(/*ID3D12Device5*/SelfOuter* self, D3D12_SERIALIZED_DATA_TYPE SerializedDataType, D3D12_SERIALIZED_DATA_DRIVER_MATCHING_IDENTIFIER* pIdentifierToCheck) CheckDriverMatchingIdentifier;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ID3D12LifetimeOwner* pOwner, ref Guid riid, void** ppvTracker) CreateLifetimeTracker;
+		protected new function [CallingConvention(.Stdcall)] void(SelfOuter* self) RemoveDevice;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pNumMetaCommands, D3D12_META_COMMAND_DESC* pDescs) EnumerateMetaCommands;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid CommandId, D3D12_META_COMMAND_PARAMETER_STAGE Stage, uint32* pTotalStructureSizeInBytes, uint32* pParameterCount, D3D12_META_COMMAND_PARAMETER_DESC* pParameterDescs) EnumerateMetaCommandParameters;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid CommandId, uint32 NodeMask, void* pCreationParametersData, uint CreationParametersDataSizeInBytes, ref Guid riid, void** ppMetaCommand) CreateMetaCommand;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, D3D12_STATE_OBJECT_DESC* pDesc, ref Guid riid, void** ppStateObject) CreateStateObject;
+		protected new function [CallingConvention(.Stdcall)] void(SelfOuter* self, D3D12_BUILD_RAYTRACING_ACCELERATION_STRUCTURE_INPUTS* pDesc, D3D12_RAYTRACING_ACCELERATION_STRUCTURE_PREBUILD_INFO* pInfo) GetRaytracingAccelerationStructurePrebuildInfo;
+		protected new function [CallingConvention(.Stdcall)] D3D12_DRIVER_MATCHING_IDENTIFIER_STATUS(SelfOuter* self, D3D12_SERIALIZED_DATA_TYPE SerializedDataType, D3D12_SERIALIZED_DATA_DRIVER_MATCHING_IDENTIFIER* pIdentifierToCheck) CheckDriverMatchingIdentifier;
 	}
 
 
@@ -6770,9 +6770,9 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] void(/*ID3D12DeviceRemovedExtendedDataSettings*/SelfOuter* self, D3D12_DRED_ENABLEMENT Enablement) SetAutoBreadcrumbsEnablement;
-		protected new function [CallingConvention(.Stdcall)] void(/*ID3D12DeviceRemovedExtendedDataSettings*/SelfOuter* self, D3D12_DRED_ENABLEMENT Enablement) SetPageFaultEnablement;
-		protected new function [CallingConvention(.Stdcall)] void(/*ID3D12DeviceRemovedExtendedDataSettings*/SelfOuter* self, D3D12_DRED_ENABLEMENT Enablement) SetWatsonDumpEnablement;
+		protected new function [CallingConvention(.Stdcall)] void(SelfOuter* self, D3D12_DRED_ENABLEMENT Enablement) SetAutoBreadcrumbsEnablement;
+		protected new function [CallingConvention(.Stdcall)] void(SelfOuter* self, D3D12_DRED_ENABLEMENT Enablement) SetPageFaultEnablement;
+		protected new function [CallingConvention(.Stdcall)] void(SelfOuter* self, D3D12_DRED_ENABLEMENT Enablement) SetWatsonDumpEnablement;
 	}
 
 
@@ -6791,7 +6791,7 @@ public static
 
 	[CRepr]public struct VTable : ID3D12DeviceRemovedExtendedDataSettings.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] void(/*ID3D12DeviceRemovedExtendedDataSettings1*/SelfOuter* self, D3D12_DRED_ENABLEMENT Enablement) SetBreadcrumbContextEnablement;
+		protected new function [CallingConvention(.Stdcall)] void(SelfOuter* self, D3D12_DRED_ENABLEMENT Enablement) SetBreadcrumbContextEnablement;
 	}
 
 
@@ -6806,8 +6806,8 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID3D12DeviceRemovedExtendedData*/SelfOuter* self, D3D12_DRED_AUTO_BREADCRUMBS_OUTPUT* pOutput) GetAutoBreadcrumbsOutput;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID3D12DeviceRemovedExtendedData*/SelfOuter* self, D3D12_DRED_PAGE_FAULT_OUTPUT* pOutput) GetPageFaultAllocationOutput;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, D3D12_DRED_AUTO_BREADCRUMBS_OUTPUT* pOutput) GetAutoBreadcrumbsOutput;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, D3D12_DRED_PAGE_FAULT_OUTPUT* pOutput) GetPageFaultAllocationOutput;
 	}
 
 
@@ -6824,8 +6824,8 @@ public static
 
 	[CRepr]public struct VTable : ID3D12DeviceRemovedExtendedData.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID3D12DeviceRemovedExtendedData1*/SelfOuter* self, D3D12_DRED_AUTO_BREADCRUMBS_OUTPUT1* pOutput) GetAutoBreadcrumbsOutput1;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID3D12DeviceRemovedExtendedData1*/SelfOuter* self, D3D12_DRED_PAGE_FAULT_OUTPUT1* pOutput) GetPageFaultAllocationOutput1;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, D3D12_DRED_AUTO_BREADCRUMBS_OUTPUT1* pOutput) GetAutoBreadcrumbsOutput1;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, D3D12_DRED_PAGE_FAULT_OUTPUT1* pOutput) GetPageFaultAllocationOutput1;
 	}
 
 
@@ -6842,8 +6842,8 @@ public static
 
 	[CRepr]public struct VTable : ID3D12DeviceRemovedExtendedData1.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID3D12DeviceRemovedExtendedData2*/SelfOuter* self, D3D12_DRED_PAGE_FAULT_OUTPUT2* pOutput) GetPageFaultAllocationOutput2;
-		protected new function [CallingConvention(.Stdcall)] D3D12_DRED_DEVICE_STATE(/*ID3D12DeviceRemovedExtendedData2*/SelfOuter* self) GetDeviceState;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, D3D12_DRED_PAGE_FAULT_OUTPUT2* pOutput) GetPageFaultAllocationOutput2;
+		protected new function [CallingConvention(.Stdcall)] D3D12_DRED_DEVICE_STATE(SelfOuter* self) GetDeviceState;
 	}
 
 
@@ -6860,7 +6860,7 @@ public static
 
 	[CRepr]public struct VTable : ID3D12Device5.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID3D12Device6*/SelfOuter* self, D3D12_BACKGROUND_PROCESSING_MODE Mode, D3D12_MEASUREMENTS_ACTION MeasurementsAction, HANDLE hEventToSignalUponCompletion, BOOL* pbFurtherMeasurementsDesired) SetBackgroundProcessingMode;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, D3D12_BACKGROUND_PROCESSING_MODE Mode, D3D12_MEASUREMENTS_ACTION MeasurementsAction, HANDLE hEventToSignalUponCompletion, BOOL* pbFurtherMeasurementsDesired) SetBackgroundProcessingMode;
 	}
 
 
@@ -6875,7 +6875,7 @@ public static
 
 	[CRepr]public struct VTable : ID3D12ProtectedResourceSession.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] D3D12_PROTECTED_RESOURCE_SESSION_DESC1(/*ID3D12ProtectedResourceSession1*/SelfOuter* self) GetDesc1;
+		protected new function [CallingConvention(.Stdcall)] D3D12_PROTECTED_RESOURCE_SESSION_DESC1(SelfOuter* self) GetDesc1;
 	}
 
 
@@ -6890,8 +6890,8 @@ public static
 
 	[CRepr]public struct VTable : ID3D12Device6.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID3D12Device7*/SelfOuter* self, D3D12_STATE_OBJECT_DESC* pAddition, ID3D12StateObject* pStateObjectToGrowFrom, ref Guid riid, void** ppNewStateObject) AddToStateObject;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID3D12Device7*/SelfOuter* self, D3D12_PROTECTED_RESOURCE_SESSION_DESC1* pDesc, ref Guid riid, void** ppSession) CreateProtectedResourceSession1;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, D3D12_STATE_OBJECT_DESC* pAddition, ID3D12StateObject* pStateObjectToGrowFrom, ref Guid riid, void** ppNewStateObject) AddToStateObject;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, D3D12_PROTECTED_RESOURCE_SESSION_DESC1* pDesc, ref Guid riid, void** ppSession) CreateProtectedResourceSession1;
 	}
 
 
@@ -6908,11 +6908,11 @@ public static
 
 	[CRepr]public struct VTable : ID3D12Device7.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] D3D12_RESOURCE_ALLOCATION_INFO(/*ID3D12Device8*/SelfOuter* self, uint32 visibleMask, uint32 numResourceDescs, D3D12_RESOURCE_DESC1* pResourceDescs, D3D12_RESOURCE_ALLOCATION_INFO1* pResourceAllocationInfo1) GetResourceAllocationInfo2;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID3D12Device8*/SelfOuter* self, D3D12_HEAP_PROPERTIES* pHeapProperties, D3D12_HEAP_FLAGS HeapFlags, D3D12_RESOURCE_DESC1* pDesc, D3D12_RESOURCE_STATES InitialResourceState, D3D12_CLEAR_VALUE* pOptimizedClearValue, ID3D12ProtectedResourceSession* pProtectedSession, ref Guid riidResource, void** ppvResource) CreateCommittedResource2;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID3D12Device8*/SelfOuter* self, ID3D12Heap* pHeap, uint64 HeapOffset, D3D12_RESOURCE_DESC1* pDesc, D3D12_RESOURCE_STATES InitialState, D3D12_CLEAR_VALUE* pOptimizedClearValue, ref Guid riid, void** ppvResource) CreatePlacedResource1;
-		protected new function [CallingConvention(.Stdcall)] void(/*ID3D12Device8*/SelfOuter* self, ID3D12Resource* pTargetedResource, ID3D12Resource* pFeedbackResource, D3D12_CPU_DESCRIPTOR_HANDLE DestDescriptor) CreateSamplerFeedbackUnorderedAccessView;
-		protected new function [CallingConvention(.Stdcall)] void(/*ID3D12Device8*/SelfOuter* self, D3D12_RESOURCE_DESC1* pResourceDesc, uint32 FirstSubresource, uint32 NumSubresources, uint64 BaseOffset, D3D12_PLACED_SUBRESOURCE_FOOTPRINT* pLayouts, uint32* pNumRows, uint64* pRowSizeInBytes, uint64* pTotalBytes) GetCopyableFootprints1;
+		protected new function [CallingConvention(.Stdcall)] D3D12_RESOURCE_ALLOCATION_INFO(SelfOuter* self, uint32 visibleMask, uint32 numResourceDescs, D3D12_RESOURCE_DESC1* pResourceDescs, D3D12_RESOURCE_ALLOCATION_INFO1* pResourceAllocationInfo1) GetResourceAllocationInfo2;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, D3D12_HEAP_PROPERTIES* pHeapProperties, D3D12_HEAP_FLAGS HeapFlags, D3D12_RESOURCE_DESC1* pDesc, D3D12_RESOURCE_STATES InitialResourceState, D3D12_CLEAR_VALUE* pOptimizedClearValue, ID3D12ProtectedResourceSession* pProtectedSession, ref Guid riidResource, void** ppvResource) CreateCommittedResource2;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ID3D12Heap* pHeap, uint64 HeapOffset, D3D12_RESOURCE_DESC1* pDesc, D3D12_RESOURCE_STATES InitialState, D3D12_CLEAR_VALUE* pOptimizedClearValue, ref Guid riid, void** ppvResource) CreatePlacedResource1;
+		protected new function [CallingConvention(.Stdcall)] void(SelfOuter* self, ID3D12Resource* pTargetedResource, ID3D12Resource* pFeedbackResource, D3D12_CPU_DESCRIPTOR_HANDLE DestDescriptor) CreateSamplerFeedbackUnorderedAccessView;
+		protected new function [CallingConvention(.Stdcall)] void(SelfOuter* self, D3D12_RESOURCE_DESC1* pResourceDesc, uint32 FirstSubresource, uint32 NumSubresources, uint64 BaseOffset, D3D12_PLACED_SUBRESOURCE_FOOTPRINT* pLayouts, uint32* pNumRows, uint64* pRowSizeInBytes, uint64* pTotalBytes) GetCopyableFootprints1;
 	}
 
 
@@ -6935,7 +6935,7 @@ public static
 
 	[CRepr]public struct VTable : ID3D12Resource.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID3D12Resource1*/SelfOuter* self, ref Guid riid, void** ppProtectedSession) GetProtectedResourceSession;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid riid, void** ppProtectedSession) GetProtectedResourceSession;
 	}
 
 
@@ -6950,7 +6950,7 @@ public static
 
 	[CRepr]public struct VTable : ID3D12Resource1.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] D3D12_RESOURCE_DESC1(/*ID3D12Resource2*/SelfOuter* self) GetDesc1;
+		protected new function [CallingConvention(.Stdcall)] D3D12_RESOURCE_DESC1(SelfOuter* self) GetDesc1;
 	}
 
 
@@ -6965,7 +6965,7 @@ public static
 
 	[CRepr]public struct VTable : ID3D12Heap.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID3D12Heap1*/SelfOuter* self, ref Guid riid, void** ppProtectedSession) GetProtectedResourceSession;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid riid, void** ppProtectedSession) GetProtectedResourceSession;
 	}
 
 
@@ -6980,7 +6980,7 @@ public static
 
 	[CRepr]public struct VTable : ID3D12GraphicsCommandList2.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] void(/*ID3D12GraphicsCommandList3*/SelfOuter* self, ID3D12ProtectedResourceSession* pProtectedResourceSession) SetProtectedResourceSession;
+		protected new function [CallingConvention(.Stdcall)] void(SelfOuter* self, ID3D12ProtectedResourceSession* pProtectedResourceSession) SetProtectedResourceSession;
 	}
 
 
@@ -6995,7 +6995,7 @@ public static
 
 	[CRepr]public struct VTable : ID3D12Pageable.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] uint64(/*ID3D12MetaCommand*/SelfOuter* self, D3D12_META_COMMAND_PARAMETER_STAGE Stage, uint32 ParameterIndex) GetRequiredParameterResourceSize;
+		protected new function [CallingConvention(.Stdcall)] uint64(SelfOuter* self, D3D12_META_COMMAND_PARAMETER_STAGE Stage, uint32 ParameterIndex) GetRequiredParameterResourceSize;
 	}
 
 
@@ -7010,15 +7010,15 @@ public static
 
 	[CRepr]public struct VTable : ID3D12GraphicsCommandList3.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] void(/*ID3D12GraphicsCommandList4*/SelfOuter* self, uint32 NumRenderTargets, D3D12_RENDER_PASS_RENDER_TARGET_DESC* pRenderTargets, D3D12_RENDER_PASS_DEPTH_STENCIL_DESC* pDepthStencil, D3D12_RENDER_PASS_FLAGS Flags) BeginRenderPass;
-		protected new function [CallingConvention(.Stdcall)] void(/*ID3D12GraphicsCommandList4*/SelfOuter* self) EndRenderPass;
-		protected new function [CallingConvention(.Stdcall)] void(/*ID3D12GraphicsCommandList4*/SelfOuter* self, ID3D12MetaCommand* pMetaCommand, void* pInitializationParametersData, uint InitializationParametersDataSizeInBytes) InitializeMetaCommand;
-		protected new function [CallingConvention(.Stdcall)] void(/*ID3D12GraphicsCommandList4*/SelfOuter* self, ID3D12MetaCommand* pMetaCommand, void* pExecutionParametersData, uint ExecutionParametersDataSizeInBytes) ExecuteMetaCommand;
-		protected new function [CallingConvention(.Stdcall)] void(/*ID3D12GraphicsCommandList4*/SelfOuter* self, D3D12_BUILD_RAYTRACING_ACCELERATION_STRUCTURE_DESC* pDesc, uint32 NumPostbuildInfoDescs, D3D12_RAYTRACING_ACCELERATION_STRUCTURE_POSTBUILD_INFO_DESC* pPostbuildInfoDescs) BuildRaytracingAccelerationStructure;
-		protected new function [CallingConvention(.Stdcall)] void(/*ID3D12GraphicsCommandList4*/SelfOuter* self, D3D12_RAYTRACING_ACCELERATION_STRUCTURE_POSTBUILD_INFO_DESC* pDesc, uint32 NumSourceAccelerationStructures, uint64* pSourceAccelerationStructureData) EmitRaytracingAccelerationStructurePostbuildInfo;
-		protected new function [CallingConvention(.Stdcall)] void(/*ID3D12GraphicsCommandList4*/SelfOuter* self, uint64 DestAccelerationStructureData, uint64 SourceAccelerationStructureData, D3D12_RAYTRACING_ACCELERATION_STRUCTURE_COPY_MODE Mode) CopyRaytracingAccelerationStructure;
-		protected new function [CallingConvention(.Stdcall)] void(/*ID3D12GraphicsCommandList4*/SelfOuter* self, ID3D12StateObject* pStateObject) SetPipelineState1;
-		protected new function [CallingConvention(.Stdcall)] void(/*ID3D12GraphicsCommandList4*/SelfOuter* self, D3D12_DISPATCH_RAYS_DESC* pDesc) DispatchRays;
+		protected new function [CallingConvention(.Stdcall)] void(SelfOuter* self, uint32 NumRenderTargets, D3D12_RENDER_PASS_RENDER_TARGET_DESC* pRenderTargets, D3D12_RENDER_PASS_DEPTH_STENCIL_DESC* pDepthStencil, D3D12_RENDER_PASS_FLAGS Flags) BeginRenderPass;
+		protected new function [CallingConvention(.Stdcall)] void(SelfOuter* self) EndRenderPass;
+		protected new function [CallingConvention(.Stdcall)] void(SelfOuter* self, ID3D12MetaCommand* pMetaCommand, void* pInitializationParametersData, uint InitializationParametersDataSizeInBytes) InitializeMetaCommand;
+		protected new function [CallingConvention(.Stdcall)] void(SelfOuter* self, ID3D12MetaCommand* pMetaCommand, void* pExecutionParametersData, uint ExecutionParametersDataSizeInBytes) ExecuteMetaCommand;
+		protected new function [CallingConvention(.Stdcall)] void(SelfOuter* self, D3D12_BUILD_RAYTRACING_ACCELERATION_STRUCTURE_DESC* pDesc, uint32 NumPostbuildInfoDescs, D3D12_RAYTRACING_ACCELERATION_STRUCTURE_POSTBUILD_INFO_DESC* pPostbuildInfoDescs) BuildRaytracingAccelerationStructure;
+		protected new function [CallingConvention(.Stdcall)] void(SelfOuter* self, D3D12_RAYTRACING_ACCELERATION_STRUCTURE_POSTBUILD_INFO_DESC* pDesc, uint32 NumSourceAccelerationStructures, uint64* pSourceAccelerationStructureData) EmitRaytracingAccelerationStructurePostbuildInfo;
+		protected new function [CallingConvention(.Stdcall)] void(SelfOuter* self, uint64 DestAccelerationStructureData, uint64 SourceAccelerationStructureData, D3D12_RAYTRACING_ACCELERATION_STRUCTURE_COPY_MODE Mode) CopyRaytracingAccelerationStructure;
+		protected new function [CallingConvention(.Stdcall)] void(SelfOuter* self, ID3D12StateObject* pStateObject) SetPipelineState1;
+		protected new function [CallingConvention(.Stdcall)] void(SelfOuter* self, D3D12_DISPATCH_RAYS_DESC* pDesc) DispatchRays;
 	}
 
 
@@ -7049,10 +7049,10 @@ public static
 
 	[CRepr]public struct VTable : ID3D12DeviceChild.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID3D12ShaderCacheSession*/SelfOuter* self, void* pKey, uint32 KeySize, void* pValue, uint32* pValueSize) FindValue;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID3D12ShaderCacheSession*/SelfOuter* self, void* pKey, uint32 KeySize, void* pValue, uint32 ValueSize) StoreValue;
-		protected new function [CallingConvention(.Stdcall)] void(/*ID3D12ShaderCacheSession*/SelfOuter* self) SetDeleteOnDestroy;
-		protected new function [CallingConvention(.Stdcall)] D3D12_SHADER_CACHE_SESSION_DESC(/*ID3D12ShaderCacheSession*/SelfOuter* self) GetDesc;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, void* pKey, uint32 KeySize, void* pValue, uint32* pValueSize) FindValue;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, void* pKey, uint32 KeySize, void* pValue, uint32 ValueSize) StoreValue;
+		protected new function [CallingConvention(.Stdcall)] void(SelfOuter* self) SetDeleteOnDestroy;
+		protected new function [CallingConvention(.Stdcall)] D3D12_SHADER_CACHE_SESSION_DESC(SelfOuter* self) GetDesc;
 	}
 
 
@@ -7073,9 +7073,9 @@ public static
 
 	[CRepr]public struct VTable : ID3D12Device8.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID3D12Device9*/SelfOuter* self, D3D12_SHADER_CACHE_SESSION_DESC* pDesc, ref Guid riid, void** ppvSession) CreateShaderCacheSession;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID3D12Device9*/SelfOuter* self, D3D12_SHADER_CACHE_KIND_FLAGS Kinds, D3D12_SHADER_CACHE_CONTROL_FLAGS Control) ShaderCacheControl;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID3D12Device9*/SelfOuter* self, D3D12_COMMAND_QUEUE_DESC* pDesc, ref Guid CreatorID, ref Guid riid, void** ppCommandQueue) CreateCommandQueue1;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, D3D12_SHADER_CACHE_SESSION_DESC* pDesc, ref Guid riid, void** ppvSession) CreateShaderCacheSession;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, D3D12_SHADER_CACHE_KIND_FLAGS Kinds, D3D12_SHADER_CACHE_CONTROL_FLAGS Control) ShaderCacheControl;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, D3D12_COMMAND_QUEUE_DESC* pDesc, ref Guid CreatorID, ref Guid riid, void** ppCommandQueue) CreateCommandQueue1;
 	}
 
 
@@ -7094,8 +7094,8 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] void(/*ID3D12Tools*/SelfOuter* self, BOOL bEnable) EnableShaderInstrumentation;
-		protected new function [CallingConvention(.Stdcall)] BOOL(/*ID3D12Tools*/SelfOuter* self) ShaderInstrumentationEnabled;
+		protected new function [CallingConvention(.Stdcall)] void(SelfOuter* self, BOOL bEnable) EnableShaderInstrumentation;
+		protected new function [CallingConvention(.Stdcall)] BOOL(SelfOuter* self) ShaderInstrumentationEnabled;
 	}
 
 
@@ -7112,7 +7112,7 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] void(/*ID3D12Debug*/SelfOuter* self) EnableDebugLayer;
+		protected new function [CallingConvention(.Stdcall)] void(SelfOuter* self) EnableDebugLayer;
 	}
 
 
@@ -7127,9 +7127,9 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] void(/*ID3D12Debug1*/SelfOuter* self) EnableDebugLayer;
-		protected new function [CallingConvention(.Stdcall)] void(/*ID3D12Debug1*/SelfOuter* self, BOOL Enable) SetEnableGPUBasedValidation;
-		protected new function [CallingConvention(.Stdcall)] void(/*ID3D12Debug1*/SelfOuter* self, BOOL Enable) SetEnableSynchronizedCommandQueueValidation;
+		protected new function [CallingConvention(.Stdcall)] void(SelfOuter* self) EnableDebugLayer;
+		protected new function [CallingConvention(.Stdcall)] void(SelfOuter* self, BOOL Enable) SetEnableGPUBasedValidation;
+		protected new function [CallingConvention(.Stdcall)] void(SelfOuter* self, BOOL Enable) SetEnableSynchronizedCommandQueueValidation;
 	}
 
 
@@ -7148,7 +7148,7 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] void(/*ID3D12Debug2*/SelfOuter* self, D3D12_GPU_BASED_VALIDATION_FLAGS Flags) SetGPUBasedValidationFlags;
+		protected new function [CallingConvention(.Stdcall)] void(SelfOuter* self, D3D12_GPU_BASED_VALIDATION_FLAGS Flags) SetGPUBasedValidationFlags;
 	}
 
 
@@ -7163,9 +7163,9 @@ public static
 
 	[CRepr]public struct VTable : ID3D12Debug.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] void(/*ID3D12Debug3*/SelfOuter* self, BOOL Enable) SetEnableGPUBasedValidation;
-		protected new function [CallingConvention(.Stdcall)] void(/*ID3D12Debug3*/SelfOuter* self, BOOL Enable) SetEnableSynchronizedCommandQueueValidation;
-		protected new function [CallingConvention(.Stdcall)] void(/*ID3D12Debug3*/SelfOuter* self, D3D12_GPU_BASED_VALIDATION_FLAGS Flags) SetGPUBasedValidationFlags;
+		protected new function [CallingConvention(.Stdcall)] void(SelfOuter* self, BOOL Enable) SetEnableGPUBasedValidation;
+		protected new function [CallingConvention(.Stdcall)] void(SelfOuter* self, BOOL Enable) SetEnableSynchronizedCommandQueueValidation;
+		protected new function [CallingConvention(.Stdcall)] void(SelfOuter* self, D3D12_GPU_BASED_VALIDATION_FLAGS Flags) SetGPUBasedValidationFlags;
 	}
 
 
@@ -7184,7 +7184,7 @@ public static
 
 	[CRepr]public struct VTable : ID3D12Debug3.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] void(/*ID3D12Debug4*/SelfOuter* self) DisableDebugLayer;
+		protected new function [CallingConvention(.Stdcall)] void(SelfOuter* self) DisableDebugLayer;
 	}
 
 
@@ -7199,7 +7199,7 @@ public static
 
 	[CRepr]public struct VTable : ID3D12Debug4.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] void(/*ID3D12Debug5*/SelfOuter* self, BOOL Enable) SetEnableAutoName;
+		protected new function [CallingConvention(.Stdcall)] void(SelfOuter* self, BOOL Enable) SetEnableAutoName;
 	}
 
 
@@ -7214,9 +7214,9 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID3D12DebugDevice1*/SelfOuter* self, D3D12_DEBUG_DEVICE_PARAMETER_TYPE Type, void* pData, uint32 DataSize) SetDebugParameter;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID3D12DebugDevice1*/SelfOuter* self, D3D12_DEBUG_DEVICE_PARAMETER_TYPE Type, void* pData, uint32 DataSize) GetDebugParameter;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID3D12DebugDevice1*/SelfOuter* self, D3D12_RLDO_FLAGS Flags) ReportLiveDeviceObjects;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, D3D12_DEBUG_DEVICE_PARAMETER_TYPE Type, void* pData, uint32 DataSize) SetDebugParameter;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, D3D12_DEBUG_DEVICE_PARAMETER_TYPE Type, void* pData, uint32 DataSize) GetDebugParameter;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, D3D12_RLDO_FLAGS Flags) ReportLiveDeviceObjects;
 	}
 
 
@@ -7235,9 +7235,9 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID3D12DebugDevice*/SelfOuter* self, D3D12_DEBUG_FEATURE Mask) SetFeatureMask;
-		protected new function [CallingConvention(.Stdcall)] D3D12_DEBUG_FEATURE(/*ID3D12DebugDevice*/SelfOuter* self) GetFeatureMask;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID3D12DebugDevice*/SelfOuter* self, D3D12_RLDO_FLAGS Flags) ReportLiveDeviceObjects;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, D3D12_DEBUG_FEATURE Mask) SetFeatureMask;
+		protected new function [CallingConvention(.Stdcall)] D3D12_DEBUG_FEATURE(SelfOuter* self) GetFeatureMask;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, D3D12_RLDO_FLAGS Flags) ReportLiveDeviceObjects;
 	}
 
 
@@ -7256,8 +7256,8 @@ public static
 
 	[CRepr]public struct VTable : ID3D12DebugDevice.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID3D12DebugDevice2*/SelfOuter* self, D3D12_DEBUG_DEVICE_PARAMETER_TYPE Type, void* pData, uint32 DataSize) SetDebugParameter;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID3D12DebugDevice2*/SelfOuter* self, D3D12_DEBUG_DEVICE_PARAMETER_TYPE Type, void* pData, uint32 DataSize) GetDebugParameter;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, D3D12_DEBUG_DEVICE_PARAMETER_TYPE Type, void* pData, uint32 DataSize) SetDebugParameter;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, D3D12_DEBUG_DEVICE_PARAMETER_TYPE Type, void* pData, uint32 DataSize) GetDebugParameter;
 	}
 
 
@@ -7274,7 +7274,7 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] BOOL(/*ID3D12DebugCommandQueue*/SelfOuter* self, ID3D12Resource* pResource, uint32 Subresource, uint32 State) AssertResourceState;
+		protected new function [CallingConvention(.Stdcall)] BOOL(SelfOuter* self, ID3D12Resource* pResource, uint32 Subresource, uint32 State) AssertResourceState;
 	}
 
 
@@ -7289,9 +7289,9 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] BOOL(/*ID3D12DebugCommandList1*/SelfOuter* self, ID3D12Resource* pResource, uint32 Subresource, uint32 State) AssertResourceState;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID3D12DebugCommandList1*/SelfOuter* self, D3D12_DEBUG_COMMAND_LIST_PARAMETER_TYPE Type, void* pData, uint32 DataSize) SetDebugParameter;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID3D12DebugCommandList1*/SelfOuter* self, D3D12_DEBUG_COMMAND_LIST_PARAMETER_TYPE Type, void* pData, uint32 DataSize) GetDebugParameter;
+		protected new function [CallingConvention(.Stdcall)] BOOL(SelfOuter* self, ID3D12Resource* pResource, uint32 Subresource, uint32 State) AssertResourceState;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, D3D12_DEBUG_COMMAND_LIST_PARAMETER_TYPE Type, void* pData, uint32 DataSize) SetDebugParameter;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, D3D12_DEBUG_COMMAND_LIST_PARAMETER_TYPE Type, void* pData, uint32 DataSize) GetDebugParameter;
 	}
 
 
@@ -7310,9 +7310,9 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] BOOL(/*ID3D12DebugCommandList*/SelfOuter* self, ID3D12Resource* pResource, uint32 Subresource, uint32 State) AssertResourceState;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID3D12DebugCommandList*/SelfOuter* self, D3D12_DEBUG_FEATURE Mask) SetFeatureMask;
-		protected new function [CallingConvention(.Stdcall)] D3D12_DEBUG_FEATURE(/*ID3D12DebugCommandList*/SelfOuter* self) GetFeatureMask;
+		protected new function [CallingConvention(.Stdcall)] BOOL(SelfOuter* self, ID3D12Resource* pResource, uint32 Subresource, uint32 State) AssertResourceState;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, D3D12_DEBUG_FEATURE Mask) SetFeatureMask;
+		protected new function [CallingConvention(.Stdcall)] D3D12_DEBUG_FEATURE(SelfOuter* self) GetFeatureMask;
 	}
 
 
@@ -7331,8 +7331,8 @@ public static
 
 	[CRepr]public struct VTable : ID3D12DebugCommandList.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID3D12DebugCommandList2*/SelfOuter* self, D3D12_DEBUG_COMMAND_LIST_PARAMETER_TYPE Type, void* pData, uint32 DataSize) SetDebugParameter;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID3D12DebugCommandList2*/SelfOuter* self, D3D12_DEBUG_COMMAND_LIST_PARAMETER_TYPE Type, void* pData, uint32 DataSize) GetDebugParameter;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, D3D12_DEBUG_COMMAND_LIST_PARAMETER_TYPE Type, void* pData, uint32 DataSize) SetDebugParameter;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, D3D12_DEBUG_COMMAND_LIST_PARAMETER_TYPE Type, void* pData, uint32 DataSize) GetDebugParameter;
 	}
 
 
@@ -7349,10 +7349,10 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] void(/*ID3D12SharingContract*/SelfOuter* self, ID3D12Resource* pResource, uint32 Subresource, HWND window) Present;
-		protected new function [CallingConvention(.Stdcall)] void(/*ID3D12SharingContract*/SelfOuter* self, ID3D12Fence* pFence, uint64 FenceValue) SharedFenceSignal;
-		protected new function [CallingConvention(.Stdcall)] void(/*ID3D12SharingContract*/SelfOuter* self, ref Guid guid) BeginCapturableWork;
-		protected new function [CallingConvention(.Stdcall)] void(/*ID3D12SharingContract*/SelfOuter* self, ref Guid guid) EndCapturableWork;
+		protected new function [CallingConvention(.Stdcall)] void(SelfOuter* self, ID3D12Resource* pResource, uint32 Subresource, HWND window) Present;
+		protected new function [CallingConvention(.Stdcall)] void(SelfOuter* self, ID3D12Fence* pFence, uint64 FenceValue) SharedFenceSignal;
+		protected new function [CallingConvention(.Stdcall)] void(SelfOuter* self, ref Guid guid) BeginCapturableWork;
+		protected new function [CallingConvention(.Stdcall)] void(SelfOuter* self, ref Guid guid) EndCapturableWork;
 	}
 
 
@@ -7373,41 +7373,41 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID3D12InfoQueue*/SelfOuter* self, uint64 MessageCountLimit) SetMessageCountLimit;
-		protected new function [CallingConvention(.Stdcall)] void(/*ID3D12InfoQueue*/SelfOuter* self) ClearStoredMessages;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID3D12InfoQueue*/SelfOuter* self, uint64 MessageIndex, D3D12_MESSAGE* pMessage, uint* pMessageByteLength) GetMessage;
-		protected new function [CallingConvention(.Stdcall)] uint64(/*ID3D12InfoQueue*/SelfOuter* self) GetNumMessagesAllowedByStorageFilter;
-		protected new function [CallingConvention(.Stdcall)] uint64(/*ID3D12InfoQueue*/SelfOuter* self) GetNumMessagesDeniedByStorageFilter;
-		protected new function [CallingConvention(.Stdcall)] uint64(/*ID3D12InfoQueue*/SelfOuter* self) GetNumStoredMessages;
-		protected new function [CallingConvention(.Stdcall)] uint64(/*ID3D12InfoQueue*/SelfOuter* self) GetNumStoredMessagesAllowedByRetrievalFilter;
-		protected new function [CallingConvention(.Stdcall)] uint64(/*ID3D12InfoQueue*/SelfOuter* self) GetNumMessagesDiscardedByMessageCountLimit;
-		protected new function [CallingConvention(.Stdcall)] uint64(/*ID3D12InfoQueue*/SelfOuter* self) GetMessageCountLimit;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID3D12InfoQueue*/SelfOuter* self, D3D12_INFO_QUEUE_FILTER* pFilter) AddStorageFilterEntries;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID3D12InfoQueue*/SelfOuter* self, D3D12_INFO_QUEUE_FILTER* pFilter, uint* pFilterByteLength) GetStorageFilter;
-		protected new function [CallingConvention(.Stdcall)] void(/*ID3D12InfoQueue*/SelfOuter* self) ClearStorageFilter;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID3D12InfoQueue*/SelfOuter* self) PushEmptyStorageFilter;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID3D12InfoQueue*/SelfOuter* self) PushCopyOfStorageFilter;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID3D12InfoQueue*/SelfOuter* self, D3D12_INFO_QUEUE_FILTER* pFilter) PushStorageFilter;
-		protected new function [CallingConvention(.Stdcall)] void(/*ID3D12InfoQueue*/SelfOuter* self) PopStorageFilter;
-		protected new function [CallingConvention(.Stdcall)] uint32(/*ID3D12InfoQueue*/SelfOuter* self) GetStorageFilterStackSize;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID3D12InfoQueue*/SelfOuter* self, D3D12_INFO_QUEUE_FILTER* pFilter) AddRetrievalFilterEntries;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID3D12InfoQueue*/SelfOuter* self, D3D12_INFO_QUEUE_FILTER* pFilter, uint* pFilterByteLength) GetRetrievalFilter;
-		protected new function [CallingConvention(.Stdcall)] void(/*ID3D12InfoQueue*/SelfOuter* self) ClearRetrievalFilter;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID3D12InfoQueue*/SelfOuter* self) PushEmptyRetrievalFilter;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID3D12InfoQueue*/SelfOuter* self) PushCopyOfRetrievalFilter;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID3D12InfoQueue*/SelfOuter* self, D3D12_INFO_QUEUE_FILTER* pFilter) PushRetrievalFilter;
-		protected new function [CallingConvention(.Stdcall)] void(/*ID3D12InfoQueue*/SelfOuter* self) PopRetrievalFilter;
-		protected new function [CallingConvention(.Stdcall)] uint32(/*ID3D12InfoQueue*/SelfOuter* self) GetRetrievalFilterStackSize;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID3D12InfoQueue*/SelfOuter* self, D3D12_MESSAGE_CATEGORY Category, D3D12_MESSAGE_SEVERITY Severity, D3D12_MESSAGE_ID ID, PSTR pDescription) AddMessage;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID3D12InfoQueue*/SelfOuter* self, D3D12_MESSAGE_SEVERITY Severity, PSTR pDescription) AddApplicationMessage;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID3D12InfoQueue*/SelfOuter* self, D3D12_MESSAGE_CATEGORY Category, BOOL bEnable) SetBreakOnCategory;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID3D12InfoQueue*/SelfOuter* self, D3D12_MESSAGE_SEVERITY Severity, BOOL bEnable) SetBreakOnSeverity;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID3D12InfoQueue*/SelfOuter* self, D3D12_MESSAGE_ID ID, BOOL bEnable) SetBreakOnID;
-		protected new function [CallingConvention(.Stdcall)] BOOL(/*ID3D12InfoQueue*/SelfOuter* self, D3D12_MESSAGE_CATEGORY Category) GetBreakOnCategory;
-		protected new function [CallingConvention(.Stdcall)] BOOL(/*ID3D12InfoQueue*/SelfOuter* self, D3D12_MESSAGE_SEVERITY Severity) GetBreakOnSeverity;
-		protected new function [CallingConvention(.Stdcall)] BOOL(/*ID3D12InfoQueue*/SelfOuter* self, D3D12_MESSAGE_ID ID) GetBreakOnID;
-		protected new function [CallingConvention(.Stdcall)] void(/*ID3D12InfoQueue*/SelfOuter* self, BOOL bMute) SetMuteDebugOutput;
-		protected new function [CallingConvention(.Stdcall)] BOOL(/*ID3D12InfoQueue*/SelfOuter* self) GetMuteDebugOutput;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint64 MessageCountLimit) SetMessageCountLimit;
+		protected new function [CallingConvention(.Stdcall)] void(SelfOuter* self) ClearStoredMessages;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint64 MessageIndex, D3D12_MESSAGE* pMessage, uint* pMessageByteLength) GetMessage;
+		protected new function [CallingConvention(.Stdcall)] uint64(SelfOuter* self) GetNumMessagesAllowedByStorageFilter;
+		protected new function [CallingConvention(.Stdcall)] uint64(SelfOuter* self) GetNumMessagesDeniedByStorageFilter;
+		protected new function [CallingConvention(.Stdcall)] uint64(SelfOuter* self) GetNumStoredMessages;
+		protected new function [CallingConvention(.Stdcall)] uint64(SelfOuter* self) GetNumStoredMessagesAllowedByRetrievalFilter;
+		protected new function [CallingConvention(.Stdcall)] uint64(SelfOuter* self) GetNumMessagesDiscardedByMessageCountLimit;
+		protected new function [CallingConvention(.Stdcall)] uint64(SelfOuter* self) GetMessageCountLimit;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, D3D12_INFO_QUEUE_FILTER* pFilter) AddStorageFilterEntries;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, D3D12_INFO_QUEUE_FILTER* pFilter, uint* pFilterByteLength) GetStorageFilter;
+		protected new function [CallingConvention(.Stdcall)] void(SelfOuter* self) ClearStorageFilter;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) PushEmptyStorageFilter;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) PushCopyOfStorageFilter;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, D3D12_INFO_QUEUE_FILTER* pFilter) PushStorageFilter;
+		protected new function [CallingConvention(.Stdcall)] void(SelfOuter* self) PopStorageFilter;
+		protected new function [CallingConvention(.Stdcall)] uint32(SelfOuter* self) GetStorageFilterStackSize;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, D3D12_INFO_QUEUE_FILTER* pFilter) AddRetrievalFilterEntries;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, D3D12_INFO_QUEUE_FILTER* pFilter, uint* pFilterByteLength) GetRetrievalFilter;
+		protected new function [CallingConvention(.Stdcall)] void(SelfOuter* self) ClearRetrievalFilter;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) PushEmptyRetrievalFilter;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) PushCopyOfRetrievalFilter;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, D3D12_INFO_QUEUE_FILTER* pFilter) PushRetrievalFilter;
+		protected new function [CallingConvention(.Stdcall)] void(SelfOuter* self) PopRetrievalFilter;
+		protected new function [CallingConvention(.Stdcall)] uint32(SelfOuter* self) GetRetrievalFilterStackSize;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, D3D12_MESSAGE_CATEGORY Category, D3D12_MESSAGE_SEVERITY Severity, D3D12_MESSAGE_ID ID, PSTR pDescription) AddMessage;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, D3D12_MESSAGE_SEVERITY Severity, PSTR pDescription) AddApplicationMessage;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, D3D12_MESSAGE_CATEGORY Category, BOOL bEnable) SetBreakOnCategory;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, D3D12_MESSAGE_SEVERITY Severity, BOOL bEnable) SetBreakOnSeverity;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, D3D12_MESSAGE_ID ID, BOOL bEnable) SetBreakOnID;
+		protected new function [CallingConvention(.Stdcall)] BOOL(SelfOuter* self, D3D12_MESSAGE_CATEGORY Category) GetBreakOnCategory;
+		protected new function [CallingConvention(.Stdcall)] BOOL(SelfOuter* self, D3D12_MESSAGE_SEVERITY Severity) GetBreakOnSeverity;
+		protected new function [CallingConvention(.Stdcall)] BOOL(SelfOuter* self, D3D12_MESSAGE_ID ID) GetBreakOnID;
+		protected new function [CallingConvention(.Stdcall)] void(SelfOuter* self, BOOL bMute) SetMuteDebugOutput;
+		protected new function [CallingConvention(.Stdcall)] BOOL(SelfOuter* self) GetMuteDebugOutput;
 	}
 
 
@@ -7490,8 +7490,8 @@ public static
 
 	[CRepr]public struct VTable : ID3D12InfoQueue.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID3D12InfoQueue1*/SelfOuter* self, D3D12MessageFunc CallbackFunc, D3D12_MESSAGE_CALLBACK_FLAGS CallbackFilterFlags, void* pContext, uint32* pCallbackCookie) RegisterMessageCallback;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID3D12InfoQueue1*/SelfOuter* self, uint32 CallbackCookie) UnregisterMessageCallback;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, D3D12MessageFunc CallbackFunc, D3D12_MESSAGE_CALLBACK_FLAGS CallbackFilterFlags, void* pContext, uint32* pCallbackCookie) RegisterMessageCallback;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 CallbackCookie) UnregisterMessageCallback;
 	}
 
 
@@ -7508,7 +7508,7 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID3D12SDKConfiguration*/SelfOuter* self, uint32 SDKVersion, PSTR SDKPath) SetSDKVersion;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 SDKVersion, PSTR SDKPath) SetSDKVersion;
 	}
 
 
@@ -7523,8 +7523,8 @@ public static
 
 	[CRepr]public struct VTable : ID3D12GraphicsCommandList4.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] void(/*ID3D12GraphicsCommandList5*/SelfOuter* self, D3D12_SHADING_RATE baseShadingRate, D3D12_SHADING_RATE_COMBINER* combiners) RSSetShadingRate;
-		protected new function [CallingConvention(.Stdcall)] void(/*ID3D12GraphicsCommandList5*/SelfOuter* self, ID3D12Resource* shadingRateImage) RSSetShadingRateImage;
+		protected new function [CallingConvention(.Stdcall)] void(SelfOuter* self, D3D12_SHADING_RATE baseShadingRate, D3D12_SHADING_RATE_COMBINER* combiners) RSSetShadingRate;
+		protected new function [CallingConvention(.Stdcall)] void(SelfOuter* self, ID3D12Resource* shadingRateImage) RSSetShadingRateImage;
 	}
 
 
@@ -7541,7 +7541,7 @@ public static
 
 	[CRepr]public struct VTable : ID3D12GraphicsCommandList5.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] void(/*ID3D12GraphicsCommandList6*/SelfOuter* self, uint32 ThreadGroupCountX, uint32 ThreadGroupCountY, uint32 ThreadGroupCountZ) DispatchMesh;
+		protected new function [CallingConvention(.Stdcall)] void(SelfOuter* self, uint32 ThreadGroupCountX, uint32 ThreadGroupCountY, uint32 ThreadGroupCountZ) DispatchMesh;
 	}
 
 
@@ -7558,17 +7558,17 @@ public static
 
 	[CRepr]public struct VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID3D12ShaderReflectionType*/SelfOuter* self, D3D12_SHADER_TYPE_DESC* pDesc) GetDesc;
-		protected new function [CallingConvention(.Stdcall)] ID3D12ShaderReflectionType*(/*ID3D12ShaderReflectionType*/SelfOuter* self, uint32 Index) GetMemberTypeByIndex;
-		protected new function [CallingConvention(.Stdcall)] ID3D12ShaderReflectionType*(/*ID3D12ShaderReflectionType*/SelfOuter* self, PSTR Name) GetMemberTypeByName;
-		protected new function [CallingConvention(.Stdcall)] PSTR(/*ID3D12ShaderReflectionType*/SelfOuter* self, uint32 Index) GetMemberTypeName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID3D12ShaderReflectionType*/SelfOuter* self, ID3D12ShaderReflectionType* pType) IsEqual;
-		protected new function [CallingConvention(.Stdcall)] ID3D12ShaderReflectionType*(/*ID3D12ShaderReflectionType*/SelfOuter* self) GetSubType;
-		protected new function [CallingConvention(.Stdcall)] ID3D12ShaderReflectionType*(/*ID3D12ShaderReflectionType*/SelfOuter* self) GetBaseClass;
-		protected new function [CallingConvention(.Stdcall)] uint32(/*ID3D12ShaderReflectionType*/SelfOuter* self) GetNumInterfaces;
-		protected new function [CallingConvention(.Stdcall)] ID3D12ShaderReflectionType*(/*ID3D12ShaderReflectionType*/SelfOuter* self, uint32 uIndex) GetInterfaceByIndex;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID3D12ShaderReflectionType*/SelfOuter* self, ID3D12ShaderReflectionType* pType) IsOfType;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID3D12ShaderReflectionType*/SelfOuter* self, ID3D12ShaderReflectionType* pBase) ImplementsInterface;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, D3D12_SHADER_TYPE_DESC* pDesc) GetDesc;
+		protected new function [CallingConvention(.Stdcall)] ID3D12ShaderReflectionType*(SelfOuter* self, uint32 Index) GetMemberTypeByIndex;
+		protected new function [CallingConvention(.Stdcall)] ID3D12ShaderReflectionType*(SelfOuter* self, PSTR Name) GetMemberTypeByName;
+		protected new function [CallingConvention(.Stdcall)] PSTR(SelfOuter* self, uint32 Index) GetMemberTypeName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ID3D12ShaderReflectionType* pType) IsEqual;
+		protected new function [CallingConvention(.Stdcall)] ID3D12ShaderReflectionType*(SelfOuter* self) GetSubType;
+		protected new function [CallingConvention(.Stdcall)] ID3D12ShaderReflectionType*(SelfOuter* self) GetBaseClass;
+		protected new function [CallingConvention(.Stdcall)] uint32(SelfOuter* self) GetNumInterfaces;
+		protected new function [CallingConvention(.Stdcall)] ID3D12ShaderReflectionType*(SelfOuter* self, uint32 uIndex) GetInterfaceByIndex;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ID3D12ShaderReflectionType* pType) IsOfType;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ID3D12ShaderReflectionType* pBase) ImplementsInterface;
 	}
 
 
@@ -7605,10 +7605,10 @@ public static
 
 	[CRepr]public struct VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID3D12ShaderReflectionVariable*/SelfOuter* self, D3D12_SHADER_VARIABLE_DESC* pDesc) GetDesc;
-		protected new function [CallingConvention(.Stdcall)] ID3D12ShaderReflectionType*(/*ID3D12ShaderReflectionVariable*/SelfOuter* self) COM_GetType;
-		protected new function [CallingConvention(.Stdcall)] ID3D12ShaderReflectionConstantBuffer*(/*ID3D12ShaderReflectionVariable*/SelfOuter* self) GetBuffer;
-		protected new function [CallingConvention(.Stdcall)] uint32(/*ID3D12ShaderReflectionVariable*/SelfOuter* self, uint32 uArrayIndex) GetInterfaceSlot;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, D3D12_SHADER_VARIABLE_DESC* pDesc) GetDesc;
+		protected new function [CallingConvention(.Stdcall)] ID3D12ShaderReflectionType*(SelfOuter* self) COM_GetType;
+		protected new function [CallingConvention(.Stdcall)] ID3D12ShaderReflectionConstantBuffer*(SelfOuter* self) GetBuffer;
+		protected new function [CallingConvention(.Stdcall)] uint32(SelfOuter* self, uint32 uArrayIndex) GetInterfaceSlot;
 	}
 
 
@@ -7631,9 +7631,9 @@ public static
 
 	[CRepr]public struct VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID3D12ShaderReflectionConstantBuffer*/SelfOuter* self, D3D12_SHADER_BUFFER_DESC* pDesc) GetDesc;
-		protected new function [CallingConvention(.Stdcall)] ID3D12ShaderReflectionVariable*(/*ID3D12ShaderReflectionConstantBuffer*/SelfOuter* self, uint32 Index) GetVariableByIndex;
-		protected new function [CallingConvention(.Stdcall)] ID3D12ShaderReflectionVariable*(/*ID3D12ShaderReflectionConstantBuffer*/SelfOuter* self, PSTR Name) GetVariableByName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, D3D12_SHADER_BUFFER_DESC* pDesc) GetDesc;
+		protected new function [CallingConvention(.Stdcall)] ID3D12ShaderReflectionVariable*(SelfOuter* self, uint32 Index) GetVariableByIndex;
+		protected new function [CallingConvention(.Stdcall)] ID3D12ShaderReflectionVariable*(SelfOuter* self, PSTR Name) GetVariableByName;
 	}
 
 
@@ -7652,25 +7652,25 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID3D12ShaderReflection*/SelfOuter* self, D3D12_SHADER_DESC* pDesc) GetDesc;
-		protected new function [CallingConvention(.Stdcall)] ID3D12ShaderReflectionConstantBuffer*(/*ID3D12ShaderReflection*/SelfOuter* self, uint32 Index) GetConstantBufferByIndex;
-		protected new function [CallingConvention(.Stdcall)] ID3D12ShaderReflectionConstantBuffer*(/*ID3D12ShaderReflection*/SelfOuter* self, PSTR Name) GetConstantBufferByName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID3D12ShaderReflection*/SelfOuter* self, uint32 ResourceIndex, D3D12_SHADER_INPUT_BIND_DESC* pDesc) GetResourceBindingDesc;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID3D12ShaderReflection*/SelfOuter* self, uint32 ParameterIndex, D3D12_SIGNATURE_PARAMETER_DESC* pDesc) GetInputParameterDesc;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID3D12ShaderReflection*/SelfOuter* self, uint32 ParameterIndex, D3D12_SIGNATURE_PARAMETER_DESC* pDesc) GetOutputParameterDesc;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID3D12ShaderReflection*/SelfOuter* self, uint32 ParameterIndex, D3D12_SIGNATURE_PARAMETER_DESC* pDesc) GetPatchConstantParameterDesc;
-		protected new function [CallingConvention(.Stdcall)] ID3D12ShaderReflectionVariable*(/*ID3D12ShaderReflection*/SelfOuter* self, PSTR Name) GetVariableByName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID3D12ShaderReflection*/SelfOuter* self, PSTR Name, D3D12_SHADER_INPUT_BIND_DESC* pDesc) GetResourceBindingDescByName;
-		protected new function [CallingConvention(.Stdcall)] uint32(/*ID3D12ShaderReflection*/SelfOuter* self) GetMovInstructionCount;
-		protected new function [CallingConvention(.Stdcall)] uint32(/*ID3D12ShaderReflection*/SelfOuter* self) GetMovcInstructionCount;
-		protected new function [CallingConvention(.Stdcall)] uint32(/*ID3D12ShaderReflection*/SelfOuter* self) GetConversionInstructionCount;
-		protected new function [CallingConvention(.Stdcall)] uint32(/*ID3D12ShaderReflection*/SelfOuter* self) GetBitwiseInstructionCount;
-		protected new function [CallingConvention(.Stdcall)] D3D_PRIMITIVE(/*ID3D12ShaderReflection*/SelfOuter* self) GetGSInputPrimitive;
-		protected new function [CallingConvention(.Stdcall)] BOOL(/*ID3D12ShaderReflection*/SelfOuter* self) IsSampleFrequencyShader;
-		protected new function [CallingConvention(.Stdcall)] uint32(/*ID3D12ShaderReflection*/SelfOuter* self) GetNumInterfaceSlots;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID3D12ShaderReflection*/SelfOuter* self, D3D_FEATURE_LEVEL* pLevel) GetMinFeatureLevel;
-		protected new function [CallingConvention(.Stdcall)] uint32(/*ID3D12ShaderReflection*/SelfOuter* self, uint32* pSizeX, uint32* pSizeY, uint32* pSizeZ) GetThreadGroupSize;
-		protected new function [CallingConvention(.Stdcall)] uint64(/*ID3D12ShaderReflection*/SelfOuter* self) GetRequiresFlags;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, D3D12_SHADER_DESC* pDesc) GetDesc;
+		protected new function [CallingConvention(.Stdcall)] ID3D12ShaderReflectionConstantBuffer*(SelfOuter* self, uint32 Index) GetConstantBufferByIndex;
+		protected new function [CallingConvention(.Stdcall)] ID3D12ShaderReflectionConstantBuffer*(SelfOuter* self, PSTR Name) GetConstantBufferByName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 ResourceIndex, D3D12_SHADER_INPUT_BIND_DESC* pDesc) GetResourceBindingDesc;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 ParameterIndex, D3D12_SIGNATURE_PARAMETER_DESC* pDesc) GetInputParameterDesc;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 ParameterIndex, D3D12_SIGNATURE_PARAMETER_DESC* pDesc) GetOutputParameterDesc;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 ParameterIndex, D3D12_SIGNATURE_PARAMETER_DESC* pDesc) GetPatchConstantParameterDesc;
+		protected new function [CallingConvention(.Stdcall)] ID3D12ShaderReflectionVariable*(SelfOuter* self, PSTR Name) GetVariableByName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PSTR Name, D3D12_SHADER_INPUT_BIND_DESC* pDesc) GetResourceBindingDescByName;
+		protected new function [CallingConvention(.Stdcall)] uint32(SelfOuter* self) GetMovInstructionCount;
+		protected new function [CallingConvention(.Stdcall)] uint32(SelfOuter* self) GetMovcInstructionCount;
+		protected new function [CallingConvention(.Stdcall)] uint32(SelfOuter* self) GetConversionInstructionCount;
+		protected new function [CallingConvention(.Stdcall)] uint32(SelfOuter* self) GetBitwiseInstructionCount;
+		protected new function [CallingConvention(.Stdcall)] D3D_PRIMITIVE(SelfOuter* self) GetGSInputPrimitive;
+		protected new function [CallingConvention(.Stdcall)] BOOL(SelfOuter* self) IsSampleFrequencyShader;
+		protected new function [CallingConvention(.Stdcall)] uint32(SelfOuter* self) GetNumInterfaceSlots;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, D3D_FEATURE_LEVEL* pLevel) GetMinFeatureLevel;
+		protected new function [CallingConvention(.Stdcall)] uint32(SelfOuter* self, uint32* pSizeX, uint32* pSizeY, uint32* pSizeZ) GetThreadGroupSize;
+		protected new function [CallingConvention(.Stdcall)] uint64(SelfOuter* self) GetRequiresFlags;
 	}
 
 
@@ -7721,8 +7721,8 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID3D12LibraryReflection*/SelfOuter* self, D3D12_LIBRARY_DESC* pDesc) GetDesc;
-		protected new function [CallingConvention(.Stdcall)] ID3D12FunctionReflection*(/*ID3D12LibraryReflection*/SelfOuter* self, int32 FunctionIndex) GetFunctionByIndex;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, D3D12_LIBRARY_DESC* pDesc) GetDesc;
+		protected new function [CallingConvention(.Stdcall)] ID3D12FunctionReflection*(SelfOuter* self, int32 FunctionIndex) GetFunctionByIndex;
 	}
 
 
@@ -7741,13 +7741,13 @@ public static
 
 	[CRepr]public struct VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID3D12FunctionReflection*/SelfOuter* self, D3D12_FUNCTION_DESC* pDesc) GetDesc;
-		protected new function [CallingConvention(.Stdcall)] ID3D12ShaderReflectionConstantBuffer*(/*ID3D12FunctionReflection*/SelfOuter* self, uint32 BufferIndex) GetConstantBufferByIndex;
-		protected new function [CallingConvention(.Stdcall)] ID3D12ShaderReflectionConstantBuffer*(/*ID3D12FunctionReflection*/SelfOuter* self, PSTR Name) GetConstantBufferByName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID3D12FunctionReflection*/SelfOuter* self, uint32 ResourceIndex, D3D12_SHADER_INPUT_BIND_DESC* pDesc) GetResourceBindingDesc;
-		protected new function [CallingConvention(.Stdcall)] ID3D12ShaderReflectionVariable*(/*ID3D12FunctionReflection*/SelfOuter* self, PSTR Name) GetVariableByName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID3D12FunctionReflection*/SelfOuter* self, PSTR Name, D3D12_SHADER_INPUT_BIND_DESC* pDesc) GetResourceBindingDescByName;
-		protected new function [CallingConvention(.Stdcall)] ID3D12FunctionParameterReflection*(/*ID3D12FunctionReflection*/SelfOuter* self, int32 ParameterIndex) GetFunctionParameter;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, D3D12_FUNCTION_DESC* pDesc) GetDesc;
+		protected new function [CallingConvention(.Stdcall)] ID3D12ShaderReflectionConstantBuffer*(SelfOuter* self, uint32 BufferIndex) GetConstantBufferByIndex;
+		protected new function [CallingConvention(.Stdcall)] ID3D12ShaderReflectionConstantBuffer*(SelfOuter* self, PSTR Name) GetConstantBufferByName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 ResourceIndex, D3D12_SHADER_INPUT_BIND_DESC* pDesc) GetResourceBindingDesc;
+		protected new function [CallingConvention(.Stdcall)] ID3D12ShaderReflectionVariable*(SelfOuter* self, PSTR Name) GetVariableByName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PSTR Name, D3D12_SHADER_INPUT_BIND_DESC* pDesc) GetResourceBindingDescByName;
+		protected new function [CallingConvention(.Stdcall)] ID3D12FunctionParameterReflection*(SelfOuter* self, int32 ParameterIndex) GetFunctionParameter;
 	}
 
 
@@ -7776,7 +7776,7 @@ public static
 
 	[CRepr]public struct VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ID3D12FunctionParameterReflection*/SelfOuter* self, D3D12_PARAMETER_DESC* pDesc) GetDesc;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, D3D12_PARAMETER_DESC* pDesc) GetDesc;
 	}
 
 

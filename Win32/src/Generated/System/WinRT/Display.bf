@@ -33,8 +33,8 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDisplayDeviceInterop*/SelfOuter* self, IInspectable* pObject, SECURITY_ATTRIBUTES* pSecurityAttributes, uint32 Access, HSTRING Name, HANDLE* pHandle) CreateSharedHandle;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDisplayDeviceInterop*/SelfOuter* self, HANDLE NTHandle, Guid riid, void** ppvObj) OpenSharedHandle;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IInspectable* pObject, SECURITY_ATTRIBUTES* pSecurityAttributes, uint32 Access, HSTRING Name, HANDLE* pHandle) CreateSharedHandle;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HANDLE NTHandle, Guid riid, void** ppvObj) OpenSharedHandle;
 	}
 
 
@@ -51,8 +51,8 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDisplayPathInterop*/SelfOuter* self, HANDLE* pValue) CreateSourcePresentationHandle;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDisplayPathInterop*/SelfOuter* self, uint32* pSourceId) GetSourceId;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HANDLE* pValue) CreateSourcePresentationHandle;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pSourceId) GetSourceId;
 	}
 
 

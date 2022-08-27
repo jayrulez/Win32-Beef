@@ -1436,66 +1436,66 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDataCollectorSet*/SelfOuter* self, IDataCollectorCollection** collectors) get_DataCollectors;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDataCollectorSet*/SelfOuter* self, uint32* seconds) get_Duration;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDataCollectorSet*/SelfOuter* self, uint32 seconds) put_Duration;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDataCollectorSet*/SelfOuter* self, BSTR* description) get_Description;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDataCollectorSet*/SelfOuter* self, BSTR description) put_Description;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDataCollectorSet*/SelfOuter* self, BSTR* Descr) get_DescriptionUnresolved;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDataCollectorSet*/SelfOuter* self, BSTR* DisplayName) get_DisplayName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDataCollectorSet*/SelfOuter* self, BSTR DisplayName) put_DisplayName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDataCollectorSet*/SelfOuter* self, BSTR* name) get_DisplayNameUnresolved;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDataCollectorSet*/SelfOuter* self, SAFEARRAY** keywords) get_Keywords;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDataCollectorSet*/SelfOuter* self, SAFEARRAY* keywords) put_Keywords;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDataCollectorSet*/SelfOuter* self, BSTR* path) get_LatestOutputLocation;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDataCollectorSet*/SelfOuter* self, BSTR path) put_LatestOutputLocation;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDataCollectorSet*/SelfOuter* self, BSTR* name) get_Name;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDataCollectorSet*/SelfOuter* self, BSTR* path) get_OutputLocation;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDataCollectorSet*/SelfOuter* self, BSTR* folder) get_RootPath;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDataCollectorSet*/SelfOuter* self, BSTR folder) put_RootPath;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDataCollectorSet*/SelfOuter* self, int16* segment) get_Segment;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDataCollectorSet*/SelfOuter* self, int16 segment) put_Segment;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDataCollectorSet*/SelfOuter* self, uint32* seconds) get_SegmentMaxDuration;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDataCollectorSet*/SelfOuter* self, uint32 seconds) put_SegmentMaxDuration;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDataCollectorSet*/SelfOuter* self, uint32* size) get_SegmentMaxSize;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDataCollectorSet*/SelfOuter* self, uint32 size) put_SegmentMaxSize;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDataCollectorSet*/SelfOuter* self, uint32* index) get_SerialNumber;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDataCollectorSet*/SelfOuter* self, uint32 index) put_SerialNumber;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDataCollectorSet*/SelfOuter* self, BSTR* server) get_Server;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDataCollectorSet*/SelfOuter* self, DataCollectorSetStatus* status) get_Status;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDataCollectorSet*/SelfOuter* self, BSTR* folder) get_Subdirectory;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDataCollectorSet*/SelfOuter* self, BSTR folder) put_Subdirectory;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDataCollectorSet*/SelfOuter* self, AutoPathFormat* format) get_SubdirectoryFormat;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDataCollectorSet*/SelfOuter* self, AutoPathFormat format) put_SubdirectoryFormat;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDataCollectorSet*/SelfOuter* self, BSTR* pattern) get_SubdirectoryFormatPattern;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDataCollectorSet*/SelfOuter* self, BSTR pattern) put_SubdirectoryFormatPattern;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDataCollectorSet*/SelfOuter* self, BSTR* task) get_Task;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDataCollectorSet*/SelfOuter* self, BSTR task) put_Task;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDataCollectorSet*/SelfOuter* self, int16* RunAsSelf) get_TaskRunAsSelf;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDataCollectorSet*/SelfOuter* self, int16 RunAsSelf) put_TaskRunAsSelf;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDataCollectorSet*/SelfOuter* self, BSTR* task) get_TaskArguments;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDataCollectorSet*/SelfOuter* self, BSTR task) put_TaskArguments;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDataCollectorSet*/SelfOuter* self, BSTR* UserText) get_TaskUserTextArguments;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDataCollectorSet*/SelfOuter* self, BSTR UserText) put_TaskUserTextArguments;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDataCollectorSet*/SelfOuter* self, IScheduleCollection** ppSchedules) get_Schedules;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDataCollectorSet*/SelfOuter* self, int16* enabled) get_SchedulesEnabled;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDataCollectorSet*/SelfOuter* self, int16 enabled) put_SchedulesEnabled;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDataCollectorSet*/SelfOuter* self, BSTR* user) get_UserAccount;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDataCollectorSet*/SelfOuter* self, BSTR* xml) get_Xml;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDataCollectorSet*/SelfOuter* self, BSTR* pbstrSecurity) get_Security;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDataCollectorSet*/SelfOuter* self, BSTR bstrSecurity) put_Security;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDataCollectorSet*/SelfOuter* self, int16* Stop) get_StopOnCompletion;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDataCollectorSet*/SelfOuter* self, int16 Stop) put_StopOnCompletion;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDataCollectorSet*/SelfOuter* self, IDataManager** DataManager) get_DataManager;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDataCollectorSet*/SelfOuter* self, BSTR user, BSTR password) SetCredentials;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDataCollectorSet*/SelfOuter* self, BSTR name, BSTR server) Query;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDataCollectorSet*/SelfOuter* self, BSTR name, BSTR server, CommitMode mode, IValueMap** validation) Commit;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDataCollectorSet*/SelfOuter* self) Delete;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDataCollectorSet*/SelfOuter* self, int16 Synchronous) Start;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDataCollectorSet*/SelfOuter* self, int16 Synchronous) Stop;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDataCollectorSet*/SelfOuter* self, BSTR xml, IValueMap** validation) SetXml;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDataCollectorSet*/SelfOuter* self, BSTR key, BSTR value) SetValue;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDataCollectorSet*/SelfOuter* self, BSTR key, BSTR* value) GetValue;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IDataCollectorCollection** collectors) get_DataCollectors;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* seconds) get_Duration;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 seconds) put_Duration;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* description) get_Description;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR description) put_Description;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* Descr) get_DescriptionUnresolved;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* DisplayName) get_DisplayName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR DisplayName) put_DisplayName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* name) get_DisplayNameUnresolved;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, SAFEARRAY** keywords) get_Keywords;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, SAFEARRAY* keywords) put_Keywords;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* path) get_LatestOutputLocation;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR path) put_LatestOutputLocation;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* name) get_Name;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* path) get_OutputLocation;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* folder) get_RootPath;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR folder) put_RootPath;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* segment) get_Segment;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 segment) put_Segment;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* seconds) get_SegmentMaxDuration;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 seconds) put_SegmentMaxDuration;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* size) get_SegmentMaxSize;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 size) put_SegmentMaxSize;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* index) get_SerialNumber;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 index) put_SerialNumber;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* server) get_Server;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, DataCollectorSetStatus* status) get_Status;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* folder) get_Subdirectory;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR folder) put_Subdirectory;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, AutoPathFormat* format) get_SubdirectoryFormat;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, AutoPathFormat format) put_SubdirectoryFormat;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pattern) get_SubdirectoryFormatPattern;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR pattern) put_SubdirectoryFormatPattern;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* task) get_Task;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR task) put_Task;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* RunAsSelf) get_TaskRunAsSelf;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 RunAsSelf) put_TaskRunAsSelf;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* task) get_TaskArguments;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR task) put_TaskArguments;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* UserText) get_TaskUserTextArguments;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR UserText) put_TaskUserTextArguments;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IScheduleCollection** ppSchedules) get_Schedules;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* enabled) get_SchedulesEnabled;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 enabled) put_SchedulesEnabled;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* user) get_UserAccount;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* xml) get_Xml;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pbstrSecurity) get_Security;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrSecurity) put_Security;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* Stop) get_StopOnCompletion;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 Stop) put_StopOnCompletion;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IDataManager** DataManager) get_DataManager;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR user, BSTR password) SetCredentials;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR name, BSTR server) Query;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR name, BSTR server, CommitMode mode, IValueMap** validation) Commit;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Delete;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 Synchronous) Start;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 Synchronous) Stop;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR xml, IValueMap** validation) SetXml;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR key, BSTR value) SetValue;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR key, BSTR* value) GetValue;
 	}
 
 
@@ -1628,31 +1628,31 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDataManager*/SelfOuter* self, int16* pfEnabled) get_Enabled;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDataManager*/SelfOuter* self, int16 fEnabled) put_Enabled;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDataManager*/SelfOuter* self, int16* pfCheck) get_CheckBeforeRunning;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDataManager*/SelfOuter* self, int16 fCheck) put_CheckBeforeRunning;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDataManager*/SelfOuter* self, uint32* MinFreeDisk) get_MinFreeDisk;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDataManager*/SelfOuter* self, uint32 MinFreeDisk) put_MinFreeDisk;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDataManager*/SelfOuter* self, uint32* pulMaxSize) get_MaxSize;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDataManager*/SelfOuter* self, uint32 ulMaxSize) put_MaxSize;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDataManager*/SelfOuter* self, uint32* pulMaxFolderCount) get_MaxFolderCount;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDataManager*/SelfOuter* self, uint32 ulMaxFolderCount) put_MaxFolderCount;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDataManager*/SelfOuter* self, ResourcePolicy* pPolicy) get_ResourcePolicy;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDataManager*/SelfOuter* self, ResourcePolicy Policy) put_ResourcePolicy;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDataManager*/SelfOuter* self, IFolderActionCollection** Actions) get_FolderActions;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDataManager*/SelfOuter* self, BSTR* ReportSchema) get_ReportSchema;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDataManager*/SelfOuter* self, BSTR ReportSchema) put_ReportSchema;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDataManager*/SelfOuter* self, BSTR* pbstrFilename) get_ReportFileName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDataManager*/SelfOuter* self, BSTR pbstrFilename) put_ReportFileName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDataManager*/SelfOuter* self, BSTR* Filename) get_RuleTargetFileName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDataManager*/SelfOuter* self, BSTR Filename) put_RuleTargetFileName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDataManager*/SelfOuter* self, BSTR* pbstrFilename) get_EventsFileName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDataManager*/SelfOuter* self, BSTR pbstrFilename) put_EventsFileName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDataManager*/SelfOuter* self, BSTR* pbstrXml) get_Rules;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDataManager*/SelfOuter* self, BSTR bstrXml) put_Rules;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDataManager*/SelfOuter* self, DataManagerSteps Steps, BSTR bstrFolder, IValueMap** Errors) Run;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDataManager*/SelfOuter* self, BSTR CabFilename, BSTR DestinationPath) Extract;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* pfEnabled) get_Enabled;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 fEnabled) put_Enabled;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* pfCheck) get_CheckBeforeRunning;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 fCheck) put_CheckBeforeRunning;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* MinFreeDisk) get_MinFreeDisk;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 MinFreeDisk) put_MinFreeDisk;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pulMaxSize) get_MaxSize;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 ulMaxSize) put_MaxSize;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pulMaxFolderCount) get_MaxFolderCount;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 ulMaxFolderCount) put_MaxFolderCount;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ResourcePolicy* pPolicy) get_ResourcePolicy;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ResourcePolicy Policy) put_ResourcePolicy;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IFolderActionCollection** Actions) get_FolderActions;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* ReportSchema) get_ReportSchema;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR ReportSchema) put_ReportSchema;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pbstrFilename) get_ReportFileName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR pbstrFilename) put_ReportFileName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* Filename) get_RuleTargetFileName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR Filename) put_RuleTargetFileName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pbstrFilename) get_EventsFileName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR pbstrFilename) put_EventsFileName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pbstrXml) get_Rules;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrXml) put_Rules;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, DataManagerSteps Steps, BSTR bstrFolder, IValueMap** Errors) Run;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR CabFilename, BSTR DestinationPath) Extract;
 	}
 
 
@@ -1715,14 +1715,14 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFolderAction*/SelfOuter* self, uint32* pulAge) get_Age;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFolderAction*/SelfOuter* self, uint32 ulAge) put_Age;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFolderAction*/SelfOuter* self, uint32* pulAge) get_Size;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFolderAction*/SelfOuter* self, uint32 ulAge) put_Size;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFolderAction*/SelfOuter* self, FolderActionSteps* Steps) get_Actions;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFolderAction*/SelfOuter* self, FolderActionSteps Steps) put_Actions;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFolderAction*/SelfOuter* self, BSTR* pbstrDestination) get_SendCabTo;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFolderAction*/SelfOuter* self, BSTR bstrDestination) put_SendCabTo;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pulAge) get_Age;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 ulAge) put_Age;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pulAge) get_Size;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 ulAge) put_Size;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, FolderActionSteps* Steps) get_Actions;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, FolderActionSteps Steps) put_Actions;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pbstrDestination) get_SendCabTo;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrDestination) put_SendCabTo;
 	}
 
 
@@ -1751,14 +1751,14 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFolderActionCollection*/SelfOuter* self, uint32* Count) get_Count;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFolderActionCollection*/SelfOuter* self, VARIANT Index, IFolderAction** Action) get_Item;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFolderActionCollection*/SelfOuter* self, IUnknown** Enum) get__NewEnum;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFolderActionCollection*/SelfOuter* self, IFolderAction* Action) Add;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFolderActionCollection*/SelfOuter* self, VARIANT Index) Remove;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFolderActionCollection*/SelfOuter* self) Clear;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFolderActionCollection*/SelfOuter* self, IFolderActionCollection* Actions) AddRange;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFolderActionCollection*/SelfOuter* self, IFolderAction** FolderAction) CreateFolderAction;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* Count) get_Count;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT Index, IFolderAction** Action) get_Item;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IUnknown** Enum) get__NewEnum;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IFolderAction* Action) Add;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT Index) Remove;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Clear;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IFolderActionCollection* Actions) AddRange;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IFolderAction** FolderAction) CreateFolderAction;
 	}
 
 
@@ -1787,31 +1787,31 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDataCollector*/SelfOuter* self, IDataCollectorSet** group) get_DataCollectorSet;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDataCollector*/SelfOuter* self, IDataCollectorSet* group) put_DataCollectorSet;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDataCollector*/SelfOuter* self, DataCollectorType* type) get_DataCollectorType;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDataCollector*/SelfOuter* self, BSTR* name) get_FileName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDataCollector*/SelfOuter* self, BSTR name) put_FileName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDataCollector*/SelfOuter* self, AutoPathFormat* format) get_FileNameFormat;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDataCollector*/SelfOuter* self, AutoPathFormat format) put_FileNameFormat;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDataCollector*/SelfOuter* self, BSTR* pattern) get_FileNameFormatPattern;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDataCollector*/SelfOuter* self, BSTR pattern) put_FileNameFormatPattern;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDataCollector*/SelfOuter* self, BSTR* path) get_LatestOutputLocation;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDataCollector*/SelfOuter* self, BSTR path) put_LatestOutputLocation;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDataCollector*/SelfOuter* self, int16* @append) get_LogAppend;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDataCollector*/SelfOuter* self, int16 @append) put_LogAppend;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDataCollector*/SelfOuter* self, int16* circular) get_LogCircular;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDataCollector*/SelfOuter* self, int16 circular) put_LogCircular;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDataCollector*/SelfOuter* self, int16* overwrite) get_LogOverwrite;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDataCollector*/SelfOuter* self, int16 overwrite) put_LogOverwrite;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDataCollector*/SelfOuter* self, BSTR* name) get_Name;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDataCollector*/SelfOuter* self, BSTR name) put_Name;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDataCollector*/SelfOuter* self, BSTR* path) get_OutputLocation;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDataCollector*/SelfOuter* self, int32* index) get_Index;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDataCollector*/SelfOuter* self, int32 index) put_Index;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDataCollector*/SelfOuter* self, BSTR* Xml) get_Xml;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDataCollector*/SelfOuter* self, BSTR Xml, IValueMap** Validation) SetXml;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDataCollector*/SelfOuter* self, int16 Latest, BSTR* Location) CreateOutputLocation;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IDataCollectorSet** group) get_DataCollectorSet;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IDataCollectorSet* group) put_DataCollectorSet;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, DataCollectorType* type) get_DataCollectorType;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* name) get_FileName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR name) put_FileName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, AutoPathFormat* format) get_FileNameFormat;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, AutoPathFormat format) put_FileNameFormat;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pattern) get_FileNameFormatPattern;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR pattern) put_FileNameFormatPattern;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* path) get_LatestOutputLocation;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR path) put_LatestOutputLocation;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* @append) get_LogAppend;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 @append) put_LogAppend;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* circular) get_LogCircular;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 circular) put_LogCircular;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* overwrite) get_LogOverwrite;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 overwrite) put_LogOverwrite;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* name) get_Name;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR name) put_Name;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* path) get_OutputLocation;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* index) get_Index;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 index) put_Index;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* Xml) get_Xml;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR Xml, IValueMap** Validation) SetXml;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 Latest, BSTR* Location) CreateOutputLocation;
 	}
 
 
@@ -1874,16 +1874,16 @@ public static
 
 	[CRepr]public struct VTable : IDataCollector.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPerformanceCounterDataCollector*/SelfOuter* self, BSTR* dsn) get_DataSourceName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPerformanceCounterDataCollector*/SelfOuter* self, BSTR dsn) put_DataSourceName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPerformanceCounterDataCollector*/SelfOuter* self, SAFEARRAY** counters) get_PerformanceCounters;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPerformanceCounterDataCollector*/SelfOuter* self, SAFEARRAY* counters) put_PerformanceCounters;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPerformanceCounterDataCollector*/SelfOuter* self, FileFormat* format) get_LogFileFormat;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPerformanceCounterDataCollector*/SelfOuter* self, FileFormat format) put_LogFileFormat;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPerformanceCounterDataCollector*/SelfOuter* self, uint32* interval) get_SampleInterval;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPerformanceCounterDataCollector*/SelfOuter* self, uint32 interval) put_SampleInterval;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPerformanceCounterDataCollector*/SelfOuter* self, uint32* records) get_SegmentMaxRecords;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPerformanceCounterDataCollector*/SelfOuter* self, uint32 records) put_SegmentMaxRecords;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* dsn) get_DataSourceName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR dsn) put_DataSourceName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, SAFEARRAY** counters) get_PerformanceCounters;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, SAFEARRAY* counters) put_PerformanceCounters;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, FileFormat* format) get_LogFileFormat;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, FileFormat format) put_LogFileFormat;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* interval) get_SampleInterval;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 interval) put_SampleInterval;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* records) get_SegmentMaxRecords;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 records) put_SegmentMaxRecords;
 	}
 
 
@@ -1916,46 +1916,46 @@ public static
 
 	[CRepr]public struct VTable : IDataCollector.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITraceDataCollector*/SelfOuter* self, uint32* size) get_BufferSize;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITraceDataCollector*/SelfOuter* self, uint32 size) put_BufferSize;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITraceDataCollector*/SelfOuter* self, uint32* buffers) get_BuffersLost;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITraceDataCollector*/SelfOuter* self, uint32 buffers) put_BuffersLost;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITraceDataCollector*/SelfOuter* self, uint32* buffers) get_BuffersWritten;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITraceDataCollector*/SelfOuter* self, uint32 buffers) put_BuffersWritten;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITraceDataCollector*/SelfOuter* self, ClockType* clock) get_ClockType;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITraceDataCollector*/SelfOuter* self, ClockType clock) put_ClockType;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITraceDataCollector*/SelfOuter* self, uint32* events) get_EventsLost;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITraceDataCollector*/SelfOuter* self, uint32 events) put_EventsLost;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITraceDataCollector*/SelfOuter* self, uint32* mode) get_ExtendedModes;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITraceDataCollector*/SelfOuter* self, uint32 mode) put_ExtendedModes;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITraceDataCollector*/SelfOuter* self, uint32* seconds) get_FlushTimer;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITraceDataCollector*/SelfOuter* self, uint32 seconds) put_FlushTimer;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITraceDataCollector*/SelfOuter* self, uint32* buffers) get_FreeBuffers;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITraceDataCollector*/SelfOuter* self, uint32 buffers) put_FreeBuffers;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITraceDataCollector*/SelfOuter* self, ref Guid guid) get_Guid;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITraceDataCollector*/SelfOuter* self, Guid guid) put_Guid;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITraceDataCollector*/SelfOuter* self, int16* kernel) get_IsKernelTrace;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITraceDataCollector*/SelfOuter* self, uint32* buffers) get_MaximumBuffers;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITraceDataCollector*/SelfOuter* self, uint32 buffers) put_MaximumBuffers;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITraceDataCollector*/SelfOuter* self, uint32* buffers) get_MinimumBuffers;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITraceDataCollector*/SelfOuter* self, uint32 buffers) put_MinimumBuffers;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITraceDataCollector*/SelfOuter* self, uint32* buffers) get_NumberOfBuffers;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITraceDataCollector*/SelfOuter* self, uint32 buffers) put_NumberOfBuffers;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITraceDataCollector*/SelfOuter* self, int16* allocate) get_PreallocateFile;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITraceDataCollector*/SelfOuter* self, int16 allocate) put_PreallocateFile;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITraceDataCollector*/SelfOuter* self, int16* process) get_ProcessMode;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITraceDataCollector*/SelfOuter* self, int16 process) put_ProcessMode;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITraceDataCollector*/SelfOuter* self, uint32* buffers) get_RealTimeBuffersLost;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITraceDataCollector*/SelfOuter* self, uint32 buffers) put_RealTimeBuffersLost;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITraceDataCollector*/SelfOuter* self, uint64* id) get_SessionId;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITraceDataCollector*/SelfOuter* self, uint64 id) put_SessionId;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITraceDataCollector*/SelfOuter* self, BSTR* name) get_SessionName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITraceDataCollector*/SelfOuter* self, BSTR name) put_SessionName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITraceDataCollector*/SelfOuter* self, uint32* tid) get_SessionThreadId;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITraceDataCollector*/SelfOuter* self, uint32 tid) put_SessionThreadId;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITraceDataCollector*/SelfOuter* self, StreamMode* mode) get_StreamMode;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITraceDataCollector*/SelfOuter* self, StreamMode mode) put_StreamMode;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITraceDataCollector*/SelfOuter* self, ITraceDataProviderCollection** providers) get_TraceDataProviders;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* size) get_BufferSize;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 size) put_BufferSize;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* buffers) get_BuffersLost;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 buffers) put_BuffersLost;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* buffers) get_BuffersWritten;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 buffers) put_BuffersWritten;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ClockType* clock) get_ClockType;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ClockType clock) put_ClockType;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* events) get_EventsLost;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 events) put_EventsLost;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* mode) get_ExtendedModes;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 mode) put_ExtendedModes;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* seconds) get_FlushTimer;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 seconds) put_FlushTimer;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* buffers) get_FreeBuffers;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 buffers) put_FreeBuffers;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid guid) get_Guid;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, Guid guid) put_Guid;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* kernel) get_IsKernelTrace;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* buffers) get_MaximumBuffers;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 buffers) put_MaximumBuffers;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* buffers) get_MinimumBuffers;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 buffers) put_MinimumBuffers;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* buffers) get_NumberOfBuffers;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 buffers) put_NumberOfBuffers;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* allocate) get_PreallocateFile;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 allocate) put_PreallocateFile;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* process) get_ProcessMode;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 process) put_ProcessMode;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* buffers) get_RealTimeBuffersLost;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 buffers) put_RealTimeBuffersLost;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint64* id) get_SessionId;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint64 id) put_SessionId;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* name) get_SessionName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR name) put_SessionName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* tid) get_SessionThreadId;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 tid) put_SessionThreadId;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, StreamMode* mode) get_StreamMode;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, StreamMode mode) put_StreamMode;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ITraceDataProviderCollection** providers) get_TraceDataProviders;
 	}
 
 
@@ -2048,24 +2048,24 @@ public static
 
 	[CRepr]public struct VTable : IDataCollector.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IConfigurationDataCollector*/SelfOuter* self, uint32* count) get_FileMaxCount;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IConfigurationDataCollector*/SelfOuter* self, uint32 count) put_FileMaxCount;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IConfigurationDataCollector*/SelfOuter* self, uint32* depth) get_FileMaxRecursiveDepth;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IConfigurationDataCollector*/SelfOuter* self, uint32 depth) put_FileMaxRecursiveDepth;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IConfigurationDataCollector*/SelfOuter* self, uint32* size) get_FileMaxTotalSize;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IConfigurationDataCollector*/SelfOuter* self, uint32 size) put_FileMaxTotalSize;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IConfigurationDataCollector*/SelfOuter* self, SAFEARRAY** Files) get_Files;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IConfigurationDataCollector*/SelfOuter* self, SAFEARRAY* Files) put_Files;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IConfigurationDataCollector*/SelfOuter* self, SAFEARRAY** Queries) get_ManagementQueries;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IConfigurationDataCollector*/SelfOuter* self, SAFEARRAY* Queries) put_ManagementQueries;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IConfigurationDataCollector*/SelfOuter* self, int16* network) get_QueryNetworkAdapters;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IConfigurationDataCollector*/SelfOuter* self, int16 network) put_QueryNetworkAdapters;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IConfigurationDataCollector*/SelfOuter* self, SAFEARRAY** query) get_RegistryKeys;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IConfigurationDataCollector*/SelfOuter* self, SAFEARRAY* query) put_RegistryKeys;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IConfigurationDataCollector*/SelfOuter* self, uint32* depth) get_RegistryMaxRecursiveDepth;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IConfigurationDataCollector*/SelfOuter* self, uint32 depth) put_RegistryMaxRecursiveDepth;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IConfigurationDataCollector*/SelfOuter* self, BSTR* FileName) get_SystemStateFile;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IConfigurationDataCollector*/SelfOuter* self, BSTR FileName) put_SystemStateFile;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* count) get_FileMaxCount;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 count) put_FileMaxCount;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* depth) get_FileMaxRecursiveDepth;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 depth) put_FileMaxRecursiveDepth;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* size) get_FileMaxTotalSize;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 size) put_FileMaxTotalSize;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, SAFEARRAY** Files) get_Files;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, SAFEARRAY* Files) put_Files;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, SAFEARRAY** Queries) get_ManagementQueries;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, SAFEARRAY* Queries) put_ManagementQueries;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* network) get_QueryNetworkAdapters;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 network) put_QueryNetworkAdapters;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, SAFEARRAY** query) get_RegistryKeys;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, SAFEARRAY* query) put_RegistryKeys;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* depth) get_RegistryMaxRecursiveDepth;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 depth) put_RegistryMaxRecursiveDepth;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* FileName) get_SystemStateFile;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR FileName) put_SystemStateFile;
 	}
 
 
@@ -2114,22 +2114,22 @@ public static
 
 	[CRepr]public struct VTable : IDataCollector.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAlertDataCollector*/SelfOuter* self, SAFEARRAY** alerts) get_AlertThresholds;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAlertDataCollector*/SelfOuter* self, SAFEARRAY* alerts) put_AlertThresholds;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAlertDataCollector*/SelfOuter* self, int16* log) get_EventLog;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAlertDataCollector*/SelfOuter* self, int16 log) put_EventLog;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAlertDataCollector*/SelfOuter* self, uint32* interval) get_SampleInterval;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAlertDataCollector*/SelfOuter* self, uint32 interval) put_SampleInterval;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAlertDataCollector*/SelfOuter* self, BSTR* task) get_Task;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAlertDataCollector*/SelfOuter* self, BSTR task) put_Task;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAlertDataCollector*/SelfOuter* self, int16* RunAsSelf) get_TaskRunAsSelf;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAlertDataCollector*/SelfOuter* self, int16 RunAsSelf) put_TaskRunAsSelf;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAlertDataCollector*/SelfOuter* self, BSTR* task) get_TaskArguments;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAlertDataCollector*/SelfOuter* self, BSTR task) put_TaskArguments;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAlertDataCollector*/SelfOuter* self, BSTR* task) get_TaskUserTextArguments;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAlertDataCollector*/SelfOuter* self, BSTR task) put_TaskUserTextArguments;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAlertDataCollector*/SelfOuter* self, BSTR* name) get_TriggerDataCollectorSet;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAlertDataCollector*/SelfOuter* self, BSTR name) put_TriggerDataCollectorSet;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, SAFEARRAY** alerts) get_AlertThresholds;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, SAFEARRAY* alerts) put_AlertThresholds;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* log) get_EventLog;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 log) put_EventLog;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* interval) get_SampleInterval;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 interval) put_SampleInterval;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* task) get_Task;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR task) put_Task;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* RunAsSelf) get_TaskRunAsSelf;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 RunAsSelf) put_TaskRunAsSelf;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* task) get_TaskArguments;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR task) put_TaskArguments;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* task) get_TaskUserTextArguments;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR task) put_TaskUserTextArguments;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* name) get_TriggerDataCollectorSet;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR name) put_TriggerDataCollectorSet;
 	}
 
 
@@ -2174,20 +2174,20 @@ public static
 
 	[CRepr]public struct VTable : IDataCollector.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IApiTracingDataCollector*/SelfOuter* self, int16* logapinames) get_LogApiNamesOnly;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IApiTracingDataCollector*/SelfOuter* self, int16 logapinames) put_LogApiNamesOnly;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IApiTracingDataCollector*/SelfOuter* self, int16* logrecursively) get_LogApisRecursively;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IApiTracingDataCollector*/SelfOuter* self, int16 logrecursively) put_LogApisRecursively;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IApiTracingDataCollector*/SelfOuter* self, BSTR* exepath) get_ExePath;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IApiTracingDataCollector*/SelfOuter* self, BSTR exepath) put_ExePath;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IApiTracingDataCollector*/SelfOuter* self, BSTR* logfilepath) get_LogFilePath;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IApiTracingDataCollector*/SelfOuter* self, BSTR logfilepath) put_LogFilePath;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IApiTracingDataCollector*/SelfOuter* self, SAFEARRAY** includemodules) get_IncludeModules;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IApiTracingDataCollector*/SelfOuter* self, SAFEARRAY* includemodules) put_IncludeModules;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IApiTracingDataCollector*/SelfOuter* self, SAFEARRAY** includeapis) get_IncludeApis;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IApiTracingDataCollector*/SelfOuter* self, SAFEARRAY* includeapis) put_IncludeApis;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IApiTracingDataCollector*/SelfOuter* self, SAFEARRAY** excludeapis) get_ExcludeApis;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IApiTracingDataCollector*/SelfOuter* self, SAFEARRAY* excludeapis) put_ExcludeApis;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* logapinames) get_LogApiNamesOnly;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 logapinames) put_LogApiNamesOnly;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* logrecursively) get_LogApisRecursively;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 logrecursively) put_LogApisRecursively;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* exepath) get_ExePath;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR exepath) put_ExePath;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* logfilepath) get_LogFilePath;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR logfilepath) put_LogFilePath;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, SAFEARRAY** includemodules) get_IncludeModules;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, SAFEARRAY* includemodules) put_IncludeModules;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, SAFEARRAY** includeapis) get_IncludeApis;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, SAFEARRAY* includeapis) put_IncludeApis;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, SAFEARRAY** excludeapis) get_ExcludeApis;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, SAFEARRAY* excludeapis) put_ExcludeApis;
 	}
 
 
@@ -2228,15 +2228,15 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDataCollectorCollection*/SelfOuter* self, int32* retVal) get_Count;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDataCollectorCollection*/SelfOuter* self, VARIANT index, IDataCollector** collector) get_Item;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDataCollectorCollection*/SelfOuter* self, IUnknown** retVal) get__NewEnum;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDataCollectorCollection*/SelfOuter* self, IDataCollector* collector) Add;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDataCollectorCollection*/SelfOuter* self, VARIANT collector) Remove;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDataCollectorCollection*/SelfOuter* self) Clear;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDataCollectorCollection*/SelfOuter* self, IDataCollectorCollection* collectors) AddRange;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDataCollectorCollection*/SelfOuter* self, BSTR bstrXml, IValueMap** pValidation, IDataCollector** pCollector) CreateDataCollectorFromXml;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDataCollectorCollection*/SelfOuter* self, DataCollectorType Type, IDataCollector** Collector) CreateDataCollector;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* retVal) get_Count;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT index, IDataCollector** collector) get_Item;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IUnknown** retVal) get__NewEnum;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IDataCollector* collector) Add;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT collector) Remove;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Clear;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IDataCollectorCollection* collectors) AddRange;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrXml, IValueMap** pValidation, IDataCollector** pCollector) CreateDataCollectorFromXml;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, DataCollectorType Type, IDataCollector** Collector) CreateDataCollector;
 	}
 
 
@@ -2267,14 +2267,14 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDataCollectorSetCollection*/SelfOuter* self, int32* retVal) get_Count;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDataCollectorSetCollection*/SelfOuter* self, VARIANT index, IDataCollectorSet** set) get_Item;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDataCollectorSetCollection*/SelfOuter* self, IUnknown** retVal) get__NewEnum;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDataCollectorSetCollection*/SelfOuter* self, IDataCollectorSet* set) Add;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDataCollectorSetCollection*/SelfOuter* self, VARIANT set) Remove;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDataCollectorSetCollection*/SelfOuter* self) Clear;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDataCollectorSetCollection*/SelfOuter* self, IDataCollectorSetCollection* sets) AddRange;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDataCollectorSetCollection*/SelfOuter* self, BSTR server, BSTR filter) GetDataCollectorSets;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* retVal) get_Count;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT index, IDataCollectorSet** set) get_Item;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IUnknown** retVal) get__NewEnum;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IDataCollectorSet* set) Add;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT set) Remove;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Clear;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IDataCollectorSetCollection* sets) AddRange;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR server, BSTR filter) GetDataCollectorSets;
 	}
 
 
@@ -2303,25 +2303,25 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITraceDataProvider*/SelfOuter* self, BSTR* name) get_DisplayName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITraceDataProvider*/SelfOuter* self, BSTR name) put_DisplayName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITraceDataProvider*/SelfOuter* self, ref Guid guid) get_Guid;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITraceDataProvider*/SelfOuter* self, Guid guid) put_Guid;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITraceDataProvider*/SelfOuter* self, IValueMap** ppLevel) get_Level;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITraceDataProvider*/SelfOuter* self, IValueMap** ppKeywords) get_KeywordsAny;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITraceDataProvider*/SelfOuter* self, IValueMap** ppKeywords) get_KeywordsAll;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITraceDataProvider*/SelfOuter* self, IValueMap** ppProperties) get_Properties;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITraceDataProvider*/SelfOuter* self, int16* FilterEnabled) get_FilterEnabled;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITraceDataProvider*/SelfOuter* self, int16 FilterEnabled) put_FilterEnabled;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITraceDataProvider*/SelfOuter* self, uint32* pulType) get_FilterType;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITraceDataProvider*/SelfOuter* self, uint32 ulType) put_FilterType;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITraceDataProvider*/SelfOuter* self, SAFEARRAY** ppData) get_FilterData;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITraceDataProvider*/SelfOuter* self, SAFEARRAY* pData) put_FilterData;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITraceDataProvider*/SelfOuter* self, BSTR bstrName, BSTR bstrServer) Query;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITraceDataProvider*/SelfOuter* self, IDispatch* pFrom) Resolve;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITraceDataProvider*/SelfOuter* self, BSTR Sddl) SetSecurity;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITraceDataProvider*/SelfOuter* self, uint32 SecurityInfo, BSTR* Sddl) GetSecurity;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITraceDataProvider*/SelfOuter* self, IValueMap** Processes) GetRegisteredProcesses;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* name) get_DisplayName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR name) put_DisplayName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid guid) get_Guid;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, Guid guid) put_Guid;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IValueMap** ppLevel) get_Level;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IValueMap** ppKeywords) get_KeywordsAny;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IValueMap** ppKeywords) get_KeywordsAll;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IValueMap** ppProperties) get_Properties;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* FilterEnabled) get_FilterEnabled;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 FilterEnabled) put_FilterEnabled;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pulType) get_FilterType;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 ulType) put_FilterType;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, SAFEARRAY** ppData) get_FilterData;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, SAFEARRAY* pData) put_FilterData;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrName, BSTR bstrServer) Query;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IDispatch* pFrom) Resolve;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR Sddl) SetSecurity;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 SecurityInfo, BSTR* Sddl) GetSecurity;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IValueMap** Processes) GetRegisteredProcesses;
 	}
 
 
@@ -2372,16 +2372,16 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITraceDataProviderCollection*/SelfOuter* self, int32* retVal) get_Count;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITraceDataProviderCollection*/SelfOuter* self, VARIANT index, ITraceDataProvider** ppProvider) get_Item;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITraceDataProviderCollection*/SelfOuter* self, IUnknown** retVal) get__NewEnum;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITraceDataProviderCollection*/SelfOuter* self, ITraceDataProvider* pProvider) Add;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITraceDataProviderCollection*/SelfOuter* self, VARIANT vProvider) Remove;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITraceDataProviderCollection*/SelfOuter* self) Clear;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITraceDataProviderCollection*/SelfOuter* self, ITraceDataProviderCollection* providers) AddRange;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITraceDataProviderCollection*/SelfOuter* self, ITraceDataProvider** Provider) CreateTraceDataProvider;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITraceDataProviderCollection*/SelfOuter* self, BSTR server) GetTraceDataProviders;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITraceDataProviderCollection*/SelfOuter* self, BSTR Server, uint32 Pid) GetTraceDataProvidersByProcess;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* retVal) get_Count;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT index, ITraceDataProvider** ppProvider) get_Item;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IUnknown** retVal) get__NewEnum;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ITraceDataProvider* pProvider) Add;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT vProvider) Remove;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Clear;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ITraceDataProviderCollection* providers) AddRange;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ITraceDataProvider** Provider) CreateTraceDataProvider;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR server) GetTraceDataProviders;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR Server, uint32 Pid) GetTraceDataProvidersByProcess;
 	}
 
 
@@ -2414,14 +2414,14 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISchedule*/SelfOuter* self, VARIANT* start) get_StartDate;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISchedule*/SelfOuter* self, VARIANT start) put_StartDate;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISchedule*/SelfOuter* self, VARIANT* end) get_EndDate;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISchedule*/SelfOuter* self, VARIANT end) put_EndDate;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISchedule*/SelfOuter* self, VARIANT* start) get_StartTime;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISchedule*/SelfOuter* self, VARIANT start) put_StartTime;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISchedule*/SelfOuter* self, WeekDays* days) get_Days;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISchedule*/SelfOuter* self, WeekDays days) put_Days;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT* start) get_StartDate;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT start) put_StartDate;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT* end) get_EndDate;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT end) put_EndDate;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT* start) get_StartTime;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT start) put_StartTime;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, WeekDays* days) get_Days;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, WeekDays days) put_Days;
 	}
 
 
@@ -2450,14 +2450,14 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IScheduleCollection*/SelfOuter* self, int32* retVal) get_Count;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IScheduleCollection*/SelfOuter* self, VARIANT index, ISchedule** ppSchedule) get_Item;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IScheduleCollection*/SelfOuter* self, IUnknown** ienum) get__NewEnum;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IScheduleCollection*/SelfOuter* self, ISchedule* pSchedule) Add;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IScheduleCollection*/SelfOuter* self, VARIANT vSchedule) Remove;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IScheduleCollection*/SelfOuter* self) Clear;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IScheduleCollection*/SelfOuter* self, IScheduleCollection* pSchedules) AddRange;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IScheduleCollection*/SelfOuter* self, ISchedule** Schedule) CreateSchedule;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* retVal) get_Count;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT index, ISchedule** ppSchedule) get_Item;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IUnknown** ienum) get__NewEnum;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ISchedule* pSchedule) Add;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT vSchedule) Remove;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Clear;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IScheduleCollection* pSchedules) AddRange;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ISchedule** Schedule) CreateSchedule;
 	}
 
 
@@ -2486,16 +2486,16 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IValueMapItem*/SelfOuter* self, BSTR* description) get_Description;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IValueMapItem*/SelfOuter* self, BSTR description) put_Description;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IValueMapItem*/SelfOuter* self, int16* enabled) get_Enabled;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IValueMapItem*/SelfOuter* self, int16 enabled) put_Enabled;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IValueMapItem*/SelfOuter* self, BSTR* key) get_Key;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IValueMapItem*/SelfOuter* self, BSTR key) put_Key;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IValueMapItem*/SelfOuter* self, VARIANT* Value) get_Value;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IValueMapItem*/SelfOuter* self, VARIANT Value) put_Value;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IValueMapItem*/SelfOuter* self, ValueMapType* type) get_ValueMapType;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IValueMapItem*/SelfOuter* self, ValueMapType type) put_ValueMapType;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* description) get_Description;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR description) put_Description;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* enabled) get_Enabled;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 enabled) put_Enabled;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* key) get_Key;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR key) put_Key;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT* Value) get_Value;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT Value) put_Value;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ValueMapType* type) get_ValueMapType;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ValueMapType type) put_ValueMapType;
 	}
 
 
@@ -2528,20 +2528,20 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IValueMap*/SelfOuter* self, int32* retVal) get_Count;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IValueMap*/SelfOuter* self, VARIANT index, IValueMapItem** value) get_Item;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IValueMap*/SelfOuter* self, IUnknown** retVal) get__NewEnum;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IValueMap*/SelfOuter* self, BSTR* description) get_Description;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IValueMap*/SelfOuter* self, BSTR description) put_Description;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IValueMap*/SelfOuter* self, VARIANT* Value) get_Value;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IValueMap*/SelfOuter* self, VARIANT Value) put_Value;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IValueMap*/SelfOuter* self, ValueMapType* type) get_ValueMapType;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IValueMap*/SelfOuter* self, ValueMapType type) put_ValueMapType;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IValueMap*/SelfOuter* self, VARIANT value) Add;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IValueMap*/SelfOuter* self, VARIANT value) Remove;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IValueMap*/SelfOuter* self) Clear;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IValueMap*/SelfOuter* self, IValueMap* map) AddRange;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IValueMap*/SelfOuter* self, IValueMapItem** Item) CreateValueMapItem;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* retVal) get_Count;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT index, IValueMapItem** value) get_Item;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IUnknown** retVal) get__NewEnum;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* description) get_Description;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR description) put_Description;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT* Value) get_Value;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT Value) put_Value;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ValueMapType* type) get_ValueMapType;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ValueMapType type) put_ValueMapType;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT value) Add;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT value) Remove;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Clear;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IValueMap* map) AddRange;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IValueMapItem** Item) CreateValueMapItem;
 	}
 
 
@@ -2582,18 +2582,18 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICounterItem*/SelfOuter* self, double* pdblValue) get_Value;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICounterItem*/SelfOuter* self, uint32 Color) put_Color;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICounterItem*/SelfOuter* self, uint32* pColor) get_Color;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICounterItem*/SelfOuter* self, int32 iWidth) put_Width;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICounterItem*/SelfOuter* self, int32* piValue) get_Width;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICounterItem*/SelfOuter* self, int32 iLineStyle) put_LineStyle;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICounterItem*/SelfOuter* self, int32* piValue) get_LineStyle;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICounterItem*/SelfOuter* self, int32 iScale) put_ScaleFactor;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICounterItem*/SelfOuter* self, int32* piValue) get_ScaleFactor;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICounterItem*/SelfOuter* self, BSTR* pstrValue) get_Path;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICounterItem*/SelfOuter* self, double* Value, int32* Status) GetValue;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICounterItem*/SelfOuter* self, double* Max, double* Min, double* Avg, int32* Status) GetStatistics;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, double* pdblValue) get_Value;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 Color) put_Color;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pColor) get_Color;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 iWidth) put_Width;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* piValue) get_Width;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 iLineStyle) put_LineStyle;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* piValue) get_LineStyle;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 iScale) put_ScaleFactor;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* piValue) get_ScaleFactor;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pstrValue) get_Path;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, double* Value, int32* Status) GetValue;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, double* Max, double* Min, double* Avg, int32* Status) GetStatistics;
 	}
 
 
@@ -2630,11 +2630,11 @@ public static
 
 	[CRepr]public struct VTable : ICounterItem.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICounterItem2*/SelfOuter* self, int16 bState) put_Selected;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICounterItem2*/SelfOuter* self, int16* pbState) get_Selected;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICounterItem2*/SelfOuter* self, int16 bState) put_Visible;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICounterItem2*/SelfOuter* self, int16* pbState) get_Visible;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICounterItem2*/SelfOuter* self, int32 iIndex, SysmonDataType iWhich, VARIANT* pVariant) GetDataAt;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 bState) put_Selected;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* pbState) get_Selected;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 bState) put_Visible;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* pbState) get_Visible;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 iIndex, SysmonDataType iWhich, VARIANT* pVariant) GetDataAt;
 	}
 
 
@@ -2657,23 +2657,23 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*_ICounterItemUnion*/SelfOuter* self, double* pdblValue) get_Value;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*_ICounterItemUnion*/SelfOuter* self, uint32 Color) put_Color;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*_ICounterItemUnion*/SelfOuter* self, uint32* pColor) get_Color;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*_ICounterItemUnion*/SelfOuter* self, int32 iWidth) put_Width;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*_ICounterItemUnion*/SelfOuter* self, int32* piValue) get_Width;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*_ICounterItemUnion*/SelfOuter* self, int32 iLineStyle) put_LineStyle;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*_ICounterItemUnion*/SelfOuter* self, int32* piValue) get_LineStyle;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*_ICounterItemUnion*/SelfOuter* self, int32 iScale) put_ScaleFactor;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*_ICounterItemUnion*/SelfOuter* self, int32* piValue) get_ScaleFactor;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*_ICounterItemUnion*/SelfOuter* self, BSTR* pstrValue) get_Path;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*_ICounterItemUnion*/SelfOuter* self, double* Value, int32* Status) GetValue;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*_ICounterItemUnion*/SelfOuter* self, double* Max, double* Min, double* Avg, int32* Status) GetStatistics;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*_ICounterItemUnion*/SelfOuter* self, int16 bState) put_Selected;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*_ICounterItemUnion*/SelfOuter* self, int16* pbState) get_Selected;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*_ICounterItemUnion*/SelfOuter* self, int16 bState) put_Visible;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*_ICounterItemUnion*/SelfOuter* self, int16* pbState) get_Visible;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*_ICounterItemUnion*/SelfOuter* self, int32 iIndex, SysmonDataType iWhich, VARIANT* pVariant) GetDataAt;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, double* pdblValue) get_Value;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 Color) put_Color;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pColor) get_Color;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 iWidth) put_Width;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* piValue) get_Width;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 iLineStyle) put_LineStyle;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* piValue) get_LineStyle;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 iScale) put_ScaleFactor;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* piValue) get_ScaleFactor;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pstrValue) get_Path;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, double* Value, int32* Status) GetValue;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, double* Max, double* Min, double* Avg, int32* Status) GetStatistics;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 bState) put_Selected;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* pbState) get_Selected;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 bState) put_Visible;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* pbState) get_Visible;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 iIndex, SysmonDataType iWhich, VARIANT* pVariant) GetDataAt;
 	}
 
 
@@ -2732,11 +2732,11 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICounters*/SelfOuter* self, int32* pLong) get_Count;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICounters*/SelfOuter* self, IUnknown** ppIunk) get__NewEnum;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICounters*/SelfOuter* self, VARIANT index, DICounterItem** ppI) get_Item;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICounters*/SelfOuter* self, BSTR pathname, DICounterItem** ppI) Add;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICounters*/SelfOuter* self, VARIANT index) Remove;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* pLong) get_Count;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IUnknown** ppIunk) get__NewEnum;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT index, DICounterItem** ppI) get_Item;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR pathname, DICounterItem** ppI) Add;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT index) Remove;
 	}
 
 
@@ -2759,7 +2759,7 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ILogFileItem*/SelfOuter* self, BSTR* pstrValue) get_Path;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pstrValue) get_Path;
 	}
 
 
@@ -2786,11 +2786,11 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ILogFiles*/SelfOuter* self, int32* pLong) get_Count;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ILogFiles*/SelfOuter* self, IUnknown** ppIunk) get__NewEnum;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ILogFiles*/SelfOuter* self, VARIANT index, DILogFileItem** ppI) get_Item;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ILogFiles*/SelfOuter* self, BSTR pathname, DILogFileItem** ppI) Add;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ILogFiles*/SelfOuter* self, VARIANT index) Remove;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* pLong) get_Count;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IUnknown** ppIunk) get__NewEnum;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT index, DILogFileItem** ppI) get_Item;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR pathname, DILogFileItem** ppI) Add;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT index) Remove;
 	}
 
 
@@ -2813,82 +2813,82 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISystemMonitor*/SelfOuter* self, int32* iAppearance) get_Appearance;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISystemMonitor*/SelfOuter* self, int32 iAppearance) put_Appearance;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISystemMonitor*/SelfOuter* self, uint32* pColor) get_BackColor;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISystemMonitor*/SelfOuter* self, uint32 Color) put_BackColor;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISystemMonitor*/SelfOuter* self, int32* iBorderStyle) get_BorderStyle;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISystemMonitor*/SelfOuter* self, int32 iBorderStyle) put_BorderStyle;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISystemMonitor*/SelfOuter* self, uint32* pColor) get_ForeColor;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISystemMonitor*/SelfOuter* self, uint32 Color) put_ForeColor;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISystemMonitor*/SelfOuter* self, IFontDisp** ppFont) get_Font;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISystemMonitor*/SelfOuter* self, IFontDisp* pFont) putref_Font;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISystemMonitor*/SelfOuter* self, ICounters** ppICounters) get_Counters;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISystemMonitor*/SelfOuter* self, int16 bState) put_ShowVerticalGrid;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISystemMonitor*/SelfOuter* self, int16* pbState) get_ShowVerticalGrid;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISystemMonitor*/SelfOuter* self, int16 bState) put_ShowHorizontalGrid;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISystemMonitor*/SelfOuter* self, int16* pbState) get_ShowHorizontalGrid;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISystemMonitor*/SelfOuter* self, int16 bState) put_ShowLegend;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISystemMonitor*/SelfOuter* self, int16* pbState) get_ShowLegend;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISystemMonitor*/SelfOuter* self, int16 bState) put_ShowScaleLabels;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISystemMonitor*/SelfOuter* self, int16* pbState) get_ShowScaleLabels;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISystemMonitor*/SelfOuter* self, int16 bState) put_ShowValueBar;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISystemMonitor*/SelfOuter* self, int16* pbState) get_ShowValueBar;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISystemMonitor*/SelfOuter* self, int32 iValue) put_MaximumScale;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISystemMonitor*/SelfOuter* self, int32* piValue) get_MaximumScale;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISystemMonitor*/SelfOuter* self, int32 iValue) put_MinimumScale;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISystemMonitor*/SelfOuter* self, int32* piValue) get_MinimumScale;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISystemMonitor*/SelfOuter* self, float fValue) put_UpdateInterval;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISystemMonitor*/SelfOuter* self, float* pfValue) get_UpdateInterval;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISystemMonitor*/SelfOuter* self, DisplayTypeConstants eDisplayType) put_DisplayType;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISystemMonitor*/SelfOuter* self, DisplayTypeConstants* peDisplayType) get_DisplayType;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISystemMonitor*/SelfOuter* self, int16 bState) put_ManualUpdate;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISystemMonitor*/SelfOuter* self, int16* pbState) get_ManualUpdate;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISystemMonitor*/SelfOuter* self, BSTR bsTitle) put_GraphTitle;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISystemMonitor*/SelfOuter* self, BSTR* pbsTitle) get_GraphTitle;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISystemMonitor*/SelfOuter* self, BSTR bsTitle) put_YAxisLabel;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISystemMonitor*/SelfOuter* self, BSTR* pbsTitle) get_YAxisLabel;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISystemMonitor*/SelfOuter* self) CollectSample;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISystemMonitor*/SelfOuter* self) UpdateGraph;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISystemMonitor*/SelfOuter* self) BrowseCounters;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISystemMonitor*/SelfOuter* self) DisplayProperties;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISystemMonitor*/SelfOuter* self, int32 iIndex, ICounterItem** ppICounter) Counter;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISystemMonitor*/SelfOuter* self, BSTR bsPath, ICounterItem** ppICounter) AddCounter;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISystemMonitor*/SelfOuter* self, ICounterItem* pCtr) DeleteCounter;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISystemMonitor*/SelfOuter* self, uint32* pColor) get_BackColorCtl;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISystemMonitor*/SelfOuter* self, uint32 Color) put_BackColorCtl;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISystemMonitor*/SelfOuter* self, BSTR bsFileName) put_LogFileName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISystemMonitor*/SelfOuter* self, BSTR* bsFileName) get_LogFileName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISystemMonitor*/SelfOuter* self, double StartTime) put_LogViewStart;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISystemMonitor*/SelfOuter* self, double* StartTime) get_LogViewStart;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISystemMonitor*/SelfOuter* self, double StopTime) put_LogViewStop;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISystemMonitor*/SelfOuter* self, double* StopTime) get_LogViewStop;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISystemMonitor*/SelfOuter* self, uint32* pColor) get_GridColor;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISystemMonitor*/SelfOuter* self, uint32 Color) put_GridColor;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISystemMonitor*/SelfOuter* self, uint32* pColor) get_TimeBarColor;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISystemMonitor*/SelfOuter* self, uint32 Color) put_TimeBarColor;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISystemMonitor*/SelfOuter* self, int16* pbState) get_Highlight;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISystemMonitor*/SelfOuter* self, int16 bState) put_Highlight;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISystemMonitor*/SelfOuter* self, int16* pbState) get_ShowToolbar;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISystemMonitor*/SelfOuter* self, int16 bState) put_ShowToolbar;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISystemMonitor*/SelfOuter* self) Paste;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISystemMonitor*/SelfOuter* self) Copy;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISystemMonitor*/SelfOuter* self) Reset;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISystemMonitor*/SelfOuter* self, int16 bState) put_ReadOnly;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISystemMonitor*/SelfOuter* self, int16* pbState) get_ReadOnly;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISystemMonitor*/SelfOuter* self, ReportValueTypeConstants eReportValueType) put_ReportValueType;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISystemMonitor*/SelfOuter* self, ReportValueTypeConstants* peReportValueType) get_ReportValueType;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISystemMonitor*/SelfOuter* self, int16 bState) put_MonitorDuplicateInstances;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISystemMonitor*/SelfOuter* self, int16* pbState) get_MonitorDuplicateInstances;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISystemMonitor*/SelfOuter* self, int32 iValue) put_DisplayFilter;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISystemMonitor*/SelfOuter* self, int32* piValue) get_DisplayFilter;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISystemMonitor*/SelfOuter* self, ILogFiles** ppILogFiles) get_LogFiles;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISystemMonitor*/SelfOuter* self, DataSourceTypeConstants eDataSourceType) put_DataSourceType;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISystemMonitor*/SelfOuter* self, DataSourceTypeConstants* peDataSourceType) get_DataSourceType;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISystemMonitor*/SelfOuter* self, BSTR bsSqlDsnName) put_SqlDsnName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISystemMonitor*/SelfOuter* self, BSTR* bsSqlDsnName) get_SqlDsnName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISystemMonitor*/SelfOuter* self, BSTR bsSqlLogSetName) put_SqlLogSetName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISystemMonitor*/SelfOuter* self, BSTR* bsSqlLogSetName) get_SqlLogSetName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* iAppearance) get_Appearance;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 iAppearance) put_Appearance;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pColor) get_BackColor;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 Color) put_BackColor;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* iBorderStyle) get_BorderStyle;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 iBorderStyle) put_BorderStyle;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pColor) get_ForeColor;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 Color) put_ForeColor;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IFontDisp** ppFont) get_Font;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IFontDisp* pFont) putref_Font;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ICounters** ppICounters) get_Counters;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 bState) put_ShowVerticalGrid;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* pbState) get_ShowVerticalGrid;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 bState) put_ShowHorizontalGrid;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* pbState) get_ShowHorizontalGrid;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 bState) put_ShowLegend;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* pbState) get_ShowLegend;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 bState) put_ShowScaleLabels;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* pbState) get_ShowScaleLabels;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 bState) put_ShowValueBar;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* pbState) get_ShowValueBar;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 iValue) put_MaximumScale;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* piValue) get_MaximumScale;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 iValue) put_MinimumScale;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* piValue) get_MinimumScale;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, float fValue) put_UpdateInterval;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, float* pfValue) get_UpdateInterval;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, DisplayTypeConstants eDisplayType) put_DisplayType;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, DisplayTypeConstants* peDisplayType) get_DisplayType;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 bState) put_ManualUpdate;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* pbState) get_ManualUpdate;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bsTitle) put_GraphTitle;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pbsTitle) get_GraphTitle;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bsTitle) put_YAxisLabel;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pbsTitle) get_YAxisLabel;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) CollectSample;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) UpdateGraph;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) BrowseCounters;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) DisplayProperties;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 iIndex, ICounterItem** ppICounter) Counter;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bsPath, ICounterItem** ppICounter) AddCounter;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ICounterItem* pCtr) DeleteCounter;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pColor) get_BackColorCtl;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 Color) put_BackColorCtl;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bsFileName) put_LogFileName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* bsFileName) get_LogFileName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, double StartTime) put_LogViewStart;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, double* StartTime) get_LogViewStart;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, double StopTime) put_LogViewStop;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, double* StopTime) get_LogViewStop;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pColor) get_GridColor;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 Color) put_GridColor;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pColor) get_TimeBarColor;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 Color) put_TimeBarColor;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* pbState) get_Highlight;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 bState) put_Highlight;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* pbState) get_ShowToolbar;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 bState) put_ShowToolbar;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Paste;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Copy;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Reset;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 bState) put_ReadOnly;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* pbState) get_ReadOnly;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ReportValueTypeConstants eReportValueType) put_ReportValueType;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ReportValueTypeConstants* peReportValueType) get_ReportValueType;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 bState) put_MonitorDuplicateInstances;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* pbState) get_MonitorDuplicateInstances;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 iValue) put_DisplayFilter;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* piValue) get_DisplayFilter;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ILogFiles** ppILogFiles) get_LogFiles;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, DataSourceTypeConstants eDataSourceType) put_DataSourceType;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, DataSourceTypeConstants* peDataSourceType) get_DataSourceType;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bsSqlDsnName) put_SqlDsnName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* bsSqlDsnName) get_SqlDsnName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bsSqlLogSetName) put_SqlLogSetName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* bsSqlLogSetName) get_SqlLogSetName;
 	}
 
 
@@ -3053,26 +3053,26 @@ public static
 
 	[CRepr]public struct VTable : ISystemMonitor.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISystemMonitor2*/SelfOuter* self, int16 bState) put_EnableDigitGrouping;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISystemMonitor2*/SelfOuter* self, int16* pbState) get_EnableDigitGrouping;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISystemMonitor2*/SelfOuter* self, int16 bState) put_EnableToolTips;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISystemMonitor2*/SelfOuter* self, int16* pbState) get_EnableToolTips;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISystemMonitor2*/SelfOuter* self, int16 bState) put_ShowTimeAxisLabels;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISystemMonitor2*/SelfOuter* self, int16* pbState) get_ShowTimeAxisLabels;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISystemMonitor2*/SelfOuter* self, int16 bScroll) put_ChartScroll;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISystemMonitor2*/SelfOuter* self, int16* pbScroll) get_ChartScroll;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISystemMonitor2*/SelfOuter* self, int32 iNewCount) put_DataPointCount;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISystemMonitor2*/SelfOuter* self, int32* piDataPointCount) get_DataPointCount;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISystemMonitor2*/SelfOuter* self, int16 bSelectedCountersOnly) ScaleToFit;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISystemMonitor2*/SelfOuter* self, BSTR bstrFileName, SysmonFileType eSysmonFileType) SaveAs;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISystemMonitor2*/SelfOuter* self, BSTR bstrFileName, SysmonFileType eSysmonFileType, int32 iFilter) Relog;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISystemMonitor2*/SelfOuter* self) ClearData;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISystemMonitor2*/SelfOuter* self, double* pDate) get_LogSourceStartTime;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISystemMonitor2*/SelfOuter* self, double* pDate) get_LogSourceStopTime;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISystemMonitor2*/SelfOuter* self, double StartTime, double StopTime) SetLogViewRange;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISystemMonitor2*/SelfOuter* self, double* StartTime, double* StopTime) GetLogViewRange;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISystemMonitor2*/SelfOuter* self, int16 fLock, SysmonBatchReason eBatchReason) BatchingLock;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISystemMonitor2*/SelfOuter* self, BSTR bstrSettingFileName) LoadSettings;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 bState) put_EnableDigitGrouping;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* pbState) get_EnableDigitGrouping;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 bState) put_EnableToolTips;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* pbState) get_EnableToolTips;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 bState) put_ShowTimeAxisLabels;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* pbState) get_ShowTimeAxisLabels;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 bScroll) put_ChartScroll;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* pbScroll) get_ChartScroll;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 iNewCount) put_DataPointCount;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* piDataPointCount) get_DataPointCount;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 bSelectedCountersOnly) ScaleToFit;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrFileName, SysmonFileType eSysmonFileType) SaveAs;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrFileName, SysmonFileType eSysmonFileType, int32 iFilter) Relog;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) ClearData;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, double* pDate) get_LogSourceStartTime;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, double* pDate) get_LogSourceStopTime;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, double StartTime, double StopTime) SetLogViewRange;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, double* StartTime, double* StopTime) GetLogViewRange;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 fLock, SysmonBatchReason eBatchReason) BatchingLock;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrSettingFileName) LoadSettings;
 	}
 
 
@@ -3125,102 +3125,102 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*_ISystemMonitorUnion*/SelfOuter* self, int32* iAppearance) get_Appearance;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*_ISystemMonitorUnion*/SelfOuter* self, int32 iAppearance) put_Appearance;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*_ISystemMonitorUnion*/SelfOuter* self, uint32* pColor) get_BackColor;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*_ISystemMonitorUnion*/SelfOuter* self, uint32 Color) put_BackColor;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*_ISystemMonitorUnion*/SelfOuter* self, int32* iBorderStyle) get_BorderStyle;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*_ISystemMonitorUnion*/SelfOuter* self, int32 iBorderStyle) put_BorderStyle;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*_ISystemMonitorUnion*/SelfOuter* self, uint32* pColor) get_ForeColor;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*_ISystemMonitorUnion*/SelfOuter* self, uint32 Color) put_ForeColor;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*_ISystemMonitorUnion*/SelfOuter* self, IFontDisp** ppFont) get_Font;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*_ISystemMonitorUnion*/SelfOuter* self, IFontDisp* pFont) putref_Font;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*_ISystemMonitorUnion*/SelfOuter* self, ICounters** ppICounters) get_Counters;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*_ISystemMonitorUnion*/SelfOuter* self, int16 bState) put_ShowVerticalGrid;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*_ISystemMonitorUnion*/SelfOuter* self, int16* pbState) get_ShowVerticalGrid;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*_ISystemMonitorUnion*/SelfOuter* self, int16 bState) put_ShowHorizontalGrid;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*_ISystemMonitorUnion*/SelfOuter* self, int16* pbState) get_ShowHorizontalGrid;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*_ISystemMonitorUnion*/SelfOuter* self, int16 bState) put_ShowLegend;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*_ISystemMonitorUnion*/SelfOuter* self, int16* pbState) get_ShowLegend;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*_ISystemMonitorUnion*/SelfOuter* self, int16 bState) put_ShowScaleLabels;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*_ISystemMonitorUnion*/SelfOuter* self, int16* pbState) get_ShowScaleLabels;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*_ISystemMonitorUnion*/SelfOuter* self, int16 bState) put_ShowValueBar;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*_ISystemMonitorUnion*/SelfOuter* self, int16* pbState) get_ShowValueBar;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*_ISystemMonitorUnion*/SelfOuter* self, int32 iValue) put_MaximumScale;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*_ISystemMonitorUnion*/SelfOuter* self, int32* piValue) get_MaximumScale;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*_ISystemMonitorUnion*/SelfOuter* self, int32 iValue) put_MinimumScale;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*_ISystemMonitorUnion*/SelfOuter* self, int32* piValue) get_MinimumScale;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*_ISystemMonitorUnion*/SelfOuter* self, float fValue) put_UpdateInterval;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*_ISystemMonitorUnion*/SelfOuter* self, float* pfValue) get_UpdateInterval;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*_ISystemMonitorUnion*/SelfOuter* self, DisplayTypeConstants eDisplayType) put_DisplayType;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*_ISystemMonitorUnion*/SelfOuter* self, DisplayTypeConstants* peDisplayType) get_DisplayType;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*_ISystemMonitorUnion*/SelfOuter* self, int16 bState) put_ManualUpdate;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*_ISystemMonitorUnion*/SelfOuter* self, int16* pbState) get_ManualUpdate;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*_ISystemMonitorUnion*/SelfOuter* self, BSTR bsTitle) put_GraphTitle;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*_ISystemMonitorUnion*/SelfOuter* self, BSTR* pbsTitle) get_GraphTitle;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*_ISystemMonitorUnion*/SelfOuter* self, BSTR bsTitle) put_YAxisLabel;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*_ISystemMonitorUnion*/SelfOuter* self, BSTR* pbsTitle) get_YAxisLabel;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*_ISystemMonitorUnion*/SelfOuter* self) CollectSample;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*_ISystemMonitorUnion*/SelfOuter* self) UpdateGraph;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*_ISystemMonitorUnion*/SelfOuter* self) BrowseCounters;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*_ISystemMonitorUnion*/SelfOuter* self) DisplayProperties;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*_ISystemMonitorUnion*/SelfOuter* self, int32 iIndex, ICounterItem** ppICounter) Counter;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*_ISystemMonitorUnion*/SelfOuter* self, BSTR bsPath, ICounterItem** ppICounter) AddCounter;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*_ISystemMonitorUnion*/SelfOuter* self, ICounterItem* pCtr) DeleteCounter;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*_ISystemMonitorUnion*/SelfOuter* self, uint32* pColor) get_BackColorCtl;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*_ISystemMonitorUnion*/SelfOuter* self, uint32 Color) put_BackColorCtl;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*_ISystemMonitorUnion*/SelfOuter* self, BSTR bsFileName) put_LogFileName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*_ISystemMonitorUnion*/SelfOuter* self, BSTR* bsFileName) get_LogFileName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*_ISystemMonitorUnion*/SelfOuter* self, double StartTime) put_LogViewStart;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*_ISystemMonitorUnion*/SelfOuter* self, double* StartTime) get_LogViewStart;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*_ISystemMonitorUnion*/SelfOuter* self, double StopTime) put_LogViewStop;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*_ISystemMonitorUnion*/SelfOuter* self, double* StopTime) get_LogViewStop;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*_ISystemMonitorUnion*/SelfOuter* self, uint32* pColor) get_GridColor;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*_ISystemMonitorUnion*/SelfOuter* self, uint32 Color) put_GridColor;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*_ISystemMonitorUnion*/SelfOuter* self, uint32* pColor) get_TimeBarColor;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*_ISystemMonitorUnion*/SelfOuter* self, uint32 Color) put_TimeBarColor;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*_ISystemMonitorUnion*/SelfOuter* self, int16* pbState) get_Highlight;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*_ISystemMonitorUnion*/SelfOuter* self, int16 bState) put_Highlight;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*_ISystemMonitorUnion*/SelfOuter* self, int16* pbState) get_ShowToolbar;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*_ISystemMonitorUnion*/SelfOuter* self, int16 bState) put_ShowToolbar;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*_ISystemMonitorUnion*/SelfOuter* self) Paste;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*_ISystemMonitorUnion*/SelfOuter* self) Copy;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*_ISystemMonitorUnion*/SelfOuter* self) Reset;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*_ISystemMonitorUnion*/SelfOuter* self, int16 bState) put_ReadOnly;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*_ISystemMonitorUnion*/SelfOuter* self, int16* pbState) get_ReadOnly;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*_ISystemMonitorUnion*/SelfOuter* self, ReportValueTypeConstants eReportValueType) put_ReportValueType;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*_ISystemMonitorUnion*/SelfOuter* self, ReportValueTypeConstants* peReportValueType) get_ReportValueType;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*_ISystemMonitorUnion*/SelfOuter* self, int16 bState) put_MonitorDuplicateInstances;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*_ISystemMonitorUnion*/SelfOuter* self, int16* pbState) get_MonitorDuplicateInstances;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*_ISystemMonitorUnion*/SelfOuter* self, int32 iValue) put_DisplayFilter;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*_ISystemMonitorUnion*/SelfOuter* self, int32* piValue) get_DisplayFilter;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*_ISystemMonitorUnion*/SelfOuter* self, ILogFiles** ppILogFiles) get_LogFiles;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*_ISystemMonitorUnion*/SelfOuter* self, DataSourceTypeConstants eDataSourceType) put_DataSourceType;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*_ISystemMonitorUnion*/SelfOuter* self, DataSourceTypeConstants* peDataSourceType) get_DataSourceType;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*_ISystemMonitorUnion*/SelfOuter* self, BSTR bsSqlDsnName) put_SqlDsnName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*_ISystemMonitorUnion*/SelfOuter* self, BSTR* bsSqlDsnName) get_SqlDsnName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*_ISystemMonitorUnion*/SelfOuter* self, BSTR bsSqlLogSetName) put_SqlLogSetName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*_ISystemMonitorUnion*/SelfOuter* self, BSTR* bsSqlLogSetName) get_SqlLogSetName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*_ISystemMonitorUnion*/SelfOuter* self, int16 bState) put_EnableDigitGrouping;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*_ISystemMonitorUnion*/SelfOuter* self, int16* pbState) get_EnableDigitGrouping;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*_ISystemMonitorUnion*/SelfOuter* self, int16 bState) put_EnableToolTips;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*_ISystemMonitorUnion*/SelfOuter* self, int16* pbState) get_EnableToolTips;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*_ISystemMonitorUnion*/SelfOuter* self, int16 bState) put_ShowTimeAxisLabels;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*_ISystemMonitorUnion*/SelfOuter* self, int16* pbState) get_ShowTimeAxisLabels;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*_ISystemMonitorUnion*/SelfOuter* self, int16 bScroll) put_ChartScroll;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*_ISystemMonitorUnion*/SelfOuter* self, int16* pbScroll) get_ChartScroll;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*_ISystemMonitorUnion*/SelfOuter* self, int32 iNewCount) put_DataPointCount;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*_ISystemMonitorUnion*/SelfOuter* self, int32* piDataPointCount) get_DataPointCount;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*_ISystemMonitorUnion*/SelfOuter* self, int16 bSelectedCountersOnly) ScaleToFit;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*_ISystemMonitorUnion*/SelfOuter* self, BSTR bstrFileName, SysmonFileType eSysmonFileType) SaveAs;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*_ISystemMonitorUnion*/SelfOuter* self, BSTR bstrFileName, SysmonFileType eSysmonFileType, int32 iFilter) Relog;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*_ISystemMonitorUnion*/SelfOuter* self) ClearData;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*_ISystemMonitorUnion*/SelfOuter* self, double* pDate) get_LogSourceStartTime;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*_ISystemMonitorUnion*/SelfOuter* self, double* pDate) get_LogSourceStopTime;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*_ISystemMonitorUnion*/SelfOuter* self, double StartTime, double StopTime) SetLogViewRange;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*_ISystemMonitorUnion*/SelfOuter* self, double* StartTime, double* StopTime) GetLogViewRange;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*_ISystemMonitorUnion*/SelfOuter* self, int16 fLock, SysmonBatchReason eBatchReason) BatchingLock;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*_ISystemMonitorUnion*/SelfOuter* self, BSTR bstrSettingFileName) LoadSettings;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* iAppearance) get_Appearance;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 iAppearance) put_Appearance;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pColor) get_BackColor;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 Color) put_BackColor;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* iBorderStyle) get_BorderStyle;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 iBorderStyle) put_BorderStyle;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pColor) get_ForeColor;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 Color) put_ForeColor;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IFontDisp** ppFont) get_Font;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IFontDisp* pFont) putref_Font;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ICounters** ppICounters) get_Counters;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 bState) put_ShowVerticalGrid;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* pbState) get_ShowVerticalGrid;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 bState) put_ShowHorizontalGrid;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* pbState) get_ShowHorizontalGrid;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 bState) put_ShowLegend;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* pbState) get_ShowLegend;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 bState) put_ShowScaleLabels;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* pbState) get_ShowScaleLabels;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 bState) put_ShowValueBar;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* pbState) get_ShowValueBar;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 iValue) put_MaximumScale;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* piValue) get_MaximumScale;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 iValue) put_MinimumScale;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* piValue) get_MinimumScale;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, float fValue) put_UpdateInterval;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, float* pfValue) get_UpdateInterval;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, DisplayTypeConstants eDisplayType) put_DisplayType;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, DisplayTypeConstants* peDisplayType) get_DisplayType;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 bState) put_ManualUpdate;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* pbState) get_ManualUpdate;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bsTitle) put_GraphTitle;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pbsTitle) get_GraphTitle;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bsTitle) put_YAxisLabel;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* pbsTitle) get_YAxisLabel;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) CollectSample;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) UpdateGraph;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) BrowseCounters;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) DisplayProperties;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 iIndex, ICounterItem** ppICounter) Counter;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bsPath, ICounterItem** ppICounter) AddCounter;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ICounterItem* pCtr) DeleteCounter;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pColor) get_BackColorCtl;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 Color) put_BackColorCtl;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bsFileName) put_LogFileName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* bsFileName) get_LogFileName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, double StartTime) put_LogViewStart;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, double* StartTime) get_LogViewStart;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, double StopTime) put_LogViewStop;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, double* StopTime) get_LogViewStop;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pColor) get_GridColor;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 Color) put_GridColor;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pColor) get_TimeBarColor;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 Color) put_TimeBarColor;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* pbState) get_Highlight;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 bState) put_Highlight;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* pbState) get_ShowToolbar;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 bState) put_ShowToolbar;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Paste;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Copy;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Reset;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 bState) put_ReadOnly;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* pbState) get_ReadOnly;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ReportValueTypeConstants eReportValueType) put_ReportValueType;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ReportValueTypeConstants* peReportValueType) get_ReportValueType;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 bState) put_MonitorDuplicateInstances;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* pbState) get_MonitorDuplicateInstances;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 iValue) put_DisplayFilter;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* piValue) get_DisplayFilter;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ILogFiles** ppILogFiles) get_LogFiles;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, DataSourceTypeConstants eDataSourceType) put_DataSourceType;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, DataSourceTypeConstants* peDataSourceType) get_DataSourceType;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bsSqlDsnName) put_SqlDsnName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* bsSqlDsnName) get_SqlDsnName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bsSqlLogSetName) put_SqlLogSetName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR* bsSqlLogSetName) get_SqlLogSetName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 bState) put_EnableDigitGrouping;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* pbState) get_EnableDigitGrouping;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 bState) put_EnableToolTips;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* pbState) get_EnableToolTips;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 bState) put_ShowTimeAxisLabels;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* pbState) get_ShowTimeAxisLabels;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 bScroll) put_ChartScroll;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16* pbScroll) get_ChartScroll;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 iNewCount) put_DataPointCount;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32* piDataPointCount) get_DataPointCount;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 bSelectedCountersOnly) ScaleToFit;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrFileName, SysmonFileType eSysmonFileType) SaveAs;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrFileName, SysmonFileType eSysmonFileType, int32 iFilter) Relog;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) ClearData;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, double* pDate) get_LogSourceStartTime;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, double* pDate) get_LogSourceStopTime;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, double StartTime, double StopTime) SetLogViewRange;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, double* StartTime, double* StopTime) GetLogViewRange;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int16 fLock, SysmonBatchReason eBatchReason) BatchingLock;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR bstrSettingFileName) LoadSettings;
 	}
 
 
@@ -3449,11 +3449,11 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] void(/*ISystemMonitorEvents*/SelfOuter* self, int32 Index) OnCounterSelected;
-		protected new function [CallingConvention(.Stdcall)] void(/*ISystemMonitorEvents*/SelfOuter* self, int32 Index) OnCounterAdded;
-		protected new function [CallingConvention(.Stdcall)] void(/*ISystemMonitorEvents*/SelfOuter* self, int32 Index) OnCounterDeleted;
-		protected new function [CallingConvention(.Stdcall)] void(/*ISystemMonitorEvents*/SelfOuter* self) OnSampleCollected;
-		protected new function [CallingConvention(.Stdcall)] void(/*ISystemMonitorEvents*/SelfOuter* self, int32 Index) OnDblClick;
+		protected new function [CallingConvention(.Stdcall)] void(SelfOuter* self, int32 Index) OnCounterSelected;
+		protected new function [CallingConvention(.Stdcall)] void(SelfOuter* self, int32 Index) OnCounterAdded;
+		protected new function [CallingConvention(.Stdcall)] void(SelfOuter* self, int32 Index) OnCounterDeleted;
+		protected new function [CallingConvention(.Stdcall)] void(SelfOuter* self) OnSampleCollected;
+		protected new function [CallingConvention(.Stdcall)] void(SelfOuter* self, int32 Index) OnDblClick;
 	}
 
 

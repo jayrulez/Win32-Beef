@@ -41,12 +41,12 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMarshal*/SelfOuter* self, ref Guid riid, void* pv, uint32 dwDestContext, void* pvDestContext, uint32 mshlflags, ref Guid pCid) GetUnmarshalClass;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMarshal*/SelfOuter* self, ref Guid riid, void* pv, uint32 dwDestContext, void* pvDestContext, uint32 mshlflags, uint32* pSize) GetMarshalSizeMax;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMarshal*/SelfOuter* self, IStream* pStm, ref Guid riid, void* pv, uint32 dwDestContext, void* pvDestContext, uint32 mshlflags) MarshalInterface;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMarshal*/SelfOuter* self, IStream* pStm, ref Guid riid, void** ppv) UnmarshalInterface;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMarshal*/SelfOuter* self, IStream* pStm) ReleaseMarshalData;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMarshal*/SelfOuter* self, uint32 dwReserved) DisconnectObject;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid riid, void* pv, uint32 dwDestContext, void* pvDestContext, uint32 mshlflags, ref Guid pCid) GetUnmarshalClass;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid riid, void* pv, uint32 dwDestContext, void* pvDestContext, uint32 mshlflags, uint32* pSize) GetMarshalSizeMax;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IStream* pStm, ref Guid riid, void* pv, uint32 dwDestContext, void* pvDestContext, uint32 mshlflags) MarshalInterface;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IStream* pStm, ref Guid riid, void** ppv) UnmarshalInterface;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IStream* pStm) ReleaseMarshalData;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwReserved) DisconnectObject;
 	}
 
 
@@ -83,7 +83,7 @@ public static
 
 	[CRepr]public struct VTable : IStream.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMarshalingStream*/SelfOuter* self, CO_MARSHALING_CONTEXT_ATTRIBUTES attribute, uint* pAttributeValue) GetMarshalingContextAttribute;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, CO_MARSHALING_CONTEXT_ATTRIBUTES attribute, uint* pAttributeValue) GetMarshalingContextAttribute;
 	}
 
 

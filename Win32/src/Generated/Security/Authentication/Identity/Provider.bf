@@ -90,7 +90,7 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IIdentityAdvise*/SelfOuter* self, IdentityUpdateEvent dwIdentityUpdateEvents, PWSTR lpszUniqueID) IdentityUpdated;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IdentityUpdateEvent dwIdentityUpdateEvents, PWSTR lpszUniqueID) IdentityUpdated;
 	}
 
 
@@ -105,8 +105,8 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*AsyncIIdentityAdvise*/SelfOuter* self, uint32 dwIdentityUpdateEvents, PWSTR lpszUniqueID) Begin_IdentityUpdated;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*AsyncIIdentityAdvise*/SelfOuter* self) Finish_IdentityUpdated;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwIdentityUpdateEvents, PWSTR lpszUniqueID) Begin_IdentityUpdated;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Finish_IdentityUpdated;
 	}
 
 
@@ -123,14 +123,14 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IIdentityProvider*/SelfOuter* self, IDENTITY_TYPE eIdentityType, PROPERTYKEY* pFilterkey, PROPVARIANT* pFilterPropVarValue, IEnumUnknown** ppIdentityEnum) GetIdentityEnum;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IIdentityProvider*/SelfOuter* self, PWSTR lpszUserName, IPropertyStore** ppPropertyStore, PROPVARIANT* pKeywordsToAdd) Create;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IIdentityProvider*/SelfOuter* self, IPropertyStore* pPropertyStore) Import;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IIdentityProvider*/SelfOuter* self, PWSTR lpszUniqueID, PROPVARIANT* pKeywordsToDelete) Delete;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IIdentityProvider*/SelfOuter* self, PWSTR lpszUniqueID, IPropertyStore** ppPropertyStore) FindByUniqueID;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IIdentityProvider*/SelfOuter* self, IPropertyStore** ppPropertyStore) GetProviderPropertyStore;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IIdentityProvider*/SelfOuter* self, IIdentityAdvise* pIdentityAdvise, IdentityUpdateEvent dwIdentityUpdateEvents, uint32* pdwCookie) Advise;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IIdentityProvider*/SelfOuter* self, uint32 dwCookie) UnAdvise;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IDENTITY_TYPE eIdentityType, PROPERTYKEY* pFilterkey, PROPVARIANT* pFilterPropVarValue, IEnumUnknown** ppIdentityEnum) GetIdentityEnum;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR lpszUserName, IPropertyStore** ppPropertyStore, PROPVARIANT* pKeywordsToAdd) Create;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IPropertyStore* pPropertyStore) Import;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR lpszUniqueID, PROPVARIANT* pKeywordsToDelete) Delete;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR lpszUniqueID, IPropertyStore** ppPropertyStore) FindByUniqueID;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IPropertyStore** ppPropertyStore) GetProviderPropertyStore;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IIdentityAdvise* pIdentityAdvise, IdentityUpdateEvent dwIdentityUpdateEvents, uint32* pdwCookie) Advise;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwCookie) UnAdvise;
 	}
 
 
@@ -159,22 +159,22 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*AsyncIIdentityProvider*/SelfOuter* self, IDENTITY_TYPE eIdentityType, PROPERTYKEY* pFilterkey, PROPVARIANT* pFilterPropVarValue) Begin_GetIdentityEnum;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*AsyncIIdentityProvider*/SelfOuter* self, IEnumUnknown** ppIdentityEnum) Finish_GetIdentityEnum;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*AsyncIIdentityProvider*/SelfOuter* self, PWSTR lpszUserName, PROPVARIANT* pKeywordsToAdd) Begin_Create;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*AsyncIIdentityProvider*/SelfOuter* self, IPropertyStore** ppPropertyStore) Finish_Create;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*AsyncIIdentityProvider*/SelfOuter* self, IPropertyStore* pPropertyStore) Begin_Import;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*AsyncIIdentityProvider*/SelfOuter* self) Finish_Import;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*AsyncIIdentityProvider*/SelfOuter* self, PWSTR lpszUniqueID, PROPVARIANT* pKeywordsToDelete) Begin_Delete;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*AsyncIIdentityProvider*/SelfOuter* self) Finish_Delete;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*AsyncIIdentityProvider*/SelfOuter* self, PWSTR lpszUniqueID) Begin_FindByUniqueID;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*AsyncIIdentityProvider*/SelfOuter* self, IPropertyStore** ppPropertyStore) Finish_FindByUniqueID;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*AsyncIIdentityProvider*/SelfOuter* self) Begin_GetProviderPropertyStore;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*AsyncIIdentityProvider*/SelfOuter* self, IPropertyStore** ppPropertyStore) Finish_GetProviderPropertyStore;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*AsyncIIdentityProvider*/SelfOuter* self, IIdentityAdvise* pIdentityAdvise, uint32 dwIdentityUpdateEvents) Begin_Advise;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*AsyncIIdentityProvider*/SelfOuter* self, uint32* pdwCookie) Finish_Advise;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*AsyncIIdentityProvider*/SelfOuter* self, uint32 dwCookie) Begin_UnAdvise;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*AsyncIIdentityProvider*/SelfOuter* self) Finish_UnAdvise;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IDENTITY_TYPE eIdentityType, PROPERTYKEY* pFilterkey, PROPVARIANT* pFilterPropVarValue) Begin_GetIdentityEnum;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IEnumUnknown** ppIdentityEnum) Finish_GetIdentityEnum;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR lpszUserName, PROPVARIANT* pKeywordsToAdd) Begin_Create;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IPropertyStore** ppPropertyStore) Finish_Create;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IPropertyStore* pPropertyStore) Begin_Import;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Finish_Import;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR lpszUniqueID, PROPVARIANT* pKeywordsToDelete) Begin_Delete;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Finish_Delete;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR lpszUniqueID) Begin_FindByUniqueID;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IPropertyStore** ppPropertyStore) Finish_FindByUniqueID;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Begin_GetProviderPropertyStore;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IPropertyStore** ppPropertyStore) Finish_GetProviderPropertyStore;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IIdentityAdvise* pIdentityAdvise, uint32 dwIdentityUpdateEvents) Begin_Advise;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pdwCookie) Finish_Advise;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwCookie) Begin_UnAdvise;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Finish_UnAdvise;
 	}
 
 
@@ -219,9 +219,9 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAssociatedIdentityProvider*/SelfOuter* self, HWND hwndParent, IPropertyStore** ppPropertyStore) AssociateIdentity;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAssociatedIdentityProvider*/SelfOuter* self, HWND hwndParent, PWSTR lpszUniqueID) DisassociateIdentity;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAssociatedIdentityProvider*/SelfOuter* self, HWND hwndParent, PWSTR lpszUniqueID) ChangeCredential;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HWND hwndParent, IPropertyStore** ppPropertyStore) AssociateIdentity;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HWND hwndParent, PWSTR lpszUniqueID) DisassociateIdentity;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HWND hwndParent, PWSTR lpszUniqueID) ChangeCredential;
 	}
 
 
@@ -240,12 +240,12 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*AsyncIAssociatedIdentityProvider*/SelfOuter* self, HWND hwndParent) Begin_AssociateIdentity;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*AsyncIAssociatedIdentityProvider*/SelfOuter* self, IPropertyStore** ppPropertyStore) Finish_AssociateIdentity;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*AsyncIAssociatedIdentityProvider*/SelfOuter* self, HWND hwndParent, PWSTR lpszUniqueID) Begin_DisassociateIdentity;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*AsyncIAssociatedIdentityProvider*/SelfOuter* self) Finish_DisassociateIdentity;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*AsyncIAssociatedIdentityProvider*/SelfOuter* self, HWND hwndParent, PWSTR lpszUniqueID) Begin_ChangeCredential;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*AsyncIAssociatedIdentityProvider*/SelfOuter* self) Finish_ChangeCredential;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HWND hwndParent) Begin_AssociateIdentity;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IPropertyStore** ppPropertyStore) Finish_AssociateIdentity;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HWND hwndParent, PWSTR lpszUniqueID) Begin_DisassociateIdentity;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Finish_DisassociateIdentity;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HWND hwndParent, PWSTR lpszUniqueID) Begin_ChangeCredential;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Finish_ChangeCredential;
 	}
 
 
@@ -270,11 +270,11 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IConnectedIdentityProvider*/SelfOuter* self, uint8* AuthBuffer, uint32 AuthBufferSize) ConnectIdentity;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IConnectedIdentityProvider*/SelfOuter* self) DisconnectIdentity;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IConnectedIdentityProvider*/SelfOuter* self, BOOL* Connected) IsConnected;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IConnectedIdentityProvider*/SelfOuter* self, IDENTITY_URL Identifier, IBindCtx* Context, VARIANT* PostData, PWSTR* Url) GetUrl;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IConnectedIdentityProvider*/SelfOuter* self, ACCOUNT_STATE* pState) GetAccountState;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint8* AuthBuffer, uint32 AuthBufferSize) ConnectIdentity;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) DisconnectIdentity;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BOOL* Connected) IsConnected;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IDENTITY_URL Identifier, IBindCtx* Context, VARIANT* PostData, PWSTR* Url) GetUrl;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ACCOUNT_STATE* pState) GetAccountState;
 	}
 
 
@@ -297,16 +297,16 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*AsyncIConnectedIdentityProvider*/SelfOuter* self, uint8* AuthBuffer, uint32 AuthBufferSize) Begin_ConnectIdentity;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*AsyncIConnectedIdentityProvider*/SelfOuter* self) Finish_ConnectIdentity;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*AsyncIConnectedIdentityProvider*/SelfOuter* self) Begin_DisconnectIdentity;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*AsyncIConnectedIdentityProvider*/SelfOuter* self) Finish_DisconnectIdentity;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*AsyncIConnectedIdentityProvider*/SelfOuter* self) Begin_IsConnected;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*AsyncIConnectedIdentityProvider*/SelfOuter* self, BOOL* Connected) Finish_IsConnected;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*AsyncIConnectedIdentityProvider*/SelfOuter* self, IDENTITY_URL Identifier, IBindCtx* Context) Begin_GetUrl;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*AsyncIConnectedIdentityProvider*/SelfOuter* self, VARIANT* PostData, PWSTR* Url) Finish_GetUrl;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*AsyncIConnectedIdentityProvider*/SelfOuter* self) Begin_GetAccountState;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*AsyncIConnectedIdentityProvider*/SelfOuter* self, ACCOUNT_STATE* pState) Finish_GetAccountState;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint8* AuthBuffer, uint32 AuthBufferSize) Begin_ConnectIdentity;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Finish_ConnectIdentity;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Begin_DisconnectIdentity;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Finish_DisconnectIdentity;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Begin_IsConnected;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BOOL* Connected) Finish_IsConnected;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IDENTITY_URL Identifier, IBindCtx* Context) Begin_GetUrl;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, VARIANT* PostData, PWSTR* Url) Finish_GetUrl;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Begin_GetAccountState;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ACCOUNT_STATE* pState) Finish_GetAccountState;
 	}
 
 
@@ -339,8 +339,8 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IIdentityAuthentication*/SelfOuter* self, uint8* CredBuffer, uint32 CredBufferLength) SetIdentityCredential;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IIdentityAuthentication*/SelfOuter* self, uint8* CredBuffer, uint32 CredBufferLength, IPropertyStore** ppIdentityProperties) ValidateIdentityCredential;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint8* CredBuffer, uint32 CredBufferLength) SetIdentityCredential;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint8* CredBuffer, uint32 CredBufferLength, IPropertyStore** ppIdentityProperties) ValidateIdentityCredential;
 	}
 
 
@@ -357,10 +357,10 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*AsyncIIdentityAuthentication*/SelfOuter* self, uint8* CredBuffer, uint32 CredBufferLength) Begin_SetIdentityCredential;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*AsyncIIdentityAuthentication*/SelfOuter* self) Finish_SetIdentityCredential;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*AsyncIIdentityAuthentication*/SelfOuter* self, uint8* CredBuffer, uint32 CredBufferLength, IPropertyStore** ppIdentityProperties) Begin_ValidateIdentityCredential;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*AsyncIIdentityAuthentication*/SelfOuter* self, IPropertyStore** ppIdentityProperties) Finish_ValidateIdentityCredential;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint8* CredBuffer, uint32 CredBufferLength) Begin_SetIdentityCredential;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Finish_SetIdentityCredential;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint8* CredBuffer, uint32 CredBufferLength, IPropertyStore** ppIdentityProperties) Begin_ValidateIdentityCredential;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IPropertyStore** ppIdentityProperties) Finish_ValidateIdentityCredential;
 	}
 
 
@@ -381,12 +381,12 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IIdentityStore*/SelfOuter* self, uint32* pdwProviders) GetCount;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IIdentityStore*/SelfOuter* self, uint32 dwProvider, ref Guid pProvGuid, IUnknown** ppIdentityProvider) GetAt;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IIdentityStore*/SelfOuter* self, PWSTR lpszUniqueID, ref Guid ProviderGUID) AddToCache;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IIdentityStore*/SelfOuter* self, PWSTR lpszUniqueID, ref Guid ProviderGUID, uint16 cbSid, uint8* pSid, uint16* pcbRequiredSid) ConvertToSid;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IIdentityStore*/SelfOuter* self, IDENTITY_TYPE eIdentityType, PROPERTYKEY* pFilterkey, PROPVARIANT* pFilterPropVarValue, IEnumUnknown** ppIdentityEnum) EnumerateIdentities;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IIdentityStore*/SelfOuter* self) Reset;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pdwProviders) GetCount;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwProvider, ref Guid pProvGuid, IUnknown** ppIdentityProvider) GetAt;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR lpszUniqueID, ref Guid ProviderGUID) AddToCache;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR lpszUniqueID, ref Guid ProviderGUID, uint16 cbSid, uint8* pSid, uint16* pcbRequiredSid) ConvertToSid;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IDENTITY_TYPE eIdentityType, PROPERTYKEY* pFilterkey, PROPVARIANT* pFilterPropVarValue, IEnumUnknown** ppIdentityEnum) EnumerateIdentities;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Reset;
 	}
 
 
@@ -411,18 +411,18 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*AsyncIIdentityStore*/SelfOuter* self) Begin_GetCount;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*AsyncIIdentityStore*/SelfOuter* self, uint32* pdwProviders) Finish_GetCount;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*AsyncIIdentityStore*/SelfOuter* self, uint32 dwProvider, ref Guid pProvGuid) Begin_GetAt;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*AsyncIIdentityStore*/SelfOuter* self, ref Guid pProvGuid, IUnknown** ppIdentityProvider) Finish_GetAt;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*AsyncIIdentityStore*/SelfOuter* self, PWSTR lpszUniqueID, ref Guid ProviderGUID) Begin_AddToCache;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*AsyncIIdentityStore*/SelfOuter* self) Finish_AddToCache;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*AsyncIIdentityStore*/SelfOuter* self, PWSTR lpszUniqueID, ref Guid ProviderGUID, uint16 cbSid, uint8* pSid) Begin_ConvertToSid;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*AsyncIIdentityStore*/SelfOuter* self, uint8* pSid, uint16* pcbRequiredSid) Finish_ConvertToSid;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*AsyncIIdentityStore*/SelfOuter* self, IDENTITY_TYPE eIdentityType, PROPERTYKEY* pFilterkey, PROPVARIANT* pFilterPropVarValue) Begin_EnumerateIdentities;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*AsyncIIdentityStore*/SelfOuter* self, IEnumUnknown** ppIdentityEnum) Finish_EnumerateIdentities;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*AsyncIIdentityStore*/SelfOuter* self) Begin_Reset;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*AsyncIIdentityStore*/SelfOuter* self) Finish_Reset;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Begin_GetCount;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* pdwProviders) Finish_GetCount;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 dwProvider, ref Guid pProvGuid) Begin_GetAt;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid pProvGuid, IUnknown** ppIdentityProvider) Finish_GetAt;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR lpszUniqueID, ref Guid ProviderGUID) Begin_AddToCache;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Finish_AddToCache;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR lpszUniqueID, ref Guid ProviderGUID, uint16 cbSid, uint8* pSid) Begin_ConvertToSid;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint8* pSid, uint16* pcbRequiredSid) Finish_ConvertToSid;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IDENTITY_TYPE eIdentityType, PROPERTYKEY* pFilterkey, PROPVARIANT* pFilterPropVarValue) Begin_EnumerateIdentities;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IEnumUnknown** ppIdentityEnum) Finish_EnumerateIdentities;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Begin_Reset;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Finish_Reset;
 	}
 
 
@@ -459,8 +459,8 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IIdentityStoreEx*/SelfOuter* self, PWSTR LocalName, PWSTR ConnectedName, ref Guid ProviderGUID) CreateConnectedIdentity;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IIdentityStoreEx*/SelfOuter* self, PWSTR ConnectedName, ref Guid ProviderGUID) DeleteConnectedIdentity;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR LocalName, PWSTR ConnectedName, ref Guid ProviderGUID) CreateConnectedIdentity;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR ConnectedName, ref Guid ProviderGUID) DeleteConnectedIdentity;
 	}
 
 
@@ -477,10 +477,10 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*AsyncIIdentityStoreEx*/SelfOuter* self, PWSTR LocalName, PWSTR ConnectedName, ref Guid ProviderGUID) Begin_CreateConnectedIdentity;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*AsyncIIdentityStoreEx*/SelfOuter* self) Finish_CreateConnectedIdentity;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*AsyncIIdentityStoreEx*/SelfOuter* self, PWSTR ConnectedName, ref Guid ProviderGUID) Begin_DeleteConnectedIdentity;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*AsyncIIdentityStoreEx*/SelfOuter* self) Finish_DeleteConnectedIdentity;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR LocalName, PWSTR ConnectedName, ref Guid ProviderGUID) Begin_CreateConnectedIdentity;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Finish_CreateConnectedIdentity;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PWSTR ConnectedName, ref Guid ProviderGUID) Begin_DeleteConnectedIdentity;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Finish_DeleteConnectedIdentity;
 	}
 
 

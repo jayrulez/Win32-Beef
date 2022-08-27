@@ -31,16 +31,16 @@ public static
 
 	[CRepr]public struct VTable : IDispatch.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IChannelCredentials*/SelfOuter* self, BSTR domain, BSTR username, BSTR password, int32 impersonationLevel, BOOL allowNtlm) SetWindowsCredential;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IChannelCredentials*/SelfOuter* self, BSTR username, BSTR password) SetUserNameCredential;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IChannelCredentials*/SelfOuter* self, BSTR storeLocation, BSTR storeName, BSTR findYype, VARIANT findValue) SetClientCertificateFromStore;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IChannelCredentials*/SelfOuter* self, BSTR subjectName, BSTR storeLocation, BSTR storeName) SetClientCertificateFromStoreByName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IChannelCredentials*/SelfOuter* self, BSTR filename, BSTR password, BSTR keystorageFlags) SetClientCertificateFromFile;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IChannelCredentials*/SelfOuter* self, BSTR storeLocation, BSTR storeName, BSTR findType, VARIANT findValue) SetDefaultServiceCertificateFromStore;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IChannelCredentials*/SelfOuter* self, BSTR subjectName, BSTR storeLocation, BSTR storeName) SetDefaultServiceCertificateFromStoreByName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IChannelCredentials*/SelfOuter* self, BSTR filename, BSTR password, BSTR keystorageFlags) SetDefaultServiceCertificateFromFile;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IChannelCredentials*/SelfOuter* self, BSTR storeLocation, BSTR revocationMode, BSTR certificateValidationMode) SetServiceCertificateAuthentication;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IChannelCredentials*/SelfOuter* self, BSTR localIssuerAddres, BSTR localIssuerBindingType, BSTR localIssuerBinding) SetIssuedToken;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR domain, BSTR username, BSTR password, int32 impersonationLevel, BOOL allowNtlm) SetWindowsCredential;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR username, BSTR password) SetUserNameCredential;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR storeLocation, BSTR storeName, BSTR findYype, VARIANT findValue) SetClientCertificateFromStore;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR subjectName, BSTR storeLocation, BSTR storeName) SetClientCertificateFromStoreByName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR filename, BSTR password, BSTR keystorageFlags) SetClientCertificateFromFile;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR storeLocation, BSTR storeName, BSTR findType, VARIANT findValue) SetDefaultServiceCertificateFromStore;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR subjectName, BSTR storeLocation, BSTR storeName) SetDefaultServiceCertificateFromStoreByName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR filename, BSTR password, BSTR keystorageFlags) SetDefaultServiceCertificateFromFile;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR storeLocation, BSTR revocationMode, BSTR certificateValidationMode) SetServiceCertificateAuthentication;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, BSTR localIssuerAddres, BSTR localIssuerBindingType, BSTR localIssuerBinding) SetIssuedToken;
 	}
 
 

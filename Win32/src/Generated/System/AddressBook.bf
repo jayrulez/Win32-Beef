@@ -1208,7 +1208,7 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] uint32(/*IMAPIAdviseSink*/SelfOuter* self, uint32 cNotif, NOTIFICATION* lpNotifications) OnNotify;
+		protected new function [CallingConvention(.Stdcall)] uint32(SelfOuter* self, uint32 cNotif, NOTIFICATION* lpNotifications) OnNotify;
 	}
 
 
@@ -1221,11 +1221,11 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMAPIProgress*/SelfOuter* self, uint32 ulValue, uint32 ulCount, uint32 ulTotal) Progress;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMAPIProgress*/SelfOuter* self, uint32* lpulFlags) COM_GetFlags;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMAPIProgress*/SelfOuter* self, uint32* lpulMax) GetMax;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMAPIProgress*/SelfOuter* self, uint32* lpulMin) GetMin;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMAPIProgress*/SelfOuter* self, uint32* lpulMin, uint32* lpulMax, uint32* lpulFlags) SetLimits;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 ulValue, uint32 ulCount, uint32 ulTotal) Progress;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* lpulFlags) COM_GetFlags;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* lpulMax) GetMax;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* lpulMin) GetMin;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* lpulMin, uint32* lpulMax, uint32* lpulFlags) SetLimits;
 	}
 
 
@@ -1246,17 +1246,17 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMAPIProp*/SelfOuter* self, HRESULT hResult, uint32 ulFlags, MAPIERROR** lppMAPIError) GetLastError;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMAPIProp*/SelfOuter* self, uint32 ulFlags) SaveChanges;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMAPIProp*/SelfOuter* self, SPropTagArray* lpPropTagArray, uint32 ulFlags, uint32* lpcValues, SPropValue** lppPropArray) GetProps;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMAPIProp*/SelfOuter* self, uint32 ulFlags, SPropTagArray** lppPropTagArray) GetPropList;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMAPIProp*/SelfOuter* self, uint32 ulPropTag, ref Guid lpiid, uint32 ulInterfaceOptions, uint32 ulFlags, IUnknown** lppUnk) OpenProperty;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMAPIProp*/SelfOuter* self, uint32 cValues, SPropValue* lpPropArray, SPropProblemArray** lppProblems) SetProps;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMAPIProp*/SelfOuter* self, SPropTagArray* lpPropTagArray, SPropProblemArray** lppProblems) DeleteProps;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMAPIProp*/SelfOuter* self, uint32 ciidExclude, ref Guid rgiidExclude, SPropTagArray* lpExcludeProps, uint ulUIParam, IMAPIProgress* lpProgress, ref Guid lpInterface, void* lpDestObj, uint32 ulFlags, SPropProblemArray** lppProblems) CopyTo;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMAPIProp*/SelfOuter* self, SPropTagArray* lpIncludeProps, uint ulUIParam, IMAPIProgress* lpProgress, ref Guid lpInterface, void* lpDestObj, uint32 ulFlags, SPropProblemArray** lppProblems) CopyProps;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMAPIProp*/SelfOuter* self, SPropTagArray** lppPropTags, ref Guid lpPropSetGuid, uint32 ulFlags, uint32* lpcPropNames, MAPINAMEID*** lpppPropNames) GetNamesFromIDs;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMAPIProp*/SelfOuter* self, uint32 cPropNames, MAPINAMEID** lppPropNames, uint32 ulFlags, SPropTagArray** lppPropTags) GetIDsFromNames;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HRESULT hResult, uint32 ulFlags, MAPIERROR** lppMAPIError) GetLastError;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 ulFlags) SaveChanges;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, SPropTagArray* lpPropTagArray, uint32 ulFlags, uint32* lpcValues, SPropValue** lppPropArray) GetProps;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 ulFlags, SPropTagArray** lppPropTagArray) GetPropList;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 ulPropTag, ref Guid lpiid, uint32 ulInterfaceOptions, uint32 ulFlags, IUnknown** lppUnk) OpenProperty;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 cValues, SPropValue* lpPropArray, SPropProblemArray** lppProblems) SetProps;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, SPropTagArray* lpPropTagArray, SPropProblemArray** lppProblems) DeleteProps;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 ciidExclude, ref Guid rgiidExclude, SPropTagArray* lpExcludeProps, uint ulUIParam, IMAPIProgress* lpProgress, ref Guid lpInterface, void* lpDestObj, uint32 ulFlags, SPropProblemArray** lppProblems) CopyTo;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, SPropTagArray* lpIncludeProps, uint ulUIParam, IMAPIProgress* lpProgress, ref Guid lpInterface, void* lpDestObj, uint32 ulFlags, SPropProblemArray** lppProblems) CopyProps;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, SPropTagArray** lppPropTags, ref Guid lpPropSetGuid, uint32 ulFlags, uint32* lpcPropNames, MAPINAMEID*** lpppPropNames) GetNamesFromIDs;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 cPropNames, MAPINAMEID** lppPropNames, uint32 ulFlags, SPropTagArray** lppPropTags) GetIDsFromNames;
 	}
 
 
@@ -1289,29 +1289,29 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMAPITable*/SelfOuter* self, HRESULT hResult, uint32 ulFlags, MAPIERROR** lppMAPIError) GetLastError;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMAPITable*/SelfOuter* self, uint32 ulEventMask, IMAPIAdviseSink* lpAdviseSink, uint32* lpulConnection) Advise;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMAPITable*/SelfOuter* self, uint32 ulConnection) Unadvise;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMAPITable*/SelfOuter* self, uint32* lpulTableStatus, uint32* lpulTableType) GetStatus;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMAPITable*/SelfOuter* self, SPropTagArray* lpPropTagArray, uint32 ulFlags) SetColumns;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMAPITable*/SelfOuter* self, uint32 ulFlags, SPropTagArray** lpPropTagArray) QueryColumns;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMAPITable*/SelfOuter* self, uint32 ulFlags, uint32* lpulCount) GetRowCount;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMAPITable*/SelfOuter* self, uint32 bkOrigin, int32 lRowCount, int32* lplRowsSought) SeekRow;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMAPITable*/SelfOuter* self, uint32 ulNumerator, uint32 ulDenominator) SeekRowApprox;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMAPITable*/SelfOuter* self, uint32* lpulRow, uint32* lpulNumerator, uint32* lpulDenominator) QueryPosition;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMAPITable*/SelfOuter* self, SRestriction* lpRestriction, uint32 bkOrigin, uint32 ulFlags) FindRow;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMAPITable*/SelfOuter* self, SRestriction* lpRestriction, uint32 ulFlags) Restrict;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMAPITable*/SelfOuter* self, uint32* lpbkPosition) CreateBookmark;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMAPITable*/SelfOuter* self, uint32 bkPosition) FreeBookmark;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMAPITable*/SelfOuter* self, SSortOrderSet* lpSortCriteria, uint32 ulFlags) SortTable;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMAPITable*/SelfOuter* self, SSortOrderSet** lppSortCriteria) QuerySortOrder;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMAPITable*/SelfOuter* self, int32 lRowCount, uint32 ulFlags, SRowSet** lppRows) QueryRows;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMAPITable*/SelfOuter* self) Abort;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMAPITable*/SelfOuter* self, uint32 cbInstanceKey, uint8* pbInstanceKey, uint32 ulRowCount, uint32 ulFlags, SRowSet** lppRows, uint32* lpulMoreRows) ExpandRow;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMAPITable*/SelfOuter* self, uint32 cbInstanceKey, uint8* pbInstanceKey, uint32 ulFlags, uint32* lpulRowCount) CollapseRow;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMAPITable*/SelfOuter* self, uint32 ulFlags, uint32 ulTimeout, uint32* lpulTableStatus) WaitForCompletion;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMAPITable*/SelfOuter* self, uint32 ulFlags, uint32 cbInstanceKey, uint8* lpbInstanceKey, uint32* lpcbCollapseState, uint8** lppbCollapseState) GetCollapseState;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMAPITable*/SelfOuter* self, uint32 ulFlags, uint32 cbCollapseState, uint8* pbCollapseState, uint32* lpbkLocation) SetCollapseState;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HRESULT hResult, uint32 ulFlags, MAPIERROR** lppMAPIError) GetLastError;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 ulEventMask, IMAPIAdviseSink* lpAdviseSink, uint32* lpulConnection) Advise;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 ulConnection) Unadvise;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* lpulTableStatus, uint32* lpulTableType) GetStatus;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, SPropTagArray* lpPropTagArray, uint32 ulFlags) SetColumns;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 ulFlags, SPropTagArray** lpPropTagArray) QueryColumns;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 ulFlags, uint32* lpulCount) GetRowCount;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 bkOrigin, int32 lRowCount, int32* lplRowsSought) SeekRow;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 ulNumerator, uint32 ulDenominator) SeekRowApprox;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* lpulRow, uint32* lpulNumerator, uint32* lpulDenominator) QueryPosition;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, SRestriction* lpRestriction, uint32 bkOrigin, uint32 ulFlags) FindRow;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, SRestriction* lpRestriction, uint32 ulFlags) Restrict;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* lpbkPosition) CreateBookmark;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 bkPosition) FreeBookmark;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, SSortOrderSet* lpSortCriteria, uint32 ulFlags) SortTable;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, SSortOrderSet** lppSortCriteria) QuerySortOrder;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int32 lRowCount, uint32 ulFlags, SRowSet** lppRows) QueryRows;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self) Abort;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 cbInstanceKey, uint8* pbInstanceKey, uint32 ulRowCount, uint32 ulFlags, SRowSet** lppRows, uint32* lpulMoreRows) ExpandRow;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 cbInstanceKey, uint8* pbInstanceKey, uint32 ulFlags, uint32* lpulRowCount) CollapseRow;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 ulFlags, uint32 ulTimeout, uint32* lpulTableStatus) WaitForCompletion;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 ulFlags, uint32 cbInstanceKey, uint8* lpbInstanceKey, uint32* lpcbCollapseState, uint8** lppbCollapseState) GetCollapseState;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 ulFlags, uint32 cbCollapseState, uint8* pbCollapseState, uint32* lpbkLocation) SetCollapseState;
 	}
 
 
@@ -1378,10 +1378,10 @@ public static
 
 	[CRepr]public struct VTable : IMAPIProp.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMAPIStatus*/SelfOuter* self, uint ulUIParam, uint32 ulFlags) ValidateState;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMAPIStatus*/SelfOuter* self, uint ulUIParam, uint32 ulFlags) SettingsDialog;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMAPIStatus*/SelfOuter* self, int8* lpOldPass, int8* lpNewPass, uint32 ulFlags) ChangePassword;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMAPIStatus*/SelfOuter* self, uint ulUIParam, uint32 cbTargetTransport, ENTRYID* lpTargetTransport, uint32 ulFlags) FlushQueues;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint ulUIParam, uint32 ulFlags) ValidateState;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint ulUIParam, uint32 ulFlags) SettingsDialog;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int8* lpOldPass, int8* lpNewPass, uint32 ulFlags) ChangePassword;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint ulUIParam, uint32 cbTargetTransport, ENTRYID* lpTargetTransport, uint32 ulFlags) FlushQueues;
 	}
 
 
@@ -1400,11 +1400,11 @@ public static
 
 	[CRepr]public struct VTable : IMAPIProp.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMAPIContainer*/SelfOuter* self, uint32 ulFlags, IMAPITable** lppTable) GetContentsTable;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMAPIContainer*/SelfOuter* self, uint32 ulFlags, IMAPITable** lppTable) GetHierarchyTable;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMAPIContainer*/SelfOuter* self, uint32 cbEntryID, ENTRYID* lpEntryID, ref Guid lpInterface, uint32 ulFlags, uint32* lpulObjType, IUnknown** lppUnk) OpenEntry;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMAPIContainer*/SelfOuter* self, SRestriction* lpRestriction, SBinaryArray* lpContainerList, uint32 ulSearchFlags) SetSearchCriteria;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMAPIContainer*/SelfOuter* self, uint32 ulFlags, SRestriction** lppRestriction, SBinaryArray** lppContainerList, uint32* lpulSearchState) GetSearchCriteria;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 ulFlags, IMAPITable** lppTable) GetContentsTable;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 ulFlags, IMAPITable** lppTable) GetHierarchyTable;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 cbEntryID, ENTRYID* lpEntryID, ref Guid lpInterface, uint32 ulFlags, uint32* lpulObjType, IUnknown** lppUnk) OpenEntry;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, SRestriction* lpRestriction, SBinaryArray* lpContainerList, uint32 ulSearchFlags) SetSearchCriteria;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 ulFlags, SRestriction** lppRestriction, SBinaryArray** lppContainerList, uint32* lpulSearchState) GetSearchCriteria;
 	}
 
 
@@ -1425,10 +1425,10 @@ public static
 
 	[CRepr]public struct VTable : IMAPIContainer.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IABContainer*/SelfOuter* self, uint32 cbEntryID, ENTRYID* lpEntryID, uint32 ulCreateFlags, IMAPIProp** lppMAPIPropEntry) CreateEntry;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IABContainer*/SelfOuter* self, SBinaryArray* lpEntries, uint ulUIParam, IMAPIProgress* lpProgress, uint32 ulFlags) CopyEntries;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IABContainer*/SelfOuter* self, SBinaryArray* lpEntries, uint32 ulFlags) DeleteEntries;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IABContainer*/SelfOuter* self, SPropTagArray* lpPropTagArray, uint32 ulFlags, ADRLIST* lpAdrList, _flaglist* lpFlagList) ResolveNames;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 cbEntryID, ENTRYID* lpEntryID, uint32 ulCreateFlags, IMAPIProp** lppMAPIPropEntry) CreateEntry;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, SBinaryArray* lpEntries, uint ulUIParam, IMAPIProgress* lpProgress, uint32 ulFlags) CopyEntries;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, SBinaryArray* lpEntries, uint32 ulFlags) DeleteEntries;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, SPropTagArray* lpPropTagArray, uint32 ulFlags, ADRLIST* lpAdrList, _flaglist* lpFlagList) ResolveNames;
 	}
 
 
@@ -1457,10 +1457,10 @@ public static
 
 	[CRepr]public struct VTable : IMAPIContainer.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDistList*/SelfOuter* self, uint32 cbEntryID, ENTRYID* lpEntryID, uint32 ulCreateFlags, IMAPIProp** lppMAPIPropEntry) CreateEntry;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDistList*/SelfOuter* self, SBinaryArray* lpEntries, uint ulUIParam, IMAPIProgress* lpProgress, uint32 ulFlags) CopyEntries;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDistList*/SelfOuter* self, SBinaryArray* lpEntries, uint32 ulFlags) DeleteEntries;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDistList*/SelfOuter* self, SPropTagArray* lpPropTagArray, uint32 ulFlags, ADRLIST* lpAdrList, _flaglist* lpFlagList) ResolveNames;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 cbEntryID, ENTRYID* lpEntryID, uint32 ulCreateFlags, IMAPIProp** lppMAPIPropEntry) CreateEntry;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, SBinaryArray* lpEntries, uint ulUIParam, IMAPIProgress* lpProgress, uint32 ulFlags) CopyEntries;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, SBinaryArray* lpEntries, uint32 ulFlags) DeleteEntries;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, SPropTagArray* lpPropTagArray, uint32 ulFlags, ADRLIST* lpAdrList, _flaglist* lpFlagList) ResolveNames;
 	}
 
 
@@ -1479,17 +1479,17 @@ public static
 
 	[CRepr]public struct VTable : IMAPIContainer.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMAPIFolder*/SelfOuter* self, ref Guid lpInterface, uint32 ulFlags, IMessage** lppMessage) CreateMessage;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMAPIFolder*/SelfOuter* self, SBinaryArray* lpMsgList, ref Guid lpInterface, void* lpDestFolder, uint ulUIParam, IMAPIProgress* lpProgress, uint32 ulFlags) CopyMessages;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMAPIFolder*/SelfOuter* self, SBinaryArray* lpMsgList, uint ulUIParam, IMAPIProgress* lpProgress, uint32 ulFlags) DeleteMessages;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMAPIFolder*/SelfOuter* self, uint32 ulFolderType, int8* lpszFolderName, int8* lpszFolderComment, ref Guid lpInterface, uint32 ulFlags, IMAPIFolder** lppFolder) CreateFolder;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMAPIFolder*/SelfOuter* self, uint32 cbEntryID, ENTRYID* lpEntryID, ref Guid lpInterface, void* lpDestFolder, int8* lpszNewFolderName, uint ulUIParam, IMAPIProgress* lpProgress, uint32 ulFlags) CopyFolder;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMAPIFolder*/SelfOuter* self, uint32 cbEntryID, ENTRYID* lpEntryID, uint ulUIParam, IMAPIProgress* lpProgress, uint32 ulFlags) DeleteFolder;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMAPIFolder*/SelfOuter* self, SBinaryArray* lpMsgList, uint ulUIParam, IMAPIProgress* lpProgress, uint32 ulFlags) SetReadFlags;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMAPIFolder*/SelfOuter* self, uint32 cbEntryID, ENTRYID* lpEntryID, uint32 ulFlags, uint32* lpulMessageStatus) GetMessageStatus;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMAPIFolder*/SelfOuter* self, uint32 cbEntryID, ENTRYID* lpEntryID, uint32 ulNewStatus, uint32 ulNewStatusMask, uint32* lpulOldStatus) SetMessageStatus;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMAPIFolder*/SelfOuter* self, SSortOrderSet* lpSortCriteria, uint32 ulFlags) SaveContentsSort;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMAPIFolder*/SelfOuter* self, uint ulUIParam, IMAPIProgress* lpProgress, uint32 ulFlags) EmptyFolder;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid lpInterface, uint32 ulFlags, IMessage** lppMessage) CreateMessage;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, SBinaryArray* lpMsgList, ref Guid lpInterface, void* lpDestFolder, uint ulUIParam, IMAPIProgress* lpProgress, uint32 ulFlags) CopyMessages;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, SBinaryArray* lpMsgList, uint ulUIParam, IMAPIProgress* lpProgress, uint32 ulFlags) DeleteMessages;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 ulFolderType, int8* lpszFolderName, int8* lpszFolderComment, ref Guid lpInterface, uint32 ulFlags, IMAPIFolder** lppFolder) CreateFolder;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 cbEntryID, ENTRYID* lpEntryID, ref Guid lpInterface, void* lpDestFolder, int8* lpszNewFolderName, uint ulUIParam, IMAPIProgress* lpProgress, uint32 ulFlags) CopyFolder;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 cbEntryID, ENTRYID* lpEntryID, uint ulUIParam, IMAPIProgress* lpProgress, uint32 ulFlags) DeleteFolder;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, SBinaryArray* lpMsgList, uint ulUIParam, IMAPIProgress* lpProgress, uint32 ulFlags) SetReadFlags;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 cbEntryID, ENTRYID* lpEntryID, uint32 ulFlags, uint32* lpulMessageStatus) GetMessageStatus;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 cbEntryID, ENTRYID* lpEntryID, uint32 ulNewStatus, uint32 ulNewStatusMask, uint32* lpulOldStatus) SetMessageStatus;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, SSortOrderSet* lpSortCriteria, uint32 ulFlags) SaveContentsSort;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint ulUIParam, IMAPIProgress* lpProgress, uint32 ulFlags) EmptyFolder;
 	}
 
 
@@ -1522,19 +1522,19 @@ public static
 
 	[CRepr]public struct VTable : IMAPIProp.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMsgStore*/SelfOuter* self, uint32 cbEntryID, ENTRYID* lpEntryID, uint32 ulEventMask, IMAPIAdviseSink* lpAdviseSink, uint32* lpulConnection) Advise;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMsgStore*/SelfOuter* self, uint32 ulConnection) Unadvise;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMsgStore*/SelfOuter* self, uint32 cbEntryID1, ENTRYID* lpEntryID1, uint32 cbEntryID2, ENTRYID* lpEntryID2, uint32 ulFlags, uint32* lpulResult) CompareEntryIDs;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMsgStore*/SelfOuter* self, uint32 cbEntryID, ENTRYID* lpEntryID, ref Guid lpInterface, uint32 ulFlags, uint32* lpulObjType, IUnknown** ppUnk) OpenEntry;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMsgStore*/SelfOuter* self, int8* lpszMessageClass, uint32 ulFlags, uint32 cbEntryID, ENTRYID* lpEntryID) SetReceiveFolder;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMsgStore*/SelfOuter* self, int8* lpszMessageClass, uint32 ulFlags, uint32* lpcbEntryID, ENTRYID** lppEntryID, int8** lppszExplicitClass) GetReceiveFolder;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMsgStore*/SelfOuter* self, uint32 ulFlags, IMAPITable** lppTable) GetReceiveFolderTable;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMsgStore*/SelfOuter* self, uint32* lpulFlags) StoreLogoff;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMsgStore*/SelfOuter* self, uint32 cbEntryID, ENTRYID* lpEntryID, uint32 ulFlags) AbortSubmit;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMsgStore*/SelfOuter* self, uint32 ulFlags, IMAPITable** lppTable) GetOutgoingQueue;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMsgStore*/SelfOuter* self, IMessage* lpMessage, uint32 ulLockState) SetLockState;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMsgStore*/SelfOuter* self, uint32 ulFlags, uint32 cbEntryID, ENTRYID* lpEntryID) FinishedMsg;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMsgStore*/SelfOuter* self, NOTIFICATION* lpNotification) NotifyNewMail;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 cbEntryID, ENTRYID* lpEntryID, uint32 ulEventMask, IMAPIAdviseSink* lpAdviseSink, uint32* lpulConnection) Advise;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 ulConnection) Unadvise;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 cbEntryID1, ENTRYID* lpEntryID1, uint32 cbEntryID2, ENTRYID* lpEntryID2, uint32 ulFlags, uint32* lpulResult) CompareEntryIDs;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 cbEntryID, ENTRYID* lpEntryID, ref Guid lpInterface, uint32 ulFlags, uint32* lpulObjType, IUnknown** ppUnk) OpenEntry;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int8* lpszMessageClass, uint32 ulFlags, uint32 cbEntryID, ENTRYID* lpEntryID) SetReceiveFolder;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int8* lpszMessageClass, uint32 ulFlags, uint32* lpcbEntryID, ENTRYID** lppEntryID, int8** lppszExplicitClass) GetReceiveFolder;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 ulFlags, IMAPITable** lppTable) GetReceiveFolderTable;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* lpulFlags) StoreLogoff;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 cbEntryID, ENTRYID* lpEntryID, uint32 ulFlags) AbortSubmit;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 ulFlags, IMAPITable** lppTable) GetOutgoingQueue;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IMessage* lpMessage, uint32 ulLockState) SetLockState;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 ulFlags, uint32 cbEntryID, ENTRYID* lpEntryID) FinishedMsg;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, NOTIFICATION* lpNotification) NotifyNewMail;
 	}
 
 
@@ -1571,14 +1571,14 @@ public static
 
 	[CRepr]public struct VTable : IMAPIProp.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMessage*/SelfOuter* self, uint32 ulFlags, IMAPITable** lppTable) GetAttachmentTable;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMessage*/SelfOuter* self, uint32 ulAttachmentNum, ref Guid lpInterface, uint32 ulFlags, IAttach** lppAttach) OpenAttach;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMessage*/SelfOuter* self, ref Guid lpInterface, uint32 ulFlags, uint32* lpulAttachmentNum, IAttach** lppAttach) CreateAttach;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMessage*/SelfOuter* self, uint32 ulAttachmentNum, uint ulUIParam, IMAPIProgress* lpProgress, uint32 ulFlags) DeleteAttach;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMessage*/SelfOuter* self, uint32 ulFlags, IMAPITable** lppTable) GetRecipientTable;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMessage*/SelfOuter* self, uint32 ulFlags, ADRLIST* lpMods) ModifyRecipients;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMessage*/SelfOuter* self, uint32 ulFlags) SubmitMessage;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMessage*/SelfOuter* self, uint32 ulFlags) SetReadFlag;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 ulFlags, IMAPITable** lppTable) GetAttachmentTable;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 ulAttachmentNum, ref Guid lpInterface, uint32 ulFlags, IAttach** lppAttach) OpenAttach;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid lpInterface, uint32 ulFlags, uint32* lpulAttachmentNum, IAttach** lppAttach) CreateAttach;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 ulAttachmentNum, uint ulUIParam, IMAPIProgress* lpProgress, uint32 ulFlags) DeleteAttach;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 ulFlags, IMAPITable** lppTable) GetRecipientTable;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 ulFlags, ADRLIST* lpMods) ModifyRecipients;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 ulFlags) SubmitMessage;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 ulFlags) SetReadFlag;
 	}
 
 
@@ -1615,9 +1615,9 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMAPIControl*/SelfOuter* self, HRESULT hResult, uint32 ulFlags, MAPIERROR** lppMAPIError) GetLastError;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMAPIControl*/SelfOuter* self, uint32 ulFlags, uint ulUIParam) Activate;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMAPIControl*/SelfOuter* self, uint32 ulFlags, uint32* lpulState) GetState;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HRESULT hResult, uint32 ulFlags, MAPIERROR** lppMAPIError) GetLastError;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 ulFlags, uint ulUIParam) Activate;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 ulFlags, uint32* lpulState) GetState;
 	}
 
 
@@ -1634,11 +1634,11 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IProviderAdmin*/SelfOuter* self, HRESULT hResult, uint32 ulFlags, MAPIERROR** lppMAPIError) GetLastError;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IProviderAdmin*/SelfOuter* self, uint32 ulFlags, IMAPITable** lppTable) GetProviderTable;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IProviderAdmin*/SelfOuter* self, int8* lpszProvider, uint32 cValues, SPropValue* lpProps, uint ulUIParam, uint32 ulFlags, MAPIUID* lpUID) CreateProvider;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IProviderAdmin*/SelfOuter* self, MAPIUID* lpUID) DeleteProvider;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IProviderAdmin*/SelfOuter* self, MAPIUID* lpUID, ref Guid lpInterface, uint32 ulFlags, IProfSect** lppProfSect) OpenProfileSection;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HRESULT hResult, uint32 ulFlags, MAPIERROR** lppMAPIError) GetLastError;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 ulFlags, IMAPITable** lppTable) GetProviderTable;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int8* lpszProvider, uint32 cValues, SPropValue* lpProps, uint ulUIParam, uint32 ulFlags, MAPIUID* lpUID) CreateProvider;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, MAPIUID* lpUID) DeleteProvider;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, MAPIUID* lpUID, ref Guid lpInterface, uint32 ulFlags, IProfSect** lppProfSect) OpenProfileSection;
 	}
 
 
@@ -1659,15 +1659,15 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITableData*/SelfOuter* self, SSortOrderSet* lpSSortOrderSet, CALLERRELEASE* lpfCallerRelease, uint32 ulCallerData, IMAPITable** lppMAPITable) HrGetView;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITableData*/SelfOuter* self, SRow* param0) HrModifyRow;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITableData*/SelfOuter* self, SPropValue* lpSPropValue) HrDeleteRow;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITableData*/SelfOuter* self, SPropValue* lpsPropValue, SRow** lppSRow, uint32* lpuliRow) HrQueryRow;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITableData*/SelfOuter* self, uint32 ulRowNumber, SRow** lppSRow) HrEnumRow;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITableData*/SelfOuter* self, uint32 ulFlags, uint32 cValues, SPropValue* lpSPropValue) HrNotify;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITableData*/SelfOuter* self, uint32 uliRow, SRow* lpSRow) HrInsertRow;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITableData*/SelfOuter* self, uint32 ulFlags, SRowSet* lpSRowSet) HrModifyRows;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITableData*/SelfOuter* self, uint32 ulFlags, SRowSet* lprowsetToDelete, uint32* cRowsDeleted) HrDeleteRows;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, SSortOrderSet* lpSSortOrderSet, CALLERRELEASE* lpfCallerRelease, uint32 ulCallerData, IMAPITable** lppMAPITable) HrGetView;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, SRow* param0) HrModifyRow;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, SPropValue* lpSPropValue) HrDeleteRow;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, SPropValue* lpsPropValue, SRow** lppSRow, uint32* lpuliRow) HrQueryRow;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 ulRowNumber, SRow** lppSRow) HrEnumRow;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 ulFlags, uint32 cValues, SPropValue* lpSPropValue) HrNotify;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 uliRow, SRow* lpSRow) HrInsertRow;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 ulFlags, SRowSet* lpSRowSet) HrModifyRows;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 ulFlags, SRowSet* lprowsetToDelete, uint32* cRowsDeleted) HrDeleteRows;
 	}
 
 
@@ -1696,10 +1696,10 @@ public static
 
 	[CRepr]public struct VTable : IMAPIProp.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPropData*/SelfOuter* self, uint32 ulAccess) HrSetObjAccess;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPropData*/SelfOuter* self, SPropTagArray* lpPropTagArray, uint32* rgulAccess) HrSetPropAccess;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPropData*/SelfOuter* self, SPropTagArray** lppPropTagArray, uint32** lprgulAccess) HrGetPropAccess;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPropData*/SelfOuter* self, SPropTagArray* lppPropTagArray, SPropProblemArray** lprgulAccess) HrAddObjProps;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 ulAccess) HrSetObjAccess;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, SPropTagArray* lpPropTagArray, uint32* rgulAccess) HrSetPropAccess;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, SPropTagArray** lppPropTagArray, uint32** lprgulAccess) HrGetPropAccess;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, SPropTagArray* lppPropTagArray, SPropProblemArray** lprgulAccess) HrAddObjProps;
 	}
 
 
@@ -1718,24 +1718,24 @@ public static
 
 	[CRepr]public struct VTable : IMAPIProp.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAddrBook*/SelfOuter* self, uint32 cbEntryID, ENTRYID* lpEntryID, ref Guid lpInterface, uint32 ulFlags, uint32* lpulObjType, IUnknown** lppUnk) OpenEntry;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAddrBook*/SelfOuter* self, uint32 cbEntryID1, ENTRYID* lpEntryID1, uint32 cbEntryID2, ENTRYID* lpEntryID2, uint32 ulFlags, uint32* lpulResult) CompareEntryIDs;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAddrBook*/SelfOuter* self, uint32 cbEntryID, ENTRYID* lpEntryID, uint32 ulEventMask, IMAPIAdviseSink* lpAdviseSink, uint32* lpulConnection) Advise;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAddrBook*/SelfOuter* self, uint32 ulConnection) Unadvise;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAddrBook*/SelfOuter* self, int8* lpszName, int8* lpszAdrType, int8* lpszAddress, uint32 ulFlags, uint32* lpcbEntryID, ENTRYID** lppEntryID) CreateOneOff;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAddrBook*/SelfOuter* self, uint32 ulUIParam, uint32 ulFlags, uint32 cbEIDContainer, ENTRYID* lpEIDContainer, uint32 cbEIDNewEntryTpl, ENTRYID* lpEIDNewEntryTpl, uint32* lpcbEIDNewEntry, ENTRYID** lppEIDNewEntry) NewEntry;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAddrBook*/SelfOuter* self, uint ulUIParam, uint32 ulFlags, int8* lpszNewEntryTitle, ADRLIST* lpAdrList) ResolveName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAddrBook*/SelfOuter* self, uint32* lpulUIParam, ADRPARM* lpAdrParms, ADRLIST** lppAdrList) Address;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAddrBook*/SelfOuter* self, uint* lpulUIParam, LPFNDISMISS lpfnDismiss, void* lpvDismissContext, uint32 cbEntryID, ENTRYID* lpEntryID, LPFNBUTTON lpfButtonCallback, void* lpvButtonContext, int8* lpszButtonText, uint32 ulFlags) Details;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAddrBook*/SelfOuter* self, uint32 ulUIParam, uint32 ulFlags, ADRENTRY* lpRecip) RecipOptions;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAddrBook*/SelfOuter* self, int8* lpszAdrType, uint32 ulFlags, uint32* lpcValues, SPropValue** lppOptions) QueryDefaultRecipOpt;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAddrBook*/SelfOuter* self, uint32* lpcbEntryID, ENTRYID** lppEntryID) GetPAB;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAddrBook*/SelfOuter* self, uint32 cbEntryID, ENTRYID* lpEntryID) SetPAB;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAddrBook*/SelfOuter* self, uint32* lpcbEntryID, ENTRYID** lppEntryID) GetDefaultDir;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAddrBook*/SelfOuter* self, uint32 cbEntryID, ENTRYID* lpEntryID) SetDefaultDir;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAddrBook*/SelfOuter* self, uint32 ulFlags, SRowSet** lppSearchPath) GetSearchPath;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAddrBook*/SelfOuter* self, uint32 ulFlags, SRowSet* lpSearchPath) SetSearchPath;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAddrBook*/SelfOuter* self, uint32 ulFlags, SPropTagArray* lpPropTagArray, ADRLIST* lpRecipList) PrepareRecips;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 cbEntryID, ENTRYID* lpEntryID, ref Guid lpInterface, uint32 ulFlags, uint32* lpulObjType, IUnknown** lppUnk) OpenEntry;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 cbEntryID1, ENTRYID* lpEntryID1, uint32 cbEntryID2, ENTRYID* lpEntryID2, uint32 ulFlags, uint32* lpulResult) CompareEntryIDs;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 cbEntryID, ENTRYID* lpEntryID, uint32 ulEventMask, IMAPIAdviseSink* lpAdviseSink, uint32* lpulConnection) Advise;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 ulConnection) Unadvise;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int8* lpszName, int8* lpszAdrType, int8* lpszAddress, uint32 ulFlags, uint32* lpcbEntryID, ENTRYID** lppEntryID) CreateOneOff;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 ulUIParam, uint32 ulFlags, uint32 cbEIDContainer, ENTRYID* lpEIDContainer, uint32 cbEIDNewEntryTpl, ENTRYID* lpEIDNewEntryTpl, uint32* lpcbEIDNewEntry, ENTRYID** lppEIDNewEntry) NewEntry;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint ulUIParam, uint32 ulFlags, int8* lpszNewEntryTitle, ADRLIST* lpAdrList) ResolveName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* lpulUIParam, ADRPARM* lpAdrParms, ADRLIST** lppAdrList) Address;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint* lpulUIParam, LPFNDISMISS lpfnDismiss, void* lpvDismissContext, uint32 cbEntryID, ENTRYID* lpEntryID, LPFNBUTTON lpfButtonCallback, void* lpvButtonContext, int8* lpszButtonText, uint32 ulFlags) Details;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 ulUIParam, uint32 ulFlags, ADRENTRY* lpRecip) RecipOptions;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, int8* lpszAdrType, uint32 ulFlags, uint32* lpcValues, SPropValue** lppOptions) QueryDefaultRecipOpt;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* lpcbEntryID, ENTRYID** lppEntryID) GetPAB;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 cbEntryID, ENTRYID* lpEntryID) SetPAB;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32* lpcbEntryID, ENTRYID** lppEntryID) GetDefaultDir;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 cbEntryID, ENTRYID* lpEntryID) SetDefaultDir;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 ulFlags, SRowSet** lppSearchPath) GetSearchPath;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 ulFlags, SRowSet* lpSearchPath) SetSearchPath;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 ulFlags, SPropTagArray* lpPropTagArray, ADRLIST* lpRecipList) PrepareRecips;
 	}
 
 
@@ -1782,19 +1782,19 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWABObject*/SelfOuter* self, HRESULT hResult, uint32 ulFlags, MAPIERROR** lppMAPIError) GetLastError;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWABObject*/SelfOuter* self, uint32 cbSize, void** lppBuffer) AllocateBuffer;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWABObject*/SelfOuter* self, uint32 cbSize, void* lpObject, void** lppBuffer) AllocateMore;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWABObject*/SelfOuter* self, void* lpBuffer) FreeBuffer;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWABObject*/SelfOuter* self, PSTR lpFileName) Backup;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWABObject*/SelfOuter* self, PSTR lpWIP) Import;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWABObject*/SelfOuter* self, IAddrBook* lpIAB, HWND hWnd) Find;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWABObject*/SelfOuter* self, IAddrBook* lpIAB, HWND hWnd, PSTR lpszFileName) VCardDisplay;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWABObject*/SelfOuter* self, IAddrBook* lpIAB, HWND hWnd, uint32 ulFlags, PSTR lpszURL, IMailUser** lppMailUser) LDAPUrl;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWABObject*/SelfOuter* self, IAddrBook* lpIAB, uint32 ulFlags, PSTR lpszVCard, IMailUser* lpMailUser) VCardCreate;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWABObject*/SelfOuter* self, IAddrBook* lpIAB, uint32 ulFlags, PSTR lpszVCard, IMailUser** lppMailUser) VCardRetrieve;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWABObject*/SelfOuter* self, IAddrBook* lpIAB, uint32 ulFlags, uint32* lpdwAction, SBinary* lpsbEID, HWND hwnd) GetMe;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWABObject*/SelfOuter* self, IAddrBook* lpIAB, uint32 ulFlags, SBinary sbEID, HWND hwnd) SetMe;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HRESULT hResult, uint32 ulFlags, MAPIERROR** lppMAPIError) GetLastError;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 cbSize, void** lppBuffer) AllocateBuffer;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 cbSize, void* lpObject, void** lppBuffer) AllocateMore;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, void* lpBuffer) FreeBuffer;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PSTR lpFileName) Backup;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PSTR lpWIP) Import;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IAddrBook* lpIAB, HWND hWnd) Find;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IAddrBook* lpIAB, HWND hWnd, PSTR lpszFileName) VCardDisplay;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IAddrBook* lpIAB, HWND hWnd, uint32 ulFlags, PSTR lpszURL, IMailUser** lppMailUser) LDAPUrl;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IAddrBook* lpIAB, uint32 ulFlags, PSTR lpszVCard, IMailUser* lpMailUser) VCardCreate;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IAddrBook* lpIAB, uint32 ulFlags, PSTR lpszVCard, IMailUser** lppMailUser) VCardRetrieve;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IAddrBook* lpIAB, uint32 ulFlags, uint32* lpdwAction, SBinary* lpsbEID, HWND hwnd) GetMe;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IAddrBook* lpIAB, uint32 ulFlags, SBinary sbEID, HWND hwnd) SetMe;
 	}
 
 
@@ -1833,22 +1833,22 @@ public static
 
 	[CRepr]public struct VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWABOBJECT_*/SelfOuter* self, ref Guid riid, void** ppvObj) QueryInterface;
-		protected new function [CallingConvention(.Stdcall)] uint32(/*IWABOBJECT_*/SelfOuter* self) AddRef;
-		protected new function [CallingConvention(.Stdcall)] uint32(/*IWABOBJECT_*/SelfOuter* self) Release;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWABOBJECT_*/SelfOuter* self, HRESULT hResult, uint32 ulFlags, MAPIERROR** lppMAPIError) GetLastError;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWABOBJECT_*/SelfOuter* self, uint32 cbSize, void** lppBuffer) AllocateBuffer;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWABOBJECT_*/SelfOuter* self, uint32 cbSize, void* lpObject, void** lppBuffer) AllocateMore;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWABOBJECT_*/SelfOuter* self, void* lpBuffer) FreeBuffer;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWABOBJECT_*/SelfOuter* self, PSTR lpFileName) Backup;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWABOBJECT_*/SelfOuter* self, PSTR lpWIP) Import;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWABOBJECT_*/SelfOuter* self, IAddrBook* lpIAB, HWND hWnd) Find;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWABOBJECT_*/SelfOuter* self, IAddrBook* lpIAB, HWND hWnd, PSTR lpszFileName) VCardDisplay;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWABOBJECT_*/SelfOuter* self, IAddrBook* lpIAB, HWND hWnd, uint32 ulFlags, PSTR lpszURL, IMailUser** lppMailUser) LDAPUrl;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWABOBJECT_*/SelfOuter* self, IAddrBook* lpIAB, uint32 ulFlags, PSTR lpszVCard, IMailUser* lpMailUser) VCardCreate;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWABOBJECT_*/SelfOuter* self, IAddrBook* lpIAB, uint32 ulFlags, PSTR lpszVCard, IMailUser** lppMailUser) VCardRetrieve;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWABOBJECT_*/SelfOuter* self, IAddrBook* lpIAB, uint32 ulFlags, uint32* lpdwAction, SBinary* lpsbEID, HWND hwnd) GetMe;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWABOBJECT_*/SelfOuter* self, IAddrBook* lpIAB, uint32 ulFlags, SBinary sbEID, HWND hwnd) SetMe;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, ref Guid riid, void** ppvObj) QueryInterface;
+		protected new function [CallingConvention(.Stdcall)] uint32(SelfOuter* self) AddRef;
+		protected new function [CallingConvention(.Stdcall)] uint32(SelfOuter* self) Release;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, HRESULT hResult, uint32 ulFlags, MAPIERROR** lppMAPIError) GetLastError;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 cbSize, void** lppBuffer) AllocateBuffer;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, uint32 cbSize, void* lpObject, void** lppBuffer) AllocateMore;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, void* lpBuffer) FreeBuffer;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PSTR lpFileName) Backup;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, PSTR lpWIP) Import;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IAddrBook* lpIAB, HWND hWnd) Find;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IAddrBook* lpIAB, HWND hWnd, PSTR lpszFileName) VCardDisplay;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IAddrBook* lpIAB, HWND hWnd, uint32 ulFlags, PSTR lpszURL, IMailUser** lppMailUser) LDAPUrl;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IAddrBook* lpIAB, uint32 ulFlags, PSTR lpszVCard, IMailUser* lpMailUser) VCardCreate;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IAddrBook* lpIAB, uint32 ulFlags, PSTR lpszVCard, IMailUser** lppMailUser) VCardRetrieve;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IAddrBook* lpIAB, uint32 ulFlags, uint32* lpdwAction, SBinary* lpsbEID, HWND hwnd) GetMe;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, IAddrBook* lpIAB, uint32 ulFlags, SBinary sbEID, HWND hwnd) SetMe;
 	}
 
 
@@ -1893,7 +1893,7 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWABExtInit*/SelfOuter* self, WABEXTDISPLAY* lpWABExtDisplay) Initialize;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(SelfOuter* self, WABEXTDISPLAY* lpWABExtDisplay) Initialize;
 	}
 
 
