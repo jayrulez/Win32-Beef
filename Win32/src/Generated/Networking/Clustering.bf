@@ -2864,11 +2864,11 @@ public function uint32 PFREE_CLUSTER_CRYPT(void* pCryptInfo);
 
 public function uint32 PRES_UTIL_VERIFY_SHUTDOWN_SAFE(uint32 flags, uint32 reason, uint32* pResult);
 
-public function uint32 PREGISTER_APPINSTANCE(HANDLE ProcessHandle, Guid* AppInstanceId, BOOL ChildrenInheritAppInstance);
+public function uint32 PREGISTER_APPINSTANCE(HANDLE ProcessHandle, Guid AppInstanceId, BOOL ChildrenInheritAppInstance);
 
-public function uint32 PREGISTER_APPINSTANCE_VERSION(Guid* AppInstanceId, uint64 InstanceVersionHigh, uint64 InstanceVersionLow);
+public function uint32 PREGISTER_APPINSTANCE_VERSION(Guid AppInstanceId, uint64 InstanceVersionHigh, uint64 InstanceVersionLow);
 
-public function uint32 PQUERY_APPINSTANCE_VERSION(Guid* AppInstanceId, uint64* InstanceVersionHigh, uint64* InstanceVersionLow, NTSTATUS* VersionStatus);
+public function uint32 PQUERY_APPINSTANCE_VERSION(Guid AppInstanceId, uint64* InstanceVersionHigh, uint64* InstanceVersionLow, NTSTATUS* VersionStatus);
 
 public function uint32 PRESET_ALL_APPINSTANCE_VERSIONS();
 
@@ -7011,19 +7011,19 @@ public static
 	public static extern uint32 ResUtilDupResource(_HRESOURCE* group, _HRESOURCE** copy);
 
 	[Import("RESUTILS.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 ResUtilGetClusterId(_HCLUSTER* hCluster, Guid* guid);
+	public static extern uint32 ResUtilGetClusterId(_HCLUSTER* hCluster, Guid guid);
 
 	[Import("RESUTILS.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 ResUtilNodeEnum(_HCLUSTER* hCluster, LPNODE_CALLBACK pNodeCallBack, void* pParameter);
 
 	[Import("NTLANMAN.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 RegisterAppInstance(HANDLE ProcessHandle, Guid* AppInstanceId, BOOL ChildrenInheritAppInstance);
+	public static extern uint32 RegisterAppInstance(HANDLE ProcessHandle, Guid AppInstanceId, BOOL ChildrenInheritAppInstance);
 
 	[Import("NTLANMAN.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 RegisterAppInstanceVersion(Guid* AppInstanceId, uint64 InstanceVersionHigh, uint64 InstanceVersionLow);
+	public static extern uint32 RegisterAppInstanceVersion(Guid AppInstanceId, uint64 InstanceVersionHigh, uint64 InstanceVersionLow);
 
 	[Import("NTLANMAN.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 QueryAppInstanceVersion(Guid* AppInstanceId, uint64* InstanceVersionHigh, uint64* InstanceVersionLow, NTSTATUS* VersionStatus);
+	public static extern uint32 QueryAppInstanceVersion(Guid AppInstanceId, uint64* InstanceVersionHigh, uint64* InstanceVersionLow, NTSTATUS* VersionStatus);
 
 	[Import("NTLANMAN.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 ResetAllAppInstanceVersions();

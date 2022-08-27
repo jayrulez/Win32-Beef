@@ -5018,7 +5018,7 @@ public struct MAPPING_ENUM_OPTIONS
 	public PWSTR pszOutputScript;
 	public PWSTR pszInputContentType;
 	public PWSTR pszOutputContentType;
-	public Guid* pGuid;
+	public Guid pGuid;
 	public uint32 _bitfield;
 }
 
@@ -5988,7 +5988,7 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMLangString*/SelfOuter* self, BOOL fNoAccess) Sync;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMLangString*/SelfOuter* self, int32* plLen) GetLength;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMLangString*/SelfOuter* self, int32 lDestPos, int32 lDestLen, IUnknown* pSrcMLStr, int32 lSrcPos, int32 lSrcLen) SetMLStr;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMLangString*/SelfOuter* self, int32 lSrcPos, int32 lSrcLen, IUnknown* pUnkOuter, uint32 dwClsContext, Guid* piid, IUnknown** ppDestMLStr, int32* plDestPos, int32* plDestLen) GetMLStr;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMLangString*/SelfOuter* self, int32 lSrcPos, int32 lSrcLen, IUnknown* pUnkOuter, uint32 dwClsContext, Guid piid, IUnknown** ppDestMLStr, int32* plDestPos, int32* plDestLen) GetMLStr;
 	}
 
 
@@ -5998,7 +5998,7 @@ public static
 
 	public HRESULT SetMLStr(int32 lDestPos, int32 lDestLen, IUnknown* pSrcMLStr, int32 lSrcPos, int32 lSrcLen) mut => VT.[Friend]SetMLStr(&this, lDestPos, lDestLen, pSrcMLStr, lSrcPos, lSrcLen);
 
-	public HRESULT GetMLStr(int32 lSrcPos, int32 lSrcLen, IUnknown* pUnkOuter, uint32 dwClsContext, Guid* piid, IUnknown** ppDestMLStr, int32* plDestPos, int32* plDestLen) mut => VT.[Friend]GetMLStr(&this, lSrcPos, lSrcLen, pUnkOuter, dwClsContext, piid, ppDestMLStr, plDestPos, plDestLen);
+	public HRESULT GetMLStr(int32 lSrcPos, int32 lSrcLen, IUnknown* pUnkOuter, uint32 dwClsContext, Guid piid, IUnknown** ppDestMLStr, int32* plDestPos, int32* plDestLen) mut => VT.[Friend]GetMLStr(&this, lSrcPos, lSrcLen, pUnkOuter, dwClsContext, piid, ppDestMLStr, plDestPos, plDestLen);
 }
 
 [CRepr]struct IMLangStringWStr : IMLangString

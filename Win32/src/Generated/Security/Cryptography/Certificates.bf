@@ -8208,7 +8208,7 @@ public static
 	public static extern NTSTATUS PstAcquirePrivateKey(CERT_CONTEXT* pCert);
 
 	[Import("certpoleng.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern NTSTATUS PstValidate(UNICODE_STRING* pTargetName, BOOL bIsClient, CERT_USAGE_MATCH* pRequestedIssuancePolicy, void** phAdditionalCertStore, CERT_CONTEXT* pCert, Guid* pProvGUID);
+	public static extern NTSTATUS PstValidate(UNICODE_STRING* pTargetName, BOOL bIsClient, CERT_USAGE_MATCH* pRequestedIssuancePolicy, void** phAdditionalCertStore, CERT_CONTEXT* pCert, Guid pProvGUID);
 
 	[Import("certpoleng.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern NTSTATUS PstMapCertificate(CERT_CONTEXT* pCert, LSA_TOKEN_INFORMATION_TYPE* pTokenInformationType, void** ppTokenInformation);

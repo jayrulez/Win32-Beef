@@ -46,11 +46,11 @@ public static
 
 	[CRepr]public struct VTable : IInspectable.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWindowsDevicesAllJoynBusAttachmentFactoryInterop*/SelfOuter* self, uint64 win32handle, uint8 enableAboutData, Guid* riid, void** ppv) CreateFromWin32Handle;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWindowsDevicesAllJoynBusAttachmentFactoryInterop*/SelfOuter* self, uint64 win32handle, uint8 enableAboutData, Guid riid, void** ppv) CreateFromWin32Handle;
 	}
 
 
-	public HRESULT CreateFromWin32Handle(uint64 win32handle, uint8 enableAboutData, Guid* riid, void** ppv) mut => VT.[Friend]CreateFromWin32Handle(&this, win32handle, enableAboutData, riid, ppv);
+	public HRESULT CreateFromWin32Handle(uint64 win32handle, uint8 enableAboutData, Guid riid, void** ppv) mut => VT.[Friend]CreateFromWin32Handle(&this, win32handle, enableAboutData, riid, ppv);
 }
 
 [CRepr]struct IWindowsDevicesAllJoynBusObjectInterop : IInspectable
@@ -82,11 +82,11 @@ public static
 
 	[CRepr]public struct VTable : IInspectable.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWindowsDevicesAllJoynBusObjectFactoryInterop*/SelfOuter* self, uint64 win32handle, Guid* riid, void** ppv) CreateFromWin32Handle;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWindowsDevicesAllJoynBusObjectFactoryInterop*/SelfOuter* self, uint64 win32handle, Guid riid, void** ppv) CreateFromWin32Handle;
 	}
 
 
-	public HRESULT CreateFromWin32Handle(uint64 win32handle, Guid* riid, void** ppv) mut => VT.[Friend]CreateFromWin32Handle(&this, win32handle, riid, ppv);
+	public HRESULT CreateFromWin32Handle(uint64 win32handle, Guid riid, void** ppv) mut => VT.[Friend]CreateFromWin32Handle(&this, win32handle, riid, ppv);
 }
 
 #endregion

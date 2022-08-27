@@ -50,7 +50,7 @@ public static
 public static
 {
 	[Import("ntdll.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 RtlInitializeCorrelationVector(CORRELATION_VECTOR* CorrelationVector, int32 Version, Guid* Guid);
+	public static extern uint32 RtlInitializeCorrelationVector(CORRELATION_VECTOR* CorrelationVector, int32 Version, Guid Guid);
 
 	[Import("ntdll.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 RtlIncrementCorrelationVector(CORRELATION_VECTOR* CorrelationVector);

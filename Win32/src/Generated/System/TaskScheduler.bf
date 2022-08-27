@@ -544,11 +544,11 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITaskScheduler*/SelfOuter* self, PWSTR pwszComputer) SetTargetComputer;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITaskScheduler*/SelfOuter* self, PWSTR* ppwszComputer) GetTargetComputer;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITaskScheduler*/SelfOuter* self, IEnumWorkItems** ppEnumWorkItems) Enum;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITaskScheduler*/SelfOuter* self, PWSTR pwszName, Guid* riid, IUnknown** ppUnk) Activate;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITaskScheduler*/SelfOuter* self, PWSTR pwszName, Guid riid, IUnknown** ppUnk) Activate;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITaskScheduler*/SelfOuter* self, PWSTR pwszName) Delete;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITaskScheduler*/SelfOuter* self, PWSTR pwszTaskName, Guid* rclsid, Guid* riid, IUnknown** ppUnk) NewWorkItem;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITaskScheduler*/SelfOuter* self, PWSTR pwszTaskName, Guid rclsid, Guid riid, IUnknown** ppUnk) NewWorkItem;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITaskScheduler*/SelfOuter* self, PWSTR pwszTaskName, IScheduledWorkItem* pWorkItem) AddWorkItem;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITaskScheduler*/SelfOuter* self, PWSTR pwszName, Guid* riid) IsOfType;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITaskScheduler*/SelfOuter* self, PWSTR pwszName, Guid riid) IsOfType;
 	}
 
 
@@ -558,15 +558,15 @@ public static
 
 	public HRESULT Enum(IEnumWorkItems** ppEnumWorkItems) mut => VT.[Friend]Enum(&this, ppEnumWorkItems);
 
-	public HRESULT Activate(PWSTR pwszName, Guid* riid, IUnknown** ppUnk) mut => VT.[Friend]Activate(&this, pwszName, riid, ppUnk);
+	public HRESULT Activate(PWSTR pwszName, Guid riid, IUnknown** ppUnk) mut => VT.[Friend]Activate(&this, pwszName, riid, ppUnk);
 
 	public HRESULT Delete(PWSTR pwszName) mut => VT.[Friend]Delete(&this, pwszName);
 
-	public HRESULT NewWorkItem(PWSTR pwszTaskName, Guid* rclsid, Guid* riid, IUnknown** ppUnk) mut => VT.[Friend]NewWorkItem(&this, pwszTaskName, rclsid, riid, ppUnk);
+	public HRESULT NewWorkItem(PWSTR pwszTaskName, Guid rclsid, Guid riid, IUnknown** ppUnk) mut => VT.[Friend]NewWorkItem(&this, pwszTaskName, rclsid, riid, ppUnk);
 
 	public HRESULT AddWorkItem(PWSTR pwszTaskName, IScheduledWorkItem* pWorkItem) mut => VT.[Friend]AddWorkItem(&this, pwszTaskName, pWorkItem);
 
-	public HRESULT IsOfType(PWSTR pwszName, Guid* riid) mut => VT.[Friend]IsOfType(&this, pwszName, riid);
+	public HRESULT IsOfType(PWSTR pwszName, Guid riid) mut => VT.[Friend]IsOfType(&this, pwszName, riid);
 }
 
 [CRepr]struct IProvideTaskPage : IUnknown

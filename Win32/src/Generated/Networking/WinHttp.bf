@@ -1566,7 +1566,7 @@ public static
 	public static extern uint32 WinHttpQueryHeadersEx(void* hRequest, uint32 dwInfoLevel, uint64 ullFlags, uint32 uiCodePage, uint32* pdwIndex, WINHTTP_HEADER_NAME* pHeaderName, void* pBuffer, uint32* pdwBufferLength, WINHTTP_EXTENDED_HEADER** ppHeaders, uint32* pdwHeadersCount);
 
 	[Import("WINHTTP.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 WinHttpQueryConnectionGroup(void* hInternet, Guid* pGuidConnection, uint64 ullFlags, WINHTTP_QUERY_CONNECTION_GROUP_RESULT** ppResult);
+	public static extern uint32 WinHttpQueryConnectionGroup(void* hInternet, Guid pGuidConnection, uint64 ullFlags, WINHTTP_QUERY_CONNECTION_GROUP_RESULT** ppResult);
 
 	[Import("WINHTTP.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern void WinHttpFreeQueryConnectionGroupResult(WINHTTP_QUERY_CONNECTION_GROUP_RESULT* pResult);

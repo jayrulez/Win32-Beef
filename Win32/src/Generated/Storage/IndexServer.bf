@@ -426,7 +426,7 @@ public struct DBID
 	public struct _uGuid_e__Union
 	{
 		public Guid guid;
-		public Guid* pguid;
+		public Guid pguid;
 	}
 
 	public _uGuid_e__Union uGuid;
@@ -450,7 +450,7 @@ public struct DBID
 	public struct _uGuid_e__Union
 	{
 		public Guid guid;
-		public Guid* pguid;
+		public Guid pguid;
 	}
 
 	public _uGuid_e__Union uGuid;
@@ -480,7 +480,7 @@ public static
 		protected new function [CallingConvention(.Stdcall)] int32(/*IFilter*/SelfOuter* self, STAT_CHUNK* pStat) GetChunk;
 		protected new function [CallingConvention(.Stdcall)] int32(/*IFilter*/SelfOuter* self, uint32* pcwcBuffer, char16* awcBuffer) GetText;
 		protected new function [CallingConvention(.Stdcall)] int32(/*IFilter*/SelfOuter* self, PROPVARIANT** ppPropValue) GetValue;
-		protected new function [CallingConvention(.Stdcall)] int32(/*IFilter*/SelfOuter* self, FILTERREGION origPos, Guid* riid, void** ppunk) BindRegion;
+		protected new function [CallingConvention(.Stdcall)] int32(/*IFilter*/SelfOuter* self, FILTERREGION origPos, Guid riid, void** ppunk) BindRegion;
 	}
 
 
@@ -492,7 +492,7 @@ public static
 
 	public int32 GetValue(PROPVARIANT** ppPropValue) mut => VT.[Friend]GetValue(&this, ppPropValue);
 
-	public int32 BindRegion(FILTERREGION origPos, Guid* riid, void** ppunk) mut => VT.[Friend]BindRegion(&this, origPos, riid, ppunk);
+	public int32 BindRegion(FILTERREGION origPos, Guid riid, void** ppunk) mut => VT.[Friend]BindRegion(&this, origPos, riid, ppunk);
 }
 
 [CRepr]struct IPhraseSink : IUnknown
@@ -522,7 +522,7 @@ public static
 	public static extern HRESULT LoadIFilter(PWSTR pwcsPath, IUnknown* pUnkOuter, void** ppIUnk);
 
 	[Import("query.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT LoadIFilterEx(PWSTR pwcsPath, uint32 dwFlags, Guid* riid, void** ppIUnk);
+	public static extern HRESULT LoadIFilterEx(PWSTR pwcsPath, uint32 dwFlags, Guid riid, void** ppIUnk);
 
 	[Import("query.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT BindIFilterFromStorage(IStorage* pStg, IUnknown* pUnkOuter, void** ppIUnk);

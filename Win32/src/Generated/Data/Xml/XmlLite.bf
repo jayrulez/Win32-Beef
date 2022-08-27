@@ -508,7 +508,7 @@ public static
 public static
 {
 	[Import("XmlLite.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT CreateXmlReader(Guid* riid, void** ppvObject, IMalloc* pMalloc);
+	public static extern HRESULT CreateXmlReader(Guid riid, void** ppvObject, IMalloc* pMalloc);
 
 	[Import("XmlLite.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT CreateXmlReaderInputWithEncodingCodePage(IUnknown* pInputStream, IMalloc* pMalloc, uint32 nEncodingCodePage, BOOL fEncodingHint, PWSTR pwszBaseUri, IUnknown** ppInput);
@@ -517,7 +517,7 @@ public static
 	public static extern HRESULT CreateXmlReaderInputWithEncodingName(IUnknown* pInputStream, IMalloc* pMalloc, PWSTR pwszEncodingName, BOOL fEncodingHint, PWSTR pwszBaseUri, IUnknown** ppInput);
 
 	[Import("XmlLite.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT CreateXmlWriter(Guid* riid, void** ppvObject, IMalloc* pMalloc);
+	public static extern HRESULT CreateXmlWriter(Guid riid, void** ppvObject, IMalloc* pMalloc);
 
 	[Import("XmlLite.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT CreateXmlWriterOutputWithEncodingCodePage(IUnknown* pOutputStream, IMalloc* pMalloc, uint32 nEncodingCodePage, IUnknown** ppOutput);

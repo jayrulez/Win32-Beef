@@ -668,9 +668,9 @@ public static
 #endregion
 
 #region Function Pointers
-public function BOOL LPDSENUMCALLBACKA(Guid* param0, PSTR param1, PSTR param2, void* param3);
+public function BOOL LPDSENUMCALLBACKA(Guid param0, PSTR param1, PSTR param2, void* param3);
 
-public function BOOL LPDSENUMCALLBACKW(Guid* param0, PWSTR param1, PWSTR param2, void* param3);
+public function BOOL LPDSENUMCALLBACKW(Guid param0, PWSTR param1, PWSTR param2, void* param3);
 
 #endregion
 
@@ -965,7 +965,7 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDirectSound*/SelfOuter* self) Compact;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDirectSound*/SelfOuter* self, uint32* pdwSpeakerConfig) GetSpeakerConfig;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDirectSound*/SelfOuter* self, uint32 dwSpeakerConfig) SetSpeakerConfig;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDirectSound*/SelfOuter* self, Guid* pcGuidDevice) Initialize;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDirectSound*/SelfOuter* self, Guid pcGuidDevice) Initialize;
 	}
 
 
@@ -983,7 +983,7 @@ public static
 
 	public HRESULT SetSpeakerConfig(uint32 dwSpeakerConfig) mut => VT.[Friend]SetSpeakerConfig(&this, dwSpeakerConfig);
 
-	public HRESULT Initialize(Guid* pcGuidDevice) mut => VT.[Friend]Initialize(&this, pcGuidDevice);
+	public HRESULT Initialize(Guid pcGuidDevice) mut => VT.[Friend]Initialize(&this, pcGuidDevice);
 }
 
 [CRepr]struct IDirectSound8 : IDirectSound
@@ -1077,7 +1077,7 @@ public static
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDirectSoundBuffer8*/SelfOuter* self, uint32 dwEffectsCount, DSEFFECTDESC* pDSFXDesc, uint32* pdwResultCodes) SetFX;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDirectSoundBuffer8*/SelfOuter* self, uint32 dwFlags, uint32 dwEffectsCount, uint32* pdwResultCodes) AcquireResources;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDirectSoundBuffer8*/SelfOuter* self, Guid* rguidObject, uint32 dwIndex, Guid* rguidInterface, void** ppObject) GetObjectInPath;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDirectSoundBuffer8*/SelfOuter* self, Guid rguidObject, uint32 dwIndex, Guid rguidInterface, void** ppObject) GetObjectInPath;
 	}
 
 
@@ -1085,7 +1085,7 @@ public static
 
 	public HRESULT AcquireResources(uint32 dwFlags, uint32 dwEffectsCount, uint32* pdwResultCodes) mut => VT.[Friend]AcquireResources(&this, dwFlags, dwEffectsCount, pdwResultCodes);
 
-	public HRESULT GetObjectInPath(Guid* rguidObject, uint32 dwIndex, Guid* rguidInterface, void** ppObject) mut => VT.[Friend]GetObjectInPath(&this, rguidObject, dwIndex, rguidInterface, ppObject);
+	public HRESULT GetObjectInPath(Guid rguidObject, uint32 dwIndex, Guid rguidInterface, void** ppObject) mut => VT.[Friend]GetObjectInPath(&this, rguidObject, dwIndex, rguidInterface, ppObject);
 }
 
 [CRepr]struct IDirectSound3DListener : IUnknown
@@ -1221,7 +1221,7 @@ public static
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDirectSoundCapture*/SelfOuter* self, DSCBUFFERDESC* pcDSCBufferDesc, IDirectSoundCaptureBuffer** ppDSCBuffer, IUnknown* pUnkOuter) CreateCaptureBuffer;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDirectSoundCapture*/SelfOuter* self, DSCCAPS* pDSCCaps) GetCaps;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDirectSoundCapture*/SelfOuter* self, Guid* pcGuidDevice) Initialize;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDirectSoundCapture*/SelfOuter* self, Guid pcGuidDevice) Initialize;
 	}
 
 
@@ -1229,7 +1229,7 @@ public static
 
 	public HRESULT GetCaps(DSCCAPS* pDSCCaps) mut => VT.[Friend]GetCaps(&this, pDSCCaps);
 
-	public HRESULT Initialize(Guid* pcGuidDevice) mut => VT.[Friend]Initialize(&this, pcGuidDevice);
+	public HRESULT Initialize(Guid pcGuidDevice) mut => VT.[Friend]Initialize(&this, pcGuidDevice);
 }
 
 [CRepr]struct IDirectSoundCaptureBuffer : IUnknown
@@ -1279,12 +1279,12 @@ public static
 
 	[CRepr]public struct VTable : IDirectSoundCaptureBuffer.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDirectSoundCaptureBuffer8*/SelfOuter* self, Guid* rguidObject, uint32 dwIndex, Guid* rguidInterface, void** ppObject) GetObjectInPath;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDirectSoundCaptureBuffer8*/SelfOuter* self, Guid rguidObject, uint32 dwIndex, Guid rguidInterface, void** ppObject) GetObjectInPath;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDirectSoundCaptureBuffer8*/SelfOuter* self, uint32 dwEffectsCount, uint32* pdwFXStatus) GetFXStatus;
 	}
 
 
-	public HRESULT GetObjectInPath(Guid* rguidObject, uint32 dwIndex, Guid* rguidInterface, void** ppObject) mut => VT.[Friend]GetObjectInPath(&this, rguidObject, dwIndex, rguidInterface, ppObject);
+	public HRESULT GetObjectInPath(Guid rguidObject, uint32 dwIndex, Guid rguidInterface, void** ppObject) mut => VT.[Friend]GetObjectInPath(&this, rguidObject, dwIndex, rguidInterface, ppObject);
 
 	public HRESULT GetFXStatus(uint32 dwEffectsCount, uint32* pdwFXStatus) mut => VT.[Friend]GetFXStatus(&this, dwEffectsCount, pdwFXStatus);
 }
@@ -1531,11 +1531,11 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDirectSoundFullDuplex*/SelfOuter* self, Guid* pCaptureGuid, Guid* pRenderGuid, DSCBUFFERDESC* lpDscBufferDesc, DSBUFFERDESC* lpDsBufferDesc, HWND hWnd, uint32 dwLevel, IDirectSoundCaptureBuffer8** lplpDirectSoundCaptureBuffer8, IDirectSoundBuffer8** lplpDirectSoundBuffer8) Initialize;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDirectSoundFullDuplex*/SelfOuter* self, Guid pCaptureGuid, Guid pRenderGuid, DSCBUFFERDESC* lpDscBufferDesc, DSBUFFERDESC* lpDsBufferDesc, HWND hWnd, uint32 dwLevel, IDirectSoundCaptureBuffer8** lplpDirectSoundCaptureBuffer8, IDirectSoundBuffer8** lplpDirectSoundBuffer8) Initialize;
 	}
 
 
-	public HRESULT Initialize(Guid* pCaptureGuid, Guid* pRenderGuid, DSCBUFFERDESC* lpDscBufferDesc, DSBUFFERDESC* lpDsBufferDesc, HWND hWnd, uint32 dwLevel, IDirectSoundCaptureBuffer8** lplpDirectSoundCaptureBuffer8, IDirectSoundBuffer8** lplpDirectSoundBuffer8) mut => VT.[Friend]Initialize(&this, pCaptureGuid, pRenderGuid, lpDscBufferDesc, lpDsBufferDesc, hWnd, dwLevel, lplpDirectSoundCaptureBuffer8, lplpDirectSoundBuffer8);
+	public HRESULT Initialize(Guid pCaptureGuid, Guid pRenderGuid, DSCBUFFERDESC* lpDscBufferDesc, DSBUFFERDESC* lpDsBufferDesc, HWND hWnd, uint32 dwLevel, IDirectSoundCaptureBuffer8** lplpDirectSoundCaptureBuffer8, IDirectSoundBuffer8** lplpDirectSoundBuffer8) mut => VT.[Friend]Initialize(&this, pCaptureGuid, pRenderGuid, lpDscBufferDesc, lpDsBufferDesc, hWnd, dwLevel, lplpDirectSoundCaptureBuffer8, lplpDirectSoundBuffer8);
 }
 
 #endregion
@@ -1544,7 +1544,7 @@ public static
 public static
 {
 	[Import("DSOUND.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT DirectSoundCreate(Guid* pcGuidDevice, IDirectSound** ppDS, IUnknown* pUnkOuter);
+	public static extern HRESULT DirectSoundCreate(Guid pcGuidDevice, IDirectSound** ppDS, IUnknown* pUnkOuter);
 
 	[Import("DSOUND.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT DirectSoundEnumerateA(LPDSENUMCALLBACKA pDSEnumCallback, void* pContext);
@@ -1554,7 +1554,7 @@ public static
 	public static extern HRESULT DirectSoundEnumerateW(LPDSENUMCALLBACKW pDSEnumCallback, void* pContext);
 
 	[Import("DSOUND.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT DirectSoundCaptureCreate(Guid* pcGuidDevice, IDirectSoundCapture** ppDSC, IUnknown* pUnkOuter);
+	public static extern HRESULT DirectSoundCaptureCreate(Guid pcGuidDevice, IDirectSoundCapture** ppDSC, IUnknown* pUnkOuter);
 
 	[Import("DSOUND.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT DirectSoundCaptureEnumerateA(LPDSENUMCALLBACKA pDSEnumCallback, void* pContext);
@@ -1564,16 +1564,16 @@ public static
 	public static extern HRESULT DirectSoundCaptureEnumerateW(LPDSENUMCALLBACKW pDSEnumCallback, void* pContext);
 
 	[Import("DSOUND.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT DirectSoundCreate8(Guid* pcGuidDevice, IDirectSound8** ppDS8, IUnknown* pUnkOuter);
+	public static extern HRESULT DirectSoundCreate8(Guid pcGuidDevice, IDirectSound8** ppDS8, IUnknown* pUnkOuter);
 
 	[Import("DSOUND.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT DirectSoundCaptureCreate8(Guid* pcGuidDevice, IDirectSoundCapture** ppDSC8, IUnknown* pUnkOuter);
+	public static extern HRESULT DirectSoundCaptureCreate8(Guid pcGuidDevice, IDirectSoundCapture** ppDSC8, IUnknown* pUnkOuter);
 
 	[Import("DSOUND.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT DirectSoundFullDuplexCreate(Guid* pcGuidCaptureDevice, Guid* pcGuidRenderDevice, DSCBUFFERDESC* pcDSCBufferDesc, DSBUFFERDESC* pcDSBufferDesc, HWND hWnd, uint32 dwLevel, IDirectSoundFullDuplex** ppDSFD, IDirectSoundCaptureBuffer8** ppDSCBuffer8, IDirectSoundBuffer8** ppDSBuffer8, IUnknown* pUnkOuter);
+	public static extern HRESULT DirectSoundFullDuplexCreate(Guid pcGuidCaptureDevice, Guid pcGuidRenderDevice, DSCBUFFERDESC* pcDSCBufferDesc, DSBUFFERDESC* pcDSBufferDesc, HWND hWnd, uint32 dwLevel, IDirectSoundFullDuplex** ppDSFD, IDirectSoundCaptureBuffer8** ppDSCBuffer8, IDirectSoundBuffer8** ppDSBuffer8, IUnknown* pUnkOuter);
 
 	[Import("DSOUND.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT GetDeviceID(Guid* pGuidSrc, Guid* pGuidDest);
+	public static extern HRESULT GetDeviceID(Guid pGuidSrc, Guid pGuidDest);
 
 }
 #endregion

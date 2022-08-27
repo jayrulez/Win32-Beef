@@ -5622,7 +5622,7 @@ public struct NMOBJECTNOTIFY
 {
 	public NMHDR hdr;
 	public int32 iItem;
-	public Guid* piid;
+	public Guid piid;
 	public void* pObject;
 	public HRESULT hResult;
 	public uint32 dwFlags;
@@ -7791,8 +7791,8 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IImageList*/SelfOuter* self, int32 i, uint32 flags, HICON* picon) GetIcon;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IImageList*/SelfOuter* self, int32 i, IMAGEINFO* pImageInfo) GetImageInfo;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IImageList*/SelfOuter* self, int32 iDst, IUnknown* punkSrc, int32 iSrc, uint32 uFlags) Copy;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IImageList*/SelfOuter* self, int32 i1, IUnknown* punk2, int32 i2, int32 dx, int32 dy, Guid* riid, void** ppv) Merge;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IImageList*/SelfOuter* self, Guid* riid, void** ppv) Clone;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IImageList*/SelfOuter* self, int32 i1, IUnknown* punk2, int32 i2, int32 dx, int32 dy, Guid riid, void** ppv) Merge;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IImageList*/SelfOuter* self, Guid riid, void** ppv) Clone;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IImageList*/SelfOuter* self, int32 i, RECT* prc) GetImageRect;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IImageList*/SelfOuter* self, int32* cx, int32* cy) GetIconSize;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IImageList*/SelfOuter* self, int32 cx, int32 cy) SetIconSize;
@@ -7807,7 +7807,7 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IImageList*/SelfOuter* self, int32 x, int32 y) DragMove;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IImageList*/SelfOuter* self, IUnknown* punk, int32 iDrag, int32 dxHotspot, int32 dyHotspot) SetDragCursorImage;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IImageList*/SelfOuter* self, BOOL fShow) DragShowNolock;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IImageList*/SelfOuter* self, POINT* ppt, POINT* pptHotspot, Guid* riid, void** ppv) GetDragImage;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IImageList*/SelfOuter* self, POINT* ppt, POINT* pptHotspot, Guid riid, void** ppv) GetDragImage;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IImageList*/SelfOuter* self, int32 i, IMAGE_LIST_ITEM_FLAGS* dwFlags) GetItemFlags;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IImageList*/SelfOuter* self, int32 iOverlay, int32* piIndex) GetOverlayImage;
 	}
@@ -7833,9 +7833,9 @@ public static
 
 	public HRESULT Copy(int32 iDst, IUnknown* punkSrc, int32 iSrc, uint32 uFlags) mut => VT.[Friend]Copy(&this, iDst, punkSrc, iSrc, uFlags);
 
-	public HRESULT Merge(int32 i1, IUnknown* punk2, int32 i2, int32 dx, int32 dy, Guid* riid, void** ppv) mut => VT.[Friend]Merge(&this, i1, punk2, i2, dx, dy, riid, ppv);
+	public HRESULT Merge(int32 i1, IUnknown* punk2, int32 i2, int32 dx, int32 dy, Guid riid, void** ppv) mut => VT.[Friend]Merge(&this, i1, punk2, i2, dx, dy, riid, ppv);
 
-	public HRESULT Clone(Guid* riid, void** ppv) mut => VT.[Friend]Clone(&this, riid, ppv);
+	public HRESULT Clone(Guid riid, void** ppv) mut => VT.[Friend]Clone(&this, riid, ppv);
 
 	public HRESULT GetImageRect(int32 i, RECT* prc) mut => VT.[Friend]GetImageRect(&this, i, prc);
 
@@ -7865,7 +7865,7 @@ public static
 
 	public HRESULT DragShowNolock(BOOL fShow) mut => VT.[Friend]DragShowNolock(&this, fShow);
 
-	public HRESULT GetDragImage(POINT* ppt, POINT* pptHotspot, Guid* riid, void** ppv) mut => VT.[Friend]GetDragImage(&this, ppt, pptHotspot, riid, ppv);
+	public HRESULT GetDragImage(POINT* ppt, POINT* pptHotspot, Guid riid, void** ppv) mut => VT.[Friend]GetDragImage(&this, ppt, pptHotspot, riid, ppv);
 
 	public HRESULT GetItemFlags(int32 i, IMAGE_LIST_ITEM_FLAGS* dwFlags) mut => VT.[Friend]GetItemFlags(&this, i, dwFlags);
 
@@ -7884,7 +7884,7 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IImageList2*/SelfOuter* self, int32 iImage, uint32 dwFlags, int32* pcx, int32* pcy) GetOriginalSize;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IImageList2*/SelfOuter* self, int32 iImage, int32 cx, int32 cy) SetOriginalSize;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IImageList2*/SelfOuter* self, IUnknown* punk) SetCallback;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IImageList2*/SelfOuter* self, Guid* riid, void** ppv) GetCallback;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IImageList2*/SelfOuter* self, Guid riid, void** ppv) GetCallback;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IImageList2*/SelfOuter* self, int32 iImage, uint32 dwFlags) ForceImagePresent;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IImageList2*/SelfOuter* self, int32 iFirstImage, int32 iLastImage, uint32 dwFlags) DiscardImages;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IImageList2*/SelfOuter* self, IMAGELISTDRAWPARAMS* pimldp) PreloadImages;
@@ -7903,7 +7903,7 @@ public static
 
 	public HRESULT SetCallback(IUnknown* punk) mut => VT.[Friend]SetCallback(&this, punk);
 
-	public HRESULT GetCallback(Guid* riid, void** ppv) mut => VT.[Friend]GetCallback(&this, riid, ppv);
+	public HRESULT GetCallback(Guid riid, void** ppv) mut => VT.[Friend]GetCallback(&this, riid, ppv);
 
 	public HRESULT ForceImagePresent(int32 iImage, uint32 dwFlags) mut => VT.[Friend]ForceImagePresent(&this, iImage, dwFlags);
 
@@ -8037,7 +8037,7 @@ public static
 	public static extern BOOL ImageList_Write(HIMAGELIST himl, IStream* pstm);
 
 	[Import("COMCTL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT ImageList_ReadEx(uint32 dwFlags, IStream* pstm, Guid* riid, void** ppv);
+	public static extern HRESULT ImageList_ReadEx(uint32 dwFlags, IStream* pstm, Guid riid, void** ppv);
 
 	[Import("COMCTL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT ImageList_WriteEx(HIMAGELIST himl, uint32 dwFlags, IStream* pstm);
@@ -8058,7 +8058,7 @@ public static
 	public static extern HIMAGELIST ImageList_Duplicate(HIMAGELIST himl);
 
 	[Import("COMCTL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT HIMAGELIST_QueryInterface(HIMAGELIST himl, Guid* riid, void** ppv);
+	public static extern HRESULT HIMAGELIST_QueryInterface(HIMAGELIST himl, Guid riid, void** ppv);
 
 	[Import("COMCTL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HWND CreateToolbarEx(HWND hwnd, uint32 ws, uint32 wID, int32 nBitmaps, HINSTANCE hBMInst, uint wBMID, TBBUTTON* lpButtons, int32 iNumButtons, int32 dxButton, int32 dyButton, int32 dxBitmap, int32 dyBitmap, uint32 uStructSize);
@@ -8258,7 +8258,7 @@ public static
 	public static extern int32 DrawShadowText(HDC hdc, char16* pszText, uint32 cch, RECT* prc, uint32 dwFlags, uint32 crText, uint32 crShadow, int32 ixOffset, int32 iyOffset);
 
 	[Import("COMCTL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT ImageList_CoCreateInstance(Guid* rclsid, IUnknown* punkOuter, Guid* riid, void** ppv);
+	public static extern HRESULT ImageList_CoCreateInstance(Guid rclsid, IUnknown* punkOuter, Guid riid, void** ppv);
 
 	[Import("UxTheme.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL BeginPanningFeedback(HWND hwnd);

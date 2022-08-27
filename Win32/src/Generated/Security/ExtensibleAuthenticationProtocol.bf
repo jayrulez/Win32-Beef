@@ -1422,7 +1422,7 @@ public static
 	public static extern void EapHostPeerUninitialize();
 
 	[Import("eappprxy.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 EapHostPeerBeginSession(uint32 dwFlags, EAP_METHOD_TYPE eapType, EAP_ATTRIBUTES* pAttributeArray, HANDLE hTokenImpersonateUser, uint32 dwSizeofConnectionData, uint8* pConnectionData, uint32 dwSizeofUserData, uint8* pUserData, uint32 dwMaxSendPacketSize, Guid* pConnectionId, NotificationHandler func, void* pContextData, uint32* pSessionId, EAP_ERROR** ppEapError);
+	public static extern uint32 EapHostPeerBeginSession(uint32 dwFlags, EAP_METHOD_TYPE eapType, EAP_ATTRIBUTES* pAttributeArray, HANDLE hTokenImpersonateUser, uint32 dwSizeofConnectionData, uint8* pConnectionData, uint32 dwSizeofUserData, uint8* pUserData, uint32 dwMaxSendPacketSize, Guid pConnectionId, NotificationHandler func, void* pContextData, uint32* pSessionId, EAP_ERROR** ppEapError);
 
 	[Import("eappprxy.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 EapHostPeerProcessReceivedPacket(uint32 sessionHandle, uint32 cbReceivePacket, uint8* pReceivePacket, EapHostPeerResponseAction* pEapOutput, EAP_ERROR** ppEapError);
@@ -1452,10 +1452,10 @@ public static
 	public static extern uint32 EapHostPeerEndSession(uint32 sessionHandle, EAP_ERROR** ppEapError);
 
 	[Import("eappprxy.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 EapHostPeerGetDataToUnplumbCredentials(Guid* pConnectionIdThatLastSavedCreds, int* phCredentialImpersonationToken, uint32 sessionHandle, EAP_ERROR** ppEapError, BOOL* fSaveToCredMan);
+	public static extern uint32 EapHostPeerGetDataToUnplumbCredentials(Guid pConnectionIdThatLastSavedCreds, int* phCredentialImpersonationToken, uint32 sessionHandle, EAP_ERROR** ppEapError, BOOL* fSaveToCredMan);
 
 	[Import("eappprxy.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 EapHostPeerClearConnection(Guid* pConnectionId, EAP_ERROR** ppEapError);
+	public static extern uint32 EapHostPeerClearConnection(Guid pConnectionId, EAP_ERROR** ppEapError);
 
 	[Import("eappprxy.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern void EapHostPeerFreeEapError(EAP_ERROR* pEapError);

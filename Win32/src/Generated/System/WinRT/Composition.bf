@@ -33,7 +33,7 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICompositionDrawingSurfaceInterop*/SelfOuter* self, RECT* updateRect, Guid* iid, void** updateObject, POINT* updateOffset) BeginDraw;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICompositionDrawingSurfaceInterop*/SelfOuter* self, RECT* updateRect, Guid iid, void** updateObject, POINT* updateOffset) BeginDraw;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICompositionDrawingSurfaceInterop*/SelfOuter* self) EndDraw;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICompositionDrawingSurfaceInterop*/SelfOuter* self, SIZE sizePixels) Resize;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICompositionDrawingSurfaceInterop*/SelfOuter* self, RECT* scrollRect, RECT* clipRect, int32 offsetX, int32 offsetY) Scroll;
@@ -42,7 +42,7 @@ public static
 	}
 
 
-	public HRESULT BeginDraw(RECT* updateRect, Guid* iid, void** updateObject, POINT* updateOffset) mut => VT.[Friend]BeginDraw(&this, updateRect, iid, updateObject, updateOffset);
+	public HRESULT BeginDraw(RECT* updateRect, Guid iid, void** updateObject, POINT* updateOffset) mut => VT.[Friend]BeginDraw(&this, updateRect, iid, updateObject, updateOffset);
 
 	public HRESULT EndDraw() mut => VT.[Friend]EndDraw(&this);
 

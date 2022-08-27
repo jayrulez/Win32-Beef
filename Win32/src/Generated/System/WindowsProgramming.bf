@@ -3127,13 +3127,13 @@ public static
 	public static extern BOOL WINNLSGetEnableStatus(HWND param0);
 
 	[Import("APPHELP.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL ApphelpCheckShellObject(Guid* ObjectCLSID, BOOL bShimIfNecessary, uint64* pullFlags);
+	public static extern BOOL ApphelpCheckShellObject(Guid ObjectCLSID, BOOL bShimIfNecessary, uint64* pullFlags);
 
 	[Import("Wldp.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT WldpGetLockdownPolicy(WLDP_HOST_INFORMATION* hostInformation, uint32* lockdownState, uint32 lockdownFlags);
 
 	[Import("Wldp.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT WldpIsClassInApprovedList(Guid* classID, WLDP_HOST_INFORMATION* hostInformation, BOOL* isApproved, uint32 optionalFlags);
+	public static extern HRESULT WldpIsClassInApprovedList(Guid classID, WLDP_HOST_INFORMATION* hostInformation, BOOL* isApproved, uint32 optionalFlags);
 
 	[Import("Wldp.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT WldpSetDynamicCodeTrust(HANDLE fileHandle);

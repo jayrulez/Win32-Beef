@@ -395,7 +395,7 @@ public struct EVT_VARIANT
 		public double DoubleVal;
 		public uint64 FileTimeVal;
 		public SYSTEMTIME* SysTimeVal;
-		public Guid* GuidVal;
+		public Guid GuidVal;
 		public PWSTR StringVal;
 		public PSTR AnsiStringVal;
 		public uint8* BinaryVal;
@@ -414,7 +414,7 @@ public struct EVT_VARIANT
 		public double* DoubleArr;
 		public FILETIME* FileTimeArr;
 		public SYSTEMTIME* SysTimeArr;
-		public Guid* GuidArr;
+		public Guid GuidArr;
 		public PWSTR* StringArr;
 		public PSTR* AnsiStringArr;
 		public PSID* SidArr;

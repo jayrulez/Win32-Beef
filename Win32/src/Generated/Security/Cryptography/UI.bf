@@ -514,7 +514,7 @@ public struct CRYPTUI_CERT_MGR_STRUCT
 public struct CRYPTUI_WIZ_DIGITAL_SIGN_BLOB_INFO
 {
 	public uint32 dwSize;
-	public Guid* pGuidSubject;
+	public Guid pGuidSubject;
 	public uint32 cbBlob;
 	public uint8* pbBlob;
 	public PWSTR pwszDisplayName;

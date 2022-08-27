@@ -655,7 +655,7 @@ public struct OPENCARD_SEARCH_CRITERIAA
 	public uint32 dwStructSize;
 	public PSTR lpstrGroupNames;
 	public uint32 nMaxGroupNames;
-	public Guid* rgguidInterfaces;
+	public Guid rgguidInterfaces;
 	public uint32 cguidInterfaces;
 	public PSTR lpstrCardNames;
 	public uint32 nMaxCardNames;
@@ -673,7 +673,7 @@ public struct OPENCARD_SEARCH_CRITERIAW
 	public uint32 dwStructSize;
 	public PWSTR lpstrGroupNames;
 	public uint32 nMaxGroupNames;
-	public Guid* rgguidInterfaces;
+	public Guid rgguidInterfaces;
 	public uint32 cguidInterfaces;
 	public PWSTR lpstrCardNames;
 	public uint32 nMaxCardNames;
@@ -785,7 +785,7 @@ public struct OPENCARDNAMEA
 	public uint32 nMaxGroupNames;
 	public PSTR lpstrCardNames;
 	public uint32 nMaxCardNames;
-	public Guid* rgguidInterfaces;
+	public Guid rgguidInterfaces;
 	public uint32 cguidInterfaces;
 	public PSTR lpstrRdr;
 	public uint32 nMaxRdr;
@@ -813,7 +813,7 @@ public struct OPENCARDNAMEW
 	public uint32 nMaxGroupNames;
 	public PWSTR lpstrCardNames;
 	public uint32 nMaxCardNames;
-	public Guid* rgguidInterfaces;
+	public Guid rgguidInterfaces;
 	public uint32 cguidInterfaces;
 	public PWSTR lpstrRdr;
 	public uint32 nMaxRdr;
@@ -1079,18 +1079,18 @@ public static
 	public static extern int32 SCardListCardsW(uint hContext, uint8* pbAtr, Guid* rgquidInterfaces, uint32 cguidInterfaceCount, PWSTR mszCards, uint32* pcchCards);
 
 	[Import("WinSCard.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 SCardListInterfacesA(uint hContext, PSTR szCard, Guid* pguidInterfaces, uint32* pcguidInterfaces);
-	public static int32 SCardListInterfaces(uint hContext, PSTR szCard, Guid* pguidInterfaces, uint32* pcguidInterfaces) => SCardListInterfacesA(hContext, szCard, pguidInterfaces, pcguidInterfaces);
+	public static extern int32 SCardListInterfacesA(uint hContext, PSTR szCard, Guid pguidInterfaces, uint32* pcguidInterfaces);
+	public static int32 SCardListInterfaces(uint hContext, PSTR szCard, Guid pguidInterfaces, uint32* pcguidInterfaces) => SCardListInterfacesA(hContext, szCard, pguidInterfaces, pcguidInterfaces);
 
 	[Import("WinSCard.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 SCardListInterfacesW(uint hContext, PWSTR szCard, Guid* pguidInterfaces, uint32* pcguidInterfaces);
+	public static extern int32 SCardListInterfacesW(uint hContext, PWSTR szCard, Guid pguidInterfaces, uint32* pcguidInterfaces);
 
 	[Import("WinSCard.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 SCardGetProviderIdA(uint hContext, PSTR szCard, Guid* pguidProviderId);
-	public static int32 SCardGetProviderId(uint hContext, PSTR szCard, Guid* pguidProviderId) => SCardGetProviderIdA(hContext, szCard, pguidProviderId);
+	public static extern int32 SCardGetProviderIdA(uint hContext, PSTR szCard, Guid pguidProviderId);
+	public static int32 SCardGetProviderId(uint hContext, PSTR szCard, Guid pguidProviderId) => SCardGetProviderIdA(hContext, szCard, pguidProviderId);
 
 	[Import("WinSCard.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 SCardGetProviderIdW(uint hContext, PWSTR szCard, Guid* pguidProviderId);
+	public static extern int32 SCardGetProviderIdW(uint hContext, PWSTR szCard, Guid pguidProviderId);
 
 	[Import("WinSCard.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 SCardGetCardTypeProviderNameA(uint hContext, PSTR szCardName, uint32 dwProviderId, uint8* szProvider, uint32* pcchProvider);
@@ -1142,11 +1142,11 @@ public static
 	public static extern int32 SCardRemoveReaderFromGroupW(uint hContext, PWSTR szReaderName, PWSTR szGroupName);
 
 	[Import("WinSCard.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 SCardIntroduceCardTypeA(uint hContext, PSTR szCardName, Guid* pguidPrimaryProvider, Guid* rgguidInterfaces, uint32 dwInterfaceCount, uint8* pbAtr, uint8* pbAtrMask, uint32 cbAtrLen);
-	public static int32 SCardIntroduceCardType(uint hContext, PSTR szCardName, Guid* pguidPrimaryProvider, Guid* rgguidInterfaces, uint32 dwInterfaceCount, uint8* pbAtr, uint8* pbAtrMask, uint32 cbAtrLen) => SCardIntroduceCardTypeA(hContext, szCardName, pguidPrimaryProvider, rgguidInterfaces, dwInterfaceCount, pbAtr, pbAtrMask, cbAtrLen);
+	public static extern int32 SCardIntroduceCardTypeA(uint hContext, PSTR szCardName, Guid pguidPrimaryProvider, Guid rgguidInterfaces, uint32 dwInterfaceCount, uint8* pbAtr, uint8* pbAtrMask, uint32 cbAtrLen);
+	public static int32 SCardIntroduceCardType(uint hContext, PSTR szCardName, Guid pguidPrimaryProvider, Guid rgguidInterfaces, uint32 dwInterfaceCount, uint8* pbAtr, uint8* pbAtrMask, uint32 cbAtrLen) => SCardIntroduceCardTypeA(hContext, szCardName, pguidPrimaryProvider, rgguidInterfaces, dwInterfaceCount, pbAtr, pbAtrMask, cbAtrLen);
 
 	[Import("WinSCard.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 SCardIntroduceCardTypeW(uint hContext, PWSTR szCardName, Guid* pguidPrimaryProvider, Guid* rgguidInterfaces, uint32 dwInterfaceCount, uint8* pbAtr, uint8* pbAtrMask, uint32 cbAtrLen);
+	public static extern int32 SCardIntroduceCardTypeW(uint hContext, PWSTR szCardName, Guid pguidPrimaryProvider, Guid rgguidInterfaces, uint32 dwInterfaceCount, uint8* pbAtr, uint8* pbAtrMask, uint32 cbAtrLen);
 
 	[Import("WinSCard.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 SCardSetCardTypeProviderNameA(uint hContext, PSTR szCardName, uint32 dwProviderId, PSTR szProvider);
@@ -1257,18 +1257,18 @@ public static
 	public static extern int32 SCardDlgExtendedError();
 
 	[Import("WinSCard.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 SCardReadCacheA(uint hContext, Guid* CardIdentifier, uint32 FreshnessCounter, PSTR LookupName, uint8* Data, uint32* DataLen);
-	public static int32 SCardReadCache(uint hContext, Guid* CardIdentifier, uint32 FreshnessCounter, PSTR LookupName, uint8* Data, uint32* DataLen) => SCardReadCacheA(hContext, CardIdentifier, FreshnessCounter, LookupName, Data, DataLen);
+	public static extern int32 SCardReadCacheA(uint hContext, Guid CardIdentifier, uint32 FreshnessCounter, PSTR LookupName, uint8* Data, uint32* DataLen);
+	public static int32 SCardReadCache(uint hContext, Guid CardIdentifier, uint32 FreshnessCounter, PSTR LookupName, uint8* Data, uint32* DataLen) => SCardReadCacheA(hContext, CardIdentifier, FreshnessCounter, LookupName, Data, DataLen);
 
 	[Import("WinSCard.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 SCardReadCacheW(uint hContext, Guid* CardIdentifier, uint32 FreshnessCounter, PWSTR LookupName, uint8* Data, uint32* DataLen);
+	public static extern int32 SCardReadCacheW(uint hContext, Guid CardIdentifier, uint32 FreshnessCounter, PWSTR LookupName, uint8* Data, uint32* DataLen);
 
 	[Import("WinSCard.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 SCardWriteCacheA(uint hContext, Guid* CardIdentifier, uint32 FreshnessCounter, PSTR LookupName, uint8* Data, uint32 DataLen);
-	public static int32 SCardWriteCache(uint hContext, Guid* CardIdentifier, uint32 FreshnessCounter, PSTR LookupName, uint8* Data, uint32 DataLen) => SCardWriteCacheA(hContext, CardIdentifier, FreshnessCounter, LookupName, Data, DataLen);
+	public static extern int32 SCardWriteCacheA(uint hContext, Guid CardIdentifier, uint32 FreshnessCounter, PSTR LookupName, uint8* Data, uint32 DataLen);
+	public static int32 SCardWriteCache(uint hContext, Guid CardIdentifier, uint32 FreshnessCounter, PSTR LookupName, uint8* Data, uint32 DataLen) => SCardWriteCacheA(hContext, CardIdentifier, FreshnessCounter, LookupName, Data, DataLen);
 
 	[Import("WinSCard.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 SCardWriteCacheW(uint hContext, Guid* CardIdentifier, uint32 FreshnessCounter, PWSTR LookupName, uint8* Data, uint32 DataLen);
+	public static extern int32 SCardWriteCacheW(uint hContext, Guid CardIdentifier, uint32 FreshnessCounter, PWSTR LookupName, uint8* Data, uint32 DataLen);
 
 	[Import("WinSCard.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 SCardGetReaderIconA(uint hContext, PSTR szReaderName, uint8* pbIcon, uint32* pcbIcon);

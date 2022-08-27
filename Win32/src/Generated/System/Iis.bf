@@ -2269,15 +2269,15 @@ public struct HTTP_FILTER_VERSION
 [CRepr]
 public struct HTTP_TRACE_EVENT
 {
-	public Guid* pProviderGuid;
+	public Guid pProviderGuid;
 	public uint32 dwArea;
-	public Guid* pAreaGuid;
+	public Guid pAreaGuid;
 	public uint32 dwEvent;
 	public PWSTR pszEventName;
 	public uint32 dwEventVersion;
 	public uint32 dwVerbosity;
-	public Guid* pActivityGuid;
-	public Guid* pRelatedActivityGuid;
+	public Guid pActivityGuid;
+	public Guid pRelatedActivityGuid;
 	public uint32 dwTimeStamp;
 	public uint32 dwFlags;
 	public uint32 cEventItems;
@@ -2297,7 +2297,7 @@ public struct HTTP_TRACE_EVENT_ITEM
 [CRepr]
 public struct HTTP_TRACE_CONFIGURATION
 {
-	public Guid* pProviderGuid;
+	public Guid pProviderGuid;
 	public uint32 dwAreas;
 	public uint32 dwVerbosity;
 	public BOOL fProviderEnabled;
@@ -2570,14 +2570,14 @@ public static
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IADMEXT*/SelfOuter* self) Initialize;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IADMEXT*/SelfOuter* self, Guid* pclsidDcom, uint32 dwEnumIndex) EnumDcomCLSIDs;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IADMEXT*/SelfOuter* self, Guid pclsidDcom, uint32 dwEnumIndex) EnumDcomCLSIDs;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IADMEXT*/SelfOuter* self) Terminate;
 	}
 
 
 	public HRESULT Initialize() mut => VT.[Friend]Initialize(&this);
 
-	public HRESULT EnumDcomCLSIDs(Guid* pclsidDcom, uint32 dwEnumIndex) mut => VT.[Friend]EnumDcomCLSIDs(&this, pclsidDcom, dwEnumIndex);
+	public HRESULT EnumDcomCLSIDs(Guid pclsidDcom, uint32 dwEnumIndex) mut => VT.[Friend]EnumDcomCLSIDs(&this, pclsidDcom, dwEnumIndex);
 
 	public HRESULT Terminate() mut => VT.[Friend]Terminate(&this);
 }

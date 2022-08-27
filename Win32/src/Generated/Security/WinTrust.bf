@@ -284,7 +284,7 @@ public struct WINTRUST_FILE_INFO
 	public uint32 cbStruct;
 	public PWSTR pcwszFilePath;
 	public HANDLE hFile;
-	public Guid* pgKnownSubject;
+	public Guid pgKnownSubject;
 }
 
 [CRepr]
@@ -349,7 +349,7 @@ public struct CRYPT_PROVIDER_DATA
 	public WINTRUST_DATA* pWintrustData;
 	public BOOL fOpenedFile;
 	public HWND hWndParent;
-	public Guid* pgActionID;
+	public Guid pgActionID;
 	public uint hProv;
 	public uint32 dwError;
 	public uint32 dwRegSecuritySettings;
@@ -525,7 +525,7 @@ public struct CRYPT_REGISTER_ACTIONID
 public struct CRYPT_PROVIDER_REGDEFUSAGE
 {
 	public uint32 cbStruct;
-	public Guid* pgActionID;
+	public Guid pgActionID;
 	public PWSTR pwszDllName;
 	public PSTR pwszLoadCallbackDataFunctionName;
 	public PSTR pwszFreeCallbackDataFunctionName;
@@ -689,14 +689,14 @@ public struct WIN_CERTIFICATE
 public struct WIN_TRUST_ACTDATA_CONTEXT_WITH_SUBJECT
 {
 	public HANDLE hClientToken;
-	public Guid* SubjectType;
+	public Guid SubjectType;
 	public void* Subject;
 }
 
 [CRepr]
 public struct WIN_TRUST_ACTDATA_SUBJECT_ONLY
 {
-	public Guid* SubjectType;
+	public Guid SubjectType;
 	public void* Subject;
 }
 
@@ -833,10 +833,10 @@ public static
 public static
 {
 	[Import("WINTRUST.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 WinVerifyTrust(HWND hwnd, Guid* pgActionID, void* pWVTData);
+	public static extern int32 WinVerifyTrust(HWND hwnd, Guid pgActionID, void* pWVTData);
 
 	[Import("WINTRUST.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 WinVerifyTrustEx(HWND hwnd, Guid* pgActionID, WINTRUST_DATA* pWinTrustData);
+	public static extern int32 WinVerifyTrustEx(HWND hwnd, Guid pgActionID, WINTRUST_DATA* pWinTrustData);
 
 	[Import("WINTRUST.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern void WintrustGetRegPolicyFlags(WINTRUST_POLICY_FLAGS* pdwPolicyFlags);
@@ -845,13 +845,13 @@ public static
 	public static extern BOOL WintrustSetRegPolicyFlags(WINTRUST_POLICY_FLAGS dwPolicyFlags);
 
 	[Import("WINTRUST.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL WintrustAddActionID(Guid* pgActionID, uint32 fdwFlags, CRYPT_REGISTER_ACTIONID* psProvInfo);
+	public static extern BOOL WintrustAddActionID(Guid pgActionID, uint32 fdwFlags, CRYPT_REGISTER_ACTIONID* psProvInfo);
 
 	[Import("WINTRUST.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL WintrustRemoveActionID(Guid* pgActionID);
+	public static extern BOOL WintrustRemoveActionID(Guid pgActionID);
 
 	[Import("WINTRUST.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL WintrustLoadFunctionPointers(Guid* pgActionID, CRYPT_PROVIDER_FUNCTIONS* pPfns);
+	public static extern BOOL WintrustLoadFunctionPointers(Guid pgActionID, CRYPT_PROVIDER_FUNCTIONS* pPfns);
 
 	[Import("WINTRUST.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL WintrustAddDefaultForUsage(PSTR pszUsageOID, CRYPT_PROVIDER_REGDEFUSAGE* psDefUsage);
@@ -869,7 +869,7 @@ public static
 	public static extern CRYPT_PROVIDER_DATA* WTHelperProvDataFromStateData(HANDLE hStateData);
 
 	[Import("WINTRUST.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern CRYPT_PROVIDER_PRIVDATA* WTHelperGetProvPrivateDataFromChain(CRYPT_PROVIDER_DATA* pProvData, Guid* pgProviderID);
+	public static extern CRYPT_PROVIDER_PRIVDATA* WTHelperGetProvPrivateDataFromChain(CRYPT_PROVIDER_DATA* pProvData, Guid pgProviderID);
 
 	[Import("WINTRUST.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL WTHelperCertIsSelfSigned(uint32 dwEncoding, CERT_INFO* pCert);

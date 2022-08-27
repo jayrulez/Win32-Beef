@@ -2441,7 +2441,7 @@ public static
 	public static extern HRESULT WHvSetVirtualProcessorState(WHV_PARTITION_HANDLE Partition, uint32 VpIndex, WHV_VIRTUAL_PROCESSOR_STATE_TYPE StateType, void* Buffer, uint32 BufferSizeInBytes);
 
 	[Import("WinHvPlatform.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT WHvAllocateVpciResource(Guid* ProviderId, WHV_ALLOCATE_VPCI_RESOURCE_FLAGS Flags, void* ResourceDescriptor, uint32 ResourceDescriptorSizeInBytes, HANDLE* VpciResource);
+	public static extern HRESULT WHvAllocateVpciResource(Guid ProviderId, WHV_ALLOCATE_VPCI_RESOURCE_FLAGS Flags, void* ResourceDescriptor, uint32 ResourceDescriptorSizeInBytes, HANDLE* VpciResource);
 
 	[Import("WinHvPlatform.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT WHvCreateVpciDevice(WHV_PARTITION_HANDLE Partition, uint64 LogicalDeviceId, HANDLE VpciResource, WHV_CREATE_VPCI_DEVICE_FLAGS Flags, HANDLE NotificationEventHandle);
@@ -2543,7 +2543,7 @@ public static
 	public static extern HRESULT HdvTeardownDeviceHost(void* deviceHostHandle);
 
 	[Import("vmdevicehost.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT HdvCreateDeviceInstance(void* deviceHostHandle, HDV_DEVICE_TYPE deviceType, Guid* deviceClassId, Guid* deviceInstanceId, void* deviceInterface, void* deviceContext, void** deviceHandle);
+	public static extern HRESULT HdvCreateDeviceInstance(void* deviceHostHandle, HDV_DEVICE_TYPE deviceType, Guid deviceClassId, Guid deviceInstanceId, void* deviceInterface, void* deviceContext, void** deviceHandle);
 
 	[Import("vmdevicehost.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT HdvReadGuestMemory(void* requestor, uint64 guestPhysicalAddress, uint32 byteCount, uint8* buffer);

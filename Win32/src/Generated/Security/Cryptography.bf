@@ -9141,7 +9141,7 @@ public static
 	public static extern BOOL CertRetrieveLogoOrBiometricInfo(CERT_CONTEXT* pCertContext, PSTR lpszLogoOrBiometricType, uint32 dwRetrievalFlags, uint32 dwTimeout, uint32 dwFlags, void* pvReserved, uint8** ppbData, uint32* pcbData, PWSTR* ppwszMimeType);
 
 	[Import("CRYPT32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL CertSelectCertificateChains(Guid* pSelectionContext, uint32 dwFlags, CERT_SELECT_CHAIN_PARA* pChainParameters, uint32 cCriteria, CERT_SELECT_CRITERIA* rgpCriteria, void* hStore, uint32* pcSelection, CERT_CHAIN_CONTEXT*** pprgpSelection);
+	public static extern BOOL CertSelectCertificateChains(Guid pSelectionContext, uint32 dwFlags, CERT_SELECT_CHAIN_PARA* pChainParameters, uint32 cCriteria, CERT_SELECT_CRITERIA* rgpCriteria, void* hStore, uint32* pcSelection, CERT_CHAIN_CONTEXT*** pprgpSelection);
 
 	[Import("CRYPT32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern void CertFreeCertificateChainList(CERT_CHAIN_CONTEXT** prgpSelection);

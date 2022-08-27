@@ -556,11 +556,11 @@ public static
 
 	[CRepr]public struct VTable : IAudioSystemEffects.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAudioSystemEffects2*/SelfOuter* self, Guid** ppEffectsIds, uint32* pcEffects, HANDLE Event) GetEffectsList;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAudioSystemEffects2*/SelfOuter* self, Guid ppEffectsIds, uint32* pcEffects, HANDLE Event) GetEffectsList;
 	}
 
 
-	public HRESULT GetEffectsList(Guid** ppEffectsIds, uint32* pcEffects, HANDLE Event) mut => VT.[Friend]GetEffectsList(&this, ppEffectsIds, pcEffects, Event);
+	public HRESULT GetEffectsList(Guid ppEffectsIds, uint32* pcEffects, HANDLE Event) mut => VT.[Friend]GetEffectsList(&this, ppEffectsIds, pcEffects, Event);
 }
 
 [CRepr]struct IAudioSystemEffectsCustomFormats : IUnknown

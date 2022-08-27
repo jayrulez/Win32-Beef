@@ -121,7 +121,7 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWebApplicationHost*/SelfOuter* self, HWND* hwnd) get_HWND;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWebApplicationHost*/SelfOuter* self, IHTMLDocument2** htmlDocument) get_Document;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWebApplicationHost*/SelfOuter* self) Refresh;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWebApplicationHost*/SelfOuter* self, Guid* interfaceId, IUnknown* callback, uint32* cookie) Advise;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWebApplicationHost*/SelfOuter* self, Guid interfaceId, IUnknown* callback, uint32* cookie) Advise;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWebApplicationHost*/SelfOuter* self, uint32 cookie) Unadvise;
 	}
 
@@ -132,7 +132,7 @@ public static
 
 	public HRESULT Refresh() mut => VT.[Friend]Refresh(&this);
 
-	public HRESULT Advise(Guid* interfaceId, IUnknown* callback, uint32* cookie) mut => VT.[Friend]Advise(&this, interfaceId, callback, cookie);
+	public HRESULT Advise(Guid interfaceId, IUnknown* callback, uint32* cookie) mut => VT.[Friend]Advise(&this, interfaceId, callback, cookie);
 
 	public HRESULT Unadvise(uint32 cookie) mut => VT.[Friend]Unadvise(&this, cookie);
 }

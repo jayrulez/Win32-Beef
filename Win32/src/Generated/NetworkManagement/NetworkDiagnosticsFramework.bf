@@ -388,11 +388,11 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*INetDiagHelperUtilFactory*/SelfOuter* self, Guid* riid, void** ppvObject) CreateUtilityInstance;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*INetDiagHelperUtilFactory*/SelfOuter* self, Guid riid, void** ppvObject) CreateUtilityInstance;
 	}
 
 
-	public HRESULT CreateUtilityInstance(Guid* riid, void** ppvObject) mut => VT.[Friend]CreateUtilityInstance(&this, riid, ppvObject);
+	public HRESULT CreateUtilityInstance(Guid riid, void** ppvObject) mut => VT.[Friend]CreateUtilityInstance(&this, riid, ppvObject);
 }
 
 [CRepr]struct INetDiagHelperEx : IUnknown

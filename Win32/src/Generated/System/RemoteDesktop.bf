@@ -4834,11 +4834,11 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRemoteSystemAdditionalInfoProvider*/SelfOuter* self, HSTRING* deduplicationId, Guid* riid, void** mapView) GetAdditionalInfo;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRemoteSystemAdditionalInfoProvider*/SelfOuter* self, HSTRING* deduplicationId, Guid riid, void** mapView) GetAdditionalInfo;
 	}
 
 
-	public HRESULT GetAdditionalInfo(HSTRING* deduplicationId, Guid* riid, void** mapView) mut => VT.[Friend]GetAdditionalInfo(&this, deduplicationId, riid, mapView);
+	public HRESULT GetAdditionalInfo(HSTRING* deduplicationId, Guid riid, void** mapView) mut => VT.[Friend]GetAdditionalInfo(&this, deduplicationId, riid, mapView);
 }
 
 #endregion

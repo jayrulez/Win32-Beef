@@ -5090,11 +5090,11 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWbemConnectorLogin*/SelfOuter* self, PWSTR wszNetworkResource, PWSTR wszPreferredLocale, int32 lFlags, IWbemContext* pCtx, Guid* riid, void** pInterface) ConnectorLogin;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWbemConnectorLogin*/SelfOuter* self, PWSTR wszNetworkResource, PWSTR wszPreferredLocale, int32 lFlags, IWbemContext* pCtx, Guid riid, void** pInterface) ConnectorLogin;
 	}
 
 
-	public HRESULT ConnectorLogin(PWSTR wszNetworkResource, PWSTR wszPreferredLocale, int32 lFlags, IWbemContext* pCtx, Guid* riid, void** pInterface) mut => VT.[Friend]ConnectorLogin(&this, wszNetworkResource, wszPreferredLocale, lFlags, pCtx, riid, pInterface);
+	public HRESULT ConnectorLogin(PWSTR wszNetworkResource, PWSTR wszPreferredLocale, int32 lFlags, IWbemContext* pCtx, Guid riid, void** pInterface) mut => VT.[Friend]ConnectorLogin(&this, wszNetworkResource, wszPreferredLocale, lFlags, pCtx, riid, pInterface);
 }
 
 [CRepr]struct IWbemAddressResolution : IUnknown
@@ -5135,15 +5135,15 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWbemClientConnectionTransport*/SelfOuter* self, BSTR strAddressType, uint32 dwBinaryAddressLength, uint8* abBinaryAddress, BSTR strObject, BSTR strUser, BSTR strPassword, BSTR strLocale, int32 lFlags, IWbemContext* pCtx, Guid* riid, void** pInterface, IWbemCallResult** pCallRes) Open;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWbemClientConnectionTransport*/SelfOuter* self, BSTR strAddressType, uint32 dwBinaryAddressLength, uint8* abBinaryAddress, BSTR strObject, BSTR strUser, BSTR strPassword, BSTR strLocale, int32 lFlags, IWbemContext* pCtx, Guid* riid, IWbemObjectSink* pResponseHandler) OpenAsync;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWbemClientConnectionTransport*/SelfOuter* self, BSTR strAddressType, uint32 dwBinaryAddressLength, uint8* abBinaryAddress, BSTR strObject, BSTR strUser, BSTR strPassword, BSTR strLocale, int32 lFlags, IWbemContext* pCtx, Guid riid, void** pInterface, IWbemCallResult** pCallRes) Open;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWbemClientConnectionTransport*/SelfOuter* self, BSTR strAddressType, uint32 dwBinaryAddressLength, uint8* abBinaryAddress, BSTR strObject, BSTR strUser, BSTR strPassword, BSTR strLocale, int32 lFlags, IWbemContext* pCtx, Guid riid, IWbemObjectSink* pResponseHandler) OpenAsync;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWbemClientConnectionTransport*/SelfOuter* self, int32 lFlags, IWbemObjectSink* pHandler) Cancel;
 	}
 
 
-	public HRESULT Open(BSTR strAddressType, uint32 dwBinaryAddressLength, uint8* abBinaryAddress, BSTR strObject, BSTR strUser, BSTR strPassword, BSTR strLocale, int32 lFlags, IWbemContext* pCtx, Guid* riid, void** pInterface, IWbemCallResult** pCallRes) mut => VT.[Friend]Open(&this, strAddressType, dwBinaryAddressLength, abBinaryAddress, strObject, strUser, strPassword, strLocale, lFlags, pCtx, riid, pInterface, pCallRes);
+	public HRESULT Open(BSTR strAddressType, uint32 dwBinaryAddressLength, uint8* abBinaryAddress, BSTR strObject, BSTR strUser, BSTR strPassword, BSTR strLocale, int32 lFlags, IWbemContext* pCtx, Guid riid, void** pInterface, IWbemCallResult** pCallRes) mut => VT.[Friend]Open(&this, strAddressType, dwBinaryAddressLength, abBinaryAddress, strObject, strUser, strPassword, strLocale, lFlags, pCtx, riid, pInterface, pCallRes);
 
-	public HRESULT OpenAsync(BSTR strAddressType, uint32 dwBinaryAddressLength, uint8* abBinaryAddress, BSTR strObject, BSTR strUser, BSTR strPassword, BSTR strLocale, int32 lFlags, IWbemContext* pCtx, Guid* riid, IWbemObjectSink* pResponseHandler) mut => VT.[Friend]OpenAsync(&this, strAddressType, dwBinaryAddressLength, abBinaryAddress, strObject, strUser, strPassword, strLocale, lFlags, pCtx, riid, pResponseHandler);
+	public HRESULT OpenAsync(BSTR strAddressType, uint32 dwBinaryAddressLength, uint8* abBinaryAddress, BSTR strObject, BSTR strUser, BSTR strPassword, BSTR strLocale, int32 lFlags, IWbemContext* pCtx, Guid riid, IWbemObjectSink* pResponseHandler) mut => VT.[Friend]OpenAsync(&this, strAddressType, dwBinaryAddressLength, abBinaryAddress, strObject, strUser, strPassword, strLocale, lFlags, pCtx, riid, pResponseHandler);
 
 	public HRESULT Cancel(int32 lFlags, IWbemObjectSink* pHandler) mut => VT.[Friend]Cancel(&this, lFlags, pHandler);
 }

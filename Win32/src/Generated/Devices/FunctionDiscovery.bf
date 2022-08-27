@@ -842,7 +842,7 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFunctionDiscoveryProvider*/SelfOuter* self, IFunctionInstance* pIFunctionInstance, int iProviderInstanceContext, uint32 dwStgAccess) InstancePropertyStoreValidateAccess;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFunctionDiscoveryProvider*/SelfOuter* self, IFunctionInstance* pIFunctionInstance, int iProviderInstanceContext, uint32 dwStgAccess, IPropertyStore** ppIPropertyStore) InstancePropertyStoreOpen;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFunctionDiscoveryProvider*/SelfOuter* self, IFunctionInstance* pIFunctionInstance, int iProviderInstanceContext) InstancePropertyStoreFlush;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFunctionDiscoveryProvider*/SelfOuter* self, IFunctionInstance* pIFunctionInstance, int iProviderInstanceContext, Guid* guidService, Guid* riid, IUnknown** ppIUnknown) InstanceQueryService;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFunctionDiscoveryProvider*/SelfOuter* self, IFunctionInstance* pIFunctionInstance, int iProviderInstanceContext, Guid guidService, Guid riid, IUnknown** ppIUnknown) InstanceQueryService;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFunctionDiscoveryProvider*/SelfOuter* self, IFunctionInstance* pIFunctionInstance, int iProviderInstanceContext) InstanceReleased;
 	}
 
@@ -859,7 +859,7 @@ public static
 
 	public HRESULT InstancePropertyStoreFlush(IFunctionInstance* pIFunctionInstance, int iProviderInstanceContext) mut => VT.[Friend]InstancePropertyStoreFlush(&this, pIFunctionInstance, iProviderInstanceContext);
 
-	public HRESULT InstanceQueryService(IFunctionInstance* pIFunctionInstance, int iProviderInstanceContext, Guid* guidService, Guid* riid, IUnknown** ppIUnknown) mut => VT.[Friend]InstanceQueryService(&this, pIFunctionInstance, iProviderInstanceContext, guidService, riid, ppIUnknown);
+	public HRESULT InstanceQueryService(IFunctionInstance* pIFunctionInstance, int iProviderInstanceContext, Guid guidService, Guid riid, IUnknown** ppIUnknown) mut => VT.[Friend]InstanceQueryService(&this, pIFunctionInstance, iProviderInstanceContext, guidService, riid, ppIUnknown);
 
 	public HRESULT InstanceReleased(IFunctionInstance* pIFunctionInstance, int iProviderInstanceContext) mut => VT.[Friend]InstanceReleased(&this, pIFunctionInstance, iProviderInstanceContext);
 }
@@ -1019,11 +1019,11 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFunctionDiscoveryServiceProvider*/SelfOuter* self, IFunctionInstance* pIFunctionInstance, Guid* riid, void** ppv) Initialize;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IFunctionDiscoveryServiceProvider*/SelfOuter* self, IFunctionInstance* pIFunctionInstance, Guid riid, void** ppv) Initialize;
 	}
 
 
-	public HRESULT Initialize(IFunctionInstance* pIFunctionInstance, Guid* riid, void** ppv) mut => VT.[Friend]Initialize(&this, pIFunctionInstance, riid, ppv);
+	public HRESULT Initialize(IFunctionInstance* pIFunctionInstance, Guid riid, void** ppv) mut => VT.[Friend]Initialize(&this, pIFunctionInstance, riid, ppv);
 }
 
 [CRepr]struct IPNPXAssociation : IUnknown

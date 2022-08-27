@@ -468,7 +468,7 @@ public function HRESULT LPDISPATCHNOTIFICATIONS(uint32 ulFlags);
 
 public function int32 LPCREATECONVERSATIONINDEX(uint32 cbParent, uint8* lpbParent, uint32* lpcbConvIndex, uint8** lppbConvIndex);
 
-public function HRESULT IWABOBJECT_QueryInterface_METHOD(Guid* riid, void** ppvObj);
+public function HRESULT IWABOBJECT_QueryInterface_METHOD(Guid riid, void** ppvObj);
 
 public function uint32 IWABOBJECT_AddRef_METHOD();
 
@@ -551,7 +551,7 @@ public struct SShortArray
 public struct SGuidArray
 {
 	public uint32 cValues;
-	public Guid* lpguid;
+	public Guid lpguid;
 }
 
 [CRepr]
@@ -639,7 +639,7 @@ public struct _PV
 	public PSTR lpszA;
 	public SBinary bin;
 	public PWSTR lpszW;
-	public Guid* lpguid;
+	public Guid lpguid;
 	public LARGE_INTEGER li;
 	public SShortArray MVi;
 	public SLongArray MVl;
@@ -844,7 +844,7 @@ public struct MAPINAMEID
 		public PWSTR lpwstrName;
 	}
 
-	public Guid* lpguid;
+	public Guid lpguid;
 	public uint32 ulKind;
 	public _Kind_e__Union Kind;
 }
@@ -1250,12 +1250,12 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMAPIProp*/SelfOuter* self, uint32 ulFlags) SaveChanges;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMAPIProp*/SelfOuter* self, SPropTagArray* lpPropTagArray, uint32 ulFlags, uint32* lpcValues, SPropValue** lppPropArray) GetProps;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMAPIProp*/SelfOuter* self, uint32 ulFlags, SPropTagArray** lppPropTagArray) GetPropList;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMAPIProp*/SelfOuter* self, uint32 ulPropTag, Guid* lpiid, uint32 ulInterfaceOptions, uint32 ulFlags, IUnknown** lppUnk) OpenProperty;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMAPIProp*/SelfOuter* self, uint32 ulPropTag, Guid lpiid, uint32 ulInterfaceOptions, uint32 ulFlags, IUnknown** lppUnk) OpenProperty;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMAPIProp*/SelfOuter* self, uint32 cValues, SPropValue* lpPropArray, SPropProblemArray** lppProblems) SetProps;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMAPIProp*/SelfOuter* self, SPropTagArray* lpPropTagArray, SPropProblemArray** lppProblems) DeleteProps;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMAPIProp*/SelfOuter* self, uint32 ciidExclude, Guid* rgiidExclude, SPropTagArray* lpExcludeProps, uint ulUIParam, IMAPIProgress* lpProgress, Guid* lpInterface, void* lpDestObj, uint32 ulFlags, SPropProblemArray** lppProblems) CopyTo;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMAPIProp*/SelfOuter* self, SPropTagArray* lpIncludeProps, uint ulUIParam, IMAPIProgress* lpProgress, Guid* lpInterface, void* lpDestObj, uint32 ulFlags, SPropProblemArray** lppProblems) CopyProps;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMAPIProp*/SelfOuter* self, SPropTagArray** lppPropTags, Guid* lpPropSetGuid, uint32 ulFlags, uint32* lpcPropNames, MAPINAMEID*** lpppPropNames) GetNamesFromIDs;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMAPIProp*/SelfOuter* self, uint32 ciidExclude, Guid rgiidExclude, SPropTagArray* lpExcludeProps, uint ulUIParam, IMAPIProgress* lpProgress, Guid lpInterface, void* lpDestObj, uint32 ulFlags, SPropProblemArray** lppProblems) CopyTo;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMAPIProp*/SelfOuter* self, SPropTagArray* lpIncludeProps, uint ulUIParam, IMAPIProgress* lpProgress, Guid lpInterface, void* lpDestObj, uint32 ulFlags, SPropProblemArray** lppProblems) CopyProps;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMAPIProp*/SelfOuter* self, SPropTagArray** lppPropTags, Guid lpPropSetGuid, uint32 ulFlags, uint32* lpcPropNames, MAPINAMEID*** lpppPropNames) GetNamesFromIDs;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMAPIProp*/SelfOuter* self, uint32 cPropNames, MAPINAMEID** lppPropNames, uint32 ulFlags, SPropTagArray** lppPropTags) GetIDsFromNames;
 	}
 
@@ -1268,17 +1268,17 @@ public static
 
 	public HRESULT GetPropList(uint32 ulFlags, SPropTagArray** lppPropTagArray) mut => VT.[Friend]GetPropList(&this, ulFlags, lppPropTagArray);
 
-	public HRESULT OpenProperty(uint32 ulPropTag, Guid* lpiid, uint32 ulInterfaceOptions, uint32 ulFlags, IUnknown** lppUnk) mut => VT.[Friend]OpenProperty(&this, ulPropTag, lpiid, ulInterfaceOptions, ulFlags, lppUnk);
+	public HRESULT OpenProperty(uint32 ulPropTag, Guid lpiid, uint32 ulInterfaceOptions, uint32 ulFlags, IUnknown** lppUnk) mut => VT.[Friend]OpenProperty(&this, ulPropTag, lpiid, ulInterfaceOptions, ulFlags, lppUnk);
 
 	public HRESULT SetProps(uint32 cValues, SPropValue* lpPropArray, SPropProblemArray** lppProblems) mut => VT.[Friend]SetProps(&this, cValues, lpPropArray, lppProblems);
 
 	public HRESULT DeleteProps(SPropTagArray* lpPropTagArray, SPropProblemArray** lppProblems) mut => VT.[Friend]DeleteProps(&this, lpPropTagArray, lppProblems);
 
-	public HRESULT CopyTo(uint32 ciidExclude, Guid* rgiidExclude, SPropTagArray* lpExcludeProps, uint ulUIParam, IMAPIProgress* lpProgress, Guid* lpInterface, void* lpDestObj, uint32 ulFlags, SPropProblemArray** lppProblems) mut => VT.[Friend]CopyTo(&this, ciidExclude, rgiidExclude, lpExcludeProps, ulUIParam, lpProgress, lpInterface, lpDestObj, ulFlags, lppProblems);
+	public HRESULT CopyTo(uint32 ciidExclude, Guid rgiidExclude, SPropTagArray* lpExcludeProps, uint ulUIParam, IMAPIProgress* lpProgress, Guid lpInterface, void* lpDestObj, uint32 ulFlags, SPropProblemArray** lppProblems) mut => VT.[Friend]CopyTo(&this, ciidExclude, rgiidExclude, lpExcludeProps, ulUIParam, lpProgress, lpInterface, lpDestObj, ulFlags, lppProblems);
 
-	public HRESULT CopyProps(SPropTagArray* lpIncludeProps, uint ulUIParam, IMAPIProgress* lpProgress, Guid* lpInterface, void* lpDestObj, uint32 ulFlags, SPropProblemArray** lppProblems) mut => VT.[Friend]CopyProps(&this, lpIncludeProps, ulUIParam, lpProgress, lpInterface, lpDestObj, ulFlags, lppProblems);
+	public HRESULT CopyProps(SPropTagArray* lpIncludeProps, uint ulUIParam, IMAPIProgress* lpProgress, Guid lpInterface, void* lpDestObj, uint32 ulFlags, SPropProblemArray** lppProblems) mut => VT.[Friend]CopyProps(&this, lpIncludeProps, ulUIParam, lpProgress, lpInterface, lpDestObj, ulFlags, lppProblems);
 
-	public HRESULT GetNamesFromIDs(SPropTagArray** lppPropTags, Guid* lpPropSetGuid, uint32 ulFlags, uint32* lpcPropNames, MAPINAMEID*** lpppPropNames) mut => VT.[Friend]GetNamesFromIDs(&this, lppPropTags, lpPropSetGuid, ulFlags, lpcPropNames, lpppPropNames);
+	public HRESULT GetNamesFromIDs(SPropTagArray** lppPropTags, Guid lpPropSetGuid, uint32 ulFlags, uint32* lpcPropNames, MAPINAMEID*** lpppPropNames) mut => VT.[Friend]GetNamesFromIDs(&this, lppPropTags, lpPropSetGuid, ulFlags, lpcPropNames, lpppPropNames);
 
 	public HRESULT GetIDsFromNames(uint32 cPropNames, MAPINAMEID** lppPropNames, uint32 ulFlags, SPropTagArray** lppPropTags) mut => VT.[Friend]GetIDsFromNames(&this, cPropNames, lppPropNames, ulFlags, lppPropTags);
 }
@@ -1402,7 +1402,7 @@ public static
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMAPIContainer*/SelfOuter* self, uint32 ulFlags, IMAPITable** lppTable) GetContentsTable;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMAPIContainer*/SelfOuter* self, uint32 ulFlags, IMAPITable** lppTable) GetHierarchyTable;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMAPIContainer*/SelfOuter* self, uint32 cbEntryID, ENTRYID* lpEntryID, Guid* lpInterface, uint32 ulFlags, uint32* lpulObjType, IUnknown** lppUnk) OpenEntry;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMAPIContainer*/SelfOuter* self, uint32 cbEntryID, ENTRYID* lpEntryID, Guid lpInterface, uint32 ulFlags, uint32* lpulObjType, IUnknown** lppUnk) OpenEntry;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMAPIContainer*/SelfOuter* self, SRestriction* lpRestriction, SBinaryArray* lpContainerList, uint32 ulSearchFlags) SetSearchCriteria;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMAPIContainer*/SelfOuter* self, uint32 ulFlags, SRestriction** lppRestriction, SBinaryArray** lppContainerList, uint32* lpulSearchState) GetSearchCriteria;
 	}
@@ -1412,7 +1412,7 @@ public static
 
 	public HRESULT GetHierarchyTable(uint32 ulFlags, IMAPITable** lppTable) mut => VT.[Friend]GetHierarchyTable(&this, ulFlags, lppTable);
 
-	public HRESULT OpenEntry(uint32 cbEntryID, ENTRYID* lpEntryID, Guid* lpInterface, uint32 ulFlags, uint32* lpulObjType, IUnknown** lppUnk) mut => VT.[Friend]OpenEntry(&this, cbEntryID, lpEntryID, lpInterface, ulFlags, lpulObjType, lppUnk);
+	public HRESULT OpenEntry(uint32 cbEntryID, ENTRYID* lpEntryID, Guid lpInterface, uint32 ulFlags, uint32* lpulObjType, IUnknown** lppUnk) mut => VT.[Friend]OpenEntry(&this, cbEntryID, lpEntryID, lpInterface, ulFlags, lpulObjType, lppUnk);
 
 	public HRESULT SetSearchCriteria(SRestriction* lpRestriction, SBinaryArray* lpContainerList, uint32 ulSearchFlags) mut => VT.[Friend]SetSearchCriteria(&this, lpRestriction, lpContainerList, ulSearchFlags);
 
@@ -1479,11 +1479,11 @@ public static
 
 	[CRepr]public struct VTable : IMAPIContainer.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMAPIFolder*/SelfOuter* self, Guid* lpInterface, uint32 ulFlags, IMessage** lppMessage) CreateMessage;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMAPIFolder*/SelfOuter* self, SBinaryArray* lpMsgList, Guid* lpInterface, void* lpDestFolder, uint ulUIParam, IMAPIProgress* lpProgress, uint32 ulFlags) CopyMessages;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMAPIFolder*/SelfOuter* self, Guid lpInterface, uint32 ulFlags, IMessage** lppMessage) CreateMessage;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMAPIFolder*/SelfOuter* self, SBinaryArray* lpMsgList, Guid lpInterface, void* lpDestFolder, uint ulUIParam, IMAPIProgress* lpProgress, uint32 ulFlags) CopyMessages;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMAPIFolder*/SelfOuter* self, SBinaryArray* lpMsgList, uint ulUIParam, IMAPIProgress* lpProgress, uint32 ulFlags) DeleteMessages;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMAPIFolder*/SelfOuter* self, uint32 ulFolderType, int8* lpszFolderName, int8* lpszFolderComment, Guid* lpInterface, uint32 ulFlags, IMAPIFolder** lppFolder) CreateFolder;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMAPIFolder*/SelfOuter* self, uint32 cbEntryID, ENTRYID* lpEntryID, Guid* lpInterface, void* lpDestFolder, int8* lpszNewFolderName, uint ulUIParam, IMAPIProgress* lpProgress, uint32 ulFlags) CopyFolder;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMAPIFolder*/SelfOuter* self, uint32 ulFolderType, int8* lpszFolderName, int8* lpszFolderComment, Guid lpInterface, uint32 ulFlags, IMAPIFolder** lppFolder) CreateFolder;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMAPIFolder*/SelfOuter* self, uint32 cbEntryID, ENTRYID* lpEntryID, Guid lpInterface, void* lpDestFolder, int8* lpszNewFolderName, uint ulUIParam, IMAPIProgress* lpProgress, uint32 ulFlags) CopyFolder;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMAPIFolder*/SelfOuter* self, uint32 cbEntryID, ENTRYID* lpEntryID, uint ulUIParam, IMAPIProgress* lpProgress, uint32 ulFlags) DeleteFolder;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMAPIFolder*/SelfOuter* self, SBinaryArray* lpMsgList, uint ulUIParam, IMAPIProgress* lpProgress, uint32 ulFlags) SetReadFlags;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMAPIFolder*/SelfOuter* self, uint32 cbEntryID, ENTRYID* lpEntryID, uint32 ulFlags, uint32* lpulMessageStatus) GetMessageStatus;
@@ -1493,15 +1493,15 @@ public static
 	}
 
 
-	public HRESULT CreateMessage(Guid* lpInterface, uint32 ulFlags, IMessage** lppMessage) mut => VT.[Friend]CreateMessage(&this, lpInterface, ulFlags, lppMessage);
+	public HRESULT CreateMessage(Guid lpInterface, uint32 ulFlags, IMessage** lppMessage) mut => VT.[Friend]CreateMessage(&this, lpInterface, ulFlags, lppMessage);
 
-	public HRESULT CopyMessages(SBinaryArray* lpMsgList, Guid* lpInterface, void* lpDestFolder, uint ulUIParam, IMAPIProgress* lpProgress, uint32 ulFlags) mut => VT.[Friend]CopyMessages(&this, lpMsgList, lpInterface, lpDestFolder, ulUIParam, lpProgress, ulFlags);
+	public HRESULT CopyMessages(SBinaryArray* lpMsgList, Guid lpInterface, void* lpDestFolder, uint ulUIParam, IMAPIProgress* lpProgress, uint32 ulFlags) mut => VT.[Friend]CopyMessages(&this, lpMsgList, lpInterface, lpDestFolder, ulUIParam, lpProgress, ulFlags);
 
 	public HRESULT DeleteMessages(SBinaryArray* lpMsgList, uint ulUIParam, IMAPIProgress* lpProgress, uint32 ulFlags) mut => VT.[Friend]DeleteMessages(&this, lpMsgList, ulUIParam, lpProgress, ulFlags);
 
-	public HRESULT CreateFolder(uint32 ulFolderType, int8* lpszFolderName, int8* lpszFolderComment, Guid* lpInterface, uint32 ulFlags, IMAPIFolder** lppFolder) mut => VT.[Friend]CreateFolder(&this, ulFolderType, lpszFolderName, lpszFolderComment, lpInterface, ulFlags, lppFolder);
+	public HRESULT CreateFolder(uint32 ulFolderType, int8* lpszFolderName, int8* lpszFolderComment, Guid lpInterface, uint32 ulFlags, IMAPIFolder** lppFolder) mut => VT.[Friend]CreateFolder(&this, ulFolderType, lpszFolderName, lpszFolderComment, lpInterface, ulFlags, lppFolder);
 
-	public HRESULT CopyFolder(uint32 cbEntryID, ENTRYID* lpEntryID, Guid* lpInterface, void* lpDestFolder, int8* lpszNewFolderName, uint ulUIParam, IMAPIProgress* lpProgress, uint32 ulFlags) mut => VT.[Friend]CopyFolder(&this, cbEntryID, lpEntryID, lpInterface, lpDestFolder, lpszNewFolderName, ulUIParam, lpProgress, ulFlags);
+	public HRESULT CopyFolder(uint32 cbEntryID, ENTRYID* lpEntryID, Guid lpInterface, void* lpDestFolder, int8* lpszNewFolderName, uint ulUIParam, IMAPIProgress* lpProgress, uint32 ulFlags) mut => VT.[Friend]CopyFolder(&this, cbEntryID, lpEntryID, lpInterface, lpDestFolder, lpszNewFolderName, ulUIParam, lpProgress, ulFlags);
 
 	public HRESULT DeleteFolder(uint32 cbEntryID, ENTRYID* lpEntryID, uint ulUIParam, IMAPIProgress* lpProgress, uint32 ulFlags) mut => VT.[Friend]DeleteFolder(&this, cbEntryID, lpEntryID, ulUIParam, lpProgress, ulFlags);
 
@@ -1525,7 +1525,7 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMsgStore*/SelfOuter* self, uint32 cbEntryID, ENTRYID* lpEntryID, uint32 ulEventMask, IMAPIAdviseSink* lpAdviseSink, uint32* lpulConnection) Advise;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMsgStore*/SelfOuter* self, uint32 ulConnection) Unadvise;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMsgStore*/SelfOuter* self, uint32 cbEntryID1, ENTRYID* lpEntryID1, uint32 cbEntryID2, ENTRYID* lpEntryID2, uint32 ulFlags, uint32* lpulResult) CompareEntryIDs;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMsgStore*/SelfOuter* self, uint32 cbEntryID, ENTRYID* lpEntryID, Guid* lpInterface, uint32 ulFlags, uint32* lpulObjType, IUnknown** ppUnk) OpenEntry;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMsgStore*/SelfOuter* self, uint32 cbEntryID, ENTRYID* lpEntryID, Guid lpInterface, uint32 ulFlags, uint32* lpulObjType, IUnknown** ppUnk) OpenEntry;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMsgStore*/SelfOuter* self, int8* lpszMessageClass, uint32 ulFlags, uint32 cbEntryID, ENTRYID* lpEntryID) SetReceiveFolder;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMsgStore*/SelfOuter* self, int8* lpszMessageClass, uint32 ulFlags, uint32* lpcbEntryID, ENTRYID** lppEntryID, int8** lppszExplicitClass) GetReceiveFolder;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMsgStore*/SelfOuter* self, uint32 ulFlags, IMAPITable** lppTable) GetReceiveFolderTable;
@@ -1544,7 +1544,7 @@ public static
 
 	public HRESULT CompareEntryIDs(uint32 cbEntryID1, ENTRYID* lpEntryID1, uint32 cbEntryID2, ENTRYID* lpEntryID2, uint32 ulFlags, uint32* lpulResult) mut => VT.[Friend]CompareEntryIDs(&this, cbEntryID1, lpEntryID1, cbEntryID2, lpEntryID2, ulFlags, lpulResult);
 
-	public HRESULT OpenEntry(uint32 cbEntryID, ENTRYID* lpEntryID, Guid* lpInterface, uint32 ulFlags, uint32* lpulObjType, IUnknown** ppUnk) mut => VT.[Friend]OpenEntry(&this, cbEntryID, lpEntryID, lpInterface, ulFlags, lpulObjType, ppUnk);
+	public HRESULT OpenEntry(uint32 cbEntryID, ENTRYID* lpEntryID, Guid lpInterface, uint32 ulFlags, uint32* lpulObjType, IUnknown** ppUnk) mut => VT.[Friend]OpenEntry(&this, cbEntryID, lpEntryID, lpInterface, ulFlags, lpulObjType, ppUnk);
 
 	public HRESULT SetReceiveFolder(int8* lpszMessageClass, uint32 ulFlags, uint32 cbEntryID, ENTRYID* lpEntryID) mut => VT.[Friend]SetReceiveFolder(&this, lpszMessageClass, ulFlags, cbEntryID, lpEntryID);
 
@@ -1572,8 +1572,8 @@ public static
 	[CRepr]public struct VTable : IMAPIProp.VTable
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMessage*/SelfOuter* self, uint32 ulFlags, IMAPITable** lppTable) GetAttachmentTable;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMessage*/SelfOuter* self, uint32 ulAttachmentNum, Guid* lpInterface, uint32 ulFlags, IAttach** lppAttach) OpenAttach;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMessage*/SelfOuter* self, Guid* lpInterface, uint32 ulFlags, uint32* lpulAttachmentNum, IAttach** lppAttach) CreateAttach;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMessage*/SelfOuter* self, uint32 ulAttachmentNum, Guid lpInterface, uint32 ulFlags, IAttach** lppAttach) OpenAttach;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMessage*/SelfOuter* self, Guid lpInterface, uint32 ulFlags, uint32* lpulAttachmentNum, IAttach** lppAttach) CreateAttach;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMessage*/SelfOuter* self, uint32 ulAttachmentNum, uint ulUIParam, IMAPIProgress* lpProgress, uint32 ulFlags) DeleteAttach;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMessage*/SelfOuter* self, uint32 ulFlags, IMAPITable** lppTable) GetRecipientTable;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMessage*/SelfOuter* self, uint32 ulFlags, ADRLIST* lpMods) ModifyRecipients;
@@ -1584,9 +1584,9 @@ public static
 
 	public HRESULT GetAttachmentTable(uint32 ulFlags, IMAPITable** lppTable) mut => VT.[Friend]GetAttachmentTable(&this, ulFlags, lppTable);
 
-	public HRESULT OpenAttach(uint32 ulAttachmentNum, Guid* lpInterface, uint32 ulFlags, IAttach** lppAttach) mut => VT.[Friend]OpenAttach(&this, ulAttachmentNum, lpInterface, ulFlags, lppAttach);
+	public HRESULT OpenAttach(uint32 ulAttachmentNum, Guid lpInterface, uint32 ulFlags, IAttach** lppAttach) mut => VT.[Friend]OpenAttach(&this, ulAttachmentNum, lpInterface, ulFlags, lppAttach);
 
-	public HRESULT CreateAttach(Guid* lpInterface, uint32 ulFlags, uint32* lpulAttachmentNum, IAttach** lppAttach) mut => VT.[Friend]CreateAttach(&this, lpInterface, ulFlags, lpulAttachmentNum, lppAttach);
+	public HRESULT CreateAttach(Guid lpInterface, uint32 ulFlags, uint32* lpulAttachmentNum, IAttach** lppAttach) mut => VT.[Friend]CreateAttach(&this, lpInterface, ulFlags, lpulAttachmentNum, lppAttach);
 
 	public HRESULT DeleteAttach(uint32 ulAttachmentNum, uint ulUIParam, IMAPIProgress* lpProgress, uint32 ulFlags) mut => VT.[Friend]DeleteAttach(&this, ulAttachmentNum, ulUIParam, lpProgress, ulFlags);
 
@@ -1638,7 +1638,7 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IProviderAdmin*/SelfOuter* self, uint32 ulFlags, IMAPITable** lppTable) GetProviderTable;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IProviderAdmin*/SelfOuter* self, int8* lpszProvider, uint32 cValues, SPropValue* lpProps, uint ulUIParam, uint32 ulFlags, MAPIUID* lpUID) CreateProvider;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IProviderAdmin*/SelfOuter* self, MAPIUID* lpUID) DeleteProvider;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IProviderAdmin*/SelfOuter* self, MAPIUID* lpUID, Guid* lpInterface, uint32 ulFlags, IProfSect** lppProfSect) OpenProfileSection;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IProviderAdmin*/SelfOuter* self, MAPIUID* lpUID, Guid lpInterface, uint32 ulFlags, IProfSect** lppProfSect) OpenProfileSection;
 	}
 
 
@@ -1650,7 +1650,7 @@ public static
 
 	public HRESULT DeleteProvider(MAPIUID* lpUID) mut => VT.[Friend]DeleteProvider(&this, lpUID);
 
-	public HRESULT OpenProfileSection(MAPIUID* lpUID, Guid* lpInterface, uint32 ulFlags, IProfSect** lppProfSect) mut => VT.[Friend]OpenProfileSection(&this, lpUID, lpInterface, ulFlags, lppProfSect);
+	public HRESULT OpenProfileSection(MAPIUID* lpUID, Guid lpInterface, uint32 ulFlags, IProfSect** lppProfSect) mut => VT.[Friend]OpenProfileSection(&this, lpUID, lpInterface, ulFlags, lppProfSect);
 }
 
 [CRepr]struct ITableData : IUnknown
@@ -1718,7 +1718,7 @@ public static
 
 	[CRepr]public struct VTable : IMAPIProp.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAddrBook*/SelfOuter* self, uint32 cbEntryID, ENTRYID* lpEntryID, Guid* lpInterface, uint32 ulFlags, uint32* lpulObjType, IUnknown** lppUnk) OpenEntry;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAddrBook*/SelfOuter* self, uint32 cbEntryID, ENTRYID* lpEntryID, Guid lpInterface, uint32 ulFlags, uint32* lpulObjType, IUnknown** lppUnk) OpenEntry;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAddrBook*/SelfOuter* self, uint32 cbEntryID1, ENTRYID* lpEntryID1, uint32 cbEntryID2, ENTRYID* lpEntryID2, uint32 ulFlags, uint32* lpulResult) CompareEntryIDs;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAddrBook*/SelfOuter* self, uint32 cbEntryID, ENTRYID* lpEntryID, uint32 ulEventMask, IMAPIAdviseSink* lpAdviseSink, uint32* lpulConnection) Advise;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IAddrBook*/SelfOuter* self, uint32 ulConnection) Unadvise;
@@ -1739,7 +1739,7 @@ public static
 	}
 
 
-	public HRESULT OpenEntry(uint32 cbEntryID, ENTRYID* lpEntryID, Guid* lpInterface, uint32 ulFlags, uint32* lpulObjType, IUnknown** lppUnk) mut => VT.[Friend]OpenEntry(&this, cbEntryID, lpEntryID, lpInterface, ulFlags, lpulObjType, lppUnk);
+	public HRESULT OpenEntry(uint32 cbEntryID, ENTRYID* lpEntryID, Guid lpInterface, uint32 ulFlags, uint32* lpulObjType, IUnknown** lppUnk) mut => VT.[Friend]OpenEntry(&this, cbEntryID, lpEntryID, lpInterface, ulFlags, lpulObjType, lppUnk);
 
 	public HRESULT CompareEntryIDs(uint32 cbEntryID1, ENTRYID* lpEntryID1, uint32 cbEntryID2, ENTRYID* lpEntryID2, uint32 ulFlags, uint32* lpulResult) mut => VT.[Friend]CompareEntryIDs(&this, cbEntryID1, lpEntryID1, cbEntryID2, lpEntryID2, ulFlags, lpulResult);
 
@@ -1833,7 +1833,7 @@ public static
 
 	[CRepr]public struct VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWABOBJECT_*/SelfOuter* self, Guid* riid, void** ppvObj) QueryInterface;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWABOBJECT_*/SelfOuter* self, Guid riid, void** ppvObj) QueryInterface;
 		protected new function [CallingConvention(.Stdcall)] uint32(/*IWABOBJECT_*/SelfOuter* self) AddRef;
 		protected new function [CallingConvention(.Stdcall)] uint32(/*IWABOBJECT_*/SelfOuter* self) Release;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWABOBJECT_*/SelfOuter* self, HRESULT hResult, uint32 ulFlags, MAPIERROR** lppMAPIError) GetLastError;
@@ -1852,7 +1852,7 @@ public static
 	}
 
 
-	public HRESULT QueryInterface(Guid* riid, void** ppvObj) mut => VT.[Friend]QueryInterface(&this, riid, ppvObj);
+	public HRESULT QueryInterface(Guid riid, void** ppvObj) mut => VT.[Friend]QueryInterface(&this, riid, ppvObj);
 
 	public uint32 AddRef() mut => VT.[Friend]AddRef(&this);
 
@@ -1906,10 +1906,10 @@ public static
 public static
 {
 	[Import("rtm.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 CreateTable(Guid* lpInterface, LPALLOCATEBUFFER lpAllocateBuffer, LPALLOCATEMORE lpAllocateMore, LPFREEBUFFER lpFreeBuffer, void* lpvReserved, uint32 ulTableType, uint32 ulPropTagIndexColumn, SPropTagArray* lpSPropTagArrayColumns, ITableData** lppTableData);
+	public static extern int32 CreateTable(Guid lpInterface, LPALLOCATEBUFFER lpAllocateBuffer, LPALLOCATEMORE lpAllocateMore, LPFREEBUFFER lpFreeBuffer, void* lpvReserved, uint32 ulTableType, uint32 ulPropTagIndexColumn, SPropTagArray* lpSPropTagArrayColumns, ITableData** lppTableData);
 
 	[Import("MAPI32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 CreateIProp(Guid* lpInterface, LPALLOCATEBUFFER lpAllocateBuffer, LPALLOCATEMORE lpAllocateMore, LPFREEBUFFER lpFreeBuffer, void* lpvReserved, IPropData** lppPropData);
+	public static extern int32 CreateIProp(Guid lpInterface, LPALLOCATEBUFFER lpAllocateBuffer, LPALLOCATEMORE lpAllocateMore, LPFREEBUFFER lpFreeBuffer, void* lpvReserved, IPropData** lppPropData);
 
 	[Import("MAPI32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 MAPIInitIdle(void* lpvReserved);
@@ -2068,7 +2068,7 @@ public static
 	public static extern HRESULT WrapCompressedRTFStream(IStream* lpCompressedRTFStream, uint32 ulFlags, IStream** lpUncompressedRTFStream);
 
 	[Import("MAPI32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT HrIStorageFromStream(IUnknown* lpUnkIn, Guid* lpInterface, uint32 ulFlags, IStorage** lppStorageOut);
+	public static extern HRESULT HrIStorageFromStream(IUnknown* lpUnkIn, Guid lpInterface, uint32 ulFlags, IStorage** lppStorageOut);
 
 	[Import("MAPI32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 ScInitMapiUtil(uint32 ulFlags);

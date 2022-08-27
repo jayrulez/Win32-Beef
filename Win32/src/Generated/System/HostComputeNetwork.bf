@@ -92,10 +92,10 @@ public static
 	public static extern HRESULT HcnEnumerateNetworks(PWSTR Query, PWSTR* Networks, PWSTR* ErrorRecord);
 
 	[Import("computenetwork.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT HcnCreateNetwork(Guid* Id, PWSTR Settings, void** Network, PWSTR* ErrorRecord);
+	public static extern HRESULT HcnCreateNetwork(Guid Id, PWSTR Settings, void** Network, PWSTR* ErrorRecord);
 
 	[Import("computenetwork.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT HcnOpenNetwork(Guid* Id, void** Network, PWSTR* ErrorRecord);
+	public static extern HRESULT HcnOpenNetwork(Guid Id, void** Network, PWSTR* ErrorRecord);
 
 	[Import("computenetwork.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT HcnModifyNetwork(void* Network, PWSTR Settings, PWSTR* ErrorRecord);
@@ -104,7 +104,7 @@ public static
 	public static extern HRESULT HcnQueryNetworkProperties(void* Network, PWSTR Query, PWSTR* Properties, PWSTR* ErrorRecord);
 
 	[Import("computenetwork.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT HcnDeleteNetwork(Guid* Id, PWSTR* ErrorRecord);
+	public static extern HRESULT HcnDeleteNetwork(Guid Id, PWSTR* ErrorRecord);
 
 	[Import("computenetwork.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT HcnCloseNetwork(void* Network);
@@ -113,10 +113,10 @@ public static
 	public static extern HRESULT HcnEnumerateNamespaces(PWSTR Query, PWSTR* Namespaces, PWSTR* ErrorRecord);
 
 	[Import("computenetwork.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT HcnCreateNamespace(Guid* Id, PWSTR Settings, void** Namespace, PWSTR* ErrorRecord);
+	public static extern HRESULT HcnCreateNamespace(Guid Id, PWSTR Settings, void** Namespace, PWSTR* ErrorRecord);
 
 	[Import("computenetwork.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT HcnOpenNamespace(Guid* Id, void** Namespace, PWSTR* ErrorRecord);
+	public static extern HRESULT HcnOpenNamespace(Guid Id, void** Namespace, PWSTR* ErrorRecord);
 
 	[Import("computenetwork.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT HcnModifyNamespace(void* Namespace, PWSTR Settings, PWSTR* ErrorRecord);
@@ -125,7 +125,7 @@ public static
 	public static extern HRESULT HcnQueryNamespaceProperties(void* Namespace, PWSTR Query, PWSTR* Properties, PWSTR* ErrorRecord);
 
 	[Import("computenetwork.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT HcnDeleteNamespace(Guid* Id, PWSTR* ErrorRecord);
+	public static extern HRESULT HcnDeleteNamespace(Guid Id, PWSTR* ErrorRecord);
 
 	[Import("computenetwork.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT HcnCloseNamespace(void* Namespace);
@@ -134,10 +134,10 @@ public static
 	public static extern HRESULT HcnEnumerateEndpoints(PWSTR Query, PWSTR* Endpoints, PWSTR* ErrorRecord);
 
 	[Import("computenetwork.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT HcnCreateEndpoint(void* Network, Guid* Id, PWSTR Settings, void** Endpoint, PWSTR* ErrorRecord);
+	public static extern HRESULT HcnCreateEndpoint(void* Network, Guid Id, PWSTR Settings, void** Endpoint, PWSTR* ErrorRecord);
 
 	[Import("computenetwork.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT HcnOpenEndpoint(Guid* Id, void** Endpoint, PWSTR* ErrorRecord);
+	public static extern HRESULT HcnOpenEndpoint(Guid Id, void** Endpoint, PWSTR* ErrorRecord);
 
 	[Import("computenetwork.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT HcnModifyEndpoint(void* Endpoint, PWSTR Settings, PWSTR* ErrorRecord);
@@ -146,7 +146,7 @@ public static
 	public static extern HRESULT HcnQueryEndpointProperties(void* Endpoint, PWSTR Query, PWSTR* Properties, PWSTR* ErrorRecord);
 
 	[Import("computenetwork.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT HcnDeleteEndpoint(Guid* Id, PWSTR* ErrorRecord);
+	public static extern HRESULT HcnDeleteEndpoint(Guid Id, PWSTR* ErrorRecord);
 
 	[Import("computenetwork.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT HcnCloseEndpoint(void* Endpoint);
@@ -155,10 +155,10 @@ public static
 	public static extern HRESULT HcnEnumerateLoadBalancers(PWSTR Query, PWSTR* LoadBalancer, PWSTR* ErrorRecord);
 
 	[Import("computenetwork.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT HcnCreateLoadBalancer(Guid* Id, PWSTR Settings, void** LoadBalancer, PWSTR* ErrorRecord);
+	public static extern HRESULT HcnCreateLoadBalancer(Guid Id, PWSTR Settings, void** LoadBalancer, PWSTR* ErrorRecord);
 
 	[Import("computenetwork.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT HcnOpenLoadBalancer(Guid* Id, void** LoadBalancer, PWSTR* ErrorRecord);
+	public static extern HRESULT HcnOpenLoadBalancer(Guid Id, void** LoadBalancer, PWSTR* ErrorRecord);
 
 	[Import("computenetwork.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT HcnModifyLoadBalancer(void* LoadBalancer, PWSTR Settings, PWSTR* ErrorRecord);
@@ -167,7 +167,7 @@ public static
 	public static extern HRESULT HcnQueryLoadBalancerProperties(void* LoadBalancer, PWSTR Query, PWSTR* Properties, PWSTR* ErrorRecord);
 
 	[Import("computenetwork.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT HcnDeleteLoadBalancer(Guid* Id, PWSTR* ErrorRecord);
+	public static extern HRESULT HcnDeleteLoadBalancer(Guid Id, PWSTR* ErrorRecord);
 
 	[Import("computenetwork.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT HcnCloseLoadBalancer(void* LoadBalancer);
@@ -185,7 +185,7 @@ public static
 	public static extern HRESULT HcnUnregisterGuestNetworkServiceCallback(void* CallbackHandle);
 
 	[Import("computenetwork.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT HcnCreateGuestNetworkService(Guid* Id, PWSTR Settings, void** GuestNetworkService, PWSTR* ErrorRecord);
+	public static extern HRESULT HcnCreateGuestNetworkService(Guid Id, PWSTR Settings, void** GuestNetworkService, PWSTR* ErrorRecord);
 
 	[Import("computenetwork.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT HcnCloseGuestNetworkService(void* GuestNetworkService);
@@ -194,7 +194,7 @@ public static
 	public static extern HRESULT HcnModifyGuestNetworkService(void* GuestNetworkService, PWSTR Settings, PWSTR* ErrorRecord);
 
 	[Import("computenetwork.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT HcnDeleteGuestNetworkService(Guid* Id, PWSTR* ErrorRecord);
+	public static extern HRESULT HcnDeleteGuestNetworkService(Guid Id, PWSTR* ErrorRecord);
 
 	[Import("computenetwork.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT HcnReserveGuestNetworkServicePort(void* GuestNetworkService, HCN_PORT_PROTOCOL Protocol, HCN_PORT_ACCESS Access, uint16 Port, HANDLE* PortReservationHandle);

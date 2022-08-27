@@ -600,7 +600,7 @@ public struct SERVICE_TRIGGER
 {
 	public SERVICE_TRIGGER_TYPE dwTriggerType;
 	public SERVICE_TRIGGER_ACTION dwAction;
-	public Guid* pTriggerSubtype;
+	public Guid pTriggerSubtype;
 	public uint32 cDataItems;
 	public SERVICE_TRIGGER_SPECIFIC_DATA_ITEM* pDataItems;
 }

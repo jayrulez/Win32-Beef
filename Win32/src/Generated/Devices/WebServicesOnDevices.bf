@@ -871,8 +871,8 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWSDUdpAddress*/SelfOuter* self, WSDUdpMessageType* pMessageType) GetMessageType;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWSDUdpAddress*/SelfOuter* self, uint32 dwTTL) SetTTL;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWSDUdpAddress*/SelfOuter* self, uint32* pdwTTL) GetTTL;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWSDUdpAddress*/SelfOuter* self, Guid* pAlias) SetAlias;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWSDUdpAddress*/SelfOuter* self, Guid* pAlias) GetAlias;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWSDUdpAddress*/SelfOuter* self, Guid pAlias) SetAlias;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWSDUdpAddress*/SelfOuter* self, Guid pAlias) GetAlias;
 	}
 
 
@@ -892,9 +892,9 @@ public static
 
 	public HRESULT GetTTL(uint32* pdwTTL) mut => VT.[Friend]GetTTL(&this, pdwTTL);
 
-	public HRESULT SetAlias(Guid* pAlias) mut => VT.[Friend]SetAlias(&this, pAlias);
+	public HRESULT SetAlias(Guid pAlias) mut => VT.[Friend]SetAlias(&this, pAlias);
 
-	public HRESULT GetAlias(Guid* pAlias) mut => VT.[Friend]GetAlias(&this, pAlias);
+	public HRESULT GetAlias(Guid pAlias) mut => VT.[Friend]GetAlias(&this, pAlias);
 }
 
 [CRepr]struct IWSDHttpMessageParameters : IWSDMessageParameters
@@ -1172,7 +1172,7 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWSDiscoveredService*/SelfOuter* self, PWSTR* ppszTag) GetProbeResolveTag;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWSDiscoveredService*/SelfOuter* self, PWSTR* ppszRemoteTransportAddress) GetRemoteTransportAddress;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWSDiscoveredService*/SelfOuter* self, PWSTR* ppszLocalTransportAddress) GetLocalTransportAddress;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWSDiscoveredService*/SelfOuter* self, Guid* pGuid) GetLocalInterfaceGUID;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWSDiscoveredService*/SelfOuter* self, Guid pGuid) GetLocalInterfaceGUID;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWSDiscoveredService*/SelfOuter* self, uint64* pullInstanceId) GetInstanceId;
 	}
 
@@ -1195,7 +1195,7 @@ public static
 
 	public HRESULT GetLocalTransportAddress(PWSTR* ppszLocalTransportAddress) mut => VT.[Friend]GetLocalTransportAddress(&this, ppszLocalTransportAddress);
 
-	public HRESULT GetLocalInterfaceGUID(Guid* pGuid) mut => VT.[Friend]GetLocalInterfaceGUID(&this, pGuid);
+	public HRESULT GetLocalInterfaceGUID(Guid pGuid) mut => VT.[Friend]GetLocalInterfaceGUID(&this, pGuid);
 
 	public HRESULT GetInstanceId(uint64* pullInstanceId) mut => VT.[Friend]GetInstanceId(&this, pullInstanceId);
 }

@@ -1933,13 +1933,13 @@ public static
 	[CRepr]public struct VTable : IConsoleNameSpace.VTable
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IConsoleNameSpace2*/SelfOuter* self, int hItem) Expand;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IConsoleNameSpace2*/SelfOuter* self, int hItem, Guid* lpClsid) AddExtension;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IConsoleNameSpace2*/SelfOuter* self, int hItem, Guid lpClsid) AddExtension;
 	}
 
 
 	public HRESULT Expand(int hItem) mut => VT.[Friend]Expand(&this, hItem);
 
-	public HRESULT AddExtension(int hItem, Guid* lpClsid) mut => VT.[Friend]AddExtension(&this, hItem, lpClsid);
+	public HRESULT AddExtension(int hItem, Guid lpClsid) mut => VT.[Friend]AddExtension(&this, hItem, lpClsid);
 }
 
 [CRepr]struct IPropertySheetCallback : IUnknown
@@ -2311,16 +2311,16 @@ public static
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRequiredExtensions*/SelfOuter* self) EnableAllExtensions;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRequiredExtensions*/SelfOuter* self, Guid* pExtCLSID) GetFirstExtension;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRequiredExtensions*/SelfOuter* self, Guid* pExtCLSID) GetNextExtension;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRequiredExtensions*/SelfOuter* self, Guid pExtCLSID) GetFirstExtension;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRequiredExtensions*/SelfOuter* self, Guid pExtCLSID) GetNextExtension;
 	}
 
 
 	public HRESULT EnableAllExtensions() mut => VT.[Friend]EnableAllExtensions(&this);
 
-	public HRESULT GetFirstExtension(Guid* pExtCLSID) mut => VT.[Friend]GetFirstExtension(&this, pExtCLSID);
+	public HRESULT GetFirstExtension(Guid pExtCLSID) mut => VT.[Friend]GetFirstExtension(&this, pExtCLSID);
 
-	public HRESULT GetNextExtension(Guid* pExtCLSID) mut => VT.[Friend]GetNextExtension(&this, pExtCLSID);
+	public HRESULT GetNextExtension(Guid pExtCLSID) mut => VT.[Friend]GetNextExtension(&this, pExtCLSID);
 }
 
 [CRepr]struct IStringTable : IUnknown

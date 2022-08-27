@@ -32,14 +32,14 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGraphicsCaptureItemInterop*/SelfOuter* self, HWND window, Guid* riid, void** result) CreateForWindow;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGraphicsCaptureItemInterop*/SelfOuter* self, HMONITOR monitor, Guid* riid, void** result) CreateForMonitor;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGraphicsCaptureItemInterop*/SelfOuter* self, HWND window, Guid riid, void** result) CreateForWindow;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGraphicsCaptureItemInterop*/SelfOuter* self, HMONITOR monitor, Guid riid, void** result) CreateForMonitor;
 	}
 
 
-	public HRESULT CreateForWindow(HWND window, Guid* riid, void** result) mut => VT.[Friend]CreateForWindow(&this, window, riid, result);
+	public HRESULT CreateForWindow(HWND window, Guid riid, void** result) mut => VT.[Friend]CreateForWindow(&this, window, riid, result);
 
-	public HRESULT CreateForMonitor(HMONITOR monitor, Guid* riid, void** result) mut => VT.[Friend]CreateForMonitor(&this, monitor, riid, result);
+	public HRESULT CreateForMonitor(HMONITOR monitor, Guid riid, void** result) mut => VT.[Friend]CreateForMonitor(&this, monitor, riid, result);
 }
 
 #endregion

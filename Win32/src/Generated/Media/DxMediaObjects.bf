@@ -382,19 +382,19 @@ public static
 public static
 {
 	[Import("msdmo.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT DMORegister(PWSTR szName, Guid* clsidDMO, Guid* guidCategory, uint32 dwFlags, uint32 cInTypes, DMO_PARTIAL_MEDIATYPE* pInTypes, uint32 cOutTypes, DMO_PARTIAL_MEDIATYPE* pOutTypes);
+	public static extern HRESULT DMORegister(PWSTR szName, Guid clsidDMO, Guid guidCategory, uint32 dwFlags, uint32 cInTypes, DMO_PARTIAL_MEDIATYPE* pInTypes, uint32 cOutTypes, DMO_PARTIAL_MEDIATYPE* pOutTypes);
 
 	[Import("msdmo.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT DMOUnregister(Guid* clsidDMO, Guid* guidCategory);
+	public static extern HRESULT DMOUnregister(Guid clsidDMO, Guid guidCategory);
 
 	[Import("msdmo.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT DMOEnum(Guid* guidCategory, uint32 dwFlags, uint32 cInTypes, DMO_PARTIAL_MEDIATYPE* pInTypes, uint32 cOutTypes, DMO_PARTIAL_MEDIATYPE* pOutTypes, IEnumDMO** ppEnum);
+	public static extern HRESULT DMOEnum(Guid guidCategory, uint32 dwFlags, uint32 cInTypes, DMO_PARTIAL_MEDIATYPE* pInTypes, uint32 cOutTypes, DMO_PARTIAL_MEDIATYPE* pOutTypes, IEnumDMO** ppEnum);
 
 	[Import("msdmo.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT DMOGetTypes(Guid* clsidDMO, uint32 ulInputTypesRequested, uint32* pulInputTypesSupplied, DMO_PARTIAL_MEDIATYPE* pInputTypes, uint32 ulOutputTypesRequested, uint32* pulOutputTypesSupplied, DMO_PARTIAL_MEDIATYPE* pOutputTypes);
+	public static extern HRESULT DMOGetTypes(Guid clsidDMO, uint32 ulInputTypesRequested, uint32* pulInputTypesSupplied, DMO_PARTIAL_MEDIATYPE* pInputTypes, uint32 ulOutputTypesRequested, uint32* pulOutputTypesSupplied, DMO_PARTIAL_MEDIATYPE* pOutputTypes);
 
 	[Import("msdmo.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT DMOGetName(Guid* clsidDMO, char16* szName);
+	public static extern HRESULT DMOGetName(Guid clsidDMO, char16* szName);
 
 	[Import("msdmo.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT MoInitMediaType(DMO_MEDIA_TYPE* pmt, uint32 cbFormat);

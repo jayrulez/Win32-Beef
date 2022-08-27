@@ -49,7 +49,7 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGraphicsEffectD2D1Interop*/SelfOuter* self, Guid* id) GetEffectId;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGraphicsEffectD2D1Interop*/SelfOuter* self, Guid id) GetEffectId;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGraphicsEffectD2D1Interop*/SelfOuter* self, PWSTR name, uint32* index, GRAPHICS_EFFECT_PROPERTY_MAPPING* mapping) GetNamedPropertyMapping;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGraphicsEffectD2D1Interop*/SelfOuter* self, uint32* count) GetPropertyCount;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGraphicsEffectD2D1Interop*/SelfOuter* self, uint32 index, void** value) GetProperty;
@@ -58,7 +58,7 @@ public static
 	}
 
 
-	public HRESULT GetEffectId(Guid* id) mut => VT.[Friend]GetEffectId(&this, id);
+	public HRESULT GetEffectId(Guid id) mut => VT.[Friend]GetEffectId(&this, id);
 
 	public HRESULT GetNamedPropertyMapping(PWSTR name, uint32* index, GRAPHICS_EFFECT_PROPERTY_MAPPING* mapping) mut => VT.[Friend]GetNamedPropertyMapping(&this, name, index, mapping);
 

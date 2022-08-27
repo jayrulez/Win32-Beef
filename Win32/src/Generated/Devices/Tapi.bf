@@ -8027,11 +8027,11 @@ public static
 	public static int32 lineCreateAgent(uint32 hLine, PSTR lpszAgentID, PSTR lpszAgentPIN, uint32* lphAgent) => lineCreateAgentA(hLine, lpszAgentID, lpszAgentPIN, lphAgent);
 
 	[Import("TAPI32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 lineCreateAgentSessionW(uint32 hLine, uint32 hAgent, PWSTR lpszAgentPIN, uint32 dwWorkingAddressID, Guid* lpGroupID, uint32* lphAgentSession);
+	public static extern int32 lineCreateAgentSessionW(uint32 hLine, uint32 hAgent, PWSTR lpszAgentPIN, uint32 dwWorkingAddressID, Guid lpGroupID, uint32* lphAgentSession);
 
 	[Import("TAPI32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 lineCreateAgentSessionA(uint32 hLine, uint32 hAgent, PSTR lpszAgentPIN, uint32 dwWorkingAddressID, Guid* lpGroupID, uint32* lphAgentSession);
-	public static int32 lineCreateAgentSession(uint32 hLine, uint32 hAgent, PSTR lpszAgentPIN, uint32 dwWorkingAddressID, Guid* lpGroupID, uint32* lphAgentSession) => lineCreateAgentSessionA(hLine, hAgent, lpszAgentPIN, dwWorkingAddressID, lpGroupID, lphAgentSession);
+	public static extern int32 lineCreateAgentSessionA(uint32 hLine, uint32 hAgent, PSTR lpszAgentPIN, uint32 dwWorkingAddressID, Guid lpGroupID, uint32* lphAgentSession);
+	public static int32 lineCreateAgentSession(uint32 hLine, uint32 hAgent, PSTR lpszAgentPIN, uint32 dwWorkingAddressID, Guid lpGroupID, uint32* lphAgentSession) => lineCreateAgentSessionA(hLine, hAgent, lpszAgentPIN, dwWorkingAddressID, lpGroupID, lphAgentSession);
 
 	[Import("TAPI32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 lineDeallocateCall(uint32 hCall);
@@ -8258,11 +8258,11 @@ public static
 	public static extern int32 lineGetQueueInfo(uint32 hLine, uint32 dwQueueID, LINEQUEUEINFO* lpLineQueueInfo);
 
 	[Import("TAPI32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 lineGetQueueListA(uint32 hLine, Guid* lpGroupID, LINEQUEUELIST* lpQueueList);
-	public static int32 lineGetQueueList(uint32 hLine, Guid* lpGroupID, LINEQUEUELIST* lpQueueList) => lineGetQueueListA(hLine, lpGroupID, lpQueueList);
+	public static extern int32 lineGetQueueListA(uint32 hLine, Guid lpGroupID, LINEQUEUELIST* lpQueueList);
+	public static int32 lineGetQueueList(uint32 hLine, Guid lpGroupID, LINEQUEUELIST* lpQueueList) => lineGetQueueListA(hLine, lpGroupID, lpQueueList);
 
 	[Import("TAPI32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern int32 lineGetQueueListW(uint32 hLine, Guid* lpGroupID, LINEQUEUELIST* lpQueueList);
+	public static extern int32 lineGetQueueListW(uint32 hLine, Guid lpGroupID, LINEQUEUELIST* lpQueueList);
 
 	[Import("TAPI32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 lineGetRequest(uint32 hLineApp, uint32 dwRequestMode, void* lpRequestBuffer);

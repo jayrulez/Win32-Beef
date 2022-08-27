@@ -3832,10 +3832,10 @@ public static
 	public static extern NTSTATUS CreateSortedAddressPairs(SOCKADDR_IN6* SourceAddressList, uint32 SourceAddressCount, SOCKADDR_IN6* DestinationAddressList, uint32 DestinationAddressCount, uint32 AddressSortOptions, SOCKADDR_IN6_PAIR** SortedAddressPairList, uint32* SortedAddressPairCount);
 
 	[Import("IPHLPAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern NTSTATUS ConvertCompartmentGuidToId(Guid* CompartmentGuid, uint32* CompartmentId);
+	public static extern NTSTATUS ConvertCompartmentGuidToId(Guid CompartmentGuid, uint32* CompartmentId);
 
 	[Import("IPHLPAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern NTSTATUS ConvertCompartmentIdToGuid(uint32 CompartmentId, Guid* CompartmentGuid);
+	public static extern NTSTATUS ConvertCompartmentIdToGuid(uint32 CompartmentId, Guid CompartmentGuid);
 
 	[Import("IPHLPAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern NTSTATUS ConvertInterfaceNameToLuidA(PSTR InterfaceName, NET_LUID_LH* InterfaceLuid);
@@ -3864,10 +3864,10 @@ public static
 	public static extern NTSTATUS ConvertInterfaceAliasToLuid(PWSTR InterfaceAlias, NET_LUID_LH* InterfaceLuid);
 
 	[Import("IPHLPAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern NTSTATUS ConvertInterfaceLuidToGuid(NET_LUID_LH* InterfaceLuid, Guid* InterfaceGuid);
+	public static extern NTSTATUS ConvertInterfaceLuidToGuid(NET_LUID_LH* InterfaceLuid, Guid InterfaceGuid);
 
 	[Import("IPHLPAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern NTSTATUS ConvertInterfaceGuidToLuid(Guid* InterfaceGuid, NET_LUID_LH* InterfaceLuid);
+	public static extern NTSTATUS ConvertInterfaceGuidToLuid(Guid InterfaceGuid, NET_LUID_LH* InterfaceLuid);
 
 	[Import("IPHLPAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 if_nametoindex(PSTR InterfaceName);
@@ -3903,10 +3903,10 @@ public static
 	public static extern uint32 GetDefaultCompartmentId();
 
 	[Import("IPHLPAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern NTSTATUS GetNetworkInformation(Guid* NetworkGuid, uint32* CompartmentId, uint32* SiteId, char16* NetworkName, uint32 Length);
+	public static extern NTSTATUS GetNetworkInformation(Guid NetworkGuid, uint32* CompartmentId, uint32* SiteId, char16* NetworkName, uint32 Length);
 
 	[Import("IPHLPAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern NTSTATUS SetNetworkInformation(Guid* NetworkGuid, uint32 CompartmentId, PWSTR NetworkName);
+	public static extern NTSTATUS SetNetworkInformation(Guid NetworkGuid, uint32 CompartmentId, PWSTR NetworkName);
 
 	[Import("IPHLPAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern NTSTATUS ConvertLengthToIpv4Mask(uint32 MaskLength, uint32* Mask);

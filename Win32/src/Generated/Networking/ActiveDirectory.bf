@@ -1549,7 +1549,7 @@ public enum DSROLE_OPERATION_STATE : int32
 #region Function Pointers
 public function HRESULT LPCQADDFORMSPROC(LPARAM lParam, CQFORM* pForm);
 
-public function HRESULT LPCQADDPAGESPROC(LPARAM lParam, Guid* clsidForm, CQPAGE* pPage);
+public function HRESULT LPCQADDPAGESPROC(LPARAM lParam, Guid clsidForm, CQPAGE* pPage);
 
 public function HRESULT LPCQPAGEPROC(CQPAGE* pPage, HWND hwnd, uint32 uMsg, WPARAM wParam, LPARAM lParam);
 
@@ -2168,8 +2168,8 @@ public struct DS_REPSYNCALL_SYNCA
 	public PSTR pszSrcId;
 	public PSTR pszDstId;
 	public PSTR pszNC;
-	public Guid* pguidSrc;
-	public Guid* pguidDst;
+	public Guid pguidSrc;
+	public Guid pguidDst;
 }
 
 [CRepr]
@@ -2178,8 +2178,8 @@ public struct DS_REPSYNCALL_SYNCW
 	public PWSTR pszSrcId;
 	public PWSTR pszDstId;
 	public PWSTR pszNC;
-	public Guid* pguidSrc;
-	public Guid* pguidDst;
+	public Guid pguidSrc;
+	public Guid pguidDst;
 }
 
 [CRepr]
@@ -3260,8 +3260,8 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPrivateDispatch*/SelfOuter* self, int32 dwExtensionId) ADSIInitializeDispatchManager;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPrivateDispatch*/SelfOuter* self, uint32* pctinfo) ADSIGetTypeInfoCount;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPrivateDispatch*/SelfOuter* self, uint32 itinfo, uint32 lcid, ITypeInfo** pptinfo) ADSIGetTypeInfo;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPrivateDispatch*/SelfOuter* self, Guid* riid, uint16** rgszNames, uint32 cNames, uint32 lcid, int32* rgdispid) ADSIGetIDsOfNames;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPrivateDispatch*/SelfOuter* self, int32 dispidMember, Guid* riid, uint32 lcid, uint16 wFlags, DISPPARAMS* pdispparams, VARIANT* pvarResult, EXCEPINFO* pexcepinfo, uint32* puArgErr) ADSIInvoke;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPrivateDispatch*/SelfOuter* self, Guid riid, uint16** rgszNames, uint32 cNames, uint32 lcid, int32* rgdispid) ADSIGetIDsOfNames;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPrivateDispatch*/SelfOuter* self, int32 dispidMember, Guid riid, uint32 lcid, uint16 wFlags, DISPPARAMS* pdispparams, VARIANT* pvarResult, EXCEPINFO* pexcepinfo, uint32* puArgErr) ADSIInvoke;
 	}
 
 
@@ -3271,9 +3271,9 @@ public static
 
 	public HRESULT ADSIGetTypeInfo(uint32 itinfo, uint32 lcid, ITypeInfo** pptinfo) mut => VT.[Friend]ADSIGetTypeInfo(&this, itinfo, lcid, pptinfo);
 
-	public HRESULT ADSIGetIDsOfNames(Guid* riid, uint16** rgszNames, uint32 cNames, uint32 lcid, int32* rgdispid) mut => VT.[Friend]ADSIGetIDsOfNames(&this, riid, rgszNames, cNames, lcid, rgdispid);
+	public HRESULT ADSIGetIDsOfNames(Guid riid, uint16** rgszNames, uint32 cNames, uint32 lcid, int32* rgdispid) mut => VT.[Friend]ADSIGetIDsOfNames(&this, riid, rgszNames, cNames, lcid, rgdispid);
 
-	public HRESULT ADSIInvoke(int32 dispidMember, Guid* riid, uint32 lcid, uint16 wFlags, DISPPARAMS* pdispparams, VARIANT* pvarResult, EXCEPINFO* pexcepinfo, uint32* puArgErr) mut => VT.[Friend]ADSIInvoke(&this, dispidMember, riid, lcid, wFlags, pdispparams, pvarResult, pexcepinfo, puArgErr);
+	public HRESULT ADSIInvoke(int32 dispidMember, Guid riid, uint32 lcid, uint16 wFlags, DISPPARAMS* pdispparams, VARIANT* pvarResult, EXCEPINFO* pexcepinfo, uint32* puArgErr) mut => VT.[Friend]ADSIInvoke(&this, dispidMember, riid, lcid, wFlags, pdispparams, pvarResult, pexcepinfo, puArgErr);
 }
 
 [CRepr]struct IPrivateUnknown : IUnknown
@@ -3303,16 +3303,16 @@ public static
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IADsExtension*/SelfOuter* self, uint32 dwCode, VARIANT varData1, VARIANT varData2, VARIANT varData3) Operate;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IADsExtension*/SelfOuter* self, Guid* riid, uint16** rgszNames, uint32 cNames, uint32 lcid, int32* rgDispid) PrivateGetIDsOfNames;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IADsExtension*/SelfOuter* self, int32 dispidMember, Guid* riid, uint32 lcid, uint16 wFlags, DISPPARAMS* pdispparams, VARIANT* pvarResult, EXCEPINFO* pexcepinfo, uint32* puArgErr) PrivateInvoke;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IADsExtension*/SelfOuter* self, Guid riid, uint16** rgszNames, uint32 cNames, uint32 lcid, int32* rgDispid) PrivateGetIDsOfNames;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IADsExtension*/SelfOuter* self, int32 dispidMember, Guid riid, uint32 lcid, uint16 wFlags, DISPPARAMS* pdispparams, VARIANT* pvarResult, EXCEPINFO* pexcepinfo, uint32* puArgErr) PrivateInvoke;
 	}
 
 
 	public HRESULT Operate(uint32 dwCode, VARIANT varData1, VARIANT varData2, VARIANT varData3) mut => VT.[Friend]Operate(&this, dwCode, varData1, varData2, varData3);
 
-	public HRESULT PrivateGetIDsOfNames(Guid* riid, uint16** rgszNames, uint32 cNames, uint32 lcid, int32* rgDispid) mut => VT.[Friend]PrivateGetIDsOfNames(&this, riid, rgszNames, cNames, lcid, rgDispid);
+	public HRESULT PrivateGetIDsOfNames(Guid riid, uint16** rgszNames, uint32 cNames, uint32 lcid, int32* rgDispid) mut => VT.[Friend]PrivateGetIDsOfNames(&this, riid, rgszNames, cNames, lcid, rgDispid);
 
-	public HRESULT PrivateInvoke(int32 dispidMember, Guid* riid, uint32 lcid, uint16 wFlags, DISPPARAMS* pdispparams, VARIANT* pvarResult, EXCEPINFO* pexcepinfo, uint32* puArgErr) mut => VT.[Friend]PrivateInvoke(&this, dispidMember, riid, lcid, wFlags, pdispparams, pvarResult, pexcepinfo, puArgErr);
+	public HRESULT PrivateInvoke(int32 dispidMember, Guid riid, uint32 lcid, uint16 wFlags, DISPPARAMS* pdispparams, VARIANT* pvarResult, EXCEPINFO* pexcepinfo, uint32* puArgErr) mut => VT.[Friend]PrivateInvoke(&this, dispidMember, riid, lcid, wFlags, pdispparams, pvarResult, pexcepinfo, puArgErr);
 }
 
 [CRepr]struct IADsDeleteOps : IDispatch
@@ -4750,8 +4750,8 @@ public static
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IADsAggregatee*/SelfOuter* self, IUnknown* pOuterUnknown) ConnectAsAggregatee;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IADsAggregatee*/SelfOuter* self) DisconnectAsAggregatee;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IADsAggregatee*/SelfOuter* self, Guid* riid) RelinquishInterface;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IADsAggregatee*/SelfOuter* self, Guid* riid) RestoreInterface;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IADsAggregatee*/SelfOuter* self, Guid riid) RelinquishInterface;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IADsAggregatee*/SelfOuter* self, Guid riid) RestoreInterface;
 	}
 
 
@@ -4759,9 +4759,9 @@ public static
 
 	public HRESULT DisconnectAsAggregatee() mut => VT.[Friend]DisconnectAsAggregatee(&this);
 
-	public HRESULT RelinquishInterface(Guid* riid) mut => VT.[Friend]RelinquishInterface(&this, riid);
+	public HRESULT RelinquishInterface(Guid riid) mut => VT.[Friend]RelinquishInterface(&this, riid);
 
-	public HRESULT RestoreInterface(Guid* riid) mut => VT.[Friend]RestoreInterface(&this, riid);
+	public HRESULT RestoreInterface(Guid riid) mut => VT.[Friend]RestoreInterface(&this, riid);
 }
 
 [CRepr]struct IADsAggregator : IUnknown
@@ -5587,7 +5587,7 @@ public static
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDsDisplaySpecifier*/SelfOuter* self, PWSTR pszServer, PWSTR pszUserName, PWSTR pszPassword, uint32 dwFlags) SetServer;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDsDisplaySpecifier*/SelfOuter* self, uint16 langid) SetLanguageID;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDsDisplaySpecifier*/SelfOuter* self, PWSTR pszObjectClass, Guid* riid, void** ppv) GetDisplaySpecifier;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDsDisplaySpecifier*/SelfOuter* self, PWSTR pszObjectClass, Guid riid, void** ppv) GetDisplaySpecifier;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDsDisplaySpecifier*/SelfOuter* self, PWSTR pszObjectClass, uint32 dwFlags, char16* pszBuffer, int32 cchBuffer, int32* presid) GetIconLocation;
 		protected new function [CallingConvention(.Stdcall)] HICON(/*IDsDisplaySpecifier*/SelfOuter* self, PWSTR pszObjectClass, uint32 dwFlags, int32 cxIcon, int32 cyIcon) GetIcon;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDsDisplaySpecifier*/SelfOuter* self, PWSTR pszObjectClass, char16* pszBuffer, int32 cchBuffer) GetFriendlyClassName;
@@ -5603,7 +5603,7 @@ public static
 
 	public HRESULT SetLanguageID(uint16 langid) mut => VT.[Friend]SetLanguageID(&this, langid);
 
-	public HRESULT GetDisplaySpecifier(PWSTR pszObjectClass, Guid* riid, void** ppv) mut => VT.[Friend]GetDisplaySpecifier(&this, pszObjectClass, riid, ppv);
+	public HRESULT GetDisplaySpecifier(PWSTR pszObjectClass, Guid riid, void** ppv) mut => VT.[Friend]GetDisplaySpecifier(&this, pszObjectClass, riid, ppv);
 
 	public HRESULT GetIconLocation(PWSTR pszObjectClass, uint32 dwFlags, char16* pszBuffer, int32 cchBuffer, int32* presid) mut => VT.[Friend]GetIconLocation(&this, pszObjectClass, dwFlags, pszBuffer, cchBuffer, presid);
 
@@ -5769,7 +5769,7 @@ public static
 public static
 {
 	[Import("ACTIVEDS.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT ADsGetObject(PWSTR lpszPathName, Guid* riid, void** ppObject);
+	public static extern HRESULT ADsGetObject(PWSTR lpszPathName, Guid riid, void** ppObject);
 
 	[Import("ACTIVEDS.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT ADsBuildEnumerator(IADsContainer* pADsContainer, IEnumVARIANT** ppEnumVariant);
@@ -5787,7 +5787,7 @@ public static
 	public static extern HRESULT ADsBuildVarArrayInt(uint32* lpdwObjectTypes, uint32 dwObjectTypes, VARIANT* pVar);
 
 	[Import("ACTIVEDS.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT ADsOpenObject(PWSTR lpszPathName, PWSTR lpszUserName, PWSTR lpszPassword, ADS_AUTHENTICATION_ENUM dwReserved, Guid* riid, void** ppObject);
+	public static extern HRESULT ADsOpenObject(PWSTR lpszPathName, PWSTR lpszUserName, PWSTR lpszPassword, ADS_AUTHENTICATION_ENUM dwReserved, Guid riid, void** ppObject);
 
 	[Import("ACTIVEDS.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT ADsGetLastError(uint32* lpError, char16* lpErrorBuf, uint32 dwErrorBufLen, char16* lpNameBuf, uint32 dwNameBufLen);
@@ -5900,11 +5900,11 @@ public static
 	public static extern uint32 DsGetRdnW(PWSTR* ppDN, uint32* pcDN, PWSTR* ppKey, uint32* pcKey, PWSTR* ppVal, uint32* pcVal);
 
 	[Import("DSPARSE.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL DsCrackUnquotedMangledRdnW(char16* pszRDN, uint32 cchRDN, Guid* pGuid, DS_MANGLE_FOR* peDsMangleFor);
+	public static extern BOOL DsCrackUnquotedMangledRdnW(char16* pszRDN, uint32 cchRDN, Guid pGuid, DS_MANGLE_FOR* peDsMangleFor);
 
 	[Import("DSPARSE.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL DsCrackUnquotedMangledRdnA(uint8* pszRDN, uint32 cchRDN, Guid* pGuid, DS_MANGLE_FOR* peDsMangleFor);
-	public static BOOL DsCrackUnquotedMangledRdn(uint8* pszRDN, uint32 cchRDN, Guid* pGuid, DS_MANGLE_FOR* peDsMangleFor) => DsCrackUnquotedMangledRdnA(pszRDN, cchRDN, pGuid, peDsMangleFor);
+	public static extern BOOL DsCrackUnquotedMangledRdnA(uint8* pszRDN, uint32 cchRDN, Guid pGuid, DS_MANGLE_FOR* peDsMangleFor);
+	public static BOOL DsCrackUnquotedMangledRdn(uint8* pszRDN, uint32 cchRDN, Guid pGuid, DS_MANGLE_FOR* peDsMangleFor) => DsCrackUnquotedMangledRdnA(pszRDN, cchRDN, pGuid, peDsMangleFor);
 
 	[Import("DSPARSE.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL DsIsMangledRdnValueW(char16* pszRdn, uint32 cRdn, DS_MANGLE_FOR eDsMangleForDesired);
@@ -5962,11 +5962,11 @@ public static
 	public static uint32 DsBindWithSpnEx(PSTR DomainControllerName, PSTR DnsDomainName, void* AuthIdentity, PSTR ServicePrincipalName, uint32 BindFlags, HANDLE* phDS) => DsBindWithSpnExA(DomainControllerName, DnsDomainName, AuthIdentity, ServicePrincipalName, BindFlags, phDS);
 
 	[Import("NTDSAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 DsBindByInstanceW(PWSTR ServerName, PWSTR Annotation, Guid* InstanceGuid, PWSTR DnsDomainName, void* AuthIdentity, PWSTR ServicePrincipalName, uint32 BindFlags, HANDLE* phDS);
+	public static extern uint32 DsBindByInstanceW(PWSTR ServerName, PWSTR Annotation, Guid InstanceGuid, PWSTR DnsDomainName, void* AuthIdentity, PWSTR ServicePrincipalName, uint32 BindFlags, HANDLE* phDS);
 
 	[Import("NTDSAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 DsBindByInstanceA(PSTR ServerName, PSTR Annotation, Guid* InstanceGuid, PSTR DnsDomainName, void* AuthIdentity, PSTR ServicePrincipalName, uint32 BindFlags, HANDLE* phDS);
-	public static uint32 DsBindByInstance(PSTR ServerName, PSTR Annotation, Guid* InstanceGuid, PSTR DnsDomainName, void* AuthIdentity, PSTR ServicePrincipalName, uint32 BindFlags, HANDLE* phDS) => DsBindByInstanceA(ServerName, Annotation, InstanceGuid, DnsDomainName, AuthIdentity, ServicePrincipalName, BindFlags, phDS);
+	public static extern uint32 DsBindByInstanceA(PSTR ServerName, PSTR Annotation, Guid InstanceGuid, PSTR DnsDomainName, void* AuthIdentity, PSTR ServicePrincipalName, uint32 BindFlags, HANDLE* phDS);
+	public static uint32 DsBindByInstance(PSTR ServerName, PSTR Annotation, Guid InstanceGuid, PSTR DnsDomainName, void* AuthIdentity, PSTR ServicePrincipalName, uint32 BindFlags, HANDLE* phDS) => DsBindByInstanceA(ServerName, Annotation, InstanceGuid, DnsDomainName, AuthIdentity, ServicePrincipalName, BindFlags, phDS);
 
 	[Import("NTDSAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 DsBindToISTGW(PWSTR SiteName, HANDLE* phDS);
@@ -6045,11 +6045,11 @@ public static
 	public static extern uint32 DsServerRegisterSpnW(DS_SPN_WRITE_OP Operation, PWSTR ServiceClass, PWSTR UserObjectDN);
 
 	[Import("NTDSAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 DsReplicaSyncA(HANDLE hDS, PSTR NameContext, Guid* pUuidDsaSrc, uint32 Options);
-	public static uint32 DsReplicaSync(HANDLE hDS, PSTR NameContext, Guid* pUuidDsaSrc, uint32 Options) => DsReplicaSyncA(hDS, NameContext, pUuidDsaSrc, Options);
+	public static extern uint32 DsReplicaSyncA(HANDLE hDS, PSTR NameContext, Guid pUuidDsaSrc, uint32 Options);
+	public static uint32 DsReplicaSync(HANDLE hDS, PSTR NameContext, Guid pUuidDsaSrc, uint32 Options) => DsReplicaSyncA(hDS, NameContext, pUuidDsaSrc, Options);
 
 	[Import("NTDSAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 DsReplicaSyncW(HANDLE hDS, PWSTR NameContext, Guid* pUuidDsaSrc, uint32 Options);
+	public static extern uint32 DsReplicaSyncW(HANDLE hDS, PWSTR NameContext, Guid pUuidDsaSrc, uint32 Options);
 
 	[Import("NTDSAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 DsReplicaAddA(HANDLE hDS, PSTR NameContext, PSTR SourceDsaDn, PSTR TransportDn, PSTR SourceDsaAddress, SCHEDULE* pSchedule, uint32 Options);
@@ -6066,18 +6066,18 @@ public static
 	public static extern uint32 DsReplicaDelW(HANDLE hDS, PWSTR NameContext, PWSTR DsaSrc, uint32 Options);
 
 	[Import("NTDSAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 DsReplicaModifyA(HANDLE hDS, PSTR NameContext, Guid* pUuidSourceDsa, PSTR TransportDn, PSTR SourceDsaAddress, SCHEDULE* pSchedule, uint32 ReplicaFlags, uint32 ModifyFields, uint32 Options);
-	public static uint32 DsReplicaModify(HANDLE hDS, PSTR NameContext, Guid* pUuidSourceDsa, PSTR TransportDn, PSTR SourceDsaAddress, SCHEDULE* pSchedule, uint32 ReplicaFlags, uint32 ModifyFields, uint32 Options) => DsReplicaModifyA(hDS, NameContext, pUuidSourceDsa, TransportDn, SourceDsaAddress, pSchedule, ReplicaFlags, ModifyFields, Options);
+	public static extern uint32 DsReplicaModifyA(HANDLE hDS, PSTR NameContext, Guid pUuidSourceDsa, PSTR TransportDn, PSTR SourceDsaAddress, SCHEDULE* pSchedule, uint32 ReplicaFlags, uint32 ModifyFields, uint32 Options);
+	public static uint32 DsReplicaModify(HANDLE hDS, PSTR NameContext, Guid pUuidSourceDsa, PSTR TransportDn, PSTR SourceDsaAddress, SCHEDULE* pSchedule, uint32 ReplicaFlags, uint32 ModifyFields, uint32 Options) => DsReplicaModifyA(hDS, NameContext, pUuidSourceDsa, TransportDn, SourceDsaAddress, pSchedule, ReplicaFlags, ModifyFields, Options);
 
 	[Import("NTDSAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 DsReplicaModifyW(HANDLE hDS, PWSTR NameContext, Guid* pUuidSourceDsa, PWSTR TransportDn, PWSTR SourceDsaAddress, SCHEDULE* pSchedule, uint32 ReplicaFlags, uint32 ModifyFields, uint32 Options);
+	public static extern uint32 DsReplicaModifyW(HANDLE hDS, PWSTR NameContext, Guid pUuidSourceDsa, PWSTR TransportDn, PWSTR SourceDsaAddress, SCHEDULE* pSchedule, uint32 ReplicaFlags, uint32 ModifyFields, uint32 Options);
 
 	[Import("NTDSAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 DsReplicaUpdateRefsA(HANDLE hDS, PSTR NameContext, PSTR DsaDest, Guid* pUuidDsaDest, uint32 Options);
-	public static uint32 DsReplicaUpdateRefs(HANDLE hDS, PSTR NameContext, PSTR DsaDest, Guid* pUuidDsaDest, uint32 Options) => DsReplicaUpdateRefsA(hDS, NameContext, DsaDest, pUuidDsaDest, Options);
+	public static extern uint32 DsReplicaUpdateRefsA(HANDLE hDS, PSTR NameContext, PSTR DsaDest, Guid pUuidDsaDest, uint32 Options);
+	public static uint32 DsReplicaUpdateRefs(HANDLE hDS, PSTR NameContext, PSTR DsaDest, Guid pUuidDsaDest, uint32 Options) => DsReplicaUpdateRefsA(hDS, NameContext, DsaDest, pUuidDsaDest, Options);
 
 	[Import("NTDSAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 DsReplicaUpdateRefsW(HANDLE hDS, PWSTR NameContext, PWSTR DsaDest, Guid* pUuidDsaDest, uint32 Options);
+	public static extern uint32 DsReplicaUpdateRefsW(HANDLE hDS, PWSTR NameContext, PWSTR DsaDest, Guid pUuidDsaDest, uint32 Options);
 
 	[Import("NTDSAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 DsReplicaSyncAllA(HANDLE hDS, PSTR pszNameContext, uint32 ulFlags, int pFnCallBack, void* pCallbackData, DS_REPSYNCALL_ERRINFOA*** pErrors);
@@ -6184,17 +6184,17 @@ public static
 	public static extern uint32 DsReplicaConsistencyCheck(HANDLE hDS, DS_KCC_TASKID TaskID, uint32 dwFlags);
 
 	[Import("NTDSAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 DsReplicaVerifyObjectsW(HANDLE hDS, PWSTR NameContext, Guid* pUuidDsaSrc, uint32 ulOptions);
+	public static extern uint32 DsReplicaVerifyObjectsW(HANDLE hDS, PWSTR NameContext, Guid pUuidDsaSrc, uint32 ulOptions);
 
 	[Import("NTDSAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 DsReplicaVerifyObjectsA(HANDLE hDS, PSTR NameContext, Guid* pUuidDsaSrc, uint32 ulOptions);
-	public static uint32 DsReplicaVerifyObjects(HANDLE hDS, PSTR NameContext, Guid* pUuidDsaSrc, uint32 ulOptions) => DsReplicaVerifyObjectsA(hDS, NameContext, pUuidDsaSrc, ulOptions);
+	public static extern uint32 DsReplicaVerifyObjectsA(HANDLE hDS, PSTR NameContext, Guid pUuidDsaSrc, uint32 ulOptions);
+	public static uint32 DsReplicaVerifyObjects(HANDLE hDS, PSTR NameContext, Guid pUuidDsaSrc, uint32 ulOptions) => DsReplicaVerifyObjectsA(hDS, NameContext, pUuidDsaSrc, ulOptions);
 
 	[Import("NTDSAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 DsReplicaGetInfoW(HANDLE hDS, DS_REPL_INFO_TYPE InfoType, PWSTR pszObject, Guid* puuidForSourceDsaObjGuid, void** ppInfo);
+	public static extern uint32 DsReplicaGetInfoW(HANDLE hDS, DS_REPL_INFO_TYPE InfoType, PWSTR pszObject, Guid puuidForSourceDsaObjGuid, void** ppInfo);
 
 	[Import("NTDSAPI.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 DsReplicaGetInfo2W(HANDLE hDS, DS_REPL_INFO_TYPE InfoType, PWSTR pszObject, Guid* puuidForSourceDsaObjGuid, PWSTR pszAttributeName, PWSTR pszValue, uint32 dwFlags, uint32 dwEnumerationContext, void** ppInfo);
+	public static extern uint32 DsReplicaGetInfo2W(HANDLE hDS, DS_REPL_INFO_TYPE InfoType, PWSTR pszObject, Guid puuidForSourceDsaObjGuid, PWSTR pszAttributeName, PWSTR pszValue, uint32 dwFlags, uint32 dwEnumerationContext, void** ppInfo);
 
 	[Import("NTDSAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern void DsReplicaFreeInfo(DS_REPL_INFO_TYPE InfoType, void* pInfo);
@@ -6220,11 +6220,11 @@ public static
 	public static extern void DsRoleFreeMemory(void* Buffer);
 
 	[Import("NETAPI32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 DsGetDcNameA(PSTR ComputerName, PSTR DomainName, Guid* DomainGuid, PSTR SiteName, uint32 Flags, DOMAIN_CONTROLLER_INFOA** DomainControllerInfo);
-	public static uint32 DsGetDcName(PSTR ComputerName, PSTR DomainName, Guid* DomainGuid, PSTR SiteName, uint32 Flags, DOMAIN_CONTROLLER_INFOA** DomainControllerInfo) => DsGetDcNameA(ComputerName, DomainName, DomainGuid, SiteName, Flags, DomainControllerInfo);
+	public static extern uint32 DsGetDcNameA(PSTR ComputerName, PSTR DomainName, Guid DomainGuid, PSTR SiteName, uint32 Flags, DOMAIN_CONTROLLER_INFOA** DomainControllerInfo);
+	public static uint32 DsGetDcName(PSTR ComputerName, PSTR DomainName, Guid DomainGuid, PSTR SiteName, uint32 Flags, DOMAIN_CONTROLLER_INFOA** DomainControllerInfo) => DsGetDcNameA(ComputerName, DomainName, DomainGuid, SiteName, Flags, DomainControllerInfo);
 
 	[Import("NETAPI32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 DsGetDcNameW(PWSTR ComputerName, PWSTR DomainName, Guid* DomainGuid, PWSTR SiteName, uint32 Flags, DOMAIN_CONTROLLER_INFOW** DomainControllerInfo);
+	public static extern uint32 DsGetDcNameW(PWSTR ComputerName, PWSTR DomainName, Guid DomainGuid, PWSTR SiteName, uint32 Flags, DOMAIN_CONTROLLER_INFOW** DomainControllerInfo);
 
 	[Import("NETAPI32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 DsGetSiteNameA(PSTR ComputerName, PSTR* SiteName);
@@ -6275,18 +6275,18 @@ public static
 	public static uint32 DsGetDcSiteCoverage(PSTR ServerName, uint32* EntryCount, PSTR** SiteNames) => DsGetDcSiteCoverageA(ServerName, EntryCount, SiteNames);
 
 	[Import("NETAPI32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 DsDeregisterDnsHostRecordsW(PWSTR ServerName, PWSTR DnsDomainName, Guid* DomainGuid, Guid* DsaGuid, PWSTR DnsHostName);
+	public static extern uint32 DsDeregisterDnsHostRecordsW(PWSTR ServerName, PWSTR DnsDomainName, Guid DomainGuid, Guid DsaGuid, PWSTR DnsHostName);
 
 	[Import("NETAPI32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 DsDeregisterDnsHostRecordsA(PSTR ServerName, PSTR DnsDomainName, Guid* DomainGuid, Guid* DsaGuid, PSTR DnsHostName);
-	public static uint32 DsDeregisterDnsHostRecords(PSTR ServerName, PSTR DnsDomainName, Guid* DomainGuid, Guid* DsaGuid, PSTR DnsHostName) => DsDeregisterDnsHostRecordsA(ServerName, DnsDomainName, DomainGuid, DsaGuid, DnsHostName);
+	public static extern uint32 DsDeregisterDnsHostRecordsA(PSTR ServerName, PSTR DnsDomainName, Guid DomainGuid, Guid DsaGuid, PSTR DnsHostName);
+	public static uint32 DsDeregisterDnsHostRecords(PSTR ServerName, PSTR DnsDomainName, Guid DomainGuid, Guid DsaGuid, PSTR DnsHostName) => DsDeregisterDnsHostRecordsA(ServerName, DnsDomainName, DomainGuid, DsaGuid, DnsHostName);
 
 	[Import("NETAPI32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 DsGetDcOpenW(PWSTR DnsName, uint32 OptionFlags, PWSTR SiteName, Guid* DomainGuid, PWSTR DnsForestName, uint32 DcFlags, GetDcContextHandle* RetGetDcContext);
+	public static extern uint32 DsGetDcOpenW(PWSTR DnsName, uint32 OptionFlags, PWSTR SiteName, Guid DomainGuid, PWSTR DnsForestName, uint32 DcFlags, GetDcContextHandle* RetGetDcContext);
 
 	[Import("NETAPI32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern uint32 DsGetDcOpenA(PSTR DnsName, uint32 OptionFlags, PSTR SiteName, Guid* DomainGuid, PSTR DnsForestName, uint32 DcFlags, GetDcContextHandle* RetGetDcContext);
-	public static uint32 DsGetDcOpen(PSTR DnsName, uint32 OptionFlags, PSTR SiteName, Guid* DomainGuid, PSTR DnsForestName, uint32 DcFlags, GetDcContextHandle* RetGetDcContext) => DsGetDcOpenA(DnsName, OptionFlags, SiteName, DomainGuid, DnsForestName, DcFlags, RetGetDcContext);
+	public static extern uint32 DsGetDcOpenA(PSTR DnsName, uint32 OptionFlags, PSTR SiteName, Guid DomainGuid, PSTR DnsForestName, uint32 DcFlags, GetDcContextHandle* RetGetDcContext);
+	public static uint32 DsGetDcOpen(PSTR DnsName, uint32 OptionFlags, PSTR SiteName, Guid DomainGuid, PSTR DnsForestName, uint32 DcFlags, GetDcContextHandle* RetGetDcContext) => DsGetDcOpenA(DnsName, OptionFlags, SiteName, DomainGuid, DnsForestName, DcFlags, RetGetDcContext);
 
 	[Import("NETAPI32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 DsGetDcNextW(HANDLE GetDcContextHandle, uint32* SockAddressCount, SOCKET_ADDRESS** SockAddresses, PWSTR* DnsHostName);

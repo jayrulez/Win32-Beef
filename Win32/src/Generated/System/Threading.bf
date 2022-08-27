@@ -1350,10 +1350,10 @@ public static
 	public static extern BOOL IsProcessCritical(HANDLE hProcess, BOOL* Critical);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL SetProtectedPolicy(Guid* PolicyGuid, uint PolicyValue, uint* OldPolicyValue);
+	public static extern BOOL SetProtectedPolicy(Guid PolicyGuid, uint PolicyValue, uint* OldPolicyValue);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern BOOL QueryProtectedPolicy(Guid* PolicyGuid, uint* PolicyValue);
+	public static extern BOOL QueryProtectedPolicy(Guid PolicyGuid, uint* PolicyValue);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 SetThreadIdealProcessor(HANDLE hThread, uint32 dwIdealProcessor);

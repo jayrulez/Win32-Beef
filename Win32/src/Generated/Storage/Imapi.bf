@@ -1101,7 +1101,7 @@ public struct IMMP_MPV_STORE_DRIVER_HANDLE
 [CRepr]
 public struct tagIMMPID_GUIDLIST_ITEM
 {
-	public Guid* pguid;
+	public Guid pguid;
 	public uint32 dwStart;
 	public uint32 dwLast;
 }
@@ -3171,8 +3171,8 @@ public static
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscMaster*/SelfOuter* self) Open;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscMaster*/SelfOuter* self, IEnumDiscMasterFormats** ppEnum) EnumDiscMasterFormats;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscMaster*/SelfOuter* self, Guid* lpiid) GetActiveDiscMasterFormat;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscMaster*/SelfOuter* self, Guid* riid, void** ppUnk) SetActiveDiscMasterFormat;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscMaster*/SelfOuter* self, Guid lpiid) GetActiveDiscMasterFormat;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscMaster*/SelfOuter* self, Guid riid, void** ppUnk) SetActiveDiscMasterFormat;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscMaster*/SelfOuter* self, IEnumDiscRecorders** ppEnum) EnumDiscRecorders;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscMaster*/SelfOuter* self, IDiscRecorder** ppRecorder) GetActiveDiscRecorder;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDiscMaster*/SelfOuter* self, IDiscRecorder* pRecorder) SetActiveDiscRecorder;
@@ -3188,9 +3188,9 @@ public static
 
 	public HRESULT EnumDiscMasterFormats(IEnumDiscMasterFormats** ppEnum) mut => VT.[Friend]EnumDiscMasterFormats(&this, ppEnum);
 
-	public HRESULT GetActiveDiscMasterFormat(Guid* lpiid) mut => VT.[Friend]GetActiveDiscMasterFormat(&this, lpiid);
+	public HRESULT GetActiveDiscMasterFormat(Guid lpiid) mut => VT.[Friend]GetActiveDiscMasterFormat(&this, lpiid);
 
-	public HRESULT SetActiveDiscMasterFormat(Guid* riid, void** ppUnk) mut => VT.[Friend]SetActiveDiscMasterFormat(&this, riid, ppUnk);
+	public HRESULT SetActiveDiscMasterFormat(Guid riid, void** ppUnk) mut => VT.[Friend]SetActiveDiscMasterFormat(&this, riid, ppUnk);
 
 	public HRESULT EnumDiscRecorders(IEnumDiscRecorders** ppEnum) mut => VT.[Friend]EnumDiscRecorders(&this, ppEnum);
 

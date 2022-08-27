@@ -2476,10 +2476,10 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISpObjectToken*/SelfOuter* self, PWSTR pszCategoryId, PWSTR pszTokenId, BOOL fCreateIfNotExist) SetId;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISpObjectToken*/SelfOuter* self, PWSTR* ppszCoMemTokenId) GetId;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISpObjectToken*/SelfOuter* self, ISpObjectTokenCategory** ppTokenCategory) GetCategory;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISpObjectToken*/SelfOuter* self, IUnknown* pUnkOuter, uint32 dwClsContext, Guid* riid, void** ppvObject) CreateInstance;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISpObjectToken*/SelfOuter* self, Guid* clsidCaller, PWSTR pszValueName, PWSTR pszFileNameSpecifier, uint32 nFolder, PWSTR* ppszFilePath) GetStorageFileName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISpObjectToken*/SelfOuter* self, Guid* clsidCaller, PWSTR pszKeyName, BOOL fDeleteFile) RemoveStorageFileName;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISpObjectToken*/SelfOuter* self, Guid* pclsidCaller) Remove;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISpObjectToken*/SelfOuter* self, IUnknown* pUnkOuter, uint32 dwClsContext, Guid riid, void** ppvObject) CreateInstance;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISpObjectToken*/SelfOuter* self, Guid clsidCaller, PWSTR pszValueName, PWSTR pszFileNameSpecifier, uint32 nFolder, PWSTR* ppszFilePath) GetStorageFileName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISpObjectToken*/SelfOuter* self, Guid clsidCaller, PWSTR pszKeyName, BOOL fDeleteFile) RemoveStorageFileName;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISpObjectToken*/SelfOuter* self, Guid pclsidCaller) Remove;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISpObjectToken*/SelfOuter* self, PWSTR pszTypeOfUI, void* pvExtraData, uint32 cbExtraData, IUnknown* punkObject, BOOL* pfSupported) IsUISupported;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISpObjectToken*/SelfOuter* self, HWND hwndParent, PWSTR pszTitle, PWSTR pszTypeOfUI, void* pvExtraData, uint32 cbExtraData, IUnknown* punkObject) DisplayUI;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISpObjectToken*/SelfOuter* self, PWSTR pszAttributes, BOOL* pfMatches) MatchesAttributes;
@@ -2492,13 +2492,13 @@ public static
 
 	public HRESULT GetCategory(ISpObjectTokenCategory** ppTokenCategory) mut => VT.[Friend]GetCategory(&this, ppTokenCategory);
 
-	public HRESULT CreateInstance(IUnknown* pUnkOuter, uint32 dwClsContext, Guid* riid, void** ppvObject) mut => VT.[Friend]CreateInstance(&this, pUnkOuter, dwClsContext, riid, ppvObject);
+	public HRESULT CreateInstance(IUnknown* pUnkOuter, uint32 dwClsContext, Guid riid, void** ppvObject) mut => VT.[Friend]CreateInstance(&this, pUnkOuter, dwClsContext, riid, ppvObject);
 
-	public HRESULT GetStorageFileName(Guid* clsidCaller, PWSTR pszValueName, PWSTR pszFileNameSpecifier, uint32 nFolder, PWSTR* ppszFilePath) mut => VT.[Friend]GetStorageFileName(&this, clsidCaller, pszValueName, pszFileNameSpecifier, nFolder, ppszFilePath);
+	public HRESULT GetStorageFileName(Guid clsidCaller, PWSTR pszValueName, PWSTR pszFileNameSpecifier, uint32 nFolder, PWSTR* ppszFilePath) mut => VT.[Friend]GetStorageFileName(&this, clsidCaller, pszValueName, pszFileNameSpecifier, nFolder, ppszFilePath);
 
-	public HRESULT RemoveStorageFileName(Guid* clsidCaller, PWSTR pszKeyName, BOOL fDeleteFile) mut => VT.[Friend]RemoveStorageFileName(&this, clsidCaller, pszKeyName, fDeleteFile);
+	public HRESULT RemoveStorageFileName(Guid clsidCaller, PWSTR pszKeyName, BOOL fDeleteFile) mut => VT.[Friend]RemoveStorageFileName(&this, clsidCaller, pszKeyName, fDeleteFile);
 
-	public HRESULT Remove(Guid* pclsidCaller) mut => VT.[Friend]Remove(&this, pclsidCaller);
+	public HRESULT Remove(Guid pclsidCaller) mut => VT.[Friend]Remove(&this, pclsidCaller);
 
 	public HRESULT IsUISupported(PWSTR pszTypeOfUI, void* pvExtraData, uint32 cbExtraData, IUnknown* punkObject, BOOL* pfSupported) mut => VT.[Friend]IsUISupported(&this, pszTypeOfUI, pvExtraData, cbExtraData, punkObject, pfSupported);
 
@@ -2578,14 +2578,14 @@ public static
 
 	[CRepr]public struct VTable : IServiceProvider.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISpResourceManager*/SelfOuter* self, Guid* guidServiceId, IUnknown* pUnkObject) SetObject;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISpResourceManager*/SelfOuter* self, Guid* guidServiceId, Guid* ObjectCLSID, Guid* ObjectIID, BOOL fReleaseWhenLastExternalRefReleased, void** ppObject) GetObject;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISpResourceManager*/SelfOuter* self, Guid guidServiceId, IUnknown* pUnkObject) SetObject;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISpResourceManager*/SelfOuter* self, Guid guidServiceId, Guid ObjectCLSID, Guid ObjectIID, BOOL fReleaseWhenLastExternalRefReleased, void** ppObject) GetObject;
 	}
 
 
-	public HRESULT SetObject(Guid* guidServiceId, IUnknown* pUnkObject) mut => VT.[Friend]SetObject(&this, guidServiceId, pUnkObject);
+	public HRESULT SetObject(Guid guidServiceId, IUnknown* pUnkObject) mut => VT.[Friend]SetObject(&this, guidServiceId, pUnkObject);
 
-	public HRESULT GetObject(Guid* guidServiceId, Guid* ObjectCLSID, Guid* ObjectIID, BOOL fReleaseWhenLastExternalRefReleased, void** ppObject) mut => VT.[Friend]GetObject(&this, guidServiceId, ObjectCLSID, ObjectIID, fReleaseWhenLastExternalRefReleased, ppObject);
+	public HRESULT GetObject(Guid guidServiceId, Guid ObjectCLSID, Guid ObjectIID, BOOL fReleaseWhenLastExternalRefReleased, void** ppObject) mut => VT.[Friend]GetObject(&this, guidServiceId, ObjectCLSID, ObjectIID, fReleaseWhenLastExternalRefReleased, ppObject);
 }
 
 [CRepr]struct ISpEventSource : ISpNotifySource
@@ -2650,11 +2650,11 @@ public static
 
 	[CRepr]public struct VTable : IStream.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISpStreamFormat*/SelfOuter* self, Guid* pguidFormatId, WAVEFORMATEX** ppCoMemWaveFormatEx) GetFormat;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISpStreamFormat*/SelfOuter* self, Guid pguidFormatId, WAVEFORMATEX** ppCoMemWaveFormatEx) GetFormat;
 	}
 
 
-	public HRESULT GetFormat(Guid* pguidFormatId, WAVEFORMATEX** ppCoMemWaveFormatEx) mut => VT.[Friend]GetFormat(&this, pguidFormatId, ppCoMemWaveFormatEx);
+	public HRESULT GetFormat(Guid pguidFormatId, WAVEFORMATEX** ppCoMemWaveFormatEx) mut => VT.[Friend]GetFormat(&this, pguidFormatId, ppCoMemWaveFormatEx);
 }
 
 [CRepr]struct ISpStream : ISpStreamFormat
@@ -2665,18 +2665,18 @@ public static
 
 	[CRepr]public struct VTable : ISpStreamFormat.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISpStream*/SelfOuter* self, IStream* pStream, Guid* rguidFormat, WAVEFORMATEX* pWaveFormatEx) SetBaseStream;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISpStream*/SelfOuter* self, IStream* pStream, Guid rguidFormat, WAVEFORMATEX* pWaveFormatEx) SetBaseStream;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISpStream*/SelfOuter* self, IStream** ppStream) GetBaseStream;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISpStream*/SelfOuter* self, PWSTR pszFileName, SPFILEMODE eMode, Guid* pFormatId, WAVEFORMATEX* pWaveFormatEx, uint64 ullEventInterest) BindToFile;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISpStream*/SelfOuter* self, PWSTR pszFileName, SPFILEMODE eMode, Guid pFormatId, WAVEFORMATEX* pWaveFormatEx, uint64 ullEventInterest) BindToFile;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISpStream*/SelfOuter* self) Close;
 	}
 
 
-	public HRESULT SetBaseStream(IStream* pStream, Guid* rguidFormat, WAVEFORMATEX* pWaveFormatEx) mut => VT.[Friend]SetBaseStream(&this, pStream, rguidFormat, pWaveFormatEx);
+	public HRESULT SetBaseStream(IStream* pStream, Guid rguidFormat, WAVEFORMATEX* pWaveFormatEx) mut => VT.[Friend]SetBaseStream(&this, pStream, rguidFormat, pWaveFormatEx);
 
 	public HRESULT GetBaseStream(IStream** ppStream) mut => VT.[Friend]GetBaseStream(&this, ppStream);
 
-	public HRESULT BindToFile(PWSTR pszFileName, SPFILEMODE eMode, Guid* pFormatId, WAVEFORMATEX* pWaveFormatEx, uint64 ullEventInterest) mut => VT.[Friend]BindToFile(&this, pszFileName, eMode, pFormatId, pWaveFormatEx, ullEventInterest);
+	public HRESULT BindToFile(PWSTR pszFileName, SPFILEMODE eMode, Guid pFormatId, WAVEFORMATEX* pWaveFormatEx, uint64 ullEventInterest) mut => VT.[Friend]BindToFile(&this, pszFileName, eMode, pFormatId, pWaveFormatEx, ullEventInterest);
 
 	public HRESULT Close() mut => VT.[Friend]Close(&this);
 }
@@ -2691,7 +2691,7 @@ public static
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISpStreamFormatConverter*/SelfOuter* self, ISpStreamFormat* pStream, BOOL fSetFormatToBaseStreamFormat, BOOL fWriteToBaseStream) SetBaseStream;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISpStreamFormatConverter*/SelfOuter* self, ISpStreamFormat** ppStream) GetBaseStream;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISpStreamFormatConverter*/SelfOuter* self, Guid* rguidFormatIdOfConvertedStream, WAVEFORMATEX* pWaveFormatExOfConvertedStream) SetFormat;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISpStreamFormatConverter*/SelfOuter* self, Guid rguidFormatIdOfConvertedStream, WAVEFORMATEX* pWaveFormatExOfConvertedStream) SetFormat;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISpStreamFormatConverter*/SelfOuter* self) ResetSeekPosition;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISpStreamFormatConverter*/SelfOuter* self, uint64 ullOffsetConvertedStream, uint64* pullOffsetBaseStream) ScaleConvertedToBaseOffset;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISpStreamFormatConverter*/SelfOuter* self, uint64 ullOffsetBaseStream, uint64* pullOffsetConvertedStream) ScaleBaseToConvertedOffset;
@@ -2702,7 +2702,7 @@ public static
 
 	public HRESULT GetBaseStream(ISpStreamFormat** ppStream) mut => VT.[Friend]GetBaseStream(&this, ppStream);
 
-	public HRESULT SetFormat(Guid* rguidFormatIdOfConvertedStream, WAVEFORMATEX* pWaveFormatExOfConvertedStream) mut => VT.[Friend]SetFormat(&this, rguidFormatIdOfConvertedStream, pWaveFormatExOfConvertedStream);
+	public HRESULT SetFormat(Guid rguidFormatIdOfConvertedStream, WAVEFORMATEX* pWaveFormatExOfConvertedStream) mut => VT.[Friend]SetFormat(&this, rguidFormatIdOfConvertedStream, pWaveFormatExOfConvertedStream);
 
 	public HRESULT ResetSeekPosition() mut => VT.[Friend]ResetSeekPosition(&this);
 
@@ -2720,11 +2720,11 @@ public static
 	[CRepr]public struct VTable : ISpStreamFormat.VTable
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISpAudio*/SelfOuter* self, SPAUDIOSTATE NewState, uint64 ullReserved) SetState;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISpAudio*/SelfOuter* self, Guid* rguidFmtId, WAVEFORMATEX* pWaveFormatEx) SetFormat;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISpAudio*/SelfOuter* self, Guid rguidFmtId, WAVEFORMATEX* pWaveFormatEx) SetFormat;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISpAudio*/SelfOuter* self, SPAUDIOSTATUS* pStatus) GetStatus;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISpAudio*/SelfOuter* self, SPAUDIOBUFFERINFO* pBuffInfo) SetBufferInfo;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISpAudio*/SelfOuter* self, SPAUDIOBUFFERINFO* pBuffInfo) GetBufferInfo;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISpAudio*/SelfOuter* self, Guid* pFormatId, WAVEFORMATEX** ppCoMemWaveFormatEx) GetDefaultFormat;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISpAudio*/SelfOuter* self, Guid pFormatId, WAVEFORMATEX** ppCoMemWaveFormatEx) GetDefaultFormat;
 		protected new function [CallingConvention(.Stdcall)] HANDLE(/*ISpAudio*/SelfOuter* self) EventHandle;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISpAudio*/SelfOuter* self, uint32* pLevel) GetVolumeLevel;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISpAudio*/SelfOuter* self, uint32 Level) SetVolumeLevel;
@@ -2735,7 +2735,7 @@ public static
 
 	public HRESULT SetState(SPAUDIOSTATE NewState, uint64 ullReserved) mut => VT.[Friend]SetState(&this, NewState, ullReserved);
 
-	public HRESULT SetFormat(Guid* rguidFmtId, WAVEFORMATEX* pWaveFormatEx) mut => VT.[Friend]SetFormat(&this, rguidFmtId, pWaveFormatEx);
+	public HRESULT SetFormat(Guid rguidFmtId, WAVEFORMATEX* pWaveFormatEx) mut => VT.[Friend]SetFormat(&this, rguidFmtId, pWaveFormatEx);
 
 	public HRESULT GetStatus(SPAUDIOSTATUS* pStatus) mut => VT.[Friend]GetStatus(&this, pStatus);
 
@@ -2743,7 +2743,7 @@ public static
 
 	public HRESULT GetBufferInfo(SPAUDIOBUFFERINFO* pBuffInfo) mut => VT.[Friend]GetBufferInfo(&this, pBuffInfo);
 
-	public HRESULT GetDefaultFormat(Guid* pFormatId, WAVEFORMATEX** ppCoMemWaveFormatEx) mut => VT.[Friend]GetDefaultFormat(&this, pFormatId, ppCoMemWaveFormatEx);
+	public HRESULT GetDefaultFormat(Guid pFormatId, WAVEFORMATEX** ppCoMemWaveFormatEx) mut => VT.[Friend]GetDefaultFormat(&this, pFormatId, ppCoMemWaveFormatEx);
 
 	public HANDLE EventHandle() mut => VT.[Friend]EventHandle(&this);
 
@@ -3108,7 +3108,7 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISpRecoResult*/SelfOuter* self, uint32 ulStartElement, uint32 cElements, ISpStreamFormat** ppStream) GetAudio;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISpRecoResult*/SelfOuter* self, uint32 ulStartElement, uint32 cElements, uint32 dwFlags, uint32* pulStreamNumber) SpeakAudio;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISpRecoResult*/SelfOuter* self, SPSERIALIZEDRESULT** ppCoMemSerializedResult) Serialize;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISpRecoResult*/SelfOuter* self, Guid* pAudioFormatId, WAVEFORMATEX* pWaveFormatEx) ScaleAudio;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISpRecoResult*/SelfOuter* self, Guid pAudioFormatId, WAVEFORMATEX* pWaveFormatEx) ScaleAudio;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISpRecoResult*/SelfOuter* self, ISpRecoContext** ppRecoContext) GetRecoContext;
 	}
 
@@ -3123,7 +3123,7 @@ public static
 
 	public HRESULT Serialize(SPSERIALIZEDRESULT** ppCoMemSerializedResult) mut => VT.[Friend]Serialize(&this, ppCoMemSerializedResult);
 
-	public HRESULT ScaleAudio(Guid* pAudioFormatId, WAVEFORMATEX* pWaveFormatEx) mut => VT.[Friend]ScaleAudio(&this, pAudioFormatId, pWaveFormatEx);
+	public HRESULT ScaleAudio(Guid pAudioFormatId, WAVEFORMATEX* pWaveFormatEx) mut => VT.[Friend]ScaleAudio(&this, pAudioFormatId, pWaveFormatEx);
 
 	public HRESULT GetRecoContext(ISpRecoContext** ppRecoContext) mut => VT.[Friend]GetRecoContext(&this, ppRecoContext);
 }
@@ -3214,10 +3214,10 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISpRecoGrammar*/SelfOuter* self, uint64* pullGrammarId) GetGrammarId;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISpRecoGrammar*/SelfOuter* self, ISpRecoContext** ppRecoCtxt) GetRecoContext;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISpRecoGrammar*/SelfOuter* self, PWSTR pszFileName, SPLOADOPTIONS Options) LoadCmdFromFile;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISpRecoGrammar*/SelfOuter* self, Guid* rcid, PWSTR pszGrammarName, SPLOADOPTIONS Options) LoadCmdFromObject;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISpRecoGrammar*/SelfOuter* self, Guid rcid, PWSTR pszGrammarName, SPLOADOPTIONS Options) LoadCmdFromObject;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISpRecoGrammar*/SelfOuter* self, HINSTANCE hModule, PWSTR pszResourceName, PWSTR pszResourceType, uint16 wLanguage, SPLOADOPTIONS Options) LoadCmdFromResource;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISpRecoGrammar*/SelfOuter* self, SPBINARYGRAMMAR* pGrammar, SPLOADOPTIONS Options) LoadCmdFromMemory;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISpRecoGrammar*/SelfOuter* self, Guid* rguidParam, PWSTR pszStringParam, void* pvDataPrarm, uint32 cbDataSize, SPLOADOPTIONS Options) LoadCmdFromProprietaryGrammar;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISpRecoGrammar*/SelfOuter* self, Guid rguidParam, PWSTR pszStringParam, void* pvDataPrarm, uint32 cbDataSize, SPLOADOPTIONS Options) LoadCmdFromProprietaryGrammar;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISpRecoGrammar*/SelfOuter* self, PWSTR pszName, void* pReserved, SPRULESTATE NewState) SetRuleState;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISpRecoGrammar*/SelfOuter* self, uint32 ulRuleId, SPRULESTATE NewState) SetRuleIdState;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISpRecoGrammar*/SelfOuter* self, PWSTR pszTopicName, SPLOADOPTIONS Options) LoadDictation;
@@ -3238,13 +3238,13 @@ public static
 
 	public HRESULT LoadCmdFromFile(PWSTR pszFileName, SPLOADOPTIONS Options) mut => VT.[Friend]LoadCmdFromFile(&this, pszFileName, Options);
 
-	public HRESULT LoadCmdFromObject(Guid* rcid, PWSTR pszGrammarName, SPLOADOPTIONS Options) mut => VT.[Friend]LoadCmdFromObject(&this, rcid, pszGrammarName, Options);
+	public HRESULT LoadCmdFromObject(Guid rcid, PWSTR pszGrammarName, SPLOADOPTIONS Options) mut => VT.[Friend]LoadCmdFromObject(&this, rcid, pszGrammarName, Options);
 
 	public HRESULT LoadCmdFromResource(HINSTANCE hModule, PWSTR pszResourceName, PWSTR pszResourceType, uint16 wLanguage, SPLOADOPTIONS Options) mut => VT.[Friend]LoadCmdFromResource(&this, hModule, pszResourceName, pszResourceType, wLanguage, Options);
 
 	public HRESULT LoadCmdFromMemory(SPBINARYGRAMMAR* pGrammar, SPLOADOPTIONS Options) mut => VT.[Friend]LoadCmdFromMemory(&this, pGrammar, Options);
 
-	public HRESULT LoadCmdFromProprietaryGrammar(Guid* rguidParam, PWSTR pszStringParam, void* pvDataPrarm, uint32 cbDataSize, SPLOADOPTIONS Options) mut => VT.[Friend]LoadCmdFromProprietaryGrammar(&this, rguidParam, pszStringParam, pvDataPrarm, cbDataSize, Options);
+	public HRESULT LoadCmdFromProprietaryGrammar(Guid rguidParam, PWSTR pszStringParam, void* pvDataPrarm, uint32 cbDataSize, SPLOADOPTIONS Options) mut => VT.[Friend]LoadCmdFromProprietaryGrammar(&this, rguidParam, pszStringParam, pvDataPrarm, cbDataSize, Options);
 
 	public HRESULT SetRuleState(PWSTR pszName, void* pReserved, SPRULESTATE NewState) mut => VT.[Friend]SetRuleState(&this, pszName, pReserved, NewState);
 
@@ -3357,8 +3357,8 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISpRecoContext*/SelfOuter* self, SPRECOCONTEXTSTATUS* pStatus) GetStatus;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISpRecoContext*/SelfOuter* self, uint32* pcAlternates) GetMaxAlternates;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISpRecoContext*/SelfOuter* self, uint32 cAlternates) SetMaxAlternates;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISpRecoContext*/SelfOuter* self, SPAUDIOOPTIONS Options, Guid* pAudioFormatId, WAVEFORMATEX* pWaveFormatEx) SetAudioOptions;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISpRecoContext*/SelfOuter* self, SPAUDIOOPTIONS* pOptions, Guid* pAudioFormatId, WAVEFORMATEX** ppCoMemWFEX) GetAudioOptions;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISpRecoContext*/SelfOuter* self, SPAUDIOOPTIONS Options, Guid pAudioFormatId, WAVEFORMATEX* pWaveFormatEx) SetAudioOptions;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISpRecoContext*/SelfOuter* self, SPAUDIOOPTIONS* pOptions, Guid pAudioFormatId, WAVEFORMATEX** ppCoMemWFEX) GetAudioOptions;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISpRecoContext*/SelfOuter* self, SPSERIALIZEDRESULT* pSerializedResult, ISpRecoResult** ppResult) DeserializeResult;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISpRecoContext*/SelfOuter* self, SPBOOKMARKOPTIONS Options, uint64 ullStreamPosition, LPARAM lparamEvent) Bookmark;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISpRecoContext*/SelfOuter* self, PWSTR pAdaptationData, uint32 cch) SetAdaptationData;
@@ -3383,9 +3383,9 @@ public static
 
 	public HRESULT SetMaxAlternates(uint32 cAlternates) mut => VT.[Friend]SetMaxAlternates(&this, cAlternates);
 
-	public HRESULT SetAudioOptions(SPAUDIOOPTIONS Options, Guid* pAudioFormatId, WAVEFORMATEX* pWaveFormatEx) mut => VT.[Friend]SetAudioOptions(&this, Options, pAudioFormatId, pWaveFormatEx);
+	public HRESULT SetAudioOptions(SPAUDIOOPTIONS Options, Guid pAudioFormatId, WAVEFORMATEX* pWaveFormatEx) mut => VT.[Friend]SetAudioOptions(&this, Options, pAudioFormatId, pWaveFormatEx);
 
-	public HRESULT GetAudioOptions(SPAUDIOOPTIONS* pOptions, Guid* pAudioFormatId, WAVEFORMATEX** ppCoMemWFEX) mut => VT.[Friend]GetAudioOptions(&this, pOptions, pAudioFormatId, ppCoMemWFEX);
+	public HRESULT GetAudioOptions(SPAUDIOOPTIONS* pOptions, Guid pAudioFormatId, WAVEFORMATEX** ppCoMemWFEX) mut => VT.[Friend]GetAudioOptions(&this, pOptions, pAudioFormatId, ppCoMemWFEX);
 
 	public HRESULT DeserializeResult(SPSERIALIZEDRESULT* pSerializedResult, ISpRecoResult** ppResult) mut => VT.[Friend]DeserializeResult(&this, pSerializedResult, ppResult);
 
@@ -3475,7 +3475,7 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISpRecognizer*/SelfOuter* self, SPRECOSTATE* pState) GetRecoState;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISpRecognizer*/SelfOuter* self, SPRECOSTATE NewState) SetRecoState;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISpRecognizer*/SelfOuter* self, SPRECOGNIZERSTATUS* pStatus) GetStatus;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISpRecognizer*/SelfOuter* self, SPWAVEFORMATTYPE WaveFormatType, Guid* pFormatId, WAVEFORMATEX** ppCoMemWFEX) GetFormat;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISpRecognizer*/SelfOuter* self, SPWAVEFORMATTYPE WaveFormatType, Guid pFormatId, WAVEFORMATEX** ppCoMemWFEX) GetFormat;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISpRecognizer*/SelfOuter* self, PWSTR pszTypeOfUI, void* pvExtraData, uint32 cbExtraData, BOOL* pfSupported) IsUISupported;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISpRecognizer*/SelfOuter* self, HWND hwndParent, PWSTR pszTitle, PWSTR pszTypeOfUI, void* pvExtraData, uint32 cbExtraData) DisplayUI;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISpRecognizer*/SelfOuter* self, ISpPhrase* pPhrase) EmulateRecognition;
@@ -3506,7 +3506,7 @@ public static
 
 	public HRESULT GetStatus(SPRECOGNIZERSTATUS* pStatus) mut => VT.[Friend]GetStatus(&this, pStatus);
 
-	public HRESULT GetFormat(SPWAVEFORMATTYPE WaveFormatType, Guid* pFormatId, WAVEFORMATEX** ppCoMemWFEX) mut => VT.[Friend]GetFormat(&this, WaveFormatType, pFormatId, ppCoMemWFEX);
+	public HRESULT GetFormat(SPWAVEFORMATTYPE WaveFormatType, Guid pFormatId, WAVEFORMATEX** ppCoMemWFEX) mut => VT.[Friend]GetFormat(&this, WaveFormatType, pFormatId, ppCoMemWFEX);
 
 	public HRESULT IsUISupported(PWSTR pszTypeOfUI, void* pvExtraData, uint32 cbExtraData, BOOL* pfSupported) mut => VT.[Friend]IsUISupported(&this, pszTypeOfUI, pvExtraData, cbExtraData, pfSupported);
 

@@ -839,7 +839,7 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWindowsParentalControlsCore*/SelfOuter* self, WPCFLAG_VISIBILITY* peVisibility) GetVisibility;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWindowsParentalControlsCore*/SelfOuter* self, PWSTR pcszSID, IWPCSettings** ppSettings) GetUserSettings;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWindowsParentalControlsCore*/SelfOuter* self, PWSTR pcszSID, IWPCWebSettings** ppSettings) GetWebSettings;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWindowsParentalControlsCore*/SelfOuter* self, Guid* pguidID, PWSTR* ppszName) GetWebFilterInfo;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWindowsParentalControlsCore*/SelfOuter* self, Guid pguidID, PWSTR* ppszName) GetWebFilterInfo;
 	}
 
 
@@ -849,7 +849,7 @@ public static
 
 	public HRESULT GetWebSettings(PWSTR pcszSID, IWPCWebSettings** ppSettings) mut => VT.[Friend]GetWebSettings(&this, pcszSID, ppSettings);
 
-	public HRESULT GetWebFilterInfo(Guid* pguidID, PWSTR* ppszName) mut => VT.[Friend]GetWebFilterInfo(&this, pguidID, ppszName);
+	public HRESULT GetWebFilterInfo(Guid pguidID, PWSTR* ppszName) mut => VT.[Friend]GetWebFilterInfo(&this, pguidID, ppszName);
 }
 
 [CRepr]struct IWindowsParentalControls : IWindowsParentalControlsCore
@@ -875,11 +875,11 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWPCProviderSupport*/SelfOuter* self, Guid* pguidProvider) GetCurrent;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IWPCProviderSupport*/SelfOuter* self, Guid pguidProvider) GetCurrent;
 	}
 
 
-	public HRESULT GetCurrent(Guid* pguidProvider) mut => VT.[Friend]GetCurrent(&this, pguidProvider);
+	public HRESULT GetCurrent(Guid pguidProvider) mut => VT.[Friend]GetCurrent(&this, pguidProvider);
 }
 
 #endregion

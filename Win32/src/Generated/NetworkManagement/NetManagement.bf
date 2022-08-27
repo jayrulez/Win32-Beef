@@ -7057,9 +7057,9 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*INetCfg*/SelfOuter* self) Uninitialize;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*INetCfg*/SelfOuter* self) Apply;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*INetCfg*/SelfOuter* self) Cancel;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*INetCfg*/SelfOuter* self, Guid* pguidClass, IEnumNetCfgComponent** ppenumComponent) EnumComponents;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*INetCfg*/SelfOuter* self, Guid pguidClass, IEnumNetCfgComponent** ppenumComponent) EnumComponents;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*INetCfg*/SelfOuter* self, PWSTR pszwInfId, INetCfgComponent** pComponent) FindComponent;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*INetCfg*/SelfOuter* self, Guid* pguidClass, Guid* riid, void** ppvObject) QueryNetCfgClass;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*INetCfg*/SelfOuter* self, Guid pguidClass, Guid riid, void** ppvObject) QueryNetCfgClass;
 	}
 
 
@@ -7071,11 +7071,11 @@ public static
 
 	public HRESULT Cancel() mut => VT.[Friend]Cancel(&this);
 
-	public HRESULT EnumComponents(Guid* pguidClass, IEnumNetCfgComponent** ppenumComponent) mut => VT.[Friend]EnumComponents(&this, pguidClass, ppenumComponent);
+	public HRESULT EnumComponents(Guid pguidClass, IEnumNetCfgComponent** ppenumComponent) mut => VT.[Friend]EnumComponents(&this, pguidClass, ppenumComponent);
 
 	public HRESULT FindComponent(PWSTR pszwInfId, INetCfgComponent** pComponent) mut => VT.[Friend]FindComponent(&this, pszwInfId, pComponent);
 
-	public HRESULT QueryNetCfgClass(Guid* pguidClass, Guid* riid, void** ppvObject) mut => VT.[Friend]QueryNetCfgClass(&this, pguidClass, riid, ppvObject);
+	public HRESULT QueryNetCfgClass(Guid pguidClass, Guid riid, void** ppvObject) mut => VT.[Friend]QueryNetCfgClass(&this, pguidClass, riid, ppvObject);
 }
 
 [CRepr]struct INetCfgLock : IUnknown
@@ -7223,9 +7223,9 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*INetCfgComponent*/SelfOuter* self, PWSTR* pszwHelpText) GetHelpText;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*INetCfgComponent*/SelfOuter* self, PWSTR* ppszwId) GetId;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*INetCfgComponent*/SelfOuter* self, uint32* pdwCharacteristics) GetCharacteristics;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*INetCfgComponent*/SelfOuter* self, Guid* pGuid) GetInstanceGuid;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*INetCfgComponent*/SelfOuter* self, Guid pGuid) GetInstanceGuid;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*INetCfgComponent*/SelfOuter* self, PWSTR* ppszwDevNodeId) GetPnpDevNodeId;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*INetCfgComponent*/SelfOuter* self, Guid* pGuid) GetClassGuid;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*INetCfgComponent*/SelfOuter* self, Guid pGuid) GetClassGuid;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*INetCfgComponent*/SelfOuter* self, PWSTR* ppszwBindName) GetBindName;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*INetCfgComponent*/SelfOuter* self, uint32* pulStatus) GetDeviceStatus;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*INetCfgComponent*/SelfOuter* self, HKEY* phkey) OpenParamKey;
@@ -7243,11 +7243,11 @@ public static
 
 	public HRESULT GetCharacteristics(uint32* pdwCharacteristics) mut => VT.[Friend]GetCharacteristics(&this, pdwCharacteristics);
 
-	public HRESULT GetInstanceGuid(Guid* pGuid) mut => VT.[Friend]GetInstanceGuid(&this, pGuid);
+	public HRESULT GetInstanceGuid(Guid pGuid) mut => VT.[Friend]GetInstanceGuid(&this, pGuid);
 
 	public HRESULT GetPnpDevNodeId(PWSTR* ppszwDevNodeId) mut => VT.[Friend]GetPnpDevNodeId(&this, ppszwDevNodeId);
 
-	public HRESULT GetClassGuid(Guid* pGuid) mut => VT.[Friend]GetClassGuid(&this, pGuid);
+	public HRESULT GetClassGuid(Guid pGuid) mut => VT.[Friend]GetClassGuid(&this, pGuid);
 
 	public HRESULT GetBindName(PWSTR* ppszwBindName) mut => VT.[Friend]GetBindName(&this, ppszwBindName);
 
@@ -7461,13 +7461,13 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*INetCfgComponentUpperEdge*/SelfOuter* self, INetCfgComponent* pAdapter, uint32* pdwNumInterfaces, Guid** ppguidInterfaceIds) GetInterfaceIdsForAdapter;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*INetCfgComponentUpperEdge*/SelfOuter* self, INetCfgComponent* pAdapter, uint32* pdwNumInterfaces, Guid* ppguidInterfaceIds) GetInterfaceIdsForAdapter;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*INetCfgComponentUpperEdge*/SelfOuter* self) AddInterfacesToAdapter;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*INetCfgComponentUpperEdge*/SelfOuter* self, INetCfgComponent* pAdapter, uint32 dwNumInterfaces, Guid* pguidInterfaceIds) RemoveInterfacesFromAdapter;
 	}
 
 
-	public HRESULT GetInterfaceIdsForAdapter(INetCfgComponent* pAdapter, uint32* pdwNumInterfaces, Guid** ppguidInterfaceIds) mut => VT.[Friend]GetInterfaceIdsForAdapter(&this, pAdapter, pdwNumInterfaces, ppguidInterfaceIds);
+	public HRESULT GetInterfaceIdsForAdapter(INetCfgComponent* pAdapter, uint32* pdwNumInterfaces, Guid* ppguidInterfaceIds) mut => VT.[Friend]GetInterfaceIdsForAdapter(&this, pAdapter, pdwNumInterfaces, ppguidInterfaceIds);
 
 	public HRESULT AddInterfacesToAdapter() mut => VT.[Friend]AddInterfacesToAdapter(&this);
 
@@ -7482,11 +7482,11 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*INetLanConnectionUiInfo*/SelfOuter* self, Guid* pguid) GetDeviceGuid;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*INetLanConnectionUiInfo*/SelfOuter* self, Guid pguid) GetDeviceGuid;
 	}
 
 
-	public HRESULT GetDeviceGuid(Guid* pguid) mut => VT.[Friend]GetDeviceGuid(&this, pguid);
+	public HRESULT GetDeviceGuid(Guid pguid) mut => VT.[Friend]GetDeviceGuid(&this, pguid);
 }
 
 [CRepr]struct INetRasConnectionIpUiInfo : IUnknown
@@ -7512,14 +7512,14 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*INetCfgComponentSysPrep*/SelfOuter* self, INetCfgSysPrep* pncsp, PWSTR pszwAnswerSections, Guid* pAdapterInstanceGuid) SaveAdapterParameters;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*INetCfgComponentSysPrep*/SelfOuter* self, PWSTR pszwAnswerFile, PWSTR pszwAnswerSection, Guid* pAdapterInstanceGuid) RestoreAdapterParameters;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*INetCfgComponentSysPrep*/SelfOuter* self, INetCfgSysPrep* pncsp, PWSTR pszwAnswerSections, Guid pAdapterInstanceGuid) SaveAdapterParameters;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*INetCfgComponentSysPrep*/SelfOuter* self, PWSTR pszwAnswerFile, PWSTR pszwAnswerSection, Guid pAdapterInstanceGuid) RestoreAdapterParameters;
 	}
 
 
-	public HRESULT SaveAdapterParameters(INetCfgSysPrep* pncsp, PWSTR pszwAnswerSections, Guid* pAdapterInstanceGuid) mut => VT.[Friend]SaveAdapterParameters(&this, pncsp, pszwAnswerSections, pAdapterInstanceGuid);
+	public HRESULT SaveAdapterParameters(INetCfgSysPrep* pncsp, PWSTR pszwAnswerSections, Guid pAdapterInstanceGuid) mut => VT.[Friend]SaveAdapterParameters(&this, pncsp, pszwAnswerSections, pAdapterInstanceGuid);
 
-	public HRESULT RestoreAdapterParameters(PWSTR pszwAnswerFile, PWSTR pszwAnswerSection, Guid* pAdapterInstanceGuid) mut => VT.[Friend]RestoreAdapterParameters(&this, pszwAnswerFile, pszwAnswerSection, pAdapterInstanceGuid);
+	public HRESULT RestoreAdapterParameters(PWSTR pszwAnswerFile, PWSTR pszwAnswerSection, Guid pAdapterInstanceGuid) mut => VT.[Friend]RestoreAdapterParameters(&this, pszwAnswerFile, pszwAnswerSection, pAdapterInstanceGuid);
 }
 
 [CRepr]struct IProvisioningDomain : IUnknown
@@ -7548,11 +7548,11 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IProvisioningProfileWireless*/SelfOuter* self, BSTR bstrXMLWirelessConfigProfile, BSTR bstrXMLConnectionConfigProfile, Guid* pAdapterInstanceGuid, uint32* pulStatus) CreateProfile;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IProvisioningProfileWireless*/SelfOuter* self, BSTR bstrXMLWirelessConfigProfile, BSTR bstrXMLConnectionConfigProfile, Guid pAdapterInstanceGuid, uint32* pulStatus) CreateProfile;
 	}
 
 
-	public HRESULT CreateProfile(BSTR bstrXMLWirelessConfigProfile, BSTR bstrXMLConnectionConfigProfile, Guid* pAdapterInstanceGuid, uint32* pulStatus) mut => VT.[Friend]CreateProfile(&this, bstrXMLWirelessConfigProfile, bstrXMLConnectionConfigProfile, pAdapterInstanceGuid, pulStatus);
+	public HRESULT CreateProfile(BSTR bstrXMLWirelessConfigProfile, BSTR bstrXMLConnectionConfigProfile, Guid pAdapterInstanceGuid, uint32* pulStatus) mut => VT.[Friend]CreateProfile(&this, bstrXMLWirelessConfigProfile, bstrXMLConnectionConfigProfile, pAdapterInstanceGuid, pulStatus);
 }
 
 #endregion

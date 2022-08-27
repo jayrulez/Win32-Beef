@@ -8516,7 +8516,7 @@ public struct FILTERED_DATA_SOURCES
 {
 	public PWSTR pwcsExtension;
 	public PWSTR pwcsMime;
-	public Guid* pClsid;
+	public Guid pClsid;
 	public PWSTR pwcsOverride;
 }
 
@@ -8600,7 +8600,7 @@ public struct SEC_OBJECT
 public struct DBIMPLICITSESSION
 {
 	public IUnknown* pUnkOuter;
-	public Guid* piid;
+	public Guid piid;
 	public IUnknown* pSession;
 }
 #endif
@@ -8766,7 +8766,7 @@ public struct DBCOLUMNDESC
 	public PWSTR pwszTypeName;
 	public ITypeInfo* pTypeInfo;
 	public DBPROPSET* rgPropertySets;
-	public Guid* pclsid;
+	public Guid pclsid;
 	public uint32 cPropertySets;
 	public uint ulColumnSize;
 	public DBID dbcid;
@@ -9341,7 +9341,7 @@ public struct ODBC_VS_ARGS
 		public PSTR szCorrelation;
 	}
 
-	public Guid* pguidEvent;
+	public Guid pguidEvent;
 	public uint32 dwFlags;
 	public _Anonymous1_e__Union Anonymous1;
 	public _Anonymous2_e__Union Anonymous2;
@@ -9482,7 +9482,7 @@ public struct SEC_OBJECT
 public struct DBIMPLICITSESSION
 {
 	public IUnknown* pUnkOuter;
-	public Guid* piid;
+	public Guid piid;
 	public IUnknown* pSession;
 }
 #endif
@@ -9648,7 +9648,7 @@ public struct DBCOLUMNDESC
 	public PWSTR pwszTypeName;
 	public ITypeInfo* pTypeInfo;
 	public DBPROPSET* rgPropertySets;
-	public Guid* pclsid;
+	public Guid pclsid;
 	public uint32 cPropertySets;
 	public uint ulColumnSize;
 	public DBID dbcid;
@@ -10018,17 +10018,17 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ILoadFilter*/SelfOuter* self, PWSTR pwcsPath, FILTERED_DATA_SOURCES* pFilteredSources, IUnknown* pUnkOuter, BOOL fUseDefault, Guid* pFilterClsid, int32* SearchDecSize, uint16** pwcsSearchDesc, IFilter** ppIFilt) LoadIFilter;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ILoadFilter*/SelfOuter* self, IStorage* pStg, IUnknown* pUnkOuter, PWSTR pwcsOverride, BOOL fUseDefault, Guid* pFilterClsid, int32* SearchDecSize, uint16** pwcsSearchDesc, IFilter** ppIFilt) LoadIFilterFromStorage;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ILoadFilter*/SelfOuter* self, IStream* pStm, FILTERED_DATA_SOURCES* pFilteredSources, IUnknown* pUnkOuter, BOOL fUseDefault, Guid* pFilterClsid, int32* SearchDecSize, uint16** pwcsSearchDesc, IFilter** ppIFilt) LoadIFilterFromStream;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ILoadFilter*/SelfOuter* self, PWSTR pwcsPath, FILTERED_DATA_SOURCES* pFilteredSources, IUnknown* pUnkOuter, BOOL fUseDefault, Guid pFilterClsid, int32* SearchDecSize, uint16** pwcsSearchDesc, IFilter** ppIFilt) LoadIFilter;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ILoadFilter*/SelfOuter* self, IStorage* pStg, IUnknown* pUnkOuter, PWSTR pwcsOverride, BOOL fUseDefault, Guid pFilterClsid, int32* SearchDecSize, uint16** pwcsSearchDesc, IFilter** ppIFilt) LoadIFilterFromStorage;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ILoadFilter*/SelfOuter* self, IStream* pStm, FILTERED_DATA_SOURCES* pFilteredSources, IUnknown* pUnkOuter, BOOL fUseDefault, Guid pFilterClsid, int32* SearchDecSize, uint16** pwcsSearchDesc, IFilter** ppIFilt) LoadIFilterFromStream;
 	}
 
 
-	public HRESULT LoadIFilter(PWSTR pwcsPath, FILTERED_DATA_SOURCES* pFilteredSources, IUnknown* pUnkOuter, BOOL fUseDefault, Guid* pFilterClsid, int32* SearchDecSize, uint16** pwcsSearchDesc, IFilter** ppIFilt) mut => VT.[Friend]LoadIFilter(&this, pwcsPath, pFilteredSources, pUnkOuter, fUseDefault, pFilterClsid, SearchDecSize, pwcsSearchDesc, ppIFilt);
+	public HRESULT LoadIFilter(PWSTR pwcsPath, FILTERED_DATA_SOURCES* pFilteredSources, IUnknown* pUnkOuter, BOOL fUseDefault, Guid pFilterClsid, int32* SearchDecSize, uint16** pwcsSearchDesc, IFilter** ppIFilt) mut => VT.[Friend]LoadIFilter(&this, pwcsPath, pFilteredSources, pUnkOuter, fUseDefault, pFilterClsid, SearchDecSize, pwcsSearchDesc, ppIFilt);
 
-	public HRESULT LoadIFilterFromStorage(IStorage* pStg, IUnknown* pUnkOuter, PWSTR pwcsOverride, BOOL fUseDefault, Guid* pFilterClsid, int32* SearchDecSize, uint16** pwcsSearchDesc, IFilter** ppIFilt) mut => VT.[Friend]LoadIFilterFromStorage(&this, pStg, pUnkOuter, pwcsOverride, fUseDefault, pFilterClsid, SearchDecSize, pwcsSearchDesc, ppIFilt);
+	public HRESULT LoadIFilterFromStorage(IStorage* pStg, IUnknown* pUnkOuter, PWSTR pwcsOverride, BOOL fUseDefault, Guid pFilterClsid, int32* SearchDecSize, uint16** pwcsSearchDesc, IFilter** ppIFilt) mut => VT.[Friend]LoadIFilterFromStorage(&this, pStg, pUnkOuter, pwcsOverride, fUseDefault, pFilterClsid, SearchDecSize, pwcsSearchDesc, ppIFilt);
 
-	public HRESULT LoadIFilterFromStream(IStream* pStm, FILTERED_DATA_SOURCES* pFilteredSources, IUnknown* pUnkOuter, BOOL fUseDefault, Guid* pFilterClsid, int32* SearchDecSize, uint16** pwcsSearchDesc, IFilter** ppIFilt) mut => VT.[Friend]LoadIFilterFromStream(&this, pStm, pFilteredSources, pUnkOuter, fUseDefault, pFilterClsid, SearchDecSize, pwcsSearchDesc, ppIFilt);
+	public HRESULT LoadIFilterFromStream(IStream* pStm, FILTERED_DATA_SOURCES* pFilteredSources, IUnknown* pUnkOuter, BOOL fUseDefault, Guid pFilterClsid, int32* SearchDecSize, uint16** pwcsSearchDesc, IFilter** ppIFilt) mut => VT.[Friend]LoadIFilterFromStream(&this, pStm, pFilteredSources, pUnkOuter, fUseDefault, pFilterClsid, SearchDecSize, pwcsSearchDesc, ppIFilt);
 }
 
 [CRepr]struct ILoadFilterWithPrivateComActivation : ILoadFilter
@@ -10039,11 +10039,11 @@ public static
 
 	[CRepr]public struct VTable : ILoadFilter.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ILoadFilterWithPrivateComActivation*/SelfOuter* self, FILTERED_DATA_SOURCES* filteredSources, BOOL useDefault, Guid* filterClsid, BOOL* isFilterPrivateComActivated, IFilter** filterObj) LoadIFilterWithPrivateComActivation;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ILoadFilterWithPrivateComActivation*/SelfOuter* self, FILTERED_DATA_SOURCES* filteredSources, BOOL useDefault, Guid filterClsid, BOOL* isFilterPrivateComActivated, IFilter** filterObj) LoadIFilterWithPrivateComActivation;
 	}
 
 
-	public HRESULT LoadIFilterWithPrivateComActivation(FILTERED_DATA_SOURCES* filteredSources, BOOL useDefault, Guid* filterClsid, BOOL* isFilterPrivateComActivated, IFilter** filterObj) mut => VT.[Friend]LoadIFilterWithPrivateComActivation(&this, filteredSources, useDefault, filterClsid, isFilterPrivateComActivated, filterObj);
+	public HRESULT LoadIFilterWithPrivateComActivation(FILTERED_DATA_SOURCES* filteredSources, BOOL useDefault, Guid filterClsid, BOOL* isFilterPrivateComActivated, IFilter** filterObj) mut => VT.[Friend]LoadIFilterWithPrivateComActivation(&this, filteredSources, useDefault, filterClsid, isFilterPrivateComActivated, filterObj);
 }
 
 [CRepr]struct IRichChunk : IUnknown
@@ -10070,7 +10070,7 @@ public static
 	[CRepr]public struct VTable : IPersistStream.VTable
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICondition*/SelfOuter* self, CONDITION_TYPE* pNodeType) GetConditionType;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICondition*/SelfOuter* self, Guid* riid, void** ppv) GetSubConditions;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICondition*/SelfOuter* self, Guid riid, void** ppv) GetSubConditions;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICondition*/SelfOuter* self, PWSTR* ppszPropertyName, CONDITION_OPERATION* pcop, PROPVARIANT* ppropvar) GetComparisonInfo;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICondition*/SelfOuter* self, PWSTR* ppszValueTypeName) GetValueType;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICondition*/SelfOuter* self, PWSTR* ppszNormalization) GetValueNormalization;
@@ -10081,7 +10081,7 @@ public static
 
 	public HRESULT GetConditionType(CONDITION_TYPE* pNodeType) mut => VT.[Friend]GetConditionType(&this, pNodeType);
 
-	public HRESULT GetSubConditions(Guid* riid, void** ppv) mut => VT.[Friend]GetSubConditions(&this, riid, ppv);
+	public HRESULT GetSubConditions(Guid riid, void** ppv) mut => VT.[Friend]GetSubConditions(&this, riid, ppv);
 
 	public HRESULT GetComparisonInfo(PWSTR* ppszPropertyName, CONDITION_OPERATION* pcop, PROPVARIANT* ppropvar) mut => VT.[Friend]GetComparisonInfo(&this, ppszPropertyName, pcop, ppropvar);
 
@@ -10172,16 +10172,16 @@ public static
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRowsetInfo*/SelfOuter* self, uint32 cPropertyIDSets, DBPROPIDSET* rgPropertyIDSets, uint32* pcPropertySets, DBPROPSET** prgPropertySets) GetProperties;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRowsetInfo*/SelfOuter* self, uint iOrdinal, Guid* riid, IUnknown** ppReferencedRowset) GetReferencedRowset;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRowsetInfo*/SelfOuter* self, Guid* riid, IUnknown** ppSpecification) GetSpecification;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRowsetInfo*/SelfOuter* self, uint iOrdinal, Guid riid, IUnknown** ppReferencedRowset) GetReferencedRowset;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRowsetInfo*/SelfOuter* self, Guid riid, IUnknown** ppSpecification) GetSpecification;
 	}
 
 
 	public HRESULT GetProperties(uint32 cPropertyIDSets, DBPROPIDSET* rgPropertyIDSets, uint32* pcPropertySets, DBPROPSET** prgPropertySets) mut => VT.[Friend]GetProperties(&this, cPropertyIDSets, rgPropertyIDSets, pcPropertySets, prgPropertySets);
 
-	public HRESULT GetReferencedRowset(uint iOrdinal, Guid* riid, IUnknown** ppReferencedRowset) mut => VT.[Friend]GetReferencedRowset(&this, iOrdinal, riid, ppReferencedRowset);
+	public HRESULT GetReferencedRowset(uint iOrdinal, Guid riid, IUnknown** ppReferencedRowset) mut => VT.[Friend]GetReferencedRowset(&this, iOrdinal, riid, ppReferencedRowset);
 
-	public HRESULT GetSpecification(Guid* riid, IUnknown** ppSpecification) mut => VT.[Friend]GetSpecification(&this, riid, ppSpecification);
+	public HRESULT GetSpecification(Guid riid, IUnknown** ppSpecification) mut => VT.[Friend]GetSpecification(&this, riid, ppSpecification);
 }
 
 [CRepr]struct IRowsetLocate : IRowset
@@ -10287,7 +10287,7 @@ public static
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRowPosition*/SelfOuter* self) ClearRowPosition;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRowPosition*/SelfOuter* self, uint* phChapter, uint* phRow, uint32* pdwPositionFlags) GetRowPosition;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRowPosition*/SelfOuter* self, Guid* riid, IUnknown** ppRowset) GetRowset;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRowPosition*/SelfOuter* self, Guid riid, IUnknown** ppRowset) GetRowset;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRowPosition*/SelfOuter* self, IUnknown* pRowset) Initialize;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRowPosition*/SelfOuter* self, uint hChapter, uint hRow, uint32 dwPositionFlags) SetRowPosition;
 	}
@@ -10297,7 +10297,7 @@ public static
 
 	public HRESULT GetRowPosition(uint* phChapter, uint* phRow, uint32* pdwPositionFlags) mut => VT.[Friend]GetRowPosition(&this, phChapter, phRow, pdwPositionFlags);
 
-	public HRESULT GetRowset(Guid* riid, IUnknown** ppRowset) mut => VT.[Friend]GetRowset(&this, riid, ppRowset);
+	public HRESULT GetRowset(Guid riid, IUnknown** ppRowset) mut => VT.[Friend]GetRowset(&this, riid, ppRowset);
 
 	public HRESULT Initialize(IUnknown* pRowset) mut => VT.[Friend]Initialize(&this, pRowset);
 
@@ -10327,14 +10327,14 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IViewRowset*/SelfOuter* self, Guid* riid, IUnknown** ppObject) GetSpecification;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IViewRowset*/SelfOuter* self, IUnknown* pUnkOuter, Guid* riid, IUnknown** ppRowset) OpenViewRowset;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IViewRowset*/SelfOuter* self, Guid riid, IUnknown** ppObject) GetSpecification;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IViewRowset*/SelfOuter* self, IUnknown* pUnkOuter, Guid riid, IUnknown** ppRowset) OpenViewRowset;
 	}
 
 
-	public HRESULT GetSpecification(Guid* riid, IUnknown** ppObject) mut => VT.[Friend]GetSpecification(&this, riid, ppObject);
+	public HRESULT GetSpecification(Guid riid, IUnknown** ppObject) mut => VT.[Friend]GetSpecification(&this, riid, ppObject);
 
-	public HRESULT OpenViewRowset(IUnknown* pUnkOuter, Guid* riid, IUnknown** ppRowset) mut => VT.[Friend]OpenViewRowset(&this, pUnkOuter, riid, ppRowset);
+	public HRESULT OpenViewRowset(IUnknown* pUnkOuter, Guid riid, IUnknown** ppRowset) mut => VT.[Friend]OpenViewRowset(&this, pUnkOuter, riid, ppRowset);
 }
 
 [CRepr]struct IViewChapter : IUnknown
@@ -10345,12 +10345,12 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IViewChapter*/SelfOuter* self, Guid* riid, IUnknown** ppRowset) GetSpecification;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IViewChapter*/SelfOuter* self, Guid riid, IUnknown** ppRowset) GetSpecification;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IViewChapter*/SelfOuter* self, uint hSource, uint* phViewChapter) OpenViewChapter;
 	}
 
 
-	public HRESULT GetSpecification(Guid* riid, IUnknown** ppRowset) mut => VT.[Friend]GetSpecification(&this, riid, ppRowset);
+	public HRESULT GetSpecification(Guid riid, IUnknown** ppRowset) mut => VT.[Friend]GetSpecification(&this, riid, ppRowset);
 
 	public HRESULT OpenViewChapter(uint hSource, uint* phViewChapter) mut => VT.[Friend]OpenViewChapter(&this, hSource, phViewChapter);
 }
@@ -10402,14 +10402,14 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRowsetView*/SelfOuter* self, IUnknown* pUnkOuter, Guid* riid, IUnknown** ppView) CreateView;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRowsetView*/SelfOuter* self, uint hChapter, Guid* riid, uint* phChapterSource, IUnknown** ppView) GetView;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRowsetView*/SelfOuter* self, IUnknown* pUnkOuter, Guid riid, IUnknown** ppView) CreateView;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRowsetView*/SelfOuter* self, uint hChapter, Guid riid, uint* phChapterSource, IUnknown** ppView) GetView;
 	}
 
 
-	public HRESULT CreateView(IUnknown* pUnkOuter, Guid* riid, IUnknown** ppView) mut => VT.[Friend]CreateView(&this, pUnkOuter, riid, ppView);
+	public HRESULT CreateView(IUnknown* pUnkOuter, Guid riid, IUnknown** ppView) mut => VT.[Friend]CreateView(&this, pUnkOuter, riid, ppView);
 
-	public HRESULT GetView(uint hChapter, Guid* riid, uint* phChapterSource, IUnknown** ppView) mut => VT.[Friend]GetView(&this, hChapter, riid, phChapterSource, ppView);
+	public HRESULT GetView(uint hChapter, Guid riid, uint* phChapterSource, IUnknown** ppView) mut => VT.[Friend]GetView(&this, hChapter, riid, phChapterSource, ppView);
 }
 
 [CRepr]struct IRowsetChange : IUnknown
@@ -10526,16 +10526,16 @@ public static
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICommand*/SelfOuter* self) Cancel;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICommand*/SelfOuter* self, IUnknown* pUnkOuter, Guid* riid, DBPARAMS* pParams, int* pcRowsAffected, IUnknown** ppRowset) Execute;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICommand*/SelfOuter* self, Guid* riid, IUnknown** ppSession) GetDBSession;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICommand*/SelfOuter* self, IUnknown* pUnkOuter, Guid riid, DBPARAMS* pParams, int* pcRowsAffected, IUnknown** ppRowset) Execute;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICommand*/SelfOuter* self, Guid riid, IUnknown** ppSession) GetDBSession;
 	}
 
 
 	public HRESULT Cancel() mut => VT.[Friend]Cancel(&this);
 
-	public HRESULT Execute(IUnknown* pUnkOuter, Guid* riid, DBPARAMS* pParams, int* pcRowsAffected, IUnknown** ppRowset) mut => VT.[Friend]Execute(&this, pUnkOuter, riid, pParams, pcRowsAffected, ppRowset);
+	public HRESULT Execute(IUnknown* pUnkOuter, Guid riid, DBPARAMS* pParams, int* pcRowsAffected, IUnknown** ppRowset) mut => VT.[Friend]Execute(&this, pUnkOuter, riid, pParams, pcRowsAffected, ppRowset);
 
-	public HRESULT GetDBSession(Guid* riid, IUnknown** ppSession) mut => VT.[Friend]GetDBSession(&this, riid, ppSession);
+	public HRESULT GetDBSession(Guid riid, IUnknown** ppSession) mut => VT.[Friend]GetDBSession(&this, riid, ppSession);
 }
 
 [CRepr]struct IMultipleResults : IUnknown
@@ -10546,11 +10546,11 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMultipleResults*/SelfOuter* self, IUnknown* pUnkOuter, int lResultFlag, Guid* riid, int* pcRowsAffected, IUnknown** ppRowset) GetResult;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMultipleResults*/SelfOuter* self, IUnknown* pUnkOuter, int lResultFlag, Guid riid, int* pcRowsAffected, IUnknown** ppRowset) GetResult;
 	}
 
 
-	public HRESULT GetResult(IUnknown* pUnkOuter, int lResultFlag, Guid* riid, int* pcRowsAffected, IUnknown** ppRowset) mut => VT.[Friend]GetResult(&this, pUnkOuter, lResultFlag, riid, pcRowsAffected, ppRowset);
+	public HRESULT GetResult(IUnknown* pUnkOuter, int lResultFlag, Guid riid, int* pcRowsAffected, IUnknown** ppRowset) mut => VT.[Friend]GetResult(&this, pUnkOuter, lResultFlag, riid, pcRowsAffected, ppRowset);
 }
 
 [CRepr]struct IConvertType : IUnknown
@@ -10612,14 +10612,14 @@ public static
 
 	[CRepr]public struct VTable : ICommand.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICommandText*/SelfOuter* self, Guid* pguidDialect, PWSTR* ppwszCommand) GetCommandText;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICommandText*/SelfOuter* self, Guid* rguidDialect, PWSTR pwszCommand) SetCommandText;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICommandText*/SelfOuter* self, Guid pguidDialect, PWSTR* ppwszCommand) GetCommandText;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICommandText*/SelfOuter* self, Guid rguidDialect, PWSTR pwszCommand) SetCommandText;
 	}
 
 
-	public HRESULT GetCommandText(Guid* pguidDialect, PWSTR* ppwszCommand) mut => VT.[Friend]GetCommandText(&this, pguidDialect, ppwszCommand);
+	public HRESULT GetCommandText(Guid pguidDialect, PWSTR* ppwszCommand) mut => VT.[Friend]GetCommandText(&this, pguidDialect, ppwszCommand);
 
-	public HRESULT SetCommandText(Guid* rguidDialect, PWSTR pwszCommand) mut => VT.[Friend]SetCommandText(&this, rguidDialect, pwszCommand);
+	public HRESULT SetCommandText(Guid rguidDialect, PWSTR pwszCommand) mut => VT.[Friend]SetCommandText(&this, rguidDialect, pwszCommand);
 }
 
 [CRepr]struct ICommandWithParameters : IUnknown
@@ -10652,13 +10652,13 @@ public static
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IColumnsRowset*/SelfOuter* self, uint* pcOptColumns, DBID** prgOptColumns) GetAvailableColumns;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IColumnsRowset*/SelfOuter* self, IUnknown* pUnkOuter, uint cOptColumns, DBID* rgOptColumns, Guid* riid, uint32 cPropertySets, DBPROPSET* rgPropertySets, IUnknown** ppColRowset) GetColumnsRowset;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IColumnsRowset*/SelfOuter* self, IUnknown* pUnkOuter, uint cOptColumns, DBID* rgOptColumns, Guid riid, uint32 cPropertySets, DBPROPSET* rgPropertySets, IUnknown** ppColRowset) GetColumnsRowset;
 	}
 
 
 	public HRESULT GetAvailableColumns(uint* pcOptColumns, DBID** prgOptColumns) mut => VT.[Friend]GetAvailableColumns(&this, pcOptColumns, prgOptColumns);
 
-	public HRESULT GetColumnsRowset(IUnknown* pUnkOuter, uint cOptColumns, DBID* rgOptColumns, Guid* riid, uint32 cPropertySets, DBPROPSET* rgPropertySets, IUnknown** ppColRowset) mut => VT.[Friend]GetColumnsRowset(&this, pUnkOuter, cOptColumns, rgOptColumns, riid, cPropertySets, rgPropertySets, ppColRowset);
+	public HRESULT GetColumnsRowset(IUnknown* pUnkOuter, uint cOptColumns, DBID* rgOptColumns, Guid riid, uint32 cPropertySets, DBPROPSET* rgPropertySets, IUnknown** ppColRowset) mut => VT.[Friend]GetColumnsRowset(&this, pUnkOuter, cOptColumns, rgOptColumns, riid, cPropertySets, rgPropertySets, ppColRowset);
 }
 
 [CRepr]struct IColumnsInfo : IUnknown
@@ -10687,11 +10687,11 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDBCreateCommand*/SelfOuter* self, IUnknown* pUnkOuter, Guid* riid, IUnknown** ppCommand) CreateCommand;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDBCreateCommand*/SelfOuter* self, IUnknown* pUnkOuter, Guid riid, IUnknown** ppCommand) CreateCommand;
 	}
 
 
-	public HRESULT CreateCommand(IUnknown* pUnkOuter, Guid* riid, IUnknown** ppCommand) mut => VT.[Friend]CreateCommand(&this, pUnkOuter, riid, ppCommand);
+	public HRESULT CreateCommand(IUnknown* pUnkOuter, Guid riid, IUnknown** ppCommand) mut => VT.[Friend]CreateCommand(&this, pUnkOuter, riid, ppCommand);
 }
 
 [CRepr]struct IDBCreateSession : IUnknown
@@ -10702,11 +10702,11 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDBCreateSession*/SelfOuter* self, IUnknown* pUnkOuter, Guid* riid, IUnknown** ppDBSession) CreateSession;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDBCreateSession*/SelfOuter* self, IUnknown* pUnkOuter, Guid riid, IUnknown** ppDBSession) CreateSession;
 	}
 
 
-	public HRESULT CreateSession(IUnknown* pUnkOuter, Guid* riid, IUnknown** ppDBSession) mut => VT.[Friend]CreateSession(&this, pUnkOuter, riid, ppDBSession);
+	public HRESULT CreateSession(IUnknown* pUnkOuter, Guid riid, IUnknown** ppDBSession) mut => VT.[Friend]CreateSession(&this, pUnkOuter, riid, ppDBSession);
 }
 
 [CRepr]struct ISourcesRowset : IUnknown
@@ -10717,11 +10717,11 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISourcesRowset*/SelfOuter* self, IUnknown* pUnkOuter, Guid* riid, uint32 cPropertySets, DBPROPSET* rgProperties, IUnknown** ppSourcesRowset) GetSourcesRowset;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISourcesRowset*/SelfOuter* self, IUnknown* pUnkOuter, Guid riid, uint32 cPropertySets, DBPROPSET* rgProperties, IUnknown** ppSourcesRowset) GetSourcesRowset;
 	}
 
 
-	public HRESULT GetSourcesRowset(IUnknown* pUnkOuter, Guid* riid, uint32 cPropertySets, DBPROPSET* rgProperties, IUnknown** ppSourcesRowset) mut => VT.[Friend]GetSourcesRowset(&this, pUnkOuter, riid, cPropertySets, rgProperties, ppSourcesRowset);
+	public HRESULT GetSourcesRowset(IUnknown* pUnkOuter, Guid riid, uint32 cPropertySets, DBPROPSET* rgProperties, IUnknown** ppSourcesRowset) mut => VT.[Friend]GetSourcesRowset(&this, pUnkOuter, riid, cPropertySets, rgProperties, ppSourcesRowset);
 }
 
 [CRepr]struct IDBProperties : IUnknown
@@ -10789,14 +10789,14 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDBDataSourceAdmin*/SelfOuter* self, uint32 cPropertySets, DBPROPSET* rgPropertySets, IUnknown* pUnkOuter, Guid* riid, IUnknown** ppDBSession) CreateDataSource;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDBDataSourceAdmin*/SelfOuter* self, uint32 cPropertySets, DBPROPSET* rgPropertySets, IUnknown* pUnkOuter, Guid riid, IUnknown** ppDBSession) CreateDataSource;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDBDataSourceAdmin*/SelfOuter* self) DestroyDataSource;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDBDataSourceAdmin*/SelfOuter* self, uint32 cPropertyIDSets, DBPROPIDSET* rgPropertyIDSets, uint32* pcPropertyInfoSets, DBPROPINFOSET** prgPropertyInfoSets, uint16** ppDescBuffer) GetCreationProperties;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDBDataSourceAdmin*/SelfOuter* self, uint32 cPropertySets, DBPROPSET* rgPropertySets) ModifyDataSource;
 	}
 
 
-	public HRESULT CreateDataSource(uint32 cPropertySets, DBPROPSET* rgPropertySets, IUnknown* pUnkOuter, Guid* riid, IUnknown** ppDBSession) mut => VT.[Friend]CreateDataSource(&this, cPropertySets, rgPropertySets, pUnkOuter, riid, ppDBSession);
+	public HRESULT CreateDataSource(uint32 cPropertySets, DBPROPSET* rgPropertySets, IUnknown* pUnkOuter, Guid riid, IUnknown** ppDBSession) mut => VT.[Friend]CreateDataSource(&this, cPropertySets, rgPropertySets, pUnkOuter, riid, ppDBSession);
 
 	public HRESULT DestroyDataSource() mut => VT.[Friend]DestroyDataSource(&this);
 
@@ -10888,14 +10888,14 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITableDefinition*/SelfOuter* self, IUnknown* pUnkOuter, DBID* pTableID, uint cColumnDescs, DBCOLUMNDESC* rgColumnDescs, Guid* riid, uint32 cPropertySets, DBPROPSET* rgPropertySets, DBID** ppTableID, IUnknown** ppRowset) CreateTable;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITableDefinition*/SelfOuter* self, IUnknown* pUnkOuter, DBID* pTableID, uint cColumnDescs, DBCOLUMNDESC* rgColumnDescs, Guid riid, uint32 cPropertySets, DBPROPSET* rgPropertySets, DBID** ppTableID, IUnknown** ppRowset) CreateTable;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITableDefinition*/SelfOuter* self, DBID* pTableID) DropTable;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITableDefinition*/SelfOuter* self, DBID* pTableID, DBCOLUMNDESC* pColumnDesc, DBID** ppColumnID) AddColumn;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITableDefinition*/SelfOuter* self, DBID* pTableID, DBID* pColumnID) DropColumn;
 	}
 
 
-	public HRESULT CreateTable(IUnknown* pUnkOuter, DBID* pTableID, uint cColumnDescs, DBCOLUMNDESC* rgColumnDescs, Guid* riid, uint32 cPropertySets, DBPROPSET* rgPropertySets, DBID** ppTableID, IUnknown** ppRowset) mut => VT.[Friend]CreateTable(&this, pUnkOuter, pTableID, cColumnDescs, rgColumnDescs, riid, cPropertySets, rgPropertySets, ppTableID, ppRowset);
+	public HRESULT CreateTable(IUnknown* pUnkOuter, DBID* pTableID, uint cColumnDescs, DBCOLUMNDESC* rgColumnDescs, Guid riid, uint32 cPropertySets, DBPROPSET* rgPropertySets, DBID** ppTableID, IUnknown** ppRowset) mut => VT.[Friend]CreateTable(&this, pUnkOuter, pTableID, cColumnDescs, rgColumnDescs, riid, cPropertySets, rgPropertySets, ppTableID, ppRowset);
 
 	public HRESULT DropTable(DBID* pTableID) mut => VT.[Friend]DropTable(&this, pTableID);
 
@@ -10912,11 +10912,11 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOpenRowset*/SelfOuter* self, IUnknown* pUnkOuter, DBID* pTableID, DBID* pIndexID, Guid* riid, uint32 cPropertySets, DBPROPSET* rgPropertySets, IUnknown** ppRowset) OpenRowset;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOpenRowset*/SelfOuter* self, IUnknown* pUnkOuter, DBID* pTableID, DBID* pIndexID, Guid riid, uint32 cPropertySets, DBPROPSET* rgPropertySets, IUnknown** ppRowset) OpenRowset;
 	}
 
 
-	public HRESULT OpenRowset(IUnknown* pUnkOuter, DBID* pTableID, DBID* pIndexID, Guid* riid, uint32 cPropertySets, DBPROPSET* rgPropertySets, IUnknown** ppRowset) mut => VT.[Friend]OpenRowset(&this, pUnkOuter, pTableID, pIndexID, riid, cPropertySets, rgPropertySets, ppRowset);
+	public HRESULT OpenRowset(IUnknown* pUnkOuter, DBID* pTableID, DBID* pIndexID, Guid riid, uint32 cPropertySets, DBPROPSET* rgPropertySets, IUnknown** ppRowset) mut => VT.[Friend]OpenRowset(&this, pUnkOuter, pTableID, pIndexID, riid, cPropertySets, rgPropertySets, ppRowset);
 }
 
 [CRepr]struct IDBSchemaRowset : IUnknown
@@ -10927,14 +10927,14 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDBSchemaRowset*/SelfOuter* self, IUnknown* pUnkOuter, Guid* rguidSchema, uint32 cRestrictions, VARIANT* rgRestrictions, Guid* riid, uint32 cPropertySets, DBPROPSET* rgPropertySets, IUnknown** ppRowset) GetRowset;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDBSchemaRowset*/SelfOuter* self, uint32* pcSchemas, Guid** prgSchemas, uint32** prgRestrictionSupport) GetSchemas;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDBSchemaRowset*/SelfOuter* self, IUnknown* pUnkOuter, Guid rguidSchema, uint32 cRestrictions, VARIANT* rgRestrictions, Guid riid, uint32 cPropertySets, DBPROPSET* rgPropertySets, IUnknown** ppRowset) GetRowset;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDBSchemaRowset*/SelfOuter* self, uint32* pcSchemas, Guid prgSchemas, uint32** prgRestrictionSupport) GetSchemas;
 	}
 
 
-	public HRESULT GetRowset(IUnknown* pUnkOuter, Guid* rguidSchema, uint32 cRestrictions, VARIANT* rgRestrictions, Guid* riid, uint32 cPropertySets, DBPROPSET* rgPropertySets, IUnknown** ppRowset) mut => VT.[Friend]GetRowset(&this, pUnkOuter, rguidSchema, cRestrictions, rgRestrictions, riid, cPropertySets, rgPropertySets, ppRowset);
+	public HRESULT GetRowset(IUnknown* pUnkOuter, Guid rguidSchema, uint32 cRestrictions, VARIANT* rgRestrictions, Guid riid, uint32 cPropertySets, DBPROPSET* rgPropertySets, IUnknown** ppRowset) mut => VT.[Friend]GetRowset(&this, pUnkOuter, rguidSchema, cRestrictions, rgRestrictions, riid, cPropertySets, rgPropertySets, ppRowset);
 
-	public HRESULT GetSchemas(uint32* pcSchemas, Guid** prgSchemas, uint32** prgRestrictionSupport) mut => VT.[Friend]GetSchemas(&this, pcSchemas, prgSchemas, prgRestrictionSupport);
+	public HRESULT GetSchemas(uint32* pcSchemas, Guid prgSchemas, uint32** prgRestrictionSupport) mut => VT.[Friend]GetSchemas(&this, pcSchemas, prgSchemas, prgRestrictionSupport);
 }
 
 [CRepr]struct IMDDataset : IUnknown
@@ -10947,9 +10947,9 @@ public static
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMDDataset*/SelfOuter* self, uint cAxes, MDAXISINFO* rgAxisInfo) FreeAxisInfo;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMDDataset*/SelfOuter* self, uint* pcAxes, MDAXISINFO** prgAxisInfo) GetAxisInfo;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMDDataset*/SelfOuter* self, IUnknown* pUnkOuter, uint iAxis, Guid* riid, uint32 cPropertySets, DBPROPSET* rgPropertySets, IUnknown** ppRowset) GetAxisRowset;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMDDataset*/SelfOuter* self, IUnknown* pUnkOuter, uint iAxis, Guid riid, uint32 cPropertySets, DBPROPSET* rgPropertySets, IUnknown** ppRowset) GetAxisRowset;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMDDataset*/SelfOuter* self, uint hAccessor, uint ulStartCell, uint ulEndCell, void* pData) GetCellData;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMDDataset*/SelfOuter* self, Guid* riid, IUnknown** ppSpecification) GetSpecification;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMDDataset*/SelfOuter* self, Guid riid, IUnknown** ppSpecification) GetSpecification;
 	}
 
 
@@ -10957,11 +10957,11 @@ public static
 
 	public HRESULT GetAxisInfo(uint* pcAxes, MDAXISINFO** prgAxisInfo) mut => VT.[Friend]GetAxisInfo(&this, pcAxes, prgAxisInfo);
 
-	public HRESULT GetAxisRowset(IUnknown* pUnkOuter, uint iAxis, Guid* riid, uint32 cPropertySets, DBPROPSET* rgPropertySets, IUnknown** ppRowset) mut => VT.[Friend]GetAxisRowset(&this, pUnkOuter, iAxis, riid, cPropertySets, rgPropertySets, ppRowset);
+	public HRESULT GetAxisRowset(IUnknown* pUnkOuter, uint iAxis, Guid riid, uint32 cPropertySets, DBPROPSET* rgPropertySets, IUnknown** ppRowset) mut => VT.[Friend]GetAxisRowset(&this, pUnkOuter, iAxis, riid, cPropertySets, rgPropertySets, ppRowset);
 
 	public HRESULT GetCellData(uint hAccessor, uint ulStartCell, uint ulEndCell, void* pData) mut => VT.[Friend]GetCellData(&this, hAccessor, ulStartCell, ulEndCell, pData);
 
-	public HRESULT GetSpecification(Guid* riid, IUnknown** ppSpecification) mut => VT.[Friend]GetSpecification(&this, riid, ppSpecification);
+	public HRESULT GetSpecification(Guid riid, IUnknown** ppSpecification) mut => VT.[Friend]GetSpecification(&this, riid, ppSpecification);
 }
 
 [CRepr]struct IMDFind : IUnknown
@@ -10990,11 +10990,11 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMDRangeRowset*/SelfOuter* self, IUnknown* pUnkOuter, uint ulStartCell, uint ulEndCell, Guid* riid, uint32 cPropertySets, DBPROPSET* rgPropertySets, IUnknown** ppRowset) GetRangeRowset;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IMDRangeRowset*/SelfOuter* self, IUnknown* pUnkOuter, uint ulStartCell, uint ulEndCell, Guid riid, uint32 cPropertySets, DBPROPSET* rgPropertySets, IUnknown** ppRowset) GetRangeRowset;
 	}
 
 
-	public HRESULT GetRangeRowset(IUnknown* pUnkOuter, uint ulStartCell, uint ulEndCell, Guid* riid, uint32 cPropertySets, DBPROPSET* rgPropertySets, IUnknown** ppRowset) mut => VT.[Friend]GetRangeRowset(&this, pUnkOuter, ulStartCell, ulEndCell, riid, cPropertySets, rgPropertySets, ppRowset);
+	public HRESULT GetRangeRowset(IUnknown* pUnkOuter, uint ulStartCell, uint ulEndCell, Guid riid, uint32 cPropertySets, DBPROPSET* rgPropertySets, IUnknown** ppRowset) mut => VT.[Friend]GetRangeRowset(&this, pUnkOuter, ulStartCell, ulEndCell, riid, cPropertySets, rgPropertySets, ppRowset);
 }
 
 [CRepr]struct IAlterTable : IUnknown
@@ -11095,11 +11095,11 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IParentRowset*/SelfOuter* self, IUnknown* pUnkOuter, uint iOrdinal, Guid* riid, IUnknown** ppRowset) GetChildRowset;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IParentRowset*/SelfOuter* self, IUnknown* pUnkOuter, uint iOrdinal, Guid riid, IUnknown** ppRowset) GetChildRowset;
 	}
 
 
-	public HRESULT GetChildRowset(IUnknown* pUnkOuter, uint iOrdinal, Guid* riid, IUnknown** ppRowset) mut => VT.[Friend]GetChildRowset(&this, pUnkOuter, iOrdinal, riid, ppRowset);
+	public HRESULT GetChildRowset(IUnknown* pUnkOuter, uint iOrdinal, Guid riid, IUnknown** ppRowset) mut => VT.[Friend]GetChildRowset(&this, pUnkOuter, iOrdinal, riid, ppRowset);
 }
 
 [CRepr]struct IErrorRecords : IUnknown
@@ -11112,7 +11112,7 @@ public static
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IErrorRecords*/SelfOuter* self, ERRORINFO* pErrorInfo, uint32 dwLookupID, DISPPARAMS* pdispparams, IUnknown* punkCustomError, uint32 dwDynamicErrorID) AddErrorRecord;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IErrorRecords*/SelfOuter* self, uint32 ulRecordNum, ERRORINFO* pErrorInfo) GetBasicErrorInfo;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IErrorRecords*/SelfOuter* self, uint32 ulRecordNum, Guid* riid, IUnknown** ppObject) GetCustomErrorObject;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IErrorRecords*/SelfOuter* self, uint32 ulRecordNum, Guid riid, IUnknown** ppObject) GetCustomErrorObject;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IErrorRecords*/SelfOuter* self, uint32 ulRecordNum, uint32 lcid, IErrorInfo** ppErrorInfo) GetErrorInfo;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IErrorRecords*/SelfOuter* self, uint32 ulRecordNum, DISPPARAMS* pdispparams) GetErrorParameters;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IErrorRecords*/SelfOuter* self, uint32* pcRecords) GetRecordCount;
@@ -11123,7 +11123,7 @@ public static
 
 	public HRESULT GetBasicErrorInfo(uint32 ulRecordNum, ERRORINFO* pErrorInfo) mut => VT.[Friend]GetBasicErrorInfo(&this, ulRecordNum, pErrorInfo);
 
-	public HRESULT GetCustomErrorObject(uint32 ulRecordNum, Guid* riid, IUnknown** ppObject) mut => VT.[Friend]GetCustomErrorObject(&this, ulRecordNum, riid, ppObject);
+	public HRESULT GetCustomErrorObject(uint32 ulRecordNum, Guid riid, IUnknown** ppObject) mut => VT.[Friend]GetCustomErrorObject(&this, ulRecordNum, riid, ppObject);
 
 	public HRESULT GetErrorInfo(uint32 ulRecordNum, uint32 lcid, IErrorInfo** ppErrorInfo) mut => VT.[Friend]GetErrorInfo(&this, ulRecordNum, lcid, ppErrorInfo);
 
@@ -11176,11 +11176,11 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGetDataSource*/SelfOuter* self, Guid* riid, IUnknown** ppDataSource) GetDataSource;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGetDataSource*/SelfOuter* self, Guid riid, IUnknown** ppDataSource) GetDataSource;
 	}
 
 
-	public HRESULT GetDataSource(Guid* riid, IUnknown** ppDataSource) mut => VT.[Friend]GetDataSource(&this, riid, ppDataSource);
+	public HRESULT GetDataSource(Guid riid, IUnknown** ppDataSource) mut => VT.[Friend]GetDataSource(&this, riid, ppDataSource);
 }
 
 [CRepr]struct ITransactionLocal : ITransaction
@@ -11324,14 +11324,14 @@ public static
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISecurityInfo*/SelfOuter* self, TRUSTEE_W** ppTrustee) GetCurrentTrustee;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISecurityInfo*/SelfOuter* self, uint32* cObjectTypes, Guid** rgObjectTypes) GetObjectTypes;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISecurityInfo*/SelfOuter* self, uint32* cObjectTypes, Guid rgObjectTypes) GetObjectTypes;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISecurityInfo*/SelfOuter* self, Guid ObjectType, uint32* pPermissions) GetPermissions;
 	}
 
 
 	public HRESULT GetCurrentTrustee(TRUSTEE_W** ppTrustee) mut => VT.[Friend]GetCurrentTrustee(&this, ppTrustee);
 
-	public HRESULT GetObjectTypes(uint32* cObjectTypes, Guid** rgObjectTypes) mut => VT.[Friend]GetObjectTypes(&this, cObjectTypes, rgObjectTypes);
+	public HRESULT GetObjectTypes(uint32* cObjectTypes, Guid rgObjectTypes) mut => VT.[Friend]GetObjectTypes(&this, cObjectTypes, rgObjectTypes);
 
 	public HRESULT GetPermissions(Guid ObjectType, uint32* pPermissions) mut => VT.[Friend]GetPermissions(&this, ObjectType, pPermissions);
 }
@@ -11360,14 +11360,14 @@ public static
 	[CRepr]public struct VTable : ITableCreation.VTable
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITableDefinitionWithConstraints*/SelfOuter* self, DBID* pTableID, DBCONSTRAINTDESC* pConstraintDesc) AddConstraint;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITableDefinitionWithConstraints*/SelfOuter* self, IUnknown* pUnkOuter, DBID* pTableID, uint cColumnDescs, DBCOLUMNDESC* rgColumnDescs, uint32 cConstraintDescs, DBCONSTRAINTDESC* rgConstraintDescs, Guid* riid, uint32 cPropertySets, DBPROPSET* rgPropertySets, DBID** ppTableID, IUnknown** ppRowset) CreateTableWithConstraints;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITableDefinitionWithConstraints*/SelfOuter* self, IUnknown* pUnkOuter, DBID* pTableID, uint cColumnDescs, DBCOLUMNDESC* rgColumnDescs, uint32 cConstraintDescs, DBCONSTRAINTDESC* rgConstraintDescs, Guid riid, uint32 cPropertySets, DBPROPSET* rgPropertySets, DBID** ppTableID, IUnknown** ppRowset) CreateTableWithConstraints;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ITableDefinitionWithConstraints*/SelfOuter* self, DBID* pTableID, DBID* pConstraintID) DropConstraint;
 	}
 
 
 	public HRESULT AddConstraint(DBID* pTableID, DBCONSTRAINTDESC* pConstraintDesc) mut => VT.[Friend]AddConstraint(&this, pTableID, pConstraintDesc);
 
-	public HRESULT CreateTableWithConstraints(IUnknown* pUnkOuter, DBID* pTableID, uint cColumnDescs, DBCOLUMNDESC* rgColumnDescs, uint32 cConstraintDescs, DBCONSTRAINTDESC* rgConstraintDescs, Guid* riid, uint32 cPropertySets, DBPROPSET* rgPropertySets, DBID** ppTableID, IUnknown** ppRowset) mut => VT.[Friend]CreateTableWithConstraints(&this, pUnkOuter, pTableID, cColumnDescs, rgColumnDescs, cConstraintDescs, rgConstraintDescs, riid, cPropertySets, rgPropertySets, ppTableID, ppRowset);
+	public HRESULT CreateTableWithConstraints(IUnknown* pUnkOuter, DBID* pTableID, uint cColumnDescs, DBCOLUMNDESC* rgColumnDescs, uint32 cConstraintDescs, DBCONSTRAINTDESC* rgConstraintDescs, Guid riid, uint32 cPropertySets, DBPROPSET* rgPropertySets, DBID** ppTableID, IUnknown** ppRowset) mut => VT.[Friend]CreateTableWithConstraints(&this, pUnkOuter, pTableID, cColumnDescs, rgColumnDescs, cConstraintDescs, rgConstraintDescs, riid, cPropertySets, rgPropertySets, ppTableID, ppRowset);
 
 	public HRESULT DropConstraint(DBID* pTableID, DBID* pConstraintID) mut => VT.[Friend]DropConstraint(&this, pTableID, pConstraintID);
 }
@@ -11381,16 +11381,16 @@ public static
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRow*/SelfOuter* self, uint cColumns, DBCOLUMNACCESS* rgColumns) GetColumns;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRow*/SelfOuter* self, Guid* riid, IUnknown** ppRowset, uint* phRow) GetSourceRowset;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRow*/SelfOuter* self, IUnknown* pUnkOuter, DBID* pColumnID, Guid* rguidColumnType, uint32 dwBindFlags, Guid* riid, IUnknown** ppUnk) Open;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRow*/SelfOuter* self, Guid riid, IUnknown** ppRowset, uint* phRow) GetSourceRowset;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRow*/SelfOuter* self, IUnknown* pUnkOuter, DBID* pColumnID, Guid rguidColumnType, uint32 dwBindFlags, Guid riid, IUnknown** ppUnk) Open;
 	}
 
 
 	public HRESULT GetColumns(uint cColumns, DBCOLUMNACCESS* rgColumns) mut => VT.[Friend]GetColumns(&this, cColumns, rgColumns);
 
-	public HRESULT GetSourceRowset(Guid* riid, IUnknown** ppRowset, uint* phRow) mut => VT.[Friend]GetSourceRowset(&this, riid, ppRowset, phRow);
+	public HRESULT GetSourceRowset(Guid riid, IUnknown** ppRowset, uint* phRow) mut => VT.[Friend]GetSourceRowset(&this, riid, ppRowset, phRow);
 
-	public HRESULT Open(IUnknown* pUnkOuter, DBID* pColumnID, Guid* rguidColumnType, uint32 dwBindFlags, Guid* riid, IUnknown** ppUnk) mut => VT.[Friend]Open(&this, pUnkOuter, pColumnID, rguidColumnType, dwBindFlags, riid, ppUnk);
+	public HRESULT Open(IUnknown* pUnkOuter, DBID* pColumnID, Guid rguidColumnType, uint32 dwBindFlags, Guid riid, IUnknown** ppUnk) mut => VT.[Friend]Open(&this, pUnkOuter, pColumnID, rguidColumnType, dwBindFlags, riid, ppUnk);
 }
 
 [CRepr]struct IRowChange : IUnknown
@@ -11434,12 +11434,12 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGetRow*/SelfOuter* self, IUnknown* pUnkOuter, uint hRow, Guid* riid, IUnknown** ppUnk) GetRowFromHROW;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGetRow*/SelfOuter* self, IUnknown* pUnkOuter, uint hRow, Guid riid, IUnknown** ppUnk) GetRowFromHROW;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGetRow*/SelfOuter* self, uint hRow, PWSTR* ppwszURL) GetURLFromHROW;
 	}
 
 
-	public HRESULT GetRowFromHROW(IUnknown* pUnkOuter, uint hRow, Guid* riid, IUnknown** ppUnk) mut => VT.[Friend]GetRowFromHROW(&this, pUnkOuter, hRow, riid, ppUnk);
+	public HRESULT GetRowFromHROW(IUnknown* pUnkOuter, uint hRow, Guid riid, IUnknown** ppUnk) mut => VT.[Friend]GetRowFromHROW(&this, pUnkOuter, hRow, riid, ppUnk);
 
 	public HRESULT GetURLFromHROW(uint hRow, PWSTR* ppwszURL) mut => VT.[Friend]GetURLFromHROW(&this, hRow, ppwszURL);
 }
@@ -11452,11 +11452,11 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IBindResource*/SelfOuter* self, IUnknown* pUnkOuter, PWSTR pwszURL, uint32 dwBindURLFlags, Guid* rguid, Guid* riid, IAuthenticate* pAuthenticate, DBIMPLICITSESSION* pImplSession, uint32* pdwBindStatus, IUnknown** ppUnk) Bind;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IBindResource*/SelfOuter* self, IUnknown* pUnkOuter, PWSTR pwszURL, uint32 dwBindURLFlags, Guid rguid, Guid riid, IAuthenticate* pAuthenticate, DBIMPLICITSESSION* pImplSession, uint32* pdwBindStatus, IUnknown** ppUnk) Bind;
 	}
 
 
-	public HRESULT Bind(IUnknown* pUnkOuter, PWSTR pwszURL, uint32 dwBindURLFlags, Guid* rguid, Guid* riid, IAuthenticate* pAuthenticate, DBIMPLICITSESSION* pImplSession, uint32* pdwBindStatus, IUnknown** ppUnk) mut => VT.[Friend]Bind(&this, pUnkOuter, pwszURL, dwBindURLFlags, rguid, riid, pAuthenticate, pImplSession, pdwBindStatus, ppUnk);
+	public HRESULT Bind(IUnknown* pUnkOuter, PWSTR pwszURL, uint32 dwBindURLFlags, Guid rguid, Guid riid, IAuthenticate* pAuthenticate, DBIMPLICITSESSION* pImplSession, uint32* pdwBindStatus, IUnknown** ppUnk) mut => VT.[Friend]Bind(&this, pUnkOuter, pwszURL, dwBindURLFlags, rguid, riid, pAuthenticate, pImplSession, pdwBindStatus, ppUnk);
 }
 
 [CRepr]struct IScopedOperations : IBindResource
@@ -11470,7 +11470,7 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IScopedOperations*/SelfOuter* self, uint cRows, PWSTR* rgpwszSourceURLs, PWSTR* rgpwszDestURLs, uint32 dwCopyFlags, IAuthenticate* pAuthenticate, uint32* rgdwStatus, PWSTR* rgpwszNewURLs, uint16** ppStringsBuffer) Copy;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IScopedOperations*/SelfOuter* self, uint cRows, PWSTR* rgpwszSourceURLs, PWSTR* rgpwszDestURLs, uint32 dwMoveFlags, IAuthenticate* pAuthenticate, uint32* rgdwStatus, PWSTR* rgpwszNewURLs, uint16** ppStringsBuffer) Move;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IScopedOperations*/SelfOuter* self, uint cRows, PWSTR* rgpwszURLs, uint32 dwDeleteFlags, uint32* rgdwStatus) Delete;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IScopedOperations*/SelfOuter* self, IUnknown* pUnkOuter, DBID* pTableID, DBID* pIndexID, Guid* riid, uint32 cPropertySets, DBPROPSET* rgPropertySets, IUnknown** ppRowset) OpenRowset;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IScopedOperations*/SelfOuter* self, IUnknown* pUnkOuter, DBID* pTableID, DBID* pIndexID, Guid riid, uint32 cPropertySets, DBPROPSET* rgPropertySets, IUnknown** ppRowset) OpenRowset;
 	}
 
 
@@ -11480,7 +11480,7 @@ public static
 
 	public HRESULT Delete(uint cRows, PWSTR* rgpwszURLs, uint32 dwDeleteFlags, uint32* rgdwStatus) mut => VT.[Friend]Delete(&this, cRows, rgpwszURLs, dwDeleteFlags, rgdwStatus);
 
-	public HRESULT OpenRowset(IUnknown* pUnkOuter, DBID* pTableID, DBID* pIndexID, Guid* riid, uint32 cPropertySets, DBPROPSET* rgPropertySets, IUnknown** ppRowset) mut => VT.[Friend]OpenRowset(&this, pUnkOuter, pTableID, pIndexID, riid, cPropertySets, rgPropertySets, ppRowset);
+	public HRESULT OpenRowset(IUnknown* pUnkOuter, DBID* pTableID, DBID* pIndexID, Guid riid, uint32 cPropertySets, DBPROPSET* rgPropertySets, IUnknown** ppRowset) mut => VT.[Friend]OpenRowset(&this, pUnkOuter, pTableID, pIndexID, riid, cPropertySets, rgPropertySets, ppRowset);
 }
 
 [CRepr]struct ICreateRow : IUnknown
@@ -11491,11 +11491,11 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICreateRow*/SelfOuter* self, IUnknown* pUnkOuter, PWSTR pwszURL, uint32 dwBindURLFlags, Guid* rguid, Guid* riid, IAuthenticate* pAuthenticate, DBIMPLICITSESSION* pImplSession, uint32* pdwBindStatus, PWSTR* ppwszNewURL, IUnknown** ppUnk) CreateRow;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICreateRow*/SelfOuter* self, IUnknown* pUnkOuter, PWSTR pwszURL, uint32 dwBindURLFlags, Guid rguid, Guid riid, IAuthenticate* pAuthenticate, DBIMPLICITSESSION* pImplSession, uint32* pdwBindStatus, PWSTR* ppwszNewURL, IUnknown** ppUnk) CreateRow;
 	}
 
 
-	public HRESULT CreateRow(IUnknown* pUnkOuter, PWSTR pwszURL, uint32 dwBindURLFlags, Guid* rguid, Guid* riid, IAuthenticate* pAuthenticate, DBIMPLICITSESSION* pImplSession, uint32* pdwBindStatus, PWSTR* ppwszNewURL, IUnknown** ppUnk) mut => VT.[Friend]CreateRow(&this, pUnkOuter, pwszURL, dwBindURLFlags, rguid, riid, pAuthenticate, pImplSession, pdwBindStatus, ppwszNewURL, ppUnk);
+	public HRESULT CreateRow(IUnknown* pUnkOuter, PWSTR pwszURL, uint32 dwBindURLFlags, Guid rguid, Guid riid, IAuthenticate* pAuthenticate, DBIMPLICITSESSION* pImplSession, uint32* pdwBindStatus, PWSTR* ppwszNewURL, IUnknown** ppUnk) mut => VT.[Friend]CreateRow(&this, pUnkOuter, pwszURL, dwBindURLFlags, rguid, riid, pAuthenticate, pImplSession, pdwBindStatus, ppwszNewURL, ppUnk);
 }
 
 [CRepr]struct IDBBinderProperties : IDBProperties
@@ -11536,17 +11536,17 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRegisterProvider*/SelfOuter* self, PWSTR pwszURL, uint dwReserved, Guid* pclsidProvider) GetURLMapping;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRegisterProvider*/SelfOuter* self, PWSTR pwszURL, uint dwReserved, Guid* rclsidProvider) SetURLMapping;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRegisterProvider*/SelfOuter* self, PWSTR pwszURL, uint dwReserved, Guid* rclsidProvider) UnregisterProvider;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRegisterProvider*/SelfOuter* self, PWSTR pwszURL, uint dwReserved, Guid pclsidProvider) GetURLMapping;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRegisterProvider*/SelfOuter* self, PWSTR pwszURL, uint dwReserved, Guid rclsidProvider) SetURLMapping;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRegisterProvider*/SelfOuter* self, PWSTR pwszURL, uint dwReserved, Guid rclsidProvider) UnregisterProvider;
 	}
 
 
-	public HRESULT GetURLMapping(PWSTR pwszURL, uint dwReserved, Guid* pclsidProvider) mut => VT.[Friend]GetURLMapping(&this, pwszURL, dwReserved, pclsidProvider);
+	public HRESULT GetURLMapping(PWSTR pwszURL, uint dwReserved, Guid pclsidProvider) mut => VT.[Friend]GetURLMapping(&this, pwszURL, dwReserved, pclsidProvider);
 
-	public HRESULT SetURLMapping(PWSTR pwszURL, uint dwReserved, Guid* rclsidProvider) mut => VT.[Friend]SetURLMapping(&this, pwszURL, dwReserved, rclsidProvider);
+	public HRESULT SetURLMapping(PWSTR pwszURL, uint dwReserved, Guid rclsidProvider) mut => VT.[Friend]SetURLMapping(&this, pwszURL, dwReserved, rclsidProvider);
 
-	public HRESULT UnregisterProvider(PWSTR pwszURL, uint dwReserved, Guid* rclsidProvider) mut => VT.[Friend]UnregisterProvider(&this, pwszURL, dwReserved, rclsidProvider);
+	public HRESULT UnregisterProvider(PWSTR pwszURL, uint dwReserved, Guid rclsidProvider) mut => VT.[Friend]UnregisterProvider(&this, pwszURL, dwReserved, rclsidProvider);
 }
 
 [CRepr]struct IGetSession : IUnknown
@@ -11557,11 +11557,11 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGetSession*/SelfOuter* self, Guid* riid, IUnknown** ppSession) GetSession;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGetSession*/SelfOuter* self, Guid riid, IUnknown** ppSession) GetSession;
 	}
 
 
-	public HRESULT GetSession(Guid* riid, IUnknown** ppSession) mut => VT.[Friend]GetSession(&this, riid, ppSession);
+	public HRESULT GetSession(Guid riid, IUnknown** ppSession) mut => VT.[Friend]GetSession(&this, riid, ppSession);
 }
 
 [CRepr]struct IGetSourceRow : IUnknown
@@ -11572,11 +11572,11 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGetSourceRow*/SelfOuter* self, Guid* riid, IUnknown** ppRow) GetSourceRow;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IGetSourceRow*/SelfOuter* self, Guid riid, IUnknown** ppRow) GetSourceRow;
 	}
 
 
-	public HRESULT GetSourceRow(Guid* riid, IUnknown** ppRow) mut => VT.[Friend]GetSourceRow(&this, riid, ppRow);
+	public HRESULT GetSourceRow(Guid riid, IUnknown** ppRow) mut => VT.[Friend]GetSourceRow(&this, riid, ppRow);
 }
 
 [CRepr]struct IRowsetCurrentIndex : IRowsetIndex
@@ -11605,14 +11605,14 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICommandStream*/SelfOuter* self, Guid* piid, Guid* pguidDialect, IUnknown** ppCommandStream) GetCommandStream;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICommandStream*/SelfOuter* self, Guid* riid, Guid* rguidDialect, IUnknown* pCommandStream) SetCommandStream;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICommandStream*/SelfOuter* self, Guid piid, Guid pguidDialect, IUnknown** ppCommandStream) GetCommandStream;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ICommandStream*/SelfOuter* self, Guid riid, Guid rguidDialect, IUnknown* pCommandStream) SetCommandStream;
 	}
 
 
-	public HRESULT GetCommandStream(Guid* piid, Guid* pguidDialect, IUnknown** ppCommandStream) mut => VT.[Friend]GetCommandStream(&this, piid, pguidDialect, ppCommandStream);
+	public HRESULT GetCommandStream(Guid piid, Guid pguidDialect, IUnknown** ppCommandStream) mut => VT.[Friend]GetCommandStream(&this, piid, pguidDialect, ppCommandStream);
 
-	public HRESULT SetCommandStream(Guid* riid, Guid* rguidDialect, IUnknown* pCommandStream) mut => VT.[Friend]SetCommandStream(&this, riid, rguidDialect, pCommandStream);
+	public HRESULT SetCommandStream(Guid riid, Guid rguidDialect, IUnknown* pCommandStream) mut => VT.[Friend]SetCommandStream(&this, riid, rguidDialect, pCommandStream);
 }
 
 [CRepr]struct IRowsetBookmark : IUnknown
@@ -11699,14 +11699,14 @@ public static
 	[CRepr]public struct VTable : IConditionFactory.VTable
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IQuerySolution*/SelfOuter* self, ICondition** ppQueryNode, IEntity** ppMainType) GetQuery;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IQuerySolution*/SelfOuter* self, Guid* riid, void** ppParseErrors) GetErrors;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IQuerySolution*/SelfOuter* self, Guid riid, void** ppParseErrors) GetErrors;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IQuerySolution*/SelfOuter* self, PWSTR* ppszInputString, ITokenCollection** ppTokens, uint32* plcid, IUnknown** ppWordBreaker) GetLexicalData;
 	}
 
 
 	public HRESULT GetQuery(ICondition** ppQueryNode, IEntity** ppMainType) mut => VT.[Friend]GetQuery(&this, ppQueryNode, ppMainType);
 
-	public HRESULT GetErrors(Guid* riid, void** ppParseErrors) mut => VT.[Friend]GetErrors(&this, riid, ppParseErrors);
+	public HRESULT GetErrors(Guid riid, void** ppParseErrors) mut => VT.[Friend]GetErrors(&this, riid, ppParseErrors);
 
 	public HRESULT GetLexicalData(PWSTR* ppszInputString, ITokenCollection** ppTokens, uint32* plcid, IUnknown** ppWordBreaker) mut => VT.[Friend]GetLexicalData(&this, ppszInputString, ppTokens, plcid, ppWordBreaker);
 }
@@ -11719,35 +11719,35 @@ public static
 
 	[CRepr]public struct VTable : IConditionFactory.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IConditionFactory2*/SelfOuter* self, BOOL fVal, CONDITION_CREATION_OPTIONS cco, Guid* riid, void** ppv) CreateTrueFalse;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IConditionFactory2*/SelfOuter* self, ICondition* pcSub, CONDITION_CREATION_OPTIONS cco, Guid* riid, void** ppv) CreateNegation;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IConditionFactory2*/SelfOuter* self, CONDITION_TYPE ct, IObjectArray* poaSubs, CONDITION_CREATION_OPTIONS cco, Guid* riid, void** ppv) CreateCompoundFromObjectArray;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IConditionFactory2*/SelfOuter* self, CONDITION_TYPE ct, ICondition** ppcondSubs, uint32 cSubs, CONDITION_CREATION_OPTIONS cco, Guid* riid, void** ppv) CreateCompoundFromArray;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IConditionFactory2*/SelfOuter* self, PROPERTYKEY* propkey, CONDITION_OPERATION cop, PWSTR pszValue, PWSTR pszLocaleName, CONDITION_CREATION_OPTIONS cco, Guid* riid, void** ppv) CreateStringLeaf;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IConditionFactory2*/SelfOuter* self, PROPERTYKEY* propkey, CONDITION_OPERATION cop, int32 lValue, CONDITION_CREATION_OPTIONS cco, Guid* riid, void** ppv) CreateIntegerLeaf;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IConditionFactory2*/SelfOuter* self, PROPERTYKEY* propkey, CONDITION_OPERATION cop, BOOL fValue, CONDITION_CREATION_OPTIONS cco, Guid* riid, void** ppv) CreateBooleanLeaf;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IConditionFactory2*/SelfOuter* self, PROPERTYKEY* propkey, CONDITION_OPERATION cop, PROPVARIANT* propvar, PWSTR pszSemanticType, PWSTR pszLocaleName, IRichChunk* pPropertyNameTerm, IRichChunk* pOperationTerm, IRichChunk* pValueTerm, CONDITION_CREATION_OPTIONS cco, Guid* riid, void** ppv) CreateLeaf;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IConditionFactory2*/SelfOuter* self, ICondition* pc, STRUCTURED_QUERY_RESOLVE_OPTION sqro, SYSTEMTIME* pstReferenceTime, Guid* riid, void** ppv) ResolveCondition;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IConditionFactory2*/SelfOuter* self, BOOL fVal, CONDITION_CREATION_OPTIONS cco, Guid riid, void** ppv) CreateTrueFalse;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IConditionFactory2*/SelfOuter* self, ICondition* pcSub, CONDITION_CREATION_OPTIONS cco, Guid riid, void** ppv) CreateNegation;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IConditionFactory2*/SelfOuter* self, CONDITION_TYPE ct, IObjectArray* poaSubs, CONDITION_CREATION_OPTIONS cco, Guid riid, void** ppv) CreateCompoundFromObjectArray;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IConditionFactory2*/SelfOuter* self, CONDITION_TYPE ct, ICondition** ppcondSubs, uint32 cSubs, CONDITION_CREATION_OPTIONS cco, Guid riid, void** ppv) CreateCompoundFromArray;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IConditionFactory2*/SelfOuter* self, PROPERTYKEY* propkey, CONDITION_OPERATION cop, PWSTR pszValue, PWSTR pszLocaleName, CONDITION_CREATION_OPTIONS cco, Guid riid, void** ppv) CreateStringLeaf;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IConditionFactory2*/SelfOuter* self, PROPERTYKEY* propkey, CONDITION_OPERATION cop, int32 lValue, CONDITION_CREATION_OPTIONS cco, Guid riid, void** ppv) CreateIntegerLeaf;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IConditionFactory2*/SelfOuter* self, PROPERTYKEY* propkey, CONDITION_OPERATION cop, BOOL fValue, CONDITION_CREATION_OPTIONS cco, Guid riid, void** ppv) CreateBooleanLeaf;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IConditionFactory2*/SelfOuter* self, PROPERTYKEY* propkey, CONDITION_OPERATION cop, PROPVARIANT* propvar, PWSTR pszSemanticType, PWSTR pszLocaleName, IRichChunk* pPropertyNameTerm, IRichChunk* pOperationTerm, IRichChunk* pValueTerm, CONDITION_CREATION_OPTIONS cco, Guid riid, void** ppv) CreateLeaf;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IConditionFactory2*/SelfOuter* self, ICondition* pc, STRUCTURED_QUERY_RESOLVE_OPTION sqro, SYSTEMTIME* pstReferenceTime, Guid riid, void** ppv) ResolveCondition;
 	}
 
 
-	public HRESULT CreateTrueFalse(BOOL fVal, CONDITION_CREATION_OPTIONS cco, Guid* riid, void** ppv) mut => VT.[Friend]CreateTrueFalse(&this, fVal, cco, riid, ppv);
+	public HRESULT CreateTrueFalse(BOOL fVal, CONDITION_CREATION_OPTIONS cco, Guid riid, void** ppv) mut => VT.[Friend]CreateTrueFalse(&this, fVal, cco, riid, ppv);
 
-	public HRESULT CreateNegation(ICondition* pcSub, CONDITION_CREATION_OPTIONS cco, Guid* riid, void** ppv) mut => VT.[Friend]CreateNegation(&this, pcSub, cco, riid, ppv);
+	public HRESULT CreateNegation(ICondition* pcSub, CONDITION_CREATION_OPTIONS cco, Guid riid, void** ppv) mut => VT.[Friend]CreateNegation(&this, pcSub, cco, riid, ppv);
 
-	public HRESULT CreateCompoundFromObjectArray(CONDITION_TYPE ct, IObjectArray* poaSubs, CONDITION_CREATION_OPTIONS cco, Guid* riid, void** ppv) mut => VT.[Friend]CreateCompoundFromObjectArray(&this, ct, poaSubs, cco, riid, ppv);
+	public HRESULT CreateCompoundFromObjectArray(CONDITION_TYPE ct, IObjectArray* poaSubs, CONDITION_CREATION_OPTIONS cco, Guid riid, void** ppv) mut => VT.[Friend]CreateCompoundFromObjectArray(&this, ct, poaSubs, cco, riid, ppv);
 
-	public HRESULT CreateCompoundFromArray(CONDITION_TYPE ct, ICondition** ppcondSubs, uint32 cSubs, CONDITION_CREATION_OPTIONS cco, Guid* riid, void** ppv) mut => VT.[Friend]CreateCompoundFromArray(&this, ct, ppcondSubs, cSubs, cco, riid, ppv);
+	public HRESULT CreateCompoundFromArray(CONDITION_TYPE ct, ICondition** ppcondSubs, uint32 cSubs, CONDITION_CREATION_OPTIONS cco, Guid riid, void** ppv) mut => VT.[Friend]CreateCompoundFromArray(&this, ct, ppcondSubs, cSubs, cco, riid, ppv);
 
-	public HRESULT CreateStringLeaf(PROPERTYKEY* propkey, CONDITION_OPERATION cop, PWSTR pszValue, PWSTR pszLocaleName, CONDITION_CREATION_OPTIONS cco, Guid* riid, void** ppv) mut => VT.[Friend]CreateStringLeaf(&this, propkey, cop, pszValue, pszLocaleName, cco, riid, ppv);
+	public HRESULT CreateStringLeaf(PROPERTYKEY* propkey, CONDITION_OPERATION cop, PWSTR pszValue, PWSTR pszLocaleName, CONDITION_CREATION_OPTIONS cco, Guid riid, void** ppv) mut => VT.[Friend]CreateStringLeaf(&this, propkey, cop, pszValue, pszLocaleName, cco, riid, ppv);
 
-	public HRESULT CreateIntegerLeaf(PROPERTYKEY* propkey, CONDITION_OPERATION cop, int32 lValue, CONDITION_CREATION_OPTIONS cco, Guid* riid, void** ppv) mut => VT.[Friend]CreateIntegerLeaf(&this, propkey, cop, lValue, cco, riid, ppv);
+	public HRESULT CreateIntegerLeaf(PROPERTYKEY* propkey, CONDITION_OPERATION cop, int32 lValue, CONDITION_CREATION_OPTIONS cco, Guid riid, void** ppv) mut => VT.[Friend]CreateIntegerLeaf(&this, propkey, cop, lValue, cco, riid, ppv);
 
-	public HRESULT CreateBooleanLeaf(PROPERTYKEY* propkey, CONDITION_OPERATION cop, BOOL fValue, CONDITION_CREATION_OPTIONS cco, Guid* riid, void** ppv) mut => VT.[Friend]CreateBooleanLeaf(&this, propkey, cop, fValue, cco, riid, ppv);
+	public HRESULT CreateBooleanLeaf(PROPERTYKEY* propkey, CONDITION_OPERATION cop, BOOL fValue, CONDITION_CREATION_OPTIONS cco, Guid riid, void** ppv) mut => VT.[Friend]CreateBooleanLeaf(&this, propkey, cop, fValue, cco, riid, ppv);
 
-	public HRESULT CreateLeaf(PROPERTYKEY* propkey, CONDITION_OPERATION cop, PROPVARIANT* propvar, PWSTR pszSemanticType, PWSTR pszLocaleName, IRichChunk* pPropertyNameTerm, IRichChunk* pOperationTerm, IRichChunk* pValueTerm, CONDITION_CREATION_OPTIONS cco, Guid* riid, void** ppv) mut => VT.[Friend]CreateLeaf(&this, propkey, cop, propvar, pszSemanticType, pszLocaleName, pPropertyNameTerm, pOperationTerm, pValueTerm, cco, riid, ppv);
+	public HRESULT CreateLeaf(PROPERTYKEY* propkey, CONDITION_OPERATION cop, PROPVARIANT* propvar, PWSTR pszSemanticType, PWSTR pszLocaleName, IRichChunk* pPropertyNameTerm, IRichChunk* pOperationTerm, IRichChunk* pValueTerm, CONDITION_CREATION_OPTIONS cco, Guid riid, void** ppv) mut => VT.[Friend]CreateLeaf(&this, propkey, cop, propvar, pszSemanticType, pszLocaleName, pPropertyNameTerm, pOperationTerm, pValueTerm, cco, riid, ppv);
 
-	public HRESULT ResolveCondition(ICondition* pc, STRUCTURED_QUERY_RESOLVE_OPTION sqro, SYSTEMTIME* pstReferenceTime, Guid* riid, void** ppv) mut => VT.[Friend]ResolveCondition(&this, pc, sqro, pstReferenceTime, riid, ppv);
+	public HRESULT ResolveCondition(ICondition* pc, STRUCTURED_QUERY_RESOLVE_OPTION sqro, SYSTEMTIME* pstReferenceTime, Guid riid, void** ppv) mut => VT.[Friend]ResolveCondition(&this, pc, sqro, pstReferenceTime, riid, ppv);
 }
 
 [CRepr]struct IConditionGenerator : IUnknown
@@ -11814,10 +11814,10 @@ public static
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEntity*/SelfOuter* self, PWSTR* ppszName) Name;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEntity*/SelfOuter* self, IEntity** pBaseEntity) Base;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEntity*/SelfOuter* self, Guid* riid, void** pRelationships) Relationships;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEntity*/SelfOuter* self, Guid riid, void** pRelationships) Relationships;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEntity*/SelfOuter* self, PWSTR pszRelationName, IRelationship** pRelationship) GetRelationship;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEntity*/SelfOuter* self, Guid* riid, void** pMetaData) MetaData;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEntity*/SelfOuter* self, Guid* riid, void** pNamedEntities) NamedEntities;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEntity*/SelfOuter* self, Guid riid, void** pMetaData) MetaData;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEntity*/SelfOuter* self, Guid riid, void** pNamedEntities) NamedEntities;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEntity*/SelfOuter* self, PWSTR pszValue, INamedEntity** ppNamedEntity) GetNamedEntity;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IEntity*/SelfOuter* self, PWSTR* ppszPhrase) DefaultPhrase;
 	}
@@ -11827,13 +11827,13 @@ public static
 
 	public HRESULT Base(IEntity** pBaseEntity) mut => VT.[Friend]Base(&this, pBaseEntity);
 
-	public HRESULT Relationships(Guid* riid, void** pRelationships) mut => VT.[Friend]Relationships(&this, riid, pRelationships);
+	public HRESULT Relationships(Guid riid, void** pRelationships) mut => VT.[Friend]Relationships(&this, riid, pRelationships);
 
 	public HRESULT GetRelationship(PWSTR pszRelationName, IRelationship** pRelationship) mut => VT.[Friend]GetRelationship(&this, pszRelationName, pRelationship);
 
-	public HRESULT MetaData(Guid* riid, void** pMetaData) mut => VT.[Friend]MetaData(&this, riid, pMetaData);
+	public HRESULT MetaData(Guid riid, void** pMetaData) mut => VT.[Friend]MetaData(&this, riid, pMetaData);
 
-	public HRESULT NamedEntities(Guid* riid, void** pNamedEntities) mut => VT.[Friend]NamedEntities(&this, riid, pNamedEntities);
+	public HRESULT NamedEntities(Guid riid, void** pNamedEntities) mut => VT.[Friend]NamedEntities(&this, riid, pNamedEntities);
 
 	public HRESULT GetNamedEntity(PWSTR pszValue, INamedEntity** ppNamedEntity) mut => VT.[Friend]GetNamedEntity(&this, pszValue, ppNamedEntity);
 
@@ -11851,7 +11851,7 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRelationship*/SelfOuter* self, PWSTR* ppszName) Name;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRelationship*/SelfOuter* self, BOOL* pIsReal) IsReal;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRelationship*/SelfOuter* self, IEntity** pDestinationEntity) Destination;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRelationship*/SelfOuter* self, Guid* riid, void** pMetaData) MetaData;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRelationship*/SelfOuter* self, Guid riid, void** pMetaData) MetaData;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRelationship*/SelfOuter* self, PWSTR* ppszPhrase) DefaultPhrase;
 	}
 
@@ -11862,7 +11862,7 @@ public static
 
 	public HRESULT Destination(IEntity** pDestinationEntity) mut => VT.[Friend]Destination(&this, pDestinationEntity);
 
-	public HRESULT MetaData(Guid* riid, void** pMetaData) mut => VT.[Friend]MetaData(&this, riid, pMetaData);
+	public HRESULT MetaData(Guid riid, void** pMetaData) mut => VT.[Friend]MetaData(&this, riid, pMetaData);
 
 	public HRESULT DefaultPhrase(PWSTR* ppszPhrase) mut => VT.[Friend]DefaultPhrase(&this, ppszPhrase);
 }
@@ -11893,23 +11893,23 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISchemaProvider*/SelfOuter* self, Guid* riid, void** pEntities) Entities;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISchemaProvider*/SelfOuter* self, Guid riid, void** pEntities) Entities;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISchemaProvider*/SelfOuter* self, IEntity** pRootEntity) RootEntity;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISchemaProvider*/SelfOuter* self, PWSTR pszEntityName, IEntity** pEntity) GetEntity;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISchemaProvider*/SelfOuter* self, Guid* riid, void** pMetaData) MetaData;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISchemaProvider*/SelfOuter* self, Guid riid, void** pMetaData) MetaData;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISchemaProvider*/SelfOuter* self, uint32 lcid, ISchemaLocalizerSupport* pSchemaLocalizerSupport) Localize;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISchemaProvider*/SelfOuter* self, PWSTR pszSchemaBinaryPath) SaveBinary;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISchemaProvider*/SelfOuter* self, IEntity* pEntity, PWSTR pszInputString, ITokenCollection* pTokenCollection, uint32 cTokensBegin, uint32* pcTokensLength, PWSTR* ppszValue) LookupAuthoredNamedEntity;
 	}
 
 
-	public HRESULT Entities(Guid* riid, void** pEntities) mut => VT.[Friend]Entities(&this, riid, pEntities);
+	public HRESULT Entities(Guid riid, void** pEntities) mut => VT.[Friend]Entities(&this, riid, pEntities);
 
 	public HRESULT RootEntity(IEntity** pRootEntity) mut => VT.[Friend]RootEntity(&this, pRootEntity);
 
 	public HRESULT GetEntity(PWSTR pszEntityName, IEntity** pEntity) mut => VT.[Friend]GetEntity(&this, pszEntityName, pEntity);
 
-	public HRESULT MetaData(Guid* riid, void** pMetaData) mut => VT.[Friend]MetaData(&this, riid, pMetaData);
+	public HRESULT MetaData(Guid riid, void** pMetaData) mut => VT.[Friend]MetaData(&this, riid, pMetaData);
 
 	public HRESULT Localize(uint32 lcid, ISchemaLocalizerSupport* pSchemaLocalizerSupport) mut => VT.[Friend]Localize(&this, lcid, pSchemaLocalizerSupport);
 
@@ -11974,13 +11974,13 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IQueryParserManager*/SelfOuter* self, PWSTR pszCatalog, uint16 langidForKeywords, Guid* riid, void** ppQueryParser) CreateLoadedParser;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IQueryParserManager*/SelfOuter* self, PWSTR pszCatalog, uint16 langidForKeywords, Guid riid, void** ppQueryParser) CreateLoadedParser;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IQueryParserManager*/SelfOuter* self, BOOL fUnderstandNQS, BOOL fAutoWildCard, IQueryParser* pQueryParser) InitializeOptions;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IQueryParserManager*/SelfOuter* self, QUERY_PARSER_MANAGER_OPTION option, PROPVARIANT* pOptionValue) SetOption;
 	}
 
 
-	public HRESULT CreateLoadedParser(PWSTR pszCatalog, uint16 langidForKeywords, Guid* riid, void** ppQueryParser) mut => VT.[Friend]CreateLoadedParser(&this, pszCatalog, langidForKeywords, riid, ppQueryParser);
+	public HRESULT CreateLoadedParser(PWSTR pszCatalog, uint16 langidForKeywords, Guid riid, void** ppQueryParser) mut => VT.[Friend]CreateLoadedParser(&this, pszCatalog, langidForKeywords, riid, ppQueryParser);
 
 	public HRESULT InitializeOptions(BOOL fUnderstandNQS, BOOL fAutoWildCard, IQueryParser* pQueryParser) mut => VT.[Friend]InitializeOptions(&this, fUnderstandNQS, fAutoWildCard, pQueryParser);
 
@@ -11997,7 +11997,7 @@ public static
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IUrlAccessor*/SelfOuter* self, PROPSPEC* pSpec, PROPVARIANT* pVar) AddRequestParameter;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IUrlAccessor*/SelfOuter* self, char16* wszDocFormat, uint32 dwSize, uint32* pdwLength) GetDocFormat;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IUrlAccessor*/SelfOuter* self, Guid* pClsid) GetCLSID;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IUrlAccessor*/SelfOuter* self, Guid pClsid) GetCLSID;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IUrlAccessor*/SelfOuter* self, char16* wszHost, uint32 dwSize, uint32* pdwLength) GetHost;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IUrlAccessor*/SelfOuter* self) IsDirectory;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IUrlAccessor*/SelfOuter* self, uint64* pllSize) GetSize;
@@ -12005,7 +12005,7 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IUrlAccessor*/SelfOuter* self, char16* wszFileName, uint32 dwSize, uint32* pdwLength) GetFileName;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IUrlAccessor*/SelfOuter* self, uint8* pSD, uint32 dwSize, uint32* pdwLength) GetSecurityDescriptor;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IUrlAccessor*/SelfOuter* self, char16* wszRedirectedURL, uint32 dwSize, uint32* pdwLength) GetRedirectedURL;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IUrlAccessor*/SelfOuter* self, Guid* pSPClsid) GetSecurityProvider;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IUrlAccessor*/SelfOuter* self, Guid pSPClsid) GetSecurityProvider;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IUrlAccessor*/SelfOuter* self, IStream** ppStream) BindToStream;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IUrlAccessor*/SelfOuter* self, IFilter** ppFilter) BindToFilter;
 	}
@@ -12015,7 +12015,7 @@ public static
 
 	public HRESULT GetDocFormat(char16* wszDocFormat, uint32 dwSize, uint32* pdwLength) mut => VT.[Friend]GetDocFormat(&this, wszDocFormat, dwSize, pdwLength);
 
-	public HRESULT GetCLSID(Guid* pClsid) mut => VT.[Friend]GetCLSID(&this, pClsid);
+	public HRESULT GetCLSID(Guid pClsid) mut => VT.[Friend]GetCLSID(&this, pClsid);
 
 	public HRESULT GetHost(char16* wszHost, uint32 dwSize, uint32* pdwLength) mut => VT.[Friend]GetHost(&this, wszHost, dwSize, pdwLength);
 
@@ -12031,7 +12031,7 @@ public static
 
 	public HRESULT GetRedirectedURL(char16* wszRedirectedURL, uint32 dwSize, uint32* pdwLength) mut => VT.[Friend]GetRedirectedURL(&this, wszRedirectedURL, dwSize, pdwLength);
 
-	public HRESULT GetSecurityProvider(Guid* pSPClsid) mut => VT.[Friend]GetSecurityProvider(&this, pSPClsid);
+	public HRESULT GetSecurityProvider(Guid pSPClsid) mut => VT.[Friend]GetSecurityProvider(&this, pSPClsid);
 
 	public HRESULT BindToStream(IStream** ppStream) mut => VT.[Friend]BindToStream(&this, ppStream);
 
@@ -12181,11 +12181,11 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IProtocolHandlerSite*/SelfOuter* self, Guid* pclsidObj, PWSTR pcwszContentType, PWSTR pcwszExtension, IFilter** ppFilter) GetFilter;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IProtocolHandlerSite*/SelfOuter* self, Guid pclsidObj, PWSTR pcwszContentType, PWSTR pcwszExtension, IFilter** ppFilter) GetFilter;
 	}
 
 
-	public HRESULT GetFilter(Guid* pclsidObj, PWSTR pcwszContentType, PWSTR pcwszExtension, IFilter** ppFilter) mut => VT.[Friend]GetFilter(&this, pclsidObj, pcwszContentType, pcwszExtension, ppFilter);
+	public HRESULT GetFilter(Guid pclsidObj, PWSTR pcwszContentType, PWSTR pcwszExtension, IFilter** ppFilter) mut => VT.[Friend]GetFilter(&this, pclsidObj, pcwszContentType, pcwszExtension, ppFilter);
 }
 
 [CRepr]struct ISearchRoot : IUnknown
@@ -12479,13 +12479,13 @@ public static
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISearchNotifyInlineSite*/SelfOuter* self, SEARCH_INDEXING_PHASE sipStatus, uint32 dwNumEntries, SEARCH_ITEM_INDEXING_STATUS* rgItemStatusEntries) OnItemIndexedStatusChange;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISearchNotifyInlineSite*/SelfOuter* self, Guid* guidCatalogResetSignature, Guid* guidCheckPointSignature, uint32 dwLastCheckPointNumber) OnCatalogStatusChange;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISearchNotifyInlineSite*/SelfOuter* self, Guid guidCatalogResetSignature, Guid guidCheckPointSignature, uint32 dwLastCheckPointNumber) OnCatalogStatusChange;
 	}
 
 
 	public HRESULT OnItemIndexedStatusChange(SEARCH_INDEXING_PHASE sipStatus, uint32 dwNumEntries, SEARCH_ITEM_INDEXING_STATUS* rgItemStatusEntries) mut => VT.[Friend]OnItemIndexedStatusChange(&this, sipStatus, dwNumEntries, rgItemStatusEntries);
 
-	public HRESULT OnCatalogStatusChange(Guid* guidCatalogResetSignature, Guid* guidCheckPointSignature, uint32 dwLastCheckPointNumber) mut => VT.[Friend]OnCatalogStatusChange(&this, guidCatalogResetSignature, guidCheckPointSignature, dwLastCheckPointNumber);
+	public HRESULT OnCatalogStatusChange(Guid guidCatalogResetSignature, Guid guidCheckPointSignature, uint32 dwLastCheckPointNumber) mut => VT.[Friend]OnCatalogStatusChange(&this, guidCatalogResetSignature, guidCheckPointSignature, dwLastCheckPointNumber);
 }
 
 [CRepr]struct ISearchCatalogManager : IUnknown
@@ -12514,7 +12514,7 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISearchCatalogManager*/SelfOuter* self, PWSTR pszURL, uint32* pdwState) GetURLIndexingState;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISearchCatalogManager*/SelfOuter* self, ISearchPersistentItemsChangedSink** ppISearchPersistentItemsChangedSink) GetPersistentItemsChangedSink;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISearchCatalogManager*/SelfOuter* self, PWSTR pszView, ISearchViewChangedSink* pViewChangedSink, uint32* pdwCookie) RegisterViewForNotification;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISearchCatalogManager*/SelfOuter* self, ISearchNotifyInlineSite* pISearchNotifyInlineSite, Guid* riid, void** ppv, Guid* pGUIDCatalogResetSignature, Guid* pGUIDCheckPointSignature, uint32* pdwLastCheckPointNumber) GetItemsChangedSink;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISearchCatalogManager*/SelfOuter* self, ISearchNotifyInlineSite* pISearchNotifyInlineSite, Guid riid, void** ppv, Guid pGUIDCatalogResetSignature, Guid pGUIDCheckPointSignature, uint32* pdwLastCheckPointNumber) GetItemsChangedSink;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISearchCatalogManager*/SelfOuter* self, uint32 dwCookie) UnregisterViewForNotification;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISearchCatalogManager*/SelfOuter* self, PWSTR pszExtension, BOOL fExclude) SetExtensionClusion;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISearchCatalogManager*/SelfOuter* self, IEnumString** ppExtensions) EnumerateExcludedExtensions;
@@ -12561,7 +12561,7 @@ public static
 
 	public HRESULT RegisterViewForNotification(PWSTR pszView, ISearchViewChangedSink* pViewChangedSink, uint32* pdwCookie) mut => VT.[Friend]RegisterViewForNotification(&this, pszView, pViewChangedSink, pdwCookie);
 
-	public HRESULT GetItemsChangedSink(ISearchNotifyInlineSite* pISearchNotifyInlineSite, Guid* riid, void** ppv, Guid* pGUIDCatalogResetSignature, Guid* pGUIDCheckPointSignature, uint32* pdwLastCheckPointNumber) mut => VT.[Friend]GetItemsChangedSink(&this, pISearchNotifyInlineSite, riid, ppv, pGUIDCatalogResetSignature, pGUIDCheckPointSignature, pdwLastCheckPointNumber);
+	public HRESULT GetItemsChangedSink(ISearchNotifyInlineSite* pISearchNotifyInlineSite, Guid riid, void** ppv, Guid pGUIDCatalogResetSignature, Guid pGUIDCheckPointSignature, uint32* pdwLastCheckPointNumber) mut => VT.[Friend]GetItemsChangedSink(&this, pISearchNotifyInlineSite, riid, ppv, pGUIDCatalogResetSignature, pGUIDCheckPointSignature, pdwLastCheckPointNumber);
 
 	public HRESULT UnregisterViewForNotification(uint32 dwCookie) mut => VT.[Friend]UnregisterViewForNotification(&this, dwCookie);
 
@@ -12792,8 +12792,8 @@ public static
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISearchLanguageSupport*/SelfOuter* self, BOOL fDiacriticSensitive) SetDiacriticSensitivity;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISearchLanguageSupport*/SelfOuter* self, BOOL* pfDiacriticSensitive) GetDiacriticSensitivity;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISearchLanguageSupport*/SelfOuter* self, uint32 lcid, Guid* riid, void** ppWordBreaker, uint32* pLcidUsed) LoadWordBreaker;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISearchLanguageSupport*/SelfOuter* self, uint32 lcid, Guid* riid, void** ppStemmer, uint32* pLcidUsed) LoadStemmer;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISearchLanguageSupport*/SelfOuter* self, uint32 lcid, Guid riid, void** ppWordBreaker, uint32* pLcidUsed) LoadWordBreaker;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISearchLanguageSupport*/SelfOuter* self, uint32 lcid, Guid riid, void** ppStemmer, uint32* pLcidUsed) LoadStemmer;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISearchLanguageSupport*/SelfOuter* self, char16* pwcsQueryToken, uint32 cwcQueryToken, char16* pwcsDocumentToken, uint32 cwcDocumentToken, uint32* pulPrefixLength) IsPrefixNormalized;
 	}
 
@@ -12802,9 +12802,9 @@ public static
 
 	public HRESULT GetDiacriticSensitivity(BOOL* pfDiacriticSensitive) mut => VT.[Friend]GetDiacriticSensitivity(&this, pfDiacriticSensitive);
 
-	public HRESULT LoadWordBreaker(uint32 lcid, Guid* riid, void** ppWordBreaker, uint32* pLcidUsed) mut => VT.[Friend]LoadWordBreaker(&this, lcid, riid, ppWordBreaker, pLcidUsed);
+	public HRESULT LoadWordBreaker(uint32 lcid, Guid riid, void** ppWordBreaker, uint32* pLcidUsed) mut => VT.[Friend]LoadWordBreaker(&this, lcid, riid, ppWordBreaker, pLcidUsed);
 
-	public HRESULT LoadStemmer(uint32 lcid, Guid* riid, void** ppStemmer, uint32* pLcidUsed) mut => VT.[Friend]LoadStemmer(&this, lcid, riid, ppStemmer, pLcidUsed);
+	public HRESULT LoadStemmer(uint32 lcid, Guid riid, void** ppStemmer, uint32* pLcidUsed) mut => VT.[Friend]LoadStemmer(&this, lcid, riid, ppStemmer, pLcidUsed);
 
 	public HRESULT IsPrefixNormalized(char16* pwcsQueryToken, uint32 cwcQueryToken, char16* pwcsDocumentToken, uint32 cwcDocumentToken, uint32* pulPrefixLength) mut => VT.[Friend]IsPrefixNormalized(&this, pwcsQueryToken, cwcQueryToken, pwcsDocumentToken, cwcDocumentToken, pulPrefixLength);
 }
@@ -12844,7 +12844,7 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISubscriptionItem*/SelfOuter* self, Guid* pCookie) GetCookie;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISubscriptionItem*/SelfOuter* self, Guid pCookie) GetCookie;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISubscriptionItem*/SelfOuter* self, SUBSCRIPTIONITEMINFO* pSubscriptionItemInfo) GetSubscriptionItemInfo;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISubscriptionItem*/SelfOuter* self, SUBSCRIPTIONITEMINFO* pSubscriptionItemInfo) SetSubscriptionItemInfo;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISubscriptionItem*/SelfOuter* self, uint32 nCount, PWSTR* rgwszName, VARIANT* rgValue) ReadProperties;
@@ -12854,7 +12854,7 @@ public static
 	}
 
 
-	public HRESULT GetCookie(Guid* pCookie) mut => VT.[Friend]GetCookie(&this, pCookie);
+	public HRESULT GetCookie(Guid pCookie) mut => VT.[Friend]GetCookie(&this, pCookie);
 
 	public HRESULT GetSubscriptionItemInfo(SUBSCRIPTIONITEMINFO* pSubscriptionItemInfo) mut => VT.[Friend]GetSubscriptionItemInfo(&this, pSubscriptionItemInfo);
 
@@ -12941,7 +12941,7 @@ public static
 	[CRepr]public struct VTable : ISubscriptionMgr.VTable
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISubscriptionMgr2*/SelfOuter* self, PWSTR pwszURL, ISubscriptionItem** ppSubscriptionItem) GetItemFromURL;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISubscriptionMgr2*/SelfOuter* self, Guid* pSubscriptionCookie, ISubscriptionItem** ppSubscriptionItem) GetItemFromCookie;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISubscriptionMgr2*/SelfOuter* self, Guid pSubscriptionCookie, ISubscriptionItem** ppSubscriptionItem) GetItemFromCookie;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISubscriptionMgr2*/SelfOuter* self, uint32 dwNumCookies, Guid* pCookies, uint32* pdwRunState) GetSubscriptionRunState;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISubscriptionMgr2*/SelfOuter* self, uint32 dwFlags, IEnumSubscription** ppEnumSubscriptions) EnumSubscriptions;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*ISubscriptionMgr2*/SelfOuter* self, uint32 dwFlags, uint32 dwNumCookies, Guid* pCookies) UpdateItems;
@@ -12952,7 +12952,7 @@ public static
 
 	public HRESULT GetItemFromURL(PWSTR pwszURL, ISubscriptionItem** ppSubscriptionItem) mut => VT.[Friend]GetItemFromURL(&this, pwszURL, ppSubscriptionItem);
 
-	public HRESULT GetItemFromCookie(Guid* pSubscriptionCookie, ISubscriptionItem** ppSubscriptionItem) mut => VT.[Friend]GetItemFromCookie(&this, pSubscriptionCookie, ppSubscriptionItem);
+	public HRESULT GetItemFromCookie(Guid pSubscriptionCookie, ISubscriptionItem** ppSubscriptionItem) mut => VT.[Friend]GetItemFromCookie(&this, pSubscriptionCookie, ppSubscriptionItem);
 
 	public HRESULT GetSubscriptionRunState(uint32 dwNumCookies, Guid* pCookies, uint32* pdwRunState) mut => VT.[Friend]GetSubscriptionRunState(&this, dwNumCookies, pCookies, pdwRunState);
 
@@ -13033,7 +13033,7 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*DataSource*/SelfOuter* self, uint16* bstrDM, Guid* riid, IUnknown** ppunk) getDataMember;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*DataSource*/SelfOuter* self, uint16* bstrDM, Guid riid, IUnknown** ppunk) getDataMember;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*DataSource*/SelfOuter* self, int32 lIndex, uint16** pbstrDM) getDataMemberName;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*DataSource*/SelfOuter* self, int32* plCount) getDataMemberCount;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*DataSource*/SelfOuter* self, DataSourceListener* pDSL) addDataSourceListener;
@@ -13041,7 +13041,7 @@ public static
 	}
 
 
-	public HRESULT getDataMember(uint16* bstrDM, Guid* riid, IUnknown** ppunk) mut => VT.[Friend]getDataMember(&this, bstrDM, riid, ppunk);
+	public HRESULT getDataMember(uint16* bstrDM, Guid riid, IUnknown** ppunk) mut => VT.[Friend]getDataMember(&this, bstrDM, riid, ppunk);
 
 	public HRESULT getDataMemberName(int32 lIndex, uint16** pbstrDM) mut => VT.[Friend]getDataMemberName(&this, lIndex, pbstrDM);
 
@@ -13177,12 +13177,12 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDBPromptInitialize*/SelfOuter* self, IUnknown* pUnkOuter, HWND hWndParent, uint32 dwPromptOptions, uint32 cSourceTypeFilter, uint32* rgSourceTypeFilter, PWSTR pwszszzProviderFilter, Guid* riid, IUnknown** ppDataSource) PromptDataSource;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDBPromptInitialize*/SelfOuter* self, IUnknown* pUnkOuter, HWND hWndParent, uint32 dwPromptOptions, uint32 cSourceTypeFilter, uint32* rgSourceTypeFilter, PWSTR pwszszzProviderFilter, Guid riid, IUnknown** ppDataSource) PromptDataSource;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDBPromptInitialize*/SelfOuter* self, HWND hWndParent, uint32 dwPromptOptions, PWSTR pwszInitialDirectory, PWSTR pwszInitialFile, PWSTR* ppwszSelectedFile) PromptFileName;
 	}
 
 
-	public HRESULT PromptDataSource(IUnknown* pUnkOuter, HWND hWndParent, uint32 dwPromptOptions, uint32 cSourceTypeFilter, uint32* rgSourceTypeFilter, PWSTR pwszszzProviderFilter, Guid* riid, IUnknown** ppDataSource) mut => VT.[Friend]PromptDataSource(&this, pUnkOuter, hWndParent, dwPromptOptions, cSourceTypeFilter, rgSourceTypeFilter, pwszszzProviderFilter, riid, ppDataSource);
+	public HRESULT PromptDataSource(IUnknown* pUnkOuter, HWND hWndParent, uint32 dwPromptOptions, uint32 cSourceTypeFilter, uint32* rgSourceTypeFilter, PWSTR pwszszzProviderFilter, Guid riid, IUnknown** ppDataSource) mut => VT.[Friend]PromptDataSource(&this, pUnkOuter, hWndParent, dwPromptOptions, cSourceTypeFilter, rgSourceTypeFilter, pwszszzProviderFilter, riid, ppDataSource);
 
 	public HRESULT PromptFileName(HWND hWndParent, uint32 dwPromptOptions, PWSTR pwszInitialDirectory, PWSTR pwszInitialFile, PWSTR* ppwszSelectedFile) mut => VT.[Friend]PromptFileName(&this, hWndParent, dwPromptOptions, pwszInitialDirectory, pwszInitialFile, ppwszSelectedFile);
 }
@@ -13195,22 +13195,22 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDataInitialize*/SelfOuter* self, IUnknown* pUnkOuter, uint32 dwClsCtx, PWSTR pwszInitializationString, Guid* riid, IUnknown** ppDataSource) GetDataSource;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDataInitialize*/SelfOuter* self, IUnknown* pUnkOuter, uint32 dwClsCtx, PWSTR pwszInitializationString, Guid riid, IUnknown** ppDataSource) GetDataSource;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDataInitialize*/SelfOuter* self, IUnknown* pDataSource, uint8 fIncludePassword, PWSTR* ppwszInitString) GetInitializationString;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDataInitialize*/SelfOuter* self, Guid* clsidProvider, IUnknown* pUnkOuter, uint32 dwClsCtx, PWSTR pwszReserved, Guid* riid, IUnknown** ppDataSource) CreateDBInstance;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDataInitialize*/SelfOuter* self, Guid* clsidProvider, IUnknown* pUnkOuter, uint32 dwClsCtx, PWSTR pwszReserved, COSERVERINFO* pServerInfo, uint32 cmq, MULTI_QI* rgmqResults) CreateDBInstanceEx;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDataInitialize*/SelfOuter* self, Guid clsidProvider, IUnknown* pUnkOuter, uint32 dwClsCtx, PWSTR pwszReserved, Guid riid, IUnknown** ppDataSource) CreateDBInstance;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDataInitialize*/SelfOuter* self, Guid clsidProvider, IUnknown* pUnkOuter, uint32 dwClsCtx, PWSTR pwszReserved, COSERVERINFO* pServerInfo, uint32 cmq, MULTI_QI* rgmqResults) CreateDBInstanceEx;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDataInitialize*/SelfOuter* self, PWSTR pwszFileName, PWSTR* ppwszInitializationString) LoadStringFromStorage;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDataInitialize*/SelfOuter* self, PWSTR pwszFileName, PWSTR pwszInitializationString, uint32 dwCreationDisposition) WriteStringToStorage;
 	}
 
 
-	public HRESULT GetDataSource(IUnknown* pUnkOuter, uint32 dwClsCtx, PWSTR pwszInitializationString, Guid* riid, IUnknown** ppDataSource) mut => VT.[Friend]GetDataSource(&this, pUnkOuter, dwClsCtx, pwszInitializationString, riid, ppDataSource);
+	public HRESULT GetDataSource(IUnknown* pUnkOuter, uint32 dwClsCtx, PWSTR pwszInitializationString, Guid riid, IUnknown** ppDataSource) mut => VT.[Friend]GetDataSource(&this, pUnkOuter, dwClsCtx, pwszInitializationString, riid, ppDataSource);
 
 	public HRESULT GetInitializationString(IUnknown* pDataSource, uint8 fIncludePassword, PWSTR* ppwszInitString) mut => VT.[Friend]GetInitializationString(&this, pDataSource, fIncludePassword, ppwszInitString);
 
-	public HRESULT CreateDBInstance(Guid* clsidProvider, IUnknown* pUnkOuter, uint32 dwClsCtx, PWSTR pwszReserved, Guid* riid, IUnknown** ppDataSource) mut => VT.[Friend]CreateDBInstance(&this, clsidProvider, pUnkOuter, dwClsCtx, pwszReserved, riid, ppDataSource);
+	public HRESULT CreateDBInstance(Guid clsidProvider, IUnknown* pUnkOuter, uint32 dwClsCtx, PWSTR pwszReserved, Guid riid, IUnknown** ppDataSource) mut => VT.[Friend]CreateDBInstance(&this, clsidProvider, pUnkOuter, dwClsCtx, pwszReserved, riid, ppDataSource);
 
-	public HRESULT CreateDBInstanceEx(Guid* clsidProvider, IUnknown* pUnkOuter, uint32 dwClsCtx, PWSTR pwszReserved, COSERVERINFO* pServerInfo, uint32 cmq, MULTI_QI* rgmqResults) mut => VT.[Friend]CreateDBInstanceEx(&this, clsidProvider, pUnkOuter, dwClsCtx, pwszReserved, pServerInfo, cmq, rgmqResults);
+	public HRESULT CreateDBInstanceEx(Guid clsidProvider, IUnknown* pUnkOuter, uint32 dwClsCtx, PWSTR pwszReserved, COSERVERINFO* pServerInfo, uint32 cmq, MULTI_QI* rgmqResults) mut => VT.[Friend]CreateDBInstanceEx(&this, clsidProvider, pUnkOuter, dwClsCtx, pwszReserved, pServerInfo, cmq, rgmqResults);
 
 	public HRESULT LoadStringFromStorage(PWSTR pwszFileName, PWSTR* ppwszInitializationString) mut => VT.[Friend]LoadStringFromStorage(&this, pwszFileName, ppwszInitializationString);
 
@@ -13297,11 +13297,11 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRowsetNextRowset*/SelfOuter* self, IUnknown* pUnkOuter, Guid* riid, IUnknown** ppNextRowset) GetNextRowset;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IRowsetNextRowset*/SelfOuter* self, IUnknown* pUnkOuter, Guid riid, IUnknown** ppNextRowset) GetNextRowset;
 	}
 
 
-	public HRESULT GetNextRowset(IUnknown* pUnkOuter, Guid* riid, IUnknown** ppNextRowset) mut => VT.[Friend]GetNextRowset(&this, pUnkOuter, riid, ppNextRowset);
+	public HRESULT GetNextRowset(IUnknown* pUnkOuter, Guid riid, IUnknown** ppNextRowset) mut => VT.[Friend]GetNextRowset(&this, pUnkOuter, riid, ppNextRowset);
 }
 
 [CRepr]struct IRowsetNewRowAfter : IUnknown
@@ -13552,14 +13552,14 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDBSchemaCommand*/SelfOuter* self, IUnknown* pUnkOuter, Guid* rguidSchema, ICommand** ppCommand) GetCommand;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDBSchemaCommand*/SelfOuter* self, uint32* pcSchemas, Guid** prgSchemas) GetSchemas;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDBSchemaCommand*/SelfOuter* self, IUnknown* pUnkOuter, Guid rguidSchema, ICommand** ppCommand) GetCommand;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDBSchemaCommand*/SelfOuter* self, uint32* pcSchemas, Guid prgSchemas) GetSchemas;
 	}
 
 
-	public HRESULT GetCommand(IUnknown* pUnkOuter, Guid* rguidSchema, ICommand** ppCommand) mut => VT.[Friend]GetCommand(&this, pUnkOuter, rguidSchema, ppCommand);
+	public HRESULT GetCommand(IUnknown* pUnkOuter, Guid rguidSchema, ICommand** ppCommand) mut => VT.[Friend]GetCommand(&this, pUnkOuter, rguidSchema, ppCommand);
 
-	public HRESULT GetSchemas(uint32* pcSchemas, Guid** prgSchemas) mut => VT.[Friend]GetSchemas(&this, pcSchemas, prgSchemas);
+	public HRESULT GetSchemas(uint32* pcSchemas, Guid prgSchemas) mut => VT.[Friend]GetSchemas(&this, pcSchemas, prgSchemas);
 }
 
 [CRepr]struct IProvideMoniker : IUnknown

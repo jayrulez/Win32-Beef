@@ -443,7 +443,7 @@ public struct CACLIPDATA
 public struct CACLSID
 {
 	public uint32 cElems;
-	public Guid* pElems;
+	public Guid pElems;
 }
 
 [CRepr]
@@ -476,7 +476,7 @@ public struct PROPVARIANT
 				public CY cyVal;
 				public double date;
 				public FILETIME filetime;
-				public Guid* puuid;
+				public Guid puuid;
 				public CLIPDATA* pclipdata;
 				public BSTR bstrVal;
 				public BSTRBLOB bstrblobVal;
@@ -679,7 +679,7 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IStorage*/SelfOuter* self, PWSTR pwcsName) DestroyElement;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IStorage*/SelfOuter* self, PWSTR pwcsOldName, PWSTR pwcsNewName) RenameElement;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IStorage*/SelfOuter* self, PWSTR pwcsName, FILETIME* pctime, FILETIME* patime, FILETIME* pmtime) SetElementTimes;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IStorage*/SelfOuter* self, Guid* clsid) SetClass;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IStorage*/SelfOuter* self, Guid clsid) SetClass;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IStorage*/SelfOuter* self, uint32 grfStateBits, uint32 grfMask) SetStateBits;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IStorage*/SelfOuter* self, STATSTG* pstatstg, uint32 grfStatFlag) Stat;
 	}
@@ -709,7 +709,7 @@ public static
 
 	public HRESULT SetElementTimes(PWSTR pwcsName, FILETIME* pctime, FILETIME* patime, FILETIME* pmtime) mut => VT.[Friend]SetElementTimes(&this, pwcsName, pctime, patime, pmtime);
 
-	public HRESULT SetClass(Guid* clsid) mut => VT.[Friend]SetClass(&this, clsid);
+	public HRESULT SetClass(Guid clsid) mut => VT.[Friend]SetClass(&this, clsid);
 
 	public HRESULT SetStateBits(uint32 grfStateBits, uint32 grfMask) mut => VT.[Friend]SetStateBits(&this, grfStateBits, grfMask);
 
@@ -884,7 +884,7 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPropertyStorage*/SelfOuter* self) Revert;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPropertyStorage*/SelfOuter* self, IEnumSTATPROPSTG** ppenum) Enum;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPropertyStorage*/SelfOuter* self, FILETIME* pctime, FILETIME* patime, FILETIME* pmtime) SetTimes;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPropertyStorage*/SelfOuter* self, Guid* clsid) SetClass;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPropertyStorage*/SelfOuter* self, Guid clsid) SetClass;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPropertyStorage*/SelfOuter* self, STATPROPSETSTG* pstatpsstg) Stat;
 	}
 
@@ -909,7 +909,7 @@ public static
 
 	public HRESULT SetTimes(FILETIME* pctime, FILETIME* patime, FILETIME* pmtime) mut => VT.[Friend]SetTimes(&this, pctime, patime, pmtime);
 
-	public HRESULT SetClass(Guid* clsid) mut => VT.[Friend]SetClass(&this, clsid);
+	public HRESULT SetClass(Guid clsid) mut => VT.[Friend]SetClass(&this, clsid);
 
 	public HRESULT Stat(STATPROPSETSTG* pstatpsstg) mut => VT.[Friend]Stat(&this, pstatpsstg);
 }
@@ -922,18 +922,18 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPropertySetStorage*/SelfOuter* self, Guid* rfmtid, Guid* pclsid, uint32 grfFlags, uint32 grfMode, IPropertyStorage** ppprstg) Create;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPropertySetStorage*/SelfOuter* self, Guid* rfmtid, uint32 grfMode, IPropertyStorage** ppprstg) Open;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPropertySetStorage*/SelfOuter* self, Guid* rfmtid) Delete;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPropertySetStorage*/SelfOuter* self, Guid rfmtid, Guid pclsid, uint32 grfFlags, uint32 grfMode, IPropertyStorage** ppprstg) Create;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPropertySetStorage*/SelfOuter* self, Guid rfmtid, uint32 grfMode, IPropertyStorage** ppprstg) Open;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPropertySetStorage*/SelfOuter* self, Guid rfmtid) Delete;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IPropertySetStorage*/SelfOuter* self, IEnumSTATPROPSETSTG** ppenum) Enum;
 	}
 
 
-	public HRESULT Create(Guid* rfmtid, Guid* pclsid, uint32 grfFlags, uint32 grfMode, IPropertyStorage** ppprstg) mut => VT.[Friend]Create(&this, rfmtid, pclsid, grfFlags, grfMode, ppprstg);
+	public HRESULT Create(Guid rfmtid, Guid pclsid, uint32 grfFlags, uint32 grfMode, IPropertyStorage** ppprstg) mut => VT.[Friend]Create(&this, rfmtid, pclsid, grfFlags, grfMode, ppprstg);
 
-	public HRESULT Open(Guid* rfmtid, uint32 grfMode, IPropertyStorage** ppprstg) mut => VT.[Friend]Open(&this, rfmtid, grfMode, ppprstg);
+	public HRESULT Open(Guid rfmtid, uint32 grfMode, IPropertyStorage** ppprstg) mut => VT.[Friend]Open(&this, rfmtid, grfMode, ppprstg);
 
-	public HRESULT Delete(Guid* rfmtid) mut => VT.[Friend]Delete(&this, rfmtid);
+	public HRESULT Delete(Guid rfmtid) mut => VT.[Friend]Delete(&this, rfmtid);
 
 	public HRESULT Enum(IEnumSTATPROPSETSTG** ppenum) mut => VT.[Friend]Enum(&this, ppenum);
 }
@@ -1037,10 +1037,10 @@ public static
 public static
 {
 	[Import("OLE32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT CoGetInstanceFromFile(COSERVERINFO* pServerInfo, Guid* pClsid, IUnknown* punkOuter, CLSCTX dwClsCtx, uint32 grfMode, PWSTR pwszName, uint32 dwCount, MULTI_QI* pResults);
+	public static extern HRESULT CoGetInstanceFromFile(COSERVERINFO* pServerInfo, Guid pClsid, IUnknown* punkOuter, CLSCTX dwClsCtx, uint32 grfMode, PWSTR pwszName, uint32 dwCount, MULTI_QI* pResults);
 
 	[Import("OLE32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT CoGetInstanceFromIStorage(COSERVERINFO* pServerInfo, Guid* pClsid, IUnknown* punkOuter, CLSCTX dwClsCtx, IStorage* pstg, uint32 dwCount, MULTI_QI* pResults);
+	public static extern HRESULT CoGetInstanceFromIStorage(COSERVERINFO* pServerInfo, Guid pClsid, IUnknown* punkOuter, CLSCTX dwClsCtx, IStorage* pstg, uint32 dwCount, MULTI_QI* pResults);
 
 	[Import("ole32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT StgOpenAsyncDocfileOnIFillLockBytes(IFillLockBytes* pflb, uint32 grfMode, uint32 asyncFlags, IStorage** ppstgOpen);
@@ -1061,7 +1061,7 @@ public static
 	public static extern HRESULT GetHGlobalFromStream(IStream* pstm, int* phglobal);
 
 	[Import("OLE32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT CoGetInterfaceAndReleaseStream(IStream* pStm, Guid* iid, void** ppv);
+	public static extern HRESULT CoGetInterfaceAndReleaseStream(IStream* pStm, Guid iid, void** ppv);
 
 	[Import("OLE32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT PropVariantCopy(PROPVARIANT* pvarDest, PROPVARIANT* pvarSrc);
@@ -1094,37 +1094,37 @@ public static
 	public static extern HRESULT StgSetTimes(PWSTR lpszName, FILETIME* pctime, FILETIME* patime, FILETIME* pmtime);
 
 	[Import("OLE32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT StgCreateStorageEx(PWSTR pwcsName, uint32 grfMode, uint32 stgfmt, uint32 grfAttrs, STGOPTIONS* pStgOptions, SECURITY_DESCRIPTOR* pSecurityDescriptor, Guid* riid, void** ppObjectOpen);
+	public static extern HRESULT StgCreateStorageEx(PWSTR pwcsName, uint32 grfMode, uint32 stgfmt, uint32 grfAttrs, STGOPTIONS* pStgOptions, SECURITY_DESCRIPTOR* pSecurityDescriptor, Guid riid, void** ppObjectOpen);
 
 	[Import("OLE32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT StgOpenStorageEx(PWSTR pwcsName, uint32 grfMode, uint32 stgfmt, uint32 grfAttrs, STGOPTIONS* pStgOptions, SECURITY_DESCRIPTOR* pSecurityDescriptor, Guid* riid, void** ppObjectOpen);
+	public static extern HRESULT StgOpenStorageEx(PWSTR pwcsName, uint32 grfMode, uint32 stgfmt, uint32 grfAttrs, STGOPTIONS* pStgOptions, SECURITY_DESCRIPTOR* pSecurityDescriptor, Guid riid, void** ppObjectOpen);
 
 	[Import("OLE32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT StgCreatePropStg(IUnknown* pUnk, Guid* fmtid, Guid* pclsid, uint32 grfFlags, uint32 dwReserved, IPropertyStorage** ppPropStg);
+	public static extern HRESULT StgCreatePropStg(IUnknown* pUnk, Guid fmtid, Guid pclsid, uint32 grfFlags, uint32 dwReserved, IPropertyStorage** ppPropStg);
 
 	[Import("OLE32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT StgOpenPropStg(IUnknown* pUnk, Guid* fmtid, uint32 grfFlags, uint32 dwReserved, IPropertyStorage** ppPropStg);
+	public static extern HRESULT StgOpenPropStg(IUnknown* pUnk, Guid fmtid, uint32 grfFlags, uint32 dwReserved, IPropertyStorage** ppPropStg);
 
 	[Import("OLE32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT StgCreatePropSetStg(IStorage* pStorage, uint32 dwReserved, IPropertySetStorage** ppPropSetStg);
 
 	[Import("OLE32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT FmtIdToPropStgName(Guid* pfmtid, PWSTR oszName);
+	public static extern HRESULT FmtIdToPropStgName(Guid pfmtid, PWSTR oszName);
 
 	[Import("OLE32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT PropStgNameToFmtId(PWSTR oszName, Guid* pfmtid);
+	public static extern HRESULT PropStgNameToFmtId(PWSTR oszName, Guid pfmtid);
 
 	[Import("OLE32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT ReadClassStg(IStorage* pStg, Guid* pclsid);
+	public static extern HRESULT ReadClassStg(IStorage* pStg, Guid pclsid);
 
 	[Import("OLE32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT WriteClassStg(IStorage* pStg, Guid* rclsid);
+	public static extern HRESULT WriteClassStg(IStorage* pStg, Guid rclsid);
 
 	[Import("OLE32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT ReadClassStm(IStream* pStm, Guid* pclsid);
+	public static extern HRESULT ReadClassStm(IStream* pStm, Guid pclsid);
 
 	[Import("OLE32.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT WriteClassStm(IStream* pStm, Guid* rclsid);
+	public static extern HRESULT WriteClassStm(IStream* pStm, Guid rclsid);
 
 	[Import("OLE32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT GetHGlobalFromILockBytes(ILockBytes* plkbyt, int* phglobal);

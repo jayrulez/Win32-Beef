@@ -229,7 +229,7 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*INetwork*/SelfOuter* self, BSTR szNetworkNewName) SetName;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*INetwork*/SelfOuter* self, BSTR* pszDescription) GetDescription;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*INetwork*/SelfOuter* self, BSTR szDescription) SetDescription;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*INetwork*/SelfOuter* self, Guid* pgdGuidNetworkId) GetNetworkId;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*INetwork*/SelfOuter* self, Guid pgdGuidNetworkId) GetNetworkId;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*INetwork*/SelfOuter* self, NLM_DOMAIN_TYPE* pNetworkType) GetDomainType;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*INetwork*/SelfOuter* self, IEnumNetworkConnections** ppEnumNetworkConnection) GetNetworkConnections;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*INetwork*/SelfOuter* self, uint32* pdwLowDateTimeCreated, uint32* pdwHighDateTimeCreated, uint32* pdwLowDateTimeConnected, uint32* pdwHighDateTimeConnected) GetTimeCreatedAndConnected;
@@ -249,7 +249,7 @@ public static
 
 	public HRESULT SetDescription(BSTR szDescription) mut => VT.[Friend]SetDescription(&this, szDescription);
 
-	public HRESULT GetNetworkId(Guid* pgdGuidNetworkId) mut => VT.[Friend]GetNetworkId(&this, pgdGuidNetworkId);
+	public HRESULT GetNetworkId(Guid pgdGuidNetworkId) mut => VT.[Friend]GetNetworkId(&this, pgdGuidNetworkId);
 
 	public HRESULT GetDomainType(NLM_DOMAIN_TYPE* pNetworkType) mut => VT.[Friend]GetDomainType(&this, pNetworkType);
 
@@ -331,8 +331,8 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*INetworkConnection*/SelfOuter* self, int16* pbIsConnected) get_IsConnectedToInternet;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*INetworkConnection*/SelfOuter* self, int16* pbIsConnected) get_IsConnected;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*INetworkConnection*/SelfOuter* self, NLM_CONNECTIVITY* pConnectivity) GetConnectivity;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*INetworkConnection*/SelfOuter* self, Guid* pgdConnectionId) GetConnectionId;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*INetworkConnection*/SelfOuter* self, Guid* pgdAdapterId) GetAdapterId;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*INetworkConnection*/SelfOuter* self, Guid pgdConnectionId) GetConnectionId;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*INetworkConnection*/SelfOuter* self, Guid pgdAdapterId) GetAdapterId;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*INetworkConnection*/SelfOuter* self, NLM_DOMAIN_TYPE* pDomainType) GetDomainType;
 	}
 
@@ -345,9 +345,9 @@ public static
 
 	public HRESULT GetConnectivity(NLM_CONNECTIVITY* pConnectivity) mut => VT.[Friend]GetConnectivity(&this, pConnectivity);
 
-	public HRESULT GetConnectionId(Guid* pgdConnectionId) mut => VT.[Friend]GetConnectionId(&this, pgdConnectionId);
+	public HRESULT GetConnectionId(Guid pgdConnectionId) mut => VT.[Friend]GetConnectionId(&this, pgdConnectionId);
 
-	public HRESULT GetAdapterId(Guid* pgdAdapterId) mut => VT.[Friend]GetAdapterId(&this, pgdAdapterId);
+	public HRESULT GetAdapterId(Guid pgdAdapterId) mut => VT.[Friend]GetAdapterId(&this, pgdAdapterId);
 
 	public HRESULT GetDomainType(NLM_DOMAIN_TYPE* pDomainType) mut => VT.[Friend]GetDomainType(&this, pDomainType);
 }

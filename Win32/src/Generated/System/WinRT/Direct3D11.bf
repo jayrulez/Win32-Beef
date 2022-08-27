@@ -33,11 +33,11 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDirect3DDxgiInterfaceAccess*/SelfOuter* self, Guid* iid, void** p) GetInterface;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDirect3DDxgiInterfaceAccess*/SelfOuter* self, Guid iid, void** p) GetInterface;
 	}
 
 
-	public HRESULT GetInterface(Guid* iid, void** p) mut => VT.[Friend]GetInterface(&this, iid, p);
+	public HRESULT GetInterface(Guid iid, void** p) mut => VT.[Friend]GetInterface(&this, iid, p);
 }
 
 #endregion

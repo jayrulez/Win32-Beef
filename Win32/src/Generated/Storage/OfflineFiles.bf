@@ -483,12 +483,12 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOfflineFilesEvents*/SelfOuter* self) CacheIsCorrupted;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOfflineFilesEvents*/SelfOuter* self, BOOL bEnabled) Enabled;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOfflineFilesEvents*/SelfOuter* self, BOOL bWasEncrypted, BOOL bWasPartial, BOOL bIsEncrypted, BOOL bIsPartial) EncryptionChanged;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOfflineFilesEvents*/SelfOuter* self, Guid* rSyncId) SyncBegin;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOfflineFilesEvents*/SelfOuter* self, Guid* rSyncId, PWSTR pszFile, HRESULT hrResult) SyncFileResult;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOfflineFilesEvents*/SelfOuter* self, Guid rSyncId) SyncBegin;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOfflineFilesEvents*/SelfOuter* self, Guid rSyncId, PWSTR pszFile, HRESULT hrResult) SyncFileResult;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOfflineFilesEvents*/SelfOuter* self, PWSTR pszConflictPath, FILETIME* pftConflictDateTime, OFFLINEFILES_SYNC_STATE ConflictSyncState) SyncConflictRecAdded;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOfflineFilesEvents*/SelfOuter* self, PWSTR pszConflictPath, FILETIME* pftConflictDateTime, OFFLINEFILES_SYNC_STATE ConflictSyncState) SyncConflictRecUpdated;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOfflineFilesEvents*/SelfOuter* self, PWSTR pszConflictPath, FILETIME* pftConflictDateTime, OFFLINEFILES_SYNC_STATE ConflictSyncState) SyncConflictRecRemoved;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOfflineFilesEvents*/SelfOuter* self, Guid* rSyncId, HRESULT hrResult) SyncEnd;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOfflineFilesEvents*/SelfOuter* self, Guid rSyncId, HRESULT hrResult) SyncEnd;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOfflineFilesEvents*/SelfOuter* self) NetTransportArrived;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOfflineFilesEvents*/SelfOuter* self) NoNetTransports;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOfflineFilesEvents*/SelfOuter* self, PWSTR pszPath, OFFLINEFILES_ITEM_TYPE ItemType) ItemDisconnected;
@@ -516,9 +516,9 @@ public static
 
 	public HRESULT EncryptionChanged(BOOL bWasEncrypted, BOOL bWasPartial, BOOL bIsEncrypted, BOOL bIsPartial) mut => VT.[Friend]EncryptionChanged(&this, bWasEncrypted, bWasPartial, bIsEncrypted, bIsPartial);
 
-	public HRESULT SyncBegin(Guid* rSyncId) mut => VT.[Friend]SyncBegin(&this, rSyncId);
+	public HRESULT SyncBegin(Guid rSyncId) mut => VT.[Friend]SyncBegin(&this, rSyncId);
 
-	public HRESULT SyncFileResult(Guid* rSyncId, PWSTR pszFile, HRESULT hrResult) mut => VT.[Friend]SyncFileResult(&this, rSyncId, pszFile, hrResult);
+	public HRESULT SyncFileResult(Guid rSyncId, PWSTR pszFile, HRESULT hrResult) mut => VT.[Friend]SyncFileResult(&this, rSyncId, pszFile, hrResult);
 
 	public HRESULT SyncConflictRecAdded(PWSTR pszConflictPath, FILETIME* pftConflictDateTime, OFFLINEFILES_SYNC_STATE ConflictSyncState) mut => VT.[Friend]SyncConflictRecAdded(&this, pszConflictPath, pftConflictDateTime, ConflictSyncState);
 
@@ -526,7 +526,7 @@ public static
 
 	public HRESULT SyncConflictRecRemoved(PWSTR pszConflictPath, FILETIME* pftConflictDateTime, OFFLINEFILES_SYNC_STATE ConflictSyncState) mut => VT.[Friend]SyncConflictRecRemoved(&this, pszConflictPath, pftConflictDateTime, ConflictSyncState);
 
-	public HRESULT SyncEnd(Guid* rSyncId, HRESULT hrResult) mut => VT.[Friend]SyncEnd(&this, rSyncId, hrResult);
+	public HRESULT SyncEnd(Guid rSyncId, HRESULT hrResult) mut => VT.[Friend]SyncEnd(&this, rSyncId, hrResult);
 
 	public HRESULT NetTransportArrived() mut => VT.[Friend]NetTransportArrived(&this);
 
@@ -1231,7 +1231,7 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOfflineFilesCache*/SelfOuter* self, HWND hwndParent, PWSTR* rgpszPaths, uint32 cPaths, BOOL bAsync, uint32 dwSyncControl, IOfflineFilesSyncConflictHandler* pISyncConflictHandler, IOfflineFilesSyncProgress* pIProgress, Guid* pSyncId) Synchronize;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOfflineFilesCache*/SelfOuter* self, HWND hwndParent, PWSTR* rgpszPaths, uint32 cPaths, BOOL bAsync, uint32 dwSyncControl, IOfflineFilesSyncConflictHandler* pISyncConflictHandler, IOfflineFilesSyncProgress* pIProgress, Guid pSyncId) Synchronize;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOfflineFilesCache*/SelfOuter* self, PWSTR* rgpszPaths, uint32 cPaths, uint32 dwFlags, BOOL bAsync, IOfflineFilesSimpleProgress* pIProgress) DeleteItems;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOfflineFilesCache*/SelfOuter* self, PWSTR pszUser, PWSTR* rgpszPaths, uint32 cPaths, uint32 dwFlags, BOOL bAsync, IOfflineFilesSimpleProgress* pIProgress) DeleteItemsForUser;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IOfflineFilesCache*/SelfOuter* self, HWND hwndParent, PWSTR* rgpszPaths, uint32 cPaths, BOOL bDeep, BOOL bAsync, uint32 dwPinControlFlags, IOfflineFilesSyncProgress* pIProgress) Pin;
@@ -1251,7 +1251,7 @@ public static
 	}
 
 
-	public HRESULT Synchronize(HWND hwndParent, PWSTR* rgpszPaths, uint32 cPaths, BOOL bAsync, uint32 dwSyncControl, IOfflineFilesSyncConflictHandler* pISyncConflictHandler, IOfflineFilesSyncProgress* pIProgress, Guid* pSyncId) mut => VT.[Friend]Synchronize(&this, hwndParent, rgpszPaths, cPaths, bAsync, dwSyncControl, pISyncConflictHandler, pIProgress, pSyncId);
+	public HRESULT Synchronize(HWND hwndParent, PWSTR* rgpszPaths, uint32 cPaths, BOOL bAsync, uint32 dwSyncControl, IOfflineFilesSyncConflictHandler* pISyncConflictHandler, IOfflineFilesSyncProgress* pIProgress, Guid pSyncId) mut => VT.[Friend]Synchronize(&this, hwndParent, rgpszPaths, cPaths, bAsync, dwSyncControl, pISyncConflictHandler, pIProgress, pSyncId);
 
 	public HRESULT DeleteItems(PWSTR* rgpszPaths, uint32 cPaths, uint32 dwFlags, BOOL bAsync, IOfflineFilesSimpleProgress* pIProgress) mut => VT.[Friend]DeleteItems(&this, rgpszPaths, cPaths, dwFlags, bAsync, pIProgress);
 

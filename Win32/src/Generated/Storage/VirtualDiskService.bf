@@ -3141,11 +3141,11 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IVdsHwProviderPrivate*/SelfOuter* self, PWSTR pwszDevicePath, VDS_LUN_INFORMATION* pVdsLunInformation, Guid* pLunId) QueryIfCreatedLun;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IVdsHwProviderPrivate*/SelfOuter* self, PWSTR pwszDevicePath, VDS_LUN_INFORMATION* pVdsLunInformation, Guid pLunId) QueryIfCreatedLun;
 	}
 
 
-	public HRESULT QueryIfCreatedLun(PWSTR pwszDevicePath, VDS_LUN_INFORMATION* pVdsLunInformation, Guid* pLunId) mut => VT.[Friend]QueryIfCreatedLun(&this, pwszDevicePath, pVdsLunInformation, pLunId);
+	public HRESULT QueryIfCreatedLun(PWSTR pwszDevicePath, VDS_LUN_INFORMATION* pVdsLunInformation, Guid pLunId) mut => VT.[Friend]QueryIfCreatedLun(&this, pwszDevicePath, pVdsLunInformation, pLunId);
 }
 
 [CRepr]struct IVdsHwProviderPrivateMpio : IUnknown

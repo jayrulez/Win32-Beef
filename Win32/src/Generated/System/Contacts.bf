@@ -454,8 +454,8 @@ public static
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IContactAggregationGroup*/SelfOuter* self, PWSTR pAggregateId) Add;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IContactAggregationGroup*/SelfOuter* self, PWSTR pAggregateId) Remove;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IContactAggregationGroup*/SelfOuter* self, IContactAggregationAggregateCollection** ppAggregateContactCollection) get_Members;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IContactAggregationGroup*/SelfOuter* self, Guid* pGlobalObjectId) get_GlobalObjectId;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IContactAggregationGroup*/SelfOuter* self, Guid* pGlobalObjectId) put_GlobalObjectId;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IContactAggregationGroup*/SelfOuter* self, Guid pGlobalObjectId) get_GlobalObjectId;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IContactAggregationGroup*/SelfOuter* self, Guid pGlobalObjectId) put_GlobalObjectId;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IContactAggregationGroup*/SelfOuter* self, PWSTR* ppItemId) get_Id;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IContactAggregationGroup*/SelfOuter* self, PWSTR* ppName) get_Name;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IContactAggregationGroup*/SelfOuter* self, PWSTR pName) put_Name;
@@ -472,9 +472,9 @@ public static
 
 	public HRESULT get_Members(IContactAggregationAggregateCollection** ppAggregateContactCollection) mut => VT.[Friend]get_Members(&this, ppAggregateContactCollection);
 
-	public HRESULT get_GlobalObjectId(Guid* pGlobalObjectId) mut => VT.[Friend]get_GlobalObjectId(&this, pGlobalObjectId);
+	public HRESULT get_GlobalObjectId(Guid pGlobalObjectId) mut => VT.[Friend]get_GlobalObjectId(&this, pGlobalObjectId);
 
-	public HRESULT put_GlobalObjectId(Guid* pGlobalObjectId) mut => VT.[Friend]put_GlobalObjectId(&this, pGlobalObjectId);
+	public HRESULT put_GlobalObjectId(Guid pGlobalObjectId) mut => VT.[Friend]put_GlobalObjectId(&this, pGlobalObjectId);
 
 	public HRESULT get_Id(PWSTR* ppItemId) mut => VT.[Friend]get_Id(&this, ppItemId);
 
@@ -492,7 +492,7 @@ public static
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IContactAggregationGroupCollection*/SelfOuter* self, IContactAggregationGroup** ppGroup) FindFirst;
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IContactAggregationGroupCollection*/SelfOuter* self, Guid* pGlobalObjectId, IContactAggregationGroup** ppGroup) FindFirstByGlobalObjectId;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IContactAggregationGroupCollection*/SelfOuter* self, Guid pGlobalObjectId, IContactAggregationGroup** ppGroup) FindFirstByGlobalObjectId;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IContactAggregationGroupCollection*/SelfOuter* self, IContactAggregationGroup** ppGroup) FindNext;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IContactAggregationGroupCollection*/SelfOuter* self, uint32* pCount) get_Count;
 	}
@@ -500,7 +500,7 @@ public static
 
 	public HRESULT FindFirst(IContactAggregationGroup** ppGroup) mut => VT.[Friend]FindFirst(&this, ppGroup);
 
-	public HRESULT FindFirstByGlobalObjectId(Guid* pGlobalObjectId, IContactAggregationGroup** ppGroup) mut => VT.[Friend]FindFirstByGlobalObjectId(&this, pGlobalObjectId, ppGroup);
+	public HRESULT FindFirstByGlobalObjectId(Guid pGlobalObjectId, IContactAggregationGroup** ppGroup) mut => VT.[Friend]FindFirstByGlobalObjectId(&this, pGlobalObjectId, ppGroup);
 
 	public HRESULT FindNext(IContactAggregationGroup** ppGroup) mut => VT.[Friend]FindNext(&this, ppGroup);
 

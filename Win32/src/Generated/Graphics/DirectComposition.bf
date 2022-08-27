@@ -815,7 +815,7 @@ public static
 
 	[CRepr]public struct VTable : IUnknown.VTable
 	{
-		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDCompositionSurface*/SelfOuter* self, RECT* updateRect, Guid* iid, void** updateObject, POINT* updateOffset) BeginDraw;
+		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDCompositionSurface*/SelfOuter* self, RECT* updateRect, Guid iid, void** updateObject, POINT* updateOffset) BeginDraw;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDCompositionSurface*/SelfOuter* self) EndDraw;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDCompositionSurface*/SelfOuter* self) SuspendDraw;
 		protected new function [CallingConvention(.Stdcall)] HRESULT(/*IDCompositionSurface*/SelfOuter* self) ResumeDraw;
@@ -823,7 +823,7 @@ public static
 	}
 
 
-	public HRESULT BeginDraw(RECT* updateRect, Guid* iid, void** updateObject, POINT* updateOffset) mut => VT.[Friend]BeginDraw(&this, updateRect, iid, updateObject, updateOffset);
+	public HRESULT BeginDraw(RECT* updateRect, Guid iid, void** updateObject, POINT* updateOffset) mut => VT.[Friend]BeginDraw(&this, updateRect, iid, updateObject, updateOffset);
 
 	public HRESULT EndDraw() mut => VT.[Friend]EndDraw(&this);
 
@@ -1623,13 +1623,13 @@ public static
 public static
 {
 	[Import("dcomp.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT DCompositionCreateDevice(IDXGIDevice* dxgiDevice, Guid* iid, void** dcompositionDevice);
+	public static extern HRESULT DCompositionCreateDevice(IDXGIDevice* dxgiDevice, Guid iid, void** dcompositionDevice);
 
 	[Import("dcomp.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT DCompositionCreateDevice2(IUnknown* renderingDevice, Guid* iid, void** dcompositionDevice);
+	public static extern HRESULT DCompositionCreateDevice2(IUnknown* renderingDevice, Guid iid, void** dcompositionDevice);
 
 	[Import("dcomp.lib"), CLink, CallingConvention(.Stdcall)]
-	public static extern HRESULT DCompositionCreateDevice3(IUnknown* renderingDevice, Guid* iid, void** dcompositionDevice);
+	public static extern HRESULT DCompositionCreateDevice3(IUnknown* renderingDevice, Guid iid, void** dcompositionDevice);
 
 	[Import("dcomp.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT DCompositionCreateSurfaceHandle(uint32 desiredAccess, SECURITY_ATTRIBUTES* securityAttributes, HANDLE* surfaceHandle);
