@@ -4414,6 +4414,7 @@ public static
 {
 	[Import("WINFAX.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL FaxConnectFaxServerA(PSTR MachineName, HANDLE* FaxHandle);
+	public static BOOL FaxConnectFaxServer(PSTR MachineName, HANDLE* FaxHandle) => FaxConnectFaxServerA(MachineName, FaxHandle);
 
 	[Import("WINFAX.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL FaxConnectFaxServerW(PWSTR MachineName, HANDLE* FaxHandle);
@@ -4426,36 +4427,42 @@ public static
 
 	[Import("WINFAX.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL FaxCompleteJobParamsA(FAX_JOB_PARAMA** JobParams, FAX_COVERPAGE_INFOA** CoverpageInfo);
+	public static BOOL FaxCompleteJobParams(FAX_JOB_PARAMA** JobParams, FAX_COVERPAGE_INFOA** CoverpageInfo) => FaxCompleteJobParamsA(JobParams, CoverpageInfo);
 
 	[Import("WINFAX.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL FaxCompleteJobParamsW(FAX_JOB_PARAMW** JobParams, FAX_COVERPAGE_INFOW** CoverpageInfo);
 
 	[Import("WINFAX.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL FaxSendDocumentA(HANDLE FaxHandle, PSTR FileName, FAX_JOB_PARAMA* JobParams, FAX_COVERPAGE_INFOA* CoverpageInfo, uint32* FaxJobId);
+	public static BOOL FaxSendDocument(HANDLE FaxHandle, PSTR FileName, FAX_JOB_PARAMA* JobParams, FAX_COVERPAGE_INFOA* CoverpageInfo, uint32* FaxJobId) => FaxSendDocumentA(FaxHandle, FileName, JobParams, CoverpageInfo, FaxJobId);
 
 	[Import("WINFAX.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL FaxSendDocumentW(HANDLE FaxHandle, PWSTR FileName, FAX_JOB_PARAMW* JobParams, FAX_COVERPAGE_INFOW* CoverpageInfo, uint32* FaxJobId);
 
 	[Import("WINFAX.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL FaxSendDocumentForBroadcastA(HANDLE FaxHandle, PSTR FileName, uint32* FaxJobId, PFAX_RECIPIENT_CALLBACKA FaxRecipientCallback, void* Context);
+	public static BOOL FaxSendDocumentForBroadcast(HANDLE FaxHandle, PSTR FileName, uint32* FaxJobId, PFAX_RECIPIENT_CALLBACKA FaxRecipientCallback, void* Context) => FaxSendDocumentForBroadcastA(FaxHandle, FileName, FaxJobId, FaxRecipientCallback, Context);
 
 	[Import("WINFAX.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL FaxSendDocumentForBroadcastW(HANDLE FaxHandle, PWSTR FileName, uint32* FaxJobId, PFAX_RECIPIENT_CALLBACKW FaxRecipientCallback, void* Context);
 
 	[Import("WINFAX.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL FaxEnumJobsA(HANDLE FaxHandle, FAX_JOB_ENTRYA** JobEntry, uint32* JobsReturned);
+	public static BOOL FaxEnumJobs(HANDLE FaxHandle, FAX_JOB_ENTRYA** JobEntry, uint32* JobsReturned) => FaxEnumJobsA(FaxHandle, JobEntry, JobsReturned);
 
 	[Import("WINFAX.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL FaxEnumJobsW(HANDLE FaxHandle, FAX_JOB_ENTRYW** JobEntry, uint32* JobsReturned);
 
 	[Import("WINFAX.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL FaxGetJobA(HANDLE FaxHandle, uint32 JobId, FAX_JOB_ENTRYA** JobEntry);
+	public static BOOL FaxGetJob(HANDLE FaxHandle, uint32 JobId, FAX_JOB_ENTRYA** JobEntry) => FaxGetJobA(FaxHandle, JobId, JobEntry);
 
 	[Import("WINFAX.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL FaxGetJobW(HANDLE FaxHandle, uint32 JobId, FAX_JOB_ENTRYW** JobEntry);
 
 	[Import("WINFAX.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL FaxSetJobA(HANDLE FaxHandle, uint32 JobId, uint32 Command, FAX_JOB_ENTRYA* JobEntry);
+	public static BOOL FaxSetJob(HANDLE FaxHandle, uint32 JobId, uint32 Command, FAX_JOB_ENTRYA* JobEntry) => FaxSetJobA(FaxHandle, JobId, Command, JobEntry);
 
 	[Import("WINFAX.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL FaxSetJobW(HANDLE FaxHandle, uint32 JobId, uint32 Command, FAX_JOB_ENTRYW* JobEntry);
@@ -4465,6 +4472,7 @@ public static
 
 	[Import("WINFAX.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL FaxGetDeviceStatusA(HANDLE FaxPortHandle, FAX_DEVICE_STATUSA** DeviceStatus);
+	public static BOOL FaxGetDeviceStatus(HANDLE FaxPortHandle, FAX_DEVICE_STATUSA** DeviceStatus) => FaxGetDeviceStatusA(FaxPortHandle, DeviceStatus);
 
 	[Import("WINFAX.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL FaxGetDeviceStatusW(HANDLE FaxPortHandle, FAX_DEVICE_STATUSW** DeviceStatus);
@@ -4474,78 +4482,91 @@ public static
 
 	[Import("WINFAX.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL FaxGetConfigurationA(HANDLE FaxHandle, FAX_CONFIGURATIONA** FaxConfig);
+	public static BOOL FaxGetConfiguration(HANDLE FaxHandle, FAX_CONFIGURATIONA** FaxConfig) => FaxGetConfigurationA(FaxHandle, FaxConfig);
 
 	[Import("WINFAX.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL FaxGetConfigurationW(HANDLE FaxHandle, FAX_CONFIGURATIONW** FaxConfig);
 
 	[Import("WINFAX.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL FaxSetConfigurationA(HANDLE FaxHandle, FAX_CONFIGURATIONA* FaxConfig);
+	public static BOOL FaxSetConfiguration(HANDLE FaxHandle, FAX_CONFIGURATIONA* FaxConfig) => FaxSetConfigurationA(FaxHandle, FaxConfig);
 
 	[Import("WINFAX.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL FaxSetConfigurationW(HANDLE FaxHandle, FAX_CONFIGURATIONW* FaxConfig);
 
 	[Import("WINFAX.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL FaxGetLoggingCategoriesA(HANDLE FaxHandle, FAX_LOG_CATEGORYA** Categories, uint32* NumberCategories);
+	public static BOOL FaxGetLoggingCategories(HANDLE FaxHandle, FAX_LOG_CATEGORYA** Categories, uint32* NumberCategories) => FaxGetLoggingCategoriesA(FaxHandle, Categories, NumberCategories);
 
 	[Import("WINFAX.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL FaxGetLoggingCategoriesW(HANDLE FaxHandle, FAX_LOG_CATEGORYW** Categories, uint32* NumberCategories);
 
 	[Import("WINFAX.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL FaxSetLoggingCategoriesA(HANDLE FaxHandle, FAX_LOG_CATEGORYA* Categories, uint32 NumberCategories);
+	public static BOOL FaxSetLoggingCategories(HANDLE FaxHandle, FAX_LOG_CATEGORYA* Categories, uint32 NumberCategories) => FaxSetLoggingCategoriesA(FaxHandle, Categories, NumberCategories);
 
 	[Import("WINFAX.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL FaxSetLoggingCategoriesW(HANDLE FaxHandle, FAX_LOG_CATEGORYW* Categories, uint32 NumberCategories);
 
 	[Import("WINFAX.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL FaxEnumPortsA(HANDLE FaxHandle, FAX_PORT_INFOA** PortInfo, uint32* PortsReturned);
+	public static BOOL FaxEnumPorts(HANDLE FaxHandle, FAX_PORT_INFOA** PortInfo, uint32* PortsReturned) => FaxEnumPortsA(FaxHandle, PortInfo, PortsReturned);
 
 	[Import("WINFAX.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL FaxEnumPortsW(HANDLE FaxHandle, FAX_PORT_INFOW** PortInfo, uint32* PortsReturned);
 
 	[Import("WINFAX.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL FaxGetPortA(HANDLE FaxPortHandle, FAX_PORT_INFOA** PortInfo);
+	public static BOOL FaxGetPort(HANDLE FaxPortHandle, FAX_PORT_INFOA** PortInfo) => FaxGetPortA(FaxPortHandle, PortInfo);
 
 	[Import("WINFAX.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL FaxGetPortW(HANDLE FaxPortHandle, FAX_PORT_INFOW** PortInfo);
 
 	[Import("WINFAX.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL FaxSetPortA(HANDLE FaxPortHandle, FAX_PORT_INFOA* PortInfo);
+	public static BOOL FaxSetPort(HANDLE FaxPortHandle, FAX_PORT_INFOA* PortInfo) => FaxSetPortA(FaxPortHandle, PortInfo);
 
 	[Import("WINFAX.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL FaxSetPortW(HANDLE FaxPortHandle, FAX_PORT_INFOW* PortInfo);
 
 	[Import("WINFAX.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL FaxEnumRoutingMethodsA(HANDLE FaxPortHandle, FAX_ROUTING_METHODA** RoutingMethod, uint32* MethodsReturned);
+	public static BOOL FaxEnumRoutingMethods(HANDLE FaxPortHandle, FAX_ROUTING_METHODA** RoutingMethod, uint32* MethodsReturned) => FaxEnumRoutingMethodsA(FaxPortHandle, RoutingMethod, MethodsReturned);
 
 	[Import("WINFAX.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL FaxEnumRoutingMethodsW(HANDLE FaxPortHandle, FAX_ROUTING_METHODW** RoutingMethod, uint32* MethodsReturned);
 
 	[Import("WINFAX.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL FaxEnableRoutingMethodA(HANDLE FaxPortHandle, PSTR RoutingGuid, BOOL Enabled);
+	public static BOOL FaxEnableRoutingMethod(HANDLE FaxPortHandle, PSTR RoutingGuid, BOOL Enabled) => FaxEnableRoutingMethodA(FaxPortHandle, RoutingGuid, Enabled);
 
 	[Import("WINFAX.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL FaxEnableRoutingMethodW(HANDLE FaxPortHandle, PWSTR RoutingGuid, BOOL Enabled);
 
 	[Import("WINFAX.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL FaxEnumGlobalRoutingInfoA(HANDLE FaxHandle, FAX_GLOBAL_ROUTING_INFOA** RoutingInfo, uint32* MethodsReturned);
+	public static BOOL FaxEnumGlobalRoutingInfo(HANDLE FaxHandle, FAX_GLOBAL_ROUTING_INFOA** RoutingInfo, uint32* MethodsReturned) => FaxEnumGlobalRoutingInfoA(FaxHandle, RoutingInfo, MethodsReturned);
 
 	[Import("WINFAX.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL FaxEnumGlobalRoutingInfoW(HANDLE FaxHandle, FAX_GLOBAL_ROUTING_INFOW** RoutingInfo, uint32* MethodsReturned);
 
 	[Import("WINFAX.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL FaxSetGlobalRoutingInfoA(HANDLE FaxHandle, FAX_GLOBAL_ROUTING_INFOA* RoutingInfo);
+	public static BOOL FaxSetGlobalRoutingInfo(HANDLE FaxHandle, FAX_GLOBAL_ROUTING_INFOA* RoutingInfo) => FaxSetGlobalRoutingInfoA(FaxHandle, RoutingInfo);
 
 	[Import("WINFAX.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL FaxSetGlobalRoutingInfoW(HANDLE FaxHandle, FAX_GLOBAL_ROUTING_INFOW* RoutingInfo);
 
 	[Import("WINFAX.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL FaxGetRoutingInfoA(HANDLE FaxPortHandle, PSTR RoutingGuid, uint8** RoutingInfoBuffer, uint32* RoutingInfoBufferSize);
+	public static BOOL FaxGetRoutingInfo(HANDLE FaxPortHandle, PSTR RoutingGuid, uint8** RoutingInfoBuffer, uint32* RoutingInfoBufferSize) => FaxGetRoutingInfoA(FaxPortHandle, RoutingGuid, RoutingInfoBuffer, RoutingInfoBufferSize);
 
 	[Import("WINFAX.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL FaxGetRoutingInfoW(HANDLE FaxPortHandle, PWSTR RoutingGuid, uint8** RoutingInfoBuffer, uint32* RoutingInfoBufferSize);
 
 	[Import("WINFAX.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL FaxSetRoutingInfoA(HANDLE FaxPortHandle, PSTR RoutingGuid, uint8* RoutingInfoBuffer, uint32 RoutingInfoBufferSize);
+	public static BOOL FaxSetRoutingInfo(HANDLE FaxPortHandle, PSTR RoutingGuid, uint8* RoutingInfoBuffer, uint32 RoutingInfoBufferSize) => FaxSetRoutingInfoA(FaxPortHandle, RoutingGuid, RoutingInfoBuffer, RoutingInfoBufferSize);
 
 	[Import("WINFAX.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL FaxSetRoutingInfoW(HANDLE FaxPortHandle, PWSTR RoutingGuid, uint8* RoutingInfoBuffer, uint32 RoutingInfoBufferSize);
@@ -4558,12 +4579,14 @@ public static
 
 	[Import("WINFAX.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL FaxStartPrintJobA(PSTR PrinterName, FAX_PRINT_INFOA* PrintInfo, uint32* FaxJobId, FAX_CONTEXT_INFOA* FaxContextInfo);
+	public static BOOL FaxStartPrintJob(PSTR PrinterName, FAX_PRINT_INFOA* PrintInfo, uint32* FaxJobId, FAX_CONTEXT_INFOA* FaxContextInfo) => FaxStartPrintJobA(PrinterName, PrintInfo, FaxJobId, FaxContextInfo);
 
 	[Import("WINFAX.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL FaxStartPrintJobW(PWSTR PrinterName, FAX_PRINT_INFOW* PrintInfo, uint32* FaxJobId, FAX_CONTEXT_INFOW* FaxContextInfo);
 
 	[Import("WINFAX.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL FaxPrintCoverPageA(FAX_CONTEXT_INFOA* FaxContextInfo, FAX_COVERPAGE_INFOA* CoverPageInfo);
+	public static BOOL FaxPrintCoverPage(FAX_CONTEXT_INFOA* FaxContextInfo, FAX_COVERPAGE_INFOA* CoverPageInfo) => FaxPrintCoverPageA(FaxContextInfo, CoverPageInfo);
 
 	[Import("WINFAX.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL FaxPrintCoverPageW(FAX_CONTEXT_INFOW* FaxContextInfo, FAX_COVERPAGE_INFOW* CoverPageInfo);

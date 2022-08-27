@@ -887,24 +887,28 @@ public static
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 GetSystemDirectoryA(uint8* lpBuffer, uint32 uSize);
+	public static uint32 GetSystemDirectory(uint8* lpBuffer, uint32 uSize) => GetSystemDirectoryA(lpBuffer, uSize);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 GetSystemDirectoryW(char8* lpBuffer, uint32 uSize);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 GetWindowsDirectoryA(uint8* lpBuffer, uint32 uSize);
+	public static uint32 GetWindowsDirectory(uint8* lpBuffer, uint32 uSize) => GetWindowsDirectoryA(lpBuffer, uSize);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 GetWindowsDirectoryW(char8* lpBuffer, uint32 uSize);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 GetSystemWindowsDirectoryA(uint8* lpBuffer, uint32 uSize);
+	public static uint32 GetSystemWindowsDirectory(uint8* lpBuffer, uint32 uSize) => GetSystemWindowsDirectoryA(lpBuffer, uSize);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 GetSystemWindowsDirectoryW(char8* lpBuffer, uint32 uSize);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL GetComputerNameExA(COMPUTER_NAME_FORMAT NameType, uint8* lpBuffer, uint32* nSize);
+	public static BOOL GetComputerNameEx(COMPUTER_NAME_FORMAT NameType, uint8* lpBuffer, uint32* nSize) => GetComputerNameExA(NameType, lpBuffer, nSize);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL GetComputerNameExW(COMPUTER_NAME_FORMAT NameType, char8* lpBuffer, uint32* nSize);
@@ -917,6 +921,7 @@ public static
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL GetVersionExA(OSVERSIONINFOA* lpVersionInformation);
+	public static BOOL GetVersionEx(OSVERSIONINFOA* lpVersionInformation) => GetVersionExA(lpVersionInformation);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL GetVersionExW(OSVERSIONINFOW* lpVersionInformation);
@@ -974,24 +979,28 @@ public static
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL SetComputerNameA(PSTR lpComputerName);
+	public static BOOL SetComputerName(PSTR lpComputerName) => SetComputerNameA(lpComputerName);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL SetComputerNameW(PWSTR lpComputerName);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL SetComputerNameExA(COMPUTER_NAME_FORMAT NameType, PSTR lpBuffer);
+	public static BOOL SetComputerNameEx(COMPUTER_NAME_FORMAT NameType, PSTR lpBuffer) => SetComputerNameExA(NameType, lpBuffer);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL GetSystemCpuSetInformation(SYSTEM_CPU_SET_INFORMATION* Information, uint32 BufferLength, uint32* ReturnedLength, HANDLE Process, uint32 Flags);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 GetSystemWow64DirectoryA(uint8* lpBuffer, uint32 uSize);
+	public static uint32 GetSystemWow64Directory(uint8* lpBuffer, uint32 uSize) => GetSystemWow64DirectoryA(lpBuffer, uSize);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 GetSystemWow64DirectoryW(char8* lpBuffer, uint32 uSize);
 
 	[Import("api-ms-win-core-wow64-l1-1-1.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 GetSystemWow64Directory2A(uint8* lpBuffer, uint32 uSize, uint16 ImageFileMachineType);
+	public static uint32 GetSystemWow64Directory2(uint8* lpBuffer, uint32 uSize, uint16 ImageFileMachineType) => GetSystemWow64Directory2A(lpBuffer, uSize, ImageFileMachineType);
 
 	[Import("api-ms-win-core-wow64-l1-1-1.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 GetSystemWow64Directory2W(char8* lpBuffer, uint32 uSize, uint16 ImageFileMachineType);
@@ -1028,6 +1037,7 @@ public static
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL VerifyVersionInfoA(OSVERSIONINFOEXA* lpVersionInformation, VER_FLAGS dwTypeMask, uint64 dwlConditionMask);
+	public static BOOL VerifyVersionInfo(OSVERSIONINFOEXA* lpVersionInformation, VER_FLAGS dwTypeMask, uint64 dwlConditionMask) => VerifyVersionInfoA(lpVersionInformation, dwTypeMask, dwlConditionMask);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL VerifyVersionInfoW(OSVERSIONINFOEXW* lpVersionInformation, VER_FLAGS dwTypeMask, uint64 dwlConditionMask);

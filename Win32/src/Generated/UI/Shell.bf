@@ -19640,6 +19640,7 @@ public static
 {
 	[Import("USERENV.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL LoadUserProfileA(HANDLE hToken, PROFILEINFOA* lpProfileInfo);
+	public static BOOL LoadUserProfile(HANDLE hToken, PROFILEINFOA* lpProfileInfo) => LoadUserProfileA(hToken, lpProfileInfo);
 
 	[Import("USERENV.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL LoadUserProfileW(HANDLE hToken, PROFILEINFOW* lpProfileInfo);
@@ -19649,6 +19650,7 @@ public static
 
 	[Import("USERENV.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL GetProfilesDirectoryA(uint8* lpProfileDir, uint32* lpcchSize);
+	public static BOOL GetProfilesDirectory(uint8* lpProfileDir, uint32* lpcchSize) => GetProfilesDirectoryA(lpProfileDir, lpcchSize);
 
 	[Import("USERENV.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL GetProfilesDirectoryW(char8* lpProfileDir, uint32* lpcchSize);
@@ -19658,6 +19660,7 @@ public static
 
 	[Import("USERENV.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL DeleteProfileA(PSTR lpSidString, PSTR lpProfilePath, PSTR lpComputerName);
+	public static BOOL DeleteProfile(PSTR lpSidString, PSTR lpProfilePath, PSTR lpComputerName) => DeleteProfileA(lpSidString, lpProfilePath, lpComputerName);
 
 	[Import("USERENV.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL DeleteProfileW(PWSTR lpSidString, PWSTR lpProfilePath, PWSTR lpComputerName);
@@ -19667,18 +19670,21 @@ public static
 
 	[Import("USERENV.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL GetDefaultUserProfileDirectoryA(uint8* lpProfileDir, uint32* lpcchSize);
+	public static BOOL GetDefaultUserProfileDirectory(uint8* lpProfileDir, uint32* lpcchSize) => GetDefaultUserProfileDirectoryA(lpProfileDir, lpcchSize);
 
 	[Import("USERENV.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL GetDefaultUserProfileDirectoryW(char8* lpProfileDir, uint32* lpcchSize);
 
 	[Import("USERENV.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL GetAllUsersProfileDirectoryA(uint8* lpProfileDir, uint32* lpcchSize);
+	public static BOOL GetAllUsersProfileDirectory(uint8* lpProfileDir, uint32* lpcchSize) => GetAllUsersProfileDirectoryA(lpProfileDir, lpcchSize);
 
 	[Import("USERENV.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL GetAllUsersProfileDirectoryW(char8* lpProfileDir, uint32* lpcchSize);
 
 	[Import("USERENV.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL GetUserProfileDirectoryA(HANDLE hToken, uint8* lpProfileDir, uint32* lpcchSize);
+	public static BOOL GetUserProfileDirectory(HANDLE hToken, uint8* lpProfileDir, uint32* lpcchSize) => GetUserProfileDirectoryA(hToken, lpProfileDir, lpcchSize);
 
 	[Import("USERENV.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL GetUserProfileDirectoryW(HANDLE hToken, char8* lpProfileDir, uint32* lpcchSize);
@@ -19709,6 +19715,7 @@ public static
 
 	[Import("USER32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL WinHelpA(HWND hWndMain, PSTR lpszHelp, uint32 uCommand, uint dwData);
+	public static BOOL WinHelp(HWND hWndMain, PSTR lpszHelp, uint32 uCommand, uint dwData) => WinHelpA(hWndMain, lpszHelp, uCommand, dwData);
 
 	[Import("USER32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL WinHelpW(HWND hWndMain, PWSTR lpszHelp, uint32 uCommand, uint dwData);
@@ -19826,6 +19833,7 @@ public static
 
 	[Import("SHELL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 SHGetIconOverlayIndexA(PSTR pszIconPath, int32 iIconIndex);
+	public static int32 SHGetIconOverlayIndex(PSTR pszIconPath, int32 iIconIndex) => SHGetIconOverlayIndexA(pszIconPath, iIconIndex);
 
 	[Import("SHELL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 SHGetIconOverlayIndexW(PWSTR pszIconPath, int32 iIconIndex);
@@ -19871,6 +19879,7 @@ public static
 
 	[Import("SHELL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern ITEMIDLIST* ILCreateFromPathA(PSTR pszPath);
+	public static ITEMIDLIST* ILCreateFromPath(PSTR pszPath) => ILCreateFromPathA(pszPath);
 
 	[Import("SHELL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern ITEMIDLIST* ILCreateFromPathW(PWSTR pszPath);
@@ -19886,6 +19895,7 @@ public static
 
 	[Import("SHELL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL SHGetPathFromIDListA(ITEMIDLIST* pidl, uint8* pszPath);
+	public static BOOL SHGetPathFromIDList(ITEMIDLIST* pidl, uint8* pszPath) => SHGetPathFromIDListA(pidl, pszPath);
 
 	[Import("SHELL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL SHGetPathFromIDListW(ITEMIDLIST* pidl, char8* pszPath);
@@ -19895,6 +19905,7 @@ public static
 
 	[Import("SHELL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 SHCreateDirectoryExA(HWND hwnd, PSTR pszPath, SECURITY_ATTRIBUTES* psa);
+	public static int32 SHCreateDirectoryEx(HWND hwnd, PSTR pszPath, SECURITY_ATTRIBUTES* psa) => SHCreateDirectoryExA(hwnd, pszPath, psa);
 
 	[Import("SHELL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 SHCreateDirectoryExW(HWND hwnd, PWSTR pszPath, SECURITY_ATTRIBUTES* psa);
@@ -19913,6 +19924,7 @@ public static
 
 	[Import("SHELL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL SHGetSpecialFolderPathA(HWND hwnd, uint8* pszPath, int32 csidl, BOOL fCreate);
+	public static BOOL SHGetSpecialFolderPath(HWND hwnd, uint8* pszPath, int32 csidl, BOOL fCreate) => SHGetSpecialFolderPathA(hwnd, pszPath, csidl, fCreate);
 
 	[Import("SHELL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL SHGetSpecialFolderPathW(HWND hwnd, char8* pszPath, int32 csidl, BOOL fCreate);
@@ -19922,6 +19934,7 @@ public static
 
 	[Import("SHELL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT SHGetFolderPathA(HWND hwnd, int32 csidl, HANDLE hToken, uint32 dwFlags, uint8* pszPath);
+	public static HRESULT SHGetFolderPath(HWND hwnd, int32 csidl, HANDLE hToken, uint32 dwFlags, uint8* pszPath) => SHGetFolderPathA(hwnd, csidl, hToken, dwFlags, pszPath);
 
 	[Import("SHELL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT SHGetFolderPathW(HWND hwnd, int32 csidl, HANDLE hToken, uint32 dwFlags, char8* pszPath);
@@ -19931,12 +19944,14 @@ public static
 
 	[Import("SHELL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT SHSetFolderPathA(int32 csidl, HANDLE hToken, uint32 dwFlags, PSTR pszPath);
+	public static HRESULT SHSetFolderPath(int32 csidl, HANDLE hToken, uint32 dwFlags, PSTR pszPath) => SHSetFolderPathA(csidl, hToken, dwFlags, pszPath);
 
 	[Import("SHELL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT SHSetFolderPathW(int32 csidl, HANDLE hToken, uint32 dwFlags, PWSTR pszPath);
 
 	[Import("SHELL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT SHGetFolderPathAndSubDirA(HWND hwnd, int32 csidl, HANDLE hToken, uint32 dwFlags, PSTR pszSubDir, uint8* pszPath);
+	public static HRESULT SHGetFolderPathAndSubDir(HWND hwnd, int32 csidl, HANDLE hToken, uint32 dwFlags, PSTR pszSubDir, uint8* pszPath) => SHGetFolderPathAndSubDirA(hwnd, csidl, hToken, dwFlags, pszSubDir, pszPath);
 
 	[Import("SHELL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT SHGetFolderPathAndSubDirW(HWND hwnd, int32 csidl, HANDLE hToken, uint32 dwFlags, PWSTR pszSubDir, char8* pszPath);
@@ -19958,6 +19973,7 @@ public static
 
 	[Import("SHELL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern ITEMIDLIST* SHBrowseForFolderA(BROWSEINFOA* lpbi);
+	public static ITEMIDLIST* SHBrowseForFolder(BROWSEINFOA* lpbi) => SHBrowseForFolderA(lpbi);
 
 	[Import("SHELL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern ITEMIDLIST* SHBrowseForFolderW(BROWSEINFOW* lpbi);
@@ -19979,6 +19995,7 @@ public static
 
 	[Import("SHELL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern void SHUpdateImageA(PSTR pszHashItem, int32 iIndex, uint32 uFlags, int32 iImageIndex);
+	public static void SHUpdateImage(PSTR pszHashItem, int32 iIndex, uint32 uFlags, int32 iImageIndex) => SHUpdateImageA(pszHashItem, iIndex, uFlags, iImageIndex);
 
 	[Import("SHELL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern void SHUpdateImageW(PWSTR pszHashItem, int32 iIndex, uint32 uFlags, int32 iImageIndex);
@@ -20003,6 +20020,7 @@ public static
 
 	[Import("SHELL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT SHGetDataFromIDListA(IShellFolder* psf, ITEMIDLIST* pidl, SHGDFIL_FORMAT nFormat, void* pv, int32 cb);
+	public static HRESULT SHGetDataFromIDList(IShellFolder* psf, ITEMIDLIST* pidl, SHGDFIL_FORMAT nFormat, void* pv, int32 cb) => SHGetDataFromIDListA(psf, pidl, nFormat, pv, cb);
 
 	[Import("SHELL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT SHGetDataFromIDListW(IShellFolder* psf, ITEMIDLIST* pidl, SHGDFIL_FORMAT nFormat, void* pv, int32 cb);
@@ -20126,6 +20144,7 @@ public static
 
 	[Import("SHELL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT SHDefExtractIconA(PSTR pszIconFile, int32 iIndex, uint32 uFlags, HICON* phiconLarge, HICON* phiconSmall, uint32 nIconSize);
+	public static HRESULT SHDefExtractIcon(PSTR pszIconFile, int32 iIndex, uint32 uFlags, HICON* phiconLarge, HICON* phiconSmall, uint32 nIconSize) => SHDefExtractIconA(pszIconFile, iIndex, uFlags, phiconLarge, phiconSmall, nIconSize);
 
 	[Import("SHELL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT SHDefExtractIconW(PWSTR pszIconFile, int32 iIndex, uint32 uFlags, HICON* phiconLarge, HICON* phiconSmall, uint32 nIconSize);
@@ -20195,6 +20214,7 @@ public static
 
 	[Import("SHELL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT SHPathPrepareForWriteA(HWND hwnd, IUnknown* punkEnableModless, PSTR pszPath, uint32 dwFlags);
+	public static HRESULT SHPathPrepareForWrite(HWND hwnd, IUnknown* punkEnableModless, PSTR pszPath, uint32 dwFlags) => SHPathPrepareForWriteA(hwnd, punkEnableModless, pszPath, dwFlags);
 
 	[Import("SHELL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT SHPathPrepareForWriteW(HWND hwnd, IUnknown* punkEnableModless, PWSTR pszPath, uint32 dwFlags);
@@ -20228,6 +20248,7 @@ public static
 
 	[Import("SHELL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL PathIsSlowA(PSTR pszFile, uint32 dwAttr);
+	public static BOOL PathIsSlow(PSTR pszFile, uint32 dwAttr) => PathIsSlowA(pszFile, dwAttr);
 
 	[Import("SHELL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL PathIsSlowW(PWSTR pszFile, uint32 dwAttr);
@@ -20276,6 +20297,7 @@ public static
 
 	[Import("SHELL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 DragQueryFileA(HDROP hDrop, uint32 iFile, uint8* lpszFile, uint32 cch);
+	public static uint32 DragQueryFile(HDROP hDrop, uint32 iFile, uint8* lpszFile, uint32 cch) => DragQueryFileA(hDrop, iFile, lpszFile, cch);
 
 	[Import("SHELL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 DragQueryFileW(HDROP hDrop, uint32 iFile, char8* lpszFile, uint32 cch);
@@ -20291,18 +20313,21 @@ public static
 
 	[Import("SHELL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HINSTANCE ShellExecuteA(HWND hwnd, PSTR lpOperation, PSTR lpFile, PSTR lpParameters, PSTR lpDirectory, int32 nShowCmd);
+	public static HINSTANCE ShellExecute(HWND hwnd, PSTR lpOperation, PSTR lpFile, PSTR lpParameters, PSTR lpDirectory, int32 nShowCmd) => ShellExecuteA(hwnd, lpOperation, lpFile, lpParameters, lpDirectory, nShowCmd);
 
 	[Import("SHELL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HINSTANCE ShellExecuteW(HWND hwnd, PWSTR lpOperation, PWSTR lpFile, PWSTR lpParameters, PWSTR lpDirectory, int32 nShowCmd);
 
 	[Import("SHELL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HINSTANCE FindExecutableA(PSTR lpFile, PSTR lpDirectory, uint8* lpResult);
+	public static HINSTANCE FindExecutable(PSTR lpFile, PSTR lpDirectory, uint8* lpResult) => FindExecutableA(lpFile, lpDirectory, lpResult);
 
 	[Import("SHELL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HINSTANCE FindExecutableW(PWSTR lpFile, PWSTR lpDirectory, char8* lpResult);
 
 	[Import("SHELL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 ShellAboutA(HWND hWnd, PSTR szApp, PSTR szOtherStuff, HICON hIcon);
+	public static int32 ShellAbout(HWND hWnd, PSTR szApp, PSTR szOtherStuff, HICON hIcon) => ShellAboutA(hWnd, szApp, szOtherStuff, hIcon);
 
 	[Import("SHELL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 ShellAboutW(HWND hWnd, PWSTR szApp, PWSTR szOtherStuff, HICON hIcon);
@@ -20312,18 +20337,21 @@ public static
 
 	[Import("SHELL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HICON ExtractAssociatedIconA(HINSTANCE hInst, uint8* pszIconPath, uint16* piIcon);
+	public static HICON ExtractAssociatedIcon(HINSTANCE hInst, uint8* pszIconPath, uint16* piIcon) => ExtractAssociatedIconA(hInst, pszIconPath, piIcon);
 
 	[Import("SHELL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HICON ExtractAssociatedIconW(HINSTANCE hInst, char8* pszIconPath, uint16* piIcon);
 
 	[Import("SHELL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HICON ExtractAssociatedIconExA(HINSTANCE hInst, uint8* pszIconPath, uint16* piIconIndex, uint16* piIconId);
+	public static HICON ExtractAssociatedIconEx(HINSTANCE hInst, uint8* pszIconPath, uint16* piIconIndex, uint16* piIconId) => ExtractAssociatedIconExA(hInst, pszIconPath, piIconIndex, piIconId);
 
 	[Import("SHELL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HICON ExtractAssociatedIconExW(HINSTANCE hInst, char8* pszIconPath, uint16* piIconIndex, uint16* piIconId);
 
 	[Import("SHELL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HICON ExtractIconA(HINSTANCE hInst, PSTR pszExeFileName, uint32 nIconIndex);
+	public static HICON ExtractIcon(HINSTANCE hInst, PSTR pszExeFileName, uint32 nIconIndex) => ExtractIconA(hInst, pszExeFileName, nIconIndex);
 
 	[Import("SHELL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HICON ExtractIconW(HINSTANCE hInst, PWSTR pszExeFileName, uint32 nIconIndex);
@@ -20333,18 +20361,21 @@ public static
 
 	[Import("SHELL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 DoEnvironmentSubstA(uint8* pszSrc, uint32 cchSrc);
+	public static uint32 DoEnvironmentSubst(uint8* pszSrc, uint32 cchSrc) => DoEnvironmentSubstA(pszSrc, cchSrc);
 
 	[Import("SHELL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 DoEnvironmentSubstW(char8* pszSrc, uint32 cchSrc);
 
 	[Import("SHELL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 ExtractIconExA(PSTR lpszFile, int32 nIconIndex, HICON* phiconLarge, HICON* phiconSmall, uint32 nIcons);
+	public static uint32 ExtractIconEx(PSTR lpszFile, int32 nIconIndex, HICON* phiconLarge, HICON* phiconSmall, uint32 nIcons) => ExtractIconExA(lpszFile, nIconIndex, phiconLarge, phiconSmall, nIcons);
 
 	[Import("SHELL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 ExtractIconExW(PWSTR lpszFile, int32 nIconIndex, HICON* phiconLarge, HICON* phiconSmall, uint32 nIcons);
 
 	[Import("SHELL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 SHFileOperationA(SHFILEOPSTRUCTA* lpFileOp);
+	public static int32 SHFileOperation(SHFILEOPSTRUCTA* lpFileOp) => SHFileOperationA(lpFileOp);
 
 	[Import("SHELL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 SHFileOperationW(SHFILEOPSTRUCTW* lpFileOp);
@@ -20354,6 +20385,7 @@ public static
 
 	[Import("SHELL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL ShellExecuteExA(SHELLEXECUTEINFOA* pExecInfo);
+	public static BOOL ShellExecuteEx(SHELLEXECUTEINFOA* pExecInfo) => ShellExecuteExA(pExecInfo);
 
 	[Import("SHELL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL ShellExecuteExW(SHELLEXECUTEINFOW* pExecInfo);
@@ -20369,12 +20401,14 @@ public static
 
 	[Import("SHELL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT SHQueryRecycleBinA(PSTR pszRootPath, SHQUERYRBINFO* pSHQueryRBInfo);
+	public static HRESULT SHQueryRecycleBin(PSTR pszRootPath, SHQUERYRBINFO* pSHQueryRBInfo) => SHQueryRecycleBinA(pszRootPath, pSHQueryRBInfo);
 
 	[Import("SHELL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT SHQueryRecycleBinW(PWSTR pszRootPath, SHQUERYRBINFO* pSHQueryRBInfo);
 
 	[Import("SHELL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT SHEmptyRecycleBinA(HWND hwnd, PSTR pszRootPath, uint32 dwFlags);
+	public static HRESULT SHEmptyRecycleBin(HWND hwnd, PSTR pszRootPath, uint32 dwFlags) => SHEmptyRecycleBinA(hwnd, pszRootPath, dwFlags);
 
 	[Import("SHELL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT SHEmptyRecycleBinW(HWND hwnd, PWSTR pszRootPath, uint32 dwFlags);
@@ -20384,6 +20418,7 @@ public static
 
 	[Import("SHELL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL Shell_NotifyIconA(NOTIFY_ICON_MESSAGE dwMessage, NOTIFYICONDATAA* lpData);
+	public static BOOL Shell_NotifyIcon(NOTIFY_ICON_MESSAGE dwMessage, NOTIFYICONDATAA* lpData) => Shell_NotifyIconA(dwMessage, lpData);
 
 	[Import("SHELL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL Shell_NotifyIconW(NOTIFY_ICON_MESSAGE dwMessage, NOTIFYICONDATAW* lpData);
@@ -20393,6 +20428,7 @@ public static
 
 	[Import("SHELL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint SHGetFileInfoA(PSTR pszPath, FILE_FLAGS_AND_ATTRIBUTES dwFileAttributes, SHFILEINFOA* psfi, uint32 cbFileInfo, SHGFI_FLAGS uFlags);
+	public static uint SHGetFileInfo(PSTR pszPath, FILE_FLAGS_AND_ATTRIBUTES dwFileAttributes, SHFILEINFOA* psfi, uint32 cbFileInfo, SHGFI_FLAGS uFlags) => SHGetFileInfoA(pszPath, dwFileAttributes, psfi, cbFileInfo, uFlags);
 
 	[Import("SHELL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint SHGetFileInfoW(PWSTR pszPath, FILE_FLAGS_AND_ATTRIBUTES dwFileAttributes, SHFILEINFOW* psfi, uint32 cbFileInfo, SHGFI_FLAGS uFlags);
@@ -20402,18 +20438,21 @@ public static
 
 	[Import("SHELL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL SHGetDiskFreeSpaceExA(PSTR pszDirectoryName, ULARGE_INTEGER* pulFreeBytesAvailableToCaller, ULARGE_INTEGER* pulTotalNumberOfBytes, ULARGE_INTEGER* pulTotalNumberOfFreeBytes);
+	public static BOOL SHGetDiskFreeSpaceEx(PSTR pszDirectoryName, ULARGE_INTEGER* pulFreeBytesAvailableToCaller, ULARGE_INTEGER* pulTotalNumberOfBytes, ULARGE_INTEGER* pulTotalNumberOfFreeBytes) => SHGetDiskFreeSpaceExA(pszDirectoryName, pulFreeBytesAvailableToCaller, pulTotalNumberOfBytes, pulTotalNumberOfFreeBytes);
 
 	[Import("SHELL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL SHGetDiskFreeSpaceExW(PWSTR pszDirectoryName, ULARGE_INTEGER* pulFreeBytesAvailableToCaller, ULARGE_INTEGER* pulTotalNumberOfBytes, ULARGE_INTEGER* pulTotalNumberOfFreeBytes);
 
 	[Import("SHELL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL SHGetNewLinkInfoA(PSTR pszLinkTo, PSTR pszDir, uint8* pszName, BOOL* pfMustCopy, uint32 uFlags);
+	public static BOOL SHGetNewLinkInfo(PSTR pszLinkTo, PSTR pszDir, uint8* pszName, BOOL* pfMustCopy, uint32 uFlags) => SHGetNewLinkInfoA(pszLinkTo, pszDir, pszName, pfMustCopy, uFlags);
 
 	[Import("SHELL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL SHGetNewLinkInfoW(PWSTR pszLinkTo, PWSTR pszDir, char8* pszName, BOOL* pfMustCopy, uint32 uFlags);
 
 	[Import("SHELL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL SHInvokePrinterCommandA(HWND hwnd, uint32 uAction, PSTR lpBuf1, PSTR lpBuf2, BOOL fModal);
+	public static BOOL SHInvokePrinterCommand(HWND hwnd, uint32 uAction, PSTR lpBuf1, PSTR lpBuf2, BOOL fModal) => SHInvokePrinterCommandA(hwnd, uAction, lpBuf1, lpBuf2, fModal);
 
 	[Import("SHELL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL SHInvokePrinterCommandW(HWND hwnd, uint32 uAction, PWSTR lpBuf1, PWSTR lpBuf2, BOOL fModal);
@@ -20435,12 +20474,14 @@ public static
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 ShellMessageBoxA(HINSTANCE hAppInst, HWND hWnd, PSTR lpcText, PSTR lpcTitle, uint32 fuStyle);
+	public static int32 ShellMessageBox(HINSTANCE hAppInst, HWND hWnd, PSTR lpcText, PSTR lpcTitle, uint32 fuStyle) => ShellMessageBoxA(hAppInst, hWnd, lpcText, lpcTitle, fuStyle);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 ShellMessageBoxW(HINSTANCE hAppInst, HWND hWnd, PWSTR lpcText, PWSTR lpcTitle, uint32 fuStyle);
 
 	[Import("SHELL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL IsLFNDriveA(PSTR pszPath);
+	public static BOOL IsLFNDrive(PSTR pszPath) => IsLFNDriveA(pszPath);
 
 	[Import("SHELL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL IsLFNDriveW(PWSTR pszPath);
@@ -20468,12 +20509,14 @@ public static
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern PSTR StrChrA(PSTR pszStart, uint16 wMatch);
+	public static PSTR StrChr(PSTR pszStart, uint16 wMatch) => StrChrA(pszStart, wMatch);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern PWSTR StrChrW(PWSTR pszStart, char8 wMatch);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern PSTR StrChrIA(PSTR pszStart, uint16 wMatch);
+	public static PSTR StrChrI(PSTR pszStart, uint16 wMatch) => StrChrIA(pszStart, wMatch);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern PWSTR StrChrIW(PWSTR pszStart, char8 wMatch);
@@ -20486,30 +20529,35 @@ public static
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 StrCmpNA(PSTR psz1, PSTR psz2, int32 nChar);
+	public static int32 StrCmpN(PSTR psz1, PSTR psz2, int32 nChar) => StrCmpNA(psz1, psz2, nChar);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 StrCmpNW(PWSTR psz1, PWSTR psz2, int32 nChar);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 StrCmpNIA(PSTR psz1, PSTR psz2, int32 nChar);
+	public static int32 StrCmpNI(PSTR psz1, PSTR psz2, int32 nChar) => StrCmpNIA(psz1, psz2, nChar);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 StrCmpNIW(PWSTR psz1, PWSTR psz2, int32 nChar);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 StrCSpnA(PSTR pszStr, PSTR pszSet);
+	public static int32 StrCSpn(PSTR pszStr, PSTR pszSet) => StrCSpnA(pszStr, pszSet);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 StrCSpnW(PWSTR pszStr, PWSTR pszSet);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 StrCSpnIA(PSTR pszStr, PSTR pszSet);
+	public static int32 StrCSpnI(PSTR pszStr, PSTR pszSet) => StrCSpnIA(pszStr, pszSet);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 StrCSpnIW(PWSTR pszStr, PWSTR pszSet);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern PSTR StrDupA(PSTR pszSrch);
+	public static PSTR StrDup(PSTR pszSrch) => StrDupA(pszSrch);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern PWSTR StrDupW(PWSTR pszSrch);
@@ -20519,6 +20567,7 @@ public static
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern PSTR StrFormatByteSizeA(uint32 dw, uint8* pszBuf, uint32 cchBuf);
+	public static PSTR StrFormatByteSize(uint32 dw, uint8* pszBuf, uint32 cchBuf) => StrFormatByteSizeA(dw, pszBuf, cchBuf);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern PSTR StrFormatByteSize64A(int64 qdw, uint8* pszBuf, uint32 cchBuf);
@@ -20531,63 +20580,74 @@ public static
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern PSTR StrFormatKBSizeA(int64 qdw, uint8* pszBuf, uint32 cchBuf);
+	public static PSTR StrFormatKBSize(int64 qdw, uint8* pszBuf, uint32 cchBuf) => StrFormatKBSizeA(qdw, pszBuf, cchBuf);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 StrFromTimeIntervalA(uint8* pszOut, uint32 cchMax, uint32 dwTimeMS, int32 digits);
+	public static int32 StrFromTimeInterval(uint8* pszOut, uint32 cchMax, uint32 dwTimeMS, int32 digits) => StrFromTimeIntervalA(pszOut, cchMax, dwTimeMS, digits);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 StrFromTimeIntervalW(char8* pszOut, uint32 cchMax, uint32 dwTimeMS, int32 digits);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL StrIsIntlEqualA(BOOL fCaseSens, PSTR pszString1, PSTR pszString2, int32 nChar);
+	public static BOOL StrIsIntlEqual(BOOL fCaseSens, PSTR pszString1, PSTR pszString2, int32 nChar) => StrIsIntlEqualA(fCaseSens, pszString1, pszString2, nChar);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL StrIsIntlEqualW(BOOL fCaseSens, PWSTR pszString1, PWSTR pszString2, int32 nChar);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern PSTR StrNCatA(uint8* psz1, PSTR psz2, int32 cchMax);
+	public static PSTR StrNCat(uint8* psz1, PSTR psz2, int32 cchMax) => StrNCatA(psz1, psz2, cchMax);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern PWSTR StrNCatW(char8* psz1, PWSTR psz2, int32 cchMax);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern PSTR StrPBrkA(PSTR psz, PSTR pszSet);
+	public static PSTR StrPBrk(PSTR psz, PSTR pszSet) => StrPBrkA(psz, pszSet);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern PWSTR StrPBrkW(PWSTR psz, PWSTR pszSet);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern PSTR StrRChrA(PSTR pszStart, PSTR pszEnd, uint16 wMatch);
+	public static PSTR StrRChr(PSTR pszStart, PSTR pszEnd, uint16 wMatch) => StrRChrA(pszStart, pszEnd, wMatch);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern PWSTR StrRChrW(PWSTR pszStart, PWSTR pszEnd, char8 wMatch);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern PSTR StrRChrIA(PSTR pszStart, PSTR pszEnd, uint16 wMatch);
+	public static PSTR StrRChrI(PSTR pszStart, PSTR pszEnd, uint16 wMatch) => StrRChrIA(pszStart, pszEnd, wMatch);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern PWSTR StrRChrIW(PWSTR pszStart, PWSTR pszEnd, char8 wMatch);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern PSTR StrRStrIA(PSTR pszSource, PSTR pszLast, PSTR pszSrch);
+	public static PSTR StrRStrI(PSTR pszSource, PSTR pszLast, PSTR pszSrch) => StrRStrIA(pszSource, pszLast, pszSrch);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern PWSTR StrRStrIW(PWSTR pszSource, PWSTR pszLast, PWSTR pszSrch);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 StrSpnA(PSTR psz, PSTR pszSet);
+	public static int32 StrSpn(PSTR psz, PSTR pszSet) => StrSpnA(psz, pszSet);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 StrSpnW(PWSTR psz, PWSTR pszSet);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern PSTR StrStrA(PSTR pszFirst, PSTR pszSrch);
+	public static PSTR StrStr(PSTR pszFirst, PSTR pszSrch) => StrStrA(pszFirst, pszSrch);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern PWSTR StrStrW(PWSTR pszFirst, PWSTR pszSrch);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern PSTR StrStrIA(PSTR pszFirst, PSTR pszSrch);
+	public static PSTR StrStrI(PSTR pszFirst, PSTR pszSrch) => StrStrIA(pszFirst, pszSrch);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern PWSTR StrStrIW(PWSTR pszFirst, PWSTR pszSrch);
@@ -20600,24 +20660,28 @@ public static
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 StrToIntA(PSTR pszSrc);
+	public static int32 StrToInt(PSTR pszSrc) => StrToIntA(pszSrc);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 StrToIntW(PWSTR pszSrc);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL StrToIntExA(PSTR pszString, int32 dwFlags, int32* piRet);
+	public static BOOL StrToIntEx(PSTR pszString, int32 dwFlags, int32* piRet) => StrToIntExA(pszString, dwFlags, piRet);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL StrToIntExW(PWSTR pszString, int32 dwFlags, int32* piRet);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL StrToInt64ExA(PSTR pszString, int32 dwFlags, int64* pllRet);
+	public static BOOL StrToInt64Ex(PSTR pszString, int32 dwFlags, int64* pllRet) => StrToInt64ExA(pszString, dwFlags, pllRet);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL StrToInt64ExW(PWSTR pszString, int32 dwFlags, int64* pllRet);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL StrTrimA(PSTR psz, PSTR pszTrimChars);
+	public static BOOL StrTrim(PSTR psz, PSTR pszTrimChars) => StrTrimA(psz, pszTrimChars);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL StrTrimW(PWSTR psz, PWSTR pszTrimChars);
@@ -20642,39 +20706,46 @@ public static
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern PSTR StrCatBuffA(uint8* pszDest, PSTR pszSrc, int32 cchDestBuffSize);
+	public static PSTR StrCatBuff(uint8* pszDest, PSTR pszSrc, int32 cchDestBuffSize) => StrCatBuffA(pszDest, pszSrc, cchDestBuffSize);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL ChrCmpIA(uint16 w1, uint16 w2);
+	public static BOOL ChrCmpI(uint16 w1, uint16 w2) => ChrCmpIA(w1, w2);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL ChrCmpIW(char8 w1, char8 w2);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 wvnsprintfA(uint8* pszDest, int32 cchDest, PSTR pszFmt, int8* arglist);
+	public static int32 wvnsprintf(uint8* pszDest, int32 cchDest, PSTR pszFmt, int8* arglist) => wvnsprintfA(pszDest, cchDest, pszFmt, arglist);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 wvnsprintfW(char8* pszDest, int32 cchDest, PWSTR pszFmt, int8* arglist);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 wnsprintfA(uint8* pszDest, int32 cchDest, PSTR pszFmt);
+	public static int32 wnsprintf(uint8* pszDest, int32 cchDest, PSTR pszFmt) => wnsprintfA(pszDest, cchDest, pszFmt);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 wnsprintfW(char8* pszDest, int32 cchDest, PWSTR pszFmt);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT StrRetToStrA(STRRET* pstr, ITEMIDLIST* pidl, PSTR* ppsz);
+	public static HRESULT StrRetToStr(STRRET* pstr, ITEMIDLIST* pidl, PSTR* ppsz) => StrRetToStrA(pstr, pidl, ppsz);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT StrRetToStrW(STRRET* pstr, ITEMIDLIST* pidl, PWSTR* ppsz);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT StrRetToBufA(STRRET* pstr, ITEMIDLIST* pidl, uint8* pszBuf, uint32 cchBuf);
+	public static HRESULT StrRetToBuf(STRRET* pstr, ITEMIDLIST* pidl, uint8* pszBuf, uint32 cchBuf) => StrRetToBufA(pstr, pidl, pszBuf, cchBuf);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT StrRetToBufW(STRRET* pstr, ITEMIDLIST* pidl, char8* pszBuf, uint32 cchBuf);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT SHStrDupA(PSTR psz, PWSTR* ppwsz);
+	public static HRESULT SHStrDup(PSTR psz, PWSTR* ppwsz) => SHStrDupA(psz, ppwsz);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT SHStrDupW(PWSTR psz, PWSTR* ppwsz);
@@ -20693,432 +20764,504 @@ public static
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL IsCharSpaceA(CHAR wch);
+	public static BOOL IsCharSpace(CHAR wch) => IsCharSpaceA(wch);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL IsCharSpaceW(char8 wch);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 StrCmpCA(PSTR pszStr1, PSTR pszStr2);
+	public static int32 StrCmpC(PSTR pszStr1, PSTR pszStr2) => StrCmpCA(pszStr1, pszStr2);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 StrCmpCW(PWSTR pszStr1, PWSTR pszStr2);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 StrCmpICA(PSTR pszStr1, PSTR pszStr2);
+	public static int32 StrCmpIC(PSTR pszStr1, PSTR pszStr2) => StrCmpICA(pszStr1, pszStr2);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 StrCmpICW(PWSTR pszStr1, PWSTR pszStr2);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 StrCmpNCA(PSTR pszStr1, PSTR pszStr2, int32 nChar);
+	public static int32 StrCmpNC(PSTR pszStr1, PSTR pszStr2, int32 nChar) => StrCmpNCA(pszStr1, pszStr2, nChar);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 StrCmpNCW(PWSTR pszStr1, PWSTR pszStr2, int32 nChar);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 StrCmpNICA(PSTR pszStr1, PSTR pszStr2, int32 nChar);
+	public static int32 StrCmpNIC(PSTR pszStr1, PSTR pszStr2, int32 nChar) => StrCmpNICA(pszStr1, pszStr2, nChar);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 StrCmpNICW(PWSTR pszStr1, PWSTR pszStr2, int32 nChar);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL IntlStrEqWorkerA(BOOL fCaseSens, uint8* lpString1, uint8* lpString2, int32 nChar);
+	public static BOOL IntlStrEqWorker(BOOL fCaseSens, uint8* lpString1, uint8* lpString2, int32 nChar) => IntlStrEqWorkerA(fCaseSens, lpString1, lpString2, nChar);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL IntlStrEqWorkerW(BOOL fCaseSens, char8* lpString1, char8* lpString2, int32 nChar);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern PSTR PathAddBackslashA(uint8* pszPath);
+	public static PSTR PathAddBackslash(uint8* pszPath) => PathAddBackslashA(pszPath);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern PWSTR PathAddBackslashW(char8* pszPath);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL PathAddExtensionA(uint8* pszPath, PSTR pszExt);
+	public static BOOL PathAddExtension(uint8* pszPath, PSTR pszExt) => PathAddExtensionA(pszPath, pszExt);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL PathAddExtensionW(char8* pszPath, PWSTR pszExt);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL PathAppendA(uint8* pszPath, PSTR pszMore);
+	public static BOOL PathAppend(uint8* pszPath, PSTR pszMore) => PathAppendA(pszPath, pszMore);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL PathAppendW(char8* pszPath, PWSTR pszMore);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern PSTR PathBuildRootA(uint8* pszRoot, int32 iDrive);
+	public static PSTR PathBuildRoot(uint8* pszRoot, int32 iDrive) => PathBuildRootA(pszRoot, iDrive);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern PWSTR PathBuildRootW(char8* pszRoot, int32 iDrive);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL PathCanonicalizeA(uint8* pszBuf, PSTR pszPath);
+	public static BOOL PathCanonicalize(uint8* pszBuf, PSTR pszPath) => PathCanonicalizeA(pszBuf, pszPath);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL PathCanonicalizeW(char8* pszBuf, PWSTR pszPath);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern PSTR PathCombineA(uint8* pszDest, PSTR pszDir, PSTR pszFile);
+	public static PSTR PathCombine(uint8* pszDest, PSTR pszDir, PSTR pszFile) => PathCombineA(pszDest, pszDir, pszFile);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern PWSTR PathCombineW(char8* pszDest, PWSTR pszDir, PWSTR pszFile);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL PathCompactPathA(HDC hDC, uint8* pszPath, uint32 dx);
+	public static BOOL PathCompactPath(HDC hDC, uint8* pszPath, uint32 dx) => PathCompactPathA(hDC, pszPath, dx);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL PathCompactPathW(HDC hDC, char8* pszPath, uint32 dx);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL PathCompactPathExA(uint8* pszOut, PSTR pszSrc, uint32 cchMax, uint32 dwFlags);
+	public static BOOL PathCompactPathEx(uint8* pszOut, PSTR pszSrc, uint32 cchMax, uint32 dwFlags) => PathCompactPathExA(pszOut, pszSrc, cchMax, dwFlags);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL PathCompactPathExW(char8* pszOut, PWSTR pszSrc, uint32 cchMax, uint32 dwFlags);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 PathCommonPrefixA(PSTR pszFile1, PSTR pszFile2, uint8* achPath);
+	public static int32 PathCommonPrefix(PSTR pszFile1, PSTR pszFile2, uint8* achPath) => PathCommonPrefixA(pszFile1, pszFile2, achPath);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 PathCommonPrefixW(PWSTR pszFile1, PWSTR pszFile2, char8* achPath);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL PathFileExistsA(PSTR pszPath);
+	public static BOOL PathFileExists(PSTR pszPath) => PathFileExistsA(pszPath);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL PathFileExistsW(PWSTR pszPath);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern PSTR PathFindExtensionA(PSTR pszPath);
+	public static PSTR PathFindExtension(PSTR pszPath) => PathFindExtensionA(pszPath);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern PWSTR PathFindExtensionW(PWSTR pszPath);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern PSTR PathFindFileNameA(PSTR pszPath);
+	public static PSTR PathFindFileName(PSTR pszPath) => PathFindFileNameA(pszPath);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern PWSTR PathFindFileNameW(PWSTR pszPath);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern PSTR PathFindNextComponentA(PSTR pszPath);
+	public static PSTR PathFindNextComponent(PSTR pszPath) => PathFindNextComponentA(pszPath);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern PWSTR PathFindNextComponentW(PWSTR pszPath);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL PathFindOnPathA(uint8* pszPath, int8** ppszOtherDirs);
+	public static BOOL PathFindOnPath(uint8* pszPath, int8** ppszOtherDirs) => PathFindOnPathA(pszPath, ppszOtherDirs);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL PathFindOnPathW(char8* pszPath, uint16** ppszOtherDirs);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern PSTR PathFindSuffixArrayA(PSTR pszPath, PSTR* apszSuffix, int32 iArraySize);
+	public static PSTR PathFindSuffixArray(PSTR pszPath, PSTR* apszSuffix, int32 iArraySize) => PathFindSuffixArrayA(pszPath, apszSuffix, iArraySize);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern PWSTR PathFindSuffixArrayW(PWSTR pszPath, PWSTR* apszSuffix, int32 iArraySize);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern PSTR PathGetArgsA(PSTR pszPath);
+	public static PSTR PathGetArgs(PSTR pszPath) => PathGetArgsA(pszPath);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern PWSTR PathGetArgsW(PWSTR pszPath);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL PathIsLFNFileSpecA(PSTR pszName);
+	public static BOOL PathIsLFNFileSpec(PSTR pszName) => PathIsLFNFileSpecA(pszName);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL PathIsLFNFileSpecW(PWSTR pszName);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 PathGetCharTypeA(uint8 ch);
+	public static uint32 PathGetCharType(uint8 ch) => PathGetCharTypeA(ch);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 PathGetCharTypeW(char8 ch);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 PathGetDriveNumberA(PSTR pszPath);
+	public static int32 PathGetDriveNumber(PSTR pszPath) => PathGetDriveNumberA(pszPath);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 PathGetDriveNumberW(PWSTR pszPath);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL PathIsDirectoryA(PSTR pszPath);
+	public static BOOL PathIsDirectory(PSTR pszPath) => PathIsDirectoryA(pszPath);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL PathIsDirectoryW(PWSTR pszPath);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL PathIsDirectoryEmptyA(PSTR pszPath);
+	public static BOOL PathIsDirectoryEmpty(PSTR pszPath) => PathIsDirectoryEmptyA(pszPath);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL PathIsDirectoryEmptyW(PWSTR pszPath);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL PathIsFileSpecA(PSTR pszPath);
+	public static BOOL PathIsFileSpec(PSTR pszPath) => PathIsFileSpecA(pszPath);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL PathIsFileSpecW(PWSTR pszPath);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL PathIsPrefixA(PSTR pszPrefix, PSTR pszPath);
+	public static BOOL PathIsPrefix(PSTR pszPrefix, PSTR pszPath) => PathIsPrefixA(pszPrefix, pszPath);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL PathIsPrefixW(PWSTR pszPrefix, PWSTR pszPath);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL PathIsRelativeA(PSTR pszPath);
+	public static BOOL PathIsRelative(PSTR pszPath) => PathIsRelativeA(pszPath);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL PathIsRelativeW(PWSTR pszPath);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL PathIsRootA(PSTR pszPath);
+	public static BOOL PathIsRoot(PSTR pszPath) => PathIsRootA(pszPath);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL PathIsRootW(PWSTR pszPath);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL PathIsSameRootA(PSTR pszPath1, PSTR pszPath2);
+	public static BOOL PathIsSameRoot(PSTR pszPath1, PSTR pszPath2) => PathIsSameRootA(pszPath1, pszPath2);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL PathIsSameRootW(PWSTR pszPath1, PWSTR pszPath2);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL PathIsUNCA(PSTR pszPath);
+	public static BOOL PathIsUNC(PSTR pszPath) => PathIsUNCA(pszPath);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL PathIsUNCW(PWSTR pszPath);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL PathIsNetworkPathA(PSTR pszPath);
+	public static BOOL PathIsNetworkPath(PSTR pszPath) => PathIsNetworkPathA(pszPath);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL PathIsNetworkPathW(PWSTR pszPath);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL PathIsUNCServerA(PSTR pszPath);
+	public static BOOL PathIsUNCServer(PSTR pszPath) => PathIsUNCServerA(pszPath);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL PathIsUNCServerW(PWSTR pszPath);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL PathIsUNCServerShareA(PSTR pszPath);
+	public static BOOL PathIsUNCServerShare(PSTR pszPath) => PathIsUNCServerShareA(pszPath);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL PathIsUNCServerShareW(PWSTR pszPath);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL PathIsContentTypeA(PSTR pszPath, PSTR pszContentType);
+	public static BOOL PathIsContentType(PSTR pszPath, PSTR pszContentType) => PathIsContentTypeA(pszPath, pszContentType);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL PathIsContentTypeW(PWSTR pszPath, PWSTR pszContentType);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL PathIsURLA(PSTR pszPath);
+	public static BOOL PathIsURL(PSTR pszPath) => PathIsURLA(pszPath);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL PathIsURLW(PWSTR pszPath);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL PathMakePrettyA(PSTR pszPath);
+	public static BOOL PathMakePretty(PSTR pszPath) => PathMakePrettyA(pszPath);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL PathMakePrettyW(PWSTR pszPath);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL PathMatchSpecA(PSTR pszFile, PSTR pszSpec);
+	public static BOOL PathMatchSpec(PSTR pszFile, PSTR pszSpec) => PathMatchSpecA(pszFile, pszSpec);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL PathMatchSpecW(PWSTR pszFile, PWSTR pszSpec);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT PathMatchSpecExA(PSTR pszFile, PSTR pszSpec, uint32 dwFlags);
+	public static HRESULT PathMatchSpecEx(PSTR pszFile, PSTR pszSpec, uint32 dwFlags) => PathMatchSpecExA(pszFile, pszSpec, dwFlags);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT PathMatchSpecExW(PWSTR pszFile, PWSTR pszSpec, uint32 dwFlags);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 PathParseIconLocationA(PSTR pszIconFile);
+	public static int32 PathParseIconLocation(PSTR pszIconFile) => PathParseIconLocationA(pszIconFile);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 PathParseIconLocationW(PWSTR pszIconFile);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL PathQuoteSpacesA(uint8* lpsz);
+	public static BOOL PathQuoteSpaces(uint8* lpsz) => PathQuoteSpacesA(lpsz);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL PathQuoteSpacesW(char8* lpsz);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL PathRelativePathToA(uint8* pszPath, PSTR pszFrom, uint32 dwAttrFrom, PSTR pszTo, uint32 dwAttrTo);
+	public static BOOL PathRelativePathTo(uint8* pszPath, PSTR pszFrom, uint32 dwAttrFrom, PSTR pszTo, uint32 dwAttrTo) => PathRelativePathToA(pszPath, pszFrom, dwAttrFrom, pszTo, dwAttrTo);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL PathRelativePathToW(char8* pszPath, PWSTR pszFrom, uint32 dwAttrFrom, PWSTR pszTo, uint32 dwAttrTo);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern void PathRemoveArgsA(PSTR pszPath);
+	public static void PathRemoveArgs(PSTR pszPath) => PathRemoveArgsA(pszPath);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern void PathRemoveArgsW(PWSTR pszPath);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern PSTR PathRemoveBackslashA(PSTR pszPath);
+	public static PSTR PathRemoveBackslash(PSTR pszPath) => PathRemoveBackslashA(pszPath);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern PWSTR PathRemoveBackslashW(PWSTR pszPath);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern void PathRemoveBlanksA(PSTR pszPath);
+	public static void PathRemoveBlanks(PSTR pszPath) => PathRemoveBlanksA(pszPath);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern void PathRemoveBlanksW(PWSTR pszPath);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern void PathRemoveExtensionA(PSTR pszPath);
+	public static void PathRemoveExtension(PSTR pszPath) => PathRemoveExtensionA(pszPath);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern void PathRemoveExtensionW(PWSTR pszPath);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL PathRemoveFileSpecA(PSTR pszPath);
+	public static BOOL PathRemoveFileSpec(PSTR pszPath) => PathRemoveFileSpecA(pszPath);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL PathRemoveFileSpecW(PWSTR pszPath);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL PathRenameExtensionA(uint8* pszPath, PSTR pszExt);
+	public static BOOL PathRenameExtension(uint8* pszPath, PSTR pszExt) => PathRenameExtensionA(pszPath, pszExt);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL PathRenameExtensionW(char8* pszPath, PWSTR pszExt);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL PathSearchAndQualifyA(PSTR pszPath, uint8* pszBuf, uint32 cchBuf);
+	public static BOOL PathSearchAndQualify(PSTR pszPath, uint8* pszBuf, uint32 cchBuf) => PathSearchAndQualifyA(pszPath, pszBuf, cchBuf);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL PathSearchAndQualifyW(PWSTR pszPath, char8* pszBuf, uint32 cchBuf);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern void PathSetDlgItemPathA(HWND hDlg, int32 id, PSTR pszPath);
+	public static void PathSetDlgItemPath(HWND hDlg, int32 id, PSTR pszPath) => PathSetDlgItemPathA(hDlg, id, pszPath);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern void PathSetDlgItemPathW(HWND hDlg, int32 id, PWSTR pszPath);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern PSTR PathSkipRootA(PSTR pszPath);
+	public static PSTR PathSkipRoot(PSTR pszPath) => PathSkipRootA(pszPath);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern PWSTR PathSkipRootW(PWSTR pszPath);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern void PathStripPathA(PSTR pszPath);
+	public static void PathStripPath(PSTR pszPath) => PathStripPathA(pszPath);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern void PathStripPathW(PWSTR pszPath);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL PathStripToRootA(PSTR pszPath);
+	public static BOOL PathStripToRoot(PSTR pszPath) => PathStripToRootA(pszPath);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL PathStripToRootW(PWSTR pszPath);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL PathUnquoteSpacesA(PSTR lpsz);
+	public static BOOL PathUnquoteSpaces(PSTR lpsz) => PathUnquoteSpacesA(lpsz);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL PathUnquoteSpacesW(PWSTR lpsz);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL PathMakeSystemFolderA(PSTR pszPath);
+	public static BOOL PathMakeSystemFolder(PSTR pszPath) => PathMakeSystemFolderA(pszPath);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL PathMakeSystemFolderW(PWSTR pszPath);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL PathUnmakeSystemFolderA(PSTR pszPath);
+	public static BOOL PathUnmakeSystemFolder(PSTR pszPath) => PathUnmakeSystemFolderA(pszPath);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL PathUnmakeSystemFolderW(PWSTR pszPath);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL PathIsSystemFolderA(PSTR pszPath, uint32 dwAttrb);
+	public static BOOL PathIsSystemFolder(PSTR pszPath, uint32 dwAttrb) => PathIsSystemFolderA(pszPath, dwAttrb);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL PathIsSystemFolderW(PWSTR pszPath, uint32 dwAttrb);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern void PathUndecorateA(PSTR pszPath);
+	public static void PathUndecorate(PSTR pszPath) => PathUndecorateA(pszPath);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern void PathUndecorateW(PWSTR pszPath);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL PathUnExpandEnvStringsA(PSTR pszPath, uint8* pszBuf, uint32 cchBuf);
+	public static BOOL PathUnExpandEnvStrings(PSTR pszPath, uint8* pszBuf, uint32 cchBuf) => PathUnExpandEnvStringsA(pszPath, pszBuf, cchBuf);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL PathUnExpandEnvStringsW(PWSTR pszPath, char8* pszBuf, uint32 cchBuf);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 UrlCompareA(PSTR psz1, PSTR psz2, BOOL fIgnoreSlash);
+	public static int32 UrlCompare(PSTR psz1, PSTR psz2, BOOL fIgnoreSlash) => UrlCompareA(psz1, psz2, fIgnoreSlash);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 UrlCompareW(PWSTR psz1, PWSTR psz2, BOOL fIgnoreSlash);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT UrlCombineA(PSTR pszBase, PSTR pszRelative, uint8* pszCombined, uint32* pcchCombined, uint32 dwFlags);
+	public static HRESULT UrlCombine(PSTR pszBase, PSTR pszRelative, uint8* pszCombined, uint32* pcchCombined, uint32 dwFlags) => UrlCombineA(pszBase, pszRelative, pszCombined, pcchCombined, dwFlags);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT UrlCombineW(PWSTR pszBase, PWSTR pszRelative, char8* pszCombined, uint32* pcchCombined, uint32 dwFlags);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT UrlCanonicalizeA(PSTR pszUrl, uint8* pszCanonicalized, uint32* pcchCanonicalized, uint32 dwFlags);
+	public static HRESULT UrlCanonicalize(PSTR pszUrl, uint8* pszCanonicalized, uint32* pcchCanonicalized, uint32 dwFlags) => UrlCanonicalizeA(pszUrl, pszCanonicalized, pcchCanonicalized, dwFlags);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT UrlCanonicalizeW(PWSTR pszUrl, char8* pszCanonicalized, uint32* pcchCanonicalized, uint32 dwFlags);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL UrlIsOpaqueA(PSTR pszURL);
+	public static BOOL UrlIsOpaque(PSTR pszURL) => UrlIsOpaqueA(pszURL);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL UrlIsOpaqueW(PWSTR pszURL);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL UrlIsNoHistoryA(PSTR pszURL);
+	public static BOOL UrlIsNoHistory(PSTR pszURL) => UrlIsNoHistoryA(pszURL);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL UrlIsNoHistoryW(PWSTR pszURL);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL UrlIsA(PSTR pszUrl, URLIS UrlIs);
+	public static BOOL UrlIs(PSTR pszUrl, URLIS UrlIs) => UrlIsA(pszUrl, UrlIs);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL UrlIsW(PWSTR pszUrl, URLIS UrlIs);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern PSTR UrlGetLocationA(PSTR pszURL);
+	public static PSTR UrlGetLocation(PSTR pszURL) => UrlGetLocationA(pszURL);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern PWSTR UrlGetLocationW(PWSTR pszURL);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT UrlUnescapeA(PSTR pszUrl, uint8* pszUnescaped, uint32* pcchUnescaped, uint32 dwFlags);
+	public static HRESULT UrlUnescape(PSTR pszUrl, uint8* pszUnescaped, uint32* pcchUnescaped, uint32 dwFlags) => UrlUnescapeA(pszUrl, pszUnescaped, pcchUnescaped, dwFlags);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT UrlUnescapeW(PWSTR pszUrl, char8* pszUnescaped, uint32* pcchUnescaped, uint32 dwFlags);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT UrlEscapeA(PSTR pszUrl, uint8* pszEscaped, uint32* pcchEscaped, uint32 dwFlags);
+	public static HRESULT UrlEscape(PSTR pszUrl, uint8* pszEscaped, uint32* pcchEscaped, uint32 dwFlags) => UrlEscapeA(pszUrl, pszEscaped, pcchEscaped, dwFlags);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT UrlEscapeW(PWSTR pszUrl, char8* pszEscaped, uint32* pcchEscaped, uint32 dwFlags);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT UrlCreateFromPathA(PSTR pszPath, uint8* pszUrl, uint32* pcchUrl, uint32 dwFlags);
+	public static HRESULT UrlCreateFromPath(PSTR pszPath, uint8* pszUrl, uint32* pcchUrl, uint32 dwFlags) => UrlCreateFromPathA(pszPath, pszUrl, pcchUrl, dwFlags);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT UrlCreateFromPathW(PWSTR pszPath, char8* pszUrl, uint32* pcchUrl, uint32 dwFlags);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT PathCreateFromUrlA(PSTR pszUrl, uint8* pszPath, uint32* pcchPath, uint32 dwFlags);
+	public static HRESULT PathCreateFromUrl(PSTR pszUrl, uint8* pszPath, uint32* pcchPath, uint32 dwFlags) => PathCreateFromUrlA(pszUrl, pszPath, pcchPath, dwFlags);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT PathCreateFromUrlW(PWSTR pszUrl, char8* pszPath, uint32* pcchPath, uint32 dwFlags);
@@ -21128,6 +21271,7 @@ public static
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT UrlHashA(PSTR pszUrl, uint8* pbHash, uint32 cbHash);
+	public static HRESULT UrlHash(PSTR pszUrl, uint8* pbHash, uint32 cbHash) => UrlHashA(pszUrl, pbHash, cbHash);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT UrlHashW(PWSTR pszUrl, uint8* pbHash, uint32 cbHash);
@@ -21137,9 +21281,11 @@ public static
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT UrlGetPartA(PSTR pszIn, uint8* pszOut, uint32* pcchOut, uint32 dwPart, uint32 dwFlags);
+	public static HRESULT UrlGetPart(PSTR pszIn, uint8* pszOut, uint32* pcchOut, uint32 dwPart, uint32 dwFlags) => UrlGetPartA(pszIn, pszOut, pcchOut, dwPart, dwFlags);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT UrlApplySchemeA(PSTR pszIn, uint8* pszOut, uint32* pcchOut, uint32 dwFlags);
+	public static HRESULT UrlApplyScheme(PSTR pszIn, uint8* pszOut, uint32* pcchOut, uint32 dwFlags) => UrlApplySchemeA(pszIn, pszOut, pcchOut, dwFlags);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT UrlApplySchemeW(PWSTR pszIn, char8* pszOut, uint32* pcchOut, uint32 dwFlags);
@@ -21152,18 +21298,21 @@ public static
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT ParseURLA(PSTR pcszURL, PARSEDURLA* ppu);
+	public static HRESULT ParseURL(PSTR pcszURL, PARSEDURLA* ppu) => ParseURLA(pcszURL, ppu);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT ParseURLW(PWSTR pcszURL, PARSEDURLW* ppu);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern LSTATUS SHDeleteEmptyKeyA(HKEY hkey, PSTR pszSubKey);
+	public static LSTATUS SHDeleteEmptyKey(HKEY hkey, PSTR pszSubKey) => SHDeleteEmptyKeyA(hkey, pszSubKey);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern LSTATUS SHDeleteEmptyKeyW(HKEY hkey, PWSTR pszSubKey);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern LSTATUS SHDeleteKeyA(HKEY hkey, PSTR pszSubKey);
+	public static LSTATUS SHDeleteKey(HKEY hkey, PSTR pszSubKey) => SHDeleteKeyA(hkey, pszSubKey);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern LSTATUS SHDeleteKeyW(HKEY hkey, PWSTR pszSubKey);
@@ -21173,24 +21322,28 @@ public static
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern LSTATUS SHDeleteValueA(HKEY hkey, PSTR pszSubKey, PSTR pszValue);
+	public static LSTATUS SHDeleteValue(HKEY hkey, PSTR pszSubKey, PSTR pszValue) => SHDeleteValueA(hkey, pszSubKey, pszValue);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern LSTATUS SHDeleteValueW(HKEY hkey, PWSTR pszSubKey, PWSTR pszValue);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern LSTATUS SHGetValueA(HKEY hkey, PSTR pszSubKey, PSTR pszValue, uint32* pdwType, void* pvData, uint32* pcbData);
+	public static LSTATUS SHGetValue(HKEY hkey, PSTR pszSubKey, PSTR pszValue, uint32* pdwType, void* pvData, uint32* pcbData) => SHGetValueA(hkey, pszSubKey, pszValue, pdwType, pvData, pcbData);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern LSTATUS SHGetValueW(HKEY hkey, PWSTR pszSubKey, PWSTR pszValue, uint32* pdwType, void* pvData, uint32* pcbData);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern LSTATUS SHSetValueA(HKEY hkey, PSTR pszSubKey, PSTR pszValue, uint32 dwType, void* pvData, uint32 cbData);
+	public static LSTATUS SHSetValue(HKEY hkey, PSTR pszSubKey, PSTR pszValue, uint32 dwType, void* pvData, uint32 cbData) => SHSetValueA(hkey, pszSubKey, pszValue, dwType, pvData, cbData);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern LSTATUS SHSetValueW(HKEY hkey, PWSTR pszSubKey, PWSTR pszValue, uint32 dwType, void* pvData, uint32 cbData);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern LSTATUS SHRegGetValueA(HKEY hkey, PSTR pszSubKey, PSTR pszValue, int32 srrfFlags, uint32* pdwType, void* pvData, uint32* pcbData);
+	public static LSTATUS SHRegGetValue(HKEY hkey, PSTR pszSubKey, PSTR pszValue, int32 srrfFlags, uint32* pdwType, void* pvData, uint32* pcbData) => SHRegGetValueA(hkey, pszSubKey, pszValue, srrfFlags, pdwType, pvData, pcbData);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern LSTATUS SHRegGetValueW(HKEY hkey, PWSTR pszSubKey, PWSTR pszValue, int32 srrfFlags, uint32* pdwType, void* pvData, uint32* pcbData);
@@ -21200,72 +21353,84 @@ public static
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern LSTATUS SHQueryValueExA(HKEY hkey, PSTR pszValue, uint32* pdwReserved, uint32* pdwType, void* pvData, uint32* pcbData);
+	public static LSTATUS SHQueryValueEx(HKEY hkey, PSTR pszValue, uint32* pdwReserved, uint32* pdwType, void* pvData, uint32* pcbData) => SHQueryValueExA(hkey, pszValue, pdwReserved, pdwType, pvData, pcbData);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern LSTATUS SHQueryValueExW(HKEY hkey, PWSTR pszValue, uint32* pdwReserved, uint32* pdwType, void* pvData, uint32* pcbData);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern LSTATUS SHEnumKeyExA(HKEY hkey, uint32 dwIndex, uint8* pszName, uint32* pcchName);
+	public static LSTATUS SHEnumKeyEx(HKEY hkey, uint32 dwIndex, uint8* pszName, uint32* pcchName) => SHEnumKeyExA(hkey, dwIndex, pszName, pcchName);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern LSTATUS SHEnumKeyExW(HKEY hkey, uint32 dwIndex, char8* pszName, uint32* pcchName);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern LSTATUS SHEnumValueA(HKEY hkey, uint32 dwIndex, uint8* pszValueName, uint32* pcchValueName, uint32* pdwType, void* pvData, uint32* pcbData);
+	public static LSTATUS SHEnumValue(HKEY hkey, uint32 dwIndex, uint8* pszValueName, uint32* pcchValueName, uint32* pdwType, void* pvData, uint32* pcbData) => SHEnumValueA(hkey, dwIndex, pszValueName, pcchValueName, pdwType, pvData, pcbData);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern LSTATUS SHEnumValueW(HKEY hkey, uint32 dwIndex, char8* pszValueName, uint32* pcchValueName, uint32* pdwType, void* pvData, uint32* pcbData);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern LSTATUS SHQueryInfoKeyA(HKEY hkey, uint32* pcSubKeys, uint32* pcchMaxSubKeyLen, uint32* pcValues, uint32* pcchMaxValueNameLen);
+	public static LSTATUS SHQueryInfoKey(HKEY hkey, uint32* pcSubKeys, uint32* pcchMaxSubKeyLen, uint32* pcValues, uint32* pcchMaxValueNameLen) => SHQueryInfoKeyA(hkey, pcSubKeys, pcchMaxSubKeyLen, pcValues, pcchMaxValueNameLen);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern LSTATUS SHQueryInfoKeyW(HKEY hkey, uint32* pcSubKeys, uint32* pcchMaxSubKeyLen, uint32* pcValues, uint32* pcchMaxValueNameLen);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern LSTATUS SHCopyKeyA(HKEY hkeySrc, PSTR pszSrcSubKey, HKEY hkeyDest, uint32 fReserved);
+	public static LSTATUS SHCopyKey(HKEY hkeySrc, PSTR pszSrcSubKey, HKEY hkeyDest, uint32 fReserved) => SHCopyKeyA(hkeySrc, pszSrcSubKey, hkeyDest, fReserved);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern LSTATUS SHCopyKeyW(HKEY hkeySrc, PWSTR pszSrcSubKey, HKEY hkeyDest, uint32 fReserved);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern LSTATUS SHRegGetPathA(HKEY hKey, PSTR pcszSubKey, PSTR pcszValue, uint8* pszPath, uint32 dwFlags);
+	public static LSTATUS SHRegGetPath(HKEY hKey, PSTR pcszSubKey, PSTR pcszValue, uint8* pszPath, uint32 dwFlags) => SHRegGetPathA(hKey, pcszSubKey, pcszValue, pszPath, dwFlags);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern LSTATUS SHRegGetPathW(HKEY hKey, PWSTR pcszSubKey, PWSTR pcszValue, char8* pszPath, uint32 dwFlags);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern LSTATUS SHRegSetPathA(HKEY hKey, PSTR pcszSubKey, PSTR pcszValue, PSTR pcszPath, uint32 dwFlags);
+	public static LSTATUS SHRegSetPath(HKEY hKey, PSTR pcszSubKey, PSTR pcszValue, PSTR pcszPath, uint32 dwFlags) => SHRegSetPathA(hKey, pcszSubKey, pcszValue, pcszPath, dwFlags);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern LSTATUS SHRegSetPathW(HKEY hKey, PWSTR pcszSubKey, PWSTR pcszValue, PWSTR pcszPath, uint32 dwFlags);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern LSTATUS SHRegCreateUSKeyA(PSTR pszPath, uint32 samDesired, int hRelativeUSKey, int* phNewUSKey, uint32 dwFlags);
+	public static LSTATUS SHRegCreateUSKey(PSTR pszPath, uint32 samDesired, int hRelativeUSKey, int* phNewUSKey, uint32 dwFlags) => SHRegCreateUSKeyA(pszPath, samDesired, hRelativeUSKey, phNewUSKey, dwFlags);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern LSTATUS SHRegCreateUSKeyW(PWSTR pwzPath, uint32 samDesired, int hRelativeUSKey, int* phNewUSKey, uint32 dwFlags);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern LSTATUS SHRegOpenUSKeyA(PSTR pszPath, uint32 samDesired, int hRelativeUSKey, int* phNewUSKey, BOOL fIgnoreHKCU);
+	public static LSTATUS SHRegOpenUSKey(PSTR pszPath, uint32 samDesired, int hRelativeUSKey, int* phNewUSKey, BOOL fIgnoreHKCU) => SHRegOpenUSKeyA(pszPath, samDesired, hRelativeUSKey, phNewUSKey, fIgnoreHKCU);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern LSTATUS SHRegOpenUSKeyW(PWSTR pwzPath, uint32 samDesired, int hRelativeUSKey, int* phNewUSKey, BOOL fIgnoreHKCU);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern LSTATUS SHRegQueryUSValueA(int hUSKey, PSTR pszValue, uint32* pdwType, void* pvData, uint32* pcbData, BOOL fIgnoreHKCU, void* pvDefaultData, uint32 dwDefaultDataSize);
+	public static LSTATUS SHRegQueryUSValue(int hUSKey, PSTR pszValue, uint32* pdwType, void* pvData, uint32* pcbData, BOOL fIgnoreHKCU, void* pvDefaultData, uint32 dwDefaultDataSize) => SHRegQueryUSValueA(hUSKey, pszValue, pdwType, pvData, pcbData, fIgnoreHKCU, pvDefaultData, dwDefaultDataSize);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern LSTATUS SHRegQueryUSValueW(int hUSKey, PWSTR pszValue, uint32* pdwType, void* pvData, uint32* pcbData, BOOL fIgnoreHKCU, void* pvDefaultData, uint32 dwDefaultDataSize);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern LSTATUS SHRegWriteUSValueA(int hUSKey, PSTR pszValue, uint32 dwType, void* pvData, uint32 cbData, uint32 dwFlags);
+	public static LSTATUS SHRegWriteUSValue(int hUSKey, PSTR pszValue, uint32 dwType, void* pvData, uint32 cbData, uint32 dwFlags) => SHRegWriteUSValueA(hUSKey, pszValue, dwType, pvData, cbData, dwFlags);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern LSTATUS SHRegWriteUSValueW(int hUSKey, PWSTR pwzValue, uint32 dwType, void* pvData, uint32 cbData, uint32 dwFlags);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern LSTATUS SHRegDeleteUSValueA(int hUSKey, PSTR pszValue, SHREGDEL_FLAGS delRegFlags);
+	public static LSTATUS SHRegDeleteUSValue(int hUSKey, PSTR pszValue, SHREGDEL_FLAGS delRegFlags) => SHRegDeleteUSValueA(hUSKey, pszValue, delRegFlags);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern LSTATUS SHRegDeleteUSValueW(int hUSKey, PWSTR pwzValue, SHREGDEL_FLAGS delRegFlags);
@@ -21275,21 +21440,25 @@ public static
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern LSTATUS SHRegDeleteEmptyUSKeyA(int hUSKey, PSTR pszSubKey, SHREGDEL_FLAGS delRegFlags);
+	public static LSTATUS SHRegDeleteEmptyUSKey(int hUSKey, PSTR pszSubKey, SHREGDEL_FLAGS delRegFlags) => SHRegDeleteEmptyUSKeyA(hUSKey, pszSubKey, delRegFlags);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern LSTATUS SHRegEnumUSKeyA(int hUSKey, uint32 dwIndex, uint8* pszName, uint32* pcchName, SHREGENUM_FLAGS enumRegFlags);
+	public static LSTATUS SHRegEnumUSKey(int hUSKey, uint32 dwIndex, uint8* pszName, uint32* pcchName, SHREGENUM_FLAGS enumRegFlags) => SHRegEnumUSKeyA(hUSKey, dwIndex, pszName, pcchName, enumRegFlags);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern LSTATUS SHRegEnumUSKeyW(int hUSKey, uint32 dwIndex, char8* pwzName, uint32* pcchName, SHREGENUM_FLAGS enumRegFlags);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern LSTATUS SHRegEnumUSValueA(int hUSkey, uint32 dwIndex, uint8* pszValueName, uint32* pcchValueName, uint32* pdwType, void* pvData, uint32* pcbData, SHREGENUM_FLAGS enumRegFlags);
+	public static LSTATUS SHRegEnumUSValue(int hUSkey, uint32 dwIndex, uint8* pszValueName, uint32* pcchValueName, uint32* pdwType, void* pvData, uint32* pcbData, SHREGENUM_FLAGS enumRegFlags) => SHRegEnumUSValueA(hUSkey, dwIndex, pszValueName, pcchValueName, pdwType, pvData, pcbData, enumRegFlags);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern LSTATUS SHRegEnumUSValueW(int hUSkey, uint32 dwIndex, char8* pszValueName, uint32* pcchValueName, uint32* pdwType, void* pvData, uint32* pcbData, SHREGENUM_FLAGS enumRegFlags);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern LSTATUS SHRegQueryInfoUSKeyA(int hUSKey, uint32* pcSubKeys, uint32* pcchMaxSubKeyLen, uint32* pcValues, uint32* pcchMaxValueNameLen, SHREGENUM_FLAGS enumRegFlags);
+	public static LSTATUS SHRegQueryInfoUSKey(int hUSKey, uint32* pcSubKeys, uint32* pcchMaxSubKeyLen, uint32* pcValues, uint32* pcchMaxValueNameLen, SHREGENUM_FLAGS enumRegFlags) => SHRegQueryInfoUSKeyA(hUSKey, pcSubKeys, pcchMaxSubKeyLen, pcValues, pcchMaxValueNameLen, enumRegFlags);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern LSTATUS SHRegQueryInfoUSKeyW(int hUSKey, uint32* pcSubKeys, uint32* pcchMaxSubKeyLen, uint32* pcValues, uint32* pcchMaxValueNameLen, SHREGENUM_FLAGS enumRegFlags);
@@ -21299,12 +21468,14 @@ public static
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern LSTATUS SHRegGetUSValueA(PSTR pszSubKey, PSTR pszValue, uint32* pdwType, void* pvData, uint32* pcbData, BOOL fIgnoreHKCU, void* pvDefaultData, uint32 dwDefaultDataSize);
+	public static LSTATUS SHRegGetUSValue(PSTR pszSubKey, PSTR pszValue, uint32* pdwType, void* pvData, uint32* pcbData, BOOL fIgnoreHKCU, void* pvDefaultData, uint32 dwDefaultDataSize) => SHRegGetUSValueA(pszSubKey, pszValue, pdwType, pvData, pcbData, fIgnoreHKCU, pvDefaultData, dwDefaultDataSize);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern LSTATUS SHRegGetUSValueW(PWSTR pszSubKey, PWSTR pszValue, uint32* pdwType, void* pvData, uint32* pcbData, BOOL fIgnoreHKCU, void* pvDefaultData, uint32 dwDefaultDataSize);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern LSTATUS SHRegSetUSValueA(PSTR pszSubKey, PSTR pszValue, uint32 dwType, void* pvData, uint32 cbData, uint32 dwFlags);
+	public static LSTATUS SHRegSetUSValue(PSTR pszSubKey, PSTR pszValue, uint32 dwType, void* pvData, uint32 cbData, uint32 dwFlags) => SHRegSetUSValueA(pszSubKey, pszValue, dwType, pvData, cbData, dwFlags);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern LSTATUS SHRegSetUSValueW(PWSTR pwzSubKey, PWSTR pwzValue, uint32 dwType, void* pvData, uint32 cbData, uint32 dwFlags);
@@ -21314,6 +21485,7 @@ public static
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL SHRegGetBoolUSValueA(PSTR pszSubKey, PSTR pszValue, BOOL fIgnoreHKCU, BOOL fDefault);
+	public static BOOL SHRegGetBoolUSValue(PSTR pszSubKey, PSTR pszValue, BOOL fIgnoreHKCU, BOOL fDefault) => SHRegGetBoolUSValueA(pszSubKey, pszValue, fIgnoreHKCU, fDefault);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL SHRegGetBoolUSValueW(PWSTR pszSubKey, PWSTR pszValue, BOOL fIgnoreHKCU, BOOL fDefault);
@@ -21323,18 +21495,21 @@ public static
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT AssocQueryStringA(uint32 flags, ASSOCSTR str, PSTR pszAssoc, PSTR pszExtra, uint8* pszOut, uint32* pcchOut);
+	public static HRESULT AssocQueryString(uint32 flags, ASSOCSTR str, PSTR pszAssoc, PSTR pszExtra, uint8* pszOut, uint32* pcchOut) => AssocQueryStringA(flags, str, pszAssoc, pszExtra, pszOut, pcchOut);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT AssocQueryStringW(uint32 flags, ASSOCSTR str, PWSTR pszAssoc, PWSTR pszExtra, char8* pszOut, uint32* pcchOut);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT AssocQueryStringByKeyA(uint32 flags, ASSOCSTR str, HKEY hkAssoc, PSTR pszExtra, uint8* pszOut, uint32* pcchOut);
+	public static HRESULT AssocQueryStringByKey(uint32 flags, ASSOCSTR str, HKEY hkAssoc, PSTR pszExtra, uint8* pszOut, uint32* pcchOut) => AssocQueryStringByKeyA(flags, str, hkAssoc, pszExtra, pszOut, pcchOut);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT AssocQueryStringByKeyW(uint32 flags, ASSOCSTR str, HKEY hkAssoc, PWSTR pszExtra, char8* pszOut, uint32* pcchOut);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT AssocQueryKeyA(uint32 flags, ASSOCKEY key, PSTR pszAssoc, PSTR pszExtra, HKEY* phkeyOut);
+	public static HRESULT AssocQueryKey(uint32 flags, ASSOCKEY key, PSTR pszAssoc, PSTR pszExtra, HKEY* phkeyOut) => AssocQueryKeyA(flags, key, pszAssoc, pszExtra, phkeyOut);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT AssocQueryKeyW(uint32 flags, ASSOCKEY key, PWSTR pszAssoc, PWSTR pszExtra, HKEY* phkeyOut);
@@ -21347,18 +21522,21 @@ public static
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern IStream* SHOpenRegStreamA(HKEY hkey, PSTR pszSubkey, PSTR pszValue, uint32 grfMode);
+	public static IStream* SHOpenRegStream(HKEY hkey, PSTR pszSubkey, PSTR pszValue, uint32 grfMode) => SHOpenRegStreamA(hkey, pszSubkey, pszValue, grfMode);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern IStream* SHOpenRegStreamW(HKEY hkey, PWSTR pszSubkey, PWSTR pszValue, uint32 grfMode);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern IStream* SHOpenRegStream2A(HKEY hkey, PSTR pszSubkey, PSTR pszValue, uint32 grfMode);
+	public static IStream* SHOpenRegStream2(HKEY hkey, PSTR pszSubkey, PSTR pszValue, uint32 grfMode) => SHOpenRegStream2A(hkey, pszSubkey, pszValue, grfMode);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern IStream* SHOpenRegStream2W(HKEY hkey, PWSTR pszSubkey, PWSTR pszValue, uint32 grfMode);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT SHCreateStreamOnFileA(PSTR pszFile, uint32 grfMode, IStream** ppstm);
+	public static HRESULT SHCreateStreamOnFile(PSTR pszFile, uint32 grfMode, IStream** ppstm) => SHCreateStreamOnFileA(pszFile, grfMode, ppstm);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT SHCreateStreamOnFileW(PWSTR pszFile, uint32 grfMode, IStream** ppstm);
@@ -21371,6 +21549,7 @@ public static
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT GetAcceptLanguagesA(uint8* pszLanguages, uint32* pcchLanguages);
+	public static HRESULT GetAcceptLanguages(uint8* pszLanguages, uint32* pcchLanguages) => GetAcceptLanguagesA(pszLanguages, pcchLanguages);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT GetAcceptLanguagesW(char8* pszLanguages, uint32* pcchLanguages);
@@ -21428,6 +21607,7 @@ public static
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 SHFormatDateTimeA(FILETIME* pft, uint32* pdwFlags, uint8* pszBuf, uint32 cchBuf);
+	public static int32 SHFormatDateTime(FILETIME* pft, uint32* pdwFlags, uint8* pszBuf, uint32 cchBuf) => SHFormatDateTimeA(pft, pdwFlags, pszBuf, cchBuf);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 SHFormatDateTimeW(FILETIME* pft, uint32* pdwFlags, char8* pszBuf, uint32 cchBuf);
@@ -21446,18 +21626,21 @@ public static
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 SHMessageBoxCheckA(HWND hwnd, PSTR pszText, PSTR pszCaption, uint32 uType, int32 iDefault, PSTR pszRegVal);
+	public static int32 SHMessageBoxCheck(HWND hwnd, PSTR pszText, PSTR pszCaption, uint32 uType, int32 iDefault, PSTR pszRegVal) => SHMessageBoxCheckA(hwnd, pszText, pszCaption, uType, iDefault, pszRegVal);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 SHMessageBoxCheckW(HWND hwnd, PWSTR pszText, PWSTR pszCaption, uint32 uType, int32 iDefault, PWSTR pszRegVal);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern LRESULT SHSendMessageBroadcastA(uint32 uMsg, WPARAM wParam, LPARAM lParam);
+	public static LRESULT SHSendMessageBroadcast(uint32 uMsg, WPARAM wParam, LPARAM lParam) => SHSendMessageBroadcastA(uMsg, wParam, lParam);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern LRESULT SHSendMessageBroadcastW(uint32 uMsg, WPARAM wParam, LPARAM lParam);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern CHAR SHStripMneumonicA(PSTR pszMenu);
+	public static CHAR SHStripMneumonic(PSTR pszMenu) => SHStripMneumonicA(pszMenu);
 
 	[Import("SHLWAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern char8 SHStripMneumonicW(PWSTR pszMenu);

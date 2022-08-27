@@ -900,6 +900,7 @@ public static
 
 	[Import("USER32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HKL LoadKeyboardLayoutA(PSTR pwszKLID, ACTIVATE_KEYBOARD_LAYOUT_FLAGS Flags);
+	public static HKL LoadKeyboardLayout(PSTR pwszKLID, ACTIVATE_KEYBOARD_LAYOUT_FLAGS Flags) => LoadKeyboardLayoutA(pwszKLID, Flags);
 
 	[Import("USER32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HKL LoadKeyboardLayoutW(PWSTR pwszKLID, ACTIVATE_KEYBOARD_LAYOUT_FLAGS Flags);
@@ -915,6 +916,7 @@ public static
 
 	[Import("USER32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL GetKeyboardLayoutNameA(uint8* pwszKLID);
+	public static BOOL GetKeyboardLayoutName(uint8* pwszKLID) => GetKeyboardLayoutNameA(pwszKLID);
 
 	[Import("USER32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL GetKeyboardLayoutNameW(char8* pwszKLID);
@@ -972,6 +974,7 @@ public static
 
 	[Import("USER32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 GetKeyNameTextA(int32 lParam, uint8* lpString, int32 cchSize);
+	public static int32 GetKeyNameText(int32 lParam, uint8* lpString, int32 cchSize) => GetKeyNameTextA(lParam, lpString, cchSize);
 
 	[Import("USER32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 GetKeyNameTextW(int32 lParam, char8* lpString, int32 cchSize);
@@ -993,12 +996,14 @@ public static
 
 	[Import("USER32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int16 VkKeyScanA(CHAR ch);
+	public static int16 VkKeyScan(CHAR ch) => VkKeyScanA(ch);
 
 	[Import("USER32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int16 VkKeyScanW(char8 ch);
 
 	[Import("USER32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int16 VkKeyScanExA(CHAR ch, HKL dwhkl);
+	public static int16 VkKeyScanEx(CHAR ch, HKL dwhkl) => VkKeyScanExA(ch, dwhkl);
 
 	[Import("USER32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int16 VkKeyScanExW(char8 ch, HKL dwhkl);
@@ -1017,12 +1022,14 @@ public static
 
 	[Import("USER32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 MapVirtualKeyA(uint32 uCode, uint32 uMapType);
+	public static uint32 MapVirtualKey(uint32 uCode, uint32 uMapType) => MapVirtualKeyA(uCode, uMapType);
 
 	[Import("USER32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 MapVirtualKeyW(uint32 uCode, uint32 uMapType);
 
 	[Import("USER32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 MapVirtualKeyExA(uint32 uCode, uint32 uMapType, HKL dwhkl);
+	public static uint32 MapVirtualKeyEx(uint32 uCode, uint32 uMapType, HKL dwhkl) => MapVirtualKeyExA(uCode, uMapType, dwhkl);
 
 	[Import("USER32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 MapVirtualKeyExW(uint32 uCode, uint32 uMapType, HKL dwhkl);

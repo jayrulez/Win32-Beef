@@ -2564,42 +2564,49 @@ public static
 
 	[Import("ADVAPI32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 StartTraceA(uint64* TraceHandle, PSTR InstanceName, EVENT_TRACE_PROPERTIES* Properties);
+	public static uint32 StartTrace(uint64* TraceHandle, PSTR InstanceName, EVENT_TRACE_PROPERTIES* Properties) => StartTraceA(TraceHandle, InstanceName, Properties);
 
 	[Import("ADVAPI32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 StopTraceW(uint64 TraceHandle, PWSTR InstanceName, EVENT_TRACE_PROPERTIES* Properties);
 
 	[Import("ADVAPI32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 StopTraceA(uint64 TraceHandle, PSTR InstanceName, EVENT_TRACE_PROPERTIES* Properties);
+	public static uint32 StopTrace(uint64 TraceHandle, PSTR InstanceName, EVENT_TRACE_PROPERTIES* Properties) => StopTraceA(TraceHandle, InstanceName, Properties);
 
 	[Import("ADVAPI32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 QueryTraceW(uint64 TraceHandle, PWSTR InstanceName, EVENT_TRACE_PROPERTIES* Properties);
 
 	[Import("ADVAPI32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 QueryTraceA(uint64 TraceHandle, PSTR InstanceName, EVENT_TRACE_PROPERTIES* Properties);
+	public static uint32 QueryTrace(uint64 TraceHandle, PSTR InstanceName, EVENT_TRACE_PROPERTIES* Properties) => QueryTraceA(TraceHandle, InstanceName, Properties);
 
 	[Import("ADVAPI32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 UpdateTraceW(uint64 TraceHandle, PWSTR InstanceName, EVENT_TRACE_PROPERTIES* Properties);
 
 	[Import("ADVAPI32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 UpdateTraceA(uint64 TraceHandle, PSTR InstanceName, EVENT_TRACE_PROPERTIES* Properties);
+	public static uint32 UpdateTrace(uint64 TraceHandle, PSTR InstanceName, EVENT_TRACE_PROPERTIES* Properties) => UpdateTraceA(TraceHandle, InstanceName, Properties);
 
 	[Import("ADVAPI32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 FlushTraceW(uint64 TraceHandle, PWSTR InstanceName, EVENT_TRACE_PROPERTIES* Properties);
 
 	[Import("ADVAPI32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 FlushTraceA(uint64 TraceHandle, PSTR InstanceName, EVENT_TRACE_PROPERTIES* Properties);
+	public static uint32 FlushTrace(uint64 TraceHandle, PSTR InstanceName, EVENT_TRACE_PROPERTIES* Properties) => FlushTraceA(TraceHandle, InstanceName, Properties);
 
 	[Import("ADVAPI32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 ControlTraceW(uint64 TraceHandle, PWSTR InstanceName, EVENT_TRACE_PROPERTIES* Properties, EVENT_TRACE_CONTROL ControlCode);
 
 	[Import("ADVAPI32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 ControlTraceA(uint64 TraceHandle, PSTR InstanceName, EVENT_TRACE_PROPERTIES* Properties, EVENT_TRACE_CONTROL ControlCode);
+	public static uint32 ControlTrace(uint64 TraceHandle, PSTR InstanceName, EVENT_TRACE_PROPERTIES* Properties, EVENT_TRACE_CONTROL ControlCode) => ControlTraceA(TraceHandle, InstanceName, Properties, ControlCode);
 
 	[Import("ADVAPI32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 QueryAllTracesW(EVENT_TRACE_PROPERTIES** PropertyArray, uint32 PropertyArrayCount, uint32* LoggerCount);
 
 	[Import("ADVAPI32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 QueryAllTracesA(EVENT_TRACE_PROPERTIES** PropertyArray, uint32 PropertyArrayCount, uint32* LoggerCount);
+	public static uint32 QueryAllTraces(EVENT_TRACE_PROPERTIES** PropertyArray, uint32 PropertyArrayCount, uint32* LoggerCount) => QueryAllTracesA(PropertyArray, PropertyArrayCount, LoggerCount);
 
 	[Import("ADVAPI32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 EnableTrace(uint32 Enable, uint32 EnableFlag, uint32 EnableLevel, Guid* ControlGuid, uint64 TraceHandle);
@@ -2633,6 +2640,7 @@ public static
 
 	[Import("ADVAPI32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 RegisterTraceGuidsA(WMIDPREQUEST RequestAddress, void* RequestContext, Guid* ControlGuid, uint32 GuidCount, TRACE_GUID_REGISTRATION* TraceGuidReg, PSTR MofImagePath, PSTR MofResourceName, uint64* RegistrationHandle);
+	public static uint32 RegisterTraceGuids(WMIDPREQUEST RequestAddress, void* RequestContext, Guid* ControlGuid, uint32 GuidCount, TRACE_GUID_REGISTRATION* TraceGuidReg, PSTR MofImagePath, PSTR MofResourceName, uint64* RegistrationHandle) => RegisterTraceGuidsA(RequestAddress, RequestContext, ControlGuid, GuidCount, TraceGuidReg, MofImagePath, MofResourceName, RegistrationHandle);
 
 	[Import("ADVAPI32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 EnumerateTraceGuids(TRACE_GUID_PROPERTIES** GuidPropertiesArray, uint32 PropertyArrayCount, uint32* GuidCount);
@@ -2663,6 +2671,7 @@ public static
 
 	[Import("ADVAPI32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint64 OpenTraceA(EVENT_TRACE_LOGFILEA* Logfile);
+	public static uint64 OpenTrace(EVENT_TRACE_LOGFILEA* Logfile) => OpenTraceA(Logfile);
 
 	[Import("ADVAPI32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 SetTraceCallback(Guid* pGuid, PEVENT_CALLBACK EventCallback);

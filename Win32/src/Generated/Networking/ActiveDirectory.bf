@@ -5726,6 +5726,7 @@ public static
 
 	[Import("dsuiext.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 DsBrowseForContainerA(DSBROWSEINFOA* pInfo);
+	public static int32 DsBrowseForContainer(DSBROWSEINFOA* pInfo) => DsBrowseForContainerA(pInfo);
 
 	[Import("dsuiext.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HICON DsGetIcon(uint32 dwFlags, PWSTR pszObjectClass, int32 cxImage, int32 cyImage);
@@ -5759,9 +5760,11 @@ public static
 
 	[Import("DSPARSE.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 DsMakeSpnA(PSTR ServiceClass, PSTR ServiceName, PSTR InstanceName, uint16 InstancePort, PSTR Referrer, uint32* pcSpnLength, uint8* pszSpn);
+	public static uint32 DsMakeSpn(PSTR ServiceClass, PSTR ServiceName, PSTR InstanceName, uint16 InstancePort, PSTR Referrer, uint32* pcSpnLength, uint8* pszSpn) => DsMakeSpnA(ServiceClass, ServiceName, InstanceName, InstancePort, Referrer, pcSpnLength, pszSpn);
 
 	[Import("DSPARSE.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 DsCrackSpnA(PSTR pszSpn, uint32* pcServiceClass, uint8* ServiceClass, uint32* pcServiceName, uint8* ServiceName, uint32* pcInstanceName, uint8* InstanceName, uint16* pInstancePort);
+	public static uint32 DsCrackSpn(PSTR pszSpn, uint32* pcServiceClass, uint8* ServiceClass, uint32* pcServiceName, uint8* ServiceName, uint32* pcInstanceName, uint8* InstanceName, uint16* pInstancePort) => DsCrackSpnA(pszSpn, pcServiceClass, ServiceClass, pcServiceName, ServiceName, pcInstanceName, InstanceName, pInstancePort);
 
 	[Import("DSPARSE.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 DsCrackSpnW(PWSTR pszSpn, uint32* pcServiceClass, char8* ServiceClass, uint32* pcServiceName, char8* ServiceName, uint32* pcInstanceName, char8* InstanceName, uint16* pInstancePort);
@@ -5771,12 +5774,14 @@ public static
 
 	[Import("DSPARSE.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 DsQuoteRdnValueA(uint32 cUnquotedRdnValueLength, uint8* psUnquotedRdnValue, uint32* pcQuotedRdnValueLength, uint8* psQuotedRdnValue);
+	public static uint32 DsQuoteRdnValue(uint32 cUnquotedRdnValueLength, uint8* psUnquotedRdnValue, uint32* pcQuotedRdnValueLength, uint8* psQuotedRdnValue) => DsQuoteRdnValueA(cUnquotedRdnValueLength, psUnquotedRdnValue, pcQuotedRdnValueLength, psQuotedRdnValue);
 
 	[Import("DSPARSE.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 DsUnquoteRdnValueW(uint32 cQuotedRdnValueLength, char8* psQuotedRdnValue, uint32* pcUnquotedRdnValueLength, char8* psUnquotedRdnValue);
 
 	[Import("DSPARSE.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 DsUnquoteRdnValueA(uint32 cQuotedRdnValueLength, uint8* psQuotedRdnValue, uint32* pcUnquotedRdnValueLength, uint8* psUnquotedRdnValue);
+	public static uint32 DsUnquoteRdnValue(uint32 cQuotedRdnValueLength, uint8* psQuotedRdnValue, uint32* pcUnquotedRdnValueLength, uint8* psUnquotedRdnValue) => DsUnquoteRdnValueA(cQuotedRdnValueLength, psQuotedRdnValue, pcUnquotedRdnValueLength, psUnquotedRdnValue);
 
 	[Import("DSPARSE.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 DsGetRdnW(PWSTR* ppDN, uint32* pcDN, PWSTR* ppKey, uint32* pcKey, PWSTR* ppVal, uint32* pcVal);
@@ -5786,21 +5791,25 @@ public static
 
 	[Import("DSPARSE.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL DsCrackUnquotedMangledRdnA(uint8* pszRDN, uint32 cchRDN, Guid* pGuid, DS_MANGLE_FOR* peDsMangleFor);
+	public static BOOL DsCrackUnquotedMangledRdn(uint8* pszRDN, uint32 cchRDN, Guid* pGuid, DS_MANGLE_FOR* peDsMangleFor) => DsCrackUnquotedMangledRdnA(pszRDN, cchRDN, pGuid, peDsMangleFor);
 
 	[Import("DSPARSE.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL DsIsMangledRdnValueW(char8* pszRdn, uint32 cRdn, DS_MANGLE_FOR eDsMangleForDesired);
 
 	[Import("DSPARSE.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL DsIsMangledRdnValueA(uint8* pszRdn, uint32 cRdn, DS_MANGLE_FOR eDsMangleForDesired);
+	public static BOOL DsIsMangledRdnValue(uint8* pszRdn, uint32 cRdn, DS_MANGLE_FOR eDsMangleForDesired) => DsIsMangledRdnValueA(pszRdn, cRdn, eDsMangleForDesired);
 
 	[Import("DSPARSE.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL DsIsMangledDnA(PSTR pszDn, DS_MANGLE_FOR eDsMangleFor);
+	public static BOOL DsIsMangledDn(PSTR pszDn, DS_MANGLE_FOR eDsMangleFor) => DsIsMangledDnA(pszDn, eDsMangleFor);
 
 	[Import("DSPARSE.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL DsIsMangledDnW(PWSTR pszDn, DS_MANGLE_FOR eDsMangleFor);
 
 	[Import("DSPARSE.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 DsCrackSpn2A(uint8* pszSpn, uint32 cSpn, uint32* pcServiceClass, uint8* ServiceClass, uint32* pcServiceName, uint8* ServiceName, uint32* pcInstanceName, uint8* InstanceName, uint16* pInstancePort);
+	public static uint32 DsCrackSpn2(uint8* pszSpn, uint32 cSpn, uint32* pcServiceClass, uint8* ServiceClass, uint32* pcServiceName, uint8* ServiceName, uint32* pcInstanceName, uint8* InstanceName, uint16* pInstancePort) => DsCrackSpn2A(pszSpn, cSpn, pcServiceClass, ServiceClass, pcServiceName, ServiceName, pcInstanceName, InstanceName, pInstancePort);
 
 	[Import("DSPARSE.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 DsCrackSpn2W(char8* pszSpn, uint32 cSpn, uint32* pcServiceClass, char8* ServiceClass, uint32* pcServiceName, char8* ServiceName, uint32* pcInstanceName, char8* InstanceName, uint16* pInstancePort);
@@ -5816,36 +5825,42 @@ public static
 
 	[Import("NTDSAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 DsBindA(PSTR DomainControllerName, PSTR DnsDomainName, HANDLE* phDS);
+	public static uint32 DsBind(PSTR DomainControllerName, PSTR DnsDomainName, HANDLE* phDS) => DsBindA(DomainControllerName, DnsDomainName, phDS);
 
 	[Import("NTDSAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 DsBindWithCredW(PWSTR DomainControllerName, PWSTR DnsDomainName, void* AuthIdentity, HANDLE* phDS);
 
 	[Import("NTDSAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 DsBindWithCredA(PSTR DomainControllerName, PSTR DnsDomainName, void* AuthIdentity, HANDLE* phDS);
+	public static uint32 DsBindWithCred(PSTR DomainControllerName, PSTR DnsDomainName, void* AuthIdentity, HANDLE* phDS) => DsBindWithCredA(DomainControllerName, DnsDomainName, AuthIdentity, phDS);
 
 	[Import("NTDSAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 DsBindWithSpnW(PWSTR DomainControllerName, PWSTR DnsDomainName, void* AuthIdentity, PWSTR ServicePrincipalName, HANDLE* phDS);
 
 	[Import("NTDSAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 DsBindWithSpnA(PSTR DomainControllerName, PSTR DnsDomainName, void* AuthIdentity, PSTR ServicePrincipalName, HANDLE* phDS);
+	public static uint32 DsBindWithSpn(PSTR DomainControllerName, PSTR DnsDomainName, void* AuthIdentity, PSTR ServicePrincipalName, HANDLE* phDS) => DsBindWithSpnA(DomainControllerName, DnsDomainName, AuthIdentity, ServicePrincipalName, phDS);
 
 	[Import("NTDSAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 DsBindWithSpnExW(PWSTR DomainControllerName, PWSTR DnsDomainName, void* AuthIdentity, PWSTR ServicePrincipalName, uint32 BindFlags, HANDLE* phDS);
 
 	[Import("NTDSAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 DsBindWithSpnExA(PSTR DomainControllerName, PSTR DnsDomainName, void* AuthIdentity, PSTR ServicePrincipalName, uint32 BindFlags, HANDLE* phDS);
+	public static uint32 DsBindWithSpnEx(PSTR DomainControllerName, PSTR DnsDomainName, void* AuthIdentity, PSTR ServicePrincipalName, uint32 BindFlags, HANDLE* phDS) => DsBindWithSpnExA(DomainControllerName, DnsDomainName, AuthIdentity, ServicePrincipalName, BindFlags, phDS);
 
 	[Import("NTDSAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 DsBindByInstanceW(PWSTR ServerName, PWSTR Annotation, Guid* InstanceGuid, PWSTR DnsDomainName, void* AuthIdentity, PWSTR ServicePrincipalName, uint32 BindFlags, HANDLE* phDS);
 
 	[Import("NTDSAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 DsBindByInstanceA(PSTR ServerName, PSTR Annotation, Guid* InstanceGuid, PSTR DnsDomainName, void* AuthIdentity, PSTR ServicePrincipalName, uint32 BindFlags, HANDLE* phDS);
+	public static uint32 DsBindByInstance(PSTR ServerName, PSTR Annotation, Guid* InstanceGuid, PSTR DnsDomainName, void* AuthIdentity, PSTR ServicePrincipalName, uint32 BindFlags, HANDLE* phDS) => DsBindByInstanceA(ServerName, Annotation, InstanceGuid, DnsDomainName, AuthIdentity, ServicePrincipalName, BindFlags, phDS);
 
 	[Import("NTDSAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 DsBindToISTGW(PWSTR SiteName, HANDLE* phDS);
 
 	[Import("NTDSAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 DsBindToISTGA(PSTR SiteName, HANDLE* phDS);
+	public static uint32 DsBindToISTG(PSTR SiteName, HANDLE* phDS) => DsBindToISTGA(SiteName, phDS);
 
 	[Import("NTDSAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 DsBindingSetTimeout(HANDLE hDS, uint32 cTimeoutSecs);
@@ -5855,12 +5870,14 @@ public static
 
 	[Import("NTDSAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 DsUnBindA(HANDLE* phDS);
+	public static uint32 DsUnBind(HANDLE* phDS) => DsUnBindA(phDS);
 
 	[Import("NTDSAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 DsMakePasswordCredentialsW(PWSTR User, PWSTR Domain, PWSTR Password, void** pAuthIdentity);
 
 	[Import("NTDSAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 DsMakePasswordCredentialsA(PSTR User, PSTR Domain, PSTR Password, void** pAuthIdentity);
+	public static uint32 DsMakePasswordCredentials(PSTR User, PSTR Domain, PSTR Password, void** pAuthIdentity) => DsMakePasswordCredentialsA(User, Domain, Password, pAuthIdentity);
 
 	[Import("NTDSAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern void DsFreePasswordCredentials(void* AuthIdentity);
@@ -5870,27 +5887,32 @@ public static
 
 	[Import("NTDSAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 DsCrackNamesA(HANDLE hDS, DS_NAME_FLAGS flags, DS_NAME_FORMAT formatOffered, DS_NAME_FORMAT formatDesired, uint32 cNames, PSTR* rpNames, DS_NAME_RESULTA** ppResult);
+	public static uint32 DsCrackNames(HANDLE hDS, DS_NAME_FLAGS flags, DS_NAME_FORMAT formatOffered, DS_NAME_FORMAT formatDesired, uint32 cNames, PSTR* rpNames, DS_NAME_RESULTA** ppResult) => DsCrackNamesA(hDS, flags, formatOffered, formatDesired, cNames, rpNames, ppResult);
 
 	[Import("NTDSAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern void DsFreeNameResultW(DS_NAME_RESULTW* pResult);
 
 	[Import("NTDSAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern void DsFreeNameResultA(DS_NAME_RESULTA* pResult);
+	public static void DsFreeNameResult(DS_NAME_RESULTA* pResult) => DsFreeNameResultA(pResult);
 
 	[Import("NTDSAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 DsGetSpnA(DS_SPN_NAME_TYPE ServiceType, PSTR ServiceClass, PSTR ServiceName, uint16 InstancePort, uint16 cInstanceNames, PSTR* pInstanceNames, uint16* pInstancePorts, uint32* pcSpn, PSTR** prpszSpn);
+	public static uint32 DsGetSpn(DS_SPN_NAME_TYPE ServiceType, PSTR ServiceClass, PSTR ServiceName, uint16 InstancePort, uint16 cInstanceNames, PSTR* pInstanceNames, uint16* pInstancePorts, uint32* pcSpn, PSTR** prpszSpn) => DsGetSpnA(ServiceType, ServiceClass, ServiceName, InstancePort, cInstanceNames, pInstanceNames, pInstancePorts, pcSpn, prpszSpn);
 
 	[Import("NTDSAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 DsGetSpnW(DS_SPN_NAME_TYPE ServiceType, PWSTR ServiceClass, PWSTR ServiceName, uint16 InstancePort, uint16 cInstanceNames, PWSTR* pInstanceNames, uint16* pInstancePorts, uint32* pcSpn, PWSTR** prpszSpn);
 
 	[Import("NTDSAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern void DsFreeSpnArrayA(uint32 cSpn, PSTR* rpszSpn);
+	public static void DsFreeSpnArray(uint32 cSpn, PSTR* rpszSpn) => DsFreeSpnArrayA(cSpn, rpszSpn);
 
 	[Import("NTDSAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern void DsFreeSpnArrayW(uint32 cSpn, PWSTR* rpszSpn);
 
 	[Import("NTDSAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 DsWriteAccountSpnA(HANDLE hDS, DS_SPN_WRITE_OP Operation, PSTR pszAccount, uint32 cSpn, PSTR* rpszSpn);
+	public static uint32 DsWriteAccountSpn(HANDLE hDS, DS_SPN_WRITE_OP Operation, PSTR pszAccount, uint32 cSpn, PSTR* rpszSpn) => DsWriteAccountSpnA(hDS, Operation, pszAccount, cSpn, rpszSpn);
 
 	[Import("NTDSAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 DsWriteAccountSpnW(HANDLE hDS, DS_SPN_WRITE_OP Operation, PWSTR pszAccount, uint32 cSpn, PWSTR* rpszSpn);
@@ -5900,45 +5922,53 @@ public static
 
 	[Import("NTDSAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 DsClientMakeSpnForTargetServerA(PSTR ServiceClass, PSTR ServiceName, uint32* pcSpnLength, uint8* pszSpn);
+	public static uint32 DsClientMakeSpnForTargetServer(PSTR ServiceClass, PSTR ServiceName, uint32* pcSpnLength, uint8* pszSpn) => DsClientMakeSpnForTargetServerA(ServiceClass, ServiceName, pcSpnLength, pszSpn);
 
 	[Import("NTDSAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 DsServerRegisterSpnA(DS_SPN_WRITE_OP Operation, PSTR ServiceClass, PSTR UserObjectDN);
+	public static uint32 DsServerRegisterSpn(DS_SPN_WRITE_OP Operation, PSTR ServiceClass, PSTR UserObjectDN) => DsServerRegisterSpnA(Operation, ServiceClass, UserObjectDN);
 
 	[Import("NTDSAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 DsServerRegisterSpnW(DS_SPN_WRITE_OP Operation, PWSTR ServiceClass, PWSTR UserObjectDN);
 
 	[Import("NTDSAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 DsReplicaSyncA(HANDLE hDS, PSTR NameContext, Guid* pUuidDsaSrc, uint32 Options);
+	public static uint32 DsReplicaSync(HANDLE hDS, PSTR NameContext, Guid* pUuidDsaSrc, uint32 Options) => DsReplicaSyncA(hDS, NameContext, pUuidDsaSrc, Options);
 
 	[Import("NTDSAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 DsReplicaSyncW(HANDLE hDS, PWSTR NameContext, Guid* pUuidDsaSrc, uint32 Options);
 
 	[Import("NTDSAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 DsReplicaAddA(HANDLE hDS, PSTR NameContext, PSTR SourceDsaDn, PSTR TransportDn, PSTR SourceDsaAddress, SCHEDULE* pSchedule, uint32 Options);
+	public static uint32 DsReplicaAdd(HANDLE hDS, PSTR NameContext, PSTR SourceDsaDn, PSTR TransportDn, PSTR SourceDsaAddress, SCHEDULE* pSchedule, uint32 Options) => DsReplicaAddA(hDS, NameContext, SourceDsaDn, TransportDn, SourceDsaAddress, pSchedule, Options);
 
 	[Import("NTDSAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 DsReplicaAddW(HANDLE hDS, PWSTR NameContext, PWSTR SourceDsaDn, PWSTR TransportDn, PWSTR SourceDsaAddress, SCHEDULE* pSchedule, uint32 Options);
 
 	[Import("NTDSAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 DsReplicaDelA(HANDLE hDS, PSTR NameContext, PSTR DsaSrc, uint32 Options);
+	public static uint32 DsReplicaDel(HANDLE hDS, PSTR NameContext, PSTR DsaSrc, uint32 Options) => DsReplicaDelA(hDS, NameContext, DsaSrc, Options);
 
 	[Import("NTDSAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 DsReplicaDelW(HANDLE hDS, PWSTR NameContext, PWSTR DsaSrc, uint32 Options);
 
 	[Import("NTDSAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 DsReplicaModifyA(HANDLE hDS, PSTR NameContext, Guid* pUuidSourceDsa, PSTR TransportDn, PSTR SourceDsaAddress, SCHEDULE* pSchedule, uint32 ReplicaFlags, uint32 ModifyFields, uint32 Options);
+	public static uint32 DsReplicaModify(HANDLE hDS, PSTR NameContext, Guid* pUuidSourceDsa, PSTR TransportDn, PSTR SourceDsaAddress, SCHEDULE* pSchedule, uint32 ReplicaFlags, uint32 ModifyFields, uint32 Options) => DsReplicaModifyA(hDS, NameContext, pUuidSourceDsa, TransportDn, SourceDsaAddress, pSchedule, ReplicaFlags, ModifyFields, Options);
 
 	[Import("NTDSAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 DsReplicaModifyW(HANDLE hDS, PWSTR NameContext, Guid* pUuidSourceDsa, PWSTR TransportDn, PWSTR SourceDsaAddress, SCHEDULE* pSchedule, uint32 ReplicaFlags, uint32 ModifyFields, uint32 Options);
 
 	[Import("NTDSAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 DsReplicaUpdateRefsA(HANDLE hDS, PSTR NameContext, PSTR DsaDest, Guid* pUuidDsaDest, uint32 Options);
+	public static uint32 DsReplicaUpdateRefs(HANDLE hDS, PSTR NameContext, PSTR DsaDest, Guid* pUuidDsaDest, uint32 Options) => DsReplicaUpdateRefsA(hDS, NameContext, DsaDest, pUuidDsaDest, Options);
 
 	[Import("NTDSAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 DsReplicaUpdateRefsW(HANDLE hDS, PWSTR NameContext, PWSTR DsaDest, Guid* pUuidDsaDest, uint32 Options);
 
 	[Import("NTDSAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 DsReplicaSyncAllA(HANDLE hDS, PSTR pszNameContext, uint32 ulFlags, int pFnCallBack, void* pCallbackData, DS_REPSYNCALL_ERRINFOA*** pErrors);
+	public static uint32 DsReplicaSyncAll(HANDLE hDS, PSTR pszNameContext, uint32 ulFlags, int pFnCallBack, void* pCallbackData, DS_REPSYNCALL_ERRINFOA*** pErrors) => DsReplicaSyncAllA(hDS, pszNameContext, ulFlags, pFnCallBack, pCallbackData, pErrors);
 
 	[Import("NTDSAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 DsReplicaSyncAllW(HANDLE hDS, PWSTR pszNameContext, uint32 ulFlags, int pFnCallBack, void* pCallbackData, DS_REPSYNCALL_ERRINFOW*** pErrors);
@@ -5948,45 +5978,53 @@ public static
 
 	[Import("NTDSAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 DsRemoveDsServerA(HANDLE hDs, PSTR ServerDN, PSTR DomainDN, BOOL* fLastDcInDomain, BOOL fCommit);
+	public static uint32 DsRemoveDsServer(HANDLE hDs, PSTR ServerDN, PSTR DomainDN, BOOL* fLastDcInDomain, BOOL fCommit) => DsRemoveDsServerA(hDs, ServerDN, DomainDN, fLastDcInDomain, fCommit);
 
 	[Import("NTDSAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 DsRemoveDsDomainW(HANDLE hDs, PWSTR DomainDN);
 
 	[Import("NTDSAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 DsRemoveDsDomainA(HANDLE hDs, PSTR DomainDN);
+	public static uint32 DsRemoveDsDomain(HANDLE hDs, PSTR DomainDN) => DsRemoveDsDomainA(hDs, DomainDN);
 
 	[Import("NTDSAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 DsListSitesA(HANDLE hDs, DS_NAME_RESULTA** ppSites);
+	public static uint32 DsListSites(HANDLE hDs, DS_NAME_RESULTA** ppSites) => DsListSitesA(hDs, ppSites);
 
 	[Import("NTDSAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 DsListSitesW(HANDLE hDs, DS_NAME_RESULTW** ppSites);
 
 	[Import("NTDSAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 DsListServersInSiteA(HANDLE hDs, PSTR site, DS_NAME_RESULTA** ppServers);
+	public static uint32 DsListServersInSite(HANDLE hDs, PSTR site, DS_NAME_RESULTA** ppServers) => DsListServersInSiteA(hDs, site, ppServers);
 
 	[Import("NTDSAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 DsListServersInSiteW(HANDLE hDs, PWSTR site, DS_NAME_RESULTW** ppServers);
 
 	[Import("NTDSAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 DsListDomainsInSiteA(HANDLE hDs, PSTR site, DS_NAME_RESULTA** ppDomains);
+	public static uint32 DsListDomainsInSite(HANDLE hDs, PSTR site, DS_NAME_RESULTA** ppDomains) => DsListDomainsInSiteA(hDs, site, ppDomains);
 
 	[Import("NTDSAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 DsListDomainsInSiteW(HANDLE hDs, PWSTR site, DS_NAME_RESULTW** ppDomains);
 
 	[Import("NTDSAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 DsListServersForDomainInSiteA(HANDLE hDs, PSTR domain, PSTR site, DS_NAME_RESULTA** ppServers);
+	public static uint32 DsListServersForDomainInSite(HANDLE hDs, PSTR domain, PSTR site, DS_NAME_RESULTA** ppServers) => DsListServersForDomainInSiteA(hDs, domain, site, ppServers);
 
 	[Import("NTDSAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 DsListServersForDomainInSiteW(HANDLE hDs, PWSTR domain, PWSTR site, DS_NAME_RESULTW** ppServers);
 
 	[Import("NTDSAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 DsListInfoForServerA(HANDLE hDs, PSTR server, DS_NAME_RESULTA** ppInfo);
+	public static uint32 DsListInfoForServer(HANDLE hDs, PSTR server, DS_NAME_RESULTA** ppInfo) => DsListInfoForServerA(hDs, server, ppInfo);
 
 	[Import("NTDSAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 DsListInfoForServerW(HANDLE hDs, PWSTR server, DS_NAME_RESULTW** ppInfo);
 
 	[Import("NTDSAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 DsListRolesA(HANDLE hDs, DS_NAME_RESULTA** ppRoles);
+	public static uint32 DsListRoles(HANDLE hDs, DS_NAME_RESULTA** ppRoles) => DsListRolesA(hDs, ppRoles);
 
 	[Import("NTDSAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 DsListRolesW(HANDLE hDs, DS_NAME_RESULTW** ppRoles);
@@ -5996,15 +6034,18 @@ public static
 
 	[Import("NTDSAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 DsQuerySitesByCostA(HANDLE hDS, PSTR pszFromSite, PSTR* rgszToSites, uint32 cToSites, uint32 dwFlags, DS_SITE_COST_INFO** prgSiteInfo);
+	public static uint32 DsQuerySitesByCost(HANDLE hDS, PSTR pszFromSite, PSTR* rgszToSites, uint32 cToSites, uint32 dwFlags, DS_SITE_COST_INFO** prgSiteInfo) => DsQuerySitesByCostA(hDS, pszFromSite, rgszToSites, cToSites, dwFlags, prgSiteInfo);
 
 	[Import("NTDSAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern void DsQuerySitesFree(DS_SITE_COST_INFO* rgSiteInfo);
 
 	[Import("NTDSAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 DsMapSchemaGuidsA(HANDLE hDs, uint32 cGuids, Guid* rGuids, DS_SCHEMA_GUID_MAPA** ppGuidMap);
+	public static uint32 DsMapSchemaGuids(HANDLE hDs, uint32 cGuids, Guid* rGuids, DS_SCHEMA_GUID_MAPA** ppGuidMap) => DsMapSchemaGuidsA(hDs, cGuids, rGuids, ppGuidMap);
 
 	[Import("NTDSAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern void DsFreeSchemaGuidMapA(DS_SCHEMA_GUID_MAPA* pGuidMap);
+	public static void DsFreeSchemaGuidMap(DS_SCHEMA_GUID_MAPA* pGuidMap) => DsFreeSchemaGuidMapA(pGuidMap);
 
 	[Import("NTDSAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 DsMapSchemaGuidsW(HANDLE hDs, uint32 cGuids, Guid* rGuids, DS_SCHEMA_GUID_MAPW** ppGuidMap);
@@ -6014,12 +6055,14 @@ public static
 
 	[Import("NTDSAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 DsGetDomainControllerInfoA(HANDLE hDs, PSTR DomainName, uint32 InfoLevel, uint32* pcOut, void** ppInfo);
+	public static uint32 DsGetDomainControllerInfo(HANDLE hDs, PSTR DomainName, uint32 InfoLevel, uint32* pcOut, void** ppInfo) => DsGetDomainControllerInfoA(hDs, DomainName, InfoLevel, pcOut, ppInfo);
 
 	[Import("NTDSAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 DsGetDomainControllerInfoW(HANDLE hDs, PWSTR DomainName, uint32 InfoLevel, uint32* pcOut, void** ppInfo);
 
 	[Import("NTDSAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern void DsFreeDomainControllerInfoA(uint32 InfoLevel, uint32 cInfo, void* pInfo);
+	public static void DsFreeDomainControllerInfo(uint32 InfoLevel, uint32 cInfo, void* pInfo) => DsFreeDomainControllerInfoA(InfoLevel, cInfo, pInfo);
 
 	[Import("NTDSAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern void DsFreeDomainControllerInfoW(uint32 InfoLevel, uint32 cInfo, void* pInfo);
@@ -6032,6 +6075,7 @@ public static
 
 	[Import("NTDSAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 DsReplicaVerifyObjectsA(HANDLE hDS, PSTR NameContext, Guid* pUuidDsaSrc, uint32 ulOptions);
+	public static uint32 DsReplicaVerifyObjects(HANDLE hDS, PSTR NameContext, Guid* pUuidDsaSrc, uint32 ulOptions) => DsReplicaVerifyObjectsA(hDS, NameContext, pUuidDsaSrc, ulOptions);
 
 	[Import("NTDSAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 DsReplicaGetInfoW(HANDLE hDS, DS_REPL_INFO_TYPE InfoType, PWSTR pszObject, Guid* puuidForSourceDsaObjGuid, void** ppInfo);
@@ -6047,12 +6091,14 @@ public static
 
 	[Import("NTDSAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 DsAddSidHistoryA(HANDLE hDS, uint32 Flags, PSTR SrcDomain, PSTR SrcPrincipal, PSTR SrcDomainController, void* SrcDomainCreds, PSTR DstDomain, PSTR DstPrincipal);
+	public static uint32 DsAddSidHistory(HANDLE hDS, uint32 Flags, PSTR SrcDomain, PSTR SrcPrincipal, PSTR SrcDomainController, void* SrcDomainCreds, PSTR DstDomain, PSTR DstPrincipal) => DsAddSidHistoryA(hDS, Flags, SrcDomain, SrcPrincipal, SrcDomainController, SrcDomainCreds, DstDomain, DstPrincipal);
 
 	[Import("NTDSAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 DsInheritSecurityIdentityW(HANDLE hDS, uint32 Flags, PWSTR SrcPrincipal, PWSTR DstPrincipal);
 
 	[Import("NTDSAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 DsInheritSecurityIdentityA(HANDLE hDS, uint32 Flags, PSTR SrcPrincipal, PSTR DstPrincipal);
+	public static uint32 DsInheritSecurityIdentity(HANDLE hDS, uint32 Flags, PSTR SrcPrincipal, PSTR DstPrincipal) => DsInheritSecurityIdentityA(hDS, Flags, SrcPrincipal, DstPrincipal);
 
 	[Import("NETAPI32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 DsRoleGetPrimaryDomainInformation(PWSTR lpServer, DSROLE_PRIMARY_DOMAIN_INFO_LEVEL InfoLevel, uint8** Buffer);
@@ -6062,12 +6108,14 @@ public static
 
 	[Import("NETAPI32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 DsGetDcNameA(PSTR ComputerName, PSTR DomainName, Guid* DomainGuid, PSTR SiteName, uint32 Flags, DOMAIN_CONTROLLER_INFOA** DomainControllerInfo);
+	public static uint32 DsGetDcName(PSTR ComputerName, PSTR DomainName, Guid* DomainGuid, PSTR SiteName, uint32 Flags, DOMAIN_CONTROLLER_INFOA** DomainControllerInfo) => DsGetDcNameA(ComputerName, DomainName, DomainGuid, SiteName, Flags, DomainControllerInfo);
 
 	[Import("NETAPI32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 DsGetDcNameW(PWSTR ComputerName, PWSTR DomainName, Guid* DomainGuid, PWSTR SiteName, uint32 Flags, DOMAIN_CONTROLLER_INFOW** DomainControllerInfo);
 
 	[Import("NETAPI32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 DsGetSiteNameA(PSTR ComputerName, PSTR* SiteName);
+	public static uint32 DsGetSiteName(PSTR ComputerName, PSTR* SiteName) => DsGetSiteNameA(ComputerName, SiteName);
 
 	[Import("NETAPI32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 DsGetSiteNameW(PWSTR ComputerName, PWSTR* SiteName);
@@ -6077,24 +6125,28 @@ public static
 
 	[Import("NETAPI32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 DsValidateSubnetNameA(PSTR SubnetName);
+	public static uint32 DsValidateSubnetName(PSTR SubnetName) => DsValidateSubnetNameA(SubnetName);
 
 	[Import("NETAPI32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 DsAddressToSiteNamesW(PWSTR ComputerName, uint32 EntryCount, SOCKET_ADDRESS* SocketAddresses, PWSTR** SiteNames);
 
 	[Import("NETAPI32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 DsAddressToSiteNamesA(PSTR ComputerName, uint32 EntryCount, SOCKET_ADDRESS* SocketAddresses, PSTR** SiteNames);
+	public static uint32 DsAddressToSiteNames(PSTR ComputerName, uint32 EntryCount, SOCKET_ADDRESS* SocketAddresses, PSTR** SiteNames) => DsAddressToSiteNamesA(ComputerName, EntryCount, SocketAddresses, SiteNames);
 
 	[Import("NETAPI32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 DsAddressToSiteNamesExW(PWSTR ComputerName, uint32 EntryCount, SOCKET_ADDRESS* SocketAddresses, PWSTR** SiteNames, PWSTR** SubnetNames);
 
 	[Import("NETAPI32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 DsAddressToSiteNamesExA(PSTR ComputerName, uint32 EntryCount, SOCKET_ADDRESS* SocketAddresses, PSTR** SiteNames, PSTR** SubnetNames);
+	public static uint32 DsAddressToSiteNamesEx(PSTR ComputerName, uint32 EntryCount, SOCKET_ADDRESS* SocketAddresses, PSTR** SiteNames, PSTR** SubnetNames) => DsAddressToSiteNamesExA(ComputerName, EntryCount, SocketAddresses, SiteNames, SubnetNames);
 
 	[Import("NETAPI32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 DsEnumerateDomainTrustsW(PWSTR ServerName, uint32 Flags, DS_DOMAIN_TRUSTSW** Domains, uint32* DomainCount);
 
 	[Import("NETAPI32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 DsEnumerateDomainTrustsA(PSTR ServerName, uint32 Flags, DS_DOMAIN_TRUSTSA** Domains, uint32* DomainCount);
+	public static uint32 DsEnumerateDomainTrusts(PSTR ServerName, uint32 Flags, DS_DOMAIN_TRUSTSA** Domains, uint32* DomainCount) => DsEnumerateDomainTrustsA(ServerName, Flags, Domains, DomainCount);
 
 	[Import("NETAPI32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 DsGetForestTrustInformationW(PWSTR ServerName, PWSTR TrustedDomainName, uint32 Flags, LSA_FOREST_TRUST_INFORMATION** ForestTrustInfo);
@@ -6107,24 +6159,28 @@ public static
 
 	[Import("NETAPI32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 DsGetDcSiteCoverageA(PSTR ServerName, uint32* EntryCount, PSTR** SiteNames);
+	public static uint32 DsGetDcSiteCoverage(PSTR ServerName, uint32* EntryCount, PSTR** SiteNames) => DsGetDcSiteCoverageA(ServerName, EntryCount, SiteNames);
 
 	[Import("NETAPI32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 DsDeregisterDnsHostRecordsW(PWSTR ServerName, PWSTR DnsDomainName, Guid* DomainGuid, Guid* DsaGuid, PWSTR DnsHostName);
 
 	[Import("NETAPI32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 DsDeregisterDnsHostRecordsA(PSTR ServerName, PSTR DnsDomainName, Guid* DomainGuid, Guid* DsaGuid, PSTR DnsHostName);
+	public static uint32 DsDeregisterDnsHostRecords(PSTR ServerName, PSTR DnsDomainName, Guid* DomainGuid, Guid* DsaGuid, PSTR DnsHostName) => DsDeregisterDnsHostRecordsA(ServerName, DnsDomainName, DomainGuid, DsaGuid, DnsHostName);
 
 	[Import("NETAPI32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 DsGetDcOpenW(PWSTR DnsName, uint32 OptionFlags, PWSTR SiteName, Guid* DomainGuid, PWSTR DnsForestName, uint32 DcFlags, GetDcContextHandle* RetGetDcContext);
 
 	[Import("NETAPI32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 DsGetDcOpenA(PSTR DnsName, uint32 OptionFlags, PSTR SiteName, Guid* DomainGuid, PSTR DnsForestName, uint32 DcFlags, GetDcContextHandle* RetGetDcContext);
+	public static uint32 DsGetDcOpen(PSTR DnsName, uint32 OptionFlags, PSTR SiteName, Guid* DomainGuid, PSTR DnsForestName, uint32 DcFlags, GetDcContextHandle* RetGetDcContext) => DsGetDcOpenA(DnsName, OptionFlags, SiteName, DomainGuid, DnsForestName, DcFlags, RetGetDcContext);
 
 	[Import("NETAPI32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 DsGetDcNextW(HANDLE GetDcContextHandle, uint32* SockAddressCount, SOCKET_ADDRESS** SockAddresses, PWSTR* DnsHostName);
 
 	[Import("NETAPI32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 DsGetDcNextA(HANDLE GetDcContextHandle, uint32* SockAddressCount, SOCKET_ADDRESS** SockAddresses, PSTR* DnsHostName);
+	public static uint32 DsGetDcNext(HANDLE GetDcContextHandle, uint32* SockAddressCount, SOCKET_ADDRESS** SockAddresses, PSTR* DnsHostName) => DsGetDcNextA(GetDcContextHandle, SockAddressCount, SockAddresses, DnsHostName);
 
 	[Import("NETAPI32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern void DsGetDcCloseW(GetDcContextHandle GetDcContextHandle);

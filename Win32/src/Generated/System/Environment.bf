@@ -248,6 +248,7 @@ public static
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern PSTR GetCommandLineA();
+	public static PSTR GetCommandLine() => GetCommandLineA();
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern PWSTR GetCommandLineW();
@@ -260,42 +261,49 @@ public static
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL FreeEnvironmentStringsA(PSTR penv);
+	public static BOOL FreeEnvironmentStrings(PSTR penv) => FreeEnvironmentStringsA(penv);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL FreeEnvironmentStringsW(PWSTR penv);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 GetEnvironmentVariableA(PSTR lpName, uint8* lpBuffer, uint32 nSize);
+	public static uint32 GetEnvironmentVariable(PSTR lpName, uint8* lpBuffer, uint32 nSize) => GetEnvironmentVariableA(lpName, lpBuffer, nSize);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 GetEnvironmentVariableW(PWSTR lpName, char8* lpBuffer, uint32 nSize);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL SetEnvironmentVariableA(PSTR lpName, PSTR lpValue);
+	public static BOOL SetEnvironmentVariable(PSTR lpName, PSTR lpValue) => SetEnvironmentVariableA(lpName, lpValue);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL SetEnvironmentVariableW(PWSTR lpName, PWSTR lpValue);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 ExpandEnvironmentStringsA(PSTR lpSrc, uint8* lpDst, uint32 nSize);
+	public static uint32 ExpandEnvironmentStrings(PSTR lpSrc, uint8* lpDst, uint32 nSize) => ExpandEnvironmentStringsA(lpSrc, lpDst, nSize);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 ExpandEnvironmentStringsW(PWSTR lpSrc, char8* lpDst, uint32 nSize);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL SetCurrentDirectoryA(PSTR lpPathName);
+	public static BOOL SetCurrentDirectory(PSTR lpPathName) => SetCurrentDirectoryA(lpPathName);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL SetCurrentDirectoryW(PWSTR lpPathName);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 GetCurrentDirectoryA(uint32 nBufferLength, uint8* lpBuffer);
+	public static uint32 GetCurrentDirectory(uint32 nBufferLength, uint8* lpBuffer) => GetCurrentDirectoryA(nBufferLength, lpBuffer);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 GetCurrentDirectoryW(uint32 nBufferLength, char8* lpBuffer);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL NeedCurrentDirectoryForExePathA(PSTR ExeName);
+	public static BOOL NeedCurrentDirectoryForExePath(PSTR ExeName) => NeedCurrentDirectoryForExePathA(ExeName);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL NeedCurrentDirectoryForExePathW(PWSTR ExeName);
@@ -308,6 +316,7 @@ public static
 
 	[Import("USERENV.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL ExpandEnvironmentStringsForUserA(HANDLE hToken, PSTR lpSrc, uint8* lpDest, uint32 dwSize);
+	public static BOOL ExpandEnvironmentStringsForUser(HANDLE hToken, PSTR lpSrc, uint8* lpDest, uint32 dwSize) => ExpandEnvironmentStringsForUserA(hToken, lpSrc, lpDest, dwSize);
 
 	[Import("USERENV.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL ExpandEnvironmentStringsForUserW(HANDLE hToken, PWSTR lpSrc, char8* lpDest, uint32 dwSize);
@@ -326,6 +335,7 @@ public static
 
 	[Import("api-ms-win-core-enclave-l1-1-1.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL LoadEnclaveImageA(void* lpEnclaveAddress, PSTR lpImageName);
+	public static BOOL LoadEnclaveImage(void* lpEnclaveAddress, PSTR lpImageName) => LoadEnclaveImageA(lpEnclaveAddress, lpImageName);
 
 	[Import("api-ms-win-core-enclave-l1-1-1.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL LoadEnclaveImageW(void* lpEnclaveAddress, PWSTR lpImageName);

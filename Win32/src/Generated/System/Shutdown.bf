@@ -152,24 +152,28 @@ public static
 {
 	[Import("ADVAPI32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL InitiateSystemShutdownA(PSTR lpMachineName, PSTR lpMessage, uint32 dwTimeout, BOOL bForceAppsClosed, BOOL bRebootAfterShutdown);
+	public static BOOL InitiateSystemShutdown(PSTR lpMachineName, PSTR lpMessage, uint32 dwTimeout, BOOL bForceAppsClosed, BOOL bRebootAfterShutdown) => InitiateSystemShutdownA(lpMachineName, lpMessage, dwTimeout, bForceAppsClosed, bRebootAfterShutdown);
 
 	[Import("ADVAPI32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL InitiateSystemShutdownW(PWSTR lpMachineName, PWSTR lpMessage, uint32 dwTimeout, BOOL bForceAppsClosed, BOOL bRebootAfterShutdown);
 
 	[Import("ADVAPI32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL AbortSystemShutdownA(PSTR lpMachineName);
+	public static BOOL AbortSystemShutdown(PSTR lpMachineName) => AbortSystemShutdownA(lpMachineName);
 
 	[Import("ADVAPI32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL AbortSystemShutdownW(PWSTR lpMachineName);
 
 	[Import("ADVAPI32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL InitiateSystemShutdownExA(PSTR lpMachineName, PSTR lpMessage, uint32 dwTimeout, BOOL bForceAppsClosed, BOOL bRebootAfterShutdown, SHUTDOWN_REASON dwReason);
+	public static BOOL InitiateSystemShutdownEx(PSTR lpMachineName, PSTR lpMessage, uint32 dwTimeout, BOOL bForceAppsClosed, BOOL bRebootAfterShutdown, SHUTDOWN_REASON dwReason) => InitiateSystemShutdownExA(lpMachineName, lpMessage, dwTimeout, bForceAppsClosed, bRebootAfterShutdown, dwReason);
 
 	[Import("ADVAPI32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL InitiateSystemShutdownExW(PWSTR lpMachineName, PWSTR lpMessage, uint32 dwTimeout, BOOL bForceAppsClosed, BOOL bRebootAfterShutdown, SHUTDOWN_REASON dwReason);
 
 	[Import("ADVAPI32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 InitiateShutdownA(PSTR lpMachineName, PSTR lpMessage, uint32 dwGracePeriod, SHUTDOWN_FLAGS dwShutdownFlags, SHUTDOWN_REASON dwReason);
+	public static uint32 InitiateShutdown(PSTR lpMachineName, PSTR lpMessage, uint32 dwGracePeriod, SHUTDOWN_FLAGS dwShutdownFlags, SHUTDOWN_REASON dwReason) => InitiateShutdownA(lpMachineName, lpMessage, dwGracePeriod, dwShutdownFlags, dwReason);
 
 	[Import("ADVAPI32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 InitiateShutdownW(PWSTR lpMachineName, PWSTR lpMessage, uint32 dwGracePeriod, SHUTDOWN_FLAGS dwShutdownFlags, SHUTDOWN_REASON dwReason);

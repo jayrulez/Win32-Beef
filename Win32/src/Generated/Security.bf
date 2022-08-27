@@ -1369,78 +1369,96 @@ public static
 
 	[Import("ADVAPI32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL AccessCheckAndAuditAlarmA(PSTR SubsystemName, void* HandleId, PSTR ObjectTypeName, PSTR ObjectName, SECURITY_DESCRIPTOR* SecurityDescriptor, uint32 DesiredAccess, GENERIC_MAPPING* GenericMapping, BOOL ObjectCreation, uint32* GrantedAccess, int32* AccessStatus, int32* pfGenerateOnClose);
+	public static BOOL AccessCheckAndAuditAlarm(PSTR SubsystemName, void* HandleId, PSTR ObjectTypeName, PSTR ObjectName, SECURITY_DESCRIPTOR* SecurityDescriptor, uint32 DesiredAccess, GENERIC_MAPPING* GenericMapping, BOOL ObjectCreation, uint32* GrantedAccess, int32* AccessStatus, int32* pfGenerateOnClose) => AccessCheckAndAuditAlarmA(SubsystemName, HandleId, ObjectTypeName, ObjectName, SecurityDescriptor, DesiredAccess, GenericMapping, ObjectCreation, GrantedAccess, AccessStatus, pfGenerateOnClose);
 
 	[Import("ADVAPI32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL AccessCheckByTypeAndAuditAlarmA(PSTR SubsystemName, void* HandleId, PSTR ObjectTypeName, PSTR ObjectName, SECURITY_DESCRIPTOR* SecurityDescriptor, PSID PrincipalSelfSid, uint32 DesiredAccess, AUDIT_EVENT_TYPE AuditType, uint32 Flags, OBJECT_TYPE_LIST* ObjectTypeList, uint32 ObjectTypeListLength, GENERIC_MAPPING* GenericMapping, BOOL ObjectCreation, uint32* GrantedAccess, int32* AccessStatus, int32* pfGenerateOnClose);
+	public static BOOL AccessCheckByTypeAndAuditAlarm(PSTR SubsystemName, void* HandleId, PSTR ObjectTypeName, PSTR ObjectName, SECURITY_DESCRIPTOR* SecurityDescriptor, PSID PrincipalSelfSid, uint32 DesiredAccess, AUDIT_EVENT_TYPE AuditType, uint32 Flags, OBJECT_TYPE_LIST* ObjectTypeList, uint32 ObjectTypeListLength, GENERIC_MAPPING* GenericMapping, BOOL ObjectCreation, uint32* GrantedAccess, int32* AccessStatus, int32* pfGenerateOnClose) => AccessCheckByTypeAndAuditAlarmA(SubsystemName, HandleId, ObjectTypeName, ObjectName, SecurityDescriptor, PrincipalSelfSid, DesiredAccess, AuditType, Flags, ObjectTypeList, ObjectTypeListLength, GenericMapping, ObjectCreation, GrantedAccess, AccessStatus, pfGenerateOnClose);
 
 	[Import("ADVAPI32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL AccessCheckByTypeResultListAndAuditAlarmA(PSTR SubsystemName, void* HandleId, PSTR ObjectTypeName, PSTR ObjectName, SECURITY_DESCRIPTOR* SecurityDescriptor, PSID PrincipalSelfSid, uint32 DesiredAccess, AUDIT_EVENT_TYPE AuditType, uint32 Flags, OBJECT_TYPE_LIST* ObjectTypeList, uint32 ObjectTypeListLength, GENERIC_MAPPING* GenericMapping, BOOL ObjectCreation, uint32* GrantedAccess, uint32* AccessStatusList, int32* pfGenerateOnClose);
+	public static BOOL AccessCheckByTypeResultListAndAuditAlarm(PSTR SubsystemName, void* HandleId, PSTR ObjectTypeName, PSTR ObjectName, SECURITY_DESCRIPTOR* SecurityDescriptor, PSID PrincipalSelfSid, uint32 DesiredAccess, AUDIT_EVENT_TYPE AuditType, uint32 Flags, OBJECT_TYPE_LIST* ObjectTypeList, uint32 ObjectTypeListLength, GENERIC_MAPPING* GenericMapping, BOOL ObjectCreation, uint32* GrantedAccess, uint32* AccessStatusList, int32* pfGenerateOnClose) => AccessCheckByTypeResultListAndAuditAlarmA(SubsystemName, HandleId, ObjectTypeName, ObjectName, SecurityDescriptor, PrincipalSelfSid, DesiredAccess, AuditType, Flags, ObjectTypeList, ObjectTypeListLength, GenericMapping, ObjectCreation, GrantedAccess, AccessStatusList, pfGenerateOnClose);
 
 	[Import("ADVAPI32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL AccessCheckByTypeResultListAndAuditAlarmByHandleA(PSTR SubsystemName, void* HandleId, HANDLE ClientToken, PSTR ObjectTypeName, PSTR ObjectName, SECURITY_DESCRIPTOR* SecurityDescriptor, PSID PrincipalSelfSid, uint32 DesiredAccess, AUDIT_EVENT_TYPE AuditType, uint32 Flags, OBJECT_TYPE_LIST* ObjectTypeList, uint32 ObjectTypeListLength, GENERIC_MAPPING* GenericMapping, BOOL ObjectCreation, uint32* GrantedAccess, uint32* AccessStatusList, int32* pfGenerateOnClose);
+	public static BOOL AccessCheckByTypeResultListAndAuditAlarmByHandle(PSTR SubsystemName, void* HandleId, HANDLE ClientToken, PSTR ObjectTypeName, PSTR ObjectName, SECURITY_DESCRIPTOR* SecurityDescriptor, PSID PrincipalSelfSid, uint32 DesiredAccess, AUDIT_EVENT_TYPE AuditType, uint32 Flags, OBJECT_TYPE_LIST* ObjectTypeList, uint32 ObjectTypeListLength, GENERIC_MAPPING* GenericMapping, BOOL ObjectCreation, uint32* GrantedAccess, uint32* AccessStatusList, int32* pfGenerateOnClose) => AccessCheckByTypeResultListAndAuditAlarmByHandleA(SubsystemName, HandleId, ClientToken, ObjectTypeName, ObjectName, SecurityDescriptor, PrincipalSelfSid, DesiredAccess, AuditType, Flags, ObjectTypeList, ObjectTypeListLength, GenericMapping, ObjectCreation, GrantedAccess, AccessStatusList, pfGenerateOnClose);
 
 	[Import("ADVAPI32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL ObjectOpenAuditAlarmA(PSTR SubsystemName, void* HandleId, PSTR ObjectTypeName, PSTR ObjectName, SECURITY_DESCRIPTOR* pSecurityDescriptor, HANDLE ClientToken, uint32 DesiredAccess, uint32 GrantedAccess, PRIVILEGE_SET* Privileges, BOOL ObjectCreation, BOOL AccessGranted, int32* GenerateOnClose);
+	public static BOOL ObjectOpenAuditAlarm(PSTR SubsystemName, void* HandleId, PSTR ObjectTypeName, PSTR ObjectName, SECURITY_DESCRIPTOR* pSecurityDescriptor, HANDLE ClientToken, uint32 DesiredAccess, uint32 GrantedAccess, PRIVILEGE_SET* Privileges, BOOL ObjectCreation, BOOL AccessGranted, int32* GenerateOnClose) => ObjectOpenAuditAlarmA(SubsystemName, HandleId, ObjectTypeName, ObjectName, pSecurityDescriptor, ClientToken, DesiredAccess, GrantedAccess, Privileges, ObjectCreation, AccessGranted, GenerateOnClose);
 
 	[Import("ADVAPI32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL ObjectPrivilegeAuditAlarmA(PSTR SubsystemName, void* HandleId, HANDLE ClientToken, uint32 DesiredAccess, PRIVILEGE_SET* Privileges, BOOL AccessGranted);
+	public static BOOL ObjectPrivilegeAuditAlarm(PSTR SubsystemName, void* HandleId, HANDLE ClientToken, uint32 DesiredAccess, PRIVILEGE_SET* Privileges, BOOL AccessGranted) => ObjectPrivilegeAuditAlarmA(SubsystemName, HandleId, ClientToken, DesiredAccess, Privileges, AccessGranted);
 
 	[Import("ADVAPI32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL ObjectCloseAuditAlarmA(PSTR SubsystemName, void* HandleId, BOOL GenerateOnClose);
+	public static BOOL ObjectCloseAuditAlarm(PSTR SubsystemName, void* HandleId, BOOL GenerateOnClose) => ObjectCloseAuditAlarmA(SubsystemName, HandleId, GenerateOnClose);
 
 	[Import("ADVAPI32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL ObjectDeleteAuditAlarmA(PSTR SubsystemName, void* HandleId, BOOL GenerateOnClose);
+	public static BOOL ObjectDeleteAuditAlarm(PSTR SubsystemName, void* HandleId, BOOL GenerateOnClose) => ObjectDeleteAuditAlarmA(SubsystemName, HandleId, GenerateOnClose);
 
 	[Import("ADVAPI32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL PrivilegedServiceAuditAlarmA(PSTR SubsystemName, PSTR ServiceName, HANDLE ClientToken, PRIVILEGE_SET* Privileges, BOOL AccessGranted);
+	public static BOOL PrivilegedServiceAuditAlarm(PSTR SubsystemName, PSTR ServiceName, HANDLE ClientToken, PRIVILEGE_SET* Privileges, BOOL AccessGranted) => PrivilegedServiceAuditAlarmA(SubsystemName, ServiceName, ClientToken, Privileges, AccessGranted);
 
 	[Import("ADVAPI32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL AddConditionalAce(ACL* pAcl, uint32 dwAceRevision, ACE_FLAGS AceFlags, uint8 AceType, uint32 AccessMask, PSID pSid, PWSTR ConditionStr, uint32* ReturnLength);
 
 	[Import("ADVAPI32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL SetFileSecurityA(PSTR lpFileName, uint32 SecurityInformation, SECURITY_DESCRIPTOR* pSecurityDescriptor);
+	public static BOOL SetFileSecurity(PSTR lpFileName, uint32 SecurityInformation, SECURITY_DESCRIPTOR* pSecurityDescriptor) => SetFileSecurityA(lpFileName, SecurityInformation, pSecurityDescriptor);
 
 	[Import("ADVAPI32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL GetFileSecurityA(PSTR lpFileName, uint32 RequestedInformation, SECURITY_DESCRIPTOR* pSecurityDescriptor, uint32 nLength, uint32* lpnLengthNeeded);
+	public static BOOL GetFileSecurity(PSTR lpFileName, uint32 RequestedInformation, SECURITY_DESCRIPTOR* pSecurityDescriptor, uint32 nLength, uint32* lpnLengthNeeded) => GetFileSecurityA(lpFileName, RequestedInformation, pSecurityDescriptor, nLength, lpnLengthNeeded);
 
 	[Import("ADVAPI32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL LookupAccountSidA(PSTR lpSystemName, PSID Sid, uint8* Name, uint32* cchName, uint8* ReferencedDomainName, uint32* cchReferencedDomainName, SID_NAME_USE* peUse);
+	public static BOOL LookupAccountSid(PSTR lpSystemName, PSID Sid, uint8* Name, uint32* cchName, uint8* ReferencedDomainName, uint32* cchReferencedDomainName, SID_NAME_USE* peUse) => LookupAccountSidA(lpSystemName, Sid, Name, cchName, ReferencedDomainName, cchReferencedDomainName, peUse);
 
 	[Import("ADVAPI32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL LookupAccountSidW(PWSTR lpSystemName, PSID Sid, char8* Name, uint32* cchName, char8* ReferencedDomainName, uint32* cchReferencedDomainName, SID_NAME_USE* peUse);
 
 	[Import("ADVAPI32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL LookupAccountNameA(PSTR lpSystemName, PSTR lpAccountName, PSID Sid, uint32* cbSid, uint8* ReferencedDomainName, uint32* cchReferencedDomainName, SID_NAME_USE* peUse);
+	public static BOOL LookupAccountName(PSTR lpSystemName, PSTR lpAccountName, PSID Sid, uint32* cbSid, uint8* ReferencedDomainName, uint32* cchReferencedDomainName, SID_NAME_USE* peUse) => LookupAccountNameA(lpSystemName, lpAccountName, Sid, cbSid, ReferencedDomainName, cchReferencedDomainName, peUse);
 
 	[Import("ADVAPI32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL LookupAccountNameW(PWSTR lpSystemName, PWSTR lpAccountName, PSID Sid, uint32* cbSid, char8* ReferencedDomainName, uint32* cchReferencedDomainName, SID_NAME_USE* peUse);
 
 	[Import("ADVAPI32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL LookupPrivilegeValueA(PSTR lpSystemName, PSTR lpName, LUID* lpLuid);
+	public static BOOL LookupPrivilegeValue(PSTR lpSystemName, PSTR lpName, LUID* lpLuid) => LookupPrivilegeValueA(lpSystemName, lpName, lpLuid);
 
 	[Import("ADVAPI32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL LookupPrivilegeValueW(PWSTR lpSystemName, PWSTR lpName, LUID* lpLuid);
 
 	[Import("ADVAPI32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL LookupPrivilegeNameA(PSTR lpSystemName, LUID* lpLuid, uint8* lpName, uint32* cchName);
+	public static BOOL LookupPrivilegeName(PSTR lpSystemName, LUID* lpLuid, uint8* lpName, uint32* cchName) => LookupPrivilegeNameA(lpSystemName, lpLuid, lpName, cchName);
 
 	[Import("ADVAPI32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL LookupPrivilegeNameW(PWSTR lpSystemName, LUID* lpLuid, char8* lpName, uint32* cchName);
 
 	[Import("ADVAPI32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL LookupPrivilegeDisplayNameA(PSTR lpSystemName, PSTR lpName, uint8* lpDisplayName, uint32* cchDisplayName, uint32* lpLanguageId);
+	public static BOOL LookupPrivilegeDisplayName(PSTR lpSystemName, PSTR lpName, uint8* lpDisplayName, uint32* cchDisplayName, uint32* lpLanguageId) => LookupPrivilegeDisplayNameA(lpSystemName, lpName, lpDisplayName, cchDisplayName, lpLanguageId);
 
 	[Import("ADVAPI32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL LookupPrivilegeDisplayNameW(PWSTR lpSystemName, PWSTR lpName, char8* lpDisplayName, uint32* cchDisplayName, uint32* lpLanguageId);
 
 	[Import("ADVAPI32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL LogonUserA(PSTR lpszUsername, PSTR lpszDomain, PSTR lpszPassword, LOGON32_LOGON dwLogonType, LOGON32_PROVIDER dwLogonProvider, HANDLE* phToken);
+	public static BOOL LogonUser(PSTR lpszUsername, PSTR lpszDomain, PSTR lpszPassword, LOGON32_LOGON dwLogonType, LOGON32_PROVIDER dwLogonProvider, HANDLE* phToken) => LogonUserA(lpszUsername, lpszDomain, lpszPassword, dwLogonType, dwLogonProvider, phToken);
 
 	[Import("ADVAPI32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL LogonUserW(PWSTR lpszUsername, PWSTR lpszDomain, PWSTR lpszPassword, LOGON32_LOGON dwLogonType, LOGON32_PROVIDER dwLogonProvider, HANDLE* phToken);
 
 	[Import("ADVAPI32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL LogonUserExA(PSTR lpszUsername, PSTR lpszDomain, PSTR lpszPassword, LOGON32_LOGON dwLogonType, LOGON32_PROVIDER dwLogonProvider, HANDLE* phToken, PSID* ppLogonSid, void** ppProfileBuffer, uint32* pdwProfileLength, QUOTA_LIMITS* pQuotaLimits);
+	public static BOOL LogonUserEx(PSTR lpszUsername, PSTR lpszDomain, PSTR lpszPassword, LOGON32_LOGON dwLogonType, LOGON32_PROVIDER dwLogonProvider, HANDLE* phToken, PSID* ppLogonSid, void** ppProfileBuffer, uint32* pdwProfileLength, QUOTA_LIMITS* pQuotaLimits) => LogonUserExA(lpszUsername, lpszDomain, lpszPassword, dwLogonType, dwLogonProvider, phToken, ppLogonSid, ppProfileBuffer, pdwProfileLength, pQuotaLimits);
 
 	[Import("ADVAPI32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL LogonUserExW(PWSTR lpszUsername, PWSTR lpszDomain, PWSTR lpszPassword, LOGON32_LOGON dwLogonType, LOGON32_PROVIDER dwLogonProvider, HANDLE* phToken, PSID* ppLogonSid, void** ppProfileBuffer, uint32* pdwProfileLength, QUOTA_LIMITS* pQuotaLimits);

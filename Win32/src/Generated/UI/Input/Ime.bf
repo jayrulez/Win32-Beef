@@ -2863,6 +2863,7 @@ public static
 {
 	[Import("IMM32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HKL ImmInstallIMEA(PSTR lpszIMEFileName, PSTR lpszLayoutText);
+	public static HKL ImmInstallIME(PSTR lpszIMEFileName, PSTR lpszLayoutText) => ImmInstallIMEA(lpszIMEFileName, lpszLayoutText);
 
 	[Import("IMM32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HKL ImmInstallIMEW(PWSTR lpszIMEFileName, PWSTR lpszLayoutText);
@@ -2872,12 +2873,14 @@ public static
 
 	[Import("IMM32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 ImmGetDescriptionA(HKL param0, uint8* lpszDescription, uint32 uBufLen);
+	public static uint32 ImmGetDescription(HKL param0, uint8* lpszDescription, uint32 uBufLen) => ImmGetDescriptionA(param0, lpszDescription, uBufLen);
 
 	[Import("IMM32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 ImmGetDescriptionW(HKL param0, char8* lpszDescription, uint32 uBufLen);
 
 	[Import("IMM32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 ImmGetIMEFileNameA(HKL param0, uint8* lpszFileName, uint32 uBufLen);
+	public static uint32 ImmGetIMEFileName(HKL param0, uint8* lpszFileName, uint32 uBufLen) => ImmGetIMEFileNameA(param0, lpszFileName, uBufLen);
 
 	[Import("IMM32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 ImmGetIMEFileNameW(HKL param0, char8* lpszFileName, uint32 uBufLen);
@@ -2911,30 +2914,35 @@ public static
 
 	[Import("IMM32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 ImmGetCompositionStringA(HIMC param0, uint32 param1, void* lpBuf, uint32 dwBufLen);
+	public static int32 ImmGetCompositionString(HIMC param0, uint32 param1, void* lpBuf, uint32 dwBufLen) => ImmGetCompositionStringA(param0, param1, lpBuf, dwBufLen);
 
 	[Import("IMM32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 ImmGetCompositionStringW(HIMC param0, uint32 param1, void* lpBuf, uint32 dwBufLen);
 
 	[Import("IMM32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL ImmSetCompositionStringA(HIMC param0, SET_COMPOSITION_STRING_TYPE dwIndex, void* lpComp, uint32 dwCompLen, void* lpRead, uint32 dwReadLen);
+	public static BOOL ImmSetCompositionString(HIMC param0, SET_COMPOSITION_STRING_TYPE dwIndex, void* lpComp, uint32 dwCompLen, void* lpRead, uint32 dwReadLen) => ImmSetCompositionStringA(param0, dwIndex, lpComp, dwCompLen, lpRead, dwReadLen);
 
 	[Import("IMM32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL ImmSetCompositionStringW(HIMC param0, SET_COMPOSITION_STRING_TYPE dwIndex, void* lpComp, uint32 dwCompLen, void* lpRead, uint32 dwReadLen);
 
 	[Import("IMM32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 ImmGetCandidateListCountA(HIMC param0, uint32* lpdwListCount);
+	public static uint32 ImmGetCandidateListCount(HIMC param0, uint32* lpdwListCount) => ImmGetCandidateListCountA(param0, lpdwListCount);
 
 	[Import("IMM32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 ImmGetCandidateListCountW(HIMC param0, uint32* lpdwListCount);
 
 	[Import("IMM32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 ImmGetCandidateListA(HIMC param0, uint32 deIndex, CANDIDATELIST* lpCandList, uint32 dwBufLen);
+	public static uint32 ImmGetCandidateList(HIMC param0, uint32 deIndex, CANDIDATELIST* lpCandList, uint32 dwBufLen) => ImmGetCandidateListA(param0, deIndex, lpCandList, dwBufLen);
 
 	[Import("IMM32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 ImmGetCandidateListW(HIMC param0, uint32 deIndex, CANDIDATELIST* lpCandList, uint32 dwBufLen);
 
 	[Import("IMM32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 ImmGetGuideLineA(HIMC param0, GET_GUIDE_LINE_TYPE dwIndex, PSTR lpBuf, uint32 dwBufLen);
+	public static uint32 ImmGetGuideLine(HIMC param0, GET_GUIDE_LINE_TYPE dwIndex, PSTR lpBuf, uint32 dwBufLen) => ImmGetGuideLineA(param0, dwIndex, lpBuf, dwBufLen);
 
 	[Import("IMM32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 ImmGetGuideLineW(HIMC param0, GET_GUIDE_LINE_TYPE dwIndex, PWSTR lpBuf, uint32 dwBufLen);
@@ -2953,30 +2961,35 @@ public static
 
 	[Import("IMM32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL ImmGetCompositionFontA(HIMC param0, LOGFONTA* lplf);
+	public static BOOL ImmGetCompositionFont(HIMC param0, LOGFONTA* lplf) => ImmGetCompositionFontA(param0, lplf);
 
 	[Import("IMM32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL ImmGetCompositionFontW(HIMC param0, LOGFONTW* lplf);
 
 	[Import("IMM32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL ImmSetCompositionFontA(HIMC param0, LOGFONTA* lplf);
+	public static BOOL ImmSetCompositionFont(HIMC param0, LOGFONTA* lplf) => ImmSetCompositionFontA(param0, lplf);
 
 	[Import("IMM32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL ImmSetCompositionFontW(HIMC param0, LOGFONTW* lplf);
 
 	[Import("IMM32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL ImmConfigureIMEA(HKL param0, HWND param1, uint32 param2, void* param3);
+	public static BOOL ImmConfigureIME(HKL param0, HWND param1, uint32 param2, void* param3) => ImmConfigureIMEA(param0, param1, param2, param3);
 
 	[Import("IMM32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL ImmConfigureIMEW(HKL param0, HWND param1, uint32 param2, void* param3);
 
 	[Import("IMM32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern LRESULT ImmEscapeA(HKL param0, HIMC param1, uint32 param2, void* param3);
+	public static LRESULT ImmEscape(HKL param0, HIMC param1, uint32 param2, void* param3) => ImmEscapeA(param0, param1, param2, param3);
 
 	[Import("IMM32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern LRESULT ImmEscapeW(HKL param0, HIMC param1, uint32 param2, void* param3);
 
 	[Import("IMM32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 ImmGetConversionListA(HKL param0, HIMC param1, PSTR lpSrc, CANDIDATELIST* lpDst, uint32 dwBufLen, GET_CONVERSION_LIST_FLAG uFlag);
+	public static uint32 ImmGetConversionList(HKL param0, HIMC param1, PSTR lpSrc, CANDIDATELIST* lpDst, uint32 dwBufLen, GET_CONVERSION_LIST_FLAG uFlag) => ImmGetConversionListA(param0, param1, lpSrc, lpDst, dwBufLen, uFlag);
 
 	[Import("IMM32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 ImmGetConversionListW(HKL param0, HIMC param1, PWSTR lpSrc, CANDIDATELIST* lpDst, uint32 dwBufLen, GET_CONVERSION_LIST_FLAG uFlag);
@@ -3004,6 +3017,7 @@ public static
 
 	[Import("IMM32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL ImmIsUIMessageA(HWND param0, uint32 param1, WPARAM param2, LPARAM param3);
+	public static BOOL ImmIsUIMessage(HWND param0, uint32 param1, WPARAM param2, LPARAM param3) => ImmIsUIMessageA(param0, param1, param2, param3);
 
 	[Import("IMM32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL ImmIsUIMessageW(HWND param0, uint32 param1, WPARAM param2, LPARAM param3);
@@ -3013,24 +3027,28 @@ public static
 
 	[Import("IMM32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL ImmRegisterWordA(HKL param0, PSTR lpszReading, uint32 param2, PSTR lpszRegister);
+	public static BOOL ImmRegisterWord(HKL param0, PSTR lpszReading, uint32 param2, PSTR lpszRegister) => ImmRegisterWordA(param0, lpszReading, param2, lpszRegister);
 
 	[Import("IMM32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL ImmRegisterWordW(HKL param0, PWSTR lpszReading, uint32 param2, PWSTR lpszRegister);
 
 	[Import("IMM32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL ImmUnregisterWordA(HKL param0, PSTR lpszReading, uint32 param2, PSTR lpszUnregister);
+	public static BOOL ImmUnregisterWord(HKL param0, PSTR lpszReading, uint32 param2, PSTR lpszUnregister) => ImmUnregisterWordA(param0, lpszReading, param2, lpszUnregister);
 
 	[Import("IMM32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL ImmUnregisterWordW(HKL param0, PWSTR lpszReading, uint32 param2, PWSTR lpszUnregister);
 
 	[Import("IMM32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 ImmGetRegisterWordStyleA(HKL param0, uint32 nItem, STYLEBUFA* lpStyleBuf);
+	public static uint32 ImmGetRegisterWordStyle(HKL param0, uint32 nItem, STYLEBUFA* lpStyleBuf) => ImmGetRegisterWordStyleA(param0, nItem, lpStyleBuf);
 
 	[Import("IMM32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 ImmGetRegisterWordStyleW(HKL param0, uint32 nItem, STYLEBUFW* lpStyleBuf);
 
 	[Import("IMM32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 ImmEnumRegisterWordA(HKL param0, REGISTERWORDENUMPROCA param1, PSTR lpszReading, uint32 param3, PSTR lpszRegister, void* param5);
+	public static uint32 ImmEnumRegisterWord(HKL param0, REGISTERWORDENUMPROCA param1, PSTR lpszReading, uint32 param3, PSTR lpszRegister, void* param5) => ImmEnumRegisterWordA(param0, param1, lpszReading, param3, lpszRegister, param5);
 
 	[Import("IMM32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 ImmEnumRegisterWordW(HKL param0, REGISTERWORDENUMPROCW param1, PWSTR lpszReading, uint32 param3, PWSTR lpszRegister, void* param5);
@@ -3043,6 +3061,7 @@ public static
 
 	[Import("IMM32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 ImmGetImeMenuItemsA(HIMC param0, uint32 param1, uint32 param2, IMEMENUITEMINFOA* lpImeParentMenu, IMEMENUITEMINFOA* lpImeMenu, uint32 dwSize);
+	public static uint32 ImmGetImeMenuItems(HIMC param0, uint32 param1, uint32 param2, IMEMENUITEMINFOA* lpImeParentMenu, IMEMENUITEMINFOA* lpImeMenu, uint32 dwSize) => ImmGetImeMenuItemsA(param0, param1, param2, lpImeParentMenu, lpImeMenu, dwSize);
 
 	[Import("IMM32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 ImmGetImeMenuItemsW(HIMC param0, uint32 param1, uint32 param2, IMEMENUITEMINFOW* lpImeParentMenu, IMEMENUITEMINFOW* lpImeMenu, uint32 dwSize);
@@ -3064,6 +3083,7 @@ public static
 
 	[Import("IMM32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern LRESULT ImmRequestMessageA(HIMC param0, WPARAM param1, LPARAM param2);
+	public static LRESULT ImmRequestMessage(HIMC param0, WPARAM param1, LPARAM param2) => ImmRequestMessageA(param0, param1, param2);
 
 	[Import("IMM32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern LRESULT ImmRequestMessageW(HIMC param0, WPARAM param1, LPARAM param2);

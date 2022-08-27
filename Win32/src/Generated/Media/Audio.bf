@@ -4153,12 +4153,14 @@ public static
 
 	[Import("WINMM.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL sndPlaySoundA(PSTR pszSound, uint32 fuSound);
+	public static BOOL sndPlaySound(PSTR pszSound, uint32 fuSound) => sndPlaySoundA(pszSound, fuSound);
 
 	[Import("WINMM.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL sndPlaySoundW(PWSTR pszSound, uint32 fuSound);
 
 	[Import("WINMM.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL PlaySoundA(PSTR pszSound, HINSTANCE hmod, uint32 fdwSound);
+	public static BOOL PlaySound(PSTR pszSound, HINSTANCE hmod, uint32 fdwSound) => PlaySoundA(pszSound, hmod, fdwSound);
 
 	[Import("WINMM.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL PlaySoundW(PWSTR pszSound, HINSTANCE hmod, uint32 fdwSound);
@@ -4168,6 +4170,7 @@ public static
 
 	[Import("WINMM.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 waveOutGetDevCapsA(uint uDeviceID, WAVEOUTCAPSA* pwoc, uint32 cbwoc);
+	public static uint32 waveOutGetDevCaps(uint uDeviceID, WAVEOUTCAPSA* pwoc, uint32 cbwoc) => waveOutGetDevCapsA(uDeviceID, pwoc, cbwoc);
 
 	[Import("WINMM.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 waveOutGetDevCapsW(uint uDeviceID, WAVEOUTCAPSW* pwoc, uint32 cbwoc);
@@ -4180,6 +4183,7 @@ public static
 
 	[Import("WINMM.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 waveOutGetErrorTextA(uint32 mmrError, uint8* pszText, uint32 cchText);
+	public static uint32 waveOutGetErrorText(uint32 mmrError, uint8* pszText, uint32 cchText) => waveOutGetErrorTextA(mmrError, pszText, cchText);
 
 	[Import("WINMM.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 waveOutGetErrorTextW(uint32 mmrError, char8* pszText, uint32 cchText);
@@ -4237,12 +4241,14 @@ public static
 
 	[Import("WINMM.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 waveInGetDevCapsA(uint uDeviceID, WAVEINCAPSA* pwic, uint32 cbwic);
+	public static uint32 waveInGetDevCaps(uint uDeviceID, WAVEINCAPSA* pwic, uint32 cbwic) => waveInGetDevCapsA(uDeviceID, pwic, cbwic);
 
 	[Import("WINMM.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 waveInGetDevCapsW(uint uDeviceID, WAVEINCAPSW* pwic, uint32 cbwic);
 
 	[Import("WINMM.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 waveInGetErrorTextA(uint32 mmrError, uint8* pszText, uint32 cchText);
+	public static uint32 waveInGetErrorText(uint32 mmrError, uint8* pszText, uint32 cchText) => waveInGetErrorTextA(mmrError, pszText, cchText);
 
 	[Import("WINMM.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 waveInGetErrorTextW(uint32 mmrError, char8* pszText, uint32 cchText);
@@ -4315,6 +4321,7 @@ public static
 
 	[Import("WINMM.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 midiOutGetDevCapsA(uint uDeviceID, MIDIOUTCAPSA* pmoc, uint32 cbmoc);
+	public static uint32 midiOutGetDevCaps(uint uDeviceID, MIDIOUTCAPSA* pmoc, uint32 cbmoc) => midiOutGetDevCapsA(uDeviceID, pmoc, cbmoc);
 
 	[Import("WINMM.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 midiOutGetDevCapsW(uint uDeviceID, MIDIOUTCAPSW* pmoc, uint32 cbmoc);
@@ -4327,6 +4334,7 @@ public static
 
 	[Import("WINMM.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 midiOutGetErrorTextA(uint32 mmrError, uint8* pszText, uint32 cchText);
+	public static uint32 midiOutGetErrorText(uint32 mmrError, uint8* pszText, uint32 cchText) => midiOutGetErrorTextA(mmrError, pszText, cchText);
 
 	[Import("WINMM.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 midiOutGetErrorTextW(uint32 mmrError, char8* pszText, uint32 cchText);
@@ -4369,12 +4377,14 @@ public static
 
 	[Import("WINMM.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 midiInGetDevCapsA(uint uDeviceID, MIDIINCAPSA* pmic, uint32 cbmic);
+	public static uint32 midiInGetDevCaps(uint uDeviceID, MIDIINCAPSA* pmic, uint32 cbmic) => midiInGetDevCapsA(uDeviceID, pmic, cbmic);
 
 	[Import("WINMM.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 midiInGetDevCapsW(uint uDeviceID, MIDIINCAPSW* pmic, uint32 cbmic);
 
 	[Import("WINMM.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 midiInGetErrorTextA(uint32 mmrError, uint8* pszText, uint32 cchText);
+	public static uint32 midiInGetErrorText(uint32 mmrError, uint8* pszText, uint32 cchText) => midiInGetErrorTextA(mmrError, pszText, cchText);
 
 	[Import("WINMM.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 midiInGetErrorTextW(uint32 mmrError, char8* pszText, uint32 cchText);
@@ -4414,6 +4424,7 @@ public static
 
 	[Import("WINMM.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 auxGetDevCapsA(uint uDeviceID, AUXCAPSA* pac, uint32 cbac);
+	public static uint32 auxGetDevCaps(uint uDeviceID, AUXCAPSA* pac, uint32 cbac) => auxGetDevCapsA(uDeviceID, pac, cbac);
 
 	[Import("WINMM.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 auxGetDevCapsW(uint uDeviceID, AUXCAPSW* pac, uint32 cbac);
@@ -4432,6 +4443,7 @@ public static
 
 	[Import("WINMM.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 mixerGetDevCapsA(uint uMxId, MIXERCAPSA* pmxcaps, uint32 cbmxcaps);
+	public static uint32 mixerGetDevCaps(uint uMxId, MIXERCAPSA* pmxcaps, uint32 cbmxcaps) => mixerGetDevCapsA(uMxId, pmxcaps, cbmxcaps);
 
 	[Import("WINMM.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 mixerGetDevCapsW(uint uMxId, MIXERCAPSW* pmxcaps, uint32 cbmxcaps);
@@ -4447,6 +4459,7 @@ public static
 
 	[Import("WINMM.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 mixerGetLineInfoA(HMIXEROBJ hmxobj, MIXERLINEA* pmxl, uint32 fdwInfo);
+	public static uint32 mixerGetLineInfo(HMIXEROBJ hmxobj, MIXERLINEA* pmxl, uint32 fdwInfo) => mixerGetLineInfoA(hmxobj, pmxl, fdwInfo);
 
 	[Import("WINMM.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 mixerGetLineInfoW(HMIXEROBJ hmxobj, MIXERLINEW* pmxl, uint32 fdwInfo);
@@ -4456,12 +4469,14 @@ public static
 
 	[Import("WINMM.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 mixerGetLineControlsA(HMIXEROBJ hmxobj, MIXERLINECONTROLSA* pmxlc, uint32 fdwControls);
+	public static uint32 mixerGetLineControls(HMIXEROBJ hmxobj, MIXERLINECONTROLSA* pmxlc, uint32 fdwControls) => mixerGetLineControlsA(hmxobj, pmxlc, fdwControls);
 
 	[Import("WINMM.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 mixerGetLineControlsW(HMIXEROBJ hmxobj, MIXERLINECONTROLSW* pmxlc, uint32 fdwControls);
 
 	[Import("WINMM.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 mixerGetControlDetailsA(HMIXEROBJ hmxobj, MIXERCONTROLDETAILS* pmxcd, uint32 fdwDetails);
+	public static uint32 mixerGetControlDetails(HMIXEROBJ hmxobj, MIXERCONTROLDETAILS* pmxcd, uint32 fdwDetails) => mixerGetControlDetailsA(hmxobj, pmxcd, fdwDetails);
 
 	[Import("WINMM.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 mixerGetControlDetailsW(HMIXEROBJ hmxobj, MIXERCONTROLDETAILS* pmxcd, uint32 fdwDetails);
@@ -4510,6 +4525,7 @@ public static
 
 	[Import("MSACM32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 acmDriverAddA(int* phadid, HINSTANCE hinstModule, LPARAM lParam, uint32 dwPriority, uint32 fdwAdd);
+	public static uint32 acmDriverAdd(int* phadid, HINSTANCE hinstModule, LPARAM lParam, uint32 dwPriority, uint32 fdwAdd) => acmDriverAddA(phadid, hinstModule, lParam, dwPriority, fdwAdd);
 
 	[Import("MSACM32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 acmDriverAddW(int* phadid, HINSTANCE hinstModule, LPARAM lParam, uint32 dwPriority, uint32 fdwAdd);
@@ -4531,30 +4547,35 @@ public static
 
 	[Import("MSACM32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 acmDriverDetailsA(HACMDRIVERID hadid, ACMDRIVERDETAILSA* padd, uint32 fdwDetails);
+	public static uint32 acmDriverDetails(HACMDRIVERID hadid, ACMDRIVERDETAILSA* padd, uint32 fdwDetails) => acmDriverDetailsA(hadid, padd, fdwDetails);
 
 	[Import("MSACM32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 acmDriverDetailsW(HACMDRIVERID hadid, ACMDRIVERDETAILSW* padd, uint32 fdwDetails);
 
 	[Import("MSACM32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 acmFormatTagDetailsA(HACMDRIVER had, ACMFORMATTAGDETAILSA* paftd, uint32 fdwDetails);
+	public static uint32 acmFormatTagDetails(HACMDRIVER had, ACMFORMATTAGDETAILSA* paftd, uint32 fdwDetails) => acmFormatTagDetailsA(had, paftd, fdwDetails);
 
 	[Import("MSACM32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 acmFormatTagDetailsW(HACMDRIVER had, ACMFORMATTAGDETAILSW* paftd, uint32 fdwDetails);
 
 	[Import("MSACM32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 acmFormatTagEnumA(HACMDRIVER had, ACMFORMATTAGDETAILSA* paftd, ACMFORMATTAGENUMCBA fnCallback, uint dwInstance, uint32 fdwEnum);
+	public static uint32 acmFormatTagEnum(HACMDRIVER had, ACMFORMATTAGDETAILSA* paftd, ACMFORMATTAGENUMCBA fnCallback, uint dwInstance, uint32 fdwEnum) => acmFormatTagEnumA(had, paftd, fnCallback, dwInstance, fdwEnum);
 
 	[Import("MSACM32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 acmFormatTagEnumW(HACMDRIVER had, ACMFORMATTAGDETAILSW* paftd, ACMFORMATTAGENUMCBW fnCallback, uint dwInstance, uint32 fdwEnum);
 
 	[Import("MSACM32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 acmFormatDetailsA(HACMDRIVER had, ACMFORMATDETAILSA* pafd, uint32 fdwDetails);
+	public static uint32 acmFormatDetails(HACMDRIVER had, ACMFORMATDETAILSA* pafd, uint32 fdwDetails) => acmFormatDetailsA(had, pafd, fdwDetails);
 
 	[Import("MSACM32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 acmFormatDetailsW(HACMDRIVER had, tACMFORMATDETAILSW* pafd, uint32 fdwDetails);
 
 	[Import("MSACM32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 acmFormatEnumA(HACMDRIVER had, ACMFORMATDETAILSA* pafd, ACMFORMATENUMCBA fnCallback, uint dwInstance, uint32 fdwEnum);
+	public static uint32 acmFormatEnum(HACMDRIVER had, ACMFORMATDETAILSA* pafd, ACMFORMATENUMCBA fnCallback, uint dwInstance, uint32 fdwEnum) => acmFormatEnumA(had, pafd, fnCallback, dwInstance, fdwEnum);
 
 	[Import("MSACM32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 acmFormatEnumW(HACMDRIVER had, tACMFORMATDETAILSW* pafd, ACMFORMATENUMCBW fnCallback, uint dwInstance, uint32 fdwEnum);
@@ -4564,36 +4585,42 @@ public static
 
 	[Import("MSACM32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 acmFormatChooseA(ACMFORMATCHOOSEA* pafmtc);
+	public static uint32 acmFormatChoose(ACMFORMATCHOOSEA* pafmtc) => acmFormatChooseA(pafmtc);
 
 	[Import("MSACM32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 acmFormatChooseW(ACMFORMATCHOOSEW* pafmtc);
 
 	[Import("MSACM32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 acmFilterTagDetailsA(HACMDRIVER had, ACMFILTERTAGDETAILSA* paftd, uint32 fdwDetails);
+	public static uint32 acmFilterTagDetails(HACMDRIVER had, ACMFILTERTAGDETAILSA* paftd, uint32 fdwDetails) => acmFilterTagDetailsA(had, paftd, fdwDetails);
 
 	[Import("MSACM32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 acmFilterTagDetailsW(HACMDRIVER had, ACMFILTERTAGDETAILSW* paftd, uint32 fdwDetails);
 
 	[Import("MSACM32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 acmFilterTagEnumA(HACMDRIVER had, ACMFILTERTAGDETAILSA* paftd, ACMFILTERTAGENUMCBA fnCallback, uint dwInstance, uint32 fdwEnum);
+	public static uint32 acmFilterTagEnum(HACMDRIVER had, ACMFILTERTAGDETAILSA* paftd, ACMFILTERTAGENUMCBA fnCallback, uint dwInstance, uint32 fdwEnum) => acmFilterTagEnumA(had, paftd, fnCallback, dwInstance, fdwEnum);
 
 	[Import("MSACM32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 acmFilterTagEnumW(HACMDRIVER had, ACMFILTERTAGDETAILSW* paftd, ACMFILTERTAGENUMCBW fnCallback, uint dwInstance, uint32 fdwEnum);
 
 	[Import("MSACM32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 acmFilterDetailsA(HACMDRIVER had, ACMFILTERDETAILSA* pafd, uint32 fdwDetails);
+	public static uint32 acmFilterDetails(HACMDRIVER had, ACMFILTERDETAILSA* pafd, uint32 fdwDetails) => acmFilterDetailsA(had, pafd, fdwDetails);
 
 	[Import("MSACM32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 acmFilterDetailsW(HACMDRIVER had, ACMFILTERDETAILSW* pafd, uint32 fdwDetails);
 
 	[Import("MSACM32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 acmFilterEnumA(HACMDRIVER had, ACMFILTERDETAILSA* pafd, ACMFILTERENUMCBA fnCallback, uint dwInstance, uint32 fdwEnum);
+	public static uint32 acmFilterEnum(HACMDRIVER had, ACMFILTERDETAILSA* pafd, ACMFILTERENUMCBA fnCallback, uint dwInstance, uint32 fdwEnum) => acmFilterEnumA(had, pafd, fnCallback, dwInstance, fdwEnum);
 
 	[Import("MSACM32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 acmFilterEnumW(HACMDRIVER had, ACMFILTERDETAILSW* pafd, ACMFILTERENUMCBW fnCallback, uint dwInstance, uint32 fdwEnum);
 
 	[Import("MSACM32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 acmFilterChooseA(ACMFILTERCHOOSEA* pafltrc);
+	public static uint32 acmFilterChoose(ACMFILTERCHOOSEA* pafltrc) => acmFilterChooseA(pafltrc);
 
 	[Import("MSACM32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 acmFilterChooseW(ACMFILTERCHOOSEW* pafltrc);

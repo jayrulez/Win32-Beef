@@ -7911,12 +7911,14 @@ public static
 
 	[Import("TAPI32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 lineCreateAgentA(uint32 hLine, PSTR lpszAgentID, PSTR lpszAgentPIN, uint32* lphAgent);
+	public static int32 lineCreateAgent(uint32 hLine, PSTR lpszAgentID, PSTR lpszAgentPIN, uint32* lphAgent) => lineCreateAgentA(hLine, lpszAgentID, lpszAgentPIN, lphAgent);
 
 	[Import("TAPI32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 lineCreateAgentSessionW(uint32 hLine, uint32 hAgent, PWSTR lpszAgentPIN, uint32 dwWorkingAddressID, Guid* lpGroupID, uint32* lphAgentSession);
 
 	[Import("TAPI32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 lineCreateAgentSessionA(uint32 hLine, uint32 hAgent, PSTR lpszAgentPIN, uint32 dwWorkingAddressID, Guid* lpGroupID, uint32* lphAgentSession);
+	public static int32 lineCreateAgentSession(uint32 hLine, uint32 hAgent, PSTR lpszAgentPIN, uint32 dwWorkingAddressID, Guid* lpGroupID, uint32* lphAgentSession) => lineCreateAgentSessionA(hLine, hAgent, lpszAgentPIN, dwWorkingAddressID, lpGroupID, lphAgentSession);
 
 	[Import("TAPI32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 lineDeallocateCall(uint32 hCall);
@@ -7998,18 +8000,21 @@ public static
 
 	[Import("TAPI32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 lineGetAgentActivityListA(uint32 hLine, uint32 dwAddressID, LINEAGENTACTIVITYLIST* lpAgentActivityList);
+	public static int32 lineGetAgentActivityList(uint32 hLine, uint32 dwAddressID, LINEAGENTACTIVITYLIST* lpAgentActivityList) => lineGetAgentActivityListA(hLine, dwAddressID, lpAgentActivityList);
 
 	[Import("TAPI32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 lineGetAgentActivityListW(uint32 hLine, uint32 dwAddressID, LINEAGENTACTIVITYLIST* lpAgentActivityList);
 
 	[Import("TAPI32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 lineGetAgentCapsA(uint32 hLineApp, uint32 dwDeviceID, uint32 dwAddressID, uint32 dwAppAPIVersion, LINEAGENTCAPS* lpAgentCaps);
+	public static int32 lineGetAgentCaps(uint32 hLineApp, uint32 dwDeviceID, uint32 dwAddressID, uint32 dwAppAPIVersion, LINEAGENTCAPS* lpAgentCaps) => lineGetAgentCapsA(hLineApp, dwDeviceID, dwAddressID, dwAppAPIVersion, lpAgentCaps);
 
 	[Import("TAPI32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 lineGetAgentCapsW(uint32 hLineApp, uint32 dwDeviceID, uint32 dwAddressID, uint32 dwAppAPIVersion, LINEAGENTCAPS* lpAgentCaps);
 
 	[Import("TAPI32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 lineGetAgentGroupListA(uint32 hLine, uint32 dwAddressID, LINEAGENTGROUPLIST* lpAgentGroupList);
+	public static int32 lineGetAgentGroupList(uint32 hLine, uint32 dwAddressID, LINEAGENTGROUPLIST* lpAgentGroupList) => lineGetAgentGroupListA(hLine, dwAddressID, lpAgentGroupList);
 
 	[Import("TAPI32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 lineGetAgentGroupListW(uint32 hLine, uint32 dwAddressID, LINEAGENTGROUPLIST* lpAgentGroupList);
@@ -8025,6 +8030,7 @@ public static
 
 	[Import("TAPI32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 lineGetAgentStatusA(uint32 hLine, uint32 dwAddressID, LINEAGENTSTATUS* lpAgentStatus);
+	public static int32 lineGetAgentStatus(uint32 hLine, uint32 dwAddressID, LINEAGENTSTATUS* lpAgentStatus) => lineGetAgentStatusA(hLine, dwAddressID, lpAgentStatus);
 
 	[Import("TAPI32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 lineGetAgentStatusW(uint32 hLine, uint32 dwAddressID, LINEAGENTSTATUS* lpAgentStatus);
@@ -8082,6 +8088,7 @@ public static
 
 	[Import("TAPI32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 lineGetGroupListA(uint32 hLine, LINEAGENTGROUPLIST* lpGroupList);
+	public static int32 lineGetGroupList(uint32 hLine, LINEAGENTGROUPLIST* lpGroupList) => lineGetGroupListA(hLine, lpGroupList);
 
 	[Import("TAPI32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 lineGetGroupListW(uint32 hLine, LINEAGENTGROUPLIST* lpGroupList);
@@ -8139,6 +8146,7 @@ public static
 
 	[Import("TAPI32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 lineGetQueueListA(uint32 hLine, Guid* lpGroupID, LINEQUEUELIST* lpQueueList);
+	public static int32 lineGetQueueList(uint32 hLine, Guid* lpGroupID, LINEQUEUELIST* lpQueueList) => lineGetQueueListA(hLine, lpGroupID, lpQueueList);
 
 	[Import("TAPI32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 lineGetQueueListW(uint32 hLine, Guid* lpGroupID, LINEQUEUELIST* lpQueueList);
@@ -8181,6 +8189,7 @@ public static
 
 	[Import("TAPI32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 lineInitializeExA(uint32* lphLineApp, HINSTANCE hInstance, LINECALLBACK lpfnCallback, PSTR lpszFriendlyAppName, uint32* lpdwNumDevs, uint32* lpdwAPIVersion, LINEINITIALIZEEXPARAMS* lpLineInitializeExParams);
+	public static int32 lineInitializeEx(uint32* lphLineApp, HINSTANCE hInstance, LINECALLBACK lpfnCallback, PSTR lpszFriendlyAppName, uint32* lpdwNumDevs, uint32* lpdwAPIVersion, LINEINITIALIZEEXPARAMS* lpLineInitializeExParams) => lineInitializeExA(lphLineApp, hInstance, lpfnCallback, lpszFriendlyAppName, lpdwNumDevs, lpdwAPIVersion, lpLineInitializeExParams);
 
 	[Import("TAPI32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 lineInitializeExW(uint32* lphLineApp, HINSTANCE hInstance, LINECALLBACK lpfnCallback, PWSTR lpszFriendlyAppName, uint32* lpdwNumDevs, uint32* lpdwAPIVersion, LINEINITIALIZEEXPARAMS* lpLineInitializeExParams);
@@ -8514,6 +8523,7 @@ public static
 
 	[Import("TAPI32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 phoneInitializeExA(uint32* lphPhoneApp, HINSTANCE hInstance, PHONECALLBACK lpfnCallback, PSTR lpszFriendlyAppName, uint32* lpdwNumDevs, uint32* lpdwAPIVersion, PHONEINITIALIZEEXPARAMS* lpPhoneInitializeExParams);
+	public static int32 phoneInitializeEx(uint32* lphPhoneApp, HINSTANCE hInstance, PHONECALLBACK lpfnCallback, PSTR lpszFriendlyAppName, uint32* lpdwNumDevs, uint32* lpdwAPIVersion, PHONEINITIALIZEEXPARAMS* lpPhoneInitializeExParams) => phoneInitializeExA(lphPhoneApp, hInstance, lpfnCallback, lpszFriendlyAppName, lpdwNumDevs, lpdwAPIVersion, lpPhoneInitializeExParams);
 
 	[Import("TAPI32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 phoneInitializeExW(uint32* lphPhoneApp, HINSTANCE hInstance, PHONECALLBACK lpfnCallback, PWSTR lpszFriendlyAppName, uint32* lpdwNumDevs, uint32* lpdwAPIVersion, PHONEINITIALIZEEXPARAMS* lpPhoneInitializeExParams);

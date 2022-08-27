@@ -22826,6 +22826,7 @@ public static
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern void OutputDebugStringA(PSTR lpOutputString);
+	public static void OutputDebugString(PSTR lpOutputString) => OutputDebugStringA(lpOutputString);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern void OutputDebugStringW(PWSTR lpOutputString);
@@ -22901,6 +22902,7 @@ public static
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern void FatalAppExitA(uint32 uAction, PSTR lpMessageText);
+	public static void FatalAppExit(uint32 uAction, PSTR lpMessageText) => FatalAppExitA(uAction, lpMessageText);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern void FatalAppExitW(uint32 uAction, PWSTR lpMessageText);
@@ -22951,6 +22953,7 @@ public static
 #endif
 	[Import("imagehlp.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 MapFileAndCheckSumA(PSTR Filename, uint32* HeaderSum, uint32* CheckSum);
+	public static uint32 MapFileAndCheckSum(PSTR Filename, uint32* HeaderSum, uint32* CheckSum) => MapFileAndCheckSumA(Filename, HeaderSum, CheckSum);
 
 	[Import("imagehlp.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 MapFileAndCheckSumW(PWSTR Filename, uint32* HeaderSum, uint32* CheckSum);
@@ -23606,6 +23609,7 @@ public static
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 FormatMessageA(FORMAT_MESSAGE_OPTIONS dwFlags, void* lpSource, uint32 dwMessageId, uint32 dwLanguageId, PSTR lpBuffer, uint32 nSize, int8** Arguments);
+	public static uint32 FormatMessage(FORMAT_MESSAGE_OPTIONS dwFlags, void* lpSource, uint32 dwMessageId, uint32 dwLanguageId, PSTR lpBuffer, uint32 nSize, int8** Arguments) => FormatMessageA(dwFlags, lpSource, dwMessageId, dwLanguageId, lpBuffer, nSize, Arguments);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 FormatMessageW(FORMAT_MESSAGE_OPTIONS dwFlags, void* lpSource, uint32 dwMessageId, uint32 dwLanguageId, PWSTR lpBuffer, uint32 nSize, int8** Arguments);

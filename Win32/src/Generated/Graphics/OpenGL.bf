@@ -1638,6 +1638,7 @@ public static
 
 	[Import("OPENGL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL wglUseFontBitmapsA(HDC param0, uint32 param1, uint32 param2, uint32 param3);
+	public static BOOL wglUseFontBitmaps(HDC param0, uint32 param1, uint32 param2, uint32 param3) => wglUseFontBitmapsA(param0, param1, param2, param3);
 
 	[Import("OPENGL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL wglUseFontBitmapsW(HDC param0, uint32 param1, uint32 param2, uint32 param3);
@@ -1647,6 +1648,7 @@ public static
 
 	[Import("OPENGL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL wglUseFontOutlinesA(HDC param0, uint32 param1, uint32 param2, uint32 param3, float param4, float param5, int32 param6, GLYPHMETRICSFLOAT* param7);
+	public static BOOL wglUseFontOutlines(HDC param0, uint32 param1, uint32 param2, uint32 param3, float param4, float param5, int32 param6, GLYPHMETRICSFLOAT* param7) => wglUseFontOutlinesA(param0, param1, param2, param3, param4, param5, param6, param7);
 
 	[Import("OPENGL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL wglUseFontOutlinesW(HDC param0, uint32 param1, uint32 param2, uint32 param3, float param4, float param5, int32 param6, GLYPHMETRICSFLOAT* param7);

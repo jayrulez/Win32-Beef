@@ -11052,30 +11052,35 @@ public static
 {
 	[Import("WINMM.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 mciSendCommandA(uint32 mciId, uint32 uMsg, uint dwParam1, uint dwParam2);
+	public static uint32 mciSendCommand(uint32 mciId, uint32 uMsg, uint dwParam1, uint dwParam2) => mciSendCommandA(mciId, uMsg, dwParam1, dwParam2);
 
 	[Import("WINMM.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 mciSendCommandW(uint32 mciId, uint32 uMsg, uint dwParam1, uint dwParam2);
 
 	[Import("WINMM.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 mciSendStringA(PSTR lpstrCommand, uint8* lpstrReturnString, uint32 uReturnLength, HWND hwndCallback);
+	public static uint32 mciSendString(PSTR lpstrCommand, uint8* lpstrReturnString, uint32 uReturnLength, HWND hwndCallback) => mciSendStringA(lpstrCommand, lpstrReturnString, uReturnLength, hwndCallback);
 
 	[Import("WINMM.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 mciSendStringW(PWSTR lpstrCommand, char8* lpstrReturnString, uint32 uReturnLength, HWND hwndCallback);
 
 	[Import("WINMM.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 mciGetDeviceIDA(PSTR pszDevice);
+	public static uint32 mciGetDeviceID(PSTR pszDevice) => mciGetDeviceIDA(pszDevice);
 
 	[Import("WINMM.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 mciGetDeviceIDW(PWSTR pszDevice);
 
 	[Import("WINMM.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 mciGetDeviceIDFromElementIDA(uint32 dwElementID, PSTR lpstrType);
+	public static uint32 mciGetDeviceIDFromElementID(uint32 dwElementID, PSTR lpstrType) => mciGetDeviceIDFromElementIDA(dwElementID, lpstrType);
 
 	[Import("WINMM.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 mciGetDeviceIDFromElementIDW(uint32 dwElementID, PWSTR lpstrType);
 
 	[Import("WINMM.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL mciGetErrorStringA(uint32 mcierr, uint8* pszText, uint32 cchText);
+	public static BOOL mciGetErrorString(uint32 mcierr, uint8* pszText, uint32 cchText) => mciGetErrorStringA(mcierr, pszText, cchText);
 
 	[Import("WINMM.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL mciGetErrorStringW(uint32 mcierr, char8* pszText, uint32 cchText);
@@ -11136,24 +11141,28 @@ public static
 
 	[Import("WINMM.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 mmioStringToFOURCCA(PSTR sz, uint32 uFlags);
+	public static uint32 mmioStringToFOURCC(PSTR sz, uint32 uFlags) => mmioStringToFOURCCA(sz, uFlags);
 
 	[Import("WINMM.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 mmioStringToFOURCCW(PWSTR sz, uint32 uFlags);
 
 	[Import("WINMM.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern LPMMIOPROC mmioInstallIOProcA(uint32 fccIOProc, LPMMIOPROC pIOProc, uint32 dwFlags);
+	public static LPMMIOPROC mmioInstallIOProc(uint32 fccIOProc, LPMMIOPROC pIOProc, uint32 dwFlags) => mmioInstallIOProcA(fccIOProc, pIOProc, dwFlags);
 
 	[Import("WINMM.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern LPMMIOPROC mmioInstallIOProcW(uint32 fccIOProc, LPMMIOPROC pIOProc, uint32 dwFlags);
 
 	[Import("WINMM.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HMMIO mmioOpenA(uint8* pszFileName, MMIOINFO* pmmioinfo, uint32 fdwOpen);
+	public static HMMIO mmioOpen(uint8* pszFileName, MMIOINFO* pmmioinfo, uint32 fdwOpen) => mmioOpenA(pszFileName, pmmioinfo, fdwOpen);
 
 	[Import("WINMM.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HMMIO mmioOpenW(char8* pszFileName, MMIOINFO* pmmioinfo, uint32 fdwOpen);
 
 	[Import("WINMM.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 mmioRenameA(PSTR pszFileName, PSTR pszNewFileName, MMIOINFO* pmmioinfo, uint32 fdwRename);
+	public static uint32 mmioRename(PSTR pszFileName, PSTR pszNewFileName, MMIOINFO* pmmioinfo, uint32 fdwRename) => mmioRenameA(pszFileName, pszNewFileName, pmmioinfo, fdwRename);
 
 	[Import("WINMM.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 mmioRenameW(PWSTR pszFileName, PWSTR pszNewFileName, MMIOINFO* pmmioinfo, uint32 fdwRename);
@@ -11205,6 +11214,7 @@ public static
 
 	[Import("WINMM.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 joyGetDevCapsA(uint uJoyID, JOYCAPSA* pjc, uint32 cbjc);
+	public static uint32 joyGetDevCaps(uint uJoyID, JOYCAPSA* pjc, uint32 cbjc) => joyGetDevCapsA(uJoyID, pjc, cbjc);
 
 	[Import("WINMM.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 joyGetDevCapsW(uint uJoyID, JOYCAPSW* pjc, uint32 cbjc);
@@ -11346,6 +11356,7 @@ public static
 
 	[Import("AVIFIL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT AVIFileOpenA(IAVIFile** ppfile, PSTR szFile, uint32 uMode, Guid* lpHandler);
+	public static HRESULT AVIFileOpen(IAVIFile** ppfile, PSTR szFile, uint32 uMode, Guid* lpHandler) => AVIFileOpenA(ppfile, szFile, uMode, lpHandler);
 
 	[Import("AVIFIL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT AVIFileOpenW(IAVIFile** ppfile, PWSTR szFile, uint32 uMode, Guid* lpHandler);
@@ -11355,6 +11366,7 @@ public static
 
 	[Import("AVIFIL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT AVIFileInfoA(IAVIFile* pfile, AVIFILEINFOA* pfi, int32 lSize);
+	public static HRESULT AVIFileInfo(IAVIFile* pfile, AVIFILEINFOA* pfi, int32 lSize) => AVIFileInfoA(pfile, pfi, lSize);
 
 	[Import("AVIFIL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT AVIFileGetStream(IAVIFile* pfile, IAVIStream** ppavi, uint32 fccType, int32 lParam);
@@ -11364,6 +11376,7 @@ public static
 
 	[Import("AVIFIL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT AVIFileCreateStreamA(IAVIFile* pfile, IAVIStream** ppavi, AVISTREAMINFOA* psi);
+	public static HRESULT AVIFileCreateStream(IAVIFile* pfile, IAVIStream** ppavi, AVISTREAMINFOA* psi) => AVIFileCreateStreamA(pfile, ppavi, psi);
 
 	[Import("AVIFIL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT AVIFileWriteData(IAVIFile* pfile, uint32 ckid, void* lpData, int32 cbData);
@@ -11385,6 +11398,7 @@ public static
 
 	[Import("AVIFIL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT AVIStreamInfoA(IAVIStream* pavi, AVISTREAMINFOA* psi, int32 lSize);
+	public static HRESULT AVIStreamInfo(IAVIStream* pavi, AVISTREAMINFOA* psi, int32 lSize) => AVIStreamInfoA(pavi, psi, lSize);
 
 	[Import("AVIFIL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 AVIStreamFindSample(IAVIStream* pavi, int32 lPos, int32 lFlags);
@@ -11436,6 +11450,7 @@ public static
 
 	[Import("AVIFIL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT AVIStreamOpenFromFileA(IAVIStream** ppavi, PSTR szFile, uint32 fccType, int32 lParam, uint32 mode, Guid* pclsidHandler);
+	public static HRESULT AVIStreamOpenFromFile(IAVIStream** ppavi, PSTR szFile, uint32 fccType, int32 lParam, uint32 mode, Guid* pclsidHandler) => AVIStreamOpenFromFileA(ppavi, szFile, fccType, lParam, mode, pclsidHandler);
 
 	[Import("AVIFIL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT AVIStreamOpenFromFileW(IAVIStream** ppavi, PWSTR szFile, uint32 fccType, int32 lParam, uint32 mode, Guid* pclsidHandler);
@@ -11448,9 +11463,11 @@ public static
 
 	[Import("AVIFIL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT AVISaveA(PSTR szFile, Guid* pclsidHandler, AVISAVECALLBACK lpfnCallback, int32 nStreams, IAVIStream* pfile, AVICOMPRESSOPTIONS* lpOptions);
+	public static HRESULT AVISave(PSTR szFile, Guid* pclsidHandler, AVISAVECALLBACK lpfnCallback, int32 nStreams, IAVIStream* pfile, AVICOMPRESSOPTIONS* lpOptions) => AVISaveA(szFile, pclsidHandler, lpfnCallback, nStreams, pfile, lpOptions);
 
 	[Import("AVIFIL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT AVISaveVA(PSTR szFile, Guid* pclsidHandler, AVISAVECALLBACK lpfnCallback, int32 nStreams, IAVIStream** ppavi, AVICOMPRESSOPTIONS** plpOptions);
+	public static HRESULT AVISaveV(PSTR szFile, Guid* pclsidHandler, AVISAVECALLBACK lpfnCallback, int32 nStreams, IAVIStream** ppavi, AVICOMPRESSOPTIONS** plpOptions) => AVISaveVA(szFile, pclsidHandler, lpfnCallback, nStreams, ppavi, plpOptions);
 
 	[Import("AVIFIL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT AVISaveW(PWSTR szFile, Guid* pclsidHandler, AVISAVECALLBACK lpfnCallback, int32 nStreams, IAVIStream* pfile, AVICOMPRESSOPTIONS* lpOptions);
@@ -11469,6 +11486,7 @@ public static
 
 	[Import("AVIFIL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT AVIBuildFilterA(uint8* lpszFilter, int32 cbFilter, BOOL fSaving);
+	public static HRESULT AVIBuildFilter(uint8* lpszFilter, int32 cbFilter, BOOL fSaving) => AVIBuildFilterA(lpszFilter, cbFilter, fSaving);
 
 	[Import("AVIFIL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT AVIMakeFileFromStreams(IAVIFile** ppfile, int32 nStreams, IAVIStream** papStreams);
@@ -11502,6 +11520,7 @@ public static
 
 	[Import("AVIFIL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT EditStreamSetNameA(IAVIStream* pavi, PSTR lpszName);
+	public static HRESULT EditStreamSetName(IAVIStream* pavi, PSTR lpszName) => EditStreamSetNameA(pavi, lpszName);
 
 	[Import("AVIFIL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT EditStreamSetNameW(IAVIStream* pavi, PWSTR lpszName);
@@ -11511,9 +11530,11 @@ public static
 
 	[Import("AVIFIL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT EditStreamSetInfoA(IAVIStream* pavi, AVISTREAMINFOA* lpInfo, int32 cbInfo);
+	public static HRESULT EditStreamSetInfo(IAVIStream* pavi, AVISTREAMINFOA* lpInfo, int32 cbInfo) => EditStreamSetInfoA(pavi, lpInfo, cbInfo);
 
 	[Import("MSVFW32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HWND MCIWndCreateA(HWND hwndParent, HINSTANCE hInstance, uint32 dwStyle, PSTR szFile);
+	public static HWND MCIWndCreate(HWND hwndParent, HINSTANCE hInstance, uint32 dwStyle, PSTR szFile) => MCIWndCreateA(hwndParent, hInstance, dwStyle, szFile);
 
 	[Import("MSVFW32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HWND MCIWndCreateW(HWND hwndParent, HINSTANCE hInstance, uint32 dwStyle, PWSTR szFile);
@@ -11523,9 +11544,11 @@ public static
 
 	[Import("AVICAP32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HWND capCreateCaptureWindowA(PSTR lpszWindowName, uint32 dwStyle, int32 x, int32 y, int32 nWidth, int32 nHeight, HWND hwndParent, int32 nID);
+	public static HWND capCreateCaptureWindow(PSTR lpszWindowName, uint32 dwStyle, int32 x, int32 y, int32 nWidth, int32 nHeight, HWND hwndParent, int32 nID) => capCreateCaptureWindowA(lpszWindowName, dwStyle, x, y, nWidth, nHeight, hwndParent, nID);
 
 	[Import("AVICAP32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL capGetDriverDescriptionA(uint32 wDriverIndex, uint8* lpszName, int32 cbName, uint8* lpszVer, int32 cbVer);
+	public static BOOL capGetDriverDescription(uint32 wDriverIndex, uint8* lpszName, int32 cbName, uint8* lpszVer, int32 cbVer) => capGetDriverDescriptionA(wDriverIndex, lpszName, cbName, lpszVer, cbVer);
 
 	[Import("AVICAP32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HWND capCreateCaptureWindowW(PWSTR lpszWindowName, uint32 dwStyle, int32 x, int32 y, int32 nWidth, int32 nHeight, HWND hwndParent, int32 nID);
@@ -11535,9 +11558,11 @@ public static
 
 	[Import("MSVFW32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL GetOpenFileNamePreviewA(OPENFILENAMEA* lpofn);
+	public static BOOL GetOpenFileNamePreview(OPENFILENAMEA* lpofn) => GetOpenFileNamePreviewA(lpofn);
 
 	[Import("MSVFW32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL GetSaveFileNamePreviewA(OPENFILENAMEA* lpofn);
+	public static BOOL GetSaveFileNamePreview(OPENFILENAMEA* lpofn) => GetSaveFileNamePreviewA(lpofn);
 
 	[Import("MSVFW32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL GetOpenFileNamePreviewW(OPENFILENAMEW* lpofn);

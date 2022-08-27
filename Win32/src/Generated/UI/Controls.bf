@@ -7674,6 +7674,7 @@ public static
 {
 	[Import("COMCTL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HPROPSHEETPAGE CreatePropertySheetPageA(PROPSHEETPAGEA* constPropSheetPagePointer);
+	public static HPROPSHEETPAGE CreatePropertySheetPage(PROPSHEETPAGEA* constPropSheetPagePointer) => CreatePropertySheetPageA(constPropSheetPagePointer);
 
 	[Import("COMCTL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HPROPSHEETPAGE CreatePropertySheetPageW(PROPSHEETPAGEW* constPropSheetPagePointer);
@@ -7683,6 +7684,7 @@ public static
 
 	[Import("COMCTL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int PropertySheetA(PROPSHEETHEADERA_V2* param0);
+	public static int PropertySheet(PROPSHEETHEADERA_V2* param0) => PropertySheetA(param0);
 
 	[Import("COMCTL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int PropertySheetW(PROPSHEETHEADERW_V2* param0);
@@ -7743,6 +7745,7 @@ public static
 
 	[Import("COMCTL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HIMAGELIST ImageList_LoadImageA(HINSTANCE hi, PSTR lpbmp, int32 cx, int32 cGrow, uint32 crMask, uint32 uType, IMAGE_FLAGS uFlags);
+	public static HIMAGELIST ImageList_LoadImage(HINSTANCE hi, PSTR lpbmp, int32 cx, int32 cGrow, uint32 crMask, uint32 uType, IMAGE_FLAGS uFlags) => ImageList_LoadImageA(hi, lpbmp, cx, cGrow, crMask, uType, uFlags);
 
 	[Import("COMCTL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HIMAGELIST ImageList_LoadImageW(HINSTANCE hi, PWSTR lpbmp, int32 cx, int32 cGrow, uint32 crMask, uint32 uType, IMAGE_FLAGS uFlags);
@@ -7812,12 +7815,14 @@ public static
 
 	[Import("COMCTL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern void DrawStatusTextA(HDC hDC, RECT* lprc, PSTR pszText, uint32 uFlags);
+	public static void DrawStatusText(HDC hDC, RECT* lprc, PSTR pszText, uint32 uFlags) => DrawStatusTextA(hDC, lprc, pszText, uFlags);
 
 	[Import("COMCTL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern void DrawStatusTextW(HDC hDC, RECT* lprc, PWSTR pszText, uint32 uFlags);
 
 	[Import("COMCTL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HWND CreateStatusWindowA(int32 style, PSTR lpszText, HWND hwndParent, uint32 wID);
+	public static HWND CreateStatusWindow(int32 style, PSTR lpszText, HWND hwndParent, uint32 wID) => CreateStatusWindowA(style, lpszText, hwndParent, wID);
 
 	[Import("COMCTL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HWND CreateStatusWindowW(int32 style, PWSTR lpszText, HWND hwndParent, uint32 wID);
@@ -8280,24 +8285,28 @@ public static
 
 	[Import("USER32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 DlgDirListA(HWND hDlg, PSTR lpPathSpec, int32 nIDListBox, int32 nIDStaticPath, DLG_DIR_LIST_FILE_TYPE uFileType);
+	public static int32 DlgDirList(HWND hDlg, PSTR lpPathSpec, int32 nIDListBox, int32 nIDStaticPath, DLG_DIR_LIST_FILE_TYPE uFileType) => DlgDirListA(hDlg, lpPathSpec, nIDListBox, nIDStaticPath, uFileType);
 
 	[Import("USER32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 DlgDirListW(HWND hDlg, PWSTR lpPathSpec, int32 nIDListBox, int32 nIDStaticPath, DLG_DIR_LIST_FILE_TYPE uFileType);
 
 	[Import("USER32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL DlgDirSelectExA(HWND hwndDlg, uint8* lpString, int32 chCount, int32 idListBox);
+	public static BOOL DlgDirSelectEx(HWND hwndDlg, uint8* lpString, int32 chCount, int32 idListBox) => DlgDirSelectExA(hwndDlg, lpString, chCount, idListBox);
 
 	[Import("USER32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL DlgDirSelectExW(HWND hwndDlg, char8* lpString, int32 chCount, int32 idListBox);
 
 	[Import("USER32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 DlgDirListComboBoxA(HWND hDlg, PSTR lpPathSpec, int32 nIDComboBox, int32 nIDStaticPath, DLG_DIR_LIST_FILE_TYPE uFiletype);
+	public static int32 DlgDirListComboBox(HWND hDlg, PSTR lpPathSpec, int32 nIDComboBox, int32 nIDStaticPath, DLG_DIR_LIST_FILE_TYPE uFiletype) => DlgDirListComboBoxA(hDlg, lpPathSpec, nIDComboBox, nIDStaticPath, uFiletype);
 
 	[Import("USER32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 DlgDirListComboBoxW(HWND hDlg, PWSTR lpPathSpec, int32 nIDComboBox, int32 nIDStaticPath, DLG_DIR_LIST_FILE_TYPE uFiletype);
 
 	[Import("USER32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL DlgDirSelectComboBoxExA(HWND hwndDlg, uint8* lpString, int32 cchOut, int32 idComboBox);
+	public static BOOL DlgDirSelectComboBoxEx(HWND hwndDlg, uint8* lpString, int32 cchOut, int32 idComboBox) => DlgDirSelectComboBoxExA(hwndDlg, lpString, cchOut, idComboBox);
 
 	[Import("USER32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL DlgDirSelectComboBoxExW(HWND hwndDlg, char8* lpString, int32 cchOut, int32 idComboBox);

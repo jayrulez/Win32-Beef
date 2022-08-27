@@ -1293,54 +1293,63 @@ public static
 {
 	[Import("COMDLG32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL GetOpenFileNameA(OPENFILENAMEA* param0);
+	public static BOOL GetOpenFileName(OPENFILENAMEA* param0) => GetOpenFileNameA(param0);
 
 	[Import("COMDLG32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL GetOpenFileNameW(OPENFILENAMEW* param0);
 
 	[Import("COMDLG32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL GetSaveFileNameA(OPENFILENAMEA* param0);
+	public static BOOL GetSaveFileName(OPENFILENAMEA* param0) => GetSaveFileNameA(param0);
 
 	[Import("COMDLG32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL GetSaveFileNameW(OPENFILENAMEW* param0);
 
 	[Import("COMDLG32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int16 GetFileTitleA(PSTR param0, uint8* Buf, uint16 cchSize);
+	public static int16 GetFileTitle(PSTR param0, uint8* Buf, uint16 cchSize) => GetFileTitleA(param0, Buf, cchSize);
 
 	[Import("COMDLG32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int16 GetFileTitleW(PWSTR param0, char8* Buf, uint16 cchSize);
 
 	[Import("COMDLG32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL ChooseColorA(CHOOSECOLORA* param0);
+	public static BOOL ChooseColor(CHOOSECOLORA* param0) => ChooseColorA(param0);
 
 	[Import("COMDLG32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL ChooseColorW(CHOOSECOLORW* param0);
 
 	[Import("COMDLG32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HWND FindTextA(FINDREPLACEA* param0);
+	public static HWND FindText(FINDREPLACEA* param0) => FindTextA(param0);
 
 	[Import("COMDLG32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HWND FindTextW(FINDREPLACEW* param0);
 
 	[Import("COMDLG32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HWND ReplaceTextA(FINDREPLACEA* param0);
+	public static HWND ReplaceText(FINDREPLACEA* param0) => ReplaceTextA(param0);
 
 	[Import("COMDLG32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HWND ReplaceTextW(FINDREPLACEW* param0);
 
 	[Import("COMDLG32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL ChooseFontA(CHOOSEFONTA* param0);
+	public static BOOL ChooseFont(CHOOSEFONTA* param0) => ChooseFontA(param0);
 
 	[Import("COMDLG32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL ChooseFontW(CHOOSEFONTW* param0);
 
 	[Import("COMDLG32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL PrintDlgA(PRINTDLGA* pPD);
+	public static BOOL PrintDlg(PRINTDLGA* pPD) => PrintDlgA(pPD);
 
 	[Import("COMDLG32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL PrintDlgW(PRINTDLGW* pPD);
 
 	[Import("COMDLG32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT PrintDlgExA(PRINTDLGEXA* pPD);
+	public static HRESULT PrintDlgEx(PRINTDLGEXA* pPD) => PrintDlgExA(pPD);
 
 	[Import("COMDLG32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT PrintDlgExW(PRINTDLGEXW* pPD);
@@ -1350,6 +1359,7 @@ public static
 
 	[Import("COMDLG32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL PageSetupDlgA(PAGESETUPDLGA* param0);
+	public static BOOL PageSetupDlg(PAGESETUPDLGA* param0) => PageSetupDlgA(param0);
 
 	[Import("COMDLG32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL PageSetupDlgW(PAGESETUPDLGW* param0);

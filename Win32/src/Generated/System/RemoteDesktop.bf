@@ -4757,9 +4757,11 @@ public static
 
 	[Import("WTSAPI32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL WTSStartRemoteControlSessionA(PSTR pTargetServerName, uint32 TargetLogonId, uint8 HotkeyVk, uint16 HotkeyModifiers);
+	public static BOOL WTSStartRemoteControlSession(PSTR pTargetServerName, uint32 TargetLogonId, uint8 HotkeyVk, uint16 HotkeyModifiers) => WTSStartRemoteControlSessionA(pTargetServerName, TargetLogonId, HotkeyVk, HotkeyModifiers);
 
 	[Import("WTSAPI32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL WTSConnectSessionA(uint32 LogonId, uint32 TargetLogonId, PSTR pPassword, BOOL bWait);
+	public static BOOL WTSConnectSession(uint32 LogonId, uint32 TargetLogonId, PSTR pPassword, BOOL bWait) => WTSConnectSessionA(LogonId, TargetLogonId, pPassword, bWait);
 
 	[Import("WTSAPI32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL WTSConnectSessionW(uint32 LogonId, uint32 TargetLogonId, PWSTR pPassword, BOOL bWait);
@@ -4769,18 +4771,21 @@ public static
 
 	[Import("WTSAPI32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL WTSEnumerateServersA(PSTR pDomainName, uint32 Reserved, uint32 Version, WTS_SERVER_INFOA** ppServerInfo, uint32* pCount);
+	public static BOOL WTSEnumerateServers(PSTR pDomainName, uint32 Reserved, uint32 Version, WTS_SERVER_INFOA** ppServerInfo, uint32* pCount) => WTSEnumerateServersA(pDomainName, Reserved, Version, ppServerInfo, pCount);
 
 	[Import("WTSAPI32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HANDLE WTSOpenServerW(PWSTR pServerName);
 
 	[Import("WTSAPI32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HANDLE WTSOpenServerA(PSTR pServerName);
+	public static HANDLE WTSOpenServer(PSTR pServerName) => WTSOpenServerA(pServerName);
 
 	[Import("WTSAPI32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HANDLE WTSOpenServerExW(PWSTR pServerName);
 
 	[Import("WTSAPI32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HANDLE WTSOpenServerExA(PSTR pServerName);
+	public static HANDLE WTSOpenServerEx(PSTR pServerName) => WTSOpenServerExA(pServerName);
 
 	[Import("WTSAPI32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern void WTSCloseServer(HANDLE hServer);
@@ -4790,18 +4795,21 @@ public static
 
 	[Import("WTSAPI32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL WTSEnumerateSessionsA(HANDLE hServer, uint32 Reserved, uint32 Version, WTS_SESSION_INFOA** ppSessionInfo, uint32* pCount);
+	public static BOOL WTSEnumerateSessions(HANDLE hServer, uint32 Reserved, uint32 Version, WTS_SESSION_INFOA** ppSessionInfo, uint32* pCount) => WTSEnumerateSessionsA(hServer, Reserved, Version, ppSessionInfo, pCount);
 
 	[Import("WTSAPI32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL WTSEnumerateSessionsExW(HANDLE hServer, uint32* pLevel, uint32 Filter, WTS_SESSION_INFO_1W** ppSessionInfo, uint32* pCount);
 
 	[Import("WTSAPI32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL WTSEnumerateSessionsExA(HANDLE hServer, uint32* pLevel, uint32 Filter, WTS_SESSION_INFO_1A** ppSessionInfo, uint32* pCount);
+	public static BOOL WTSEnumerateSessionsEx(HANDLE hServer, uint32* pLevel, uint32 Filter, WTS_SESSION_INFO_1A** ppSessionInfo, uint32* pCount) => WTSEnumerateSessionsExA(hServer, pLevel, Filter, ppSessionInfo, pCount);
 
 	[Import("WTSAPI32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL WTSEnumerateProcessesW(HANDLE hServer, uint32 Reserved, uint32 Version, WTS_PROCESS_INFOW** ppProcessInfo, uint32* pCount);
 
 	[Import("WTSAPI32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL WTSEnumerateProcessesA(HANDLE hServer, uint32 Reserved, uint32 Version, WTS_PROCESS_INFOA** ppProcessInfo, uint32* pCount);
+	public static BOOL WTSEnumerateProcesses(HANDLE hServer, uint32 Reserved, uint32 Version, WTS_PROCESS_INFOA** ppProcessInfo, uint32* pCount) => WTSEnumerateProcessesA(hServer, Reserved, Version, ppProcessInfo, pCount);
 
 	[Import("WTSAPI32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL WTSTerminateProcess(HANDLE hServer, uint32 ProcessId, uint32 ExitCode);
@@ -4811,24 +4819,28 @@ public static
 
 	[Import("WTSAPI32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL WTSQuerySessionInformationA(HANDLE hServer, uint32 SessionId, WTS_INFO_CLASS WTSInfoClass, PSTR* ppBuffer, uint32* pBytesReturned);
+	public static BOOL WTSQuerySessionInformation(HANDLE hServer, uint32 SessionId, WTS_INFO_CLASS WTSInfoClass, PSTR* ppBuffer, uint32* pBytesReturned) => WTSQuerySessionInformationA(hServer, SessionId, WTSInfoClass, ppBuffer, pBytesReturned);
 
 	[Import("WTSAPI32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL WTSQueryUserConfigW(PWSTR pServerName, PWSTR pUserName, WTS_CONFIG_CLASS WTSConfigClass, PWSTR* ppBuffer, uint32* pBytesReturned);
 
 	[Import("WTSAPI32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL WTSQueryUserConfigA(PSTR pServerName, PSTR pUserName, WTS_CONFIG_CLASS WTSConfigClass, PSTR* ppBuffer, uint32* pBytesReturned);
+	public static BOOL WTSQueryUserConfig(PSTR pServerName, PSTR pUserName, WTS_CONFIG_CLASS WTSConfigClass, PSTR* ppBuffer, uint32* pBytesReturned) => WTSQueryUserConfigA(pServerName, pUserName, WTSConfigClass, ppBuffer, pBytesReturned);
 
 	[Import("WTSAPI32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL WTSSetUserConfigW(PWSTR pServerName, PWSTR pUserName, WTS_CONFIG_CLASS WTSConfigClass, PWSTR pBuffer, uint32 DataLength);
 
 	[Import("WTSAPI32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL WTSSetUserConfigA(PSTR pServerName, PSTR pUserName, WTS_CONFIG_CLASS WTSConfigClass, PSTR pBuffer, uint32 DataLength);
+	public static BOOL WTSSetUserConfig(PSTR pServerName, PSTR pUserName, WTS_CONFIG_CLASS WTSConfigClass, PSTR pBuffer, uint32 DataLength) => WTSSetUserConfigA(pServerName, pUserName, WTSConfigClass, pBuffer, DataLength);
 
 	[Import("WTSAPI32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL WTSSendMessageW(HANDLE hServer, uint32 SessionId, PWSTR pTitle, uint32 TitleLength, PWSTR pMessage, uint32 MessageLength, MESSAGEBOX_STYLE Style, uint32 Timeout, MESSAGEBOX_RESULT* pResponse, BOOL bWait);
 
 	[Import("WTSAPI32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL WTSSendMessageA(HANDLE hServer, uint32 SessionId, PSTR pTitle, uint32 TitleLength, PSTR pMessage, uint32 MessageLength, MESSAGEBOX_STYLE Style, uint32 Timeout, MESSAGEBOX_RESULT* pResponse, BOOL bWait);
+	public static BOOL WTSSendMessage(HANDLE hServer, uint32 SessionId, PSTR pTitle, uint32 TitleLength, PSTR pMessage, uint32 MessageLength, MESSAGEBOX_STYLE Style, uint32 Timeout, MESSAGEBOX_RESULT* pResponse, BOOL bWait) => WTSSendMessageA(hServer, SessionId, pTitle, TitleLength, pMessage, MessageLength, Style, Timeout, pResponse, bWait);
 
 	[Import("WTSAPI32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL WTSDisconnectSession(HANDLE hServer, uint32 SessionId, BOOL bWait);
@@ -4889,42 +4901,49 @@ public static
 
 	[Import("WTSAPI32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL WTSFreeMemoryExA(WTS_TYPE_CLASS WTSTypeClass, void* pMemory, uint32 NumberOfEntries);
+	public static BOOL WTSFreeMemoryEx(WTS_TYPE_CLASS WTSTypeClass, void* pMemory, uint32 NumberOfEntries) => WTSFreeMemoryExA(WTSTypeClass, pMemory, NumberOfEntries);
 
 	[Import("WTSAPI32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL WTSEnumerateProcessesExW(HANDLE hServer, uint32* pLevel, uint32 SessionId, PWSTR* ppProcessInfo, uint32* pCount);
 
 	[Import("WTSAPI32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL WTSEnumerateProcessesExA(HANDLE hServer, uint32* pLevel, uint32 SessionId, PSTR* ppProcessInfo, uint32* pCount);
+	public static BOOL WTSEnumerateProcessesEx(HANDLE hServer, uint32* pLevel, uint32 SessionId, PSTR* ppProcessInfo, uint32* pCount) => WTSEnumerateProcessesExA(hServer, pLevel, SessionId, ppProcessInfo, pCount);
 
 	[Import("WTSAPI32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL WTSEnumerateListenersW(HANDLE hServer, void* pReserved, uint32 Reserved, uint16** pListeners, uint32* pCount);
 
 	[Import("WTSAPI32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL WTSEnumerateListenersA(HANDLE hServer, void* pReserved, uint32 Reserved, int8** pListeners, uint32* pCount);
+	public static BOOL WTSEnumerateListeners(HANDLE hServer, void* pReserved, uint32 Reserved, int8** pListeners, uint32* pCount) => WTSEnumerateListenersA(hServer, pReserved, Reserved, pListeners, pCount);
 
 	[Import("WTSAPI32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL WTSQueryListenerConfigW(HANDLE hServer, void* pReserved, uint32 Reserved, PWSTR pListenerName, WTSLISTENERCONFIGW* pBuffer);
 
 	[Import("WTSAPI32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL WTSQueryListenerConfigA(HANDLE hServer, void* pReserved, uint32 Reserved, PSTR pListenerName, WTSLISTENERCONFIGA* pBuffer);
+	public static BOOL WTSQueryListenerConfig(HANDLE hServer, void* pReserved, uint32 Reserved, PSTR pListenerName, WTSLISTENERCONFIGA* pBuffer) => WTSQueryListenerConfigA(hServer, pReserved, Reserved, pListenerName, pBuffer);
 
 	[Import("WTSAPI32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL WTSCreateListenerW(HANDLE hServer, void* pReserved, uint32 Reserved, PWSTR pListenerName, WTSLISTENERCONFIGW* pBuffer, uint32 flag);
 
 	[Import("WTSAPI32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL WTSCreateListenerA(HANDLE hServer, void* pReserved, uint32 Reserved, PSTR pListenerName, WTSLISTENERCONFIGA* pBuffer, uint32 flag);
+	public static BOOL WTSCreateListener(HANDLE hServer, void* pReserved, uint32 Reserved, PSTR pListenerName, WTSLISTENERCONFIGA* pBuffer, uint32 flag) => WTSCreateListenerA(hServer, pReserved, Reserved, pListenerName, pBuffer, flag);
 
 	[Import("WTSAPI32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL WTSSetListenerSecurityW(HANDLE hServer, void* pReserved, uint32 Reserved, PWSTR pListenerName, uint32 SecurityInformation, SECURITY_DESCRIPTOR* pSecurityDescriptor);
 
 	[Import("WTSAPI32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL WTSSetListenerSecurityA(HANDLE hServer, void* pReserved, uint32 Reserved, PSTR pListenerName, uint32 SecurityInformation, SECURITY_DESCRIPTOR* pSecurityDescriptor);
+	public static BOOL WTSSetListenerSecurity(HANDLE hServer, void* pReserved, uint32 Reserved, PSTR pListenerName, uint32 SecurityInformation, SECURITY_DESCRIPTOR* pSecurityDescriptor) => WTSSetListenerSecurityA(hServer, pReserved, Reserved, pListenerName, SecurityInformation, pSecurityDescriptor);
 
 	[Import("WTSAPI32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL WTSGetListenerSecurityW(HANDLE hServer, void* pReserved, uint32 Reserved, PWSTR pListenerName, uint32 SecurityInformation, SECURITY_DESCRIPTOR* pSecurityDescriptor, uint32 nLength, uint32* lpnLengthNeeded);
 
 	[Import("WTSAPI32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL WTSGetListenerSecurityA(HANDLE hServer, void* pReserved, uint32 Reserved, PSTR pListenerName, uint32 SecurityInformation, SECURITY_DESCRIPTOR* pSecurityDescriptor, uint32 nLength, uint32* lpnLengthNeeded);
+	public static BOOL WTSGetListenerSecurity(HANDLE hServer, void* pReserved, uint32 Reserved, PSTR pListenerName, uint32 SecurityInformation, SECURITY_DESCRIPTOR* pSecurityDescriptor, uint32 nLength, uint32* lpnLengthNeeded) => WTSGetListenerSecurityA(hServer, pReserved, Reserved, pListenerName, SecurityInformation, pSecurityDescriptor, nLength, lpnLengthNeeded);
 
 	[Import("WTSAPI32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL WTSEnableChildSessions(BOOL bEnable);

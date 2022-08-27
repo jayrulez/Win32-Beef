@@ -7665,30 +7665,39 @@ public static
 
 	[Import("rtutils.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 TraceRegisterExA(PSTR lpszCallerName, uint32 dwFlags);
+	public static uint32 TraceRegisterEx(PSTR lpszCallerName, uint32 dwFlags) => TraceRegisterExA(lpszCallerName, dwFlags);
 
 	[Import("rtutils.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 TraceDeregisterA(uint32 dwTraceID);
+	public static uint32 TraceDeregister(uint32 dwTraceID) => TraceDeregisterA(dwTraceID);
 
 	[Import("rtutils.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 TraceDeregisterExA(uint32 dwTraceID, uint32 dwFlags);
+	public static uint32 TraceDeregisterEx(uint32 dwTraceID, uint32 dwFlags) => TraceDeregisterExA(dwTraceID, dwFlags);
 
 	[Import("rtutils.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 TraceGetConsoleA(uint32 dwTraceID, HANDLE* lphConsole);
+	public static uint32 TraceGetConsole(uint32 dwTraceID, HANDLE* lphConsole) => TraceGetConsoleA(dwTraceID, lphConsole);
 
 	[Import("rtutils.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 TracePrintfA(uint32 dwTraceID, PSTR lpszFormat);
+	public static uint32 TracePrintf(uint32 dwTraceID, PSTR lpszFormat) => TracePrintfA(dwTraceID, lpszFormat);
 
 	[Import("rtutils.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 TracePrintfExA(uint32 dwTraceID, uint32 dwFlags, PSTR lpszFormat);
+	public static uint32 TracePrintfEx(uint32 dwTraceID, uint32 dwFlags, PSTR lpszFormat) => TracePrintfExA(dwTraceID, dwFlags, lpszFormat);
 
 	[Import("rtutils.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 TraceVprintfExA(uint32 dwTraceID, uint32 dwFlags, PSTR lpszFormat, int8* arglist);
+	public static uint32 TraceVprintfEx(uint32 dwTraceID, uint32 dwFlags, PSTR lpszFormat, int8* arglist) => TraceVprintfExA(dwTraceID, dwFlags, lpszFormat, arglist);
 
 	[Import("rtutils.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 TracePutsExA(uint32 dwTraceID, uint32 dwFlags, PSTR lpszString);
+	public static uint32 TracePutsEx(uint32 dwTraceID, uint32 dwFlags, PSTR lpszString) => TracePutsExA(dwTraceID, dwFlags, lpszString);
 
 	[Import("rtutils.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 TraceDumpExA(uint32 dwTraceID, uint32 dwFlags, uint8* lpbBytes, uint32 dwByteCount, uint32 dwGroupSize, BOOL bAddressPrefix, PSTR lpszPrefix);
+	public static uint32 TraceDumpEx(uint32 dwTraceID, uint32 dwFlags, uint8* lpbBytes, uint32 dwByteCount, uint32 dwGroupSize, BOOL bAddressPrefix, PSTR lpszPrefix) => TraceDumpExA(dwTraceID, dwFlags, lpbBytes, dwByteCount, dwGroupSize, bAddressPrefix, lpszPrefix);
 
 	[Import("rtutils.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 TraceRegisterExW(PWSTR lpszCallerName, uint32 dwFlags);
@@ -7719,9 +7728,11 @@ public static
 
 	[Import("rtutils.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern void LogErrorA(uint32 dwMessageId, uint32 cNumberOfSubStrings, PSTR* plpwsSubStrings, uint32 dwErrorCode);
+	public static void LogError(uint32 dwMessageId, uint32 cNumberOfSubStrings, PSTR* plpwsSubStrings, uint32 dwErrorCode) => LogErrorA(dwMessageId, cNumberOfSubStrings, plpwsSubStrings, dwErrorCode);
 
 	[Import("rtutils.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern void LogEventA(uint32 wEventType, uint32 dwMessageId, uint32 cNumberOfSubStrings, PSTR* plpwsSubStrings);
+	public static void LogEvent(uint32 wEventType, uint32 dwMessageId, uint32 cNumberOfSubStrings, PSTR* plpwsSubStrings) => LogEventA(wEventType, dwMessageId, cNumberOfSubStrings, plpwsSubStrings);
 
 	[Import("rtutils.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern void LogErrorW(uint32 dwMessageId, uint32 cNumberOfSubStrings, PWSTR* plpwsSubStrings, uint32 dwErrorCode);
@@ -7731,27 +7742,35 @@ public static
 
 	[Import("rtutils.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HANDLE RouterLogRegisterA(PSTR lpszSource);
+	public static HANDLE RouterLogRegister(PSTR lpszSource) => RouterLogRegisterA(lpszSource);
 
 	[Import("rtutils.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern void RouterLogDeregisterA(HANDLE hLogHandle);
+	public static void RouterLogDeregister(HANDLE hLogHandle) => RouterLogDeregisterA(hLogHandle);
 
 	[Import("rtutils.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern void RouterLogEventA(HANDLE hLogHandle, uint32 dwEventType, uint32 dwMessageId, uint32 dwSubStringCount, PSTR* plpszSubStringArray, uint32 dwErrorCode);
+	public static void RouterLogEvent(HANDLE hLogHandle, uint32 dwEventType, uint32 dwMessageId, uint32 dwSubStringCount, PSTR* plpszSubStringArray, uint32 dwErrorCode) => RouterLogEventA(hLogHandle, dwEventType, dwMessageId, dwSubStringCount, plpszSubStringArray, dwErrorCode);
 
 	[Import("rtutils.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern void RouterLogEventDataA(HANDLE hLogHandle, uint32 dwEventType, uint32 dwMessageId, uint32 dwSubStringCount, PSTR* plpszSubStringArray, uint32 dwDataBytes, uint8* lpDataBytes);
+	public static void RouterLogEventData(HANDLE hLogHandle, uint32 dwEventType, uint32 dwMessageId, uint32 dwSubStringCount, PSTR* plpszSubStringArray, uint32 dwDataBytes, uint8* lpDataBytes) => RouterLogEventDataA(hLogHandle, dwEventType, dwMessageId, dwSubStringCount, plpszSubStringArray, dwDataBytes, lpDataBytes);
 
 	[Import("rtutils.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern void RouterLogEventStringA(HANDLE hLogHandle, uint32 dwEventType, uint32 dwMessageId, uint32 dwSubStringCount, PSTR* plpszSubStringArray, uint32 dwErrorCode, uint32 dwErrorIndex);
+	public static void RouterLogEventString(HANDLE hLogHandle, uint32 dwEventType, uint32 dwMessageId, uint32 dwSubStringCount, PSTR* plpszSubStringArray, uint32 dwErrorCode, uint32 dwErrorIndex) => RouterLogEventStringA(hLogHandle, dwEventType, dwMessageId, dwSubStringCount, plpszSubStringArray, dwErrorCode, dwErrorIndex);
 
 	[Import("rtutils.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern void RouterLogEventExA(HANDLE hLogHandle, uint32 dwEventType, uint32 dwErrorCode, uint32 dwMessageId, PSTR ptszFormat);
+	public static void RouterLogEventEx(HANDLE hLogHandle, uint32 dwEventType, uint32 dwErrorCode, uint32 dwMessageId, PSTR ptszFormat) => RouterLogEventExA(hLogHandle, dwEventType, dwErrorCode, dwMessageId, ptszFormat);
 
 	[Import("rtutils.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern void RouterLogEventValistExA(HANDLE hLogHandle, uint32 dwEventType, uint32 dwErrorCode, uint32 dwMessageId, PSTR ptszFormat, int8* arglist);
+	public static void RouterLogEventValistEx(HANDLE hLogHandle, uint32 dwEventType, uint32 dwErrorCode, uint32 dwMessageId, PSTR ptszFormat, int8* arglist) => RouterLogEventValistExA(hLogHandle, dwEventType, dwErrorCode, dwMessageId, ptszFormat, arglist);
 
 	[Import("rtutils.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 RouterGetErrorStringA(uint32 dwErrorCode, PSTR* lplpszErrorString);
+	public static uint32 RouterGetErrorString(uint32 dwErrorCode, PSTR* lplpszErrorString) => RouterGetErrorStringA(dwErrorCode, lplpszErrorString);
 
 	[Import("rtutils.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HANDLE RouterLogRegisterW(PWSTR lpszSource);

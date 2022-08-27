@@ -3262,18 +3262,21 @@ public static
 
 	[Import("ESENT.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 JetInit3A(JET_INSTANCE* pinstance, JET_RSTINFO_A* prstInfo, uint32 grbit);
+	public static int32 JetInit3(JET_INSTANCE* pinstance, JET_RSTINFO_A* prstInfo, uint32 grbit) => JetInit3A(pinstance, prstInfo, grbit);
 
 	[Import("ESENT.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 JetInit3W(JET_INSTANCE* pinstance, JET_RSTINFO_W* prstInfo, uint32 grbit);
 
 	[Import("ESENT.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 JetCreateInstanceA(JET_INSTANCE* pinstance, int8* szInstanceName);
+	public static int32 JetCreateInstance(JET_INSTANCE* pinstance, int8* szInstanceName) => JetCreateInstanceA(pinstance, szInstanceName);
 
 	[Import("ESENT.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 JetCreateInstanceW(JET_INSTANCE* pinstance, uint16* szInstanceName);
 
 	[Import("ESENT.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 JetCreateInstance2A(JET_INSTANCE* pinstance, int8* szInstanceName, int8* szDisplayName, uint32 grbit);
+	public static int32 JetCreateInstance2(JET_INSTANCE* pinstance, int8* szInstanceName, int8* szDisplayName, uint32 grbit) => JetCreateInstance2A(pinstance, szInstanceName, szDisplayName, grbit);
 
 	[Import("ESENT.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 JetCreateInstance2W(JET_INSTANCE* pinstance, uint16* szInstanceName, uint16* szDisplayName, uint32 grbit);
@@ -3304,18 +3307,21 @@ public static
 
 	[Import("ESENT.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 JetSetSystemParameterA(JET_INSTANCE* pinstance, JET_SESID sesid, uint32 paramid, JET_API_PTR lParam, int8* szParam);
+	public static int32 JetSetSystemParameter(JET_INSTANCE* pinstance, JET_SESID sesid, uint32 paramid, JET_API_PTR lParam, int8* szParam) => JetSetSystemParameterA(pinstance, sesid, paramid, lParam, szParam);
 
 	[Import("ESENT.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 JetSetSystemParameterW(JET_INSTANCE* pinstance, JET_SESID sesid, uint32 paramid, JET_API_PTR lParam, uint16* szParam);
 
 	[Import("ESENT.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 JetGetSystemParameterA(JET_INSTANCE instance, JET_SESID sesid, uint32 paramid, JET_API_PTR* plParam, int8* szParam, uint32 cbMax);
+	public static int32 JetGetSystemParameter(JET_INSTANCE instance, JET_SESID sesid, uint32 paramid, JET_API_PTR* plParam, int8* szParam, uint32 cbMax) => JetGetSystemParameterA(instance, sesid, paramid, plParam, szParam, cbMax);
 
 	[Import("ESENT.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 JetGetSystemParameterW(JET_INSTANCE instance, JET_SESID sesid, uint32 paramid, JET_API_PTR* plParam, uint16* szParam, uint32 cbMax);
 
 	[Import("ESENT.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 JetEnableMultiInstanceA(JET_SETSYSPARAM_A* psetsysparam, uint32 csetsysparam, uint32* pcsetsucceed);
+	public static int32 JetEnableMultiInstance(JET_SETSYSPARAM_A* psetsysparam, uint32 csetsysparam, uint32* pcsetsucceed) => JetEnableMultiInstanceA(psetsysparam, csetsysparam, pcsetsucceed);
 
 	[Import("ESENT.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 JetEnableMultiInstanceW(JET_SETSYSPARAM_W* psetsysparam, uint32 csetsysparam, uint32* pcsetsucceed);
@@ -3325,6 +3331,7 @@ public static
 
 	[Import("ESENT.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 JetBeginSessionA(JET_INSTANCE instance, JET_SESID* psesid, int8* szUserName, int8* szPassword);
+	public static int32 JetBeginSession(JET_INSTANCE instance, JET_SESID* psesid, int8* szUserName, int8* szPassword) => JetBeginSessionA(instance, psesid, szUserName, szPassword);
 
 	[Import("ESENT.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 JetBeginSessionW(JET_INSTANCE instance, JET_SESID* psesid, uint16* szUserName, uint16* szPassword);
@@ -3343,174 +3350,203 @@ public static
 
 	[Import("ESENT.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 JetCreateDatabaseA(JET_SESID sesid, int8* szFilename, int8* szConnect, uint32* pdbid, uint32 grbit);
+	public static int32 JetCreateDatabase(JET_SESID sesid, int8* szFilename, int8* szConnect, uint32* pdbid, uint32 grbit) => JetCreateDatabaseA(sesid, szFilename, szConnect, pdbid, grbit);
 
 	[Import("ESENT.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 JetCreateDatabaseW(JET_SESID sesid, uint16* szFilename, uint16* szConnect, uint32* pdbid, uint32 grbit);
 
 	[Import("ESENT.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 JetCreateDatabase2A(JET_SESID sesid, int8* szFilename, uint32 cpgDatabaseSizeMax, uint32* pdbid, uint32 grbit);
+	public static int32 JetCreateDatabase2(JET_SESID sesid, int8* szFilename, uint32 cpgDatabaseSizeMax, uint32* pdbid, uint32 grbit) => JetCreateDatabase2A(sesid, szFilename, cpgDatabaseSizeMax, pdbid, grbit);
 
 	[Import("ESENT.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 JetCreateDatabase2W(JET_SESID sesid, uint16* szFilename, uint32 cpgDatabaseSizeMax, uint32* pdbid, uint32 grbit);
 
 	[Import("ESENT.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 JetAttachDatabaseA(JET_SESID sesid, int8* szFilename, uint32 grbit);
+	public static int32 JetAttachDatabase(JET_SESID sesid, int8* szFilename, uint32 grbit) => JetAttachDatabaseA(sesid, szFilename, grbit);
 
 	[Import("ESENT.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 JetAttachDatabaseW(JET_SESID sesid, uint16* szFilename, uint32 grbit);
 
 	[Import("ESENT.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 JetAttachDatabase2A(JET_SESID sesid, int8* szFilename, uint32 cpgDatabaseSizeMax, uint32 grbit);
+	public static int32 JetAttachDatabase2(JET_SESID sesid, int8* szFilename, uint32 cpgDatabaseSizeMax, uint32 grbit) => JetAttachDatabase2A(sesid, szFilename, cpgDatabaseSizeMax, grbit);
 
 	[Import("ESENT.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 JetAttachDatabase2W(JET_SESID sesid, uint16* szFilename, uint32 cpgDatabaseSizeMax, uint32 grbit);
 
 	[Import("ESENT.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 JetDetachDatabaseA(JET_SESID sesid, int8* szFilename);
+	public static int32 JetDetachDatabase(JET_SESID sesid, int8* szFilename) => JetDetachDatabaseA(sesid, szFilename);
 
 	[Import("ESENT.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 JetDetachDatabaseW(JET_SESID sesid, uint16* szFilename);
 
 	[Import("ESENT.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 JetDetachDatabase2A(JET_SESID sesid, int8* szFilename, uint32 grbit);
+	public static int32 JetDetachDatabase2(JET_SESID sesid, int8* szFilename, uint32 grbit) => JetDetachDatabase2A(sesid, szFilename, grbit);
 
 	[Import("ESENT.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 JetDetachDatabase2W(JET_SESID sesid, uint16* szFilename, uint32 grbit);
 
 	[Import("ESENT.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 JetGetObjectInfoA(JET_SESID sesid, uint32 dbid, uint32 objtyp, int8* szContainerName, int8* szObjectName, void* pvResult, uint32 cbMax, uint32 InfoLevel);
+	public static int32 JetGetObjectInfo(JET_SESID sesid, uint32 dbid, uint32 objtyp, int8* szContainerName, int8* szObjectName, void* pvResult, uint32 cbMax, uint32 InfoLevel) => JetGetObjectInfoA(sesid, dbid, objtyp, szContainerName, szObjectName, pvResult, cbMax, InfoLevel);
 
 	[Import("ESENT.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 JetGetObjectInfoW(JET_SESID sesid, uint32 dbid, uint32 objtyp, uint16* szContainerName, uint16* szObjectName, void* pvResult, uint32 cbMax, uint32 InfoLevel);
 
 	[Import("ESENT.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 JetGetTableInfoA(JET_SESID sesid, JET_TABLEID tableid, void* pvResult, uint32 cbMax, uint32 InfoLevel);
+	public static int32 JetGetTableInfo(JET_SESID sesid, JET_TABLEID tableid, void* pvResult, uint32 cbMax, uint32 InfoLevel) => JetGetTableInfoA(sesid, tableid, pvResult, cbMax, InfoLevel);
 
 	[Import("ESENT.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 JetGetTableInfoW(JET_SESID sesid, JET_TABLEID tableid, void* pvResult, uint32 cbMax, uint32 InfoLevel);
 
 	[Import("ESENT.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 JetCreateTableA(JET_SESID sesid, uint32 dbid, int8* szTableName, uint32 lPages, uint32 lDensity, JET_TABLEID* ptableid);
+	public static int32 JetCreateTable(JET_SESID sesid, uint32 dbid, int8* szTableName, uint32 lPages, uint32 lDensity, JET_TABLEID* ptableid) => JetCreateTableA(sesid, dbid, szTableName, lPages, lDensity, ptableid);
 
 	[Import("ESENT.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 JetCreateTableW(JET_SESID sesid, uint32 dbid, uint16* szTableName, uint32 lPages, uint32 lDensity, JET_TABLEID* ptableid);
 
 	[Import("ESENT.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 JetCreateTableColumnIndexA(JET_SESID sesid, uint32 dbid, JET_TABLECREATE_A* ptablecreate);
+	public static int32 JetCreateTableColumnIndex(JET_SESID sesid, uint32 dbid, JET_TABLECREATE_A* ptablecreate) => JetCreateTableColumnIndexA(sesid, dbid, ptablecreate);
 
 	[Import("ESENT.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 JetCreateTableColumnIndexW(JET_SESID sesid, uint32 dbid, JET_TABLECREATE_W* ptablecreate);
 
 	[Import("ESENT.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 JetCreateTableColumnIndex2A(JET_SESID sesid, uint32 dbid, JET_TABLECREATE2_A* ptablecreate);
+	public static int32 JetCreateTableColumnIndex2(JET_SESID sesid, uint32 dbid, JET_TABLECREATE2_A* ptablecreate) => JetCreateTableColumnIndex2A(sesid, dbid, ptablecreate);
 
 	[Import("ESENT.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 JetCreateTableColumnIndex2W(JET_SESID sesid, uint32 dbid, JET_TABLECREATE2_W* ptablecreate);
 
 	[Import("ESENT.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 JetCreateTableColumnIndex3A(JET_SESID sesid, uint32 dbid, JET_TABLECREATE3_A* ptablecreate);
+	public static int32 JetCreateTableColumnIndex3(JET_SESID sesid, uint32 dbid, JET_TABLECREATE3_A* ptablecreate) => JetCreateTableColumnIndex3A(sesid, dbid, ptablecreate);
 
 	[Import("ESENT.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 JetCreateTableColumnIndex3W(JET_SESID sesid, uint32 dbid, JET_TABLECREATE3_W* ptablecreate);
 
 	[Import("ESENT.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 JetCreateTableColumnIndex4A(JET_SESID sesid, uint32 dbid, JET_TABLECREATE4_A* ptablecreate);
+	public static int32 JetCreateTableColumnIndex4(JET_SESID sesid, uint32 dbid, JET_TABLECREATE4_A* ptablecreate) => JetCreateTableColumnIndex4A(sesid, dbid, ptablecreate);
 
 	[Import("ESENT.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 JetCreateTableColumnIndex4W(JET_SESID sesid, uint32 dbid, JET_TABLECREATE4_W* ptablecreate);
 
 	[Import("ESENT.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 JetDeleteTableA(JET_SESID sesid, uint32 dbid, int8* szTableName);
+	public static int32 JetDeleteTable(JET_SESID sesid, uint32 dbid, int8* szTableName) => JetDeleteTableA(sesid, dbid, szTableName);
 
 	[Import("ESENT.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 JetDeleteTableW(JET_SESID sesid, uint32 dbid, uint16* szTableName);
 
 	[Import("ESENT.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 JetRenameTableA(JET_SESID sesid, uint32 dbid, int8* szName, int8* szNameNew);
+	public static int32 JetRenameTable(JET_SESID sesid, uint32 dbid, int8* szName, int8* szNameNew) => JetRenameTableA(sesid, dbid, szName, szNameNew);
 
 	[Import("ESENT.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 JetRenameTableW(JET_SESID sesid, uint32 dbid, uint16* szName, uint16* szNameNew);
 
 	[Import("ESENT.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 JetGetTableColumnInfoA(JET_SESID sesid, JET_TABLEID tableid, int8* szColumnName, void* pvResult, uint32 cbMax, uint32 InfoLevel);
+	public static int32 JetGetTableColumnInfo(JET_SESID sesid, JET_TABLEID tableid, int8* szColumnName, void* pvResult, uint32 cbMax, uint32 InfoLevel) => JetGetTableColumnInfoA(sesid, tableid, szColumnName, pvResult, cbMax, InfoLevel);
 
 	[Import("ESENT.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 JetGetTableColumnInfoW(JET_SESID sesid, JET_TABLEID tableid, uint16* szColumnName, void* pvResult, uint32 cbMax, uint32 InfoLevel);
 
 	[Import("ESENT.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 JetGetColumnInfoA(JET_SESID sesid, uint32 dbid, int8* szTableName, int8* pColumnNameOrId, void* pvResult, uint32 cbMax, uint32 InfoLevel);
+	public static int32 JetGetColumnInfo(JET_SESID sesid, uint32 dbid, int8* szTableName, int8* pColumnNameOrId, void* pvResult, uint32 cbMax, uint32 InfoLevel) => JetGetColumnInfoA(sesid, dbid, szTableName, pColumnNameOrId, pvResult, cbMax, InfoLevel);
 
 	[Import("ESENT.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 JetGetColumnInfoW(JET_SESID sesid, uint32 dbid, uint16* szTableName, uint16* pwColumnNameOrId, void* pvResult, uint32 cbMax, uint32 InfoLevel);
 
 	[Import("ESENT.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 JetAddColumnA(JET_SESID sesid, JET_TABLEID tableid, int8* szColumnName, JET_COLUMNDEF* pcolumndef, void* pvDefault, uint32 cbDefault, uint32* pcolumnid);
+	public static int32 JetAddColumn(JET_SESID sesid, JET_TABLEID tableid, int8* szColumnName, JET_COLUMNDEF* pcolumndef, void* pvDefault, uint32 cbDefault, uint32* pcolumnid) => JetAddColumnA(sesid, tableid, szColumnName, pcolumndef, pvDefault, cbDefault, pcolumnid);
 
 	[Import("ESENT.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 JetAddColumnW(JET_SESID sesid, JET_TABLEID tableid, uint16* szColumnName, JET_COLUMNDEF* pcolumndef, void* pvDefault, uint32 cbDefault, uint32* pcolumnid);
 
 	[Import("ESENT.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 JetDeleteColumnA(JET_SESID sesid, JET_TABLEID tableid, int8* szColumnName);
+	public static int32 JetDeleteColumn(JET_SESID sesid, JET_TABLEID tableid, int8* szColumnName) => JetDeleteColumnA(sesid, tableid, szColumnName);
 
 	[Import("ESENT.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 JetDeleteColumnW(JET_SESID sesid, JET_TABLEID tableid, uint16* szColumnName);
 
 	[Import("ESENT.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 JetDeleteColumn2A(JET_SESID sesid, JET_TABLEID tableid, int8* szColumnName, uint32 grbit);
+	public static int32 JetDeleteColumn2(JET_SESID sesid, JET_TABLEID tableid, int8* szColumnName, uint32 grbit) => JetDeleteColumn2A(sesid, tableid, szColumnName, grbit);
 
 	[Import("ESENT.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 JetDeleteColumn2W(JET_SESID sesid, JET_TABLEID tableid, uint16* szColumnName, uint32 grbit);
 
 	[Import("ESENT.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 JetRenameColumnA(JET_SESID sesid, JET_TABLEID tableid, int8* szName, int8* szNameNew, uint32 grbit);
+	public static int32 JetRenameColumn(JET_SESID sesid, JET_TABLEID tableid, int8* szName, int8* szNameNew, uint32 grbit) => JetRenameColumnA(sesid, tableid, szName, szNameNew, grbit);
 
 	[Import("ESENT.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 JetRenameColumnW(JET_SESID sesid, JET_TABLEID tableid, uint16* szName, uint16* szNameNew, uint32 grbit);
 
 	[Import("ESENT.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 JetSetColumnDefaultValueA(JET_SESID sesid, uint32 dbid, int8* szTableName, int8* szColumnName, void* pvData, uint32 cbData, uint32 grbit);
+	public static int32 JetSetColumnDefaultValue(JET_SESID sesid, uint32 dbid, int8* szTableName, int8* szColumnName, void* pvData, uint32 cbData, uint32 grbit) => JetSetColumnDefaultValueA(sesid, dbid, szTableName, szColumnName, pvData, cbData, grbit);
 
 	[Import("ESENT.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 JetSetColumnDefaultValueW(JET_SESID sesid, uint32 dbid, uint16* szTableName, uint16* szColumnName, void* pvData, uint32 cbData, uint32 grbit);
 
 	[Import("ESENT.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 JetGetTableIndexInfoA(JET_SESID sesid, JET_TABLEID tableid, int8* szIndexName, void* pvResult, uint32 cbResult, uint32 InfoLevel);
+	public static int32 JetGetTableIndexInfo(JET_SESID sesid, JET_TABLEID tableid, int8* szIndexName, void* pvResult, uint32 cbResult, uint32 InfoLevel) => JetGetTableIndexInfoA(sesid, tableid, szIndexName, pvResult, cbResult, InfoLevel);
 
 	[Import("ESENT.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 JetGetTableIndexInfoW(JET_SESID sesid, JET_TABLEID tableid, uint16* szIndexName, void* pvResult, uint32 cbResult, uint32 InfoLevel);
 
 	[Import("ESENT.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 JetGetIndexInfoA(JET_SESID sesid, uint32 dbid, int8* szTableName, int8* szIndexName, void* pvResult, uint32 cbResult, uint32 InfoLevel);
+	public static int32 JetGetIndexInfo(JET_SESID sesid, uint32 dbid, int8* szTableName, int8* szIndexName, void* pvResult, uint32 cbResult, uint32 InfoLevel) => JetGetIndexInfoA(sesid, dbid, szTableName, szIndexName, pvResult, cbResult, InfoLevel);
 
 	[Import("ESENT.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 JetGetIndexInfoW(JET_SESID sesid, uint32 dbid, uint16* szTableName, uint16* szIndexName, void* pvResult, uint32 cbResult, uint32 InfoLevel);
 
 	[Import("ESENT.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 JetCreateIndexA(JET_SESID sesid, JET_TABLEID tableid, int8* szIndexName, uint32 grbit, PSTR szKey, uint32 cbKey, uint32 lDensity);
+	public static int32 JetCreateIndex(JET_SESID sesid, JET_TABLEID tableid, int8* szIndexName, uint32 grbit, PSTR szKey, uint32 cbKey, uint32 lDensity) => JetCreateIndexA(sesid, tableid, szIndexName, grbit, szKey, cbKey, lDensity);
 
 	[Import("ESENT.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 JetCreateIndexW(JET_SESID sesid, JET_TABLEID tableid, uint16* szIndexName, uint32 grbit, PWSTR szKey, uint32 cbKey, uint32 lDensity);
 
 	[Import("ESENT.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 JetCreateIndex2A(JET_SESID sesid, JET_TABLEID tableid, JET_INDEXCREATE_A* pindexcreate, uint32 cIndexCreate);
+	public static int32 JetCreateIndex2(JET_SESID sesid, JET_TABLEID tableid, JET_INDEXCREATE_A* pindexcreate, uint32 cIndexCreate) => JetCreateIndex2A(sesid, tableid, pindexcreate, cIndexCreate);
 
 	[Import("ESENT.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 JetCreateIndex2W(JET_SESID sesid, JET_TABLEID tableid, JET_INDEXCREATE_W* pindexcreate, uint32 cIndexCreate);
 
 	[Import("ESENT.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 JetCreateIndex3A(JET_SESID sesid, JET_TABLEID tableid, JET_INDEXCREATE2_A* pindexcreate, uint32 cIndexCreate);
+	public static int32 JetCreateIndex3(JET_SESID sesid, JET_TABLEID tableid, JET_INDEXCREATE2_A* pindexcreate, uint32 cIndexCreate) => JetCreateIndex3A(sesid, tableid, pindexcreate, cIndexCreate);
 
 	[Import("ESENT.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 JetCreateIndex3W(JET_SESID sesid, JET_TABLEID tableid, JET_INDEXCREATE2_W* pindexcreate, uint32 cIndexCreate);
 
 	[Import("ESENT.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 JetCreateIndex4A(JET_SESID sesid, JET_TABLEID tableid, JET_INDEXCREATE3_A* pindexcreate, uint32 cIndexCreate);
+	public static int32 JetCreateIndex4(JET_SESID sesid, JET_TABLEID tableid, JET_INDEXCREATE3_A* pindexcreate, uint32 cIndexCreate) => JetCreateIndex4A(sesid, tableid, pindexcreate, cIndexCreate);
 
 	[Import("ESENT.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 JetCreateIndex4W(JET_SESID sesid, JET_TABLEID tableid, JET_INDEXCREATE3_W* pindexcreate, uint32 cIndexCreate);
 
 	[Import("ESENT.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 JetDeleteIndexA(JET_SESID sesid, JET_TABLEID tableid, int8* szIndexName);
+	public static int32 JetDeleteIndex(JET_SESID sesid, JET_TABLEID tableid, int8* szIndexName) => JetDeleteIndexA(sesid, tableid, szIndexName);
 
 	[Import("ESENT.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 JetDeleteIndexW(JET_SESID sesid, JET_TABLEID tableid, uint16* szIndexName);
@@ -3535,18 +3571,21 @@ public static
 
 	[Import("ESENT.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 JetGetDatabaseInfoA(JET_SESID sesid, uint32 dbid, void* pvResult, uint32 cbMax, uint32 InfoLevel);
+	public static int32 JetGetDatabaseInfo(JET_SESID sesid, uint32 dbid, void* pvResult, uint32 cbMax, uint32 InfoLevel) => JetGetDatabaseInfoA(sesid, dbid, pvResult, cbMax, InfoLevel);
 
 	[Import("ESENT.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 JetGetDatabaseInfoW(JET_SESID sesid, uint32 dbid, void* pvResult, uint32 cbMax, uint32 InfoLevel);
 
 	[Import("ESENT.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 JetGetDatabaseFileInfoA(int8* szDatabaseName, void* pvResult, uint32 cbMax, uint32 InfoLevel);
+	public static int32 JetGetDatabaseFileInfo(int8* szDatabaseName, void* pvResult, uint32 cbMax, uint32 InfoLevel) => JetGetDatabaseFileInfoA(szDatabaseName, pvResult, cbMax, InfoLevel);
 
 	[Import("ESENT.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 JetGetDatabaseFileInfoW(uint16* szDatabaseName, void* pvResult, uint32 cbMax, uint32 InfoLevel);
 
 	[Import("ESENT.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 JetOpenDatabaseA(JET_SESID sesid, int8* szFilename, int8* szConnect, uint32* pdbid, uint32 grbit);
+	public static int32 JetOpenDatabase(JET_SESID sesid, int8* szFilename, int8* szConnect, uint32* pdbid, uint32 grbit) => JetOpenDatabaseA(sesid, szFilename, szConnect, pdbid, grbit);
 
 	[Import("ESENT.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 JetOpenDatabaseW(JET_SESID sesid, uint16* szFilename, uint16* szConnect, uint32* pdbid, uint32 grbit);
@@ -3556,6 +3595,7 @@ public static
 
 	[Import("ESENT.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 JetOpenTableA(JET_SESID sesid, uint32 dbid, int8* szTableName, void* pvParameters, uint32 cbParameters, uint32 grbit, JET_TABLEID* ptableid);
+	public static int32 JetOpenTable(JET_SESID sesid, uint32 dbid, int8* szTableName, void* pvParameters, uint32 cbParameters, uint32 grbit, JET_TABLEID* ptableid) => JetOpenTableA(sesid, dbid, szTableName, pvParameters, cbParameters, grbit, ptableid);
 
 	[Import("ESENT.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 JetOpenTableW(JET_SESID sesid, uint32 dbid, uint16* szTableName, void* pvParameters, uint32 cbParameters, uint32 grbit, JET_TABLEID* ptableid);
@@ -3619,30 +3659,35 @@ public static
 
 	[Import("ESENT.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 JetGetCurrentIndexA(JET_SESID sesid, JET_TABLEID tableid, int8* szIndexName, uint32 cbIndexName);
+	public static int32 JetGetCurrentIndex(JET_SESID sesid, JET_TABLEID tableid, int8* szIndexName, uint32 cbIndexName) => JetGetCurrentIndexA(sesid, tableid, szIndexName, cbIndexName);
 
 	[Import("ESENT.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 JetGetCurrentIndexW(JET_SESID sesid, JET_TABLEID tableid, uint16* szIndexName, uint32 cbIndexName);
 
 	[Import("ESENT.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 JetSetCurrentIndexA(JET_SESID sesid, JET_TABLEID tableid, int8* szIndexName);
+	public static int32 JetSetCurrentIndex(JET_SESID sesid, JET_TABLEID tableid, int8* szIndexName) => JetSetCurrentIndexA(sesid, tableid, szIndexName);
 
 	[Import("ESENT.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 JetSetCurrentIndexW(JET_SESID sesid, JET_TABLEID tableid, uint16* szIndexName);
 
 	[Import("ESENT.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 JetSetCurrentIndex2A(JET_SESID sesid, JET_TABLEID tableid, int8* szIndexName, uint32 grbit);
+	public static int32 JetSetCurrentIndex2(JET_SESID sesid, JET_TABLEID tableid, int8* szIndexName, uint32 grbit) => JetSetCurrentIndex2A(sesid, tableid, szIndexName, grbit);
 
 	[Import("ESENT.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 JetSetCurrentIndex2W(JET_SESID sesid, JET_TABLEID tableid, uint16* szIndexName, uint32 grbit);
 
 	[Import("ESENT.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 JetSetCurrentIndex3A(JET_SESID sesid, JET_TABLEID tableid, int8* szIndexName, uint32 grbit, uint32 itagSequence);
+	public static int32 JetSetCurrentIndex3(JET_SESID sesid, JET_TABLEID tableid, int8* szIndexName, uint32 grbit, uint32 itagSequence) => JetSetCurrentIndex3A(sesid, tableid, szIndexName, grbit, itagSequence);
 
 	[Import("ESENT.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 JetSetCurrentIndex3W(JET_SESID sesid, JET_TABLEID tableid, uint16* szIndexName, uint32 grbit, uint32 itagSequence);
 
 	[Import("ESENT.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 JetSetCurrentIndex4A(JET_SESID sesid, JET_TABLEID tableid, int8* szIndexName, JET_INDEXID* pindexid, uint32 grbit, uint32 itagSequence);
+	public static int32 JetSetCurrentIndex4(JET_SESID sesid, JET_TABLEID tableid, int8* szIndexName, JET_INDEXID* pindexid, uint32 grbit, uint32 itagSequence) => JetSetCurrentIndex4A(sesid, tableid, szIndexName, pindexid, grbit, itagSequence);
 
 	[Import("ESENT.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 JetSetCurrentIndex4W(JET_SESID sesid, JET_TABLEID tableid, uint16* szIndexName, JET_INDEXID* pindexid, uint32 grbit, uint32 itagSequence);
@@ -3676,30 +3721,35 @@ public static
 
 	[Import("ESENT.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 JetCompactA(JET_SESID sesid, int8* szDatabaseSrc, int8* szDatabaseDest, JET_PFNSTATUS pfnStatus, CONVERT_A* pconvert, uint32 grbit);
+	public static int32 JetCompact(JET_SESID sesid, int8* szDatabaseSrc, int8* szDatabaseDest, JET_PFNSTATUS pfnStatus, CONVERT_A* pconvert, uint32 grbit) => JetCompactA(sesid, szDatabaseSrc, szDatabaseDest, pfnStatus, pconvert, grbit);
 
 	[Import("ESENT.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 JetCompactW(JET_SESID sesid, uint16* szDatabaseSrc, uint16* szDatabaseDest, JET_PFNSTATUS pfnStatus, CONVERT_W* pconvert, uint32 grbit);
 
 	[Import("ESENT.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 JetDefragmentA(JET_SESID sesid, uint32 dbid, int8* szTableName, uint32* pcPasses, uint32* pcSeconds, uint32 grbit);
+	public static int32 JetDefragment(JET_SESID sesid, uint32 dbid, int8* szTableName, uint32* pcPasses, uint32* pcSeconds, uint32 grbit) => JetDefragmentA(sesid, dbid, szTableName, pcPasses, pcSeconds, grbit);
 
 	[Import("ESENT.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 JetDefragmentW(JET_SESID sesid, uint32 dbid, uint16* szTableName, uint32* pcPasses, uint32* pcSeconds, uint32 grbit);
 
 	[Import("ESENT.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 JetDefragment2A(JET_SESID sesid, uint32 dbid, int8* szTableName, uint32* pcPasses, uint32* pcSeconds, JET_CALLBACK callback, uint32 grbit);
+	public static int32 JetDefragment2(JET_SESID sesid, uint32 dbid, int8* szTableName, uint32* pcPasses, uint32* pcSeconds, JET_CALLBACK callback, uint32 grbit) => JetDefragment2A(sesid, dbid, szTableName, pcPasses, pcSeconds, callback, grbit);
 
 	[Import("ESENT.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 JetDefragment2W(JET_SESID sesid, uint32 dbid, uint16* szTableName, uint32* pcPasses, uint32* pcSeconds, JET_CALLBACK callback, uint32 grbit);
 
 	[Import("ESENT.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 JetDefragment3A(JET_SESID sesid, int8* szDatabaseName, int8* szTableName, uint32* pcPasses, uint32* pcSeconds, JET_CALLBACK callback, void* pvContext, uint32 grbit);
+	public static int32 JetDefragment3(JET_SESID sesid, int8* szDatabaseName, int8* szTableName, uint32* pcPasses, uint32* pcSeconds, JET_CALLBACK callback, void* pvContext, uint32 grbit) => JetDefragment3A(sesid, szDatabaseName, szTableName, pcPasses, pcSeconds, callback, pvContext, grbit);
 
 	[Import("ESENT.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 JetDefragment3W(JET_SESID sesid, uint16* szDatabaseName, uint16* szTableName, uint32* pcPasses, uint32* pcSeconds, JET_CALLBACK callback, void* pvContext, uint32 grbit);
 
 	[Import("ESENT.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 JetSetDatabaseSizeA(JET_SESID sesid, int8* szDatabaseName, uint32 cpg, uint32* pcpgReal);
+	public static int32 JetSetDatabaseSize(JET_SESID sesid, int8* szDatabaseName, uint32 cpg, uint32* pcpgReal) => JetSetDatabaseSizeA(sesid, szDatabaseName, cpg, pcpgReal);
 
 	[Import("ESENT.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 JetSetDatabaseSizeW(JET_SESID sesid, uint16* szDatabaseName, uint32 cpg, uint32* pcpgReal);
@@ -3745,30 +3795,35 @@ public static
 
 	[Import("ESENT.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 JetBackupA(int8* szBackupPath, uint32 grbit, JET_PFNSTATUS pfnStatus);
+	public static int32 JetBackup(int8* szBackupPath, uint32 grbit, JET_PFNSTATUS pfnStatus) => JetBackupA(szBackupPath, grbit, pfnStatus);
 
 	[Import("ESENT.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 JetBackupW(uint16* szBackupPath, uint32 grbit, JET_PFNSTATUS pfnStatus);
 
 	[Import("ESENT.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 JetBackupInstanceA(JET_INSTANCE instance, int8* szBackupPath, uint32 grbit, JET_PFNSTATUS pfnStatus);
+	public static int32 JetBackupInstance(JET_INSTANCE instance, int8* szBackupPath, uint32 grbit, JET_PFNSTATUS pfnStatus) => JetBackupInstanceA(instance, szBackupPath, grbit, pfnStatus);
 
 	[Import("ESENT.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 JetBackupInstanceW(JET_INSTANCE instance, uint16* szBackupPath, uint32 grbit, JET_PFNSTATUS pfnStatus);
 
 	[Import("ESENT.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 JetRestoreA(int8* szSource, JET_PFNSTATUS pfn);
+	public static int32 JetRestore(int8* szSource, JET_PFNSTATUS pfn) => JetRestoreA(szSource, pfn);
 
 	[Import("ESENT.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 JetRestoreW(uint16* szSource, JET_PFNSTATUS pfn);
 
 	[Import("ESENT.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 JetRestore2A(int8* sz, int8* szDest, JET_PFNSTATUS pfn);
+	public static int32 JetRestore2(int8* sz, int8* szDest, JET_PFNSTATUS pfn) => JetRestore2A(sz, szDest, pfn);
 
 	[Import("ESENT.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 JetRestore2W(uint16* sz, uint16* szDest, JET_PFNSTATUS pfn);
 
 	[Import("ESENT.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 JetRestoreInstanceA(JET_INSTANCE instance, int8* sz, int8* szDest, JET_PFNSTATUS pfn);
+	public static int32 JetRestoreInstance(JET_INSTANCE instance, int8* sz, int8* szDest, JET_PFNSTATUS pfn) => JetRestoreInstanceA(instance, sz, szDest, pfn);
 
 	[Import("ESENT.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 JetRestoreInstanceW(JET_INSTANCE instance, uint16* sz, uint16* szDest, JET_PFNSTATUS pfn);
@@ -3790,24 +3845,28 @@ public static
 
 	[Import("ESENT.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 JetGetAttachInfoA(int8* szzDatabases, uint32 cbMax, uint32* pcbActual);
+	public static int32 JetGetAttachInfo(int8* szzDatabases, uint32 cbMax, uint32* pcbActual) => JetGetAttachInfoA(szzDatabases, cbMax, pcbActual);
 
 	[Import("ESENT.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 JetGetAttachInfoW(uint16* wszzDatabases, uint32 cbMax, uint32* pcbActual);
 
 	[Import("ESENT.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 JetGetAttachInfoInstanceA(JET_INSTANCE instance, int8* szzDatabases, uint32 cbMax, uint32* pcbActual);
+	public static int32 JetGetAttachInfoInstance(JET_INSTANCE instance, int8* szzDatabases, uint32 cbMax, uint32* pcbActual) => JetGetAttachInfoInstanceA(instance, szzDatabases, cbMax, pcbActual);
 
 	[Import("ESENT.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 JetGetAttachInfoInstanceW(JET_INSTANCE instance, uint16* szzDatabases, uint32 cbMax, uint32* pcbActual);
 
 	[Import("ESENT.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 JetOpenFileA(int8* szFileName, JET_HANDLE* phfFile, uint32* pulFileSizeLow, uint32* pulFileSizeHigh);
+	public static int32 JetOpenFile(int8* szFileName, JET_HANDLE* phfFile, uint32* pulFileSizeLow, uint32* pulFileSizeHigh) => JetOpenFileA(szFileName, phfFile, pulFileSizeLow, pulFileSizeHigh);
 
 	[Import("ESENT.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 JetOpenFileW(uint16* szFileName, JET_HANDLE* phfFile, uint32* pulFileSizeLow, uint32* pulFileSizeHigh);
 
 	[Import("ESENT.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 JetOpenFileInstanceA(JET_INSTANCE instance, int8* szFileName, JET_HANDLE* phfFile, uint32* pulFileSizeLow, uint32* pulFileSizeHigh);
+	public static int32 JetOpenFileInstance(JET_INSTANCE instance, int8* szFileName, JET_HANDLE* phfFile, uint32* pulFileSizeLow, uint32* pulFileSizeHigh) => JetOpenFileInstanceA(instance, szFileName, phfFile, pulFileSizeLow, pulFileSizeHigh);
 
 	[Import("ESENT.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 JetOpenFileInstanceW(JET_INSTANCE instance, uint16* szFileName, JET_HANDLE* phfFile, uint32* pulFileSizeLow, uint32* pulFileSizeHigh);
@@ -3826,24 +3885,28 @@ public static
 
 	[Import("ESENT.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 JetGetLogInfoA(int8* szzLogs, uint32 cbMax, uint32* pcbActual);
+	public static int32 JetGetLogInfo(int8* szzLogs, uint32 cbMax, uint32* pcbActual) => JetGetLogInfoA(szzLogs, cbMax, pcbActual);
 
 	[Import("ESENT.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 JetGetLogInfoW(uint16* szzLogs, uint32 cbMax, uint32* pcbActual);
 
 	[Import("ESENT.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 JetGetLogInfoInstanceA(JET_INSTANCE instance, int8* szzLogs, uint32 cbMax, uint32* pcbActual);
+	public static int32 JetGetLogInfoInstance(JET_INSTANCE instance, int8* szzLogs, uint32 cbMax, uint32* pcbActual) => JetGetLogInfoInstanceA(instance, szzLogs, cbMax, pcbActual);
 
 	[Import("ESENT.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 JetGetLogInfoInstanceW(JET_INSTANCE instance, uint16* wszzLogs, uint32 cbMax, uint32* pcbActual);
 
 	[Import("ESENT.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 JetGetLogInfoInstance2A(JET_INSTANCE instance, int8* szzLogs, uint32 cbMax, uint32* pcbActual, JET_LOGINFO_A* pLogInfo);
+	public static int32 JetGetLogInfoInstance2(JET_INSTANCE instance, int8* szzLogs, uint32 cbMax, uint32* pcbActual, JET_LOGINFO_A* pLogInfo) => JetGetLogInfoInstance2A(instance, szzLogs, cbMax, pcbActual, pLogInfo);
 
 	[Import("ESENT.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 JetGetLogInfoInstance2W(JET_INSTANCE instance, uint16* wszzLogs, uint32 cbMax, uint32* pcbActual, JET_LOGINFO_W* pLogInfo);
 
 	[Import("ESENT.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 JetGetTruncateLogInfoInstanceA(JET_INSTANCE instance, int8* szzLogs, uint32 cbMax, uint32* pcbActual);
+	public static int32 JetGetTruncateLogInfoInstance(JET_INSTANCE instance, int8* szzLogs, uint32 cbMax, uint32* pcbActual) => JetGetTruncateLogInfoInstanceA(instance, szzLogs, cbMax, pcbActual);
 
 	[Import("ESENT.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 JetGetTruncateLogInfoInstanceW(JET_INSTANCE instance, uint16* wszzLogs, uint32 cbMax, uint32* pcbActual);
@@ -3865,12 +3928,14 @@ public static
 
 	[Import("ESENT.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 JetExternalRestoreA(int8* szCheckpointFilePath, int8* szLogPath, JET_RSTMAP_A* rgrstmap, int32 crstfilemap, int8* szBackupLogPath, int32 genLow, int32 genHigh, JET_PFNSTATUS pfn);
+	public static int32 JetExternalRestore(int8* szCheckpointFilePath, int8* szLogPath, JET_RSTMAP_A* rgrstmap, int32 crstfilemap, int8* szBackupLogPath, int32 genLow, int32 genHigh, JET_PFNSTATUS pfn) => JetExternalRestoreA(szCheckpointFilePath, szLogPath, rgrstmap, crstfilemap, szBackupLogPath, genLow, genHigh, pfn);
 
 	[Import("ESENT.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 JetExternalRestoreW(uint16* szCheckpointFilePath, uint16* szLogPath, JET_RSTMAP_W* rgrstmap, int32 crstfilemap, uint16* szBackupLogPath, int32 genLow, int32 genHigh, JET_PFNSTATUS pfn);
 
 	[Import("ESENT.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 JetExternalRestore2A(int8* szCheckpointFilePath, int8* szLogPath, JET_RSTMAP_A* rgrstmap, int32 crstfilemap, int8* szBackupLogPath, JET_LOGINFO_A* pLogInfo, int8* szTargetInstanceName, int8* szTargetInstanceLogPath, int8* szTargetInstanceCheckpointPath, JET_PFNSTATUS pfn);
+	public static int32 JetExternalRestore2(int8* szCheckpointFilePath, int8* szLogPath, JET_RSTMAP_A* rgrstmap, int32 crstfilemap, int8* szBackupLogPath, JET_LOGINFO_A* pLogInfo, int8* szTargetInstanceName, int8* szTargetInstanceLogPath, int8* szTargetInstanceCheckpointPath, JET_PFNSTATUS pfn) => JetExternalRestore2A(szCheckpointFilePath, szLogPath, rgrstmap, crstfilemap, szBackupLogPath, pLogInfo, szTargetInstanceName, szTargetInstanceLogPath, szTargetInstanceCheckpointPath, pfn);
 
 	[Import("ESENT.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 JetExternalRestore2W(uint16* szCheckpointFilePath, uint16* szLogPath, JET_RSTMAP_W* rgrstmap, int32 crstfilemap, uint16* szBackupLogPath, JET_LOGINFO_W* pLogInfo, uint16* szTargetInstanceName, uint16* szTargetInstanceLogPath, uint16* szTargetInstanceCheckpointPath, JET_PFNSTATUS pfn);
@@ -3883,6 +3948,7 @@ public static
 
 	[Import("ESENT.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 JetGetInstanceInfoA(uint32* pcInstanceInfo, JET_INSTANCE_INFO_A** paInstanceInfo);
+	public static int32 JetGetInstanceInfo(uint32* pcInstanceInfo, JET_INSTANCE_INFO_A** paInstanceInfo) => JetGetInstanceInfoA(pcInstanceInfo, paInstanceInfo);
 
 	[Import("ESENT.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 JetGetInstanceInfoW(uint32* pcInstanceInfo, JET_INSTANCE_INFO_W** paInstanceInfo);
@@ -3904,6 +3970,7 @@ public static
 
 	[Import("ESENT.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 JetOSSnapshotFreezeA(JET_OSSNAPID snapId, uint32* pcInstanceInfo, JET_INSTANCE_INFO_A** paInstanceInfo, uint32 grbit);
+	public static int32 JetOSSnapshotFreeze(JET_OSSNAPID snapId, uint32* pcInstanceInfo, JET_INSTANCE_INFO_A** paInstanceInfo, uint32 grbit) => JetOSSnapshotFreezeA(snapId, pcInstanceInfo, paInstanceInfo, grbit);
 
 	[Import("ESENT.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 JetOSSnapshotFreezeW(JET_OSSNAPID snapId, uint32* pcInstanceInfo, JET_INSTANCE_INFO_W** paInstanceInfo, uint32 grbit);
@@ -3922,6 +3989,7 @@ public static
 
 	[Import("ESENT.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 JetOSSnapshotGetFreezeInfoA(JET_OSSNAPID snapId, uint32* pcInstanceInfo, JET_INSTANCE_INFO_A** paInstanceInfo, uint32 grbit);
+	public static int32 JetOSSnapshotGetFreezeInfo(JET_OSSNAPID snapId, uint32* pcInstanceInfo, JET_INSTANCE_INFO_A** paInstanceInfo, uint32 grbit) => JetOSSnapshotGetFreezeInfoA(snapId, pcInstanceInfo, paInstanceInfo, grbit);
 
 	[Import("ESENT.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 JetOSSnapshotGetFreezeInfoW(JET_OSSNAPID snapId, uint32* pcInstanceInfo, JET_INSTANCE_INFO_W** paInstanceInfo, uint32 grbit);

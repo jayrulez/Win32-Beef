@@ -3597,186 +3597,217 @@ public static
 {
 	[Import("RASAPI32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 RasDialA(RASDIALEXTENSIONS* param0, PSTR param1, RASDIALPARAMSA* param2, uint32 param3, void* param4, HRASCONN* param5);
+	public static uint32 RasDial(RASDIALEXTENSIONS* param0, PSTR param1, RASDIALPARAMSA* param2, uint32 param3, void* param4, HRASCONN* param5) => RasDialA(param0, param1, param2, param3, param4, param5);
 
 	[Import("RASAPI32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 RasDialW(RASDIALEXTENSIONS* param0, PWSTR param1, RASDIALPARAMSW* param2, uint32 param3, void* param4, HRASCONN* param5);
 
 	[Import("RASAPI32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 RasEnumConnectionsA(RASCONNA* param0, uint32* param1, uint32* param2);
+	public static uint32 RasEnumConnections(RASCONNA* param0, uint32* param1, uint32* param2) => RasEnumConnectionsA(param0, param1, param2);
 
 	[Import("RASAPI32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 RasEnumConnectionsW(RASCONNW* param0, uint32* param1, uint32* param2);
 
 	[Import("RASAPI32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 RasEnumEntriesA(PSTR param0, PSTR param1, RASENTRYNAMEA* param2, uint32* param3, uint32* param4);
+	public static uint32 RasEnumEntries(PSTR param0, PSTR param1, RASENTRYNAMEA* param2, uint32* param3, uint32* param4) => RasEnumEntriesA(param0, param1, param2, param3, param4);
 
 	[Import("RASAPI32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 RasEnumEntriesW(PWSTR param0, PWSTR param1, RASENTRYNAMEW* param2, uint32* param3, uint32* param4);
 
 	[Import("RASAPI32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 RasGetConnectStatusA(HRASCONN param0, RASCONNSTATUSA* param1);
+	public static uint32 RasGetConnectStatus(HRASCONN param0, RASCONNSTATUSA* param1) => RasGetConnectStatusA(param0, param1);
 
 	[Import("RASAPI32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 RasGetConnectStatusW(HRASCONN param0, RASCONNSTATUSW* param1);
 
 	[Import("RASAPI32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 RasGetErrorStringA(uint32 ResourceId, uint8* lpszString, uint32 InBufSize);
+	public static uint32 RasGetErrorString(uint32 ResourceId, uint8* lpszString, uint32 InBufSize) => RasGetErrorStringA(ResourceId, lpszString, InBufSize);
 
 	[Import("RASAPI32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 RasGetErrorStringW(uint32 ResourceId, char8* lpszString, uint32 InBufSize);
 
 	[Import("RASAPI32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 RasHangUpA(HRASCONN param0);
+	public static uint32 RasHangUp(HRASCONN param0) => RasHangUpA(param0);
 
 	[Import("RASAPI32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 RasHangUpW(HRASCONN param0);
 
 	[Import("RASAPI32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 RasGetProjectionInfoA(HRASCONN param0, RASPROJECTION param1, void* param2, uint32* param3);
+	public static uint32 RasGetProjectionInfo(HRASCONN param0, RASPROJECTION param1, void* param2, uint32* param3) => RasGetProjectionInfoA(param0, param1, param2, param3);
 
 	[Import("RASAPI32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 RasGetProjectionInfoW(HRASCONN param0, RASPROJECTION param1, void* param2, uint32* param3);
 
 	[Import("RASAPI32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 RasCreatePhonebookEntryA(HWND param0, PSTR param1);
+	public static uint32 RasCreatePhonebookEntry(HWND param0, PSTR param1) => RasCreatePhonebookEntryA(param0, param1);
 
 	[Import("RASAPI32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 RasCreatePhonebookEntryW(HWND param0, PWSTR param1);
 
 	[Import("RASAPI32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 RasEditPhonebookEntryA(HWND param0, PSTR param1, PSTR param2);
+	public static uint32 RasEditPhonebookEntry(HWND param0, PSTR param1, PSTR param2) => RasEditPhonebookEntryA(param0, param1, param2);
 
 	[Import("RASAPI32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 RasEditPhonebookEntryW(HWND param0, PWSTR param1, PWSTR param2);
 
 	[Import("RASAPI32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 RasSetEntryDialParamsA(PSTR param0, RASDIALPARAMSA* param1, BOOL param2);
+	public static uint32 RasSetEntryDialParams(PSTR param0, RASDIALPARAMSA* param1, BOOL param2) => RasSetEntryDialParamsA(param0, param1, param2);
 
 	[Import("RASAPI32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 RasSetEntryDialParamsW(PWSTR param0, RASDIALPARAMSW* param1, BOOL param2);
 
 	[Import("RASAPI32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 RasGetEntryDialParamsA(PSTR param0, RASDIALPARAMSA* param1, int32* param2);
+	public static uint32 RasGetEntryDialParams(PSTR param0, RASDIALPARAMSA* param1, int32* param2) => RasGetEntryDialParamsA(param0, param1, param2);
 
 	[Import("RASAPI32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 RasGetEntryDialParamsW(PWSTR param0, RASDIALPARAMSW* param1, int32* param2);
 
 	[Import("RASAPI32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 RasEnumDevicesA(RASDEVINFOA* param0, uint32* param1, uint32* param2);
+	public static uint32 RasEnumDevices(RASDEVINFOA* param0, uint32* param1, uint32* param2) => RasEnumDevicesA(param0, param1, param2);
 
 	[Import("RASAPI32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 RasEnumDevicesW(RASDEVINFOW* param0, uint32* param1, uint32* param2);
 
 	[Import("RASAPI32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 RasGetCountryInfoA(RASCTRYINFO* param0, uint32* param1);
+	public static uint32 RasGetCountryInfo(RASCTRYINFO* param0, uint32* param1) => RasGetCountryInfoA(param0, param1);
 
 	[Import("RASAPI32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 RasGetCountryInfoW(RASCTRYINFO* param0, uint32* param1);
 
 	[Import("RASAPI32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 RasGetEntryPropertiesA(PSTR param0, PSTR param1, RASENTRYA* param2, uint32* param3, uint8* param4, uint32* param5);
+	public static uint32 RasGetEntryProperties(PSTR param0, PSTR param1, RASENTRYA* param2, uint32* param3, uint8* param4, uint32* param5) => RasGetEntryPropertiesA(param0, param1, param2, param3, param4, param5);
 
 	[Import("RASAPI32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 RasGetEntryPropertiesW(PWSTR param0, PWSTR param1, RASENTRYW* param2, uint32* param3, uint8* param4, uint32* param5);
 
 	[Import("RASAPI32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 RasSetEntryPropertiesA(PSTR param0, PSTR param1, RASENTRYA* param2, uint32 param3, uint8* param4, uint32 param5);
+	public static uint32 RasSetEntryProperties(PSTR param0, PSTR param1, RASENTRYA* param2, uint32 param3, uint8* param4, uint32 param5) => RasSetEntryPropertiesA(param0, param1, param2, param3, param4, param5);
 
 	[Import("RASAPI32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 RasSetEntryPropertiesW(PWSTR param0, PWSTR param1, RASENTRYW* param2, uint32 param3, uint8* param4, uint32 param5);
 
 	[Import("RASAPI32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 RasRenameEntryA(PSTR param0, PSTR param1, PSTR param2);
+	public static uint32 RasRenameEntry(PSTR param0, PSTR param1, PSTR param2) => RasRenameEntryA(param0, param1, param2);
 
 	[Import("RASAPI32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 RasRenameEntryW(PWSTR param0, PWSTR param1, PWSTR param2);
 
 	[Import("RASAPI32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 RasDeleteEntryA(PSTR param0, PSTR param1);
+	public static uint32 RasDeleteEntry(PSTR param0, PSTR param1) => RasDeleteEntryA(param0, param1);
 
 	[Import("RASAPI32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 RasDeleteEntryW(PWSTR param0, PWSTR param1);
 
 	[Import("RASAPI32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 RasValidateEntryNameA(PSTR param0, PSTR param1);
+	public static uint32 RasValidateEntryName(PSTR param0, PSTR param1) => RasValidateEntryNameA(param0, param1);
 
 	[Import("RASAPI32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 RasValidateEntryNameW(PWSTR param0, PWSTR param1);
 
 	[Import("RASAPI32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 RasConnectionNotificationA(HRASCONN param0, HANDLE param1, uint32 param2);
+	public static uint32 RasConnectionNotification(HRASCONN param0, HANDLE param1, uint32 param2) => RasConnectionNotificationA(param0, param1, param2);
 
 	[Import("RASAPI32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 RasConnectionNotificationW(HRASCONN param0, HANDLE param1, uint32 param2);
 
 	[Import("RASAPI32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 RasGetSubEntryHandleA(HRASCONN param0, uint32 param1, HRASCONN* param2);
+	public static uint32 RasGetSubEntryHandle(HRASCONN param0, uint32 param1, HRASCONN* param2) => RasGetSubEntryHandleA(param0, param1, param2);
 
 	[Import("RASAPI32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 RasGetSubEntryHandleW(HRASCONN param0, uint32 param1, HRASCONN* param2);
 
 	[Import("RASAPI32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 RasGetCredentialsA(PSTR param0, PSTR param1, RASCREDENTIALSA* param2);
+	public static uint32 RasGetCredentials(PSTR param0, PSTR param1, RASCREDENTIALSA* param2) => RasGetCredentialsA(param0, param1, param2);
 
 	[Import("RASAPI32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 RasGetCredentialsW(PWSTR param0, PWSTR param1, RASCREDENTIALSW* param2);
 
 	[Import("RASAPI32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 RasSetCredentialsA(PSTR param0, PSTR param1, RASCREDENTIALSA* param2, BOOL param3);
+	public static uint32 RasSetCredentials(PSTR param0, PSTR param1, RASCREDENTIALSA* param2, BOOL param3) => RasSetCredentialsA(param0, param1, param2, param3);
 
 	[Import("RASAPI32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 RasSetCredentialsW(PWSTR param0, PWSTR param1, RASCREDENTIALSW* param2, BOOL param3);
 
 	[Import("RASAPI32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 RasGetSubEntryPropertiesA(PSTR param0, PSTR param1, uint32 param2, RASSUBENTRYA* param3, uint32* param4, uint8* param5, uint32* param6);
+	public static uint32 RasGetSubEntryProperties(PSTR param0, PSTR param1, uint32 param2, RASSUBENTRYA* param3, uint32* param4, uint8* param5, uint32* param6) => RasGetSubEntryPropertiesA(param0, param1, param2, param3, param4, param5, param6);
 
 	[Import("RASAPI32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 RasGetSubEntryPropertiesW(PWSTR param0, PWSTR param1, uint32 param2, RASSUBENTRYW* param3, uint32* param4, uint8* param5, uint32* param6);
 
 	[Import("RASAPI32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 RasSetSubEntryPropertiesA(PSTR param0, PSTR param1, uint32 param2, RASSUBENTRYA* param3, uint32 param4, uint8* param5, uint32 param6);
+	public static uint32 RasSetSubEntryProperties(PSTR param0, PSTR param1, uint32 param2, RASSUBENTRYA* param3, uint32 param4, uint8* param5, uint32 param6) => RasSetSubEntryPropertiesA(param0, param1, param2, param3, param4, param5, param6);
 
 	[Import("RASAPI32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 RasSetSubEntryPropertiesW(PWSTR param0, PWSTR param1, uint32 param2, RASSUBENTRYW* param3, uint32 param4, uint8* param5, uint32 param6);
 
 	[Import("RASAPI32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 RasGetAutodialAddressA(PSTR param0, uint32* param1, RASAUTODIALENTRYA* param2, uint32* param3, uint32* param4);
+	public static uint32 RasGetAutodialAddress(PSTR param0, uint32* param1, RASAUTODIALENTRYA* param2, uint32* param3, uint32* param4) => RasGetAutodialAddressA(param0, param1, param2, param3, param4);
 
 	[Import("RASAPI32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 RasGetAutodialAddressW(PWSTR param0, uint32* param1, RASAUTODIALENTRYW* param2, uint32* param3, uint32* param4);
 
 	[Import("RASAPI32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 RasSetAutodialAddressA(PSTR param0, uint32 param1, RASAUTODIALENTRYA* param2, uint32 param3, uint32 param4);
+	public static uint32 RasSetAutodialAddress(PSTR param0, uint32 param1, RASAUTODIALENTRYA* param2, uint32 param3, uint32 param4) => RasSetAutodialAddressA(param0, param1, param2, param3, param4);
 
 	[Import("RASAPI32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 RasSetAutodialAddressW(PWSTR param0, uint32 param1, RASAUTODIALENTRYW* param2, uint32 param3, uint32 param4);
 
 	[Import("RASAPI32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 RasEnumAutodialAddressesA(PSTR* lppRasAutodialAddresses, uint32* lpdwcbRasAutodialAddresses, uint32* lpdwcRasAutodialAddresses);
+	public static uint32 RasEnumAutodialAddresses(PSTR* lppRasAutodialAddresses, uint32* lpdwcbRasAutodialAddresses, uint32* lpdwcRasAutodialAddresses) => RasEnumAutodialAddressesA(lppRasAutodialAddresses, lpdwcbRasAutodialAddresses, lpdwcRasAutodialAddresses);
 
 	[Import("RASAPI32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 RasEnumAutodialAddressesW(PWSTR* lppRasAutodialAddresses, uint32* lpdwcbRasAutodialAddresses, uint32* lpdwcRasAutodialAddresses);
 
 	[Import("RASAPI32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 RasGetAutodialEnableA(uint32 param0, int32* param1);
+	public static uint32 RasGetAutodialEnable(uint32 param0, int32* param1) => RasGetAutodialEnableA(param0, param1);
 
 	[Import("RASAPI32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 RasGetAutodialEnableW(uint32 param0, int32* param1);
 
 	[Import("RASAPI32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 RasSetAutodialEnableA(uint32 param0, BOOL param1);
+	public static uint32 RasSetAutodialEnable(uint32 param0, BOOL param1) => RasSetAutodialEnableA(param0, param1);
 
 	[Import("RASAPI32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 RasSetAutodialEnableW(uint32 param0, BOOL param1);
 
 	[Import("RASAPI32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 RasGetAutodialParamA(uint32 param0, void* param1, uint32* param2);
+	public static uint32 RasGetAutodialParam(uint32 param0, void* param1, uint32* param2) => RasGetAutodialParamA(param0, param1, param2);
 
 	[Import("RASAPI32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 RasGetAutodialParamW(uint32 param0, void* param1, uint32* param2);
 
 	[Import("RASAPI32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 RasSetAutodialParamA(uint32 param0, void* param1, uint32 param2);
+	public static uint32 RasSetAutodialParam(uint32 param0, void* param1, uint32 param2) => RasSetAutodialParamA(param0, param1, param2);
 
 	[Import("RASAPI32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 RasSetAutodialParamW(uint32 param0, void* param1, uint32 param2);
@@ -3801,24 +3832,28 @@ public static
 
 	[Import("RASAPI32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 RasGetEapUserDataA(HANDLE hToken, PSTR pszPhonebook, PSTR pszEntry, uint8* pbEapData, uint32* pdwSizeofEapData);
+	public static uint32 RasGetEapUserData(HANDLE hToken, PSTR pszPhonebook, PSTR pszEntry, uint8* pbEapData, uint32* pdwSizeofEapData) => RasGetEapUserDataA(hToken, pszPhonebook, pszEntry, pbEapData, pdwSizeofEapData);
 
 	[Import("RASAPI32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 RasGetEapUserDataW(HANDLE hToken, PWSTR pszPhonebook, PWSTR pszEntry, uint8* pbEapData, uint32* pdwSizeofEapData);
 
 	[Import("RASAPI32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 RasSetEapUserDataA(HANDLE hToken, PSTR pszPhonebook, PSTR pszEntry, uint8* pbEapData, uint32 dwSizeofEapData);
+	public static uint32 RasSetEapUserData(HANDLE hToken, PSTR pszPhonebook, PSTR pszEntry, uint8* pbEapData, uint32 dwSizeofEapData) => RasSetEapUserDataA(hToken, pszPhonebook, pszEntry, pbEapData, dwSizeofEapData);
 
 	[Import("RASAPI32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 RasSetEapUserDataW(HANDLE hToken, PWSTR pszPhonebook, PWSTR pszEntry, uint8* pbEapData, uint32 dwSizeofEapData);
 
 	[Import("RASAPI32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 RasGetCustomAuthDataA(PSTR pszPhonebook, PSTR pszEntry, uint8* pbCustomAuthData, uint32* pdwSizeofCustomAuthData);
+	public static uint32 RasGetCustomAuthData(PSTR pszPhonebook, PSTR pszEntry, uint8* pbCustomAuthData, uint32* pdwSizeofCustomAuthData) => RasGetCustomAuthDataA(pszPhonebook, pszEntry, pbCustomAuthData, pdwSizeofCustomAuthData);
 
 	[Import("RASAPI32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 RasGetCustomAuthDataW(PWSTR pszPhonebook, PWSTR pszEntry, uint8* pbCustomAuthData, uint32* pdwSizeofCustomAuthData);
 
 	[Import("RASAPI32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 RasSetCustomAuthDataA(PSTR pszPhonebook, PSTR pszEntry, uint8* pbCustomAuthData, uint32 dwSizeofCustomAuthData);
+	public static uint32 RasSetCustomAuthData(PSTR pszPhonebook, PSTR pszEntry, uint8* pbCustomAuthData, uint32 dwSizeofCustomAuthData) => RasSetCustomAuthDataA(pszPhonebook, pszEntry, pbCustomAuthData, dwSizeofCustomAuthData);
 
 	[Import("RASAPI32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 RasSetCustomAuthDataW(PWSTR pszPhonebook, PWSTR pszEntry, uint8* pbCustomAuthData, uint32 dwSizeofCustomAuthData);
@@ -3828,15 +3863,18 @@ public static
 
 	[Import("RASAPI32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 RasGetEapUserIdentityA(PSTR pszPhonebook, PSTR pszEntry, uint32 dwFlags, HWND hwnd, RASEAPUSERIDENTITYA** ppRasEapUserIdentity);
+	public static uint32 RasGetEapUserIdentity(PSTR pszPhonebook, PSTR pszEntry, uint32 dwFlags, HWND hwnd, RASEAPUSERIDENTITYA** ppRasEapUserIdentity) => RasGetEapUserIdentityA(pszPhonebook, pszEntry, dwFlags, hwnd, ppRasEapUserIdentity);
 
 	[Import("RASAPI32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern void RasFreeEapUserIdentityW(RASEAPUSERIDENTITYW* pRasEapUserIdentity);
 
 	[Import("RASAPI32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern void RasFreeEapUserIdentityA(RASEAPUSERIDENTITYA* pRasEapUserIdentity);
+	public static void RasFreeEapUserIdentity(RASEAPUSERIDENTITYA* pRasEapUserIdentity) => RasFreeEapUserIdentityA(pRasEapUserIdentity);
 
 	[Import("RASAPI32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 RasDeleteSubEntryA(PSTR pszPhonebook, PSTR pszEntry, uint32 dwSubentryId);
+	public static uint32 RasDeleteSubEntry(PSTR pszPhonebook, PSTR pszEntry, uint32 dwSubentryId) => RasDeleteSubEntryA(pszPhonebook, pszEntry, dwSubentryId);
 
 	[Import("RASAPI32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 RasDeleteSubEntryW(PWSTR pszPhonebook, PWSTR pszEntry, uint32 dwSubEntryId);
@@ -3849,18 +3887,21 @@ public static
 
 	[Import("RASDLG.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL RasPhonebookDlgA(PSTR lpszPhonebook, PSTR lpszEntry, RASPBDLGA* lpInfo);
+	public static BOOL RasPhonebookDlg(PSTR lpszPhonebook, PSTR lpszEntry, RASPBDLGA* lpInfo) => RasPhonebookDlgA(lpszPhonebook, lpszEntry, lpInfo);
 
 	[Import("RASDLG.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL RasPhonebookDlgW(PWSTR lpszPhonebook, PWSTR lpszEntry, RASPBDLGW* lpInfo);
 
 	[Import("RASDLG.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL RasEntryDlgA(PSTR lpszPhonebook, PSTR lpszEntry, RASENTRYDLGA* lpInfo);
+	public static BOOL RasEntryDlg(PSTR lpszPhonebook, PSTR lpszEntry, RASENTRYDLGA* lpInfo) => RasEntryDlgA(lpszPhonebook, lpszEntry, lpInfo);
 
 	[Import("RASDLG.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL RasEntryDlgW(PWSTR lpszPhonebook, PWSTR lpszEntry, RASENTRYDLGW* lpInfo);
 
 	[Import("RASDLG.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL RasDialDlgA(PSTR lpszPhonebook, PSTR lpszEntry, PSTR lpszPhoneNumber, RASDIALDLG* lpInfo);
+	public static BOOL RasDialDlg(PSTR lpszPhonebook, PSTR lpszEntry, PSTR lpszPhoneNumber, RASDIALDLG* lpInfo) => RasDialDlgA(lpszPhonebook, lpszEntry, lpszPhoneNumber, lpInfo);
 
 	[Import("RASDLG.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL RasDialDlgW(PWSTR lpszPhonebook, PWSTR lpszEntry, PWSTR lpszPhoneNumber, RASDIALDLG* lpInfo);

@@ -531,9 +531,11 @@ public static
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HANDLE CreateJobObjectA(SECURITY_ATTRIBUTES* lpJobAttributes, PSTR lpName);
+	public static HANDLE CreateJobObject(SECURITY_ATTRIBUTES* lpJobAttributes, PSTR lpName) => CreateJobObjectA(lpJobAttributes, lpName);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HANDLE OpenJobObjectA(uint32 dwDesiredAccess, BOOL bInheritHandle, PSTR lpName);
+	public static HANDLE OpenJobObject(uint32 dwDesiredAccess, BOOL bInheritHandle, PSTR lpName) => OpenJobObjectA(dwDesiredAccess, bInheritHandle, lpName);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL CreateJobSet(uint32 NumJob, JOB_SET_ARRAY* UserJobSet, uint32 Flags);

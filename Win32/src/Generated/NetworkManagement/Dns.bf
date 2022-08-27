@@ -1795,6 +1795,7 @@ public static
 
 	[Import("DNSAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 DnsQuery_A(PSTR pszName, uint16 wType, uint32 Options, void* pExtra, DNS_RECORDA** ppQueryResults, void** pReserved);
+	public static int32 DnsQuery_(PSTR pszName, uint16 wType, uint32 Options, void* pExtra, DNS_RECORDA** ppQueryResults, void** pReserved) => DnsQuery_A(pszName, wType, Options, pExtra, ppQueryResults, pReserved);
 
 	[Import("DNSAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 DnsQuery_UTF8(PSTR pszName, uint16 wType, uint32 Options, void* pExtra, DNS_RECORDA** ppQueryResults, void** pReserved);
@@ -1822,6 +1823,7 @@ public static
 
 	[Import("DNSAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 DnsAcquireContextHandle_A(uint32 CredentialFlags, void* Credentials, DnsContextHandle* pContext);
+	public static int32 DnsAcquireContextHandle_(uint32 CredentialFlags, void* Credentials, DnsContextHandle* pContext) => DnsAcquireContextHandle_A(CredentialFlags, Credentials, pContext);
 
 	[Import("DNSAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern void DnsReleaseContextHandle(HANDLE hContext);
@@ -1831,6 +1833,7 @@ public static
 
 	[Import("DNSAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 DnsModifyRecordsInSet_A(DNS_RECORDA* pAddRecords, DNS_RECORDA* pDeleteRecords, uint32 Options, HANDLE hCredentials, void* pExtraList, void* pReserved);
+	public static int32 DnsModifyRecordsInSet_(DNS_RECORDA* pAddRecords, DNS_RECORDA* pDeleteRecords, uint32 Options, HANDLE hCredentials, void* pExtraList, void* pReserved) => DnsModifyRecordsInSet_A(pAddRecords, pDeleteRecords, Options, hCredentials, pExtraList, pReserved);
 
 	[Import("DNSAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 DnsModifyRecordsInSet_UTF8(DNS_RECORDA* pAddRecords, DNS_RECORDA* pDeleteRecords, uint32 Options, HANDLE hCredentials, void* pExtraList, void* pReserved);
@@ -1840,6 +1843,7 @@ public static
 
 	[Import("DNSAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 DnsReplaceRecordSetA(DNS_RECORDA* pReplaceSet, uint32 Options, HANDLE hContext, void* pExtraInfo, void* pReserved);
+	public static int32 DnsReplaceRecordSet(DNS_RECORDA* pReplaceSet, uint32 Options, HANDLE hContext, void* pExtraInfo, void* pReserved) => DnsReplaceRecordSetA(pReplaceSet, Options, hContext, pExtraInfo, pReserved);
 
 	[Import("DNSAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 DnsReplaceRecordSetUTF8(DNS_RECORDA* pReplaceSet, uint32 Options, HANDLE hContext, void* pExtraInfo, void* pReserved);
@@ -1849,12 +1853,14 @@ public static
 
 	[Import("DNSAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 DnsValidateName_A(PSTR pszName, DNS_NAME_FORMAT Format);
+	public static int32 DnsValidateName_(PSTR pszName, DNS_NAME_FORMAT Format) => DnsValidateName_A(pszName, Format);
 
 	[Import("DNSAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 DnsValidateName_UTF8(PSTR pszName, DNS_NAME_FORMAT Format);
 
 	[Import("DNSAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL DnsNameCompare_A(PSTR pName1, PSTR pName2);
+	public static BOOL DnsNameCompare_(PSTR pName1, PSTR pName2) => DnsNameCompare_A(pName1, pName2);
 
 	[Import("DNSAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL DnsNameCompare_W(PWSTR pName1, PWSTR pName2);

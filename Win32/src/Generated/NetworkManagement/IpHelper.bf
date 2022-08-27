@@ -3618,12 +3618,14 @@ public static
 
 	[Import("IPHLPAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern NTSTATUS ConvertInterfaceNameToLuidA(PSTR InterfaceName, NET_LUID_LH* InterfaceLuid);
+	public static NTSTATUS ConvertInterfaceNameToLuid(PSTR InterfaceName, NET_LUID_LH* InterfaceLuid) => ConvertInterfaceNameToLuidA(InterfaceName, InterfaceLuid);
 
 	[Import("IPHLPAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern NTSTATUS ConvertInterfaceNameToLuidW(PWSTR InterfaceName, NET_LUID_LH* InterfaceLuid);
 
 	[Import("IPHLPAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern NTSTATUS ConvertInterfaceLuidToNameA(NET_LUID_LH* InterfaceLuid, uint8* InterfaceName, uint Length);
+	public static NTSTATUS ConvertInterfaceLuidToName(NET_LUID_LH* InterfaceLuid, uint8* InterfaceName, uint Length) => ConvertInterfaceLuidToNameA(InterfaceLuid, InterfaceName, Length);
 
 	[Import("IPHLPAPI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern NTSTATUS ConvertInterfaceLuidToNameW(NET_LUID_LH* InterfaceLuid, char8* InterfaceName, uint Length);

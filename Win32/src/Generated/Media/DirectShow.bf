@@ -26378,6 +26378,7 @@ public static
 {
 	[Import("QUARTZ.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 AMGetErrorTextA(HRESULT hr, uint8* pbuffer, uint32 MaxLen);
+	public static uint32 AMGetErrorText(HRESULT hr, uint8* pbuffer, uint32 MaxLen) => AMGetErrorTextA(hr, pbuffer, MaxLen);
 
 	[Import("QUARTZ.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 AMGetErrorTextW(HRESULT hr, char8* pbuffer, uint32 MaxLen);

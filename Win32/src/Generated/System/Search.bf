@@ -13829,6 +13829,7 @@ public static
 
 	[Import("odbcbcp.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int16 bcp_initA(void* param0, PSTR param1, PSTR param2, PSTR param3, int32 param4);
+	public static int16 bcp_init(void* param0, PSTR param1, PSTR param2, PSTR param3, int32 param4) => bcp_initA(param0, param1, param2, param3, param4);
 
 	[Import("odbcbcp.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int16 bcp_initW(void* param0, PWSTR param1, PWSTR param2, PWSTR param3, int32 param4);
@@ -13838,6 +13839,7 @@ public static
 
 	[Import("odbcbcp.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int16 bcp_readfmtA(void* param0, PSTR param1);
+	public static int16 bcp_readfmt(void* param0, PSTR param1) => bcp_readfmtA(param0, param1);
 
 	[Import("odbcbcp.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int16 bcp_readfmtW(void* param0, PWSTR param1);
@@ -13850,12 +13852,14 @@ public static
 
 	[Import("odbcbcp.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int16 bcp_writefmtA(void* param0, PSTR param1);
+	public static int16 bcp_writefmt(void* param0, PSTR param1) => bcp_writefmtA(param0, param1);
 
 	[Import("odbcbcp.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int16 bcp_writefmtW(void* param0, PWSTR param1);
 
 	[Import("odbcbcp.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern PSTR dbprtypeA(int32 param0);
+	public static PSTR dbprtype(int32 param0) => dbprtypeA(param0);
 
 	[Import("odbcbcp.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern PWSTR dbprtypeW(int32 param0);
@@ -13865,6 +13869,7 @@ public static
 
 	[Import("odbcbcp.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int16 SQLLinkedCatalogsA(void* param0, PSTR param1, int16 param2);
+	public static int16 SQLLinkedCatalogs(void* param0, PSTR param1, int16 param2) => SQLLinkedCatalogsA(param0, param1, param2);
 
 	[Import("odbcbcp.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int16 SQLLinkedCatalogsW(void* param0, PWSTR param1, int16 param2);

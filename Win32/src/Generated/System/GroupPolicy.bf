@@ -2290,18 +2290,21 @@ public static
 
 	[Import("USERENV.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL GetGPOListA(HANDLE hToken, PSTR lpName, PSTR lpHostName, PSTR lpComputerName, uint32 dwFlags, GROUP_POLICY_OBJECTA** pGPOList);
+	public static BOOL GetGPOList(HANDLE hToken, PSTR lpName, PSTR lpHostName, PSTR lpComputerName, uint32 dwFlags, GROUP_POLICY_OBJECTA** pGPOList) => GetGPOListA(hToken, lpName, lpHostName, lpComputerName, dwFlags, pGPOList);
 
 	[Import("USERENV.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL GetGPOListW(HANDLE hToken, PWSTR lpName, PWSTR lpHostName, PWSTR lpComputerName, uint32 dwFlags, GROUP_POLICY_OBJECTW** pGPOList);
 
 	[Import("USERENV.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL FreeGPOListA(GROUP_POLICY_OBJECTA* pGPOList);
+	public static BOOL FreeGPOList(GROUP_POLICY_OBJECTA* pGPOList) => FreeGPOListA(pGPOList);
 
 	[Import("USERENV.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL FreeGPOListW(GROUP_POLICY_OBJECTW* pGPOList);
 
 	[Import("USERENV.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 GetAppliedGPOListA(uint32 dwFlags, PSTR pMachineName, PSID pSidUser, Guid* pGuidExtension, GROUP_POLICY_OBJECTA** ppGPOList);
+	public static uint32 GetAppliedGPOList(uint32 dwFlags, PSTR pMachineName, PSID pSidUser, Guid* pGuidExtension, GROUP_POLICY_OBJECTA** ppGPOList) => GetAppliedGPOListA(dwFlags, pMachineName, pSidUser, pGuidExtension, ppGPOList);
 
 	[Import("USERENV.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 GetAppliedGPOListW(uint32 dwFlags, PWSTR pMachineName, PSID pSidUser, Guid* pGuidExtension, GROUP_POLICY_OBJECTW** ppGPOList);

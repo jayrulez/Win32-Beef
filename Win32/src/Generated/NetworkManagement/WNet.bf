@@ -508,54 +508,63 @@ public static
 {
 	[Import("MPR.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 WNetAddConnectionA(PSTR lpRemoteName, PSTR lpPassword, PSTR lpLocalName);
+	public static uint32 WNetAddConnection(PSTR lpRemoteName, PSTR lpPassword, PSTR lpLocalName) => WNetAddConnectionA(lpRemoteName, lpPassword, lpLocalName);
 
 	[Import("MPR.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 WNetAddConnectionW(PWSTR lpRemoteName, PWSTR lpPassword, PWSTR lpLocalName);
 
 	[Import("MPR.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 WNetAddConnection2A(NETRESOURCEA* lpNetResource, PSTR lpPassword, PSTR lpUserName, uint32 dwFlags);
+	public static uint32 WNetAddConnection2(NETRESOURCEA* lpNetResource, PSTR lpPassword, PSTR lpUserName, uint32 dwFlags) => WNetAddConnection2A(lpNetResource, lpPassword, lpUserName, dwFlags);
 
 	[Import("MPR.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 WNetAddConnection2W(NETRESOURCEW* lpNetResource, PWSTR lpPassword, PWSTR lpUserName, uint32 dwFlags);
 
 	[Import("MPR.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 WNetAddConnection3A(HWND hwndOwner, NETRESOURCEA* lpNetResource, PSTR lpPassword, PSTR lpUserName, uint32 dwFlags);
+	public static uint32 WNetAddConnection3(HWND hwndOwner, NETRESOURCEA* lpNetResource, PSTR lpPassword, PSTR lpUserName, uint32 dwFlags) => WNetAddConnection3A(hwndOwner, lpNetResource, lpPassword, lpUserName, dwFlags);
 
 	[Import("MPR.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 WNetAddConnection3W(HWND hwndOwner, NETRESOURCEW* lpNetResource, PWSTR lpPassword, PWSTR lpUserName, uint32 dwFlags);
 
 	[Import("MPR.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 WNetAddConnection4A(HWND hwndOwner, NETRESOURCEA* lpNetResource, void* pAuthBuffer, uint32 cbAuthBuffer, uint32 dwFlags, uint8* lpUseOptions, uint32 cbUseOptions);
+	public static uint32 WNetAddConnection4(HWND hwndOwner, NETRESOURCEA* lpNetResource, void* pAuthBuffer, uint32 cbAuthBuffer, uint32 dwFlags, uint8* lpUseOptions, uint32 cbUseOptions) => WNetAddConnection4A(hwndOwner, lpNetResource, pAuthBuffer, cbAuthBuffer, dwFlags, lpUseOptions, cbUseOptions);
 
 	[Import("MPR.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 WNetAddConnection4W(HWND hwndOwner, NETRESOURCEW* lpNetResource, void* pAuthBuffer, uint32 cbAuthBuffer, uint32 dwFlags, uint8* lpUseOptions, uint32 cbUseOptions);
 
 	[Import("MPR.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 WNetCancelConnectionA(PSTR lpName, BOOL fForce);
+	public static uint32 WNetCancelConnection(PSTR lpName, BOOL fForce) => WNetCancelConnectionA(lpName, fForce);
 
 	[Import("MPR.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 WNetCancelConnectionW(PWSTR lpName, BOOL fForce);
 
 	[Import("MPR.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 WNetCancelConnection2A(PSTR lpName, uint32 dwFlags, BOOL fForce);
+	public static uint32 WNetCancelConnection2(PSTR lpName, uint32 dwFlags, BOOL fForce) => WNetCancelConnection2A(lpName, dwFlags, fForce);
 
 	[Import("MPR.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 WNetCancelConnection2W(PWSTR lpName, uint32 dwFlags, BOOL fForce);
 
 	[Import("MPR.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 WNetGetConnectionA(PSTR lpLocalName, uint8* lpRemoteName, uint32* lpnLength);
+	public static uint32 WNetGetConnection(PSTR lpLocalName, uint8* lpRemoteName, uint32* lpnLength) => WNetGetConnectionA(lpLocalName, lpRemoteName, lpnLength);
 
 	[Import("MPR.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 WNetGetConnectionW(PWSTR lpLocalName, char8* lpRemoteName, uint32* lpnLength);
 
 	[Import("MPR.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 WNetUseConnectionA(HWND hwndOwner, NETRESOURCEA* lpNetResource, PSTR lpPassword, PSTR lpUserId, NET_USE_CONNECT_FLAGS dwFlags, uint8* lpAccessName, uint32* lpBufferSize, uint32* lpResult);
+	public static uint32 WNetUseConnection(HWND hwndOwner, NETRESOURCEA* lpNetResource, PSTR lpPassword, PSTR lpUserId, NET_USE_CONNECT_FLAGS dwFlags, uint8* lpAccessName, uint32* lpBufferSize, uint32* lpResult) => WNetUseConnectionA(hwndOwner, lpNetResource, lpPassword, lpUserId, dwFlags, lpAccessName, lpBufferSize, lpResult);
 
 	[Import("MPR.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 WNetUseConnectionW(HWND hwndOwner, NETRESOURCEW* lpNetResource, PWSTR lpPassword, PWSTR lpUserId, NET_USE_CONNECT_FLAGS dwFlags, char8* lpAccessName, uint32* lpBufferSize, uint32* lpResult);
 
 	[Import("MPR.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 WNetUseConnection4A(HWND hwndOwner, NETRESOURCEA* lpNetResource, void* pAuthBuffer, uint32 cbAuthBuffer, uint32 dwFlags, uint8* lpUseOptions, uint32 cbUseOptions, uint8* lpAccessName, uint32* lpBufferSize, uint32* lpResult);
+	public static uint32 WNetUseConnection4(HWND hwndOwner, NETRESOURCEA* lpNetResource, void* pAuthBuffer, uint32 cbAuthBuffer, uint32 dwFlags, uint8* lpUseOptions, uint32 cbUseOptions, uint8* lpAccessName, uint32* lpBufferSize, uint32* lpResult) => WNetUseConnection4A(hwndOwner, lpNetResource, pAuthBuffer, cbAuthBuffer, dwFlags, lpUseOptions, cbUseOptions, lpAccessName, lpBufferSize, lpResult);
 
 	[Import("MPR.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 WNetUseConnection4W(HWND hwndOwner, NETRESOURCEW* lpNetResource, void* pAuthBuffer, uint32 cbAuthBuffer, uint32 dwFlags, uint8* lpUseOptions, uint32 cbUseOptions, char8* lpAccessName, uint32* lpBufferSize, uint32* lpResult);
@@ -568,24 +577,28 @@ public static
 
 	[Import("MPR.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 WNetConnectionDialog1A(CONNECTDLGSTRUCTA* lpConnDlgStruct);
+	public static uint32 WNetConnectionDialog1(CONNECTDLGSTRUCTA* lpConnDlgStruct) => WNetConnectionDialog1A(lpConnDlgStruct);
 
 	[Import("MPR.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 WNetConnectionDialog1W(CONNECTDLGSTRUCTW* lpConnDlgStruct);
 
 	[Import("MPR.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 WNetDisconnectDialog1A(DISCDLGSTRUCTA* lpConnDlgStruct);
+	public static uint32 WNetDisconnectDialog1(DISCDLGSTRUCTA* lpConnDlgStruct) => WNetDisconnectDialog1A(lpConnDlgStruct);
 
 	[Import("MPR.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 WNetDisconnectDialog1W(DISCDLGSTRUCTW* lpConnDlgStruct);
 
 	[Import("MPR.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 WNetOpenEnumA(NET_RESOURCE_SCOPE dwScope, NET_RESOURCE_TYPE dwType, WNET_OPEN_ENUM_USAGE dwUsage, NETRESOURCEA* lpNetResource, NetEnumHandle* lphEnum);
+	public static uint32 WNetOpenEnum(NET_RESOURCE_SCOPE dwScope, NET_RESOURCE_TYPE dwType, WNET_OPEN_ENUM_USAGE dwUsage, NETRESOURCEA* lpNetResource, NetEnumHandle* lphEnum) => WNetOpenEnumA(dwScope, dwType, dwUsage, lpNetResource, lphEnum);
 
 	[Import("MPR.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 WNetOpenEnumW(NET_RESOURCE_SCOPE dwScope, NET_RESOURCE_TYPE dwType, WNET_OPEN_ENUM_USAGE dwUsage, NETRESOURCEW* lpNetResource, NetEnumHandle* lphEnum);
 
 	[Import("MPR.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 WNetEnumResourceA(HANDLE hEnum, uint32* lpcCount, void* lpBuffer, uint32* lpBufferSize);
+	public static uint32 WNetEnumResource(HANDLE hEnum, uint32* lpcCount, void* lpBuffer, uint32* lpBufferSize) => WNetEnumResourceA(hEnum, lpcCount, lpBuffer, lpBufferSize);
 
 	[Import("MPR.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 WNetEnumResourceW(HANDLE hEnum, uint32* lpcCount, void* lpBuffer, uint32* lpBufferSize);
@@ -595,48 +608,56 @@ public static
 
 	[Import("MPR.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 WNetGetResourceParentA(NETRESOURCEA* lpNetResource, void* lpBuffer, uint32* lpcbBuffer);
+	public static uint32 WNetGetResourceParent(NETRESOURCEA* lpNetResource, void* lpBuffer, uint32* lpcbBuffer) => WNetGetResourceParentA(lpNetResource, lpBuffer, lpcbBuffer);
 
 	[Import("MPR.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 WNetGetResourceParentW(NETRESOURCEW* lpNetResource, void* lpBuffer, uint32* lpcbBuffer);
 
 	[Import("MPR.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 WNetGetResourceInformationA(NETRESOURCEA* lpNetResource, void* lpBuffer, uint32* lpcbBuffer, PSTR* lplpSystem);
+	public static uint32 WNetGetResourceInformation(NETRESOURCEA* lpNetResource, void* lpBuffer, uint32* lpcbBuffer, PSTR* lplpSystem) => WNetGetResourceInformationA(lpNetResource, lpBuffer, lpcbBuffer, lplpSystem);
 
 	[Import("MPR.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 WNetGetResourceInformationW(NETRESOURCEW* lpNetResource, void* lpBuffer, uint32* lpcbBuffer, PWSTR* lplpSystem);
 
 	[Import("MPR.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 WNetGetUniversalNameA(PSTR lpLocalPath, UNC_INFO_LEVEL dwInfoLevel, void* lpBuffer, uint32* lpBufferSize);
+	public static uint32 WNetGetUniversalName(PSTR lpLocalPath, UNC_INFO_LEVEL dwInfoLevel, void* lpBuffer, uint32* lpBufferSize) => WNetGetUniversalNameA(lpLocalPath, dwInfoLevel, lpBuffer, lpBufferSize);
 
 	[Import("MPR.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 WNetGetUniversalNameW(PWSTR lpLocalPath, UNC_INFO_LEVEL dwInfoLevel, void* lpBuffer, uint32* lpBufferSize);
 
 	[Import("MPR.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 WNetGetUserA(PSTR lpName, uint8* lpUserName, uint32* lpnLength);
+	public static uint32 WNetGetUser(PSTR lpName, uint8* lpUserName, uint32* lpnLength) => WNetGetUserA(lpName, lpUserName, lpnLength);
 
 	[Import("MPR.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 WNetGetUserW(PWSTR lpName, char8* lpUserName, uint32* lpnLength);
 
 	[Import("MPR.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 WNetGetProviderNameA(uint32 dwNetType, uint8* lpProviderName, uint32* lpBufferSize);
+	public static uint32 WNetGetProviderName(uint32 dwNetType, uint8* lpProviderName, uint32* lpBufferSize) => WNetGetProviderNameA(dwNetType, lpProviderName, lpBufferSize);
 
 	[Import("MPR.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 WNetGetProviderNameW(uint32 dwNetType, char8* lpProviderName, uint32* lpBufferSize);
 
 	[Import("MPR.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 WNetGetNetworkInformationA(PSTR lpProvider, NETINFOSTRUCT* lpNetInfoStruct);
+	public static uint32 WNetGetNetworkInformation(PSTR lpProvider, NETINFOSTRUCT* lpNetInfoStruct) => WNetGetNetworkInformationA(lpProvider, lpNetInfoStruct);
 
 	[Import("MPR.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 WNetGetNetworkInformationW(PWSTR lpProvider, NETINFOSTRUCT* lpNetInfoStruct);
 
 	[Import("MPR.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 WNetGetLastErrorA(uint32* lpError, uint8* lpErrorBuf, uint32 nErrorBufSize, uint8* lpNameBuf, uint32 nNameBufSize);
+	public static uint32 WNetGetLastError(uint32* lpError, uint8* lpErrorBuf, uint32 nErrorBufSize, uint8* lpNameBuf, uint32 nNameBufSize) => WNetGetLastErrorA(lpError, lpErrorBuf, nErrorBufSize, lpNameBuf, nNameBufSize);
 
 	[Import("MPR.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 WNetGetLastErrorW(uint32* lpError, char8* lpErrorBuf, uint32 nErrorBufSize, char8* lpNameBuf, uint32 nNameBufSize);
 
 	[Import("MPR.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 MultinetGetConnectionPerformanceA(NETRESOURCEA* lpNetResource, NETCONNECTINFOSTRUCT* lpNetConnectInfoStruct);
+	public static uint32 MultinetGetConnectionPerformance(NETRESOURCEA* lpNetResource, NETCONNECTINFOSTRUCT* lpNetConnectInfoStruct) => MultinetGetConnectionPerformanceA(lpNetResource, lpNetConnectInfoStruct);
 
 	[Import("MPR.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 MultinetGetConnectionPerformanceW(NETRESOURCEW* lpNetResource, NETCONNECTINFOSTRUCT* lpNetConnectInfoStruct);
@@ -697,6 +718,7 @@ public static
 
 	[Import("MPR.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern void WNetSetLastErrorA(uint32 err, PSTR lpError, PSTR lpProviders);
+	public static void WNetSetLastError(uint32 err, PSTR lpError, PSTR lpProviders) => WNetSetLastErrorA(err, lpError, lpProviders);
 
 	[Import("MPR.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern void WNetSetLastErrorW(uint32 err, PWSTR lpError, PWSTR lpProviders);

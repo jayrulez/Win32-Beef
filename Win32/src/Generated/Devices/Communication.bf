@@ -513,30 +513,35 @@ public static
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL BuildCommDCBA(PSTR lpDef, DCB* lpDCB);
+	public static BOOL BuildCommDCB(PSTR lpDef, DCB* lpDCB) => BuildCommDCBA(lpDef, lpDCB);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL BuildCommDCBW(PWSTR lpDef, DCB* lpDCB);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL BuildCommDCBAndTimeoutsA(PSTR lpDef, DCB* lpDCB, COMMTIMEOUTS* lpCommTimeouts);
+	public static BOOL BuildCommDCBAndTimeouts(PSTR lpDef, DCB* lpDCB, COMMTIMEOUTS* lpCommTimeouts) => BuildCommDCBAndTimeoutsA(lpDef, lpDCB, lpCommTimeouts);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL BuildCommDCBAndTimeoutsW(PWSTR lpDef, DCB* lpDCB, COMMTIMEOUTS* lpCommTimeouts);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL CommConfigDialogA(PSTR lpszName, HWND hWnd, COMMCONFIG* lpCC);
+	public static BOOL CommConfigDialog(PSTR lpszName, HWND hWnd, COMMCONFIG* lpCC) => CommConfigDialogA(lpszName, hWnd, lpCC);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL CommConfigDialogW(PWSTR lpszName, HWND hWnd, COMMCONFIG* lpCC);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL GetDefaultCommConfigA(PSTR lpszName, COMMCONFIG* lpCC, uint32* lpdwSize);
+	public static BOOL GetDefaultCommConfig(PSTR lpszName, COMMCONFIG* lpCC, uint32* lpdwSize) => GetDefaultCommConfigA(lpszName, lpCC, lpdwSize);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL GetDefaultCommConfigW(PWSTR lpszName, COMMCONFIG* lpCC, uint32* lpdwSize);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL SetDefaultCommConfigA(PSTR lpszName, COMMCONFIG* lpCC, uint32 dwSize);
+	public static BOOL SetDefaultCommConfig(PSTR lpszName, COMMCONFIG* lpCC, uint32 dwSize) => SetDefaultCommConfigA(lpszName, lpCC, dwSize);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL SetDefaultCommConfigW(PWSTR lpszName, COMMCONFIG* lpCC, uint32 dwSize);

@@ -6364,12 +6364,14 @@ public static
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 GetDateFormatA(uint32 Locale, uint32 dwFlags, SYSTEMTIME* lpDate, PSTR lpFormat, uint8* lpDateStr, int32 cchDate);
+	public static int32 GetDateFormat(uint32 Locale, uint32 dwFlags, SYSTEMTIME* lpDate, PSTR lpFormat, uint8* lpDateStr, int32 cchDate) => GetDateFormatA(Locale, dwFlags, lpDate, lpFormat, lpDateStr, cchDate);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 GetDateFormatW(uint32 Locale, uint32 dwFlags, SYSTEMTIME* lpDate, PWSTR lpFormat, char8* lpDateStr, int32 cchDate);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 GetTimeFormatA(uint32 Locale, uint32 dwFlags, SYSTEMTIME* lpTime, PSTR lpFormat, uint8* lpTimeStr, int32 cchTime);
+	public static int32 GetTimeFormat(uint32 Locale, uint32 dwFlags, SYSTEMTIME* lpTime, PSTR lpFormat, uint8* lpTimeStr, int32 cchTime) => GetTimeFormatA(Locale, dwFlags, lpTime, lpFormat, lpTimeStr, cchTime);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 GetTimeFormatW(uint32 Locale, uint32 dwFlags, SYSTEMTIME* lpTime, PWSTR lpFormat, char8* lpTimeStr, int32 cchTime);
@@ -6421,12 +6423,14 @@ public static
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL GetCPInfoExA(uint32 CodePage, uint32 dwFlags, CPINFOEXA* lpCPInfoEx);
+	public static BOOL GetCPInfoEx(uint32 CodePage, uint32 dwFlags, CPINFOEXA* lpCPInfoEx) => GetCPInfoExA(CodePage, dwFlags, lpCPInfoEx);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL GetCPInfoExW(uint32 CodePage, uint32 dwFlags, CPINFOEXW* lpCPInfoEx);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 CompareStringA(uint32 Locale, uint32 dwCmpFlags, int8* lpString1, int32 cchCount1, int8* lpString2, int32 cchCount2);
+	public static int32 CompareString(uint32 Locale, uint32 dwCmpFlags, int8* lpString1, int32 cchCount1, int8* lpString2, int32 cchCount2) => CompareStringA(Locale, dwCmpFlags, lpString1, cchCount1, lpString2, cchCount2);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 FindNLSString(uint32 Locale, uint32 dwFindNLSStringFlags, char8* lpStringSource, int32 cchSource, char8* lpStringValue, int32 cchValue, int32* pcchFound);
@@ -6436,27 +6440,32 @@ public static
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 LCMapStringA(uint32 Locale, uint32 dwMapFlags, uint8* lpSrcStr, int32 cchSrc, PSTR lpDestStr, int32 cchDest);
+	public static int32 LCMapString(uint32 Locale, uint32 dwMapFlags, uint8* lpSrcStr, int32 cchSrc, PSTR lpDestStr, int32 cchDest) => LCMapStringA(Locale, dwMapFlags, lpSrcStr, cchSrc, lpDestStr, cchDest);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 GetLocaleInfoW(uint32 Locale, uint32 LCType, char8* lpLCData, int32 cchData);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 GetLocaleInfoA(uint32 Locale, uint32 LCType, uint8* lpLCData, int32 cchData);
+	public static int32 GetLocaleInfo(uint32 Locale, uint32 LCType, uint8* lpLCData, int32 cchData) => GetLocaleInfoA(Locale, LCType, lpLCData, cchData);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL SetLocaleInfoA(uint32 Locale, uint32 LCType, PSTR lpLCData);
+	public static BOOL SetLocaleInfo(uint32 Locale, uint32 LCType, PSTR lpLCData) => SetLocaleInfoA(Locale, LCType, lpLCData);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL SetLocaleInfoW(uint32 Locale, uint32 LCType, PWSTR lpLCData);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 GetCalendarInfoA(uint32 Locale, uint32 Calendar, uint32 CalType, uint8* lpCalData, int32 cchData, uint32* lpValue);
+	public static int32 GetCalendarInfo(uint32 Locale, uint32 Calendar, uint32 CalType, uint8* lpCalData, int32 cchData, uint32* lpValue) => GetCalendarInfoA(Locale, Calendar, CalType, lpCalData, cchData, lpValue);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 GetCalendarInfoW(uint32 Locale, uint32 Calendar, uint32 CalType, char8* lpCalData, int32 cchData, uint32* lpValue);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL SetCalendarInfoA(uint32 Locale, uint32 Calendar, uint32 CalType, PSTR lpCalData);
+	public static BOOL SetCalendarInfo(uint32 Locale, uint32 Calendar, uint32 CalType, PSTR lpCalData) => SetCalendarInfoA(Locale, Calendar, CalType, lpCalData);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL SetCalendarInfoW(uint32 Locale, uint32 Calendar, uint32 CalType, PWSTR lpCalData);
@@ -6478,42 +6487,49 @@ public static
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 GetNumberFormatA(uint32 Locale, uint32 dwFlags, PSTR lpValue, NUMBERFMTA* lpFormat, uint8* lpNumberStr, int32 cchNumber);
+	public static int32 GetNumberFormat(uint32 Locale, uint32 dwFlags, PSTR lpValue, NUMBERFMTA* lpFormat, uint8* lpNumberStr, int32 cchNumber) => GetNumberFormatA(Locale, dwFlags, lpValue, lpFormat, lpNumberStr, cchNumber);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 GetNumberFormatW(uint32 Locale, uint32 dwFlags, PWSTR lpValue, NUMBERFMTW* lpFormat, char8* lpNumberStr, int32 cchNumber);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 GetCurrencyFormatA(uint32 Locale, uint32 dwFlags, PSTR lpValue, CURRENCYFMTA* lpFormat, uint8* lpCurrencyStr, int32 cchCurrency);
+	public static int32 GetCurrencyFormat(uint32 Locale, uint32 dwFlags, PSTR lpValue, CURRENCYFMTA* lpFormat, uint8* lpCurrencyStr, int32 cchCurrency) => GetCurrencyFormatA(Locale, dwFlags, lpValue, lpFormat, lpCurrencyStr, cchCurrency);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 GetCurrencyFormatW(uint32 Locale, uint32 dwFlags, PWSTR lpValue, CURRENCYFMTW* lpFormat, char8* lpCurrencyStr, int32 cchCurrency);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL EnumCalendarInfoA(CALINFO_ENUMPROCA lpCalInfoEnumProc, uint32 Locale, uint32 Calendar, uint32 CalType);
+	public static BOOL EnumCalendarInfo(CALINFO_ENUMPROCA lpCalInfoEnumProc, uint32 Locale, uint32 Calendar, uint32 CalType) => EnumCalendarInfoA(lpCalInfoEnumProc, Locale, Calendar, CalType);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL EnumCalendarInfoW(CALINFO_ENUMPROCW lpCalInfoEnumProc, uint32 Locale, uint32 Calendar, uint32 CalType);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL EnumCalendarInfoExA(CALINFO_ENUMPROCEXA lpCalInfoEnumProcEx, uint32 Locale, uint32 Calendar, uint32 CalType);
+	public static BOOL EnumCalendarInfoEx(CALINFO_ENUMPROCEXA lpCalInfoEnumProcEx, uint32 Locale, uint32 Calendar, uint32 CalType) => EnumCalendarInfoExA(lpCalInfoEnumProcEx, Locale, Calendar, CalType);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL EnumCalendarInfoExW(CALINFO_ENUMPROCEXW lpCalInfoEnumProcEx, uint32 Locale, uint32 Calendar, uint32 CalType);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL EnumTimeFormatsA(TIMEFMT_ENUMPROCA lpTimeFmtEnumProc, uint32 Locale, TIME_FORMAT_FLAGS dwFlags);
+	public static BOOL EnumTimeFormats(TIMEFMT_ENUMPROCA lpTimeFmtEnumProc, uint32 Locale, TIME_FORMAT_FLAGS dwFlags) => EnumTimeFormatsA(lpTimeFmtEnumProc, Locale, dwFlags);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL EnumTimeFormatsW(TIMEFMT_ENUMPROCW lpTimeFmtEnumProc, uint32 Locale, TIME_FORMAT_FLAGS dwFlags);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL EnumDateFormatsA(DATEFMT_ENUMPROCA lpDateFmtEnumProc, uint32 Locale, uint32 dwFlags);
+	public static BOOL EnumDateFormats(DATEFMT_ENUMPROCA lpDateFmtEnumProc, uint32 Locale, uint32 dwFlags) => EnumDateFormatsA(lpDateFmtEnumProc, Locale, dwFlags);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL EnumDateFormatsW(DATEFMT_ENUMPROCW lpDateFmtEnumProc, uint32 Locale, uint32 dwFlags);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL EnumDateFormatsExA(DATEFMT_ENUMPROCEXA lpDateFmtEnumProcEx, uint32 Locale, uint32 dwFlags);
+	public static BOOL EnumDateFormatsEx(DATEFMT_ENUMPROCEXA lpDateFmtEnumProcEx, uint32 Locale, uint32 dwFlags) => EnumDateFormatsExA(lpDateFmtEnumProcEx, Locale, dwFlags);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL EnumDateFormatsExW(DATEFMT_ENUMPROCEXW lpDateFmtEnumProcEx, uint32 Locale, uint32 dwFlags);
@@ -6529,6 +6545,7 @@ public static
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 GetGeoInfoA(int32 Location, uint32 GeoType, uint8* lpGeoData, int32 cchData, uint16 LangId);
+	public static int32 GetGeoInfo(int32 Location, uint32 GeoType, uint8* lpGeoData, int32 cchData, uint16 LangId) => GetGeoInfoA(Location, GeoType, lpGeoData, cchData, LangId);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 GetGeoInfoW(int32 Location, uint32 GeoType, char8* lpGeoData, int32 cchData, uint16 LangId);
@@ -6625,39 +6642,47 @@ public static
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL GetStringTypeExA(uint32 Locale, uint32 dwInfoType, uint8* lpSrcStr, int32 cchSrc, uint16* lpCharType);
+	public static BOOL GetStringTypeEx(uint32 Locale, uint32 dwInfoType, uint8* lpSrcStr, int32 cchSrc, uint16* lpCharType) => GetStringTypeExA(Locale, dwInfoType, lpSrcStr, cchSrc, lpCharType);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL GetStringTypeA(uint32 Locale, uint32 dwInfoType, uint8* lpSrcStr, int32 cchSrc, uint16* lpCharType);
+	public static BOOL GetStringType(uint32 Locale, uint32 dwInfoType, uint8* lpSrcStr, int32 cchSrc, uint16* lpCharType) => GetStringTypeA(Locale, dwInfoType, lpSrcStr, cchSrc, lpCharType);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 FoldStringA(FOLD_STRING_MAP_FLAGS dwMapFlags, uint8* lpSrcStr, int32 cchSrc, uint8* lpDestStr, int32 cchDest);
+	public static int32 FoldString(FOLD_STRING_MAP_FLAGS dwMapFlags, uint8* lpSrcStr, int32 cchSrc, uint8* lpDestStr, int32 cchDest) => FoldStringA(dwMapFlags, lpSrcStr, cchSrc, lpDestStr, cchDest);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL EnumSystemLocalesA(LOCALE_ENUMPROCA lpLocaleEnumProc, uint32 dwFlags);
+	public static BOOL EnumSystemLocales(LOCALE_ENUMPROCA lpLocaleEnumProc, uint32 dwFlags) => EnumSystemLocalesA(lpLocaleEnumProc, dwFlags);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL EnumSystemLocalesW(LOCALE_ENUMPROCW lpLocaleEnumProc, uint32 dwFlags);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL EnumSystemLanguageGroupsA(LANGUAGEGROUP_ENUMPROCA lpLanguageGroupEnumProc, ENUM_SYSTEM_LANGUAGE_GROUPS_FLAGS dwFlags, int lParam);
+	public static BOOL EnumSystemLanguageGroups(LANGUAGEGROUP_ENUMPROCA lpLanguageGroupEnumProc, ENUM_SYSTEM_LANGUAGE_GROUPS_FLAGS dwFlags, int lParam) => EnumSystemLanguageGroupsA(lpLanguageGroupEnumProc, dwFlags, lParam);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL EnumSystemLanguageGroupsW(LANGUAGEGROUP_ENUMPROCW lpLanguageGroupEnumProc, ENUM_SYSTEM_LANGUAGE_GROUPS_FLAGS dwFlags, int lParam);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL EnumLanguageGroupLocalesA(LANGGROUPLOCALE_ENUMPROCA lpLangGroupLocaleEnumProc, uint32 LanguageGroup, uint32 dwFlags, int lParam);
+	public static BOOL EnumLanguageGroupLocales(LANGGROUPLOCALE_ENUMPROCA lpLangGroupLocaleEnumProc, uint32 LanguageGroup, uint32 dwFlags, int lParam) => EnumLanguageGroupLocalesA(lpLangGroupLocaleEnumProc, LanguageGroup, dwFlags, lParam);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL EnumLanguageGroupLocalesW(LANGGROUPLOCALE_ENUMPROCW lpLangGroupLocaleEnumProc, uint32 LanguageGroup, uint32 dwFlags, int lParam);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL EnumUILanguagesA(UILANGUAGE_ENUMPROCA lpUILanguageEnumProc, uint32 dwFlags, int lParam);
+	public static BOOL EnumUILanguages(UILANGUAGE_ENUMPROCA lpUILanguageEnumProc, uint32 dwFlags, int lParam) => EnumUILanguagesA(lpUILanguageEnumProc, dwFlags, lParam);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL EnumUILanguagesW(UILANGUAGE_ENUMPROCW lpUILanguageEnumProc, uint32 dwFlags, int lParam);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL EnumSystemCodePagesA(CODEPAGE_ENUMPROCA lpCodePageEnumProc, ENUM_SYSTEM_CODE_PAGES_FLAGS dwFlags);
+	public static BOOL EnumSystemCodePages(CODEPAGE_ENUMPROCA lpCodePageEnumProc, ENUM_SYSTEM_CODE_PAGES_FLAGS dwFlags) => EnumSystemCodePagesA(lpCodePageEnumProc, dwFlags);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL EnumSystemCodePagesW(CODEPAGE_ENUMPROCW lpCodePageEnumProc, ENUM_SYSTEM_CODE_PAGES_FLAGS dwFlags);
@@ -9955,36 +9980,42 @@ public static
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 lstrcmpA(PSTR lpString1, PSTR lpString2);
+	public static int32 lstrcmp(PSTR lpString1, PSTR lpString2) => lstrcmpA(lpString1, lpString2);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 lstrcmpW(PWSTR lpString1, PWSTR lpString2);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 lstrcmpiA(PSTR lpString1, PSTR lpString2);
+	public static int32 lstrcmpi(PSTR lpString1, PSTR lpString2) => lstrcmpiA(lpString1, lpString2);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 lstrcmpiW(PWSTR lpString1, PWSTR lpString2);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern PSTR lstrcpynA(uint8* lpString1, PSTR lpString2, int32 iMaxLength);
+	public static PSTR lstrcpyn(uint8* lpString1, PSTR lpString2, int32 iMaxLength) => lstrcpynA(lpString1, lpString2, iMaxLength);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern PWSTR lstrcpynW(char8* lpString1, PWSTR lpString2, int32 iMaxLength);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern PSTR lstrcpyA(PSTR lpString1, PSTR lpString2);
+	public static PSTR lstrcpy(PSTR lpString1, PSTR lpString2) => lstrcpyA(lpString1, lpString2);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern PWSTR lstrcpyW(PWSTR lpString1, PWSTR lpString2);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern PSTR lstrcatA(PSTR lpString1, PSTR lpString2);
+	public static PSTR lstrcat(PSTR lpString1, PSTR lpString2) => lstrcatA(lpString1, lpString2);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern PWSTR lstrcatW(PWSTR lpString1, PWSTR lpString2);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 lstrlenA(PSTR lpString);
+	public static int32 lstrlen(PSTR lpString) => lstrlenA(lpString);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 lstrlenW(PWSTR lpString);

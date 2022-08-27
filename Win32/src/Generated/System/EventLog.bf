@@ -590,12 +590,14 @@ public static
 
 	[Import("ADVAPI32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL ClearEventLogA(HANDLE hEventLog, PSTR lpBackupFileName);
+	public static BOOL ClearEventLog(HANDLE hEventLog, PSTR lpBackupFileName) => ClearEventLogA(hEventLog, lpBackupFileName);
 
 	[Import("ADVAPI32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL ClearEventLogW(HANDLE hEventLog, PWSTR lpBackupFileName);
 
 	[Import("ADVAPI32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL BackupEventLogA(HANDLE hEventLog, PSTR lpBackupFileName);
+	public static BOOL BackupEventLog(HANDLE hEventLog, PSTR lpBackupFileName) => BackupEventLogA(hEventLog, lpBackupFileName);
 
 	[Import("ADVAPI32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL BackupEventLogW(HANDLE hEventLog, PWSTR lpBackupFileName);
@@ -617,30 +619,35 @@ public static
 
 	[Import("ADVAPI32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern EventLogHandle OpenEventLogA(PSTR lpUNCServerName, PSTR lpSourceName);
+	public static EventLogHandle OpenEventLog(PSTR lpUNCServerName, PSTR lpSourceName) => OpenEventLogA(lpUNCServerName, lpSourceName);
 
 	[Import("ADVAPI32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern EventLogHandle OpenEventLogW(PWSTR lpUNCServerName, PWSTR lpSourceName);
 
 	[Import("ADVAPI32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern EventSourceHandle RegisterEventSourceA(PSTR lpUNCServerName, PSTR lpSourceName);
+	public static EventSourceHandle RegisterEventSource(PSTR lpUNCServerName, PSTR lpSourceName) => RegisterEventSourceA(lpUNCServerName, lpSourceName);
 
 	[Import("ADVAPI32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern EventSourceHandle RegisterEventSourceW(PWSTR lpUNCServerName, PWSTR lpSourceName);
 
 	[Import("ADVAPI32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern EventLogHandle OpenBackupEventLogA(PSTR lpUNCServerName, PSTR lpFileName);
+	public static EventLogHandle OpenBackupEventLog(PSTR lpUNCServerName, PSTR lpFileName) => OpenBackupEventLogA(lpUNCServerName, lpFileName);
 
 	[Import("ADVAPI32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern EventLogHandle OpenBackupEventLogW(PWSTR lpUNCServerName, PWSTR lpFileName);
 
 	[Import("ADVAPI32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL ReadEventLogA(HANDLE hEventLog, READ_EVENT_LOG_READ_FLAGS dwReadFlags, uint32 dwRecordOffset, void* lpBuffer, uint32 nNumberOfBytesToRead, uint32* pnBytesRead, uint32* pnMinNumberOfBytesNeeded);
+	public static BOOL ReadEventLog(HANDLE hEventLog, READ_EVENT_LOG_READ_FLAGS dwReadFlags, uint32 dwRecordOffset, void* lpBuffer, uint32 nNumberOfBytesToRead, uint32* pnBytesRead, uint32* pnMinNumberOfBytesNeeded) => ReadEventLogA(hEventLog, dwReadFlags, dwRecordOffset, lpBuffer, nNumberOfBytesToRead, pnBytesRead, pnMinNumberOfBytesNeeded);
 
 	[Import("ADVAPI32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL ReadEventLogW(HANDLE hEventLog, READ_EVENT_LOG_READ_FLAGS dwReadFlags, uint32 dwRecordOffset, void* lpBuffer, uint32 nNumberOfBytesToRead, uint32* pnBytesRead, uint32* pnMinNumberOfBytesNeeded);
 
 	[Import("ADVAPI32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL ReportEventA(HANDLE hEventLog, REPORT_EVENT_TYPE wType, uint16 wCategory, uint32 dwEventID, PSID lpUserSid, uint16 wNumStrings, uint32 dwDataSize, PSTR* lpStrings, void* lpRawData);
+	public static BOOL ReportEvent(HANDLE hEventLog, REPORT_EVENT_TYPE wType, uint16 wCategory, uint32 dwEventID, PSID lpUserSid, uint16 wNumStrings, uint32 dwDataSize, PSTR* lpStrings, void* lpRawData) => ReportEventA(hEventLog, wType, wCategory, dwEventID, lpUserSid, wNumStrings, dwDataSize, lpStrings, lpRawData);
 
 	[Import("ADVAPI32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL ReportEventW(HANDLE hEventLog, REPORT_EVENT_TYPE wType, uint16 wCategory, uint32 dwEventID, PSID lpUserSid, uint16 wNumStrings, uint32 dwDataSize, PWSTR* lpStrings, void* lpRawData);

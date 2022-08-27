@@ -1524,6 +1524,7 @@ public static
 
 	[Import("DSOUND.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT DirectSoundEnumerateA(LPDSENUMCALLBACKA pDSEnumCallback, void* pContext);
+	public static HRESULT DirectSoundEnumerate(LPDSENUMCALLBACKA pDSEnumCallback, void* pContext) => DirectSoundEnumerateA(pDSEnumCallback, pContext);
 
 	[Import("DSOUND.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT DirectSoundEnumerateW(LPDSENUMCALLBACKW pDSEnumCallback, void* pContext);
@@ -1533,6 +1534,7 @@ public static
 
 	[Import("DSOUND.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT DirectSoundCaptureEnumerateA(LPDSENUMCALLBACKA pDSEnumCallback, void* pContext);
+	public static HRESULT DirectSoundCaptureEnumerate(LPDSENUMCALLBACKA pDSEnumCallback, void* pContext) => DirectSoundCaptureEnumerateA(pDSEnumCallback, pContext);
 
 	[Import("DSOUND.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT DirectSoundCaptureEnumerateW(LPDSENUMCALLBACKW pDSEnumCallback, void* pContext);

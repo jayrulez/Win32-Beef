@@ -3441,9 +3441,11 @@ public static
 
 	[Import("loadperf.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 InstallPerfDllA(PSTR szComputerName, PSTR lpIniFile, uint dwFlags);
+	public static uint32 InstallPerfDll(PSTR szComputerName, PSTR lpIniFile, uint dwFlags) => InstallPerfDllA(szComputerName, lpIniFile, dwFlags);
 
 	[Import("loadperf.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 LoadPerfCounterTextStringsA(PSTR lpCommandLine, BOOL bQuietModeArg);
+	public static uint32 LoadPerfCounterTextStrings(PSTR lpCommandLine, BOOL bQuietModeArg) => LoadPerfCounterTextStringsA(lpCommandLine, bQuietModeArg);
 
 	[Import("loadperf.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 LoadPerfCounterTextStringsW(PWSTR lpCommandLine, BOOL bQuietModeArg);
@@ -3453,15 +3455,18 @@ public static
 
 	[Import("loadperf.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 UnloadPerfCounterTextStringsA(PSTR lpCommandLine, BOOL bQuietModeArg);
+	public static uint32 UnloadPerfCounterTextStrings(PSTR lpCommandLine, BOOL bQuietModeArg) => UnloadPerfCounterTextStringsA(lpCommandLine, bQuietModeArg);
 
 	[Import("loadperf.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 UpdatePerfNameFilesA(PSTR szNewCtrFilePath, PSTR szNewHlpFilePath, PSTR szLanguageID, uint dwFlags);
+	public static uint32 UpdatePerfNameFiles(PSTR szNewCtrFilePath, PSTR szNewHlpFilePath, PSTR szLanguageID, uint dwFlags) => UpdatePerfNameFilesA(szNewCtrFilePath, szNewHlpFilePath, szLanguageID, dwFlags);
 
 	[Import("loadperf.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 UpdatePerfNameFilesW(PWSTR szNewCtrFilePath, PWSTR szNewHlpFilePath, PWSTR szLanguageID, uint dwFlags);
 
 	[Import("loadperf.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 SetServiceAsTrustedA(PSTR szReserved, PSTR szServiceName);
+	public static uint32 SetServiceAsTrusted(PSTR szReserved, PSTR szServiceName) => SetServiceAsTrustedA(szReserved, szServiceName);
 
 	[Import("loadperf.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 SetServiceAsTrustedW(PWSTR szReserved, PWSTR szServiceName);
@@ -3549,18 +3554,21 @@ public static
 
 	[Import("pdh.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 PdhOpenQueryA(PSTR szDataSource, uint dwUserData, int* phQuery);
+	public static int32 PdhOpenQuery(PSTR szDataSource, uint dwUserData, int* phQuery) => PdhOpenQueryA(szDataSource, dwUserData, phQuery);
 
 	[Import("pdh.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 PdhAddCounterW(int hQuery, PWSTR szFullCounterPath, uint dwUserData, int* phCounter);
 
 	[Import("pdh.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 PdhAddCounterA(int hQuery, PSTR szFullCounterPath, uint dwUserData, int* phCounter);
+	public static int32 PdhAddCounter(int hQuery, PSTR szFullCounterPath, uint dwUserData, int* phCounter) => PdhAddCounterA(hQuery, szFullCounterPath, dwUserData, phCounter);
 
 	[Import("pdh.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 PdhAddEnglishCounterW(int hQuery, PWSTR szFullCounterPath, uint dwUserData, int* phCounter);
 
 	[Import("pdh.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 PdhAddEnglishCounterA(int hQuery, PSTR szFullCounterPath, uint dwUserData, int* phCounter);
+	public static int32 PdhAddEnglishCounter(int hQuery, PSTR szFullCounterPath, uint dwUserData, int* phCounter) => PdhAddEnglishCounterA(hQuery, szFullCounterPath, dwUserData, phCounter);
 
 	[Import("pdh.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 PdhCollectQueryDataWithTime(int hQuery, int64* pllTimeStamp);
@@ -3570,6 +3578,7 @@ public static
 
 	[Import("pdh.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 PdhValidatePathExA(int hDataSource, PSTR szFullPathBuffer);
+	public static int32 PdhValidatePathEx(int hDataSource, PSTR szFullPathBuffer) => PdhValidatePathExA(hDataSource, szFullPathBuffer);
 
 	[Import("pdh.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 PdhRemoveCounter(int hCounter);
@@ -3585,6 +3594,7 @@ public static
 
 	[Import("pdh.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 PdhGetFormattedCounterArrayA(int hCounter, PDH_FMT dwFormat, uint32* lpdwBufferSize, uint32* lpdwItemCount, PDH_FMT_COUNTERVALUE_ITEM_A* ItemBuffer);
+	public static int32 PdhGetFormattedCounterArray(int hCounter, PDH_FMT dwFormat, uint32* lpdwBufferSize, uint32* lpdwItemCount, PDH_FMT_COUNTERVALUE_ITEM_A* ItemBuffer) => PdhGetFormattedCounterArrayA(hCounter, dwFormat, lpdwBufferSize, lpdwItemCount, ItemBuffer);
 
 	[Import("pdh.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 PdhGetFormattedCounterArrayW(int hCounter, PDH_FMT dwFormat, uint32* lpdwBufferSize, uint32* lpdwItemCount, PDH_FMT_COUNTERVALUE_ITEM_W* ItemBuffer);
@@ -3594,6 +3604,7 @@ public static
 
 	[Import("pdh.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 PdhGetRawCounterArrayA(int hCounter, uint32* lpdwBufferSize, uint32* lpdwItemCount, PDH_RAW_COUNTER_ITEM_A* ItemBuffer);
+	public static int32 PdhGetRawCounterArray(int hCounter, uint32* lpdwBufferSize, uint32* lpdwItemCount, PDH_RAW_COUNTER_ITEM_A* ItemBuffer) => PdhGetRawCounterArrayA(hCounter, lpdwBufferSize, lpdwItemCount, ItemBuffer);
 
 	[Import("pdh.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 PdhGetRawCounterArrayW(int hCounter, uint32* lpdwBufferSize, uint32* lpdwItemCount, PDH_RAW_COUNTER_ITEM_W* ItemBuffer);
@@ -3609,6 +3620,7 @@ public static
 
 	[Import("pdh.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 PdhGetCounterInfoA(int hCounter, BOOLEAN bRetrieveExplainText, uint32* pdwBufferSize, PDH_COUNTER_INFO_A* lpBuffer);
+	public static int32 PdhGetCounterInfo(int hCounter, BOOLEAN bRetrieveExplainText, uint32* pdwBufferSize, PDH_COUNTER_INFO_A* lpBuffer) => PdhGetCounterInfoA(hCounter, bRetrieveExplainText, pdwBufferSize, lpBuffer);
 
 	[Import("pdh.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 PdhSetCounterScaleFactor(int hCounter, int32 lFactor);
@@ -3618,87 +3630,102 @@ public static
 
 	[Import("pdh.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 PdhConnectMachineA(PSTR szMachineName);
+	public static int32 PdhConnectMachine(PSTR szMachineName) => PdhConnectMachineA(szMachineName);
 
 	[Import("pdh.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 PdhEnumMachinesW(PWSTR szDataSource, PWSTR mszMachineList, uint32* pcchBufferSize);
 
 	[Import("pdh.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 PdhEnumMachinesA(PSTR szDataSource, PSTR mszMachineList, uint32* pcchBufferSize);
+	public static int32 PdhEnumMachines(PSTR szDataSource, PSTR mszMachineList, uint32* pcchBufferSize) => PdhEnumMachinesA(szDataSource, mszMachineList, pcchBufferSize);
 
 	[Import("pdh.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 PdhEnumObjectsW(PWSTR szDataSource, PWSTR szMachineName, PWSTR mszObjectList, uint32* pcchBufferSize, PERF_DETAIL dwDetailLevel, BOOL bRefresh);
 
 	[Import("pdh.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 PdhEnumObjectsA(PSTR szDataSource, PSTR szMachineName, PSTR mszObjectList, uint32* pcchBufferSize, PERF_DETAIL dwDetailLevel, BOOL bRefresh);
+	public static int32 PdhEnumObjects(PSTR szDataSource, PSTR szMachineName, PSTR mszObjectList, uint32* pcchBufferSize, PERF_DETAIL dwDetailLevel, BOOL bRefresh) => PdhEnumObjectsA(szDataSource, szMachineName, mszObjectList, pcchBufferSize, dwDetailLevel, bRefresh);
 
 	[Import("pdh.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 PdhEnumObjectItemsW(PWSTR szDataSource, PWSTR szMachineName, PWSTR szObjectName, PWSTR mszCounterList, uint32* pcchCounterListLength, PWSTR mszInstanceList, uint32* pcchInstanceListLength, PERF_DETAIL dwDetailLevel, uint32 dwFlags);
 
 	[Import("pdh.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 PdhEnumObjectItemsA(PSTR szDataSource, PSTR szMachineName, PSTR szObjectName, PSTR mszCounterList, uint32* pcchCounterListLength, PSTR mszInstanceList, uint32* pcchInstanceListLength, PERF_DETAIL dwDetailLevel, uint32 dwFlags);
+	public static int32 PdhEnumObjectItems(PSTR szDataSource, PSTR szMachineName, PSTR szObjectName, PSTR mszCounterList, uint32* pcchCounterListLength, PSTR mszInstanceList, uint32* pcchInstanceListLength, PERF_DETAIL dwDetailLevel, uint32 dwFlags) => PdhEnumObjectItemsA(szDataSource, szMachineName, szObjectName, mszCounterList, pcchCounterListLength, mszInstanceList, pcchInstanceListLength, dwDetailLevel, dwFlags);
 
 	[Import("pdh.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 PdhMakeCounterPathW(PDH_COUNTER_PATH_ELEMENTS_W* pCounterPathElements, PWSTR szFullPathBuffer, uint32* pcchBufferSize, PDH_PATH_FLAGS dwFlags);
 
 	[Import("pdh.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 PdhMakeCounterPathA(PDH_COUNTER_PATH_ELEMENTS_A* pCounterPathElements, PSTR szFullPathBuffer, uint32* pcchBufferSize, PDH_PATH_FLAGS dwFlags);
+	public static int32 PdhMakeCounterPath(PDH_COUNTER_PATH_ELEMENTS_A* pCounterPathElements, PSTR szFullPathBuffer, uint32* pcchBufferSize, PDH_PATH_FLAGS dwFlags) => PdhMakeCounterPathA(pCounterPathElements, szFullPathBuffer, pcchBufferSize, dwFlags);
 
 	[Import("pdh.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 PdhParseCounterPathW(PWSTR szFullPathBuffer, PDH_COUNTER_PATH_ELEMENTS_W* pCounterPathElements, uint32* pdwBufferSize, uint32 dwFlags);
 
 	[Import("pdh.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 PdhParseCounterPathA(PSTR szFullPathBuffer, PDH_COUNTER_PATH_ELEMENTS_A* pCounterPathElements, uint32* pdwBufferSize, uint32 dwFlags);
+	public static int32 PdhParseCounterPath(PSTR szFullPathBuffer, PDH_COUNTER_PATH_ELEMENTS_A* pCounterPathElements, uint32* pdwBufferSize, uint32 dwFlags) => PdhParseCounterPathA(szFullPathBuffer, pCounterPathElements, pdwBufferSize, dwFlags);
 
 	[Import("pdh.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 PdhParseInstanceNameW(PWSTR szInstanceString, PWSTR szInstanceName, uint32* pcchInstanceNameLength, PWSTR szParentName, uint32* pcchParentNameLength, uint32* lpIndex);
 
 	[Import("pdh.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 PdhParseInstanceNameA(PSTR szInstanceString, PSTR szInstanceName, uint32* pcchInstanceNameLength, PSTR szParentName, uint32* pcchParentNameLength, uint32* lpIndex);
+	public static int32 PdhParseInstanceName(PSTR szInstanceString, PSTR szInstanceName, uint32* pcchInstanceNameLength, PSTR szParentName, uint32* pcchParentNameLength, uint32* lpIndex) => PdhParseInstanceNameA(szInstanceString, szInstanceName, pcchInstanceNameLength, szParentName, pcchParentNameLength, lpIndex);
 
 	[Import("pdh.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 PdhValidatePathW(PWSTR szFullPathBuffer);
 
 	[Import("pdh.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 PdhValidatePathA(PSTR szFullPathBuffer);
+	public static int32 PdhValidatePath(PSTR szFullPathBuffer) => PdhValidatePathA(szFullPathBuffer);
 
 	[Import("pdh.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 PdhGetDefaultPerfObjectW(PWSTR szDataSource, PWSTR szMachineName, PWSTR szDefaultObjectName, uint32* pcchBufferSize);
 
 	[Import("pdh.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 PdhGetDefaultPerfObjectA(PSTR szDataSource, PSTR szMachineName, PSTR szDefaultObjectName, uint32* pcchBufferSize);
+	public static int32 PdhGetDefaultPerfObject(PSTR szDataSource, PSTR szMachineName, PSTR szDefaultObjectName, uint32* pcchBufferSize) => PdhGetDefaultPerfObjectA(szDataSource, szMachineName, szDefaultObjectName, pcchBufferSize);
 
 	[Import("pdh.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 PdhGetDefaultPerfCounterW(PWSTR szDataSource, PWSTR szMachineName, PWSTR szObjectName, PWSTR szDefaultCounterName, uint32* pcchBufferSize);
 
 	[Import("pdh.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 PdhGetDefaultPerfCounterA(PSTR szDataSource, PSTR szMachineName, PSTR szObjectName, PSTR szDefaultCounterName, uint32* pcchBufferSize);
+	public static int32 PdhGetDefaultPerfCounter(PSTR szDataSource, PSTR szMachineName, PSTR szObjectName, PSTR szDefaultCounterName, uint32* pcchBufferSize) => PdhGetDefaultPerfCounterA(szDataSource, szMachineName, szObjectName, szDefaultCounterName, pcchBufferSize);
 
 	[Import("pdh.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 PdhBrowseCountersW(PDH_BROWSE_DLG_CONFIG_W* pBrowseDlgData);
 
 	[Import("pdh.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 PdhBrowseCountersA(PDH_BROWSE_DLG_CONFIG_A* pBrowseDlgData);
+	public static int32 PdhBrowseCounters(PDH_BROWSE_DLG_CONFIG_A* pBrowseDlgData) => PdhBrowseCountersA(pBrowseDlgData);
 
 	[Import("pdh.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 PdhExpandCounterPathW(PWSTR szWildCardPath, PWSTR mszExpandedPathList, uint32* pcchPathListLength);
 
 	[Import("pdh.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 PdhExpandCounterPathA(PSTR szWildCardPath, PSTR mszExpandedPathList, uint32* pcchPathListLength);
+	public static int32 PdhExpandCounterPath(PSTR szWildCardPath, PSTR mszExpandedPathList, uint32* pcchPathListLength) => PdhExpandCounterPathA(szWildCardPath, mszExpandedPathList, pcchPathListLength);
 
 	[Import("pdh.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 PdhLookupPerfNameByIndexW(PWSTR szMachineName, uint32 dwNameIndex, PWSTR szNameBuffer, uint32* pcchNameBufferSize);
 
 	[Import("pdh.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 PdhLookupPerfNameByIndexA(PSTR szMachineName, uint32 dwNameIndex, PSTR szNameBuffer, uint32* pcchNameBufferSize);
+	public static int32 PdhLookupPerfNameByIndex(PSTR szMachineName, uint32 dwNameIndex, PSTR szNameBuffer, uint32* pcchNameBufferSize) => PdhLookupPerfNameByIndexA(szMachineName, dwNameIndex, szNameBuffer, pcchNameBufferSize);
 
 	[Import("pdh.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 PdhLookupPerfIndexByNameW(PWSTR szMachineName, PWSTR szNameBuffer, uint32* pdwIndex);
 
 	[Import("pdh.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 PdhLookupPerfIndexByNameA(PSTR szMachineName, PSTR szNameBuffer, uint32* pdwIndex);
+	public static int32 PdhLookupPerfIndexByName(PSTR szMachineName, PSTR szNameBuffer, uint32* pdwIndex) => PdhLookupPerfIndexByNameA(szMachineName, szNameBuffer, pdwIndex);
 
 	[Import("pdh.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 PdhExpandWildCardPathA(PSTR szDataSource, PSTR szWildCardPath, PSTR mszExpandedPathList, uint32* pcchPathListLength, uint32 dwFlags);
+	public static int32 PdhExpandWildCardPath(PSTR szDataSource, PSTR szWildCardPath, PSTR mszExpandedPathList, uint32* pcchPathListLength, uint32 dwFlags) => PdhExpandWildCardPathA(szDataSource, szWildCardPath, mszExpandedPathList, pcchPathListLength, dwFlags);
 
 	[Import("pdh.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 PdhExpandWildCardPathW(PWSTR szDataSource, PWSTR szWildCardPath, PWSTR mszExpandedPathList, uint32* pcchPathListLength, uint32 dwFlags);
@@ -3708,12 +3735,14 @@ public static
 
 	[Import("pdh.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 PdhOpenLogA(PSTR szLogFileName, PDH_LOG dwAccessFlags, PDH_LOG_TYPE* lpdwLogType, int hQuery, uint32 dwMaxSize, PSTR szUserCaption, int* phLog);
+	public static int32 PdhOpenLog(PSTR szLogFileName, PDH_LOG dwAccessFlags, PDH_LOG_TYPE* lpdwLogType, int hQuery, uint32 dwMaxSize, PSTR szUserCaption, int* phLog) => PdhOpenLogA(szLogFileName, dwAccessFlags, lpdwLogType, hQuery, dwMaxSize, szUserCaption, phLog);
 
 	[Import("pdh.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 PdhUpdateLogW(int hLog, PWSTR szUserString);
 
 	[Import("pdh.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 PdhUpdateLogA(int hLog, PSTR szUserString);
+	public static int32 PdhUpdateLog(int hLog, PSTR szUserString) => PdhUpdateLogA(hLog, szUserString);
 
 	[Import("pdh.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 PdhUpdateLogFileCatalog(int hLog);
@@ -3729,6 +3758,7 @@ public static
 
 	[Import("pdh.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 PdhSelectDataSourceA(HWND hWndOwner, PDH_SELECT_DATA_SOURCE_FLAGS dwFlags, PSTR szDataSource, uint32* pcchBufferLength);
+	public static int32 PdhSelectDataSource(HWND hWndOwner, PDH_SELECT_DATA_SOURCE_FLAGS dwFlags, PSTR szDataSource, uint32* pcchBufferLength) => PdhSelectDataSourceA(hWndOwner, dwFlags, szDataSource, pcchBufferLength);
 
 	[Import("pdh.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL PdhIsRealTimeQuery(int hQuery);
@@ -3741,6 +3771,7 @@ public static
 
 	[Import("pdh.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 PdhGetDataSourceTimeRangeA(PSTR szDataSource, uint32* pdwNumEntries, PDH_TIME_INFO* pInfo, uint32* pdwBufferSize);
+	public static int32 PdhGetDataSourceTimeRange(PSTR szDataSource, uint32* pdwNumEntries, PDH_TIME_INFO* pInfo, uint32* pdwBufferSize) => PdhGetDataSourceTimeRangeA(szDataSource, pdwNumEntries, pInfo, pdwBufferSize);
 
 	[Import("pdh.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 PdhCollectQueryDataEx(int hQuery, uint32 dwIntervalTime, HANDLE hNewDataEvent);
@@ -3762,6 +3793,7 @@ public static
 
 	[Import("pdh.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 PdhBindInputDataSourceA(int* phDataSource, PSTR LogFileNameList);
+	public static int32 PdhBindInputDataSource(int* phDataSource, PSTR LogFileNameList) => PdhBindInputDataSourceA(phDataSource, LogFileNameList);
 
 	[Import("pdh.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 PdhOpenQueryH(int hDataSource, uint dwUserData, int* phQuery);
@@ -3771,24 +3803,28 @@ public static
 
 	[Import("pdh.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 PdhEnumMachinesHA(int hDataSource, PSTR mszMachineList, uint32* pcchBufferSize);
+	public static int32 PdhEnumMachinesH(int hDataSource, PSTR mszMachineList, uint32* pcchBufferSize) => PdhEnumMachinesHA(hDataSource, mszMachineList, pcchBufferSize);
 
 	[Import("pdh.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 PdhEnumObjectsHW(int hDataSource, PWSTR szMachineName, PWSTR mszObjectList, uint32* pcchBufferSize, PERF_DETAIL dwDetailLevel, BOOL bRefresh);
 
 	[Import("pdh.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 PdhEnumObjectsHA(int hDataSource, PSTR szMachineName, PSTR mszObjectList, uint32* pcchBufferSize, PERF_DETAIL dwDetailLevel, BOOL bRefresh);
+	public static int32 PdhEnumObjectsH(int hDataSource, PSTR szMachineName, PSTR mszObjectList, uint32* pcchBufferSize, PERF_DETAIL dwDetailLevel, BOOL bRefresh) => PdhEnumObjectsHA(hDataSource, szMachineName, mszObjectList, pcchBufferSize, dwDetailLevel, bRefresh);
 
 	[Import("pdh.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 PdhEnumObjectItemsHW(int hDataSource, PWSTR szMachineName, PWSTR szObjectName, PWSTR mszCounterList, uint32* pcchCounterListLength, PWSTR mszInstanceList, uint32* pcchInstanceListLength, PERF_DETAIL dwDetailLevel, uint32 dwFlags);
 
 	[Import("pdh.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 PdhEnumObjectItemsHA(int hDataSource, PSTR szMachineName, PSTR szObjectName, PSTR mszCounterList, uint32* pcchCounterListLength, PSTR mszInstanceList, uint32* pcchInstanceListLength, PERF_DETAIL dwDetailLevel, uint32 dwFlags);
+	public static int32 PdhEnumObjectItemsH(int hDataSource, PSTR szMachineName, PSTR szObjectName, PSTR mszCounterList, uint32* pcchCounterListLength, PSTR mszInstanceList, uint32* pcchInstanceListLength, PERF_DETAIL dwDetailLevel, uint32 dwFlags) => PdhEnumObjectItemsHA(hDataSource, szMachineName, szObjectName, mszCounterList, pcchCounterListLength, mszInstanceList, pcchInstanceListLength, dwDetailLevel, dwFlags);
 
 	[Import("pdh.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 PdhExpandWildCardPathHW(int hDataSource, PWSTR szWildCardPath, PWSTR mszExpandedPathList, uint32* pcchPathListLength, uint32 dwFlags);
 
 	[Import("pdh.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 PdhExpandWildCardPathHA(int hDataSource, PSTR szWildCardPath, PSTR mszExpandedPathList, uint32* pcchPathListLength, uint32 dwFlags);
+	public static int32 PdhExpandWildCardPathH(int hDataSource, PSTR szWildCardPath, PSTR mszExpandedPathList, uint32* pcchPathListLength, uint32 dwFlags) => PdhExpandWildCardPathHA(hDataSource, szWildCardPath, mszExpandedPathList, pcchPathListLength, dwFlags);
 
 	[Import("pdh.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 PdhGetDataSourceTimeRangeH(int hDataSource, uint32* pdwNumEntries, PDH_TIME_INFO* pInfo, uint32* pdwBufferSize);
@@ -3798,36 +3834,42 @@ public static
 
 	[Import("pdh.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 PdhGetDefaultPerfObjectHA(int hDataSource, PSTR szMachineName, PSTR szDefaultObjectName, uint32* pcchBufferSize);
+	public static int32 PdhGetDefaultPerfObjectH(int hDataSource, PSTR szMachineName, PSTR szDefaultObjectName, uint32* pcchBufferSize) => PdhGetDefaultPerfObjectHA(hDataSource, szMachineName, szDefaultObjectName, pcchBufferSize);
 
 	[Import("pdh.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 PdhGetDefaultPerfCounterHW(int hDataSource, PWSTR szMachineName, PWSTR szObjectName, PWSTR szDefaultCounterName, uint32* pcchBufferSize);
 
 	[Import("pdh.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 PdhGetDefaultPerfCounterHA(int hDataSource, PSTR szMachineName, PSTR szObjectName, PSTR szDefaultCounterName, uint32* pcchBufferSize);
+	public static int32 PdhGetDefaultPerfCounterH(int hDataSource, PSTR szMachineName, PSTR szObjectName, PSTR szDefaultCounterName, uint32* pcchBufferSize) => PdhGetDefaultPerfCounterHA(hDataSource, szMachineName, szObjectName, szDefaultCounterName, pcchBufferSize);
 
 	[Import("pdh.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 PdhBrowseCountersHW(PDH_BROWSE_DLG_CONFIG_HW* pBrowseDlgData);
 
 	[Import("pdh.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 PdhBrowseCountersHA(PDH_BROWSE_DLG_CONFIG_HA* pBrowseDlgData);
+	public static int32 PdhBrowseCountersH(PDH_BROWSE_DLG_CONFIG_HA* pBrowseDlgData) => PdhBrowseCountersHA(pBrowseDlgData);
 
 	[Import("pdh.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 PdhVerifySQLDBW(PWSTR szDataSource);
 
 	[Import("pdh.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 PdhVerifySQLDBA(PSTR szDataSource);
+	public static int32 PdhVerifySQLDB(PSTR szDataSource) => PdhVerifySQLDBA(szDataSource);
 
 	[Import("pdh.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 PdhCreateSQLTablesW(PWSTR szDataSource);
 
 	[Import("pdh.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 PdhCreateSQLTablesA(PSTR szDataSource);
+	public static int32 PdhCreateSQLTables(PSTR szDataSource) => PdhCreateSQLTablesA(szDataSource);
 
 	[Import("pdh.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 PdhEnumLogSetNamesW(PWSTR szDataSource, PWSTR mszDataSetNameList, uint32* pcchBufferLength);
 
 	[Import("pdh.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 PdhEnumLogSetNamesA(PSTR szDataSource, PSTR mszDataSetNameList, uint32* pcchBufferLength);
+	public static int32 PdhEnumLogSetNames(PSTR szDataSource, PSTR mszDataSetNameList, uint32* pcchBufferLength) => PdhEnumLogSetNamesA(szDataSource, mszDataSetNameList, pcchBufferLength);
 
 	[Import("pdh.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 PdhGetLogSetGUID(int hLog, Guid* pGuid, int32* pRunId);

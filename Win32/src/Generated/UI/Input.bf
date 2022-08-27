@@ -219,6 +219,7 @@ public static
 
 	[Import("USER32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 GetRawInputDeviceInfoA(HANDLE hDevice, RAW_INPUT_DEVICE_INFO_COMMAND uiCommand, void* pData, uint32* pcbSize);
+	public static uint32 GetRawInputDeviceInfo(HANDLE hDevice, RAW_INPUT_DEVICE_INFO_COMMAND uiCommand, void* pData, uint32* pcbSize) => GetRawInputDeviceInfoA(hDevice, uiCommand, pData, pcbSize);
 
 	[Import("USER32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 GetRawInputDeviceInfoW(HANDLE hDevice, RAW_INPUT_DEVICE_INFO_COMMAND uiCommand, void* pData, uint32* pcbSize);

@@ -3107,6 +3107,7 @@ public static
 {
 	[Import("WINSPOOL.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 DeviceCapabilitiesA(PSTR pDevice, PSTR pPort, DEVICE_CAPABILITIES fwCapability, PSTR pOutput, DEVMODEA* pDevMode);
+	public static int32 DeviceCapabilities(PSTR pDevice, PSTR pPort, DEVICE_CAPABILITIES fwCapability, PSTR pOutput, DEVMODEA* pDevMode) => DeviceCapabilitiesA(pDevice, pPort, fwCapability, pOutput, pDevMode);
 
 	[Import("WINSPOOL.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 DeviceCapabilitiesW(PWSTR pDevice, PWSTR pPort, DEVICE_CAPABILITIES fwCapability, PWSTR pOutput, DEVMODEW* pDevMode);
@@ -3119,6 +3120,7 @@ public static
 
 	[Import("GDI32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 StartDocA(HDC hdc, DOCINFOA* lpdi);
+	public static int32 StartDoc(HDC hdc, DOCINFOA* lpdi) => StartDocA(hdc, lpdi);
 
 	[Import("GDI32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 StartDocW(HDC hdc, DOCINFOW* lpdi);

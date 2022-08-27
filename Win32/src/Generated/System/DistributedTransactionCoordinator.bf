@@ -1865,6 +1865,7 @@ public static
 
 	[Import("XOLEHLP.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT DtcGetTransactionManagerExA(PSTR i_pszHost, PSTR i_pszTmName, Guid* i_riid, uint32 i_grfOptions, void* i_pvConfigParams, void** o_ppvObject);
+	public static HRESULT DtcGetTransactionManagerEx(PSTR i_pszHost, PSTR i_pszTmName, Guid* i_riid, uint32 i_grfOptions, void* i_pvConfigParams, void** o_ppvObject) => DtcGetTransactionManagerExA(i_pszHost, i_pszTmName, i_riid, i_grfOptions, i_pvConfigParams, o_ppvObject);
 
 	[Import("XOLEHLP.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT DtcGetTransactionManagerExW(PWSTR i_pwszHost, PWSTR i_pwszTmName, Guid* i_riid, uint32 i_grfOptions, void* i_pvConfigParams, void** o_ppvObject);

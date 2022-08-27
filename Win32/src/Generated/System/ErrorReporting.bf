@@ -596,6 +596,7 @@ public static
 
 	[Import("faultrep.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL AddERExcludedApplicationA(PSTR szApplication);
+	public static BOOL AddERExcludedApplication(PSTR szApplication) => AddERExcludedApplicationA(szApplication);
 
 	[Import("faultrep.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL AddERExcludedApplicationW(PWSTR wszApplication);

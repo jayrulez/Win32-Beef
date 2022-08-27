@@ -7701,6 +7701,7 @@ public static
 {
 	[Import("ADVAPI32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL CryptAcquireContextA(uint* phProv, PSTR szContainer, PSTR szProvider, uint32 dwProvType, uint32 dwFlags);
+	public static BOOL CryptAcquireContext(uint* phProv, PSTR szContainer, PSTR szProvider, uint32 dwProvType, uint32 dwFlags) => CryptAcquireContextA(phProv, szContainer, szProvider, dwProvType, dwFlags);
 
 	[Import("ADVAPI32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL CryptAcquireContextW(uint* phProv, PWSTR szContainer, PWSTR szProvider, uint32 dwProvType, uint32 dwFlags);
@@ -7767,42 +7768,49 @@ public static
 
 	[Import("ADVAPI32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL CryptSignHashA(uint hHash, uint32 dwKeySpec, PSTR szDescription, uint32 dwFlags, uint8* pbSignature, uint32* pdwSigLen);
+	public static BOOL CryptSignHash(uint hHash, uint32 dwKeySpec, PSTR szDescription, uint32 dwFlags, uint8* pbSignature, uint32* pdwSigLen) => CryptSignHashA(hHash, dwKeySpec, szDescription, dwFlags, pbSignature, pdwSigLen);
 
 	[Import("ADVAPI32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL CryptSignHashW(uint hHash, uint32 dwKeySpec, PWSTR szDescription, uint32 dwFlags, uint8* pbSignature, uint32* pdwSigLen);
 
 	[Import("ADVAPI32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL CryptVerifySignatureA(uint hHash, uint8* pbSignature, uint32 dwSigLen, uint hPubKey, PSTR szDescription, uint32 dwFlags);
+	public static BOOL CryptVerifySignature(uint hHash, uint8* pbSignature, uint32 dwSigLen, uint hPubKey, PSTR szDescription, uint32 dwFlags) => CryptVerifySignatureA(hHash, pbSignature, dwSigLen, hPubKey, szDescription, dwFlags);
 
 	[Import("ADVAPI32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL CryptVerifySignatureW(uint hHash, uint8* pbSignature, uint32 dwSigLen, uint hPubKey, PWSTR szDescription, uint32 dwFlags);
 
 	[Import("ADVAPI32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL CryptSetProviderA(PSTR pszProvName, uint32 dwProvType);
+	public static BOOL CryptSetProvider(PSTR pszProvName, uint32 dwProvType) => CryptSetProviderA(pszProvName, dwProvType);
 
 	[Import("ADVAPI32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL CryptSetProviderW(PWSTR pszProvName, uint32 dwProvType);
 
 	[Import("ADVAPI32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL CryptSetProviderExA(PSTR pszProvName, uint32 dwProvType, uint32* pdwReserved, uint32 dwFlags);
+	public static BOOL CryptSetProviderEx(PSTR pszProvName, uint32 dwProvType, uint32* pdwReserved, uint32 dwFlags) => CryptSetProviderExA(pszProvName, dwProvType, pdwReserved, dwFlags);
 
 	[Import("ADVAPI32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL CryptSetProviderExW(PWSTR pszProvName, uint32 dwProvType, uint32* pdwReserved, uint32 dwFlags);
 
 	[Import("ADVAPI32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL CryptGetDefaultProviderA(uint32 dwProvType, uint32* pdwReserved, uint32 dwFlags, PSTR pszProvName, uint32* pcbProvName);
+	public static BOOL CryptGetDefaultProvider(uint32 dwProvType, uint32* pdwReserved, uint32 dwFlags, PSTR pszProvName, uint32* pcbProvName) => CryptGetDefaultProviderA(dwProvType, pdwReserved, dwFlags, pszProvName, pcbProvName);
 
 	[Import("ADVAPI32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL CryptGetDefaultProviderW(uint32 dwProvType, uint32* pdwReserved, uint32 dwFlags, PWSTR pszProvName, uint32* pcbProvName);
 
 	[Import("ADVAPI32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL CryptEnumProviderTypesA(uint32 dwIndex, uint32* pdwReserved, uint32 dwFlags, uint32* pdwProvType, PSTR szTypeName, uint32* pcbTypeName);
+	public static BOOL CryptEnumProviderTypes(uint32 dwIndex, uint32* pdwReserved, uint32 dwFlags, uint32* pdwProvType, PSTR szTypeName, uint32* pcbTypeName) => CryptEnumProviderTypesA(dwIndex, pdwReserved, dwFlags, pdwProvType, szTypeName, pcbTypeName);
 
 	[Import("ADVAPI32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL CryptEnumProviderTypesW(uint32 dwIndex, uint32* pdwReserved, uint32 dwFlags, uint32* pdwProvType, PWSTR szTypeName, uint32* pcbTypeName);
 
 	[Import("ADVAPI32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL CryptEnumProvidersA(uint32 dwIndex, uint32* pdwReserved, uint32 dwFlags, uint32* pdwProvType, PSTR szProvName, uint32* pcbProvName);
+	public static BOOL CryptEnumProviders(uint32 dwIndex, uint32* pdwReserved, uint32 dwFlags, uint32* pdwProvType, PSTR szProvName, uint32* pcbProvName) => CryptEnumProvidersA(dwIndex, pdwReserved, dwFlags, pdwProvType, szProvName, pcbProvName);
 
 	[Import("ADVAPI32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL CryptEnumProvidersW(uint32 dwIndex, uint32* pdwReserved, uint32 dwFlags, uint32* pdwProvType, PWSTR szProvName, uint32* pcbProvName);
@@ -8508,24 +8516,28 @@ public static
 
 	[Import("CRYPT32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 CertRDNValueToStrA(uint32 dwValueType, CRYPTOAPI_BLOB* pValue, uint8* psz, uint32 csz);
+	public static uint32 CertRDNValueToStr(uint32 dwValueType, CRYPTOAPI_BLOB* pValue, uint8* psz, uint32 csz) => CertRDNValueToStrA(dwValueType, pValue, psz, csz);
 
 	[Import("CRYPT32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 CertRDNValueToStrW(uint32 dwValueType, CRYPTOAPI_BLOB* pValue, char8* psz, uint32 csz);
 
 	[Import("CRYPT32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 CertNameToStrA(uint32 dwCertEncodingType, CRYPTOAPI_BLOB* pName, CERT_STRING_TYPE dwStrType, uint8* psz, uint32 csz);
+	public static uint32 CertNameToStr(uint32 dwCertEncodingType, CRYPTOAPI_BLOB* pName, CERT_STRING_TYPE dwStrType, uint8* psz, uint32 csz) => CertNameToStrA(dwCertEncodingType, pName, dwStrType, psz, csz);
 
 	[Import("CRYPT32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 CertNameToStrW(uint32 dwCertEncodingType, CRYPTOAPI_BLOB* pName, CERT_STRING_TYPE dwStrType, char8* psz, uint32 csz);
 
 	[Import("CRYPT32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL CertStrToNameA(uint32 dwCertEncodingType, PSTR pszX500, CERT_STRING_TYPE dwStrType, void* pvReserved, uint8* pbEncoded, uint32* pcbEncoded, PSTR* ppszError);
+	public static BOOL CertStrToName(uint32 dwCertEncodingType, PSTR pszX500, CERT_STRING_TYPE dwStrType, void* pvReserved, uint8* pbEncoded, uint32* pcbEncoded, PSTR* ppszError) => CertStrToNameA(dwCertEncodingType, pszX500, dwStrType, pvReserved, pbEncoded, pcbEncoded, ppszError);
 
 	[Import("CRYPT32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL CertStrToNameW(uint32 dwCertEncodingType, PWSTR pszX500, CERT_STRING_TYPE dwStrType, void* pvReserved, uint8* pbEncoded, uint32* pcbEncoded, PWSTR* ppszError);
 
 	[Import("CRYPT32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 CertGetNameStringA(CERT_CONTEXT* pCertContext, uint32 dwType, uint32 dwFlags, void* pvTypePara, uint8* pszNameString, uint32 cchNameString);
+	public static uint32 CertGetNameString(CERT_CONTEXT* pCertContext, uint32 dwType, uint32 dwFlags, void* pvTypePara, uint8* pszNameString, uint32 cchNameString) => CertGetNameStringA(pCertContext, dwType, dwFlags, pvTypePara, pszNameString, cchNameString);
 
 	[Import("CRYPT32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 CertGetNameStringW(CERT_CONTEXT* pCertContext, uint32 dwType, uint32 dwFlags, void* pvTypePara, char8* pszNameString, uint32 cchNameString);
@@ -8577,12 +8589,14 @@ public static
 
 	[Import("CRYPT32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern void* CertOpenSystemStoreA(uint hProv, PSTR szSubsystemProtocol);
+	public static void* CertOpenSystemStore(uint hProv, PSTR szSubsystemProtocol) => CertOpenSystemStoreA(hProv, szSubsystemProtocol);
 
 	[Import("CRYPT32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern void* CertOpenSystemStoreW(uint hProv, PWSTR szSubsystemProtocol);
 
 	[Import("CRYPT32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL CertAddEncodedCertificateToSystemStoreA(PSTR szCertStoreName, uint8* pbCertEncoded, uint32 cbCertEncoded);
+	public static BOOL CertAddEncodedCertificateToSystemStore(PSTR szCertStoreName, uint8* pbCertEncoded, uint32 cbCertEncoded) => CertAddEncodedCertificateToSystemStoreA(szCertStoreName, pbCertEncoded, cbCertEncoded);
 
 	[Import("CRYPT32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL CertAddEncodedCertificateToSystemStoreW(PWSTR szCertStoreName, uint8* pbCertEncoded, uint32 cbCertEncoded);
@@ -8616,6 +8630,7 @@ public static
 
 	[Import("CRYPTNET.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL CryptRetrieveObjectByUrlA(PSTR pszUrl, PSTR pszObjectOid, uint32 dwRetrievalFlags, uint32 dwTimeout, void** ppvObject, HCRYPTASYNC hAsyncRetrieve, CRYPT_CREDENTIALS* pCredentials, void* pvVerify, CRYPT_RETRIEVE_AUX_INFO* pAuxInfo);
+	public static BOOL CryptRetrieveObjectByUrl(PSTR pszUrl, PSTR pszObjectOid, uint32 dwRetrievalFlags, uint32 dwTimeout, void** ppvObject, HCRYPTASYNC hAsyncRetrieve, CRYPT_CREDENTIALS* pCredentials, void* pvVerify, CRYPT_RETRIEVE_AUX_INFO* pAuxInfo) => CryptRetrieveObjectByUrlA(pszUrl, pszObjectOid, dwRetrievalFlags, dwTimeout, ppvObject, hAsyncRetrieve, pCredentials, pvVerify, pAuxInfo);
 
 	[Import("CRYPTNET.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL CryptRetrieveObjectByUrlW(PWSTR pszUrl, PSTR pszObjectOid, uint32 dwRetrievalFlags, uint32 dwTimeout, void** ppvObject, HCRYPTASYNC hAsyncRetrieve, CRYPT_CREDENTIALS* pCredentials, void* pvVerify, CRYPT_RETRIEVE_AUX_INFO* pAuxInfo);
@@ -8670,12 +8685,14 @@ public static
 
 	[Import("CRYPT32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL CryptStringToBinaryA(uint8* pszString, uint32 cchString, CRYPT_STRING dwFlags, uint8* pbBinary, uint32* pcbBinary, uint32* pdwSkip, uint32* pdwFlags);
+	public static BOOL CryptStringToBinary(uint8* pszString, uint32 cchString, CRYPT_STRING dwFlags, uint8* pbBinary, uint32* pcbBinary, uint32* pdwSkip, uint32* pdwFlags) => CryptStringToBinaryA(pszString, cchString, dwFlags, pbBinary, pcbBinary, pdwSkip, pdwFlags);
 
 	[Import("CRYPT32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL CryptStringToBinaryW(char8* pszString, uint32 cchString, CRYPT_STRING dwFlags, uint8* pbBinary, uint32* pcbBinary, uint32* pdwSkip, uint32* pdwFlags);
 
 	[Import("CRYPT32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL CryptBinaryToStringA(uint8* pbBinary, uint32 cbBinary, CRYPT_STRING dwFlags, uint8* pszString, uint32* pcchString);
+	public static BOOL CryptBinaryToString(uint8* pbBinary, uint32 cbBinary, CRYPT_STRING dwFlags, uint8* pszString, uint32* pcchString) => CryptBinaryToStringA(pbBinary, cbBinary, dwFlags, pszString, pcchString);
 
 	[Import("CRYPT32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL CryptBinaryToStringW(uint8* pbBinary, uint32 cbBinary, CRYPT_STRING dwFlags, char8* pszString, uint32* pcchString);

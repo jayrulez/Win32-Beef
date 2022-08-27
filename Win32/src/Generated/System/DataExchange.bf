@@ -489,6 +489,7 @@ public static
 
 	[Import("USER32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 DdeInitializeA(uint32* pidInst, PFNCALLBACK pfnCallback, DDE_INITIALIZE_COMMAND afCmd, uint32 ulRes);
+	public static uint32 DdeInitialize(uint32* pidInst, PFNCALLBACK pfnCallback, DDE_INITIALIZE_COMMAND afCmd, uint32 ulRes) => DdeInitializeA(pidInst, pfnCallback, afCmd, ulRes);
 
 	[Import("USER32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 DdeInitializeW(uint32* pidInst, PFNCALLBACK pfnCallback, DDE_INITIALIZE_COMMAND afCmd, uint32 ulRes);
@@ -561,12 +562,14 @@ public static
 
 	[Import("USER32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HSZ DdeCreateStringHandleA(uint32 idInst, PSTR psz, int32 iCodePage);
+	public static HSZ DdeCreateStringHandle(uint32 idInst, PSTR psz, int32 iCodePage) => DdeCreateStringHandleA(idInst, psz, iCodePage);
 
 	[Import("USER32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HSZ DdeCreateStringHandleW(uint32 idInst, PWSTR psz, int32 iCodePage);
 
 	[Import("USER32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 DdeQueryStringA(uint32 idInst, HSZ hsz, uint8* psz, uint32 cchMax, int32 iCodePage);
+	public static uint32 DdeQueryString(uint32 idInst, HSZ hsz, uint8* psz, uint32 cchMax, int32 iCodePage) => DdeQueryStringA(idInst, hsz, psz, cchMax, iCodePage);
 
 	[Import("USER32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 DdeQueryStringW(uint32 idInst, HSZ hsz, char8* psz, uint32 cchMax, int32 iCodePage);
@@ -612,6 +615,7 @@ public static
 
 	[Import("USER32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 RegisterClipboardFormatA(PSTR lpszFormat);
+	public static uint32 RegisterClipboardFormat(PSTR lpszFormat) => RegisterClipboardFormatA(lpszFormat);
 
 	[Import("USER32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 RegisterClipboardFormatW(PWSTR lpszFormat);
@@ -624,6 +628,7 @@ public static
 
 	[Import("USER32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 GetClipboardFormatNameA(uint32 format, uint8* lpszFormatName, int32 cchMaxCount);
+	public static int32 GetClipboardFormatName(uint32 format, uint8* lpszFormatName, int32 cchMaxCount) => GetClipboardFormatNameA(format, lpszFormatName, cchMaxCount);
 
 	[Import("USER32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 GetClipboardFormatNameW(uint32 format, char8* lpszFormatName, int32 cchMaxCount);
@@ -660,42 +665,49 @@ public static
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint16 GlobalAddAtomA(PSTR lpString);
+	public static uint16 GlobalAddAtom(PSTR lpString) => GlobalAddAtomA(lpString);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint16 GlobalAddAtomW(PWSTR lpString);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint16 GlobalAddAtomExA(PSTR lpString, uint32 Flags);
+	public static uint16 GlobalAddAtomEx(PSTR lpString, uint32 Flags) => GlobalAddAtomExA(lpString, Flags);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint16 GlobalAddAtomExW(PWSTR lpString, uint32 Flags);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint16 GlobalFindAtomA(PSTR lpString);
+	public static uint16 GlobalFindAtom(PSTR lpString) => GlobalFindAtomA(lpString);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint16 GlobalFindAtomW(PWSTR lpString);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 GlobalGetAtomNameA(uint16 nAtom, uint8* lpBuffer, int32 nSize);
+	public static uint32 GlobalGetAtomName(uint16 nAtom, uint8* lpBuffer, int32 nSize) => GlobalGetAtomNameA(nAtom, lpBuffer, nSize);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 GlobalGetAtomNameW(uint16 nAtom, char8* lpBuffer, int32 nSize);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint16 AddAtomA(PSTR lpString);
+	public static uint16 AddAtom(PSTR lpString) => AddAtomA(lpString);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint16 AddAtomW(PWSTR lpString);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint16 FindAtomA(PSTR lpString);
+	public static uint16 FindAtom(PSTR lpString) => FindAtomA(lpString);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint16 FindAtomW(PWSTR lpString);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 GetAtomNameA(uint16 nAtom, uint8* lpBuffer, int32 nSize);
+	public static uint32 GetAtomName(uint16 nAtom, uint8* lpBuffer, int32 nSize) => GetAtomNameA(nAtom, lpBuffer, nSize);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 GetAtomNameW(uint16 nAtom, char8* lpBuffer, int32 nSize);

@@ -2329,30 +2329,35 @@ public static
 
 	[Import("urlmon.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT URLOpenStreamA(IUnknown* param0, PSTR param1, uint32 param2, IBindStatusCallback* param3);
+	public static HRESULT URLOpenStream(IUnknown* param0, PSTR param1, uint32 param2, IBindStatusCallback* param3) => URLOpenStreamA(param0, param1, param2, param3);
 
 	[Import("urlmon.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT URLOpenStreamW(IUnknown* param0, PWSTR param1, uint32 param2, IBindStatusCallback* param3);
 
 	[Import("urlmon.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT URLOpenPullStreamA(IUnknown* param0, PSTR param1, uint32 param2, IBindStatusCallback* param3);
+	public static HRESULT URLOpenPullStream(IUnknown* param0, PSTR param1, uint32 param2, IBindStatusCallback* param3) => URLOpenPullStreamA(param0, param1, param2, param3);
 
 	[Import("urlmon.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT URLOpenPullStreamW(IUnknown* param0, PWSTR param1, uint32 param2, IBindStatusCallback* param3);
 
 	[Import("urlmon.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT URLDownloadToFileA(IUnknown* param0, PSTR param1, PSTR param2, uint32 param3, IBindStatusCallback* param4);
+	public static HRESULT URLDownloadToFile(IUnknown* param0, PSTR param1, PSTR param2, uint32 param3, IBindStatusCallback* param4) => URLDownloadToFileA(param0, param1, param2, param3, param4);
 
 	[Import("urlmon.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT URLDownloadToFileW(IUnknown* param0, PWSTR param1, PWSTR param2, uint32 param3, IBindStatusCallback* param4);
 
 	[Import("urlmon.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT URLDownloadToCacheFileA(IUnknown* param0, PSTR param1, uint8* param2, uint32 cchFileName, uint32 param4, IBindStatusCallback* param5);
+	public static HRESULT URLDownloadToCacheFile(IUnknown* param0, PSTR param1, uint8* param2, uint32 cchFileName, uint32 param4, IBindStatusCallback* param5) => URLDownloadToCacheFileA(param0, param1, param2, cchFileName, param4, param5);
 
 	[Import("urlmon.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT URLDownloadToCacheFileW(IUnknown* param0, PWSTR param1, char8* param2, uint32 cchFileName, uint32 param4, IBindStatusCallback* param5);
 
 	[Import("urlmon.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT URLOpenBlockingStreamA(IUnknown* param0, PSTR param1, IStream** param2, uint32 param3, IBindStatusCallback* param4);
+	public static HRESULT URLOpenBlockingStream(IUnknown* param0, PSTR param1, IStream** param2, uint32 param3, IBindStatusCallback* param4) => URLOpenBlockingStreamA(param0, param1, param2, param3, param4);
 
 	[Import("urlmon.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT URLOpenBlockingStreamW(IUnknown* param0, PWSTR param1, IStream** param2, uint32 param3, IBindStatusCallback* param4);
@@ -2443,6 +2448,7 @@ public static
 
 	[Import("urlmon.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL IsLoggingEnabledA(PSTR pszUrl);
+	public static BOOL IsLoggingEnabled(PSTR pszUrl) => IsLoggingEnabledA(pszUrl);
 
 	[Import("urlmon.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL IsLoggingEnabledW(PWSTR pwszUrl);

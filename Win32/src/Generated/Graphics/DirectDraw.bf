@@ -7074,12 +7074,14 @@ public static
 
 	[Import("DDRAW.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT DirectDrawEnumerateA(LPDDENUMCALLBACKA lpCallback, void* lpContext);
+	public static HRESULT DirectDrawEnumerate(LPDDENUMCALLBACKA lpCallback, void* lpContext) => DirectDrawEnumerateA(lpCallback, lpContext);
 
 	[Import("DDRAW.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT DirectDrawEnumerateExW(LPDDENUMCALLBACKEXW lpCallback, void* lpContext, uint32 dwFlags);
 
 	[Import("DDRAW.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT DirectDrawEnumerateExA(LPDDENUMCALLBACKEXA lpCallback, void* lpContext, uint32 dwFlags);
+	public static HRESULT DirectDrawEnumerateEx(LPDDENUMCALLBACKEXA lpCallback, void* lpContext, uint32 dwFlags) => DirectDrawEnumerateExA(lpCallback, lpContext, dwFlags);
 
 	[Import("DDRAW.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT DirectDrawCreate(Guid* lpGUID, IDirectDraw** lplpDD, IUnknown* pUnkOuter);

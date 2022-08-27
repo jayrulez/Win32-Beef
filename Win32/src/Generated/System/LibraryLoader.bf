@@ -134,18 +134,21 @@ public static
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 GetModuleFileNameA(HINSTANCE hModule, uint8* lpFilename, uint32 nSize);
+	public static uint32 GetModuleFileName(HINSTANCE hModule, uint8* lpFilename, uint32 nSize) => GetModuleFileNameA(hModule, lpFilename, nSize);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 GetModuleFileNameW(HINSTANCE hModule, char8* lpFilename, uint32 nSize);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HINSTANCE GetModuleHandleA(PSTR lpModuleName);
+	public static HINSTANCE GetModuleHandle(PSTR lpModuleName) => GetModuleHandleA(lpModuleName);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HINSTANCE GetModuleHandleW(PWSTR lpModuleName);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL GetModuleHandleExA(uint32 dwFlags, PSTR lpModuleName, HINSTANCE* phModule);
+	public static BOOL GetModuleHandleEx(uint32 dwFlags, PSTR lpModuleName, HINSTANCE* phModule) => GetModuleHandleExA(dwFlags, lpModuleName, phModule);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL GetModuleHandleExW(uint32 dwFlags, PWSTR lpModuleName, HINSTANCE* phModule);
@@ -155,6 +158,7 @@ public static
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HINSTANCE LoadLibraryExA(PSTR lpLibFileName, HANDLE hFile, LOAD_LIBRARY_FLAGS dwFlags);
+	public static HINSTANCE LoadLibraryEx(PSTR lpLibFileName, HANDLE hFile, LOAD_LIBRARY_FLAGS dwFlags) => LoadLibraryExA(lpLibFileName, hFile, dwFlags);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HINSTANCE LoadLibraryExW(PWSTR lpLibFileName, HANDLE hFile, LOAD_LIBRARY_FLAGS dwFlags);
@@ -179,18 +183,21 @@ public static
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL EnumResourceLanguagesExA(HINSTANCE hModule, PSTR lpType, PSTR lpName, ENUMRESLANGPROCA lpEnumFunc, int lParam, uint32 dwFlags, uint16 LangId);
+	public static BOOL EnumResourceLanguagesEx(HINSTANCE hModule, PSTR lpType, PSTR lpName, ENUMRESLANGPROCA lpEnumFunc, int lParam, uint32 dwFlags, uint16 LangId) => EnumResourceLanguagesExA(hModule, lpType, lpName, lpEnumFunc, lParam, dwFlags, LangId);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL EnumResourceLanguagesExW(HINSTANCE hModule, PWSTR lpType, PWSTR lpName, ENUMRESLANGPROCW lpEnumFunc, int lParam, uint32 dwFlags, uint16 LangId);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL EnumResourceNamesExA(HINSTANCE hModule, PSTR lpType, ENUMRESNAMEPROCA lpEnumFunc, int lParam, uint32 dwFlags, uint16 LangId);
+	public static BOOL EnumResourceNamesEx(HINSTANCE hModule, PSTR lpType, ENUMRESNAMEPROCA lpEnumFunc, int lParam, uint32 dwFlags, uint16 LangId) => EnumResourceNamesExA(hModule, lpType, lpEnumFunc, lParam, dwFlags, LangId);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL EnumResourceNamesExW(HINSTANCE hModule, PWSTR lpType, ENUMRESNAMEPROCW lpEnumFunc, int lParam, uint32 dwFlags, uint16 LangId);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL EnumResourceTypesExA(HINSTANCE hModule, ENUMRESTYPEPROCA lpEnumFunc, int lParam, uint32 dwFlags, uint16 LangId);
+	public static BOOL EnumResourceTypesEx(HINSTANCE hModule, ENUMRESTYPEPROCA lpEnumFunc, int lParam, uint32 dwFlags, uint16 LangId) => EnumResourceTypesExA(hModule, lpEnumFunc, lParam, dwFlags, LangId);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL EnumResourceTypesExW(HINSTANCE hModule, ENUMRESTYPEPROCW lpEnumFunc, int lParam, uint32 dwFlags, uint16 LangId);
@@ -200,6 +207,7 @@ public static
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HINSTANCE LoadLibraryA(PSTR lpLibFileName);
+	public static HINSTANCE LoadLibrary(PSTR lpLibFileName) => LoadLibraryA(lpLibFileName);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HINSTANCE LoadLibraryW(PWSTR lpLibFileName);
@@ -209,6 +217,7 @@ public static
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL EnumResourceNamesA(HINSTANCE hModule, PSTR lpType, ENUMRESNAMEPROCA lpEnumFunc, int lParam);
+	public static BOOL EnumResourceNames(HINSTANCE hModule, PSTR lpType, ENUMRESNAMEPROCA lpEnumFunc, int lParam) => EnumResourceNamesA(hModule, lpType, lpEnumFunc, lParam);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 LoadModule(PSTR lpModuleName, void* lpParameterBlock);
@@ -218,48 +227,57 @@ public static
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRSRC FindResourceA(HINSTANCE hModule, PSTR lpName, PSTR lpType);
+	public static HRSRC FindResource(HINSTANCE hModule, PSTR lpName, PSTR lpType) => FindResourceA(hModule, lpName, lpType);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRSRC FindResourceExA(HINSTANCE hModule, PSTR lpType, PSTR lpName, uint16 wLanguage);
+	public static HRSRC FindResourceEx(HINSTANCE hModule, PSTR lpType, PSTR lpName, uint16 wLanguage) => FindResourceExA(hModule, lpType, lpName, wLanguage);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL EnumResourceTypesA(HINSTANCE hModule, ENUMRESTYPEPROCA lpEnumFunc, int lParam);
+	public static BOOL EnumResourceTypes(HINSTANCE hModule, ENUMRESTYPEPROCA lpEnumFunc, int lParam) => EnumResourceTypesA(hModule, lpEnumFunc, lParam);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL EnumResourceTypesW(HINSTANCE hModule, ENUMRESTYPEPROCW lpEnumFunc, int lParam);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL EnumResourceLanguagesA(HINSTANCE hModule, PSTR lpType, PSTR lpName, ENUMRESLANGPROCA lpEnumFunc, int lParam);
+	public static BOOL EnumResourceLanguages(HINSTANCE hModule, PSTR lpType, PSTR lpName, ENUMRESLANGPROCA lpEnumFunc, int lParam) => EnumResourceLanguagesA(hModule, lpType, lpName, lpEnumFunc, lParam);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL EnumResourceLanguagesW(HINSTANCE hModule, PWSTR lpType, PWSTR lpName, ENUMRESLANGPROCW lpEnumFunc, int lParam);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HANDLE BeginUpdateResourceA(PSTR pFileName, BOOL bDeleteExistingResources);
+	public static HANDLE BeginUpdateResource(PSTR pFileName, BOOL bDeleteExistingResources) => BeginUpdateResourceA(pFileName, bDeleteExistingResources);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HANDLE BeginUpdateResourceW(PWSTR pFileName, BOOL bDeleteExistingResources);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL UpdateResourceA(HANDLE hUpdate, PSTR lpType, PSTR lpName, uint16 wLanguage, void* lpData, uint32 cb);
+	public static BOOL UpdateResource(HANDLE hUpdate, PSTR lpType, PSTR lpName, uint16 wLanguage, void* lpData, uint32 cb) => UpdateResourceA(hUpdate, lpType, lpName, wLanguage, lpData, cb);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL UpdateResourceW(HANDLE hUpdate, PWSTR lpType, PWSTR lpName, uint16 wLanguage, void* lpData, uint32 cb);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL EndUpdateResourceA(HANDLE hUpdate, BOOL fDiscard);
+	public static BOOL EndUpdateResource(HANDLE hUpdate, BOOL fDiscard) => EndUpdateResourceA(hUpdate, fDiscard);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL EndUpdateResourceW(HANDLE hUpdate, BOOL fDiscard);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL SetDllDirectoryA(PSTR lpPathName);
+	public static BOOL SetDllDirectory(PSTR lpPathName) => SetDllDirectoryA(lpPathName);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL SetDllDirectoryW(PWSTR lpPathName);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 GetDllDirectoryA(uint32 nBufferLength, uint8* lpBuffer);
+	public static uint32 GetDllDirectory(uint32 nBufferLength, uint8* lpBuffer) => GetDllDirectoryA(nBufferLength, lpBuffer);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 GetDllDirectoryW(uint32 nBufferLength, char8* lpBuffer);

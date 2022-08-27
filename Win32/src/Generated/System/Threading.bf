@@ -991,6 +991,7 @@ public static
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HANDLE CreateMutexA(SECURITY_ATTRIBUTES* lpMutexAttributes, BOOL bInitialOwner, PSTR lpName);
+	public static HANDLE CreateMutex(SECURITY_ATTRIBUTES* lpMutexAttributes, BOOL bInitialOwner, PSTR lpName) => CreateMutexA(lpMutexAttributes, bInitialOwner, lpName);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HANDLE CreateMutexW(SECURITY_ATTRIBUTES* lpMutexAttributes, BOOL bInitialOwner, PWSTR lpName);
@@ -1000,12 +1001,14 @@ public static
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HANDLE CreateEventA(SECURITY_ATTRIBUTES* lpEventAttributes, BOOL bManualReset, BOOL bInitialState, PSTR lpName);
+	public static HANDLE CreateEvent(SECURITY_ATTRIBUTES* lpEventAttributes, BOOL bManualReset, BOOL bInitialState, PSTR lpName) => CreateEventA(lpEventAttributes, bManualReset, bInitialState, lpName);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HANDLE CreateEventW(SECURITY_ATTRIBUTES* lpEventAttributes, BOOL bManualReset, BOOL bInitialState, PWSTR lpName);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HANDLE OpenEventA(uint32 dwDesiredAccess, BOOL bInheritHandle, PSTR lpName);
+	public static HANDLE OpenEvent(uint32 dwDesiredAccess, BOOL bInheritHandle, PSTR lpName) => OpenEventA(dwDesiredAccess, bInheritHandle, lpName);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HANDLE OpenEventW(uint32 dwDesiredAccess, BOOL bInheritHandle, PWSTR lpName);
@@ -1027,12 +1030,14 @@ public static
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HANDLE CreateMutexExA(SECURITY_ATTRIBUTES* lpMutexAttributes, PSTR lpName, uint32 dwFlags, uint32 dwDesiredAccess);
+	public static HANDLE CreateMutexEx(SECURITY_ATTRIBUTES* lpMutexAttributes, PSTR lpName, uint32 dwFlags, uint32 dwDesiredAccess) => CreateMutexExA(lpMutexAttributes, lpName, dwFlags, dwDesiredAccess);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HANDLE CreateMutexExW(SECURITY_ATTRIBUTES* lpMutexAttributes, PWSTR lpName, uint32 dwFlags, uint32 dwDesiredAccess);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HANDLE CreateEventExA(SECURITY_ATTRIBUTES* lpEventAttributes, PSTR lpName, CREATE_EVENT dwFlags, uint32 dwDesiredAccess);
+	public static HANDLE CreateEventEx(SECURITY_ATTRIBUTES* lpEventAttributes, PSTR lpName, CREATE_EVENT dwFlags, uint32 dwDesiredAccess) => CreateEventExA(lpEventAttributes, lpName, dwFlags, dwDesiredAccess);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HANDLE CreateEventExW(SECURITY_ATTRIBUTES* lpEventAttributes, PWSTR lpName, CREATE_EVENT dwFlags, uint32 dwDesiredAccess);
@@ -1174,6 +1179,7 @@ public static
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL CreateProcessA(PSTR lpApplicationName, PSTR lpCommandLine, SECURITY_ATTRIBUTES* lpProcessAttributes, SECURITY_ATTRIBUTES* lpThreadAttributes, BOOL bInheritHandles, PROCESS_CREATION_FLAGS dwCreationFlags, void* lpEnvironment, PSTR lpCurrentDirectory, STARTUPINFOA* lpStartupInfo, PROCESS_INFORMATION* lpProcessInformation);
+	public static BOOL CreateProcess(PSTR lpApplicationName, PSTR lpCommandLine, SECURITY_ATTRIBUTES* lpProcessAttributes, SECURITY_ATTRIBUTES* lpThreadAttributes, BOOL bInheritHandles, PROCESS_CREATION_FLAGS dwCreationFlags, void* lpEnvironment, PSTR lpCurrentDirectory, STARTUPINFOA* lpStartupInfo, PROCESS_INFORMATION* lpProcessInformation) => CreateProcessA(lpApplicationName, lpCommandLine, lpProcessAttributes, lpThreadAttributes, bInheritHandles, dwCreationFlags, lpEnvironment, lpCurrentDirectory, lpStartupInfo, lpProcessInformation);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL CreateProcessW(PWSTR lpApplicationName, PWSTR lpCommandLine, SECURITY_ATTRIBUTES* lpProcessAttributes, SECURITY_ATTRIBUTES* lpThreadAttributes, BOOL bInheritHandles, PROCESS_CREATION_FLAGS dwCreationFlags, void* lpEnvironment, PWSTR lpCurrentDirectory, STARTUPINFOW* lpStartupInfo, PROCESS_INFORMATION* lpProcessInformation);
@@ -1327,6 +1333,7 @@ public static
 
 	[Import("ADVAPI32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL CreateProcessAsUserA(HANDLE hToken, PSTR lpApplicationName, PSTR lpCommandLine, SECURITY_ATTRIBUTES* lpProcessAttributes, SECURITY_ATTRIBUTES* lpThreadAttributes, BOOL bInheritHandles, uint32 dwCreationFlags, void* lpEnvironment, PSTR lpCurrentDirectory, STARTUPINFOA* lpStartupInfo, PROCESS_INFORMATION* lpProcessInformation);
+	public static BOOL CreateProcessAsUser(HANDLE hToken, PSTR lpApplicationName, PSTR lpCommandLine, SECURITY_ATTRIBUTES* lpProcessAttributes, SECURITY_ATTRIBUTES* lpThreadAttributes, BOOL bInheritHandles, uint32 dwCreationFlags, void* lpEnvironment, PSTR lpCurrentDirectory, STARTUPINFOA* lpStartupInfo, PROCESS_INFORMATION* lpProcessInformation) => CreateProcessAsUserA(hToken, lpApplicationName, lpCommandLine, lpProcessAttributes, lpThreadAttributes, bInheritHandles, dwCreationFlags, lpEnvironment, lpCurrentDirectory, lpStartupInfo, lpProcessInformation);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL GetProcessShutdownParameters(uint32* lpdwLevel, uint32* lpdwFlags);
@@ -1642,18 +1649,22 @@ public static
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HANDLE CreateSemaphoreA(SECURITY_ATTRIBUTES* lpSemaphoreAttributes, int32 lInitialCount, int32 lMaximumCount, PSTR lpName);
+	public static HANDLE CreateSemaphore(SECURITY_ATTRIBUTES* lpSemaphoreAttributes, int32 lInitialCount, int32 lMaximumCount, PSTR lpName) => CreateSemaphoreA(lpSemaphoreAttributes, lInitialCount, lMaximumCount, lpName);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HANDLE CreateSemaphoreExA(SECURITY_ATTRIBUTES* lpSemaphoreAttributes, int32 lInitialCount, int32 lMaximumCount, PSTR lpName, uint32 dwFlags, uint32 dwDesiredAccess);
+	public static HANDLE CreateSemaphoreEx(SECURITY_ATTRIBUTES* lpSemaphoreAttributes, int32 lInitialCount, int32 lMaximumCount, PSTR lpName, uint32 dwFlags, uint32 dwDesiredAccess) => CreateSemaphoreExA(lpSemaphoreAttributes, lInitialCount, lMaximumCount, lpName, dwFlags, dwDesiredAccess);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL QueryFullProcessImageNameA(HANDLE hProcess, PROCESS_NAME_FORMAT dwFlags, uint8* lpExeName, uint32* lpdwSize);
+	public static BOOL QueryFullProcessImageName(HANDLE hProcess, PROCESS_NAME_FORMAT dwFlags, uint8* lpExeName, uint32* lpdwSize) => QueryFullProcessImageNameA(hProcess, dwFlags, lpExeName, lpdwSize);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL QueryFullProcessImageNameW(HANDLE hProcess, PROCESS_NAME_FORMAT dwFlags, char8* lpExeName, uint32* lpdwSize);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern void GetStartupInfoA(STARTUPINFOA* lpStartupInfo);
+	public static void GetStartupInfo(STARTUPINFOA* lpStartupInfo) => GetStartupInfoA(lpStartupInfo);
 
 	[Import("ADVAPI32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL CreateProcessWithLogonW(PWSTR lpUsername, PWSTR lpDomain, PWSTR lpPassword, CREATE_PROCESS_LOGON_FLAGS dwLogonFlags, PWSTR lpApplicationName, PWSTR lpCommandLine, uint32 dwCreationFlags, void* lpEnvironment, PWSTR lpCurrentDirectory, STARTUPINFOW* lpStartupInfo, PROCESS_INFORMATION* lpProcessInformation);
@@ -1672,12 +1683,15 @@ public static
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern NamespaceHandle CreatePrivateNamespaceA(SECURITY_ATTRIBUTES* lpPrivateNamespaceAttributes, void* lpBoundaryDescriptor, PSTR lpAliasPrefix);
+	public static NamespaceHandle CreatePrivateNamespace(SECURITY_ATTRIBUTES* lpPrivateNamespaceAttributes, void* lpBoundaryDescriptor, PSTR lpAliasPrefix) => CreatePrivateNamespaceA(lpPrivateNamespaceAttributes, lpBoundaryDescriptor, lpAliasPrefix);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern NamespaceHandle OpenPrivateNamespaceA(void* lpBoundaryDescriptor, PSTR lpAliasPrefix);
+	public static NamespaceHandle OpenPrivateNamespace(void* lpBoundaryDescriptor, PSTR lpAliasPrefix) => OpenPrivateNamespaceA(lpBoundaryDescriptor, lpAliasPrefix);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BoundaryDescriptorHandle CreateBoundaryDescriptorA(PSTR Name, uint32 Flags);
+	public static BoundaryDescriptorHandle CreateBoundaryDescriptor(PSTR Name, uint32 Flags) => CreateBoundaryDescriptorA(Name, Flags);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL AddIntegrityLabelToBoundaryDescriptor(HANDLE* BoundaryDescriptor, PSID IntegrityLabel);

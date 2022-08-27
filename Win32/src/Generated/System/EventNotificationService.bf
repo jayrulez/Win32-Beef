@@ -194,6 +194,7 @@ public static
 {
 	[Import("SensApi.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL IsDestinationReachableA(PSTR lpszDestination, QOCINFO* lpQOCInfo);
+	public static BOOL IsDestinationReachable(PSTR lpszDestination, QOCINFO* lpQOCInfo) => IsDestinationReachableA(lpszDestination, lpQOCInfo);
 
 	[Import("SensApi.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL IsDestinationReachableW(PWSTR lpszDestination, QOCINFO* lpQOCInfo);

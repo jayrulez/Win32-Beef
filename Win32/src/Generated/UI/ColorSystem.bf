@@ -773,12 +773,14 @@ public static
 
 	[Import("GDI32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL GetLogColorSpaceA(HCOLORSPACE hColorSpace, LOGCOLORSPACEA* lpBuffer, uint32 nSize);
+	public static BOOL GetLogColorSpace(HCOLORSPACE hColorSpace, LOGCOLORSPACEA* lpBuffer, uint32 nSize) => GetLogColorSpaceA(hColorSpace, lpBuffer, nSize);
 
 	[Import("GDI32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL GetLogColorSpaceW(HCOLORSPACE hColorSpace, LOGCOLORSPACEW* lpBuffer, uint32 nSize);
 
 	[Import("GDI32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HCOLORSPACE CreateColorSpaceA(LOGCOLORSPACEA* lplcs);
+	public static HCOLORSPACE CreateColorSpace(LOGCOLORSPACEA* lplcs) => CreateColorSpaceA(lplcs);
 
 	[Import("GDI32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HCOLORSPACE CreateColorSpaceW(LOGCOLORSPACEW* lplcs);
@@ -791,12 +793,14 @@ public static
 
 	[Import("GDI32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL GetICMProfileA(HDC hdc, uint32* pBufSize, uint8* pszFilename);
+	public static BOOL GetICMProfile(HDC hdc, uint32* pBufSize, uint8* pszFilename) => GetICMProfileA(hdc, pBufSize, pszFilename);
 
 	[Import("GDI32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL GetICMProfileW(HDC hdc, uint32* pBufSize, char8* pszFilename);
 
 	[Import("GDI32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL SetICMProfileA(HDC hdc, PSTR lpFileName);
+	public static BOOL SetICMProfile(HDC hdc, PSTR lpFileName) => SetICMProfileA(hdc, lpFileName);
 
 	[Import("GDI32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL SetICMProfileW(HDC hdc, PWSTR lpFileName);
@@ -812,12 +816,14 @@ public static
 
 	[Import("GDI32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 EnumICMProfilesA(HDC hdc, ICMENUMPROCA proc, LPARAM param2);
+	public static int32 EnumICMProfiles(HDC hdc, ICMENUMPROCA proc, LPARAM param2) => EnumICMProfilesA(hdc, proc, param2);
 
 	[Import("GDI32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 EnumICMProfilesW(HDC hdc, ICMENUMPROCW proc, LPARAM param2);
 
 	[Import("GDI32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL UpdateICMRegKeyA(uint32 reserved, PSTR lpszCMID, PSTR lpszFileName, ICM_COMMAND command);
+	public static BOOL UpdateICMRegKey(uint32 reserved, PSTR lpszCMID, PSTR lpszFileName, ICM_COMMAND command) => UpdateICMRegKeyA(reserved, lpszCMID, lpszFileName, command);
 
 	[Import("GDI32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL UpdateICMRegKeyW(uint32 reserved, PWSTR lpszCMID, PWSTR lpszFileName, ICM_COMMAND command);
@@ -827,6 +833,7 @@ public static
 
 	[Import("mscms.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int OpenColorProfileA(PROFILE* pProfile, uint32 dwDesiredAccess, uint32 dwShareMode, uint32 dwCreationMode);
+	public static int OpenColorProfile(PROFILE* pProfile, uint32 dwDesiredAccess, uint32 dwShareMode, uint32 dwCreationMode) => OpenColorProfileA(pProfile, dwDesiredAccess, dwShareMode, dwCreationMode);
 
 	[Import("mscms.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int OpenColorProfileW(PROFILE* pProfile, uint32 dwDesiredAccess, uint32 dwShareMode, uint32 dwCreationMode);
@@ -842,6 +849,7 @@ public static
 
 	[Import("mscms.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL CreateProfileFromLogColorSpaceA(LOGCOLORSPACEA* pLogColorSpace, uint8** pProfile);
+	public static BOOL CreateProfileFromLogColorSpace(LOGCOLORSPACEA* pLogColorSpace, uint8** pProfile) => CreateProfileFromLogColorSpaceA(pLogColorSpace, pProfile);
 
 	[Import("mscms.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL CreateProfileFromLogColorSpaceW(LOGCOLORSPACEW* pLogColorSpace, uint8** pProfile);
@@ -896,6 +904,7 @@ public static
 
 	[Import("mscms.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int CreateColorTransformA(LOGCOLORSPACEA* pLogColorSpace, int hDestProfile, int hTargetProfile, uint32 dwFlags);
+	public static int CreateColorTransform(LOGCOLORSPACEA* pLogColorSpace, int hDestProfile, int hTargetProfile, uint32 dwFlags) => CreateColorTransformA(pLogColorSpace, hDestProfile, hTargetProfile, dwFlags);
 
 	[Import("mscms.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int CreateColorTransformW(LOGCOLORSPACEW* pLogColorSpace, int hDestProfile, int hTargetProfile, uint32 dwFlags);
@@ -923,12 +932,14 @@ public static
 
 	[Import("mscms.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL RegisterCMMA(PSTR pMachineName, uint32 cmmID, PSTR pCMMdll);
+	public static BOOL RegisterCMM(PSTR pMachineName, uint32 cmmID, PSTR pCMMdll) => RegisterCMMA(pMachineName, cmmID, pCMMdll);
 
 	[Import("mscms.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL RegisterCMMW(PWSTR pMachineName, uint32 cmmID, PWSTR pCMMdll);
 
 	[Import("mscms.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL UnregisterCMMA(PSTR pMachineName, uint32 cmmID);
+	public static BOOL UnregisterCMM(PSTR pMachineName, uint32 cmmID) => UnregisterCMMA(pMachineName, cmmID);
 
 	[Import("mscms.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL UnregisterCMMW(PWSTR pMachineName, uint32 cmmID);
@@ -938,48 +949,56 @@ public static
 
 	[Import("mscms.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL GetColorDirectoryA(PSTR pMachineName, PSTR pBuffer, uint32* pdwSize);
+	public static BOOL GetColorDirectory(PSTR pMachineName, PSTR pBuffer, uint32* pdwSize) => GetColorDirectoryA(pMachineName, pBuffer, pdwSize);
 
 	[Import("mscms.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL GetColorDirectoryW(PWSTR pMachineName, PWSTR pBuffer, uint32* pdwSize);
 
 	[Import("mscms.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL InstallColorProfileA(PSTR pMachineName, PSTR pProfileName);
+	public static BOOL InstallColorProfile(PSTR pMachineName, PSTR pProfileName) => InstallColorProfileA(pMachineName, pProfileName);
 
 	[Import("mscms.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL InstallColorProfileW(PWSTR pMachineName, PWSTR pProfileName);
 
 	[Import("mscms.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL UninstallColorProfileA(PSTR pMachineName, PSTR pProfileName, BOOL bDelete);
+	public static BOOL UninstallColorProfile(PSTR pMachineName, PSTR pProfileName, BOOL bDelete) => UninstallColorProfileA(pMachineName, pProfileName, bDelete);
 
 	[Import("mscms.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL UninstallColorProfileW(PWSTR pMachineName, PWSTR pProfileName, BOOL bDelete);
 
 	[Import("mscms.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL EnumColorProfilesA(PSTR pMachineName, ENUMTYPEA* pEnumRecord, uint8* pEnumerationBuffer, uint32* pdwSizeOfEnumerationBuffer, uint32* pnProfiles);
+	public static BOOL EnumColorProfiles(PSTR pMachineName, ENUMTYPEA* pEnumRecord, uint8* pEnumerationBuffer, uint32* pdwSizeOfEnumerationBuffer, uint32* pnProfiles) => EnumColorProfilesA(pMachineName, pEnumRecord, pEnumerationBuffer, pdwSizeOfEnumerationBuffer, pnProfiles);
 
 	[Import("mscms.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL EnumColorProfilesW(PWSTR pMachineName, ENUMTYPEW* pEnumRecord, uint8* pEnumerationBuffer, uint32* pdwSizeOfEnumerationBuffer, uint32* pnProfiles);
 
 	[Import("mscms.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL SetStandardColorSpaceProfileA(PSTR pMachineName, uint32 dwProfileID, PSTR pProfilename);
+	public static BOOL SetStandardColorSpaceProfile(PSTR pMachineName, uint32 dwProfileID, PSTR pProfilename) => SetStandardColorSpaceProfileA(pMachineName, dwProfileID, pProfilename);
 
 	[Import("mscms.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL SetStandardColorSpaceProfileW(PWSTR pMachineName, uint32 dwProfileID, PWSTR pProfileName);
 
 	[Import("mscms.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL GetStandardColorSpaceProfileA(PSTR pMachineName, uint32 dwSCS, PSTR pBuffer, uint32* pcbSize);
+	public static BOOL GetStandardColorSpaceProfile(PSTR pMachineName, uint32 dwSCS, PSTR pBuffer, uint32* pcbSize) => GetStandardColorSpaceProfileA(pMachineName, dwSCS, pBuffer, pcbSize);
 
 	[Import("mscms.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL GetStandardColorSpaceProfileW(PWSTR pMachineName, uint32 dwSCS, PWSTR pBuffer, uint32* pcbSize);
 
 	[Import("mscms.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL AssociateColorProfileWithDeviceA(PSTR pMachineName, PSTR pProfileName, PSTR pDeviceName);
+	public static BOOL AssociateColorProfileWithDevice(PSTR pMachineName, PSTR pProfileName, PSTR pDeviceName) => AssociateColorProfileWithDeviceA(pMachineName, pProfileName, pDeviceName);
 
 	[Import("mscms.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL AssociateColorProfileWithDeviceW(PWSTR pMachineName, PWSTR pProfileName, PWSTR pDeviceName);
 
 	[Import("mscms.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL DisassociateColorProfileFromDeviceA(PSTR pMachineName, PSTR pProfileName, PSTR pDeviceName);
+	public static BOOL DisassociateColorProfileFromDevice(PSTR pMachineName, PSTR pProfileName, PSTR pDeviceName) => DisassociateColorProfileFromDeviceA(pMachineName, pProfileName, pDeviceName);
 
 	[Import("mscms.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL DisassociateColorProfileFromDeviceW(PWSTR pMachineName, PWSTR pProfileName, PWSTR pDeviceName);
@@ -989,6 +1008,7 @@ public static
 
 	[Import("ICMUI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL SetupColorMatchingA(COLORMATCHSETUPA* pcms);
+	public static BOOL SetupColorMatching(COLORMATCHSETUPA* pcms) => SetupColorMatchingA(pcms);
 
 	[Import("mscms.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL WcsAssociateColorProfileWithDevice(WCS_PROFILE_MANAGEMENT_SCOPE @scope, PWSTR pProfileName, PWSTR pDeviceName);
@@ -1094,6 +1114,7 @@ public static
 
 	[Import("mscms.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int WcsOpenColorProfileA(PROFILE* pCDMPProfile, PROFILE* pCAMPProfile, PROFILE* pGMMPProfile, uint32 dwDesireAccess, uint32 dwShareMode, uint32 dwCreationMode, uint32 dwFlags);
+	public static int WcsOpenColorProfile(PROFILE* pCDMPProfile, PROFILE* pCAMPProfile, PROFILE* pGMMPProfile, uint32 dwDesireAccess, uint32 dwShareMode, uint32 dwCreationMode, uint32 dwFlags) => WcsOpenColorProfileA(pCDMPProfile, pCAMPProfile, pGMMPProfile, dwDesireAccess, dwShareMode, dwCreationMode, dwFlags);
 
 	[Import("mscms.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int WcsOpenColorProfileW(PROFILE* pCDMPProfile, PROFILE* pCAMPProfile, PROFILE* pGMMPProfile, uint32 dwDesireAccess, uint32 dwShareMode, uint32 dwCreationMode, uint32 dwFlags);

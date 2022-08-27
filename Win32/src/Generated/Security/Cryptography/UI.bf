@@ -730,6 +730,7 @@ public static
 
 	[Import("CRYPTUI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL CryptUIDlgViewCertificateA(CRYPTUI_VIEWCERTIFICATE_STRUCTA* pCertViewInfo, BOOL* pfPropertiesChanged);
+	public static BOOL CryptUIDlgViewCertificate(CRYPTUI_VIEWCERTIFICATE_STRUCTA* pCertViewInfo, BOOL* pfPropertiesChanged) => CryptUIDlgViewCertificateA(pCertViewInfo, pfPropertiesChanged);
 
 	[Import("CRYPTUI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL CryptUIWizExport(CRYPTUI_WIZ_FLAGS dwFlags, HWND hwndParent, PWSTR pwszWizardTitle, CRYPTUI_WIZ_EXPORT_INFO* pExportInfo, void* pvoid);

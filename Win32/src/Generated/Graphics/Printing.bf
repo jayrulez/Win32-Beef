@@ -7132,6 +7132,7 @@ public static
 {
 	[Import("COMPSTUI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 CommonPropertySheetUIA(HWND hWndOwner, PFNPROPSHEETUI pfnPropSheetUI, LPARAM lParam, uint32* pResult);
+	public static int32 CommonPropertySheetUI(HWND hWndOwner, PFNPROPSHEETUI pfnPropSheetUI, LPARAM lParam, uint32* pResult) => CommonPropertySheetUIA(hWndOwner, pfnPropSheetUI, lParam, pResult);
 
 	[Import("COMPSTUI.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 CommonPropertySheetUIW(HWND hWndOwner, PFNPROPSHEETUI pfnPropSheetUI, LPARAM lParam, uint32* pResult);
@@ -7144,6 +7145,7 @@ public static
 
 	[Import("WINSPOOL.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL EnumPrintersA(uint32 Flags, PSTR Name, uint32 Level, uint8* pPrinterEnum, uint32 cbBuf, uint32* pcbNeeded, uint32* pcReturned);
+	public static BOOL EnumPrinters(uint32 Flags, PSTR Name, uint32 Level, uint8* pPrinterEnum, uint32 cbBuf, uint32* pcbNeeded, uint32* pcReturned) => EnumPrintersA(Flags, Name, Level, pPrinterEnum, cbBuf, pcbNeeded, pcReturned);
 
 	[Import("WINSPOOL.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL EnumPrintersW(uint32 Flags, PWSTR Name, uint32 Level, uint8* pPrinterEnum, uint32 cbBuf, uint32* pcbNeeded, uint32* pcReturned);
@@ -7159,36 +7161,42 @@ public static
 
 	[Import("WINSPOOL.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL OpenPrinterA(PSTR pPrinterName, HANDLE* phPrinter, PRINTER_DEFAULTSA* pDefault);
+	public static BOOL OpenPrinter(PSTR pPrinterName, HANDLE* phPrinter, PRINTER_DEFAULTSA* pDefault) => OpenPrinterA(pPrinterName, phPrinter, pDefault);
 
 	[Import("WINSPOOL.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL OpenPrinterW(PWSTR pPrinterName, HANDLE* phPrinter, PRINTER_DEFAULTSW* pDefault);
 
 	[Import("WINSPOOL.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL ResetPrinterA(HANDLE hPrinter, PRINTER_DEFAULTSA* pDefault);
+	public static BOOL ResetPrinter(HANDLE hPrinter, PRINTER_DEFAULTSA* pDefault) => ResetPrinterA(hPrinter, pDefault);
 
 	[Import("WINSPOOL.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL ResetPrinterW(HANDLE hPrinter, PRINTER_DEFAULTSW* pDefault);
 
 	[Import("WINSPOOL.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL SetJobA(HANDLE hPrinter, uint32 JobId, uint32 Level, uint8* pJob, uint32 Command);
+	public static BOOL SetJob(HANDLE hPrinter, uint32 JobId, uint32 Level, uint8* pJob, uint32 Command) => SetJobA(hPrinter, JobId, Level, pJob, Command);
 
 	[Import("WINSPOOL.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL SetJobW(HANDLE hPrinter, uint32 JobId, uint32 Level, uint8* pJob, uint32 Command);
 
 	[Import("WINSPOOL.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL GetJobA(HANDLE hPrinter, uint32 JobId, uint32 Level, uint8* pJob, uint32 cbBuf, uint32* pcbNeeded);
+	public static BOOL GetJob(HANDLE hPrinter, uint32 JobId, uint32 Level, uint8* pJob, uint32 cbBuf, uint32* pcbNeeded) => GetJobA(hPrinter, JobId, Level, pJob, cbBuf, pcbNeeded);
 
 	[Import("WINSPOOL.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL GetJobW(HANDLE hPrinter, uint32 JobId, uint32 Level, uint8* pJob, uint32 cbBuf, uint32* pcbNeeded);
 
 	[Import("WINSPOOL.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL EnumJobsA(HANDLE hPrinter, uint32 FirstJob, uint32 NoJobs, uint32 Level, uint8* pJob, uint32 cbBuf, uint32* pcbNeeded, uint32* pcReturned);
+	public static BOOL EnumJobs(HANDLE hPrinter, uint32 FirstJob, uint32 NoJobs, uint32 Level, uint8* pJob, uint32 cbBuf, uint32* pcbNeeded, uint32* pcReturned) => EnumJobsA(hPrinter, FirstJob, NoJobs, Level, pJob, cbBuf, pcbNeeded, pcReturned);
 
 	[Import("WINSPOOL.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL EnumJobsW(HANDLE hPrinter, uint32 FirstJob, uint32 NoJobs, uint32 Level, uint8* pJob, uint32 cbBuf, uint32* pcbNeeded, uint32* pcReturned);
 
 	[Import("WINSPOOL.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HANDLE AddPrinterA(PSTR pName, uint32 Level, uint8* pPrinter);
+	public static HANDLE AddPrinter(PSTR pName, uint32 Level, uint8* pPrinter) => AddPrinterA(pName, Level, pPrinter);
 
 	[Import("WINSPOOL.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HANDLE AddPrinterW(PWSTR pName, uint32 Level, uint8* pPrinter);
@@ -7198,90 +7206,105 @@ public static
 
 	[Import("WINSPOOL.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL SetPrinterA(HANDLE hPrinter, uint32 Level, uint8* pPrinter, uint32 Command);
+	public static BOOL SetPrinter(HANDLE hPrinter, uint32 Level, uint8* pPrinter, uint32 Command) => SetPrinterA(hPrinter, Level, pPrinter, Command);
 
 	[Import("WINSPOOL.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL SetPrinterW(HANDLE hPrinter, uint32 Level, uint8* pPrinter, uint32 Command);
 
 	[Import("WINSPOOL.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL GetPrinterA(HANDLE hPrinter, uint32 Level, uint8* pPrinter, uint32 cbBuf, uint32* pcbNeeded);
+	public static BOOL GetPrinter(HANDLE hPrinter, uint32 Level, uint8* pPrinter, uint32 cbBuf, uint32* pcbNeeded) => GetPrinterA(hPrinter, Level, pPrinter, cbBuf, pcbNeeded);
 
 	[Import("WINSPOOL.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL GetPrinterW(HANDLE hPrinter, uint32 Level, uint8* pPrinter, uint32 cbBuf, uint32* pcbNeeded);
 
 	[Import("WINSPOOL.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL AddPrinterDriverA(PSTR pName, uint32 Level, uint8* pDriverInfo);
+	public static BOOL AddPrinterDriver(PSTR pName, uint32 Level, uint8* pDriverInfo) => AddPrinterDriverA(pName, Level, pDriverInfo);
 
 	[Import("WINSPOOL.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL AddPrinterDriverW(PWSTR pName, uint32 Level, uint8* pDriverInfo);
 
 	[Import("WINSPOOL.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL AddPrinterDriverExA(PSTR pName, uint32 Level, uint8* lpbDriverInfo, uint32 dwFileCopyFlags);
+	public static BOOL AddPrinterDriverEx(PSTR pName, uint32 Level, uint8* lpbDriverInfo, uint32 dwFileCopyFlags) => AddPrinterDriverExA(pName, Level, lpbDriverInfo, dwFileCopyFlags);
 
 	[Import("WINSPOOL.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL AddPrinterDriverExW(PWSTR pName, uint32 Level, uint8* lpbDriverInfo, uint32 dwFileCopyFlags);
 
 	[Import("WINSPOOL.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL EnumPrinterDriversA(PSTR pName, PSTR pEnvironment, uint32 Level, uint8* pDriverInfo, uint32 cbBuf, uint32* pcbNeeded, uint32* pcReturned);
+	public static BOOL EnumPrinterDrivers(PSTR pName, PSTR pEnvironment, uint32 Level, uint8* pDriverInfo, uint32 cbBuf, uint32* pcbNeeded, uint32* pcReturned) => EnumPrinterDriversA(pName, pEnvironment, Level, pDriverInfo, cbBuf, pcbNeeded, pcReturned);
 
 	[Import("WINSPOOL.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL EnumPrinterDriversW(PWSTR pName, PWSTR pEnvironment, uint32 Level, uint8* pDriverInfo, uint32 cbBuf, uint32* pcbNeeded, uint32* pcReturned);
 
 	[Import("WINSPOOL.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL GetPrinterDriverA(HANDLE hPrinter, PSTR pEnvironment, uint32 Level, uint8* pDriverInfo, uint32 cbBuf, uint32* pcbNeeded);
+	public static BOOL GetPrinterDriver(HANDLE hPrinter, PSTR pEnvironment, uint32 Level, uint8* pDriverInfo, uint32 cbBuf, uint32* pcbNeeded) => GetPrinterDriverA(hPrinter, pEnvironment, Level, pDriverInfo, cbBuf, pcbNeeded);
 
 	[Import("WINSPOOL.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL GetPrinterDriverW(HANDLE hPrinter, PWSTR pEnvironment, uint32 Level, uint8* pDriverInfo, uint32 cbBuf, uint32* pcbNeeded);
 
 	[Import("WINSPOOL.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL GetPrinterDriverDirectoryA(PSTR pName, PSTR pEnvironment, uint32 Level, uint8* pDriverDirectory, uint32 cbBuf, uint32* pcbNeeded);
+	public static BOOL GetPrinterDriverDirectory(PSTR pName, PSTR pEnvironment, uint32 Level, uint8* pDriverDirectory, uint32 cbBuf, uint32* pcbNeeded) => GetPrinterDriverDirectoryA(pName, pEnvironment, Level, pDriverDirectory, cbBuf, pcbNeeded);
 
 	[Import("WINSPOOL.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL GetPrinterDriverDirectoryW(PWSTR pName, PWSTR pEnvironment, uint32 Level, uint8* pDriverDirectory, uint32 cbBuf, uint32* pcbNeeded);
 
 	[Import("WINSPOOL.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL DeletePrinterDriverA(PSTR pName, PSTR pEnvironment, PSTR pDriverName);
+	public static BOOL DeletePrinterDriver(PSTR pName, PSTR pEnvironment, PSTR pDriverName) => DeletePrinterDriverA(pName, pEnvironment, pDriverName);
 
 	[Import("WINSPOOL.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL DeletePrinterDriverW(PWSTR pName, PWSTR pEnvironment, PWSTR pDriverName);
 
 	[Import("WINSPOOL.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL DeletePrinterDriverExA(PSTR pName, PSTR pEnvironment, PSTR pDriverName, uint32 dwDeleteFlag, uint32 dwVersionFlag);
+	public static BOOL DeletePrinterDriverEx(PSTR pName, PSTR pEnvironment, PSTR pDriverName, uint32 dwDeleteFlag, uint32 dwVersionFlag) => DeletePrinterDriverExA(pName, pEnvironment, pDriverName, dwDeleteFlag, dwVersionFlag);
 
 	[Import("WINSPOOL.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL DeletePrinterDriverExW(PWSTR pName, PWSTR pEnvironment, PWSTR pDriverName, uint32 dwDeleteFlag, uint32 dwVersionFlag);
 
 	[Import("WINSPOOL.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL AddPrintProcessorA(PSTR pName, PSTR pEnvironment, PSTR pPathName, PSTR pPrintProcessorName);
+	public static BOOL AddPrintProcessor(PSTR pName, PSTR pEnvironment, PSTR pPathName, PSTR pPrintProcessorName) => AddPrintProcessorA(pName, pEnvironment, pPathName, pPrintProcessorName);
 
 	[Import("WINSPOOL.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL AddPrintProcessorW(PWSTR pName, PWSTR pEnvironment, PWSTR pPathName, PWSTR pPrintProcessorName);
 
 	[Import("WINSPOOL.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL EnumPrintProcessorsA(PSTR pName, PSTR pEnvironment, uint32 Level, uint8* pPrintProcessorInfo, uint32 cbBuf, uint32* pcbNeeded, uint32* pcReturned);
+	public static BOOL EnumPrintProcessors(PSTR pName, PSTR pEnvironment, uint32 Level, uint8* pPrintProcessorInfo, uint32 cbBuf, uint32* pcbNeeded, uint32* pcReturned) => EnumPrintProcessorsA(pName, pEnvironment, Level, pPrintProcessorInfo, cbBuf, pcbNeeded, pcReturned);
 
 	[Import("WINSPOOL.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL EnumPrintProcessorsW(PWSTR pName, PWSTR pEnvironment, uint32 Level, uint8* pPrintProcessorInfo, uint32 cbBuf, uint32* pcbNeeded, uint32* pcReturned);
 
 	[Import("WINSPOOL.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL GetPrintProcessorDirectoryA(PSTR pName, PSTR pEnvironment, uint32 Level, uint8* pPrintProcessorInfo, uint32 cbBuf, uint32* pcbNeeded);
+	public static BOOL GetPrintProcessorDirectory(PSTR pName, PSTR pEnvironment, uint32 Level, uint8* pPrintProcessorInfo, uint32 cbBuf, uint32* pcbNeeded) => GetPrintProcessorDirectoryA(pName, pEnvironment, Level, pPrintProcessorInfo, cbBuf, pcbNeeded);
 
 	[Import("WINSPOOL.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL GetPrintProcessorDirectoryW(PWSTR pName, PWSTR pEnvironment, uint32 Level, uint8* pPrintProcessorInfo, uint32 cbBuf, uint32* pcbNeeded);
 
 	[Import("WINSPOOL.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL EnumPrintProcessorDatatypesA(PSTR pName, PSTR pPrintProcessorName, uint32 Level, uint8* pDatatypes, uint32 cbBuf, uint32* pcbNeeded, uint32* pcReturned);
+	public static BOOL EnumPrintProcessorDatatypes(PSTR pName, PSTR pPrintProcessorName, uint32 Level, uint8* pDatatypes, uint32 cbBuf, uint32* pcbNeeded, uint32* pcReturned) => EnumPrintProcessorDatatypesA(pName, pPrintProcessorName, Level, pDatatypes, cbBuf, pcbNeeded, pcReturned);
 
 	[Import("WINSPOOL.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL EnumPrintProcessorDatatypesW(PWSTR pName, PWSTR pPrintProcessorName, uint32 Level, uint8* pDatatypes, uint32 cbBuf, uint32* pcbNeeded, uint32* pcReturned);
 
 	[Import("WINSPOOL.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL DeletePrintProcessorA(PSTR pName, PSTR pEnvironment, PSTR pPrintProcessorName);
+	public static BOOL DeletePrintProcessor(PSTR pName, PSTR pEnvironment, PSTR pPrintProcessorName) => DeletePrintProcessorA(pName, pEnvironment, pPrintProcessorName);
 
 	[Import("WINSPOOL.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL DeletePrintProcessorW(PWSTR pName, PWSTR pEnvironment, PWSTR pPrintProcessorName);
 
 	[Import("WINSPOOL.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 StartDocPrinterA(HANDLE hPrinter, uint32 Level, DOC_INFO_1A* pDocInfo);
+	public static uint32 StartDocPrinter(HANDLE hPrinter, uint32 Level, DOC_INFO_1A* pDocInfo) => StartDocPrinterA(hPrinter, Level, pDocInfo);
 
 	[Import("WINSPOOL.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 StartDocPrinterW(HANDLE hPrinter, uint32 Level, DOC_INFO_1W* pDocInfo);
@@ -7309,6 +7332,7 @@ public static
 
 	[Import("WINSPOOL.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL AddJobA(HANDLE hPrinter, uint32 Level, uint8* pData, uint32 cbBuf, uint32* pcbNeeded);
+	public static BOOL AddJob(HANDLE hPrinter, uint32 Level, uint8* pData, uint32 cbBuf, uint32* pcbNeeded) => AddJobA(hPrinter, Level, pData, cbBuf, pcbNeeded);
 
 	[Import("WINSPOOL.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL AddJobW(HANDLE hPrinter, uint32 Level, uint8* pData, uint32 cbBuf, uint32* pcbNeeded);
@@ -7321,12 +7345,14 @@ public static
 
 	[Import("WINSPOOL.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 DocumentPropertiesA(HWND hWnd, HANDLE hPrinter, PSTR pDeviceName, DEVMODEA* pDevModeOutput, DEVMODEA* pDevModeInput, uint32 fMode);
+	public static int32 DocumentProperties(HWND hWnd, HANDLE hPrinter, PSTR pDeviceName, DEVMODEA* pDevModeOutput, DEVMODEA* pDevModeInput, uint32 fMode) => DocumentPropertiesA(hWnd, hPrinter, pDeviceName, pDevModeOutput, pDevModeInput, fMode);
 
 	[Import("WINSPOOL.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 DocumentPropertiesW(HWND hWnd, HANDLE hPrinter, PWSTR pDeviceName, DEVMODEW* pDevModeOutput, DEVMODEW* pDevModeInput, uint32 fMode);
 
 	[Import("WINSPOOL.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 AdvancedDocumentPropertiesA(HWND hWnd, HANDLE hPrinter, PSTR pDeviceName, DEVMODEA* pDevModeOutput, DEVMODEA* pDevModeInput);
+	public static int32 AdvancedDocumentProperties(HWND hWnd, HANDLE hPrinter, PSTR pDeviceName, DEVMODEA* pDevModeOutput, DEVMODEA* pDevModeInput) => AdvancedDocumentPropertiesA(hWnd, hPrinter, pDeviceName, pDevModeOutput, pDevModeInput);
 
 	[Import("WINSPOOL.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 AdvancedDocumentPropertiesW(HWND hWnd, HANDLE hPrinter, PWSTR pDeviceName, DEVMODEW* pDevModeOutput, DEVMODEW* pDevModeInput);
@@ -7336,60 +7362,70 @@ public static
 
 	[Import("WINSPOOL.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 GetPrinterDataA(HANDLE hPrinter, PSTR pValueName, uint32* pType, uint8* pData, uint32 nSize, uint32* pcbNeeded);
+	public static uint32 GetPrinterData(HANDLE hPrinter, PSTR pValueName, uint32* pType, uint8* pData, uint32 nSize, uint32* pcbNeeded) => GetPrinterDataA(hPrinter, pValueName, pType, pData, nSize, pcbNeeded);
 
 	[Import("WINSPOOL.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 GetPrinterDataW(HANDLE hPrinter, PWSTR pValueName, uint32* pType, uint8* pData, uint32 nSize, uint32* pcbNeeded);
 
 	[Import("WINSPOOL.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 GetPrinterDataExA(HANDLE hPrinter, PSTR pKeyName, PSTR pValueName, uint32* pType, uint8* pData, uint32 nSize, uint32* pcbNeeded);
+	public static uint32 GetPrinterDataEx(HANDLE hPrinter, PSTR pKeyName, PSTR pValueName, uint32* pType, uint8* pData, uint32 nSize, uint32* pcbNeeded) => GetPrinterDataExA(hPrinter, pKeyName, pValueName, pType, pData, nSize, pcbNeeded);
 
 	[Import("WINSPOOL.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 GetPrinterDataExW(HANDLE hPrinter, PWSTR pKeyName, PWSTR pValueName, uint32* pType, uint8* pData, uint32 nSize, uint32* pcbNeeded);
 
 	[Import("WINSPOOL.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 EnumPrinterDataA(HANDLE hPrinter, uint32 dwIndex, PSTR pValueName, uint32 cbValueName, uint32* pcbValueName, uint32* pType, uint8* pData, uint32 cbData, uint32* pcbData);
+	public static uint32 EnumPrinterData(HANDLE hPrinter, uint32 dwIndex, PSTR pValueName, uint32 cbValueName, uint32* pcbValueName, uint32* pType, uint8* pData, uint32 cbData, uint32* pcbData) => EnumPrinterDataA(hPrinter, dwIndex, pValueName, cbValueName, pcbValueName, pType, pData, cbData, pcbData);
 
 	[Import("WINSPOOL.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 EnumPrinterDataW(HANDLE hPrinter, uint32 dwIndex, PWSTR pValueName, uint32 cbValueName, uint32* pcbValueName, uint32* pType, uint8* pData, uint32 cbData, uint32* pcbData);
 
 	[Import("WINSPOOL.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 EnumPrinterDataExA(HANDLE hPrinter, PSTR pKeyName, uint8* pEnumValues, uint32 cbEnumValues, uint32* pcbEnumValues, uint32* pnEnumValues);
+	public static uint32 EnumPrinterDataEx(HANDLE hPrinter, PSTR pKeyName, uint8* pEnumValues, uint32 cbEnumValues, uint32* pcbEnumValues, uint32* pnEnumValues) => EnumPrinterDataExA(hPrinter, pKeyName, pEnumValues, cbEnumValues, pcbEnumValues, pnEnumValues);
 
 	[Import("WINSPOOL.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 EnumPrinterDataExW(HANDLE hPrinter, PWSTR pKeyName, uint8* pEnumValues, uint32 cbEnumValues, uint32* pcbEnumValues, uint32* pnEnumValues);
 
 	[Import("WINSPOOL.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 EnumPrinterKeyA(HANDLE hPrinter, PSTR pKeyName, PSTR pSubkey, uint32 cbSubkey, uint32* pcbSubkey);
+	public static uint32 EnumPrinterKey(HANDLE hPrinter, PSTR pKeyName, PSTR pSubkey, uint32 cbSubkey, uint32* pcbSubkey) => EnumPrinterKeyA(hPrinter, pKeyName, pSubkey, cbSubkey, pcbSubkey);
 
 	[Import("WINSPOOL.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 EnumPrinterKeyW(HANDLE hPrinter, PWSTR pKeyName, PWSTR pSubkey, uint32 cbSubkey, uint32* pcbSubkey);
 
 	[Import("WINSPOOL.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 SetPrinterDataA(HANDLE hPrinter, PSTR pValueName, uint32 Type, uint8* pData, uint32 cbData);
+	public static uint32 SetPrinterData(HANDLE hPrinter, PSTR pValueName, uint32 Type, uint8* pData, uint32 cbData) => SetPrinterDataA(hPrinter, pValueName, Type, pData, cbData);
 
 	[Import("WINSPOOL.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 SetPrinterDataW(HANDLE hPrinter, PWSTR pValueName, uint32 Type, uint8* pData, uint32 cbData);
 
 	[Import("WINSPOOL.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 SetPrinterDataExA(HANDLE hPrinter, PSTR pKeyName, PSTR pValueName, uint32 Type, uint8* pData, uint32 cbData);
+	public static uint32 SetPrinterDataEx(HANDLE hPrinter, PSTR pKeyName, PSTR pValueName, uint32 Type, uint8* pData, uint32 cbData) => SetPrinterDataExA(hPrinter, pKeyName, pValueName, Type, pData, cbData);
 
 	[Import("WINSPOOL.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 SetPrinterDataExW(HANDLE hPrinter, PWSTR pKeyName, PWSTR pValueName, uint32 Type, uint8* pData, uint32 cbData);
 
 	[Import("WINSPOOL.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 DeletePrinterDataA(HANDLE hPrinter, PSTR pValueName);
+	public static uint32 DeletePrinterData(HANDLE hPrinter, PSTR pValueName) => DeletePrinterDataA(hPrinter, pValueName);
 
 	[Import("WINSPOOL.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 DeletePrinterDataW(HANDLE hPrinter, PWSTR pValueName);
 
 	[Import("WINSPOOL.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 DeletePrinterDataExA(HANDLE hPrinter, PSTR pKeyName, PSTR pValueName);
+	public static uint32 DeletePrinterDataEx(HANDLE hPrinter, PSTR pKeyName, PSTR pValueName) => DeletePrinterDataExA(hPrinter, pKeyName, pValueName);
 
 	[Import("WINSPOOL.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 DeletePrinterDataExW(HANDLE hPrinter, PWSTR pKeyName, PWSTR pValueName);
 
 	[Import("WINSPOOL.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 DeletePrinterKeyA(HANDLE hPrinter, PSTR pKeyName);
+	public static uint32 DeletePrinterKey(HANDLE hPrinter, PSTR pKeyName) => DeletePrinterKeyA(hPrinter, pKeyName);
 
 	[Import("WINSPOOL.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 DeletePrinterKeyW(HANDLE hPrinter, PWSTR pKeyName);
@@ -7411,6 +7447,7 @@ public static
 
 	[Import("WINSPOOL.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 PrinterMessageBoxA(HANDLE hPrinter, uint32 Error, HWND hWnd, PSTR pText, PSTR pCaption, uint32 dwType);
+	public static uint32 PrinterMessageBox(HANDLE hPrinter, uint32 Error, HWND hWnd, PSTR pText, PSTR pCaption, uint32 dwType) => PrinterMessageBoxA(hPrinter, Error, hWnd, pText, pCaption, dwType);
 
 	[Import("WINSPOOL.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 PrinterMessageBoxW(HANDLE hPrinter, uint32 Error, HWND hWnd, PWSTR pText, PWSTR pCaption, uint32 dwType);
@@ -7420,72 +7457,84 @@ public static
 
 	[Import("WINSPOOL.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL AddFormA(HANDLE hPrinter, uint32 Level, uint8* pForm);
+	public static BOOL AddForm(HANDLE hPrinter, uint32 Level, uint8* pForm) => AddFormA(hPrinter, Level, pForm);
 
 	[Import("WINSPOOL.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL AddFormW(HANDLE hPrinter, uint32 Level, uint8* pForm);
 
 	[Import("WINSPOOL.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL DeleteFormA(HANDLE hPrinter, PSTR pFormName);
+	public static BOOL DeleteForm(HANDLE hPrinter, PSTR pFormName) => DeleteFormA(hPrinter, pFormName);
 
 	[Import("WINSPOOL.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL DeleteFormW(HANDLE hPrinter, PWSTR pFormName);
 
 	[Import("WINSPOOL.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL GetFormA(HANDLE hPrinter, PSTR pFormName, uint32 Level, uint8* pForm, uint32 cbBuf, uint32* pcbNeeded);
+	public static BOOL GetForm(HANDLE hPrinter, PSTR pFormName, uint32 Level, uint8* pForm, uint32 cbBuf, uint32* pcbNeeded) => GetFormA(hPrinter, pFormName, Level, pForm, cbBuf, pcbNeeded);
 
 	[Import("WINSPOOL.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL GetFormW(HANDLE hPrinter, PWSTR pFormName, uint32 Level, uint8* pForm, uint32 cbBuf, uint32* pcbNeeded);
 
 	[Import("WINSPOOL.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL SetFormA(HANDLE hPrinter, PSTR pFormName, uint32 Level, uint8* pForm);
+	public static BOOL SetForm(HANDLE hPrinter, PSTR pFormName, uint32 Level, uint8* pForm) => SetFormA(hPrinter, pFormName, Level, pForm);
 
 	[Import("WINSPOOL.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL SetFormW(HANDLE hPrinter, PWSTR pFormName, uint32 Level, uint8* pForm);
 
 	[Import("WINSPOOL.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL EnumFormsA(HANDLE hPrinter, uint32 Level, uint8* pForm, uint32 cbBuf, uint32* pcbNeeded, uint32* pcReturned);
+	public static BOOL EnumForms(HANDLE hPrinter, uint32 Level, uint8* pForm, uint32 cbBuf, uint32* pcbNeeded, uint32* pcReturned) => EnumFormsA(hPrinter, Level, pForm, cbBuf, pcbNeeded, pcReturned);
 
 	[Import("WINSPOOL.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL EnumFormsW(HANDLE hPrinter, uint32 Level, uint8* pForm, uint32 cbBuf, uint32* pcbNeeded, uint32* pcReturned);
 
 	[Import("WINSPOOL.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL EnumMonitorsA(PSTR pName, uint32 Level, uint8* pMonitor, uint32 cbBuf, uint32* pcbNeeded, uint32* pcReturned);
+	public static BOOL EnumMonitors(PSTR pName, uint32 Level, uint8* pMonitor, uint32 cbBuf, uint32* pcbNeeded, uint32* pcReturned) => EnumMonitorsA(pName, Level, pMonitor, cbBuf, pcbNeeded, pcReturned);
 
 	[Import("WINSPOOL.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL EnumMonitorsW(PWSTR pName, uint32 Level, uint8* pMonitor, uint32 cbBuf, uint32* pcbNeeded, uint32* pcReturned);
 
 	[Import("WINSPOOL.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL AddMonitorA(PSTR pName, uint32 Level, uint8* pMonitors);
+	public static BOOL AddMonitor(PSTR pName, uint32 Level, uint8* pMonitors) => AddMonitorA(pName, Level, pMonitors);
 
 	[Import("WINSPOOL.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL AddMonitorW(PWSTR pName, uint32 Level, uint8* pMonitors);
 
 	[Import("WINSPOOL.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL DeleteMonitorA(PSTR pName, PSTR pEnvironment, PSTR pMonitorName);
+	public static BOOL DeleteMonitor(PSTR pName, PSTR pEnvironment, PSTR pMonitorName) => DeleteMonitorA(pName, pEnvironment, pMonitorName);
 
 	[Import("WINSPOOL.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL DeleteMonitorW(PWSTR pName, PWSTR pEnvironment, PWSTR pMonitorName);
 
 	[Import("WINSPOOL.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL EnumPortsA(PSTR pName, uint32 Level, uint8* pPort, uint32 cbBuf, uint32* pcbNeeded, uint32* pcReturned);
+	public static BOOL EnumPorts(PSTR pName, uint32 Level, uint8* pPort, uint32 cbBuf, uint32* pcbNeeded, uint32* pcReturned) => EnumPortsA(pName, Level, pPort, cbBuf, pcbNeeded, pcReturned);
 
 	[Import("WINSPOOL.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL EnumPortsW(PWSTR pName, uint32 Level, uint8* pPort, uint32 cbBuf, uint32* pcbNeeded, uint32* pcReturned);
 
 	[Import("WINSPOOL.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL AddPortA(PSTR pName, HWND hWnd, PSTR pMonitorName);
+	public static BOOL AddPort(PSTR pName, HWND hWnd, PSTR pMonitorName) => AddPortA(pName, hWnd, pMonitorName);
 
 	[Import("WINSPOOL.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL AddPortW(PWSTR pName, HWND hWnd, PWSTR pMonitorName);
 
 	[Import("WINSPOOL.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL ConfigurePortA(PSTR pName, HWND hWnd, PSTR pPortName);
+	public static BOOL ConfigurePort(PSTR pName, HWND hWnd, PSTR pPortName) => ConfigurePortA(pName, hWnd, pPortName);
 
 	[Import("WINSPOOL.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL ConfigurePortW(PWSTR pName, HWND hWnd, PWSTR pPortName);
 
 	[Import("WINSPOOL.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL DeletePortA(PSTR pName, HWND hWnd, PSTR pPortName);
+	public static BOOL DeletePort(PSTR pName, HWND hWnd, PSTR pPortName) => DeletePortA(pName, hWnd, pPortName);
 
 	[Import("WINSPOOL.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL DeletePortW(PWSTR pName, HWND hWnd, PWSTR pPortName);
@@ -7495,30 +7544,35 @@ public static
 
 	[Import("WINSPOOL.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL GetDefaultPrinterA(uint8* pszBuffer, uint32* pcchBuffer);
+	public static BOOL GetDefaultPrinter(uint8* pszBuffer, uint32* pcchBuffer) => GetDefaultPrinterA(pszBuffer, pcchBuffer);
 
 	[Import("WINSPOOL.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL GetDefaultPrinterW(char8* pszBuffer, uint32* pcchBuffer);
 
 	[Import("WINSPOOL.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL SetDefaultPrinterA(PSTR pszPrinter);
+	public static BOOL SetDefaultPrinter(PSTR pszPrinter) => SetDefaultPrinterA(pszPrinter);
 
 	[Import("WINSPOOL.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL SetDefaultPrinterW(PWSTR pszPrinter);
 
 	[Import("WINSPOOL.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL SetPortA(PSTR pName, PSTR pPortName, uint32 dwLevel, uint8* pPortInfo);
+	public static BOOL SetPort(PSTR pName, PSTR pPortName, uint32 dwLevel, uint8* pPortInfo) => SetPortA(pName, pPortName, dwLevel, pPortInfo);
 
 	[Import("WINSPOOL.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL SetPortW(PWSTR pName, PWSTR pPortName, uint32 dwLevel, uint8* pPortInfo);
 
 	[Import("WINSPOOL.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL AddPrinterConnectionA(PSTR pName);
+	public static BOOL AddPrinterConnection(PSTR pName) => AddPrinterConnectionA(pName);
 
 	[Import("WINSPOOL.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL AddPrinterConnectionW(PWSTR pName);
 
 	[Import("WINSPOOL.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL DeletePrinterConnectionA(PSTR pName);
+	public static BOOL DeletePrinterConnection(PSTR pName) => DeletePrinterConnectionA(pName);
 
 	[Import("WINSPOOL.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL DeletePrinterConnectionW(PWSTR pName);
@@ -7528,66 +7582,77 @@ public static
 
 	[Import("WINSPOOL.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL AddPrintProvidorA(PSTR pName, uint32 Level, uint8* pProvidorInfo);
+	public static BOOL AddPrintProvidor(PSTR pName, uint32 Level, uint8* pProvidorInfo) => AddPrintProvidorA(pName, Level, pProvidorInfo);
 
 	[Import("WINSPOOL.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL AddPrintProvidorW(PWSTR pName, uint32 Level, uint8* pProvidorInfo);
 
 	[Import("WINSPOOL.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL DeletePrintProvidorA(PSTR pName, PSTR pEnvironment, PSTR pPrintProvidorName);
+	public static BOOL DeletePrintProvidor(PSTR pName, PSTR pEnvironment, PSTR pPrintProvidorName) => DeletePrintProvidorA(pName, pEnvironment, pPrintProvidorName);
 
 	[Import("WINSPOOL.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL DeletePrintProvidorW(PWSTR pName, PWSTR pEnvironment, PWSTR pPrintProvidorName);
 
 	[Import("WINSPOOL.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL IsValidDevmodeA(DEVMODEA* pDevmode, uint DevmodeSize);
+	public static BOOL IsValidDevmode(DEVMODEA* pDevmode, uint DevmodeSize) => IsValidDevmodeA(pDevmode, DevmodeSize);
 
 	[Import("WINSPOOL.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL IsValidDevmodeW(DEVMODEW* pDevmode, uint DevmodeSize);
 
 	[Import("WINSPOOL.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL OpenPrinter2A(PSTR pPrinterName, HANDLE* phPrinter, PRINTER_DEFAULTSA* pDefault, PRINTER_OPTIONSA* pOptions);
+	public static BOOL OpenPrinter2(PSTR pPrinterName, HANDLE* phPrinter, PRINTER_DEFAULTSA* pDefault, PRINTER_OPTIONSA* pOptions) => OpenPrinter2A(pPrinterName, phPrinter, pDefault, pOptions);
 
 	[Import("WINSPOOL.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL OpenPrinter2W(PWSTR pPrinterName, HANDLE* phPrinter, PRINTER_DEFAULTSW* pDefault, PRINTER_OPTIONSW* pOptions);
 
 	[Import("WINSPOOL.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL AddPrinterConnection2A(HWND hWnd, PSTR pszName, uint32 dwLevel, void* pConnectionInfo);
+	public static BOOL AddPrinterConnection2(HWND hWnd, PSTR pszName, uint32 dwLevel, void* pConnectionInfo) => AddPrinterConnection2A(hWnd, pszName, dwLevel, pConnectionInfo);
 
 	[Import("WINSPOOL.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL AddPrinterConnection2W(HWND hWnd, PWSTR pszName, uint32 dwLevel, void* pConnectionInfo);
 
 	[Import("WINSPOOL.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT InstallPrinterDriverFromPackageA(PSTR pszServer, PSTR pszInfPath, PSTR pszDriverName, PSTR pszEnvironment, uint32 dwFlags);
+	public static HRESULT InstallPrinterDriverFromPackage(PSTR pszServer, PSTR pszInfPath, PSTR pszDriverName, PSTR pszEnvironment, uint32 dwFlags) => InstallPrinterDriverFromPackageA(pszServer, pszInfPath, pszDriverName, pszEnvironment, dwFlags);
 
 	[Import("WINSPOOL.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT InstallPrinterDriverFromPackageW(PWSTR pszServer, PWSTR pszInfPath, PWSTR pszDriverName, PWSTR pszEnvironment, uint32 dwFlags);
 
 	[Import("WINSPOOL.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT UploadPrinterDriverPackageA(PSTR pszServer, PSTR pszInfPath, PSTR pszEnvironment, uint32 dwFlags, HWND hwnd, uint8* pszDestInfPath, uint32* pcchDestInfPath);
+	public static HRESULT UploadPrinterDriverPackage(PSTR pszServer, PSTR pszInfPath, PSTR pszEnvironment, uint32 dwFlags, HWND hwnd, uint8* pszDestInfPath, uint32* pcchDestInfPath) => UploadPrinterDriverPackageA(pszServer, pszInfPath, pszEnvironment, dwFlags, hwnd, pszDestInfPath, pcchDestInfPath);
 
 	[Import("WINSPOOL.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT UploadPrinterDriverPackageW(PWSTR pszServer, PWSTR pszInfPath, PWSTR pszEnvironment, uint32 dwFlags, HWND hwnd, char8* pszDestInfPath, uint32* pcchDestInfPath);
 
 	[Import("WINSPOOL.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT GetCorePrinterDriversA(PSTR pszServer, PSTR pszEnvironment, PSTR pszzCoreDriverDependencies, uint32 cCorePrinterDrivers, CORE_PRINTER_DRIVERA* pCorePrinterDrivers);
+	public static HRESULT GetCorePrinterDrivers(PSTR pszServer, PSTR pszEnvironment, PSTR pszzCoreDriverDependencies, uint32 cCorePrinterDrivers, CORE_PRINTER_DRIVERA* pCorePrinterDrivers) => GetCorePrinterDriversA(pszServer, pszEnvironment, pszzCoreDriverDependencies, cCorePrinterDrivers, pCorePrinterDrivers);
 
 	[Import("WINSPOOL.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT GetCorePrinterDriversW(PWSTR pszServer, PWSTR pszEnvironment, PWSTR pszzCoreDriverDependencies, uint32 cCorePrinterDrivers, CORE_PRINTER_DRIVERW* pCorePrinterDrivers);
 
 	[Import("WINSPOOL.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT CorePrinterDriverInstalledA(PSTR pszServer, PSTR pszEnvironment, Guid CoreDriverGUID, FILETIME ftDriverDate, uint64 dwlDriverVersion, BOOL* pbDriverInstalled);
+	public static HRESULT CorePrinterDriverInstalled(PSTR pszServer, PSTR pszEnvironment, Guid CoreDriverGUID, FILETIME ftDriverDate, uint64 dwlDriverVersion, BOOL* pbDriverInstalled) => CorePrinterDriverInstalledA(pszServer, pszEnvironment, CoreDriverGUID, ftDriverDate, dwlDriverVersion, pbDriverInstalled);
 
 	[Import("WINSPOOL.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT CorePrinterDriverInstalledW(PWSTR pszServer, PWSTR pszEnvironment, Guid CoreDriverGUID, FILETIME ftDriverDate, uint64 dwlDriverVersion, BOOL* pbDriverInstalled);
 
 	[Import("WINSPOOL.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT GetPrinterDriverPackagePathA(PSTR pszServer, PSTR pszEnvironment, PSTR pszLanguage, PSTR pszPackageID, uint8* pszDriverPackageCab, uint32 cchDriverPackageCab, uint32* pcchRequiredSize);
+	public static HRESULT GetPrinterDriverPackagePath(PSTR pszServer, PSTR pszEnvironment, PSTR pszLanguage, PSTR pszPackageID, uint8* pszDriverPackageCab, uint32 cchDriverPackageCab, uint32* pcchRequiredSize) => GetPrinterDriverPackagePathA(pszServer, pszEnvironment, pszLanguage, pszPackageID, pszDriverPackageCab, cchDriverPackageCab, pcchRequiredSize);
 
 	[Import("WINSPOOL.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT GetPrinterDriverPackagePathW(PWSTR pszServer, PWSTR pszEnvironment, PWSTR pszLanguage, PWSTR pszPackageID, char8* pszDriverPackageCab, uint32 cchDriverPackageCab, uint32* pcchRequiredSize);
 
 	[Import("WINSPOOL.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT DeletePrinterDriverPackageA(PSTR pszServer, PSTR pszInfPath, PSTR pszEnvironment);
+	public static HRESULT DeletePrinterDriverPackage(PSTR pszServer, PSTR pszInfPath, PSTR pszEnvironment) => DeletePrinterDriverPackageA(pszServer, pszInfPath, pszEnvironment);
 
 	[Import("WINSPOOL.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HRESULT DeletePrinterDriverPackageW(PWSTR pszServer, PWSTR pszInfPath, PWSTR pszEnvironment);
@@ -7597,6 +7662,7 @@ public static
 
 	[Import("WINSPOOL.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL GetPrinterDriver2A(HWND hWnd, HANDLE hPrinter, PSTR pEnvironment, uint32 Level, uint8* pDriverInfo, uint32 cbBuf, uint32* pcbNeeded);
+	public static BOOL GetPrinterDriver2(HWND hWnd, HANDLE hPrinter, PSTR pEnvironment, uint32 Level, uint8* pDriverInfo, uint32 cbBuf, uint32* pcbNeeded) => GetPrinterDriver2A(hWnd, hPrinter, pEnvironment, Level, pDriverInfo, cbBuf, pcbNeeded);
 
 	[Import("WINSPOOL.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL GetPrinterDriver2W(HWND hWnd, HANDLE hPrinter, PWSTR pEnvironment, uint32 Level, uint8* pDriverInfo, uint32 cbBuf, uint32* pcbNeeded);

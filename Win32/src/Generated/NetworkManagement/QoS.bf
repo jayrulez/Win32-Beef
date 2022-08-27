@@ -1954,6 +1954,7 @@ public static
 
 	[Import("TRAFFIC.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 TcOpenInterfaceA(PSTR pInterfaceName, HANDLE ClientHandle, HANDLE ClIfcCtx, HANDLE* pIfcHandle);
+	public static uint32 TcOpenInterface(PSTR pInterfaceName, HANDLE ClientHandle, HANDLE ClIfcCtx, HANDLE* pIfcHandle) => TcOpenInterfaceA(pInterfaceName, ClientHandle, ClIfcCtx, pIfcHandle);
 
 	[Import("TRAFFIC.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 TcOpenInterfaceW(PWSTR pInterfaceName, HANDLE ClientHandle, HANDLE ClIfcCtx, HANDLE* pIfcHandle);
@@ -1969,12 +1970,14 @@ public static
 
 	[Import("TRAFFIC.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 TcQueryFlowA(PSTR pFlowName, Guid* pGuidParam, uint32* pBufferSize, void* Buffer);
+	public static uint32 TcQueryFlow(PSTR pFlowName, Guid* pGuidParam, uint32* pBufferSize, void* Buffer) => TcQueryFlowA(pFlowName, pGuidParam, pBufferSize, Buffer);
 
 	[Import("TRAFFIC.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 TcQueryFlowW(PWSTR pFlowName, Guid* pGuidParam, uint32* pBufferSize, void* Buffer);
 
 	[Import("TRAFFIC.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 TcSetFlowA(PSTR pFlowName, Guid* pGuidParam, uint32 BufferSize, void* Buffer);
+	public static uint32 TcSetFlow(PSTR pFlowName, Guid* pGuidParam, uint32 BufferSize, void* Buffer) => TcSetFlowA(pFlowName, pGuidParam, BufferSize, Buffer);
 
 	[Import("TRAFFIC.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 TcSetFlowW(PWSTR pFlowName, Guid* pGuidParam, uint32 BufferSize, void* Buffer);
@@ -1984,6 +1987,7 @@ public static
 
 	[Import("TRAFFIC.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 TcGetFlowNameA(HANDLE FlowHandle, uint32 StrSize, uint8* pFlowName);
+	public static uint32 TcGetFlowName(HANDLE FlowHandle, uint32 StrSize, uint8* pFlowName) => TcGetFlowNameA(FlowHandle, StrSize, pFlowName);
 
 	[Import("TRAFFIC.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 TcGetFlowNameW(HANDLE FlowHandle, uint32 StrSize, char8* pFlowName);

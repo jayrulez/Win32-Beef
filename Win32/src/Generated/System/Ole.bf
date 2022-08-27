@@ -6572,36 +6572,42 @@ public static
 
 	[Import("oledlg.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL OleUIAddVerbMenuA(IOleObject* lpOleObj, PSTR lpszShortType, HMENU hMenu, uint32 uPos, uint32 uIDVerbMin, uint32 uIDVerbMax, BOOL bAddConvert, uint32 idConvert, HMENU* lphMenu);
+	public static BOOL OleUIAddVerbMenu(IOleObject* lpOleObj, PSTR lpszShortType, HMENU hMenu, uint32 uPos, uint32 uIDVerbMin, uint32 uIDVerbMax, BOOL bAddConvert, uint32 idConvert, HMENU* lphMenu) => OleUIAddVerbMenuA(lpOleObj, lpszShortType, hMenu, uPos, uIDVerbMin, uIDVerbMax, bAddConvert, idConvert, lphMenu);
 
 	[Import("oledlg.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 OleUIInsertObjectW(OLEUIINSERTOBJECTW* param0);
 
 	[Import("oledlg.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 OleUIInsertObjectA(OLEUIINSERTOBJECTA* param0);
+	public static uint32 OleUIInsertObject(OLEUIINSERTOBJECTA* param0) => OleUIInsertObjectA(param0);
 
 	[Import("oledlg.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 OleUIPasteSpecialW(OLEUIPASTESPECIALW* param0);
 
 	[Import("oledlg.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 OleUIPasteSpecialA(OLEUIPASTESPECIALA* param0);
+	public static uint32 OleUIPasteSpecial(OLEUIPASTESPECIALA* param0) => OleUIPasteSpecialA(param0);
 
 	[Import("oledlg.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 OleUIEditLinksW(OLEUIEDITLINKSW* param0);
 
 	[Import("oledlg.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 OleUIEditLinksA(OLEUIEDITLINKSA* param0);
+	public static uint32 OleUIEditLinks(OLEUIEDITLINKSA* param0) => OleUIEditLinksA(param0);
 
 	[Import("oledlg.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 OleUIChangeIconW(OLEUICHANGEICONW* param0);
 
 	[Import("oledlg.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 OleUIChangeIconA(OLEUICHANGEICONA* param0);
+	public static uint32 OleUIChangeIcon(OLEUICHANGEICONA* param0) => OleUIChangeIconA(param0);
 
 	[Import("oledlg.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 OleUIConvertW(OLEUICONVERTW* param0);
 
 	[Import("oledlg.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 OleUIConvertA(OLEUICONVERTA* param0);
+	public static uint32 OleUIConvert(OLEUICONVERTA* param0) => OleUIConvertA(param0);
 
 	[Import("oledlg.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL OleUICanConvertOrActivateAs(Guid* rClsid, BOOL fIsLinkedObject, uint16 wFormat);
@@ -6611,30 +6617,35 @@ public static
 
 	[Import("oledlg.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 OleUIBusyA(OLEUIBUSYA* param0);
+	public static uint32 OleUIBusy(OLEUIBUSYA* param0) => OleUIBusyA(param0);
 
 	[Import("oledlg.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 OleUIChangeSourceW(OLEUICHANGESOURCEW* param0);
 
 	[Import("oledlg.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 OleUIChangeSourceA(OLEUICHANGESOURCEA* param0);
+	public static uint32 OleUIChangeSource(OLEUICHANGESOURCEA* param0) => OleUIChangeSourceA(param0);
 
 	[Import("oledlg.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 OleUIObjectPropertiesW(OLEUIOBJECTPROPSW* param0);
 
 	[Import("oledlg.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 OleUIObjectPropertiesA(OLEUIOBJECTPROPSA* param0);
+	public static uint32 OleUIObjectProperties(OLEUIOBJECTPROPSA* param0) => OleUIObjectPropertiesA(param0);
 
 	[Import("oledlg.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 OleUIPromptUserW(int32 nTemplate, HWND hwndParent);
 
 	[Import("oledlg.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 OleUIPromptUserA(int32 nTemplate, HWND hwndParent);
+	public static int32 OleUIPromptUser(int32 nTemplate, HWND hwndParent) => OleUIPromptUserA(nTemplate, hwndParent);
 
 	[Import("oledlg.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL OleUIUpdateLinksW(IOleUILinkContainerW* lpOleUILinkCntr, HWND hwndParent, PWSTR lpszTitle, int32 cLinks);
 
 	[Import("oledlg.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL OleUIUpdateLinksA(IOleUILinkContainerA* lpOleUILinkCntr, HWND hwndParent, PSTR lpszTitle, int32 cLinks);
+	public static BOOL OleUIUpdateLinks(IOleUILinkContainerA* lpOleUILinkCntr, HWND hwndParent, PSTR lpszTitle, int32 cLinks) => OleUIUpdateLinksA(lpOleUILinkCntr, hwndParent, lpszTitle, cLinks);
 
 }
 #endregion

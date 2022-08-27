@@ -100,18 +100,23 @@ public static
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern HANDLE CreateNamedPipeA(PSTR lpName, FILE_FLAGS_AND_ATTRIBUTES dwOpenMode, NAMED_PIPE_MODE dwPipeMode, uint32 nMaxInstances, uint32 nOutBufferSize, uint32 nInBufferSize, uint32 nDefaultTimeOut, SECURITY_ATTRIBUTES* lpSecurityAttributes);
+	public static HANDLE CreateNamedPipe(PSTR lpName, FILE_FLAGS_AND_ATTRIBUTES dwOpenMode, NAMED_PIPE_MODE dwPipeMode, uint32 nMaxInstances, uint32 nOutBufferSize, uint32 nInBufferSize, uint32 nDefaultTimeOut, SECURITY_ATTRIBUTES* lpSecurityAttributes) => CreateNamedPipeA(lpName, dwOpenMode, dwPipeMode, nMaxInstances, nOutBufferSize, nInBufferSize, nDefaultTimeOut, lpSecurityAttributes);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL GetNamedPipeHandleStateA(HANDLE hNamedPipe, NAMED_PIPE_MODE* lpState, uint32* lpCurInstances, uint32* lpMaxCollectionCount, uint32* lpCollectDataTimeout, uint8* lpUserName, uint32 nMaxUserNameSize);
+	public static BOOL GetNamedPipeHandleState(HANDLE hNamedPipe, NAMED_PIPE_MODE* lpState, uint32* lpCurInstances, uint32* lpMaxCollectionCount, uint32* lpCollectDataTimeout, uint8* lpUserName, uint32 nMaxUserNameSize) => GetNamedPipeHandleStateA(hNamedPipe, lpState, lpCurInstances, lpMaxCollectionCount, lpCollectDataTimeout, lpUserName, nMaxUserNameSize);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL CallNamedPipeA(PSTR lpNamedPipeName, void* lpInBuffer, uint32 nInBufferSize, void* lpOutBuffer, uint32 nOutBufferSize, uint32* lpBytesRead, uint32 nTimeOut);
+	public static BOOL CallNamedPipe(PSTR lpNamedPipeName, void* lpInBuffer, uint32 nInBufferSize, void* lpOutBuffer, uint32 nOutBufferSize, uint32* lpBytesRead, uint32 nTimeOut) => CallNamedPipeA(lpNamedPipeName, lpInBuffer, nInBufferSize, lpOutBuffer, nOutBufferSize, lpBytesRead, nTimeOut);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL WaitNamedPipeA(PSTR lpNamedPipeName, uint32 nTimeOut);
+	public static BOOL WaitNamedPipe(PSTR lpNamedPipeName, uint32 nTimeOut) => WaitNamedPipeA(lpNamedPipeName, nTimeOut);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL GetNamedPipeClientComputerNameA(HANDLE Pipe, PSTR ClientComputerName, uint32 ClientComputerNameLength);
+	public static BOOL GetNamedPipeClientComputerName(HANDLE Pipe, PSTR ClientComputerName, uint32 ClientComputerNameLength) => GetNamedPipeClientComputerNameA(Pipe, ClientComputerName, ClientComputerNameLength);
 
 	[Import("KERNEL32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL GetNamedPipeClientProcessId(HANDLE Pipe, uint32* ClientProcessId);

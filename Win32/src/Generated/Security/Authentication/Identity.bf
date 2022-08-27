@@ -7055,12 +7055,14 @@ public static
 
 	[Import("ADVAPI32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOLEAN AuditLookupCategoryNameA(Guid* pAuditCategoryGuid, PSTR* ppszCategoryName);
+	public static BOOLEAN AuditLookupCategoryName(Guid* pAuditCategoryGuid, PSTR* ppszCategoryName) => AuditLookupCategoryNameA(pAuditCategoryGuid, ppszCategoryName);
 
 	[Import("ADVAPI32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOLEAN AuditLookupSubCategoryNameW(Guid* pAuditSubCategoryGuid, PWSTR* ppszSubCategoryName);
 
 	[Import("ADVAPI32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOLEAN AuditLookupSubCategoryNameA(Guid* pAuditSubCategoryGuid, PSTR* ppszSubCategoryName);
+	public static BOOLEAN AuditLookupSubCategoryName(Guid* pAuditSubCategoryGuid, PSTR* ppszSubCategoryName) => AuditLookupSubCategoryNameA(pAuditSubCategoryGuid, ppszSubCategoryName);
 
 	[Import("ADVAPI32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOLEAN AuditLookupCategoryIdFromCategoryGuid(Guid* pAuditCategoryGuid, POLICY_AUDIT_EVENT_TYPE* pAuditCategoryId);
@@ -7079,12 +7081,14 @@ public static
 
 	[Import("ADVAPI32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOLEAN AuditSetGlobalSaclA(PSTR ObjectTypeName, ACL* Acl);
+	public static BOOLEAN AuditSetGlobalSacl(PSTR ObjectTypeName, ACL* Acl) => AuditSetGlobalSaclA(ObjectTypeName, Acl);
 
 	[Import("ADVAPI32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOLEAN AuditQueryGlobalSaclW(PWSTR ObjectTypeName, ACL** Acl);
 
 	[Import("ADVAPI32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOLEAN AuditQueryGlobalSaclA(PSTR ObjectTypeName, ACL** Acl);
+	public static BOOLEAN AuditQueryGlobalSacl(PSTR ObjectTypeName, ACL** Acl) => AuditQueryGlobalSaclA(ObjectTypeName, Acl);
 
 	[Import("ADVAPI32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern void AuditFree(void* Buffer);
@@ -7094,6 +7098,7 @@ public static
 
 	[Import("SECUR32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 AcquireCredentialsHandleA(PSTR pszPrincipal, PSTR pszPackage, SECPKG_CRED fCredentialUse, void* pvLogonId, void* pAuthData, SEC_GET_KEY_FN pGetKeyFn, void* pvGetKeyArgument, SecHandle* phCredential, LARGE_INTEGER* ptsExpiry);
+	public static int32 AcquireCredentialsHandle(PSTR pszPrincipal, PSTR pszPackage, SECPKG_CRED fCredentialUse, void* pvLogonId, void* pAuthData, SEC_GET_KEY_FN pGetKeyFn, void* pvGetKeyArgument, SecHandle* phCredential, LARGE_INTEGER* ptsExpiry) => AcquireCredentialsHandleA(pszPrincipal, pszPackage, fCredentialUse, pvLogonId, pAuthData, pGetKeyFn, pvGetKeyArgument, phCredential, ptsExpiry);
 
 	[Import("SECUR32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 FreeCredentialsHandle(SecHandle* phCredential);
@@ -7103,18 +7108,21 @@ public static
 
 	[Import("SECUR32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 AddCredentialsA(SecHandle* hCredentials, PSTR pszPrincipal, PSTR pszPackage, uint32 fCredentialUse, void* pAuthData, SEC_GET_KEY_FN pGetKeyFn, void* pvGetKeyArgument, LARGE_INTEGER* ptsExpiry);
+	public static int32 AddCredentials(SecHandle* hCredentials, PSTR pszPrincipal, PSTR pszPackage, uint32 fCredentialUse, void* pAuthData, SEC_GET_KEY_FN pGetKeyFn, void* pvGetKeyArgument, LARGE_INTEGER* ptsExpiry) => AddCredentialsA(hCredentials, pszPrincipal, pszPackage, fCredentialUse, pAuthData, pGetKeyFn, pvGetKeyArgument, ptsExpiry);
 
 	[Import("SECUR32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 ChangeAccountPasswordW(uint16* pszPackageName, uint16* pszDomainName, uint16* pszAccountName, uint16* pszOldPassword, uint16* pszNewPassword, BOOLEAN bImpersonating, uint32 dwReserved, SecBufferDesc* pOutput);
 
 	[Import("SECUR32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 ChangeAccountPasswordA(int8* pszPackageName, int8* pszDomainName, int8* pszAccountName, int8* pszOldPassword, int8* pszNewPassword, BOOLEAN bImpersonating, uint32 dwReserved, SecBufferDesc* pOutput);
+	public static int32 ChangeAccountPassword(int8* pszPackageName, int8* pszDomainName, int8* pszAccountName, int8* pszOldPassword, int8* pszNewPassword, BOOLEAN bImpersonating, uint32 dwReserved, SecBufferDesc* pOutput) => ChangeAccountPasswordA(pszPackageName, pszDomainName, pszAccountName, pszOldPassword, pszNewPassword, bImpersonating, dwReserved, pOutput);
 
 	[Import("SECUR32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 InitializeSecurityContextW(SecHandle* phCredential, SecHandle* phContext, uint16* pszTargetName, uint32 fContextReq, uint32 Reserved1, uint32 TargetDataRep, SecBufferDesc* pInput, uint32 Reserved2, SecHandle* phNewContext, SecBufferDesc* pOutput, uint32* pfContextAttr, LARGE_INTEGER* ptsExpiry);
 
 	[Import("SECUR32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 InitializeSecurityContextA(SecHandle* phCredential, SecHandle* phContext, int8* pszTargetName, uint32 fContextReq, uint32 Reserved1, uint32 TargetDataRep, SecBufferDesc* pInput, uint32 Reserved2, SecHandle* phNewContext, SecBufferDesc* pOutput, uint32* pfContextAttr, LARGE_INTEGER* ptsExpiry);
+	public static int32 InitializeSecurityContext(SecHandle* phCredential, SecHandle* phContext, int8* pszTargetName, uint32 fContextReq, uint32 Reserved1, uint32 TargetDataRep, SecBufferDesc* pInput, uint32 Reserved2, SecHandle* phNewContext, SecBufferDesc* pOutput, uint32* pfContextAttr, LARGE_INTEGER* ptsExpiry) => InitializeSecurityContextA(phCredential, phContext, pszTargetName, fContextReq, Reserved1, TargetDataRep, pInput, Reserved2, phNewContext, pOutput, pfContextAttr, ptsExpiry);
 
 	[Import("SECUR32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 AcceptSecurityContext(SecHandle* phCredential, SecHandle* phContext, SecBufferDesc* pInput, ACCEPT_SECURITY_CONTEXT_CONTEXT_REQ fContextReq, uint32 TargetDataRep, SecHandle* phNewContext, SecBufferDesc* pOutput, uint32* pfContextAttr, LARGE_INTEGER* ptsExpiry);
@@ -7145,15 +7153,18 @@ public static
 
 	[Import("SECUR32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 QueryContextAttributesA(SecHandle* phContext, SECPKG_ATTR ulAttribute, void* pBuffer);
+	public static int32 QueryContextAttributes(SecHandle* phContext, SECPKG_ATTR ulAttribute, void* pBuffer) => QueryContextAttributesA(phContext, ulAttribute, pBuffer);
 
 	[Import("SspiCli.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 QueryContextAttributesExA(SecHandle* phContext, SECPKG_ATTR ulAttribute, void* pBuffer, uint32 cbBuffer);
+	public static int32 QueryContextAttributesEx(SecHandle* phContext, SECPKG_ATTR ulAttribute, void* pBuffer, uint32 cbBuffer) => QueryContextAttributesExA(phContext, ulAttribute, pBuffer, cbBuffer);
 
 	[Import("SECUR32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 SetContextAttributesW(SecHandle* phContext, SECPKG_ATTR ulAttribute, void* pBuffer, uint32 cbBuffer);
 
 	[Import("SECUR32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 SetContextAttributesA(SecHandle* phContext, SECPKG_ATTR ulAttribute, void* pBuffer, uint32 cbBuffer);
+	public static int32 SetContextAttributes(SecHandle* phContext, SECPKG_ATTR ulAttribute, void* pBuffer, uint32 cbBuffer) => SetContextAttributesA(phContext, ulAttribute, pBuffer, cbBuffer);
 
 	[Import("SECUR32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 QueryCredentialsAttributesW(SecHandle* phCredential, uint32 ulAttribute, void* pBuffer);
@@ -7163,15 +7174,18 @@ public static
 
 	[Import("SECUR32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 QueryCredentialsAttributesA(SecHandle* phCredential, uint32 ulAttribute, void* pBuffer);
+	public static int32 QueryCredentialsAttributes(SecHandle* phCredential, uint32 ulAttribute, void* pBuffer) => QueryCredentialsAttributesA(phCredential, ulAttribute, pBuffer);
 
 	[Import("SspiCli.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 QueryCredentialsAttributesExA(SecHandle* phCredential, uint32 ulAttribute, void* pBuffer, uint32 cbBuffer);
+	public static int32 QueryCredentialsAttributesEx(SecHandle* phCredential, uint32 ulAttribute, void* pBuffer, uint32 cbBuffer) => QueryCredentialsAttributesExA(phCredential, ulAttribute, pBuffer, cbBuffer);
 
 	[Import("SECUR32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 SetCredentialsAttributesW(SecHandle* phCredential, uint32 ulAttribute, void* pBuffer, uint32 cbBuffer);
 
 	[Import("SECUR32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 SetCredentialsAttributesA(SecHandle* phCredential, uint32 ulAttribute, void* pBuffer, uint32 cbBuffer);
+	public static int32 SetCredentialsAttributes(SecHandle* phCredential, uint32 ulAttribute, void* pBuffer, uint32 cbBuffer) => SetCredentialsAttributesA(phCredential, ulAttribute, pBuffer, cbBuffer);
 
 	[Import("SECUR32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 FreeContextBuffer(void* pvContextBuffer);
@@ -7193,12 +7207,14 @@ public static
 
 	[Import("SECUR32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 EnumerateSecurityPackagesA(uint32* pcPackages, SecPkgInfoA** ppPackageInfo);
+	public static int32 EnumerateSecurityPackages(uint32* pcPackages, SecPkgInfoA** ppPackageInfo) => EnumerateSecurityPackagesA(pcPackages, ppPackageInfo);
 
 	[Import("SECUR32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 QuerySecurityPackageInfoW(PWSTR pszPackageName, SecPkgInfoW** ppPackageInfo);
 
 	[Import("SECUR32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 QuerySecurityPackageInfoA(PSTR pszPackageName, SecPkgInfoA** ppPackageInfo);
+	public static int32 QuerySecurityPackageInfo(PSTR pszPackageName, SecPkgInfoA** ppPackageInfo) => QuerySecurityPackageInfoA(pszPackageName, ppPackageInfo);
 
 	[Import("SECUR32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 ExportSecurityContext(SecHandle* phContext, EXPORT_SECURITY_CONTEXT_FLAGS fFlags, SecBuffer* pPackedContext, void** pToken);
@@ -7208,27 +7224,32 @@ public static
 
 	[Import("SECUR32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 ImportSecurityContextA(PSTR pszPackage, SecBuffer* pPackedContext, void* Token, SecHandle* phContext);
+	public static int32 ImportSecurityContext(PSTR pszPackage, SecBuffer* pPackedContext, void* Token, SecHandle* phContext) => ImportSecurityContextA(pszPackage, pPackedContext, Token, phContext);
 
 	[Import("SECUR32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern SecurityFunctionTableA* InitSecurityInterfaceA();
+	public static SecurityFunctionTableA* InitSecurityInterface() => InitSecurityInterfaceA();
 
 	[Import("SECUR32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern SecurityFunctionTableW* InitSecurityInterfaceW();
 
 	[Import("SECUR32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 SaslEnumerateProfilesA(PSTR* ProfileList, uint32* ProfileCount);
+	public static int32 SaslEnumerateProfiles(PSTR* ProfileList, uint32* ProfileCount) => SaslEnumerateProfilesA(ProfileList, ProfileCount);
 
 	[Import("SECUR32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 SaslEnumerateProfilesW(PWSTR* ProfileList, uint32* ProfileCount);
 
 	[Import("SECUR32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 SaslGetProfilePackageA(PSTR ProfileName, SecPkgInfoA** PackageInfo);
+	public static int32 SaslGetProfilePackage(PSTR ProfileName, SecPkgInfoA** PackageInfo) => SaslGetProfilePackageA(ProfileName, PackageInfo);
 
 	[Import("SECUR32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 SaslGetProfilePackageW(PWSTR ProfileName, SecPkgInfoW** PackageInfo);
 
 	[Import("SECUR32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 SaslIdentifyPackageA(SecBufferDesc* pInput, SecPkgInfoA** PackageInfo);
+	public static int32 SaslIdentifyPackage(SecBufferDesc* pInput, SecPkgInfoA** PackageInfo) => SaslIdentifyPackageA(pInput, PackageInfo);
 
 	[Import("SECUR32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 SaslIdentifyPackageW(SecBufferDesc* pInput, SecPkgInfoW** PackageInfo);
@@ -7238,6 +7259,7 @@ public static
 
 	[Import("SECUR32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 SaslInitializeSecurityContextA(SecHandle* phCredential, SecHandle* phContext, PSTR pszTargetName, uint32 fContextReq, uint32 Reserved1, uint32 TargetDataRep, SecBufferDesc* pInput, uint32 Reserved2, SecHandle* phNewContext, SecBufferDesc* pOutput, uint32* pfContextAttr, LARGE_INTEGER* ptsExpiry);
+	public static int32 SaslInitializeSecurityContext(SecHandle* phCredential, SecHandle* phContext, PSTR pszTargetName, uint32 fContextReq, uint32 Reserved1, uint32 TargetDataRep, SecBufferDesc* pInput, uint32 Reserved2, SecHandle* phNewContext, SecBufferDesc* pOutput, uint32* pfContextAttr, LARGE_INTEGER* ptsExpiry) => SaslInitializeSecurityContextA(phCredential, phContext, pszTargetName, fContextReq, Reserved1, TargetDataRep, pInput, Reserved2, phNewContext, pOutput, pfContextAttr, ptsExpiry);
 
 	[Import("SECUR32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 SaslAcceptSecurityContext(SecHandle* phCredential, SecHandle* phContext, SecBufferDesc* pInput, uint32 fContextReq, uint32 TargetDataRep, SecHandle* phNewContext, SecBufferDesc* pOutput, uint32* pfContextAttr, LARGE_INTEGER* ptsExpiry);
@@ -7253,6 +7275,7 @@ public static
 
 	[Import("credui.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern uint32 SspiPromptForCredentialsA(PSTR pszTargetName, void* pUiInfo, uint32 dwAuthError, PSTR pszPackage, void* pInputAuthIdentity, void** ppAuthIdentity, int32* pfSave, uint32 dwFlags);
+	public static uint32 SspiPromptForCredentials(PSTR pszTargetName, void* pUiInfo, uint32 dwAuthError, PSTR pszPackage, void* pInputAuthIdentity, void** ppAuthIdentity, int32* pfSave, uint32 dwFlags) => SspiPromptForCredentialsA(pszTargetName, pUiInfo, dwAuthError, pszPackage, pInputAuthIdentity, ppAuthIdentity, pfSave, dwFlags);
 
 	[Import("SECUR32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 SspiPrepareForCredRead(void* AuthIdentity, PWSTR pszTargetName, uint32* pCredmanCredentialType, PWSTR* ppszCredmanTargetName);
@@ -7316,12 +7339,14 @@ public static
 
 	[Import("SECUR32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 AddSecurityPackageA(PSTR pszPackageName, SECURITY_PACKAGE_OPTIONS* pOptions);
+	public static int32 AddSecurityPackage(PSTR pszPackageName, SECURITY_PACKAGE_OPTIONS* pOptions) => AddSecurityPackageA(pszPackageName, pOptions);
 
 	[Import("SECUR32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 AddSecurityPackageW(PWSTR pszPackageName, SECURITY_PACKAGE_OPTIONS* pOptions);
 
 	[Import("SECUR32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 DeleteSecurityPackageA(PSTR pszPackageName);
+	public static int32 DeleteSecurityPackage(PSTR pszPackageName) => DeleteSecurityPackageA(pszPackageName);
 
 	[Import("SECUR32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern int32 DeleteSecurityPackageW(PWSTR pszPackageName);
@@ -7334,6 +7359,7 @@ public static
 
 	[Import("SCHANNEL.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL SslEmptyCacheA(PSTR pszTargetName, uint32 dwFlags);
+	public static BOOL SslEmptyCache(PSTR pszTargetName, uint32 dwFlags) => SslEmptyCacheA(pszTargetName, dwFlags);
 
 	[Import("SCHANNEL.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOL SslEmptyCacheW(PWSTR pszTargetName, uint32 dwFlags);
@@ -7388,18 +7414,21 @@ public static
 
 	[Import("SECUR32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOLEAN GetUserNameExA(EXTENDED_NAME_FORMAT NameFormat, uint8* lpNameBuffer, uint32* nSize);
+	public static BOOLEAN GetUserNameEx(EXTENDED_NAME_FORMAT NameFormat, uint8* lpNameBuffer, uint32* nSize) => GetUserNameExA(NameFormat, lpNameBuffer, nSize);
 
 	[Import("SECUR32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOLEAN GetUserNameExW(EXTENDED_NAME_FORMAT NameFormat, char8* lpNameBuffer, uint32* nSize);
 
 	[Import("SECUR32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOLEAN GetComputerObjectNameA(EXTENDED_NAME_FORMAT NameFormat, uint8* lpNameBuffer, uint32* nSize);
+	public static BOOLEAN GetComputerObjectName(EXTENDED_NAME_FORMAT NameFormat, uint8* lpNameBuffer, uint32* nSize) => GetComputerObjectNameA(NameFormat, lpNameBuffer, nSize);
 
 	[Import("SECUR32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOLEAN GetComputerObjectNameW(EXTENDED_NAME_FORMAT NameFormat, char8* lpNameBuffer, uint32* nSize);
 
 	[Import("SECUR32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOLEAN TranslateNameA(PSTR lpAccountName, EXTENDED_NAME_FORMAT AccountNameFormat, EXTENDED_NAME_FORMAT DesiredNameFormat, uint8* lpTranslatedName, uint32* nSize);
+	public static BOOLEAN TranslateName(PSTR lpAccountName, EXTENDED_NAME_FORMAT AccountNameFormat, EXTENDED_NAME_FORMAT DesiredNameFormat, uint8* lpTranslatedName, uint32* nSize) => TranslateNameA(lpAccountName, AccountNameFormat, DesiredNameFormat, lpTranslatedName, nSize);
 
 	[Import("SECUR32.lib"), CLink, CallingConvention(.Stdcall)]
 	public static extern BOOLEAN TranslateNameW(PWSTR lpAccountName, EXTENDED_NAME_FORMAT AccountNameFormat, EXTENDED_NAME_FORMAT DesiredNameFormat, char8* lpTranslatedName, uint32* nSize);
