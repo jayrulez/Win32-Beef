@@ -5,9 +5,6 @@ using System;
 
 namespace Win32.Graphics.CompositionSwapchain;
 
-#region TypeDefs
-#endregion
-
 #region Enums
 
 [AllowDuplicates]
@@ -38,8 +35,6 @@ public enum CompositionFrameInstanceKind : int32
 
 #endregion
 
-#region Function Pointers
-#endregion
 
 #region Structs
 [CRepr]
@@ -72,12 +67,6 @@ public struct CompositionFrameDisplayInstance
 	public DXGI_COLOR_SPACE_TYPE colorSpace;
 }
 
-#endregion
-
-#region COM Class IDs
-public static
-{
-}
 #endregion
 
 #region COM Types
@@ -316,4 +305,3 @@ public static
 
 }
 #endregion
-

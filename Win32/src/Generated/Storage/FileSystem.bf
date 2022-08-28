@@ -7,6 +7,7 @@ using System;
 using System.Interop;
 
 namespace Win32.Storage.FileSystem;
+
 #region Constants
 public static
 {
@@ -567,6 +568,7 @@ typealias FindVolumeHandle = int;
 typealias FindVolumeMointPointHandle = int;
 
 #endregion
+
 
 #region Enums
 
@@ -2882,7 +2884,7 @@ public struct CLS_INFORMATION
 public struct CLFS_LOG_NAME_INFORMATION
 {
 	public uint16 NameLengthInBytes;
-	private char16[0] Name_impl;
+	private char16[ANYSIZE_ARRAY] Name_impl;
 }
 
 [CRepr]
@@ -2965,14 +2967,14 @@ public struct CLFS_MGMT_POLICY
 		public struct _NewContainerExtension_e__Struct
 		{
 			public uint16 ExtensionLengthInBytes;
-			private char16[0] ExtensionString_impl;
+			private char16[ANYSIZE_ARRAY] ExtensionString_impl;
 		}
 
 		[CRepr, FlexibleArray("PrefixString")]
 		public struct _NewContainerPrefix_e__Struct
 		{
 			public uint16 PrefixLengthInBytes;
-			private char16[0] PrefixString_impl;
+			private char16[ANYSIZE_ARRAY] PrefixString_impl;
 		}
 
 		[CRepr]
@@ -3291,7 +3293,7 @@ public struct TXF_LOG_RECORD_AFFECTED_FILE
 public struct VOLUME_FAILOVER_SET
 {
 	public uint32 NumberOfDisks;
-	private uint32[0] DiskNumbers_impl;
+	private uint32[ANYSIZE_ARRAY] DiskNumbers_impl;
 }
 
 [CRepr]
@@ -3318,7 +3320,7 @@ public struct VOLUME_PHYSICAL_OFFSET
 public struct VOLUME_PHYSICAL_OFFSETS
 {
 	public uint32 NumberOfPhysicalOffsets;
-	private VOLUME_PHYSICAL_OFFSET[0] PhysicalOffset_impl;
+	private VOLUME_PHYSICAL_OFFSET[ANYSIZE_ARRAY] PhysicalOffset_impl;
 }
 
 [CRepr]
@@ -3395,7 +3397,7 @@ public struct VOLUME_CRITICAL_IO
 {
 	public uint32 AccessType;
 	public uint32 ExtentsCount;
-	private FILE_EXTENT[0] Extents_impl;
+	private FILE_EXTENT[ANYSIZE_ARRAY] Extents_impl;
 }
 
 [CRepr]
@@ -3409,7 +3411,7 @@ public struct VOLUME_ALLOCATION_HINT_INPUT
 [CRepr, FlexibleArray("Bitmap")]
 public struct VOLUME_ALLOCATION_HINT_OUTPUT
 {
-	private uint32[0] Bitmap_impl;
+	private uint32[ANYSIZE_ARRAY] Bitmap_impl;
 }
 
 [CRepr]
@@ -3818,7 +3820,7 @@ public struct FILE_NOTIFY_INFORMATION
 	public uint32 NextEntryOffset;
 	public FILE_ACTION Action;
 	public uint32 FileNameLength;
-	private char16[0] FileName_impl;
+	private char16[ANYSIZE_ARRAY] FileName_impl;
 }
 
 [CRepr, FlexibleArray("FileName")]
@@ -3837,7 +3839,7 @@ public struct FILE_NOTIFY_EXTENDED_INFORMATION
 	public LARGE_INTEGER FileId;
 	public LARGE_INTEGER ParentFileId;
 	public uint32 FileNameLength;
-	private char16[0] FileName_impl;
+	private char16[ANYSIZE_ARRAY] FileName_impl;
 }
 
 [CRepr, Union]
@@ -3853,7 +3855,7 @@ public struct REPARSE_GUID_DATA_BUFFER
 	[CRepr, FlexibleArray("DataBuffer")]
 	public struct _GenericReparseBuffer_e__Struct
 	{
-		private uint8[0] DataBuffer_impl;
+		private uint8[ANYSIZE_ARRAY] DataBuffer_impl;
 	}
 
 	public uint32 ReparseTag;
@@ -3920,7 +3922,7 @@ public struct WIN32_STREAM_ID
 	public uint32 dwStreamAttributes;
 	public LARGE_INTEGER Size;
 	public uint32 dwStreamNameSize;
-	private char16[0] cStreamName_impl;
+	private char16[ANYSIZE_ARRAY] cStreamName_impl;
 }
 
 [CRepr]
@@ -4062,7 +4064,7 @@ public struct FILE_STANDARD_INFO
 public struct FILE_NAME_INFO
 {
 	public uint32 FileNameLength;
-	private char16[0] FileName_impl;
+	private char16[ANYSIZE_ARRAY] FileName_impl;
 }
 
 [CRepr, FlexibleArray("FileName")]
@@ -4078,7 +4080,7 @@ public struct FILE_RENAME_INFO
 	public using _Anonymous_e__Union Anonymous;
 	public HANDLE RootDirectory;
 	public uint32 FileNameLength;
-	private char16[0] FileName_impl;
+	private char16[ANYSIZE_ARRAY] FileName_impl;
 }
 
 [CRepr]
@@ -4100,7 +4102,7 @@ public struct FILE_STREAM_INFO
 	public uint32 StreamNameLength;
 	public LARGE_INTEGER StreamSize;
 	public LARGE_INTEGER StreamAllocationSize;
-	private char16[0] StreamName_impl;
+	private char16[ANYSIZE_ARRAY] StreamName_impl;
 }
 
 [CRepr]
@@ -4144,7 +4146,7 @@ public struct FILE_ID_BOTH_DIR_INFO
 	public int8 ShortNameLength;
 	public char16[12] ShortName;
 	public LARGE_INTEGER FileId;
-	private char16[0] FileName_impl;
+	private char16[ANYSIZE_ARRAY] FileName_impl;
 }
 
 [CRepr, FlexibleArray("FileName")]
@@ -4161,7 +4163,7 @@ public struct FILE_FULL_DIR_INFO
 	public uint32 FileAttributes;
 	public uint32 FileNameLength;
 	public uint32 EaSize;
-	private char16[0] FileName_impl;
+	private char16[ANYSIZE_ARRAY] FileName_impl;
 }
 
 [CRepr]
@@ -4211,7 +4213,7 @@ public struct FILE_ID_EXTD_DIR_INFO
 	public uint32 EaSize;
 	public uint32 ReparsePointTag;
 	public FILE_ID_128 FileId;
-	private char16[0] FileName_impl;
+	private char16[ANYSIZE_ARRAY] FileName_impl;
 }
 
 [CRepr]
@@ -4278,12 +4280,6 @@ public struct FILE_ID_DESCRIPTOR
 	public using _Anonymous_e__Union Anonymous;
 }
 
-#endregion
-
-#region COM Class IDs
-public static
-{
-}
 #endregion
 
 #region COM Types
@@ -5800,4 +5796,3 @@ public static
 
 }
 #endregion
-

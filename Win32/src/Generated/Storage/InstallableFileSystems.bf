@@ -5,6 +5,7 @@ using System;
 using System.Interop;
 
 namespace Win32.Storage.InstallableFileSystems;
+
 #region Constants
 public static
 {
@@ -198,6 +199,7 @@ typealias FilterVolumeInstanceFindHandle = int;
 
 #endregion
 
+
 #region Enums
 
 [AllowDuplicates]
@@ -265,8 +267,6 @@ public enum INSTANCE_INFORMATION_CLASS : int32
 
 #endregion
 
-#region Function Pointers
-#endregion
 
 #region Structs
 [CRepr, FlexibleArray("FilterNameBuffer")]
@@ -276,7 +276,7 @@ public struct FILTER_FULL_INFORMATION
 	public uint32 FrameID;
 	public uint32 NumberOfInstances;
 	public uint16 FilterNameLength;
-	private char16[0] FilterNameBuffer_impl;
+	private char16[ANYSIZE_ARRAY] FilterNameBuffer_impl;
 }
 
 [CRepr]
@@ -353,7 +353,7 @@ public struct FILTER_AGGREGATE_STANDARD_INFORMATION
 public struct FILTER_VOLUME_BASIC_INFORMATION
 {
 	public uint16 FilterVolumeNameLength;
-	private char16[0] FilterVolumeName_impl;
+	private char16[ANYSIZE_ARRAY] FilterVolumeName_impl;
 }
 
 [CRepr, FlexibleArray("FilterVolumeName")]
@@ -364,7 +364,7 @@ public struct FILTER_VOLUME_STANDARD_INFORMATION
 	public uint32 FrameID;
 	public FLT_FILESYSTEM_TYPE FileSystemType;
 	public uint16 FilterVolumeNameLength;
-	private char16[0] FilterVolumeName_impl;
+	private char16[ANYSIZE_ARRAY] FilterVolumeName_impl;
 }
 
 [CRepr]
@@ -460,15 +460,6 @@ public struct FILTER_REPLY_HEADER
 
 #endregion
 
-#region COM Class IDs
-public static
-{
-}
-#endregion
-
-#region COM Types
-#endregion
-
 #region Functions
 public static
 {
@@ -558,4 +549,3 @@ public static
 
 }
 #endregion
-

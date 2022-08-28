@@ -3,6 +3,7 @@ using System;
 using System.Interop;
 
 namespace Win32.NetworkManagement.Dns;
+
 #region Constants
 public static
 {
@@ -664,6 +665,7 @@ typealias DnsContextHandle = int;
 
 #endregion
 
+
 #region Enums
 
 [AllowDuplicates]
@@ -793,7 +795,7 @@ public function void PMDNS_QUERY_CALLBACK(void* pQueryContext, MDNS_QUERY_HANDLE
 public struct IP4_ARRAY
 {
 	public uint32 AddrCount;
-	private uint32[0] AddrArray_impl;
+	private uint32[ANYSIZE_ARRAY] AddrArray_impl;
 }
 
 #if BF_64_BIT || BF_ARM_64
@@ -832,7 +834,7 @@ public struct DNS_ADDR_ARRAY
 	public uint32 MatchFlag;
 	public uint32 Reserved1;
 	public uint32 Reserved2;
-	private DNS_ADDR[0] AddrArray_impl;
+	private DNS_ADDR[ANYSIZE_ARRAY] AddrArray_impl;
 }
 
 [CRepr, Packed(1)]
@@ -947,21 +949,21 @@ public struct DNS_MX_DATAA
 public struct DNS_TXT_DATAW
 {
 	public uint32 dwStringCount;
-	private PWSTR[0] pStringArray_impl;
+	private PWSTR[ANYSIZE_ARRAY] pStringArray_impl;
 }
 
 [CRepr, FlexibleArray("pStringArray")]
 public struct DNS_TXT_DATAA
 {
 	public uint32 dwStringCount;
-	private PSTR[0] pStringArray_impl;
+	private PSTR[ANYSIZE_ARRAY] pStringArray_impl;
 }
 
 [CRepr, FlexibleArray("Data")]
 public struct DNS_NULL_DATA
 {
 	public uint32 dwByteCount;
-	private uint8[0] Data_impl;
+	private uint8[ANYSIZE_ARRAY] Data_impl;
 }
 
 [CRepr, FlexibleArray("BitMask")]
@@ -969,7 +971,7 @@ public struct DNS_WKS_DATA
 {
 	public uint32 IpAddress;
 	public uint8 chProtocol;
-	private uint8[0] BitMask_impl;
+	private uint8[ANYSIZE_ARRAY] BitMask_impl;
 }
 
 [CRepr]
@@ -990,7 +992,7 @@ public struct DNS_SIG_DATAW
 	public uint16 wKeyTag;
 	public uint16 wSignatureLength;
 	public PWSTR pNameSigner;
-	private uint8[0] Signature_impl;
+	private uint8[ANYSIZE_ARRAY] Signature_impl;
 }
 
 [CRepr, FlexibleArray("Signature")]
@@ -1005,7 +1007,7 @@ public struct DNS_SIG_DATAA
 	public uint16 wKeyTag;
 	public uint16 wSignatureLength;
 	public PSTR pNameSigner;
-	private uint8[0] Signature_impl;
+	private uint8[ANYSIZE_ARRAY] Signature_impl;
 }
 
 [CRepr, FlexibleArray("Key")]
@@ -1016,14 +1018,14 @@ public struct DNS_KEY_DATA
 	public uint8 chAlgorithm;
 	public uint16 wKeyLength;
 	public uint16 wPad;
-	private uint8[0] Key_impl;
+	private uint8[ANYSIZE_ARRAY] Key_impl;
 }
 
 [CRepr, FlexibleArray("DHCID")]
 public struct DNS_DHCID_DATA
 {
 	public uint32 dwByteCount;
-	private uint8[0] DHCID_impl;
+	private uint8[ANYSIZE_ARRAY] DHCID_impl;
 }
 
 [CRepr, FlexibleArray("TypeBitMaps")]
@@ -1032,7 +1034,7 @@ public struct DNS_NSEC_DATAW
 	public PWSTR pNextDomainName;
 	public uint16 wTypeBitMapsLength;
 	public uint16 wPad;
-	private uint8[0] TypeBitMaps_impl;
+	private uint8[ANYSIZE_ARRAY] TypeBitMaps_impl;
 }
 
 [CRepr, FlexibleArray("TypeBitMaps")]
@@ -1041,7 +1043,7 @@ public struct DNS_NSEC_DATAA
 	public PSTR pNextDomainName;
 	public uint16 wTypeBitMapsLength;
 	public uint16 wPad;
-	private uint8[0] TypeBitMaps_impl;
+	private uint8[ANYSIZE_ARRAY] TypeBitMaps_impl;
 }
 
 [CRepr, FlexibleArray("chData")]
@@ -1053,7 +1055,7 @@ public struct DNS_NSEC3_DATA
 	public uint8 bSaltLength;
 	public uint8 bHashLength;
 	public uint16 wTypeBitMapsLength;
-	private uint8[0] chData_impl;
+	private uint8[ANYSIZE_ARRAY] chData_impl;
 }
 
 [CRepr, FlexibleArray("pbSalt")]
@@ -1064,7 +1066,7 @@ public struct DNS_NSEC3PARAM_DATA
 	public uint16 wIterations;
 	public uint8 bSaltLength;
 	public uint8[3] bPad;
-	private uint8[0] pbSalt_impl;
+	private uint8[ANYSIZE_ARRAY] pbSalt_impl;
 }
 
 [CRepr, FlexibleArray("bCertificateAssociationData")]
@@ -1075,7 +1077,7 @@ public struct DNS_TLSA_DATA
 	public uint8 bMatchingType;
 	public uint16 bCertificateAssociationDataLength;
 	public uint8[3] bPad;
-	private uint8[0] bCertificateAssociationData_impl;
+	private uint8[ANYSIZE_ARRAY] bCertificateAssociationData_impl;
 }
 
 [CRepr, FlexibleArray("Digest")]
@@ -1086,7 +1088,7 @@ public struct DNS_DS_DATA
 	public uint8 chDigestType;
 	public uint16 wDigestLength;
 	public uint16 wPad;
-	private uint8[0] Digest_impl;
+	private uint8[ANYSIZE_ARRAY] Digest_impl;
 }
 
 [CRepr, FlexibleArray("Data")]
@@ -1094,7 +1096,7 @@ public struct DNS_OPT_DATA
 {
 	public uint16 wDataLength;
 	public uint16 wPad;
-	private uint8[0] Data_impl;
+	private uint8[ANYSIZE_ARRAY] Data_impl;
 }
 
 [CRepr]
@@ -1114,7 +1116,7 @@ public struct DNS_NXT_DATAW
 {
 	public PWSTR pNameNext;
 	public uint16 wNumTypes;
-	private uint16[0] wTypes_impl;
+	private uint16[ANYSIZE_ARRAY] wTypes_impl;
 }
 
 [CRepr, FlexibleArray("wTypes")]
@@ -1122,7 +1124,7 @@ public struct DNS_NXT_DATAA
 {
 	public PSTR pNameNext;
 	public uint16 wNumTypes;
-	private uint16[0] wTypes_impl;
+	private uint16[ANYSIZE_ARRAY] wTypes_impl;
 }
 
 [CRepr]
@@ -1246,7 +1248,7 @@ public struct DNS_TSIG_DATAA
 public struct DNS_UNKNOWN_DATA
 {
 	public uint32 dwByteCount;
-	private uint8[0] bData_impl;
+	private uint8[ANYSIZE_ARRAY] bData_impl;
 }
 
 [CRepr, FlexibleArray("WinsServers")]
@@ -1256,7 +1258,7 @@ public struct DNS_WINS_DATA
 	public uint32 dwLookupTimeout;
 	public uint32 dwCacheTimeout;
 	public uint32 cWinsServerCount;
-	private uint32[0] WinsServers_impl;
+	private uint32[ANYSIZE_ARRAY] WinsServers_impl;
 }
 
 [CRepr]
@@ -1650,7 +1652,7 @@ public struct DNS_APPLICATION_SETTINGS
 public struct DNS_MESSAGE_BUFFER
 {
 	public DNS_HEADER MessageHead;
-	private CHAR[0] MessageBody_impl;
+	private CHAR[ANYSIZE_ARRAY] MessageBody_impl;
 }
 
 [CRepr]
@@ -1857,15 +1859,6 @@ public struct IP6_ADDRESS
 
 #endregion
 
-#region COM Class IDs
-public static
-{
-}
-#endregion
-
-#region COM Types
-#endregion
-
 #region Functions
 public static
 {
@@ -2057,4 +2050,3 @@ public static
 
 }
 #endregion
-

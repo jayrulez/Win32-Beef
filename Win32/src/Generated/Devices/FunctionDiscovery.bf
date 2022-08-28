@@ -5,6 +5,7 @@ using Win32.System.Com.StructuredStorage;
 using System;
 
 namespace Win32.Devices.FunctionDiscovery;
+
 #region Constants
 public static
 {
@@ -573,9 +574,6 @@ public static
 }
 #endregion
 
-#region TypeDefs
-#endregion
-
 #region Enums
 
 [AllowDuplicates]
@@ -620,11 +618,6 @@ public enum QueryCategoryType : int32
 
 #endregion
 
-#region Function Pointers
-#endregion
-
-#region Structs
-#endregion
 
 #region COM Class IDs
 public static
@@ -1069,4 +1062,3 @@ public static
 }
 
 #endregion
-

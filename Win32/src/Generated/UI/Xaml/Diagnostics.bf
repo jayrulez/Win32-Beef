@@ -5,15 +5,13 @@ using Win32.System.WinRT;
 using System;
 
 namespace Win32.UI.Xaml.Diagnostics;
+
 #region Constants
 public static
 {
 	public const HRESULT E_UNKNOWNTYPE = -2144665560;
 
 }
-#endregion
-
-#region TypeDefs
 #endregion
 
 #region Enums
@@ -87,8 +85,6 @@ public enum VisualElementState : int32
 
 #endregion
 
-#region Function Pointers
-#endregion
 
 #region Structs
 [CRepr]
@@ -170,12 +166,6 @@ public struct BitmapDescription
 	public DXGI_ALPHA_MODE AlphaMode;
 }
 
-#endregion
-
-#region COM Class IDs
-public static
-{
-}
 #endregion
 
 #region COM Types
@@ -378,4 +368,3 @@ public static
 
 }
 #endregion
-

@@ -5,6 +5,7 @@ using System;
 using System.Interop;
 
 namespace Win32.System.Services;
+
 #region Constants
 public static
 {
@@ -262,6 +263,7 @@ typealias SERVICE_STATUS_HANDLE = int;
 
 #endregion
 
+
 #region Enums
 
 [AllowDuplicates]
@@ -503,7 +505,7 @@ public struct SERVICE_CUSTOM_SYSTEM_STATE_CHANGE_DATA_ITEM
 		public struct _s_e__Struct
 		{
 			public uint32 DataOffset;
-			private uint8[0] Data_impl;
+			private uint8[ANYSIZE_ARRAY] Data_impl;
 		}
 
 		public SERVICE_TRIGGER_CUSTOM_STATE_ID CustomStateId;
@@ -813,15 +815,6 @@ public struct _SC_NOTIFICATION_REGISTRATION
 
 #endregion
 
-#region COM Class IDs
-public static
-{
-}
-#endregion
-
-#region COM Types
-#endregion
-
 #region Functions
 public static
 {
@@ -1014,4 +1007,3 @@ public static
 
 }
 #endregion
-

@@ -2,15 +2,13 @@ using Win32.Foundation;
 using System;
 
 namespace Win32.System.ApplicationVerifier;
+
 #region Constants
 public static
 {
 	public const uint32 AVRF_MAX_TRACES = 32;
 
 }
-#endregion
-
-#region TypeDefs
 #endregion
 
 #region Enums
@@ -114,15 +112,6 @@ public struct AVRF_HANDLE_OPERATION
 
 #endregion
 
-#region COM Class IDs
-public static
-{
-}
-#endregion
-
-#region COM Types
-#endregion
-
 #region Functions
 public static
 {
@@ -131,4 +120,3 @@ public static
 
 }
 #endregion
-

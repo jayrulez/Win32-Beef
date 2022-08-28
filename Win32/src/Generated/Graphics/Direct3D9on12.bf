@@ -5,6 +5,7 @@ using Win32.Graphics.Direct3D12;
 using System;
 
 namespace Win32.Graphics.Direct3D9on12;
+
 #region Constants
 public static
 {
@@ -12,13 +13,6 @@ public static
 
 }
 #endregion
-
-#region TypeDefs
-#endregion
-
-#region Enums
-#endregion
-
 #region Function Pointers
 public function HRESULT PFN_Direct3DCreate9On12Ex(uint32 SDKVersion, D3D9ON12_ARGS* pOverrideList, uint32 NumOverrideEntries, IDirect3D9Ex** ppOutputInterface);
 
@@ -37,12 +31,6 @@ public struct D3D9ON12_ARGS
 	public uint32 NodeMask;
 }
 
-#endregion
-
-#region COM Class IDs
-public static
-{
-}
 #endregion
 
 #region COM Types
@@ -80,4 +68,3 @@ public static
 
 }
 #endregion
-

@@ -5,6 +5,7 @@ using Win32.Networking.WinSock;
 using System;
 
 namespace Win32.Devices.WebServicesOnDevices;
+
 #region Constants
 public static
 {
@@ -37,9 +38,6 @@ public static
 	public const uint32 WSDAPI_ADDRESSFAMILY_IPV6 = 2;
 
 }
-#endregion
-
-#region TypeDefs
 #endregion
 
 #region Enums
@@ -756,12 +754,6 @@ public struct WSD_EVENT
 	public IWSDMessageParameters* MessageParameters;
 }
 
-#endregion
-
-#region COM Class IDs
-public static
-{
-}
 #endregion
 
 #region COM Types
@@ -1711,4 +1703,3 @@ public static
 
 }
 #endregion
-

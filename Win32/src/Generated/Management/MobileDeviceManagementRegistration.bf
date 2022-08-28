@@ -2,6 +2,7 @@ using Win32.Foundation;
 using System;
 
 namespace Win32.Management.MobileDeviceManagementRegistration;
+
 #region Constants
 public static
 {
@@ -140,9 +141,6 @@ public static
 }
 #endregion
 
-#region TypeDefs
-#endregion
-
 #region Enums
 
 [AllowDuplicates]
@@ -154,8 +152,6 @@ public enum REGISTRATION_INFORMATION_CLASS : int32
 
 #endregion
 
-#region Function Pointers
-#endregion
 
 #region Structs
 [CRepr]
@@ -174,15 +170,6 @@ public struct MANAGEMENT_REGISTRATION_INFO
 	public PWSTR pszMDMServiceUri;
 }
 
-#endregion
-
-#region COM Class IDs
-public static
-{
-}
-#endregion
-
-#region COM Types
 #endregion
 
 #region Functions
@@ -244,4 +231,3 @@ public static
 
 }
 #endregion
-

@@ -5,6 +5,7 @@ using System;
 using System.Interop;
 
 namespace Win32.System.Com.StructuredStorage;
+
 #region Constants
 public static
 {
@@ -191,9 +192,6 @@ public static
 }
 #endregion
 
-#region TypeDefs
-#endregion
-
 #region Enums
 
 [AllowDuplicates]
@@ -259,8 +257,6 @@ public enum PIDMSI_STATUS_VALUE : int32
 
 #endregion
 
-#region Function Pointers
-#endregion
 
 #region Structs
 [CRepr]
@@ -283,7 +279,7 @@ public struct RemSNB
 {
 	public uint32 ulCntStr;
 	public uint32 ulCntChar;
-	private char16[0] rgString_impl;
+	private char16[ANYSIZE_ARRAY] rgString_impl;
 }
 
 [CRepr]
@@ -595,7 +591,7 @@ public struct STGOPTIONS
 public struct SERIALIZEDPROPERTYVALUE
 {
 	public uint32 dwType;
-	private uint8[0] rgb_impl;
+	private uint8[ANYSIZE_ARRAY] rgb_impl;
 }
 
 [CRepr]
@@ -627,12 +623,6 @@ public struct PROPBAG2
 	public Guid clsid;
 }
 
-#endregion
-
-#region COM Class IDs
-public static
-{
-}
 #endregion
 
 #region COM Types
@@ -1174,4 +1164,3 @@ public static
 
 }
 #endregion
-

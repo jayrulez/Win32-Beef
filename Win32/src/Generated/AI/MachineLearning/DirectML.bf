@@ -4,6 +4,7 @@ using Win32.System.Com;
 using System;
 
 namespace Win32.AI.MachineLearning.DirectML;
+
 #region Constants
 public static
 {
@@ -20,9 +21,6 @@ public static
 	public const uint32 DML_MINIMUM_BUFFER_TENSOR_ALIGNMENT = 16;
 
 }
-#endregion
-
-#region TypeDefs
 #endregion
 
 #region Enums
@@ -394,8 +392,6 @@ public enum DML_GRAPH_NODE_TYPE : int32
 
 #endregion
 
-#region Function Pointers
-#endregion
 
 #region Structs
 [CRepr]
@@ -2026,12 +2022,6 @@ public struct DML_GRAPH_DESC
 
 #endregion
 
-#region COM Class IDs
-public static
-{
-}
-#endregion
-
 #region COM Types
 [CRepr]struct IDMLObject : IUnknown
 {
@@ -2265,4 +2255,3 @@ public static
 
 }
 #endregion
-

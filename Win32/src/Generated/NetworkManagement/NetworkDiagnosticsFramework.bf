@@ -5,6 +5,7 @@ using Win32.Security;
 using System;
 
 namespace Win32.NetworkManagement.NetworkDiagnosticsFramework;
+
 #region Constants
 public static
 {
@@ -69,9 +70,6 @@ public static
 	public const uint32 NDF_APPLY_INCLUSION_LIST_FILTER = 2;
 
 }
-#endregion
-
-#region TypeDefs
 #endregion
 
 #region Enums
@@ -164,8 +162,6 @@ public enum PROBLEM_TYPE : int32
 
 #endregion
 
-#region Function Pointers
-#endregion
 
 #region Structs
 [CRepr]
@@ -305,12 +301,6 @@ public struct HypothesisResult
 	public DIAGNOSIS_STATUS pathStatus;
 }
 
-#endregion
-
-#region COM Class IDs
-public static
-{
-}
 #endregion
 
 #region COM Types
@@ -501,4 +491,3 @@ public static
 
 }
 #endregion
-

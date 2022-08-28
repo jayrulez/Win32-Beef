@@ -3,6 +3,7 @@ using Win32.Graphics.Gdi;
 using System;
 
 namespace Win32.UI.Magnification;
+
 #region Constants
 public static
 {
@@ -18,13 +19,6 @@ public static
 
 }
 #endregion
-
-#region TypeDefs
-#endregion
-
-#region Enums
-#endregion
-
 #region Function Pointers
 public function BOOL MagImageScalingCallback(HWND hwnd, void* srcdata, MAGIMAGEHEADER srcheader, void* destdata, MAGIMAGEHEADER destheader, RECT unclipped, RECT clipped, HRGN dirty);
 
@@ -54,15 +48,6 @@ public struct MAGCOLOREFFECT
 	public float[25] transform;
 }
 
-#endregion
-
-#region COM Class IDs
-public static
-{
-}
-#endregion
-
-#region COM Types
 #endregion
 
 #region Functions
@@ -127,4 +112,3 @@ public static
 
 }
 #endregion
-

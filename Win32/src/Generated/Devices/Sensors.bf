@@ -7,6 +7,7 @@ using System;
 using System.Interop;
 
 namespace Win32.Devices.Sensors;
+
 #region Constants
 public static
 {
@@ -569,9 +570,6 @@ public static
 }
 #endregion
 
-#region TypeDefs
-#endregion
-
 #region Enums
 
 [AllowDuplicates]
@@ -769,8 +767,6 @@ public enum AXIS : int32
 
 #endregion
 
-#region Function Pointers
-#endregion
 
 #region Structs
 [CRepr]
@@ -785,7 +781,7 @@ public struct SENSOR_COLLECTION_LIST
 {
 	public uint32 AllocatedSizeInBytes;
 	public uint32 Count;
-	private SENSOR_VALUE_PAIR[0] List_impl;
+	private SENSOR_VALUE_PAIR[ANYSIZE_ARRAY] List_impl;
 }
 
 [CRepr, FlexibleArray("List")]
@@ -793,7 +789,7 @@ public struct SENSOR_PROPERTY_LIST
 {
 	public uint32 AllocatedSizeInBytes;
 	public uint32 Count;
-	private PROPERTYKEY[0] List_impl;
+	private PROPERTYKEY[ANYSIZE_ARRAY] List_impl;
 }
 
 [CRepr]
@@ -1189,4 +1185,3 @@ public static
 
 }
 #endregion
-

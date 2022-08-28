@@ -4,6 +4,7 @@ using Win32.UI.WindowsAndMessaging;
 using System;
 
 namespace Win32.Graphics.DirectManipulation;
+
 #region Constants
 public static
 {
@@ -24,9 +25,6 @@ public static
 	public const Guid CLSID_DeferContactService = .(0xd7b67cf4, 0x84bb, 0x434e, 0x86, 0xae, 0x65, 0x92, 0xbb, 0xc9, 0xab, 0xd9);
 
 }
-#endregion
-
-#region TypeDefs
 #endregion
 
 #region Enums
@@ -199,11 +197,6 @@ public enum DIRECTMANIPULATION_AUTOSCROLL_CONFIGURATION : int32
 
 #endregion
 
-#region Function Pointers
-#endregion
-
-#region Structs
-#endregion
 
 #region COM Class IDs
 public static
@@ -681,4 +674,3 @@ public static
 }
 
 #endregion
-

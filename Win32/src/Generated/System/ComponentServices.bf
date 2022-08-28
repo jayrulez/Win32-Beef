@@ -4,6 +4,7 @@ using Win32.System.DistributedTransactionCoordinator;
 using System;
 
 namespace Win32.System.ComponentServices;
+
 #region Constants
 public static
 {
@@ -26,9 +27,6 @@ public static
 	public const uint32 CRR_RECYCLED_FROM_UI = 4294967291;
 
 }
-#endregion
-
-#region TypeDefs
 #endregion
 
 #region Enums
@@ -589,8 +587,6 @@ public enum CRMREGFLAGS : int32
 
 #endregion
 
-#region Function Pointers
-#endregion
 
 #region Structs
 [CRepr]
@@ -3989,4 +3985,3 @@ public static
 
 }
 #endregion
-

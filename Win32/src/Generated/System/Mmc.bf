@@ -7,6 +7,7 @@ using System;
 using System.Interop;
 
 namespace Win32.System.Mmc;
+
 #region Constants
 public static
 {
@@ -187,9 +188,6 @@ public static
 	public const uint32 MMC_ITEM_STATE_MASK = 255;
 
 }
-#endregion
-
-#region TypeDefs
 #endregion
 
 #region Enums
@@ -480,8 +478,6 @@ public enum MMC_VIEW_TYPE : int32
 
 #endregion
 
-#region Function Pointers
-#endregion
 
 #region Structs
 [CRepr]
@@ -588,28 +584,28 @@ public struct MMC_EXPANDSYNC_STRUCT
 public struct MMC_VISIBLE_COLUMNS
 {
 	public int32 nVisibleColumns;
-	private int32[0] rgVisibleCols_impl;
+	private int32[ANYSIZE_ARRAY] rgVisibleCols_impl;
 }
 
 [CRepr, FlexibleArray("lpDataObject")]
 public struct SMMCDataObjects
 {
 	public uint32 count;
-	private IDataObject*[0] lpDataObject_impl;
+	private IDataObject*[ANYSIZE_ARRAY] lpDataObject_impl;
 }
 
 [CRepr, FlexibleArray("guid")]
 public struct SMMCObjectTypes
 {
 	public uint32 count;
-	private Guid[0] guid_impl;
+	private Guid[ANYSIZE_ARRAY] guid_impl;
 }
 
 [CRepr, FlexibleArray("id")]
 public struct SNodeID
 {
 	public uint32 cBytes;
-	private uint8[0] id_impl;
+	private uint8[ANYSIZE_ARRAY] id_impl;
 }
 
 [CRepr, FlexibleArray("id")]
@@ -617,7 +613,7 @@ public struct SNodeID2
 {
 	public uint32 dwFlags;
 	public uint32 cBytes;
-	private uint8[0] id_impl;
+	private uint8[ANYSIZE_ARRAY] id_impl;
 }
 
 [CRepr, FlexibleArray("id")]
@@ -625,7 +621,7 @@ public struct SColumnSetID
 {
 	public uint32 dwFlags;
 	public uint32 cBytes;
-	private uint8[0] id_impl;
+	private uint8[ANYSIZE_ARRAY] id_impl;
 }
 
 [CRepr]
@@ -2595,4 +2591,3 @@ public static
 }
 
 #endregion
-

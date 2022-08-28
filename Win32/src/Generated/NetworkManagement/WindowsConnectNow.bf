@@ -4,6 +4,7 @@ using Win32.System.Com;
 using System;
 
 namespace Win32.NetworkManagement.WindowsConnectNow;
+
 #region Constants
 public static
 {
@@ -184,9 +185,6 @@ public static
 	public const PROPERTYKEY PKEY_WCN_SSID = .(.(0x88190b8b, 0x4684, 0x11da, 0xa2, 0x6a, 0x00, 0x02, 0xb3, 0x98, 0x8e, 0x81), 32);
 
 }
-#endregion
-
-#region TypeDefs
 #endregion
 
 #region Enums
@@ -496,8 +494,6 @@ public enum WCN_SESSION_STATUS : int32
 
 #endregion
 
-#region Function Pointers
-#endregion
 
 #region Structs
 [CRepr, Packed(1)]
@@ -593,4 +589,3 @@ public static
 }
 
 #endregion
-

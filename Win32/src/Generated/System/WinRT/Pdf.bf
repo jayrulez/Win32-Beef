@@ -6,13 +6,6 @@ using Win32.Graphics.Direct2D;
 using System;
 
 namespace Win32.System.WinRT.Pdf;
-
-#region TypeDefs
-#endregion
-
-#region Enums
-#endregion
-
 #region Function Pointers
 public function HRESULT PFN_PDF_CREATE_RENDERER(IDXGIDevice* param0, IPdfRendererNative** param1);
 
@@ -29,12 +22,6 @@ public struct PDF_RENDER_PARAMS
 	public BOOLEAN IgnoreHighContrast;
 }
 
-#endregion
-
-#region COM Class IDs
-public static
-{
-}
 #endregion
 
 #region COM Types
@@ -66,4 +53,3 @@ public static
 
 }
 #endregion
-

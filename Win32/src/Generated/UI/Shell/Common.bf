@@ -4,6 +4,7 @@ using System;
 using System.Interop;
 
 namespace Win32.UI.Shell.Common;
+
 #region Constants
 public static
 {
@@ -22,9 +23,6 @@ public static
 	public const uint32 PERCEIVEDFLAG_ZIPFOLDER = 64;
 
 }
-#endregion
-
-#region TypeDefs
 #endregion
 
 #region Enums
@@ -110,15 +108,13 @@ public enum DEVICE_SCALE_FACTOR : int32
 
 #endregion
 
-#region Function Pointers
-#endregion
 
 #region Structs
 [CRepr, Packed(1), FlexibleArray("abID")]
 public struct SHITEMID
 {
 	public uint16 cb;
-	private uint8[0] abID_impl;
+	private uint8[ANYSIZE_ARRAY] abID_impl;
 }
 
 [CRepr]
@@ -157,12 +153,6 @@ public struct COMDLG_FILTERSPEC
 	public PWSTR pszSpec;
 }
 
-#endregion
-
-#region COM Class IDs
-public static
-{
-}
 #endregion
 
 #region COM Types
@@ -209,4 +199,3 @@ public static
 }
 
 #endregion
-

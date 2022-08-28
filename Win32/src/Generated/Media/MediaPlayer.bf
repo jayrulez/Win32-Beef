@@ -8,6 +8,7 @@ using System;
 using System.Interop;
 
 namespace Win32.Media.MediaPlayer;
+
 #region Constants
 public static
 {
@@ -1370,9 +1371,6 @@ public static
 }
 #endregion
 
-#region TypeDefs
-#endregion
-
 #region Enums
 
 [AllowDuplicates]
@@ -1777,8 +1775,6 @@ public enum WMPSubscriptionDownloadState : int32
 
 #endregion
 
-#region Function Pointers
-#endregion
 
 #region Structs
 [CRepr]
@@ -1813,7 +1809,7 @@ public struct WMP_WMDM_METADATA_ROUND_TRIP_DEVICE2PC
 	public uint32 dwUnretrievedObjectCount;
 	public uint32 dwDeletedObjectStartingOffset;
 	public uint32 dwFlags;
-	private char16[0] wsObjectPathnameList_impl;
+	private char16[ANYSIZE_ARRAY] wsObjectPathnameList_impl;
 }
 
 #endregion
@@ -5570,4 +5566,3 @@ public static
 }
 
 #endregion
-

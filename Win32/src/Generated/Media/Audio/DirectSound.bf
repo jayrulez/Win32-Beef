@@ -5,6 +5,7 @@ using Win32.System.Com;
 using System;
 
 namespace Win32.Media.Audio.DirectSound;
+
 #region Constants
 public static
 {
@@ -660,13 +661,6 @@ public static
 
 }
 #endregion
-
-#region TypeDefs
-#endregion
-
-#region Enums
-#endregion
-
 #region Function Pointers
 public function BOOL LPDSENUMCALLBACKA(ref Guid param0, PSTR param1, PSTR param2, void* param3);
 
@@ -941,12 +935,6 @@ public struct DSCFXNoiseSuppress
 	public BOOL fEnable;
 }
 
-#endregion
-
-#region COM Class IDs
-public static
-{
-}
 #endregion
 
 #region COM Types
@@ -1577,4 +1565,3 @@ public static
 
 }
 #endregion
-

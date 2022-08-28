@@ -7,6 +7,7 @@ using Win32.Security;
 using System;
 
 namespace Win32.Graphics.Direct3D11;
+
 #region Constants
 public static
 {
@@ -979,9 +980,6 @@ public static
 	public const uint32 D3DX11_FFT_MAX_DIMENSIONS = 32;
 
 }
-#endregion
-
-#region TypeDefs
 #endregion
 
 #region Enums
@@ -5558,12 +5556,6 @@ public struct D3DX11_FFT_BUFFER_INFO
 
 #endregion
 
-#region COM Class IDs
-public static
-{
-}
-#endregion
-
 #region COM Types
 [CRepr]struct ID3D11DeviceChild : IUnknown
 {
@@ -8285,4 +8277,3 @@ public static
 
 }
 #endregion
-

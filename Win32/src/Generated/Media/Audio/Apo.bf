@@ -6,6 +6,7 @@ using System;
 using System.Interop;
 
 namespace Win32.Media.Audio.Apo;
+
 #region Constants
 public static
 {
@@ -116,9 +117,6 @@ public static
 	public const uint32 AUDIOMEDIATYPE_EQUAL_FORMAT_USER_DATA = 8;
 
 }
-#endregion
-
-#region TypeDefs
 #endregion
 
 #region Enums
@@ -262,7 +260,7 @@ public struct APO_REG_PROPERTIES
 	public uint32 u32MaxOutputConnections;
 	public uint32 u32MaxInstances;
 	public uint32 u32NumAPOInterfaces;
-	private Guid[0] iidAPOInterfaceList_impl;
+	private Guid[ANYSIZE_ARRAY] iidAPOInterfaceList_impl;
 }
 
 [CRepr]
@@ -399,12 +397,6 @@ public struct APO_NOTIFICATION_DESCRIPTOR
 	public using _Anonymous_e__Union Anonymous;
 }
 
-#endregion
-
-#region COM Class IDs
-public static
-{
-}
 #endregion
 
 #region COM Types
@@ -700,4 +692,3 @@ public static
 }
 
 #endregion
-

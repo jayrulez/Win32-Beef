@@ -5,6 +5,7 @@ using System;
 using System.Interop;
 
 namespace Win32.Security.WinTrust;
+
 #region Constants
 public static
 {
@@ -111,9 +112,6 @@ public static
 	public const uint32 WT_TRUSTDBDIALOG_WRITE_IEAK_STORE_FLAG = 512;
 
 }
-#endregion
-
-#region TypeDefs
 #endregion
 
 #region Enums
@@ -683,7 +681,7 @@ public struct WIN_CERTIFICATE
 	public uint32 dwLength;
 	public uint16 wRevision;
 	public uint16 wCertificateType;
-	private uint8[0] bCertificate_impl;
+	private uint8[ANYSIZE_ARRAY] bCertificate_impl;
 }
 
 [CRepr]
@@ -821,15 +819,6 @@ public struct CONFIG_CI_PROV_INFO
 
 #endregion
 
-#region COM Class IDs
-public static
-{
-}
-#endregion
-
-#region COM Types
-#endregion
-
 #region Functions
 public static
 {
@@ -889,4 +878,3 @@ public static
 
 }
 #endregion
-

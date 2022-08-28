@@ -2,6 +2,7 @@ using Win32.Foundation;
 using System;
 
 namespace Win32.System.EventCollector;
+
 #region Constants
 public static
 {
@@ -20,9 +21,6 @@ public static
 	public const uint32 EC_OPEN_EXISTING = 2;
 
 }
-#endregion
-
-#region TypeDefs
 #endregion
 
 #region Enums
@@ -148,8 +146,6 @@ public enum EC_SUBSCRIPTION_RUNTIME_STATUS_ACTIVE_STATUS : int32
 
 #endregion
 
-#region Function Pointers
-#endregion
 
 #region Structs
 [CRepr]
@@ -174,15 +170,6 @@ public struct EC_VARIANT
 	public uint32 Type;
 }
 
-#endregion
-
-#region COM Class IDs
-public static
-{
-}
-#endregion
-
-#region COM Types
 #endregion
 
 #region Functions
@@ -235,4 +222,3 @@ public static
 
 }
 #endregion
-

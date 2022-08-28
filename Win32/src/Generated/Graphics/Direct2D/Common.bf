@@ -5,9 +5,6 @@ using System;
 
 namespace Win32.Graphics.Direct2D.Common;
 
-#region TypeDefs
-#endregion
-
 #region Enums
 
 [AllowDuplicates]
@@ -139,8 +136,6 @@ public enum D2D1_COMPOSITE_MODE : uint32
 
 #endregion
 
-#region Function Pointers
-#endregion
 
 #region Structs
 [CRepr]
@@ -386,12 +381,6 @@ public struct D2D1_BEZIER_SEGMENT
 
 #endregion
 
-#region COM Class IDs
-public static
-{
-}
-#endregion
-
 #region COM Types
 [CRepr]struct ID2D1SimplifiedGeometrySink : IUnknown
 {
@@ -427,4 +416,3 @@ public static
 }
 
 #endregion
-

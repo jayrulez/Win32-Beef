@@ -1,6 +1,7 @@
 using System;
 
 namespace Win32.Foundation;
+
 #region Constants
 public static
 {
@@ -10261,6 +10262,7 @@ typealias HANDLE_PTR = uint;
 
 #endregion
 
+
 #region Enums
 
 [AllowDuplicates]
@@ -13756,15 +13758,6 @@ public struct LUID
 
 #endregion
 
-#region COM Class IDs
-public static
-{
-}
-#endregion
-
-#region COM Types
-#endregion
-
 #region Functions
 public static
 {
@@ -13827,4 +13820,3 @@ public static
 
 }
 #endregion
-

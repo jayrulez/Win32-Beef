@@ -2,6 +2,7 @@ using Win32.Foundation;
 using System;
 
 namespace Win32.System.SqlLite;
+
 #region Constants
 public static
 {
@@ -773,13 +774,6 @@ public static
 
 }
 #endregion
-
-#region TypeDefs
-#endregion
-
-#region Enums
-#endregion
-
 #region Function Pointers
 public function int32 sqlite3_callback(void* param0, int32 param1, int8** param2, int8** param3);
 
@@ -1666,15 +1660,6 @@ public struct sqlite3_api_routines
 
 #endregion
 
-#region COM Class IDs
-public static
-{
-}
-#endregion
-
-#region COM Types
-#endregion
-
 #region Functions
 public static
 {
@@ -2475,4 +2460,3 @@ public static
 
 }
 #endregion
-

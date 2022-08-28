@@ -4,6 +4,7 @@ using Win32.Security.Cryptography;
 using System;
 
 namespace Win32.Security.Cryptography.Catalog;
+
 #region Constants
 public static
 {
@@ -56,9 +57,6 @@ public static
 	public const uint32 CRYPTCAT_ADDCATALOG_HARDLINK = 1;
 
 }
-#endregion
-
-#region TypeDefs
 #endregion
 
 #region Enums
@@ -154,15 +152,6 @@ public struct CATALOG_INFO
 	public char16[260] wszCatalogFile;
 }
 
-#endregion
-
-#region COM Class IDs
-public static
-{
-}
-#endregion
-
-#region COM Types
 #endregion
 
 #region Functions
@@ -272,4 +261,3 @@ public static
 
 }
 #endregion
-

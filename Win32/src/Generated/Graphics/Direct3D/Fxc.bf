@@ -5,6 +5,7 @@ using Win32.Graphics.Direct3D10;
 using System;
 
 namespace Win32.Graphics.Direct3D.Fxc;
+
 #region Constants
 public static
 {
@@ -99,9 +100,6 @@ public static
 }
 #endregion
 
-#region TypeDefs
-#endregion
-
 #region Enums
 
 [AllowDuplicates]
@@ -157,15 +155,6 @@ public struct D3D_SHADER_DATA
 	public uint BytecodeLength;
 }
 
-#endregion
-
-#region COM Class IDs
-public static
-{
-}
-#endregion
-
-#region COM Types
 #endregion
 
 #region Functions
@@ -248,4 +237,3 @@ public static
 
 }
 #endregion
-

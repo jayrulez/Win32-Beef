@@ -4,6 +4,7 @@ using Win32.Storage.Xps;
 using System;
 
 namespace Win32.Storage.Xps.Printing;
+
 #region Constants
 public static
 {
@@ -14,9 +15,6 @@ public static
 	public const Guid ID_DOCUMENTPACKAGETARGET_OPENXPS_WITH_3D = .(0x63dbd720, 0x8b14, 0x4577, 0xb0, 0x74, 0x7b, 0xb1, 0x1b, 0x59, 0x6d, 0x28);
 
 }
-#endregion
-
-#region TypeDefs
 #endregion
 
 #region Enums
@@ -42,8 +40,6 @@ public enum PrintDocumentPackageCompletion : int32
 
 #endregion
 
-#region Function Pointers
-#endregion
 
 #region Structs
 [CRepr]
@@ -180,4 +176,3 @@ public static
 
 }
 #endregion
-

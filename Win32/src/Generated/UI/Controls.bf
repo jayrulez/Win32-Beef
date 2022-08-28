@@ -7,6 +7,7 @@ using Win32.UI.Input.Pointer;
 using System;
 
 namespace Win32.UI.Controls;
+
 #region Constants
 public static
 {
@@ -3479,6 +3480,7 @@ typealias HDSA = int;
 typealias HDPA = int;
 
 #endregion
+
 
 #region Enums
 
@@ -8578,4 +8580,3 @@ public static
 
 }
 #endregion
-

@@ -3,15 +3,6 @@ using System;
 
 namespace Win32.System.PasswordManagement;
 
-#region TypeDefs
-#endregion
-
-#region Enums
-#endregion
-
-#region Function Pointers
-#endregion
-
 #region Structs
 [CRepr]
 public struct CYPHER_BLOCK
@@ -39,15 +30,6 @@ public struct ENCRYPTED_LM_OWF_PASSWORD
 
 #endregion
 
-#region COM Class IDs
-public static
-{
-}
-#endregion
-
-#region COM Types
-#endregion
-
 #region Functions
 public static
 {
@@ -59,4 +41,3 @@ public static
 
 }
 #endregion
-

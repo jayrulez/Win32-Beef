@@ -6,6 +6,7 @@ using System;
 using System.Interop;
 
 namespace Win32.Media.DeviceManager;
+
 #region Constants
 public static
 {
@@ -566,9 +567,6 @@ public static
 }
 #endregion
 
-#region TypeDefs
-#endregion
-
 #region Enums
 
 [AllowDuplicates]
@@ -734,8 +732,6 @@ public enum WMDMMessage : int32
 
 #endregion
 
-#region Function Pointers
-#endregion
 
 #region Structs
 [CRepr]
@@ -980,7 +976,7 @@ public struct MTP_COMMAND_DATA_IN
 	public uint32[5] Params;
 	public uint32 NextPhase;
 	public uint32 CommandWriteDataSize;
-	private uint8[0] CommandWriteData_impl;
+	private uint8[ANYSIZE_ARRAY] CommandWriteData_impl;
 }
 
 [CRepr, Packed(1), FlexibleArray("CommandReadData")]
@@ -990,7 +986,7 @@ public struct MTP_COMMAND_DATA_OUT
 	public uint32 NumParams;
 	public uint32[5] Params;
 	public uint32 CommandReadDataSize;
-	private uint8[0] CommandReadData_impl;
+	private uint8[ANYSIZE_ARRAY] CommandReadData_impl;
 }
 
 #endregion
@@ -2425,4 +2421,3 @@ public static
 }
 
 #endregion
-

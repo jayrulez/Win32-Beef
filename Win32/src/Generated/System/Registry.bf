@@ -3,6 +3,7 @@ using Win32.Security;
 using System;
 
 namespace Win32.System.Registry;
+
 #region Constants
 public static
 {
@@ -328,6 +329,7 @@ typealias HKEY = int;
 
 #endregion
 
+
 #region Enums
 
 [AllowDuplicates]
@@ -510,15 +512,6 @@ public struct DSKTLSYSTEMTIME
 	public uint16 wResult;
 }
 
-#endregion
-
-#region COM Class IDs
-public static
-{
-}
-#endregion
-
-#region COM Types
 #endregion
 
 #region Functions
@@ -809,4 +802,3 @@ public static
 
 }
 #endregion
-

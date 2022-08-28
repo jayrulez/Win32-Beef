@@ -2,6 +2,7 @@ using Win32.Foundation;
 using System;
 
 namespace Win32.NetworkManagement.NetShell;
+
 #region Constants
 public static
 {
@@ -62,9 +63,6 @@ public static
 	public const uint32 DEFAULT_CONTEXT_PRIORITY = 100;
 
 }
-#endregion
-
-#region TypeDefs
 #endregion
 
 #region Enums
@@ -234,15 +232,6 @@ public struct TAG_TYPE
 
 #endregion
 
-#region COM Class IDs
-public static
-{
-}
-#endregion
-
-#region COM Types
-#endregion
-
 #region Functions
 public static
 {
@@ -272,4 +261,3 @@ public static
 
 }
 #endregion
-

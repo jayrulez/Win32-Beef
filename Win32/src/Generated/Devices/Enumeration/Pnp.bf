@@ -5,6 +5,7 @@ using Win32.Devices.Properties;
 using System;
 
 namespace Win32.Devices.Enumeration.Pnp;
+
 #region Constants
 public static
 {
@@ -105,6 +106,7 @@ public static
 typealias HSWDEVICE = int;
 
 #endregion
+
 
 #region Enums
 
@@ -798,4 +800,3 @@ public static
 
 }
 #endregion
-

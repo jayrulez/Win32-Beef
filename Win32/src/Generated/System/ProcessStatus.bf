@@ -3,15 +3,13 @@ using System;
 using System.Interop;
 
 namespace Win32.System.ProcessStatus;
+
 #region Constants
 public static
 {
 	public const uint32 PSAPI_VERSION = 2;
 
 }
-#endregion
-
-#region TypeDefs
 #endregion
 
 #region Enums
@@ -75,7 +73,7 @@ public struct PSAPI_WORKING_SET_BLOCK
 public struct PSAPI_WORKING_SET_INFORMATION
 {
 	public uint NumberOfEntries;
-	private PSAPI_WORKING_SET_BLOCK[0] WorkingSetInfo_impl;
+	private PSAPI_WORKING_SET_BLOCK[ANYSIZE_ARRAY] WorkingSetInfo_impl;
 }
 
 [CRepr, Union]
@@ -173,15 +171,6 @@ public struct ENUM_PAGE_FILE_INFORMATION
 
 #endregion
 
-#region COM Class IDs
-public static
-{
-}
-#endregion
-
-#region COM Types
-#endregion
-
 #region Functions
 public static
 {
@@ -275,4 +264,3 @@ public static
 
 }
 #endregion
-

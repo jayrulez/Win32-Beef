@@ -9,6 +9,7 @@ using System;
 using System.Interop;
 
 namespace Win32.Media.Audio.DirectMusic;
+
 #region Constants
 public static
 {
@@ -487,9 +488,6 @@ public static
 }
 #endregion
 
-#region TypeDefs
-#endregion
-
 #region Enums
 
 [AllowDuplicates]
@@ -665,7 +663,7 @@ public struct DMUS_DOWNLOADINFO
 [CRepr, FlexibleArray("ulOffsetTable")]
 public struct DMUS_OFFSETTABLE
 {
-	private uint32[0] ulOffsetTable_impl;
+	private uint32[ANYSIZE_ARRAY] ulOffsetTable_impl;
 }
 
 [CRepr]
@@ -691,7 +689,7 @@ public struct DMUS_REGION
 	public uint32 ulFirstExtCkIdx;
 	public WAVELINK WaveLink;
 	public _rwsmp WSMP;
-	private _rloop[0] WLOOP_impl;
+	private _rloop[ANYSIZE_ARRAY] WLOOP_impl;
 }
 
 [CRepr]
@@ -1038,15 +1036,9 @@ public struct MIDIOPENDESC
 	public uint dwInstance;
 	public uint dnDevNode;
 	public uint32 cIds;
-	private MIDIOPENSTRMID[0] rgIds_impl;
+	private MIDIOPENSTRMID[ANYSIZE_ARRAY] rgIds_impl;
 }
 
-#endregion
-
-#region COM Class IDs
-public static
-{
-}
 #endregion
 
 #region COM Types
@@ -1453,4 +1445,3 @@ public static
 }
 
 #endregion
-

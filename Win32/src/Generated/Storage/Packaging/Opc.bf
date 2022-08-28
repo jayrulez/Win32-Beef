@@ -5,6 +5,7 @@ using Win32.Security;
 using System;
 
 namespace Win32.Storage.Packaging.Opc;
+
 #region Constants
 public static
 {
@@ -215,9 +216,6 @@ public static
 }
 #endregion
 
-#region TypeDefs
-#endregion
-
 #region Enums
 
 [AllowDuplicates]
@@ -319,11 +317,6 @@ public enum OPC_SIGNATURE_TIME_FORMAT : int32
 
 #endregion
 
-#region Function Pointers
-#endregion
-
-#region Structs
-#endregion
 
 #region COM Class IDs
 public static
@@ -1164,4 +1157,3 @@ public static
 }
 
 #endregion
-

@@ -3,9 +3,6 @@ using System;
 
 namespace Win32.System.Performance.HardwareCounterProfiling;
 
-#region TypeDefs
-#endregion
-
 #region Enums
 
 [AllowDuplicates]
@@ -17,8 +14,6 @@ public enum HARDWARE_COUNTER_TYPE : int32
 
 #endregion
 
-#region Function Pointers
-#endregion
 
 #region Structs
 [CRepr]
@@ -45,15 +40,6 @@ public struct PERFORMANCE_DATA
 
 #endregion
 
-#region COM Class IDs
-public static
-{
-}
-#endregion
-
-#region COM Types
-#endregion
-
 #region Functions
 public static
 {
@@ -71,4 +57,3 @@ public static
 
 }
 #endregion
-

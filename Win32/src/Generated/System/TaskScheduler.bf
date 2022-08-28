@@ -4,6 +4,7 @@ using Win32.UI.Controls;
 using System;
 
 namespace Win32.System.TaskScheduler;
+
 #region Constants
 public static
 {
@@ -94,9 +95,6 @@ public static
 	public const Guid CLSID_CTaskScheduler = .(0x148bd52a, 0xa2ab, 0x11ce, 0xb1, 0x1f, 0x00, 0xaa, 0x00, 0x53, 0x05, 0x03);
 
 }
-#endregion
-
-#region TypeDefs
 #endregion
 
 #region Enums
@@ -260,8 +258,6 @@ public enum TASK_COMPATIBILITY : int32
 
 #endregion
 
-#region Function Pointers
-#endregion
 
 #region Structs
 [CRepr]
@@ -2061,4 +2057,3 @@ public static
 }
 
 #endregion
-

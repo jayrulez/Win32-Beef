@@ -8,6 +8,7 @@ using Win32.System.Registry;
 using System;
 
 namespace Win32.Devices.Fax;
+
 #region Constants
 public static
 {
@@ -442,9 +443,6 @@ public static
 	public const uint16 wcharREASSIGN_RECIPIENTS_DELIMITER = 59;
 
 }
-#endregion
-
-#region TypeDefs
 #endregion
 
 #region Enums
@@ -4654,4 +4652,3 @@ public static
 
 }
 #endregion
-

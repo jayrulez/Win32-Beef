@@ -3,6 +3,7 @@ using Win32.Security;
 using System;
 
 namespace Win32.Devices.AllJoyn;
+
 #region Constants
 public static
 {
@@ -143,6 +144,7 @@ typealias alljoyn_sessionopts = int;
 typealias alljoyn_sessionportlistener = int;
 
 #endregion
+
 
 #region Enums
 
@@ -935,15 +937,6 @@ public struct alljoyn_observerlistener_callback
 	public alljoyn_observer_object_lost_ptr object_lost;
 }
 
-#endregion
-
-#region COM Class IDs
-public static
-{
-}
-#endregion
-
-#region COM Types
 #endregion
 
 #region Functions
@@ -2592,4 +2585,3 @@ public static
 
 }
 #endregion
-

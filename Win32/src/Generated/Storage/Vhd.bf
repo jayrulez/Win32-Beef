@@ -5,6 +5,7 @@ using System;
 using System.Interop;
 
 namespace Win32.Storage.Vhd;
+
 #region Constants
 public static
 {
@@ -33,9 +34,6 @@ public static
 	public const uint32 MERGE_VIRTUAL_DISK_DEFAULT_MERGE_DEPTH = 1;
 
 }
-#endregion
-
-#region TypeDefs
 #endregion
 
 #region Enums
@@ -412,8 +410,6 @@ public enum FORK_VIRTUAL_DISK_FLAG : uint32
 
 #endregion
 
-#region Function Pointers
-#endregion
 
 #region Structs
 [CRepr]
@@ -596,8 +592,8 @@ public struct STORAGE_DEPENDENCY_INFO
 	[CRepr, Union]
 	public struct _Anonymous_e__Union
 	{
-		public STORAGE_DEPENDENCY_INFO_TYPE_1[0] Version1Entries_impl;
-		public STORAGE_DEPENDENCY_INFO_TYPE_2[0] Version2Entries_impl;
+		public STORAGE_DEPENDENCY_INFO_TYPE_1[ANYSIZE_ARRAY] Version1Entries_impl;
+		public STORAGE_DEPENDENCY_INFO_TYPE_2[ANYSIZE_ARRAY] Version2Entries_impl;
 	}
 
 	public STORAGE_DEPENDENCY_INFO_VERSION Version;
@@ -633,14 +629,14 @@ public struct GET_VIRTUAL_DISK_INFO
 		{
 			public BOOL Enabled;
 			public BOOL NewerChanges;
-			private char16[0] MostRecentId_impl;
+			private char16[ANYSIZE_ARRAY] MostRecentId_impl;
 		}
 
 		[CRepr, FlexibleArray("ParentLocationBuffer")]
 		public struct _ParentLocation_e__Struct
 		{
 			public BOOL ParentResolved;
-			private char16[0] ParentLocationBuffer_impl;
+			private char16[ANYSIZE_ARRAY] ParentLocationBuffer_impl;
 		}
 
 		public _Size_e__Struct Size;
@@ -965,15 +961,6 @@ public struct FORK_VIRTUAL_DISK_PARAMETERS
 
 #endregion
 
-#region COM Class IDs
-public static
-{
-}
-#endregion
-
-#region COM Types
-#endregion
-
 #region Functions
 public static
 {
@@ -1066,4 +1053,3 @@ public static
 
 }
 #endregion
-

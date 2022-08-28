@@ -5,15 +5,13 @@ using Win32.System.Com.StructuredStorage;
 using System;
 
 namespace Win32.Security.Authentication.Identity.Provider;
+
 #region Constants
 public static
 {
 	public const Guid OID_OAssociatedIdentityProviderObject = .(0x98c5a3dd, 0xdb68, 0x4f1a, 0x8d, 0x2b, 0x90, 0x79, 0xcd, 0xfe, 0xaf, 0x61);
 
 }
-#endregion
-
-#region TypeDefs
 #endregion
 
 #region Enums
@@ -63,11 +61,6 @@ public enum ACCOUNT_STATE : int32
 
 #endregion
 
-#region Function Pointers
-#endregion
-
-#region Structs
-#endregion
 
 #region COM Class IDs
 public static
@@ -494,4 +487,3 @@ public static
 }
 
 #endregion
-

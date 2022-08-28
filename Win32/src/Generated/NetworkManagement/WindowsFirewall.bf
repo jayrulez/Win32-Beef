@@ -4,6 +4,7 @@ using Win32.Security;
 using System;
 
 namespace Win32.NetworkManagement.WindowsFirewall;
+
 #region Constants
 public static
 {
@@ -16,9 +17,6 @@ public static
 	public const uint32 NETISO_GEID_FOR_NEUTRAL_AWARE = 2;
 
 }
-#endregion
-
-#region TypeDefs
 #endregion
 
 #region Enums
@@ -1943,4 +1941,3 @@ public static
 
 }
 #endregion
-

@@ -3,6 +3,7 @@ using Win32.Security;
 using System;
 
 namespace Win32.Security.AppLocker;
+
 #region Constants
 public static
 {
@@ -69,9 +70,6 @@ public static
 }
 #endregion
 
-#region TypeDefs
-#endregion
-
 #region Enums
 
 [AllowDuplicates]
@@ -131,8 +129,6 @@ public enum SAFER_IDENTIFICATION_TYPES : int32
 
 #endregion
 
-#region Function Pointers
-#endregion
 
 #region Structs
 [CRepr]
@@ -224,15 +220,6 @@ public struct SAFER_URLZONE_IDENTIFICATION
 
 #endregion
 
-#region COM Class IDs
-public static
-{
-}
-#endregion
-
-#region COM Types
-#endregion
-
 #region Functions
 public static
 {
@@ -268,4 +255,3 @@ public static
 
 }
 #endregion
-

@@ -7,6 +7,7 @@ using System;
 using System.Interop;
 
 namespace Win32.NetworkManagement.Ndis;
+
 #region Constants
 public static
 {
@@ -3675,9 +3676,6 @@ public static
 }
 #endregion
 
-#region TypeDefs
-#endregion
-
 #region Enums
 
 [AllowDuplicates]
@@ -4253,7 +4251,7 @@ public struct NDIS_STATISTICS_VALUE
 {
 	public uint32 Oid;
 	public uint32 DataLength;
-	private uint8[0] Data_impl;
+	private uint8[ANYSIZE_ARRAY] Data_impl;
 }
 
 [CRepr, FlexibleArray("Data")]
@@ -4262,7 +4260,7 @@ public struct NDIS_STATISTICS_VALUE_EX
 	public uint32 Oid;
 	public uint32 DataLength;
 	public uint32 Length;
-	private uint8[0] Data_impl;
+	private uint8[ANYSIZE_ARRAY] Data_impl;
 }
 
 [CRepr]
@@ -4320,7 +4318,7 @@ public struct NDIS_TIMEOUT_DPC_REQUEST_CAPABILITIES
 	public NDIS_OBJECT_HEADER Header;
 	public uint32 Flags;
 	public uint32 TimeoutArrayLength;
-	private uint32[0] TimeoutArray_impl;
+	private uint32[ANYSIZE_ARRAY] TimeoutArray_impl;
 }
 
 [CRepr]
@@ -4367,14 +4365,14 @@ public struct NDIS_802_11_PMKID_CANDIDATE_LIST
 {
 	public uint32 Version;
 	public uint32 NumCandidates;
-	private PMKID_CANDIDATE[0] CandidateList_impl;
+	private PMKID_CANDIDATE[ANYSIZE_ARRAY] CandidateList_impl;
 }
 
 [CRepr, FlexibleArray("NetworkType")]
 public struct NDIS_802_11_NETWORK_TYPE_LIST
 {
 	public uint32 NumberOfItems;
-	private NDIS_802_11_NETWORK_TYPE[0] NetworkType_impl;
+	private NDIS_802_11_NETWORK_TYPE[ANYSIZE_ARRAY] NetworkType_impl;
 }
 
 [CRepr]
@@ -4434,7 +4432,7 @@ public struct NDIS_802_11_KEY
 	public uint32 KeyLength;
 	public uint8[6] BSSID;
 	public uint64 KeyRSC;
-	private uint8[0] KeyMaterial_impl;
+	private uint8[ANYSIZE_ARRAY] KeyMaterial_impl;
 }
 
 [CRepr]
@@ -4451,7 +4449,7 @@ public struct NDIS_802_11_WEP
 	public uint32 Length;
 	public uint32 KeyIndex;
 	public uint32 KeyLength;
-	private uint8[0] KeyMaterial_impl;
+	private uint8[ANYSIZE_ARRAY] KeyMaterial_impl;
 }
 
 [CRepr]
@@ -4480,7 +4478,7 @@ public struct NDIS_WLAN_BSSID
 public struct NDIS_802_11_BSSID_LIST
 {
 	public uint32 NumberOfItems;
-	private NDIS_WLAN_BSSID[0] Bssid_impl;
+	private NDIS_WLAN_BSSID[ANYSIZE_ARRAY] Bssid_impl;
 }
 
 [CRepr, FlexibleArray("IEs")]
@@ -4497,14 +4495,14 @@ public struct NDIS_WLAN_BSSID_EX
 	public NDIS_802_11_NETWORK_INFRASTRUCTURE InfrastructureMode;
 	public uint8[16] SupportedRates;
 	public uint32 IELength;
-	private uint8[0] IEs_impl;
+	private uint8[ANYSIZE_ARRAY] IEs_impl;
 }
 
 [CRepr, FlexibleArray("Bssid")]
 public struct NDIS_802_11_BSSID_LIST_EX
 {
 	public uint32 NumberOfItems;
-	private NDIS_WLAN_BSSID_EX[0] Bssid_impl;
+	private NDIS_WLAN_BSSID_EX[ANYSIZE_ARRAY] Bssid_impl;
 }
 
 [CRepr]
@@ -4520,7 +4518,7 @@ public struct NDIS_802_11_VARIABLE_IEs
 {
 	public uint8 ElementID;
 	public uint8 Length;
-	private uint8[0] data_impl;
+	private uint8[ANYSIZE_ARRAY] data_impl;
 }
 
 [CRepr]
@@ -4557,7 +4555,7 @@ public struct NDIS_802_11_ASSOCIATION_INFORMATION
 public struct NDIS_802_11_AUTHENTICATION_EVENT
 {
 	public NDIS_802_11_STATUS_INDICATION Status;
-	private NDIS_802_11_AUTHENTICATION_REQUEST[0] Request_impl;
+	private NDIS_802_11_AUTHENTICATION_REQUEST[ANYSIZE_ARRAY] Request_impl;
 }
 
 [CRepr]
@@ -4587,7 +4585,7 @@ public struct NDIS_802_11_PMKID
 {
 	public uint32 Length;
 	public uint32 BSSIDInfoCount;
-	private BSSID_INFO[0] BSSIDInfo_impl;
+	private BSSID_INFO[ANYSIZE_ARRAY] BSSIDInfo_impl;
 }
 
 [CRepr]
@@ -4604,14 +4602,14 @@ public struct NDIS_802_11_CAPABILITY
 	public uint32 Version;
 	public uint32 NoOfPMKIDs;
 	public uint32 NoOfAuthEncryptPairsSupported;
-	private NDIS_802_11_AUTHENTICATION_ENCRYPTION[0] AuthenticationEncryptionSupported_impl;
+	private NDIS_802_11_AUTHENTICATION_ENCRYPTION[ANYSIZE_ARRAY] AuthenticationEncryptionSupported_impl;
 }
 
 [CRepr, FlexibleArray("Non_Bcast_Ssid")]
 public struct NDIS_802_11_NON_BCAST_SSID_LIST
 {
 	public uint32 NumberOfItems;
-	private NDIS_802_11_SSID[0] Non_Bcast_Ssid_impl;
+	private NDIS_802_11_SSID[ANYSIZE_ARRAY] Non_Bcast_Ssid_impl;
 }
 
 [CRepr]
@@ -4682,7 +4680,7 @@ public struct OFFLOAD_IPSEC_ADD_SA
 	public OFFLOAD_SECURITY_ASSOCIATION[3] SecAssoc;
 	public HANDLE OffloadHandle;
 	public uint32 KeyLen;
-	private uint8[0] KeyMat_impl;
+	private uint8[ANYSIZE_ARRAY] KeyMat_impl;
 }
 
 [CRepr]
@@ -4717,7 +4715,7 @@ public struct OFFLOAD_IPSEC_ADD_UDPESP_SA
 	public OFFLOAD_IPSEC_UDPESP_ENCAPTYPE_ENTRY EncapTypeEntry;
 	public HANDLE EncapTypeEntryOffldHandle;
 	public uint32 KeyLen;
-	private uint8[0] KeyMat_impl;
+	private uint8[ANYSIZE_ARRAY] KeyMat_impl;
 }
 
 [CRepr]
@@ -4739,7 +4737,7 @@ public struct NETWORK_ADDRESS
 {
 	public uint16 AddressLength;
 	public uint16 AddressType;
-	private uint8[0] Address_impl;
+	private uint8[ANYSIZE_ARRAY] Address_impl;
 }
 
 [CRepr, FlexibleArray("Address")]
@@ -4747,7 +4745,7 @@ public struct NETWORK_ADDRESS_LIST
 {
 	public int32 AddressCount;
 	public uint16 AddressType;
-	private NETWORK_ADDRESS[0] Address_impl;
+	private NETWORK_ADDRESS[ANYSIZE_ARRAY] Address_impl;
 }
 
 [CRepr]
@@ -5269,7 +5267,7 @@ public struct NDIS_WMI_ENUM_ADAPTER
 	public uint32 IfIndex;
 	public NET_LUID_LH NetLuid;
 	public uint16 DeviceNameLength;
-	private CHAR[0] DeviceName_impl;
+	private CHAR[ANYSIZE_ARRAY] DeviceName_impl;
 }
 
 [CRepr]
@@ -5362,7 +5360,7 @@ public struct NDIS_PORT_ARRAY
 	public uint32 NumberOfPorts;
 	public uint32 OffsetFirstPort;
 	public uint32 ElementSize;
-	private NDIS_PORT_CHARACTERISTICS[0] Ports_impl;
+	private NDIS_PORT_CHARACTERISTICS[ANYSIZE_ARRAY] Ports_impl;
 }
 
 [CRepr]
@@ -5468,7 +5466,7 @@ public struct DOT11_SECURITY_PACKET_HEADER
 {
 	public uint8[6] PeerMac;
 	public uint16 usEtherType;
-	private uint8[0] Data_impl;
+	private uint8[ANYSIZE_ARRAY] Data_impl;
 }
 
 [CRepr]
@@ -5486,7 +5484,7 @@ public struct DOT11_MSSECURITY_SETTINGS
 public struct DOT11EXT_IHV_SSID_LIST
 {
 	public uint32 ulCount;
-	private DOT11_SSID[0] SSIDs_impl;
+	private DOT11_SSID[ANYSIZE_ARRAY] SSIDs_impl;
 }
 
 [CRepr]
@@ -5651,13 +5649,3 @@ public struct DOT11EXT_VIRTUAL_STATION_APIS
 }
 
 #endregion
-
-#region COM Class IDs
-public static
-{
-}
-#endregion
-
-#region COM Types
-#endregion
-

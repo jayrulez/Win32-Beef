@@ -3,6 +3,7 @@ using Win32.Foundation;
 using System;
 
 namespace Win32.Graphics.OpenGL;
+
 #region Constants
 public static
 {
@@ -1420,9 +1421,6 @@ typealias HGLRC = int;
 
 #endregion
 
-#region Enums
-#endregion
-
 #region Function Pointers
 public function void PFNGLARRAYELEMENTEXTPROC(int32 i);
 
@@ -1588,15 +1586,6 @@ public struct GLUtesselator
 {
 }
 
-#endregion
-
-#region COM Class IDs
-public static
-{
-}
-#endregion
-
-#region COM Types
 #endregion
 
 #region Functions
@@ -2842,4 +2831,3 @@ public static
 
 }
 #endregion
-

@@ -7,6 +7,7 @@ using System;
 using System.Interop;
 
 namespace Win32.System.SystemServices;
+
 #region Constants
 public static
 {
@@ -6066,9 +6067,6 @@ public static
 }
 #endregion
 
-#region TypeDefs
-#endregion
-
 #region Enums
 
 [AllowDuplicates]
@@ -6856,7 +6854,7 @@ public struct RemHGLOBAL
 {
 	public int32 fNullHGlobal;
 	public uint32 cbData;
-	private uint8[0] data_impl;
+	private uint8[ANYSIZE_ARRAY] data_impl;
 }
 
 [CRepr, FlexibleArray("data")]
@@ -6866,35 +6864,35 @@ public struct RemHMETAFILEPICT
 	public int32 xExt;
 	public int32 yExt;
 	public uint32 cbData;
-	private uint8[0] data_impl;
+	private uint8[ANYSIZE_ARRAY] data_impl;
 }
 
 [CRepr, FlexibleArray("data")]
 public struct RemHENHMETAFILE
 {
 	public uint32 cbData;
-	private uint8[0] data_impl;
+	private uint8[ANYSIZE_ARRAY] data_impl;
 }
 
 [CRepr, FlexibleArray("data")]
 public struct RemHBITMAP
 {
 	public uint32 cbData;
-	private uint8[0] data_impl;
+	private uint8[ANYSIZE_ARRAY] data_impl;
 }
 
 [CRepr, FlexibleArray("data")]
 public struct RemHPALETTE
 {
 	public uint32 cbData;
-	private uint8[0] data_impl;
+	private uint8[ANYSIZE_ARRAY] data_impl;
 }
 
 [CRepr, FlexibleArray("data")]
 public struct RemBRUSH
 {
 	public uint32 cbData;
-	private uint8[0] data_impl;
+	private uint8[ANYSIZE_ARRAY] data_impl;
 }
 
 [CRepr]
@@ -7004,7 +7002,7 @@ public struct userBITMAP
 	public uint16 bmPlanes;
 	public uint16 bmBitsPixel;
 	public uint32 cbSize;
-	private uint8[0] pBuffer_impl;
+	private uint8[ANYSIZE_ARRAY] pBuffer_impl;
 }
 
 [CRepr]
@@ -7178,7 +7176,7 @@ public struct DEV_BROADCAST_PORT_A
 	public uint32 dbcp_size;
 	public uint32 dbcp_devicetype;
 	public uint32 dbcp_reserved;
-	private CHAR[0] dbcp_name_impl;
+	private CHAR[ANYSIZE_ARRAY] dbcp_name_impl;
 }
 
 [CRepr, FlexibleArray("dbcp_name")]
@@ -7187,7 +7185,7 @@ public struct DEV_BROADCAST_PORT_W
 	public uint32 dbcp_size;
 	public uint32 dbcp_devicetype;
 	public uint32 dbcp_reserved;
-	private char16[0] dbcp_name_impl;
+	private char16[ANYSIZE_ARRAY] dbcp_name_impl;
 }
 
 [CRepr]
@@ -7207,7 +7205,7 @@ public struct DEV_BROADCAST_DEVICEINTERFACE_A
 	public uint32 dbcc_devicetype;
 	public uint32 dbcc_reserved;
 	public Guid dbcc_classguid;
-	private CHAR[0] dbcc_name_impl;
+	private CHAR[ANYSIZE_ARRAY] dbcc_name_impl;
 }
 
 [CRepr, FlexibleArray("dbcc_name")]
@@ -7217,7 +7215,7 @@ public struct DEV_BROADCAST_DEVICEINTERFACE_W
 	public uint32 dbcc_devicetype;
 	public uint32 dbcc_reserved;
 	public Guid dbcc_classguid;
-	private char16[0] dbcc_name_impl;
+	private char16[ANYSIZE_ARRAY] dbcc_name_impl;
 }
 
 [CRepr, FlexibleArray("dbch_data")]
@@ -7230,7 +7228,7 @@ public struct DEV_BROADCAST_HANDLE
 	public void* dbch_hdevnotify;
 	public Guid dbch_eventguid;
 	public int32 dbch_nameoffset;
-	private uint8[0] dbch_data_impl;
+	private uint8[ANYSIZE_ARRAY] dbch_data_impl;
 }
 
 [CRepr, FlexibleArray("dbch_data")]
@@ -7243,7 +7241,7 @@ public struct DEV_BROADCAST_HANDLE32
 	public uint32 dbch_hdevnotify;
 	public Guid dbch_eventguid;
 	public int32 dbch_nameoffset;
-	private uint8[0] dbch_data_impl;
+	private uint8[ANYSIZE_ARRAY] dbch_data_impl;
 }
 
 [CRepr, FlexibleArray("dbch_data")]
@@ -7256,14 +7254,14 @@ public struct DEV_BROADCAST_HANDLE64
 	public uint64 dbch_hdevnotify;
 	public Guid dbch_eventguid;
 	public int32 dbch_nameoffset;
-	private uint8[0] dbch_data_impl;
+	private uint8[ANYSIZE_ARRAY] dbch_data_impl;
 }
 
 [CRepr, FlexibleArray("dbud_szName")]
 public struct _DEV_BROADCAST_USERDEFINED
 {
 	public DEV_BROADCAST_HDR dbud_dbh;
-	private CHAR[0] dbud_szName_impl;
+	private CHAR[ANYSIZE_ARRAY] dbud_szName_impl;
 }
 
 [CRepr]
@@ -7314,7 +7312,7 @@ public struct SCOPE_TABLE_AMD64
 	}
 
 	public uint32 Count;
-	private _Anonymous_e__Struct[0] ScopeRecord_impl;
+	private _Anonymous_e__Struct[ANYSIZE_ARRAY] ScopeRecord_impl;
 }
 
 [CRepr, FlexibleArray("ScopeRecord")]
@@ -7330,7 +7328,7 @@ public struct SCOPE_TABLE_ARM
 	}
 
 	public uint32 Count;
-	private _Anonymous_e__Struct[0] ScopeRecord_impl;
+	private _Anonymous_e__Struct[ANYSIZE_ARRAY] ScopeRecord_impl;
 }
 
 [CRepr, FlexibleArray("ScopeRecord")]
@@ -7346,7 +7344,7 @@ public struct SCOPE_TABLE_ARM64
 	}
 
 	public uint32 Count;
-	private _Anonymous_e__Struct[0] ScopeRecord_impl;
+	private _Anonymous_e__Struct[ANYSIZE_ARRAY] ScopeRecord_impl;
 }
 
 [CRepr, Union]
@@ -7877,7 +7875,7 @@ public struct SCRUB_PARITY_EXTENT_DATA
 	public uint16 Flags;
 	public uint16 NumberOfParityExtents;
 	public uint16 MaximumNumberOfParityExtents;
-	private SCRUB_PARITY_EXTENT[0] ParityExtents_impl;
+	private SCRUB_PARITY_EXTENT[ANYSIZE_ARRAY] ParityExtents_impl;
 }
 
 [CRepr]
@@ -8068,7 +8066,7 @@ public struct PPM_WMI_IDLE_STATES
 	public uint32 TargetState;
 	public uint32 OldState;
 	public uint64 TargetProcessors;
-	private PPM_WMI_IDLE_STATE[0] State_impl;
+	private PPM_WMI_IDLE_STATE[ANYSIZE_ARRAY] State_impl;
 }
 
 [CRepr, FlexibleArray("State")]
@@ -8079,7 +8077,7 @@ public struct PPM_WMI_IDLE_STATES_EX
 	public uint32 TargetState;
 	public uint32 OldState;
 	public void* TargetProcessors;
-	private PPM_WMI_IDLE_STATE[0] State_impl;
+	private PPM_WMI_IDLE_STATE[ANYSIZE_ARRAY] State_impl;
 }
 
 [CRepr]
@@ -8124,7 +8122,7 @@ public struct PPM_WMI_PERF_STATES
 	public uint32 FeedbackHandler;
 	public uint32 Reserved1;
 	public uint64 Reserved2;
-	private PPM_WMI_PERF_STATE[0] State_impl;
+	private PPM_WMI_PERF_STATE[ANYSIZE_ARRAY] State_impl;
 }
 
 [CRepr, FlexibleArray("State")]
@@ -8150,7 +8148,7 @@ public struct PPM_WMI_PERF_STATES_EX
 	public uint32 FeedbackHandler;
 	public uint32 Reserved1;
 	public uint64 Reserved2;
-	private PPM_WMI_PERF_STATE[0] State_impl;
+	private PPM_WMI_PERF_STATE[ANYSIZE_ARRAY] State_impl;
 }
 
 [CRepr]
@@ -8170,7 +8168,7 @@ public struct PPM_IDLE_ACCOUNTING
 	public uint32 TotalTransitions;
 	public uint32 ResetCount;
 	public uint64 StartTime;
-	private PPM_IDLE_STATE_ACCOUNTING[0] State_impl;
+	private PPM_IDLE_STATE_ACCOUNTING[ANYSIZE_ARRAY] State_impl;
 }
 
 [CRepr]
@@ -8203,7 +8201,7 @@ public struct PPM_IDLE_ACCOUNTING_EX
 	public uint32 ResetCount;
 	public uint32 AbortCount;
 	public uint64 StartTime;
-	private PPM_IDLE_STATE_ACCOUNTING_EX[0] State_impl;
+	private PPM_IDLE_STATE_ACCOUNTING_EX[ANYSIZE_ARRAY] State_impl;
 }
 
 [CRepr]
@@ -8740,7 +8738,7 @@ public struct IMAGE_EXPORT_DIRECTORY
 public struct IMAGE_IMPORT_BY_NAME
 {
 	public uint16 Hint;
-	private CHAR[0] Name_impl;
+	private CHAR[ANYSIZE_ARRAY] Name_impl;
 }
 
 [CRepr, Packed(4)]
@@ -8873,14 +8871,14 @@ public struct IMAGE_RESOURCE_DIRECTORY_ENTRY
 public struct IMAGE_RESOURCE_DIRECTORY_STRING
 {
 	public uint16 Length;
-	private CHAR[0] NameString_impl;
+	private CHAR[ANYSIZE_ARRAY] NameString_impl;
 }
 
 [CRepr, FlexibleArray("NameString")]
 public struct IMAGE_RESOURCE_DIR_STRING_U
 {
 	public uint16 Length;
-	private char16[0] NameString_impl;
+	private char16[ANYSIZE_ARRAY] NameString_impl;
 }
 
 [CRepr]
@@ -9065,7 +9063,7 @@ public struct IMAGE_DEBUG_MISC
 	public uint32 Length;
 	public BOOLEAN Unicode;
 	public uint8[3] Reserved;
-	private uint8[0] Data_impl;
+	private uint8[ANYSIZE_ARRAY] Data_impl;
 }
 
 [CRepr]
@@ -9165,7 +9163,7 @@ public struct IMAGE_POLICY_METADATA
 	public uint8 Version;
 	public uint8[7] Reserved0;
 	public uint64 ApplicationId;
-	private IMAGE_POLICY_ENTRY[0] Policies_impl;
+	private IMAGE_POLICY_ENTRY[ANYSIZE_ARRAY] Policies_impl;
 }
 
 [CRepr]
@@ -9193,7 +9191,7 @@ public struct PACKEDEVENTINFO
 {
 	public uint32 ulSize;
 	public uint32 ulNumEventsForLogFile;
-	private uint32[0] ulOffsets_impl;
+	private uint32[ANYSIZE_ARRAY] ulOffsets_impl;
 }
 
 [CRepr]
@@ -9279,7 +9277,7 @@ public struct TRANSACTIONMANAGER_LOG_INFORMATION
 public struct TRANSACTIONMANAGER_LOGPATH_INFORMATION
 {
 	public uint32 LogPathLength;
-	private char16[0] LogPath_impl;
+	private char16[ANYSIZE_ARRAY] LogPath_impl;
 }
 
 [CRepr]
@@ -9302,7 +9300,7 @@ public struct TRANSACTION_PROPERTIES_INFORMATION
 	public LARGE_INTEGER Timeout;
 	public uint32 Outcome;
 	public uint32 DescriptionLength;
-	private char16[0] Description_impl;
+	private char16[ANYSIZE_ARRAY] Description_impl;
 }
 
 [CRepr]
@@ -9322,7 +9320,7 @@ public struct TRANSACTION_ENLISTMENT_PAIR
 public struct TRANSACTION_ENLISTMENTS_INFORMATION
 {
 	public uint32 NumberOfEnlistments;
-	private TRANSACTION_ENLISTMENT_PAIR[0] EnlistmentPair_impl;
+	private TRANSACTION_ENLISTMENT_PAIR[ANYSIZE_ARRAY] EnlistmentPair_impl;
 }
 
 [CRepr]
@@ -9336,7 +9334,7 @@ public struct RESOURCEMANAGER_BASIC_INFORMATION
 {
 	public Guid ResourceManagerId;
 	public uint32 DescriptionLength;
-	private char16[0] Description_impl;
+	private char16[ANYSIZE_ARRAY] Description_impl;
 }
 
 [CRepr]
@@ -9372,7 +9370,7 @@ public struct TRANSACTION_LIST_ENTRY
 public struct TRANSACTION_LIST_INFORMATION
 {
 	public uint32 NumberOfTransactions;
-	private TRANSACTION_LIST_ENTRY[0] TransactionInformation_impl;
+	private TRANSACTION_LIST_ENTRY[ANYSIZE_ARRAY] TransactionInformation_impl;
 }
 
 [CRepr, FlexibleArray("ObjectIds")]
@@ -9380,18 +9378,9 @@ public struct KTMOBJECT_CURSOR
 {
 	public Guid LastQuery;
 	public uint32 ObjectIdCount;
-	private Guid[0] ObjectIds_impl;
+	private Guid[ANYSIZE_ARRAY] ObjectIds_impl;
 }
 
-#endregion
-
-#region COM Class IDs
-public static
-{
-}
-#endregion
-
-#region COM Types
 #endregion
 
 #region Functions
@@ -9402,4 +9391,3 @@ public static
 
 }
 #endregion
-

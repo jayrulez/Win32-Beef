@@ -5,6 +5,7 @@ using System;
 using System.Interop;
 
 namespace Win32.System.DataExchange;
+
 #region Constants
 public static
 {
@@ -154,6 +155,7 @@ typealias HDDEDATA = int;
 
 #endregion
 
+
 #region Enums
 
 [AllowDuplicates]
@@ -289,7 +291,7 @@ public struct DDEDATA
 {
 	public uint16 _bitfield;
 	public int16 cfFormat;
-	private uint8[0] Value_impl;
+	private uint8[ANYSIZE_ARRAY] Value_impl;
 }
 
 [CRepr, FlexibleArray("Value")]
@@ -297,7 +299,7 @@ public struct DDEPOKE
 {
 	public uint16 _bitfield;
 	public int16 cfFormat;
-	private uint8[0] Value_impl;
+	private uint8[ANYSIZE_ARRAY] Value_impl;
 }
 
 [CRepr]
@@ -312,7 +314,7 @@ public struct DDEUP
 {
 	public uint16 _bitfield;
 	public int16 cfFormat;
-	private uint8[0] rgb_impl;
+	private uint8[ANYSIZE_ARRAY] rgb_impl;
 }
 
 [CRepr]
@@ -405,7 +407,7 @@ public struct MONHSZSTRUCTA
 	public uint32 dwTime;
 	public HSZ hsz;
 	public HANDLE hTask;
-	private CHAR[0] str_impl;
+	private CHAR[ANYSIZE_ARRAY] str_impl;
 }
 
 [CRepr, FlexibleArray("str")]
@@ -416,7 +418,7 @@ public struct MONHSZSTRUCTW
 	public uint32 dwTime;
 	public HSZ hsz;
 	public HANDLE hTask;
-	private char16[0] str_impl;
+	private char16[ANYSIZE_ARRAY] str_impl;
 }
 
 [CRepr]
@@ -475,15 +477,6 @@ public struct COPYDATASTRUCT
 	public void* lpData;
 }
 
-#endregion
-
-#region COM Class IDs
-public static
-{
-}
-#endregion
-
-#region COM Types
 #endregion
 
 #region Functions
@@ -734,4 +727,3 @@ public static
 
 }
 #endregion
-

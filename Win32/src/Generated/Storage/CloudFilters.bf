@@ -6,6 +6,7 @@ using System;
 using System.Interop;
 
 namespace Win32.Storage.CloudFilters;
+
 #region Constants
 public static
 {
@@ -26,6 +27,7 @@ public static
 typealias CF_CONNECTION_KEY = int;
 
 #endregion
+
 
 #region Enums
 
@@ -896,7 +898,7 @@ public struct CF_PLACEHOLDER_BASIC_INFO
 	public LARGE_INTEGER FileId;
 	public LARGE_INTEGER SyncRootFileId;
 	public uint32 FileIdentityLength;
-	private uint8[0] FileIdentity_impl;
+	private uint8[ANYSIZE_ARRAY] FileIdentity_impl;
 }
 
 [CRepr, FlexibleArray("FileIdentity")]
@@ -911,7 +913,7 @@ public struct CF_PLACEHOLDER_STANDARD_INFO
 	public LARGE_INTEGER FileId;
 	public LARGE_INTEGER SyncRootFileId;
 	public uint32 FileIdentityLength;
-	private uint8[0] FileIdentity_impl;
+	private uint8[ANYSIZE_ARRAY] FileIdentity_impl;
 }
 
 [CRepr]
@@ -940,18 +942,9 @@ public struct CF_SYNC_ROOT_STANDARD_INFO
 	public char16[256] ProviderName;
 	public char16[256] ProviderVersion;
 	public uint32 SyncRootIdentityLength;
-	private uint8[0] SyncRootIdentity_impl;
+	private uint8[ANYSIZE_ARRAY] SyncRootIdentity_impl;
 }
 
-#endregion
-
-#region COM Class IDs
-public static
-{
-}
-#endregion
-
-#region COM Types
 #endregion
 
 #region Functions
@@ -1064,4 +1057,3 @@ public static
 
 }
 #endregion
-

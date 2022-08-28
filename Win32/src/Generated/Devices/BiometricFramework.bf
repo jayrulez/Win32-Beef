@@ -4,6 +4,7 @@ using System;
 using System.Interop;
 
 namespace Win32.Devices.BiometricFramework;
+
 #region Constants
 public static
 {
@@ -216,9 +217,6 @@ public static
 	public const uint32 WINBIO_WBDI_MINOR_VERSION = 0;
 
 }
-#endregion
-
-#region TypeDefs
 #endregion
 
 #region Enums
@@ -1586,14 +1584,14 @@ public struct WINBIO_SENSOR_ATTRIBUTES
 	public uint16[256] SerialNumber;
 	public WINBIO_VERSION FirmwareVersion;
 	public uint32 SupportedFormatEntries;
-	private WINBIO_REGISTERED_FORMAT[0] SupportedFormat_impl;
+	private WINBIO_REGISTERED_FORMAT[ANYSIZE_ARRAY] SupportedFormat_impl;
 }
 
 [CRepr, FlexibleArray("Data")]
 public struct WINBIO_DATA
 {
 	public uint32 Size;
-	private uint8[0] Data_impl;
+	private uint8[ANYSIZE_ARRAY] Data_impl;
 }
 
 [CRepr]
@@ -1698,15 +1696,6 @@ public struct WINBIO_NOTIFY_WAKE
 	public uint32 Reason;
 }
 
-#endregion
-
-#region COM Class IDs
-public static
-{
-}
-#endregion
-
-#region COM Types
 #endregion
 
 #region Functions
@@ -1876,4 +1865,3 @@ public static
 
 }
 #endregion
-

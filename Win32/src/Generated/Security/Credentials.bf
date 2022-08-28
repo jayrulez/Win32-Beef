@@ -4,6 +4,7 @@ using Win32.UI.WindowsAndMessaging;
 using System;
 
 namespace Win32.Security.Credentials;
+
 #region Constants
 public static
 {
@@ -240,9 +241,6 @@ public static
 	public const uint32 CREDSSP_FLAG_REDIRECT = 1;
 
 }
-#endregion
-
-#region TypeDefs
 #endregion
 
 #region Enums
@@ -858,15 +856,6 @@ public struct CREDSSP_CRED_EX
 
 #endregion
 
-#region COM Class IDs
-public static
-{
-}
-#endregion
-
-#region COM Types
-#endregion
-
 #region Functions
 public static
 {
@@ -1303,4 +1292,3 @@ public static
 
 }
 #endregion
-

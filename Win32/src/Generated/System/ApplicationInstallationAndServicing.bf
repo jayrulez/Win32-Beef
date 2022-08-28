@@ -7,6 +7,7 @@ using System;
 using System.Interop;
 
 namespace Win32.System.ApplicationInstallationAndServicing;
+
 #region Constants
 public static
 {
@@ -715,6 +716,7 @@ public static
 typealias MSIHANDLE = uint32;
 
 #endregion
+
 
 #region Enums
 
@@ -2220,7 +2222,7 @@ public struct PATCH_INTERLEAVE_MAP
 	}
 
 	public uint32 CountRanges;
-	private _Anonymous_e__Struct[0] Range_impl;
+	private _Anonymous_e__Struct[ANYSIZE_ARRAY] Range_impl;
 }
 
 [CRepr]
@@ -2339,7 +2341,7 @@ public struct COMPATIBILITY_CONTEXT_ELEMENT
 public struct ACTIVATION_CONTEXT_COMPATIBILITY_INFORMATION
 {
 	public uint32 ElementCount;
-	private COMPATIBILITY_CONTEXT_ELEMENT[0] Elements_impl;
+	private COMPATIBILITY_CONTEXT_ELEMENT[ANYSIZE_ARRAY] Elements_impl;
 }
 
 [CRepr]
@@ -4892,4 +4894,3 @@ public static
 
 }
 #endregion
-

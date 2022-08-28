@@ -3,6 +3,7 @@ using Win32.System.Diagnostics.Debug;
 using System;
 
 namespace Win32.System.ErrorReporting;
+
 #region Constants
 public static
 {
@@ -95,6 +96,7 @@ typealias HREPORT = int;
 typealias HREPORTSTORE = int;
 
 #endregion
+
 
 #region Enums
 
@@ -482,15 +484,6 @@ public struct WER_REPORT_METADATA_V1
 
 #endregion
 
-#region COM Class IDs
-public static
-{
-}
-#endregion
-
-#region COM Types
-#endregion
-
 #region Functions
 public static
 {
@@ -620,4 +613,3 @@ public static
 
 }
 #endregion
-

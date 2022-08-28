@@ -11,6 +11,7 @@ typealias HTOUCHINPUT = int;
 
 #endregion
 
+
 #region Enums
 
 [AllowDuplicates]
@@ -71,8 +72,6 @@ public enum MANIPULATION_PROCESSOR_MANIPULATIONS : int32
 
 #endregion
 
-#region Function Pointers
-#endregion
 
 #region Structs
 [CRepr]
@@ -429,4 +428,3 @@ public static
 
 }
 #endregion
-

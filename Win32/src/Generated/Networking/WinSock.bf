@@ -8,6 +8,7 @@ using System;
 using System.Interop;
 
 namespace Win32.Networking.WinSock;
+
 #region Constants
 public static
 {
@@ -1898,6 +1899,7 @@ typealias SOCKET = uint;
 
 #endregion
 
+
 #region Enums
 
 [AllowDuplicates]
@@ -2825,7 +2827,7 @@ public struct SOCKET_ADDRESS
 public struct SOCKET_ADDRESS_LIST
 {
 	public int32 iAddressCount;
-	private SOCKET_ADDRESS[0] Address_impl;
+	private SOCKET_ADDRESS[ANYSIZE_ARRAY] Address_impl;
 }
 
 [CRepr]
@@ -3611,7 +3613,7 @@ public struct IP_MSFILTER
 	public IN_ADDR imsf_interface;
 	public MULTICAST_MODE_TYPE imsf_fmode;
 	public uint32 imsf_numsrc;
-	private IN_ADDR[0] imsf_slist_impl;
+	private IN_ADDR[ANYSIZE_ARRAY] imsf_slist_impl;
 }
 
 [CRepr]
@@ -3643,7 +3645,7 @@ public struct GROUP_FILTER
 	public SOCKADDR_STORAGE gf_group;
 	public MULTICAST_MODE_TYPE gf_fmode;
 	public uint32 gf_numsrc;
-	private SOCKADDR_STORAGE[0] gf_slist_impl;
+	private SOCKADDR_STORAGE[ANYSIZE_ARRAY] gf_slist_impl;
 }
 
 [CRepr]
@@ -3838,14 +3840,14 @@ public struct WCE_IRDA_DEVICE_INFO
 public struct WINDOWS_DEVICELIST
 {
 	public uint32 numDevice;
-	private WINDOWS_IRDA_DEVICE_INFO[0] Device_impl;
+	private WINDOWS_IRDA_DEVICE_INFO[ANYSIZE_ARRAY] Device_impl;
 }
 
 [CRepr, FlexibleArray("Device")]
 public struct WCE_DEVICELIST
 {
 	public uint32 numDevice;
-	private WCE_IRDA_DEVICE_INFO[0] Device_impl;
+	private WCE_IRDA_DEVICE_INFO[ANYSIZE_ARRAY] Device_impl;
 }
 
 [CRepr]
@@ -4130,7 +4132,7 @@ public struct SOCKET_SECURITY_SETTINGS_IPSEC
 	public uint32 UserNameStringLen;
 	public uint32 DomainNameStringLen;
 	public uint32 PasswordStringLen;
-	private char16[0] AllStrings_impl;
+	private char16[ANYSIZE_ARRAY] AllStrings_impl;
 }
 
 [CRepr, FlexibleArray("AllStrings")]
@@ -4139,7 +4141,7 @@ public struct SOCKET_PEER_TARGET_NAME
 	public SOCKET_SECURITY_PROTOCOL SecurityProtocol;
 	public SOCKADDR_STORAGE PeerAddress;
 	public uint32 PeerTargetNameStringLen;
-	private char16[0] AllStrings_impl;
+	private char16[ANYSIZE_ARRAY] AllStrings_impl;
 }
 
 [CRepr]
@@ -4259,7 +4261,7 @@ public struct Q2931_IE
 {
 	public Q2931_IE_TYPE IEType;
 	public uint32 IELength;
-	private uint8[0] IE_impl;
+	private uint8[ANYSIZE_ARRAY] IE_impl;
 }
 
 [CRepr]
@@ -4367,7 +4369,7 @@ public struct ATM_TRANSIT_NETWORK_SELECTION_IE
 	public uint8 TypeOfNetworkId;
 	public uint8 NetworkIdPlan;
 	public uint8 NetworkIdLength;
-	private uint8[0] NetworkId_impl;
+	private uint8[ANYSIZE_ARRAY] NetworkId_impl;
 }
 
 [CRepr]
@@ -4460,7 +4462,7 @@ public struct NLA_BLOB
 		[CRepr, FlexibleArray("information")]
 		public struct _locationData_e__Struct
 		{
-			private CHAR[0] information_impl;
+			private CHAR[ANYSIZE_ARRAY] information_impl;
 		}
 
 		[CRepr, FlexibleArray("adapterName")]
@@ -4468,7 +4470,7 @@ public struct NLA_BLOB
 		{
 			public uint32 dwType;
 			public uint32 dwSpeed;
-			private CHAR[0] adapterName_impl;
+			private CHAR[ANYSIZE_ARRAY] adapterName_impl;
 		}
 
 		[CRepr]
@@ -4478,7 +4480,7 @@ public struct NLA_BLOB
 			public NLA_INTERNET internet;
 		}
 
-		public CHAR[1] rawData;
+		public CHAR[ANYSIZE_ARRAY] rawData;
 		public _interfaceData_e__Struct interfaceData;
 		public _locationData_e__Struct locationData;
 		public _connectivity_e__Struct connectivity;
@@ -4503,7 +4505,7 @@ public struct WSAPOLLDATA
 	public int32 result;
 	public uint32 fds;
 	public int32 timeout;
-	private WSAPOLLFD[0] fdArray_impl;
+	private WSAPOLLFD[ANYSIZE_ARRAY] fdArray_impl;
 }
 
 [CRepr]
@@ -4724,7 +4726,7 @@ public struct SERVICE_TYPE_INFO
 {
 	public uint32 dwTypeNameOffset;
 	public uint32 dwValueCount;
-	private SERVICE_TYPE_VALUE[0] Values_impl;
+	private SERVICE_TYPE_VALUE[ANYSIZE_ARRAY] Values_impl;
 }
 
 [CRepr, FlexibleArray("Values")]
@@ -4732,7 +4734,7 @@ public struct SERVICE_TYPE_INFO_ABSA
 {
 	public PSTR lpTypeName;
 	public uint32 dwValueCount;
-	private SERVICE_TYPE_VALUE_ABSA[0] Values_impl;
+	private SERVICE_TYPE_VALUE_ABSA[ANYSIZE_ARRAY] Values_impl;
 }
 
 [CRepr, FlexibleArray("Values")]
@@ -4740,7 +4742,7 @@ public struct SERVICE_TYPE_INFO_ABSW
 {
 	public PWSTR lpTypeName;
 	public uint32 dwValueCount;
-	private SERVICE_TYPE_VALUE_ABSW[0] Values_impl;
+	private SERVICE_TYPE_VALUE_ABSW[ANYSIZE_ARRAY] Values_impl;
 }
 
 [CRepr]
@@ -4758,7 +4760,7 @@ public struct SERVICE_ADDRESS
 public struct SERVICE_ADDRESSES
 {
 	public uint32 dwAddressCount;
-	private SERVICE_ADDRESS[0] Addresses_impl;
+	private SERVICE_ADDRESS[ANYSIZE_ARRAY] Addresses_impl;
 }
 
 [CRepr]
@@ -4941,15 +4943,6 @@ public struct WSAData
 }
 #endif
 
-#endregion
-
-#region COM Class IDs
-public static
-{
-}
-#endregion
-
-#region COM Types
 #endregion
 
 #region Functions
@@ -5630,4 +5623,3 @@ public static
 #endif
 }
 #endregion
-

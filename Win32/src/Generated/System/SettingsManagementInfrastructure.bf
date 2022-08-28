@@ -3,6 +3,7 @@ using Win32.System.Com;
 using System;
 
 namespace Win32.System.SettingsManagementInfrastructure;
+
 #region Constants
 public static
 {
@@ -119,9 +120,6 @@ public static
 }
 #endregion
 
-#region TypeDefs
-#endregion
-
 #region Enums
 
 [AllowDuplicates]
@@ -197,11 +195,6 @@ public enum WcmNamespaceAccess : int32
 
 #endregion
 
-#region Function Pointers
-#endregion
-
-#region Structs
-#endregion
 
 #region COM Class IDs
 public static
@@ -568,4 +561,3 @@ public static
 }
 
 #endregion
-

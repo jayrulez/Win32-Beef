@@ -4,6 +4,7 @@ using System;
 using System.Interop;
 
 namespace Win32.System.SystemInformation;
+
 #region Constants
 public static
 {
@@ -240,6 +241,7 @@ public static
 typealias FIRMWARE_TABLE_ID = uint32;
 
 #endregion
+
 
 #region Enums
 
@@ -658,7 +660,7 @@ public struct PROCESSOR_RELATIONSHIP
 	public uint8 EfficiencyClass;
 	public uint8[20] Reserved;
 	public uint16 GroupCount;
-	private GROUP_AFFINITY[0] GroupMask_impl;
+	private GROUP_AFFINITY[ANYSIZE_ARRAY] GroupMask_impl;
 }
 
 [CRepr]
@@ -668,7 +670,7 @@ public struct NUMA_NODE_RELATIONSHIP
 	public struct _Anonymous_e__Union
 	{
 		public GROUP_AFFINITY GroupMask;
-		public GROUP_AFFINITY[1] GroupMasks;
+		public GROUP_AFFINITY[ANYSIZE_ARRAY] GroupMasks;
 	}
 
 	public uint32 NodeNumber;
@@ -684,7 +686,7 @@ public struct CACHE_RELATIONSHIP
 	public struct _Anonymous_e__Union
 	{
 		public GROUP_AFFINITY GroupMask;
-		public GROUP_AFFINITY[1] GroupMasks;
+		public GROUP_AFFINITY[ANYSIZE_ARRAY] GroupMasks;
 	}
 
 	public uint8 Level;
@@ -712,7 +714,7 @@ public struct GROUP_RELATIONSHIP
 	public uint16 MaximumGroupCount;
 	public uint16 ActiveGroupCount;
 	public uint8[20] Reserved;
-	private PROCESSOR_GROUP_INFO[0] GroupInfo_impl;
+	private PROCESSOR_GROUP_INFO[ANYSIZE_ARRAY] GroupInfo_impl;
 }
 
 [CRepr]
@@ -866,15 +868,6 @@ public struct MEMORYSTATUS
 	public uint dwAvailVirtual;
 }
 
-#endregion
-
-#region COM Class IDs
-public static
-{
-}
-#endregion
-
-#region COM Types
 #endregion
 
 #region Functions
@@ -1078,4 +1071,3 @@ public static
 
 }
 #endregion
-

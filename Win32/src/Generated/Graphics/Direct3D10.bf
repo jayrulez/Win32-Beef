@@ -6,6 +6,7 @@ using Win32.Graphics.Dxgi;
 using System;
 
 namespace Win32.Graphics.Direct3D10;
+
 #region Constants
 public static
 {
@@ -582,9 +583,6 @@ public static
 	public const Guid GUID_DeviceType = .(0xd722fb4d, 0x7a68, 0x437a, 0xb2, 0x0c, 0x58, 0x04, 0xee, 0x24, 0x94, 0xa6);
 
 }
-#endregion
-
-#region TypeDefs
 #endregion
 
 #region Enums
@@ -2527,12 +2525,6 @@ public struct D3D10_SHADER_DEBUG_INFO
 
 #endregion
 
-#region COM Class IDs
-public static
-{
-}
-#endregion
-
 #region COM Types
 [CRepr]struct ID3D10DeviceChild : IUnknown
 {
@@ -4325,4 +4317,3 @@ public static
 
 }
 #endregion
-

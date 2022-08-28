@@ -6,13 +6,6 @@ using Win32.Graphics.Direct3D12;
 using System;
 
 namespace Win32.Graphics.Direct3D11on12;
-
-#region TypeDefs
-#endregion
-
-#region Enums
-#endregion
-
 #region Function Pointers
 public function HRESULT PFN_D3D11ON12_CREATE_DEVICE(IUnknown* param0, uint32 param1, D3D_FEATURE_LEVEL* param2, uint32 FeatureLevels, IUnknown** param4, uint32 NumQueues, uint32 param6, ID3D11Device** param7, ID3D11DeviceContext** param8, D3D_FEATURE_LEVEL* param9);
 
@@ -28,12 +21,6 @@ public struct D3D11_RESOURCE_FLAGS
 	public uint32 StructureByteStride;
 }
 
-#endregion
-
-#region COM Class IDs
-public static
-{
-}
 #endregion
 
 #region COM Types
@@ -101,4 +88,3 @@ public static
 
 }
 #endregion
-

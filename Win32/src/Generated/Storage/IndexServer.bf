@@ -4,6 +4,7 @@ using Win32.System.Com;
 using System;
 
 namespace Win32.Storage.IndexServer;
+
 #region Constants
 public static
 {
@@ -284,9 +285,6 @@ public static
 }
 #endregion
 
-#region TypeDefs
-#endregion
-
 #region Enums
 
 [AllowDuplicates]
@@ -359,8 +357,6 @@ public enum DBKINDENUM : int32
 
 #endregion
 
-#region Function Pointers
-#endregion
 
 #region Structs
 [CRepr]
@@ -461,12 +457,6 @@ public struct DBID
 
 #endregion
 
-#region COM Class IDs
-public static
-{
-}
-#endregion
-
 #region COM Types
 [CRepr]struct IFilter : IUnknown
 {
@@ -532,4 +522,3 @@ public static
 
 }
 #endregion
-

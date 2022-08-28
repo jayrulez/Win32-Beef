@@ -5,6 +5,7 @@ using Win32.Graphics.Gdi;
 using System;
 
 namespace Win32.Graphics.Printing.PrintTicket;
+
 #region Constants
 public static
 {
@@ -23,9 +24,6 @@ public static
 	public const uint32 E_PRINTDEVICECAPABILITIES_FORMAT = 2147745798;
 
 }
-#endregion
-
-#region TypeDefs
 #endregion
 
 #region Enums
@@ -48,20 +46,6 @@ public enum EPrintTicketScope : int32
 
 #endregion
 
-#region Function Pointers
-#endregion
-
-#region Structs
-#endregion
-
-#region COM Class IDs
-public static
-{
-}
-#endregion
-
-#region COM Types
-#endregion
 
 #region Functions
 public static
@@ -101,4 +85,3 @@ public static
 
 }
 #endregion
-

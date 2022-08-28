@@ -8,6 +8,7 @@ using System;
 using System.Interop;
 
 namespace Win32.System.Com;
+
 #region Constants
 public static
 {
@@ -98,6 +99,7 @@ typealias CO_MTA_USAGE_COOKIE = int;
 typealias CO_DEVICE_CATALOG_COOKIE = int;
 
 #endregion
+
 
 #region Enums
 
@@ -851,21 +853,21 @@ public struct COAUTHINFO
 public struct BYTE_BLOB
 {
 	public uint32 clSize;
-	private uint8[0] abData_impl;
+	private uint8[ANYSIZE_ARRAY] abData_impl;
 }
 
 [CRepr, FlexibleArray("asData")]
 public struct WORD_BLOB
 {
 	public uint32 clSize;
-	private uint16[0] asData_impl;
+	private uint16[ANYSIZE_ARRAY] asData_impl;
 }
 
 [CRepr, FlexibleArray("alData")]
 public struct DWORD_BLOB
 {
 	public uint32 clSize;
-	private uint32[0] alData_impl;
+	private uint32[ANYSIZE_ARRAY] alData_impl;
 }
 
 [CRepr, FlexibleArray("abData")]
@@ -873,7 +875,7 @@ public struct FLAGGED_BYTE_BLOB
 {
 	public uint32 fFlags;
 	public uint32 clSize;
-	private uint8[0] abData_impl;
+	private uint8[ANYSIZE_ARRAY] abData_impl;
 }
 
 [CRepr, FlexibleArray("asData")]
@@ -881,7 +883,7 @@ public struct FLAGGED_WORD_BLOB
 {
 	public uint32 fFlags;
 	public uint32 clSize;
-	private uint16[0] asData_impl;
+	private uint16[ANYSIZE_ARRAY] asData_impl;
 }
 
 [CRepr]
@@ -1049,7 +1051,7 @@ public struct DVTARGETDEVICE
 	public uint16 tdDeviceNameOffset;
 	public uint16 tdPortNameOffset;
 	public uint16 tdExtDevmodeOffset;
-	private uint8[0] tdData_impl;
+	private uint8[ANYSIZE_ARRAY] tdData_impl;
 }
 
 [CRepr]
@@ -1079,7 +1081,7 @@ public struct RemSTGMEDIUM
 	public uint32 pData;
 	public uint32 pUnkForRelease;
 	public uint32 cbData;
-	private uint8[0] data_impl;
+	private uint8[ANYSIZE_ARRAY] data_impl;
 }
 
 [CRepr]
@@ -1232,7 +1234,7 @@ public struct SAFEARRAY
 	public uint32 cbElements;
 	public uint32 cLocks;
 	public void* pvData;
-	private SAFEARRAYBOUND[0] rgsabound_impl;
+	private SAFEARRAYBOUND[ANYSIZE_ARRAY] rgsabound_impl;
 }
 
 [CRepr]
@@ -1473,12 +1475,6 @@ public struct CONNECTDATA
 	public uint32 dwCookie;
 }
 
-#endregion
-
-#region COM Class IDs
-public static
-{
-}
 #endregion
 
 #region COM Types
@@ -4530,4 +4526,3 @@ public static
 
 }
 #endregion
-

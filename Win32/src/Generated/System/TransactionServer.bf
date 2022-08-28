@@ -4,9 +4,6 @@ using System;
 
 namespace Win32.System.TransactionServer;
 
-#region TypeDefs
-#endregion
-
 #region Enums
 
 [AllowDuplicates]
@@ -75,11 +72,6 @@ public enum __MIDL___MIDL_itf_mtxadmin_0107_0003 : int32
 
 #endregion
 
-#region Function Pointers
-#endregion
-
-#region Structs
-#endregion
 
 #region COM Class IDs
 public static
@@ -215,4 +207,3 @@ public static
 }
 
 #endregion
-

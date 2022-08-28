@@ -7,6 +7,7 @@ using System;
 using System.Interop;
 
 namespace Win32.NetworkManagement.WindowsFilteringPlatform;
+
 #region Constants
 public static
 {
@@ -1349,9 +1350,6 @@ public static
 	public const uint32 FWPS_L2_METADATA_FIELD_RESERVED = 2147483648;
 
 }
-#endregion
-
-#region TypeDefs
 #endregion
 
 #region Enums
@@ -5062,7 +5060,7 @@ public struct ICMP_MESSAGE
 	[CRepr, Union]
 	public struct _Data_e__Union
 	{
-		public uint32[1] Data32;
+		public uint32[ANYSIZE_ARRAY] Data32;
 		public uint16[2] Data16;
 		public uint8[4] Data8;
 	}
@@ -5216,7 +5214,7 @@ public struct ARP_HEADER
 	public uint8 HardwareAddressLength;
 	public uint8 ProtocolAddressLength;
 	public uint16 Opcode;
-	private uint8[0] SenderHardwareAddress_impl;
+	private uint8[ANYSIZE_ARRAY] SenderHardwareAddress_impl;
 }
 
 [CRepr]
@@ -5673,7 +5671,7 @@ public struct tcp_opt_sack
 
 	public uint8 Kind;
 	public uint8 Length;
-	private tcp_opt_sack_block[0] Block_impl;
+	private tcp_opt_sack_block[ANYSIZE_ARRAY] Block_impl;
 }
 
 [CRepr, Packed(1)]
@@ -5697,7 +5695,7 @@ public struct tcp_opt_fastopen
 {
 	public uint8 Kind;
 	public uint8 Length;
-	private uint8[0] Cookie_impl;
+	private uint8[ANYSIZE_ARRAY] Cookie_impl;
 }
 
 [CRepr, FlexibleArray("IpAddress")]
@@ -5705,7 +5703,7 @@ public struct DL_TUNNEL_ADDRESS
 {
 	public COMPARTMENT_ID CompartmentId;
 	public SCOPE_ID ScopeId;
-	private uint8[0] IpAddress_impl;
+	private uint8[ANYSIZE_ARRAY] IpAddress_impl;
 }
 
 [CRepr]
@@ -5777,15 +5775,6 @@ public struct NPI_MODULEID
 	public using _Anonymous_e__Union Anonymous;
 }
 
-#endregion
-
-#region COM Class IDs
-public static
-{
-}
-#endregion
-
-#region COM Types
 #endregion
 
 #region Functions
@@ -6351,4 +6340,3 @@ public static
 
 }
 #endregion
-

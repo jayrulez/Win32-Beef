@@ -4,6 +4,7 @@ using System;
 using System.Interop;
 
 namespace Win32.UI.Input.KeyboardAndMouse;
+
 #region Constants
 public static
 {
@@ -274,9 +275,6 @@ public static
 	public const uint32 VK_DBE_ENTERDLGCONVERSIONMODE = 253;
 
 }
-#endregion
-
-#region TypeDefs
 #endregion
 
 #region Enums
@@ -601,8 +599,6 @@ public enum VIRTUAL_KEY : uint16
 
 #endregion
 
-#region Function Pointers
-#endregion
 
 #region Structs
 [CRepr]
@@ -617,7 +613,7 @@ public struct MODIFIERS
 {
 	public VK_TO_BIT* pVkToBit;
 	public uint16 wMaxModBits;
-	private uint8[0] ModNumber_impl;
+	private uint8[ANYSIZE_ARRAY] ModNumber_impl;
 }
 
 [CRepr]
@@ -639,7 +635,7 @@ public struct VK_TO_WCHARS1
 {
 	public uint8 VirtualKey;
 	public uint8 Attributes;
-	private char16[0] wch_impl;
+	private char16[ANYSIZE_ARRAY] wch_impl;
 }
 
 [CRepr]
@@ -735,7 +731,7 @@ public struct LIGATURE1
 {
 	public uint8 VirtualKey;
 	public uint16 ModificationNumber;
-	private char16[0] wch_impl;
+	private char16[ANYSIZE_ARRAY] wch_impl;
 }
 
 [CRepr]
@@ -921,15 +917,6 @@ public struct LASTINPUTINFO
 
 #endregion
 
-#region COM Class IDs
-public static
-{
-}
-#endregion
-
-#region COM Types
-#endregion
-
 #region Functions
 public static
 {
@@ -1098,4 +1085,3 @@ public static
 
 }
 #endregion
-

@@ -3,15 +3,13 @@ using Win32.Foundation;
 using System;
 
 namespace Win32.Storage.DataDeduplication;
+
 #region Constants
 public static
 {
 	public const uint32 DEDUP_CHUNKLIB_MAX_CHUNKS_ENUM = 1024;
 
 }
-#endregion
-
-#region TypeDefs
 #endregion
 
 #region Enums
@@ -102,8 +100,6 @@ public enum DedupCompressionAlgorithm : int32
 
 #endregion
 
-#region Function Pointers
-#endregion
 
 #region Structs
 [CRepr]
@@ -331,4 +327,3 @@ public static
 }
 
 #endregion
-

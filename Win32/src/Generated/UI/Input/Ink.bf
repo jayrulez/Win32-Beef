@@ -4,9 +4,6 @@ using System;
 
 namespace Win32.UI.Input.Ink;
 
-#region TypeDefs
-#endregion
-
 #region Enums
 
 [AllowDuplicates]
@@ -19,11 +16,6 @@ public enum INK_HIGH_CONTRAST_ADJUSTMENT : int32
 
 #endregion
 
-#region Function Pointers
-#endregion
-
-#region Structs
-#endregion
 
 #region COM Class IDs
 public static
@@ -147,4 +139,3 @@ public static
 }
 
 #endregion
-

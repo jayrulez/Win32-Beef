@@ -3,6 +3,7 @@ using Win32.System.Com;
 using System;
 
 namespace Win32.System.DistributedTransactionCoordinator;
+
 #region Constants
 public static
 {
@@ -145,9 +146,6 @@ public static
 	public const Guid CLSID_MSDtcTransaction = .(0x39f8d76b, 0x0928, 0x11d1, 0x97, 0xdf, 0x00, 0xc0, 0x4f, 0xb9, 0x61, 0x8a);
 
 }
-#endregion
-
-#region TypeDefs
 #endregion
 
 #region Enums
@@ -520,12 +518,6 @@ public struct _ProxyConfigParams
 	public uint16 wcThreadsMax;
 }
 
-#endregion
-
-#region COM Class IDs
-public static
-{
-}
 #endregion
 
 #region COM Types
@@ -1881,4 +1873,3 @@ public static
 
 }
 #endregion
-

@@ -2,6 +2,7 @@ using Win32.Foundation;
 using System;
 
 namespace Win32.System.RestartManager;
+
 #region Constants
 public static
 {
@@ -16,9 +17,6 @@ public static
 	public const int32 RM_INVALID_PROCESS = -1;
 
 }
-#endregion
-
-#region TypeDefs
 #endregion
 
 #region Enums
@@ -135,15 +133,6 @@ public struct RM_FILTER_INFO
 
 #endregion
 
-#region COM Class IDs
-public static
-{
-}
-#endregion
-
-#region COM Types
-#endregion
-
 #region Functions
 public static
 {
@@ -182,4 +171,3 @@ public static
 
 }
 #endregion
-

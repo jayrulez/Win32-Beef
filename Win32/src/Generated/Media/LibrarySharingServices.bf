@@ -4,9 +4,6 @@ using System;
 
 namespace Win32.Media.LibrarySharingServices;
 
-#region TypeDefs
-#endregion
-
 #region Enums
 
 [AllowDuplicates]
@@ -19,11 +16,6 @@ public enum WindowsMediaLibrarySharingDeviceAuthorizationStatus : int32
 
 #endregion
 
-#region Function Pointers
-#endregion
-
-#region Structs
-#endregion
 
 #region COM Class IDs
 public static
@@ -189,4 +181,3 @@ public static
 }
 
 #endregion
-

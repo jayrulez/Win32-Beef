@@ -6,24 +6,6 @@ using System;
 
 namespace Win32.System.WinRT.Display;
 
-#region TypeDefs
-#endregion
-
-#region Enums
-#endregion
-
-#region Function Pointers
-#endregion
-
-#region Structs
-#endregion
-
-#region COM Class IDs
-public static
-{
-}
-#endregion
-
 #region COM Types
 [CRepr]struct IDisplayDeviceInterop : IUnknown
 {
@@ -62,4 +44,3 @@ public static
 }
 
 #endregion
-

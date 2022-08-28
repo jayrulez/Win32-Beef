@@ -3,6 +3,7 @@ using Win32.System.Com;
 using System;
 
 namespace Win32.System.MessageQueuing;
+
 #region Constants
 public static
 {
@@ -377,9 +378,6 @@ public static
 	public const HRESULT MQ_ERROR_MESSAGE_LOCKED_UNDER_TRANSACTION = -1072824164;
 
 }
-#endregion
-
-#region TypeDefs
 #endregion
 
 #region Enums
@@ -857,11 +855,6 @@ public enum MQWARNING : int32
 
 #endregion
 
-#region Function Pointers
-#endregion
-
-#region Structs
-#endregion
 
 #region COM Class IDs
 public static
@@ -3352,4 +3345,3 @@ public static
 }
 
 #endregion
-

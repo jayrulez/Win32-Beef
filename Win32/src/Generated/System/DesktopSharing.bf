@@ -3,6 +3,7 @@ using Win32.Foundation;
 using System;
 
 namespace Win32.System.DesktopSharing;
+
 #region Constants
 public static
 {
@@ -257,9 +258,6 @@ public static
 }
 #endregion
 
-#region TypeDefs
-#endregion
-
 #region Enums
 
 [AllowDuplicates]
@@ -378,8 +376,6 @@ public enum __MIDL___MIDL_itf_rdpencomapi_0000_0027_0001 : int32
 
 #endregion
 
-#region Function Pointers
-#endregion
 
 #region Structs
 [CRepr]
@@ -1188,4 +1184,3 @@ public static
 }
 
 #endregion
-

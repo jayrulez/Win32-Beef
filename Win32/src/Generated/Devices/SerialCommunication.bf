@@ -2,6 +2,7 @@ using Win32.Foundation;
 using System;
 
 namespace Win32.Devices.SerialCommunication;
+
 #region Constants
 public static
 {
@@ -21,23 +22,6 @@ typealias HCOMDB = int;
 
 #endregion
 
-#region Enums
-#endregion
-
-#region Function Pointers
-#endregion
-
-#region Structs
-#endregion
-
-#region COM Class IDs
-public static
-{
-}
-#endregion
-
-#region COM Types
-#endregion
 
 #region Functions
 public static
@@ -65,4 +49,3 @@ public static
 
 }
 #endregion
-

@@ -5,6 +5,7 @@ using Win32.Devices.PortableDevices;
 using System;
 
 namespace Win32.Storage.EnhancedStorage;
+
 #region Constants
 public static
 {
@@ -2615,9 +2616,6 @@ public static
 }
 #endregion
 
-#region TypeDefs
-#endregion
-
 #region Enums
 
 [AllowDuplicates]
@@ -2629,8 +2627,6 @@ public enum ACT_AUTHORIZATION_STATE_VALUE : int32
 
 #endregion
 
-#region Function Pointers
-#endregion
 
 #region Structs
 [CRepr]
@@ -2839,4 +2835,3 @@ public static
 }
 
 #endregion
-

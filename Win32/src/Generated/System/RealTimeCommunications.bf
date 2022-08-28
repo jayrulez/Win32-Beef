@@ -5,6 +5,7 @@ using Win32.Networking.WinSock;
 using System;
 
 namespace Win32.System.RealTimeCommunications;
+
 #region Constants
 public static
 {
@@ -515,9 +516,6 @@ public static
 }
 #endregion
 
-#region TypeDefs
-#endregion
-
 #region Enums
 
 [AllowDuplicates]
@@ -960,8 +958,6 @@ public enum RTC_REINVITE_STATE : int32
 
 #endregion
 
-#region Function Pointers
-#endregion
 
 #region Structs
 [CRepr]
@@ -2821,4 +2817,3 @@ public static
 }
 
 #endregion
-

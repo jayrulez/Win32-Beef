@@ -2,9 +2,6 @@ using System;
 
 namespace Win32.System.Search.Common;
 
-#region TypeDefs
-#endregion
-
 #region Enums
 
 [AllowDuplicates]
@@ -37,20 +34,5 @@ public enum CONDITION_OPERATION : int32
 	COP_APPLICATION_SPECIFIC = 14,
 }
 
-#endregion
-
-#region Function Pointers
-#endregion
-
-#region Structs
-#endregion
-
-#region COM Class IDs
-public static
-{
-}
-#endregion
-
-#region COM Types
 #endregion
 

@@ -6,6 +6,7 @@ using Win32.Security;
 using System;
 
 namespace Win32.Graphics.Dxgi;
+
 #region Constants
 public static
 {
@@ -150,9 +151,6 @@ public static
 	public const HRESULT DXGI_ERROR_ALREADY_EXISTS = -2005270474;
 
 }
-#endregion
-
-#region TypeDefs
 #endregion
 
 #region Enums
@@ -761,8 +759,6 @@ public enum DXGI_Message_Id : int32
 
 #endregion
 
-#region Function Pointers
-#endregion
 
 #region Structs
 [CRepr]
@@ -1095,12 +1091,6 @@ public struct DXGI_INFO_QUEUE_FILTER
 	public DXGI_INFO_QUEUE_FILTER_DESC DenyList;
 }
 
-#endregion
-
-#region COM Class IDs
-public static
-{
-}
 #endregion
 
 #region COM Types
@@ -2263,4 +2253,3 @@ public static
 
 }
 #endregion
-

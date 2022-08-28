@@ -4,9 +4,6 @@ using System;
 
 namespace Win32.NetworkManagement.MobileBroadband;
 
-#region TypeDefs
-#endregion
-
 #region Enums
 
 [AllowDuplicates]
@@ -412,8 +409,6 @@ public enum MBN_DEVICE_SERVICES_INTERFACE_STATE : int32
 
 #endregion
 
-#region Function Pointers
-#endregion
 
 #region Structs
 [CRepr]
@@ -1570,4 +1565,3 @@ public static
 }
 
 #endregion
-

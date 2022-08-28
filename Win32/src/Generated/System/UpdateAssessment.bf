@@ -4,9 +4,6 @@ using System;
 
 namespace Win32.System.UpdateAssessment;
 
-#region TypeDefs
-#endregion
-
 #region Enums
 
 [AllowDuplicates]
@@ -38,8 +35,6 @@ public enum UpdateAssessmentStatus : int32
 
 #endregion
 
-#region Function Pointers
-#endregion
 
 #region Structs
 [CRepr]
@@ -93,4 +88,3 @@ public static
 }
 
 #endregion
-

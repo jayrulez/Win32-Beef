@@ -4,9 +4,6 @@ using System;
 
 namespace Win32.Devices.DeviceQuery;
 
-#region TypeDefs
-#endregion
-
 #region Enums
 
 [AllowDuplicates]
@@ -160,15 +157,6 @@ public struct HDEVQUERY__
 
 #endregion
 
-#region COM Class IDs
-public static
-{
-}
-#endregion
-
-#region COM Types
-#endregion
-
 #region Functions
 public static
 {
@@ -216,4 +204,3 @@ public static
 
 }
 #endregion
-

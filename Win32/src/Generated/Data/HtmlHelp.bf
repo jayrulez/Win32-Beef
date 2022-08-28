@@ -5,6 +5,7 @@ using Win32.System.Search;
 using System;
 
 namespace Win32.Data.HtmlHelp;
+
 #region Constants
 public static
 {
@@ -553,9 +554,6 @@ public static
 }
 #endregion
 
-#region TypeDefs
-#endregion
-
 #region Enums
 
 [AllowDuplicates]
@@ -771,12 +769,6 @@ public struct COLUMNSTATUS
 	public int32 cPropsLoaded;
 }
 
-#endregion
-
-#region COM Class IDs
-public static
-{
-}
 #endregion
 
 #region COM Types
@@ -1111,4 +1103,3 @@ public static
 }
 
 #endregion
-

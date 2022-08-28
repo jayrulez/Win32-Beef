@@ -7,6 +7,7 @@ using Win32.Security.Cryptography;
 using System;
 
 namespace Win32.Storage.Xps;
+
 #region Constants
 public static
 {
@@ -187,6 +188,7 @@ public static
 typealias HPTPROVIDER = int;
 
 #endregion
+
 
 #region Enums
 
@@ -3163,4 +3165,3 @@ public static
 
 }
 #endregion
-

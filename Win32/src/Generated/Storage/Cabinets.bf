@@ -2,6 +2,7 @@ using Win32.Foundation;
 using System;
 
 namespace Win32.Storage.Cabinets;
+
 #region Constants
 public static
 {
@@ -26,9 +27,6 @@ public static
 	public const uint32 INCLUDED_FDI = 1;
 
 }
-#endregion
-
-#region TypeDefs
 #endregion
 
 #region Enums
@@ -266,15 +264,6 @@ public struct FDISPILLFILE
 
 #endregion
 
-#region COM Class IDs
-public static
-{
-}
-#endregion
-
-#region COM Types
-#endregion
-
 #region Functions
 public static
 {
@@ -310,4 +299,3 @@ public static
 
 }
 #endregion
-

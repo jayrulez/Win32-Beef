@@ -4,6 +4,7 @@ using System;
 using System.Interop;
 
 namespace Win32.Storage.IscsiDisc;
+
 #region Constants
 public static
 {
@@ -348,9 +349,6 @@ public static
 }
 #endregion
 
-#region TypeDefs
-#endregion
-
 #region Enums
 
 [AllowDuplicates]
@@ -554,7 +552,7 @@ public struct SCSI_PASS_THROUGH_EX
 	public uint32 DataInTransferLength;
 	public uint DataOutBufferOffset;
 	public uint DataInBufferOffset;
-	private uint8[0] Cdb_impl;
+	private uint8[ANYSIZE_ARRAY] Cdb_impl;
 }
 
 [CRepr, FlexibleArray("Cdb")]
@@ -575,7 +573,7 @@ public struct SCSI_PASS_THROUGH_DIRECT_EX
 	public uint32 DataInTransferLength;
 	public void* DataOutBuffer;
 	public void* DataInBuffer;
-	private uint8[0] Cdb_impl;
+	private uint8[ANYSIZE_ARRAY] Cdb_impl;
 }
 
 #if BF_64_BIT || BF_ARM_64
@@ -597,7 +595,7 @@ public struct SCSI_PASS_THROUGH32_EX
 	public uint32 DataInTransferLength;
 	public uint32 DataOutBufferOffset;
 	public uint32 DataInBufferOffset;
-	private uint8[0] Cdb_impl;
+	private uint8[ANYSIZE_ARRAY] Cdb_impl;
 }
 #endif
 
@@ -620,7 +618,7 @@ public struct SCSI_PASS_THROUGH_DIRECT32_EX
 	public uint32 DataInTransferLength;
 	public void* DataOutBuffer;
 	public void* DataInBuffer;
-	private uint8[0] Cdb_impl;
+	private uint8[ANYSIZE_ARRAY] Cdb_impl;
 }
 #endif
 
@@ -815,7 +813,7 @@ public struct SCSI_BUS_DATA
 public struct SCSI_ADAPTER_BUS_INFO
 {
 	public uint8 NumberOfBuses;
-	private SCSI_BUS_DATA[0] BusData_impl;
+	private SCSI_BUS_DATA[ANYSIZE_ARRAY] BusData_impl;
 }
 
 [CRepr, FlexibleArray("InquiryData")]
@@ -827,7 +825,7 @@ public struct SCSI_INQUIRY_DATA
 	public BOOLEAN DeviceClaimed;
 	public uint32 InquiryDataLength;
 	public uint32 NextInquiryDataOffset;
-	private uint8[0] InquiryData_impl;
+	private uint8[ANYSIZE_ARRAY] InquiryData_impl;
 }
 
 [CRepr]
@@ -922,7 +920,7 @@ public struct STORAGE_DIAGNOSTIC_MP_REQUEST
 	public Guid ProviderId;
 	public uint32 BufferSize;
 	public uint32 Reserved;
-	private uint8[0] DataBuffer_impl;
+	private uint8[ANYSIZE_ARRAY] DataBuffer_impl;
 }
 
 [CRepr]
@@ -941,7 +939,7 @@ public struct DSM_NOTIFICATION_REQUEST_BLOCK
 	public uint32 DataSetProfile;
 	public uint32[3] Reserved;
 	public uint32 DataSetRangesCount;
-	private MP_DEVICE_DATA_SET_RANGE[0] DataSetRanges_impl;
+	private MP_DEVICE_DATA_SET_RANGE[ANYSIZE_ARRAY] DataSetRanges_impl;
 }
 
 [CRepr]
@@ -989,7 +987,7 @@ public struct HYBRID_INFORMATION
 		public uint32 DirtyThresholdLow;
 		public uint32 DirtyThresholdHigh;
 		public _SupportedCommands_e__Struct SupportedCommands;
-		private NVCACHE_PRIORITY_LEVEL_DESCRIPTOR[0] Priority_impl;
+		private NVCACHE_PRIORITY_LEVEL_DESCRIPTOR[ANYSIZE_ARRAY] Priority_impl;
 	}
 
 	[CRepr]
@@ -1077,7 +1075,7 @@ public struct STORAGE_FIRMWARE_INFO
 	public uint8 ActiveSlot;
 	public uint8 PendingActivateSlot;
 	public uint32 Reserved;
-	private STORAGE_FIRMWARE_SLOT_INFO[0] Slot_impl;
+	private STORAGE_FIRMWARE_SLOT_INFO[ANYSIZE_ARRAY] Slot_impl;
 }
 
 [CRepr, FlexibleArray("Slot")]
@@ -1093,7 +1091,7 @@ public struct STORAGE_FIRMWARE_INFO_V2
 	public uint8[3] Reserved;
 	public uint32 ImagePayloadAlignment;
 	public uint32 ImagePayloadMaxSize;
-	private STORAGE_FIRMWARE_SLOT_INFO_V2[0] Slot_impl;
+	private STORAGE_FIRMWARE_SLOT_INFO_V2[ANYSIZE_ARRAY] Slot_impl;
 }
 
 [CRepr, FlexibleArray("ImageBuffer")]
@@ -1103,7 +1101,7 @@ public struct STORAGE_FIRMWARE_DOWNLOAD
 	public uint32 Size;
 	public uint64 Offset;
 	public uint64 BufferSize;
-	private uint8[0] ImageBuffer_impl;
+	private uint8[ANYSIZE_ARRAY] ImageBuffer_impl;
 }
 
 [CRepr, FlexibleArray("ImageBuffer")]
@@ -1116,7 +1114,7 @@ public struct STORAGE_FIRMWARE_DOWNLOAD_V2
 	public uint8 Slot;
 	public uint8[3] Reserved;
 	public uint32 ImageSize;
-	private uint8[0] ImageBuffer_impl;
+	private uint8[ANYSIZE_ARRAY] ImageBuffer_impl;
 }
 
 [CRepr]
@@ -1390,14 +1388,14 @@ public struct ISCSI_TARGET_PORTAL_INFO_EXA
 public struct ISCSI_TARGET_PORTAL_GROUPW
 {
 	public uint32 Count;
-	private ISCSI_TARGET_PORTALW[0] Portals_impl;
+	private ISCSI_TARGET_PORTALW[ANYSIZE_ARRAY] Portals_impl;
 }
 
 [CRepr, FlexibleArray("Portals")]
 public struct ISCSI_TARGET_PORTAL_GROUPA
 {
 	public uint32 Count;
-	private ISCSI_TARGET_PORTALA[0] Portals_impl;
+	private ISCSI_TARGET_PORTALA[ANYSIZE_ARRAY] Portals_impl;
 }
 
 [CRepr]
@@ -1540,15 +1538,6 @@ public struct ISCSI_VERSION_INFO
 	public uint32 BuildNumber;
 }
 
-#endregion
-
-#region COM Class IDs
-public static
-{
-}
-#endregion
-
-#region COM Types
 #endregion
 
 #region Functions
@@ -1826,4 +1815,3 @@ public static
 
 }
 #endregion
-

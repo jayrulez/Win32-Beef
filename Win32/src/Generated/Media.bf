@@ -4,6 +4,7 @@ using Win32.Foundation;
 using System;
 
 namespace Win32.Media;
+
 #region Constants
 public static
 {
@@ -217,6 +218,7 @@ typealias HTASK = int;
 
 #endregion
 
+
 #region Enums
 
 [AllowDuplicates]
@@ -306,12 +308,6 @@ public struct TIMECODE_SAMPLE
 
 #endregion
 
-#region COM Class IDs
-public static
-{
-}
-#endregion
-
 #region COM Types
 [CRepr]struct IReferenceClock : IUnknown
 {
@@ -395,4 +391,3 @@ public static
 
 }
 #endregion
-

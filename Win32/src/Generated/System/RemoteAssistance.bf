@@ -3,6 +3,7 @@ using Win32.Foundation;
 using System;
 
 namespace Win32.System.RemoteAssistance;
+
 #region Constants
 public static
 {
@@ -15,9 +16,6 @@ public static
 	public const uint32 DISPID_EVENT_ON_SEND_ERROR = 8;
 
 }
-#endregion
-
-#region TypeDefs
 #endregion
 
 #region Enums
@@ -49,11 +47,6 @@ public enum RENDEZVOUS_SESSION_FLAGS : int32
 
 #endregion
 
-#region Function Pointers
-#endregion
-
-#region Structs
-#endregion
 
 #region COM Class IDs
 public static
@@ -120,4 +113,3 @@ public static
 }
 
 #endregion
-

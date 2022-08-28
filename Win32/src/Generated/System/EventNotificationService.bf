@@ -3,6 +3,7 @@ using Win32.Foundation;
 using System;
 
 namespace Win32.System.EventNotificationService;
+
 #region Constants
 public static
 {
@@ -33,9 +34,6 @@ public static
 }
 #endregion
 
-#region TypeDefs
-#endregion
-
 #region Enums
 
 [AllowDuplicates]
@@ -47,8 +45,6 @@ public enum SENS_CONNECTION_TYPE : uint32
 
 #endregion
 
-#region Function Pointers
-#endregion
 
 #region Structs
 [CRepr]
@@ -206,4 +202,3 @@ public static
 
 }
 #endregion
-

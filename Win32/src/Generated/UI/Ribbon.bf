@@ -6,6 +6,7 @@ using Win32.Graphics.Gdi;
 using System;
 
 namespace Win32.UI.Ribbon;
+
 #region Constants
 public static
 {
@@ -16,9 +17,6 @@ public static
 	public const Guid LIBID_UIRibbon = .(0x942f35c2, 0xe83b, 0x45ef, 0xb0, 0x85, 0xac, 0x29, 0x5d, 0xd6, 0x3d, 0x5b);
 
 }
-#endregion
-
-#region TypeDefs
 #endregion
 
 #region Enums
@@ -191,8 +189,6 @@ public enum UI_OWNERSHIP : int32
 
 #endregion
 
-#region Function Pointers
-#endregion
 
 #region Structs
 [CRepr]
@@ -473,4 +469,3 @@ public static
 }
 
 #endregion
-

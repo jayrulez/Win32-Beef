@@ -4,6 +4,7 @@ using Win32.UI.Controls;
 using System;
 
 namespace Win32.Graphics.Dwm;
+
 #region Constants
 public static
 {
@@ -48,9 +49,6 @@ public static
 	public const uint32 c_DwmMaxAdapters = 16;
 
 }
-#endregion
-
-#region TypeDefs
 #endregion
 
 #region Enums
@@ -180,8 +178,6 @@ public enum DWM_TAB_WINDOW_REQUIREMENTS : uint32
 
 #endregion
 
-#region Function Pointers
-#endregion
 
 #region Structs
 [CRepr, Packed(1)]
@@ -282,15 +278,6 @@ public struct MilMatrix3x2D
 
 #endregion
 
-#region COM Class IDs
-public static
-{
-}
-#endregion
-
-#region COM Types
-#endregion
-
 #region Functions
 public static
 {
@@ -389,4 +376,3 @@ public static
 
 }
 #endregion
-

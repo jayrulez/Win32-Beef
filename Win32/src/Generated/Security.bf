@@ -3,6 +3,7 @@ using System;
 using System.Interop;
 
 namespace Win32.Security;
+
 #region Constants
 public static
 {
@@ -33,6 +34,7 @@ typealias SAFER_LEVEL_HANDLE = int;
 typealias SC_HANDLE = int;
 
 #endregion
+
 
 #region Enums
 
@@ -530,7 +532,7 @@ public struct SID
 	public uint8 Revision;
 	public uint8 SubAuthorityCount;
 	public SID_IDENTIFIER_AUTHORITY IdentifierAuthority;
-	private uint32[0] SubAuthority_impl;
+	private uint32[ANYSIZE_ARRAY] SubAuthority_impl;
 }
 
 [CRepr, Union]
@@ -804,7 +806,7 @@ public struct PRIVILEGE_SET
 {
 	public uint32 PrivilegeCount;
 	public uint32 Control;
-	private LUID_AND_ATTRIBUTES[0] Privilege_impl;
+	private LUID_AND_ATTRIBUTES[ANYSIZE_ARRAY] Privilege_impl;
 }
 
 [CRepr]
@@ -855,14 +857,14 @@ public struct TOKEN_USER
 public struct TOKEN_GROUPS
 {
 	public uint32 GroupCount;
-	private SID_AND_ATTRIBUTES[0] Groups_impl;
+	private SID_AND_ATTRIBUTES[ANYSIZE_ARRAY] Groups_impl;
 }
 
 [CRepr, FlexibleArray("Privileges")]
 public struct TOKEN_PRIVILEGES
 {
 	public uint32 PrivilegeCount;
-	private LUID_AND_ATTRIBUTES[0] Privileges_impl;
+	private LUID_AND_ATTRIBUTES[ANYSIZE_ARRAY] Privileges_impl;
 }
 
 [CRepr]
@@ -1042,11 +1044,11 @@ public struct CLAIM_SECURITY_ATTRIBUTE_RELATIVE_V1
 	[CRepr, Union]
 	public struct _Values_e__Union
 	{
-		public uint32[0] pInt64_impl;
-		public uint32[0] pUint64_impl;
-		public uint32[0] ppString_impl;
-		public uint32[0] pFqbn_impl;
-		public uint32[0] pOctetString_impl;
+		public uint32[ANYSIZE_ARRAY] pInt64_impl;
+		public uint32[ANYSIZE_ARRAY] pUint64_impl;
+		public uint32[ANYSIZE_ARRAY] ppString_impl;
+		public uint32[ANYSIZE_ARRAY] pFqbn_impl;
+		public uint32[ANYSIZE_ARRAY] pOctetString_impl;
 	}
 
 	public uint32 Name;
@@ -1110,15 +1112,6 @@ public struct QUOTA_LIMITS
 	public LARGE_INTEGER TimeLimit;
 }
 
-#endregion
-
-#region COM Class IDs
-public static
-{
-}
-#endregion
-
-#region COM Types
 #endregion
 
 #region Functions
@@ -1543,4 +1536,3 @@ public static
 
 }
 #endregion
-

@@ -4,6 +4,7 @@ using Win32.Graphics.DirectComposition;
 using System;
 
 namespace Win32.UI.Animation;
+
 #region Constants
 public static
 {
@@ -24,6 +25,7 @@ public static
 typealias UI_ANIMATION_KEYFRAME = int;
 
 #endregion
+
 
 #region Enums
 
@@ -138,11 +140,6 @@ public enum UI_ANIMATION_TIMER_CLIENT_STATUS : int32
 
 #endregion
 
-#region Function Pointers
-#endregion
-
-#region Structs
-#endregion
 
 #region COM Class IDs
 public static
@@ -1160,4 +1157,3 @@ public static
 }
 
 #endregion
-

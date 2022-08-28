@@ -4,6 +4,7 @@ using Win32.Security.Cryptography;
 using System;
 
 namespace Win32.Networking.Ldap;
+
 #region Constants
 public static
 {
@@ -298,9 +299,6 @@ public static
 }
 #endregion
 
-#region TypeDefs
-#endregion
-
 #region Enums
 
 [AllowDuplicates]
@@ -592,15 +590,6 @@ public struct LDAP_REFERRAL_CALLBACK
 	public DEREFERENCECONNECTION DereferenceRoutine;
 }
 
-#endregion
-
-#region COM Class IDs
-public static
-{
-}
-#endregion
-
-#region COM Types
 #endregion
 
 #region Functions
@@ -1346,4 +1335,3 @@ public static
 
 }
 #endregion
-

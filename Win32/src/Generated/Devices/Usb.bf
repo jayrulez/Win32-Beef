@@ -4,6 +4,7 @@ using System;
 using System.Interop;
 
 namespace Win32.Devices.Usb;
+
 #region Constants
 public static
 {
@@ -1096,9 +1097,6 @@ public static
 }
 #endregion
 
-#region TypeDefs
-#endregion
-
 #region Enums
 
 [AllowDuplicates]
@@ -1583,7 +1581,7 @@ public struct USB_DEVICE_CAPABILITY_SUPERSPEEDPLUS_USB_DESCRIPTOR
 	public _bmAttributes_e__Union bmAttributes;
 	public _wFunctionalitySupport_e__Union wFunctionalitySupport;
 	public uint16 wReserved;
-	private USB_DEVICE_CAPABILITY_SUPERSPEEDPLUS_SPEED[0] bmSublinkSpeedAttr_impl;
+	private USB_DEVICE_CAPABILITY_SUPERSPEEDPLUS_SPEED[ANYSIZE_ARRAY] bmSublinkSpeedAttr_impl;
 }
 
 [CRepr]
@@ -1604,7 +1602,7 @@ public struct USB_DEVICE_CAPABILITY_PLATFORM_DESCRIPTOR
 	public uint8 bDevCapabilityType;
 	public uint8 bReserved;
 	public Guid PlatformCapabilityUuid;
-	private uint8[0] CapabililityData_impl;
+	private uint8[ANYSIZE_ARRAY] CapabililityData_impl;
 }
 
 [CRepr, Packed(1), FlexibleArray("AlternateMode")]
@@ -1640,7 +1638,7 @@ public struct USB_DEVICE_CAPABILITY_BILLBOARD_DESCRIPTOR
 	public _VconnPower_e__Union VconnPower;
 	public uint8[32] bmConfigured;
 	public uint32 bReserved;
-	private _Anonymous_e__Struct[0] AlternateMode_impl;
+	private _Anonymous_e__Struct[ANYSIZE_ARRAY] AlternateMode_impl;
 }
 
 [CRepr]
@@ -1742,7 +1740,7 @@ public struct USB_STRING_DESCRIPTOR
 {
 	public uint8 bLength;
 	public uint8 bDescriptorType;
-	private char16[0] bString_impl;
+	private char16[ANYSIZE_ARRAY] bString_impl;
 }
 
 [CRepr, Packed(1)]
@@ -2079,7 +2077,7 @@ public struct USBD_INTERFACE_INFORMATION
 	public uint8 Reserved;
 	public void* InterfaceHandle;
 	public uint32 NumberOfPipes;
-	private USBD_PIPE_INFORMATION[0] Pipes_impl;
+	private USBD_PIPE_INFORMATION[ANYSIZE_ARRAY] Pipes_impl;
 }
 
 [CRepr]
@@ -2349,7 +2347,7 @@ public struct _URB_ISOCH_TRANSFER
 	public uint32 StartFrame;
 	public uint32 NumberOfPackets;
 	public uint32 ErrorCount;
-	private USBD_ISO_PACKET_DESCRIPTOR[0] IsoPacket_impl;
+	private USBD_ISO_PACKET_DESCRIPTOR[ANYSIZE_ARRAY] IsoPacket_impl;
 }
 
 [CRepr]
@@ -2518,7 +2516,7 @@ public struct USBUSER_CONTROLLER_INFO_0
 public struct USB_UNICODE_NAME
 {
 	public uint32 Length;
-	private char16[0] String_impl;
+	private char16[ANYSIZE_ARRAY] String_impl;
 }
 
 [CRepr]
@@ -2838,7 +2836,7 @@ public struct USBFN_INTERFACE_INFO
 	public uint8 InterfaceNumber;
 	public USBFN_BUS_SPEED Speed;
 	public uint16 Size;
-	private uint8[0] InterfaceDescriptorSet_impl;
+	private uint8[ANYSIZE_ARRAY] InterfaceDescriptorSet_impl;
 }
 
 [CRepr]
@@ -2934,15 +2932,6 @@ public struct USBSCAN_TIMEOUT
 	public uint32 TimeoutEvent;
 }
 
-#endregion
-
-#region COM Class IDs
-public static
-{
-}
-#endregion
-
-#region COM Types
 #endregion
 
 #region Functions
@@ -3052,4 +3041,3 @@ public static
 
 }
 #endregion
-

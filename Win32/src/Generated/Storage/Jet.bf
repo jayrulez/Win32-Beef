@@ -3,6 +3,7 @@ using Win32.Foundation;
 using System;
 
 namespace Win32.Storage.Jet;
+
 #region Constants
 public static
 {
@@ -1896,6 +1897,7 @@ typealias JET_LS = uint;
 
 #endregion
 
+
 #region Enums
 
 [AllowDuplicates]
@@ -3356,15 +3358,6 @@ public struct JET_RECSIZE2
 
 #endregion
 
-#region COM Class IDs
-public static
-{
-}
-#endregion
-
-#region COM Types
-#endregion
-
 #region Functions
 public static
 {
@@ -4125,4 +4118,3 @@ public static
 
 }
 #endregion
-

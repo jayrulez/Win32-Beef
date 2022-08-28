@@ -1,21 +1,13 @@
 using System;
 
 namespace Win32.System.MixedReality;
+
 #region Constants
 public static
 {
 	public const Guid PERCEPTIONFIELD_StateStream_TimeStamps = .(0xaa886119, 0xf32f, 0x49bf, 0x92, 0xca, 0xf9, 0xdd, 0xf7, 0x84, 0xd2, 0x97);
 
 }
-#endregion
-
-#region TypeDefs
-#endregion
-
-#region Enums
-#endregion
-
-#region Function Pointers
 #endregion
 
 #region Structs
@@ -35,13 +27,3 @@ public struct PERCEPTION_STATE_STREAM_TIMESTAMPS
 }
 
 #endregion
-
-#region COM Class IDs
-public static
-{
-}
-#endregion
-
-#region COM Types
-#endregion
-

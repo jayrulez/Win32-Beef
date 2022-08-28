@@ -3,6 +3,7 @@ using System;
 using System.Interop;
 
 namespace Win32.Devices.Bluetooth;
+
 #region Constants
 public static
 {
@@ -1554,6 +1555,7 @@ typealias HANDLE_SDP_TYPE = uint64;
 
 #endregion
 
+
 #region Enums
 
 [AllowDuplicates]
@@ -1979,7 +1981,7 @@ public struct BTH_SET_SERVICE
 	public uint32 fCodService;
 	public uint32[5] Reserved;
 	public uint32 ulRecordLength;
-	private uint8[0] pRecord_impl;
+	private uint8[ANYSIZE_ARRAY] pRecord_impl;
 }
 
 [CRepr, Packed(1)]
@@ -1996,7 +1998,7 @@ public struct BTH_QUERY_SERVICE
 	public uint32 serviceHandle;
 	public SdpQueryUuid[12] uuids;
 	public uint32 numRange;
-	private SdpAttributeRange[0] pRange_impl;
+	private SdpAttributeRange[ANYSIZE_ARRAY] pRange_impl;
 }
 
 [CRepr]
@@ -2076,15 +2078,6 @@ public struct BTH_INFO_RSP
 	public using _Anonymous_e__Union Anonymous;
 }
 
-#endregion
-
-#region COM Class IDs
-public static
-{
-}
-#endregion
-
-#region COM Types
 #endregion
 
 #region Functions
@@ -2194,4 +2187,3 @@ public static
 
 }
 #endregion
-

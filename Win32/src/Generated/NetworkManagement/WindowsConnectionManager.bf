@@ -3,6 +3,7 @@ using System;
 using System.Interop;
 
 namespace Win32.NetworkManagement.WindowsConnectionManager;
+
 #region Constants
 public static
 {
@@ -19,9 +20,6 @@ public static
 	public const uint32 NET_INTERFACE_FLAG_CONNECT_IF_NEEDED = 1;
 
 }
-#endregion
-
-#region TypeDefs
 #endregion
 
 #region Enums
@@ -101,7 +99,7 @@ public struct WCM_PROFILE_INFO
 public struct WCM_PROFILE_INFO_LIST
 {
 	public uint32 dwNumberOfItems;
-	private WCM_PROFILE_INFO[0] ProfileInfo_impl;
+	private WCM_PROFILE_INFO[ANYSIZE_ARRAY] ProfileInfo_impl;
 }
 
 [CRepr]
@@ -167,15 +165,6 @@ public struct NET_INTERFACE_CONTEXT_TABLE
 
 #endregion
 
-#region COM Class IDs
-public static
-{
-}
-#endregion
-
-#region COM Types
-#endregion
-
 #region Functions
 public static
 {
@@ -211,4 +200,3 @@ public static
 
 }
 #endregion
-

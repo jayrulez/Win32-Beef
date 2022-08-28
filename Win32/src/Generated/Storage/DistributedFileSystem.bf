@@ -4,6 +4,7 @@ using System;
 using System.Interop;
 
 namespace Win32.Storage.DistributedFileSystem;
+
 #region Constants
 public static
 {
@@ -76,9 +77,6 @@ public static
 }
 #endregion
 
-#region TypeDefs
-#endregion
-
 #region Enums
 
 [AllowDuplicates]
@@ -103,8 +101,6 @@ public enum DFS_NAMESPACE_VERSION_ORIGIN : int32
 
 #endregion
 
-#region Function Pointers
-#endregion
 
 #region Structs
 [CRepr]
@@ -387,7 +383,7 @@ public struct DFS_SITENAME_INFO
 public struct DFS_SITELIST_INFO
 {
 	public uint32 cSites;
-	private DFS_SITENAME_INFO[0] Site_impl;
+	private DFS_SITENAME_INFO[ANYSIZE_ARRAY] Site_impl;
 }
 
 [CRepr]
@@ -408,18 +404,9 @@ public struct DFS_GET_PKT_ENTRY_STATE_ARG
 	public uint16 ServerNameLen;
 	public uint16 ShareNameLen;
 	public uint32 Level;
-	private char16[0] Buffer_impl;
+	private char16[ANYSIZE_ARRAY] Buffer_impl;
 }
 
-#endregion
-
-#region COM Class IDs
-public static
-{
-}
-#endregion
-
-#region COM Types
 #endregion
 
 #region Functions
@@ -493,4 +480,3 @@ public static
 
 }
 #endregion
-

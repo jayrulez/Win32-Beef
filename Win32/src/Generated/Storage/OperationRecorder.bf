@@ -3,9 +3,6 @@ using System;
 
 namespace Win32.Storage.OperationRecorder;
 
-#region TypeDefs
-#endregion
-
 #region Enums
 
 [AllowDuplicates]
@@ -23,8 +20,6 @@ public enum OPERATION_END_PARAMETERS_FLAGS : uint32
 
 #endregion
 
-#region Function Pointers
-#endregion
 
 #region Structs
 [CRepr]
@@ -45,15 +40,6 @@ public struct OPERATION_END_PARAMETERS
 
 #endregion
 
-#region COM Class IDs
-public static
-{
-}
-#endregion
-
-#region COM Types
-#endregion
-
 #region Functions
 public static
 {
@@ -65,4 +51,3 @@ public static
 
 }
 #endregion
-

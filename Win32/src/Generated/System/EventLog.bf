@@ -3,6 +3,7 @@ using System;
 using System.Interop;
 
 namespace Win32.System.EventLog;
+
 #region Constants
 public static
 {
@@ -27,6 +28,7 @@ typealias EventLogHandle = int;
 typealias EventSourceHandle = int;
 
 #endregion
+
 
 #region Enums
 
@@ -467,7 +469,7 @@ public struct EVENTSFORLOGFILE
 	public uint32 ulSize;
 	public char16[256] szLogicalLogFile;
 	public uint32 ulNumRecords;
-	private EVENTLOGRECORD[0] pEventLogRecords_impl;
+	private EVENTLOGRECORD[ANYSIZE_ARRAY] pEventLogRecords_impl;
 }
 
 [CRepr]
@@ -476,15 +478,6 @@ public struct EVENTLOG_FULL_INFORMATION
 	public uint32 dwFull;
 }
 
-#endregion
-
-#region COM Class IDs
-public static
-{
-}
-#endregion
-
-#region COM Types
 #endregion
 
 #region Functions
@@ -664,4 +657,3 @@ public static
 
 }
 #endregion
-

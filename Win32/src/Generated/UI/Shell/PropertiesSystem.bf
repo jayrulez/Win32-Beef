@@ -6,15 +6,13 @@ using Win32.UI.Shell.Common;
 using System;
 
 namespace Win32.UI.Shell.PropertiesSystem;
+
 #region Constants
 public static
 {
 	public const uint32 PKEY_PIDSTR_MAX = 10;
 
 }
-#endregion
-
-#region TypeDefs
 #endregion
 
 #region Enums
@@ -402,8 +400,6 @@ public enum SYNC_ENGINE_STATE_FLAGS : int32
 
 #endregion
 
-#region Function Pointers
-#endregion
 
 #region Structs
 [CRepr]
@@ -1735,4 +1731,3 @@ public static
 
 }
 #endregion
-

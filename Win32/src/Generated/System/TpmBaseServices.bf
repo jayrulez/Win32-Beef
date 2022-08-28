@@ -2,6 +2,7 @@ using Win32.Foundation;
 using System;
 
 namespace Win32.System.TpmBaseServices;
+
 #region Constants
 public static
 {
@@ -62,9 +63,6 @@ public static
 }
 #endregion
 
-#region TypeDefs
-#endregion
-
 #region Enums
 
 [AllowDuplicates]
@@ -90,8 +88,6 @@ public enum TBS_COMMAND_LOCALITY : uint32
 
 #endregion
 
-#region Function Pointers
-#endregion
 
 #region Structs
 [CRepr]
@@ -138,15 +134,6 @@ public struct TPM_DEVICE_INFO
 
 #endregion
 
-#region COM Class IDs
-public static
-{
-}
-#endregion
-
-#region COM Types
-#endregion
-
 #region Functions
 public static
 {
@@ -191,4 +178,3 @@ public static
 
 }
 #endregion
-

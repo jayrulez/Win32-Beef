@@ -9,6 +9,7 @@ using Win32.UI.Shell;
 using System;
 
 namespace Win32.System.GroupPolicy;
+
 #region Constants
 public static
 {
@@ -201,6 +202,7 @@ public static
 typealias CriticalPolicySectionHandle = int;
 
 #endregion
+
 
 #region Enums
 
@@ -2382,4 +2384,3 @@ public static
 
 }
 #endregion
-

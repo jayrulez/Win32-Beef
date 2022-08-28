@@ -22,6 +22,7 @@ using System;
 using System.Interop;
 
 namespace Win32.UI.Shell;
+
 #region Constants
 public static
 {
@@ -3196,6 +3197,7 @@ typealias HDROP = int;
 typealias HPSXA = int;
 
 #endregion
+
 
 #region Enums
 
@@ -6854,7 +6856,7 @@ public struct MULTIKEYHELPA
 {
 	public uint32 mkSize;
 	public CHAR mkKeylist;
-	private CHAR[0] szKeyphrase_impl;
+	private CHAR[ANYSIZE_ARRAY] szKeyphrase_impl;
 }
 
 [CRepr, FlexibleArray("szKeyphrase")]
@@ -6862,7 +6864,7 @@ public struct MULTIKEYHELPW
 {
 	public uint32 mkSize;
 	public char16 mkKeylist;
-	private char16[0] szKeyphrase_impl;
+	private char16[ANYSIZE_ARRAY] szKeyphrase_impl;
 }
 
 [CRepr]
@@ -7061,7 +7063,7 @@ public struct DELEGATEITEMID
 	public uint16 cbSize;
 	public uint16 wOuter;
 	public uint16 cbInner;
-	private uint8[0] rgb_impl;
+	private uint8[ANYSIZE_ARRAY] rgb_impl;
 }
 
 [CRepr]
@@ -7215,7 +7217,7 @@ public struct EXP_PROPERTYSTORAGE
 {
 	public uint32 cbSize;
 	public uint32 dwSignature;
-	private uint8[0] abPropertyStorage_impl;
+	private uint8[ANYSIZE_ARRAY] abPropertyStorage_impl;
 }
 
 [CRepr]
@@ -7268,14 +7270,14 @@ public struct BROWSEINFOW
 public struct NRESARRAY
 {
 	public uint32 cItems;
-	private NETRESOURCEA[0] nr_impl;
+	private NETRESOURCEA[ANYSIZE_ARRAY] nr_impl;
 }
 
 [CRepr, Packed(1), FlexibleArray("aoffset")]
 public struct CIDA
 {
 	public uint32 cidl;
-	private uint32[0] aoffset_impl;
+	private uint32[ANYSIZE_ARRAY] aoffset_impl;
 }
 
 [CRepr, Packed(1)]
@@ -7314,14 +7316,14 @@ public struct FILEDESCRIPTORW
 public struct FILEGROUPDESCRIPTORA
 {
 	public uint32 cItems;
-	private FILEDESCRIPTORA[0] fgd_impl;
+	private FILEDESCRIPTORA[ANYSIZE_ARRAY] fgd_impl;
 }
 
 [CRepr, Packed(1), FlexibleArray("fgd")]
 public struct FILEGROUPDESCRIPTORW
 {
 	public uint32 cItems;
-	private FILEDESCRIPTORW[0] fgd_impl;
+	private FILEDESCRIPTORW[ANYSIZE_ARRAY] fgd_impl;
 }
 
 [CRepr, Packed(1)]
@@ -7339,7 +7341,7 @@ public struct FILE_ATTRIBUTES_ARRAY
 	public uint32 cItems;
 	public uint32 dwSumFileAttributes;
 	public uint32 dwProductFileAttributes;
-	private uint32[0] rgdwFileAttributes_impl;
+	private uint32[ANYSIZE_ARRAY] rgdwFileAttributes_impl;
 }
 
 [CRepr, Packed(1)]
@@ -7444,7 +7446,7 @@ public struct QCMINFO_IDMAP_PLACEMENT
 public struct QCMINFO_IDMAP
 {
 	public uint32 nMaxIds;
-	private QCMINFO_IDMAP_PLACEMENT[0] pIdList_impl;
+	private QCMINFO_IDMAP_PLACEMENT[ANYSIZE_ARRAY] pIdList_impl;
 }
 
 [CRepr]
@@ -7642,7 +7644,7 @@ public struct AASHELLMENUFILENAME
 {
 	public int16 cbTotal;
 	public uint8[12] rgbReserved;
-	private char16[0] szFileName_impl;
+	private char16[ANYSIZE_ARRAY] szFileName_impl;
 }
 
 [CRepr]
@@ -22055,4 +22057,3 @@ public static
 
 }
 #endregion
-

@@ -7,6 +7,7 @@ using System;
 using System.Interop;
 
 namespace Win32.System.SideShow;
+
 #region Constants
 public static
 {
@@ -65,9 +66,6 @@ public static
 }
 #endregion
 
-#region TypeDefs
-#endregion
-
 #region Enums
 
 [AllowDuplicates]
@@ -115,8 +113,6 @@ public enum SCF_BUTTON_IDS : int32
 
 #endregion
 
-#region Function Pointers
-#endregion
 
 #region Structs
 [CRepr]
@@ -170,7 +166,7 @@ public struct APPLICATION_EVENT_DATA
 	public Guid EndpointId;
 	public uint32 dwEventId;
 	public uint32 cbEventData;
-	private uint8[0] bEventData_impl;
+	private uint8[ANYSIZE_ARRAY] bEventData_impl;
 }
 
 [CRepr, Packed(1)]
@@ -473,4 +469,3 @@ public static
 }
 
 #endregion
-

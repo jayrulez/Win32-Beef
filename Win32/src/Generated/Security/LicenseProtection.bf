@@ -3,9 +3,6 @@ using System;
 
 namespace Win32.Security.LicenseProtection;
 
-#region TypeDefs
-#endregion
-
 #region Enums
 
 [AllowDuplicates]
@@ -20,20 +17,6 @@ public enum LicenseProtectionStatus : int32
 
 #endregion
 
-#region Function Pointers
-#endregion
-
-#region Structs
-#endregion
-
-#region COM Class IDs
-public static
-{
-}
-#endregion
-
-#region COM Types
-#endregion
 
 #region Functions
 public static
@@ -46,4 +29,3 @@ public static
 
 }
 #endregion
-

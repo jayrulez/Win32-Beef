@@ -2,6 +2,7 @@ using Win32.Foundation;
 using System;
 
 namespace Win32.System.Shutdown;
+
 #region Constants
 public static
 {
@@ -32,9 +33,6 @@ public static
 	public const uint32 MAX_NUM_REASONS = 256;
 
 }
-#endregion
-
-#region TypeDefs
 #endregion
 
 #region Enums
@@ -132,20 +130,6 @@ public enum EXIT_WINDOWS_FLAGS : uint32
 
 #endregion
 
-#region Function Pointers
-#endregion
-
-#region Structs
-#endregion
-
-#region COM Class IDs
-public static
-{
-}
-#endregion
-
-#region COM Types
-#endregion
 
 #region Functions
 public static
@@ -198,4 +182,3 @@ public static
 
 }
 #endregion
-

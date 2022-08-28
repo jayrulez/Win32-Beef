@@ -5,9 +5,6 @@ using System;
 
 namespace Win32.System.WinRT.Graphics.Direct2D;
 
-#region TypeDefs
-#endregion
-
 #region Enums
 
 [AllowDuplicates]
@@ -28,17 +25,6 @@ public enum GRAPHICS_EFFECT_PROPERTY_MAPPING : int32
 
 #endregion
 
-#region Function Pointers
-#endregion
-
-#region Structs
-#endregion
-
-#region COM Class IDs
-public static
-{
-}
-#endregion
 
 #region COM Types
 [CRepr]struct IGraphicsEffectD2D1Interop : IUnknown
@@ -90,4 +76,3 @@ public static
 }
 
 #endregion
-

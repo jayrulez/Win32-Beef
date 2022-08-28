@@ -11,6 +11,7 @@ typealias PRJ_DIR_ENTRY_BUFFER_HANDLE = int;
 
 #endregion
 
+
 #region Enums
 
 [AllowDuplicates]
@@ -239,7 +240,7 @@ public struct PRJ_PLACEHOLDER_INFO
 	public _SecurityInformation_e__Struct SecurityInformation;
 	public _StreamsInformation_e__Struct StreamsInformation;
 	public PRJ_PLACEHOLDER_VERSION_INFO VersionInfo;
-	private uint8[0] VariableData_impl;
+	private uint8[ANYSIZE_ARRAY] VariableData_impl;
 }
 
 [CRepr]
@@ -325,15 +326,6 @@ public struct PRJ_COMPLETE_COMMAND_EXTENDED_PARAMETERS
 
 #endregion
 
-#region COM Class IDs
-public static
-{
-}
-#endregion
-
-#region COM Types
-#endregion
-
 #region Functions
 public static
 {
@@ -396,4 +388,3 @@ public static
 
 }
 #endregion
-

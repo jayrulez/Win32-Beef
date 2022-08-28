@@ -5,6 +5,7 @@ using Win32.Graphics.Dwm;
 using System;
 
 namespace Win32.UI.Wpf;
+
 #region Constants
 public static
 {
@@ -23,15 +24,6 @@ public static
 	public const Guid CLSID_MILBitmapEffectEmboss = .(0xcd299846, 0x824f, 0x47ec, 0xa0, 0x07, 0x12, 0xaa, 0x76, 0x7f, 0x28, 0x16);
 
 }
-#endregion
-
-#region TypeDefs
-#endregion
-
-#region Enums
-#endregion
-
-#region Function Pointers
 #endregion
 
 #region Structs
@@ -72,12 +64,6 @@ public struct MILMatrixF
 	public double _44;
 }
 
-#endregion
-
-#region COM Class IDs
-public static
-{
-}
 #endregion
 
 #region COM Types
@@ -520,4 +506,3 @@ public static
 }
 
 #endregion
-

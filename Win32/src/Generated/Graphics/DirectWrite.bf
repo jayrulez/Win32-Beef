@@ -6,6 +6,7 @@ using Win32.Globalization;
 using System;
 
 namespace Win32.Graphics.DirectWrite;
+
 #region Constants
 public static
 {
@@ -24,9 +25,6 @@ public static
 	public const HRESULT DWRITE_E_TOOMANYDOWNLOADS = -2003283952;
 
 }
-#endregion
-
-#region TypeDefs
 #endregion
 
 #region Enums
@@ -1015,8 +1013,6 @@ public enum DWRITE_FONT_SOURCE_TYPE : int32
 
 #endregion
 
-#region Function Pointers
-#endregion
 
 #region Structs
 [CRepr]
@@ -1452,12 +1448,6 @@ public struct DWRITE_FONT_AXIS_RANGE
 	public float maxValue;
 }
 
-#endregion
-
-#region COM Class IDs
-public static
-{
-}
 #endregion
 
 #region COM Types
@@ -3892,4 +3882,3 @@ public static
 
 }
 #endregion
-

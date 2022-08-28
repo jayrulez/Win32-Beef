@@ -5,6 +5,7 @@ using System;
 using System.Interop;
 
 namespace Win32.System.Performance;
+
 #region Constants
 public static
 {
@@ -383,6 +384,7 @@ typealias PerfProviderHandle = int;
 typealias PerfQueryHandle = int;
 
 #endregion
+
 
 #region Enums
 
@@ -1084,7 +1086,7 @@ public struct PDH_COUNTER_INFO_A
 	public PSTR szFullPath;
 	public using _Anonymous_e__Union Anonymous;
 	public PSTR szExplainText;
-	private uint32[0] DataBuffer_impl;
+	private uint32[ANYSIZE_ARRAY] DataBuffer_impl;
 }
 
 [CRepr, FlexibleArray("DataBuffer")]
@@ -1120,7 +1122,7 @@ public struct PDH_COUNTER_INFO_W
 	public PWSTR szFullPath;
 	public using _Anonymous_e__Union Anonymous;
 	public PWSTR szExplainText;
-	private uint32[0] DataBuffer_impl;
+	private uint32[ANYSIZE_ARRAY] DataBuffer_impl;
 }
 
 [CRepr]
@@ -1137,7 +1139,7 @@ public struct PDH_RAW_LOG_RECORD
 	public uint32 dwStructureSize;
 	public PDH_LOG_TYPE dwRecordType;
 	public uint32 dwItems;
-	private uint8[0] RawBytes_impl;
+	private uint8[ANYSIZE_ARRAY] RawBytes_impl;
 }
 
 [CRepr]
@@ -3935,4 +3937,3 @@ public static
 
 }
 #endregion
-

@@ -5,9 +5,6 @@ using System;
 
 namespace Win32.Gaming;
 
-#region TypeDefs
-#endregion
-
 #region Enums
 
 [AllowDuplicates]
@@ -465,4 +462,3 @@ public static
 
 }
 #endregion
-

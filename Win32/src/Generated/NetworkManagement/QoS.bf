@@ -6,6 +6,7 @@ using System;
 using System.Interop;
 
 namespace Win32.NetworkManagement.QoS;
+
 #region Constants
 public static
 {
@@ -989,6 +990,7 @@ typealias RHANDLE = int;
 
 #endregion
 
+
 #region Enums
 
 [AllowDuplicates]
@@ -1218,7 +1220,7 @@ public struct FILTER_SPEC
 [CRepr, FlexibleArray("scopl_ipaddr")]
 public struct Scope_list_ipv4
 {
-	private IN_ADDR[0] scopl_ipaddr_impl;
+	private IN_ADDR[ANYSIZE_ARRAY] scopl_ipaddr_impl;
 }
 
 [CRepr]
@@ -1585,7 +1587,7 @@ public struct QOS_DIFFSERV
 {
 	public QOS_OBJECT_HDR ObjectHdr;
 	public uint32 DSFieldCount;
-	private uint8[0] DiffservRule_impl;
+	private uint8[ANYSIZE_ARRAY] DiffservRule_impl;
 }
 
 [CRepr]
@@ -1653,7 +1655,7 @@ public struct TC_GEN_FLOW
 	public FLOWSPEC SendingFlowspec;
 	public FLOWSPEC ReceivingFlowspec;
 	public uint32 TcObjectsLength;
-	private QOS_OBJECT_HDR[0] TcObjects_impl;
+	private QOS_OBJECT_HDR[ANYSIZE_ARRAY] TcObjects_impl;
 }
 
 [CRepr]
@@ -1715,7 +1717,7 @@ public struct ENUMERATION_BUFFER
 	public char16[256] FlowName;
 	public TC_GEN_FLOW* pFlow;
 	public uint32 NumberOfFilters;
-	private TC_GEN_FILTER[0] GenericFilter_impl;
+	private TC_GEN_FILTER[ANYSIZE_ARRAY] GenericFilter_impl;
 }
 
 [CRepr, Union]
@@ -1807,7 +1809,7 @@ public struct RSVP_POLICY_INFO
 {
 	public QOS_OBJECT_HDR ObjectHdr;
 	public uint32 NumPolicyElement;
-	private RSVP_POLICY[0] PolicyElement_impl;
+	private RSVP_POLICY[ANYSIZE_ARRAY] PolicyElement_impl;
 }
 
 [CRepr]
@@ -1862,7 +1864,7 @@ public struct PARAM_BUFFER
 {
 	public uint32 ParameterId;
 	public uint32 Length;
-	private uint8[0] Buffer_impl;
+	private uint8[ANYSIZE_ARRAY] Buffer_impl;
 }
 
 [CRepr]
@@ -1872,7 +1874,7 @@ public struct CONTROL_SERVICE
 	public struct _Anonymous_e__Union
 	{
 		public AD_GUARANTEED Guaranteed;
-		public PARAM_BUFFER[1] ParamBuffer;
+		public PARAM_BUFFER[ANYSIZE_ARRAY] ParamBuffer;
 	}
 
 	public uint32 Length;
@@ -1887,7 +1889,7 @@ public struct RSVP_ADSPEC
 	public QOS_OBJECT_HDR ObjectHdr;
 	public AD_GENERAL_PARAMS GeneralParams;
 	public uint32 NumberOfServices;
-	private CONTROL_SERVICE[0] Services_impl;
+	private CONTROL_SERVICE[ANYSIZE_ARRAY] Services_impl;
 }
 
 [CRepr]
@@ -1921,7 +1923,7 @@ public struct TCG_PCClientPCREventStruct
 	public uint32 eventType;
 	public uint8[20] digest;
 	public uint32 eventDataSize;
-	private uint8[0] event_impl;
+	private uint8[ANYSIZE_ARRAY] event_impl;
 }
 
 [CRepr, Packed(1), FlexibleArray("EventData")]
@@ -1929,7 +1931,7 @@ public struct TCG_PCClientTaggedEventStruct
 {
 	public uint32 EventID;
 	public uint32 EventDataSize;
-	private uint8[0] EventData_impl;
+	private uint8[ANYSIZE_ARRAY] EventData_impl;
 }
 
 [CRepr, Packed(1)]
@@ -1947,7 +1949,7 @@ public struct tag_SIPAEVENT_VSM_IDK_RSA_INFO
 	public uint32 KeyBitLength;
 	public uint32 PublicExpLengthBytes;
 	public uint32 ModulusSizeBytes;
-	private uint8[0] PublicKeyData_impl;
+	private uint8[ANYSIZE_ARRAY] PublicKeyData_impl;
 }
 
 [CRepr, Packed(1)]
@@ -1970,7 +1972,7 @@ public struct tag_SIPAEVENT_SI_POLICY_PAYLOAD
 	public uint16 PolicyNameLength;
 	public uint16 HashAlgID;
 	public uint32 DigestLength;
-	private uint8[0] VarLengthData_impl;
+	private uint8[ANYSIZE_ARRAY] VarLengthData_impl;
 }
 
 [CRepr, Packed(1), FlexibleArray("Digest")]
@@ -1979,7 +1981,7 @@ public struct tag_SIPAEVENT_REVOCATION_LIST_PAYLOAD
 	public int64 CreationTime;
 	public uint32 DigestLength;
 	public uint16 HashAlgID;
-	private uint8[0] Digest_impl;
+	private uint8[ANYSIZE_ARRAY] Digest_impl;
 }
 
 [CRepr, Packed(1), FlexibleArray("Signature")]
@@ -1987,7 +1989,7 @@ public struct tag_SIPAEVENT_KSR_SIGNATURE_PAYLOAD
 {
 	public uint32 SignAlgID;
 	public uint32 SignatureLength;
-	private uint8[0] Signature_impl;
+	private uint8[ANYSIZE_ARRAY] Signature_impl;
 }
 
 [CRepr, Packed(1), FlexibleArray("VarData")]
@@ -1999,7 +2001,7 @@ public struct tag_SIPAEVENT_SBCP_INFO_PAYLOAD_V1
 	public uint16 DigestLength;
 	public uint32 Options;
 	public uint32 SignersCount;
-	private uint8[0] VarData_impl;
+	private uint8[ANYSIZE_ARRAY] VarData_impl;
 }
 
 [CRepr]
@@ -2010,15 +2012,6 @@ public struct QOS
 	public WSABUF ProviderSpecific;
 }
 
-#endregion
-
-#region COM Class IDs
-public static
-{
-}
-#endregion
-
-#region COM Types
 #endregion
 
 #region Functions
@@ -2123,4 +2116,3 @@ public static
 
 }
 #endregion
-

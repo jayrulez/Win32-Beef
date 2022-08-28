@@ -5,29 +5,12 @@ using Win32.Data.Xml.MsXml;
 using System;
 
 namespace Win32.Media.DirectShow.Xml;
+
 #region Constants
 public static
 {
 	public const Guid CLSID_XMLGraphBuilder = .(0x1bb05961, 0x5fbf, 0x11d2, 0xa5, 0x21, 0x44, 0xdf, 0x07, 0xc1, 0x00, 0x00);
 
-}
-#endregion
-
-#region TypeDefs
-#endregion
-
-#region Enums
-#endregion
-
-#region Function Pointers
-#endregion
-
-#region Structs
-#endregion
-
-#region COM Class IDs
-public static
-{
 }
 #endregion
 
@@ -54,4 +37,3 @@ public static
 }
 
 #endregion
-

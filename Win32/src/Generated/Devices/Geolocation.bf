@@ -7,6 +7,7 @@ using System;
 using System.Interop;
 
 namespace Win32.Devices.Geolocation;
+
 #region Constants
 public static
 {
@@ -149,9 +150,6 @@ public static
 }
 #endregion
 
-#region TypeDefs
-#endregion
-
 #region Enums
 
 [AllowDuplicates]
@@ -290,8 +288,6 @@ public enum GNSS_NI_USER_RESPONSE : int32
 
 #endregion
 
-#region Function Pointers
-#endregion
 
 #region Structs
 [CRepr]
@@ -360,7 +356,7 @@ public struct GNSS_DRIVERCOMMAND_PARAM
 	public uint32 Reserved;
 	public uint32 CommandDataSize;
 	public uint8[512] Unused;
-	private uint8[0] CommandData_impl;
+	private uint8[ANYSIZE_ARRAY] CommandData_impl;
 }
 
 [CRepr]
@@ -773,7 +769,7 @@ public struct GNSS_EVENT
 		public GNSS_BREADCRUMBING_ALERT_DATA BreadcrumbAlertData;
 		public GNSS_GEOFENCES_TRACKINGSTATUS_DATA GeofencesTrackingStatus;
 		public GNSS_DRIVER_REQUEST_DATA DriverRequestData;
-		public uint8[1] CustomData;
+		public uint8[ANYSIZE_ARRAY] CustomData;
 	}
 
 	public uint32 Size;
@@ -800,7 +796,7 @@ public struct GNSS_EVENT_2
 		public GNSS_BREADCRUMBING_ALERT_DATA BreadcrumbAlertData;
 		public GNSS_GEOFENCES_TRACKINGSTATUS_DATA GeofencesTrackingStatus;
 		public GNSS_DRIVER_REQUEST_DATA DriverRequestData;
-		public uint8[1] CustomData;
+		public uint8[ANYSIZE_ARRAY] CustomData;
 	}
 
 	public uint32 Size;
@@ -839,7 +835,7 @@ public struct GNSS_AGNSS_INJECTBLOB
 	public uint32 BlobVersion;
 	public uint32 AgnssFormat;
 	public uint32 BlobSize;
-	private uint8[0] BlobData_impl;
+	private uint8[ANYSIZE_ARRAY] BlobData_impl;
 }
 
 [CRepr]
@@ -882,7 +878,7 @@ public struct GNSS_SUPL_CERT_CONFIG
 	public CHAR[260] SuplCertName;
 	public uint32 CertSize;
 	public uint8[512] Unused;
-	private uint8[0] CertData_impl;
+	private uint8[ANYSIZE_ARRAY] CertData_impl;
 }
 
 [CRepr]
@@ -924,7 +920,7 @@ public struct GNSS_SELFTESTCONFIG
 	public uint32 TestType;
 	public uint8[512] Unused;
 	public uint32 InBufLen;
-	private uint8[0] InBuffer_impl;
+	private uint8[ANYSIZE_ARRAY] InBuffer_impl;
 }
 
 [CRepr, FlexibleArray("OutBuffer")]
@@ -937,7 +933,7 @@ public struct GNSS_SELFTESTRESULT
 	public uint32 PinFailedBitMask;
 	public uint8[512] Unused;
 	public uint32 OutBufLen;
-	private uint8[0] OutBuffer_impl;
+	private uint8[ANYSIZE_ARRAY] OutBuffer_impl;
 }
 
 [CRepr]
@@ -1315,4 +1311,3 @@ public static
 }
 
 #endregion
-

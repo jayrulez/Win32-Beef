@@ -3,6 +3,7 @@ using Win32.Foundation;
 using System;
 
 namespace Win32.Graphics.DXCore;
+
 #region Constants
 public static
 {
@@ -15,9 +16,6 @@ public static
 	public const Guid DXCORE_ADAPTER_ATTRIBUTE_D3D12_CORE_COMPUTE = .(0x248e2800, 0xa793, 0x4724, 0xab, 0xaa, 0x23, 0xa6, 0xde, 0x1b, 0xe0, 0x90);
 
 }
-#endregion
-
-#region TypeDefs
 #endregion
 
 #region Enums
@@ -120,12 +118,6 @@ public struct DXCoreAdapterMemoryBudget
 	public uint64 currentReservation;
 }
 
-#endregion
-
-#region COM Class IDs
-public static
-{
-}
 #endregion
 
 #region COM Types
@@ -238,4 +230,3 @@ public static
 
 }
 #endregion
-

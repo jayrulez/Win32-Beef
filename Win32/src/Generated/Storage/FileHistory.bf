@@ -4,6 +4,7 @@ using Win32.System.WindowsProgramming;
 using System;
 
 namespace Win32.Storage.FileHistory;
+
 #region Constants
 public static
 {
@@ -94,9 +95,6 @@ public static
 }
 #endregion
 
-#region TypeDefs
-#endregion
-
 #region Enums
 
 [AllowDuplicates]
@@ -185,11 +183,6 @@ public enum FhBackupStopReason : int32
 
 #endregion
 
-#region Function Pointers
-#endregion
-
-#region Structs
-#endregion
 
 #region COM Class IDs
 public static
@@ -349,4 +342,3 @@ public static
 
 }
 #endregion
-

@@ -5,6 +5,7 @@ using Win32.System.IO;
 using System;
 
 namespace Win32.NetworkManagement.WindowsNetworkVirtualization;
+
 #region Constants
 public static
 {
@@ -13,9 +14,6 @@ public static
 	public const uint32 WNV_API_MINOR_VERSION_0 = 0;
 
 }
-#endregion
-
-#region TypeDefs
 #endregion
 
 #region Enums
@@ -50,8 +48,6 @@ public enum WNV_CA_NOTIFICATION_TYPE : int32
 
 #endregion
 
-#region Function Pointers
-#endregion
 
 #region Structs
 [CRepr]
@@ -143,15 +139,6 @@ public struct WNV_REDIRECT_PARAM
 
 #endregion
 
-#region COM Class IDs
-public static
-{
-}
-#endregion
-
-#region COM Types
-#endregion
-
 #region Functions
 public static
 {
@@ -163,4 +150,3 @@ public static
 
 }
 #endregion
-

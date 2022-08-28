@@ -2,6 +2,7 @@ using Win32.Foundation;
 using System;
 
 namespace Win32.System.Mapi;
+
 #region Constants
 public static
 {
@@ -117,13 +118,6 @@ public static
 
 }
 #endregion
-
-#region TypeDefs
-#endregion
-
-#region Enums
-#endregion
-
 #region Function Pointers
 public function uint32 LPMAPILOGON(uint ulUIParam, PSTR lpszProfileName, PSTR lpszPassword, uint32 flFlags, uint32 ulReserved, uint* lplhSession);
 
@@ -244,15 +238,6 @@ public struct MapiMessageW
 
 #endregion
 
-#region COM Class IDs
-public static
-{
-}
-#endregion
-
-#region COM Types
-#endregion
-
 #region Functions
 public static
 {
@@ -261,4 +246,3 @@ public static
 
 }
 #endregion
-

@@ -5,6 +5,7 @@ using Win32.Storage.FileSystem;
 using System;
 
 namespace Win32.System.Pipes;
+
 #region Constants
 public static
 {
@@ -17,9 +18,6 @@ public static
 	public const uint32 NMPWAIT_USE_DEFAULT_WAIT = 0;
 
 }
-#endregion
-
-#region TypeDefs
 #endregion
 
 #region Enums
@@ -41,20 +39,6 @@ public enum NAMED_PIPE_MODE : uint32
 
 #endregion
 
-#region Function Pointers
-#endregion
-
-#region Structs
-#endregion
-
-#region COM Class IDs
-public static
-{
-}
-#endregion
-
-#region COM Types
-#endregion
 
 #region Functions
 public static
@@ -132,4 +116,3 @@ public static
 
 }
 #endregion
-

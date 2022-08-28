@@ -3,6 +3,7 @@ using Win32.Security;
 using System;
 
 namespace Win32.System.Memory;
+
 #region Constants
 public static
 {
@@ -23,6 +24,7 @@ public static
 typealias HeapHandle = int;
 
 #endregion
+
 
 #region Enums
 
@@ -421,15 +423,6 @@ public struct MEMORY_BASIC_INFORMATION
 
 #endregion
 
-#region COM Class IDs
-public static
-{
-}
-#endregion
-
-#region COM Types
-#endregion
-
 #region Functions
 public static
 {
@@ -757,4 +750,3 @@ public static
 
 }
 #endregion
-

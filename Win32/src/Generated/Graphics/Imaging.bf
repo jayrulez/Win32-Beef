@@ -9,6 +9,7 @@ using System;
 using System.Interop;
 
 namespace Win32.Graphics.Imaging;
+
 #region Constants
 public static
 {
@@ -615,9 +616,6 @@ public static
 	public const Guid CLSID_WICWebpAnmfMetadataReader = .(0x85a10b03, 0xc9f6, 0x439f, 0xbe, 0x5e, 0xc0, 0xfb, 0xef, 0x67, 0x80, 0x7c);
 
 }
-#endregion
-
-#region TypeDefs
 #endregion
 
 #region Enums
@@ -1365,7 +1363,7 @@ public struct WICRawToneCurvePoint
 public struct WICRawToneCurve
 {
 	public uint32 cPoints;
-	private WICRawToneCurvePoint[0] aPoints_impl;
+	private WICRawToneCurvePoint[ANYSIZE_ARRAY] aPoints_impl;
 }
 
 [CRepr]
@@ -1409,12 +1407,6 @@ public struct WICMetadataHeader
 	public ULARGE_INTEGER DataOffset;
 }
 
-#endregion
-
-#region COM Class IDs
-public static
-{
-}
 #endregion
 
 #region COM Types
@@ -2835,4 +2827,3 @@ public static
 
 }
 #endregion
-

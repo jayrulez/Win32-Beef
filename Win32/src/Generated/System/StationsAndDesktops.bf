@@ -13,6 +13,7 @@ typealias HDESK = int;
 
 #endregion
 
+
 #region Enums
 
 [AllowDuplicates]
@@ -83,15 +84,6 @@ public struct BSMINFO
 	public LUID luid;
 }
 
-#endregion
-
-#region COM Class IDs
-public static
-{
-}
-#endregion
-
-#region COM Types
 #endregion
 
 #region Functions
@@ -203,4 +195,3 @@ public static
 
 }
 #endregion
-

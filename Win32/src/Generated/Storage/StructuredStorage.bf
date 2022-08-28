@@ -15,21 +15,3 @@ typealias JET_API_PTR = uint;
 
 #endregion
 
-#region Enums
-#endregion
-
-#region Function Pointers
-#endregion
-
-#region Structs
-#endregion
-
-#region COM Class IDs
-public static
-{
-}
-#endregion
-
-#region COM Types
-#endregion
-

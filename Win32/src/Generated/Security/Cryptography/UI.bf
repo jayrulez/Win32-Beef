@@ -5,6 +5,7 @@ using Win32.Security.WinTrust;
 using System;
 
 namespace Win32.Security.Cryptography.UI;
+
 #region Constants
 public static
 {
@@ -165,9 +166,6 @@ public static
 	public const uint32 CRYPTUI_WIZ_EXPORT_FORMAT_SERIALIZED_CERT_STORE = 5;
 
 }
-#endregion
-
-#region TypeDefs
 #endregion
 
 #region Enums
@@ -725,15 +723,6 @@ public struct CRYPTUI_WIZ_IMPORT_SRC_INFO
 
 #endregion
 
-#region COM Class IDs
-public static
-{
-}
-#endregion
-
-#region COM Types
-#endregion
-
 #region Functions
 public static
 {
@@ -770,4 +759,3 @@ public static
 
 }
 #endregion
-

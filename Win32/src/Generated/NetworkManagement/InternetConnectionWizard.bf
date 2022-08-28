@@ -2,6 +2,7 @@ using Win32.Foundation;
 using System;
 
 namespace Win32.NetworkManagement.InternetConnectionWizard;
+
 #region Constants
 public static
 {
@@ -43,29 +44,9 @@ public static
 
 }
 #endregion
-
-#region TypeDefs
-#endregion
-
-#region Enums
-#endregion
-
 #region Function Pointers
 public function uint32 PFNCHECKCONNECTIONWIZARD(uint32 param0, uint32* param1);
 
 public function uint32 PFNSETSHELLNEXT(PSTR param0);
 
 #endregion
-
-#region Structs
-#endregion
-
-#region COM Class IDs
-public static
-{
-}
-#endregion
-
-#region COM Types
-#endregion
-

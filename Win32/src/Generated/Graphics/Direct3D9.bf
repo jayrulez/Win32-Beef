@@ -5,6 +5,7 @@ using Win32.Graphics.Gdi;
 using System;
 
 namespace Win32.Graphics.Direct3D9;
+
 #region Constants
 public static
 {
@@ -643,9 +644,6 @@ public static
 	public const int32 D3DPRESENT_FORCEIMMEDIATE = 256;
 
 }
-#endregion
-
-#region TypeDefs
 #endregion
 
 #region Enums
@@ -1629,8 +1627,6 @@ public enum D3DBUSTYPE : int32
 
 #endregion
 
-#region Function Pointers
-#endregion
 
 #region Structs
 [CRepr]
@@ -2432,12 +2428,6 @@ public struct D3DAES_CTR_IV
 }
 #endif
 
-#endregion
-
-#region COM Class IDs
-public static
-{
-}
 #endregion
 
 #region COM Types
@@ -3384,4 +3374,3 @@ public static
 
 }
 #endregion
-

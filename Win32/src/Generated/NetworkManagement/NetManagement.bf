@@ -8,6 +8,7 @@ using System;
 using System.Interop;
 
 namespace Win32.NetworkManagement.NetManagement;
+
 #region Constants
 public static
 {
@@ -3946,9 +3947,6 @@ public static
 }
 #endregion
 
-#region TypeDefs
-#endregion
-
 #region Enums
 
 [AllowDuplicates]
@@ -6890,7 +6888,7 @@ public struct FLAT_STRING
 {
 	public int16 MaximumLength;
 	public int16 Length;
-	private CHAR[0] Buffer_impl;
+	private CHAR[ANYSIZE_ARRAY] Buffer_impl;
 }
 
 [CRepr]
@@ -6951,7 +6949,7 @@ public struct RTR_INFO_BLOCK_HEADER
 	public uint32 Version;
 	public uint32 Size;
 	public uint32 TocEntriesCount;
-	private RTR_TOC_ENTRY[0] TocEntry_impl;
+	private RTR_TOC_ENTRY[ANYSIZE_ARRAY] TocEntry_impl;
 }
 
 [CRepr]
@@ -8107,4 +8105,3 @@ public static
 
 }
 #endregion
-

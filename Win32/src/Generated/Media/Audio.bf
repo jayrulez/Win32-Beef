@@ -9,6 +9,7 @@ using System;
 using System.Interop;
 
 namespace Win32.Media.Audio;
+
 #region Constants
 public static
 {
@@ -994,6 +995,7 @@ typealias HACMOBJ = int;
 
 #endregion
 
+
 #region Enums
 
 [AllowDuplicates]
@@ -1375,7 +1377,7 @@ public struct AUDIO_VOLUME_NOTIFICATION_DATA
 	public BOOL bMuted;
 	public float fMasterVolume;
 	public uint32 nChannels;
-	private float[0] afChannelVolumes_impl;
+	private float[ANYSIZE_ARRAY] afChannelVolumes_impl;
 }
 
 [CRepr, Packed(1)]
@@ -1701,7 +1703,7 @@ public struct MIDIEVENT
 	public uint32 dwDeltaTime;
 	public uint32 dwStreamID;
 	public uint32 dwEvent;
-	private uint32[0] dwParms_impl;
+	private uint32[ANYSIZE_ARRAY] dwParms_impl;
 }
 
 [CRepr, Packed(1)]
@@ -4760,4 +4762,3 @@ public static
 
 }
 #endregion
-

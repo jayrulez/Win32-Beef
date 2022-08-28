@@ -13,6 +13,7 @@ typealias HCS_PROCESS = int;
 
 #endregion
 
+
 #region Enums
 
 [AllowDuplicates]
@@ -144,15 +145,6 @@ public struct HCS_CREATE_OPTIONS_1
 	public HCS_EVENT_CALLBACK Callback;
 }
 
-#endregion
-
-#region COM Class IDs
-public static
-{
-}
-#endregion
-
-#region COM Types
 #endregion
 
 #region Functions
@@ -352,4 +344,3 @@ public static
 
 }
 #endregion
-

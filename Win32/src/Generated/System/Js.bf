@@ -4,15 +4,13 @@ using Win32.System.Com;
 using System;
 
 namespace Win32.System.Js;
+
 #region Constants
 public static
 {
 	public const uint64 JS_SOURCE_CONTEXT_NONE = 18446744073709551615;
 
 }
-#endregion
-
-#region TypeDefs
 #endregion
 
 #region Enums
@@ -111,18 +109,6 @@ public function void JsFinalizeCallback(void* data);
 
 public function void* JsNativeFunction(void* callee, bool isConstructCall, void** arguments, uint16 argumentCount, void* callbackState);
 
-#endregion
-
-#region Structs
-#endregion
-
-#region COM Class IDs
-public static
-{
-}
-#endregion
-
-#region COM Types
 #endregion
 
 #region Functions
@@ -399,4 +385,3 @@ public static
 #endif
 }
 #endregion
-

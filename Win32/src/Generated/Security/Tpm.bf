@@ -3,15 +3,13 @@ using Win32.Foundation;
 using System;
 
 namespace Win32.Security.Tpm;
+
 #region Constants
 public static
 {
 	public const uint32 TPMVSC_DEFAULT_ADMIN_ALGORITHM_ID = 130;
 
 }
-#endregion
-
-#region TypeDefs
 #endregion
 
 #region Enums
@@ -71,11 +69,6 @@ public enum TPMVSCMGR_ERROR : int32
 
 #endregion
 
-#region Function Pointers
-#endregion
-
-#region Structs
-#endregion
 
 #region COM Class IDs
 public static
@@ -157,4 +150,3 @@ public static
 }
 
 #endregion
-

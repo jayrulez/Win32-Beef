@@ -2,6 +2,7 @@ using Win32.Foundation;
 using System;
 
 namespace Win32.NetworkManagement.NetBios;
+
 #region Constants
 public static
 {
@@ -172,15 +173,6 @@ public static
 }
 #endregion
 
-#region TypeDefs
-#endregion
-
-#region Enums
-#endregion
-
-#region Function Pointers
-#endregion
-
 #region Structs
 #if BF_64_BIT || BF_ARM_64
 [CRepr]
@@ -322,15 +314,6 @@ public struct NCB
 
 #endregion
 
-#region COM Class IDs
-public static
-{
-}
-#endregion
-
-#region COM Types
-#endregion
-
 #region Functions
 public static
 {
@@ -339,4 +322,3 @@ public static
 
 }
 #endregion
-

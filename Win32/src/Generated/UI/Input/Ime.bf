@@ -8,6 +8,7 @@ using System;
 using System.Interop;
 
 namespace Win32.UI.Input.Ime;
+
 #region Constants
 public static
 {
@@ -1284,9 +1285,6 @@ public static
 }
 #endregion
 
-#region TypeDefs
-#endregion
-
 #region Enums
 
 [AllowDuplicates]
@@ -1497,7 +1495,7 @@ public struct CANDIDATELIST
 	public uint32 dwSelection;
 	public uint32 dwPageStart;
 	public uint32 dwPageSize;
-	private uint32[0] dwOffset_impl;
+	private uint32[ANYSIZE_ARRAY] dwOffset_impl;
 }
 
 [CRepr]
@@ -1651,7 +1649,7 @@ public struct MORRSLT
 	public WDD* pWDD;
 	public int32 cWDD;
 	public void* pPrivate;
-	private char16[0] BLKBuff_impl;
+	private char16[ANYSIZE_ARRAY] BLKBuff_impl;
 }
 
 [CRepr, Packed(1)]
@@ -1836,7 +1834,7 @@ public struct TRANSMSG
 public struct TRANSMSGLIST
 {
 	public uint32 uMsgCount;
-	private TRANSMSG[0] TransMsg_impl;
+	private TRANSMSG[ANYSIZE_ARRAY] TransMsg_impl;
 }
 
 [CRepr]
@@ -1908,7 +1906,7 @@ public struct APPLETIDLIST
 public struct IMESTRINGCANDIDATE
 {
 	public uint32 uCount;
-	private PWSTR[0] lpwstr_impl;
+	private PWSTR[ANYSIZE_ARRAY] lpwstr_impl;
 }
 
 [CRepr]
@@ -1923,7 +1921,7 @@ public struct IMEITEM
 public struct IMEITEMCANDIDATE
 {
 	public uint32 uCount;
-	private IMEITEM[0] imeItem_impl;
+	private IMEITEM[ANYSIZE_ARRAY] imeItem_impl;
 }
 
 [CRepr]
@@ -1938,7 +1936,7 @@ public struct tabIMEFAREASTINFO
 {
 	public uint32 dwSize;
 	public uint32 dwType;
-	private uint32[0] dwData_impl;
+	private uint32[ANYSIZE_ARRAY] dwData_impl;
 }
 
 [CRepr, FlexibleArray("lpwstr")]
@@ -1949,7 +1947,7 @@ public struct IMESTRINGCANDIDATEINFO
 	public uint32 fInfoMask;
 	public int32 iSelIndex;
 	public uint32 uCount;
-	private PWSTR[0] lpwstr_impl;
+	private PWSTR[ANYSIZE_ARRAY] lpwstr_impl;
 }
 
 [CRepr]
@@ -3185,4 +3183,3 @@ public static
 
 }
 #endregion
-

@@ -4,6 +4,7 @@ using Win32.UI.WindowsAndMessaging;
 using System;
 
 namespace Win32.UI.Accessibility;
+
 #region Constants
 public static
 {
@@ -1866,6 +1867,7 @@ typealias HUIATEXTRANGE = int;
 typealias HUIAEVENT = int;
 
 #endregion
+
 
 #region Enums
 
@@ -7124,4 +7126,3 @@ public static
 
 }
 #endregion
-

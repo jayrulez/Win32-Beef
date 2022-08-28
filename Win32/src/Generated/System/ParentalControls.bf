@@ -3,6 +3,7 @@ using Win32.Foundation;
 using System;
 
 namespace Win32.System.ParentalControls;
+
 #region Constants
 public static
 {
@@ -213,9 +214,6 @@ public static
 	public const Guid WPCPROV = .(0x01090065, 0xb467, 0x4503, 0x9b, 0x28, 0x53, 0x37, 0x66, 0x76, 0x10, 0x87);
 
 }
-#endregion
-
-#region TypeDefs
 #endregion
 
 #region Enums
@@ -713,11 +711,6 @@ public enum WPC_SETTINGS : int32
 
 #endregion
 
-#region Function Pointers
-#endregion
-
-#region Structs
-#endregion
 
 #region COM Class IDs
 public static
@@ -883,4 +876,3 @@ public static
 }
 
 #endregion
-

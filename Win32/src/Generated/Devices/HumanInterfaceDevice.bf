@@ -6,6 +6,7 @@ using System;
 using System.Interop;
 
 namespace Win32.Devices.HumanInterfaceDevice;
+
 #region Constants
 public static
 {
@@ -4828,9 +4829,6 @@ public static
 }
 #endregion
 
-#region TypeDefs
-#endregion
-
 #region Enums
 
 [AllowDuplicates]
@@ -5807,7 +5805,7 @@ public struct INDICATOR_LIST
 public struct KEYBOARD_INDICATOR_TRANSLATION
 {
 	public uint16 NumberOfIndicatorKeys;
-	private INDICATOR_LIST[0] IndicatorList_impl;
+	private INDICATOR_LIST[ANYSIZE_ARRAY] IndicatorList_impl;
 }
 
 [CRepr]
@@ -6054,7 +6052,7 @@ public struct HIDP_EXTENDED_ATTRIBUTES
 	public uint8 NumGlobalUnknowns;
 	public uint8[3] Reserved;
 	public HIDP_UNKNOWN_TOKEN* GlobalUnknowns;
-	private uint32[0] Data_impl;
+	private uint32[ANYSIZE_ARRAY] Data_impl;
 }
 
 [CRepr]
@@ -6113,7 +6111,7 @@ public struct HID_COLLECTION_INFORMATION
 {
 	public uint32 DescriptorSize;
 	public BOOLEAN Polled;
-	private uint8[0] Reserved1_impl;
+	private uint8[ANYSIZE_ARRAY] Reserved1_impl;
 	public uint16 VendorID;
 	public uint16 ProductID;
 	public uint16 VersionNumber;
@@ -6133,12 +6131,6 @@ public struct INPUT_BUTTON_ENABLE_INFO
 	public BOOLEAN Enabled;
 }
 
-#endregion
-
-#region COM Class IDs
-public static
-{
-}
 #endregion
 
 #region COM Types
@@ -7109,4 +7101,3 @@ public static
 
 }
 #endregion
-

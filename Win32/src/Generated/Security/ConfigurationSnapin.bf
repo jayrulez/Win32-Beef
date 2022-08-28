@@ -3,6 +3,7 @@ using Win32.System.Com;
 using System;
 
 namespace Win32.Security.ConfigurationSnapin;
+
 #region Constants
 public static
 {
@@ -55,9 +56,6 @@ public static
 	public const int32 SCESVC_ENUMERATION_MAX = 100;
 
 }
-#endregion
-
-#region TypeDefs
 #endregion
 
 #region Enums
@@ -141,12 +139,6 @@ public struct SCESVC_CALLBACK_INFO
 
 #endregion
 
-#region COM Class IDs
-public static
-{
-}
-#endregion
-
 #region COM Types
 [CRepr]struct ISceSvcAttachmentPersistInfo : IUnknown
 {
@@ -194,4 +186,3 @@ public static
 }
 
 #endregion
-

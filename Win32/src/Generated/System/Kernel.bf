@@ -3,6 +3,7 @@ using Win32.System.Diagnostics.Debug;
 using System;
 
 namespace Win32.System.Kernel;
+
 #region Constants
 public static
 {
@@ -41,9 +42,6 @@ public static
 	public const uint32 MAXULONG = 4294967295;
 
 }
-#endregion
-
-#region TypeDefs
 #endregion
 
 #region Enums
@@ -412,15 +410,6 @@ public struct SLIST_HEADER
 
 #endregion
 
-#region COM Class IDs
-public static
-{
-}
-#endregion
-
-#region COM Types
-#endregion
-
 #region Functions
 public static
 {
@@ -447,4 +436,3 @@ public static
 
 }
 #endregion
-

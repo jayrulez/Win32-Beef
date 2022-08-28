@@ -7,9 +7,6 @@ using System;
 
 namespace Win32.System.AssessmentTool;
 
-#region TypeDefs
-#endregion
-
 #region Enums
 
 [AllowDuplicates]
@@ -55,11 +52,6 @@ public enum WINSAT_BITMAP_SIZE : int32
 
 #endregion
 
-#region Function Pointers
-#endregion
-
-#region Structs
-#endregion
 
 #region COM Class IDs
 public static
@@ -252,4 +244,3 @@ public static
 }
 
 #endregion
-

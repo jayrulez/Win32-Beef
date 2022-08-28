@@ -5,6 +5,7 @@ using System;
 using System.Interop;
 
 namespace Win32.System.DeploymentServices;
+
 #region Constants
 public static
 {
@@ -405,9 +406,6 @@ public static
 }
 #endregion
 
-#region TypeDefs
-#endregion
-
 #region Enums
 
 [AllowDuplicates]
@@ -640,7 +638,7 @@ public struct PXE_DHCP_OPTION
 {
 	public uint8 OptionType;
 	public uint8 OptionLength;
-	private uint8[0] OptionValue_impl;
+	private uint8[ANYSIZE_ARRAY] OptionValue_impl;
 }
 
 [CRepr, Packed(1)]
@@ -676,14 +674,14 @@ public struct PXE_DHCPV6_OPTION
 {
 	public uint16 OptionCode;
 	public uint16 DataLength;
-	private uint8[0] Data_impl;
+	private uint8[ANYSIZE_ARRAY] Data_impl;
 }
 
 [CRepr, FlexibleArray("Message")]
 public struct PXE_DHCPV6_MESSAGE_HEADER
 {
 	public uint8 MessageType;
-	private uint8[0] Message_impl;
+	private uint8[ANYSIZE_ARRAY] Message_impl;
 }
 
 [CRepr, FlexibleArray("Options")]
@@ -693,7 +691,7 @@ public struct PXE_DHCPV6_MESSAGE
 	public uint8 TransactionIDByte1;
 	public uint8 TransactionIDByte2;
 	public uint8 TransactionIDByte3;
-	private PXE_DHCPV6_OPTION[0] Options_impl;
+	private PXE_DHCPV6_OPTION[ANYSIZE_ARRAY] Options_impl;
 }
 
 [CRepr, FlexibleArray("Options")]
@@ -703,7 +701,7 @@ public struct PXE_DHCPV6_RELAY_MESSAGE
 	public uint8 HopCount;
 	public uint8[16] LinkAddress;
 	public uint8[16] PeerAddress;
-	private PXE_DHCPV6_OPTION[0] Options_impl;
+	private PXE_DHCPV6_OPTION[ANYSIZE_ARRAY] Options_impl;
 }
 
 [CRepr]
@@ -1833,4 +1831,3 @@ public static
 
 }
 #endregion
-

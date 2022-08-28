@@ -4,6 +4,7 @@ using Win32.System.Com;
 using System;
 
 namespace Win32.Media.Audio.XAudio2;
+
 #region Constants
 public static
 {
@@ -446,9 +447,6 @@ public static
 }
 #endregion
 
-#region TypeDefs
-#endregion
-
 #region Enums
 
 [AllowDuplicates]
@@ -499,8 +497,6 @@ public enum HrtfDistanceDecayType : int32
 
 #endregion
 
-#region Function Pointers
-#endregion
 
 #region Structs
 [CRepr, Packed(1)]
@@ -1170,4 +1166,3 @@ public static
 
 }
 #endregion
-

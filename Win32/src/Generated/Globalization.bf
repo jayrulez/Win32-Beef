@@ -4,6 +4,7 @@ using Win32.System.Com;
 using System;
 
 namespace Win32.Globalization;
+
 #region Constants
 public static
 {
@@ -1546,6 +1547,7 @@ typealias HIMCC = int;
 typealias HSAVEDUILANGUAGES = int;
 
 #endregion
+
 
 #region Enums
 
@@ -10125,4 +10127,3 @@ public static
 
 }
 #endregion
-

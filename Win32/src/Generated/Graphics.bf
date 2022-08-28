@@ -2,9 +2,6 @@ using System;
 
 namespace Win32.Graphics;
 
-#region TypeDefs
-#endregion
-
 #region Enums
 
 [AllowDuplicates]
@@ -19,20 +16,5 @@ public enum D2D1_2DAFFINETRANSFORM_INTERPOLATION_MODE : uint32
 	D2D1_2DAFFINETRANSFORM_INTERPOLATION_MODE_FORCE_DWORD = 4294967295,
 }
 
-#endregion
-
-#region Function Pointers
-#endregion
-
-#region Structs
-#endregion
-
-#region COM Class IDs
-public static
-{
-}
-#endregion
-
-#region COM Types
 #endregion
 

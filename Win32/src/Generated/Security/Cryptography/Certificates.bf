@@ -5,6 +5,7 @@ using Win32.Security.Authentication.Identity;
 using System;
 
 namespace Win32.Security.Cryptography.Certificates;
+
 #region Constants
 public static
 {
@@ -811,9 +812,6 @@ public static
 	public const String wszCMM_PROP_ISMULTITHREADED = "IsMultiThreaded";
 
 }
-#endregion
-
-#region TypeDefs
 #endregion
 
 #region Enums
@@ -8218,4 +8216,3 @@ public static
 
 }
 #endregion
-

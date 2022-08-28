@@ -4,6 +4,7 @@ using Win32.System.Diagnostics.Debug;
 using System;
 
 namespace Win32.System.Diagnostics.ProcessSnapshotting;
+
 #region Constants
 public static
 {
@@ -18,6 +19,7 @@ typealias HPSS = int;
 typealias HPSSWALK = int;
 
 #endregion
+
 
 #region Enums
 
@@ -126,8 +128,6 @@ public enum PSS_THREAD_FLAGS : uint32
 
 #endregion
 
-#region Function Pointers
-#endregion
 
 #region Structs
 [CRepr]
@@ -366,15 +366,6 @@ public struct PSS_ALLOCATOR
 
 #endregion
 
-#region COM Class IDs
-public static
-{
-}
-#endregion
-
-#region COM Types
-#endregion
-
 #region Functions
 public static
 {
@@ -410,4 +401,3 @@ public static
 
 }
 #endregion
-

@@ -4,6 +4,7 @@ using Win32.Security.Cryptography.Catalog;
 using System;
 
 namespace Win32.Security.Cryptography.Sip;
+
 #region Constants
 public static
 {
@@ -47,13 +48,6 @@ public static
 
 }
 #endregion
-
-#region TypeDefs
-#endregion
-
-#region Enums
-#endregion
-
 #region Function Pointers
 public function BOOL pCryptSIPGetSignedDataMsg(SIP_SUBJECTINFO* pSubjectInfo, uint32* pdwEncodingType, uint32 dwIndex, uint32* pcbSignedDataMsg, uint8* pbSignedDataMsg);
 
@@ -196,15 +190,6 @@ public struct SIP_ADD_NEWPROVIDER
 
 #endregion
 
-#region COM Class IDs
-public static
-{
-}
-#endregion
-
-#region COM Types
-#endregion
-
 #region Functions
 public static
 {
@@ -246,4 +231,3 @@ public static
 
 }
 #endregion
-

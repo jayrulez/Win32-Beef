@@ -12,6 +12,7 @@ using System;
 using System.Interop;
 
 namespace Win32.System.Diagnostics.Debug;
+
 #region Constants
 public static
 {
@@ -2620,9 +2621,6 @@ public static
 	public const uint32 SOURCETEXT_ATTR_THIS = 1024;
 
 }
-#endregion
-
-#region TypeDefs
 #endregion
 
 #region Enums
@@ -5988,7 +5986,7 @@ public struct READCONTROLSPACE
 	public uint16 Processor;
 	public uint32 Address;
 	public uint32 BufLen;
-	private uint8[0] Buf_impl;
+	private uint8[ANYSIZE_ARRAY] Buf_impl;
 }
 
 [CRepr, FlexibleArray("Buf")]
@@ -5997,7 +5995,7 @@ public struct READCONTROLSPACE32
 	public uint16 Processor;
 	public uint32 Address;
 	public uint32 BufLen;
-	private uint8[0] Buf_impl;
+	private uint8[ANYSIZE_ARRAY] Buf_impl;
 }
 
 [CRepr, FlexibleArray("Buf")]
@@ -6006,7 +6004,7 @@ public struct READCONTROLSPACE64
 	public uint16 Processor;
 	public uint64 Address;
 	public uint32 BufLen;
-	private uint8[0] Buf_impl;
+	private uint8[ANYSIZE_ARRAY] Buf_impl;
 }
 
 [CRepr]
@@ -6092,7 +6090,7 @@ public struct PHYSICAL
 {
 	public uint64 Address;
 	public uint32 BufLen;
-	private uint8[0] Buf_impl;
+	private uint8[ANYSIZE_ARRAY] Buf_impl;
 }
 
 [CRepr, FlexibleArray("Buf")]
@@ -6101,7 +6099,7 @@ public struct PHYSICAL_WITH_FLAGS
 	public uint64 Address;
 	public uint32 BufLen;
 	public uint32 Flags;
-	private uint8[0] Buf_impl;
+	private uint8[ANYSIZE_ARRAY] Buf_impl;
 }
 
 [CRepr]
@@ -6436,7 +6434,7 @@ public struct DBGKD_GET_VERSION64
 	public uint8 MaxStateChange;
 	public uint8 MaxManipulate;
 	public uint8 Simulation;
-	private uint16[0] Unused_impl;
+	private uint16[ANYSIZE_ARRAY] Unused_impl;
 	public uint64 KernBase;
 	public uint64 PsLoadedModuleList;
 	public uint64 DebuggerDataList;
@@ -7680,7 +7678,7 @@ public struct MINIDUMP_DIRECTORY
 public struct MINIDUMP_STRING
 {
 	public uint32 Length;
-	private char16[0] Buffer_impl;
+	private char16[ANYSIZE_ARRAY] Buffer_impl;
 }
 
 [CRepr, Union]
@@ -7765,7 +7763,7 @@ public struct MINIDUMP_THREAD
 public struct MINIDUMP_THREAD_LIST
 {
 	public uint32 NumberOfThreads;
-	private MINIDUMP_THREAD[0] Threads_impl;
+	private MINIDUMP_THREAD[ANYSIZE_ARRAY] Threads_impl;
 }
 
 [CRepr, Packed(4)]
@@ -7785,7 +7783,7 @@ public struct MINIDUMP_THREAD_EX
 public struct MINIDUMP_THREAD_EX_LIST
 {
 	public uint32 NumberOfThreads;
-	private MINIDUMP_THREAD_EX[0] Threads_impl;
+	private MINIDUMP_THREAD_EX[ANYSIZE_ARRAY] Threads_impl;
 }
 
 [CRepr, Packed(4)]
@@ -7828,14 +7826,14 @@ public struct MINIDUMP_MODULE
 public struct MINIDUMP_MODULE_LIST
 {
 	public uint32 NumberOfModules;
-	private MINIDUMP_MODULE[0] Modules_impl;
+	private MINIDUMP_MODULE[ANYSIZE_ARRAY] Modules_impl;
 }
 
 [CRepr, FlexibleArray("MemoryRanges")]
 public struct MINIDUMP_MEMORY_LIST
 {
 	public uint32 NumberOfMemoryRanges;
-	private MINIDUMP_MEMORY_DESCRIPTOR[0] MemoryRanges_impl;
+	private MINIDUMP_MEMORY_DESCRIPTOR[ANYSIZE_ARRAY] MemoryRanges_impl;
 }
 
 [CRepr, Packed(4), FlexibleArray("MemoryRanges")]
@@ -7843,7 +7841,7 @@ public struct MINIDUMP_MEMORY64_LIST
 {
 	public uint64 NumberOfMemoryRanges;
 	public uint64 BaseRva;
-	private MINIDUMP_MEMORY_DESCRIPTOR64[0] MemoryRanges_impl;
+	private MINIDUMP_MEMORY_DESCRIPTOR64[ANYSIZE_ARRAY] MemoryRanges_impl;
 }
 
 [CRepr, Packed(4)]
@@ -8092,7 +8090,7 @@ public struct MINIDUMP_THREAD_NAME
 public struct MINIDUMP_THREAD_NAME_LIST
 {
 	public uint32 NumberOfThreadNames;
-	private MINIDUMP_THREAD_NAME[0] ThreadNames_impl;
+	private MINIDUMP_THREAD_NAME[ANYSIZE_ARRAY] ThreadNames_impl;
 }
 
 [CRepr, Packed(4)]
@@ -8569,7 +8567,7 @@ public struct DebugStackFrameDescriptor64
 public struct PROFILER_HEAP_OBJECT_SCOPE_LIST
 {
 	public uint32 count;
-	private uint[0] scopes_impl;
+	private uint[ANYSIZE_ARRAY] scopes_impl;
 }
 
 [CRepr]
@@ -8602,7 +8600,7 @@ public struct PROFILER_HEAP_OBJECT_RELATIONSHIP
 public struct PROFILER_HEAP_OBJECT_RELATIONSHIP_LIST
 {
 	public uint32 count;
-	private PROFILER_HEAP_OBJECT_RELATIONSHIP[0] elements_impl;
+	private PROFILER_HEAP_OBJECT_RELATIONSHIP[ANYSIZE_ARRAY] elements_impl;
 }
 
 [CRepr]
@@ -8785,7 +8783,7 @@ public struct IMAGEHLP_SYMBOL64
 	public uint32 Size;
 	public uint32 Flags;
 	public uint32 MaxNameLength;
-	private CHAR[0] Name_impl;
+	private CHAR[ANYSIZE_ARRAY] Name_impl;
 }
 
 [CRepr]
@@ -8803,7 +8801,7 @@ public struct IMAGEHLP_SYMBOLW64
 	public uint32 Size;
 	public uint32 Flags;
 	public uint32 MaxNameLength;
-	private char16[0] Name_impl;
+	private char16[ANYSIZE_ARRAY] Name_impl;
 }
 
 [CRepr]
@@ -9035,7 +9033,7 @@ public struct MODULE_TYPE_INFO
 {
 	public uint16 dataLength;
 	public uint16 leaf;
-	private uint8[0] data_impl;
+	private uint8[ANYSIZE_ARRAY] data_impl;
 }
 
 [CRepr, FlexibleArray("Name")]
@@ -9055,7 +9053,7 @@ public struct SYMBOL_INFO
 	public uint32 Tag;
 	public uint32 NameLen;
 	public uint32 MaxNameLen;
-	private CHAR[0] Name_impl;
+	private CHAR[ANYSIZE_ARRAY] Name_impl;
 }
 
 [CRepr]
@@ -9082,7 +9080,7 @@ public struct SYMBOL_INFOW
 	public uint32 Tag;
 	public uint32 NameLen;
 	public uint32 MaxNameLen;
-	private char16[0] Name_impl;
+	private char16[ANYSIZE_ARRAY] Name_impl;
 }
 
 [CRepr]
@@ -9112,7 +9110,7 @@ public struct TI_FINDCHILDREN_PARAMS
 {
 	public uint32 Count;
 	public uint32 Start;
-	private uint32[0] ChildId_impl;
+	private uint32[ANYSIZE_ARRAY] ChildId_impl;
 }
 
 [CRepr]
@@ -9221,7 +9219,7 @@ public struct PHYSICAL_MEMORY_DESCRIPTOR32
 {
 	public uint32 NumberOfRuns;
 	public uint32 NumberOfPages;
-	private PHYSICAL_MEMORY_RUN32[0] Run_impl;
+	private PHYSICAL_MEMORY_RUN32[ANYSIZE_ARRAY] Run_impl;
 }
 
 [CRepr]
@@ -9236,7 +9234,7 @@ public struct PHYSICAL_MEMORY_DESCRIPTOR64
 {
 	public uint32 NumberOfRuns;
 	public uint64 NumberOfPages;
-	private PHYSICAL_MEMORY_RUN64[0] Run_impl;
+	private PHYSICAL_MEMORY_RUN64[ANYSIZE_ARRAY] Run_impl;
 }
 
 [CRepr, Union]
@@ -9818,7 +9816,7 @@ public struct IPMI_OS_SEL_RECORD
 	public uint32 Length;
 	public IPMI_OS_SEL_RECORD_TYPE RecordType;
 	public uint32 DataLength;
-	private uint8[0] Data_impl;
+	private uint8[ANYSIZE_ARRAY] Data_impl;
 }
 
 #if BF_32_BIT
@@ -10041,7 +10039,7 @@ public struct IMAGEHLP_SYMBOL
 	public uint32 Size;
 	public uint32 Flags;
 	public uint32 MaxNameLength;
-	private CHAR[0] Name_impl;
+	private CHAR[ANYSIZE_ARRAY] Name_impl;
 }
 #endif
 
@@ -10063,7 +10061,7 @@ public struct IMAGEHLP_SYMBOLW
 	public uint32 Size;
 	public uint32 Flags;
 	public uint32 MaxNameLength;
-	private char16[0] Name_impl;
+	private char16[ANYSIZE_ARRAY] Name_impl;
 }
 #endif
 
@@ -24204,4 +24202,3 @@ public static
 #endif
 }
 #endregion
-

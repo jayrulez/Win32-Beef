@@ -11,6 +11,7 @@ using Win32.Graphics.Direct3D;
 using System;
 
 namespace Win32.Graphics.Direct2D;
+
 #region Constants
 public static
 {
@@ -153,9 +154,6 @@ public static
 	public const uint32 FACILITY_D2D = 2201;
 
 }
-#endregion
-
-#region TypeDefs
 #endregion
 
 #region Enums
@@ -2464,12 +2462,6 @@ public struct D2D1_SIMPLE_COLOR_PROFILE
 	public D2D1_GAMMA1 gamma;
 }
 
-#endregion
-
-#region COM Class IDs
-public static
-{
-}
 #endregion
 
 #region COM Types
@@ -5426,4 +5418,3 @@ public static
 
 }
 #endregion
-

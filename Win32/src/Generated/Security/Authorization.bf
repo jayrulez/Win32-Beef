@@ -6,6 +6,7 @@ using System;
 using System.Interop;
 
 namespace Win32.Security.Authorization;
+
 #region Constants
 public static
 {
@@ -288,6 +289,7 @@ typealias AUTHZ_AUDIT_EVENT_TYPE_HANDLE = int;
 typealias AUTHZ_SECURITY_EVENT_PROVIDER_HANDLE = int;
 
 #endregion
+
 
 #region Enums
 
@@ -1050,7 +1052,7 @@ public struct AUTHZ_SOURCE_SCHEMA_REGISTRATION
 	public PWSTR szExecutableImagePath;
 	public using _Anonymous_e__Union Anonymous;
 	public uint32 dwObjectTypeNameCount;
-	private AUTHZ_REGISTRATION_OBJECT_TYPE_NAME_OFFSET[0] ObjectTypeNames_impl;
+	private AUTHZ_REGISTRATION_OBJECT_TYPE_NAME_OFFSET[ANYSIZE_ARRAY] ObjectTypeNames_impl;
 }
 
 #endregion
@@ -2887,4 +2889,3 @@ public static
 
 }
 #endregion
-

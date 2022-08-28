@@ -4,6 +4,7 @@ using Win32.Media.MediaFoundation;
 using System;
 
 namespace Win32.System.WinRT.Media;
+
 #region Constants
 public static
 {
@@ -11,24 +12,6 @@ public static
 
 	public const Guid CLSID_VideoFrameNativeFactory = .(0xd194386a, 0x04e3, 0x4814, 0x81, 0x00, 0xb2, 0xb0, 0xae, 0x6d, 0x78, 0xc7);
 
-}
-#endregion
-
-#region TypeDefs
-#endregion
-
-#region Enums
-#endregion
-
-#region Function Pointers
-#endregion
-
-#region Structs
-#endregion
-
-#region COM Class IDs
-public static
-{
 }
 #endregion
 
@@ -97,4 +80,3 @@ public static
 }
 
 #endregion
-

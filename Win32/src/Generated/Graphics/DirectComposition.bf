@@ -9,6 +9,7 @@ using Win32.Security;
 using System;
 
 namespace Win32.Graphics.DirectComposition;
+
 #region Constants
 public static
 {
@@ -21,9 +22,6 @@ public static
 	public const uint32 COMPOSITION_STATS_MAX_TARGETS = 256;
 
 }
-#endregion
-
-#region TypeDefs
 #endregion
 
 #region Enums
@@ -94,8 +92,6 @@ public enum COMPOSITION_FRAME_ID_TYPE : int32
 
 #endregion
 
-#region Function Pointers
-#endregion
 
 #region Structs
 [CRepr]
@@ -153,12 +149,6 @@ public struct DCompositionInkTrailPoint
 	public float radius;
 }
 
-#endregion
-
-#region COM Class IDs
-public static
-{
-}
 #endregion
 
 #region COM Types
@@ -1657,4 +1647,3 @@ public static
 
 }
 #endregion
-

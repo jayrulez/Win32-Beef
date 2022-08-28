@@ -13,6 +13,7 @@ using System;
 using System.Interop;
 
 namespace Win32.Graphics.Printing;
+
 #region Constants
 public static
 {
@@ -2603,9 +2604,6 @@ public static
 }
 #endregion
 
-#region TypeDefs
-#endregion
-
 #region Enums
 
 [AllowDuplicates]
@@ -4685,7 +4683,7 @@ public struct PRINTER_NOTIFY_INFO
 	public uint32 Version;
 	public uint32 Flags;
 	public uint32 Count;
-	private PRINTER_NOTIFY_INFO_DATA[0] aData_impl;
+	private PRINTER_NOTIFY_INFO_DATA[ANYSIZE_ARRAY] aData_impl;
 }
 
 [CRepr]
@@ -4726,7 +4724,7 @@ public struct BIDI_REQUEST_CONTAINER
 	public uint32 Version;
 	public uint32 Flags;
 	public uint32 Count;
-	private BIDI_REQUEST_DATA[0] aData_impl;
+	private BIDI_REQUEST_DATA[ANYSIZE_ARRAY] aData_impl;
 }
 
 [CRepr]
@@ -4744,7 +4742,7 @@ public struct BIDI_RESPONSE_CONTAINER
 	public uint32 Version;
 	public uint32 Flags;
 	public uint32 Count;
-	private BIDI_RESPONSE_DATA[0] aData_impl;
+	private BIDI_RESPONSE_DATA[ANYSIZE_ARRAY] aData_impl;
 }
 
 [CRepr]
@@ -4878,14 +4876,14 @@ public struct MxdcEscapeHeader
 public struct MxdcGetFileNameData
 {
 	public uint32 cbOutput;
-	private char16[0] wszData_impl;
+	private char16[ANYSIZE_ARRAY] wszData_impl;
 }
 
 [CRepr, Packed(1), FlexibleArray("bData")]
 public struct MxdcS0PageData
 {
 	public uint32 dwSize;
-	private uint8[0] bData_impl;
+	private uint8[ANYSIZE_ARRAY] bData_impl;
 }
 
 [CRepr, Packed(1), FlexibleArray("bData")]
@@ -4895,14 +4893,14 @@ public struct MxdcXpsS0PageResource
 	public uint32 dwResourceType;
 	public uint8[260] szUri;
 	public uint32 dwDataSize;
-	private uint8[0] bData_impl;
+	private uint8[ANYSIZE_ARRAY] bData_impl;
 }
 
 [CRepr, Packed(1), FlexibleArray("bData")]
 public struct MxdcPrintTicketPassthrough
 {
 	public uint32 dwDataSize;
-	private uint8[0] bData_impl;
+	private uint8[ANYSIZE_ARRAY] bData_impl;
 }
 
 [CRepr]
@@ -4992,7 +4990,7 @@ public struct DOCEVENT_FILTER
 	public uint32 cElementsAllocated;
 	public uint32 cElementsNeeded;
 	public uint32 cElementsReturned;
-	private uint32[0] aDocEventCall_impl;
+	private uint32[ANYSIZE_ARRAY] aDocEventCall_impl;
 }
 
 [CRepr]
@@ -5356,7 +5354,7 @@ public struct WIDTHTABLE
 {
 	public uint32 dwSize;
 	public uint32 dwRunNum;
-	private WIDTHRUN[0] WidthRun_impl;
+	private WIDTHRUN[ANYSIZE_ARRAY] WidthRun_impl;
 }
 
 [CRepr, FlexibleArray("KernPair")]
@@ -5364,7 +5362,7 @@ public struct KERNDATA
 {
 	public uint32 dwSize;
 	public uint32 dwKernPairNum;
-	private FD_KERNINGPAIR[0] KernPair_impl;
+	private FD_KERNINGPAIR[ANYSIZE_ARRAY] KernPair_impl;
 }
 
 [CRepr]
@@ -5419,7 +5417,7 @@ public struct MAPTABLE
 {
 	public uint32 dwSize;
 	public uint32 dwGlyphNum;
-	private TRANSDATA[0] Trans_impl;
+	private TRANSDATA[ANYSIZE_ARRAY] Trans_impl;
 }
 
 [CRepr]
@@ -5516,7 +5514,7 @@ public struct PORT_DATA_LIST_1
 {
 	public uint32 dwVersion;
 	public uint32 cPortData;
-	private PORT_DATA_2[0] pPortData_impl;
+	private PORT_DATA_2[ANYSIZE_ARRAY] pPortData_impl;
 }
 
 [CRepr]
@@ -5613,7 +5611,7 @@ public struct BranchOfficeJobData
 public struct BranchOfficeJobDataContainer
 {
 	public uint32 cJobDataEntries;
-	private BranchOfficeJobData[0] JobData_impl;
+	private BranchOfficeJobData[ANYSIZE_ARRAY] JobData_impl;
 }
 
 [CRepr]
@@ -8111,4 +8109,3 @@ public static
 
 }
 #endregion
-

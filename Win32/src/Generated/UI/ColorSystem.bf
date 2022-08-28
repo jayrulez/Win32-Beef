@@ -6,6 +6,7 @@ using System;
 using System.Interop;
 
 namespace Win32.UI.ColorSystem;
+
 #region Constants
 public static
 {
@@ -182,6 +183,7 @@ public static
 typealias HCOLORSPACE = int;
 
 #endregion
+
 
 #region Enums
 
@@ -387,7 +389,7 @@ public struct EMRCREATECOLORSPACEW
 	public LOGCOLORSPACEW lcs;
 	public uint32 dwFlags;
 	public uint32 cbData;
-	private uint8[0] Data_impl;
+	private uint8[ANYSIZE_ARRAY] Data_impl;
 }
 
 [CRepr]
@@ -719,12 +721,6 @@ public struct WCS_DEVICE_MHC2_CAPABILITIES
 	public uint32 CscXyzMatrixColumns;
 }
 
-#endregion
-
-#region COM Class IDs
-public static
-{
-}
 #endregion
 
 #region COM Types
@@ -1182,4 +1178,3 @@ public static
 
 }
 #endregion
-

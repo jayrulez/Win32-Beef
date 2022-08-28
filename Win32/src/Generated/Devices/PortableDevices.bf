@@ -6,6 +6,7 @@ using Win32.Devices.Properties;
 using System;
 
 namespace Win32.Devices.PortableDevices;
+
 #region Constants
 public static
 {
@@ -1748,9 +1749,6 @@ public static
 }
 #endregion
 
-#region TypeDefs
-#endregion
-
 #region Enums
 
 [AllowDuplicates]
@@ -2100,8 +2098,6 @@ public enum SYSTEM_RADIO_STATE : int32
 
 #endregion
 
-#region Function Pointers
-#endregion
 
 #region Structs
 [CRepr]
@@ -3157,4 +3153,3 @@ public static
 
 }
 #endregion
-

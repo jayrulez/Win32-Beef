@@ -6,6 +6,7 @@ using System;
 using System.Interop;
 
 namespace Win32.System.Rpc;
+
 #region Constants
 public static
 {
@@ -468,9 +469,6 @@ public static
 	public const int32 MidlWinrtTypeSerializationInfoVersionOne = 1;
 
 }
-#endregion
-
-#region TypeDefs
 #endregion
 
 #region Enums
@@ -985,14 +983,14 @@ public struct NDR_SCONTEXT_1
 public struct RPC_BINDING_VECTOR
 {
 	public uint32 Count;
-	private void*[0] BindingH_impl;
+	private void*[ANYSIZE_ARRAY] BindingH_impl;
 }
 
 [CRepr, FlexibleArray("Uuid")]
 public struct UUID_VECTOR
 {
 	public uint32 Count;
-	private Guid*[0] Uuid_impl;
+	private Guid*[ANYSIZE_ARRAY] Uuid_impl;
 }
 
 [CRepr]
@@ -1007,14 +1005,14 @@ public struct RPC_IF_ID
 public struct RPC_PROTSEQ_VECTORA
 {
 	public uint32 Count;
-	private uint8*[0] Protseq_impl;
+	private uint8*[ANYSIZE_ARRAY] Protseq_impl;
 }
 
 [CRepr, FlexibleArray("Protseq")]
 public struct RPC_PROTSEQ_VECTORW
 {
 	public uint32 Count;
-	private uint16*[0] Protseq_impl;
+	private uint16*[ANYSIZE_ARRAY] Protseq_impl;
 }
 
 [CRepr]
@@ -1029,14 +1027,14 @@ public struct RPC_POLICY
 public struct RPC_STATS_VECTOR
 {
 	public uint32 Count;
-	private uint32[0] Stats_impl;
+	private uint32[ANYSIZE_ARRAY] Stats_impl;
 }
 
 [CRepr, FlexibleArray("IfId")]
 public struct RPC_IF_ID_VECTOR
 {
 	public uint32 Count;
-	private RPC_IF_ID*[0] IfId_impl;
+	private RPC_IF_ID*[ANYSIZE_ARRAY] IfId_impl;
 }
 
 [CRepr]
@@ -2034,7 +2032,7 @@ public struct MIDL_STUB_DESC
 public struct MIDL_FORMAT_STRING
 {
 	public int16 Pad;
-	private uint8[0] Format_impl;
+	private uint8[ANYSIZE_ARRAY] Format_impl;
 }
 
 [CRepr]
@@ -2740,15 +2738,6 @@ public struct NDR64_TYPE_STRICT_CONTEXT_HANDLE
 	public uint32 CtxtID;
 }
 
-#endregion
-
-#region COM Class IDs
-public static
-{
-}
-#endregion
-
-#region COM Types
 #endregion
 
 #region Functions
@@ -4340,4 +4329,3 @@ public static
 
 }
 #endregion
-

@@ -2,6 +2,7 @@ using Win32.Foundation;
 using System;
 
 namespace Win32.Networking.WebSocket;
+
 #region Constants
 public static
 {
@@ -14,6 +15,7 @@ public static
 typealias WEB_SOCKET_HANDLE = int;
 
 #endregion
+
 
 #region Enums
 
@@ -82,8 +84,6 @@ public enum WEB_SOCKET_ACTION : int32
 
 #endregion
 
-#region Function Pointers
-#endregion
 
 #region Structs
 [CRepr]
@@ -125,15 +125,6 @@ public struct WEB_SOCKET_BUFFER
 	public _CloseStatus_e__Struct CloseStatus;
 }
 
-#endregion
-
-#region COM Class IDs
-public static
-{
-}
-#endregion
-
-#region COM Types
 #endregion
 
 #region Functions
@@ -180,4 +171,3 @@ public static
 
 }
 #endregion
-

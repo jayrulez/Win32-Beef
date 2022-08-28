@@ -2,6 +2,7 @@ using Win32.Foundation;
 using System;
 
 namespace Win32.Devices.Pwm;
+
 #region Constants
 public static
 {
@@ -50,9 +51,6 @@ public static
 }
 #endregion
 
-#region TypeDefs
-#endregion
-
 #region Enums
 
 [AllowDuplicates]
@@ -64,8 +62,6 @@ public enum PWM_POLARITY : int32
 
 #endregion
 
-#region Function Pointers
-#endregion
 
 #region Structs
 [CRepr]
@@ -126,13 +122,3 @@ public struct PWM_PIN_IS_STARTED_OUTPUT
 }
 
 #endregion
-
-#region COM Class IDs
-public static
-{
-}
-#endregion
-
-#region COM Types
-#endregion
-

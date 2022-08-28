@@ -5,6 +5,7 @@ using Win32.UI.Controls;
 using System;
 
 namespace Win32.Security.DirectoryServices;
+
 #region Constants
 public static
 {
@@ -24,13 +25,6 @@ public static
 
 }
 #endregion
-
-#region TypeDefs
-#endregion
-
-#region Enums
-#endregion
-
 #region Function Pointers
 public function HRESULT PFNREADOBJECTSECURITY(PWSTR param0, uint32 param1, SECURITY_DESCRIPTOR** param2, LPARAM param3);
 
@@ -44,18 +38,6 @@ public function HRESULT PFNDSCREATESECPAGE(PWSTR param0, PWSTR param1, uint32 pa
 
 public function HRESULT PFNDSEDITSECURITY(HWND param0, PWSTR param1, PWSTR param2, uint32 param3, PWSTR param4, PFNREADOBJECTSECURITY param5, PFNWRITEOBJECTSECURITY param6, LPARAM param7);
 
-#endregion
-
-#region Structs
-#endregion
-
-#region COM Class IDs
-public static
-{
-}
-#endregion
-
-#region COM Types
 #endregion
 
 #region Functions
@@ -75,4 +57,3 @@ public static
 
 }
 #endregion
-

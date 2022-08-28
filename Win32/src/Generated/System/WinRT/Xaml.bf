@@ -5,15 +5,13 @@ using Win32.UI.WindowsAndMessaging;
 using System;
 
 namespace Win32.System.WinRT.Xaml;
+
 #region Constants
 public static
 {
 	public const uint32 E_SURFACE_CONTENTS_LOST = 2150301728;
 
 }
-#endregion
-
-#region TypeDefs
 #endregion
 
 #region Enums
@@ -27,8 +25,6 @@ public enum XAML_REFERENCETRACKER_DISCONNECT : int32
 
 #endregion
 
-#region Function Pointers
-#endregion
 
 #region Structs
 [CRepr]
@@ -37,12 +33,6 @@ public struct TrackerHandle__
 	public int32 unused;
 }
 
-#endregion
-
-#region COM Class IDs
-public static
-{
-}
 #endregion
 
 #region COM Types
@@ -395,4 +385,3 @@ public static
 }
 
 #endregion
-

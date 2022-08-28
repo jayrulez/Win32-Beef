@@ -6,6 +6,7 @@ using Win32.Security;
 using System;
 
 namespace Win32.Graphics.Direct3D12;
+
 #region Constants
 public static
 {
@@ -940,9 +941,6 @@ public static
 	public const Guid D3D12MetaCommand = .(0xc734c97e, 0x8077, 0x48c8, 0x9f, 0xdc, 0xd9, 0xd1, 0xdd, 0x31, 0xdd, 0x77);
 
 }
-#endregion
-
-#region TypeDefs
 #endregion
 
 #region Enums
@@ -5819,12 +5817,6 @@ public struct D3D12_PARAMETER_DESC
 
 #endregion
 
-#region COM Class IDs
-public static
-{
-}
-#endregion
-
 #region COM Types
 [CRepr]struct ID3D12Object : IUnknown
 {
@@ -7814,4 +7806,3 @@ public static
 
 }
 #endregion
-

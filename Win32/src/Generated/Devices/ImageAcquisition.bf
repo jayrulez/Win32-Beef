@@ -7,6 +7,7 @@ using System;
 using System.Interop;
 
 namespace Win32.Devices.ImageAcquisition;
+
 #region Constants
 public static
 {
@@ -1951,9 +1952,6 @@ public static
 }
 #endregion
 
-#region TypeDefs
-#endregion
-
 #region Enums
 
 [AllowDuplicates]
@@ -2035,7 +2033,7 @@ public struct WIA_BARCODE_INFO
 	public uint32 YOffset;
 	public uint32 Rotation;
 	public uint32 Length;
-	private char16[0] Text_impl;
+	private char16[ANYSIZE_ARRAY] Text_impl;
 }
 
 [CRepr, FlexibleArray("Barcodes")]
@@ -2045,7 +2043,7 @@ public struct WIA_BARCODES
 	public uint32 Version;
 	public uint32 Size;
 	public uint32 Count;
-	private WIA_BARCODE_INFO[0] Barcodes_impl;
+	private WIA_BARCODE_INFO[ANYSIZE_ARRAY] Barcodes_impl;
 }
 
 [CRepr]
@@ -2061,7 +2059,7 @@ public struct WIA_PATCH_CODES
 	public uint32 Version;
 	public uint32 Size;
 	public uint32 Count;
-	private WIA_PATCH_CODE_INFO[0] PatchCodes_impl;
+	private WIA_PATCH_CODE_INFO[ANYSIZE_ARRAY] PatchCodes_impl;
 }
 
 [CRepr, FlexibleArray("Text")]
@@ -2070,7 +2068,7 @@ public struct WIA_MICR_INFO
 	public uint32 Size;
 	public uint32 Page;
 	public uint32 Length;
-	private char16[0] Text_impl;
+	private char16[ANYSIZE_ARRAY] Text_impl;
 }
 
 [CRepr, FlexibleArray("Micr")]
@@ -2082,7 +2080,7 @@ public struct WIA_MICR
 	public char16 Placeholder;
 	public uint16 Reserved;
 	public uint32 Count;
-	private WIA_MICR_INFO[0] Micr_impl;
+	private WIA_MICR_INFO[ANYSIZE_ARRAY] Micr_impl;
 }
 
 [CRepr]
@@ -2437,7 +2435,7 @@ public struct TWAIN_CAPABILITY
 	public int32 lRC;
 	public int32 lCC;
 	public int32 lDataSize;
-	private uint8[0] Data_impl;
+	private uint8[ANYSIZE_ARRAY] Data_impl;
 }
 
 #endregion
@@ -3368,4 +3366,3 @@ public static
 }
 
 #endregion
-

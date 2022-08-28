@@ -3,6 +3,7 @@ using Win32.Foundation;
 using System;
 
 namespace Win32.Data.Xml.XmlLite;
+
 #region Constants
 public static
 {
@@ -13,9 +14,6 @@ public static
 	public const Guid _IID_IXmlResolver = .(0x7279fc82, 0x709d, 0x4095, 0xb6, 0x3d, 0x69, 0xfe, 0x4b, 0x0d, 0x90, 0x30);
 
 }
-#endregion
-
-#region TypeDefs
 #endregion
 
 #region Enums
@@ -198,17 +196,6 @@ public enum XmlWriterProperty : int32
 
 #endregion
 
-#region Function Pointers
-#endregion
-
-#region Structs
-#endregion
-
-#region COM Class IDs
-public static
-{
-}
-#endregion
 
 #region COM Types
 [CRepr]struct IXmlReader : IUnknown
@@ -527,4 +514,3 @@ public static
 
 }
 #endregion
-

@@ -16,6 +16,7 @@ using System;
 using System.Interop;
 
 namespace Win32.Media.MediaFoundation;
+
 #region Constants
 public static
 {
@@ -3430,9 +3431,6 @@ public static
 	public const Guid MF_FRAMESERVER_VCAMEVENT_EXTENDED_CUSTOM_EVENT = .(0x6e59489c, 0x47d3, 0x4467, 0x83, 0xef, 0x12, 0xd3, 0x4e, 0x87, 0x16, 0x65);
 
 }
-#endregion
-
-#region TypeDefs
 #endregion
 
 #region Enums
@@ -10482,7 +10480,7 @@ public struct MFVideoSurfaceInfo
 {
 	public uint32 Format;
 	public uint32 PaletteEntries;
-	private MFPaletteEntry[0] Palette_impl;
+	private MFPaletteEntry[ANYSIZE_ARRAY] Palette_impl;
 }
 
 [CRepr]
@@ -10669,7 +10667,7 @@ public struct MFINPUTTRUSTAUTHORITY_ACCESS_PARAMS
 	public uint32 cbExtensionOffset;
 	public uint32 cbExtensionSize;
 	public uint32 cActions;
-	private MFINPUTTRUSTAUTHORITY_ACCESS_ACTION[0] rgOutputActions_impl;
+	private MFINPUTTRUSTAUTHORITY_ACCESS_ACTION[ANYSIZE_ARRAY] rgOutputActions_impl;
 }
 
 [CRepr]
@@ -10833,7 +10831,7 @@ public struct DIRTYRECT_INFO
 {
 	public uint32 FrameNumber;
 	public uint32 NumDirtyRects;
-	private RECT[0] DirtyRects_impl;
+	private RECT[ANYSIZE_ARRAY] DirtyRects_impl;
 }
 
 [CRepr, FlexibleArray("MoveRegions")]
@@ -10841,7 +10839,7 @@ public struct MOVEREGION_INFO
 {
 	public uint32 FrameNumber;
 	public uint32 NumMoveRegions;
-	private MOVE_RECT[0] MoveRegions_impl;
+	private MOVE_RECT[ANYSIZE_ARRAY] MoveRegions_impl;
 }
 
 [CRepr]
@@ -10938,7 +10936,7 @@ public struct MFCameraExtrinsic_CalibratedTransform
 public struct MFCameraExtrinsics
 {
 	public uint32 TransformCount;
-	private MFCameraExtrinsic_CalibratedTransform[0] CalibratedTransforms_impl;
+	private MFCameraExtrinsic_CalibratedTransform[ANYSIZE_ARRAY] CalibratedTransforms_impl;
 }
 
 [CRepr]
@@ -10971,7 +10969,7 @@ public struct MFPinholeCameraIntrinsic_IntrinsicModel
 public struct MFPinholeCameraIntrinsics
 {
 	public uint32 IntrinsicModelCount;
-	private MFPinholeCameraIntrinsic_IntrinsicModel[0] IntrinsicModels_impl;
+	private MFPinholeCameraIntrinsic_IntrinsicModel[ANYSIZE_ARRAY] IntrinsicModels_impl;
 }
 
 [CRepr]
@@ -22088,4 +22086,3 @@ public static
 
 }
 #endregion
-

@@ -3,9 +3,6 @@ using System;
 
 namespace Win32.System.HostComputeNetwork;
 
-#region TypeDefs
-#endregion
-
 #region Enums
 
 [AllowDuplicates]
@@ -74,15 +71,6 @@ public struct HCN_PORT_RANGE_ENTRY
 	public uint16 EndingPort;
 }
 
-#endregion
-
-#region COM Class IDs
-public static
-{
-}
-#endregion
-
-#region COM Types
 #endregion
 
 #region Functions
@@ -213,4 +201,3 @@ public static
 
 }
 #endregion
-

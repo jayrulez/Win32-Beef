@@ -2,6 +2,7 @@ using Win32.Foundation;
 using System;
 
 namespace Win32.UI.Input.XboxController;
+
 #region Constants
 public static
 {
@@ -110,9 +111,6 @@ public static
 }
 #endregion
 
-#region TypeDefs
-#endregion
-
 #region Enums
 
 [AllowDuplicates]
@@ -154,8 +152,6 @@ public enum XINPUT_VIRTUAL_KEY : uint16
 
 #endregion
 
-#region Function Pointers
-#endregion
 
 #region Structs
 [CRepr]
@@ -213,15 +209,6 @@ public struct XINPUT_KEYSTROKE
 
 #endregion
 
-#region COM Class IDs
-public static
-{
-}
-#endregion
-
-#region COM Types
-#endregion
-
 #region Functions
 public static
 {
@@ -248,4 +235,3 @@ public static
 
 }
 #endregion
-

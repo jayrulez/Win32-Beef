@@ -6,15 +6,6 @@ using System;
 
 namespace Win32.Security.Isolation;
 
-#region TypeDefs
-#endregion
-
-#region Enums
-#endregion
-
-#region Function Pointers
-#endregion
-
 #region Structs
 [CRepr]
 public struct IsolatedAppLauncherTelemetryParameters
@@ -87,4 +78,3 @@ public static
 
 }
 #endregion
-

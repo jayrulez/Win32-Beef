@@ -9,6 +9,7 @@ typealias HRAWINPUT = int;
 
 #endregion
 
+
 #region Enums
 
 [AllowDuplicates]
@@ -76,8 +77,6 @@ public enum INPUT_MESSAGE_ORIGIN_ID : int32
 
 #endregion
 
-#region Function Pointers
-#endregion
 
 #region Structs
 [CRepr]
@@ -130,7 +129,7 @@ public struct RAWHID
 {
 	public uint32 dwSizeHid;
 	public uint32 dwCount;
-	private uint8[0] bRawData_impl;
+	private uint8[ANYSIZE_ARRAY] bRawData_impl;
 }
 
 [CRepr]
@@ -219,15 +218,6 @@ public struct INPUT_MESSAGE_SOURCE
 
 #endregion
 
-#region COM Class IDs
-public static
-{
-}
-#endregion
-
-#region COM Types
-#endregion
-
 #region Functions
 public static
 {
@@ -264,4 +254,3 @@ public static
 
 }
 #endregion
-

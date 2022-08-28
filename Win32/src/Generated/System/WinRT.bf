@@ -5,6 +5,7 @@ using Win32.System.Com.Marshal;
 using System;
 
 namespace Win32.System.WinRT;
+
 #region Constants
 public static
 {
@@ -29,6 +30,7 @@ typealias ROPARAMIIDHANDLE = int;
 typealias APARTMENT_SHUTDOWN_REGISTRATION_COOKIE = int;
 
 #endregion
+
 
 #region Enums
 
@@ -180,12 +182,6 @@ public struct _RO_REGISTRATION_COOKIE
 {
 }
 
-#endregion
-
-#region COM Class IDs
-public static
-{
-}
 #endregion
 
 #region COM Types
@@ -1033,4 +1029,3 @@ public static
 
 }
 #endregion
-

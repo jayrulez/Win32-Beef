@@ -10,6 +10,7 @@ using Win32.System.Com.StructuredStorage;
 using System;
 
 namespace Win32.UI.Controls.RichEdit;
+
 #region Constants
 public static
 {
@@ -918,9 +919,6 @@ public static
 	public const int32 RECO_DRAG = 4;
 
 }
-#endregion
-
-#region TypeDefs
 #endregion
 
 #region Enums
@@ -2382,12 +2380,6 @@ public struct REOBJECT
 	public uint32 dwUser;
 }
 
-#endregion
-
-#region COM Class IDs
-public static
-{
-}
 #endregion
 
 #region COM Types
@@ -4260,4 +4252,3 @@ public static
 }
 
 #endregion
-

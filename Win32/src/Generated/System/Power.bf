@@ -6,6 +6,7 @@ using System;
 using System.Interop;
 
 namespace Win32.System.Power;
+
 #region Constants
 public static
 {
@@ -284,6 +285,7 @@ public static
 typealias HPOWERNOTIFY = int;
 
 #endregion
+
 
 #region Enums
 
@@ -780,14 +782,14 @@ public struct BATTERY_SET_INFORMATION
 {
 	public uint32 BatteryTag;
 	public BATTERY_SET_INFORMATION_LEVEL InformationLevel;
-	private uint8[0] Buffer_impl;
+	private uint8[ANYSIZE_ARRAY] Buffer_impl;
 }
 
 [CRepr, FlexibleArray("VaData")]
 public struct BATTERY_CHARGER_STATUS
 {
 	public BATTERY_CHARGING_SOURCE_TYPE Type;
-	private uint32[0] VaData_impl;
+	private uint32[ANYSIZE_ARRAY] VaData_impl;
 }
 
 [CRepr]
@@ -935,7 +937,7 @@ public struct EMI_METADATA_V1
 	public char16[16] HardwareModel;
 	public uint16 HardwareRevision;
 	public uint16 MeteredHardwareNameSize;
-	private char16[0] MeteredHardwareName_impl;
+	private char16[ANYSIZE_ARRAY] MeteredHardwareName_impl;
 }
 
 [CRepr, FlexibleArray("ChannelName")]
@@ -943,7 +945,7 @@ public struct EMI_CHANNEL_V2
 {
 	public EMI_MEASUREMENT_UNIT MeasurementUnit;
 	public uint16 ChannelNameSize;
-	private char16[0] ChannelName_impl;
+	private char16[ANYSIZE_ARRAY] ChannelName_impl;
 }
 
 [CRepr, FlexibleArray("Channels")]
@@ -953,13 +955,13 @@ public struct EMI_METADATA_V2
 	public char16[16] HardwareModel;
 	public uint16 HardwareRevision;
 	public uint16 ChannelCount;
-	private EMI_CHANNEL_V2[0] Channels_impl;
+	private EMI_CHANNEL_V2[ANYSIZE_ARRAY] Channels_impl;
 }
 
 [CRepr, FlexibleArray("ChannelData")]
 public struct EMI_MEASUREMENT_DATA_V2
 {
-	private EMI_CHANNEL_MEASUREMENT_DATA[0] ChannelData_impl;
+	private EMI_CHANNEL_MEASUREMENT_DATA[ANYSIZE_ARRAY] ChannelData_impl;
 }
 
 [CRepr]
@@ -982,7 +984,7 @@ public struct SET_POWER_SETTING_VALUE
 	public Guid Guid;
 	public SYSTEM_POWER_CONDITION PowerCondition;
 	public uint32 DataLength;
-	private uint8[0] Data_impl;
+	private uint8[ANYSIZE_ARRAY] Data_impl;
 }
 
 [CRepr]
@@ -1137,7 +1139,7 @@ public struct POWERBROADCAST_SETTING
 {
 	public Guid PowerSetting;
 	public uint32 DataLength;
-	private uint8[0] Data_impl;
+	private uint8[ANYSIZE_ARRAY] Data_impl;
 }
 
 [CRepr]
@@ -1151,15 +1153,6 @@ public struct SYSTEM_POWER_STATUS
 	public uint32 BatteryFullLifeTime;
 }
 
-#endregion
-
-#region COM Class IDs
-public static
-{
-}
-#endregion
-
-#region COM Types
 #endregion
 
 #region Functions
@@ -1458,4 +1451,3 @@ public static
 
 }
 #endregion
-

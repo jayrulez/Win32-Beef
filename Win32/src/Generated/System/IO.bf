@@ -2,13 +2,6 @@ using Win32.Foundation;
 using System;
 
 namespace Win32.System.IO;
-
-#region TypeDefs
-#endregion
-
-#region Enums
-#endregion
-
 #region Function Pointers
 public function void LPOVERLAPPED_COMPLETION_ROUTINE(uint32 dwErrorCode, uint32 dwNumberOfBytesTransfered, OVERLAPPED* lpOverlapped);
 
@@ -49,15 +42,6 @@ public struct OVERLAPPED_ENTRY
 
 #endregion
 
-#region COM Class IDs
-public static
-{
-}
-#endregion
-
-#region COM Types
-#endregion
-
 #region Functions
 public static
 {
@@ -96,4 +80,3 @@ public static
 
 }
 #endregion
-

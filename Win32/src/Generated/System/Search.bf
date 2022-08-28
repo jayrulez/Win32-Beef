@@ -11,6 +11,7 @@ using System;
 using System.Interop;
 
 namespace Win32.System.Search;
+
 #region Constants
 public static
 {
@@ -6785,9 +6786,6 @@ public static
 }
 #endregion
 
-#region TypeDefs
-#endregion
-
 #region Enums
 
 [AllowDuplicates]
@@ -8575,7 +8573,7 @@ public struct DB_VARNUMERIC
 	public uint8 precision;
 	public int8 scale;
 	public uint8 sign;
-	private uint8[0] val_impl;
+	private uint8[ANYSIZE_ARRAY] val_impl;
 }
 
 #if BF_64_BIT || BF_ARM_64
@@ -14475,4 +14473,3 @@ public static
 #endif
 }
 #endregion
-

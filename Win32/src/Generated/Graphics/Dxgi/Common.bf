@@ -2,6 +2,7 @@ using Win32.Foundation;
 using System;
 
 namespace Win32.Graphics.Dxgi.Common;
+
 #region Constants
 public static
 {
@@ -24,9 +25,6 @@ public static
 	public const uint32 DXGI_CENTER_MULTISAMPLE_QUALITY_PATTERN = 4294967294;
 
 }
-#endregion
-
-#region TypeDefs
 #endregion
 
 #region Enums
@@ -233,8 +231,6 @@ public enum DXGI_ALPHA_MODE : uint32
 
 #endregion
 
-#region Function Pointers
-#endregion
 
 #region Structs
 [CRepr]
@@ -309,13 +305,3 @@ public struct DXGI_JPEG_QUANTIZATION_TABLE
 }
 
 #endregion
-
-#region COM Class IDs
-public static
-{
-}
-#endregion
-
-#region COM Types
-#endregion
-

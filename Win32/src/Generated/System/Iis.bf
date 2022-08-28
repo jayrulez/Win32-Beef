@@ -4,6 +4,7 @@ using Win32.Security.Cryptography;
 using System;
 
 namespace Win32.System.Iis;
+
 #region Constants
 public static
 {
@@ -1734,9 +1735,6 @@ public static
 }
 #endregion
 
-#region TypeDefs
-#endregion
-
 #region Enums
 
 [AllowDuplicates]
@@ -2808,4 +2806,3 @@ public static
 
 }
 #endregion
-

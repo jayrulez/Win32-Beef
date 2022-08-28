@@ -9,6 +9,7 @@ using System;
 using System.Interop;
 
 namespace Win32.Networking.Clustering;
+
 #region Constants
 public static
 {
@@ -459,9 +460,6 @@ public static
 	public const uint32 SET_APPINSTANCE_CSV_FLAGS_VALID_ONLY_IF_CSV_COORDINATOR = 1;
 
 }
-#endregion
-
-#region TypeDefs
 #endregion
 
 #region Enums
@@ -3087,25 +3085,25 @@ public struct CLUSTER_CREATE_GROUP_INFO
 [CRepr, FlexibleArray("szPath")]
 public struct CLUSTER_VALIDATE_PATH
 {
-	private char16[0] szPath_impl;
+	private char16[ANYSIZE_ARRAY] szPath_impl;
 }
 
 [CRepr, FlexibleArray("szPath")]
 public struct CLUSTER_VALIDATE_DIRECTORY
 {
-	private char16[0] szPath_impl;
+	private char16[ANYSIZE_ARRAY] szPath_impl;
 }
 
 [CRepr, FlexibleArray("szNetworkName")]
 public struct CLUSTER_VALIDATE_NETNAME
 {
-	private char16[0] szNetworkName_impl;
+	private char16[ANYSIZE_ARRAY] szNetworkName_impl;
 }
 
 [CRepr, FlexibleArray("szFileName")]
 public struct CLUSTER_VALIDATE_CSV_FILENAME
 {
-	private char16[0] szFileName_impl;
+	private char16[ANYSIZE_ARRAY] szFileName_impl;
 }
 
 [CRepr]
@@ -3163,7 +3161,7 @@ public struct CLUSTER_MEMBERSHIP_INFO
 {
 	public BOOL HasQuorum;
 	public uint32 UpnodesSize;
-	private uint8[0] Upnodes_impl;
+	private uint8[ANYSIZE_ARRAY] Upnodes_impl;
 }
 
 [CRepr]
@@ -3271,7 +3269,7 @@ public struct CLUSPROP_VALUE
 public struct CLUSPROP_BINARY
 {
 	public CLUSPROP_VALUE __AnonymousBase_clusapi_L5129_C41;
-	private uint8[0] rgb_impl;
+	private uint8[ANYSIZE_ARRAY] rgb_impl;
 }
 
 [CRepr]
@@ -3299,7 +3297,7 @@ public struct CLUSPROP_LONG
 public struct CLUSPROP_SZ
 {
 	public CLUSPROP_VALUE __AnonymousBase_clusapi_L5169_C37;
-	private char16[0] sz_impl;
+	private char16[ANYSIZE_ARRAY] sz_impl;
 }
 
 [CRepr]
@@ -3323,7 +3321,7 @@ public struct CLUSPROP_SECURITY_DESCRIPTOR
 	public struct _Anonymous_e__Union
 	{
 		public SECURITY_DESCRIPTOR_RELATIVE sd;
-		public uint8[1] rgbSecurityDescriptor;
+		public uint8[ANYSIZE_ARRAY] rgbSecurityDescriptor;
 	}
 
 	public CLUSPROP_VALUE __AnonymousBase_clusapi_L5211_C54;
@@ -3392,7 +3390,7 @@ public struct CLUS_FORCE_QUORUM_INFO
 	public uint32 dwSize;
 	public uint32 dwNodeBitMask;
 	public uint32 dwMaxNumberofNodes;
-	private char16[0] multiszNodeList_impl;
+	private char16[ANYSIZE_ARRAY] multiszNodeList_impl;
 }
 
 [CRepr]
@@ -3519,7 +3517,7 @@ public struct CLUS_CHKDSK_INFO
 	public uint32 PartitionNumber;
 	public uint32 ChkdskState;
 	public uint32 FileIdCount;
-	private uint64[0] FileIdList_impl;
+	private uint64[ANYSIZE_ARRAY] FileIdList_impl;
 }
 
 [CRepr]
@@ -3646,7 +3644,7 @@ public struct CLUS_NETNAME_IP_INFO_ENTRY
 {
 	public uint32 NodeId;
 	public uint32 AddressSize;
-	private uint8[0] Address_impl;
+	private uint8[ANYSIZE_ARRAY] Address_impl;
 }
 
 [CRepr, FlexibleArray("IpInfo")]
@@ -3654,7 +3652,7 @@ public struct CLUS_NETNAME_IP_INFO_FOR_MULTICHANNEL
 {
 	public char16[64] szName;
 	public uint32 NumEntries;
-	private CLUS_NETNAME_IP_INFO_ENTRY[0] IpInfo_impl;
+	private CLUS_NETNAME_IP_INFO_ENTRY[ANYSIZE_ARRAY] IpInfo_impl;
 }
 
 [CRepr]
@@ -3684,7 +3682,7 @@ public struct CLUS_SET_MAINTENANCE_MODE_INPUT
 {
 	public BOOL InMaintenance;
 	public uint32 ExtraParameterSize;
-	private uint8[0] ExtraParameter_impl;
+	private uint8[ANYSIZE_ARRAY] ExtraParameter_impl;
 }
 
 [CRepr]
@@ -3712,7 +3710,7 @@ public struct CLUS_PROVIDER_STATE_CHANGE_INFO
 {
 	public uint32 dwSize;
 	public CLUSTER_RESOURCE_STATE resourceState;
-	private char16[0] szProviderId_impl;
+	private char16[ANYSIZE_ARRAY] szProviderId_impl;
 }
 
 [CRepr]
@@ -3745,7 +3743,7 @@ public struct FILESHARE_CHANGE
 public struct FILESHARE_CHANGE_LIST
 {
 	public uint32 NumEntries;
-	private FILESHARE_CHANGE[0] ChangeEntry_impl;
+	private FILESHARE_CHANGE[ANYSIZE_ARRAY] ChangeEntry_impl;
 }
 
 [CRepr]
@@ -3800,7 +3798,7 @@ public struct SR_RESOURCE_TYPE_REPLICATED_PARTITION_INFO
 public struct SR_RESOURCE_TYPE_REPLICATED_PARTITION_ARRAY
 {
 	public uint32 Count;
-	private SR_RESOURCE_TYPE_REPLICATED_PARTITION_INFO[0] PartitionArray_impl;
+	private SR_RESOURCE_TYPE_REPLICATED_PARTITION_INFO[ANYSIZE_ARRAY] PartitionArray_impl;
 }
 
 [CRepr]
@@ -3837,7 +3835,7 @@ public struct SR_RESOURCE_TYPE_DISK_INFO
 public struct SR_RESOURCE_TYPE_ELIGIBLE_DISKS_RESULT
 {
 	public uint16 Count;
-	private SR_RESOURCE_TYPE_DISK_INFO[0] DiskInfo_impl;
+	private SR_RESOURCE_TYPE_DISK_INFO[ANYSIZE_ARRAY] DiskInfo_impl;
 }
 
 [CRepr]
@@ -3853,7 +3851,7 @@ public struct SR_RESOURCE_TYPE_REPLICATED_DISK
 public struct SR_RESOURCE_TYPE_REPLICATED_DISKS_RESULT
 {
 	public uint16 Count;
-	private SR_RESOURCE_TYPE_REPLICATED_DISK[0] ReplicatedDisks_impl;
+	private SR_RESOURCE_TYPE_REPLICATED_DISK[ANYSIZE_ARRAY] ReplicatedDisks_impl;
 }
 
 [CRepr]
@@ -7034,4 +7032,3 @@ public static
 
 }
 #endregion
-

@@ -4,9 +4,6 @@ using System;
 
 namespace Win32.System.Com.Events;
 
-#region TypeDefs
-#endregion
-
 #region Enums
 
 [AllowDuplicates]
@@ -19,8 +16,6 @@ public enum EOC_ChangeType : int32
 
 #endregion
 
-#region Function Pointers
-#endregion
 
 #region Structs
 [CRepr]
@@ -590,4 +585,3 @@ public static
 }
 
 #endregion
-

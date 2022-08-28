@@ -2,6 +2,7 @@ using Win32.Foundation;
 using System;
 
 namespace Win32.System.LibraryLoader;
+
 #region Constants
 public static
 {
@@ -34,9 +35,6 @@ public static
 	public const uint32 LOAD_LIBRARY_OS_INTEGRITY_CONTINUITY = 32768;
 
 }
-#endregion
-
-#region TypeDefs
 #endregion
 
 #region Enums
@@ -106,15 +104,6 @@ public struct REDIRECTION_DESCRIPTOR
 	public REDIRECTION_FUNCTION_DESCRIPTOR* Redirections;
 }
 
-#endregion
-
-#region COM Class IDs
-public static
-{
-}
-#endregion
-
-#region COM Types
 #endregion
 
 #region Functions
@@ -287,4 +276,3 @@ public static
 
 }
 #endregion
-

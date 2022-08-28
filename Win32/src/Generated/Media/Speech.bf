@@ -7,6 +7,7 @@ using System;
 using System.Interop;
 
 namespace Win32.Media.Speech;
+
 #region Constants
 public static
 {
@@ -45,9 +46,6 @@ public static
 	public const int32 SpeechAllElements = -1;
 
 }
-#endregion
-
-#region TypeDefs
 #endregion
 
 #region Enums
@@ -2013,7 +2011,7 @@ public struct SPWORDPRONUNCIATION
 	public uint16 LangID;
 	public uint16 wPronunciationFlags;
 	public SPPARTOFSPEECH ePartOfSpeech;
-	private uint16[0] szPronunciation_impl;
+	private uint16[ANYSIZE_ARRAY] szPronunciation_impl;
 }
 
 [CRepr]
@@ -5335,4 +5333,3 @@ public static
 }
 
 #endregion
-

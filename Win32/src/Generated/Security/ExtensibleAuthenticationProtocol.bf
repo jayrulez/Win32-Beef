@@ -5,6 +5,7 @@ using System;
 using System.Interop;
 
 namespace Win32.Security.ExtensibleAuthenticationProtocol;
+
 #region Constants
 public static
 {
@@ -361,9 +362,6 @@ public static
 	public const Guid GUID_EapHost_Cause_Method_Config_Does_Not_Support_Sso = .(0xda18bd32, 0x004f, 0x41fa, 0xae, 0x08, 0x0b, 0xc8, 0x5e, 0x58, 0x45, 0xac);
 
 }
-#endregion
-
-#region TypeDefs
 #endregion
 
 #region Enums
@@ -811,7 +809,7 @@ public struct PPP_EAP_PACKET
 	public uint8 Code;
 	public uint8 Id;
 	public uint8[2] Length;
-	private uint8[0] Data_impl;
+	private uint8[ANYSIZE_ARRAY] Data_impl;
 }
 
 [CRepr]
@@ -1156,7 +1154,7 @@ public struct EapPacket
 	public uint8 Code;
 	public uint8 Id;
 	public uint8[2] Length;
-	private uint8[0] Data_impl;
+	private uint8[ANYSIZE_ARRAY] Data_impl;
 }
 
 [CRepr]
@@ -1228,12 +1226,6 @@ public struct EAP_AUTHENTICATOR_METHOD_ROUTINES
 	public int EapMethodAuthenticatorShutdown;
 }
 
-#endregion
-
-#region COM Class IDs
-public static
-{
-}
 #endregion
 
 #region COM Types
@@ -1472,4 +1464,3 @@ public static
 
 }
 #endregion
-

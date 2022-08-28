@@ -5,9 +5,6 @@ using System;
 
 namespace Win32.Media.Streaming;
 
-#region TypeDefs
-#endregion
-
 #region Enums
 
 [AllowDuplicates]
@@ -28,8 +25,6 @@ public enum MF_MEDIASOURCE_STATUS_INFO : int32
 
 #endregion
 
-#region Function Pointers
-#endregion
 
 #region Structs
 [CRepr]
@@ -127,12 +122,6 @@ public struct HistogramDataHeader
 
 #endregion
 
-#region COM Class IDs
-public static
-{
-}
-#endregion
-
 #region COM Types
 [CRepr]struct IMFDeviceTransform : IUnknown
 {
@@ -222,4 +211,3 @@ public static
 }
 
 #endregion
-

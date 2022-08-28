@@ -8,6 +8,7 @@ using System;
 using System.Interop;
 
 namespace Win32.System.WindowsProgramming;
+
 #region Constants
 public static
 {
@@ -1139,6 +1140,7 @@ typealias FH_SERVICE_PIPE_HANDLE = int;
 
 #endregion
 
+
 #region Enums
 
 [AllowDuplicates]
@@ -2102,7 +2104,7 @@ public struct tcp_request_set_information_ex
 {
 	public TDIObjectID ID;
 	public uint32 BufferSize;
-	private uint8[0] Buffer_impl;
+	private uint8[ANYSIZE_ARRAY] Buffer_impl;
 }
 
 [CRepr]
@@ -3150,4 +3152,3 @@ public static
 
 }
 #endregion
-

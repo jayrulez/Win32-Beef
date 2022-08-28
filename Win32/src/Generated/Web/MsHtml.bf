@@ -11,6 +11,7 @@ using Win32.Graphics.DirectDraw;
 using System;
 
 namespace Win32.Web.MsHtml;
+
 #region Constants
 public static
 {
@@ -13175,9 +13176,6 @@ public static
 	public const uint32 TIMERMODE_VISIBILITYAWARE = 1;
 
 }
-#endregion
-
-#region TypeDefs
 #endregion
 
 #region Enums
@@ -48417,4 +48415,3 @@ public static
 
 }
 #endregion
-

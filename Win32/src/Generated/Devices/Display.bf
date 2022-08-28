@@ -11,6 +11,7 @@ using System;
 using System.Interop;
 
 namespace Win32.Devices.Display;
+
 #region Constants
 public static
 {
@@ -1510,6 +1511,7 @@ typealias DHPDEV = int;
 
 #endregion
 
+
 #region Enums
 
 [AllowDuplicates]
@@ -2450,7 +2452,7 @@ public struct Sources
 {
 	public uint32 sourceId;
 	public int32 numTargets;
-	private uint32[0] aTargets_impl;
+	private uint32[ANYSIZE_ARRAY] aTargets_impl;
 }
 
 [CRepr, FlexibleArray("sources")]
@@ -2458,14 +2460,14 @@ public struct Adapter
 {
 	public char16[128] AdapterName;
 	public int32 numSources;
-	private Sources[0] sources_impl;
+	private Sources[ANYSIZE_ARRAY] sources_impl;
 }
 
 [CRepr, FlexibleArray("adapter")]
 public struct Adapters
 {
 	public int32 numAdapters;
-	private Adapter[0] adapter_impl;
+	private Adapter[ANYSIZE_ARRAY] adapter_impl;
 }
 
 [CRepr]
@@ -2479,7 +2481,7 @@ public struct DisplayMode
 public struct DisplayModes
 {
 	public int32 numDisplayModes;
-	private DisplayMode[0] displayMode_impl;
+	private DisplayMode[ANYSIZE_ARRAY] displayMode_impl;
 }
 
 [CRepr]
@@ -2579,7 +2581,7 @@ public struct FD_DEVICEMETRICS
 	public int32 lMinA;
 	public int32 lMinC;
 	public int32 lMinD;
-	private int32[0] alReserved_impl;
+	private int32[ANYSIZE_ARRAY] alReserved_impl;
 }
 
 [CRepr, FlexibleArray("ahglyph")]
@@ -2588,7 +2590,7 @@ public struct LIGATURE
 	public uint32 culSize;
 	public PWSTR pwsz;
 	public uint32 chglyph;
-	private uint32[0] ahglyph_impl;
+	private uint32[ANYSIZE_ARRAY] ahglyph_impl;
 }
 
 [CRepr, FlexibleArray("alig")]
@@ -2597,7 +2599,7 @@ public struct FD_LIGATURE
 	public uint32 culThis;
 	public uint32 ulType;
 	public uint32 cLigatures;
-	private LIGATURE[0] alig_impl;
+	private LIGATURE[ANYSIZE_ARRAY] alig_impl;
 }
 
 [CRepr]
@@ -2622,7 +2624,7 @@ public struct FD_GLYPHSET
 	public uint32 flAccel;
 	public uint32 cGlyphsSupported;
 	public uint32 cRuns;
-	private WCRUN[0] awcrun_impl;
+	private WCRUN[ANYSIZE_ARRAY] awcrun_impl;
 }
 
 [CRepr, FlexibleArray("aGlyphAttr")]
@@ -2631,7 +2633,7 @@ public struct FD_GLYPHATTR
 	public uint32 cjThis;
 	public uint32 cGlyphs;
 	public uint32 iMode;
-	private uint8[0] aGlyphAttr_impl;
+	private uint8[ANYSIZE_ARRAY] aGlyphAttr_impl;
 }
 
 [CRepr]
@@ -2739,7 +2741,7 @@ public struct IFIEXTRA
 	public uint32 cig;
 	public int32 dpDesignVector;
 	public int32 dpAxesInfoW;
-	private uint32[0] aulReserved_impl;
+	private uint32[ANYSIZE_ARRAY] aulReserved_impl;
 }
 
 [CRepr]
@@ -2999,7 +3001,7 @@ public struct XLATEOBJ
 public struct ENUMRECTS
 {
 	public uint32 c;
-	private RECTL[0] arcl_impl;
+	private RECTL[ANYSIZE_ARRAY] arcl_impl;
 }
 
 [CRepr, FlexibleArray("aj")]
@@ -3007,7 +3009,7 @@ public struct GLYPHBITS
 {
 	public POINTL ptlOrigin;
 	public SIZE sizlBitmap;
-	private uint8[0] aj_impl;
+	private uint8[ANYSIZE_ARRAY] aj_impl;
 }
 
 [CRepr, Union]
@@ -3084,7 +3086,7 @@ public struct CLIPLINE
 	public POINTFIX ptfxB;
 	public int32 lStyleState;
 	public uint32 c;
-	private RUN[0] arun_impl;
+	private RUN[ANYSIZE_ARRAY] arun_impl;
 }
 
 [CRepr]
@@ -3205,7 +3207,7 @@ public struct VIDEO_REGISTER_VDM
 public struct VIDEO_MONITOR_DESCRIPTOR
 {
 	public uint32 DescriptorSize;
-	private uint8[0] Descriptor_impl;
+	private uint8[ANYSIZE_ARRAY] Descriptor_impl;
 }
 
 [CRepr]
@@ -3334,7 +3336,7 @@ public struct VIDEO_LOAD_FONT_INFORMATION
 	public uint16 WidthInPixels;
 	public uint16 HeightInPixels;
 	public uint32 FontSize;
-	private uint8[0] Font_impl;
+	private uint8[ANYSIZE_ARRAY] Font_impl;
 }
 
 [CRepr, FlexibleArray("Colors")]
@@ -3342,7 +3344,7 @@ public struct VIDEO_PALETTE_DATA
 {
 	public uint16 NumEntries;
 	public uint16 FirstEntry;
-	private uint16[0] Colors_impl;
+	private uint16[ANYSIZE_ARRAY] Colors_impl;
 }
 
 [CRepr]
@@ -3366,7 +3368,7 @@ public struct VIDEO_CLUT
 
 	public uint16 NumEntries;
 	public uint16 FirstEntry;
-	private _Anonymous_e__Union[0] LookupTable_impl;
+	private _Anonymous_e__Union[ANYSIZE_ARRAY] LookupTable_impl;
 }
 
 [CRepr]
@@ -3404,7 +3406,7 @@ public struct VIDEO_POINTER_ATTRIBUTES
 	public uint32 Enable;
 	public int16 Column;
 	public int16 Row;
-	private uint8[0] Pixels_impl;
+	private uint8[ANYSIZE_ARRAY] Pixels_impl;
 }
 
 [CRepr]
@@ -3511,7 +3513,7 @@ public struct VIDEO_COLOR_LUT_DATA
 {
 	public uint32 Length;
 	public uint32 LutDataFormat;
-	private uint8[0] LutData_impl;
+	private uint8[ANYSIZE_ARRAY] LutData_impl;
 }
 
 [CRepr]
@@ -3549,7 +3551,7 @@ public struct VIDEO_BRIGHTNESS_POLICY
 
 	public BOOLEAN DefaultToBiosPolicy;
 	public uint8 LevelCount;
-	private _Anonymous_e__Struct[0] Level_impl;
+	private _Anonymous_e__Struct[ANYSIZE_ARRAY] Level_impl;
 }
 
 [CRepr]
@@ -3976,7 +3978,7 @@ public struct COLORSPACE_TRANSFORM_SET_INPUT
 [CRepr, FlexibleArray("ColorProfileName")]
 public struct SET_ACTIVE_COLOR_PROFILE_NAME
 {
-	private char16[0] ColorProfileName_impl;
+	private char16[ANYSIZE_ARRAY] ColorProfileName_impl;
 }
 
 [CRepr]
@@ -4055,7 +4057,7 @@ public struct MIPI_DSI_TRANSMISSION
 	public uint16 FinalCommandExtraPayload;
 	public uint16 MipiErrors;
 	public uint16 HostErrors;
-	private MIPI_DSI_PACKET[0] Packets_impl;
+	private MIPI_DSI_PACKET[ANYSIZE_ARRAY] Packets_impl;
 }
 
 [CRepr]
@@ -4223,12 +4225,6 @@ public struct FLOATOBJ_XFORM
 }
 #endif
 
-#endregion
-
-#region COM Class IDs
-public static
-{
-}
 #endregion
 
 #region COM Types
@@ -4650,4 +4646,3 @@ public static
 
 }
 #endregion
-

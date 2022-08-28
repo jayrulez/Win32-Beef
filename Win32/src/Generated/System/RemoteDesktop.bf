@@ -10,6 +10,7 @@ using System;
 using System.Interop;
 
 namespace Win32.System.RemoteDesktop;
+
 #region Constants
 public static
 {
@@ -538,6 +539,7 @@ public static
 typealias HwtsVirtualChannelHandle = int;
 
 #endregion
+
 
 #region Enums
 
@@ -1874,7 +1876,7 @@ public struct RFX_GFX_MSG_DESKTOP_RESEND_REQUEST
 public struct RFX_GFX_MSG_RDP_DATA
 {
 	public RFX_GFX_MSG_HEADER channelHdr;
-	private uint8[0] rdpData_impl;
+	private uint8[ANYSIZE_ARRAY] rdpData_impl;
 }
 
 [CRepr]
@@ -5063,4 +5065,3 @@ public static
 
 }
 #endregion
-

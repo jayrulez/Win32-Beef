@@ -4,15 +4,6 @@ using System;
 
 namespace Win32.UI.Notifications;
 
-#region TypeDefs
-#endregion
-
-#region Enums
-#endregion
-
-#region Function Pointers
-#endregion
-
 #region Structs
 [CRepr]
 public struct NOTIFICATION_USER_INPUT_DATA
@@ -21,12 +12,6 @@ public struct NOTIFICATION_USER_INPUT_DATA
 	public PWSTR Value;
 }
 
-#endregion
-
-#region COM Class IDs
-public static
-{
-}
 #endregion
 
 #region COM Types
@@ -46,4 +31,3 @@ public static
 }
 
 #endregion
-

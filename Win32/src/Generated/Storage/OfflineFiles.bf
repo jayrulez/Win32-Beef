@@ -3,6 +3,7 @@ using Win32.Foundation;
 using System;
 
 namespace Win32.Storage.OfflineFiles;
+
 #region Constants
 public static
 {
@@ -201,9 +202,6 @@ public static
 	public const uint32 OFFLINEFILES_SYNC_ITEM_CHANGE_ATTRIBUTES = 8;
 
 }
-#endregion
-
-#region TypeDefs
 #endregion
 
 #region Enums
@@ -451,11 +449,6 @@ public enum OFFLINEFILES_SYNC_STATE : int32
 
 #endregion
 
-#region Function Pointers
-#endregion
-
-#region Structs
-#endregion
 
 #region COM Class IDs
 public static
@@ -1320,4 +1313,3 @@ public static
 
 }
 #endregion
-

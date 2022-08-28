@@ -6,9 +6,6 @@ using System.Interop;
 
 namespace Win32.System.JobObjects;
 
-#region TypeDefs
-#endregion
-
 #region Enums
 
 [AllowDuplicates]
@@ -192,8 +189,6 @@ public enum JOBOBJECTINFOCLASS : int32
 
 #endregion
 
-#region Function Pointers
-#endregion
 
 #region Structs
 [CRepr]
@@ -258,7 +253,7 @@ public struct JOBOBJECT_BASIC_PROCESS_ID_LIST
 {
 	public uint32 NumberOfAssignedProcesses;
 	public uint32 NumberOfProcessIdsInList;
-	private uint[0] ProcessIdList_impl;
+	private uint[ANYSIZE_ARRAY] ProcessIdList_impl;
 }
 
 [CRepr]
@@ -516,15 +511,6 @@ public struct JOBOBJECT_IO_ATTRIBUTION_INFORMATION
 
 #endregion
 
-#region COM Class IDs
-public static
-{
-}
-#endregion
-
-#region COM Types
-#endregion
-
 #region Functions
 public static
 {
@@ -574,4 +560,3 @@ public static
 
 }
 #endregion
-

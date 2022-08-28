@@ -5,6 +5,7 @@ using Win32.System.WinRT;
 using System;
 
 namespace Win32.Networking.WindowsWebServices;
+
 #region Constants
 public static
 {
@@ -259,9 +260,6 @@ public static
 	public const int32 WS_URL_FLAGS_ZERO_TERMINATE = 4;
 
 }
-#endregion
-
-#region TypeDefs
 #endregion
 
 #region Enums
@@ -4197,12 +4195,6 @@ public struct WEBAUTHN_ASSERTION
 
 #endregion
 
-#region COM Class IDs
-public static
-{
-}
-#endregion
-
 #region COM Types
 [CRepr]struct IContentPrefetcherTaskTrigger : IInspectable
 {
@@ -4838,4 +4830,3 @@ public static
 
 }
 #endregion
-

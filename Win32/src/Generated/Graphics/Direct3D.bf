@@ -3,6 +3,7 @@ using Win32.System.Com;
 using System;
 
 namespace Win32.Graphics.Direct3D;
+
 #region Constants
 public static
 {
@@ -115,9 +116,6 @@ public static
 	public const Guid D3D_TEXTURE_LAYOUT_64KB_STANDARD_SWIZZLE = .(0x4c0f29e3, 0x3f5f, 0x4d35, 0x84, 0xc9, 0xbc, 0x09, 0x83, 0xb6, 0x2c, 0x28);
 
 }
-#endregion
-
-#region TypeDefs
 #endregion
 
 #region Enums
@@ -880,12 +878,6 @@ public struct D3DMATRIX
 
 #endregion
 
-#region COM Class IDs
-public static
-{
-}
-#endregion
-
 #region COM Types
 [CRepr]struct ID3DBlob : IUnknown
 {
@@ -942,4 +934,3 @@ public static
 }
 
 #endregion
-

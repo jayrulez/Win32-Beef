@@ -3,6 +3,7 @@ using Win32.System.Com;
 using System;
 
 namespace Win32.System.RemoteManagement;
+
 #region Constants
 public static
 {
@@ -1085,9 +1086,6 @@ public static
 }
 #endregion
 
-#region TypeDefs
-#endregion
-
 #region Enums
 
 [AllowDuplicates]
@@ -2054,4 +2052,3 @@ public static
 
 }
 #endregion
-

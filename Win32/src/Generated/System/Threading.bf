@@ -7,6 +7,7 @@ using System;
 using System.Interop;
 
 namespace Win32.System.Threading;
+
 #region Constants
 public static
 {
@@ -83,6 +84,7 @@ typealias BoundaryDescriptorHandle = int;
 typealias LPPROC_THREAD_ATTRIBUTE_LIST = void*;
 
 #endregion
+
 
 #region Enums
 
@@ -875,7 +877,7 @@ public struct PEB
 {
 	public uint8[2] Reserved1;
 	public uint8 BeingDebugged;
-	private uint8[0] Reserved2_impl;
+	private uint8[ANYSIZE_ARRAY] Reserved2_impl;
 	public void*[2] Reserved3;
 	public PEB_LDR_DATA* Ldr;
 	public RTL_USER_PROCESS_PARAMETERS* ProcessParameters;
@@ -890,7 +892,7 @@ public struct PEB
 	public uint8[96] Reserved10;
 	public PPS_POST_PROCESS_INIT_ROUTINE PostProcessInitRoutine;
 	public uint8[128] Reserved11;
-	private void*[0] Reserved12_impl;
+	private void*[ANYSIZE_ARRAY] Reserved12_impl;
 	public uint32 SessionId;
 }
 
@@ -904,15 +906,6 @@ public struct PROCESS_BASIC_INFORMATION
 	public void* Reserved3;
 }
 
-#endregion
-
-#region COM Class IDs
-public static
-{
-}
-#endregion
-
-#region COM Types
 #endregion
 
 #region Functions
@@ -1786,4 +1779,3 @@ public static
 
 }
 #endregion
-

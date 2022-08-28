@@ -7,6 +7,7 @@ using System;
 using System.Interop;
 
 namespace Win32.NetworkManagement.P2P;
+
 #region Constants
 public static
 {
@@ -187,9 +188,6 @@ public static
 	public const uint32 PEERDIST_READ_TIMEOUT_DEFAULT = 4294967294;
 
 }
-#endregion
-
-#region TypeDefs
 #endregion
 
 #region Enums
@@ -1217,7 +1215,7 @@ public struct DRT_ADDRESS
 public struct DRT_ADDRESS_LIST
 {
 	public uint32 AddressCount;
-	private DRT_ADDRESS[0] AddressList_impl;
+	private DRT_ADDRESS[ANYSIZE_ARRAY] AddressList_impl;
 }
 
 [CRepr]
@@ -1312,15 +1310,6 @@ public struct PEERDIST_CLIENT_BASIC_INFO
 	public BOOL fFlashCrowd;
 }
 
-#endregion
-
-#region COM Class IDs
-public static
-{
-}
-#endregion
-
-#region COM Types
 #endregion
 
 #region Functions
@@ -1928,4 +1917,3 @@ public static
 
 }
 #endregion
-

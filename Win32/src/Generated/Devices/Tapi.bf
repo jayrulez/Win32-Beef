@@ -6,6 +6,7 @@ using System;
 using System.Interop;
 
 namespace Win32.Devices.Tapi;
+
 #region Constants
 public static
 {
@@ -2246,9 +2247,6 @@ public static
 }
 #endregion
 
-#region TypeDefs
-#endregion
-
 #region Enums
 
 [AllowDuplicates]
@@ -3708,7 +3706,7 @@ public struct LINEFORWARDLIST
 {
 	public uint32 dwTotalSize;
 	public uint32 dwNumEntries;
-	private LINEFORWARD[0] ForwardList_impl;
+	private LINEFORWARD[ANYSIZE_ARRAY] ForwardList_impl;
 }
 
 [CRepr, Packed(1)]
@@ -3945,7 +3943,7 @@ public struct LINEPROXYREQUEST
 			public uint32 dwAddressID;
 			public uint32 dwAgentExtensionIDIndex;
 			public uint32 dwSize;
-			private uint8[0] Params_impl;
+			private uint8[ANYSIZE_ARRAY] Params_impl;
 		}
 
 		[CRepr, Packed(1)]
@@ -4398,7 +4396,7 @@ public struct MSP_EVENT_INFO
 		public struct _MSP_TSP_DATA_e__Struct
 		{
 			public uint32 dwBufferSize;
-			private uint8[0] pBuffer_impl;
+			private uint8[ANYSIZE_ARRAY] pBuffer_impl;
 		}
 
 		[CRepr]
@@ -4437,7 +4435,7 @@ public struct STnefProblem
 public struct STnefProblemArray
 {
 	public uint32 cProblem;
-	private STnefProblem[0] aProblem_impl;
+	private STnefProblem[ANYSIZE_ARRAY] aProblem_impl;
 }
 
 [CRepr, Packed(1)]
@@ -4488,7 +4486,7 @@ public struct NSID
 	public struct _address_e__Union
 	{
 		public _ADDR_ALIAS alias;
-		public CHAR[1] rgchInterNet;
+		public CHAR[ANYSIZE_ARRAY] rgchInterNet;
 	}
 
 	public uint32 dwSize;
@@ -8728,4 +8726,3 @@ public static
 
 }
 #endregion
-

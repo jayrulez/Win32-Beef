@@ -5,6 +5,7 @@ using Win32.System.Com;
 using System;
 
 namespace Win32.UI.Controls.Dialogs;
+
 #region Constants
 public static
 {
@@ -159,9 +160,6 @@ public static
 	public const uint32 NUM_CUSTOM_COLORS = 16;
 
 }
-#endregion
-
-#region TypeDefs
 #endregion
 
 #region Enums
@@ -1281,12 +1279,6 @@ public struct PAGESETUPDLGW
 
 #endregion
 
-#region COM Class IDs
-public static
-{
-}
-#endregion
-
 #region COM Types
 [CRepr]struct IPrintDialogCallback : IUnknown
 {
@@ -1410,4 +1402,3 @@ public static
 
 }
 #endregion
-

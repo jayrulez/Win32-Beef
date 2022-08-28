@@ -3,6 +3,7 @@ using Win32.Foundation;
 using System;
 
 namespace Win32.Networking.RemoteDifferentialCompression;
+
 #region Constants
 public static
 {
@@ -55,9 +56,6 @@ public static
 	public const uint32 MSRDC_MAXIMUM_MATCHESREQUIRED = 16;
 
 }
-#endregion
-
-#region TypeDefs
 #endregion
 
 #region Enums
@@ -116,8 +114,6 @@ public enum RdcMappingAccessMode : int32
 
 #endregion
 
-#region Function Pointers
-#endregion
 
 #region Structs
 [CRepr]
@@ -646,4 +642,3 @@ public static
 }
 
 #endregion
-

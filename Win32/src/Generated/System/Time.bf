@@ -2,6 +2,7 @@ using Win32.Foundation;
 using System;
 
 namespace Win32.System.Time;
+
 #region Constants
 public static
 {
@@ -14,15 +15,6 @@ public static
 	public const uint32 TSF_SignatureAuthenticated = 8;
 
 }
-#endregion
-
-#region TypeDefs
-#endregion
-
-#region Enums
-#endregion
-
-#region Function Pointers
 #endregion
 
 #region Structs
@@ -52,15 +44,6 @@ public struct DYNAMIC_TIME_ZONE_INFORMATION
 	public BOOLEAN DynamicDaylightTimeDisabled;
 }
 
-#endregion
-
-#region COM Class IDs
-public static
-{
-}
-#endregion
-
-#region COM Types
 #endregion
 
 #region Functions
@@ -113,4 +96,3 @@ public static
 
 }
 #endregion
-

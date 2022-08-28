@@ -6,6 +6,7 @@ using Win32.UI.Controls;
 using System;
 
 namespace Win32.UI.TabletPC;
+
 #region Constants
 public static
 {
@@ -560,6 +561,7 @@ typealias HRECOLATTICE = int;
 typealias HRECOWORDLIST = int;
 
 #endregion
+
 
 #region Enums
 
@@ -5408,4 +5410,3 @@ public static
 
 }
 #endregion
-

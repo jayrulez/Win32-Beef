@@ -3,9 +3,6 @@ using System;
 
 namespace Win32.System.SubsystemForLinux;
 
-#region TypeDefs
-#endregion
-
 #region Enums
 
 [AllowDuplicates]
@@ -19,20 +16,6 @@ public enum WSL_DISTRIBUTION_FLAGS : uint32
 
 #endregion
 
-#region Function Pointers
-#endregion
-
-#region Structs
-#endregion
-
-#region COM Class IDs
-public static
-{
-}
-#endregion
-
-#region COM Types
-#endregion
 
 #region Functions
 public static
@@ -60,4 +43,3 @@ public static
 
 }
 #endregion
-

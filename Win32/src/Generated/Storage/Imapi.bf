@@ -7,6 +7,7 @@ using System;
 using System.Interop;
 
 namespace Win32.Storage.Imapi;
+
 #region Constants
 public static
 {
@@ -581,9 +582,6 @@ public static
 }
 #endregion
 
-#region TypeDefs
-#endregion
-
 #region Enums
 
 [AllowDuplicates]
@@ -1090,7 +1088,7 @@ public struct _MSGSESS
 public struct SPropAttrArray
 {
 	public uint32 cValues;
-	private uint32[0] aPropAttr_impl;
+	private uint32[ANYSIZE_ARRAY] aPropAttr_impl;
 }
 
 [CRepr]
@@ -3235,4 +3233,3 @@ public static
 
 }
 #endregion
-

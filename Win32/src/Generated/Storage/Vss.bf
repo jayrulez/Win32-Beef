@@ -5,6 +5,7 @@ using Win32.Storage.VirtualDiskService;
 using System;
 
 namespace Win32.Storage.Vss;
+
 #region Constants
 public static
 {
@@ -175,9 +176,6 @@ public static
 	public const HRESULT VSS_E_FSS_TIMEOUT = -2147212265;
 
 }
-#endregion
-
-#region TypeDefs
 #endregion
 
 #region Enums
@@ -587,8 +585,6 @@ public enum VSS_PROTECTION_FAULT : int32
 
 #endregion
 
-#region Function Pointers
-#endregion
 
 #region Structs
 [CRepr]
@@ -1553,4 +1549,3 @@ public static
 
 }
 #endregion
-

@@ -4,6 +4,7 @@ using Win32.System.Diagnostics.Debug;
 using System;
 
 namespace Win32.System.VirtualDosMachines;
+
 #region Constants
 public static
 {
@@ -197,13 +198,6 @@ public static
 
 }
 #endregion
-
-#region TypeDefs
-#endregion
-
-#region Enums
-#endregion
-
 #region Function Pointers
 public function uint32 DEBUGEVENTPROC(DEBUG_EVENT* param0, void* param1);
 
@@ -447,13 +441,3 @@ public struct GLOBALENTRY
 }
 
 #endregion
-
-#region COM Class IDs
-public static
-{
-}
-#endregion
-
-#region COM Types
-#endregion
-

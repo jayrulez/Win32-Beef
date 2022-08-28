@@ -5,6 +5,7 @@ using System;
 using System.Interop;
 
 namespace Win32.System.AddressBook;
+
 #region Constants
 public static
 {
@@ -427,9 +428,6 @@ public static
 }
 #endregion
 
-#region TypeDefs
-#endregion
-
 #region Enums
 
 [AllowDuplicates]
@@ -518,7 +516,7 @@ public function uint32 LPWABFREEBUFFER(IWABObject* lpWABObject, void* lpBuffer);
 public struct ENTRYID
 {
 	public uint8[4] abFlags;
-	private uint8[0] ab_impl;
+	private uint8[ANYSIZE_ARRAY] ab_impl;
 }
 
 [CRepr]
@@ -531,7 +529,7 @@ public struct MAPIUID
 public struct SPropTagArray
 {
 	public uint32 cValues;
-	private uint32[0] aulPropTag_impl;
+	private uint32[ANYSIZE_ARRAY] aulPropTag_impl;
 }
 
 [CRepr]
@@ -678,14 +676,14 @@ public struct SPropProblem
 public struct SPropProblemArray
 {
 	public uint32 cProblem;
-	private SPropProblem[0] aProblem_impl;
+	private SPropProblem[ANYSIZE_ARRAY] aProblem_impl;
 }
 
 [CRepr, FlexibleArray("abEntry")]
 public struct FLATENTRY
 {
 	public uint32 cb;
-	private uint8[0] abEntry_impl;
+	private uint8[ANYSIZE_ARRAY] abEntry_impl;
 }
 
 [CRepr, FlexibleArray("abEntries")]
@@ -693,14 +691,14 @@ public struct FLATENTRYLIST
 {
 	public uint32 cEntries;
 	public uint32 cbEntries;
-	private uint8[0] abEntries_impl;
+	private uint8[ANYSIZE_ARRAY] abEntries_impl;
 }
 
 [CRepr, FlexibleArray("ab")]
 public struct MTSID
 {
 	public uint32 cb;
-	private uint8[0] ab_impl;
+	private uint8[ANYSIZE_ARRAY] ab_impl;
 }
 
 [CRepr, FlexibleArray("abMTSIDs")]
@@ -708,7 +706,7 @@ public struct FLATMTSIDLIST
 {
 	public uint32 cMTSIDs;
 	public uint32 cbMTSIDs;
-	private uint8[0] abMTSIDs_impl;
+	private uint8[ANYSIZE_ARRAY] abMTSIDs_impl;
 }
 
 [CRepr]
@@ -723,7 +721,7 @@ public struct ADRENTRY
 public struct ADRLIST
 {
 	public uint32 cEntries;
-	private ADRENTRY[0] aEntries_impl;
+	private ADRENTRY[ANYSIZE_ARRAY] aEntries_impl;
 }
 
 [CRepr]
@@ -738,7 +736,7 @@ public struct SRow
 public struct SRowSet
 {
 	public uint32 cRows;
-	private SRow[0] aRow_impl;
+	private SRow[ANYSIZE_ARRAY] aRow_impl;
 }
 
 [CRepr]
@@ -863,7 +861,7 @@ public struct SSortOrderSet
 	public uint32 cSorts;
 	public uint32 cCategories;
 	public uint32 cExpanded;
-	private SSortOrder[0] aSort_impl;
+	private SSortOrder[ANYSIZE_ARRAY] aSort_impl;
 }
 
 [CRepr]
@@ -977,7 +975,7 @@ public struct SRestriction
 public struct _flaglist
 {
 	public uint32 cFlags;
-	private uint32[0] ulFlag_impl;
+	private uint32[ANYSIZE_ARRAY] ulFlag_impl;
 }
 
 [CRepr]
@@ -1191,15 +1189,9 @@ public struct WABEXTDISPLAY
 public struct NOTIFKEY
 {
 	public uint32 cb;
-	private uint8[0] ab_impl;
+	private uint8[ANYSIZE_ARRAY] ab_impl;
 }
 
-#endregion
-
-#region COM Class IDs
-public static
-{
-}
 #endregion
 
 #region COM Types
@@ -2079,4 +2071,3 @@ public static
 
 }
 #endregion
-

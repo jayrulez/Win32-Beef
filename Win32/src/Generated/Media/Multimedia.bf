@@ -10,6 +10,7 @@ using System;
 using System.Interop;
 
 namespace Win32.Media.Multimedia;
+
 #region Constants
 public static
 {
@@ -9311,9 +9312,6 @@ typealias HVIDEO = int;
 
 #endregion
 
-#region Enums
-#endregion
-
 #region Function Pointers
 public function uint32 YIELDPROC(uint32 mciId, uint32 dwYieldData);
 
@@ -9363,7 +9361,7 @@ public struct ADPCMWAVEFORMAT
 	public WAVEFORMATEX wfx;
 	public uint16 wSamplesPerBlock;
 	public uint16 wNumCoef;
-	private ADPCMCOEFSET[0] aCoef_impl;
+	private ADPCMCOEFSET[ANYSIZE_ARRAY] aCoef_impl;
 }
 
 [CRepr, Packed(1)]
@@ -11751,4 +11749,3 @@ public static
 
 }
 #endregion
-

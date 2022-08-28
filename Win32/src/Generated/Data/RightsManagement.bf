@@ -2,6 +2,7 @@ using Win32.Foundation;
 using System;
 
 namespace Win32.Data.RightsManagement;
+
 #region Constants
 public static
 {
@@ -136,9 +137,6 @@ public static
 	public const uint32 DRMCALLBACKVERSION = 1;
 
 }
-#endregion
-
-#region TypeDefs
 #endregion
 
 #region Enums
@@ -285,15 +283,6 @@ public struct DRM_CLIENT_VERSION_INFO
 	public char16[256] wszProductDescription;
 }
 
-#endregion
-
-#region COM Class IDs
-public static
-{
-}
-#endregion
-
-#region COM Types
 #endregion
 
 #region Functions
@@ -553,4 +542,3 @@ public static
 
 }
 #endregion
-

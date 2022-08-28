@@ -3,6 +3,7 @@ using Win32.Graphics.Gdi;
 using System;
 
 namespace Win32.UI.HiDpi;
+
 #region Constants
 public static
 {
@@ -18,6 +19,7 @@ public static
 typealias DPI_AWARENESS_CONTEXT = int;
 
 #endregion
+
 
 #region Enums
 
@@ -79,20 +81,6 @@ public enum MONITOR_DPI_TYPE : int32
 
 #endregion
 
-#region Function Pointers
-#endregion
-
-#region Structs
-#endregion
-
-#region COM Class IDs
-public static
-{
-}
-#endregion
-
-#region COM Types
-#endregion
 
 #region Functions
 public static
@@ -186,4 +174,3 @@ public static
 
 }
 #endregion
-

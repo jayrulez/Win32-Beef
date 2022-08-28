@@ -4,6 +4,7 @@ using Win32.System.Com;
 using System;
 
 namespace Win32.System.WindowsSync;
+
 #region Constants
 public static
 {
@@ -72,9 +73,6 @@ public static
 	public const PROPERTYKEY PKEY_CONFIGUI_MENUITEM = .(.(0x554b24ea, 0xe8e3, 0x45ba, 0x93, 0x52, 0xdf, 0xb5, 0x61, 0xe1, 0x71, 0xe4), 13);
 
 }
-#endregion
-
-#region TypeDefs
 #endregion
 
 #region Enums
@@ -205,8 +203,6 @@ public enum SYNC_REGISTRATION_EVENT : int32
 
 #endregion
 
-#region Function Pointers
-#endregion
 
 #region Structs
 [CRepr]
@@ -2124,4 +2120,3 @@ public static
 }
 
 #endregion
-

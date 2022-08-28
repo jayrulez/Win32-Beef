@@ -2,6 +2,7 @@ using Win32.Foundation;
 using System;
 
 namespace Win32.NetworkManagement.Snmp;
+
 #region Constants
 public static
 {
@@ -190,9 +191,6 @@ public static
 	public const uint32 MAXVENDORINFO = 32;
 
 }
-#endregion
-
-#region TypeDefs
 #endregion
 
 #region Enums
@@ -449,15 +447,6 @@ public struct smiVENDORINFO
 	public uint32 vendorEnterprise;
 }
 
-#endregion
-
-#region COM Class IDs
-public static
-{
-}
-#endregion
-
-#region COM Types
 #endregion
 
 #region Functions
@@ -717,4 +706,3 @@ public static
 
 }
 #endregion
-

@@ -6,6 +6,7 @@ using System;
 using System.Interop;
 
 namespace Win32.Media.KernelStreaming;
+
 #region Constants
 public static
 {
@@ -1276,9 +1277,6 @@ public static
 	public const int32 KSPROPERTY_MEMORY_TRANSPORT = 1;
 
 }
-#endregion
-
-#region TypeDefs
 #endregion
 
 #region Enums
@@ -3069,8 +3067,6 @@ public enum KS_LogicalMemoryType : int32
 
 #endregion
 
-#region Function Pointers
-#endregion
 
 #region Structs
 [CRepr]
@@ -3445,7 +3441,7 @@ public struct KSPIN_PHYSICALCONNECTION
 {
 	public uint32 Size;
 	public uint32 Pin;
-	private char16[0] SymbolicLinkName_impl;
+	private char16[ANYSIZE_ARRAY] SymbolicLinkName_impl;
 }
 
 [CRepr]
@@ -3526,7 +3522,7 @@ public struct KSALLOCATOR_FRAMING_EX
 	public uint32 PinFlags;
 	public KS_COMPRESSION OutputCompression;
 	public uint32 PinWeight;
-	private KS_FRAMING_ITEM[0] FramingItem_impl;
+	private KS_FRAMING_ITEM[ANYSIZE_ARRAY] FramingItem_impl;
 }
 
 [CRepr]
@@ -3757,7 +3753,7 @@ public struct KSAUDIO_PACKETSIZE_CONSTRAINTS
 	public uint32 PacketSizeFileAlignment;
 	public uint32 Reserved;
 	public uint32 NumProcessingModeConstraints;
-	private _KSAUDIO_PACKETSIZE_SIGNALPROCESSINGMODE_CONSTRAINT[0] ProcessingModeConstraints_impl;
+	private _KSAUDIO_PACKETSIZE_SIGNALPROCESSINGMODE_CONSTRAINT[ANYSIZE_ARRAY] ProcessingModeConstraints_impl;
 }
 
 [CRepr, FlexibleArray("ProcessingModeConstraints")]
@@ -3767,7 +3763,7 @@ public struct KSAUDIO_PACKETSIZE_CONSTRAINTS2
 	public uint32 PacketSizeFileAlignment;
 	public uint32 MaxPacketSizeInBytes;
 	public uint32 NumProcessingModeConstraints;
-	private _KSAUDIO_PACKETSIZE_SIGNALPROCESSINGMODE_CONSTRAINT[0] ProcessingModeConstraints_impl;
+	private _KSAUDIO_PACKETSIZE_SIGNALPROCESSINGMODE_CONSTRAINT[ANYSIZE_ARRAY] ProcessingModeConstraints_impl;
 }
 
 [CRepr]
@@ -3793,7 +3789,7 @@ public struct KSAUDIO_MIC_ARRAY_GEOMETRY
 	public uint16 usFrequencyBandLo;
 	public uint16 usFrequencyBandHi;
 	public uint16 usNumberOfMicrophones;
-	private KSAUDIO_MICROPHONE_COORDINATES[0] KsMicCoord_impl;
+	private KSAUDIO_MICROPHONE_COORDINATES[ANYSIZE_ARRAY] KsMicCoord_impl;
 }
 
 [CRepr]
@@ -4141,7 +4137,7 @@ public struct KSAUDIO_MIXCAP_TABLE
 {
 	public uint32 InputChannels;
 	public uint32 OutputChannels;
-	private KSAUDIO_MIX_CAPS[0] Capabilities_impl;
+	private KSAUDIO_MIX_CAPS[ANYSIZE_ARRAY] Capabilities_impl;
 }
 
 [CRepr]
@@ -4431,7 +4427,7 @@ public struct KS_DVDCOPY_CHLGKEY
 public struct KS_DVDCOPY_BUSKEY
 {
 	public uint8[5] BusKey;
-	private uint8[0] Reserved_impl;
+	private uint8[ANYSIZE_ARRAY] Reserved_impl;
 }
 
 [CRepr]
@@ -4597,7 +4593,7 @@ public struct KS_MPEG1VIDEOINFO
 	public KS_VIDEOINFOHEADER hdr;
 	public uint32 dwStartTimeCode;
 	public uint32 cbSequenceHeader;
-	private uint8[0] bSequenceHeader_impl;
+	private uint8[ANYSIZE_ARRAY] bSequenceHeader_impl;
 }
 
 [CRepr, FlexibleArray("bSequenceHeader")]
@@ -4609,7 +4605,7 @@ public struct KS_MPEGVIDEOINFO2
 	public uint32 dwProfile;
 	public uint32 dwLevel;
 	public uint32 dwFlags;
-	private uint32[0] bSequenceHeader_impl;
+	private uint32[ANYSIZE_ARRAY] bSequenceHeader_impl;
 }
 
 [CRepr]
@@ -5798,7 +5794,7 @@ public struct KSCAMERA_METADATA_BACKGROUNDSEGMENTATIONMASK
 	public RECT MaskCoverageBoundingBox;
 	public SIZE MaskResolution;
 	public RECT ForegroundBoundingBox;
-	private uint8[0] MaskData_impl;
+	private uint8[ANYSIZE_ARRAY] MaskData_impl;
 }
 
 [CRepr]
@@ -5930,7 +5926,7 @@ public struct KSPROPERTY_NETWORKCAMERACONTROL_METADATA_INFO
 public struct KSPROPERTY_NETWORKCAMERACONTROL_EVENT_INFO
 {
 	public KSCAMERA_METADATA_ITEMHEADER Header;
-	private char16[0] EventFilter_impl;
+	private char16[ANYSIZE_ARRAY] EventFilter_impl;
 }
 
 [CRepr]
@@ -6238,7 +6234,7 @@ public struct KSDISPLAYCHANGE
 	public uint32 PelsWidth;
 	public uint32 PelsHeight;
 	public uint32 BitsPerPel;
-	private char16[0] DeviceID_impl;
+	private char16[ANYSIZE_ARRAY] DeviceID_impl;
 }
 
 [CRepr]
@@ -8331,4 +8327,3 @@ public static
 
 }
 #endregion
-

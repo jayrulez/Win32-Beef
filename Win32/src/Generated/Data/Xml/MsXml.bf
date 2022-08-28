@@ -3,6 +3,7 @@ using Win32.System.Com;
 using System;
 
 namespace Win32.Data.Xml.MsXml;
+
 #region Constants
 public static
 {
@@ -1113,9 +1114,6 @@ public static
 }
 #endregion
 
-#region TypeDefs
-#endregion
-
 #region Enums
 
 [AllowDuplicates]
@@ -1413,8 +1411,6 @@ public enum XHR_CERT_ERROR_FLAG : uint32
 
 #endregion
 
-#region Function Pointers
-#endregion
 
 #region Structs
 [CRepr]
@@ -4326,4 +4322,3 @@ public static
 }
 
 #endregion
-

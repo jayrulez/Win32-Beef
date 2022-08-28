@@ -4,6 +4,7 @@ using System;
 using System.Interop;
 
 namespace Win32.Devices.Communication;
+
 #region Constants
 public static
 {
@@ -194,9 +195,6 @@ public static
 }
 #endregion
 
-#region TypeDefs
-#endregion
-
 #region Enums
 
 [AllowDuplicates]
@@ -325,8 +323,6 @@ public enum MODEMDEVCAPS_SPEAKER_MODE : uint32
 
 #endregion
 
-#region Function Pointers
-#endregion
 
 #region Structs
 [CRepr, FlexibleArray("abVariablePortion")]
@@ -351,7 +347,7 @@ public struct MODEMDEVCAPS
 	public uint32 dwModemOptions;
 	public uint32 dwMaxDTERate;
 	public uint32 dwMaxDCERate;
-	private uint8[0] abVariablePortion_impl;
+	private uint8[ANYSIZE_ARRAY] abVariablePortion_impl;
 }
 
 [CRepr, FlexibleArray("abVariablePortion")]
@@ -368,7 +364,7 @@ public struct MODEMSETTINGS
 	public uint32 dwPreferredModemOptions;
 	public uint32 dwNegotiatedModemOptions;
 	public uint32 dwNegotiatedDCERate;
-	private uint8[0] abVariablePortion_impl;
+	private uint8[ANYSIZE_ARRAY] abVariablePortion_impl;
 }
 
 [CRepr, FlexibleArray("wcProvChar")]
@@ -391,7 +387,7 @@ public struct COMMPROP
 	public uint32 dwCurrentRxQueue;
 	public uint32 dwProvSpec1;
 	public uint32 dwProvSpec2;
-	private char16[0] wcProvChar_impl;
+	private char16[ANYSIZE_ARRAY] wcProvChar_impl;
 }
 
 [CRepr]
@@ -442,18 +438,9 @@ public struct COMMCONFIG
 	public uint32 dwProviderSubType;
 	public uint32 dwProviderOffset;
 	public uint32 dwProviderSize;
-	private char16[0] wcProviderData_impl;
+	private char16[ANYSIZE_ARRAY] wcProviderData_impl;
 }
 
-#endregion
-
-#region COM Class IDs
-public static
-{
-}
-#endregion
-
-#region COM Types
 #endregion
 
 #region Functions
@@ -556,4 +543,3 @@ public static
 
 }
 #endregion
-

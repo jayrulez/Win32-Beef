@@ -4,9 +4,6 @@ using System;
 
 namespace Win32.System.Com.CallObj;
 
-#region TypeDefs
-#endregion
-
 #region Enums
 
 [AllowDuplicates]
@@ -50,8 +47,6 @@ public enum CALLFRAME_WALK : int32
 
 #endregion
 
-#region Function Pointers
-#endregion
 
 #region Structs
 [CRepr]
@@ -90,12 +85,6 @@ public struct CALLFRAME_MARSHALCONTEXT
 	public Guid guidTransferSyntax;
 }
 
-#endregion
-
-#region COM Class IDs
-public static
-{
-}
 #endregion
 
 #region COM Types
@@ -289,4 +278,3 @@ public static
 
 }
 #endregion
-

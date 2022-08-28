@@ -3,6 +3,7 @@ using Win32.System.Com;
 using System;
 
 namespace Win32.Graphics.Direct3D.Dxc;
+
 #region Constants
 public static
 {
@@ -47,9 +48,6 @@ public static
 	public const Guid CLSID_DxcPdbUtils = .(0x54621dfb, 0xf2ce, 0x457e, 0xae, 0x8c, 0xec, 0x35, 0x5f, 0xae, 0xec, 0x7c);
 
 }
-#endregion
-
-#region TypeDefs
 #endregion
 
 #region Enums
@@ -119,12 +117,6 @@ public struct DxcArgPair
 	public PWSTR pValue;
 }
 
-#endregion
-
-#region COM Class IDs
-public static
-{
-}
 #endregion
 
 #region COM Types
@@ -762,4 +754,3 @@ public static
 
 }
 #endregion
-

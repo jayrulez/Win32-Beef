@@ -7,6 +7,7 @@ using System;
 using System.Interop;
 
 namespace Win32.Security.Authorization.UI;
+
 #region Constants
 public static
 {
@@ -67,9 +68,6 @@ public static
 }
 #endregion
 
-#region TypeDefs
-#endregion
-
 #region Enums
 
 [AllowDuplicates]
@@ -128,8 +126,6 @@ public enum SI_PAGE_ACTIVATED : int32
 
 #endregion
 
-#region Function Pointers
-#endregion
 
 #region Structs
 [CRepr]
@@ -173,7 +169,7 @@ public struct SID_INFO
 public struct SID_INFO_LIST
 {
 	public uint32 cItems;
-	private SID_INFO[0] aSidInfo_impl;
+	private SID_INFO[ANYSIZE_ARRAY] aSidInfo_impl;
 }
 
 [CRepr]
@@ -197,12 +193,6 @@ public struct EFFPERM_RESULT_LIST
 	public uint32* pGrantedAccessList;
 }
 
-#endregion
-
-#region COM Class IDs
-public static
-{
-}
 #endregion
 
 #region COM Types
@@ -351,4 +341,3 @@ public static
 
 }
 #endregion
-

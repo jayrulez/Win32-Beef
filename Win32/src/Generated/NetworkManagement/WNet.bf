@@ -2,6 +2,7 @@ using Win32.Foundation;
 using System;
 
 namespace Win32.NetworkManagement.WNet;
+
 #region Constants
 public static
 {
@@ -178,6 +179,7 @@ public static
 typealias NetEnumHandle = int;
 
 #endregion
+
 
 #region Enums
 
@@ -509,15 +511,6 @@ public struct NOTIFYCANCEL
 
 #endregion
 
-#region COM Class IDs
-public static
-{
-}
-#endregion
-
-#region COM Types
-#endregion
-
 #region Functions
 public static
 {
@@ -740,4 +733,3 @@ public static
 
 }
 #endregion
-

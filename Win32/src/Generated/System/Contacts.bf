@@ -3,6 +3,7 @@ using Win32.Foundation;
 using System;
 
 namespace Win32.System.Contacts;
+
 #region Constants
 public static
 {
@@ -21,9 +22,6 @@ public static
 	public const Guid CLSID_ContactAggregationManager = .(0x96c8ad95, 0xc199, 0x44de, 0xb3, 0x4e, 0xac, 0x33, 0xc4, 0x42, 0xdf, 0x39);
 
 }
-#endregion
-
-#region TypeDefs
 #endregion
 
 #region Enums
@@ -46,8 +44,6 @@ public enum CONTACT_AGGREGATION_COLLECTION_OPTIONS : int32
 
 #endregion
 
-#region Function Pointers
-#endregion
 
 #region Structs
 [CRepr]
@@ -706,4 +702,3 @@ public static
 }
 
 #endregion
-

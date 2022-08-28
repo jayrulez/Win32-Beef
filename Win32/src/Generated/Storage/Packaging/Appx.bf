@@ -3,6 +3,7 @@ using Win32.System.Com;
 using System;
 
 namespace Win32.Storage.Packaging.Appx;
+
 #region Constants
 public static
 {
@@ -51,9 +52,6 @@ public static
 	public const uint32 PACKAGE_DEPENDENCY_RANK_DEFAULT = 0;
 
 }
-#endregion
-
-#region TypeDefs
 #endregion
 
 #region Enums
@@ -331,8 +329,6 @@ public enum AppPolicyCreateFileAccess : int32
 
 #endregion
 
-#region Function Pointers
-#endregion
 
 #region Structs
 [CRepr]
@@ -2303,4 +2299,3 @@ public static
 
 }
 #endregion
-

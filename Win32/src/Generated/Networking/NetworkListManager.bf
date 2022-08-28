@@ -4,6 +4,7 @@ using Win32.System.Ole;
 using System;
 
 namespace Win32.Networking.NetworkListManager;
+
 #region Constants
 public static
 {
@@ -12,9 +13,6 @@ public static
 	public const uint32 NLM_UNKNOWN_DATAPLAN_STATUS = 4294967295;
 
 }
-#endregion
-
-#region TypeDefs
 #endregion
 
 #region Enums
@@ -112,8 +110,6 @@ public enum NLM_CONNECTION_PROPERTY_CHANGE : int32
 
 #endregion
 
-#region Function Pointers
-#endregion
 
 #region Structs
 [CRepr]
@@ -473,4 +469,3 @@ public static
 }
 
 #endregion
-

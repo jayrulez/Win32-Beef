@@ -2,6 +2,7 @@ using Win32.Foundation;
 using System;
 
 namespace Win32.NetworkManagement.WebDav;
+
 #region Constants
 public static
 {
@@ -20,9 +21,6 @@ public static
 	public const uint32 DAV_AUTHN_SCHEME_FBA = 1048576;
 
 }
-#endregion
-
-#region TypeDefs
 #endregion
 
 #region Enums
@@ -73,15 +71,6 @@ public struct DAV_CALLBACK_CRED
 
 #endregion
 
-#region COM Class IDs
-public static
-{
-}
-#endregion
-
-#region COM Types
-#endregion
-
 #region Functions
 public static
 {
@@ -120,4 +109,3 @@ public static
 
 }
 #endregion
-

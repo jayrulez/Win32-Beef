@@ -3,6 +3,7 @@ using System;
 using System.Interop;
 
 namespace Win32.System.Environment;
+
 #region Constants
 public static
 {
@@ -39,9 +40,6 @@ public static
 	public const uint32 ENCLAVE_VBS_BASIC_KEY_FLAG_DEBUG_KEY = 8;
 
 }
-#endregion
-
-#region TypeDefs
 #endregion
 
 #region Enums
@@ -165,7 +163,7 @@ public struct VBS_ENCLAVE_REPORT_MODULE
 	public uint8[16] FamilyId;
 	public uint8[16] ImageId;
 	public uint32 Svn;
-	private char16[0] ModuleName_impl;
+	private char16[ANYSIZE_ARRAY] ModuleName_impl;
 }
 
 [CRepr]
@@ -241,15 +239,6 @@ public struct VBS_BASIC_ENCLAVE_SYSCALL_PAGE
 	public VBS_BASIC_ENCLAVE_BASIC_CALL_GENERATE_RANDOM_DATA GenerateRandomData;
 }
 
-#endregion
-
-#region COM Class IDs
-public static
-{
-}
-#endregion
-
-#region COM Types
 #endregion
 
 #region Functions
@@ -378,4 +367,3 @@ public static
 
 }
 #endregion
-

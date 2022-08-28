@@ -5,27 +5,11 @@ using Win32.System.Diagnostics.Debug;
 using System;
 
 namespace Win32.System.Diagnostics.Debug.WebApp;
-
-#region TypeDefs
-#endregion
-
-#region Enums
-#endregion
-
 #region Function Pointers
 public function HRESULT RegisterAuthoringClientFunctionType(IWebApplicationAuthoringMode* authoringModeObject, IWebApplicationHost* host);
 
 public function HRESULT UnregisterAuthoringClientFunctionType(IWebApplicationHost* host);
 
-#endregion
-
-#region Structs
-#endregion
-
-#region COM Class IDs
-public static
-{
-}
 #endregion
 
 #region COM Types
@@ -168,4 +152,3 @@ public static
 }
 
 #endregion
-

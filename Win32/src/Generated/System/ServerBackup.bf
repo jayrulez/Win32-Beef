@@ -3,6 +3,7 @@ using Win32.System.Com;
 using System;
 
 namespace Win32.System.ServerBackup;
+
 #region Constants
 public static
 {
@@ -13,9 +14,6 @@ public static
 	public const HRESULT WSBAPP_ASYNC_IN_PROGRESS = 7995396;
 
 }
-#endregion
-
-#region TypeDefs
 #endregion
 
 #region Enums
@@ -34,8 +32,6 @@ public enum WSB_OB_STATUS_ENTRY_PAIR_TYPE : int32
 
 #endregion
 
-#region Function Pointers
-#endregion
 
 #region Structs
 [CRepr]
@@ -73,12 +69,6 @@ public struct WSB_OB_REGISTRATION_INFO
 	public BOOLEAN m_bSupportsRemoting;
 }
 
-#endregion
-
-#region COM Class IDs
-public static
-{
-}
 #endregion
 
 #region COM Types
@@ -140,4 +130,3 @@ public static
 }
 
 #endregion
-

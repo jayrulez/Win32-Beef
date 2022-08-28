@@ -2,6 +2,7 @@ using Win32.Foundation;
 using System;
 
 namespace Win32.System.CorrelationVector;
+
 #region Constants
 public static
 {
@@ -18,15 +19,6 @@ public static
 }
 #endregion
 
-#region TypeDefs
-#endregion
-
-#region Enums
-#endregion
-
-#region Function Pointers
-#endregion
-
 #region Structs
 [CRepr]
 public struct CORRELATION_VECTOR
@@ -35,15 +27,6 @@ public struct CORRELATION_VECTOR
 	public CHAR[129] Vector;
 }
 
-#endregion
-
-#region COM Class IDs
-public static
-{
-}
-#endregion
-
-#region COM Types
 #endregion
 
 #region Functions
@@ -63,4 +46,3 @@ public static
 
 }
 #endregion
-

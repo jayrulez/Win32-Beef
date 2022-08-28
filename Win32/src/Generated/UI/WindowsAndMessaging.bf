@@ -6,6 +6,7 @@ using System;
 using System.Interop;
 
 namespace Win32.UI.WindowsAndMessaging;
+
 #region Constants
 public static
 {
@@ -2771,6 +2772,7 @@ typealias HACCEL = int;
 
 #endregion
 
+
 #region Enums
 
 [AllowDuplicates]
@@ -4047,7 +4049,7 @@ public struct MESSAGE_RESOURCE_ENTRY
 {
 	public uint16 Length;
 	public uint16 Flags;
-	private uint8[0] Text_impl;
+	private uint8[ANYSIZE_ARRAY] Text_impl;
 }
 
 [CRepr]
@@ -4062,7 +4064,7 @@ public struct MESSAGE_RESOURCE_BLOCK
 public struct MESSAGE_RESOURCE_DATA
 {
 	public uint32 NumberOfBlocks;
-	private MESSAGE_RESOURCE_BLOCK[0] Blocks_impl;
+	private MESSAGE_RESOURCE_BLOCK[ANYSIZE_ARRAY] Blocks_impl;
 }
 
 [CRepr]
@@ -4514,7 +4516,7 @@ public struct MENUITEMTEMPLATE
 {
 	public uint16 mtOption;
 	public uint16 mtID;
-	private char16[0] mtString_impl;
+	private char16[ANYSIZE_ARRAY] mtString_impl;
 }
 
 [CRepr]
@@ -4829,15 +4831,6 @@ public struct MrmResourceIndexerMessage
 	public PWSTR text;
 }
 
-#endregion
-
-#region COM Class IDs
-public static
-{
-}
-#endregion
-
-#region COM Types
 #endregion
 
 #region Functions
@@ -6199,4 +6192,3 @@ public static
 
 }
 #endregion
-

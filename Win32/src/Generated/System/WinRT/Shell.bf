@@ -5,9 +5,6 @@ using System;
 
 namespace Win32.System.WinRT.Shell;
 
-#region TypeDefs
-#endregion
-
 #region Enums
 
 [AllowDuplicates]
@@ -20,17 +17,6 @@ public enum CreateProcessMethod : int32
 
 #endregion
 
-#region Function Pointers
-#endregion
-
-#region Structs
-#endregion
-
-#region COM Class IDs
-public static
-{
-}
-#endregion
 
 #region COM Types
 [CRepr]struct IDDEInitializer : IUnknown
@@ -49,4 +35,3 @@ public static
 }
 
 #endregion
-

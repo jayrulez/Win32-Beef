@@ -6,6 +6,7 @@ using System;
 using System.Interop;
 
 namespace Win32.NetworkManagement.Rras;
+
 #region Constants
 public static
 {
@@ -1399,6 +1400,7 @@ typealias HRASCONN = int;
 
 #endregion
 
+
 #region Enums
 
 [AllowDuplicates]
@@ -2402,7 +2404,7 @@ public struct RASEAPUSERIDENTITYA
 {
 	public CHAR[257] szUserName;
 	public uint32 dwSizeofEapInfo;
-	private uint8[0] pbEapInfo_impl;
+	private uint8[ANYSIZE_ARRAY] pbEapInfo_impl;
 }
 
 [CRepr, FlexibleArray("pbEapInfo")]
@@ -2410,7 +2412,7 @@ public struct RASEAPUSERIDENTITYW
 {
 	public char16[257] szUserName;
 	public uint32 dwSizeofEapInfo;
-	private uint8[0] pbEapInfo_impl;
+	private uint8[ANYSIZE_ARRAY] pbEapInfo_impl;
 }
 
 [CRepr]
@@ -3523,7 +3525,7 @@ public struct AUTH_VALIDATION_EX
 	public char16[257] wszUserName;
 	public char16[16] wszLogonDomain;
 	public uint32 AuthInfoSize;
-	private uint8[0] AuthInfo_impl;
+	private uint8[ANYSIZE_ARRAY] AuthInfo_impl;
 }
 
 [CRepr]
@@ -3632,7 +3634,7 @@ public struct RTM_PREF_INFO
 public struct RTM_NEXTHOP_LIST
 {
 	public uint16 NumNextHops;
-	private int[0] NextHops_impl;
+	private int[ANYSIZE_ARRAY] NextHops_impl;
 }
 
 [CRepr, FlexibleArray("ViewInfo")]
@@ -3654,7 +3656,7 @@ public struct RTM_DEST_INFO
 	public FILETIME LastChanged;
 	public uint32 BelongsToViews;
 	public uint32 NumberOfViews;
-	private _Anonymous_e__Struct[0] ViewInfo_impl;
+	private _Anonymous_e__Struct[ANYSIZE_ARRAY] ViewInfo_impl;
 }
 
 [CRepr]
@@ -3717,7 +3719,7 @@ public struct RTM_ENTITY_METHOD_INPUT
 {
 	public uint32 MethodType;
 	public uint32 InputSize;
-	private uint8[0] InputData_impl;
+	private uint8[ANYSIZE_ARRAY] InputData_impl;
 }
 
 [CRepr, FlexibleArray("OutputData")]
@@ -3726,25 +3728,16 @@ public struct RTM_ENTITY_METHOD_OUTPUT
 	public uint32 MethodType;
 	public uint32 MethodStatus;
 	public uint32 OutputSize;
-	private uint8[0] OutputData_impl;
+	private uint8[ANYSIZE_ARRAY] OutputData_impl;
 }
 
 [CRepr, FlexibleArray("Methods")]
 public struct RTM_ENTITY_EXPORT_METHODS
 {
 	public uint32 NumMethods;
-	private RTM_ENTITY_EXPORT_METHOD[0] Methods_impl;
+	private RTM_ENTITY_EXPORT_METHOD[ANYSIZE_ARRAY] Methods_impl;
 }
 
-#endregion
-
-#region COM Class IDs
-public static
-{
-}
-#endregion
-
-#region COM Types
 #endregion
 
 #region Functions
@@ -4624,4 +4617,3 @@ public static
 
 }
 #endregion
-

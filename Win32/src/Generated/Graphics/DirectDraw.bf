@@ -5,6 +5,7 @@ using System;
 using System.Interop;
 
 namespace Win32.Graphics.DirectDraw;
+
 #region Constants
 public static
 {
@@ -1876,13 +1877,6 @@ public static
 
 }
 #endregion
-
-#region TypeDefs
-#endregion
-
-#region Enums
-#endregion
-
 #region Function Pointers
 public function BOOL LPDDENUMCALLBACKA(ref Guid param0, PSTR param1, PSTR param2, void* param3);
 
@@ -3474,7 +3468,7 @@ public struct DDMORESURFACECAPS
 
 	public uint32 dwSize;
 	public DDSCAPSEX ddsCapsMore;
-	private ExtendedHeapRestrictions[0] ddsExtendedHeapRestrictions_impl;
+	private ExtendedHeapRestrictions[ANYSIZE_ARRAY] ddsExtendedHeapRestrictions_impl;
 }
 
 [CRepr]
@@ -5266,7 +5260,7 @@ public struct DD_MORESURFACECAPS
 
 	public uint32 dwSize;
 	public DDSCAPSEX ddsCapsMore;
-	private NTExtendedHeapRestrictions[0] ddsExtendedHeapRestrictions_impl;
+	private NTExtendedHeapRestrictions[ANYSIZE_ARRAY] ddsExtendedHeapRestrictions_impl;
 }
 
 [CRepr]
@@ -6197,12 +6191,6 @@ public struct DXAPI_INTERFACE
 	public PDX_GETTRANSFERSTATUS DxGetTransferStatus;
 }
 
-#endregion
-
-#region COM Class IDs
-public static
-{
-}
 #endregion
 
 #region COM Types
@@ -7430,4 +7418,3 @@ public static
 
 }
 #endregion
-

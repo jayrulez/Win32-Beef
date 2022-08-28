@@ -7,6 +7,7 @@ using Win32.Media.Audio.Apo;
 using System;
 
 namespace Win32.Media.Audio.Endpoints;
+
 #region Constants
 public static
 {
@@ -19,9 +20,6 @@ public static
 	public const PROPERTYKEY DEVPKEY_AudioEndpointPlugin2_FactoryCLSID = .(.(0x12d83bd7, 0xcf12, 0x46be, 0x85, 0x40, 0x81, 0x27, 0x10, 0xd3, 0x02, 0x1c), 4);
 
 }
-#endregion
-
-#region TypeDefs
 #endregion
 
 #region Enums
@@ -38,8 +36,6 @@ public enum EndpointConnectorType : int32
 
 #endregion
 
-#region Function Pointers
-#endregion
 
 #region Structs
 [CRepr]
@@ -319,4 +315,3 @@ public static
 }
 
 #endregion
-

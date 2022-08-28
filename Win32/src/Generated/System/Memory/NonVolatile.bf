@@ -2,15 +2,6 @@ using System;
 
 namespace Win32.System.Memory.NonVolatile;
 
-#region TypeDefs
-#endregion
-
-#region Enums
-#endregion
-
-#region Function Pointers
-#endregion
-
 #region Structs
 [CRepr]
 public struct NV_MEMORY_RANGE
@@ -19,15 +10,6 @@ public struct NV_MEMORY_RANGE
 	public uint Length;
 }
 
-#endregion
-
-#region COM Class IDs
-public static
-{
-}
-#endregion
-
-#region COM Types
 #endregion
 
 #region Functions
@@ -70,4 +52,3 @@ public static
 #endif
 }
 #endregion
-

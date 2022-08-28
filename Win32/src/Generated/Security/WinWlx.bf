@@ -5,6 +5,7 @@ using Win32.UI.WindowsAndMessaging;
 using System;
 
 namespace Win32.Security.WinWlx;
+
 #region Constants
 public static
 {
@@ -127,9 +128,6 @@ public static
 	public const uint32 WLX_OPTION_DISPATCH_TABLE_SIZE = 65539;
 
 }
-#endregion
-
-#region TypeDefs
 #endregion
 
 #region Enums
@@ -449,13 +447,3 @@ public struct WLX_NOTIFICATION_INFO
 }
 
 #endregion
-
-#region COM Class IDs
-public static
-{
-}
-#endregion
-
-#region COM Types
-#endregion
-

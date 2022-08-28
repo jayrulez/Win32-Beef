@@ -4,15 +4,13 @@ using Win32.System.Com;
 using System;
 
 namespace Win32.AI.MachineLearning.WinML;
+
 #region Constants
 public static
 {
 	public const uint32 WINML_TENSOR_DIMENSION_COUNT_MAX = 4;
 
 }
-#endregion
-
-#region TypeDefs
 #endregion
 
 #region Enums
@@ -147,8 +145,6 @@ public enum MLOperatorExecutionType : uint32
 
 #endregion
 
-#region Function Pointers
-#endregion
 
 #region Structs
 [CRepr]
@@ -402,12 +398,6 @@ public struct MLOperatorKernelDescription
 	public uint32 executionOptions;
 }
 
-#endregion
-
-#region COM Class IDs
-public static
-{
-}
 #endregion
 
 #region COM Types
@@ -799,4 +789,3 @@ public static
 
 }
 #endregion
-

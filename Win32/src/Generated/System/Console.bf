@@ -3,6 +3,7 @@ using Win32.Security;
 using System;
 
 namespace Win32.System.Console;
+
 #region Constants
 public static
 {
@@ -143,6 +144,7 @@ public static
 typealias HPCON = int;
 
 #endregion
+
 
 #region Enums
 
@@ -350,15 +352,6 @@ public struct CONSOLE_HISTORY_INFO
 	public uint32 dwFlags;
 }
 
-#endregion
-
-#region COM Class IDs
-public static
-{
-}
-#endregion
-
-#region COM Types
 #endregion
 
 #region Functions
@@ -672,4 +665,3 @@ public static
 
 }
 #endregion
-

@@ -3,6 +3,7 @@ using Win32.System.Com;
 using System;
 
 namespace Win32.Media.DxMediaObjects;
+
 #region Constants
 public static
 {
@@ -39,9 +40,6 @@ public static
 	public const Guid DMOCATEGORY_AGC = .(0xe88c9ba0, 0xc557, 0x11d0, 0x8a, 0x2b, 0x00, 0xa0, 0xc9, 0x25, 0x5a, 0xc1);
 
 }
-#endregion
-
-#region TypeDefs
 #endregion
 
 #region Enums
@@ -147,8 +145,6 @@ public enum DMO_ENUM_FLAGS : int32
 
 #endregion
 
-#region Function Pointers
-#endregion
 
 #region Structs
 [CRepr]
@@ -181,12 +177,6 @@ public struct DMO_PARTIAL_MEDIATYPE
 	public Guid subtype;
 }
 
-#endregion
-
-#region COM Class IDs
-public static
-{
-}
 #endregion
 
 #region COM Types
@@ -416,4 +406,3 @@ public static
 
 }
 #endregion
-

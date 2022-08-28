@@ -10,6 +10,7 @@ using System;
 using System.Interop;
 
 namespace Win32.System.Ole;
+
 #region Constants
 public static
 {
@@ -1196,9 +1197,6 @@ public static
 }
 #endregion
 
-#region TypeDefs
-#endregion
-
 #region Enums
 
 [AllowDuplicates]
@@ -2091,7 +2089,7 @@ public struct _wireSAFEARRAY
 	public uint32 cbElements;
 	public uint32 cLocks;
 	public _wireSAFEARRAY_UNION uArrayStructs;
-	private SAFEARRAYBOUND[0] rgsabound_impl;
+	private SAFEARRAYBOUND[ANYSIZE_ARRAY] rgsabound_impl;
 }
 
 [CRepr]
@@ -2169,7 +2167,7 @@ public struct ARRAYDESC
 {
 	public TYPEDESC tdescElem;
 	public uint16 cDims;
-	private SAFEARRAYBOUND[0] rgbounds_impl;
+	private SAFEARRAYBOUND[ANYSIZE_ARRAY] rgbounds_impl;
 }
 
 [CRepr]
@@ -2467,7 +2465,7 @@ public struct PAGESET
 	public BOOL fOddPages;
 	public BOOL fEvenPages;
 	public uint32 cPageRange;
-	private PAGERANGE[0] rgPages_impl;
+	private PAGERANGE[ANYSIZE_ARRAY] rgPages_impl;
 }
 
 [CRepr]
@@ -2483,7 +2481,7 @@ public struct OLECMDTEXT
 	public uint32 cmdtextf;
 	public uint32 cwActual;
 	public uint32 cwBuf;
-	private char16[0] rgwz_impl;
+	private char16[ANYSIZE_ARRAY] rgwz_impl;
 }
 
 [CRepr]
@@ -2912,12 +2910,6 @@ public struct OLEUIOBJECTPROPSA
 	public OLEUILINKPROPSA* lpLP;
 }
 
-#endregion
-
-#region COM Class IDs
-public static
-{
-}
 #endregion
 
 #region COM Types
@@ -6722,4 +6714,3 @@ public static
 
 }
 #endregion
-

@@ -3,6 +3,7 @@ using Win32.System.Com;
 using System;
 
 namespace Win32.Storage.FileServerResourceManager;
+
 #region Constants
 public static
 {
@@ -309,9 +310,6 @@ public static
 	public const HRESULT FSRM_E_MODULE_TIMEOUT = -2147200101;
 
 }
-#endregion
-
-#region TypeDefs
 #endregion
 
 #region Enums
@@ -772,11 +770,6 @@ public enum AdrClientFlags : int32
 
 #endregion
 
-#region Function Pointers
-#endregion
-
-#region Structs
-#endregion
 
 #region COM Class IDs
 public static
@@ -2856,4 +2849,3 @@ public static
 }
 
 #endregion
-

@@ -2,6 +2,7 @@ using Win32.Foundation;
 using System;
 
 namespace Win32.Storage.Compression;
+
 #region Constants
 public static
 {
@@ -20,6 +21,7 @@ public static
 typealias COMPRESSOR_HANDLE = int;
 
 #endregion
+
 
 #region Enums
 
@@ -59,15 +61,6 @@ public struct COMPRESS_ALLOCATION_ROUTINES
 	public void* UserContext;
 }
 
-#endregion
-
-#region COM Class IDs
-public static
-{
-}
-#endregion
-
-#region COM Types
 #endregion
 
 #region Functions
@@ -111,4 +104,3 @@ public static
 
 }
 #endregion
-

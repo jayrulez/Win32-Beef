@@ -3,6 +3,7 @@ using Win32.System.Com;
 using System;
 
 namespace Win32.Storage.VirtualDiskService;
+
 #region Constants
 public static
 {
@@ -931,9 +932,6 @@ public static
 }
 #endregion
 
-#region TypeDefs
-#endregion
-
 #region Enums
 
 [AllowDuplicates]
@@ -1677,8 +1675,6 @@ public enum VDS_RAID_TYPE : int32
 
 #endregion
 
-#region Function Pointers
-#endregion
 
 #region Structs
 [CRepr]
@@ -2338,12 +2334,6 @@ public struct VDS_STORAGE_POOL_DRIVE_EXTENT
 	public BOOL bUsed;
 }
 
-#endregion
-
-#region COM Class IDs
-public static
-{
-}
 #endregion
 
 #region COM Types
@@ -3182,4 +3172,3 @@ public static
 }
 
 #endregion
-

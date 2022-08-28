@@ -2,6 +2,7 @@ using Win32.Foundation;
 using System;
 
 namespace Win32.Security.NetworkAccessProtection;
+
 #region Constants
 public static
 {
@@ -10,9 +11,6 @@ public static
 	public const uint32 ComponentTypeEnforcementClientRp = 2;
 
 }
-#endregion
-
-#region TypeDefs
 #endregion
 
 #region Enums
@@ -85,8 +83,6 @@ public enum RemoteConfigurationType : int32
 
 #endregion
 
-#region Function Pointers
-#endregion
 
 #region Structs
 [CRepr]
@@ -207,13 +203,3 @@ public struct NapComponentRegistrationInfo
 }
 
 #endregion
-
-#region COM Class IDs
-public static
-{
-}
-#endregion
-
-#region COM Types
-#endregion
-

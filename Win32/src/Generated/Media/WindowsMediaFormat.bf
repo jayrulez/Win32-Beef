@@ -6,6 +6,7 @@ using System;
 using System.Interop;
 
 namespace Win32.Media.WindowsMediaFormat;
+
 #region Constants
 public static
 {
@@ -696,9 +697,6 @@ public static
 }
 #endregion
 
-#region TypeDefs
-#endregion
-
 #region Enums
 
 [AllowDuplicates]
@@ -1055,8 +1053,6 @@ public enum NETSOURCE_URLCREDPOLICY_SETTINGS : int32
 
 #endregion
 
-#region Function Pointers
-#endregion
 
 #region Structs
 [CRepr]
@@ -1189,7 +1185,7 @@ public struct WMT_WEBSTREAM_SAMPLE_HEADER
 	public uint16 wPart;
 	public uint16 cTotalParts;
 	public uint16 wSampleType;
-	private char16[0] wszURL_impl;
+	private char16[ANYSIZE_ARRAY] wszURL_impl;
 }
 
 [CRepr]
@@ -1365,7 +1361,7 @@ public struct WMMPEG2VIDEOINFO
 	public uint32 dwProfile;
 	public uint32 dwLevel;
 	public uint32 dwFlags;
-	private uint32[0] dwSequenceHeader_impl;
+	private uint32[ANYSIZE_ARRAY] dwSequenceHeader_impl;
 }
 
 [CRepr]
@@ -1454,12 +1450,6 @@ public struct DRM_COPY_OPL
 	public DRM_OPL_OUTPUT_IDS oplIdExcludes;
 }
 
-#endregion
-
-#region COM Class IDs
-public static
-{
-}
 #endregion
 
 #region COM Types
@@ -4383,4 +4373,3 @@ public static
 
 }
 #endregion
-

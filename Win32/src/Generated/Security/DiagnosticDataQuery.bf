@@ -4,9 +4,6 @@ using System;
 
 namespace Win32.Security.DiagnosticDataQuery;
 
-#region TypeDefs
-#endregion
-
 #region Enums
 
 [AllowDuplicates]
@@ -19,8 +16,6 @@ public enum DdqAccessLevel : int32
 
 #endregion
 
-#region Function Pointers
-#endregion
 
 #region Structs
 [CRepr]
@@ -148,15 +143,6 @@ public struct DIAGNOSTIC_REPORT_DATA
 
 #endregion
 
-#region COM Class IDs
-public static
-{
-}
-#endregion
-
-#region COM Types
-#endregion
-
 #region Functions
 public static
 {
@@ -267,4 +253,3 @@ public static
 
 }
 #endregion
-

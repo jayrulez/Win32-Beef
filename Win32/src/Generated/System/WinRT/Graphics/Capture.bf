@@ -5,24 +5,6 @@ using System;
 
 namespace Win32.System.WinRT.Graphics.Capture;
 
-#region TypeDefs
-#endregion
-
-#region Enums
-#endregion
-
-#region Function Pointers
-#endregion
-
-#region Structs
-#endregion
-
-#region COM Class IDs
-public static
-{
-}
-#endregion
-
 #region COM Types
 [CRepr]struct IGraphicsCaptureItemInterop : IUnknown
 {
@@ -43,4 +25,3 @@ public static
 }
 
 #endregion
-

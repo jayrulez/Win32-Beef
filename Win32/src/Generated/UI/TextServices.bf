@@ -5,6 +5,7 @@ using Win32.Graphics.Gdi;
 using System;
 
 namespace Win32.UI.TextServices;
+
 #region Constants
 public static
 {
@@ -884,6 +885,7 @@ typealias HKL = int;
 
 #endregion
 
+
 #region Enums
 
 [AllowDuplicates]
@@ -1208,8 +1210,6 @@ public enum InputScope : int32
 
 #endregion
 
-#region Function Pointers
-#endregion
 
 #region Structs
 [CRepr]
@@ -5175,4 +5175,3 @@ public static
 
 }
 #endregion
-

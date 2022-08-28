@@ -6,6 +6,7 @@ using Win32.System.Ole;
 using System;
 
 namespace Win32.UI.LegacyWindowsEnvironmentFeatures;
+
 #region Constants
 public static
 {
@@ -50,9 +51,6 @@ public static
 }
 #endregion
 
-#region TypeDefs
-#endregion
-
 #region Enums
 
 [AllowDuplicates]
@@ -70,17 +68,6 @@ public enum _reconcilef : int32
 
 #endregion
 
-#region Function Pointers
-#endregion
-
-#region Structs
-#endregion
-
-#region COM Class IDs
-public static
-{
-}
-#endregion
 
 #region COM Types
 [CRepr]struct IEmptyVolumeCacheCallBack : IUnknown
@@ -243,4 +230,3 @@ public static
 }
 
 #endregion
-

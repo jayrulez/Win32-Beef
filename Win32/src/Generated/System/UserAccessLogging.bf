@@ -4,15 +4,6 @@ using System;
 
 namespace Win32.System.UserAccessLogging;
 
-#region TypeDefs
-#endregion
-
-#region Enums
-#endregion
-
-#region Function Pointers
-#endregion
-
 #region Structs
 [CRepr]
 public struct UAL_DATA_BLOB
@@ -24,15 +15,6 @@ public struct UAL_DATA_BLOB
 	public char16[260] UserName;
 }
 
-#endregion
-
-#region COM Class IDs
-public static
-{
-}
-#endregion
-
-#region COM Types
 #endregion
 
 #region Functions
@@ -52,4 +34,3 @@ public static
 
 }
 #endregion
-

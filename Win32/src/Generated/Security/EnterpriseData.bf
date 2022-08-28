@@ -6,9 +6,6 @@ using System;
 
 namespace Win32.Security.EnterpriseData;
 
-#region TypeDefs
-#endregion
-
 #region Enums
 
 [AllowDuplicates]
@@ -38,8 +35,6 @@ public enum SRPHOSTING_VERSION : int32
 
 #endregion
 
-#region Function Pointers
-#endregion
 
 #region Structs
 [CRepr]
@@ -55,12 +50,6 @@ public struct FILE_UNPROTECT_OPTIONS
 	public bool audit;
 }
 
-#endregion
-
-#region COM Class IDs
-public static
-{
-}
 #endregion
 
 #region COM Types
@@ -185,4 +174,3 @@ public static
 
 }
 #endregion
-

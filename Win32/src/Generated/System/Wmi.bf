@@ -3,6 +3,7 @@ using Win32.Foundation;
 using System;
 
 namespace Win32.System.Wmi;
+
 #region Constants
 public static
 {
@@ -129,9 +130,6 @@ public static
 	public const uint32 WBEMS_DISPID_CONNECTION_READY = 5;
 
 }
-#endregion
-
-#region TypeDefs
 #endregion
 
 #region Enums
@@ -5182,4 +5180,3 @@ public static
 
 }
 #endregion
-

@@ -5,6 +5,7 @@ using Win32.System.Com;
 using System;
 
 namespace Win32.Security.Cryptography;
+
 #region Constants
 public static
 {
@@ -2968,6 +2969,7 @@ typealias BCRYPT_ALG_HANDLE = int;
 typealias BCRYPT_KEY_HANDLE = int;
 
 #endregion
+
 
 #region Enums
 
@@ -9316,4 +9318,3 @@ public static
 
 }
 #endregion
-

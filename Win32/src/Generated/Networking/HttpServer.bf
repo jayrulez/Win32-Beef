@@ -6,6 +6,7 @@ using System;
 using System.Interop;
 
 namespace Win32.Networking.HttpServer;
+
 #region Constants
 public static
 {
@@ -200,9 +201,6 @@ public static
 	public const uint32 HTTP_REQUEST_PROPERTY_SNI_FLAG_NO_SNI = 2;
 
 }
-#endregion
-
-#region TypeDefs
 #endregion
 
 #region Enums
@@ -659,8 +657,6 @@ public enum HTTP_FEATURE_ID : int32
 
 #endregion
 
-#region Function Pointers
-#endregion
 
 #region Structs
 [CRepr]
@@ -1396,7 +1392,7 @@ public struct HTTP_SERVICE_CONFIG_IP_LISTEN_PARAM
 public struct HTTP_SERVICE_CONFIG_IP_LISTEN_QUERY
 {
 	public uint32 AddrCount;
-	private SOCKADDR_STORAGE[0] AddrList_impl;
+	private SOCKADDR_STORAGE[ANYSIZE_ARRAY] AddrList_impl;
 }
 
 [CRepr]
@@ -1523,15 +1519,6 @@ public struct HTTP_QUIC_API_TIMINGS
 	public HTTP_QUIC_STREAM_API_TIMINGS StreamTimings;
 }
 
-#endregion
-
-#region COM Class IDs
-public static
-{
-}
-#endregion
-
-#region COM Types
 #endregion
 
 #region Functions
@@ -1668,4 +1655,3 @@ public static
 
 }
 #endregion
-
