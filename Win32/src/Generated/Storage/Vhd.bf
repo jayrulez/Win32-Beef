@@ -590,14 +590,14 @@ public struct STORAGE_DEPENDENCY_INFO_TYPE_2
 	public PWSTR DependentVolumeRelativePath;
 }
 
-[CRepr]
+[CRepr, FlexibleArray("Version1Entries", "Version2Entries")]
 public struct STORAGE_DEPENDENCY_INFO
 {
 	[CRepr, Union]
 	public struct _Anonymous_e__Union
 	{
-		public STORAGE_DEPENDENCY_INFO_TYPE_1[1] Version1Entries;
-		public STORAGE_DEPENDENCY_INFO_TYPE_2[1] Version2Entries;
+		public STORAGE_DEPENDENCY_INFO_TYPE_1[0] Version1Entries_impl;
+		public STORAGE_DEPENDENCY_INFO_TYPE_2[0] Version2Entries_impl;
 	}
 
 	public STORAGE_DEPENDENCY_INFO_VERSION Version;

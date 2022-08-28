@@ -7081,14 +7081,14 @@ public struct STORAGE_QUERY_DEPENDENT_VOLUME_LEV2_ENTRY
 	public uint32 DependentDeviceNameSize;
 }
 
-[CRepr]
+[CRepr, FlexibleArray("Lev1Depends", "Lev2Depends")]
 public struct STORAGE_QUERY_DEPENDENT_VOLUME_RESPONSE
 {
 	[CRepr, Union]
 	public struct _Anonymous_e__Union
 	{
-		public STORAGE_QUERY_DEPENDENT_VOLUME_LEV1_ENTRY[1] Lev1Depends;
-		public STORAGE_QUERY_DEPENDENT_VOLUME_LEV2_ENTRY[1] Lev2Depends;
+		public STORAGE_QUERY_DEPENDENT_VOLUME_LEV1_ENTRY[0] Lev1Depends_impl;
+		public STORAGE_QUERY_DEPENDENT_VOLUME_LEV2_ENTRY[0] Lev2Depends_impl;
 	}
 
 	public uint32 ResponseLevel;
@@ -7368,7 +7368,7 @@ public struct FILE_REFERENCE_RANGE
 	public uint64 EndingFileReferenceNumber;
 }
 
-[CRepr]
+[CRepr, FlexibleArray("ClusterRanges", "FileReferenceRanges", "StorageReserveIds")]
 public struct QUERY_FILE_LAYOUT_INPUT
 {
 	[CRepr, Union]
@@ -7381,9 +7381,9 @@ public struct QUERY_FILE_LAYOUT_INPUT
 	[CRepr, Union]
 	public struct _Filter_e__Union
 	{
-		public CLUSTER_RANGE[1] ClusterRanges;
-		public FILE_REFERENCE_RANGE[1] FileReferenceRanges;
-		public STORAGE_RESERVE_ID[1] StorageReserveIds;
+		public CLUSTER_RANGE[0] ClusterRanges_impl;
+		public FILE_REFERENCE_RANGE[0] FileReferenceRanges_impl;
+		public STORAGE_RESERVE_ID[0] StorageReserveIds_impl;
 	}
 
 	public using _Anonymous_e__Union Anonymous;

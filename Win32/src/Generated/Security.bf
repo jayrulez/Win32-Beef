@@ -1036,17 +1036,17 @@ public struct CLAIM_SECURITY_ATTRIBUTE_V1
 	public _Values_e__Union Values;
 }
 
-[CRepr]
+[CRepr, FlexibleArray("pInt64", "pUint64", "ppString", "pFqbn", "pOctetString")]
 public struct CLAIM_SECURITY_ATTRIBUTE_RELATIVE_V1
 {
 	[CRepr, Union]
 	public struct _Values_e__Union
 	{
-		public uint32[1] pInt64;
-		public uint32[1] pUint64;
-		public uint32[1] ppString;
-		public uint32[1] pFqbn;
-		public uint32[1] pOctetString;
+		public uint32[0] pInt64_impl;
+		public uint32[0] pUint64_impl;
+		public uint32[0] ppString_impl;
+		public uint32[0] pFqbn_impl;
+		public uint32[0] pOctetString_impl;
 	}
 
 	public uint32 Name;
