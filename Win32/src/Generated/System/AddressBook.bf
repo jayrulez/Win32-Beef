@@ -2,6 +2,7 @@ using Win32.Foundation;
 using Win32.System.Com;
 using Win32.System.Com.StructuredStorage;
 using System;
+using System.Interop;
 
 namespace Win32.System.AddressBook;
 #region Constants
@@ -513,11 +514,11 @@ public function uint32 LPWABFREEBUFFER(IWABObject* lpWABObject, void* lpBuffer);
 #endregion
 
 #region Structs
-[CRepr]
+[CRepr, FlexibleArray("ab")]
 public struct ENTRYID
 {
 	public uint8[4] abFlags;
-	public uint8[] ab;
+	private uint8[0] ab_impl;
 }
 
 [CRepr]
@@ -526,11 +527,11 @@ public struct MAPIUID
 	public uint8[16] ab;
 }
 
-[CRepr]
+[CRepr, FlexibleArray("aulPropTag")]
 public struct SPropTagArray
 {
 	public uint32 cValues;
-	public uint32[] aulPropTag;
+	private uint32[0] aulPropTag_impl;
 }
 
 [CRepr]
@@ -673,41 +674,41 @@ public struct SPropProblem
 	public int32 scode;
 }
 
-[CRepr]
+[CRepr, FlexibleArray("aProblem")]
 public struct SPropProblemArray
 {
 	public uint32 cProblem;
-	public SPropProblem[] aProblem;
+	private SPropProblem[0] aProblem_impl;
 }
 
-[CRepr]
+[CRepr, FlexibleArray("abEntry")]
 public struct FLATENTRY
 {
 	public uint32 cb;
-	public uint8[] abEntry;
+	private uint8[0] abEntry_impl;
 }
 
-[CRepr]
+[CRepr, FlexibleArray("abEntries")]
 public struct FLATENTRYLIST
 {
 	public uint32 cEntries;
 	public uint32 cbEntries;
-	public uint8[] abEntries;
+	private uint8[0] abEntries_impl;
 }
 
-[CRepr]
+[CRepr, FlexibleArray("ab")]
 public struct MTSID
 {
 	public uint32 cb;
-	public uint8[] ab;
+	private uint8[0] ab_impl;
 }
 
-[CRepr]
+[CRepr, FlexibleArray("abMTSIDs")]
 public struct FLATMTSIDLIST
 {
 	public uint32 cMTSIDs;
 	public uint32 cbMTSIDs;
-	public uint8[] abMTSIDs;
+	private uint8[0] abMTSIDs_impl;
 }
 
 [CRepr]
@@ -718,11 +719,11 @@ public struct ADRENTRY
 	public SPropValue* rgPropVals;
 }
 
-[CRepr]
+[CRepr, FlexibleArray("aEntries")]
 public struct ADRLIST
 {
 	public uint32 cEntries;
-	public ADRENTRY[] aEntries;
+	private ADRENTRY[0] aEntries_impl;
 }
 
 [CRepr]
@@ -733,11 +734,11 @@ public struct SRow
 	public SPropValue* lpProps;
 }
 
-[CRepr]
+[CRepr, FlexibleArray("aRow")]
 public struct SRowSet
 {
 	public uint32 cRows;
-	public SRow[] aRow;
+	private SRow[0] aRow_impl;
 }
 
 [CRepr]
@@ -856,13 +857,13 @@ public struct SSortOrder
 	public uint32 ulOrder;
 }
 
-[CRepr]
+[CRepr, FlexibleArray("aSort")]
 public struct SSortOrderSet
 {
 	public uint32 cSorts;
 	public uint32 cCategories;
 	public uint32 cExpanded;
-	public SSortOrder[] aSort;
+	private SSortOrder[0] aSort_impl;
 }
 
 [CRepr]
@@ -972,11 +973,11 @@ public struct SRestriction
 	public _res_e__Union res;
 }
 
-[CRepr]
+[CRepr, FlexibleArray("ulFlag")]
 public struct _flaglist
 {
 	public uint32 cFlags;
-	public uint32[] ulFlag;
+	private uint32[0] ulFlag_impl;
 }
 
 [CRepr]
@@ -1186,11 +1187,11 @@ public struct WABEXTDISPLAY
 	public int8* lpsz;
 }
 
-[CRepr]
+[CRepr, FlexibleArray("ab")]
 public struct NOTIFKEY
 {
 	public uint32 cb;
-	public uint8[] ab;
+	private uint8[0] ab_impl;
 }
 
 #endregion

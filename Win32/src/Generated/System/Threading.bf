@@ -4,6 +4,7 @@ using Win32.System.Kernel;
 using Win32.Security;
 using Win32.System.SystemInformation;
 using System;
+using System.Interop;
 
 namespace Win32.System.Threading;
 #region Constants
@@ -869,12 +870,12 @@ public struct RTL_USER_PROCESS_PARAMETERS
 	public UNICODE_STRING CommandLine;
 }
 
-[CRepr]
+[CRepr, FlexibleArray("Reserved2"), FlexibleArray("Reserved12")]
 public struct PEB
 {
 	public uint8[2] Reserved1;
 	public uint8 BeingDebugged;
-	public uint8[] Reserved2;
+	private uint8[0] Reserved2_impl;
 	public void*[2] Reserved3;
 	public PEB_LDR_DATA* Ldr;
 	public RTL_USER_PROCESS_PARAMETERS* ProcessParameters;
@@ -889,7 +890,7 @@ public struct PEB
 	public uint8[96] Reserved10;
 	public PPS_POST_PROCESS_INIT_ROUTINE PostProcessInitRoutine;
 	public uint8[128] Reserved11;
-	public void*[] Reserved12;
+	private void*[0] Reserved12_impl;
 	public uint32 SessionId;
 }
 

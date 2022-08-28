@@ -2,7 +2,7 @@ using Win32.System.Performance;
 using Win32.Foundation;
 using System;
 
-namespace Win32.Tests;
+namespace PerfCount;
 
 class Program
 {

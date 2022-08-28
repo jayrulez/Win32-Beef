@@ -2,6 +2,7 @@ using Win32.System.Com;
 using Win32.Foundation;
 using Win32.Security;
 using System;
+using System.Interop;
 
 namespace Win32.System.Com.StructuredStorage;
 #region Constants
@@ -277,12 +278,12 @@ public struct CLIPDATA
 	public uint8* pClipData;
 }
 
-[CRepr]
+[CRepr, FlexibleArray("rgString")]
 public struct RemSNB
 {
 	public uint32 ulCntStr;
 	public uint32 ulCntChar;
-	public char16[] rgString;
+	private char16[0] rgString_impl;
 }
 
 [CRepr]
@@ -590,11 +591,11 @@ public struct STGOPTIONS
 	public PWSTR pwcsTemplateFile;
 }
 
-[CRepr]
+[CRepr, FlexibleArray("rgb")]
 public struct SERIALIZEDPROPERTYVALUE
 {
 	public uint32 dwType;
-	public uint8[] rgb;
+	private uint8[0] rgb_impl;
 }
 
 [CRepr]

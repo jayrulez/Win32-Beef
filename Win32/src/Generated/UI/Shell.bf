@@ -19,6 +19,7 @@ using Win32.System.Threading;
 using Win32.Graphics.DirectComposition;
 using Win32.System.Com.Urlmon;
 using System;
+using System.Interop;
 
 namespace Win32.UI.Shell;
 #region Constants
@@ -6848,20 +6849,20 @@ public struct HELPINFO
 	public POINT MousePos;
 }
 
-[CRepr]
+[CRepr, FlexibleArray("szKeyphrase")]
 public struct MULTIKEYHELPA
 {
 	public uint32 mkSize;
 	public CHAR mkKeylist;
-	public CHAR[] szKeyphrase;
+	private CHAR[0] szKeyphrase_impl;
 }
 
-[CRepr]
+[CRepr, FlexibleArray("szKeyphrase")]
 public struct MULTIKEYHELPW
 {
 	public uint32 mkSize;
 	public char16 mkKeylist;
-	public char16[] szKeyphrase;
+	private char16[0] szKeyphrase_impl;
 }
 
 [CRepr]
@@ -7054,13 +7055,13 @@ public struct BANDSITEINFO
 	public uint32 dwStyle;
 }
 
-[CRepr, Packed(1)]
+[CRepr, Packed(1), FlexibleArray("rgb")]
 public struct DELEGATEITEMID
 {
 	public uint16 cbSize;
 	public uint16 wOuter;
 	public uint16 cbInner;
-	public uint8[] rgb;
+	private uint8[0] rgb_impl;
 }
 
 [CRepr]
@@ -7209,12 +7210,12 @@ public struct EXP_SZ_LINK
 	public char16[260] swzTarget;
 }
 
-[CRepr, Packed(1)]
+[CRepr, Packed(1), FlexibleArray("abPropertyStorage")]
 public struct EXP_PROPERTYSTORAGE
 {
 	public uint32 cbSize;
 	public uint32 dwSignature;
-	public uint8[] abPropertyStorage;
+	private uint8[0] abPropertyStorage_impl;
 }
 
 [CRepr]
@@ -7263,18 +7264,18 @@ public struct BROWSEINFOW
 	public int32 iImage;
 }
 
-[CRepr]
+[CRepr, FlexibleArray("nr")]
 public struct NRESARRAY
 {
 	public uint32 cItems;
-	public NETRESOURCEA[] nr;
+	private NETRESOURCEA[0] nr_impl;
 }
 
-[CRepr, Packed(1)]
+[CRepr, Packed(1), FlexibleArray("aoffset")]
 public struct CIDA
 {
 	public uint32 cidl;
-	public uint32[] aoffset;
+	private uint32[0] aoffset_impl;
 }
 
 [CRepr, Packed(1)]
@@ -7309,18 +7310,18 @@ public struct FILEDESCRIPTORW
 	public char16[260] cFileName;
 }
 
-[CRepr, Packed(1)]
+[CRepr, Packed(1), FlexibleArray("fgd")]
 public struct FILEGROUPDESCRIPTORA
 {
 	public uint32 cItems;
-	public FILEDESCRIPTORA[] fgd;
+	private FILEDESCRIPTORA[0] fgd_impl;
 }
 
-[CRepr, Packed(1)]
+[CRepr, Packed(1), FlexibleArray("fgd")]
 public struct FILEGROUPDESCRIPTORW
 {
 	public uint32 cItems;
-	public FILEDESCRIPTORW[] fgd;
+	private FILEDESCRIPTORW[0] fgd_impl;
 }
 
 [CRepr, Packed(1)]
@@ -7332,13 +7333,13 @@ public struct DROPFILES
 	public BOOL fWide;
 }
 
-[CRepr, Packed(1)]
+[CRepr, Packed(1), FlexibleArray("rgdwFileAttributes")]
 public struct FILE_ATTRIBUTES_ARRAY
 {
 	public uint32 cItems;
 	public uint32 dwSumFileAttributes;
 	public uint32 dwProductFileAttributes;
-	public uint32[] rgdwFileAttributes;
+	private uint32[0] rgdwFileAttributes_impl;
 }
 
 [CRepr, Packed(1)]
@@ -7439,11 +7440,11 @@ public struct QCMINFO_IDMAP_PLACEMENT
 	public uint32 fFlags;
 }
 
-[CRepr]
+[CRepr, FlexibleArray("pIdList")]
 public struct QCMINFO_IDMAP
 {
 	public uint32 nMaxIds;
-	public QCMINFO_IDMAP_PLACEMENT[] pIdList;
+	private QCMINFO_IDMAP_PLACEMENT[0] pIdList_impl;
 }
 
 [CRepr]
@@ -7636,12 +7637,12 @@ public struct SFV_SETITEMPOS
 	public POINT pt;
 }
 
-[CRepr]
+[CRepr, FlexibleArray("szFileName")]
 public struct AASHELLMENUFILENAME
 {
 	public int16 cbTotal;
 	public uint8[12] rgbReserved;
-	public char16[] szFileName;
+	private char16[0] szFileName_impl;
 }
 
 [CRepr]

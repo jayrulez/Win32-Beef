@@ -4,6 +4,7 @@ using Win32.Foundation;
 using Win32.System.Com.StructuredStorage;
 using Win32.Devices.PortableDevices;
 using System;
+using System.Interop;
 
 namespace Win32.Devices.Sensors;
 #region Constants
@@ -779,20 +780,20 @@ public struct SENSOR_VALUE_PAIR
 	public PROPVARIANT Value;
 }
 
-[CRepr]
+[CRepr, FlexibleArray("List")]
 public struct SENSOR_COLLECTION_LIST
 {
 	public uint32 AllocatedSizeInBytes;
 	public uint32 Count;
-	public SENSOR_VALUE_PAIR[] List;
+	private SENSOR_VALUE_PAIR[0] List_impl;
 }
 
-[CRepr]
+[CRepr, FlexibleArray("List")]
 public struct SENSOR_PROPERTY_LIST
 {
 	public uint32 AllocatedSizeInBytes;
 	public uint32 Count;
-	public PROPERTYKEY[] List;
+	private PROPERTYKEY[0] List_impl;
 }
 
 [CRepr]

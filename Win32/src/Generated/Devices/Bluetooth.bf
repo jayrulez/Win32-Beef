@@ -1,5 +1,6 @@
 using Win32.Foundation;
 using System;
+using System.Interop;
 
 namespace Win32.Devices.Bluetooth;
 #region Constants
@@ -1970,7 +1971,7 @@ public struct SOCKADDR_BTH
 	public uint32 port;
 }
 
-[CRepr, Packed(1)]
+[CRepr, Packed(1), FlexibleArray("pRecord")]
 public struct BTH_SET_SERVICE
 {
 	public uint32* pSdpVersion;
@@ -1978,7 +1979,7 @@ public struct BTH_SET_SERVICE
 	public uint32 fCodService;
 	public uint32[5] Reserved;
 	public uint32 ulRecordLength;
-	public uint8[] pRecord;
+	private uint8[0] pRecord_impl;
 }
 
 [CRepr, Packed(1)]
@@ -1988,14 +1989,14 @@ public struct BTH_QUERY_DEVICE
 	public uint8 length;
 }
 
-[CRepr, Packed(1)]
+[CRepr, Packed(1), FlexibleArray("pRange")]
 public struct BTH_QUERY_SERVICE
 {
 	public uint32 type;
 	public uint32 serviceHandle;
 	public SdpQueryUuid[12] uuids;
 	public uint32 numRange;
-	public SdpAttributeRange[] pRange;
+	private SdpAttributeRange[0] pRange_impl;
 }
 
 [CRepr]

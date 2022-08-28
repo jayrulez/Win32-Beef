@@ -5,6 +5,7 @@ using Win32.System.IO;
 using Win32.System.Com;
 using Win32.NetworkManagement.WindowsFilteringPlatform;
 using System;
+using System.Interop;
 
 namespace Win32.Networking.WinSock;
 #region Constants
@@ -2820,11 +2821,11 @@ public struct SOCKET_ADDRESS
 	public int32 iSockaddrLength;
 }
 
-[CRepr]
+[CRepr, FlexibleArray("Address")]
 public struct SOCKET_ADDRESS_LIST
 {
 	public int32 iAddressCount;
-	public SOCKET_ADDRESS[] Address;
+	private SOCKET_ADDRESS[0] Address_impl;
 }
 
 [CRepr]
@@ -3603,14 +3604,14 @@ public struct IP_MREQ_SOURCE
 	public IN_ADDR imr_interface;
 }
 
-[CRepr]
+[CRepr, FlexibleArray("imsf_slist")]
 public struct IP_MSFILTER
 {
 	public IN_ADDR imsf_multiaddr;
 	public IN_ADDR imsf_interface;
 	public MULTICAST_MODE_TYPE imsf_fmode;
 	public uint32 imsf_numsrc;
-	public IN_ADDR[] imsf_slist;
+	private IN_ADDR[0] imsf_slist_impl;
 }
 
 [CRepr]
@@ -3635,14 +3636,14 @@ public struct GROUP_SOURCE_REQ
 	public SOCKADDR_STORAGE gsr_source;
 }
 
-[CRepr]
+[CRepr, FlexibleArray("gf_slist")]
 public struct GROUP_FILTER
 {
 	public uint32 gf_interface;
 	public SOCKADDR_STORAGE gf_group;
 	public MULTICAST_MODE_TYPE gf_fmode;
 	public uint32 gf_numsrc;
-	public SOCKADDR_STORAGE[] gf_slist;
+	private SOCKADDR_STORAGE[0] gf_slist_impl;
 }
 
 [CRepr]
@@ -3833,18 +3834,18 @@ public struct WCE_IRDA_DEVICE_INFO
 	public uint8[2] Reserved;
 }
 
-[CRepr]
+[CRepr, FlexibleArray("Device")]
 public struct WINDOWS_DEVICELIST
 {
 	public uint32 numDevice;
-	public WINDOWS_IRDA_DEVICE_INFO[] Device;
+	private WINDOWS_IRDA_DEVICE_INFO[0] Device_impl;
 }
 
-[CRepr]
+[CRepr, FlexibleArray("Device")]
 public struct WCE_DEVICELIST
 {
 	public uint32 numDevice;
-	public WCE_IRDA_DEVICE_INFO[] Device;
+	private WCE_IRDA_DEVICE_INFO[0] Device_impl;
 }
 
 [CRepr]
@@ -4116,7 +4117,7 @@ public struct SOCKET_SECURITY_SETTINGS
 	public uint32 SecurityFlags;
 }
 
-[CRepr]
+[CRepr, FlexibleArray("AllStrings")]
 public struct SOCKET_SECURITY_SETTINGS_IPSEC
 {
 	public SOCKET_SECURITY_PROTOCOL SecurityProtocol;
@@ -4129,16 +4130,16 @@ public struct SOCKET_SECURITY_SETTINGS_IPSEC
 	public uint32 UserNameStringLen;
 	public uint32 DomainNameStringLen;
 	public uint32 PasswordStringLen;
-	public char16[] AllStrings;
+	private char16[0] AllStrings_impl;
 }
 
-[CRepr]
+[CRepr, FlexibleArray("AllStrings")]
 public struct SOCKET_PEER_TARGET_NAME
 {
 	public SOCKET_SECURITY_PROTOCOL SecurityProtocol;
 	public SOCKADDR_STORAGE PeerAddress;
 	public uint32 PeerTargetNameStringLen;
-	public char16[] AllStrings;
+	private char16[0] AllStrings_impl;
 }
 
 [CRepr]
@@ -4253,12 +4254,12 @@ public struct sockaddr_atm
 	public ATM_BHLI satm_bhli;
 }
 
-[CRepr]
+[CRepr, FlexibleArray("IE")]
 public struct Q2931_IE
 {
 	public Q2931_IE_TYPE IEType;
 	public uint32 IELength;
-	public uint8[] IE;
+	private uint8[0] IE_impl;
 }
 
 [CRepr]
@@ -4360,13 +4361,13 @@ public struct ATM_QOS_CLASS_IE
 	public uint8 QOSClassBackward;
 }
 
-[CRepr]
+[CRepr, FlexibleArray("NetworkId")]
 public struct ATM_TRANSIT_NETWORK_SELECTION_IE
 {
 	public uint8 TypeOfNetworkId;
 	public uint8 NetworkIdPlan;
 	public uint8 NetworkIdLength;
-	public uint8[] NetworkId;
+	private uint8[0] NetworkId_impl;
 }
 
 [CRepr]
@@ -4456,18 +4457,18 @@ public struct NLA_BLOB
 			public _remote_e__Struct remote;
 		}
 
-		[CRepr]
+		[CRepr, FlexibleArray("information")]
 		public struct _locationData_e__Struct
 		{
-			public CHAR[] information;
+			private CHAR[0] information_impl;
 		}
 
-		[CRepr]
+		[CRepr, FlexibleArray("adapterName")]
 		public struct _interfaceData_e__Struct
 		{
 			public uint32 dwType;
 			public uint32 dwSpeed;
-			public CHAR[] adapterName;
+			private CHAR[0] adapterName_impl;
 		}
 
 		[CRepr]
@@ -4477,7 +4478,7 @@ public struct NLA_BLOB
 			public NLA_INTERNET internet;
 		}
 
-		public CHAR[] rawData;
+		public CHAR[0] rawData;
 		public _interfaceData_e__Struct interfaceData;
 		public _locationData_e__Struct locationData;
 		public _connectivity_e__Struct connectivity;
@@ -4496,13 +4497,13 @@ public struct NLA_BLOB
 	public _data_e__Union data;
 }
 
-[CRepr]
+[CRepr, FlexibleArray("fdArray")]
 public struct WSAPOLLDATA
 {
 	public int32 result;
 	public uint32 fds;
 	public int32 timeout;
-	public WSAPOLLFD[] fdArray;
+	private WSAPOLLFD[0] fdArray_impl;
 }
 
 [CRepr]
@@ -4718,28 +4719,28 @@ public struct SERVICE_TYPE_VALUE_ABSW
 	public void* lpValue;
 }
 
-[CRepr]
+[CRepr, FlexibleArray("Values")]
 public struct SERVICE_TYPE_INFO
 {
 	public uint32 dwTypeNameOffset;
 	public uint32 dwValueCount;
-	public SERVICE_TYPE_VALUE[] Values;
+	private SERVICE_TYPE_VALUE[0] Values_impl;
 }
 
-[CRepr]
+[CRepr, FlexibleArray("Values")]
 public struct SERVICE_TYPE_INFO_ABSA
 {
 	public PSTR lpTypeName;
 	public uint32 dwValueCount;
-	public SERVICE_TYPE_VALUE_ABSA[] Values;
+	private SERVICE_TYPE_VALUE_ABSA[0] Values_impl;
 }
 
-[CRepr]
+[CRepr, FlexibleArray("Values")]
 public struct SERVICE_TYPE_INFO_ABSW
 {
 	public PWSTR lpTypeName;
 	public uint32 dwValueCount;
-	public SERVICE_TYPE_VALUE_ABSW[] Values;
+	private SERVICE_TYPE_VALUE_ABSW[0] Values_impl;
 }
 
 [CRepr]
@@ -4753,11 +4754,11 @@ public struct SERVICE_ADDRESS
 	public uint8* lpPrincipal;
 }
 
-[CRepr]
+[CRepr, FlexibleArray("Addresses")]
 public struct SERVICE_ADDRESSES
 {
 	public uint32 dwAddressCount;
-	public SERVICE_ADDRESS[] Addresses;
+	private SERVICE_ADDRESS[0] Addresses_impl;
 }
 
 [CRepr]

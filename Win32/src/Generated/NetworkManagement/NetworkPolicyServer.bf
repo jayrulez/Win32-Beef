@@ -1,6 +1,7 @@
 using Win32.System.Com;
 using Win32.Foundation;
 using System;
+using System.Interop;
 
 namespace Win32.NetworkManagement.NetworkPolicyServer;
 #region Constants
@@ -909,13 +910,13 @@ public struct RADIUS_ATTRIBUTE
 	public using _Anonymous_e__Union Anonymous;
 }
 
-[CRepr]
+[CRepr, FlexibleArray("AttributeSpecific")]
 public struct RADIUS_VSA_FORMAT
 {
 	public uint8[4] VendorId;
 	public uint8 VendorType;
 	public uint8 VendorLength;
-	public uint8[] AttributeSpecific;
+	private uint8[0] AttributeSpecific_impl;
 }
 
 [CRepr]

@@ -7,6 +7,7 @@ using Win32.System.WinRT;
 using Win32.Networking.WinHttp;
 using Win32.Storage.FileSystem;
 using System;
+using System.Interop;
 
 namespace Win32.Networking.WinInet;
 #region Constants
@@ -2818,7 +2819,7 @@ public struct INTERNET_CACHE_CONFIG_INFOA
 		}
 
 		public using _Anonymous_e__Struct Anonymous;
-		public INTERNET_CACHE_CONFIG_PATH_ENTRYA[] CachePaths;
+		public INTERNET_CACHE_CONFIG_PATH_ENTRYA[0] CachePaths;
 	}
 
 	public uint32 dwStructSize;
@@ -2847,7 +2848,7 @@ public struct INTERNET_CACHE_CONFIG_INFOW
 		}
 
 		public using _Anonymous_e__Struct Anonymous;
-		public INTERNET_CACHE_CONFIG_PATH_ENTRYW[] CachePaths;
+		public INTERNET_CACHE_CONFIG_PATH_ENTRYW[0] CachePaths;
 	}
 
 	public uint32 dwStructSize;

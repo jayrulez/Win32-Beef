@@ -1,6 +1,7 @@
 using Win32.Foundation;
 using Win32.System.IO;
 using System;
+using System.Interop;
 
 namespace Win32.Devices.Usb;
 #region Constants
@@ -1546,7 +1547,7 @@ public struct USB_DEVICE_CAPABILITY_SUPERSPEEDPLUS_SPEED
 	public using _Anonymous_e__Struct Anonymous;
 }
 
-[CRepr, Packed(1)]
+[CRepr, Packed(1), FlexibleArray("bmSublinkSpeedAttr")]
 public struct USB_DEVICE_CAPABILITY_SUPERSPEEDPLUS_USB_DESCRIPTOR
 {
 	[CRepr, Union, Packed(1)]
@@ -1582,7 +1583,7 @@ public struct USB_DEVICE_CAPABILITY_SUPERSPEEDPLUS_USB_DESCRIPTOR
 	public _bmAttributes_e__Union bmAttributes;
 	public _wFunctionalitySupport_e__Union wFunctionalitySupport;
 	public uint16 wReserved;
-	public USB_DEVICE_CAPABILITY_SUPERSPEEDPLUS_SPEED[] bmSublinkSpeedAttr;
+	private USB_DEVICE_CAPABILITY_SUPERSPEEDPLUS_SPEED[0] bmSublinkSpeedAttr_impl;
 }
 
 [CRepr]
@@ -1595,7 +1596,7 @@ public struct USB_DEVICE_CAPABILITY_CONTAINER_ID_DESCRIPTOR
 	public uint8[16] ContainerID;
 }
 
-[CRepr, Packed(1)]
+[CRepr, Packed(1), FlexibleArray("CapabililityData")]
 public struct USB_DEVICE_CAPABILITY_PLATFORM_DESCRIPTOR
 {
 	public uint8 bLength;
@@ -1603,10 +1604,10 @@ public struct USB_DEVICE_CAPABILITY_PLATFORM_DESCRIPTOR
 	public uint8 bDevCapabilityType;
 	public uint8 bReserved;
 	public Guid PlatformCapabilityUuid;
-	public uint8[] CapabililityData;
+	private uint8[0] CapabililityData_impl;
 }
 
-[CRepr, Packed(1)]
+[CRepr, Packed(1), FlexibleArray("AlternateMode")]
 public struct USB_DEVICE_CAPABILITY_BILLBOARD_DESCRIPTOR
 {
 	[CRepr, Union, Packed(1)]
@@ -1639,7 +1640,7 @@ public struct USB_DEVICE_CAPABILITY_BILLBOARD_DESCRIPTOR
 	public _VconnPower_e__Union VconnPower;
 	public uint8[32] bmConfigured;
 	public uint32 bReserved;
-	public _Anonymous_e__Struct[] AlternateMode;
+	private _Anonymous_e__Struct[0] AlternateMode_impl;
 }
 
 [CRepr]
@@ -1736,12 +1737,12 @@ public struct USB_HIGH_SPEED_MAXPACKET
 	public uint16 us;
 }
 
-[CRepr, Packed(1)]
+[CRepr, Packed(1), FlexibleArray("bString")]
 public struct USB_STRING_DESCRIPTOR
 {
 	public uint8 bLength;
 	public uint8 bDescriptorType;
-	public char16[] bString;
+	private char16[0] bString_impl;
 }
 
 [CRepr, Packed(1)]
@@ -2066,7 +2067,7 @@ public struct USBD_ENDPOINT_OFFLOAD_INFORMATION
 	public uint32 EventRingInitialCycleBit;
 }
 
-[CRepr]
+[CRepr, FlexibleArray("Pipes")]
 public struct USBD_INTERFACE_INFORMATION
 {
 	public uint16 Length;
@@ -2078,7 +2079,7 @@ public struct USBD_INTERFACE_INFORMATION
 	public uint8 Reserved;
 	public void* InterfaceHandle;
 	public uint32 NumberOfPipes;
-	public USBD_PIPE_INFORMATION[] Pipes;
+	private USBD_PIPE_INFORMATION[0] Pipes_impl;
 }
 
 [CRepr]
@@ -2334,7 +2335,7 @@ public struct USBD_ISO_PACKET_DESCRIPTOR
 	public int32 Status;
 }
 
-[CRepr]
+[CRepr, FlexibleArray("IsoPacket")]
 public struct _URB_ISOCH_TRANSFER
 {
 	public _URB_HEADER Hdr;
@@ -2348,7 +2349,7 @@ public struct _URB_ISOCH_TRANSFER
 	public uint32 StartFrame;
 	public uint32 NumberOfPackets;
 	public uint32 ErrorCount;
-	public USBD_ISO_PACKET_DESCRIPTOR[] IsoPacket;
+	private USBD_ISO_PACKET_DESCRIPTOR[0] IsoPacket_impl;
 }
 
 [CRepr]
@@ -2513,11 +2514,11 @@ public struct USBUSER_CONTROLLER_INFO_0
 	public USB_CONTROLLER_INFO_0 Info0;
 }
 
-[CRepr, Packed(1)]
+[CRepr, Packed(1), FlexibleArray("String")]
 public struct USB_UNICODE_NAME
 {
 	public uint32 Length;
-	public char16[] String;
+	private char16[0] String_impl;
 }
 
 [CRepr]
@@ -2831,13 +2832,13 @@ public struct USBFN_CLASS_INFORMATION_PACKET_EX
 	public BOOLEAN HasInterfaceGuid;
 }
 
-[CRepr]
+[CRepr, FlexibleArray("InterfaceDescriptorSet")]
 public struct USBFN_INTERFACE_INFO
 {
 	public uint8 InterfaceNumber;
 	public USBFN_BUS_SPEED Speed;
 	public uint16 Size;
-	public uint8[] InterfaceDescriptorSet;
+	private uint8[0] InterfaceDescriptorSet_impl;
 }
 
 [CRepr]

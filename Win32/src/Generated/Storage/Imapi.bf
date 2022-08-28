@@ -4,6 +4,7 @@ using Win32.System.Ole;
 using Win32.System.Com.StructuredStorage;
 using Win32.System.AddressBook;
 using System;
+using System.Interop;
 
 namespace Win32.Storage.Imapi;
 #region Constants
@@ -1085,11 +1086,11 @@ public struct _MSGSESS
 {
 }
 
-[CRepr]
+[CRepr, FlexibleArray("aPropAttr")]
 public struct SPropAttrArray
 {
 	public uint32 cValues;
-	public uint32[] aPropAttr;
+	private uint32[0] aPropAttr_impl;
 }
 
 [CRepr]

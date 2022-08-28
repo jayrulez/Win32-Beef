@@ -2,6 +2,7 @@ using Win32.Foundation;
 using Win32.System.Com;
 using Win32.System.Ole;
 using System;
+using System.Interop;
 
 namespace Win32.System.Performance;
 #region Constants
@@ -1050,7 +1051,7 @@ public struct PDH_DATA_ITEM_PATH_ELEMENTS_W
 	public PWSTR szInstanceName;
 }
 
-[CRepr]
+[CRepr, FlexibleArray("DataBuffer")]
 public struct PDH_COUNTER_INFO_A
 {
 	[CRepr, Union]
@@ -1083,10 +1084,10 @@ public struct PDH_COUNTER_INFO_A
 	public PSTR szFullPath;
 	public using _Anonymous_e__Union Anonymous;
 	public PSTR szExplainText;
-	public uint32[] DataBuffer;
+	private uint32[0] DataBuffer_impl;
 }
 
-[CRepr]
+[CRepr, FlexibleArray("DataBuffer")]
 public struct PDH_COUNTER_INFO_W
 {
 	[CRepr, Union]
@@ -1119,7 +1120,7 @@ public struct PDH_COUNTER_INFO_W
 	public PWSTR szFullPath;
 	public using _Anonymous_e__Union Anonymous;
 	public PWSTR szExplainText;
-	public uint32[] DataBuffer;
+	private uint32[0] DataBuffer_impl;
 }
 
 [CRepr]
@@ -1130,13 +1131,13 @@ public struct PDH_TIME_INFO
 	public uint32 SampleCount;
 }
 
-[CRepr]
+[CRepr, FlexibleArray("RawBytes")]
 public struct PDH_RAW_LOG_RECORD
 {
 	public uint32 dwStructureSize;
 	public PDH_LOG_TYPE dwRecordType;
 	public uint32 dwItems;
-	public uint8[] RawBytes;
+	private uint8[0] RawBytes_impl;
 }
 
 [CRepr]

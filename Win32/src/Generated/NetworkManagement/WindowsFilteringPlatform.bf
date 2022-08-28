@@ -4,6 +4,7 @@ using Win32.Networking.WinSock;
 using Win32.System.Kernel;
 using Win32.System.Rpc;
 using System;
+using System.Interop;
 
 namespace Win32.NetworkManagement.WindowsFilteringPlatform;
 #region Constants
@@ -5061,7 +5062,7 @@ public struct ICMP_MESSAGE
 	[CRepr, Union]
 	public struct _Data_e__Union
 	{
-		public uint32[] Data32;
+		public uint32[0] Data32;
 		public uint16[2] Data16;
 		public uint8[4] Data8;
 	}
@@ -5207,7 +5208,7 @@ public struct ICMPV4_ADDRESS_MASK_MESSAGE
 	public uint32 AddressMask;
 }
 
-[CRepr]
+[CRepr, FlexibleArray("SenderHardwareAddress")]
 public struct ARP_HEADER
 {
 	public uint16 HardwareAddressSpace;
@@ -5215,7 +5216,7 @@ public struct ARP_HEADER
 	public uint8 HardwareAddressLength;
 	public uint8 ProtocolAddressLength;
 	public uint16 Opcode;
-	public uint8[] SenderHardwareAddress;
+	private uint8[0] SenderHardwareAddress_impl;
 }
 
 [CRepr]
@@ -5660,7 +5661,7 @@ public struct tcp_opt_sack_permitted
 	public uint8 Length;
 }
 
-[CRepr]
+[CRepr, FlexibleArray("Block")]
 public struct tcp_opt_sack
 {
 	[CRepr, Packed(1)]
@@ -5672,7 +5673,7 @@ public struct tcp_opt_sack
 
 	public uint8 Kind;
 	public uint8 Length;
-	public tcp_opt_sack_block[] Block;
+	private tcp_opt_sack_block[0] Block_impl;
 }
 
 [CRepr, Packed(1)]
@@ -5691,20 +5692,20 @@ public struct tcp_opt_unknown
 	public uint8 Length;
 }
 
-[CRepr]
+[CRepr, FlexibleArray("Cookie")]
 public struct tcp_opt_fastopen
 {
 	public uint8 Kind;
 	public uint8 Length;
-	public uint8[] Cookie;
+	private uint8[0] Cookie_impl;
 }
 
-[CRepr]
+[CRepr, FlexibleArray("IpAddress")]
 public struct DL_TUNNEL_ADDRESS
 {
 	public COMPARTMENT_ID CompartmentId;
 	public SCOPE_ID ScopeId;
-	public uint8[] IpAddress;
+	private uint8[0] IpAddress_impl;
 }
 
 [CRepr]

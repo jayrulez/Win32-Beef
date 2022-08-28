@@ -2,6 +2,7 @@ using Win32.Foundation;
 using Win32.Graphics.Gdi;
 using Win32.System.Com;
 using System;
+using System.Interop;
 
 namespace Win32.Graphics.DirectDraw;
 #region Constants
@@ -3461,7 +3462,7 @@ public struct DDNONLOCALVIDMEMCAPS
 	public uint32[8] dwNLVBRops;
 }
 
-[CRepr]
+[CRepr, FlexibleArray("ddsExtendedHeapRestrictions")]
 public struct DDMORESURFACECAPS
 {
 	[CRepr]
@@ -3473,7 +3474,7 @@ public struct DDMORESURFACECAPS
 
 	public uint32 dwSize;
 	public DDSCAPSEX ddsCapsMore;
-	public ExtendedHeapRestrictions[] ddsExtendedHeapRestrictions;
+	private ExtendedHeapRestrictions[0] ddsExtendedHeapRestrictions_impl;
 }
 
 [CRepr]
@@ -5253,7 +5254,7 @@ public struct DD_MOTIONCOMP_LOCAL
 	public void* lpDriverReserved3;
 }
 
-[CRepr]
+[CRepr, FlexibleArray("ddsExtendedHeapRestrictions")]
 public struct DD_MORESURFACECAPS
 {
 	[CRepr]
@@ -5265,7 +5266,7 @@ public struct DD_MORESURFACECAPS
 
 	public uint32 dwSize;
 	public DDSCAPSEX ddsCapsMore;
-	public NTExtendedHeapRestrictions[] ddsExtendedHeapRestrictions;
+	private NTExtendedHeapRestrictions[0] ddsExtendedHeapRestrictions_impl;
 }
 
 [CRepr]

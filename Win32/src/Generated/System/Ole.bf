@@ -7,6 +7,7 @@ using Win32.Media;
 using Win32.UI.Controls.Dialogs;
 using Win32.UI.Controls;
 using System;
+using System.Interop;
 
 namespace Win32.System.Ole;
 #region Constants
@@ -2082,7 +2083,7 @@ public struct _wireSAFEARRAY_UNION
 	public _u_e__Struct u;
 }
 
-[CRepr]
+[CRepr, FlexibleArray("rgsabound")]
 public struct _wireSAFEARRAY
 {
 	public uint16 cDims;
@@ -2090,7 +2091,7 @@ public struct _wireSAFEARRAY
 	public uint32 cbElements;
 	public uint32 cLocks;
 	public _wireSAFEARRAY_UNION uArrayStructs;
-	public SAFEARRAYBOUND[] rgsabound;
+	private SAFEARRAYBOUND[0] rgsabound_impl;
 }
 
 [CRepr]
@@ -2163,12 +2164,12 @@ public struct _wireVARIANT
 	public using _Anonymous_e__Union Anonymous;
 }
 
-[CRepr]
+[CRepr, FlexibleArray("rgbounds")]
 public struct ARRAYDESC
 {
 	public TYPEDESC tdescElem;
 	public uint16 cDims;
-	public SAFEARRAYBOUND[] rgbounds;
+	private SAFEARRAYBOUND[0] rgbounds_impl;
 }
 
 [CRepr]
@@ -2459,14 +2460,14 @@ public struct PAGERANGE
 	public int32 nToPage;
 }
 
-[CRepr]
+[CRepr, FlexibleArray("rgPages")]
 public struct PAGESET
 {
 	public uint32 cbStruct;
 	public BOOL fOddPages;
 	public BOOL fEvenPages;
 	public uint32 cPageRange;
-	public PAGERANGE[] rgPages;
+	private PAGERANGE[0] rgPages_impl;
 }
 
 [CRepr]
@@ -2476,13 +2477,13 @@ public struct OLECMD
 	public uint32 cmdf;
 }
 
-[CRepr]
+[CRepr, FlexibleArray("rgwz")]
 public struct OLECMDTEXT
 {
 	public uint32 cmdtextf;
 	public uint32 cwActual;
 	public uint32 cwBuf;
-	public char16[] rgwz;
+	private char16[0] rgwz_impl;
 }
 
 [CRepr]

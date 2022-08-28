@@ -3,6 +3,7 @@ using Win32.UI.Shell.PropertiesSystem;
 using Win32.System.Com;
 using Win32.Media;
 using System;
+using System.Interop;
 
 namespace Win32.Media.KernelStreaming;
 #region Constants
@@ -3439,12 +3440,12 @@ public struct KSPIN_CONNECT
 	public KSPRIORITY Priority;
 }
 
-[CRepr]
+[CRepr, FlexibleArray("SymbolicLinkName")]
 public struct KSPIN_PHYSICALCONNECTION
 {
 	public uint32 Size;
 	public uint32 Pin;
-	public char16[] SymbolicLinkName;
+	private char16[0] SymbolicLinkName_impl;
 }
 
 [CRepr]
@@ -3518,14 +3519,14 @@ public struct KS_FRAMING_ITEM
 	public KS_FRAMING_RANGE_WEIGHTED FramingRange;
 }
 
-[CRepr]
+[CRepr, FlexibleArray("FramingItem")]
 public struct KSALLOCATOR_FRAMING_EX
 {
 	public uint32 CountItems;
 	public uint32 PinFlags;
 	public KS_COMPRESSION OutputCompression;
 	public uint32 PinWeight;
-	public KS_FRAMING_ITEM[] FramingItem;
+	private KS_FRAMING_ITEM[0] FramingItem_impl;
 }
 
 [CRepr]
@@ -3749,24 +3750,24 @@ public struct _KSAUDIO_PACKETSIZE_SIGNALPROCESSINGMODE_CONSTRAINT
 	public uint32 ProcessingPacketDurationInHns;
 }
 
-[CRepr]
+[CRepr, FlexibleArray("ProcessingModeConstraints")]
 public struct KSAUDIO_PACKETSIZE_CONSTRAINTS
 {
 	public uint32 MinPacketPeriodInHns;
 	public uint32 PacketSizeFileAlignment;
 	public uint32 Reserved;
 	public uint32 NumProcessingModeConstraints;
-	public _KSAUDIO_PACKETSIZE_SIGNALPROCESSINGMODE_CONSTRAINT[] ProcessingModeConstraints;
+	private _KSAUDIO_PACKETSIZE_SIGNALPROCESSINGMODE_CONSTRAINT[0] ProcessingModeConstraints_impl;
 }
 
-[CRepr]
+[CRepr, FlexibleArray("ProcessingModeConstraints")]
 public struct KSAUDIO_PACKETSIZE_CONSTRAINTS2
 {
 	public uint32 MinPacketPeriodInHns;
 	public uint32 PacketSizeFileAlignment;
 	public uint32 MaxPacketSizeInBytes;
 	public uint32 NumProcessingModeConstraints;
-	public _KSAUDIO_PACKETSIZE_SIGNALPROCESSINGMODE_CONSTRAINT[] ProcessingModeConstraints;
+	private _KSAUDIO_PACKETSIZE_SIGNALPROCESSINGMODE_CONSTRAINT[0] ProcessingModeConstraints_impl;
 }
 
 [CRepr]
@@ -3780,7 +3781,7 @@ public struct KSAUDIO_MICROPHONE_COORDINATES
 	public int16 wHorizontalAngle;
 }
 
-[CRepr]
+[CRepr, FlexibleArray("KsMicCoord")]
 public struct KSAUDIO_MIC_ARRAY_GEOMETRY
 {
 	public uint16 usVersion;
@@ -3792,7 +3793,7 @@ public struct KSAUDIO_MIC_ARRAY_GEOMETRY
 	public uint16 usFrequencyBandLo;
 	public uint16 usFrequencyBandHi;
 	public uint16 usNumberOfMicrophones;
-	public KSAUDIO_MICROPHONE_COORDINATES[] KsMicCoord;
+	private KSAUDIO_MICROPHONE_COORDINATES[0] KsMicCoord_impl;
 }
 
 [CRepr]
@@ -4135,12 +4136,12 @@ public struct KSAUDIO_MIX_CAPS
 	public using _Anonymous_e__Union Anonymous;
 }
 
-[CRepr]
+[CRepr, FlexibleArray("Capabilities")]
 public struct KSAUDIO_MIXCAP_TABLE
 {
 	public uint32 InputChannels;
 	public uint32 OutputChannels;
-	public KSAUDIO_MIX_CAPS[] Capabilities;
+	private KSAUDIO_MIX_CAPS[0] Capabilities_impl;
 }
 
 [CRepr]
@@ -4426,11 +4427,11 @@ public struct KS_DVDCOPY_CHLGKEY
 	public uint8[2] Reserved;
 }
 
-[CRepr]
+[CRepr, FlexibleArray("Reserved")]
 public struct KS_DVDCOPY_BUSKEY
 {
 	public uint8[5] BusKey;
-	public uint8[] Reserved;
+	private uint8[0] Reserved_impl;
 }
 
 [CRepr]
@@ -4590,16 +4591,16 @@ public struct KS_VIDEOINFOHEADER2
 	public KS_BITMAPINFOHEADER bmiHeader;
 }
 
-[CRepr]
+[CRepr, FlexibleArray("bSequenceHeader")]
 public struct KS_MPEG1VIDEOINFO
 {
 	public KS_VIDEOINFOHEADER hdr;
 	public uint32 dwStartTimeCode;
 	public uint32 cbSequenceHeader;
-	public uint8[] bSequenceHeader;
+	private uint8[0] bSequenceHeader_impl;
 }
 
-[CRepr]
+[CRepr, FlexibleArray("bSequenceHeader")]
 public struct KS_MPEGVIDEOINFO2
 {
 	public KS_VIDEOINFOHEADER2 hdr;
@@ -4608,7 +4609,7 @@ public struct KS_MPEGVIDEOINFO2
 	public uint32 dwProfile;
 	public uint32 dwLevel;
 	public uint32 dwFlags;
-	public uint32[] bSequenceHeader;
+	private uint32[0] bSequenceHeader_impl;
 }
 
 [CRepr]
@@ -5790,14 +5791,14 @@ public struct KSCAMERA_EXTENDEDPROP_BACKGROUNDSEGMENTATION_CONFIGCAPS
 	public Guid SubType;
 }
 
-[CRepr]
+[CRepr, FlexibleArray("MaskData")]
 public struct KSCAMERA_METADATA_BACKGROUNDSEGMENTATIONMASK
 {
 	public KSCAMERA_METADATA_ITEMHEADER Header;
 	public RECT MaskCoverageBoundingBox;
 	public SIZE MaskResolution;
 	public RECT ForegroundBoundingBox;
-	public uint8[] MaskData;
+	private uint8[0] MaskData_impl;
 }
 
 [CRepr]
@@ -5925,11 +5926,11 @@ public struct KSPROPERTY_NETWORKCAMERACONTROL_METADATA_INFO
 	public BOOL Reserved;
 }
 
-[CRepr]
+[CRepr, FlexibleArray("EventFilter")]
 public struct KSPROPERTY_NETWORKCAMERACONTROL_EVENT_INFO
 {
 	public KSCAMERA_METADATA_ITEMHEADER Header;
-	public char16[] EventFilter;
+	private char16[0] EventFilter_impl;
 }
 
 [CRepr]
@@ -6231,13 +6232,13 @@ public struct KSPROPERTY_VIDEOCOMPRESSION_S1
 	public uint32 Flags;
 }
 
-[CRepr]
+[CRepr, FlexibleArray("DeviceID")]
 public struct KSDISPLAYCHANGE
 {
 	public uint32 PelsWidth;
 	public uint32 PelsHeight;
 	public uint32 BitsPerPel;
-	public char16[] DeviceID;
+	private char16[0] DeviceID_impl;
 }
 
 [CRepr]

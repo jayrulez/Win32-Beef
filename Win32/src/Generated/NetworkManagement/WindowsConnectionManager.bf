@@ -1,5 +1,6 @@
 using Win32.Foundation;
 using System;
+using System.Interop;
 
 namespace Win32.NetworkManagement.WindowsConnectionManager;
 #region Constants
@@ -96,11 +97,11 @@ public struct WCM_PROFILE_INFO
 	public WCM_MEDIA_TYPE Media;
 }
 
-[CRepr]
+[CRepr, FlexibleArray("ProfileInfo")]
 public struct WCM_PROFILE_INFO_LIST
 {
 	public uint32 dwNumberOfItems;
-	public WCM_PROFILE_INFO[] ProfileInfo;
+	private WCM_PROFILE_INFO[0] ProfileInfo_impl;
 }
 
 [CRepr]

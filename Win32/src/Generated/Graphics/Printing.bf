@@ -10,6 +10,7 @@ using Win32.Graphics.Imaging;
 using Win32.Storage.Xps;
 using Win32.Graphics.Dxgi;
 using System;
+using System.Interop;
 
 namespace Win32.Graphics.Printing;
 #region Constants
@@ -4678,13 +4679,13 @@ public struct PRINTER_NOTIFY_INFO_DATA
 	public _NotifyData_e__Union NotifyData;
 }
 
-[CRepr]
+[CRepr, FlexibleArray("aData")]
 public struct PRINTER_NOTIFY_INFO
 {
 	public uint32 Version;
 	public uint32 Flags;
 	public uint32 Count;
-	public PRINTER_NOTIFY_INFO_DATA[] aData;
+	private PRINTER_NOTIFY_INFO_DATA[0] aData_impl;
 }
 
 [CRepr]
@@ -4719,13 +4720,13 @@ public struct BIDI_REQUEST_DATA
 	public BIDI_DATA data;
 }
 
-[CRepr]
+[CRepr, FlexibleArray("aData")]
 public struct BIDI_REQUEST_CONTAINER
 {
 	public uint32 Version;
 	public uint32 Flags;
 	public uint32 Count;
-	public BIDI_REQUEST_DATA[] aData;
+	private BIDI_REQUEST_DATA[0] aData_impl;
 }
 
 [CRepr]
@@ -4737,13 +4738,13 @@ public struct BIDI_RESPONSE_DATA
 	public BIDI_DATA data;
 }
 
-[CRepr]
+[CRepr, FlexibleArray("aData")]
 public struct BIDI_RESPONSE_CONTAINER
 {
 	public uint32 Version;
 	public uint32 Flags;
 	public uint32 Count;
-	public BIDI_RESPONSE_DATA[] aData;
+	private BIDI_RESPONSE_DATA[0] aData_impl;
 }
 
 [CRepr]
@@ -4873,35 +4874,35 @@ public struct MxdcEscapeHeader
 	public uint32 opCode;
 }
 
-[CRepr, Packed(1)]
+[CRepr, Packed(1), FlexibleArray("wszData")]
 public struct MxdcGetFileNameData
 {
 	public uint32 cbOutput;
-	public char16[] wszData;
+	private char16[0] wszData_impl;
 }
 
-[CRepr, Packed(1)]
+[CRepr, Packed(1), FlexibleArray("bData")]
 public struct MxdcS0PageData
 {
 	public uint32 dwSize;
-	public uint8[] bData;
+	private uint8[0] bData_impl;
 }
 
-[CRepr, Packed(1)]
+[CRepr, Packed(1), FlexibleArray("bData")]
 public struct MxdcXpsS0PageResource
 {
 	public uint32 dwSize;
 	public uint32 dwResourceType;
 	public uint8[260] szUri;
 	public uint32 dwDataSize;
-	public uint8[] bData;
+	private uint8[0] bData_impl;
 }
 
-[CRepr, Packed(1)]
+[CRepr, Packed(1), FlexibleArray("bData")]
 public struct MxdcPrintTicketPassthrough
 {
 	public uint32 dwDataSize;
-	public uint8[] bData;
+	private uint8[0] bData_impl;
 }
 
 [CRepr]
@@ -4984,14 +4985,14 @@ public struct DRIVER_UPGRADE_INFO_2
 	public int8* pszzPreviousNames;
 }
 
-[CRepr]
+[CRepr, FlexibleArray("aDocEventCall")]
 public struct DOCEVENT_FILTER
 {
 	public uint32 cbSize;
 	public uint32 cElementsAllocated;
 	public uint32 cElementsNeeded;
 	public uint32 cElementsReturned;
-	public uint32[] aDocEventCall;
+	private uint32[0] aDocEventCall_impl;
 }
 
 [CRepr]
@@ -5350,20 +5351,20 @@ public struct WIDTHRUN
 	public uint32 loCharWidthOffset;
 }
 
-[CRepr]
+[CRepr, FlexibleArray("WidthRun")]
 public struct WIDTHTABLE
 {
 	public uint32 dwSize;
 	public uint32 dwRunNum;
-	public WIDTHRUN[] WidthRun;
+	private WIDTHRUN[0] WidthRun_impl;
 }
 
-[CRepr]
+[CRepr, FlexibleArray("KernPair")]
 public struct KERNDATA
 {
 	public uint32 dwSize;
 	public uint32 dwKernPairNum;
-	public FD_KERNINGPAIR[] KernPair;
+	private FD_KERNINGPAIR[0] KernPair_impl;
 }
 
 [CRepr]
@@ -5413,12 +5414,12 @@ public struct TRANSDATA
 	public _uCode_e__Union uCode;
 }
 
-[CRepr]
+[CRepr, FlexibleArray("Trans")]
 public struct MAPTABLE
 {
 	public uint32 dwSize;
 	public uint32 dwGlyphNum;
-	public TRANSDATA[] Trans;
+	private TRANSDATA[0] Trans_impl;
 }
 
 [CRepr]
@@ -5510,12 +5511,12 @@ public struct PORT_DATA_2
 	public uint32 dwPortMonitorMibIndex;
 }
 
-[CRepr]
+[CRepr, FlexibleArray("pPortData")]
 public struct PORT_DATA_LIST_1
 {
 	public uint32 dwVersion;
 	public uint32 cPortData;
-	public PORT_DATA_2[] pPortData;
+	private PORT_DATA_2[0] pPortData_impl;
 }
 
 [CRepr]
@@ -5608,11 +5609,11 @@ public struct BranchOfficeJobData
 	public _JobInfo_e__Union JobInfo;
 }
 
-[CRepr]
+[CRepr, FlexibleArray("JobData")]
 public struct BranchOfficeJobDataContainer
 {
 	public uint32 cJobDataEntries;
-	public BranchOfficeJobData[] JobData;
+	private BranchOfficeJobData[0] JobData_impl;
 }
 
 [CRepr]

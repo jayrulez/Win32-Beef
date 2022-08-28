@@ -4,6 +4,7 @@ using Win32.System.Com.StructuredStorage;
 using Win32.UI.WindowsAndMessaging;
 using Win32.Graphics.Gdi;
 using System;
+using System.Interop;
 
 namespace Win32.Devices.ImageAcquisition;
 #region Constants
@@ -2023,7 +2024,7 @@ public struct WIA_RAW_HEADER
 	public uint32 PaletteSize;
 }
 
-[CRepr]
+[CRepr, FlexibleArray("Text")]
 public struct WIA_BARCODE_INFO
 {
 	public uint32 Size;
@@ -2034,17 +2035,17 @@ public struct WIA_BARCODE_INFO
 	public uint32 YOffset;
 	public uint32 Rotation;
 	public uint32 Length;
-	public char16[] Text;
+	private char16[0] Text_impl;
 }
 
-[CRepr]
+[CRepr, FlexibleArray("Barcodes")]
 public struct WIA_BARCODES
 {
 	public uint32 Tag;
 	public uint32 Version;
 	public uint32 Size;
 	public uint32 Count;
-	public WIA_BARCODE_INFO[] Barcodes;
+	private WIA_BARCODE_INFO[0] Barcodes_impl;
 }
 
 [CRepr]
@@ -2053,26 +2054,26 @@ public struct WIA_PATCH_CODE_INFO
 	public uint32 Type;
 }
 
-[CRepr]
+[CRepr, FlexibleArray("PatchCodes")]
 public struct WIA_PATCH_CODES
 {
 	public uint32 Tag;
 	public uint32 Version;
 	public uint32 Size;
 	public uint32 Count;
-	public WIA_PATCH_CODE_INFO[] PatchCodes;
+	private WIA_PATCH_CODE_INFO[0] PatchCodes_impl;
 }
 
-[CRepr]
+[CRepr, FlexibleArray("Text")]
 public struct WIA_MICR_INFO
 {
 	public uint32 Size;
 	public uint32 Page;
 	public uint32 Length;
-	public char16[] Text;
+	private char16[0] Text_impl;
 }
 
-[CRepr]
+[CRepr, FlexibleArray("Micr")]
 public struct WIA_MICR
 {
 	public uint32 Tag;
@@ -2081,7 +2082,7 @@ public struct WIA_MICR
 	public char16 Placeholder;
 	public uint16 Reserved;
 	public uint32 Count;
-	public WIA_MICR_INFO[] Micr;
+	private WIA_MICR_INFO[0] Micr_impl;
 }
 
 [CRepr]
@@ -2426,7 +2427,7 @@ public struct VAL
 	public CHAR[255] szVal;
 }
 
-[CRepr]
+[CRepr, FlexibleArray("Data")]
 public struct TWAIN_CAPABILITY
 {
 	public int32 lSize;
@@ -2436,7 +2437,7 @@ public struct TWAIN_CAPABILITY
 	public int32 lRC;
 	public int32 lCC;
 	public int32 lDataSize;
-	public uint8[] Data;
+	private uint8[0] Data_impl;
 }
 
 #endregion

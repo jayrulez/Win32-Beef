@@ -2,6 +2,7 @@ using Win32.Security;
 using Win32.Foundation;
 using Win32.Graphics.Gdi;
 using System;
+using System.Interop;
 
 namespace Win32.System.DataExchange;
 #region Constants
@@ -283,20 +284,20 @@ public struct DDEADVISE
 	public int16 cfFormat;
 }
 
-[CRepr]
+[CRepr, FlexibleArray("Value")]
 public struct DDEDATA
 {
 	public uint16 _bitfield;
 	public int16 cfFormat;
-	public uint8[] Value;
+	private uint8[0] Value_impl;
 }
 
-[CRepr]
+[CRepr, FlexibleArray("Value")]
 public struct DDEPOKE
 {
 	public uint16 _bitfield;
 	public int16 cfFormat;
-	public uint8[] Value;
+	private uint8[0] Value_impl;
 }
 
 [CRepr]
@@ -306,12 +307,12 @@ public struct DDELN
 	public int16 cfFormat;
 }
 
-[CRepr]
+[CRepr, FlexibleArray("rgb")]
 public struct DDEUP
 {
 	public uint16 _bitfield;
 	public int16 cfFormat;
-	public uint8[] rgb;
+	private uint8[0] rgb_impl;
 }
 
 [CRepr]
@@ -396,7 +397,7 @@ public struct MONCBSTRUCT
 	public uint32[8] Data;
 }
 
-[CRepr]
+[CRepr, FlexibleArray("str")]
 public struct MONHSZSTRUCTA
 {
 	public uint32 cb;
@@ -404,10 +405,10 @@ public struct MONHSZSTRUCTA
 	public uint32 dwTime;
 	public HSZ hsz;
 	public HANDLE hTask;
-	public CHAR[] str;
+	private CHAR[0] str_impl;
 }
 
-[CRepr]
+[CRepr, FlexibleArray("str")]
 public struct MONHSZSTRUCTW
 {
 	public uint32 cb;
@@ -415,7 +416,7 @@ public struct MONHSZSTRUCTW
 	public uint32 dwTime;
 	public HSZ hsz;
 	public HANDLE hTask;
-	public char16[] str;
+	private char16[0] str_impl;
 }
 
 [CRepr]

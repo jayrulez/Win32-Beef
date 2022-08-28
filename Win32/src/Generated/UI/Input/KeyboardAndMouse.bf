@@ -1,6 +1,7 @@
 using Win32.Foundation;
 using Win32.UI.TextServices;
 using System;
+using System.Interop;
 
 namespace Win32.UI.Input.KeyboardAndMouse;
 #region Constants
@@ -611,12 +612,12 @@ public struct VK_TO_BIT
 	public uint8 ModBits;
 }
 
-[CRepr]
+[CRepr, FlexibleArray("ModNumber")]
 public struct MODIFIERS
 {
 	public VK_TO_BIT* pVkToBit;
 	public uint16 wMaxModBits;
-	public uint8[] ModNumber;
+	private uint8[0] ModNumber_impl;
 }
 
 [CRepr]
@@ -633,12 +634,12 @@ public struct VK_VSC
 	public uint8 Vsc;
 }
 
-[CRepr]
+[CRepr, FlexibleArray("wch")]
 public struct VK_TO_WCHARS1
 {
 	public uint8 VirtualKey;
 	public uint8 Attributes;
-	public char16[] wch;
+	private char16[0] wch_impl;
 }
 
 [CRepr]
@@ -729,12 +730,12 @@ public struct DEADKEY
 	public uint16 uFlags;
 }
 
-[CRepr]
+[CRepr, FlexibleArray("wch")]
 public struct LIGATURE1
 {
 	public uint8 VirtualKey;
 	public uint16 ModificationNumber;
-	public char16[] wch;
+	private char16[0] wch_impl;
 }
 
 [CRepr]

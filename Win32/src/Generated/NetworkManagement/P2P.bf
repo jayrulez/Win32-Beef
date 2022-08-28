@@ -4,6 +4,7 @@ using Win32.System.Com;
 using Win32.Security.Cryptography;
 using Win32.System.IO;
 using System;
+using System.Interop;
 
 namespace Win32.NetworkManagement.P2P;
 #region Constants
@@ -1212,11 +1213,11 @@ public struct DRT_ADDRESS
 	public uint32 latency;
 }
 
-[CRepr]
+[CRepr, FlexibleArray("AddressList")]
 public struct DRT_ADDRESS_LIST
 {
 	public uint32 AddressCount;
-	public DRT_ADDRESS[] AddressList;
+	private DRT_ADDRESS[0] AddressList_impl;
 }
 
 [CRepr]

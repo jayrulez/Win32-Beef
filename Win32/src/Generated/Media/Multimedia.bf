@@ -7,6 +7,7 @@ using Win32.UI.Controls;
 using Win32.System.IO;
 using Win32.UI.Controls.Dialogs;
 using System;
+using System.Interop;
 
 namespace Win32.Media.Multimedia;
 #region Constants
@@ -9356,13 +9357,13 @@ public struct ADPCMCOEFSET
 	public int16 iCoef2;
 }
 
-[CRepr, Packed(1)]
+[CRepr, Packed(1), FlexibleArray("aCoef")]
 public struct ADPCMWAVEFORMAT
 {
 	public WAVEFORMATEX wfx;
 	public uint16 wSamplesPerBlock;
 	public uint16 wNumCoef;
-	public ADPCMCOEFSET[] aCoef;
+	private ADPCMCOEFSET[0] aCoef_impl;
 }
 
 [CRepr, Packed(1)]

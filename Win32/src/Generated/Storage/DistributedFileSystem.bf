@@ -1,6 +1,7 @@
 using Win32.Foundation;
 using Win32.Security;
 using System;
+using System.Interop;
 
 namespace Win32.Storage.DistributedFileSystem;
 #region Constants
@@ -382,11 +383,11 @@ public struct DFS_SITENAME_INFO
 	public PWSTR SiteName;
 }
 
-[CRepr]
+[CRepr, FlexibleArray("Site")]
 public struct DFS_SITELIST_INFO
 {
 	public uint32 cSites;
-	public DFS_SITENAME_INFO[] Site;
+	private DFS_SITENAME_INFO[0] Site_impl;
 }
 
 [CRepr]
@@ -400,14 +401,14 @@ public struct DFS_SUPPORTED_NAMESPACE_VERSION_INFO
 	public uint64 StandaloneDfsCapabilities;
 }
 
-[CRepr]
+[CRepr, FlexibleArray("Buffer")]
 public struct DFS_GET_PKT_ENTRY_STATE_ARG
 {
 	public uint16 DfsEntryPathLen;
 	public uint16 ServerNameLen;
 	public uint16 ShareNameLen;
 	public uint32 Level;
-	public char16[] Buffer;
+	private char16[0] Buffer_impl;
 }
 
 #endregion

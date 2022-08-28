@@ -3,6 +3,7 @@ using Win32.Security;
 using Win32.System.Com;
 using Win32.System.Threading;
 using System;
+using System.Interop;
 
 namespace Win32.Security.Authorization;
 #region Constants
@@ -1031,7 +1032,7 @@ public struct AUTHZ_REGISTRATION_OBJECT_TYPE_NAME_OFFSET
 	public uint32 dwOffset;
 }
 
-[CRepr]
+[CRepr, FlexibleArray("ObjectTypeNames")]
 public struct AUTHZ_SOURCE_SCHEMA_REGISTRATION
 {
 	[CRepr, Union]
@@ -1049,7 +1050,7 @@ public struct AUTHZ_SOURCE_SCHEMA_REGISTRATION
 	public PWSTR szExecutableImagePath;
 	public using _Anonymous_e__Union Anonymous;
 	public uint32 dwObjectTypeNameCount;
-	public AUTHZ_REGISTRATION_OBJECT_TYPE_NAME_OFFSET[] ObjectTypeNames;
+	private AUTHZ_REGISTRATION_OBJECT_TYPE_NAME_OFFSET[0] ObjectTypeNames_impl;
 }
 
 #endregion

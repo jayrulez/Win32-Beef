@@ -9,6 +9,7 @@ using Win32.System.PasswordManagement;
 using Win32.System.Com;
 using Win32.System.WindowsProgramming;
 using System;
+using System.Interop;
 
 namespace Win32.Security.Authentication.Identity;
 #region Constants
@@ -4553,15 +4554,15 @@ public struct MSV1_0_SUPPLEMENTAL_CREDENTIAL_V3
 	public uint8[20] ShaPassword;
 }
 
-[CRepr]
+[CRepr, FlexibleArray("EncryptedCreds")]
 public struct MSV1_0_IUM_SUPPLEMENTAL_CREDENTIAL
 {
 	public uint32 Version;
 	public uint32 EncryptedCredsSize;
-	public uint8[] EncryptedCreds;
+	private uint8[0] EncryptedCreds_impl;
 }
 
-[CRepr, Packed(1)]
+[CRepr, Packed(1), FlexibleArray("EncryptedCreds")]
 public struct MSV1_0_REMOTE_SUPPLEMENTAL_CREDENTIAL
 {
 	public uint32 Version;
@@ -4569,10 +4570,10 @@ public struct MSV1_0_REMOTE_SUPPLEMENTAL_CREDENTIAL
 	public MSV1_0_CREDENTIAL_KEY CredentialKey;
 	public MSV1_0_CREDENTIAL_KEY_TYPE CredentialKeyType;
 	public uint32 EncryptedCredsSize;
-	public uint8[] EncryptedCreds;
+	private uint8[0] EncryptedCreds_impl;
 }
 
-[CRepr]
+[CRepr, FlexibleArray("Buffer")]
 public struct MSV1_0_NTLM3_RESPONSE
 {
 	public uint8[16] Response;
@@ -4583,7 +4584,7 @@ public struct MSV1_0_NTLM3_RESPONSE
 	public uint64 TimeStamp;
 	public uint8[8] ChallengeFromClient;
 	public uint32 AvPairsOff;
-	public uint8[] Buffer;
+	private uint8[0] Buffer_impl;
 }
 
 [CRepr]
@@ -4857,36 +4858,36 @@ public struct KERB_TICKET_CACHE_INFO_EX3
 	public UNICODE_STRING KdcCalled;
 }
 
-[CRepr]
+[CRepr, FlexibleArray("Tickets")]
 public struct KERB_QUERY_TKT_CACHE_RESPONSE
 {
 	public KERB_PROTOCOL_MESSAGE_TYPE MessageType;
 	public uint32 CountOfTickets;
-	public KERB_TICKET_CACHE_INFO[] Tickets;
+	private KERB_TICKET_CACHE_INFO[0] Tickets_impl;
 }
 
-[CRepr]
+[CRepr, FlexibleArray("Tickets")]
 public struct KERB_QUERY_TKT_CACHE_EX_RESPONSE
 {
 	public KERB_PROTOCOL_MESSAGE_TYPE MessageType;
 	public uint32 CountOfTickets;
-	public KERB_TICKET_CACHE_INFO_EX[] Tickets;
+	private KERB_TICKET_CACHE_INFO_EX[0] Tickets_impl;
 }
 
-[CRepr]
+[CRepr, FlexibleArray("Tickets")]
 public struct KERB_QUERY_TKT_CACHE_EX2_RESPONSE
 {
 	public KERB_PROTOCOL_MESSAGE_TYPE MessageType;
 	public uint32 CountOfTickets;
-	public KERB_TICKET_CACHE_INFO_EX2[] Tickets;
+	private KERB_TICKET_CACHE_INFO_EX2[0] Tickets_impl;
 }
 
-[CRepr]
+[CRepr, FlexibleArray("Tickets")]
 public struct KERB_QUERY_TKT_CACHE_EX3_RESPONSE
 {
 	public KERB_PROTOCOL_MESSAGE_TYPE MessageType;
 	public uint32 CountOfTickets;
-	public KERB_TICKET_CACHE_INFO_EX3[] Tickets;
+	private KERB_TICKET_CACHE_INFO_EX3[0] Tickets_impl;
 }
 
 [CRepr]
@@ -4905,19 +4906,19 @@ public struct KERB_NET_ADDRESS
 	public PSTR Address;
 }
 
-[CRepr]
+[CRepr, FlexibleArray("Addresses")]
 public struct KERB_NET_ADDRESSES
 {
 	public uint32 Number;
-	public KERB_NET_ADDRESS[] Addresses;
+	private KERB_NET_ADDRESS[0] Addresses_impl;
 }
 
-[CRepr]
+[CRepr, FlexibleArray("Names")]
 public struct KERB_EXTERNAL_NAME
 {
 	public int16 NameType;
 	public uint16 NameCount;
-	public UNICODE_STRING[] Names;
+	private UNICODE_STRING[0] Names_impl;
 }
 
 [CRepr]
@@ -5109,13 +5110,13 @@ public struct KERB_CLOUD_KERBEROS_DEBUG_REQUEST
 	public LUID LogonId;
 }
 
-[CRepr]
+[CRepr, FlexibleArray("Data")]
 public struct KERB_CLOUD_KERBEROS_DEBUG_RESPONSE
 {
 	public KERB_PROTOCOL_MESSAGE_TYPE MessageType;
 	public uint32 Version;
 	public uint32 Length;
-	public uint32[] Data;
+	private uint32[0] Data_impl;
 }
 
 [CRepr]
@@ -5179,10 +5180,10 @@ public struct KERB_DECRYPT_REQUEST
 	public uint8* EncryptedData;
 }
 
-[CRepr]
+[CRepr, FlexibleArray("DecryptedData")]
 public struct KERB_DECRYPT_RESPONSE
 {
-	public uint8[] DecryptedData;
+	private uint8[0] DecryptedData_impl;
 }
 
 [CRepr]
@@ -5214,12 +5215,12 @@ public struct KERB_ADD_CREDENTIALS_REQUEST
 	public KERB_REQUEST_FLAGS Flags;
 }
 
-[CRepr]
+[CRepr, FlexibleArray("PrincipalNames")]
 public struct KERB_ADD_CREDENTIALS_REQUEST_EX
 {
 	public KERB_ADD_CREDENTIALS_REQUEST Credentials;
 	public uint32 PrincipalNameCount;
-	public UNICODE_STRING[] PrincipalNames;
+	private UNICODE_STRING[0] PrincipalNames_impl;
 }
 
 [CRepr]
@@ -5415,56 +5416,56 @@ public struct SEC_CHANNEL_BINDINGS
 	public uint32 dwApplicationDataOffset;
 }
 
-[CRepr]
+[CRepr, FlexibleArray("ProtocolList")]
 public struct SEC_APPLICATION_PROTOCOL_LIST
 {
 	public SEC_APPLICATION_PROTOCOL_NEGOTIATION_EXT ProtoNegoExt;
 	public uint16 ProtocolListSize;
-	public uint8[] ProtocolList;
+	private uint8[0] ProtocolList_impl;
 }
 
-[CRepr]
+[CRepr, FlexibleArray("ProtocolLists")]
 public struct SEC_APPLICATION_PROTOCOLS
 {
 	public uint32 ProtocolListsSize;
-	public SEC_APPLICATION_PROTOCOL_LIST[] ProtocolLists;
+	private SEC_APPLICATION_PROTOCOL_LIST[0] ProtocolLists_impl;
 }
 
-[CRepr]
+[CRepr, FlexibleArray("ProfilesList")]
 public struct SEC_SRTP_PROTECTION_PROFILES
 {
 	public uint16 ProfilesSize;
-	public uint16[] ProfilesList;
+	private uint16[0] ProfilesList_impl;
 }
 
-[CRepr]
+[CRepr, FlexibleArray("MasterKeyIdentifier")]
 public struct SEC_SRTP_MASTER_KEY_IDENTIFIER
 {
 	public uint8 MasterKeyIdentifierSize;
-	public uint8[] MasterKeyIdentifier;
+	private uint8[0] MasterKeyIdentifier_impl;
 }
 
-[CRepr]
+[CRepr, FlexibleArray("KeyParameters")]
 public struct SEC_TOKEN_BINDING
 {
 	public uint8 MajorVersion;
 	public uint8 MinorVersion;
 	public uint16 KeyParametersSize;
-	public uint8[] KeyParameters;
+	private uint8[0] KeyParameters_impl;
 }
 
-[CRepr]
+[CRepr, FlexibleArray("Key")]
 public struct SEC_PRESHAREDKEY
 {
 	public uint16 KeySize;
-	public uint8[] Key;
+	private uint8[0] Key_impl;
 }
 
-[CRepr]
+[CRepr, FlexibleArray("KeyIdentity")]
 public struct SEC_PRESHAREDKEY_IDENTITY
 {
 	public uint16 KeyIdentitySize;
-	public uint8[] KeyIdentity;
+	private uint8[0] KeyIdentity_impl;
 }
 
 [CRepr]
@@ -5479,7 +5480,7 @@ public struct SEC_FLAGS
 	public uint64 Flags;
 }
 
-[CRepr]
+[CRepr, FlexibleArray("TrafficSecret")]
 public struct SEC_TRAFFIC_SECRETS
 {
 	public char16[64] SymmetricAlgId;
@@ -5491,7 +5492,7 @@ public struct SEC_TRAFFIC_SECRETS
 	public uint16 MsgSequenceEnd;
 	public SEC_TRAFFIC_SECRET_TYPE TrafficSecretType;
 	public uint16 TrafficSecretSize;
-	public uint8[] TrafficSecret;
+	private uint8[0] TrafficSecret_impl;
 }
 
 [CRepr]
@@ -6117,11 +6118,11 @@ public struct SECPKG_CREDENTIAL
 	public SECPKG_BYTE_VECTOR MarshaledSuppliedCreds;
 }
 
-[CRepr]
+[CRepr, FlexibleArray("Credentials")]
 public struct SECPKG_SUPPLEMENTAL_CRED_ARRAY
 {
 	public uint32 CredentialCount;
-	public SECPKG_SUPPLEMENTAL_CRED[] Credentials;
+	private SECPKG_SUPPLEMENTAL_CRED[0] Credentials_impl;
 }
 
 [CRepr]
@@ -6200,11 +6201,11 @@ public struct SECPKG_GSS_INFO
 	public uint8[4] EncodedId;
 }
 
-[CRepr]
+[CRepr, FlexibleArray("Levels")]
 public struct SECPKG_CONTEXT_THUNKS
 {
 	public uint32 InfoLevelCount;
-	public uint32[] Levels;
+	private uint32[0] Levels_impl;
 }
 
 [CRepr]
@@ -6227,11 +6228,11 @@ public struct SECPKG_SERIALIZED_OID
 	public uint8[32] OidValue;
 }
 
-[CRepr]
+[CRepr, FlexibleArray("Oids")]
 public struct SECPKG_EXTRA_OIDS
 {
 	public uint32 OidCount;
-	public SECPKG_SERIALIZED_OID[] Oids;
+	private SECPKG_SERIALIZED_OID[0] Oids_impl;
 }
 
 [CRepr]
@@ -6856,14 +6857,14 @@ public struct SCHANNEL_CRED
 	public uint32 dwCredFormat;
 }
 
-[CRepr]
+[CRepr, FlexibleArray("Buffer")]
 public struct SEND_GENERIC_TLS_EXTENSION
 {
 	public uint16 ExtensionType;
 	public uint16 HandshakeType;
 	public uint32 Flags;
 	public uint16 BufferSize;
-	public uint8[] Buffer;
+	private uint8[0] Buffer_impl;
 }
 
 [CRepr]
@@ -6873,12 +6874,12 @@ public struct TLS_EXTENSION_SUBSCRIPTION
 	public uint16 HandshakeType;
 }
 
-[CRepr]
+[CRepr, FlexibleArray("Subscriptions")]
 public struct SUBSCRIBE_GENERIC_TLS_EXTENSION
 {
 	public uint32 Flags;
 	public uint32 SubscriptionsCount;
-	public TLS_EXTENSION_SUBSCRIPTION[] Subscriptions;
+	private TLS_EXTENSION_SUBSCRIPTION[0] Subscriptions_impl;
 }
 
 [CRepr]
@@ -6970,12 +6971,12 @@ public struct SCH_CRED_PUBLIC_CERTCHAIN
 	public uint8* pCertChain;
 }
 
-[CRepr]
+[CRepr, FlexibleArray("pKey")]
 public struct PctPublicKey
 {
 	public uint32 Type;
 	public uint32 cbKey;
-	public uint8[] pKey;
+	private uint8[0] pKey_impl;
 }
 
 [CRepr]

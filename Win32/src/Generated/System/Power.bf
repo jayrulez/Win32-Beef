@@ -3,6 +3,7 @@ using Win32.Foundation;
 using Win32.System.Registry;
 using Win32.System.Threading;
 using System;
+using System.Interop;
 
 namespace Win32.System.Power;
 #region Constants
@@ -774,19 +775,19 @@ public struct BATTERY_CHARGING_SOURCE_INFORMATION
 	public BOOLEAN SourceOnline;
 }
 
-[CRepr]
+[CRepr, FlexibleArray("Buffer")]
 public struct BATTERY_SET_INFORMATION
 {
 	public uint32 BatteryTag;
 	public BATTERY_SET_INFORMATION_LEVEL InformationLevel;
-	public uint8[] Buffer;
+	private uint8[0] Buffer_impl;
 }
 
-[CRepr]
+[CRepr, FlexibleArray("VaData")]
 public struct BATTERY_CHARGER_STATUS
 {
 	public BATTERY_CHARGING_SOURCE_TYPE Type;
-	public uint32[] VaData;
+	private uint32[0] VaData_impl;
 }
 
 [CRepr]
@@ -926,7 +927,7 @@ public struct EMI_CHANNEL_MEASUREMENT_DATA
 	public uint64 AbsoluteTime;
 }
 
-[CRepr]
+[CRepr, FlexibleArray("MeteredHardwareName")]
 public struct EMI_METADATA_V1
 {
 	public EMI_MEASUREMENT_UNIT MeasurementUnit;
@@ -934,31 +935,31 @@ public struct EMI_METADATA_V1
 	public char16[16] HardwareModel;
 	public uint16 HardwareRevision;
 	public uint16 MeteredHardwareNameSize;
-	public char16[] MeteredHardwareName;
+	private char16[0] MeteredHardwareName_impl;
 }
 
-[CRepr]
+[CRepr, FlexibleArray("ChannelName")]
 public struct EMI_CHANNEL_V2
 {
 	public EMI_MEASUREMENT_UNIT MeasurementUnit;
 	public uint16 ChannelNameSize;
-	public char16[] ChannelName;
+	private char16[0] ChannelName_impl;
 }
 
-[CRepr]
+[CRepr, FlexibleArray("Channels")]
 public struct EMI_METADATA_V2
 {
 	public char16[16] HardwareOEM;
 	public char16[16] HardwareModel;
 	public uint16 HardwareRevision;
 	public uint16 ChannelCount;
-	public EMI_CHANNEL_V2[] Channels;
+	private EMI_CHANNEL_V2[0] Channels_impl;
 }
 
-[CRepr]
+[CRepr, FlexibleArray("ChannelData")]
 public struct EMI_MEASUREMENT_DATA_V2
 {
-	public EMI_CHANNEL_MEASUREMENT_DATA[] ChannelData;
+	private EMI_CHANNEL_MEASUREMENT_DATA[0] ChannelData_impl;
 }
 
 [CRepr]
@@ -974,14 +975,14 @@ public struct CM_POWER_DATA
 	public SYSTEM_POWER_STATE PD_DeepestSystemWake;
 }
 
-[CRepr]
+[CRepr, FlexibleArray("Data")]
 public struct SET_POWER_SETTING_VALUE
 {
 	public uint32 Version;
 	public Guid Guid;
 	public SYSTEM_POWER_CONDITION PowerCondition;
 	public uint32 DataLength;
-	public uint8[] Data;
+	private uint8[0] Data_impl;
 }
 
 [CRepr]
@@ -1131,12 +1132,12 @@ public struct SYSTEM_BATTERY_STATE
 	public uint32 DefaultAlert2;
 }
 
-[CRepr]
+[CRepr, FlexibleArray("Data")]
 public struct POWERBROADCAST_SETTING
 {
 	public Guid PowerSetting;
 	public uint32 DataLength;
-	public uint8[] Data;
+	private uint8[0] Data_impl;
 }
 
 [CRepr]

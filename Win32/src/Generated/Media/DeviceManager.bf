@@ -3,6 +3,7 @@ using Win32.System.Com.StructuredStorage;
 using Win32.System.Com;
 using Win32.System.Ole;
 using System;
+using System.Interop;
 
 namespace Win32.Media.DeviceManager;
 #region Constants
@@ -971,7 +972,7 @@ public struct WMDMDetermineMaxPropStringLen
 	public char16[30] sz086;
 }
 
-[CRepr, Packed(1)]
+[CRepr, Packed(1), FlexibleArray("CommandWriteData")]
 public struct MTP_COMMAND_DATA_IN
 {
 	public uint16 OpCode;
@@ -979,17 +980,17 @@ public struct MTP_COMMAND_DATA_IN
 	public uint32[5] Params;
 	public uint32 NextPhase;
 	public uint32 CommandWriteDataSize;
-	public uint8[] CommandWriteData;
+	private uint8[0] CommandWriteData_impl;
 }
 
-[CRepr, Packed(1)]
+[CRepr, Packed(1), FlexibleArray("CommandReadData")]
 public struct MTP_COMMAND_DATA_OUT
 {
 	public uint16 ResponseCode;
 	public uint32 NumParams;
 	public uint32[5] Params;
 	public uint32 CommandReadDataSize;
-	public uint8[] CommandReadData;
+	private uint8[0] CommandReadData_impl;
 }
 
 #endregion

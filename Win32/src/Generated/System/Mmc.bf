@@ -4,6 +4,7 @@ using Win32.UI.Controls;
 using Win32.Graphics.Gdi;
 using Win32.UI.WindowsAndMessaging;
 using System;
+using System.Interop;
 
 namespace Win32.System.Mmc;
 #region Constants
@@ -583,48 +584,48 @@ public struct MMC_EXPANDSYNC_STRUCT
 	public int hItem;
 }
 
-[CRepr]
+[CRepr, FlexibleArray("rgVisibleCols")]
 public struct MMC_VISIBLE_COLUMNS
 {
 	public int32 nVisibleColumns;
-	public int32[] rgVisibleCols;
+	private int32[0] rgVisibleCols_impl;
 }
 
-[CRepr]
+[CRepr, FlexibleArray("lpDataObject")]
 public struct SMMCDataObjects
 {
 	public uint32 count;
-	public IDataObject*[] lpDataObject;
+	private IDataObject*[0] lpDataObject_impl;
 }
 
-[CRepr]
+[CRepr, FlexibleArray("guid")]
 public struct SMMCObjectTypes
 {
 	public uint32 count;
-	public Guid[] guid;
+	private Guid[0] guid_impl;
 }
 
-[CRepr]
+[CRepr, FlexibleArray("id")]
 public struct SNodeID
 {
 	public uint32 cBytes;
-	public uint8[] id;
+	private uint8[0] id_impl;
 }
 
-[CRepr]
+[CRepr, FlexibleArray("id")]
 public struct SNodeID2
 {
 	public uint32 dwFlags;
 	public uint32 cBytes;
-	public uint8[] id;
+	private uint8[0] id_impl;
 }
 
-[CRepr]
+[CRepr, FlexibleArray("id")]
 public struct SColumnSetID
 {
 	public uint32 dwFlags;
 	public uint32 cBytes;
-	public uint8[] id;
+	private uint8[0] id_impl;
 }
 
 [CRepr]

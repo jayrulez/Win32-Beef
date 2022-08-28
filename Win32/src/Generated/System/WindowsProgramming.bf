@@ -5,6 +5,7 @@ using Win32.Security;
 using Win32.Graphics.Gdi;
 using Win32.System.Registry;
 using System;
+using System.Interop;
 
 namespace Win32.System.WindowsProgramming;
 #region Constants
@@ -2096,12 +2097,12 @@ public struct tcp_request_query_information_ex_w2k
 	public uint8[16] Context;
 }
 
-[CRepr]
+[CRepr, FlexibleArray("Buffer")]
 public struct tcp_request_set_information_ex
 {
 	public TDIObjectID ID;
 	public uint32 BufferSize;
-	public uint8[] Buffer;
+	private uint8[0] Buffer_impl;
 }
 
 [CRepr]

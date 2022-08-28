@@ -6,6 +6,7 @@ using Win32.Media;
 using Win32.System.Com.StructuredStorage;
 using Win32.UI.WindowsAndMessaging;
 using System;
+using System.Interop;
 
 namespace Win32.Media.Audio;
 #region Constants
@@ -1367,14 +1368,14 @@ public function uint32 ACMFILTERCHOOSEHOOKPROCW(HWND hwnd, uint32 uMsg, WPARAM w
 #endregion
 
 #region Structs
-[CRepr]
+[CRepr, FlexibleArray("afChannelVolumes")]
 public struct AUDIO_VOLUME_NOTIFICATION_DATA
 {
 	public Guid guidEventContext;
 	public BOOL bMuted;
 	public float fMasterVolume;
 	public uint32 nChannels;
-	public float[] afChannelVolumes;
+	private float[0] afChannelVolumes_impl;
 }
 
 [CRepr, Packed(1)]
@@ -1694,13 +1695,13 @@ public struct MIDIHDR
 	public uint[8] dwReserved;
 }
 
-[CRepr, Packed(1)]
+[CRepr, Packed(1), FlexibleArray("dwParms")]
 public struct MIDIEVENT
 {
 	public uint32 dwDeltaTime;
 	public uint32 dwStreamID;
 	public uint32 dwEvent;
-	public uint32[] dwParms;
+	private uint32[0] dwParms_impl;
 }
 
 [CRepr, Packed(1)]

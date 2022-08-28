@@ -1,6 +1,7 @@
 using Win32.Foundation;
 using Win32.System.IO;
 using System;
+using System.Interop;
 
 namespace Win32.Devices.BiometricFramework;
 #region Constants
@@ -1571,7 +1572,7 @@ public struct WINBIO_FRAMEWORK_INTERFACE
 	public PIBIO_FRAMEWORK_VSM_DECRYPT_SAMPLE_FN DecryptSample;
 }
 
-[CRepr]
+[CRepr, FlexibleArray("SupportedFormat")]
 public struct WINBIO_SENSOR_ATTRIBUTES
 {
 	public uint32 PayloadSize;
@@ -1585,14 +1586,14 @@ public struct WINBIO_SENSOR_ATTRIBUTES
 	public uint16[256] SerialNumber;
 	public WINBIO_VERSION FirmwareVersion;
 	public uint32 SupportedFormatEntries;
-	public WINBIO_REGISTERED_FORMAT[] SupportedFormat;
+	private WINBIO_REGISTERED_FORMAT[0] SupportedFormat_impl;
 }
 
-[CRepr]
+[CRepr, FlexibleArray("Data")]
 public struct WINBIO_DATA
 {
 	public uint32 Size;
-	public uint8[] Data;
+	private uint8[0] Data_impl;
 }
 
 [CRepr]

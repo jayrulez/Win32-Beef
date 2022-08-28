@@ -3,6 +3,7 @@ using Win32.Foundation;
 using Win32.System.CorrelationVector;
 using Win32.System.IO;
 using System;
+using System.Interop;
 
 namespace Win32.Storage.CloudFilters;
 #region Constants
@@ -887,7 +888,7 @@ public struct CF_FILE_RANGE
 	public LARGE_INTEGER Length;
 }
 
-[CRepr]
+[CRepr, FlexibleArray("FileIdentity")]
 public struct CF_PLACEHOLDER_BASIC_INFO
 {
 	public CF_PIN_STATE PinState;
@@ -895,10 +896,10 @@ public struct CF_PLACEHOLDER_BASIC_INFO
 	public LARGE_INTEGER FileId;
 	public LARGE_INTEGER SyncRootFileId;
 	public uint32 FileIdentityLength;
-	public uint8[] FileIdentity;
+	private uint8[0] FileIdentity_impl;
 }
 
-[CRepr]
+[CRepr, FlexibleArray("FileIdentity")]
 public struct CF_PLACEHOLDER_STANDARD_INFO
 {
 	public LARGE_INTEGER OnDiskDataSize;
@@ -910,7 +911,7 @@ public struct CF_PLACEHOLDER_STANDARD_INFO
 	public LARGE_INTEGER FileId;
 	public LARGE_INTEGER SyncRootFileId;
 	public uint32 FileIdentityLength;
-	public uint8[] FileIdentity;
+	private uint8[0] FileIdentity_impl;
 }
 
 [CRepr]
@@ -927,7 +928,7 @@ public struct CF_SYNC_ROOT_PROVIDER_INFO
 	public char16[256] ProviderVersion;
 }
 
-[CRepr]
+[CRepr, FlexibleArray("SyncRootIdentity")]
 public struct CF_SYNC_ROOT_STANDARD_INFO
 {
 	public LARGE_INTEGER SyncRootFileId;
@@ -939,7 +940,7 @@ public struct CF_SYNC_ROOT_STANDARD_INFO
 	public char16[256] ProviderName;
 	public char16[256] ProviderVersion;
 	public uint32 SyncRootIdentityLength;
-	public uint8[] SyncRootIdentity;
+	private uint8[0] SyncRootIdentity_impl;
 }
 
 #endregion

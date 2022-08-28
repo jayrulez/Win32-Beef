@@ -8,6 +8,7 @@ using Win32.UI.ColorSystem;
 using Win32.System.Console;
 using Win32.Graphics.Direct3D9;
 using System;
+using System.Interop;
 
 namespace Win32.Devices.Display;
 #region Constants
@@ -2444,27 +2445,27 @@ public struct MC_TIMING_REPORT
 	public uint8 bTimingStatusByte;
 }
 
-[CRepr]
+[CRepr, FlexibleArray("aTargets")]
 public struct Sources
 {
 	public uint32 sourceId;
 	public int32 numTargets;
-	public uint32[] aTargets;
+	private uint32[0] aTargets_impl;
 }
 
-[CRepr]
+[CRepr, FlexibleArray("sources")]
 public struct Adapter
 {
 	public char16[128] AdapterName;
 	public int32 numSources;
-	public Sources[] sources;
+	private Sources[0] sources_impl;
 }
 
-[CRepr]
+[CRepr, FlexibleArray("adapter")]
 public struct Adapters
 {
 	public int32 numAdapters;
-	public Adapter[] adapter;
+	private Adapter[0] adapter_impl;
 }
 
 [CRepr]
@@ -2474,11 +2475,11 @@ public struct DisplayMode
 	public DEVMODEW devMode;
 }
 
-[CRepr]
+[CRepr, FlexibleArray("displayMode")]
 public struct DisplayModes
 {
 	public int32 numDisplayModes;
-	public DisplayMode[] displayMode;
+	private DisplayMode[0] displayMode_impl;
 }
 
 [CRepr]
@@ -2554,7 +2555,7 @@ public struct FD_XFORM
 }
 #endif
 
-[CRepr]
+[CRepr, FlexibleArray("alReserved")]
 public struct FD_DEVICEMETRICS
 {
 	public uint32 flRealizedType;
@@ -2578,25 +2579,25 @@ public struct FD_DEVICEMETRICS
 	public int32 lMinA;
 	public int32 lMinC;
 	public int32 lMinD;
-	public int32[] alReserved;
+	private int32[0] alReserved_impl;
 }
 
-[CRepr]
+[CRepr, FlexibleArray("ahglyph")]
 public struct LIGATURE
 {
 	public uint32 culSize;
 	public PWSTR pwsz;
 	public uint32 chglyph;
-	public uint32[] ahglyph;
+	private uint32[0] ahglyph_impl;
 }
 
-[CRepr]
+[CRepr, FlexibleArray("alig")]
 public struct FD_LIGATURE
 {
 	public uint32 culThis;
 	public uint32 ulType;
 	public uint32 cLigatures;
-	public LIGATURE[] alig;
+	private LIGATURE[0] alig_impl;
 }
 
 [CRepr]
@@ -2614,23 +2615,23 @@ public struct WCRUN
 	public uint32* phg;
 }
 
-[CRepr]
+[CRepr, FlexibleArray("awcrun")]
 public struct FD_GLYPHSET
 {
 	public uint32 cjThis;
 	public uint32 flAccel;
 	public uint32 cGlyphsSupported;
 	public uint32 cRuns;
-	public WCRUN[] awcrun;
+	private WCRUN[0] awcrun_impl;
 }
 
-[CRepr]
+[CRepr, FlexibleArray("aGlyphAttr")]
 public struct FD_GLYPHATTR
 {
 	public uint32 cjThis;
 	public uint32 cGlyphs;
 	public uint32 iMode;
-	public uint8[] aGlyphAttr;
+	private uint8[0] aGlyphAttr_impl;
 }
 
 [CRepr]
@@ -2730,7 +2731,7 @@ public struct IFIMETRICS
 }
 #endif
 
-[CRepr]
+[CRepr, FlexibleArray("aulReserved")]
 public struct IFIEXTRA
 {
 	public uint32 ulIdentifier;
@@ -2738,7 +2739,7 @@ public struct IFIEXTRA
 	public uint32 cig;
 	public int32 dpDesignVector;
 	public int32 dpAxesInfoW;
-	public uint32[] aulReserved;
+	private uint32[0] aulReserved_impl;
 }
 
 [CRepr]
@@ -2994,19 +2995,19 @@ public struct XLATEOBJ
 	public uint32* pulXlate;
 }
 
-[CRepr]
+[CRepr, FlexibleArray("arcl")]
 public struct ENUMRECTS
 {
 	public uint32 c;
-	public RECTL[] arcl;
+	private RECTL[0] arcl_impl;
 }
 
-[CRepr]
+[CRepr, FlexibleArray("aj")]
 public struct GLYPHBITS
 {
 	public POINTL ptlOrigin;
 	public SIZE sizlBitmap;
-	public uint8[] aj;
+	private uint8[0] aj_impl;
 }
 
 [CRepr, Union]
@@ -3076,14 +3077,14 @@ public struct RUN
 	public int32 iStop;
 }
 
-[CRepr]
+[CRepr, FlexibleArray("arun")]
 public struct CLIPLINE
 {
 	public POINTFIX ptfxA;
 	public POINTFIX ptfxB;
 	public int32 lStyleState;
 	public uint32 c;
-	public RUN[] arun;
+	private RUN[0] arun_impl;
 }
 
 [CRepr]
@@ -3200,11 +3201,11 @@ public struct VIDEO_REGISTER_VDM
 	public uint32 MinimumStateSize;
 }
 
-[CRepr]
+[CRepr, FlexibleArray("Descriptor")]
 public struct VIDEO_MONITOR_DESCRIPTOR
 {
 	public uint32 DescriptorSize;
-	public uint8[] Descriptor;
+	private uint8[0] Descriptor_impl;
 }
 
 [CRepr]
@@ -3327,21 +3328,21 @@ public struct VIDEO_MODE_INFORMATION
 	public uint32 DriverSpecificAttributeFlags;
 }
 
-[CRepr]
+[CRepr, FlexibleArray("Font")]
 public struct VIDEO_LOAD_FONT_INFORMATION
 {
 	public uint16 WidthInPixels;
 	public uint16 HeightInPixels;
 	public uint32 FontSize;
-	public uint8[] Font;
+	private uint8[0] Font_impl;
 }
 
-[CRepr]
+[CRepr, FlexibleArray("Colors")]
 public struct VIDEO_PALETTE_DATA
 {
 	public uint16 NumEntries;
 	public uint16 FirstEntry;
-	public uint16[] Colors;
+	private uint16[0] Colors_impl;
 }
 
 [CRepr]
@@ -3353,7 +3354,7 @@ public struct VIDEO_CLUTDATA
 	public uint8 Unused;
 }
 
-[CRepr]
+[CRepr, FlexibleArray("LookupTable")]
 public struct VIDEO_CLUT
 {
 	[CRepr, Union]
@@ -3365,7 +3366,7 @@ public struct VIDEO_CLUT
 
 	public uint16 NumEntries;
 	public uint16 FirstEntry;
-	public _Anonymous_e__Union[] LookupTable;
+	private _Anonymous_e__Union[0] LookupTable_impl;
 }
 
 [CRepr]
@@ -3393,7 +3394,7 @@ public struct VIDEO_POINTER_POSITION
 	public int16 Row;
 }
 
-[CRepr]
+[CRepr, FlexibleArray("Pixels")]
 public struct VIDEO_POINTER_ATTRIBUTES
 {
 	public uint32 Flags;
@@ -3403,7 +3404,7 @@ public struct VIDEO_POINTER_ATTRIBUTES
 	public uint32 Enable;
 	public int16 Column;
 	public int16 Row;
-	public uint8[] Pixels;
+	private uint8[0] Pixels_impl;
 }
 
 [CRepr]
@@ -3505,12 +3506,12 @@ public struct VIDEO_POWER_MANAGEMENT
 	public uint32 PowerState;
 }
 
-[CRepr]
+[CRepr, FlexibleArray("LutData")]
 public struct VIDEO_COLOR_LUT_DATA
 {
 	public uint32 Length;
 	public uint32 LutDataFormat;
-	public uint8[] LutData;
+	private uint8[0] LutData_impl;
 }
 
 [CRepr]
@@ -3536,7 +3537,7 @@ public struct DISPLAY_BRIGHTNESS
 	public uint8 ucDCBrightness;
 }
 
-[CRepr]
+[CRepr, FlexibleArray("Level")]
 public struct VIDEO_BRIGHTNESS_POLICY
 {
 	[CRepr]
@@ -3548,7 +3549,7 @@ public struct VIDEO_BRIGHTNESS_POLICY
 
 	public BOOLEAN DefaultToBiosPolicy;
 	public uint8 LevelCount;
-	public _Anonymous_e__Struct[] Level;
+	private _Anonymous_e__Struct[0] Level_impl;
 }
 
 [CRepr]
@@ -3972,10 +3973,10 @@ public struct COLORSPACE_TRANSFORM_SET_INPUT
 	public COLORSPACE_TRANSFORM ColorSpaceTransform;
 }
 
-[CRepr]
+[CRepr, FlexibleArray("ColorProfileName")]
 public struct SET_ACTIVE_COLOR_PROFILE_NAME
 {
-	public char16[] ColorProfileName;
+	private char16[0] ColorProfileName_impl;
 }
 
 [CRepr]
@@ -4037,7 +4038,7 @@ public struct MIPI_DSI_PACKET
 	public uint8[8] Payload;
 }
 
-[CRepr]
+[CRepr, FlexibleArray("Packets")]
 public struct MIPI_DSI_TRANSMISSION
 {
 	[CRepr]
@@ -4054,7 +4055,7 @@ public struct MIPI_DSI_TRANSMISSION
 	public uint16 FinalCommandExtraPayload;
 	public uint16 MipiErrors;
 	public uint16 HostErrors;
-	public MIPI_DSI_PACKET[] Packets;
+	private MIPI_DSI_PACKET[0] Packets_impl;
 }
 
 [CRepr]

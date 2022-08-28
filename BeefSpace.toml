@@ -1,5 +1,6 @@
 FileVersion = 1
-Projects = {Win32 = {Path = "Win32"}, "Win32.Tests" = {Path = "Win32.Tests"}}
+Projects = {Win32 = {Path = "Win32"}, FlexibleArray = {Path = "Samples/FlexibleArray"}, PerfCount = {Path = "Samples/PerfCount"}}
+WorkspaceFolders = {Samples = ["FlexibleArray"]}
 
 [Workspace]
-StartupProject = "Win32.Tests"
+StartupProject = "FlexibleArray"

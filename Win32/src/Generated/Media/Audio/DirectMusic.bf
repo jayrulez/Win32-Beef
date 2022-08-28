@@ -6,6 +6,7 @@ using Win32.Media.Audio.DirectSound;
 using Win32.System.IO;
 using Win32.Media.Multimedia;
 using System;
+using System.Interop;
 
 namespace Win32.Media.Audio.DirectMusic;
 #region Constants
@@ -661,10 +662,10 @@ public struct DMUS_DOWNLOADINFO
 	public uint32 cbSize;
 }
 
-[CRepr]
+[CRepr, FlexibleArray("ulOffsetTable")]
 public struct DMUS_OFFSETTABLE
 {
-	public uint32[] ulOffsetTable;
+	private uint32[0] ulOffsetTable_impl;
 }
 
 [CRepr]
@@ -678,7 +679,7 @@ public struct DMUS_INSTRUMENT
 	public uint32 ulFlags;
 }
 
-[CRepr]
+[CRepr, FlexibleArray("WLOOP")]
 public struct DMUS_REGION
 {
 	public RGNRANGE RangeKey;
@@ -690,7 +691,7 @@ public struct DMUS_REGION
 	public uint32 ulFirstExtCkIdx;
 	public WAVELINK WaveLink;
 	public _rwsmp WSMP;
-	public _rloop[] WLOOP;
+	private _rloop[0] WLOOP_impl;
 }
 
 [CRepr]
@@ -1029,7 +1030,7 @@ public struct MDEVICECAPSEX
 	public void* pCaps;
 }
 
-[CRepr, Packed(1)]
+[CRepr, Packed(1), FlexibleArray("rgIds")]
 public struct MIDIOPENDESC
 {
 	public HMIDI hMidi;
@@ -1037,7 +1038,7 @@ public struct MIDIOPENDESC
 	public uint dwInstance;
 	public uint dnDevNode;
 	public uint32 cIds;
-	public MIDIOPENSTRMID[] rgIds;
+	private MIDIOPENSTRMID[0] rgIds_impl;
 }
 
 #endregion

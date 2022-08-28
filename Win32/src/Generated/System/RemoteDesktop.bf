@@ -7,6 +7,7 @@ using Win32.System.WinRT;
 using Win32.UI.WindowsAndMessaging;
 using Win32.Security;
 using System;
+using System.Interop;
 
 namespace Win32.System.RemoteDesktop;
 #region Constants
@@ -1869,11 +1870,11 @@ public struct RFX_GFX_MSG_DESKTOP_RESEND_REQUEST
 	public RFX_GFX_RECT RedrawRect;
 }
 
-[CRepr]
+[CRepr, FlexibleArray("rdpData")]
 public struct RFX_GFX_MSG_RDP_DATA
 {
 	public RFX_GFX_MSG_HEADER channelHdr;
-	public uint8[] rdpData;
+	private uint8[0] rdpData_impl;
 }
 
 [CRepr]

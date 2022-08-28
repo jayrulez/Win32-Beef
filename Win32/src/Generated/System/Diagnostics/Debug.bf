@@ -9,6 +9,7 @@ using Win32.System.Com.StructuredStorage;
 using Win32.System.Ole;
 using Win32.Security.WinTrust;
 using System;
+using System.Interop;
 
 namespace Win32.System.Diagnostics.Debug;
 #region Constants
@@ -5981,31 +5982,31 @@ public struct PROCESSORINFO
 	public uint16 NumberProcessors;
 }
 
-[CRepr]
+[CRepr, FlexibleArray("Buf")]
 public struct READCONTROLSPACE
 {
 	public uint16 Processor;
 	public uint32 Address;
 	public uint32 BufLen;
-	public uint8[] Buf;
+	private uint8[0] Buf_impl;
 }
 
-[CRepr]
+[CRepr, FlexibleArray("Buf")]
 public struct READCONTROLSPACE32
 {
 	public uint16 Processor;
 	public uint32 Address;
 	public uint32 BufLen;
-	public uint8[] Buf;
+	private uint8[0] Buf_impl;
 }
 
-[CRepr]
+[CRepr, FlexibleArray("Buf")]
 public struct READCONTROLSPACE64
 {
 	public uint16 Processor;
 	public uint64 Address;
 	public uint32 BufLen;
-	public uint8[] Buf;
+	private uint8[0] Buf_impl;
 }
 
 [CRepr]
@@ -6086,21 +6087,21 @@ public struct SEARCHMEMORY
 	public void* Pattern;
 }
 
-[CRepr]
+[CRepr, FlexibleArray("Buf")]
 public struct PHYSICAL
 {
 	public uint64 Address;
 	public uint32 BufLen;
-	public uint8[] Buf;
+	private uint8[0] Buf_impl;
 }
 
-[CRepr]
+[CRepr, FlexibleArray("Buf")]
 public struct PHYSICAL_WITH_FLAGS
 {
 	public uint64 Address;
 	public uint32 BufLen;
 	public uint32 Flags;
-	public uint8[] Buf;
+	private uint8[0] Buf_impl;
 }
 
 [CRepr]
@@ -6422,7 +6423,7 @@ public struct KDDEBUGGER_DATA32
 	public uint32 MmLoadedUserImageList;
 }
 
-[CRepr]
+[CRepr, FlexibleArray("Unused")]
 public struct DBGKD_GET_VERSION64
 {
 	public uint16 MajorVersion;
@@ -6435,7 +6436,7 @@ public struct DBGKD_GET_VERSION64
 	public uint8 MaxStateChange;
 	public uint8 MaxManipulate;
 	public uint8 Simulation;
-	public uint16[] Unused;
+	private uint16[0] Unused_impl;
 	public uint64 KernBase;
 	public uint64 PsLoadedModuleList;
 	public uint64 DebuggerDataList;
@@ -7675,11 +7676,11 @@ public struct MINIDUMP_DIRECTORY
 	public MINIDUMP_LOCATION_DESCRIPTOR Location;
 }
 
-[CRepr]
+[CRepr, FlexibleArray("Buffer")]
 public struct MINIDUMP_STRING
 {
 	public uint32 Length;
-	public char16[] Buffer;
+	private char16[0] Buffer_impl;
 }
 
 [CRepr, Union]
@@ -7760,11 +7761,11 @@ public struct MINIDUMP_THREAD
 	public MINIDUMP_LOCATION_DESCRIPTOR ThreadContext;
 }
 
-[CRepr]
+[CRepr, FlexibleArray("Threads")]
 public struct MINIDUMP_THREAD_LIST
 {
 	public uint32 NumberOfThreads;
-	public MINIDUMP_THREAD[] Threads;
+	private MINIDUMP_THREAD[0] Threads_impl;
 }
 
 [CRepr, Packed(4)]
@@ -7780,11 +7781,11 @@ public struct MINIDUMP_THREAD_EX
 	public MINIDUMP_MEMORY_DESCRIPTOR BackingStore;
 }
 
-[CRepr]
+[CRepr, FlexibleArray("Threads")]
 public struct MINIDUMP_THREAD_EX_LIST
 {
 	public uint32 NumberOfThreads;
-	public MINIDUMP_THREAD_EX[] Threads;
+	private MINIDUMP_THREAD_EX[0] Threads_impl;
 }
 
 [CRepr, Packed(4)]
@@ -7823,26 +7824,26 @@ public struct MINIDUMP_MODULE
 	public uint64 Reserved1;
 }
 
-[CRepr]
+[CRepr, FlexibleArray("Modules")]
 public struct MINIDUMP_MODULE_LIST
 {
 	public uint32 NumberOfModules;
-	public MINIDUMP_MODULE[] Modules;
+	private MINIDUMP_MODULE[0] Modules_impl;
 }
 
-[CRepr]
+[CRepr, FlexibleArray("MemoryRanges")]
 public struct MINIDUMP_MEMORY_LIST
 {
 	public uint32 NumberOfMemoryRanges;
-	public MINIDUMP_MEMORY_DESCRIPTOR[] MemoryRanges;
+	private MINIDUMP_MEMORY_DESCRIPTOR[0] MemoryRanges_impl;
 }
 
-[CRepr, Packed(4)]
+[CRepr, Packed(4), FlexibleArray("MemoryRanges")]
 public struct MINIDUMP_MEMORY64_LIST
 {
 	public uint64 NumberOfMemoryRanges;
 	public uint64 BaseRva;
-	public MINIDUMP_MEMORY_DESCRIPTOR64[] MemoryRanges;
+	private MINIDUMP_MEMORY_DESCRIPTOR64[0] MemoryRanges_impl;
 }
 
 [CRepr, Packed(4)]
@@ -8087,11 +8088,11 @@ public struct MINIDUMP_THREAD_NAME
 	public uint64 RvaOfThreadName;
 }
 
-[CRepr]
+[CRepr, FlexibleArray("ThreadNames")]
 public struct MINIDUMP_THREAD_NAME_LIST
 {
 	public uint32 NumberOfThreadNames;
-	public MINIDUMP_THREAD_NAME[] ThreadNames;
+	private MINIDUMP_THREAD_NAME[0] ThreadNames_impl;
 }
 
 [CRepr, Packed(4)]
@@ -8564,11 +8565,11 @@ public struct DebugStackFrameDescriptor64
 	public IUnknown* punkFinal;
 }
 
-[CRepr]
+[CRepr, FlexibleArray("scopes")]
 public struct PROFILER_HEAP_OBJECT_SCOPE_LIST
 {
 	public uint32 count;
-	public uint[] scopes;
+	private uint[0] scopes_impl;
 }
 
 [CRepr]
@@ -8597,11 +8598,11 @@ public struct PROFILER_HEAP_OBJECT_RELATIONSHIP
 	public using _Anonymous_e__Union Anonymous;
 }
 
-[CRepr]
+[CRepr, FlexibleArray("elements")]
 public struct PROFILER_HEAP_OBJECT_RELATIONSHIP_LIST
 {
 	public uint32 count;
-	public PROFILER_HEAP_OBJECT_RELATIONSHIP[] elements;
+	private PROFILER_HEAP_OBJECT_RELATIONSHIP[0] elements_impl;
 }
 
 [CRepr]
@@ -8776,7 +8777,7 @@ public struct API_VERSION
 	public uint16 Reserved;
 }
 
-[CRepr]
+[CRepr, FlexibleArray("Name")]
 public struct IMAGEHLP_SYMBOL64
 {
 	public uint32 SizeOfStruct;
@@ -8784,7 +8785,7 @@ public struct IMAGEHLP_SYMBOL64
 	public uint32 Size;
 	public uint32 Flags;
 	public uint32 MaxNameLength;
-	public CHAR[] Name;
+	private CHAR[0] Name_impl;
 }
 
 [CRepr]
@@ -8794,7 +8795,7 @@ public struct IMAGEHLP_SYMBOL64_PACKAGE
 	public CHAR[2001] name;
 }
 
-[CRepr]
+[CRepr, FlexibleArray("Name")]
 public struct IMAGEHLP_SYMBOLW64
 {
 	public uint32 SizeOfStruct;
@@ -8802,7 +8803,7 @@ public struct IMAGEHLP_SYMBOLW64
 	public uint32 Size;
 	public uint32 Flags;
 	public uint32 MaxNameLength;
-	public char16[] Name;
+	private char16[0] Name_impl;
 }
 
 [CRepr]
@@ -9029,15 +9030,15 @@ public struct IMAGEHLP_SYMBOL_SRC
 	public CHAR[260] file;
 }
 
-[CRepr]
+[CRepr, FlexibleArray("data")]
 public struct MODULE_TYPE_INFO
 {
 	public uint16 dataLength;
 	public uint16 leaf;
-	public uint8[] data;
+	private uint8[0] data_impl;
 }
 
-[CRepr]
+[CRepr, FlexibleArray("Name")]
 public struct SYMBOL_INFO
 {
 	public uint32 SizeOfStruct;
@@ -9054,7 +9055,7 @@ public struct SYMBOL_INFO
 	public uint32 Tag;
 	public uint32 NameLen;
 	public uint32 MaxNameLen;
-	public CHAR[] Name;
+	private CHAR[0] Name_impl;
 }
 
 [CRepr]
@@ -9064,7 +9065,7 @@ public struct SYMBOL_INFO_PACKAGE
 	public CHAR[2001] name;
 }
 
-[CRepr]
+[CRepr, FlexibleArray("Name")]
 public struct SYMBOL_INFOW
 {
 	public uint32 SizeOfStruct;
@@ -9081,7 +9082,7 @@ public struct SYMBOL_INFOW
 	public uint32 Tag;
 	public uint32 NameLen;
 	public uint32 MaxNameLen;
-	public char16[] Name;
+	private char16[0] Name_impl;
 }
 
 [CRepr]
@@ -9106,12 +9107,12 @@ public struct IMAGEHLP_STACK_FRAME
 	public uint32 Reserved2;
 }
 
-[CRepr]
+[CRepr, FlexibleArray("ChildId")]
 public struct TI_FINDCHILDREN_PARAMS
 {
 	public uint32 Count;
 	public uint32 Start;
-	public uint32[] ChildId;
+	private uint32[0] ChildId_impl;
 }
 
 [CRepr]
@@ -9215,12 +9216,12 @@ public struct PHYSICAL_MEMORY_RUN32
 	public uint32 PageCount;
 }
 
-[CRepr]
+[CRepr, FlexibleArray("Run")]
 public struct PHYSICAL_MEMORY_DESCRIPTOR32
 {
 	public uint32 NumberOfRuns;
 	public uint32 NumberOfPages;
-	public PHYSICAL_MEMORY_RUN32[] Run;
+	private PHYSICAL_MEMORY_RUN32[0] Run_impl;
 }
 
 [CRepr]
@@ -9230,12 +9231,12 @@ public struct PHYSICAL_MEMORY_RUN64
 	public uint64 PageCount;
 }
 
-[CRepr]
+[CRepr, FlexibleArray("Run")]
 public struct PHYSICAL_MEMORY_DESCRIPTOR64
 {
 	public uint32 NumberOfRuns;
 	public uint64 NumberOfPages;
-	public PHYSICAL_MEMORY_RUN64[] Run;
+	private PHYSICAL_MEMORY_RUN64[0] Run_impl;
 }
 
 [CRepr, Union]
@@ -9809,7 +9810,7 @@ public struct WHEA_ERROR_SOURCE_DESCRIPTOR
 	public _Info_e__Union Info;
 }
 
-[CRepr, Packed(1)]
+[CRepr, Packed(1), FlexibleArray("Data")]
 public struct IPMI_OS_SEL_RECORD
 {
 	public uint32 Signature;
@@ -9817,7 +9818,7 @@ public struct IPMI_OS_SEL_RECORD
 	public uint32 Length;
 	public IPMI_OS_SEL_RECORD_TYPE RecordType;
 	public uint32 DataLength;
-	public uint8[] Data;
+	private uint8[0] Data_impl;
 }
 
 #if BF_32_BIT
@@ -10032,7 +10033,7 @@ public struct STACKFRAME
 #endif
 
 #if BF_32_BIT
-[CRepr]
+[CRepr, FlexibleArray("Name")]
 public struct IMAGEHLP_SYMBOL
 {
 	public uint32 SizeOfStruct;
@@ -10040,7 +10041,7 @@ public struct IMAGEHLP_SYMBOL
 	public uint32 Size;
 	public uint32 Flags;
 	public uint32 MaxNameLength;
-	public CHAR[] Name;
+	private CHAR[0] Name_impl;
 }
 #endif
 
@@ -10054,7 +10055,7 @@ public struct IMAGEHLP_SYMBOL_PACKAGE
 #endif
 
 #if BF_32_BIT
-[CRepr]
+[CRepr, FlexibleArray("Name")]
 public struct IMAGEHLP_SYMBOLW
 {
 	public uint32 SizeOfStruct;
@@ -10062,7 +10063,7 @@ public struct IMAGEHLP_SYMBOLW
 	public uint32 Size;
 	public uint32 Flags;
 	public uint32 MaxNameLength;
-	public char16[] Name;
+	private char16[0] Name_impl;
 }
 #endif
 

@@ -1,5 +1,6 @@
 using Win32.Foundation;
 using System;
+using System.Interop;
 
 namespace Win32.Security;
 #region Constants
@@ -523,13 +524,13 @@ public struct SID_IDENTIFIER_AUTHORITY
 	public uint8[6] Value;
 }
 
-[CRepr]
+[CRepr, FlexibleArray("SubAuthority")]
 public struct SID
 {
 	public uint8 Revision;
 	public uint8 SubAuthorityCount;
 	public SID_IDENTIFIER_AUTHORITY IdentifierAuthority;
-	public uint32[] SubAuthority;
+	private uint32[0] SubAuthority_impl;
 }
 
 [CRepr, Union]
@@ -798,12 +799,12 @@ public struct OBJECT_TYPE_LIST
 	public Guid* ObjectType;
 }
 
-[CRepr]
+[CRepr, FlexibleArray("Privilege")]
 public struct PRIVILEGE_SET
 {
 	public uint32 PrivilegeCount;
 	public uint32 Control;
-	public LUID_AND_ATTRIBUTES[] Privilege;
+	private LUID_AND_ATTRIBUTES[0] Privilege_impl;
 }
 
 [CRepr]
@@ -850,18 +851,18 @@ public struct TOKEN_USER
 	public SID_AND_ATTRIBUTES User;
 }
 
-[CRepr]
+[CRepr, FlexibleArray("Groups")]
 public struct TOKEN_GROUPS
 {
 	public uint32 GroupCount;
-	public SID_AND_ATTRIBUTES[] Groups;
+	private SID_AND_ATTRIBUTES[0] Groups_impl;
 }
 
-[CRepr]
+[CRepr, FlexibleArray("Privileges")]
 public struct TOKEN_PRIVILEGES
 {
 	public uint32 PrivilegeCount;
-	public LUID_AND_ATTRIBUTES[] Privileges;
+	private LUID_AND_ATTRIBUTES[0] Privileges_impl;
 }
 
 [CRepr]
@@ -1041,11 +1042,11 @@ public struct CLAIM_SECURITY_ATTRIBUTE_RELATIVE_V1
 	[CRepr, Union]
 	public struct _Values_e__Union
 	{
-		public uint32[] pInt64;
-		public uint32[] pUint64;
-		public uint32[] ppString;
-		public uint32[] pFqbn;
-		public uint32[] pOctetString;
+		public uint32[0] pInt64;
+		public uint32[0] pUint64;
+		public uint32[0] ppString;
+		public uint32[0] pFqbn;
+		public uint32[0] pOctetString;
 	}
 
 	public uint32 Name;

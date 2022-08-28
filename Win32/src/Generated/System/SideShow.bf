@@ -4,6 +4,7 @@ using Win32.Foundation;
 using Win32.UI.WindowsAndMessaging;
 using Win32.System.Com.StructuredStorage;
 using System;
+using System.Interop;
 
 namespace Win32.System.SideShow;
 #region Constants
@@ -161,7 +162,7 @@ public struct CONTENT_MISSING_EVENT_DATA
 	public uint32 ContentId;
 }
 
-[CRepr, Packed(1)]
+[CRepr, Packed(1), FlexibleArray("bEventData")]
 public struct APPLICATION_EVENT_DATA
 {
 	public uint32 cbApplicationEventData;
@@ -169,7 +170,7 @@ public struct APPLICATION_EVENT_DATA
 	public Guid EndpointId;
 	public uint32 dwEventId;
 	public uint32 cbEventData;
-	public uint8[] bEventData;
+	private uint8[0] bEventData_impl;
 }
 
 [CRepr, Packed(1)]

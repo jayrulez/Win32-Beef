@@ -2,6 +2,7 @@ using Win32.Foundation;
 using Win32.Security.Cryptography;
 using Win32.Security.Cryptography.Sip;
 using System;
+using System.Interop;
 
 namespace Win32.Security.WinTrust;
 #region Constants
@@ -676,13 +677,13 @@ public struct SEALING_TIMESTAMP_ATTRIBUTE
 	public CRYPTOAPI_BLOB sealTimeStampToken;
 }
 
-[CRepr]
+[CRepr, FlexibleArray("bCertificate")]
 public struct WIN_CERTIFICATE
 {
 	public uint32 dwLength;
 	public uint16 wRevision;
 	public uint16 wCertificateType;
-	public uint8[] bCertificate;
+	private uint8[0] bCertificate_impl;
 }
 
 [CRepr]

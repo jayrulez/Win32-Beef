@@ -1,5 +1,6 @@
 using Win32.Foundation;
 using System;
+using System.Interop;
 
 namespace Win32.UI.Input;
 
@@ -124,12 +125,12 @@ public struct RAWKEYBOARD
 	public uint32 ExtraInformation;
 }
 
-[CRepr]
+[CRepr, FlexibleArray("bRawData")]
 public struct RAWHID
 {
 	public uint32 dwSizeHid;
 	public uint32 dwCount;
-	public uint8[] bRawData;
+	private uint8[0] bRawData_impl;
 }
 
 [CRepr]

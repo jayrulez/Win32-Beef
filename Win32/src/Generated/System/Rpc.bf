@@ -3,6 +3,7 @@ using Win32.Foundation;
 using Win32.System.IO;
 using Win32.Security.Cryptography;
 using System;
+using System.Interop;
 
 namespace Win32.System.Rpc;
 #region Constants
@@ -980,18 +981,18 @@ public struct NDR_SCONTEXT_1
 	public void* userContext;
 }
 
-[CRepr]
+[CRepr, FlexibleArray("BindingH")]
 public struct RPC_BINDING_VECTOR
 {
 	public uint32 Count;
-	public void*[] BindingH;
+	private void*[0] BindingH_impl;
 }
 
-[CRepr]
+[CRepr, FlexibleArray("Uuid")]
 public struct UUID_VECTOR
 {
 	public uint32 Count;
-	public Guid*[] Uuid;
+	private Guid*[0] Uuid_impl;
 }
 
 [CRepr]
@@ -1002,18 +1003,18 @@ public struct RPC_IF_ID
 	public uint16 VersMinor;
 }
 
-[CRepr]
+[CRepr, FlexibleArray("Protseq")]
 public struct RPC_PROTSEQ_VECTORA
 {
 	public uint32 Count;
-	public uint8*[] Protseq;
+	private uint8*[0] Protseq_impl;
 }
 
-[CRepr]
+[CRepr, FlexibleArray("Protseq")]
 public struct RPC_PROTSEQ_VECTORW
 {
 	public uint32 Count;
-	public uint16*[] Protseq;
+	private uint16*[0] Protseq_impl;
 }
 
 [CRepr]
@@ -1024,18 +1025,18 @@ public struct RPC_POLICY
 	public uint32 NICFlags;
 }
 
-[CRepr]
+[CRepr, FlexibleArray("Stats")]
 public struct RPC_STATS_VECTOR
 {
 	public uint32 Count;
-	public uint32[] Stats;
+	private uint32[0] Stats_impl;
 }
 
-[CRepr]
+[CRepr, FlexibleArray("IfId")]
 public struct RPC_IF_ID_VECTOR
 {
 	public uint32 Count;
-	public RPC_IF_ID*[] IfId;
+	private RPC_IF_ID*[0] IfId_impl;
 }
 
 [CRepr]
@@ -2029,11 +2030,11 @@ public struct MIDL_STUB_DESC
 	public NDR_EXPR_DESC* pExprInfo;
 }
 
-[CRepr]
+[CRepr, FlexibleArray("Format")]
 public struct MIDL_FORMAT_STRING
 {
 	public int16 Pad;
-	public uint8[] Format;
+	private uint8[0] Format_impl;
 }
 
 [CRepr]

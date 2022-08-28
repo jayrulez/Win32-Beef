@@ -13,6 +13,7 @@ using Win32.System.WinRT;
 using Win32.Devices.Properties;
 using Win32.Media.DirectShow;
 using System;
+using System.Interop;
 
 namespace Win32.Media.MediaFoundation;
 #region Constants
@@ -10476,12 +10477,12 @@ public struct MFPaletteEntry
 	public MFAYUVSample AYCbCr;
 }
 
-[CRepr]
+[CRepr, FlexibleArray("Palette")]
 public struct MFVideoSurfaceInfo
 {
 	public uint32 Format;
 	public uint32 PaletteEntries;
-	public MFPaletteEntry[] Palette;
+	private MFPaletteEntry[0] Palette_impl;
 }
 
 [CRepr]
@@ -10658,7 +10659,7 @@ public struct MFINPUTTRUSTAUTHORITY_ACCESS_ACTION
 	public uint32 cbTicket;
 }
 
-[CRepr]
+[CRepr, FlexibleArray("rgOutputActions")]
 public struct MFINPUTTRUSTAUTHORITY_ACCESS_PARAMS
 {
 	public uint32 dwSize;
@@ -10668,7 +10669,7 @@ public struct MFINPUTTRUSTAUTHORITY_ACCESS_PARAMS
 	public uint32 cbExtensionOffset;
 	public uint32 cbExtensionSize;
 	public uint32 cActions;
-	public MFINPUTTRUSTAUTHORITY_ACCESS_ACTION[] rgOutputActions;
+	private MFINPUTTRUSTAUTHORITY_ACCESS_ACTION[0] rgOutputActions_impl;
 }
 
 [CRepr]
@@ -10827,20 +10828,20 @@ public struct MOVE_RECT
 	public RECT DestRect;
 }
 
-[CRepr]
+[CRepr, FlexibleArray("DirtyRects")]
 public struct DIRTYRECT_INFO
 {
 	public uint32 FrameNumber;
 	public uint32 NumDirtyRects;
-	public RECT[] DirtyRects;
+	private RECT[0] DirtyRects_impl;
 }
 
-[CRepr]
+[CRepr, FlexibleArray("MoveRegions")]
 public struct MOVEREGION_INFO
 {
 	public uint32 FrameNumber;
 	public uint32 NumMoveRegions;
-	public MOVE_RECT[] MoveRegions;
+	private MOVE_RECT[0] MoveRegions_impl;
 }
 
 [CRepr]
@@ -10933,11 +10934,11 @@ public struct MFCameraExtrinsic_CalibratedTransform
 	public MF_QUATERNION Orientation;
 }
 
-[CRepr]
+[CRepr, FlexibleArray("CalibratedTransforms")]
 public struct MFCameraExtrinsics
 {
 	public uint32 TransformCount;
-	public MFCameraExtrinsic_CalibratedTransform[] CalibratedTransforms;
+	private MFCameraExtrinsic_CalibratedTransform[0] CalibratedTransforms_impl;
 }
 
 [CRepr]
@@ -10966,11 +10967,11 @@ public struct MFPinholeCameraIntrinsic_IntrinsicModel
 	public MFCameraIntrinsic_DistortionModel DistortionModel;
 }
 
-[CRepr]
+[CRepr, FlexibleArray("IntrinsicModels")]
 public struct MFPinholeCameraIntrinsics
 {
 	public uint32 IntrinsicModelCount;
-	public MFPinholeCameraIntrinsic_IntrinsicModel[] IntrinsicModels;
+	private MFPinholeCameraIntrinsic_IntrinsicModel[0] IntrinsicModels_impl;
 }
 
 [CRepr]

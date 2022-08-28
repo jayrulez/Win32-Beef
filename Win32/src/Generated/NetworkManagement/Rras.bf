@@ -3,6 +3,7 @@ using Win32.Foundation;
 using Win32.Security.Cryptography;
 using Win32.NetworkManagement.IpHelper;
 using System;
+using System.Interop;
 
 namespace Win32.NetworkManagement.Rras;
 #region Constants
@@ -2396,20 +2397,20 @@ public struct RASAUTODIALENTRYW
 	public char16[257] szEntry;
 }
 
-[CRepr]
+[CRepr, FlexibleArray("pbEapInfo")]
 public struct RASEAPUSERIDENTITYA
 {
 	public CHAR[257] szUserName;
 	public uint32 dwSizeofEapInfo;
-	public uint8[] pbEapInfo;
+	private uint8[0] pbEapInfo_impl;
 }
 
-[CRepr]
+[CRepr, FlexibleArray("pbEapInfo")]
 public struct RASEAPUSERIDENTITYW
 {
 	public char16[257] szUserName;
 	public uint32 dwSizeofEapInfo;
-	public uint8[] pbEapInfo;
+	private uint8[0] pbEapInfo_impl;
 }
 
 [CRepr]
@@ -3514,7 +3515,7 @@ public struct MPR_SERVER_SET_CONFIG_EX1
 	public MPRAPI_TUNNEL_CONFIG_PARAMS1 ConfigParams;
 }
 
-[CRepr]
+[CRepr, FlexibleArray("AuthInfo")]
 public struct AUTH_VALIDATION_EX
 {
 	public MPRAPI_OBJECT_HEADER Header;
@@ -3522,7 +3523,7 @@ public struct AUTH_VALIDATION_EX
 	public char16[257] wszUserName;
 	public char16[16] wszLogonDomain;
 	public uint32 AuthInfoSize;
-	public uint8[] AuthInfo;
+	private uint8[0] AuthInfo_impl;
 }
 
 [CRepr]
@@ -3627,14 +3628,14 @@ public struct RTM_PREF_INFO
 	public uint32 Preference;
 }
 
-[CRepr]
+[CRepr, FlexibleArray("NextHops")]
 public struct RTM_NEXTHOP_LIST
 {
 	public uint16 NumNextHops;
-	public int[] NextHops;
+	private int[0] NextHops_impl;
 }
 
-[CRepr]
+[CRepr, FlexibleArray("ViewInfo")]
 public struct RTM_DEST_INFO
 {
 	[CRepr]
@@ -3653,7 +3654,7 @@ public struct RTM_DEST_INFO
 	public FILETIME LastChanged;
 	public uint32 BelongsToViews;
 	public uint32 NumberOfViews;
-	public _Anonymous_e__Struct[] ViewInfo;
+	private _Anonymous_e__Struct[0] ViewInfo_impl;
 }
 
 [CRepr]
@@ -3711,28 +3712,28 @@ public struct RTM_ENTITY_INFO
 	public RTM_ENTITY_ID EntityId;
 }
 
-[CRepr]
+[CRepr, FlexibleArray("InputData")]
 public struct RTM_ENTITY_METHOD_INPUT
 {
 	public uint32 MethodType;
 	public uint32 InputSize;
-	public uint8[] InputData;
+	private uint8[0] InputData_impl;
 }
 
-[CRepr]
+[CRepr, FlexibleArray("OutputData")]
 public struct RTM_ENTITY_METHOD_OUTPUT
 {
 	public uint32 MethodType;
 	public uint32 MethodStatus;
 	public uint32 OutputSize;
-	public uint8[] OutputData;
+	private uint8[0] OutputData_impl;
 }
 
-[CRepr]
+[CRepr, FlexibleArray("Methods")]
 public struct RTM_ENTITY_EXPORT_METHODS
 {
 	public uint32 NumMethods;
-	public RTM_ENTITY_EXPORT_METHOD[] Methods;
+	private RTM_ENTITY_EXPORT_METHOD[0] Methods_impl;
 }
 
 #endregion

@@ -4,6 +4,7 @@ using Win32.System.Com;
 using Win32.UI.Controls;
 using Win32.Security.Authorization;
 using System;
+using System.Interop;
 
 namespace Win32.Security.Authorization.UI;
 #region Constants
@@ -168,11 +169,11 @@ public struct SID_INFO
 	public PWSTR pwzUPN;
 }
 
-[CRepr]
+[CRepr, FlexibleArray("aSidInfo")]
 public struct SID_INFO_LIST
 {
 	public uint32 cItems;
-	public SID_INFO[] aSidInfo;
+	private SID_INFO[0] aSidInfo_impl;
 }
 
 [CRepr]

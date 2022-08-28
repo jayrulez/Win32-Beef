@@ -1,6 +1,7 @@
 using Win32.Foundation;
 using Win32.System.IO;
 using System;
+using System.Interop;
 
 namespace Win32.Devices.Communication;
 #region Constants
@@ -328,7 +329,7 @@ public enum MODEMDEVCAPS_SPEAKER_MODE : uint32
 #endregion
 
 #region Structs
-[CRepr]
+[CRepr, FlexibleArray("abVariablePortion")]
 public struct MODEMDEVCAPS
 {
 	public uint32 dwActualSize;
@@ -350,10 +351,10 @@ public struct MODEMDEVCAPS
 	public uint32 dwModemOptions;
 	public uint32 dwMaxDTERate;
 	public uint32 dwMaxDCERate;
-	public uint8[] abVariablePortion;
+	private uint8[0] abVariablePortion_impl;
 }
 
-[CRepr]
+[CRepr, FlexibleArray("abVariablePortion")]
 public struct MODEMSETTINGS
 {
 	public uint32 dwActualSize;
@@ -367,10 +368,10 @@ public struct MODEMSETTINGS
 	public uint32 dwPreferredModemOptions;
 	public uint32 dwNegotiatedModemOptions;
 	public uint32 dwNegotiatedDCERate;
-	public uint8[] abVariablePortion;
+	private uint8[0] abVariablePortion_impl;
 }
 
-[CRepr]
+[CRepr, FlexibleArray("wcProvChar")]
 public struct COMMPROP
 {
 	public uint16 wPacketLength;
@@ -390,7 +391,7 @@ public struct COMMPROP
 	public uint32 dwCurrentRxQueue;
 	public uint32 dwProvSpec1;
 	public uint32 dwProvSpec2;
-	public char16[] wcProvChar;
+	private char16[0] wcProvChar_impl;
 }
 
 [CRepr]
@@ -431,7 +432,7 @@ public struct COMMTIMEOUTS
 	public uint32 WriteTotalTimeoutConstant;
 }
 
-[CRepr]
+[CRepr, FlexibleArray("wcProviderData")]
 public struct COMMCONFIG
 {
 	public uint32 dwSize;
@@ -441,7 +442,7 @@ public struct COMMCONFIG
 	public uint32 dwProviderSubType;
 	public uint32 dwProviderOffset;
 	public uint32 dwProviderSize;
-	public char16[] wcProviderData;
+	private char16[0] wcProviderData_impl;
 }
 
 #endregion

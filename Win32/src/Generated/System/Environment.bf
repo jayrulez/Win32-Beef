@@ -1,5 +1,6 @@
 using Win32.Foundation;
 using System;
+using System.Interop;
 
 namespace Win32.System.Environment;
 #region Constants
@@ -155,7 +156,7 @@ public struct VBS_ENCLAVE_REPORT_VARDATA_HEADER
 	public uint32 Size;
 }
 
-[CRepr, Packed(1)]
+[CRepr, Packed(1), FlexibleArray("ModuleName")]
 public struct VBS_ENCLAVE_REPORT_MODULE
 {
 	public VBS_ENCLAVE_REPORT_VARDATA_HEADER Header;
@@ -164,7 +165,7 @@ public struct VBS_ENCLAVE_REPORT_MODULE
 	public uint8[16] FamilyId;
 	public uint8[16] ImageId;
 	public uint32 Svn;
-	public char16[] ModuleName;
+	private char16[0] ModuleName_impl;
 }
 
 [CRepr]

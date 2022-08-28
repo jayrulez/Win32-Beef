@@ -1,6 +1,7 @@
 using Win32.Foundation;
 using Win32.System.Com;
 using System;
+using System.Interop;
 
 namespace Win32.UI.Shell.Common;
 #region Constants
@@ -113,11 +114,11 @@ public enum DEVICE_SCALE_FACTOR : int32
 #endregion
 
 #region Structs
-[CRepr, Packed(1)]
+[CRepr, Packed(1), FlexibleArray("abID")]
 public struct SHITEMID
 {
 	public uint16 cb;
-	public uint8[] abID;
+	private uint8[0] abID_impl;
 }
 
 [CRepr]

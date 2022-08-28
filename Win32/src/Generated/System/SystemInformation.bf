@@ -1,6 +1,7 @@
 using Win32.System.Diagnostics.Debug;
 using Win32.Foundation;
 using System;
+using System.Interop;
 
 namespace Win32.System.SystemInformation;
 #region Constants
@@ -650,14 +651,14 @@ public struct SYSTEM_LOGICAL_PROCESSOR_INFORMATION
 	public using _Anonymous_e__Union Anonymous;
 }
 
-[CRepr]
+[CRepr, FlexibleArray("GroupMask")]
 public struct PROCESSOR_RELATIONSHIP
 {
 	public uint8 Flags;
 	public uint8 EfficiencyClass;
 	public uint8[20] Reserved;
 	public uint16 GroupCount;
-	public GROUP_AFFINITY[] GroupMask;
+	private GROUP_AFFINITY[0] GroupMask_impl;
 }
 
 [CRepr]
@@ -667,7 +668,7 @@ public struct NUMA_NODE_RELATIONSHIP
 	public struct _Anonymous_e__Union
 	{
 		public GROUP_AFFINITY GroupMask;
-		public GROUP_AFFINITY[] GroupMasks;
+		public GROUP_AFFINITY[0] GroupMasks;
 	}
 
 	public uint32 NodeNumber;
@@ -683,7 +684,7 @@ public struct CACHE_RELATIONSHIP
 	public struct _Anonymous_e__Union
 	{
 		public GROUP_AFFINITY GroupMask;
-		public GROUP_AFFINITY[] GroupMasks;
+		public GROUP_AFFINITY[0] GroupMasks;
 	}
 
 	public uint8 Level;
@@ -705,13 +706,13 @@ public struct PROCESSOR_GROUP_INFO
 	public uint ActiveProcessorMask;
 }
 
-[CRepr]
+[CRepr, FlexibleArray("GroupInfo")]
 public struct GROUP_RELATIONSHIP
 {
 	public uint16 MaximumGroupCount;
 	public uint16 ActiveGroupCount;
 	public uint8[20] Reserved;
-	public PROCESSOR_GROUP_INFO[] GroupInfo;
+	private PROCESSOR_GROUP_INFO[0] GroupInfo_impl;
 }
 
 [CRepr]

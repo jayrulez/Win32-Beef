@@ -5,6 +5,7 @@ using Win32.System.Com;
 using Win32.UI.WindowsAndMessaging;
 using Win32.UI.TextServices;
 using System;
+using System.Interop;
 
 namespace Win32.UI.Input.Ime;
 #region Constants
@@ -1487,7 +1488,7 @@ public struct CANDIDATEFORM
 	public RECT rcArea;
 }
 
-[CRepr]
+[CRepr, FlexibleArray("dwOffset")]
 public struct CANDIDATELIST
 {
 	public uint32 dwSize;
@@ -1496,7 +1497,7 @@ public struct CANDIDATELIST
 	public uint32 dwSelection;
 	public uint32 dwPageStart;
 	public uint32 dwPageSize;
-	public uint32[] dwOffset;
+	private uint32[0] dwOffset_impl;
 }
 
 [CRepr]
@@ -1614,7 +1615,7 @@ public struct WDD
 	public void* pReserved;
 }
 
-[CRepr, Packed(1)]
+[CRepr, Packed(1), FlexibleArray("BLKBuff")]
 public struct MORRSLT
 {
 	[CRepr, Union, Packed(1)]
@@ -1650,7 +1651,7 @@ public struct MORRSLT
 	public WDD* pWDD;
 	public int32 cWDD;
 	public void* pPrivate;
-	public char16[] BLKBuff;
+	private char16[0] BLKBuff_impl;
 }
 
 [CRepr, Packed(1)]
@@ -1831,11 +1832,11 @@ public struct TRANSMSG
 	public LPARAM lParam;
 }
 
-[CRepr]
+[CRepr, FlexibleArray("TransMsg")]
 public struct TRANSMSGLIST
 {
 	public uint32 uMsgCount;
-	public TRANSMSG[] TransMsg;
+	private TRANSMSG[0] TransMsg_impl;
 }
 
 [CRepr]
@@ -1903,11 +1904,11 @@ public struct APPLETIDLIST
 	public Guid* pIIDList;
 }
 
-[CRepr]
+[CRepr, FlexibleArray("lpwstr")]
 public struct IMESTRINGCANDIDATE
 {
 	public uint32 uCount;
-	public PWSTR[] lpwstr;
+	private PWSTR[0] lpwstr_impl;
 }
 
 [CRepr]
@@ -1918,11 +1919,11 @@ public struct IMEITEM
 	public void* lpItemData;
 }
 
-[CRepr]
+[CRepr, FlexibleArray("imeItem")]
 public struct IMEITEMCANDIDATE
 {
 	public uint32 uCount;
-	public IMEITEM[] imeItem;
+	private IMEITEM[0] imeItem_impl;
 }
 
 [CRepr]
@@ -1932,15 +1933,15 @@ public struct tabIMESTRINGINFO
 	public PWSTR lpwstr;
 }
 
-[CRepr]
+[CRepr, FlexibleArray("dwData")]
 public struct tabIMEFAREASTINFO
 {
 	public uint32 dwSize;
 	public uint32 dwType;
-	public uint32[] dwData;
+	private uint32[0] dwData_impl;
 }
 
-[CRepr]
+[CRepr, FlexibleArray("lpwstr")]
 public struct IMESTRINGCANDIDATEINFO
 {
 	public uint32 dwFarEastId;
@@ -1948,7 +1949,7 @@ public struct IMESTRINGCANDIDATEINFO
 	public uint32 fInfoMask;
 	public int32 iSelIndex;
 	public uint32 uCount;
-	public PWSTR[] lpwstr;
+	private PWSTR[0] lpwstr_impl;
 }
 
 [CRepr]

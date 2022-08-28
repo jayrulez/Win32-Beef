@@ -4,6 +4,7 @@ using Win32.System.Registry;
 using Win32.Media.Audio;
 using Win32.System.Com.Urlmon;
 using System;
+using System.Interop;
 
 namespace Win32.Media.Speech;
 #region Constants
@@ -2004,7 +2005,7 @@ public struct SPSTATEHANDLE__
 	public int32 unused;
 }
 
-[CRepr]
+[CRepr, FlexibleArray("szPronunciation")]
 public struct SPWORDPRONUNCIATION
 {
 	public SPWORDPRONUNCIATION* pNextWordPronunciation;
@@ -2012,7 +2013,7 @@ public struct SPWORDPRONUNCIATION
 	public uint16 LangID;
 	public uint16 wPronunciationFlags;
 	public SPPARTOFSPEECH ePartOfSpeech;
-	public uint16[] szPronunciation;
+	private uint16[0] szPronunciation_impl;
 }
 
 [CRepr]

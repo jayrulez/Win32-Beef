@@ -3,6 +3,7 @@ using Win32.System.Com;
 using Win32.Media.DirectShow;
 using Win32.System.AddressBook;
 using System;
+using System.Interop;
 
 namespace Win32.Devices.Tapi;
 #region Constants
@@ -3702,12 +3703,12 @@ public struct LINEFORWARD
 	public uint32 dwDestAddressOffset;
 }
 
-[CRepr, Packed(1)]
+[CRepr, Packed(1), FlexibleArray("ForwardList")]
 public struct LINEFORWARDLIST
 {
 	public uint32 dwTotalSize;
 	public uint32 dwNumEntries;
-	public LINEFORWARD[] ForwardList;
+	private LINEFORWARD[0] ForwardList_impl;
 }
 
 [CRepr, Packed(1)]
@@ -3938,13 +3939,13 @@ public struct LINEPROXYREQUEST
 			public uint32 dwNextAgentState;
 		}
 
-		[CRepr, Packed(1)]
+		[CRepr, Packed(1), FlexibleArray("Params")]
 		public struct _AgentSpecific_e__Struct
 		{
 			public uint32 dwAddressID;
 			public uint32 dwAgentExtensionIDIndex;
 			public uint32 dwSize;
-			public uint8[] Params;
+			private uint8[0] Params_impl;
 		}
 
 		[CRepr, Packed(1)]
@@ -4393,11 +4394,11 @@ public struct MSP_EVENT_INFO
 			public ITTerminal* pTerminal;
 		}
 
-		[CRepr]
+		[CRepr, FlexibleArray("pBuffer")]
 		public struct _MSP_TSP_DATA_e__Struct
 		{
 			public uint32 dwBufferSize;
-			public uint8[] pBuffer;
+			private uint8[0] pBuffer_impl;
 		}
 
 		[CRepr]
@@ -4432,11 +4433,11 @@ public struct STnefProblem
 	public int32 scode;
 }
 
-[CRepr]
+[CRepr, FlexibleArray("aProblem")]
 public struct STnefProblemArray
 {
 	public uint32 cProblem;
-	public STnefProblem[] aProblem;
+	private STnefProblem[0] aProblem_impl;
 }
 
 [CRepr, Packed(1)]
@@ -4487,7 +4488,7 @@ public struct NSID
 	public struct _address_e__Union
 	{
 		public _ADDR_ALIAS alias;
-		public CHAR[] rgchInterNet;
+		public CHAR[0] rgchInterNet;
 	}
 
 	public uint32 dwSize;

@@ -8,6 +8,7 @@ using Win32.System.DistributedTransactionCoordinator;
 using Win32.Security.Authorization;
 using Win32.UI.Shell.Common;
 using System;
+using System.Interop;
 
 namespace Win32.System.Search;
 #region Constants
@@ -8568,13 +8569,13 @@ public struct DBTIMESTAMP
 }
 #endif
 
-[CRepr]
+[CRepr, FlexibleArray("val")]
 public struct DB_VARNUMERIC
 {
 	public uint8 precision;
 	public int8 scale;
 	public uint8 sign;
-	public uint8[] val;
+	private uint8[0] val_impl;
 }
 
 #if BF_64_BIT || BF_ARM_64

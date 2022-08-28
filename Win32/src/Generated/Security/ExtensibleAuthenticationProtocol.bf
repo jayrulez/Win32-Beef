@@ -2,6 +2,7 @@ using Win32.Foundation;
 using Win32.System.Com;
 using Win32.Data.Xml.MsXml;
 using System;
+using System.Interop;
 
 namespace Win32.Security.ExtensibleAuthenticationProtocol;
 #region Constants
@@ -804,13 +805,13 @@ public struct RAS_AUTH_ATTRIBUTE
 	public void* Value;
 }
 
-[CRepr]
+[CRepr, FlexibleArray("Data")]
 public struct PPP_EAP_PACKET
 {
 	public uint8 Code;
 	public uint8 Id;
 	public uint8[2] Length;
-	public uint8[] Data;
+	private uint8[0] Data_impl;
 }
 
 [CRepr]
@@ -1149,13 +1150,13 @@ public struct EapHostPeerMethodResult
 	public EAP_ERROR* pEapError;
 }
 
-[CRepr]
+[CRepr, FlexibleArray("Data")]
 public struct EapPacket
 {
 	public uint8 Code;
 	public uint8 Id;
 	public uint8[2] Length;
-	public uint8[] Data;
+	private uint8[0] Data_impl;
 }
 
 [CRepr]

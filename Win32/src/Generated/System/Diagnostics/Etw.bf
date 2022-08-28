@@ -3,6 +3,7 @@ using Win32.System.Time;
 using Win32.System.Com;
 using Win32.Security;
 using System;
+using System.Interop;
 
 namespace Win32.System.Diagnostics.Etw;
 #region Constants
@@ -1364,7 +1365,7 @@ public struct WNODE_ALL_DATA
 	public struct _Anonymous_e__Union
 	{
 		public uint32 FixedInstanceSize;
-		public OFFSETINSTANCEDATAANDLENGTH[] OffsetInstanceDataAndLength;
+		public OFFSETINSTANCEDATAANDLENGTH[0] OffsetInstanceDataAndLength;
 	}
 
 	public WNODE_HEADER WnodeHeader;
@@ -1374,7 +1375,7 @@ public struct WNODE_ALL_DATA
 	public using _Anonymous_e__Union Anonymous;
 }
 
-[CRepr]
+[CRepr, FlexibleArray("VariableData")]
 public struct WNODE_SINGLE_INSTANCE
 {
 	public WNODE_HEADER WnodeHeader;
@@ -1382,10 +1383,10 @@ public struct WNODE_SINGLE_INSTANCE
 	public uint32 InstanceIndex;
 	public uint32 DataBlockOffset;
 	public uint32 SizeDataBlock;
-	public uint8[] VariableData;
+	private uint8[0] VariableData_impl;
 }
 
-[CRepr]
+[CRepr, FlexibleArray("VariableData")]
 public struct WNODE_SINGLE_ITEM
 {
 	public WNODE_HEADER WnodeHeader;
@@ -1394,10 +1395,10 @@ public struct WNODE_SINGLE_ITEM
 	public uint32 ItemId;
 	public uint32 DataBlockOffset;
 	public uint32 SizeDataItem;
-	public uint8[] VariableData;
+	private uint8[0] VariableData_impl;
 }
 
-[CRepr]
+[CRepr, FlexibleArray("VariableData")]
 public struct WNODE_METHOD_ITEM
 {
 	public WNODE_HEADER WnodeHeader;
@@ -1406,7 +1407,7 @@ public struct WNODE_METHOD_ITEM
 	public uint32 MethodId;
 	public uint32 DataBlockOffset;
 	public uint32 SizeDataBlock;
-	public uint8[] VariableData;
+	private uint8[0] VariableData_impl;
 }
 
 [CRepr]
@@ -1422,7 +1423,7 @@ public struct WNODE_EVENT_REFERENCE
 	public struct _Anonymous_e__Union
 	{
 		public uint32 TargetInstanceIndex;
-		public char16[] TargetInstanceName;
+		public char16[0] TargetInstanceName;
 	}
 
 	public WNODE_HEADER WnodeHeader;
@@ -1456,7 +1457,7 @@ public struct WMIREGGUIDW
 	public using _Anonymous_e__Union Anonymous;
 }
 
-[CRepr]
+[CRepr, FlexibleArray("WmiRegGuid")]
 public struct WMIREGINFOW
 {
 	public uint32 BufferSize;
@@ -1464,7 +1465,7 @@ public struct WMIREGINFOW
 	public uint32 RegistryPath;
 	public uint32 MofResourceName;
 	public uint32 GuidCount;
-	public WMIREGGUIDW[] WmiRegGuid;
+	private WMIREGGUIDW[0] WmiRegGuid_impl;
 }
 
 [CRepr]
@@ -1943,7 +1944,7 @@ public struct TRACE_GUID_INFO
 	public uint32 Reserved;
 }
 
-[CRepr]
+[CRepr, FlexibleArray("Description")]
 public struct PROFILE_SOURCE_INFO
 {
 	public uint32 NextEntryOffset;
@@ -1951,7 +1952,7 @@ public struct PROFILE_SOURCE_INFO
 	public uint32 MinInterval;
 	public uint32 MaxInterval;
 	public uint64 Reserved;
-	public char16[] Description;
+	private char16[0] Description_impl;
 }
 
 [CRepr]
@@ -1962,12 +1963,12 @@ public struct ETW_PMC_COUNTER_OWNER
 	public uint32 OwnerTag;
 }
 
-[CRepr]
+[CRepr, FlexibleArray("CounterOwners")]
 public struct ETW_PMC_COUNTER_OWNERSHIP_STATUS
 {
 	public uint32 ProcessorNumber;
 	public uint32 NumberOfCounters;
-	public ETW_PMC_COUNTER_OWNER[] CounterOwners;
+	private ETW_PMC_COUNTER_OWNER[0] CounterOwners_impl;
 }
 
 [CRepr]
@@ -2186,16 +2187,16 @@ public struct EVENT_FILTER_HEADER
 	public uint32 NextOffset;
 }
 
-[CRepr]
+[CRepr, FlexibleArray("Events")]
 public struct EVENT_FILTER_EVENT_ID
 {
 	public BOOLEAN FilterIn;
 	public uint8 Reserved;
 	public uint16 Count;
-	public uint16[] Events;
+	private uint16[0] Events_impl;
 }
 
-[CRepr]
+[CRepr, FlexibleArray("Names")]
 public struct EVENT_FILTER_EVENT_NAME
 {
 	public uint64 MatchAnyKeyword;
@@ -2203,7 +2204,7 @@ public struct EVENT_FILTER_EVENT_NAME
 	public uint8 Level;
 	public BOOLEAN FilterIn;
 	public uint16 NameCount;
-	public uint8[] Names;
+	private uint8[0] Names_impl;
 }
 
 [CRepr]
@@ -2251,18 +2252,18 @@ public struct EVENT_EXTENDED_ITEM_TS_ID
 	public uint32 SessionId;
 }
 
-[CRepr]
+[CRepr, FlexibleArray("Address")]
 public struct EVENT_EXTENDED_ITEM_STACK_TRACE32
 {
 	public uint64 MatchId;
-	public uint32[] Address;
+	private uint32[0] Address_impl;
 }
 
-[CRepr]
+[CRepr, FlexibleArray("Address")]
 public struct EVENT_EXTENDED_ITEM_STACK_TRACE64
 {
 	public uint64 MatchId;
-	public uint64[] Address;
+	private uint64[0] Address_impl;
 }
 
 [CRepr]
@@ -2286,10 +2287,10 @@ public struct EVENT_EXTENDED_ITEM_PEBS_INDEX
 	public uint64 PebsIndex;
 }
 
-[CRepr]
+[CRepr, FlexibleArray("Counter")]
 public struct EVENT_EXTENDED_ITEM_PMC_COUNTERS
 {
-	public uint64[] Counter;
+	private uint64[0] Counter_impl;
 }
 
 [CRepr]
@@ -2360,7 +2361,7 @@ public struct EVENT_MAP_ENTRY
 	public using _Anonymous_e__Union Anonymous;
 }
 
-[CRepr]
+[CRepr, FlexibleArray("MapEntryArray")]
 public struct EVENT_MAP_INFO
 {
 	[CRepr, Union]
@@ -2374,7 +2375,7 @@ public struct EVENT_MAP_INFO
 	public MAP_FLAGS Flag;
 	public uint32 EntryCount;
 	public using _Anonymous_e__Union Anonymous;
-	public EVENT_MAP_ENTRY[] MapEntryArray;
+	private EVENT_MAP_ENTRY[0] MapEntryArray_impl;
 }
 
 [CRepr]
@@ -2447,7 +2448,7 @@ public struct EVENT_PROPERTY_INFO
 	public _Anonymous4_e__Union Anonymous4;
 }
 
-[CRepr]
+[CRepr, FlexibleArray("EventPropertyInfoArray")]
 public struct TRACE_EVENT_INFO
 {
 	[CRepr, Union]
@@ -2496,7 +2497,7 @@ public struct TRACE_EVENT_INFO
 	public uint32 PropertyCount;
 	public uint32 TopLevelPropertyCount;
 	public _Anonymous3_e__Union Anonymous3;
-	public EVENT_PROPERTY_INFO[] EventPropertyInfoArray;
+	private EVENT_PROPERTY_INFO[0] EventPropertyInfoArray_impl;
 }
 
 [CRepr]
@@ -2515,7 +2516,7 @@ public struct PAYLOAD_FILTER_PREDICATE
 	public PWSTR Value;
 }
 
-[CRepr]
+[CRepr, FlexibleArray("EventPropertyInfoArray")]
 public struct PROVIDER_FILTER_INFO
 {
 	public uint8 Id;
@@ -2523,7 +2524,7 @@ public struct PROVIDER_FILTER_INFO
 	public uint32 MessageOffset;
 	public uint32 Reserved;
 	public uint32 PropertyCount;
-	public EVENT_PROPERTY_INFO[] EventPropertyInfoArray;
+	private EVENT_PROPERTY_INFO[0] EventPropertyInfoArray_impl;
 }
 
 [CRepr]
@@ -2534,12 +2535,12 @@ public struct PROVIDER_FIELD_INFO
 	public uint64 Value;
 }
 
-[CRepr]
+[CRepr, FlexibleArray("FieldInfoArray")]
 public struct PROVIDER_FIELD_INFOARRAY
 {
 	public uint32 NumberOfElements;
 	public EVENT_FIELD_TYPE FieldType;
-	public PROVIDER_FIELD_INFO[] FieldInfoArray;
+	private PROVIDER_FIELD_INFO[0] FieldInfoArray_impl;
 }
 
 [CRepr]
@@ -2550,20 +2551,20 @@ public struct TRACE_PROVIDER_INFO
 	public uint32 ProviderNameOffset;
 }
 
-[CRepr]
+[CRepr, FlexibleArray("TraceProviderInfoArray")]
 public struct PROVIDER_ENUMERATION_INFO
 {
 	public uint32 NumberOfProviders;
 	public uint32 Reserved;
-	public TRACE_PROVIDER_INFO[] TraceProviderInfoArray;
+	private TRACE_PROVIDER_INFO[0] TraceProviderInfoArray_impl;
 }
 
-[CRepr]
+[CRepr, FlexibleArray("EventDescriptorsArray")]
 public struct PROVIDER_EVENT_INFO
 {
 	public uint32 NumberOfEvents;
 	public uint32 Reserved;
-	public EVENT_DESCRIPTOR[] EventDescriptorsArray;
+	private EVENT_DESCRIPTOR[0] EventDescriptorsArray_impl;
 }
 
 [CRepr]

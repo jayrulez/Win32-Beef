@@ -2,6 +2,7 @@ using Win32.Foundation;
 using Win32.System.Power;
 using Win32.System.HostComputeSystem;
 using System;
+using System.Interop;
 
 namespace Win32.System.Hypervisor;
 #region Constants
@@ -1123,7 +1124,7 @@ public struct WHV_SYNTHETIC_PROCESSOR_FEATURES_BANKS
 		}
 
 		public using _Anonymous_e__Struct Anonymous;
-		public uint64[] AsUINT64;
+		public uint64[0] AsUINT64;
 	}
 
 	public uint32 BanksCount;
@@ -1291,10 +1292,10 @@ public struct WHV_PARTITION_PROPERTY
 	public WHV_PROCESSOR_XSAVE_FEATURES ProcessorXsaveFeatures;
 	public uint8 ProcessorClFlushSize;
 	public uint32 ProcessorCount;
-	public uint32[] CpuidExitList;
-	public WHV_X64_CPUID_RESULT[] CpuidResultList;
-	public WHV_X64_CPUID_RESULT2[] CpuidResultList2;
-	public WHV_MSR_ACTION_ENTRY[] MsrActionList;
+	public uint32[0] CpuidExitList;
+	public WHV_X64_CPUID_RESULT[0] CpuidResultList;
+	public WHV_X64_CPUID_RESULT2[0] CpuidResultList2;
+	public WHV_MSR_ACTION_ENTRY[0] MsrActionList;
 	public WHV_MSR_ACTION UnimplementedMsrAction;
 	public uint64 ExceptionExitBitmap;
 	public WHV_X64_LOCAL_APIC_EMULATION_MODE LocalApicEmulationMode;
@@ -1999,13 +2000,13 @@ public struct WHV_VPCI_DEVICE_REGISTER
 	public uint64 OffsetInBytes;
 }
 
-[CRepr]
+[CRepr, FlexibleArray("Processors")]
 public struct WHV_VPCI_INTERRUPT_TARGET
 {
 	public uint32 Vector;
 	public WHV_VPCI_INTERRUPT_TARGET_FLAGS Flags;
 	public uint32 ProcessorCount;
-	public uint32[] Processors;
+	private uint32[0] Processors_impl;
 }
 
 [CRepr]

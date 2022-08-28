@@ -3,6 +3,7 @@ using Win32.Security;
 using Win32.Networking.WinSock;
 using Win32.System.IO;
 using System;
+using System.Interop;
 
 namespace Win32.Networking.HttpServer;
 #region Constants
@@ -1391,11 +1392,11 @@ public struct HTTP_SERVICE_CONFIG_IP_LISTEN_PARAM
 	public SOCKADDR* pAddress;
 }
 
-[CRepr]
+[CRepr, FlexibleArray("AddrList")]
 public struct HTTP_SERVICE_CONFIG_IP_LISTEN_QUERY
 {
 	public uint32 AddrCount;
-	public SOCKADDR_STORAGE[] AddrList;
+	private SOCKADDR_STORAGE[0] AddrList_impl;
 }
 
 [CRepr]

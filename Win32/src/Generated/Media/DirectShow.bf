@@ -15,6 +15,7 @@ using Win32.Media.MediaFoundation;
 using Win32.System.Diagnostics.Etw;
 using Win32.System.Ole;
 using System;
+using System.Interop;
 
 namespace Win32.Media.DirectShow;
 #region Constants
@@ -6604,11 +6605,11 @@ public struct BDA_ETHERNET_ADDRESS
 	public uint8[6] rgbAddress;
 }
 
-[CRepr]
+[CRepr, FlexibleArray("rgAddressl")]
 public struct BDA_ETHERNET_ADDRESS_LIST
 {
 	public uint32 ulcAddresses;
-	public BDA_ETHERNET_ADDRESS[] rgAddressl;
+	private BDA_ETHERNET_ADDRESS[0] rgAddressl_impl;
 }
 
 [CRepr]
@@ -6617,11 +6618,11 @@ public struct BDA_IPv4_ADDRESS
 	public uint8[4] rgbAddress;
 }
 
-[CRepr]
+[CRepr, FlexibleArray("rgAddressl")]
 public struct BDA_IPv4_ADDRESS_LIST
 {
 	public uint32 ulcAddresses;
-	public BDA_IPv4_ADDRESS[] rgAddressl;
+	private BDA_IPv4_ADDRESS[0] rgAddressl_impl;
 }
 
 [CRepr]
@@ -6630,11 +6631,11 @@ public struct BDA_IPv6_ADDRESS
 	public uint8[6] rgbAddress;
 }
 
-[CRepr]
+[CRepr, FlexibleArray("rgAddressl")]
 public struct BDA_IPv6_ADDRESS_LIST
 {
 	public uint32 ulcAddresses;
-	public BDA_IPv6_ADDRESS[] rgAddressl;
+	private BDA_IPv6_ADDRESS[0] rgAddressl_impl;
 }
 
 [CRepr]
@@ -6645,13 +6646,13 @@ public struct BDANODE_DESCRIPTOR
 	public Guid guidName;
 }
 
-[CRepr]
+[CRepr, FlexibleArray("argbSectionData")]
 public struct BDA_TABLE_SECTION
 {
 	public uint32 ulPrimarySectionId;
 	public uint32 ulSecondarySectionId;
 	public uint32 ulcbSectionLength;
-	public uint32[] argbSectionData;
+	private uint32[0] argbSectionData_impl;
 }
 
 [CRepr]
@@ -6677,44 +6678,44 @@ public struct PID_MAP
 	public MEDIA_SAMPLE_CONTENT MediaSampleContent;
 }
 
-[CRepr]
+[CRepr, FlexibleArray("aulPIDs")]
 public struct BDA_PID_MAP
 {
 	public MEDIA_SAMPLE_CONTENT MediaSampleContent;
 	public uint32 ulcPIDs;
-	public uint32[] aulPIDs;
+	private uint32[0] aulPIDs_impl;
 }
 
-[CRepr]
+[CRepr, FlexibleArray("aulPIDs")]
 public struct BDA_PID_UNMAP
 {
 	public uint32 ulcPIDs;
-	public uint32[] aulPIDs;
+	private uint32[0] aulPIDs_impl;
 }
 
-[CRepr]
+[CRepr, FlexibleArray("ulDesc")]
 public struct BDA_CA_MODULE_UI
 {
 	public uint32 ulFormat;
 	public uint32 ulbcDesc;
-	public uint32[] ulDesc;
+	private uint32[0] ulDesc_impl;
 }
 
-[CRepr]
+[CRepr, FlexibleArray("ulPID")]
 public struct BDA_PROGRAM_PID_LIST
 {
 	public uint32 ulProgramNumber;
 	public uint32 ulcPIDs;
-	public uint32[] ulPID;
+	private uint32[0] ulPID_impl;
 }
 
-[CRepr]
+[CRepr, FlexibleArray("argbDrmUuidListString")]
 public struct BDA_DRM_DRMSTATUS
 {
 	public int32 lResult;
 	public Guid DRMuuid;
 	public uint32 ulDrmUuidListStringSize;
-	public Guid[] argbDrmUuidListString;
+	private Guid[0] argbDrmUuidListString_impl;
 }
 
 [CRepr]
@@ -6732,29 +6733,29 @@ public struct BDA_WMDRM_STATUS
 	public uint32 ulState;
 }
 
-[CRepr]
+[CRepr, FlexibleArray("argKeyuuidBuffer")]
 public struct BDA_WMDRM_KEYINFOLIST
 {
 	public int32 lResult;
 	public uint32 ulKeyuuidBufferLen;
-	public Guid[] argKeyuuidBuffer;
+	private Guid[0] argKeyuuidBuffer_impl;
 }
 
-[CRepr]
+[CRepr, FlexibleArray("argbBuffer")]
 public struct BDA_BUFFER
 {
 	public int32 lResult;
 	public uint32 ulBufferSize;
-	public uint8[] argbBuffer;
+	private uint8[0] argbBuffer_impl;
 }
 
-[CRepr]
+[CRepr, FlexibleArray("argbXmrLicenceOutputBuffer")]
 public struct BDA_WMDRM_RENEWLICENSE
 {
 	public int32 lResult;
 	public uint32 ulDescrambleStatus;
 	public uint32 ulXmrLicenseOutputLength;
-	public uint8[] argbXmrLicenceOutputBuffer;
+	private uint8[0] argbXmrLicenceOutputBuffer_impl;
 }
 
 [CRepr]
@@ -6764,21 +6765,21 @@ public struct BDA_WMDRMTUNER_PIDPROTECTION
 	public Guid uuidKeyID;
 }
 
-[CRepr]
+[CRepr, FlexibleArray("argbCaptureTokenBuffer")]
 public struct BDA_WMDRMTUNER_PURCHASEENTITLEMENT
 {
 	public int32 lResult;
 	public uint32 ulDescrambleStatus;
 	public uint32 ulCaptureTokenLength;
-	public uint8[] argbCaptureTokenBuffer;
+	private uint8[0] argbCaptureTokenBuffer_impl;
 }
 
-[CRepr]
+[CRepr, FlexibleArray("argbTuneData")]
 public struct BDA_TUNER_TUNERSTATE
 {
 	public int32 lResult;
 	public uint32 ulTuneLength;
-	public uint8[] argbTuneData;
+	private uint8[0] argbTuneData_impl;
 }
 
 [CRepr]
@@ -6790,12 +6791,12 @@ public struct BDA_TUNER_DIAGNOSTICS
 	public uint32 ulSignalNoiseRatio;
 }
 
-[CRepr]
+[CRepr, FlexibleArray("argbString")]
 public struct BDA_STRING
 {
 	public int32 lResult;
 	public uint32 ulStringSize;
-	public uint8[] argbString;
+	private uint8[0] argbString_impl;
 }
 
 [CRepr]
@@ -6829,13 +6830,13 @@ public struct BDA_GDDS_DATATYPE
 	public Guid uuidDataType;
 }
 
-[CRepr]
+[CRepr, FlexibleArray("argbData")]
 public struct BDA_GDDS_DATA
 {
 	public int32 lResult;
 	public uint32 ulDataLength;
 	public uint32 ulPercentageProgress;
-	public uint8[] argbData;
+	private uint8[0] argbData_impl;
 }
 
 [CRepr]
@@ -6868,14 +6869,14 @@ public struct BDA_CAS_REQUESTTUNERDATA
 	public uint32 ulEstimatedTime;
 }
 
-[CRepr]
+[CRepr, FlexibleArray("argbDialogData")]
 public struct BDA_CAS_OPENMMIDATA
 {
 	public uint32 ulDialogNumber;
 	public uint32 ulDialogRequest;
 	public Guid uuidDialogType;
 	public uint16 usDialogDataLength;
-	public uint8[] argbDialogData;
+	private uint8[0] argbDialogData_impl;
 }
 
 [CRepr]
@@ -6884,26 +6885,26 @@ public struct BDA_CAS_CLOSEMMIDATA
 	public uint32 ulDialogNumber;
 }
 
-[CRepr, Packed(1)]
+[CRepr, Packed(1), FlexibleArray("argbIsdbCommand")]
 public struct BDA_ISDBCAS_REQUESTHEADER
 {
 	public uint8 bInstruction;
 	public uint8[3] bReserved;
 	public uint32 ulDataLength;
-	public uint8[] argbIsdbCommand;
+	private uint8[0] argbIsdbCommand_impl;
 }
 
-[CRepr, Packed(1)]
+[CRepr, Packed(1), FlexibleArray("argbIsdbCommandData")]
 public struct BDA_ISDBCAS_RESPONSEDATA
 {
 	public int32 lResult;
 	public uint32 ulRequestID;
 	public uint32 ulIsdbStatus;
 	public uint32 ulIsdbDataSize;
-	public uint8[] argbIsdbCommandData;
+	private uint8[0] argbIsdbCommandData_impl;
 }
 
-[CRepr]
+[CRepr, FlexibleArray("bMessageCode")]
 public struct BDA_ISDBCAS_EMG_REQ
 {
 	public uint8 bCLA;
@@ -6915,7 +6916,7 @@ public struct BDA_ISDBCAS_EMG_REQ
 	public uint8 bProtocol;
 	public uint8 bCABroadcasterGroupId;
 	public uint8 bMessageControl;
-	public uint8[] bMessageCode;
+	private uint8[0] bMessageCode_impl;
 }
 
 [CRepr, Packed(2)]
@@ -6926,14 +6927,14 @@ public struct BDA_MUX_PIDLISTITEM
 	public MUX_PID_TYPE ePIDType;
 }
 
-[CRepr, Packed(1)]
+[CRepr, Packed(1), FlexibleArray("usTSID")]
 public struct BDA_TS_SELECTORINFO
 {
 	public uint8 bTSInfolength;
 	public uint8[2] bReserved;
 	public Guid guidNetworkType;
 	public uint8 bTSIDCount;
-	public uint16[] usTSID;
+	private uint16[0] usTSID_impl;
 }
 
 [CRepr]
@@ -6942,7 +6943,7 @@ public struct BDA_TS_SELECTORINFO_ISDBS_EXT
 	public uint8[48] bTMCC;
 }
 
-[CRepr]
+[CRepr, FlexibleArray("L1PostData")]
 public struct BDA_DVBT2_L1_SIGNALLING_DATA
 {
 	public uint8 L1Pre_TYPE;
@@ -6958,14 +6959,14 @@ public struct BDA_DVBT2_L1_SIGNALLING_DATA
 	public uint8[2] L1Pre_NUM_DATA_REGENFLAG_L1POSTEXT;
 	public uint8[2] L1Pre_NUMRF_CURRENTRF_RESERVED;
 	public uint8[4] L1Pre_CRC32;
-	public uint8[] L1PostData;
+	private uint8[0] L1PostData_impl;
 }
 
-[CRepr]
+[CRepr, FlexibleArray("argbNewPin")]
 public struct BDA_RATING_PINRESET
 {
 	public uint8 bPinLength;
-	public uint8[] argbNewPin;
+	private uint8[0] argbNewPin_impl;
 }
 
 [CRepr]
@@ -7107,13 +7108,13 @@ public struct VIDEOINFO
 	public using _Anonymous_e__Union Anonymous;
 }
 
-[CRepr]
+[CRepr, FlexibleArray("bSequenceHeader")]
 public struct MPEG1VIDEOINFO
 {
 	public VIDEOINFOHEADER hdr;
 	public uint32 dwStartTimeCode;
 	public uint32 cbSequenceHeader;
-	public uint8[] bSequenceHeader;
+	private uint8[0] bSequenceHeader_impl;
 }
 
 [CRepr]
@@ -7132,21 +7133,21 @@ public struct AM_FRAMESTEP_STEP
 	public uint32 dwFramesToStep;
 }
 
-[CRepr]
+[CRepr, FlexibleArray("bFormat")]
 public struct AM_MPEGSTREAMTYPE
 {
 	public uint32 dwStreamId;
 	public uint32 dwReserved;
 	public AM_MEDIA_TYPE mt;
-	public uint8[] bFormat;
+	private uint8[0] bFormat_impl;
 }
 
-[CRepr]
+[CRepr, FlexibleArray("Streams")]
 public struct AM_MPEGSYSTEMTYPE
 {
 	public uint32 dwBitRate;
 	public uint32 cStreams;
-	public AM_MPEGSTREAMTYPE[] Streams;
+	private AM_MPEGSTREAMTYPE[0] Streams_impl;
 }
 
 [CRepr]
@@ -7351,7 +7352,7 @@ public struct AVISTREAMHEADER
 	public _rcFrame_e__Struct rcFrame;
 }
 
-[CRepr, Packed(2)]
+[CRepr, Packed(2), FlexibleArray("aIndex")]
 public struct AVIOLDINDEX
 {
 	[CRepr, Packed(2)]
@@ -7365,7 +7366,7 @@ public struct AVIOLDINDEX
 
 	public uint32 fcc;
 	public uint32 cb;
-	public _avioldindex_entry[] aIndex;
+	private _avioldindex_entry[0] aIndex_impl;
 }
 
 [CRepr, Packed(2)]
@@ -7376,7 +7377,7 @@ public struct TIMECODEDATA
 	public uint32 dwUser;
 }
 
-[CRepr, Packed(2)]
+[CRepr, Packed(2), FlexibleArray("adwIndex")]
 public struct AVIMETAINDEX
 {
 	public uint32 fcc;
@@ -7387,7 +7388,7 @@ public struct AVIMETAINDEX
 	public uint32 nEntriesInUse;
 	public uint32 dwChunkId;
 	public uint32[3] dwReserved;
-	public uint32[] adwIndex;
+	private uint32[0] adwIndex_impl;
 }
 
 [CRepr, Packed(2)]
@@ -7497,7 +7498,7 @@ public struct _avitcdlindex
 	public uint32[3512] adwTrailingFill;
 }
 
-[CRepr, Packed(2)]
+[CRepr, Packed(2), FlexibleArray("aIndex")]
 public struct AVIFIELDINDEX
 {
 	[CRepr, Packed(2)]
@@ -7517,7 +7518,7 @@ public struct AVIFIELDINDEX
 	public uint32 dwChunkId;
 	public uint64 qwBaseOffset;
 	public uint32 dwReserved3;
-	public _avifieldindex_entry[] aIndex;
+	private _avifieldindex_entry[0] aIndex_impl;
 }
 
 [CRepr]
@@ -7564,13 +7565,13 @@ public struct AVIINDEXENTRY
 	public uint32 dwChunkLength;
 }
 
-[CRepr]
+[CRepr, FlexibleArray("peNew")]
 public struct AVIPALCHANGE
 {
 	public uint8 bFirstEntry;
 	public uint8 bNumEntries;
 	public uint16 wFlags;
-	public PALETTEENTRY[] peNew;
+	private PALETTEENTRY[0] peNew_impl;
 }
 
 [CRepr]
@@ -7657,11 +7658,11 @@ public struct AM_DVDCOPY_CHLGKEY
 	public uint8[2] Reserved;
 }
 
-[CRepr]
+[CRepr, FlexibleArray("Reserved")]
 public struct AM_DVDCOPY_BUSKEY
 {
 	public uint8[5] BusKey;
-	public uint8[] Reserved;
+	private uint8[0] Reserved_impl;
 }
 
 [CRepr]
@@ -7724,7 +7725,7 @@ public struct VIDEOINFOHEADER2
 	public BITMAPINFOHEADER bmiHeader;
 }
 
-[CRepr]
+[CRepr, FlexibleArray("dwSequenceHeader")]
 public struct MPEG2VIDEOINFO
 {
 	public VIDEOINFOHEADER2 hdr;
@@ -7733,7 +7734,7 @@ public struct MPEG2VIDEOINFO
 	public uint32 dwProfile;
 	public uint32 dwLevel;
 	public MPEG2VIDEOINFO_FLAGS dwFlags;
-	public uint32[] dwSequenceHeader;
+	private uint32[0] dwSequenceHeader_impl;
 }
 
 [CRepr]
@@ -7795,11 +7796,11 @@ public struct MP_ENVELOPE_SEGMENT
 	public uint32 flags;
 }
 
-[CRepr]
+[CRepr, FlexibleArray("aClsId")]
 public struct VFW_FILTERLIST
 {
 	public uint32 cFilters;
-	public Guid[] aClsId;
+	private Guid[0] aClsId_impl;
 }
 
 [CRepr]
@@ -8006,7 +8007,7 @@ public struct TID_EXTENSION
 	public uint16 wCount;
 }
 
-[CRepr]
+[CRepr, FlexibleArray("SectionData")]
 public struct SECTION
 {
 	[CRepr, Union, Packed(1)]
@@ -8018,10 +8019,10 @@ public struct SECTION
 
 	public uint8 TableId;
 	public _Header_e__Union Header;
-	public uint8[] SectionData;
+	private uint8[0] SectionData_impl;
 }
 
-[CRepr, Packed(1)]
+[CRepr, Packed(1), FlexibleArray("RemainingData")]
 public struct LONG_SECTION
 {
 	[CRepr, Union, Packed(1)]
@@ -8044,10 +8045,10 @@ public struct LONG_SECTION
 	public _Version_e__Union Version;
 	public uint8 SectionNumber;
 	public uint8 LastSectionNumber;
-	public uint8[] RemainingData;
+	private uint8[0] RemainingData_impl;
 }
 
-[CRepr, Packed(1)]
+[CRepr, Packed(1), FlexibleArray("RemainingData")]
 public struct DSMCC_SECTION
 {
 	[CRepr, Union, Packed(1)]
@@ -8077,7 +8078,7 @@ public struct DSMCC_SECTION
 	public uint8 Reserved;
 	public uint8 AdaptationLength;
 	public uint16 MessageLength;
-	public uint8[] RemainingData;
+	private uint8[0] RemainingData_impl;
 }
 
 [CRepr, Packed(1)]
@@ -8087,11 +8088,11 @@ public struct MPEG_RQST_PACKET
 	public SECTION* pSection;
 }
 
-[CRepr, Packed(1)]
+[CRepr, Packed(1), FlexibleArray("PacketList")]
 public struct MPEG_PACKET_LIST
 {
 	public uint16 wPacketCount;
-	public MPEG_RQST_PACKET*[] PacketList;
+	private MPEG_RQST_PACKET*[0] PacketList_impl;
 }
 
 [CRepr, Packed(1)]
@@ -8291,12 +8292,12 @@ public struct MPEG_STREAM_FILTER
 	public uint8[16] rgchMask;
 }
 
-[CRepr, Packed(1)]
+[CRepr, Packed(1), FlexibleArray("SectionOffsets")]
 public struct Mpeg2TableSampleHdr
 {
 	public uint8 SectionCount;
 	public uint8[3] Reserved;
-	public int32[] SectionOffsets;
+	private int32[0] SectionOffsets_impl;
 }
 
 [CRepr]
@@ -8365,14 +8366,14 @@ public struct TRANSPORT_PROPERTIES
 	public _Fields_e__Union Fields;
 }
 
-[CRepr]
+[CRepr, FlexibleArray("TableData")]
 public struct PBDA_TAG_ATTRIBUTE
 {
 	public Guid TableUUId;
 	public uint8 TableId;
 	public uint16 VersionNo;
 	public uint32 TableDataSize;
-	public uint8[] TableData;
+	private uint8[0] TableData_impl;
 }
 
 [CRepr]
@@ -8451,32 +8452,32 @@ public struct KSP_NODE_ESPID
 	public uint32 EsPid;
 }
 
-[CRepr]
+[CRepr, FlexibleArray("argbDebugString")]
 public struct KSM_BDA_DEBUG_LEVEL
 {
 	public KSIDENTIFIER Method;
 	public uint8 ucDebugLevel;
 	public uint32 ulDebugStringSize;
-	public uint8[] argbDebugString;
+	private uint8[0] argbDebugString_impl;
 }
 
-[CRepr]
+[CRepr, FlexibleArray("argbDebugData")]
 public struct BDA_DEBUG_DATA
 {
 	public int32 lResult;
 	public Guid uuidDebugDataType;
 	public uint32 ulDataSize;
-	public uint8[] argbDebugData;
+	private uint8[0] argbDebugData_impl;
 }
 
-[CRepr]
+[CRepr, FlexibleArray("argbEventData")]
 public struct BDA_EVENT_DATA
 {
 	public int32 lResult;
 	public uint32 ulEventID;
 	public Guid uuidEventType;
 	public uint32 ulEventDataLength;
-	public uint8[] argbEventData;
+	private uint8[0] argbEventData_impl;
 }
 
 [CRepr]
@@ -8494,12 +8495,12 @@ public struct KSM_BDA_DRM_SETDRM
 	public Guid NewDRMuuid;
 }
 
-[CRepr]
+[CRepr, FlexibleArray("argbBuffer")]
 public struct KSM_BDA_BUFFER
 {
 	public KSM_NODE NodeMethod;
 	public uint32 ulBufferSize;
-	public uint8[] argbBuffer;
+	private uint8[0] argbBuffer_impl;
 }
 
 [CRepr]
@@ -8509,23 +8510,23 @@ public struct KSM_BDA_WMDRM_LICENSE
 	public Guid uuidKeyID;
 }
 
-[CRepr]
+[CRepr, FlexibleArray("argbDataBuffer")]
 public struct KSM_BDA_WMDRM_RENEWLICENSE
 {
 	public KSM_NODE NodeMethod;
 	public uint32 ulXMRLicenseLength;
 	public uint32 ulEntitlementTokenLength;
-	public uint8[] argbDataBuffer;
+	private uint8[0] argbDataBuffer_impl;
 }
 
-[CRepr]
+[CRepr, FlexibleArray("argbDataBuffer")]
 public struct KSM_BDA_WMDRMTUNER_PURCHASEENTITLEMENT
 {
 	public KSM_NODE NodeMethod;
 	public uint32 ulDialogRequest;
 	public CHAR[12] cLanguage;
 	public uint32 ulPurchaseTokenLength;
-	public uint8[] argbDataBuffer;
+	private uint8[0] argbDataBuffer_impl;
 }
 
 [CRepr]
@@ -8550,24 +8551,24 @@ public struct KSM_BDA_WMDRMTUNER_SYNCVALUE
 	public uint32 ulSyncValue;
 }
 
-[CRepr]
+[CRepr, FlexibleArray("argbTuneData")]
 public struct KSM_BDA_TUNER_TUNEREQUEST
 {
 	public KSIDENTIFIER Method;
 	public uint32 ulTuneLength;
-	public uint8[] argbTuneData;
+	private uint8[0] argbTuneData_impl;
 }
 
-[CRepr]
+[CRepr, FlexibleArray("argbData")]
 public struct KSM_BDA_GPNV_GETVALUE
 {
 	public KSIDENTIFIER Method;
 	public uint32 ulNameLength;
 	public CHAR[12] cLanguage;
-	public uint8[] argbData;
+	private uint8[0] argbData_impl;
 }
 
-[CRepr]
+[CRepr, FlexibleArray("argbName")]
 public struct KSM_BDA_GPNV_SETVALUE
 {
 	public KSIDENTIFIER Method;
@@ -8575,7 +8576,7 @@ public struct KSM_BDA_GPNV_SETVALUE
 	public CHAR[12] cLanguage;
 	public uint32 ulNameLength;
 	public uint32 ulValueLength;
-	public uint8[] argbName;
+	private uint8[0] argbName_impl;
 }
 
 [CRepr]
@@ -8592,13 +8593,13 @@ public struct KSM_BDA_SCAN_CAPABILTIES
 	public Guid uuidBroadcastStandard;
 }
 
-[CRepr]
+[CRepr, FlexibleArray("argbScanModulationTypes")]
 public struct KSM_BDA_SCAN_FILTER
 {
 	public KSIDENTIFIER Method;
 	public uint32 ulScanModulationTypeSize;
 	public uint64 AnalogVideoStandards;
-	public uint8[] argbScanModulationTypes;
+	private uint8[0] argbScanModulationTypes_impl;
 }
 
 [CRepr]
@@ -8616,12 +8617,12 @@ public struct KSM_BDA_GDDS_TUNEXMLFROMIDX
 	public uint64 ulIdx;
 }
 
-[CRepr]
+[CRepr, FlexibleArray("argbTuneXml")]
 public struct KSM_BDA_GDDS_SERVICEFROMTUNEXML
 {
 	public KSIDENTIFIER Method;
 	public uint32 ulTuneXmlLength;
-	public uint8[] argbTuneXml;
+	private uint8[0] argbTuneXml_impl;
 }
 
 [CRepr]
@@ -8631,7 +8632,7 @@ public struct KSM_BDA_USERACTIVITY_USEREASON
 	public uint32 ulUseReason;
 }
 
-[CRepr]
+[CRepr, FlexibleArray("argbEntitlementToken")]
 public struct KSM_BDA_CAS_ENTITLEMENTTOKEN
 {
 	public KSM_NODE NodeMethod;
@@ -8639,15 +8640,15 @@ public struct KSM_BDA_CAS_ENTITLEMENTTOKEN
 	public CHAR[12] cLanguage;
 	public uint32 ulRequestType;
 	public uint32 ulEntitlementTokenLen;
-	public uint8[] argbEntitlementToken;
+	private uint8[0] argbEntitlementToken_impl;
 }
 
-[CRepr]
+[CRepr, FlexibleArray("argbToken")]
 public struct KSM_BDA_CAS_CAPTURETOKEN
 {
 	public KSM_NODE NodeMethod;
 	public uint32 ulTokenLength;
-	public uint8[] argbToken;
+	private uint8[0] argbToken_impl;
 }
 
 [CRepr]
@@ -8669,13 +8670,13 @@ public struct KSM_BDA_CAS_CLOSEMMIDIALOG
 	public uint32 ulReason;
 }
 
-[CRepr]
+[CRepr, FlexibleArray("argbIsdbCommandData")]
 public struct KSM_BDA_ISDBCAS_REQUEST
 {
 	public KSM_NODE NodeMethod;
 	public uint32 ulRequestID;
 	public uint32 ulIsdbCommandSize;
-	public uint8[] argbIsdbCommandData;
+	private uint8[0] argbIsdbCommandData_impl;
 }
 
 [CRepr]
@@ -8756,13 +8757,13 @@ public struct ChannelInfo
 	public using _Anonymous_e__Union Anonymous;
 }
 
-[CRepr]
+[CRepr, FlexibleArray("bDescriptor")]
 public struct SpanningEventDescriptor
 {
 	public uint16 wDataLen;
 	public uint16 wProgNumber;
 	public uint16 wSID;
-	public uint8[] bDescriptor;
+	private uint8[0] bDescriptor_impl;
 }
 
 [CRepr]
@@ -8772,7 +8773,7 @@ public struct DVBScramblingControlSpanningEvent
 	public BOOL fScrambled;
 }
 
-[CRepr]
+[CRepr, FlexibleArray("szMessageArea")]
 public struct SpanningEventEmmMessage
 {
 	public uint8 bCAbroadcasterGroupId;
@@ -8787,7 +8788,7 @@ public struct SpanningEventEmmMessage
 	public uint8 bFormatVersion;
 	public uint8 bDisplayPosition;
 	public uint16 wMessageLength;
-	public char16[] szMessageArea;
+	private char16[0] szMessageArea_impl;
 }
 
 [CRepr]
@@ -8806,11 +8807,11 @@ public struct DualMonoInfo
 	public int32 lISOLangCode2;
 }
 
-[CRepr]
+[CRepr, FlexibleArray("pulPIDs")]
 public struct PIDListSpanningEvent
 {
 	public uint16 wPIDCount;
-	public uint32[] pulPIDs;
+	private uint32[0] pulPIDs_impl;
 }
 
 [CRepr, Packed(1)]
@@ -8851,11 +8852,11 @@ public struct DvbParentalRatingParam
 	public uint8 bRating;
 }
 
-[CRepr]
+[CRepr, FlexibleArray("pParams")]
 public struct DvbParentalRatingDescriptor
 {
 	public uint32 ulNumParams;
-	public DvbParentalRatingParam[] pParams;
+	private DvbParentalRatingParam[0] pParams_impl;
 }
 
 [CRepr]
@@ -8961,11 +8962,11 @@ public struct HEAACWAVEINFO
 	public uint32 dwReserved2;
 }
 
-[CRepr]
+[CRepr, FlexibleArray("pbAudioSpecificConfig")]
 public struct HEAACWAVEFORMAT
 {
 	public HEAACWAVEINFO wfInfo;
-	public uint8[] pbAudioSpecificConfig;
+	private uint8[0] pbAudioSpecificConfig_impl;
 }
 
 [CRepr]

@@ -3,6 +3,7 @@ using Win32.Foundation;
 using Win32.Media.DirectShow;
 using Win32.Graphics.Gdi;
 using System;
+using System.Interop;
 
 namespace Win32.Media.WindowsMediaFormat;
 #region Constants
@@ -1181,14 +1182,14 @@ public struct WMT_WEBSTREAM_FORMAT
 	public uint16 wReserved;
 }
 
-[CRepr]
+[CRepr, FlexibleArray("wszURL")]
 public struct WMT_WEBSTREAM_SAMPLE_HEADER
 {
 	public uint16 cbLength;
 	public uint16 wPart;
 	public uint16 cTotalParts;
 	public uint16 wSampleType;
-	public char16[] wszURL;
+	private char16[0] wszURL_impl;
 }
 
 [CRepr]
@@ -1355,7 +1356,7 @@ public struct WMVIDEOINFOHEADER2
 	public BITMAPINFOHEADER bmiHeader;
 }
 
-[CRepr]
+[CRepr, FlexibleArray("dwSequenceHeader")]
 public struct WMMPEG2VIDEOINFO
 {
 	public WMVIDEOINFOHEADER2 hdr;
@@ -1364,7 +1365,7 @@ public struct WMMPEG2VIDEOINFO
 	public uint32 dwProfile;
 	public uint32 dwLevel;
 	public uint32 dwFlags;
-	public uint32[] dwSequenceHeader;
+	private uint32[0] dwSequenceHeader_impl;
 }
 
 [CRepr]

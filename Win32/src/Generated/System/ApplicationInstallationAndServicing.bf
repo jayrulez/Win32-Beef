@@ -4,6 +4,7 @@ using Win32.System.WindowsProgramming;
 using Win32.System.Registry;
 using Win32.Security.Cryptography;
 using System;
+using System.Interop;
 
 namespace Win32.System.ApplicationInstallationAndServicing;
 #region Constants
@@ -2207,7 +2208,7 @@ public struct PATCH_OLD_FILE_INFO
 	public PATCH_RETAIN_RANGE* RetainRangeArray;
 }
 
-[CRepr]
+[CRepr, FlexibleArray("Range")]
 public struct PATCH_INTERLEAVE_MAP
 {
 	[CRepr]
@@ -2219,7 +2220,7 @@ public struct PATCH_INTERLEAVE_MAP
 	}
 
 	public uint32 CountRanges;
-	public _Anonymous_e__Struct[] Range;
+	private _Anonymous_e__Struct[0] Range_impl;
 }
 
 [CRepr]
@@ -2334,11 +2335,11 @@ public struct COMPATIBILITY_CONTEXT_ELEMENT
 	public uint64 MaxVersionTested;
 }
 
-[CRepr]
+[CRepr, FlexibleArray("Elements")]
 public struct ACTIVATION_CONTEXT_COMPATIBILITY_INFORMATION
 {
 	public uint32 ElementCount;
-	public COMPATIBILITY_CONTEXT_ELEMENT[] Elements;
+	private COMPATIBILITY_CONTEXT_ELEMENT[0] Elements_impl;
 }
 
 [CRepr]

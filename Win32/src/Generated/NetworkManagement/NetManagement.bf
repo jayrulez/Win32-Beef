@@ -5,6 +5,7 @@ using Win32.System.Com;
 using Win32.System.Registry;
 using Win32.Data.Xml.MsXml;
 using System;
+using System.Interop;
 
 namespace Win32.NetworkManagement.NetManagement;
 #region Constants
@@ -6884,12 +6885,12 @@ public struct AT_ENUM
 	public PWSTR Command;
 }
 
-[CRepr]
+[CRepr, FlexibleArray("Buffer")]
 public struct FLAT_STRING
 {
 	public int16 MaximumLength;
 	public int16 Length;
-	public CHAR[] Buffer;
+	private CHAR[0] Buffer_impl;
 }
 
 [CRepr]
@@ -6944,13 +6945,13 @@ public struct RTR_TOC_ENTRY
 	public uint32 Offset;
 }
 
-[CRepr]
+[CRepr, FlexibleArray("TocEntry")]
 public struct RTR_INFO_BLOCK_HEADER
 {
 	public uint32 Version;
 	public uint32 Size;
 	public uint32 TocEntriesCount;
-	public RTR_TOC_ENTRY[] TocEntry;
+	private RTR_TOC_ENTRY[0] TocEntry_impl;
 }
 
 [CRepr]

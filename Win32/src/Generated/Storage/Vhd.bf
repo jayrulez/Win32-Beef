@@ -2,6 +2,7 @@ using Win32.Foundation;
 using Win32.Security;
 using Win32.System.IO;
 using System;
+using System.Interop;
 
 namespace Win32.Storage.Vhd;
 #region Constants
@@ -595,8 +596,8 @@ public struct STORAGE_DEPENDENCY_INFO
 	[CRepr, Union]
 	public struct _Anonymous_e__Union
 	{
-		public STORAGE_DEPENDENCY_INFO_TYPE_1[] Version1Entries;
-		public STORAGE_DEPENDENCY_INFO_TYPE_2[] Version2Entries;
+		public STORAGE_DEPENDENCY_INFO_TYPE_1[0] Version1Entries;
+		public STORAGE_DEPENDENCY_INFO_TYPE_2[0] Version2Entries;
 	}
 
 	public STORAGE_DEPENDENCY_INFO_VERSION Version;
@@ -627,19 +628,19 @@ public struct GET_VIRTUAL_DISK_INFO
 			public uint32 SectorSize;
 		}
 
-		[CRepr]
+		[CRepr, FlexibleArray("MostRecentId")]
 		public struct _ChangeTrackingState_e__Struct
 		{
 			public BOOL Enabled;
 			public BOOL NewerChanges;
-			public char16[] MostRecentId;
+			private char16[0] MostRecentId_impl;
 		}
 
-		[CRepr]
+		[CRepr, FlexibleArray("ParentLocationBuffer")]
 		public struct _ParentLocation_e__Struct
 		{
 			public BOOL ParentResolved;
-			public char16[] ParentLocationBuffer;
+			private char16[0] ParentLocationBuffer_impl;
 		}
 
 		public _Size_e__Struct Size;

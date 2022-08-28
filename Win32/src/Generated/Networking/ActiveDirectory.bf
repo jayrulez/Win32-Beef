@@ -10,6 +10,7 @@ using Win32.Security;
 using Win32.Networking.WinSock;
 using Win32.Security.Authentication.Identity;
 using System;
+using System.Interop;
 
 namespace Win32.Networking.ActiveDirectory;
 #region Constants
@@ -1858,12 +1859,12 @@ public struct DSOBJECT
 	public uint32 offsetClass;
 }
 
-[CRepr]
+[CRepr, FlexibleArray("aObjects")]
 public struct DSOBJECTNAMES
 {
 	public Guid clsidNamespace;
 	public uint32 cItems;
-	public DSOBJECT[] aObjects;
+	private DSOBJECT[0] aObjects_impl;
 }
 
 [CRepr]
@@ -1898,22 +1899,22 @@ public struct DOMAINDESC
 	public DOMAINDESC* pdNextSibling;
 }
 
-[CRepr]
+[CRepr, FlexibleArray("aDomains")]
 public struct DOMAIN_TREE
 {
 	public uint32 dsSize;
 	public uint32 dwCount;
-	public DOMAINDESC[] aDomains;
+	private DOMAINDESC[0] aDomains_impl;
 }
 
-[CRepr]
+[CRepr, FlexibleArray("aWizardExtensions")]
 public struct DSCLASSCREATIONINFO
 {
 	public uint32 dwFlags;
 	public Guid clsidWizardDialog;
 	public Guid clsidWizardPrimaryPage;
 	public uint32 cWizardExtensions;
-	public Guid[] aWizardExtensions;
+	private Guid[0] aWizardExtensions_impl;
 }
 
 [CRepr]
@@ -2034,12 +2035,12 @@ public struct DS_SELECTION
 	public uint32 flScopeType;
 }
 
-[CRepr]
+[CRepr, FlexibleArray("aDsSelection")]
 public struct DS_SELECTION_LIST
 {
 	public uint32 cItems;
 	public uint32 cFetchedAttributes;
-	public DS_SELECTION[] aDsSelection;
+	private DS_SELECTION[0] aDsSelection_impl;
 }
 
 [CRepr]
@@ -2065,7 +2066,7 @@ public struct DSCOLUMN
 	public uint32 dwReserved;
 }
 
-[CRepr]
+[CRepr, FlexibleArray("aColumns")]
 public struct DSQUERYPARAMS
 {
 	public uint32 cbStruct;
@@ -2074,15 +2075,15 @@ public struct DSQUERYPARAMS
 	public int32 offsetQuery;
 	public int32 iColumns;
 	public uint32 dwReserved;
-	public DSCOLUMN[] aColumns;
+	private DSCOLUMN[0] aColumns_impl;
 }
 
-[CRepr]
+[CRepr, FlexibleArray("offsetClass")]
 public struct DSQUERYCLASSLIST
 {
 	public uint32 cbStruct;
 	public int32 cClasses;
-	public uint32[] offsetClass;
+	private uint32[0] offsetClass_impl;
 }
 
 [CRepr]
@@ -2123,13 +2124,13 @@ public struct SCHEDULE_HEADER
 	public uint32 Offset;
 }
 
-[CRepr]
+[CRepr, FlexibleArray("Schedules")]
 public struct SCHEDULE
 {
 	public uint32 Size;
 	public uint32 Bandwidth;
 	public uint32 NumberOfSchedules;
-	public SCHEDULE_HEADER[] Schedules;
+	private SCHEDULE_HEADER[0] Schedules_impl;
 }
 
 [CRepr]
@@ -2383,12 +2384,12 @@ public struct DS_REPL_NEIGHBORW_BLOB
 	public uint32 cNumConsecutiveSyncFailures;
 }
 
-[CRepr]
+[CRepr, FlexibleArray("rgNeighbor")]
 public struct DS_REPL_NEIGHBORSW
 {
 	public uint32 cNumNeighbors;
 	public uint32 dwReserved;
-	public DS_REPL_NEIGHBORW[] rgNeighbor;
+	private DS_REPL_NEIGHBORW[0] rgNeighbor_impl;
 }
 
 [CRepr]
@@ -2424,28 +2425,28 @@ public struct DS_REPL_CURSOR_BLOB
 	public uint32 oszSourceDsaDN;
 }
 
-[CRepr]
+[CRepr, FlexibleArray("rgCursor")]
 public struct DS_REPL_CURSORS
 {
 	public uint32 cNumCursors;
 	public uint32 dwReserved;
-	public DS_REPL_CURSOR[] rgCursor;
+	private DS_REPL_CURSOR[0] rgCursor_impl;
 }
 
-[CRepr]
+[CRepr, FlexibleArray("rgCursor")]
 public struct DS_REPL_CURSORS_2
 {
 	public uint32 cNumCursors;
 	public uint32 dwEnumerationContext;
-	public DS_REPL_CURSOR_2[] rgCursor;
+	private DS_REPL_CURSOR_2[0] rgCursor_impl;
 }
 
-[CRepr]
+[CRepr, FlexibleArray("rgCursor")]
 public struct DS_REPL_CURSORS_3W
 {
 	public uint32 cNumCursors;
 	public uint32 dwEnumerationContext;
-	public DS_REPL_CURSOR_3W[] rgCursor;
+	private DS_REPL_CURSOR_3W[0] rgCursor_impl;
 }
 
 [CRepr]
@@ -2483,20 +2484,20 @@ public struct DS_REPL_ATTR_META_DATA_BLOB
 	public uint32 oszLastOriginatingDsaDN;
 }
 
-[CRepr]
+[CRepr, FlexibleArray("rgMetaData")]
 public struct DS_REPL_OBJ_META_DATA
 {
 	public uint32 cNumEntries;
 	public uint32 dwReserved;
-	public DS_REPL_ATTR_META_DATA[] rgMetaData;
+	private DS_REPL_ATTR_META_DATA[0] rgMetaData_impl;
 }
 
-[CRepr]
+[CRepr, FlexibleArray("rgMetaData")]
 public struct DS_REPL_OBJ_META_DATA_2
 {
 	public uint32 cNumEntries;
 	public uint32 dwReserved;
-	public DS_REPL_ATTR_META_DATA_2[] rgMetaData;
+	private DS_REPL_ATTR_META_DATA_2[0] rgMetaData_impl;
 }
 
 [CRepr]
@@ -2519,12 +2520,12 @@ public struct DS_REPL_KCC_DSA_FAILUREW_BLOB
 	public uint32 dwLastResult;
 }
 
-[CRepr]
+[CRepr, FlexibleArray("rgDsaFailure")]
 public struct DS_REPL_KCC_DSA_FAILURESW
 {
 	public uint32 cNumEntries;
 	public uint32 dwReserved;
-	public DS_REPL_KCC_DSA_FAILUREW[] rgDsaFailure;
+	private DS_REPL_KCC_DSA_FAILUREW[0] rgDsaFailure_impl;
 }
 
 [CRepr]
@@ -2557,12 +2558,12 @@ public struct DS_REPL_OPW_BLOB
 	public Guid uuidDsaObjGuid;
 }
 
-[CRepr]
+[CRepr, FlexibleArray("rgPendingOp")]
 public struct DS_REPL_PENDING_OPSW
 {
 	public FILETIME ftimeCurrentOpStarted;
 	public uint32 cNumPendingOps;
-	public DS_REPL_OPW[] rgPendingOp;
+	private DS_REPL_OPW[0] rgPendingOp_impl;
 }
 
 [CRepr]
@@ -2655,28 +2656,28 @@ public struct DS_REPL_VALUE_META_DATA_BLOB_EXT
 	public uint32 dwCurrentLinkState;
 }
 
-[CRepr]
+[CRepr, FlexibleArray("rgMetaData")]
 public struct DS_REPL_ATTR_VALUE_META_DATA
 {
 	public uint32 cNumEntries;
 	public uint32 dwEnumerationContext;
-	public DS_REPL_VALUE_META_DATA[] rgMetaData;
+	private DS_REPL_VALUE_META_DATA[0] rgMetaData_impl;
 }
 
-[CRepr]
+[CRepr, FlexibleArray("rgMetaData")]
 public struct DS_REPL_ATTR_VALUE_META_DATA_2
 {
 	public uint32 cNumEntries;
 	public uint32 dwEnumerationContext;
-	public DS_REPL_VALUE_META_DATA_2[] rgMetaData;
+	private DS_REPL_VALUE_META_DATA_2[0] rgMetaData_impl;
 }
 
-[CRepr]
+[CRepr, FlexibleArray("rgMetaData")]
 public struct DS_REPL_ATTR_VALUE_META_DATA_EXT
 {
 	public uint32 cNumEntries;
 	public uint32 dwEnumerationContext;
-	public DS_REPL_VALUE_META_DATA_EXT[] rgMetaData;
+	private DS_REPL_VALUE_META_DATA_EXT[0] rgMetaData_impl;
 }
 
 [CRepr]

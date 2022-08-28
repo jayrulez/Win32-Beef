@@ -3,6 +3,7 @@ using Win32.Foundation;
 using Win32.System.Com;
 using Win32.UI.WindowsAndMessaging;
 using System;
+using System.Interop;
 
 namespace Win32.UI.ColorSystem;
 #region Constants
@@ -378,7 +379,7 @@ public struct EMRCREATECOLORSPACE
 	public LOGCOLORSPACEA lcs;
 }
 
-[CRepr]
+[CRepr, FlexibleArray("Data")]
 public struct EMRCREATECOLORSPACEW
 {
 	public EMR emr;
@@ -386,7 +387,7 @@ public struct EMRCREATECOLORSPACEW
 	public LOGCOLORSPACEW lcs;
 	public uint32 dwFlags;
 	public uint32 cbData;
-	public uint8[] Data;
+	private uint8[0] Data_impl;
 }
 
 [CRepr]

@@ -1,5 +1,6 @@
 using Win32.Foundation;
 using System;
+using System.Interop;
 
 namespace Win32.NetworkManagement.Dns;
 #region Constants
@@ -788,11 +789,11 @@ public function void PMDNS_QUERY_CALLBACK(void* pQueryContext, MDNS_QUERY_HANDLE
 #endregion
 
 #region Structs
-[CRepr]
+[CRepr, FlexibleArray("AddrArray")]
 public struct IP4_ARRAY
 {
 	public uint32 AddrCount;
-	public uint32[] AddrArray;
+	private uint32[0] AddrArray_impl;
 }
 
 #if BF_64_BIT || BF_ARM_64
@@ -819,7 +820,7 @@ public struct DNS_ADDR
 	public _Data_e__Union Data;
 }
 
-[CRepr, Packed(1)]
+[CRepr, Packed(1), FlexibleArray("AddrArray")]
 public struct DNS_ADDR_ARRAY
 {
 	public uint32 MaxCount;
@@ -831,7 +832,7 @@ public struct DNS_ADDR_ARRAY
 	public uint32 MatchFlag;
 	public uint32 Reserved1;
 	public uint32 Reserved2;
-	public DNS_ADDR[] AddrArray;
+	private DNS_ADDR[0] AddrArray_impl;
 }
 
 [CRepr, Packed(1)]
@@ -942,33 +943,33 @@ public struct DNS_MX_DATAA
 	public uint16 Pad;
 }
 
-[CRepr]
+[CRepr, FlexibleArray("pStringArray")]
 public struct DNS_TXT_DATAW
 {
 	public uint32 dwStringCount;
-	public PWSTR[] pStringArray;
+	private PWSTR[0] pStringArray_impl;
 }
 
-[CRepr]
+[CRepr, FlexibleArray("pStringArray")]
 public struct DNS_TXT_DATAA
 {
 	public uint32 dwStringCount;
-	public PSTR[] pStringArray;
+	private PSTR[0] pStringArray_impl;
 }
 
-[CRepr]
+[CRepr, FlexibleArray("Data")]
 public struct DNS_NULL_DATA
 {
 	public uint32 dwByteCount;
-	public uint8[] Data;
+	private uint8[0] Data_impl;
 }
 
-[CRepr]
+[CRepr, FlexibleArray("BitMask")]
 public struct DNS_WKS_DATA
 {
 	public uint32 IpAddress;
 	public uint8 chProtocol;
-	public uint8[] BitMask;
+	private uint8[0] BitMask_impl;
 }
 
 [CRepr]
@@ -977,7 +978,7 @@ public struct DNS_AAAA_DATA
 	public IP6_ADDRESS Ip6Address;
 }
 
-[CRepr]
+[CRepr, FlexibleArray("Signature")]
 public struct DNS_SIG_DATAW
 {
 	public uint16 wTypeCovered;
@@ -989,10 +990,10 @@ public struct DNS_SIG_DATAW
 	public uint16 wKeyTag;
 	public uint16 wSignatureLength;
 	public PWSTR pNameSigner;
-	public uint8[] Signature;
+	private uint8[0] Signature_impl;
 }
 
-[CRepr]
+[CRepr, FlexibleArray("Signature")]
 public struct DNS_SIG_DATAA
 {
 	public uint16 wTypeCovered;
@@ -1004,10 +1005,10 @@ public struct DNS_SIG_DATAA
 	public uint16 wKeyTag;
 	public uint16 wSignatureLength;
 	public PSTR pNameSigner;
-	public uint8[] Signature;
+	private uint8[0] Signature_impl;
 }
 
-[CRepr]
+[CRepr, FlexibleArray("Key")]
 public struct DNS_KEY_DATA
 {
 	public uint16 wFlags;
@@ -1015,35 +1016,35 @@ public struct DNS_KEY_DATA
 	public uint8 chAlgorithm;
 	public uint16 wKeyLength;
 	public uint16 wPad;
-	public uint8[] Key;
+	private uint8[0] Key_impl;
 }
 
-[CRepr]
+[CRepr, FlexibleArray("DHCID")]
 public struct DNS_DHCID_DATA
 {
 	public uint32 dwByteCount;
-	public uint8[] DHCID;
+	private uint8[0] DHCID_impl;
 }
 
-[CRepr]
+[CRepr, FlexibleArray("TypeBitMaps")]
 public struct DNS_NSEC_DATAW
 {
 	public PWSTR pNextDomainName;
 	public uint16 wTypeBitMapsLength;
 	public uint16 wPad;
-	public uint8[] TypeBitMaps;
+	private uint8[0] TypeBitMaps_impl;
 }
 
-[CRepr]
+[CRepr, FlexibleArray("TypeBitMaps")]
 public struct DNS_NSEC_DATAA
 {
 	public PSTR pNextDomainName;
 	public uint16 wTypeBitMapsLength;
 	public uint16 wPad;
-	public uint8[] TypeBitMaps;
+	private uint8[0] TypeBitMaps_impl;
 }
 
-[CRepr]
+[CRepr, FlexibleArray("chData")]
 public struct DNS_NSEC3_DATA
 {
 	public uint8 chAlgorithm;
@@ -1052,10 +1053,10 @@ public struct DNS_NSEC3_DATA
 	public uint8 bSaltLength;
 	public uint8 bHashLength;
 	public uint16 wTypeBitMapsLength;
-	public uint8[] chData;
+	private uint8[0] chData_impl;
 }
 
-[CRepr]
+[CRepr, FlexibleArray("pbSalt")]
 public struct DNS_NSEC3PARAM_DATA
 {
 	public uint8 chAlgorithm;
@@ -1063,10 +1064,10 @@ public struct DNS_NSEC3PARAM_DATA
 	public uint16 wIterations;
 	public uint8 bSaltLength;
 	public uint8[3] bPad;
-	public uint8[] pbSalt;
+	private uint8[0] pbSalt_impl;
 }
 
-[CRepr]
+[CRepr, FlexibleArray("bCertificateAssociationData")]
 public struct DNS_TLSA_DATA
 {
 	public uint8 bCertUsage;
@@ -1074,10 +1075,10 @@ public struct DNS_TLSA_DATA
 	public uint8 bMatchingType;
 	public uint16 bCertificateAssociationDataLength;
 	public uint8[3] bPad;
-	public uint8[] bCertificateAssociationData;
+	private uint8[0] bCertificateAssociationData_impl;
 }
 
-[CRepr]
+[CRepr, FlexibleArray("Digest")]
 public struct DNS_DS_DATA
 {
 	public uint16 wKeyTag;
@@ -1085,15 +1086,15 @@ public struct DNS_DS_DATA
 	public uint8 chDigestType;
 	public uint16 wDigestLength;
 	public uint16 wPad;
-	public uint8[] Digest;
+	private uint8[0] Digest_impl;
 }
 
-[CRepr]
+[CRepr, FlexibleArray("Data")]
 public struct DNS_OPT_DATA
 {
 	public uint16 wDataLength;
 	public uint16 wPad;
-	public uint8[] Data;
+	private uint8[0] Data_impl;
 }
 
 [CRepr]
@@ -1108,20 +1109,20 @@ public struct DNS_LOC_DATA
 	public uint32 dwAltitude;
 }
 
-[CRepr]
+[CRepr, FlexibleArray("wTypes")]
 public struct DNS_NXT_DATAW
 {
 	public PWSTR pNameNext;
 	public uint16 wNumTypes;
-	public uint16[] wTypes;
+	private uint16[0] wTypes_impl;
 }
 
-[CRepr]
+[CRepr, FlexibleArray("wTypes")]
 public struct DNS_NXT_DATAA
 {
 	public PSTR pNameNext;
 	public uint16 wNumTypes;
-	public uint16[] wTypes;
+	private uint16[0] wTypes_impl;
 }
 
 [CRepr]
@@ -1241,21 +1242,21 @@ public struct DNS_TSIG_DATAA
 	public BOOL bPacketPointers;
 }
 
-[CRepr]
+[CRepr, FlexibleArray("bData")]
 public struct DNS_UNKNOWN_DATA
 {
 	public uint32 dwByteCount;
-	public uint8[] bData;
+	private uint8[0] bData_impl;
 }
 
-[CRepr]
+[CRepr, FlexibleArray("WinsServers")]
 public struct DNS_WINS_DATA
 {
 	public uint32 dwMappingFlag;
 	public uint32 dwLookupTimeout;
 	public uint32 dwCacheTimeout;
 	public uint32 cWinsServerCount;
-	public uint32[] WinsServers;
+	private uint32[0] WinsServers_impl;
 }
 
 [CRepr]
@@ -1645,11 +1646,11 @@ public struct DNS_APPLICATION_SETTINGS
 	public uint64 Flags;
 }
 
-[CRepr]
+[CRepr, FlexibleArray("MessageBody")]
 public struct DNS_MESSAGE_BUFFER
 {
 	public DNS_HEADER MessageHead;
-	public CHAR[] MessageBody;
+	private CHAR[0] MessageBody_impl;
 }
 
 [CRepr]

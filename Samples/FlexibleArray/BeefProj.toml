@@ -2,5 +2,5 @@ FileVersion = 1
 Dependencies = {corlib = "*", Win32 = "*"}
 
 [Project]
-Name = "Win32.Tests"
-StartupObject = "Win32.Tests.Program"
+Name = "FlexibleArray"
+StartupObject = "FlexibleArray.Program"

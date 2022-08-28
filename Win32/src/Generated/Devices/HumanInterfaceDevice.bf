@@ -3,6 +3,7 @@ using Win32.UI.Shell.PropertiesSystem;
 using Win32.System.Com;
 using Win32.System.Registry;
 using System;
+using System.Interop;
 
 namespace Win32.Devices.HumanInterfaceDevice;
 #region Constants
@@ -5802,11 +5803,11 @@ public struct INDICATOR_LIST
 	public uint16 IndicatorFlags;
 }
 
-[CRepr]
+[CRepr, FlexibleArray("IndicatorList")]
 public struct KEYBOARD_INDICATOR_TRANSLATION
 {
 	public uint16 NumberOfIndicatorKeys;
-	public INDICATOR_LIST[] IndicatorList;
+	private INDICATOR_LIST[0] IndicatorList_impl;
 }
 
 [CRepr]
@@ -6047,13 +6048,13 @@ public struct HIDP_UNKNOWN_TOKEN
 	public uint32 BitField;
 }
 
-[CRepr, Packed(4)]
+[CRepr, Packed(4), FlexibleArray("Data")]
 public struct HIDP_EXTENDED_ATTRIBUTES
 {
 	public uint8 NumGlobalUnknowns;
 	public uint8[3] Reserved;
 	public HIDP_UNKNOWN_TOKEN* GlobalUnknowns;
-	public uint32[] Data;
+	private uint32[0] Data_impl;
 }
 
 [CRepr]
@@ -6107,12 +6108,12 @@ public struct HID_XFER_PACKET
 	public uint8 reportId;
 }
 
-[CRepr]
+[CRepr, FlexibleArray("Reserved1")]
 public struct HID_COLLECTION_INFORMATION
 {
 	public uint32 DescriptorSize;
 	public BOOLEAN Polled;
-	public uint8[] Reserved1;
+	private uint8[0] Reserved1_impl;
 	public uint16 VendorID;
 	public uint16 ProductID;
 	public uint16 VersionNumber;

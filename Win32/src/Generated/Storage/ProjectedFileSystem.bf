@@ -1,5 +1,6 @@
 using Win32.Foundation;
 using System;
+using System.Interop;
 
 namespace Win32.Storage.ProjectedFileSystem;
 
@@ -209,7 +210,7 @@ public struct PRJ_FILE_BASIC_INFO
 	public uint32 FileAttributes;
 }
 
-[CRepr]
+[CRepr, FlexibleArray("VariableData")]
 public struct PRJ_PLACEHOLDER_INFO
 {
 	[CRepr]
@@ -238,7 +239,7 @@ public struct PRJ_PLACEHOLDER_INFO
 	public _SecurityInformation_e__Struct SecurityInformation;
 	public _StreamsInformation_e__Struct StreamsInformation;
 	public PRJ_PLACEHOLDER_VERSION_INFO VersionInfo;
-	public uint8[] VariableData;
+	private uint8[0] VariableData_impl;
 }
 
 [CRepr]

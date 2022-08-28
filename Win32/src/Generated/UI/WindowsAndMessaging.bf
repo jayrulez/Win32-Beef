@@ -3,6 +3,7 @@ using Win32.Graphics.Gdi;
 using Win32.UI.Shell;
 using Win32.System.Power;
 using System;
+using System.Interop;
 
 namespace Win32.UI.WindowsAndMessaging;
 #region Constants
@@ -4041,12 +4042,12 @@ public function void MSGBOXCALLBACK(HELPINFO* lpHelpInfo);
 #endregion
 
 #region Structs
-[CRepr]
+[CRepr, FlexibleArray("Text")]
 public struct MESSAGE_RESOURCE_ENTRY
 {
 	public uint16 Length;
 	public uint16 Flags;
-	public uint8[] Text;
+	private uint8[0] Text_impl;
 }
 
 [CRepr]
@@ -4057,11 +4058,11 @@ public struct MESSAGE_RESOURCE_BLOCK
 	public uint32 OffsetToEntries;
 }
 
-[CRepr]
+[CRepr, FlexibleArray("Blocks")]
 public struct MESSAGE_RESOURCE_DATA
 {
 	public uint32 NumberOfBlocks;
-	public MESSAGE_RESOURCE_BLOCK[] Blocks;
+	private MESSAGE_RESOURCE_BLOCK[0] Blocks_impl;
 }
 
 [CRepr]
@@ -4508,12 +4509,12 @@ public struct MENUITEMTEMPLATEHEADER
 	public uint16 offset;
 }
 
-[CRepr]
+[CRepr, FlexibleArray("mtString")]
 public struct MENUITEMTEMPLATE
 {
 	public uint16 mtOption;
 	public uint16 mtID;
-	public char16[] mtString;
+	private char16[0] mtString_impl;
 }
 
 [CRepr]

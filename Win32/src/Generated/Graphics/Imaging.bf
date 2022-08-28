@@ -6,6 +6,7 @@ using Win32.Graphics.Gdi;
 using Win32.UI.WindowsAndMessaging;
 using Win32.Graphics.Dxgi.Common;
 using System;
+using System.Interop;
 
 namespace Win32.Graphics.Imaging;
 #region Constants
@@ -1360,11 +1361,11 @@ public struct WICRawToneCurvePoint
 	public double Output;
 }
 
-[CRepr]
+[CRepr, FlexibleArray("aPoints")]
 public struct WICRawToneCurve
 {
 	public uint32 cPoints;
-	public WICRawToneCurvePoint[] aPoints;
+	private WICRawToneCurvePoint[0] aPoints_impl;
 }
 
 [CRepr]

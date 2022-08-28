@@ -1,5 +1,6 @@
 using Win32.Foundation;
 using System;
+using System.Interop;
 
 namespace Win32.System.EventLog;
 #region Constants
@@ -460,13 +461,13 @@ public struct EVENTLOGRECORD
 	public uint32 DataOffset;
 }
 
-[CRepr]
+[CRepr, FlexibleArray("pEventLogRecords")]
 public struct EVENTSFORLOGFILE
 {
 	public uint32 ulSize;
 	public char16[256] szLogicalLogFile;
 	public uint32 ulNumRecords;
-	public EVENTLOGRECORD[] pEventLogRecords;
+	private EVENTLOGRECORD[0] pEventLogRecords_impl;
 }
 
 [CRepr]

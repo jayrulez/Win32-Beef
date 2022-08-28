@@ -5,6 +5,7 @@ using Win32.System.Ole;
 using Win32.Graphics.Gdi;
 using Win32.UI.WindowsAndMessaging;
 using System;
+using System.Interop;
 
 namespace Win32.Media.MediaPlayer;
 #region Constants
@@ -1804,7 +1805,7 @@ public struct WMP_WMDM_METADATA_ROUND_TRIP_PC2DEVICE
 	public uint32 dwResultSetStartingIndex;
 }
 
-[CRepr, Packed(1)]
+[CRepr, Packed(1), FlexibleArray("wsObjectPathnameList")]
 public struct WMP_WMDM_METADATA_ROUND_TRIP_DEVICE2PC
 {
 	public uint32 dwCurrentTransactionID;
@@ -1812,7 +1813,7 @@ public struct WMP_WMDM_METADATA_ROUND_TRIP_DEVICE2PC
 	public uint32 dwUnretrievedObjectCount;
 	public uint32 dwDeletedObjectStartingOffset;
 	public uint32 dwFlags;
-	public char16[] wsObjectPathnameList;
+	private char16[0] wsObjectPathnameList_impl;
 }
 
 #endregion

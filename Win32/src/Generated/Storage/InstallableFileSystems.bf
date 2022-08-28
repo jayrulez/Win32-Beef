@@ -2,6 +2,7 @@ using Win32.Foundation;
 using Win32.Security;
 using Win32.System.IO;
 using System;
+using System.Interop;
 
 namespace Win32.Storage.InstallableFileSystems;
 #region Constants
@@ -268,14 +269,14 @@ public enum INSTANCE_INFORMATION_CLASS : int32
 #endregion
 
 #region Structs
-[CRepr]
+[CRepr, FlexibleArray("FilterNameBuffer")]
 public struct FILTER_FULL_INFORMATION
 {
 	public uint32 NextEntryOffset;
 	public uint32 FrameID;
 	public uint32 NumberOfInstances;
 	public uint16 FilterNameLength;
-	public char16[] FilterNameBuffer;
+	private char16[0] FilterNameBuffer_impl;
 }
 
 [CRepr]
@@ -348,14 +349,14 @@ public struct FILTER_AGGREGATE_STANDARD_INFORMATION
 	public _Type_e__Union Type;
 }
 
-[CRepr]
+[CRepr, FlexibleArray("FilterVolumeName")]
 public struct FILTER_VOLUME_BASIC_INFORMATION
 {
 	public uint16 FilterVolumeNameLength;
-	public char16[] FilterVolumeName;
+	private char16[0] FilterVolumeName_impl;
 }
 
-[CRepr]
+[CRepr, FlexibleArray("FilterVolumeName")]
 public struct FILTER_VOLUME_STANDARD_INFORMATION
 {
 	public uint32 NextEntryOffset;
@@ -363,7 +364,7 @@ public struct FILTER_VOLUME_STANDARD_INFORMATION
 	public uint32 FrameID;
 	public FLT_FILESYSTEM_TYPE FileSystemType;
 	public uint16 FilterVolumeNameLength;
-	public char16[] FilterVolumeName;
+	private char16[0] FilterVolumeName_impl;
 }
 
 [CRepr]

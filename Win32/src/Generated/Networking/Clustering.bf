@@ -6,6 +6,7 @@ using Win32.System.Com;
 using Win32.Graphics.Gdi;
 using Win32.UI.WindowsAndMessaging;
 using System;
+using System.Interop;
 
 namespace Win32.Networking.Clustering;
 #region Constants
@@ -3083,28 +3084,28 @@ public struct CLUSTER_CREATE_GROUP_INFO
 	public CLUSGROUP_TYPE groupType;
 }
 
-[CRepr]
+[CRepr, FlexibleArray("szPath")]
 public struct CLUSTER_VALIDATE_PATH
 {
-	public char16[] szPath;
+	private char16[0] szPath_impl;
 }
 
-[CRepr]
+[CRepr, FlexibleArray("szPath")]
 public struct CLUSTER_VALIDATE_DIRECTORY
 {
-	public char16[] szPath;
+	private char16[0] szPath_impl;
 }
 
-[CRepr]
+[CRepr, FlexibleArray("szNetworkName")]
 public struct CLUSTER_VALIDATE_NETNAME
 {
-	public char16[] szNetworkName;
+	private char16[0] szNetworkName_impl;
 }
 
-[CRepr]
+[CRepr, FlexibleArray("szFileName")]
 public struct CLUSTER_VALIDATE_CSV_FILENAME
 {
-	public char16[] szFileName;
+	private char16[0] szFileName_impl;
 }
 
 [CRepr]
@@ -3157,12 +3158,12 @@ public struct NOTIFY_FILTER_AND_TYPE
 	public int64 FilterFlags;
 }
 
-[CRepr]
+[CRepr, FlexibleArray("Upnodes")]
 public struct CLUSTER_MEMBERSHIP_INFO
 {
 	public BOOL HasQuorum;
 	public uint32 UpnodesSize;
-	public uint8[] Upnodes;
+	private uint8[0] Upnodes_impl;
 }
 
 [CRepr]
@@ -3266,11 +3267,11 @@ public struct CLUSPROP_VALUE
 	public uint32 cbLength;
 }
 
-[CRepr]
+[CRepr, FlexibleArray("rgb")]
 public struct CLUSPROP_BINARY
 {
 	public CLUSPROP_VALUE __AnonymousBase_clusapi_L5129_C41;
-	public uint8[] rgb;
+	private uint8[0] rgb_impl;
 }
 
 [CRepr]
@@ -3294,11 +3295,11 @@ public struct CLUSPROP_LONG
 	public int32 l;
 }
 
-[CRepr]
+[CRepr, FlexibleArray("sz")]
 public struct CLUSPROP_SZ
 {
 	public CLUSPROP_VALUE __AnonymousBase_clusapi_L5169_C37;
-	public char16[] sz;
+	private char16[0] sz_impl;
 }
 
 [CRepr]
@@ -3322,7 +3323,7 @@ public struct CLUSPROP_SECURITY_DESCRIPTOR
 	public struct _Anonymous_e__Union
 	{
 		public SECURITY_DESCRIPTOR_RELATIVE sd;
-		public uint8[] rgbSecurityDescriptor;
+		public uint8[0] rgbSecurityDescriptor;
 	}
 
 	public CLUSPROP_VALUE __AnonymousBase_clusapi_L5211_C54;
@@ -3385,13 +3386,13 @@ public struct CLUSPROP_REQUIRED_DEPENDENCY
 	public CLUSPROP_SZ ResTypeName;
 }
 
-[CRepr]
+[CRepr, FlexibleArray("multiszNodeList")]
 public struct CLUS_FORCE_QUORUM_INFO
 {
 	public uint32 dwSize;
 	public uint32 dwNodeBitMask;
 	public uint32 dwMaxNumberofNodes;
-	public char16[] multiszNodeList;
+	private char16[0] multiszNodeList_impl;
 }
 
 [CRepr]
@@ -3512,13 +3513,13 @@ public struct CLUSTER_SHARED_VOLUME_RENAME_GUID_INPUT
 	public CLUSTER_SHARED_VOLUME_RENAME_INPUT_GUID_NAME __AnonymousBase_clusapi_L5476_C14;
 }
 
-[CRepr]
+[CRepr, FlexibleArray("FileIdList")]
 public struct CLUS_CHKDSK_INFO
 {
 	public uint32 PartitionNumber;
 	public uint32 ChkdskState;
 	public uint32 FileIdCount;
-	public uint64[] FileIdList;
+	private uint64[0] FileIdList_impl;
 }
 
 [CRepr]
@@ -3640,20 +3641,20 @@ public struct CLUS_DNN_SODAFS_CLONE_STATUS
 	public CLUSTER_RESOURCE_STATE Status;
 }
 
-[CRepr]
+[CRepr, FlexibleArray("Address")]
 public struct CLUS_NETNAME_IP_INFO_ENTRY
 {
 	public uint32 NodeId;
 	public uint32 AddressSize;
-	public uint8[] Address;
+	private uint8[0] Address_impl;
 }
 
-[CRepr]
+[CRepr, FlexibleArray("IpInfo")]
 public struct CLUS_NETNAME_IP_INFO_FOR_MULTICHANNEL
 {
 	public char16[64] szName;
 	public uint32 NumEntries;
-	public CLUS_NETNAME_IP_INFO_ENTRY[] IpInfo;
+	private CLUS_NETNAME_IP_INFO_ENTRY[0] IpInfo_impl;
 }
 
 [CRepr]
@@ -3678,12 +3679,12 @@ public struct CLUS_MAINTENANCE_MODE_INFOEX
 	public uint32 Signature;
 }
 
-[CRepr]
+[CRepr, FlexibleArray("ExtraParameter")]
 public struct CLUS_SET_MAINTENANCE_MODE_INPUT
 {
 	public BOOL InMaintenance;
 	public uint32 ExtraParameterSize;
-	public uint8[] ExtraParameter;
+	private uint8[0] ExtraParameter_impl;
 }
 
 [CRepr]
@@ -3706,12 +3707,12 @@ public struct CLUS_STORAGE_REMAP_DRIVELETTER
 	public uint32 TargetDriveLetterMask;
 }
 
-[CRepr]
+[CRepr, FlexibleArray("szProviderId")]
 public struct CLUS_PROVIDER_STATE_CHANGE_INFO
 {
 	public uint32 dwSize;
 	public CLUSTER_RESOURCE_STATE resourceState;
-	public char16[] szProviderId;
+	private char16[0] szProviderId_impl;
 }
 
 [CRepr]
@@ -3740,11 +3741,11 @@ public struct FILESHARE_CHANGE
 	public char16[84] ShareName;
 }
 
-[CRepr]
+[CRepr, FlexibleArray("ChangeEntry")]
 public struct FILESHARE_CHANGE_LIST
 {
 	public uint32 NumEntries;
-	public FILESHARE_CHANGE[] ChangeEntry;
+	private FILESHARE_CHANGE[0] ChangeEntry_impl;
 }
 
 [CRepr]
@@ -3795,11 +3796,11 @@ public struct SR_RESOURCE_TYPE_REPLICATED_PARTITION_INFO
 	public uint32 Capabilities;
 }
 
-[CRepr]
+[CRepr, FlexibleArray("PartitionArray")]
 public struct SR_RESOURCE_TYPE_REPLICATED_PARTITION_ARRAY
 {
 	public uint32 Count;
-	public SR_RESOURCE_TYPE_REPLICATED_PARTITION_INFO[] PartitionArray;
+	private SR_RESOURCE_TYPE_REPLICATED_PARTITION_INFO[0] PartitionArray_impl;
 }
 
 [CRepr]
@@ -3832,11 +3833,11 @@ public struct SR_RESOURCE_TYPE_DISK_INFO
 	public Guid DiskGuid;
 }
 
-[CRepr]
+[CRepr, FlexibleArray("DiskInfo")]
 public struct SR_RESOURCE_TYPE_ELIGIBLE_DISKS_RESULT
 {
 	public uint16 Count;
-	public SR_RESOURCE_TYPE_DISK_INFO[] DiskInfo;
+	private SR_RESOURCE_TYPE_DISK_INFO[0] DiskInfo_impl;
 }
 
 [CRepr]
@@ -3848,11 +3849,11 @@ public struct SR_RESOURCE_TYPE_REPLICATED_DISK
 	public char16[260] ReplicationGroupName;
 }
 
-[CRepr]
+[CRepr, FlexibleArray("ReplicatedDisks")]
 public struct SR_RESOURCE_TYPE_REPLICATED_DISKS_RESULT
 {
 	public uint16 Count;
-	public SR_RESOURCE_TYPE_REPLICATED_DISK[] ReplicatedDisks;
+	private SR_RESOURCE_TYPE_REPLICATED_DISK[0] ReplicatedDisks_impl;
 }
 
 [CRepr]

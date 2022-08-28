@@ -2,6 +2,7 @@ using Win32.Foundation;
 using Win32.Security;
 using Win32.System.Registry;
 using System;
+using System.Interop;
 
 namespace Win32.System.Services;
 #region Constants
@@ -498,11 +499,11 @@ public struct SERVICE_CUSTOM_SYSTEM_STATE_CHANGE_DATA_ITEM
 	[CRepr, Union]
 	public struct _u_e__Union
 	{
-		[CRepr]
+		[CRepr, FlexibleArray("Data")]
 		public struct _s_e__Struct
 		{
 			public uint32 DataOffset;
-			public uint8[] Data;
+			private uint8[0] Data_impl;
 		}
 
 		public SERVICE_TRIGGER_CUSTOM_STATE_ID CustomStateId;

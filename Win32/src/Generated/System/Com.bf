@@ -5,6 +5,7 @@ using Win32.System.SystemServices;
 using Win32.Security;
 using Win32.System.Ole;
 using System;
+using System.Interop;
 
 namespace Win32.System.Com;
 #region Constants
@@ -846,41 +847,41 @@ public struct COAUTHINFO
 	public uint32 dwCapabilities;
 }
 
-[CRepr]
+[CRepr, FlexibleArray("abData")]
 public struct BYTE_BLOB
 {
 	public uint32 clSize;
-	public uint8[] abData;
+	private uint8[0] abData_impl;
 }
 
-[CRepr]
+[CRepr, FlexibleArray("asData")]
 public struct WORD_BLOB
 {
 	public uint32 clSize;
-	public uint16[] asData;
+	private uint16[0] asData_impl;
 }
 
-[CRepr]
+[CRepr, FlexibleArray("alData")]
 public struct DWORD_BLOB
 {
 	public uint32 clSize;
-	public uint32[] alData;
+	private uint32[0] alData_impl;
 }
 
-[CRepr]
+[CRepr, FlexibleArray("abData")]
 public struct FLAGGED_BYTE_BLOB
 {
 	public uint32 fFlags;
 	public uint32 clSize;
-	public uint8[] abData;
+	private uint8[0] abData_impl;
 }
 
-[CRepr]
+[CRepr, FlexibleArray("asData")]
 public struct FLAGGED_WORD_BLOB
 {
 	public uint32 fFlags;
 	public uint32 clSize;
-	public uint16[] asData;
+	private uint16[0] asData_impl;
 }
 
 [CRepr]
@@ -1040,7 +1041,7 @@ public struct BIND_OPTS3
 	public HWND hwnd;
 }
 
-[CRepr]
+[CRepr, FlexibleArray("tdData")]
 public struct DVTARGETDEVICE
 {
 	public uint32 tdSize;
@@ -1048,7 +1049,7 @@ public struct DVTARGETDEVICE
 	public uint16 tdDeviceNameOffset;
 	public uint16 tdPortNameOffset;
 	public uint16 tdExtDevmodeOffset;
-	public uint8[] tdData;
+	private uint8[0] tdData_impl;
 }
 
 [CRepr]
@@ -1070,7 +1071,7 @@ public struct STATDATA
 	public uint32 dwConnection;
 }
 
-[CRepr]
+[CRepr, FlexibleArray("data")]
 public struct RemSTGMEDIUM
 {
 	public uint32 tymed;
@@ -1078,7 +1079,7 @@ public struct RemSTGMEDIUM
 	public uint32 pData;
 	public uint32 pUnkForRelease;
 	public uint32 cbData;
-	public uint8[] data;
+	private uint8[0] data_impl;
 }
 
 [CRepr]
@@ -1223,7 +1224,7 @@ public struct SAFEARRAYBOUND
 	public int32 lLbound;
 }
 
-[CRepr]
+[CRepr, FlexibleArray("rgsabound")]
 public struct SAFEARRAY
 {
 	public uint16 cDims;
@@ -1231,7 +1232,7 @@ public struct SAFEARRAY
 	public uint32 cbElements;
 	public uint32 cLocks;
 	public void* pvData;
-	public SAFEARRAYBOUND[] rgsabound;
+	private SAFEARRAYBOUND[0] rgsabound_impl;
 }
 
 [CRepr]

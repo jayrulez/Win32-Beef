@@ -1,5 +1,6 @@
 using Win32.Foundation;
 using System;
+using System.Interop;
 
 namespace Win32.System.ProcessStatus;
 #region Constants
@@ -70,11 +71,11 @@ public struct PSAPI_WORKING_SET_BLOCK
 	public using _Anonymous_e__Struct Anonymous;
 }
 
-[CRepr]
+[CRepr, FlexibleArray("WorkingSetInfo")]
 public struct PSAPI_WORKING_SET_INFORMATION
 {
 	public uint NumberOfEntries;
-	public PSAPI_WORKING_SET_BLOCK[] WorkingSetInfo;
+	private PSAPI_WORKING_SET_BLOCK[0] WorkingSetInfo_impl;
 }
 
 [CRepr, Union]

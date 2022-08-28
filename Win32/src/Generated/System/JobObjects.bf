@@ -2,6 +2,7 @@ using Win32.Foundation;
 using Win32.System.Threading;
 using Win32.Security;
 using System;
+using System.Interop;
 
 namespace Win32.System.JobObjects;
 
@@ -252,12 +253,12 @@ public struct JOBOBJECT_EXTENDED_LIMIT_INFORMATION
 	public uint PeakJobMemoryUsed;
 }
 
-[CRepr]
+[CRepr, FlexibleArray("ProcessIdList")]
 public struct JOBOBJECT_BASIC_PROCESS_ID_LIST
 {
 	public uint32 NumberOfAssignedProcesses;
 	public uint32 NumberOfProcessIdsInList;
-	public uint[] ProcessIdList;
+	private uint[0] ProcessIdList_impl;
 }
 
 [CRepr]

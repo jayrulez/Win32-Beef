@@ -3,6 +3,7 @@ using Win32.UI.Shell.PropertiesSystem;
 using Win32.System.Com;
 using Win32.Media.Audio;
 using System;
+using System.Interop;
 
 namespace Win32.Media.Audio.Apo;
 #region Constants
@@ -246,7 +247,7 @@ public struct APO_CONNECTION_DESCRIPTOR
 	public uint32 u32Signature;
 }
 
-[CRepr]
+[CRepr, FlexibleArray("iidAPOInterfaceList")]
 public struct APO_REG_PROPERTIES
 {
 	public Guid clsid;
@@ -261,7 +262,7 @@ public struct APO_REG_PROPERTIES
 	public uint32 u32MaxOutputConnections;
 	public uint32 u32MaxInstances;
 	public uint32 u32NumAPOInterfaces;
-	public Guid[] iidAPOInterfaceList;
+	private Guid[0] iidAPOInterfaceList_impl;
 }
 
 [CRepr]
