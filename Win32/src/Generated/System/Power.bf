@@ -779,14 +779,14 @@ public struct BATTERY_SET_INFORMATION
 {
 	public uint32 BatteryTag;
 	public BATTERY_SET_INFORMATION_LEVEL InformationLevel;
-	public uint8[1] Buffer;
+	public uint8[] Buffer;
 }
 
 [CRepr]
 public struct BATTERY_CHARGER_STATUS
 {
 	public BATTERY_CHARGING_SOURCE_TYPE Type;
-	public uint32[1] VaData;
+	public uint32[] VaData;
 }
 
 [CRepr]
@@ -934,7 +934,7 @@ public struct EMI_METADATA_V1
 	public char16[16] HardwareModel;
 	public uint16 HardwareRevision;
 	public uint16 MeteredHardwareNameSize;
-	public char16[1] MeteredHardwareName;
+	public char16[] MeteredHardwareName;
 }
 
 [CRepr]
@@ -942,7 +942,7 @@ public struct EMI_CHANNEL_V2
 {
 	public EMI_MEASUREMENT_UNIT MeasurementUnit;
 	public uint16 ChannelNameSize;
-	public char16[1] ChannelName;
+	public char16[] ChannelName;
 }
 
 [CRepr]
@@ -952,13 +952,13 @@ public struct EMI_METADATA_V2
 	public char16[16] HardwareModel;
 	public uint16 HardwareRevision;
 	public uint16 ChannelCount;
-	public EMI_CHANNEL_V2[1] Channels;
+	public EMI_CHANNEL_V2[] Channels;
 }
 
 [CRepr]
 public struct EMI_MEASUREMENT_DATA_V2
 {
-	public EMI_CHANNEL_MEASUREMENT_DATA[1] ChannelData;
+	public EMI_CHANNEL_MEASUREMENT_DATA[] ChannelData;
 }
 
 [CRepr]
@@ -981,7 +981,7 @@ public struct SET_POWER_SETTING_VALUE
 	public Guid Guid;
 	public SYSTEM_POWER_CONDITION PowerCondition;
 	public uint32 DataLength;
-	public uint8[1] Data;
+	public uint8[] Data;
 }
 
 [CRepr]
@@ -1136,7 +1136,7 @@ public struct POWERBROADCAST_SETTING
 {
 	public Guid PowerSetting;
 	public uint32 DataLength;
-	public uint8[1] Data;
+	public uint8[] Data;
 }
 
 [CRepr]

@@ -1217,7 +1217,7 @@ public struct FILTER_SPEC
 [CRepr]
 public struct Scope_list_ipv4
 {
-	public IN_ADDR[1] scopl_ipaddr;
+	public IN_ADDR[] scopl_ipaddr;
 }
 
 [CRepr]
@@ -1584,7 +1584,7 @@ public struct QOS_DIFFSERV
 {
 	public QOS_OBJECT_HDR ObjectHdr;
 	public uint32 DSFieldCount;
-	public uint8[1] DiffservRule;
+	public uint8[] DiffservRule;
 }
 
 [CRepr]
@@ -1652,7 +1652,7 @@ public struct TC_GEN_FLOW
 	public FLOWSPEC SendingFlowspec;
 	public FLOWSPEC ReceivingFlowspec;
 	public uint32 TcObjectsLength;
-	public QOS_OBJECT_HDR[1] TcObjects;
+	public QOS_OBJECT_HDR[] TcObjects;
 }
 
 [CRepr]
@@ -1714,7 +1714,7 @@ public struct ENUMERATION_BUFFER
 	public char16[256] FlowName;
 	public TC_GEN_FLOW* pFlow;
 	public uint32 NumberOfFilters;
-	public TC_GEN_FILTER[1] GenericFilter;
+	public TC_GEN_FILTER[] GenericFilter;
 }
 
 [CRepr, Union]
@@ -1806,7 +1806,7 @@ public struct RSVP_POLICY_INFO
 {
 	public QOS_OBJECT_HDR ObjectHdr;
 	public uint32 NumPolicyElement;
-	public RSVP_POLICY[1] PolicyElement;
+	public RSVP_POLICY[] PolicyElement;
 }
 
 [CRepr]
@@ -1861,7 +1861,7 @@ public struct PARAM_BUFFER
 {
 	public uint32 ParameterId;
 	public uint32 Length;
-	public uint8[1] Buffer;
+	public uint8[] Buffer;
 }
 
 [CRepr]
@@ -1871,7 +1871,7 @@ public struct CONTROL_SERVICE
 	public struct _Anonymous_e__Union
 	{
 		public AD_GUARANTEED Guaranteed;
-		public PARAM_BUFFER[1] ParamBuffer;
+		public PARAM_BUFFER[] ParamBuffer;
 	}
 
 	public uint32 Length;
@@ -1886,7 +1886,7 @@ public struct RSVP_ADSPEC
 	public QOS_OBJECT_HDR ObjectHdr;
 	public AD_GENERAL_PARAMS GeneralParams;
 	public uint32 NumberOfServices;
-	public CONTROL_SERVICE[1] Services;
+	public CONTROL_SERVICE[] Services;
 }
 
 [CRepr]
@@ -1920,7 +1920,7 @@ public struct TCG_PCClientPCREventStruct
 	public uint32 eventType;
 	public uint8[20] digest;
 	public uint32 eventDataSize;
-	public uint8[1] event;
+	public uint8[] event;
 }
 
 [CRepr, Packed(1)]
@@ -1928,7 +1928,7 @@ public struct TCG_PCClientTaggedEventStruct
 {
 	public uint32 EventID;
 	public uint32 EventDataSize;
-	public uint8[1] EventData;
+	public uint8[] EventData;
 }
 
 [CRepr, Packed(1)]
@@ -1946,7 +1946,7 @@ public struct tag_SIPAEVENT_VSM_IDK_RSA_INFO
 	public uint32 KeyBitLength;
 	public uint32 PublicExpLengthBytes;
 	public uint32 ModulusSizeBytes;
-	public uint8[1] PublicKeyData;
+	public uint8[] PublicKeyData;
 }
 
 [CRepr, Packed(1)]
@@ -1969,7 +1969,7 @@ public struct tag_SIPAEVENT_SI_POLICY_PAYLOAD
 	public uint16 PolicyNameLength;
 	public uint16 HashAlgID;
 	public uint32 DigestLength;
-	public uint8[1] VarLengthData;
+	public uint8[] VarLengthData;
 }
 
 [CRepr, Packed(1)]
@@ -1978,7 +1978,7 @@ public struct tag_SIPAEVENT_REVOCATION_LIST_PAYLOAD
 	public int64 CreationTime;
 	public uint32 DigestLength;
 	public uint16 HashAlgID;
-	public uint8[1] Digest;
+	public uint8[] Digest;
 }
 
 [CRepr, Packed(1)]
@@ -1986,7 +1986,7 @@ public struct tag_SIPAEVENT_KSR_SIGNATURE_PAYLOAD
 {
 	public uint32 SignAlgID;
 	public uint32 SignatureLength;
-	public uint8[1] Signature;
+	public uint8[] Signature;
 }
 
 [CRepr, Packed(1)]
@@ -1998,7 +1998,7 @@ public struct tag_SIPAEVENT_SBCP_INFO_PAYLOAD_V1
 	public uint16 DigestLength;
 	public uint32 Options;
 	public uint32 SignersCount;
-	public uint8[1] VarData;
+	public uint8[] VarData;
 }
 
 [CRepr]

@@ -6855,7 +6855,7 @@ public struct RemHGLOBAL
 {
 	public int32 fNullHGlobal;
 	public uint32 cbData;
-	public uint8[1] data;
+	public uint8[] data;
 }
 
 [CRepr]
@@ -6865,35 +6865,35 @@ public struct RemHMETAFILEPICT
 	public int32 xExt;
 	public int32 yExt;
 	public uint32 cbData;
-	public uint8[1] data;
+	public uint8[] data;
 }
 
 [CRepr]
 public struct RemHENHMETAFILE
 {
 	public uint32 cbData;
-	public uint8[1] data;
+	public uint8[] data;
 }
 
 [CRepr]
 public struct RemHBITMAP
 {
 	public uint32 cbData;
-	public uint8[1] data;
+	public uint8[] data;
 }
 
 [CRepr]
 public struct RemHPALETTE
 {
 	public uint32 cbData;
-	public uint8[1] data;
+	public uint8[] data;
 }
 
 [CRepr]
 public struct RemBRUSH
 {
 	public uint32 cbData;
-	public uint8[1] data;
+	public uint8[] data;
 }
 
 [CRepr]
@@ -7003,7 +7003,7 @@ public struct userBITMAP
 	public uint16 bmPlanes;
 	public uint16 bmBitsPixel;
 	public uint32 cbSize;
-	public uint8[1] pBuffer;
+	public uint8[] pBuffer;
 }
 
 [CRepr]
@@ -7177,7 +7177,7 @@ public struct DEV_BROADCAST_PORT_A
 	public uint32 dbcp_size;
 	public uint32 dbcp_devicetype;
 	public uint32 dbcp_reserved;
-	public CHAR[1] dbcp_name;
+	public CHAR[] dbcp_name;
 }
 
 [CRepr]
@@ -7186,7 +7186,7 @@ public struct DEV_BROADCAST_PORT_W
 	public uint32 dbcp_size;
 	public uint32 dbcp_devicetype;
 	public uint32 dbcp_reserved;
-	public char16[1] dbcp_name;
+	public char16[] dbcp_name;
 }
 
 [CRepr]
@@ -7206,7 +7206,7 @@ public struct DEV_BROADCAST_DEVICEINTERFACE_A
 	public uint32 dbcc_devicetype;
 	public uint32 dbcc_reserved;
 	public Guid dbcc_classguid;
-	public CHAR[1] dbcc_name;
+	public CHAR[] dbcc_name;
 }
 
 [CRepr]
@@ -7216,7 +7216,7 @@ public struct DEV_BROADCAST_DEVICEINTERFACE_W
 	public uint32 dbcc_devicetype;
 	public uint32 dbcc_reserved;
 	public Guid dbcc_classguid;
-	public char16[1] dbcc_name;
+	public char16[] dbcc_name;
 }
 
 [CRepr]
@@ -7229,7 +7229,7 @@ public struct DEV_BROADCAST_HANDLE
 	public void* dbch_hdevnotify;
 	public Guid dbch_eventguid;
 	public int32 dbch_nameoffset;
-	public uint8[1] dbch_data;
+	public uint8[] dbch_data;
 }
 
 [CRepr]
@@ -7242,7 +7242,7 @@ public struct DEV_BROADCAST_HANDLE32
 	public uint32 dbch_hdevnotify;
 	public Guid dbch_eventguid;
 	public int32 dbch_nameoffset;
-	public uint8[1] dbch_data;
+	public uint8[] dbch_data;
 }
 
 [CRepr]
@@ -7255,14 +7255,14 @@ public struct DEV_BROADCAST_HANDLE64
 	public uint64 dbch_hdevnotify;
 	public Guid dbch_eventguid;
 	public int32 dbch_nameoffset;
-	public uint8[1] dbch_data;
+	public uint8[] dbch_data;
 }
 
 [CRepr]
 public struct _DEV_BROADCAST_USERDEFINED
 {
 	public DEV_BROADCAST_HDR dbud_dbh;
-	public CHAR[1] dbud_szName;
+	public CHAR[] dbud_szName;
 }
 
 [CRepr]
@@ -7313,7 +7313,7 @@ public struct SCOPE_TABLE_AMD64
 	}
 
 	public uint32 Count;
-	public _Anonymous_e__Struct[1] ScopeRecord;
+	public _Anonymous_e__Struct[] ScopeRecord;
 }
 
 [CRepr]
@@ -7329,7 +7329,7 @@ public struct SCOPE_TABLE_ARM
 	}
 
 	public uint32 Count;
-	public _Anonymous_e__Struct[1] ScopeRecord;
+	public _Anonymous_e__Struct[] ScopeRecord;
 }
 
 [CRepr]
@@ -7345,7 +7345,7 @@ public struct SCOPE_TABLE_ARM64
 	}
 
 	public uint32 Count;
-	public _Anonymous_e__Struct[1] ScopeRecord;
+	public _Anonymous_e__Struct[] ScopeRecord;
 }
 
 [CRepr, Union]
@@ -7876,7 +7876,7 @@ public struct SCRUB_PARITY_EXTENT_DATA
 	public uint16 Flags;
 	public uint16 NumberOfParityExtents;
 	public uint16 MaximumNumberOfParityExtents;
-	public SCRUB_PARITY_EXTENT[1] ParityExtents;
+	public SCRUB_PARITY_EXTENT[] ParityExtents;
 }
 
 [CRepr]
@@ -8067,7 +8067,7 @@ public struct PPM_WMI_IDLE_STATES
 	public uint32 TargetState;
 	public uint32 OldState;
 	public uint64 TargetProcessors;
-	public PPM_WMI_IDLE_STATE[1] State;
+	public PPM_WMI_IDLE_STATE[] State;
 }
 
 [CRepr]
@@ -8078,7 +8078,7 @@ public struct PPM_WMI_IDLE_STATES_EX
 	public uint32 TargetState;
 	public uint32 OldState;
 	public void* TargetProcessors;
-	public PPM_WMI_IDLE_STATE[1] State;
+	public PPM_WMI_IDLE_STATE[] State;
 }
 
 [CRepr]
@@ -8123,7 +8123,7 @@ public struct PPM_WMI_PERF_STATES
 	public uint32 FeedbackHandler;
 	public uint32 Reserved1;
 	public uint64 Reserved2;
-	public PPM_WMI_PERF_STATE[1] State;
+	public PPM_WMI_PERF_STATE[] State;
 }
 
 [CRepr]
@@ -8149,7 +8149,7 @@ public struct PPM_WMI_PERF_STATES_EX
 	public uint32 FeedbackHandler;
 	public uint32 Reserved1;
 	public uint64 Reserved2;
-	public PPM_WMI_PERF_STATE[1] State;
+	public PPM_WMI_PERF_STATE[] State;
 }
 
 [CRepr]
@@ -8169,7 +8169,7 @@ public struct PPM_IDLE_ACCOUNTING
 	public uint32 TotalTransitions;
 	public uint32 ResetCount;
 	public uint64 StartTime;
-	public PPM_IDLE_STATE_ACCOUNTING[1] State;
+	public PPM_IDLE_STATE_ACCOUNTING[] State;
 }
 
 [CRepr]
@@ -8202,7 +8202,7 @@ public struct PPM_IDLE_ACCOUNTING_EX
 	public uint32 ResetCount;
 	public uint32 AbortCount;
 	public uint64 StartTime;
-	public PPM_IDLE_STATE_ACCOUNTING_EX[1] State;
+	public PPM_IDLE_STATE_ACCOUNTING_EX[] State;
 }
 
 [CRepr]
@@ -8739,7 +8739,7 @@ public struct IMAGE_EXPORT_DIRECTORY
 public struct IMAGE_IMPORT_BY_NAME
 {
 	public uint16 Hint;
-	public CHAR[1] Name;
+	public CHAR[] Name;
 }
 
 [CRepr, Packed(4)]
@@ -8872,14 +8872,14 @@ public struct IMAGE_RESOURCE_DIRECTORY_ENTRY
 public struct IMAGE_RESOURCE_DIRECTORY_STRING
 {
 	public uint16 Length;
-	public CHAR[1] NameString;
+	public CHAR[] NameString;
 }
 
 [CRepr]
 public struct IMAGE_RESOURCE_DIR_STRING_U
 {
 	public uint16 Length;
-	public char16[1] NameString;
+	public char16[] NameString;
 }
 
 [CRepr]
@@ -9064,7 +9064,7 @@ public struct IMAGE_DEBUG_MISC
 	public uint32 Length;
 	public BOOLEAN Unicode;
 	public uint8[3] Reserved;
-	public uint8[1] Data;
+	public uint8[] Data;
 }
 
 [CRepr]
@@ -9164,7 +9164,7 @@ public struct IMAGE_POLICY_METADATA
 	public uint8 Version;
 	public uint8[7] Reserved0;
 	public uint64 ApplicationId;
-	public IMAGE_POLICY_ENTRY[1] Policies;
+	public IMAGE_POLICY_ENTRY[] Policies;
 }
 
 [CRepr]
@@ -9192,7 +9192,7 @@ public struct PACKEDEVENTINFO
 {
 	public uint32 ulSize;
 	public uint32 ulNumEventsForLogFile;
-	public uint32[1] ulOffsets;
+	public uint32[] ulOffsets;
 }
 
 [CRepr]
@@ -9278,7 +9278,7 @@ public struct TRANSACTIONMANAGER_LOG_INFORMATION
 public struct TRANSACTIONMANAGER_LOGPATH_INFORMATION
 {
 	public uint32 LogPathLength;
-	public char16[1] LogPath;
+	public char16[] LogPath;
 }
 
 [CRepr]
@@ -9301,7 +9301,7 @@ public struct TRANSACTION_PROPERTIES_INFORMATION
 	public LARGE_INTEGER Timeout;
 	public uint32 Outcome;
 	public uint32 DescriptionLength;
-	public char16[1] Description;
+	public char16[] Description;
 }
 
 [CRepr]
@@ -9321,7 +9321,7 @@ public struct TRANSACTION_ENLISTMENT_PAIR
 public struct TRANSACTION_ENLISTMENTS_INFORMATION
 {
 	public uint32 NumberOfEnlistments;
-	public TRANSACTION_ENLISTMENT_PAIR[1] EnlistmentPair;
+	public TRANSACTION_ENLISTMENT_PAIR[] EnlistmentPair;
 }
 
 [CRepr]
@@ -9335,7 +9335,7 @@ public struct RESOURCEMANAGER_BASIC_INFORMATION
 {
 	public Guid ResourceManagerId;
 	public uint32 DescriptionLength;
-	public char16[1] Description;
+	public char16[] Description;
 }
 
 [CRepr]
@@ -9371,7 +9371,7 @@ public struct TRANSACTION_LIST_ENTRY
 public struct TRANSACTION_LIST_INFORMATION
 {
 	public uint32 NumberOfTransactions;
-	public TRANSACTION_LIST_ENTRY[1] TransactionInformation;
+	public TRANSACTION_LIST_ENTRY[] TransactionInformation;
 }
 
 [CRepr]
@@ -9379,7 +9379,7 @@ public struct KTMOBJECT_CURSOR
 {
 	public Guid LastQuery;
 	public uint32 ObjectIdCount;
-	public Guid[1] ObjectIds;
+	public Guid[] ObjectIds;
 }
 
 #endregion

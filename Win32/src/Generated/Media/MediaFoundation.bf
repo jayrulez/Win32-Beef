@@ -10481,7 +10481,7 @@ public struct MFVideoSurfaceInfo
 {
 	public uint32 Format;
 	public uint32 PaletteEntries;
-	public MFPaletteEntry[1] Palette;
+	public MFPaletteEntry[] Palette;
 }
 
 [CRepr]
@@ -10668,7 +10668,7 @@ public struct MFINPUTTRUSTAUTHORITY_ACCESS_PARAMS
 	public uint32 cbExtensionOffset;
 	public uint32 cbExtensionSize;
 	public uint32 cActions;
-	public MFINPUTTRUSTAUTHORITY_ACCESS_ACTION[1] rgOutputActions;
+	public MFINPUTTRUSTAUTHORITY_ACCESS_ACTION[] rgOutputActions;
 }
 
 [CRepr]
@@ -10832,7 +10832,7 @@ public struct DIRTYRECT_INFO
 {
 	public uint32 FrameNumber;
 	public uint32 NumDirtyRects;
-	public RECT[1] DirtyRects;
+	public RECT[] DirtyRects;
 }
 
 [CRepr]
@@ -10840,7 +10840,7 @@ public struct MOVEREGION_INFO
 {
 	public uint32 FrameNumber;
 	public uint32 NumMoveRegions;
-	public MOVE_RECT[1] MoveRegions;
+	public MOVE_RECT[] MoveRegions;
 }
 
 [CRepr]
@@ -10937,7 +10937,7 @@ public struct MFCameraExtrinsic_CalibratedTransform
 public struct MFCameraExtrinsics
 {
 	public uint32 TransformCount;
-	public MFCameraExtrinsic_CalibratedTransform[1] CalibratedTransforms;
+	public MFCameraExtrinsic_CalibratedTransform[] CalibratedTransforms;
 }
 
 [CRepr]
@@ -10970,7 +10970,7 @@ public struct MFPinholeCameraIntrinsic_IntrinsicModel
 public struct MFPinholeCameraIntrinsics
 {
 	public uint32 IntrinsicModelCount;
-	public MFPinholeCameraIntrinsic_IntrinsicModel[1] IntrinsicModels;
+	public MFPinholeCameraIntrinsic_IntrinsicModel[] IntrinsicModels;
 }
 
 [CRepr]

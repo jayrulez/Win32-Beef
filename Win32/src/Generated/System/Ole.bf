@@ -2090,7 +2090,7 @@ public struct _wireSAFEARRAY
 	public uint32 cbElements;
 	public uint32 cLocks;
 	public _wireSAFEARRAY_UNION uArrayStructs;
-	public SAFEARRAYBOUND[1] rgsabound;
+	public SAFEARRAYBOUND[] rgsabound;
 }
 
 [CRepr]
@@ -2168,7 +2168,7 @@ public struct ARRAYDESC
 {
 	public TYPEDESC tdescElem;
 	public uint16 cDims;
-	public SAFEARRAYBOUND[1] rgbounds;
+	public SAFEARRAYBOUND[] rgbounds;
 }
 
 [CRepr]
@@ -2466,7 +2466,7 @@ public struct PAGESET
 	public BOOL fOddPages;
 	public BOOL fEvenPages;
 	public uint32 cPageRange;
-	public PAGERANGE[1] rgPages;
+	public PAGERANGE[] rgPages;
 }
 
 [CRepr]
@@ -2482,7 +2482,7 @@ public struct OLECMDTEXT
 	public uint32 cmdtextf;
 	public uint32 cwActual;
 	public uint32 cwBuf;
-	public char16[1] rgwz;
+	public char16[] rgwz;
 }
 
 [CRepr]

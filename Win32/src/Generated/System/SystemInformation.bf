@@ -657,7 +657,7 @@ public struct PROCESSOR_RELATIONSHIP
 	public uint8 EfficiencyClass;
 	public uint8[20] Reserved;
 	public uint16 GroupCount;
-	public GROUP_AFFINITY[1] GroupMask;
+	public GROUP_AFFINITY[] GroupMask;
 }
 
 [CRepr]
@@ -667,7 +667,7 @@ public struct NUMA_NODE_RELATIONSHIP
 	public struct _Anonymous_e__Union
 	{
 		public GROUP_AFFINITY GroupMask;
-		public GROUP_AFFINITY[1] GroupMasks;
+		public GROUP_AFFINITY[] GroupMasks;
 	}
 
 	public uint32 NodeNumber;
@@ -683,7 +683,7 @@ public struct CACHE_RELATIONSHIP
 	public struct _Anonymous_e__Union
 	{
 		public GROUP_AFFINITY GroupMask;
-		public GROUP_AFFINITY[1] GroupMasks;
+		public GROUP_AFFINITY[] GroupMasks;
 	}
 
 	public uint8 Level;
@@ -711,7 +711,7 @@ public struct GROUP_RELATIONSHIP
 	public uint16 MaximumGroupCount;
 	public uint16 ActiveGroupCount;
 	public uint8[20] Reserved;
-	public PROCESSOR_GROUP_INFO[1] GroupInfo;
+	public PROCESSOR_GROUP_INFO[] GroupInfo;
 }
 
 [CRepr]

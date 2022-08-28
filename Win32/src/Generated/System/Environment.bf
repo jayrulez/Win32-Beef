@@ -164,7 +164,7 @@ public struct VBS_ENCLAVE_REPORT_MODULE
 	public uint8[16] FamilyId;
 	public uint8[16] ImageId;
 	public uint32 Svn;
-	public char16[1] ModuleName;
+	public char16[] ModuleName;
 }
 
 [CRepr]

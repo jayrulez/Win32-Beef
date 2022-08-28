@@ -1374,7 +1374,7 @@ public struct AUDIO_VOLUME_NOTIFICATION_DATA
 	public BOOL bMuted;
 	public float fMasterVolume;
 	public uint32 nChannels;
-	public float[1] afChannelVolumes;
+	public float[] afChannelVolumes;
 }
 
 [CRepr, Packed(1)]
@@ -1700,7 +1700,7 @@ public struct MIDIEVENT
 	public uint32 dwDeltaTime;
 	public uint32 dwStreamID;
 	public uint32 dwEvent;
-	public uint32[1] dwParms;
+	public uint32[] dwParms;
 }
 
 [CRepr, Packed(1)]

@@ -1188,7 +1188,7 @@ public struct WMT_WEBSTREAM_SAMPLE_HEADER
 	public uint16 wPart;
 	public uint16 cTotalParts;
 	public uint16 wSampleType;
-	public char16[1] wszURL;
+	public char16[] wszURL;
 }
 
 [CRepr]
@@ -1364,7 +1364,7 @@ public struct WMMPEG2VIDEOINFO
 	public uint32 dwProfile;
 	public uint32 dwLevel;
 	public uint32 dwFlags;
-	public uint32[1] dwSequenceHeader;
+	public uint32[] dwSequenceHeader;
 }
 
 [CRepr]

@@ -1812,7 +1812,7 @@ public struct WMP_WMDM_METADATA_ROUND_TRIP_DEVICE2PC
 	public uint32 dwUnretrievedObjectCount;
 	public uint32 dwDeletedObjectStartingOffset;
 	public uint32 dwFlags;
-	public char16[1] wsObjectPathnameList;
+	public char16[] wsObjectPathnameList;
 }
 
 #endregion

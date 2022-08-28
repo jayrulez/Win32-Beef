@@ -4252,7 +4252,7 @@ public struct NDIS_STATISTICS_VALUE
 {
 	public uint32 Oid;
 	public uint32 DataLength;
-	public uint8[1] Data;
+	public uint8[] Data;
 }
 
 [CRepr]
@@ -4261,7 +4261,7 @@ public struct NDIS_STATISTICS_VALUE_EX
 	public uint32 Oid;
 	public uint32 DataLength;
 	public uint32 Length;
-	public uint8[1] Data;
+	public uint8[] Data;
 }
 
 [CRepr]
@@ -4319,7 +4319,7 @@ public struct NDIS_TIMEOUT_DPC_REQUEST_CAPABILITIES
 	public NDIS_OBJECT_HEADER Header;
 	public uint32 Flags;
 	public uint32 TimeoutArrayLength;
-	public uint32[1] TimeoutArray;
+	public uint32[] TimeoutArray;
 }
 
 [CRepr]
@@ -4366,14 +4366,14 @@ public struct NDIS_802_11_PMKID_CANDIDATE_LIST
 {
 	public uint32 Version;
 	public uint32 NumCandidates;
-	public PMKID_CANDIDATE[1] CandidateList;
+	public PMKID_CANDIDATE[] CandidateList;
 }
 
 [CRepr]
 public struct NDIS_802_11_NETWORK_TYPE_LIST
 {
 	public uint32 NumberOfItems;
-	public NDIS_802_11_NETWORK_TYPE[1] NetworkType;
+	public NDIS_802_11_NETWORK_TYPE[] NetworkType;
 }
 
 [CRepr]
@@ -4433,7 +4433,7 @@ public struct NDIS_802_11_KEY
 	public uint32 KeyLength;
 	public uint8[6] BSSID;
 	public uint64 KeyRSC;
-	public uint8[1] KeyMaterial;
+	public uint8[] KeyMaterial;
 }
 
 [CRepr]
@@ -4450,7 +4450,7 @@ public struct NDIS_802_11_WEP
 	public uint32 Length;
 	public uint32 KeyIndex;
 	public uint32 KeyLength;
-	public uint8[1] KeyMaterial;
+	public uint8[] KeyMaterial;
 }
 
 [CRepr]
@@ -4479,7 +4479,7 @@ public struct NDIS_WLAN_BSSID
 public struct NDIS_802_11_BSSID_LIST
 {
 	public uint32 NumberOfItems;
-	public NDIS_WLAN_BSSID[1] Bssid;
+	public NDIS_WLAN_BSSID[] Bssid;
 }
 
 [CRepr]
@@ -4496,14 +4496,14 @@ public struct NDIS_WLAN_BSSID_EX
 	public NDIS_802_11_NETWORK_INFRASTRUCTURE InfrastructureMode;
 	public uint8[16] SupportedRates;
 	public uint32 IELength;
-	public uint8[1] IEs;
+	public uint8[] IEs;
 }
 
 [CRepr]
 public struct NDIS_802_11_BSSID_LIST_EX
 {
 	public uint32 NumberOfItems;
-	public NDIS_WLAN_BSSID_EX[1] Bssid;
+	public NDIS_WLAN_BSSID_EX[] Bssid;
 }
 
 [CRepr]
@@ -4519,7 +4519,7 @@ public struct NDIS_802_11_VARIABLE_IEs
 {
 	public uint8 ElementID;
 	public uint8 Length;
-	public uint8[1] data;
+	public uint8[] data;
 }
 
 [CRepr]
@@ -4556,7 +4556,7 @@ public struct NDIS_802_11_ASSOCIATION_INFORMATION
 public struct NDIS_802_11_AUTHENTICATION_EVENT
 {
 	public NDIS_802_11_STATUS_INDICATION Status;
-	public NDIS_802_11_AUTHENTICATION_REQUEST[1] Request;
+	public NDIS_802_11_AUTHENTICATION_REQUEST[] Request;
 }
 
 [CRepr]
@@ -4586,7 +4586,7 @@ public struct NDIS_802_11_PMKID
 {
 	public uint32 Length;
 	public uint32 BSSIDInfoCount;
-	public BSSID_INFO[1] BSSIDInfo;
+	public BSSID_INFO[] BSSIDInfo;
 }
 
 [CRepr]
@@ -4603,14 +4603,14 @@ public struct NDIS_802_11_CAPABILITY
 	public uint32 Version;
 	public uint32 NoOfPMKIDs;
 	public uint32 NoOfAuthEncryptPairsSupported;
-	public NDIS_802_11_AUTHENTICATION_ENCRYPTION[1] AuthenticationEncryptionSupported;
+	public NDIS_802_11_AUTHENTICATION_ENCRYPTION[] AuthenticationEncryptionSupported;
 }
 
 [CRepr]
 public struct NDIS_802_11_NON_BCAST_SSID_LIST
 {
 	public uint32 NumberOfItems;
-	public NDIS_802_11_SSID[1] Non_Bcast_Ssid;
+	public NDIS_802_11_SSID[] Non_Bcast_Ssid;
 }
 
 [CRepr]
@@ -4681,7 +4681,7 @@ public struct OFFLOAD_IPSEC_ADD_SA
 	public OFFLOAD_SECURITY_ASSOCIATION[3] SecAssoc;
 	public HANDLE OffloadHandle;
 	public uint32 KeyLen;
-	public uint8[1] KeyMat;
+	public uint8[] KeyMat;
 }
 
 [CRepr]
@@ -4716,7 +4716,7 @@ public struct OFFLOAD_IPSEC_ADD_UDPESP_SA
 	public OFFLOAD_IPSEC_UDPESP_ENCAPTYPE_ENTRY EncapTypeEntry;
 	public HANDLE EncapTypeEntryOffldHandle;
 	public uint32 KeyLen;
-	public uint8[1] KeyMat;
+	public uint8[] KeyMat;
 }
 
 [CRepr]
@@ -4738,7 +4738,7 @@ public struct NETWORK_ADDRESS
 {
 	public uint16 AddressLength;
 	public uint16 AddressType;
-	public uint8[1] Address;
+	public uint8[] Address;
 }
 
 [CRepr]
@@ -4746,7 +4746,7 @@ public struct NETWORK_ADDRESS_LIST
 {
 	public int32 AddressCount;
 	public uint16 AddressType;
-	public NETWORK_ADDRESS[1] Address;
+	public NETWORK_ADDRESS[] Address;
 }
 
 [CRepr]
@@ -5268,7 +5268,7 @@ public struct NDIS_WMI_ENUM_ADAPTER
 	public uint32 IfIndex;
 	public NET_LUID_LH NetLuid;
 	public uint16 DeviceNameLength;
-	public CHAR[1] DeviceName;
+	public CHAR[] DeviceName;
 }
 
 [CRepr]
@@ -5361,7 +5361,7 @@ public struct NDIS_PORT_ARRAY
 	public uint32 NumberOfPorts;
 	public uint32 OffsetFirstPort;
 	public uint32 ElementSize;
-	public NDIS_PORT_CHARACTERISTICS[1] Ports;
+	public NDIS_PORT_CHARACTERISTICS[] Ports;
 }
 
 [CRepr]
@@ -5467,7 +5467,7 @@ public struct DOT11_SECURITY_PACKET_HEADER
 {
 	public uint8[6] PeerMac;
 	public uint16 usEtherType;
-	public uint8[1] Data;
+	public uint8[] Data;
 }
 
 [CRepr]
@@ -5485,7 +5485,7 @@ public struct DOT11_MSSECURITY_SETTINGS
 public struct DOT11EXT_IHV_SSID_LIST
 {
 	public uint32 ulCount;
-	public DOT11_SSID[1] SSIDs;
+	public DOT11_SSID[] SSIDs;
 }
 
 [CRepr]

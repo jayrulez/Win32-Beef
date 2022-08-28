@@ -2034,7 +2034,7 @@ public struct WIA_BARCODE_INFO
 	public uint32 YOffset;
 	public uint32 Rotation;
 	public uint32 Length;
-	public char16[1] Text;
+	public char16[] Text;
 }
 
 [CRepr]
@@ -2044,7 +2044,7 @@ public struct WIA_BARCODES
 	public uint32 Version;
 	public uint32 Size;
 	public uint32 Count;
-	public WIA_BARCODE_INFO[1] Barcodes;
+	public WIA_BARCODE_INFO[] Barcodes;
 }
 
 [CRepr]
@@ -2060,7 +2060,7 @@ public struct WIA_PATCH_CODES
 	public uint32 Version;
 	public uint32 Size;
 	public uint32 Count;
-	public WIA_PATCH_CODE_INFO[1] PatchCodes;
+	public WIA_PATCH_CODE_INFO[] PatchCodes;
 }
 
 [CRepr]
@@ -2069,7 +2069,7 @@ public struct WIA_MICR_INFO
 	public uint32 Size;
 	public uint32 Page;
 	public uint32 Length;
-	public char16[1] Text;
+	public char16[] Text;
 }
 
 [CRepr]
@@ -2081,7 +2081,7 @@ public struct WIA_MICR
 	public char16 Placeholder;
 	public uint16 Reserved;
 	public uint32 Count;
-	public WIA_MICR_INFO[1] Micr;
+	public WIA_MICR_INFO[] Micr;
 }
 
 [CRepr]
@@ -2436,7 +2436,7 @@ public struct TWAIN_CAPABILITY
 	public int32 lRC;
 	public int32 lCC;
 	public int32 lDataSize;
-	public uint8[1] Data;
+	public uint8[] Data;
 }
 
 #endregion

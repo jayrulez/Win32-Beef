@@ -502,7 +502,7 @@ public struct SERVICE_CUSTOM_SYSTEM_STATE_CHANGE_DATA_ITEM
 		public struct _s_e__Struct
 		{
 			public uint32 DataOffset;
-			public uint8[1] Data;
+			public uint8[] Data;
 		}
 
 		public SERVICE_TRIGGER_CUSTOM_STATE_ID CustomStateId;

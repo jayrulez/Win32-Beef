@@ -874,7 +874,7 @@ public struct PEB
 {
 	public uint8[2] Reserved1;
 	public uint8 BeingDebugged;
-	public uint8[1] Reserved2;
+	public uint8[] Reserved2;
 	public void*[2] Reserved3;
 	public PEB_LDR_DATA* Ldr;
 	public RTL_USER_PROCESS_PARAMETERS* ProcessParameters;
@@ -889,7 +889,7 @@ public struct PEB
 	public uint8[96] Reserved10;
 	public PPS_POST_PROCESS_INIT_ROUTINE PostProcessInitRoutine;
 	public uint8[128] Reserved11;
-	public void*[1] Reserved12;
+	public void*[] Reserved12;
 	public uint32 SessionId;
 }
 

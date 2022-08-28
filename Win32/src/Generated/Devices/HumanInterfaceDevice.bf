@@ -5806,7 +5806,7 @@ public struct INDICATOR_LIST
 public struct KEYBOARD_INDICATOR_TRANSLATION
 {
 	public uint16 NumberOfIndicatorKeys;
-	public INDICATOR_LIST[1] IndicatorList;
+	public INDICATOR_LIST[] IndicatorList;
 }
 
 [CRepr]
@@ -6053,7 +6053,7 @@ public struct HIDP_EXTENDED_ATTRIBUTES
 	public uint8 NumGlobalUnknowns;
 	public uint8[3] Reserved;
 	public HIDP_UNKNOWN_TOKEN* GlobalUnknowns;
-	public uint32[1] Data;
+	public uint32[] Data;
 }
 
 [CRepr]
@@ -6112,7 +6112,7 @@ public struct HID_COLLECTION_INFORMATION
 {
 	public uint32 DescriptorSize;
 	public BOOLEAN Polled;
-	public uint8[1] Reserved1;
+	public uint8[] Reserved1;
 	public uint16 VendorID;
 	public uint16 ProductID;
 	public uint16 VersionNumber;

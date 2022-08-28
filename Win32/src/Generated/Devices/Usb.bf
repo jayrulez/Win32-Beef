@@ -1582,7 +1582,7 @@ public struct USB_DEVICE_CAPABILITY_SUPERSPEEDPLUS_USB_DESCRIPTOR
 	public _bmAttributes_e__Union bmAttributes;
 	public _wFunctionalitySupport_e__Union wFunctionalitySupport;
 	public uint16 wReserved;
-	public USB_DEVICE_CAPABILITY_SUPERSPEEDPLUS_SPEED[1] bmSublinkSpeedAttr;
+	public USB_DEVICE_CAPABILITY_SUPERSPEEDPLUS_SPEED[] bmSublinkSpeedAttr;
 }
 
 [CRepr]
@@ -1603,7 +1603,7 @@ public struct USB_DEVICE_CAPABILITY_PLATFORM_DESCRIPTOR
 	public uint8 bDevCapabilityType;
 	public uint8 bReserved;
 	public Guid PlatformCapabilityUuid;
-	public uint8[1] CapabililityData;
+	public uint8[] CapabililityData;
 }
 
 [CRepr, Packed(1)]
@@ -1639,7 +1639,7 @@ public struct USB_DEVICE_CAPABILITY_BILLBOARD_DESCRIPTOR
 	public _VconnPower_e__Union VconnPower;
 	public uint8[32] bmConfigured;
 	public uint32 bReserved;
-	public _Anonymous_e__Struct[1] AlternateMode;
+	public _Anonymous_e__Struct[] AlternateMode;
 }
 
 [CRepr]
@@ -1741,7 +1741,7 @@ public struct USB_STRING_DESCRIPTOR
 {
 	public uint8 bLength;
 	public uint8 bDescriptorType;
-	public char16[1] bString;
+	public char16[] bString;
 }
 
 [CRepr, Packed(1)]
@@ -2078,7 +2078,7 @@ public struct USBD_INTERFACE_INFORMATION
 	public uint8 Reserved;
 	public void* InterfaceHandle;
 	public uint32 NumberOfPipes;
-	public USBD_PIPE_INFORMATION[1] Pipes;
+	public USBD_PIPE_INFORMATION[] Pipes;
 }
 
 [CRepr]
@@ -2348,7 +2348,7 @@ public struct _URB_ISOCH_TRANSFER
 	public uint32 StartFrame;
 	public uint32 NumberOfPackets;
 	public uint32 ErrorCount;
-	public USBD_ISO_PACKET_DESCRIPTOR[1] IsoPacket;
+	public USBD_ISO_PACKET_DESCRIPTOR[] IsoPacket;
 }
 
 [CRepr]
@@ -2517,7 +2517,7 @@ public struct USBUSER_CONTROLLER_INFO_0
 public struct USB_UNICODE_NAME
 {
 	public uint32 Length;
-	public char16[1] String;
+	public char16[] String;
 }
 
 [CRepr]
@@ -2837,7 +2837,7 @@ public struct USBFN_INTERFACE_INFO
 	public uint8 InterfaceNumber;
 	public USBFN_BUS_SPEED Speed;
 	public uint16 Size;
-	public uint8[1] InterfaceDescriptorSet;
+	public uint8[] InterfaceDescriptorSet;
 }
 
 [CRepr]

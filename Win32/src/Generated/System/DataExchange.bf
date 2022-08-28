@@ -288,7 +288,7 @@ public struct DDEDATA
 {
 	public uint16 _bitfield;
 	public int16 cfFormat;
-	public uint8[1] Value;
+	public uint8[] Value;
 }
 
 [CRepr]
@@ -296,7 +296,7 @@ public struct DDEPOKE
 {
 	public uint16 _bitfield;
 	public int16 cfFormat;
-	public uint8[1] Value;
+	public uint8[] Value;
 }
 
 [CRepr]
@@ -311,7 +311,7 @@ public struct DDEUP
 {
 	public uint16 _bitfield;
 	public int16 cfFormat;
-	public uint8[1] rgb;
+	public uint8[] rgb;
 }
 
 [CRepr]
@@ -404,7 +404,7 @@ public struct MONHSZSTRUCTA
 	public uint32 dwTime;
 	public HSZ hsz;
 	public HANDLE hTask;
-	public CHAR[1] str;
+	public CHAR[] str;
 }
 
 [CRepr]
@@ -415,7 +415,7 @@ public struct MONHSZSTRUCTW
 	public uint32 dwTime;
 	public HSZ hsz;
 	public HANDLE hTask;
-	public char16[1] str;
+	public char16[] str;
 }
 
 [CRepr]

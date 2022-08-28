@@ -2219,7 +2219,7 @@ public struct PATCH_INTERLEAVE_MAP
 	}
 
 	public uint32 CountRanges;
-	public _Anonymous_e__Struct[1] Range;
+	public _Anonymous_e__Struct[] Range;
 }
 
 [CRepr]
@@ -2338,7 +2338,7 @@ public struct COMPATIBILITY_CONTEXT_ELEMENT
 public struct ACTIVATION_CONTEXT_COMPATIBILITY_INFORMATION
 {
 	public uint32 ElementCount;
-	public COMPATIBILITY_CONTEXT_ELEMENT[1] Elements;
+	public COMPATIBILITY_CONTEXT_ELEMENT[] Elements;
 }
 
 [CRepr]

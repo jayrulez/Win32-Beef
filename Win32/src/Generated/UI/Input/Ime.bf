@@ -1496,7 +1496,7 @@ public struct CANDIDATELIST
 	public uint32 dwSelection;
 	public uint32 dwPageStart;
 	public uint32 dwPageSize;
-	public uint32[1] dwOffset;
+	public uint32[] dwOffset;
 }
 
 [CRepr]
@@ -1650,7 +1650,7 @@ public struct MORRSLT
 	public WDD* pWDD;
 	public int32 cWDD;
 	public void* pPrivate;
-	public char16[1] BLKBuff;
+	public char16[] BLKBuff;
 }
 
 [CRepr, Packed(1)]
@@ -1835,7 +1835,7 @@ public struct TRANSMSG
 public struct TRANSMSGLIST
 {
 	public uint32 uMsgCount;
-	public TRANSMSG[1] TransMsg;
+	public TRANSMSG[] TransMsg;
 }
 
 [CRepr]
@@ -1907,7 +1907,7 @@ public struct APPLETIDLIST
 public struct IMESTRINGCANDIDATE
 {
 	public uint32 uCount;
-	public PWSTR[1] lpwstr;
+	public PWSTR[] lpwstr;
 }
 
 [CRepr]
@@ -1922,7 +1922,7 @@ public struct IMEITEM
 public struct IMEITEMCANDIDATE
 {
 	public uint32 uCount;
-	public IMEITEM[1] imeItem;
+	public IMEITEM[] imeItem;
 }
 
 [CRepr]
@@ -1937,7 +1937,7 @@ public struct tabIMEFAREASTINFO
 {
 	public uint32 dwSize;
 	public uint32 dwType;
-	public uint32[1] dwData;
+	public uint32[] dwData;
 }
 
 [CRepr]
@@ -1948,7 +1948,7 @@ public struct IMESTRINGCANDIDATEINFO
 	public uint32 fInfoMask;
 	public int32 iSelIndex;
 	public uint32 uCount;
-	public PWSTR[1] lpwstr;
+	public PWSTR[] lpwstr;
 }
 
 [CRepr]

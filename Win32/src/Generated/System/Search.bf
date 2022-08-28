@@ -8574,7 +8574,7 @@ public struct DB_VARNUMERIC
 	public uint8 precision;
 	public int8 scale;
 	public uint8 sign;
-	public uint8[1] val;
+	public uint8[] val;
 }
 
 #if BF_64_BIT || BF_ARM_64

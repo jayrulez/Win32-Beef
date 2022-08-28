@@ -1083,7 +1083,7 @@ public struct PDH_COUNTER_INFO_A
 	public PSTR szFullPath;
 	public using _Anonymous_e__Union Anonymous;
 	public PSTR szExplainText;
-	public uint32[1] DataBuffer;
+	public uint32[] DataBuffer;
 }
 
 [CRepr]
@@ -1119,7 +1119,7 @@ public struct PDH_COUNTER_INFO_W
 	public PWSTR szFullPath;
 	public using _Anonymous_e__Union Anonymous;
 	public PWSTR szExplainText;
-	public uint32[1] DataBuffer;
+	public uint32[] DataBuffer;
 }
 
 [CRepr]
@@ -1136,7 +1136,7 @@ public struct PDH_RAW_LOG_RECORD
 	public uint32 dwStructureSize;
 	public PDH_LOG_TYPE dwRecordType;
 	public uint32 dwItems;
-	public uint8[1] RawBytes;
+	public uint8[] RawBytes;
 }
 
 [CRepr]

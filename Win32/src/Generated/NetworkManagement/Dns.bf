@@ -792,7 +792,7 @@ public function void PMDNS_QUERY_CALLBACK(void* pQueryContext, MDNS_QUERY_HANDLE
 public struct IP4_ARRAY
 {
 	public uint32 AddrCount;
-	public uint32[1] AddrArray;
+	public uint32[] AddrArray;
 }
 
 #if BF_64_BIT || BF_ARM_64
@@ -831,7 +831,7 @@ public struct DNS_ADDR_ARRAY
 	public uint32 MatchFlag;
 	public uint32 Reserved1;
 	public uint32 Reserved2;
-	public DNS_ADDR[1] AddrArray;
+	public DNS_ADDR[] AddrArray;
 }
 
 [CRepr, Packed(1)]
@@ -946,21 +946,21 @@ public struct DNS_MX_DATAA
 public struct DNS_TXT_DATAW
 {
 	public uint32 dwStringCount;
-	public PWSTR[1] pStringArray;
+	public PWSTR[] pStringArray;
 }
 
 [CRepr]
 public struct DNS_TXT_DATAA
 {
 	public uint32 dwStringCount;
-	public PSTR[1] pStringArray;
+	public PSTR[] pStringArray;
 }
 
 [CRepr]
 public struct DNS_NULL_DATA
 {
 	public uint32 dwByteCount;
-	public uint8[1] Data;
+	public uint8[] Data;
 }
 
 [CRepr]
@@ -968,7 +968,7 @@ public struct DNS_WKS_DATA
 {
 	public uint32 IpAddress;
 	public uint8 chProtocol;
-	public uint8[1] BitMask;
+	public uint8[] BitMask;
 }
 
 [CRepr]
@@ -989,7 +989,7 @@ public struct DNS_SIG_DATAW
 	public uint16 wKeyTag;
 	public uint16 wSignatureLength;
 	public PWSTR pNameSigner;
-	public uint8[1] Signature;
+	public uint8[] Signature;
 }
 
 [CRepr]
@@ -1004,7 +1004,7 @@ public struct DNS_SIG_DATAA
 	public uint16 wKeyTag;
 	public uint16 wSignatureLength;
 	public PSTR pNameSigner;
-	public uint8[1] Signature;
+	public uint8[] Signature;
 }
 
 [CRepr]
@@ -1015,14 +1015,14 @@ public struct DNS_KEY_DATA
 	public uint8 chAlgorithm;
 	public uint16 wKeyLength;
 	public uint16 wPad;
-	public uint8[1] Key;
+	public uint8[] Key;
 }
 
 [CRepr]
 public struct DNS_DHCID_DATA
 {
 	public uint32 dwByteCount;
-	public uint8[1] DHCID;
+	public uint8[] DHCID;
 }
 
 [CRepr]
@@ -1031,7 +1031,7 @@ public struct DNS_NSEC_DATAW
 	public PWSTR pNextDomainName;
 	public uint16 wTypeBitMapsLength;
 	public uint16 wPad;
-	public uint8[1] TypeBitMaps;
+	public uint8[] TypeBitMaps;
 }
 
 [CRepr]
@@ -1040,7 +1040,7 @@ public struct DNS_NSEC_DATAA
 	public PSTR pNextDomainName;
 	public uint16 wTypeBitMapsLength;
 	public uint16 wPad;
-	public uint8[1] TypeBitMaps;
+	public uint8[] TypeBitMaps;
 }
 
 [CRepr]
@@ -1052,7 +1052,7 @@ public struct DNS_NSEC3_DATA
 	public uint8 bSaltLength;
 	public uint8 bHashLength;
 	public uint16 wTypeBitMapsLength;
-	public uint8[1] chData;
+	public uint8[] chData;
 }
 
 [CRepr]
@@ -1063,7 +1063,7 @@ public struct DNS_NSEC3PARAM_DATA
 	public uint16 wIterations;
 	public uint8 bSaltLength;
 	public uint8[3] bPad;
-	public uint8[1] pbSalt;
+	public uint8[] pbSalt;
 }
 
 [CRepr]
@@ -1074,7 +1074,7 @@ public struct DNS_TLSA_DATA
 	public uint8 bMatchingType;
 	public uint16 bCertificateAssociationDataLength;
 	public uint8[3] bPad;
-	public uint8[1] bCertificateAssociationData;
+	public uint8[] bCertificateAssociationData;
 }
 
 [CRepr]
@@ -1085,7 +1085,7 @@ public struct DNS_DS_DATA
 	public uint8 chDigestType;
 	public uint16 wDigestLength;
 	public uint16 wPad;
-	public uint8[1] Digest;
+	public uint8[] Digest;
 }
 
 [CRepr]
@@ -1093,7 +1093,7 @@ public struct DNS_OPT_DATA
 {
 	public uint16 wDataLength;
 	public uint16 wPad;
-	public uint8[1] Data;
+	public uint8[] Data;
 }
 
 [CRepr]
@@ -1113,7 +1113,7 @@ public struct DNS_NXT_DATAW
 {
 	public PWSTR pNameNext;
 	public uint16 wNumTypes;
-	public uint16[1] wTypes;
+	public uint16[] wTypes;
 }
 
 [CRepr]
@@ -1121,7 +1121,7 @@ public struct DNS_NXT_DATAA
 {
 	public PSTR pNameNext;
 	public uint16 wNumTypes;
-	public uint16[1] wTypes;
+	public uint16[] wTypes;
 }
 
 [CRepr]
@@ -1245,7 +1245,7 @@ public struct DNS_TSIG_DATAA
 public struct DNS_UNKNOWN_DATA
 {
 	public uint32 dwByteCount;
-	public uint8[1] bData;
+	public uint8[] bData;
 }
 
 [CRepr]
@@ -1255,7 +1255,7 @@ public struct DNS_WINS_DATA
 	public uint32 dwLookupTimeout;
 	public uint32 dwCacheTimeout;
 	public uint32 cWinsServerCount;
-	public uint32[1] WinsServers;
+	public uint32[] WinsServers;
 }
 
 [CRepr]
@@ -1649,7 +1649,7 @@ public struct DNS_APPLICATION_SETTINGS
 public struct DNS_MESSAGE_BUFFER
 {
 	public DNS_HEADER MessageHead;
-	public CHAR[1] MessageBody;
+	public CHAR[] MessageBody;
 }
 
 [CRepr]

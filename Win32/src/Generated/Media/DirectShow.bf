@@ -6608,7 +6608,7 @@ public struct BDA_ETHERNET_ADDRESS
 public struct BDA_ETHERNET_ADDRESS_LIST
 {
 	public uint32 ulcAddresses;
-	public BDA_ETHERNET_ADDRESS[1] rgAddressl;
+	public BDA_ETHERNET_ADDRESS[] rgAddressl;
 }
 
 [CRepr]
@@ -6621,7 +6621,7 @@ public struct BDA_IPv4_ADDRESS
 public struct BDA_IPv4_ADDRESS_LIST
 {
 	public uint32 ulcAddresses;
-	public BDA_IPv4_ADDRESS[1] rgAddressl;
+	public BDA_IPv4_ADDRESS[] rgAddressl;
 }
 
 [CRepr]
@@ -6634,7 +6634,7 @@ public struct BDA_IPv6_ADDRESS
 public struct BDA_IPv6_ADDRESS_LIST
 {
 	public uint32 ulcAddresses;
-	public BDA_IPv6_ADDRESS[1] rgAddressl;
+	public BDA_IPv6_ADDRESS[] rgAddressl;
 }
 
 [CRepr]
@@ -6651,7 +6651,7 @@ public struct BDA_TABLE_SECTION
 	public uint32 ulPrimarySectionId;
 	public uint32 ulSecondarySectionId;
 	public uint32 ulcbSectionLength;
-	public uint32[1] argbSectionData;
+	public uint32[] argbSectionData;
 }
 
 [CRepr]
@@ -6682,14 +6682,14 @@ public struct BDA_PID_MAP
 {
 	public MEDIA_SAMPLE_CONTENT MediaSampleContent;
 	public uint32 ulcPIDs;
-	public uint32[1] aulPIDs;
+	public uint32[] aulPIDs;
 }
 
 [CRepr]
 public struct BDA_PID_UNMAP
 {
 	public uint32 ulcPIDs;
-	public uint32[1] aulPIDs;
+	public uint32[] aulPIDs;
 }
 
 [CRepr]
@@ -6697,7 +6697,7 @@ public struct BDA_CA_MODULE_UI
 {
 	public uint32 ulFormat;
 	public uint32 ulbcDesc;
-	public uint32[1] ulDesc;
+	public uint32[] ulDesc;
 }
 
 [CRepr]
@@ -6705,7 +6705,7 @@ public struct BDA_PROGRAM_PID_LIST
 {
 	public uint32 ulProgramNumber;
 	public uint32 ulcPIDs;
-	public uint32[1] ulPID;
+	public uint32[] ulPID;
 }
 
 [CRepr]
@@ -6714,7 +6714,7 @@ public struct BDA_DRM_DRMSTATUS
 	public int32 lResult;
 	public Guid DRMuuid;
 	public uint32 ulDrmUuidListStringSize;
-	public Guid[1] argbDrmUuidListString;
+	public Guid[] argbDrmUuidListString;
 }
 
 [CRepr]
@@ -6737,7 +6737,7 @@ public struct BDA_WMDRM_KEYINFOLIST
 {
 	public int32 lResult;
 	public uint32 ulKeyuuidBufferLen;
-	public Guid[1] argKeyuuidBuffer;
+	public Guid[] argKeyuuidBuffer;
 }
 
 [CRepr]
@@ -6745,7 +6745,7 @@ public struct BDA_BUFFER
 {
 	public int32 lResult;
 	public uint32 ulBufferSize;
-	public uint8[1] argbBuffer;
+	public uint8[] argbBuffer;
 }
 
 [CRepr]
@@ -6754,7 +6754,7 @@ public struct BDA_WMDRM_RENEWLICENSE
 	public int32 lResult;
 	public uint32 ulDescrambleStatus;
 	public uint32 ulXmrLicenseOutputLength;
-	public uint8[1] argbXmrLicenceOutputBuffer;
+	public uint8[] argbXmrLicenceOutputBuffer;
 }
 
 [CRepr]
@@ -6770,7 +6770,7 @@ public struct BDA_WMDRMTUNER_PURCHASEENTITLEMENT
 	public int32 lResult;
 	public uint32 ulDescrambleStatus;
 	public uint32 ulCaptureTokenLength;
-	public uint8[1] argbCaptureTokenBuffer;
+	public uint8[] argbCaptureTokenBuffer;
 }
 
 [CRepr]
@@ -6778,7 +6778,7 @@ public struct BDA_TUNER_TUNERSTATE
 {
 	public int32 lResult;
 	public uint32 ulTuneLength;
-	public uint8[1] argbTuneData;
+	public uint8[] argbTuneData;
 }
 
 [CRepr]
@@ -6795,7 +6795,7 @@ public struct BDA_STRING
 {
 	public int32 lResult;
 	public uint32 ulStringSize;
-	public uint8[1] argbString;
+	public uint8[] argbString;
 }
 
 [CRepr]
@@ -6835,7 +6835,7 @@ public struct BDA_GDDS_DATA
 	public int32 lResult;
 	public uint32 ulDataLength;
 	public uint32 ulPercentageProgress;
-	public uint8[1] argbData;
+	public uint8[] argbData;
 }
 
 [CRepr]
@@ -6875,7 +6875,7 @@ public struct BDA_CAS_OPENMMIDATA
 	public uint32 ulDialogRequest;
 	public Guid uuidDialogType;
 	public uint16 usDialogDataLength;
-	public uint8[1] argbDialogData;
+	public uint8[] argbDialogData;
 }
 
 [CRepr]
@@ -6890,7 +6890,7 @@ public struct BDA_ISDBCAS_REQUESTHEADER
 	public uint8 bInstruction;
 	public uint8[3] bReserved;
 	public uint32 ulDataLength;
-	public uint8[1] argbIsdbCommand;
+	public uint8[] argbIsdbCommand;
 }
 
 [CRepr, Packed(1)]
@@ -6900,7 +6900,7 @@ public struct BDA_ISDBCAS_RESPONSEDATA
 	public uint32 ulRequestID;
 	public uint32 ulIsdbStatus;
 	public uint32 ulIsdbDataSize;
-	public uint8[1] argbIsdbCommandData;
+	public uint8[] argbIsdbCommandData;
 }
 
 [CRepr]
@@ -6915,7 +6915,7 @@ public struct BDA_ISDBCAS_EMG_REQ
 	public uint8 bProtocol;
 	public uint8 bCABroadcasterGroupId;
 	public uint8 bMessageControl;
-	public uint8[1] bMessageCode;
+	public uint8[] bMessageCode;
 }
 
 [CRepr, Packed(2)]
@@ -6933,7 +6933,7 @@ public struct BDA_TS_SELECTORINFO
 	public uint8[2] bReserved;
 	public Guid guidNetworkType;
 	public uint8 bTSIDCount;
-	public uint16[1] usTSID;
+	public uint16[] usTSID;
 }
 
 [CRepr]
@@ -6958,14 +6958,14 @@ public struct BDA_DVBT2_L1_SIGNALLING_DATA
 	public uint8[2] L1Pre_NUM_DATA_REGENFLAG_L1POSTEXT;
 	public uint8[2] L1Pre_NUMRF_CURRENTRF_RESERVED;
 	public uint8[4] L1Pre_CRC32;
-	public uint8[1] L1PostData;
+	public uint8[] L1PostData;
 }
 
 [CRepr]
 public struct BDA_RATING_PINRESET
 {
 	public uint8 bPinLength;
-	public uint8[1] argbNewPin;
+	public uint8[] argbNewPin;
 }
 
 [CRepr]
@@ -7113,7 +7113,7 @@ public struct MPEG1VIDEOINFO
 	public VIDEOINFOHEADER hdr;
 	public uint32 dwStartTimeCode;
 	public uint32 cbSequenceHeader;
-	public uint8[1] bSequenceHeader;
+	public uint8[] bSequenceHeader;
 }
 
 [CRepr]
@@ -7138,7 +7138,7 @@ public struct AM_MPEGSTREAMTYPE
 	public uint32 dwStreamId;
 	public uint32 dwReserved;
 	public AM_MEDIA_TYPE mt;
-	public uint8[1] bFormat;
+	public uint8[] bFormat;
 }
 
 [CRepr]
@@ -7146,7 +7146,7 @@ public struct AM_MPEGSYSTEMTYPE
 {
 	public uint32 dwBitRate;
 	public uint32 cStreams;
-	public AM_MPEGSTREAMTYPE[1] Streams;
+	public AM_MPEGSTREAMTYPE[] Streams;
 }
 
 [CRepr]
@@ -7365,7 +7365,7 @@ public struct AVIOLDINDEX
 
 	public uint32 fcc;
 	public uint32 cb;
-	public _avioldindex_entry[1] aIndex;
+	public _avioldindex_entry[] aIndex;
 }
 
 [CRepr, Packed(2)]
@@ -7387,7 +7387,7 @@ public struct AVIMETAINDEX
 	public uint32 nEntriesInUse;
 	public uint32 dwChunkId;
 	public uint32[3] dwReserved;
-	public uint32[1] adwIndex;
+	public uint32[] adwIndex;
 }
 
 [CRepr, Packed(2)]
@@ -7517,7 +7517,7 @@ public struct AVIFIELDINDEX
 	public uint32 dwChunkId;
 	public uint64 qwBaseOffset;
 	public uint32 dwReserved3;
-	public _avifieldindex_entry[1] aIndex;
+	public _avifieldindex_entry[] aIndex;
 }
 
 [CRepr]
@@ -7570,7 +7570,7 @@ public struct AVIPALCHANGE
 	public uint8 bFirstEntry;
 	public uint8 bNumEntries;
 	public uint16 wFlags;
-	public PALETTEENTRY[1] peNew;
+	public PALETTEENTRY[] peNew;
 }
 
 [CRepr]
@@ -7661,7 +7661,7 @@ public struct AM_DVDCOPY_CHLGKEY
 public struct AM_DVDCOPY_BUSKEY
 {
 	public uint8[5] BusKey;
-	public uint8[1] Reserved;
+	public uint8[] Reserved;
 }
 
 [CRepr]
@@ -7733,7 +7733,7 @@ public struct MPEG2VIDEOINFO
 	public uint32 dwProfile;
 	public uint32 dwLevel;
 	public MPEG2VIDEOINFO_FLAGS dwFlags;
-	public uint32[1] dwSequenceHeader;
+	public uint32[] dwSequenceHeader;
 }
 
 [CRepr]
@@ -7799,7 +7799,7 @@ public struct MP_ENVELOPE_SEGMENT
 public struct VFW_FILTERLIST
 {
 	public uint32 cFilters;
-	public Guid[1] aClsId;
+	public Guid[] aClsId;
 }
 
 [CRepr]
@@ -8018,7 +8018,7 @@ public struct SECTION
 
 	public uint8 TableId;
 	public _Header_e__Union Header;
-	public uint8[1] SectionData;
+	public uint8[] SectionData;
 }
 
 [CRepr, Packed(1)]
@@ -8044,7 +8044,7 @@ public struct LONG_SECTION
 	public _Version_e__Union Version;
 	public uint8 SectionNumber;
 	public uint8 LastSectionNumber;
-	public uint8[1] RemainingData;
+	public uint8[] RemainingData;
 }
 
 [CRepr, Packed(1)]
@@ -8077,7 +8077,7 @@ public struct DSMCC_SECTION
 	public uint8 Reserved;
 	public uint8 AdaptationLength;
 	public uint16 MessageLength;
-	public uint8[1] RemainingData;
+	public uint8[] RemainingData;
 }
 
 [CRepr, Packed(1)]
@@ -8091,7 +8091,7 @@ public struct MPEG_RQST_PACKET
 public struct MPEG_PACKET_LIST
 {
 	public uint16 wPacketCount;
-	public MPEG_RQST_PACKET*[1] PacketList;
+	public MPEG_RQST_PACKET*[] PacketList;
 }
 
 [CRepr, Packed(1)]
@@ -8296,7 +8296,7 @@ public struct Mpeg2TableSampleHdr
 {
 	public uint8 SectionCount;
 	public uint8[3] Reserved;
-	public int32[1] SectionOffsets;
+	public int32[] SectionOffsets;
 }
 
 [CRepr]
@@ -8372,7 +8372,7 @@ public struct PBDA_TAG_ATTRIBUTE
 	public uint8 TableId;
 	public uint16 VersionNo;
 	public uint32 TableDataSize;
-	public uint8[1] TableData;
+	public uint8[] TableData;
 }
 
 [CRepr]
@@ -8457,7 +8457,7 @@ public struct KSM_BDA_DEBUG_LEVEL
 	public KSIDENTIFIER Method;
 	public uint8 ucDebugLevel;
 	public uint32 ulDebugStringSize;
-	public uint8[1] argbDebugString;
+	public uint8[] argbDebugString;
 }
 
 [CRepr]
@@ -8466,7 +8466,7 @@ public struct BDA_DEBUG_DATA
 	public int32 lResult;
 	public Guid uuidDebugDataType;
 	public uint32 ulDataSize;
-	public uint8[1] argbDebugData;
+	public uint8[] argbDebugData;
 }
 
 [CRepr]
@@ -8476,7 +8476,7 @@ public struct BDA_EVENT_DATA
 	public uint32 ulEventID;
 	public Guid uuidEventType;
 	public uint32 ulEventDataLength;
-	public uint8[1] argbEventData;
+	public uint8[] argbEventData;
 }
 
 [CRepr]
@@ -8499,7 +8499,7 @@ public struct KSM_BDA_BUFFER
 {
 	public KSM_NODE NodeMethod;
 	public uint32 ulBufferSize;
-	public uint8[1] argbBuffer;
+	public uint8[] argbBuffer;
 }
 
 [CRepr]
@@ -8515,7 +8515,7 @@ public struct KSM_BDA_WMDRM_RENEWLICENSE
 	public KSM_NODE NodeMethod;
 	public uint32 ulXMRLicenseLength;
 	public uint32 ulEntitlementTokenLength;
-	public uint8[1] argbDataBuffer;
+	public uint8[] argbDataBuffer;
 }
 
 [CRepr]
@@ -8525,7 +8525,7 @@ public struct KSM_BDA_WMDRMTUNER_PURCHASEENTITLEMENT
 	public uint32 ulDialogRequest;
 	public CHAR[12] cLanguage;
 	public uint32 ulPurchaseTokenLength;
-	public uint8[1] argbDataBuffer;
+	public uint8[] argbDataBuffer;
 }
 
 [CRepr]
@@ -8555,7 +8555,7 @@ public struct KSM_BDA_TUNER_TUNEREQUEST
 {
 	public KSIDENTIFIER Method;
 	public uint32 ulTuneLength;
-	public uint8[1] argbTuneData;
+	public uint8[] argbTuneData;
 }
 
 [CRepr]
@@ -8564,7 +8564,7 @@ public struct KSM_BDA_GPNV_GETVALUE
 	public KSIDENTIFIER Method;
 	public uint32 ulNameLength;
 	public CHAR[12] cLanguage;
-	public uint8[1] argbData;
+	public uint8[] argbData;
 }
 
 [CRepr]
@@ -8575,7 +8575,7 @@ public struct KSM_BDA_GPNV_SETVALUE
 	public CHAR[12] cLanguage;
 	public uint32 ulNameLength;
 	public uint32 ulValueLength;
-	public uint8[1] argbName;
+	public uint8[] argbName;
 }
 
 [CRepr]
@@ -8598,7 +8598,7 @@ public struct KSM_BDA_SCAN_FILTER
 	public KSIDENTIFIER Method;
 	public uint32 ulScanModulationTypeSize;
 	public uint64 AnalogVideoStandards;
-	public uint8[1] argbScanModulationTypes;
+	public uint8[] argbScanModulationTypes;
 }
 
 [CRepr]
@@ -8621,7 +8621,7 @@ public struct KSM_BDA_GDDS_SERVICEFROMTUNEXML
 {
 	public KSIDENTIFIER Method;
 	public uint32 ulTuneXmlLength;
-	public uint8[1] argbTuneXml;
+	public uint8[] argbTuneXml;
 }
 
 [CRepr]
@@ -8639,7 +8639,7 @@ public struct KSM_BDA_CAS_ENTITLEMENTTOKEN
 	public CHAR[12] cLanguage;
 	public uint32 ulRequestType;
 	public uint32 ulEntitlementTokenLen;
-	public uint8[1] argbEntitlementToken;
+	public uint8[] argbEntitlementToken;
 }
 
 [CRepr]
@@ -8647,7 +8647,7 @@ public struct KSM_BDA_CAS_CAPTURETOKEN
 {
 	public KSM_NODE NodeMethod;
 	public uint32 ulTokenLength;
-	public uint8[1] argbToken;
+	public uint8[] argbToken;
 }
 
 [CRepr]
@@ -8675,7 +8675,7 @@ public struct KSM_BDA_ISDBCAS_REQUEST
 	public KSM_NODE NodeMethod;
 	public uint32 ulRequestID;
 	public uint32 ulIsdbCommandSize;
-	public uint8[1] argbIsdbCommandData;
+	public uint8[] argbIsdbCommandData;
 }
 
 [CRepr]
@@ -8762,7 +8762,7 @@ public struct SpanningEventDescriptor
 	public uint16 wDataLen;
 	public uint16 wProgNumber;
 	public uint16 wSID;
-	public uint8[1] bDescriptor;
+	public uint8[] bDescriptor;
 }
 
 [CRepr]
@@ -8787,7 +8787,7 @@ public struct SpanningEventEmmMessage
 	public uint8 bFormatVersion;
 	public uint8 bDisplayPosition;
 	public uint16 wMessageLength;
-	public char16[1] szMessageArea;
+	public char16[] szMessageArea;
 }
 
 [CRepr]
@@ -8810,7 +8810,7 @@ public struct DualMonoInfo
 public struct PIDListSpanningEvent
 {
 	public uint16 wPIDCount;
-	public uint32[1] pulPIDs;
+	public uint32[] pulPIDs;
 }
 
 [CRepr, Packed(1)]
@@ -8855,7 +8855,7 @@ public struct DvbParentalRatingParam
 public struct DvbParentalRatingDescriptor
 {
 	public uint32 ulNumParams;
-	public DvbParentalRatingParam[1] pParams;
+	public DvbParentalRatingParam[] pParams;
 }
 
 [CRepr]
@@ -8965,7 +8965,7 @@ public struct HEAACWAVEINFO
 public struct HEAACWAVEFORMAT
 {
 	public HEAACWAVEINFO wfInfo;
-	public uint8[1] pbAudioSpecificConfig;
+	public uint8[] pbAudioSpecificConfig;
 }
 
 [CRepr]

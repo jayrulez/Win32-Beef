@@ -129,7 +129,7 @@ public struct RAWHID
 {
 	public uint32 dwSizeHid;
 	public uint32 dwCount;
-	public uint8[1] bRawData;
+	public uint8[] bRawData;
 }
 
 [CRepr]

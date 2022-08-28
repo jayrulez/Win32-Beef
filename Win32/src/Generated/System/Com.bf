@@ -850,21 +850,21 @@ public struct COAUTHINFO
 public struct BYTE_BLOB
 {
 	public uint32 clSize;
-	public uint8[1] abData;
+	public uint8[] abData;
 }
 
 [CRepr]
 public struct WORD_BLOB
 {
 	public uint32 clSize;
-	public uint16[1] asData;
+	public uint16[] asData;
 }
 
 [CRepr]
 public struct DWORD_BLOB
 {
 	public uint32 clSize;
-	public uint32[1] alData;
+	public uint32[] alData;
 }
 
 [CRepr]
@@ -872,7 +872,7 @@ public struct FLAGGED_BYTE_BLOB
 {
 	public uint32 fFlags;
 	public uint32 clSize;
-	public uint8[1] abData;
+	public uint8[] abData;
 }
 
 [CRepr]
@@ -880,7 +880,7 @@ public struct FLAGGED_WORD_BLOB
 {
 	public uint32 fFlags;
 	public uint32 clSize;
-	public uint16[1] asData;
+	public uint16[] asData;
 }
 
 [CRepr]
@@ -1048,7 +1048,7 @@ public struct DVTARGETDEVICE
 	public uint16 tdDeviceNameOffset;
 	public uint16 tdPortNameOffset;
 	public uint16 tdExtDevmodeOffset;
-	public uint8[1] tdData;
+	public uint8[] tdData;
 }
 
 [CRepr]
@@ -1078,7 +1078,7 @@ public struct RemSTGMEDIUM
 	public uint32 pData;
 	public uint32 pUnkForRelease;
 	public uint32 cbData;
-	public uint8[1] data;
+	public uint8[] data;
 }
 
 [CRepr]
@@ -1231,7 +1231,7 @@ public struct SAFEARRAY
 	public uint32 cbElements;
 	public uint32 cLocks;
 	public void* pvData;
-	public SAFEARRAYBOUND[1] rgsabound;
+	public SAFEARRAYBOUND[] rgsabound;
 }
 
 [CRepr]

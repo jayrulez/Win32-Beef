@@ -1216,7 +1216,7 @@ public struct DRT_ADDRESS
 public struct DRT_ADDRESS_LIST
 {
 	public uint32 AddressCount;
-	public DRT_ADDRESS[1] AddressList;
+	public DRT_ADDRESS[] AddressList;
 }
 
 [CRepr]

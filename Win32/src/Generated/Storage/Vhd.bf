@@ -595,8 +595,8 @@ public struct STORAGE_DEPENDENCY_INFO
 	[CRepr, Union]
 	public struct _Anonymous_e__Union
 	{
-		public STORAGE_DEPENDENCY_INFO_TYPE_1[1] Version1Entries;
-		public STORAGE_DEPENDENCY_INFO_TYPE_2[1] Version2Entries;
+		public STORAGE_DEPENDENCY_INFO_TYPE_1[] Version1Entries;
+		public STORAGE_DEPENDENCY_INFO_TYPE_2[] Version2Entries;
 	}
 
 	public STORAGE_DEPENDENCY_INFO_VERSION Version;
@@ -632,14 +632,14 @@ public struct GET_VIRTUAL_DISK_INFO
 		{
 			public BOOL Enabled;
 			public BOOL NewerChanges;
-			public char16[1] MostRecentId;
+			public char16[] MostRecentId;
 		}
 
 		[CRepr]
 		public struct _ParentLocation_e__Struct
 		{
 			public BOOL ParentResolved;
-			public char16[1] ParentLocationBuffer;
+			public char16[] ParentLocationBuffer;
 		}
 
 		public _Size_e__Struct Size;

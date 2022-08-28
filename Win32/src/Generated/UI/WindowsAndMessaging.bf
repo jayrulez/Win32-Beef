@@ -4046,7 +4046,7 @@ public struct MESSAGE_RESOURCE_ENTRY
 {
 	public uint16 Length;
 	public uint16 Flags;
-	public uint8[1] Text;
+	public uint8[] Text;
 }
 
 [CRepr]
@@ -4061,7 +4061,7 @@ public struct MESSAGE_RESOURCE_BLOCK
 public struct MESSAGE_RESOURCE_DATA
 {
 	public uint32 NumberOfBlocks;
-	public MESSAGE_RESOURCE_BLOCK[1] Blocks;
+	public MESSAGE_RESOURCE_BLOCK[] Blocks;
 }
 
 [CRepr]
@@ -4513,7 +4513,7 @@ public struct MENUITEMTEMPLATE
 {
 	public uint16 mtOption;
 	public uint16 mtID;
-	public char16[1] mtString;
+	public char16[] mtString;
 }
 
 [CRepr]

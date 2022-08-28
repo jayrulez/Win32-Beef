@@ -517,7 +517,7 @@ public function uint32 LPWABFREEBUFFER(IWABObject* lpWABObject, void* lpBuffer);
 public struct ENTRYID
 {
 	public uint8[4] abFlags;
-	public uint8[1] ab;
+	public uint8[] ab;
 }
 
 [CRepr]
@@ -530,7 +530,7 @@ public struct MAPIUID
 public struct SPropTagArray
 {
 	public uint32 cValues;
-	public uint32[1] aulPropTag;
+	public uint32[] aulPropTag;
 }
 
 [CRepr]
@@ -677,14 +677,14 @@ public struct SPropProblem
 public struct SPropProblemArray
 {
 	public uint32 cProblem;
-	public SPropProblem[1] aProblem;
+	public SPropProblem[] aProblem;
 }
 
 [CRepr]
 public struct FLATENTRY
 {
 	public uint32 cb;
-	public uint8[1] abEntry;
+	public uint8[] abEntry;
 }
 
 [CRepr]
@@ -692,14 +692,14 @@ public struct FLATENTRYLIST
 {
 	public uint32 cEntries;
 	public uint32 cbEntries;
-	public uint8[1] abEntries;
+	public uint8[] abEntries;
 }
 
 [CRepr]
 public struct MTSID
 {
 	public uint32 cb;
-	public uint8[1] ab;
+	public uint8[] ab;
 }
 
 [CRepr]
@@ -707,7 +707,7 @@ public struct FLATMTSIDLIST
 {
 	public uint32 cMTSIDs;
 	public uint32 cbMTSIDs;
-	public uint8[1] abMTSIDs;
+	public uint8[] abMTSIDs;
 }
 
 [CRepr]
@@ -722,7 +722,7 @@ public struct ADRENTRY
 public struct ADRLIST
 {
 	public uint32 cEntries;
-	public ADRENTRY[1] aEntries;
+	public ADRENTRY[] aEntries;
 }
 
 [CRepr]
@@ -737,7 +737,7 @@ public struct SRow
 public struct SRowSet
 {
 	public uint32 cRows;
-	public SRow[1] aRow;
+	public SRow[] aRow;
 }
 
 [CRepr]
@@ -862,7 +862,7 @@ public struct SSortOrderSet
 	public uint32 cSorts;
 	public uint32 cCategories;
 	public uint32 cExpanded;
-	public SSortOrder[1] aSort;
+	public SSortOrder[] aSort;
 }
 
 [CRepr]
@@ -976,7 +976,7 @@ public struct SRestriction
 public struct _flaglist
 {
 	public uint32 cFlags;
-	public uint32[1] ulFlag;
+	public uint32[] ulFlag;
 }
 
 [CRepr]
@@ -1190,7 +1190,7 @@ public struct WABEXTDISPLAY
 public struct NOTIFKEY
 {
 	public uint32 cb;
-	public uint8[1] ab;
+	public uint8[] ab;
 }
 
 #endregion

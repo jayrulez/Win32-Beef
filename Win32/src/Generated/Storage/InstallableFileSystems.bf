@@ -275,7 +275,7 @@ public struct FILTER_FULL_INFORMATION
 	public uint32 FrameID;
 	public uint32 NumberOfInstances;
 	public uint16 FilterNameLength;
-	public char16[1] FilterNameBuffer;
+	public char16[] FilterNameBuffer;
 }
 
 [CRepr]
@@ -352,7 +352,7 @@ public struct FILTER_AGGREGATE_STANDARD_INFORMATION
 public struct FILTER_VOLUME_BASIC_INFORMATION
 {
 	public uint16 FilterVolumeNameLength;
-	public char16[1] FilterVolumeName;
+	public char16[] FilterVolumeName;
 }
 
 [CRepr]
@@ -363,7 +363,7 @@ public struct FILTER_VOLUME_STANDARD_INFORMATION
 	public uint32 FrameID;
 	public FLT_FILESYSTEM_TYPE FileSystemType;
 	public uint16 FilterVolumeNameLength;
-	public char16[1] FilterVolumeName;
+	public char16[] FilterVolumeName;
 }
 
 [CRepr]

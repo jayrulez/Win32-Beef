@@ -639,7 +639,7 @@ public struct PXE_DHCP_OPTION
 {
 	public uint8 OptionType;
 	public uint8 OptionLength;
-	public uint8[1] OptionValue;
+	public uint8[] OptionValue;
 }
 
 [CRepr, Packed(1)]
@@ -675,14 +675,14 @@ public struct PXE_DHCPV6_OPTION
 {
 	public uint16 OptionCode;
 	public uint16 DataLength;
-	public uint8[1] Data;
+	public uint8[] Data;
 }
 
 [CRepr]
 public struct PXE_DHCPV6_MESSAGE_HEADER
 {
 	public uint8 MessageType;
-	public uint8[1] Message;
+	public uint8[] Message;
 }
 
 [CRepr]
@@ -692,7 +692,7 @@ public struct PXE_DHCPV6_MESSAGE
 	public uint8 TransactionIDByte1;
 	public uint8 TransactionIDByte2;
 	public uint8 TransactionIDByte3;
-	public PXE_DHCPV6_OPTION[1] Options;
+	public PXE_DHCPV6_OPTION[] Options;
 }
 
 [CRepr]
@@ -702,7 +702,7 @@ public struct PXE_DHCPV6_RELAY_MESSAGE
 	public uint8 HopCount;
 	public uint8[16] LinkAddress;
 	public uint8[16] PeerAddress;
-	public PXE_DHCPV6_OPTION[1] Options;
+	public PXE_DHCPV6_OPTION[] Options;
 }
 
 [CRepr]

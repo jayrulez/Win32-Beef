@@ -3418,14 +3418,14 @@ public struct BITMAPV5HEADER
 public struct BITMAPINFO
 {
 	public BITMAPINFOHEADER bmiHeader;
-	public RGBQUAD[1] bmiColors;
+	public RGBQUAD[] bmiColors;
 }
 
 [CRepr]
 public struct BITMAPCOREINFO
 {
 	public BITMAPCOREHEADER bmciHeader;
-	public RGBTRIPLE[1] bmciColors;
+	public RGBTRIPLE[] bmciColors;
 }
 
 [CRepr, Packed(2)]
@@ -3441,7 +3441,7 @@ public struct BITMAPFILEHEADER
 [CRepr]
 public struct HANDLETABLE
 {
-	public HGDIOBJ[1] objectHandle;
+	public HGDIOBJ[] objectHandle;
 }
 
 [CRepr]
@@ -3449,7 +3449,7 @@ public struct METARECORD
 {
 	public uint32 rdSize;
 	public uint16 rdFunction;
-	public uint16[1] rdParm;
+	public uint16[] rdParm;
 }
 
 [CRepr, Packed(2)]
@@ -3469,7 +3469,7 @@ public struct ENHMETARECORD
 {
 	public uint32 iType;
 	public uint32 nSize;
-	public uint32[1] dParm;
+	public uint32[] dParm;
 }
 
 [CRepr]
@@ -3647,7 +3647,7 @@ public struct EXTLOGPEN
 	public uint32 elpColor;
 	public uint elpHatch;
 	public uint32 elpNumEntries;
-	public uint32[1] elpStyleEntry;
+	public uint32[] elpStyleEntry;
 }
 
 [CRepr]
@@ -3659,7 +3659,7 @@ public struct EXTLOGPEN32
 	public uint32 elpColor;
 	public uint32 elpHatch;
 	public uint32 elpNumEntries;
-	public uint32[1] elpStyleEntry;
+	public uint32[] elpStyleEntry;
 }
 
 [CRepr]
@@ -3676,7 +3676,7 @@ public struct LOGPALETTE
 {
 	public uint16 palVersion;
 	public uint16 palNumEntries;
-	public PALETTEENTRY[1] palPalEntry;
+	public PALETTEENTRY[] palPalEntry;
 }
 
 [CRepr]
@@ -3966,7 +3966,7 @@ public struct RGNDATAHEADER
 public struct RGNDATA
 {
 	public RGNDATAHEADER rdh;
-	public CHAR[1] Buffer;
+	public CHAR[] Buffer;
 }
 
 [CRepr]
@@ -4121,7 +4121,7 @@ public struct TTPOLYCURVE
 {
 	public uint16 wType;
 	public uint16 cpfx;
-	public POINTFX[1] apfx;
+	public POINTFX[] apfx;
 }
 
 [CRepr]
@@ -4182,7 +4182,7 @@ public struct GLYPHSET
 	public uint32 flAccel;
 	public uint32 cGlyphsSupported;
 	public uint32 cRanges;
-	public WCRANGE[1] ranges;
+	public WCRANGE[] ranges;
 }
 
 [CRepr]
@@ -4404,7 +4404,7 @@ public struct EMRSETPALETTEENTRIES
 	public uint32 ihPal;
 	public uint32 iStart;
 	public uint32 cEntries;
-	public PALETTEENTRY[1] aPalEntries;
+	public PALETTEENTRY[] aPalEntries;
 }
 
 [CRepr]
@@ -4419,7 +4419,7 @@ public struct EMRGDICOMMENT
 {
 	public EMR emr;
 	public uint32 cbData;
-	public uint8[1] Data;
+	public uint8[] Data;
 }
 
 [CRepr]
@@ -4555,7 +4555,7 @@ public struct EMRPOLYLINE
 	public EMR emr;
 	public RECTL rclBounds;
 	public uint32 cptl;
-	public POINTL[1] aptl;
+	public POINTL[] aptl;
 }
 
 [CRepr]
@@ -4564,7 +4564,7 @@ public struct EMRPOLYLINE16
 	public EMR emr;
 	public RECTL rclBounds;
 	public uint32 cpts;
-	public POINTS[1] apts;
+	public POINTS[] apts;
 }
 
 [CRepr]
@@ -4573,8 +4573,8 @@ public struct EMRPOLYDRAW
 	public EMR emr;
 	public RECTL rclBounds;
 	public uint32 cptl;
-	public POINTL[1] aptl;
-	public uint8[1] abTypes;
+	public POINTL[] aptl;
+	public uint8[] abTypes;
 }
 
 [CRepr]
@@ -4583,8 +4583,8 @@ public struct EMRPOLYDRAW16
 	public EMR emr;
 	public RECTL rclBounds;
 	public uint32 cpts;
-	public POINTS[1] apts;
-	public uint8[1] abTypes;
+	public POINTS[] apts;
+	public uint8[] abTypes;
 }
 
 [CRepr]
@@ -4594,8 +4594,8 @@ public struct EMRPOLYPOLYLINE
 	public RECTL rclBounds;
 	public uint32 nPolys;
 	public uint32 cptl;
-	public uint32[1] aPolyCounts;
-	public POINTL[1] aptl;
+	public uint32[] aPolyCounts;
+	public POINTL[] aptl;
 }
 
 [CRepr]
@@ -4605,8 +4605,8 @@ public struct EMRPOLYPOLYLINE16
 	public RECTL rclBounds;
 	public uint32 nPolys;
 	public uint32 cpts;
-	public uint32[1] aPolyCounts;
-	public POINTS[1] apts;
+	public uint32[] aPolyCounts;
+	public POINTS[] apts;
 }
 
 [CRepr]
@@ -4615,7 +4615,7 @@ public struct EMRINVERTRGN
 	public EMR emr;
 	public RECTL rclBounds;
 	public uint32 cbRgnData;
-	public uint8[1] RgnData;
+	public uint8[] RgnData;
 }
 
 [CRepr]
@@ -4625,7 +4625,7 @@ public struct EMRFILLRGN
 	public RECTL rclBounds;
 	public uint32 cbRgnData;
 	public uint32 ihBrush;
-	public uint8[1] RgnData;
+	public uint8[] RgnData;
 }
 
 [CRepr]
@@ -4636,7 +4636,7 @@ public struct EMRFRAMERGN
 	public uint32 cbRgnData;
 	public uint32 ihBrush;
 	public SIZE szlStroke;
-	public uint8[1] RgnData;
+	public uint8[] RgnData;
 }
 
 [CRepr]
@@ -4645,7 +4645,7 @@ public struct EMREXTSELECTCLIPRGN
 	public EMR emr;
 	public uint32 cbRgnData;
 	public uint32 iMode;
-	public uint8[1] RgnData;
+	public uint8[] RgnData;
 }
 
 [CRepr]
@@ -4668,7 +4668,7 @@ public struct EMRPOLYTEXTOUTA
 	public float exScale;
 	public float eyScale;
 	public int32 cStrings;
-	public EMRTEXT[1] aemrtext;
+	public EMRTEXT[] aemrtext;
 }
 
 [CRepr]
@@ -4892,7 +4892,7 @@ public struct EMRGLSRECORD
 {
 	public EMR emr;
 	public uint32 cbData;
-	public uint8[1] Data;
+	public uint8[] Data;
 }
 
 [CRepr]
@@ -4901,7 +4901,7 @@ public struct EMRGLSBOUNDEDRECORD
 	public EMR emr;
 	public RECTL rclBounds;
 	public uint32 cbData;
-	public uint8[1] Data;
+	public uint8[] Data;
 }
 
 [CRepr]
@@ -4917,7 +4917,7 @@ public struct EMREXTESCAPE
 	public EMR emr;
 	public int32 iEscape;
 	public int32 cbEscData;
-	public uint8[1] EscData;
+	public uint8[] EscData;
 }
 
 [CRepr]
@@ -4927,7 +4927,7 @@ public struct EMRNAMEDESCAPE
 	public int32 iEscape;
 	public int32 cbDriver;
 	public int32 cbEscData;
-	public uint8[1] EscData;
+	public uint8[] EscData;
 }
 
 [CRepr]
@@ -4937,7 +4937,7 @@ public struct EMRSETICMPROFILE
 	public uint32 dwFlags;
 	public uint32 cbName;
 	public uint32 cbData;
-	public uint8[1] Data;
+	public uint8[] Data;
 }
 
 [CRepr]
@@ -4948,7 +4948,7 @@ public struct COLORMATCHTOTARGET
 	public uint32 dwFlags;
 	public uint32 cbName;
 	public uint32 cbData;
-	public uint8[1] Data;
+	public uint8[] Data;
 }
 
 [CRepr]
@@ -4992,7 +4992,7 @@ public struct EMRGRADIENTFILL
 	public uint32 nVer;
 	public uint32 nTri;
 	public GRADIENT_FILL ulMode;
-	public TRIVERTEX[1] Ver;
+	public TRIVERTEX[] Ver;
 }
 
 [CRepr]

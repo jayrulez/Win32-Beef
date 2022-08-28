@@ -616,7 +616,7 @@ public struct MODIFIERS
 {
 	public VK_TO_BIT* pVkToBit;
 	public uint16 wMaxModBits;
-	public uint8[1] ModNumber;
+	public uint8[] ModNumber;
 }
 
 [CRepr]
@@ -638,7 +638,7 @@ public struct VK_TO_WCHARS1
 {
 	public uint8 VirtualKey;
 	public uint8 Attributes;
-	public char16[1] wch;
+	public char16[] wch;
 }
 
 [CRepr]
@@ -734,7 +734,7 @@ public struct LIGATURE1
 {
 	public uint8 VirtualKey;
 	public uint16 ModificationNumber;
-	public char16[1] wch;
+	public char16[] wch;
 }
 
 [CRepr]

@@ -529,7 +529,7 @@ public struct SID
 	public uint8 Revision;
 	public uint8 SubAuthorityCount;
 	public SID_IDENTIFIER_AUTHORITY IdentifierAuthority;
-	public uint32[1] SubAuthority;
+	public uint32[] SubAuthority;
 }
 
 [CRepr, Union]
@@ -803,7 +803,7 @@ public struct PRIVILEGE_SET
 {
 	public uint32 PrivilegeCount;
 	public uint32 Control;
-	public LUID_AND_ATTRIBUTES[1] Privilege;
+	public LUID_AND_ATTRIBUTES[] Privilege;
 }
 
 [CRepr]
@@ -854,14 +854,14 @@ public struct TOKEN_USER
 public struct TOKEN_GROUPS
 {
 	public uint32 GroupCount;
-	public SID_AND_ATTRIBUTES[1] Groups;
+	public SID_AND_ATTRIBUTES[] Groups;
 }
 
 [CRepr]
 public struct TOKEN_PRIVILEGES
 {
 	public uint32 PrivilegeCount;
-	public LUID_AND_ATTRIBUTES[1] Privileges;
+	public LUID_AND_ATTRIBUTES[] Privileges;
 }
 
 [CRepr]
@@ -1041,11 +1041,11 @@ public struct CLAIM_SECURITY_ATTRIBUTE_RELATIVE_V1
 	[CRepr, Union]
 	public struct _Values_e__Union
 	{
-		public uint32[1] pInt64;
-		public uint32[1] pUint64;
-		public uint32[1] ppString;
-		public uint32[1] pFqbn;
-		public uint32[1] pOctetString;
+		public uint32[] pInt64;
+		public uint32[] pUint64;
+		public uint32[] ppString;
+		public uint32[] pFqbn;
+		public uint32[] pOctetString;
 	}
 
 	public uint32 Name;

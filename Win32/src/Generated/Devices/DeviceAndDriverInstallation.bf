@@ -2610,7 +2610,7 @@ public struct SP_INF_INFORMATION
 {
 	public SP_INF_STYLE InfStyle;
 	public uint32 InfCount;
-	public uint8[1] VersionData;
+	public uint8[] VersionData;
 }
 #endif
 
@@ -2909,7 +2909,7 @@ public struct SP_DEVICE_INTERFACE_DATA
 public struct SP_DEVICE_INTERFACE_DETAIL_DATA_A
 {
 	public uint32 cbSize;
-	public CHAR[1] DevicePath;
+	public CHAR[] DevicePath;
 }
 #endif
 
@@ -2918,7 +2918,7 @@ public struct SP_DEVICE_INTERFACE_DETAIL_DATA_A
 public struct SP_DEVICE_INTERFACE_DETAIL_DATA_W
 {
 	public uint32 cbSize;
-	public char16[1] DevicePath;
+	public char16[] DevicePath;
 }
 #endif
 
@@ -3190,7 +3190,7 @@ public struct SP_DRVINFO_DETAIL_DATA_A
 	public CHAR[256] SectionName;
 	public CHAR[260] InfFileName;
 	public CHAR[256] DrvDescription;
-	public CHAR[1] HardwareID;
+	public CHAR[] HardwareID;
 }
 #endif
 
@@ -3206,7 +3206,7 @@ public struct SP_DRVINFO_DETAIL_DATA_W
 	public char16[256] SectionName;
 	public char16[260] InfFileName;
 	public char16[256] DrvDescription;
-	public char16[1] HardwareID;
+	public char16[] HardwareID;
 }
 #endif
 
@@ -3389,7 +3389,7 @@ public struct MEM_DES
 public struct MEM_RESOURCE
 {
 	public MEM_DES MEM_Header;
-	public MEM_RANGE[1] MEM_Data;
+	public MEM_RANGE[] MEM_Data;
 }
 
 [CRepr, Packed(1)]
@@ -3418,7 +3418,7 @@ public struct Mem_Large_Des_s
 public struct Mem_Large_Resource_s
 {
 	public Mem_Large_Des_s MEM_LARGE_Header;
-	public Mem_Large_Range_s[1] MEM_LARGE_Data;
+	public Mem_Large_Range_s[] MEM_LARGE_Data;
 }
 
 [CRepr, Packed(1)]
@@ -3446,7 +3446,7 @@ public struct IO_DES
 public struct IO_RESOURCE
 {
 	public IO_DES IO_Header;
-	public IO_RANGE[1] IO_Data;
+	public IO_RANGE[] IO_Data;
 }
 
 [CRepr, Packed(1)]
@@ -3470,7 +3470,7 @@ public struct DMA_DES
 public struct DMA_RESOURCE
 {
 	public DMA_DES DMA_Header;
-	public DMA_RANGE[1] DMA_Data;
+	public DMA_RANGE[] DMA_Data;
 }
 
 [CRepr, Packed(1)]
@@ -3505,14 +3505,14 @@ public struct IRQ_DES_64
 public struct IRQ_RESOURCE_32
 {
 	public IRQ_DES_32 IRQ_Header;
-	public IRQ_RANGE[1] IRQ_Data;
+	public IRQ_RANGE[] IRQ_Data;
 }
 
 [CRepr]
 public struct IRQ_RESOURCE_64
 {
 	public IRQ_DES_64 IRQ_Header;
-	public IRQ_RANGE[1] IRQ_Data;
+	public IRQ_RANGE[] IRQ_Data;
 }
 
 [CRepr, Packed(1)]
@@ -3538,7 +3538,7 @@ public struct DevPrivate_Des_s
 public struct DevPrivate_Resource_s
 {
 	public DevPrivate_Des_s PRV_Header;
-	public DevPrivate_Range_s[1] PRV_Data;
+	public DevPrivate_Range_s[] PRV_Data;
 }
 
 [CRepr, Packed(1)]
@@ -3549,7 +3549,7 @@ public struct CS_DES
 	public uint32 CSD_LegacyDataSize;
 	public uint32 CSD_Flags;
 	public Guid CSD_ClassGuid;
-	public uint8[1] CSD_Signature;
+	public uint8[] CSD_Signature;
 }
 
 [CRepr]
@@ -3620,7 +3620,7 @@ public struct BUSNUMBER_DES
 public struct BUSNUMBER_RESOURCE
 {
 	public BUSNUMBER_DES BusNumber_Header;
-	public BUSNUMBER_RANGE[1] BusNumber_Data;
+	public BUSNUMBER_RANGE[] BusNumber_Data;
 }
 
 [CRepr, Packed(1)]
@@ -3702,14 +3702,14 @@ public struct CM_NOTIFY_EVENT_DATA
 		[CRepr]
 		public struct _DeviceInstance_e__Struct
 		{
-			public char16[1] InstanceId;
+			public char16[] InstanceId;
 		}
 
 		[CRepr]
 		public struct _DeviceInterface_e__Struct
 		{
 			public Guid ClassGuid;
-			public char16[1] SymbolicLink;
+			public char16[] SymbolicLink;
 		}
 
 		[CRepr]
@@ -3718,7 +3718,7 @@ public struct CM_NOTIFY_EVENT_DATA
 			public Guid EventGuid;
 			public int32 NameOffset;
 			public uint32 DataSize;
-			public uint8[1] Data;
+			public uint8[] Data;
 		}
 
 		public _DeviceInterface_e__Struct DeviceInterface;
@@ -3748,7 +3748,7 @@ public struct SP_INF_INFORMATION
 {
 	public SP_INF_STYLE InfStyle;
 	public uint32 InfCount;
-	public uint8[1] VersionData;
+	public uint8[] VersionData;
 }
 #endif
 
@@ -4047,7 +4047,7 @@ public struct SP_DEVICE_INTERFACE_DATA
 public struct SP_DEVICE_INTERFACE_DETAIL_DATA_A
 {
 	public uint32 cbSize;
-	public CHAR[1] DevicePath;
+	public CHAR[] DevicePath;
 }
 #endif
 
@@ -4056,7 +4056,7 @@ public struct SP_DEVICE_INTERFACE_DETAIL_DATA_A
 public struct SP_DEVICE_INTERFACE_DETAIL_DATA_W
 {
 	public uint32 cbSize;
-	public char16[1] DevicePath;
+	public char16[] DevicePath;
 }
 #endif
 
@@ -4302,7 +4302,7 @@ public struct SP_DRVINFO_DETAIL_DATA_A
 	public CHAR[256] SectionName;
 	public CHAR[260] InfFileName;
 	public CHAR[256] DrvDescription;
-	public CHAR[1] HardwareID;
+	public CHAR[] HardwareID;
 }
 #endif
 
@@ -4318,7 +4318,7 @@ public struct SP_DRVINFO_DETAIL_DATA_W
 	public char16[256] SectionName;
 	public char16[260] InfFileName;
 	public char16[256] DrvDescription;
-	public char16[1] HardwareID;
+	public char16[] HardwareID;
 }
 #endif
 

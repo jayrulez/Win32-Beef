@@ -1978,7 +1978,7 @@ public struct BTH_SET_SERVICE
 	public uint32 fCodService;
 	public uint32[5] Reserved;
 	public uint32 ulRecordLength;
-	public uint8[1] pRecord;
+	public uint8[] pRecord;
 }
 
 [CRepr, Packed(1)]
@@ -1995,7 +1995,7 @@ public struct BTH_QUERY_SERVICE
 	public uint32 serviceHandle;
 	public SdpQueryUuid[12] uuids;
 	public uint32 numRange;
-	public SdpAttributeRange[1] pRange;
+	public SdpAttributeRange[] pRange;
 }
 
 [CRepr]

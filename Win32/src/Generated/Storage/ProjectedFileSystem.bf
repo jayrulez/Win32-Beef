@@ -238,7 +238,7 @@ public struct PRJ_PLACEHOLDER_INFO
 	public _SecurityInformation_e__Struct SecurityInformation;
 	public _StreamsInformation_e__Struct StreamsInformation;
 	public PRJ_PLACEHOLDER_VERSION_INFO VersionInfo;
-	public uint8[1] VariableData;
+	public uint8[] VariableData;
 }
 
 [CRepr]

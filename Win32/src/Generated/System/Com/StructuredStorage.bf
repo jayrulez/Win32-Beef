@@ -282,7 +282,7 @@ public struct RemSNB
 {
 	public uint32 ulCntStr;
 	public uint32 ulCntChar;
-	public char16[1] rgString;
+	public char16[] rgString;
 }
 
 [CRepr]
@@ -594,7 +594,7 @@ public struct STGOPTIONS
 public struct SERIALIZEDPROPERTYVALUE
 {
 	public uint32 dwType;
-	public uint8[1] rgb;
+	public uint8[] rgb;
 }
 
 [CRepr]

@@ -553,7 +553,7 @@ public struct SCSI_PASS_THROUGH_EX
 	public uint32 DataInTransferLength;
 	public uint DataOutBufferOffset;
 	public uint DataInBufferOffset;
-	public uint8[1] Cdb;
+	public uint8[] Cdb;
 }
 
 [CRepr]
@@ -574,7 +574,7 @@ public struct SCSI_PASS_THROUGH_DIRECT_EX
 	public uint32 DataInTransferLength;
 	public void* DataOutBuffer;
 	public void* DataInBuffer;
-	public uint8[1] Cdb;
+	public uint8[] Cdb;
 }
 
 #if BF_64_BIT || BF_ARM_64
@@ -596,7 +596,7 @@ public struct SCSI_PASS_THROUGH32_EX
 	public uint32 DataInTransferLength;
 	public uint32 DataOutBufferOffset;
 	public uint32 DataInBufferOffset;
-	public uint8[1] Cdb;
+	public uint8[] Cdb;
 }
 #endif
 
@@ -619,7 +619,7 @@ public struct SCSI_PASS_THROUGH_DIRECT32_EX
 	public uint32 DataInTransferLength;
 	public void* DataOutBuffer;
 	public void* DataInBuffer;
-	public uint8[1] Cdb;
+	public uint8[] Cdb;
 }
 #endif
 
@@ -814,7 +814,7 @@ public struct SCSI_BUS_DATA
 public struct SCSI_ADAPTER_BUS_INFO
 {
 	public uint8 NumberOfBuses;
-	public SCSI_BUS_DATA[1] BusData;
+	public SCSI_BUS_DATA[] BusData;
 }
 
 [CRepr]
@@ -826,7 +826,7 @@ public struct SCSI_INQUIRY_DATA
 	public BOOLEAN DeviceClaimed;
 	public uint32 InquiryDataLength;
 	public uint32 NextInquiryDataOffset;
-	public uint8[1] InquiryData;
+	public uint8[] InquiryData;
 }
 
 [CRepr]
@@ -921,7 +921,7 @@ public struct STORAGE_DIAGNOSTIC_MP_REQUEST
 	public Guid ProviderId;
 	public uint32 BufferSize;
 	public uint32 Reserved;
-	public uint8[1] DataBuffer;
+	public uint8[] DataBuffer;
 }
 
 [CRepr]
@@ -940,7 +940,7 @@ public struct DSM_NOTIFICATION_REQUEST_BLOCK
 	public uint32 DataSetProfile;
 	public uint32[3] Reserved;
 	public uint32 DataSetRangesCount;
-	public MP_DEVICE_DATA_SET_RANGE[1] DataSetRanges;
+	public MP_DEVICE_DATA_SET_RANGE[] DataSetRanges;
 }
 
 [CRepr]
@@ -988,7 +988,7 @@ public struct HYBRID_INFORMATION
 		public uint32 DirtyThresholdLow;
 		public uint32 DirtyThresholdHigh;
 		public _SupportedCommands_e__Struct SupportedCommands;
-		public NVCACHE_PRIORITY_LEVEL_DESCRIPTOR[1] Priority;
+		public NVCACHE_PRIORITY_LEVEL_DESCRIPTOR[] Priority;
 	}
 
 	[CRepr]
@@ -1076,7 +1076,7 @@ public struct STORAGE_FIRMWARE_INFO
 	public uint8 ActiveSlot;
 	public uint8 PendingActivateSlot;
 	public uint32 Reserved;
-	public STORAGE_FIRMWARE_SLOT_INFO[1] Slot;
+	public STORAGE_FIRMWARE_SLOT_INFO[] Slot;
 }
 
 [CRepr]
@@ -1092,7 +1092,7 @@ public struct STORAGE_FIRMWARE_INFO_V2
 	public uint8[3] Reserved;
 	public uint32 ImagePayloadAlignment;
 	public uint32 ImagePayloadMaxSize;
-	public STORAGE_FIRMWARE_SLOT_INFO_V2[1] Slot;
+	public STORAGE_FIRMWARE_SLOT_INFO_V2[] Slot;
 }
 
 [CRepr]
@@ -1102,7 +1102,7 @@ public struct STORAGE_FIRMWARE_DOWNLOAD
 	public uint32 Size;
 	public uint64 Offset;
 	public uint64 BufferSize;
-	public uint8[1] ImageBuffer;
+	public uint8[] ImageBuffer;
 }
 
 [CRepr]
@@ -1115,7 +1115,7 @@ public struct STORAGE_FIRMWARE_DOWNLOAD_V2
 	public uint8 Slot;
 	public uint8[3] Reserved;
 	public uint32 ImageSize;
-	public uint8[1] ImageBuffer;
+	public uint8[] ImageBuffer;
 }
 
 [CRepr]
@@ -1389,14 +1389,14 @@ public struct ISCSI_TARGET_PORTAL_INFO_EXA
 public struct ISCSI_TARGET_PORTAL_GROUPW
 {
 	public uint32 Count;
-	public ISCSI_TARGET_PORTALW[1] Portals;
+	public ISCSI_TARGET_PORTALW[] Portals;
 }
 
 [CRepr]
 public struct ISCSI_TARGET_PORTAL_GROUPA
 {
 	public uint32 Count;
-	public ISCSI_TARGET_PORTALA[1] Portals;
+	public ISCSI_TARGET_PORTALA[] Portals;
 }
 
 [CRepr]

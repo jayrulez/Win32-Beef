@@ -1364,7 +1364,7 @@ public struct WICRawToneCurvePoint
 public struct WICRawToneCurve
 {
 	public uint32 cPoints;
-	public WICRawToneCurvePoint[1] aPoints;
+	public WICRawToneCurvePoint[] aPoints;
 }
 
 [CRepr]

@@ -1089,7 +1089,7 @@ public struct _MSGSESS
 public struct SPropAttrArray
 {
 	public uint32 cValues;
-	public uint32[1] aPropAttr;
+	public uint32[] aPropAttr;
 }
 
 [CRepr]

@@ -359,7 +359,7 @@ public struct GNSS_DRIVERCOMMAND_PARAM
 	public uint32 Reserved;
 	public uint32 CommandDataSize;
 	public uint8[512] Unused;
-	public uint8[1] CommandData;
+	public uint8[] CommandData;
 }
 
 [CRepr]
@@ -772,7 +772,7 @@ public struct GNSS_EVENT
 		public GNSS_BREADCRUMBING_ALERT_DATA BreadcrumbAlertData;
 		public GNSS_GEOFENCES_TRACKINGSTATUS_DATA GeofencesTrackingStatus;
 		public GNSS_DRIVER_REQUEST_DATA DriverRequestData;
-		public uint8[1] CustomData;
+		public uint8[] CustomData;
 	}
 
 	public uint32 Size;
@@ -799,7 +799,7 @@ public struct GNSS_EVENT_2
 		public GNSS_BREADCRUMBING_ALERT_DATA BreadcrumbAlertData;
 		public GNSS_GEOFENCES_TRACKINGSTATUS_DATA GeofencesTrackingStatus;
 		public GNSS_DRIVER_REQUEST_DATA DriverRequestData;
-		public uint8[1] CustomData;
+		public uint8[] CustomData;
 	}
 
 	public uint32 Size;
@@ -838,7 +838,7 @@ public struct GNSS_AGNSS_INJECTBLOB
 	public uint32 BlobVersion;
 	public uint32 AgnssFormat;
 	public uint32 BlobSize;
-	public uint8[1] BlobData;
+	public uint8[] BlobData;
 }
 
 [CRepr]
@@ -881,7 +881,7 @@ public struct GNSS_SUPL_CERT_CONFIG
 	public CHAR[260] SuplCertName;
 	public uint32 CertSize;
 	public uint8[512] Unused;
-	public uint8[1] CertData;
+	public uint8[] CertData;
 }
 
 [CRepr]
@@ -923,7 +923,7 @@ public struct GNSS_SELFTESTCONFIG
 	public uint32 TestType;
 	public uint8[512] Unused;
 	public uint32 InBufLen;
-	public uint8[1] InBuffer;
+	public uint8[] InBuffer;
 }
 
 [CRepr]
@@ -936,7 +936,7 @@ public struct GNSS_SELFTESTRESULT
 	public uint32 PinFailedBitMask;
 	public uint8[512] Unused;
 	public uint32 OutBufLen;
-	public uint8[1] OutBuffer;
+	public uint8[] OutBuffer;
 }
 
 [CRepr]

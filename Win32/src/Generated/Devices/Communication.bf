@@ -350,7 +350,7 @@ public struct MODEMDEVCAPS
 	public uint32 dwModemOptions;
 	public uint32 dwMaxDTERate;
 	public uint32 dwMaxDCERate;
-	public uint8[1] abVariablePortion;
+	public uint8[] abVariablePortion;
 }
 
 [CRepr]
@@ -367,7 +367,7 @@ public struct MODEMSETTINGS
 	public uint32 dwPreferredModemOptions;
 	public uint32 dwNegotiatedModemOptions;
 	public uint32 dwNegotiatedDCERate;
-	public uint8[1] abVariablePortion;
+	public uint8[] abVariablePortion;
 }
 
 [CRepr]
@@ -390,7 +390,7 @@ public struct COMMPROP
 	public uint32 dwCurrentRxQueue;
 	public uint32 dwProvSpec1;
 	public uint32 dwProvSpec2;
-	public char16[1] wcProvChar;
+	public char16[] wcProvChar;
 }
 
 [CRepr]
@@ -441,7 +441,7 @@ public struct COMMCONFIG
 	public uint32 dwProviderSubType;
 	public uint32 dwProviderOffset;
 	public uint32 dwProviderSize;
-	public char16[1] wcProviderData;
+	public char16[] wcProviderData;
 }
 
 #endregion

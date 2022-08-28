@@ -2881,7 +2881,7 @@ public struct CLS_INFORMATION
 public struct CLFS_LOG_NAME_INFORMATION
 {
 	public uint16 NameLengthInBytes;
-	public char16[1] Name;
+	public char16[] Name;
 }
 
 [CRepr]
@@ -2964,14 +2964,14 @@ public struct CLFS_MGMT_POLICY
 		public struct _NewContainerExtension_e__Struct
 		{
 			public uint16 ExtensionLengthInBytes;
-			public char16[1] ExtensionString;
+			public char16[] ExtensionString;
 		}
 
 		[CRepr]
 		public struct _NewContainerPrefix_e__Struct
 		{
 			public uint16 PrefixLengthInBytes;
-			public char16[1] PrefixString;
+			public char16[] PrefixString;
 		}
 
 		[CRepr]
@@ -3290,7 +3290,7 @@ public struct TXF_LOG_RECORD_AFFECTED_FILE
 public struct VOLUME_FAILOVER_SET
 {
 	public uint32 NumberOfDisks;
-	public uint32[1] DiskNumbers;
+	public uint32[] DiskNumbers;
 }
 
 [CRepr]
@@ -3317,7 +3317,7 @@ public struct VOLUME_PHYSICAL_OFFSET
 public struct VOLUME_PHYSICAL_OFFSETS
 {
 	public uint32 NumberOfPhysicalOffsets;
-	public VOLUME_PHYSICAL_OFFSET[1] PhysicalOffset;
+	public VOLUME_PHYSICAL_OFFSET[] PhysicalOffset;
 }
 
 [CRepr]
@@ -3394,7 +3394,7 @@ public struct VOLUME_CRITICAL_IO
 {
 	public uint32 AccessType;
 	public uint32 ExtentsCount;
-	public FILE_EXTENT[1] Extents;
+	public FILE_EXTENT[] Extents;
 }
 
 [CRepr]
@@ -3408,7 +3408,7 @@ public struct VOLUME_ALLOCATION_HINT_INPUT
 [CRepr]
 public struct VOLUME_ALLOCATION_HINT_OUTPUT
 {
-	public uint32[1] Bitmap;
+	public uint32[] Bitmap;
 }
 
 [CRepr]
@@ -3817,7 +3817,7 @@ public struct FILE_NOTIFY_INFORMATION
 	public uint32 NextEntryOffset;
 	public FILE_ACTION Action;
 	public uint32 FileNameLength;
-	public char16[1] FileName;
+	public char16[] FileName;
 }
 
 [CRepr]
@@ -3836,7 +3836,7 @@ public struct FILE_NOTIFY_EXTENDED_INFORMATION
 	public LARGE_INTEGER FileId;
 	public LARGE_INTEGER ParentFileId;
 	public uint32 FileNameLength;
-	public char16[1] FileName;
+	public char16[] FileName;
 }
 
 [CRepr, Union]
@@ -3852,7 +3852,7 @@ public struct REPARSE_GUID_DATA_BUFFER
 	[CRepr]
 	public struct _GenericReparseBuffer_e__Struct
 	{
-		public uint8[1] DataBuffer;
+		public uint8[] DataBuffer;
 	}
 
 	public uint32 ReparseTag;
@@ -3919,7 +3919,7 @@ public struct WIN32_STREAM_ID
 	public uint32 dwStreamAttributes;
 	public LARGE_INTEGER Size;
 	public uint32 dwStreamNameSize;
-	public char16[1] cStreamName;
+	public char16[] cStreamName;
 }
 
 [CRepr]
@@ -4061,7 +4061,7 @@ public struct FILE_STANDARD_INFO
 public struct FILE_NAME_INFO
 {
 	public uint32 FileNameLength;
-	public char16[1] FileName;
+	public char16[] FileName;
 }
 
 [CRepr]
@@ -4077,7 +4077,7 @@ public struct FILE_RENAME_INFO
 	public using _Anonymous_e__Union Anonymous;
 	public HANDLE RootDirectory;
 	public uint32 FileNameLength;
-	public char16[1] FileName;
+	public char16[] FileName;
 }
 
 [CRepr]
@@ -4099,7 +4099,7 @@ public struct FILE_STREAM_INFO
 	public uint32 StreamNameLength;
 	public LARGE_INTEGER StreamSize;
 	public LARGE_INTEGER StreamAllocationSize;
-	public char16[1] StreamName;
+	public char16[] StreamName;
 }
 
 [CRepr]
@@ -4143,7 +4143,7 @@ public struct FILE_ID_BOTH_DIR_INFO
 	public int8 ShortNameLength;
 	public char16[12] ShortName;
 	public LARGE_INTEGER FileId;
-	public char16[1] FileName;
+	public char16[] FileName;
 }
 
 [CRepr]
@@ -4160,7 +4160,7 @@ public struct FILE_FULL_DIR_INFO
 	public uint32 FileAttributes;
 	public uint32 FileNameLength;
 	public uint32 EaSize;
-	public char16[1] FileName;
+	public char16[] FileName;
 }
 
 [CRepr]
@@ -4210,7 +4210,7 @@ public struct FILE_ID_EXTD_DIR_INFO
 	public uint32 EaSize;
 	public uint32 ReparsePointTag;
 	public FILE_ID_128 FileId;
-	public char16[1] FileName;
+	public char16[] FileName;
 }
 
 [CRepr]

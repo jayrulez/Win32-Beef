@@ -2818,7 +2818,7 @@ public struct INTERNET_CACHE_CONFIG_INFOA
 		}
 
 		public using _Anonymous_e__Struct Anonymous;
-		public INTERNET_CACHE_CONFIG_PATH_ENTRYA[1] CachePaths;
+		public INTERNET_CACHE_CONFIG_PATH_ENTRYA[] CachePaths;
 	}
 
 	public uint32 dwStructSize;
@@ -2847,7 +2847,7 @@ public struct INTERNET_CACHE_CONFIG_INFOW
 		}
 
 		public using _Anonymous_e__Struct Anonymous;
-		public INTERNET_CACHE_CONFIG_PATH_ENTRYW[1] CachePaths;
+		public INTERNET_CACHE_CONFIG_PATH_ENTRYW[] CachePaths;
 	}
 
 	public uint32 dwStructSize;

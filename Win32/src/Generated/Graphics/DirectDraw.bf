@@ -3473,7 +3473,7 @@ public struct DDMORESURFACECAPS
 
 	public uint32 dwSize;
 	public DDSCAPSEX ddsCapsMore;
-	public ExtendedHeapRestrictions[1] ddsExtendedHeapRestrictions;
+	public ExtendedHeapRestrictions[] ddsExtendedHeapRestrictions;
 }
 
 [CRepr]
@@ -5265,7 +5265,7 @@ public struct DD_MORESURFACECAPS
 
 	public uint32 dwSize;
 	public DDSCAPSEX ddsCapsMore;
-	public NTExtendedHeapRestrictions[1] ddsExtendedHeapRestrictions;
+	public NTExtendedHeapRestrictions[] ddsExtendedHeapRestrictions;
 }
 
 [CRepr]

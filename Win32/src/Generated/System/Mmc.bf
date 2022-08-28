@@ -587,28 +587,28 @@ public struct MMC_EXPANDSYNC_STRUCT
 public struct MMC_VISIBLE_COLUMNS
 {
 	public int32 nVisibleColumns;
-	public int32[1] rgVisibleCols;
+	public int32[] rgVisibleCols;
 }
 
 [CRepr]
 public struct SMMCDataObjects
 {
 	public uint32 count;
-	public IDataObject*[1] lpDataObject;
+	public IDataObject*[] lpDataObject;
 }
 
 [CRepr]
 public struct SMMCObjectTypes
 {
 	public uint32 count;
-	public Guid[1] guid;
+	public Guid[] guid;
 }
 
 [CRepr]
 public struct SNodeID
 {
 	public uint32 cBytes;
-	public uint8[1] id;
+	public uint8[] id;
 }
 
 [CRepr]
@@ -616,7 +616,7 @@ public struct SNodeID2
 {
 	public uint32 dwFlags;
 	public uint32 cBytes;
-	public uint8[1] id;
+	public uint8[] id;
 }
 
 [CRepr]
@@ -624,7 +624,7 @@ public struct SColumnSetID
 {
 	public uint32 dwFlags;
 	public uint32 cBytes;
-	public uint8[1] id;
+	public uint8[] id;
 }
 
 [CRepr]

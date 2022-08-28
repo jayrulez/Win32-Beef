@@ -172,7 +172,7 @@ public struct SID_INFO
 public struct SID_INFO_LIST
 {
 	public uint32 cItems;
-	public SID_INFO[1] aSidInfo;
+	public SID_INFO[] aSidInfo;
 }
 
 [CRepr]

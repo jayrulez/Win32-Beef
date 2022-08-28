@@ -2012,7 +2012,7 @@ public struct SPWORDPRONUNCIATION
 	public uint16 LangID;
 	public uint16 wPronunciationFlags;
 	public SPPARTOFSPEECH ePartOfSpeech;
-	public uint16[1] szPronunciation;
+	public uint16[] szPronunciation;
 }
 
 [CRepr]

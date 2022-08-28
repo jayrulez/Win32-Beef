@@ -2449,7 +2449,7 @@ public struct Sources
 {
 	public uint32 sourceId;
 	public int32 numTargets;
-	public uint32[1] aTargets;
+	public uint32[] aTargets;
 }
 
 [CRepr]
@@ -2457,14 +2457,14 @@ public struct Adapter
 {
 	public char16[128] AdapterName;
 	public int32 numSources;
-	public Sources[1] sources;
+	public Sources[] sources;
 }
 
 [CRepr]
 public struct Adapters
 {
 	public int32 numAdapters;
-	public Adapter[1] adapter;
+	public Adapter[] adapter;
 }
 
 [CRepr]
@@ -2478,7 +2478,7 @@ public struct DisplayMode
 public struct DisplayModes
 {
 	public int32 numDisplayModes;
-	public DisplayMode[1] displayMode;
+	public DisplayMode[] displayMode;
 }
 
 [CRepr]
@@ -2578,7 +2578,7 @@ public struct FD_DEVICEMETRICS
 	public int32 lMinA;
 	public int32 lMinC;
 	public int32 lMinD;
-	public int32[1] alReserved;
+	public int32[] alReserved;
 }
 
 [CRepr]
@@ -2587,7 +2587,7 @@ public struct LIGATURE
 	public uint32 culSize;
 	public PWSTR pwsz;
 	public uint32 chglyph;
-	public uint32[1] ahglyph;
+	public uint32[] ahglyph;
 }
 
 [CRepr]
@@ -2596,7 +2596,7 @@ public struct FD_LIGATURE
 	public uint32 culThis;
 	public uint32 ulType;
 	public uint32 cLigatures;
-	public LIGATURE[1] alig;
+	public LIGATURE[] alig;
 }
 
 [CRepr]
@@ -2621,7 +2621,7 @@ public struct FD_GLYPHSET
 	public uint32 flAccel;
 	public uint32 cGlyphsSupported;
 	public uint32 cRuns;
-	public WCRUN[1] awcrun;
+	public WCRUN[] awcrun;
 }
 
 [CRepr]
@@ -2630,7 +2630,7 @@ public struct FD_GLYPHATTR
 	public uint32 cjThis;
 	public uint32 cGlyphs;
 	public uint32 iMode;
-	public uint8[1] aGlyphAttr;
+	public uint8[] aGlyphAttr;
 }
 
 [CRepr]
@@ -2738,7 +2738,7 @@ public struct IFIEXTRA
 	public uint32 cig;
 	public int32 dpDesignVector;
 	public int32 dpAxesInfoW;
-	public uint32[1] aulReserved;
+	public uint32[] aulReserved;
 }
 
 [CRepr]
@@ -2998,7 +2998,7 @@ public struct XLATEOBJ
 public struct ENUMRECTS
 {
 	public uint32 c;
-	public RECTL[1] arcl;
+	public RECTL[] arcl;
 }
 
 [CRepr]
@@ -3006,7 +3006,7 @@ public struct GLYPHBITS
 {
 	public POINTL ptlOrigin;
 	public SIZE sizlBitmap;
-	public uint8[1] aj;
+	public uint8[] aj;
 }
 
 [CRepr, Union]
@@ -3083,7 +3083,7 @@ public struct CLIPLINE
 	public POINTFIX ptfxB;
 	public int32 lStyleState;
 	public uint32 c;
-	public RUN[1] arun;
+	public RUN[] arun;
 }
 
 [CRepr]
@@ -3204,7 +3204,7 @@ public struct VIDEO_REGISTER_VDM
 public struct VIDEO_MONITOR_DESCRIPTOR
 {
 	public uint32 DescriptorSize;
-	public uint8[1] Descriptor;
+	public uint8[] Descriptor;
 }
 
 [CRepr]
@@ -3333,7 +3333,7 @@ public struct VIDEO_LOAD_FONT_INFORMATION
 	public uint16 WidthInPixels;
 	public uint16 HeightInPixels;
 	public uint32 FontSize;
-	public uint8[1] Font;
+	public uint8[] Font;
 }
 
 [CRepr]
@@ -3341,7 +3341,7 @@ public struct VIDEO_PALETTE_DATA
 {
 	public uint16 NumEntries;
 	public uint16 FirstEntry;
-	public uint16[1] Colors;
+	public uint16[] Colors;
 }
 
 [CRepr]
@@ -3365,7 +3365,7 @@ public struct VIDEO_CLUT
 
 	public uint16 NumEntries;
 	public uint16 FirstEntry;
-	public _Anonymous_e__Union[1] LookupTable;
+	public _Anonymous_e__Union[] LookupTable;
 }
 
 [CRepr]
@@ -3403,7 +3403,7 @@ public struct VIDEO_POINTER_ATTRIBUTES
 	public uint32 Enable;
 	public int16 Column;
 	public int16 Row;
-	public uint8[1] Pixels;
+	public uint8[] Pixels;
 }
 
 [CRepr]
@@ -3510,7 +3510,7 @@ public struct VIDEO_COLOR_LUT_DATA
 {
 	public uint32 Length;
 	public uint32 LutDataFormat;
-	public uint8[1] LutData;
+	public uint8[] LutData;
 }
 
 [CRepr]
@@ -3548,7 +3548,7 @@ public struct VIDEO_BRIGHTNESS_POLICY
 
 	public BOOLEAN DefaultToBiosPolicy;
 	public uint8 LevelCount;
-	public _Anonymous_e__Struct[1] Level;
+	public _Anonymous_e__Struct[] Level;
 }
 
 [CRepr]
@@ -3975,7 +3975,7 @@ public struct COLORSPACE_TRANSFORM_SET_INPUT
 [CRepr]
 public struct SET_ACTIVE_COLOR_PROFILE_NAME
 {
-	public char16[1] ColorProfileName;
+	public char16[] ColorProfileName;
 }
 
 [CRepr]
@@ -4054,7 +4054,7 @@ public struct MIPI_DSI_TRANSMISSION
 	public uint16 FinalCommandExtraPayload;
 	public uint16 MipiErrors;
 	public uint16 HostErrors;
-	public MIPI_DSI_PACKET[1] Packets;
+	public MIPI_DSI_PACKET[] Packets;
 }
 
 [CRepr]

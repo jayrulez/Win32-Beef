@@ -3707,7 +3707,7 @@ public struct LINEFORWARDLIST
 {
 	public uint32 dwTotalSize;
 	public uint32 dwNumEntries;
-	public LINEFORWARD[1] ForwardList;
+	public LINEFORWARD[] ForwardList;
 }
 
 [CRepr, Packed(1)]
@@ -3944,7 +3944,7 @@ public struct LINEPROXYREQUEST
 			public uint32 dwAddressID;
 			public uint32 dwAgentExtensionIDIndex;
 			public uint32 dwSize;
-			public uint8[1] Params;
+			public uint8[] Params;
 		}
 
 		[CRepr, Packed(1)]
@@ -4397,7 +4397,7 @@ public struct MSP_EVENT_INFO
 		public struct _MSP_TSP_DATA_e__Struct
 		{
 			public uint32 dwBufferSize;
-			public uint8[1] pBuffer;
+			public uint8[] pBuffer;
 		}
 
 		[CRepr]
@@ -4436,7 +4436,7 @@ public struct STnefProblem
 public struct STnefProblemArray
 {
 	public uint32 cProblem;
-	public STnefProblem[1] aProblem;
+	public STnefProblem[] aProblem;
 }
 
 [CRepr, Packed(1)]
@@ -4487,7 +4487,7 @@ public struct NSID
 	public struct _address_e__Union
 	{
 		public _ADDR_ALIAS alias;
-		public CHAR[1] rgchInterNet;
+		public CHAR[] rgchInterNet;
 	}
 
 	public uint32 dwSize;

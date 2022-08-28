@@ -386,7 +386,7 @@ public struct EMRCREATECOLORSPACEW
 	public LOGCOLORSPACEW lcs;
 	public uint32 dwFlags;
 	public uint32 cbData;
-	public uint8[1] Data;
+	public uint8[] Data;
 }
 
 [CRepr]

@@ -3444,7 +3444,7 @@ public struct KSPIN_PHYSICALCONNECTION
 {
 	public uint32 Size;
 	public uint32 Pin;
-	public char16[1] SymbolicLinkName;
+	public char16[] SymbolicLinkName;
 }
 
 [CRepr]
@@ -3525,7 +3525,7 @@ public struct KSALLOCATOR_FRAMING_EX
 	public uint32 PinFlags;
 	public KS_COMPRESSION OutputCompression;
 	public uint32 PinWeight;
-	public KS_FRAMING_ITEM[1] FramingItem;
+	public KS_FRAMING_ITEM[] FramingItem;
 }
 
 [CRepr]
@@ -3756,7 +3756,7 @@ public struct KSAUDIO_PACKETSIZE_CONSTRAINTS
 	public uint32 PacketSizeFileAlignment;
 	public uint32 Reserved;
 	public uint32 NumProcessingModeConstraints;
-	public _KSAUDIO_PACKETSIZE_SIGNALPROCESSINGMODE_CONSTRAINT[1] ProcessingModeConstraints;
+	public _KSAUDIO_PACKETSIZE_SIGNALPROCESSINGMODE_CONSTRAINT[] ProcessingModeConstraints;
 }
 
 [CRepr]
@@ -3766,7 +3766,7 @@ public struct KSAUDIO_PACKETSIZE_CONSTRAINTS2
 	public uint32 PacketSizeFileAlignment;
 	public uint32 MaxPacketSizeInBytes;
 	public uint32 NumProcessingModeConstraints;
-	public _KSAUDIO_PACKETSIZE_SIGNALPROCESSINGMODE_CONSTRAINT[1] ProcessingModeConstraints;
+	public _KSAUDIO_PACKETSIZE_SIGNALPROCESSINGMODE_CONSTRAINT[] ProcessingModeConstraints;
 }
 
 [CRepr]
@@ -3792,7 +3792,7 @@ public struct KSAUDIO_MIC_ARRAY_GEOMETRY
 	public uint16 usFrequencyBandLo;
 	public uint16 usFrequencyBandHi;
 	public uint16 usNumberOfMicrophones;
-	public KSAUDIO_MICROPHONE_COORDINATES[1] KsMicCoord;
+	public KSAUDIO_MICROPHONE_COORDINATES[] KsMicCoord;
 }
 
 [CRepr]
@@ -4140,7 +4140,7 @@ public struct KSAUDIO_MIXCAP_TABLE
 {
 	public uint32 InputChannels;
 	public uint32 OutputChannels;
-	public KSAUDIO_MIX_CAPS[1] Capabilities;
+	public KSAUDIO_MIX_CAPS[] Capabilities;
 }
 
 [CRepr]
@@ -4430,7 +4430,7 @@ public struct KS_DVDCOPY_CHLGKEY
 public struct KS_DVDCOPY_BUSKEY
 {
 	public uint8[5] BusKey;
-	public uint8[1] Reserved;
+	public uint8[] Reserved;
 }
 
 [CRepr]
@@ -4596,7 +4596,7 @@ public struct KS_MPEG1VIDEOINFO
 	public KS_VIDEOINFOHEADER hdr;
 	public uint32 dwStartTimeCode;
 	public uint32 cbSequenceHeader;
-	public uint8[1] bSequenceHeader;
+	public uint8[] bSequenceHeader;
 }
 
 [CRepr]
@@ -4608,7 +4608,7 @@ public struct KS_MPEGVIDEOINFO2
 	public uint32 dwProfile;
 	public uint32 dwLevel;
 	public uint32 dwFlags;
-	public uint32[1] bSequenceHeader;
+	public uint32[] bSequenceHeader;
 }
 
 [CRepr]
@@ -5797,7 +5797,7 @@ public struct KSCAMERA_METADATA_BACKGROUNDSEGMENTATIONMASK
 	public RECT MaskCoverageBoundingBox;
 	public SIZE MaskResolution;
 	public RECT ForegroundBoundingBox;
-	public uint8[1] MaskData;
+	public uint8[] MaskData;
 }
 
 [CRepr]
@@ -5929,7 +5929,7 @@ public struct KSPROPERTY_NETWORKCAMERACONTROL_METADATA_INFO
 public struct KSPROPERTY_NETWORKCAMERACONTROL_EVENT_INFO
 {
 	public KSCAMERA_METADATA_ITEMHEADER Header;
-	public char16[1] EventFilter;
+	public char16[] EventFilter;
 }
 
 [CRepr]
@@ -6237,7 +6237,7 @@ public struct KSDISPLAYCHANGE
 	public uint32 PelsWidth;
 	public uint32 PelsHeight;
 	public uint32 BitsPerPel;
-	public char16[1] DeviceID;
+	public char16[] DeviceID;
 }
 
 [CRepr]

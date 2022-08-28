@@ -4684,7 +4684,7 @@ public struct PRINTER_NOTIFY_INFO
 	public uint32 Version;
 	public uint32 Flags;
 	public uint32 Count;
-	public PRINTER_NOTIFY_INFO_DATA[1] aData;
+	public PRINTER_NOTIFY_INFO_DATA[] aData;
 }
 
 [CRepr]
@@ -4725,7 +4725,7 @@ public struct BIDI_REQUEST_CONTAINER
 	public uint32 Version;
 	public uint32 Flags;
 	public uint32 Count;
-	public BIDI_REQUEST_DATA[1] aData;
+	public BIDI_REQUEST_DATA[] aData;
 }
 
 [CRepr]
@@ -4743,7 +4743,7 @@ public struct BIDI_RESPONSE_CONTAINER
 	public uint32 Version;
 	public uint32 Flags;
 	public uint32 Count;
-	public BIDI_RESPONSE_DATA[1] aData;
+	public BIDI_RESPONSE_DATA[] aData;
 }
 
 [CRepr]
@@ -4877,14 +4877,14 @@ public struct MxdcEscapeHeader
 public struct MxdcGetFileNameData
 {
 	public uint32 cbOutput;
-	public char16[1] wszData;
+	public char16[] wszData;
 }
 
 [CRepr, Packed(1)]
 public struct MxdcS0PageData
 {
 	public uint32 dwSize;
-	public uint8[1] bData;
+	public uint8[] bData;
 }
 
 [CRepr, Packed(1)]
@@ -4894,14 +4894,14 @@ public struct MxdcXpsS0PageResource
 	public uint32 dwResourceType;
 	public uint8[260] szUri;
 	public uint32 dwDataSize;
-	public uint8[1] bData;
+	public uint8[] bData;
 }
 
 [CRepr, Packed(1)]
 public struct MxdcPrintTicketPassthrough
 {
 	public uint32 dwDataSize;
-	public uint8[1] bData;
+	public uint8[] bData;
 }
 
 [CRepr]
@@ -4991,7 +4991,7 @@ public struct DOCEVENT_FILTER
 	public uint32 cElementsAllocated;
 	public uint32 cElementsNeeded;
 	public uint32 cElementsReturned;
-	public uint32[1] aDocEventCall;
+	public uint32[] aDocEventCall;
 }
 
 [CRepr]
@@ -5355,7 +5355,7 @@ public struct WIDTHTABLE
 {
 	public uint32 dwSize;
 	public uint32 dwRunNum;
-	public WIDTHRUN[1] WidthRun;
+	public WIDTHRUN[] WidthRun;
 }
 
 [CRepr]
@@ -5363,7 +5363,7 @@ public struct KERNDATA
 {
 	public uint32 dwSize;
 	public uint32 dwKernPairNum;
-	public FD_KERNINGPAIR[1] KernPair;
+	public FD_KERNINGPAIR[] KernPair;
 }
 
 [CRepr]
@@ -5418,7 +5418,7 @@ public struct MAPTABLE
 {
 	public uint32 dwSize;
 	public uint32 dwGlyphNum;
-	public TRANSDATA[1] Trans;
+	public TRANSDATA[] Trans;
 }
 
 [CRepr]
@@ -5515,7 +5515,7 @@ public struct PORT_DATA_LIST_1
 {
 	public uint32 dwVersion;
 	public uint32 cPortData;
-	public PORT_DATA_2[1] pPortData;
+	public PORT_DATA_2[] pPortData;
 }
 
 [CRepr]
@@ -5612,7 +5612,7 @@ public struct BranchOfficeJobData
 public struct BranchOfficeJobDataContainer
 {
 	public uint32 cJobDataEntries;
-	public BranchOfficeJobData[1] JobData;
+	public BranchOfficeJobData[] JobData;
 }
 
 [CRepr]

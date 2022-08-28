@@ -1395,7 +1395,7 @@ public struct HTTP_SERVICE_CONFIG_IP_LISTEN_PARAM
 public struct HTTP_SERVICE_CONFIG_IP_LISTEN_QUERY
 {
 	public uint32 AddrCount;
-	public SOCKADDR_STORAGE[1] AddrList;
+	public SOCKADDR_STORAGE[] AddrList;
 }
 
 [CRepr]

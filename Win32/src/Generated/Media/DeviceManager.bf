@@ -979,7 +979,7 @@ public struct MTP_COMMAND_DATA_IN
 	public uint32[5] Params;
 	public uint32 NextPhase;
 	public uint32 CommandWriteDataSize;
-	public uint8[1] CommandWriteData;
+	public uint8[] CommandWriteData;
 }
 
 [CRepr, Packed(1)]
@@ -989,7 +989,7 @@ public struct MTP_COMMAND_DATA_OUT
 	public uint32 NumParams;
 	public uint32[5] Params;
 	public uint32 CommandReadDataSize;
-	public uint8[1] CommandReadData;
+	public uint8[] CommandReadData;
 }
 
 #endregion

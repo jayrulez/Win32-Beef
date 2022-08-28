@@ -169,7 +169,7 @@ public struct APPLICATION_EVENT_DATA
 	public Guid EndpointId;
 	public uint32 dwEventId;
 	public uint32 cbEventData;
-	public uint8[1] bEventData;
+	public uint8[] bEventData;
 }
 
 [CRepr, Packed(1)]

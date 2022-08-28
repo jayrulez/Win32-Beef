@@ -682,7 +682,7 @@ public struct WIN_CERTIFICATE
 	public uint32 dwLength;
 	public uint16 wRevision;
 	public uint16 wCertificateType;
-	public uint8[1] bCertificate;
+	public uint8[] bCertificate;
 }
 
 [CRepr]

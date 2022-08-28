@@ -895,7 +895,7 @@ public struct CF_PLACEHOLDER_BASIC_INFO
 	public LARGE_INTEGER FileId;
 	public LARGE_INTEGER SyncRootFileId;
 	public uint32 FileIdentityLength;
-	public uint8[1] FileIdentity;
+	public uint8[] FileIdentity;
 }
 
 [CRepr]
@@ -910,7 +910,7 @@ public struct CF_PLACEHOLDER_STANDARD_INFO
 	public LARGE_INTEGER FileId;
 	public LARGE_INTEGER SyncRootFileId;
 	public uint32 FileIdentityLength;
-	public uint8[1] FileIdentity;
+	public uint8[] FileIdentity;
 }
 
 [CRepr]
@@ -939,7 +939,7 @@ public struct CF_SYNC_ROOT_STANDARD_INFO
 	public char16[256] ProviderName;
 	public char16[256] ProviderVersion;
 	public uint32 SyncRootIdentityLength;
-	public uint8[1] SyncRootIdentity;
+	public uint8[] SyncRootIdentity;
 }
 
 #endregion

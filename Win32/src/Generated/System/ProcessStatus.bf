@@ -74,7 +74,7 @@ public struct PSAPI_WORKING_SET_BLOCK
 public struct PSAPI_WORKING_SET_INFORMATION
 {
 	public uint NumberOfEntries;
-	public PSAPI_WORKING_SET_BLOCK[1] WorkingSetInfo;
+	public PSAPI_WORKING_SET_BLOCK[] WorkingSetInfo;
 }
 
 [CRepr, Union]

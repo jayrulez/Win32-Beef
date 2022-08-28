@@ -1873,7 +1873,7 @@ public struct RFX_GFX_MSG_DESKTOP_RESEND_REQUEST
 public struct RFX_GFX_MSG_RDP_DATA
 {
 	public RFX_GFX_MSG_HEADER channelHdr;
-	public uint8[1] rdpData;
+	public uint8[] rdpData;
 }
 
 [CRepr]

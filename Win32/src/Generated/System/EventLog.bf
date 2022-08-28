@@ -466,7 +466,7 @@ public struct EVENTSFORLOGFILE
 	public uint32 ulSize;
 	public char16[256] szLogicalLogFile;
 	public uint32 ulNumRecords;
-	public EVENTLOGRECORD[1] pEventLogRecords;
+	public EVENTLOGRECORD[] pEventLogRecords;
 }
 
 [CRepr]

@@ -1494,21 +1494,21 @@ public struct IP_ADAPTER_INDEX_MAP
 public struct IP_INTERFACE_INFO
 {
 	public int32 NumAdapters;
-	public IP_ADAPTER_INDEX_MAP[1] Adapter;
+	public IP_ADAPTER_INDEX_MAP[] Adapter;
 }
 
 [CRepr]
 public struct IP_UNIDIRECTIONAL_ADAPTER_ADDRESS
 {
 	public uint32 NumAdapters;
-	public uint32[1] Address;
+	public uint32[] Address;
 }
 
 [CRepr]
 public struct IP_ADAPTER_ORDER_MAP
 {
 	public uint32 NumAdapters;
-	public uint32[1] AdapterOrder;
+	public uint32[] AdapterOrder;
 }
 
 [CRepr]
@@ -1663,7 +1663,7 @@ public struct MIB_IF_ROW2
 public struct MIB_IF_TABLE2
 {
 	public uint32 NumEntries;
-	public MIB_IF_ROW2[1] Table;
+	public MIB_IF_ROW2[] Table;
 }
 
 [CRepr]
@@ -1710,7 +1710,7 @@ public struct MIB_IPINTERFACE_ROW
 public struct MIB_IPINTERFACE_TABLE
 {
 	public uint32 NumEntries;
-	public MIB_IPINTERFACE_ROW[1] Table;
+	public MIB_IPINTERFACE_ROW[] Table;
 }
 
 [CRepr]
@@ -1731,14 +1731,14 @@ public struct MIB_INVERTEDIFSTACK_ROW
 public struct MIB_IFSTACK_TABLE
 {
 	public uint32 NumEntries;
-	public MIB_IFSTACK_ROW[1] Table;
+	public MIB_IFSTACK_ROW[] Table;
 }
 
 [CRepr]
 public struct MIB_INVERTEDIFSTACK_TABLE
 {
 	public uint32 NumEntries;
-	public MIB_INVERTEDIFSTACK_ROW[1] Table;
+	public MIB_INVERTEDIFSTACK_ROW[] Table;
 }
 
 [CRepr]
@@ -1769,7 +1769,7 @@ public struct MIB_UNICASTIPADDRESS_ROW
 public struct MIB_UNICASTIPADDRESS_TABLE
 {
 	public uint32 NumEntries;
-	public MIB_UNICASTIPADDRESS_ROW[1] Table;
+	public MIB_UNICASTIPADDRESS_ROW[] Table;
 }
 
 [CRepr]
@@ -1785,7 +1785,7 @@ public struct MIB_ANYCASTIPADDRESS_ROW
 public struct MIB_ANYCASTIPADDRESS_TABLE
 {
 	public uint32 NumEntries;
-	public MIB_ANYCASTIPADDRESS_ROW[1] Table;
+	public MIB_ANYCASTIPADDRESS_ROW[] Table;
 }
 
 [CRepr]
@@ -1801,7 +1801,7 @@ public struct MIB_MULTICASTIPADDRESS_ROW
 public struct MIB_MULTICASTIPADDRESS_TABLE
 {
 	public uint32 NumEntries;
-	public MIB_MULTICASTIPADDRESS_ROW[1] Table;
+	public MIB_MULTICASTIPADDRESS_ROW[] Table;
 }
 
 [CRepr]
@@ -1835,7 +1835,7 @@ public struct MIB_IPFORWARD_ROW2
 public struct MIB_IPFORWARD_TABLE2
 {
 	public uint32 NumEntries;
-	public MIB_IPFORWARD_ROW2[1] Table;
+	public MIB_IPFORWARD_ROW2[] Table;
 }
 
 [CRepr]
@@ -1866,7 +1866,7 @@ public struct MIB_IPPATH_ROW
 public struct MIB_IPPATH_TABLE
 {
 	public uint32 NumEntries;
-	public MIB_IPPATH_ROW[1] Table;
+	public MIB_IPPATH_ROW[] Table;
 }
 
 [CRepr]
@@ -1906,7 +1906,7 @@ public struct MIB_IPNET_ROW2
 public struct MIB_IPNET_TABLE2
 {
 	public uint32 NumEntries;
-	public MIB_IPNET_ROW2[1] Table;
+	public MIB_IPNET_ROW2[] Table;
 }
 
 [CRepr]
@@ -2000,7 +2000,7 @@ public struct DNS_INTERFACE_SETTINGS3
 public struct MIB_OPAQUE_QUERY
 {
 	public uint32 dwVarId;
-	public uint32[1] rgdwVarIndex;
+	public uint32[] rgdwVarIndex;
 }
 
 [CRepr]
@@ -2042,7 +2042,7 @@ public struct MIB_IFROW
 public struct MIB_IFTABLE
 {
 	public uint32 dwNumEntries;
-	public MIB_IFROW[1] table;
+	public MIB_IFROW[] table;
 }
 
 [CRepr]
@@ -2073,7 +2073,7 @@ public struct MIB_IPADDRROW_W2K
 public struct MIB_IPADDRTABLE
 {
 	public uint32 dwNumEntries;
-	public MIB_IPADDRROW_XP[1] table;
+	public MIB_IPADDRROW_XP[] table;
 }
 
 [CRepr]
@@ -2119,7 +2119,7 @@ public struct MIB_IPFORWARDROW
 public struct MIB_IPFORWARDTABLE
 {
 	public uint32 dwNumEntries;
-	public MIB_IPFORWARDROW[1] table;
+	public MIB_IPFORWARDROW[] table;
 }
 
 [CRepr]
@@ -2153,7 +2153,7 @@ public struct MIB_IPNETROW_W2K
 public struct MIB_IPNETTABLE
 {
 	public uint32 dwNumEntries;
-	public MIB_IPNETROW_LH[1] table;
+	public MIB_IPNETROW_LH[] table;
 }
 
 [CRepr]
@@ -2301,14 +2301,14 @@ public struct MIB_IPMCAST_MFE
 	public uint32 ulNumOutIf;
 	public uint32 fFlags;
 	public uint32 dwReserved;
-	public MIB_IPMCAST_OIF_XP[1] rgmioOutInfo;
+	public MIB_IPMCAST_OIF_XP[] rgmioOutInfo;
 }
 
 [CRepr]
 public struct MIB_MFE_TABLE
 {
 	public uint32 dwNumEntries;
-	public MIB_IPMCAST_MFE[1] table;
+	public MIB_IPMCAST_MFE[] table;
 }
 
 [CRepr]
@@ -2354,14 +2354,14 @@ public struct MIB_IPMCAST_MFE_STATS
 	public uint32 ulInOctets;
 	public uint32 ulPktsDifferentIf;
 	public uint32 ulQueueOverflow;
-	public MIB_IPMCAST_OIF_STATS_LH[1] rgmiosOutStats;
+	public MIB_IPMCAST_OIF_STATS_LH[] rgmiosOutStats;
 }
 
 [CRepr]
 public struct MIB_MFE_STATS_TABLE
 {
 	public uint32 dwNumEntries;
-	public MIB_IPMCAST_MFE_STATS[1] table;
+	public MIB_IPMCAST_MFE_STATS[] table;
 }
 
 [CRepr]
@@ -2388,14 +2388,14 @@ public struct MIB_IPMCAST_MFE_STATS_EX_XP
 	public uint32 ulInDiscards;
 	public uint32 ulInHdrErrors;
 	public uint32 ulTotalOutPackets;
-	public MIB_IPMCAST_OIF_STATS_LH[1] rgmiosOutStats;
+	public MIB_IPMCAST_OIF_STATS_LH[] rgmiosOutStats;
 }
 
 [CRepr]
 public struct MIB_MFE_STATS_TABLE_EX_XP
 {
 	public uint32 dwNumEntries;
-	public MIB_IPMCAST_MFE_STATS_EX_XP*[1] table;
+	public MIB_IPMCAST_MFE_STATS_EX_XP*[] table;
 }
 
 [CRepr]
@@ -2419,7 +2419,7 @@ public struct MIB_IPMCAST_IF_ENTRY
 public struct MIB_IPMCAST_IF_TABLE
 {
 	public uint32 dwNumEntries;
-	public MIB_IPMCAST_IF_ENTRY[1] table;
+	public MIB_IPMCAST_IF_ENTRY[] table;
 }
 
 [CRepr]
@@ -2453,7 +2453,7 @@ public struct MIB_TCPROW_W2K
 public struct MIB_TCPTABLE
 {
 	public uint32 dwNumEntries;
-	public MIB_TCPROW_LH[1] table;
+	public MIB_TCPROW_LH[] table;
 }
 
 [CRepr]
@@ -2472,7 +2472,7 @@ public struct MIB_TCPROW2
 public struct MIB_TCPTABLE2
 {
 	public uint32 dwNumEntries;
-	public MIB_TCPROW2[1] table;
+	public MIB_TCPROW2[] table;
 }
 
 [CRepr]
@@ -2490,7 +2490,7 @@ public struct MIB_TCPROW_OWNER_PID
 public struct MIB_TCPTABLE_OWNER_PID
 {
 	public uint32 dwNumEntries;
-	public MIB_TCPROW_OWNER_PID[1] table;
+	public MIB_TCPROW_OWNER_PID[] table;
 }
 
 [CRepr]
@@ -2510,7 +2510,7 @@ public struct MIB_TCPROW_OWNER_MODULE
 public struct MIB_TCPTABLE_OWNER_MODULE
 {
 	public uint32 dwNumEntries;
-	public MIB_TCPROW_OWNER_MODULE[1] table;
+	public MIB_TCPROW_OWNER_MODULE[] table;
 }
 
 [CRepr]
@@ -2529,7 +2529,7 @@ public struct MIB_TCP6ROW
 public struct MIB_TCP6TABLE
 {
 	public uint32 dwNumEntries;
-	public MIB_TCP6ROW[1] table;
+	public MIB_TCP6ROW[] table;
 }
 
 [CRepr]
@@ -2550,7 +2550,7 @@ public struct MIB_TCP6ROW2
 public struct MIB_TCP6TABLE2
 {
 	public uint32 dwNumEntries;
-	public MIB_TCP6ROW2[1] table;
+	public MIB_TCP6ROW2[] table;
 }
 
 [CRepr]
@@ -2570,7 +2570,7 @@ public struct MIB_TCP6ROW_OWNER_PID
 public struct MIB_TCP6TABLE_OWNER_PID
 {
 	public uint32 dwNumEntries;
-	public MIB_TCP6ROW_OWNER_PID[1] table;
+	public MIB_TCP6ROW_OWNER_PID[] table;
 }
 
 [CRepr]
@@ -2592,7 +2592,7 @@ public struct MIB_TCP6ROW_OWNER_MODULE
 public struct MIB_TCP6TABLE_OWNER_MODULE
 {
 	public uint32 dwNumEntries;
-	public MIB_TCP6ROW_OWNER_MODULE[1] table;
+	public MIB_TCP6ROW_OWNER_MODULE[] table;
 }
 
 [CRepr]
@@ -2673,7 +2673,7 @@ public struct MIB_UDPROW
 public struct MIB_UDPTABLE
 {
 	public uint32 dwNumEntries;
-	public MIB_UDPROW[1] table;
+	public MIB_UDPROW[] table;
 }
 
 [CRepr]
@@ -2688,7 +2688,7 @@ public struct MIB_UDPROW_OWNER_PID
 public struct MIB_UDPTABLE_OWNER_PID
 {
 	public uint32 dwNumEntries;
-	public MIB_UDPROW_OWNER_PID[1] table;
+	public MIB_UDPROW_OWNER_PID[] table;
 }
 
 [CRepr]
@@ -2719,7 +2719,7 @@ public struct MIB_UDPROW_OWNER_MODULE
 public struct MIB_UDPTABLE_OWNER_MODULE
 {
 	public uint32 dwNumEntries;
-	public MIB_UDPROW_OWNER_MODULE[1] table;
+	public MIB_UDPROW_OWNER_MODULE[] table;
 }
 
 [CRepr]
@@ -2752,7 +2752,7 @@ public struct MIB_UDPROW2
 public struct MIB_UDPTABLE2
 {
 	public uint32 dwNumEntries;
-	public MIB_UDPROW2[1] table;
+	public MIB_UDPROW2[] table;
 }
 
 [CRepr]
@@ -2767,7 +2767,7 @@ public struct MIB_UDP6ROW
 public struct MIB_UDP6TABLE
 {
 	public uint32 dwNumEntries;
-	public MIB_UDP6ROW[1] table;
+	public MIB_UDP6ROW[] table;
 }
 
 [CRepr]
@@ -2783,7 +2783,7 @@ public struct MIB_UDP6ROW_OWNER_PID
 public struct MIB_UDP6TABLE_OWNER_PID
 {
 	public uint32 dwNumEntries;
-	public MIB_UDP6ROW_OWNER_PID[1] table;
+	public MIB_UDP6ROW_OWNER_PID[] table;
 }
 
 [CRepr]
@@ -2815,7 +2815,7 @@ public struct MIB_UDP6ROW_OWNER_MODULE
 public struct MIB_UDP6TABLE_OWNER_MODULE
 {
 	public uint32 dwNumEntries;
-	public MIB_UDP6ROW_OWNER_MODULE[1] table;
+	public MIB_UDP6ROW_OWNER_MODULE[] table;
 }
 
 [CRepr]
@@ -2850,7 +2850,7 @@ public struct MIB_UDP6ROW2
 public struct MIB_UDP6TABLE2
 {
 	public uint32 dwNumEntries;
-	public MIB_UDP6ROW2[1] table;
+	public MIB_UDP6ROW2[] table;
 }
 
 [CRepr]
@@ -2893,7 +2893,7 @@ public struct MIB_IPMCAST_BOUNDARY
 public struct MIB_IPMCAST_BOUNDARY_TABLE
 {
 	public uint32 dwNumEntries;
-	public MIB_IPMCAST_BOUNDARY[1] table;
+	public MIB_IPMCAST_BOUNDARY[] table;
 }
 
 [CRepr]
@@ -2931,7 +2931,7 @@ public struct MIB_IPDESTROW
 public struct MIB_IPDESTTABLE
 {
 	public uint32 dwNumEntries;
-	public MIB_IPDESTROW[1] table;
+	public MIB_IPDESTROW[] table;
 }
 
 [CRepr]
@@ -2972,7 +2972,7 @@ public struct MIB_OPAQUE_INFO
 	public struct _Anonymous_e__Union
 	{
 		public uint64 ullAlign;
-		public uint8[1] rgbyData;
+		public uint8[] rgbyData;
 	}
 
 	public uint32 dwId;
@@ -3645,7 +3645,7 @@ public struct PF_INTERFACE_STATS
 	public LARGE_INTEGER liSYN;
 	public LARGE_INTEGER liTotalLogged;
 	public uint32 dwLostLogEntries;
-	public PF_FILTER_STATS[1] FilterInfo;
+	public PF_FILTER_STATS[] FilterInfo;
 }
 
 [CRepr]
@@ -3667,7 +3667,7 @@ public struct PFLOGFRAME
 	public uint16 wSizeOfIpHeader;
 	public uint32 dwInterfaceName;
 	public uint32 dwIPIndex;
-	public uint8[1] bPacketData;
+	public uint8[] bPacketData;
 }
 
 #endregion

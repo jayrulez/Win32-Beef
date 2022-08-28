@@ -9362,7 +9362,7 @@ public struct ADPCMWAVEFORMAT
 	public WAVEFORMATEX wfx;
 	public uint16 wSamplesPerBlock;
 	public uint16 wNumCoef;
-	public ADPCMCOEFSET[1] aCoef;
+	public ADPCMCOEFSET[] aCoef;
 }
 
 [CRepr, Packed(1)]

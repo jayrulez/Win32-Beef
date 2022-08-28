@@ -1585,14 +1585,14 @@ public struct WINBIO_SENSOR_ATTRIBUTES
 	public uint16[256] SerialNumber;
 	public WINBIO_VERSION FirmwareVersion;
 	public uint32 SupportedFormatEntries;
-	public WINBIO_REGISTERED_FORMAT[1] SupportedFormat;
+	public WINBIO_REGISTERED_FORMAT[] SupportedFormat;
 }
 
 [CRepr]
 public struct WINBIO_DATA
 {
 	public uint32 Size;
-	public uint8[1] Data;
+	public uint8[] Data;
 }
 
 [CRepr]

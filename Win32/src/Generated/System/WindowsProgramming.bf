@@ -2101,7 +2101,7 @@ public struct tcp_request_set_information_ex
 {
 	public TDIObjectID ID;
 	public uint32 BufferSize;
-	public uint8[1] Buffer;
+	public uint8[] Buffer;
 }
 
 [CRepr]

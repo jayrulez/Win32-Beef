@@ -810,7 +810,7 @@ public struct PPP_EAP_PACKET
 	public uint8 Code;
 	public uint8 Id;
 	public uint8[2] Length;
-	public uint8[1] Data;
+	public uint8[] Data;
 }
 
 [CRepr]
@@ -1155,7 +1155,7 @@ public struct EapPacket
 	public uint8 Code;
 	public uint8 Id;
 	public uint8[2] Length;
-	public uint8[1] Data;
+	public uint8[] Data;
 }
 
 [CRepr]

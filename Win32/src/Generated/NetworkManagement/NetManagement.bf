@@ -6889,7 +6889,7 @@ public struct FLAT_STRING
 {
 	public int16 MaximumLength;
 	public int16 Length;
-	public CHAR[1] Buffer;
+	public CHAR[] Buffer;
 }
 
 [CRepr]
@@ -6950,7 +6950,7 @@ public struct RTR_INFO_BLOCK_HEADER
 	public uint32 Version;
 	public uint32 Size;
 	public uint32 TocEntriesCount;
-	public RTR_TOC_ENTRY[1] TocEntry;
+	public RTR_TOC_ENTRY[] TocEntry;
 }
 
 [CRepr]

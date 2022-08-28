@@ -117,7 +117,7 @@ public enum DEVICE_SCALE_FACTOR : int32
 public struct SHITEMID
 {
 	public uint16 cb;
-	public uint8[1] abID;
+	public uint8[] abID;
 }
 
 [CRepr]

@@ -664,7 +664,7 @@ public struct DMUS_DOWNLOADINFO
 [CRepr]
 public struct DMUS_OFFSETTABLE
 {
-	public uint32[1] ulOffsetTable;
+	public uint32[] ulOffsetTable;
 }
 
 [CRepr]
@@ -690,7 +690,7 @@ public struct DMUS_REGION
 	public uint32 ulFirstExtCkIdx;
 	public WAVELINK WaveLink;
 	public _rwsmp WSMP;
-	public _rloop[1] WLOOP;
+	public _rloop[] WLOOP;
 }
 
 [CRepr]
@@ -1037,7 +1037,7 @@ public struct MIDIOPENDESC
 	public uint dwInstance;
 	public uint dnDevNode;
 	public uint32 cIds;
-	public MIDIOPENSTRMID[1] rgIds;
+	public MIDIOPENSTRMID[] rgIds;
 }
 
 #endregion

@@ -984,14 +984,14 @@ public struct NDR_SCONTEXT_1
 public struct RPC_BINDING_VECTOR
 {
 	public uint32 Count;
-	public void*[1] BindingH;
+	public void*[] BindingH;
 }
 
 [CRepr]
 public struct UUID_VECTOR
 {
 	public uint32 Count;
-	public Guid*[1] Uuid;
+	public Guid*[] Uuid;
 }
 
 [CRepr]
@@ -1006,14 +1006,14 @@ public struct RPC_IF_ID
 public struct RPC_PROTSEQ_VECTORA
 {
 	public uint32 Count;
-	public uint8*[1] Protseq;
+	public uint8*[] Protseq;
 }
 
 [CRepr]
 public struct RPC_PROTSEQ_VECTORW
 {
 	public uint32 Count;
-	public uint16*[1] Protseq;
+	public uint16*[] Protseq;
 }
 
 [CRepr]
@@ -1028,14 +1028,14 @@ public struct RPC_POLICY
 public struct RPC_STATS_VECTOR
 {
 	public uint32 Count;
-	public uint32[1] Stats;
+	public uint32[] Stats;
 }
 
 [CRepr]
 public struct RPC_IF_ID_VECTOR
 {
 	public uint32 Count;
-	public RPC_IF_ID*[1] IfId;
+	public RPC_IF_ID*[] IfId;
 }
 
 [CRepr]
@@ -2033,7 +2033,7 @@ public struct MIDL_STUB_DESC
 public struct MIDL_FORMAT_STRING
 {
 	public int16 Pad;
-	public uint8[1] Format;
+	public uint8[] Format;
 }
 
 [CRepr]

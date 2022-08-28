@@ -3221,7 +3221,7 @@ public struct STORAGE_DEVICE_NUMBERS
 	public uint32 Version;
 	public uint32 Size;
 	public uint32 NumberOfDevices;
-	public STORAGE_DEVICE_NUMBER[1] Devices;
+	public STORAGE_DEVICE_NUMBER[] Devices;
 }
 
 [CRepr]
@@ -3350,7 +3350,7 @@ public struct GET_MEDIA_TYPES
 {
 	public uint32 DeviceType;
 	public uint32 MediaInfoCount;
-	public DEVICE_MEDIA_INFO[1] MediaInfo;
+	public DEVICE_MEDIA_INFO[] MediaInfo;
 }
 
 [CRepr]
@@ -3375,7 +3375,7 @@ public struct STORAGE_PROPERTY_QUERY
 {
 	public STORAGE_PROPERTY_ID PropertyId;
 	public STORAGE_QUERY_TYPE QueryType;
-	public uint8[1] AdditionalParameters;
+	public uint8[] AdditionalParameters;
 }
 
 [CRepr]
@@ -3383,7 +3383,7 @@ public struct STORAGE_PROPERTY_SET
 {
 	public STORAGE_PROPERTY_ID PropertyId;
 	public STORAGE_SET_TYPE SetType;
-	public uint8[1] AdditionalParameters;
+	public uint8[] AdditionalParameters;
 }
 
 [CRepr]
@@ -3408,7 +3408,7 @@ public struct STORAGE_DEVICE_DESCRIPTOR
 	public uint32 SerialNumberOffset;
 	public STORAGE_BUS_TYPE BusType;
 	public uint32 RawPropertiesLength;
-	public uint8[1] RawDeviceProperties;
+	public uint8[] RawDeviceProperties;
 }
 
 [CRepr]
@@ -3486,7 +3486,7 @@ public struct STORAGE_IDENTIFIER
 	public uint16 IdentifierSize;
 	public uint16 NextOffset;
 	public STORAGE_ASSOCIATION_TYPE Association;
-	public uint8[1] Identifier;
+	public uint8[] Identifier;
 }
 
 [CRepr]
@@ -3495,7 +3495,7 @@ public struct STORAGE_DEVICE_ID_DESCRIPTOR
 	public uint32 Version;
 	public uint32 Size;
 	public uint32 NumberOfIdentifiers;
-	public uint8[1] Identifiers;
+	public uint8[] Identifiers;
 }
 
 [CRepr]
@@ -3620,7 +3620,7 @@ public struct STORAGE_CRYPTO_DESCRIPTOR
 	public uint32 Size;
 	public uint32 NumKeysSupported;
 	public uint32 NumCryptoCapabilities;
-	public STORAGE_CRYPTO_CAPABILITY[1] CryptoCapabilities;
+	public STORAGE_CRYPTO_CAPABILITY[] CryptoCapabilities;
 }
 
 [CRepr]
@@ -3643,7 +3643,7 @@ public struct STORAGE_DEVICE_TIERING_DESCRIPTOR
 	public uint32 Flags;
 	public uint32 TotalNumberOfTiers;
 	public uint32 NumberOfTiersReturned;
-	public STORAGE_TIER[1] Tiers;
+	public STORAGE_TIER[] Tiers;
 }
 
 [CRepr]
@@ -3652,7 +3652,7 @@ public struct STORAGE_DEVICE_FAULT_DOMAIN_DESCRIPTOR
 	public uint32 Version;
 	public uint32 Size;
 	public uint32 NumberOfFaultDomains;
-	public Guid[1] FaultDomainIds;
+	public Guid[] FaultDomainIds;
 }
 
 [CRepr, Union]
@@ -3740,7 +3740,7 @@ public struct STORAGE_TEMPERATURE_DATA_DESCRIPTOR
 	public uint16 InfoCount;
 	public uint8[2] Reserved0;
 	public uint32[2] Reserved1;
-	public STORAGE_TEMPERATURE_INFO[1] TemperatureInfo;
+	public STORAGE_TEMPERATURE_INFO[] TemperatureInfo;
 }
 
 [CRepr]
@@ -3836,7 +3836,7 @@ public struct STORAGE_PHYSICAL_TOPOLOGY_DESCRIPTOR
 	public uint32 Size;
 	public uint32 NodeCount;
 	public uint32 Reserved;
-	public STORAGE_PHYSICAL_NODE_DATA[1] Node;
+	public STORAGE_PHYSICAL_NODE_DATA[] Node;
 }
 
 [CRepr]
@@ -3899,7 +3899,7 @@ public struct STORAGE_DEVICE_MANAGEMENT_STATUS
 	public uint32 NumberOfOperationalStatus;
 	public uint32 NumberOfAdditionalReasons;
 	public STORAGE_DISK_OPERATIONAL_STATUS[16] OperationalStatus;
-	public STORAGE_OPERATIONAL_REASON[1] AdditionalReasons;
+	public STORAGE_OPERATIONAL_REASON[] AdditionalReasons;
 }
 
 [CRepr]
@@ -3949,7 +3949,7 @@ public struct STORAGE_ZONED_DEVICE_DESCRIPTOR
 	public uint32 ZoneCount;
 	public _ZoneAttributes_e__Union ZoneAttributes;
 	public uint32 ZoneGroupCount;
-	public STORAGE_ZONE_GROUP[1] ZoneGroup;
+	public STORAGE_ZONE_GROUP[] ZoneGroup;
 }
 
 [CRepr]
@@ -4055,7 +4055,7 @@ public struct STORAGE_FRU_ID_DESCRIPTOR
 	public uint32 Version;
 	public uint32 Size;
 	public uint32 IdentifierSize;
-	public uint8[1] Identifier;
+	public uint8[] Identifier;
 }
 
 [CRepr]
@@ -4109,7 +4109,7 @@ public struct DEVICE_DSM_NOTIFICATION_PARAMETERS
 	public uint32 Size;
 	public uint32 Flags;
 	public uint32 NumFileTypeIDs;
-	public Guid[1] FileTypeID;
+	public Guid[] FileTypeID;
 }
 
 [CRepr]
@@ -4187,7 +4187,7 @@ public struct DEVICE_DATA_SET_LB_PROVISIONING_STATE
 	public uint32 SlabOffsetDeltaInBytes;
 	public uint32 SlabAllocationBitMapBitCount;
 	public uint32 SlabAllocationBitMapLength;
-	public uint32[1] SlabAllocationBitMap;
+	public uint32[] SlabAllocationBitMap;
 }
 
 [CRepr]
@@ -4199,7 +4199,7 @@ public struct DEVICE_DATA_SET_LB_PROVISIONING_STATE_V2
 	public uint64 SlabOffsetDeltaInBytes;
 	public uint32 SlabAllocationBitMapBitCount;
 	public uint32 SlabAllocationBitMapLength;
-	public uint32[1] SlabAllocationBitMap;
+	public uint32[] SlabAllocationBitMap;
 }
 
 [CRepr]
@@ -4207,7 +4207,7 @@ public struct DEVICE_DATA_SET_REPAIR_PARAMETERS
 {
 	public uint32 NumberOfRepairCopies;
 	public uint32 SourceCopy;
-	public uint32[1] RepairCopies;
+	public uint32[] RepairCopies;
 }
 
 [CRepr]
@@ -4241,7 +4241,7 @@ public struct DEVICE_DSM_TIERING_QUERY_INPUT
 	public uint32 Size;
 	public uint32 Flags;
 	public uint32 NumberOfTierIds;
-	public Guid[1] TierIds;
+	public Guid[] TierIds;
 }
 
 [CRepr]
@@ -4262,7 +4262,7 @@ public struct DEVICE_DSM_TIERING_QUERY_OUTPUT
 	public uint64 Alignment;
 	public uint32 TotalNumberOfRegions;
 	public uint32 NumberOfRegionsReturned;
-	public STORAGE_TIER_REGION[1] Regions;
+	public STORAGE_TIER_REGION[] Regions;
 }
 
 [CRepr]
@@ -4294,7 +4294,7 @@ public struct DEVICE_DSM_PHYSICAL_ADDRESSES_OUTPUT
 	public uint32 Flags;
 	public uint32 TotalNumberOfRanges;
 	public uint32 NumberOfRangesReturned;
-	public DEVICE_STORAGE_ADDRESS_RANGE[1] Ranges;
+	public DEVICE_STORAGE_ADDRESS_RANGE[] Ranges;
 }
 
 [CRepr]
@@ -4325,7 +4325,7 @@ public struct DEVICE_DSM_REPORT_ZONES_DATA
 	public uint32 ZoneCount;
 	public STORAGE_ZONES_ATTRIBUTES Attributes;
 	public uint32 Reserved0;
-	public STORAGE_ZONE_DESCRIPTOR[1] ZoneDescriptors;
+	public STORAGE_ZONE_DESCRIPTOR[] ZoneDescriptors;
 }
 
 [CRepr]
@@ -4356,7 +4356,7 @@ public struct DEVICE_DSM_RANGE_ERROR_INFO
 	public uint32 Flags;
 	public uint32 TotalNumberOfRanges;
 	public uint32 NumberOfRangesReturned;
-	public DEVICE_STORAGE_RANGE_ATTRIBUTES[1] Ranges;
+	public DEVICE_STORAGE_RANGE_ATTRIBUTES[] Ranges;
 }
 
 [CRepr]
@@ -4373,7 +4373,7 @@ public struct DEVICE_DSM_LOST_QUERY_OUTPUT
 	public uint32 Size;
 	public uint64 Alignment;
 	public uint32 NumberOfBits;
-	public uint32[1] BitMap;
+	public uint32[] BitMap;
 }
 
 [CRepr]
@@ -4445,7 +4445,7 @@ public struct STORAGE_DIAGNOSTIC_DATA
 	public Guid ProviderId;
 	public uint32 BufferSize;
 	public uint32 Reserved;
-	public uint8[1] DiagnosticDataBuffer;
+	public uint8[] DiagnosticDataBuffer;
 }
 
 [CRepr]
@@ -4481,7 +4481,7 @@ public struct PHYSICAL_ELEMENT_STATUS
 	public uint32 ReturnedDescriptorCount;
 	public uint32 ElementIdentifierBeingDepoped;
 	public uint32 Reserved;
-	public PHYSICAL_ELEMENT_STATUS_DESCRIPTOR[1] Descriptors;
+	public PHYSICAL_ELEMENT_STATUS_DESCRIPTOR[] Descriptors;
 }
 
 [CRepr]
@@ -4517,7 +4517,7 @@ public struct DEVICE_INTERNAL_STATUS_DATA
 	public uint8[3] Reserved;
 	public uint8[128] ReasonIdentifier;
 	public uint32 StatusDataLength;
-	public uint8[1] StatusData;
+	public uint8[] StatusData;
 }
 
 [CRepr]
@@ -4540,7 +4540,7 @@ public struct STORAGE_MEDIA_SERIAL_NUMBER_DATA
 {
 	public uint16 Reserved;
 	public uint16 SerialNumberLength;
-	public uint8[1] SerialNumber;
+	public uint8[] SerialNumber;
 }
 
 [CRepr]
@@ -4585,7 +4585,7 @@ public struct PERSISTENT_RESERVE_COMMAND
 		{
 			public uint8 _bitfield1;
 			public uint8 _bitfield2;
-			public uint8[1] ParameterList;
+			public uint8[] ParameterList;
 		}
 
 		public _PR_IN_e__Struct PR_IN;
@@ -4640,13 +4640,13 @@ public struct DEVICEDUMP_PUBLIC_SUBSECTION
 	public uint32 dwFlags;
 	public GP_LOG_PAGE_DESCRIPTOR[16] GPLogTable;
 	public CHAR[16] szDescription;
-	public uint8[1] bData;
+	public uint8[] bData;
 }
 
 [CRepr]
 public struct DEVICEDUMP_RESTRICTED_SUBSECTION
 {
-	public uint8[1] bData;
+	public uint8[] bData;
 }
 
 [CRepr, Packed(1)]
@@ -4654,7 +4654,7 @@ public struct DEVICEDUMP_PRIVATE_SUBSECTION
 {
 	public uint32 dwFlags;
 	public GP_LOG_PAGE_DESCRIPTOR GPLogId;
-	public uint8[1] bData;
+	public uint8[] bData;
 }
 
 [CRepr, Packed(1)]
@@ -4714,7 +4714,7 @@ public struct DEVICEDUMP_STORAGESTACK_PUBLIC_DUMP
 	public uint32 dwReasonForCollection;
 	public uint8[16] cDriverName;
 	public uint32 uiNumRecords;
-	public DEVICEDUMP_STORAGESTACK_PUBLIC_STATE_RECORD[1] RecordArray;
+	public DEVICEDUMP_STORAGESTACK_PUBLIC_STATE_RECORD[] RecordArray;
 }
 
 [CRepr]
@@ -4792,7 +4792,7 @@ public struct STORAGE_COUNTERS
 	public uint32 Version;
 	public uint32 Size;
 	public uint32 NumberOfCounters;
-	public STORAGE_COUNTER[1] Counters;
+	public STORAGE_COUNTER[] Counters;
 }
 
 [CRepr]
@@ -4828,7 +4828,7 @@ public struct STORAGE_HW_FIRMWARE_INFO
 	public uint8[3] Reserved;
 	public uint32 ImagePayloadAlignment;
 	public uint32 ImagePayloadMaxSize;
-	public STORAGE_HW_FIRMWARE_SLOT_INFO[1] Slot;
+	public STORAGE_HW_FIRMWARE_SLOT_INFO[] Slot;
 }
 
 [CRepr]
@@ -4841,7 +4841,7 @@ public struct STORAGE_HW_FIRMWARE_DOWNLOAD
 	public uint8[3] Reserved;
 	public uint64 Offset;
 	public uint64 BufferSize;
-	public uint8[1] ImageBuffer;
+	public uint8[] ImageBuffer;
 }
 
 [CRepr]
@@ -4856,7 +4856,7 @@ public struct STORAGE_HW_FIRMWARE_DOWNLOAD_V2
 	public uint64 BufferSize;
 	public uint32 ImageSize;
 	public uint32 Reserved2;
-	public uint8[1] ImageBuffer;
+	public uint8[] ImageBuffer;
 }
 
 [CRepr]
@@ -4890,7 +4890,7 @@ public struct STORAGE_PROTOCOL_COMMAND
 	public uint32 Reserved0;
 	public uint32 FixedProtocolReturnData;
 	public uint32[3] Reserved1;
-	public uint8[1] Command;
+	public uint8[] Command;
 }
 
 [CRepr]
@@ -4923,7 +4923,7 @@ public struct SCM_LOGICAL_DEVICES
 	public uint32 Version;
 	public uint32 Size;
 	public uint32 DeviceCount;
-	public SCM_LOGICAL_DEVICE_INSTANCE[1] Devices;
+	public SCM_LOGICAL_DEVICE_INSTANCE[] Devices;
 }
 
 [CRepr]
@@ -4941,7 +4941,7 @@ public struct SCM_PHYSICAL_DEVICES
 	public uint32 Version;
 	public uint32 Size;
 	public uint32 DeviceCount;
-	public SCM_PHYSICAL_DEVICE_INSTANCE[1] Devices;
+	public SCM_PHYSICAL_DEVICE_INSTANCE[] Devices;
 }
 
 [CRepr]
@@ -4967,7 +4967,7 @@ public struct SCM_REGIONS
 	public uint32 Version;
 	public uint32 Size;
 	public uint32 RegionCount;
-	public SCM_REGION[1] Regions;
+	public SCM_REGION[] Regions;
 }
 
 [CRepr]
@@ -4977,7 +4977,7 @@ public struct SCM_BUS_PROPERTY_QUERY
 	public uint32 Size;
 	public SCM_BUS_PROPERTY_ID PropertyId;
 	public SCM_BUS_QUERY_TYPE QueryType;
-	public uint8[1] AdditionalParameters;
+	public uint8[] AdditionalParameters;
 }
 
 [CRepr]
@@ -5021,7 +5021,7 @@ public struct SCM_BUS_DEDICATED_MEMORY_DEVICES_INFO
 	public uint32 Version;
 	public uint32 Size;
 	public uint32 DeviceCount;
-	public SCM_BUS_DEDICATED_MEMORY_DEVICE_INFO[1] Devices;
+	public SCM_BUS_DEDICATED_MEMORY_DEVICE_INFO[] Devices;
 }
 
 [CRepr]
@@ -5031,7 +5031,7 @@ public struct SCM_BUS_PROPERTY_SET
 	public uint32 Size;
 	public SCM_BUS_PROPERTY_ID PropertyId;
 	public SCM_BUS_SET_TYPE SetType;
-	public uint8[1] AdditionalParameters;
+	public uint8[] AdditionalParameters;
 }
 
 [CRepr]
@@ -5053,7 +5053,7 @@ public struct SCM_LD_INTERLEAVE_SET_INFO
 	public uint32 Version;
 	public uint32 Size;
 	public uint32 InterleaveSetSize;
-	public SCM_INTERLEAVED_PD_INFO[1] InterleaveSet;
+	public SCM_INTERLEAVED_PD_INFO[] InterleaveSet;
 }
 
 [CRepr]
@@ -5063,7 +5063,7 @@ public struct SCM_PD_PROPERTY_QUERY
 	public uint32 Size;
 	public SCM_PD_PROPERTY_ID PropertyId;
 	public SCM_PD_QUERY_TYPE QueryType;
-	public uint8[1] AdditionalParameters;
+	public uint8[] AdditionalParameters;
 }
 
 [CRepr]
@@ -5073,7 +5073,7 @@ public struct SCM_PD_PROPERTY_SET
 	public uint32 Size;
 	public SCM_PD_PROPERTY_ID PropertyId;
 	public SCM_PD_SET_TYPE SetType;
-	public uint8[1] AdditionalParameters;
+	public uint8[] AdditionalParameters;
 }
 
 [CRepr]
@@ -5122,7 +5122,7 @@ public struct SCM_PD_DEVICE_INFO
 	public uint8 ManufacturingYear;
 	public uint32 SerialNumber4Byte;
 	public uint32 SerialNumberLengthInChars;
-	public CHAR[1] SerialNumber;
+	public CHAR[] SerialNumber;
 }
 
 [CRepr]
@@ -5138,7 +5138,7 @@ public struct SCM_PD_DEVICE_SPECIFIC_INFO
 	public uint32 Version;
 	public uint32 Size;
 	public uint32 NumberOfProperties;
-	public SCM_PD_DEVICE_SPECIFIC_PROPERTY[1] DeviceSpecificProperties;
+	public SCM_PD_DEVICE_SPECIFIC_PROPERTY[] DeviceSpecificProperties;
 }
 
 [CRepr]
@@ -5160,7 +5160,7 @@ public struct SCM_PD_FIRMWARE_INFO
 	public uint8 ActiveSlot;
 	public uint8 NextActiveSlot;
 	public uint8 SlotCount;
-	public SCM_PD_FIRMWARE_SLOT_INFO[1] Slots;
+	public SCM_PD_FIRMWARE_SLOT_INFO[] Slots;
 }
 
 [CRepr]
@@ -5172,7 +5172,7 @@ public struct SCM_PD_MANAGEMENT_STATUS
 	public uint32 NumberOfOperationalStatus;
 	public uint32 NumberOfAdditionalReasons;
 	public SCM_PD_OPERATIONAL_STATUS[16] OperationalStatus;
-	public SCM_PD_OPERATIONAL_STATUS_REASON[1] AdditionalReasons;
+	public SCM_PD_OPERATIONAL_STATUS_REASON[] AdditionalReasons;
 }
 
 [CRepr]
@@ -5180,7 +5180,7 @@ public struct SCM_PD_LOCATION_STRING
 {
 	public uint32 Version;
 	public uint32 Size;
-	public char16[1] Location;
+	public char16[] Location;
 }
 
 [CRepr]
@@ -5189,7 +5189,7 @@ public struct SCM_PD_FRU_ID_STRING
 	public uint32 Version;
 	public uint32 Size;
 	public uint32 IdentifierSize;
-	public uint8[1] Identifier;
+	public uint8[] Identifier;
 }
 
 [CRepr]
@@ -5202,7 +5202,7 @@ public struct SCM_PD_FIRMWARE_DOWNLOAD
 	public uint8[3] Reserved;
 	public uint64 Offset;
 	public uint32 FirmwareImageSizeInBytes;
-	public uint8[1] FirmwareImage;
+	public uint8[] FirmwareImage;
 }
 
 [CRepr]
@@ -5230,7 +5230,7 @@ public struct SCM_PD_PASSTHROUGH_INPUT
 	public uint32 Size;
 	public Guid ProtocolGuid;
 	public uint32 DataSize;
-	public uint8[1] Data;
+	public uint8[] Data;
 }
 
 [CRepr]
@@ -5240,7 +5240,7 @@ public struct SCM_PD_PASSTHROUGH_OUTPUT
 	public uint32 Size;
 	public Guid ProtocolGuid;
 	public uint32 DataSize;
-	public uint8[1] Data;
+	public uint8[] Data;
 }
 
 [CRepr]
@@ -5248,7 +5248,7 @@ public struct SCM_PD_PASSTHROUGH_INVDIMM_INPUT
 {
 	public uint32 Opcode;
 	public uint32 OpcodeParametersLength;
-	public uint8[1] OpcodeParameters;
+	public uint8[] OpcodeParameters;
 }
 
 [CRepr]
@@ -5257,7 +5257,7 @@ public struct SCM_PD_PASSTHROUGH_INVDIMM_OUTPUT
 	public uint16 GeneralStatus;
 	public uint16 ExtendedStatus;
 	public uint32 OutputDataLength;
-	public uint8[1] OutputData;
+	public uint8[] OutputData;
 }
 
 [CRepr]
@@ -5302,7 +5302,7 @@ public struct FORMAT_EX_PARAMETERS
 	public uint32 EndHeadNumber;
 	public uint16 FormatGapLength;
 	public uint16 SectorsPerTrack;
-	public uint16[1] SectorNumber;
+	public uint16[] SectorNumber;
 }
 
 [CRepr]
@@ -5339,7 +5339,7 @@ public struct DRIVE_LAYOUT_INFORMATION
 {
 	public uint32 PartitionCount;
 	public uint32 Signature;
-	public PARTITION_INFORMATION[1] PartitionEntry;
+	public PARTITION_INFORMATION[] PartitionEntry;
 }
 
 [CRepr]
@@ -5354,7 +5354,7 @@ public struct REASSIGN_BLOCKS
 {
 	public uint16 Reserved;
 	public uint16 Count;
-	public uint32[1] BlockNumber;
+	public uint32[] BlockNumber;
 }
 
 [CRepr, Packed(1)]
@@ -5362,7 +5362,7 @@ public struct REASSIGN_BLOCKS_EX
 {
 	public uint16 Reserved;
 	public uint16 Count;
-	public LARGE_INTEGER[1] BlockNumber;
+	public LARGE_INTEGER[] BlockNumber;
 }
 
 [CRepr]
@@ -5479,7 +5479,7 @@ public struct DRIVE_LAYOUT_INFORMATION_EX
 	public uint32 PartitionStyle;
 	public uint32 PartitionCount;
 	public using _Anonymous_e__Union Anonymous;
-	public PARTITION_INFORMATION_EX[1] PartitionEntry;
+	public PARTITION_INFORMATION_EX[] PartitionEntry;
 }
 
 [CRepr]
@@ -5559,7 +5559,7 @@ public struct DISK_GEOMETRY_EX
 {
 	public DISK_GEOMETRY Geometry;
 	public LARGE_INTEGER DiskSize;
-	public uint8[1] Data;
+	public uint8[] Data;
 }
 
 [CRepr]
@@ -5683,7 +5683,7 @@ public struct PERF_BIN
 {
 	public uint32 NumberOfBins;
 	public uint32 TypeOfBin;
-	public BIN_RANGE[1] BinsRanges;
+	public BIN_RANGE[] BinsRanges;
 }
 
 [CRepr]
@@ -5697,7 +5697,7 @@ public struct BIN_COUNT
 public struct BIN_RESULTS
 {
 	public uint32 NumberOfBins;
-	public BIN_COUNT[1] BinCounts;
+	public BIN_COUNT[] BinCounts;
 }
 
 [CRepr, Packed(1)]
@@ -5732,7 +5732,7 @@ public struct SENDCMDINPARAMS
 	public uint8 bDriveNumber;
 	public uint8[3] bReserved;
 	public uint32[4] dwReserved;
-	public uint8[1] bBuffer;
+	public uint8[] bBuffer;
 }
 
 [CRepr, Packed(1)]
@@ -5749,7 +5749,7 @@ public struct SENDCMDOUTPARAMS
 {
 	public uint32 cBufferSize;
 	public DRIVERSTATUS DriverStatus;
-	public uint8[1] bBuffer;
+	public uint8[] bBuffer;
 }
 
 [CRepr]
@@ -5920,14 +5920,14 @@ public struct CHANGER_SEND_VOLUME_TAG_INFORMATION
 public struct READ_ELEMENT_ADDRESS_INFO
 {
 	public uint32 NumberOfElements;
-	public CHANGER_ELEMENT_STATUS[1] ElementStatus;
+	public CHANGER_ELEMENT_STATUS[] ElementStatus;
 }
 
 [CRepr]
 public struct PATHNAME_BUFFER
 {
 	public uint32 PathNameLength;
-	public char16[1] Name;
+	public char16[] Name;
 }
 
 [CRepr]
@@ -6009,7 +6009,7 @@ public struct VOLUME_BITMAP_BUFFER
 {
 	public LARGE_INTEGER StartingLcn;
 	public LARGE_INTEGER BitmapSize;
-	public uint8[1] Buffer;
+	public uint8[] Buffer;
 }
 
 [CRepr]
@@ -6030,7 +6030,7 @@ public struct RETRIEVAL_POINTERS_BUFFER
 
 	public uint32 ExtentCount;
 	public LARGE_INTEGER StartingVcn;
-	public _Anonymous_e__Struct[1] Extents;
+	public _Anonymous_e__Struct[] Extents;
 }
 
 [CRepr]
@@ -6046,7 +6046,7 @@ public struct RETRIEVAL_POINTERS_AND_REFCOUNT_BUFFER
 
 	public uint32 ExtentCount;
 	public LARGE_INTEGER StartingVcn;
-	public _Anonymous_e__Struct[1] Extents;
+	public _Anonymous_e__Struct[] Extents;
 }
 
 [CRepr]
@@ -6066,7 +6066,7 @@ public struct NTFS_FILE_RECORD_OUTPUT_BUFFER
 {
 	public LARGE_INTEGER FileReferenceNumber;
 	public uint32 FileRecordLength;
-	public uint8[1] FileRecordBuffer;
+	public uint8[] FileRecordBuffer;
 }
 
 [CRepr]
@@ -6110,7 +6110,7 @@ public struct FIND_BY_SID_OUTPUT
 	public uint32 NextEntryOffset;
 	public uint32 FileIndex;
 	public uint32 FileNameLength;
-	public char16[1] FileName;
+	public char16[] FileName;
 }
 
 [CRepr]
@@ -6200,7 +6200,7 @@ public struct USN_RECORD_V2
 	public uint32 FileAttributes;
 	public uint16 FileNameLength;
 	public uint16 FileNameOffset;
-	public char16[1] FileName;
+	public char16[] FileName;
 }
 
 [CRepr]
@@ -6219,7 +6219,7 @@ public struct USN_RECORD_V3
 	public uint32 FileAttributes;
 	public uint16 FileNameLength;
 	public uint16 FileNameOffset;
-	public char16[1] FileName;
+	public char16[] FileName;
 }
 
 [CRepr]
@@ -6249,7 +6249,7 @@ public struct USN_RECORD_V4
 	public uint32 RemainingExtents;
 	public uint16 NumberOfExtents;
 	public uint16 ExtentSize;
-	public USN_RECORD_EXTENT[1] Extents;
+	public USN_RECORD_EXTENT[] Extents;
 }
 
 [CRepr, Union]
@@ -6347,7 +6347,7 @@ public struct MARK_HANDLE_INFO32
 public struct BULK_SECURITY_TEST_DATA
 {
 	public uint32 DesiredAccess;
-	public uint32[1] SecurityIds;
+	public uint32[] SecurityIds;
 }
 
 [CRepr]
@@ -6355,7 +6355,7 @@ public struct FILE_PREFETCH
 {
 	public uint32 Type;
 	public uint32 Count;
-	public uint64[1] Prefetch;
+	public uint64[] Prefetch;
 }
 
 [CRepr]
@@ -6364,7 +6364,7 @@ public struct FILE_PREFETCH_EX
 	public uint32 Type;
 	public uint32 Count;
 	public void* Context;
-	public uint64[1] Prefetch;
+	public uint64[] Prefetch;
 }
 
 [CRepr]
@@ -6703,7 +6703,7 @@ public struct FILE_ALLOCATED_RANGE_BUFFER
 public struct ENCRYPTION_BUFFER
 {
 	public uint32 EncryptionOperation;
-	public uint8[1] Private;
+	public uint8[] Private;
 }
 
 [CRepr]
@@ -6732,7 +6732,7 @@ public struct ENCRYPTED_DATA_INFO
 	public uint8 ClusterShift;
 	public uint8 EncryptionFormat;
 	public uint16 NumberOfDataBlocks;
-	public uint32[1] DataBlockSize;
+	public uint32[] DataBlockSize;
 }
 
 [CRepr]
@@ -6758,7 +6758,7 @@ public struct SI_COPYFILE
 	public uint32 SourceFileNameLength;
 	public uint32 DestinationFileNameLength;
 	public uint32 Flags;
-	public char16[1] FileNameBuffer;
+	public char16[] FileNameBuffer;
 }
 
 [CRepr]
@@ -6882,7 +6882,7 @@ public struct TXFS_START_RM_INFORMATION
 	public uint16 LoggingMode;
 	public uint16 LogPathLength;
 	public uint16 Reserved;
-	public char16[1] LogPath;
+	public char16[] LogPath;
 }
 
 [CRepr]
@@ -6910,7 +6910,7 @@ public struct TXFS_LIST_TRANSACTION_LOCKED_FILES_ENTRY
 	public uint32 Reserved1;
 	public uint32 Reserved2;
 	public int64 Reserved3;
-	public char16[1] FileName;
+	public char16[] FileName;
 }
 
 [CRepr]
@@ -6946,7 +6946,7 @@ public struct TXFS_READ_BACKUP_INFORMATION_OUT
 	public struct _Anonymous_e__Union
 	{
 		public uint32 BufferLength;
-		public uint8[1] Buffer;
+		public uint8[] Buffer;
 	}
 
 	public using _Anonymous_e__Union Anonymous;
@@ -6955,7 +6955,7 @@ public struct TXFS_READ_BACKUP_INFORMATION_OUT
 [CRepr]
 public struct TXFS_WRITE_BACKUP_INFORMATION
 {
-	public uint8[1] Buffer;
+	public uint8[] Buffer;
 }
 
 [CRepr]
@@ -7086,8 +7086,8 @@ public struct STORAGE_QUERY_DEPENDENT_VOLUME_RESPONSE
 	[CRepr, Union]
 	public struct _Anonymous_e__Union
 	{
-		public STORAGE_QUERY_DEPENDENT_VOLUME_LEV1_ENTRY[1] Lev1Depends;
-		public STORAGE_QUERY_DEPENDENT_VOLUME_LEV2_ENTRY[1] Lev2Depends;
+		public STORAGE_QUERY_DEPENDENT_VOLUME_LEV1_ENTRY[] Lev1Depends;
+		public STORAGE_QUERY_DEPENDENT_VOLUME_LEV2_ENTRY[] Lev2Depends;
 	}
 
 	public uint32 ResponseLevel;
@@ -7149,7 +7149,7 @@ public struct SD_ENUM_SDS_ENTRY
 	public uint32 SecurityId;
 	public uint64 Offset;
 	public uint32 Length;
-	public uint8[1] Descriptor;
+	public uint8[] Descriptor;
 }
 
 [CRepr]
@@ -7158,7 +7158,7 @@ public struct SD_ENUM_SDS_OUTPUT
 	public uint64 NextOffset;
 	public uint64 NumSDEntriesReturned;
 	public uint64 NumSDBytesReturned;
-	public SD_ENUM_SDS_ENTRY[1] SDEntry;
+	public SD_ENUM_SDS_ENTRY[] SDEntry;
 }
 
 [CRepr]
@@ -7198,7 +7198,7 @@ public struct LOOKUP_STREAM_FROM_CLUSTER_INPUT
 {
 	public uint32 Flags;
 	public uint32 NumberOfClusters;
-	public LARGE_INTEGER[1] Cluster;
+	public LARGE_INTEGER[] Cluster;
 }
 
 [CRepr]
@@ -7216,7 +7216,7 @@ public struct LOOKUP_STREAM_FROM_CLUSTER_ENTRY
 	public uint32 Flags;
 	public LARGE_INTEGER Reserved;
 	public LARGE_INTEGER Cluster;
-	public char16[1] FileName;
+	public char16[] FileName;
 }
 
 [CRepr]
@@ -7224,7 +7224,7 @@ public struct FILE_TYPE_NOTIFICATION_INPUT
 {
 	public uint32 Flags;
 	public uint32 NumFileTypeIDs;
-	public Guid[1] FileTypeID;
+	public Guid[] FileTypeID;
 }
 
 [CRepr]
@@ -7277,7 +7277,7 @@ public struct CSV_QUERY_MDS_PATH
 	public uint32 MdsNodeId;
 	public uint32 DsNodeId;
 	public uint32 PathLength;
-	public char16[1] Path;
+	public char16[] Path;
 }
 
 [CRepr]
@@ -7344,7 +7344,7 @@ public struct FILE_LEVEL_TRIM
 {
 	public uint32 Key;
 	public uint32 NumRanges;
-	public FILE_LEVEL_TRIM_RANGE[1] Ranges;
+	public FILE_LEVEL_TRIM_RANGE[] Ranges;
 }
 
 [CRepr]
@@ -7380,9 +7380,9 @@ public struct QUERY_FILE_LAYOUT_INPUT
 	[CRepr, Union]
 	public struct _Filter_e__Union
 	{
-		public CLUSTER_RANGE[1] ClusterRanges;
-		public FILE_REFERENCE_RANGE[1] FileReferenceRanges;
-		public STORAGE_RESERVE_ID[1] StorageReserveIds;
+		public CLUSTER_RANGE[] ClusterRanges;
+		public FILE_REFERENCE_RANGE[] FileReferenceRanges;
+		public STORAGE_RESERVE_ID[] StorageReserveIds;
 	}
 
 	public using _Anonymous_e__Union Anonymous;
@@ -7423,7 +7423,7 @@ public struct FILE_LAYOUT_NAME_ENTRY
 	public uint64 ParentFileReferenceNumber;
 	public uint32 FileNameLength;
 	public uint32 Reserved;
-	public char16[1] FileName;
+	public char16[] FileName;
 }
 
 [CRepr]
@@ -7459,7 +7459,7 @@ public struct STREAM_LAYOUT_ENTRY
 	public uint32 AttributeTypeCode;
 	public uint32 AttributeFlags;
 	public uint32 StreamIdentifierLength;
-	public char16[1] StreamIdentifier;
+	public char16[] StreamIdentifier;
 }
 
 [CRepr]
@@ -7558,7 +7558,7 @@ public struct REPAIR_COPIES_INPUT
 	public uint32 Length;
 	public uint32 SourceCopy;
 	public uint32 NumberOfRepairCopies;
-	public uint32[1] RepairCopies;
+	public uint32[] RepairCopies;
 }
 
 [CRepr]
@@ -7585,7 +7585,7 @@ public struct FILE_REGION_OUTPUT
 	public uint32 TotalRegionEntryCount;
 	public uint32 RegionEntryCount;
 	public uint32 Reserved;
-	public FILE_REGION_INFO[1] Region;
+	public FILE_REGION_INFO[] Region;
 }
 
 [CRepr]
@@ -7623,7 +7623,7 @@ public struct FSCTL_QUERY_STORAGE_CLASSES_OUTPUT
 	public FILE_STORAGE_TIER_FLAGS Flags;
 	public uint32 TotalNumberOfTiers;
 	public uint32 NumberOfTiersReturned;
-	public FILE_STORAGE_TIER[1] Tiers;
+	public FILE_STORAGE_TIER[] Tiers;
 }
 
 [CRepr]
@@ -7684,7 +7684,7 @@ public struct FSCTL_QUERY_REGION_INFO_INPUT
 	public uint32 Size;
 	public uint32 Flags;
 	public uint32 NumberOfTierIds;
-	public Guid[1] TierIds;
+	public Guid[] TierIds;
 }
 
 [CRepr]
@@ -7705,7 +7705,7 @@ public struct FSCTL_QUERY_REGION_INFO_OUTPUT
 	public uint64 Alignment;
 	public uint32 TotalNumberOfRegions;
 	public uint32 NumberOfRegionsReturned;
-	public FILE_STORAGE_TIER_REGION[1] Regions;
+	public FILE_STORAGE_TIER_REGION[] Regions;
 }
 
 [CRepr]
@@ -7832,7 +7832,7 @@ public struct QUERY_BAD_RANGES_INPUT
 {
 	public uint32 Flags;
 	public uint32 NumRanges;
-	public QUERY_BAD_RANGES_INPUT_RANGE[1] Ranges;
+	public QUERY_BAD_RANGES_INPUT_RANGE[] Ranges;
 }
 
 [CRepr]
@@ -7850,7 +7850,7 @@ public struct QUERY_BAD_RANGES_OUTPUT
 	public uint32 Flags;
 	public uint32 NumBadRanges;
 	public uint64 NextOffsetToLookUp;
-	public QUERY_BAD_RANGES_OUTPUT_RANGE[1] BadRanges;
+	public QUERY_BAD_RANGES_OUTPUT_RANGE[] BadRanges;
 }
 
 [CRepr]
@@ -7981,7 +7981,7 @@ public struct CONTAINER_ROOT_INFO_INPUT
 public struct CONTAINER_ROOT_INFO_OUTPUT
 {
 	public uint16 ContainerRootIdLength;
-	public uint8[1] ContainerRootId;
+	public uint8[] ContainerRootId;
 }
 
 [CRepr]
@@ -8011,14 +8011,14 @@ public struct VIRTUALIZATION_INSTANCE_INFO_OUTPUT
 public struct GET_FILTER_FILE_IDENTIFIER_INPUT
 {
 	public uint16 AltitudeLength;
-	public char16[1] Altitude;
+	public char16[] Altitude;
 }
 
 [CRepr]
 public struct GET_FILTER_FILE_IDENTIFIER_OUTPUT
 {
 	public uint16 FilterFileIdentifierLength;
-	public uint8[1] FilterFileIdentifier;
+	public uint8[] FilterFileIdentifier;
 }
 
 [CRepr]
@@ -8092,7 +8092,7 @@ public struct DISK_EXTENT
 public struct VOLUME_DISK_EXTENTS
 {
 	public uint32 NumberOfDiskExtents;
-	public DISK_EXTENT[1] Extents;
+	public DISK_EXTENT[] Extents;
 }
 
 [CRepr]

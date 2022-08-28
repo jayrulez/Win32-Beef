@@ -257,7 +257,7 @@ public struct JOBOBJECT_BASIC_PROCESS_ID_LIST
 {
 	public uint32 NumberOfAssignedProcesses;
 	public uint32 NumberOfProcessIdsInList;
-	public uint[1] ProcessIdList;
+	public uint[] ProcessIdList;
 }
 
 [CRepr]

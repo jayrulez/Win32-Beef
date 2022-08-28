@@ -784,7 +784,7 @@ public struct SENSOR_COLLECTION_LIST
 {
 	public uint32 AllocatedSizeInBytes;
 	public uint32 Count;
-	public SENSOR_VALUE_PAIR[1] List;
+	public SENSOR_VALUE_PAIR[] List;
 }
 
 [CRepr]
@@ -792,7 +792,7 @@ public struct SENSOR_PROPERTY_LIST
 {
 	public uint32 AllocatedSizeInBytes;
 	public uint32 Count;
-	public PROPERTYKEY[1] List;
+	public PROPERTYKEY[] List;
 }
 
 [CRepr]

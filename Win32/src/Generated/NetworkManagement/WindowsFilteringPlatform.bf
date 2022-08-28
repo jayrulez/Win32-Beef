@@ -5061,7 +5061,7 @@ public struct ICMP_MESSAGE
 	[CRepr, Union]
 	public struct _Data_e__Union
 	{
-		public uint32[1] Data32;
+		public uint32[] Data32;
 		public uint16[2] Data16;
 		public uint8[4] Data8;
 	}
@@ -5215,7 +5215,7 @@ public struct ARP_HEADER
 	public uint8 HardwareAddressLength;
 	public uint8 ProtocolAddressLength;
 	public uint16 Opcode;
-	public uint8[1] SenderHardwareAddress;
+	public uint8[] SenderHardwareAddress;
 }
 
 [CRepr]
@@ -5672,7 +5672,7 @@ public struct tcp_opt_sack
 
 	public uint8 Kind;
 	public uint8 Length;
-	public tcp_opt_sack_block[1] Block;
+	public tcp_opt_sack_block[] Block;
 }
 
 [CRepr, Packed(1)]
@@ -5696,7 +5696,7 @@ public struct tcp_opt_fastopen
 {
 	public uint8 Kind;
 	public uint8 Length;
-	public uint8[1] Cookie;
+	public uint8[] Cookie;
 }
 
 [CRepr]
@@ -5704,7 +5704,7 @@ public struct DL_TUNNEL_ADDRESS
 {
 	public COMPARTMENT_ID CompartmentId;
 	public SCOPE_ID ScopeId;
-	public uint8[1] IpAddress;
+	public uint8[] IpAddress;
 }
 
 [CRepr]

@@ -100,7 +100,7 @@ public struct WCM_PROFILE_INFO
 public struct WCM_PROFILE_INFO_LIST
 {
 	public uint32 dwNumberOfItems;
-	public WCM_PROFILE_INFO[1] ProfileInfo;
+	public WCM_PROFILE_INFO[] ProfileInfo;
 }
 
 [CRepr]

@@ -6853,7 +6853,7 @@ public struct MULTIKEYHELPA
 {
 	public uint32 mkSize;
 	public CHAR mkKeylist;
-	public CHAR[1] szKeyphrase;
+	public CHAR[] szKeyphrase;
 }
 
 [CRepr]
@@ -6861,7 +6861,7 @@ public struct MULTIKEYHELPW
 {
 	public uint32 mkSize;
 	public char16 mkKeylist;
-	public char16[1] szKeyphrase;
+	public char16[] szKeyphrase;
 }
 
 [CRepr]
@@ -7060,7 +7060,7 @@ public struct DELEGATEITEMID
 	public uint16 cbSize;
 	public uint16 wOuter;
 	public uint16 cbInner;
-	public uint8[1] rgb;
+	public uint8[] rgb;
 }
 
 [CRepr]
@@ -7214,7 +7214,7 @@ public struct EXP_PROPERTYSTORAGE
 {
 	public uint32 cbSize;
 	public uint32 dwSignature;
-	public uint8[1] abPropertyStorage;
+	public uint8[] abPropertyStorage;
 }
 
 [CRepr]
@@ -7267,14 +7267,14 @@ public struct BROWSEINFOW
 public struct NRESARRAY
 {
 	public uint32 cItems;
-	public NETRESOURCEA[1] nr;
+	public NETRESOURCEA[] nr;
 }
 
 [CRepr, Packed(1)]
 public struct CIDA
 {
 	public uint32 cidl;
-	public uint32[1] aoffset;
+	public uint32[] aoffset;
 }
 
 [CRepr, Packed(1)]
@@ -7313,14 +7313,14 @@ public struct FILEDESCRIPTORW
 public struct FILEGROUPDESCRIPTORA
 {
 	public uint32 cItems;
-	public FILEDESCRIPTORA[1] fgd;
+	public FILEDESCRIPTORA[] fgd;
 }
 
 [CRepr, Packed(1)]
 public struct FILEGROUPDESCRIPTORW
 {
 	public uint32 cItems;
-	public FILEDESCRIPTORW[1] fgd;
+	public FILEDESCRIPTORW[] fgd;
 }
 
 [CRepr, Packed(1)]
@@ -7338,7 +7338,7 @@ public struct FILE_ATTRIBUTES_ARRAY
 	public uint32 cItems;
 	public uint32 dwSumFileAttributes;
 	public uint32 dwProductFileAttributes;
-	public uint32[1] rgdwFileAttributes;
+	public uint32[] rgdwFileAttributes;
 }
 
 [CRepr, Packed(1)]
@@ -7443,7 +7443,7 @@ public struct QCMINFO_IDMAP_PLACEMENT
 public struct QCMINFO_IDMAP
 {
 	public uint32 nMaxIds;
-	public QCMINFO_IDMAP_PLACEMENT[1] pIdList;
+	public QCMINFO_IDMAP_PLACEMENT[] pIdList;
 }
 
 [CRepr]
@@ -7641,7 +7641,7 @@ public struct AASHELLMENUFILENAME
 {
 	public int16 cbTotal;
 	public uint8[12] rgbReserved;
-	public char16[1] szFileName;
+	public char16[] szFileName;
 }
 
 [CRepr]

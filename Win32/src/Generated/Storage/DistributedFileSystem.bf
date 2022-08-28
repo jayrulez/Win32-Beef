@@ -386,7 +386,7 @@ public struct DFS_SITENAME_INFO
 public struct DFS_SITELIST_INFO
 {
 	public uint32 cSites;
-	public DFS_SITENAME_INFO[1] Site;
+	public DFS_SITENAME_INFO[] Site;
 }
 
 [CRepr]
@@ -407,7 +407,7 @@ public struct DFS_GET_PKT_ENTRY_STATE_ARG
 	public uint16 ServerNameLen;
 	public uint16 ShareNameLen;
 	public uint32 Level;
-	public char16[1] Buffer;
+	public char16[] Buffer;
 }
 
 #endregion

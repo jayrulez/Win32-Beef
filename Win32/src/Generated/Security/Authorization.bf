@@ -1049,7 +1049,7 @@ public struct AUTHZ_SOURCE_SCHEMA_REGISTRATION
 	public PWSTR szExecutableImagePath;
 	public using _Anonymous_e__Union Anonymous;
 	public uint32 dwObjectTypeNameCount;
-	public AUTHZ_REGISTRATION_OBJECT_TYPE_NAME_OFFSET[1] ObjectTypeNames;
+	public AUTHZ_REGISTRATION_OBJECT_TYPE_NAME_OFFSET[] ObjectTypeNames;
 }
 
 #endregion

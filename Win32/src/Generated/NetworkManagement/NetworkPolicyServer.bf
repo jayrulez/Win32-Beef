@@ -915,7 +915,7 @@ public struct RADIUS_VSA_FORMAT
 	public uint8[4] VendorId;
 	public uint8 VendorType;
 	public uint8 VendorLength;
-	public uint8[1] AttributeSpecific;
+	public uint8[] AttributeSpecific;
 }
 
 [CRepr]

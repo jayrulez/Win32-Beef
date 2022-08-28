@@ -4558,7 +4558,7 @@ public struct MSV1_0_IUM_SUPPLEMENTAL_CREDENTIAL
 {
 	public uint32 Version;
 	public uint32 EncryptedCredsSize;
-	public uint8[1] EncryptedCreds;
+	public uint8[] EncryptedCreds;
 }
 
 [CRepr, Packed(1)]
@@ -4569,7 +4569,7 @@ public struct MSV1_0_REMOTE_SUPPLEMENTAL_CREDENTIAL
 	public MSV1_0_CREDENTIAL_KEY CredentialKey;
 	public MSV1_0_CREDENTIAL_KEY_TYPE CredentialKeyType;
 	public uint32 EncryptedCredsSize;
-	public uint8[1] EncryptedCreds;
+	public uint8[] EncryptedCreds;
 }
 
 [CRepr]
@@ -4583,7 +4583,7 @@ public struct MSV1_0_NTLM3_RESPONSE
 	public uint64 TimeStamp;
 	public uint8[8] ChallengeFromClient;
 	public uint32 AvPairsOff;
-	public uint8[1] Buffer;
+	public uint8[] Buffer;
 }
 
 [CRepr]
@@ -4862,7 +4862,7 @@ public struct KERB_QUERY_TKT_CACHE_RESPONSE
 {
 	public KERB_PROTOCOL_MESSAGE_TYPE MessageType;
 	public uint32 CountOfTickets;
-	public KERB_TICKET_CACHE_INFO[1] Tickets;
+	public KERB_TICKET_CACHE_INFO[] Tickets;
 }
 
 [CRepr]
@@ -4870,7 +4870,7 @@ public struct KERB_QUERY_TKT_CACHE_EX_RESPONSE
 {
 	public KERB_PROTOCOL_MESSAGE_TYPE MessageType;
 	public uint32 CountOfTickets;
-	public KERB_TICKET_CACHE_INFO_EX[1] Tickets;
+	public KERB_TICKET_CACHE_INFO_EX[] Tickets;
 }
 
 [CRepr]
@@ -4878,7 +4878,7 @@ public struct KERB_QUERY_TKT_CACHE_EX2_RESPONSE
 {
 	public KERB_PROTOCOL_MESSAGE_TYPE MessageType;
 	public uint32 CountOfTickets;
-	public KERB_TICKET_CACHE_INFO_EX2[1] Tickets;
+	public KERB_TICKET_CACHE_INFO_EX2[] Tickets;
 }
 
 [CRepr]
@@ -4886,7 +4886,7 @@ public struct KERB_QUERY_TKT_CACHE_EX3_RESPONSE
 {
 	public KERB_PROTOCOL_MESSAGE_TYPE MessageType;
 	public uint32 CountOfTickets;
-	public KERB_TICKET_CACHE_INFO_EX3[1] Tickets;
+	public KERB_TICKET_CACHE_INFO_EX3[] Tickets;
 }
 
 [CRepr]
@@ -4909,7 +4909,7 @@ public struct KERB_NET_ADDRESS
 public struct KERB_NET_ADDRESSES
 {
 	public uint32 Number;
-	public KERB_NET_ADDRESS[1] Addresses;
+	public KERB_NET_ADDRESS[] Addresses;
 }
 
 [CRepr]
@@ -4917,7 +4917,7 @@ public struct KERB_EXTERNAL_NAME
 {
 	public int16 NameType;
 	public uint16 NameCount;
-	public UNICODE_STRING[1] Names;
+	public UNICODE_STRING[] Names;
 }
 
 [CRepr]
@@ -5115,7 +5115,7 @@ public struct KERB_CLOUD_KERBEROS_DEBUG_RESPONSE
 	public KERB_PROTOCOL_MESSAGE_TYPE MessageType;
 	public uint32 Version;
 	public uint32 Length;
-	public uint32[1] Data;
+	public uint32[] Data;
 }
 
 [CRepr]
@@ -5182,7 +5182,7 @@ public struct KERB_DECRYPT_REQUEST
 [CRepr]
 public struct KERB_DECRYPT_RESPONSE
 {
-	public uint8[1] DecryptedData;
+	public uint8[] DecryptedData;
 }
 
 [CRepr]
@@ -5219,7 +5219,7 @@ public struct KERB_ADD_CREDENTIALS_REQUEST_EX
 {
 	public KERB_ADD_CREDENTIALS_REQUEST Credentials;
 	public uint32 PrincipalNameCount;
-	public UNICODE_STRING[1] PrincipalNames;
+	public UNICODE_STRING[] PrincipalNames;
 }
 
 [CRepr]
@@ -5420,28 +5420,28 @@ public struct SEC_APPLICATION_PROTOCOL_LIST
 {
 	public SEC_APPLICATION_PROTOCOL_NEGOTIATION_EXT ProtoNegoExt;
 	public uint16 ProtocolListSize;
-	public uint8[1] ProtocolList;
+	public uint8[] ProtocolList;
 }
 
 [CRepr]
 public struct SEC_APPLICATION_PROTOCOLS
 {
 	public uint32 ProtocolListsSize;
-	public SEC_APPLICATION_PROTOCOL_LIST[1] ProtocolLists;
+	public SEC_APPLICATION_PROTOCOL_LIST[] ProtocolLists;
 }
 
 [CRepr]
 public struct SEC_SRTP_PROTECTION_PROFILES
 {
 	public uint16 ProfilesSize;
-	public uint16[1] ProfilesList;
+	public uint16[] ProfilesList;
 }
 
 [CRepr]
 public struct SEC_SRTP_MASTER_KEY_IDENTIFIER
 {
 	public uint8 MasterKeyIdentifierSize;
-	public uint8[1] MasterKeyIdentifier;
+	public uint8[] MasterKeyIdentifier;
 }
 
 [CRepr]
@@ -5450,21 +5450,21 @@ public struct SEC_TOKEN_BINDING
 	public uint8 MajorVersion;
 	public uint8 MinorVersion;
 	public uint16 KeyParametersSize;
-	public uint8[1] KeyParameters;
+	public uint8[] KeyParameters;
 }
 
 [CRepr]
 public struct SEC_PRESHAREDKEY
 {
 	public uint16 KeySize;
-	public uint8[1] Key;
+	public uint8[] Key;
 }
 
 [CRepr]
 public struct SEC_PRESHAREDKEY_IDENTITY
 {
 	public uint16 KeyIdentitySize;
-	public uint8[1] KeyIdentity;
+	public uint8[] KeyIdentity;
 }
 
 [CRepr]
@@ -5491,7 +5491,7 @@ public struct SEC_TRAFFIC_SECRETS
 	public uint16 MsgSequenceEnd;
 	public SEC_TRAFFIC_SECRET_TYPE TrafficSecretType;
 	public uint16 TrafficSecretSize;
-	public uint8[1] TrafficSecret;
+	public uint8[] TrafficSecret;
 }
 
 [CRepr]
@@ -6121,7 +6121,7 @@ public struct SECPKG_CREDENTIAL
 public struct SECPKG_SUPPLEMENTAL_CRED_ARRAY
 {
 	public uint32 CredentialCount;
-	public SECPKG_SUPPLEMENTAL_CRED[1] Credentials;
+	public SECPKG_SUPPLEMENTAL_CRED[] Credentials;
 }
 
 [CRepr]
@@ -6204,7 +6204,7 @@ public struct SECPKG_GSS_INFO
 public struct SECPKG_CONTEXT_THUNKS
 {
 	public uint32 InfoLevelCount;
-	public uint32[1] Levels;
+	public uint32[] Levels;
 }
 
 [CRepr]
@@ -6231,7 +6231,7 @@ public struct SECPKG_SERIALIZED_OID
 public struct SECPKG_EXTRA_OIDS
 {
 	public uint32 OidCount;
-	public SECPKG_SERIALIZED_OID[1] Oids;
+	public SECPKG_SERIALIZED_OID[] Oids;
 }
 
 [CRepr]
@@ -6863,7 +6863,7 @@ public struct SEND_GENERIC_TLS_EXTENSION
 	public uint16 HandshakeType;
 	public uint32 Flags;
 	public uint16 BufferSize;
-	public uint8[1] Buffer;
+	public uint8[] Buffer;
 }
 
 [CRepr]
@@ -6878,7 +6878,7 @@ public struct SUBSCRIBE_GENERIC_TLS_EXTENSION
 {
 	public uint32 Flags;
 	public uint32 SubscriptionsCount;
-	public TLS_EXTENSION_SUBSCRIPTION[1] Subscriptions;
+	public TLS_EXTENSION_SUBSCRIPTION[] Subscriptions;
 }
 
 [CRepr]
@@ -6975,7 +6975,7 @@ public struct PctPublicKey
 {
 	public uint32 Type;
 	public uint32 cbKey;
-	public uint8[1] pKey;
+	public uint8[] pKey;
 }
 
 [CRepr]

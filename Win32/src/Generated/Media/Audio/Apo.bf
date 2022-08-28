@@ -261,7 +261,7 @@ public struct APO_REG_PROPERTIES
 	public uint32 u32MaxOutputConnections;
 	public uint32 u32MaxInstances;
 	public uint32 u32NumAPOInterfaces;
-	public Guid[1] iidAPOInterfaceList;
+	public Guid[] iidAPOInterfaceList;
 }
 
 [CRepr]
