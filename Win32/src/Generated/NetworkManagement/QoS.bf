@@ -1872,7 +1872,7 @@ public struct CONTROL_SERVICE
 	public struct _Anonymous_e__Union
 	{
 		public AD_GUARANTEED Guaranteed;
-		public PARAM_BUFFER[0] ParamBuffer;
+		public PARAM_BUFFER[1] ParamBuffer;
 	}
 
 	public uint32 Length;

@@ -2973,7 +2973,7 @@ public struct MIB_OPAQUE_INFO
 	public struct _Anonymous_e__Union
 	{
 		public uint64 ullAlign;
-		public uint8[0] rgbyData;
+		public uint8[1] rgbyData;
 	}
 
 	public uint32 dwId;

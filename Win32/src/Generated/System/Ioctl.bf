@@ -6947,7 +6947,7 @@ public struct TXFS_READ_BACKUP_INFORMATION_OUT
 	public struct _Anonymous_e__Union
 	{
 		public uint32 BufferLength;
-		public uint8[0] Buffer;
+		public uint8[1] Buffer;
 	}
 
 	public using _Anonymous_e__Union Anonymous;
@@ -7087,8 +7087,8 @@ public struct STORAGE_QUERY_DEPENDENT_VOLUME_RESPONSE
 	[CRepr, Union]
 	public struct _Anonymous_e__Union
 	{
-		public STORAGE_QUERY_DEPENDENT_VOLUME_LEV1_ENTRY[0] Lev1Depends;
-		public STORAGE_QUERY_DEPENDENT_VOLUME_LEV2_ENTRY[0] Lev2Depends;
+		public STORAGE_QUERY_DEPENDENT_VOLUME_LEV1_ENTRY[1] Lev1Depends;
+		public STORAGE_QUERY_DEPENDENT_VOLUME_LEV2_ENTRY[1] Lev2Depends;
 	}
 
 	public uint32 ResponseLevel;
@@ -7381,9 +7381,9 @@ public struct QUERY_FILE_LAYOUT_INPUT
 	[CRepr, Union]
 	public struct _Filter_e__Union
 	{
-		public CLUSTER_RANGE[0] ClusterRanges;
-		public FILE_REFERENCE_RANGE[0] FileReferenceRanges;
-		public STORAGE_RESERVE_ID[0] StorageReserveIds;
+		public CLUSTER_RANGE[1] ClusterRanges;
+		public FILE_REFERENCE_RANGE[1] FileReferenceRanges;
+		public STORAGE_RESERVE_ID[1] StorageReserveIds;
 	}
 
 	public using _Anonymous_e__Union Anonymous;

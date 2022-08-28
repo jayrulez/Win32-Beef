@@ -596,8 +596,8 @@ public struct STORAGE_DEPENDENCY_INFO
 	[CRepr, Union]
 	public struct _Anonymous_e__Union
 	{
-		public STORAGE_DEPENDENCY_INFO_TYPE_1[0] Version1Entries;
-		public STORAGE_DEPENDENCY_INFO_TYPE_2[0] Version2Entries;
+		public STORAGE_DEPENDENCY_INFO_TYPE_1[1] Version1Entries;
+		public STORAGE_DEPENDENCY_INFO_TYPE_2[1] Version2Entries;
 	}
 
 	public STORAGE_DEPENDENCY_INFO_VERSION Version;

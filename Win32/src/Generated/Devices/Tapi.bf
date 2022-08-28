@@ -4488,7 +4488,7 @@ public struct NSID
 	public struct _address_e__Union
 	{
 		public _ADDR_ALIAS alias;
-		public CHAR[0] rgchInterNet;
+		public CHAR[1] rgchInterNet;
 	}
 
 	public uint32 dwSize;

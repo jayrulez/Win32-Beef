@@ -4478,7 +4478,7 @@ public struct NLA_BLOB
 			public NLA_INTERNET internet;
 		}
 
-		public CHAR[0] rawData;
+		public CHAR[1] rawData;
 		public _interfaceData_e__Struct interfaceData;
 		public _locationData_e__Struct locationData;
 		public _connectivity_e__Struct connectivity;

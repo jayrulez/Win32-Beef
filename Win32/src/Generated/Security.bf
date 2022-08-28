@@ -1042,11 +1042,11 @@ public struct CLAIM_SECURITY_ATTRIBUTE_RELATIVE_V1
 	[CRepr, Union]
 	public struct _Values_e__Union
 	{
-		public uint32[0] pInt64;
-		public uint32[0] pUint64;
-		public uint32[0] ppString;
-		public uint32[0] pFqbn;
-		public uint32[0] pOctetString;
+		public uint32[1] pInt64;
+		public uint32[1] pUint64;
+		public uint32[1] ppString;
+		public uint32[1] pFqbn;
+		public uint32[1] pOctetString;
 	}
 
 	public uint32 Name;

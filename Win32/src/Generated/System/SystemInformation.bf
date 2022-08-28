@@ -668,7 +668,7 @@ public struct NUMA_NODE_RELATIONSHIP
 	public struct _Anonymous_e__Union
 	{
 		public GROUP_AFFINITY GroupMask;
-		public GROUP_AFFINITY[0] GroupMasks;
+		public GROUP_AFFINITY[1] GroupMasks;
 	}
 
 	public uint32 NodeNumber;
@@ -684,7 +684,7 @@ public struct CACHE_RELATIONSHIP
 	public struct _Anonymous_e__Union
 	{
 		public GROUP_AFFINITY GroupMask;
-		public GROUP_AFFINITY[0] GroupMasks;
+		public GROUP_AFFINITY[1] GroupMasks;
 	}
 
 	public uint8 Level;

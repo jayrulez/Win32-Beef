@@ -5062,7 +5062,7 @@ public struct ICMP_MESSAGE
 	[CRepr, Union]
 	public struct _Data_e__Union
 	{
-		public uint32[0] Data32;
+		public uint32[1] Data32;
 		public uint16[2] Data16;
 		public uint8[4] Data8;
 	}

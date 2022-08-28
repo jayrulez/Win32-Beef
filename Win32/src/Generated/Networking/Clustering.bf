@@ -3323,7 +3323,7 @@ public struct CLUSPROP_SECURITY_DESCRIPTOR
 	public struct _Anonymous_e__Union
 	{
 		public SECURITY_DESCRIPTOR_RELATIVE sd;
-		public uint8[0] rgbSecurityDescriptor;
+		public uint8[1] rgbSecurityDescriptor;
 	}
 
 	public CLUSPROP_VALUE __AnonymousBase_clusapi_L5211_C54;

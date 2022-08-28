@@ -1365,7 +1365,7 @@ public struct WNODE_ALL_DATA
 	public struct _Anonymous_e__Union
 	{
 		public uint32 FixedInstanceSize;
-		public OFFSETINSTANCEDATAANDLENGTH[0] OffsetInstanceDataAndLength;
+		public OFFSETINSTANCEDATAANDLENGTH[1] OffsetInstanceDataAndLength;
 	}
 
 	public WNODE_HEADER WnodeHeader;
@@ -1423,7 +1423,7 @@ public struct WNODE_EVENT_REFERENCE
 	public struct _Anonymous_e__Union
 	{
 		public uint32 TargetInstanceIndex;
-		public char16[0] TargetInstanceName;
+		public char16[1] TargetInstanceName;
 	}
 
 	public WNODE_HEADER WnodeHeader;

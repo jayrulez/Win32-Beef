@@ -773,7 +773,7 @@ public struct GNSS_EVENT
 		public GNSS_BREADCRUMBING_ALERT_DATA BreadcrumbAlertData;
 		public GNSS_GEOFENCES_TRACKINGSTATUS_DATA GeofencesTrackingStatus;
 		public GNSS_DRIVER_REQUEST_DATA DriverRequestData;
-		public uint8[0] CustomData;
+		public uint8[1] CustomData;
 	}
 
 	public uint32 Size;
@@ -800,7 +800,7 @@ public struct GNSS_EVENT_2
 		public GNSS_BREADCRUMBING_ALERT_DATA BreadcrumbAlertData;
 		public GNSS_GEOFENCES_TRACKINGSTATUS_DATA GeofencesTrackingStatus;
 		public GNSS_DRIVER_REQUEST_DATA DriverRequestData;
-		public uint8[0] CustomData;
+		public uint8[1] CustomData;
 	}
 
 	public uint32 Size;
