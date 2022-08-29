@@ -1,7 +1,6 @@
 using Win32.Foundation;
 using Win32.System.IO;
 using System;
-using System.Interop;
 
 namespace Win32.Devices.Usb;
 
@@ -9,1091 +8,548 @@ namespace Win32.Devices.Usb;
 public static
 {
 	public const uint32 SHORT_PACKET_TERMINATE = 1;
-
 	public const uint32 AUTO_CLEAR_STALL = 2;
-
 	public const uint32 PIPE_TRANSFER_TIMEOUT = 3;
-
 	public const uint32 IGNORE_SHORT_PACKETS = 4;
-
 	public const uint32 ALLOW_PARTIAL_READS = 5;
-
 	public const uint32 AUTO_FLUSH = 6;
-
 	public const uint32 RAW_IO = 7;
-
 	public const uint32 MAXIMUM_TRANSFER_SIZE = 8;
-
 	public const uint32 RESET_PIPE_ON_RESUME = 9;
-
 	public const uint32 AUTO_SUSPEND = 129;
-
 	public const uint32 SUSPEND_DELAY = 131;
-
 	public const uint32 DEVICE_SPEED = 1;
-
 	public const uint32 LowSpeed = 1;
-
 	public const uint32 FullSpeed = 2;
-
 	public const uint32 HighSpeed = 3;
-
 	public const uint32 IOCTL_GENERICUSBFN_TRANSFER_IN = 2277389;
-
 	public const uint32 IOCTL_GENERICUSBFN_TRANSFER_IN_APPEND_ZERO_PKT = 2277393;
-
 	public const uint32 IOCTL_GENERICUSBFN_TRANSFER_OUT = 2277398;
-
 	public const uint32 IOCTL_GENERICUSBFN_CONTROL_STATUS_HANDSHAKE_IN = 2277400;
-
 	public const uint32 IOCTL_GENERICUSBFN_CONTROL_STATUS_HANDSHAKE_OUT = 2277404;
-
 	public const uint32 IOCTL_GENERICUSBFN_GET_CLASS_INFO = 2277410;
-
 	public const uint32 IOCTL_GENERICUSBFN_GET_PIPE_STATE = 2277414;
-
 	public const uint32 IOCTL_GENERICUSBFN_SET_PIPE_STATE = 2277417;
-
 	public const uint32 IOCTL_GENERICUSBFN_ACTIVATE_USB_BUS = 2277420;
-
 	public const uint32 IOCTL_GENERICUSBFN_DEACTIVATE_USB_BUS = 2277424;
-
 	public const uint32 IOCTL_GENERICUSBFN_BUS_EVENT_NOTIFICATION = 2277430;
-
 	public const uint32 IOCTL_GENERICUSBFN_GET_CLASS_INFO_EX = 2277434;
-
 	public const uint32 IOCTL_GENERICUSBFN_GET_INTERFACE_DESCRIPTOR_SET = 2277438;
-
 	public const uint32 IOCTL_GENERICUSBFN_REGISTER_USB_STRING = 2277441;
-
 	public const uint32 USBUSER_VERSION = 4;
-
 	public const uint32 USBUSER_GET_CONTROLLER_INFO_0 = 1;
-
 	public const uint32 USBUSER_GET_CONTROLLER_DRIVER_KEY = 2;
-
 	public const uint32 USBUSER_PASS_THRU = 3;
-
 	public const uint32 USBUSER_GET_POWER_STATE_MAP = 4;
-
 	public const uint32 USBUSER_GET_BANDWIDTH_INFORMATION = 5;
-
 	public const uint32 USBUSER_GET_BUS_STATISTICS_0 = 6;
-
 	public const uint32 USBUSER_GET_ROOTHUB_SYMBOLIC_NAME = 7;
-
 	public const uint32 USBUSER_GET_USB_DRIVER_VERSION = 8;
-
 	public const uint32 USBUSER_GET_USB2_HW_VERSION = 9;
-
 	public const uint32 USBUSER_USB_REFRESH_HCT_REG = 10;
-
 	public const uint32 USBUSER_OP_SEND_ONE_PACKET = 268435457;
-
 	public const uint32 USBUSER_OP_RAW_RESET_PORT = 536870913;
-
 	public const uint32 USBUSER_OP_OPEN_RAW_DEVICE = 536870914;
-
 	public const uint32 USBUSER_OP_CLOSE_RAW_DEVICE = 536870915;
-
 	public const uint32 USBUSER_OP_SEND_RAW_COMMAND = 536870916;
-
 	public const uint32 USBUSER_SET_ROOTPORT_FEATURE = 536870917;
-
 	public const uint32 USBUSER_CLEAR_ROOTPORT_FEATURE = 536870918;
-
 	public const uint32 USBUSER_GET_ROOTPORT_STATUS = 536870919;
-
 	public const uint32 USBUSER_INVALID_REQUEST = 4294967280;
-
 	public const uint32 USBUSER_OP_MASK_DEVONLY_API = 268435456;
-
 	public const uint32 USBUSER_OP_MASK_HCTEST_API = 536870912;
-
 	public const uint32 USB_PACKETFLAG_LOW_SPEED = 1;
-
 	public const uint32 USB_PACKETFLAG_FULL_SPEED = 2;
-
 	public const uint32 USB_PACKETFLAG_HIGH_SPEED = 4;
-
 	public const uint32 USB_PACKETFLAG_ASYNC_IN = 8;
-
 	public const uint32 USB_PACKETFLAG_ASYNC_OUT = 16;
-
 	public const uint32 USB_PACKETFLAG_ISO_IN = 32;
-
 	public const uint32 USB_PACKETFLAG_ISO_OUT = 64;
-
 	public const uint32 USB_PACKETFLAG_SETUP = 128;
-
 	public const uint32 USB_PACKETFLAG_TOGGLE0 = 256;
-
 	public const uint32 USB_PACKETFLAG_TOGGLE1 = 512;
-
 	public const uint32 USB_HC_FEATURE_FLAG_PORT_POWER_SWITCHING = 1;
-
 	public const uint32 USB_HC_FEATURE_FLAG_SEL_SUSPEND = 2;
-
 	public const uint32 USB_HC_FEATURE_LEGACY_BIOS = 4;
-
 	public const uint32 USB_HC_FEATURE_TIME_SYNC_API = 8;
-
 	public const uint32 USB_SUBMIT_URB = 0;
-
 	public const uint32 USB_RESET_PORT = 1;
-
 	public const uint32 USB_GET_ROOTHUB_PDO = 3;
-
 	public const uint32 USB_GET_PORT_STATUS = 4;
-
 	public const uint32 USB_ENABLE_PORT = 5;
-
 	public const uint32 USB_GET_HUB_COUNT = 6;
-
 	public const uint32 USB_CYCLE_PORT = 7;
-
 	public const uint32 USB_GET_HUB_NAME = 8;
-
 	public const uint32 USB_IDLE_NOTIFICATION = 9;
-
 	public const uint32 USB_RECORD_FAILURE = 10;
-
 	public const uint32 USB_GET_BUS_INFO = 264;
-
 	public const uint32 USB_GET_CONTROLLER_NAME = 265;
-
 	public const uint32 USB_GET_BUSGUID_INFO = 266;
-
 	public const uint32 USB_GET_PARENT_HUB_INFO = 267;
-
 	public const uint32 USB_GET_DEVICE_HANDLE = 268;
-
 	public const uint32 USB_GET_DEVICE_HANDLE_EX = 269;
-
 	public const uint32 USB_GET_TT_DEVICE_HANDLE = 270;
-
 	public const uint32 USB_GET_TOPOLOGY_ADDRESS = 271;
-
 	public const uint32 USB_IDLE_NOTIFICATION_EX = 272;
-
 	public const uint32 USB_REQ_GLOBAL_SUSPEND = 273;
-
 	public const uint32 USB_REQ_GLOBAL_RESUME = 274;
-
 	public const uint32 USB_GET_HUB_CONFIG_INFO = 275;
-
 	public const uint32 USB_FAIL_GET_STATUS = 280;
-
 	public const uint32 USB_REGISTER_COMPOSITE_DEVICE = 0;
-
 	public const uint32 USB_UNREGISTER_COMPOSITE_DEVICE = 1;
-
 	public const uint32 USB_REQUEST_REMOTE_WAKE_NOTIFICATION = 2;
-
 	public const uint32 HCD_GET_STATS_1 = 255;
-
 	public const uint32 HCD_DIAGNOSTIC_MODE_ON = 256;
-
 	public const uint32 HCD_DIAGNOSTIC_MODE_OFF = 257;
-
 	public const uint32 HCD_GET_ROOT_HUB_NAME = 258;
-
 	public const uint32 HCD_GET_DRIVERKEY_NAME = 265;
-
 	public const uint32 HCD_GET_STATS_2 = 266;
-
 	public const uint32 HCD_DISABLE_PORT = 268;
-
 	public const uint32 HCD_ENABLE_PORT = 269;
-
 	public const uint32 HCD_USER_REQUEST = 270;
-
 	public const uint32 HCD_TRACE_READ_REQUEST = 275;
-
 	public const uint32 USB_GET_NODE_INFORMATION = 258;
-
 	public const uint32 USB_GET_NODE_CONNECTION_INFORMATION = 259;
-
 	public const uint32 USB_GET_DESCRIPTOR_FROM_NODE_CONNECTION = 260;
-
 	public const uint32 USB_GET_NODE_CONNECTION_NAME = 261;
-
 	public const uint32 USB_DIAG_IGNORE_HUBS_ON = 262;
-
 	public const uint32 USB_DIAG_IGNORE_HUBS_OFF = 263;
-
 	public const uint32 USB_GET_NODE_CONNECTION_DRIVERKEY_NAME = 264;
-
 	public const uint32 USB_GET_HUB_CAPABILITIES = 271;
-
 	public const uint32 USB_GET_NODE_CONNECTION_ATTRIBUTES = 272;
-
 	public const uint32 USB_HUB_CYCLE_PORT = 273;
-
 	public const uint32 USB_GET_NODE_CONNECTION_INFORMATION_EX = 274;
-
 	public const uint32 USB_RESET_HUB = 275;
-
 	public const uint32 USB_GET_HUB_CAPABILITIES_EX = 276;
-
 	public const uint32 USB_GET_HUB_INFORMATION_EX = 277;
-
 	public const uint32 USB_GET_PORT_CONNECTOR_PROPERTIES = 278;
-
 	public const uint32 USB_GET_NODE_CONNECTION_INFORMATION_EX_V2 = 279;
-
 	public const uint32 USB_GET_TRANSPORT_CHARACTERISTICS = 281;
-
 	public const uint32 USB_REGISTER_FOR_TRANSPORT_CHARACTERISTICS_CHANGE = 282;
-
 	public const uint32 USB_NOTIFY_ON_TRANSPORT_CHARACTERISTICS_CHANGE = 283;
-
 	public const uint32 USB_UNREGISTER_FOR_TRANSPORT_CHARACTERISTICS_CHANGE = 284;
-
 	public const uint32 USB_START_TRACKING_FOR_TIME_SYNC = 285;
-
 	public const uint32 USB_GET_FRAME_NUMBER_AND_QPC_FOR_TIME_SYNC = 286;
-
 	public const uint32 USB_STOP_TRACKING_FOR_TIME_SYNC = 287;
-
 	public const uint32 USB_GET_DEVICE_CHARACTERISTICS = 288;
-
 	public const Guid GUID_DEVINTERFACE_USB_HUB = .(0xf18a0e88, 0xc30c, 0x11d0, 0x88, 0x15, 0x00, 0xa0, 0xc9, 0x06, 0xbe, 0xd8);
-
 	public const Guid GUID_DEVINTERFACE_USB_BILLBOARD = .(0x5e9adaef, 0xf879, 0x473f, 0xb8, 0x07, 0x4e, 0x5e, 0xa7, 0x7d, 0x1b, 0x1c);
-
 	public const Guid GUID_DEVINTERFACE_USB_DEVICE = .(0xa5dcbf10, 0x6530, 0x11d2, 0x90, 0x1f, 0x00, 0xc0, 0x4f, 0xb9, 0x51, 0xed);
-
 	public const Guid GUID_DEVINTERFACE_USB_HOST_CONTROLLER = .(0x3abf6f2d, 0x71c4, 0x462a, 0x8a, 0x92, 0x1e, 0x68, 0x61, 0xe6, 0xaf, 0x27);
-
 	public const Guid GUID_USB_WMI_STD_DATA = .(0x4e623b20, 0xcb14, 0x11d1, 0xb3, 0x31, 0x00, 0xa0, 0xc9, 0x59, 0xbb, 0xd2);
-
 	public const Guid GUID_USB_WMI_STD_NOTIFICATION = .(0x4e623b20, 0xcb14, 0x11d1, 0xb3, 0x31, 0x00, 0xa0, 0xc9, 0x59, 0xbb, 0xd2);
-
 	public const Guid GUID_USB_WMI_DEVICE_PERF_INFO = .(0x66c1aa3c, 0x499f, 0x49a0, 0xa9, 0xa5, 0x61, 0xe2, 0x35, 0x9f, 0x64, 0x07);
-
 	public const Guid GUID_USB_WMI_NODE_INFO = .(0x9c179357, 0xdc7a, 0x4f41, 0xb6, 0x6b, 0x32, 0x3b, 0x9d, 0xdc, 0xb5, 0xb1);
-
 	public const Guid GUID_USB_WMI_TRACING = .(0x3a61881b, 0xb4e6, 0x4bf9, 0xae, 0x0f, 0x3c, 0xd8, 0xf3, 0x94, 0xe5, 0x2f);
-
 	public const Guid GUID_USB_TRANSFER_TRACING = .(0x681eb8aa, 0x403d, 0x452c, 0x9f, 0x8a, 0xf0, 0x61, 0x6f, 0xac, 0x95, 0x40);
-
 	public const Guid GUID_USB_PERFORMANCE_TRACING = .(0xd5de77a6, 0x6ae9, 0x425c, 0xb1, 0xe2, 0xf5, 0x61, 0x5f, 0xd3, 0x48, 0xa9);
-
 	public const Guid GUID_USB_WMI_SURPRISE_REMOVAL_NOTIFICATION = .(0x9bbbf831, 0xa2f2, 0x43b4, 0x96, 0xd1, 0x86, 0x94, 0x4b, 0x59, 0x14, 0xb3);
-
 	public const uint32 FILE_DEVICE_USB = 34;
-
 	public const uint32 BMREQUEST_HOST_TO_DEVICE = 0;
-
 	public const uint32 BMREQUEST_DEVICE_TO_HOST = 1;
-
 	public const uint32 BMREQUEST_STANDARD = 0;
-
 	public const uint32 BMREQUEST_CLASS = 1;
-
 	public const uint32 BMREQUEST_VENDOR = 2;
-
 	public const uint32 BMREQUEST_TO_DEVICE = 0;
-
 	public const uint32 BMREQUEST_TO_INTERFACE = 1;
-
 	public const uint32 BMREQUEST_TO_ENDPOINT = 2;
-
 	public const uint32 BMREQUEST_TO_OTHER = 3;
-
 	public const uint32 USB_REQUEST_GET_STATUS = 0;
-
 	public const uint32 USB_REQUEST_CLEAR_FEATURE = 1;
-
 	public const uint32 USB_REQUEST_SET_FEATURE = 3;
-
 	public const uint32 USB_REQUEST_SET_ADDRESS = 5;
-
 	public const uint32 USB_REQUEST_GET_DESCRIPTOR = 6;
-
 	public const uint32 USB_REQUEST_SET_DESCRIPTOR = 7;
-
 	public const uint32 USB_REQUEST_GET_CONFIGURATION = 8;
-
 	public const uint32 USB_REQUEST_SET_CONFIGURATION = 9;
-
 	public const uint32 USB_REQUEST_GET_INTERFACE = 10;
-
 	public const uint32 USB_REQUEST_SET_INTERFACE = 11;
-
 	public const uint32 USB_REQUEST_SYNC_FRAME = 12;
-
 	public const uint32 USB_REQUEST_GET_FIRMWARE_STATUS = 26;
-
 	public const uint32 USB_REQUEST_SET_FIRMWARE_STATUS = 27;
-
 	public const uint32 USB_GET_FIRMWARE_ALLOWED_OR_DISALLOWED_STATE = 0;
-
 	public const uint32 USB_GET_FIRMWARE_HASH = 1;
-
 	public const uint32 USB_DEVICE_FIRMWARE_HASH_LENGTH = 32;
-
 	public const uint32 USB_DISALLOW_FIRMWARE_UPDATE = 0;
-
 	public const uint32 USB_ALLOW_FIRMWARE_UPDATE = 1;
-
 	public const uint32 USB_REQUEST_SET_SEL = 48;
-
 	public const uint32 USB_REQUEST_ISOCH_DELAY = 49;
-
 	public const uint32 USB_DEVICE_DESCRIPTOR_TYPE = 1;
-
 	public const uint32 USB_CONFIGURATION_DESCRIPTOR_TYPE = 2;
-
 	public const uint32 USB_STRING_DESCRIPTOR_TYPE = 3;
-
 	public const uint32 USB_INTERFACE_DESCRIPTOR_TYPE = 4;
-
 	public const uint32 USB_ENDPOINT_DESCRIPTOR_TYPE = 5;
-
 	public const uint32 USB_DEVICE_QUALIFIER_DESCRIPTOR_TYPE = 6;
-
 	public const uint32 USB_OTHER_SPEED_CONFIGURATION_DESCRIPTOR_TYPE = 7;
-
 	public const uint32 USB_INTERFACE_POWER_DESCRIPTOR_TYPE = 8;
-
 	public const uint32 USB_OTG_DESCRIPTOR_TYPE = 9;
-
 	public const uint32 USB_DEBUG_DESCRIPTOR_TYPE = 10;
-
 	public const uint32 USB_INTERFACE_ASSOCIATION_DESCRIPTOR_TYPE = 11;
-
 	public const uint32 USB_BOS_DESCRIPTOR_TYPE = 15;
-
 	public const uint32 USB_DEVICE_CAPABILITY_DESCRIPTOR_TYPE = 16;
-
 	public const uint32 USB_SUPERSPEED_ENDPOINT_COMPANION_DESCRIPTOR_TYPE = 48;
-
 	public const uint32 USB_SUPERSPEEDPLUS_ISOCH_ENDPOINT_COMPANION_DESCRIPTOR_TYPE = 49;
-
 	public const uint32 USB_RESERVED_DESCRIPTOR_TYPE = 6;
-
 	public const uint32 USB_CONFIG_POWER_DESCRIPTOR_TYPE = 7;
-
 	public const uint32 USB_FEATURE_ENDPOINT_STALL = 0;
-
 	public const uint32 USB_FEATURE_REMOTE_WAKEUP = 1;
-
 	public const uint32 USB_FEATURE_TEST_MODE = 2;
-
 	public const uint32 USB_FEATURE_FUNCTION_SUSPEND = 0;
-
 	public const uint32 USB_FEATURE_U1_ENABLE = 48;
-
 	public const uint32 USB_FEATURE_U2_ENABLE = 49;
-
 	public const uint32 USB_FEATURE_LTM_ENABLE = 50;
-
 	public const uint32 USB_FEATURE_LDM_ENABLE = 53;
-
 	public const uint32 USB_FEATURE_BATTERY_WAKE_MASK = 40;
-
 	public const uint32 USB_FEATURE_OS_IS_PD_AWARE = 41;
-
 	public const uint32 USB_FEATURE_POLICY_MODE = 42;
-
 	public const uint32 USB_FEATURE_CHARGING_POLICY = 54;
-
 	public const uint32 USB_CHARGING_POLICY_DEFAULT = 0;
-
 	public const uint32 USB_CHARGING_POLICY_ICCHPF = 1;
-
 	public const uint32 USB_CHARGING_POLICY_ICCLPF = 2;
-
 	public const uint32 USB_CHARGING_POLICY_NO_POWER = 3;
-
 	public const uint32 USB_STATUS_PORT_STATUS = 0;
-
 	public const uint32 USB_STATUS_PD_STATUS = 1;
-
 	public const uint32 USB_STATUS_EXT_PORT_STATUS = 2;
-
 	public const uint32 USB_GETSTATUS_SELF_POWERED = 1;
-
 	public const uint32 USB_GETSTATUS_REMOTE_WAKEUP_ENABLED = 2;
-
 	public const uint32 USB_GETSTATUS_U1_ENABLE = 4;
-
 	public const uint32 USB_GETSTATUS_U2_ENABLE = 8;
-
 	public const uint32 USB_GETSTATUS_LTM_ENABLE = 16;
-
 	public const uint32 USB_DEVICE_CLASS_RESERVED = 0;
-
 	public const uint32 USB_DEVICE_CLASS_AUDIO = 1;
-
 	public const uint32 USB_DEVICE_CLASS_COMMUNICATIONS = 2;
-
 	public const uint32 USB_DEVICE_CLASS_HUMAN_INTERFACE = 3;
-
 	public const uint32 USB_DEVICE_CLASS_MONITOR = 4;
-
 	public const uint32 USB_DEVICE_CLASS_PHYSICAL_INTERFACE = 5;
-
 	public const uint32 USB_DEVICE_CLASS_POWER = 6;
-
 	public const uint32 USB_DEVICE_CLASS_IMAGE = 6;
-
 	public const uint32 USB_DEVICE_CLASS_PRINTER = 7;
-
 	public const uint32 USB_DEVICE_CLASS_STORAGE = 8;
-
 	public const uint32 USB_DEVICE_CLASS_HUB = 9;
-
 	public const uint32 USB_DEVICE_CLASS_CDC_DATA = 10;
-
 	public const uint32 USB_DEVICE_CLASS_SMART_CARD = 11;
-
 	public const uint32 USB_DEVICE_CLASS_CONTENT_SECURITY = 13;
-
 	public const uint32 USB_DEVICE_CLASS_VIDEO = 14;
-
 	public const uint32 USB_DEVICE_CLASS_PERSONAL_HEALTHCARE = 15;
-
 	public const uint32 USB_DEVICE_CLASS_AUDIO_VIDEO = 16;
-
 	public const uint32 USB_DEVICE_CLASS_BILLBOARD = 17;
-
 	public const uint32 USB_DEVICE_CLASS_DIAGNOSTIC_DEVICE = 220;
-
 	public const uint32 USB_DEVICE_CLASS_WIRELESS_CONTROLLER = 224;
-
 	public const uint32 USB_DEVICE_CLASS_MISCELLANEOUS = 239;
-
 	public const uint32 USB_DEVICE_CLASS_APPLICATION_SPECIFIC = 254;
-
 	public const uint32 USB_DEVICE_CLASS_VENDOR_SPECIFIC = 255;
-
 	public const uint32 USB_DEVICE_CAPABILITY_WIRELESS_USB = 1;
-
 	public const uint32 USB_DEVICE_CAPABILITY_USB20_EXTENSION = 2;
-
 	public const uint32 USB_DEVICE_CAPABILITY_SUPERSPEED_USB = 3;
-
 	public const uint32 USB_DEVICE_CAPABILITY_CONTAINER_ID = 4;
-
 	public const uint32 USB_DEVICE_CAPABILITY_PLATFORM = 5;
-
 	public const uint32 USB_DEVICE_CAPABILITY_POWER_DELIVERY = 6;
-
 	public const uint32 USB_DEVICE_CAPABILITY_BATTERY_INFO = 7;
-
 	public const uint32 USB_DEVICE_CAPABILITY_PD_CONSUMER_PORT = 8;
-
 	public const uint32 USB_DEVICE_CAPABILITY_PD_PROVIDER_PORT = 9;
-
 	public const uint32 USB_DEVICE_CAPABILITY_SUPERSPEEDPLUS_USB = 10;
-
 	public const uint32 USB_DEVICE_CAPABILITY_PRECISION_TIME_MEASUREMENT = 11;
-
 	public const uint32 USB_DEVICE_CAPABILITY_BILLBOARD = 13;
-
 	public const uint32 USB_DEVICE_CAPABILITY_FIRMWARE_STATUS = 17;
-
 	public const uint32 USB_DEVICE_CAPABILITY_USB20_EXTENSION_BMATTRIBUTES_RESERVED_MASK = 4294901985;
-
 	public const uint32 USB_DEVICE_CAPABILITY_SUPERSPEED_BMATTRIBUTES_RESERVED_MASK = 253;
-
 	public const uint32 USB_DEVICE_CAPABILITY_SUPERSPEED_BMATTRIBUTES_LTM_CAPABLE = 2;
-
 	public const uint32 USB_DEVICE_CAPABILITY_SUPERSPEED_SPEEDS_SUPPORTED_RESERVED_MASK = 65520;
-
 	public const uint32 USB_DEVICE_CAPABILITY_SUPERSPEED_SPEEDS_SUPPORTED_LOW = 1;
-
 	public const uint32 USB_DEVICE_CAPABILITY_SUPERSPEED_SPEEDS_SUPPORTED_FULL = 2;
-
 	public const uint32 USB_DEVICE_CAPABILITY_SUPERSPEED_SPEEDS_SUPPORTED_HIGH = 4;
-
 	public const uint32 USB_DEVICE_CAPABILITY_SUPERSPEED_SPEEDS_SUPPORTED_SUPER = 8;
-
 	public const uint32 USB_DEVICE_CAPABILITY_SUPERSPEED_U1_DEVICE_EXIT_MAX_VALUE = 10;
-
 	public const uint32 USB_DEVICE_CAPABILITY_SUPERSPEED_U2_DEVICE_EXIT_MAX_VALUE = 2047;
-
 	public const uint32 USB_DEVICE_CAPABILITY_MAX_U1_LATENCY = 10;
-
 	public const uint32 USB_DEVICE_CAPABILITY_MAX_U2_LATENCY = 2047;
-
 	public const uint32 USB_DEVICE_CAPABILITY_SUPERSPEEDPLUS_SPEED_LSE_BPS = 0;
-
 	public const uint32 USB_DEVICE_CAPABILITY_SUPERSPEEDPLUS_SPEED_LSE_KBPS = 1;
-
 	public const uint32 USB_DEVICE_CAPABILITY_SUPERSPEEDPLUS_SPEED_LSE_MBPS = 2;
-
 	public const uint32 USB_DEVICE_CAPABILITY_SUPERSPEEDPLUS_SPEED_LSE_GBPS = 3;
-
 	public const uint32 USB_DEVICE_CAPABILITY_SUPERSPEEDPLUS_SPEED_MODE_SYMMETRIC = 0;
-
 	public const uint32 USB_DEVICE_CAPABILITY_SUPERSPEEDPLUS_SPEED_MODE_ASYMMETRIC = 1;
-
 	public const uint32 USB_DEVICE_CAPABILITY_SUPERSPEEDPLUS_SPEED_DIR_RX = 0;
-
 	public const uint32 USB_DEVICE_CAPABILITY_SUPERSPEEDPLUS_SPEED_DIR_TX = 1;
-
 	public const uint32 USB_DEVICE_CAPABILITY_SUPERSPEEDPLUS_SPEED_PROTOCOL_SS = 0;
-
 	public const uint32 USB_DEVICE_CAPABILITY_SUPERSPEEDPLUS_SPEED_PROTOCOL_SSP = 1;
-
 	public const Guid GUID_USB_MSOS20_PLATFORM_CAPABILITY_ID = .(0xd8dd60df, 0x4589, 0x4cc7, 0x9c, 0xd2, 0x65, 0x9d, 0x9e, 0x64, 0x8a, 0x9f);
-
 	public const uint32 USB_CONFIG_POWERED_MASK = 192;
-
 	public const uint32 USB_CONFIG_BUS_POWERED = 128;
-
 	public const uint32 USB_CONFIG_SELF_POWERED = 64;
-
 	public const uint32 USB_CONFIG_REMOTE_WAKEUP = 32;
-
 	public const uint32 USB_CONFIG_RESERVED = 31;
-
 	public const uint32 USB_ENDPOINT_DIRECTION_MASK = 128;
-
 	public const uint32 USB_ENDPOINT_ADDRESS_MASK = 15;
-
 	public const uint32 USB_ENDPOINT_TYPE_MASK = 3;
-
 	public const uint32 USB_ENDPOINT_TYPE_CONTROL = 0;
-
 	public const uint32 USB_ENDPOINT_TYPE_ISOCHRONOUS = 1;
-
 	public const uint32 USB_ENDPOINT_TYPE_BULK = 2;
-
 	public const uint32 USB_ENDPOINT_TYPE_INTERRUPT = 3;
-
 	public const uint32 USB_ENDPOINT_TYPE_BULK_RESERVED_MASK = 252;
-
 	public const uint32 USB_ENDPOINT_TYPE_CONTROL_RESERVED_MASK = 252;
-
 	public const uint32 USB_20_ENDPOINT_TYPE_INTERRUPT_RESERVED_MASK = 252;
-
 	public const uint32 USB_30_ENDPOINT_TYPE_INTERRUPT_RESERVED_MASK = 204;
-
 	public const uint32 USB_ENDPOINT_TYPE_ISOCHRONOUS_RESERVED_MASK = 192;
-
 	public const uint32 USB_30_ENDPOINT_TYPE_INTERRUPT_USAGE_MASK = 48;
-
 	public const uint32 USB_30_ENDPOINT_TYPE_INTERRUPT_USAGE_PERIODIC = 0;
-
 	public const uint32 USB_30_ENDPOINT_TYPE_INTERRUPT_USAGE_NOTIFICATION = 16;
-
 	public const uint32 USB_30_ENDPOINT_TYPE_INTERRUPT_USAGE_RESERVED10 = 32;
-
 	public const uint32 USB_30_ENDPOINT_TYPE_INTERRUPT_USAGE_RESERVED11 = 48;
-
 	public const uint32 USB_ENDPOINT_TYPE_ISOCHRONOUS_SYNCHRONIZATION_MASK = 12;
-
 	public const uint32 USB_ENDPOINT_TYPE_ISOCHRONOUS_SYNCHRONIZATION_NO_SYNCHRONIZATION = 0;
-
 	public const uint32 USB_ENDPOINT_TYPE_ISOCHRONOUS_SYNCHRONIZATION_ASYNCHRONOUS = 4;
-
 	public const uint32 USB_ENDPOINT_TYPE_ISOCHRONOUS_SYNCHRONIZATION_ADAPTIVE = 8;
-
 	public const uint32 USB_ENDPOINT_TYPE_ISOCHRONOUS_SYNCHRONIZATION_SYNCHRONOUS = 12;
-
 	public const uint32 USB_ENDPOINT_TYPE_ISOCHRONOUS_USAGE_MASK = 48;
-
 	public const uint32 USB_ENDPOINT_TYPE_ISOCHRONOUS_USAGE_DATA_ENDOINT = 0;
-
 	public const uint32 USB_ENDPOINT_TYPE_ISOCHRONOUS_USAGE_FEEDBACK_ENDPOINT = 16;
-
 	public const uint32 USB_ENDPOINT_TYPE_ISOCHRONOUS_USAGE_IMPLICIT_FEEDBACK_DATA_ENDPOINT = 32;
-
 	public const uint32 USB_ENDPOINT_TYPE_ISOCHRONOUS_USAGE_RESERVED = 48;
-
 	public const uint32 USB_ENDPOINT_SUPERSPEED_BULK_MAX_PACKET_SIZE = 1024;
-
 	public const uint32 USB_ENDPOINT_SUPERSPEED_CONTROL_MAX_PACKET_SIZE = 512;
-
 	public const uint32 USB_ENDPOINT_SUPERSPEED_ISO_MAX_PACKET_SIZE = 1024;
-
 	public const uint32 USB_ENDPOINT_SUPERSPEED_INTERRUPT_MAX_PACKET_SIZE = 1024;
-
 	public const uint32 MAXIMUM_USB_STRING_LENGTH = 255;
-
 	public const uint32 USB_SUPERSPEED_ISOCHRONOUS_MAX_MULTIPLIER = 2;
-
 	public const uint32 USB_SUPERSPEEDPLUS_ISOCHRONOUS_MIN_BYTESPERINTERVAL = 49153;
-
 	public const uint32 USB_SUPERSPEEDPLUS_ISOCHRONOUS_MAX_BYTESPERINTERVAL = 16777215;
-
 	public const uint32 USB_20_HUB_DESCRIPTOR_TYPE = 41;
-
 	public const uint32 USB_30_HUB_DESCRIPTOR_TYPE = 42;
-
 	public const uint32 USB_REQUEST_GET_STATE = 2;
-
 	public const uint32 USB_REQUEST_CLEAR_TT_BUFFER = 8;
-
 	public const uint32 USB_REQUEST_RESET_TT = 9;
-
 	public const uint32 USB_REQUEST_GET_TT_STATE = 10;
-
 	public const uint32 USB_REQUEST_STOP_TT = 11;
-
 	public const uint32 USB_REQUEST_SET_HUB_DEPTH = 12;
-
 	public const uint32 USB_REQUEST_GET_PORT_ERR_COUNT = 13;
-
 	public const uint32 USB_PORT_STATUS_CONNECT = 1;
-
 	public const uint32 USB_PORT_STATUS_ENABLE = 2;
-
 	public const uint32 USB_PORT_STATUS_SUSPEND = 4;
-
 	public const uint32 USB_PORT_STATUS_OVER_CURRENT = 8;
-
 	public const uint32 USB_PORT_STATUS_RESET = 16;
-
 	public const uint32 USB_PORT_STATUS_POWER = 256;
-
 	public const uint32 USB_PORT_STATUS_LOW_SPEED = 512;
-
 	public const uint32 USB_PORT_STATUS_HIGH_SPEED = 1024;
-
 	public const uint32 PORT_LINK_STATE_U0 = 0;
-
 	public const uint32 PORT_LINK_STATE_U1 = 1;
-
 	public const uint32 PORT_LINK_STATE_U2 = 2;
-
 	public const uint32 PORT_LINK_STATE_U3 = 3;
-
 	public const uint32 PORT_LINK_STATE_DISABLED = 4;
-
 	public const uint32 PORT_LINK_STATE_RX_DETECT = 5;
-
 	public const uint32 PORT_LINK_STATE_INACTIVE = 6;
-
 	public const uint32 PORT_LINK_STATE_POLLING = 7;
-
 	public const uint32 PORT_LINK_STATE_RECOVERY = 8;
-
 	public const uint32 PORT_LINK_STATE_HOT_RESET = 9;
-
 	public const uint32 PORT_LINK_STATE_COMPLIANCE_MODE = 10;
-
 	public const uint32 PORT_LINK_STATE_LOOPBACK = 11;
-
 	public const uint32 PORT_LINK_STATE_TEST_MODE = 11;
-
 	public const uint32 USB_FEATURE_INTERFACE_POWER_D0 = 2;
-
 	public const uint32 USB_FEATURE_INTERFACE_POWER_D1 = 3;
-
 	public const uint32 USB_FEATURE_INTERFACE_POWER_D2 = 4;
-
 	public const uint32 USB_FEATURE_INTERFACE_POWER_D3 = 5;
-
 	public const uint32 USB_SUPPORT_D0_COMMAND = 1;
-
 	public const uint32 USB_SUPPORT_D1_COMMAND = 2;
-
 	public const uint32 USB_SUPPORT_D2_COMMAND = 4;
-
 	public const uint32 USB_SUPPORT_D3_COMMAND = 8;
-
 	public const uint32 USB_SUPPORT_D1_WAKEUP = 16;
-
 	public const uint32 USB_SUPPORT_D2_WAKEUP = 32;
-
 	public const uint32 USBDI_VERSION = 1536;
-
 	public const uint32 USB_PORTATTR_NO_CONNECTOR = 1;
-
 	public const uint32 USB_PORTATTR_SHARED_USB2 = 2;
-
 	public const uint32 USB_PORTATTR_MINI_CONNECTOR = 4;
-
 	public const uint32 USB_PORTATTR_OEM_CONNECTOR = 8;
-
 	public const uint32 USB_PORTATTR_OWNED_BY_CC = 16777216;
-
 	public const uint32 USB_PORTATTR_NO_OVERCURRENT_UI = 33554432;
-
 	public const uint32 USB_DEFAULT_DEVICE_ADDRESS = 0;
-
 	public const uint32 USB_DEFAULT_ENDPOINT_ADDRESS = 0;
-
 	public const uint32 USB_DEFAULT_MAX_PACKET = 64;
-
 	public const uint32 URB_FUNCTION_SELECT_CONFIGURATION = 0;
-
 	public const uint32 URB_FUNCTION_SELECT_INTERFACE = 1;
-
 	public const uint32 URB_FUNCTION_ABORT_PIPE = 2;
-
 	public const uint32 URB_FUNCTION_TAKE_FRAME_LENGTH_CONTROL = 3;
-
 	public const uint32 URB_FUNCTION_RELEASE_FRAME_LENGTH_CONTROL = 4;
-
 	public const uint32 URB_FUNCTION_GET_FRAME_LENGTH = 5;
-
 	public const uint32 URB_FUNCTION_SET_FRAME_LENGTH = 6;
-
 	public const uint32 URB_FUNCTION_GET_CURRENT_FRAME_NUMBER = 7;
-
 	public const uint32 URB_FUNCTION_CONTROL_TRANSFER = 8;
-
 	public const uint32 URB_FUNCTION_BULK_OR_INTERRUPT_TRANSFER = 9;
-
 	public const uint32 URB_FUNCTION_ISOCH_TRANSFER = 10;
-
 	public const uint32 URB_FUNCTION_GET_DESCRIPTOR_FROM_DEVICE = 11;
-
 	public const uint32 URB_FUNCTION_SET_DESCRIPTOR_TO_DEVICE = 12;
-
 	public const uint32 URB_FUNCTION_SET_FEATURE_TO_DEVICE = 13;
-
 	public const uint32 URB_FUNCTION_SET_FEATURE_TO_INTERFACE = 14;
-
 	public const uint32 URB_FUNCTION_SET_FEATURE_TO_ENDPOINT = 15;
-
 	public const uint32 URB_FUNCTION_CLEAR_FEATURE_TO_DEVICE = 16;
-
 	public const uint32 URB_FUNCTION_CLEAR_FEATURE_TO_INTERFACE = 17;
-
 	public const uint32 URB_FUNCTION_CLEAR_FEATURE_TO_ENDPOINT = 18;
-
 	public const uint32 URB_FUNCTION_GET_STATUS_FROM_DEVICE = 19;
-
 	public const uint32 URB_FUNCTION_GET_STATUS_FROM_INTERFACE = 20;
-
 	public const uint32 URB_FUNCTION_GET_STATUS_FROM_ENDPOINT = 21;
-
 	public const uint32 URB_FUNCTION_RESERVED_0X0016 = 22;
-
 	public const uint32 URB_FUNCTION_VENDOR_DEVICE = 23;
-
 	public const uint32 URB_FUNCTION_VENDOR_INTERFACE = 24;
-
 	public const uint32 URB_FUNCTION_VENDOR_ENDPOINT = 25;
-
 	public const uint32 URB_FUNCTION_CLASS_DEVICE = 26;
-
 	public const uint32 URB_FUNCTION_CLASS_INTERFACE = 27;
-
 	public const uint32 URB_FUNCTION_CLASS_ENDPOINT = 28;
-
 	public const uint32 URB_FUNCTION_RESERVE_0X001D = 29;
-
 	public const uint32 URB_FUNCTION_SYNC_RESET_PIPE_AND_CLEAR_STALL = 30;
-
 	public const uint32 URB_FUNCTION_CLASS_OTHER = 31;
-
 	public const uint32 URB_FUNCTION_VENDOR_OTHER = 32;
-
 	public const uint32 URB_FUNCTION_GET_STATUS_FROM_OTHER = 33;
-
 	public const uint32 URB_FUNCTION_CLEAR_FEATURE_TO_OTHER = 34;
-
 	public const uint32 URB_FUNCTION_SET_FEATURE_TO_OTHER = 35;
-
 	public const uint32 URB_FUNCTION_GET_DESCRIPTOR_FROM_ENDPOINT = 36;
-
 	public const uint32 URB_FUNCTION_SET_DESCRIPTOR_TO_ENDPOINT = 37;
-
 	public const uint32 URB_FUNCTION_GET_CONFIGURATION = 38;
-
 	public const uint32 URB_FUNCTION_GET_INTERFACE = 39;
-
 	public const uint32 URB_FUNCTION_GET_DESCRIPTOR_FROM_INTERFACE = 40;
-
 	public const uint32 URB_FUNCTION_SET_DESCRIPTOR_TO_INTERFACE = 41;
-
 	public const uint32 URB_FUNCTION_RESERVE_0X002B = 43;
-
 	public const uint32 URB_FUNCTION_RESERVE_0X002C = 44;
-
 	public const uint32 URB_FUNCTION_RESERVE_0X002D = 45;
-
 	public const uint32 URB_FUNCTION_RESERVE_0X002E = 46;
-
 	public const uint32 URB_FUNCTION_RESERVE_0X002F = 47;
-
 	public const uint32 URB_FUNCTION_GET_MS_FEATURE_DESCRIPTOR = 42;
-
 	public const uint32 URB_FUNCTION_SYNC_RESET_PIPE = 48;
-
 	public const uint32 URB_FUNCTION_SYNC_CLEAR_STALL = 49;
-
 	public const uint32 URB_FUNCTION_CONTROL_TRANSFER_EX = 50;
-
 	public const uint32 URB_FUNCTION_RESERVE_0X0033 = 51;
-
 	public const uint32 URB_FUNCTION_RESERVE_0X0034 = 52;
-
 	public const uint32 URB_FUNCTION_OPEN_STATIC_STREAMS = 53;
-
 	public const uint32 URB_FUNCTION_CLOSE_STATIC_STREAMS = 54;
-
 	public const uint32 URB_FUNCTION_BULK_OR_INTERRUPT_TRANSFER_USING_CHAINED_MDL = 55;
-
 	public const uint32 URB_FUNCTION_ISOCH_TRANSFER_USING_CHAINED_MDL = 56;
-
 	public const uint32 URB_FUNCTION_GET_ISOCH_PIPE_TRANSFER_PATH_DELAYS = 61;
-
 	public const uint32 URB_FUNCTION_RESET_PIPE = 30;
-
 	public const uint32 USBD_SHORT_TRANSFER_OK = 2;
-
 	public const uint32 USBD_START_ISO_TRANSFER_ASAP = 4;
-
 	public const uint32 USBD_DEFAULT_PIPE_TRANSFER = 8;
-
 	public const uint32 USBD_TRANSFER_DIRECTION_OUT = 0;
-
 	public const uint32 USBD_TRANSFER_DIRECTION_IN = 1;
-
 	public const uint32 USBD_TRANSFER_DIRECTION = 1;
-
 	public const uint32 USBD_ISO_START_FRAME_RANGE = 1024;
-
 	public const uint32 USBD_DEFAULT_MAXIMUM_TRANSFER_SIZE = 4294967295;
-
 	public const uint32 USBD_PF_CHANGE_MAX_PACKET = 1;
-
 	public const uint32 USBD_PF_SHORT_PACKET_OPT = 2;
-
 	public const uint32 USBD_PF_ENABLE_RT_THREAD_ACCESS = 4;
-
 	public const uint32 USBD_PF_MAP_ADD_TRANSFERS = 8;
-
 	public const uint32 USBD_PF_VIDEO_PRIORITY = 16;
-
 	public const uint32 USBD_PF_VOICE_PRIORITY = 32;
-
 	public const uint32 USBD_PF_INTERACTIVE_PRIORITY = 48;
-
 	public const uint32 USBD_PF_PRIORITY_MASK = 240;
-
 	public const uint32 USBD_PF_HANDLES_SSP_HIGH_BANDWIDTH_ISOCH = 256;
-
 	public const uint32 USBD_PF_SSP_HIGH_BANDWIDTH_ISOCH = 65536;
-
 	public const uint32 OS_STRING_DESCRIPTOR_INDEX = 238;
-
 	public const uint32 MS_GENRE_DESCRIPTOR_INDEX = 1;
-
 	public const uint32 MS_POWER_DESCRIPTOR_INDEX = 2;
-
 	public const uint32 MS_OS_FLAGS_CONTAINERID = 2;
-
 	public const uint32 URB_OPEN_STATIC_STREAMS_VERSION_100 = 256;
-
 	public const uint32 MAX_NUM_USBFN_ENDPOINTS = 15;
-
 	public const uint32 MAX_CONFIGURATION_NAME_LENGTH = 40;
-
 	public const uint32 MAX_USB_STRING_LENGTH = 255;
-
 	public const uint32 MAX_SUPPORTED_CONFIGURATIONS = 12;
-
 	public const uint32 USBFN_INTERRUPT_ENDPOINT_SIZE_NOT_UPDATEABLE_MASK = 128;
-
 	public const uint32 USB_TEST_MODE_TEST_J = 1;
-
 	public const uint32 USB_TEST_MODE_TEST_K = 2;
-
 	public const uint32 USB_TEST_MODE_TEST_SE0_NAK = 3;
-
 	public const uint32 USB_TEST_MODE_TEST_PACKET = 4;
-
 	public const uint32 USB_TEST_MODE_TEST_FORCE_ENABLE = 5;
-
 	public const uint32 MAX_INTERFACE_NAME_LENGTH = 40;
-
 	public const uint32 MAX_ALTERNATE_NAME_LENGTH = 40;
-
 	public const uint32 MAX_ASSOCIATION_NAME_LENGTH = 40;
-
 	public const uint32 IOCTL_INTERNAL_USB_SUBMIT_URB = 2228227;
-
 	public const uint32 IOCTL_INTERNAL_USB_RESET_PORT = 2228231;
-
 	public const uint32 IOCTL_INTERNAL_USB_GET_ROOTHUB_PDO = 2228239;
-
 	public const uint32 USBD_PORT_ENABLED = 1;
-
 	public const uint32 USBD_PORT_CONNECTED = 2;
-
 	public const uint32 IOCTL_INTERNAL_USB_GET_PORT_STATUS = 2228243;
-
 	public const uint32 IOCTL_INTERNAL_USB_ENABLE_PORT = 2228247;
-
 	public const uint32 IOCTL_INTERNAL_USB_GET_HUB_COUNT = 2228251;
-
 	public const uint32 IOCTL_INTERNAL_USB_CYCLE_PORT = 2228255;
-
 	public const uint32 IOCTL_INTERNAL_USB_GET_HUB_NAME = 2228256;
-
 	public const uint32 IOCTL_INTERNAL_USB_GET_BUS_INFO = 2229280;
-
 	public const uint32 IOCTL_INTERNAL_USB_GET_CONTROLLER_NAME = 2229284;
-
 	public const uint32 IOCTL_INTERNAL_USB_GET_BUSGUID_INFO = 2229288;
-
 	public const uint32 IOCTL_INTERNAL_USB_GET_PARENT_HUB_INFO = 2229292;
-
 	public const uint32 IOCTL_INTERNAL_USB_SUBMIT_IDLE_NOTIFICATION = 2228263;
-
 	public const uint32 IOCTL_INTERNAL_USB_GET_DEVICE_HANDLE = 2229299;
-
 	public const uint32 IOCTL_INTERNAL_USB_NOTIFY_IDLE_READY = 2229315;
-
 	public const uint32 IOCTL_INTERNAL_USB_REQ_GLOBAL_SUSPEND = 2229319;
-
 	public const uint32 IOCTL_INTERNAL_USB_REQ_GLOBAL_RESUME = 2229323;
-
 	public const uint32 IOCTL_INTERNAL_USB_RECORD_FAILURE = 2228267;
-
 	public const uint32 IOCTL_INTERNAL_USB_GET_DEVICE_HANDLE_EX = 2229303;
-
 	public const uint32 IOCTL_INTERNAL_USB_GET_TT_DEVICE_HANDLE = 2229307;
-
 	public const uint32 IOCTL_INTERNAL_USB_GET_TOPOLOGY_ADDRESS = 2229311;
-
 	public const uint32 IOCTL_INTERNAL_USB_GET_DEVICE_CONFIG_INFO = 2229327;
-
 	public const uint32 IOCTL_INTERNAL_USB_REGISTER_COMPOSITE_DEVICE = 4784131;
-
 	public const uint32 IOCTL_INTERNAL_USB_UNREGISTER_COMPOSITE_DEVICE = 4784135;
-
 	public const uint32 IOCTL_INTERNAL_USB_REQUEST_REMOTE_WAKE_NOTIFICATION = 4784139;
-
 	public const uint32 IOCTL_INTERNAL_USB_FAIL_GET_STATUS_FROM_DEVICE = 2229347;
-
 	public const uint32 IOCTL_USB_HCD_GET_STATS_1 = 2229244;
-
 	public const uint32 IOCTL_USB_HCD_GET_STATS_2 = 2229288;
-
 	public const uint32 IOCTL_USB_HCD_DISABLE_PORT = 2229296;
-
 	public const uint32 IOCTL_USB_HCD_ENABLE_PORT = 2229300;
-
 	public const uint32 IOCTL_USB_DIAGNOSTIC_MODE_ON = 2229248;
-
 	public const uint32 IOCTL_USB_DIAGNOSTIC_MODE_OFF = 2229252;
-
 	public const uint32 IOCTL_USB_GET_ROOT_HUB_NAME = 2229256;
-
 	public const uint32 IOCTL_GET_HCD_DRIVERKEY_NAME = 2229284;
-
 	public const uint32 IOCTL_USB_GET_NODE_INFORMATION = 2229256;
-
 	public const uint32 IOCTL_USB_GET_NODE_CONNECTION_INFORMATION = 2229260;
-
 	public const uint32 IOCTL_USB_GET_DESCRIPTOR_FROM_NODE_CONNECTION = 2229264;
-
 	public const uint32 IOCTL_USB_GET_NODE_CONNECTION_NAME = 2229268;
-
 	public const uint32 IOCTL_USB_DIAG_IGNORE_HUBS_ON = 2229272;
-
 	public const uint32 IOCTL_USB_DIAG_IGNORE_HUBS_OFF = 2229276;
-
 	public const uint32 IOCTL_USB_GET_NODE_CONNECTION_DRIVERKEY_NAME = 2229280;
-
 	public const uint32 IOCTL_USB_GET_HUB_CAPABILITIES = 2229308;
-
 	public const uint32 IOCTL_USB_HUB_CYCLE_PORT = 2229316;
-
 	public const uint32 IOCTL_USB_GET_NODE_CONNECTION_ATTRIBUTES = 2229312;
-
 	public const uint32 IOCTL_USB_GET_NODE_CONNECTION_INFORMATION_EX = 2229320;
-
 	public const uint32 IOCTL_USB_RESET_HUB = 2229324;
-
 	public const uint32 IOCTL_USB_GET_HUB_CAPABILITIES_EX = 2229328;
-
 	public const uint32 IOCTL_USB_GET_HUB_INFORMATION_EX = 2229332;
-
 	public const uint32 IOCTL_USB_GET_PORT_CONNECTOR_PROPERTIES = 2229336;
-
 	public const uint32 IOCTL_USB_GET_NODE_CONNECTION_INFORMATION_EX_V2 = 2229340;
-
 	public const uint32 IOCTL_USB_GET_TRANSPORT_CHARACTERISTICS = 2229348;
-
 	public const uint32 IOCTL_USB_REGISTER_FOR_TRANSPORT_CHARACTERISTICS_CHANGE = 2229352;
-
 	public const uint32 IOCTL_USB_NOTIFY_ON_TRANSPORT_CHARACTERISTICS_CHANGE = 2229356;
-
 	public const uint32 IOCTL_USB_UNREGISTER_FOR_TRANSPORT_CHARACTERISTICS_CHANGE = 2229360;
-
 	public const uint32 IOCTL_USB_START_TRACKING_FOR_TIME_SYNC = 2229364;
-
 	public const uint32 IOCTL_USB_GET_FRAME_NUMBER_AND_QPC_FOR_TIME_SYNC = 2229368;
-
 	public const uint32 IOCTL_USB_STOP_TRACKING_FOR_TIME_SYNC = 2229372;
-
 	public const uint32 IOCTL_USB_GET_DEVICE_CHARACTERISTICS = 2229376;
-
 	public const uint32 WMI_USB_DRIVER_INFORMATION = 0;
-
 	public const uint32 WMI_USB_DRIVER_NOTIFICATION = 1;
-
 	public const uint32 WMI_USB_POWER_DEVICE_ENABLE = 2;
-
 	public const uint32 WMI_USB_HUB_NODE_INFORMATION = 4;
-
 	public const uint32 WMI_USB_PERFORMANCE_INFORMATION = 1;
-
 	public const uint32 WMI_USB_DEVICE_NODE_INFORMATION = 2;
-
 	public const uint32 USB_TRANSPORT_CHARACTERISTICS_VERSION_1 = 1;
-
 	public const uint32 USB_TRANSPORT_CHARACTERISTICS_LATENCY_AVAILABLE = 1;
-
 	public const uint32 USB_TRANSPORT_CHARACTERISTICS_BANDWIDTH_AVAILABLE = 2;
-
 	public const uint32 USB_REGISTER_FOR_TRANSPORT_LATENCY_CHANGE = 1;
-
 	public const uint32 USB_REGISTER_FOR_TRANSPORT_BANDWIDTH_CHANGE = 2;
-
 	public const uint32 USB_DEVICE_CHARACTERISTICS_VERSION_1 = 1;
-
 	public const uint32 USB_DEVICE_CHARACTERISTICS_MAXIMUM_PATH_DELAYS_AVAILABLE = 1;
-
 	public const uint32 MAX_NUM_PIPES = 8;
-
 	public const uint32 BULKIN_FLAG = 128;
-
 	public const uint32 FILE_DEVICE_USB_SCAN = 32768;
-
 	public const uint32 IOCTL_INDEX = 2048;
-
 	public const uint32 IOCTL_GET_VERSION = 2147491840;
-
 	public const uint32 IOCTL_CANCEL_IO = 2147491844;
-
 	public const uint32 IOCTL_WAIT_ON_DEVICE_EVENT = 2147491848;
-
 	public const uint32 IOCTL_READ_REGISTERS = 2147491852;
-
 	public const uint32 IOCTL_WRITE_REGISTERS = 2147491856;
-
 	public const uint32 IOCTL_GET_CHANNEL_ALIGN_RQST = 2147491860;
-
 	public const uint32 IOCTL_GET_DEVICE_DESCRIPTOR = 2147491864;
-
 	public const uint32 IOCTL_RESET_PIPE = 2147491868;
-
 	public const uint32 IOCTL_GET_USB_DESCRIPTOR = 2147491872;
-
 	public const uint32 IOCTL_SEND_USB_REQUEST = 2147491876;
-
 	public const uint32 IOCTL_GET_PIPE_CONFIGURATION = 2147491880;
-
 	public const uint32 IOCTL_SET_TIMEOUT = 2147491884;
-
 	public const uint32 IOCTL_ABORT_PIPE = 2147491844;
-
 	public const Guid WinUSB_TestGuid = .(0xda812bff, 0x12c3, 0x46a2, 0x8e, 0x2b, 0xdb, 0xd3, 0xb7, 0x83, 0x4c, 0x43);
-
 }
 #endregion
 
@@ -1309,7 +765,6 @@ public struct BM_REQUEST_TYPE
 	{
 		public uint8 _bitfield;
 	}
-
 	public _BM s;
 	public uint8 B;
 }
@@ -1326,11 +781,9 @@ public struct USB_DEFAULT_PIPE_SETUP_PACKET
 			public uint8 LowByte;
 			public uint8 HiByte;
 		}
-
 		public using _Anonymous_e__Struct Anonymous;
 		public uint16 W;
 	}
-
 	[CRepr, Union, Packed(1)]
 	public struct _wValue
 	{
@@ -1340,11 +793,9 @@ public struct USB_DEFAULT_PIPE_SETUP_PACKET
 			public uint8 LowByte;
 			public uint8 HiByte;
 		}
-
 		public using _Anonymous_e__Struct Anonymous;
 		public uint16 W;
 	}
-
 	public BM_REQUEST_TYPE bmRequestType;
 	public uint8 bRequest;
 	public _wValue wValue;
@@ -1360,7 +811,6 @@ public struct USB_DEVICE_STATUS
 	{
 		public uint16 _bitfield;
 	}
-
 	public uint16 AsUshort16;
 	public using _Anonymous_e__Struct Anonymous;
 }
@@ -1373,7 +823,6 @@ public struct USB_INTERFACE_STATUS
 	{
 		public uint16 _bitfield;
 	}
-
 	public uint16 AsUshort16;
 	public using _Anonymous_e__Struct Anonymous;
 }
@@ -1386,7 +835,6 @@ public struct USB_ENDPOINT_STATUS
 	{
 		public uint16 _bitfield;
 	}
-
 	public uint16 AsUshort16;
 	public using _Anonymous_e__Struct Anonymous;
 }
@@ -1451,11 +899,9 @@ public struct USB_DEVICE_CAPABILITY_USB20_EXTENSION_DESCRIPTOR
 		{
 			public uint32 _bitfield;
 		}
-
 		public uint32 AsUlong;
 		public using _Anonymous_e__Struct Anonymous;
 	}
-
 	public uint8 bLength;
 	public uint8 bDescriptorType;
 	public uint8 bDevCapabilityType;
@@ -1473,11 +919,9 @@ public struct USB_DEVICE_CAPABILITY_POWER_DELIVERY_DESCRIPTOR
 		{
 			public uint32 _bitfield;
 		}
-
 		public uint32 AsUlong;
 		public using _Anonymous_e__Struct Anonymous;
 	}
-
 	public uint8 bLength;
 	public uint8 bDescriptorType;
 	public uint8 bDevCapabilityType;
@@ -1501,11 +945,9 @@ public struct USB_DEVICE_CAPABILITY_PD_CONSUMER_PORT_DESCRIPTOR
 		{
 			public uint16 _bitfield;
 		}
-
 		public uint16 AsUshort;
 		public using _Anonymous_e__Struct Anonymous;
 	}
-
 	public uint8 bLength;
 	public uint8 bDescriptorType;
 	public uint8 bDevCapabilityType;
@@ -1540,12 +982,11 @@ public struct USB_DEVICE_CAPABILITY_SUPERSPEEDPLUS_SPEED
 	{
 		public uint32 _bitfield;
 	}
-
 	public uint32 AsUlong32;
 	public using _Anonymous_e__Struct Anonymous;
 }
 
-[CRepr, Packed(1), FlexibleArray("bmSublinkSpeedAttr")]
+[CRepr, Packed(1)]
 public struct USB_DEVICE_CAPABILITY_SUPERSPEEDPLUS_USB_DESCRIPTOR
 {
 	[CRepr, Union, Packed(1)]
@@ -1556,11 +997,9 @@ public struct USB_DEVICE_CAPABILITY_SUPERSPEEDPLUS_USB_DESCRIPTOR
 		{
 			public uint16 _bitfield;
 		}
-
 		public uint16 AsUshort;
 		public using _Anonymous_e__Struct Anonymous;
 	}
-
 	[CRepr, Union, Packed(1)]
 	public struct _bmAttributes_e__Union
 	{
@@ -1569,11 +1008,9 @@ public struct USB_DEVICE_CAPABILITY_SUPERSPEEDPLUS_USB_DESCRIPTOR
 		{
 			public uint32 _bitfield;
 		}
-
 		public uint32 AsUlong;
 		public using _Anonymous_e__Struct Anonymous;
 	}
-
 	public uint8 bLength;
 	public uint8 bDescriptorType;
 	public uint8 bDevCapabilityType;
@@ -1581,6 +1018,7 @@ public struct USB_DEVICE_CAPABILITY_SUPERSPEEDPLUS_USB_DESCRIPTOR
 	public _bmAttributes_e__Union bmAttributes;
 	public _wFunctionalitySupport_e__Union wFunctionalitySupport;
 	public uint16 wReserved;
+	public USB_DEVICE_CAPABILITY_SUPERSPEEDPLUS_SPEED* bmSublinkSpeedAttr mut => &bmSublinkSpeedAttr_impl;
 	private USB_DEVICE_CAPABILITY_SUPERSPEEDPLUS_SPEED[ANYSIZE_ARRAY] bmSublinkSpeedAttr_impl;
 }
 
@@ -1594,7 +1032,7 @@ public struct USB_DEVICE_CAPABILITY_CONTAINER_ID_DESCRIPTOR
 	public uint8[16] ContainerID;
 }
 
-[CRepr, Packed(1), FlexibleArray("CapabililityData")]
+[CRepr, Packed(1)]
 public struct USB_DEVICE_CAPABILITY_PLATFORM_DESCRIPTOR
 {
 	public uint8 bLength;
@@ -1602,10 +1040,11 @@ public struct USB_DEVICE_CAPABILITY_PLATFORM_DESCRIPTOR
 	public uint8 bDevCapabilityType;
 	public uint8 bReserved;
 	public Guid PlatformCapabilityUuid;
+	public uint8* CapabililityData mut => &CapabililityData_impl;
 	private uint8[ANYSIZE_ARRAY] CapabililityData_impl;
 }
 
-[CRepr, Packed(1), FlexibleArray("AlternateMode")]
+[CRepr, Packed(1)]
 public struct USB_DEVICE_CAPABILITY_BILLBOARD_DESCRIPTOR
 {
 	[CRepr, Union, Packed(1)]
@@ -1616,11 +1055,9 @@ public struct USB_DEVICE_CAPABILITY_BILLBOARD_DESCRIPTOR
 		{
 			public uint16 _bitfield;
 		}
-
 		public uint16 AsUshort;
 		public using _Anonymous_e__Struct Anonymous;
 	}
-
 	[CRepr, Packed(1)]
 	public struct _Anonymous_e__Struct
 	{
@@ -1628,7 +1065,6 @@ public struct USB_DEVICE_CAPABILITY_BILLBOARD_DESCRIPTOR
 		public uint8 bAlternateMode;
 		public uint8 iAlternateModeSetting;
 	}
-
 	public uint8 bLength;
 	public uint8 bDescriptorType;
 	public uint8 bDevCapabilityType;
@@ -1638,6 +1074,7 @@ public struct USB_DEVICE_CAPABILITY_BILLBOARD_DESCRIPTOR
 	public _VconnPower_e__Union VconnPower;
 	public uint8[32] bmConfigured;
 	public uint32 bReserved;
+	public _Anonymous_e__Struct* AlternateMode mut => &AlternateMode_impl;
 	private _Anonymous_e__Struct[ANYSIZE_ARRAY] AlternateMode_impl;
 }
 
@@ -1652,11 +1089,9 @@ public struct USB_DEVICE_CAPABILITY_FIRMWARE_STATUS_DESCRIPTOR
 		{
 			public uint32 _bitfield;
 		}
-
 		public uint32 AsUlong;
 		public using _Anonymous_e__Struct Anonymous;
 	}
-
 	public uint8 bLength;
 	public uint8 bDescriptorType;
 	public uint8 bDevCapabilityType;
@@ -1731,15 +1166,15 @@ public struct USB_HIGH_SPEED_MAXPACKET
 	{
 		public uint16 _bitfield;
 	}
-
 	public uint16 us;
 }
 
-[CRepr, Packed(1), FlexibleArray("bString")]
+[CRepr, Packed(1)]
 public struct USB_STRING_DESCRIPTOR
 {
 	public uint8 bLength;
 	public uint8 bDescriptorType;
+	public char16* bString mut => &bString_impl;
 	private char16[ANYSIZE_ARRAY] bString_impl;
 }
 
@@ -1754,18 +1189,15 @@ public struct USB_SUPERSPEED_ENDPOINT_COMPANION_DESCRIPTOR
 		{
 			public uint8 _bitfield;
 		}
-
 		[CRepr]
 		public struct _Isochronous_e__Struct
 		{
 			public uint8 _bitfield;
 		}
-
 		public uint8 AsUchar;
 		public _Bulk_e__Struct Bulk;
 		public _Isochronous_e__Struct Isochronous;
 	}
-
 	public uint8 bLength;
 	public uint8 bDescriptorType;
 	public uint8 bMaxBurst;
@@ -1816,7 +1248,6 @@ public struct USB_HUB_STATUS
 	{
 		public uint16 _bitfield;
 	}
-
 	public uint16 AsUshort16;
 	public using _Anonymous_e__Struct Anonymous;
 }
@@ -1829,7 +1260,6 @@ public struct USB_HUB_CHANGE
 	{
 		public uint16 _bitfield;
 	}
-
 	public uint16 AsUshort16;
 	public using _Anonymous_e__Struct Anonymous;
 }
@@ -1843,7 +1273,6 @@ public struct USB_HUB_STATUS_AND_CHANGE
 		public USB_HUB_STATUS HubStatus;
 		public USB_HUB_CHANGE HubChange;
 	}
-
 	public uint32 AsUlong32;
 	public using _Anonymous_e__Struct Anonymous;
 }
@@ -1856,7 +1285,6 @@ public struct USB_20_PORT_STATUS
 	{
 		public uint16 _bitfield;
 	}
-
 	public uint16 AsUshort16;
 	public using _Anonymous_e__Struct Anonymous;
 }
@@ -1869,7 +1297,6 @@ public struct USB_20_PORT_CHANGE
 	{
 		public uint16 _bitfield;
 	}
-
 	public uint16 AsUshort16;
 	public using _Anonymous_e__Struct Anonymous;
 }
@@ -1882,7 +1309,6 @@ public struct USB_30_PORT_STATUS
 	{
 		public uint16 _bitfield;
 	}
-
 	public uint16 AsUshort16;
 	public using _Anonymous_e__Struct Anonymous;
 }
@@ -1895,7 +1321,6 @@ public struct USB_30_PORT_CHANGE
 	{
 		public uint16 _bitfield;
 	}
-
 	public uint16 AsUshort16;
 	public using _Anonymous_e__Struct Anonymous;
 }
@@ -1924,7 +1349,6 @@ public struct USB_PORT_EXT_STATUS
 	{
 		public uint32 _bitfield;
 	}
-
 	public uint32 AsUlong32;
 	public using _Anonymous_e__Struct Anonymous;
 }
@@ -1938,7 +1362,6 @@ public struct USB_PORT_STATUS_AND_CHANGE
 		public USB_PORT_STATUS PortStatus;
 		public USB_PORT_CHANGE PortChange;
 	}
-
 	public uint32 AsUlong32;
 	public using _Anonymous_e__Struct Anonymous;
 }
@@ -1952,7 +1375,6 @@ public struct USB_PORT_EXT_STATUS_AND_CHANGE
 		public USB_PORT_STATUS_AND_CHANGE PortStatusChange;
 		public USB_PORT_EXT_STATUS PortExtStatus;
 	}
-
 	public uint64 AsUlong64;
 	public using _Anonymous_e__Struct Anonymous;
 }
@@ -1965,7 +1387,6 @@ public struct USB_HUB_30_PORT_REMOTE_WAKE_MASK
 	{
 		public uint8 _bitfield;
 	}
-
 	public uint8 AsUchar8;
 	public using _Anonymous_e__Struct Anonymous;
 }
@@ -1978,7 +1399,6 @@ public struct USB_FUNCTION_SUSPEND_OPTIONS
 	{
 		public uint8 _bitfield;
 	}
-
 	public uint8 AsUchar;
 	public using _Anonymous_e__Struct Anonymous;
 }
@@ -2065,7 +1485,7 @@ public struct USBD_ENDPOINT_OFFLOAD_INFORMATION
 	public uint32 EventRingInitialCycleBit;
 }
 
-[CRepr, FlexibleArray("Pipes")]
+[CRepr]
 public struct USBD_INTERFACE_INFORMATION
 {
 	public uint16 Length;
@@ -2077,6 +1497,7 @@ public struct USBD_INTERFACE_INFORMATION
 	public uint8 Reserved;
 	public void* InterfaceHandle;
 	public uint32 NumberOfPipes;
+	public USBD_PIPE_INFORMATION* Pipes mut => &Pipes_impl;
 	private USBD_PIPE_INFORMATION[ANYSIZE_ARRAY] Pipes_impl;
 }
 
@@ -2257,7 +1678,6 @@ public struct OS_STRING
 		public uint8 bPad;
 		public uint8 bFlags;
 	}
-
 	public uint8 bLength;
 	public uint8 bDescriptorType;
 	public char16[7] MicrosoftString;
@@ -2333,7 +1753,7 @@ public struct USBD_ISO_PACKET_DESCRIPTOR
 	public int32 Status;
 }
 
-[CRepr, FlexibleArray("IsoPacket")]
+[CRepr]
 public struct _URB_ISOCH_TRANSFER
 {
 	public _URB_HEADER Hdr;
@@ -2347,6 +1767,7 @@ public struct _URB_ISOCH_TRANSFER
 	public uint32 StartFrame;
 	public uint32 NumberOfPackets;
 	public uint32 ErrorCount;
+	public USBD_ISO_PACKET_DESCRIPTOR* IsoPacket mut => &IsoPacket_impl;
 	private USBD_ISO_PACKET_DESCRIPTOR[ANYSIZE_ARRAY] IsoPacket_impl;
 }
 
@@ -2407,7 +1828,6 @@ public struct URB
 		public _URB_OPEN_STATIC_STREAMS UrbOpenStaticStreams;
 		public _URB_GET_ISOCH_PIPE_TRANSFER_PATH_DELAYS UrbGetIsochPipeTransferPathDelays;
 	}
-
 	public using _Anonymous_e__Union Anonymous;
 }
 
@@ -2512,10 +1932,11 @@ public struct USBUSER_CONTROLLER_INFO_0
 	public USB_CONTROLLER_INFO_0 Info0;
 }
 
-[CRepr, Packed(1), FlexibleArray("String")]
+[CRepr, Packed(1)]
 public struct USB_UNICODE_NAME
 {
 	public uint32 Length;
+	public char16* String mut => &String_impl;
 	private char16[ANYSIZE_ARRAY] String_impl;
 }
 
@@ -2779,7 +2200,6 @@ public struct USBFN_NOTIFICATION
 		public USBFN_PORT_TYPE PortType;
 		public ALTERNATE_INTERFACE AlternateInterface;
 	}
-
 	public USBFN_EVENT Event;
 	public _u_e__Union u;
 }
@@ -2830,12 +2250,13 @@ public struct USBFN_CLASS_INFORMATION_PACKET_EX
 	public BOOLEAN HasInterfaceGuid;
 }
 
-[CRepr, FlexibleArray("InterfaceDescriptorSet")]
+[CRepr]
 public struct USBFN_INTERFACE_INFO
 {
 	public uint8 InterfaceNumber;
 	public USBFN_BUS_SPEED Speed;
 	public uint16 Size;
+	public uint8* InterfaceDescriptorSet mut => &InterfaceDescriptorSet_impl;
 	private uint8[ANYSIZE_ARRAY] InterfaceDescriptorSet_impl;
 }
 

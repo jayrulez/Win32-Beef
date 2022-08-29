@@ -2,7 +2,6 @@ using Win32.Foundation;
 using Win32.Security;
 using Win32.System.Registry;
 using System;
-using System.Interop;
 
 namespace Win32.System.Services;
 
@@ -10,251 +9,128 @@ namespace Win32.System.Services;
 public static
 {
 	public const uint32 SERVICE_ALL_ACCESS = 983551;
-
 	public const uint32 SC_MANAGER_ALL_ACCESS = 983103;
-
 	public const uint32 SERVICE_NO_CHANGE = 4294967295;
-
 	public const uint32 SERVICE_CONTROL_STOP = 1;
-
 	public const uint32 SERVICE_CONTROL_PAUSE = 2;
-
 	public const uint32 SERVICE_CONTROL_CONTINUE = 3;
-
 	public const uint32 SERVICE_CONTROL_INTERROGATE = 4;
-
 	public const uint32 SERVICE_CONTROL_SHUTDOWN = 5;
-
 	public const uint32 SERVICE_CONTROL_PARAMCHANGE = 6;
-
 	public const uint32 SERVICE_CONTROL_NETBINDADD = 7;
-
 	public const uint32 SERVICE_CONTROL_NETBINDREMOVE = 8;
-
 	public const uint32 SERVICE_CONTROL_NETBINDENABLE = 9;
-
 	public const uint32 SERVICE_CONTROL_NETBINDDISABLE = 10;
-
 	public const uint32 SERVICE_CONTROL_DEVICEEVENT = 11;
-
 	public const uint32 SERVICE_CONTROL_HARDWAREPROFILECHANGE = 12;
-
 	public const uint32 SERVICE_CONTROL_POWEREVENT = 13;
-
 	public const uint32 SERVICE_CONTROL_SESSIONCHANGE = 14;
-
 	public const uint32 SERVICE_CONTROL_PRESHUTDOWN = 15;
-
 	public const uint32 SERVICE_CONTROL_TIMECHANGE = 16;
-
 	public const uint32 SERVICE_CONTROL_TRIGGEREVENT = 32;
-
 	public const uint32 SERVICE_CONTROL_LOWRESOURCES = 96;
-
 	public const uint32 SERVICE_CONTROL_SYSTEMLOWRESOURCES = 97;
-
 	public const uint32 SERVICE_ACCEPT_STOP = 1;
-
 	public const uint32 SERVICE_ACCEPT_PAUSE_CONTINUE = 2;
-
 	public const uint32 SERVICE_ACCEPT_SHUTDOWN = 4;
-
 	public const uint32 SERVICE_ACCEPT_PARAMCHANGE = 8;
-
 	public const uint32 SERVICE_ACCEPT_NETBINDCHANGE = 16;
-
 	public const uint32 SERVICE_ACCEPT_HARDWAREPROFILECHANGE = 32;
-
 	public const uint32 SERVICE_ACCEPT_POWEREVENT = 64;
-
 	public const uint32 SERVICE_ACCEPT_SESSIONCHANGE = 128;
-
 	public const uint32 SERVICE_ACCEPT_PRESHUTDOWN = 256;
-
 	public const uint32 SERVICE_ACCEPT_TIMECHANGE = 512;
-
 	public const uint32 SERVICE_ACCEPT_TRIGGEREVENT = 1024;
-
 	public const uint32 SERVICE_ACCEPT_USER_LOGOFF = 2048;
-
 	public const uint32 SERVICE_ACCEPT_LOWRESOURCES = 8192;
-
 	public const uint32 SERVICE_ACCEPT_SYSTEMLOWRESOURCES = 16384;
-
 	public const uint32 SC_MANAGER_CONNECT = 1;
-
 	public const uint32 SC_MANAGER_CREATE_SERVICE = 2;
-
 	public const uint32 SC_MANAGER_ENUMERATE_SERVICE = 4;
-
 	public const uint32 SC_MANAGER_LOCK = 8;
-
 	public const uint32 SC_MANAGER_QUERY_LOCK_STATUS = 16;
-
 	public const uint32 SC_MANAGER_MODIFY_BOOT_CONFIG = 32;
-
 	public const uint32 SERVICE_QUERY_CONFIG = 1;
-
 	public const uint32 SERVICE_CHANGE_CONFIG = 2;
-
 	public const uint32 SERVICE_QUERY_STATUS = 4;
-
 	public const uint32 SERVICE_ENUMERATE_DEPENDENTS = 8;
-
 	public const uint32 SERVICE_START = 16;
-
 	public const uint32 SERVICE_STOP = 32;
-
 	public const uint32 SERVICE_PAUSE_CONTINUE = 64;
-
 	public const uint32 SERVICE_INTERROGATE = 128;
-
 	public const uint32 SERVICE_USER_DEFINED_CONTROL = 256;
-
 	public const uint32 SERVICE_NOTIFY_STATUS_CHANGE_1 = 1;
-
 	public const uint32 SERVICE_NOTIFY_STATUS_CHANGE_2 = 2;
-
 	public const uint32 SERVICE_NOTIFY_STATUS_CHANGE = 2;
-
 	public const uint32 SERVICE_STOP_REASON_FLAG_MIN = 0;
-
 	public const uint32 SERVICE_STOP_REASON_FLAG_UNPLANNED = 268435456;
-
 	public const uint32 SERVICE_STOP_REASON_FLAG_CUSTOM = 536870912;
-
 	public const uint32 SERVICE_STOP_REASON_FLAG_PLANNED = 1073741824;
-
 	public const uint32 SERVICE_STOP_REASON_FLAG_MAX = 2147483648;
-
 	public const uint32 SERVICE_STOP_REASON_MAJOR_MIN = 0;
-
 	public const uint32 SERVICE_STOP_REASON_MAJOR_OTHER = 65536;
-
 	public const uint32 SERVICE_STOP_REASON_MAJOR_HARDWARE = 131072;
-
 	public const uint32 SERVICE_STOP_REASON_MAJOR_OPERATINGSYSTEM = 196608;
-
 	public const uint32 SERVICE_STOP_REASON_MAJOR_SOFTWARE = 262144;
-
 	public const uint32 SERVICE_STOP_REASON_MAJOR_APPLICATION = 327680;
-
 	public const uint32 SERVICE_STOP_REASON_MAJOR_NONE = 393216;
-
 	public const uint32 SERVICE_STOP_REASON_MAJOR_MAX = 458752;
-
 	public const uint32 SERVICE_STOP_REASON_MAJOR_MIN_CUSTOM = 4194304;
-
 	public const uint32 SERVICE_STOP_REASON_MAJOR_MAX_CUSTOM = 16711680;
-
 	public const uint32 SERVICE_STOP_REASON_MINOR_MIN = 0;
-
 	public const uint32 SERVICE_STOP_REASON_MINOR_OTHER = 1;
-
 	public const uint32 SERVICE_STOP_REASON_MINOR_MAINTENANCE = 2;
-
 	public const uint32 SERVICE_STOP_REASON_MINOR_INSTALLATION = 3;
-
 	public const uint32 SERVICE_STOP_REASON_MINOR_UPGRADE = 4;
-
 	public const uint32 SERVICE_STOP_REASON_MINOR_RECONFIG = 5;
-
 	public const uint32 SERVICE_STOP_REASON_MINOR_HUNG = 6;
-
 	public const uint32 SERVICE_STOP_REASON_MINOR_UNSTABLE = 7;
-
 	public const uint32 SERVICE_STOP_REASON_MINOR_DISK = 8;
-
 	public const uint32 SERVICE_STOP_REASON_MINOR_NETWORKCARD = 9;
-
 	public const uint32 SERVICE_STOP_REASON_MINOR_ENVIRONMENT = 10;
-
 	public const uint32 SERVICE_STOP_REASON_MINOR_HARDWARE_DRIVER = 11;
-
 	public const uint32 SERVICE_STOP_REASON_MINOR_OTHERDRIVER = 12;
-
 	public const uint32 SERVICE_STOP_REASON_MINOR_SERVICEPACK = 13;
-
 	public const uint32 SERVICE_STOP_REASON_MINOR_SOFTWARE_UPDATE = 14;
-
 	public const uint32 SERVICE_STOP_REASON_MINOR_SECURITYFIX = 15;
-
 	public const uint32 SERVICE_STOP_REASON_MINOR_SECURITY = 16;
-
 	public const uint32 SERVICE_STOP_REASON_MINOR_NETWORK_CONNECTIVITY = 17;
-
 	public const uint32 SERVICE_STOP_REASON_MINOR_WMI = 18;
-
 	public const uint32 SERVICE_STOP_REASON_MINOR_SERVICEPACK_UNINSTALL = 19;
-
 	public const uint32 SERVICE_STOP_REASON_MINOR_SOFTWARE_UPDATE_UNINSTALL = 20;
-
 	public const uint32 SERVICE_STOP_REASON_MINOR_SECURITYFIX_UNINSTALL = 21;
-
 	public const uint32 SERVICE_STOP_REASON_MINOR_MMC = 22;
-
 	public const uint32 SERVICE_STOP_REASON_MINOR_NONE = 23;
-
 	public const uint32 SERVICE_STOP_REASON_MINOR_MEMOTYLIMIT = 24;
-
 	public const uint32 SERVICE_STOP_REASON_MINOR_MAX = 25;
-
 	public const uint32 SERVICE_STOP_REASON_MINOR_MIN_CUSTOM = 256;
-
 	public const uint32 SERVICE_STOP_REASON_MINOR_MAX_CUSTOM = 65535;
-
 	public const uint32 SERVICE_CONTROL_STATUS_REASON_INFO = 1;
-
 	public const uint32 SERVICE_SID_TYPE_NONE = 0;
-
 	public const uint32 SERVICE_SID_TYPE_UNRESTRICTED = 1;
-
 	public const uint32 SERVICE_TRIGGER_TYPE_CUSTOM_SYSTEM_STATE_CHANGE = 7;
-
 	public const uint32 SERVICE_TRIGGER_TYPE_AGGREGATE = 30;
-
 	public const uint32 SERVICE_START_REASON_DEMAND = 1;
-
 	public const uint32 SERVICE_START_REASON_AUTO = 2;
-
 	public const uint32 SERVICE_START_REASON_TRIGGER = 4;
-
 	public const uint32 SERVICE_START_REASON_RESTART_ON_FAILURE = 8;
-
 	public const uint32 SERVICE_START_REASON_DELAYEDAUTO = 16;
-
 	public const uint32 SERVICE_DYNAMIC_INFORMATION_LEVEL_START_REASON = 1;
-
 	public const uint32 SERVICE_LAUNCH_PROTECTED_NONE = 0;
-
 	public const uint32 SERVICE_LAUNCH_PROTECTED_WINDOWS = 1;
-
 	public const uint32 SERVICE_LAUNCH_PROTECTED_WINDOWS_LIGHT = 2;
-
 	public const uint32 SERVICE_LAUNCH_PROTECTED_ANTIMALWARE_LIGHT = 3;
-
 	public const Guid NETWORK_MANAGER_FIRST_IP_ADDRESS_ARRIVAL_GUID = .(0x4f27f2de, 0x14e2, 0x430b, 0xa5, 0x49, 0x7c, 0xd4, 0x8c, 0xbc, 0x82, 0x45);
-
 	public const Guid NETWORK_MANAGER_LAST_IP_ADDRESS_REMOVAL_GUID = .(0xcc4ba62a, 0x162e, 0x4648, 0x84, 0x7a, 0xb6, 0xbd, 0xf9, 0x93, 0xe3, 0x35);
-
 	public const Guid DOMAIN_JOIN_GUID = .(0x1ce20aba, 0x9851, 0x4421, 0x94, 0x30, 0x1d, 0xde, 0xb7, 0x66, 0xe8, 0x09);
-
 	public const Guid DOMAIN_LEAVE_GUID = .(0xddaf516e, 0x58c2, 0x4866, 0x95, 0x74, 0xc3, 0xb6, 0x15, 0xd4, 0x2e, 0xa1);
-
 	public const Guid FIREWALL_PORT_OPEN_GUID = .(0xb7569e07, 0x8421, 0x4ee0, 0xad, 0x10, 0x86, 0x91, 0x5a, 0xfd, 0xad, 0x09);
-
 	public const Guid FIREWALL_PORT_CLOSE_GUID = .(0xa144ed38, 0x8e12, 0x4de4, 0x9d, 0x96, 0xe6, 0x47, 0x40, 0xb1, 0xa5, 0x24);
-
 	public const Guid MACHINE_POLICY_PRESENT_GUID = .(0x659fcae6, 0x5bdb, 0x4da9, 0xb1, 0xff, 0xca, 0x2a, 0x17, 0x8d, 0x46, 0xe0);
-
 	public const Guid USER_POLICY_PRESENT_GUID = .(0x54fb46c8, 0xf089, 0x464c, 0xb1, 0xfd, 0x59, 0xd1, 0xb6, 0x2c, 0x3b, 0x50);
-
 	public const Guid RPC_INTERFACE_EVENT_GUID = .(0xbc90d167, 0x9470, 0x4139, 0xa9, 0xba, 0xbe, 0x0b, 0xbb, 0xf5, 0xb7, 0x4d);
-
 	public const Guid NAMED_PIPE_EVENT_GUID = .(0x1f81d131, 0x3fac, 0x4537, 0x9e, 0x0c, 0x7e, 0x7b, 0x0c, 0x2f, 0x4b, 0x55);
-
 	public const Guid CUSTOM_SYSTEM_STATE_CHANGE_EVENT_GUID = .(0x2d7a2816, 0x0c5e, 0x45fc, 0x9c, 0xe7, 0x57, 0x0e, 0x5e, 0xcd, 0xe9, 0xc9);
-
 }
 #endregion
 
@@ -501,17 +377,16 @@ public struct SERVICE_CUSTOM_SYSTEM_STATE_CHANGE_DATA_ITEM
 	[CRepr, Union]
 	public struct _u_e__Union
 	{
-		[CRepr, FlexibleArray("Data")]
+		[CRepr]
 		public struct _s_e__Struct
 		{
 			public uint32 DataOffset;
+			public uint8* Data mut => &Data_impl;
 			private uint8[ANYSIZE_ARRAY] Data_impl;
 		}
-
 		public SERVICE_TRIGGER_CUSTOM_STATE_ID CustomStateId;
 		public _s_e__Struct s;
 	}
-
 	public _u_e__Union u;
 }
 

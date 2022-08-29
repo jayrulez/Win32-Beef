@@ -3,7 +3,6 @@ using Win32.Foundation;
 using Win32.System.CorrelationVector;
 using Win32.System.IO;
 using System;
-using System.Interop;
 
 namespace Win32.Storage.CloudFilters;
 
@@ -11,15 +10,10 @@ namespace Win32.Storage.CloudFilters;
 public static
 {
 	public const uint32 CF_REQUEST_KEY_DEFAULT = 0;
-
 	public const uint32 CF_PLACEHOLDER_MAX_FILE_IDENTITY_LENGTH = 4096;
-
 	public const uint32 CF_MAX_PRIORITY_HINT = 15;
-
 	public const uint32 CF_MAX_PROVIDER_NAME_LENGTH = 255;
-
 	public const uint32 CF_MAX_PROVIDER_VERSION_LENGTH = 255;
-
 }
 #endregion
 
@@ -650,26 +644,22 @@ public struct CF_CALLBACK_PARAMETERS
 			public CF_CALLBACK_RENAME_FLAGS Flags;
 			public PWSTR TargetPath;
 		}
-
 		[CRepr]
 		public struct _Delete_e__Struct
 		{
 			public CF_CALLBACK_DELETE_FLAGS Flags;
 		}
-
 		[CRepr]
 		public struct _Dehydrate_e__Struct
 		{
 			public CF_CALLBACK_DEHYDRATE_FLAGS Flags;
 			public CF_CALLBACK_DEHYDRATION_REASON Reason;
 		}
-
 		[CRepr]
 		public struct _OpenCompletion_e__Struct
 		{
 			public CF_CALLBACK_OPEN_COMPLETION_FLAGS Flags;
 		}
-
 		[CRepr]
 		public struct _ValidateData_e__Struct
 		{
@@ -677,7 +667,6 @@ public struct CF_CALLBACK_PARAMETERS
 			public LARGE_INTEGER RequiredFileOffset;
 			public LARGE_INTEGER RequiredLength;
 		}
-
 		[CRepr]
 		public struct _Cancel_e__Struct
 		{
@@ -690,41 +679,34 @@ public struct CF_CALLBACK_PARAMETERS
 					public LARGE_INTEGER FileOffset;
 					public LARGE_INTEGER Length;
 				}
-
 				public _FetchData_e__Struct FetchData;
 			}
-
 			public CF_CALLBACK_CANCEL_FLAGS Flags;
 			public using _Anonymous_e__Union Anonymous;
 		}
-
 		[CRepr]
 		public struct _RenameCompletion_e__Struct
 		{
 			public CF_CALLBACK_RENAME_COMPLETION_FLAGS Flags;
 			public PWSTR SourcePath;
 		}
-
 		[CRepr]
 		public struct _DehydrateCompletion_e__Struct
 		{
 			public CF_CALLBACK_DEHYDRATE_COMPLETION_FLAGS Flags;
 			public CF_CALLBACK_DEHYDRATION_REASON Reason;
 		}
-
 		[CRepr]
 		public struct _FetchPlaceholders_e__Struct
 		{
 			public CF_CALLBACK_FETCH_PLACEHOLDERS_FLAGS Flags;
 			public PWSTR Pattern;
 		}
-
 		[CRepr]
 		public struct _DeleteCompletion_e__Struct
 		{
 			public CF_CALLBACK_DELETE_COMPLETION_FLAGS Flags;
 		}
-
 		[CRepr]
 		public struct _FetchData_e__Struct
 		{
@@ -736,13 +718,11 @@ public struct CF_CALLBACK_PARAMETERS
 			public LARGE_INTEGER LastDehydrationTime;
 			public CF_CALLBACK_DEHYDRATION_REASON LastDehydrationReason;
 		}
-
 		[CRepr]
 		public struct _CloseCompletion_e__Struct
 		{
 			public CF_CALLBACK_CLOSE_COMPLETION_FLAGS Flags;
 		}
-
 		public _Cancel_e__Struct Cancel;
 		public _FetchData_e__Struct FetchData;
 		public _ValidateData_e__Struct ValidateData;
@@ -756,7 +736,6 @@ public struct CF_CALLBACK_PARAMETERS
 		public _Rename_e__Struct Rename;
 		public _RenameCompletion_e__Struct RenameCompletion;
 	}
-
 	public uint32 ParamSize;
 	public using _Anonymous_e__Union Anonymous;
 }
@@ -803,7 +782,6 @@ public struct CF_OPERATION_PARAMETERS
 			public CF_OPERATION_ACK_RENAME_FLAGS Flags;
 			public NTSTATUS CompletionStatus;
 		}
-
 		[CRepr]
 		public struct _TransferPlaceholders_e__Struct
 		{
@@ -814,7 +792,6 @@ public struct CF_OPERATION_PARAMETERS
 			public uint32 PlaceholderCount;
 			public uint32 EntriesProcessed;
 		}
-
 		[CRepr]
 		public struct _AckData_e__Struct
 		{
@@ -823,7 +800,6 @@ public struct CF_OPERATION_PARAMETERS
 			public LARGE_INTEGER Offset;
 			public LARGE_INTEGER Length;
 		}
-
 		[CRepr]
 		public struct _TransferData_e__Struct
 		{
@@ -833,14 +809,12 @@ public struct CF_OPERATION_PARAMETERS
 			public LARGE_INTEGER Offset;
 			public LARGE_INTEGER Length;
 		}
-
 		[CRepr]
 		public struct _AckDelete_e__Struct
 		{
 			public CF_OPERATION_ACK_DELETE_FLAGS Flags;
 			public NTSTATUS CompletionStatus;
 		}
-
 		[CRepr]
 		public struct _RestartHydration_e__Struct
 		{
@@ -849,7 +823,6 @@ public struct CF_OPERATION_PARAMETERS
 			public void* FileIdentity;
 			public uint32 FileIdentityLength;
 		}
-
 		[CRepr]
 		public struct _AckDehydrate_e__Struct
 		{
@@ -858,7 +831,6 @@ public struct CF_OPERATION_PARAMETERS
 			public void* FileIdentity;
 			public uint32 FileIdentityLength;
 		}
-
 		[CRepr]
 		public struct _RetrieveData_e__Struct
 		{
@@ -868,7 +840,6 @@ public struct CF_OPERATION_PARAMETERS
 			public LARGE_INTEGER Length;
 			public LARGE_INTEGER ReturnedLength;
 		}
-
 		public _TransferData_e__Struct TransferData;
 		public _RetrieveData_e__Struct RetrieveData;
 		public _AckData_e__Struct AckData;
@@ -878,7 +849,6 @@ public struct CF_OPERATION_PARAMETERS
 		public _AckRename_e__Struct AckRename;
 		public _AckDelete_e__Struct AckDelete;
 	}
-
 	public uint32 ParamSize;
 	public using _Anonymous_e__Union Anonymous;
 }
@@ -890,7 +860,7 @@ public struct CF_FILE_RANGE
 	public LARGE_INTEGER Length;
 }
 
-[CRepr, FlexibleArray("FileIdentity")]
+[CRepr]
 public struct CF_PLACEHOLDER_BASIC_INFO
 {
 	public CF_PIN_STATE PinState;
@@ -898,10 +868,11 @@ public struct CF_PLACEHOLDER_BASIC_INFO
 	public LARGE_INTEGER FileId;
 	public LARGE_INTEGER SyncRootFileId;
 	public uint32 FileIdentityLength;
+	public uint8* FileIdentity mut => &FileIdentity_impl;
 	private uint8[ANYSIZE_ARRAY] FileIdentity_impl;
 }
 
-[CRepr, FlexibleArray("FileIdentity")]
+[CRepr]
 public struct CF_PLACEHOLDER_STANDARD_INFO
 {
 	public LARGE_INTEGER OnDiskDataSize;
@@ -913,6 +884,7 @@ public struct CF_PLACEHOLDER_STANDARD_INFO
 	public LARGE_INTEGER FileId;
 	public LARGE_INTEGER SyncRootFileId;
 	public uint32 FileIdentityLength;
+	public uint8* FileIdentity mut => &FileIdentity_impl;
 	private uint8[ANYSIZE_ARRAY] FileIdentity_impl;
 }
 
@@ -930,7 +902,7 @@ public struct CF_SYNC_ROOT_PROVIDER_INFO
 	public char16[256] ProviderVersion;
 }
 
-[CRepr, FlexibleArray("SyncRootIdentity")]
+[CRepr]
 public struct CF_SYNC_ROOT_STANDARD_INFO
 {
 	public LARGE_INTEGER SyncRootFileId;
@@ -942,6 +914,7 @@ public struct CF_SYNC_ROOT_STANDARD_INFO
 	public char16[256] ProviderName;
 	public char16[256] ProviderVersion;
 	public uint32 SyncRootIdentityLength;
+	public uint8* SyncRootIdentity mut => &SyncRootIdentity_impl;
 	private uint8[ANYSIZE_ARRAY] SyncRootIdentity_impl;
 }
 

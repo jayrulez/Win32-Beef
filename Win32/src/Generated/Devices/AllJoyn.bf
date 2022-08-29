@@ -8,79 +8,42 @@ namespace Win32.Devices.AllJoyn;
 public static
 {
 	public const uint32 QCC_TRUE = 1;
-
 	public const uint32 QCC_FALSE = 0;
-
 	public const uint32 ALLJOYN_MESSAGE_FLAG_NO_REPLY_EXPECTED = 1;
-
 	public const uint32 ALLJOYN_MESSAGE_FLAG_AUTO_START = 2;
-
 	public const uint32 ALLJOYN_MESSAGE_FLAG_ALLOW_REMOTE_MSG = 4;
-
 	public const uint32 ALLJOYN_MESSAGE_FLAG_SESSIONLESS = 16;
-
 	public const uint32 ALLJOYN_MESSAGE_FLAG_GLOBAL_BROADCAST = 32;
-
 	public const uint32 ALLJOYN_MESSAGE_FLAG_ENCRYPTED = 128;
-
 	public const uint32 ALLJOYN_TRAFFIC_TYPE_MESSAGES = 1;
-
 	public const uint32 ALLJOYN_TRAFFIC_TYPE_RAW_UNRELIABLE = 2;
-
 	public const uint32 ALLJOYN_TRAFFIC_TYPE_RAW_RELIABLE = 4;
-
 	public const uint32 ALLJOYN_PROXIMITY_ANY = 255;
-
 	public const uint32 ALLJOYN_PROXIMITY_PHYSICAL = 1;
-
 	public const uint32 ALLJOYN_PROXIMITY_NETWORK = 2;
-
 	public const uint32 ALLJOYN_READ_READY = 1;
-
 	public const uint32 ALLJOYN_WRITE_READY = 2;
-
 	public const uint32 ALLJOYN_DISCONNECTED = 4;
-
 	public const uint8 ALLJOYN_LITTLE_ENDIAN = 108;
-
 	public const uint8 ALLJOYN_BIG_ENDIAN = 66;
-
 	public const uint32 ALLJOYN_MESSAGE_DEFAULT_TIMEOUT = 25000;
-
 	public const uint16 ALLJOYN_CRED_PASSWORD = 1;
-
 	public const uint16 ALLJOYN_CRED_USER_NAME = 2;
-
 	public const uint16 ALLJOYN_CRED_CERT_CHAIN = 4;
-
 	public const uint16 ALLJOYN_CRED_PRIVATE_KEY = 8;
-
 	public const uint16 ALLJOYN_CRED_LOGON_ENTRY = 16;
-
 	public const uint16 ALLJOYN_CRED_EXPIRATION = 32;
-
 	public const uint16 ALLJOYN_CRED_NEW_PASSWORD = 4097;
-
 	public const uint16 ALLJOYN_CRED_ONE_TIME_PWD = 8193;
-
 	public const uint8 ALLJOYN_PROP_ACCESS_READ = 1;
-
 	public const uint8 ALLJOYN_PROP_ACCESS_WRITE = 2;
-
 	public const uint8 ALLJOYN_PROP_ACCESS_RW = 3;
-
 	public const uint8 ALLJOYN_MEMBER_ANNOTATE_NO_REPLY = 1;
-
 	public const uint8 ALLJOYN_MEMBER_ANNOTATE_DEPRECATED = 2;
-
 	public const uint8 ALLJOYN_MEMBER_ANNOTATE_SESSIONCAST = 4;
-
 	public const uint8 ALLJOYN_MEMBER_ANNOTATE_SESSIONLESS = 8;
-
 	public const uint8 ALLJOYN_MEMBER_ANNOTATE_UNICAST = 16;
-
 	public const uint8 ALLJOYN_MEMBER_ANNOTATE_GLOBAL_BROADCAST = 32;
-
 }
 #endregion
 

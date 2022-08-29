@@ -4,7 +4,6 @@ using Win32.UI.Shell.PropertiesSystem;
 using Win32.System.Com.StructuredStorage;
 using Win32.Devices.Sensors;
 using System;
-using System.Interop;
 
 namespace Win32.Devices.Geolocation;
 
@@ -12,141 +11,73 @@ namespace Win32.Devices.Geolocation;
 public static
 {
 	public const uint32 GNSS_DRIVER_VERSION_1 = 1;
-
 	public const uint32 GNSS_DRIVER_VERSION_2 = 2;
-
 	public const uint32 GNSS_DRIVER_VERSION_3 = 3;
-
 	public const uint32 GNSS_DRIVER_VERSION_4 = 4;
-
 	public const uint32 GNSS_DRIVER_VERSION_5 = 5;
-
 	public const uint32 GNSS_DRIVER_VERSION_6 = 6;
-
 	public const uint32 IOCTL_GNSS_SEND_PLATFORM_CAPABILITY = 2228228;
-
 	public const uint32 IOCTL_GNSS_GET_DEVICE_CAPABILITY = 2228232;
-
 	public const uint32 IOCTL_GNSS_SEND_DRIVERCOMMAND = 2228236;
-
 	public const uint32 IOCTL_GNSS_START_FIXSESSION = 2228288;
-
 	public const uint32 IOCTL_GNSS_MODIFY_FIXSESSION = 2228292;
-
 	public const uint32 IOCTL_GNSS_STOP_FIXSESSION = 2228296;
-
 	public const uint32 IOCTL_GNSS_GET_FIXDATA = 2228300;
-
 	public const uint32 IOCTL_GNSS_INJECT_AGNSS = 2228352;
-
 	public const uint32 IOCTL_GNSS_LISTEN_AGNSS = 2228416;
-
 	public const uint32 IOCTL_GNSS_LISTEN_ERROR = 2228420;
-
 	public const uint32 IOCTL_GNSS_LISTEN_NI = 2228480;
-
 	public const uint32 IOCTL_GNSS_SET_SUPL_HSLP = 2228484;
-
 	public const uint32 IOCTL_GNSS_CONFIG_SUPL_CERT = 2228488;
-
 	public const uint32 IOCTL_GNSS_RESPOND_NI = 2228492;
-
 	public const uint32 IOCTL_GNSS_EXECUTE_CWTEST = 2228496;
-
 	public const uint32 IOCTL_GNSS_EXECUTE_SELFTEST = 2228500;
-
 	public const uint32 IOCTL_GNSS_GET_CHIPSETINFO = 2228504;
-
 	public const uint32 IOCTL_GNSS_LISTEN_NMEA = 2228508;
-
 	public const uint32 IOCTL_GNSS_SET_V2UPL_CONFIG = 2228512;
-
 	public const uint32 IOCTL_GNSS_CREATE_GEOFENCE = 2228544;
-
 	public const uint32 IOCTL_GNSS_DELETE_GEOFENCE = 2228548;
-
 	public const uint32 IOCTL_GNSS_LISTEN_GEOFENCE_ALERT = 2228552;
-
 	public const uint32 IOCTL_GNSS_LISTEN_GEOFENCES_TRACKINGSTATUS = 2228556;
-
 	public const uint32 IOCTL_GNSS_LISTEN_DRIVER_REQUEST = 2228608;
-
 	public const uint32 IOCTL_GNSS_START_BREADCRUMBING = 2228672;
-
 	public const uint32 IOCTL_GNSS_STOP_BREADCRUMBING = 2228676;
-
 	public const uint32 IOCTL_GNSS_LISTEN_BREADCRUMBING_ALERT = 2228680;
-
 	public const uint32 IOCTL_GNSS_POP_BREADCRUMBS = 2228684;
-
 	public const uint32 GNSS_AGNSSFORMAT_XTRA1 = 1;
-
 	public const uint32 GNSS_AGNSSFORMAT_XTRA2 = 2;
-
 	public const uint32 GNSS_AGNSSFORMAT_LTO = 4;
-
 	public const uint32 GNSS_AGNSSFORMAT_XTRA3 = 8;
-
 	public const uint32 GNSS_AGNSSFORMAT_XTRA3_1 = 16;
-
 	public const uint32 GNSS_AGNSSFORMAT_XTRA3_2 = 32;
-
 	public const uint32 GNSS_AGNSSFORMAT_XTRA_INT = 64;
-
 	public const uint32 MAX_SERVER_URL_NAME = 260;
-
 	public const uint32 MIN_GEOFENCES_REQUIRED = 100;
-
 	public const uint32 BREADCRUMBING_UNSUPPORTED = 0;
-
 	public const uint32 BREADCRUMBING_VERSION_1 = 1;
-
 	public const uint32 MIN_BREADCRUMBS_SUPPORTED = 120;
-
 	public const uint32 GNSS_SATELLITE_ANY = 0;
-
 	public const uint32 GNSS_SATELLITE_GPS = 1;
-
 	public const uint32 GNSS_SATELLITE_GLONASS = 2;
-
 	public const uint32 GNSS_SATELLITE_BEIDOU = 4;
-
 	public const uint32 GNSS_SATELLITE_GALILEO = 8;
-
 	public const uint32 GNSS_OPERMODE_ANY = 0;
-
 	public const uint32 GNSS_OPERMODE_MSA = 1;
-
 	public const uint32 GNSS_OPERMODE_MSB = 2;
-
 	public const uint32 GNSS_OPERMODE_MSS = 4;
-
 	public const uint32 GNSS_OPERMODE_CELLID = 8;
-
 	public const uint32 GNSS_OPERMODE_AFLT = 16;
-
 	public const uint32 GNSS_OPERMODE_OTDOA = 32;
-
 	public const uint32 GNSS_NMEALOGGING_NONE = 0;
-
 	public const uint32 GNSS_NMEALOGGING_ALL = 255;
-
 	public const uint32 GNSS_FIXDETAIL_BASIC = 1;
-
 	public const uint32 GNSS_FIXDETAIL_ACCURACY = 2;
-
 	public const uint32 GNSS_FIXDETAIL_SATELLITE = 4;
-
 	public const uint32 GNSS_MAXSATELLITE = 64;
-
 	public const uint32 GNSS_GEOFENCESUPPORT_SUPPORTED = 1;
-
 	public const uint32 GNSS_GEOFENCESUPPORT_CIRCLE = 2;
-
 	public const uint32 LOCATION_API_VERSION = 1;
-
 	public const Guid GUID_DEVINTERFACE_GNSS = .(0x3336e5e4, 0x018a, 0x4669, 0x84, 0xc5, 0xbd, 0x05, 0xf3, 0xbd, 0x36, 0x8b);
-
 }
 #endregion
 
@@ -347,7 +278,7 @@ public struct GNSS_PLATFORM_CAPABILITY
 	public uint8[516] Unused;
 }
 
-[CRepr, FlexibleArray("CommandData")]
+[CRepr]
 public struct GNSS_DRIVERCOMMAND_PARAM
 {
 	public uint32 Size;
@@ -356,6 +287,7 @@ public struct GNSS_DRIVERCOMMAND_PARAM
 	public uint32 Reserved;
 	public uint32 CommandDataSize;
 	public uint8[512] Unused;
+	public uint8* CommandData mut => &CommandData_impl;
 	private uint8[ANYSIZE_ARRAY] CommandData_impl;
 }
 
@@ -402,7 +334,6 @@ public struct GNSS_FIXSESSION_PARAM
 		public GNSS_LKGFIX_PARAM LkgFixParam;
 		public uint8[268] UnusedParam;
 	}
-
 	public uint32 Size;
 	public uint32 Version;
 	public uint32 FixSessionID;
@@ -585,7 +516,6 @@ public struct GNSS_BREADCRUMB_LIST
 	{
 		public GNSS_BREADCRUMB_V1[50] v1;
 	}
-
 	public uint32 Size;
 	public uint32 Version;
 	public uint32 NumCrumbs;
@@ -609,7 +539,6 @@ public struct GNSS_GEOREGION
 		public GNSS_GEOREGION_CIRCLE Circle;
 		public uint8[512] Unused;
 	}
-
 	public uint32 Size;
 	public uint32 Version;
 	public GNSS_GEOREGIONTYPE GeoRegionType;
@@ -733,7 +662,6 @@ public struct GNSS_NI_REQUEST_PARAM
 		public GNSS_CP_NI_INFO CpNiInfo;
 		public GNSS_V2UPL_NI_INFO V2UplNiInfo;
 	}
-
 	public uint32 Size;
 	public uint32 Version;
 	public uint32 RequestId;
@@ -769,9 +697,9 @@ public struct GNSS_EVENT
 		public GNSS_BREADCRUMBING_ALERT_DATA BreadcrumbAlertData;
 		public GNSS_GEOFENCES_TRACKINGSTATUS_DATA GeofencesTrackingStatus;
 		public GNSS_DRIVER_REQUEST_DATA DriverRequestData;
-		public uint8[ANYSIZE_ARRAY] CustomData;
+		public uint8* CustomData mut => &CustomData_impl;
+		private uint8[ANYSIZE_ARRAY] CustomData_impl;
 	}
-
 	public uint32 Size;
 	public uint32 Version;
 	public GNSS_EVENT_TYPE EventType;
@@ -796,9 +724,9 @@ public struct GNSS_EVENT_2
 		public GNSS_BREADCRUMBING_ALERT_DATA BreadcrumbAlertData;
 		public GNSS_GEOFENCES_TRACKINGSTATUS_DATA GeofencesTrackingStatus;
 		public GNSS_DRIVER_REQUEST_DATA DriverRequestData;
-		public uint8[ANYSIZE_ARRAY] CustomData;
+		public uint8* CustomData mut => &CustomData_impl;
+		private uint8[ANYSIZE_ARRAY] CustomData_impl;
 	}
-
 	public uint32 Size;
 	public uint32 Version;
 	public GNSS_EVENT_TYPE EventType;
@@ -826,7 +754,7 @@ public struct GNSS_AGNSS_INJECTPOSITION
 	public GNSS_FIXDATA_ACCURACY AccuracyData;
 }
 
-[CRepr, FlexibleArray("BlobData")]
+[CRepr]
 public struct GNSS_AGNSS_INJECTBLOB
 {
 	public uint32 Size;
@@ -835,6 +763,7 @@ public struct GNSS_AGNSS_INJECTBLOB
 	public uint32 BlobVersion;
 	public uint32 AgnssFormat;
 	public uint32 BlobSize;
+	public uint8* BlobData mut => &BlobData_impl;
 	private uint8[ANYSIZE_ARRAY] BlobData_impl;
 }
 
@@ -848,7 +777,6 @@ public struct GNSS_AGNSS_INJECT
 		public GNSS_AGNSS_INJECTPOSITION Position;
 		public GNSS_AGNSS_INJECTBLOB BlobData;
 	}
-
 	public uint32 Size;
 	public uint32 Version;
 	public GNSS_AGNSS_REQUEST_TYPE InjectionType;
@@ -869,7 +797,7 @@ public struct GNSS_SUPL_HSLP_CONFIG
 	public uint8[512] Unused;
 }
 
-[CRepr, FlexibleArray("CertData")]
+[CRepr]
 public struct GNSS_SUPL_CERT_CONFIG
 {
 	public uint32 Size;
@@ -878,6 +806,7 @@ public struct GNSS_SUPL_CERT_CONFIG
 	public CHAR[260] SuplCertName;
 	public uint32 CertSize;
 	public uint8[512] Unused;
+	public uint8* CertData mut => &CertData_impl;
 	private uint8[ANYSIZE_ARRAY] CertData_impl;
 }
 
@@ -912,7 +841,7 @@ public struct GNSS_CWTESTDATA
 	public uint8[512] Unused;
 }
 
-[CRepr, FlexibleArray("InBuffer")]
+[CRepr]
 public struct GNSS_SELFTESTCONFIG
 {
 	public uint32 Size;
@@ -920,10 +849,11 @@ public struct GNSS_SELFTESTCONFIG
 	public uint32 TestType;
 	public uint8[512] Unused;
 	public uint32 InBufLen;
+	public uint8* InBuffer mut => &InBuffer_impl;
 	private uint8[ANYSIZE_ARRAY] InBuffer_impl;
 }
 
-[CRepr, FlexibleArray("OutBuffer")]
+[CRepr]
 public struct GNSS_SELFTESTRESULT
 {
 	public uint32 Size;
@@ -933,6 +863,7 @@ public struct GNSS_SELFTESTRESULT
 	public uint32 PinFailedBitMask;
 	public uint8[512] Unused;
 	public uint32 OutBufLen;
+	public uint8* OutBuffer mut => &OutBuffer_impl;
 	private uint8[ANYSIZE_ARRAY] OutBuffer_impl;
 }
 

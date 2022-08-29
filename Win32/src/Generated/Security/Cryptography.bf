@@ -10,129 +10,67 @@ namespace Win32.Security.Cryptography;
 public static
 {
 	public const int32 CERT_COMPARE_SHIFT = 16;
-
 	public const uint32 BCRYPT_OBJECT_ALIGNMENT = 16;
-
 	public const uint32 KDF_HASH_ALGORITHM = 0;
-
 	public const uint32 KDF_SECRET_PREPEND = 1;
-
 	public const uint32 KDF_SECRET_APPEND = 2;
-
 	public const uint32 KDF_HMAC_KEY = 3;
-
 	public const uint32 KDF_TLS_PRF_LABEL = 4;
-
 	public const uint32 KDF_TLS_PRF_SEED = 5;
-
 	public const uint32 KDF_SECRET_HANDLE = 6;
-
 	public const uint32 KDF_TLS_PRF_PROTOCOL = 7;
-
 	public const uint32 KDF_ALGORITHMID = 8;
-
 	public const uint32 KDF_PARTYUINFO = 9;
-
 	public const uint32 KDF_PARTYVINFO = 10;
-
 	public const uint32 KDF_SUPPPUBINFO = 11;
-
 	public const uint32 KDF_SUPPPRIVINFO = 12;
-
 	public const uint32 KDF_LABEL = 13;
-
 	public const uint32 KDF_CONTEXT = 14;
-
 	public const uint32 KDF_SALT = 15;
-
 	public const uint32 KDF_ITERATION_COUNT = 16;
-
 	public const uint32 KDF_GENERIC_PARAMETER = 17;
-
 	public const uint32 KDF_KEYBITLENGTH = 18;
-
 	public const uint32 KDF_HKDF_SALT = 19;
-
 	public const uint32 KDF_HKDF_INFO = 20;
-
 	public const uint32 KDF_USE_SECRET_AS_HMAC_KEY_FLAG = 1;
-
 	public const uint32 BCRYPT_AUTHENTICATED_CIPHER_MODE_INFO_VERSION = 1;
-
 	public const uint32 BCRYPT_AUTH_MODE_CHAIN_CALLS_FLAG = 1;
-
 	public const uint32 BCRYPT_AUTH_MODE_IN_PROGRESS_FLAG = 2;
-
 	public const uint32 BCRYPT_SUPPORTED_PAD_ROUTER = 1;
-
 	public const uint32 BCRYPT_SUPPORTED_PAD_PKCS1_ENC = 2;
-
 	public const uint32 BCRYPT_SUPPORTED_PAD_PKCS1_SIG = 4;
-
 	public const uint32 BCRYPT_SUPPORTED_PAD_OAEP = 8;
-
 	public const uint32 BCRYPT_SUPPORTED_PAD_PSS = 16;
-
 	public const uint32 BCRYPT_BLOCK_PADDING = 1;
-
 	public const uint32 BCRYPT_GENERATE_IV = 32;
-
 	public const uint32 BCRYPT_PAD_PKCS1_OPTIONAL_HASH_OID = 16;
-
 	public const uint32 BCRYPTBUFFER_VERSION = 0;
-
 	public const uint32 BCRYPT_ECDH_PUBLIC_P256_MAGIC = 827016005;
-
 	public const uint32 BCRYPT_ECDH_PRIVATE_P256_MAGIC = 843793221;
-
 	public const uint32 BCRYPT_ECDH_PUBLIC_P384_MAGIC = 860570437;
-
 	public const uint32 BCRYPT_ECDH_PRIVATE_P384_MAGIC = 877347653;
-
 	public const uint32 BCRYPT_ECDH_PUBLIC_P521_MAGIC = 894124869;
-
 	public const uint32 BCRYPT_ECDH_PRIVATE_P521_MAGIC = 910902085;
-
 	public const uint32 BCRYPT_ECDH_PUBLIC_GENERIC_MAGIC = 1347109701;
-
 	public const uint32 BCRYPT_ECDH_PRIVATE_GENERIC_MAGIC = 1447772997;
-
 	public const uint32 BCRYPT_ECDSA_PUBLIC_P256_MAGIC = 827540293;
-
 	public const uint32 BCRYPT_ECDSA_PRIVATE_P256_MAGIC = 844317509;
-
 	public const uint32 BCRYPT_ECDSA_PUBLIC_P384_MAGIC = 861094725;
-
 	public const uint32 BCRYPT_ECDSA_PRIVATE_P384_MAGIC = 877871941;
-
 	public const uint32 BCRYPT_ECDSA_PUBLIC_P521_MAGIC = 894649157;
-
 	public const uint32 BCRYPT_ECDSA_PRIVATE_P521_MAGIC = 911426373;
-
 	public const uint32 BCRYPT_ECDSA_PUBLIC_GENERIC_MAGIC = 1346650949;
-
 	public const uint32 BCRYPT_ECDSA_PRIVATE_GENERIC_MAGIC = 1447314245;
-
 	public const uint32 BCRYPT_ECC_FULLKEY_BLOB_V1 = 1;
-
 	public const uint32 BCRYPT_DH_PARAMETERS_MAGIC = 1297107012;
-
 	public const uint32 BCRYPT_DSA_PUBLIC_MAGIC_V2 = 843206724;
-
 	public const uint32 BCRYPT_DSA_PRIVATE_MAGIC_V2 = 844517444;
-
 	public const uint32 BCRYPT_KEY_DATA_BLOB_MAGIC = 1296188491;
-
 	public const uint32 BCRYPT_KEY_DATA_BLOB_VERSION1 = 1;
-
 	public const uint32 BCRYPT_DSA_PARAMETERS_MAGIC = 1297109828;
-
 	public const uint32 BCRYPT_DSA_PARAMETERS_MAGIC_V2 = 843927620;
-
 	public const uint32 BCRYPT_ECC_PARAMETERS_MAGIC = 1346585413;
-
 	public const uint32 BCRYPT_KEY_DERIVATION_INTERFACE = 7;
-
 	public const BCRYPT_ALG_HANDLE BCRYPT_MD2_ALG_HANDLE = 1;
 	public const BCRYPT_ALG_HANDLE BCRYPT_MD4_ALG_HANDLE = 17;
 	public const BCRYPT_ALG_HANDLE BCRYPT_MD5_ALG_HANDLE = 33;
@@ -193,2769 +131,1387 @@ public static
 	public const BCRYPT_ALG_HANDLE BCRYPT_HKDF_ALG_HANDLE = 913;
 	public const BCRYPT_ALG_HANDLE BCRYPT_CHACHA20_POLY1305_ALG_HANDLE = 929;
 	public const uint32 BCRYPT_CAPI_AES_FLAG = 16;
-
 	public const uint32 BCRYPT_MULTI_FLAG = 64;
-
 	public const uint32 BCRYPT_TLS_CBC_HMAC_VERIFY_FLAG = 4;
-
 	public const uint32 BCRYPT_BUFFERS_LOCKED_FLAG = 64;
-
 	public const uint32 BCRYPT_EXTENDED_KEYSIZE = 128;
-
 	public const uint32 BCRYPT_ENABLE_INCOMPATIBLE_FIPS_CHECKS = 256;
-
 	public const uint32 BCRYPT_KEY_DERIVATION_OPERATION = 64;
-
 	public const uint32 BCRYPT_PUBLIC_KEY_FLAG = 1;
-
 	public const uint32 BCRYPT_PRIVATE_KEY_FLAG = 2;
-
 	public const uint32 BCRYPT_NO_KEY_VALIDATION = 8;
-
 	public const uint32 BCRYPT_KEY_VALIDATION_RANGE = 16;
-
 	public const uint32 BCRYPT_KEY_VALIDATION_RANGE_AND_ORDER = 24;
-
 	public const uint32 BCRYPT_KEY_VALIDATION_REGENERATE = 32;
-
 	public const uint32 BCRYPT_RNG_USE_ENTROPY_IN_BUFFER = 1;
-
 	public const uint32 BCRYPT_USE_SYSTEM_PREFERRED_RNG = 2;
-
 	public const uint32 BCRYPT_HASH_INTERFACE_MAJORVERSION_2 = 2;
-
 	public const uint32 CRYPT_OVERWRITE = 1;
-
 	public const uint32 CRYPT_PRIORITY_TOP = 0;
-
 	public const uint32 CRYPT_PRIORITY_BOTTOM = 4294967295;
-
 	public const uint32 CRYPT_XML_BLOB_MAX = 2147483640;
-
 	public const uint32 CRYPT_XML_ID_MAX = 256;
-
 	public const uint32 CRYPT_XML_SIGNATURES_MAX = 16;
-
 	public const uint32 CRYPT_XML_TRANSFORM_MAX = 16;
-
 	public const uint32 CRYPT_XML_SIGNATURE_VALUE_MAX = 2048;
-
 	public const uint32 CRYPT_XML_DIGEST_VALUE_MAX = 128;
-
 	public const uint32 CRYPT_XML_OBJECTS_MAX = 256;
-
 	public const uint32 CRYPT_XML_REFERENCES_MAX = 32760;
-
 	public const HRESULT CRYPT_XML_E_BASE = -2146885376;
-
 	public const HRESULT CRYPT_XML_E_LARGE = -2146885375;
-
 	public const HRESULT CRYPT_XML_E_TOO_MANY_TRANSFORMS = -2146885374;
-
 	public const HRESULT CRYPT_XML_E_ENCODING = -2146885373;
-
 	public const HRESULT CRYPT_XML_E_ALGORITHM = -2146885372;
-
 	public const HRESULT CRYPT_XML_E_TRANSFORM = -2146885371;
-
 	public const HRESULT CRYPT_XML_E_HANDLE = -2146885370;
-
 	public const HRESULT CRYPT_XML_E_OPERATION = -2146885369;
-
 	public const HRESULT CRYPT_XML_E_UNRESOLVED_REFERENCE = -2146885368;
-
 	public const HRESULT CRYPT_XML_E_INVALID_DIGEST = -2146885367;
-
 	public const HRESULT CRYPT_XML_E_INVALID_SIGNATURE = -2146885366;
-
 	public const HRESULT CRYPT_XML_E_HASH_FAILED = -2146885365;
-
 	public const HRESULT CRYPT_XML_E_SIGN_FAILED = -2146885364;
-
 	public const HRESULT CRYPT_XML_E_VERIFY_FAILED = -2146885363;
-
 	public const HRESULT CRYPT_XML_E_TOO_MANY_SIGNATURES = -2146885362;
-
 	public const HRESULT CRYPT_XML_E_INVALID_KEYVALUE = -2146885361;
-
 	public const HRESULT CRYPT_XML_E_UNEXPECTED_XML = -2146885360;
-
 	public const HRESULT CRYPT_XML_E_SIGNER = -2146885359;
-
 	public const HRESULT CRYPT_XML_E_NON_UNIQUE_ID = -2146885358;
-
 	public const HRESULT CRYPT_XML_E_LAST = -2146885358;
-
 	public const uint32 CRYPT_XML_FLAG_ALWAYS_RETURN_ENCODED_OBJECT = 1073741824;
-
 	public const uint32 CRYPT_XML_FLAG_ENFORCE_ID_NCNAME_FORMAT = 536870912;
-
 	public const uint32 CRYPT_XML_FLAG_ENFORCE_ID_NAME_FORMAT = 134217728;
-
 	public const uint32 CRYPT_XML_FLAG_ECDSA_DSIG11 = 67108864;
-
 	public const uint32 CRYPT_XML_STATUS_NO_ERROR = 0;
-
 	public const uint32 CRYPT_XML_FLAG_ADD_OBJECT_CREATE_COPY = 1;
-
 	public const uint32 CRYPT_XML_FLAG_CREATE_REFERENCE_AS_OBJECT = 1;
-
 	public const uint32 CRYPT_XML_DIGEST_REFERENCE_DATA_TRANSFORMED = 1;
-
 	public const uint32 CRYPT_XML_GROUP_ID_HASH = 1;
-
 	public const uint32 CRYPT_XML_GROUP_ID_SIGN = 2;
-
 	public const uint32 CRYPT_XML_ALGORITHM_INFO_FIND_BY_URI = 1;
-
 	public const uint32 CRYPT_XML_ALGORITHM_INFO_FIND_BY_NAME = 2;
-
 	public const uint32 CRYPT_XML_ALGORITHM_INFO_FIND_BY_CNG_ALGID = 3;
-
 	public const uint32 CRYPT_XML_ALGORITHM_INFO_FIND_BY_CNG_SIGN_ALGID = 4;
-
 	public const uint32 CRYPTPROTECT_PROMPT_ON_UNPROTECT = 1;
-
 	public const uint32 CRYPTPROTECT_PROMPT_ON_PROTECT = 2;
-
 	public const uint32 CRYPTPROTECT_PROMPT_RESERVED = 4;
-
 	public const uint32 CRYPTPROTECT_PROMPT_STRONG = 8;
-
 	public const uint32 CRYPTPROTECT_PROMPT_REQUIRE_STRONG = 16;
-
 	public const uint32 CRYPTPROTECT_UI_FORBIDDEN = 1;
-
 	public const uint32 CRYPTPROTECT_LOCAL_MACHINE = 4;
-
 	public const uint32 CRYPTPROTECT_CRED_SYNC = 8;
-
 	public const uint32 CRYPTPROTECT_AUDIT = 16;
-
 	public const uint32 CRYPTPROTECT_NO_RECOVERY = 32;
-
 	public const uint32 CRYPTPROTECT_VERIFY_PROTECTION = 64;
-
 	public const uint32 CRYPTPROTECT_CRED_REGENERATE = 128;
-
 	public const uint32 CRYPTPROTECT_FIRST_RESERVED_FLAGVAL = 268435455;
-
 	public const uint32 CRYPTPROTECT_LAST_RESERVED_FLAGVAL = 4294967295;
-
 	public const uint32 CRYPTPROTECTMEMORY_BLOCK_SIZE = 16;
-
 	public const uint32 CRYPTPROTECTMEMORY_SAME_PROCESS = 0;
-
 	public const uint32 CRYPTPROTECTMEMORY_CROSS_PROCESS = 1;
-
 	public const uint32 CRYPTPROTECTMEMORY_SAME_LOGON = 2;
-
 	public const uint32 NCRYPT_MAX_KEY_NAME_LENGTH = 512;
-
 	public const uint32 NCRYPT_MAX_ALG_ID_LENGTH = 512;
-
 	public const uint32 NCRYPT_KEY_DERIVATION_INTERFACE = 7;
-
 	public const uint32 NCRYPT_KEY_PROTECTION_INTERFACE = 65540;
-
 	public const uint32 NCRYPTBUFFER_VERSION = 0;
-
 	public const uint32 NCRYPTBUFFER_EMPTY = 0;
-
 	public const uint32 NCRYPTBUFFER_DATA = 1;
-
 	public const uint32 NCRYPTBUFFER_PROTECTION_DESCRIPTOR_STRING = 3;
-
 	public const uint32 NCRYPTBUFFER_PROTECTION_FLAGS = 4;
-
 	public const uint32 NCRYPTBUFFER_SSL_CLIENT_RANDOM = 20;
-
 	public const uint32 NCRYPTBUFFER_SSL_SERVER_RANDOM = 21;
-
 	public const uint32 NCRYPTBUFFER_SSL_HIGHEST_VERSION = 22;
-
 	public const uint32 NCRYPTBUFFER_SSL_CLEAR_KEY = 23;
-
 	public const uint32 NCRYPTBUFFER_SSL_KEY_ARG_DATA = 24;
-
 	public const uint32 NCRYPTBUFFER_SSL_SESSION_HASH = 25;
-
 	public const uint32 NCRYPTBUFFER_PKCS_OID = 40;
-
 	public const uint32 NCRYPTBUFFER_PKCS_ALG_OID = 41;
-
 	public const uint32 NCRYPTBUFFER_PKCS_ALG_PARAM = 42;
-
 	public const uint32 NCRYPTBUFFER_PKCS_ALG_ID = 43;
-
 	public const uint32 NCRYPTBUFFER_PKCS_ATTRS = 44;
-
 	public const uint32 NCRYPTBUFFER_PKCS_KEY_NAME = 45;
-
 	public const uint32 NCRYPTBUFFER_PKCS_SECRET = 46;
-
 	public const uint32 NCRYPTBUFFER_CERT_BLOB = 47;
-
 	public const uint32 NCRYPTBUFFER_CLAIM_IDBINDING_NONCE = 48;
-
 	public const uint32 NCRYPTBUFFER_CLAIM_KEYATTESTATION_NONCE = 49;
-
 	public const uint32 NCRYPTBUFFER_KEY_PROPERTY_FLAGS = 50;
-
 	public const uint32 NCRYPTBUFFER_ATTESTATIONSTATEMENT_BLOB = 51;
-
 	public const uint32 NCRYPTBUFFER_ATTESTATION_CLAIM_TYPE = 52;
-
 	public const uint32 NCRYPTBUFFER_ATTESTATION_CLAIM_CHALLENGE_REQUIRED = 53;
-
 	public const uint32 NCRYPTBUFFER_VSM_KEY_ATTESTATION_CLAIM_RESTRICTIONS = 54;
-
 	public const uint32 NCRYPTBUFFER_ECC_CURVE_NAME = 60;
-
 	public const uint32 NCRYPTBUFFER_ECC_PARAMETERS = 61;
-
 	public const uint32 NCRYPTBUFFER_TPM_SEAL_PASSWORD = 70;
-
 	public const uint32 NCRYPTBUFFER_TPM_SEAL_POLICYINFO = 71;
-
 	public const uint32 NCRYPTBUFFER_TPM_SEAL_TICKET = 72;
-
 	public const uint32 NCRYPTBUFFER_TPM_SEAL_NO_DA_PROTECTION = 73;
-
 	public const uint32 NCRYPTBUFFER_TPM_PLATFORM_CLAIM_PCR_MASK = 80;
-
 	public const uint32 NCRYPTBUFFER_TPM_PLATFORM_CLAIM_NONCE = 81;
-
 	public const uint32 NCRYPTBUFFER_TPM_PLATFORM_CLAIM_STATIC_CREATE = 82;
-
 	public const uint32 NCRYPT_CIPHER_NO_PADDING_FLAG = 0;
-
 	public const uint32 NCRYPT_CIPHER_BLOCK_PADDING_FLAG = 1;
-
 	public const uint32 NCRYPT_CIPHER_OTHER_PADDING_FLAG = 2;
-
 	public const uint32 NCRYPT_PLATFORM_ATTEST_MAGIC = 1146110288;
-
 	public const uint32 NCRYPT_KEY_ATTEST_MAGIC = 1146110283;
-
 	public const uint32 NCRYPT_CLAIM_AUTHORITY_ONLY = 1;
-
 	public const uint32 NCRYPT_CLAIM_SUBJECT_ONLY = 2;
-
 	public const uint32 NCRYPT_CLAIM_WEB_AUTH_SUBJECT_ONLY = 258;
-
 	public const uint32 NCRYPT_CLAIM_AUTHORITY_AND_SUBJECT = 3;
-
 	public const uint32 NCRYPT_CLAIM_VSM_KEY_ATTESTATION_STATEMENT = 4;
-
 	public const uint32 NCRYPT_CLAIM_UNKNOWN = 4096;
-
 	public const uint32 NCRYPT_CLAIM_PLATFORM = 65536;
-
 	public const uint32 NCRYPT_ISOLATED_KEY_FLAG_CREATED_IN_ISOLATION = 1;
-
 	public const uint32 NCRYPT_ISOLATED_KEY_FLAG_IMPORT_ONLY = 2;
-
 	public const uint32 NCRYPT_ISOLATED_KEY_ATTESTED_ATTRIBUTES_V0 = 0;
-
 	public const uint32 NCRYPT_ISOLATED_KEY_ATTESTED_ATTRIBUTES_CURRENT_VERSION = 0;
-
 	public const uint32 NCRYPT_VSM_KEY_ATTESTATION_STATEMENT_V0 = 0;
-
 	public const uint32 NCRYPT_VSM_KEY_ATTESTATION_STATEMENT_CURRENT_VERSION = 0;
-
 	public const uint32 NCRYPT_VSM_KEY_ATTESTATION_CLAIM_RESTRICTIONS_V0 = 0;
-
 	public const uint32 NCRYPT_VSM_KEY_ATTESTATION_CLAIM_RESTRICTIONS_CURRENT_VERSION = 0;
-
 	public const uint32 NCRYPT_EXPORTED_ISOLATED_KEY_HEADER_V0 = 0;
-
 	public const uint32 NCRYPT_EXPORTED_ISOLATED_KEY_HEADER_CURRENT_VERSION = 0;
-
 	public const uint32 NCRYPT_TPM_PLATFORM_ATTESTATION_STATEMENT_V0 = 0;
-
 	public const uint32 NCRYPT_TPM_PLATFORM_ATTESTATION_STATEMENT_CURRENT_VERSION = 0;
-
 	public const uint32 NCRYPT_PAD_CIPHER_FLAG = 16;
-
 	public const uint32 NCRYPT_ATTESTATION_FLAG = 32;
-
 	public const uint32 NCRYPT_SEALING_FLAG = 256;
-
 	public const uint32 NCRYPT_DO_NOT_FINALIZE_FLAG = 1024;
-
 	public const uint32 NCRYPT_EXPORT_LEGACY_FLAG = 2048;
-
 	public const uint32 NCRYPT_IGNORE_DEVICE_STATE_FLAG = 4096;
-
 	public const uint32 NCRYPT_TREAT_NIST_AS_GENERIC_ECC_FLAG = 8192;
-
 	public const uint32 NCRYPT_NO_CACHED_PASSWORD = 16384;
-
 	public const uint32 NCRYPT_PROTECT_TO_LOCAL_SYSTEM = 32768;
-
 	public const uint32 NCRYPT_PREFER_VIRTUAL_ISOLATION_FLAG = 65536;
-
 	public const uint32 NCRYPT_USE_VIRTUAL_ISOLATION_FLAG = 131072;
-
 	public const uint32 NCRYPT_USE_PER_BOOT_KEY_FLAG = 262144;
-
 	public const uint32 NCRYPT_KEY_DERIVATION_OPERATION = 64;
-
 	public const uint32 NCRYPT_AUTHORITY_KEY_FLAG = 256;
-
 	public const uint32 IFX_RSA_KEYGEN_VUL_NOT_AFFECTED = 0;
-
 	public const uint32 IFX_RSA_KEYGEN_VUL_AFFECTED_LEVEL_1 = 1;
-
 	public const uint32 IFX_RSA_KEYGEN_VUL_AFFECTED_LEVEL_2 = 2;
-
 	public const uint32 NCRYPT_TPM_PSS_SALT_SIZE_UNKNOWN = 0;
-
 	public const uint32 NCRYPT_TPM_PSS_SALT_SIZE_MAXIMUM = 1;
-
 	public const uint32 NCRYPT_TPM_PSS_SALT_SIZE_HASHSIZE = 2;
-
 	public const uint32 NCRYPT_TPM_PAD_PSS_IGNORE_SALT = 32;
-
 	public const uint32 NCRYPT_TPM12_PROVIDER = 65536;
-
 	public const uint32 NCRYPT_PCP_SIGNATURE_KEY = 1;
-
 	public const uint32 NCRYPT_PCP_ENCRYPTION_KEY = 2;
-
 	public const uint32 NCRYPT_PCP_STORAGE_KEY = 4;
-
 	public const uint32 NCRYPT_PCP_IDENTITY_KEY = 8;
-
 	public const uint32 NCRYPT_PCP_HMACVERIFICATION_KEY = 16;
-
 	public const uint32 NCRYPT_MAX_PROPERTY_NAME = 64;
-
 	public const uint32 NCRYPT_MAX_PROPERTY_DATA = 1048576;
-
 	public const uint32 NCRYPT_ALLOW_EXPORT_FLAG = 1;
-
 	public const uint32 NCRYPT_ALLOW_PLAINTEXT_EXPORT_FLAG = 2;
-
 	public const uint32 NCRYPT_ALLOW_ARCHIVING_FLAG = 4;
-
 	public const uint32 NCRYPT_ALLOW_PLAINTEXT_ARCHIVING_FLAG = 8;
-
 	public const uint32 NCRYPT_IMPL_HARDWARE_FLAG = 1;
-
 	public const uint32 NCRYPT_IMPL_SOFTWARE_FLAG = 2;
-
 	public const uint32 NCRYPT_IMPL_REMOVABLE_FLAG = 8;
-
 	public const uint32 NCRYPT_IMPL_HARDWARE_RNG_FLAG = 16;
-
 	public const uint32 NCRYPT_IMPL_VIRTUAL_ISOLATION_FLAG = 32;
-
 	public const uint32 NCRYPT_ALLOW_DECRYPT_FLAG = 1;
-
 	public const uint32 NCRYPT_ALLOW_SIGNING_FLAG = 2;
-
 	public const uint32 NCRYPT_ALLOW_KEY_AGREEMENT_FLAG = 4;
-
 	public const uint32 NCRYPT_ALLOW_KEY_IMPORT_FLAG = 8;
-
 	public const uint32 NCRYPT_ALLOW_ALL_USAGES = 16777215;
-
 	public const uint32 NCRYPT_UI_PROTECT_KEY_FLAG = 1;
-
 	public const uint32 NCRYPT_UI_FORCE_HIGH_PROTECTION_FLAG = 2;
-
 	public const uint32 NCRYPT_UI_FINGERPRINT_PROTECTION_FLAG = 4;
-
 	public const uint32 NCRYPT_UI_APPCONTAINER_ACCESS_MEDIUM_FLAG = 8;
-
 	public const uint32 NCRYPT_PIN_CACHE_DISABLE_DPL_FLAG = 1;
-
 	public const uint32 NCRYPT_PIN_CACHE_REQUIRE_GESTURE_FLAG = 1;
-
 	public const uint32 NCRYPT_PIN_CACHE_APPLICATION_TICKET_BYTE_LENGTH = 90;
-
 	public const uint32 NCRYPT_PIN_CACHE_CLEAR_FOR_CALLING_PROCESS_OPTION = 1;
-
 	public const uint32 NCRYPT_KEY_ACCESS_POLICY_VERSION = 1;
-
 	public const uint32 NCRYPT_ALLOW_SILENT_KEY_ACCESS = 1;
-
 	public const uint32 NCRYPT_CIPHER_KEY_BLOB_MAGIC = 1380470851;
-
 	public const uint32 NCRYPT_KDF_KEY_BLOB_MAGIC = 826688587;
-
 	public const uint32 NCRYPT_PROTECTED_KEY_BLOB_MAGIC = 1263817296;
-
 	public const uint32 NCRYPT_TPM_LOADABLE_KEY_BLOB_MAGIC = 1297371211;
-
 	public const uint32 NCRYPT_NAMED_DESCRIPTOR_FLAG = 1;
-
 	public const uint32 NCRYPT_PROTECTION_INFO_TYPE_DESCRIPTOR_STRING = 1;
-
 	public const uint32 ALG_CLASS_ANY = 0;
-
 	public const uint32 ALG_CLASS_SIGNATURE = 8192;
-
 	public const uint32 ALG_CLASS_MSG_ENCRYPT = 16384;
-
 	public const uint32 ALG_CLASS_DATA_ENCRYPT = 24576;
-
 	public const uint32 ALG_CLASS_HASH = 32768;
-
 	public const uint32 ALG_CLASS_KEY_EXCHANGE = 40960;
-
 	public const uint32 ALG_CLASS_ALL = 57344;
-
 	public const uint32 ALG_TYPE_ANY = 0;
-
 	public const uint32 ALG_TYPE_DSS = 512;
-
 	public const uint32 ALG_TYPE_RSA = 1024;
-
 	public const uint32 ALG_TYPE_BLOCK = 1536;
-
 	public const uint32 ALG_TYPE_STREAM = 2048;
-
 	public const uint32 ALG_TYPE_DH = 2560;
-
 	public const uint32 ALG_TYPE_SECURECHANNEL = 3072;
-
 	public const uint32 ALG_TYPE_ECDH = 3584;
-
 	public const uint32 ALG_TYPE_THIRDPARTY = 4096;
-
 	public const uint32 ALG_SID_ANY = 0;
-
 	public const uint32 ALG_SID_THIRDPARTY_ANY = 0;
-
 	public const uint32 ALG_SID_RSA_ANY = 0;
-
 	public const uint32 ALG_SID_RSA_PKCS = 1;
-
 	public const uint32 ALG_SID_RSA_MSATWORK = 2;
-
 	public const uint32 ALG_SID_RSA_ENTRUST = 3;
-
 	public const uint32 ALG_SID_RSA_PGP = 4;
-
 	public const uint32 ALG_SID_DSS_ANY = 0;
-
 	public const uint32 ALG_SID_DSS_PKCS = 1;
-
 	public const uint32 ALG_SID_DSS_DMS = 2;
-
 	public const uint32 ALG_SID_ECDSA = 3;
-
 	public const uint32 ALG_SID_DES = 1;
-
 	public const uint32 ALG_SID_3DES = 3;
-
 	public const uint32 ALG_SID_DESX = 4;
-
 	public const uint32 ALG_SID_IDEA = 5;
-
 	public const uint32 ALG_SID_CAST = 6;
-
 	public const uint32 ALG_SID_SAFERSK64 = 7;
-
 	public const uint32 ALG_SID_SAFERSK128 = 8;
-
 	public const uint32 ALG_SID_3DES_112 = 9;
-
 	public const uint32 ALG_SID_CYLINK_MEK = 12;
-
 	public const uint32 ALG_SID_RC5 = 13;
-
 	public const uint32 ALG_SID_AES_128 = 14;
-
 	public const uint32 ALG_SID_AES_192 = 15;
-
 	public const uint32 ALG_SID_AES_256 = 16;
-
 	public const uint32 ALG_SID_AES = 17;
-
 	public const uint32 ALG_SID_SKIPJACK = 10;
-
 	public const uint32 ALG_SID_TEK = 11;
-
 	public const uint32 CRYPT_MODE_CBCI = 6;
-
 	public const uint32 CRYPT_MODE_CFBP = 7;
-
 	public const uint32 CRYPT_MODE_OFBP = 8;
-
 	public const uint32 CRYPT_MODE_CBCOFM = 9;
-
 	public const uint32 CRYPT_MODE_CBCOFMI = 10;
-
 	public const uint32 ALG_SID_RC2 = 2;
-
 	public const uint32 ALG_SID_RC4 = 1;
-
 	public const uint32 ALG_SID_SEAL = 2;
-
 	public const uint32 ALG_SID_DH_SANDF = 1;
-
 	public const uint32 ALG_SID_DH_EPHEM = 2;
-
 	public const uint32 ALG_SID_AGREED_KEY_ANY = 3;
-
 	public const uint32 ALG_SID_KEA = 4;
-
 	public const uint32 ALG_SID_ECDH = 5;
-
 	public const uint32 ALG_SID_ECDH_EPHEM = 6;
-
 	public const uint32 ALG_SID_MD2 = 1;
-
 	public const uint32 ALG_SID_MD4 = 2;
-
 	public const uint32 ALG_SID_MD5 = 3;
-
 	public const uint32 ALG_SID_SHA = 4;
-
 	public const uint32 ALG_SID_SHA1 = 4;
-
 	public const uint32 ALG_SID_MAC = 5;
-
 	public const uint32 ALG_SID_RIPEMD = 6;
-
 	public const uint32 ALG_SID_RIPEMD160 = 7;
-
 	public const uint32 ALG_SID_SSL3SHAMD5 = 8;
-
 	public const uint32 ALG_SID_HMAC = 9;
-
 	public const uint32 ALG_SID_TLS1PRF = 10;
-
 	public const uint32 ALG_SID_HASH_REPLACE_OWF = 11;
-
 	public const uint32 ALG_SID_SHA_256 = 12;
-
 	public const uint32 ALG_SID_SHA_384 = 13;
-
 	public const uint32 ALG_SID_SHA_512 = 14;
-
 	public const uint32 ALG_SID_SSL3_MASTER = 1;
-
 	public const uint32 ALG_SID_SCHANNEL_MASTER_HASH = 2;
-
 	public const uint32 ALG_SID_SCHANNEL_MAC_KEY = 3;
-
 	public const uint32 ALG_SID_PCT1_MASTER = 4;
-
 	public const uint32 ALG_SID_SSL2_MASTER = 5;
-
 	public const uint32 ALG_SID_TLS1_MASTER = 6;
-
 	public const uint32 ALG_SID_SCHANNEL_ENC_KEY = 7;
-
 	public const uint32 ALG_SID_ECMQV = 1;
-
 	public const uint32 ALG_SID_EXAMPLE = 80;
-
 	public const uint32 SIGNATURE_RESOURCE_NUMBER = 666;
-
 	public const uint32 CRYPT_VERIFYCONTEXT = 4026531840;
-
 	public const uint32 CRYPT_NEWKEYSET = 8;
-
 	public const uint32 CRYPT_DELETEKEYSET = 16;
-
 	public const uint32 CRYPT_SILENT = 64;
-
 	public const uint32 CRYPT_DEFAULT_CONTAINER_OPTIONAL = 128;
-
 	public const uint32 CRYPT_UPDATE_KEY = 8;
-
 	public const uint32 CRYPT_USER_PROTECTED_STRONG = 1048576;
-
 	public const uint32 RSA1024BIT_KEY = 67108864;
-
 	public const uint32 CRYPT_SERVER = 1024;
-
 	public const uint32 KEY_LENGTH_MASK = 4294901760;
-
 	public const uint32 CRYPT_DECRYPT_RSA_NO_PADDING_CHECK = 32;
-
 	public const uint32 CRYPT_SECRETDIGEST = 1;
-
 	public const uint32 CRYPT_OWF_REPL_LM_HASH = 1;
-
 	public const uint32 CRYPT_LITTLE_ENDIAN = 1;
-
 	public const uint32 CRYPT_NOHASHOID = 1;
-
 	public const uint32 CRYPT_TYPE2_FORMAT = 2;
-
 	public const uint32 CRYPT_X931_FORMAT = 4;
-
 	public const uint32 CRYPT_MACHINE_DEFAULT = 1;
-
 	public const uint32 CRYPT_USER_DEFAULT = 2;
-
 	public const uint32 CRYPT_DELETE_DEFAULT = 4;
-
 	public const uint32 SIMPLEBLOB = 1;
-
 	public const uint32 PUBLICKEYBLOB = 6;
-
 	public const uint32 PRIVATEKEYBLOB = 7;
-
 	public const uint32 PLAINTEXTKEYBLOB = 8;
-
 	public const uint32 OPAQUEKEYBLOB = 9;
-
 	public const uint32 PUBLICKEYBLOBEX = 10;
-
 	public const uint32 SYMMETRICWRAPKEYBLOB = 11;
-
 	public const uint32 KEYSTATEBLOB = 12;
-
 	public const uint32 CRYPT_USERDATA = 1;
-
 	public const uint32 KP_IV = 1;
-
 	public const uint32 KP_PADDING = 3;
-
 	public const uint32 KP_MODE = 4;
-
 	public const uint32 KP_MODE_BITS = 5;
-
 	public const uint32 KP_P = 11;
-
 	public const uint32 KP_G = 12;
-
 	public const uint32 KP_Q = 13;
-
 	public const uint32 KP_X = 14;
-
 	public const uint32 KP_Y = 15;
-
 	public const uint32 KP_RA = 16;
-
 	public const uint32 KP_RB = 17;
-
 	public const uint32 KP_INFO = 18;
-
 	public const uint32 KP_EFFECTIVE_KEYLEN = 19;
-
 	public const uint32 KP_SCHANNEL_ALG = 20;
-
 	public const uint32 KP_CLIENT_RANDOM = 21;
-
 	public const uint32 KP_SERVER_RANDOM = 22;
-
 	public const uint32 KP_RP = 23;
-
 	public const uint32 KP_PRECOMP_MD5 = 24;
-
 	public const uint32 KP_PRECOMP_SHA = 25;
-
 	public const uint32 KP_CLEAR_KEY = 27;
-
 	public const uint32 KP_PUB_EX_LEN = 28;
-
 	public const uint32 KP_PUB_EX_VAL = 29;
-
 	public const uint32 KP_KEYVAL = 30;
-
 	public const uint32 KP_ADMIN_PIN = 31;
-
 	public const uint32 KP_KEYEXCHANGE_PIN = 32;
-
 	public const uint32 KP_SIGNATURE_PIN = 33;
-
 	public const uint32 KP_PREHASH = 34;
-
 	public const uint32 KP_ROUNDS = 35;
-
 	public const uint32 KP_OAEP_PARAMS = 36;
-
 	public const uint32 KP_CMS_KEY_INFO = 37;
-
 	public const uint32 KP_CMS_DH_KEY_INFO = 38;
-
 	public const uint32 KP_PUB_PARAMS = 39;
-
 	public const uint32 KP_VERIFY_PARAMS = 40;
-
 	public const uint32 KP_HIGHEST_VERSION = 41;
-
 	public const uint32 KP_PIN_ID = 43;
-
 	public const uint32 KP_PIN_INFO = 44;
-
 	public const uint32 PKCS5_PADDING = 1;
-
 	public const uint32 RANDOM_PADDING = 2;
-
 	public const uint32 ZERO_PADDING = 3;
-
 	public const uint32 CRYPT_MODE_CBC = 1;
-
 	public const uint32 CRYPT_MODE_ECB = 2;
-
 	public const uint32 CRYPT_MODE_OFB = 3;
-
 	public const uint32 CRYPT_MODE_CFB = 4;
-
 	public const uint32 CRYPT_MODE_CTS = 5;
-
 	public const uint32 CRYPT_ENCRYPT = 1;
-
 	public const uint32 CRYPT_DECRYPT = 2;
-
 	public const uint32 CRYPT_EXPORT = 4;
-
 	public const uint32 CRYPT_READ = 8;
-
 	public const uint32 CRYPT_WRITE = 16;
-
 	public const uint32 CRYPT_MAC = 32;
-
 	public const uint32 CRYPT_EXPORT_KEY = 64;
-
 	public const uint32 CRYPT_IMPORT_KEY = 128;
-
 	public const uint32 CRYPT_ARCHIVE = 256;
-
 	public const uint32 HP_ALGID = 1;
-
 	public const uint32 HP_HASHSIZE = 4;
-
 	public const uint32 HP_TLS1PRF_LABEL = 6;
-
 	public const uint32 HP_TLS1PRF_SEED = 7;
-
 	public const uint32 CRYPT_FAILED = 0;
-
 	public const uint32 CRYPT_SUCCEED = 1;
-
 	public const uint32 PP_ENUMALGS = 1;
-
 	public const uint32 PP_ENUMCONTAINERS = 2;
-
 	public const uint32 PP_IMPTYPE = 3;
-
 	public const uint32 PP_NAME = 4;
-
 	public const uint32 PP_VERSION = 5;
-
 	public const uint32 PP_CONTAINER = 6;
-
 	public const uint32 PP_CHANGE_PASSWORD = 7;
-
 	public const uint32 PP_CERTCHAIN = 9;
-
 	public const uint32 PP_KEY_TYPE_SUBTYPE = 10;
-
 	public const uint32 PP_PROVTYPE = 16;
-
 	public const uint32 PP_KEYSTORAGE = 17;
-
 	public const uint32 PP_APPLI_CERT = 18;
-
 	public const uint32 PP_SYM_KEYSIZE = 19;
-
 	public const uint32 PP_SESSION_KEYSIZE = 20;
-
 	public const uint32 PP_ENUMALGS_EX = 22;
-
 	public const uint32 PP_ENUMMANDROOTS = 25;
-
 	public const uint32 PP_ENUMELECTROOTS = 26;
-
 	public const uint32 PP_KEYSET_TYPE = 27;
-
 	public const uint32 PP_ADMIN_PIN = 31;
-
 	public const uint32 PP_SIG_KEYSIZE_INC = 34;
-
 	public const uint32 PP_KEYX_KEYSIZE_INC = 35;
-
 	public const uint32 PP_UNIQUE_CONTAINER = 36;
-
 	public const uint32 PP_SGC_INFO = 37;
-
 	public const uint32 PP_KEYSPEC = 39;
-
 	public const uint32 PP_ENUMEX_SIGNING_PROT = 40;
-
 	public const uint32 PP_CRYPT_COUNT_KEY_USE = 41;
-
 	public const uint32 PP_SMARTCARD_GUID = 45;
-
 	public const uint32 PP_SMARTCARD_READER_ICON = 47;
-
 	public const uint32 CRYPT_FIRST = 1;
-
 	public const uint32 CRYPT_NEXT = 2;
-
 	public const uint32 CRYPT_SGC_ENUM = 4;
-
 	public const uint32 CRYPT_IMPL_HARDWARE = 1;
-
 	public const uint32 CRYPT_IMPL_SOFTWARE = 2;
-
 	public const uint32 CRYPT_IMPL_MIXED = 3;
-
 	public const uint32 CRYPT_IMPL_UNKNOWN = 4;
-
 	public const uint32 CRYPT_IMPL_REMOVABLE = 8;
-
 	public const uint32 CRYPT_SEC_DESCR = 1;
-
 	public const uint32 CRYPT_PSTORE = 2;
-
 	public const uint32 CRYPT_UI_PROMPT = 4;
-
 	public const uint32 CRYPT_FLAG_PCT1 = 1;
-
 	public const uint32 CRYPT_FLAG_SSL2 = 2;
-
 	public const uint32 CRYPT_FLAG_SSL3 = 4;
-
 	public const uint32 CRYPT_FLAG_TLS1 = 8;
-
 	public const uint32 CRYPT_FLAG_IPSEC = 16;
-
 	public const uint32 CRYPT_FLAG_SIGNING = 32;
-
 	public const uint32 CRYPT_SGC = 1;
-
 	public const uint32 CRYPT_FASTSGC = 2;
-
 	public const uint32 PP_CONTEXT_INFO = 11;
-
 	public const uint32 PP_DISMISS_PIN_UI_SEC = 49;
-
 	public const uint32 PROV_RSA_FULL = 1;
-
 	public const uint32 PROV_RSA_SIG = 2;
-
 	public const uint32 PROV_DSS = 3;
-
 	public const uint32 PROV_FORTEZZA = 4;
-
 	public const uint32 PROV_MS_EXCHANGE = 5;
-
 	public const uint32 PROV_SSL = 6;
-
 	public const uint32 PROV_RSA_SCHANNEL = 12;
-
 	public const uint32 PROV_DSS_DH = 13;
-
 	public const uint32 PROV_EC_ECDSA_SIG = 14;
-
 	public const uint32 PROV_EC_ECNRA_SIG = 15;
-
 	public const uint32 PROV_EC_ECDSA_FULL = 16;
-
 	public const uint32 PROV_EC_ECNRA_FULL = 17;
-
 	public const uint32 PROV_DH_SCHANNEL = 18;
-
 	public const uint32 PROV_SPYRUS_LYNKS = 20;
-
 	public const uint32 PROV_RNG = 21;
-
 	public const uint32 PROV_INTEL_SEC = 22;
-
 	public const uint32 PROV_REPLACE_OWF = 23;
-
 	public const uint32 PROV_RSA_AES = 24;
-
 	public const uint32 PROV_STT_MER = 7;
-
 	public const uint32 PROV_STT_ACQ = 8;
-
 	public const uint32 PROV_STT_BRND = 9;
-
 	public const uint32 PROV_STT_ROOT = 10;
-
 	public const uint32 PROV_STT_ISS = 11;
-
 	public const uint32 MAXUIDLEN = 64;
-
 	public const uint32 CUR_BLOB_VERSION = 2;
-
 	public const uint32 SCHANNEL_MAC_KEY = 0;
-
 	public const uint32 SCHANNEL_ENC_KEY = 1;
-
 	public const uint32 INTERNATIONAL_USAGE = 1;
-
 	public const uint32 CERT_RDN_TYPE_MASK = 255;
-
 	public const uint32 CERT_RDN_FLAGS_MASK = 4278190080;
-
 	public const uint32 CERT_RDN_ENABLE_T61_UNICODE_FLAG = 2147483648;
-
 	public const uint32 CERT_RDN_ENABLE_UTF8_UNICODE_FLAG = 536870912;
-
 	public const uint32 CERT_RDN_FORCE_UTF8_UNICODE_FLAG = 268435456;
-
 	public const uint32 CERT_RDN_DISABLE_CHECK_TYPE_FLAG = 1073741824;
-
 	public const uint32 CERT_RDN_DISABLE_IE4_UTF8_FLAG = 16777216;
-
 	public const uint32 CERT_RDN_ENABLE_PUNYCODE_FLAG = 33554432;
-
 	public const uint32 CRYPT_ECC_PRIVATE_KEY_INFO_v1 = 1;
-
 	public const uint32 CERT_V1 = 0;
-
 	public const uint32 CERT_V2 = 1;
-
 	public const uint32 CERT_V3 = 2;
-
 	public const uint32 CERT_INFO_VERSION_FLAG = 1;
-
 	public const uint32 CERT_INFO_SERIAL_NUMBER_FLAG = 2;
-
 	public const uint32 CERT_INFO_SIGNATURE_ALGORITHM_FLAG = 3;
-
 	public const uint32 CERT_INFO_ISSUER_FLAG = 4;
-
 	public const uint32 CERT_INFO_NOT_BEFORE_FLAG = 5;
-
 	public const uint32 CERT_INFO_NOT_AFTER_FLAG = 6;
-
 	public const uint32 CERT_INFO_SUBJECT_FLAG = 7;
-
 	public const uint32 CERT_INFO_SUBJECT_PUBLIC_KEY_INFO_FLAG = 8;
-
 	public const uint32 CERT_INFO_ISSUER_UNIQUE_ID_FLAG = 9;
-
 	public const uint32 CERT_INFO_SUBJECT_UNIQUE_ID_FLAG = 10;
-
 	public const uint32 CERT_INFO_EXTENSION_FLAG = 11;
-
 	public const uint32 CRL_V1 = 0;
-
 	public const uint32 CRL_V2 = 1;
-
 	public const uint32 CERT_BUNDLE_CERTIFICATE = 0;
-
 	public const uint32 CERT_BUNDLE_CRL = 1;
-
 	public const uint32 CERT_REQUEST_V1 = 0;
-
 	public const uint32 CERT_KEYGEN_REQUEST_V1 = 0;
-
 	public const uint32 CTL_V1 = 0;
-
 	public const uint32 CERT_ENCODING_TYPE_MASK = 65535;
-
 	public const uint32 CMSG_ENCODING_TYPE_MASK = 4294901760;
-
 	public const uint32 CRYPT_ASN_ENCODING = 1;
-
 	public const uint32 CRYPT_NDR_ENCODING = 2;
-
 	public const uint32 X509_NDR_ENCODING = 2;
-
 	public const uint32 PKCS_7_NDR_ENCODING = 131072;
-
 	public const uint32 CRYPT_FORMAT_STR_MULTI_LINE = 1;
-
 	public const uint32 CRYPT_FORMAT_STR_NO_HEX = 16;
-
 	public const uint32 CRYPT_FORMAT_SIMPLE = 1;
-
 	public const uint32 CRYPT_FORMAT_X509 = 2;
-
 	public const uint32 CRYPT_FORMAT_OID = 4;
-
 	public const uint32 CRYPT_FORMAT_RDN_SEMICOLON = 256;
-
 	public const uint32 CRYPT_FORMAT_RDN_CRLF = 512;
-
 	public const uint32 CRYPT_FORMAT_RDN_UNQUOTE = 1024;
-
 	public const uint32 CRYPT_FORMAT_RDN_REVERSE = 2048;
-
 	public const uint32 CRYPT_FORMAT_COMMA = 4096;
-
 	public const uint32 CRYPT_FORMAT_SEMICOLON = 256;
-
 	public const uint32 CRYPT_FORMAT_CRLF = 512;
-
 	public const uint32 CRYPT_ENCODE_NO_SIGNATURE_BYTE_REVERSAL_FLAG = 8;
-
 	public const uint32 CRYPT_UNICODE_NAME_ENCODE_FORCE_UTF8_UNICODE_FLAG = 268435456;
-
 	public const uint32 CRYPT_SORTED_CTL_ENCODE_HASHED_SUBJECT_IDENTIFIER_FLAG = 65536;
-
 	public const uint32 CRYPT_ENCODE_ENABLE_UTF8PERCENT_FLAG = 262144;
-
 	public const uint32 CRYPT_DECODE_NOCOPY_FLAG = 1;
-
 	public const uint32 CRYPT_DECODE_TO_BE_SIGNED_FLAG = 2;
-
 	public const uint32 CRYPT_DECODE_SHARE_OID_STRING_FLAG = 4;
-
 	public const uint32 CRYPT_DECODE_NO_SIGNATURE_BYTE_REVERSAL_FLAG = 8;
-
 	public const uint32 CRYPT_DECODE_ALLOC_FLAG = 32768;
-
 	public const uint32 CRYPT_UNICODE_NAME_DECODE_DISABLE_IE4_UTF8_FLAG = 16777216;
-
 	public const uint32 CRYPT_DECODE_ENABLE_PUNYCODE_FLAG = 33554432;
-
 	public const uint32 CRYPT_DECODE_ENABLE_UTF8PERCENT_FLAG = 67108864;
-
 	public const uint32 CRYPT_ENCODE_DECODE_NONE = 0;
-
 	public const uint32 SITE_PIN_RULES_ALL_SUBDOMAINS_FLAG = 1;
-
 	public const uint32 CERT_ROOT_PROGRAM_FLAG_OU = 16;
-
 	public const uint32 CERT_ROOT_PROGRAM_FLAG_ADDRESS = 8;
-
 	public const uint32 CERT_UNICODE_RDN_ERR_INDEX_MASK = 1023;
-
 	public const uint32 CERT_UNICODE_RDN_ERR_INDEX_SHIFT = 22;
-
 	public const uint32 CERT_UNICODE_ATTR_ERR_INDEX_MASK = 63;
-
 	public const uint32 CERT_UNICODE_ATTR_ERR_INDEX_SHIFT = 16;
-
 	public const uint32 CERT_UNICODE_VALUE_ERR_INDEX_MASK = 65535;
-
 	public const uint32 CERT_UNICODE_VALUE_ERR_INDEX_SHIFT = 0;
-
 	public const uint32 CERT_DIGITAL_SIGNATURE_KEY_USAGE = 128;
-
 	public const uint32 CERT_NON_REPUDIATION_KEY_USAGE = 64;
-
 	public const uint32 CERT_KEY_ENCIPHERMENT_KEY_USAGE = 32;
-
 	public const uint32 CERT_DATA_ENCIPHERMENT_KEY_USAGE = 16;
-
 	public const uint32 CERT_KEY_AGREEMENT_KEY_USAGE = 8;
-
 	public const uint32 CERT_KEY_CERT_SIGN_KEY_USAGE = 4;
-
 	public const uint32 CERT_OFFLINE_CRL_SIGN_KEY_USAGE = 2;
-
 	public const uint32 CERT_CRL_SIGN_KEY_USAGE = 2;
-
 	public const uint32 CERT_ENCIPHER_ONLY_KEY_USAGE = 1;
-
 	public const uint32 CERT_DECIPHER_ONLY_KEY_USAGE = 128;
-
 	public const uint32 CERT_ALT_NAME_X400_ADDRESS = 4;
-
 	public const uint32 CERT_ALT_NAME_EDI_PARTY_NAME = 6;
-
 	public const uint32 CERT_ALT_NAME_ENTRY_ERR_INDEX_MASK = 255;
-
 	public const uint32 CERT_ALT_NAME_ENTRY_ERR_INDEX_SHIFT = 16;
-
 	public const uint32 CERT_ALT_NAME_VALUE_ERR_INDEX_MASK = 65535;
-
 	public const uint32 CERT_ALT_NAME_VALUE_ERR_INDEX_SHIFT = 0;
-
 	public const uint32 CERT_CA_SUBJECT_FLAG = 128;
-
 	public const uint32 CERT_END_ENTITY_SUBJECT_FLAG = 64;
-
 	public const uint32 CRL_REASON_PRIVILEGE_WITHDRAWN = 9;
-
 	public const uint32 CRL_REASON_AA_COMPROMISE = 10;
-
 	public const uint32 CRL_DIST_POINT_NO_NAME = 0;
-
 	public const uint32 CRL_DIST_POINT_FULL_NAME = 1;
-
 	public const uint32 CRL_DIST_POINT_ISSUER_RDN_NAME = 2;
-
 	public const uint32 CRL_REASON_UNUSED_FLAG = 128;
-
 	public const uint32 CRL_REASON_KEY_COMPROMISE_FLAG = 64;
-
 	public const uint32 CRL_REASON_CA_COMPROMISE_FLAG = 32;
-
 	public const uint32 CRL_REASON_AFFILIATION_CHANGED_FLAG = 16;
-
 	public const uint32 CRL_REASON_SUPERSEDED_FLAG = 8;
-
 	public const uint32 CRL_REASON_CESSATION_OF_OPERATION_FLAG = 4;
-
 	public const uint32 CRL_REASON_CERTIFICATE_HOLD_FLAG = 2;
-
 	public const uint32 CRL_REASON_PRIVILEGE_WITHDRAWN_FLAG = 1;
-
 	public const uint32 CRL_REASON_AA_COMPROMISE_FLAG = 128;
-
 	public const uint32 CRL_DIST_POINT_ERR_INDEX_MASK = 127;
-
 	public const uint32 CRL_DIST_POINT_ERR_INDEX_SHIFT = 24;
-
 	public const int32 CRL_DIST_POINT_ERR_CRL_ISSUER_BIT = -2147483648;
-
 	public const uint32 CROSS_CERT_DIST_POINT_ERR_INDEX_MASK = 255;
-
 	public const uint32 CROSS_CERT_DIST_POINT_ERR_INDEX_SHIFT = 24;
-
 	public const int32 CERT_EXCLUDED_SUBTREE_BIT = -2147483648;
-
 	public const uint32 SORTED_CTL_EXT_HASHED_SUBJECT_IDENTIFIER_FLAG = 1;
-
 	public const uint32 CERT_DSS_R_LEN = 20;
-
 	public const uint32 CERT_DSS_S_LEN = 20;
-
 	public const uint32 CRYPT_X942_COUNTER_BYTE_LENGTH = 4;
-
 	public const uint32 CRYPT_X942_KEY_LENGTH_BYTE_LENGTH = 4;
-
 	public const uint32 CRYPT_ECC_CMS_SHARED_INFO_SUPPPUBINFO_BYTE_LENGTH = 4;
-
 	public const uint32 CRYPT_RC2_40BIT_VERSION = 160;
-
 	public const uint32 CRYPT_RC2_56BIT_VERSION = 52;
-
 	public const uint32 CRYPT_RC2_64BIT_VERSION = 120;
-
 	public const uint32 CRYPT_RC2_128BIT_VERSION = 58;
-
 	public const uint32 PKCS_RSA_SSA_PSS_TRAILER_FIELD_BC = 1;
-
 	public const uint32 NETSCAPE_SSL_CLIENT_AUTH_CERT_TYPE = 128;
-
 	public const uint32 NETSCAPE_SSL_SERVER_AUTH_CERT_TYPE = 64;
-
 	public const uint32 NETSCAPE_SMIME_CERT_TYPE = 32;
-
 	public const uint32 NETSCAPE_SIGN_CERT_TYPE = 16;
-
 	public const uint32 NETSCAPE_SSL_CA_CERT_TYPE = 4;
-
 	public const uint32 NETSCAPE_SMIME_CA_CERT_TYPE = 2;
-
 	public const uint32 NETSCAPE_SIGN_CA_CERT_TYPE = 1;
-
 	public const uint32 CMC_TAGGED_CERT_REQUEST_CHOICE = 1;
-
 	public const uint32 CMC_OTHER_INFO_NO_CHOICE = 0;
-
 	public const uint32 CMC_OTHER_INFO_FAIL_CHOICE = 1;
-
 	public const uint32 CMC_OTHER_INFO_PEND_CHOICE = 2;
-
 	public const uint32 CMC_STATUS_SUCCESS = 0;
-
 	public const uint32 CMC_STATUS_FAILED = 2;
-
 	public const uint32 CMC_STATUS_PENDING = 3;
-
 	public const uint32 CMC_STATUS_NO_SUPPORT = 4;
-
 	public const uint32 CMC_STATUS_CONFIRM_REQUIRED = 5;
-
 	public const uint32 CMC_FAIL_BAD_ALG = 0;
-
 	public const uint32 CMC_FAIL_BAD_MESSAGE_CHECK = 1;
-
 	public const uint32 CMC_FAIL_BAD_REQUEST = 2;
-
 	public const uint32 CMC_FAIL_BAD_TIME = 3;
-
 	public const uint32 CMC_FAIL_BAD_CERT_ID = 4;
-
 	public const uint32 CMC_FAIL_UNSUPORTED_EXT = 5;
-
 	public const uint32 CMC_FAIL_MUST_ARCHIVE_KEYS = 6;
-
 	public const uint32 CMC_FAIL_BAD_IDENTITY = 7;
-
 	public const uint32 CMC_FAIL_POP_REQUIRED = 8;
-
 	public const uint32 CMC_FAIL_POP_FAILED = 9;
-
 	public const uint32 CMC_FAIL_NO_KEY_REUSE = 10;
-
 	public const uint32 CMC_FAIL_INTERNAL_CA_ERROR = 11;
-
 	public const uint32 CMC_FAIL_TRY_LATER = 12;
-
 	public const uint32 CERT_BIOMETRIC_PICTURE_TYPE = 0;
-
 	public const uint32 CERT_BIOMETRIC_SIGNATURE_TYPE = 1;
-
 	public const uint32 OCSP_REQUEST_V1 = 0;
-
 	public const uint32 OCSP_SUCCESSFUL_RESPONSE = 0;
-
 	public const uint32 OCSP_MALFORMED_REQUEST_RESPONSE = 1;
-
 	public const uint32 OCSP_INTERNAL_ERROR_RESPONSE = 2;
-
 	public const uint32 OCSP_TRY_LATER_RESPONSE = 3;
-
 	public const uint32 OCSP_SIG_REQUIRED_RESPONSE = 5;
-
 	public const uint32 OCSP_UNAUTHORIZED_RESPONSE = 6;
-
 	public const uint32 OCSP_BASIC_GOOD_CERT_STATUS = 0;
-
 	public const uint32 OCSP_BASIC_REVOKED_CERT_STATUS = 1;
-
 	public const uint32 OCSP_BASIC_UNKNOWN_CERT_STATUS = 2;
-
 	public const uint32 OCSP_BASIC_RESPONSE_V1 = 0;
-
 	public const uint32 OCSP_BASIC_BY_NAME_RESPONDER_ID = 1;
-
 	public const uint32 OCSP_BASIC_BY_KEY_RESPONDER_ID = 2;
-
 	public const uint32 CRYPT_INSTALL_OID_FUNC_BEFORE_FLAG = 1;
-
 	public const uint32 CRYPT_GET_INSTALLED_OID_FUNC_FLAG = 1;
-
 	public const uint32 CRYPT_REGISTER_FIRST_INDEX = 0;
-
 	public const uint32 CRYPT_REGISTER_LAST_INDEX = 4294967295;
-
 	public const uint32 CRYPT_MATCH_ANY_ENCODING_TYPE = 4294967295;
-
 	public const uint32 CALG_OID_INFO_CNG_ONLY = 4294967295;
-
 	public const uint32 CALG_OID_INFO_PARAMETERS = 4294967294;
-
 	public const uint32 CRYPT_HASH_ALG_OID_GROUP_ID = 1;
-
 	public const uint32 CRYPT_ENCRYPT_ALG_OID_GROUP_ID = 2;
-
 	public const uint32 CRYPT_PUBKEY_ALG_OID_GROUP_ID = 3;
-
 	public const uint32 CRYPT_SIGN_ALG_OID_GROUP_ID = 4;
-
 	public const uint32 CRYPT_RDN_ATTR_OID_GROUP_ID = 5;
-
 	public const uint32 CRYPT_EXT_OR_ATTR_OID_GROUP_ID = 6;
-
 	public const uint32 CRYPT_ENHKEY_USAGE_OID_GROUP_ID = 7;
-
 	public const uint32 CRYPT_POLICY_OID_GROUP_ID = 8;
-
 	public const uint32 CRYPT_TEMPLATE_OID_GROUP_ID = 9;
-
 	public const uint32 CRYPT_KDF_OID_GROUP_ID = 10;
-
 	public const uint32 CRYPT_LAST_OID_GROUP_ID = 10;
-
 	public const uint32 CRYPT_FIRST_ALG_OID_GROUP_ID = 1;
-
 	public const uint32 CRYPT_LAST_ALG_OID_GROUP_ID = 4;
-
 	public const uint32 CRYPT_OID_INHIBIT_SIGNATURE_FORMAT_FLAG = 1;
-
 	public const uint32 CRYPT_OID_USE_PUBKEY_PARA_FOR_PKCS7_FLAG = 2;
-
 	public const uint32 CRYPT_OID_NO_NULL_ALGORITHM_PARA_FLAG = 4;
-
 	public const uint32 CRYPT_OID_PUBKEY_SIGN_ONLY_FLAG = 2147483648;
-
 	public const uint32 CRYPT_OID_PUBKEY_ENCRYPT_ONLY_FLAG = 1073741824;
-
 	public const uint32 CRYPT_OID_USE_CURVE_NAME_FOR_ENCODE_FLAG = 536870912;
-
 	public const uint32 CRYPT_OID_USE_CURVE_PARAMETERS_FOR_ENCODE_FLAG = 268435456;
-
 	public const uint32 CRYPT_OID_INFO_OID_KEY = 1;
-
 	public const uint32 CRYPT_OID_INFO_NAME_KEY = 2;
-
 	public const uint32 CRYPT_OID_INFO_ALGID_KEY = 3;
-
 	public const uint32 CRYPT_OID_INFO_SIGN_KEY = 4;
-
 	public const uint32 CRYPT_OID_INFO_CNG_ALGID_KEY = 5;
-
 	public const uint32 CRYPT_OID_INFO_CNG_SIGN_KEY = 6;
-
 	public const uint32 CRYPT_OID_INFO_OID_KEY_FLAGS_MASK = 4294901760;
-
 	public const uint32 CRYPT_OID_DISABLE_SEARCH_DS_FLAG = 2147483648;
-
 	public const uint32 CRYPT_OID_PREFER_CNG_ALGID_FLAG = 1073741824;
-
 	public const uint32 CRYPT_OID_INFO_OID_GROUP_BIT_LEN_MASK = 268369920;
-
 	public const uint32 CRYPT_OID_INFO_OID_GROUP_BIT_LEN_SHIFT = 16;
-
 	public const uint32 CRYPT_INSTALL_OID_INFO_BEFORE_FLAG = 1;
-
 	public const uint32 CRYPT_LOCALIZED_NAME_ENCODING_TYPE = 0;
-
 	public const uint32 CERT_STRONG_SIGN_SERIALIZED_INFO_CHOICE = 1;
-
 	public const uint32 CERT_STRONG_SIGN_OID_INFO_CHOICE = 2;
-
 	public const uint32 CMSG_ENCRYPTED = 6;
-
 	public const uint32 CMSG_MAIL_LIST_HANDLE_KEY_CHOICE = 1;
-
 	public const uint32 CMSG_KEY_TRANS_RECIPIENT = 1;
-
 	public const uint32 CMSG_KEY_AGREE_RECIPIENT = 2;
-
 	public const uint32 CMSG_MAIL_LIST_RECIPIENT = 3;
-
 	public const uint32 CMSG_SP3_COMPATIBLE_ENCRYPT_FLAG = 2147483648;
-
 	public const uint32 CMSG_RC4_NO_SALT_FLAG = 1073741824;
-
 	public const uint32 CMSG_INDEFINITE_LENGTH = 4294967295;
-
 	public const uint32 CMSG_BARE_CONTENT_FLAG = 1;
-
 	public const uint32 CMSG_LENGTH_ONLY_FLAG = 2;
-
 	public const uint32 CMSG_DETACHED_FLAG = 4;
-
 	public const uint32 CMSG_AUTHENTICATED_ATTRIBUTES_FLAG = 8;
-
 	public const uint32 CMSG_CONTENTS_OCTETS_FLAG = 16;
-
 	public const uint32 CMSG_MAX_LENGTH_FLAG = 32;
-
 	public const uint32 CMSG_CMS_ENCAPSULATED_CONTENT_FLAG = 64;
-
 	public const uint32 CMSG_SIGNED_DATA_NO_SIGN_FLAG = 128;
-
 	public const uint32 CMSG_CRYPT_RELEASE_CONTEXT_FLAG = 32768;
-
 	public const uint32 CMSG_TYPE_PARAM = 1;
-
 	public const uint32 CMSG_CONTENT_PARAM = 2;
-
 	public const uint32 CMSG_BARE_CONTENT_PARAM = 3;
-
 	public const uint32 CMSG_INNER_CONTENT_TYPE_PARAM = 4;
-
 	public const uint32 CMSG_SIGNER_COUNT_PARAM = 5;
-
 	public const uint32 CMSG_SIGNER_INFO_PARAM = 6;
-
 	public const uint32 CMSG_SIGNER_CERT_INFO_PARAM = 7;
-
 	public const uint32 CMSG_SIGNER_HASH_ALGORITHM_PARAM = 8;
-
 	public const uint32 CMSG_SIGNER_AUTH_ATTR_PARAM = 9;
-
 	public const uint32 CMSG_SIGNER_UNAUTH_ATTR_PARAM = 10;
-
 	public const uint32 CMSG_CERT_COUNT_PARAM = 11;
-
 	public const uint32 CMSG_CERT_PARAM = 12;
-
 	public const uint32 CMSG_CRL_COUNT_PARAM = 13;
-
 	public const uint32 CMSG_CRL_PARAM = 14;
-
 	public const uint32 CMSG_ENVELOPE_ALGORITHM_PARAM = 15;
-
 	public const uint32 CMSG_RECIPIENT_COUNT_PARAM = 17;
-
 	public const uint32 CMSG_RECIPIENT_INDEX_PARAM = 18;
-
 	public const uint32 CMSG_RECIPIENT_INFO_PARAM = 19;
-
 	public const uint32 CMSG_HASH_ALGORITHM_PARAM = 20;
-
 	public const uint32 CMSG_HASH_DATA_PARAM = 21;
-
 	public const uint32 CMSG_COMPUTED_HASH_PARAM = 22;
-
 	public const uint32 CMSG_ENCRYPT_PARAM = 26;
-
 	public const uint32 CMSG_ENCRYPTED_DIGEST = 27;
-
 	public const uint32 CMSG_ENCODED_SIGNER = 28;
-
 	public const uint32 CMSG_ENCODED_MESSAGE = 29;
-
 	public const uint32 CMSG_VERSION_PARAM = 30;
-
 	public const uint32 CMSG_ATTR_CERT_COUNT_PARAM = 31;
-
 	public const uint32 CMSG_ATTR_CERT_PARAM = 32;
-
 	public const uint32 CMSG_CMS_RECIPIENT_COUNT_PARAM = 33;
-
 	public const uint32 CMSG_CMS_RECIPIENT_INDEX_PARAM = 34;
-
 	public const uint32 CMSG_CMS_RECIPIENT_ENCRYPTED_KEY_INDEX_PARAM = 35;
-
 	public const uint32 CMSG_CMS_RECIPIENT_INFO_PARAM = 36;
-
 	public const uint32 CMSG_UNPROTECTED_ATTR_PARAM = 37;
-
 	public const uint32 CMSG_SIGNER_CERT_ID_PARAM = 38;
-
 	public const uint32 CMSG_CMS_SIGNER_INFO_PARAM = 39;
-
 	public const uint32 CMSG_SIGNED_DATA_V1 = 1;
-
 	public const uint32 CMSG_SIGNED_DATA_V3 = 3;
-
 	public const uint32 CMSG_SIGNED_DATA_PKCS_1_5_VERSION = 1;
-
 	public const uint32 CMSG_SIGNED_DATA_CMS_VERSION = 3;
-
 	public const uint32 CMSG_SIGNER_INFO_V1 = 1;
-
 	public const uint32 CMSG_SIGNER_INFO_V3 = 3;
-
 	public const uint32 CMSG_SIGNER_INFO_PKCS_1_5_VERSION = 1;
-
 	public const uint32 CMSG_SIGNER_INFO_CMS_VERSION = 3;
-
 	public const uint32 CMSG_HASHED_DATA_V0 = 0;
-
 	public const uint32 CMSG_HASHED_DATA_V2 = 2;
-
 	public const uint32 CMSG_HASHED_DATA_PKCS_1_5_VERSION = 0;
-
 	public const uint32 CMSG_HASHED_DATA_CMS_VERSION = 2;
-
 	public const uint32 CMSG_ENVELOPED_DATA_V0 = 0;
-
 	public const uint32 CMSG_ENVELOPED_DATA_V2 = 2;
-
 	public const uint32 CMSG_ENVELOPED_DATA_PKCS_1_5_VERSION = 0;
-
 	public const uint32 CMSG_ENVELOPED_DATA_CMS_VERSION = 2;
-
 	public const uint32 CMSG_ENVELOPED_RECIPIENT_V0 = 0;
-
 	public const uint32 CMSG_ENVELOPED_RECIPIENT_V2 = 2;
-
 	public const uint32 CMSG_ENVELOPED_RECIPIENT_V3 = 3;
-
 	public const uint32 CMSG_ENVELOPED_RECIPIENT_V4 = 4;
-
 	public const uint32 CMSG_KEY_TRANS_PKCS_1_5_VERSION = 0;
-
 	public const uint32 CMSG_KEY_TRANS_CMS_VERSION = 2;
-
 	public const uint32 CMSG_KEY_AGREE_VERSION = 3;
-
 	public const uint32 CMSG_MAIL_LIST_VERSION = 4;
-
 	public const uint32 CMSG_CTRL_VERIFY_SIGNATURE = 1;
-
 	public const uint32 CMSG_CTRL_DECRYPT = 2;
-
 	public const uint32 CMSG_CTRL_VERIFY_HASH = 5;
-
 	public const uint32 CMSG_CTRL_ADD_SIGNER = 6;
-
 	public const uint32 CMSG_CTRL_DEL_SIGNER = 7;
-
 	public const uint32 CMSG_CTRL_ADD_SIGNER_UNAUTH_ATTR = 8;
-
 	public const uint32 CMSG_CTRL_DEL_SIGNER_UNAUTH_ATTR = 9;
-
 	public const uint32 CMSG_CTRL_ADD_CERT = 10;
-
 	public const uint32 CMSG_CTRL_DEL_CERT = 11;
-
 	public const uint32 CMSG_CTRL_ADD_CRL = 12;
-
 	public const uint32 CMSG_CTRL_DEL_CRL = 13;
-
 	public const uint32 CMSG_CTRL_ADD_ATTR_CERT = 14;
-
 	public const uint32 CMSG_CTRL_DEL_ATTR_CERT = 15;
-
 	public const uint32 CMSG_CTRL_KEY_TRANS_DECRYPT = 16;
-
 	public const uint32 CMSG_CTRL_KEY_AGREE_DECRYPT = 17;
-
 	public const uint32 CMSG_CTRL_MAIL_LIST_DECRYPT = 18;
-
 	public const uint32 CMSG_CTRL_VERIFY_SIGNATURE_EX = 19;
-
 	public const uint32 CMSG_CTRL_ADD_CMS_SIGNER_INFO = 20;
-
 	public const uint32 CMSG_CTRL_ENABLE_STRONG_SIGNATURE = 21;
-
 	public const uint32 CMSG_VERIFY_SIGNER_PUBKEY = 1;
-
 	public const uint32 CMSG_VERIFY_SIGNER_CERT = 2;
-
 	public const uint32 CMSG_VERIFY_SIGNER_CHAIN = 3;
-
 	public const uint32 CMSG_VERIFY_SIGNER_NULL = 4;
-
 	public const uint32 CMSG_VERIFY_COUNTER_SIGN_ENABLE_STRONG_FLAG = 1;
-
 	public const uint32 CMSG_CONTENT_ENCRYPT_PAD_ENCODED_LEN_FLAG = 1;
-
 	public const uint32 CMSG_CONTENT_ENCRYPT_FREE_PARA_FLAG = 1;
-
 	public const uint32 CMSG_CONTENT_ENCRYPT_FREE_OBJID_FLAG = 2;
-
 	public const uint32 CMSG_CONTENT_ENCRYPT_RELEASE_CONTEXT_FLAG = 32768;
-
 	public const uint32 CMSG_KEY_TRANS_ENCRYPT_FREE_PARA_FLAG = 1;
-
 	public const uint32 CMSG_KEY_TRANS_ENCRYPT_FREE_OBJID_FLAG = 2;
-
 	public const uint32 CMSG_KEY_AGREE_ENCRYPT_FREE_PARA_FLAG = 1;
-
 	public const uint32 CMSG_KEY_AGREE_ENCRYPT_FREE_MATERIAL_FLAG = 2;
-
 	public const uint32 CMSG_KEY_AGREE_ENCRYPT_FREE_PUBKEY_ALG_FLAG = 4;
-
 	public const uint32 CMSG_KEY_AGREE_ENCRYPT_FREE_PUBKEY_PARA_FLAG = 8;
-
 	public const uint32 CMSG_KEY_AGREE_ENCRYPT_FREE_PUBKEY_BITS_FLAG = 16;
-
 	public const uint32 CMSG_KEY_AGREE_ENCRYPT_FREE_OBJID_FLAG = 32;
-
 	public const uint32 CMSG_MAIL_LIST_ENCRYPT_FREE_PARA_FLAG = 1;
-
 	public const uint32 CMSG_MAIL_LIST_ENCRYPT_FREE_OBJID_FLAG = 2;
-
 	public const uint32 CERT_KEY_PROV_HANDLE_PROP_ID = 1;
-
 	public const uint32 CERT_KEY_PROV_INFO_PROP_ID = 2;
-
 	public const uint32 CERT_SHA1_HASH_PROP_ID = 3;
-
 	public const uint32 CERT_MD5_HASH_PROP_ID = 4;
-
 	public const uint32 CERT_HASH_PROP_ID = 3;
-
 	public const uint32 CERT_KEY_CONTEXT_PROP_ID = 5;
-
 	public const uint32 CERT_KEY_SPEC_PROP_ID = 6;
-
 	public const uint32 CERT_IE30_RESERVED_PROP_ID = 7;
-
 	public const uint32 CERT_PUBKEY_HASH_RESERVED_PROP_ID = 8;
-
 	public const uint32 CERT_ENHKEY_USAGE_PROP_ID = 9;
-
 	public const uint32 CERT_CTL_USAGE_PROP_ID = 9;
-
 	public const uint32 CERT_NEXT_UPDATE_LOCATION_PROP_ID = 10;
-
 	public const uint32 CERT_FRIENDLY_NAME_PROP_ID = 11;
-
 	public const uint32 CERT_PVK_FILE_PROP_ID = 12;
-
 	public const uint32 CERT_DESCRIPTION_PROP_ID = 13;
-
 	public const uint32 CERT_ACCESS_STATE_PROP_ID = 14;
-
 	public const uint32 CERT_SIGNATURE_HASH_PROP_ID = 15;
-
 	public const uint32 CERT_SMART_CARD_DATA_PROP_ID = 16;
-
 	public const uint32 CERT_EFS_PROP_ID = 17;
-
 	public const uint32 CERT_FORTEZZA_DATA_PROP_ID = 18;
-
 	public const uint32 CERT_ARCHIVED_PROP_ID = 19;
-
 	public const uint32 CERT_KEY_IDENTIFIER_PROP_ID = 20;
-
 	public const uint32 CERT_AUTO_ENROLL_PROP_ID = 21;
-
 	public const uint32 CERT_PUBKEY_ALG_PARA_PROP_ID = 22;
-
 	public const uint32 CERT_CROSS_CERT_DIST_POINTS_PROP_ID = 23;
-
 	public const uint32 CERT_ISSUER_PUBLIC_KEY_MD5_HASH_PROP_ID = 24;
-
 	public const uint32 CERT_SUBJECT_PUBLIC_KEY_MD5_HASH_PROP_ID = 25;
-
 	public const uint32 CERT_ENROLLMENT_PROP_ID = 26;
-
 	public const uint32 CERT_DATE_STAMP_PROP_ID = 27;
-
 	public const uint32 CERT_ISSUER_SERIAL_NUMBER_MD5_HASH_PROP_ID = 28;
-
 	public const uint32 CERT_SUBJECT_NAME_MD5_HASH_PROP_ID = 29;
-
 	public const uint32 CERT_EXTENDED_ERROR_INFO_PROP_ID = 30;
-
 	public const uint32 CERT_RENEWAL_PROP_ID = 64;
-
 	public const uint32 CERT_ARCHIVED_KEY_HASH_PROP_ID = 65;
-
 	public const uint32 CERT_AUTO_ENROLL_RETRY_PROP_ID = 66;
-
 	public const uint32 CERT_AIA_URL_RETRIEVED_PROP_ID = 67;
-
 	public const uint32 CERT_AUTHORITY_INFO_ACCESS_PROP_ID = 68;
-
 	public const uint32 CERT_BACKED_UP_PROP_ID = 69;
-
 	public const uint32 CERT_OCSP_RESPONSE_PROP_ID = 70;
-
 	public const uint32 CERT_REQUEST_ORIGINATOR_PROP_ID = 71;
-
 	public const uint32 CERT_SOURCE_LOCATION_PROP_ID = 72;
-
 	public const uint32 CERT_SOURCE_URL_PROP_ID = 73;
-
 	public const uint32 CERT_NEW_KEY_PROP_ID = 74;
-
 	public const uint32 CERT_OCSP_CACHE_PREFIX_PROP_ID = 75;
-
 	public const uint32 CERT_SMART_CARD_ROOT_INFO_PROP_ID = 76;
-
 	public const uint32 CERT_NO_AUTO_EXPIRE_CHECK_PROP_ID = 77;
-
 	public const uint32 CERT_NCRYPT_KEY_HANDLE_PROP_ID = 78;
-
 	public const uint32 CERT_HCRYPTPROV_OR_NCRYPT_KEY_HANDLE_PROP_ID = 79;
-
 	public const uint32 CERT_SUBJECT_INFO_ACCESS_PROP_ID = 80;
-
 	public const uint32 CERT_CA_OCSP_AUTHORITY_INFO_ACCESS_PROP_ID = 81;
-
 	public const uint32 CERT_CA_DISABLE_CRL_PROP_ID = 82;
-
 	public const uint32 CERT_ROOT_PROGRAM_CERT_POLICIES_PROP_ID = 83;
-
 	public const uint32 CERT_ROOT_PROGRAM_NAME_CONSTRAINTS_PROP_ID = 84;
-
 	public const uint32 CERT_SUBJECT_OCSP_AUTHORITY_INFO_ACCESS_PROP_ID = 85;
-
 	public const uint32 CERT_SUBJECT_DISABLE_CRL_PROP_ID = 86;
-
 	public const uint32 CERT_CEP_PROP_ID = 87;
-
 	public const uint32 CERT_SIGN_HASH_CNG_ALG_PROP_ID = 89;
-
 	public const uint32 CERT_SCARD_PIN_ID_PROP_ID = 90;
-
 	public const uint32 CERT_SCARD_PIN_INFO_PROP_ID = 91;
-
 	public const uint32 CERT_SUBJECT_PUB_KEY_BIT_LENGTH_PROP_ID = 92;
-
 	public const uint32 CERT_PUB_KEY_CNG_ALG_BIT_LENGTH_PROP_ID = 93;
-
 	public const uint32 CERT_ISSUER_PUB_KEY_BIT_LENGTH_PROP_ID = 94;
-
 	public const uint32 CERT_ISSUER_CHAIN_SIGN_HASH_CNG_ALG_PROP_ID = 95;
-
 	public const uint32 CERT_ISSUER_CHAIN_PUB_KEY_CNG_ALG_BIT_LENGTH_PROP_ID = 96;
-
 	public const uint32 CERT_NO_EXPIRE_NOTIFICATION_PROP_ID = 97;
-
 	public const uint32 CERT_AUTH_ROOT_SHA256_HASH_PROP_ID = 98;
-
 	public const uint32 CERT_NCRYPT_KEY_HANDLE_TRANSFER_PROP_ID = 99;
-
 	public const uint32 CERT_HCRYPTPROV_TRANSFER_PROP_ID = 100;
-
 	public const uint32 CERT_SMART_CARD_READER_PROP_ID = 101;
-
 	public const uint32 CERT_SEND_AS_TRUSTED_ISSUER_PROP_ID = 102;
-
 	public const uint32 CERT_KEY_REPAIR_ATTEMPTED_PROP_ID = 103;
-
 	public const uint32 CERT_DISALLOWED_FILETIME_PROP_ID = 104;
-
 	public const uint32 CERT_ROOT_PROGRAM_CHAIN_POLICIES_PROP_ID = 105;
-
 	public const uint32 CERT_SMART_CARD_READER_NON_REMOVABLE_PROP_ID = 106;
-
 	public const uint32 CERT_SHA256_HASH_PROP_ID = 107;
-
 	public const uint32 CERT_SCEP_SERVER_CERTS_PROP_ID = 108;
-
 	public const uint32 CERT_SCEP_RA_SIGNATURE_CERT_PROP_ID = 109;
-
 	public const uint32 CERT_SCEP_RA_ENCRYPTION_CERT_PROP_ID = 110;
-
 	public const uint32 CERT_SCEP_CA_CERT_PROP_ID = 111;
-
 	public const uint32 CERT_SCEP_SIGNER_CERT_PROP_ID = 112;
-
 	public const uint32 CERT_SCEP_NONCE_PROP_ID = 113;
-
 	public const uint32 CERT_SCEP_ENCRYPT_HASH_CNG_ALG_PROP_ID = 114;
-
 	public const uint32 CERT_SCEP_FLAGS_PROP_ID = 115;
-
 	public const uint32 CERT_SCEP_GUID_PROP_ID = 116;
-
 	public const uint32 CERT_SERIALIZABLE_KEY_CONTEXT_PROP_ID = 117;
-
 	public const uint32 CERT_ISOLATED_KEY_PROP_ID = 118;
-
 	public const uint32 CERT_SERIAL_CHAIN_PROP_ID = 119;
-
 	public const uint32 CERT_KEY_CLASSIFICATION_PROP_ID = 120;
-
 	public const uint32 CERT_OCSP_MUST_STAPLE_PROP_ID = 121;
-
 	public const uint32 CERT_DISALLOWED_ENHKEY_USAGE_PROP_ID = 122;
-
 	public const uint32 CERT_NONCOMPLIANT_ROOT_URL_PROP_ID = 123;
-
 	public const uint32 CERT_PIN_SHA256_HASH_PROP_ID = 124;
-
 	public const uint32 CERT_CLR_DELETE_KEY_PROP_ID = 125;
-
 	public const uint32 CERT_NOT_BEFORE_FILETIME_PROP_ID = 126;
-
 	public const uint32 CERT_NOT_BEFORE_ENHKEY_USAGE_PROP_ID = 127;
-
 	public const uint32 CERT_FIRST_RESERVED_PROP_ID = 128;
-
 	public const uint32 CERT_LAST_RESERVED_PROP_ID = 32767;
-
 	public const uint32 CERT_FIRST_USER_PROP_ID = 32768;
-
 	public const uint32 CERT_LAST_USER_PROP_ID = 65535;
-
 	public const uint32 CERT_ACCESS_STATE_WRITE_PERSIST_FLAG = 1;
-
 	public const uint32 CERT_ACCESS_STATE_SYSTEM_STORE_FLAG = 2;
-
 	public const uint32 CERT_ACCESS_STATE_LM_SYSTEM_STORE_FLAG = 4;
-
 	public const uint32 CERT_ACCESS_STATE_GP_SYSTEM_STORE_FLAG = 8;
-
 	public const uint32 CERT_ACCESS_STATE_SHARED_USER_FLAG = 16;
-
 	public const uint32 CERT_STORE_SIGNATURE_FLAG = 1;
-
 	public const uint32 CERT_STORE_TIME_VALIDITY_FLAG = 2;
-
 	public const uint32 CERT_STORE_REVOCATION_FLAG = 4;
-
 	public const uint32 CERT_STORE_NO_CRL_FLAG = 65536;
-
 	public const uint32 CERT_STORE_NO_ISSUER_FLAG = 131072;
-
 	public const uint32 CERT_STORE_BASE_CRL_FLAG = 256;
-
 	public const uint32 CERT_STORE_DELTA_CRL_FLAG = 512;
-
 	public const uint32 CERT_STORE_UNSAFE_PHYSICAL_FLAG = 32;
-
 	public const uint32 CERT_STORE_SHARE_STORE_FLAG = 64;
-
 	public const uint32 CERT_STORE_MANIFOLD_FLAG = 256;
-
 	public const uint32 CERT_SYSTEM_STORE_MASK = 4294901760;
-
 	public const uint32 CERT_SYSTEM_STORE_UNPROTECTED_FLAG = 1073741824;
-
 	public const uint32 CERT_SYSTEM_STORE_DEFER_READ_FLAG = 536870912;
-
 	public const uint32 CERT_SYSTEM_STORE_LOCATION_SHIFT = 16;
-
 	public const uint32 CERT_SYSTEM_STORE_CURRENT_USER_ID = 1;
-
 	public const uint32 CERT_SYSTEM_STORE_LOCAL_MACHINE_ID = 2;
-
 	public const uint32 CERT_SYSTEM_STORE_CURRENT_SERVICE_ID = 4;
-
 	public const uint32 CERT_SYSTEM_STORE_SERVICES_ID = 5;
-
 	public const uint32 CERT_SYSTEM_STORE_USERS_ID = 6;
-
 	public const uint32 CERT_SYSTEM_STORE_CURRENT_USER_GROUP_POLICY_ID = 7;
-
 	public const uint32 CERT_SYSTEM_STORE_LOCAL_MACHINE_GROUP_POLICY_ID = 8;
-
 	public const uint32 CERT_SYSTEM_STORE_LOCAL_MACHINE_ENTERPRISE_ID = 9;
-
 	public const uint32 CERT_SYSTEM_STORE_LOCAL_MACHINE_WCOS_ID = 10;
-
 	public const uint32 CERT_PROT_ROOT_DISABLE_CURRENT_USER_FLAG = 1;
-
 	public const uint32 CERT_PROT_ROOT_INHIBIT_ADD_AT_INIT_FLAG = 2;
-
 	public const uint32 CERT_PROT_ROOT_INHIBIT_PURGE_LM_FLAG = 4;
-
 	public const uint32 CERT_PROT_ROOT_DISABLE_LM_AUTH_FLAG = 8;
-
 	public const uint32 CERT_PROT_ROOT_ONLY_LM_GPT_FLAG = 8;
-
 	public const uint32 CERT_PROT_ROOT_DISABLE_NT_AUTH_REQUIRED_FLAG = 16;
-
 	public const uint32 CERT_PROT_ROOT_DISABLE_NOT_DEFINED_NAME_CONSTRAINT_FLAG = 32;
-
 	public const uint32 CERT_PROT_ROOT_DISABLE_PEER_TRUST = 65536;
-
 	public const uint32 CERT_TRUST_PUB_ALLOW_TRUST_MASK = 3;
-
 	public const uint32 CERT_TRUST_PUB_ALLOW_END_USER_TRUST = 0;
-
 	public const uint32 CERT_TRUST_PUB_ALLOW_MACHINE_ADMIN_TRUST = 1;
-
 	public const uint32 CERT_TRUST_PUB_ALLOW_ENTERPRISE_ADMIN_TRUST = 2;
-
 	public const uint32 CERT_TRUST_PUB_CHECK_PUBLISHER_REV_FLAG = 256;
-
 	public const uint32 CERT_TRUST_PUB_CHECK_TIMESTAMP_REV_FLAG = 512;
-
 	public const uint32 CERT_AUTH_ROOT_AUTO_UPDATE_DISABLE_UNTRUSTED_ROOT_LOGGING_FLAG = 1;
-
 	public const uint32 CERT_AUTH_ROOT_AUTO_UPDATE_DISABLE_PARTIAL_CHAIN_LOGGING_FLAG = 2;
-
 	public const uint32 CERT_AUTO_UPDATE_DISABLE_RANDOM_QUERY_STRING_FLAG = 4;
-
 	public const uint32 CERT_REGISTRY_STORE_REMOTE_FLAG = 65536;
-
 	public const uint32 CERT_REGISTRY_STORE_SERIALIZED_FLAG = 131072;
-
 	public const uint32 CERT_REGISTRY_STORE_CLIENT_GPT_FLAG = 2147483648;
-
 	public const uint32 CERT_REGISTRY_STORE_LM_GPT_FLAG = 16777216;
-
 	public const uint32 CERT_REGISTRY_STORE_ROAMING_FLAG = 262144;
-
 	public const uint32 CERT_REGISTRY_STORE_MY_IE_DIRTY_FLAG = 524288;
-
 	public const uint32 CERT_REGISTRY_STORE_EXTERNAL_FLAG = 1048576;
-
 	public const uint32 CERT_FILE_STORE_COMMIT_ENABLE_FLAG = 65536;
-
 	public const uint32 CERT_LDAP_STORE_SIGN_FLAG = 65536;
-
 	public const uint32 CERT_LDAP_STORE_AREC_EXCLUSIVE_FLAG = 131072;
-
 	public const uint32 CERT_LDAP_STORE_OPENED_FLAG = 262144;
-
 	public const uint32 CERT_LDAP_STORE_UNBIND_FLAG = 524288;
-
 	public const uint32 CERT_STORE_PROV_GP_SYSTEM_STORE_FLAG = 32;
-
 	public const uint32 CERT_STORE_PROV_SHARED_USER_FLAG = 64;
-
 	public const uint32 CERT_STORE_PROV_CLOSE_FUNC = 0;
-
 	public const uint32 CERT_STORE_PROV_READ_CERT_FUNC = 1;
-
 	public const uint32 CERT_STORE_PROV_WRITE_CERT_FUNC = 2;
-
 	public const uint32 CERT_STORE_PROV_DELETE_CERT_FUNC = 3;
-
 	public const uint32 CERT_STORE_PROV_SET_CERT_PROPERTY_FUNC = 4;
-
 	public const uint32 CERT_STORE_PROV_READ_CRL_FUNC = 5;
-
 	public const uint32 CERT_STORE_PROV_WRITE_CRL_FUNC = 6;
-
 	public const uint32 CERT_STORE_PROV_DELETE_CRL_FUNC = 7;
-
 	public const uint32 CERT_STORE_PROV_SET_CRL_PROPERTY_FUNC = 8;
-
 	public const uint32 CERT_STORE_PROV_READ_CTL_FUNC = 9;
-
 	public const uint32 CERT_STORE_PROV_WRITE_CTL_FUNC = 10;
-
 	public const uint32 CERT_STORE_PROV_DELETE_CTL_FUNC = 11;
-
 	public const uint32 CERT_STORE_PROV_SET_CTL_PROPERTY_FUNC = 12;
-
 	public const uint32 CERT_STORE_PROV_CONTROL_FUNC = 13;
-
 	public const uint32 CERT_STORE_PROV_FIND_CERT_FUNC = 14;
-
 	public const uint32 CERT_STORE_PROV_FREE_FIND_CERT_FUNC = 15;
-
 	public const uint32 CERT_STORE_PROV_GET_CERT_PROPERTY_FUNC = 16;
-
 	public const uint32 CERT_STORE_PROV_FIND_CRL_FUNC = 17;
-
 	public const uint32 CERT_STORE_PROV_FREE_FIND_CRL_FUNC = 18;
-
 	public const uint32 CERT_STORE_PROV_GET_CRL_PROPERTY_FUNC = 19;
-
 	public const uint32 CERT_STORE_PROV_FIND_CTL_FUNC = 20;
-
 	public const uint32 CERT_STORE_PROV_FREE_FIND_CTL_FUNC = 21;
-
 	public const uint32 CERT_STORE_PROV_GET_CTL_PROPERTY_FUNC = 22;
-
 	public const uint32 CERT_STORE_PROV_WRITE_ADD_FLAG = 1;
-
 	public const uint32 CERT_STORE_SAVE_AS_PKCS12 = 3;
-
 	public const uint32 CERT_CLOSE_STORE_FORCE_FLAG = 1;
-
 	public const uint32 CERT_CLOSE_STORE_CHECK_FLAG = 2;
-
 	public const uint32 CERT_COMPARE_MASK = 65535;
-
 	public const uint32 CERT_COMPARE_ANY = 0;
-
 	public const uint32 CERT_COMPARE_SHA1_HASH = 1;
-
 	public const uint32 CERT_COMPARE_NAME = 2;
-
 	public const uint32 CERT_COMPARE_ATTR = 3;
-
 	public const uint32 CERT_COMPARE_MD5_HASH = 4;
-
 	public const uint32 CERT_COMPARE_PROPERTY = 5;
-
 	public const uint32 CERT_COMPARE_PUBLIC_KEY = 6;
-
 	public const uint32 CERT_COMPARE_HASH = 1;
-
 	public const uint32 CERT_COMPARE_NAME_STR_A = 7;
-
 	public const uint32 CERT_COMPARE_NAME_STR_W = 8;
-
 	public const uint32 CERT_COMPARE_KEY_SPEC = 9;
-
 	public const uint32 CERT_COMPARE_ENHKEY_USAGE = 10;
-
 	public const uint32 CERT_COMPARE_CTL_USAGE = 10;
-
 	public const uint32 CERT_COMPARE_SUBJECT_CERT = 11;
-
 	public const uint32 CERT_COMPARE_ISSUER_OF = 12;
-
 	public const uint32 CERT_COMPARE_EXISTING = 13;
-
 	public const uint32 CERT_COMPARE_SIGNATURE_HASH = 14;
-
 	public const uint32 CERT_COMPARE_KEY_IDENTIFIER = 15;
-
 	public const uint32 CERT_COMPARE_CERT_ID = 16;
-
 	public const uint32 CERT_COMPARE_CROSS_CERT_DIST_POINTS = 17;
-
 	public const uint32 CERT_COMPARE_PUBKEY_MD5_HASH = 18;
-
 	public const uint32 CERT_COMPARE_SUBJECT_INFO_ACCESS = 19;
-
 	public const uint32 CERT_COMPARE_HASH_STR = 20;
-
 	public const uint32 CERT_COMPARE_HAS_PRIVATE_KEY = 21;
-
 	public const uint32 CERT_SET_PROPERTY_IGNORE_PERSIST_ERROR_FLAG = 2147483648;
-
 	public const uint32 CERT_SET_PROPERTY_INHIBIT_PERSIST_FLAG = 1073741824;
-
 	public const uint32 CTL_ENTRY_FROM_PROP_CHAIN_FLAG = 1;
-
 	public const uint32 CRL_FIND_ANY = 0;
-
 	public const uint32 CRL_FIND_ISSUED_BY = 1;
-
 	public const uint32 CRL_FIND_EXISTING = 2;
-
 	public const uint32 CRL_FIND_ISSUED_FOR = 3;
-
 	public const uint32 CRL_FIND_ISSUED_BY_AKI_FLAG = 1;
-
 	public const uint32 CRL_FIND_ISSUED_BY_SIGNATURE_FLAG = 2;
-
 	public const uint32 CRL_FIND_ISSUED_BY_DELTA_FLAG = 4;
-
 	public const uint32 CRL_FIND_ISSUED_BY_BASE_FLAG = 8;
-
 	public const uint32 CRL_FIND_ISSUED_FOR_SET_STRONG_PROPERTIES_FLAG = 16;
-
 	public const uint32 CERT_STORE_ADD_NEW = 1;
-
 	public const uint32 CERT_STORE_ADD_USE_EXISTING = 2;
-
 	public const uint32 CERT_STORE_ADD_REPLACE_EXISTING = 3;
-
 	public const uint32 CERT_STORE_ADD_ALWAYS = 4;
-
 	public const uint32 CERT_STORE_ADD_REPLACE_EXISTING_INHERIT_PROPERTIES = 5;
-
 	public const uint32 CERT_STORE_ADD_NEWER = 6;
-
 	public const uint32 CERT_STORE_ADD_NEWER_INHERIT_PROPERTIES = 7;
-
 	public const uint32 CERT_STORE_CERTIFICATE_CONTEXT = 1;
-
 	public const uint32 CERT_STORE_CRL_CONTEXT = 2;
-
 	public const uint32 CERT_STORE_CTL_CONTEXT = 3;
-
 	public const uint32 CTL_ANY_SUBJECT_TYPE = 1;
-
 	public const uint32 CTL_CERT_SUBJECT_TYPE = 2;
-
 	public const uint32 CTL_FIND_NO_LIST_ID_CBDATA = 4294967295;
-
 	public const uint32 CERT_STORE_CTRL_RESYNC = 1;
-
 	public const uint32 CERT_STORE_CTRL_NOTIFY_CHANGE = 2;
-
 	public const uint32 CERT_STORE_CTRL_COMMIT = 3;
-
 	public const uint32 CERT_STORE_CTRL_AUTO_RESYNC = 4;
-
 	public const uint32 CERT_STORE_CTRL_CANCEL_NOTIFY = 5;
-
 	public const uint32 CERT_STORE_LOCALIZED_NAME_PROP_ID = 4096;
-
 	public const uint32 CERT_CREATE_CONTEXT_NOCOPY_FLAG = 1;
-
 	public const uint32 CERT_CREATE_CONTEXT_SORTED_FLAG = 2;
-
 	public const uint32 CERT_CREATE_CONTEXT_NO_HCRYPTMSG_FLAG = 4;
-
 	public const uint32 CERT_CREATE_CONTEXT_NO_ENTRY_FLAG = 8;
-
 	public const uint32 CERT_PHYSICAL_STORE_ADD_ENABLE_FLAG = 1;
-
 	public const uint32 CERT_PHYSICAL_STORE_OPEN_DISABLE_FLAG = 2;
-
 	public const uint32 CERT_PHYSICAL_STORE_REMOTE_OPEN_DISABLE_FLAG = 4;
-
 	public const uint32 CERT_PHYSICAL_STORE_INSERT_COMPUTER_NAME_ENABLE_FLAG = 8;
-
 	public const uint32 CERT_PHYSICAL_STORE_PREDEFINED_ENUM_FLAG = 1;
-
 	public const uint32 CMSG_TRUSTED_SIGNER_FLAG = 1;
-
 	public const uint32 CMSG_SIGNER_ONLY_FLAG = 2;
-
 	public const uint32 CMSG_USE_SIGNER_INDEX_FLAG = 4;
-
 	public const uint32 CMSG_CMS_ENCAPSULATED_CTL_FLAG = 32768;
-
 	public const uint32 CMSG_ENCODE_SORTED_CTL_FLAG = 1;
-
 	public const uint32 CMSG_ENCODE_HASHED_SUBJECT_IDENTIFIER_FLAG = 2;
-
 	public const uint32 CERT_VERIFY_INHIBIT_CTL_UPDATE_FLAG = 1;
-
 	public const uint32 CERT_VERIFY_TRUSTED_SIGNERS_FLAG = 2;
-
 	public const uint32 CERT_VERIFY_NO_TIME_CHECK_FLAG = 4;
-
 	public const uint32 CERT_VERIFY_ALLOW_MORE_USAGE_FLAG = 8;
-
 	public const uint32 CERT_VERIFY_UPDATED_CTL_FLAG = 1;
-
 	public const uint32 CERT_CONTEXT_REVOCATION_TYPE = 1;
-
 	public const uint32 CERT_VERIFY_REV_CHAIN_FLAG = 1;
-
 	public const uint32 CERT_VERIFY_CACHE_ONLY_BASED_REVOCATION = 2;
-
 	public const uint32 CERT_VERIFY_REV_ACCUMULATIVE_TIMEOUT_FLAG = 4;
-
 	public const uint32 CERT_VERIFY_REV_SERVER_OCSP_FLAG = 8;
-
 	public const uint32 CERT_VERIFY_REV_NO_OCSP_FAILOVER_TO_CRL_FLAG = 16;
-
 	public const uint32 CERT_VERIFY_REV_SERVER_OCSP_WIRE_ONLY_FLAG = 32;
-
 	public const uint32 CERT_UNICODE_IS_RDN_ATTRS_FLAG = 1;
-
 	public const uint32 CERT_CASE_INSENSITIVE_IS_RDN_ATTRS_FLAG = 2;
-
 	public const uint32 CRYPT_VERIFY_CERT_SIGN_SUBJECT_BLOB = 1;
-
 	public const uint32 CRYPT_VERIFY_CERT_SIGN_SUBJECT_CERT = 2;
-
 	public const uint32 CRYPT_VERIFY_CERT_SIGN_SUBJECT_CRL = 3;
-
 	public const uint32 CRYPT_VERIFY_CERT_SIGN_SUBJECT_OCSP_BASIC_SIGNED_RESPONSE = 4;
-
 	public const uint32 CRYPT_VERIFY_CERT_SIGN_ISSUER_PUBKEY = 1;
-
 	public const uint32 CRYPT_VERIFY_CERT_SIGN_ISSUER_CERT = 2;
-
 	public const uint32 CRYPT_VERIFY_CERT_SIGN_ISSUER_CHAIN = 3;
-
 	public const uint32 CRYPT_VERIFY_CERT_SIGN_ISSUER_NULL = 4;
-
 	public const uint32 CRYPT_VERIFY_CERT_SIGN_CHECK_WEAK_HASH_FLAG = 8;
-
 	public const uint32 CRYPT_ACQUIRE_WINDOW_HANDLE_FLAG = 128;
-
 	public const uint32 CRYPT_ACQUIRE_NCRYPT_KEY_FLAGS_MASK = 458752;
-
 	public const uint32 CRYPT_ACQUIRE_ALLOW_NCRYPT_KEY_FLAG = 65536;
-
 	public const uint32 CRYPT_ACQUIRE_PREFER_NCRYPT_KEY_FLAG = 131072;
-
 	public const uint32 CRYPT_ACQUIRE_ONLY_NCRYPT_KEY_FLAG = 262144;
-
 	public const uint32 CRYPT_DELETE_KEYSET = 16;
-
 	public const uint32 CERT_XML_NAME_STR = 4;
-
 	public const uint32 CERT_NAME_STR_SEMICOLON_FLAG = 1073741824;
-
 	public const uint32 CERT_NAME_STR_NO_PLUS_FLAG = 536870912;
-
 	public const uint32 CERT_NAME_STR_NO_QUOTING_FLAG = 268435456;
-
 	public const uint32 CERT_NAME_STR_CRLF_FLAG = 134217728;
-
 	public const uint32 CERT_NAME_STR_COMMA_FLAG = 67108864;
-
 	public const uint32 CERT_NAME_STR_REVERSE_FLAG = 33554432;
-
 	public const uint32 CERT_NAME_STR_FORWARD_FLAG = 16777216;
-
 	public const uint32 CERT_NAME_STR_DISABLE_IE4_UTF8_FLAG = 65536;
-
 	public const uint32 CERT_NAME_STR_ENABLE_T61_UNICODE_FLAG = 131072;
-
 	public const uint32 CERT_NAME_STR_ENABLE_UTF8_UNICODE_FLAG = 262144;
-
 	public const uint32 CERT_NAME_STR_FORCE_UTF8_DIR_STR_FLAG = 524288;
-
 	public const uint32 CERT_NAME_STR_DISABLE_UTF8_DIR_STR_FLAG = 1048576;
-
 	public const uint32 CERT_NAME_STR_ENABLE_PUNYCODE_FLAG = 2097152;
-
 	public const uint32 CERT_NAME_EMAIL_TYPE = 1;
-
 	public const uint32 CERT_NAME_RDN_TYPE = 2;
-
 	public const uint32 CERT_NAME_ATTR_TYPE = 3;
-
 	public const uint32 CERT_NAME_SIMPLE_DISPLAY_TYPE = 4;
-
 	public const uint32 CERT_NAME_FRIENDLY_DISPLAY_TYPE = 5;
-
 	public const uint32 CERT_NAME_DNS_TYPE = 6;
-
 	public const uint32 CERT_NAME_URL_TYPE = 7;
-
 	public const uint32 CERT_NAME_UPN_TYPE = 8;
-
 	public const uint32 CERT_NAME_ISSUER_FLAG = 1;
-
 	public const uint32 CERT_NAME_DISABLE_IE4_UTF8_FLAG = 65536;
-
 	public const uint32 CERT_NAME_SEARCH_ALL_NAMES_FLAG = 2;
-
 	public const uint32 CRYPT_MESSAGE_BARE_CONTENT_OUT_FLAG = 1;
-
 	public const uint32 CRYPT_MESSAGE_ENCAPSULATED_CONTENT_OUT_FLAG = 2;
-
 	public const uint32 CRYPT_MESSAGE_KEYID_SIGNER_FLAG = 4;
-
 	public const uint32 CRYPT_MESSAGE_SILENT_KEYSET_FLAG = 64;
-
 	public const uint32 CRYPT_MESSAGE_KEYID_RECIPIENT_FLAG = 4;
-
 	public const uint32 CRYPT_RETRIEVE_MULTIPLE_OBJECTS = 1;
-
 	public const uint32 CRYPT_CACHE_ONLY_RETRIEVAL = 2;
-
 	public const uint32 CRYPT_WIRE_ONLY_RETRIEVAL = 4;
-
 	public const uint32 CRYPT_DONT_CACHE_RESULT = 8;
-
 	public const uint32 CRYPT_ASYNC_RETRIEVAL = 16;
-
 	public const uint32 CRYPT_STICKY_CACHE_RETRIEVAL = 4096;
-
 	public const uint32 CRYPT_LDAP_SCOPE_BASE_ONLY_RETRIEVAL = 8192;
-
 	public const uint32 CRYPT_OFFLINE_CHECK_RETRIEVAL = 16384;
-
 	public const uint32 CRYPT_LDAP_INSERT_ENTRY_ATTRIBUTE = 32768;
-
 	public const uint32 CRYPT_LDAP_SIGN_RETRIEVAL = 65536;
-
 	public const uint32 CRYPT_NO_AUTH_RETRIEVAL = 131072;
-
 	public const uint32 CRYPT_LDAP_AREC_EXCLUSIVE_RETRIEVAL = 262144;
-
 	public const uint32 CRYPT_AIA_RETRIEVAL = 524288;
-
 	public const uint32 CRYPT_HTTP_POST_RETRIEVAL = 1048576;
-
 	public const uint32 CRYPT_PROXY_CACHE_RETRIEVAL = 2097152;
-
 	public const uint32 CRYPT_NOT_MODIFIED_RETRIEVAL = 4194304;
-
 	public const uint32 CRYPT_ENABLE_SSL_REVOCATION_RETRIEVAL = 8388608;
-
 	public const uint32 CRYPT_RANDOM_QUERY_STRING_RETRIEVAL = 67108864;
-
 	public const uint32 CRYPT_ENABLE_FILE_RETRIEVAL = 134217728;
-
 	public const uint32 CRYPT_CREATE_NEW_FLUSH_ENTRY = 268435456;
-
 	public const uint32 CRYPT_VERIFY_CONTEXT_SIGNATURE = 32;
-
 	public const uint32 CRYPT_VERIFY_DATA_HASH = 64;
-
 	public const uint32 CRYPT_KEEP_TIME_VALID = 128;
-
 	public const uint32 CRYPT_DONT_VERIFY_SIGNATURE = 256;
-
 	public const uint32 CRYPT_DONT_CHECK_TIME_VALIDITY = 512;
-
 	public const uint32 CRYPT_CHECK_FRESHNESS_TIME_VALIDITY = 1024;
-
 	public const uint32 CRYPT_ACCUMULATIVE_TIMEOUT = 2048;
-
 	public const uint32 CRYPT_OCSP_ONLY_RETRIEVAL = 16777216;
-
 	public const uint32 CRYPT_NO_OCSP_FAILOVER_TO_CRL_RETRIEVAL = 33554432;
-
 	public const uint32 CRYPTNET_URL_CACHE_PRE_FETCH_NONE = 0;
-
 	public const uint32 CRYPTNET_URL_CACHE_PRE_FETCH_BLOB = 1;
-
 	public const uint32 CRYPTNET_URL_CACHE_PRE_FETCH_CRL = 2;
-
 	public const uint32 CRYPTNET_URL_CACHE_PRE_FETCH_OCSP = 3;
-
 	public const uint32 CRYPTNET_URL_CACHE_PRE_FETCH_AUTOROOT_CAB = 5;
-
 	public const uint32 CRYPTNET_URL_CACHE_PRE_FETCH_DISALLOWED_CERT_CAB = 6;
-
 	public const uint32 CRYPTNET_URL_CACHE_PRE_FETCH_PIN_RULES_CAB = 7;
-
 	public const uint32 CRYPTNET_URL_CACHE_DEFAULT_FLUSH = 0;
-
 	public const uint32 CRYPTNET_URL_CACHE_DISABLE_FLUSH = 4294967295;
-
 	public const uint32 CRYPTNET_URL_CACHE_RESPONSE_NONE = 0;
-
 	public const uint32 CRYPTNET_URL_CACHE_RESPONSE_HTTP = 1;
-
 	public const uint32 CRYPTNET_URL_CACHE_RESPONSE_VALIDATED = 32768;
-
 	public const uint32 CRYPT_RETRIEVE_MAX_ERROR_CONTENT_LENGTH = 4096;
-
 	public const uint32 CRYPT_KEYID_MACHINE_FLAG = 32;
-
 	public const uint32 CRYPT_KEYID_ALLOC_FLAG = 32768;
-
 	public const uint32 CRYPT_KEYID_DELETE_FLAG = 16;
-
 	public const uint32 CRYPT_KEYID_SET_NEW_FLAG = 8192;
-
 	public const uint32 CERT_CHAIN_MAX_AIA_URL_COUNT_IN_CERT_DEFAULT = 5;
-
 	public const uint32 CERT_CHAIN_MAX_AIA_URL_RETRIEVAL_COUNT_PER_CHAIN_DEFAULT = 3;
-
 	public const uint32 CERT_CHAIN_MAX_AIA_URL_RETRIEVAL_BYTE_COUNT_DEFAULT = 100000;
-
 	public const uint32 CERT_CHAIN_MAX_AIA_URL_RETRIEVAL_CERT_COUNT_DEFAULT = 10;
-
 	public const uint32 CERT_CHAIN_MAX_SSL_TIME_UPDATED_EVENT_COUNT_DEFAULT = 5;
-
 	public const uint32 CERT_CHAIN_MAX_SSL_TIME_UPDATED_EVENT_COUNT_DISABLE = 4294967295;
-
 	public const uint32 CERT_CHAIN_ENABLE_MD2_MD4_FLAG = 1;
-
 	public const uint32 CERT_CHAIN_ENABLE_WEAK_RSA_ROOT_FLAG = 2;
-
 	public const uint32 CERT_CHAIN_ENABLE_WEAK_LOGGING_FLAG = 4;
-
 	public const uint32 CERT_CHAIN_ENABLE_ONLY_WEAK_LOGGING_FLAG = 8;
-
 	public const uint32 CERT_CHAIN_MIN_RSA_PUB_KEY_BIT_LENGTH_DEFAULT = 1023;
-
 	public const uint32 CERT_CHAIN_MIN_RSA_PUB_KEY_BIT_LENGTH_DISABLE = 4294967295;
-
 	public const uint32 CERT_CHAIN_MIN_PUB_KEY_BIT_LENGTH_DISABLE = 4294967295;
-
 	public const uint32 CERT_CHAIN_ENABLE_WEAK_SETTINGS_FLAG = 2147483648;
-
 	public const uint32 CERT_CHAIN_DISABLE_ECC_PARA_FLAG = 16;
-
 	public const uint32 CERT_CHAIN_DISABLE_ALL_EKU_WEAK_FLAG = 65536;
-
 	public const uint32 CERT_CHAIN_ENABLE_ALL_EKU_HYGIENE_FLAG = 131072;
-
 	public const uint32 CERT_CHAIN_DISABLE_OPT_IN_SERVER_AUTH_WEAK_FLAG = 262144;
-
 	public const uint32 CERT_CHAIN_DISABLE_SERVER_AUTH_WEAK_FLAG = 1048576;
-
 	public const uint32 CERT_CHAIN_ENABLE_SERVER_AUTH_HYGIENE_FLAG = 2097152;
-
 	public const uint32 CERT_CHAIN_DISABLE_CODE_SIGNING_WEAK_FLAG = 4194304;
-
 	public const uint32 CERT_CHAIN_DISABLE_MOTW_CODE_SIGNING_WEAK_FLAG = 8388608;
-
 	public const uint32 CERT_CHAIN_ENABLE_CODE_SIGNING_HYGIENE_FLAG = 16777216;
-
 	public const uint32 CERT_CHAIN_ENABLE_MOTW_CODE_SIGNING_HYGIENE_FLAG = 33554432;
-
 	public const uint32 CERT_CHAIN_DISABLE_TIMESTAMP_WEAK_FLAG = 67108864;
-
 	public const uint32 CERT_CHAIN_DISABLE_MOTW_TIMESTAMP_WEAK_FLAG = 134217728;
-
 	public const uint32 CERT_CHAIN_ENABLE_TIMESTAMP_HYGIENE_FLAG = 268435456;
-
 	public const uint32 CERT_CHAIN_ENABLE_MOTW_TIMESTAMP_HYGIENE_FLAG = 536870912;
-
 	public const uint32 CERT_CHAIN_MOTW_IGNORE_AFTER_TIME_WEAK_FLAG = 1073741824;
-
 	public const uint32 CERT_CHAIN_DISABLE_FILE_HASH_WEAK_FLAG = 4096;
-
 	public const uint32 CERT_CHAIN_DISABLE_MOTW_FILE_HASH_WEAK_FLAG = 8192;
-
 	public const uint32 CERT_CHAIN_DISABLE_TIMESTAMP_HASH_WEAK_FLAG = 16384;
-
 	public const uint32 CERT_CHAIN_DISABLE_MOTW_TIMESTAMP_HASH_WEAK_FLAG = 32768;
-
 	public const uint32 CERT_CHAIN_OPT_IN_WEAK_FLAGS = 262144;
-
 	public const uint32 CERT_CHAIN_AUTO_CURRENT_USER = 1;
-
 	public const uint32 CERT_CHAIN_AUTO_LOCAL_MACHINE = 2;
-
 	public const uint32 CERT_CHAIN_AUTO_IMPERSONATED = 3;
-
 	public const uint32 CERT_CHAIN_AUTO_PROCESS_INFO = 4;
-
 	public const uint32 CERT_CHAIN_AUTO_PINRULE_INFO = 5;
-
 	public const uint32 CERT_CHAIN_AUTO_NETWORK_INFO = 6;
-
 	public const uint32 CERT_CHAIN_AUTO_SERIAL_LOCAL_MACHINE = 7;
-
 	public const uint32 CERT_CHAIN_AUTO_HPKP_RULE_INFO = 8;
-
 	public const uint32 CERT_CHAIN_AUTO_FLUSH_DISABLE_FLAG = 1;
-
 	public const uint32 CERT_CHAIN_AUTO_LOG_CREATE_FLAG = 2;
-
 	public const uint32 CERT_CHAIN_AUTO_LOG_FREE_FLAG = 4;
-
 	public const uint32 CERT_CHAIN_AUTO_LOG_FLUSH_FLAG = 8;
-
 	public const uint32 CERT_SRV_OCSP_RESP_MIN_SYNC_CERT_FILE_SECONDS_DEFAULT = 5;
-
 	public const uint32 CRYPTNET_MAX_CACHED_OCSP_PER_CRL_COUNT_DEFAULT = 500;
-
 	public const uint32 CRYPTNET_OCSP_AFTER_CRL_DISABLE = 4294967295;
-
 	public const uint32 CRYPTNET_PRE_FETCH_AFTER_PUBLISH_PRE_FETCH_DIVISOR_DEFAULT = 10;
-
 	public const uint32 CRYPTNET_PRE_FETCH_BEFORE_NEXT_UPDATE_PRE_FETCH_DIVISOR_DEFAULT = 20;
-
 	public const uint32 CRYPTNET_PRE_FETCH_VALIDITY_PERIOD_AFTER_NEXT_UPDATE_PRE_FETCH_DIVISOR_DEFAULT = 10;
-
 	public const uint32 CRYPTNET_PRE_FETCH_TRIGGER_DISABLE = 4294967295;
-
 	public const uint32 CRYPTNET_PRE_FETCH_SCAN_AFTER_TRIGGER_DELAY_SECONDS_DEFAULT = 60;
-
 	public const uint32 CRYPTNET_CACHED_OCSP_SWITCH_TO_CRL_COUNT_DEFAULT = 50;
-
 	public const uint32 CRYPTNET_CRL_BEFORE_OCSP_ENABLE = 4294967295;
-
 	public const uint32 CERT_CHAIN_OPTION_DISABLE_AIA_URL_RETRIEVAL = 2;
-
 	public const uint32 CERT_CHAIN_OPTION_ENABLE_SIA_URL_RETRIEVAL = 4;
-
 	public const uint32 CERT_CHAIN_CRL_VALIDITY_EXT_PERIOD_HOURS_DEFAULT = 12;
-
 	public const uint32 CERT_CHAIN_CACHE_END_CERT = 1;
-
 	public const uint32 CERT_CHAIN_THREAD_STORE_SYNC = 2;
-
 	public const uint32 CERT_CHAIN_CACHE_ONLY_URL_RETRIEVAL = 4;
-
 	public const uint32 CERT_CHAIN_USE_LOCAL_MACHINE_STORE = 8;
-
 	public const uint32 CERT_CHAIN_ENABLE_CACHE_AUTO_UPDATE = 16;
-
 	public const uint32 CERT_CHAIN_ENABLE_SHARE_STORE = 32;
-
 	public const uint32 CERT_CHAIN_EXCLUSIVE_ENABLE_CA_FLAG = 1;
-
 	public const uint32 CERT_TRUST_NO_ERROR = 0;
-
 	public const uint32 CERT_TRUST_IS_NOT_TIME_VALID = 1;
-
 	public const uint32 CERT_TRUST_IS_NOT_TIME_NESTED = 2;
-
 	public const uint32 CERT_TRUST_IS_REVOKED = 4;
-
 	public const uint32 CERT_TRUST_IS_NOT_SIGNATURE_VALID = 8;
-
 	public const uint32 CERT_TRUST_IS_NOT_VALID_FOR_USAGE = 16;
-
 	public const uint32 CERT_TRUST_IS_UNTRUSTED_ROOT = 32;
-
 	public const uint32 CERT_TRUST_REVOCATION_STATUS_UNKNOWN = 64;
-
 	public const uint32 CERT_TRUST_IS_CYCLIC = 128;
-
 	public const uint32 CERT_TRUST_INVALID_EXTENSION = 256;
-
 	public const uint32 CERT_TRUST_INVALID_POLICY_CONSTRAINTS = 512;
-
 	public const uint32 CERT_TRUST_INVALID_BASIC_CONSTRAINTS = 1024;
-
 	public const uint32 CERT_TRUST_INVALID_NAME_CONSTRAINTS = 2048;
-
 	public const uint32 CERT_TRUST_HAS_NOT_SUPPORTED_NAME_CONSTRAINT = 4096;
-
 	public const uint32 CERT_TRUST_HAS_NOT_DEFINED_NAME_CONSTRAINT = 8192;
-
 	public const uint32 CERT_TRUST_HAS_NOT_PERMITTED_NAME_CONSTRAINT = 16384;
-
 	public const uint32 CERT_TRUST_HAS_EXCLUDED_NAME_CONSTRAINT = 32768;
-
 	public const uint32 CERT_TRUST_IS_OFFLINE_REVOCATION = 16777216;
-
 	public const uint32 CERT_TRUST_NO_ISSUANCE_CHAIN_POLICY = 33554432;
-
 	public const uint32 CERT_TRUST_IS_EXPLICIT_DISTRUST = 67108864;
-
 	public const uint32 CERT_TRUST_HAS_NOT_SUPPORTED_CRITICAL_EXT = 134217728;
-
 	public const uint32 CERT_TRUST_HAS_WEAK_SIGNATURE = 1048576;
-
 	public const uint32 CERT_TRUST_HAS_WEAK_HYGIENE = 2097152;
-
 	public const uint32 CERT_TRUST_IS_PARTIAL_CHAIN = 65536;
-
 	public const uint32 CERT_TRUST_CTL_IS_NOT_TIME_VALID = 131072;
-
 	public const uint32 CERT_TRUST_CTL_IS_NOT_SIGNATURE_VALID = 262144;
-
 	public const uint32 CERT_TRUST_CTL_IS_NOT_VALID_FOR_USAGE = 524288;
-
 	public const uint32 CERT_TRUST_HAS_EXACT_MATCH_ISSUER = 1;
-
 	public const uint32 CERT_TRUST_HAS_KEY_MATCH_ISSUER = 2;
-
 	public const uint32 CERT_TRUST_HAS_NAME_MATCH_ISSUER = 4;
-
 	public const uint32 CERT_TRUST_IS_SELF_SIGNED = 8;
-
 	public const uint32 CERT_TRUST_AUTO_UPDATE_CA_REVOCATION = 16;
-
 	public const uint32 CERT_TRUST_AUTO_UPDATE_END_REVOCATION = 32;
-
 	public const uint32 CERT_TRUST_NO_OCSP_FAILOVER_TO_CRL = 64;
-
 	public const uint32 CERT_TRUST_IS_KEY_ROLLOVER = 128;
-
 	public const uint32 CERT_TRUST_SSL_HANDSHAKE_OCSP = 262144;
-
 	public const uint32 CERT_TRUST_SSL_TIME_VALID_OCSP = 524288;
-
 	public const uint32 CERT_TRUST_SSL_RECONNECT_OCSP = 1048576;
-
 	public const uint32 CERT_TRUST_HAS_PREFERRED_ISSUER = 256;
-
 	public const uint32 CERT_TRUST_HAS_ISSUANCE_CHAIN_POLICY = 512;
-
 	public const uint32 CERT_TRUST_HAS_VALID_NAME_CONSTRAINTS = 1024;
-
 	public const uint32 CERT_TRUST_IS_PEER_TRUSTED = 2048;
-
 	public const uint32 CERT_TRUST_HAS_CRL_VALIDITY_EXTENDED = 4096;
-
 	public const uint32 CERT_TRUST_IS_FROM_EXCLUSIVE_TRUST_STORE = 8192;
-
 	public const uint32 CERT_TRUST_IS_CA_TRUSTED = 16384;
-
 	public const uint32 CERT_TRUST_HAS_AUTO_UPDATE_WEAK_SIGNATURE = 32768;
-
 	public const uint32 CERT_TRUST_HAS_ALLOW_WEAK_SIGNATURE = 131072;
-
 	public const uint32 CERT_TRUST_IS_COMPLEX_CHAIN = 65536;
-
 	public const uint32 CERT_TRUST_SSL_TIME_VALID = 16777216;
-
 	public const uint32 CERT_TRUST_NO_TIME_CHECK = 33554432;
-
 	public const uint32 USAGE_MATCH_TYPE_AND = 0;
-
 	public const uint32 USAGE_MATCH_TYPE_OR = 1;
-
 	public const uint32 CERT_CHAIN_STRONG_SIGN_DISABLE_END_CHECK_FLAG = 1;
-
 	public const uint32 CERT_CHAIN_REVOCATION_CHECK_END_CERT = 268435456;
-
 	public const uint32 CERT_CHAIN_REVOCATION_CHECK_CHAIN = 536870912;
-
 	public const uint32 CERT_CHAIN_REVOCATION_CHECK_CHAIN_EXCLUDE_ROOT = 1073741824;
-
 	public const uint32 CERT_CHAIN_REVOCATION_CHECK_CACHE_ONLY = 2147483648;
-
 	public const uint32 CERT_CHAIN_REVOCATION_ACCUMULATIVE_TIMEOUT = 134217728;
-
 	public const uint32 CERT_CHAIN_REVOCATION_CHECK_OCSP_CERT = 67108864;
-
 	public const uint32 CERT_CHAIN_DISABLE_PASS1_QUALITY_FILTERING = 64;
-
 	public const uint32 CERT_CHAIN_RETURN_LOWER_QUALITY_CONTEXTS = 128;
-
 	public const uint32 CERT_CHAIN_DISABLE_AUTH_ROOT_AUTO_UPDATE = 256;
-
 	public const uint32 CERT_CHAIN_TIMESTAMP_TIME = 512;
-
 	public const uint32 CERT_CHAIN_ENABLE_PEER_TRUST = 1024;
-
 	public const uint32 CERT_CHAIN_DISABLE_MY_PEER_TRUST = 2048;
-
 	public const uint32 CERT_CHAIN_DISABLE_MD2_MD4 = 4096;
-
 	public const uint32 CERT_CHAIN_DISABLE_AIA = 8192;
-
 	public const uint32 CERT_CHAIN_HAS_MOTW = 16384;
-
 	public const uint32 CERT_CHAIN_ONLY_ADDITIONAL_AND_AUTH_ROOT = 32768;
-
 	public const uint32 CERT_CHAIN_OPT_IN_WEAK_SIGNATURE = 65536;
-
 	public const uint32 CERT_CHAIN_FIND_BY_ISSUER = 1;
-
 	public const uint32 CERT_CHAIN_POLICY_IGNORE_WEAK_SIGNATURE_FLAG = 134217728;
-
 	public const uint32 BASIC_CONSTRAINTS_CERT_CHAIN_POLICY_CA_FLAG = 2147483648;
-
 	public const uint32 BASIC_CONSTRAINTS_CERT_CHAIN_POLICY_END_ENTITY_FLAG = 1073741824;
-
 	public const uint32 MICROSOFT_ROOT_CERT_CHAIN_POLICY_ENABLE_TEST_ROOT_FLAG = 65536;
-
 	public const uint32 MICROSOFT_ROOT_CERT_CHAIN_POLICY_CHECK_APPLICATION_ROOT_FLAG = 131072;
-
 	public const uint32 MICROSOFT_ROOT_CERT_CHAIN_POLICY_DISABLE_FLIGHT_ROOT_FLAG = 262144;
-
 	public const uint32 SSL_F12_ERROR_TEXT_LENGTH = 256;
-
 	public const uint32 CERT_CHAIN_POLICY_SSL_F12_SUCCESS_LEVEL = 0;
-
 	public const uint32 CERT_CHAIN_POLICY_SSL_F12_WARNING_LEVEL = 1;
-
 	public const uint32 CERT_CHAIN_POLICY_SSL_F12_ERROR_LEVEL = 2;
-
 	public const uint32 CERT_CHAIN_POLICY_SSL_F12_NONE_CATEGORY = 0;
-
 	public const uint32 CERT_CHAIN_POLICY_SSL_F12_WEAK_CRYPTO_CATEGORY = 1;
-
 	public const uint32 CERT_CHAIN_POLICY_SSL_F12_ROOT_PROGRAM_CATEGORY = 2;
-
 	public const uint32 SSL_HPKP_PKP_HEADER_INDEX = 0;
-
 	public const uint32 SSL_HPKP_PKP_RO_HEADER_INDEX = 1;
-
 	public const uint32 SSL_HPKP_HEADER_COUNT = 2;
-
 	public const uint32 SSL_KEY_PIN_ERROR_TEXT_LENGTH = 512;
-
 	public const int32 CERT_CHAIN_POLICY_SSL_KEY_PIN_MISMATCH_ERROR = -2;
-
 	public const int32 CERT_CHAIN_POLICY_SSL_KEY_PIN_MITM_ERROR = -1;
-
 	public const uint32 CERT_CHAIN_POLICY_SSL_KEY_PIN_SUCCESS = 0;
-
 	public const uint32 CERT_CHAIN_POLICY_SSL_KEY_PIN_MITM_WARNING = 1;
-
 	public const uint32 CERT_CHAIN_POLICY_SSL_KEY_PIN_MISMATCH_WARNING = 2;
-
 	public const uint32 CRYPT_STRING_BASE64URI = 13;
-
 	public const uint32 CRYPT_STRING_ENCODEMASK = 255;
-
 	public const uint32 CRYPT_STRING_RESERVED100 = 256;
-
 	public const uint32 CRYPT_STRING_RESERVED200 = 512;
-
 	public const uint32 CRYPT_STRING_PERCENTESCAPE = 134217728;
-
 	public const uint32 CRYPT_STRING_HASHDATA = 268435456;
-
 	public const uint32 CRYPT_STRING_NOCRLF = 1073741824;
-
 	public const uint32 CRYPT_STRING_NOCR = 2147483648;
-
 	public const uint32 PKCS12_IMPORT_SILENT = 64;
-
 	public const uint32 PKCS12_ONLY_CERTIFICATES = 1024;
-
 	public const uint32 PKCS12_ONLY_NOT_ENCRYPTED_CERTIFICATES = 2048;
-
 	public const uint32 PKCS12_VIRTUAL_ISOLATION_KEY = 65536;
-
 	public const uint32 PKCS12_IMPORT_RESERVED_MASK = 4294901760;
-
 	public const uint32 PKCS12_ONLY_CERTIFICATES_PROVIDER_TYPE = 0;
-
 	public const uint32 REPORT_NO_PRIVATE_KEY = 1;
-
 	public const uint32 REPORT_NOT_ABLE_TO_EXPORT_PRIVATE_KEY = 2;
-
 	public const uint32 EXPORT_PRIVATE_KEYS = 4;
-
 	public const uint32 PKCS12_PROTECT_TO_DOMAIN_SIDS = 32;
-
 	public const uint32 PKCS12_EXPORT_SILENT = 64;
-
 	public const uint32 PKCS12_EXPORT_PBES2_PARAMS = 128;
-
 	public const uint32 PKCS12_DISABLE_ENCRYPT_CERTIFICATES = 256;
-
 	public const uint32 PKCS12_ENCRYPT_CERTIFICATES = 512;
-
 	public const uint32 PKCS12_EXPORT_ECC_CURVE_PARAMETERS = 4096;
-
 	public const uint32 PKCS12_EXPORT_ECC_CURVE_OID = 8192;
-
 	public const uint32 PKCS12_EXPORT_RESERVED_MASK = 4294901760;
-
 	public const uint32 CERT_SERVER_OCSP_RESPONSE_OPEN_PARA_READ_FLAG = 1;
-
 	public const uint32 CERT_SERVER_OCSP_RESPONSE_OPEN_PARA_WRITE_FLAG = 2;
-
 	public const uint32 CERT_SERVER_OCSP_RESPONSE_ASYNC_FLAG = 1;
-
 	public const uint32 CERT_SELECT_MAX_PARA = 500;
-
 	public const uint32 CERT_SELECT_BY_ISSUER_DISPLAYNAME = 12;
-
 	public const uint32 CERT_SELECT_BY_FRIENDLYNAME = 13;
-
 	public const uint32 CERT_SELECT_BY_THUMBPRINT = 14;
-
 	public const uint32 CERT_SELECT_ALLOW_EXPIRED = 1;
-
 	public const uint32 CERT_SELECT_TRUSTED_ROOT = 2;
-
 	public const uint32 CERT_SELECT_DISALLOW_SELFSIGNED = 4;
-
 	public const uint32 CERT_SELECT_HAS_PRIVATE_KEY = 8;
-
 	public const uint32 CERT_SELECT_HAS_KEY_FOR_SIGNATURE = 16;
-
 	public const uint32 CERT_SELECT_HAS_KEY_FOR_KEY_EXCHANGE = 32;
-
 	public const uint32 CERT_SELECT_HARDWARE_ONLY = 64;
-
 	public const uint32 CERT_SELECT_ALLOW_DUPLICATES = 128;
-
 	public const uint32 CERT_SELECT_IGNORE_AUTOSELECT = 256;
-
 	public const uint32 TIMESTAMP_FAILURE_BAD_ALG = 0;
-
 	public const uint32 TIMESTAMP_FAILURE_BAD_REQUEST = 2;
-
 	public const uint32 TIMESTAMP_FAILURE_BAD_FORMAT = 5;
-
 	public const uint32 TIMESTAMP_FAILURE_TIME_NOT_AVAILABLE = 14;
-
 	public const uint32 TIMESTAMP_FAILURE_POLICY_NOT_SUPPORTED = 15;
-
 	public const uint32 TIMESTAMP_FAILURE_EXTENSION_NOT_SUPPORTED = 16;
-
 	public const uint32 TIMESTAMP_FAILURE_INFO_NOT_AVAILABLE = 17;
-
 	public const uint32 TIMESTAMP_FAILURE_SYSTEM_FAILURE = 25;
-
 	public const uint32 TIMESTAMP_DONT_HASH_DATA = 1;
-
 	public const uint32 TIMESTAMP_VERIFY_CONTEXT_SIGNATURE = 32;
-
 	public const uint32 TIMESTAMP_NO_AUTH_RETRIEVAL = 131072;
-
 	public const uint32 CRYPT_OBJECT_LOCATOR_SPN_NAME_TYPE = 1;
-
 	public const uint32 CRYPT_OBJECT_LOCATOR_LAST_RESERVED_NAME_TYPE = 32;
-
 	public const uint32 CRYPT_OBJECT_LOCATOR_FIRST_RESERVED_USER_NAME_TYPE = 33;
-
 	public const uint32 CRYPT_OBJECT_LOCATOR_LAST_RESERVED_USER_NAME_TYPE = 65535;
-
 	public const uint32 CERT_FILE_HASH_USE_TYPE = 1;
-
 	public const uint32 CERT_TIMESTAMP_HASH_USE_TYPE = 2;
-
 	public const uint32 RECIPIENTPOLICYV1 = 1;
-
 	public const uint32 RECIPIENTPOLICYV2 = 2;
-
 	public const HRESULT E_ICARD_COMMUNICATION = -1073413888;
-
 	public const HRESULT E_ICARD_DATA_ACCESS = -1073413887;
-
 	public const HRESULT E_ICARD_EXPORT = -1073413886;
-
 	public const HRESULT E_ICARD_IDENTITY = -1073413885;
-
 	public const HRESULT E_ICARD_IMPORT = -1073413884;
-
 	public const HRESULT E_ICARD_ARGUMENT = -1073413883;
-
 	public const HRESULT E_ICARD_REQUEST = -1073413882;
-
 	public const HRESULT E_ICARD_INFORMATIONCARD = -1073413881;
-
 	public const HRESULT E_ICARD_STOREKEY = -1073413880;
-
 	public const HRESULT E_ICARD_LOGOVALIDATION = -1073413879;
-
 	public const HRESULT E_ICARD_PASSWORDVALIDATION = -1073413878;
-
 	public const HRESULT E_ICARD_POLICY = -1073413877;
-
 	public const HRESULT E_ICARD_PROCESSDIED = -1073413876;
-
 	public const HRESULT E_ICARD_SERVICEBUSY = -1073413875;
-
 	public const HRESULT E_ICARD_SERVICE = -1073413874;
-
 	public const HRESULT E_ICARD_SHUTTINGDOWN = -1073413873;
-
 	public const HRESULT E_ICARD_TOKENCREATION = -1073413872;
-
 	public const HRESULT E_ICARD_TRUSTEXCHANGE = -1073413871;
-
 	public const HRESULT E_ICARD_UNTRUSTED = -1073413870;
-
 	public const HRESULT E_ICARD_USERCANCELLED = -1073413869;
-
 	public const HRESULT E_ICARD_STORE_IMPORT = -1073413868;
-
 	public const HRESULT E_ICARD_FAIL = -1073413867;
-
 	public const HRESULT E_ICARD_UI_INITIALIZATION = -1073413862;
-
 	public const HRESULT E_ICARD_REFRESH_REQUIRED = -1073413760;
-
 	public const HRESULT E_ICARD_MISSING_APPLIESTO = -1073413759;
-
 	public const HRESULT E_ICARD_INVALID_PROOF_KEY = -1073413758;
-
 	public const HRESULT E_ICARD_UNKNOWN_REFERENCE = -1073413757;
-
 	public const HRESULT E_ICARD_FAILED_REQUIRED_CLAIMS = -1073413756;
-
 	public const HRESULT AUDIT_CARD_WRITTEN = 1074070016;
-
 	public const HRESULT AUDIT_CARD_DELETE = 1074070017;
-
 	public const HRESULT AUDIT_CARD_IMPORT = 1074070018;
-
 	public const HRESULT AUDIT_STORE_IMPORT = 1074070019;
-
 	public const HRESULT AUDIT_STORE_EXPORT = 1074070020;
-
 	public const HRESULT AUDIT_STORE_DELETE = 1074070021;
-
 	public const HRESULT AUDIT_SERVICE_IDLE_STOP = 1074070022;
-
 }
 #endregion
 
@@ -5289,7 +3845,6 @@ public struct CERT_ALT_NAME_ENTRY
 		public CRYPTOAPI_BLOB IPAddress;
 		public PSTR pszRegisteredID;
 	}
-
 	public uint32 dwAltNameChoice;
 	public using _Anonymous_e__Union Anonymous;
 }
@@ -5449,7 +4004,6 @@ public struct CRL_DIST_POINT_NAME
 	{
 		public CERT_ALT_NAME_INFO FullName;
 	}
-
 	public uint32 dwDistPointNameChoice;
 	public using _Anonymous_e__Union Anonymous;
 }
@@ -5657,7 +4211,6 @@ public struct CMC_TAGGED_REQUEST
 	{
 		public CMC_TAGGED_CERT_REQUEST* pTaggedCertRequest;
 	}
-
 	public uint32 dwTaggedRequestChoice;
 	public using _Anonymous_e__Union Anonymous;
 }
@@ -5717,7 +4270,6 @@ public struct CMC_STATUS_INFO
 		public uint32 dwFailInfo;
 		public CMC_PEND_INFO* pPendInfo;
 	}
-
 	public uint32 dwStatus;
 	public uint32 cBodyList;
 	public uint32* rgdwBodyList;
@@ -5787,7 +4339,6 @@ public struct CERT_LOGOTYPE_IMAGE_INFO
 		public uint32 dwNumBits;
 		public uint32 dwTableSize;
 	}
-
 	public CERT_LOGOTYPE_IMAGE_INFO_TYPE dwLogotypeImageInfoChoice;
 	public uint32 dwFileSize;
 	public uint32 dwXSize;
@@ -5839,7 +4390,6 @@ public struct CERT_LOGOTYPE_INFO
 		public CERT_LOGOTYPE_DATA* pLogotypeDirectInfo;
 		public CERT_LOGOTYPE_REFERENCE* pLogotypeIndirectInfo;
 	}
-
 	public CERT_LOGOTYPE_OPTION dwLogotypeInfoChoice;
 	public using _Anonymous_e__Union Anonymous;
 }
@@ -5871,7 +4421,6 @@ public struct CERT_BIOMETRIC_DATA
 		public uint32 dwPredefined;
 		public PSTR pszObjId;
 	}
-
 	public CERT_BIOMETRIC_DATA_TYPE dwTypeOfBiometricDataChoice;
 	public using _Anonymous_e__Union Anonymous;
 	public CERT_HASHED_URL HashedUrl;
@@ -5958,7 +4507,6 @@ public struct OCSP_BASIC_RESPONSE_ENTRY
 	{
 		public OCSP_BASIC_REVOKED_INFO* pRevokedInfo;
 	}
-
 	public OCSP_CERT_ID CertId;
 	public uint32 dwCertStatus;
 	public using _Anonymous_e__Union Anonymous;
@@ -5977,7 +4525,6 @@ public struct OCSP_BASIC_RESPONSE_INFO
 		public CRYPTOAPI_BLOB ByNameResponderId;
 		public CRYPTOAPI_BLOB ByKeyResponderId;
 	}
-
 	public uint32 dwVersion;
 	public uint32 dwResponderIdChoice;
 	public using _Anonymous_e__Union Anonymous;
@@ -6021,7 +4568,6 @@ public struct CRYPT_OID_INFO
 		public uint32 Algid;
 		public uint32 dwLength;
 	}
-
 	public uint32 cbSize;
 	public PSTR pszOID;
 	public PWSTR pwszName;
@@ -6048,7 +4594,6 @@ public struct CERT_STRONG_SIGN_PARA
 		public CERT_STRONG_SIGN_SERIALIZED_INFO* pSerializedInfo;
 		public PSTR pszOID;
 	}
-
 	public uint32 cbSize;
 	public uint32 dwInfoChoice;
 	public using _Anonymous_e__Union Anonymous;
@@ -6071,7 +4616,6 @@ public struct CERT_ID
 		public CRYPTOAPI_BLOB KeyId;
 		public CRYPTOAPI_BLOB HashId;
 	}
-
 	public CERT_ID_OPTION dwIdChoice;
 	public using _Anonymous_e__Union Anonymous;
 }
@@ -6085,7 +4629,6 @@ public struct CMSG_SIGNER_ENCODE_INFO
 		public uint hCryptProv;
 		public uint hNCryptKey;
 	}
-
 	public uint32 cbSize;
 	public CERT_INFO* pCertInfo;
 	public using _Anonymous_e__Union Anonymous;
@@ -6151,7 +4694,6 @@ public struct CMSG_KEY_AGREE_RECIPIENT_ENCODE_INFO
 		public CRYPT_ALGORITHM_IDENTIFIER* pEphemeralAlgorithm;
 		public CERT_ID* pSenderId;
 	}
-
 	public uint32 cbSize;
 	public CRYPT_ALGORITHM_IDENTIFIER KeyEncryptionAlgorithm;
 	public void* pvKeyEncryptionAuxInfo;
@@ -6175,7 +4717,6 @@ public struct CMSG_MAIL_LIST_RECIPIENT_ENCODE_INFO
 		public uint hKeyEncryptionKey;
 		public void* pvKeyEncryptionKey;
 	}
-
 	public uint32 cbSize;
 	public CRYPT_ALGORITHM_IDENTIFIER KeyEncryptionAlgorithm;
 	public void* pvKeyEncryptionAuxInfo;
@@ -6197,7 +4738,6 @@ public struct CMSG_RECIPIENT_ENCODE_INFO
 		public CMSG_KEY_AGREE_RECIPIENT_ENCODE_INFO* pKeyAgree;
 		public CMSG_MAIL_LIST_RECIPIENT_ENCODE_INFO* pMailList;
 	}
-
 	public uint32 dwRecipientChoice;
 	public using _Anonymous_e__Union Anonymous;
 }
@@ -6308,7 +4848,6 @@ public struct CMSG_KEY_AGREE_RECIPIENT_INFO
 		public CERT_ID OriginatorCertId;
 		public CERT_PUBLIC_KEY_INFO OriginatorPublicKeyInfo;
 	}
-
 	public uint32 dwVersion;
 	public CMSG_KEY_AGREE_ORIGINATOR dwOriginatorChoice;
 	public using _Anonymous_e__Union Anonymous;
@@ -6339,7 +4878,6 @@ public struct CMSG_CMS_RECIPIENT_INFO
 		public CMSG_KEY_AGREE_RECIPIENT_INFO* pKeyAgree;
 		public CMSG_MAIL_LIST_RECIPIENT_INFO* pMailList;
 	}
-
 	public uint32 dwRecipientChoice;
 	public using _Anonymous_e__Union Anonymous;
 }
@@ -6363,7 +4901,6 @@ public struct CMSG_CTRL_DECRYPT_PARA
 		public uint hCryptProv;
 		public uint hNCryptKey;
 	}
-
 	public uint32 cbSize;
 	public using _Anonymous_e__Union Anonymous;
 	public uint32 dwKeySpec;
@@ -6379,7 +4916,6 @@ public struct CMSG_CTRL_KEY_TRANS_DECRYPT_PARA
 		public uint hCryptProv;
 		public uint hNCryptKey;
 	}
-
 	public uint32 cbSize;
 	public using _Anonymous_e__Union Anonymous;
 	public uint32 dwKeySpec;
@@ -6396,7 +4932,6 @@ public struct CMSG_CTRL_KEY_AGREE_DECRYPT_PARA
 		public uint hCryptProv;
 		public uint hNCryptKey;
 	}
-
 	public uint32 cbSize;
 	public using _Anonymous_e__Union Anonymous;
 	public uint32 dwKeySpec;
@@ -6415,7 +4950,6 @@ public struct CMSG_CTRL_MAIL_LIST_DECRYPT_PARA
 		public uint hKeyEncryptionKey;
 		public void* pvKeyEncryptionKey;
 	}
-
 	public uint32 cbSize;
 	public uint hCryptProv;
 	public CMSG_MAIL_LIST_RECIPIENT_INFO* pMailList;
@@ -6449,7 +4983,6 @@ public struct CMSG_CONTENT_ENCRYPT_INFO
 		public uint hContentEncryptKey;
 		public BCRYPT_KEY_HANDLE hCNGContentEncryptKey;
 	}
-
 	public uint32 cbSize;
 	public uint hCryptProv;
 	public CRYPT_ALGORITHM_IDENTIFIER ContentEncryptionAlgorithm;
@@ -6493,7 +5026,6 @@ public struct CMSG_KEY_AGREE_ENCRYPT_INFO
 		public CERT_ID OriginatorCertId;
 		public CERT_PUBLIC_KEY_INFO OriginatorPublicKeyInfo;
 	}
-
 	public uint32 cbSize;
 	public uint32 dwRecipientIndex;
 	public CRYPT_ALGORITHM_IDENTIFIER KeyEncryptionAlgorithm;
@@ -6592,7 +5124,6 @@ public struct CERT_KEY_CONTEXT
 		public uint hCryptProv;
 		public uint hNCryptKey;
 	}
-
 	public uint32 cbSize;
 	public using _Anonymous_e__Union Anonymous;
 	public uint32 dwKeySpec;
@@ -6622,14 +5153,12 @@ public struct CERT_SYSTEM_STORE_RELOCATE_PARA
 		public PSTR pszSystemStore;
 		public PWSTR pwszSystemStore;
 	}
-
 	[CRepr, Union]
 	public struct _Anonymous1_e__Union
 	{
 		public HKEY hKeyBase;
 		public void* pvBase;
 	}
-
 	public _Anonymous1_e__Union Anonymous1;
 	public _Anonymous2_e__Union Anonymous2;
 }
@@ -6883,7 +5412,6 @@ public struct CRYPT_KEY_SIGN_MESSAGE_PARA
 		public uint hCryptProv;
 		public uint hNCryptKey;
 	}
-
 	public uint32 cbSize;
 	public CERT_QUERY_ENCODING_TYPE dwMsgAndCertEncodingType;
 	public using _Anonymous_e__Union Anonymous;
@@ -7220,7 +5748,6 @@ public struct HTTPSPolicyCallbackData
 		public uint32 cbStruct;
 		public uint32 cbSize;
 	}
-
 	public using _Anonymous_e__Union Anonymous;
 	public HTTPSPOLICY_CALLBACK_DATA_AUTH_TYPE dwAuthType;
 	public uint32 fdwChecks;
@@ -7534,7 +6061,6 @@ public struct CRYPT_XML_KEY_VALUE
 		public CRYPT_XML_KEY_ECDSA_KEY_VALUE ECDSAKeyValue;
 		public CRYPT_XML_BLOB Custom;
 	}
-
 	public CRYPT_XML_KEY_VALUE_TYPE dwType;
 	public using _Anonymous_e__Union Anonymous;
 }
@@ -7559,7 +6085,6 @@ public struct CRYPT_XML_X509DATA_ITEM
 		public CRYPT_XML_DATA_BLOB CRL;
 		public CRYPT_XML_BLOB Custom;
 	}
-
 	public CRYPT_XML_X509DATA_TYPE dwType;
 	public using _Anonymous_e__Union Anonymous;
 }
@@ -7583,7 +6108,6 @@ public struct CRYPT_XML_KEY_INFO_ITEM
 		public CRYPT_XML_X509DATA X509Data;
 		public CRYPT_XML_BLOB Custom;
 	}
-
 	public CRYPT_XML_KEYINFO_TYPE dwType;
 	public using _Anonymous_e__Union Anonymous;
 }

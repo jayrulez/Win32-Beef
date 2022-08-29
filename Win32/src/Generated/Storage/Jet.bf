@@ -8,1885 +8,945 @@ namespace Win32.Storage.Jet;
 public static
 {
 	public const uint32 JET_bitConfigStoreReadControlInhibitRead = 1;
-
 	public const uint32 JET_bitConfigStoreReadControlDisableAll = 2;
-
 	public const uint32 JET_bitConfigStoreReadControlDefault = 0;
-
 	public const uint32 JET_bitDefragmentBatchStart = 1;
-
 	public const uint32 JET_bitDefragmentBatchStop = 2;
-
 	public const uint32 JET_bitDefragmentAvailSpaceTreesOnly = 64;
-
 	public const uint32 JET_bitDefragmentNoPartialMerges = 128;
-
 	public const uint32 JET_bitDefragmentBTree = 256;
-
 	public const uint32 JET_cbtypNull = 0;
-
 	public const uint32 JET_cbtypFinalize = 1;
-
 	public const uint32 JET_cbtypBeforeInsert = 2;
-
 	public const uint32 JET_cbtypAfterInsert = 4;
-
 	public const uint32 JET_cbtypBeforeReplace = 8;
-
 	public const uint32 JET_cbtypAfterReplace = 16;
-
 	public const uint32 JET_cbtypBeforeDelete = 32;
-
 	public const uint32 JET_cbtypAfterDelete = 64;
-
 	public const uint32 JET_cbtypUserDefinedDefaultValue = 128;
-
 	public const uint32 JET_cbtypOnlineDefragCompleted = 256;
-
 	public const uint32 JET_cbtypFreeCursorLS = 512;
-
 	public const uint32 JET_cbtypFreeTableLS = 1024;
-
 	public const uint32 JET_bitTableInfoUpdatable = 1;
-
 	public const uint32 JET_bitTableInfoBookmark = 2;
-
 	public const uint32 JET_bitTableInfoRollback = 4;
-
 	public const uint32 JET_bitObjectSystem = 2147483648;
-
 	public const uint32 JET_bitObjectTableFixedDDL = 1073741824;
-
 	public const uint32 JET_bitObjectTableTemplate = 536870912;
-
 	public const uint32 JET_bitObjectTableDerived = 268435456;
-
 	public const uint32 JET_bitObjectTableNoFixedVarColumnsInDerivedTables = 67108864;
-
 	public const uint32 JET_MAX_COMPUTERNAME_LENGTH = 15;
-
 	public const uint32 JET_bitDurableCommitCallbackLogUnavailable = 1;
-
 	public const uint32 JET_cbBookmarkMost = 256;
-
 	public const uint32 JET_cbNameMost = 64;
-
 	public const uint32 JET_cbFullNameMost = 255;
-
 	public const uint32 JET_cbColumnLVPageOverhead = 82;
-
 	public const uint32 JET_cbLVDefaultValueMost = 255;
-
 	public const uint32 JET_cbColumnMost = 255;
-
 	public const uint32 JET_cbLVColumnMost = 2147483647;
-
 	public const uint32 JET_cbKeyMost8KBytePage = 2000;
-
 	public const uint32 JET_cbKeyMost4KBytePage = 1000;
-
 	public const uint32 JET_cbKeyMost2KBytePage = 500;
-
 	public const uint32 JET_cbKeyMostMin = 255;
-
 	public const uint32 JET_cbKeyMost = 255;
-
 	public const uint32 JET_cbLimitKeyMost = 256;
-
 	public const uint32 JET_cbPrimaryKeyMost = 255;
-
 	public const uint32 JET_cbSecondaryKeyMost = 255;
-
 	public const uint32 JET_ccolKeyMost = 16;
-
 	public const uint32 JET_ccolMost = 65248;
-
 	public const uint32 JET_ccolFixedMost = 127;
-
 	public const uint32 JET_ccolVarMost = 128;
-
 	public const uint32 JET_EventLoggingDisable = 0;
-
 	public const uint32 JET_EventLoggingLevelMin = 1;
-
 	public const uint32 JET_EventLoggingLevelLow = 25;
-
 	public const uint32 JET_EventLoggingLevelMedium = 50;
-
 	public const uint32 JET_EventLoggingLevelHigh = 75;
-
 	public const uint32 JET_EventLoggingLevelMax = 100;
-
 	public const uint32 JET_IOPriorityNormal = 0;
-
 	public const uint32 JET_IOPriorityLow = 1;
-
 	public const uint32 JET_configDefault = 1;
-
 	public const uint32 JET_configRemoveQuotas = 2;
-
 	public const uint32 JET_configLowDiskFootprint = 4;
-
 	public const uint32 JET_configMediumDiskFootprint = 8;
-
 	public const uint32 JET_configLowMemory = 16;
-
 	public const uint32 JET_configDynamicMediumMemory = 32;
-
 	public const uint32 JET_configLowPower = 64;
-
 	public const uint32 JET_configSSDProfileIO = 128;
-
 	public const uint32 JET_configRunSilent = 256;
-
 	public const uint32 JET_configUnthrottledMemory = 512;
-
 	public const uint32 JET_configHighConcurrencyScaling = 1024;
-
 	public const uint32 JET_paramSystemPath = 0;
-
 	public const uint32 JET_paramTempPath = 1;
-
 	public const uint32 JET_paramLogFilePath = 2;
-
 	public const uint32 JET_paramBaseName = 3;
-
 	public const uint32 JET_paramEventSource = 4;
-
 	public const uint32 JET_paramMaxSessions = 5;
-
 	public const uint32 JET_paramMaxOpenTables = 6;
-
 	public const uint32 JET_paramPreferredMaxOpenTables = 7;
-
 	public const uint32 JET_paramCachedClosedTables = 125;
-
 	public const uint32 JET_paramMaxCursors = 8;
-
 	public const uint32 JET_paramMaxVerPages = 9;
-
 	public const uint32 JET_paramPreferredVerPages = 63;
-
 	public const uint32 JET_paramGlobalMinVerPages = 81;
-
 	public const uint32 JET_paramVersionStoreTaskQueueMax = 105;
-
 	public const uint32 JET_paramMaxTemporaryTables = 10;
-
 	public const uint32 JET_paramLogFileSize = 11;
-
 	public const uint32 JET_paramLogBuffers = 12;
-
 	public const uint32 JET_paramWaitLogFlush = 13;
-
 	public const uint32 JET_paramLogCheckpointPeriod = 14;
-
 	public const uint32 JET_paramLogWaitingUserMax = 15;
-
 	public const uint32 JET_paramCommitDefault = 16;
-
 	public const uint32 JET_paramCircularLog = 17;
-
 	public const uint32 JET_paramDbExtensionSize = 18;
-
 	public const uint32 JET_paramPageTempDBMin = 19;
-
 	public const uint32 JET_paramPageFragment = 20;
-
 	public const uint32 JET_paramEnableFileCache = 126;
-
 	public const uint32 JET_paramVerPageSize = 128;
-
 	public const uint32 JET_paramConfiguration = 129;
-
 	public const uint32 JET_paramEnableAdvanced = 130;
-
 	public const uint32 JET_paramMaxColtyp = 131;
-
 	public const uint32 JET_paramBatchIOBufferMax = 22;
-
 	public const uint32 JET_paramCacheSize = 41;
-
 	public const uint32 JET_paramCacheSizeMin = 60;
-
 	public const uint32 JET_paramCacheSizeMax = 23;
-
 	public const uint32 JET_paramCheckpointDepthMax = 24;
-
 	public const uint32 JET_paramLRUKCorrInterval = 25;
-
 	public const uint32 JET_paramLRUKHistoryMax = 26;
-
 	public const uint32 JET_paramLRUKPolicy = 27;
-
 	public const uint32 JET_paramLRUKTimeout = 28;
-
 	public const uint32 JET_paramLRUKTrxCorrInterval = 29;
-
 	public const uint32 JET_paramOutstandingIOMax = 30;
-
 	public const uint32 JET_paramStartFlushThreshold = 31;
-
 	public const uint32 JET_paramStopFlushThreshold = 32;
-
 	public const uint32 JET_paramEnableViewCache = 127;
-
 	public const uint32 JET_paramCheckpointIOMax = 135;
-
 	public const uint32 JET_paramTableClass1Name = 137;
-
 	public const uint32 JET_paramTableClass2Name = 138;
-
 	public const uint32 JET_paramTableClass3Name = 139;
-
 	public const uint32 JET_paramTableClass4Name = 140;
-
 	public const uint32 JET_paramTableClass5Name = 141;
-
 	public const uint32 JET_paramTableClass6Name = 142;
-
 	public const uint32 JET_paramTableClass7Name = 143;
-
 	public const uint32 JET_paramTableClass8Name = 144;
-
 	public const uint32 JET_paramTableClass9Name = 145;
-
 	public const uint32 JET_paramTableClass10Name = 146;
-
 	public const uint32 JET_paramTableClass11Name = 147;
-
 	public const uint32 JET_paramTableClass12Name = 148;
-
 	public const uint32 JET_paramTableClass13Name = 149;
-
 	public const uint32 JET_paramTableClass14Name = 150;
-
 	public const uint32 JET_paramTableClass15Name = 151;
-
 	public const uint32 JET_paramIOPriority = 152;
-
 	public const uint32 JET_paramRecovery = 34;
-
 	public const uint32 JET_paramEnableOnlineDefrag = 35;
-
 	public const uint32 JET_paramCheckFormatWhenOpenFail = 44;
-
 	public const uint32 JET_paramEnableTempTableVersioning = 46;
-
 	public const uint32 JET_paramIgnoreLogVersion = 47;
-
 	public const uint32 JET_paramDeleteOldLogs = 48;
-
 	public const uint32 JET_paramEventSourceKey = 49;
-
 	public const uint32 JET_paramNoInformationEvent = 50;
-
 	public const uint32 JET_paramEventLoggingLevel = 51;
-
 	public const uint32 JET_paramDeleteOutOfRangeLogs = 52;
-
 	public const uint32 JET_paramAccessDeniedRetryPeriod = 53;
-
 	public const uint32 JET_paramEnableIndexChecking = 45;
-
 	public const uint32 JET_paramEnableIndexCleanup = 54;
-
 	public const uint32 JET_paramDatabasePageSize = 64;
-
 	public const uint32 JET_paramDisableCallbacks = 65;
-
 	public const uint32 JET_paramLogFileCreateAsynch = 69;
-
 	public const uint32 JET_paramErrorToString = 70;
-
 	public const uint32 JET_paramZeroDatabaseDuringBackup = 71;
-
 	public const uint32 JET_paramUnicodeIndexDefault = 72;
-
 	public const uint32 JET_paramRuntimeCallback = 73;
-
 	public const uint32 JET_paramCleanupMismatchedLogFiles = 77;
-
 	public const uint32 JET_paramRecordUpgradeDirtyLevel = 78;
-
 	public const uint32 JET_paramOSSnapshotTimeout = 82;
-
 	public const uint32 JET_paramExceptionAction = 98;
-
 	public const uint32 JET_paramEventLogCache = 99;
-
 	public const uint32 JET_paramCreatePathIfNotExist = 100;
-
 	public const uint32 JET_paramPageHintCacheSize = 101;
-
 	public const uint32 JET_paramOneDatabasePerSession = 102;
-
 	public const uint32 JET_paramMaxInstances = 104;
-
 	public const uint32 JET_paramDisablePerfmon = 107;
-
 	public const uint32 JET_paramIndexTuplesLengthMin = 110;
-
 	public const uint32 JET_paramIndexTuplesLengthMax = 111;
-
 	public const uint32 JET_paramIndexTuplesToIndexMax = 112;
-
 	public const uint32 JET_paramAlternateDatabaseRecoveryPath = 113;
-
 	public const uint32 JET_paramIndexTupleIncrement = 132;
-
 	public const uint32 JET_paramIndexTupleStart = 133;
-
 	public const uint32 JET_paramKeyMost = 134;
-
 	public const uint32 JET_paramLegacyFileNames = 136;
-
 	public const uint32 JET_paramEnablePersistedCallbacks = 156;
-
 	public const uint32 JET_paramWaypointLatency = 153;
-
 	public const uint32 JET_paramDefragmentSequentialBTrees = 160;
-
 	public const uint32 JET_paramDefragmentSequentialBTreesDensityCheckFrequency = 161;
-
 	public const uint32 JET_paramIOThrottlingTimeQuanta = 162;
-
 	public const uint32 JET_paramLVChunkSizeMost = 163;
-
 	public const uint32 JET_paramMaxCoalesceReadSize = 164;
-
 	public const uint32 JET_paramMaxCoalesceWriteSize = 165;
-
 	public const uint32 JET_paramMaxCoalesceReadGapSize = 166;
-
 	public const uint32 JET_paramMaxCoalesceWriteGapSize = 167;
-
 	public const uint32 JET_paramEnableDBScanInRecovery = 169;
-
 	public const uint32 JET_paramDbScanThrottle = 170;
-
 	public const uint32 JET_paramDbScanIntervalMinSec = 171;
-
 	public const uint32 JET_paramDbScanIntervalMaxSec = 172;
-
 	public const uint32 JET_paramCachePriority = 177;
-
 	public const uint32 JET_paramMaxTransactionSize = 178;
-
 	public const uint32 JET_paramPrereadIOMax = 179;
-
 	public const uint32 JET_paramEnableDBScanSerialization = 180;
-
 	public const uint32 JET_paramHungIOThreshold = 181;
-
 	public const uint32 JET_paramHungIOActions = 182;
-
 	public const uint32 JET_paramMinDataForXpress = 183;
-
 	public const uint32 JET_paramEnableShrinkDatabase = 184;
-
 	public const uint32 JET_paramProcessFriendlyName = 186;
-
 	public const uint32 JET_paramDurableCommitCallback = 187;
-
 	public const uint32 JET_paramEnableSqm = 188;
-
 	public const uint32 JET_paramConfigStoreSpec = 189;
-
 	public const uint32 JET_paramUseFlushForWriteDurability = 214;
-
 	public const uint32 JET_paramEnableRBS = 215;
-
 	public const uint32 JET_paramRBSFilePath = 216;
-
 	public const uint32 JET_paramMaxValueInvalid = 217;
-
 	public const uint32 JET_sesparamCommitDefault = 4097;
-
 	public const uint32 JET_sesparamTransactionLevel = 4099;
-
 	public const uint32 JET_sesparamOperationContext = 4100;
-
 	public const uint32 JET_sesparamCorrelationID = 4101;
-
 	public const uint32 JET_sesparamMaxValueInvalid = 4110;
-
 	public const uint32 JET_bitESE98FileNames = 1;
-
 	public const uint32 JET_bitEightDotThreeSoftCompat = 2;
-
 	public const uint32 JET_bitHungIOEvent = 1;
-
 	public const uint32 JET_bitShrinkDatabaseOff = 0;
-
 	public const uint32 JET_bitShrinkDatabaseOn = 1;
-
 	public const uint32 JET_bitShrinkDatabaseRealtime = 2;
-
 	public const uint32 JET_bitShrinkDatabaseTrim = 1;
-
 	public const uint32 JET_bitReplayIgnoreMissingDB = 4;
-
 	public const uint32 JET_bitRecoveryWithoutUndo = 8;
-
 	public const uint32 JET_bitTruncateLogsAfterRecovery = 16;
-
 	public const uint32 JET_bitReplayMissingMapEntryDB = 32;
-
 	public const uint32 JET_bitLogStreamMustExist = 64;
-
 	public const uint32 JET_bitReplayIgnoreLostLogs = 128;
-
 	public const uint32 JET_bitKeepDbAttachedAtEndOfRecovery = 4096;
-
 	public const uint32 JET_bitTermComplete = 1;
-
 	public const uint32 JET_bitTermAbrupt = 2;
-
 	public const uint32 JET_bitTermStopBackup = 4;
-
 	public const uint32 JET_bitTermDirty = 8;
-
 	public const uint32 JET_bitIdleFlushBuffers = 1;
-
 	public const uint32 JET_bitIdleCompact = 2;
-
 	public const uint32 JET_bitIdleStatus = 4;
-
 	public const uint32 JET_bitDbReadOnly = 1;
-
 	public const uint32 JET_bitDbExclusive = 2;
-
 	public const uint32 JET_bitDbDeleteCorruptIndexes = 16;
-
 	public const uint32 JET_bitDbDeleteUnicodeIndexes = 1024;
-
 	public const uint32 JET_bitDbUpgrade = 512;
-
 	public const uint32 JET_bitDbEnableBackgroundMaintenance = 2048;
-
 	public const uint32 JET_bitDbPurgeCacheOnAttach = 4096;
-
 	public const uint32 JET_bitForceDetach = 1;
-
 	public const uint32 JET_bitDbRecoveryOff = 8;
-
 	public const uint32 JET_bitDbShadowingOff = 128;
-
 	public const uint32 JET_bitDbOverwriteExisting = 512;
-
 	public const uint32 JET_bitBackupIncremental = 1;
-
 	public const uint32 JET_bitBackupAtomic = 4;
-
 	public const uint32 JET_bitBackupSnapshot = 16;
-
 	public const uint32 JET_bitBackupEndNormal = 1;
-
 	public const uint32 JET_bitBackupEndAbort = 2;
-
 	public const uint32 JET_bitBackupTruncateDone = 256;
-
 	public const uint32 JET_bitTableCreateFixedDDL = 1;
-
 	public const uint32 JET_bitTableCreateTemplateTable = 2;
-
 	public const uint32 JET_bitTableCreateNoFixedVarColumnsInDerivedTables = 4;
-
 	public const uint32 JET_bitTableCreateImmutableStructure = 8;
-
 	public const uint32 JET_bitColumnFixed = 1;
-
 	public const uint32 JET_bitColumnTagged = 2;
-
 	public const uint32 JET_bitColumnNotNULL = 4;
-
 	public const uint32 JET_bitColumnVersion = 8;
-
 	public const uint32 JET_bitColumnAutoincrement = 16;
-
 	public const uint32 JET_bitColumnUpdatable = 32;
-
 	public const uint32 JET_bitColumnTTKey = 64;
-
 	public const uint32 JET_bitColumnTTDescending = 128;
-
 	public const uint32 JET_bitColumnMultiValued = 1024;
-
 	public const uint32 JET_bitColumnEscrowUpdate = 2048;
-
 	public const uint32 JET_bitColumnUnversioned = 4096;
-
 	public const uint32 JET_bitColumnMaybeNull = 8192;
-
 	public const uint32 JET_bitColumnFinalize = 16384;
-
 	public const uint32 JET_bitColumnUserDefinedDefault = 32768;
-
 	public const uint32 JET_bitColumnDeleteOnZero = 131072;
-
 	public const uint32 JET_bitColumnCompressed = 524288;
-
 	public const uint32 JET_bitDeleteColumnIgnoreTemplateColumns = 1;
-
 	public const uint32 JET_bitMoveFirst = 0;
-
 	public const uint32 JET_bitNoMove = 2;
-
 	public const uint32 JET_bitNewKey = 1;
-
 	public const uint32 JET_bitStrLimit = 2;
-
 	public const uint32 JET_bitSubStrLimit = 4;
-
 	public const uint32 JET_bitNormalizedKey = 8;
-
 	public const uint32 JET_bitKeyDataZeroLength = 16;
-
 	public const uint32 JET_bitFullColumnStartLimit = 256;
-
 	public const uint32 JET_bitFullColumnEndLimit = 512;
-
 	public const uint32 JET_bitPartialColumnStartLimit = 1024;
-
 	public const uint32 JET_bitPartialColumnEndLimit = 2048;
-
 	public const uint32 JET_bitRangeInclusive = 1;
-
 	public const uint32 JET_bitRangeUpperLimit = 2;
-
 	public const uint32 JET_bitRangeInstantDuration = 4;
-
 	public const uint32 JET_bitRangeRemove = 8;
-
 	public const uint32 JET_bitReadLock = 1;
-
 	public const uint32 JET_bitWriteLock = 2;
-
 	public const uint32 JET_MoveFirst = 2147483648;
-
 	public const int32 JET_MovePrevious = -1;
-
 	public const uint32 JET_MoveLast = 2147483647;
-
 	public const uint32 JET_bitMoveKeyNE = 1;
-
 	public const uint32 JET_bitSeekEQ = 1;
-
 	public const uint32 JET_bitSeekLT = 2;
-
 	public const uint32 JET_bitSeekLE = 4;
-
 	public const uint32 JET_bitSeekGE = 8;
-
 	public const uint32 JET_bitSeekGT = 16;
-
 	public const uint32 JET_bitSetIndexRange = 32;
-
 	public const uint32 JET_bitCheckUniqueness = 64;
-
 	public const uint32 JET_bitBookmarkPermitVirtualCurrency = 1;
-
 	public const uint32 JET_bitIndexColumnMustBeNull = 1;
-
 	public const uint32 JET_bitIndexColumnMustBeNonNull = 2;
-
 	public const uint32 JET_bitRecordInIndex = 1;
-
 	public const uint32 JET_bitRecordNotInIndex = 2;
-
 	public const uint32 JET_bitIndexUnique = 1;
-
 	public const uint32 JET_bitIndexPrimary = 2;
-
 	public const uint32 JET_bitIndexDisallowNull = 4;
-
 	public const uint32 JET_bitIndexIgnoreNull = 8;
-
 	public const uint32 JET_bitIndexIgnoreAnyNull = 32;
-
 	public const uint32 JET_bitIndexIgnoreFirstNull = 64;
-
 	public const uint32 JET_bitIndexLazyFlush = 128;
-
 	public const uint32 JET_bitIndexEmpty = 256;
-
 	public const uint32 JET_bitIndexUnversioned = 512;
-
 	public const uint32 JET_bitIndexSortNullsHigh = 1024;
-
 	public const uint32 JET_bitIndexUnicode = 2048;
-
 	public const uint32 JET_bitIndexTuples = 4096;
-
 	public const uint32 JET_bitIndexTupleLimits = 8192;
-
 	public const uint32 JET_bitIndexCrossProduct = 16384;
-
 	public const uint32 JET_bitIndexKeyMost = 32768;
-
 	public const uint32 JET_bitIndexDisallowTruncation = 65536;
-
 	public const uint32 JET_bitIndexNestedTable = 131072;
-
 	public const uint32 JET_bitIndexDotNetGuid = 262144;
-
 	public const uint32 JET_bitIndexImmutableStructure = 524288;
-
 	public const uint32 JET_bitKeyAscending = 0;
-
 	public const uint32 JET_bitKeyDescending = 1;
-
 	public const uint32 JET_bitTableDenyWrite = 1;
-
 	public const uint32 JET_bitTableDenyRead = 2;
-
 	public const uint32 JET_bitTableReadOnly = 4;
-
 	public const uint32 JET_bitTableUpdatable = 8;
-
 	public const uint32 JET_bitTablePermitDDL = 16;
-
 	public const uint32 JET_bitTableNoCache = 32;
-
 	public const uint32 JET_bitTablePreread = 64;
-
 	public const uint32 JET_bitTableOpportuneRead = 128;
-
 	public const uint32 JET_bitTableSequential = 32768;
-
 	public const uint32 JET_bitTableClassMask = 2031616;
-
 	public const uint32 JET_bitTableClassNone = 0;
-
 	public const uint32 JET_bitTableClass1 = 65536;
-
 	public const uint32 JET_bitTableClass2 = 131072;
-
 	public const uint32 JET_bitTableClass3 = 196608;
-
 	public const uint32 JET_bitTableClass4 = 262144;
-
 	public const uint32 JET_bitTableClass5 = 327680;
-
 	public const uint32 JET_bitTableClass6 = 393216;
-
 	public const uint32 JET_bitTableClass7 = 458752;
-
 	public const uint32 JET_bitTableClass8 = 524288;
-
 	public const uint32 JET_bitTableClass9 = 589824;
-
 	public const uint32 JET_bitTableClass10 = 655360;
-
 	public const uint32 JET_bitTableClass11 = 720896;
-
 	public const uint32 JET_bitTableClass12 = 786432;
-
 	public const uint32 JET_bitTableClass13 = 851968;
-
 	public const uint32 JET_bitTableClass14 = 917504;
-
 	public const uint32 JET_bitTableClass15 = 983040;
-
 	public const uint32 JET_bitLSReset = 1;
-
 	public const uint32 JET_bitLSCursor = 2;
-
 	public const uint32 JET_bitLSTable = 4;
-
 	public const uint32 JET_bitPrereadForward = 1;
-
 	public const uint32 JET_bitPrereadBackward = 2;
-
 	public const uint32 JET_bitPrereadFirstPage = 4;
-
 	public const uint32 JET_bitPrereadNormalizedKey = 8;
-
 	public const uint32 JET_bitTTIndexed = 1;
-
 	public const uint32 JET_bitTTUnique = 2;
-
 	public const uint32 JET_bitTTUpdatable = 4;
-
 	public const uint32 JET_bitTTScrollable = 8;
-
 	public const uint32 JET_bitTTSortNullsHigh = 16;
-
 	public const uint32 JET_bitTTForceMaterialization = 32;
-
 	public const uint32 JET_bitTTErrorOnDuplicateInsertion = 32;
-
 	public const uint32 JET_bitTTForwardOnly = 64;
-
 	public const uint32 JET_bitTTIntrinsicLVsOnly = 128;
-
 	public const uint32 JET_bitTTDotNetGuid = 256;
-
 	public const uint32 JET_bitSetAppendLV = 1;
-
 	public const uint32 JET_bitSetOverwriteLV = 4;
-
 	public const uint32 JET_bitSetSizeLV = 8;
-
 	public const uint32 JET_bitSetZeroLength = 32;
-
 	public const uint32 JET_bitSetSeparateLV = 64;
-
 	public const uint32 JET_bitSetUniqueMultiValues = 128;
-
 	public const uint32 JET_bitSetUniqueNormalizedMultiValues = 256;
-
 	public const uint32 JET_bitSetRevertToDefaultValue = 512;
-
 	public const uint32 JET_bitSetIntrinsicLV = 1024;
-
 	public const uint32 JET_bitSetUncompressed = 65536;
-
 	public const uint32 JET_bitSetCompressed = 131072;
-
 	public const uint32 JET_bitSetContiguousLV = 262144;
-
 	public const uint32 JET_bitSpaceHintsUtilizeParentSpace = 1;
-
 	public const uint32 JET_bitCreateHintAppendSequential = 2;
-
 	public const uint32 JET_bitCreateHintHotpointSequential = 4;
-
 	public const uint32 JET_bitRetrieveHintReserve1 = 8;
-
 	public const uint32 JET_bitRetrieveHintTableScanForward = 16;
-
 	public const uint32 JET_bitRetrieveHintTableScanBackward = 32;
-
 	public const uint32 JET_bitRetrieveHintReserve2 = 64;
-
 	public const uint32 JET_bitRetrieveHintReserve3 = 128;
-
 	public const uint32 JET_bitDeleteHintTableSequential = 256;
-
 	public const uint32 JET_prepInsert = 0;
-
 	public const uint32 JET_prepReplace = 2;
-
 	public const uint32 JET_prepCancel = 3;
-
 	public const uint32 JET_prepReplaceNoLock = 4;
-
 	public const uint32 JET_prepInsertCopy = 5;
-
 	public const uint32 JET_prepInsertCopyDeleteOriginal = 7;
-
 	public const uint32 JET_prepInsertCopyReplaceOriginal = 9;
-
 	public const uint32 JET_sqmDisable = 0;
-
 	public const uint32 JET_sqmEnable = 1;
-
 	public const uint32 JET_sqmFromCEIP = 2;
-
 	public const uint32 JET_bitUpdateCheckESE97Compatibility = 1;
-
 	public const uint32 JET_bitEscrowNoRollback = 1;
-
 	public const uint32 JET_bitRetrieveCopy = 1;
-
 	public const uint32 JET_bitRetrieveFromIndex = 2;
-
 	public const uint32 JET_bitRetrieveFromPrimaryBookmark = 4;
-
 	public const uint32 JET_bitRetrieveTag = 8;
-
 	public const uint32 JET_bitRetrieveNull = 16;
-
 	public const uint32 JET_bitRetrieveIgnoreDefault = 32;
-
 	public const uint32 JET_bitRetrieveTuple = 2048;
-
 	public const uint32 JET_bitZeroLength = 1;
-
 	public const uint32 JET_bitEnumerateCopy = 1;
-
 	public const uint32 JET_bitEnumerateIgnoreDefault = 32;
-
 	public const uint32 JET_bitEnumeratePresenceOnly = 131072;
-
 	public const uint32 JET_bitEnumerateTaggedOnly = 262144;
-
 	public const uint32 JET_bitEnumerateCompressOutput = 524288;
-
 	public const uint32 JET_bitEnumerateIgnoreUserDefinedDefault = 1048576;
-
 	public const uint32 JET_bitEnumerateInRecordOnly = 2097152;
-
 	public const uint32 JET_bitRecordSizeInCopyBuffer = 1;
-
 	public const uint32 JET_bitRecordSizeRunningTotal = 2;
-
 	public const uint32 JET_bitRecordSizeLocal = 4;
-
 	public const uint32 JET_bitTransactionReadOnly = 1;
-
 	public const uint32 JET_bitCommitLazyFlush = 1;
-
 	public const uint32 JET_bitWaitLastLevel0Commit = 2;
-
 	public const uint32 JET_bitWaitAllLevel0Commit = 8;
-
 	public const uint32 JET_bitForceNewLog = 16;
-
 	public const uint32 JET_bitRollbackAll = 1;
-
 	public const uint32 JET_bitIncrementalSnapshot = 1;
-
 	public const uint32 JET_bitCopySnapshot = 2;
-
 	public const uint32 JET_bitContinueAfterThaw = 4;
-
 	public const uint32 JET_bitExplicitPrepare = 8;
-
 	public const uint32 JET_bitAllDatabasesSnapshot = 1;
-
 	public const uint32 JET_bitAbortSnapshot = 1;
-
 	public const uint32 JET_DbInfoFilename = 0;
-
 	public const uint32 JET_DbInfoConnect = 1;
-
 	public const uint32 JET_DbInfoCountry = 2;
-
 	public const uint32 JET_DbInfoLCID = 3;
-
 	public const uint32 JET_DbInfoLangid = 3;
-
 	public const uint32 JET_DbInfoCp = 4;
-
 	public const uint32 JET_DbInfoCollate = 5;
-
 	public const uint32 JET_DbInfoOptions = 6;
-
 	public const uint32 JET_DbInfoTransactions = 7;
-
 	public const uint32 JET_DbInfoVersion = 8;
-
 	public const uint32 JET_DbInfoIsam = 9;
-
 	public const uint32 JET_DbInfoFilesize = 10;
-
 	public const uint32 JET_DbInfoSpaceOwned = 11;
-
 	public const uint32 JET_DbInfoSpaceAvailable = 12;
-
 	public const uint32 JET_DbInfoUpgrade = 13;
-
 	public const uint32 JET_DbInfoMisc = 14;
-
 	public const uint32 JET_DbInfoDBInUse = 15;
-
 	public const uint32 JET_DbInfoPageSize = 17;
-
 	public const uint32 JET_DbInfoFileType = 19;
-
 	public const uint32 JET_DbInfoFilesizeOnDisk = 21;
-
 	public const uint32 JET_dbstateJustCreated = 1;
-
 	public const uint32 JET_dbstateDirtyShutdown = 2;
-
 	public const uint32 JET_dbstateCleanShutdown = 3;
-
 	public const uint32 JET_dbstateBeingConverted = 4;
-
 	public const uint32 JET_dbstateForceDetach = 5;
-
 	public const uint32 JET_filetypeUnknown = 0;
-
 	public const uint32 JET_filetypeDatabase = 1;
-
 	public const uint32 JET_filetypeLog = 3;
-
 	public const uint32 JET_filetypeCheckpoint = 4;
-
 	public const uint32 JET_filetypeTempDatabase = 5;
-
 	public const uint32 JET_filetypeFlushMap = 7;
-
 	public const uint32 JET_revertstateNone = 0;
-
 	public const uint32 JET_revertstateInProgress = 1;
-
 	public const uint32 JET_revertstateCopingLogs = 2;
-
 	public const uint32 JET_revertstateCompleted = 3;
-
 	public const uint32 JET_bitDeleteAllExistingLogs = 1;
-
 	public const uint32 JET_coltypNil = 0;
-
 	public const uint32 JET_coltypBit = 1;
-
 	public const uint32 JET_coltypUnsignedByte = 2;
-
 	public const uint32 JET_coltypShort = 3;
-
 	public const uint32 JET_coltypLong = 4;
-
 	public const uint32 JET_coltypCurrency = 5;
-
 	public const uint32 JET_coltypIEEESingle = 6;
-
 	public const uint32 JET_coltypIEEEDouble = 7;
-
 	public const uint32 JET_coltypDateTime = 8;
-
 	public const uint32 JET_coltypBinary = 9;
-
 	public const uint32 JET_coltypText = 10;
-
 	public const uint32 JET_coltypLongBinary = 11;
-
 	public const uint32 JET_coltypLongText = 12;
-
 	public const uint32 JET_coltypMax = 13;
-
 	public const uint32 JET_coltypSLV = 13;
-
 	public const uint32 JET_coltypUnsignedLong = 14;
-
 	public const uint32 JET_coltypLongLong = 15;
-
 	public const uint32 JET_coltypGUID = 16;
-
 	public const uint32 JET_coltypUnsignedShort = 17;
-
 	public const uint32 JET_coltypUnsignedLongLong = 18;
-
 	public const uint32 JET_ColInfoGrbitNonDerivedColumnsOnly = 2147483648;
-
 	public const uint32 JET_ColInfoGrbitMinimalInfo = 1073741824;
-
 	public const uint32 JET_ColInfoGrbitSortByColumnid = 536870912;
-
 	public const uint32 JET_objtypNil = 0;
-
 	public const uint32 JET_objtypTable = 1;
-
 	public const uint32 JET_bitCompactStats = 32;
-
 	public const uint32 JET_bitCompactRepair = 64;
-
 	public const uint32 JET_snpRepair = 2;
-
 	public const uint32 JET_snpCompact = 4;
-
 	public const uint32 JET_snpRestore = 8;
-
 	public const uint32 JET_snpBackup = 9;
-
 	public const uint32 JET_snpUpgrade = 10;
-
 	public const uint32 JET_snpScrub = 11;
-
 	public const uint32 JET_snpUpgradeRecordFormat = 12;
-
 	public const uint32 JET_sntBegin = 5;
-
 	public const uint32 JET_sntRequirements = 7;
-
 	public const uint32 JET_sntProgress = 0;
-
 	public const uint32 JET_sntComplete = 6;
-
 	public const uint32 JET_sntFail = 3;
-
 	public const uint32 JET_ExceptionMsgBox = 1;
-
 	public const uint32 JET_ExceptionNone = 2;
-
 	public const uint32 JET_ExceptionFailFast = 4;
-
 	public const uint32 JET_OnlineDefragDisable = 0;
-
 	public const uint32 JET_OnlineDefragAllOBSOLETE = 1;
-
 	public const uint32 JET_OnlineDefragDatabases = 2;
-
 	public const uint32 JET_OnlineDefragSpaceTrees = 4;
-
 	public const uint32 JET_OnlineDefragAll = 65535;
-
 	public const uint32 JET_bitResizeDatabaseOnlyGrow = 1;
-
 	public const uint32 JET_bitResizeDatabaseOnlyShrink = 2;
-
 	public const uint32 JET_bitStopServiceAll = 0;
-
 	public const uint32 JET_bitStopServiceBackgroundUserTasks = 2;
-
 	public const uint32 JET_bitStopServiceQuiesceCaches = 4;
-
 	public const uint32 JET_bitStopServiceResume = 2147483648;
-
 	public const uint32 JET_errSuccess = 0;
-
 	public const int32 JET_wrnNyi = -1;
-
 	public const int32 JET_errRfsFailure = -100;
-
 	public const int32 JET_errRfsNotArmed = -101;
-
 	public const int32 JET_errFileClose = -102;
-
 	public const int32 JET_errOutOfThreads = -103;
-
 	public const int32 JET_errTooManyIO = -105;
-
 	public const int32 JET_errTaskDropped = -106;
-
 	public const int32 JET_errInternalError = -107;
-
 	public const int32 JET_errDisabledFunctionality = -112;
-
 	public const int32 JET_errUnloadableOSFunctionality = -113;
-
 	public const int32 JET_errDatabaseBufferDependenciesCorrupted = -255;
-
 	public const uint32 JET_wrnRemainingVersions = 321;
-
 	public const int32 JET_errPreviousVersion = -322;
-
 	public const int32 JET_errPageBoundary = -323;
-
 	public const int32 JET_errKeyBoundary = -324;
-
 	public const int32 JET_errBadPageLink = -327;
-
 	public const int32 JET_errBadBookmark = -328;
-
 	public const int32 JET_errNTSystemCallFailed = -334;
-
 	public const int32 JET_errBadParentPageLink = -338;
-
 	public const int32 JET_errSPAvailExtCacheOutOfSync = -340;
-
 	public const int32 JET_errSPAvailExtCorrupted = -341;
-
 	public const int32 JET_errSPAvailExtCacheOutOfMemory = -342;
-
 	public const int32 JET_errSPOwnExtCorrupted = -343;
-
 	public const int32 JET_errDbTimeCorrupted = -344;
-
 	public const uint32 JET_wrnUniqueKey = 345;
-
 	public const int32 JET_errKeyTruncated = -346;
-
 	public const int32 JET_errDatabaseLeakInSpace = -348;
-
 	public const int32 JET_errBadEmptyPage = -351;
-
 	public const int32 JET_errBadLineCount = -354;
-
 	public const int32 JET_errPageTagCorrupted = -357;
-
 	public const int32 JET_errNodeCorrupted = -358;
-
 	public const uint32 JET_wrnSeparateLongValue = 406;
-
 	public const int32 JET_errKeyTooBig = -408;
-
 	public const int32 JET_errCannotSeparateIntrinsicLV = -416;
-
 	public const int32 JET_errSeparatedLongValue = -421;
-
 	public const int32 JET_errMustBeSeparateLongValue = -423;
-
 	public const int32 JET_errInvalidPreread = -424;
-
 	public const int32 JET_errInvalidLoggedOperation = -500;
-
 	public const int32 JET_errLogFileCorrupt = -501;
-
 	public const int32 JET_errNoBackupDirectory = -503;
-
 	public const int32 JET_errBackupDirectoryNotEmpty = -504;
-
 	public const int32 JET_errBackupInProgress = -505;
-
 	public const int32 JET_errRestoreInProgress = -506;
-
 	public const int32 JET_errMissingPreviousLogFile = -509;
-
 	public const int32 JET_errLogWriteFail = -510;
-
 	public const int32 JET_errLogDisabledDueToRecoveryFailure = -511;
-
 	public const int32 JET_errCannotLogDuringRecoveryRedo = -512;
-
 	public const int32 JET_errLogGenerationMismatch = -513;
-
 	public const int32 JET_errBadLogVersion = -514;
-
 	public const int32 JET_errInvalidLogSequence = -515;
-
 	public const int32 JET_errLoggingDisabled = -516;
-
 	public const int32 JET_errLogBufferTooSmall = -517;
-
 	public const int32 JET_errLogSequenceEnd = -519;
-
 	public const int32 JET_errNoBackup = -520;
-
 	public const int32 JET_errInvalidBackupSequence = -521;
-
 	public const int32 JET_errBackupNotAllowedYet = -523;
-
 	public const int32 JET_errDeleteBackupFileFail = -524;
-
 	public const int32 JET_errMakeBackupDirectoryFail = -525;
-
 	public const int32 JET_errInvalidBackup = -526;
-
 	public const int32 JET_errRecoveredWithErrors = -527;
-
 	public const int32 JET_errMissingLogFile = -528;
-
 	public const int32 JET_errLogDiskFull = -529;
-
 	public const int32 JET_errBadLogSignature = -530;
-
 	public const int32 JET_errBadDbSignature = -531;
-
 	public const int32 JET_errBadCheckpointSignature = -532;
-
 	public const int32 JET_errCheckpointCorrupt = -533;
-
 	public const int32 JET_errMissingPatchPage = -534;
-
 	public const int32 JET_errBadPatchPage = -535;
-
 	public const int32 JET_errRedoAbruptEnded = -536;
-
 	public const int32 JET_errPatchFileMissing = -538;
-
 	public const int32 JET_errDatabaseLogSetMismatch = -539;
-
 	public const int32 JET_errDatabaseStreamingFileMismatch = -540;
-
 	public const int32 JET_errLogFileSizeMismatch = -541;
-
 	public const int32 JET_errCheckpointFileNotFound = -542;
-
 	public const int32 JET_errRequiredLogFilesMissing = -543;
-
 	public const int32 JET_errSoftRecoveryOnBackupDatabase = -544;
-
 	public const int32 JET_errLogFileSizeMismatchDatabasesConsistent = -545;
-
 	public const int32 JET_errLogSectorSizeMismatch = -546;
-
 	public const int32 JET_errLogSectorSizeMismatchDatabasesConsistent = -547;
-
 	public const int32 JET_errLogSequenceEndDatabasesConsistent = -548;
-
 	public const int32 JET_errStreamingDataNotLogged = -549;
-
 	public const int32 JET_errDatabaseDirtyShutdown = -550;
-
 	public const int32 JET_errDatabaseInconsistent = -550;
-
 	public const int32 JET_errConsistentTimeMismatch = -551;
-
 	public const int32 JET_errDatabasePatchFileMismatch = -552;
-
 	public const int32 JET_errEndingRestoreLogTooLow = -553;
-
 	public const int32 JET_errStartingRestoreLogTooHigh = -554;
-
 	public const int32 JET_errGivenLogFileHasBadSignature = -555;
-
 	public const int32 JET_errGivenLogFileIsNotContiguous = -556;
-
 	public const int32 JET_errMissingRestoreLogFiles = -557;
-
 	public const uint32 JET_wrnExistingLogFileHasBadSignature = 558;
-
 	public const uint32 JET_wrnExistingLogFileIsNotContiguous = 559;
-
 	public const int32 JET_errMissingFullBackup = -560;
-
 	public const int32 JET_errBadBackupDatabaseSize = -561;
-
 	public const int32 JET_errDatabaseAlreadyUpgraded = -562;
-
 	public const int32 JET_errDatabaseIncompleteUpgrade = -563;
-
 	public const uint32 JET_wrnSkipThisRecord = 564;
-
 	public const int32 JET_errMissingCurrentLogFiles = -565;
-
 	public const int32 JET_errDbTimeTooOld = -566;
-
 	public const int32 JET_errDbTimeTooNew = -567;
-
 	public const int32 JET_errMissingFileToBackup = -569;
-
 	public const int32 JET_errLogTornWriteDuringHardRestore = -570;
-
 	public const int32 JET_errLogTornWriteDuringHardRecovery = -571;
-
 	public const int32 JET_errLogCorruptDuringHardRestore = -573;
-
 	public const int32 JET_errLogCorruptDuringHardRecovery = -574;
-
 	public const int32 JET_errMustDisableLoggingForDbUpgrade = -575;
-
 	public const int32 JET_errBadRestoreTargetInstance = -577;
-
 	public const uint32 JET_wrnTargetInstanceRunning = 578;
-
 	public const int32 JET_errRecoveredWithoutUndo = -579;
-
 	public const int32 JET_errDatabasesNotFromSameSnapshot = -580;
-
 	public const int32 JET_errSoftRecoveryOnSnapshot = -581;
-
 	public const int32 JET_errCommittedLogFilesMissing = -582;
-
 	public const int32 JET_errSectorSizeNotSupported = -583;
-
 	public const int32 JET_errRecoveredWithoutUndoDatabasesConsistent = -584;
-
 	public const uint32 JET_wrnCommittedLogFilesLost = 585;
-
 	public const int32 JET_errCommittedLogFileCorrupt = -586;
-
 	public const uint32 JET_wrnCommittedLogFilesRemoved = 587;
-
 	public const uint32 JET_wrnFinishWithUndo = 588;
-
 	public const int32 JET_errLogSequenceChecksumMismatch = -590;
-
 	public const uint32 JET_wrnDatabaseRepaired = 595;
-
 	public const int32 JET_errPageInitializedMismatch = -596;
-
 	public const int32 JET_errUnicodeTranslationBufferTooSmall = -601;
-
 	public const int32 JET_errUnicodeTranslationFail = -602;
-
 	public const int32 JET_errUnicodeNormalizationNotSupported = -603;
-
 	public const int32 JET_errUnicodeLanguageValidationFailure = -604;
-
 	public const int32 JET_errExistingLogFileHasBadSignature = -610;
-
 	public const int32 JET_errExistingLogFileIsNotContiguous = -611;
-
 	public const int32 JET_errLogReadVerifyFailure = -612;
-
 	public const int32 JET_errCheckpointDepthTooDeep = -614;
-
 	public const int32 JET_errRestoreOfNonBackupDatabase = -615;
-
 	public const int32 JET_errLogFileNotCopied = -616;
-
 	public const int32 JET_errTransactionTooLong = -618;
-
 	public const int32 JET_errEngineFormatVersionNoLongerSupportedTooLow = -619;
-
 	public const int32 JET_errEngineFormatVersionNotYetImplementedTooHigh = -620;
-
 	public const int32 JET_errEngineFormatVersionParamTooLowForRequestedFeature = -621;
-
 	public const int32 JET_errEngineFormatVersionSpecifiedTooLowForLogVersion = -622;
-
 	public const int32 JET_errEngineFormatVersionSpecifiedTooLowForDatabaseVersion = -623;
-
 	public const int32 JET_errBackupAbortByServer = -801;
-
 	public const int32 JET_errInvalidGrbit = -900;
-
 	public const int32 JET_errTermInProgress = -1000;
-
 	public const int32 JET_errFeatureNotAvailable = -1001;
-
 	public const int32 JET_errInvalidName = -1002;
-
 	public const int32 JET_errInvalidParameter = -1003;
-
 	public const uint32 JET_wrnColumnNull = 1004;
-
 	public const uint32 JET_wrnBufferTruncated = 1006;
-
 	public const uint32 JET_wrnDatabaseAttached = 1007;
-
 	public const int32 JET_errDatabaseFileReadOnly = -1008;
-
 	public const uint32 JET_wrnSortOverflow = 1009;
-
 	public const int32 JET_errInvalidDatabaseId = -1010;
-
 	public const int32 JET_errOutOfMemory = -1011;
-
 	public const int32 JET_errOutOfDatabaseSpace = -1012;
-
 	public const int32 JET_errOutOfCursors = -1013;
-
 	public const int32 JET_errOutOfBuffers = -1014;
-
 	public const int32 JET_errTooManyIndexes = -1015;
-
 	public const int32 JET_errTooManyKeys = -1016;
-
 	public const int32 JET_errRecordDeleted = -1017;
-
 	public const int32 JET_errReadVerifyFailure = -1018;
-
 	public const int32 JET_errPageNotInitialized = -1019;
-
 	public const int32 JET_errOutOfFileHandles = -1020;
-
 	public const int32 JET_errDiskReadVerificationFailure = -1021;
-
 	public const int32 JET_errDiskIO = -1022;
-
 	public const int32 JET_errInvalidPath = -1023;
-
 	public const int32 JET_errInvalidSystemPath = -1024;
-
 	public const int32 JET_errInvalidLogDirectory = -1025;
-
 	public const int32 JET_errRecordTooBig = -1026;
-
 	public const int32 JET_errTooManyOpenDatabases = -1027;
-
 	public const int32 JET_errInvalidDatabase = -1028;
-
 	public const int32 JET_errNotInitialized = -1029;
-
 	public const int32 JET_errAlreadyInitialized = -1030;
-
 	public const int32 JET_errInitInProgress = -1031;
-
 	public const int32 JET_errFileAccessDenied = -1032;
-
 	public const int32 JET_errBufferTooSmall = -1038;
-
 	public const uint32 JET_wrnSeekNotEqual = 1039;
-
 	public const int32 JET_errTooManyColumns = -1040;
-
 	public const int32 JET_errContainerNotEmpty = -1043;
-
 	public const int32 JET_errInvalidFilename = -1044;
-
 	public const int32 JET_errInvalidBookmark = -1045;
-
 	public const int32 JET_errColumnInUse = -1046;
-
 	public const int32 JET_errInvalidBufferSize = -1047;
-
 	public const int32 JET_errColumnNotUpdatable = -1048;
-
 	public const int32 JET_errIndexInUse = -1051;
-
 	public const int32 JET_errLinkNotSupported = -1052;
-
 	public const int32 JET_errNullKeyDisallowed = -1053;
-
 	public const int32 JET_errNotInTransaction = -1054;
-
 	public const uint32 JET_wrnNoErrorInfo = 1055;
-
 	public const int32 JET_errMustRollback = -1057;
-
 	public const uint32 JET_wrnNoIdleActivity = 1058;
-
 	public const int32 JET_errTooManyActiveUsers = -1059;
-
 	public const int32 JET_errInvalidCountry = -1061;
-
 	public const int32 JET_errInvalidLanguageId = -1062;
-
 	public const int32 JET_errInvalidCodePage = -1063;
-
 	public const int32 JET_errInvalidLCMapStringFlags = -1064;
-
 	public const int32 JET_errVersionStoreEntryTooBig = -1065;
-
 	public const int32 JET_errVersionStoreOutOfMemoryAndCleanupTimedOut = -1066;
-
 	public const uint32 JET_wrnNoWriteLock = 1067;
-
 	public const uint32 JET_wrnColumnSetNull = 1068;
-
 	public const int32 JET_errVersionStoreOutOfMemory = -1069;
-
 	public const int32 JET_errCannotIndex = -1071;
-
 	public const int32 JET_errRecordNotDeleted = -1072;
-
 	public const int32 JET_errTooManyMempoolEntries = -1073;
-
 	public const int32 JET_errOutOfObjectIDs = -1074;
-
 	public const int32 JET_errOutOfLongValueIDs = -1075;
-
 	public const int32 JET_errOutOfAutoincrementValues = -1076;
-
 	public const int32 JET_errOutOfDbtimeValues = -1077;
-
 	public const int32 JET_errOutOfSequentialIndexValues = -1078;
-
 	public const int32 JET_errRunningInOneInstanceMode = -1080;
-
 	public const int32 JET_errRunningInMultiInstanceMode = -1081;
-
 	public const int32 JET_errSystemParamsAlreadySet = -1082;
-
 	public const int32 JET_errSystemPathInUse = -1083;
-
 	public const int32 JET_errLogFilePathInUse = -1084;
-
 	public const int32 JET_errTempPathInUse = -1085;
-
 	public const int32 JET_errInstanceNameInUse = -1086;
-
 	public const int32 JET_errSystemParameterConflict = -1087;
-
 	public const int32 JET_errInstanceUnavailable = -1090;
-
 	public const int32 JET_errDatabaseUnavailable = -1091;
-
 	public const int32 JET_errInstanceUnavailableDueToFatalLogDiskFull = -1092;
-
 	public const int32 JET_errInvalidSesparamId = -1093;
-
 	public const int32 JET_errTooManyRecords = -1094;
-
 	public const int32 JET_errInvalidDbparamId = -1095;
-
 	public const int32 JET_errOutOfSessions = -1101;
-
 	public const int32 JET_errWriteConflict = -1102;
-
 	public const int32 JET_errTransTooDeep = -1103;
-
 	public const int32 JET_errInvalidSesid = -1104;
-
 	public const int32 JET_errWriteConflictPrimaryIndex = -1105;
-
 	public const int32 JET_errInTransaction = -1108;
-
 	public const int32 JET_errRollbackRequired = -1109;
-
 	public const int32 JET_errTransReadOnly = -1110;
-
 	public const int32 JET_errSessionWriteConflict = -1111;
-
 	public const int32 JET_errRecordTooBigForBackwardCompatibility = -1112;
-
 	public const int32 JET_errCannotMaterializeForwardOnlySort = -1113;
-
 	public const int32 JET_errSesidTableIdMismatch = -1114;
-
 	public const int32 JET_errInvalidInstance = -1115;
-
 	public const int32 JET_errDirtyShutdown = -1116;
-
 	public const int32 JET_errReadPgnoVerifyFailure = -1118;
-
 	public const int32 JET_errReadLostFlushVerifyFailure = -1119;
-
 	public const int32 JET_errFileSystemCorruption = -1121;
-
 	public const uint32 JET_wrnShrinkNotPossible = 1122;
-
 	public const int32 JET_errRecoveryVerifyFailure = -1123;
-
 	public const int32 JET_errFilteredMoveNotSupported = -1124;
-
 	public const int32 JET_errDatabaseDuplicate = -1201;
-
 	public const int32 JET_errDatabaseInUse = -1202;
-
 	public const int32 JET_errDatabaseNotFound = -1203;
-
 	public const int32 JET_errDatabaseInvalidName = -1204;
-
 	public const int32 JET_errDatabaseInvalidPages = -1205;
-
 	public const int32 JET_errDatabaseCorrupted = -1206;
-
 	public const int32 JET_errDatabaseLocked = -1207;
-
 	public const int32 JET_errCannotDisableVersioning = -1208;
-
 	public const int32 JET_errInvalidDatabaseVersion = -1209;
-
 	public const int32 JET_errDatabase200Format = -1210;
-
 	public const int32 JET_errDatabase400Format = -1211;
-
 	public const int32 JET_errDatabase500Format = -1212;
-
 	public const int32 JET_errPageSizeMismatch = -1213;
-
 	public const int32 JET_errTooManyInstances = -1214;
-
 	public const int32 JET_errDatabaseSharingViolation = -1215;
-
 	public const int32 JET_errAttachedDatabaseMismatch = -1216;
-
 	public const int32 JET_errDatabaseInvalidPath = -1217;
-
 	public const int32 JET_errDatabaseIdInUse = -1218;
-
 	public const int32 JET_errForceDetachNotAllowed = -1219;
-
 	public const int32 JET_errCatalogCorrupted = -1220;
-
 	public const int32 JET_errPartiallyAttachedDB = -1221;
-
 	public const int32 JET_errDatabaseSignInUse = -1222;
-
 	public const int32 JET_errDatabaseCorruptedNoRepair = -1224;
-
 	public const int32 JET_errInvalidCreateDbVersion = -1225;
-
 	public const int32 JET_errDatabaseNotReady = -1230;
-
 	public const int32 JET_errDatabaseAttachedForRecovery = -1231;
-
 	public const int32 JET_errTransactionsNotReadyDuringRecovery = -1232;
-
 	public const uint32 JET_wrnTableEmpty = 1301;
-
 	public const int32 JET_errTableLocked = -1302;
-
 	public const int32 JET_errTableDuplicate = -1303;
-
 	public const int32 JET_errTableInUse = -1304;
-
 	public const int32 JET_errObjectNotFound = -1305;
-
 	public const int32 JET_errDensityInvalid = -1307;
-
 	public const int32 JET_errTableNotEmpty = -1308;
-
 	public const int32 JET_errInvalidTableId = -1310;
-
 	public const int32 JET_errTooManyOpenTables = -1311;
-
 	public const int32 JET_errIllegalOperation = -1312;
-
 	public const int32 JET_errTooManyOpenTablesAndCleanupTimedOut = -1313;
-
 	public const int32 JET_errObjectDuplicate = -1314;
-
 	public const int32 JET_errInvalidObject = -1316;
-
 	public const int32 JET_errCannotDeleteTempTable = -1317;
-
 	public const int32 JET_errCannotDeleteSystemTable = -1318;
-
 	public const int32 JET_errCannotDeleteTemplateTable = -1319;
-
 	public const int32 JET_errExclusiveTableLockRequired = -1322;
-
 	public const int32 JET_errFixedDDL = -1323;
-
 	public const int32 JET_errFixedInheritedDDL = -1324;
-
 	public const int32 JET_errCannotNestDDL = -1325;
-
 	public const int32 JET_errDDLNotInheritable = -1326;
-
 	public const uint32 JET_wrnTableInUseBySystem = 1327;
-
 	public const int32 JET_errInvalidSettings = -1328;
-
 	public const int32 JET_errClientRequestToStopJetService = -1329;
-
 	public const int32 JET_errCannotAddFixedVarColumnToDerivedTable = -1330;
-
 	public const int32 JET_errIndexCantBuild = -1401;
-
 	public const int32 JET_errIndexHasPrimary = -1402;
-
 	public const int32 JET_errIndexDuplicate = -1403;
-
 	public const int32 JET_errIndexNotFound = -1404;
-
 	public const int32 JET_errIndexMustStay = -1405;
-
 	public const int32 JET_errIndexInvalidDef = -1406;
-
 	public const int32 JET_errInvalidCreateIndex = -1409;
-
 	public const int32 JET_errTooManyOpenIndexes = -1410;
-
 	public const int32 JET_errMultiValuedIndexViolation = -1411;
-
 	public const int32 JET_errIndexBuildCorrupted = -1412;
-
 	public const int32 JET_errPrimaryIndexCorrupted = -1413;
-
 	public const int32 JET_errSecondaryIndexCorrupted = -1414;
-
 	public const uint32 JET_wrnCorruptIndexDeleted = 1415;
-
 	public const int32 JET_errInvalidIndexId = -1416;
-
 	public const uint32 JET_wrnPrimaryIndexOutOfDate = 1417;
-
 	public const uint32 JET_wrnSecondaryIndexOutOfDate = 1418;
-
 	public const int32 JET_errIndexTuplesSecondaryIndexOnly = -1430;
-
 	public const int32 JET_errIndexTuplesTooManyColumns = -1431;
-
 	public const int32 JET_errIndexTuplesOneColumnOnly = -1431;
-
 	public const int32 JET_errIndexTuplesNonUniqueOnly = -1432;
-
 	public const int32 JET_errIndexTuplesTextBinaryColumnsOnly = -1433;
-
 	public const int32 JET_errIndexTuplesTextColumnsOnly = -1433;
-
 	public const int32 JET_errIndexTuplesVarSegMacNotAllowed = -1434;
-
 	public const int32 JET_errIndexTuplesInvalidLimits = -1435;
-
 	public const int32 JET_errIndexTuplesCannotRetrieveFromIndex = -1436;
-
 	public const int32 JET_errIndexTuplesKeyTooSmall = -1437;
-
 	public const int32 JET_errInvalidLVChunkSize = -1438;
-
 	public const int32 JET_errColumnCannotBeEncrypted = -1439;
-
 	public const int32 JET_errCannotIndexOnEncryptedColumn = -1440;
-
 	public const int32 JET_errColumnLong = -1501;
-
 	public const int32 JET_errColumnNoChunk = -1502;
-
 	public const int32 JET_errColumnDoesNotFit = -1503;
-
 	public const int32 JET_errNullInvalid = -1504;
-
 	public const int32 JET_errColumnIndexed = -1505;
-
 	public const int32 JET_errColumnTooBig = -1506;
-
 	public const int32 JET_errColumnNotFound = -1507;
-
 	public const int32 JET_errColumnDuplicate = -1508;
-
 	public const int32 JET_errMultiValuedColumnMustBeTagged = -1509;
-
 	public const int32 JET_errColumnRedundant = -1510;
-
 	public const int32 JET_errInvalidColumnType = -1511;
-
 	public const uint32 JET_wrnColumnMaxTruncated = 1512;
-
 	public const int32 JET_errTaggedNotNULL = -1514;
-
 	public const int32 JET_errNoCurrentIndex = -1515;
-
 	public const int32 JET_errKeyIsMade = -1516;
-
 	public const int32 JET_errBadColumnId = -1517;
-
 	public const int32 JET_errBadItagSequence = -1518;
-
 	public const int32 JET_errColumnInRelationship = -1519;
-
 	public const uint32 JET_wrnCopyLongValue = 1520;
-
 	public const int32 JET_errCannotBeTagged = -1521;
-
 	public const int32 JET_errDefaultValueTooBig = -1524;
-
 	public const int32 JET_errMultiValuedDuplicate = -1525;
-
 	public const int32 JET_errLVCorrupted = -1526;
-
 	public const int32 JET_errMultiValuedDuplicateAfterTruncation = -1528;
-
 	public const int32 JET_errDerivedColumnCorruption = -1529;
-
 	public const int32 JET_errInvalidPlaceholderColumn = -1530;
-
 	public const uint32 JET_wrnColumnSkipped = 1531;
-
 	public const uint32 JET_wrnColumnNotLocal = 1532;
-
 	public const uint32 JET_wrnColumnMoreTags = 1533;
-
 	public const uint32 JET_wrnColumnTruncated = 1534;
-
 	public const uint32 JET_wrnColumnPresent = 1535;
-
 	public const uint32 JET_wrnColumnSingleValue = 1536;
-
 	public const uint32 JET_wrnColumnDefault = 1537;
-
 	public const int32 JET_errColumnCannotBeCompressed = -1538;
-
 	public const uint32 JET_wrnColumnNotInRecord = 1539;
-
 	public const int32 JET_errColumnNoEncryptionKey = -1540;
-
 	public const uint32 JET_wrnColumnReference = 1541;
-
 	public const int32 JET_errRecordNotFound = -1601;
-
 	public const int32 JET_errRecordNoCopy = -1602;
-
 	public const int32 JET_errNoCurrentRecord = -1603;
-
 	public const int32 JET_errRecordPrimaryChanged = -1604;
-
 	public const int32 JET_errKeyDuplicate = -1605;
-
 	public const int32 JET_errAlreadyPrepared = -1607;
-
 	public const int32 JET_errKeyNotMade = -1608;
-
 	public const int32 JET_errUpdateNotPrepared = -1609;
-
 	public const uint32 JET_wrnDataHasChanged = 1610;
-
 	public const int32 JET_errDataHasChanged = -1611;
-
 	public const uint32 JET_wrnKeyChanged = 1618;
-
 	public const int32 JET_errLanguageNotSupported = -1619;
-
 	public const int32 JET_errDecompressionFailed = -1620;
-
 	public const int32 JET_errUpdateMustVersion = -1621;
-
 	public const int32 JET_errDecryptionFailed = -1622;
-
 	public const int32 JET_errEncryptionBadItag = -1623;
-
 	public const int32 JET_errTooManySorts = -1701;
-
 	public const int32 JET_errInvalidOnSort = -1702;
-
 	public const int32 JET_errTempFileOpenError = -1803;
-
 	public const int32 JET_errTooManyAttachedDatabases = -1805;
-
 	public const int32 JET_errDiskFull = -1808;
-
 	public const int32 JET_errPermissionDenied = -1809;
-
 	public const int32 JET_errFileNotFound = -1811;
-
 	public const int32 JET_errFileInvalidType = -1812;
-
 	public const uint32 JET_wrnFileOpenReadOnly = 1813;
-
 	public const int32 JET_errFileAlreadyExists = -1814;
-
 	public const int32 JET_errAfterInitialization = -1850;
-
 	public const int32 JET_errLogCorrupted = -1852;
-
 	public const int32 JET_errInvalidOperation = -1906;
-
 	public const int32 JET_errAccessDenied = -1907;
-
 	public const uint32 JET_wrnIdleFull = 1908;
-
 	public const int32 JET_errTooManySplits = -1909;
-
 	public const int32 JET_errSessionSharingViolation = -1910;
-
 	public const int32 JET_errEntryPointNotFound = -1911;
-
 	public const int32 JET_errSessionContextAlreadySet = -1912;
-
 	public const int32 JET_errSessionContextNotSetByThisThread = -1913;
-
 	public const int32 JET_errSessionInUse = -1914;
-
 	public const int32 JET_errRecordFormatConversionFailed = -1915;
-
 	public const int32 JET_errOneDatabasePerSession = -1916;
-
 	public const int32 JET_errRollbackError = -1917;
-
 	public const int32 JET_errFlushMapVersionUnsupported = -1918;
-
 	public const int32 JET_errFlushMapDatabaseMismatch = -1919;
-
 	public const int32 JET_errFlushMapUnrecoverable = -1920;
-
 	public const uint32 JET_wrnDefragAlreadyRunning = 2000;
-
 	public const uint32 JET_wrnDefragNotRunning = 2001;
-
 	public const int32 JET_errDatabaseAlreadyRunningMaintenance = -2004;
-
 	public const uint32 JET_wrnCallbackNotRegistered = 2100;
-
 	public const int32 JET_errCallbackFailed = -2101;
-
 	public const int32 JET_errCallbackNotResolved = -2102;
-
 	public const int32 JET_errSpaceHintsInvalid = -2103;
-
 	public const int32 JET_errOSSnapshotInvalidSequence = -2401;
-
 	public const int32 JET_errOSSnapshotTimeOut = -2402;
-
 	public const int32 JET_errOSSnapshotNotAllowed = -2403;
-
 	public const int32 JET_errOSSnapshotInvalidSnapId = -2404;
-
 	public const int32 JET_errLSCallbackNotSpecified = -3000;
-
 	public const int32 JET_errLSAlreadySet = -3001;
-
 	public const int32 JET_errLSNotSet = -3002;
-
 	public const int32 JET_errFileIOSparse = -4000;
-
 	public const int32 JET_errFileIOBeyondEOF = -4001;
-
 	public const int32 JET_errFileIOAbort = -4002;
-
 	public const int32 JET_errFileIORetry = -4003;
-
 	public const int32 JET_errFileIOFail = -4004;
-
 	public const int32 JET_errFileCompressed = -4005;
-
 	public const uint32 JET_BASE_NAME_LENGTH = 3;
-
 	public const uint32 JET_bitDumpMinimum = 1;
-
 	public const uint32 JET_bitDumpMaximum = 2;
-
 	public const uint32 JET_bitDumpCacheMinimum = 4;
-
 	public const uint32 JET_bitDumpCacheMaximum = 8;
-
 	public const uint32 JET_bitDumpCacheIncludeDirtyPages = 16;
-
 	public const uint32 JET_bitDumpCacheIncludeCachedPages = 32;
-
 	public const uint32 JET_bitDumpCacheIncludeCorruptedPages = 64;
-
 	public const uint32 JET_bitDumpCacheNoDecommit = 128;
-
 }
 #endregion
 
@@ -1996,11 +1056,9 @@ public struct CONVERT_A
 		{
 			public uint32 _bitfield;
 		}
-
 		public uint32 fFlags;
 		public using _Anonymous_e__Struct Anonymous;
 	}
-
 	public PSTR szOldDll;
 	public using _Anonymous_e__Union Anonymous;
 }
@@ -2016,11 +1074,9 @@ public struct CONVERT_W
 		{
 			public uint32 _bitfield;
 		}
-
 		public uint32 fFlags;
 		public using _Anonymous_e__Struct Anonymous;
 	}
-
 	public PWSTR szOldDll;
 	public using _Anonymous_e__Union Anonymous;
 }
@@ -2044,11 +1100,9 @@ public struct JET_DBINFOUPGRADE
 		{
 			public uint32 _bitfield;
 		}
-
 		public uint32 ulFlags;
 		public using _Anonymous_e__Struct Anonymous;
 	}
-
 	public uint32 cbStruct;
 	public uint32 cbFilesizeLow;
 	public uint32 cbFilesizeHigh;
@@ -2292,14 +1346,12 @@ public struct JET_INDEXCREATE_A
 		public uint32 lcid;
 		public JET_UNICODEINDEX* pidxunicode;
 	}
-
 	[CRepr, Union]
 	public struct _Anonymous2_e__Union
 	{
 		public uint32 cbVarSegMac;
 		public JET_TUPLELIMITS* ptuplelimits;
 	}
-
 	public uint32 cbStruct;
 	public PSTR szIndexName;
 	public PSTR szKey;
@@ -2323,14 +1375,12 @@ public struct JET_INDEXCREATE_W
 		public uint32 lcid;
 		public JET_UNICODEINDEX* pidxunicode;
 	}
-
 	[CRepr, Union]
 	public struct _Anonymous2_e__Union
 	{
 		public uint32 cbVarSegMac;
 		public JET_TUPLELIMITS* ptuplelimits;
 	}
-
 	public uint32 cbStruct;
 	public PWSTR szIndexName;
 	public PWSTR szKey;
@@ -2354,14 +1404,12 @@ public struct JET_INDEXCREATE2_A
 		public uint32 lcid;
 		public JET_UNICODEINDEX* pidxunicode;
 	}
-
 	[CRepr, Union]
 	public struct _Anonymous2_e__Union
 	{
 		public uint32 cbVarSegMac;
 		public JET_TUPLELIMITS* ptuplelimits;
 	}
-
 	public uint32 cbStruct;
 	public PSTR szIndexName;
 	public PSTR szKey;
@@ -2386,14 +1434,12 @@ public struct JET_INDEXCREATE2_W
 		public uint32 lcid;
 		public JET_UNICODEINDEX* pidxunicode;
 	}
-
 	[CRepr, Union]
 	public struct _Anonymous2_e__Union
 	{
 		public uint32 cbVarSegMac;
 		public JET_TUPLELIMITS* ptuplelimits;
 	}
-
 	public uint32 cbStruct;
 	public PWSTR szIndexName;
 	public PWSTR szKey;
@@ -2418,7 +1464,6 @@ public struct JET_INDEXCREATE3_A
 		public uint32 cbVarSegMac;
 		public JET_TUPLELIMITS* ptuplelimits;
 	}
-
 	public uint32 cbStruct;
 	public PSTR szIndexName;
 	public PSTR szKey;
@@ -2443,7 +1488,6 @@ public struct JET_INDEXCREATE3_W
 		public uint32 cbVarSegMac;
 		public JET_TUPLELIMITS* ptuplelimits;
 	}
-
 	public uint32 cbStruct;
 	public PWSTR szIndexName;
 	public PWSTR szKey;
@@ -2720,11 +1764,9 @@ public struct JET_LOGTIME
 		{
 			public uint8 _bitfield;
 		}
-
 		public CHAR bFiller2;
 		public using _Anonymous_e__Struct Anonymous;
 	}
-
 	[CRepr, Union]
 	public struct _Anonymous1_e__Union
 	{
@@ -2733,11 +1775,9 @@ public struct JET_LOGTIME
 		{
 			public uint8 _bitfield;
 		}
-
 		public CHAR bFiller1;
 		public using _Anonymous_e__Struct Anonymous;
 	}
-
 	public CHAR bSeconds;
 	public CHAR bMinutes;
 	public CHAR bHours;
@@ -2759,11 +1799,9 @@ public struct JET_BKLOGTIME
 		{
 			public uint8 _bitfield;
 		}
-
 		public CHAR bFiller2;
 		public using _Anonymous_e__Struct Anonymous;
 	}
-
 	[CRepr, Union]
 	public struct _Anonymous1_e__Union
 	{
@@ -2772,11 +1810,9 @@ public struct JET_BKLOGTIME
 		{
 			public uint8 _bitfield;
 		}
-
 		public CHAR bFiller1;
 		public using _Anonymous_e__Struct Anonymous;
 	}
-
 	public CHAR bSeconds;
 	public CHAR bMinutes;
 	public CHAR bHours;
@@ -2812,7 +1848,6 @@ public struct JET_BKINFO
 		public JET_LOGTIME logtimeMark;
 		public JET_BKLOGTIME bklogtimeMark;
 	}
-
 	public JET_LGPOS lgposMark;
 	public using _Anonymous_e__Union Anonymous;
 	public uint32 genLow;
@@ -3155,18 +2190,15 @@ public struct JET_ENUMCOLUMN
 			public uint32 cbData;
 			public void* pvData;
 		}
-
 		[CRepr]
 		public struct _Anonymous1_e__Struct
 		{
 			public uint32 cEnumColumnValue;
 			public JET_ENUMCOLUMNVALUE* rgEnumColumnValue;
 		}
-
 		public _Anonymous1_e__Struct Anonymous1;
 		public _Anonymous2_e__Struct Anonymous2;
 	}
-
 	public uint32 columnid;
 	public int32 err;
 	public using _Anonymous_e__Union Anonymous;

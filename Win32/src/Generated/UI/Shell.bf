@@ -19,7 +19,6 @@ using Win32.System.Threading;
 using Win32.Graphics.DirectComposition;
 using Win32.System.Com.Urlmon;
 using System;
-using System.Interop;
 
 namespace Win32.UI.Shell;
 
@@ -27,3165 +26,1585 @@ namespace Win32.UI.Shell;
 public static
 {
 	public const HRESULT HLINK_E_FIRST = -2147221248;
-
 	public const HRESULT HLINK_S_FIRST = 262400;
-
 	public const uint32 WM_CPL_LAUNCH = 2024;
-
 	public const uint32 WM_CPL_LAUNCHED = 2025;
-
 	public const uint32 CPL_DYNAMIC_RES = 0;
-
 	public const uint32 CPL_INIT = 1;
-
 	public const uint32 CPL_GETCOUNT = 2;
-
 	public const uint32 CPL_INQUIRE = 3;
-
 	public const uint32 CPL_SELECT = 4;
-
 	public const uint32 CPL_DBLCLK = 5;
-
 	public const uint32 CPL_STOP = 6;
-
 	public const uint32 CPL_EXIT = 7;
-
 	public const uint32 CPL_NEWINQUIRE = 8;
-
 	public const uint32 CPL_STARTWPARMSA = 9;
-
 	public const uint32 CPL_STARTWPARMSW = 10;
-
 	public const uint32 CPL_STARTWPARMS = 10;
-
 	public const uint32 CPL_SETUP = 200;
-
 	public const int32 HLINK_S_DONTHIDE = 262400;
-
 	public const Guid FOLDERID_NetworkFolder = .(0xd20beec4, 0x5ca8, 0x4905, 0xae, 0x3b, 0xbf, 0x25, 0x1e, 0xa0, 0x9b, 0x53);
-
 	public const Guid FOLDERID_ComputerFolder = .(0x0ac0837c, 0xbbf8, 0x452a, 0x85, 0x0d, 0x79, 0xd0, 0x8e, 0x66, 0x7c, 0xa7);
-
 	public const Guid FOLDERID_InternetFolder = .(0x4d9f7874, 0x4e0c, 0x4904, 0x96, 0x7b, 0x40, 0xb0, 0xd2, 0x0c, 0x3e, 0x4b);
-
 	public const Guid FOLDERID_ControlPanelFolder = .(0x82a74aeb, 0xaeb4, 0x465c, 0xa0, 0x14, 0xd0, 0x97, 0xee, 0x34, 0x6d, 0x63);
-
 	public const Guid FOLDERID_PrintersFolder = .(0x76fc4e2d, 0xd6ad, 0x4519, 0xa6, 0x63, 0x37, 0xbd, 0x56, 0x06, 0x81, 0x85);
-
 	public const Guid FOLDERID_SyncManagerFolder = .(0x43668bf8, 0xc14e, 0x49b2, 0x97, 0xc9, 0x74, 0x77, 0x84, 0xd7, 0x84, 0xb7);
-
 	public const Guid FOLDERID_SyncSetupFolder = .(0x0f214138, 0xb1d3, 0x4a90, 0xbb, 0xa9, 0x27, 0xcb, 0xc0, 0xc5, 0x38, 0x9a);
-
 	public const Guid FOLDERID_ConflictFolder = .(0x4bfefb45, 0x347d, 0x4006, 0xa5, 0xbe, 0xac, 0x0c, 0xb0, 0x56, 0x71, 0x92);
-
 	public const Guid FOLDERID_SyncResultsFolder = .(0x289a9a43, 0xbe44, 0x4057, 0xa4, 0x1b, 0x58, 0x7a, 0x76, 0xd7, 0xe7, 0xf9);
-
 	public const Guid FOLDERID_RecycleBinFolder = .(0xb7534046, 0x3ecb, 0x4c18, 0xbe, 0x4e, 0x64, 0xcd, 0x4c, 0xb7, 0xd6, 0xac);
-
 	public const Guid FOLDERID_ConnectionsFolder = .(0x6f0cd92b, 0x2e97, 0x45d1, 0x88, 0xff, 0xb0, 0xd1, 0x86, 0xb8, 0xde, 0xdd);
-
 	public const Guid FOLDERID_Fonts = .(0xfd228cb7, 0xae11, 0x4ae3, 0x86, 0x4c, 0x16, 0xf3, 0x91, 0x0a, 0xb8, 0xfe);
-
 	public const Guid FOLDERID_Desktop = .(0xb4bfcc3a, 0xdb2c, 0x424c, 0xb0, 0x29, 0x7f, 0xe9, 0x9a, 0x87, 0xc6, 0x41);
-
 	public const Guid FOLDERID_Startup = .(0xb97d20bb, 0xf46a, 0x4c97, 0xba, 0x10, 0x5e, 0x36, 0x08, 0x43, 0x08, 0x54);
-
 	public const Guid FOLDERID_Programs = .(0xa77f5d77, 0x2e2b, 0x44c3, 0xa6, 0xa2, 0xab, 0xa6, 0x01, 0x05, 0x4a, 0x51);
-
 	public const Guid FOLDERID_StartMenu = .(0x625b53c3, 0xab48, 0x4ec1, 0xba, 0x1f, 0xa1, 0xef, 0x41, 0x46, 0xfc, 0x19);
-
 	public const Guid FOLDERID_Recent = .(0xae50c081, 0xebd2, 0x438a, 0x86, 0x55, 0x8a, 0x09, 0x2e, 0x34, 0x98, 0x7a);
-
 	public const Guid FOLDERID_SendTo = .(0x8983036c, 0x27c0, 0x404b, 0x8f, 0x08, 0x10, 0x2d, 0x10, 0xdc, 0xfd, 0x74);
-
 	public const Guid FOLDERID_Documents = .(0xfdd39ad0, 0x238f, 0x46af, 0xad, 0xb4, 0x6c, 0x85, 0x48, 0x03, 0x69, 0xc7);
-
 	public const Guid FOLDERID_Favorites = .(0x1777f761, 0x68ad, 0x4d8a, 0x87, 0xbd, 0x30, 0xb7, 0x59, 0xfa, 0x33, 0xdd);
-
 	public const Guid FOLDERID_NetHood = .(0xc5abbf53, 0xe17f, 0x4121, 0x89, 0x00, 0x86, 0x62, 0x6f, 0xc2, 0xc9, 0x73);
-
 	public const Guid FOLDERID_PrintHood = .(0x9274bd8d, 0xcfd1, 0x41c3, 0xb3, 0x5e, 0xb1, 0x3f, 0x55, 0xa7, 0x58, 0xf4);
-
 	public const Guid FOLDERID_Templates = .(0xa63293e8, 0x664e, 0x48db, 0xa0, 0x79, 0xdf, 0x75, 0x9e, 0x05, 0x09, 0xf7);
-
 	public const Guid FOLDERID_CommonStartup = .(0x82a5ea35, 0xd9cd, 0x47c5, 0x96, 0x29, 0xe1, 0x5d, 0x2f, 0x71, 0x4e, 0x6e);
-
 	public const Guid FOLDERID_CommonPrograms = .(0x0139d44e, 0x6afe, 0x49f2, 0x86, 0x90, 0x3d, 0xaf, 0xca, 0xe6, 0xff, 0xb8);
-
 	public const Guid FOLDERID_CommonStartMenu = .(0xa4115719, 0xd62e, 0x491d, 0xaa, 0x7c, 0xe7, 0x4b, 0x8b, 0xe3, 0xb0, 0x67);
-
 	public const Guid FOLDERID_PublicDesktop = .(0xc4aa340d, 0xf20f, 0x4863, 0xaf, 0xef, 0xf8, 0x7e, 0xf2, 0xe6, 0xba, 0x25);
-
 	public const Guid FOLDERID_ProgramData = .(0x62ab5d82, 0xfdc1, 0x4dc3, 0xa9, 0xdd, 0x07, 0x0d, 0x1d, 0x49, 0x5d, 0x97);
-
 	public const Guid FOLDERID_CommonTemplates = .(0xb94237e7, 0x57ac, 0x4347, 0x91, 0x51, 0xb0, 0x8c, 0x6c, 0x32, 0xd1, 0xf7);
-
 	public const Guid FOLDERID_PublicDocuments = .(0xed4824af, 0xdce4, 0x45a8, 0x81, 0xe2, 0xfc, 0x79, 0x65, 0x08, 0x36, 0x34);
-
 	public const Guid FOLDERID_RoamingAppData = .(0x3eb685db, 0x65f9, 0x4cf6, 0xa0, 0x3a, 0xe3, 0xef, 0x65, 0x72, 0x9f, 0x3d);
-
 	public const Guid FOLDERID_LocalAppData = .(0xf1b32785, 0x6fba, 0x4fcf, 0x9d, 0x55, 0x7b, 0x8e, 0x7f, 0x15, 0x70, 0x91);
-
 	public const Guid FOLDERID_LocalAppDataLow = .(0xa520a1a4, 0x1780, 0x4ff6, 0xbd, 0x18, 0x16, 0x73, 0x43, 0xc5, 0xaf, 0x16);
-
 	public const Guid FOLDERID_InternetCache = .(0x352481e8, 0x33be, 0x4251, 0xba, 0x85, 0x60, 0x07, 0xca, 0xed, 0xcf, 0x9d);
-
 	public const Guid FOLDERID_Cookies = .(0x2b0f765d, 0xc0e9, 0x4171, 0x90, 0x8e, 0x08, 0xa6, 0x11, 0xb8, 0x4f, 0xf6);
-
 	public const Guid FOLDERID_History = .(0xd9dc8a3b, 0xb784, 0x432e, 0xa7, 0x81, 0x5a, 0x11, 0x30, 0xa7, 0x59, 0x63);
-
 	public const Guid FOLDERID_System = .(0x1ac14e77, 0x02e7, 0x4e5d, 0xb7, 0x44, 0x2e, 0xb1, 0xae, 0x51, 0x98, 0xb7);
-
 	public const Guid FOLDERID_SystemX86 = .(0xd65231b0, 0xb2f1, 0x4857, 0xa4, 0xce, 0xa8, 0xe7, 0xc6, 0xea, 0x7d, 0x27);
-
 	public const Guid FOLDERID_Windows = .(0xf38bf404, 0x1d43, 0x42f2, 0x93, 0x05, 0x67, 0xde, 0x0b, 0x28, 0xfc, 0x23);
-
 	public const Guid FOLDERID_Profile = .(0x5e6c858f, 0x0e22, 0x4760, 0x9a, 0xfe, 0xea, 0x33, 0x17, 0xb6, 0x71, 0x73);
-
 	public const Guid FOLDERID_Pictures = .(0x33e28130, 0x4e1e, 0x4676, 0x83, 0x5a, 0x98, 0x39, 0x5c, 0x3b, 0xc3, 0xbb);
-
 	public const Guid FOLDERID_ProgramFilesX86 = .(0x7c5a40ef, 0xa0fb, 0x4bfc, 0x87, 0x4a, 0xc0, 0xf2, 0xe0, 0xb9, 0xfa, 0x8e);
-
 	public const Guid FOLDERID_ProgramFilesCommonX86 = .(0xde974d24, 0xd9c6, 0x4d3e, 0xbf, 0x91, 0xf4, 0x45, 0x51, 0x20, 0xb9, 0x17);
-
 	public const Guid FOLDERID_ProgramFilesX64 = .(0x6d809377, 0x6af0, 0x444b, 0x89, 0x57, 0xa3, 0x77, 0x3f, 0x02, 0x20, 0x0e);
-
 	public const Guid FOLDERID_ProgramFilesCommonX64 = .(0x6365d5a7, 0x0f0d, 0x45e5, 0x87, 0xf6, 0x0d, 0xa5, 0x6b, 0x6a, 0x4f, 0x7d);
-
 	public const Guid FOLDERID_ProgramFiles = .(0x905e63b6, 0xc1bf, 0x494e, 0xb2, 0x9c, 0x65, 0xb7, 0x32, 0xd3, 0xd2, 0x1a);
-
 	public const Guid FOLDERID_ProgramFilesCommon = .(0xf7f1ed05, 0x9f6d, 0x47a2, 0xaa, 0xae, 0x29, 0xd3, 0x17, 0xc6, 0xf0, 0x66);
-
 	public const Guid FOLDERID_UserProgramFiles = .(0x5cd7aee2, 0x2219, 0x4a67, 0xb8, 0x5d, 0x6c, 0x9c, 0xe1, 0x56, 0x60, 0xcb);
-
 	public const Guid FOLDERID_UserProgramFilesCommon = .(0xbcbd3057, 0xca5c, 0x4622, 0xb4, 0x2d, 0xbc, 0x56, 0xdb, 0x0a, 0xe5, 0x16);
-
 	public const Guid FOLDERID_AdminTools = .(0x724ef170, 0xa42d, 0x4fef, 0x9f, 0x26, 0xb6, 0x0e, 0x84, 0x6f, 0xba, 0x4f);
-
 	public const Guid FOLDERID_CommonAdminTools = .(0xd0384e7d, 0xbac3, 0x4797, 0x8f, 0x14, 0xcb, 0xa2, 0x29, 0xb3, 0x92, 0xb5);
-
 	public const Guid FOLDERID_Music = .(0x4bd8d571, 0x6d19, 0x48d3, 0xbe, 0x97, 0x42, 0x22, 0x20, 0x08, 0x0e, 0x43);
-
 	public const Guid FOLDERID_Videos = .(0x18989b1d, 0x99b5, 0x455b, 0x84, 0x1c, 0xab, 0x7c, 0x74, 0xe4, 0xdd, 0xfc);
-
 	public const Guid FOLDERID_Ringtones = .(0xc870044b, 0xf49e, 0x4126, 0xa9, 0xc3, 0xb5, 0x2a, 0x1f, 0xf4, 0x11, 0xe8);
-
 	public const Guid FOLDERID_PublicPictures = .(0xb6ebfb86, 0x6907, 0x413c, 0x9a, 0xf7, 0x4f, 0xc2, 0xab, 0xf0, 0x7c, 0xc5);
-
 	public const Guid FOLDERID_PublicMusic = .(0x3214fab5, 0x9757, 0x4298, 0xbb, 0x61, 0x92, 0xa9, 0xde, 0xaa, 0x44, 0xff);
-
 	public const Guid FOLDERID_PublicVideos = .(0x2400183a, 0x6185, 0x49fb, 0xa2, 0xd8, 0x4a, 0x39, 0x2a, 0x60, 0x2b, 0xa3);
-
 	public const Guid FOLDERID_PublicRingtones = .(0xe555ab60, 0x153b, 0x4d17, 0x9f, 0x04, 0xa5, 0xfe, 0x99, 0xfc, 0x15, 0xec);
-
 	public const Guid FOLDERID_ResourceDir = .(0x8ad10c31, 0x2adb, 0x4296, 0xa8, 0xf7, 0xe4, 0x70, 0x12, 0x32, 0xc9, 0x72);
-
 	public const Guid FOLDERID_LocalizedResourcesDir = .(0x2a00375e, 0x224c, 0x49de, 0xb8, 0xd1, 0x44, 0x0d, 0xf7, 0xef, 0x3d, 0xdc);
-
 	public const Guid FOLDERID_CommonOEMLinks = .(0xc1bae2d0, 0x10df, 0x4334, 0xbe, 0xdd, 0x7a, 0xa2, 0x0b, 0x22, 0x7a, 0x9d);
-
 	public const Guid FOLDERID_CDBurning = .(0x9e52ab10, 0xf80d, 0x49df, 0xac, 0xb8, 0x43, 0x30, 0xf5, 0x68, 0x78, 0x55);
-
 	public const Guid FOLDERID_UserProfiles = .(0x0762d272, 0xc50a, 0x4bb0, 0xa3, 0x82, 0x69, 0x7d, 0xcd, 0x72, 0x9b, 0x80);
-
 	public const Guid FOLDERID_Playlists = .(0xde92c1c7, 0x837f, 0x4f69, 0xa3, 0xbb, 0x86, 0xe6, 0x31, 0x20, 0x4a, 0x23);
-
 	public const Guid FOLDERID_SamplePlaylists = .(0x15ca69b3, 0x30ee, 0x49c1, 0xac, 0xe1, 0x6b, 0x5e, 0xc3, 0x72, 0xaf, 0xb5);
-
 	public const Guid FOLDERID_SampleMusic = .(0xb250c668, 0xf57d, 0x4ee1, 0xa6, 0x3c, 0x29, 0x0e, 0xe7, 0xd1, 0xaa, 0x1f);
-
 	public const Guid FOLDERID_SamplePictures = .(0xc4900540, 0x2379, 0x4c75, 0x84, 0x4b, 0x64, 0xe6, 0xfa, 0xf8, 0x71, 0x6b);
-
 	public const Guid FOLDERID_SampleVideos = .(0x859ead94, 0x2e85, 0x48ad, 0xa7, 0x1a, 0x09, 0x69, 0xcb, 0x56, 0xa6, 0xcd);
-
 	public const Guid FOLDERID_PhotoAlbums = .(0x69d2cf90, 0xfc33, 0x4fb7, 0x9a, 0x0c, 0xeb, 0xb0, 0xf0, 0xfc, 0xb4, 0x3c);
-
 	public const Guid FOLDERID_Public = .(0xdfdf76a2, 0xc82a, 0x4d63, 0x90, 0x6a, 0x56, 0x44, 0xac, 0x45, 0x73, 0x85);
-
 	public const Guid FOLDERID_ChangeRemovePrograms = .(0xdf7266ac, 0x9274, 0x4867, 0x8d, 0x55, 0x3b, 0xd6, 0x61, 0xde, 0x87, 0x2d);
-
 	public const Guid FOLDERID_AppUpdates = .(0xa305ce99, 0xf527, 0x492b, 0x8b, 0x1a, 0x7e, 0x76, 0xfa, 0x98, 0xd6, 0xe4);
-
 	public const Guid FOLDERID_AddNewPrograms = .(0xde61d971, 0x5ebc, 0x4f02, 0xa3, 0xa9, 0x6c, 0x82, 0x89, 0x5e, 0x5c, 0x04);
-
 	public const Guid FOLDERID_Downloads = .(0x374de290, 0x123f, 0x4565, 0x91, 0x64, 0x39, 0xc4, 0x92, 0x5e, 0x46, 0x7b);
-
 	public const Guid FOLDERID_PublicDownloads = .(0x3d644c9b, 0x1fb8, 0x4f30, 0x9b, 0x45, 0xf6, 0x70, 0x23, 0x5f, 0x79, 0xc0);
-
 	public const Guid FOLDERID_SavedSearches = .(0x7d1d3a04, 0xdebb, 0x4115, 0x95, 0xcf, 0x2f, 0x29, 0xda, 0x29, 0x20, 0xda);
-
 	public const Guid FOLDERID_QuickLaunch = .(0x52a4f021, 0x7b75, 0x48a9, 0x9f, 0x6b, 0x4b, 0x87, 0xa2, 0x10, 0xbc, 0x8f);
-
 	public const Guid FOLDERID_Contacts = .(0x56784854, 0xc6cb, 0x462b, 0x81, 0x69, 0x88, 0xe3, 0x50, 0xac, 0xb8, 0x82);
-
 	public const Guid FOLDERID_SidebarParts = .(0xa75d362e, 0x50fc, 0x4fb7, 0xac, 0x2c, 0xa8, 0xbe, 0xaa, 0x31, 0x44, 0x93);
-
 	public const Guid FOLDERID_SidebarDefaultParts = .(0x7b396e54, 0x9ec5, 0x4300, 0xbe, 0x0a, 0x24, 0x82, 0xeb, 0xae, 0x1a, 0x26);
-
 	public const Guid FOLDERID_PublicGameTasks = .(0xdebf2536, 0xe1a8, 0x4c59, 0xb6, 0xa2, 0x41, 0x45, 0x86, 0x47, 0x6a, 0xea);
-
 	public const Guid FOLDERID_GameTasks = .(0x054fae61, 0x4dd8, 0x4787, 0x80, 0xb6, 0x09, 0x02, 0x20, 0xc4, 0xb7, 0x00);
-
 	public const Guid FOLDERID_SavedGames = .(0x4c5c32ff, 0xbb9d, 0x43b0, 0xb5, 0xb4, 0x2d, 0x72, 0xe5, 0x4e, 0xaa, 0xa4);
-
 	public const Guid FOLDERID_Games = .(0xcac52c1a, 0xb53d, 0x4edc, 0x92, 0xd7, 0x6b, 0x2e, 0x8a, 0xc1, 0x94, 0x34);
-
 	public const Guid FOLDERID_SEARCH_MAPI = .(0x98ec0e18, 0x2098, 0x4d44, 0x86, 0x44, 0x66, 0x97, 0x93, 0x15, 0xa2, 0x81);
-
 	public const Guid FOLDERID_SEARCH_CSC = .(0xee32e446, 0x31ca, 0x4aba, 0x81, 0x4f, 0xa5, 0xeb, 0xd2, 0xfd, 0x6d, 0x5e);
-
 	public const Guid FOLDERID_Links = .(0xbfb9d5e0, 0xc6a9, 0x404c, 0xb2, 0xb2, 0xae, 0x6d, 0xb6, 0xaf, 0x49, 0x68);
-
 	public const Guid FOLDERID_UsersFiles = .(0xf3ce0f7c, 0x4901, 0x4acc, 0x86, 0x48, 0xd5, 0xd4, 0x4b, 0x04, 0xef, 0x8f);
-
 	public const Guid FOLDERID_UsersLibraries = .(0xa302545d, 0xdeff, 0x464b, 0xab, 0xe8, 0x61, 0xc8, 0x64, 0x8d, 0x93, 0x9b);
-
 	public const Guid FOLDERID_SearchHome = .(0x190337d1, 0xb8ca, 0x4121, 0xa6, 0x39, 0x6d, 0x47, 0x2d, 0x16, 0x97, 0x2a);
-
 	public const Guid FOLDERID_OriginalImages = .(0x2c36c0aa, 0x5812, 0x4b87, 0xbf, 0xd0, 0x4c, 0xd0, 0xdf, 0xb1, 0x9b, 0x39);
-
 	public const Guid FOLDERID_DocumentsLibrary = .(0x7b0db17d, 0x9cd2, 0x4a93, 0x97, 0x33, 0x46, 0xcc, 0x89, 0x02, 0x2e, 0x7c);
-
 	public const Guid FOLDERID_MusicLibrary = .(0x2112ab0a, 0xc86a, 0x4ffe, 0xa3, 0x68, 0x0d, 0xe9, 0x6e, 0x47, 0x01, 0x2e);
-
 	public const Guid FOLDERID_PicturesLibrary = .(0xa990ae9f, 0xa03b, 0x4e80, 0x94, 0xbc, 0x99, 0x12, 0xd7, 0x50, 0x41, 0x04);
-
 	public const Guid FOLDERID_VideosLibrary = .(0x491e922f, 0x5643, 0x4af4, 0xa7, 0xeb, 0x4e, 0x7a, 0x13, 0x8d, 0x81, 0x74);
-
 	public const Guid FOLDERID_RecordedTVLibrary = .(0x1a6fdba2, 0xf42d, 0x4358, 0xa7, 0x98, 0xb7, 0x4d, 0x74, 0x59, 0x26, 0xc5);
-
 	public const Guid FOLDERID_HomeGroup = .(0x52528a6b, 0xb9e3, 0x4add, 0xb6, 0x0d, 0x58, 0x8c, 0x2d, 0xba, 0x84, 0x2d);
-
 	public const Guid FOLDERID_HomeGroupCurrentUser = .(0x9b74b6a3, 0x0dfd, 0x4f11, 0x9e, 0x78, 0x5f, 0x78, 0x00, 0xf2, 0xe7, 0x72);
-
 	public const Guid FOLDERID_DeviceMetadataStore = .(0x5ce4a5e9, 0xe4eb, 0x479d, 0xb8, 0x9f, 0x13, 0x0c, 0x02, 0x88, 0x61, 0x55);
-
 	public const Guid FOLDERID_Libraries = .(0x1b3ea5dc, 0xb587, 0x4786, 0xb4, 0xef, 0xbd, 0x1d, 0xc3, 0x32, 0xae, 0xae);
-
 	public const Guid FOLDERID_PublicLibraries = .(0x48daf80b, 0xe6cf, 0x4f4e, 0xb8, 0x00, 0x0e, 0x69, 0xd8, 0x4e, 0xe3, 0x84);
-
 	public const Guid FOLDERID_UserPinned = .(0x9e3995ab, 0x1f9c, 0x4f13, 0xb8, 0x27, 0x48, 0xb2, 0x4b, 0x6c, 0x71, 0x74);
-
 	public const Guid FOLDERID_ImplicitAppShortcuts = .(0xbcb5256f, 0x79f6, 0x4cee, 0xb7, 0x25, 0xdc, 0x34, 0xe4, 0x02, 0xfd, 0x46);
-
 	public const Guid FOLDERID_AccountPictures = .(0x008ca0b1, 0x55b4, 0x4c56, 0xb8, 0xa8, 0x4d, 0xe4, 0xb2, 0x99, 0xd3, 0xbe);
-
 	public const Guid FOLDERID_PublicUserTiles = .(0x0482af6c, 0x08f1, 0x4c34, 0x8c, 0x90, 0xe1, 0x7e, 0xc9, 0x8b, 0x1e, 0x17);
-
 	public const Guid FOLDERID_AppsFolder = .(0x1e87508d, 0x89c2, 0x42f0, 0x8a, 0x7e, 0x64, 0x5a, 0x0f, 0x50, 0xca, 0x58);
-
 	public const Guid FOLDERID_StartMenuAllPrograms = .(0xf26305ef, 0x6948, 0x40b9, 0xb2, 0x55, 0x81, 0x45, 0x3d, 0x09, 0xc7, 0x85);
-
 	public const Guid FOLDERID_CommonStartMenuPlaces = .(0xa440879f, 0x87a0, 0x4f7d, 0xb7, 0x00, 0x02, 0x07, 0xb9, 0x66, 0x19, 0x4a);
-
 	public const Guid FOLDERID_ApplicationShortcuts = .(0xa3918781, 0xe5f2, 0x4890, 0xb3, 0xd9, 0xa7, 0xe5, 0x43, 0x32, 0x32, 0x8c);
-
 	public const Guid FOLDERID_RoamingTiles = .(0x00bcfc5a, 0xed94, 0x4e48, 0x96, 0xa1, 0x3f, 0x62, 0x17, 0xf2, 0x19, 0x90);
-
 	public const Guid FOLDERID_RoamedTileImages = .(0xaaa8d5a5, 0xf1d6, 0x4259, 0xba, 0xa8, 0x78, 0xe7, 0xef, 0x60, 0x83, 0x5e);
-
 	public const Guid FOLDERID_Screenshots = .(0xb7bede81, 0xdf94, 0x4682, 0xa7, 0xd8, 0x57, 0xa5, 0x26, 0x20, 0xb8, 0x6f);
-
 	public const Guid FOLDERID_CameraRoll = .(0xab5fb87b, 0x7ce2, 0x4f83, 0x91, 0x5d, 0x55, 0x08, 0x46, 0xc9, 0x53, 0x7b);
-
 	public const Guid FOLDERID_SkyDrive = .(0xa52bba46, 0xe9e1, 0x435f, 0xb3, 0xd9, 0x28, 0xda, 0xa6, 0x48, 0xc0, 0xf6);
-
 	public const Guid FOLDERID_OneDrive = .(0xa52bba46, 0xe9e1, 0x435f, 0xb3, 0xd9, 0x28, 0xda, 0xa6, 0x48, 0xc0, 0xf6);
-
 	public const Guid FOLDERID_SkyDriveDocuments = .(0x24d89e24, 0x2f19, 0x4534, 0x9d, 0xde, 0x6a, 0x66, 0x71, 0xfb, 0xb8, 0xfe);
-
 	public const Guid FOLDERID_SkyDrivePictures = .(0x339719b5, 0x8c47, 0x4894, 0x94, 0xc2, 0xd8, 0xf7, 0x7a, 0xdd, 0x44, 0xa6);
-
 	public const Guid FOLDERID_SkyDriveMusic = .(0xc3f2459e, 0x80d6, 0x45dc, 0xbf, 0xef, 0x1f, 0x76, 0x9f, 0x2b, 0xe7, 0x30);
-
 	public const Guid FOLDERID_SkyDriveCameraRoll = .(0x767e6811, 0x49cb, 0x4273, 0x87, 0xc2, 0x20, 0xf3, 0x55, 0xe1, 0x08, 0x5b);
-
 	public const Guid FOLDERID_SearchHistory = .(0x0d4c3db6, 0x03a3, 0x462f, 0xa0, 0xe6, 0x08, 0x92, 0x4c, 0x41, 0xb5, 0xd4);
-
 	public const Guid FOLDERID_SearchTemplates = .(0x7e636bfe, 0xdfa9, 0x4d5e, 0xb4, 0x56, 0xd7, 0xb3, 0x98, 0x51, 0xd8, 0xa9);
-
 	public const Guid FOLDERID_CameraRollLibrary = .(0x2b20df75, 0x1eda, 0x4039, 0x80, 0x97, 0x38, 0x79, 0x82, 0x27, 0xd5, 0xb7);
-
 	public const Guid FOLDERID_SavedPictures = .(0x3b193882, 0xd3ad, 0x4eab, 0x96, 0x5a, 0x69, 0x82, 0x9d, 0x1f, 0xb5, 0x9f);
-
 	public const Guid FOLDERID_SavedPicturesLibrary = .(0xe25b5812, 0xbe88, 0x4bd9, 0x94, 0xb0, 0x29, 0x23, 0x34, 0x77, 0xb6, 0xc3);
-
 	public const Guid FOLDERID_RetailDemo = .(0x12d4c69e, 0x24ad, 0x4923, 0xbe, 0x19, 0x31, 0x32, 0x1c, 0x43, 0xa7, 0x67);
-
 	public const Guid FOLDERID_Device = .(0x1c2ac1dc, 0x4358, 0x4b6c, 0x97, 0x33, 0xaf, 0x21, 0x15, 0x65, 0x76, 0xf0);
-
 	public const Guid FOLDERID_DevelopmentFiles = .(0xdbe8e08e, 0x3053, 0x4bbc, 0xb1, 0x83, 0x2a, 0x7b, 0x2b, 0x19, 0x1e, 0x59);
-
 	public const Guid FOLDERID_Objects3D = .(0x31c0dd25, 0x9439, 0x4f12, 0xbf, 0x41, 0x7f, 0xf4, 0xed, 0xa3, 0x87, 0x22);
-
 	public const Guid FOLDERID_AppCaptures = .(0xedc0fe71, 0x98d8, 0x4f4a, 0xb9, 0x20, 0xc8, 0xdc, 0x13, 0x3c, 0xb1, 0x65);
-
 	public const Guid FOLDERID_LocalDocuments = .(0xf42ee2d3, 0x909f, 0x4907, 0x88, 0x71, 0x4c, 0x22, 0xfc, 0x0b, 0xf7, 0x56);
-
 	public const Guid FOLDERID_LocalPictures = .(0x0ddd015d, 0xb06c, 0x45d5, 0x8c, 0x4c, 0xf5, 0x97, 0x13, 0x85, 0x46, 0x39);
-
 	public const Guid FOLDERID_LocalVideos = .(0x35286a68, 0x3c57, 0x41a1, 0xbb, 0xb1, 0x0e, 0xae, 0x73, 0xd7, 0x6c, 0x95);
-
 	public const Guid FOLDERID_LocalMusic = .(0xa0c69a99, 0x21c8, 0x4671, 0x87, 0x03, 0x79, 0x34, 0x16, 0x2f, 0xcf, 0x1d);
-
 	public const Guid FOLDERID_LocalDownloads = .(0x7d83ee9b, 0x2244, 0x4e70, 0xb1, 0xf5, 0x53, 0x93, 0x04, 0x2a, 0xf1, 0xe4);
-
 	public const Guid FOLDERID_RecordedCalls = .(0x2f8b40c2, 0x83ed, 0x48ee, 0xb3, 0x83, 0xa1, 0xf1, 0x57, 0xec, 0x6f, 0x9a);
-
 	public const Guid FOLDERID_AllAppMods = .(0x7ad67899, 0x66af, 0x43ba, 0x91, 0x56, 0x6a, 0xad, 0x42, 0xe6, 0xc5, 0x96);
-
 	public const Guid FOLDERID_CurrentAppMods = .(0x3db40b20, 0x2a30, 0x4dbe, 0x91, 0x7e, 0x77, 0x1d, 0xd2, 0x1d, 0xd0, 0x99);
-
 	public const Guid FOLDERID_AppDataDesktop = .(0xb2c5e279, 0x7add, 0x439f, 0xb2, 0x8c, 0xc4, 0x1f, 0xe1, 0xbb, 0xf6, 0x72);
-
 	public const Guid FOLDERID_AppDataDocuments = .(0x7be16610, 0x1f7f, 0x44ac, 0xbf, 0xf0, 0x83, 0xe1, 0x5f, 0x2f, 0xfc, 0xa1);
-
 	public const Guid FOLDERID_AppDataFavorites = .(0x7cfbefbc, 0xde1f, 0x45aa, 0xb8, 0x43, 0xa5, 0x42, 0xac, 0x53, 0x6c, 0xc9);
-
 	public const Guid FOLDERID_AppDataProgramData = .(0x559d40a3, 0xa036, 0x40fa, 0xaf, 0x61, 0x84, 0xcb, 0x43, 0x0a, 0x4d, 0x34);
-
 	public const Guid FOLDERID_LocalStorage = .(0xb3eb08d3, 0xa1f3, 0x496b, 0x86, 0x5a, 0x42, 0xb5, 0x36, 0xcd, 0xa0, 0xec);
-
 	public const Guid CLSID_InternetShortcut = .(0xfbf23b40, 0xe3f0, 0x101b, 0x84, 0x88, 0x00, 0xaa, 0x00, 0x3e, 0x56, 0xf8);
-
 	public const Guid CLSID_NetworkDomain = .(0x46e06680, 0x4bf0, 0x11d1, 0x83, 0xee, 0x00, 0xa0, 0xc9, 0x0d, 0xc8, 0x49);
-
 	public const Guid CLSID_NetworkServer = .(0xc0542a90, 0x4bf0, 0x11d1, 0x83, 0xee, 0x00, 0xa0, 0xc9, 0x0d, 0xc8, 0x49);
-
 	public const Guid CLSID_NetworkShare = .(0x54a754c0, 0x4bf0, 0x11d1, 0x83, 0xee, 0x00, 0xa0, 0xc9, 0x0d, 0xc8, 0x49);
-
 	public const Guid CLSID_MyComputer = .(0x20d04fe0, 0x3aea, 0x1069, 0xa2, 0xd8, 0x08, 0x00, 0x2b, 0x30, 0x30, 0x9d);
-
 	public const Guid CLSID_Internet = .(0x871c5380, 0x42a0, 0x1069, 0xa2, 0xea, 0x08, 0x00, 0x2b, 0x30, 0x30, 0x9d);
-
 	public const Guid CLSID_RecycleBin = .(0x645ff040, 0x5081, 0x101b, 0x9f, 0x08, 0x00, 0xaa, 0x00, 0x2f, 0x95, 0x4e);
-
 	public const Guid CLSID_ControlPanel = .(0x21ec2020, 0x3aea, 0x1069, 0xa2, 0xdd, 0x08, 0x00, 0x2b, 0x30, 0x30, 0x9d);
-
 	public const Guid CLSID_Printers = .(0x2227a280, 0x3aea, 0x1069, 0xa2, 0xde, 0x08, 0x00, 0x2b, 0x30, 0x30, 0x9d);
-
 	public const Guid CLSID_MyDocuments = .(0x450d8fba, 0xad25, 0x11d0, 0x98, 0xa8, 0x08, 0x00, 0x36, 0x1b, 0x11, 0x03);
-
 	public const Guid CATID_BrowsableShellExt = .(0x00021490, 0x0000, 0x0000, 0xc0, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x46);
-
 	public const Guid CATID_BrowseInPlace = .(0x00021491, 0x0000, 0x0000, 0xc0, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x46);
-
 	public const Guid CATID_DeskBand = .(0x00021492, 0x0000, 0x0000, 0xc0, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x46);
-
 	public const Guid CATID_InfoBand = .(0x00021493, 0x0000, 0x0000, 0xc0, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x46);
-
 	public const Guid CATID_CommBand = .(0x00021494, 0x0000, 0x0000, 0xc0, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x46);
-
 	public const Guid FMTID_Intshcut = .(0x000214a0, 0x0000, 0x0000, 0xc0, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x46);
-
 	public const Guid FMTID_InternetSite = .(0x000214a1, 0x0000, 0x0000, 0xc0, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x46);
-
 	public const Guid CGID_Explorer = .(0x000214d0, 0x0000, 0x0000, 0xc0, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x46);
-
 	public const Guid CGID_ShellDocView = .(0x000214d1, 0x0000, 0x0000, 0xc0, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x46);
-
 	public const Guid CGID_ShellServiceObject = .(0x000214d2, 0x0000, 0x0000, 0xc0, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x46);
-
 	public const Guid CGID_ExplorerBarDoc = .(0x000214d3, 0x0000, 0x0000, 0xc0, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x46);
-
 	public const Guid CLSID_FolderShortcut = .(0x0afaced1, 0xe828, 0x11d1, 0x91, 0x87, 0xb5, 0x32, 0xf1, 0xe9, 0x57, 0x5d);
-
 	public const Guid CLSID_CFSIconOverlayManager = .(0x63b51f81, 0xc868, 0x11d0, 0x99, 0x9c, 0x00, 0xc0, 0x4f, 0xd6, 0x55, 0xe1);
-
 	public const Guid CLSID_ShellThumbnailDiskCache = .(0x1ebdcf80, 0xa200, 0x11d0, 0xa3, 0xa4, 0x00, 0xc0, 0x4f, 0xd7, 0x06, 0xec);
-
 	public const Guid SID_DefView = .(0x6d12fe80, 0x7911, 0x11cf, 0x95, 0x34, 0x00, 0x00, 0xc0, 0x5b, 0xae, 0x0b);
-
 	public const Guid CGID_DefView = .(0x4af07f10, 0xd231, 0x11d0, 0xb9, 0x42, 0x00, 0xa0, 0xc9, 0x03, 0x12, 0xe1);
-
 	public const Guid CLSID_MenuBand = .(0x5b4dae26, 0xb807, 0x11d0, 0x98, 0x15, 0x00, 0xc0, 0x4f, 0xd9, 0x19, 0x72);
-
 	public const Guid VID_LargeIcons = .(0x0057d0e0, 0x3573, 0x11cf, 0xae, 0x69, 0x08, 0x00, 0x2b, 0x2e, 0x12, 0x62);
-
 	public const Guid VID_SmallIcons = .(0x089000c0, 0x3573, 0x11cf, 0xae, 0x69, 0x08, 0x00, 0x2b, 0x2e, 0x12, 0x62);
-
 	public const Guid VID_List = .(0x0e1fa5e0, 0x3573, 0x11cf, 0xae, 0x69, 0x08, 0x00, 0x2b, 0x2e, 0x12, 0x62);
-
 	public const Guid VID_Details = .(0x137e7700, 0x3573, 0x11cf, 0xae, 0x69, 0x08, 0x00, 0x2b, 0x2e, 0x12, 0x62);
-
 	public const Guid VID_Tile = .(0x65f125e5, 0x7be1, 0x4810, 0xba, 0x9d, 0xd2, 0x71, 0xc8, 0x43, 0x2c, 0xe3);
-
 	public const Guid VID_Content = .(0x30c2c434, 0x0889, 0x4c8d, 0x98, 0x5d, 0xa9, 0xf7, 0x18, 0x30, 0xb0, 0xa9);
-
 	public const Guid VID_Thumbnails = .(0x8bebb290, 0x52d0, 0x11d0, 0xb7, 0xf4, 0x00, 0xc0, 0x4f, 0xd7, 0x06, 0xec);
-
 	public const Guid VID_ThumbStrip = .(0x8eefa624, 0xd1e9, 0x445b, 0x94, 0xb7, 0x74, 0xfb, 0xce, 0x2e, 0xa1, 0x1a);
-
 	public const Guid SID_SInPlaceBrowser = .(0x1d2ae02b, 0x3655, 0x46cc, 0xb6, 0x3a, 0x28, 0x59, 0x88, 0x15, 0x3b, 0xca);
-
 	public const Guid SID_SSearchBoxInfo = .(0x142daa61, 0x516b, 0x4713, 0xb4, 0x9c, 0xfb, 0x98, 0x5e, 0xf8, 0x29, 0x98);
-
 	public const Guid SID_CommandsPropertyBag = .(0x6e043250, 0x4416, 0x485c, 0xb1, 0x43, 0xe6, 0x2a, 0x76, 0x0d, 0x9f, 0xe5);
-
 	public const Guid CLSID_CUrlHistory = .(0x3c374a40, 0xbae4, 0x11cf, 0xbf, 0x7d, 0x00, 0xaa, 0x00, 0x69, 0x46, 0xee);
-
 	public const Guid CLSID_CURLSearchHook = .(0xcfbfae00, 0x17a6, 0x11d0, 0x99, 0xcb, 0x00, 0xc0, 0x4f, 0xd6, 0x44, 0x97);
-
 	public const Guid CLSID_AutoComplete = .(0x00bb2763, 0x6a77, 0x11d0, 0xa5, 0x35, 0x00, 0xc0, 0x4f, 0xd7, 0xd0, 0x62);
-
 	public const Guid CLSID_ACLHistory = .(0x00bb2764, 0x6a77, 0x11d0, 0xa5, 0x35, 0x00, 0xc0, 0x4f, 0xd7, 0xd0, 0x62);
-
 	public const Guid CLSID_ACListISF = .(0x03c036f1, 0xa186, 0x11d0, 0x82, 0x4a, 0x00, 0xaa, 0x00, 0x5b, 0x43, 0x83);
-
 	public const Guid CLSID_ACLMRU = .(0x6756a641, 0xde71, 0x11d0, 0x83, 0x1b, 0x00, 0xaa, 0x00, 0x5b, 0x43, 0x83);
-
 	public const Guid CLSID_ACLMulti = .(0x00bb2765, 0x6a77, 0x11d0, 0xa5, 0x35, 0x00, 0xc0, 0x4f, 0xd7, 0xd0, 0x62);
-
 	public const Guid CLSID_ACLCustomMRU = .(0x6935db93, 0x21e8, 0x4ccc, 0xbe, 0xb9, 0x9f, 0xe3, 0xc7, 0x7a, 0x29, 0x7a);
-
 	public const Guid CLSID_ProgressDialog = .(0xf8383852, 0xfcd3, 0x11d1, 0xa6, 0xb9, 0x00, 0x60, 0x97, 0xdf, 0x5b, 0xd4);
-
 	public const Guid SID_STopLevelBrowser = .(0x4c96be40, 0x915c, 0x11cf, 0x99, 0xd3, 0x00, 0xaa, 0x00, 0x4a, 0xe8, 0x37);
-
 	public const Guid CLSID_FileTypes = .(0xb091e540, 0x83e3, 0x11cf, 0xa7, 0x13, 0x00, 0x20, 0xaf, 0xd7, 0x97, 0x62);
-
 	public const Guid CLSID_ActiveDesktop = .(0x75048700, 0xef1f, 0x11d0, 0x98, 0x88, 0x00, 0x60, 0x97, 0xde, 0xac, 0xf9);
-
 	public const Guid CLSID_QueryAssociations = .(0xa07034fd, 0x6caa, 0x4954, 0xac, 0x3f, 0x97, 0xa2, 0x72, 0x16, 0xf9, 0x8a);
-
 	public const Guid CLSID_LinkColumnProvider = .(0x24f14f02, 0x7b1c, 0x11d1, 0x83, 0x8f, 0x00, 0x00, 0xf8, 0x04, 0x61, 0xcf);
-
 	public const Guid CGID_ShortCut = .(0x93a68750, 0x951a, 0x11d1, 0x94, 0x6f, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00);
-
 	public const Guid CLSID_InternetButtons = .(0x1e796980, 0x9cc5, 0x11d1, 0xa8, 0x3f, 0x00, 0xc0, 0x4f, 0xc9, 0x9d, 0x61);
-
 	public const Guid CLSID_MSOButtons = .(0x178f34b8, 0xa282, 0x11d2, 0x86, 0xc5, 0x00, 0xc0, 0x4f, 0x8e, 0xea, 0x99);
-
 	public const Guid CLSID_ToolbarExtButtons = .(0x2ce4b5d8, 0xa28f, 0x11d2, 0x86, 0xc5, 0x00, 0xc0, 0x4f, 0x8e, 0xea, 0x99);
-
 	public const Guid CLSID_DarwinAppPublisher = .(0xcfccc7a0, 0xa282, 0x11d1, 0x90, 0x82, 0x00, 0x60, 0x08, 0x05, 0x93, 0x82);
-
 	public const Guid CLSID_DocHostUIHandler = .(0x7057e952, 0xbd1b, 0x11d1, 0x89, 0x19, 0x00, 0xc0, 0x4f, 0xc2, 0xc8, 0x36);
-
 	public const Guid FMTID_ShellDetails = .(0x28636aa6, 0x953d, 0x11d2, 0xb5, 0xd6, 0x00, 0xc0, 0x4f, 0xd9, 0x18, 0xd0);
-
 	public const uint32 PID_FINDDATA = 0;
-
 	public const uint32 PID_NETRESOURCE = 1;
-
 	public const uint32 PID_DESCRIPTIONID = 2;
-
 	public const uint32 PID_WHICHFOLDER = 3;
-
 	public const uint32 PID_NETWORKLOCATION = 4;
-
 	public const uint32 PID_COMPUTERNAME = 5;
-
 	public const Guid FMTID_Storage = .(0xb725f130, 0x47ef, 0x101a, 0xa5, 0xf1, 0x02, 0x60, 0x8c, 0x9e, 0xeb, 0xac);
-
 	public const Guid FMTID_ImageProperties = .(0x14b81da1, 0x0135, 0x4d31, 0x96, 0xd9, 0x6c, 0xbf, 0xc9, 0x67, 0x1a, 0x99);
-
 	public const Guid FMTID_CustomImageProperties = .(0x7ecd8b0e, 0xc136, 0x4a9b, 0x94, 0x11, 0x4e, 0xbd, 0x66, 0x73, 0xcc, 0xc3);
-
 	public const Guid FMTID_LibraryProperties = .(0x5d76b67f, 0x9b3d, 0x44bb, 0xb6, 0xae, 0x25, 0xda, 0x4f, 0x63, 0x8a, 0x67);
-
 	public const Guid FMTID_Displaced = .(0x9b174b33, 0x40ff, 0x11d2, 0xa2, 0x7e, 0x00, 0xc0, 0x4f, 0xc3, 0x08, 0x71);
-
 	public const uint32 PID_DISPLACED_FROM = 2;
-
 	public const uint32 PID_DISPLACED_DATE = 3;
-
 	public const Guid FMTID_Briefcase = .(0x328d8b21, 0x7729, 0x4bfc, 0x95, 0x4c, 0x90, 0x2b, 0x32, 0x9d, 0x56, 0xb0);
-
 	public const uint32 PID_SYNC_COPY_IN = 2;
-
 	public const Guid FMTID_Misc = .(0x9b174b34, 0x40ff, 0x11d2, 0xa2, 0x7e, 0x00, 0xc0, 0x4f, 0xc3, 0x08, 0x71);
-
 	public const uint32 PID_MISC_STATUS = 2;
-
 	public const uint32 PID_MISC_ACCESSCOUNT = 3;
-
 	public const uint32 PID_MISC_OWNER = 4;
-
 	public const uint32 PID_HTMLINFOTIPFILE = 5;
-
 	public const uint32 PID_MISC_PICS = 6;
-
 	public const Guid FMTID_WebView = .(0xf2275480, 0xf782, 0x4291, 0xbd, 0x94, 0xf1, 0x36, 0x93, 0x51, 0x3a, 0xec);
-
 	public const uint32 PID_DISPLAY_PROPERTIES = 0;
-
 	public const uint32 PID_INTROTEXT = 1;
-
 	public const Guid FMTID_MUSIC = .(0x56a3372e, 0xce9c, 0x11d2, 0x9f, 0x0e, 0x00, 0x60, 0x97, 0xc6, 0x86, 0xf6);
-
 	public const uint32 PIDSI_ARTIST = 2;
-
 	public const uint32 PIDSI_SONGTITLE = 3;
-
 	public const uint32 PIDSI_ALBUM = 4;
-
 	public const uint32 PIDSI_YEAR = 5;
-
 	public const uint32 PIDSI_COMMENT = 6;
-
 	public const uint32 PIDSI_TRACK = 7;
-
 	public const uint32 PIDSI_GENRE = 11;
-
 	public const uint32 PIDSI_LYRICS = 12;
-
 	public const Guid FMTID_DRM = .(0xaeac19e4, 0x89ae, 0x4508, 0xb9, 0xb7, 0xbb, 0x86, 0x7a, 0xbe, 0xe2, 0xed);
-
 	public const uint32 PIDDRSI_PROTECTED = 2;
-
 	public const uint32 PIDDRSI_DESCRIPTION = 3;
-
 	public const uint32 PIDDRSI_PLAYCOUNT = 4;
-
 	public const uint32 PIDDRSI_PLAYSTARTS = 5;
-
 	public const uint32 PIDDRSI_PLAYEXPIRES = 6;
-
 	public const uint32 PIDVSI_STREAM_NAME = 2;
-
 	public const uint32 PIDVSI_FRAME_WIDTH = 3;
-
 	public const uint32 PIDVSI_FRAME_HEIGHT = 4;
-
 	public const uint32 PIDVSI_TIMELENGTH = 7;
-
 	public const uint32 PIDVSI_FRAME_COUNT = 5;
-
 	public const uint32 PIDVSI_FRAME_RATE = 6;
-
 	public const uint32 PIDVSI_DATA_RATE = 8;
-
 	public const uint32 PIDVSI_SAMPLE_SIZE = 9;
-
 	public const uint32 PIDVSI_COMPRESSION = 10;
-
 	public const uint32 PIDVSI_STREAM_NUMBER = 11;
-
 	public const uint32 PIDASI_FORMAT = 2;
-
 	public const uint32 PIDASI_TIMELENGTH = 3;
-
 	public const uint32 PIDASI_AVG_DATA_RATE = 4;
-
 	public const uint32 PIDASI_SAMPLE_RATE = 5;
-
 	public const uint32 PIDASI_SAMPLE_SIZE = 6;
-
 	public const uint32 PIDASI_CHANNEL_COUNT = 7;
-
 	public const uint32 PIDASI_STREAM_NUMBER = 8;
-
 	public const uint32 PIDASI_STREAM_NAME = 9;
-
 	public const uint32 PIDASI_COMPRESSION = 10;
-
 	public const uint32 PID_CONTROLPANEL_CATEGORY = 2;
-
 	public const Guid FMTID_Volume = .(0x9b174b35, 0x40ff, 0x11d2, 0xa2, 0x7e, 0x00, 0xc0, 0x4f, 0xc3, 0x08, 0x71);
-
 	public const uint32 PID_VOLUME_FREE = 2;
-
 	public const uint32 PID_VOLUME_CAPACITY = 3;
-
 	public const uint32 PID_VOLUME_FILESYSTEM = 4;
-
 	public const uint32 PID_SHARE_CSC_STATUS = 2;
-
 	public const uint32 PID_LINK_TARGET = 2;
-
 	public const uint32 PID_LINK_TARGET_TYPE = 3;
-
 	public const Guid FMTID_Query = .(0x49691c90, 0x7e17, 0x101a, 0xa9, 0x1c, 0x08, 0x00, 0x2b, 0x2e, 0xcd, 0xa9);
-
 	public const uint32 PID_QUERY_RANK = 2;
-
 	public const Guid CLSID_HWShellExecute = .(0xffb8655f, 0x81b9, 0x4fce, 0xb8, 0x9c, 0x9a, 0x6b, 0xa7, 0x6d, 0x13, 0xe7);
-
 	public const Guid CLSID_DragDropHelper = .(0x4657278a, 0x411b, 0x11d2, 0x83, 0x9a, 0x00, 0xc0, 0x4f, 0xd9, 0x18, 0xd0);
-
 	public const Guid CLSID_CAnchorBrowsePropertyPage = .(0x3050f3bb, 0x98b5, 0x11cf, 0xbb, 0x82, 0x00, 0xaa, 0x00, 0xbd, 0xce, 0x0b);
-
 	public const Guid CLSID_CImageBrowsePropertyPage = .(0x3050f3b3, 0x98b5, 0x11cf, 0xbb, 0x82, 0x00, 0xaa, 0x00, 0xbd, 0xce, 0x0b);
-
 	public const Guid CLSID_CDocBrowsePropertyPage = .(0x3050f3b4, 0x98b5, 0x11cf, 0xbb, 0x82, 0x00, 0xaa, 0x00, 0xbd, 0xce, 0x0b);
-
 	public const Guid SID_STopWindow = .(0x49e1b500, 0x4636, 0x11d3, 0x97, 0xf7, 0x00, 0xc0, 0x4f, 0x45, 0xd0, 0xb3);
-
 	public const Guid SID_SGetViewFromViewDual = .(0x889a935d, 0x971e, 0x4b12, 0xb9, 0x0c, 0x24, 0xdf, 0xc9, 0xe1, 0xe5, 0xe8);
-
 	public const Guid CLSID_FolderItemsMultiLevel = .(0x53c74826, 0xab99, 0x4d33, 0xac, 0xa4, 0x31, 0x17, 0xf5, 0x1d, 0x37, 0x88);
-
 	public const Guid CLSID_NewMenu = .(0xd969a300, 0xe7ff, 0x11d0, 0xa9, 0x3b, 0x00, 0xa0, 0xc9, 0x0f, 0x27, 0x19);
-
 	public const Guid BHID_SFObject = .(0x3981e224, 0xf559, 0x11d3, 0x8e, 0x3a, 0x00, 0xc0, 0x4f, 0x68, 0x37, 0xd5);
-
 	public const Guid BHID_SFUIObject = .(0x3981e225, 0xf559, 0x11d3, 0x8e, 0x3a, 0x00, 0xc0, 0x4f, 0x68, 0x37, 0xd5);
-
 	public const Guid BHID_SFViewObject = .(0x3981e226, 0xf559, 0x11d3, 0x8e, 0x3a, 0x00, 0xc0, 0x4f, 0x68, 0x37, 0xd5);
-
 	public const Guid BHID_Storage = .(0x3981e227, 0xf559, 0x11d3, 0x8e, 0x3a, 0x00, 0xc0, 0x4f, 0x68, 0x37, 0xd5);
-
 	public const Guid BHID_Stream = .(0x1cebb3ab, 0x7c10, 0x499a, 0xa4, 0x17, 0x92, 0xca, 0x16, 0xc4, 0xcb, 0x83);
-
 	public const Guid BHID_RandomAccessStream = .(0xf16fc93b, 0x77ae, 0x4cfe, 0xbd, 0xa7, 0xa8, 0x66, 0xee, 0xa6, 0x87, 0x8d);
-
 	public const Guid BHID_LinkTargetItem = .(0x3981e228, 0xf559, 0x11d3, 0x8e, 0x3a, 0x00, 0xc0, 0x4f, 0x68, 0x37, 0xd5);
-
 	public const Guid BHID_StorageEnum = .(0x4621a4e3, 0xf0d6, 0x4773, 0x8a, 0x9c, 0x46, 0xe7, 0x7b, 0x17, 0x48, 0x40);
-
 	public const Guid BHID_Transfer = .(0xd5e346a1, 0xf753, 0x4932, 0xb4, 0x03, 0x45, 0x74, 0x80, 0x0e, 0x24, 0x98);
-
 	public const Guid BHID_PropertyStore = .(0x0384e1a4, 0x1523, 0x439c, 0xa4, 0xc8, 0xab, 0x91, 0x10, 0x52, 0xf5, 0x86);
-
 	public const Guid BHID_ThumbnailHandler = .(0x7b2e650a, 0x8e20, 0x4f4a, 0xb0, 0x9e, 0x65, 0x97, 0xaf, 0xc7, 0x2f, 0xb0);
-
 	public const Guid BHID_EnumItems = .(0x94f60519, 0x2850, 0x4924, 0xaa, 0x5a, 0xd1, 0x5e, 0x84, 0x86, 0x80, 0x39);
-
 	public const Guid BHID_DataObject = .(0xb8c0bd9f, 0xed24, 0x455c, 0x83, 0xe6, 0xd5, 0x39, 0x0c, 0x4f, 0xe8, 0xc4);
-
 	public const Guid BHID_AssociationArray = .(0xbea9ef17, 0x82f1, 0x4f60, 0x92, 0x84, 0x4f, 0x8d, 0xb7, 0x5c, 0x3b, 0xe9);
-
 	public const Guid BHID_Filter = .(0x38d08778, 0xf557, 0x4690, 0x9e, 0xbf, 0xba, 0x54, 0x70, 0x6a, 0xd8, 0xf7);
-
 	public const Guid BHID_EnumAssocHandlers = .(0xb8ab0b9c, 0xc2ec, 0x4f7a, 0x91, 0x8d, 0x31, 0x49, 0x00, 0xe6, 0x28, 0x0a);
-
 	public const Guid BHID_StorageItem = .(0x404e2109, 0x77d2, 0x4699, 0xa5, 0xa0, 0x4f, 0xdf, 0x10, 0xdb, 0x98, 0x37);
-
 	public const Guid BHID_FilePlaceholder = .(0x8677dceb, 0xaae0, 0x4005, 0x8d, 0x3d, 0x54, 0x7f, 0xa8, 0x52, 0xf8, 0x25);
-
 	public const Guid CATID_FilePlaceholderMergeHandler = .(0x3e9c9a51, 0xd4aa, 0x4870, 0xb4, 0x7c, 0x74, 0x24, 0xb4, 0x91, 0xf1, 0xcc);
-
 	public const Guid SID_CtxQueryAssociations = .(0xfaadfc40, 0xb777, 0x4b69, 0xaa, 0x81, 0x77, 0x03, 0x5e, 0xf0, 0xe6, 0xe8);
-
 	public const Guid CLSID_QuickLinks = .(0x0e5cbf21, 0xd15f, 0x11d0, 0x83, 0x01, 0x00, 0xaa, 0x00, 0x5b, 0x43, 0x83);
-
 	public const Guid CLSID_ISFBand = .(0xd82be2b0, 0x5764, 0x11d0, 0xa9, 0x6e, 0x00, 0xc0, 0x4f, 0xd7, 0x05, 0xa2);
-
 	public const Guid CLSID_ShellFldSetExt = .(0x6d5313c0, 0x8c62, 0x11d1, 0xb2, 0xcd, 0x00, 0x60, 0x97, 0xdf, 0x8c, 0x11);
-
 	public const Guid SID_SMenuBandChild = .(0xed9cc020, 0x08b9, 0x11d1, 0x98, 0x23, 0x00, 0xc0, 0x4f, 0xd9, 0x19, 0x72);
-
 	public const Guid SID_SMenuBandParent = .(0x8c278eec, 0x3eab, 0x11d1, 0x8c, 0xb0, 0x00, 0xc0, 0x4f, 0xd9, 0x18, 0xd0);
-
 	public const Guid SID_SMenuPopup = .(0xd1e7afeb, 0x6a2e, 0x11d0, 0x8c, 0x78, 0x00, 0xc0, 0x4f, 0xd9, 0x18, 0xb4);
-
 	public const Guid SID_SMenuBandBottomSelected = .(0x165ebaf4, 0x6d51, 0x11d2, 0x83, 0xad, 0x00, 0xc0, 0x4f, 0xd9, 0x18, 0xd0);
-
 	public const Guid SID_SMenuBandBottom = .(0x743ca664, 0x0deb, 0x11d1, 0x98, 0x25, 0x00, 0xc0, 0x4f, 0xd9, 0x19, 0x72);
-
 	public const Guid SID_MenuShellFolder = .(0xa6c17eb4, 0x2d65, 0x11d2, 0x83, 0x8f, 0x00, 0xc0, 0x4f, 0xd9, 0x18, 0xd0);
-
 	public const Guid SID_SMenuBandContextMenuModifier = .(0x39545874, 0x7162, 0x465e, 0xb7, 0x83, 0x2a, 0xa1, 0x87, 0x4f, 0xef, 0x81);
-
 	public const Guid SID_SMenuBandBKContextMenu = .(0x164bbd86, 0x1d0d, 0x4de0, 0x9a, 0x3b, 0xd9, 0x72, 0x96, 0x47, 0xc2, 0xb8);
-
 	public const Guid CGID_MENUDESKBAR = .(0x5c9f0a12, 0x959e, 0x11d0, 0xa3, 0xa4, 0x00, 0xa0, 0xc9, 0x08, 0x26, 0x36);
-
 	public const Guid SID_SMenuBandTop = .(0x9493a810, 0xec38, 0x11d0, 0xbc, 0x46, 0x00, 0xaa, 0x00, 0x6c, 0xe2, 0xf5);
-
 	public const Guid CLSID_MenuToolbarBase = .(0x40b96610, 0xb522, 0x11d1, 0xb3, 0xb4, 0x00, 0xaa, 0x00, 0x6e, 0xfd, 0xe7);
-
 	public const Guid CLSID_MenuBandSite = .(0xe13ef4e4, 0xd2f2, 0x11d0, 0x98, 0x16, 0x00, 0xc0, 0x4f, 0xd9, 0x19, 0x72);
-
 	public const Guid SID_SCommDlgBrowser = .(0x80f30233, 0xb7df, 0x11d2, 0xa3, 0x3b, 0x00, 0x60, 0x97, 0xdf, 0x5b, 0xd4);
-
 	public const Guid CPFG_LOGON_USERNAME = .(0xda15bbe8, 0x954d, 0x4fd3, 0xb0, 0xf4, 0x1f, 0xb5, 0xb9, 0x0b, 0x17, 0x4b);
-
 	public const Guid CPFG_LOGON_PASSWORD = .(0x60624cfa, 0xa477, 0x47b1, 0x8a, 0x8e, 0x3a, 0x4a, 0x19, 0x98, 0x18, 0x27);
-
 	public const Guid CPFG_SMARTCARD_USERNAME = .(0x3e1ecf69, 0x568c, 0x4d96, 0x9d, 0x59, 0x46, 0x44, 0x41, 0x74, 0xe2, 0xd6);
-
 	public const Guid CPFG_SMARTCARD_PIN = .(0x4fe5263b, 0x9181, 0x46c1, 0xb0, 0xa4, 0x9d, 0xed, 0xd4, 0xdb, 0x7d, 0xea);
-
 	public const Guid CPFG_CREDENTIAL_PROVIDER_LOGO = .(0x2d837775, 0xf6cd, 0x464e, 0xa7, 0x45, 0x48, 0x2f, 0xd0, 0xb4, 0x74, 0x93);
-
 	public const Guid CPFG_CREDENTIAL_PROVIDER_LABEL = .(0x286bbff3, 0xbad4, 0x438f, 0xb0, 0x07, 0x79, 0xb7, 0x26, 0x7c, 0x3d, 0x48);
-
 	public const Guid CPFG_STANDALONE_SUBMIT_BUTTON = .(0x0b7b0ad8, 0xcc36, 0x4d59, 0x80, 0x2b, 0x82, 0xf7, 0x14, 0xfa, 0x70, 0x22);
-
 	public const Guid CPFG_STYLE_LINK_AS_BUTTON = .(0x088fa508, 0x94a6, 0x4430, 0xa4, 0xcb, 0x6f, 0xc6, 0xe3, 0xc0, 0xb9, 0xe2);
-
 	public const Guid FOLDERTYPEID_Invalid = .(0x57807898, 0x8c4f, 0x4462, 0xbb, 0x63, 0x71, 0x04, 0x23, 0x80, 0xb1, 0x09);
-
 	public const Guid FOLDERTYPEID_Generic = .(0x5c4f28b5, 0xf869, 0x4e84, 0x8e, 0x60, 0xf1, 0x1d, 0xb9, 0x7c, 0x5c, 0xc7);
-
 	public const Guid FOLDERTYPEID_GenericSearchResults = .(0x7fde1a1e, 0x8b31, 0x49a5, 0x93, 0xb8, 0x6b, 0xe1, 0x4c, 0xfa, 0x49, 0x43);
-
 	public const Guid FOLDERTYPEID_GenericLibrary = .(0x5f4eab9a, 0x6833, 0x4f61, 0x89, 0x9d, 0x31, 0xcf, 0x46, 0x97, 0x9d, 0x49);
-
 	public const Guid FOLDERTYPEID_Documents = .(0x7d49d726, 0x3c21, 0x4f05, 0x99, 0xaa, 0xfd, 0xc2, 0xc9, 0x47, 0x46, 0x56);
-
 	public const Guid FOLDERTYPEID_Pictures = .(0xb3690e58, 0xe961, 0x423b, 0xb6, 0x87, 0x38, 0x6e, 0xbf, 0xd8, 0x32, 0x39);
-
 	public const Guid FOLDERTYPEID_Music = .(0x94d6ddcc, 0x4a68, 0x4175, 0xa3, 0x74, 0xbd, 0x58, 0x4a, 0x51, 0x0b, 0x78);
-
 	public const Guid FOLDERTYPEID_Videos = .(0x5fa96407, 0x7e77, 0x483c, 0xac, 0x93, 0x69, 0x1d, 0x05, 0x85, 0x0d, 0xe8);
-
 	public const Guid FOLDERTYPEID_Downloads = .(0x885a186e, 0xa440, 0x4ada, 0x81, 0x2b, 0xdb, 0x87, 0x1b, 0x94, 0x22, 0x59);
-
 	public const Guid FOLDERTYPEID_UserFiles = .(0xcd0fc69b, 0x71e2, 0x46e5, 0x96, 0x90, 0x5b, 0xcd, 0x9f, 0x57, 0xaa, 0xb3);
-
 	public const Guid FOLDERTYPEID_UsersLibraries = .(0xc4d98f09, 0x6124, 0x4fe0, 0x99, 0x42, 0x82, 0x64, 0x16, 0x08, 0x2d, 0xa9);
-
 	public const Guid FOLDERTYPEID_OtherUsers = .(0xb337fd00, 0x9dd5, 0x4635, 0xa6, 0xd4, 0xda, 0x33, 0xfd, 0x10, 0x2b, 0x7a);
-
 	public const Guid FOLDERTYPEID_PublishedItems = .(0x7f2f5b96, 0xff74, 0x41da, 0xaf, 0xd8, 0x1c, 0x78, 0xa5, 0xf3, 0xae, 0xa2);
-
 	public const Guid FOLDERTYPEID_Communications = .(0x91475fe5, 0x586b, 0x4eba, 0x8d, 0x75, 0xd1, 0x74, 0x34, 0xb8, 0xcd, 0xf6);
-
 	public const Guid FOLDERTYPEID_Contacts = .(0xde2b70ec, 0x9bf7, 0x4a93, 0xbd, 0x3d, 0x24, 0x3f, 0x78, 0x81, 0xd4, 0x92);
-
 	public const Guid FOLDERTYPEID_StartMenu = .(0xef87b4cb, 0xf2ce, 0x4785, 0x86, 0x58, 0x4c, 0xa6, 0xc6, 0x3e, 0x38, 0xc6);
-
 	public const Guid FOLDERTYPEID_RecordedTV = .(0x5557a28f, 0x5da6, 0x4f83, 0x88, 0x09, 0xc2, 0xc9, 0x8a, 0x11, 0xa6, 0xfa);
-
 	public const Guid FOLDERTYPEID_SavedGames = .(0xd0363307, 0x28cb, 0x4106, 0x9f, 0x23, 0x29, 0x56, 0xe3, 0xe5, 0xe0, 0xe7);
-
 	public const Guid FOLDERTYPEID_OpenSearch = .(0x8faf9629, 0x1980, 0x46ff, 0x80, 0x23, 0x9d, 0xce, 0xab, 0x9c, 0x3e, 0xe3);
-
 	public const Guid FOLDERTYPEID_SearchConnector = .(0x982725ee, 0x6f47, 0x479e, 0xb4, 0x47, 0x81, 0x2b, 0xfa, 0x7d, 0x2e, 0x8f);
-
 	public const Guid FOLDERTYPEID_AccountPictures = .(0xdb2a5d8f, 0x06e6, 0x4007, 0xab, 0xa6, 0xaf, 0x87, 0x7d, 0x52, 0x6e, 0xa6);
-
 	public const Guid FOLDERTYPEID_Games = .(0xb689b0d0, 0x76d3, 0x4cbb, 0x87, 0xf7, 0x58, 0x5d, 0x0e, 0x0c, 0xe0, 0x70);
-
 	public const Guid FOLDERTYPEID_ControlPanelCategory = .(0xde4f0660, 0xfa10, 0x4b8f, 0xa4, 0x94, 0x06, 0x8b, 0x20, 0xb2, 0x23, 0x07);
-
 	public const Guid FOLDERTYPEID_ControlPanelClassic = .(0x0c3794f3, 0xb545, 0x43aa, 0xa3, 0x29, 0xc3, 0x74, 0x30, 0xc5, 0x8d, 0x2a);
-
 	public const Guid FOLDERTYPEID_Printers = .(0x2c7bbec6, 0xc844, 0x4a0a, 0x91, 0xfa, 0xce, 0xf6, 0xf5, 0x9c, 0xfd, 0xa1);
-
 	public const Guid FOLDERTYPEID_RecycleBin = .(0xd6d9e004, 0xcd87, 0x442b, 0x9d, 0x57, 0x5e, 0x0a, 0xeb, 0x4f, 0x6f, 0x72);
-
 	public const Guid FOLDERTYPEID_SoftwareExplorer = .(0xd674391b, 0x52d9, 0x4e07, 0x83, 0x4e, 0x67, 0xc9, 0x86, 0x10, 0xf3, 0x9d);
-
 	public const Guid FOLDERTYPEID_CompressedFolder = .(0x80213e82, 0xbcfd, 0x4c4f, 0x88, 0x17, 0xbb, 0x27, 0x60, 0x12, 0x67, 0xa9);
-
 	public const Guid FOLDERTYPEID_NetworkExplorer = .(0x25cc242b, 0x9a7c, 0x4f51, 0x80, 0xe0, 0x7a, 0x29, 0x28, 0xfe, 0xbe, 0x42);
-
 	public const Guid FOLDERTYPEID_Searches = .(0x0b0ba2e3, 0x405f, 0x415e, 0xa6, 0xee, 0xca, 0xd6, 0x25, 0x20, 0x78, 0x53);
-
 	public const Guid FOLDERTYPEID_SearchHome = .(0x834d8a44, 0x0974, 0x4ed6, 0x86, 0x6e, 0xf2, 0x03, 0xd8, 0x0b, 0x38, 0x10);
-
 	public const Guid FOLDERTYPEID_StorageProviderGeneric = .(0x4f01ebc5, 0x2385, 0x41f2, 0xa2, 0x8e, 0x2c, 0x5c, 0x91, 0xfb, 0x56, 0xe0);
-
 	public const Guid FOLDERTYPEID_StorageProviderDocuments = .(0xdd61bd66, 0x70e8, 0x48dd, 0x96, 0x55, 0x65, 0xc5, 0xe1, 0xaa, 0xc2, 0xd1);
-
 	public const Guid FOLDERTYPEID_StorageProviderPictures = .(0x71d642a9, 0xf2b1, 0x42cd, 0xad, 0x92, 0xeb, 0x93, 0x00, 0xc7, 0xcc, 0x0a);
-
 	public const Guid FOLDERTYPEID_StorageProviderMusic = .(0x672ecd7e, 0xaf04, 0x4399, 0x87, 0x5c, 0x02, 0x90, 0x84, 0x5b, 0x62, 0x47);
-
 	public const Guid FOLDERTYPEID_StorageProviderVideos = .(0x51294da1, 0xd7b1, 0x485b, 0x9e, 0x9a, 0x17, 0xcf, 0xfe, 0x33, 0xe1, 0x87);
-
 	public const Guid SYNCMGR_OBJECTID_Icon = .(0x6dbc85c3, 0x5d07, 0x4c72, 0xa7, 0x77, 0x7f, 0xec, 0x78, 0x07, 0x2c, 0x06);
-
 	public const Guid SYNCMGR_OBJECTID_EventStore = .(0x4bef34b9, 0xa786, 0x4075, 0xba, 0x88, 0x0c, 0x2b, 0x9d, 0x89, 0xa9, 0x8f);
-
 	public const Guid SYNCMGR_OBJECTID_ConflictStore = .(0xd78181f4, 0x2389, 0x47e4, 0xa9, 0x60, 0x60, 0xbc, 0xc2, 0xed, 0x93, 0x0b);
-
 	public const Guid SYNCMGR_OBJECTID_BrowseContent = .(0x57cbb584, 0xe9b4, 0x47ae, 0xa1, 0x20, 0xc4, 0xdf, 0x33, 0x35, 0xde, 0xe2);
-
 	public const Guid SYNCMGR_OBJECTID_ShowSchedule = .(0xedc6f3e3, 0x8441, 0x4109, 0xad, 0xf3, 0x6c, 0x1c, 0xa0, 0xb7, 0xde, 0x47);
-
 	public const Guid SYNCMGR_OBJECTID_QueryBeforeActivate = .(0xd882d80b, 0xe7aa, 0x49ed, 0x86, 0xb7, 0xe6, 0xe1, 0xf7, 0x14, 0xcd, 0xfe);
-
 	public const Guid SYNCMGR_OBJECTID_QueryBeforeDeactivate = .(0xa0efc282, 0x60e0, 0x460e, 0x93, 0x74, 0xea, 0x88, 0x51, 0x3c, 0xfc, 0x80);
-
 	public const Guid SYNCMGR_OBJECTID_QueryBeforeEnable = .(0x04cbf7f0, 0x5beb, 0x4de1, 0xbc, 0x90, 0x90, 0x83, 0x45, 0xc4, 0x80, 0xf6);
-
 	public const Guid SYNCMGR_OBJECTID_QueryBeforeDisable = .(0xbb5f64aa, 0xf004, 0x4eb5, 0x8e, 0x4d, 0x26, 0x75, 0x19, 0x66, 0x34, 0x4c);
-
 	public const Guid SYNCMGR_OBJECTID_QueryBeforeDelete = .(0xf76c3397, 0xafb3, 0x45d7, 0xa5, 0x9f, 0x5a, 0x49, 0xe9, 0x05, 0x43, 0x7e);
-
 	public const Guid SYNCMGR_OBJECTID_EventLinkClick = .(0x2203bdc1, 0x1af1, 0x4082, 0x8c, 0x30, 0x28, 0x39, 0x9f, 0x41, 0x38, 0x4c);
-
 	public const Guid EP_NavPane = .(0xcb316b22, 0x25f7, 0x42b8, 0x8a, 0x09, 0x54, 0x0d, 0x23, 0xa4, 0x3c, 0x2f);
-
 	public const Guid EP_Commands = .(0xd9745868, 0xca5f, 0x4a76, 0x91, 0xcd, 0xf5, 0xa1, 0x29, 0xfb, 0xb0, 0x76);
-
 	public const Guid EP_Commands_Organize = .(0x72e81700, 0xe3ec, 0x4660, 0xbf, 0x24, 0x3c, 0x3b, 0x7b, 0x64, 0x88, 0x06);
-
 	public const Guid EP_Commands_View = .(0x21f7c32d, 0xeeaa, 0x439b, 0xbb, 0x51, 0x37, 0xb9, 0x6f, 0xd6, 0xa9, 0x43);
-
 	public const Guid EP_DetailsPane = .(0x43abf98b, 0x89b8, 0x472d, 0xb9, 0xce, 0xe6, 0x9b, 0x82, 0x29, 0xf0, 0x19);
-
 	public const Guid EP_PreviewPane = .(0x893c63d1, 0x45c8, 0x4d17, 0xbe, 0x19, 0x22, 0x3b, 0xe7, 0x1b, 0xe3, 0x65);
-
 	public const Guid EP_QueryPane = .(0x65bcde4f, 0x4f07, 0x4f27, 0x83, 0xa7, 0x1a, 0xfc, 0xa4, 0xdf, 0x7d, 0xdd);
-
 	public const Guid EP_AdvQueryPane = .(0xb4e9db8b, 0x34ba, 0x4c39, 0xb5, 0xcc, 0x16, 0xa1, 0xbd, 0x2c, 0x41, 0x1c);
-
 	public const Guid EP_StatusBar = .(0x65fe56ce, 0x5cfe, 0x4bc4, 0xad, 0x8a, 0x7a, 0xe3, 0xfe, 0x7e, 0x8f, 0x7c);
-
 	public const Guid EP_Ribbon = .(0xd27524a8, 0xc9f2, 0x4834, 0xa1, 0x06, 0xdf, 0x88, 0x89, 0xfd, 0x4f, 0x37);
-
 	public const Guid CATID_LocationFactory = .(0x965c4d51, 0x8b76, 0x4e57, 0x80, 0xb7, 0x56, 0x4d, 0x2e, 0xa4, 0xb5, 0x5e);
-
 	public const Guid CATID_LocationProvider = .(0x1b3ca474, 0x2614, 0x414b, 0xb8, 0x13, 0x1a, 0xce, 0xca, 0x3e, 0x3d, 0xd8);
-
 	public const Guid ItemCount_Property_GUID = .(0xabbf5c45, 0x5ccc, 0x47b7, 0xbb, 0x4e, 0x87, 0xcb, 0x87, 0xbb, 0xd1, 0x62);
-
 	public const Guid SelectedItemCount_Property_GUID = .(0x8fe316d2, 0x0e52, 0x460a, 0x9c, 0x1e, 0x48, 0xf2, 0x73, 0xd4, 0x70, 0xa3);
-
 	public const Guid ItemIndex_Property_GUID = .(0x92a053da, 0x2969, 0x4021, 0xbf, 0x27, 0x51, 0x4c, 0xfc, 0x2e, 0x4a, 0x69);
-
 	public const Guid CATID_SearchableApplication = .(0x366c292a, 0xd9b3, 0x4dbf, 0xbb, 0x70, 0xe6, 0x2e, 0xc3, 0xd0, 0xbb, 0xbf);
-
 	public const uint32 IDD_WIZEXTN_FIRST = 20480;
-
 	public const uint32 IDD_WIZEXTN_LAST = 20736;
-
 	public const uint32 SHPWHF_NORECOMPRESS = 1;
-
 	public const uint32 SHPWHF_NONETPLACECREATE = 2;
-
 	public const uint32 SHPWHF_NOFILESELECTOR = 4;
-
 	public const uint32 SHPWHF_USEMRU = 8;
-
 	public const uint32 SHPWHF_ANYLOCATION = 256;
-
 	public const uint32 SHPWHF_VALIDATEVIAWEBFOLDERS = 65536;
-
 	public const uint32 ACDD_VISIBLE = 1;
-
 	public const Guid SID_SCommandBarState = .(0xb99eaa5c, 0x3850, 0x4400, 0xbc, 0x33, 0x2c, 0xe5, 0x34, 0x04, 0x8b, 0xf8);
-
 	public const int32 NSTCDHPOS_ONTOP = -1;
-
 	public const uint32 FVSIF_RECT = 1;
-
 	public const uint32 FVSIF_PINNED = 2;
-
 	public const uint32 FVSIF_NEWFAILED = 134217728;
-
 	public const uint32 FVSIF_NEWFILE = 2147483648;
-
 	public const uint32 FVSIF_CANVIEWIT = 1073741824;
-
 	public const uint32 FCIDM_TOOLBAR = 40960;
-
 	public const uint32 FCIDM_STATUS = 40961;
-
 	public const uint32 IDC_OFFLINE_HAND = 103;
-
 	public const uint32 IDC_PANTOOL_HAND_OPEN = 104;
-
 	public const uint32 IDC_PANTOOL_HAND_CLOSED = 105;
-
 	public const uint32 PANE_NONE = 4294967295;
-
 	public const uint32 PANE_ZONE = 1;
-
 	public const uint32 PANE_OFFLINE = 2;
-
 	public const uint32 PANE_PRINTER = 3;
-
 	public const uint32 PANE_SSL = 4;
-
 	public const uint32 PANE_NAVIGATION = 5;
-
 	public const uint32 PANE_PROGRESS = 6;
-
 	public const uint32 PANE_PRIVACY = 7;
-
 	public const uint32 DWFRF_NORMAL = 0;
-
 	public const uint32 DWFRF_DELETECONFIGDATA = 1;
-
 	public const uint32 DWFAF_HIDDEN = 1;
-
 	public const uint32 DWFAF_GROUP1 = 2;
-
 	public const uint32 DWFAF_GROUP2 = 4;
-
 	public const uint32 DWFAF_AUTOHIDE = 16;
-
 	public const uint32 SHIMSTCAPFLAG_LOCKABLE = 1;
-
 	public const uint32 SHIMSTCAPFLAG_PURGEABLE = 2;
-
 	public const uint32 ISFB_MASK_STATE = 1;
-
 	public const uint32 ISFB_MASK_BKCOLOR = 2;
-
 	public const uint32 ISFB_MASK_VIEWMODE = 4;
-
 	public const uint32 ISFB_MASK_SHELLFOLDER = 8;
-
 	public const uint32 ISFB_MASK_IDLIST = 16;
-
 	public const uint32 ISFB_MASK_COLORS = 32;
-
 	public const uint32 ISFB_STATE_DEFAULT = 0;
-
 	public const uint32 ISFB_STATE_DEBOSSED = 1;
-
 	public const uint32 ISFB_STATE_ALLOWRENAME = 2;
-
 	public const uint32 ISFB_STATE_NOSHOWTEXT = 4;
-
 	public const uint32 ISFB_STATE_CHANNELBAR = 16;
-
 	public const uint32 ISFB_STATE_QLINKSMODE = 32;
-
 	public const uint32 ISFB_STATE_FULLOPEN = 64;
-
 	public const uint32 ISFB_STATE_NONAMESORT = 128;
-
 	public const uint32 ISFB_STATE_BTNMINSIZE = 256;
-
 	public const uint32 ISFBVIEWMODE_SMALLICONS = 1;
-
 	public const uint32 ISFBVIEWMODE_LARGEICONS = 2;
-
 	public const uint32 ISFBVIEWMODE_LOGOS = 3;
-
 	public const uint32 DBC_GS_IDEAL = 0;
-
 	public const uint32 DBC_GS_SIZEDOWN = 1;
-
 	public const uint32 DBC_HIDE = 0;
-
 	public const uint32 DBC_SHOW = 1;
-
 	public const uint32 DBC_SHOWOBSCURE = 2;
-
 	public const uint32 SSM_CLEAR = 0;
-
 	public const uint32 SSM_SET = 1;
-
 	public const uint32 SSM_REFRESH = 2;
-
 	public const uint32 SSM_UPDATE = 4;
-
 	public const uint32 SCHEME_DISPLAY = 1;
-
 	public const uint32 SCHEME_EDIT = 2;
-
 	public const uint32 SCHEME_LOCAL = 4;
-
 	public const uint32 SCHEME_GLOBAL = 8;
-
 	public const uint32 SCHEME_REFRESH = 16;
-
 	public const uint32 SCHEME_UPDATE = 32;
-
 	public const uint32 SCHEME_DONOTUSE = 64;
-
 	public const uint32 SCHEME_CREATE = 128;
-
 	public const uint32 GADOF_DIRTY = 1;
-
 	public const uint32 SHCDF_UPDATEITEM = 1;
-
 	public const uint32 PPCF_ADDQUOTES = 1;
-
 	public const uint32 PPCF_ADDARGUMENTS = 3;
-
 	public const uint32 PPCF_NODIRECTORIES = 16;
-
 	public const uint32 PPCF_FORCEQUALIFY = 64;
-
 	public const uint32 PPCF_LONGESTPOSSIBLE = 128;
-
 	public const uint32 OPENPROPS_NONE = 0;
-
 	public const uint32 OPENPROPS_INHIBITPIF = 32768;
-
 	public const uint32 GETPROPS_NONE = 0;
-
 	public const uint32 SETPROPS_NONE = 0;
-
 	public const uint32 CLOSEPROPS_NONE = 0;
-
 	public const uint32 CLOSEPROPS_DISCARD = 1;
-
 	public const uint32 TBIF_APPEND = 0;
-
 	public const uint32 TBIF_PREPEND = 1;
-
 	public const uint32 TBIF_REPLACE = 2;
-
 	public const uint32 TBIF_DEFAULT = 0;
-
 	public const uint32 TBIF_INTERNETBAR = 65536;
-
 	public const uint32 TBIF_STANDARDTOOLBAR = 131072;
-
 	public const uint32 TBIF_NOTOOLBAR = 196608;
-
 	public const uint32 SFVM_REARRANGE = 1;
-
 	public const uint32 SFVM_ADDOBJECT = 3;
-
 	public const uint32 SFVM_REMOVEOBJECT = 6;
-
 	public const uint32 SFVM_UPDATEOBJECT = 7;
-
 	public const uint32 SFVM_GETSELECTEDOBJECTS = 9;
-
 	public const uint32 SFVM_SETITEMPOS = 14;
-
 	public const uint32 SFVM_SETCLIPBOARD = 16;
-
 	public const uint32 SFVM_SETPOINTS = 23;
-
 	public const uint32 GIL_OPENICON = 1;
-
 	public const uint32 GIL_FORSHELL = 2;
-
 	public const uint32 GIL_ASYNC = 32;
-
 	public const uint32 GIL_DEFAULTICON = 64;
-
 	public const uint32 GIL_FORSHORTCUT = 128;
-
 	public const uint32 GIL_CHECKSHIELD = 512;
-
 	public const uint32 GIL_SIMULATEDOC = 1;
-
 	public const uint32 GIL_PERINSTANCE = 2;
-
 	public const uint32 GIL_PERCLASS = 4;
-
 	public const uint32 GIL_NOTFILENAME = 8;
-
 	public const uint32 GIL_DONTCACHE = 16;
-
 	public const uint32 GIL_SHIELD = 512;
-
 	public const uint32 GIL_FORCENOSHIELD = 1024;
-
 	public const uint32 SIOM_OVERLAYINDEX = 1;
-
 	public const uint32 SIOM_ICONINDEX = 2;
-
 	public const uint32 SIOM_RESERVED_SHARED = 0;
-
 	public const uint32 SIOM_RESERVED_LINK = 1;
-
 	public const uint32 SIOM_RESERVED_SLOWFILE = 2;
-
 	public const uint32 SIOM_RESERVED_DEFAULT = 3;
-
 	public const uint32 OI_DEFAULT = 0;
-
 	public const uint32 OI_ASYNC = 4294962926;
-
 	public const uint32 IDO_SHGIOI_SHARE = 268435455;
-
 	public const uint32 IDO_SHGIOI_LINK = 268435454;
-
 	public const uint64 IDO_SHGIOI_SLOWFILE = 4294967293;
-
 	public const uint64 IDO_SHGIOI_DEFAULT = 4294967292;
-
 	public const uint32 NT_CONSOLE_PROPS_SIG = 2684354562;
-
 	public const uint32 NT_FE_CONSOLE_PROPS_SIG = 2684354564;
-
 	public const uint32 EXP_DARWIN_ID_SIG = 2684354566;
-
 	public const uint32 EXP_SPECIAL_FOLDER_SIG = 2684354565;
-
 	public const uint32 EXP_SZ_LINK_SIG = 2684354561;
-
 	public const uint32 EXP_SZ_ICON_SIG = 2684354567;
-
 	public const uint32 EXP_PROPERTYSTORAGE_SIG = 2684354569;
-
 	public const uint32 FCIDM_SHVIEWFIRST = 0;
-
 	public const uint32 FCIDM_SHVIEWLAST = 32767;
-
 	public const uint32 FCIDM_BROWSERFIRST = 40960;
-
 	public const uint32 FCIDM_BROWSERLAST = 48896;
-
 	public const uint32 FCIDM_GLOBALFIRST = 32768;
-
 	public const uint32 FCIDM_GLOBALLAST = 40959;
-
 	public const uint32 FCIDM_MENU_FILE = 32768;
-
 	public const uint32 FCIDM_MENU_EDIT = 32832;
-
 	public const uint32 FCIDM_MENU_VIEW = 32896;
-
 	public const uint32 FCIDM_MENU_VIEW_SEP_OPTIONS = 32897;
-
 	public const uint32 FCIDM_MENU_TOOLS = 32960;
-
 	public const uint32 FCIDM_MENU_TOOLS_SEP_GOTO = 32961;
-
 	public const uint32 FCIDM_MENU_HELP = 33024;
-
 	public const uint32 FCIDM_MENU_FIND = 33088;
-
 	public const uint32 FCIDM_MENU_EXPLORE = 33104;
-
 	public const uint32 FCIDM_MENU_FAVORITES = 33136;
-
 	public const uint32 OFASI_EDIT = 1;
-
 	public const uint32 OFASI_OPENDESKTOP = 2;
-
 	public const uint32 CSIDL_DESKTOP = 0;
-
 	public const uint32 CSIDL_INTERNET = 1;
-
 	public const uint32 CSIDL_PROGRAMS = 2;
-
 	public const uint32 CSIDL_CONTROLS = 3;
-
 	public const uint32 CSIDL_PRINTERS = 4;
-
 	public const uint32 CSIDL_PERSONAL = 5;
-
 	public const uint32 CSIDL_FAVORITES = 6;
-
 	public const uint32 CSIDL_STARTUP = 7;
-
 	public const uint32 CSIDL_RECENT = 8;
-
 	public const uint32 CSIDL_SENDTO = 9;
-
 	public const uint32 CSIDL_BITBUCKET = 10;
-
 	public const uint32 CSIDL_STARTMENU = 11;
-
 	public const uint32 CSIDL_MYDOCUMENTS = 5;
-
 	public const uint32 CSIDL_MYMUSIC = 13;
-
 	public const uint32 CSIDL_MYVIDEO = 14;
-
 	public const uint32 CSIDL_DESKTOPDIRECTORY = 16;
-
 	public const uint32 CSIDL_DRIVES = 17;
-
 	public const uint32 CSIDL_NETWORK = 18;
-
 	public const uint32 CSIDL_NETHOOD = 19;
-
 	public const uint32 CSIDL_FONTS = 20;
-
 	public const uint32 CSIDL_TEMPLATES = 21;
-
 	public const uint32 CSIDL_COMMON_STARTMENU = 22;
-
 	public const uint32 CSIDL_COMMON_PROGRAMS = 23;
-
 	public const uint32 CSIDL_COMMON_STARTUP = 24;
-
 	public const uint32 CSIDL_COMMON_DESKTOPDIRECTORY = 25;
-
 	public const uint32 CSIDL_APPDATA = 26;
-
 	public const uint32 CSIDL_PRINTHOOD = 27;
-
 	public const uint32 CSIDL_LOCAL_APPDATA = 28;
-
 	public const uint32 CSIDL_ALTSTARTUP = 29;
-
 	public const uint32 CSIDL_COMMON_ALTSTARTUP = 30;
-
 	public const uint32 CSIDL_COMMON_FAVORITES = 31;
-
 	public const uint32 CSIDL_INTERNET_CACHE = 32;
-
 	public const uint32 CSIDL_COOKIES = 33;
-
 	public const uint32 CSIDL_HISTORY = 34;
-
 	public const uint32 CSIDL_COMMON_APPDATA = 35;
-
 	public const uint32 CSIDL_WINDOWS = 36;
-
 	public const uint32 CSIDL_SYSTEM = 37;
-
 	public const uint32 CSIDL_PROGRAM_FILES = 38;
-
 	public const uint32 CSIDL_MYPICTURES = 39;
-
 	public const uint32 CSIDL_PROFILE = 40;
-
 	public const uint32 CSIDL_SYSTEMX86 = 41;
-
 	public const uint32 CSIDL_PROGRAM_FILESX86 = 42;
-
 	public const uint32 CSIDL_PROGRAM_FILES_COMMON = 43;
-
 	public const uint32 CSIDL_PROGRAM_FILES_COMMONX86 = 44;
-
 	public const uint32 CSIDL_COMMON_TEMPLATES = 45;
-
 	public const uint32 CSIDL_COMMON_DOCUMENTS = 46;
-
 	public const uint32 CSIDL_COMMON_ADMINTOOLS = 47;
-
 	public const uint32 CSIDL_ADMINTOOLS = 48;
-
 	public const uint32 CSIDL_CONNECTIONS = 49;
-
 	public const uint32 CSIDL_COMMON_MUSIC = 53;
-
 	public const uint32 CSIDL_COMMON_PICTURES = 54;
-
 	public const uint32 CSIDL_COMMON_VIDEO = 55;
-
 	public const uint32 CSIDL_RESOURCES = 56;
-
 	public const uint32 CSIDL_RESOURCES_LOCALIZED = 57;
-
 	public const uint32 CSIDL_COMMON_OEM_LINKS = 58;
-
 	public const uint32 CSIDL_CDBURN_AREA = 59;
-
 	public const uint32 CSIDL_COMPUTERSNEARME = 61;
-
 	public const uint32 CSIDL_FLAG_CREATE = 32768;
-
 	public const uint32 CSIDL_FLAG_DONT_VERIFY = 16384;
-
 	public const uint32 CSIDL_FLAG_DONT_UNEXPAND = 8192;
-
 	public const uint32 CSIDL_FLAG_NO_ALIAS = 4096;
-
 	public const uint32 CSIDL_FLAG_PER_USER_INIT = 2048;
-
 	public const uint32 CSIDL_FLAG_MASK = 65280;
-
 	public const uint32 FCS_READ = 1;
-
 	public const uint32 FCS_FORCEWRITE = 2;
-
 	public const uint32 FCS_FLAG_DRAGDROP = 2;
-
 	public const uint32 FCSM_VIEWID = 1;
-
 	public const uint32 FCSM_WEBVIEWTEMPLATE = 2;
-
 	public const uint32 FCSM_INFOTIP = 4;
-
 	public const uint32 FCSM_CLSID = 8;
-
 	public const uint32 FCSM_ICONFILE = 16;
-
 	public const uint32 FCSM_LOGO = 32;
-
 	public const uint32 FCSM_FLAGS = 64;
-
 	public const uint32 BIF_RETURNONLYFSDIRS = 1;
-
 	public const uint32 BIF_DONTGOBELOWDOMAIN = 2;
-
 	public const uint32 BIF_STATUSTEXT = 4;
-
 	public const uint32 BIF_RETURNFSANCESTORS = 8;
-
 	public const uint32 BIF_EDITBOX = 16;
-
 	public const uint32 BIF_VALIDATE = 32;
-
 	public const uint32 BIF_NEWDIALOGSTYLE = 64;
-
 	public const uint32 BIF_BROWSEINCLUDEURLS = 128;
-
 	public const uint32 BIF_UAHINT = 256;
-
 	public const uint32 BIF_NONEWFOLDERBUTTON = 512;
-
 	public const uint32 BIF_NOTRANSLATETARGETS = 1024;
-
 	public const uint32 BIF_BROWSEFORCOMPUTER = 4096;
-
 	public const uint32 BIF_BROWSEFORPRINTER = 8192;
-
 	public const uint32 BIF_BROWSEINCLUDEFILES = 16384;
-
 	public const uint32 BIF_SHAREABLE = 32768;
-
 	public const uint32 BIF_BROWSEFILEJUNCTIONS = 65536;
-
 	public const uint32 BFFM_INITIALIZED = 1;
-
 	public const uint32 BFFM_SELCHANGED = 2;
-
 	public const uint32 BFFM_VALIDATEFAILEDA = 3;
-
 	public const uint32 BFFM_VALIDATEFAILEDW = 4;
-
 	public const uint32 BFFM_IUNKNOWN = 5;
-
 	public const uint32 BFFM_SETSTATUSTEXTA = 1124;
-
 	public const uint32 BFFM_ENABLEOK = 1125;
-
 	public const uint32 BFFM_SETSELECTIONA = 1126;
-
 	public const uint32 BFFM_SETSELECTIONW = 1127;
-
 	public const uint32 BFFM_SETSTATUSTEXTW = 1128;
-
 	public const uint32 BFFM_SETOKTEXT = 1129;
-
 	public const uint32 BFFM_SETEXPANDED = 1130;
-
 	public const uint32 BFFM_SETSTATUSTEXT = 1128;
-
 	public const uint32 BFFM_SETSELECTION = 1127;
-
 	public const uint32 BFFM_VALIDATEFAILED = 4;
-
 	public const int32 CMDID_INTSHORTCUTCREATE = 1;
-
 	public const uint32 PROGDLG_NORMAL = 0;
-
 	public const uint32 PROGDLG_MODAL = 1;
-
 	public const uint32 PROGDLG_AUTOTIME = 2;
-
 	public const uint32 PROGDLG_NOTIME = 4;
-
 	public const uint32 PROGDLG_NOMINIMIZE = 8;
-
 	public const uint32 PROGDLG_NOPROGRESSBAR = 16;
-
 	public const uint32 PROGDLG_MARQUEEPROGRESS = 32;
-
 	public const uint32 PROGDLG_NOCANCEL = 64;
-
 	public const uint32 PDTIMER_RESET = 1;
-
 	public const uint32 PDTIMER_PAUSE = 2;
-
 	public const uint32 PDTIMER_RESUME = 3;
-
 	public const uint32 COMPONENT_TOP = 1073741823;
-
 	public const uint32 COMP_TYPE_HTMLDOC = 0;
-
 	public const uint32 COMP_TYPE_PICTURE = 1;
-
 	public const uint32 COMP_TYPE_WEBSITE = 2;
-
 	public const uint32 COMP_TYPE_CONTROL = 3;
-
 	public const uint32 COMP_TYPE_CFHTML = 4;
-
 	public const uint32 COMP_TYPE_MAX = 4;
-
 	public const uint32 IS_NORMAL = 1;
-
 	public const uint32 IS_FULLSCREEN = 2;
-
 	public const uint32 IS_SPLIT = 4;
-
 	public const uint32 AD_APPLY_SAVE = 1;
-
 	public const uint32 AD_APPLY_HTMLGEN = 2;
-
 	public const uint32 AD_APPLY_REFRESH = 4;
-
 	public const uint32 AD_APPLY_FORCE = 8;
-
 	public const uint32 AD_APPLY_BUFFERED_REFRESH = 16;
-
 	public const uint32 AD_APPLY_DYNAMICREFRESH = 32;
-
 	public const uint32 AD_GETWP_BMP = 0;
-
 	public const uint32 AD_GETWP_IMAGE = 1;
-
 	public const uint32 AD_GETWP_LAST_APPLIED = 2;
-
 	public const uint32 WPSTYLE_CENTER = 0;
-
 	public const uint32 WPSTYLE_TILE = 1;
-
 	public const uint32 WPSTYLE_STRETCH = 2;
-
 	public const uint32 WPSTYLE_KEEPASPECT = 3;
-
 	public const uint32 WPSTYLE_CROPTOFIT = 4;
-
 	public const uint32 WPSTYLE_SPAN = 5;
-
 	public const uint32 WPSTYLE_MAX = 6;
-
 	public const uint32 COMP_ELEM_TYPE = 1;
-
 	public const uint32 COMP_ELEM_CHECKED = 2;
-
 	public const uint32 COMP_ELEM_DIRTY = 4;
-
 	public const uint32 COMP_ELEM_NOSCROLL = 8;
-
 	public const uint32 COMP_ELEM_POS_LEFT = 16;
-
 	public const uint32 COMP_ELEM_POS_TOP = 32;
-
 	public const uint32 COMP_ELEM_SIZE_WIDTH = 64;
-
 	public const uint32 COMP_ELEM_SIZE_HEIGHT = 128;
-
 	public const uint32 COMP_ELEM_POS_ZINDEX = 256;
-
 	public const uint32 COMP_ELEM_SOURCE = 512;
-
 	public const uint32 COMP_ELEM_FRIENDLYNAME = 1024;
-
 	public const uint32 COMP_ELEM_SUBSCRIBEDURL = 2048;
-
 	public const uint32 COMP_ELEM_ORIGINAL_CSI = 4096;
-
 	public const uint32 COMP_ELEM_RESTORED_CSI = 8192;
-
 	public const uint32 COMP_ELEM_CURITEMSTATE = 16384;
-
 	public const uint32 ADDURL_SILENT = 1;
-
 	public const uint32 COMPONENT_DEFAULT_LEFT = 65535;
-
 	public const uint32 COMPONENT_DEFAULT_TOP = 65535;
-
 	public const uint32 MAX_COLUMN_NAME_LEN = 80;
-
 	public const uint32 MAX_COLUMN_DESC_LEN = 128;
-
 	public const uint32 DVASPECT_SHORTNAME = 2;
-
 	public const uint32 DVASPECT_COPY = 3;
-
 	public const uint32 DVASPECT_LINK = 4;
-
 	public const int32 SHCNEE_ORDERCHANGED = 2;
-
 	public const int32 SHCNEE_MSI_CHANGE = 4;
-
 	public const int32 SHCNEE_MSI_UNINSTALL = 5;
-
 	public const uint32 NUM_POINTS = 3;
-
 	public const uint32 CABINETSTATE_VERSION = 2;
-
 	public const uint32 PIFNAMESIZE = 30;
-
 	public const uint32 PIFSTARTLOCSIZE = 63;
-
 	public const uint32 PIFDEFPATHSIZE = 64;
-
 	public const uint32 PIFPARAMSSIZE = 64;
-
 	public const uint32 PIFSHPROGSIZE = 64;
-
 	public const uint32 PIFSHDATASIZE = 64;
-
 	public const uint32 PIFDEFFILESIZE = 80;
-
 	public const uint32 PIFMAXFILEPATH = 260;
-
 	public const uint32 QCMINFO_PLACE_BEFORE = 0;
-
 	public const uint32 QCMINFO_PLACE_AFTER = 1;
-
 	public const uint32 SFVSOC_INVALIDATE_ALL = 1;
-
 	public const uint32 SFVSOC_NOSCROLL = 2;
-
 	public const uint32 SHELLSTATEVERSION_IE4 = 9;
-
 	public const uint32 SHELLSTATEVERSION_WIN2K = 10;
-
 	public const uint32 SHPPFW_NONE = 0;
-
 	public const uint32 SHPPFW_DIRCREATE = 1;
-
 	public const uint32 SHPPFW_ASKDIRCREATE = 2;
-
 	public const uint32 SHPPFW_IGNOREFILENAME = 4;
-
 	public const uint32 SHPPFW_NOWRITECHECK = 8;
-
 	public const uint32 SHPPFW_MEDIACHECKONLY = 16;
-
 	public const uint32 CMF_NORMAL = 0;
-
 	public const uint32 CMF_DEFAULTONLY = 1;
-
 	public const uint32 CMF_VERBSONLY = 2;
-
 	public const uint32 CMF_EXPLORE = 4;
-
 	public const uint32 CMF_NOVERBS = 8;
-
 	public const uint32 CMF_CANRENAME = 16;
-
 	public const uint32 CMF_NODEFAULT = 32;
-
 	public const uint32 CMF_INCLUDESTATIC = 64;
-
 	public const uint32 CMF_ITEMMENU = 128;
-
 	public const uint32 CMF_EXTENDEDVERBS = 256;
-
 	public const uint32 CMF_DISABLEDVERBS = 512;
-
 	public const uint32 CMF_ASYNCVERBSTATE = 1024;
-
 	public const uint32 CMF_OPTIMIZEFORINVOKE = 2048;
-
 	public const uint32 CMF_SYNCCASCADEMENU = 4096;
-
 	public const uint32 CMF_DONOTPICKDEFAULT = 8192;
-
 	public const uint32 CMF_RESERVED = 4294901760;
-
 	public const uint32 GCS_VERBA = 0;
-
 	public const uint32 GCS_HELPTEXTA = 1;
-
 	public const uint32 GCS_VALIDATEA = 2;
-
 	public const uint32 GCS_VERBW = 4;
-
 	public const uint32 GCS_HELPTEXTW = 5;
-
 	public const uint32 GCS_VALIDATEW = 6;
-
 	public const uint32 GCS_VERBICONW = 20;
-
 	public const uint32 GCS_UNICODE = 4;
-
 	public const uint32 GCS_VERB = 4;
-
 	public const uint32 GCS_HELPTEXT = 5;
-
 	public const uint32 GCS_VALIDATE = 6;
-
 	public const uint32 CMIC_MASK_SHIFT_DOWN = 268435456;
-
 	public const uint32 CMIC_MASK_CONTROL_DOWN = 1073741824;
-
 	public const uint32 CMIC_MASK_PTINVOKE = 536870912;
-
 	public const uint32 IRTIR_TASK_NOT_RUNNING = 0;
-
 	public const uint32 IRTIR_TASK_RUNNING = 1;
-
 	public const uint32 IRTIR_TASK_SUSPENDED = 2;
-
 	public const uint32 IRTIR_TASK_PENDING = 3;
-
 	public const uint32 IRTIR_TASK_FINISHED = 4;
-
 	public const uint32 ITSAT_DEFAULT_PRIORITY = 268435456;
-
 	public const uint32 ITSAT_MAX_PRIORITY = 2147483647;
-
 	public const uint32 ITSAT_MIN_PRIORITY = 0;
-
 	public const uint32 ITSSFLAG_COMPLETE_ON_DESTROY = 0;
-
 	public const uint32 ITSSFLAG_KILL_ON_DESTROY = 1;
-
 	public const uint32 ITSSFLAG_FLAGS_MASK = 3;
-
 	public const uint32 CSIDL_FLAG_PFTI_TRACKTARGET = 16384;
-
 	public const int32 SHCIDS_ALLFIELDS = -2147483648;
-
 	public const int32 SHCIDS_CANONICALONLY = 268435456;
-
 	public const int32 SHCIDS_BITMASK = -65536;
-
 	public const int32 SHCIDS_COLUMNMASK = 65535;
-
 	public const uint32 SFGAO_CANCOPY = 1;
-
 	public const uint32 SFGAO_CANMOVE = 2;
-
 	public const uint32 SFGAO_CANLINK = 4;
-
 	public const int32 SFGAO_STORAGE = 8;
-
 	public const int32 SFGAO_CANRENAME = 16;
-
 	public const int32 SFGAO_CANDELETE = 32;
-
 	public const int32 SFGAO_HASPROPSHEET = 64;
-
 	public const int32 SFGAO_DROPTARGET = 256;
-
 	public const int32 SFGAO_CAPABILITYMASK = 375;
-
 	public const int32 SFGAO_PLACEHOLDER = 2048;
-
 	public const int32 SFGAO_SYSTEM = 4096;
-
 	public const int32 SFGAO_ENCRYPTED = 8192;
-
 	public const int32 SFGAO_ISSLOW = 16384;
-
 	public const int32 SFGAO_GHOSTED = 32768;
-
 	public const int32 SFGAO_LINK = 65536;
-
 	public const int32 SFGAO_SHARE = 131072;
-
 	public const int32 SFGAO_READONLY = 262144;
-
 	public const int32 SFGAO_HIDDEN = 524288;
-
 	public const int32 SFGAO_DISPLAYATTRMASK = 1032192;
-
 	public const int32 SFGAO_FILESYSANCESTOR = 268435456;
-
 	public const int32 SFGAO_FOLDER = 536870912;
-
 	public const int32 SFGAO_FILESYSTEM = 1073741824;
-
 	public const int32 SFGAO_HASSUBFOLDER = -2147483648;
-
 	public const int32 SFGAO_CONTENTSMASK = -2147483648;
-
 	public const int32 SFGAO_VALIDATE = 16777216;
-
 	public const int32 SFGAO_REMOVABLE = 33554432;
-
 	public const int32 SFGAO_COMPRESSED = 67108864;
-
 	public const int32 SFGAO_BROWSABLE = 134217728;
-
 	public const int32 SFGAO_NONENUMERATED = 1048576;
-
 	public const int32 SFGAO_NEWCONTENT = 2097152;
-
 	public const int32 SFGAO_CANMONIKER = 4194304;
-
 	public const int32 SFGAO_HASSTORAGE = 4194304;
-
 	public const int32 SFGAO_STREAM = 4194304;
-
 	public const int32 SFGAO_STORAGEANCESTOR = 8388608;
-
 	public const int32 SFGAO_STORAGECAPMASK = 1891958792;
-
 	public const int32 SFGAO_PKEYSFGAOMASK = -2130427904;
-
 	public const uint32 BIND_INTERRUPTABLE = 4294967295;
-
 	public const uint32 CDBOSC_SETFOCUS = 0;
-
 	public const uint32 CDBOSC_KILLFOCUS = 1;
-
 	public const uint32 CDBOSC_SELCHANGE = 2;
-
 	public const uint32 CDBOSC_RENAME = 3;
-
 	public const uint32 CDBOSC_STATECHANGE = 4;
-
 	public const uint32 CDB2N_CONTEXTMENU_DONE = 1;
-
 	public const uint32 CDB2N_CONTEXTMENU_START = 2;
-
 	public const uint32 CDB2GVF_SHOWALLFILES = 1;
-
 	public const uint32 CDB2GVF_ISFILESAVE = 2;
-
 	public const uint32 CDB2GVF_ALLOWPREVIEWPANE = 4;
-
 	public const uint32 CDB2GVF_NOSELECTVERB = 8;
-
 	public const uint32 CDB2GVF_NOINCLUDEITEM = 16;
-
 	public const uint32 CDB2GVF_ISFOLDERPICKER = 32;
-
 	public const uint32 CDB2GVF_ADDSHIELD = 64;
-
 	public const uint32 SBSP_DEFBROWSER = 0;
-
 	public const uint32 SBSP_SAMEBROWSER = 1;
-
 	public const uint32 SBSP_NEWBROWSER = 2;
-
 	public const uint32 SBSP_DEFMODE = 0;
-
 	public const uint32 SBSP_OPENMODE = 16;
-
 	public const uint32 SBSP_EXPLOREMODE = 32;
-
 	public const uint32 SBSP_HELPMODE = 64;
-
 	public const uint32 SBSP_NOTRANSFERHIST = 128;
-
 	public const uint32 SBSP_ABSOLUTE = 0;
-
 	public const uint32 SBSP_RELATIVE = 4096;
-
 	public const uint32 SBSP_PARENT = 8192;
-
 	public const uint32 SBSP_NAVIGATEBACK = 16384;
-
 	public const uint32 SBSP_NAVIGATEFORWARD = 32768;
-
 	public const uint32 SBSP_ALLOW_AUTONAVIGATE = 65536;
-
 	public const uint32 SBSP_KEEPSAMETEMPLATE = 131072;
-
 	public const uint32 SBSP_KEEPWORDWHEELTEXT = 262144;
-
 	public const uint32 SBSP_ACTIVATE_NOFOCUS = 524288;
-
 	public const uint32 SBSP_CREATENOHISTORY = 1048576;
-
 	public const uint32 SBSP_PLAYNOSOUND = 2097152;
-
 	public const uint32 SBSP_CALLERUNTRUSTED = 8388608;
-
 	public const uint32 SBSP_TRUSTFIRSTDOWNLOAD = 16777216;
-
 	public const uint32 SBSP_UNTRUSTEDFORDOWNLOAD = 33554432;
-
 	public const uint32 SBSP_NOAUTOSELECT = 67108864;
-
 	public const uint32 SBSP_WRITENOHISTORY = 134217728;
-
 	public const uint32 SBSP_TRUSTEDFORACTIVEX = 268435456;
-
 	public const uint32 SBSP_FEEDNAVIGATION = 536870912;
-
 	public const uint32 SBSP_REDIRECT = 1073741824;
-
 	public const uint32 SBSP_INITIATEDBYHLINKFRAME = 2147483648;
-
 	public const uint32 FCW_STATUS = 1;
-
 	public const uint32 FCW_TOOLBAR = 2;
-
 	public const uint32 FCW_TREE = 3;
-
 	public const uint32 FCW_INTERNETBAR = 6;
-
 	public const uint32 FCW_PROGRESS = 8;
-
 	public const uint32 FCT_MERGE = 1;
-
 	public const uint32 FCT_CONFIGABLE = 2;
-
 	public const uint32 FCT_ADDTOEND = 4;
-
 	public const uint32 ARCONTENT_AUTORUNINF = 2;
-
 	public const uint32 ARCONTENT_AUDIOCD = 4;
-
 	public const uint32 ARCONTENT_DVDMOVIE = 8;
-
 	public const uint32 ARCONTENT_BLANKCD = 16;
-
 	public const uint32 ARCONTENT_BLANKDVD = 32;
-
 	public const uint32 ARCONTENT_UNKNOWNCONTENT = 64;
-
 	public const uint32 ARCONTENT_AUTOPLAYPIX = 128;
-
 	public const uint32 ARCONTENT_AUTOPLAYMUSIC = 256;
-
 	public const uint32 ARCONTENT_AUTOPLAYVIDEO = 512;
-
 	public const uint32 ARCONTENT_VCD = 1024;
-
 	public const uint32 ARCONTENT_SVCD = 2048;
-
 	public const uint32 ARCONTENT_DVDAUDIO = 4096;
-
 	public const uint32 ARCONTENT_BLANKBD = 8192;
-
 	public const uint32 ARCONTENT_BLURAY = 16384;
-
 	public const uint32 ARCONTENT_CAMERASTORAGE = 32768;
-
 	public const uint32 ARCONTENT_CUSTOMEVENT = 65536;
-
 	public const uint32 ARCONTENT_NONE = 0;
-
 	public const uint32 ARCONTENT_MASK = 131070;
-
 	public const uint32 ARCONTENT_PHASE_UNKNOWN = 0;
-
 	public const uint32 ARCONTENT_PHASE_PRESNIFF = 268435456;
-
 	public const uint32 ARCONTENT_PHASE_SNIFFING = 536870912;
-
 	public const uint32 ARCONTENT_PHASE_FINAL = 1073741824;
-
 	public const uint32 ARCONTENT_PHASE_MASK = 1879048192;
-
 	public const uint32 IEI_PRIORITY_MAX = 2147483647;
-
 	public const uint32 IEI_PRIORITY_MIN = 0;
-
 	public const uint32 IEIT_PRIORITY_NORMAL = 268435456;
-
 	public const uint32 IEIFLAG_ASYNC = 1;
-
 	public const uint32 IEIFLAG_CACHE = 2;
-
 	public const uint32 IEIFLAG_ASPECT = 4;
-
 	public const uint32 IEIFLAG_OFFLINE = 8;
-
 	public const uint32 IEIFLAG_GLEAM = 16;
-
 	public const uint32 IEIFLAG_SCREEN = 32;
-
 	public const uint32 IEIFLAG_ORIGSIZE = 64;
-
 	public const uint32 IEIFLAG_NOSTAMP = 128;
-
 	public const uint32 IEIFLAG_NOBORDER = 256;
-
 	public const uint32 IEIFLAG_QUALITY = 512;
-
 	public const uint32 IEIFLAG_REFRESH = 1024;
-
 	public const uint32 DBIM_MINSIZE = 1;
-
 	public const uint32 DBIM_MAXSIZE = 2;
-
 	public const uint32 DBIM_INTEGRAL = 4;
-
 	public const uint32 DBIM_ACTUAL = 8;
-
 	public const uint32 DBIM_TITLE = 16;
-
 	public const uint32 DBIM_MODEFLAGS = 32;
-
 	public const uint32 DBIM_BKCOLOR = 64;
-
 	public const uint32 DBIMF_NORMAL = 0;
-
 	public const uint32 DBIMF_FIXED = 1;
-
 	public const uint32 DBIMF_FIXEDBMP = 4;
-
 	public const uint32 DBIMF_VARIABLEHEIGHT = 8;
-
 	public const uint32 DBIMF_UNDELETEABLE = 16;
-
 	public const uint32 DBIMF_DEBOSSED = 32;
-
 	public const uint32 DBIMF_BKCOLOR = 64;
-
 	public const uint32 DBIMF_USECHEVRON = 128;
-
 	public const uint32 DBIMF_BREAK = 256;
-
 	public const uint32 DBIMF_ADDTOFRONT = 512;
-
 	public const uint32 DBIMF_TOPALIGN = 1024;
-
 	public const uint32 DBIMF_NOGRIPPER = 2048;
-
 	public const uint32 DBIMF_ALWAYSGRIPPER = 4096;
-
 	public const uint32 DBIMF_NOMARGINS = 8192;
-
 	public const uint32 DBIF_VIEWMODE_NORMAL = 0;
-
 	public const uint32 DBIF_VIEWMODE_VERTICAL = 1;
-
 	public const uint32 DBIF_VIEWMODE_FLOATING = 2;
-
 	public const uint32 DBIF_VIEWMODE_TRANSPARENT = 4;
-
 	public const uint32 DBPC_SELECTFIRST = 4294967295;
-
 	public const uint32 THBN_CLICKED = 6144;
-
 	public const uint32 FOFX_NOSKIPJUNCTIONS = 65536;
-
 	public const uint32 FOFX_PREFERHARDLINK = 131072;
-
 	public const uint32 FOFX_SHOWELEVATIONPROMPT = 262144;
-
 	public const uint32 FOFX_RECYCLEONDELETE = 524288;
-
 	public const uint32 FOFX_EARLYFAILURE = 1048576;
-
 	public const uint32 FOFX_PRESERVEFILEEXTENSIONS = 2097152;
-
 	public const uint32 FOFX_KEEPNEWERFILE = 4194304;
-
 	public const uint32 FOFX_NOCOPYHOOKS = 8388608;
-
 	public const uint32 FOFX_NOMINIMIZEBOX = 16777216;
-
 	public const uint32 FOFX_MOVEACLSACROSSVOLUMES = 33554432;
-
 	public const uint32 FOFX_DONTDISPLAYSOURCEPATH = 67108864;
-
 	public const uint32 FOFX_DONTDISPLAYDESTPATH = 134217728;
-
 	public const uint32 FOFX_REQUIREELEVATION = 268435456;
-
 	public const uint32 FOFX_ADDUNDORECORD = 536870912;
-
 	public const uint32 FOFX_COPYASDOWNLOAD = 1073741824;
-
 	public const uint32 FOFX_DONTDISPLAYLOCATIONS = 2147483648;
-
 	public const uint32 BSIM_STATE = 1;
-
 	public const uint32 BSIM_STYLE = 2;
-
 	public const uint32 BSSF_VISIBLE = 1;
-
 	public const uint32 BSSF_NOTITLE = 2;
-
 	public const uint32 BSSF_UNDELETEABLE = 4096;
-
 	public const uint32 BSIS_AUTOGRIPPER = 0;
-
 	public const uint32 BSIS_NOGRIPPER = 1;
-
 	public const uint32 BSIS_ALWAYSGRIPPER = 2;
-
 	public const uint32 BSIS_LEFTALIGN = 4;
-
 	public const uint32 BSIS_SINGLECLICK = 8;
-
 	public const uint32 BSIS_NOCONTEXTMENU = 16;
-
 	public const uint32 BSIS_NODROPTARGET = 32;
-
 	public const uint32 BSIS_NOCAPTION = 64;
-
 	public const uint32 BSIS_PREFERNOLINEBREAK = 128;
-
 	public const uint32 BSIS_LOCKED = 256;
-
 	public const uint32 BSIS_PRESERVEORDERDURINGLAYOUT = 512;
-
 	public const uint32 BSIS_FIXEDORDER = 1024;
-
 	public const uint32 OF_CAP_CANSWITCHTO = 1;
-
 	public const uint32 OF_CAP_CANCLOSE = 2;
-
 	public const uint32 SMDM_SHELLFOLDER = 1;
-
 	public const uint32 SMDM_HMENU = 2;
-
 	public const uint32 SMDM_TOOLBAR = 4;
-
 	public const uint32 SMC_INITMENU = 1;
-
 	public const uint32 SMC_CREATE = 2;
-
 	public const uint32 SMC_EXITMENU = 3;
-
 	public const uint32 SMC_GETINFO = 5;
-
 	public const uint32 SMC_GETSFINFO = 6;
-
 	public const uint32 SMC_GETOBJECT = 7;
-
 	public const uint32 SMC_GETSFOBJECT = 8;
-
 	public const uint32 SMC_SFEXEC = 9;
-
 	public const uint32 SMC_SFSELECTITEM = 10;
-
 	public const uint32 SMC_REFRESH = 16;
-
 	public const uint32 SMC_DEMOTE = 17;
-
 	public const uint32 SMC_PROMOTE = 18;
-
 	public const uint32 SMC_DEFAULTICON = 22;
-
 	public const uint32 SMC_NEWITEM = 23;
-
 	public const uint32 SMC_CHEVRONEXPAND = 25;
-
 	public const uint32 SMC_DISPLAYCHEVRONTIP = 42;
-
 	public const uint32 SMC_SETSFOBJECT = 45;
-
 	public const uint32 SMC_SHCHANGENOTIFY = 46;
-
 	public const uint32 SMC_CHEVRONGETTIP = 47;
-
 	public const uint32 SMC_SFDDRESTRICTED = 48;
-
 	public const uint32 SMC_SFEXEC_MIDDLE = 49;
-
 	public const uint32 SMC_GETAUTOEXPANDSTATE = 65;
-
 	public const uint32 SMC_AUTOEXPANDCHANGE = 66;
-
 	public const uint32 SMC_GETCONTEXTMENUMODIFIER = 67;
-
 	public const uint32 SMC_GETBKCONTEXTMENU = 68;
-
 	public const uint32 SMC_OPEN = 69;
-
 	public const uint32 SMAE_EXPANDED = 1;
-
 	public const uint32 SMAE_CONTRACTED = 2;
-
 	public const uint32 SMAE_USER = 4;
-
 	public const uint32 SMAE_VALID = 7;
-
 	public const uint32 SMINIT_DEFAULT = 0;
-
 	public const uint32 SMINIT_RESTRICT_DRAGDROP = 2;
-
 	public const uint32 SMINIT_TOPLEVEL = 4;
-
 	public const uint32 SMINIT_CACHED = 16;
-
 	public const uint32 SMINIT_AUTOEXPAND = 256;
-
 	public const uint32 SMINIT_AUTOTOOLTIP = 512;
-
 	public const uint32 SMINIT_DROPONCONTAINER = 1024;
-
 	public const uint32 SMINIT_VERTICAL = 268435456;
-
 	public const uint32 SMINIT_HORIZONTAL = 536870912;
-
 	public const uint32 SMSET_TOP = 268435456;
-
 	public const uint32 SMSET_BOTTOM = 536870912;
-
 	public const uint32 SMSET_DONTOWN = 1;
-
 	public const uint32 SMINV_REFRESH = 1;
-
 	public const uint32 SMINV_ID = 8;
-
 	public const HRESULT E_PREVIEWHANDLER_DRM_FAIL = -2042494975;
-
 	public const HRESULT E_PREVIEWHANDLER_NOAUTH = -2042494974;
-
 	public const HRESULT E_PREVIEWHANDLER_NOTFOUND = -2042494973;
-
 	public const HRESULT E_PREVIEWHANDLER_CORRUPT = -2042494972;
-
 	public const Guid SID_URLExecutionContext = .(0xfb5f8ebc, 0xbbb6, 0x4d10, 0xa4, 0x61, 0x77, 0x72, 0x91, 0xa0, 0x90, 0x30);
-
 	public const Guid SID_LaunchSourceViewSizePreference = .(0x80605492, 0x67d9, 0x414f, 0xaf, 0x89, 0xa1, 0xcd, 0xf1, 0x24, 0x2b, 0xc1);
-
 	public const Guid SID_LaunchTargetViewSizePreference = .(0x26db2472, 0xb7b7, 0x406b, 0x97, 0x02, 0x73, 0x0a, 0x4e, 0x20, 0xd3, 0xbf);
-
 	public const Guid SID_LaunchSourceAppUserModelId = .(0x2ce78010, 0x74db, 0x48bc, 0x9c, 0x6a, 0x10, 0xf3, 0x72, 0x49, 0x57, 0x23);
-
 	public const Guid SID_ShellExecuteNamedPropertyStore = .(0xeb84ada2, 0x00ff, 0x4992, 0x83, 0x24, 0xed, 0x5c, 0xe0, 0x61, 0xcb, 0x29);
-
 	public const uint32 ISIOI_ICONFILE = 1;
-
 	public const uint32 ISIOI_ICONINDEX = 2;
-
 	public const uint32 ABM_NEW = 0;
-
 	public const uint32 ABM_REMOVE = 1;
-
 	public const uint32 ABM_QUERYPOS = 2;
-
 	public const uint32 ABM_SETPOS = 3;
-
 	public const uint32 ABM_GETSTATE = 4;
-
 	public const uint32 ABM_GETTASKBARPOS = 5;
-
 	public const uint32 ABM_ACTIVATE = 6;
-
 	public const uint32 ABM_GETAUTOHIDEBAR = 7;
-
 	public const uint32 ABM_SETAUTOHIDEBAR = 8;
-
 	public const uint32 ABM_WINDOWPOSCHANGED = 9;
-
 	public const uint32 ABM_SETSTATE = 10;
-
 	public const uint32 ABM_GETAUTOHIDEBAREX = 11;
-
 	public const uint32 ABM_SETAUTOHIDEBAREX = 12;
-
 	public const uint32 ABN_STATECHANGE = 0;
-
 	public const uint32 ABN_POSCHANGED = 1;
-
 	public const uint32 ABN_FULLSCREENAPP = 2;
-
 	public const uint32 ABN_WINDOWARRANGE = 3;
-
 	public const uint32 ABS_AUTOHIDE = 1;
-
 	public const uint32 ABS_ALWAYSONTOP = 2;
-
 	public const uint32 ABE_LEFT = 0;
-
 	public const uint32 ABE_TOP = 1;
-
 	public const uint32 ABE_RIGHT = 2;
-
 	public const uint32 ABE_BOTTOM = 3;
-
 	public const uint32 FO_MOVE = 1;
-
 	public const uint32 FO_COPY = 2;
-
 	public const uint32 FO_DELETE = 3;
-
 	public const uint32 FO_RENAME = 4;
-
 	public const uint32 FOF_MULTIDESTFILES = 1;
-
 	public const uint32 FOF_CONFIRMMOUSE = 2;
-
 	public const uint32 FOF_SILENT = 4;
-
 	public const uint32 FOF_RENAMEONCOLLISION = 8;
-
 	public const uint32 FOF_NOCONFIRMATION = 16;
-
 	public const uint32 FOF_WANTMAPPINGHANDLE = 32;
-
 	public const uint32 FOF_ALLOWUNDO = 64;
-
 	public const uint32 FOF_FILESONLY = 128;
-
 	public const uint32 FOF_SIMPLEPROGRESS = 256;
-
 	public const uint32 FOF_NOCONFIRMMKDIR = 512;
-
 	public const uint32 FOF_NOERRORUI = 1024;
-
 	public const uint32 FOF_NOCOPYSECURITYATTRIBS = 2048;
-
 	public const uint32 FOF_NORECURSION = 4096;
-
 	public const uint32 FOF_NO_CONNECTED_ELEMENTS = 8192;
-
 	public const uint32 FOF_WANTNUKEWARNING = 16384;
-
 	public const uint32 FOF_NORECURSEREPARSE = 32768;
-
 	public const uint32 PO_DELETE = 19;
-
 	public const uint32 PO_RENAME = 20;
-
 	public const uint32 PO_PORTCHANGE = 32;
-
 	public const uint32 PO_REN_PORT = 52;
-
 	public const uint32 SE_ERR_FNF = 2;
-
 	public const uint32 SE_ERR_PNF = 3;
-
 	public const uint32 SE_ERR_ACCESSDENIED = 5;
-
 	public const uint32 SE_ERR_OOM = 8;
-
 	public const uint32 SE_ERR_DLLNOTFOUND = 32;
-
 	public const uint32 SE_ERR_SHARE = 26;
-
 	public const uint32 SE_ERR_ASSOCINCOMPLETE = 27;
-
 	public const uint32 SE_ERR_DDETIMEOUT = 28;
-
 	public const uint32 SE_ERR_DDEFAIL = 29;
-
 	public const uint32 SE_ERR_DDEBUSY = 30;
-
 	public const uint32 SE_ERR_NOASSOC = 31;
-
 	public const uint32 SEE_MASK_DEFAULT = 0;
-
 	public const uint32 SEE_MASK_CLASSNAME = 1;
-
 	public const uint32 SEE_MASK_CLASSKEY = 3;
-
 	public const uint32 SEE_MASK_IDLIST = 4;
-
 	public const uint32 SEE_MASK_INVOKEIDLIST = 12;
-
 	public const uint32 SEE_MASK_ICON = 16;
-
 	public const uint32 SEE_MASK_HOTKEY = 32;
-
 	public const uint32 SEE_MASK_NOCLOSEPROCESS = 64;
-
 	public const uint32 SEE_MASK_CONNECTNETDRV = 128;
-
 	public const uint32 SEE_MASK_NOASYNC = 256;
-
 	public const uint32 SEE_MASK_FLAG_DDEWAIT = 256;
-
 	public const uint32 SEE_MASK_DOENVSUBST = 512;
-
 	public const uint32 SEE_MASK_FLAG_NO_UI = 1024;
-
 	public const uint32 SEE_MASK_UNICODE = 16384;
-
 	public const uint32 SEE_MASK_NO_CONSOLE = 32768;
-
 	public const uint32 SEE_MASK_ASYNCOK = 1048576;
-
 	public const uint32 SEE_MASK_HMONITOR = 2097152;
-
 	public const uint32 SEE_MASK_NOZONECHECKS = 8388608;
-
 	public const uint32 SEE_MASK_NOQUERYCLASSSTORE = 16777216;
-
 	public const uint32 SEE_MASK_WAITFORINPUTIDLE = 33554432;
-
 	public const uint32 SEE_MASK_FLAG_LOG_USAGE = 67108864;
-
 	public const uint32 SEE_MASK_FLAG_HINST_IS_SITE = 134217728;
-
 	public const uint32 SHERB_NOCONFIRMATION = 1;
-
 	public const uint32 SHERB_NOPROGRESSUI = 2;
-
 	public const uint32 SHERB_NOSOUND = 4;
-
 	public const uint32 NIN_SELECT = 1024;
-
 	public const uint32 NINF_KEY = 1;
-
 	public const uint32 NIN_BALLOONSHOW = 1026;
-
 	public const uint32 NIN_BALLOONHIDE = 1027;
-
 	public const uint32 NIN_BALLOONTIMEOUT = 1028;
-
 	public const uint32 NIN_BALLOONUSERCLICK = 1029;
-
 	public const uint32 NIN_POPUPOPEN = 1030;
-
 	public const uint32 NIN_POPUPCLOSE = 1031;
-
 	public const uint32 NOTIFYICON_VERSION = 3;
-
 	public const uint32 NOTIFYICON_VERSION_4 = 4;
-
 	public const uint32 NIS_HIDDEN = 1;
-
 	public const uint32 NIS_SHAREDICON = 2;
-
 	public const uint32 NIIF_NONE = 0;
-
 	public const uint32 NIIF_INFO = 1;
-
 	public const uint32 NIIF_WARNING = 2;
-
 	public const uint32 NIIF_ERROR = 3;
-
 	public const uint32 NIIF_USER = 4;
-
 	public const uint32 NIIF_ICON_MASK = 15;
-
 	public const uint32 NIIF_NOSOUND = 16;
-
 	public const uint32 NIIF_LARGE_ICON = 32;
-
 	public const uint32 NIIF_RESPECT_QUIET_TIME = 128;
-
 	public const uint32 SHGSI_ICONLOCATION = 0;
-
 	public const uint64 SHGNLI_PIDL = 1;
-
 	public const uint64 SHGNLI_PREFIXNAME = 2;
-
 	public const uint64 SHGNLI_NOUNIQUE = 4;
-
 	public const uint64 SHGNLI_NOLNK = 8;
-
 	public const uint64 SHGNLI_NOLOCNAME = 16;
-
 	public const uint64 SHGNLI_USEURLEXT = 32;
-
 	public const uint32 PRINTACTION_OPEN = 0;
-
 	public const uint32 PRINTACTION_PROPERTIES = 1;
-
 	public const uint32 PRINTACTION_NETINSTALL = 2;
-
 	public const uint32 PRINTACTION_NETINSTALLLINK = 3;
-
 	public const uint32 PRINTACTION_TESTPAGE = 4;
-
 	public const uint32 PRINTACTION_OPENNETPRN = 5;
-
 	public const uint32 PRINTACTION_DOCUMENTDEFAULTS = 6;
-
 	public const uint32 PRINTACTION_SERVERPROPERTIES = 7;
-
 	public const uint32 PRINT_PROP_FORCE_NAME = 1;
-
 	public const uint32 OFFLINE_STATUS_LOCAL = 1;
-
 	public const uint32 OFFLINE_STATUS_REMOTE = 2;
-
 	public const uint32 OFFLINE_STATUS_INCOMPLETE = 4;
-
 	public const uint32 SHIL_LARGE = 0;
-
 	public const uint32 SHIL_SMALL = 1;
-
 	public const uint32 SHIL_EXTRALARGE = 2;
-
 	public const uint32 SHIL_SYSSMALL = 3;
-
 	public const uint32 SHIL_JUMBO = 4;
-
 	public const uint32 SHIL_LAST = 4;
-
 	public const uint32 NCM_GETADDRESS = 1025;
-
 	public const uint32 NCM_SETALLOWTYPE = 1026;
-
 	public const uint32 NCM_GETALLOWTYPE = 1027;
-
 	public const uint32 NCM_DISPLAYERRORTIP = 1028;
-
 	public const uint32 CREDENTIAL_PROVIDER_NO_DEFAULT = 4294967295;
-
 	public const Guid Identity_LocalUserProvider = .(0xa198529b, 0x730f, 0x4089, 0xb6, 0x46, 0xa1, 0x25, 0x57, 0xf5, 0x66, 0x5e);
-
 	public const uint32 MAX_SYNCMGR_ID = 64;
-
 	public const uint32 MAX_SYNCMGR_PROGRESSTEXT = 260;
-
 	public const uint32 MAX_SYNCMGR_NAME = 128;
-
 	public const int32 STIF_DEFAULT = 0;
-
 	public const int32 STIF_SUPPORT_HEX = 1;
-
 	public const uint32 GCT_INVALID = 0;
-
 	public const uint32 GCT_LFNCHAR = 1;
-
 	public const uint32 GCT_SHORTCHAR = 2;
-
 	public const uint32 GCT_WILD = 4;
-
 	public const uint32 GCT_SEPARATOR = 8;
-
 	public const uint32 PMSF_NORMAL = 0;
-
 	public const uint32 PMSF_MULTIPLE = 1;
-
 	public const uint32 PMSF_DONT_STRIP_SPACES = 65536;
-
 	public const uint32 URL_UNESCAPE = 268435456;
-
 	public const uint32 URL_ESCAPE_UNSAFE = 536870912;
-
 	public const uint32 URL_PLUGGABLE_PROTOCOL = 1073741824;
-
 	public const uint32 URL_WININET_COMPATIBILITY = 2147483648;
-
 	public const uint32 URL_DONT_ESCAPE_EXTRA_INFO = 33554432;
-
 	public const uint32 URL_DONT_UNESCAPE_EXTRA_INFO = 33554432;
-
 	public const uint32 URL_BROWSER_MODE = 33554432;
-
 	public const uint32 URL_ESCAPE_SPACES_ONLY = 67108864;
-
 	public const uint32 URL_DONT_SIMPLIFY = 134217728;
-
 	public const uint32 URL_NO_META = 134217728;
-
 	public const uint32 URL_UNESCAPE_INPLACE = 1048576;
-
 	public const uint32 URL_CONVERT_IF_DOSPATH = 2097152;
-
 	public const uint32 URL_UNESCAPE_HIGH_ANSI_ONLY = 4194304;
-
 	public const uint32 URL_INTERNAL_PATH = 8388608;
-
 	public const uint32 URL_FILE_USE_PATHURL = 65536;
-
 	public const uint32 URL_DONT_UNESCAPE = 131072;
-
 	public const uint32 URL_ESCAPE_AS_UTF8 = 262144;
-
 	public const uint32 URL_UNESCAPE_AS_UTF8 = 262144;
-
 	public const uint32 URL_ESCAPE_ASCII_URI_COMPONENT = 524288;
-
 	public const uint32 URL_UNESCAPE_URI_COMPONENT = 262144;
-
 	public const uint32 URL_ESCAPE_PERCENT = 4096;
-
 	public const uint32 URL_ESCAPE_SEGMENT_ONLY = 8192;
-
 	public const uint32 URL_PARTFLAG_KEEPSCHEME = 1;
-
 	public const uint32 URL_APPLY_DEFAULT = 1;
-
 	public const uint32 URL_APPLY_GUESSSCHEME = 2;
-
 	public const uint32 URL_APPLY_GUESSFILE = 4;
-
 	public const uint32 URL_APPLY_FORCEAPPLY = 8;
-
 	public const uint32 SRRF_RT_REG_NONE = 1;
-
 	public const uint32 SRRF_RT_REG_SZ = 2;
-
 	public const uint32 SRRF_RT_REG_EXPAND_SZ = 4;
-
 	public const uint32 SRRF_RT_REG_BINARY = 8;
-
 	public const uint32 SRRF_RT_REG_DWORD = 16;
-
 	public const uint32 SRRF_RT_REG_MULTI_SZ = 32;
-
 	public const uint32 SRRF_RT_REG_QWORD = 64;
-
 	public const uint32 SRRF_RT_ANY = 65535;
-
 	public const uint32 SRRF_RM_ANY = 0;
-
 	public const uint32 SRRF_RM_NORMAL = 65536;
-
 	public const uint32 SRRF_RM_SAFE = 131072;
-
 	public const uint32 SRRF_RM_SAFENETWORK = 262144;
-
 	public const uint32 SRRF_NOEXPAND = 268435456;
-
 	public const uint32 SRRF_ZEROONFAILURE = 536870912;
-
 	public const uint32 SRRF_NOVIRT = 1073741824;
-
 	public const uint32 SHREGSET_HKCU = 1;
-
 	public const uint32 SHREGSET_FORCE_HKCU = 2;
-
 	public const uint32 SHREGSET_HKLM = 4;
-
 	public const uint32 SHREGSET_FORCE_HKLM = 8;
-
 	public const uint32 SPMODE_SHELL = 1;
-
 	public const uint32 SPMODE_DEBUGOUT = 2;
-
 	public const uint32 SPMODE_TEST = 4;
-
 	public const uint32 SPMODE_BROWSER = 8;
-
 	public const uint32 SPMODE_FLUSH = 16;
-
 	public const uint32 SPMODE_EVENT = 32;
-
 	public const uint32 SPMODE_MSVM = 64;
-
 	public const uint32 SPMODE_FORMATTEXT = 128;
-
 	public const uint32 SPMODE_PROFILE = 256;
-
 	public const uint32 SPMODE_DEBUGBREAK = 512;
-
 	public const uint32 SPMODE_MSGTRACE = 1024;
-
 	public const uint32 SPMODE_PERFTAGS = 2048;
-
 	public const uint32 SPMODE_MEMWATCH = 4096;
-
 	public const uint32 SPMODE_DBMON = 8192;
-
 	public const uint32 SPMODE_MULTISTOP = 16384;
-
 	public const uint32 SPMODE_EVENTTRACE = 32768;
-
 	public const uint32 SHGVSPB_PERUSER = 1;
-
 	public const uint32 SHGVSPB_ALLUSERS = 2;
-
 	public const uint32 SHGVSPB_PERFOLDER = 4;
-
 	public const uint32 SHGVSPB_ALLFOLDERS = 8;
-
 	public const uint32 SHGVSPB_INHERIT = 16;
-
 	public const uint32 SHGVSPB_ROAM = 32;
-
 	public const uint32 SHGVSPB_NOAUTODEFAULTS = 2147483648;
-
 	public const uint32 FDTF_SHORTTIME = 1;
-
 	public const uint32 FDTF_SHORTDATE = 2;
-
 	public const uint32 FDTF_LONGDATE = 4;
-
 	public const uint32 FDTF_LONGTIME = 8;
-
 	public const uint32 FDTF_RELATIVE = 16;
-
 	public const uint32 FDTF_LTRDATE = 256;
-
 	public const uint32 FDTF_RTLDATE = 512;
-
 	public const uint32 FDTF_NOAUTOREADINGORDER = 1024;
-
 	public const uint32 PLATFORM_UNKNOWN = 0;
-
 	public const uint32 PLATFORM_IE3 = 1;
-
 	public const uint32 PLATFORM_BROWSERONLY = 1;
-
 	public const uint32 PLATFORM_INTEGRATED = 2;
-
 	public const uint32 ILMM_IE4 = 0;
-
 	public const uint32 SHACF_DEFAULT = 0;
-
 	public const uint32 SHACF_FILESYSTEM = 1;
-
 	public const uint32 SHACF_URLHISTORY = 2;
-
 	public const uint32 SHACF_URLMRU = 4;
-
 	public const uint32 SHACF_USETAB = 8;
-
 	public const uint32 SHACF_FILESYS_ONLY = 16;
-
 	public const uint32 SHACF_FILESYS_DIRS = 32;
-
 	public const uint32 SHACF_VIRTUAL_NAMESPACE = 64;
-
 	public const uint32 SHACF_AUTOSUGGEST_FORCE_ON = 268435456;
-
 	public const uint32 SHACF_AUTOSUGGEST_FORCE_OFF = 536870912;
-
 	public const uint32 SHACF_AUTOAPPEND_FORCE_ON = 1073741824;
-
 	public const uint32 SHACF_AUTOAPPEND_FORCE_OFF = 2147483648;
-
 	public const uint32 DLLVER_PLATFORM_WINDOWS = 1;
-
 	public const uint32 DLLVER_PLATFORM_NT = 2;
-
 	public const uint64 DLLVER_MAJOR_MASK = 18446462598732840960;
-
 	public const uint64 DLLVER_MINOR_MASK = 281470681743360;
-
 	public const uint64 DLLVER_BUILD_MASK = 4294901760;
-
 	public const uint64 DLLVER_QFE_MASK = 65535;
-
 	public const HRESULT WTS_E_FAILEDEXTRACTION = -2147175936;
-
 	public const HRESULT WTS_E_EXTRACTIONTIMEDOUT = -2147175935;
-
 	public const HRESULT WTS_E_SURROGATEUNAVAILABLE = -2147175934;
-
 	public const HRESULT WTS_E_FASTEXTRACTIONNOTSUPPORTED = -2147175933;
-
 	public const HRESULT WTS_E_DATAFILEUNAVAILABLE = -2147175932;
-
 	public const HRESULT WTS_E_EXTRACTIONPENDING = -2147175931;
-
 	public const HRESULT WTS_E_EXTRACTIONBLOCKED = -2147175930;
-
 	public const HRESULT WTS_E_NOSTORAGEPROVIDERTHUMBNAILHANDLER = -2147175929;
-
 	public const uint32 SHIMGDEC_DEFAULT = 0;
-
 	public const uint32 SHIMGDEC_THUMBNAIL = 1;
-
 	public const uint32 SHIMGDEC_LOADFULL = 2;
-
 	public const HRESULT E_NOTVALIDFORANIMATEDIMAGE = -2147221503;
-
 	public const HRESULT S_SYNCMGR_MISSINGITEMS = 262657;
-
 	public const HRESULT S_SYNCMGR_RETRYSYNC = 262658;
-
 	public const HRESULT S_SYNCMGR_CANCELITEM = 262659;
-
 	public const HRESULT S_SYNCMGR_CANCELALL = 262660;
-
 	public const HRESULT S_SYNCMGR_ITEMDELETED = 262672;
-
 	public const HRESULT S_SYNCMGR_ENUMITEMS = 262673;
-
 	public const uint32 SYNCMGRPROGRESSITEM_STATUSTEXT = 1;
-
 	public const uint32 SYNCMGRPROGRESSITEM_STATUSTYPE = 2;
-
 	public const uint32 SYNCMGRPROGRESSITEM_PROGVALUE = 4;
-
 	public const uint32 SYNCMGRPROGRESSITEM_MAXVALUE = 8;
-
 	public const uint32 SYNCMGRLOGERROR_ERRORFLAGS = 1;
-
 	public const uint32 SYNCMGRLOGERROR_ERRORID = 2;
-
 	public const uint32 SYNCMGRLOGERROR_ITEMID = 4;
-
 	public const uint32 SYNCMGRITEM_ITEMFLAGMASK = 127;
-
 	public const uint32 MAX_SYNCMGRITEMNAME = 128;
-
 	public const uint32 SYNCMGRHANDLERFLAG_MASK = 15;
-
 	public const uint32 MAX_SYNCMGRHANDLERNAME = 32;
-
 	public const uint32 SYNCMGRREGISTERFLAGS_MASK = 7;
-
 	public const int32 TLOG_BACK = -1;
-
 	public const uint32 TLOG_CURRENT = 0;
-
 	public const uint32 TLOG_FORE = 1;
-
 	public const uint32 TLMENUF_INCLUDECURRENT = 1;
-
 	public const uint32 TLMENUF_BACK = 16;
-
 	public const uint32 TLMENUF_FORE = 32;
-
 	public const uint32 BSF_REGISTERASDROPTARGET = 1;
-
 	public const uint32 BSF_THEATERMODE = 2;
-
 	public const uint32 BSF_NOLOCALFILEWARNING = 16;
-
 	public const uint32 BSF_UISETBYAUTOMATION = 256;
-
 	public const uint32 BSF_RESIZABLE = 512;
-
 	public const uint32 BSF_CANMAXIMIZE = 1024;
-
 	public const uint32 BSF_TOPBROWSER = 2048;
-
 	public const uint32 BSF_NAVNOHISTORY = 4096;
-
 	public const uint32 BSF_HTMLNAVCANCELED = 8192;
-
 	public const uint32 BSF_DONTSHOWNAVCANCELPAGE = 16384;
-
 	public const uint32 BSF_SETNAVIGATABLECODEPAGE = 32768;
-
 	public const uint32 BSF_DELEGATEDNAVIGATION = 65536;
-
 	public const uint32 BSF_TRUSTEDFORACTIVEX = 131072;
-
 	public const uint32 BSF_MERGEDMENUS = 262144;
-
 	public const uint32 BSF_FEEDNAVIGATION = 524288;
-
 	public const uint32 BSF_FEEDSUBSCRIBED = 1048576;
-
 	public const uint32 HLNF_CALLERUNTRUSTED = 2097152;
-
 	public const uint32 HLNF_TRUSTEDFORACTIVEX = 4194304;
-
 	public const uint32 HLNF_DISABLEWINDOWRESTRICTIONS = 8388608;
-
 	public const uint32 HLNF_TRUSTFIRSTDOWNLOAD = 16777216;
-
 	public const uint32 HLNF_UNTRUSTEDFORDOWNLOAD = 33554432;
-
 	public const uint32 SHHLNF_NOAUTOSELECT = 67108864;
-
 	public const uint32 SHHLNF_WRITENOHISTORY = 134217728;
-
 	public const uint32 HLNF_EXTERNALNAVIGATE = 268435456;
-
 	public const uint32 HLNF_ALLOW_AUTONAVIGATE = 536870912;
-
 	public const uint32 HLNF_NEWWINDOWSMANAGED = 2147483648;
-
 	public const uint32 INTERNET_MAX_PATH_LENGTH = 2048;
-
 	public const uint32 INTERNET_MAX_SCHEME_LENGTH = 32;
-
 	public const uint32 VIEW_PRIORITY_RESTRICTED = 112;
-
 	public const uint32 VIEW_PRIORITY_CACHEHIT = 80;
-
 	public const uint32 VIEW_PRIORITY_STALECACHEHIT = 69;
-
 	public const uint32 VIEW_PRIORITY_USEASDEFAULT = 67;
-
 	public const uint32 VIEW_PRIORITY_SHELLEXT = 64;
-
 	public const uint32 VIEW_PRIORITY_CACHEMISS = 48;
-
 	public const uint32 VIEW_PRIORITY_INHERIT = 32;
-
 	public const uint32 VIEW_PRIORITY_SHELLEXT_ASBACKUP = 21;
-
 	public const uint32 VIEW_PRIORITY_DESPERATE = 16;
-
 	public const uint32 VIEW_PRIORITY_NONE = 0;
-
 	public const uint32 PATHCCH_MAX_CCH = 32768;
-
 	public const uint32 IDS_DESCRIPTION = 1;
-
 	public const uint32 ID_APP = 100;
-
 	public const uint32 DLG_SCRNSAVECONFIGURE = 2003;
-
 	public const uint32 MAXFILELEN = 13;
-
 	public const uint32 TITLEBARNAMELEN = 40;
-
 	public const uint32 APPNAMEBUFFERLEN = 40;
-
 	public const uint32 BUFFLEN = 255;
-
 	public const uint32 SCRM_VERIFYPW = 32768;
-
 	public const HRESULT E_FLAGS = -2147217408;
-
 	public const HRESULT IS_E_EXEC_FAILED = -2147213310;
-
 	public const HRESULT URL_E_INVALID_SYNTAX = -2147217407;
-
 	public const HRESULT URL_E_UNREGISTERED_PROTOCOL = -2147217406;
-
 	public const uint32 CPLPAGE_MOUSE_BUTTONS = 1;
-
 	public const uint32 CPLPAGE_MOUSE_PTRMOTION = 2;
-
 	public const uint32 CPLPAGE_MOUSE_WHEEL = 3;
-
 	public const uint32 CPLPAGE_KEYBOARD_SPEED = 1;
-
 	public const uint32 CPLPAGE_DISPLAY_BACKGROUND = 1;
-
 	public const uint32 DISPID_SELECTIONCHANGED = 200;
-
 	public const uint32 DISPID_FILELISTENUMDONE = 201;
-
 	public const uint32 DISPID_VERBINVOKED = 202;
-
 	public const uint32 DISPID_DEFAULTVERBINVOKED = 203;
-
 	public const uint32 DISPID_BEGINDRAG = 204;
-
 	public const uint32 DISPID_VIEWMODECHANGED = 205;
-
 	public const uint32 DISPID_NOITEMSTATE_CHANGED = 206;
-
 	public const uint32 DISPID_CONTENTSCHANGED = 207;
-
 	public const uint32 DISPID_FOCUSCHANGED = 208;
-
 	public const uint32 DISPID_CHECKSTATECHANGED = 209;
-
 	public const uint32 DISPID_ORDERCHANGED = 210;
-
 	public const uint32 DISPID_VIEWPAINTDONE = 211;
-
 	public const uint32 DISPID_COLUMNSCHANGED = 212;
-
 	public const uint32 DISPID_CTRLMOUSEWHEEL = 213;
-
 	public const uint32 DISPID_SORTDONE = 214;
-
 	public const uint32 DISPID_ICONSIZECHANGED = 215;
-
 	public const uint32 DISPID_FOLDERCHANGED = 217;
-
 	public const uint32 DISPID_FILTERINVOKED = 218;
-
 	public const uint32 DISPID_WORDWHEELEDITED = 219;
-
 	public const uint32 DISPID_SELECTEDITEMCHANGED = 220;
-
 	public const uint32 DISPID_EXPLORERWINDOWREADY = 221;
-
 	public const uint32 DISPID_UPDATEIMAGE = 222;
-
 	public const uint32 DISPID_INITIALENUMERATIONDONE = 223;
-
 	public const uint32 DISPID_ENTERPRISEIDCHANGED = 224;
-
 	public const uint32 DISPID_ENTERPRESSED = 200;
-
 	public const uint32 DISPID_SEARCHCOMMAND_START = 1;
-
 	public const uint32 DISPID_SEARCHCOMMAND_COMPLETE = 2;
-
 	public const uint32 DISPID_SEARCHCOMMAND_ABORT = 3;
-
 	public const uint32 DISPID_SEARCHCOMMAND_UPDATE = 4;
-
 	public const uint32 DISPID_SEARCHCOMMAND_PROGRESSTEXT = 5;
-
 	public const uint32 DISPID_SEARCHCOMMAND_ERROR = 6;
-
 	public const uint32 DISPID_SEARCHCOMMAND_RESTORE = 7;
-
 	public const uint32 DISPID_IADCCTL_DIRTY = 256;
-
 	public const uint32 DISPID_IADCCTL_PUBCAT = 257;
-
 	public const uint32 DISPID_IADCCTL_SORT = 258;
-
 	public const uint32 DISPID_IADCCTL_FORCEX86 = 259;
-
 	public const uint32 DISPID_IADCCTL_SHOWPOSTSETUP = 260;
-
 	public const uint32 DISPID_IADCCTL_ONDOMAIN = 261;
-
 	public const uint32 DISPID_IADCCTL_DEFAULTCAT = 262;
-
 	public const HRESULT COPYENGINE_S_YES = 2555905;
-
 	public const HRESULT COPYENGINE_S_NOT_HANDLED = 2555907;
-
 	public const HRESULT COPYENGINE_S_USER_RETRY = 2555908;
-
 	public const HRESULT COPYENGINE_S_USER_IGNORED = 2555909;
-
 	public const HRESULT COPYENGINE_S_MERGE = 2555910;
-
 	public const HRESULT COPYENGINE_S_DONT_PROCESS_CHILDREN = 2555912;
-
 	public const HRESULT COPYENGINE_S_ALREADY_DONE = 2555914;
-
 	public const HRESULT COPYENGINE_S_PENDING = 2555915;
-
 	public const HRESULT COPYENGINE_S_KEEP_BOTH = 2555916;
-
 	public const HRESULT COPYENGINE_S_CLOSE_PROGRAM = 2555917;
-
 	public const HRESULT COPYENGINE_S_COLLISIONRESOLVED = 2555918;
-
 	public const HRESULT COPYENGINE_S_PROGRESS_PAUSE = 2555919;
-
 	public const HRESULT COPYENGINE_E_USER_CANCELLED = -2144927744;
-
 	public const HRESULT COPYENGINE_E_CANCELLED = -2144927743;
-
 	public const HRESULT COPYENGINE_E_REQUIRES_ELEVATION = -2144927742;
-
 	public const HRESULT COPYENGINE_E_SAME_FILE = -2144927741;
-
 	public const HRESULT COPYENGINE_E_DIFF_DIR = -2144927740;
-
 	public const HRESULT COPYENGINE_E_MANY_SRC_1_DEST = -2144927739;
-
 	public const HRESULT COPYENGINE_E_DEST_SUBTREE = -2144927735;
-
 	public const HRESULT COPYENGINE_E_DEST_SAME_TREE = -2144927734;
-
 	public const HRESULT COPYENGINE_E_FLD_IS_FILE_DEST = -2144927733;
-
 	public const HRESULT COPYENGINE_E_FILE_IS_FLD_DEST = -2144927732;
-
 	public const HRESULT COPYENGINE_E_FILE_TOO_LARGE = -2144927731;
-
 	public const HRESULT COPYENGINE_E_REMOVABLE_FULL = -2144927730;
-
 	public const HRESULT COPYENGINE_E_DEST_IS_RO_CD = -2144927729;
-
 	public const HRESULT COPYENGINE_E_DEST_IS_RW_CD = -2144927728;
-
 	public const HRESULT COPYENGINE_E_DEST_IS_R_CD = -2144927727;
-
 	public const HRESULT COPYENGINE_E_DEST_IS_RO_DVD = -2144927726;
-
 	public const HRESULT COPYENGINE_E_DEST_IS_RW_DVD = -2144927725;
-
 	public const HRESULT COPYENGINE_E_DEST_IS_R_DVD = -2144927724;
-
 	public const HRESULT COPYENGINE_E_SRC_IS_RO_CD = -2144927723;
-
 	public const HRESULT COPYENGINE_E_SRC_IS_RW_CD = -2144927722;
-
 	public const HRESULT COPYENGINE_E_SRC_IS_R_CD = -2144927721;
-
 	public const HRESULT COPYENGINE_E_SRC_IS_RO_DVD = -2144927720;
-
 	public const HRESULT COPYENGINE_E_SRC_IS_RW_DVD = -2144927719;
-
 	public const HRESULT COPYENGINE_E_SRC_IS_R_DVD = -2144927718;
-
 	public const HRESULT COPYENGINE_E_INVALID_FILES_SRC = -2144927717;
-
 	public const HRESULT COPYENGINE_E_INVALID_FILES_DEST = -2144927716;
-
 	public const HRESULT COPYENGINE_E_PATH_TOO_DEEP_SRC = -2144927715;
-
 	public const HRESULT COPYENGINE_E_PATH_TOO_DEEP_DEST = -2144927714;
-
 	public const HRESULT COPYENGINE_E_ROOT_DIR_SRC = -2144927713;
-
 	public const HRESULT COPYENGINE_E_ROOT_DIR_DEST = -2144927712;
-
 	public const HRESULT COPYENGINE_E_ACCESS_DENIED_SRC = -2144927711;
-
 	public const HRESULT COPYENGINE_E_ACCESS_DENIED_DEST = -2144927710;
-
 	public const HRESULT COPYENGINE_E_PATH_NOT_FOUND_SRC = -2144927709;
-
 	public const HRESULT COPYENGINE_E_PATH_NOT_FOUND_DEST = -2144927708;
-
 	public const HRESULT COPYENGINE_E_NET_DISCONNECT_SRC = -2144927707;
-
 	public const HRESULT COPYENGINE_E_NET_DISCONNECT_DEST = -2144927706;
-
 	public const HRESULT COPYENGINE_E_SHARING_VIOLATION_SRC = -2144927705;
-
 	public const HRESULT COPYENGINE_E_SHARING_VIOLATION_DEST = -2144927704;
-
 	public const HRESULT COPYENGINE_E_ALREADY_EXISTS_NORMAL = -2144927703;
-
 	public const HRESULT COPYENGINE_E_ALREADY_EXISTS_READONLY = -2144927702;
-
 	public const HRESULT COPYENGINE_E_ALREADY_EXISTS_SYSTEM = -2144927701;
-
 	public const HRESULT COPYENGINE_E_ALREADY_EXISTS_FOLDER = -2144927700;
-
 	public const HRESULT COPYENGINE_E_STREAM_LOSS = -2144927699;
-
 	public const HRESULT COPYENGINE_E_EA_LOSS = -2144927698;
-
 	public const HRESULT COPYENGINE_E_PROPERTY_LOSS = -2144927697;
-
 	public const HRESULT COPYENGINE_E_PROPERTIES_LOSS = -2144927696;
-
 	public const HRESULT COPYENGINE_E_ENCRYPTION_LOSS = -2144927695;
-
 	public const HRESULT COPYENGINE_E_DISK_FULL = -2144927694;
-
 	public const HRESULT COPYENGINE_E_DISK_FULL_CLEAN = -2144927693;
-
 	public const HRESULT COPYENGINE_E_EA_NOT_SUPPORTED = -2144927692;
-
 	public const HRESULT COPYENGINE_E_CANT_REACH_SOURCE = -2144927691;
-
 	public const HRESULT COPYENGINE_E_RECYCLE_UNKNOWN_ERROR = -2144927691;
-
 	public const HRESULT COPYENGINE_E_RECYCLE_FORCE_NUKE = -2144927690;
-
 	public const HRESULT COPYENGINE_E_RECYCLE_SIZE_TOO_BIG = -2144927689;
-
 	public const HRESULT COPYENGINE_E_RECYCLE_PATH_TOO_LONG = -2144927688;
-
 	public const HRESULT COPYENGINE_E_RECYCLE_BIN_NOT_FOUND = -2144927686;
-
 	public const HRESULT COPYENGINE_E_NEWFILE_NAME_TOO_LONG = -2144927685;
-
 	public const HRESULT COPYENGINE_E_NEWFOLDER_NAME_TOO_LONG = -2144927684;
-
 	public const HRESULT COPYENGINE_E_DIR_NOT_EMPTY = -2144927683;
-
 	public const HRESULT COPYENGINE_E_FAT_MAX_IN_ROOT = -2144927682;
-
 	public const HRESULT COPYENGINE_E_ACCESSDENIED_READONLY = -2144927681;
-
 	public const HRESULT COPYENGINE_E_REDIRECTED_TO_WEBPAGE = -2144927680;
-
 	public const HRESULT COPYENGINE_E_SERVER_BAD_FILE_TYPE = -2144927679;
-
 	public const HRESULT COPYENGINE_E_INTERNET_ITEM_UNAVAILABLE = -2144927678;
-
 	public const HRESULT COPYENGINE_E_CANNOT_MOVE_FROM_RECYCLE_BIN = -2144927677;
-
 	public const HRESULT COPYENGINE_E_CANNOT_MOVE_SHARED_FOLDER = -2144927676;
-
 	public const HRESULT COPYENGINE_E_INTERNET_ITEM_STORAGE_PROVIDER_ERROR = -2144927675;
-
 	public const HRESULT COPYENGINE_E_INTERNET_ITEM_STORAGE_PROVIDER_PAUSED = -2144927674;
-
 	public const HRESULT COPYENGINE_E_REQUIRES_EDP_CONSENT = -2144927673;
-
 	public const HRESULT COPYENGINE_E_BLOCKED_BY_EDP_POLICY = -2144927672;
-
 	public const HRESULT COPYENGINE_E_REQUIRES_EDP_CONSENT_FOR_REMOVABLE_DRIVE = -2144927671;
-
 	public const HRESULT COPYENGINE_E_BLOCKED_BY_EDP_FOR_REMOVABLE_DRIVE = -2144927670;
-
 	public const HRESULT COPYENGINE_E_RMS_REQUIRES_EDP_CONSENT_FOR_REMOVABLE_DRIVE = -2144927669;
-
 	public const HRESULT COPYENGINE_E_RMS_BLOCKED_BY_EDP_FOR_REMOVABLE_DRIVE = -2144927668;
-
 	public const HRESULT COPYENGINE_E_WARNED_BY_DLP_POLICY = -2144927667;
-
 	public const HRESULT COPYENGINE_E_BLOCKED_BY_DLP_POLICY = -2144927666;
-
 	public const HRESULT COPYENGINE_E_SILENT_FAIL_BY_DLP_POLICY = -2144927665;
-
 	public const HRESULT NETCACHE_E_NEGATIVE_CACHE = -2144927488;
-
 	public const HRESULT EXECUTE_E_LAUNCH_APPLICATION = -2144927487;
-
 	public const HRESULT SHELL_E_WRONG_BITDEPTH = -2144927486;
-
 	public const HRESULT LINK_E_DELETE = -2144927485;
-
 	public const HRESULT STORE_E_NEWER_VERSION_AVAILABLE = -2144927484;
-
 	public const HRESULT E_FILE_PLACEHOLDER_NOT_INITIALIZED = -2144927472;
-
 	public const HRESULT E_FILE_PLACEHOLDER_VERSION_MISMATCH = -2144927471;
-
 	public const HRESULT E_FILE_PLACEHOLDER_SERVER_TIMED_OUT = -2144927470;
-
 	public const HRESULT E_FILE_PLACEHOLDER_STORAGEPROVIDER_NOT_FOUND = -2144927469;
-
 	public const HRESULT CAMERAROLL_E_NO_DOWNSAMPLING_REQUIRED = -2144927456;
-
 	public const HRESULT E_ACTIVATIONDENIED_USERCLOSE = -2144927440;
-
 	public const HRESULT E_ACTIVATIONDENIED_SHELLERROR = -2144927439;
-
 	public const HRESULT E_ACTIVATIONDENIED_SHELLRESTART = -2144927438;
-
 	public const HRESULT E_ACTIVATIONDENIED_UNEXPECTED = -2144927437;
-
 	public const HRESULT E_ACTIVATIONDENIED_SHELLNOTREADY = -2144927436;
-
 	public const HRESULT LIBRARY_E_NO_SAVE_LOCATION = -2144927232;
-
 	public const HRESULT LIBRARY_E_NO_ACCESSIBLE_LOCATION = -2144927231;
-
 	public const HRESULT E_USERTILE_UNSUPPORTEDFILETYPE = -2144927216;
-
 	public const HRESULT E_USERTILE_CHANGEDISABLED = -2144927215;
-
 	public const HRESULT E_USERTILE_LARGEORDYNAMIC = -2144927214;
-
 	public const HRESULT E_USERTILE_VIDEOFRAMESIZE = -2144927213;
-
 	public const HRESULT E_USERTILE_FILESIZE = -2144927212;
-
 	public const HRESULT IMM_ACC_DOCKING_E_INSUFFICIENTHEIGHT = -2144927184;
-
 	public const HRESULT IMM_ACC_DOCKING_E_DOCKOCCUPIED = -2144927183;
-
 	public const HRESULT IMSC_E_SHELL_COMPONENT_STARTUP_FAILURE = -2144927181;
-
 	public const HRESULT SHC_E_SHELL_COMPONENT_STARTUP_FAILURE = -2144927180;
-
 	public const HRESULT E_TILE_NOTIFICATIONS_PLATFORM_FAILURE = -2144927159;
-
 	public const HRESULT E_SHELL_EXTENSION_BLOCKED = -2144926975;
-
 	public const HRESULT E_IMAGEFEED_CHANGEDISABLED = -2144926960;
-
 	public const int32 GPFIDL_DEFAULT = 0;
-
 	public const int32 GPFIDL_ALTNAME = 1;
-
 	public const int32 GPFIDL_UNCPRINTER = 2;
-
 	public const int32 ISHCUTCMDID_DOWNLOADICON = 0;
-
 	public const int32 ISHCUTCMDID_INTSHORTCUTCREATE = 1;
-
 	public const int32 ISHCUTCMDID_COMMITHISTORY = 2;
-
 	public const int32 ISHCUTCMDID_SETUSERAWURL = 3;
-
 	public const int32 SFBID_PIDLCHANGED = 0;
-
 	public const int32 DBCID_EMPTY = 0;
-
 	public const int32 DBCID_ONDRAG = 1;
-
 	public const int32 DBCID_CLSIDOFBAR = 2;
-
 	public const int32 DBCID_RESIZE = 3;
-
 	public const int32 DBCID_GETBAR = 4;
-
 	public const int32 DBCID_UPDATESIZE = 5;
-
 	public const int32 BMICON_LARGE = 0;
-
 	public const int32 BMICON_SMALL = 1;
-
 	public const int32 ASSOCF_NONE = 0;
-
 	public const int32 ASSOCF_INIT_NOREMAPCLSID = 1;
-
 	public const int32 ASSOCF_INIT_BYEXENAME = 2;
-
 	public const int32 ASSOCF_OPEN_BYEXENAME = 2;
-
 	public const int32 ASSOCF_INIT_DEFAULTTOSTAR = 4;
-
 	public const int32 ASSOCF_INIT_DEFAULTTOFOLDER = 8;
-
 	public const int32 ASSOCF_NOUSERSETTINGS = 16;
-
 	public const int32 ASSOCF_NOTRUNCATE = 32;
-
 	public const int32 ASSOCF_VERIFY = 64;
-
 	public const int32 ASSOCF_REMAPRUNDLL = 128;
-
 	public const int32 ASSOCF_NOFIXUPS = 256;
-
 	public const int32 ASSOCF_IGNOREBASECLASS = 512;
-
 	public const int32 ASSOCF_INIT_IGNOREUNKNOWN = 1024;
-
 	public const int32 ASSOCF_INIT_FIXED_PROGID = 2048;
-
 	public const int32 ASSOCF_IS_PROTOCOL = 4096;
-
 	public const int32 ASSOCF_INIT_FOR_FILE = 8192;
-
 	public const int32 ASSOCF_IS_FULL_URI = 16384;
-
 	public const int32 ASSOCF_PER_MACHINE_ONLY = 32768;
-
 	public const int32 ASSOCF_APP_TO_APP = 65536;
-
 	public const int32 CTF_INSIST = 1;
-
 	public const int32 CTF_THREAD_REF = 2;
-
 	public const int32 CTF_PROCESS_REF = 4;
-
 	public const int32 CTF_COINIT_STA = 8;
-
 	public const int32 CTF_COINIT = 8;
-
 	public const int32 CTF_FREELIBANDEXIT = 16;
-
 	public const int32 CTF_REF_COUNTED = 32;
-
 	public const int32 CTF_WAIT_ALLOWCOM = 64;
-
 	public const int32 CTF_UNUSED = 128;
-
 	public const int32 CTF_INHERITWOW64 = 256;
-
 	public const int32 CTF_WAIT_NO_REENTRANCY = 512;
-
 	public const int32 CTF_KEYBOARD_LOCALE = 1024;
-
 	public const int32 CTF_OLEINITIALIZE = 2048;
-
 	public const int32 CTF_COINIT_MTA = 4096;
-
 	public const int32 CTF_NOADDREFLIB = 8192;
-
 }
 #endregion
 
@@ -6851,19 +5270,21 @@ public struct HELPINFO
 	public POINT MousePos;
 }
 
-[CRepr, FlexibleArray("szKeyphrase")]
+[CRepr]
 public struct MULTIKEYHELPA
 {
 	public uint32 mkSize;
 	public CHAR mkKeylist;
+	public CHAR* szKeyphrase mut => &szKeyphrase_impl;
 	private CHAR[ANYSIZE_ARRAY] szKeyphrase_impl;
 }
 
-[CRepr, FlexibleArray("szKeyphrase")]
+[CRepr]
 public struct MULTIKEYHELPW
 {
 	public uint32 mkSize;
 	public char16 mkKeylist;
+	public char16* szKeyphrase mut => &szKeyphrase_impl;
 	private char16[ANYSIZE_ARRAY] szKeyphrase_impl;
 }
 
@@ -7057,12 +5478,13 @@ public struct BANDSITEINFO
 	public uint32 dwStyle;
 }
 
-[CRepr, Packed(1), FlexibleArray("rgb")]
+[CRepr, Packed(1)]
 public struct DELEGATEITEMID
 {
 	public uint16 cbSize;
 	public uint16 wOuter;
 	public uint16 cbInner;
+	public uint8* rgb mut => &rgb_impl;
 	private uint8[ANYSIZE_ARRAY] rgb_impl;
 }
 
@@ -7212,11 +5634,12 @@ public struct EXP_SZ_LINK
 	public char16[260] swzTarget;
 }
 
-[CRepr, Packed(1), FlexibleArray("abPropertyStorage")]
+[CRepr, Packed(1)]
 public struct EXP_PROPERTYSTORAGE
 {
 	public uint32 cbSize;
 	public uint32 dwSignature;
+	public uint8* abPropertyStorage mut => &abPropertyStorage_impl;
 	private uint8[ANYSIZE_ARRAY] abPropertyStorage_impl;
 }
 
@@ -7266,17 +5689,19 @@ public struct BROWSEINFOW
 	public int32 iImage;
 }
 
-[CRepr, FlexibleArray("nr")]
+[CRepr]
 public struct NRESARRAY
 {
 	public uint32 cItems;
+	public NETRESOURCEA* nr mut => &nr_impl;
 	private NETRESOURCEA[ANYSIZE_ARRAY] nr_impl;
 }
 
-[CRepr, Packed(1), FlexibleArray("aoffset")]
+[CRepr, Packed(1)]
 public struct CIDA
 {
 	public uint32 cidl;
+	public uint32* aoffset mut => &aoffset_impl;
 	private uint32[ANYSIZE_ARRAY] aoffset_impl;
 }
 
@@ -7312,17 +5737,19 @@ public struct FILEDESCRIPTORW
 	public char16[260] cFileName;
 }
 
-[CRepr, Packed(1), FlexibleArray("fgd")]
+[CRepr, Packed(1)]
 public struct FILEGROUPDESCRIPTORA
 {
 	public uint32 cItems;
+	public FILEDESCRIPTORA* fgd mut => &fgd_impl;
 	private FILEDESCRIPTORA[ANYSIZE_ARRAY] fgd_impl;
 }
 
-[CRepr, Packed(1), FlexibleArray("fgd")]
+[CRepr, Packed(1)]
 public struct FILEGROUPDESCRIPTORW
 {
 	public uint32 cItems;
+	public FILEDESCRIPTORW* fgd mut => &fgd_impl;
 	private FILEDESCRIPTORW[ANYSIZE_ARRAY] fgd_impl;
 }
 
@@ -7335,12 +5762,13 @@ public struct DROPFILES
 	public BOOL fWide;
 }
 
-[CRepr, Packed(1), FlexibleArray("rgdwFileAttributes")]
+[CRepr, Packed(1)]
 public struct FILE_ATTRIBUTES_ARRAY
 {
 	public uint32 cItems;
 	public uint32 dwSumFileAttributes;
 	public uint32 dwProductFileAttributes;
+	public uint32* rgdwFileAttributes mut => &rgdwFileAttributes_impl;
 	private uint32[ANYSIZE_ARRAY] rgdwFileAttributes_impl;
 }
 
@@ -7442,10 +5870,11 @@ public struct QCMINFO_IDMAP_PLACEMENT
 	public uint32 fFlags;
 }
 
-[CRepr, FlexibleArray("pIdList")]
+[CRepr]
 public struct QCMINFO_IDMAP
 {
 	public uint32 nMaxIds;
+	public QCMINFO_IDMAP_PLACEMENT* pIdList mut => &pIdList_impl;
 	private QCMINFO_IDMAP_PLACEMENT[ANYSIZE_ARRAY] pIdList_impl;
 }
 
@@ -7639,11 +6068,12 @@ public struct SFV_SETITEMPOS
 	public POINT pt;
 }
 
-[CRepr, FlexibleArray("szFileName")]
+[CRepr]
 public struct AASHELLMENUFILENAME
 {
 	public int16 cbTotal;
 	public uint8[12] rgbReserved;
+	public char16* szFileName mut => &szFileName_impl;
 	private char16[ANYSIZE_ARRAY] szFileName_impl;
 }
 
@@ -7756,7 +6186,6 @@ public struct SHELLEXECUTEINFOA
 		public HANDLE hIcon;
 		public HANDLE hMonitor;
 	}
-
 	public uint32 cbSize;
 	public uint32 fMask;
 	public HWND hwnd;
@@ -7785,7 +6214,6 @@ public struct SHELLEXECUTEINFOW
 		public HANDLE hIcon;
 		public HANDLE hMonitor;
 	}
-
 	public uint32 cbSize;
 	public uint32 fMask;
 	public HWND hwnd;
@@ -7854,7 +6282,6 @@ public struct NOTIFYICONDATAA
 		public uint32 uTimeout;
 		public uint32 uVersion;
 	}
-
 	public uint32 cbSize;
 	public HWND hWnd;
 	public uint32 uID;
@@ -7883,7 +6310,6 @@ public struct NOTIFYICONDATAW
 		public uint32 uTimeout;
 		public uint32 uVersion;
 	}
-
 	public uint32 cbSize;
 	public HWND hWnd;
 	public uint32 uID;
@@ -7980,7 +6406,6 @@ public struct NC_ADDRESS
 	public struct NET_ADDRESS_INFO
 	{
 	}
-
 	public NET_ADDRESS_INFO* pAddrInfo;
 	public uint16 PortNumber;
 	public uint8 PrefixLength;
@@ -8464,7 +6889,6 @@ public struct SHELLEXECUTEINFOA
 		public HANDLE hIcon;
 		public HANDLE hMonitor;
 	}
-
 	public uint32 cbSize;
 	public uint32 fMask;
 	public HWND hwnd;
@@ -8493,7 +6917,6 @@ public struct SHELLEXECUTEINFOW
 		public HANDLE hIcon;
 		public HANDLE hMonitor;
 	}
-
 	public uint32 cbSize;
 	public uint32 fMask;
 	public HWND hwnd;
@@ -8562,7 +6985,6 @@ public struct NOTIFYICONDATAA
 		public uint32 uTimeout;
 		public uint32 uVersion;
 	}
-
 	public uint32 cbSize;
 	public HWND hWnd;
 	public uint32 uID;
@@ -8591,7 +7013,6 @@ public struct NOTIFYICONDATAW
 		public uint32 uTimeout;
 		public uint32 uVersion;
 	}
-
 	public uint32 cbSize;
 	public HWND hWnd;
 	public uint32 uID;

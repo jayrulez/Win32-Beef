@@ -3,7 +3,6 @@ using Win32.Foundation;
 using Win32.Media.DirectShow;
 using Win32.Graphics.Gdi;
 using System;
-using System.Interop;
 
 namespace Win32.Media.WindowsMediaFormat;
 
@@ -11,689 +10,347 @@ namespace Win32.Media.WindowsMediaFormat;
 public static
 {
 	public const uint32 WMT_VIDEOIMAGE_SAMPLE_INPUT_FRAME = 1;
-
 	public const uint32 WMT_VIDEOIMAGE_SAMPLE_OUTPUT_FRAME = 2;
-
 	public const uint32 WMT_VIDEOIMAGE_SAMPLE_USES_CURRENT_INPUT_FRAME = 4;
-
 	public const uint32 WMT_VIDEOIMAGE_SAMPLE_USES_PREVIOUS_INPUT_FRAME = 8;
-
 	public const uint32 WMT_VIDEOIMAGE_SAMPLE_MOTION = 1;
-
 	public const uint32 WMT_VIDEOIMAGE_SAMPLE_ROTATION = 2;
-
 	public const uint32 WMT_VIDEOIMAGE_SAMPLE_BLENDING = 4;
-
 	public const uint32 WMT_VIDEOIMAGE_SAMPLE_ADV_BLENDING = 8;
-
 	public const int32 WMT_VIDEOIMAGE_INTEGER_DENOMINATOR = 65536;
-
 	public const uint32 WMT_VIDEOIMAGE_MAGIC_NUMBER = 491406834;
-
 	public const uint32 WMT_VIDEOIMAGE_MAGIC_NUMBER_2 = 491406835;
-
 	public const uint32 WMT_VIDEOIMAGE_TRANSITION_BOW_TIE = 11;
-
 	public const uint32 WMT_VIDEOIMAGE_TRANSITION_CIRCLE = 12;
-
 	public const uint32 WMT_VIDEOIMAGE_TRANSITION_CROSS_FADE = 13;
-
 	public const uint32 WMT_VIDEOIMAGE_TRANSITION_DIAGONAL = 14;
-
 	public const uint32 WMT_VIDEOIMAGE_TRANSITION_DIAMOND = 15;
-
 	public const uint32 WMT_VIDEOIMAGE_TRANSITION_FADE_TO_COLOR = 16;
-
 	public const uint32 WMT_VIDEOIMAGE_TRANSITION_FILLED_V = 17;
-
 	public const uint32 WMT_VIDEOIMAGE_TRANSITION_FLIP = 18;
-
 	public const uint32 WMT_VIDEOIMAGE_TRANSITION_INSET = 19;
-
 	public const uint32 WMT_VIDEOIMAGE_TRANSITION_IRIS = 20;
-
 	public const uint32 WMT_VIDEOIMAGE_TRANSITION_PAGE_ROLL = 21;
-
 	public const uint32 WMT_VIDEOIMAGE_TRANSITION_RECTANGLE = 23;
-
 	public const uint32 WMT_VIDEOIMAGE_TRANSITION_REVEAL = 24;
-
 	public const uint32 WMT_VIDEOIMAGE_TRANSITION_SLIDE = 27;
-
 	public const uint32 WMT_VIDEOIMAGE_TRANSITION_SPLIT = 29;
-
 	public const uint32 WMT_VIDEOIMAGE_TRANSITION_STAR = 30;
-
 	public const uint32 WMT_VIDEOIMAGE_TRANSITION_WHEEL = 31;
-
 	public const uint32 WM_SampleExtension_ContentType_Size = 1;
-
 	public const uint32 WM_SampleExtension_PixelAspectRatio_Size = 2;
-
 	public const uint32 WM_SampleExtension_Timecode_Size = 14;
-
 	public const uint32 WM_SampleExtension_SampleDuration_Size = 2;
-
 	public const uint32 WM_SampleExtension_ChromaLocation_Size = 1;
-
 	public const uint32 WM_SampleExtension_ColorSpaceInfo_Size = 3;
-
 	public const uint32 WM_CT_REPEAT_FIRST_FIELD = 16;
-
 	public const uint32 WM_CT_BOTTOM_FIELD_FIRST = 32;
-
 	public const uint32 WM_CT_TOP_FIELD_FIRST = 64;
-
 	public const uint32 WM_CT_INTERLACED = 128;
-
 	public const uint32 WM_CL_INTERLACED420 = 0;
-
 	public const uint32 WM_CL_PROGRESSIVE420 = 1;
-
 	public const uint32 WM_MAX_VIDEO_STREAMS = 63;
-
 	public const uint32 WM_MAX_STREAMS = 63;
-
 	public const uint32 WMDRM_IMPORT_INIT_STRUCT_DEFINED = 1;
-
 	public const uint32 DRM_OPL_TYPES = 1;
-
 	public const uint32 g_dwWMSpecialAttributes = 20;
-
 	public const String g_wszWMDuration = "Duration";
-
 	public const String g_wszWMBitrate = "Bitrate";
-
 	public const String g_wszWMSeekable = "Seekable";
-
 	public const String g_wszWMStridable = "Stridable";
-
 	public const String g_wszWMBroadcast = "Broadcast";
-
 	public const String g_wszWMProtected = "Is_Protected";
-
 	public const String g_wszWMTrusted = "Is_Trusted";
-
 	public const String g_wszWMSignature_Name = "Signature_Name";
-
 	public const String g_wszWMHasAudio = "HasAudio";
-
 	public const String g_wszWMHasImage = "HasImage";
-
 	public const String g_wszWMHasScript = "HasScript";
-
 	public const String g_wszWMHasVideo = "HasVideo";
-
 	public const String g_wszWMCurrentBitrate = "CurrentBitrate";
-
 	public const String g_wszWMOptimalBitrate = "OptimalBitrate";
-
 	public const String g_wszWMHasAttachedImages = "HasAttachedImages";
-
 	public const String g_wszWMSkipBackward = "Can_Skip_Backward";
-
 	public const String g_wszWMSkipForward = "Can_Skip_Forward";
-
 	public const String g_wszWMNumberOfFrames = "NumberOfFrames";
-
 	public const String g_wszWMFileSize = "FileSize";
-
 	public const String g_wszWMHasArbitraryDataStream = "HasArbitraryDataStream";
-
 	public const String g_wszWMHasFileTransferStream = "HasFileTransferStream";
-
 	public const String g_wszWMContainerFormat = "WM/ContainerFormat";
-
 	public const uint32 g_dwWMContentAttributes = 5;
-
 	public const String g_wszWMTitle = "Title";
-
 	public const String g_wszWMTitleSort = "TitleSort";
-
 	public const String g_wszWMAuthor = "Author";
-
 	public const String g_wszWMAuthorSort = "AuthorSort";
-
 	public const String g_wszWMDescription = "Description";
-
 	public const String g_wszWMRating = "Rating";
-
 	public const String g_wszWMCopyright = "Copyright";
-
 	public const String g_wszWMUse_DRM = "Use_DRM";
-
 	public const String g_wszWMDRM_Flags = "DRM_Flags";
-
 	public const String g_wszWMDRM_Level = "DRM_Level";
-
 	public const String g_wszWMUse_Advanced_DRM = "Use_Advanced_DRM";
-
 	public const String g_wszWMDRM_KeySeed = "DRM_KeySeed";
-
 	public const String g_wszWMDRM_KeyID = "DRM_KeyID";
-
 	public const String g_wszWMDRM_ContentID = "DRM_ContentID";
-
 	public const String g_wszWMDRM_SourceID = "DRM_SourceID";
-
 	public const String g_wszWMDRM_IndividualizedVersion = "DRM_IndividualizedVersion";
-
 	public const String g_wszWMDRM_LicenseAcqURL = "DRM_LicenseAcqURL";
-
 	public const String g_wszWMDRM_V1LicenseAcqURL = "DRM_V1LicenseAcqURL";
-
 	public const String g_wszWMDRM_HeaderSignPrivKey = "DRM_HeaderSignPrivKey";
-
 	public const String g_wszWMDRM_LASignaturePrivKey = "DRM_LASignaturePrivKey";
-
 	public const String g_wszWMDRM_LASignatureCert = "DRM_LASignatureCert";
-
 	public const String g_wszWMDRM_LASignatureLicSrvCert = "DRM_LASignatureLicSrvCert";
-
 	public const String g_wszWMDRM_LASignatureRootCert = "DRM_LASignatureRootCert";
-
 	public const String g_wszWMAlbumTitle = "WM/AlbumTitle";
-
 	public const String g_wszWMAlbumTitleSort = "WM/AlbumTitleSort";
-
 	public const String g_wszWMTrack = "WM/Track";
-
 	public const String g_wszWMPromotionURL = "WM/PromotionURL";
-
 	public const String g_wszWMAlbumCoverURL = "WM/AlbumCoverURL";
-
 	public const String g_wszWMGenre = "WM/Genre";
-
 	public const String g_wszWMYear = "WM/Year";
-
 	public const String g_wszWMGenreID = "WM/GenreID";
-
 	public const String g_wszWMMCDI = "WM/MCDI";
-
 	public const String g_wszWMComposer = "WM/Composer";
-
 	public const String g_wszWMComposerSort = "WM/ComposerSort";
-
 	public const String g_wszWMLyrics = "WM/Lyrics";
-
 	public const String g_wszWMTrackNumber = "WM/TrackNumber";
-
 	public const String g_wszWMToolName = "WM/ToolName";
-
 	public const String g_wszWMToolVersion = "WM/ToolVersion";
-
 	public const String g_wszWMIsVBR = "IsVBR";
-
 	public const String g_wszWMAlbumArtist = "WM/AlbumArtist";
-
 	public const String g_wszWMAlbumArtistSort = "WM/AlbumArtistSort";
-
 	public const String g_wszWMBannerImageType = "BannerImageType";
-
 	public const String g_wszWMBannerImageData = "BannerImageData";
-
 	public const String g_wszWMBannerImageURL = "BannerImageURL";
-
 	public const String g_wszWMCopyrightURL = "CopyrightURL";
-
 	public const String g_wszWMAspectRatioX = "AspectRatioX";
-
 	public const String g_wszWMAspectRatioY = "AspectRatioY";
-
 	public const String g_wszASFLeakyBucketPairs = "ASFLeakyBucketPairs";
-
 	public const uint32 g_dwWMNSCAttributes = 5;
-
 	public const String g_wszWMNSCName = "NSC_Name";
-
 	public const String g_wszWMNSCAddress = "NSC_Address";
-
 	public const String g_wszWMNSCPhone = "NSC_Phone";
-
 	public const String g_wszWMNSCEmail = "NSC_Email";
-
 	public const String g_wszWMNSCDescription = "NSC_Description";
-
 	public const String g_wszWMWriter = "WM/Writer";
-
 	public const String g_wszWMConductor = "WM/Conductor";
-
 	public const String g_wszWMProducer = "WM/Producer";
-
 	public const String g_wszWMDirector = "WM/Director";
-
 	public const String g_wszWMContentGroupDescription = "WM/ContentGroupDescription";
-
 	public const String g_wszWMSubTitle = "WM/SubTitle";
-
 	public const String g_wszWMPartOfSet = "WM/PartOfSet";
-
 	public const String g_wszWMProtectionType = "WM/ProtectionType";
-
 	public const String g_wszWMVideoHeight = "WM/VideoHeight";
-
 	public const String g_wszWMVideoWidth = "WM/VideoWidth";
-
 	public const String g_wszWMVideoFrameRate = "WM/VideoFrameRate";
-
 	public const String g_wszWMMediaClassPrimaryID = "WM/MediaClassPrimaryID";
-
 	public const String g_wszWMMediaClassSecondaryID = "WM/MediaClassSecondaryID";
-
 	public const String g_wszWMPeriod = "WM/Period";
-
 	public const String g_wszWMCategory = "WM/Category";
-
 	public const String g_wszWMPicture = "WM/Picture";
-
 	public const String g_wszWMLyrics_Synchronised = "WM/Lyrics_Synchronised";
-
 	public const String g_wszWMOriginalLyricist = "WM/OriginalLyricist";
-
 	public const String g_wszWMOriginalArtist = "WM/OriginalArtist";
-
 	public const String g_wszWMOriginalAlbumTitle = "WM/OriginalAlbumTitle";
-
 	public const String g_wszWMOriginalReleaseYear = "WM/OriginalReleaseYear";
-
 	public const String g_wszWMOriginalFilename = "WM/OriginalFilename";
-
 	public const String g_wszWMPublisher = "WM/Publisher";
-
 	public const String g_wszWMEncodedBy = "WM/EncodedBy";
-
 	public const String g_wszWMEncodingSettings = "WM/EncodingSettings";
-
 	public const String g_wszWMEncodingTime = "WM/EncodingTime";
-
 	public const String g_wszWMAuthorURL = "WM/AuthorURL";
-
 	public const String g_wszWMUserWebURL = "WM/UserWebURL";
-
 	public const String g_wszWMAudioFileURL = "WM/AudioFileURL";
-
 	public const String g_wszWMAudioSourceURL = "WM/AudioSourceURL";
-
 	public const String g_wszWMLanguage = "WM/Language";
-
 	public const String g_wszWMParentalRating = "WM/ParentalRating";
-
 	public const String g_wszWMBeatsPerMinute = "WM/BeatsPerMinute";
-
 	public const String g_wszWMInitialKey = "WM/InitialKey";
-
 	public const String g_wszWMMood = "WM/Mood";
-
 	public const String g_wszWMText = "WM/Text";
-
 	public const String g_wszWMDVDID = "WM/DVDID";
-
 	public const String g_wszWMWMContentID = "WM/WMContentID";
-
 	public const String g_wszWMWMCollectionID = "WM/WMCollectionID";
-
 	public const String g_wszWMWMCollectionGroupID = "WM/WMCollectionGroupID";
-
 	public const String g_wszWMUniqueFileIdentifier = "WM/UniqueFileIdentifier";
-
 	public const String g_wszWMModifiedBy = "WM/ModifiedBy";
-
 	public const String g_wszWMRadioStationName = "WM/RadioStationName";
-
 	public const String g_wszWMRadioStationOwner = "WM/RadioStationOwner";
-
 	public const String g_wszWMPlaylistDelay = "WM/PlaylistDelay";
-
 	public const String g_wszWMCodec = "WM/Codec";
-
 	public const String g_wszWMDRM = "WM/DRM";
-
 	public const String g_wszWMISRC = "WM/ISRC";
-
 	public const String g_wszWMProvider = "WM/Provider";
-
 	public const String g_wszWMProviderRating = "WM/ProviderRating";
-
 	public const String g_wszWMProviderStyle = "WM/ProviderStyle";
-
 	public const String g_wszWMContentDistributor = "WM/ContentDistributor";
-
 	public const String g_wszWMSubscriptionContentID = "WM/SubscriptionContentID";
-
 	public const String g_wszWMWMADRCPeakReference = "WM/WMADRCPeakReference";
-
 	public const String g_wszWMWMADRCPeakTarget = "WM/WMADRCPeakTarget";
-
 	public const String g_wszWMWMADRCAverageReference = "WM/WMADRCAverageReference";
-
 	public const String g_wszWMWMADRCAverageTarget = "WM/WMADRCAverageTarget";
-
 	public const String g_wszWMStreamTypeInfo = "WM/StreamTypeInfo";
-
 	public const String g_wszWMPeakBitrate = "WM/PeakBitrate";
-
 	public const String g_wszWMASFPacketCount = "WM/ASFPacketCount";
-
 	public const String g_wszWMASFSecurityObjectsSize = "WM/ASFSecurityObjectsSize";
-
 	public const String g_wszWMSharedUserRating = "WM/SharedUserRating";
-
 	public const String g_wszWMSubTitleDescription = "WM/SubTitleDescription";
-
 	public const String g_wszWMMediaCredits = "WM/MediaCredits";
-
 	public const String g_wszWMParentalRatingReason = "WM/ParentalRatingReason";
-
 	public const String g_wszWMOriginalReleaseTime = "WM/OriginalReleaseTime";
-
 	public const String g_wszWMMediaStationCallSign = "WM/MediaStationCallSign";
-
 	public const String g_wszWMMediaStationName = "WM/MediaStationName";
-
 	public const String g_wszWMMediaNetworkAffiliation = "WM/MediaNetworkAffiliation";
-
 	public const String g_wszWMMediaOriginalChannel = "WM/MediaOriginalChannel";
-
 	public const String g_wszWMMediaOriginalBroadcastDateTime = "WM/MediaOriginalBroadcastDateTime";
-
 	public const String g_wszWMMediaIsStereo = "WM/MediaIsStereo";
-
 	public const String g_wszWMVideoClosedCaptioning = "WM/VideoClosedCaptioning";
-
 	public const String g_wszWMMediaIsRepeat = "WM/MediaIsRepeat";
-
 	public const String g_wszWMMediaIsLive = "WM/MediaIsLive";
-
 	public const String g_wszWMMediaIsTape = "WM/MediaIsTape";
-
 	public const String g_wszWMMediaIsDelay = "WM/MediaIsDelay";
-
 	public const String g_wszWMMediaIsSubtitled = "WM/MediaIsSubtitled";
-
 	public const String g_wszWMMediaIsPremiere = "WM/MediaIsPremiere";
-
 	public const String g_wszWMMediaIsFinale = "WM/MediaIsFinale";
-
 	public const String g_wszWMMediaIsSAP = "WM/MediaIsSAP";
-
 	public const String g_wszWMProviderCopyright = "WM/ProviderCopyright";
-
 	public const String g_wszWMISAN = "WM/ISAN";
-
 	public const String g_wszWMADID = "WM/ADID";
-
 	public const String g_wszWMWMShadowFileSourceFileType = "WM/WMShadowFileSourceFileType";
-
 	public const String g_wszWMWMShadowFileSourceDRMType = "WM/WMShadowFileSourceDRMType";
-
 	public const String g_wszWMWMCPDistributor = "WM/WMCPDistributor";
-
 	public const String g_wszWMWMCPDistributorID = "WM/WMCPDistributorID";
-
 	public const String g_wszWMSeasonNumber = "WM/SeasonNumber";
-
 	public const String g_wszWMEpisodeNumber = "WM/EpisodeNumber";
-
 	public const String g_wszEarlyDataDelivery = "EarlyDataDelivery";
-
 	public const String g_wszJustInTimeDecode = "JustInTimeDecode";
-
 	public const String g_wszSingleOutputBuffer = "SingleOutputBuffer";
-
 	public const String g_wszSoftwareScaling = "SoftwareScaling";
-
 	public const String g_wszDeliverOnReceive = "DeliverOnReceive";
-
 	public const String g_wszScrambledAudio = "ScrambledAudio";
-
 	public const String g_wszDedicatedDeliveryThread = "DedicatedDeliveryThread";
-
 	public const String g_wszEnableDiscreteOutput = "EnableDiscreteOutput";
-
 	public const String g_wszSpeakerConfig = "SpeakerConfig";
-
 	public const String g_wszDynamicRangeControl = "DynamicRangeControl";
-
 	public const String g_wszAllowInterlacedOutput = "AllowInterlacedOutput";
-
 	public const String g_wszVideoSampleDurations = "VideoSampleDurations";
-
 	public const String g_wszStreamLanguage = "StreamLanguage";
-
 	public const String g_wszEnableWMAProSPDIFOutput = "EnableWMAProSPDIFOutput";
-
 	public const String g_wszDeinterlaceMode = "DeinterlaceMode";
-
 	public const String g_wszInitialPatternForInverseTelecine = "InitialPatternForInverseTelecine";
-
 	public const String g_wszJPEGCompressionQuality = "JPEGCompressionQuality";
-
 	public const String g_wszWatermarkCLSID = "WatermarkCLSID";
-
 	public const String g_wszWatermarkConfig = "WatermarkConfig";
-
 	public const String g_wszInterlacedCoding = "InterlacedCoding";
-
 	public const String g_wszFixedFrameRate = "FixedFrameRate";
-
 	public const String g_wszOriginalSourceFormatTag = "_SOURCEFORMATTAG";
-
 	public const String g_wszOriginalWaveFormat = "_ORIGINALWAVEFORMAT";
-
 	public const String g_wszEDL = "_EDL";
-
 	public const String g_wszComplexity = "_COMPLEXITYEX";
-
 	public const String g_wszDecoderComplexityRequested = "_DECODERCOMPLEXITYPROFILE";
-
 	public const String g_wszReloadIndexOnSeek = "ReloadIndexOnSeek";
-
 	public const String g_wszStreamNumIndexObjects = "StreamNumIndexObjects";
-
 	public const String g_wszFailSeekOnError = "FailSeekOnError";
-
 	public const String g_wszPermitSeeksBeyondEndOfStream = "PermitSeeksBeyondEndOfStream";
-
 	public const String g_wszUsePacketAtSeekPoint = "UsePacketAtSeekPoint";
-
 	public const String g_wszSourceBufferTime = "SourceBufferTime";
-
 	public const String g_wszSourceMaxBytesAtOnce = "SourceMaxBytesAtOnce";
-
 	public const String g_wszVBREnabled = "_VBRENABLED";
-
 	public const String g_wszVBRQuality = "_VBRQUALITY";
-
 	public const String g_wszVBRBitrateMax = "_RMAX";
-
 	public const String g_wszVBRBufferWindowMax = "_BMAX";
-
 	public const String g_wszVBRPeak = "VBR Peak";
-
 	public const String g_wszBufferAverage = "Buffer Average";
-
 	public const String g_wszComplexityMax = "_COMPLEXITYEXMAX";
-
 	public const String g_wszComplexityOffline = "_COMPLEXITYEXOFFLINE";
-
 	public const String g_wszComplexityLive = "_COMPLEXITYEXLIVE";
-
 	public const String g_wszIsVBRSupported = "_ISVBRSUPPORTED";
-
 	public const String g_wszNumPasses = "_PASSESUSED";
-
 	public const String g_wszMusicSpeechClassMode = "MusicSpeechClassMode";
-
 	public const String g_wszMusicClassMode = "MusicClassMode";
-
 	public const String g_wszSpeechClassMode = "SpeechClassMode";
-
 	public const String g_wszMixedClassMode = "MixedClassMode";
-
 	public const String g_wszSpeechCaps = "SpeechFormatCap";
-
 	public const String g_wszPeakValue = "PeakValue";
-
 	public const String g_wszAverageLevel = "AverageLevel";
-
 	public const String g_wszFold6To2Channels3 = "Fold6To2Channels3";
-
 	public const String g_wszFoldToChannelsTemplate = "Fold%luTo%luChannels%lu";
-
 	public const String g_wszDeviceConformanceTemplate = "DeviceConformanceTemplate";
-
 	public const String g_wszEnableFrameInterpolation = "EnableFrameInterpolation";
-
 	public const String g_wszNeedsPreviousSample = "NeedsPreviousSample";
-
 	public const String g_wszWMIsCompilation = "WM/IsCompilation";
-
 	public const Guid WMMEDIASUBTYPE_Base = .(0x00000000, 0x0000, 0x0010, 0x80, 0x00, 0x00, 0xaa, 0x00, 0x38, 0x9b, 0x71);
-
 	public const Guid WMMEDIATYPE_Video = .(0x73646976, 0x0000, 0x0010, 0x80, 0x00, 0x00, 0xaa, 0x00, 0x38, 0x9b, 0x71);
-
 	public const Guid WMMEDIASUBTYPE_RGB1 = .(0xe436eb78, 0x524f, 0x11ce, 0x9f, 0x53, 0x00, 0x20, 0xaf, 0x0b, 0xa7, 0x70);
-
 	public const Guid WMMEDIASUBTYPE_RGB4 = .(0xe436eb79, 0x524f, 0x11ce, 0x9f, 0x53, 0x00, 0x20, 0xaf, 0x0b, 0xa7, 0x70);
-
 	public const Guid WMMEDIASUBTYPE_RGB8 = .(0xe436eb7a, 0x524f, 0x11ce, 0x9f, 0x53, 0x00, 0x20, 0xaf, 0x0b, 0xa7, 0x70);
-
 	public const Guid WMMEDIASUBTYPE_RGB565 = .(0xe436eb7b, 0x524f, 0x11ce, 0x9f, 0x53, 0x00, 0x20, 0xaf, 0x0b, 0xa7, 0x70);
-
 	public const Guid WMMEDIASUBTYPE_RGB555 = .(0xe436eb7c, 0x524f, 0x11ce, 0x9f, 0x53, 0x00, 0x20, 0xaf, 0x0b, 0xa7, 0x70);
-
 	public const Guid WMMEDIASUBTYPE_RGB24 = .(0xe436eb7d, 0x524f, 0x11ce, 0x9f, 0x53, 0x00, 0x20, 0xaf, 0x0b, 0xa7, 0x70);
-
 	public const Guid WMMEDIASUBTYPE_RGB32 = .(0xe436eb7e, 0x524f, 0x11ce, 0x9f, 0x53, 0x00, 0x20, 0xaf, 0x0b, 0xa7, 0x70);
-
 	public const Guid WMMEDIASUBTYPE_I420 = .(0x30323449, 0x0000, 0x0010, 0x80, 0x00, 0x00, 0xaa, 0x00, 0x38, 0x9b, 0x71);
-
 	public const Guid WMMEDIASUBTYPE_IYUV = .(0x56555949, 0x0000, 0x0010, 0x80, 0x00, 0x00, 0xaa, 0x00, 0x38, 0x9b, 0x71);
-
 	public const Guid WMMEDIASUBTYPE_YV12 = .(0x32315659, 0x0000, 0x0010, 0x80, 0x00, 0x00, 0xaa, 0x00, 0x38, 0x9b, 0x71);
-
 	public const Guid WMMEDIASUBTYPE_YUY2 = .(0x32595559, 0x0000, 0x0010, 0x80, 0x00, 0x00, 0xaa, 0x00, 0x38, 0x9b, 0x71);
-
 	public const Guid WMMEDIASUBTYPE_P422 = .(0x32323450, 0x0000, 0x0010, 0x80, 0x00, 0x00, 0xaa, 0x00, 0x38, 0x9b, 0x71);
-
 	public const Guid WMMEDIASUBTYPE_UYVY = .(0x59565955, 0x0000, 0x0010, 0x80, 0x00, 0x00, 0xaa, 0x00, 0x38, 0x9b, 0x71);
-
 	public const Guid WMMEDIASUBTYPE_YVYU = .(0x55595659, 0x0000, 0x0010, 0x80, 0x00, 0x00, 0xaa, 0x00, 0x38, 0x9b, 0x71);
-
 	public const Guid WMMEDIASUBTYPE_YVU9 = .(0x39555659, 0x0000, 0x0010, 0x80, 0x00, 0x00, 0xaa, 0x00, 0x38, 0x9b, 0x71);
-
 	public const Guid WMMEDIASUBTYPE_VIDEOIMAGE = .(0x1d4a45f2, 0xe5f6, 0x4b44, 0x83, 0x88, 0xf0, 0xae, 0x5c, 0x0e, 0x0c, 0x37);
-
 	public const Guid WMMEDIASUBTYPE_MP43 = .(0x3334504d, 0x0000, 0x0010, 0x80, 0x00, 0x00, 0xaa, 0x00, 0x38, 0x9b, 0x71);
-
 	public const Guid WMMEDIASUBTYPE_MP4S = .(0x5334504d, 0x0000, 0x0010, 0x80, 0x00, 0x00, 0xaa, 0x00, 0x38, 0x9b, 0x71);
-
 	public const Guid WMMEDIASUBTYPE_M4S2 = .(0x3253344d, 0x0000, 0x0010, 0x80, 0x00, 0x00, 0xaa, 0x00, 0x38, 0x9b, 0x71);
-
 	public const Guid WMMEDIASUBTYPE_WMV1 = .(0x31564d57, 0x0000, 0x0010, 0x80, 0x00, 0x00, 0xaa, 0x00, 0x38, 0x9b, 0x71);
-
 	public const Guid WMMEDIASUBTYPE_WMV2 = .(0x32564d57, 0x0000, 0x0010, 0x80, 0x00, 0x00, 0xaa, 0x00, 0x38, 0x9b, 0x71);
-
 	public const Guid WMMEDIASUBTYPE_MSS1 = .(0x3153534d, 0x0000, 0x0010, 0x80, 0x00, 0x00, 0xaa, 0x00, 0x38, 0x9b, 0x71);
-
 	public const Guid WMMEDIASUBTYPE_MPEG2_VIDEO = .(0xe06d8026, 0xdb46, 0x11cf, 0xb4, 0xd1, 0x00, 0x80, 0x5f, 0x6c, 0xbb, 0xea);
-
 	public const Guid WMMEDIATYPE_Audio = .(0x73647561, 0x0000, 0x0010, 0x80, 0x00, 0x00, 0xaa, 0x00, 0x38, 0x9b, 0x71);
-
 	public const Guid WMMEDIASUBTYPE_PCM = .(0x00000001, 0x0000, 0x0010, 0x80, 0x00, 0x00, 0xaa, 0x00, 0x38, 0x9b, 0x71);
-
 	public const Guid WMMEDIASUBTYPE_DRM = .(0x00000009, 0x0000, 0x0010, 0x80, 0x00, 0x00, 0xaa, 0x00, 0x38, 0x9b, 0x71);
-
 	public const Guid WMMEDIASUBTYPE_WMAudioV9 = .(0x00000162, 0x0000, 0x0010, 0x80, 0x00, 0x00, 0xaa, 0x00, 0x38, 0x9b, 0x71);
-
 	public const Guid WMMEDIASUBTYPE_WMAudio_Lossless = .(0x00000163, 0x0000, 0x0010, 0x80, 0x00, 0x00, 0xaa, 0x00, 0x38, 0x9b, 0x71);
-
 	public const Guid WMMEDIASUBTYPE_MSS2 = .(0x3253534d, 0x0000, 0x0010, 0x80, 0x00, 0x00, 0xaa, 0x00, 0x38, 0x9b, 0x71);
-
 	public const Guid WMMEDIASUBTYPE_WMSP1 = .(0x0000000a, 0x0000, 0x0010, 0x80, 0x00, 0x00, 0xaa, 0x00, 0x38, 0x9b, 0x71);
-
 	public const Guid WMMEDIASUBTYPE_WMSP2 = .(0x0000000b, 0x0000, 0x0010, 0x80, 0x00, 0x00, 0xaa, 0x00, 0x38, 0x9b, 0x71);
-
 	public const Guid WMMEDIASUBTYPE_WMV3 = .(0x33564d57, 0x0000, 0x0010, 0x80, 0x00, 0x00, 0xaa, 0x00, 0x38, 0x9b, 0x71);
-
 	public const Guid WMMEDIASUBTYPE_WMVP = .(0x50564d57, 0x0000, 0x0010, 0x80, 0x00, 0x00, 0xaa, 0x00, 0x38, 0x9b, 0x71);
-
 	public const Guid WMMEDIASUBTYPE_WVP2 = .(0x32505657, 0x0000, 0x0010, 0x80, 0x00, 0x00, 0xaa, 0x00, 0x38, 0x9b, 0x71);
-
 	public const Guid WMMEDIASUBTYPE_WMVA = .(0x41564d57, 0x0000, 0x0010, 0x80, 0x00, 0x00, 0xaa, 0x00, 0x38, 0x9b, 0x71);
-
 	public const Guid WMMEDIASUBTYPE_WVC1 = .(0x31435657, 0x0000, 0x0010, 0x80, 0x00, 0x00, 0xaa, 0x00, 0x38, 0x9b, 0x71);
-
 	public const Guid WMMEDIASUBTYPE_WMAudioV8 = .(0x00000161, 0x0000, 0x0010, 0x80, 0x00, 0x00, 0xaa, 0x00, 0x38, 0x9b, 0x71);
-
 	public const Guid WMMEDIASUBTYPE_WMAudioV7 = .(0x00000161, 0x0000, 0x0010, 0x80, 0x00, 0x00, 0xaa, 0x00, 0x38, 0x9b, 0x71);
-
 	public const Guid WMMEDIASUBTYPE_WMAudioV2 = .(0x00000161, 0x0000, 0x0010, 0x80, 0x00, 0x00, 0xaa, 0x00, 0x38, 0x9b, 0x71);
-
 	public const Guid WMMEDIASUBTYPE_ACELPnet = .(0x00000130, 0x0000, 0x0010, 0x80, 0x00, 0x00, 0xaa, 0x00, 0x38, 0x9b, 0x71);
-
 	public const Guid WMMEDIASUBTYPE_MP3 = .(0x00000055, 0x0000, 0x0010, 0x80, 0x00, 0x00, 0xaa, 0x00, 0x38, 0x9b, 0x71);
-
 	public const Guid WMMEDIASUBTYPE_WebStream = .(0x776257d4, 0xc627, 0x41cb, 0x8f, 0x81, 0x7a, 0xc7, 0xff, 0x1c, 0x40, 0xcc);
-
 	public const Guid WMMEDIATYPE_Script = .(0x73636d64, 0x0000, 0x0010, 0x80, 0x00, 0x00, 0xaa, 0x00, 0x38, 0x9b, 0x71);
-
 	public const Guid WMMEDIATYPE_Image = .(0x34a50fd8, 0x8aa5, 0x4386, 0x81, 0xfe, 0xa0, 0xef, 0xe0, 0x48, 0x8e, 0x31);
-
 	public const Guid WMMEDIATYPE_FileTransfer = .(0xd9e47579, 0x930e, 0x4427, 0xad, 0xfc, 0xad, 0x80, 0xf2, 0x90, 0xe4, 0x70);
-
 	public const Guid WMMEDIATYPE_Text = .(0x9bba1ea7, 0x5ab2, 0x4829, 0xba, 0x57, 0x09, 0x40, 0x20, 0x9b, 0xcf, 0x3e);
-
 	public const Guid WMFORMAT_VideoInfo = .(0x05589f80, 0xc356, 0x11ce, 0xbf, 0x01, 0x00, 0xaa, 0x00, 0x55, 0x59, 0x5a);
-
 	public const Guid WMFORMAT_MPEG2Video = .(0xe06d80e3, 0xdb46, 0x11cf, 0xb4, 0xd1, 0x00, 0x80, 0x5f, 0x6c, 0xbb, 0xea);
-
 	public const Guid WMFORMAT_WaveFormatEx = .(0x05589f81, 0xc356, 0x11ce, 0xbf, 0x01, 0x00, 0xaa, 0x00, 0x55, 0x59, 0x5a);
-
 	public const Guid WMFORMAT_Script = .(0x5c8510f2, 0xdebe, 0x4ca7, 0xbb, 0xa5, 0xf0, 0x7a, 0x10, 0x4f, 0x8d, 0xff);
-
 	public const Guid WMFORMAT_WebStream = .(0xda1e6b13, 0x8359, 0x4050, 0xb3, 0x98, 0x38, 0x8e, 0x96, 0x5b, 0xf0, 0x0c);
-
 	public const Guid WMSCRIPTTYPE_TwoStrings = .(0x82f38a70, 0xc29f, 0x11d1, 0x97, 0xad, 0x00, 0xa0, 0xc9, 0x5e, 0xa8, 0x50);
-
 	public const Guid WM_SampleExtensionGUID_OutputCleanPoint = .(0xf72a3c6f, 0x6eb4, 0x4ebc, 0xb1, 0x92, 0x09, 0xad, 0x97, 0x59, 0xe8, 0x28);
-
 	public const Guid WM_SampleExtensionGUID_Timecode = .(0x399595ec, 0x8667, 0x4e2d, 0x8f, 0xdb, 0x98, 0x81, 0x4c, 0xe7, 0x6c, 0x1e);
-
 	public const Guid WM_SampleExtensionGUID_ChromaLocation = .(0x4c5acca0, 0x9276, 0x4b2c, 0x9e, 0x4c, 0xa0, 0xed, 0xef, 0xdd, 0x21, 0x7e);
-
 	public const Guid WM_SampleExtensionGUID_ColorSpaceInfo = .(0xf79ada56, 0x30eb, 0x4f2b, 0x9f, 0x7a, 0xf2, 0x4b, 0x13, 0x9a, 0x11, 0x57);
-
 	public const Guid WM_SampleExtensionGUID_UserDataInfo = .(0x732bb4fa, 0x78be, 0x4549, 0x99, 0xbd, 0x02, 0xdb, 0x1a, 0x55, 0xb7, 0xa8);
-
 	public const Guid WM_SampleExtensionGUID_FileName = .(0xe165ec0e, 0x19ed, 0x45d7, 0xb4, 0xa7, 0x25, 0xcb, 0xd1, 0xe2, 0x8e, 0x9b);
-
 	public const Guid WM_SampleExtensionGUID_ContentType = .(0xd590dc20, 0x07bc, 0x436c, 0x9c, 0xf7, 0xf3, 0xbb, 0xfb, 0xf1, 0xa4, 0xdc);
-
 	public const Guid WM_SampleExtensionGUID_PixelAspectRatio = .(0x1b1ee554, 0xf9ea, 0x4bc8, 0x82, 0x1a, 0x37, 0x6b, 0x74, 0xe4, 0xc4, 0xb8);
-
 	public const Guid WM_SampleExtensionGUID_SampleDuration = .(0xc6bd9450, 0x867f, 0x4907, 0x83, 0xa3, 0xc7, 0x79, 0x21, 0xb7, 0x33, 0xad);
-
 	public const Guid WM_SampleExtensionGUID_SampleProtectionSalt = .(0x5403deee, 0xb9ee, 0x438f, 0xaa, 0x83, 0x38, 0x04, 0x99, 0x7e, 0x56, 0x9d);
-
 	public const Guid CLSID_WMMUTEX_Language = .(0xd6e22a00, 0x35da, 0x11d1, 0x90, 0x34, 0x00, 0xa0, 0xc9, 0x03, 0x49, 0xbe);
-
 	public const Guid CLSID_WMMUTEX_Bitrate = .(0xd6e22a01, 0x35da, 0x11d1, 0x90, 0x34, 0x00, 0xa0, 0xc9, 0x03, 0x49, 0xbe);
-
 	public const Guid CLSID_WMMUTEX_Presentation = .(0xd6e22a02, 0x35da, 0x11d1, 0x90, 0x34, 0x00, 0xa0, 0xc9, 0x03, 0x49, 0xbe);
-
 	public const Guid CLSID_WMMUTEX_Unknown = .(0xd6e22a03, 0x35da, 0x11d1, 0x90, 0x34, 0x00, 0xa0, 0xc9, 0x03, 0x49, 0xbe);
-
 	public const Guid CLSID_WMBandwidthSharing_Exclusive = .(0xaf6060aa, 0x5197, 0x11d2, 0xb6, 0xaf, 0x00, 0xc0, 0x4f, 0xd9, 0x08, 0xe9);
-
 	public const Guid CLSID_WMBandwidthSharing_Partial = .(0xaf6060ab, 0x5197, 0x11d2, 0xb6, 0xaf, 0x00, 0xc0, 0x4f, 0xd9, 0x08, 0xe9);
-
 	public const Guid WMT_DMOCATEGORY_AUDIO_WATERMARK = .(0x65221c5a, 0xfa75, 0x4b39, 0xb5, 0x0c, 0x06, 0xc3, 0x36, 0xb6, 0xa3, 0xef);
-
 	public const Guid WMT_DMOCATEGORY_VIDEO_WATERMARK = .(0x187cc922, 0x8efc, 0x4404, 0x9d, 0xaf, 0x63, 0xf4, 0x83, 0x0d, 0xf1, 0xbc);
-
 	public const Guid CLSID_ClientNetManager = .(0xcd12a3ce, 0x9c42, 0x11d2, 0xbe, 0xed, 0x00, 0x60, 0x08, 0x2f, 0x20, 0x54);
-
 }
 #endregion
 
@@ -1178,13 +835,14 @@ public struct WMT_WEBSTREAM_FORMAT
 	public uint16 wReserved;
 }
 
-[CRepr, FlexibleArray("wszURL")]
+[CRepr]
 public struct WMT_WEBSTREAM_SAMPLE_HEADER
 {
 	public uint16 cbLength;
 	public uint16 wPart;
 	public uint16 cTotalParts;
 	public uint16 wSampleType;
+	public char16* wszURL mut => &wszURL_impl;
 	private char16[ANYSIZE_ARRAY] wszURL_impl;
 }
 
@@ -1352,7 +1010,7 @@ public struct WMVIDEOINFOHEADER2
 	public BITMAPINFOHEADER bmiHeader;
 }
 
-[CRepr, FlexibleArray("dwSequenceHeader")]
+[CRepr]
 public struct WMMPEG2VIDEOINFO
 {
 	public WMVIDEOINFOHEADER2 hdr;
@@ -1361,6 +1019,7 @@ public struct WMMPEG2VIDEOINFO
 	public uint32 dwProfile;
 	public uint32 dwLevel;
 	public uint32 dwFlags;
+	public uint32* dwSequenceHeader mut => &dwSequenceHeader_impl;
 	private uint32[ANYSIZE_ARRAY] dwSequenceHeader_impl;
 }
 

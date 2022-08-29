@@ -3,7 +3,6 @@ using Win32.UI.Shell.PropertiesSystem;
 using Win32.System.Com;
 using Win32.Media;
 using System;
-using System.Interop;
 
 namespace Win32.Media.KernelStreaming;
 
@@ -11,1271 +10,639 @@ namespace Win32.Media.KernelStreaming;
 public static
 {
 	public const uint32 IOCTL_KS_PROPERTY = 3080195;
-
 	public const uint32 IOCTL_KS_ENABLE_EVENT = 3080199;
-
 	public const uint32 IOCTL_KS_DISABLE_EVENT = 3080203;
-
 	public const uint32 IOCTL_KS_METHOD = 3080207;
-
 	public const uint32 IOCTL_KS_WRITE_STREAM = 3112979;
-
 	public const uint32 IOCTL_KS_READ_STREAM = 3096599;
-
 	public const uint32 IOCTL_KS_RESET_STATE = 3080219;
-
 	public const uint32 KSPRIORITY_LOW = 1;
-
 	public const uint32 KSPRIORITY_NORMAL = 1073741824;
-
 	public const uint32 KSPRIORITY_HIGH = 2147483648;
-
 	public const uint32 KSPRIORITY_EXCLUSIVE = 4294967295;
-
 	public const uint32 KSMETHOD_TYPE_NONE = 0;
-
 	public const uint32 KSMETHOD_TYPE_READ = 1;
-
 	public const uint32 KSMETHOD_TYPE_WRITE = 2;
-
 	public const uint32 KSMETHOD_TYPE_MODIFY = 3;
-
 	public const uint32 KSMETHOD_TYPE_SOURCE = 4;
-
 	public const uint32 KSMETHOD_TYPE_SEND = 1;
-
 	public const uint32 KSMETHOD_TYPE_SETSUPPORT = 256;
-
 	public const uint32 KSMETHOD_TYPE_BASICSUPPORT = 512;
-
 	public const uint32 KSMETHOD_TYPE_TOPOLOGY = 268435456;
-
 	public const uint32 KSPROPERTY_TYPE_GET = 1;
-
 	public const uint32 KSPROPERTY_TYPE_GETPAYLOADSIZE = 4;
-
 	public const uint32 KSPROPERTY_TYPE_SET = 2;
-
 	public const uint32 KSPROPERTY_TYPE_SETSUPPORT = 256;
-
 	public const uint32 KSPROPERTY_TYPE_BASICSUPPORT = 512;
-
 	public const uint32 KSPROPERTY_TYPE_RELATIONS = 1024;
-
 	public const uint32 KSPROPERTY_TYPE_SERIALIZESET = 2048;
-
 	public const uint32 KSPROPERTY_TYPE_UNSERIALIZESET = 4096;
-
 	public const uint32 KSPROPERTY_TYPE_SERIALIZERAW = 8192;
-
 	public const uint32 KSPROPERTY_TYPE_UNSERIALIZERAW = 16384;
-
 	public const uint32 KSPROPERTY_TYPE_SERIALIZESIZE = 32768;
-
 	public const uint32 KSPROPERTY_TYPE_DEFAULTVALUES = 65536;
-
 	public const uint32 KSPROPERTY_TYPE_TOPOLOGY = 268435456;
-
 	public const uint32 KSPROPERTY_TYPE_HIGHPRIORITY = 134217728;
-
 	public const uint32 KSPROPERTY_TYPE_FSFILTERSCOPE = 1073741824;
-
 	public const uint32 KSPROPERTY_TYPE_COPYPAYLOAD = 2147483648;
-
 	public const uint32 KSPROPERTY_MEMBER_RANGES = 1;
-
 	public const uint32 KSPROPERTY_MEMBER_STEPPEDRANGES = 2;
-
 	public const uint32 KSPROPERTY_MEMBER_VALUES = 3;
-
 	public const uint32 KSPROPERTY_MEMBER_FLAG_DEFAULT = 1;
-
 	public const uint32 KSPROPERTY_MEMBER_FLAG_BASICSUPPORT_MULTICHANNEL = 2;
-
 	public const uint32 KSPROPERTY_MEMBER_FLAG_BASICSUPPORT_UNIFORM = 4;
-
 	public const uint32 KSEVENTF_EVENT_HANDLE = 1;
-
 	public const uint32 KSEVENTF_SEMAPHORE_HANDLE = 2;
-
 	public const uint32 KSEVENTF_EVENT_OBJECT = 4;
-
 	public const uint32 KSEVENTF_SEMAPHORE_OBJECT = 8;
-
 	public const uint32 KSEVENTF_DPC = 16;
-
 	public const uint32 KSEVENTF_WORKITEM = 32;
-
 	public const uint32 KSEVENTF_KSWORKITEM = 128;
-
 	public const uint32 KSEVENT_TYPE_ENABLE = 1;
-
 	public const uint32 KSEVENT_TYPE_ONESHOT = 2;
-
 	public const uint32 KSEVENT_TYPE_ENABLEBUFFERED = 4;
-
 	public const uint32 KSEVENT_TYPE_SETSUPPORT = 256;
-
 	public const uint32 KSEVENT_TYPE_BASICSUPPORT = 512;
-
 	public const uint32 KSEVENT_TYPE_QUERYBUFFER = 1024;
-
 	public const uint32 KSEVENT_TYPE_TOPOLOGY = 268435456;
-
 	public const uint32 KSRELATIVEEVENT_FLAG_HANDLE = 1;
-
 	public const uint32 KSRELATIVEEVENT_FLAG_POINTER = 2;
-
 	public const uint32 KSMEDIUM_TYPE_ANYINSTANCE = 0;
-
 	public const uint32 KSMEDIUM_STANDARD_DEVIO = 0;
-
 	public const uint32 KSPROPERTY_PIN_FLAGS_ATTRIBUTE_RANGE_AWARE = 1;
-
 	public const uint32 KSPROPERTY_PIN_FLAGS_MASK = 1;
-
 	public const uint32 KSDATAFORMAT_BIT_TEMPORAL_COMPRESSION = 0;
-
 	public const uint32 KSDATAFORMAT_BIT_ATTRIBUTES = 1;
-
 	public const uint32 KSDATARANGE_BIT_ATTRIBUTES = 1;
-
 	public const uint32 KSDATARANGE_BIT_REQUIRED_ATTRIBUTES = 2;
-
 	public const uint32 KSATTRIBUTE_REQUIRED = 1;
-
 	public const uint32 KSALLOCATOR_REQUIREMENTF_INPLACE_MODIFIER = 1;
-
 	public const uint32 KSALLOCATOR_REQUIREMENTF_SYSTEM_MEMORY = 2;
-
 	public const uint32 KSALLOCATOR_REQUIREMENTF_FRAME_INTEGRITY = 4;
-
 	public const uint32 KSALLOCATOR_REQUIREMENTF_MUST_ALLOCATE = 8;
-
 	public const uint32 KSALLOCATOR_REQUIREMENTF_SYSTEM_MEMORY_CUSTOM_ALLOCATION = 16;
-
 	public const uint32 KSALLOCATOR_REQUIREMENTF_PREFERENCES_ONLY = 2147483648;
-
 	public const uint32 KSALLOCATOR_OPTIONF_COMPATIBLE = 1;
-
 	public const uint32 KSALLOCATOR_OPTIONF_SYSTEM_MEMORY = 2;
-
 	public const uint32 KSALLOCATOR_OPTIONF_VALID = 3;
-
 	public const uint32 KSALLOCATOR_FLAG_PARTIAL_READ_SUPPORT = 16;
-
 	public const uint32 KSALLOCATOR_FLAG_DEVICE_SPECIFIC = 32;
-
 	public const uint32 KSALLOCATOR_FLAG_CAN_ALLOCATE = 64;
-
 	public const uint32 KSALLOCATOR_FLAG_INSIST_ON_FRAMESIZE_RATIO = 128;
-
 	public const uint32 KSALLOCATOR_FLAG_NO_FRAME_INTEGRITY = 256;
-
 	public const uint32 KSALLOCATOR_FLAG_MULTIPLE_OUTPUT = 512;
-
 	public const uint32 KSALLOCATOR_FLAG_CYCLE = 1024;
-
 	public const uint32 KSALLOCATOR_FLAG_ALLOCATOR_EXISTS = 2048;
-
 	public const uint32 KSALLOCATOR_FLAG_INDEPENDENT_RANGES = 4096;
-
 	public const uint32 KSALLOCATOR_FLAG_ATTENTION_STEPPING = 8192;
-
 	public const uint32 KSALLOCATOR_FLAG_ENABLE_CACHED_MDL = 16384;
-
 	public const uint32 KSALLOCATOR_FLAG_2D_BUFFER_REQUIRED = 32768;
-
 	public const uint32 KSSTREAM_HEADER_OPTIONSF_SPLICEPOINT = 1;
-
 	public const uint32 KSSTREAM_HEADER_OPTIONSF_PREROLL = 2;
-
 	public const uint32 KSSTREAM_HEADER_OPTIONSF_DATADISCONTINUITY = 4;
-
 	public const uint32 KSSTREAM_HEADER_OPTIONSF_TYPECHANGED = 8;
-
 	public const uint32 KSSTREAM_HEADER_OPTIONSF_TIMEVALID = 16;
-
 	public const uint32 KSSTREAM_HEADER_OPTIONSF_TIMEDISCONTINUITY = 64;
-
 	public const uint32 KSSTREAM_HEADER_OPTIONSF_FLUSHONPAUSE = 128;
-
 	public const uint32 KSSTREAM_HEADER_OPTIONSF_DURATIONVALID = 256;
-
 	public const uint32 KSSTREAM_HEADER_OPTIONSF_ENDOFSTREAM = 512;
-
 	public const uint32 KSSTREAM_HEADER_OPTIONSF_BUFFEREDTRANSFER = 1024;
-
 	public const uint32 KSSTREAM_HEADER_OPTIONSF_VRAM_DATA_TRANSFER = 2048;
-
 	public const uint32 KSSTREAM_HEADER_OPTIONSF_METADATA = 4096;
-
 	public const uint32 KSSTREAM_HEADER_OPTIONSF_ENDOFPHOTOSEQUENCE = 8192;
-
 	public const uint32 KSSTREAM_HEADER_OPTIONSF_FRAMEINFO = 16384;
-
 	public const uint32 KSSTREAM_HEADER_OPTIONSF_PERSIST_SAMPLE = 32768;
-
 	public const uint32 KSSTREAM_HEADER_OPTIONSF_SAMPLE_PERSISTED = 65536;
-
 	public const uint32 KSSTREAM_HEADER_TRACK_COMPLETION_NUMBERS = 131072;
-
 	public const uint32 KSSTREAM_HEADER_OPTIONSF_SECUREBUFFERTRANSFER = 262144;
-
 	public const uint32 KSSTREAM_HEADER_OPTIONSF_LOOPEDDATA = 2147483648;
-
 	public const uint32 KSSTREAM_UVC_SECURE_ATTRIBUTE_SIZE = 8192;
-
 	public const uint32 KSFRAMETIME_VARIABLESIZE = 1;
-
 	public const uint32 KSRATE_NOPRESENTATIONSTART = 1;
-
 	public const uint32 KSRATE_NOPRESENTATIONDURATION = 2;
-
 	public const uint32 NANOSECONDS = 10000000;
-
 	public const uint32 KSPROBE_STREAMREAD = 0;
-
 	public const uint32 KSPROBE_STREAMWRITE = 1;
-
 	public const uint32 KSPROBE_ALLOCATEMDL = 16;
-
 	public const uint32 KSPROBE_PROBEANDLOCK = 32;
-
 	public const uint32 KSPROBE_SYSTEMADDRESS = 64;
-
 	public const uint32 KSPROBE_MODIFY = 512;
-
 	public const uint32 KSPROBE_ALLOWFORMATCHANGE = 128;
-
 	public const uint32 KSSTREAM_READ = 0;
-
 	public const uint32 KSSTREAM_WRITE = 1;
-
 	public const uint32 KSSTREAM_PAGED_DATA = 0;
-
 	public const uint32 KSSTREAM_NONPAGED_DATA = 256;
-
 	public const uint32 KSSTREAM_SYNCHRONOUS = 4096;
-
 	public const uint32 KSSTREAM_FAILUREEXCEPTION = 8192;
-
 	public const uint32 KSEVENT_ENTRY_DELETED = 1;
-
 	public const uint32 KSEVENT_ENTRY_ONESHOT = 2;
-
 	public const uint32 KSEVENT_ENTRY_BUFFERED = 4;
-
 	public const uint32 KSDISPATCH_FASTIO = 2147483648;
-
 	public const uint32 KSCREATE_ITEM_SECURITYCHANGED = 1;
-
 	public const uint32 KSCREATE_ITEM_WILDCARD = 2;
-
 	public const uint32 KSCREATE_ITEM_NOPARAMETERS = 4;
-
 	public const uint32 KSCREATE_ITEM_FREEONSTOP = 8;
-
 	public const uint32 BUS_INTERFACE_REFERENCE_VERSION = 256;
-
 	public const uint32 IOCTL_KS_HANDSHAKE = 3080223;
-
 	public const uint32 MIN_DEV_VER_FOR_QI = 256;
-
 	public const uint32 KSDEVICE_DESCRIPTOR_VERSION = 256;
-
 	public const uint32 KSDEVICE_DESCRIPTOR_VERSION_2 = 272;
-
 	public const uint32 MIN_DEV_VER_FOR_FLAGS = 272;
-
 	public const uint32 KSDEVICE_FLAG_ENABLE_REMOTE_WAKEUP = 1;
-
 	public const uint32 KSDEVICE_FLAG_LOWPOWER_PASSTHROUGH = 2;
-
 	public const uint32 KSDEVICE_FLAG_ENABLE_QUERYINTERFACE = 4;
-
 	public const uint32 KSFILTER_FLAG_DISPATCH_LEVEL_PROCESSING = 1;
-
 	public const uint32 KSFILTER_FLAG_CRITICAL_PROCESSING = 2;
-
 	public const uint32 KSFILTER_FLAG_HYPERCRITICAL_PROCESSING = 4;
-
 	public const uint32 KSFILTER_FLAG_RECEIVE_ZERO_LENGTH_SAMPLES = 8;
-
 	public const uint32 KSFILTER_FLAG_DENY_USERMODE_ACCESS = 2147483648;
-
 	public const uint32 KSFILTER_FLAG_PRIORITIZE_REFERENCEGUID = 16;
-
 	public const uint32 KSPIN_FLAG_DISPATCH_LEVEL_PROCESSING = 1;
-
 	public const uint32 KSPIN_FLAG_CRITICAL_PROCESSING = 2;
-
 	public const uint32 KSPIN_FLAG_HYPERCRITICAL_PROCESSING = 4;
-
 	public const uint32 KSPIN_FLAG_ASYNCHRONOUS_PROCESSING = 8;
-
 	public const uint32 KSPIN_FLAG_DO_NOT_INITIATE_PROCESSING = 16;
-
 	public const uint32 KSPIN_FLAG_INITIATE_PROCESSING_ON_EVERY_ARRIVAL = 32;
-
 	public const uint32 KSPIN_FLAG_FRAMES_NOT_REQUIRED_FOR_PROCESSING = 64;
-
 	public const uint32 KSPIN_FLAG_ENFORCE_FIFO = 128;
-
 	public const uint32 KSPIN_FLAG_GENERATE_MAPPINGS = 256;
-
 	public const uint32 KSPIN_FLAG_DISTINCT_TRAILING_EDGE = 512;
-
 	public const uint32 KSPIN_FLAG_PROCESS_IN_RUN_STATE_ONLY = 65536;
-
 	public const uint32 KSPIN_FLAG_SPLITTER = 131072;
-
 	public const uint32 KSPIN_FLAG_USE_STANDARD_TRANSPORT = 262144;
-
 	public const uint32 KSPIN_FLAG_DO_NOT_USE_STANDARD_TRANSPORT = 524288;
-
 	public const uint32 KSPIN_FLAG_FIXED_FORMAT = 1048576;
-
 	public const uint32 KSPIN_FLAG_GENERATE_EOS_EVENTS = 2097152;
-
 	public const uint32 KSPIN_FLAG_IMPLEMENT_CLOCK = 4194304;
-
 	public const uint32 KSPIN_FLAG_SOME_FRAMES_REQUIRED_FOR_PROCESSING = 8388608;
-
 	public const uint32 KSPIN_FLAG_PROCESS_IF_ANY_IN_RUN_STATE = 16777216;
-
 	public const uint32 KSPIN_FLAG_DENY_USERMODE_ACCESS = 2147483648;
-
 	public const PWSTR RT_STRING = (PWSTR)(void*)6;
 	public const PWSTR RT_RCDATA = (PWSTR)(void*)10;
 	public const uint32 WAVE_FORMAT_EXTENSIBLE = 65534;
-
 	public const uint32 KSDSOUND_BUFFER_PRIMARY = 1;
-
 	public const uint32 KSDSOUND_BUFFER_STATIC = 2;
-
 	public const uint32 KSDSOUND_BUFFER_LOCHARDWARE = 4;
-
 	public const uint32 KSDSOUND_BUFFER_LOCSOFTWARE = 8;
-
 	public const uint32 KSDSOUND_BUFFER_CTRL_3D = 1;
-
 	public const uint32 KSDSOUND_BUFFER_CTRL_FREQUENCY = 2;
-
 	public const uint32 KSDSOUND_BUFFER_CTRL_PAN = 4;
-
 	public const uint32 KSDSOUND_BUFFER_CTRL_VOLUME = 8;
-
 	public const uint32 KSDSOUND_BUFFER_CTRL_POSITIONNOTIFY = 16;
-
 	public const PROPERTYKEY DEVPKEY_KsAudio_PacketSize_Constraints = .(.(0x13e004d6, 0xb066, 0x43bd, 0x91, 0x3b, 0xa4, 0x15, 0xcd, 0x13, 0xda, 0x87), 2);
-
 	public const PROPERTYKEY DEVPKEY_KsAudio_Controller_DeviceInterface_Path = .(.(0x13e004d6, 0xb066, 0x43bd, 0x91, 0x3b, 0xa4, 0x15, 0xcd, 0x13, 0xda, 0x87), 3);
-
 	public const PROPERTYKEY DEVPKEY_KsAudio_PacketSize_Constraints2 = .(.(0x9404f781, 0x7191, 0x409b, 0x8b, 0x0b, 0x80, 0xbf, 0x6e, 0xc2, 0x29, 0xae), 2);
-
 	public const int32 KSAUDIO_STEREO_SPEAKER_GEOMETRY_HEADPHONE = -1;
-
 	public const uint32 KSAUDIO_STEREO_SPEAKER_GEOMETRY_MIN = 5;
-
 	public const uint32 KSAUDIO_STEREO_SPEAKER_GEOMETRY_NARROW = 10;
-
 	public const uint32 KSAUDIO_STEREO_SPEAKER_GEOMETRY_WIDE = 20;
-
 	public const uint32 KSAUDIO_STEREO_SPEAKER_GEOMETRY_MAX = 180;
-
 	public const uint32 KSDSOUND_3D_MODE_NORMAL = 0;
-
 	public const uint32 KSDSOUND_3D_MODE_HEADRELATIVE = 1;
-
 	public const uint32 KSDSOUND_3D_MODE_DISABLE = 2;
-
 	public const uint32 KSDSOUND_BUFFER_CTRL_HRTF_3D = 1073741824;
-
 	public const uint32 KSAUDIO_QUALITY_WORST = 0;
-
 	public const uint32 KSAUDIO_QUALITY_PC = 1;
-
 	public const uint32 KSAUDIO_QUALITY_BASIC = 2;
-
 	public const uint32 KSAUDIO_QUALITY_ADVANCED = 3;
-
 	public const uint32 KSAUDIO_CPU_RESOURCES_NOT_HOST_CPU = 0;
-
 	public const uint32 KSAUDIO_CPU_RESOURCES_HOST_CPU = 2147483647;
-
 	public const uint32 SPEAKER_FRONT_LEFT = 1;
-
 	public const uint32 SPEAKER_FRONT_RIGHT = 2;
-
 	public const uint32 SPEAKER_FRONT_CENTER = 4;
-
 	public const uint32 SPEAKER_LOW_FREQUENCY = 8;
-
 	public const uint32 SPEAKER_BACK_LEFT = 16;
-
 	public const uint32 SPEAKER_BACK_RIGHT = 32;
-
 	public const uint32 SPEAKER_FRONT_LEFT_OF_CENTER = 64;
-
 	public const uint32 SPEAKER_FRONT_RIGHT_OF_CENTER = 128;
-
 	public const uint32 SPEAKER_BACK_CENTER = 256;
-
 	public const uint32 SPEAKER_SIDE_LEFT = 512;
-
 	public const uint32 SPEAKER_SIDE_RIGHT = 1024;
-
 	public const uint32 SPEAKER_TOP_CENTER = 2048;
-
 	public const uint32 SPEAKER_TOP_FRONT_LEFT = 4096;
-
 	public const uint32 SPEAKER_TOP_FRONT_CENTER = 8192;
-
 	public const uint32 SPEAKER_TOP_FRONT_RIGHT = 16384;
-
 	public const uint32 SPEAKER_TOP_BACK_LEFT = 32768;
-
 	public const uint32 SPEAKER_TOP_BACK_CENTER = 65536;
-
 	public const uint32 SPEAKER_TOP_BACK_RIGHT = 131072;
-
 	public const uint32 SPEAKER_RESERVED = 2147221504;
-
 	public const uint32 SPEAKER_ALL = 2147483648;
-
 	public const uint32 KSAUDIO_SPEAKER_DIRECTOUT = 0;
-
 	public const uint32 KSAUDIO_SPEAKER_MONO = 4;
-
 	public const uint32 KSAUDIO_SPEAKER_GROUND_FRONT_LEFT = 1;
-
 	public const uint32 KSAUDIO_SPEAKER_GROUND_FRONT_CENTER = 4;
-
 	public const uint32 KSAUDIO_SPEAKER_GROUND_FRONT_RIGHT = 2;
-
 	public const uint32 KSAUDIO_SPEAKER_GROUND_REAR_LEFT = 16;
-
 	public const uint32 KSAUDIO_SPEAKER_GROUND_REAR_RIGHT = 32;
-
 	public const uint32 KSAUDIO_SPEAKER_TOP_MIDDLE = 2048;
-
 	public const uint32 KSAUDIO_SPEAKER_SUPER_WOOFER = 8;
-
 	public const uint32 KSNODEPIN_STANDARD_IN = 1;
-
 	public const uint32 KSNODEPIN_STANDARD_OUT = 0;
-
 	public const uint32 KSNODEPIN_SUM_MUX_IN = 1;
-
 	public const uint32 KSNODEPIN_SUM_MUX_OUT = 0;
-
 	public const uint32 KSNODEPIN_DEMUX_IN = 0;
-
 	public const uint32 KSNODEPIN_DEMUX_OUT = 1;
-
 	public const uint32 KSNODEPIN_AEC_RENDER_IN = 1;
-
 	public const uint32 KSNODEPIN_AEC_RENDER_OUT = 0;
-
 	public const uint32 KSNODEPIN_AEC_CAPTURE_IN = 2;
-
 	public const uint32 KSNODEPIN_AEC_CAPTURE_OUT = 3;
-
 	public const uint32 AEC_STATUS_FD_HISTORY_UNINITIALIZED = 0;
-
 	public const uint32 AEC_STATUS_FD_HISTORY_CONTINUOUSLY_CONVERGED = 1;
-
 	public const uint32 AEC_STATUS_FD_HISTORY_PREVIOUSLY_DIVERGED = 2;
-
 	public const uint32 AEC_STATUS_FD_CURRENTLY_CONVERGED = 8;
-
 	public const uint32 AEC_MODE_PASS_THROUGH = 0;
-
 	public const uint32 AEC_MODE_HALF_DUPLEX = 1;
-
 	public const uint32 AEC_MODE_FULL_DUPLEX = 2;
-
 	public const uint32 KSPROPERTY_WAVE_QUEUED_POSITION = 1;
-
 	public const uint32 KSMETHOD_WAVE_QUEUED_BREAKLOOP = 1;
-
 	public const uint32 KSWAVE_COMPATCAPS_INPUT = 0;
-
 	public const uint32 KSWAVE_COMPATCAPS_OUTPUT = 1;
-
 	public const uint32 KSWAVE_BUFFER_ATTRIBUTEF_LOOPING = 1;
-
 	public const uint32 KSWAVE_BUFFER_ATTRIBUTEF_STATIC = 2;
-
 	public const uint32 SYSAUDIO_FLAGS_DONT_COMBINE_PINS = 1;
-
 	public const uint32 SYSAUDIO_FLAGS_CLEAR_PREFERRED = 2;
-
 	public const uint32 KSMPEGVIDMODE_PANSCAN = 1;
-
 	public const uint32 KSMPEGVIDMODE_LTRBOX = 2;
-
 	public const uint32 KSMPEGVIDMODE_SCALE = 4;
-
 	public const uint32 KSAC3_ALTERNATE_AUDIO_1 = 1;
-
 	public const uint32 KSAC3_ALTERNATE_AUDIO_2 = 2;
-
 	public const uint32 KSAC3_ALTERNATE_AUDIO_BOTH = 3;
-
 	public const uint32 KSAC3_SERVICE_MAIN_AUDIO = 0;
-
 	public const uint32 KSAC3_SERVICE_NO_DIALOG = 1;
-
 	public const uint32 KSAC3_SERVICE_VISUALLY_IMPAIRED = 2;
-
 	public const uint32 KSAC3_SERVICE_HEARING_IMPAIRED = 3;
-
 	public const uint32 KSAC3_SERVICE_DIALOG_ONLY = 4;
-
 	public const uint32 KSAC3_SERVICE_COMMENTARY = 5;
-
 	public const uint32 KSAC3_SERVICE_EMERGENCY_FLASH = 6;
-
 	public const uint32 KSAC3_SERVICE_VOICE_OVER = 7;
-
 	public const uint32 KSAUDDECOUTMODE_STEREO_ANALOG = 1;
-
 	public const uint32 KSAUDDECOUTMODE_PCM_51 = 2;
-
 	public const uint32 KSAUDDECOUTMODE_SPDIFF = 4;
-
 	public const uint32 KS_DVD_CGMS_RESERVED_MASK = 120;
-
 	public const uint32 KS_DVD_CGMS_COPY_PROTECT_MASK = 24;
-
 	public const uint32 KS_DVD_CGMS_COPY_PERMITTED = 0;
-
 	public const uint32 KS_DVD_CGMS_COPY_ONCE = 16;
-
 	public const uint32 KS_DVD_CGMS_NO_COPY = 24;
-
 	public const uint32 KS_DVD_COPYRIGHT_MASK = 64;
-
 	public const uint32 KS_DVD_NOT_COPYRIGHTED = 0;
-
 	public const uint32 KS_DVD_COPYRIGHTED = 64;
-
 	public const uint32 KS_DVD_SECTOR_PROTECT_MASK = 32;
-
 	public const uint32 KS_DVD_SECTOR_NOT_PROTECTED = 0;
-
 	public const uint32 KS_DVD_SECTOR_PROTECTED = 32;
-
 	public const int32 KS_BI_RGB = 0;
-
 	public const int32 KS_BI_RLE8 = 1;
-
 	public const int32 KS_BI_RLE4 = 2;
-
 	public const int32 KS_BI_BITFIELDS = 3;
-
 	public const int32 KS_BI_JPEG = 4;
-
 	public const uint32 KS_iPALETTE_COLORS = 256;
-
 	public const uint32 KS_iEGA_COLORS = 16;
-
 	public const uint32 KS_iMASK_COLORS = 3;
-
 	public const uint32 KS_iTRUECOLOR = 16;
-
 	public const uint32 KS_iRED = 0;
-
 	public const uint32 KS_iGREEN = 1;
-
 	public const uint32 KS_iBLUE = 2;
-
 	public const uint32 KS_iPALETTE = 8;
-
 	public const uint32 KS_iMAXBITS = 8;
-
 	public const int32 KS_VBIDATARATE_NABTS = 5727272;
-
 	public const int32 KS_VBIDATARATE_CC = 503493;
-
 	public const int32 KS_TVTUNER_CHANGE_BEGIN_TUNE = 1;
-
 	public const int32 KS_TVTUNER_CHANGE_END_TUNE = 2;
-
 	public const uint32 KS_INTERLACE_IsInterlaced = 1;
-
 	public const uint32 KS_INTERLACE_1FieldPerSample = 2;
-
 	public const uint32 KS_INTERLACE_Field1First = 4;
-
 	public const uint32 KS_INTERLACE_UNUSED = 8;
-
 	public const uint32 KS_INTERLACE_FieldPatternMask = 48;
-
 	public const uint32 KS_INTERLACE_FieldPatField1Only = 0;
-
 	public const uint32 KS_INTERLACE_FieldPatField2Only = 16;
-
 	public const uint32 KS_INTERLACE_FieldPatBothRegular = 32;
-
 	public const uint32 KS_INTERLACE_FieldPatBothIrregular = 48;
-
 	public const uint32 KS_INTERLACE_DisplayModeMask = 192;
-
 	public const uint32 KS_INTERLACE_DisplayModeBobOnly = 0;
-
 	public const uint32 KS_INTERLACE_DisplayModeWeaveOnly = 64;
-
 	public const uint32 KS_INTERLACE_DisplayModeBobOrWeave = 128;
-
 	public const uint32 KS_COPYPROTECT_RestrictDuplication = 1;
-
 	public const uint32 KS_MPEG2_DoPanScan = 1;
-
 	public const uint32 KS_MPEG2_DVDLine21Field1 = 2;
-
 	public const uint32 KS_MPEG2_DVDLine21Field2 = 4;
-
 	public const uint32 KS_MPEG2_SourceIsLetterboxed = 8;
-
 	public const uint32 KS_MPEG2_FilmCameraMode = 16;
-
 	public const uint32 KS_MPEG2_LetterboxAnalogOut = 32;
-
 	public const uint32 KS_MPEG2_DSS_UserData = 64;
-
 	public const uint32 KS_MPEG2_DVB_UserData = 128;
-
 	public const uint32 KS_MPEG2_27MhzTimebase = 256;
-
 	public const uint32 KS_MPEG2_WidescreenAnalogOut = 512;
-
 	public const uint32 KS_AMCONTROL_USED = 1;
-
 	public const uint32 KS_AMCONTROL_PAD_TO_4x3 = 2;
-
 	public const uint32 KS_AMCONTROL_PAD_TO_16x9 = 4;
-
 	public const uint32 KS_AMCONTROL_COLORINFO_PRESENT = 128;
-
 	public const uint32 KS_MAX_SIZE_MPEG1_SEQUENCE_INFO = 140;
-
 	public const uint32 KS_MPEGAUDIOINFO_27MhzTimebase = 1;
-
 	public const uint32 KS_VIDEOSTREAM_PREVIEW = 1;
-
 	public const uint32 KS_VIDEOSTREAM_CAPTURE = 2;
-
 	public const uint32 KS_VIDEOSTREAM_VBI = 16;
-
 	public const uint32 KS_VIDEOSTREAM_NABTS = 32;
-
 	public const uint32 KS_VIDEOSTREAM_CC = 256;
-
 	public const uint32 KS_VIDEOSTREAM_EDS = 512;
-
 	public const uint32 KS_VIDEOSTREAM_TELETEXT = 1024;
-
 	public const uint32 KS_VIDEOSTREAM_STILL = 4096;
-
 	public const uint32 KS_VIDEOSTREAM_IS_VPE = 32768;
-
 	public const uint32 KS_VIDEO_ALLOC_VPE_SYSTEM = 1;
-
 	public const uint32 KS_VIDEO_ALLOC_VPE_DISPLAY = 2;
-
 	public const uint32 KS_VIDEO_ALLOC_VPE_AGP = 4;
-
 	public const int32 KS_VBICAP_PROTECTION_MV_PRESENT = 1;
-
 	public const int32 KS_VBICAP_PROTECTION_MV_HARDWARE = 2;
-
 	public const int32 KS_VBICAP_PROTECTION_MV_DETECTED = 4;
-
 	public const uint32 KS_NABTS_GROUPID_ORIGINAL_CONTENT_BASE = 2048;
-
 	public const uint32 KS_NABTS_GROUPID_ORIGINAL_CONTENT_ADVERTISER_BASE = 2064;
-
 	public const uint32 KS_NABTS_GROUPID_PRODUCTION_COMPANY_CONTENT_BASE = 2080;
-
 	public const uint32 KS_NABTS_GROUPID_PRODUCTION_COMPANY_ADVERTISER_BASE = 2096;
-
 	public const uint32 KS_NABTS_GROUPID_SYNDICATED_SHOW_CONTENT_BASE = 2112;
-
 	public const uint32 KS_NABTS_GROUPID_SYNDICATED_SHOW_ADVERTISER_BASE = 2128;
-
 	public const uint32 KS_NABTS_GROUPID_NETWORK_WIDE_CONTENT_BASE = 2144;
-
 	public const uint32 KS_NABTS_GROUPID_NETWORK_WIDE_ADVERTISER_BASE = 2160;
-
 	public const uint32 KS_NABTS_GROUPID_TELEVISION_STATION_CONTENT_BASE = 2176;
-
 	public const uint32 KS_NABTS_GROUPID_TELEVISION_STATION_ADVERTISER_BASE = 2192;
-
 	public const uint32 KS_NABTS_GROUPID_LOCAL_CABLE_SYSTEM_CONTENT_BASE = 2208;
-
 	public const uint32 KS_NABTS_GROUPID_LOCAL_CABLE_SYSTEM_ADVERTISER_BASE = 2224;
-
 	public const uint32 KS_NABTS_GROUPID_MICROSOFT_RESERVED_TEST_DATA_BASE = 2288;
-
 	public const uint32 MAX_NABTS_VBI_LINES_PER_FIELD = 11;
-
 	public const uint32 NABTS_LINES_PER_BUNDLE = 16;
-
 	public const uint32 NABTS_PAYLOAD_PER_LINE = 28;
-
 	public const uint32 NABTS_BYTES_PER_LINE = 36;
-
 	public const int32 KS_CC_SUBSTREAM_ODD = 1;
-
 	public const int32 KS_CC_SUBSTREAM_EVEN = 2;
-
 	public const int32 KS_CC_SUBSTREAM_FIELD1_MASK = 240;
-
 	public const int32 KS_CC_SUBSTREAM_SERVICE_CC1 = 16;
-
 	public const int32 KS_CC_SUBSTREAM_SERVICE_CC2 = 32;
-
 	public const int32 KS_CC_SUBSTREAM_SERVICE_T1 = 64;
-
 	public const int32 KS_CC_SUBSTREAM_SERVICE_T2 = 128;
-
 	public const int32 KS_CC_SUBSTREAM_FIELD2_MASK = 7936;
-
 	public const int32 KS_CC_SUBSTREAM_SERVICE_CC3 = 256;
-
 	public const int32 KS_CC_SUBSTREAM_SERVICE_CC4 = 512;
-
 	public const int32 KS_CC_SUBSTREAM_SERVICE_T3 = 1024;
-
 	public const int32 KS_CC_SUBSTREAM_SERVICE_T4 = 2048;
-
 	public const int32 KS_CC_SUBSTREAM_SERVICE_XDS = 4096;
-
 	public const uint32 CC_MAX_HW_DECODE_LINES = 12;
-
 	public const uint32 NABTS_BUFFER_PICTURENUMBER_SUPPORT = 1;
-
 	public const int32 WST_TVTUNER_CHANGE_BEGIN_TUNE = 4096;
-
 	public const int32 WST_TVTUNER_CHANGE_END_TUNE = 8192;
-
 	public const uint32 MAX_WST_VBI_LINES_PER_FIELD = 17;
-
 	public const uint32 WST_BYTES_PER_LINE = 42;
-
 	public const int32 KS_VIDEO_FLAG_FIELD_MASK = 3;
-
 	public const int32 KS_VIDEO_FLAG_FRAME = 0;
-
 	public const int32 KS_VIDEO_FLAG_FIELD1 = 1;
-
 	public const int32 KS_VIDEO_FLAG_FIELD2 = 2;
-
 	public const int32 KS_VIDEO_FLAG_FIELD1FIRST = 4;
-
 	public const int32 KS_VIDEO_FLAG_WEAVE = 8;
-
 	public const int32 KS_VIDEO_FLAG_IPB_MASK = 48;
-
 	public const int32 KS_VIDEO_FLAG_I_FRAME = 0;
-
 	public const int32 KS_VIDEO_FLAG_P_FRAME = 16;
-
 	public const int32 KS_VIDEO_FLAG_B_FRAME = 32;
-
 	public const int32 KS_VIDEO_FLAG_REPEAT_FIELD = 64;
-
 	public const int32 KS_VBI_FLAG_FRAME = 0;
-
 	public const int32 KS_VBI_FLAG_FIELD1 = 1;
-
 	public const int32 KS_VBI_FLAG_FIELD2 = 2;
-
 	public const int32 KS_VBI_FLAG_MV_PRESENT = 256;
-
 	public const int32 KS_VBI_FLAG_MV_HARDWARE = 512;
-
 	public const int32 KS_VBI_FLAG_MV_DETECTED = 1024;
-
 	public const int32 KS_VBI_FLAG_TVTUNER_CHANGE = 16;
-
 	public const int32 KS_VBI_FLAG_VBIINFOHEADER_CHANGE = 32;
-
 	public const uint32 KS_AnalogVideo_NTSC_Mask = 7;
-
 	public const uint32 KS_AnalogVideo_PAL_Mask = 1052656;
-
 	public const uint32 KS_AnalogVideo_SECAM_Mask = 1044480;
-
 	public const int32 KSPROPERTY_VIDEOPROCAMP_FLAGS_AUTO = 1;
-
 	public const int32 KSPROPERTY_VIDEOPROCAMP_FLAGS_MANUAL = 2;
-
 	public const int32 KSPROPERTY_CAMERACONTROL_FLAGS_AUTO = 1;
-
 	public const int32 KSPROPERTY_CAMERACONTROL_FLAGS_MANUAL = 2;
-
 	public const int32 KSPROPERTY_CAMERACONTROL_FLAGS_ASYNCHRONOUS = 4;
-
 	public const int32 KSPROPERTY_CAMERACONTROL_FLAGS_ABSOLUTE = 0;
-
 	public const int32 KSPROPERTY_CAMERACONTROL_FLAGS_RELATIVE = 16;
-
 	public const int32 KSPROPERTY_CAMERACONTROL_FLASH_OFF = 0;
-
 	public const int32 KSPROPERTY_CAMERACONTROL_FLASH_ON = 1;
-
 	public const int32 KSPROPERTY_CAMERACONTROL_FLASH_AUTO = 2;
-
 	public const int32 KSPROPERTY_CAMERACONTROL_FLASH_FLAGS_AUTO = 1;
-
 	public const int32 KSPROPERTY_CAMERACONTROL_FLASH_FLAGS_MANUAL = 2;
-
 	public const int32 KSPROPERTY_CAMERACONTROL_VIDEOSTABILIZATION_MODE_OFF = 0;
-
 	public const int32 KSPROPERTY_CAMERACONTROL_VIDEOSTABILIZATION_MODE_HIGH = 1;
-
 	public const int32 KSPROPERTY_CAMERACONTROL_VIDEOSTABILIZATION_MODE_MEDIUM = 2;
-
 	public const int32 KSPROPERTY_CAMERACONTROL_VIDEOSTABILIZATION_MODE_LOW = 3;
-
 	public const int32 KSPROPERTY_CAMERACONTROL_VIDEOSTABILIZATION_MODE_AUTO = 4;
-
 	public const int32 KSPROPERTY_CAMERACONTROL_VIDEOSTABILIZATION_MODE_FLAGS_AUTO = 1;
-
 	public const int32 KSPROPERTY_CAMERACONTROL_VIDEOSTABILIZATION_MODE_FLAGS_MANUAL = 2;
-
 	public const int32 KSPROPERTY_CAMERACONTROL_REGION_OF_INTEREST_FLAGS_AUTO = 1;
-
 	public const int32 KSPROPERTY_CAMERACONTROL_REGION_OF_INTEREST_FLAGS_MANUAL = 2;
-
 	public const int32 KSPROPERTY_CAMERACONTROL_REGION_OF_INTEREST_FLAGS_ASYNC = -2147483648;
-
 	public const int32 KSPROPERTY_CAMERACONTROL_REGION_OF_INTEREST_CONFIG_FOCUS = 256;
-
 	public const int32 KSPROPERTY_CAMERACONTROL_REGION_OF_INTEREST_CONFIG_EXPOSURE = 512;
-
 	public const int32 KSPROPERTY_CAMERACONTROL_REGION_OF_INTEREST_CONFIG_WB = 1024;
-
 	public const int32 KSPROPERTY_CAMERACONTROL_REGION_OF_INTEREST_CONVERGEMODE = 1073741824;
-
 	public const int32 KSPROPERTY_CAMERACONTROL_IMAGE_PIN_CAPABILITY_EXCLUSIVE_WITH_RECORD = 1;
-
 	public const int32 KSPROPERTY_CAMERACONTROL_IMAGE_PIN_CAPABILITY_SEQUENCE_EXCLUSIVE_WITH_RECORD = 2;
-
 	public const uint32 KSCAMERA_EXTENDEDPROP_FILTERSCOPE = 4294967295;
-
 	public const uint64 KSCAMERA_EXTENDEDPROP_CAPS_RESERVED = 18374686479671623680;
-
 	public const uint64 KSCAMERA_EXTENDEDPROP_CAPS_ASYNCCONTROL = 9223372036854775808;
-
 	public const uint64 KSCAMERA_EXTENDEDPROP_CAPS_CANCELLABLE = 4611686018427387904;
-
 	public const uint64 KSCAMERA_EXTENDEDPROP_FLAG_CANCELOPERATION = 9223372036854775808;
-
 	public const uint64 KSCAMERA_EXTENDEDPROP_CAPS_MASK = 18374686479671623680;
-
 	public const uint64 KSCAMERA_EXTENDEDPROP_FLAG_MASK = 18374686479671623680;
-
 	public const uint64 KSCAMERA_EXTENDEDPROP_PHOTOMODE_NORMAL = 0;
-
 	public const uint64 KSCAMERA_EXTENDEDPROP_PHOTOMODE_SEQUENCE = 1;
-
 	public const uint64 KSCAMERA_EXTENDEDPROP_WARMSTART_MODE_DISABLED = 0;
-
 	public const uint64 KSCAMERA_EXTENDEDPROP_WARMSTART_MODE_ENABLED = 1;
-
 	public const uint64 KSCAMERA_EXTENDEDPROP_PHOTOTHUMBNAIL_DISABLE = 0;
-
 	public const uint64 KSCAMERA_EXTENDEDPROP_PHOTOTHUMBNAIL_2X = 1;
-
 	public const uint64 KSCAMERA_EXTENDEDPROP_PHOTOTHUMBNAIL_4X = 2;
-
 	public const uint64 KSCAMERA_EXTENDEDPROP_PHOTOTHUMBNAIL_8X = 4;
-
 	public const uint64 KSCAMERA_EXTENDEDPROP_PHOTOTHUMBNAIL_16X = 8;
-
 	public const uint64 KSCAMERA_EXTENDEDPROP_SCENEMODE_AUTO = 0;
-
 	public const uint64 KSCAMERA_EXTENDEDPROP_SCENEMODE_MACRO = 1;
-
 	public const uint64 KSCAMERA_EXTENDEDPROP_SCENEMODE_PORTRAIT = 2;
-
 	public const uint64 KSCAMERA_EXTENDEDPROP_SCENEMODE_SPORT = 4;
-
 	public const uint64 KSCAMERA_EXTENDEDPROP_SCENEMODE_SNOW = 8;
-
 	public const uint64 KSCAMERA_EXTENDEDPROP_SCENEMODE_NIGHT = 16;
-
 	public const uint64 KSCAMERA_EXTENDEDPROP_SCENEMODE_BEACH = 32;
-
 	public const uint64 KSCAMERA_EXTENDEDPROP_SCENEMODE_SUNSET = 64;
-
 	public const uint64 KSCAMERA_EXTENDEDPROP_SCENEMODE_CANDLELIGHT = 128;
-
 	public const uint64 KSCAMERA_EXTENDEDPROP_SCENEMODE_LANDSCAPE = 256;
-
 	public const uint64 KSCAMERA_EXTENDEDPROP_SCENEMODE_NIGHTPORTRAIT = 512;
-
 	public const uint64 KSCAMERA_EXTENDEDPROP_SCENEMODE_BACKLIT = 1024;
-
 	public const uint64 KSCAMERA_EXTENDEDPROP_SCENEMODE_MANUAL = 36028797018963968;
-
 	public const uint64 KSCAMERA_EXTENDEDPROP_VIDEOTORCH_OFF = 0;
-
 	public const uint64 KSCAMERA_EXTENDEDPROP_VIDEOTORCH_ON = 1;
-
 	public const uint64 KSCAMERA_EXTENDEDPROP_VIDEOTORCH_ON_ADJUSTABLEPOWER = 2;
-
 	public const uint64 KSCAMERA_EXTENDEDPROP_FLASH_OFF = 0;
-
 	public const uint64 KSCAMERA_EXTENDEDPROP_FLASH_ON = 1;
-
 	public const uint64 KSCAMERA_EXTENDEDPROP_FLASH_ON_ADJUSTABLEPOWER = 2;
-
 	public const uint64 KSCAMERA_EXTENDEDPROP_FLASH_AUTO = 4;
-
 	public const uint64 KSCAMERA_EXTENDEDPROP_FLASH_AUTO_ADJUSTABLEPOWER = 8;
-
 	public const uint64 KSCAMERA_EXTENDEDPROP_FLASH_REDEYEREDUCTION = 16;
-
 	public const uint64 KSCAMERA_EXTENDEDPROP_FLASH_SINGLEFLASH = 32;
-
 	public const uint64 KSCAMERA_EXTENDEDPROP_FLASH_MULTIFLASHSUPPORTED = 64;
-
 	public const uint64 KSCAMERA_EXTENDEDPROP_OPTIMIZATION_PHOTO = 1;
-
 	public const uint64 KSCAMERA_EXTENDEDPROP_OPTIMIZATION_VIDEO = 2;
-
 	public const uint64 KSCAMERA_EXTENDEDPROP_OPTIMIZATION_DEFAULT = 0;
-
 	public const uint64 KSCAMERA_EXTENDEDPROP_OPTIMIZATION_QUALITY = 4;
-
 	public const uint64 KSCAMERA_EXTENDEDPROP_OPTIMIZATION_LATENCY = 8;
-
 	public const uint64 KSCAMERA_EXTENDEDPROP_OPTIMIZATION_POWER = 16;
-
 	public const uint64 KSCAMERA_EXTENDEDPROP_VIDEOPROCFLAG_AUTO = 1;
-
 	public const uint64 KSCAMERA_EXTENDEDPROP_VIDEOPROCFLAG_MANUAL = 2;
-
 	public const uint64 KSCAMERA_EXTENDEDPROP_VIDEOPROCFLAG_LOCK = 4;
-
 	public const uint64 KSCAMERA_EXTENDEDPROP_FOCUS_CONTINUOUS = 256;
-
 	public const uint64 KSCAMERA_EXTENDEDPROP_FOCUS_RANGE_MACRO = 65536;
-
 	public const uint64 KSCAMERA_EXTENDEDPROP_FOCUS_RANGE_NORMAL = 131072;
-
 	public const uint64 KSCAMERA_EXTENDEDPROP_FOCUS_RANGE_FULLRANGE = 262144;
-
 	public const uint64 KSCAMERA_EXTENDEDPROP_FOCUS_RANGE_INFINITY = 524288;
-
 	public const uint64 KSCAMERA_EXTENDEDPROP_FOCUS_RANGE_HYPERFOCAL = 1048576;
-
 	public const uint64 KSCAMERA_EXTENDEDPROP_FOCUS_DISTANCE_INFINITY = 16777216;
-
 	public const uint64 KSCAMERA_EXTENDEDPROP_FOCUS_DISTANCE_HYPERFOCAL = 33554432;
-
 	public const uint64 KSCAMERA_EXTENDEDPROP_FOCUS_DISTANCE_NEAREST = 67108864;
-
 	public const uint64 KSCAMERA_EXTENDEDPROP_ISO_AUTO = 1;
-
 	public const uint64 KSCAMERA_EXTENDEDPROP_ISO_50 = 2;
-
 	public const uint64 KSCAMERA_EXTENDEDPROP_ISO_80 = 4;
-
 	public const uint64 KSCAMERA_EXTENDEDPROP_ISO_100 = 8;
-
 	public const uint64 KSCAMERA_EXTENDEDPROP_ISO_200 = 16;
-
 	public const uint64 KSCAMERA_EXTENDEDPROP_ISO_400 = 32;
-
 	public const uint64 KSCAMERA_EXTENDEDPROP_ISO_800 = 64;
-
 	public const uint64 KSCAMERA_EXTENDEDPROP_ISO_1600 = 128;
-
 	public const uint64 KSCAMERA_EXTENDEDPROP_ISO_3200 = 256;
-
 	public const uint64 KSCAMERA_EXTENDEDPROP_ISO_6400 = 512;
-
 	public const uint64 KSCAMERA_EXTENDEDPROP_ISO_12800 = 1024;
-
 	public const uint64 KSCAMERA_EXTENDEDPROP_ISO_25600 = 2048;
-
 	public const uint64 KSCAMERA_EXTENDEDPROP_FOCUS_CONTINUOUSLOCK = 512;
-
 	public const uint64 KSCAMERA_EXTENDEDPROP_FOCUS_UNLOCK = 1024;
-
 	public const uint64 KSCAMERA_EXTENDEDPROP_FOCUS_DRIVERFALLBACK_OFF = 2048;
-
 	public const uint64 KSCAMERA_EXTENDEDPROP_FOCUS_REGIONBASED = 4096;
-
 	public const uint64 KSCAMERA_EXTENDEDPROP_ISO_MANUAL = 36028797018963968;
-
 	public const uint64 KSCAMERA_EXTENDEDPROP_FLASH_ASSISTANT_OFF = 0;
-
 	public const uint64 KSCAMERA_EXTENDEDPROP_FLASH_ASSISTANT_ON = 128;
-
 	public const uint64 KSCAMERA_EXTENDEDPROP_FLASH_ASSISTANT_AUTO = 256;
-
 	public const uint64 KSCAMERA_EXTENDEDPROP_EVCOMP_SIXTHSTEP = 1;
-
 	public const uint64 KSCAMERA_EXTENDEDPROP_EVCOMP_QUARTERSTEP = 2;
-
 	public const uint64 KSCAMERA_EXTENDEDPROP_EVCOMP_THIRDSTEP = 4;
-
 	public const uint64 KSCAMERA_EXTENDEDPROP_EVCOMP_HALFSTEP = 8;
-
 	public const uint64 KSCAMERA_EXTENDEDPROP_EVCOMP_FULLSTEP = 16;
-
 	public const uint32 KSCAMERA_EXTENDEDPROP_PHOTOMODE_SEQUENCE_SUB_NONE = 0;
-
 	public const uint32 KSCAMERA_EXTENDEDPROP_PHOTOMODE_SEQUENCE_SUB_VARIABLE = 1;
-
 	public const uint64 KSCAMERA_EXTENDEDPROP_METADATA_MEMORYTYPE_MASK = 255;
-
 	public const uint64 KSCAMERA_EXTENDEDPROP_METADATA_SYSTEMMEMORY = 1;
-
 	public const uint64 KSCAMERA_EXTENDEDPROP_METADATA_ALIGNMENTREQUIRED = 256;
-
 	public const uint32 KSCAMERA_METADATA_FRAMEILLUMINATION_FLAG_ON = 1;
-
 	public const uint32 KSCAMERA_METADATA_CAPTURESTATS_FLAG_EXPOSURETIME = 1;
-
 	public const uint32 KSCAMERA_METADATA_CAPTURESTATS_FLAG_EXPOSURECOMPENSATION = 2;
-
 	public const uint32 KSCAMERA_METADATA_CAPTURESTATS_FLAG_ISOSPEED = 4;
-
 	public const uint32 KSCAMERA_METADATA_CAPTURESTATS_FLAG_FOCUSSTATE = 8;
-
 	public const uint32 KSCAMERA_METADATA_CAPTURESTATS_FLAG_LENSPOSITION = 16;
-
 	public const uint32 KSCAMERA_METADATA_CAPTURESTATS_FLAG_WHITEBALANCE = 32;
-
 	public const uint32 KSCAMERA_METADATA_CAPTURESTATS_FLAG_FLASH = 64;
-
 	public const uint32 KSCAMERA_METADATA_CAPTURESTATS_FLAG_FLASHPOWER = 128;
-
 	public const uint32 KSCAMERA_METADATA_CAPTURESTATS_FLAG_ZOOMFACTOR = 256;
-
 	public const uint32 KSCAMERA_METADATA_CAPTURESTATS_FLAG_SCENEMODE = 512;
-
 	public const uint32 KSCAMERA_METADATA_CAPTURESTATS_FLAG_SENSORFRAMERATE = 1024;
-
 	public const uint64 KSCAMERA_EXTENDEDPROP_FOCUSPRIORITY_OFF = 0;
-
 	public const uint64 KSCAMERA_EXTENDEDPROP_FOCUSPRIORITY_ON = 1;
-
 	public const uint64 KSCAMERA_EXTENDEDPROP_PHOTOCONFIRMATION_OFF = 0;
-
 	public const uint64 KSCAMERA_EXTENDEDPROP_PHOTOCONFIRMATION_ON = 1;
-
 	public const uint64 KSCAMERA_PERFRAMESETTING_AUTO = 4294967296;
-
 	public const uint64 KSCAMERA_PERFRAMESETTING_MANUAL = 8589934592;
-
 	public const uint64 KSCAMERA_EXTENDEDPROP_VIDEOSTABILIZATION_OFF = 0;
-
 	public const uint64 KSCAMERA_EXTENDEDPROP_VIDEOSTABILIZATION_ON = 1;
-
 	public const uint64 KSCAMERA_EXTENDEDPROP_VIDEOSTABILIZATION_AUTO = 2;
-
 	public const uint64 KSCAMERA_EXTENDEDPROP_VFR_OFF = 0;
-
 	public const uint64 KSCAMERA_EXTENDEDPROP_VFR_ON = 1;
-
 	public const uint64 KSCAMERA_EXTENDEDPROP_FACEDETECTION_OFF = 0;
-
 	public const uint64 KSCAMERA_EXTENDEDPROP_FACEDETECTION_ON = 1;
-
 	public const uint64 KSCAMERA_EXTENDEDPROP_FACEDETECTION_PREVIEW = 1;
-
 	public const uint64 KSCAMERA_EXTENDEDPROP_FACEDETECTION_VIDEO = 2;
-
 	public const uint64 KSCAMERA_EXTENDEDPROP_FACEDETECTION_PHOTO = 4;
-
 	public const uint64 KSCAMERA_EXTENDEDPROP_FACEDETECTION_BLINK = 8;
-
 	public const uint64 KSCAMERA_EXTENDEDPROP_FACEDETECTION_SMILE = 16;
-
 	public const uint64 KSCAMERA_EXTENDEDPROP_VIDEOHDR_OFF = 0;
-
 	public const uint64 KSCAMERA_EXTENDEDPROP_VIDEOHDR_ON = 1;
-
 	public const uint64 KSCAMERA_EXTENDEDPROP_VIDEOHDR_AUTO = 2;
-
 	public const uint64 KSCAMERA_EXTENDEDPROP_HISTOGRAM_OFF = 0;
-
 	public const uint64 KSCAMERA_EXTENDEDPROP_HISTOGRAM_ON = 1;
-
 	public const uint64 KSCAMERA_EXTENDEDPROP_OIS_OFF = 0;
-
 	public const uint64 KSCAMERA_EXTENDEDPROP_OIS_ON = 1;
-
 	public const uint64 KSCAMERA_EXTENDEDPROP_OIS_AUTO = 2;
-
 	public const uint64 KSCAMERA_EXTENDEDPROP_ADVANCEDPHOTO_OFF = 0;
-
 	public const uint64 KSCAMERA_EXTENDEDPROP_ADVANCEDPHOTO_AUTO = 1;
-
 	public const uint64 KSCAMERA_EXTENDEDPROP_ADVANCEDPHOTO_HDR = 2;
-
 	public const uint64 KSCAMERA_EXTENDEDPROP_ADVANCEDPHOTO_FNF = 4;
-
 	public const uint64 KSCAMERA_EXTENDEDPROP_ADVANCEDPHOTO_ULTRALOWLIGHT = 8;
-
 	public const uint64 KSCAMERA_EXTENDEDPROP_ZOOM_DEFAULT = 0;
-
 	public const uint64 KSCAMERA_EXTENDEDPROP_ZOOM_DIRECT = 1;
-
 	public const uint64 KSCAMERA_EXTENDEDPROP_ZOOM_SMOOTH = 2;
-
 	public const uint64 KSCAMERA_EXTENDEDPROP_FACEAUTH_MODE_DISABLED = 1;
-
 	public const uint64 KSCAMERA_EXTENDEDPROP_FACEAUTH_MODE_ALTERNATIVE_FRAME_ILLUMINATION = 2;
-
 	public const uint64 KSCAMERA_EXTENDEDPROP_FACEAUTH_MODE_BACKGROUND_SUBTRACTION = 4;
-
 	public const uint64 KSCAMERA_EXTENDEDPROP_SECUREMODE_DISABLED = 1;
-
 	public const uint64 KSCAMERA_EXTENDEDPROP_SECUREMODE_ENABLED = 2;
-
 	public const uint64 KSCAMERA_EXTENDEDPROP_VIDEOTEMPORALDENOISING_AUTO = 1;
-
 	public const uint64 KSCAMERA_EXTENDEDPROP_VIDEOTEMPORALDENOISING_OFF = 2;
-
 	public const uint64 KSCAMERA_EXTENDEDPROP_VIDEOTEMPORALDENOISING_ON = 4;
-
 	public const uint64 KSCAMERA_EXTENDEDPROP_IRTORCHMODE_OFF = 1;
-
 	public const uint64 KSCAMERA_EXTENDEDPROP_IRTORCHMODE_ALWAYS_ON = 2;
-
 	public const uint64 KSCAMERA_EXTENDEDPROP_IRTORCHMODE_ALTERNATING_FRAME_ILLUMINATION = 4;
-
 	public const uint64 KSCAMERA_EXTENDEDPROP_RELATIVEPANELOPTIMIZATION_OFF = 0;
-
 	public const uint64 KSCAMERA_EXTENDEDPROP_RELATIVEPANELOPTIMIZATION_ON = 1;
-
 	public const uint64 KSCAMERA_EXTENDEDPROP_RELATIVEPANELOPTIMIZATION_DYNAMIC = 2;
-
 	public const uint64 KSCAMERA_EXTENDEDPROP_EYEGAZECORRECTION_OFF = 0;
-
 	public const uint64 KSCAMERA_EXTENDEDPROP_EYEGAZECORRECTION_ON = 1;
-
 	public const uint64 KSCAMERA_EXTENDEDPROP_BACKGROUNDSEGMENTATION_OFF = 0;
-
 	public const uint64 KSCAMERA_EXTENDEDPROP_BACKGROUNDSEGMENTATION_BLUR = 1;
-
 	public const uint64 KSCAMERA_EXTENDEDPROP_BACKGROUNDSEGMENTATION_MASK = 2;
-
 	public const uint64 KSCAMERA_EXTENDEDPROP_DIGITALWINDOW_MANUAL = 0;
-
 	public const uint64 KSCAMERA_EXTENDEDPROP_DIGITALWINDOW_AUTOFACEFRAMING = 1;
-
 	public const uint64 KSCAMERAPROFILE_FLAGS_VIDEOSTABLIZATION = 1;
-
 	public const uint64 KSCAMERAPROFILE_FLAGS_VIDEOHDR = 2;
-
 	public const uint64 KSCAMERAPROFILE_FLAGS_PHOTOHDR = 4;
-
 	public const uint64 KSCAMERAPROFILE_FLAGS_FACEDETECTION = 8;
-
 	public const uint64 KSCAMERAPROFILE_FLAGS_VARIABLEPHOTOSEQUENCE = 16;
-
 	public const uint64 KSCAMERAPROFILE_FLAGS_PREVIEW_RES_MUSTMATCH = 32;
-
 	public const uint32 KSDEVICE_PROFILE_TYPE_UNKNOWN = 0;
-
 	public const uint32 KSDEVICE_PROFILE_TYPE_CAMERA = 1;
-
 	public const uint32 KSCameraProfileSensorType_RGB = 1;
-
 	public const uint32 KSCameraProfileSensorType_Infrared = 2;
-
 	public const uint32 KSCameraProfileSensorType_Depth = 4;
-
 	public const uint32 KSCameraProfileSensorType_PoseTracking = 8;
-
 	public const uint32 KSCameraProfileSensorType_ImageSegmentation = 16;
-
 	public const uint32 KSCameraProfileSensorType_Custom = 128;
-
 	public const uint32 KS_TVAUDIO_MODE_MONO = 1;
-
 	public const uint32 KS_TVAUDIO_MODE_STEREO = 2;
-
 	public const uint32 KS_TVAUDIO_MODE_LANG_A = 16;
-
 	public const uint32 KS_TVAUDIO_MODE_LANG_B = 32;
-
 	public const uint32 KS_TVAUDIO_MODE_LANG_C = 64;
-
 	public const uint32 KS_TVAUDIO_PRESET_STEREO = 512;
-
 	public const uint32 KS_TVAUDIO_PRESET_LANG_A = 4096;
-
 	public const uint32 KS_TVAUDIO_PRESET_LANG_B = 8192;
-
 	public const uint32 KS_TVAUDIO_PRESET_LANG_C = 16384;
-
 	public const int32 KS_AM_UseNewCSSKey = 1;
-
 	public const uint32 MAX_SINK_DESCRIPTION_NAME_LENGTH = 32;
-
 	public const uint32 JACKDESC2_PRESENCE_DETECT_CAPABILITY = 1;
-
 	public const uint32 JACKDESC2_DYNAMIC_FORMAT_CHANGE_CAPABILITY = 2;
-
 	public const uint32 KSPROPERTY_AUDIO_BUFFER_DURATION = 1;
-
 	public const uint32 MAX_RESOURCEGROUPID_LENGTH = 256;
-
 	public const uint32 AUDIOMODULE_MAX_DATA_SIZE = 64000;
-
 	public const uint32 AUDIOMODULE_MAX_NAME_CCH_SIZE = 128;
-
 	public const uint32 AllocatorStrategy_DontCare = 0;
-
 	public const uint32 AllocatorStrategy_MinimizeNumberOfFrames = 1;
-
 	public const uint32 AllocatorStrategy_MinimizeFrameSize = 2;
-
 	public const uint32 AllocatorStrategy_MinimizeNumberOfAllocators = 4;
-
 	public const uint32 AllocatorStrategy_MaximizeSpeed = 8;
-
 	public const uint32 PipeFactor_None = 0;
-
 	public const uint32 PipeFactor_UserModeUpstream = 1;
-
 	public const uint32 PipeFactor_UserModeDownstream = 2;
-
 	public const uint32 PipeFactor_MemoryTypes = 4;
-
 	public const uint32 PipeFactor_Flags = 8;
-
 	public const uint32 PipeFactor_PhysicalRanges = 16;
-
 	public const uint32 PipeFactor_OptimalRanges = 32;
-
 	public const uint32 PipeFactor_FixedCompression = 64;
-
 	public const uint32 PipeFactor_UnknownCompression = 128;
-
 	public const uint32 PipeFactor_Buffers = 256;
-
 	public const uint32 PipeFactor_Align = 512;
-
 	public const uint32 PipeFactor_PhysicalEnd = 1024;
-
 	public const uint32 PipeFactor_LogicalEnd = 2048;
-
 	public const int32 KSPROPERTY_MEMORY_TRANSPORT = 1;
-
 }
 #endregion
 
@@ -3104,11 +2471,9 @@ public struct KSIDENTIFIER
 			public uint32 Id;
 			public uint32 Flags;
 		}
-
 		public using _Anonymous_e__Struct Anonymous;
 		public int64 Alignment;
 	}
-
 	public using _Anonymous_e__Union Anonymous;
 }
 
@@ -3171,14 +2536,12 @@ public struct KSPROPERTY_BOUNDS_LONG
 		public int32 SignedMinimum;
 		public int32 SignedMaximum;
 	}
-
 	[CRepr]
 	public struct _Anonymous2_e__Struct
 	{
 		public uint32 UnsignedMinimum;
 		public uint32 UnsignedMaximum;
 	}
-
 	public _Anonymous1_e__Struct Anonymous1;
 	public _Anonymous2_e__Struct Anonymous2;
 }
@@ -3192,14 +2555,12 @@ public struct KSPROPERTY_BOUNDS_LONGLONG
 		public int64 SignedMinimum;
 		public int64 SignedMaximum;
 	}
-
 	[CRepr]
 	public struct _Anonymous2_e__Struct
 	{
 		public uint64 UnsignedMinimum;
 		public uint64 UnsignedMaximum;
 	}
-
 	public _Anonymous1_e__Struct Anonymous1;
 	public _Anonymous2_e__Struct Anonymous2;
 }
@@ -3232,26 +2593,22 @@ public struct KSEVENTDATA
 			public uint32 Reserved;
 			public int32 Adjustment;
 		}
-
 		[CRepr]
 		public struct _Alignment_e__Struct
 		{
 			public void* Unused;
 			public int[2] Alignment;
 		}
-
 		[CRepr]
 		public struct _EventHandle_e__Struct
 		{
 			public HANDLE Event;
 			public uint[2] Reserved;
 		}
-
 		public _EventHandle_e__Struct EventHandle;
 		public _SemaphoreHandle_e__Struct SemaphoreHandle;
 		public _Alignment_e__Struct Alignment;
 	}
-
 	public uint32 NotificationType;
 	public using _Anonymous_e__Union Anonymous;
 }
@@ -3273,7 +2630,6 @@ public struct KSRELATIVEEVENT
 		public HANDLE ObjectHandle;
 		public void* ObjectPointer;
 	}
-
 	public uint32 Size;
 	public uint32 Flags;
 	public using _Anonymous_e__Union Anonymous;
@@ -3378,7 +2734,6 @@ public struct KSP_PIN
 		public uint32 Reserved;
 		public uint32 Flags;
 	}
-
 	public KSIDENTIFIER Property;
 	public uint32 PinId;
 	public using _Anonymous_e__Union Anonymous;
@@ -3413,7 +2768,6 @@ public struct KSDATAFORMAT
 		public Guid SubFormat;
 		public Guid Specifier;
 	}
-
 	public using _Anonymous_e__Struct Anonymous;
 	public int64 Alignment;
 }
@@ -3436,11 +2790,12 @@ public struct KSPIN_CONNECT
 	public KSPRIORITY Priority;
 }
 
-[CRepr, FlexibleArray("SymbolicLinkName")]
+[CRepr]
 public struct KSPIN_PHYSICALCONNECTION
 {
 	public uint32 Size;
 	public uint32 Pin;
+	public char16* SymbolicLinkName mut => &SymbolicLinkName_impl;
 	private char16[ANYSIZE_ARRAY] SymbolicLinkName_impl;
 }
 
@@ -3453,14 +2808,12 @@ public struct KSALLOCATOR_FRAMING
 		public uint32 FileAlignment;
 		public int32 FramePitch;
 	}
-
 	[CRepr, Union]
 	public struct _Anonymous1_e__Union
 	{
 		public uint32 OptionsFlags;
 		public uint32 RequirementsFlags;
 	}
-
 	public _Anonymous1_e__Union Anonymous1;
 	public uint32 PoolType;
 	public uint32 Frames;
@@ -3502,7 +2855,6 @@ public struct KS_FRAMING_ITEM
 		public uint32 FileAlignment;
 		public int32 FramePitch;
 	}
-
 	public Guid MemoryType;
 	public Guid BusType;
 	public uint32 MemoryFlags;
@@ -3515,13 +2867,14 @@ public struct KS_FRAMING_ITEM
 	public KS_FRAMING_RANGE_WEIGHTED FramingRange;
 }
 
-[CRepr, FlexibleArray("FramingItem")]
+[CRepr]
 public struct KSALLOCATOR_FRAMING_EX
 {
 	public uint32 CountItems;
 	public uint32 PinFlags;
 	public KS_COMPRESSION OutputCompression;
 	public uint32 PinWeight;
+	public KS_FRAMING_ITEM* FramingItem mut => &FramingItem_impl;
 	private KS_FRAMING_ITEM[ANYSIZE_ARRAY] FramingItem_impl;
 }
 
@@ -3587,11 +2940,9 @@ public struct KSSTREAM_UVC_METADATATYPE_TIMESTAMP
 		{
 			public uint16 _bitfield;
 		}
-
 		public using _Anonymous_e__Struct Anonymous;
 		public uint16 SCRToken;
 	}
-
 	public uint32 PresentationTimeStamp;
 	public uint32 SourceClockReference;
 	public using _Anonymous_e__Union Anonymous;
@@ -3712,7 +3063,6 @@ public struct MF_MDL_SHARED_PAYLOAD_KEY
 		public uint32 fHandle;
 		public uint64 uPayload;
 	}
-
 	public _combined_e__Struct combined;
 	public Guid GMDLHandle;
 }
@@ -3746,23 +3096,25 @@ public struct _KSAUDIO_PACKETSIZE_SIGNALPROCESSINGMODE_CONSTRAINT
 	public uint32 ProcessingPacketDurationInHns;
 }
 
-[CRepr, FlexibleArray("ProcessingModeConstraints")]
+[CRepr]
 public struct KSAUDIO_PACKETSIZE_CONSTRAINTS
 {
 	public uint32 MinPacketPeriodInHns;
 	public uint32 PacketSizeFileAlignment;
 	public uint32 Reserved;
 	public uint32 NumProcessingModeConstraints;
+	public _KSAUDIO_PACKETSIZE_SIGNALPROCESSINGMODE_CONSTRAINT* ProcessingModeConstraints mut => &ProcessingModeConstraints_impl;
 	private _KSAUDIO_PACKETSIZE_SIGNALPROCESSINGMODE_CONSTRAINT[ANYSIZE_ARRAY] ProcessingModeConstraints_impl;
 }
 
-[CRepr, FlexibleArray("ProcessingModeConstraints")]
+[CRepr]
 public struct KSAUDIO_PACKETSIZE_CONSTRAINTS2
 {
 	public uint32 MinPacketPeriodInHns;
 	public uint32 PacketSizeFileAlignment;
 	public uint32 MaxPacketSizeInBytes;
 	public uint32 NumProcessingModeConstraints;
+	public _KSAUDIO_PACKETSIZE_SIGNALPROCESSINGMODE_CONSTRAINT* ProcessingModeConstraints mut => &ProcessingModeConstraints_impl;
 	private _KSAUDIO_PACKETSIZE_SIGNALPROCESSINGMODE_CONSTRAINT[ANYSIZE_ARRAY] ProcessingModeConstraints_impl;
 }
 
@@ -3777,7 +3129,7 @@ public struct KSAUDIO_MICROPHONE_COORDINATES
 	public int16 wHorizontalAngle;
 }
 
-[CRepr, FlexibleArray("KsMicCoord")]
+[CRepr]
 public struct KSAUDIO_MIC_ARRAY_GEOMETRY
 {
 	public uint16 usVersion;
@@ -3789,6 +3141,7 @@ public struct KSAUDIO_MIC_ARRAY_GEOMETRY
 	public uint16 usFrequencyBandLo;
 	public uint16 usFrequencyBandHi;
 	public uint16 usNumberOfMicrophones;
+	public KSAUDIO_MICROPHONE_COORDINATES* KsMicCoord mut => &KsMicCoord_impl;
 	private KSAUDIO_MICROPHONE_COORDINATES[ANYSIZE_ARRAY] KsMicCoord_impl;
 }
 
@@ -3801,21 +3154,18 @@ public struct DS3DVECTOR
 		public float y;
 		public float dvY;
 	}
-
 	[CRepr, Union]
 	public struct _Anonymous1_e__Union
 	{
 		public float x;
 		public float dvX;
 	}
-
 	[CRepr, Union]
 	public struct _Anonymous3_e__Union
 	{
 		public float z;
 		public float dvZ;
 	}
-
 	public _Anonymous1_e__Union Anonymous1;
 	public _Anonymous2_e__Union Anonymous2;
 	public _Anonymous3_e__Union Anonymous3;
@@ -4125,18 +3475,18 @@ public struct KSAUDIO_MIX_CAPS
 		public int32 Reset;
 		public int32 Resolution;
 	}
-
 	public BOOL Mute;
 	public int32 Minimum;
 	public int32 Maximum;
 	public using _Anonymous_e__Union Anonymous;
 }
 
-[CRepr, FlexibleArray("Capabilities")]
+[CRepr]
 public struct KSAUDIO_MIXCAP_TABLE
 {
 	public uint32 InputChannels;
 	public uint32 OutputChannels;
+	public KSAUDIO_MIX_CAPS* Capabilities mut => &Capabilities_impl;
 	private KSAUDIO_MIX_CAPS[ANYSIZE_ARRAY] Capabilities_impl;
 }
 
@@ -4423,10 +3773,11 @@ public struct KS_DVDCOPY_CHLGKEY
 	public uint8[2] Reserved;
 }
 
-[CRepr, FlexibleArray("Reserved")]
+[CRepr]
 public struct KS_DVDCOPY_BUSKEY
 {
 	public uint8[5] BusKey;
+	public uint8* Reserved mut => &Reserved_impl;
 	private uint8[ANYSIZE_ARRAY] Reserved_impl;
 }
 
@@ -4518,7 +3869,6 @@ public struct KS_VIDEOINFO
 		public uint32[3] dwBitMasks;
 		public KS_TRUECOLORINFO TrueColorInfo;
 	}
-
 	public RECT rcSource;
 	public RECT rcTarget;
 	public uint32 dwBitRate;
@@ -4572,7 +3922,6 @@ public struct KS_VIDEOINFOHEADER2
 		public uint32 dwControlFlags;
 		public uint32 dwReserved1;
 	}
-
 	public RECT rcSource;
 	public RECT rcTarget;
 	public uint32 dwBitRate;
@@ -4587,16 +3936,17 @@ public struct KS_VIDEOINFOHEADER2
 	public KS_BITMAPINFOHEADER bmiHeader;
 }
 
-[CRepr, FlexibleArray("bSequenceHeader")]
+[CRepr]
 public struct KS_MPEG1VIDEOINFO
 {
 	public KS_VIDEOINFOHEADER hdr;
 	public uint32 dwStartTimeCode;
 	public uint32 cbSequenceHeader;
+	public uint8* bSequenceHeader mut => &bSequenceHeader_impl;
 	private uint8[ANYSIZE_ARRAY] bSequenceHeader_impl;
 }
 
-[CRepr, FlexibleArray("bSequenceHeader")]
+[CRepr]
 public struct KS_MPEGVIDEOINFO2
 {
 	public KS_VIDEOINFOHEADER2 hdr;
@@ -4605,6 +3955,7 @@ public struct KS_MPEGVIDEOINFO2
 	public uint32 dwProfile;
 	public uint32 dwLevel;
 	public uint32 dwFlags;
+	public uint32* bSequenceHeader mut => &bSequenceHeader_impl;
 	private uint32[ANYSIZE_ARRAY] bSequenceHeader_impl;
 }
 
@@ -5093,18 +4444,15 @@ public struct KS_FRAME_INFO
 			public uint32 Reserved3;
 			public uint32 Reserved4;
 		}
-
 		public using _Anonymous_e__Struct Anonymous;
 		public uint64 FrameCompletionNumber;
 	}
-
 	[CRepr, Union]
 	public struct _Anonymous1_e__Union
 	{
 		public int32 lSurfacePitch;
 		public uint32 Reserved1;
 	}
-
 	public uint32 ExtendedHeaderSize;
 	public uint32 dwFrameFlags;
 	public int64 PictureNumber;
@@ -5466,7 +4814,6 @@ public struct KSPROPERTY_CAMERACONTROL_REGION_OF_INTEREST_S
 		public uint32 Capabilities;
 		public uint32 Configuration;
 	}
-
 	public RECT FocusRect;
 	public BOOL AutoFocusLock;
 	public BOOL AutoExposureLock;
@@ -5505,7 +4852,6 @@ public struct KSCAMERA_EXTENDEDPROP_VALUE
 		public int32 l;
 		public int64 ll;
 	}
-
 	public _Value_e__Union Value;
 }
 
@@ -5780,20 +5126,20 @@ public struct KSCAMERA_EXTENDEDPROP_BACKGROUNDSEGMENTATION_CONFIGCAPS
 		public int32 Numerator;
 		public int32 Denominator;
 	}
-
 	public SIZE Resolution;
 	public _MaxFrameRate_e__Struct MaxFrameRate;
 	public SIZE MaskResolution;
 	public Guid SubType;
 }
 
-[CRepr, FlexibleArray("MaskData")]
+[CRepr]
 public struct KSCAMERA_METADATA_BACKGROUNDSEGMENTATIONMASK
 {
 	public KSCAMERA_METADATA_ITEMHEADER Header;
 	public RECT MaskCoverageBoundingBox;
 	public SIZE MaskResolution;
 	public RECT ForegroundBoundingBox;
+	public uint8* MaskData mut => &MaskData_impl;
 	private uint8[ANYSIZE_ARRAY] MaskData_impl;
 }
 
@@ -5814,14 +5160,12 @@ public struct KSCAMERA_PROFILE_MEDIAINFO
 		public uint32 X;
 		public uint32 Y;
 	}
-
 	[CRepr]
 	public struct _MaxFrameRate_e__Struct
 	{
 		public uint32 Numerator;
 		public uint32 Denominator;
 	}
-
 	public _Resolution_e__Struct Resolution;
 	public _MaxFrameRate_e__Struct MaxFrameRate;
 	public uint64 Flags;
@@ -5843,11 +5187,9 @@ public struct KSCAMERA_PROFILE_PININFO
 			public uint16 PinIndex;
 			public uint16 ProfileSensorType;
 		}
-
 		public using _Anonymous_e__Struct Anonymous;
 		public uint32 Reserved;
 	}
-
 	public Guid PinCategory;
 	public using _Anonymous_e__Union Anonymous;
 	public uint32 MediaInfoCount;
@@ -5886,10 +5228,8 @@ public struct KSDEVICE_PROFILE_INFO
 			public uint32 ConcurrencyCount;
 			public KSCAMERA_PROFILE_CONCURRENCYINFO* Concurrency;
 		}
-
 		public _Camera_e__Struct Camera;
 	}
-
 	public uint32 Type;
 	public uint32 Size;
 	public using _Anonymous_e__Union Anonymous;
@@ -5922,10 +5262,11 @@ public struct KSPROPERTY_NETWORKCAMERACONTROL_METADATA_INFO
 	public BOOL Reserved;
 }
 
-[CRepr, FlexibleArray("EventFilter")]
+[CRepr]
 public struct KSPROPERTY_NETWORKCAMERACONTROL_EVENT_INFO
 {
 	public KSCAMERA_METADATA_ITEMHEADER Header;
+	public char16* EventFilter mut => &EventFilter_impl;
 	private char16[ANYSIZE_ARRAY] EventFilter_impl;
 }
 
@@ -5969,7 +5310,6 @@ public struct KSPROPERTY_EXTDEVICE_S
 		public char16[260] pawchString;
 		public uint32[2] NodeUniqueID;
 	}
-
 	public KSIDENTIFIER Property;
 	public _u_e__Union u;
 }
@@ -6071,7 +5411,6 @@ public struct KSPROPERTY_EXTXPORT_S
 			public uint32 PayloadSize;
 			public uint8[512] Payload;
 		}
-
 		[CRepr]
 		public struct _Timecode_e__Struct
 		{
@@ -6080,7 +5419,6 @@ public struct KSPROPERTY_EXTXPORT_S
 			public uint8 minute;
 			public uint8 hour;
 		}
-
 		public uint32 Capabilities;
 		public uint32 SignalMode;
 		public uint32 LoadMedium;
@@ -6091,7 +5429,6 @@ public struct KSPROPERTY_EXTXPORT_S
 		public uint32 dwAbsTrackNumber;
 		public _RawAVC_e__Struct RawAVC;
 	}
-
 	public KSIDENTIFIER Property;
 	public _u_e__Union u;
 }
@@ -6108,7 +5445,6 @@ public struct KSPROPERTY_EXTXPORT_NODE_S
 			public uint32 PayloadSize;
 			public uint8[512] Payload;
 		}
-
 		[CRepr]
 		public struct _Timecode_e__Struct
 		{
@@ -6117,7 +5453,6 @@ public struct KSPROPERTY_EXTXPORT_NODE_S
 			public uint8 minute;
 			public uint8 hour;
 		}
-
 		public uint32 Capabilities;
 		public uint32 SignalMode;
 		public uint32 LoadMedium;
@@ -6128,7 +5463,6 @@ public struct KSPROPERTY_EXTXPORT_NODE_S
 		public uint32 dwAbsTrackNumber;
 		public _RawAVC_e__Struct RawAVC;
 	}
-
 	public KSP_NODE NodeProperty;
 	public _u_e__Union u;
 }
@@ -6228,12 +5562,13 @@ public struct KSPROPERTY_VIDEOCOMPRESSION_S1
 	public uint32 Flags;
 }
 
-[CRepr, FlexibleArray("DeviceID")]
+[CRepr]
 public struct KSDISPLAYCHANGE
 {
 	public uint32 PelsWidth;
 	public uint32 PelsHeight;
 	public uint32 BitsPerPel;
+	public char16* DeviceID mut => &DeviceID_impl;
 	private char16[ANYSIZE_ARRAY] DeviceID_impl;
 }
 
@@ -6465,11 +5800,9 @@ public struct KSAUDIOMODULE_NOTIFICATION
 			public uint32 InstanceId;
 			public uint32 Reserved;
 		}
-
 		public _ProviderId_e__Struct ProviderId;
 		public int64 Alignment;
 	}
-
 	public using _Anonymous_e__Union Anonymous;
 }
 

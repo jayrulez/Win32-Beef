@@ -9,17 +9,11 @@ namespace Win32.AI.MachineLearning.DirectML;
 public static
 {
 	public const uint32 DML_TARGET_VERSION = 16384;
-
 	public const uint32 DML_TENSOR_DIMENSION_COUNT_MAX = 5;
-
 	public const uint32 DML_TENSOR_DIMENSION_COUNT_MAX1 = 8;
-
 	public const uint32 DML_TEMPORARY_BUFFER_ALIGNMENT = 256;
-
 	public const uint32 DML_PERSISTENT_BUFFER_ALIGNMENT = 256;
-
 	public const uint32 DML_MINIMUM_BUFFER_TENSOR_ALIGNMENT = 16;
-
 }
 #endregion
 

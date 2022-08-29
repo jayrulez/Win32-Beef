@@ -8,39 +8,22 @@ namespace Win32.System.Kernel;
 public static
 {
 	public const int32 OBJ_HANDLE_TAGBITS = 3;
-
 	public const uint32 RTL_BALANCED_NODE_RESERVED_PARENT_MASK = 3;
-
 	public const int32 OBJ_INHERIT = 2;
-
 	public const int32 OBJ_PERMANENT = 16;
-
 	public const int32 OBJ_EXCLUSIVE = 32;
-
 	public const int32 OBJ_CASE_INSENSITIVE = 64;
-
 	public const int32 OBJ_OPENIF = 128;
-
 	public const int32 OBJ_OPENLINK = 256;
-
 	public const int32 OBJ_KERNEL_HANDLE = 512;
-
 	public const int32 OBJ_FORCE_ACCESS_CHECK = 1024;
-
 	public const int32 OBJ_IGNORE_IMPERSONATED_DEVICEMAP = 2048;
-
 	public const int32 OBJ_DONT_REPARSE = 4096;
-
 	public const int32 OBJ_VALID_ATTRIBUTES = 8178;
-
 	public const uint32 NULL64 = 0;
-
 	public const uint32 MAXUCHAR = 255;
-
 	public const uint32 MAXUSHORT = 65535;
-
 	public const uint32 MAXULONG = 4294967295;
-
 }
 #endregion
 
@@ -148,14 +131,12 @@ public struct SLIST_HEADER
 		public uint64 Alignment;
 		public uint64 Region;
 	}
-
 	[CRepr]
 	public struct _HeaderArm64_e__Struct
 	{
 		public uint64 _bitfield1;
 		public uint64 _bitfield2;
 	}
-
 	public using _Anonymous_e__Struct Anonymous;
 	public _HeaderArm64_e__Struct HeaderArm64;
 }
@@ -170,7 +151,6 @@ public struct QUAD
 		public int64 UseThisFieldToCopy;
 		public double DoNotUseThisField;
 	}
-
 	public using _Anonymous_e__Union Anonymous;
 }
 
@@ -220,7 +200,6 @@ public struct RTL_BALANCED_NODE
 		public uint8 _bitfield;
 		public uint ParentValue;
 	}
-
 	[CRepr, Union]
 	public struct _Anonymous1_e__Union
 	{
@@ -230,11 +209,9 @@ public struct RTL_BALANCED_NODE
 			public RTL_BALANCED_NODE* Left;
 			public RTL_BALANCED_NODE* Right;
 		}
-
 		public RTL_BALANCED_NODE*[2] Children;
 		public using _Anonymous_e__Struct Anonymous;
 	}
-
 	public _Anonymous1_e__Union Anonymous1;
 	public _Anonymous2_e__Union Anonymous2;
 }
@@ -326,7 +303,6 @@ public struct NT_TIB
 		public void* FiberData;
 		public uint32 Version;
 	}
-
 	public EXCEPTION_REGISTRATION_RECORD* ExceptionList;
 	public void* StackBase;
 	public void* StackLimit;
@@ -346,14 +322,12 @@ public struct SLIST_HEADER
 		public uint64 Alignment;
 		public uint64 Region;
 	}
-
 	[CRepr]
 	public struct _HeaderX64_e__Struct
 	{
 		public uint64 _bitfield1;
 		public uint64 _bitfield2;
 	}
-
 	public using _Anonymous_e__Struct Anonymous;
 	public _HeaderX64_e__Struct HeaderX64;
 }
@@ -402,7 +376,6 @@ public struct SLIST_HEADER
 		public uint16 Depth;
 		public uint16 CpuId;
 	}
-
 	public uint64 Alignment;
 	public using _Anonymous_e__Struct Anonymous;
 }

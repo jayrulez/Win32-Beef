@@ -8,53 +8,29 @@ namespace Win32.Networking.RemoteDifferentialCompression;
 public static
 {
 	public const uint32 RDCE_TABLE_FULL = 2147745793;
-
 	public const uint32 RDCE_TABLE_CORRUPT = 2147745794;
-
 	public const uint32 MSRDC_SIGNATURE_HASHSIZE = 16;
-
 	public const uint32 SimilarityFileIdMinSize = 4;
-
 	public const uint32 SimilarityFileIdMaxSize = 32;
-
 	public const uint32 MSRDC_VERSION = 65536;
-
 	public const uint32 MSRDC_MINIMUM_COMPATIBLE_APP_VERSION = 65536;
-
 	public const uint32 MSRDC_MINIMUM_DEPTH = 1;
-
 	public const uint32 MSRDC_MAXIMUM_DEPTH = 8;
-
 	public const uint32 MSRDC_MINIMUM_COMPAREBUFFER = 100000;
-
 	public const uint32 MSRDC_MAXIMUM_COMPAREBUFFER = 1073741824;
-
 	public const uint32 MSRDC_DEFAULT_COMPAREBUFFER = 3200000;
-
 	public const uint32 MSRDC_MINIMUM_INPUTBUFFERSIZE = 1024;
-
 	public const uint32 MSRDC_MINIMUM_HORIZONSIZE = 128;
-
 	public const uint32 MSRDC_MAXIMUM_HORIZONSIZE = 16384;
-
 	public const uint32 MSRDC_MINIMUM_HASHWINDOWSIZE = 2;
-
 	public const uint32 MSRDC_MAXIMUM_HASHWINDOWSIZE = 96;
-
 	public const uint32 MSRDC_DEFAULT_HASHWINDOWSIZE_1 = 48;
-
 	public const uint32 MSRDC_DEFAULT_HORIZONSIZE_1 = 1024;
-
 	public const uint32 MSRDC_DEFAULT_HASHWINDOWSIZE_N = 2;
-
 	public const uint32 MSRDC_DEFAULT_HORIZONSIZE_N = 128;
-
 	public const uint32 MSRDC_MAXIMUM_TRAITVALUE = 63;
-
 	public const uint32 MSRDC_MINIMUM_MATCHESREQUIRED = 1;
-
 	public const uint32 MSRDC_MAXIMUM_MATCHESREQUIRED = 16;
-
 }
 #endregion
 

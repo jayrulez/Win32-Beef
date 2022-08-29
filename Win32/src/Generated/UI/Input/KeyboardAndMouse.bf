@@ -1,7 +1,6 @@
 using Win32.Foundation;
 using Win32.UI.TextServices;
 using System;
-using System.Interop;
 
 namespace Win32.UI.Input.KeyboardAndMouse;
 
@@ -9,271 +8,138 @@ namespace Win32.UI.Input.KeyboardAndMouse;
 public static
 {
 	public const uint32 EXTENDED_BIT = 16777216;
-
 	public const uint32 DONTCARE_BIT = 33554432;
-
 	public const uint32 FAKE_KEYSTROKE = 33554432;
-
 	public const uint32 KBDBASE = 0;
-
 	public const uint32 KBDSHIFT = 1;
-
 	public const uint32 KBDCTRL = 2;
-
 	public const uint32 KBDALT = 4;
-
 	public const uint32 KBDKANA = 8;
-
 	public const uint32 KBDROYA = 16;
-
 	public const uint32 KBDLOYA = 32;
-
 	public const uint32 KBDGRPSELTAP = 128;
-
 	public const uint32 GRAVE = 768;
-
 	public const uint32 ACUTE = 769;
-
 	public const uint32 CIRCUMFLEX = 770;
-
 	public const uint32 TILDE = 771;
-
 	public const uint32 MACRON = 772;
-
 	public const uint32 OVERSCORE = 773;
-
 	public const uint32 BREVE = 774;
-
 	public const uint32 DOT_ABOVE = 775;
-
 	public const uint32 UMLAUT = 776;
-
 	public const uint32 DIARESIS = 776;
-
 	public const uint32 HOOK_ABOVE = 777;
-
 	public const uint32 RING = 778;
-
 	public const uint32 DOUBLE_ACUTE = 779;
-
 	public const uint32 HACEK = 780;
-
 	public const uint32 CEDILLA = 807;
-
 	public const uint32 OGONEK = 808;
-
 	public const uint32 TONOS = 900;
-
 	public const uint32 DIARESIS_TONOS = 901;
-
 	public const uint32 SHFT_INVALID = 15;
-
 	public const uint32 WCH_NONE = 61440;
-
 	public const uint32 WCH_DEAD = 61441;
-
 	public const uint32 WCH_LGTR = 61442;
-
 	public const uint32 CAPLOK = 1;
-
 	public const uint32 SGCAPS = 2;
-
 	public const uint32 CAPLOKALTGR = 4;
-
 	public const uint32 KANALOK = 8;
-
 	public const uint32 GRPSELTAP = 128;
-
 	public const uint32 DKF_DEAD = 1;
-
 	public const uint32 KBD_VERSION = 1;
-
 	public const uint32 KLLF_ALTGR = 1;
-
 	public const uint32 KLLF_SHIFTLOCK = 2;
-
 	public const uint32 KLLF_LRM_RLM = 4;
-
 	public const uint32 KLLF_GLOBAL_ATTRS = 2;
-
 	public const uint32 KBDTABLE_MULTI_MAX = 8;
-
 	public const uint32 KEYBOARD_TYPE_GENERIC_101 = 4;
-
 	public const uint32 KEYBOARD_TYPE_JAPAN = 7;
-
 	public const uint32 KEYBOARD_TYPE_KOREA = 8;
-
 	public const uint32 KEYBOARD_TYPE_UNKNOWN = 81;
-
 	public const uint32 NLSKBD_OEM_MICROSOFT = 0;
-
 	public const uint32 NLSKBD_OEM_AX = 1;
-
 	public const uint32 NLSKBD_OEM_EPSON = 4;
-
 	public const uint32 NLSKBD_OEM_FUJITSU = 5;
-
 	public const uint32 NLSKBD_OEM_IBM = 7;
-
 	public const uint32 NLSKBD_OEM_MATSUSHITA = 10;
-
 	public const uint32 NLSKBD_OEM_NEC = 13;
-
 	public const uint32 NLSKBD_OEM_TOSHIBA = 18;
-
 	public const uint32 NLSKBD_OEM_DEC = 24;
-
 	public const uint32 MICROSOFT_KBD_101_TYPE = 0;
-
 	public const uint32 MICROSOFT_KBD_AX_TYPE = 1;
-
 	public const uint32 MICROSOFT_KBD_106_TYPE = 2;
-
 	public const uint32 MICROSOFT_KBD_002_TYPE = 3;
-
 	public const uint32 MICROSOFT_KBD_001_TYPE = 4;
-
 	public const uint32 MICROSOFT_KBD_FUNC = 12;
-
 	public const uint32 AX_KBD_DESKTOP_TYPE = 1;
-
 	public const uint32 FMR_KBD_JIS_TYPE = 0;
-
 	public const uint32 FMR_KBD_OASYS_TYPE = 1;
-
 	public const uint32 FMV_KBD_OASYS_TYPE = 2;
-
 	public const uint32 NEC_KBD_NORMAL_TYPE = 1;
-
 	public const uint32 NEC_KBD_N_MODE_TYPE = 2;
-
 	public const uint32 NEC_KBD_H_MODE_TYPE = 3;
-
 	public const uint32 NEC_KBD_LAPTOP_TYPE = 4;
-
 	public const uint32 NEC_KBD_106_TYPE = 5;
-
 	public const uint32 TOSHIBA_KBD_DESKTOP_TYPE = 13;
-
 	public const uint32 TOSHIBA_KBD_LAPTOP_TYPE = 15;
-
 	public const uint32 DEC_KBD_ANSI_LAYOUT_TYPE = 1;
-
 	public const uint32 DEC_KBD_JIS_LAYOUT_TYPE = 2;
-
 	public const uint32 MICROSOFT_KBD_101A_TYPE = 0;
-
 	public const uint32 MICROSOFT_KBD_101B_TYPE = 4;
-
 	public const uint32 MICROSOFT_KBD_101C_TYPE = 5;
-
 	public const uint32 MICROSOFT_KBD_103_TYPE = 6;
-
 	public const uint32 NLSKBD_INFO_SEND_IME_NOTIFICATION = 1;
-
 	public const uint32 NLSKBD_INFO_ACCESSIBILITY_KEYMAP = 2;
-
 	public const uint32 NLSKBD_INFO_EMURATE_101_KEYBOARD = 16;
-
 	public const uint32 NLSKBD_INFO_EMURATE_106_KEYBOARD = 32;
-
 	public const uint32 KBDNLS_TYPE_NULL = 0;
-
 	public const uint32 KBDNLS_TYPE_NORMAL = 1;
-
 	public const uint32 KBDNLS_TYPE_TOGGLE = 2;
-
 	public const uint32 KBDNLS_INDEX_NORMAL = 1;
-
 	public const uint32 KBDNLS_INDEX_ALT = 2;
-
 	public const uint32 KBDNLS_NULL = 0;
-
 	public const uint32 KBDNLS_NOEVENT = 1;
-
 	public const uint32 KBDNLS_SEND_BASE_VK = 2;
-
 	public const uint32 KBDNLS_SEND_PARAM_VK = 3;
-
 	public const uint32 KBDNLS_KANALOCK = 4;
-
 	public const uint32 KBDNLS_ALPHANUM = 5;
-
 	public const uint32 KBDNLS_HIRAGANA = 6;
-
 	public const uint32 KBDNLS_KATAKANA = 7;
-
 	public const uint32 KBDNLS_SBCSDBCS = 8;
-
 	public const uint32 KBDNLS_ROMAN = 9;
-
 	public const uint32 KBDNLS_CODEINPUT = 10;
-
 	public const uint32 KBDNLS_HELP_OR_END = 11;
-
 	public const uint32 KBDNLS_HOME_OR_CLEAR = 12;
-
 	public const uint32 KBDNLS_NUMPAD = 13;
-
 	public const uint32 KBDNLS_KANAEVENT = 14;
-
 	public const uint32 KBDNLS_CONV_OR_NONCONV = 15;
-
 	public const uint32 KBD_TYPE = 4;
-
 	public const uint32 VK__none_ = 255;
-
 	public const uint32 VK_ABNT_C1 = 193;
-
 	public const uint32 VK_ABNT_C2 = 194;
-
 	public const uint32 SCANCODE_LSHIFT = 42;
-
 	public const uint32 SCANCODE_RSHIFT = 54;
-
 	public const uint32 SCANCODE_CTRL = 29;
-
 	public const uint32 SCANCODE_ALT = 56;
-
 	public const uint32 SCANCODE_NUMPAD_FIRST = 71;
-
 	public const uint32 SCANCODE_NUMPAD_LAST = 82;
-
 	public const uint32 SCANCODE_LWIN = 91;
-
 	public const uint32 SCANCODE_RWIN = 92;
-
 	public const uint32 SCANCODE_THAI_LAYOUT_TOGGLE = 41;
-
 	public const uint32 VK_DBE_ALPHANUMERIC = 240;
-
 	public const uint32 VK_DBE_KATAKANA = 241;
-
 	public const uint32 VK_DBE_HIRAGANA = 242;
-
 	public const uint32 VK_DBE_SBCSCHAR = 243;
-
 	public const uint32 VK_DBE_DBCSCHAR = 244;
-
 	public const uint32 VK_DBE_ROMAN = 245;
-
 	public const uint32 VK_DBE_NOROMAN = 246;
-
 	public const uint32 VK_DBE_ENTERWORDREGISTERMODE = 247;
-
 	public const uint32 VK_DBE_ENTERIMECONFIGMODE = 248;
-
 	public const uint32 VK_DBE_FLUSHSTRING = 249;
-
 	public const uint32 VK_DBE_CODEINPUT = 250;
-
 	public const uint32 VK_DBE_NOCODEINPUT = 251;
-
 	public const uint32 VK_DBE_DETERMINESTRING = 252;
-
 	public const uint32 VK_DBE_ENTERDLGCONVERSIONMODE = 253;
-
 }
 #endregion
 
@@ -608,11 +474,12 @@ public struct VK_TO_BIT
 	public uint8 ModBits;
 }
 
-[CRepr, FlexibleArray("ModNumber")]
+[CRepr]
 public struct MODIFIERS
 {
 	public VK_TO_BIT* pVkToBit;
 	public uint16 wMaxModBits;
+	public uint8* ModNumber mut => &ModNumber_impl;
 	private uint8[ANYSIZE_ARRAY] ModNumber_impl;
 }
 
@@ -630,11 +497,12 @@ public struct VK_VSC
 	public uint8 Vsc;
 }
 
-[CRepr, FlexibleArray("wch")]
+[CRepr]
 public struct VK_TO_WCHARS1
 {
 	public uint8 VirtualKey;
 	public uint8 Attributes;
+	public char16* wch mut => &wch_impl;
 	private char16[ANYSIZE_ARRAY] wch_impl;
 }
 
@@ -726,11 +594,12 @@ public struct DEADKEY
 	public uint16 uFlags;
 }
 
-[CRepr, FlexibleArray("wch")]
+[CRepr]
 public struct LIGATURE1
 {
 	public uint8 VirtualKey;
 	public uint16 ModificationNumber;
+	public char16* wch mut => &wch_impl;
 	private char16[ANYSIZE_ARRAY] wch_impl;
 }
 
@@ -903,7 +772,6 @@ public struct INPUT
 		public KEYBDINPUT ki;
 		public HARDWAREINPUT hi;
 	}
-
 	public INPUT_TYPE type;
 	public using _Anonymous_e__Union Anonymous;
 }

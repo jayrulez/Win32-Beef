@@ -249,7 +249,6 @@ public struct D2D_MATRIX_3X2_F
 			public float dx;
 			public float dy;
 		}
-
 		[CRepr]
 		public struct _Anonymous2_e__Struct
 		{
@@ -260,12 +259,10 @@ public struct D2D_MATRIX_3X2_F
 			public float _31;
 			public float _32;
 		}
-
 		public _Anonymous1_e__Struct Anonymous1;
 		public _Anonymous2_e__Struct Anonymous2;
 		public float[6] m;
 	}
-
 	public using _Anonymous_e__Union Anonymous;
 }
 
@@ -291,11 +288,9 @@ public struct D2D_MATRIX_4X3_F
 			public float _42;
 			public float _43;
 		}
-
 		public using _Anonymous_e__Struct Anonymous;
 		public float[12] m;
 	}
-
 	public using _Anonymous_e__Union Anonymous;
 }
 
@@ -325,11 +320,9 @@ public struct D2D_MATRIX_4X4_F
 			public float _43;
 			public float _44;
 		}
-
 		public using _Anonymous_e__Struct Anonymous;
 		public float[16] m;
 	}
-
 	public using _Anonymous_e__Union Anonymous;
 }
 
@@ -363,11 +356,9 @@ public struct D2D_MATRIX_5X4_F
 			public float _53;
 			public float _54;
 		}
-
 		public using _Anonymous_e__Struct Anonymous;
 		public float[20] m;
 	}
-
 	public using _Anonymous_e__Union Anonymous;
 }
 

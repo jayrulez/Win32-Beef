@@ -3,7 +3,6 @@ using Win32.Security;
 using Win32.Networking.WinSock;
 using Win32.System.IO;
 using System;
-using System.Interop;
 
 namespace Win32.Networking.HttpServer;
 
@@ -11,195 +10,100 @@ namespace Win32.Networking.HttpServer;
 public static
 {
 	public const uint32 HTTP_DEMAND_CBT = 4;
-
 	public const uint32 HTTP_MAX_SERVER_QUEUE_LENGTH = 2147483647;
-
 	public const uint32 HTTP_MIN_SERVER_QUEUE_LENGTH = 1;
-
 	public const uint32 HTTP_AUTH_ENABLE_BASIC = 1;
-
 	public const uint32 HTTP_AUTH_ENABLE_DIGEST = 2;
-
 	public const uint32 HTTP_AUTH_ENABLE_NTLM = 4;
-
 	public const uint32 HTTP_AUTH_ENABLE_NEGOTIATE = 8;
-
 	public const uint32 HTTP_AUTH_ENABLE_KERBEROS = 16;
-
 	public const uint32 HTTP_AUTH_EX_FLAG_ENABLE_KERBEROS_CREDENTIAL_CACHING = 1;
-
 	public const uint32 HTTP_AUTH_EX_FLAG_CAPTURE_CREDENTIAL = 2;
-
 	public const uint32 HTTP_CHANNEL_BIND_PROXY = 1;
-
 	public const uint32 HTTP_CHANNEL_BIND_PROXY_COHOSTING = 32;
-
 	public const uint32 HTTP_CHANNEL_BIND_NO_SERVICE_NAME_CHECK = 2;
-
 	public const uint32 HTTP_CHANNEL_BIND_DOTLESS_SERVICE = 4;
-
 	public const uint32 HTTP_CHANNEL_BIND_SECURE_CHANNEL_TOKEN = 8;
-
 	public const uint32 HTTP_CHANNEL_BIND_CLIENT_SERVICE = 16;
-
 	public const uint32 HTTP_LOG_FIELD_DATE = 1;
-
 	public const uint32 HTTP_LOG_FIELD_TIME = 2;
-
 	public const uint32 HTTP_LOG_FIELD_CLIENT_IP = 4;
-
 	public const uint32 HTTP_LOG_FIELD_USER_NAME = 8;
-
 	public const uint32 HTTP_LOG_FIELD_SITE_NAME = 16;
-
 	public const uint32 HTTP_LOG_FIELD_COMPUTER_NAME = 32;
-
 	public const uint32 HTTP_LOG_FIELD_SERVER_IP = 64;
-
 	public const uint32 HTTP_LOG_FIELD_METHOD = 128;
-
 	public const uint32 HTTP_LOG_FIELD_URI_STEM = 256;
-
 	public const uint32 HTTP_LOG_FIELD_URI_QUERY = 512;
-
 	public const uint32 HTTP_LOG_FIELD_STATUS = 1024;
-
 	public const uint32 HTTP_LOG_FIELD_WIN32_STATUS = 2048;
-
 	public const uint32 HTTP_LOG_FIELD_BYTES_SENT = 4096;
-
 	public const uint32 HTTP_LOG_FIELD_BYTES_RECV = 8192;
-
 	public const uint32 HTTP_LOG_FIELD_TIME_TAKEN = 16384;
-
 	public const uint32 HTTP_LOG_FIELD_SERVER_PORT = 32768;
-
 	public const uint32 HTTP_LOG_FIELD_USER_AGENT = 65536;
-
 	public const uint32 HTTP_LOG_FIELD_COOKIE = 131072;
-
 	public const uint32 HTTP_LOG_FIELD_REFERER = 262144;
-
 	public const uint32 HTTP_LOG_FIELD_VERSION = 524288;
-
 	public const uint32 HTTP_LOG_FIELD_HOST = 1048576;
-
 	public const uint32 HTTP_LOG_FIELD_SUB_STATUS = 2097152;
-
 	public const uint32 HTTP_LOG_FIELD_STREAM_ID = 134217728;
-
 	public const uint32 HTTP_LOG_FIELD_STREAM_ID_EX = 268435456;
-
 	public const uint32 HTTP_LOG_FIELD_TRANSPORT_TYPE = 536870912;
-
 	public const uint32 HTTP_LOG_FIELD_CLIENT_PORT = 4194304;
-
 	public const uint32 HTTP_LOG_FIELD_URI = 8388608;
-
 	public const uint32 HTTP_LOG_FIELD_SITE_ID = 16777216;
-
 	public const uint32 HTTP_LOG_FIELD_REASON = 33554432;
-
 	public const uint32 HTTP_LOG_FIELD_QUEUE_NAME = 67108864;
-
 	public const uint32 HTTP_LOG_FIELD_CORRELATION_ID = 1073741824;
-
 	public const uint32 HTTP_LOGGING_FLAG_LOCAL_TIME_ROLLOVER = 1;
-
 	public const uint32 HTTP_LOGGING_FLAG_USE_UTF8_CONVERSION = 2;
-
 	public const uint32 HTTP_LOGGING_FLAG_LOG_ERRORS_ONLY = 4;
-
 	public const uint32 HTTP_LOGGING_FLAG_LOG_SUCCESS_ONLY = 8;
-
 	public const uint32 HTTP_CREATE_REQUEST_QUEUE_FLAG_OPEN_EXISTING = 1;
-
 	public const uint32 HTTP_CREATE_REQUEST_QUEUE_FLAG_CONTROLLER = 2;
-
 	public const uint32 HTTP_CREATE_REQUEST_QUEUE_FLAG_DELEGATION = 8;
-
 	public const uint32 HTTP_RECEIVE_REQUEST_ENTITY_BODY_FLAG_FILL_BUFFER = 1;
-
 	public const uint32 HTTP_SEND_RESPONSE_FLAG_DISCONNECT = 1;
-
 	public const uint32 HTTP_SEND_RESPONSE_FLAG_MORE_DATA = 2;
-
 	public const uint32 HTTP_SEND_RESPONSE_FLAG_BUFFER_DATA = 4;
-
 	public const uint32 HTTP_SEND_RESPONSE_FLAG_ENABLE_NAGLING = 8;
-
 	public const uint32 HTTP_SEND_RESPONSE_FLAG_PROCESS_RANGES = 32;
-
 	public const uint32 HTTP_SEND_RESPONSE_FLAG_OPAQUE = 64;
-
 	public const uint32 HTTP_SEND_RESPONSE_FLAG_GOAWAY = 256;
-
 	public const uint32 HTTP_FLUSH_RESPONSE_FLAG_RECURSIVE = 1;
-
 	public const uint32 HTTP_URL_FLAG_REMOVE_ALL = 1;
-
 	public const uint32 HTTP_RECEIVE_SECURE_CHANNEL_TOKEN = 1;
-
 	public const uint32 HTTP_RECEIVE_FULL_CHAIN = 2;
-
 	public const uint32 HTTP_REQUEST_SIZING_INFO_FLAG_TCP_FAST_OPEN = 1;
-
 	public const uint32 HTTP_REQUEST_SIZING_INFO_FLAG_TLS_SESSION_RESUMPTION = 2;
-
 	public const uint32 HTTP_REQUEST_SIZING_INFO_FLAG_TLS_FALSE_START = 4;
-
 	public const uint32 HTTP_REQUEST_SIZING_INFO_FLAG_FIRST_REQUEST = 8;
-
 	public const uint32 HTTP_REQUEST_AUTH_FLAG_TOKEN_FOR_CACHED_CRED = 1;
-
 	public const uint32 HTTP_REQUEST_FLAG_MORE_ENTITY_BODY_EXISTS = 1;
-
 	public const uint32 HTTP_REQUEST_FLAG_IP_ROUTED = 2;
-
 	public const uint32 HTTP_REQUEST_FLAG_HTTP2 = 4;
-
 	public const uint32 HTTP_REQUEST_FLAG_HTTP3 = 8;
-
 	public const uint32 HTTP_RESPONSE_FLAG_MULTIPLE_ENCODINGS_AVAILABLE = 1;
-
 	public const uint32 HTTP_RESPONSE_FLAG_MORE_ENTITY_BODY_EXISTS = 2;
-
 	public const uint32 HTTP_RESPONSE_INFO_FLAGS_PRESERVE_ORDER = 1;
-
 	public const uint32 HTTP_SERVICE_CONFIG_SSL_FLAG_USE_DS_MAPPER = 1;
-
 	public const uint32 HTTP_SERVICE_CONFIG_SSL_FLAG_NEGOTIATE_CLIENT_CERT = 2;
-
 	public const uint32 HTTP_SERVICE_CONFIG_SSL_FLAG_NO_RAW_FILTER = 4;
-
 	public const uint32 HTTP_SERVICE_CONFIG_SSL_FLAG_REJECT = 8;
-
 	public const uint32 HTTP_SERVICE_CONFIG_SSL_FLAG_DISABLE_HTTP2 = 16;
-
 	public const uint32 HTTP_SERVICE_CONFIG_SSL_FLAG_DISABLE_QUIC = 32;
-
 	public const uint32 HTTP_SERVICE_CONFIG_SSL_FLAG_DISABLE_TLS13 = 64;
-
 	public const uint32 HTTP_SERVICE_CONFIG_SSL_FLAG_DISABLE_OCSP_STAPLING = 128;
-
 	public const uint32 HTTP_SERVICE_CONFIG_SSL_FLAG_ENABLE_TOKEN_BINDING = 256;
-
 	public const uint32 HTTP_SERVICE_CONFIG_SSL_FLAG_LOG_EXTENDED_EVENTS = 512;
-
 	public const uint32 HTTP_SERVICE_CONFIG_SSL_FLAG_DISABLE_LEGACY_TLS = 1024;
-
 	public const uint32 HTTP_SERVICE_CONFIG_SSL_FLAG_ENABLE_SESSION_TICKET = 2048;
-
 	public const uint32 HTTP_SERVICE_CONFIG_SSL_FLAG_DISABLE_TLS12 = 4096;
-
 	public const uint32 HTTP_SERVICE_CONFIG_SSL_FLAG_ENABLE_CLIENT_CORRELATION = 8192;
-
 	public const uint32 HTTP_REQUEST_PROPERTY_SNI_HOST_MAX_LENGTH = 255;
-
 	public const uint32 HTTP_REQUEST_PROPERTY_SNI_FLAG_SNI_USED = 1;
-
 	public const uint32 HTTP_REQUEST_PROPERTY_SNI_FLAG_NO_SNI = 2;
-
 }
 #endregion
 
@@ -930,42 +834,36 @@ public struct HTTP_DATA_CHUNK
 			public HTTP_BYTE_RANGE ByteRange;
 			public PWSTR pFragmentName;
 		}
-
 		[CRepr]
 		public struct _FromFileHandle_e__Struct
 		{
 			public HTTP_BYTE_RANGE ByteRange;
 			public HANDLE FileHandle;
 		}
-
 		[CRepr]
 		public struct _FromFragmentCache_e__Struct
 		{
 			public uint16 FragmentNameLength;
 			public PWSTR pFragmentName;
 		}
-
 		[CRepr]
 		public struct _FromMemory_e__Struct
 		{
 			public void* pBuffer;
 			public uint32 BufferLength;
 		}
-
 		[CRepr]
 		public struct _Trailers_e__Struct
 		{
 			public uint16 TrailerCount;
 			public HTTP_UNKNOWN_HEADER* pTrailers;
 		}
-
 		public _FromMemory_e__Struct FromMemory;
 		public _FromFileHandle_e__Struct FromFileHandle;
 		public _FromFragmentCache_e__Struct FromFragmentCache;
 		public _FromFragmentCacheEx_e__Struct FromFragmentCacheEx;
 		public _Trailers_e__Struct Trailers;
 	}
-
 	public HTTP_DATA_CHUNK_TYPE DataChunkType;
 	public using _Anonymous_e__Union Anonymous;
 }
@@ -1282,7 +1180,6 @@ public struct HTTP_SERVICE_CONFIG_SSL_PARAM_EX
 		public HTTP_ERROR_HEADERS_PARAM HttpErrorHeadersParam;
 		public HTTP_TLS_SESSION_TICKET_KEYS_PARAM HttpTlsSessionTicketKeysParam;
 	}
-
 	public HTTP_SSL_SERVICE_CONFIG_EX_PARAM_TYPE ParamType;
 	public uint64 Flags;
 	public using _Anonymous_e__Union Anonymous;
@@ -1388,10 +1285,11 @@ public struct HTTP_SERVICE_CONFIG_IP_LISTEN_PARAM
 	public SOCKADDR* pAddress;
 }
 
-[CRepr, FlexibleArray("AddrList")]
+[CRepr]
 public struct HTTP_SERVICE_CONFIG_IP_LISTEN_QUERY
 {
 	public uint32 AddrCount;
+	public SOCKADDR_STORAGE* AddrList mut => &AddrList_impl;
 	private SOCKADDR_STORAGE[ANYSIZE_ARRAY] AddrList_impl;
 }
 

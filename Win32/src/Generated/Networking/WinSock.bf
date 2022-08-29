@@ -5,7 +5,6 @@ using Win32.System.IO;
 using Win32.System.Com;
 using Win32.NetworkManagement.WindowsFilteringPlatform;
 using System;
-using System.Interop;
 
 namespace Win32.Networking.WinSock;
 
@@ -13,1882 +12,944 @@ namespace Win32.Networking.WinSock;
 public static
 {
 	public const Guid SOCKET_DEFAULT2_QM_POLICY = .(0xaec2ef9c, 0x3a4d, 0x4d3e, 0x88, 0x42, 0x23, 0x99, 0x42, 0xe3, 0x9a, 0x47);
-
 	public const Guid REAL_TIME_NOTIFICATION_CAPABILITY = .(0x6b59819a, 0x5cae, 0x492d, 0xa9, 0x01, 0x2a, 0x3c, 0x2c, 0x50, 0x16, 0x4f);
-
 	public const Guid REAL_TIME_NOTIFICATION_CAPABILITY_EX = .(0x6843da03, 0x154a, 0x4616, 0xa5, 0x08, 0x44, 0x37, 0x12, 0x95, 0xf9, 0x6b);
-
 	public const Guid ASSOCIATE_NAMERES_CONTEXT = .(0x59a38b67, 0xd4fe, 0x46e1, 0xba, 0x3c, 0x87, 0xea, 0x74, 0xca, 0x30, 0x49);
-
 	public const uint32 TIMESTAMPING_FLAG_RX = 1;
-
 	public const uint32 TIMESTAMPING_FLAG_TX = 2;
-
 	public const uint32 SO_TIMESTAMP = 12298;
-
 	public const uint32 SO_TIMESTAMP_ID = 12299;
-
 	public const uint32 TCP_INITIAL_RTO_DEFAULT_RTT = 0;
-
 	public const uint32 TCP_INITIAL_RTO_DEFAULT_MAX_SYN_RETRANSMISSIONS = 0;
-
 	public const uint32 SOCKET_SETTINGS_GUARANTEE_ENCRYPTION = 1;
-
 	public const uint32 SOCKET_SETTINGS_ALLOW_INSECURE = 2;
-
 	public const uint32 SOCKET_SETTINGS_IPSEC_SKIP_FILTER_INSTANTIATION = 1;
-
 	public const uint32 SOCKET_SETTINGS_IPSEC_OPTIONAL_PEER_NAME_VERIFICATION = 2;
-
 	public const uint32 SOCKET_SETTINGS_IPSEC_ALLOW_FIRST_INBOUND_PKT_UNENCRYPTED = 4;
-
 	public const uint32 SOCKET_SETTINGS_IPSEC_PEER_NAME_IS_RAW_FORMAT = 8;
-
 	public const uint32 SOCKET_QUERY_IPSEC2_ABORT_CONNECTION_ON_FIELD_CHANGE = 1;
-
 	public const uint32 SOCKET_QUERY_IPSEC2_FIELD_MASK_MM_SA_ID = 1;
-
 	public const uint32 SOCKET_QUERY_IPSEC2_FIELD_MASK_QM_SA_ID = 2;
-
 	public const uint32 SOCKET_INFO_CONNECTION_SECURED = 1;
-
 	public const uint32 SOCKET_INFO_CONNECTION_ENCRYPTED = 2;
-
 	public const uint32 SOCKET_INFO_CONNECTION_IMPERSONATED = 4;
-
 	public const uint32 IN4ADDR_LOOPBACK = 16777343;
-
 	public const uint32 IN4ADDR_LOOPBACKPREFIX_LENGTH = 8;
-
 	public const uint32 IN4ADDR_LINKLOCALPREFIX_LENGTH = 16;
-
 	public const uint32 IN4ADDR_MULTICASTPREFIX_LENGTH = 4;
-
 	public const uint32 RIO_MSG_DONT_NOTIFY = 1;
-
 	public const uint32 RIO_MSG_DEFER = 2;
-
 	public const uint32 RIO_MSG_WAITALL = 4;
-
 	public const uint32 RIO_MSG_COMMIT_ONLY = 8;
-
 	public const uint32 RIO_MAX_CQ_SIZE = 134217728;
-
 	public const uint32 RIO_CORRUPT_CQ = 4294967295;
-
 	public const uint16 AF_UNIX = 1;
-
 	public const uint16 AF_IMPLINK = 3;
-
 	public const uint16 AF_PUP = 4;
-
 	public const uint16 AF_CHAOS = 5;
-
 	public const uint16 AF_NS = 6;
-
 	public const uint16 AF_IPX = 6;
-
 	public const uint16 AF_ISO = 7;
-
 	public const uint16 AF_OSI = 7;
-
 	public const uint16 AF_ECMA = 8;
-
 	public const uint16 AF_DATAKIT = 9;
-
 	public const uint16 AF_CCITT = 10;
-
 	public const uint16 AF_SNA = 11;
-
 	public const uint16 AF_DECnet = 12;
-
 	public const uint16 AF_DLI = 13;
-
 	public const uint16 AF_LAT = 14;
-
 	public const uint16 AF_HYLINK = 15;
-
 	public const uint16 AF_APPLETALK = 16;
-
 	public const uint16 AF_NETBIOS = 17;
-
 	public const uint16 AF_VOICEVIEW = 18;
-
 	public const uint16 AF_FIREFOX = 19;
-
 	public const uint16 AF_UNKNOWN1 = 20;
-
 	public const uint16 AF_BAN = 21;
-
 	public const uint16 AF_ATM = 22;
-
 	public const uint16 AF_CLUSTER = 24;
-
 	public const uint16 AF_12844 = 25;
-
 	public const uint16 AF_IRDA = 26;
-
 	public const uint16 AF_NETDES = 28;
-
 	public const uint16 AF_MAX = 29;
-
 	public const uint16 AF_TCNPROCESS = 29;
-
 	public const uint16 AF_TCNMESSAGE = 30;
-
 	public const uint16 AF_ICLFXBM = 31;
-
 	public const uint16 AF_LINK = 33;
-
 	public const uint16 AF_HYPERV = 34;
-
 	public const uint16 SOCK_STREAM = 1;
-
 	public const uint16 SOCK_DGRAM = 2;
-
 	public const uint16 SOCK_RAW = 3;
-
 	public const uint16 SOCK_RDM = 4;
-
 	public const uint16 SOCK_SEQPACKET = 5;
-
 	public const uint32 SOL_SOCKET = 65535;
-
 	public const uint32 SO_DEBUG = 1;
-
 	public const uint32 SO_ACCEPTCONN = 2;
-
 	public const uint32 SO_REUSEADDR = 4;
-
 	public const uint32 SO_KEEPALIVE = 8;
-
 	public const uint32 SO_DONTROUTE = 16;
-
 	public const uint32 SO_BROADCAST = 32;
-
 	public const uint32 SO_USELOOPBACK = 64;
-
 	public const uint32 SO_LINGER = 128;
-
 	public const uint32 SO_OOBINLINE = 256;
-
 	public const uint32 SO_SNDBUF = 4097;
-
 	public const uint32 SO_RCVBUF = 4098;
-
 	public const uint32 SO_SNDLOWAT = 4099;
-
 	public const uint32 SO_RCVLOWAT = 4100;
-
 	public const uint32 SO_SNDTIMEO = 4101;
-
 	public const uint32 SO_RCVTIMEO = 4102;
-
 	public const uint32 SO_ERROR = 4103;
-
 	public const uint32 SO_TYPE = 4104;
-
 	public const uint32 SO_BSP_STATE = 4105;
-
 	public const uint32 SO_GROUP_ID = 8193;
-
 	public const uint32 SO_GROUP_PRIORITY = 8194;
-
 	public const uint32 SO_MAX_MSG_SIZE = 8195;
-
 	public const uint32 SO_CONDITIONAL_ACCEPT = 12290;
-
 	public const uint32 SO_PAUSE_ACCEPT = 12291;
-
 	public const uint32 SO_COMPARTMENT_ID = 12292;
-
 	public const uint32 SO_RANDOMIZE_PORT = 12293;
-
 	public const uint32 SO_PORT_SCALABILITY = 12294;
-
 	public const uint32 SO_REUSE_UNICASTPORT = 12295;
-
 	public const uint32 SO_REUSE_MULTICASTPORT = 12296;
-
 	public const uint32 SO_ORIGINAL_DST = 12303;
-
 	public const uint32 IP6T_SO_ORIGINAL_DST = 12303;
-
 	public const uint32 WSK_SO_BASE = 16384;
-
 	public const uint32 TCP_NODELAY = 1;
-
 	public const uint32 _SS_MAXSIZE = 128;
-
 	public const uint32 IOC_UNIX = 0;
-
 	public const uint32 IOC_WS2 = 134217728;
-
 	public const uint32 IOC_PROTOCOL = 268435456;
-
 	public const uint32 IOC_VENDOR = 402653184;
-
 	public const uint32 IPPROTO_IP = 0;
-
 	public const uint32 IPPORT_TCPMUX = 1;
-
 	public const uint32 IPPORT_ECHO = 7;
-
 	public const uint32 IPPORT_DISCARD = 9;
-
 	public const uint32 IPPORT_SYSTAT = 11;
-
 	public const uint32 IPPORT_DAYTIME = 13;
-
 	public const uint32 IPPORT_NETSTAT = 15;
-
 	public const uint32 IPPORT_QOTD = 17;
-
 	public const uint32 IPPORT_MSP = 18;
-
 	public const uint32 IPPORT_CHARGEN = 19;
-
 	public const uint32 IPPORT_FTP_DATA = 20;
-
 	public const uint32 IPPORT_FTP = 21;
-
 	public const uint32 IPPORT_TELNET = 23;
-
 	public const uint32 IPPORT_SMTP = 25;
-
 	public const uint32 IPPORT_TIMESERVER = 37;
-
 	public const uint32 IPPORT_NAMESERVER = 42;
-
 	public const uint32 IPPORT_WHOIS = 43;
-
 	public const uint32 IPPORT_MTP = 57;
-
 	public const uint32 IPPORT_TFTP = 69;
-
 	public const uint32 IPPORT_RJE = 77;
-
 	public const uint32 IPPORT_FINGER = 79;
-
 	public const uint32 IPPORT_TTYLINK = 87;
-
 	public const uint32 IPPORT_SUPDUP = 95;
-
 	public const uint32 IPPORT_POP3 = 110;
-
 	public const uint32 IPPORT_NTP = 123;
-
 	public const uint32 IPPORT_EPMAP = 135;
-
 	public const uint32 IPPORT_NETBIOS_NS = 137;
-
 	public const uint32 IPPORT_NETBIOS_DGM = 138;
-
 	public const uint32 IPPORT_NETBIOS_SSN = 139;
-
 	public const uint32 IPPORT_IMAP = 143;
-
 	public const uint32 IPPORT_SNMP = 161;
-
 	public const uint32 IPPORT_SNMP_TRAP = 162;
-
 	public const uint32 IPPORT_IMAP3 = 220;
-
 	public const uint32 IPPORT_LDAP = 389;
-
 	public const uint32 IPPORT_HTTPS = 443;
-
 	public const uint32 IPPORT_MICROSOFT_DS = 445;
-
 	public const uint32 IPPORT_EXECSERVER = 512;
-
 	public const uint32 IPPORT_LOGINSERVER = 513;
-
 	public const uint32 IPPORT_CMDSERVER = 514;
-
 	public const uint32 IPPORT_EFSSERVER = 520;
-
 	public const uint32 IPPORT_BIFFUDP = 512;
-
 	public const uint32 IPPORT_WHOSERVER = 513;
-
 	public const uint32 IPPORT_ROUTESERVER = 520;
-
 	public const uint32 IPPORT_RESERVED = 1024;
-
 	public const uint32 IPPORT_REGISTERED_MIN = 1024;
-
 	public const uint32 IPPORT_REGISTERED_MAX = 49151;
-
 	public const uint32 IPPORT_DYNAMIC_MIN = 49152;
-
 	public const uint32 IPPORT_DYNAMIC_MAX = 65535;
-
 	public const uint32 IN_CLASSA_NET = 4278190080;
-
 	public const uint32 IN_CLASSA_NSHIFT = 24;
-
 	public const uint32 IN_CLASSA_HOST = 16777215;
-
 	public const uint32 IN_CLASSA_MAX = 128;
-
 	public const uint32 IN_CLASSB_NET = 4294901760;
-
 	public const uint32 IN_CLASSB_NSHIFT = 16;
-
 	public const uint32 IN_CLASSB_HOST = 65535;
-
 	public const uint32 IN_CLASSB_MAX = 65536;
-
 	public const uint32 IN_CLASSC_NET = 4294967040;
-
 	public const uint32 IN_CLASSC_NSHIFT = 8;
-
 	public const uint32 IN_CLASSC_HOST = 255;
-
 	public const uint32 IN_CLASSD_NET = 4026531840;
-
 	public const uint32 IN_CLASSD_NSHIFT = 28;
-
 	public const uint32 IN_CLASSD_HOST = 268435455;
-
 	public const uint32 INADDR_LOOPBACK = 2130706433;
-
 	public const uint32 INADDR_NONE = 4294967295;
-
 	public const uint32 IOCPARM_MASK = 127;
-
 	public const uint32 IOC_VOID = 536870912;
-
 	public const uint32 IOC_OUT = 1073741824;
-
 	public const uint32 IOC_IN = 2147483648;
-
 	public const uint32 MSG_TRUNC = 256;
-
 	public const uint32 MSG_CTRUNC = 512;
-
 	public const uint32 MSG_BCAST = 1024;
-
 	public const uint32 MSG_MCAST = 2048;
-
 	public const uint32 MSG_ERRQUEUE = 4096;
-
 	public const uint32 AI_PASSIVE = 1;
-
 	public const uint32 AI_CANONNAME = 2;
-
 	public const uint32 AI_NUMERICHOST = 4;
-
 	public const uint32 AI_NUMERICSERV = 8;
-
 	public const uint32 AI_DNS_ONLY = 16;
-
 	public const uint32 AI_FORCE_CLEAR_TEXT = 32;
-
 	public const uint32 AI_BYPASS_DNS_CACHE = 64;
-
 	public const uint32 AI_RETURN_TTL = 128;
-
 	public const uint32 AI_ALL = 256;
-
 	public const uint32 AI_ADDRCONFIG = 1024;
-
 	public const uint32 AI_V4MAPPED = 2048;
-
 	public const uint32 AI_NON_AUTHORITATIVE = 16384;
-
 	public const uint32 AI_SECURE = 32768;
-
 	public const uint32 AI_RETURN_PREFERRED_NAMES = 65536;
-
 	public const uint32 AI_FQDN = 131072;
-
 	public const uint32 AI_FILESERVER = 262144;
-
 	public const uint32 AI_DISABLE_IDN_ENCODING = 524288;
-
 	public const uint32 AI_SECURE_WITH_FALLBACK = 1048576;
-
 	public const uint32 AI_EXCLUSIVE_CUSTOM_SERVERS = 2097152;
-
 	public const uint32 AI_RETURN_RESPONSE_FLAGS = 268435456;
-
 	public const uint32 AI_REQUIRE_SECURE = 536870912;
-
 	public const uint32 AI_RESOLUTION_HANDLE = 1073741824;
-
 	public const uint32 AI_EXTENDED = 2147483648;
-
 	public const uint32 ADDRINFOEX_VERSION_2 = 2;
-
 	public const uint32 ADDRINFOEX_VERSION_3 = 3;
-
 	public const uint32 ADDRINFOEX_VERSION_4 = 4;
-
 	public const uint32 ADDRINFOEX_VERSION_5 = 5;
-
 	public const uint32 ADDRINFOEX_VERSION_6 = 6;
-
 	public const uint32 AI_DNS_SERVER_TYPE_UDP = 1;
-
 	public const uint32 AI_DNS_SERVER_TYPE_DOH = 2;
-
 	public const uint32 AI_DNS_SERVER_UDP_FALLBACK = 1;
-
 	public const uint32 AI_DNS_RESPONSE_SECURE = 1;
-
 	public const uint32 AI_DNS_RESPONSE_HOSTFILE = 2;
-
 	public const uint32 NS_ALL = 0;
-
 	public const uint32 NS_SAP = 1;
-
 	public const uint32 NS_NDS = 2;
-
 	public const uint32 NS_PEER_BROWSE = 3;
-
 	public const uint32 NS_SLP = 5;
-
 	public const uint32 NS_DHCP = 6;
-
 	public const uint32 NS_TCPIP_LOCAL = 10;
-
 	public const uint32 NS_TCPIP_HOSTS = 11;
-
 	public const uint32 NS_DNS = 12;
-
 	public const uint32 NS_NETBT = 13;
-
 	public const uint32 NS_WINS = 14;
-
 	public const uint32 NS_NLA = 15;
-
 	public const uint32 NS_NBP = 20;
-
 	public const uint32 NS_MS = 30;
-
 	public const uint32 NS_STDA = 31;
-
 	public const uint32 NS_NTDS = 32;
-
 	public const uint32 NS_EMAIL = 37;
-
 	public const uint32 NS_X500 = 40;
-
 	public const uint32 NS_NIS = 41;
-
 	public const uint32 NS_NISPLUS = 42;
-
 	public const uint32 NS_WRQ = 50;
-
 	public const uint32 NS_NETDES = 60;
-
 	public const uint32 NI_NOFQDN = 1;
-
 	public const uint32 NI_NUMERICHOST = 2;
-
 	public const uint32 NI_NAMEREQD = 4;
-
 	public const uint32 NI_NUMERICSERV = 8;
-
 	public const uint32 NI_DGRAM = 16;
-
 	public const uint32 NI_MAXHOST = 1025;
-
 	public const uint32 NI_MAXSERV = 32;
-
 	public const uint32 IFF_UP = 1;
-
 	public const uint32 IFF_BROADCAST = 2;
-
 	public const uint32 IFF_LOOPBACK = 4;
-
 	public const uint32 IFF_POINTTOPOINT = 8;
-
 	public const uint32 IFF_MULTICAST = 16;
-
 	public const uint32 IP_OPTIONS = 1;
-
 	public const uint32 IP_HDRINCL = 2;
-
 	public const uint32 IP_TOS = 3;
-
 	public const uint32 IP_TTL = 4;
-
 	public const uint32 IP_MULTICAST_IF = 9;
-
 	public const uint32 IP_MULTICAST_TTL = 10;
-
 	public const uint32 IP_MULTICAST_LOOP = 11;
-
 	public const uint32 IP_ADD_MEMBERSHIP = 12;
-
 	public const uint32 IP_DROP_MEMBERSHIP = 13;
-
 	public const uint32 IP_DONTFRAGMENT = 14;
-
 	public const uint32 IP_ADD_SOURCE_MEMBERSHIP = 15;
-
 	public const uint32 IP_DROP_SOURCE_MEMBERSHIP = 16;
-
 	public const uint32 IP_BLOCK_SOURCE = 17;
-
 	public const uint32 IP_UNBLOCK_SOURCE = 18;
-
 	public const uint32 IP_PKTINFO = 19;
-
 	public const uint32 IP_HOPLIMIT = 21;
-
 	public const uint32 IP_RECVTTL = 21;
-
 	public const uint32 IP_RECEIVE_BROADCAST = 22;
-
 	public const uint32 IP_RECVIF = 24;
-
 	public const uint32 IP_RECVDSTADDR = 25;
-
 	public const uint32 IP_IFLIST = 28;
-
 	public const uint32 IP_ADD_IFLIST = 29;
-
 	public const uint32 IP_DEL_IFLIST = 30;
-
 	public const uint32 IP_UNICAST_IF = 31;
-
 	public const uint32 IP_RTHDR = 32;
-
 	public const uint32 IP_GET_IFLIST = 33;
-
 	public const uint32 IP_RECVRTHDR = 38;
-
 	public const uint32 IP_TCLASS = 39;
-
 	public const uint32 IP_RECVTCLASS = 40;
-
 	public const uint32 IP_RECVTOS = 40;
-
 	public const uint32 IP_ORIGINAL_ARRIVAL_IF = 47;
-
 	public const uint32 IP_ECN = 50;
-
 	public const uint32 IP_RECVECN = 50;
-
 	public const uint32 IP_PKTINFO_EX = 51;
-
 	public const uint32 IP_WFP_REDIRECT_RECORDS = 60;
-
 	public const uint32 IP_WFP_REDIRECT_CONTEXT = 70;
-
 	public const uint32 IP_MTU_DISCOVER = 71;
-
 	public const uint32 IP_MTU = 73;
-
 	public const uint32 IP_NRT_INTERFACE = 74;
-
 	public const uint32 IP_RECVERR = 75;
-
 	public const uint32 IP_USER_MTU = 76;
-
 	public const int32 IP_UNSPECIFIED_TYPE_OF_SERVICE = -1;
-
 	public const uint32 IP_UNSPECIFIED_USER_MTU = 4294967295;
-
 	public const uint32 IN6ADDR_LINKLOCALPREFIX_LENGTH = 64;
-
 	public const uint32 IN6ADDR_MULTICASTPREFIX_LENGTH = 8;
-
 	public const uint32 IN6ADDR_SOLICITEDNODEMULTICASTPREFIX_LENGTH = 104;
-
 	public const uint32 IN6ADDR_V4MAPPEDPREFIX_LENGTH = 96;
-
 	public const uint32 IN6ADDR_6TO4PREFIX_LENGTH = 16;
-
 	public const uint32 IN6ADDR_TEREDOPREFIX_LENGTH = 32;
-
 	public const uint32 MCAST_JOIN_GROUP = 41;
-
 	public const uint32 MCAST_LEAVE_GROUP = 42;
-
 	public const uint32 MCAST_BLOCK_SOURCE = 43;
-
 	public const uint32 MCAST_UNBLOCK_SOURCE = 44;
-
 	public const uint32 MCAST_JOIN_SOURCE_GROUP = 45;
-
 	public const uint32 MCAST_LEAVE_SOURCE_GROUP = 46;
-
 	public const uint32 IPV6_HOPOPTS = 1;
-
 	public const uint32 IPV6_HDRINCL = 2;
-
 	public const uint32 IPV6_UNICAST_HOPS = 4;
-
 	public const uint32 IPV6_MULTICAST_IF = 9;
-
 	public const uint32 IPV6_MULTICAST_HOPS = 10;
-
 	public const uint32 IPV6_MULTICAST_LOOP = 11;
-
 	public const uint32 IPV6_ADD_MEMBERSHIP = 12;
-
 	public const uint32 IPV6_JOIN_GROUP = 12;
-
 	public const uint32 IPV6_DROP_MEMBERSHIP = 13;
-
 	public const uint32 IPV6_LEAVE_GROUP = 13;
-
 	public const uint32 IPV6_DONTFRAG = 14;
-
 	public const uint32 IPV6_PKTINFO = 19;
-
 	public const uint32 IPV6_HOPLIMIT = 21;
-
 	public const uint32 IPV6_PROTECTION_LEVEL = 23;
-
 	public const uint32 IPV6_RECVIF = 24;
-
 	public const uint32 IPV6_RECVDSTADDR = 25;
-
 	public const uint32 IPV6_CHECKSUM = 26;
-
 	public const uint32 IPV6_V6ONLY = 27;
-
 	public const uint32 IPV6_IFLIST = 28;
-
 	public const uint32 IPV6_ADD_IFLIST = 29;
-
 	public const uint32 IPV6_DEL_IFLIST = 30;
-
 	public const uint32 IPV6_UNICAST_IF = 31;
-
 	public const uint32 IPV6_RTHDR = 32;
-
 	public const uint32 IPV6_GET_IFLIST = 33;
-
 	public const uint32 IPV6_RECVRTHDR = 38;
-
 	public const uint32 IPV6_TCLASS = 39;
-
 	public const uint32 IPV6_RECVTCLASS = 40;
-
 	public const uint32 IPV6_ECN = 50;
-
 	public const uint32 IPV6_RECVECN = 50;
-
 	public const uint32 IPV6_PKTINFO_EX = 51;
-
 	public const uint32 IPV6_WFP_REDIRECT_RECORDS = 60;
-
 	public const uint32 IPV6_WFP_REDIRECT_CONTEXT = 70;
-
 	public const uint32 IPV6_MTU_DISCOVER = 71;
-
 	public const uint32 IPV6_MTU = 72;
-
 	public const uint32 IPV6_NRT_INTERFACE = 74;
-
 	public const uint32 IPV6_RECVERR = 75;
-
 	public const uint32 IPV6_USER_MTU = 76;
-
 	public const int32 IP_UNSPECIFIED_HOP_LIMIT = -1;
-
 	public const uint32 IP_PROTECTION_LEVEL = 23;
-
 	public const uint32 PROTECTION_LEVEL_UNRESTRICTED = 10;
-
 	public const uint32 PROTECTION_LEVEL_EDGERESTRICTED = 20;
-
 	public const uint32 PROTECTION_LEVEL_RESTRICTED = 30;
-
 	public const uint32 PROTECTION_LEVEL_DEFAULT = 20;
-
 	public const uint32 INET_ADDRSTRLEN = 22;
-
 	public const uint32 INET6_ADDRSTRLEN = 65;
-
 	public const uint32 TCP_OFFLOAD_NO_PREFERENCE = 0;
-
 	public const uint32 TCP_OFFLOAD_NOT_PREFERRED = 1;
-
 	public const uint32 TCP_OFFLOAD_PREFERRED = 2;
-
 	public const uint32 TCP_EXPEDITED_1122 = 2;
-
 	public const uint32 TCP_KEEPALIVE = 3;
-
 	public const uint32 TCP_MAXSEG = 4;
-
 	public const uint32 TCP_MAXRT = 5;
-
 	public const uint32 TCP_STDURG = 6;
-
 	public const uint32 TCP_NOURG = 7;
-
 	public const uint32 TCP_ATMARK = 8;
-
 	public const uint32 TCP_NOSYNRETRIES = 9;
-
 	public const uint32 TCP_TIMESTAMPS = 10;
-
 	public const uint32 TCP_OFFLOAD_PREFERENCE = 11;
-
 	public const uint32 TCP_CONGESTION_ALGORITHM = 12;
-
 	public const uint32 TCP_DELAY_FIN_ACK = 13;
-
 	public const uint32 TCP_MAXRTMS = 14;
-
 	public const uint32 TCP_FASTOPEN = 15;
-
 	public const uint32 TCP_KEEPCNT = 16;
-
 	public const uint32 TCP_KEEPIDLE = 3;
-
 	public const uint32 TCP_KEEPINTVL = 17;
-
 	public const uint32 TCP_FAIL_CONNECT_ON_ICMP_ERROR = 18;
-
 	public const uint32 TCP_ICMP_ERROR_INFO = 19;
-
 	public const uint32 UDP_SEND_MSG_SIZE = 2;
-
 	public const uint32 UDP_RECV_MAX_COALESCED_SIZE = 3;
-
 	public const uint32 UDP_COALESCED_INFO = 3;
-
 	public const uint32 WINDOWS_AF_IRDA = 26;
-
 	public const uint32 WINDOWS_PF_IRDA = 26;
-
 	public const uint32 WCE_AF_IRDA = 22;
-
 	public const uint32 WCE_PF_IRDA = 22;
-
 	public const uint32 IRDA_PROTO_SOCK_STREAM = 1;
-
 	public const uint16 PF_IRDA = 26;
-
 	public const uint32 SOL_IRLMP = 255;
-
 	public const uint32 IRLMP_ENUMDEVICES = 16;
-
 	public const uint32 IRLMP_IAS_SET = 17;
-
 	public const uint32 IRLMP_IAS_QUERY = 18;
-
 	public const uint32 IRLMP_SEND_PDU_LEN = 19;
-
 	public const uint32 IRLMP_EXCLUSIVE_MODE = 20;
-
 	public const uint32 IRLMP_IRLPT_MODE = 21;
-
 	public const uint32 IRLMP_9WIRE_MODE = 22;
-
 	public const uint32 IRLMP_TINYTP_MODE = 23;
-
 	public const uint32 IRLMP_PARAMETERS = 24;
-
 	public const uint32 IRLMP_DISCOVERY_MODE = 25;
-
 	public const uint32 IRLMP_SHARP_MODE = 32;
-
 	public const uint32 IAS_ATTRIB_NO_CLASS = 16;
-
 	public const uint32 IAS_ATTRIB_NO_ATTRIB = 0;
-
 	public const uint32 IAS_ATTRIB_INT = 1;
-
 	public const uint32 IAS_ATTRIB_OCTETSEQ = 2;
-
 	public const uint32 IAS_ATTRIB_STR = 3;
-
 	public const uint32 IAS_MAX_USER_STRING = 256;
-
 	public const uint32 IAS_MAX_OCTET_STRING = 1024;
-
 	public const uint32 IAS_MAX_CLASSNAME = 64;
-
 	public const uint32 IAS_MAX_ATTRIBNAME = 256;
-
 	public const uint32 LmCharSetASCII = 0;
-
 	public const uint32 LmCharSetISO_8859_1 = 1;
-
 	public const uint32 LmCharSetISO_8859_2 = 2;
-
 	public const uint32 LmCharSetISO_8859_3 = 3;
-
 	public const uint32 LmCharSetISO_8859_4 = 4;
-
 	public const uint32 LmCharSetISO_8859_5 = 5;
-
 	public const uint32 LmCharSetISO_8859_6 = 6;
-
 	public const uint32 LmCharSetISO_8859_7 = 7;
-
 	public const uint32 LmCharSetISO_8859_8 = 8;
-
 	public const uint32 LmCharSetISO_8859_9 = 9;
-
 	public const uint32 LmCharSetUNICODE = 255;
-
 	public const uint32 LM_BAUD_1200 = 1200;
-
 	public const uint32 LM_BAUD_2400 = 2400;
-
 	public const uint32 LM_BAUD_9600 = 9600;
-
 	public const uint32 LM_BAUD_19200 = 19200;
-
 	public const uint32 LM_BAUD_38400 = 38400;
-
 	public const uint32 LM_BAUD_57600 = 57600;
-
 	public const uint32 LM_BAUD_115200 = 115200;
-
 	public const uint32 LM_BAUD_576K = 576000;
-
 	public const uint32 LM_BAUD_1152K = 1152000;
-
 	public const uint32 LM_BAUD_4M = 4000000;
-
 	public const uint32 LM_BAUD_16M = 16000000;
-
 	public const uint32 SO_CONNDATA = 28672;
-
 	public const uint32 SO_CONNOPT = 28673;
-
 	public const uint32 SO_DISCDATA = 28674;
-
 	public const uint32 SO_DISCOPT = 28675;
-
 	public const uint32 SO_CONNDATALEN = 28676;
-
 	public const uint32 SO_CONNOPTLEN = 28677;
-
 	public const uint32 SO_DISCDATALEN = 28678;
-
 	public const uint32 SO_DISCOPTLEN = 28679;
-
 	public const uint32 SO_OPENTYPE = 28680;
-
 	public const uint32 SO_SYNCHRONOUS_ALERT = 16;
-
 	public const uint32 SO_SYNCHRONOUS_NONALERT = 32;
-
 	public const uint32 SO_MAXDG = 28681;
-
 	public const uint32 SO_MAXPATHDG = 28682;
-
 	public const uint32 SO_UPDATE_ACCEPT_CONTEXT = 28683;
-
 	public const uint32 SO_CONNECT_TIME = 28684;
-
 	public const uint32 SO_UPDATE_CONNECT_CONTEXT = 28688;
-
 	public const uint32 TCP_BSDURGENT = 28672;
-
 	public const uint32 TF_DISCONNECT = 1;
-
 	public const uint32 TF_REUSE_SOCKET = 2;
-
 	public const uint32 TF_WRITE_BEHIND = 4;
-
 	public const uint32 TF_USE_DEFAULT_WORKER = 0;
-
 	public const uint32 TF_USE_SYSTEM_THREAD = 16;
-
 	public const uint32 TF_USE_KERNEL_APC = 32;
-
 	public const uint32 TP_ELEMENT_MEMORY = 1;
-
 	public const uint32 TP_ELEMENT_FILE = 2;
-
 	public const uint32 TP_ELEMENT_EOP = 4;
-
 	public const uint32 TP_DISCONNECT = 1;
-
 	public const uint32 TP_REUSE_SOCKET = 2;
-
 	public const uint32 TP_USE_DEFAULT_WORKER = 0;
-
 	public const uint32 TP_USE_SYSTEM_THREAD = 16;
-
 	public const uint32 TP_USE_KERNEL_APC = 32;
-
 	public const uint32 DE_REUSE_SOCKET = 2;
-
 	public const uint32 NLA_ALLUSERS_NETWORK = 1;
-
 	public const uint32 NLA_FRIENDLY_NAME = 2;
-
 	public const uint32 SERVICE_RESOURCE = 1;
-
 	public const uint32 SERVICE_SERVICE = 2;
-
 	public const uint32 SERVICE_LOCAL = 4;
-
 	public const uint32 SERVICE_FLAG_DEFER = 1;
-
 	public const uint32 SERVICE_FLAG_HARD = 2;
-
 	public const uint32 PROP_COMMENT = 1;
-
 	public const uint32 PROP_LOCALE = 2;
-
 	public const uint32 PROP_DISPLAY_HINT = 4;
-
 	public const uint32 PROP_VERSION = 8;
-
 	public const uint32 PROP_START_TIME = 16;
-
 	public const uint32 PROP_MACHINE = 32;
-
 	public const uint32 PROP_ADDRESSES = 256;
-
 	public const uint32 PROP_SD = 512;
-
 	public const uint32 PROP_ALL = 2147483648;
-
 	public const uint32 SERVICE_ADDRESS_FLAG_RPC_CN = 1;
-
 	public const uint32 SERVICE_ADDRESS_FLAG_RPC_DG = 2;
-
 	public const uint32 SERVICE_ADDRESS_FLAG_RPC_NB = 4;
-
 	public const uint32 NS_DEFAULT = 0;
-
 	public const uint32 NS_VNS = 50;
-
 	public const uint32 NSTYPE_HIERARCHICAL = 1;
-
 	public const uint32 NSTYPE_DYNAMIC = 2;
-
 	public const uint32 NSTYPE_ENUMERABLE = 4;
-
 	public const uint32 NSTYPE_WORKGROUP = 8;
-
 	public const uint32 XP_CONNECTIONLESS = 1;
-
 	public const uint32 XP_GUARANTEED_DELIVERY = 2;
-
 	public const uint32 XP_GUARANTEED_ORDER = 4;
-
 	public const uint32 XP_MESSAGE_ORIENTED = 8;
-
 	public const uint32 XP_PSEUDO_STREAM = 16;
-
 	public const uint32 XP_GRACEFUL_CLOSE = 32;
-
 	public const uint32 XP_EXPEDITED_DATA = 64;
-
 	public const uint32 XP_CONNECT_DATA = 128;
-
 	public const uint32 XP_DISCONNECT_DATA = 256;
-
 	public const uint32 XP_SUPPORTS_BROADCAST = 512;
-
 	public const uint32 XP_SUPPORTS_MULTICAST = 1024;
-
 	public const uint32 XP_BANDWIDTH_ALLOCATION = 2048;
-
 	public const uint32 XP_FRAGMENTATION = 4096;
-
 	public const uint32 XP_ENCRYPTS = 8192;
-
 	public const uint32 RES_SOFT_SEARCH = 1;
-
 	public const uint32 RES_FIND_MULTIPLE = 2;
-
 	public const uint32 RES_SERVICE = 4;
-
 	public const uint32 SET_SERVICE_PARTIAL_SUCCESS = 1;
-
 	public const uint32 FD_SETSIZE = 64;
-
 	public const uint32 IMPLINK_IP = 155;
-
 	public const uint32 IMPLINK_LOWEXPER = 156;
-
 	public const uint32 IMPLINK_HIGHEXPER = 158;
-
 	public const uint32 WSADESCRIPTION_LEN = 256;
-
 	public const uint32 WSASYS_STATUS_LEN = 128;
-
 	public const uint32 IP_DEFAULT_MULTICAST_TTL = 1;
-
 	public const uint32 IP_DEFAULT_MULTICAST_LOOP = 1;
-
 	public const uint32 IP_MAX_MEMBERSHIPS = 20;
-
 	public const int32 SOCKET_ERROR = -1;
-
 	public const uint16 PF_UNIX = 1;
-
 	public const uint16 PF_IMPLINK = 3;
-
 	public const uint16 PF_PUP = 4;
-
 	public const uint16 PF_CHAOS = 5;
-
 	public const uint16 PF_NS = 6;
-
 	public const uint16 PF_IPX = 6;
-
 	public const uint16 PF_ISO = 7;
-
 	public const uint16 PF_OSI = 7;
-
 	public const uint16 PF_ECMA = 8;
-
 	public const uint16 PF_DATAKIT = 9;
-
 	public const uint16 PF_CCITT = 10;
-
 	public const uint16 PF_SNA = 11;
-
 	public const uint16 PF_DECnet = 12;
-
 	public const uint16 PF_DLI = 13;
-
 	public const uint16 PF_LAT = 14;
-
 	public const uint16 PF_HYLINK = 15;
-
 	public const uint16 PF_APPLETALK = 16;
-
 	public const uint16 PF_VOICEVIEW = 18;
-
 	public const uint16 PF_FIREFOX = 19;
-
 	public const uint16 PF_UNKNOWN1 = 20;
-
 	public const uint16 PF_BAN = 21;
-
 	public const uint16 PF_MAX = 29;
-
 	public const uint32 SOMAXCONN = 5;
-
 	public const uint32 MSG_PEEK = 2;
-
 	public const uint32 MSG_MAXIOVLEN = 16;
-
 	public const uint32 MSG_PARTIAL = 32768;
-
 	public const uint32 MAXGETHOSTSTRUCT = 1024;
-
 	public const uint32 FD_READ = 1;
-
 	public const uint32 FD_WRITE = 2;
-
 	public const uint32 FD_OOB = 4;
-
 	public const uint32 FD_ACCEPT = 8;
-
 	public const uint32 FD_CONNECT = 16;
-
 	public const uint32 FD_CLOSE = 32;
-
 	public const uint32 INCL_WINSOCK_API_PROTOTYPES = 1;
-
 	public const uint32 INCL_WINSOCK_API_TYPEDEFS = 0;
-
 	public const int32 FROM_PROTOCOL_INFO = -1;
-
 	public const uint32 SO_PROTOCOL_INFOA = 8196;
-
 	public const uint32 SO_PROTOCOL_INFOW = 8197;
-
 	public const uint32 SO_PROTOCOL_INFO = 8197;
-
 	public const uint32 PVD_CONFIG = 12289;
-
 	public const uint16 PF_ATM = 22;
-
 	public const uint32 MSG_WAITALL = 8;
-
 	public const uint32 MSG_PUSH_IMMEDIATE = 32;
-
 	public const uint32 MSG_INTERRUPT = 16;
-
 	public const uint32 FD_READ_BIT = 0;
-
 	public const uint32 FD_WRITE_BIT = 1;
-
 	public const uint32 FD_OOB_BIT = 2;
-
 	public const uint32 FD_ACCEPT_BIT = 3;
-
 	public const uint32 FD_CONNECT_BIT = 4;
-
 	public const uint32 FD_CLOSE_BIT = 5;
-
 	public const uint32 FD_QOS_BIT = 6;
-
 	public const uint32 FD_GROUP_QOS_BIT = 7;
-
 	public const uint32 FD_ROUTING_INTERFACE_CHANGE_BIT = 8;
-
 	public const uint32 FD_ADDRESS_LIST_CHANGE_BIT = 9;
-
 	public const uint32 FD_MAX_EVENTS = 10;
-
 	public const uint32 WSA_MAXIMUM_WAIT_EVENTS = 64;
-
 	public const uint32 WSA_WAIT_EVENT_0 = 0;
-
 	public const uint32 WSA_WAIT_IO_COMPLETION = 192;
-
 	public const uint32 WSA_WAIT_FAILED = 4294967295;
-
 	public const uint32 CF_ACCEPT = 0;
-
 	public const uint32 CF_REJECT = 1;
-
 	public const uint32 CF_DEFER = 2;
-
 	public const uint32 SD_RECEIVE = 0;
-
 	public const uint32 SD_SEND = 1;
-
 	public const uint32 SD_BOTH = 2;
-
 	public const uint32 SG_UNCONSTRAINED_GROUP = 1;
-
 	public const uint32 SG_CONSTRAINED_GROUP = 2;
-
 	public const uint32 MAX_PROTOCOL_CHAIN = 7;
-
 	public const uint32 BASE_PROTOCOL = 1;
-
 	public const uint32 LAYERED_PROTOCOL = 0;
-
 	public const uint32 WSAPROTOCOL_LEN = 255;
-
 	public const uint32 PFL_MULTIPLE_PROTO_ENTRIES = 1;
-
 	public const uint32 PFL_RECOMMENDED_PROTO_ENTRY = 2;
-
 	public const uint32 PFL_HIDDEN = 4;
-
 	public const uint32 PFL_MATCHES_PROTOCOL_ZERO = 8;
-
 	public const uint32 PFL_NETWORKDIRECT_PROVIDER = 16;
-
 	public const uint32 XP1_CONNECTIONLESS = 1;
-
 	public const uint32 XP1_GUARANTEED_DELIVERY = 2;
-
 	public const uint32 XP1_GUARANTEED_ORDER = 4;
-
 	public const uint32 XP1_MESSAGE_ORIENTED = 8;
-
 	public const uint32 XP1_PSEUDO_STREAM = 16;
-
 	public const uint32 XP1_GRACEFUL_CLOSE = 32;
-
 	public const uint32 XP1_EXPEDITED_DATA = 64;
-
 	public const uint32 XP1_CONNECT_DATA = 128;
-
 	public const uint32 XP1_DISCONNECT_DATA = 256;
-
 	public const uint32 XP1_SUPPORT_BROADCAST = 512;
-
 	public const uint32 XP1_SUPPORT_MULTIPOINT = 1024;
-
 	public const uint32 XP1_MULTIPOINT_CONTROL_PLANE = 2048;
-
 	public const uint32 XP1_MULTIPOINT_DATA_PLANE = 4096;
-
 	public const uint32 XP1_QOS_SUPPORTED = 8192;
-
 	public const uint32 XP1_INTERRUPT = 16384;
-
 	public const uint32 XP1_UNI_SEND = 32768;
-
 	public const uint32 XP1_UNI_RECV = 65536;
-
 	public const uint32 XP1_IFS_HANDLES = 131072;
-
 	public const uint32 XP1_PARTIAL_MESSAGE = 262144;
-
 	public const uint32 XP1_SAN_SUPPORT_SDP = 524288;
-
 	public const uint32 BIGENDIAN = 0;
-
 	public const uint32 LITTLEENDIAN = 1;
-
 	public const uint32 SECURITY_PROTOCOL_NONE = 0;
-
 	public const uint32 JL_SENDER_ONLY = 1;
-
 	public const uint32 JL_RECEIVER_ONLY = 2;
-
 	public const uint32 JL_BOTH = 4;
-
 	public const uint32 WSA_FLAG_OVERLAPPED = 1;
-
 	public const uint32 WSA_FLAG_MULTIPOINT_C_ROOT = 2;
-
 	public const uint32 WSA_FLAG_MULTIPOINT_C_LEAF = 4;
-
 	public const uint32 WSA_FLAG_MULTIPOINT_D_ROOT = 8;
-
 	public const uint32 WSA_FLAG_MULTIPOINT_D_LEAF = 16;
-
 	public const uint32 WSA_FLAG_ACCESS_SYSTEM_SECURITY = 64;
-
 	public const uint32 WSA_FLAG_NO_HANDLE_INHERIT = 128;
-
 	public const uint32 WSA_FLAG_REGISTERED_IO = 256;
-
 	public const uint32 TH_NETDEV = 1;
-
 	public const uint32 TH_TAPI = 2;
-
 	public const uint32 SERVICE_MULTIPLE = 1;
-
 	public const uint32 NS_LOCALNAME = 19;
-
 	public const uint32 RES_UNUSED_1 = 1;
-
 	public const uint32 RES_FLUSH_CACHE = 2;
-
 	public const uint32 LUP_DEEP = 1;
-
 	public const uint32 LUP_CONTAINERS = 2;
-
 	public const uint32 LUP_NOCONTAINERS = 4;
-
 	public const uint32 LUP_NEAREST = 8;
-
 	public const uint32 LUP_RETURN_NAME = 16;
-
 	public const uint32 LUP_RETURN_TYPE = 32;
-
 	public const uint32 LUP_RETURN_VERSION = 64;
-
 	public const uint32 LUP_RETURN_COMMENT = 128;
-
 	public const uint32 LUP_RETURN_ADDR = 256;
-
 	public const uint32 LUP_RETURN_BLOB = 512;
-
 	public const uint32 LUP_RETURN_ALIASES = 1024;
-
 	public const uint32 LUP_RETURN_QUERY_STRING = 2048;
-
 	public const uint32 LUP_RETURN_ALL = 4080;
-
 	public const uint32 LUP_RES_SERVICE = 32768;
-
 	public const uint32 LUP_FLUSHCACHE = 4096;
-
 	public const uint32 LUP_FLUSHPREVIOUS = 8192;
-
 	public const uint32 LUP_NON_AUTHORITATIVE = 16384;
-
 	public const uint32 LUP_SECURE = 32768;
-
 	public const uint32 LUP_RETURN_PREFERRED_NAMES = 65536;
-
 	public const uint32 LUP_DNS_ONLY = 131072;
-
 	public const uint32 LUP_RETURN_RESPONSE_FLAGS = 262144;
-
 	public const uint32 LUP_ADDRCONFIG = 1048576;
-
 	public const uint32 LUP_DUAL_ADDR = 2097152;
-
 	public const uint32 LUP_FILESERVER = 4194304;
-
 	public const uint32 LUP_DISABLE_IDN_ENCODING = 8388608;
-
 	public const uint32 LUP_API_ANSI = 16777216;
-
 	public const uint32 LUP_EXTENDED_QUERYSET = 33554432;
-
 	public const uint32 LUP_SECURE_WITH_FALLBACK = 67108864;
-
 	public const uint32 LUP_EXCLUSIVE_CUSTOM_SERVERS = 134217728;
-
 	public const uint32 LUP_REQUIRE_SECURE = 268435456;
-
 	public const uint32 LUP_RETURN_TTL = 536870912;
-
 	public const uint32 LUP_FORCE_CLEAR_TEXT = 1073741824;
-
 	public const uint32 LUP_RESOLUTION_HANDLE = 2147483648;
-
 	public const uint32 RESULT_IS_ALIAS = 1;
-
 	public const uint32 RESULT_IS_ADDED = 16;
-
 	public const uint32 RESULT_IS_CHANGED = 32;
-
 	public const uint32 RESULT_IS_DELETED = 64;
-
 	public const uint32 POLLRDNORM = 256;
-
 	public const uint32 POLLRDBAND = 512;
-
 	public const uint32 POLLPRI = 1024;
-
 	public const uint32 POLLWRNORM = 16;
-
 	public const uint32 POLLOUT = 16;
-
 	public const uint32 POLLWRBAND = 32;
-
 	public const uint32 POLLERR = 1;
-
 	public const uint32 POLLHUP = 2;
-
 	public const uint32 POLLNVAL = 4;
-
 	public const uint32 SOCK_NOTIFY_REGISTER_EVENT_NONE = 0;
-
 	public const uint32 SOCK_NOTIFY_REGISTER_EVENT_IN = 1;
-
 	public const uint32 SOCK_NOTIFY_REGISTER_EVENT_OUT = 2;
-
 	public const uint32 SOCK_NOTIFY_REGISTER_EVENT_HANGUP = 4;
-
 	public const uint32 SOCK_NOTIFY_EVENT_IN = 1;
-
 	public const uint32 SOCK_NOTIFY_EVENT_OUT = 2;
-
 	public const uint32 SOCK_NOTIFY_EVENT_HANGUP = 4;
-
 	public const uint32 SOCK_NOTIFY_EVENT_ERR = 64;
-
 	public const uint32 SOCK_NOTIFY_EVENT_REMOVE = 128;
-
 	public const uint32 SOCK_NOTIFY_OP_NONE = 0;
-
 	public const uint32 SOCK_NOTIFY_OP_ENABLE = 1;
-
 	public const uint32 SOCK_NOTIFY_OP_DISABLE = 2;
-
 	public const uint32 SOCK_NOTIFY_OP_REMOVE = 4;
-
 	public const uint32 SOCK_NOTIFY_TRIGGER_ONESHOT = 1;
-
 	public const uint32 SOCK_NOTIFY_TRIGGER_PERSISTENT = 2;
-
 	public const uint32 SOCK_NOTIFY_TRIGGER_LEVEL = 4;
-
 	public const uint32 SOCK_NOTIFY_TRIGGER_EDGE = 8;
-
 	public const uint32 ATMPROTO_AALUSER = 0;
-
 	public const uint32 ATMPROTO_AAL1 = 1;
-
 	public const uint32 ATMPROTO_AAL2 = 2;
-
 	public const uint32 ATMPROTO_AAL34 = 3;
-
 	public const uint32 ATMPROTO_AAL5 = 5;
-
 	public const uint32 SAP_FIELD_ABSENT = 4294967294;
-
 	public const uint32 SAP_FIELD_ANY = 4294967295;
-
 	public const uint32 SAP_FIELD_ANY_AESA_SEL = 4294967290;
-
 	public const uint32 SAP_FIELD_ANY_AESA_REST = 4294967291;
-
 	public const uint32 ATM_E164 = 1;
-
 	public const uint32 ATM_NSAP = 2;
-
 	public const uint32 ATM_AESA = 2;
-
 	public const uint32 ATM_ADDR_SIZE = 20;
-
 	public const uint32 BLLI_L2_ISO_1745 = 1;
-
 	public const uint32 BLLI_L2_Q921 = 2;
-
 	public const uint32 BLLI_L2_X25L = 6;
-
 	public const uint32 BLLI_L2_X25M = 7;
-
 	public const uint32 BLLI_L2_ELAPB = 8;
-
 	public const uint32 BLLI_L2_HDLC_ARM = 9;
-
 	public const uint32 BLLI_L2_HDLC_NRM = 10;
-
 	public const uint32 BLLI_L2_HDLC_ABM = 11;
-
 	public const uint32 BLLI_L2_LLC = 12;
-
 	public const uint32 BLLI_L2_X75 = 13;
-
 	public const uint32 BLLI_L2_Q922 = 14;
-
 	public const uint32 BLLI_L2_USER_SPECIFIED = 16;
-
 	public const uint32 BLLI_L2_ISO_7776 = 17;
-
 	public const uint32 BLLI_L3_X25 = 6;
-
 	public const uint32 BLLI_L3_ISO_8208 = 7;
-
 	public const uint32 BLLI_L3_X223 = 8;
-
 	public const uint32 BLLI_L3_SIO_8473 = 9;
-
 	public const uint32 BLLI_L3_T70 = 10;
-
 	public const uint32 BLLI_L3_ISO_TR9577 = 11;
-
 	public const uint32 BLLI_L3_USER_SPECIFIED = 16;
-
 	public const uint32 BLLI_L3_IPI_SNAP = 128;
-
 	public const uint32 BLLI_L3_IPI_IP = 204;
-
 	public const uint32 BHLI_ISO = 0;
-
 	public const uint32 BHLI_UserSpecific = 1;
-
 	public const uint32 BHLI_HighLayerProfile = 2;
-
 	public const uint32 BHLI_VendorSpecificAppId = 3;
-
 	public const uint32 AAL5_MODE_MESSAGE = 1;
-
 	public const uint32 AAL5_MODE_STREAMING = 2;
-
 	public const uint32 AAL5_SSCS_NULL = 0;
-
 	public const uint32 AAL5_SSCS_SSCOP_ASSURED = 1;
-
 	public const uint32 AAL5_SSCS_SSCOP_NON_ASSURED = 2;
-
 	public const uint32 AAL5_SSCS_FRAME_RELAY = 4;
-
 	public const uint32 BCOB_A = 1;
-
 	public const uint32 BCOB_C = 3;
-
 	public const uint32 BCOB_X = 16;
-
 	public const uint32 TT_NOIND = 0;
-
 	public const uint32 TT_CBR = 4;
-
 	public const uint32 TT_VBR = 8;
-
 	public const uint32 TR_NOIND = 0;
-
 	public const uint32 TR_END_TO_END = 1;
-
 	public const uint32 TR_NO_END_TO_END = 2;
-
 	public const uint32 CLIP_NOT = 0;
-
 	public const uint32 CLIP_SUS = 32;
-
 	public const uint32 UP_P2P = 0;
-
 	public const uint32 UP_P2MP = 1;
-
 	public const uint32 BLLI_L2_MODE_NORMAL = 64;
-
 	public const uint32 BLLI_L2_MODE_EXT = 128;
-
 	public const uint32 BLLI_L3_MODE_NORMAL = 64;
-
 	public const uint32 BLLI_L3_MODE_EXT = 128;
-
 	public const uint32 BLLI_L3_PACKET_16 = 4;
-
 	public const uint32 BLLI_L3_PACKET_32 = 5;
-
 	public const uint32 BLLI_L3_PACKET_64 = 6;
-
 	public const uint32 BLLI_L3_PACKET_128 = 7;
-
 	public const uint32 BLLI_L3_PACKET_256 = 8;
-
 	public const uint32 BLLI_L3_PACKET_512 = 9;
-
 	public const uint32 BLLI_L3_PACKET_1024 = 10;
-
 	public const uint32 BLLI_L3_PACKET_2048 = 11;
-
 	public const uint32 BLLI_L3_PACKET_4096 = 12;
-
 	public const uint32 PI_ALLOWED = 0;
-
 	public const uint32 PI_RESTRICTED = 64;
-
 	public const uint32 PI_NUMBER_NOT_AVAILABLE = 128;
-
 	public const uint32 SI_USER_NOT_SCREENED = 0;
-
 	public const uint32 SI_USER_PASSED = 1;
-
 	public const uint32 SI_USER_FAILED = 2;
-
 	public const uint32 SI_NETWORK = 3;
-
 	public const uint32 CAUSE_LOC_USER = 0;
-
 	public const uint32 CAUSE_LOC_PRIVATE_LOCAL = 1;
-
 	public const uint32 CAUSE_LOC_PUBLIC_LOCAL = 2;
-
 	public const uint32 CAUSE_LOC_TRANSIT_NETWORK = 3;
-
 	public const uint32 CAUSE_LOC_PUBLIC_REMOTE = 4;
-
 	public const uint32 CAUSE_LOC_PRIVATE_REMOTE = 5;
-
 	public const uint32 CAUSE_LOC_INTERNATIONAL_NETWORK = 7;
-
 	public const uint32 CAUSE_LOC_BEYOND_INTERWORKING = 10;
-
 	public const uint32 CAUSE_UNALLOCATED_NUMBER = 1;
-
 	public const uint32 CAUSE_NO_ROUTE_TO_TRANSIT_NETWORK = 2;
-
 	public const uint32 CAUSE_NO_ROUTE_TO_DESTINATION = 3;
-
 	public const uint32 CAUSE_VPI_VCI_UNACCEPTABLE = 10;
-
 	public const uint32 CAUSE_NORMAL_CALL_CLEARING = 16;
-
 	public const uint32 CAUSE_USER_BUSY = 17;
-
 	public const uint32 CAUSE_NO_USER_RESPONDING = 18;
-
 	public const uint32 CAUSE_CALL_REJECTED = 21;
-
 	public const uint32 CAUSE_NUMBER_CHANGED = 22;
-
 	public const uint32 CAUSE_USER_REJECTS_CLIR = 23;
-
 	public const uint32 CAUSE_DESTINATION_OUT_OF_ORDER = 27;
-
 	public const uint32 CAUSE_INVALID_NUMBER_FORMAT = 28;
-
 	public const uint32 CAUSE_STATUS_ENQUIRY_RESPONSE = 30;
-
 	public const uint32 CAUSE_NORMAL_UNSPECIFIED = 31;
-
 	public const uint32 CAUSE_VPI_VCI_UNAVAILABLE = 35;
-
 	public const uint32 CAUSE_NETWORK_OUT_OF_ORDER = 38;
-
 	public const uint32 CAUSE_TEMPORARY_FAILURE = 41;
-
 	public const uint32 CAUSE_ACCESS_INFORMAION_DISCARDED = 43;
-
 	public const uint32 CAUSE_NO_VPI_VCI_AVAILABLE = 45;
-
 	public const uint32 CAUSE_RESOURCE_UNAVAILABLE = 47;
-
 	public const uint32 CAUSE_QOS_UNAVAILABLE = 49;
-
 	public const uint32 CAUSE_USER_CELL_RATE_UNAVAILABLE = 51;
-
 	public const uint32 CAUSE_BEARER_CAPABILITY_UNAUTHORIZED = 57;
-
 	public const uint32 CAUSE_BEARER_CAPABILITY_UNAVAILABLE = 58;
-
 	public const uint32 CAUSE_OPTION_UNAVAILABLE = 63;
-
 	public const uint32 CAUSE_BEARER_CAPABILITY_UNIMPLEMENTED = 65;
-
 	public const uint32 CAUSE_UNSUPPORTED_TRAFFIC_PARAMETERS = 73;
-
 	public const uint32 CAUSE_INVALID_CALL_REFERENCE = 81;
-
 	public const uint32 CAUSE_CHANNEL_NONEXISTENT = 82;
-
 	public const uint32 CAUSE_INCOMPATIBLE_DESTINATION = 88;
-
 	public const uint32 CAUSE_INVALID_ENDPOINT_REFERENCE = 89;
-
 	public const uint32 CAUSE_INVALID_TRANSIT_NETWORK_SELECTION = 91;
-
 	public const uint32 CAUSE_TOO_MANY_PENDING_ADD_PARTY = 92;
-
 	public const uint32 CAUSE_AAL_PARAMETERS_UNSUPPORTED = 93;
-
 	public const uint32 CAUSE_MANDATORY_IE_MISSING = 96;
-
 	public const uint32 CAUSE_UNIMPLEMENTED_MESSAGE_TYPE = 97;
-
 	public const uint32 CAUSE_UNIMPLEMENTED_IE = 99;
-
 	public const uint32 CAUSE_INVALID_IE_CONTENTS = 100;
-
 	public const uint32 CAUSE_INVALID_STATE_FOR_MESSAGE = 101;
-
 	public const uint32 CAUSE_RECOVERY_ON_TIMEOUT = 102;
-
 	public const uint32 CAUSE_INCORRECT_MESSAGE_LENGTH = 104;
-
 	public const uint32 CAUSE_PROTOCOL_ERROR = 111;
-
 	public const uint32 CAUSE_COND_UNKNOWN = 0;
-
 	public const uint32 CAUSE_COND_PERMANENT = 1;
-
 	public const uint32 CAUSE_COND_TRANSIENT = 2;
-
 	public const uint32 CAUSE_REASON_USER = 0;
-
 	public const uint32 CAUSE_REASON_IE_MISSING = 4;
-
 	public const uint32 CAUSE_REASON_IE_INSUFFICIENT = 8;
-
 	public const uint32 CAUSE_PU_PROVIDER = 0;
-
 	public const uint32 CAUSE_PU_USER = 8;
-
 	public const uint32 CAUSE_NA_NORMAL = 0;
-
 	public const uint32 CAUSE_NA_ABNORMAL = 4;
-
 	public const uint32 QOS_CLASS0 = 0;
-
 	public const uint32 QOS_CLASS1 = 1;
-
 	public const uint32 QOS_CLASS2 = 2;
-
 	public const uint32 QOS_CLASS3 = 3;
-
 	public const uint32 QOS_CLASS4 = 4;
-
 	public const uint32 TNS_TYPE_NATIONAL = 64;
-
 	public const uint32 TNS_PLAN_CARRIER_ID_CODE = 1;
-
 	public const uint32 SIO_GET_NUMBER_OF_ATM_DEVICES = 1343619073;
-
 	public const uint32 SIO_GET_ATM_ADDRESS = 3491102722;
-
 	public const uint32 SIO_ASSOCIATE_PVC = 2417360899;
-
 	public const uint32 SIO_GET_ATM_CONNECTION_ID = 1343619076;
-
 	public const uint32 WSPDESCRIPTION_LEN = 255;
-
 	public const int32 WSS_OPERATION_IN_PROGRESS = 259;
-
 	public const uint32 LSP_SYSTEM = 2147483648;
-
 	public const uint32 LSP_INSPECTOR = 1;
-
 	public const uint32 LSP_REDIRECTOR = 2;
-
 	public const uint32 LSP_PROXY = 4;
-
 	public const uint32 LSP_FIREWALL = 8;
-
 	public const uint32 LSP_INBOUND_MODIFY = 16;
-
 	public const uint32 LSP_OUTBOUND_MODIFY = 32;
-
 	public const uint32 LSP_CRYPTO_COMPRESS = 64;
-
 	public const uint32 LSP_LOCAL_CACHE = 128;
-
 	public const uint32 UDP_NOCHECKSUM = 1;
-
 	public const uint32 UDP_CHECKSUM_COVERAGE = 20;
-
 	public const uint32 GAI_STRERROR_BUFFER_SIZE = 1024;
-
 	public const uint32 IPX_PTYPE = 16384;
-
 	public const uint32 IPX_FILTERPTYPE = 16385;
-
 	public const uint32 IPX_STOPFILTERPTYPE = 16387;
-
 	public const uint32 IPX_DSTYPE = 16386;
-
 	public const uint32 IPX_EXTENDED_ADDRESS = 16388;
-
 	public const uint32 IPX_RECVHDR = 16389;
-
 	public const uint32 IPX_MAXSIZE = 16390;
-
 	public const uint32 IPX_ADDRESS = 16391;
-
 	public const uint32 IPX_GETNETINFO = 16392;
-
 	public const uint32 IPX_GETNETINFO_NORIP = 16393;
-
 	public const uint32 IPX_SPXGETCONNECTIONSTATUS = 16395;
-
 	public const uint32 IPX_ADDRESS_NOTIFY = 16396;
-
 	public const uint32 IPX_MAX_ADAPTER_NUM = 16397;
-
 	public const uint32 IPX_RERIPNETNUMBER = 16398;
-
 	public const uint32 IPX_RECEIVE_BROADCAST = 16399;
-
 	public const uint32 IPX_IMMEDIATESPXACK = 16400;
-
 	public const uint32 IPPROTO_RM = 113;
-
 	public const uint32 MAX_MCAST_TTL = 255;
-
 	public const uint32 RM_OPTIONSBASE = 1000;
-
 	public const uint32 RM_RATE_WINDOW_SIZE = 1001;
-
 	public const uint32 RM_SET_MESSAGE_BOUNDARY = 1002;
-
 	public const uint32 RM_FLUSHCACHE = 1003;
-
 	public const uint32 RM_SENDER_WINDOW_ADVANCE_METHOD = 1004;
-
 	public const uint32 RM_SENDER_STATISTICS = 1005;
-
 	public const uint32 RM_LATEJOIN = 1006;
-
 	public const uint32 RM_SET_SEND_IF = 1007;
-
 	public const uint32 RM_ADD_RECEIVE_IF = 1008;
-
 	public const uint32 RM_DEL_RECEIVE_IF = 1009;
-
 	public const uint32 RM_SEND_WINDOW_ADV_RATE = 1010;
-
 	public const uint32 RM_USE_FEC = 1011;
-
 	public const uint32 RM_SET_MCAST_TTL = 1012;
-
 	public const uint32 RM_RECEIVER_STATISTICS = 1013;
-
 	public const uint32 RM_HIGH_SPEED_INTRANET_OPT = 1014;
-
 	public const uint32 SENDER_DEFAULT_RATE_KBITS_PER_SEC = 56;
-
 	public const uint32 SENDER_DEFAULT_WINDOW_ADV_PERCENTAGE = 15;
-
 	public const uint32 MAX_WINDOW_INCREMENT_PERCENTAGE = 25;
-
 	public const uint32 SENDER_DEFAULT_LATE_JOINER_PERCENTAGE = 0;
-
 	public const uint32 SENDER_MAX_LATE_JOINER_PERCENTAGE = 75;
-
 	public const uint32 BITS_PER_BYTE = 8;
-
 	public const uint32 LOG2_BITS_PER_BYTE = 3;
-
 	public const uint32 UNIX_PATH_MAX = 108;
-
 	public const uint32 ISOPROTO_TP0 = 25;
-
 	public const uint32 ISOPROTO_TP1 = 26;
-
 	public const uint32 ISOPROTO_TP2 = 27;
-
 	public const uint32 ISOPROTO_TP3 = 28;
-
 	public const uint32 ISOPROTO_TP4 = 29;
-
 	public const uint32 ISOPROTO_TP = 29;
-
 	public const uint32 ISOPROTO_CLTP = 30;
-
 	public const uint32 ISOPROTO_CLNP = 31;
-
 	public const uint32 ISOPROTO_X25 = 32;
-
 	public const uint32 ISOPROTO_INACT_NL = 33;
-
 	public const uint32 ISOPROTO_ESIS = 34;
-
 	public const uint32 ISOPROTO_INTRAISIS = 35;
-
 	public const uint32 ISO_MAX_ADDR_LENGTH = 64;
-
 	public const uint32 ISO_HIERARCHICAL = 0;
-
 	public const uint32 ISO_NON_HIERARCHICAL = 1;
-
 	public const uint32 ISO_EXP_DATA_USE = 0;
-
 	public const uint32 ISO_EXP_DATA_NUSE = 1;
-
 	public const uint32 NSPROTO_IPX = 1000;
-
 	public const uint32 NSPROTO_SPX = 1256;
-
 	public const uint32 NSPROTO_SPXII = 1257;
-
 	public const uint32 NETBIOS_NAME_LENGTH = 16;
-
 	public const uint32 NETBIOS_UNIQUE_NAME = 0;
-
 	public const uint32 NETBIOS_GROUP_NAME = 1;
-
 	public const uint32 NETBIOS_TYPE_QUICK_UNIQUE = 2;
-
 	public const uint32 NETBIOS_TYPE_QUICK_GROUP = 3;
-
 	public const uint32 VNSPROTO_IPC = 1;
-
 	public const uint32 VNSPROTO_RELIABLE_IPC = 2;
-
 	public const uint32 VNSPROTO_SPP = 3;
-
 	public const SOCKET INVALID_SOCKET = 4294967295;
 	public const uint32 WSA_INFINITE = 4294967295;
-
 	public const uint32 IOC_INOUT = 3221225472;
-
 	public const int32 FIONREAD = 1074030207;
-
 	public const int32 FIONBIO = -2147195266;
-
 	public const int32 FIOASYNC = -2147195267;
-
 	public const int32 SIOCSHIWAT = -2147192064;
-
 	public const int32 SIOCGHIWAT = 1074033409;
-
 	public const int32 SIOCSLOWAT = -2147192062;
-
 	public const int32 SIOCGLOWAT = 1074033411;
-
 	public const int32 SIOCATMARK = 1074033415;
-
 	public const int32 LM_HB_Extension = 128;
-
 	public const int32 LM_HB1_PnP = 1;
-
 	public const int32 LM_HB1_PDA_Palmtop = 2;
-
 	public const int32 LM_HB1_Computer = 4;
-
 	public const int32 LM_HB1_Printer = 8;
-
 	public const int32 LM_HB1_Modem = 16;
-
 	public const int32 LM_HB1_Fax = 32;
-
 	public const int32 LM_HB1_LANAccess = 64;
-
 	public const int32 LM_HB2_Telephony = 1;
-
 	public const int32 LM_HB2_FileServer = 2;
-
 }
 #endregion
 
@@ -2791,7 +1852,6 @@ public struct IN_ADDR
 			public uint16 s_w1;
 			public uint16 s_w2;
 		}
-
 		[CRepr]
 		public struct _S_un_b_e__Struct
 		{
@@ -2800,12 +1860,10 @@ public struct IN_ADDR
 			public uint8 s_b3;
 			public uint8 s_b4;
 		}
-
 		public _S_un_b_e__Struct S_un_b;
 		public _S_un_w_e__Struct S_un_w;
 		public uint32 S_addr;
 	}
-
 	public _S_un_e__Union S_un;
 }
 
@@ -2823,10 +1881,11 @@ public struct SOCKET_ADDRESS
 	public int32 iSockaddrLength;
 }
 
-[CRepr, FlexibleArray("Address")]
+[CRepr]
 public struct SOCKET_ADDRESS_LIST
 {
 	public int32 iAddressCount;
+	public SOCKET_ADDRESS* Address mut => &Address_impl;
 	private SOCKET_ADDRESS[ANYSIZE_ARRAY] Address_impl;
 }
 
@@ -2876,11 +1935,9 @@ public struct SCOPE_ID
 		{
 			public uint32 _bitfield;
 		}
-
 		public using _Anonymous_e__Struct Anonymous;
 		public uint32 Value;
 	}
-
 	public using _Anonymous_e__Union Anonymous;
 }
 
@@ -3089,7 +2146,6 @@ public struct addrinfo_dns_server
 	{
 		public PWSTR ai_template;
 	}
-
 	public uint32 ai_servertype;
 	public uint64 ai_flags;
 	public uint32 ai_addrlen;
@@ -3278,13 +2334,11 @@ public struct WSACOMPLETION
 			public HANDLE hPort;
 			public uint Key;
 		}
-
 		[CRepr]
 		public struct _Event_e__Struct
 		{
 			public OVERLAPPED* lpOverlapped;
 		}
-
 		[CRepr]
 		public struct _WindowMessage_e__Struct
 		{
@@ -3292,20 +2346,17 @@ public struct WSACOMPLETION
 			public uint32 uMsg;
 			public WPARAM context;
 		}
-
 		[CRepr]
 		public struct _Apc_e__Struct
 		{
 			public OVERLAPPED* lpOverlapped;
 			public LPWSAOVERLAPPED_COMPLETION_ROUTINE lpfnCompletionProc;
 		}
-
 		public _WindowMessage_e__Struct WindowMessage;
 		public _Event_e__Struct Event;
 		public _Apc_e__Struct Apc;
 		public _Port_e__Struct Port;
 	}
-
 	public WSACOMPLETIONTYPE Type;
 	public _Parameters_e__Union Parameters;
 }
@@ -3510,7 +2561,6 @@ public struct IN6_ADDR
 		public uint8[16] Byte;
 		public uint16[8] Word;
 	}
-
 	public _u_e__Union u;
 }
 
@@ -3558,7 +2608,6 @@ public struct SOCKADDR_IN6
 		public uint32 sin6_scope_id;
 		public SCOPE_ID sin6_scope_struct;
 	}
-
 	public uint16 sin6_family;
 	public uint16 sin6_port;
 	public uint32 sin6_flowinfo;
@@ -3606,13 +2655,14 @@ public struct IP_MREQ_SOURCE
 	public IN_ADDR imr_interface;
 }
 
-[CRepr, FlexibleArray("imsf_slist")]
+[CRepr]
 public struct IP_MSFILTER
 {
 	public IN_ADDR imsf_multiaddr;
 	public IN_ADDR imsf_interface;
 	public MULTICAST_MODE_TYPE imsf_fmode;
 	public uint32 imsf_numsrc;
+	public IN_ADDR* imsf_slist mut => &imsf_slist_impl;
 	private IN_ADDR[ANYSIZE_ARRAY] imsf_slist_impl;
 }
 
@@ -3638,13 +2688,14 @@ public struct GROUP_SOURCE_REQ
 	public SOCKADDR_STORAGE gsr_source;
 }
 
-[CRepr, FlexibleArray("gf_slist")]
+[CRepr]
 public struct GROUP_FILTER
 {
 	public uint32 gf_interface;
 	public SOCKADDR_STORAGE gf_group;
 	public MULTICAST_MODE_TYPE gf_fmode;
 	public uint32 gf_numsrc;
+	public SOCKADDR_STORAGE* gf_slist mut => &gf_slist_impl;
 	private SOCKADDR_STORAGE[ANYSIZE_ARRAY] gf_slist_impl;
 }
 
@@ -3836,17 +2887,19 @@ public struct WCE_IRDA_DEVICE_INFO
 	public uint8[2] Reserved;
 }
 
-[CRepr, FlexibleArray("Device")]
+[CRepr]
 public struct WINDOWS_DEVICELIST
 {
 	public uint32 numDevice;
+	public WINDOWS_IRDA_DEVICE_INFO* Device mut => &Device_impl;
 	private WINDOWS_IRDA_DEVICE_INFO[ANYSIZE_ARRAY] Device_impl;
 }
 
-[CRepr, FlexibleArray("Device")]
+[CRepr]
 public struct WCE_DEVICELIST
 {
 	public uint32 numDevice;
+	public WCE_IRDA_DEVICE_INFO* Device mut => &Device_impl;
 	private WCE_IRDA_DEVICE_INFO[ANYSIZE_ARRAY] Device_impl;
 }
 
@@ -3862,7 +2915,6 @@ public struct WINDOWS_IAS_SET
 			public uint16 Len;
 			public uint8[1024] OctetSeq;
 		}
-
 		[CRepr]
 		public struct _irdaAttribUsrStr_e__Struct
 		{
@@ -3870,12 +2922,10 @@ public struct WINDOWS_IAS_SET
 			public uint8 CharSet;
 			public uint8[256] UsrStr;
 		}
-
 		public int32 irdaAttribInt;
 		public _irdaAttribOctetSeq_e__Struct irdaAttribOctetSeq;
 		public _irdaAttribUsrStr_e__Struct irdaAttribUsrStr;
 	}
-
 	public CHAR[64] irdaClassName;
 	public CHAR[256] irdaAttribName;
 	public uint32 irdaAttribType;
@@ -3894,7 +2944,6 @@ public struct WINDOWS_IAS_QUERY
 			public uint32 Len;
 			public uint8[1024] OctetSeq;
 		}
-
 		[CRepr]
 		public struct _irdaAttribUsrStr_e__Struct
 		{
@@ -3902,12 +2951,10 @@ public struct WINDOWS_IAS_QUERY
 			public uint32 CharSet;
 			public uint8[256] UsrStr;
 		}
-
 		public int32 irdaAttribInt;
 		public _irdaAttribOctetSeq_e__Struct irdaAttribOctetSeq;
 		public _irdaAttribUsrStr_e__Struct irdaAttribUsrStr;
 	}
-
 	public uint8[4] irdaDeviceID;
 	public CHAR[64] irdaClassName;
 	public CHAR[256] irdaAttribName;
@@ -4119,7 +3166,7 @@ public struct SOCKET_SECURITY_SETTINGS
 	public uint32 SecurityFlags;
 }
 
-[CRepr, FlexibleArray("AllStrings")]
+[CRepr]
 public struct SOCKET_SECURITY_SETTINGS_IPSEC
 {
 	public SOCKET_SECURITY_PROTOCOL SecurityProtocol;
@@ -4132,15 +3179,17 @@ public struct SOCKET_SECURITY_SETTINGS_IPSEC
 	public uint32 UserNameStringLen;
 	public uint32 DomainNameStringLen;
 	public uint32 PasswordStringLen;
+	public char16* AllStrings mut => &AllStrings_impl;
 	private char16[ANYSIZE_ARRAY] AllStrings_impl;
 }
 
-[CRepr, FlexibleArray("AllStrings")]
+[CRepr]
 public struct SOCKET_PEER_TARGET_NAME
 {
 	public SOCKET_SECURITY_PROTOCOL SecurityProtocol;
 	public SOCKADDR_STORAGE PeerAddress;
 	public uint32 PeerTargetNameStringLen;
+	public char16* AllStrings mut => &AllStrings_impl;
 	private char16[ANYSIZE_ARRAY] AllStrings_impl;
 }
 
@@ -4256,11 +3305,12 @@ public struct sockaddr_atm
 	public ATM_BHLI satm_bhli;
 }
 
-[CRepr, FlexibleArray("IE")]
+[CRepr]
 public struct Q2931_IE
 {
 	public Q2931_IE_TYPE IEType;
 	public uint32 IELength;
+	public uint8* IE mut => &IE_impl;
 	private uint8[ANYSIZE_ARRAY] IE_impl;
 }
 
@@ -4288,7 +3338,6 @@ public struct AAL_PARAMETERS_IE
 		public AAL5_PARAMETERS AAL5Parameters;
 		public AALUSER_PARAMETERS AALUserParameters;
 	}
-
 	public AAL_TYPE AALType;
 	public _AALSpecificParameters_e__Union AALSpecificParameters;
 }
@@ -4363,12 +3412,13 @@ public struct ATM_QOS_CLASS_IE
 	public uint8 QOSClassBackward;
 }
 
-[CRepr, FlexibleArray("NetworkId")]
+[CRepr]
 public struct ATM_TRANSIT_NETWORK_SELECTION_IE
 {
 	public uint8 TypeOfNetworkId;
 	public uint8 NetworkIdPlan;
 	public uint8 NetworkIdLength;
+	public uint8* NetworkId mut => &NetworkId_impl;
 	private uint8[ANYSIZE_ARRAY] NetworkId_impl;
 }
 
@@ -4427,11 +3477,9 @@ public struct TRANSMIT_PACKETS_ELEMENT
 			public LARGE_INTEGER nFileOffset;
 			public HANDLE hFile;
 		}
-
 		public using _Anonymous_e__Struct Anonymous;
 		public void* pBuffer;
 	}
-
 	public uint32 dwElFlags;
 	public uint32 cLength;
 	public using _Anonymous_e__Union Anonymous;
@@ -4455,38 +3503,35 @@ public struct NLA_BLOB
 				public char16[256] machineName;
 				public char16[256] sharedAdapterName;
 			}
-
 			public _remote_e__Struct remote;
 		}
-
-		[CRepr, FlexibleArray("information")]
+		[CRepr]
 		public struct _locationData_e__Struct
 		{
+			public CHAR* information mut => &information_impl;
 			private CHAR[ANYSIZE_ARRAY] information_impl;
 		}
-
-		[CRepr, FlexibleArray("adapterName")]
+		[CRepr]
 		public struct _interfaceData_e__Struct
 		{
 			public uint32 dwType;
 			public uint32 dwSpeed;
+			public CHAR* adapterName mut => &adapterName_impl;
 			private CHAR[ANYSIZE_ARRAY] adapterName_impl;
 		}
-
 		[CRepr]
 		public struct _connectivity_e__Struct
 		{
 			public NLA_CONNECTIVITY_TYPE type;
 			public NLA_INTERNET internet;
 		}
-
-		public CHAR[ANYSIZE_ARRAY] rawData;
+		public CHAR* rawData mut => &rawData_impl;
+		private CHAR[ANYSIZE_ARRAY] rawData_impl;
 		public _interfaceData_e__Struct interfaceData;
 		public _locationData_e__Struct locationData;
 		public _connectivity_e__Struct connectivity;
 		public _ICS_e__Struct ICS;
 	}
-
 	[CRepr]
 	public struct _header_e__Struct
 	{
@@ -4494,17 +3539,17 @@ public struct NLA_BLOB
 		public uint32 dwSize;
 		public uint32 nextOffset;
 	}
-
 	public _header_e__Struct header;
 	public _data_e__Union data;
 }
 
-[CRepr, FlexibleArray("fdArray")]
+[CRepr]
 public struct WSAPOLLDATA
 {
 	public int32 result;
 	public uint32 fds;
 	public int32 timeout;
+	public WSAPOLLFD* fdArray mut => &fdArray_impl;
 	private WSAPOLLFD[ANYSIZE_ARRAY] fdArray_impl;
 }
 
@@ -4531,18 +3576,15 @@ public struct RIO_NOTIFICATION_COMPLETION
 			public void* CompletionKey;
 			public void* Overlapped;
 		}
-
 		[CRepr]
 		public struct _Event_e__Struct
 		{
 			public HANDLE EventHandle;
 			public BOOL NotifyReset;
 		}
-
 		public _Event_e__Struct Event;
 		public _Iocp_e__Struct Iocp;
 	}
-
 	public RIO_NOTIFICATION_COMPLETION_TYPE Type;
 	public using _Anonymous_e__Union Anonymous;
 }
@@ -4721,27 +3763,30 @@ public struct SERVICE_TYPE_VALUE_ABSW
 	public void* lpValue;
 }
 
-[CRepr, FlexibleArray("Values")]
+[CRepr]
 public struct SERVICE_TYPE_INFO
 {
 	public uint32 dwTypeNameOffset;
 	public uint32 dwValueCount;
+	public SERVICE_TYPE_VALUE* Values mut => &Values_impl;
 	private SERVICE_TYPE_VALUE[ANYSIZE_ARRAY] Values_impl;
 }
 
-[CRepr, FlexibleArray("Values")]
+[CRepr]
 public struct SERVICE_TYPE_INFO_ABSA
 {
 	public PSTR lpTypeName;
 	public uint32 dwValueCount;
+	public SERVICE_TYPE_VALUE_ABSA* Values mut => &Values_impl;
 	private SERVICE_TYPE_VALUE_ABSA[ANYSIZE_ARRAY] Values_impl;
 }
 
-[CRepr, FlexibleArray("Values")]
+[CRepr]
 public struct SERVICE_TYPE_INFO_ABSW
 {
 	public PWSTR lpTypeName;
 	public uint32 dwValueCount;
+	public SERVICE_TYPE_VALUE_ABSW* Values mut => &Values_impl;
 	private SERVICE_TYPE_VALUE_ABSW[ANYSIZE_ARRAY] Values_impl;
 }
 
@@ -4756,10 +3801,11 @@ public struct SERVICE_ADDRESS
 	public uint8* lpPrincipal;
 }
 
-[CRepr, FlexibleArray("Addresses")]
+[CRepr]
 public struct SERVICE_ADDRESSES
 {
 	public uint32 dwAddressCount;
+	public SERVICE_ADDRESS* Addresses mut => &Addresses_impl;
 	private SERVICE_ADDRESS[ANYSIZE_ARRAY] Addresses_impl;
 }
 

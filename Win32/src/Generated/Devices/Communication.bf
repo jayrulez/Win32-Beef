@@ -1,7 +1,6 @@
 using Win32.Foundation;
 using Win32.System.IO;
 using System;
-using System.Interop;
 
 namespace Win32.Devices.Communication;
 
@@ -9,189 +8,97 @@ namespace Win32.Devices.Communication;
 public static
 {
 	public const uint32 MDM_COMPRESSION = 1;
-
 	public const uint32 MDM_ERROR_CONTROL = 2;
-
 	public const uint32 MDM_FORCED_EC = 4;
-
 	public const uint32 MDM_CELLULAR = 8;
-
 	public const uint32 MDM_FLOWCONTROL_HARD = 16;
-
 	public const uint32 MDM_FLOWCONTROL_SOFT = 32;
-
 	public const uint32 MDM_CCITT_OVERRIDE = 64;
-
 	public const uint32 MDM_SPEED_ADJUST = 128;
-
 	public const uint32 MDM_TONE_DIAL = 256;
-
 	public const uint32 MDM_BLIND_DIAL = 512;
-
 	public const uint32 MDM_V23_OVERRIDE = 1024;
-
 	public const uint32 MDM_DIAGNOSTICS = 2048;
-
 	public const uint32 MDM_MASK_BEARERMODE = 61440;
-
 	public const uint32 MDM_SHIFT_BEARERMODE = 12;
-
 	public const uint32 MDM_MASK_PROTOCOLID = 983040;
-
 	public const uint32 MDM_SHIFT_PROTOCOLID = 16;
-
 	public const uint32 MDM_MASK_PROTOCOLDATA = 267386880;
-
 	public const uint32 MDM_SHIFT_PROTOCOLDATA = 20;
-
 	public const uint32 MDM_SHIFT_PROTOCOLINFO = 16;
-
 	public const uint32 MDM_SHIFT_EXTENDEDINFO = 12;
-
 	public const uint32 MDM_BEARERMODE_ANALOG = 0;
-
 	public const uint32 MDM_BEARERMODE_ISDN = 1;
-
 	public const uint32 MDM_BEARERMODE_GSM = 2;
-
 	public const uint32 MDM_PROTOCOLID_DEFAULT = 0;
-
 	public const uint32 MDM_PROTOCOLID_HDLCPPP = 1;
-
 	public const uint32 MDM_PROTOCOLID_V128 = 2;
-
 	public const uint32 MDM_PROTOCOLID_X75 = 3;
-
 	public const uint32 MDM_PROTOCOLID_V110 = 4;
-
 	public const uint32 MDM_PROTOCOLID_V120 = 5;
-
 	public const uint32 MDM_PROTOCOLID_AUTO = 6;
-
 	public const uint32 MDM_PROTOCOLID_ANALOG = 7;
-
 	public const uint32 MDM_PROTOCOLID_GPRS = 8;
-
 	public const uint32 MDM_PROTOCOLID_PIAFS = 9;
-
 	public const uint32 MDM_SHIFT_HDLCPPP_SPEED = 0;
-
 	public const uint32 MDM_MASK_HDLCPPP_SPEED = 7;
-
 	public const uint32 MDM_HDLCPPP_SPEED_DEFAULT = 0;
-
 	public const uint32 MDM_HDLCPPP_SPEED_64K = 1;
-
 	public const uint32 MDM_HDLCPPP_SPEED_56K = 2;
-
 	public const uint32 MDM_SHIFT_HDLCPPP_AUTH = 3;
-
 	public const uint32 MDM_HDLCPPP_AUTH_DEFAULT = 0;
-
 	public const uint32 MDM_HDLCPPP_AUTH_NONE = 1;
-
 	public const uint32 MDM_HDLCPPP_AUTH_PAP = 2;
-
 	public const uint32 MDM_HDLCPPP_AUTH_CHAP = 3;
-
 	public const uint32 MDM_HDLCPPP_AUTH_MSCHAP = 4;
-
 	public const uint32 MDM_SHIFT_HDLCPPP_ML = 6;
-
 	public const uint32 MDM_HDLCPPP_ML_DEFAULT = 0;
-
 	public const uint32 MDM_HDLCPPP_ML_NONE = 1;
-
 	public const uint32 MDM_HDLCPPP_ML_2 = 2;
-
 	public const uint32 MDM_SHIFT_V120_SPEED = 0;
-
 	public const uint32 MDM_MASK_V120_SPEED = 7;
-
 	public const uint32 MDM_V120_SPEED_DEFAULT = 0;
-
 	public const uint32 MDM_V120_SPEED_64K = 1;
-
 	public const uint32 MDM_V120_SPEED_56K = 2;
-
 	public const uint32 MDM_SHIFT_V120_ML = 6;
-
 	public const uint32 MDM_V120_ML_DEFAULT = 0;
-
 	public const uint32 MDM_V120_ML_NONE = 1;
-
 	public const uint32 MDM_V120_ML_2 = 2;
-
 	public const uint32 MDM_SHIFT_X75_DATA = 0;
-
 	public const uint32 MDM_MASK_X75_DATA = 7;
-
 	public const uint32 MDM_X75_DATA_DEFAULT = 0;
-
 	public const uint32 MDM_X75_DATA_64K = 1;
-
 	public const uint32 MDM_X75_DATA_128K = 2;
-
 	public const uint32 MDM_X75_DATA_T_70 = 3;
-
 	public const uint32 MDM_X75_DATA_BTX = 4;
-
 	public const uint32 MDM_SHIFT_V110_SPEED = 0;
-
 	public const uint32 MDM_MASK_V110_SPEED = 15;
-
 	public const uint32 MDM_V110_SPEED_DEFAULT = 0;
-
 	public const uint32 MDM_V110_SPEED_1DOT2K = 1;
-
 	public const uint32 MDM_V110_SPEED_2DOT4K = 2;
-
 	public const uint32 MDM_V110_SPEED_4DOT8K = 3;
-
 	public const uint32 MDM_V110_SPEED_9DOT6K = 4;
-
 	public const uint32 MDM_V110_SPEED_12DOT0K = 5;
-
 	public const uint32 MDM_V110_SPEED_14DOT4K = 6;
-
 	public const uint32 MDM_V110_SPEED_19DOT2K = 7;
-
 	public const uint32 MDM_V110_SPEED_28DOT8K = 8;
-
 	public const uint32 MDM_V110_SPEED_38DOT4K = 9;
-
 	public const uint32 MDM_V110_SPEED_57DOT6K = 10;
-
 	public const uint32 MDM_SHIFT_AUTO_SPEED = 0;
-
 	public const uint32 MDM_MASK_AUTO_SPEED = 7;
-
 	public const uint32 MDM_AUTO_SPEED_DEFAULT = 0;
-
 	public const uint32 MDM_SHIFT_AUTO_ML = 6;
-
 	public const uint32 MDM_AUTO_ML_DEFAULT = 0;
-
 	public const uint32 MDM_AUTO_ML_NONE = 1;
-
 	public const uint32 MDM_AUTO_ML_2 = 2;
-
 	public const uint32 MDM_ANALOG_RLP_ON = 0;
-
 	public const uint32 MDM_ANALOG_RLP_OFF = 1;
-
 	public const uint32 MDM_ANALOG_V34 = 2;
-
 	public const uint32 MDM_PIAFS_INCOMING = 0;
-
 	public const uint32 MDM_PIAFS_OUTGOING = 1;
-
 	public const Guid SID_3GPP_SUPSVCMODEL = .(0xd7d08e07, 0xd767, 0x4478, 0xb1, 0x4a, 0xee, 0xcc, 0x87, 0xea, 0x12, 0xf7);
-
 	public const uint32 MAXLENGTH_NAI = 72;
-
 	public const uint32 MAXLENGTH_UICCDATASTORE = 10;
-
 }
 #endregion
 
@@ -325,7 +232,7 @@ public enum MODEMDEVCAPS_SPEAKER_MODE : uint32
 
 
 #region Structs
-[CRepr, FlexibleArray("abVariablePortion")]
+[CRepr]
 public struct MODEMDEVCAPS
 {
 	public uint32 dwActualSize;
@@ -347,10 +254,11 @@ public struct MODEMDEVCAPS
 	public uint32 dwModemOptions;
 	public uint32 dwMaxDTERate;
 	public uint32 dwMaxDCERate;
+	public uint8* abVariablePortion mut => &abVariablePortion_impl;
 	private uint8[ANYSIZE_ARRAY] abVariablePortion_impl;
 }
 
-[CRepr, FlexibleArray("abVariablePortion")]
+[CRepr]
 public struct MODEMSETTINGS
 {
 	public uint32 dwActualSize;
@@ -364,10 +272,11 @@ public struct MODEMSETTINGS
 	public uint32 dwPreferredModemOptions;
 	public uint32 dwNegotiatedModemOptions;
 	public uint32 dwNegotiatedDCERate;
+	public uint8* abVariablePortion mut => &abVariablePortion_impl;
 	private uint8[ANYSIZE_ARRAY] abVariablePortion_impl;
 }
 
-[CRepr, FlexibleArray("wcProvChar")]
+[CRepr]
 public struct COMMPROP
 {
 	public uint16 wPacketLength;
@@ -387,6 +296,7 @@ public struct COMMPROP
 	public uint32 dwCurrentRxQueue;
 	public uint32 dwProvSpec1;
 	public uint32 dwProvSpec2;
+	public char16* wcProvChar mut => &wcProvChar_impl;
 	private char16[ANYSIZE_ARRAY] wcProvChar_impl;
 }
 
@@ -428,7 +338,7 @@ public struct COMMTIMEOUTS
 	public uint32 WriteTotalTimeoutConstant;
 }
 
-[CRepr, FlexibleArray("wcProviderData")]
+[CRepr]
 public struct COMMCONFIG
 {
 	public uint32 dwSize;
@@ -438,6 +348,7 @@ public struct COMMCONFIG
 	public uint32 dwProviderSubType;
 	public uint32 dwProviderOffset;
 	public uint32 dwProviderSize;
+	public char16* wcProviderData mut => &wcProviderData_impl;
 	private char16[ANYSIZE_ARRAY] wcProviderData_impl;
 }
 

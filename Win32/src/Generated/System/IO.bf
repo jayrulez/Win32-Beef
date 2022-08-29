@@ -20,11 +20,9 @@ public struct OVERLAPPED
 			public uint32 Offset;
 			public uint32 OffsetHigh;
 		}
-
 		public using _Anonymous_e__Struct Anonymous;
 		public void* Pointer;
 	}
-
 	public uint Internal;
 	public uint InternalHigh;
 	public using _Anonymous_e__Union Anonymous;

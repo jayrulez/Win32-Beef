@@ -2,7 +2,6 @@ using Win32.Foundation;
 using Win32.System.Com;
 using Win32.Data.Xml.MsXml;
 using System;
-using System.Interop;
 
 namespace Win32.Security.ExtensibleAuthenticationProtocol;
 
@@ -10,357 +9,181 @@ namespace Win32.Security.ExtensibleAuthenticationProtocol;
 public static
 {
 	public const uint32 FACILITY_EAP_MESSAGE = 2114;
-
 	public const int32 EAP_GROUP_MASK = 65280;
-
 	public const int32 EAP_E_EAPHOST_FIRST = -2143158272;
-
 	public const int32 EAP_E_EAPHOST_LAST = -2143158017;
-
 	public const int32 EAP_I_EAPHOST_FIRST = -2143158272;
-
 	public const int32 EAP_I_EAPHOST_LAST = -2143158017;
-
 	public const uint32 EAP_E_CERT_STORE_INACCESSIBLE = 2151809040;
-
 	public const uint32 EAP_E_EAPHOST_METHOD_NOT_INSTALLED = 2151809041;
-
 	public const uint32 EAP_E_EAPHOST_THIRDPARTY_METHOD_HOST_RESET = 2151809042;
-
 	public const uint32 EAP_E_EAPHOST_EAPQEC_INACCESSIBLE = 2151809043;
-
 	public const uint32 EAP_E_EAPHOST_IDENTITY_UNKNOWN = 2151809044;
-
 	public const uint32 EAP_E_AUTHENTICATION_FAILED = 2151809045;
-
 	public const uint32 EAP_I_EAPHOST_EAP_NEGOTIATION_FAILED = 1078067222;
-
 	public const uint32 EAP_E_EAPHOST_METHOD_INVALID_PACKET = 2151809047;
-
 	public const uint32 EAP_E_EAPHOST_REMOTE_INVALID_PACKET = 2151809048;
-
 	public const uint32 EAP_E_EAPHOST_XML_MALFORMED = 2151809049;
-
 	public const uint32 EAP_E_METHOD_CONFIG_DOES_NOT_SUPPORT_SSO = 2151809050;
-
 	public const uint32 EAP_E_EAPHOST_METHOD_OPERATION_NOT_SUPPORTED = 2151809056;
-
 	public const int32 EAP_E_USER_FIRST = -2143158016;
-
 	public const int32 EAP_E_USER_LAST = -2143157761;
-
 	public const int32 EAP_I_USER_FIRST = 1078067456;
-
 	public const int32 EAP_I_USER_LAST = 1078067711;
-
 	public const uint32 EAP_E_USER_CERT_NOT_FOUND = 2151809280;
-
 	public const uint32 EAP_E_USER_CERT_INVALID = 2151809281;
-
 	public const uint32 EAP_E_USER_CERT_EXPIRED = 2151809282;
-
 	public const uint32 EAP_E_USER_CERT_REVOKED = 2151809283;
-
 	public const uint32 EAP_E_USER_CERT_OTHER_ERROR = 2151809284;
-
 	public const uint32 EAP_E_USER_CERT_REJECTED = 2151809285;
-
 	public const uint32 EAP_I_USER_ACCOUNT_OTHER_ERROR = 1078067472;
-
 	public const uint32 EAP_E_USER_CREDENTIALS_REJECTED = 2151809297;
-
 	public const uint32 EAP_E_USER_NAME_PASSWORD_REJECTED = 2151809298;
-
 	public const uint32 EAP_E_NO_SMART_CARD_READER = 2151809299;
-
 	public const int32 EAP_E_SERVER_FIRST = -2143157760;
-
 	public const int32 EAP_E_SERVER_LAST = -2143157505;
-
 	public const uint32 EAP_E_SERVER_CERT_NOT_FOUND = 2151809536;
-
 	public const uint32 EAP_E_SERVER_CERT_INVALID = 2151809537;
-
 	public const uint32 EAP_E_SERVER_CERT_EXPIRED = 2151809538;
-
 	public const uint32 EAP_E_SERVER_CERT_REVOKED = 2151809539;
-
 	public const uint32 EAP_E_SERVER_CERT_OTHER_ERROR = 2151809540;
-
 	public const int32 EAP_E_USER_ROOT_CERT_FIRST = -2143157504;
-
 	public const int32 EAP_E_USER_ROOT_CERT_LAST = -2143157249;
-
 	public const uint32 EAP_E_USER_ROOT_CERT_NOT_FOUND = 2151809792;
-
 	public const uint32 EAP_E_USER_ROOT_CERT_INVALID = 2151809793;
-
 	public const uint32 EAP_E_USER_ROOT_CERT_EXPIRED = 2151809794;
-
 	public const int32 EAP_E_SERVER_ROOT_CERT_FIRST = -2143157248;
-
 	public const int32 EAP_E_SERVER_ROOT_CERT_LAST = -2143156993;
-
 	public const uint32 EAP_E_SERVER_ROOT_CERT_NOT_FOUND = 2151810048;
-
 	public const uint32 EAP_E_SERVER_ROOT_CERT_INVALID = 2151810049;
-
 	public const uint32 EAP_E_SERVER_ROOT_CERT_NAME_REQUIRED = 2151810054;
-
 	public const uint32 EAP_E_SIM_NOT_VALID = 2151810304;
-
 	public const uint32 EAP_METHOD_INVALID_PACKET = 2151809047;
-
 	public const uint32 EAP_INVALID_PACKET = 2151809048;
-
 	public const uint32 EAP_PEER_FLAG_GUEST_ACCESS = 64;
-
 	public const uint32 EAP_FLAG_Reserved1 = 1;
-
 	public const uint32 EAP_FLAG_NON_INTERACTIVE = 2;
-
 	public const uint32 EAP_FLAG_LOGON = 4;
-
 	public const uint32 EAP_FLAG_PREVIEW = 8;
-
 	public const uint32 EAP_FLAG_Reserved2 = 16;
-
 	public const uint32 EAP_FLAG_MACHINE_AUTH = 32;
-
 	public const uint32 EAP_FLAG_GUEST_ACCESS = 64;
-
 	public const uint32 EAP_FLAG_Reserved3 = 128;
-
 	public const uint32 EAP_FLAG_Reserved4 = 256;
-
 	public const uint32 EAP_FLAG_RESUME_FROM_HIBERNATE = 512;
-
 	public const uint32 EAP_FLAG_Reserved5 = 1024;
-
 	public const uint32 EAP_FLAG_Reserved6 = 2048;
-
 	public const uint32 EAP_FLAG_FULL_AUTH = 4096;
-
 	public const uint32 EAP_FLAG_PREFER_ALT_CREDENTIALS = 8192;
-
 	public const uint32 EAP_FLAG_Reserved7 = 16384;
-
 	public const uint32 EAP_PEER_FLAG_HEALTH_STATE_CHANGE = 32768;
-
 	public const uint32 EAP_FLAG_SUPRESS_UI = 65536;
-
 	public const uint32 EAP_FLAG_PRE_LOGON = 131072;
-
 	public const uint32 EAP_FLAG_USER_AUTH = 262144;
-
 	public const uint32 EAP_FLAG_CONFG_READONLY = 524288;
-
 	public const uint32 EAP_FLAG_Reserved8 = 1048576;
-
 	public const uint32 EAP_FLAG_Reserved9 = 4194304;
-
 	public const uint32 EAP_FLAG_VPN = 8388608;
-
 	public const uint32 EAP_FLAG_ONLY_EAP_TLS = 16777216;
-
 	public const uint32 EAP_FLAG_SERVER_VALIDATION_REQUIRED = 33554432;
-
 	public const uint32 EAP_CONFIG_INPUT_FIELD_PROPS_DEFAULT = 0;
-
 	public const uint32 EAP_CONFIG_INPUT_FIELD_PROPS_NON_DISPLAYABLE = 1;
-
 	public const uint32 EAP_CONFIG_INPUT_FIELD_PROPS_NON_PERSIST = 2;
-
 	public const uint32 EAP_UI_INPUT_FIELD_PROPS_DEFAULT = 0;
-
 	public const uint32 EAP_UI_INPUT_FIELD_PROPS_NON_DISPLAYABLE = 1;
-
 	public const uint32 EAP_UI_INPUT_FIELD_PROPS_NON_PERSIST = 2;
-
 	public const uint32 EAP_UI_INPUT_FIELD_PROPS_READ_ONLY = 4;
-
 	public const uint32 EAP_CREDENTIAL_VERSION = 1;
-
 	public const uint32 EAP_INTERACTIVE_UI_DATA_VERSION = 1;
-
 	public const uint32 EAPHOST_PEER_API_VERSION = 1;
-
 	public const uint32 EAPHOST_METHOD_API_VERSION = 1;
-
 	public const uint32 MAX_EAP_CONFIG_INPUT_FIELD_LENGTH = 256;
-
 	public const uint32 MAX_EAP_CONFIG_INPUT_FIELD_VALUE_LENGTH = 1024;
-
 	public const uint32 CERTIFICATE_HASH_LENGTH = 20;
-
 	public const uint32 NCRYPT_PIN_CACHE_PIN_BYTE_LENGTH = 90;
-
 	public const uint32 EAP_METHOD_AUTHENTICATOR_CONFIG_IS_IDENTITY_PRIVACY = 1;
-
 	public const uint32 RAS_EAP_ROLE_AUTHENTICATOR = 1;
-
 	public const uint32 RAS_EAP_ROLE_AUTHENTICATEE = 2;
-
 	public const uint32 RAS_EAP_ROLE_EXCLUDE_IN_EAP = 4;
-
 	public const uint32 RAS_EAP_ROLE_EXCLUDE_IN_PEAP = 8;
-
 	public const uint32 RAS_EAP_ROLE_EXCLUDE_IN_VPN = 16;
-
 	public const uint32 EAPCODE_Request = 1;
-
 	public const uint32 EAPCODE_Response = 2;
-
 	public const uint32 EAPCODE_Success = 3;
-
 	public const uint32 EAPCODE_Failure = 4;
-
 	public const uint32 MAXEAPCODE = 4;
-
 	public const uint32 RAS_EAP_FLAG_ROUTER = 1;
-
 	public const uint32 RAS_EAP_FLAG_NON_INTERACTIVE = 2;
-
 	public const uint32 RAS_EAP_FLAG_LOGON = 4;
-
 	public const uint32 RAS_EAP_FLAG_PREVIEW = 8;
-
 	public const uint32 RAS_EAP_FLAG_FIRST_LINK = 16;
-
 	public const uint32 RAS_EAP_FLAG_MACHINE_AUTH = 32;
-
 	public const uint32 RAS_EAP_FLAG_GUEST_ACCESS = 64;
-
 	public const uint32 RAS_EAP_FLAG_8021X_AUTH = 128;
-
 	public const uint32 RAS_EAP_FLAG_HOSTED_IN_PEAP = 256;
-
 	public const uint32 RAS_EAP_FLAG_RESUME_FROM_HIBERNATE = 512;
-
 	public const uint32 RAS_EAP_FLAG_PEAP_UPFRONT = 1024;
-
 	public const uint32 RAS_EAP_FLAG_ALTERNATIVE_USER_DB = 2048;
-
 	public const uint32 RAS_EAP_FLAG_PEAP_FORCE_FULL_AUTH = 4096;
-
 	public const uint32 RAS_EAP_FLAG_PRE_LOGON = 131072;
-
 	public const uint32 RAS_EAP_FLAG_CONFG_READONLY = 524288;
-
 	public const uint32 RAS_EAP_FLAG_RESERVED = 1048576;
-
 	public const uint32 RAS_EAP_FLAG_SAVE_CREDMAN = 2097152;
-
 	public const uint32 RAS_EAP_FLAG_SERVER_VALIDATION_REQUIRED = 33554432;
-
 	public const Guid GUID_EapHost_Default = .(0x00000000, 0x0000, 0x0000, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00);
-
 	public const Guid GUID_EapHost_Cause_MethodDLLNotFound = .(0x9612fc67, 0x6150, 0x4209, 0xa8, 0x5e, 0xa8, 0xd8, 0x00, 0x00, 0x00, 0x01);
-
 	public const Guid GUID_EapHost_Repair_ContactSysadmin = .(0x9612fc67, 0x6150, 0x4209, 0xa8, 0x5e, 0xa8, 0xd8, 0x00, 0x00, 0x00, 0x02);
-
 	public const Guid GUID_EapHost_Cause_CertStoreInaccessible = .(0x9612fc67, 0x6150, 0x4209, 0xa8, 0x5e, 0xa8, 0xd8, 0x00, 0x00, 0x00, 0x04);
-
 	public const Guid GUID_EapHost_Cause_Generic_AuthFailure = .(0x9612fc67, 0x6150, 0x4209, 0xa8, 0x5e, 0xa8, 0xd8, 0x00, 0x00, 0x01, 0x04);
-
 	public const Guid GUID_EapHost_Cause_IdentityUnknown = .(0x9612fc67, 0x6150, 0x4209, 0xa8, 0x5e, 0xa8, 0xd8, 0x00, 0x00, 0x02, 0x04);
-
 	public const Guid GUID_EapHost_Cause_SimNotValid = .(0x9612fc67, 0x6150, 0x4209, 0xa8, 0x5e, 0xa8, 0xd8, 0x00, 0x00, 0x03, 0x04);
-
 	public const Guid GUID_EapHost_Cause_Server_CertExpired = .(0x9612fc67, 0x6150, 0x4209, 0xa8, 0x5e, 0xa8, 0xd8, 0x00, 0x00, 0x00, 0x05);
-
 	public const Guid GUID_EapHost_Cause_Server_CertInvalid = .(0x9612fc67, 0x6150, 0x4209, 0xa8, 0x5e, 0xa8, 0xd8, 0x00, 0x00, 0x00, 0x06);
-
 	public const Guid GUID_EapHost_Cause_Server_CertNotFound = .(0x9612fc67, 0x6150, 0x4209, 0xa8, 0x5e, 0xa8, 0xd8, 0x00, 0x00, 0x00, 0x07);
-
 	public const Guid GUID_EapHost_Cause_Server_CertRevoked = .(0x9612fc67, 0x6150, 0x4209, 0xa8, 0x5e, 0xa8, 0xd8, 0x00, 0x00, 0x00, 0x08);
-
 	public const Guid GUID_EapHost_Cause_Server_CertOtherError = .(0x9612fc67, 0x6150, 0x4209, 0xa8, 0x5e, 0xa8, 0xd8, 0x00, 0x00, 0x01, 0x08);
-
 	public const Guid GUID_EapHost_Cause_User_CertExpired = .(0x9612fc67, 0x6150, 0x4209, 0xa8, 0x5e, 0xa8, 0xd8, 0x00, 0x00, 0x00, 0x09);
-
 	public const Guid GUID_EapHost_Cause_User_CertInvalid = .(0x9612fc67, 0x6150, 0x4209, 0xa8, 0x5e, 0xa8, 0xd8, 0x00, 0x00, 0x00, 0x0a);
-
 	public const Guid GUID_EapHost_Cause_User_CertNotFound = .(0x9612fc67, 0x6150, 0x4209, 0xa8, 0x5e, 0xa8, 0xd8, 0x00, 0x00, 0x00, 0x0b);
-
 	public const Guid GUID_EapHost_Cause_User_CertOtherError = .(0x9612fc67, 0x6150, 0x4209, 0xa8, 0x5e, 0xa8, 0xd8, 0x00, 0x00, 0x00, 0x0c);
-
 	public const Guid GUID_EapHost_Cause_User_CertRejected = .(0x9612fc67, 0x6150, 0x4209, 0xa8, 0x5e, 0xa8, 0xd8, 0x00, 0x00, 0x00, 0x0d);
-
 	public const Guid GUID_EapHost_Cause_User_CertRevoked = .(0x9612fc67, 0x6150, 0x4209, 0xa8, 0x5e, 0xa8, 0xd8, 0x00, 0x00, 0x00, 0x0e);
-
 	public const Guid GUID_EapHost_Cause_User_Account_OtherProblem = .(0x9612fc67, 0x6150, 0x4209, 0xa8, 0x5e, 0xa8, 0xd8, 0x00, 0x00, 0x01, 0x0e);
-
 	public const Guid GUID_EapHost_Cause_User_CredsRejected = .(0x9612fc67, 0x6150, 0x4209, 0xa8, 0x5e, 0xa8, 0xd8, 0x00, 0x00, 0x02, 0x0e);
-
 	public const Guid GUID_EapHost_Cause_User_Root_CertExpired = .(0x9612fc67, 0x6150, 0x4209, 0xa8, 0x5e, 0xa8, 0xd8, 0x00, 0x00, 0x00, 0x0f);
-
 	public const Guid GUID_EapHost_Cause_User_Root_CertInvalid = .(0x9612fc67, 0x6150, 0x4209, 0xa8, 0x5e, 0xa8, 0xd8, 0x00, 0x00, 0x00, 0x10);
-
 	public const Guid GUID_EapHost_Cause_User_Root_CertNotFound = .(0x9612fc67, 0x6150, 0x4209, 0xa8, 0x5e, 0xa8, 0xd8, 0x00, 0x00, 0x00, 0x11);
-
 	public const Guid GUID_EapHost_Cause_Server_Root_CertNameRequired = .(0x9612fc67, 0x6150, 0x4209, 0xa8, 0x5e, 0xa8, 0xd8, 0x00, 0x00, 0x00, 0x12);
-
 	public const Guid GUID_EapHost_Cause_Server_Root_CertNotFound = .(0x9612fc67, 0x6150, 0x4209, 0xa8, 0x5e, 0xa8, 0xd8, 0x00, 0x00, 0x01, 0x12);
-
 	public const Guid GUID_EapHost_Cause_ThirdPartyMethod_Host_Reset = .(0x9612fc67, 0x6150, 0x4209, 0xa8, 0x5e, 0xa8, 0xd8, 0x00, 0x00, 0x02, 0x12);
-
 	public const Guid GUID_EapHost_Cause_EapQecInaccessible = .(0x9612fc67, 0x6150, 0x4209, 0xa8, 0x5e, 0xa8, 0xd8, 0x00, 0x00, 0x03, 0x12);
-
 	public const Guid GUID_EapHost_Repair_Server_ClientSelectServerCert = .(0x9612fc67, 0x6150, 0x4209, 0xa8, 0x5e, 0xa8, 0xd8, 0x00, 0x00, 0x00, 0x18);
-
 	public const Guid GUID_EapHost_Repair_User_AuthFailure = .(0x9612fc67, 0x6150, 0x4209, 0xa8, 0x5e, 0xa8, 0xd8, 0x00, 0x00, 0x00, 0x19);
-
 	public const Guid GUID_EapHost_Repair_User_GetNewCert = .(0x9612fc67, 0x6150, 0x4209, 0xa8, 0x5e, 0xa8, 0xd8, 0x00, 0x00, 0x00, 0x1a);
-
 	public const Guid GUID_EapHost_Repair_User_SelectValidCert = .(0x9612fc67, 0x6150, 0x4209, 0xa8, 0x5e, 0xa8, 0xd8, 0x00, 0x00, 0x00, 0x1b);
-
 	public const Guid GUID_EapHost_Repair_Retry_Authentication = .(0x9612fc67, 0x6150, 0x4209, 0xa8, 0x5e, 0xa8, 0xd8, 0x00, 0x00, 0x01, 0x1b);
-
 	public const Guid GUID_EapHost_Cause_EapNegotiationFailed = .(0x9612fc67, 0x6150, 0x4209, 0xa8, 0x5e, 0xa8, 0xd8, 0x00, 0x00, 0x00, 0x1c);
-
 	public const Guid GUID_EapHost_Cause_XmlMalformed = .(0x9612fc67, 0x6150, 0x4209, 0xa8, 0x5e, 0xa8, 0xd8, 0x00, 0x00, 0x00, 0x1d);
-
 	public const Guid GUID_EapHost_Cause_MethodDoesNotSupportOperation = .(0x9612fc67, 0x6150, 0x4209, 0xa8, 0x5e, 0xa8, 0xd8, 0x00, 0x00, 0x00, 0x1e);
-
 	public const Guid GUID_EapHost_Repair_ContactAdmin_AuthFailure = .(0x9612fc67, 0x6150, 0x4209, 0xa8, 0x5e, 0xa8, 0xd8, 0x00, 0x00, 0x00, 0x1f);
-
 	public const Guid GUID_EapHost_Repair_ContactAdmin_IdentityUnknown = .(0x9612fc67, 0x6150, 0x4209, 0xa8, 0x5e, 0xa8, 0xd8, 0x00, 0x00, 0x00, 0x20);
-
 	public const Guid GUID_EapHost_Repair_ContactAdmin_NegotiationFailed = .(0x9612fc67, 0x6150, 0x4209, 0xa8, 0x5e, 0xa8, 0xd8, 0x00, 0x00, 0x00, 0x21);
-
 	public const Guid GUID_EapHost_Repair_ContactAdmin_MethodNotFound = .(0x9612fc67, 0x6150, 0x4209, 0xa8, 0x5e, 0xa8, 0xd8, 0x00, 0x00, 0x00, 0x22);
-
 	public const Guid GUID_EapHost_Repair_RestartNap = .(0x9612fc67, 0x6150, 0x4209, 0xa8, 0x5e, 0xa8, 0xd8, 0x00, 0x00, 0x00, 0x23);
-
 	public const Guid GUID_EapHost_Repair_ContactAdmin_CertStoreInaccessible = .(0x9612fc67, 0x6150, 0x4209, 0xa8, 0x5e, 0xa8, 0xd8, 0x00, 0x00, 0x00, 0x24);
-
 	public const Guid GUID_EapHost_Repair_ContactAdmin_InvalidUserAccount = .(0x9612fc67, 0x6150, 0x4209, 0xa8, 0x5e, 0xa8, 0xd8, 0x00, 0x00, 0x00, 0x25);
-
 	public const Guid GUID_EapHost_Repair_ContactAdmin_RootCertInvalid = .(0x9612fc67, 0x6150, 0x4209, 0xa8, 0x5e, 0xa8, 0xd8, 0x00, 0x00, 0x00, 0x26);
-
 	public const Guid GUID_EapHost_Repair_ContactAdmin_RootCertNotFound = .(0x9612fc67, 0x6150, 0x4209, 0xa8, 0x5e, 0xa8, 0xd8, 0x00, 0x00, 0x00, 0x27);
-
 	public const Guid GUID_EapHost_Repair_ContactAdmin_RootExpired = .(0x9612fc67, 0x6150, 0x4209, 0xa8, 0x5e, 0xa8, 0xd8, 0x00, 0x00, 0x00, 0x28);
-
 	public const Guid GUID_EapHost_Repair_ContactAdmin_CertNameAbsent = .(0x9612fc67, 0x6150, 0x4209, 0xa8, 0x5e, 0xa8, 0xd8, 0x00, 0x00, 0x00, 0x29);
-
 	public const Guid GUID_EapHost_Repair_ContactAdmin_NoSmartCardReader = .(0x9612fc67, 0x6150, 0x4209, 0xa8, 0x5e, 0xa8, 0xd8, 0x00, 0x00, 0x00, 0x2a);
-
 	public const Guid GUID_EapHost_Cause_No_SmartCardReader_Found = .(0x9612fc67, 0x6150, 0x4209, 0xa8, 0x5e, 0xa8, 0xd8, 0x00, 0x00, 0x00, 0x2b);
-
 	public const Guid GUID_EapHost_Repair_ContactAdmin_InvalidUserCert = .(0x9612fc67, 0x6150, 0x4209, 0xa8, 0x5e, 0xa8, 0xd8, 0x00, 0x00, 0x00, 0x2c);
-
 	public const Guid GUID_EapHost_Repair_Method_Not_Support_Sso = .(0x9612fc67, 0x6150, 0x4209, 0xa8, 0x5e, 0xa8, 0xd8, 0x00, 0x00, 0x00, 0x2d);
-
 	public const Guid GUID_EapHost_Repair_No_ValidSim_Found = .(0x9612fc67, 0x6150, 0x4209, 0xa8, 0x5e, 0xa8, 0xd8, 0x00, 0x00, 0x00, 0x2e);
-
 	public const Guid GUID_EapHost_Help_ObtainingCerts = .(0xf535eea3, 0x1bdd, 0x46ca, 0xa2, 0xfc, 0xa6, 0x65, 0x59, 0x39, 0xb7, 0xe8);
-
 	public const Guid GUID_EapHost_Help_Troubleshooting = .(0x33307acf, 0x0698, 0x41ba, 0xb0, 0x14, 0xea, 0x0a, 0x2e, 0xb8, 0xd0, 0xa8);
-
 	public const Guid GUID_EapHost_Cause_Method_Config_Does_Not_Support_Sso = .(0xda18bd32, 0x004f, 0x41fa, 0xae, 0x08, 0x0b, 0xc8, 0x5e, 0x58, 0x45, 0xac);
-
 }
 #endregion
 
@@ -803,12 +626,13 @@ public struct RAS_AUTH_ATTRIBUTE
 	public void* Value;
 }
 
-[CRepr, FlexibleArray("Data")]
+[CRepr]
 public struct PPP_EAP_PACKET
 {
 	public uint8 Code;
 	public uint8 Id;
 	public uint8[2] Length;
+	public uint8* Data mut => &Data_impl;
 	private uint8[ANYSIZE_ARRAY] Data_impl;
 }
 
@@ -1148,12 +972,13 @@ public struct EapHostPeerMethodResult
 	public EAP_ERROR* pEapError;
 }
 
-[CRepr, FlexibleArray("Data")]
+[CRepr]
 public struct EapPacket
 {
 	public uint8 Code;
 	public uint8 Id;
 	public uint8[2] Length;
+	public uint8* Data mut => &Data_impl;
 	private uint8[ANYSIZE_ARRAY] Data_impl;
 }
 

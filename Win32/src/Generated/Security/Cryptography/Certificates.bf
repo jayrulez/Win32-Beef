@@ -10,807 +10,406 @@ namespace Win32.Security.Cryptography.Certificates;
 public static
 {
 	public const uint32 CA_DISP_INCOMPLETE = 0;
-
 	public const uint32 CA_DISP_ERROR = 1;
-
 	public const uint32 CA_DISP_REVOKED = 2;
-
 	public const uint32 CA_DISP_VALID = 3;
-
 	public const uint32 CA_DISP_INVALID = 4;
-
 	public const uint32 CA_DISP_UNDER_SUBMISSION = 5;
-
 	public const uint32 KRA_DISP_EXPIRED = 0;
-
 	public const uint32 KRA_DISP_NOTFOUND = 1;
-
 	public const uint32 KRA_DISP_REVOKED = 2;
-
 	public const uint32 KRA_DISP_VALID = 3;
-
 	public const uint32 KRA_DISP_INVALID = 4;
-
 	public const uint32 KRA_DISP_UNTRUSTED = 5;
-
 	public const uint32 KRA_DISP_NOTLOADED = 6;
-
 	public const uint32 CA_ACCESS_MASKROLES = 255;
-
 	public const uint32 CA_CRL_BASE = 1;
-
 	public const uint32 CA_CRL_DELTA = 2;
-
 	public const uint32 CA_CRL_REPUBLISH = 16;
-
 	public const uint32 ICF_ALLOWFOREIGN = 65536;
-
 	public const uint32 ICF_EXISTINGROW = 131072;
-
 	public const uint32 IKF_OVERWRITE = 65536;
-
 	public const uint32 CSBACKUP_TYPE_MASK = 3;
-
 	public const uint32 CSRESTORE_TYPE_FULL = 1;
-
 	public const uint32 CSRESTORE_TYPE_ONLINE = 2;
-
 	public const uint32 CSRESTORE_TYPE_CATCHUP = 4;
-
 	public const uint32 CSRESTORE_TYPE_MASK = 5;
-
 	public const uint32 CSBACKUP_DISABLE_INCREMENTAL = 4294967295;
-
 	public const uint32 CSBFT_DIRECTORY = 128;
-
 	public const uint32 CSBFT_DATABASE_DIRECTORY = 64;
-
 	public const uint32 CSBFT_LOG_DIRECTORY = 32;
-
 	public const uint64 CSCONTROL_SHUTDOWN = 1;
-
 	public const uint64 CSCONTROL_SUSPEND = 2;
-
 	public const uint64 CSCONTROL_RESTART = 3;
-
 	public const uint32 CAIF_DSENTRY = 1;
-
 	public const uint32 CAIF_SHAREDFOLDERENTRY = 2;
-
 	public const uint32 CAIF_REGISTRY = 4;
-
 	public const uint32 CAIF_LOCAL = 8;
-
 	public const uint32 CAIF_REGISTRYPARENT = 16;
-
 	public const uint32 CR_IN_ENCODEANY = 255;
-
 	public const uint32 CR_IN_ENCODEMASK = 255;
-
 	public const uint32 CR_IN_FORMATANY = 0;
-
 	public const uint32 CR_IN_PKCS10 = 256;
-
 	public const uint32 CR_IN_KEYGEN = 512;
-
 	public const uint32 CR_IN_PKCS7 = 768;
-
 	public const uint32 CR_IN_CMC = 1024;
-
 	public const uint32 CR_IN_CHALLENGERESPONSE = 1280;
-
 	public const uint32 CR_IN_SIGNEDCERTIFICATETIMESTAMPLIST = 1536;
-
 	public const uint32 CR_IN_FORMATMASK = 65280;
-
 	public const uint32 CR_IN_SCEP = 65536;
-
 	public const uint32 CR_IN_RPC = 131072;
-
 	public const uint32 CR_IN_HTTP = 196608;
-
 	public const uint32 CR_IN_FULLRESPONSE = 262144;
-
 	public const uint32 CR_IN_CRLS = 524288;
-
 	public const uint32 CR_IN_MACHINE = 1048576;
-
 	public const uint32 CR_IN_ROBO = 2097152;
-
 	public const uint32 CR_IN_CLIENTIDNONE = 4194304;
-
 	public const uint32 CR_IN_CONNECTONLY = 8388608;
-
 	public const uint32 CR_IN_RETURNCHALLENGE = 16777216;
-
 	public const uint32 CR_IN_SCEPPOST = 33554432;
-
 	public const uint32 CR_IN_CERTIFICATETRANSPARENCY = 67108864;
-
 	public const uint32 CC_UIPICKCONFIGSKIPLOCALCA = 5;
-
 	public const uint32 CR_DISP_REVOKED = 6;
-
 	public const uint32 CR_OUT_BASE64REQUESTHEADER = 3;
-
 	public const uint32 CR_OUT_HEX = 4;
-
 	public const uint32 CR_OUT_HEXASCII = 5;
-
 	public const uint32 CR_OUT_BASE64X509CRLHEADER = 9;
-
 	public const uint32 CR_OUT_HEXADDR = 10;
-
 	public const uint32 CR_OUT_HEXASCIIADDR = 11;
-
 	public const uint32 CR_OUT_HEXRAW = 12;
-
 	public const uint32 CR_OUT_ENCODEMASK = 255;
-
 	public const uint32 CR_OUT_CHAIN = 256;
-
 	public const uint32 CR_OUT_CRLS = 512;
-
 	public const uint32 CR_OUT_NOCRLF = 1073741824;
-
 	public const uint32 CR_OUT_NOCR = 2147483648;
-
 	public const uint32 CR_GEMT_DEFAULT = 0;
-
 	public const uint32 CR_GEMT_HRESULT_STRING = 1;
-
 	public const uint32 CR_GEMT_HTTP_ERROR = 2;
-
 	public const uint32 CR_PROP_NONE = 0;
-
 	public const uint32 CR_PROP_FILEVERSION = 1;
-
 	public const uint32 CR_PROP_PRODUCTVERSION = 2;
-
 	public const uint32 CR_PROP_EXITCOUNT = 3;
-
 	public const uint32 CR_PROP_EXITDESCRIPTION = 4;
-
 	public const uint32 CR_PROP_POLICYDESCRIPTION = 5;
-
 	public const uint32 CR_PROP_CANAME = 6;
-
 	public const uint32 CR_PROP_SANITIZEDCANAME = 7;
-
 	public const uint32 CR_PROP_SHAREDFOLDER = 8;
-
 	public const uint32 CR_PROP_PARENTCA = 9;
-
 	public const uint32 CR_PROP_CATYPE = 10;
-
 	public const uint32 CR_PROP_CASIGCERTCOUNT = 11;
-
 	public const uint32 CR_PROP_CASIGCERT = 12;
-
 	public const uint32 CR_PROP_CASIGCERTCHAIN = 13;
-
 	public const uint32 CR_PROP_CAXCHGCERTCOUNT = 14;
-
 	public const uint32 CR_PROP_CAXCHGCERT = 15;
-
 	public const uint32 CR_PROP_CAXCHGCERTCHAIN = 16;
-
 	public const uint32 CR_PROP_BASECRL = 17;
-
 	public const uint32 CR_PROP_DELTACRL = 18;
-
 	public const uint32 CR_PROP_CACERTSTATE = 19;
-
 	public const uint32 CR_PROP_CRLSTATE = 20;
-
 	public const uint32 CR_PROP_CAPROPIDMAX = 21;
-
 	public const uint32 CR_PROP_DNSNAME = 22;
-
 	public const uint32 CR_PROP_ROLESEPARATIONENABLED = 23;
-
 	public const uint32 CR_PROP_KRACERTUSEDCOUNT = 24;
-
 	public const uint32 CR_PROP_KRACERTCOUNT = 25;
-
 	public const uint32 CR_PROP_KRACERT = 26;
-
 	public const uint32 CR_PROP_KRACERTSTATE = 27;
-
 	public const uint32 CR_PROP_ADVANCEDSERVER = 28;
-
 	public const uint32 CR_PROP_TEMPLATES = 29;
-
 	public const uint32 CR_PROP_BASECRLPUBLISHSTATUS = 30;
-
 	public const uint32 CR_PROP_DELTACRLPUBLISHSTATUS = 31;
-
 	public const uint32 CR_PROP_CASIGCERTCRLCHAIN = 32;
-
 	public const uint32 CR_PROP_CAXCHGCERTCRLCHAIN = 33;
-
 	public const uint32 CR_PROP_CACERTSTATUSCODE = 34;
-
 	public const uint32 CR_PROP_CAFORWARDCROSSCERT = 35;
-
 	public const uint32 CR_PROP_CABACKWARDCROSSCERT = 36;
-
 	public const uint32 CR_PROP_CAFORWARDCROSSCERTSTATE = 37;
-
 	public const uint32 CR_PROP_CABACKWARDCROSSCERTSTATE = 38;
-
 	public const uint32 CR_PROP_CACERTVERSION = 39;
-
 	public const uint32 CR_PROP_SANITIZEDCASHORTNAME = 40;
-
 	public const uint32 CR_PROP_CERTCDPURLS = 41;
-
 	public const uint32 CR_PROP_CERTAIAURLS = 42;
-
 	public const uint32 CR_PROP_CERTAIAOCSPURLS = 43;
-
 	public const uint32 CR_PROP_LOCALENAME = 44;
-
 	public const uint32 CR_PROP_SUBJECTTEMPLATE_OIDS = 45;
-
 	public const uint32 CR_PROP_SCEPSERVERCERTS = 1000;
-
 	public const uint32 CR_PROP_SCEPSERVERCAPABILITIES = 1001;
-
 	public const uint32 CR_PROP_SCEPSERVERCERTSCHAIN = 1002;
-
 	public const uint32 CR_PROP_SCEPMIN = 1000;
-
 	public const uint32 CR_PROP_SCEPMAX = 1002;
-
 	public const uint32 FR_PROP_CLAIMCHALLENGE = 22;
-
 	public const uint32 EAN_NAMEOBJECTID = 2147483648;
-
 	public const uint32 EANR_SUPPRESS_IA5CONVERSION = 2147483648;
-
 	public const uint32 CERTENROLL_INDEX_BASE = 0;
-
 	public const uint32 EXITEVENT_INVALID = 0;
-
 	public const uint32 EXITEVENT_STARTUP = 128;
-
 	public const uint32 EXITEVENT_CERTIMPORTED = 512;
-
 	public const uint32 ENUMEXT_OBJECTID = 1;
-
 	public const uint32 CMM_REFRESHONLY = 1;
-
 	public const uint32 CMM_READONLY = 2;
-
 	public const uint32 DBSESSIONCOUNTDEFAULT = 100;
-
 	public const uint32 DBFLAGS_READONLY = 1;
-
 	public const uint32 DBFLAGS_CREATEIFNEEDED = 2;
-
 	public const uint32 DBFLAGS_CIRCULARLOGGING = 4;
-
 	public const uint32 DBFLAGS_LAZYFLUSH = 8;
-
 	public const uint32 DBFLAGS_MAXCACHESIZEX100 = 16;
-
 	public const uint32 DBFLAGS_CHECKPOINTDEPTH60MB = 32;
-
 	public const uint32 DBFLAGS_LOGBUFFERSLARGE = 64;
-
 	public const uint32 DBFLAGS_LOGBUFFERSHUGE = 128;
-
 	public const uint32 DBFLAGS_LOGFILESIZE16MB = 256;
-
 	public const uint32 DBFLAGS_MULTITHREADTRANSACTIONS = 512;
-
 	public const uint32 DBFLAGS_DISABLESNAPSHOTBACKUP = 1024;
-
 	public const uint32 DBFLAGS_ENABLEVOLATILEREQUESTS = 2048;
-
 	public const uint32 LDAPF_SSLENABLE = 1;
-
 	public const uint32 LDAPF_SIGNDISABLE = 2;
-
 	public const uint32 CSVER_MAJOR_WIN2K = 1;
-
 	public const uint32 CSVER_MINOR_WIN2K = 1;
-
 	public const uint32 CSVER_MAJOR_WHISTLER = 2;
-
 	public const uint32 CSVER_MINOR_WHISTLER_BETA2 = 1;
-
 	public const uint32 CSVER_MINOR_WHISTLER_BETA3 = 2;
-
 	public const uint32 CSVER_MAJOR_LONGHORN = 3;
-
 	public const uint32 CSVER_MINOR_LONGHORN_BETA1 = 1;
-
 	public const uint32 CSVER_MAJOR_WIN7 = 4;
-
 	public const uint32 CSVER_MINOR_WIN7 = 1;
-
 	public const uint32 CSVER_MAJOR_WIN8 = 5;
-
 	public const uint32 CSVER_MINOR_WIN8 = 1;
-
 	public const uint32 CSVER_MAJOR_WINBLUE = 6;
-
 	public const uint32 CSVER_MINOR_WINBLUE = 1;
-
 	public const uint32 CSVER_MAJOR_THRESHOLD = 7;
-
 	public const uint32 CSVER_MINOR_THRESHOLD = 1;
-
 	public const uint32 CSVER_MAJOR = 7;
-
 	public const uint32 CSVER_MINOR = 1;
-
 	public const uint32 CCLOCKSKEWMINUTESDEFAULT = 10;
-
 	public const uint32 CVIEWAGEMINUTESDEFAULT = 16;
-
 	public const uint32 SETUP_SERVER_FLAG = 1;
-
 	public const uint32 SETUP_CLIENT_FLAG = 2;
-
 	public const uint32 SETUP_SUSPEND_FLAG = 4;
-
 	public const uint32 SETUP_REQUEST_FLAG = 8;
-
 	public const uint32 SETUP_ONLINE_FLAG = 16;
-
 	public const uint32 SETUP_DENIED_FLAG = 32;
-
 	public const uint32 SETUP_CREATEDB_FLAG = 64;
-
 	public const uint32 SETUP_ATTEMPT_VROOT_CREATE = 128;
-
 	public const uint32 SETUP_FORCECRL_FLAG = 256;
-
 	public const uint32 SETUP_UPDATE_CAOBJECT_SVRTYPE = 512;
-
 	public const uint32 SETUP_SERVER_UPGRADED_FLAG = 1024;
-
 	public const uint32 SETUP_W2K_SECURITY_NOT_UPGRADED_FLAG = 2048;
-
 	public const uint32 SETUP_SECURITY_CHANGED = 4096;
-
 	public const uint32 SETUP_DCOM_SECURITY_UPDATED_FLAG = 8192;
-
 	public const uint32 SETUP_SERVER_IS_UP_TO_DATE_FLAG = 16384;
-
 	public const uint32 CRLF_DELTA_USE_OLDEST_UNEXPIRED_BASE = 1;
-
 	public const uint32 CRLF_DELETE_EXPIRED_CRLS = 2;
-
 	public const uint32 CRLF_CRLNUMBER_CRITICAL = 4;
-
 	public const uint32 CRLF_REVCHECK_IGNORE_OFFLINE = 8;
-
 	public const uint32 CRLF_IGNORE_INVALID_POLICIES = 16;
-
 	public const uint32 CRLF_REBUILD_MODIFIED_SUBJECT_ONLY = 32;
-
 	public const uint32 CRLF_SAVE_FAILED_CERTS = 64;
-
 	public const uint32 CRLF_IGNORE_UNKNOWN_CMC_ATTRIBUTES = 128;
-
 	public const uint32 CRLF_IGNORE_CROSS_CERT_TRUST_ERROR = 256;
-
 	public const uint32 CRLF_PUBLISH_EXPIRED_CERT_CRLS = 512;
-
 	public const uint32 CRLF_ENFORCE_ENROLLMENT_AGENT = 1024;
-
 	public const uint32 CRLF_DISABLE_RDN_REORDER = 2048;
-
 	public const uint32 CRLF_DISABLE_ROOT_CROSS_CERTS = 4096;
-
 	public const uint32 CRLF_LOG_FULL_RESPONSE = 8192;
-
 	public const uint32 CRLF_USE_XCHG_CERT_TEMPLATE = 16384;
-
 	public const uint32 CRLF_USE_CROSS_CERT_TEMPLATE = 32768;
-
 	public const uint32 CRLF_ALLOW_REQUEST_ATTRIBUTE_SUBJECT = 65536;
-
 	public const uint32 CRLF_REVCHECK_IGNORE_NOREVCHECK = 131072;
-
 	public const uint32 CRLF_PRESERVE_EXPIRED_CA_CERTS = 262144;
-
 	public const uint32 CRLF_PRESERVE_REVOKED_CA_CERTS = 524288;
-
 	public const uint32 CRLF_DISABLE_CHAIN_VERIFICATION = 1048576;
-
 	public const uint32 CRLF_BUILD_ROOTCA_CRLENTRIES_BASEDONKEY = 2097152;
-
 	public const uint32 KRAF_ENABLEFOREIGN = 1;
-
 	public const uint32 KRAF_SAVEBADREQUESTKEY = 2;
-
 	public const uint32 KRAF_ENABLEARCHIVEALL = 4;
-
 	public const uint32 KRAF_DISABLEUSEDEFAULTPROVIDER = 8;
-
 	public const uint32 IF_LOCKICERTREQUEST = 1;
-
 	public const uint32 IF_NOREMOTEICERTREQUEST = 2;
-
 	public const uint32 IF_NOLOCALICERTREQUEST = 4;
-
 	public const uint32 IF_NORPCICERTREQUEST = 8;
-
 	public const uint32 IF_NOREMOTEICERTADMIN = 16;
-
 	public const uint32 IF_NOLOCALICERTADMIN = 32;
-
 	public const uint32 IF_NOREMOTEICERTADMINBACKUP = 64;
-
 	public const uint32 IF_NOLOCALICERTADMINBACKUP = 128;
-
 	public const uint32 IF_NOSNAPSHOTBACKUP = 256;
-
 	public const uint32 IF_ENFORCEENCRYPTICERTREQUEST = 512;
-
 	public const uint32 IF_ENFORCEENCRYPTICERTADMIN = 1024;
-
 	public const uint32 IF_ENABLEEXITKEYRETRIEVAL = 2048;
-
 	public const uint32 IF_ENABLEADMINASAUDITOR = 4096;
-
 	public const uint32 PROCFLG_NONE = 0;
-
 	public const uint32 PROCFLG_ENFORCEGOODKEYS = 1;
-
 	public const uint32 CSURL_SERVERPUBLISH = 1;
-
 	public const uint32 CSURL_ADDTOCERTCDP = 2;
-
 	public const uint32 CSURL_ADDTOFRESHESTCRL = 4;
-
 	public const uint32 CSURL_ADDTOCRLCDP = 8;
-
 	public const uint32 CSURL_PUBLISHRETRY = 16;
-
 	public const uint32 CSURL_ADDTOCERTOCSP = 32;
-
 	public const uint32 CSURL_SERVERPUBLISHDELTA = 64;
-
 	public const uint32 CSURL_ADDTOIDP = 128;
-
 	public const uint32 CAPATHLENGTH_INFINITE = 4294967295;
-
 	public const uint32 REQDISP_PENDING = 0;
-
 	public const uint32 REQDISP_ISSUE = 1;
-
 	public const uint32 REQDISP_DENY = 2;
-
 	public const uint32 REQDISP_USEREQUESTATTRIBUTE = 3;
-
 	public const uint32 REQDISP_MASK = 255;
-
 	public const uint32 REQDISP_PENDINGFIRST = 256;
-
 	public const uint32 REQDISP_DEFAULT_ENTERPRISE = 1;
-
 	public const uint32 REVEXT_CDPLDAPURL_OLD = 1;
-
 	public const uint32 REVEXT_CDPHTTPURL_OLD = 2;
-
 	public const uint32 REVEXT_CDPFTPURL_OLD = 4;
-
 	public const uint32 REVEXT_CDPFILEURL_OLD = 8;
-
 	public const uint32 REVEXT_CDPURLMASK_OLD = 255;
-
 	public const uint32 REVEXT_CDPENABLE = 256;
-
 	public const uint32 REVEXT_ASPENABLE = 512;
-
 	public const uint32 REVEXT_DEFAULT_NODS = 256;
-
 	public const uint32 REVEXT_DEFAULT_DS = 256;
-
 	public const uint32 ISSCERT_LDAPURL_OLD = 1;
-
 	public const uint32 ISSCERT_HTTPURL_OLD = 2;
-
 	public const uint32 ISSCERT_FTPURL_OLD = 4;
-
 	public const uint32 ISSCERT_FILEURL_OLD = 8;
-
 	public const uint32 ISSCERT_URLMASK_OLD = 255;
-
 	public const uint32 ISSCERT_ENABLE = 256;
-
 	public const uint32 ISSCERT_DEFAULT_NODS = 256;
-
 	public const uint32 ISSCERT_DEFAULT_DS = 256;
-
 	public const uint32 EDITF_ENABLEREQUESTEXTENSIONS = 1;
-
 	public const uint32 EDITF_REQUESTEXTENSIONLIST = 2;
-
 	public const uint32 EDITF_DISABLEEXTENSIONLIST = 4;
-
 	public const uint32 EDITF_ADDOLDKEYUSAGE = 8;
-
 	public const uint32 EDITF_ADDOLDCERTTYPE = 16;
-
 	public const uint32 EDITF_ATTRIBUTEENDDATE = 32;
-
 	public const uint32 EDITF_BASICCONSTRAINTSCRITICAL = 64;
-
 	public const uint32 EDITF_BASICCONSTRAINTSCA = 128;
-
 	public const uint32 EDITF_ENABLEAKIKEYID = 256;
-
 	public const uint32 EDITF_ATTRIBUTECA = 512;
-
 	public const uint32 EDITF_IGNOREREQUESTERGROUP = 1024;
-
 	public const uint32 EDITF_ENABLEAKIISSUERNAME = 2048;
-
 	public const uint32 EDITF_ENABLEAKIISSUERSERIAL = 4096;
-
 	public const uint32 EDITF_ENABLEAKICRITICAL = 8192;
-
 	public const uint32 EDITF_SERVERUPGRADED = 16384;
-
 	public const uint32 EDITF_ATTRIBUTEEKU = 32768;
-
 	public const uint32 EDITF_ENABLEDEFAULTSMIME = 65536;
-
 	public const uint32 EDITF_EMAILOPTIONAL = 131072;
-
 	public const uint32 EDITF_ATTRIBUTESUBJECTALTNAME2 = 262144;
-
 	public const uint32 EDITF_ENABLELDAPREFERRALS = 524288;
-
 	public const uint32 EDITF_ENABLECHASECLIENTDC = 1048576;
-
 	public const uint32 EDITF_AUDITCERTTEMPLATELOAD = 2097152;
-
 	public const uint32 EDITF_DISABLEOLDOSCNUPN = 4194304;
-
 	public const uint32 EDITF_DISABLELDAPPACKAGELIST = 8388608;
-
 	public const uint32 EDITF_ENABLEUPNMAP = 16777216;
-
 	public const uint32 EDITF_ENABLEOCSPREVNOCHECK = 33554432;
-
 	public const uint32 EDITF_ENABLERENEWONBEHALFOF = 67108864;
-
 	public const uint32 EDITF_ENABLEKEYENCIPHERMENTCACERT = 134217728;
-
 	public const uint32 EXITPUB_FILE = 1;
-
 	public const uint32 EXITPUB_ACTIVEDIRECTORY = 2;
-
 	public const uint32 EXITPUB_REMOVEOLDCERTS = 16;
-
 	public const uint32 EXITPUB_DEFAULT_ENTERPRISE = 2;
-
 	public const uint32 EXITPUB_DEFAULT_STANDALONE = 1;
-
 	public const uint32 TP_MACHINEPOLICY = 1;
-
 	public const uint32 KR_ENABLE_MACHINE = 1;
-
 	public const uint32 KR_ENABLE_USER = 2;
-
 	public const uint32 EXTENSION_CRITICAL_FLAG = 1;
-
 	public const uint32 EXTENSION_DISABLE_FLAG = 2;
-
 	public const uint32 EXTENSION_DELETE_FLAG = 4;
-
 	public const uint32 EXTENSION_POLICY_MASK = 65535;
-
 	public const uint32 EXTENSION_ORIGIN_REQUEST = 65536;
-
 	public const uint32 EXTENSION_ORIGIN_POLICY = 131072;
-
 	public const uint32 EXTENSION_ORIGIN_ADMIN = 196608;
-
 	public const uint32 EXTENSION_ORIGIN_SERVER = 262144;
-
 	public const uint32 EXTENSION_ORIGIN_RENEWALCERT = 327680;
-
 	public const uint32 EXTENSION_ORIGIN_IMPORTEDCERT = 393216;
-
 	public const uint32 EXTENSION_ORIGIN_PKCS7 = 458752;
-
 	public const uint32 EXTENSION_ORIGIN_CMC = 524288;
-
 	public const uint32 EXTENSION_ORIGIN_CACERT = 589824;
-
 	public const uint32 EXTENSION_ORIGIN_MASK = 983040;
-
 	public const uint32 CPF_BASE = 1;
-
 	public const uint32 CPF_DELTA = 2;
-
 	public const uint32 CPF_COMPLETE = 4;
-
 	public const uint32 CPF_SHADOW = 8;
-
 	public const uint32 CPF_CASTORE_ERROR = 16;
-
 	public const uint32 CPF_BADURL_ERROR = 32;
-
 	public const uint32 CPF_MANUAL = 64;
-
 	public const uint32 CPF_SIGNATURE_ERROR = 128;
-
 	public const uint32 CPF_LDAP_ERROR = 256;
-
 	public const uint32 CPF_FILE_ERROR = 512;
-
 	public const uint32 CPF_FTP_ERROR = 1024;
-
 	public const uint32 CPF_HTTP_ERROR = 2048;
-
 	public const uint32 CPF_POSTPONED_BASE_LDAP_ERROR = 4096;
-
 	public const uint32 CPF_POSTPONED_BASE_FILE_ERROR = 8192;
-
 	public const uint32 PROPTYPE_MASK = 255;
-
 	public const uint32 PROPCALLER_SERVER = 256;
-
 	public const uint32 PROPCALLER_POLICY = 512;
-
 	public const uint32 PROPCALLER_EXIT = 768;
-
 	public const uint32 PROPCALLER_ADMIN = 1024;
-
 	public const uint32 PROPCALLER_REQUEST = 1280;
-
 	public const uint32 PROPCALLER_MASK = 3840;
-
 	public const uint32 PROPFLAGS_INDEXED = 65536;
-
 	public const uint32 CR_FLG_FORCETELETEX = 1;
-
 	public const uint32 CR_FLG_RENEWAL = 2;
-
 	public const uint32 CR_FLG_FORCEUTF8 = 4;
-
 	public const uint32 CR_FLG_CAXCHGCERT = 8;
-
 	public const uint32 CR_FLG_ENROLLONBEHALFOF = 16;
-
 	public const uint32 CR_FLG_SUBJECTUNMODIFIED = 32;
-
 	public const uint32 CR_FLG_VALIDENCRYPTEDKEYHASH = 64;
-
 	public const uint32 CR_FLG_CACROSSCERT = 128;
-
 	public const uint32 CR_FLG_ENFORCEUTF8 = 256;
-
 	public const uint32 CR_FLG_DEFINEDCACERT = 512;
-
 	public const uint32 CR_FLG_CHALLENGEPENDING = 1024;
-
 	public const uint32 CR_FLG_CHALLENGESATISFIED = 2048;
-
 	public const uint32 CR_FLG_TRUSTONUSE = 4096;
-
 	public const uint32 CR_FLG_TRUSTEKCERT = 8192;
-
 	public const uint32 CR_FLG_TRUSTEKKEY = 16384;
-
 	public const uint32 CR_FLG_PUBLISHERROR = 2147483648;
-
 	public const uint32 DB_DISP_ACTIVE = 8;
-
 	public const uint32 DB_DISP_PENDING = 9;
-
 	public const uint32 DB_DISP_QUEUE_MAX = 9;
-
 	public const uint32 DB_DISP_FOREIGN = 12;
-
 	public const uint32 DB_DISP_CA_CERT = 15;
-
 	public const uint32 DB_DISP_CA_CERT_CHAIN = 16;
-
 	public const uint32 DB_DISP_KRA_CERT = 17;
-
 	public const uint32 DB_DISP_LOG_MIN = 20;
-
 	public const uint32 DB_DISP_ISSUED = 20;
-
 	public const uint32 DB_DISP_REVOKED = 21;
-
 	public const uint32 DB_DISP_LOG_FAILED_MIN = 30;
-
 	public const uint32 DB_DISP_ERROR = 30;
-
 	public const uint32 DB_DISP_DENIED = 31;
-
 	public const uint32 VR_PENDING = 0;
-
 	public const uint32 VR_INSTANT_OK = 1;
-
 	public const uint32 VR_INSTANT_BAD = 2;
-
 	public const uint32 CV_OUT_HEXRAW = 12;
-
 	public const uint32 CV_OUT_ENCODEMASK = 255;
-
 	public const uint32 CV_OUT_NOCRLF = 1073741824;
-
 	public const uint32 CV_OUT_NOCR = 2147483648;
-
 	public const uint32 CVR_SEEK_NONE = 0;
-
 	public const uint32 CVR_SEEK_MASK = 255;
-
 	public const uint32 CVR_SEEK_NODELTA = 4096;
-
 	public const uint32 CVR_SORT_NONE = 0;
-
 	public const uint32 CVR_SORT_ASCEND = 1;
-
 	public const uint32 CVR_SORT_DESCEND = 2;
-
 	public const int32 CV_COLUMN_EXTENSION_DEFAULT = -4;
-
 	public const int32 CV_COLUMN_ATTRIBUTE_DEFAULT = -5;
-
 	public const int32 CV_COLUMN_CRL_DEFAULT = -6;
-
 	public const int32 CV_COLUMN_LOG_REVOKED_DEFAULT = -7;
-
 	public const uint32 CVRC_TABLE_MASK = 61440;
-
 	public const uint32 CVRC_TABLE_SHIFT = 12;
-
 	public const uint32 CRYPT_ENUM_ALL_PROVIDERS = 1;
-
 	public const int32 XEPR_ENUM_FIRST = -1;
-
 	public const uint32 XEPR_DATE = 5;
-
 	public const uint32 XEPR_TEMPLATENAME = 6;
-
 	public const uint32 XEPR_VERSION = 7;
-
 	public const uint32 XEPR_V1TEMPLATENAME = 9;
-
 	public const uint32 XEPR_V2TEMPLATEOID = 16;
-
 	public const uint32 XEKL_KEYSIZE_DEFAULT = 4;
-
 	public const uint32 XECP_STRING_PROPERTY = 1;
-
 	public const uint32 XECI_DISABLE = 0;
-
 	public const uint32 XECI_XENROLL = 1;
-
 	public const uint32 XECI_AUTOENROLL = 2;
-
 	public const uint32 XECI_REQWIZARD = 3;
-
 	public const uint32 XECI_CERTREQ = 4;
-
 	public const String wszCMM_PROP_NAME = "Name";
-
 	public const String wszCMM_PROP_DESCRIPTION = "Description";
-
 	public const String wszCMM_PROP_COPYRIGHT = "Copyright";
-
 	public const String wszCMM_PROP_FILEVER = "File Version";
-
 	public const String wszCMM_PROP_PRODUCTVER = "Product Version";
-
 	public const String wszCMM_PROP_DISPLAY_HWND = "HWND";
-
 	public const String wszCMM_PROP_ISMULTITHREADED = "IsMultiThreaded";
-
 }
 #endregion
 

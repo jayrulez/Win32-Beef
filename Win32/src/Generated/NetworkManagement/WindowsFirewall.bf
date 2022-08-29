@@ -9,13 +9,9 @@ namespace Win32.NetworkManagement.WindowsFirewall;
 public static
 {
 	public const uint32 NETCON_MAX_NAME_LEN = 256;
-
 	public const HRESULT S_OBJECT_NO_LONGER_VALID = 2;
-
 	public const uint32 NETISO_GEID_FOR_WDAG = 1;
-
 	public const uint32 NETISO_GEID_FOR_NEUTRAL_AWARE = 2;
-
 }
 #endregion
 
@@ -390,7 +386,6 @@ public struct INET_FIREWALL_AC_CHANGE
 		public INET_FIREWALL_AC_CAPABILITIES capabilities;
 		public INET_FIREWALL_AC_BINARIES binaries;
 	}
-
 	public INET_FIREWALL_AC_CHANGE_TYPE changeType;
 	public INET_FIREWALL_AC_CREATION_TYPE createType;
 	public SID* appContainerSid;

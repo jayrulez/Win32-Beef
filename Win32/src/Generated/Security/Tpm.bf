@@ -8,7 +8,6 @@ namespace Win32.Security.Tpm;
 public static
 {
 	public const uint32 TPMVSC_DEFAULT_ADMIN_ALGORITHM_ID = 130;
-
 }
 #endregion
 

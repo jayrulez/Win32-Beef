@@ -7,11 +7,8 @@ namespace Win32.System.Diagnostics.ToolHelp;
 public static
 {
 	public const uint32 MAX_MODULE_NAME32 = 255;
-
 	public const uint32 HF32_DEFAULT = 1;
-
 	public const uint32 HF32_SHARED = 2;
-
 }
 #endregion
 

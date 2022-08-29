@@ -7,13 +7,9 @@ namespace Win32.Devices.SerialCommunication;
 public static
 {
 	public const uint32 COMDB_MIN_PORTS_ARBITRATED = 256;
-
 	public const uint32 COMDB_MAX_PORTS_ARBITRATED = 4096;
-
 	public const uint32 CDB_REPORT_BITS = 0;
-
 	public const uint32 CDB_REPORT_BYTES = 1;
-
 }
 #endregion
 

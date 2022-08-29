@@ -2,7 +2,6 @@ using Win32.Foundation;
 using Win32.Security.Cryptography;
 using Win32.Security.Cryptography.Sip;
 using System;
-using System.Interop;
 
 namespace Win32.Security.WinTrust;
 
@@ -10,107 +9,56 @@ namespace Win32.Security.WinTrust;
 public static
 {
 	public const uint32 WINTRUST_MAX_HEADER_BYTES_TO_MAP_DEFAULT = 10485760;
-
 	public const uint32 WINTRUST_MAX_HASH_BYTES_TO_MAP_DEFAULT = 1048576;
-
 	public const uint32 WSS_VERIFY_SEALING = 4;
-
 	public const uint32 WSS_INPUT_FLAG_MASK = 7;
-
 	public const uint32 WSS_OUT_SEALING_STATUS_VERIFIED = 2147483648;
-
 	public const uint32 WSS_OUT_HAS_SEALING_INTENT = 1073741824;
-
 	public const uint32 WSS_OUT_FILE_SUPPORTS_SEAL = 536870912;
-
 	public const uint32 WSS_OUTPUT_FLAG_MASK = 3758096384;
-
 	public const uint32 TRUSTERROR_STEP_WVTPARAMS = 0;
-
 	public const uint32 TRUSTERROR_STEP_FILEIO = 2;
-
 	public const uint32 TRUSTERROR_STEP_SIP = 3;
-
 	public const uint32 TRUSTERROR_STEP_SIPSUBJINFO = 5;
-
 	public const uint32 TRUSTERROR_STEP_CATALOGFILE = 6;
-
 	public const uint32 TRUSTERROR_STEP_CERTSTORE = 7;
-
 	public const uint32 TRUSTERROR_STEP_MESSAGE = 8;
-
 	public const uint32 TRUSTERROR_STEP_MSG_SIGNERCOUNT = 9;
-
 	public const uint32 TRUSTERROR_STEP_MSG_INNERCNTTYPE = 10;
-
 	public const uint32 TRUSTERROR_STEP_MSG_INNERCNT = 11;
-
 	public const uint32 TRUSTERROR_STEP_MSG_STORE = 12;
-
 	public const uint32 TRUSTERROR_STEP_MSG_SIGNERINFO = 13;
-
 	public const uint32 TRUSTERROR_STEP_MSG_SIGNERCERT = 14;
-
 	public const uint32 TRUSTERROR_STEP_MSG_CERTCHAIN = 15;
-
 	public const uint32 TRUSTERROR_STEP_MSG_COUNTERSIGINFO = 16;
-
 	public const uint32 TRUSTERROR_STEP_MSG_COUNTERSIGCERT = 17;
-
 	public const uint32 TRUSTERROR_STEP_VERIFY_MSGHASH = 18;
-
 	public const uint32 TRUSTERROR_STEP_VERIFY_MSGINDIRECTDATA = 19;
-
 	public const uint32 TRUSTERROR_STEP_FINAL_WVTINIT = 30;
-
 	public const uint32 TRUSTERROR_STEP_FINAL_INITPROV = 31;
-
 	public const uint32 TRUSTERROR_STEP_FINAL_OBJPROV = 32;
-
 	public const uint32 TRUSTERROR_STEP_FINAL_SIGPROV = 33;
-
 	public const uint32 TRUSTERROR_STEP_FINAL_CERTPROV = 34;
-
 	public const uint32 TRUSTERROR_STEP_FINAL_CERTCHKPROV = 35;
-
 	public const uint32 TRUSTERROR_STEP_FINAL_POLICYPROV = 36;
-
 	public const uint32 TRUSTERROR_STEP_FINAL_UIPROV = 37;
-
 	public const uint32 TRUSTERROR_MAX_STEPS = 38;
-
 	public const uint32 WSS_OBJTRUST_SUPPORT = 1;
-
 	public const uint32 WSS_SIGTRUST_SUPPORT = 2;
-
 	public const uint32 WSS_CERTTRUST_SUPPORT = 4;
-
 	public const uint32 WT_CURRENT_VERSION = 512;
-
 	public const uint32 WT_ADD_ACTION_ID_RET_RESULT_FLAG = 1;
-
 	public const uint32 SPC_UUID_LENGTH = 16;
-
 	public const uint32 WIN_CERT_REVISION_1_0 = 256;
-
 	public const uint32 WIN_CERT_REVISION_2_0 = 512;
-
 	public const uint32 WIN_CERT_TYPE_X509 = 1;
-
 	public const uint32 WIN_CERT_TYPE_PKCS_SIGNED_DATA = 2;
-
 	public const uint32 WIN_CERT_TYPE_RESERVED_1 = 3;
-
 	public const uint32 WIN_CERT_TYPE_TS_STACK_SIGNED = 4;
-
 	public const uint32 WT_TRUSTDBDIALOG_NO_UI_FLAG = 1;
-
 	public const uint32 WT_TRUSTDBDIALOG_ONLY_PUB_TAB_FLAG = 2;
-
 	public const uint32 WT_TRUSTDBDIALOG_WRITE_LEGACY_REG_FLAG = 256;
-
 	public const uint32 WT_TRUSTDBDIALOG_WRITE_IEAK_STORE_FLAG = 512;
-
 }
 #endregion
 
@@ -250,7 +198,6 @@ public struct WINTRUST_DATA
 		public WINTRUST_SGNR_INFO* pSgnr;
 		public WINTRUST_CERT_INFO* pCert;
 	}
-
 	public uint32 cbStruct;
 	public void* pPolicyCallbackData;
 	public void* pSIPClientData;
@@ -343,7 +290,6 @@ public struct CRYPT_PROVIDER_DATA
 	{
 		public PROVDATA_SIP* pPDSip;
 	}
-
 	public uint32 cbStruct;
 	public WINTRUST_DATA* pWintrustData;
 	public BOOL fOpenedFile;
@@ -568,7 +514,6 @@ public struct SPC_LINK
 		public SPC_SERIALIZED_OBJECT Moniker;
 		public PWSTR pwszFile;
 	}
-
 	public uint32 dwLinkChoice;
 	public using _Anonymous_e__Union Anonymous;
 }
@@ -675,12 +620,13 @@ public struct SEALING_TIMESTAMP_ATTRIBUTE
 	public CRYPTOAPI_BLOB sealTimeStampToken;
 }
 
-[CRepr, FlexibleArray("bCertificate")]
+[CRepr]
 public struct WIN_CERTIFICATE
 {
 	public uint32 dwLength;
 	public uint16 wRevision;
 	public uint16 wCertificateType;
+	public uint8* bCertificate mut => &bCertificate_impl;
 	private uint8[ANYSIZE_ARRAY] bCertificate_impl;
 }
 
@@ -730,7 +676,6 @@ public struct WTD_GENERIC_CHAIN_POLICY_SIGNER_INFO
 		public uint32 cbStruct;
 		public uint32 cbSize;
 	}
-
 	public using _Anonymous_e__Union Anonymous;
 	public CERT_CHAIN_CONTEXT* pChainContext;
 	public uint32 dwSignerType;
@@ -749,7 +694,6 @@ public struct WTD_GENERIC_CHAIN_POLICY_CREATE_INFO
 		public uint32 cbStruct;
 		public uint32 cbSize;
 	}
-
 	public using _Anonymous_e__Union Anonymous;
 	public HCERTCHAINENGINE hChainEngine;
 	public CERT_CHAIN_PARA* pChainPara;
@@ -766,7 +710,6 @@ public struct WTD_GENERIC_CHAIN_POLICY_DATA
 		public uint32 cbStruct;
 		public uint32 cbSize;
 	}
-
 	public using _Anonymous_e__Union Anonymous;
 	public WTD_GENERIC_CHAIN_POLICY_CREATE_INFO* pSignerChainInfo;
 	public WTD_GENERIC_CHAIN_POLICY_CREATE_INFO* pCounterSignerChainInfo;

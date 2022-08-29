@@ -1,7 +1,6 @@
 using Win32.Foundation;
 using Win32.System.Ioctl;
 using System;
-using System.Interop;
 
 namespace Win32.Storage.IscsiDisc;
 
@@ -9,343 +8,174 @@ namespace Win32.Storage.IscsiDisc;
 public static
 {
 	public const uint32 IOCTL_SCSI_BASE = 4;
-
 	public const Guid ScsiRawInterfaceGuid = .(0x53f56309, 0xb6bf, 0x11d0, 0x94, 0xf2, 0x00, 0xa0, 0xc9, 0x1e, 0xfb, 0x8b);
-
 	public const Guid WmiScsiAddressGuid = .(0x53f5630f, 0xb6bf, 0x11d0, 0x94, 0xf2, 0x00, 0xa0, 0xc9, 0x1e, 0xfb, 0x8b);
-
 	public const uint32 FILE_DEVICE_SCSI = 27;
-
 	public const uint32 IOCTL_SCSI_PASS_THROUGH = 315396;
-
 	public const uint32 IOCTL_SCSI_MINIPORT = 315400;
-
 	public const uint32 IOCTL_SCSI_GET_INQUIRY_DATA = 266252;
-
 	public const uint32 IOCTL_SCSI_GET_CAPABILITIES = 266256;
-
 	public const uint32 IOCTL_SCSI_PASS_THROUGH_DIRECT = 315412;
-
 	public const uint32 IOCTL_SCSI_GET_ADDRESS = 266264;
-
 	public const uint32 IOCTL_SCSI_RESCAN_BUS = 266268;
-
 	public const uint32 IOCTL_SCSI_GET_DUMP_POINTERS = 266272;
-
 	public const uint32 IOCTL_SCSI_FREE_DUMP_POINTERS = 266276;
-
 	public const uint32 IOCTL_IDE_PASS_THROUGH = 315432;
-
 	public const uint32 IOCTL_ATA_PASS_THROUGH = 315436;
-
 	public const uint32 IOCTL_ATA_PASS_THROUGH_DIRECT = 315440;
-
 	public const uint32 IOCTL_ATA_MINIPORT = 315444;
-
 	public const uint32 IOCTL_MINIPORT_PROCESS_SERVICE_IRP = 315448;
-
 	public const uint32 IOCTL_MPIO_PASS_THROUGH_PATH = 315452;
-
 	public const uint32 IOCTL_MPIO_PASS_THROUGH_PATH_DIRECT = 315456;
-
 	public const uint32 IOCTL_SCSI_PASS_THROUGH_EX = 315460;
-
 	public const uint32 IOCTL_SCSI_PASS_THROUGH_DIRECT_EX = 315464;
-
 	public const uint32 IOCTL_MPIO_PASS_THROUGH_PATH_EX = 315468;
-
 	public const uint32 IOCTL_MPIO_PASS_THROUGH_PATH_DIRECT_EX = 315472;
-
 	public const uint32 ATA_FLAGS_DRDY_REQUIRED = 1;
-
 	public const uint32 ATA_FLAGS_DATA_IN = 2;
-
 	public const uint32 ATA_FLAGS_DATA_OUT = 4;
-
 	public const uint32 ATA_FLAGS_48BIT_COMMAND = 8;
-
 	public const uint32 ATA_FLAGS_USE_DMA = 16;
-
 	public const uint32 ATA_FLAGS_NO_MULTIPLE = 32;
-
 	public const uint32 NRB_FUNCTION_NVCACHE_INFO = 236;
-
 	public const uint32 NRB_FUNCTION_SPINDLE_STATUS = 229;
-
 	public const uint32 NRB_FUNCTION_NVCACHE_POWER_MODE_SET = 0;
-
 	public const uint32 NRB_FUNCTION_NVCACHE_POWER_MODE_RETURN = 1;
-
 	public const uint32 NRB_FUNCTION_FLUSH_NVCACHE = 20;
-
 	public const uint32 NRB_FUNCTION_QUERY_PINNED_SET = 18;
-
 	public const uint32 NRB_FUNCTION_QUERY_CACHE_MISS = 19;
-
 	public const uint32 NRB_FUNCTION_ADD_LBAS_PINNED_SET = 16;
-
 	public const uint32 NRB_FUNCTION_REMOVE_LBAS_PINNED_SET = 17;
-
 	public const uint32 NRB_FUNCTION_QUERY_ASCENDER_STATUS = 208;
-
 	public const uint32 NRB_FUNCTION_QUERY_HYBRID_DISK_STATUS = 209;
-
 	public const uint32 NRB_FUNCTION_PASS_HINT_PAYLOAD = 224;
-
 	public const uint32 NRB_FUNCTION_NVSEPARATED_INFO = 192;
-
 	public const uint32 NRB_FUNCTION_NVSEPARATED_FLUSH = 193;
-
 	public const uint32 NRB_FUNCTION_NVSEPARATED_WB_DISABLE = 194;
-
 	public const uint32 NRB_FUNCTION_NVSEPARATED_WB_REVERT_DEFAULT = 195;
-
 	public const uint32 NRB_SUCCESS = 0;
-
 	public const uint32 NRB_ILLEGAL_REQUEST = 1;
-
 	public const uint32 NRB_INVALID_PARAMETER = 2;
-
 	public const uint32 NRB_INPUT_DATA_OVERRUN = 3;
-
 	public const uint32 NRB_INPUT_DATA_UNDERRUN = 4;
-
 	public const uint32 NRB_OUTPUT_DATA_OVERRUN = 5;
-
 	public const uint32 NRB_OUTPUT_DATA_UNDERRUN = 6;
-
 	public const uint32 NV_SEP_CACHE_PARAMETER_VERSION_1 = 1;
-
 	public const uint32 NV_SEP_CACHE_PARAMETER_VERSION = 1;
-
 	public const uint32 STORAGE_DIAGNOSTIC_STATUS_SUCCESS = 0;
-
 	public const uint32 STORAGE_DIAGNOSTIC_STATUS_BUFFER_TOO_SMALL = 1;
-
 	public const uint32 STORAGE_DIAGNOSTIC_STATUS_UNSUPPORTED_VERSION = 2;
-
 	public const uint32 STORAGE_DIAGNOSTIC_STATUS_INVALID_PARAMETER = 3;
-
 	public const uint32 STORAGE_DIAGNOSTIC_STATUS_INVALID_SIGNATURE = 4;
-
 	public const uint32 STORAGE_DIAGNOSTIC_STATUS_INVALID_TARGET_TYPE = 5;
-
 	public const uint32 STORAGE_DIAGNOSTIC_STATUS_MORE_DATA = 6;
-
 	public const uint32 MINIPORT_DSM_NOTIFICATION_VERSION_1 = 1;
-
 	public const uint32 MINIPORT_DSM_NOTIFICATION_VERSION = 1;
-
 	public const uint32 MINIPORT_DSM_PROFILE_UNKNOWN = 0;
-
 	public const uint32 MINIPORT_DSM_PROFILE_PAGE_FILE = 1;
-
 	public const uint32 MINIPORT_DSM_PROFILE_HIBERNATION_FILE = 2;
-
 	public const uint32 MINIPORT_DSM_PROFILE_CRASHDUMP_FILE = 3;
-
 	public const uint32 MINIPORT_DSM_NOTIFY_FLAG_BEGIN = 1;
-
 	public const uint32 MINIPORT_DSM_NOTIFY_FLAG_END = 2;
-
 	public const uint32 HYBRID_FUNCTION_GET_INFO = 1;
-
 	public const uint32 HYBRID_FUNCTION_DISABLE_CACHING_MEDIUM = 16;
-
 	public const uint32 HYBRID_FUNCTION_ENABLE_CACHING_MEDIUM = 17;
-
 	public const uint32 HYBRID_FUNCTION_SET_DIRTY_THRESHOLD = 18;
-
 	public const uint32 HYBRID_FUNCTION_DEMOTE_BY_SIZE = 19;
-
 	public const uint32 HYBRID_STATUS_SUCCESS = 0;
-
 	public const uint32 HYBRID_STATUS_ILLEGAL_REQUEST = 1;
-
 	public const uint32 HYBRID_STATUS_INVALID_PARAMETER = 2;
-
 	public const uint32 HYBRID_STATUS_OUTPUT_BUFFER_TOO_SMALL = 3;
-
 	public const uint32 HYBRID_STATUS_ENABLE_REFCOUNT_HOLD = 16;
-
 	public const uint32 HYBRID_REQUEST_BLOCK_STRUCTURE_VERSION = 1;
-
 	public const uint32 HYBRID_REQUEST_INFO_STRUCTURE_VERSION = 1;
-
 	public const uint32 FIRMWARE_FUNCTION_GET_INFO = 1;
-
 	public const uint32 FIRMWARE_FUNCTION_DOWNLOAD = 2;
-
 	public const uint32 FIRMWARE_FUNCTION_ACTIVATE = 3;
-
 	public const uint32 FIRMWARE_STATUS_SUCCESS = 0;
-
 	public const uint32 FIRMWARE_STATUS_ERROR = 1;
-
 	public const uint32 FIRMWARE_STATUS_ILLEGAL_REQUEST = 2;
-
 	public const uint32 FIRMWARE_STATUS_INVALID_PARAMETER = 3;
-
 	public const uint32 FIRMWARE_STATUS_INPUT_BUFFER_TOO_BIG = 4;
-
 	public const uint32 FIRMWARE_STATUS_OUTPUT_BUFFER_TOO_SMALL = 5;
-
 	public const uint32 FIRMWARE_STATUS_INVALID_SLOT = 6;
-
 	public const uint32 FIRMWARE_STATUS_INVALID_IMAGE = 7;
-
 	public const uint32 FIRMWARE_STATUS_CONTROLLER_ERROR = 16;
-
 	public const uint32 FIRMWARE_STATUS_POWER_CYCLE_REQUIRED = 32;
-
 	public const uint32 FIRMWARE_STATUS_DEVICE_ERROR = 64;
-
 	public const uint32 FIRMWARE_STATUS_INTERFACE_CRC_ERROR = 128;
-
 	public const uint32 FIRMWARE_STATUS_UNCORRECTABLE_DATA_ERROR = 129;
-
 	public const uint32 FIRMWARE_STATUS_MEDIA_CHANGE = 130;
-
 	public const uint32 FIRMWARE_STATUS_ID_NOT_FOUND = 131;
-
 	public const uint32 FIRMWARE_STATUS_MEDIA_CHANGE_REQUEST = 132;
-
 	public const uint32 FIRMWARE_STATUS_COMMAND_ABORT = 133;
-
 	public const uint32 FIRMWARE_STATUS_END_OF_MEDIA = 134;
-
 	public const uint32 FIRMWARE_STATUS_ILLEGAL_LENGTH = 135;
-
 	public const uint32 FIRMWARE_REQUEST_BLOCK_STRUCTURE_VERSION = 1;
-
 	public const uint32 FIRMWARE_REQUEST_FLAG_CONTROLLER = 1;
-
 	public const uint32 FIRMWARE_REQUEST_FLAG_LAST_SEGMENT = 2;
-
 	public const uint32 FIRMWARE_REQUEST_FLAG_FIRST_SEGMENT = 4;
-
 	public const uint32 FIRMWARE_REQUEST_FLAG_SWITCH_TO_EXISTING_FIRMWARE = 2147483648;
-
 	public const uint32 STORAGE_FIRMWARE_INFO_STRUCTURE_VERSION = 1;
-
 	public const uint32 STORAGE_FIRMWARE_INFO_STRUCTURE_VERSION_V2 = 2;
-
 	public const uint32 STORAGE_FIRMWARE_INFO_INVALID_SLOT = 255;
-
 	public const uint32 STORAGE_FIRMWARE_SLOT_INFO_V2_REVISION_LENGTH = 16;
-
 	public const uint32 STORAGE_FIRMWARE_DOWNLOAD_STRUCTURE_VERSION = 1;
-
 	public const uint32 STORAGE_FIRMWARE_DOWNLOAD_STRUCTURE_VERSION_V2 = 2;
-
 	public const uint32 STORAGE_FIRMWARE_ACTIVATE_STRUCTURE_VERSION = 1;
-
 	public const uint32 DUMP_POINTERS_VERSION_1 = 1;
-
 	public const uint32 DUMP_POINTERS_VERSION_2 = 2;
-
 	public const uint32 DUMP_POINTERS_VERSION_3 = 3;
-
 	public const uint32 DUMP_POINTERS_VERSION_4 = 4;
-
 	public const uint32 DUMP_DRIVER_NAME_LENGTH = 15;
-
 	public const uint32 DUMP_EX_FLAG_SUPPORT_64BITMEMORY = 1;
-
 	public const uint32 DUMP_EX_FLAG_SUPPORT_DD_TELEMETRY = 2;
-
 	public const uint32 DUMP_EX_FLAG_RESUME_SUPPORT = 4;
-
 	public const uint32 DUMP_EX_FLAG_DRIVER_FULL_PATH_SUPPORT = 8;
-
 	public const uint32 SCSI_IOCTL_DATA_OUT = 0;
-
 	public const uint32 SCSI_IOCTL_DATA_IN = 1;
-
 	public const uint32 SCSI_IOCTL_DATA_UNSPECIFIED = 2;
-
 	public const uint32 SCSI_IOCTL_DATA_BIDIRECTIONAL = 3;
-
 	public const uint32 MPIO_IOCTL_FLAG_USE_PATHID = 1;
-
 	public const uint32 MPIO_IOCTL_FLAG_USE_SCSIADDRESS = 2;
-
 	public const uint32 MPIO_IOCTL_FLAG_INVOLVE_DSM = 4;
-
 	public const uint32 MAX_ISCSI_HBANAME_LEN = 256;
-
 	public const uint32 MAX_ISCSI_NAME_LEN = 223;
-
 	public const uint32 MAX_ISCSI_ALIAS_LEN = 255;
-
 	public const uint32 MAX_ISCSI_PORTAL_NAME_LEN = 256;
-
 	public const uint32 MAX_ISCSI_PORTAL_ALIAS_LEN = 256;
-
 	public const uint32 MAX_ISCSI_TEXT_ADDRESS_LEN = 256;
-
 	public const uint32 MAX_ISCSI_PORTAL_ADDRESS_LEN = 256;
-
 	public const uint32 MAX_ISCSI_DISCOVERY_DOMAIN_LEN = 256;
-
 	public const uint32 MAX_RADIUS_ADDRESS_LEN = 41;
-
 	public const uint32 ISCSI_SECURITY_FLAG_TUNNEL_MODE_PREFERRED = 64;
-
 	public const uint32 ISCSI_SECURITY_FLAG_TRANSPORT_MODE_PREFERRED = 32;
-
 	public const uint32 ISCSI_SECURITY_FLAG_PFS_ENABLED = 16;
-
 	public const uint32 ISCSI_SECURITY_FLAG_AGGRESSIVE_MODE_ENABLED = 8;
-
 	public const uint32 ISCSI_SECURITY_FLAG_MAIN_MODE_ENABLED = 4;
-
 	public const uint32 ISCSI_SECURITY_FLAG_IKE_IPSEC_ENABLED = 2;
-
 	public const uint32 ISCSI_SECURITY_FLAG_VALID = 1;
-
 	public const uint32 ISCSI_LOGIN_FLAG_REQUIRE_IPSEC = 1;
-
 	public const uint32 ISCSI_LOGIN_FLAG_MULTIPATH_ENABLED = 2;
-
 	public const uint32 ISCSI_LOGIN_FLAG_RESERVED1 = 4;
-
 	public const uint32 ISCSI_LOGIN_FLAG_ALLOW_PORTAL_HOPPING = 8;
-
 	public const uint32 ISCSI_LOGIN_FLAG_USE_RADIUS_RESPONSE = 16;
-
 	public const uint32 ISCSI_LOGIN_FLAG_USE_RADIUS_VERIFICATION = 32;
-
 	public const uint32 ISCSI_LOGIN_OPTIONS_HEADER_DIGEST = 1;
-
 	public const uint32 ISCSI_LOGIN_OPTIONS_DATA_DIGEST = 2;
-
 	public const uint32 ISCSI_LOGIN_OPTIONS_MAXIMUM_CONNECTIONS = 4;
-
 	public const uint32 ISCSI_LOGIN_OPTIONS_DEFAULT_TIME_2_WAIT = 8;
-
 	public const uint32 ISCSI_LOGIN_OPTIONS_DEFAULT_TIME_2_RETAIN = 16;
-
 	public const uint32 ISCSI_LOGIN_OPTIONS_USERNAME = 32;
-
 	public const uint32 ISCSI_LOGIN_OPTIONS_PASSWORD = 64;
-
 	public const uint32 ISCSI_LOGIN_OPTIONS_AUTH_TYPE = 128;
-
 	public const uint32 ISCSI_LOGIN_OPTIONS_VERSION = 0;
-
 	public const uint32 ISCSI_TARGET_FLAG_HIDE_STATIC_TARGET = 2;
-
 	public const uint32 ISCSI_TARGET_FLAG_MERGE_TARGET_INFORMATION = 4;
-
 	public const uint32 ID_IPV4_ADDR = 1;
-
 	public const uint32 ID_FQDN = 2;
-
 	public const uint32 ID_USER_FQDN = 3;
-
 	public const uint32 ID_IPV6_ADDR = 5;
-
 }
 #endregion
 
@@ -534,7 +364,7 @@ public struct SCSI_PASS_THROUGH_DIRECT32
 }
 #endif
 
-[CRepr, FlexibleArray("Cdb")]
+[CRepr]
 public struct SCSI_PASS_THROUGH_EX
 {
 	public uint32 Version;
@@ -552,10 +382,11 @@ public struct SCSI_PASS_THROUGH_EX
 	public uint32 DataInTransferLength;
 	public uint DataOutBufferOffset;
 	public uint DataInBufferOffset;
+	public uint8* Cdb mut => &Cdb_impl;
 	private uint8[ANYSIZE_ARRAY] Cdb_impl;
 }
 
-[CRepr, FlexibleArray("Cdb")]
+[CRepr]
 public struct SCSI_PASS_THROUGH_DIRECT_EX
 {
 	public uint32 Version;
@@ -573,11 +404,12 @@ public struct SCSI_PASS_THROUGH_DIRECT_EX
 	public uint32 DataInTransferLength;
 	public void* DataOutBuffer;
 	public void* DataInBuffer;
+	public uint8* Cdb mut => &Cdb_impl;
 	private uint8[ANYSIZE_ARRAY] Cdb_impl;
 }
 
 #if BF_64_BIT || BF_ARM_64
-[CRepr, FlexibleArray("Cdb")]
+[CRepr]
 public struct SCSI_PASS_THROUGH32_EX
 {
 	public uint32 Version;
@@ -595,12 +427,13 @@ public struct SCSI_PASS_THROUGH32_EX
 	public uint32 DataInTransferLength;
 	public uint32 DataOutBufferOffset;
 	public uint32 DataInBufferOffset;
+	public uint8* Cdb mut => &Cdb_impl;
 	private uint8[ANYSIZE_ARRAY] Cdb_impl;
 }
 #endif
 
 #if BF_64_BIT || BF_ARM_64
-[CRepr, FlexibleArray("Cdb")]
+[CRepr]
 public struct SCSI_PASS_THROUGH_DIRECT32_EX
 {
 	public uint32 Version;
@@ -618,6 +451,7 @@ public struct SCSI_PASS_THROUGH_DIRECT32_EX
 	public uint32 DataInTransferLength;
 	public void* DataOutBuffer;
 	public void* DataInBuffer;
+	public uint8* Cdb mut => &Cdb_impl;
 	private uint8[ANYSIZE_ARRAY] Cdb_impl;
 }
 #endif
@@ -809,14 +643,15 @@ public struct SCSI_BUS_DATA
 	public uint32 InquiryDataOffset;
 }
 
-[CRepr, FlexibleArray("BusData")]
+[CRepr]
 public struct SCSI_ADAPTER_BUS_INFO
 {
 	public uint8 NumberOfBuses;
+	public SCSI_BUS_DATA* BusData mut => &BusData_impl;
 	private SCSI_BUS_DATA[ANYSIZE_ARRAY] BusData_impl;
 }
 
-[CRepr, FlexibleArray("InquiryData")]
+[CRepr]
 public struct SCSI_INQUIRY_DATA
 {
 	public uint8 PathId;
@@ -825,6 +660,7 @@ public struct SCSI_INQUIRY_DATA
 	public BOOLEAN DeviceClaimed;
 	public uint32 InquiryDataLength;
 	public uint32 NextInquiryDataOffset;
+	public uint8* InquiryData mut => &InquiryData_impl;
 	private uint8[ANYSIZE_ARRAY] InquiryData_impl;
 }
 
@@ -897,11 +733,9 @@ public struct NV_SEP_CACHE_PARAMETER
 		{
 			public uint8 _bitfield;
 		}
-
 		public _CacheFlags_e__Struct CacheFlags;
 		public uint8 CacheFlagsSet;
 	}
-
 	public uint32 Version;
 	public uint32 Size;
 	public _Flags_e__Union Flags;
@@ -910,7 +744,7 @@ public struct NV_SEP_CACHE_PARAMETER
 	public uint8[3] ParameterReserve1;
 }
 
-[CRepr, FlexibleArray("DataBuffer")]
+[CRepr]
 public struct STORAGE_DIAGNOSTIC_MP_REQUEST
 {
 	public uint32 Version;
@@ -920,6 +754,7 @@ public struct STORAGE_DIAGNOSTIC_MP_REQUEST
 	public Guid ProviderId;
 	public uint32 BufferSize;
 	public uint32 Reserved;
+	public uint8* DataBuffer mut => &DataBuffer_impl;
 	private uint8[ANYSIZE_ARRAY] DataBuffer_impl;
 }
 
@@ -930,7 +765,7 @@ public struct MP_DEVICE_DATA_SET_RANGE
 	public uint64 LengthInBytes;
 }
 
-[CRepr, FlexibleArray("DataSetRanges")]
+[CRepr]
 public struct DSM_NOTIFICATION_REQUEST_BLOCK
 {
 	public uint32 Size;
@@ -939,6 +774,7 @@ public struct DSM_NOTIFICATION_REQUEST_BLOCK
 	public uint32 DataSetProfile;
 	public uint32[3] Reserved;
 	public uint32 DataSetRangesCount;
+	public MP_DEVICE_DATA_SET_RANGE* DataSetRanges mut => &DataSetRanges_impl;
 	private MP_DEVICE_DATA_SET_RANGE[ANYSIZE_ARRAY] DataSetRanges_impl;
 }
 
@@ -968,7 +804,7 @@ public struct NVCACHE_PRIORITY_LEVEL_DESCRIPTOR
 [CRepr]
 public struct HYBRID_INFORMATION
 {
-	[CRepr, FlexibleArray("Priority")]
+	[CRepr]
 	public struct _Priorities_e__Struct
 	{
 		[CRepr]
@@ -979,7 +815,6 @@ public struct HYBRID_INFORMATION
 			public uint32 MaxLbaRangeCountForEvict;
 			public uint32 MaxLbaRangeCountForChangeLba;
 		}
-
 		public uint8 PriorityLevelCount;
 		public BOOLEAN MaxPriorityBehavior;
 		public uint8 OptimalWriteGranularity;
@@ -987,15 +822,14 @@ public struct HYBRID_INFORMATION
 		public uint32 DirtyThresholdLow;
 		public uint32 DirtyThresholdHigh;
 		public _SupportedCommands_e__Struct SupportedCommands;
+		public NVCACHE_PRIORITY_LEVEL_DESCRIPTOR* Priority mut => &Priority_impl;
 		private NVCACHE_PRIORITY_LEVEL_DESCRIPTOR[ANYSIZE_ARRAY] Priority_impl;
 	}
-
 	[CRepr]
 	public struct _Attributes_e__Struct
 	{
 		public uint32 _bitfield;
 	}
-
 	public uint32 Version;
 	public uint32 Size;
 	public BOOLEAN HybridSupported;
@@ -1049,7 +883,6 @@ public struct STORAGE_FIRMWARE_SLOT_INFO
 		public uint8[8] Info;
 		public uint64 AsUlonglong;
 	}
-
 	public uint8 SlotNumber;
 	public BOOLEAN ReadOnly;
 	public uint8[6] Reserved;
@@ -1065,7 +898,7 @@ public struct STORAGE_FIRMWARE_SLOT_INFO_V2
 	public uint8[16] Revision;
 }
 
-[CRepr, FlexibleArray("Slot")]
+[CRepr]
 public struct STORAGE_FIRMWARE_INFO
 {
 	public uint32 Version;
@@ -1075,10 +908,11 @@ public struct STORAGE_FIRMWARE_INFO
 	public uint8 ActiveSlot;
 	public uint8 PendingActivateSlot;
 	public uint32 Reserved;
+	public STORAGE_FIRMWARE_SLOT_INFO* Slot mut => &Slot_impl;
 	private STORAGE_FIRMWARE_SLOT_INFO[ANYSIZE_ARRAY] Slot_impl;
 }
 
-[CRepr, FlexibleArray("Slot")]
+[CRepr]
 public struct STORAGE_FIRMWARE_INFO_V2
 {
 	public uint32 Version;
@@ -1091,20 +925,22 @@ public struct STORAGE_FIRMWARE_INFO_V2
 	public uint8[3] Reserved;
 	public uint32 ImagePayloadAlignment;
 	public uint32 ImagePayloadMaxSize;
+	public STORAGE_FIRMWARE_SLOT_INFO_V2* Slot mut => &Slot_impl;
 	private STORAGE_FIRMWARE_SLOT_INFO_V2[ANYSIZE_ARRAY] Slot_impl;
 }
 
-[CRepr, FlexibleArray("ImageBuffer")]
+[CRepr]
 public struct STORAGE_FIRMWARE_DOWNLOAD
 {
 	public uint32 Version;
 	public uint32 Size;
 	public uint64 Offset;
 	public uint64 BufferSize;
+	public uint8* ImageBuffer mut => &ImageBuffer_impl;
 	private uint8[ANYSIZE_ARRAY] ImageBuffer_impl;
 }
 
-[CRepr, FlexibleArray("ImageBuffer")]
+[CRepr]
 public struct STORAGE_FIRMWARE_DOWNLOAD_V2
 {
 	public uint32 Version;
@@ -1114,6 +950,7 @@ public struct STORAGE_FIRMWARE_DOWNLOAD_V2
 	public uint8 Slot;
 	public uint8[3] Reserved;
 	public uint32 ImageSize;
+	public uint8* ImageBuffer mut => &ImageBuffer_impl;
 	private uint8[ANYSIZE_ARRAY] ImageBuffer_impl;
 }
 
@@ -1225,7 +1062,6 @@ public struct STORAGE_ENDURANCE_INFO
 	{
 		public uint32 _bitfield;
 	}
-
 	public uint32 ValidFields;
 	public uint32 GroupId;
 	public _Flags_e__Struct Flags;
@@ -1279,7 +1115,6 @@ public struct IKE_AUTHENTICATION_INFORMATION
 	{
 		public IKE_AUTHENTICATION_PRESHARED_KEY PsKey;
 	}
-
 	public IKE_AUTHENTICATION_METHOD AuthMethod;
 	public using _Anonymous_e__Union Anonymous;
 }
@@ -1384,17 +1219,19 @@ public struct ISCSI_TARGET_PORTAL_INFO_EXA
 	public ISCSI_LOGIN_OPTIONS LoginOptions;
 }
 
-[CRepr, FlexibleArray("Portals")]
+[CRepr]
 public struct ISCSI_TARGET_PORTAL_GROUPW
 {
 	public uint32 Count;
+	public ISCSI_TARGET_PORTALW* Portals mut => &Portals_impl;
 	private ISCSI_TARGET_PORTALW[ANYSIZE_ARRAY] Portals_impl;
 }
 
-[CRepr, FlexibleArray("Portals")]
+[CRepr]
 public struct ISCSI_TARGET_PORTAL_GROUPA
 {
 	public uint32 Count;
+	public ISCSI_TARGET_PORTALA* Portals mut => &Portals_impl;
 	private ISCSI_TARGET_PORTALA[ANYSIZE_ARRAY] Portals_impl;
 }
 

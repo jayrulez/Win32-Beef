@@ -8,19 +8,12 @@ namespace Win32.System.Contacts;
 public static
 {
 	public const uint32 CGD_DEFAULT = 0;
-
 	public const uint32 CGD_UNKNOWN_PROPERTY = 0;
-
 	public const uint32 CGD_STRING_PROPERTY = 1;
-
 	public const uint32 CGD_DATE_PROPERTY = 2;
-
 	public const uint32 CGD_BINARY_PROPERTY = 4;
-
 	public const uint32 CGD_ARRAY_NODE = 8;
-
 	public const Guid CLSID_ContactAggregationManager = .(0x96c8ad95, 0xc199, 0x44de, 0xb3, 0x4e, 0xac, 0x33, 0xc4, 0x42, 0xdf, 0x39);
-
 }
 #endregion
 

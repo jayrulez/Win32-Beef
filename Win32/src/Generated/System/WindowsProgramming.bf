@@ -5,7 +5,6 @@ using Win32.Security;
 using Win32.Graphics.Gdi;
 using Win32.System.Registry;
 using System;
-using System.Interop;
 
 namespace Win32.System.WindowsProgramming;
 
@@ -13,1121 +12,563 @@ namespace Win32.System.WindowsProgramming;
 public static
 {
 	public const uint32 WLDP_LOCKDOWN_UNDEFINED = 0;
-
 	public const uint32 WLDP_LOCKDOWN_DEFINED_FLAG = 2147483648;
-
 	public const uint32 WLDP_LOCKDOWN_CONFIG_CI_FLAG = 1;
-
 	public const uint32 WLDP_LOCKDOWN_CONFIG_CI_AUDIT_FLAG = 2;
-
 	public const uint32 WLDP_LOCKDOWN_UMCIENFORCE_FLAG = 4;
-
 	public const uint32 WLDP_LOCKDOWN_AUDIT_FLAG = 8;
-
 	public const uint32 WLDP_LOCKDOWN_EXCLUSION_FLAG = 16;
-
 	public const uint32 WLDP_LOCKDOWN_OFF = 2147483648;
-
 	public const uint32 WLDP_HOST_INFORMATION_REVISION = 1;
-
 	public const uint32 WLDP_FLAGS_SKIPSIGNATUREVALIDATION = 256;
-
 	public const uint32 MAX_TDI_ENTITIES = 4096;
-
 	public const uint32 INFO_CLASS_GENERIC = 256;
-
 	public const uint32 INFO_CLASS_PROTOCOL = 512;
-
 	public const uint32 INFO_CLASS_IMPLEMENTATION = 768;
-
 	public const uint32 INFO_TYPE_PROVIDER = 256;
-
 	public const uint32 INFO_TYPE_ADDRESS_OBJECT = 512;
-
 	public const uint32 INFO_TYPE_CONNECTION = 768;
-
 	public const uint32 ENTITY_LIST_ID = 0;
-
 	public const int32 INVALID_ENTITY_INSTANCE = -1;
-
 	public const uint32 CONTEXT_SIZE = 16;
-
 	public const uint32 ENTITY_TYPE_ID = 1;
-
 	public const uint32 CO_TL_NBF = 1024;
-
 	public const uint32 CO_TL_SPX = 1026;
-
 	public const uint32 CO_TL_TCP = 1028;
-
 	public const uint32 CO_TL_SPP = 1030;
-
 	public const uint32 CL_TL_NBF = 1025;
-
 	public const uint32 CL_TL_UDP = 1027;
-
 	public const uint32 ER_ICMP = 896;
-
 	public const uint32 CL_NL_IPX = 769;
-
 	public const uint32 CL_NL_IP = 771;
-
 	public const uint32 AT_ARP = 640;
-
 	public const uint32 AT_NULL = 642;
-
 	public const uint32 IF_GENERIC = 512;
-
 	public const uint32 IF_MIB = 514;
-
 	public const uint32 IOCTL_TDI_TL_IO_CONTROL_ENDPOINT = 2162744;
-
 	public const uint32 DCI_VERSION = 256;
-
 	public const uint32 DCICREATEPRIMARYSURFACE = 1;
-
 	public const uint32 DCICREATEOFFSCREENSURFACE = 2;
-
 	public const uint32 DCICREATEOVERLAYSURFACE = 3;
-
 	public const uint32 DCIENUMSURFACE = 4;
-
 	public const uint32 DCIESCAPE = 5;
-
 	public const uint32 DCI_OK = 0;
-
 	public const int32 DCI_FAIL_GENERIC = -1;
-
 	public const int32 DCI_FAIL_UNSUPPORTEDVERSION = -2;
-
 	public const int32 DCI_FAIL_INVALIDSURFACE = -3;
-
 	public const int32 DCI_FAIL_UNSUPPORTED = -4;
-
 	public const int32 DCI_ERR_CURRENTLYNOTAVAIL = -5;
-
 	public const int32 DCI_ERR_INVALIDRECT = -6;
-
 	public const int32 DCI_ERR_UNSUPPORTEDFORMAT = -7;
-
 	public const int32 DCI_ERR_UNSUPPORTEDMASK = -8;
-
 	public const int32 DCI_ERR_TOOBIGHEIGHT = -9;
-
 	public const int32 DCI_ERR_TOOBIGWIDTH = -10;
-
 	public const int32 DCI_ERR_TOOBIGSIZE = -11;
-
 	public const int32 DCI_ERR_OUTOFMEMORY = -12;
-
 	public const int32 DCI_ERR_INVALIDPOSITION = -13;
-
 	public const int32 DCI_ERR_INVALIDSTRETCH = -14;
-
 	public const int32 DCI_ERR_INVALIDCLIPLIST = -15;
-
 	public const int32 DCI_ERR_SURFACEISOBSCURED = -16;
-
 	public const int32 DCI_ERR_XALIGN = -17;
-
 	public const int32 DCI_ERR_YALIGN = -18;
-
 	public const int32 DCI_ERR_XYALIGN = -19;
-
 	public const int32 DCI_ERR_WIDTHALIGN = -20;
-
 	public const int32 DCI_ERR_HEIGHTALIGN = -21;
-
 	public const uint32 DCI_STATUS_POINTERCHANGED = 1;
-
 	public const uint32 DCI_STATUS_STRIDECHANGED = 2;
-
 	public const uint32 DCI_STATUS_FORMATCHANGED = 4;
-
 	public const uint32 DCI_STATUS_SURFACEINFOCHANGED = 8;
-
 	public const uint32 DCI_STATUS_CHROMAKEYCHANGED = 16;
-
 	public const uint32 DCI_STATUS_WASSTILLDRAWING = 32;
-
 	public const uint32 DCI_SURFACE_TYPE = 15;
-
 	public const uint32 DCI_PRIMARY = 0;
-
 	public const uint32 DCI_OFFSCREEN = 1;
-
 	public const uint32 DCI_OVERLAY = 2;
-
 	public const uint32 DCI_VISIBLE = 16;
-
 	public const uint32 DCI_CHROMAKEY = 32;
-
 	public const uint32 DCI_1632_ACCESS = 64;
-
 	public const uint32 DCI_DWORDSIZE = 128;
-
 	public const uint32 DCI_DWORDALIGN = 256;
-
 	public const uint32 DCI_WRITEONLY = 512;
-
 	public const uint32 DCI_ASYNC = 1024;
-
 	public const uint32 DCI_CAN_STRETCHX = 4096;
-
 	public const uint32 DCI_CAN_STRETCHY = 8192;
-
 	public const uint32 DCI_CAN_STRETCHXN = 16384;
-
 	public const uint32 DCI_CAN_STRETCHYN = 32768;
-
 	public const uint32 DCI_CANOVERLAY = 65536;
-
 	public const uint32 FILE_FLAG_OPEN_REQUIRING_OPLOCK = 262144;
-
 	public const uint32 PROGRESS_CONTINUE = 0;
-
 	public const uint32 PROGRESS_CANCEL = 1;
-
 	public const uint32 PROGRESS_STOP = 2;
-
 	public const uint32 PROGRESS_QUIET = 3;
-
 	public const uint32 COPY_FILE_FAIL_IF_EXISTS = 1;
-
 	public const uint32 COPY_FILE_RESTARTABLE = 2;
-
 	public const uint32 COPY_FILE_OPEN_SOURCE_FOR_WRITE = 4;
-
 	public const uint32 COPY_FILE_ALLOW_DECRYPTED_DESTINATION = 8;
-
 	public const uint32 COPY_FILE_COPY_SYMLINK = 2048;
-
 	public const uint32 COPY_FILE_NO_BUFFERING = 4096;
-
 	public const uint32 COPY_FILE_REQUEST_SECURITY_PRIVILEGES = 8192;
-
 	public const uint32 COPY_FILE_RESUME_FROM_PAUSE = 16384;
-
 	public const uint32 COPY_FILE_NO_OFFLOAD = 262144;
-
 	public const uint32 COPY_FILE_IGNORE_EDP_BLOCK = 4194304;
-
 	public const uint32 COPY_FILE_IGNORE_SOURCE_ENCRYPTION = 8388608;
-
 	public const uint32 COPY_FILE_DONT_REQUEST_DEST_WRITE_DAC = 33554432;
-
 	public const uint32 COPY_FILE_REQUEST_COMPRESSED_TRAFFIC = 268435456;
-
 	public const uint32 COPY_FILE_OPEN_AND_COPY_REPARSE_POINT = 2097152;
-
 	public const uint32 COPY_FILE_DIRECTORY = 128;
-
 	public const uint32 COPY_FILE_SKIP_ALTERNATE_STREAMS = 32768;
-
 	public const uint32 COPY_FILE_DISABLE_PRE_ALLOCATION = 67108864;
-
 	public const uint32 COPY_FILE_ENABLE_LOW_FREE_SPACE_MODE = 134217728;
-
 	public const uint32 FAIL_FAST_GENERATE_EXCEPTION_ADDRESS = 1;
-
 	public const uint32 FAIL_FAST_NO_HARD_ERROR_DLG = 2;
-
 	public const uint32 DTR_CONTROL_DISABLE = 0;
-
 	public const uint32 DTR_CONTROL_ENABLE = 1;
-
 	public const uint32 DTR_CONTROL_HANDSHAKE = 2;
-
 	public const uint32 RTS_CONTROL_DISABLE = 0;
-
 	public const uint32 RTS_CONTROL_ENABLE = 1;
-
 	public const uint32 RTS_CONTROL_HANDSHAKE = 2;
-
 	public const uint32 RTS_CONTROL_TOGGLE = 3;
-
 	public const uint32 GMEM_NOCOMPACT = 16;
-
 	public const uint32 GMEM_NODISCARD = 32;
-
 	public const uint32 GMEM_MODIFY = 128;
-
 	public const uint32 GMEM_DISCARDABLE = 256;
-
 	public const uint32 GMEM_NOT_BANKED = 4096;
-
 	public const uint32 GMEM_SHARE = 8192;
-
 	public const uint32 GMEM_DDESHARE = 8192;
-
 	public const uint32 GMEM_NOTIFY = 16384;
-
 	public const uint32 GMEM_LOWER = 4096;
-
 	public const uint32 GMEM_VALID_FLAGS = 32626;
-
 	public const uint32 GMEM_INVALID_HANDLE = 32768;
-
 	public const uint32 GMEM_DISCARDED = 16384;
-
 	public const uint32 GMEM_LOCKCOUNT = 255;
-
 	public const uint32 THREAD_PRIORITY_ERROR_RETURN = 2147483647;
-
 	public const uint32 VOLUME_NAME_DOS = 0;
-
 	public const uint32 VOLUME_NAME_GUID = 1;
-
 	public const uint32 VOLUME_NAME_NT = 2;
-
 	public const uint32 VOLUME_NAME_NONE = 4;
-
 	public const uint32 DRIVE_UNKNOWN = 0;
-
 	public const uint32 DRIVE_NO_ROOT_DIR = 1;
-
 	public const uint32 DRIVE_REMOVABLE = 2;
-
 	public const uint32 DRIVE_FIXED = 3;
-
 	public const uint32 DRIVE_REMOTE = 4;
-
 	public const uint32 DRIVE_CDROM = 5;
-
 	public const uint32 DRIVE_RAMDISK = 6;
-
 	public const uint32 FILE_TYPE_UNKNOWN = 0;
-
 	public const uint32 FILE_TYPE_DISK = 1;
-
 	public const uint32 FILE_TYPE_CHAR = 2;
-
 	public const uint32 FILE_TYPE_PIPE = 3;
-
 	public const uint32 FILE_TYPE_REMOTE = 32768;
-
 	public const uint32 NOPARITY = 0;
-
 	public const uint32 ODDPARITY = 1;
-
 	public const uint32 EVENPARITY = 2;
-
 	public const uint32 MARKPARITY = 3;
-
 	public const uint32 SPACEPARITY = 4;
-
 	public const uint32 ONESTOPBIT = 0;
-
 	public const uint32 ONE5STOPBITS = 1;
-
 	public const uint32 TWOSTOPBITS = 2;
-
 	public const uint32 IGNORE = 0;
-
 	public const uint32 INFINITE = 4294967295;
-
 	public const uint32 CBR_110 = 110;
-
 	public const uint32 CBR_300 = 300;
-
 	public const uint32 CBR_600 = 600;
-
 	public const uint32 CBR_1200 = 1200;
-
 	public const uint32 CBR_2400 = 2400;
-
 	public const uint32 CBR_4800 = 4800;
-
 	public const uint32 CBR_9600 = 9600;
-
 	public const uint32 CBR_14400 = 14400;
-
 	public const uint32 CBR_19200 = 19200;
-
 	public const uint32 CBR_38400 = 38400;
-
 	public const uint32 CBR_56000 = 56000;
-
 	public const uint32 CBR_57600 = 57600;
-
 	public const uint32 CBR_115200 = 115200;
-
 	public const uint32 CBR_128000 = 128000;
-
 	public const uint32 CBR_256000 = 256000;
-
 	public const uint32 CE_TXFULL = 256;
-
 	public const uint32 CE_PTO = 512;
-
 	public const uint32 CE_IOE = 1024;
-
 	public const uint32 CE_DNS = 2048;
-
 	public const uint32 CE_OOP = 4096;
-
 	public const uint32 CE_MODE = 32768;
-
 	public const int32 IE_BADID = -1;
-
 	public const int32 IE_OPEN = -2;
-
 	public const int32 IE_NOPEN = -3;
-
 	public const int32 IE_MEMORY = -4;
-
 	public const int32 IE_DEFAULT = -5;
-
 	public const int32 IE_HARDWARE = -10;
-
 	public const int32 IE_BYTESIZE = -11;
-
 	public const int32 IE_BAUDRATE = -12;
-
 	public const uint32 RESETDEV = 7;
-
 	public const uint32 LPTx = 128;
-
 	public const uint32 S_QUEUEEMPTY = 0;
-
 	public const uint32 S_THRESHOLD = 1;
-
 	public const uint32 S_ALLTHRESHOLD = 2;
-
 	public const uint32 S_NORMAL = 0;
-
 	public const uint32 S_LEGATO = 1;
-
 	public const uint32 S_STACCATO = 2;
-
 	public const uint32 S_PERIOD512 = 0;
-
 	public const uint32 S_PERIOD1024 = 1;
-
 	public const uint32 S_PERIOD2048 = 2;
-
 	public const uint32 S_PERIODVOICE = 3;
-
 	public const uint32 S_WHITE512 = 4;
-
 	public const uint32 S_WHITE1024 = 5;
-
 	public const uint32 S_WHITE2048 = 6;
-
 	public const uint32 S_WHITEVOICE = 7;
-
 	public const int32 S_SERDVNA = -1;
-
 	public const int32 S_SEROFM = -2;
-
 	public const int32 S_SERMACT = -3;
-
 	public const int32 S_SERQFUL = -4;
-
 	public const int32 S_SERBDNT = -5;
-
 	public const int32 S_SERDLN = -6;
-
 	public const int32 S_SERDCC = -7;
-
 	public const int32 S_SERDTP = -8;
-
 	public const int32 S_SERDVL = -9;
-
 	public const int32 S_SERDMD = -10;
-
 	public const int32 S_SERDSH = -11;
-
 	public const int32 S_SERDPT = -12;
-
 	public const int32 S_SERDFQ = -13;
-
 	public const int32 S_SERDDR = -14;
-
 	public const int32 S_SERDSR = -15;
-
 	public const int32 S_SERDST = -16;
-
 	public const uint32 FS_CASE_IS_PRESERVED = 2;
-
 	public const uint32 FS_CASE_SENSITIVE = 1;
-
 	public const uint32 FS_UNICODE_STORED_ON_DISK = 4;
-
 	public const uint32 FS_PERSISTENT_ACLS = 8;
-
 	public const uint32 FS_VOL_IS_COMPRESSED = 32768;
-
 	public const uint32 FS_FILE_COMPRESSION = 16;
-
 	public const uint32 FS_FILE_ENCRYPTION = 131072;
-
 	public const uint32 OFS_MAXPATHNAME = 128;
-
 	public const uint32 MAXINTATOM = 49152;
-
 	public const uint32 SCS_32BIT_BINARY = 0;
-
 	public const uint32 SCS_DOS_BINARY = 1;
-
 	public const uint32 SCS_WOW_BINARY = 2;
-
 	public const uint32 SCS_PIF_BINARY = 3;
-
 	public const uint32 SCS_POSIX_BINARY = 4;
-
 	public const uint32 SCS_OS216_BINARY = 5;
-
 	public const uint32 SCS_64BIT_BINARY = 6;
-
 	public const uint32 FIBER_FLAG_FLOAT_SWITCH = 1;
-
 	public const uint32 UMS_VERSION = 256;
-
 	public const uint32 FILE_SKIP_COMPLETION_PORT_ON_SUCCESS = 1;
-
 	public const uint32 FILE_SKIP_SET_EVENT_ON_HANDLE = 2;
-
 	public const uint32 CRITICAL_SECTION_NO_DEBUG_INFO = 16777216;
-
 	public const uint32 HINSTANCE_ERROR = 32;
-
 	public const uint32 FORMAT_MESSAGE_MAX_WIDTH_MASK = 255;
-
 	public const uint32 FILE_ENCRYPTABLE = 0;
-
 	public const uint32 FILE_IS_ENCRYPTED = 1;
-
 	public const uint32 FILE_SYSTEM_ATTR = 2;
-
 	public const uint32 FILE_ROOT_DIR = 3;
-
 	public const uint32 FILE_SYSTEM_DIR = 4;
-
 	public const uint32 FILE_UNKNOWN = 5;
-
 	public const uint32 FILE_SYSTEM_NOT_SUPPORT = 6;
-
 	public const uint32 FILE_USER_DISALLOWED = 7;
-
 	public const uint32 FILE_READ_ONLY = 8;
-
 	public const uint32 FILE_DIR_DISALLOWED = 9;
-
 	public const uint32 EFS_USE_RECOVERY_KEYS = 1;
-
 	public const uint32 CREATE_FOR_IMPORT = 1;
-
 	public const uint32 CREATE_FOR_DIR = 2;
-
 	public const uint32 OVERWRITE_HIDDEN = 4;
-
 	public const uint32 EFSRPC_SECURE_ONLY = 8;
-
 	public const uint32 EFS_DROP_ALTERNATE_STREAMS = 16;
-
 	public const uint32 BACKUP_INVALID = 0;
-
 	public const uint32 BACKUP_GHOSTED_FILE_EXTENTS = 11;
-
 	public const uint32 STREAM_NORMAL_ATTRIBUTE = 0;
-
 	public const uint32 STREAM_MODIFIED_WHEN_READ = 1;
-
 	public const uint32 STREAM_CONTAINS_SECURITY = 2;
-
 	public const uint32 STREAM_CONTAINS_PROPERTIES = 4;
-
 	public const uint32 STREAM_SPARSE_ATTRIBUTE = 8;
-
 	public const uint32 STREAM_CONTAINS_GHOSTED_FILE_EXTENTS = 16;
-
 	public const uint32 STARTF_HOLOGRAPHIC = 262144;
-
 	public const uint32 SHUTDOWN_NORETRY = 1;
-
 	public const uint32 PROTECTION_LEVEL_SAME = 4294967295;
-
 	public const uint32 PROC_THREAD_ATTRIBUTE_NUMBER = 65535;
-
 	public const uint32 PROC_THREAD_ATTRIBUTE_THREAD = 65536;
-
 	public const uint32 PROC_THREAD_ATTRIBUTE_INPUT = 131072;
-
 	public const uint32 PROC_THREAD_ATTRIBUTE_ADDITIVE = 262144;
-
 	public const uint32 PROCESS_CREATION_MITIGATION_POLICY_DEP_ENABLE = 1;
-
 	public const uint32 PROCESS_CREATION_MITIGATION_POLICY_DEP_ATL_THUNK_ENABLE = 2;
-
 	public const uint32 PROCESS_CREATION_MITIGATION_POLICY_SEHOP_ENABLE = 4;
-
 	public const uint32 PROCESS_CREATION_CHILD_PROCESS_RESTRICTED = 1;
-
 	public const uint32 PROCESS_CREATION_CHILD_PROCESS_OVERRIDE = 2;
-
 	public const uint32 PROCESS_CREATION_CHILD_PROCESS_RESTRICTED_UNLESS_SECURE = 4;
-
 	public const uint32 PROCESS_CREATION_ALL_APPLICATION_PACKAGES_OPT_OUT = 1;
-
 	public const uint32 PROCESS_CREATION_DESKTOP_APP_BREAKAWAY_ENABLE_PROCESS_TREE = 1;
-
 	public const uint32 PROCESS_CREATION_DESKTOP_APP_BREAKAWAY_DISABLE_PROCESS_TREE = 2;
-
 	public const uint32 PROCESS_CREATION_DESKTOP_APP_BREAKAWAY_OVERRIDE = 4;
-
 	public const uint32 ATOM_FLAG_GLOBAL = 2;
-
 	public const uint32 BASE_SEARCH_PATH_ENABLE_SAFE_SEARCHMODE = 1;
-
 	public const uint32 BASE_SEARCH_PATH_DISABLE_SAFE_SEARCHMODE = 65536;
-
 	public const uint32 BASE_SEARCH_PATH_PERMANENT = 32768;
-
 	public const int32 COPYFILE2_MESSAGE_COPY_OFFLOAD = 1;
-
 	public const uint32 COPYFILE2_IO_CYCLE_SIZE_MIN = 4096;
-
 	public const uint32 COPYFILE2_IO_CYCLE_SIZE_MAX = 1073741824;
-
 	public const uint32 COPYFILE2_IO_RATE_MIN = 512;
-
 	public const uint32 EVENTLOG_FULL_INFO = 0;
-
 	public const uint32 OPERATION_API_VERSION = 1;
-
 	public const uint32 MAX_COMPUTERNAME_LENGTH = 15;
-
 	public const uint32 LOGON32_PROVIDER_WINNT35 = 1;
-
 	public const uint32 LOGON32_PROVIDER_VIRTUAL = 4;
-
 	public const uint32 LOGON_ZERO_PASSWORD_BUFFER = 2147483648;
-
 	public const uint32 HW_PROFILE_GUIDLEN = 39;
-
 	public const uint32 DOCKINFO_UNDOCKED = 1;
-
 	public const uint32 DOCKINFO_DOCKED = 2;
-
 	public const uint32 DOCKINFO_USER_SUPPLIED = 4;
-
 	public const uint32 TC_NORMAL = 0;
-
 	public const uint32 TC_HARDERR = 1;
-
 	public const uint32 TC_GP_TRAP = 2;
-
 	public const uint32 TC_SIGNAL = 3;
-
 	public const uint32 AC_LINE_OFFLINE = 0;
-
 	public const uint32 AC_LINE_ONLINE = 1;
-
 	public const uint32 AC_LINE_BACKUP_POWER = 2;
-
 	public const uint32 AC_LINE_UNKNOWN = 255;
-
 	public const uint32 BATTERY_FLAG_HIGH = 1;
-
 	public const uint32 BATTERY_FLAG_LOW = 2;
-
 	public const uint32 BATTERY_FLAG_CRITICAL = 4;
-
 	public const uint32 BATTERY_FLAG_CHARGING = 8;
-
 	public const uint32 BATTERY_FLAG_NO_BATTERY = 128;
-
 	public const uint32 BATTERY_FLAG_UNKNOWN = 255;
-
 	public const uint32 BATTERY_PERCENTAGE_UNKNOWN = 255;
-
 	public const uint32 SYSTEM_STATUS_FLAG_POWER_SAVING_ON = 1;
-
 	public const uint32 BATTERY_LIFE_UNKNOWN = 4294967295;
-
 	public const uint32 ACTCTX_FLAG_PROCESSOR_ARCHITECTURE_VALID = 1;
-
 	public const uint32 ACTCTX_FLAG_LANGID_VALID = 2;
-
 	public const uint32 ACTCTX_FLAG_ASSEMBLY_DIRECTORY_VALID = 4;
-
 	public const uint32 ACTCTX_FLAG_RESOURCE_NAME_VALID = 8;
-
 	public const uint32 ACTCTX_FLAG_SET_PROCESS_DEFAULT = 16;
-
 	public const uint32 ACTCTX_FLAG_APPLICATION_NAME_VALID = 32;
-
 	public const uint32 ACTCTX_FLAG_SOURCE_IS_ASSEMBLYREF = 64;
-
 	public const uint32 ACTCTX_FLAG_HMODULE_VALID = 128;
-
 	public const uint32 DEACTIVATE_ACTCTX_FLAG_FORCE_EARLY_DEACTIVATION = 1;
-
 	public const uint32 FIND_ACTCTX_SECTION_KEY_RETURN_HACTCTX = 1;
-
 	public const uint32 FIND_ACTCTX_SECTION_KEY_RETURN_FLAGS = 2;
-
 	public const uint32 FIND_ACTCTX_SECTION_KEY_RETURN_ASSEMBLY_METADATA = 4;
-
 	public const uint32 ACTIVATION_CONTEXT_BASIC_INFORMATION_DEFINED = 1;
-
 	public const uint32 QUERY_ACTCTX_FLAG_USE_ACTIVE_ACTCTX = 4;
-
 	public const uint32 QUERY_ACTCTX_FLAG_ACTCTX_IS_HMODULE = 8;
-
 	public const uint32 QUERY_ACTCTX_FLAG_ACTCTX_IS_ADDRESS = 16;
-
 	public const uint32 QUERY_ACTCTX_FLAG_NO_ADDREF = 2147483648;
-
 	public const uint32 RESTART_MAX_CMD_LINE = 1024;
-
 	public const uint32 RECOVERY_DEFAULT_PING_INTERVAL = 5000;
-
 	public const uint32 FILE_RENAME_FLAG_REPLACE_IF_EXISTS = 1;
-
 	public const uint32 FILE_RENAME_FLAG_POSIX_SEMANTICS = 2;
-
 	public const uint32 FILE_RENAME_FLAG_SUPPRESS_PIN_STATE_INHERITANCE = 4;
-
 	public const uint32 FILE_DISPOSITION_FLAG_DO_NOT_DELETE = 0;
-
 	public const uint32 FILE_DISPOSITION_FLAG_DELETE = 1;
-
 	public const uint32 FILE_DISPOSITION_FLAG_POSIX_SEMANTICS = 2;
-
 	public const uint32 FILE_DISPOSITION_FLAG_FORCE_IMAGE_SECTION_CHECK = 4;
-
 	public const uint32 FILE_DISPOSITION_FLAG_ON_CLOSE = 8;
-
 	public const uint32 FILE_DISPOSITION_FLAG_IGNORE_READONLY_ATTRIBUTE = 16;
-
 	public const uint32 STORAGE_INFO_FLAGS_ALIGNED_DEVICE = 1;
-
 	public const uint32 STORAGE_INFO_FLAGS_PARTITION_ALIGNED_ON_DEVICE = 2;
-
 	public const uint32 STORAGE_INFO_OFFSET_UNKNOWN = 4294967295;
-
 	public const uint32 REMOTE_PROTOCOL_INFO_FLAG_LOOPBACK = 1;
-
 	public const uint32 REMOTE_PROTOCOL_INFO_FLAG_OFFLINE = 2;
-
 	public const uint32 REMOTE_PROTOCOL_INFO_FLAG_PERSISTENT_HANDLE = 4;
-
 	public const uint32 RPI_FLAG_SMB2_SHARECAP_TIMEWARP = 2;
-
 	public const uint32 RPI_FLAG_SMB2_SHARECAP_DFS = 8;
-
 	public const uint32 RPI_FLAG_SMB2_SHARECAP_CONTINUOUS_AVAILABILITY = 16;
-
 	public const uint32 RPI_FLAG_SMB2_SHARECAP_SCALEOUT = 32;
-
 	public const uint32 RPI_FLAG_SMB2_SHARECAP_CLUSTER = 64;
-
 	public const uint32 RPI_SMB2_FLAG_SERVERCAP_DFS = 1;
-
 	public const uint32 RPI_SMB2_FLAG_SERVERCAP_LEASING = 2;
-
 	public const uint32 RPI_SMB2_FLAG_SERVERCAP_LARGEMTU = 4;
-
 	public const uint32 RPI_SMB2_FLAG_SERVERCAP_MULTICHANNEL = 8;
-
 	public const uint32 RPI_SMB2_FLAG_SERVERCAP_PERSISTENT_HANDLES = 16;
-
 	public const uint32 RPI_SMB2_FLAG_SERVERCAP_DIRECTORY_LEASING = 32;
-
 	public const uint32 MICROSOFT_WINDOWS_WINBASE_H_DEFINE_INTERLOCKED_CPLUSPLUS_OVERLOADS = 0;
-
 	public const uint32 MICROSOFT_WINBASE_H_DEFINE_INTERLOCKED_CPLUSPLUS_OVERLOADS = 0;
-
 	public const uint32 CODEINTEGRITY_OPTION_ENABLED = 1;
-
 	public const uint32 CODEINTEGRITY_OPTION_TESTSIGN = 2;
-
 	public const uint32 CODEINTEGRITY_OPTION_UMCI_ENABLED = 4;
-
 	public const uint32 CODEINTEGRITY_OPTION_UMCI_AUDITMODE_ENABLED = 8;
-
 	public const uint32 CODEINTEGRITY_OPTION_UMCI_EXCLUSIONPATHS_ENABLED = 16;
-
 	public const uint32 CODEINTEGRITY_OPTION_TEST_BUILD = 32;
-
 	public const uint32 CODEINTEGRITY_OPTION_PREPRODUCTION_BUILD = 64;
-
 	public const uint32 CODEINTEGRITY_OPTION_DEBUGMODE_ENABLED = 128;
-
 	public const uint32 CODEINTEGRITY_OPTION_FLIGHT_BUILD = 256;
-
 	public const uint32 CODEINTEGRITY_OPTION_FLIGHTING_ENABLED = 512;
-
 	public const uint32 CODEINTEGRITY_OPTION_HVCI_KMCI_ENABLED = 1024;
-
 	public const uint32 CODEINTEGRITY_OPTION_HVCI_KMCI_AUDITMODE_ENABLED = 2048;
-
 	public const uint32 CODEINTEGRITY_OPTION_HVCI_KMCI_STRICTMODE_ENABLED = 4096;
-
 	public const uint32 CODEINTEGRITY_OPTION_HVCI_IUM_ENABLED = 8192;
-
 	public const uint32 FILE_MAXIMUM_DISPOSITION = 5;
-
 	public const uint32 FILE_DIRECTORY_FILE = 1;
-
 	public const uint32 FILE_WRITE_THROUGH = 2;
-
 	public const uint32 FILE_SEQUENTIAL_ONLY = 4;
-
 	public const uint32 FILE_NO_INTERMEDIATE_BUFFERING = 8;
-
 	public const uint32 FILE_SYNCHRONOUS_IO_ALERT = 16;
-
 	public const uint32 FILE_SYNCHRONOUS_IO_NONALERT = 32;
-
 	public const uint32 FILE_NON_DIRECTORY_FILE = 64;
-
 	public const uint32 FILE_CREATE_TREE_CONNECTION = 128;
-
 	public const uint32 FILE_COMPLETE_IF_OPLOCKED = 256;
-
 	public const uint32 FILE_NO_EA_KNOWLEDGE = 512;
-
 	public const uint32 FILE_OPEN_REMOTE_INSTANCE = 1024;
-
 	public const uint32 FILE_RANDOM_ACCESS = 2048;
-
 	public const uint32 FILE_DELETE_ON_CLOSE = 4096;
-
 	public const uint32 FILE_OPEN_BY_FILE_ID = 8192;
-
 	public const uint32 FILE_OPEN_FOR_BACKUP_INTENT = 16384;
-
 	public const uint32 FILE_NO_COMPRESSION = 32768;
-
 	public const uint32 FILE_OPEN_REQUIRING_OPLOCK = 65536;
-
 	public const uint32 FILE_RESERVE_OPFILTER = 1048576;
-
 	public const uint32 FILE_OPEN_REPARSE_POINT = 2097152;
-
 	public const uint32 FILE_OPEN_NO_RECALL = 4194304;
-
 	public const uint32 FILE_OPEN_FOR_FREE_SPACE_QUERY = 8388608;
-
 	public const uint32 FILE_VALID_OPTION_FLAGS = 16777215;
-
 	public const uint32 FILE_VALID_PIPE_OPTION_FLAGS = 50;
-
 	public const uint32 FILE_VALID_MAILSLOT_OPTION_FLAGS = 50;
-
 	public const uint32 FILE_VALID_SET_FLAGS = 54;
-
 	public const uint32 FILE_SUPERSEDED = 0;
-
 	public const uint32 FILE_OPENED = 1;
-
 	public const uint32 FILE_CREATED = 2;
-
 	public const uint32 FILE_OVERWRITTEN = 3;
-
 	public const uint32 FILE_EXISTS = 4;
-
 	public const uint32 FILE_DOES_NOT_EXIST = 5;
-
 	public const uint32 WINWATCHNOTIFY_START = 0;
-
 	public const uint32 WINWATCHNOTIFY_STOP = 1;
-
 	public const uint32 WINWATCHNOTIFY_DESTROY = 2;
-
 	public const uint32 WINWATCHNOTIFY_CHANGING = 3;
-
 	public const uint32 WINWATCHNOTIFY_CHANGED = 4;
-
 	public const uint32 RSC_FLAG_INF = 1;
-
 	public const uint32 RSC_FLAG_SKIPDISKSPACECHECK = 2;
-
 	public const uint32 RSC_FLAG_QUIET = 4;
-
 	public const uint32 RSC_FLAG_NGCONV = 8;
-
 	public const uint32 RSC_FLAG_UPDHLPDLLS = 16;
-
 	public const uint32 RSC_FLAG_DELAYREGISTEROCX = 512;
-
 	public const uint32 RSC_FLAG_SETUPAPI = 1024;
-
 	public const uint32 ALINF_QUIET = 4;
-
 	public const uint32 ALINF_NGCONV = 8;
-
 	public const uint32 ALINF_UPDHLPDLLS = 16;
-
 	public const uint32 ALINF_BKINSTALL = 32;
-
 	public const uint32 ALINF_ROLLBACK = 64;
-
 	public const uint32 ALINF_CHECKBKDATA = 128;
-
 	public const uint32 ALINF_ROLLBKDOALL = 256;
-
 	public const uint32 ALINF_DELAYREGISTEROCX = 512;
-
 	public const uint32 AIF_WARNIFSKIP = 1;
-
 	public const uint32 AIF_NOSKIP = 2;
-
 	public const uint32 AIF_NOVERSIONCHECK = 4;
-
 	public const uint32 AIF_FORCE_FILE_IN_USE = 8;
-
 	public const uint32 AIF_NOOVERWRITE = 16;
-
 	public const uint32 AIF_NO_VERSION_DIALOG = 32;
-
 	public const uint32 AIF_REPLACEONLY = 1024;
-
 	public const uint32 AIF_NOLANGUAGECHECK = 268435456;
-
 	public const uint32 AIF_QUIET = 536870912;
-
 	public const uint32 IE4_RESTORE = 1;
-
 	public const uint32 IE4_BACKNEW = 2;
-
 	public const uint32 IE4_NODELETENEW = 4;
-
 	public const uint32 IE4_NOMESSAGES = 8;
-
 	public const uint32 IE4_NOPROGRESS = 16;
-
 	public const uint32 IE4_NOENUMKEY = 32;
-
 	public const uint32 IE4_NO_CRC_MAPPING = 64;
-
 	public const uint32 IE4_REGSECTION = 128;
-
 	public const uint32 IE4_FRDOALL = 256;
-
 	public const uint32 IE4_UPDREFCNT = 512;
-
 	public const uint32 IE4_USEREFCNT = 1024;
-
 	public const uint32 IE4_EXTRAINCREFCNT = 2048;
-
 	public const uint32 IE4_REMOVREGBKDATA = 4096;
-
 	public const uint32 ARSR_RESTORE = 1;
-
 	public const uint32 ARSR_NOMESSAGES = 8;
-
 	public const uint32 ARSR_REGSECTION = 128;
-
 	public const uint32 ARSR_REMOVREGBKDATA = 4096;
-
 	public const uint32 AFSR_RESTORE = 1;
-
 	public const uint32 AFSR_BACKNEW = 2;
-
 	public const uint32 AFSR_NODELETENEW = 4;
-
 	public const uint32 AFSR_NOMESSAGES = 8;
-
 	public const uint32 AFSR_NOPROGRESS = 16;
-
 	public const uint32 AFSR_UPDREFCNT = 512;
-
 	public const uint32 AFSR_USEREFCNT = 1024;
-
 	public const uint32 AFSR_EXTRAINCREFCNT = 2048;
-
 	public const uint32 AADBE_ADD_ENTRY = 1;
-
 	public const uint32 AADBE_DEL_ENTRY = 2;
-
 	public const uint32 ADN_DEL_IF_EMPTY = 1;
-
 	public const uint32 ADN_DONT_DEL_SUBDIRS = 2;
-
 	public const uint32 ADN_DONT_DEL_DIR = 4;
-
 	public const uint32 ADN_DEL_UNC_PATHS = 8;
-
 	public const uint32 LIS_QUIET = 1;
-
 	public const uint32 LIS_NOGRPCONV = 2;
-
 	public const uint32 RUNCMDS_QUIET = 1;
-
 	public const uint32 RUNCMDS_NOWAIT = 2;
-
 	public const uint32 RUNCMDS_DELAYPOSTCMD = 4;
-
 	public const uint32 IME_MAXPROCESS = 32;
-
 	public const uint32 CP_HWND = 0;
-
 	public const uint32 CP_OPEN = 1;
-
 	public const uint32 CP_DIRECT = 2;
-
 	public const uint32 CP_LEVEL = 3;
-
 	public const uint32 MCW_DEFAULT = 0;
-
 	public const uint32 MCW_RECT = 1;
-
 	public const uint32 MCW_WINDOW = 2;
-
 	public const uint32 MCW_SCREEN = 4;
-
 	public const uint32 MCW_VERTICAL = 8;
-
 	public const uint32 MCW_HIDDEN = 16;
-
 	public const uint32 IME_MODE_ALPHANUMERIC = 1;
-
 	public const uint32 IME_MODE_SBCSCHAR = 2;
-
 	public const uint32 IME_MODE_KATAKANA = 2;
-
 	public const uint32 IME_MODE_HIRAGANA = 4;
-
 	public const uint32 IME_MODE_HANJACONVERT = 4;
-
 	public const uint32 IME_MODE_DBCSCHAR = 16;
-
 	public const uint32 IME_MODE_ROMAN = 32;
-
 	public const uint32 IME_MODE_NOROMAN = 64;
-
 	public const uint32 IME_MODE_CODEINPUT = 128;
-
 	public const uint32 IME_MODE_NOCODEINPUT = 256;
-
 	public const uint32 IME_GETIMECAPS = 3;
-
 	public const uint32 IME_SETOPEN = 4;
-
 	public const uint32 IME_GETOPEN = 5;
-
 	public const uint32 IME_GETVERSION = 7;
-
 	public const uint32 IME_SETCONVERSIONWINDOW = 8;
-
 	public const uint32 IME_MOVEIMEWINDOW = 8;
-
 	public const uint32 IME_SETCONVERSIONMODE = 16;
-
 	public const uint32 IME_GETCONVERSIONMODE = 17;
-
 	public const uint32 IME_SET_MODE = 18;
-
 	public const uint32 IME_SENDVKEY = 19;
-
 	public const uint32 IME_ENTERWORDREGISTERMODE = 24;
-
 	public const uint32 IME_SETCONVERSIONFONTEX = 25;
-
 	public const uint32 IME_BANJAtoJUNJA = 19;
-
 	public const uint32 IME_JUNJAtoBANJA = 20;
-
 	public const uint32 IME_JOHABtoKS = 21;
-
 	public const uint32 IME_KStoJOHAB = 22;
-
 	public const uint32 IMEA_INIT = 1;
-
 	public const uint32 IMEA_NEXT = 2;
-
 	public const uint32 IMEA_PREV = 3;
-
 	public const uint32 IME_REQUEST_CONVERT = 1;
-
 	public const uint32 IME_ENABLE_CONVERT = 2;
-
 	public const uint32 INTERIM_WINDOW = 0;
-
 	public const uint32 MODE_WINDOW = 1;
-
 	public const uint32 HANJA_WINDOW = 2;
-
 	public const uint32 IME_RS_ERROR = 1;
-
 	public const uint32 IME_RS_NOIME = 2;
-
 	public const uint32 IME_RS_TOOLONG = 5;
-
 	public const uint32 IME_RS_ILLEGAL = 6;
-
 	public const uint32 IME_RS_NOTFOUND = 7;
-
 	public const uint32 IME_RS_NOROOM = 10;
-
 	public const uint32 IME_RS_DISKERROR = 14;
-
 	public const uint32 IME_RS_INVALID = 17;
-
 	public const uint32 IME_RS_NEST = 18;
-
 	public const uint32 IME_RS_SYSTEMMODAL = 19;
-
 	public const uint32 WM_IME_REPORT = 640;
-
 	public const uint32 IR_STRINGSTART = 256;
-
 	public const uint32 IR_STRINGEND = 257;
-
 	public const uint32 IR_OPENCONVERT = 288;
-
 	public const uint32 IR_CHANGECONVERT = 289;
-
 	public const uint32 IR_CLOSECONVERT = 290;
-
 	public const uint32 IR_FULLCONVERT = 291;
-
 	public const uint32 IR_IMESELECT = 304;
-
 	public const uint32 IR_STRING = 320;
-
 	public const uint32 IR_DBCSCHAR = 352;
-
 	public const uint32 IR_UNDETERMINE = 368;
-
 	public const uint32 IR_STRINGEX = 384;
-
 	public const uint32 IR_MODEINFO = 400;
-
 	public const uint32 WM_WNT_CONVERTREQUESTEX = 265;
-
 	public const uint32 WM_CONVERTREQUEST = 266;
-
 	public const uint32 WM_CONVERTRESULT = 267;
-
 	public const uint32 WM_INTERIM = 268;
-
 	public const uint32 WM_IMEKEYDOWN = 656;
-
 	public const uint32 WM_IMEKEYUP = 657;
-
 	public const uint32 DELAYLOAD_GPA_FAILURE = 4;
-
 	public const Guid CATID_DeleteBrowsingHistory = .(0x31caf6e4, 0xd6aa, 0x4090, 0xa0, 0x50, 0xa5, 0xac, 0x89, 0x72, 0xe9, 0xef);
-
 	public const uint32 DELETE_BROWSING_HISTORY_HISTORY = 1;
-
 	public const uint32 DELETE_BROWSING_HISTORY_COOKIES = 2;
-
 	public const uint32 DELETE_BROWSING_HISTORY_TIF = 4;
-
 	public const uint32 DELETE_BROWSING_HISTORY_FORMDATA = 8;
-
 	public const uint32 DELETE_BROWSING_HISTORY_PASSWORDS = 16;
-
 	public const uint32 DELETE_BROWSING_HISTORY_PRESERVEFAVORITES = 32;
-
 	public const uint32 DELETE_BROWSING_HISTORY_DOWNLOADHISTORY = 64;
-
 }
 #endregion
 
@@ -1473,7 +914,6 @@ public struct IMAGE_THUNK_DATA64
 		public uint64 Ordinal;
 		public uint64 AddressOfData;
 	}
-
 	public _u1_e__Union u1;
 }
 
@@ -1488,7 +928,6 @@ public struct IMAGE_THUNK_DATA32
 		public uint32 Ordinal;
 		public uint32 AddressOfData;
 	}
-
 	public _u1_e__Union u1;
 }
 
@@ -1503,11 +942,9 @@ public struct IMAGE_DELAYLOAD_DESCRIPTOR
 		{
 			public uint32 _bitfield;
 		}
-
 		public uint32 AllAttributes;
 		public using _Anonymous_e__Struct Anonymous;
 	}
-
 	public _Attributes_e__Union Attributes;
 	public uint32 DllNameRVA;
 	public uint32 ModuleHandleRVA;
@@ -1613,7 +1050,6 @@ public struct LDR_DATA_TABLE_ENTRY
 		public uint32 CheckSum;
 		public void* Reserved6;
 	}
-
 	public void*[2] Reserved1;
 	public LIST_ENTRY InMemoryOrderLinks;
 	public void*[2] Reserved2;
@@ -1646,7 +1082,6 @@ public struct IO_STATUS_BLOCK
 		public NTSTATUS Status;
 		public void* Pointer;
 	}
-
 	public using _Anonymous_e__Union Anonymous;
 	public uint Information;
 }
@@ -2099,11 +1534,12 @@ public struct tcp_request_query_information_ex_w2k
 	public uint8[16] Context;
 }
 
-[CRepr, FlexibleArray("Buffer")]
+[CRepr]
 public struct tcp_request_set_information_ex
 {
 	public TDIObjectID ID;
 	public uint32 BufferSize;
+	public uint8* Buffer mut => &Buffer_impl;
 	private uint8[ANYSIZE_ARRAY] Buffer_impl;
 }
 
@@ -2116,7 +1552,6 @@ public struct TDI_TL_IO_CONTROL_ENDPOINT
 		public uint32 IoControlCode;
 		public uint32 OptionName;
 	}
-
 	public TDI_TL_IO_CONTROL_TYPE Type;
 	public uint32 Level;
 	public using _Anonymous_e__Union Anonymous;
@@ -2153,7 +1588,6 @@ public struct DELAYLOAD_PROC_DESCRIPTOR
 		public PSTR Name;
 		public uint32 Ordinal;
 	}
-
 	public uint32 ImportDescribedByName;
 	public _Description_e__Union Description;
 }

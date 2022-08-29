@@ -10,161 +10,83 @@ namespace Win32.Security.Cryptography.UI;
 public static
 {
 	public const uint32 CRYTPDLG_FLAGS_MASK = 4278190080;
-
 	public const uint32 CRYPTDLG_REVOCATION_DEFAULT = 0;
-
 	public const uint32 CRYPTDLG_REVOCATION_ONLINE = 2147483648;
-
 	public const uint32 CRYPTDLG_REVOCATION_CACHE = 1073741824;
-
 	public const uint32 CRYPTDLG_REVOCATION_NONE = 536870912;
-
 	public const uint32 CRYPTDLG_CACHE_ONLY_URL_RETRIEVAL = 268435456;
-
 	public const uint32 CRYPTDLG_DISABLE_AIA = 134217728;
-
 	public const uint32 CRYPTDLG_POLICY_MASK = 65535;
-
 	public const uint32 POLICY_IGNORE_NON_CRITICAL_BC = 1;
-
 	public const uint32 CRYPTDLG_ACTION_MASK = 4294901760;
-
 	public const uint32 ACTION_REVOCATION_DEFAULT_ONLINE = 65536;
-
 	public const uint32 ACTION_REVOCATION_DEFAULT_CACHE = 131072;
-
 	public const uint32 CERT_DISPWELL_SELECT = 1;
-
 	public const uint32 CERT_DISPWELL_TRUST_CA_CERT = 2;
-
 	public const uint32 CERT_DISPWELL_TRUST_LEAF_CERT = 3;
-
 	public const uint32 CERT_DISPWELL_TRUST_ADD_CA_CERT = 4;
-
 	public const uint32 CERT_DISPWELL_TRUST_ADD_LEAF_CERT = 5;
-
 	public const uint32 CERT_DISPWELL_DISTRUST_CA_CERT = 6;
-
 	public const uint32 CERT_DISPWELL_DISTRUST_LEAF_CERT = 7;
-
 	public const uint32 CERT_DISPWELL_DISTRUST_ADD_CA_CERT = 8;
-
 	public const uint32 CERT_DISPWELL_DISTRUST_ADD_LEAF_CERT = 9;
-
 	public const uint32 CSS_SELECTCERT_MASK = 16777215;
-
 	public const uint32 SELCERT_PROPERTIES = 100;
-
 	public const uint32 SELCERT_FINEPRINT = 101;
-
 	public const uint32 SELCERT_CERTLIST = 102;
-
 	public const uint32 SELCERT_ISSUED_TO = 103;
-
 	public const uint32 SELCERT_VALIDITY = 104;
-
 	public const uint32 SELCERT_ALGORITHM = 105;
-
 	public const uint32 SELCERT_SERIAL_NUM = 106;
-
 	public const uint32 SELCERT_THUMBPRINT = 107;
-
 	public const uint32 CM_VIEWFLAGS_MASK = 16777215;
-
 	public const uint32 CERTVIEW_CRYPTUI_LPARAM = 8388608;
-
 	public const uint32 CERT_FILTER_OP_EXISTS = 1;
-
 	public const uint32 CERT_FILTER_OP_NOT_EXISTS = 2;
-
 	public const uint32 CERT_FILTER_OP_EQUALITY = 3;
-
 	public const uint32 CERT_FILTER_INCLUDE_V1_CERTS = 1;
-
 	public const uint32 CERT_FILTER_VALID_TIME_RANGE = 2;
-
 	public const uint32 CERT_FILTER_VALID_SIGNATURE = 4;
-
 	public const uint32 CERT_FILTER_LEAF_CERTS_ONLY = 8;
-
 	public const uint32 CERT_FILTER_ISSUER_CERTS_ONLY = 16;
-
 	public const uint32 CERT_FILTER_KEY_EXISTS = 32;
-
 	public const uint32 CERT_VALIDITY_BEFORE_START = 1;
-
 	public const uint32 CERT_VALIDITY_AFTER_END = 2;
-
 	public const uint32 CERT_VALIDITY_SIGNATURE_FAILS = 4;
-
 	public const uint32 CERT_VALIDITY_CERTIFICATE_REVOKED = 8;
-
 	public const uint32 CERT_VALIDITY_KEY_USAGE_EXT_FAILURE = 16;
-
 	public const uint32 CERT_VALIDITY_EXTENDED_USAGE_FAILURE = 32;
-
 	public const uint32 CERT_VALIDITY_NAME_CONSTRAINTS_FAILURE = 64;
-
 	public const uint32 CERT_VALIDITY_UNKNOWN_CRITICAL_EXTENSION = 128;
-
 	public const uint32 CERT_VALIDITY_ISSUER_INVALID = 256;
-
 	public const uint32 CERT_VALIDITY_OTHER_EXTENSION_FAILURE = 512;
-
 	public const uint32 CERT_VALIDITY_PERIOD_NESTING_FAILURE = 1024;
-
 	public const uint32 CERT_VALIDITY_OTHER_ERROR = 2048;
-
 	public const uint32 CERT_VALIDITY_ISSUER_DISTRUST = 33554432;
-
 	public const uint32 CERT_VALIDITY_EXPLICITLY_DISTRUSTED = 16777216;
-
 	public const uint32 CERT_VALIDITY_NO_ISSUER_CERT_FOUND = 268435456;
-
 	public const uint32 CERT_VALIDITY_NO_CRL_FOUND = 536870912;
-
 	public const uint32 CERT_VALIDITY_CRL_OUT_OF_DATE = 1073741824;
-
 	public const uint32 CERT_VALIDITY_NO_TRUST_DATA = 2147483648;
-
 	public const uint32 CERT_VALIDITY_MASK_TRUST = 4294901760;
-
 	public const uint32 CERT_VALIDITY_MASK_VALIDITY = 65535;
-
 	public const uint32 CERT_TRUST_MASK = 16777215;
-
 	public const uint32 CERT_TRUST_DO_FULL_SEARCH = 1;
-
 	public const uint32 CERT_TRUST_PERMIT_MISSING_CRLS = 2;
-
 	public const uint32 CERT_TRUST_DO_FULL_TRUST = 5;
-
 	public const int32 CERT_CREDENTIAL_PROVIDER_ID = -509;
-
 	public const uint64 CRYPTUI_SELECT_ISSUEDTO_COLUMN = 1;
-
 	public const uint64 CRYPTUI_SELECT_ISSUEDBY_COLUMN = 2;
-
 	public const uint64 CRYPTUI_SELECT_INTENDEDUSE_COLUMN = 4;
-
 	public const uint64 CRYPTUI_SELECT_FRIENDLYNAME_COLUMN = 8;
-
 	public const uint64 CRYPTUI_SELECT_LOCATION_COLUMN = 16;
-
 	public const uint64 CRYPTUI_SELECT_EXPIRATION_COLUMN = 32;
-
 	public const uint32 CRYPTUI_CERT_MGR_TAB_MASK = 15;
-
 	public const uint32 CRYPTUI_CERT_MGR_PUBLISHER_TAB = 4;
-
 	public const uint32 CRYPTUI_CERT_MGR_SINGLE_TAB_FLAG = 32768;
-
 	public const uint32 CRYPTUI_WIZ_DIGITAL_SIGN_EXCLUDE_PAGE_HASHES = 2;
-
 	public const uint32 CRYPTUI_WIZ_DIGITAL_SIGN_INCLUDE_PAGE_HASHES = 4;
-
 	public const uint32 CRYPTUI_WIZ_EXPORT_FORMAT_SERIALIZED_CERT_STORE = 5;
-
 }
 #endregion
 
@@ -546,7 +468,6 @@ public struct CRYPTUI_WIZ_DIGITAL_SIGN_CERT_PVK_INFO
 		public CRYPTUI_WIZ_DIGITAL_SIGN_PVK_FILE_INFO* pPvkFileInfo;
 		public CRYPT_KEY_PROV_INFO* pPvkProvInfo;
 	}
-
 	public uint32 dwSize;
 	public PWSTR pwszSigningCertFileName;
 	public CRYPTUI_WIZ_DIGITAL_SIGN_PVK_OPTION dwPvkChoice;
@@ -577,14 +498,12 @@ public struct CRYPTUI_WIZ_DIGITAL_SIGN_INFO
 		public CRYPTUI_WIZ_DIGITAL_SIGN_STORE_INFO* pSigningCertStore;
 		public CRYPTUI_WIZ_DIGITAL_SIGN_CERT_PVK_INFO* pSigningCertPvkInfo;
 	}
-
 	[CRepr, Union]
 	public struct _Anonymous1_e__Union
 	{
 		public PWSTR pwszFileName;
 		public CRYPTUI_WIZ_DIGITAL_SIGN_BLOB_INFO* pSignBlobInfo;
 	}
-
 	public uint32 dwSize;
 	public CRYPTUI_WIZ_DIGITAL_SIGN_SUBJECT dwSubjectChoice;
 	public _Anonymous1_e__Union Anonymous1;
@@ -619,7 +538,6 @@ public struct CRYPTUI_VIEWCERTIFICATE_STRUCTW
 		public CRYPT_PROVIDER_DATA* pCryptProviderData;
 		public HANDLE hWVTStateData;
 	}
-
 	public uint32 dwSize;
 	public HWND hwndParent;
 	public CRYPTUI_VIEWCERTIFICATE_FLAGS dwFlags;
@@ -649,7 +567,6 @@ public struct CRYPTUI_VIEWCERTIFICATE_STRUCTA
 		public CRYPT_PROVIDER_DATA* pCryptProviderData;
 		public HANDLE hWVTStateData;
 	}
-
 	public uint32 dwSize;
 	public HWND hwndParent;
 	public CRYPTUI_VIEWCERTIFICATE_FLAGS dwFlags;
@@ -681,7 +598,6 @@ public struct CRYPTUI_WIZ_EXPORT_INFO
 		public CRL_CONTEXT* pCRLContext;
 		public void* hCertStore;
 	}
-
 	public uint32 dwSize;
 	public PWSTR pwszExportFileName;
 	public CRYPTUI_WIZ_EXPORT_SUBJECT dwSubjectChoice;
@@ -713,7 +629,6 @@ public struct CRYPTUI_WIZ_IMPORT_SRC_INFO
 		public CRL_CONTEXT* pCRLContext;
 		public void* hCertStore;
 	}
-
 	public uint32 dwSize;
 	public CRYPTUI_WIZ_IMPORT_SUBJECT_OPTION dwSubjectChoice;
 	public using _Anonymous_e__Union Anonymous;

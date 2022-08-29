@@ -3,7 +3,6 @@ using Win32.Foundation;
 using Win32.System.Com;
 using Win32.UI.WindowsAndMessaging;
 using System;
-using System.Interop;
 
 namespace Win32.UI.ColorSystem;
 
@@ -11,171 +10,88 @@ namespace Win32.UI.ColorSystem;
 public static
 {
 	public const Guid CATID_WcsPlugin = .(0xa0b402e0, 0x8240, 0x405f, 0x8a, 0x16, 0x8a, 0x5b, 0x4d, 0xf2, 0xf0, 0xdd);
-
 	public const uint32 MAX_COLOR_CHANNELS = 8;
-
 	public const uint32 INTENT_PERCEPTUAL = 0;
-
 	public const uint32 INTENT_RELATIVE_COLORIMETRIC = 1;
-
 	public const uint32 INTENT_SATURATION = 2;
-
 	public const uint32 INTENT_ABSOLUTE_COLORIMETRIC = 3;
-
 	public const uint32 FLAG_EMBEDDEDPROFILE = 1;
-
 	public const uint32 FLAG_DEPENDENTONDATA = 2;
-
 	public const uint32 FLAG_ENABLE_CHROMATIC_ADAPTATION = 33554432;
-
 	public const uint32 ATTRIB_TRANSPARENCY = 1;
-
 	public const uint32 ATTRIB_MATTE = 2;
-
 	public const uint32 PROFILE_FILENAME = 1;
-
 	public const uint32 PROFILE_MEMBUFFER = 2;
-
 	public const uint32 PROFILE_READ = 1;
-
 	public const uint32 PROFILE_READWRITE = 2;
-
 	public const uint32 INDEX_DONT_CARE = 0;
-
 	public const uint32 CMM_FROM_PROFILE = 0;
-
 	public const uint32 ENUM_TYPE_VERSION = 768;
-
 	public const uint32 ET_DEVICENAME = 1;
-
 	public const uint32 ET_MEDIATYPE = 2;
-
 	public const uint32 ET_DITHERMODE = 4;
-
 	public const uint32 ET_RESOLUTION = 8;
-
 	public const uint32 ET_CMMTYPE = 16;
-
 	public const uint32 ET_CLASS = 32;
-
 	public const uint32 ET_DATACOLORSPACE = 64;
-
 	public const uint32 ET_CONNECTIONSPACE = 128;
-
 	public const uint32 ET_SIGNATURE = 256;
-
 	public const uint32 ET_PLATFORM = 512;
-
 	public const uint32 ET_PROFILEFLAGS = 1024;
-
 	public const uint32 ET_MANUFACTURER = 2048;
-
 	public const uint32 ET_MODEL = 4096;
-
 	public const uint32 ET_ATTRIBUTES = 8192;
-
 	public const uint32 ET_RENDERINGINTENT = 16384;
-
 	public const uint32 ET_CREATOR = 32768;
-
 	public const uint32 ET_DEVICECLASS = 65536;
-
 	public const uint32 ET_STANDARDDISPLAYCOLOR = 131072;
-
 	public const uint32 ET_EXTENDEDDISPLAYCOLOR = 262144;
-
 	public const uint32 PROOF_MODE = 1;
-
 	public const uint32 NORMAL_MODE = 2;
-
 	public const uint32 BEST_MODE = 3;
-
 	public const uint32 ENABLE_GAMUT_CHECKING = 65536;
-
 	public const uint32 USE_RELATIVE_COLORIMETRIC = 131072;
-
 	public const uint32 FAST_TRANSLATE = 262144;
-
 	public const uint32 PRESERVEBLACK = 1048576;
-
 	public const uint32 WCS_ALWAYS = 2097152;
-
 	public const uint32 SEQUENTIAL_TRANSFORM = 2155872256;
-
 	public const uint32 RESERVED = 2147483648;
-
 	public const uint32 CSA_A = 1;
-
 	public const uint32 CSA_ABC = 2;
-
 	public const uint32 CSA_DEF = 3;
-
 	public const uint32 CSA_DEFG = 4;
-
 	public const uint32 CSA_GRAY = 5;
-
 	public const uint32 CSA_RGB = 6;
-
 	public const uint32 CSA_CMYK = 7;
-
 	public const uint32 CSA_Lab = 8;
-
 	public const uint32 CMM_WIN_VERSION = 0;
-
 	public const uint32 CMM_IDENT = 1;
-
 	public const uint32 CMM_DRIVER_VERSION = 2;
-
 	public const uint32 CMM_DLL_VERSION = 3;
-
 	public const uint32 CMM_VERSION = 4;
-
 	public const uint32 CMM_DESCRIPTION = 5;
-
 	public const uint32 CMM_LOGOICON = 6;
-
 	public const uint32 CMS_FORWARD = 0;
-
 	public const uint32 CMS_BACKWARD = 1;
-
 	public const uint32 COLOR_MATCH_VERSION = 512;
-
 	public const uint32 CMS_DISABLEICM = 1;
-
 	public const uint32 CMS_ENABLEPROOFING = 2;
-
 	public const uint32 CMS_SETRENDERINTENT = 4;
-
 	public const uint32 CMS_SETPROOFINTENT = 8;
-
 	public const uint32 CMS_SETMONITORPROFILE = 16;
-
 	public const uint32 CMS_SETPRINTERPROFILE = 32;
-
 	public const uint32 CMS_SETTARGETPROFILE = 64;
-
 	public const uint32 CMS_USEHOOK = 128;
-
 	public const uint32 CMS_USEAPPLYCALLBACK = 256;
-
 	public const uint32 CMS_USEDESCRIPTION = 512;
-
 	public const uint32 CMS_DISABLEINTENT = 1024;
-
 	public const uint32 CMS_DISABLERENDERINTENT = 2048;
-
 	public const int32 CMS_MONITOROVERFLOW = -2147483648;
-
 	public const int32 CMS_PRINTEROVERFLOW = 1073741824;
-
 	public const int32 CMS_TARGETOVERFLOW = 536870912;
-
 	public const int32 DONT_USE_EMBEDDED_WCS_PROFILES = 1;
-
 	public const int32 WCS_DEFAULT = 0;
-
 	public const int32 WCS_ICCONLY = 65536;
-
 }
 #endregion
 
@@ -381,7 +297,7 @@ public struct EMRCREATECOLORSPACE
 	public LOGCOLORSPACEA lcs;
 }
 
-[CRepr, FlexibleArray("Data")]
+[CRepr]
 public struct EMRCREATECOLORSPACEW
 {
 	public EMR emr;
@@ -389,6 +305,7 @@ public struct EMRCREATECOLORSPACEW
 	public LOGCOLORSPACEW lcs;
 	public uint32 dwFlags;
 	public uint32 cbData;
+	public uint8* Data mut => &Data_impl;
 	private uint8[ANYSIZE_ARRAY] Data_impl;
 }
 
@@ -563,7 +480,6 @@ public struct COLOR
 		public uint32 reserved1;
 		public void* reserved2;
 	}
-
 	public GRAYCOLOR gray;
 	public RGBCOLOR rgb;
 	public CMYKCOLOR cmyk;

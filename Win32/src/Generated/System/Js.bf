@@ -9,7 +9,6 @@ namespace Win32.System.Js;
 public static
 {
 	public const uint64 JS_SOURCE_CONTEXT_NONE = 18446744073709551615;
-
 }
 #endregion
 

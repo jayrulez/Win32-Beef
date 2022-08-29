@@ -2,7 +2,6 @@ using Win32.Foundation;
 using Win32.Security;
 using Win32.System.IO;
 using System;
-using System.Interop;
 
 namespace Win32.Storage.Vhd;
 
@@ -10,29 +9,17 @@ namespace Win32.Storage.Vhd;
 public static
 {
 	public const Guid VIRTUAL_STORAGE_TYPE_VENDOR_UNKNOWN = .(0x00000000, 0x0000, 0x0000, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00);
-
 	public const Guid VIRTUAL_STORAGE_TYPE_VENDOR_MICROSOFT = .(0xec984aec, 0xa0f9, 0x47e9, 0x90, 0x1f, 0x71, 0x41, 0x5a, 0x66, 0x34, 0x5b);
-
 	public const uint32 VIRTUAL_STORAGE_TYPE_DEVICE_UNKNOWN = 0;
-
 	public const uint32 VIRTUAL_STORAGE_TYPE_DEVICE_ISO = 1;
-
 	public const uint32 VIRTUAL_STORAGE_TYPE_DEVICE_VHD = 2;
-
 	public const uint32 VIRTUAL_STORAGE_TYPE_DEVICE_VHDX = 3;
-
 	public const uint32 VIRTUAL_STORAGE_TYPE_DEVICE_VHDSET = 4;
-
 	public const uint32 OPEN_VIRTUAL_DISK_RW_DEPTH_DEFAULT = 1;
-
 	public const uint32 CREATE_VIRTUAL_DISK_PARAMETERS_DEFAULT_BLOCK_SIZE = 0;
-
 	public const uint32 CREATE_VIRTUAL_DISK_PARAMETERS_DEFAULT_SECTOR_SIZE = 0;
-
 	public const uint32 VIRTUAL_DISK_MAXIMUM_CHANGE_TRACKING_ID_LENGTH = 256;
-
 	public const uint32 MERGE_VIRTUAL_DISK_DEFAULT_MERGE_DEPTH = 1;
-
 }
 #endregion
 
@@ -433,13 +420,11 @@ public struct OPEN_VIRTUAL_DISK_PARAMETERS
 			public Guid ResiliencyGuid;
 			public Guid SnapshotId;
 		}
-
 		[CRepr]
 		public struct _Version1_e__Struct
 		{
 			public uint32 RWDepth;
 		}
-
 		[CRepr]
 		public struct _Version2_e__Struct
 		{
@@ -447,12 +432,10 @@ public struct OPEN_VIRTUAL_DISK_PARAMETERS
 			public BOOL ReadOnly;
 			public Guid ResiliencyGuid;
 		}
-
 		public _Version1_e__Struct Version1;
 		public _Version2_e__Struct Version2;
 		public _Version3_e__Struct Version3;
 	}
-
 	public OPEN_VIRTUAL_DISK_VERSION Version;
 	public using _Anonymous_e__Union Anonymous;
 }
@@ -482,7 +465,6 @@ public struct CREATE_VIRTUAL_DISK_PARAMETERS
 			public Guid PmemAddressAbstractionType;
 			public uint64 DataAlignment;
 		}
-
 		[CRepr]
 		public struct _Version2_e__Struct
 		{
@@ -498,7 +480,6 @@ public struct CREATE_VIRTUAL_DISK_PARAMETERS
 			public VIRTUAL_STORAGE_TYPE SourceVirtualStorageType;
 			public Guid ResiliencyGuid;
 		}
-
 		[CRepr]
 		public struct _Version3_e__Struct
 		{
@@ -516,7 +497,6 @@ public struct CREATE_VIRTUAL_DISK_PARAMETERS
 			public PWSTR SourceLimitPath;
 			public VIRTUAL_STORAGE_TYPE BackingStorageType;
 		}
-
 		[CRepr]
 		public struct _Version1_e__Struct
 		{
@@ -527,13 +507,11 @@ public struct CREATE_VIRTUAL_DISK_PARAMETERS
 			public PWSTR ParentPath;
 			public PWSTR SourcePath;
 		}
-
 		public _Version1_e__Struct Version1;
 		public _Version2_e__Struct Version2;
 		public _Version3_e__Struct Version3;
 		public _Version4_e__Struct Version4;
 	}
-
 	public CREATE_VIRTUAL_DISK_VERSION Version;
 	public using _Anonymous_e__Union Anonymous;
 }
@@ -550,17 +528,14 @@ public struct ATTACH_VIRTUAL_DISK_PARAMETERS
 			public uint64 RestrictedOffset;
 			public uint64 RestrictedLength;
 		}
-
 		[CRepr]
 		public struct _Version1_e__Struct
 		{
 			public uint32 Reserved;
 		}
-
 		public _Version1_e__Struct Version1;
 		public _Version2_e__Struct Version2;
 	}
-
 	public ATTACH_VIRTUAL_DISK_VERSION Version;
 	public using _Anonymous_e__Union Anonymous;
 }
@@ -586,16 +561,17 @@ public struct STORAGE_DEPENDENCY_INFO_TYPE_2
 	public PWSTR DependentVolumeRelativePath;
 }
 
-[CRepr, FlexibleArray("Version1Entries", "Version2Entries")]
+[CRepr]
 public struct STORAGE_DEPENDENCY_INFO
 {
 	[CRepr, Union]
 	public struct _Anonymous_e__Union
 	{
-		public STORAGE_DEPENDENCY_INFO_TYPE_1[ANYSIZE_ARRAY] Version1Entries_impl;
-		public STORAGE_DEPENDENCY_INFO_TYPE_2[ANYSIZE_ARRAY] Version2Entries_impl;
+		public STORAGE_DEPENDENCY_INFO_TYPE_1* Version1Entries mut => &Version1Entries_impl;
+		private STORAGE_DEPENDENCY_INFO_TYPE_1[ANYSIZE_ARRAY] Version1Entries_impl;
+		public STORAGE_DEPENDENCY_INFO_TYPE_2* Version2Entries mut => &Version2Entries_impl;
+		private STORAGE_DEPENDENCY_INFO_TYPE_2[ANYSIZE_ARRAY] Version2Entries_impl;
 	}
-
 	public STORAGE_DEPENDENCY_INFO_VERSION Version;
 	public uint32 NumberEntries;
 	public using _Anonymous_e__Union Anonymous;
@@ -614,7 +590,6 @@ public struct GET_VIRTUAL_DISK_INFO
 			public uint32 PhysicalSectorSize;
 			public BOOL IsRemote;
 		}
-
 		[CRepr]
 		public struct _Size_e__Struct
 		{
@@ -623,22 +598,21 @@ public struct GET_VIRTUAL_DISK_INFO
 			public uint32 BlockSize;
 			public uint32 SectorSize;
 		}
-
-		[CRepr, FlexibleArray("MostRecentId")]
+		[CRepr]
 		public struct _ChangeTrackingState_e__Struct
 		{
 			public BOOL Enabled;
 			public BOOL NewerChanges;
+			public char16* MostRecentId mut => &MostRecentId_impl;
 			private char16[ANYSIZE_ARRAY] MostRecentId_impl;
 		}
-
-		[CRepr, FlexibleArray("ParentLocationBuffer")]
+		[CRepr]
 		public struct _ParentLocation_e__Struct
 		{
 			public BOOL ParentResolved;
+			public char16* ParentLocationBuffer mut => &ParentLocationBuffer_impl;
 			private char16[ANYSIZE_ARRAY] ParentLocationBuffer_impl;
 		}
-
 		public _Size_e__Struct Size;
 		public Guid Identifier;
 		public _ParentLocation_e__Struct ParentLocation;
@@ -655,7 +629,6 @@ public struct GET_VIRTUAL_DISK_INFO
 		public Guid VirtualDiskId;
 		public _ChangeTrackingState_e__Struct ChangeTrackingState;
 	}
-
 	public GET_VIRTUAL_DISK_INFO_VERSION Version;
 	public using _Anonymous_e__Union Anonymous;
 }
@@ -672,14 +645,12 @@ public struct SET_VIRTUAL_DISK_INFO
 			public uint32 ChildDepth;
 			public PWSTR ParentFilePath;
 		}
-
 		[CRepr]
 		public struct _ParentLocator_e__Struct
 		{
 			public Guid LinkageId;
 			public PWSTR ParentFilePath;
 		}
-
 		public PWSTR ParentFilePath;
 		public Guid UniqueIdentifier;
 		public _ParentPathWithDepthInfo_e__Struct ParentPathWithDepthInfo;
@@ -688,7 +659,6 @@ public struct SET_VIRTUAL_DISK_INFO
 		public BOOL ChangeTrackingEnabled;
 		public _ParentLocator_e__Struct ParentLocator;
 	}
-
 	public SET_VIRTUAL_DISK_INFO_VERSION Version;
 	public using _Anonymous_e__Union Anonymous;
 }
@@ -712,10 +682,8 @@ public struct COMPACT_VIRTUAL_DISK_PARAMETERS
 		{
 			public uint32 Reserved;
 		}
-
 		public _Version1_e__Struct Version1;
 	}
-
 	public COMPACT_VIRTUAL_DISK_VERSION Version;
 	public using _Anonymous_e__Union Anonymous;
 }
@@ -732,17 +700,14 @@ public struct MERGE_VIRTUAL_DISK_PARAMETERS
 			public uint32 MergeSourceDepth;
 			public uint32 MergeTargetDepth;
 		}
-
 		[CRepr]
 		public struct _Version1_e__Struct
 		{
 			public uint32 MergeDepth;
 		}
-
 		public _Version1_e__Struct Version1;
 		public _Version2_e__Struct Version2;
 	}
-
 	public MERGE_VIRTUAL_DISK_VERSION Version;
 	public using _Anonymous_e__Union Anonymous;
 }
@@ -758,10 +723,8 @@ public struct EXPAND_VIRTUAL_DISK_PARAMETERS
 		{
 			public uint64 NewSize;
 		}
-
 		public _Version1_e__Struct Version1;
 	}
-
 	public EXPAND_VIRTUAL_DISK_VERSION Version;
 	public using _Anonymous_e__Union Anonymous;
 }
@@ -777,10 +740,8 @@ public struct RESIZE_VIRTUAL_DISK_PARAMETERS
 		{
 			public uint64 NewSize;
 		}
-
 		public _Version1_e__Struct Version1;
 	}
-
 	public RESIZE_VIRTUAL_DISK_VERSION Version;
 	public using _Anonymous_e__Union Anonymous;
 }
@@ -796,10 +757,8 @@ public struct MIRROR_VIRTUAL_DISK_PARAMETERS
 		{
 			public PWSTR MirrorVirtualDiskPath;
 		}
-
 		public _Version1_e__Struct Version1;
 	}
-
 	public MIRROR_VIRTUAL_DISK_VERSION Version;
 	public using _Anonymous_e__Union Anonymous;
 }
@@ -823,10 +782,8 @@ public struct TAKE_SNAPSHOT_VHDSET_PARAMETERS
 		{
 			public Guid SnapshotId;
 		}
-
 		public _Version1_e__Struct Version1;
 	}
-
 	public TAKE_SNAPSHOT_VHDSET_VERSION Version;
 	public using _Anonymous_e__Union Anonymous;
 }
@@ -842,10 +799,8 @@ public struct DELETE_SNAPSHOT_VHDSET_PARAMETERS
 		{
 			public Guid SnapshotId;
 		}
-
 		public _Version1_e__Struct Version1;
 	}
-
 	public DELETE_SNAPSHOT_VHDSET_VERSION Version;
 	public using _Anonymous_e__Union Anonymous;
 }
@@ -862,12 +817,10 @@ public struct MODIFY_VHDSET_PARAMETERS
 			public Guid SnapshotId;
 			public PWSTR SnapshotFilePath;
 		}
-
 		public _SnapshotPath_e__Struct SnapshotPath;
 		public Guid SnapshotId;
 		public PWSTR DefaultFilePath;
 	}
-
 	public MODIFY_VHDSET_VERSION Version;
 	public using _Anonymous_e__Union Anonymous;
 }
@@ -884,10 +837,8 @@ public struct APPLY_SNAPSHOT_VHDSET_PARAMETERS
 			public Guid SnapshotId;
 			public Guid LeafSnapshotId;
 		}
-
 		public _Version1_e__Struct Version1;
 	}
-
 	public APPLY_SNAPSHOT_VHDSET_VERSION Version;
 	public using _Anonymous_e__Union Anonymous;
 }
@@ -911,10 +862,8 @@ public struct RAW_SCSI_VIRTUAL_DISK_PARAMETERS
 			public uint8* SenseInfo;
 			public uint8* Cdb;
 		}
-
 		public _Version1_e__Struct Version1;
 	}
-
 	public RAW_SCSI_VIRTUAL_DISK_VERSION Version;
 	public using _Anonymous_e__Union Anonymous;
 }
@@ -932,10 +881,8 @@ public struct RAW_SCSI_VIRTUAL_DISK_RESPONSE
 			public uint8 SenseInfoLength;
 			public uint32 DataTransferLength;
 		}
-
 		public _Version1_e__Struct Version1;
 	}
-
 	public RAW_SCSI_VIRTUAL_DISK_VERSION Version;
 	public using _Anonymous_e__Union Anonymous;
 }
@@ -951,10 +898,8 @@ public struct FORK_VIRTUAL_DISK_PARAMETERS
 		{
 			public PWSTR ForkedVirtualDiskPath;
 		}
-
 		public _Version1_e__Struct Version1;
 	}
-
 	public FORK_VIRTUAL_DISK_VERSION Version;
 	public using _Anonymous_e__Union Anonymous;
 }

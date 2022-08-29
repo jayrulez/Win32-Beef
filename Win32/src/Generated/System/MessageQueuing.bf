@@ -8,375 +8,190 @@ namespace Win32.System.MessageQueuing;
 public static
 {
 	public const uint32 PRLT = 0;
-
 	public const uint32 PRLE = 1;
-
 	public const uint32 PRGT = 2;
-
 	public const uint32 PRGE = 3;
-
 	public const uint32 PREQ = 4;
-
 	public const uint32 PRNE = 5;
-
 	public const uint32 QUERY_SORTASCEND = 0;
-
 	public const uint32 QUERY_SORTDESCEND = 1;
-
 	public const uint32 MQ_MOVE_ACCESS = 4;
-
 	public const uint32 MQ_ACTION_RECEIVE = 0;
-
 	public const uint32 MQ_ACTION_PEEK_CURRENT = 2147483648;
-
 	public const uint32 MQ_ACTION_PEEK_NEXT = 2147483649;
-
 	public const uint32 MQ_LOOKUP_PEEK_CURRENT = 1073741840;
-
 	public const uint32 MQ_LOOKUP_PEEK_NEXT = 1073741841;
-
 	public const uint32 MQ_LOOKUP_PEEK_PREV = 1073741842;
-
 	public const uint32 MQ_LOOKUP_PEEK_FIRST = 1073741844;
-
 	public const uint32 MQ_LOOKUP_PEEK_LAST = 1073741848;
-
 	public const uint32 MQ_LOOKUP_RECEIVE_CURRENT = 1073741856;
-
 	public const uint32 MQ_LOOKUP_RECEIVE_NEXT = 1073741857;
-
 	public const uint32 MQ_LOOKUP_RECEIVE_PREV = 1073741858;
-
 	public const uint32 MQ_LOOKUP_RECEIVE_FIRST = 1073741860;
-
 	public const uint32 MQ_LOOKUP_RECEIVE_LAST = 1073741864;
-
 	public const uint32 MQ_LOOKUP_RECEIVE_ALLOW_PEEK = 1073742112;
-
 	public const uint32 PROPID_M_BASE = 0;
-
 	public const uint32 PROPID_M_CLASS = 1;
-
 	public const uint32 PROPID_M_MSGID = 2;
-
 	public const uint32 PROPID_M_CORRELATIONID = 3;
-
 	public const uint32 PROPID_M_PRIORITY = 4;
-
 	public const uint32 PROPID_M_DELIVERY = 5;
-
 	public const uint32 PROPID_M_ACKNOWLEDGE = 6;
-
 	public const uint32 PROPID_M_JOURNAL = 7;
-
 	public const uint32 PROPID_M_APPSPECIFIC = 8;
-
 	public const uint32 PROPID_M_BODY = 9;
-
 	public const uint32 PROPID_M_BODY_SIZE = 10;
-
 	public const uint32 PROPID_M_LABEL = 11;
-
 	public const uint32 PROPID_M_LABEL_LEN = 12;
-
 	public const uint32 PROPID_M_TIME_TO_REACH_QUEUE = 13;
-
 	public const uint32 PROPID_M_TIME_TO_BE_RECEIVED = 14;
-
 	public const uint32 PROPID_M_RESP_QUEUE = 15;
-
 	public const uint32 PROPID_M_RESP_QUEUE_LEN = 16;
-
 	public const uint32 PROPID_M_ADMIN_QUEUE = 17;
-
 	public const uint32 PROPID_M_ADMIN_QUEUE_LEN = 18;
-
 	public const uint32 PROPID_M_VERSION = 19;
-
 	public const uint32 PROPID_M_SENDERID = 20;
-
 	public const uint32 PROPID_M_SENDERID_LEN = 21;
-
 	public const uint32 PROPID_M_SENDERID_TYPE = 22;
-
 	public const uint32 PROPID_M_PRIV_LEVEL = 23;
-
 	public const uint32 PROPID_M_AUTH_LEVEL = 24;
-
 	public const uint32 PROPID_M_AUTHENTICATED = 25;
-
 	public const uint32 PROPID_M_HASH_ALG = 26;
-
 	public const uint32 PROPID_M_ENCRYPTION_ALG = 27;
-
 	public const uint32 PROPID_M_SENDER_CERT = 28;
-
 	public const uint32 PROPID_M_SENDER_CERT_LEN = 29;
-
 	public const uint32 PROPID_M_SRC_MACHINE_ID = 30;
-
 	public const uint32 PROPID_M_SENTTIME = 31;
-
 	public const uint32 PROPID_M_ARRIVEDTIME = 32;
-
 	public const uint32 PROPID_M_DEST_QUEUE = 33;
-
 	public const uint32 PROPID_M_DEST_QUEUE_LEN = 34;
-
 	public const uint32 PROPID_M_EXTENSION = 35;
-
 	public const uint32 PROPID_M_EXTENSION_LEN = 36;
-
 	public const uint32 PROPID_M_SECURITY_CONTEXT = 37;
-
 	public const uint32 PROPID_M_CONNECTOR_TYPE = 38;
-
 	public const uint32 PROPID_M_XACT_STATUS_QUEUE = 39;
-
 	public const uint32 PROPID_M_XACT_STATUS_QUEUE_LEN = 40;
-
 	public const uint32 PROPID_M_TRACE = 41;
-
 	public const uint32 PROPID_M_BODY_TYPE = 42;
-
 	public const uint32 PROPID_M_DEST_SYMM_KEY = 43;
-
 	public const uint32 PROPID_M_DEST_SYMM_KEY_LEN = 44;
-
 	public const uint32 PROPID_M_SIGNATURE = 45;
-
 	public const uint32 PROPID_M_SIGNATURE_LEN = 46;
-
 	public const uint32 PROPID_M_PROV_TYPE = 47;
-
 	public const uint32 PROPID_M_PROV_NAME = 48;
-
 	public const uint32 PROPID_M_PROV_NAME_LEN = 49;
-
 	public const uint32 PROPID_M_FIRST_IN_XACT = 50;
-
 	public const uint32 PROPID_M_LAST_IN_XACT = 51;
-
 	public const uint32 PROPID_M_XACTID = 52;
-
 	public const uint32 PROPID_M_AUTHENTICATED_EX = 53;
-
 	public const uint32 PROPID_M_RESP_FORMAT_NAME = 54;
-
 	public const uint32 PROPID_M_RESP_FORMAT_NAME_LEN = 55;
-
 	public const uint32 PROPID_M_DEST_FORMAT_NAME = 58;
-
 	public const uint32 PROPID_M_DEST_FORMAT_NAME_LEN = 59;
-
 	public const uint32 PROPID_M_LOOKUPID = 60;
-
 	public const uint32 PROPID_M_SOAP_ENVELOPE = 61;
-
 	public const uint32 PROPID_M_SOAP_ENVELOPE_LEN = 62;
-
 	public const uint32 PROPID_M_COMPOUND_MESSAGE = 63;
-
 	public const uint32 PROPID_M_COMPOUND_MESSAGE_SIZE = 64;
-
 	public const uint32 PROPID_M_SOAP_HEADER = 65;
-
 	public const uint32 PROPID_M_SOAP_BODY = 66;
-
 	public const uint32 PROPID_M_DEADLETTER_QUEUE = 67;
-
 	public const uint32 PROPID_M_DEADLETTER_QUEUE_LEN = 68;
-
 	public const uint32 PROPID_M_ABORT_COUNT = 69;
-
 	public const uint32 PROPID_M_MOVE_COUNT = 70;
-
 	public const uint32 PROPID_M_LAST_MOVE_TIME = 75;
-
 	public const uint32 PROPID_M_MSGID_SIZE = 20;
-
 	public const uint32 PROPID_M_CORRELATIONID_SIZE = 20;
-
 	public const uint32 PROPID_M_XACTID_SIZE = 20;
-
 	public const uint32 MQMSG_PRIV_LEVEL_BODY_AES = 5;
-
 	public const uint32 MQMSG_AUTHENTICATED_QM_MESSAGE = 11;
-
 	public const uint32 MQMSG_NOT_FIRST_IN_XACT = 0;
-
 	public const uint32 MQMSG_FIRST_IN_XACT = 1;
-
 	public const uint32 MQMSG_NOT_LAST_IN_XACT = 0;
-
 	public const uint32 MQMSG_LAST_IN_XACT = 1;
-
 	public const uint32 PROPID_Q_BASE = 100;
-
 	public const uint32 PROPID_Q_INSTANCE = 101;
-
 	public const uint32 PROPID_Q_TYPE = 102;
-
 	public const uint32 PROPID_Q_PATHNAME = 103;
-
 	public const uint32 PROPID_Q_JOURNAL = 104;
-
 	public const uint32 PROPID_Q_QUOTA = 105;
-
 	public const uint32 PROPID_Q_BASEPRIORITY = 106;
-
 	public const uint32 PROPID_Q_JOURNAL_QUOTA = 107;
-
 	public const uint32 PROPID_Q_LABEL = 108;
-
 	public const uint32 PROPID_Q_CREATE_TIME = 109;
-
 	public const uint32 PROPID_Q_MODIFY_TIME = 110;
-
 	public const uint32 PROPID_Q_AUTHENTICATE = 111;
-
 	public const uint32 PROPID_Q_PRIV_LEVEL = 112;
-
 	public const uint32 PROPID_Q_TRANSACTION = 113;
-
 	public const uint32 PROPID_Q_PATHNAME_DNS = 124;
-
 	public const uint32 PROPID_Q_MULTICAST_ADDRESS = 125;
-
 	public const uint32 PROPID_Q_ADS_PATH = 126;
-
 	public const uint32 PROPID_QM_BASE = 200;
-
 	public const uint32 PROPID_QM_SITE_ID = 201;
-
 	public const uint32 PROPID_QM_MACHINE_ID = 202;
-
 	public const uint32 PROPID_QM_PATHNAME = 203;
-
 	public const uint32 PROPID_QM_CONNECTION = 204;
-
 	public const uint32 PROPID_QM_ENCRYPTION_PK = 205;
-
 	public const uint32 PROPID_QM_ENCRYPTION_PK_BASE = 231;
-
 	public const uint32 PROPID_QM_ENCRYPTION_PK_ENHANCED = 232;
-
 	public const uint32 PROPID_QM_PATHNAME_DNS = 233;
-
 	public const uint32 PROPID_QM_ENCRYPTION_PK_AES = 244;
-
 	public const uint32 PROPID_PC_BASE = 5800;
-
 	public const uint32 PROPID_PC_VERSION = 5801;
-
 	public const uint32 PROPID_PC_DS_ENABLED = 5802;
-
 	public const uint32 PROPID_MGMT_MSMQ_BASE = 0;
-
 	public const uint32 PROPID_MGMT_MSMQ_ACTIVEQUEUES = 1;
-
 	public const uint32 PROPID_MGMT_MSMQ_PRIVATEQ = 2;
-
 	public const uint32 PROPID_MGMT_MSMQ_DSSERVER = 3;
-
 	public const uint32 PROPID_MGMT_MSMQ_CONNECTED = 4;
-
 	public const uint32 PROPID_MGMT_MSMQ_TYPE = 5;
-
 	public const uint32 PROPID_MGMT_MSMQ_BYTES_IN_ALL_QUEUES = 6;
-
 	public const uint32 PROPID_MGMT_QUEUE_BASE = 0;
-
 	public const uint32 PROPID_MGMT_QUEUE_PATHNAME = 1;
-
 	public const uint32 PROPID_MGMT_QUEUE_FORMATNAME = 2;
-
 	public const uint32 PROPID_MGMT_QUEUE_TYPE = 3;
-
 	public const uint32 PROPID_MGMT_QUEUE_LOCATION = 4;
-
 	public const uint32 PROPID_MGMT_QUEUE_XACT = 5;
-
 	public const uint32 PROPID_MGMT_QUEUE_FOREIGN = 6;
-
 	public const uint32 PROPID_MGMT_QUEUE_MESSAGE_COUNT = 7;
-
 	public const uint32 PROPID_MGMT_QUEUE_BYTES_IN_QUEUE = 8;
-
 	public const uint32 PROPID_MGMT_QUEUE_JOURNAL_MESSAGE_COUNT = 9;
-
 	public const uint32 PROPID_MGMT_QUEUE_BYTES_IN_JOURNAL = 10;
-
 	public const uint32 PROPID_MGMT_QUEUE_STATE = 11;
-
 	public const uint32 PROPID_MGMT_QUEUE_NEXTHOPS = 12;
-
 	public const uint32 PROPID_MGMT_QUEUE_EOD_LAST_ACK = 13;
-
 	public const uint32 PROPID_MGMT_QUEUE_EOD_LAST_ACK_TIME = 14;
-
 	public const uint32 PROPID_MGMT_QUEUE_EOD_LAST_ACK_COUNT = 15;
-
 	public const uint32 PROPID_MGMT_QUEUE_EOD_FIRST_NON_ACK = 16;
-
 	public const uint32 PROPID_MGMT_QUEUE_EOD_LAST_NON_ACK = 17;
-
 	public const uint32 PROPID_MGMT_QUEUE_EOD_NEXT_SEQ = 18;
-
 	public const uint32 PROPID_MGMT_QUEUE_EOD_NO_READ_COUNT = 19;
-
 	public const uint32 PROPID_MGMT_QUEUE_EOD_NO_ACK_COUNT = 20;
-
 	public const uint32 PROPID_MGMT_QUEUE_EOD_RESEND_TIME = 21;
-
 	public const uint32 PROPID_MGMT_QUEUE_EOD_RESEND_INTERVAL = 22;
-
 	public const uint32 PROPID_MGMT_QUEUE_EOD_RESEND_COUNT = 23;
-
 	public const uint32 PROPID_MGMT_QUEUE_EOD_SOURCE_INFO = 24;
-
 	public const uint32 PROPID_MGMT_QUEUE_CONNECTION_HISTORY = 25;
-
 	public const uint32 PROPID_MGMT_QUEUE_SUBQUEUE_COUNT = 26;
-
 	public const uint32 PROPID_MGMT_QUEUE_SUBQUEUE_NAMES = 27;
-
 	public const uint32 PROPID_MGMT_QUEUE_USED_QUOTA = 8;
-
 	public const uint32 PROPID_MGMT_QUEUE_JOURNAL_USED_QUOTA = 10;
-
 	public const uint32 LONG_LIVED = 4294967294;
-
 	public const uint32 MQSEC_DELETE_MESSAGE = 1;
-
 	public const uint32 MQSEC_PEEK_MESSAGE = 2;
-
 	public const uint32 MQSEC_WRITE_MESSAGE = 4;
-
 	public const uint32 MQSEC_DELETE_JOURNAL_MESSAGE = 8;
-
 	public const uint32 MQSEC_SET_QUEUE_PROPERTIES = 16;
-
 	public const uint32 MQSEC_GET_QUEUE_PROPERTIES = 32;
-
 	public const uint32 MQSEC_DELETE_QUEUE = 65536;
-
 	public const uint32 MQSEC_CHANGE_QUEUE_PERMISSIONS = 262144;
-
 	public const uint32 MQSEC_TAKE_QUEUE_OWNERSHIP = 524288;
-
 	public const uint32 MQSEC_QUEUE_GENERIC_EXECUTE = 0;
-
 	public const HRESULT MQ_OK = 0;
-
 	public const HRESULT MQ_ERROR_RESOLVE_ADDRESS = -1072824167;
-
 	public const HRESULT MQ_ERROR_TOO_MANY_PROPERTIES = -1072824166;
-
 	public const HRESULT MQ_ERROR_MESSAGE_NOT_AUTHENTICATED = -1072824165;
-
 	public const HRESULT MQ_ERROR_MESSAGE_LOCKED_UNDER_TRANSACTION = -1072824164;
-
 }
 #endregion
 

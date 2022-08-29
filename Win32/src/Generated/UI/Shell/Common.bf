@@ -1,7 +1,6 @@
 using Win32.Foundation;
 using Win32.System.Com;
 using System;
-using System.Interop;
 
 namespace Win32.UI.Shell.Common;
 
@@ -9,19 +8,12 @@ namespace Win32.UI.Shell.Common;
 public static
 {
 	public const uint32 PERCEIVEDFLAG_UNDEFINED = 0;
-
 	public const uint32 PERCEIVEDFLAG_SOFTCODED = 1;
-
 	public const uint32 PERCEIVEDFLAG_HARDCODED = 2;
-
 	public const uint32 PERCEIVEDFLAG_NATIVESUPPORT = 4;
-
 	public const uint32 PERCEIVEDFLAG_GDIPLUS = 16;
-
 	public const uint32 PERCEIVEDFLAG_WMSDK = 32;
-
 	public const uint32 PERCEIVEDFLAG_ZIPFOLDER = 64;
-
 }
 #endregion
 
@@ -110,10 +102,11 @@ public enum DEVICE_SCALE_FACTOR : int32
 
 
 #region Structs
-[CRepr, Packed(1), FlexibleArray("abID")]
+[CRepr, Packed(1)]
 public struct SHITEMID
 {
 	public uint16 cb;
+	public uint8* abID mut => &abID_impl;
 	private uint8[ANYSIZE_ARRAY] abID_impl;
 }
 
@@ -133,7 +126,6 @@ public struct STRRET
 		public uint32 uOffset;
 		public uint8[260] cStr;
 	}
-
 	public uint32 uType;
 	public using _Anonymous_e__Union Anonymous;
 }

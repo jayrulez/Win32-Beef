@@ -8,143 +8,74 @@ namespace Win32.System.DistributedTransactionCoordinator;
 public static
 {
 	public const int32 DTCINSTALL_E_CLIENT_ALREADY_INSTALLED = 384;
-
 	public const int32 DTCINSTALL_E_SERVER_ALREADY_INSTALLED = 385;
-
 	public const uint32 XA_SWITCH_F_DTC = 1;
-
 	public const uint32 XA_FMTID_DTC = 4478019;
-
 	public const uint32 XA_FMTID_DTC_VER1 = 21255235;
-
 	public const uint32 XIDDATASIZE = 128;
-
 	public const uint32 MAXGTRIDSIZE = 64;
-
 	public const uint32 MAXBQUALSIZE = 64;
-
 	public const uint32 RMNAMESZ = 32;
-
 	public const uint32 MAXINFOSIZE = 256;
-
 	public const int32 TMNOFLAGS = 0;
-
 	public const int32 TMREGISTER = 1;
-
 	public const int32 TMNOMIGRATE = 2;
-
 	public const int32 TMUSEASYNC = 4;
-
 	public const int32 TMASYNC = -2147483648;
-
 	public const int32 TMONEPHASE = 1073741824;
-
 	public const int32 TMFAIL = 536870912;
-
 	public const int32 TMNOWAIT = 268435456;
-
 	public const int32 TMRESUME = 134217728;
-
 	public const int32 TMSUCCESS = 67108864;
-
 	public const int32 TMSUSPEND = 33554432;
-
 	public const int32 TMSTARTRSCAN = 16777216;
-
 	public const int32 TMENDRSCAN = 8388608;
-
 	public const int32 TMMULTIPLE = 4194304;
-
 	public const int32 TMJOIN = 2097152;
-
 	public const int32 TMMIGRATE = 1048576;
-
 	public const uint32 TM_JOIN = 2;
-
 	public const uint32 TM_RESUME = 1;
-
 	public const uint32 TM_OK = 0;
-
 	public const int32 TMER_TMERR = -1;
-
 	public const int32 TMER_INVAL = -2;
-
 	public const int32 TMER_PROTO = -3;
-
 	public const uint32 XA_RBBASE = 100;
-
 	public const uint32 XA_RBROLLBACK = 100;
-
 	public const uint32 XA_RBCOMMFAIL = 101;
-
 	public const uint32 XA_RBDEADLOCK = 102;
-
 	public const uint32 XA_RBINTEGRITY = 103;
-
 	public const uint32 XA_RBOTHER = 104;
-
 	public const uint32 XA_RBPROTO = 105;
-
 	public const uint32 XA_RBTIMEOUT = 106;
-
 	public const uint32 XA_RBTRANSIENT = 107;
-
 	public const uint32 XA_RBEND = 107;
-
 	public const uint32 XA_NOMIGRATE = 9;
-
 	public const uint32 XA_HEURHAZ = 8;
-
 	public const uint32 XA_HEURCOM = 7;
-
 	public const uint32 XA_HEURRB = 6;
-
 	public const uint32 XA_HEURMIX = 5;
-
 	public const uint32 XA_RETRY = 4;
-
 	public const uint32 XA_RDONLY = 3;
-
 	public const uint32 XA_OK = 0;
-
 	public const int32 XAER_ASYNC = -2;
-
 	public const int32 XAER_RMERR = -3;
-
 	public const int32 XAER_NOTA = -4;
-
 	public const int32 XAER_INVAL = -5;
-
 	public const int32 XAER_PROTO = -6;
-
 	public const int32 XAER_RMFAIL = -7;
-
 	public const int32 XAER_DUPID = -8;
-
 	public const int32 XAER_OUTSIDE = -9;
-
 	public const uint32 DTC_INSTALL_OVERWRITE_CLIENT = 1;
-
 	public const uint32 DTC_INSTALL_OVERWRITE_SERVER = 2;
-
 	public const uint32 OLE_TM_CONFIG_VERSION_1 = 1;
-
 	public const uint32 OLE_TM_CONFIG_VERSION_2 = 2;
-
 	public const uint32 OLE_TM_FLAG_NONE = 0;
-
 	public const uint32 OLE_TM_FLAG_NODEMANDSTART = 1;
-
 	public const uint32 OLE_TM_FLAG_NOAGILERECOVERY = 2;
-
 	public const uint32 OLE_TM_FLAG_QUERY_SERVICE_LOCKSTATUS = 2147483648;
-
 	public const uint32 OLE_TM_FLAG_INTERNAL_TO_TM = 1073741824;
-
 	public const Guid CLSID_MSDtcTransactionManager = .(0x5b18ab61, 0x091d, 0x11d1, 0x97, 0xdf, 0x00, 0xc0, 0x4f, 0xb9, 0x61, 0x8a);
-
 	public const Guid CLSID_MSDtcTransaction = .(0x39f8d76b, 0x0928, 0x11d1, 0x97, 0xdf, 0x00, 0xc0, 0x4f, 0xb9, 0x61, 0x8a);
-
 }
 #endregion
 

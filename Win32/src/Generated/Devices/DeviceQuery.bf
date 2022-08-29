@@ -135,7 +135,6 @@ public struct DEV_QUERY_RESULT_ACTION_DATA
 		public DEV_QUERY_STATE State;
 		public DEV_OBJECT DeviceObject;
 	}
-
 	public DEV_QUERY_RESULT_ACTION Action;
 	public _DEV_QUERY_RESULT_UPDATE_PAYLOAD Data;
 }

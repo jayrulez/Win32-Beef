@@ -4,7 +4,6 @@ using Win32.System.Kernel;
 using Win32.Security;
 using Win32.System.SystemInformation;
 using System;
-using System.Interop;
 
 namespace Win32.System.Threading;
 
@@ -12,63 +11,34 @@ namespace Win32.System.Threading;
 public static
 {
 	public const uint32 WAIT_OBJECT_0 = 0;
-
 	public const uint32 WAIT_ABANDONED = 128;
-
 	public const uint32 WAIT_ABANDONED_0 = 128;
-
 	public const uint32 WAIT_IO_COMPLETION = 192;
-
 	public const uint32 PRIVATE_NAMESPACE_FLAG_DESTROY = 1;
-
 	public const uint32 PROC_THREAD_ATTRIBUTE_REPLACE_VALUE = 1;
-
 	public const uint32 THREAD_POWER_THROTTLING_CURRENT_VERSION = 1;
-
 	public const uint32 THREAD_POWER_THROTTLING_EXECUTION_SPEED = 1;
-
 	public const uint32 THREAD_POWER_THROTTLING_VALID_FLAGS = 1;
-
 	public const uint32 PME_CURRENT_VERSION = 1;
-
 	public const uint32 PME_FAILFAST_ON_COMMIT_FAIL_DISABLE = 0;
-
 	public const uint32 PME_FAILFAST_ON_COMMIT_FAIL_ENABLE = 1;
-
 	public const uint32 PROCESS_POWER_THROTTLING_CURRENT_VERSION = 1;
-
 	public const uint32 PROCESS_POWER_THROTTLING_EXECUTION_SPEED = 1;
-
 	public const uint32 PROCESS_POWER_THROTTLING_IGNORE_TIMER_RESOLUTION = 4;
-
 	public const uint32 PROCESS_LEAP_SECOND_INFO_FLAG_ENABLE_SIXTY_SECOND = 1;
-
 	public const uint32 PROCESS_LEAP_SECOND_INFO_VALID_FLAGS = 1;
-
 	public const uint32 INIT_ONCE_CHECK_ONLY = 1;
-
 	public const uint32 INIT_ONCE_ASYNC = 2;
-
 	public const uint32 INIT_ONCE_INIT_FAILED = 4;
-
 	public const uint32 INIT_ONCE_CTX_RESERVED_BITS = 2;
-
 	public const uint32 CONDITION_VARIABLE_LOCKMODE_SHARED = 1;
-
 	public const uint32 MUTEX_MODIFY_STATE = 1;
-
 	public const uint32 CREATE_MUTEX_INITIAL_OWNER = 1;
-
 	public const uint32 CREATE_WAITABLE_TIMER_MANUAL_RESET = 1;
-
 	public const uint32 CREATE_WAITABLE_TIMER_HIGH_RESOLUTION = 2;
-
 	public const uint32 SYNCHRONIZATION_BARRIER_FLAGS_SPIN_ONLY = 1;
-
 	public const uint32 SYNCHRONIZATION_BARRIER_FLAGS_BLOCK_ONLY = 2;
-
 	public const uint32 SYNCHRONIZATION_BARRIER_FLAGS_NO_DELETE = 4;
-
 }
 #endregion
 
@@ -549,11 +519,9 @@ public struct REASON_CONTEXT
 			public uint32 ReasonStringCount;
 			public PWSTR* ReasonStrings;
 		}
-
 		public _Detailed_e__Struct Detailed;
 		public PWSTR SimpleReasonString;
 	}
-
 	public uint32 Version;
 	public POWER_REQUEST_CONTEXT_FLAGS Flags;
 	public _Reason_e__Union Reason;
@@ -790,16 +758,13 @@ public struct TP_CALLBACK_ENVIRON_V3
 		{
 			public uint32 _bitfield;
 		}
-
 		public uint32 Flags;
 		public _s_e__Struct s;
 	}
-
 	[CRepr]
 	public struct _ACTIVATION_CONTEXT
 	{
 	}
-
 	public uint32 Version;
 	public PTP_POOL Pool;
 	public int CleanupGroup;
@@ -832,11 +797,9 @@ public struct UMS_SYSTEM_THREAD_INFORMATION
 		{
 			public uint32 _bitfield;
 		}
-
 		public using _Anonymous_e__Struct Anonymous;
 		public uint32 ThreadUmsFlags;
 	}
-
 	public uint32 UmsVersion;
 	public using _Anonymous_e__Union Anonymous;
 }
@@ -872,11 +835,12 @@ public struct RTL_USER_PROCESS_PARAMETERS
 	public UNICODE_STRING CommandLine;
 }
 
-[CRepr, FlexibleArray("Reserved2"), FlexibleArray("Reserved12")]
+[CRepr]
 public struct PEB
 {
 	public uint8[2] Reserved1;
 	public uint8 BeingDebugged;
+	public uint8* Reserved2 mut => &Reserved2_impl;
 	private uint8[ANYSIZE_ARRAY] Reserved2_impl;
 	public void*[2] Reserved3;
 	public PEB_LDR_DATA* Ldr;
@@ -892,6 +856,7 @@ public struct PEB
 	public uint8[96] Reserved10;
 	public PPS_POST_PROCESS_INIT_ROUTINE PostProcessInitRoutine;
 	public uint8[128] Reserved11;
+	public void** Reserved12 mut => &Reserved12_impl;
 	private void*[ANYSIZE_ARRAY] Reserved12_impl;
 	public uint32 SessionId;
 }

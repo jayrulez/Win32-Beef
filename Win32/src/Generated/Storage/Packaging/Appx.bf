@@ -8,49 +8,27 @@ namespace Win32.Storage.Packaging.Appx;
 public static
 {
 	public const uint32 PACKAGE_PROPERTY_FRAMEWORK = 1;
-
 	public const uint32 PACKAGE_PROPERTY_RESOURCE = 2;
-
 	public const uint32 PACKAGE_PROPERTY_BUNDLE = 4;
-
 	public const uint32 PACKAGE_PROPERTY_OPTIONAL = 8;
-
 	public const uint32 PACKAGE_FILTER_HEAD = 16;
-
 	public const uint32 PACKAGE_FILTER_DIRECT = 32;
-
 	public const uint32 PACKAGE_FILTER_RESOURCE = 64;
-
 	public const uint32 PACKAGE_FILTER_BUNDLE = 128;
-
 	public const uint32 PACKAGE_INFORMATION_BASIC = 0;
-
 	public const uint32 PACKAGE_INFORMATION_FULL = 256;
-
 	public const uint32 PACKAGE_PROPERTY_DEVELOPMENT_MODE = 65536;
-
 	public const uint32 PACKAGE_FILTER_OPTIONAL = 131072;
-
 	public const uint32 PACKAGE_PROPERTY_IS_IN_RELATED_SET = 262144;
-
 	public const uint32 PACKAGE_FILTER_IS_IN_RELATED_SET = 262144;
-
 	public const uint32 PACKAGE_PROPERTY_STATIC = 524288;
-
 	public const uint32 PACKAGE_FILTER_STATIC = 524288;
-
 	public const uint32 PACKAGE_PROPERTY_DYNAMIC = 1048576;
-
 	public const uint32 PACKAGE_FILTER_DYNAMIC = 1048576;
-
 	public const uint32 PACKAGE_PROPERTY_HOSTRUNTIME = 2097152;
-
 	public const uint32 PACKAGE_FILTER_HOSTRUNTIME = 2097152;
-
 	public const uint32 PACKAGE_FILTER_ALL_LOADED = 0;
-
 	public const uint32 PACKAGE_DEPENDENCY_RANK_DEFAULT = 0;
-
 }
 #endregion
 
@@ -395,11 +373,9 @@ public struct PACKAGE_VERSION
 			public uint16 Minor;
 			public uint16 Major;
 		}
-
 		public uint64 Version;
 		public using _Anonymous_e__Struct Anonymous;
 	}
-
 	public using _Anonymous_e__Union Anonymous;
 }
 

@@ -4,7 +4,6 @@ using Win32.Storage.FileSystem;
 using Win32.Security;
 using Win32.Storage.Vhd;
 using System;
-using System.Interop;
 
 namespace Win32.System.Ioctl;
 
@@ -12,2023 +11,1014 @@ namespace Win32.System.Ioctl;
 public static
 {
 	public const uint32 IOCTL_STORAGE_BASE = 45;
-
 	public const uint32 IOCTL_SCMBUS_BASE = 89;
-
 	public const uint32 IOCTL_DISK_BASE = 7;
-
 	public const uint32 IOCTL_CHANGER_BASE = 48;
-
 	public const uint32 FILE_SPECIAL_ACCESS = 0;
-
 	public const uint32 FILE_DEVICE_UNKNOWN = 34;
-
 	public const Guid GUID_DEVINTERFACE_DISK = .(0x53f56307, 0xb6bf, 0x11d0, 0x94, 0xf2, 0x00, 0xa0, 0xc9, 0x1e, 0xfb, 0x8b);
-
 	public const Guid GUID_DEVINTERFACE_CDROM = .(0x53f56308, 0xb6bf, 0x11d0, 0x94, 0xf2, 0x00, 0xa0, 0xc9, 0x1e, 0xfb, 0x8b);
-
 	public const Guid GUID_DEVINTERFACE_PARTITION = .(0x53f5630a, 0xb6bf, 0x11d0, 0x94, 0xf2, 0x00, 0xa0, 0xc9, 0x1e, 0xfb, 0x8b);
-
 	public const Guid GUID_DEVINTERFACE_TAPE = .(0x53f5630b, 0xb6bf, 0x11d0, 0x94, 0xf2, 0x00, 0xa0, 0xc9, 0x1e, 0xfb, 0x8b);
-
 	public const Guid GUID_DEVINTERFACE_WRITEONCEDISK = .(0x53f5630c, 0xb6bf, 0x11d0, 0x94, 0xf2, 0x00, 0xa0, 0xc9, 0x1e, 0xfb, 0x8b);
-
 	public const Guid GUID_DEVINTERFACE_VOLUME = .(0x53f5630d, 0xb6bf, 0x11d0, 0x94, 0xf2, 0x00, 0xa0, 0xc9, 0x1e, 0xfb, 0x8b);
-
 	public const Guid GUID_DEVINTERFACE_MEDIUMCHANGER = .(0x53f56310, 0xb6bf, 0x11d0, 0x94, 0xf2, 0x00, 0xa0, 0xc9, 0x1e, 0xfb, 0x8b);
-
 	public const Guid GUID_DEVINTERFACE_FLOPPY = .(0x53f56311, 0xb6bf, 0x11d0, 0x94, 0xf2, 0x00, 0xa0, 0xc9, 0x1e, 0xfb, 0x8b);
-
 	public const Guid GUID_DEVINTERFACE_CDCHANGER = .(0x53f56312, 0xb6bf, 0x11d0, 0x94, 0xf2, 0x00, 0xa0, 0xc9, 0x1e, 0xfb, 0x8b);
-
 	public const Guid GUID_DEVINTERFACE_STORAGEPORT = .(0x2accfe60, 0xc130, 0x11d2, 0xb0, 0x82, 0x00, 0xa0, 0xc9, 0x1e, 0xfb, 0x8b);
-
 	public const Guid GUID_DEVINTERFACE_VMLUN = .(0x6f416619, 0x9f29, 0x42a5, 0xb2, 0x0b, 0x37, 0xe2, 0x19, 0xca, 0x02, 0xb0);
-
 	public const Guid GUID_DEVINTERFACE_SES = .(0x1790c9ec, 0x47d5, 0x4df3, 0xb5, 0xaf, 0x9a, 0xdf, 0x3c, 0xf2, 0x3e, 0x48);
-
 	public const Guid GUID_DEVINTERFACE_ZNSDISK = .(0xb87941c5, 0xffdb, 0x43c7, 0xb6, 0xb1, 0x20, 0xb6, 0x32, 0xf0, 0xb1, 0x09);
-
 	public const Guid GUID_DEVINTERFACE_SERVICE_VOLUME = .(0x6ead3d82, 0x25ec, 0x46bc, 0xb7, 0xfd, 0xc1, 0xf0, 0xdf, 0x8f, 0x50, 0x37);
-
 	public const Guid GUID_DEVINTERFACE_HIDDEN_VOLUME = .(0x7f108a28, 0x9833, 0x4b3b, 0xb7, 0x80, 0x2c, 0x6b, 0x5f, 0xa5, 0xc0, 0x62);
-
 	public const Guid GUID_DEVINTERFACE_UNIFIED_ACCESS_RPMB = .(0x27447c21, 0xbcc3, 0x4d07, 0xa0, 0x5b, 0xa3, 0x39, 0x5b, 0xb4, 0xee, 0xe7);
-
 	public const Guid GUID_DEVICEDUMP_STORAGE_DEVICE = .(0xd8e2592f, 0x1aab, 0x4d56, 0xa7, 0x46, 0x1f, 0x75, 0x85, 0xdf, 0x40, 0xf4);
-
 	public const Guid GUID_DEVICEDUMP_DRIVER_STORAGE_PORT = .(0xda82441d, 0x7142, 0x4bc1, 0xb8, 0x44, 0x08, 0x07, 0xc5, 0xa4, 0xb6, 0x7f);
-
 	public const PROPERTYKEY DEVPKEY_Storage_Portable = .(.(0x4d1ebee8, 0x0803, 0x4774, 0x98, 0x42, 0xb7, 0x7d, 0xb5, 0x02, 0x65, 0xe9), 2);
-
 	public const PROPERTYKEY DEVPKEY_Storage_Removable_Media = .(.(0x4d1ebee8, 0x0803, 0x4774, 0x98, 0x42, 0xb7, 0x7d, 0xb5, 0x02, 0x65, 0xe9), 3);
-
 	public const PROPERTYKEY DEVPKEY_Storage_System_Critical = .(.(0x4d1ebee8, 0x0803, 0x4774, 0x98, 0x42, 0xb7, 0x7d, 0xb5, 0x02, 0x65, 0xe9), 4);
-
 	public const PROPERTYKEY DEVPKEY_Storage_Disk_Number = .(.(0x4d1ebee8, 0x0803, 0x4774, 0x98, 0x42, 0xb7, 0x7d, 0xb5, 0x02, 0x65, 0xe9), 5);
-
 	public const PROPERTYKEY DEVPKEY_Storage_Partition_Number = .(.(0x4d1ebee8, 0x0803, 0x4774, 0x98, 0x42, 0xb7, 0x7d, 0xb5, 0x02, 0x65, 0xe9), 6);
-
 	public const PROPERTYKEY DEVPKEY_Storage_Mbr_Type = .(.(0x4d1ebee8, 0x0803, 0x4774, 0x98, 0x42, 0xb7, 0x7d, 0xb5, 0x02, 0x65, 0xe9), 7);
-
 	public const PROPERTYKEY DEVPKEY_Storage_Gpt_Type = .(.(0x4d1ebee8, 0x0803, 0x4774, 0x98, 0x42, 0xb7, 0x7d, 0xb5, 0x02, 0x65, 0xe9), 8);
-
 	public const PROPERTYKEY DEVPKEY_Storage_Gpt_Name = .(.(0x4d1ebee8, 0x0803, 0x4774, 0x98, 0x42, 0xb7, 0x7d, 0xb5, 0x02, 0x65, 0xe9), 9);
-
 	public const uint32 IOCTL_STORAGE_CHECK_VERIFY = 2967552;
-
 	public const uint32 IOCTL_STORAGE_CHECK_VERIFY2 = 2951168;
-
 	public const uint32 IOCTL_STORAGE_MEDIA_REMOVAL = 2967556;
-
 	public const uint32 IOCTL_STORAGE_EJECT_MEDIA = 2967560;
-
 	public const uint32 IOCTL_STORAGE_LOAD_MEDIA = 2967564;
-
 	public const uint32 IOCTL_STORAGE_LOAD_MEDIA2 = 2951180;
-
 	public const uint32 IOCTL_STORAGE_RESERVE = 2967568;
-
 	public const uint32 IOCTL_STORAGE_RELEASE = 2967572;
-
 	public const uint32 IOCTL_STORAGE_FIND_NEW_DEVICES = 2967576;
-
 	public const uint32 IOCTL_STORAGE_MANAGE_BYPASS_IO = 2951360;
-
 	public const uint32 IOCTL_STORAGE_EJECTION_CONTROL = 2951488;
-
 	public const uint32 IOCTL_STORAGE_MCN_CONTROL = 2951492;
-
 	public const uint32 IOCTL_STORAGE_GET_MEDIA_TYPES = 2952192;
-
 	public const uint32 IOCTL_STORAGE_GET_MEDIA_TYPES_EX = 2952196;
-
 	public const uint32 IOCTL_STORAGE_GET_MEDIA_SERIAL_NUMBER = 2952208;
-
 	public const uint32 IOCTL_STORAGE_GET_HOTPLUG_INFO = 2952212;
-
 	public const uint32 IOCTL_STORAGE_SET_HOTPLUG_INFO = 3001368;
-
 	public const uint32 IOCTL_STORAGE_RESET_BUS = 2969600;
-
 	public const uint32 IOCTL_STORAGE_RESET_DEVICE = 2969604;
-
 	public const uint32 IOCTL_STORAGE_BREAK_RESERVATION = 2969620;
-
 	public const uint32 IOCTL_STORAGE_PERSISTENT_RESERVE_IN = 2969624;
-
 	public const uint32 IOCTL_STORAGE_PERSISTENT_RESERVE_OUT = 3002396;
-
 	public const uint32 IOCTL_STORAGE_GET_DEVICE_NUMBER = 2953344;
-
 	public const uint32 IOCTL_STORAGE_GET_DEVICE_NUMBER_EX = 2953348;
-
 	public const uint32 IOCTL_STORAGE_PREDICT_FAILURE = 2953472;
-
 	public const uint32 IOCTL_STORAGE_FAILURE_PREDICTION_CONFIG = 2953476;
-
 	public const uint32 IOCTL_STORAGE_GET_COUNTERS = 2953480;
-
 	public const uint32 IOCTL_STORAGE_READ_CAPACITY = 2969920;
-
 	public const uint32 IOCTL_STORAGE_GET_DEVICE_TELEMETRY = 3002816;
-
 	public const uint32 IOCTL_STORAGE_DEVICE_TELEMETRY_NOTIFY = 3002820;
-
 	public const uint32 IOCTL_STORAGE_DEVICE_TELEMETRY_QUERY_CAPS = 3002824;
-
 	public const uint32 IOCTL_STORAGE_GET_DEVICE_TELEMETRY_RAW = 3002828;
-
 	public const uint32 IOCTL_STORAGE_SET_TEMPERATURE_THRESHOLD = 3002880;
-
 	public const uint32 IOCTL_STORAGE_PROTOCOL_COMMAND = 3003328;
-
 	public const uint32 IOCTL_STORAGE_SET_PROPERTY = 2987004;
-
 	public const uint32 IOCTL_STORAGE_QUERY_PROPERTY = 2954240;
-
 	public const uint32 IOCTL_STORAGE_MANAGE_DATA_SET_ATTRIBUTES = 2987012;
-
 	public const uint32 IOCTL_STORAGE_GET_LB_PROVISIONING_MAP_RESOURCES = 2970632;
-
 	public const uint32 IOCTL_STORAGE_REINITIALIZE_MEDIA = 2987584;
-
 	public const uint32 IOCTL_STORAGE_GET_BC_PROPERTIES = 2971648;
-
 	public const uint32 IOCTL_STORAGE_ALLOCATE_BC_STREAM = 3004420;
-
 	public const uint32 IOCTL_STORAGE_FREE_BC_STREAM = 3004424;
-
 	public const uint32 IOCTL_STORAGE_CHECK_PRIORITY_HINT_SUPPORT = 2955392;
-
 	public const uint32 IOCTL_STORAGE_START_DATA_INTEGRITY_CHECK = 3004548;
-
 	public const uint32 IOCTL_STORAGE_STOP_DATA_INTEGRITY_CHECK = 3004552;
-
 	public const uint32 OBSOLETE_IOCTL_STORAGE_RESET_BUS = 3002368;
-
 	public const uint32 OBSOLETE_IOCTL_STORAGE_RESET_DEVICE = 3002372;
-
 	public const uint32 IOCTL_STORAGE_FIRMWARE_GET_INFO = 2956288;
-
 	public const uint32 IOCTL_STORAGE_FIRMWARE_DOWNLOAD = 3005444;
-
 	public const uint32 IOCTL_STORAGE_FIRMWARE_ACTIVATE = 3005448;
-
 	public const uint32 IOCTL_STORAGE_ENABLE_IDLE_POWER = 2956416;
-
 	public const uint32 IOCTL_STORAGE_GET_IDLE_POWERUP_REASON = 2956420;
-
 	public const uint32 IOCTL_STORAGE_POWER_ACTIVE = 2956424;
-
 	public const uint32 IOCTL_STORAGE_POWER_IDLE = 2956428;
-
 	public const uint32 IOCTL_STORAGE_EVENT_NOTIFICATION = 2956432;
-
 	public const uint32 IOCTL_STORAGE_DEVICE_POWER_CAP = 2956436;
-
 	public const uint32 IOCTL_STORAGE_RPMB_COMMAND = 2956440;
-
 	public const uint32 IOCTL_STORAGE_ATTRIBUTE_MANAGEMENT = 3005596;
-
 	public const uint32 IOCTL_STORAGE_DIAGNOSTIC = 2956448;
-
 	public const uint32 IOCTL_STORAGE_GET_PHYSICAL_ELEMENT_STATUS = 2956452;
-
 	public const uint32 IOCTL_STORAGE_REMOVE_ELEMENT_AND_TRUNCATE = 2956480;
-
 	public const uint32 IOCTL_STORAGE_GET_DEVICE_INTERNAL_LOG = 2956484;
-
 	public const uint32 STORAGE_DEVICE_FLAGS_RANDOM_DEVICEGUID_REASON_CONFLICT = 1;
-
 	public const uint32 STORAGE_DEVICE_FLAGS_RANDOM_DEVICEGUID_REASON_NOHWID = 2;
-
 	public const uint32 STORAGE_DEVICE_FLAGS_PAGE_83_DEVICEGUID = 4;
-
 	public const uint32 RECOVERED_WRITES_VALID = 1;
-
 	public const uint32 UNRECOVERED_WRITES_VALID = 2;
-
 	public const uint32 RECOVERED_READS_VALID = 4;
-
 	public const uint32 UNRECOVERED_READS_VALID = 8;
-
 	public const uint32 WRITE_COMPRESSION_INFO_VALID = 16;
-
 	public const uint32 READ_COMPRESSION_INFO_VALID = 32;
-
 	public const int32 TAPE_RETURN_STATISTICS = 0;
-
 	public const int32 TAPE_RETURN_ENV_INFO = 1;
-
 	public const int32 TAPE_RESET_STATISTICS = 2;
-
 	public const uint32 MEDIA_ERASEABLE = 1;
-
 	public const uint32 MEDIA_WRITE_ONCE = 2;
-
 	public const uint32 MEDIA_READ_ONLY = 4;
-
 	public const uint32 MEDIA_READ_WRITE = 8;
-
 	public const uint32 MEDIA_WRITE_PROTECTED = 256;
-
 	public const uint32 MEDIA_CURRENTLY_MOUNTED = 2147483648;
-
 	public const uint32 STORAGE_FAILURE_PREDICTION_CONFIG_V1 = 1;
-
 	public const uint32 SRB_TYPE_SCSI_REQUEST_BLOCK = 0;
-
 	public const uint32 SRB_TYPE_STORAGE_REQUEST_BLOCK = 1;
-
 	public const uint32 STORAGE_ADDRESS_TYPE_BTL8 = 0;
-
 	public const uint32 STORAGE_RPMB_DESCRIPTOR_VERSION_1 = 1;
-
 	public const uint32 STORAGE_RPMB_MINIMUM_RELIABLE_WRITE_SIZE = 512;
-
 	public const uint32 STORAGE_CRYPTO_CAPABILITY_VERSION_1 = 1;
-
 	public const uint32 STORAGE_CRYPTO_DESCRIPTOR_VERSION_1 = 1;
-
 	public const uint32 STORAGE_TIER_NAME_LENGTH = 256;
-
 	public const uint32 STORAGE_TIER_DESCRIPTION_LENGTH = 512;
-
 	public const uint32 STORAGE_TIER_FLAG_NO_SEEK_PENALTY = 131072;
-
 	public const uint32 STORAGE_TIER_FLAG_WRITE_BACK_CACHE = 2097152;
-
 	public const uint32 STORAGE_TIER_FLAG_READ_CACHE = 4194304;
-
 	public const uint32 STORAGE_TIER_FLAG_PARITY = 8388608;
-
 	public const uint32 STORAGE_TIER_FLAG_SMR = 16777216;
-
 	public const uint32 STORAGE_TEMPERATURE_VALUE_NOT_REPORTED = 32768;
-
 	public const uint32 STORAGE_TEMPERATURE_THRESHOLD_FLAG_ADAPTER_REQUEST = 1;
-
 	public const uint32 STORAGE_COMPONENT_ROLE_CACHE = 1;
-
 	public const uint32 STORAGE_COMPONENT_ROLE_TIERING = 2;
-
 	public const uint32 STORAGE_COMPONENT_ROLE_DATA = 4;
-
 	public const uint32 STORAGE_ATTRIBUTE_BYTE_ADDRESSABLE_IO = 1;
-
 	public const uint32 STORAGE_ATTRIBUTE_BLOCK_IO = 2;
-
 	public const uint32 STORAGE_ATTRIBUTE_DYNAMIC_PERSISTENCE = 4;
-
 	public const uint32 STORAGE_ATTRIBUTE_VOLATILE = 8;
-
 	public const uint32 STORAGE_ATTRIBUTE_ASYNC_EVENT_NOTIFICATION = 16;
-
 	public const uint32 STORAGE_ATTRIBUTE_PERF_SIZE_INDEPENDENT = 32;
-
 	public const uint32 STORAGE_DEVICE_MAX_OPERATIONAL_STATUS = 16;
-
 	public const uint32 STORAGE_ADAPTER_SERIAL_NUMBER_V1_MAX_LENGTH = 128;
-
 	public const uint32 DeviceDsmActionFlag_NonDestructive = 2147483648;
-
 	public const uint32 DEVICE_DSM_FLAG_ENTIRE_DATA_SET_RANGE = 1;
-
 	public const uint32 DEVICE_DSM_FLAG_TRIM_NOT_FS_ALLOCATED = 2147483648;
-
 	public const uint32 DEVICE_DSM_FLAG_TRIM_BYPASS_RZAT = 1073741824;
-
 	public const uint32 DEVICE_DSM_NOTIFY_FLAG_BEGIN = 1;
-
 	public const uint32 DEVICE_DSM_NOTIFY_FLAG_END = 2;
-
 	public const uint32 STORAGE_OFFLOAD_MAX_TOKEN_LENGTH = 512;
-
 	public const uint32 STORAGE_OFFLOAD_TOKEN_ID_LENGTH = 504;
-
 	public const uint32 STORAGE_OFFLOAD_TOKEN_TYPE_ZERO_DATA = 4294901761;
-
 	public const uint32 STORAGE_OFFLOAD_READ_RANGE_TRUNCATED = 1;
-
 	public const uint32 STORAGE_OFFLOAD_WRITE_RANGE_TRUNCATED = 1;
-
 	public const uint32 STORAGE_OFFLOAD_TOKEN_INVALID = 2;
-
 	public const uint32 DEVICE_DSM_FLAG_ALLOCATION_CONSOLIDATEABLE_ONLY = 1073741824;
-
 	public const uint32 DEVICE_DSM_PARAMETERS_V1 = 1;
-
 	public const uint32 DEVICE_DATA_SET_LBP_STATE_PARAMETERS_VERSION_V1 = 1;
-
 	public const uint32 DEVICE_DSM_FLAG_REPAIR_INPUT_TOPOLOGY_ID_PRESENT = 1073741824;
-
 	public const uint32 DEVICE_DSM_FLAG_REPAIR_OUTPUT_PARITY_EXTENT = 536870912;
-
 	public const uint32 DEVICE_DSM_FLAG_SCRUB_SKIP_IN_SYNC = 268435456;
-
 	public const uint32 DEVICE_DSM_FLAG_SCRUB_OUTPUT_PARITY_EXTENT = 536870912;
-
 	public const uint32 DEVICE_DSM_FLAG_PHYSICAL_ADDRESSES_OMIT_TOTAL_RANGES = 268435456;
-
 	public const uint32 DEVICE_DSM_PHYSICAL_ADDRESSES_OUTPUT_V1 = 1;
-
 	public const uint32 DEVICE_DSM_PHYSICAL_ADDRESSES_OUTPUT_VERSION_V1 = 1;
-
 	public const uint32 DEVICE_STORAGE_NO_ERRORS = 1;
-
 	public const uint32 DEVICE_DSM_RANGE_ERROR_OUTPUT_V1 = 1;
-
 	public const uint32 DEVICE_DSM_RANGE_ERROR_INFO_VERSION_V1 = 1;
-
 	public const uint32 IOCTL_STORAGE_BC_VERSION = 1;
-
 	public const uint32 STORAGE_PRIORITY_HINT_SUPPORTED = 1;
-
 	public const uint32 STORAGE_DIAGNOSTIC_FLAG_ADAPTER_REQUEST = 1;
-
 	public const uint32 ERROR_HISTORY_DIRECTORY_ENTRY_DEFAULT_COUNT = 8;
-
 	public const uint32 DEVICEDUMP_STRUCTURE_VERSION_V1 = 1;
-
 	public const uint32 DEVICEDUMP_MAX_IDSTRING = 32;
-
 	public const uint32 MAX_FW_BUCKET_ID_LENGTH = 132;
-
 	public const uint32 DDUMP_FLAG_DATA_READ_FROM_DEVICE = 1;
-
 	public const uint32 FW_ISSUEID_NO_ISSUE = 0;
-
 	public const uint32 FW_ISSUEID_UNKNOWN = 4294967295;
-
 	public const uint32 TC_PUBLIC_DEVICEDUMP_CONTENT_SMART = 1;
-
 	public const uint32 TC_PUBLIC_DEVICEDUMP_CONTENT_GPLOG = 2;
-
 	public const uint32 TC_PUBLIC_DEVICEDUMP_CONTENT_GPLOG_MAX = 16;
-
 	public const uint32 TC_DEVICEDUMP_SUBSECTION_DESC_LENGTH = 16;
-
 	public const uint32 CDB_SIZE = 16;
-
 	public const uint32 TELEMETRY_COMMAND_SIZE = 16;
-
 	public const uint32 DEVICEDUMP_CAP_PRIVATE_SECTION = 1;
-
 	public const uint32 DEVICEDUMP_CAP_RESTRICTED_SECTION = 2;
-
 	public const uint32 STORAGE_IDLE_POWERUP_REASON_VERSION_V1 = 1;
-
 	public const uint32 STORAGE_DEVICE_POWER_CAP_VERSION_V1 = 1;
-
 	public const uint32 STORAGE_EVENT_NOTIFICATION_VERSION_V1 = 1;
-
 	public const uint64 STORAGE_EVENT_MEDIA_STATUS = 1;
-
 	public const uint64 STORAGE_EVENT_DEVICE_STATUS = 2;
-
 	public const uint64 STORAGE_EVENT_DEVICE_OPERATION = 4;
-
 	public const uint32 READ_COPY_NUMBER_KEY = 1380142592;
-
 	public const uint32 READ_COPY_NUMBER_BYPASS_CACHE_FLAG = 256;
-
 	public const uint32 STORAGE_HW_FIRMWARE_REQUEST_FLAG_CONTROLLER = 1;
-
 	public const uint32 STORAGE_HW_FIRMWARE_REQUEST_FLAG_LAST_SEGMENT = 2;
-
 	public const uint32 STORAGE_HW_FIRMWARE_REQUEST_FLAG_FIRST_SEGMENT = 4;
-
 	public const uint32 STORAGE_HW_FIRMWARE_REQUEST_FLAG_SWITCH_TO_EXISTING_FIRMWARE = 2147483648;
-
 	public const uint32 STORAGE_HW_FIRMWARE_INVALID_SLOT = 255;
-
 	public const uint32 STORAGE_HW_FIRMWARE_REVISION_LENGTH = 16;
-
 	public const uint32 STORAGE_PROTOCOL_STRUCTURE_VERSION = 1;
-
 	public const uint32 STORAGE_PROTOCOL_COMMAND_FLAG_ADAPTER_REQUEST = 2147483648;
-
 	public const uint32 STORAGE_PROTOCOL_STATUS_PENDING = 0;
-
 	public const uint32 STORAGE_PROTOCOL_STATUS_SUCCESS = 1;
-
 	public const uint32 STORAGE_PROTOCOL_STATUS_ERROR = 2;
-
 	public const uint32 STORAGE_PROTOCOL_STATUS_INVALID_REQUEST = 3;
-
 	public const uint32 STORAGE_PROTOCOL_STATUS_NO_DEVICE = 4;
-
 	public const uint32 STORAGE_PROTOCOL_STATUS_BUSY = 5;
-
 	public const uint32 STORAGE_PROTOCOL_STATUS_DATA_OVERRUN = 6;
-
 	public const uint32 STORAGE_PROTOCOL_STATUS_INSUFFICIENT_RESOURCES = 7;
-
 	public const uint32 STORAGE_PROTOCOL_STATUS_THROTTLED_REQUEST = 8;
-
 	public const uint32 STORAGE_PROTOCOL_STATUS_NOT_SUPPORTED = 255;
-
 	public const uint32 STORAGE_PROTOCOL_COMMAND_LENGTH_NVME = 64;
-
 	public const uint32 STORAGE_PROTOCOL_SPECIFIC_NVME_ADMIN_COMMAND = 1;
-
 	public const uint32 STORAGE_PROTOCOL_SPECIFIC_NVME_NVM_COMMAND = 2;
-
 	public const uint32 STORATTRIBUTE_NONE = 0;
-
 	public const uint32 STORATTRIBUTE_MANAGEMENT_STATE = 1;
-
 	public const uint32 STORAGE_SUPPORTED_FEATURES_BYPASS_IO = 1;
-
 	public const uint32 STORAGE_SUPPORTED_FEATURES_MASK = 1;
-
 	public const Guid GUID_DEVINTERFACE_SCM_PHYSICAL_DEVICE = .(0x4283609d, 0x4dc2, 0x43be, 0xbb, 0xb4, 0x4f, 0x15, 0xdf, 0xce, 0x2c, 0x61);
-
 	public const Guid GUID_SCM_PD_HEALTH_NOTIFICATION = .(0x9da2d386, 0x72f5, 0x4ee3, 0x81, 0x55, 0xec, 0xa0, 0x67, 0x8e, 0x3b, 0x06);
-
 	public const Guid GUID_SCM_PD_PASSTHROUGH_INVDIMM = .(0x4309ac30, 0x0d11, 0x11e4, 0x91, 0x91, 0x08, 0x00, 0x20, 0x0c, 0x9a, 0x66);
-
 	public const Guid GUID_DEVINTERFACE_COMPORT = .(0x86e0d1e0, 0x8089, 0x11d0, 0x9c, 0xe4, 0x08, 0x00, 0x3e, 0x30, 0x1f, 0x73);
-
 	public const Guid GUID_DEVINTERFACE_SERENUM_BUS_ENUMERATOR = .(0x4d36e978, 0xe325, 0x11ce, 0xbf, 0xc1, 0x08, 0x00, 0x2b, 0xe1, 0x03, 0x18);
-
 	public const uint32 FILE_DEVICE_BEEP = 1;
-
 	public const uint32 FILE_DEVICE_CD_ROM_FILE_SYSTEM = 3;
-
 	public const uint32 FILE_DEVICE_CONTROLLER = 4;
-
 	public const uint32 FILE_DEVICE_DATALINK = 5;
-
 	public const uint32 FILE_DEVICE_DFS = 6;
-
 	public const uint32 FILE_DEVICE_DISK_FILE_SYSTEM = 8;
-
 	public const uint32 FILE_DEVICE_FILE_SYSTEM = 9;
-
 	public const uint32 FILE_DEVICE_INPORT_PORT = 10;
-
 	public const uint32 FILE_DEVICE_KEYBOARD = 11;
-
 	public const uint32 FILE_DEVICE_MAILSLOT = 12;
-
 	public const uint32 FILE_DEVICE_MIDI_IN = 13;
-
 	public const uint32 FILE_DEVICE_MIDI_OUT = 14;
-
 	public const uint32 FILE_DEVICE_MOUSE = 15;
-
 	public const uint32 FILE_DEVICE_MULTI_UNC_PROVIDER = 16;
-
 	public const uint32 FILE_DEVICE_NAMED_PIPE = 17;
-
 	public const uint32 FILE_DEVICE_NETWORK = 18;
-
 	public const uint32 FILE_DEVICE_NETWORK_BROWSER = 19;
-
 	public const uint32 FILE_DEVICE_NETWORK_FILE_SYSTEM = 20;
-
 	public const uint32 FILE_DEVICE_NULL = 21;
-
 	public const uint32 FILE_DEVICE_PARALLEL_PORT = 22;
-
 	public const uint32 FILE_DEVICE_PHYSICAL_NETCARD = 23;
-
 	public const uint32 FILE_DEVICE_PRINTER = 24;
-
 	public const uint32 FILE_DEVICE_SCANNER = 25;
-
 	public const uint32 FILE_DEVICE_SERIAL_MOUSE_PORT = 26;
-
 	public const uint32 FILE_DEVICE_SERIAL_PORT = 27;
-
 	public const uint32 FILE_DEVICE_SCREEN = 28;
-
 	public const uint32 FILE_DEVICE_SOUND = 29;
-
 	public const uint32 FILE_DEVICE_STREAMS = 30;
-
 	public const uint32 FILE_DEVICE_TAPE_FILE_SYSTEM = 32;
-
 	public const uint32 FILE_DEVICE_TRANSPORT = 33;
-
 	public const uint32 FILE_DEVICE_VIDEO = 35;
-
 	public const uint32 FILE_DEVICE_VIRTUAL_DISK = 36;
-
 	public const uint32 FILE_DEVICE_WAVE_IN = 37;
-
 	public const uint32 FILE_DEVICE_WAVE_OUT = 38;
-
 	public const uint32 FILE_DEVICE_8042_PORT = 39;
-
 	public const uint32 FILE_DEVICE_NETWORK_REDIRECTOR = 40;
-
 	public const uint32 FILE_DEVICE_BATTERY = 41;
-
 	public const uint32 FILE_DEVICE_BUS_EXTENDER = 42;
-
 	public const uint32 FILE_DEVICE_MODEM = 43;
-
 	public const uint32 FILE_DEVICE_VDM = 44;
-
 	public const uint32 FILE_DEVICE_MASS_STORAGE = 45;
-
 	public const uint32 FILE_DEVICE_SMB = 46;
-
 	public const uint32 FILE_DEVICE_KS = 47;
-
 	public const uint32 FILE_DEVICE_CHANGER = 48;
-
 	public const uint32 FILE_DEVICE_ACPI = 50;
-
 	public const uint32 FILE_DEVICE_FULLSCREEN_VIDEO = 52;
-
 	public const uint32 FILE_DEVICE_DFS_FILE_SYSTEM = 53;
-
 	public const uint32 FILE_DEVICE_DFS_VOLUME = 54;
-
 	public const uint32 FILE_DEVICE_SERENUM = 55;
-
 	public const uint32 FILE_DEVICE_TERMSRV = 56;
-
 	public const uint32 FILE_DEVICE_KSEC = 57;
-
 	public const uint32 FILE_DEVICE_FIPS = 58;
-
 	public const uint32 FILE_DEVICE_INFINIBAND = 59;
-
 	public const uint32 FILE_DEVICE_VMBUS = 62;
-
 	public const uint32 FILE_DEVICE_CRYPT_PROVIDER = 63;
-
 	public const uint32 FILE_DEVICE_WPD = 64;
-
 	public const uint32 FILE_DEVICE_BLUETOOTH = 65;
-
 	public const uint32 FILE_DEVICE_MT_COMPOSITE = 66;
-
 	public const uint32 FILE_DEVICE_MT_TRANSPORT = 67;
-
 	public const uint32 FILE_DEVICE_BIOMETRIC = 68;
-
 	public const uint32 FILE_DEVICE_PMI = 69;
-
 	public const uint32 FILE_DEVICE_EHSTOR = 70;
-
 	public const uint32 FILE_DEVICE_DEVAPI = 71;
-
 	public const uint32 FILE_DEVICE_GPIO = 72;
-
 	public const uint32 FILE_DEVICE_USBEX = 73;
-
 	public const uint32 FILE_DEVICE_CONSOLE = 80;
-
 	public const uint32 FILE_DEVICE_NFP = 81;
-
 	public const uint32 FILE_DEVICE_SYSENV = 82;
-
 	public const uint32 FILE_DEVICE_VIRTUAL_BLOCK = 83;
-
 	public const uint32 FILE_DEVICE_POINT_OF_SERVICE = 84;
-
 	public const uint32 FILE_DEVICE_STORAGE_REPLICATION = 85;
-
 	public const uint32 FILE_DEVICE_TRUST_ENV = 86;
-
 	public const uint32 FILE_DEVICE_UCM = 87;
-
 	public const uint32 FILE_DEVICE_UCMTCPCI = 88;
-
 	public const uint32 FILE_DEVICE_PERSISTENT_MEMORY = 89;
-
 	public const uint32 FILE_DEVICE_NVDIMM = 90;
-
 	public const uint32 FILE_DEVICE_HOLOGRAPHIC = 91;
-
 	public const uint32 FILE_DEVICE_SDFXHCI = 92;
-
 	public const uint32 FILE_DEVICE_UCMUCSI = 93;
-
 	public const uint32 FILE_DEVICE_PRM = 94;
-
 	public const uint32 FILE_DEVICE_EVENT_COLLECTOR = 95;
-
 	public const uint32 FILE_DEVICE_USB4 = 96;
-
 	public const uint32 FILE_DEVICE_SOUNDWIRE = 97;
-
 	public const uint32 METHOD_BUFFERED = 0;
-
 	public const uint32 METHOD_IN_DIRECT = 1;
-
 	public const uint32 METHOD_OUT_DIRECT = 2;
-
 	public const uint32 METHOD_NEITHER = 3;
-
 	public const uint32 METHOD_DIRECT_TO_HARDWARE = 1;
-
 	public const uint32 METHOD_DIRECT_FROM_HARDWARE = 2;
-
 	public const uint32 FILE_ANY_ACCESS = 0;
-
 	public const uint32 FILE_READ_ACCESS = 1;
-
 	public const uint32 FILE_WRITE_ACCESS = 2;
-
 	public const uint32 STORAGE_DEVICE_NUMA_NODE_UNKNOWN = 4294967295;
-
 	public const uint32 IOCTL_SCMBUS_DEVICE_FUNCTION_BASE = 0;
-
 	public const uint32 IOCTL_SCM_LOGICAL_DEVICE_FUNCTION_BASE = 768;
-
 	public const uint32 IOCTL_SCM_PHYSICAL_DEVICE_FUNCTION_BASE = 1536;
-
 	public const uint32 IOCTL_SCM_BUS_GET_LOGICAL_DEVICES = 5832704;
-
 	public const uint32 IOCTL_SCM_BUS_GET_PHYSICAL_DEVICES = 5832708;
-
 	public const uint32 IOCTL_SCM_BUS_GET_REGIONS = 5832712;
-
 	public const uint32 IOCTL_SCM_BUS_QUERY_PROPERTY = 5832716;
-
 	public const uint32 IOCTL_SCM_BUS_SET_PROPERTY = 5865492;
-
 	public const uint32 IOCTL_SCM_BUS_RUNTIME_FW_ACTIVATE = 5865488;
-
 	public const uint32 IOCTL_SCM_LD_GET_INTERLEAVE_SET = 5835776;
-
 	public const uint32 IOCTL_SCM_PD_QUERY_PROPERTY = 5838848;
-
 	public const uint32 IOCTL_SCM_PD_FIRMWARE_DOWNLOAD = 5871620;
-
 	public const uint32 IOCTL_SCM_PD_FIRMWARE_ACTIVATE = 5871624;
-
 	public const uint32 IOCTL_SCM_PD_PASSTHROUGH = 5888012;
-
 	public const uint32 IOCTL_SCM_PD_UPDATE_MANAGEMENT_STATUS = 5838864;
-
 	public const uint32 IOCTL_SCM_PD_REINITIALIZE_MEDIA = 5871636;
-
 	public const uint32 IOCTL_SCM_PD_SET_PROPERTY = 5871640;
-
 	public const uint32 SCM_MAX_SYMLINK_LEN_IN_CHARS = 256;
-
 	public const uint32 MAX_INTERFACE_CODES = 8;
-
 	public const uint32 SCM_PD_FIRMWARE_REVISION_LENGTH_BYTES = 32;
-
 	public const uint32 SCM_PD_PROPERTY_NAME_LENGTH_IN_CHARS = 128;
-
 	public const uint32 SCM_PD_MAX_OPERATIONAL_STATUS = 16;
-
 	public const uint32 SCM_PD_FIRMWARE_LAST_DOWNLOAD = 1;
-
 	public const uint32 IOCTL_DISK_GET_DRIVE_GEOMETRY = 458752;
-
 	public const uint32 IOCTL_DISK_GET_PARTITION_INFO = 475140;
-
 	public const uint32 IOCTL_DISK_SET_PARTITION_INFO = 507912;
-
 	public const uint32 IOCTL_DISK_GET_DRIVE_LAYOUT = 475148;
-
 	public const uint32 IOCTL_DISK_SET_DRIVE_LAYOUT = 507920;
-
 	public const uint32 IOCTL_DISK_VERIFY = 458772;
-
 	public const uint32 IOCTL_DISK_FORMAT_TRACKS = 507928;
-
 	public const uint32 IOCTL_DISK_REASSIGN_BLOCKS = 507932;
-
 	public const uint32 IOCTL_DISK_PERFORMANCE = 458784;
-
 	public const uint32 IOCTL_DISK_IS_WRITABLE = 458788;
-
 	public const uint32 IOCTL_DISK_LOGGING = 458792;
-
 	public const uint32 IOCTL_DISK_FORMAT_TRACKS_EX = 507948;
-
 	public const uint32 IOCTL_DISK_HISTOGRAM_STRUCTURE = 458800;
-
 	public const uint32 IOCTL_DISK_HISTOGRAM_DATA = 458804;
-
 	public const uint32 IOCTL_DISK_HISTOGRAM_RESET = 458808;
-
 	public const uint32 IOCTL_DISK_REQUEST_STRUCTURE = 458812;
-
 	public const uint32 IOCTL_DISK_REQUEST_DATA = 458816;
-
 	public const uint32 IOCTL_DISK_PERFORMANCE_OFF = 458848;
-
 	public const uint32 IOCTL_DISK_CONTROLLER_NUMBER = 458820;
-
 	public const uint32 SMART_GET_VERSION = 475264;
-
 	public const uint32 SMART_SEND_DRIVE_COMMAND = 508036;
-
 	public const uint32 SMART_RCV_DRIVE_DATA = 508040;
-
 	public const uint32 SMART_RCV_DRIVE_DATA_EX = 458892;
-
 	public const uint32 IOCTL_DISK_GET_PARTITION_INFO_EX = 458824;
-
 	public const uint32 IOCTL_DISK_SET_PARTITION_INFO_EX = 507980;
-
 	public const uint32 IOCTL_DISK_GET_DRIVE_LAYOUT_EX = 458832;
-
 	public const uint32 IOCTL_DISK_SET_DRIVE_LAYOUT_EX = 507988;
-
 	public const uint32 IOCTL_DISK_CREATE_DISK = 507992;
-
 	public const uint32 IOCTL_DISK_GET_LENGTH_INFO = 475228;
-
 	public const uint32 IOCTL_DISK_GET_DRIVE_GEOMETRY_EX = 458912;
-
 	public const uint32 IOCTL_DISK_REASSIGN_BLOCKS_EX = 508068;
-
 	public const uint32 IOCTL_DISK_UPDATE_DRIVE_SIZE = 508104;
-
 	public const uint32 IOCTL_DISK_GROW_PARTITION = 508112;
-
 	public const uint32 IOCTL_DISK_GET_CACHE_INFORMATION = 475348;
-
 	public const uint32 IOCTL_DISK_SET_CACHE_INFORMATION = 508120;
-
 	public const uint32 IOCTL_DISK_GET_WRITE_CACHE_STATE = 475356;
-
 	public const uint32 OBSOLETE_DISK_GET_WRITE_CACHE_STATE = 475356;
-
 	public const uint32 IOCTL_DISK_DELETE_DRIVE_LAYOUT = 508160;
-
 	public const uint32 IOCTL_DISK_UPDATE_PROPERTIES = 459072;
-
 	public const uint32 IOCTL_DISK_FORMAT_DRIVE = 508876;
-
 	public const uint32 IOCTL_DISK_SENSE_DEVICE = 459744;
-
 	public const uint32 IOCTL_DISK_CHECK_VERIFY = 477184;
-
 	public const uint32 IOCTL_DISK_MEDIA_REMOVAL = 477188;
-
 	public const uint32 IOCTL_DISK_EJECT_MEDIA = 477192;
-
 	public const uint32 IOCTL_DISK_LOAD_MEDIA = 477196;
-
 	public const uint32 IOCTL_DISK_RESERVE = 477200;
-
 	public const uint32 IOCTL_DISK_RELEASE = 477204;
-
 	public const uint32 IOCTL_DISK_FIND_NEW_DEVICES = 477208;
-
 	public const uint32 IOCTL_DISK_GET_MEDIA_TYPES = 461824;
-
 	public const uint32 PARTITION_ENTRY_UNUSED = 0;
-
 	public const uint32 PARTITION_FAT_12 = 1;
-
 	public const uint32 PARTITION_XENIX_1 = 2;
-
 	public const uint32 PARTITION_XENIX_2 = 3;
-
 	public const uint32 PARTITION_FAT_16 = 4;
-
 	public const uint32 PARTITION_EXTENDED = 5;
-
 	public const uint32 PARTITION_HUGE = 6;
-
 	public const uint32 PARTITION_IFS = 7;
-
 	public const uint32 PARTITION_OS2BOOTMGR = 10;
-
 	public const uint32 PARTITION_FAT32 = 11;
-
 	public const uint32 PARTITION_FAT32_XINT13 = 12;
-
 	public const uint32 PARTITION_XINT13 = 14;
-
 	public const uint32 PARTITION_XINT13_EXTENDED = 15;
-
 	public const uint32 PARTITION_MSFT_RECOVERY = 39;
-
 	public const uint32 PARTITION_MAIN_OS = 40;
-
 	public const uint32 PARTIITON_OS_DATA = 41;
-
 	public const uint32 PARTITION_PRE_INSTALLED = 42;
-
 	public const uint32 PARTITION_BSP = 43;
-
 	public const uint32 PARTITION_DPP = 44;
-
 	public const uint32 PARTITION_WINDOWS_SYSTEM = 45;
-
 	public const uint32 PARTITION_PREP = 65;
-
 	public const uint32 PARTITION_LDM = 66;
-
 	public const uint32 PARTITION_DM = 84;
-
 	public const uint32 PARTITION_EZDRIVE = 85;
-
 	public const uint32 PARTITION_UNIX = 99;
-
 	public const uint32 PARTITION_SPACES_DATA = 215;
-
 	public const uint32 PARTITION_SPACES = 231;
-
 	public const uint32 PARTITION_GPT = 238;
-
 	public const uint32 PARTITION_SYSTEM = 239;
-
 	public const uint32 VALID_NTFT = 192;
-
 	public const uint32 PARTITION_NTFT = 128;
-
 	public const uint64 GPT_ATTRIBUTE_NO_BLOCK_IO_PROTOCOL = 2;
-
 	public const uint64 GPT_ATTRIBUTE_LEGACY_BIOS_BOOTABLE = 4;
-
 	public const uint64 GPT_BASIC_DATA_ATTRIBUTE_OFFLINE = 576460752303423488;
-
 	public const uint64 GPT_BASIC_DATA_ATTRIBUTE_DAX = 288230376151711744;
-
 	public const uint64 GPT_BASIC_DATA_ATTRIBUTE_SERVICE = 144115188075855872;
-
 	public const uint64 GPT_SPACES_ATTRIBUTE_NO_METADATA = 9223372036854775808;
-
 	public const uint32 HIST_NO_OF_BUCKETS = 24;
-
 	public const uint32 DISK_LOGGING_START = 0;
-
 	public const uint32 DISK_LOGGING_STOP = 1;
-
 	public const uint32 DISK_LOGGING_DUMP = 2;
-
 	public const uint32 DISK_BINNING = 3;
-
 	public const uint32 CAP_ATA_ID_CMD = 1;
-
 	public const uint32 CAP_ATAPI_ID_CMD = 2;
-
 	public const uint32 CAP_SMART_CMD = 4;
-
 	public const uint32 ATAPI_ID_CMD = 161;
-
 	public const uint32 ID_CMD = 236;
-
 	public const uint32 SMART_CMD = 176;
-
 	public const uint32 SMART_CYL_LOW = 79;
-
 	public const uint32 SMART_CYL_HI = 194;
-
 	public const uint32 SMART_NO_ERROR = 0;
-
 	public const uint32 SMART_IDE_ERROR = 1;
-
 	public const uint32 SMART_INVALID_FLAG = 2;
-
 	public const uint32 SMART_INVALID_COMMAND = 3;
-
 	public const uint32 SMART_INVALID_BUFFER = 4;
-
 	public const uint32 SMART_INVALID_DRIVE = 5;
-
 	public const uint32 SMART_INVALID_IOCTL = 6;
-
 	public const uint32 SMART_ERROR_NO_MEM = 7;
-
 	public const uint32 SMART_INVALID_REGISTER = 8;
-
 	public const uint32 SMART_NOT_SUPPORTED = 9;
-
 	public const uint32 SMART_NO_IDE_DEVICE = 10;
-
 	public const uint32 SMART_OFFLINE_ROUTINE_OFFLINE = 0;
-
 	public const uint32 SMART_SHORT_SELFTEST_OFFLINE = 1;
-
 	public const uint32 SMART_EXTENDED_SELFTEST_OFFLINE = 2;
-
 	public const uint32 SMART_ABORT_OFFLINE_SELFTEST = 127;
-
 	public const uint32 SMART_SHORT_SELFTEST_CAPTIVE = 129;
-
 	public const uint32 SMART_EXTENDED_SELFTEST_CAPTIVE = 130;
-
 	public const uint32 READ_ATTRIBUTE_BUFFER_SIZE = 512;
-
 	public const uint32 IDENTIFY_BUFFER_SIZE = 512;
-
 	public const uint32 READ_THRESHOLD_BUFFER_SIZE = 512;
-
 	public const uint32 SMART_LOG_SECTOR_SIZE = 512;
-
 	public const uint32 READ_ATTRIBUTES = 208;
-
 	public const uint32 READ_THRESHOLDS = 209;
-
 	public const uint32 ENABLE_DISABLE_AUTOSAVE = 210;
-
 	public const uint32 SAVE_ATTRIBUTE_VALUES = 211;
-
 	public const uint32 EXECUTE_OFFLINE_DIAGS = 212;
-
 	public const uint32 SMART_READ_LOG = 213;
-
 	public const uint32 SMART_WRITE_LOG = 214;
-
 	public const uint32 ENABLE_SMART = 216;
-
 	public const uint32 DISABLE_SMART = 217;
-
 	public const uint32 RETURN_SMART_STATUS = 218;
-
 	public const uint32 ENABLE_DISABLE_AUTO_OFFLINE = 219;
-
 	public const uint32 IOCTL_DISK_GET_DISK_ATTRIBUTES = 458992;
-
 	public const uint32 IOCTL_DISK_SET_DISK_ATTRIBUTES = 508148;
-
 	public const uint64 DISK_ATTRIBUTE_OFFLINE = 1;
-
 	public const uint64 DISK_ATTRIBUTE_READ_ONLY = 2;
-
 	public const uint32 IOCTL_DISK_RESET_SNAPSHOT_INFO = 508432;
-
 	public const uint32 IOCTL_CHANGER_GET_PARAMETERS = 3162112;
-
 	public const uint32 IOCTL_CHANGER_GET_STATUS = 3162116;
-
 	public const uint32 IOCTL_CHANGER_GET_PRODUCT_DATA = 3162120;
-
 	public const uint32 IOCTL_CHANGER_SET_ACCESS = 3194896;
-
 	public const uint32 IOCTL_CHANGER_GET_ELEMENT_STATUS = 3194900;
-
 	public const uint32 IOCTL_CHANGER_INITIALIZE_ELEMENT_STATUS = 3162136;
-
 	public const uint32 IOCTL_CHANGER_SET_POSITION = 3162140;
-
 	public const uint32 IOCTL_CHANGER_EXCHANGE_MEDIUM = 3162144;
-
 	public const uint32 IOCTL_CHANGER_MOVE_MEDIUM = 3162148;
-
 	public const uint32 IOCTL_CHANGER_REINITIALIZE_TRANSPORT = 3162152;
-
 	public const uint32 IOCTL_CHANGER_QUERY_VOLUME_TAGS = 3194924;
-
 	public const uint32 MAX_VOLUME_ID_SIZE = 36;
-
 	public const uint32 MAX_VOLUME_TEMPLATE_SIZE = 40;
-
 	public const uint32 VENDOR_ID_LENGTH = 8;
-
 	public const uint32 PRODUCT_ID_LENGTH = 16;
-
 	public const uint32 REVISION_LENGTH = 4;
-
 	public const uint32 SERIAL_NUMBER_LENGTH = 32;
-
 	public const uint32 CHANGER_RESERVED_BIT = 2147483648;
-
 	public const uint32 CHANGER_TO_TRANSPORT = 1;
-
 	public const uint32 CHANGER_TO_SLOT = 2;
-
 	public const uint32 CHANGER_TO_IEPORT = 4;
-
 	public const uint32 CHANGER_TO_DRIVE = 8;
-
 	public const uint32 LOCK_UNLOCK_IEPORT = 1;
-
 	public const uint32 LOCK_UNLOCK_DOOR = 2;
-
 	public const uint32 LOCK_UNLOCK_KEYPAD = 4;
-
 	public const uint32 LOCK_ELEMENT = 0;
-
 	public const uint32 UNLOCK_ELEMENT = 1;
-
 	public const uint32 EXTEND_IEPORT = 2;
-
 	public const uint32 RETRACT_IEPORT = 3;
-
 	public const uint32 ERROR_LABEL_UNREADABLE = 1;
-
 	public const uint32 ERROR_LABEL_QUESTIONABLE = 2;
-
 	public const uint32 ERROR_SLOT_NOT_PRESENT = 4;
-
 	public const uint32 ERROR_DRIVE_NOT_INSTALLED = 8;
-
 	public const uint32 ERROR_TRAY_MALFUNCTION = 16;
-
 	public const uint32 ERROR_INIT_STATUS_NEEDED = 17;
-
 	public const uint32 ERROR_UNHANDLED_ERROR = 4294967295;
-
 	public const uint32 SEARCH_ALL = 0;
-
 	public const uint32 SEARCH_PRIMARY = 1;
-
 	public const uint32 SEARCH_ALTERNATE = 2;
-
 	public const uint32 SEARCH_ALL_NO_SEQ = 4;
-
 	public const uint32 SEARCH_PRI_NO_SEQ = 5;
-
 	public const uint32 SEARCH_ALT_NO_SEQ = 6;
-
 	public const uint32 ASSERT_PRIMARY = 8;
-
 	public const uint32 ASSERT_ALTERNATE = 9;
-
 	public const uint32 REPLACE_PRIMARY = 10;
-
 	public const uint32 REPLACE_ALTERNATE = 11;
-
 	public const uint32 UNDEFINE_PRIMARY = 12;
-
 	public const uint32 UNDEFINE_ALTERNATE = 13;
-
 	public const uint32 IOCTL_SERIAL_LSRMST_INSERT = 1769596;
-
 	public const uint32 IOCTL_SERENUM_EXPOSE_HARDWARE = 3604992;
-
 	public const uint32 IOCTL_SERENUM_REMOVE_HARDWARE = 3604996;
-
 	public const uint32 IOCTL_SERENUM_PORT_DESC = 3605000;
-
 	public const uint32 IOCTL_SERENUM_GET_PORT_NAME = 3605004;
-
 	public const uint32 FSCTL_REQUEST_OPLOCK_LEVEL_1 = 589824;
-
 	public const uint32 FSCTL_REQUEST_OPLOCK_LEVEL_2 = 589828;
-
 	public const uint32 FSCTL_REQUEST_BATCH_OPLOCK = 589832;
-
 	public const uint32 FSCTL_OPLOCK_BREAK_ACKNOWLEDGE = 589836;
-
 	public const uint32 FSCTL_OPBATCH_ACK_CLOSE_PENDING = 589840;
-
 	public const uint32 FSCTL_OPLOCK_BREAK_NOTIFY = 589844;
-
 	public const uint32 FSCTL_LOCK_VOLUME = 589848;
-
 	public const uint32 FSCTL_UNLOCK_VOLUME = 589852;
-
 	public const uint32 FSCTL_DISMOUNT_VOLUME = 589856;
-
 	public const uint32 FSCTL_IS_VOLUME_MOUNTED = 589864;
-
 	public const uint32 FSCTL_IS_PATHNAME_VALID = 589868;
-
 	public const uint32 FSCTL_MARK_VOLUME_DIRTY = 589872;
-
 	public const uint32 FSCTL_QUERY_RETRIEVAL_POINTERS = 589883;
-
 	public const uint32 FSCTL_GET_COMPRESSION = 589884;
-
 	public const uint32 FSCTL_SET_COMPRESSION = 639040;
-
 	public const uint32 FSCTL_SET_BOOTLOADER_ACCESSED = 589903;
-
 	public const uint32 FSCTL_MARK_AS_SYSTEM_HIVE = 589903;
-
 	public const uint32 FSCTL_OPLOCK_BREAK_ACK_NO_2 = 589904;
-
 	public const uint32 FSCTL_INVALIDATE_VOLUMES = 589908;
-
 	public const uint32 FSCTL_QUERY_FAT_BPB = 589912;
-
 	public const uint32 FSCTL_REQUEST_FILTER_OPLOCK = 589916;
-
 	public const uint32 FSCTL_FILESYSTEM_GET_STATISTICS = 589920;
-
 	public const uint32 FSCTL_GET_NTFS_VOLUME_DATA = 589924;
-
 	public const uint32 FSCTL_GET_NTFS_FILE_RECORD = 589928;
-
 	public const uint32 FSCTL_GET_VOLUME_BITMAP = 589935;
-
 	public const uint32 FSCTL_GET_RETRIEVAL_POINTERS = 589939;
-
 	public const uint32 FSCTL_MOVE_FILE = 589940;
-
 	public const uint32 FSCTL_IS_VOLUME_DIRTY = 589944;
-
 	public const uint32 FSCTL_ALLOW_EXTENDED_DASD_IO = 589955;
-
 	public const uint32 FSCTL_FIND_FILES_BY_SID = 589967;
-
 	public const uint32 FSCTL_SET_OBJECT_ID = 589976;
-
 	public const uint32 FSCTL_GET_OBJECT_ID = 589980;
-
 	public const uint32 FSCTL_DELETE_OBJECT_ID = 589984;
-
 	public const uint32 FSCTL_SET_REPARSE_POINT = 589988;
-
 	public const uint32 FSCTL_GET_REPARSE_POINT = 589992;
-
 	public const uint32 FSCTL_DELETE_REPARSE_POINT = 589996;
-
 	public const uint32 FSCTL_ENUM_USN_DATA = 590003;
-
 	public const uint32 FSCTL_SECURITY_ID_CHECK = 606391;
-
 	public const uint32 FSCTL_READ_USN_JOURNAL = 590011;
-
 	public const uint32 FSCTL_SET_OBJECT_ID_EXTENDED = 590012;
-
 	public const uint32 FSCTL_CREATE_OR_GET_OBJECT_ID = 590016;
-
 	public const uint32 FSCTL_SET_SPARSE = 590020;
-
 	public const uint32 FSCTL_SET_ZERO_DATA = 622792;
-
 	public const uint32 FSCTL_QUERY_ALLOCATED_RANGES = 606415;
-
 	public const uint32 FSCTL_ENABLE_UPGRADE = 622800;
-
 	public const uint32 FSCTL_SET_ENCRYPTION = 590039;
-
 	public const uint32 FSCTL_ENCRYPTION_FSCTL_IO = 590043;
-
 	public const uint32 FSCTL_WRITE_RAW_ENCRYPTED = 590047;
-
 	public const uint32 FSCTL_READ_RAW_ENCRYPTED = 590051;
-
 	public const uint32 FSCTL_CREATE_USN_JOURNAL = 590055;
-
 	public const uint32 FSCTL_READ_FILE_USN_DATA = 590059;
-
 	public const uint32 FSCTL_WRITE_USN_CLOSE_RECORD = 590063;
-
 	public const uint32 FSCTL_EXTEND_VOLUME = 590064;
-
 	public const uint32 FSCTL_QUERY_USN_JOURNAL = 590068;
-
 	public const uint32 FSCTL_DELETE_USN_JOURNAL = 590072;
-
 	public const uint32 FSCTL_MARK_HANDLE = 590076;
-
 	public const uint32 FSCTL_SIS_COPYFILE = 590080;
-
 	public const uint32 FSCTL_SIS_LINK_FILES = 639236;
-
 	public const uint32 FSCTL_RECALL_FILE = 590103;
-
 	public const uint32 FSCTL_READ_FROM_PLEX = 606494;
-
 	public const uint32 FSCTL_FILE_PREFETCH = 590112;
-
 	public const uint32 FSCTL_MAKE_MEDIA_COMPATIBLE = 622896;
-
 	public const uint32 FSCTL_SET_DEFECT_MANAGEMENT = 622900;
-
 	public const uint32 FSCTL_QUERY_SPARING_INFO = 590136;
-
 	public const uint32 FSCTL_QUERY_ON_DISK_VOLUME_INFO = 590140;
-
 	public const uint32 FSCTL_SET_VOLUME_COMPRESSION_STATE = 590144;
-
 	public const uint32 FSCTL_TXFS_MODIFY_RM = 622916;
-
 	public const uint32 FSCTL_TXFS_QUERY_RM_INFORMATION = 606536;
-
 	public const uint32 FSCTL_TXFS_ROLLFORWARD_REDO = 622928;
-
 	public const uint32 FSCTL_TXFS_ROLLFORWARD_UNDO = 622932;
-
 	public const uint32 FSCTL_TXFS_START_RM = 622936;
-
 	public const uint32 FSCTL_TXFS_SHUTDOWN_RM = 622940;
-
 	public const uint32 FSCTL_TXFS_READ_BACKUP_INFORMATION = 606560;
-
 	public const uint32 FSCTL_TXFS_WRITE_BACKUP_INFORMATION = 622948;
-
 	public const uint32 FSCTL_TXFS_CREATE_SECONDARY_RM = 622952;
-
 	public const uint32 FSCTL_TXFS_GET_METADATA_INFO = 606572;
-
 	public const uint32 FSCTL_TXFS_GET_TRANSACTED_VERSION = 606576;
-
 	public const uint32 FSCTL_TXFS_SAVEPOINT_INFORMATION = 622968;
-
 	public const uint32 FSCTL_TXFS_CREATE_MINIVERSION = 622972;
-
 	public const uint32 FSCTL_TXFS_TRANSACTION_ACTIVE = 606604;
-
 	public const uint32 FSCTL_SET_ZERO_ON_DEALLOCATION = 590228;
-
 	public const uint32 FSCTL_SET_REPAIR = 590232;
-
 	public const uint32 FSCTL_GET_REPAIR = 590236;
-
 	public const uint32 FSCTL_WAIT_FOR_REPAIR = 590240;
-
 	public const uint32 FSCTL_INITIATE_REPAIR = 590248;
-
 	public const uint32 FSCTL_CSC_INTERNAL = 590255;
-
 	public const uint32 FSCTL_SHRINK_VOLUME = 590256;
-
 	public const uint32 FSCTL_SET_SHORT_NAME_BEHAVIOR = 590260;
-
 	public const uint32 FSCTL_DFSR_SET_GHOST_HANDLE_STATE = 590264;
-
 	public const uint32 FSCTL_TXFS_LIST_TRANSACTION_LOCKED_FILES = 606688;
-
 	public const uint32 FSCTL_TXFS_LIST_TRANSACTIONS = 606692;
-
 	public const uint32 FSCTL_QUERY_PAGEFILE_ENCRYPTION = 590312;
-
 	public const uint32 FSCTL_RESET_VOLUME_ALLOCATION_HINTS = 590316;
-
 	public const uint32 FSCTL_QUERY_DEPENDENT_VOLUME = 590320;
-
 	public const uint32 FSCTL_SD_GLOBAL_CHANGE = 590324;
-
 	public const uint32 FSCTL_TXFS_READ_BACKUP_INFORMATION2 = 590328;
-
 	public const uint32 FSCTL_LOOKUP_STREAM_FROM_CLUSTER = 590332;
-
 	public const uint32 FSCTL_TXFS_WRITE_BACKUP_INFORMATION2 = 590336;
-
 	public const uint32 FSCTL_FILE_TYPE_NOTIFICATION = 590340;
-
 	public const uint32 FSCTL_FILE_LEVEL_TRIM = 623112;
-
 	public const uint32 FSCTL_GET_BOOT_AREA_INFO = 590384;
-
 	public const uint32 FSCTL_GET_RETRIEVAL_POINTER_BASE = 590388;
-
 	public const uint32 FSCTL_SET_PERSISTENT_VOLUME_STATE = 590392;
-
 	public const uint32 FSCTL_QUERY_PERSISTENT_VOLUME_STATE = 590396;
-
 	public const uint32 FSCTL_REQUEST_OPLOCK = 590400;
-
 	public const uint32 FSCTL_CSV_TUNNEL_REQUEST = 590404;
-
 	public const uint32 FSCTL_IS_CSV_FILE = 590408;
-
 	public const uint32 FSCTL_QUERY_FILE_SYSTEM_RECOGNITION = 590412;
-
 	public const uint32 FSCTL_CSV_GET_VOLUME_PATH_NAME = 590416;
-
 	public const uint32 FSCTL_CSV_GET_VOLUME_NAME_FOR_VOLUME_MOUNT_POINT = 590420;
-
 	public const uint32 FSCTL_CSV_GET_VOLUME_PATH_NAMES_FOR_VOLUME_NAME = 590424;
-
 	public const uint32 FSCTL_IS_FILE_ON_CSV_VOLUME = 590428;
-
 	public const uint32 FSCTL_CORRUPTION_HANDLING = 590432;
-
 	public const uint32 FSCTL_OFFLOAD_READ = 606820;
-
 	public const uint32 FSCTL_OFFLOAD_WRITE = 623208;
-
 	public const uint32 FSCTL_CSV_INTERNAL = 590444;
-
 	public const uint32 FSCTL_SET_PURGE_FAILURE_MODE = 590448;
-
 	public const uint32 FSCTL_QUERY_FILE_LAYOUT = 590455;
-
 	public const uint32 FSCTL_IS_VOLUME_OWNED_BYCSVFS = 590456;
-
 	public const uint32 FSCTL_GET_INTEGRITY_INFORMATION = 590460;
-
 	public const uint32 FSCTL_SET_INTEGRITY_INFORMATION = 639616;
-
 	public const uint32 FSCTL_QUERY_FILE_REGIONS = 590468;
-
 	public const uint32 FSCTL_RKF_INTERNAL = 590511;
-
 	public const uint32 FSCTL_SCRUB_DATA = 590512;
-
 	public const uint32 FSCTL_REPAIR_COPIES = 639668;
-
 	public const uint32 FSCTL_DISABLE_LOCAL_BUFFERING = 590520;
-
 	public const uint32 FSCTL_CSV_MGMT_LOCK = 590524;
-
 	public const uint32 FSCTL_CSV_QUERY_DOWN_LEVEL_FILE_SYSTEM_CHARACTERISTICS = 590528;
-
 	public const uint32 FSCTL_ADVANCE_FILE_ID = 590532;
-
 	public const uint32 FSCTL_CSV_SYNC_TUNNEL_REQUEST = 590536;
-
 	public const uint32 FSCTL_CSV_QUERY_VETO_FILE_DIRECT_IO = 590540;
-
 	public const uint32 FSCTL_WRITE_USN_REASON = 590544;
-
 	public const uint32 FSCTL_CSV_CONTROL = 590548;
-
 	public const uint32 FSCTL_GET_REFS_VOLUME_DATA = 590552;
-
 	public const uint32 FSCTL_CSV_H_BREAKING_SYNC_TUNNEL_REQUEST = 590564;
-
 	public const uint32 FSCTL_QUERY_STORAGE_CLASSES = 590572;
-
 	public const uint32 FSCTL_QUERY_REGION_INFO = 590576;
-
 	public const uint32 FSCTL_USN_TRACK_MODIFIED_RANGES = 590580;
-
 	public const uint32 FSCTL_QUERY_SHARED_VIRTUAL_DISK_SUPPORT = 590592;
-
 	public const uint32 FSCTL_SVHDX_SYNC_TUNNEL_REQUEST = 590596;
-
 	public const uint32 FSCTL_SVHDX_SET_INITIATOR_INFORMATION = 590600;
-
 	public const uint32 FSCTL_SET_EXTERNAL_BACKING = 590604;
-
 	public const uint32 FSCTL_GET_EXTERNAL_BACKING = 590608;
-
 	public const uint32 FSCTL_DELETE_EXTERNAL_BACKING = 590612;
-
 	public const uint32 FSCTL_ENUM_EXTERNAL_BACKING = 590616;
-
 	public const uint32 FSCTL_ENUM_OVERLAY = 590623;
-
 	public const uint32 FSCTL_ADD_OVERLAY = 623408;
-
 	public const uint32 FSCTL_REMOVE_OVERLAY = 623412;
-
 	public const uint32 FSCTL_UPDATE_OVERLAY = 623416;
-
 	public const uint32 FSCTL_SHUFFLE_FILE = 639808;
-
 	public const uint32 FSCTL_DUPLICATE_EXTENTS_TO_FILE = 623428;
-
 	public const uint32 FSCTL_SPARSE_OVERALLOCATE = 590668;
-
 	public const uint32 FSCTL_STORAGE_QOS_CONTROL = 590672;
-
 	public const uint32 FSCTL_INITIATE_FILE_METADATA_OPTIMIZATION = 590684;
-
 	public const uint32 FSCTL_QUERY_FILE_METADATA_OPTIMIZATION = 590688;
-
 	public const uint32 FSCTL_SVHDX_ASYNC_TUNNEL_REQUEST = 590692;
-
 	public const uint32 FSCTL_GET_WOF_VERSION = 590696;
-
 	public const uint32 FSCTL_HCS_SYNC_TUNNEL_REQUEST = 590700;
-
 	public const uint32 FSCTL_HCS_ASYNC_TUNNEL_REQUEST = 590704;
-
 	public const uint32 FSCTL_QUERY_EXTENT_READ_CACHE_INFO = 590711;
-
 	public const uint32 FSCTL_QUERY_REFS_VOLUME_COUNTER_INFO = 590715;
-
 	public const uint32 FSCTL_CLEAN_VOLUME_METADATA = 590716;
-
 	public const uint32 FSCTL_SET_INTEGRITY_INFORMATION_EX = 590720;
-
 	public const uint32 FSCTL_SUSPEND_OVERLAY = 590724;
-
 	public const uint32 FSCTL_VIRTUAL_STORAGE_QUERY_PROPERTY = 590728;
-
 	public const uint32 FSCTL_FILESYSTEM_GET_STATISTICS_EX = 590732;
-
 	public const uint32 FSCTL_QUERY_VOLUME_CONTAINER_STATE = 590736;
-
 	public const uint32 FSCTL_SET_LAYER_ROOT = 590740;
-
 	public const uint32 FSCTL_QUERY_DIRECT_ACCESS_EXTENTS = 590747;
-
 	public const uint32 FSCTL_NOTIFY_STORAGE_SPACE_ALLOCATION = 590748;
-
 	public const uint32 FSCTL_SSDI_STORAGE_REQUEST = 590752;
-
 	public const uint32 FSCTL_QUERY_DIRECT_IMAGE_ORIGINAL_BASE = 590756;
-
 	public const uint32 FSCTL_READ_UNPRIVILEGED_USN_JOURNAL = 590763;
-
 	public const uint32 FSCTL_GHOST_FILE_EXTENTS = 623532;
-
 	public const uint32 FSCTL_QUERY_GHOSTED_FILE_EXTENTS = 590768;
-
 	public const uint32 FSCTL_UNMAP_SPACE = 590772;
-
 	public const uint32 FSCTL_HCS_SYNC_NO_WRITE_TUNNEL_REQUEST = 590776;
-
 	public const uint32 FSCTL_START_VIRTUALIZATION_INSTANCE = 590784;
-
 	public const uint32 FSCTL_GET_FILTER_FILE_IDENTIFIER = 590788;
-
 	public const uint32 FSCTL_STREAMS_QUERY_PARAMETERS = 590788;
-
 	public const uint32 FSCTL_STREAMS_ASSOCIATE_ID = 590792;
-
 	public const uint32 FSCTL_STREAMS_QUERY_ID = 590796;
-
 	public const uint32 FSCTL_GET_RETRIEVAL_POINTERS_AND_REFCOUNT = 590803;
-
 	public const uint32 FSCTL_QUERY_VOLUME_NUMA_INFO = 590804;
-
 	public const uint32 FSCTL_REFS_DEALLOCATE_RANGES = 590808;
-
 	public const uint32 FSCTL_QUERY_REFS_SMR_VOLUME_INFO = 590812;
-
 	public const uint32 FSCTL_SET_REFS_SMR_VOLUME_GC_PARAMETERS = 590816;
-
 	public const uint32 FSCTL_SET_REFS_FILE_STRICTLY_SEQUENTIAL = 590820;
-
 	public const uint32 FSCTL_DUPLICATE_EXTENTS_TO_FILE_EX = 623592;
-
 	public const uint32 FSCTL_QUERY_BAD_RANGES = 590828;
-
 	public const uint32 FSCTL_SET_DAX_ALLOC_ALIGNMENT_HINT = 590832;
-
 	public const uint32 FSCTL_DELETE_CORRUPTED_REFS_CONTAINER = 590836;
-
 	public const uint32 FSCTL_SCRUB_UNDISCOVERABLE_ID = 590840;
-
 	public const uint32 FSCTL_NOTIFY_DATA_CHANGE = 590844;
-
 	public const uint32 FSCTL_START_VIRTUALIZATION_INSTANCE_EX = 590848;
-
 	public const uint32 FSCTL_ENCRYPTION_KEY_CONTROL = 590852;
-
 	public const uint32 FSCTL_VIRTUAL_STORAGE_SET_BEHAVIOR = 590856;
-
 	public const uint32 FSCTL_SET_REPARSE_POINT_EX = 590860;
-
 	public const uint32 FSCTL_REARRANGE_FILE = 640032;
-
 	public const uint32 FSCTL_VIRTUAL_STORAGE_PASSTHROUGH = 590884;
-
 	public const uint32 FSCTL_GET_RETRIEVAL_POINTER_COUNT = 590891;
-
 	public const uint32 FSCTL_ENABLE_PER_IO_FLAGS = 590892;
-
 	public const uint32 FSCTL_QUERY_ASYNC_DUPLICATE_EXTENTS_STATUS = 590896;
-
 	public const uint32 FSCTL_SMB_SHARE_FLUSH_AND_PURGE = 590908;
-
 	public const uint32 FSCTL_REFS_STREAM_SNAPSHOT_MANAGEMENT = 590912;
-
 	public const uint32 FSCTL_MANAGE_BYPASS_IO = 590920;
-
 	public const uint32 GET_VOLUME_BITMAP_FLAG_MASK_METADATA = 1;
-
 	public const uint32 FLAG_USN_TRACK_MODIFIED_RANGES_ENABLE = 1;
-
 	public const uint32 USN_PAGE_SIZE = 4096;
-
 	public const uint32 USN_REASON_DATA_OVERWRITE = 1;
-
 	public const uint32 USN_REASON_DATA_EXTEND = 2;
-
 	public const uint32 USN_REASON_DATA_TRUNCATION = 4;
-
 	public const uint32 USN_REASON_NAMED_DATA_OVERWRITE = 16;
-
 	public const uint32 USN_REASON_NAMED_DATA_EXTEND = 32;
-
 	public const uint32 USN_REASON_NAMED_DATA_TRUNCATION = 64;
-
 	public const uint32 USN_REASON_FILE_CREATE = 256;
-
 	public const uint32 USN_REASON_FILE_DELETE = 512;
-
 	public const uint32 USN_REASON_EA_CHANGE = 1024;
-
 	public const uint32 USN_REASON_SECURITY_CHANGE = 2048;
-
 	public const uint32 USN_REASON_RENAME_OLD_NAME = 4096;
-
 	public const uint32 USN_REASON_RENAME_NEW_NAME = 8192;
-
 	public const uint32 USN_REASON_INDEXABLE_CHANGE = 16384;
-
 	public const uint32 USN_REASON_BASIC_INFO_CHANGE = 32768;
-
 	public const uint32 USN_REASON_HARD_LINK_CHANGE = 65536;
-
 	public const uint32 USN_REASON_COMPRESSION_CHANGE = 131072;
-
 	public const uint32 USN_REASON_ENCRYPTION_CHANGE = 262144;
-
 	public const uint32 USN_REASON_OBJECT_ID_CHANGE = 524288;
-
 	public const uint32 USN_REASON_REPARSE_POINT_CHANGE = 1048576;
-
 	public const uint32 USN_REASON_STREAM_CHANGE = 2097152;
-
 	public const uint32 USN_REASON_TRANSACTED_CHANGE = 4194304;
-
 	public const uint32 USN_REASON_INTEGRITY_CHANGE = 8388608;
-
 	public const uint32 USN_REASON_DESIRED_STORAGE_CLASS_CHANGE = 16777216;
-
 	public const uint32 USN_REASON_CLOSE = 2147483648;
-
 	public const uint32 USN_DELETE_VALID_FLAGS = 3;
-
 	public const uint32 MARK_HANDLE_PROTECT_CLUSTERS = 1;
-
 	public const uint32 MARK_HANDLE_TXF_SYSTEM_LOG = 4;
-
 	public const uint32 MARK_HANDLE_NOT_TXF_SYSTEM_LOG = 8;
-
 	public const uint32 MARK_HANDLE_REALTIME = 32;
-
 	public const uint32 MARK_HANDLE_NOT_REALTIME = 64;
-
 	public const uint32 MARK_HANDLE_CLOUD_SYNC = 2048;
-
 	public const uint32 MARK_HANDLE_READ_COPY = 128;
-
 	public const uint32 MARK_HANDLE_NOT_READ_COPY = 256;
-
 	public const uint32 MARK_HANDLE_FILTER_METADATA = 512;
-
 	public const uint32 MARK_HANDLE_RETURN_PURGE_FAILURE = 1024;
-
 	public const uint32 MARK_HANDLE_DISABLE_FILE_METADATA_OPTIMIZATION = 4096;
-
 	public const uint32 MARK_HANDLE_ENABLE_USN_SOURCE_ON_PAGING_IO = 8192;
-
 	public const uint32 MARK_HANDLE_SKIP_COHERENCY_SYNC_DISALLOW_WRITES = 16384;
-
 	public const uint32 MARK_HANDLE_SUPPRESS_VOLUME_OPEN_FLUSH = 32768;
-
 	public const uint32 MARK_HANDLE_ENABLE_CPU_CACHE = 268435456;
-
 	public const uint32 VOLUME_IS_DIRTY = 1;
-
 	public const uint32 VOLUME_UPGRADE_SCHEDULED = 2;
-
 	public const uint32 VOLUME_SESSION_OPEN = 4;
-
 	public const uint32 FILE_PREFETCH_TYPE_FOR_CREATE = 1;
-
 	public const uint32 FILE_PREFETCH_TYPE_FOR_DIRENUM = 2;
-
 	public const uint32 FILE_PREFETCH_TYPE_FOR_CREATE_EX = 3;
-
 	public const uint32 FILE_PREFETCH_TYPE_FOR_DIRENUM_EX = 4;
-
 	public const uint32 FILE_PREFETCH_TYPE_MAX = 4;
-
 	public const uint32 FILESYSTEM_STATISTICS_TYPE_REFS = 4;
-
 	public const uint32 FILE_ZERO_DATA_INFORMATION_FLAG_PRESERVE_CACHED_DATA = 1;
-
 	public const uint32 FILE_SET_ENCRYPTION = 1;
-
 	public const uint32 FILE_CLEAR_ENCRYPTION = 2;
-
 	public const uint32 STREAM_SET_ENCRYPTION = 3;
-
 	public const uint32 STREAM_CLEAR_ENCRYPTION = 4;
-
 	public const uint32 MAXIMUM_ENCRYPTION_VALUE = 4;
-
 	public const uint32 ENCRYPTION_FORMAT_DEFAULT = 1;
-
 	public const uint32 ENCRYPTED_DATA_INFO_SPARSE_FILE = 1;
-
 	public const uint32 COPYFILE_SIS_LINK = 1;
-
 	public const uint32 COPYFILE_SIS_REPLACE = 2;
-
 	public const uint32 COPYFILE_SIS_FLAGS = 3;
-
 	public const uint32 SET_REPAIR_ENABLED = 1;
-
 	public const uint32 SET_REPAIR_WARN_ABOUT_DATA_LOSS = 8;
-
 	public const uint32 SET_REPAIR_DISABLED_AND_BUGCHECK_ON_CORRUPT = 16;
-
 	public const uint32 SET_REPAIR_VALID_MASK = 25;
-
 	public const uint64 FILE_INITIATE_REPAIR_HINT1_FILE_RECORD_NOT_IN_USE = 1;
-
 	public const uint64 FILE_INITIATE_REPAIR_HINT1_FILE_RECORD_REUSED = 2;
-
 	public const uint64 FILE_INITIATE_REPAIR_HINT1_FILE_RECORD_NOT_EXIST = 4;
-
 	public const uint64 FILE_INITIATE_REPAIR_HINT1_FILE_RECORD_NOT_BASE_RECORD = 8;
-
 	public const uint64 FILE_INITIATE_REPAIR_HINT1_SYSTEM_FILE = 16;
-
 	public const uint64 FILE_INITIATE_REPAIR_HINT1_NOT_IMPLEMENTED = 32;
-
 	public const uint64 FILE_INITIATE_REPAIR_HINT1_UNABLE_TO_REPAIR = 64;
-
 	public const uint64 FILE_INITIATE_REPAIR_HINT1_REPAIR_DISABLED = 128;
-
 	public const uint64 FILE_INITIATE_REPAIR_HINT1_RECURSIVELY_CORRUPTED = 256;
-
 	public const uint64 FILE_INITIATE_REPAIR_HINT1_ORPHAN_GENERATED = 512;
-
 	public const uint64 FILE_INITIATE_REPAIR_HINT1_REPAIRED = 1024;
-
 	public const uint64 FILE_INITIATE_REPAIR_HINT1_NOTHING_WRONG = 2048;
-
 	public const uint64 FILE_INITIATE_REPAIR_HINT1_ATTRIBUTE_NOT_FOUND = 4096;
-
 	public const uint64 FILE_INITIATE_REPAIR_HINT1_POTENTIAL_CROSSLINK = 8192;
-
 	public const uint64 FILE_INITIATE_REPAIR_HINT1_STALE_INFORMATION = 16384;
-
 	public const uint64 FILE_INITIATE_REPAIR_HINT1_CLUSTERS_ALREADY_IN_USE = 32768;
-
 	public const uint64 FILE_INITIATE_REPAIR_HINT1_LCN_NOT_EXIST = 65536;
-
 	public const uint64 FILE_INITIATE_REPAIR_HINT1_INVALID_RUN_LENGTH = 131072;
-
 	public const uint64 FILE_INITIATE_REPAIR_HINT1_FILE_RECORD_NOT_ORPHAN = 262144;
-
 	public const uint64 FILE_INITIATE_REPAIR_HINT1_FILE_RECORD_IS_BASE_RECORD = 524288;
-
 	public const uint64 FILE_INITIATE_REPAIR_HINT1_INVALID_ARRAY_LENGTH_COUNT = 1048576;
-
 	public const uint64 FILE_INITIATE_REPAIR_HINT1_SID_VALID = 2097152;
-
 	public const uint64 FILE_INITIATE_REPAIR_HINT1_SID_MISMATCH = 4194304;
-
 	public const uint64 FILE_INITIATE_REPAIR_HINT1_INVALID_PARENT = 8388608;
-
 	public const uint64 FILE_INITIATE_REPAIR_HINT1_PARENT_FILE_RECORD_NOT_IN_USE = 16777216;
-
 	public const uint64 FILE_INITIATE_REPAIR_HINT1_PARENT_FILE_RECORD_REUSED = 33554432;
-
 	public const uint64 FILE_INITIATE_REPAIR_HINT1_PARENT_FILE_RECORD_NOT_EXIST = 67108864;
-
 	public const uint64 FILE_INITIATE_REPAIR_HINT1_PARENT_FILE_RECORD_NOT_BASE_RECORD = 134217728;
-
 	public const uint64 FILE_INITIATE_REPAIR_HINT1_PARENT_FILE_RECORD_NOT_INDEX = 268435456;
-
 	public const uint64 FILE_INITIATE_REPAIR_HINT1_VALID_INDEX_ENTRY = 536870912;
-
 	public const uint64 FILE_INITIATE_REPAIR_HINT1_OUT_OF_GENERIC_NAMES = 1073741824;
-
 	public const uint64 FILE_INITIATE_REPAIR_HINT1_OUT_OF_RESOURCE = 2147483648;
-
 	public const uint64 FILE_INITIATE_REPAIR_HINT1_INVALID_LCN = 4294967296;
-
 	public const uint64 FILE_INITIATE_REPAIR_HINT1_INVALID_VCN = 8589934592;
-
 	public const uint64 FILE_INITIATE_REPAIR_HINT1_NAME_CONFLICT = 17179869184;
-
 	public const uint64 FILE_INITIATE_REPAIR_HINT1_ORPHAN = 34359738368;
-
 	public const uint64 FILE_INITIATE_REPAIR_HINT1_ATTRIBUTE_TOO_SMALL = 68719476736;
-
 	public const uint64 FILE_INITIATE_REPAIR_HINT1_ATTRIBUTE_NON_RESIDENT = 137438953472;
-
 	public const uint64 FILE_INITIATE_REPAIR_HINT1_DENY_DEFRAG = 274877906944;
-
 	public const uint64 FILE_INITIATE_REPAIR_HINT1_PREVIOUS_PARENT_STILL_VALID = 549755813888;
-
 	public const uint64 FILE_INITIATE_REPAIR_HINT1_INDEX_ENTRY_MISMATCH = 1099511627776;
-
 	public const uint64 FILE_INITIATE_REPAIR_HINT1_INVALID_ORPHAN_RECOVERY_NAME = 2199023255552;
-
 	public const uint64 FILE_INITIATE_REPAIR_HINT1_MULTIPLE_FILE_NAME_ATTRIBUTES = 4398046511104;
-
 	public const uint32 TXFS_LOGGING_MODE_SIMPLE = 1;
-
 	public const uint32 TXFS_LOGGING_MODE_FULL = 2;
-
 	public const uint32 TXFS_TRANSACTION_STATE_NONE = 0;
-
 	public const uint32 TXFS_TRANSACTION_STATE_ACTIVE = 1;
-
 	public const uint32 TXFS_TRANSACTION_STATE_PREPARED = 2;
-
 	public const uint32 TXFS_TRANSACTION_STATE_NOTACTIVE = 3;
-
 	public const uint32 TXFS_RM_STATE_NOT_STARTED = 0;
-
 	public const uint32 TXFS_RM_STATE_STARTING = 1;
-
 	public const uint32 TXFS_RM_STATE_ACTIVE = 2;
-
 	public const uint32 TXFS_RM_STATE_SHUTTING_DOWN = 3;
-
 	public const uint32 TXFS_ROLLFORWARD_REDO_FLAG_USE_LAST_REDO_LSN = 1;
-
 	public const uint32 TXFS_ROLLFORWARD_REDO_FLAG_USE_LAST_VIRTUAL_CLOCK = 2;
-
 	public const uint32 TXFS_START_RM_FLAG_LOG_CONTAINER_COUNT_MAX = 1;
-
 	public const uint32 TXFS_START_RM_FLAG_LOG_CONTAINER_COUNT_MIN = 2;
-
 	public const uint32 TXFS_START_RM_FLAG_LOG_CONTAINER_SIZE = 4;
-
 	public const uint32 TXFS_START_RM_FLAG_LOG_GROWTH_INCREMENT_NUM_CONTAINERS = 8;
-
 	public const uint32 TXFS_START_RM_FLAG_LOG_GROWTH_INCREMENT_PERCENT = 16;
-
 	public const uint32 TXFS_START_RM_FLAG_LOG_AUTO_SHRINK_PERCENTAGE = 32;
-
 	public const uint32 TXFS_START_RM_FLAG_LOG_NO_CONTAINER_COUNT_MAX = 64;
-
 	public const uint32 TXFS_START_RM_FLAG_LOG_NO_CONTAINER_COUNT_MIN = 128;
-
 	public const uint32 TXFS_START_RM_FLAG_RECOVER_BEST_EFFORT = 512;
-
 	public const uint32 TXFS_START_RM_FLAG_LOGGING_MODE = 1024;
-
 	public const uint32 TXFS_START_RM_FLAG_PRESERVE_CHANGES = 2048;
-
 	public const uint32 TXFS_START_RM_FLAG_PREFER_CONSISTENCY = 4096;
-
 	public const uint32 TXFS_START_RM_FLAG_PREFER_AVAILABILITY = 8192;
-
 	public const uint32 TXFS_LIST_TRANSACTION_LOCKED_FILES_ENTRY_FLAG_CREATED = 1;
-
 	public const uint32 TXFS_LIST_TRANSACTION_LOCKED_FILES_ENTRY_FLAG_DELETED = 2;
-
 	public const uint32 TXFS_TRANSACTED_VERSION_NONTRANSACTED = 4294967294;
-
 	public const uint32 TXFS_TRANSACTED_VERSION_UNCOMMITTED = 4294967295;
-
 	public const uint32 TXFS_SAVEPOINT_SET = 1;
-
 	public const uint32 TXFS_SAVEPOINT_ROLLBACK = 2;
-
 	public const uint32 TXFS_SAVEPOINT_CLEAR = 4;
-
 	public const uint32 TXFS_SAVEPOINT_CLEAR_ALL = 16;
-
 	public const uint32 PERSISTENT_VOLUME_STATE_SHORT_NAME_CREATION_DISABLED = 1;
-
 	public const uint32 PERSISTENT_VOLUME_STATE_VOLUME_SCRUB_DISABLED = 2;
-
 	public const uint32 PERSISTENT_VOLUME_STATE_GLOBAL_METADATA_NO_SEEK_PENALTY = 4;
-
 	public const uint32 PERSISTENT_VOLUME_STATE_LOCAL_METADATA_NO_SEEK_PENALTY = 8;
-
 	public const uint32 PERSISTENT_VOLUME_STATE_NO_HEAT_GATHERING = 16;
-
 	public const uint32 PERSISTENT_VOLUME_STATE_CONTAINS_BACKING_WIM = 32;
-
 	public const uint32 PERSISTENT_VOLUME_STATE_BACKED_BY_WIM = 64;
-
 	public const uint32 PERSISTENT_VOLUME_STATE_NO_WRITE_AUTO_TIERING = 128;
-
 	public const uint32 PERSISTENT_VOLUME_STATE_TXF_DISABLED = 256;
-
 	public const uint32 PERSISTENT_VOLUME_STATE_REALLOCATE_ALL_DATA_WRITES = 512;
-
 	public const uint32 PERSISTENT_VOLUME_STATE_CHKDSK_RAN_ONCE = 1024;
-
 	public const uint32 PERSISTENT_VOLUME_STATE_MODIFIED_BY_CHKDSK = 2048;
-
 	public const uint32 PERSISTENT_VOLUME_STATE_DAX_FORMATTED = 4096;
-
 	public const uint32 OPLOCK_LEVEL_CACHE_READ = 1;
-
 	public const uint32 OPLOCK_LEVEL_CACHE_HANDLE = 2;
-
 	public const uint32 OPLOCK_LEVEL_CACHE_WRITE = 4;
-
 	public const uint32 REQUEST_OPLOCK_INPUT_FLAG_REQUEST = 1;
-
 	public const uint32 REQUEST_OPLOCK_INPUT_FLAG_ACK = 2;
-
 	public const uint32 REQUEST_OPLOCK_INPUT_FLAG_COMPLETE_ACK_ON_CLOSE = 4;
-
 	public const uint32 REQUEST_OPLOCK_CURRENT_VERSION = 1;
-
 	public const uint32 REQUEST_OPLOCK_OUTPUT_FLAG_ACK_REQUIRED = 1;
-
 	public const uint32 REQUEST_OPLOCK_OUTPUT_FLAG_MODES_PROVIDED = 2;
-
 	public const uint32 QUERY_DEPENDENT_VOLUME_REQUEST_FLAG_HOST_VOLUMES = 1;
-
 	public const uint32 QUERY_DEPENDENT_VOLUME_REQUEST_FLAG_GUEST_VOLUMES = 2;
-
 	public const uint32 SD_GLOBAL_CHANGE_TYPE_MACHINE_SID = 1;
-
 	public const uint32 SD_GLOBAL_CHANGE_TYPE_QUERY_STATS = 65536;
-
 	public const uint32 SD_GLOBAL_CHANGE_TYPE_ENUM_SDS = 131072;
-
 	public const uint32 LOOKUP_STREAM_FROM_CLUSTER_ENTRY_FLAG_PAGE_FILE = 1;
-
 	public const uint32 LOOKUP_STREAM_FROM_CLUSTER_ENTRY_FLAG_DENY_DEFRAG_SET = 2;
-
 	public const uint32 LOOKUP_STREAM_FROM_CLUSTER_ENTRY_FLAG_FS_SYSTEM_FILE = 4;
-
 	public const uint32 LOOKUP_STREAM_FROM_CLUSTER_ENTRY_FLAG_TXF_SYSTEM_FILE = 8;
-
 	public const uint32 LOOKUP_STREAM_FROM_CLUSTER_ENTRY_ATTRIBUTE_MASK = 4278190080;
-
 	public const uint32 LOOKUP_STREAM_FROM_CLUSTER_ENTRY_ATTRIBUTE_DATA = 16777216;
-
 	public const uint32 LOOKUP_STREAM_FROM_CLUSTER_ENTRY_ATTRIBUTE_INDEX = 33554432;
-
 	public const uint32 LOOKUP_STREAM_FROM_CLUSTER_ENTRY_ATTRIBUTE_SYSTEM = 50331648;
-
 	public const uint32 FILE_TYPE_NOTIFICATION_FLAG_USAGE_BEGIN = 1;
-
 	public const uint32 FILE_TYPE_NOTIFICATION_FLAG_USAGE_END = 2;
-
 	public const Guid FILE_TYPE_NOTIFICATION_GUID_PAGE_FILE = .(0x0d0a64a1, 0x38fc, 0x4db8, 0x9f, 0xe7, 0x3f, 0x43, 0x52, 0xcd, 0x7c, 0x5c);
-
 	public const Guid FILE_TYPE_NOTIFICATION_GUID_HIBERNATION_FILE = .(0xb7624d64, 0xb9a3, 0x4cf8, 0x80, 0x11, 0x5b, 0x86, 0xc9, 0x40, 0xe7, 0xb7);
-
 	public const Guid FILE_TYPE_NOTIFICATION_GUID_CRASHDUMP_FILE = .(0x9d453eb7, 0xd2a6, 0x4dbd, 0xa2, 0xe3, 0xfb, 0xd0, 0xed, 0x91, 0x09, 0xa9);
-
 	public const uint32 CSV_MGMTLOCK_CHECK_VOLUME_REDIRECTED = 1;
-
 	public const uint32 CSV_INVALID_DEVICE_NUMBER = 4294967295;
-
 	public const uint32 CSV_QUERY_MDS_PATH_V2_VERSION_1 = 1;
-
 	public const uint32 CSV_QUERY_MDS_PATH_FLAG_STORAGE_ON_THIS_NODE_IS_CONNECTED = 1;
-
 	public const uint32 CSV_QUERY_MDS_PATH_FLAG_CSV_DIRECT_IO_ENABLED = 2;
-
 	public const uint32 CSV_QUERY_MDS_PATH_FLAG_SMB_BYPASS_CSV_ENABLED = 4;
-
 	public const uint32 QUERY_FILE_LAYOUT_RESTART = 1;
-
 	public const uint32 QUERY_FILE_LAYOUT_INCLUDE_NAMES = 2;
-
 	public const uint32 QUERY_FILE_LAYOUT_INCLUDE_STREAMS = 4;
-
 	public const uint32 QUERY_FILE_LAYOUT_INCLUDE_EXTENTS = 8;
-
 	public const uint32 QUERY_FILE_LAYOUT_INCLUDE_EXTRA_INFO = 16;
-
 	public const uint32 QUERY_FILE_LAYOUT_INCLUDE_STREAMS_WITH_NO_CLUSTERS_ALLOCATED = 32;
-
 	public const uint32 QUERY_FILE_LAYOUT_INCLUDE_FULL_PATH_IN_NAMES = 64;
-
 	public const uint32 QUERY_FILE_LAYOUT_INCLUDE_STREAM_INFORMATION = 128;
-
 	public const uint32 QUERY_FILE_LAYOUT_INCLUDE_STREAM_INFORMATION_FOR_DSC_ATTRIBUTE = 256;
-
 	public const uint32 QUERY_FILE_LAYOUT_INCLUDE_STREAM_INFORMATION_FOR_TXF_ATTRIBUTE = 512;
-
 	public const uint32 QUERY_FILE_LAYOUT_INCLUDE_STREAM_INFORMATION_FOR_EFS_ATTRIBUTE = 1024;
-
 	public const uint32 QUERY_FILE_LAYOUT_INCLUDE_ONLY_FILES_WITH_SPECIFIC_ATTRIBUTES = 2048;
-
 	public const uint32 QUERY_FILE_LAYOUT_INCLUDE_FILES_WITH_DSC_ATTRIBUTE = 4096;
-
 	public const uint32 QUERY_FILE_LAYOUT_INCLUDE_STREAM_INFORMATION_FOR_DATA_ATTRIBUTE = 8192;
-
 	public const uint32 QUERY_FILE_LAYOUT_INCLUDE_STREAM_INFORMATION_FOR_REPARSE_ATTRIBUTE = 16384;
-
 	public const uint32 QUERY_FILE_LAYOUT_INCLUDE_STREAM_INFORMATION_FOR_EA_ATTRIBUTE = 32768;
-
 	public const uint32 QUERY_FILE_LAYOUT_SINGLE_INSTANCED = 1;
-
 	public const uint32 FILE_LAYOUT_NAME_ENTRY_PRIMARY = 1;
-
 	public const uint32 FILE_LAYOUT_NAME_ENTRY_DOS = 2;
-
 	public const uint32 STREAM_LAYOUT_ENTRY_IMMOVABLE = 1;
-
 	public const uint32 STREAM_LAYOUT_ENTRY_PINNED = 2;
-
 	public const uint32 STREAM_LAYOUT_ENTRY_RESIDENT = 4;
-
 	public const uint32 STREAM_LAYOUT_ENTRY_NO_CLUSTERS_ALLOCATED = 8;
-
 	public const uint32 STREAM_LAYOUT_ENTRY_HAS_INFORMATION = 16;
-
 	public const uint32 STREAM_EXTENT_ENTRY_AS_RETRIEVAL_POINTERS = 1;
-
 	public const uint32 STREAM_EXTENT_ENTRY_ALL_EXTENTS = 2;
-
 	public const int32 CHECKSUM_TYPE_UNCHANGED = -1;
-
 	public const uint32 CHECKSUM_TYPE_NONE = 0;
-
 	public const uint32 CHECKSUM_TYPE_CRC32 = 1;
-
 	public const uint32 CHECKSUM_TYPE_CRC64 = 2;
-
 	public const uint32 CHECKSUM_TYPE_ECC = 3;
-
 	public const uint32 CHECKSUM_TYPE_FIRST_UNUSED_TYPE = 4;
-
 	public const uint32 FSCTL_INTEGRITY_FLAG_CHECKSUM_ENFORCEMENT_OFF = 1;
-
 	public const uint32 OFFLOAD_READ_FLAG_ALL_ZERO_BEYOND_CURRENT_RANGE = 1;
-
 	public const uint32 SET_PURGE_FAILURE_MODE_ENABLED = 1;
-
 	public const uint32 SET_PURGE_FAILURE_MODE_DISABLED = 2;
-
 	public const uint32 FILE_REGION_USAGE_VALID_CACHED_DATA = 1;
-
 	public const uint32 FILE_REGION_USAGE_VALID_NONCACHED_DATA = 2;
-
 	public const uint32 FILE_REGION_USAGE_OTHER_PAGE_ALIGNMENT = 4;
-
 	public const uint32 FILE_REGION_USAGE_LARGE_PAGE_ALIGNMENT = 8;
-
 	public const uint32 FILE_REGION_USAGE_HUGE_PAGE_ALIGNMENT = 16;
-
 	public const uint32 FILE_REGION_USAGE_QUERY_ALIGNMENT = 8;
-
 	public const uint32 FILE_STORAGE_TIER_NAME_LENGTH = 256;
-
 	public const uint32 FILE_STORAGE_TIER_DESCRIPTION_LENGTH = 512;
-
 	public const uint32 FILE_STORAGE_TIER_FLAG_WRITE_BACK_CACHE = 2097152;
-
 	public const uint32 FILE_STORAGE_TIER_FLAG_READ_CACHE = 4194304;
-
 	public const uint32 FILE_STORAGE_TIER_FLAG_PARITY = 8388608;
-
 	public const uint32 FILE_STORAGE_TIER_FLAG_SMR = 16777216;
-
 	public const uint32 QUERY_STORAGE_CLASSES_FLAGS_MEASURE_WRITE = 2147483648;
-
 	public const uint32 QUERY_STORAGE_CLASSES_FLAGS_MEASURE_READ = 1073741824;
-
 	public const uint32 QUERY_STORAGE_CLASSES_FLAGS_NO_DEFRAG_VOLUME = 536870912;
-
 	public const uint32 QUERY_FILE_LAYOUT_REPARSE_DATA_INVALID = 1;
-
 	public const uint32 QUERY_FILE_LAYOUT_REPARSE_TAG_INVALID = 2;
-
 	public const uint32 DUPLICATE_EXTENTS_DATA_EX_SOURCE_ATOMIC = 1;
-
 	public const uint32 DUPLICATE_EXTENTS_DATA_EX_ASYNC = 2;
-
 	public const uint32 REFS_SMR_VOLUME_INFO_OUTPUT_VERSION_V0 = 0;
-
 	public const uint32 REFS_SMR_VOLUME_INFO_OUTPUT_VERSION_V1 = 1;
-
 	public const uint32 REFS_SMR_VOLUME_GC_PARAMETERS_VERSION_V1 = 1;
-
 	public const uint32 STREAMS_INVALID_ID = 0;
-
 	public const uint32 STREAMS_MAX_ID = 65535;
-
 	public const uint32 STREAMS_ASSOCIATE_ID_CLEAR = 1;
-
 	public const uint32 STREAMS_ASSOCIATE_ID_SET = 2;
-
 	public const uint32 DAX_ALLOC_ALIGNMENT_FLAG_MANDATORY = 1;
-
 	public const uint32 DAX_ALLOC_ALIGNMENT_FLAG_FALLBACK_SPECIFIED = 2;
-
 	public const uint32 WOF_CURRENT_VERSION = 1;
-
 	public const uint32 WOF_PROVIDER_CLOUD = 3;
-
 	public const uint32 WIM_PROVIDER_CURRENT_VERSION = 1;
-
 	public const uint32 WIM_PROVIDER_EXTERNAL_FLAG_NOT_ACTIVE = 1;
-
 	public const uint32 WIM_PROVIDER_EXTERNAL_FLAG_SUSPENDED = 2;
-
 	public const uint32 FILE_PROVIDER_CURRENT_VERSION = 1;
-
 	public const uint32 FILE_PROVIDER_SINGLE_FILE = 1;
-
 	public const uint32 FILE_PROVIDER_COMPRESSION_MAXIMUM = 4;
-
 	public const uint32 FILE_PROVIDER_FLAG_COMPRESS_ON_WRITE = 1;
-
 	public const uint32 CONTAINER_VOLUME_STATE_HOSTING_CONTAINER = 1;
-
 	public const uint32 CONTAINER_ROOT_INFO_FLAG_SCRATCH_ROOT = 1;
-
 	public const uint32 CONTAINER_ROOT_INFO_FLAG_LAYER_ROOT = 2;
-
 	public const uint32 CONTAINER_ROOT_INFO_FLAG_VIRTUALIZATION_ROOT = 4;
-
 	public const uint32 CONTAINER_ROOT_INFO_FLAG_VIRTUALIZATION_TARGET_ROOT = 8;
-
 	public const uint32 CONTAINER_ROOT_INFO_FLAG_VIRTUALIZATION_EXCEPTION_ROOT = 16;
-
 	public const uint32 CONTAINER_ROOT_INFO_FLAG_BIND_ROOT = 32;
-
 	public const uint32 CONTAINER_ROOT_INFO_FLAG_BIND_TARGET_ROOT = 64;
-
 	public const uint32 CONTAINER_ROOT_INFO_FLAG_BIND_EXCEPTION_ROOT = 128;
-
 	public const uint32 CONTAINER_ROOT_INFO_FLAG_BIND_DO_NOT_MAP_NAME = 256;
-
 	public const uint32 CONTAINER_ROOT_INFO_FLAG_UNION_LAYER_ROOT = 512;
-
 	public const uint32 CONTAINER_ROOT_INFO_VALID_FLAGS = 1023;
-
 	public const uint32 PROJFS_PROTOCOL_VERSION = 3;
-
 	public const uint32 EFS_TRACKED_OFFSET_HEADER_FLAG = 1;
-
 	public const uint32 SPACES_TRACKED_OFFSET_HEADER_FLAG = 2;
-
 }
 #endregion
 
@@ -3214,12 +2204,13 @@ public struct STORAGE_DEVICE_NUMBER
 	public uint32 PartitionNumber;
 }
 
-[CRepr, FlexibleArray("Devices")]
+[CRepr]
 public struct STORAGE_DEVICE_NUMBERS
 {
 	public uint32 Version;
 	public uint32 Size;
 	public uint32 NumberOfDevices;
+	public STORAGE_DEVICE_NUMBER* Devices mut => &Devices_impl;
 	private STORAGE_DEVICE_NUMBER[ANYSIZE_ARRAY] Devices_impl;
 }
 
@@ -3301,17 +2292,14 @@ public struct DEVICE_MEDIA_INFO
 					public uint8 MediumType;
 					public uint8 DensityCode;
 				}
-
 				public _ScsiInformation_e__Struct ScsiInformation;
 			}
-
 			public STORAGE_MEDIA_TYPE MediaType;
 			public uint32 MediaCharacteristics;
 			public uint32 CurrentBlockSize;
 			public STORAGE_BUS_TYPE BusType;
 			public _BusSpecificData_e__Union BusSpecificData;
 		}
-
 		[CRepr]
 		public struct _DiskInfo_e__Struct
 		{
@@ -3323,7 +2311,6 @@ public struct DEVICE_MEDIA_INFO
 			public uint32 NumberMediaSides;
 			public uint32 MediaCharacteristics;
 		}
-
 		[CRepr]
 		public struct _RemovableDiskInfo_e__Struct
 		{
@@ -3335,20 +2322,19 @@ public struct DEVICE_MEDIA_INFO
 			public uint32 NumberMediaSides;
 			public uint32 MediaCharacteristics;
 		}
-
 		public _DiskInfo_e__Struct DiskInfo;
 		public _RemovableDiskInfo_e__Struct RemovableDiskInfo;
 		public _TapeInfo_e__Struct TapeInfo;
 	}
-
 	public _DeviceSpecific_e__Union DeviceSpecific;
 }
 
-[CRepr, FlexibleArray("MediaInfo")]
+[CRepr]
 public struct GET_MEDIA_TYPES
 {
 	public uint32 DeviceType;
 	public uint32 MediaInfoCount;
+	public DEVICE_MEDIA_INFO* MediaInfo mut => &MediaInfo_impl;
 	private DEVICE_MEDIA_INFO[ANYSIZE_ARRAY] MediaInfo_impl;
 }
 
@@ -3369,19 +2355,21 @@ public struct STORAGE_FAILURE_PREDICTION_CONFIG
 	public uint16 Reserved;
 }
 
-[CRepr, FlexibleArray("AdditionalParameters")]
+[CRepr]
 public struct STORAGE_PROPERTY_QUERY
 {
 	public STORAGE_PROPERTY_ID PropertyId;
 	public STORAGE_QUERY_TYPE QueryType;
+	public uint8* AdditionalParameters mut => &AdditionalParameters_impl;
 	private uint8[ANYSIZE_ARRAY] AdditionalParameters_impl;
 }
 
-[CRepr, FlexibleArray("AdditionalParameters")]
+[CRepr]
 public struct STORAGE_PROPERTY_SET
 {
 	public STORAGE_PROPERTY_ID PropertyId;
 	public STORAGE_SET_TYPE SetType;
+	public uint8* AdditionalParameters mut => &AdditionalParameters_impl;
 	private uint8[ANYSIZE_ARRAY] AdditionalParameters_impl;
 }
 
@@ -3392,7 +2380,7 @@ public struct STORAGE_DESCRIPTOR_HEADER
 	public uint32 Size;
 }
 
-[CRepr, FlexibleArray("RawDeviceProperties")]
+[CRepr]
 public struct STORAGE_DEVICE_DESCRIPTOR
 {
 	public uint32 Version;
@@ -3407,6 +2395,7 @@ public struct STORAGE_DEVICE_DESCRIPTOR
 	public uint32 SerialNumberOffset;
 	public STORAGE_BUS_TYPE BusType;
 	public uint32 RawPropertiesLength;
+	public uint8* RawDeviceProperties mut => &RawDeviceProperties_impl;
 	private uint8[ANYSIZE_ARRAY] RawDeviceProperties_impl;
 }
 
@@ -3460,11 +2449,9 @@ public struct STORAGE_MINIPORT_DESCRIPTOR
 		{
 			public uint8 _bitfield;
 		}
-
 		public using _Anonymous_e__Struct Anonymous;
 		public uint8 AsBYTE;
 	}
-
 	public uint32 Version;
 	public uint32 Size;
 	public STORAGE_PORT_CODE_SET Portdriver;
@@ -3477,7 +2464,7 @@ public struct STORAGE_MINIPORT_DESCRIPTOR
 	public uint32 Reserved1;
 }
 
-[CRepr, FlexibleArray("Identifier")]
+[CRepr]
 public struct STORAGE_IDENTIFIER
 {
 	public STORAGE_IDENTIFIER_CODE_SET CodeSet;
@@ -3485,15 +2472,17 @@ public struct STORAGE_IDENTIFIER
 	public uint16 IdentifierSize;
 	public uint16 NextOffset;
 	public STORAGE_ASSOCIATION_TYPE Association;
+	public uint8* Identifier mut => &Identifier_impl;
 	private uint8[ANYSIZE_ARRAY] Identifier_impl;
 }
 
-[CRepr, FlexibleArray("Identifiers")]
+[CRepr]
 public struct STORAGE_DEVICE_ID_DESCRIPTOR
 {
 	public uint32 Version;
 	public uint32 Size;
 	public uint32 NumberOfIdentifiers;
+	public uint8* Identifiers mut => &Identifiers_impl;
 	private uint8[ANYSIZE_ARRAY] Identifiers_impl;
 }
 
@@ -3612,13 +2601,14 @@ public struct STORAGE_CRYPTO_CAPABILITY
 	public uint32 DataUnitSizeBitmask;
 }
 
-[CRepr, FlexibleArray("CryptoCapabilities")]
+[CRepr]
 public struct STORAGE_CRYPTO_DESCRIPTOR
 {
 	public uint32 Version;
 	public uint32 Size;
 	public uint32 NumKeysSupported;
 	public uint32 NumCryptoCapabilities;
+	public STORAGE_CRYPTO_CAPABILITY* CryptoCapabilities mut => &CryptoCapabilities_impl;
 	private STORAGE_CRYPTO_CAPABILITY[ANYSIZE_ARRAY] CryptoCapabilities_impl;
 }
 
@@ -3634,7 +2624,7 @@ public struct STORAGE_TIER
 	public STORAGE_TIER_CLASS Class;
 }
 
-[CRepr, FlexibleArray("Tiers")]
+[CRepr]
 public struct STORAGE_DEVICE_TIERING_DESCRIPTOR
 {
 	public uint32 Version;
@@ -3642,15 +2632,17 @@ public struct STORAGE_DEVICE_TIERING_DESCRIPTOR
 	public uint32 Flags;
 	public uint32 TotalNumberOfTiers;
 	public uint32 NumberOfTiersReturned;
+	public STORAGE_TIER* Tiers mut => &Tiers_impl;
 	private STORAGE_TIER[ANYSIZE_ARRAY] Tiers_impl;
 }
 
-[CRepr, FlexibleArray("FaultDomainIds")]
+[CRepr]
 public struct STORAGE_DEVICE_FAULT_DOMAIN_DESCRIPTOR
 {
 	public uint32 Version;
 	public uint32 Size;
 	public uint32 NumberOfFaultDomains;
+	public Guid* FaultDomainIds mut => &FaultDomainIds_impl;
 	private Guid[ANYSIZE_ARRAY] FaultDomainIds_impl;
 }
 
@@ -3662,7 +2654,6 @@ public struct STORAGE_PROTOCOL_DATA_SUBVALUE_GET_LOG_PAGE
 	{
 		public uint32 _bitfield;
 	}
-
 	public using _Anonymous_e__Struct Anonymous;
 	public uint32 AsUlong;
 }
@@ -3729,7 +2720,7 @@ public struct STORAGE_TEMPERATURE_INFO
 	public uint32 Reserved1;
 }
 
-[CRepr, FlexibleArray("TemperatureInfo")]
+[CRepr]
 public struct STORAGE_TEMPERATURE_DATA_DESCRIPTOR
 {
 	public uint32 Version;
@@ -3739,6 +2730,7 @@ public struct STORAGE_TEMPERATURE_DATA_DESCRIPTOR
 	public uint16 InfoCount;
 	public uint8[2] Reserved0;
 	public uint32[2] Reserved1;
+	public STORAGE_TEMPERATURE_INFO* TemperatureInfo mut => &TemperatureInfo_impl;
 	private STORAGE_TEMPERATURE_INFO[ANYSIZE_ARRAY] TemperatureInfo_impl;
 }
 
@@ -3769,15 +2761,12 @@ public struct STORAGE_SPEC_VERSION
 				public uint8 SubMinor;
 				public uint8 Minor;
 			}
-
 			public using _Anonymous_e__Struct Anonymous;
 			public uint16 AsUshort;
 		}
-
 		public _MinorVersion_e__Union MinorVersion;
 		public uint16 MajorVersion;
 	}
-
 	public using _Anonymous_e__Struct Anonymous;
 	public uint32 AsUlong;
 }
@@ -3828,13 +2817,14 @@ public struct STORAGE_PHYSICAL_NODE_DATA
 	public uint32[3] Reserved;
 }
 
-[CRepr, FlexibleArray("Node")]
+[CRepr]
 public struct STORAGE_PHYSICAL_TOPOLOGY_DESCRIPTOR
 {
 	public uint32 Version;
 	public uint32 Size;
 	public uint32 NodeCount;
 	public uint32 Reserved;
+	public STORAGE_PHYSICAL_NODE_DATA* Node mut => &Node_impl;
 	private STORAGE_PHYSICAL_NODE_DATA[ANYSIZE_ARRAY] Node_impl;
 }
 
@@ -3869,7 +2859,6 @@ public struct STORAGE_OPERATIONAL_REASON
 			public uint8 ASCQ;
 			public uint8 Reserved;
 		}
-
 		[CRepr]
 		public struct _NVDIMM_N_e__Struct
 		{
@@ -3877,19 +2866,17 @@ public struct STORAGE_OPERATIONAL_REASON
 			public uint8[2] ModuleHealth;
 			public uint8 ErrorThresholdStatus;
 		}
-
 		public _ScsiSenseKey_e__Struct ScsiSenseKey;
 		public _NVDIMM_N_e__Struct NVDIMM_N;
 		public uint32 AsUlong;
 	}
-
 	public uint32 Version;
 	public uint32 Size;
 	public STORAGE_OPERATIONAL_STATUS_REASON Reason;
 	public _RawBytes_e__Union RawBytes;
 }
 
-[CRepr, FlexibleArray("AdditionalReasons")]
+[CRepr]
 public struct STORAGE_DEVICE_MANAGEMENT_STATUS
 {
 	public uint32 Version;
@@ -3898,6 +2885,7 @@ public struct STORAGE_DEVICE_MANAGEMENT_STATUS
 	public uint32 NumberOfOperationalStatus;
 	public uint32 NumberOfAdditionalReasons;
 	public STORAGE_DISK_OPERATIONAL_STATUS[16] OperationalStatus;
+	public STORAGE_OPERATIONAL_REASON* AdditionalReasons mut => &AdditionalReasons_impl;
 	private STORAGE_OPERATIONAL_REASON[ANYSIZE_ARRAY] AdditionalReasons_impl;
 }
 
@@ -3917,7 +2905,7 @@ public struct STORAGE_ZONE_GROUP
 	public uint64 ZoneSize;
 }
 
-[CRepr, FlexibleArray("ZoneGroup")]
+[CRepr]
 public struct STORAGE_ZONED_DEVICE_DESCRIPTOR
 {
 	[CRepr, Union]
@@ -3930,24 +2918,22 @@ public struct STORAGE_ZONED_DEVICE_DESCRIPTOR
 			public BOOLEAN UnrestrictedRead;
 			public uint8[3] Reserved;
 		}
-
 		[CRepr]
 		public struct _SequentialPreferredZone_e__Struct
 		{
 			public uint32 OptimalOpenZoneCount;
 			public uint32 Reserved;
 		}
-
 		public _SequentialRequiredZone_e__Struct SequentialRequiredZone;
 		public _SequentialPreferredZone_e__Struct SequentialPreferredZone;
 	}
-
 	public uint32 Version;
 	public uint32 Size;
 	public STORAGE_ZONED_DEVICE_TYPES DeviceType;
 	public uint32 ZoneCount;
 	public _ZoneAttributes_e__Union ZoneAttributes;
 	public uint32 ZoneGroupCount;
+	public STORAGE_ZONE_GROUP* ZoneGroup mut => &ZoneGroup_impl;
 	private STORAGE_ZONE_GROUP[ANYSIZE_ARRAY] ZoneGroup_impl;
 }
 
@@ -3963,18 +2949,15 @@ public struct DEVICE_LOCATION
 			public uint32 Channel;
 			public uint32 Device;
 		}
-
 		[CRepr]
 		public struct _Anonymous2_e__Struct
 		{
 			public uint32 Target;
 			public uint32 Lun;
 		}
-
 		public _Anonymous1_e__Struct Anonymous1;
 		public _Anonymous2_e__Struct Anonymous2;
 	}
-
 	public uint32 Socket;
 	public uint32 Slot;
 	public uint32 Adapter;
@@ -4015,7 +2998,6 @@ public struct STORAGE_HW_ENDURANCE_INFO
 	{
 		public uint32 _bitfield;
 	}
-
 	public uint32 ValidFields;
 	public uint32 GroupId;
 	public _Flags_e__Struct Flags;
@@ -4048,12 +3030,13 @@ public struct STORAGE_DEVICE_SELF_ENCRYPTION_PROPERTY
 	public BOOLEAN SupportsSelfEncryption;
 }
 
-[CRepr, FlexibleArray("Identifier")]
+[CRepr]
 public struct STORAGE_FRU_ID_DESCRIPTOR
 {
 	public uint32 Version;
 	public uint32 Size;
 	public uint32 IdentifierSize;
+	public uint8* Identifier mut => &Identifier_impl;
 	private uint8[ANYSIZE_ARRAY] Identifier_impl;
 }
 
@@ -4102,12 +3085,13 @@ public struct DEVICE_DSM_DEFINITION
 	public uint32 OutputBlockLength;
 }
 
-[CRepr, FlexibleArray("FileTypeID")]
+[CRepr]
 public struct DEVICE_DSM_NOTIFICATION_PARAMETERS
 {
 	public uint32 Size;
 	public uint32 Flags;
 	public uint32 NumFileTypeIDs;
+	public Guid* FileTypeID mut => &FileTypeID_impl;
 	private Guid[ANYSIZE_ARRAY] FileTypeID_impl;
 }
 
@@ -4122,11 +3106,9 @@ public struct STORAGE_OFFLOAD_TOKEN
 		{
 			public uint8[504] Reserved2;
 		}
-
 		public _StorageOffloadZeroDataToken_e__Struct StorageOffloadZeroDataToken;
 		public uint8[504] Token;
 	}
-
 	public uint8[4] TokenType;
 	public uint8[2] Reserved;
 	public uint8[2] TokenIdLength;
@@ -4177,7 +3159,7 @@ public struct DEVICE_DATA_SET_LBP_STATE_PARAMETERS
 	public uint32 OutputVersion;
 }
 
-[CRepr, FlexibleArray("SlabAllocationBitMap")]
+[CRepr]
 public struct DEVICE_DATA_SET_LB_PROVISIONING_STATE
 {
 	public uint32 Size;
@@ -4186,10 +3168,11 @@ public struct DEVICE_DATA_SET_LB_PROVISIONING_STATE
 	public uint32 SlabOffsetDeltaInBytes;
 	public uint32 SlabAllocationBitMapBitCount;
 	public uint32 SlabAllocationBitMapLength;
+	public uint32* SlabAllocationBitMap mut => &SlabAllocationBitMap_impl;
 	private uint32[ANYSIZE_ARRAY] SlabAllocationBitMap_impl;
 }
 
-[CRepr, FlexibleArray("SlabAllocationBitMap")]
+[CRepr]
 public struct DEVICE_DATA_SET_LB_PROVISIONING_STATE_V2
 {
 	public uint32 Size;
@@ -4198,14 +3181,16 @@ public struct DEVICE_DATA_SET_LB_PROVISIONING_STATE_V2
 	public uint64 SlabOffsetDeltaInBytes;
 	public uint32 SlabAllocationBitMapBitCount;
 	public uint32 SlabAllocationBitMapLength;
+	public uint32* SlabAllocationBitMap mut => &SlabAllocationBitMap_impl;
 	private uint32[ANYSIZE_ARRAY] SlabAllocationBitMap_impl;
 }
 
-[CRepr, FlexibleArray("RepairCopies")]
+[CRepr]
 public struct DEVICE_DATA_SET_REPAIR_PARAMETERS
 {
 	public uint32 NumberOfRepairCopies;
 	public uint32 SourceCopy;
+	public uint32* RepairCopies mut => &RepairCopies_impl;
 	private uint32[ANYSIZE_ARRAY] RepairCopies_impl;
 }
 
@@ -4233,13 +3218,14 @@ public struct DEVICE_DATA_SET_SCRUB_EX_OUTPUT
 	public uint64 BytesScrubbed;
 }
 
-[CRepr, FlexibleArray("TierIds")]
+[CRepr]
 public struct DEVICE_DSM_TIERING_QUERY_INPUT
 {
 	public uint32 Version;
 	public uint32 Size;
 	public uint32 Flags;
 	public uint32 NumberOfTierIds;
+	public Guid* TierIds mut => &TierIds_impl;
 	private Guid[ANYSIZE_ARRAY] TierIds_impl;
 }
 
@@ -4251,7 +3237,7 @@ public struct STORAGE_TIER_REGION
 	public uint64 Length;
 }
 
-[CRepr, FlexibleArray("Regions")]
+[CRepr]
 public struct DEVICE_DSM_TIERING_QUERY_OUTPUT
 {
 	public uint32 Version;
@@ -4261,6 +3247,7 @@ public struct DEVICE_DSM_TIERING_QUERY_OUTPUT
 	public uint64 Alignment;
 	public uint32 TotalNumberOfRegions;
 	public uint32 NumberOfRegionsReturned;
+	public STORAGE_TIER_REGION* Regions mut => &Regions_impl;
 	private STORAGE_TIER_REGION[ANYSIZE_ARRAY] Regions_impl;
 }
 
@@ -4286,13 +3273,14 @@ public struct DEVICE_STORAGE_ADDRESS_RANGE
 	public uint64 LengthInBytes;
 }
 
-[CRepr, FlexibleArray("Ranges")]
+[CRepr]
 public struct DEVICE_DSM_PHYSICAL_ADDRESSES_OUTPUT
 {
 	public uint32 Version;
 	public uint32 Flags;
 	public uint32 TotalNumberOfRanges;
 	public uint32 NumberOfRangesReturned;
+	public DEVICE_STORAGE_ADDRESS_RANGE* Ranges mut => &Ranges_impl;
 	private DEVICE_STORAGE_ADDRESS_RANGE[ANYSIZE_ARRAY] Ranges_impl;
 }
 
@@ -4317,13 +3305,14 @@ public struct STORAGE_ZONE_DESCRIPTOR
 	public uint64 WritePointerOffset;
 }
 
-[CRepr, FlexibleArray("ZoneDescriptors")]
+[CRepr]
 public struct DEVICE_DSM_REPORT_ZONES_DATA
 {
 	public uint32 Size;
 	public uint32 ZoneCount;
 	public STORAGE_ZONES_ATTRIBUTES Attributes;
 	public uint32 Reserved0;
+	public STORAGE_ZONE_DESCRIPTOR* ZoneDescriptors mut => &ZoneDescriptors_impl;
 	private STORAGE_ZONE_DESCRIPTOR[ANYSIZE_ARRAY] ZoneDescriptors_impl;
 }
 
@@ -4338,23 +3327,22 @@ public struct DEVICE_STORAGE_RANGE_ATTRIBUTES
 		{
 			public uint32 _bitfield;
 		}
-
 		public uint32 AllFlags;
 		public using _Anonymous_e__Struct Anonymous;
 	}
-
 	public uint64 LengthInBytes;
 	public using _Anonymous_e__Union Anonymous;
 	public uint32 Reserved;
 }
 
-[CRepr, FlexibleArray("Ranges")]
+[CRepr]
 public struct DEVICE_DSM_RANGE_ERROR_INFO
 {
 	public uint32 Version;
 	public uint32 Flags;
 	public uint32 TotalNumberOfRanges;
 	public uint32 NumberOfRangesReturned;
+	public DEVICE_STORAGE_RANGE_ATTRIBUTES* Ranges mut => &Ranges_impl;
 	private DEVICE_STORAGE_RANGE_ATTRIBUTES[ANYSIZE_ARRAY] Ranges_impl;
 }
 
@@ -4365,13 +3353,14 @@ public struct DEVICE_DSM_LOST_QUERY_PARAMETERS
 	public uint64 Granularity;
 }
 
-[CRepr, FlexibleArray("BitMap")]
+[CRepr]
 public struct DEVICE_DSM_LOST_QUERY_OUTPUT
 {
 	public uint32 Version;
 	public uint32 Size;
 	public uint64 Alignment;
 	public uint32 NumberOfBits;
+	public uint32* BitMap mut => &BitMap_impl;
 	private uint32[ANYSIZE_ARRAY] BitMap_impl;
 }
 
@@ -4436,7 +3425,7 @@ public struct STORAGE_DIAGNOSTIC_REQUEST
 	public STORAGE_DIAGNOSTIC_LEVEL Level;
 }
 
-[CRepr, FlexibleArray("DiagnosticDataBuffer")]
+[CRepr]
 public struct STORAGE_DIAGNOSTIC_DATA
 {
 	public uint32 Version;
@@ -4444,6 +3433,7 @@ public struct STORAGE_DIAGNOSTIC_DATA
 	public Guid ProviderId;
 	public uint32 BufferSize;
 	public uint32 Reserved;
+	public uint8* DiagnosticDataBuffer mut => &DiagnosticDataBuffer_impl;
 	private uint8[ANYSIZE_ARRAY] DiagnosticDataBuffer_impl;
 }
 
@@ -4471,7 +3461,7 @@ public struct PHYSICAL_ELEMENT_STATUS_DESCRIPTOR
 	public uint32[4] Reserved2;
 }
 
-[CRepr, FlexibleArray("Descriptors")]
+[CRepr]
 public struct PHYSICAL_ELEMENT_STATUS
 {
 	public uint32 Version;
@@ -4480,6 +3470,7 @@ public struct PHYSICAL_ELEMENT_STATUS
 	public uint32 ReturnedDescriptorCount;
 	public uint32 ElementIdentifierBeingDepoped;
 	public uint32 Reserved;
+	public PHYSICAL_ELEMENT_STATUS_DESCRIPTOR* Descriptors mut => &Descriptors_impl;
 	private PHYSICAL_ELEMENT_STATUS_DESCRIPTOR[ANYSIZE_ARRAY] Descriptors_impl;
 }
 
@@ -4502,7 +3493,7 @@ public struct GET_DEVICE_INTERNAL_STATUS_DATA_REQUEST
 	public DEVICE_INTERNAL_STATUS_DATA_SET RequestDataSet;
 }
 
-[CRepr, FlexibleArray("StatusData")]
+[CRepr]
 public struct DEVICE_INTERNAL_STATUS_DATA
 {
 	public uint32 Version;
@@ -4516,6 +3507,7 @@ public struct DEVICE_INTERNAL_STATUS_DATA
 	public uint8[3] Reserved;
 	public uint8[128] ReasonIdentifier;
 	public uint32 StatusDataLength;
+	public uint8* StatusData mut => &StatusData_impl;
 	private uint8[ANYSIZE_ARRAY] StatusData_impl;
 }
 
@@ -4527,18 +3519,18 @@ public struct STORAGE_REINITIALIZE_MEDIA
 	{
 		public uint32 _bitfield;
 	}
-
 	public uint32 Version;
 	public uint32 Size;
 	public uint32 TimeoutInSeconds;
 	public _SanitizeOption_e__Struct SanitizeOption;
 }
 
-[CRepr, FlexibleArray("SerialNumber")]
+[CRepr]
 public struct STORAGE_MEDIA_SERIAL_NUMBER_DATA
 {
 	public uint16 Reserved;
 	public uint16 SerialNumberLength;
+	public uint8* SerialNumber mut => &SerialNumber_impl;
 	private uint8[ANYSIZE_ARRAY] SerialNumber_impl;
 }
 
@@ -4578,19 +3570,17 @@ public struct PERSISTENT_RESERVE_COMMAND
 			public uint8 _bitfield;
 			public uint16 AllocationLength;
 		}
-
-		[CRepr, FlexibleArray("ParameterList")]
+		[CRepr]
 		public struct _PR_OUT_e__Struct
 		{
 			public uint8 _bitfield1;
 			public uint8 _bitfield2;
+			public uint8* ParameterList mut => &ParameterList_impl;
 			private uint8[ANYSIZE_ARRAY] ParameterList_impl;
 		}
-
 		public _PR_IN_e__Struct PR_IN;
 		public _PR_OUT_e__Struct PR_OUT;
 	}
-
 	public uint32 Version;
 	public uint32 Size;
 	public using _Anonymous_e__Union Anonymous;
@@ -4633,26 +3623,29 @@ public struct GP_LOG_PAGE_DESCRIPTOR
 	public uint16 LogSectors;
 }
 
-[CRepr, Packed(1), FlexibleArray("bData")]
+[CRepr, Packed(1)]
 public struct DEVICEDUMP_PUBLIC_SUBSECTION
 {
 	public uint32 dwFlags;
 	public GP_LOG_PAGE_DESCRIPTOR[16] GPLogTable;
 	public CHAR[16] szDescription;
+	public uint8* bData mut => &bData_impl;
 	private uint8[ANYSIZE_ARRAY] bData_impl;
 }
 
-[CRepr, FlexibleArray("bData")]
+[CRepr]
 public struct DEVICEDUMP_RESTRICTED_SUBSECTION
 {
+	public uint8* bData mut => &bData_impl;
 	private uint8[ANYSIZE_ARRAY] bData_impl;
 }
 
-[CRepr, Packed(1), FlexibleArray("bData")]
+[CRepr, Packed(1)]
 public struct DEVICEDUMP_PRIVATE_SUBSECTION
 {
 	public uint32 dwFlags;
 	public GP_LOG_PAGE_DESCRIPTOR GPLogId;
+	public uint8* bData mut => &bData_impl;
 	private uint8[ANYSIZE_ARRAY] bData_impl;
 }
 
@@ -4679,24 +3672,20 @@ public struct DEVICEDUMP_STORAGESTACK_PUBLIC_STATE_RECORD
 		{
 			public uint32 SrbTag;
 		}
-
 		[CRepr, Packed(1)]
 		public struct _ExternalStack_e__Struct
 		{
 			public uint32 dwReserved;
 		}
-
 		[CRepr, Packed(1)]
 		public struct _AtaPort_e__Struct
 		{
 			public uint32 dwAtaPortSpecific;
 		}
-
 		public _ExternalStack_e__Struct ExternalStack;
 		public _AtaPort_e__Struct AtaPort;
 		public _StorPort_e__Struct StorPort;
 	}
-
 	public uint8[16] Cdb;
 	public uint8[16] Command;
 	public uint64 StartTime;
@@ -4706,13 +3695,14 @@ public struct DEVICEDUMP_STORAGESTACK_PUBLIC_STATE_RECORD
 	public _StackSpecific_e__Union StackSpecific;
 }
 
-[CRepr, Packed(1), FlexibleArray("RecordArray")]
+[CRepr, Packed(1)]
 public struct DEVICEDUMP_STORAGESTACK_PUBLIC_DUMP
 {
 	public DEVICEDUMP_STRUCTURE_VERSION Descriptor;
 	public uint32 dwReasonForCollection;
 	public uint8[16] cDriverName;
 	public uint32 uiNumRecords;
+	public DEVICEDUMP_STORAGESTACK_PUBLIC_STATE_RECORD* RecordArray mut => &RecordArray_impl;
 	private DEVICEDUMP_STORAGESTACK_PUBLIC_STATE_RECORD[ANYSIZE_ARRAY] RecordArray_impl;
 }
 
@@ -4776,21 +3766,20 @@ public struct STORAGE_COUNTER
 			public uint32 Week;
 			public uint32 Year;
 		}
-
 		public _ManufactureDate_e__Struct ManufactureDate;
 		public uint64 AsUlonglong;
 	}
-
 	public STORAGE_COUNTER_TYPE Type;
 	public _Value_e__Union Value;
 }
 
-[CRepr, FlexibleArray("Counters")]
+[CRepr]
 public struct STORAGE_COUNTERS
 {
 	public uint32 Version;
 	public uint32 Size;
 	public uint32 NumberOfCounters;
+	public STORAGE_COUNTER* Counters mut => &Counters_impl;
 	private STORAGE_COUNTER[ANYSIZE_ARRAY] Counters_impl;
 }
 
@@ -4814,7 +3803,7 @@ public struct STORAGE_HW_FIRMWARE_SLOT_INFO
 	public uint8[16] Revision;
 }
 
-[CRepr, FlexibleArray("Slot")]
+[CRepr]
 public struct STORAGE_HW_FIRMWARE_INFO
 {
 	public uint32 Version;
@@ -4827,10 +3816,11 @@ public struct STORAGE_HW_FIRMWARE_INFO
 	public uint8[3] Reserved;
 	public uint32 ImagePayloadAlignment;
 	public uint32 ImagePayloadMaxSize;
+	public STORAGE_HW_FIRMWARE_SLOT_INFO* Slot mut => &Slot_impl;
 	private STORAGE_HW_FIRMWARE_SLOT_INFO[ANYSIZE_ARRAY] Slot_impl;
 }
 
-[CRepr, FlexibleArray("ImageBuffer")]
+[CRepr]
 public struct STORAGE_HW_FIRMWARE_DOWNLOAD
 {
 	public uint32 Version;
@@ -4840,10 +3830,11 @@ public struct STORAGE_HW_FIRMWARE_DOWNLOAD
 	public uint8[3] Reserved;
 	public uint64 Offset;
 	public uint64 BufferSize;
+	public uint8* ImageBuffer mut => &ImageBuffer_impl;
 	private uint8[ANYSIZE_ARRAY] ImageBuffer_impl;
 }
 
-[CRepr, FlexibleArray("ImageBuffer")]
+[CRepr]
 public struct STORAGE_HW_FIRMWARE_DOWNLOAD_V2
 {
 	public uint32 Version;
@@ -4855,6 +3846,7 @@ public struct STORAGE_HW_FIRMWARE_DOWNLOAD_V2
 	public uint64 BufferSize;
 	public uint32 ImageSize;
 	public uint32 Reserved2;
+	public uint8* ImageBuffer mut => &ImageBuffer_impl;
 	private uint8[ANYSIZE_ARRAY] ImageBuffer_impl;
 }
 
@@ -4868,7 +3860,7 @@ public struct STORAGE_HW_FIRMWARE_ACTIVATE
 	public uint8[3] Reserved0;
 }
 
-[CRepr, FlexibleArray("Command")]
+[CRepr]
 public struct STORAGE_PROTOCOL_COMMAND
 {
 	public uint32 Version;
@@ -4889,6 +3881,7 @@ public struct STORAGE_PROTOCOL_COMMAND
 	public uint32 Reserved0;
 	public uint32 FixedProtocolReturnData;
 	public uint32[3] Reserved1;
+	public uint8* Command mut => &Command_impl;
 	private uint8[ANYSIZE_ARRAY] Command_impl;
 }
 
@@ -4916,12 +3909,13 @@ public struct SCM_LOGICAL_DEVICE_INSTANCE
 	public char16[256] SymbolicLink;
 }
 
-[CRepr, FlexibleArray("Devices")]
+[CRepr]
 public struct SCM_LOGICAL_DEVICES
 {
 	public uint32 Version;
 	public uint32 Size;
 	public uint32 DeviceCount;
+	public SCM_LOGICAL_DEVICE_INSTANCE* Devices mut => &Devices_impl;
 	private SCM_LOGICAL_DEVICE_INSTANCE[ANYSIZE_ARRAY] Devices_impl;
 }
 
@@ -4934,12 +3928,13 @@ public struct SCM_PHYSICAL_DEVICE_INSTANCE
 	public char16[256] SymbolicLink;
 }
 
-[CRepr, FlexibleArray("Devices")]
+[CRepr]
 public struct SCM_PHYSICAL_DEVICES
 {
 	public uint32 Version;
 	public uint32 Size;
 	public uint32 DeviceCount;
+	public SCM_PHYSICAL_DEVICE_INSTANCE* Devices mut => &Devices_impl;
 	private SCM_PHYSICAL_DEVICE_INSTANCE[ANYSIZE_ARRAY] Devices_impl;
 }
 
@@ -4960,22 +3955,24 @@ public struct SCM_REGION
 	public uint64 RegionOffset;
 }
 
-[CRepr, FlexibleArray("Regions")]
+[CRepr]
 public struct SCM_REGIONS
 {
 	public uint32 Version;
 	public uint32 Size;
 	public uint32 RegionCount;
+	public SCM_REGION* Regions mut => &Regions_impl;
 	private SCM_REGION[ANYSIZE_ARRAY] Regions_impl;
 }
 
-[CRepr, FlexibleArray("AdditionalParameters")]
+[CRepr]
 public struct SCM_BUS_PROPERTY_QUERY
 {
 	public uint32 Version;
 	public uint32 Size;
 	public SCM_BUS_PROPERTY_ID PropertyId;
 	public SCM_BUS_QUERY_TYPE QueryType;
+	public uint8* AdditionalParameters mut => &AdditionalParameters_impl;
 	private uint8[ANYSIZE_ARRAY] AdditionalParameters_impl;
 }
 
@@ -4987,7 +3984,6 @@ public struct SCM_BUS_RUNTIME_FW_ACTIVATION_INFO
 	{
 		public uint32 _bitfield;
 	}
-
 	public uint32 Version;
 	public uint32 Size;
 	public BOOLEAN RuntimeFwActivationSupported;
@@ -5007,29 +4003,30 @@ public struct SCM_BUS_DEDICATED_MEMORY_DEVICE_INFO
 	{
 		public uint32 _bitfield;
 	}
-
 	public Guid DeviceGuid;
 	public uint32 DeviceNumber;
 	public _Flags_e__Struct Flags;
 	public uint64 DeviceSize;
 }
 
-[CRepr, FlexibleArray("Devices")]
+[CRepr]
 public struct SCM_BUS_DEDICATED_MEMORY_DEVICES_INFO
 {
 	public uint32 Version;
 	public uint32 Size;
 	public uint32 DeviceCount;
+	public SCM_BUS_DEDICATED_MEMORY_DEVICE_INFO* Devices mut => &Devices_impl;
 	private SCM_BUS_DEDICATED_MEMORY_DEVICE_INFO[ANYSIZE_ARRAY] Devices_impl;
 }
 
-[CRepr, FlexibleArray("AdditionalParameters")]
+[CRepr]
 public struct SCM_BUS_PROPERTY_SET
 {
 	public uint32 Version;
 	public uint32 Size;
 	public SCM_BUS_PROPERTY_ID PropertyId;
 	public SCM_BUS_SET_TYPE SetType;
+	public uint8* AdditionalParameters mut => &AdditionalParameters_impl;
 	private uint8[ANYSIZE_ARRAY] AdditionalParameters_impl;
 }
 
@@ -5046,32 +4043,35 @@ public struct SCM_INTERLEAVED_PD_INFO
 	public Guid DeviceGuid;
 }
 
-[CRepr, FlexibleArray("InterleaveSet")]
+[CRepr]
 public struct SCM_LD_INTERLEAVE_SET_INFO
 {
 	public uint32 Version;
 	public uint32 Size;
 	public uint32 InterleaveSetSize;
+	public SCM_INTERLEAVED_PD_INFO* InterleaveSet mut => &InterleaveSet_impl;
 	private SCM_INTERLEAVED_PD_INFO[ANYSIZE_ARRAY] InterleaveSet_impl;
 }
 
-[CRepr, FlexibleArray("AdditionalParameters")]
+[CRepr]
 public struct SCM_PD_PROPERTY_QUERY
 {
 	public uint32 Version;
 	public uint32 Size;
 	public SCM_PD_PROPERTY_ID PropertyId;
 	public SCM_PD_QUERY_TYPE QueryType;
+	public uint8* AdditionalParameters mut => &AdditionalParameters_impl;
 	private uint8[ANYSIZE_ARRAY] AdditionalParameters_impl;
 }
 
-[CRepr, FlexibleArray("AdditionalParameters")]
+[CRepr]
 public struct SCM_PD_PROPERTY_SET
 {
 	public uint32 Version;
 	public uint32 Size;
 	public SCM_PD_PROPERTY_ID PropertyId;
 	public SCM_PD_SET_TYPE SetType;
+	public uint8* AdditionalParameters mut => &AdditionalParameters_impl;
 	private uint8[ANYSIZE_ARRAY] AdditionalParameters_impl;
 }
 
@@ -5097,7 +4097,7 @@ public struct SCM_PD_DEVICE_HANDLE
 	public uint32 DeviceHandle;
 }
 
-[CRepr, FlexibleArray("SerialNumber")]
+[CRepr]
 public struct SCM_PD_DEVICE_INFO
 {
 	public uint32 Version;
@@ -5121,6 +4121,7 @@ public struct SCM_PD_DEVICE_INFO
 	public uint8 ManufacturingYear;
 	public uint32 SerialNumber4Byte;
 	public uint32 SerialNumberLengthInChars;
+	public CHAR* SerialNumber mut => &SerialNumber_impl;
 	private CHAR[ANYSIZE_ARRAY] SerialNumber_impl;
 }
 
@@ -5131,12 +4132,13 @@ public struct SCM_PD_DEVICE_SPECIFIC_PROPERTY
 	public int64 Value;
 }
 
-[CRepr, FlexibleArray("DeviceSpecificProperties")]
+[CRepr]
 public struct SCM_PD_DEVICE_SPECIFIC_INFO
 {
 	public uint32 Version;
 	public uint32 Size;
 	public uint32 NumberOfProperties;
+	public SCM_PD_DEVICE_SPECIFIC_PROPERTY* DeviceSpecificProperties mut => &DeviceSpecificProperties_impl;
 	private SCM_PD_DEVICE_SPECIFIC_PROPERTY[ANYSIZE_ARRAY] DeviceSpecificProperties_impl;
 }
 
@@ -5151,7 +4153,7 @@ public struct SCM_PD_FIRMWARE_SLOT_INFO
 	public uint8[32] Revision;
 }
 
-[CRepr, FlexibleArray("Slots")]
+[CRepr]
 public struct SCM_PD_FIRMWARE_INFO
 {
 	public uint32 Version;
@@ -5159,10 +4161,11 @@ public struct SCM_PD_FIRMWARE_INFO
 	public uint8 ActiveSlot;
 	public uint8 NextActiveSlot;
 	public uint8 SlotCount;
+	public SCM_PD_FIRMWARE_SLOT_INFO* Slots mut => &Slots_impl;
 	private SCM_PD_FIRMWARE_SLOT_INFO[ANYSIZE_ARRAY] Slots_impl;
 }
 
-[CRepr, FlexibleArray("AdditionalReasons")]
+[CRepr]
 public struct SCM_PD_MANAGEMENT_STATUS
 {
 	public uint32 Version;
@@ -5171,27 +4174,30 @@ public struct SCM_PD_MANAGEMENT_STATUS
 	public uint32 NumberOfOperationalStatus;
 	public uint32 NumberOfAdditionalReasons;
 	public SCM_PD_OPERATIONAL_STATUS[16] OperationalStatus;
+	public SCM_PD_OPERATIONAL_STATUS_REASON* AdditionalReasons mut => &AdditionalReasons_impl;
 	private SCM_PD_OPERATIONAL_STATUS_REASON[ANYSIZE_ARRAY] AdditionalReasons_impl;
 }
 
-[CRepr, FlexibleArray("Location")]
+[CRepr]
 public struct SCM_PD_LOCATION_STRING
 {
 	public uint32 Version;
 	public uint32 Size;
+	public char16* Location mut => &Location_impl;
 	private char16[ANYSIZE_ARRAY] Location_impl;
 }
 
-[CRepr, FlexibleArray("Identifier")]
+[CRepr]
 public struct SCM_PD_FRU_ID_STRING
 {
 	public uint32 Version;
 	public uint32 Size;
 	public uint32 IdentifierSize;
+	public uint8* Identifier mut => &Identifier_impl;
 	private uint8[ANYSIZE_ARRAY] Identifier_impl;
 }
 
-[CRepr, FlexibleArray("FirmwareImage")]
+[CRepr]
 public struct SCM_PD_FIRMWARE_DOWNLOAD
 {
 	public uint32 Version;
@@ -5201,6 +4207,7 @@ public struct SCM_PD_FIRMWARE_DOWNLOAD
 	public uint8[3] Reserved;
 	public uint64 Offset;
 	public uint32 FirmwareImageSizeInBytes;
+	public uint8* FirmwareImage mut => &FirmwareImage_impl;
 	private uint8[ANYSIZE_ARRAY] FirmwareImage_impl;
 }
 
@@ -5222,40 +4229,44 @@ public struct SCM_PD_RUNTIME_FW_ACTIVATION_INFO
 	public SCM_PD_FIRMWARE_ACTIVATION_STATE FirmwareActivationState;
 }
 
-[CRepr, FlexibleArray("Data")]
+[CRepr]
 public struct SCM_PD_PASSTHROUGH_INPUT
 {
 	public uint32 Version;
 	public uint32 Size;
 	public Guid ProtocolGuid;
 	public uint32 DataSize;
+	public uint8* Data mut => &Data_impl;
 	private uint8[ANYSIZE_ARRAY] Data_impl;
 }
 
-[CRepr, FlexibleArray("Data")]
+[CRepr]
 public struct SCM_PD_PASSTHROUGH_OUTPUT
 {
 	public uint32 Version;
 	public uint32 Size;
 	public Guid ProtocolGuid;
 	public uint32 DataSize;
+	public uint8* Data mut => &Data_impl;
 	private uint8[ANYSIZE_ARRAY] Data_impl;
 }
 
-[CRepr, FlexibleArray("OpcodeParameters")]
+[CRepr]
 public struct SCM_PD_PASSTHROUGH_INVDIMM_INPUT
 {
 	public uint32 Opcode;
 	public uint32 OpcodeParametersLength;
+	public uint8* OpcodeParameters mut => &OpcodeParameters_impl;
 	private uint8[ANYSIZE_ARRAY] OpcodeParameters_impl;
 }
 
-[CRepr, FlexibleArray("OutputData")]
+[CRepr]
 public struct SCM_PD_PASSTHROUGH_INVDIMM_OUTPUT
 {
 	public uint16 GeneralStatus;
 	public uint16 ExtendedStatus;
 	public uint32 OutputDataLength;
+	public uint8* OutputData mut => &OutputData_impl;
 	private uint8[ANYSIZE_ARRAY] OutputData_impl;
 }
 
@@ -5267,7 +4278,6 @@ public struct SCM_PD_REINITIALIZE_MEDIA_INPUT
 	{
 		public uint32 _bitfield;
 	}
-
 	public uint32 Version;
 	public uint32 Size;
 	public _Options_e__Struct Options;
@@ -5291,7 +4301,7 @@ public struct FORMAT_PARAMETERS
 	public uint32 EndHeadNumber;
 }
 
-[CRepr, FlexibleArray("SectorNumber")]
+[CRepr]
 public struct FORMAT_EX_PARAMETERS
 {
 	public MEDIA_TYPE MediaType;
@@ -5301,6 +4311,7 @@ public struct FORMAT_EX_PARAMETERS
 	public uint32 EndHeadNumber;
 	public uint16 FormatGapLength;
 	public uint16 SectorsPerTrack;
+	public uint16* SectorNumber mut => &SectorNumber_impl;
 	private uint16[ANYSIZE_ARRAY] SectorNumber_impl;
 }
 
@@ -5333,11 +4344,12 @@ public struct SET_PARTITION_INFORMATION
 	public uint8 PartitionType;
 }
 
-[CRepr, FlexibleArray("PartitionEntry")]
+[CRepr]
 public struct DRIVE_LAYOUT_INFORMATION
 {
 	public uint32 PartitionCount;
 	public uint32 Signature;
+	public PARTITION_INFORMATION* PartitionEntry mut => &PartitionEntry_impl;
 	private PARTITION_INFORMATION[ANYSIZE_ARRAY] PartitionEntry_impl;
 }
 
@@ -5348,19 +4360,21 @@ public struct VERIFY_INFORMATION
 	public uint32 Length;
 }
 
-[CRepr, FlexibleArray("BlockNumber")]
+[CRepr]
 public struct REASSIGN_BLOCKS
 {
 	public uint16 Reserved;
 	public uint16 Count;
+	public uint32* BlockNumber mut => &BlockNumber_impl;
 	private uint32[ANYSIZE_ARRAY] BlockNumber_impl;
 }
 
-[CRepr, Packed(1), FlexibleArray("BlockNumber")]
+[CRepr, Packed(1)]
 public struct REASSIGN_BLOCKS_EX
 {
 	public uint16 Reserved;
 	public uint16 Count;
+	public LARGE_INTEGER* BlockNumber mut => &BlockNumber_impl;
 	private LARGE_INTEGER[ANYSIZE_ARRAY] BlockNumber_impl;
 }
 
@@ -5392,7 +4406,6 @@ public struct SET_PARTITION_INFORMATION_EX
 		public SET_PARTITION_INFORMATION Mbr;
 		public PARTITION_INFORMATION_GPT Gpt;
 	}
-
 	public PARTITION_STYLE PartitionStyle;
 	public using _Anonymous_e__Union Anonymous;
 }
@@ -5419,7 +4432,6 @@ public struct CREATE_DISK
 		public CREATE_DISK_MBR Mbr;
 		public CREATE_DISK_GPT Gpt;
 	}
-
 	public PARTITION_STYLE PartitionStyle;
 	public using _Anonymous_e__Union Anonymous;
 }
@@ -5439,7 +4451,6 @@ public struct PARTITION_INFORMATION_EX
 		public PARTITION_INFORMATION_MBR Mbr;
 		public PARTITION_INFORMATION_GPT Gpt;
 	}
-
 	public PARTITION_STYLE PartitionStyle;
 	public LARGE_INTEGER StartingOffset;
 	public LARGE_INTEGER PartitionLength;
@@ -5465,7 +4476,7 @@ public struct DRIVE_LAYOUT_INFORMATION_MBR
 	public uint32 CheckSum;
 }
 
-[CRepr, FlexibleArray("PartitionEntry")]
+[CRepr]
 public struct DRIVE_LAYOUT_INFORMATION_EX
 {
 	[CRepr, Union]
@@ -5474,10 +4485,10 @@ public struct DRIVE_LAYOUT_INFORMATION_EX
 		public DRIVE_LAYOUT_INFORMATION_MBR Mbr;
 		public DRIVE_LAYOUT_INFORMATION_GPT Gpt;
 	}
-
 	public uint32 PartitionStyle;
 	public uint32 PartitionCount;
 	public using _Anonymous_e__Union Anonymous;
+	public PARTITION_INFORMATION_EX* PartitionEntry mut => &PartitionEntry_impl;
 	private PARTITION_INFORMATION_EX[ANYSIZE_ARRAY] PartitionEntry_impl;
 }
 
@@ -5516,10 +4527,8 @@ public struct DISK_DETECTION_INFO
 			public DISK_INT13_INFO Int13;
 			public DISK_EX_INT13_INFO ExInt13;
 		}
-
 		public using _Anonymous_e__Struct Anonymous;
 	}
-
 	public uint32 SizeOfDetectInfo;
 	public DETECTION_TYPE DetectionType;
 	public using _Anonymous_e__Union Anonymous;
@@ -5536,28 +4545,26 @@ public struct DISK_PARTITION_INFO
 		{
 			public Guid DiskId;
 		}
-
 		[CRepr]
 		public struct _Mbr_e__Struct
 		{
 			public uint32 Signature;
 			public uint32 CheckSum;
 		}
-
 		public _Mbr_e__Struct Mbr;
 		public _Gpt_e__Struct Gpt;
 	}
-
 	public uint32 SizeOfPartitionInfo;
 	public PARTITION_STYLE PartitionStyle;
 	public using _Anonymous_e__Union Anonymous;
 }
 
-[CRepr, FlexibleArray("Data")]
+[CRepr]
 public struct DISK_GEOMETRY_EX
 {
 	public DISK_GEOMETRY Geometry;
 	public LARGE_INTEGER DiskSize;
+	public uint8* Data mut => &Data_impl;
 	private uint8[ANYSIZE_ARRAY] Data_impl;
 }
 
@@ -5580,7 +4587,6 @@ public struct DISK_CACHE_INFORMATION
 			public uint16 Minimum;
 			public uint16 Maximum;
 		}
-
 		[CRepr]
 		public struct _ScalarPrefetch_e__Struct
 		{
@@ -5588,11 +4594,9 @@ public struct DISK_CACHE_INFORMATION
 			public uint16 Maximum;
 			public uint16 MaximumBlocks;
 		}
-
 		public _ScalarPrefetch_e__Struct ScalarPrefetch;
 		public _BlockPrefetch_e__Struct BlockPrefetch;
 	}
-
 	public BOOLEAN ParametersSavable;
 	public BOOLEAN ReadCacheEnabled;
 	public BOOLEAN WriteCacheEnabled;
@@ -5677,11 +4681,12 @@ public struct BIN_RANGE
 	public LARGE_INTEGER Length;
 }
 
-[CRepr, FlexibleArray("BinsRanges")]
+[CRepr]
 public struct PERF_BIN
 {
 	public uint32 NumberOfBins;
 	public uint32 TypeOfBin;
+	public BIN_RANGE* BinsRanges mut => &BinsRanges_impl;
 	private BIN_RANGE[ANYSIZE_ARRAY] BinsRanges_impl;
 }
 
@@ -5692,10 +4697,11 @@ public struct BIN_COUNT
 	public uint32 BinCount;
 }
 
-[CRepr, FlexibleArray("BinCounts")]
+[CRepr]
 public struct BIN_RESULTS
 {
 	public uint32 NumberOfBins;
+	public BIN_COUNT* BinCounts mut => &BinCounts_impl;
 	private BIN_COUNT[ANYSIZE_ARRAY] BinCounts_impl;
 }
 
@@ -5723,7 +4729,7 @@ public struct IDEREGS
 	public uint8 bReserved;
 }
 
-[CRepr, Packed(1), FlexibleArray("bBuffer")]
+[CRepr, Packed(1)]
 public struct SENDCMDINPARAMS
 {
 	public uint32 cBufferSize;
@@ -5731,6 +4737,7 @@ public struct SENDCMDINPARAMS
 	public uint8 bDriveNumber;
 	public uint8[3] bReserved;
 	public uint32[4] dwReserved;
+	public uint8* bBuffer mut => &bBuffer_impl;
 	private uint8[ANYSIZE_ARRAY] bBuffer_impl;
 }
 
@@ -5743,11 +4750,12 @@ public struct DRIVERSTATUS
 	public uint32[2] dwReserved;
 }
 
-[CRepr, Packed(1), FlexibleArray("bBuffer")]
+[CRepr, Packed(1)]
 public struct SENDCMDOUTPARAMS
 {
 	public uint32 cBufferSize;
 	public DRIVERSTATUS DriverStatus;
+	public uint8* bBuffer mut => &bBuffer_impl;
 	private uint8[ANYSIZE_ARRAY] bBuffer_impl;
 }
 
@@ -5915,17 +4923,19 @@ public struct CHANGER_SEND_VOLUME_TAG_INFORMATION
 	public uint8[40] VolumeIDTemplate;
 }
 
-[CRepr, FlexibleArray("ElementStatus")]
+[CRepr]
 public struct READ_ELEMENT_ADDRESS_INFO
 {
 	public uint32 NumberOfElements;
+	public CHANGER_ELEMENT_STATUS* ElementStatus mut => &ElementStatus_impl;
 	private CHANGER_ELEMENT_STATUS[ANYSIZE_ARRAY] ElementStatus_impl;
 }
 
-[CRepr, FlexibleArray("Name")]
+[CRepr]
 public struct PATHNAME_BUFFER
 {
 	public uint32 PathNameLength;
+	public char16* Name mut => &Name_impl;
 	private char16[ANYSIZE_ARRAY] Name_impl;
 }
 
@@ -6003,11 +5013,12 @@ public struct STARTING_LCN_INPUT_BUFFER_EX
 	public uint32 Flags;
 }
 
-[CRepr, FlexibleArray("Buffer")]
+[CRepr]
 public struct VOLUME_BITMAP_BUFFER
 {
 	public LARGE_INTEGER StartingLcn;
 	public LARGE_INTEGER BitmapSize;
+	public uint8* Buffer mut => &Buffer_impl;
 	private uint8[ANYSIZE_ARRAY] Buffer_impl;
 }
 
@@ -6017,7 +5028,7 @@ public struct STARTING_VCN_INPUT_BUFFER
 	public LARGE_INTEGER StartingVcn;
 }
 
-[CRepr, FlexibleArray("Extents")]
+[CRepr]
 public struct RETRIEVAL_POINTERS_BUFFER
 {
 	[CRepr]
@@ -6026,13 +5037,13 @@ public struct RETRIEVAL_POINTERS_BUFFER
 		public LARGE_INTEGER NextVcn;
 		public LARGE_INTEGER Lcn;
 	}
-
 	public uint32 ExtentCount;
 	public LARGE_INTEGER StartingVcn;
+	public _Anonymous_e__Struct* Extents mut => &Extents_impl;
 	private _Anonymous_e__Struct[ANYSIZE_ARRAY] Extents_impl;
 }
 
-[CRepr, FlexibleArray("Extents")]
+[CRepr]
 public struct RETRIEVAL_POINTERS_AND_REFCOUNT_BUFFER
 {
 	[CRepr]
@@ -6042,9 +5053,9 @@ public struct RETRIEVAL_POINTERS_AND_REFCOUNT_BUFFER
 		public LARGE_INTEGER Lcn;
 		public uint32 ReferenceCount;
 	}
-
 	public uint32 ExtentCount;
 	public LARGE_INTEGER StartingVcn;
+	public _Anonymous_e__Struct* Extents mut => &Extents_impl;
 	private _Anonymous_e__Struct[ANYSIZE_ARRAY] Extents_impl;
 }
 
@@ -6060,11 +5071,12 @@ public struct NTFS_FILE_RECORD_INPUT_BUFFER
 	public LARGE_INTEGER FileReferenceNumber;
 }
 
-[CRepr, FlexibleArray("FileRecordBuffer")]
+[CRepr]
 public struct NTFS_FILE_RECORD_OUTPUT_BUFFER
 {
 	public LARGE_INTEGER FileReferenceNumber;
 	public uint32 FileRecordLength;
+	public uint8* FileRecordBuffer mut => &FileRecordBuffer_impl;
 	private uint8[ANYSIZE_ARRAY] FileRecordBuffer_impl;
 }
 
@@ -6103,12 +5115,13 @@ public struct FIND_BY_SID_DATA
 	public SID Sid;
 }
 
-[CRepr, FlexibleArray("FileName")]
+[CRepr]
 public struct FIND_BY_SID_OUTPUT
 {
 	public uint32 NextEntryOffset;
 	public uint32 FileIndex;
 	public uint32 FileNameLength;
+	public char16* FileName mut => &FileName_impl;
 	private char16[ANYSIZE_ARRAY] FileName_impl;
 }
 
@@ -6183,7 +5196,7 @@ public struct USN_RANGE_TRACK_OUTPUT
 	public int64 Usn;
 }
 
-[CRepr, FlexibleArray("FileName")]
+[CRepr]
 public struct USN_RECORD_V2
 {
 	public uint32 RecordLength;
@@ -6199,10 +5212,11 @@ public struct USN_RECORD_V2
 	public uint32 FileAttributes;
 	public uint16 FileNameLength;
 	public uint16 FileNameOffset;
+	public char16* FileName mut => &FileName_impl;
 	private char16[ANYSIZE_ARRAY] FileName_impl;
 }
 
-[CRepr, FlexibleArray("FileName")]
+[CRepr]
 public struct USN_RECORD_V3
 {
 	public uint32 RecordLength;
@@ -6218,6 +5232,7 @@ public struct USN_RECORD_V3
 	public uint32 FileAttributes;
 	public uint16 FileNameLength;
 	public uint16 FileNameOffset;
+	public char16* FileName mut => &FileName_impl;
 	private char16[ANYSIZE_ARRAY] FileName_impl;
 }
 
@@ -6236,7 +5251,7 @@ public struct USN_RECORD_EXTENT
 	public int64 Length;
 }
 
-[CRepr, FlexibleArray("Extents")]
+[CRepr]
 public struct USN_RECORD_V4
 {
 	public USN_RECORD_COMMON_HEADER Header;
@@ -6248,6 +5263,7 @@ public struct USN_RECORD_V4
 	public uint32 RemainingExtents;
 	public uint16 NumberOfExtents;
 	public uint16 ExtentSize;
+	public USN_RECORD_EXTENT* Extents mut => &Extents_impl;
 	private USN_RECORD_EXTENT[ANYSIZE_ARRAY] Extents_impl;
 }
 
@@ -6319,7 +5335,6 @@ public struct MARK_HANDLE_INFO
 		public uint32 UsnSourceInfo;
 		public uint32 CopyNumber;
 	}
-
 	public using _Anonymous_e__Union Anonymous;
 	public HANDLE VolumeHandle;
 	public uint32 HandleInfo;
@@ -6335,34 +5350,36 @@ public struct MARK_HANDLE_INFO32
 		public uint32 UsnSourceInfo;
 		public uint32 CopyNumber;
 	}
-
 	public using _Anonymous_e__Union Anonymous;
 	public uint32 VolumeHandle;
 	public uint32 HandleInfo;
 }
 #endif
 
-[CRepr, FlexibleArray("SecurityIds")]
+[CRepr]
 public struct BULK_SECURITY_TEST_DATA
 {
 	public uint32 DesiredAccess;
+	public uint32* SecurityIds mut => &SecurityIds_impl;
 	private uint32[ANYSIZE_ARRAY] SecurityIds_impl;
 }
 
-[CRepr, FlexibleArray("Prefetch")]
+[CRepr]
 public struct FILE_PREFETCH
 {
 	public uint32 Type;
 	public uint32 Count;
+	public uint64* Prefetch mut => &Prefetch_impl;
 	private uint64[ANYSIZE_ARRAY] Prefetch_impl;
 }
 
-[CRepr, FlexibleArray("Prefetch")]
+[CRepr]
 public struct FILE_PREFETCH_EX
 {
 	public uint32 Type;
 	public uint32 Count;
 	public void* Context;
+	public uint64* Prefetch mut => &Prefetch_impl;
 	private uint64[ANYSIZE_ARRAY] Prefetch_impl;
 }
 
@@ -6431,7 +5448,6 @@ public struct NTFS_STATISTICS
 		public uint32 CacheMiss;
 		public uint32 CacheMissClusters;
 	}
-
 	[CRepr]
 	public struct _BitmapWritesUserLevel_e__Struct
 	{
@@ -6439,7 +5455,6 @@ public struct NTFS_STATISTICS
 		public uint16 Create;
 		public uint16 SetInfo;
 	}
-
 	[CRepr]
 	public struct _MftWritesUserLevel_e__Struct
 	{
@@ -6448,7 +5463,6 @@ public struct NTFS_STATISTICS
 		public uint16 SetInfo;
 		public uint16 Flush;
 	}
-
 	[CRepr]
 	public struct _MftBitmapWritesUserLevel_e__Struct
 	{
@@ -6457,7 +5471,6 @@ public struct NTFS_STATISTICS
 		public uint16 SetInfo;
 		public uint16 Flush;
 	}
-
 	[CRepr]
 	public struct _Mft2WritesUserLevel_e__Struct
 	{
@@ -6466,7 +5479,6 @@ public struct NTFS_STATISTICS
 		public uint16 SetInfo;
 		public uint16 Flush;
 	}
-
 	public uint32 LogFileFullExceptions;
 	public uint32 OtherExceptions;
 	public uint32 MftReads;
@@ -6546,7 +5558,6 @@ public struct NTFS_STATISTICS_EX
 		public uint32 SetInfo;
 		public uint32 Flush;
 	}
-
 	[CRepr]
 	public struct _Mft2WritesUserLevel_e__Struct
 	{
@@ -6555,7 +5566,6 @@ public struct NTFS_STATISTICS_EX
 		public uint32 SetInfo;
 		public uint32 Flush;
 	}
-
 	[CRepr]
 	public struct _BitmapWritesUserLevel_e__Struct
 	{
@@ -6564,7 +5574,6 @@ public struct NTFS_STATISTICS_EX
 		public uint32 SetInfo;
 		public uint32 Flush;
 	}
-
 	[CRepr]
 	public struct _Allocate_e__Struct
 	{
@@ -6579,7 +5588,6 @@ public struct NTFS_STATISTICS_EX
 		public uint64 CacheClusters;
 		public uint64 CacheMissClusters;
 	}
-
 	[CRepr]
 	public struct _MftWritesUserLevel_e__Struct
 	{
@@ -6588,7 +5596,6 @@ public struct NTFS_STATISTICS_EX
 		public uint32 SetInfo;
 		public uint32 Flush;
 	}
-
 	public uint32 LogFileFullExceptions;
 	public uint32 OtherExceptions;
 	public uint64 MftReads;
@@ -6661,11 +5668,9 @@ public struct FILE_OBJECTID_BUFFER
 			public uint8[16] BirthObjectId;
 			public uint8[16] DomainId;
 		}
-
 		public using _Anonymous_e__Struct Anonymous;
 		public uint8[48] ExtendedInfo;
 	}
-
 	public uint8[16] ObjectId;
 	public using _Anonymous_e__Union Anonymous;
 }
@@ -6698,10 +5703,11 @@ public struct FILE_ALLOCATED_RANGE_BUFFER
 	public LARGE_INTEGER Length;
 }
 
-[CRepr, FlexibleArray("Private")]
+[CRepr]
 public struct ENCRYPTION_BUFFER
 {
 	public uint32 EncryptionOperation;
+	public uint8* Private mut => &Private_impl;
 	private uint8[ANYSIZE_ARRAY] Private_impl;
 }
 
@@ -6718,7 +5724,7 @@ public struct REQUEST_RAW_ENCRYPTED_DATA
 	public uint32 Length;
 }
 
-[CRepr, FlexibleArray("DataBlockSize")]
+[CRepr]
 public struct ENCRYPTED_DATA_INFO
 {
 	public uint64 StartingFileOffset;
@@ -6731,6 +5737,7 @@ public struct ENCRYPTED_DATA_INFO
 	public uint8 ClusterShift;
 	public uint8 EncryptionFormat;
 	public uint16 NumberOfDataBlocks;
+	public uint32* DataBlockSize mut => &DataBlockSize_impl;
 	private uint32[ANYSIZE_ARRAY] DataBlockSize_impl;
 }
 
@@ -6751,12 +5758,13 @@ public struct PLEX_READ_DATA_REQUEST
 	public uint32 PlexNumber;
 }
 
-[CRepr, FlexibleArray("FileNameBuffer")]
+[CRepr]
 public struct SI_COPYFILE
 {
 	public uint32 SourceFileNameLength;
 	public uint32 DestinationFileNameLength;
 	public uint32 Flags;
+	public char16* FileNameBuffer mut => &FileNameBuffer_impl;
 	private char16[ANYSIZE_ARRAY] FileNameBuffer_impl;
 }
 
@@ -6867,7 +5875,7 @@ public struct TXFS_ROLLFORWARD_REDO_INFORMATION
 	public uint32 Flags;
 }
 
-[CRepr, FlexibleArray("LogPath")]
+[CRepr]
 public struct TXFS_START_RM_INFORMATION
 {
 	public uint32 Flags;
@@ -6881,6 +5889,7 @@ public struct TXFS_START_RM_INFORMATION
 	public uint16 LoggingMode;
 	public uint16 LogPathLength;
 	public uint16 Reserved;
+	public char16* LogPath mut => &LogPath_impl;
 	private char16[ANYSIZE_ARRAY] LogPath_impl;
 }
 
@@ -6893,14 +5902,13 @@ public struct TXFS_GET_METADATA_INFO_OUT
 		public int64 LowPart;
 		public int64 HighPart;
 	}
-
 	public _TxfFileId_e__Struct TxfFileId;
 	public Guid LockingTransaction;
 	public uint64 LastLsn;
 	public uint32 TransactionState;
 }
 
-[CRepr, FlexibleArray("FileName")]
+[CRepr]
 public struct TXFS_LIST_TRANSACTION_LOCKED_FILES_ENTRY
 {
 	public uint64 Offset;
@@ -6909,6 +5917,7 @@ public struct TXFS_LIST_TRANSACTION_LOCKED_FILES_ENTRY
 	public uint32 Reserved1;
 	public uint32 Reserved2;
 	public int64 Reserved3;
+	public char16* FileName mut => &FileName_impl;
 	private char16[ANYSIZE_ARRAY] FileName_impl;
 }
 
@@ -6945,15 +5954,16 @@ public struct TXFS_READ_BACKUP_INFORMATION_OUT
 	public struct _Anonymous_e__Union
 	{
 		public uint32 BufferLength;
-		public uint8[ANYSIZE_ARRAY] Buffer;
+		public uint8* Buffer mut => &Buffer_impl;
+		private uint8[ANYSIZE_ARRAY] Buffer_impl;
 	}
-
 	public using _Anonymous_e__Union Anonymous;
 }
 
-[CRepr, FlexibleArray("Buffer")]
+[CRepr]
 public struct TXFS_WRITE_BACKUP_INFORMATION
 {
+	public uint8* Buffer mut => &Buffer_impl;
 	private uint8[ANYSIZE_ARRAY] Buffer_impl;
 }
 
@@ -6998,7 +6008,6 @@ public struct BOOT_AREA_INFO
 	{
 		public LARGE_INTEGER Offset;
 	}
-
 	public uint32 BootSectorCount;
 	public _Anonymous_e__Struct[2] BootSectors;
 }
@@ -7079,16 +6088,17 @@ public struct STORAGE_QUERY_DEPENDENT_VOLUME_LEV2_ENTRY
 	public uint32 DependentDeviceNameSize;
 }
 
-[CRepr, FlexibleArray("Lev1Depends", "Lev2Depends")]
+[CRepr]
 public struct STORAGE_QUERY_DEPENDENT_VOLUME_RESPONSE
 {
 	[CRepr, Union]
 	public struct _Anonymous_e__Union
 	{
-		public STORAGE_QUERY_DEPENDENT_VOLUME_LEV1_ENTRY[ANYSIZE_ARRAY] Lev1Depends_impl;
-		public STORAGE_QUERY_DEPENDENT_VOLUME_LEV2_ENTRY[ANYSIZE_ARRAY] Lev2Depends_impl;
+		public STORAGE_QUERY_DEPENDENT_VOLUME_LEV1_ENTRY* Lev1Depends mut => &Lev1Depends_impl;
+		private STORAGE_QUERY_DEPENDENT_VOLUME_LEV1_ENTRY[ANYSIZE_ARRAY] Lev1Depends_impl;
+		public STORAGE_QUERY_DEPENDENT_VOLUME_LEV2_ENTRY* Lev2Depends mut => &Lev2Depends_impl;
+		private STORAGE_QUERY_DEPENDENT_VOLUME_LEV2_ENTRY[ANYSIZE_ARRAY] Lev2Depends_impl;
 	}
-
 	public uint32 ResponseLevel;
 	public uint32 NumberEntries;
 	public using _Anonymous_e__Union Anonymous;
@@ -7141,22 +6151,24 @@ public struct SD_ENUM_SDS_INPUT
 	public uint64 MaxSDEntriesToReturn;
 }
 
-[CRepr, FlexibleArray("Descriptor")]
+[CRepr]
 public struct SD_ENUM_SDS_ENTRY
 {
 	public uint32 Hash;
 	public uint32 SecurityId;
 	public uint64 Offset;
 	public uint32 Length;
+	public uint8* Descriptor mut => &Descriptor_impl;
 	private uint8[ANYSIZE_ARRAY] Descriptor_impl;
 }
 
-[CRepr, FlexibleArray("SDEntry")]
+[CRepr]
 public struct SD_ENUM_SDS_OUTPUT
 {
 	public uint64 NextOffset;
 	public uint64 NumSDEntriesReturned;
 	public uint64 NumSDBytesReturned;
+	public SD_ENUM_SDS_ENTRY* SDEntry mut => &SDEntry_impl;
 	private SD_ENUM_SDS_ENTRY[ANYSIZE_ARRAY] SDEntry_impl;
 }
 
@@ -7170,7 +6182,6 @@ public struct SD_GLOBAL_CHANGE_INPUT
 		public SD_QUERY_STATS_INPUT SdQueryStats;
 		public SD_ENUM_SDS_INPUT SdEnumSds;
 	}
-
 	public uint32 Flags;
 	public uint32 ChangeType;
 	public using _Anonymous_e__Union Anonymous;
@@ -7186,17 +6197,17 @@ public struct SD_GLOBAL_CHANGE_OUTPUT
 		public SD_QUERY_STATS_OUTPUT SdQueryStats;
 		public SD_ENUM_SDS_OUTPUT SdEnumSds;
 	}
-
 	public uint32 Flags;
 	public uint32 ChangeType;
 	public using _Anonymous_e__Union Anonymous;
 }
 
-[CRepr, FlexibleArray("Cluster")]
+[CRepr]
 public struct LOOKUP_STREAM_FROM_CLUSTER_INPUT
 {
 	public uint32 Flags;
 	public uint32 NumberOfClusters;
+	public LARGE_INTEGER* Cluster mut => &Cluster_impl;
 	private LARGE_INTEGER[ANYSIZE_ARRAY] Cluster_impl;
 }
 
@@ -7208,21 +6219,23 @@ public struct LOOKUP_STREAM_FROM_CLUSTER_OUTPUT
 	public uint32 BufferSizeRequired;
 }
 
-[CRepr, FlexibleArray("FileName")]
+[CRepr]
 public struct LOOKUP_STREAM_FROM_CLUSTER_ENTRY
 {
 	public uint32 OffsetToNext;
 	public uint32 Flags;
 	public LARGE_INTEGER Reserved;
 	public LARGE_INTEGER Cluster;
+	public char16* FileName mut => &FileName_impl;
 	private char16[ANYSIZE_ARRAY] FileName_impl;
 }
 
-[CRepr, FlexibleArray("FileTypeID")]
+[CRepr]
 public struct FILE_TYPE_NOTIFICATION_INPUT
 {
 	public uint32 Flags;
 	public uint32 NumFileTypeIDs;
+	public Guid* FileTypeID mut => &FileTypeID_impl;
 	private Guid[ANYSIZE_ARRAY] FileTypeID_impl;
 }
 
@@ -7270,12 +6283,13 @@ public struct CSV_QUERY_FILE_REVISION_FILE_ID_128
 	public int64[3] FileRevision;
 }
 
-[CRepr, FlexibleArray("Path")]
+[CRepr]
 public struct CSV_QUERY_MDS_PATH
 {
 	public uint32 MdsNodeId;
 	public uint32 DsNodeId;
 	public uint32 PathLength;
+	public char16* Path mut => &Path_impl;
 	private char16[ANYSIZE_ARRAY] Path_impl;
 }
 
@@ -7338,11 +6352,12 @@ public struct FILE_LEVEL_TRIM_RANGE
 	public uint64 Length;
 }
 
-[CRepr, FlexibleArray("Ranges")]
+[CRepr]
 public struct FILE_LEVEL_TRIM
 {
 	public uint32 Key;
 	public uint32 NumRanges;
+	public FILE_LEVEL_TRIM_RANGE* Ranges mut => &Ranges_impl;
 	private FILE_LEVEL_TRIM_RANGE[ANYSIZE_ARRAY] Ranges_impl;
 }
 
@@ -7366,7 +6381,7 @@ public struct FILE_REFERENCE_RANGE
 	public uint64 EndingFileReferenceNumber;
 }
 
-[CRepr, FlexibleArray("ClusterRanges", "FileReferenceRanges", "StorageReserveIds")]
+[CRepr]
 public struct QUERY_FILE_LAYOUT_INPUT
 {
 	[CRepr, Union]
@@ -7375,15 +6390,16 @@ public struct QUERY_FILE_LAYOUT_INPUT
 		public uint32 FilterEntryCount;
 		public uint32 NumberOfPairs;
 	}
-
 	[CRepr, Union]
 	public struct _Filter_e__Union
 	{
-		public CLUSTER_RANGE[ANYSIZE_ARRAY] ClusterRanges_impl;
-		public FILE_REFERENCE_RANGE[ANYSIZE_ARRAY] FileReferenceRanges_impl;
-		public STORAGE_RESERVE_ID[ANYSIZE_ARRAY] StorageReserveIds_impl;
+		public CLUSTER_RANGE* ClusterRanges mut => &ClusterRanges_impl;
+		private CLUSTER_RANGE[ANYSIZE_ARRAY] ClusterRanges_impl;
+		public FILE_REFERENCE_RANGE* FileReferenceRanges mut => &FileReferenceRanges_impl;
+		private FILE_REFERENCE_RANGE[ANYSIZE_ARRAY] FileReferenceRanges_impl;
+		public STORAGE_RESERVE_ID* StorageReserveIds mut => &StorageReserveIds_impl;
+		private STORAGE_RESERVE_ID[ANYSIZE_ARRAY] StorageReserveIds_impl;
 	}
-
 	public using _Anonymous_e__Union Anonymous;
 	public uint32 Flags;
 	public QUERY_FILE_LAYOUT_FILTER_TYPE FilterType;
@@ -7414,7 +6430,7 @@ public struct FILE_LAYOUT_ENTRY
 	public uint32 ExtraInfoLength;
 }
 
-[CRepr, FlexibleArray("FileName")]
+[CRepr]
 public struct FILE_LAYOUT_NAME_ENTRY
 {
 	public uint32 NextNameOffset;
@@ -7422,6 +6438,7 @@ public struct FILE_LAYOUT_NAME_ENTRY
 	public uint64 ParentFileReferenceNumber;
 	public uint32 FileNameLength;
 	public uint32 Reserved;
+	public char16* FileName mut => &FileName_impl;
 	private char16[ANYSIZE_ARRAY] FileName_impl;
 }
 
@@ -7437,7 +6454,6 @@ public struct FILE_LAYOUT_INFO_ENTRY
 		public LARGE_INTEGER ChangeTime;
 		public uint32 FileAttributes;
 	}
-
 	public _BasicInformation_e__Struct BasicInformation;
 	public uint32 OwnerId;
 	public uint32 SecurityId;
@@ -7445,7 +6461,7 @@ public struct FILE_LAYOUT_INFO_ENTRY
 	public STORAGE_RESERVE_ID StorageReserveId;
 }
 
-[CRepr, FlexibleArray("StreamIdentifier")]
+[CRepr]
 public struct STREAM_LAYOUT_ENTRY
 {
 	public uint32 Version;
@@ -7458,6 +6474,7 @@ public struct STREAM_LAYOUT_ENTRY
 	public uint32 AttributeTypeCode;
 	public uint32 AttributeFlags;
 	public uint32 StreamIdentifierLength;
+	public char16* StreamIdentifier mut => &StreamIdentifier_impl;
 	private char16[ANYSIZE_ARRAY] StreamIdentifier_impl;
 }
 
@@ -7469,7 +6486,6 @@ public struct STREAM_EXTENT_ENTRY
 	{
 		public RETRIEVAL_POINTERS_BUFFER RetrievalPointers;
 	}
-
 	public uint32 Flags;
 	public _ExtentInformation_e__Union ExtentInformation;
 }
@@ -7548,7 +6564,7 @@ public struct SET_PURGE_FAILURE_MODE_INPUT
 	public uint32 Flags;
 }
 
-[CRepr, FlexibleArray("RepairCopies")]
+[CRepr]
 public struct REPAIR_COPIES_INPUT
 {
 	public uint32 Size;
@@ -7557,6 +6573,7 @@ public struct REPAIR_COPIES_INPUT
 	public uint32 Length;
 	public uint32 SourceCopy;
 	public uint32 NumberOfRepairCopies;
+	public uint32* RepairCopies mut => &RepairCopies_impl;
 	private uint32[ANYSIZE_ARRAY] RepairCopies_impl;
 }
 
@@ -7577,13 +6594,14 @@ public struct FILE_REGION_INFO
 	public uint32 Reserved;
 }
 
-[CRepr, FlexibleArray("Region")]
+[CRepr]
 public struct FILE_REGION_OUTPUT
 {
 	public uint32 Flags;
 	public uint32 TotalRegionEntryCount;
 	public uint32 RegionEntryCount;
 	public uint32 Reserved;
+	public FILE_REGION_INFO* Region mut => &Region_impl;
 	private FILE_REGION_INFO[ANYSIZE_ARRAY] Region_impl;
 }
 
@@ -7614,7 +6632,7 @@ public struct FILE_STORAGE_TIER
 	public FILE_STORAGE_TIER_CLASS Class;
 }
 
-[CRepr, FlexibleArray("Tiers")]
+[CRepr]
 public struct FSCTL_QUERY_STORAGE_CLASSES_OUTPUT
 {
 	public uint32 Version;
@@ -7622,6 +6640,7 @@ public struct FSCTL_QUERY_STORAGE_CLASSES_OUTPUT
 	public FILE_STORAGE_TIER_FLAGS Flags;
 	public uint32 TotalNumberOfTiers;
 	public uint32 NumberOfTiersReturned;
+	public FILE_STORAGE_TIER* Tiers mut => &Tiers_impl;
 	private FILE_STORAGE_TIER[ANYSIZE_ARRAY] Tiers_impl;
 }
 
@@ -7639,14 +6658,12 @@ public struct STREAM_INFORMATION_ENTRY
 			public uint32 ReparseDataSize;
 			public uint32 ReparseDataOffset;
 		}
-
 		[CRepr]
 		public struct _DesiredStorageClass
 		{
 			public FILE_STORAGE_TIER_CLASS Class;
 			public uint32 Flags;
 		}
-
 		[CRepr]
 		public struct _DataStream
 		{
@@ -7655,7 +6672,6 @@ public struct STREAM_INFORMATION_ENTRY
 			public uint32 Reserved;
 			public uint64 Vdl;
 		}
-
 		[CRepr]
 		public struct _Ea
 		{
@@ -7664,25 +6680,24 @@ public struct STREAM_INFORMATION_ENTRY
 			public uint32 EaSize;
 			public uint32 EaInformationOffset;
 		}
-
 		public _DesiredStorageClass DesiredStorageClass;
 		public _DataStream DataStream;
 		public _Reparse Reparse;
 		public _Ea Ea;
 	}
-
 	public uint32 Version;
 	public uint32 Flags;
 	public _StreamInformation StreamInformation;
 }
 
-[CRepr, FlexibleArray("TierIds")]
+[CRepr]
 public struct FSCTL_QUERY_REGION_INFO_INPUT
 {
 	public uint32 Version;
 	public uint32 Size;
 	public uint32 Flags;
 	public uint32 NumberOfTierIds;
+	public Guid* TierIds mut => &TierIds_impl;
 	private Guid[ANYSIZE_ARRAY] TierIds_impl;
 }
 
@@ -7694,7 +6709,7 @@ public struct FILE_STORAGE_TIER_REGION
 	public uint64 Length;
 }
 
-[CRepr, FlexibleArray("Regions")]
+[CRepr]
 public struct FSCTL_QUERY_REGION_INFO_OUTPUT
 {
 	public uint32 Version;
@@ -7704,6 +6719,7 @@ public struct FSCTL_QUERY_REGION_INFO_OUTPUT
 	public uint64 Alignment;
 	public uint32 TotalNumberOfRegions;
 	public uint32 NumberOfRegionsReturned;
+	public FILE_STORAGE_TIER_REGION* Regions mut => &Regions_impl;
 	private FILE_STORAGE_TIER_REGION[ANYSIZE_ARRAY] Regions_impl;
 }
 
@@ -7826,11 +6842,12 @@ public struct QUERY_BAD_RANGES_INPUT_RANGE
 	public uint64 LengthInBytes;
 }
 
-[CRepr, FlexibleArray("Ranges")]
+[CRepr]
 public struct QUERY_BAD_RANGES_INPUT
 {
 	public uint32 Flags;
 	public uint32 NumRanges;
+	public QUERY_BAD_RANGES_INPUT_RANGE* Ranges mut => &Ranges_impl;
 	private QUERY_BAD_RANGES_INPUT_RANGE[ANYSIZE_ARRAY] Ranges_impl;
 }
 
@@ -7843,12 +6860,13 @@ public struct QUERY_BAD_RANGES_OUTPUT_RANGE
 	public uint64 LengthInBytes;
 }
 
-[CRepr, FlexibleArray("BadRanges")]
+[CRepr]
 public struct QUERY_BAD_RANGES_OUTPUT
 {
 	public uint32 Flags;
 	public uint32 NumBadRanges;
 	public uint64 NextOffsetToLookUp;
+	public QUERY_BAD_RANGES_OUTPUT_RANGE* BadRanges mut => &BadRanges_impl;
 	private QUERY_BAD_RANGES_OUTPUT_RANGE[ANYSIZE_ARRAY] BadRanges_impl;
 }
 
@@ -7976,10 +6994,11 @@ public struct CONTAINER_ROOT_INFO_INPUT
 	public uint32 Flags;
 }
 
-[CRepr, FlexibleArray("ContainerRootId")]
+[CRepr]
 public struct CONTAINER_ROOT_INFO_OUTPUT
 {
 	public uint16 ContainerRootIdLength;
+	public uint8* ContainerRootId mut => &ContainerRootId_impl;
 	private uint8[ANYSIZE_ARRAY] ContainerRootId_impl;
 }
 
@@ -8006,17 +7025,19 @@ public struct VIRTUALIZATION_INSTANCE_INFO_OUTPUT
 	public Guid VirtualizationInstanceID;
 }
 
-[CRepr, FlexibleArray("Altitude")]
+[CRepr]
 public struct GET_FILTER_FILE_IDENTIFIER_INPUT
 {
 	public uint16 AltitudeLength;
+	public char16* Altitude mut => &Altitude_impl;
 	private char16[ANYSIZE_ARRAY] Altitude_impl;
 }
 
-[CRepr, FlexibleArray("FilterFileIdentifier")]
+[CRepr]
 public struct GET_FILTER_FILE_IDENTIFIER_OUTPUT
 {
 	public uint16 FilterFileIdentifierLength;
+	public uint8* FilterFileIdentifier mut => &FilterFileIdentifier_impl;
 	private uint8[ANYSIZE_ARRAY] FilterFileIdentifier_impl;
 }
 
@@ -8059,7 +7080,6 @@ public struct FS_BPIO_OUTPUT
 		public FS_BPIO_RESULTS StreamResume;
 		public FS_BPIO_INFO GetInfo;
 	}
-
 	public FS_BPIO_OPERATIONS Operation;
 	public FS_BPIO_OUTFLAGS OutFlags;
 	public uint64 Reserved1;
@@ -8087,10 +7107,11 @@ public struct DISK_EXTENT
 	public LARGE_INTEGER ExtentLength;
 }
 
-[CRepr, FlexibleArray("Extents")]
+[CRepr]
 public struct VOLUME_DISK_EXTENTS
 {
 	public uint32 NumberOfDiskExtents;
+	public DISK_EXTENT* Extents mut => &Extents_impl;
 	private DISK_EXTENT[ANYSIZE_ARRAY] Extents_impl;
 }
 

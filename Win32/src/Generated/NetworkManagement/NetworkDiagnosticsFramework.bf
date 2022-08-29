@@ -10,65 +10,35 @@ namespace Win32.NetworkManagement.NetworkDiagnosticsFramework;
 public static
 {
 	public const uint32 NDF_ERROR_START = 63744;
-
 	public const HRESULT NDF_E_LENGTH_EXCEEDED = -2146895616;
-
 	public const HRESULT NDF_E_NOHELPERCLASS = -2146895615;
-
 	public const HRESULT NDF_E_CANCELLED = -2146895614;
-
 	public const HRESULT NDF_E_DISABLED = -2146895612;
-
 	public const HRESULT NDF_E_BAD_PARAM = -2146895611;
-
 	public const HRESULT NDF_E_VALIDATION = -2146895610;
-
 	public const HRESULT NDF_E_UNKNOWN = -2146895609;
-
 	public const HRESULT NDF_E_PROBLEM_PRESENT = -2146895608;
-
 	public const uint32 RF_WORKAROUND = 536870912;
-
 	public const uint32 RF_USER_ACTION = 268435456;
-
 	public const uint32 RF_USER_CONFIRMATION = 134217728;
-
 	public const uint32 RF_INFORMATION_ONLY = 33554432;
-
 	public const uint32 RF_UI_ONLY = 16777216;
-
 	public const uint32 RF_SHOW_EVENTS = 8388608;
-
 	public const uint32 RF_VALIDATE_HELPTOPIC = 4194304;
-
 	public const uint32 RF_REPRO = 2097152;
-
 	public const uint32 RF_CONTACT_ADMIN = 131072;
-
 	public const uint32 RF_RESERVED = 1073741824;
-
 	public const uint32 RF_RESERVED_CA = 2147483648;
-
 	public const uint32 RF_RESERVED_LNI = 65536;
-
 	public const uint32 RCF_ISLEAF = 1;
-
 	public const uint32 RCF_ISCONFIRMED = 2;
-
 	public const uint32 RCF_ISTHIRDPARTY = 4;
-
 	public const uint32 DF_IMPERSONATION = 2147483648;
-
 	public const uint32 DF_TRACELESS = 1073741824;
-
 	public const uint32 NDF_INBOUND_FLAG_EDGETRAVERSAL = 1;
-
 	public const uint32 NDF_INBOUND_FLAG_HEALTHCHECK = 2;
-
 	public const uint32 NDF_ADD_CAPTURE_TRACE = 1;
-
 	public const uint32 NDF_APPLY_INCLUSION_LIST_FILTER = 2;
-
 }
 #endregion
 
@@ -206,7 +176,6 @@ public struct HELPER_ATTRIBUTE
 		public DIAG_SOCKADDR Address;
 		public OCTET_STRING OctetString;
 	}
-
 	public PWSTR pwszName;
 	public ATTRIBUTE_TYPE type;
 	public using _Anonymous_e__Union Anonymous;
@@ -233,7 +202,6 @@ public struct UiInfo
 		public PWSTR pwzHelpUrl;
 		public PWSTR pwzDui;
 	}
-
 	public UI_INFO_TYPE type;
 	public using _Anonymous_e__Union Anonymous;
 }

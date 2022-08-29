@@ -11,19 +11,12 @@ namespace Win32.Graphics.DirectWrite;
 public static
 {
 	public const uint32 DWRITE_ALPHA_MAX = 255;
-
 	public const uint32 FACILITY_DWRITE = 2200;
-
 	public const uint32 DWRITE_ERR_BASE = 20480;
-
 	public const HRESULT DWRITE_E_REMOTEFONT = -2003283955;
-
 	public const HRESULT DWRITE_E_DOWNLOADCANCELLED = -2003283954;
-
 	public const HRESULT DWRITE_E_DOWNLOADFAILED = -2003283953;
-
 	public const HRESULT DWRITE_E_TOOMANYDOWNLOADS = -2003283952;
-
 }
 #endregion
 
@@ -1280,7 +1273,6 @@ public struct DWRITE_PANOSE
 		public uint8 decorativeTopology;
 		public uint8 characterRange;
 	}
-
 	[CRepr]
 	public struct _text_e__Struct
 	{
@@ -1295,7 +1287,6 @@ public struct DWRITE_PANOSE
 		public uint8 midline;
 		public uint8 xHeight;
 	}
-
 	[CRepr]
 	public struct _symbol_e__Struct
 	{
@@ -1310,7 +1301,6 @@ public struct DWRITE_PANOSE
 		public uint8 aspectRatio163;
 		public uint8 aspectRatio211;
 	}
-
 	[CRepr]
 	public struct _script_e__Struct
 	{
@@ -1325,7 +1315,6 @@ public struct DWRITE_PANOSE
 		public uint8 finials;
 		public uint8 xAscent;
 	}
-
 	public uint8[10] values;
 	public uint8 familyKind;
 	public _text_e__Struct text;

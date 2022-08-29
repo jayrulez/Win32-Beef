@@ -7,189 +7,97 @@ namespace Win32.NetworkManagement.Snmp;
 public static
 {
 	public const uint32 ASN_UNIVERSAL = 0;
-
 	public const uint32 ASN_APPLICATION = 64;
-
 	public const uint32 ASN_CONTEXT = 128;
-
 	public const uint32 ASN_PRIVATE = 192;
-
 	public const uint32 ASN_PRIMITIVE = 0;
-
 	public const uint32 ASN_CONSTRUCTOR = 32;
-
 	public const uint32 SNMP_ACCESS_NONE = 0;
-
 	public const uint32 SNMP_ACCESS_NOTIFY = 1;
-
 	public const uint32 SNMP_ACCESS_READ_ONLY = 2;
-
 	public const uint32 SNMP_ACCESS_READ_WRITE = 3;
-
 	public const uint32 SNMP_ACCESS_READ_CREATE = 4;
-
 	public const uint32 SNMPAPI_NOERROR = 1;
-
 	public const uint32 SNMPAPI_ERROR = 0;
-
 	public const uint32 SNMP_OUTPUT_TO_EVENTLOG = 4;
-
 	public const uint32 DEFAULT_SNMP_PORT_UDP = 161;
-
 	public const uint32 DEFAULT_SNMP_PORT_IPX = 36879;
-
 	public const uint32 DEFAULT_SNMPTRAP_PORT_UDP = 162;
-
 	public const uint32 DEFAULT_SNMPTRAP_PORT_IPX = 36880;
-
 	public const uint32 SNMP_MAX_OID_LEN = 128;
-
 	public const uint32 SNMP_MEM_ALLOC_ERROR = 1;
-
 	public const uint32 SNMP_BERAPI_INVALID_LENGTH = 10;
-
 	public const uint32 SNMP_BERAPI_INVALID_TAG = 11;
-
 	public const uint32 SNMP_BERAPI_OVERFLOW = 12;
-
 	public const uint32 SNMP_BERAPI_SHORT_BUFFER = 13;
-
 	public const uint32 SNMP_BERAPI_INVALID_OBJELEM = 14;
-
 	public const uint32 SNMP_PDUAPI_UNRECOGNIZED_PDU = 20;
-
 	public const uint32 SNMP_PDUAPI_INVALID_ES = 21;
-
 	public const uint32 SNMP_PDUAPI_INVALID_GT = 22;
-
 	public const uint32 SNMP_AUTHAPI_INVALID_VERSION = 30;
-
 	public const uint32 SNMP_AUTHAPI_INVALID_MSG_TYPE = 31;
-
 	public const uint32 SNMP_AUTHAPI_TRIV_AUTH_FAILED = 32;
-
 	public const uint32 ASN_CONTEXTSPECIFIC = 128;
-
 	public const uint32 ASN_PRIMATIVE = 0;
-
 	public const uint32 SNMP_MGMTAPI_TIMEOUT = 40;
-
 	public const uint32 SNMP_MGMTAPI_SELECT_FDERRORS = 41;
-
 	public const uint32 SNMP_MGMTAPI_TRAP_ERRORS = 42;
-
 	public const uint32 SNMP_MGMTAPI_TRAP_DUPINIT = 43;
-
 	public const uint32 SNMP_MGMTAPI_NOTRAPS = 44;
-
 	public const uint32 SNMP_MGMTAPI_AGAIN = 45;
-
 	public const uint32 SNMP_MGMTAPI_INVALID_CTL = 46;
-
 	public const uint32 SNMP_MGMTAPI_INVALID_SESSION = 47;
-
 	public const uint32 SNMP_MGMTAPI_INVALID_BUFFER = 48;
-
 	public const uint32 MGMCTL_SETAGENTPORT = 1;
-
 	public const uint32 MAXOBJIDSIZE = 128;
-
 	public const uint32 MAXOBJIDSTRSIZE = 1408;
-
 	public const uint32 SNMPLISTEN_USEENTITY_ADDR = 0;
-
 	public const uint32 SNMPLISTEN_ALL_ADDR = 1;
-
 	public const uint32 SNMP_TRAP_COLDSTART = 0;
-
 	public const uint32 SNMP_TRAP_WARMSTART = 1;
-
 	public const uint32 SNMP_TRAP_LINKDOWN = 2;
-
 	public const uint32 SNMP_TRAP_LINKUP = 3;
-
 	public const uint32 SNMP_TRAP_AUTHFAIL = 4;
-
 	public const uint32 SNMP_TRAP_EGPNEIGHBORLOSS = 5;
-
 	public const uint32 SNMP_TRAP_ENTERPRISESPECIFIC = 6;
-
 	public const uint32 SNMPAPI_NO_SUPPORT = 0;
-
 	public const uint32 SNMPAPI_V1_SUPPORT = 1;
-
 	public const uint32 SNMPAPI_V2_SUPPORT = 2;
-
 	public const uint32 SNMPAPI_M2M_SUPPORT = 3;
-
 	public const uint32 SNMPAPI_FAILURE = 0;
-
 	public const uint32 SNMPAPI_SUCCESS = 1;
-
 	public const uint32 SNMPAPI_ALLOC_ERROR = 2;
-
 	public const uint32 SNMPAPI_CONTEXT_INVALID = 3;
-
 	public const uint32 SNMPAPI_CONTEXT_UNKNOWN = 4;
-
 	public const uint32 SNMPAPI_ENTITY_INVALID = 5;
-
 	public const uint32 SNMPAPI_ENTITY_UNKNOWN = 6;
-
 	public const uint32 SNMPAPI_INDEX_INVALID = 7;
-
 	public const uint32 SNMPAPI_NOOP = 8;
-
 	public const uint32 SNMPAPI_OID_INVALID = 9;
-
 	public const uint32 SNMPAPI_OPERATION_INVALID = 10;
-
 	public const uint32 SNMPAPI_OUTPUT_TRUNCATED = 11;
-
 	public const uint32 SNMPAPI_PDU_INVALID = 12;
-
 	public const uint32 SNMPAPI_SESSION_INVALID = 13;
-
 	public const uint32 SNMPAPI_SYNTAX_INVALID = 14;
-
 	public const uint32 SNMPAPI_VBL_INVALID = 15;
-
 	public const uint32 SNMPAPI_MODE_INVALID = 16;
-
 	public const uint32 SNMPAPI_SIZE_INVALID = 17;
-
 	public const uint32 SNMPAPI_NOT_INITIALIZED = 18;
-
 	public const uint32 SNMPAPI_MESSAGE_INVALID = 19;
-
 	public const uint32 SNMPAPI_HWND_INVALID = 20;
-
 	public const uint32 SNMPAPI_OTHER_ERROR = 99;
-
 	public const uint32 SNMPAPI_TL_NOT_INITIALIZED = 100;
-
 	public const uint32 SNMPAPI_TL_NOT_SUPPORTED = 101;
-
 	public const uint32 SNMPAPI_TL_NOT_AVAILABLE = 102;
-
 	public const uint32 SNMPAPI_TL_RESOURCE_ERROR = 103;
-
 	public const uint32 SNMPAPI_TL_UNDELIVERABLE = 104;
-
 	public const uint32 SNMPAPI_TL_SRC_INVALID = 105;
-
 	public const uint32 SNMPAPI_TL_INVALID_PARAM = 106;
-
 	public const uint32 SNMPAPI_TL_IN_USE = 107;
-
 	public const uint32 SNMPAPI_TL_TIMEOUT = 108;
-
 	public const uint32 SNMPAPI_TL_PDU_TOO_BIG = 109;
-
 	public const uint32 SNMPAPI_TL_OTHER = 199;
-
 	public const uint32 MAXVENDORINFO = 32;
-
 }
 #endregion
 
@@ -379,7 +287,6 @@ public struct AsnAny
 		public uint32 ticks;
 		public AsnOctetString arbitrary;
 	}
-
 	public uint8 asnType;
 	public _asnValue_e__Union asnValue;
 }
@@ -432,7 +339,6 @@ public struct smiVALUE
 		public smiOID oid;
 		public uint8 empty;
 	}
-
 	public uint32 syntax;
 	public _value_e__Union value;
 }

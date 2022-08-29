@@ -14,187 +14,96 @@ namespace Win32.System.GroupPolicy;
 public static
 {
 	public const uint32 GPM_USE_PDC = 0;
-
 	public const uint32 GPM_USE_ANYDC = 1;
-
 	public const uint32 GPM_DONOTUSE_W2KDC = 2;
-
 	public const uint32 GPM_DONOT_VALIDATEDC = 1;
-
 	public const uint32 GPM_MIGRATIONTABLE_ONLY = 1;
-
 	public const uint32 GPM_PROCESS_SECURITY = 2;
-
 	public const uint32 RSOP_NO_COMPUTER = 65536;
-
 	public const uint32 RSOP_NO_USER = 131072;
-
 	public const uint32 RSOP_PLANNING_ASSUME_SLOW_LINK = 1;
-
 	public const uint32 RSOP_PLANNING_ASSUME_LOOPBACK_MERGE = 2;
-
 	public const uint32 RSOP_PLANNING_ASSUME_LOOPBACK_REPLACE = 4;
-
 	public const uint32 RSOP_PLANNING_ASSUME_USER_WQLFILTER_TRUE = 8;
-
 	public const uint32 RSOP_PLANNING_ASSUME_COMP_WQLFILTER_TRUE = 16;
-
 	public const uint32 PI_NOUI = 1;
-
 	public const uint32 PI_APPLYPOLICY = 2;
-
 	public const uint32 PT_TEMPORARY = 1;
-
 	public const uint32 PT_ROAMING = 2;
-
 	public const uint32 PT_MANDATORY = 4;
-
 	public const uint32 PT_ROAMING_PREEXISTING = 8;
-
 	public const uint32 RP_FORCE = 1;
-
 	public const uint32 RP_SYNC = 2;
-
 	public const uint32 GPC_BLOCK_POLICY = 1;
-
 	public const uint32 GPO_FLAG_DISABLE = 1;
-
 	public const uint32 GPO_FLAG_FORCE = 2;
-
 	public const uint32 GPO_LIST_FLAG_MACHINE = 1;
-
 	public const uint32 GPO_LIST_FLAG_SITEONLY = 2;
-
 	public const uint32 GPO_LIST_FLAG_NO_WMIFILTERS = 4;
-
 	public const uint32 GPO_LIST_FLAG_NO_SECURITYFILTERS = 8;
-
 	public const uint32 GPO_INFO_FLAG_MACHINE = 1;
-
 	public const uint32 GPO_INFO_FLAG_BACKGROUND = 16;
-
 	public const uint32 GPO_INFO_FLAG_SLOWLINK = 32;
-
 	public const uint32 GPO_INFO_FLAG_VERBOSE = 64;
-
 	public const uint32 GPO_INFO_FLAG_NOCHANGES = 128;
-
 	public const uint32 GPO_INFO_FLAG_LINKTRANSITION = 256;
-
 	public const uint32 GPO_INFO_FLAG_LOGRSOP_TRANSITION = 512;
-
 	public const uint32 GPO_INFO_FLAG_FORCED_REFRESH = 1024;
-
 	public const uint32 GPO_INFO_FLAG_SAFEMODE_BOOT = 2048;
-
 	public const uint32 GPO_INFO_FLAG_ASYNC_FOREGROUND = 4096;
-
 	public const uint32 FLAG_NO_GPO_FILTER = 2147483648;
-
 	public const uint32 FLAG_NO_CSE_INVOKE = 1073741824;
-
 	public const uint32 FLAG_ASSUME_SLOW_LINK = 536870912;
-
 	public const uint32 FLAG_LOOPBACK_MERGE = 268435456;
-
 	public const uint32 FLAG_LOOPBACK_REPLACE = 134217728;
-
 	public const uint32 FLAG_ASSUME_USER_WQLFILTER_TRUE = 67108864;
-
 	public const uint32 FLAG_ASSUME_COMP_WQLFILTER_TRUE = 33554432;
-
 	public const uint32 FLAG_PLANNING_MODE = 16777216;
-
 	public const uint32 FLAG_NO_USER = 1;
-
 	public const uint32 FLAG_NO_COMPUTER = 2;
-
 	public const uint32 FLAG_FORCE_CREATENAMESPACE = 4;
-
 	public const uint32 RSOP_USER_ACCESS_DENIED = 1;
-
 	public const uint32 RSOP_COMPUTER_ACCESS_DENIED = 2;
-
 	public const uint32 RSOP_TEMPNAMESPACE_EXISTS = 4;
-
 	public const uint32 LOCALSTATE_ASSIGNED = 1;
-
 	public const uint32 LOCALSTATE_PUBLISHED = 2;
-
 	public const uint32 LOCALSTATE_UNINSTALL_UNMANAGED = 4;
-
 	public const uint32 LOCALSTATE_POLICYREMOVE_ORPHAN = 8;
-
 	public const uint32 LOCALSTATE_POLICYREMOVE_UNINSTALL = 16;
-
 	public const uint32 LOCALSTATE_ORPHANED = 32;
-
 	public const uint32 LOCALSTATE_UNINSTALLED = 64;
-
 	public const uint32 MANAGED_APPS_USERAPPLICATIONS = 1;
-
 	public const uint32 MANAGED_APPS_FROMCATEGORY = 2;
-
 	public const uint32 MANAGED_APPS_INFOLEVEL_DEFAULT = 65536;
-
 	public const uint32 MANAGED_APPTYPE_WINDOWSINSTALLER = 1;
-
 	public const uint32 MANAGED_APPTYPE_SETUPEXE = 2;
-
 	public const uint32 MANAGED_APPTYPE_UNSUPPORTED = 3;
-
 	public const Guid CLSID_GPESnapIn = .(0x8fc0b734, 0xa0e1, 0x11d1, 0xa7, 0xd3, 0x00, 0x00, 0xf8, 0x75, 0x71, 0xe3);
-
 	public const Guid NODEID_Machine = .(0x8fc0b737, 0xa0e1, 0x11d1, 0xa7, 0xd3, 0x00, 0x00, 0xf8, 0x75, 0x71, 0xe3);
-
 	public const Guid NODEID_MachineSWSettings = .(0x8fc0b73a, 0xa0e1, 0x11d1, 0xa7, 0xd3, 0x00, 0x00, 0xf8, 0x75, 0x71, 0xe3);
-
 	public const Guid NODEID_User = .(0x8fc0b738, 0xa0e1, 0x11d1, 0xa7, 0xd3, 0x00, 0x00, 0xf8, 0x75, 0x71, 0xe3);
-
 	public const Guid NODEID_UserSWSettings = .(0x8fc0b73c, 0xa0e1, 0x11d1, 0xa7, 0xd3, 0x00, 0x00, 0xf8, 0x75, 0x71, 0xe3);
-
 	public const Guid CLSID_GroupPolicyObject = .(0xea502722, 0xa23d, 0x11d1, 0xa7, 0xd3, 0x00, 0x00, 0xf8, 0x75, 0x71, 0xe3);
-
 	public const Guid CLSID_RSOPSnapIn = .(0x6dc3804b, 0x7212, 0x458d, 0xad, 0xb0, 0x9a, 0x07, 0xe2, 0xae, 0x1f, 0xa2);
-
 	public const Guid NODEID_RSOPMachine = .(0xbd4c1a2e, 0x0b7a, 0x4a62, 0xa6, 0xb0, 0xc0, 0x57, 0x75, 0x39, 0xc9, 0x7e);
-
 	public const Guid NODEID_RSOPMachineSWSettings = .(0x6a76273e, 0xeb8e, 0x45db, 0x94, 0xc5, 0x25, 0x66, 0x3a, 0x5f, 0x2c, 0x1a);
-
 	public const Guid NODEID_RSOPUser = .(0xab87364f, 0x0cec, 0x4cd8, 0x9b, 0xf8, 0x89, 0x8f, 0x34, 0x62, 0x8f, 0xb8);
-
 	public const Guid NODEID_RSOPUserSWSettings = .(0xe52c5ce3, 0xfd27, 0x4402, 0x84, 0xde, 0xd9, 0xa5, 0xf2, 0x85, 0x89, 0x10);
-
 	public const uint32 GPO_SECTION_ROOT = 0;
-
 	public const uint32 GPO_SECTION_USER = 1;
-
 	public const uint32 GPO_SECTION_MACHINE = 2;
-
 	public const uint32 GPO_OPEN_LOAD_REGISTRY = 1;
-
 	public const uint32 GPO_OPEN_READ_ONLY = 2;
-
 	public const uint32 GPO_OPTION_DISABLE_USER = 1;
-
 	public const uint32 GPO_OPTION_DISABLE_MACHINE = 2;
-
 	public const uint32 RSOP_INFO_FLAG_DIAGNOSTIC_MODE = 1;
-
 	public const uint32 GPO_BROWSE_DISABLENEW = 1;
-
 	public const uint32 GPO_BROWSE_NOCOMPUTERS = 2;
-
 	public const uint32 GPO_BROWSE_NODSGPOS = 4;
-
 	public const uint32 GPO_BROWSE_OPENBUTTON = 8;
-
 	public const uint32 GPO_BROWSE_INITTOALL = 16;
-
 	public const uint32 GPO_BROWSE_NOUSERGPOS = 32;
-
 	public const uint32 GPO_BROWSE_SENDAPPLYONEDIT = 64;
-
 }
 #endregion
 
@@ -483,14 +392,12 @@ public struct INSTALLSPEC
 		public PWSTR Name;
 		public Guid GPOId;
 	}
-
 	[CRepr]
 	public struct _COMClass_e__Struct
 	{
 		public Guid Clsid;
 		public uint32 ClsCtx;
 	}
-
 	public _AppName_e__Struct AppName;
 	public PWSTR FileExt;
 	public PWSTR ProgId;

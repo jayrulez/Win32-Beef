@@ -7,7 +7,6 @@ using Win32.UI.WindowsAndMessaging;
 using Win32.Graphics.Gdi;
 using Win32.Data.HtmlHelp;
 using System;
-using System.Interop;
 
 namespace Win32.Devices.DeviceAndDriverInstallation;
 
@@ -15,2363 +14,1184 @@ namespace Win32.Devices.DeviceAndDriverInstallation;
 public static
 {
 	public const uint32 CM_PROB_NOT_CONFIGURED = 1;
-
 	public const uint32 CM_PROB_DEVLOADER_FAILED = 2;
-
 	public const uint32 CM_PROB_OUT_OF_MEMORY = 3;
-
 	public const uint32 CM_PROB_ENTRY_IS_WRONG_TYPE = 4;
-
 	public const uint32 CM_PROB_LACKED_ARBITRATOR = 5;
-
 	public const uint32 CM_PROB_BOOT_CONFIG_CONFLICT = 6;
-
 	public const uint32 CM_PROB_FAILED_FILTER = 7;
-
 	public const uint32 CM_PROB_DEVLOADER_NOT_FOUND = 8;
-
 	public const uint32 CM_PROB_INVALID_DATA = 9;
-
 	public const uint32 CM_PROB_FAILED_START = 10;
-
 	public const uint32 CM_PROB_LIAR = 11;
-
 	public const uint32 CM_PROB_NORMAL_CONFLICT = 12;
-
 	public const uint32 CM_PROB_NOT_VERIFIED = 13;
-
 	public const uint32 CM_PROB_NEED_RESTART = 14;
-
 	public const uint32 CM_PROB_REENUMERATION = 15;
-
 	public const uint32 CM_PROB_PARTIAL_LOG_CONF = 16;
-
 	public const uint32 CM_PROB_UNKNOWN_RESOURCE = 17;
-
 	public const uint32 CM_PROB_REINSTALL = 18;
-
 	public const uint32 CM_PROB_REGISTRY = 19;
-
 	public const uint32 CM_PROB_VXDLDR = 20;
-
 	public const uint32 CM_PROB_WILL_BE_REMOVED = 21;
-
 	public const uint32 CM_PROB_DISABLED = 22;
-
 	public const uint32 CM_PROB_DEVLOADER_NOT_READY = 23;
-
 	public const uint32 CM_PROB_DEVICE_NOT_THERE = 24;
-
 	public const uint32 CM_PROB_MOVED = 25;
-
 	public const uint32 CM_PROB_TOO_EARLY = 26;
-
 	public const uint32 CM_PROB_NO_VALID_LOG_CONF = 27;
-
 	public const uint32 CM_PROB_FAILED_INSTALL = 28;
-
 	public const uint32 CM_PROB_HARDWARE_DISABLED = 29;
-
 	public const uint32 CM_PROB_CANT_SHARE_IRQ = 30;
-
 	public const uint32 CM_PROB_FAILED_ADD = 31;
-
 	public const uint32 CM_PROB_DISABLED_SERVICE = 32;
-
 	public const uint32 CM_PROB_TRANSLATION_FAILED = 33;
-
 	public const uint32 CM_PROB_NO_SOFTCONFIG = 34;
-
 	public const uint32 CM_PROB_BIOS_TABLE = 35;
-
 	public const uint32 CM_PROB_IRQ_TRANSLATION_FAILED = 36;
-
 	public const uint32 CM_PROB_FAILED_DRIVER_ENTRY = 37;
-
 	public const uint32 CM_PROB_DRIVER_FAILED_PRIOR_UNLOAD = 38;
-
 	public const uint32 CM_PROB_DRIVER_FAILED_LOAD = 39;
-
 	public const uint32 CM_PROB_DRIVER_SERVICE_KEY_INVALID = 40;
-
 	public const uint32 CM_PROB_LEGACY_SERVICE_NO_DEVICES = 41;
-
 	public const uint32 CM_PROB_DUPLICATE_DEVICE = 42;
-
 	public const uint32 CM_PROB_FAILED_POST_START = 43;
-
 	public const uint32 CM_PROB_HALTED = 44;
-
 	public const uint32 CM_PROB_PHANTOM = 45;
-
 	public const uint32 CM_PROB_SYSTEM_SHUTDOWN = 46;
-
 	public const uint32 CM_PROB_HELD_FOR_EJECT = 47;
-
 	public const uint32 CM_PROB_DRIVER_BLOCKED = 48;
-
 	public const uint32 CM_PROB_REGISTRY_TOO_LARGE = 49;
-
 	public const uint32 CM_PROB_SETPROPERTIES_FAILED = 50;
-
 	public const uint32 CM_PROB_WAITING_ON_DEPENDENCY = 51;
-
 	public const uint32 CM_PROB_UNSIGNED_DRIVER = 52;
-
 	public const uint32 CM_PROB_USED_BY_DEBUGGER = 53;
-
 	public const uint32 CM_PROB_DEVICE_RESET = 54;
-
 	public const uint32 CM_PROB_CONSOLE_LOCKED = 55;
-
 	public const uint32 CM_PROB_NEED_CLASS_CONFIG = 56;
-
 	public const uint32 CM_PROB_GUEST_ASSIGNMENT_FAILED = 57;
-
 	public const uint32 NUM_CM_PROB_V1 = 37;
-
 	public const uint32 NUM_CM_PROB_V2 = 50;
-
 	public const uint32 NUM_CM_PROB_V3 = 51;
-
 	public const uint32 NUM_CM_PROB_V4 = 52;
-
 	public const uint32 NUM_CM_PROB_V5 = 53;
-
 	public const uint32 NUM_CM_PROB_V6 = 54;
-
 	public const uint32 NUM_CM_PROB_V7 = 55;
-
 	public const uint32 NUM_CM_PROB_V8 = 57;
-
 	public const uint32 NUM_CM_PROB_V9 = 58;
-
 	public const uint32 NUM_CM_PROB = 58;
-
 	public const uint32 DN_ROOT_ENUMERATED = 1;
-
 	public const uint32 DN_DRIVER_LOADED = 2;
-
 	public const uint32 DN_ENUM_LOADED = 4;
-
 	public const uint32 DN_STARTED = 8;
-
 	public const uint32 DN_MANUAL = 16;
-
 	public const uint32 DN_NEED_TO_ENUM = 32;
-
 	public const uint32 DN_NOT_FIRST_TIME = 64;
-
 	public const uint32 DN_HARDWARE_ENUM = 128;
-
 	public const uint32 DN_LIAR = 256;
-
 	public const uint32 DN_HAS_MARK = 512;
-
 	public const uint32 DN_HAS_PROBLEM = 1024;
-
 	public const uint32 DN_FILTERED = 2048;
-
 	public const uint32 DN_MOVED = 4096;
-
 	public const uint32 DN_DISABLEABLE = 8192;
-
 	public const uint32 DN_REMOVABLE = 16384;
-
 	public const uint32 DN_PRIVATE_PROBLEM = 32768;
-
 	public const uint32 DN_MF_PARENT = 65536;
-
 	public const uint32 DN_MF_CHILD = 131072;
-
 	public const uint32 DN_WILL_BE_REMOVED = 262144;
-
 	public const uint32 DN_NOT_FIRST_TIMEE = 524288;
-
 	public const uint32 DN_STOP_FREE_RES = 1048576;
-
 	public const uint32 DN_REBAL_CANDIDATE = 2097152;
-
 	public const uint32 DN_BAD_PARTIAL = 4194304;
-
 	public const uint32 DN_NT_ENUMERATOR = 8388608;
-
 	public const uint32 DN_NT_DRIVER = 16777216;
-
 	public const uint32 DN_NEEDS_LOCKING = 33554432;
-
 	public const uint32 DN_ARM_WAKEUP = 67108864;
-
 	public const uint32 DN_APM_ENUMERATOR = 134217728;
-
 	public const uint32 DN_APM_DRIVER = 268435456;
-
 	public const uint32 DN_SILENT_INSTALL = 536870912;
-
 	public const uint32 DN_NO_SHOW_IN_DM = 1073741824;
-
 	public const uint32 DN_BOOT_LOG_PROB = 2147483648;
-
 	public const uint32 DN_NEED_RESTART = 256;
-
 	public const uint32 DN_DRIVER_BLOCKED = 64;
-
 	public const uint32 DN_LEGACY_DRIVER = 4096;
-
 	public const uint32 DN_CHILD_WITH_INVALID_ID = 512;
-
 	public const uint32 DN_DEVICE_DISCONNECTED = 33554432;
-
 	public const uint32 DN_QUERY_REMOVE_PENDING = 65536;
-
 	public const uint32 DN_QUERY_REMOVE_ACTIVE = 131072;
-
 	public const uint32 LCPRI_FORCECONFIG = 0;
-
 	public const uint32 LCPRI_BOOTCONFIG = 1;
-
 	public const uint32 LCPRI_DESIRED = 8192;
-
 	public const uint32 LCPRI_NORMAL = 12288;
-
 	public const uint32 LCPRI_LASTBESTCONFIG = 16383;
-
 	public const uint32 LCPRI_SUBOPTIMAL = 20480;
-
 	public const uint32 LCPRI_LASTSOFTCONFIG = 32767;
-
 	public const uint32 LCPRI_RESTART = 32768;
-
 	public const uint32 LCPRI_REBOOT = 36864;
-
 	public const uint32 LCPRI_POWEROFF = 40960;
-
 	public const uint32 LCPRI_HARDRECONFIG = 49152;
-
 	public const uint32 LCPRI_HARDWIRED = 57344;
-
 	public const uint32 LCPRI_IMPOSSIBLE = 61440;
-
 	public const uint32 LCPRI_DISABLED = 65535;
-
 	public const uint32 MAX_LCPRI = 65535;
-
 	public const uint32 CM_DEVICE_PANEL_SIDE_UNKNOWN = 0;
-
 	public const uint32 CM_DEVICE_PANEL_SIDE_TOP = 1;
-
 	public const uint32 CM_DEVICE_PANEL_SIDE_BOTTOM = 2;
-
 	public const uint32 CM_DEVICE_PANEL_SIDE_LEFT = 3;
-
 	public const uint32 CM_DEVICE_PANEL_SIDE_RIGHT = 4;
-
 	public const uint32 CM_DEVICE_PANEL_SIDE_FRONT = 5;
-
 	public const uint32 CM_DEVICE_PANEL_SIDE_BACK = 6;
-
 	public const uint32 CM_DEVICE_PANEL_EDGE_UNKNOWN = 0;
-
 	public const uint32 CM_DEVICE_PANEL_EDGE_TOP = 1;
-
 	public const uint32 CM_DEVICE_PANEL_EDGE_BOTTOM = 2;
-
 	public const uint32 CM_DEVICE_PANEL_EDGE_LEFT = 3;
-
 	public const uint32 CM_DEVICE_PANEL_EDGE_RIGHT = 4;
-
 	public const uint32 CM_DEVICE_PANEL_SHAPE_UNKNOWN = 0;
-
 	public const uint32 CM_DEVICE_PANEL_SHAPE_RECTANGLE = 1;
-
 	public const uint32 CM_DEVICE_PANEL_SHAPE_OVAL = 2;
-
 	public const uint32 CM_DEVICE_PANEL_ORIENTATION_HORIZONTAL = 0;
-
 	public const uint32 CM_DEVICE_PANEL_ORIENTATION_VERTICAL = 1;
-
 	public const uint32 CM_DEVICE_PANEL_JOINT_TYPE_UNKNOWN = 0;
-
 	public const uint32 CM_DEVICE_PANEL_JOINT_TYPE_PLANAR = 1;
-
 	public const uint32 CM_DEVICE_PANEL_JOINT_TYPE_HINGE = 2;
-
 	public const uint32 CM_DEVICE_PANEL_JOINT_TYPE_PIVOT = 3;
-
 	public const uint32 CM_DEVICE_PANEL_JOINT_TYPE_SWIVEL = 4;
-
 	public const Guid GUID_DEVCLASS_1394 = .(0x6bdd1fc1, 0x810f, 0x11d0, 0xbe, 0xc7, 0x08, 0x00, 0x2b, 0xe2, 0x09, 0x2f);
-
 	public const Guid GUID_DEVCLASS_1394DEBUG = .(0x66f250d6, 0x7801, 0x4a64, 0xb1, 0x39, 0xee, 0xa8, 0x0a, 0x45, 0x0b, 0x24);
-
 	public const Guid GUID_DEVCLASS_61883 = .(0x7ebefbc0, 0x3200, 0x11d2, 0xb4, 0xc2, 0x00, 0xa0, 0xc9, 0x69, 0x7d, 0x07);
-
 	public const Guid GUID_DEVCLASS_ADAPTER = .(0x4d36e964, 0xe325, 0x11ce, 0xbf, 0xc1, 0x08, 0x00, 0x2b, 0xe1, 0x03, 0x18);
-
 	public const Guid GUID_DEVCLASS_APMSUPPORT = .(0xd45b1c18, 0xc8fa, 0x11d1, 0x9f, 0x77, 0x00, 0x00, 0xf8, 0x05, 0xf5, 0x30);
-
 	public const Guid GUID_DEVCLASS_AVC = .(0xc06ff265, 0xae09, 0x48f0, 0x81, 0x2c, 0x16, 0x75, 0x3d, 0x7c, 0xba, 0x83);
-
 	public const Guid GUID_DEVCLASS_BATTERY = .(0x72631e54, 0x78a4, 0x11d0, 0xbc, 0xf7, 0x00, 0xaa, 0x00, 0xb7, 0xb3, 0x2a);
-
 	public const Guid GUID_DEVCLASS_BIOMETRIC = .(0x53d29ef7, 0x377c, 0x4d14, 0x86, 0x4b, 0xeb, 0x3a, 0x85, 0x76, 0x93, 0x59);
-
 	public const Guid GUID_DEVCLASS_BLUETOOTH = .(0xe0cbf06c, 0xcd8b, 0x4647, 0xbb, 0x8a, 0x26, 0x3b, 0x43, 0xf0, 0xf9, 0x74);
-
 	public const Guid GUID_DEVCLASS_CAMERA = .(0xca3e7ab9, 0xb4c3, 0x4ae6, 0x82, 0x51, 0x57, 0x9e, 0xf9, 0x33, 0x89, 0x0f);
-
 	public const Guid GUID_DEVCLASS_CDROM = .(0x4d36e965, 0xe325, 0x11ce, 0xbf, 0xc1, 0x08, 0x00, 0x2b, 0xe1, 0x03, 0x18);
-
 	public const Guid GUID_DEVCLASS_COMPUTEACCELERATOR = .(0xf01a9d53, 0x3ff6, 0x48d2, 0x9f, 0x97, 0xc8, 0xa7, 0x00, 0x4b, 0xe1, 0x0c);
-
 	public const Guid GUID_DEVCLASS_COMPUTER = .(0x4d36e966, 0xe325, 0x11ce, 0xbf, 0xc1, 0x08, 0x00, 0x2b, 0xe1, 0x03, 0x18);
-
 	public const Guid GUID_DEVCLASS_DECODER = .(0x6bdd1fc2, 0x810f, 0x11d0, 0xbe, 0xc7, 0x08, 0x00, 0x2b, 0xe2, 0x09, 0x2f);
-
 	public const Guid GUID_DEVCLASS_DISKDRIVE = .(0x4d36e967, 0xe325, 0x11ce, 0xbf, 0xc1, 0x08, 0x00, 0x2b, 0xe1, 0x03, 0x18);
-
 	public const Guid GUID_DEVCLASS_DISPLAY = .(0x4d36e968, 0xe325, 0x11ce, 0xbf, 0xc1, 0x08, 0x00, 0x2b, 0xe1, 0x03, 0x18);
-
 	public const Guid GUID_DEVCLASS_DOT4 = .(0x48721b56, 0x6795, 0x11d2, 0xb1, 0xa8, 0x00, 0x80, 0xc7, 0x2e, 0x74, 0xa2);
-
 	public const Guid GUID_DEVCLASS_DOT4PRINT = .(0x49ce6ac8, 0x6f86, 0x11d2, 0xb1, 0xe5, 0x00, 0x80, 0xc7, 0x2e, 0x74, 0xa2);
-
 	public const Guid GUID_DEVCLASS_EHSTORAGESILO = .(0x9da2b80f, 0xf89f, 0x4a49, 0xa5, 0xc2, 0x51, 0x1b, 0x08, 0x5b, 0x9e, 0x8a);
-
 	public const Guid GUID_DEVCLASS_ENUM1394 = .(0xc459df55, 0xdb08, 0x11d1, 0xb0, 0x09, 0x00, 0xa0, 0xc9, 0x08, 0x1f, 0xf6);
-
 	public const Guid GUID_DEVCLASS_EXTENSION = .(0xe2f84ce7, 0x8efa, 0x411c, 0xaa, 0x69, 0x97, 0x45, 0x4c, 0xa4, 0xcb, 0x57);
-
 	public const Guid GUID_DEVCLASS_FDC = .(0x4d36e969, 0xe325, 0x11ce, 0xbf, 0xc1, 0x08, 0x00, 0x2b, 0xe1, 0x03, 0x18);
-
 	public const Guid GUID_DEVCLASS_FIRMWARE = .(0xf2e7dd72, 0x6468, 0x4e36, 0xb6, 0xf1, 0x64, 0x88, 0xf4, 0x2c, 0x1b, 0x52);
-
 	public const Guid GUID_DEVCLASS_FLOPPYDISK = .(0x4d36e980, 0xe325, 0x11ce, 0xbf, 0xc1, 0x08, 0x00, 0x2b, 0xe1, 0x03, 0x18);
-
 	public const Guid GUID_DEVCLASS_GPS = .(0x6bdd1fc3, 0x810f, 0x11d0, 0xbe, 0xc7, 0x08, 0x00, 0x2b, 0xe2, 0x09, 0x2f);
-
 	public const Guid GUID_DEVCLASS_HDC = .(0x4d36e96a, 0xe325, 0x11ce, 0xbf, 0xc1, 0x08, 0x00, 0x2b, 0xe1, 0x03, 0x18);
-
 	public const Guid GUID_DEVCLASS_HIDCLASS = .(0x745a17a0, 0x74d3, 0x11d0, 0xb6, 0xfe, 0x00, 0xa0, 0xc9, 0x0f, 0x57, 0xda);
-
 	public const Guid GUID_DEVCLASS_HOLOGRAPHIC = .(0xd612553d, 0x06b1, 0x49ca, 0x89, 0x38, 0xe3, 0x9e, 0xf8, 0x0e, 0xb1, 0x6f);
-
 	public const Guid GUID_DEVCLASS_IMAGE = .(0x6bdd1fc6, 0x810f, 0x11d0, 0xbe, 0xc7, 0x08, 0x00, 0x2b, 0xe2, 0x09, 0x2f);
-
 	public const Guid GUID_DEVCLASS_INFINIBAND = .(0x30ef7132, 0xd858, 0x4a0c, 0xac, 0x24, 0xb9, 0x02, 0x8a, 0x5c, 0xca, 0x3f);
-
 	public const Guid GUID_DEVCLASS_INFRARED = .(0x6bdd1fc5, 0x810f, 0x11d0, 0xbe, 0xc7, 0x08, 0x00, 0x2b, 0xe2, 0x09, 0x2f);
-
 	public const Guid GUID_DEVCLASS_KEYBOARD = .(0x4d36e96b, 0xe325, 0x11ce, 0xbf, 0xc1, 0x08, 0x00, 0x2b, 0xe1, 0x03, 0x18);
-
 	public const Guid GUID_DEVCLASS_LEGACYDRIVER = .(0x8ecc055d, 0x047f, 0x11d1, 0xa5, 0x37, 0x00, 0x00, 0xf8, 0x75, 0x3e, 0xd1);
-
 	public const Guid GUID_DEVCLASS_MEDIA = .(0x4d36e96c, 0xe325, 0x11ce, 0xbf, 0xc1, 0x08, 0x00, 0x2b, 0xe1, 0x03, 0x18);
-
 	public const Guid GUID_DEVCLASS_MEDIUM_CHANGER = .(0xce5939ae, 0xebde, 0x11d0, 0xb1, 0x81, 0x00, 0x00, 0xf8, 0x75, 0x3e, 0xc4);
-
 	public const Guid GUID_DEVCLASS_MEMORY = .(0x5099944a, 0xf6b9, 0x4057, 0xa0, 0x56, 0x8c, 0x55, 0x02, 0x28, 0x54, 0x4c);
-
 	public const Guid GUID_DEVCLASS_MODEM = .(0x4d36e96d, 0xe325, 0x11ce, 0xbf, 0xc1, 0x08, 0x00, 0x2b, 0xe1, 0x03, 0x18);
-
 	public const Guid GUID_DEVCLASS_MONITOR = .(0x4d36e96e, 0xe325, 0x11ce, 0xbf, 0xc1, 0x08, 0x00, 0x2b, 0xe1, 0x03, 0x18);
-
 	public const Guid GUID_DEVCLASS_MOUSE = .(0x4d36e96f, 0xe325, 0x11ce, 0xbf, 0xc1, 0x08, 0x00, 0x2b, 0xe1, 0x03, 0x18);
-
 	public const Guid GUID_DEVCLASS_MTD = .(0x4d36e970, 0xe325, 0x11ce, 0xbf, 0xc1, 0x08, 0x00, 0x2b, 0xe1, 0x03, 0x18);
-
 	public const Guid GUID_DEVCLASS_MULTIFUNCTION = .(0x4d36e971, 0xe325, 0x11ce, 0xbf, 0xc1, 0x08, 0x00, 0x2b, 0xe1, 0x03, 0x18);
-
 	public const Guid GUID_DEVCLASS_MULTIPORTSERIAL = .(0x50906cb8, 0xba12, 0x11d1, 0xbf, 0x5d, 0x00, 0x00, 0xf8, 0x05, 0xf5, 0x30);
-
 	public const Guid GUID_DEVCLASS_NET = .(0x4d36e972, 0xe325, 0x11ce, 0xbf, 0xc1, 0x08, 0x00, 0x2b, 0xe1, 0x03, 0x18);
-
 	public const Guid GUID_DEVCLASS_NETCLIENT = .(0x4d36e973, 0xe325, 0x11ce, 0xbf, 0xc1, 0x08, 0x00, 0x2b, 0xe1, 0x03, 0x18);
-
 	public const Guid GUID_DEVCLASS_NETDRIVER = .(0x87ef9ad1, 0x8f70, 0x49ee, 0xb2, 0x15, 0xab, 0x1f, 0xca, 0xdc, 0xbe, 0x3c);
-
 	public const Guid GUID_DEVCLASS_NETSERVICE = .(0x4d36e974, 0xe325, 0x11ce, 0xbf, 0xc1, 0x08, 0x00, 0x2b, 0xe1, 0x03, 0x18);
-
 	public const Guid GUID_DEVCLASS_NETTRANS = .(0x4d36e975, 0xe325, 0x11ce, 0xbf, 0xc1, 0x08, 0x00, 0x2b, 0xe1, 0x03, 0x18);
-
 	public const Guid GUID_DEVCLASS_NETUIO = .(0x78912bc1, 0xcb8e, 0x4b28, 0xa3, 0x29, 0xf3, 0x22, 0xeb, 0xad, 0xbe, 0x0f);
-
 	public const Guid GUID_DEVCLASS_NODRIVER = .(0x4d36e976, 0xe325, 0x11ce, 0xbf, 0xc1, 0x08, 0x00, 0x2b, 0xe1, 0x03, 0x18);
-
 	public const Guid GUID_DEVCLASS_PCMCIA = .(0x4d36e977, 0xe325, 0x11ce, 0xbf, 0xc1, 0x08, 0x00, 0x2b, 0xe1, 0x03, 0x18);
-
 	public const Guid GUID_DEVCLASS_PNPPRINTERS = .(0x4658ee7e, 0xf050, 0x11d1, 0xb6, 0xbd, 0x00, 0xc0, 0x4f, 0xa3, 0x72, 0xa7);
-
 	public const Guid GUID_DEVCLASS_PORTS = .(0x4d36e978, 0xe325, 0x11ce, 0xbf, 0xc1, 0x08, 0x00, 0x2b, 0xe1, 0x03, 0x18);
-
 	public const Guid GUID_DEVCLASS_PRINTER = .(0x4d36e979, 0xe325, 0x11ce, 0xbf, 0xc1, 0x08, 0x00, 0x2b, 0xe1, 0x03, 0x18);
-
 	public const Guid GUID_DEVCLASS_PRINTERUPGRADE = .(0x4d36e97a, 0xe325, 0x11ce, 0xbf, 0xc1, 0x08, 0x00, 0x2b, 0xe1, 0x03, 0x18);
-
 	public const Guid GUID_DEVCLASS_PRINTQUEUE = .(0x1ed2bbf9, 0x11f0, 0x4084, 0xb2, 0x1f, 0xad, 0x83, 0xa8, 0xe6, 0xdc, 0xdc);
-
 	public const Guid GUID_DEVCLASS_PROCESSOR = .(0x50127dc3, 0x0f36, 0x415e, 0xa6, 0xcc, 0x4c, 0xb3, 0xbe, 0x91, 0x0b, 0x65);
-
 	public const Guid GUID_DEVCLASS_SBP2 = .(0xd48179be, 0xec20, 0x11d1, 0xb6, 0xb8, 0x00, 0xc0, 0x4f, 0xa3, 0x72, 0xa7);
-
 	public const Guid GUID_DEVCLASS_SCMDISK = .(0x53966cb1, 0x4d46, 0x4166, 0xbf, 0x23, 0xc5, 0x22, 0x40, 0x3c, 0xd4, 0x95);
-
 	public const Guid GUID_DEVCLASS_SCMVOLUME = .(0x53ccb149, 0xe543, 0x4c84, 0xb6, 0xe0, 0xbc, 0xe4, 0xf6, 0xb7, 0xe8, 0x06);
-
 	public const Guid GUID_DEVCLASS_SCSIADAPTER = .(0x4d36e97b, 0xe325, 0x11ce, 0xbf, 0xc1, 0x08, 0x00, 0x2b, 0xe1, 0x03, 0x18);
-
 	public const Guid GUID_DEVCLASS_SECURITYACCELERATOR = .(0x268c95a1, 0xedfe, 0x11d3, 0x95, 0xc3, 0x00, 0x10, 0xdc, 0x40, 0x50, 0xa5);
-
 	public const Guid GUID_DEVCLASS_SENSOR = .(0x5175d334, 0xc371, 0x4806, 0xb3, 0xba, 0x71, 0xfd, 0x53, 0xc9, 0x25, 0x8d);
-
 	public const Guid GUID_DEVCLASS_SIDESHOW = .(0x997b5d8d, 0xc442, 0x4f2e, 0xba, 0xf3, 0x9c, 0x8e, 0x67, 0x1e, 0x9e, 0x21);
-
 	public const Guid GUID_DEVCLASS_SMARTCARDREADER = .(0x50dd5230, 0xba8a, 0x11d1, 0xbf, 0x5d, 0x00, 0x00, 0xf8, 0x05, 0xf5, 0x30);
-
 	public const Guid GUID_DEVCLASS_SMRDISK = .(0x53487c23, 0x680f, 0x4585, 0xac, 0xc3, 0x1f, 0x10, 0xd6, 0x77, 0x7e, 0x82);
-
 	public const Guid GUID_DEVCLASS_SMRVOLUME = .(0x53b3cf03, 0x8f5a, 0x4788, 0x91, 0xb6, 0xd1, 0x9e, 0xd9, 0xfc, 0xcc, 0xbf);
-
 	public const Guid GUID_DEVCLASS_SOFTWARECOMPONENT = .(0x5c4c3332, 0x344d, 0x483c, 0x87, 0x39, 0x25, 0x9e, 0x93, 0x4c, 0x9c, 0xc8);
-
 	public const Guid GUID_DEVCLASS_SOUND = .(0x4d36e97c, 0xe325, 0x11ce, 0xbf, 0xc1, 0x08, 0x00, 0x2b, 0xe1, 0x03, 0x18);
-
 	public const Guid GUID_DEVCLASS_SYSTEM = .(0x4d36e97d, 0xe325, 0x11ce, 0xbf, 0xc1, 0x08, 0x00, 0x2b, 0xe1, 0x03, 0x18);
-
 	public const Guid GUID_DEVCLASS_TAPEDRIVE = .(0x6d807884, 0x7d21, 0x11cf, 0x80, 0x1c, 0x08, 0x00, 0x2b, 0xe1, 0x03, 0x18);
-
 	public const Guid GUID_DEVCLASS_UNKNOWN = .(0x4d36e97e, 0xe325, 0x11ce, 0xbf, 0xc1, 0x08, 0x00, 0x2b, 0xe1, 0x03, 0x18);
-
 	public const Guid GUID_DEVCLASS_UCM = .(0xe6f1aa1c, 0x7f3b, 0x4473, 0xb2, 0xe8, 0xc9, 0x7d, 0x8a, 0xc7, 0x1d, 0x53);
-
 	public const Guid GUID_DEVCLASS_USB = .(0x36fc9e60, 0xc465, 0x11cf, 0x80, 0x56, 0x44, 0x45, 0x53, 0x54, 0x00, 0x00);
-
 	public const Guid GUID_DEVCLASS_VOLUME = .(0x71a27cdd, 0x812a, 0x11d0, 0xbe, 0xc7, 0x08, 0x00, 0x2b, 0xe2, 0x09, 0x2f);
-
 	public const Guid GUID_DEVCLASS_VOLUMESNAPSHOT = .(0x533c5b84, 0xec70, 0x11d2, 0x95, 0x05, 0x00, 0xc0, 0x4f, 0x79, 0xde, 0xaf);
-
 	public const Guid GUID_DEVCLASS_WCEUSBS = .(0x25dbce51, 0x6c8f, 0x4a72, 0x8a, 0x6d, 0xb5, 0x4c, 0x2b, 0x4f, 0xc8, 0x35);
-
 	public const Guid GUID_DEVCLASS_WPD = .(0xeec5ad98, 0x8080, 0x425f, 0x92, 0x2a, 0xda, 0xbf, 0x3d, 0xe3, 0xf6, 0x9a);
-
 	public const Guid GUID_DEVCLASS_FSFILTER_TOP = .(0xb369baf4, 0x5568, 0x4e82, 0xa8, 0x7e, 0xa9, 0x3e, 0xb1, 0x6b, 0xca, 0x87);
-
 	public const Guid GUID_DEVCLASS_FSFILTER_ACTIVITYMONITOR = .(0xb86dff51, 0xa31e, 0x4bac, 0xb3, 0xcf, 0xe8, 0xcf, 0xe7, 0x5c, 0x9f, 0xc2);
-
 	public const Guid GUID_DEVCLASS_FSFILTER_UNDELETE = .(0xfe8f1572, 0xc67a, 0x48c0, 0xbb, 0xac, 0x0b, 0x5c, 0x6d, 0x66, 0xca, 0xfb);
-
 	public const Guid GUID_DEVCLASS_FSFILTER_ANTIVIRUS = .(0xb1d1a169, 0xc54f, 0x4379, 0x81, 0xdb, 0xbe, 0xe7, 0xd8, 0x8d, 0x74, 0x54);
-
 	public const Guid GUID_DEVCLASS_FSFILTER_REPLICATION = .(0x48d3ebc4, 0x4cf8, 0x48ff, 0xb8, 0x69, 0x9c, 0x68, 0xad, 0x42, 0xeb, 0x9f);
-
 	public const Guid GUID_DEVCLASS_FSFILTER_CONTINUOUSBACKUP = .(0x71aa14f8, 0x6fad, 0x4622, 0xad, 0x77, 0x92, 0xbb, 0x9d, 0x7e, 0x69, 0x47);
-
 	public const Guid GUID_DEVCLASS_FSFILTER_CONTENTSCREENER = .(0x3e3f0674, 0xc83c, 0x4558, 0xbb, 0x26, 0x98, 0x20, 0xe1, 0xeb, 0xa5, 0xc5);
-
 	public const Guid GUID_DEVCLASS_FSFILTER_QUOTAMANAGEMENT = .(0x8503c911, 0xa6c7, 0x4919, 0x8f, 0x79, 0x50, 0x28, 0xf5, 0x86, 0x6b, 0x0c);
-
 	public const Guid GUID_DEVCLASS_FSFILTER_SYSTEMRECOVERY = .(0x2db15374, 0x706e, 0x4131, 0xa0, 0xc7, 0xd7, 0xc7, 0x8e, 0xb0, 0x28, 0x9a);
-
 	public const Guid GUID_DEVCLASS_FSFILTER_CFSMETADATASERVER = .(0xcdcf0939, 0xb75b, 0x4630, 0xbf, 0x76, 0x80, 0xf7, 0xba, 0x65, 0x58, 0x84);
-
 	public const Guid GUID_DEVCLASS_FSFILTER_HSM = .(0xd546500a, 0x2aeb, 0x45f6, 0x94, 0x82, 0xf4, 0xb1, 0x79, 0x9c, 0x31, 0x77);
-
 	public const Guid GUID_DEVCLASS_FSFILTER_COMPRESSION = .(0xf3586baf, 0xb5aa, 0x49b5, 0x8d, 0x6c, 0x05, 0x69, 0x28, 0x4c, 0x63, 0x9f);
-
 	public const Guid GUID_DEVCLASS_FSFILTER_ENCRYPTION = .(0xa0a701c0, 0xa511, 0x42ff, 0xaa, 0x6c, 0x06, 0xdc, 0x03, 0x95, 0x57, 0x6f);
-
 	public const Guid GUID_DEVCLASS_FSFILTER_VIRTUALIZATION = .(0xf75a86c0, 0x10d8, 0x4c3a, 0xb2, 0x33, 0xed, 0x60, 0xe4, 0xcd, 0xfa, 0xac);
-
 	public const Guid GUID_DEVCLASS_FSFILTER_PHYSICALQUOTAMANAGEMENT = .(0x6a0a8e78, 0xbba6, 0x4fc4, 0xa7, 0x09, 0x1e, 0x33, 0xcd, 0x09, 0xd6, 0x7e);
-
 	public const Guid GUID_DEVCLASS_FSFILTER_OPENFILEBACKUP = .(0xf8ecafa6, 0x66d1, 0x41a5, 0x89, 0x9b, 0x66, 0x58, 0x5d, 0x72, 0x16, 0xb7);
-
 	public const Guid GUID_DEVCLASS_FSFILTER_SECURITYENHANCER = .(0xd02bc3da, 0x0c8e, 0x4945, 0x9b, 0xd5, 0xf1, 0x88, 0x3c, 0x22, 0x6c, 0x8c);
-
 	public const Guid GUID_DEVCLASS_FSFILTER_COPYPROTECTION = .(0x89786ff1, 0x9c12, 0x402f, 0x9c, 0x9e, 0x17, 0x75, 0x3c, 0x7f, 0x43, 0x75);
-
 	public const Guid GUID_DEVCLASS_FSFILTER_BOTTOM = .(0x37765ea0, 0x5958, 0x4fc9, 0xb0, 0x4b, 0x2f, 0xdf, 0xef, 0x97, 0xe5, 0x9e);
-
 	public const Guid GUID_DEVCLASS_FSFILTER_SYSTEM = .(0x5d1b9aaa, 0x01e2, 0x46af, 0x84, 0x9f, 0x27, 0x2b, 0x3f, 0x32, 0x4c, 0x46);
-
 	public const Guid GUID_DEVCLASS_FSFILTER_INFRASTRUCTURE = .(0xe55fa6f9, 0x128c, 0x4d04, 0xab, 0xab, 0x63, 0x0c, 0x74, 0xb1, 0x45, 0x3a);
-
 	public const uint32 LINE_LEN = 256;
-
 	public const uint32 MAX_INF_STRING_LENGTH = 4096;
-
 	public const uint32 MAX_INF_SECTION_NAME_LENGTH = 255;
-
 	public const uint32 MAX_TITLE_LEN = 60;
-
 	public const uint32 MAX_INSTRUCTION_LEN = 256;
-
 	public const uint32 MAX_LABEL_LEN = 30;
-
 	public const uint32 MAX_SERVICE_NAME_LEN = 256;
-
 	public const uint32 MAX_SUBTITLE_LEN = 256;
-
 	public const uint32 SP_MAX_MACHINENAME_LENGTH = 263;
-
 	public const uint32 SP_ALTPLATFORM_FLAGS_VERSION_RANGE = 1;
-
 	public const uint32 SP_ALTPLATFORM_FLAGS_SUITE_MASK = 2;
-
 	public const uint32 INF_STYLE_CACHE_ENABLE = 16;
-
 	public const uint32 INF_STYLE_CACHE_DISABLE = 32;
-
 	public const uint32 INF_STYLE_CACHE_IGNORE = 64;
-
 	public const int32 DIRID_ABSOLUTE = -1;
-
 	public const uint32 DIRID_ABSOLUTE_16BIT = 65535;
-
 	public const uint32 DIRID_NULL = 0;
-
 	public const uint32 DIRID_SRCPATH = 1;
-
 	public const uint32 DIRID_WINDOWS = 10;
-
 	public const uint32 DIRID_SYSTEM = 11;
-
 	public const uint32 DIRID_DRIVERS = 12;
-
 	public const uint32 DIRID_IOSUBSYS = 12;
-
 	public const uint32 DIRID_DRIVER_STORE = 13;
-
 	public const uint32 DIRID_INF = 17;
-
 	public const uint32 DIRID_HELP = 18;
-
 	public const uint32 DIRID_FONTS = 20;
-
 	public const uint32 DIRID_VIEWERS = 21;
-
 	public const uint32 DIRID_COLOR = 23;
-
 	public const uint32 DIRID_APPS = 24;
-
 	public const uint32 DIRID_SHARED = 25;
-
 	public const uint32 DIRID_BOOT = 30;
-
 	public const uint32 DIRID_SYSTEM16 = 50;
-
 	public const uint32 DIRID_SPOOL = 51;
-
 	public const uint32 DIRID_SPOOLDRIVERS = 52;
-
 	public const uint32 DIRID_USERPROFILE = 53;
-
 	public const uint32 DIRID_LOADER = 54;
-
 	public const uint32 DIRID_PRINTPROCESSOR = 55;
-
 	public const uint32 DIRID_DEFAULT = 11;
-
 	public const uint32 DIRID_COMMON_STARTMENU = 16406;
-
 	public const uint32 DIRID_COMMON_PROGRAMS = 16407;
-
 	public const uint32 DIRID_COMMON_STARTUP = 16408;
-
 	public const uint32 DIRID_COMMON_DESKTOPDIRECTORY = 16409;
-
 	public const uint32 DIRID_COMMON_FAVORITES = 16415;
-
 	public const uint32 DIRID_COMMON_APPDATA = 16419;
-
 	public const uint32 DIRID_PROGRAM_FILES = 16422;
-
 	public const uint32 DIRID_SYSTEM_X86 = 16425;
-
 	public const uint32 DIRID_PROGRAM_FILES_X86 = 16426;
-
 	public const uint32 DIRID_PROGRAM_FILES_COMMON = 16427;
-
 	public const uint32 DIRID_PROGRAM_FILES_COMMONX86 = 16428;
-
 	public const uint32 DIRID_COMMON_TEMPLATES = 16429;
-
 	public const uint32 DIRID_COMMON_DOCUMENTS = 16430;
-
 	public const uint32 DIRID_USER = 32768;
-
 	public const uint32 SPFILENOTIFY_STARTQUEUE = 1;
-
 	public const uint32 SPFILENOTIFY_ENDQUEUE = 2;
-
 	public const uint32 SPFILENOTIFY_STARTSUBQUEUE = 3;
-
 	public const uint32 SPFILENOTIFY_ENDSUBQUEUE = 4;
-
 	public const uint32 SPFILENOTIFY_STARTDELETE = 5;
-
 	public const uint32 SPFILENOTIFY_ENDDELETE = 6;
-
 	public const uint32 SPFILENOTIFY_DELETEERROR = 7;
-
 	public const uint32 SPFILENOTIFY_STARTRENAME = 8;
-
 	public const uint32 SPFILENOTIFY_ENDRENAME = 9;
-
 	public const uint32 SPFILENOTIFY_RENAMEERROR = 10;
-
 	public const uint32 SPFILENOTIFY_STARTCOPY = 11;
-
 	public const uint32 SPFILENOTIFY_ENDCOPY = 12;
-
 	public const uint32 SPFILENOTIFY_COPYERROR = 13;
-
 	public const uint32 SPFILENOTIFY_NEEDMEDIA = 14;
-
 	public const uint32 SPFILENOTIFY_QUEUESCAN = 15;
-
 	public const uint32 SPFILENOTIFY_CABINETINFO = 16;
-
 	public const uint32 SPFILENOTIFY_FILEINCABINET = 17;
-
 	public const uint32 SPFILENOTIFY_NEEDNEWCABINET = 18;
-
 	public const uint32 SPFILENOTIFY_FILEEXTRACTED = 19;
-
 	public const uint32 SPFILENOTIFY_FILEOPDELAYED = 20;
-
 	public const uint32 SPFILENOTIFY_STARTBACKUP = 21;
-
 	public const uint32 SPFILENOTIFY_BACKUPERROR = 22;
-
 	public const uint32 SPFILENOTIFY_ENDBACKUP = 23;
-
 	public const uint32 SPFILENOTIFY_QUEUESCAN_EX = 24;
-
 	public const uint32 SPFILENOTIFY_STARTREGISTRATION = 25;
-
 	public const uint32 SPFILENOTIFY_ENDREGISTRATION = 32;
-
 	public const uint32 SPFILENOTIFY_QUEUESCAN_SIGNERINFO = 64;
-
 	public const uint32 SPFILENOTIFY_LANGMISMATCH = 65536;
-
 	public const uint32 SPFILENOTIFY_TARGETEXISTS = 131072;
-
 	public const uint32 SPFILENOTIFY_TARGETNEWER = 262144;
-
 	public const uint32 FILEOP_RENAME = 1;
-
 	public const uint32 FILEOP_BACKUP = 3;
-
 	public const uint32 FILEOP_ABORT = 0;
-
 	public const uint32 FILEOP_DOIT = 1;
-
 	public const uint32 FILEOP_SKIP = 2;
-
 	public const uint32 FILEOP_RETRY = 1;
-
 	public const uint32 FILEOP_NEWPATH = 4;
-
 	public const uint32 COPYFLG_WARN_IF_SKIP = 1;
-
 	public const uint32 COPYFLG_NOSKIP = 2;
-
 	public const uint32 COPYFLG_NOVERSIONCHECK = 4;
-
 	public const uint32 COPYFLG_FORCE_FILE_IN_USE = 8;
-
 	public const uint32 COPYFLG_NO_OVERWRITE = 16;
-
 	public const uint32 COPYFLG_NO_VERSION_DIALOG = 32;
-
 	public const uint32 COPYFLG_OVERWRITE_OLDER_ONLY = 64;
-
 	public const uint32 COPYFLG_PROTECTED_WINDOWS_DRIVER_FILE = 256;
-
 	public const uint32 COPYFLG_REPLACEONLY = 1024;
-
 	public const uint32 COPYFLG_NODECOMP = 2048;
-
 	public const uint32 COPYFLG_REPLACE_BOOT_FILE = 4096;
-
 	public const uint32 COPYFLG_NOPRUNE = 8192;
-
 	public const uint32 COPYFLG_IN_USE_TRY_RENAME = 16384;
-
 	public const uint32 DELFLG_IN_USE = 1;
-
 	public const uint32 DELFLG_IN_USE1 = 65536;
-
 	public const uint32 SPREG_SUCCESS = 0;
-
 	public const uint32 SPREG_LOADLIBRARY = 1;
-
 	public const uint32 SPREG_GETPROCADDR = 2;
-
 	public const uint32 SPREG_REGSVR = 3;
-
 	public const uint32 SPREG_DLLINSTALL = 4;
-
 	public const uint32 SPREG_TIMEOUT = 5;
-
 	public const uint32 SPREG_UNKNOWN = 4294967295;
-
 	public const uint32 SPINT_ACTIVE = 1;
-
 	public const uint32 SPINT_DEFAULT = 2;
-
 	public const uint32 SPINT_REMOVED = 4;
-
 	public const uint32 SPID_ACTIVE = 1;
-
 	public const uint32 SPID_DEFAULT = 2;
-
 	public const uint32 SPID_REMOVED = 4;
-
 	public const uint32 DIF_SELECTDEVICE = 1;
-
 	public const uint32 DIF_INSTALLDEVICE = 2;
-
 	public const uint32 DIF_ASSIGNRESOURCES = 3;
-
 	public const uint32 DIF_PROPERTIES = 4;
-
 	public const uint32 DIF_REMOVE = 5;
-
 	public const uint32 DIF_FIRSTTIMESETUP = 6;
-
 	public const uint32 DIF_FOUNDDEVICE = 7;
-
 	public const uint32 DIF_SELECTCLASSDRIVERS = 8;
-
 	public const uint32 DIF_VALIDATECLASSDRIVERS = 9;
-
 	public const uint32 DIF_INSTALLCLASSDRIVERS = 10;
-
 	public const uint32 DIF_CALCDISKSPACE = 11;
-
 	public const uint32 DIF_DESTROYPRIVATEDATA = 12;
-
 	public const uint32 DIF_VALIDATEDRIVER = 13;
-
 	public const uint32 DIF_DETECT = 15;
-
 	public const uint32 DIF_INSTALLWIZARD = 16;
-
 	public const uint32 DIF_DESTROYWIZARDDATA = 17;
-
 	public const uint32 DIF_PROPERTYCHANGE = 18;
-
 	public const uint32 DIF_ENABLECLASS = 19;
-
 	public const uint32 DIF_DETECTVERIFY = 20;
-
 	public const uint32 DIF_INSTALLDEVICEFILES = 21;
-
 	public const uint32 DIF_UNREMOVE = 22;
-
 	public const uint32 DIF_SELECTBESTCOMPATDRV = 23;
-
 	public const uint32 DIF_ALLOW_INSTALL = 24;
-
 	public const uint32 DIF_REGISTERDEVICE = 25;
-
 	public const uint32 DIF_NEWDEVICEWIZARD_PRESELECT = 26;
-
 	public const uint32 DIF_NEWDEVICEWIZARD_SELECT = 27;
-
 	public const uint32 DIF_NEWDEVICEWIZARD_PREANALYZE = 28;
-
 	public const uint32 DIF_NEWDEVICEWIZARD_POSTANALYZE = 29;
-
 	public const uint32 DIF_NEWDEVICEWIZARD_FINISHINSTALL = 30;
-
 	public const uint32 DIF_UNUSED1 = 31;
-
 	public const uint32 DIF_INSTALLINTERFACES = 32;
-
 	public const uint32 DIF_DETECTCANCEL = 33;
-
 	public const uint32 DIF_REGISTER_COINSTALLERS = 34;
-
 	public const uint32 DIF_ADDPROPERTYPAGE_ADVANCED = 35;
-
 	public const uint32 DIF_ADDPROPERTYPAGE_BASIC = 36;
-
 	public const uint32 DIF_RESERVED1 = 37;
-
 	public const uint32 DIF_TROUBLESHOOTER = 38;
-
 	public const uint32 DIF_POWERMESSAGEWAKE = 39;
-
 	public const uint32 DIF_ADDREMOTEPROPERTYPAGE_ADVANCED = 40;
-
 	public const uint32 DIF_UPDATEDRIVER_UI = 41;
-
 	public const uint32 DIF_FINISHINSTALL_ACTION = 42;
-
 	public const uint32 DIF_RESERVED2 = 48;
-
 	public const uint32 DIF_MOVEDEVICE = 14;
-
 	public const int32 DI_SHOWOEM = 1;
-
 	public const int32 DI_SHOWCOMPAT = 2;
-
 	public const int32 DI_SHOWCLASS = 4;
-
 	public const int32 DI_SHOWALL = 7;
-
 	public const int32 DI_NOVCP = 8;
-
 	public const int32 DI_DIDCOMPAT = 16;
-
 	public const int32 DI_DIDCLASS = 32;
-
 	public const int32 DI_AUTOASSIGNRES = 64;
-
 	public const int32 DI_NEEDRESTART = 128;
-
 	public const int32 DI_NEEDREBOOT = 256;
-
 	public const int32 DI_NOBROWSE = 512;
-
 	public const int32 DI_MULTMFGS = 1024;
-
 	public const int32 DI_DISABLED = 2048;
-
 	public const int32 DI_GENERALPAGE_ADDED = 4096;
-
 	public const int32 DI_RESOURCEPAGE_ADDED = 8192;
-
 	public const int32 DI_PROPERTIES_CHANGE = 16384;
-
 	public const int32 DI_INF_IS_SORTED = 32768;
-
 	public const int32 DI_ENUMSINGLEINF = 65536;
-
 	public const int32 DI_DONOTCALLCONFIGMG = 131072;
-
 	public const int32 DI_INSTALLDISABLED = 262144;
-
 	public const int32 DI_COMPAT_FROM_CLASS = 524288;
-
 	public const int32 DI_CLASSINSTALLPARAMS = 1048576;
-
 	public const int32 DI_NODI_DEFAULTACTION = 2097152;
-
 	public const int32 DI_QUIETINSTALL = 8388608;
-
 	public const int32 DI_NOFILECOPY = 16777216;
-
 	public const int32 DI_FORCECOPY = 33554432;
-
 	public const int32 DI_DRIVERPAGE_ADDED = 67108864;
-
 	public const int32 DI_USECI_SELECTSTRINGS = 134217728;
-
 	public const int32 DI_OVERRIDE_INFFLAGS = 268435456;
-
 	public const int32 DI_PROPS_NOCHANGEUSAGE = 536870912;
-
 	public const int32 DI_NOSELECTICONS = 1073741824;
-
 	public const int32 DI_NOWRITE_IDS = -2147483648;
-
 	public const int32 DI_FLAGSEX_RESERVED2 = 1;
-
 	public const int32 DI_FLAGSEX_RESERVED3 = 2;
-
 	public const int32 DI_FLAGSEX_CI_FAILED = 4;
-
 	public const int32 DI_FLAGSEX_FINISHINSTALL_ACTION = 8;
-
 	public const int32 DI_FLAGSEX_DIDINFOLIST = 16;
-
 	public const int32 DI_FLAGSEX_DIDCOMPATINFO = 32;
-
 	public const int32 DI_FLAGSEX_FILTERCLASSES = 64;
-
 	public const int32 DI_FLAGSEX_SETFAILEDINSTALL = 128;
-
 	public const int32 DI_FLAGSEX_DEVICECHANGE = 256;
-
 	public const int32 DI_FLAGSEX_ALWAYSWRITEIDS = 512;
-
 	public const int32 DI_FLAGSEX_PROPCHANGE_PENDING = 1024;
-
 	public const int32 DI_FLAGSEX_ALLOWEXCLUDEDDRVS = 2048;
-
 	public const int32 DI_FLAGSEX_NOUIONQUERYREMOVE = 4096;
-
 	public const int32 DI_FLAGSEX_USECLASSFORCOMPAT = 8192;
-
 	public const int32 DI_FLAGSEX_RESERVED4 = 16384;
-
 	public const int32 DI_FLAGSEX_NO_DRVREG_MODIFY = 32768;
-
 	public const int32 DI_FLAGSEX_IN_SYSTEM_SETUP = 65536;
-
 	public const int32 DI_FLAGSEX_INET_DRIVER = 131072;
-
 	public const int32 DI_FLAGSEX_APPENDDRIVERLIST = 262144;
-
 	public const int32 DI_FLAGSEX_PREINSTALLBACKUP = 524288;
-
 	public const int32 DI_FLAGSEX_BACKUPONREPLACE = 1048576;
-
 	public const int32 DI_FLAGSEX_DRIVERLIST_FROM_URL = 2097152;
-
 	public const int32 DI_FLAGSEX_RESERVED1 = 4194304;
-
 	public const int32 DI_FLAGSEX_EXCLUDE_OLD_INET_DRIVERS = 8388608;
-
 	public const int32 DI_FLAGSEX_POWERPAGE_ADDED = 16777216;
-
 	public const int32 DI_FLAGSEX_FILTERSIMILARDRIVERS = 33554432;
-
 	public const int32 DI_FLAGSEX_INSTALLEDDRIVER = 67108864;
-
 	public const int32 DI_FLAGSEX_NO_CLASSLIST_NODE_MERGE = 134217728;
-
 	public const int32 DI_FLAGSEX_ALTPLATFORM_DRVSEARCH = 268435456;
-
 	public const int32 DI_FLAGSEX_RESTART_DEVICE_ONLY = 536870912;
-
 	public const int32 DI_FLAGSEX_RECURSIVESEARCH = 1073741824;
-
 	public const int32 DI_FLAGSEX_SEARCH_PUBLISHED_INFS = -2147483648;
-
 	public const uint32 ENABLECLASS_QUERY = 0;
-
 	public const uint32 ENABLECLASS_SUCCESS = 1;
-
 	public const uint32 ENABLECLASS_FAILURE = 2;
-
 	public const uint32 DICS_ENABLE = 1;
-
 	public const uint32 DICS_DISABLE = 2;
-
 	public const uint32 DICS_PROPCHANGE = 3;
-
 	public const uint32 DICS_START = 4;
-
 	public const uint32 DICS_STOP = 5;
-
 	public const uint32 DICS_FLAG_GLOBAL = 1;
-
 	public const uint32 DICS_FLAG_CONFIGSPECIFIC = 2;
-
 	public const uint32 DICS_FLAG_CONFIGGENERAL = 4;
-
 	public const uint32 DI_REMOVEDEVICE_GLOBAL = 1;
-
 	public const uint32 DI_REMOVEDEVICE_CONFIGSPECIFIC = 2;
-
 	public const uint32 DI_UNREMOVEDEVICE_CONFIGSPECIFIC = 2;
-
 	public const uint32 MAX_INSTALLWIZARD_DYNAPAGES = 20;
-
 	public const uint32 NDW_INSTALLFLAG_DIDFACTDEFS = 1;
-
 	public const uint32 NDW_INSTALLFLAG_HARDWAREALLREADYIN = 2;
-
 	public const int32 NDW_INSTALLFLAG_NEEDRESTART = 128;
-
 	public const int32 NDW_INSTALLFLAG_NEEDREBOOT = 256;
-
 	public const uint32 NDW_INSTALLFLAG_NEEDSHUTDOWN = 512;
-
 	public const uint32 NDW_INSTALLFLAG_EXPRESSINTRO = 1024;
-
 	public const uint32 NDW_INSTALLFLAG_SKIPISDEVINSTALLED = 2048;
-
 	public const uint32 NDW_INSTALLFLAG_NODETECTEDDEVS = 4096;
-
 	public const uint32 NDW_INSTALLFLAG_INSTALLSPECIFIC = 8192;
-
 	public const uint32 NDW_INSTALLFLAG_SKIPCLASSLIST = 16384;
-
 	public const uint32 NDW_INSTALLFLAG_CI_PICKED_OEM = 32768;
-
 	public const uint32 NDW_INSTALLFLAG_PCMCIAMODE = 65536;
-
 	public const uint32 NDW_INSTALLFLAG_PCMCIADEVICE = 131072;
-
 	public const uint32 NDW_INSTALLFLAG_USERCANCEL = 262144;
-
 	public const uint32 NDW_INSTALLFLAG_KNOWNCLASS = 524288;
-
 	public const uint32 DYNAWIZ_FLAG_PAGESADDED = 1;
-
 	public const uint32 DYNAWIZ_FLAG_ANALYZE_HANDLECONFLICT = 8;
-
 	public const uint32 DYNAWIZ_FLAG_INSTALLDET_NEXT = 2;
-
 	public const uint32 DYNAWIZ_FLAG_INSTALLDET_PREV = 4;
-
 	public const uint32 MIN_IDD_DYNAWIZ_RESOURCE_ID = 10000;
-
 	public const uint32 MAX_IDD_DYNAWIZ_RESOURCE_ID = 11000;
-
 	public const uint32 IDD_DYNAWIZ_FIRSTPAGE = 10000;
-
 	public const uint32 IDD_DYNAWIZ_SELECT_PREVPAGE = 10001;
-
 	public const uint32 IDD_DYNAWIZ_SELECT_NEXTPAGE = 10002;
-
 	public const uint32 IDD_DYNAWIZ_ANALYZE_PREVPAGE = 10003;
-
 	public const uint32 IDD_DYNAWIZ_ANALYZE_NEXTPAGE = 10004;
-
 	public const uint32 IDD_DYNAWIZ_SELECTDEV_PAGE = 10009;
-
 	public const uint32 IDD_DYNAWIZ_ANALYZEDEV_PAGE = 10010;
-
 	public const uint32 IDD_DYNAWIZ_INSTALLDETECTEDDEVS_PAGE = 10011;
-
 	public const uint32 IDD_DYNAWIZ_SELECTCLASS_PAGE = 10012;
-
 	public const uint32 IDD_DYNAWIZ_INSTALLDETECTED_PREVPAGE = 10006;
-
 	public const uint32 IDD_DYNAWIZ_INSTALLDETECTED_NEXTPAGE = 10007;
-
 	public const uint32 IDD_DYNAWIZ_INSTALLDETECTED_NODEVS = 10008;
-
 	public const uint32 DNF_DUPDESC = 1;
-
 	public const uint32 DNF_OLDDRIVER = 2;
-
 	public const uint32 DNF_EXCLUDEFROMLIST = 4;
-
 	public const uint32 DNF_NODRIVER = 8;
-
 	public const uint32 DNF_LEGACYINF = 16;
-
 	public const uint32 DNF_CLASS_DRIVER = 32;
-
 	public const uint32 DNF_COMPATIBLE_DRIVER = 64;
-
 	public const uint32 DNF_INET_DRIVER = 128;
-
 	public const uint32 DNF_UNUSED1 = 256;
-
 	public const uint32 DNF_UNUSED2 = 512;
-
 	public const uint32 DNF_OLD_INET_DRIVER = 1024;
-
 	public const uint32 DNF_BAD_DRIVER = 2048;
-
 	public const uint32 DNF_DUPPROVIDER = 4096;
-
 	public const uint32 DNF_INF_IS_SIGNED = 8192;
-
 	public const uint32 DNF_OEM_F6_INF = 16384;
-
 	public const uint32 DNF_DUPDRIVERVER = 32768;
-
 	public const uint32 DNF_BASIC_DRIVER = 65536;
-
 	public const uint32 DNF_AUTHENTICODE_SIGNED = 131072;
-
 	public const uint32 DNF_INSTALLEDDRIVER = 262144;
-
 	public const uint32 DNF_ALWAYSEXCLUDEFROMLIST = 524288;
-
 	public const uint32 DNF_INBOX_DRIVER = 1048576;
-
 	public const uint32 DNF_REQUESTADDITIONALSOFTWARE = 2097152;
-
 	public const uint32 DNF_UNUSED_22 = 4194304;
-
 	public const uint32 DNF_UNUSED_23 = 8388608;
-
 	public const uint32 DNF_UNUSED_24 = 16777216;
-
 	public const uint32 DNF_UNUSED_25 = 33554432;
-
 	public const uint32 DNF_UNUSED_26 = 67108864;
-
 	public const uint32 DNF_UNUSED_27 = 134217728;
-
 	public const uint32 DNF_UNUSED_28 = 268435456;
-
 	public const uint32 DNF_UNUSED_29 = 536870912;
-
 	public const uint32 DNF_UNUSED_30 = 1073741824;
-
 	public const uint32 DNF_UNUSED_31 = 2147483648;
-
 	public const uint32 DRIVER_HARDWAREID_RANK = 4095;
-
 	public const uint32 DRIVER_HARDWAREID_MASK = 2147487743;
-
 	public const uint32 DRIVER_UNTRUSTED_RANK = 2147483648;
-
 	public const uint32 DRIVER_W9X_SUSPECT_RANK = 3221225472;
-
 	public const uint32 DRIVER_COMPATID_RANK = 16383;
-
 	public const uint32 DRIVER_UNTRUSTED_HARDWAREID_RANK = 36863;
-
 	public const uint32 DRIVER_UNTRUSTED_COMPATID_RANK = 49151;
-
 	public const uint32 DRIVER_W9X_SUSPECT_HARDWAREID_RANK = 53247;
-
 	public const uint32 DRIVER_W9X_SUSPECT_COMPATID_RANK = 65535;
-
 	public const uint32 SPPSR_SELECT_DEVICE_RESOURCES = 1;
-
 	public const uint32 SPPSR_ENUM_BASIC_DEVICE_PROPERTIES = 2;
-
 	public const uint32 SPPSR_ENUM_ADV_DEVICE_PROPERTIES = 3;
-
 	public const uint32 INFINFO_INF_SPEC_IS_HINF = 1;
-
 	public const uint32 INFINFO_INF_NAME_IS_ABSOLUTE = 2;
-
 	public const uint32 INFINFO_DEFAULT_SEARCH = 3;
-
 	public const uint32 INFINFO_REVERSE_DEFAULT_SEARCH = 4;
-
 	public const uint32 INFINFO_INF_PATH_LIST_SEARCH = 5;
-
 	public const uint32 FILE_COMPRESSION_NONE = 0;
-
 	public const uint32 FILE_COMPRESSION_WINLZA = 1;
-
 	public const uint32 FILE_COMPRESSION_MSZIP = 2;
-
 	public const uint32 FILE_COMPRESSION_NTCAB = 3;
-
 	public const uint32 SRCLIST_TEMPORARY = 1;
-
 	public const uint32 SRCLIST_NOBROWSE = 2;
-
 	public const uint32 SRCLIST_SYSTEM = 16;
-
 	public const uint32 SRCLIST_USER = 32;
-
 	public const uint32 SRCLIST_SYSIFADMIN = 64;
-
 	public const uint32 SRCLIST_SUBDIRS = 256;
-
 	public const uint32 SRCLIST_APPEND = 512;
-
 	public const uint32 SRCLIST_NOSTRIPPLATFORM = 1024;
-
 	public const uint32 IDF_NOBROWSE = 1;
-
 	public const uint32 IDF_NOSKIP = 2;
-
 	public const uint32 IDF_NODETAILS = 4;
-
 	public const uint32 IDF_NOCOMPRESSED = 8;
-
 	public const uint32 IDF_CHECKFIRST = 256;
-
 	public const uint32 IDF_NOBEEP = 512;
-
 	public const uint32 IDF_NOFOREGROUND = 1024;
-
 	public const uint32 IDF_WARNIFSKIP = 2048;
-
 	public const uint32 IDF_NOREMOVABLEMEDIAPROMPT = 4096;
-
 	public const uint32 IDF_USEDISKNAMEASPROMPT = 8192;
-
 	public const uint32 IDF_OEMDISK = 2147483648;
-
 	public const uint32 DPROMPT_SUCCESS = 0;
-
 	public const uint32 DPROMPT_CANCEL = 1;
-
 	public const uint32 DPROMPT_SKIPFILE = 2;
-
 	public const uint32 DPROMPT_BUFFERTOOSMALL = 3;
-
 	public const uint32 DPROMPT_OUTOFMEMORY = 4;
-
 	public const uint32 SETDIRID_NOT_FULL_PATH = 1;
-
 	public const uint32 SRCINFO_PATH = 1;
-
 	public const uint32 SRCINFO_TAGFILE = 2;
-
 	public const uint32 SRCINFO_DESCRIPTION = 3;
-
 	public const uint32 SRCINFO_FLAGS = 4;
-
 	public const uint32 SRCINFO_TAGFILE2 = 5;
-
 	public const uint32 SRC_FLAGS_CABFILE = 16;
-
 	public const uint32 SP_FLAG_CABINETCONTINUATION = 2048;
-
 	public const uint32 SP_BACKUP_BACKUPPASS = 1;
-
 	public const uint32 SP_BACKUP_DEMANDPASS = 2;
-
 	public const uint32 SP_BACKUP_SPECIAL = 4;
-
 	public const uint32 SP_BACKUP_BOOTFILE = 8;
-
 	public const uint32 SPQ_SCAN_FILE_PRESENCE = 1;
-
 	public const uint32 SPQ_SCAN_FILE_VALIDITY = 2;
-
 	public const uint32 SPQ_SCAN_USE_CALLBACK = 4;
-
 	public const uint32 SPQ_SCAN_USE_CALLBACKEX = 8;
-
 	public const uint32 SPQ_SCAN_INFORM_USER = 16;
-
 	public const uint32 SPQ_SCAN_PRUNE_COPY_QUEUE = 32;
-
 	public const uint32 SPQ_SCAN_USE_CALLBACK_SIGNERINFO = 64;
-
 	public const uint32 SPQ_SCAN_PRUNE_DELREN = 128;
-
 	public const uint32 SPQ_SCAN_FILE_PRESENCE_WITHOUT_SOURCE = 256;
-
 	public const uint32 SPQ_SCAN_FILE_COMPARISON = 512;
-
 	public const uint32 SPQ_SCAN_ACTIVATE_DRP = 1024;
-
 	public const uint32 SPQ_DELAYED_COPY = 1;
-
 	public const uint32 SPQ_FLAG_BACKUP_AWARE = 1;
-
 	public const uint32 SPQ_FLAG_ABORT_IF_UNSIGNED = 2;
-
 	public const uint32 SPQ_FLAG_FILES_MODIFIED = 4;
-
 	public const uint32 SPQ_FLAG_DO_SHUFFLEMOVE = 8;
-
 	public const uint32 SPQ_FLAG_VALID = 15;
-
 	public const uint32 SPOST_MAX = 3;
-
 	public const uint32 SUOI_FORCEDELETE = 1;
-
 	public const uint32 SUOI_INTERNAL1 = 2;
-
 	public const uint32 SPDSL_IGNORE_DISK = 1;
-
 	public const uint32 SPDSL_DISALLOW_NEGATIVE_ADJUST = 2;
-
 	public const uint32 SPFILEQ_FILE_IN_USE = 1;
-
 	public const uint32 SPFILEQ_REBOOT_RECOMMENDED = 2;
-
 	public const uint32 SPFILEQ_REBOOT_IN_PROGRESS = 4;
-
 	public const uint32 FLG_ADDREG_DELREG_BIT = 32768;
-
 	public const uint32 FLG_ADDREG_BINVALUETYPE = 1;
-
 	public const uint32 FLG_ADDREG_NOCLOBBER = 2;
-
 	public const uint32 FLG_ADDREG_DELVAL = 4;
-
 	public const uint32 FLG_ADDREG_APPEND = 8;
-
 	public const uint32 FLG_ADDREG_KEYONLY = 16;
-
 	public const uint32 FLG_ADDREG_OVERWRITEONLY = 32;
-
 	public const uint32 FLG_ADDREG_64BITKEY = 4096;
-
 	public const uint32 FLG_ADDREG_KEYONLY_COMMON = 8192;
-
 	public const uint32 FLG_ADDREG_32BITKEY = 16384;
-
 	public const uint32 FLG_ADDREG_TYPE_SZ = 0;
-
 	public const uint32 FLG_ADDREG_TYPE_MULTI_SZ = 65536;
-
 	public const uint32 FLG_ADDREG_TYPE_EXPAND_SZ = 131072;
-
 	public const uint32 FLG_DELREG_VALUE = 0;
-
 	public const uint32 FLG_DELREG_TYPE_SZ = 0;
-
 	public const uint32 FLG_DELREG_TYPE_MULTI_SZ = 65536;
-
 	public const uint32 FLG_DELREG_TYPE_EXPAND_SZ = 131072;
-
 	public const uint32 FLG_DELREG_64BITKEY = 4096;
-
 	public const uint32 FLG_DELREG_KEYONLY_COMMON = 8192;
-
 	public const uint32 FLG_DELREG_32BITKEY = 16384;
-
 	public const uint32 FLG_DELREG_OPERATION_MASK = 254;
-
 	public const uint32 FLG_BITREG_CLEARBITS = 0;
-
 	public const uint32 FLG_BITREG_SETBITS = 1;
-
 	public const uint32 FLG_BITREG_64BITKEY = 4096;
-
 	public const uint32 FLG_BITREG_32BITKEY = 16384;
-
 	public const uint32 FLG_INI2REG_64BITKEY = 4096;
-
 	public const uint32 FLG_INI2REG_32BITKEY = 16384;
-
 	public const uint32 FLG_REGSVR_DLLREGISTER = 1;
-
 	public const uint32 FLG_REGSVR_DLLINSTALL = 2;
-
 	public const uint32 FLG_PROFITEM_CURRENTUSER = 1;
-
 	public const uint32 FLG_PROFITEM_DELETE = 2;
-
 	public const uint32 FLG_PROFITEM_GROUP = 4;
-
 	public const uint32 FLG_PROFITEM_CSIDL = 8;
-
 	public const uint32 FLG_ADDPROPERTY_NOCLOBBER = 1;
-
 	public const uint32 FLG_ADDPROPERTY_OVERWRITEONLY = 2;
-
 	public const uint32 FLG_ADDPROPERTY_APPEND = 4;
-
 	public const uint32 FLG_ADDPROPERTY_OR = 8;
-
 	public const uint32 FLG_ADDPROPERTY_AND = 16;
-
 	public const uint32 FLG_DELPROPERTY_MULTI_SZ_DELSTRING = 1;
-
 	public const uint32 SPINST_LOGCONFIG = 1;
-
 	public const uint32 SPINST_INIFILES = 2;
-
 	public const uint32 SPINST_REGISTRY = 4;
-
 	public const uint32 SPINST_INI2REG = 8;
-
 	public const uint32 SPINST_FILES = 16;
-
 	public const uint32 SPINST_BITREG = 32;
-
 	public const uint32 SPINST_REGSVR = 64;
-
 	public const uint32 SPINST_UNREGSVR = 128;
-
 	public const uint32 SPINST_PROFILEITEMS = 256;
-
 	public const uint32 SPINST_COPYINF = 512;
-
 	public const uint32 SPINST_PROPERTIES = 1024;
-
 	public const uint32 SPINST_ALL = 2047;
-
 	public const uint32 SPINST_SINGLESECTION = 65536;
-
 	public const uint32 SPINST_LOGCONFIG_IS_FORCED = 131072;
-
 	public const uint32 SPINST_LOGCONFIGS_ARE_OVERRIDES = 262144;
-
 	public const uint32 SPINST_REGISTERCALLBACKAWARE = 524288;
-
 	public const uint32 SPINST_DEVICEINSTALL = 1048576;
-
 	public const uint32 SPSVCINST_TAGTOFRONT = 1;
-
 	public const uint32 SPSVCINST_ASSOCSERVICE = 2;
-
 	public const uint32 SPSVCINST_DELETEEVENTLOGENTRY = 4;
-
 	public const uint32 SPSVCINST_NOCLOBBER_DISPLAYNAME = 8;
-
 	public const uint32 SPSVCINST_NOCLOBBER_STARTTYPE = 16;
-
 	public const uint32 SPSVCINST_NOCLOBBER_ERRORCONTROL = 32;
-
 	public const uint32 SPSVCINST_NOCLOBBER_LOADORDERGROUP = 64;
-
 	public const uint32 SPSVCINST_NOCLOBBER_DEPENDENCIES = 128;
-
 	public const uint32 SPSVCINST_NOCLOBBER_DESCRIPTION = 256;
-
 	public const uint32 SPSVCINST_STOPSERVICE = 512;
-
 	public const uint32 SPSVCINST_CLOBBER_SECURITY = 1024;
-
 	public const uint32 SPSVCINST_STARTSERVICE = 2048;
-
 	public const uint32 SPSVCINST_NOCLOBBER_REQUIREDPRIVILEGES = 4096;
-
 	public const uint32 SPSVCINST_NOCLOBBER_TRIGGERS = 8192;
-
 	public const uint32 SPSVCINST_NOCLOBBER_SERVICESIDTYPE = 16384;
-
 	public const uint32 SPSVCINST_NOCLOBBER_DELAYEDAUTOSTART = 32768;
-
 	public const uint32 SPSVCINST_UNIQUE_NAME = 65536;
-
 	public const uint32 SPFILELOG_SYSTEMLOG = 1;
-
 	public const uint32 SPFILELOG_FORCENEW = 2;
-
 	public const uint32 SPFILELOG_QUERYONLY = 4;
-
 	public const uint32 SPFILELOG_OEMFILE = 1;
-
 	public const uint32 LogSevInformation = 0;
-
 	public const uint32 LogSevWarning = 1;
-
 	public const uint32 LogSevError = 2;
-
 	public const uint32 LogSevFatalError = 3;
-
 	public const uint32 LogSevMaximum = 4;
-
 	public const uint32 DICD_GENERATE_ID = 1;
-
 	public const uint32 DICD_INHERIT_CLASSDRVS = 2;
-
 	public const uint32 DIOD_INHERIT_CLASSDRVS = 2;
-
 	public const uint32 DIOD_CANCEL_REMOVE = 4;
-
 	public const uint32 DIODI_NO_ADD = 1;
-
 	public const uint32 SPRDI_FIND_DUPS = 1;
-
 	public const uint32 SPDIT_NODRIVER = 0;
-
 	public const uint32 DIGCF_DEFAULT = 1;
-
 	public const uint32 DIGCF_PRESENT = 2;
-
 	public const uint32 DIGCF_ALLCLASSES = 4;
-
 	public const uint32 DIGCF_PROFILE = 8;
-
 	public const uint32 DIGCF_DEVICEINTERFACE = 16;
-
 	public const uint32 DIGCF_INTERFACEDEVICE = 16;
-
 	public const uint32 DIBCI_NOINSTALLCLASS = 1;
-
 	public const uint32 DIBCI_NODISPLAYCLASS = 2;
-
 	public const uint32 DIOCR_INSTALLER = 1;
-
 	public const uint32 DIOCR_INTERFACE = 2;
-
 	public const uint32 DIREG_DEV = 1;
-
 	public const uint32 DIREG_DRV = 2;
-
 	public const uint32 DIREG_BOTH = 4;
-
 	public const uint32 DICLASSPROP_INSTALLER = 1;
-
 	public const uint32 DICLASSPROP_INTERFACE = 2;
-
 	public const uint32 SPDRP_DEVICEDESC = 0;
-
 	public const uint32 SPDRP_HARDWAREID = 1;
-
 	public const uint32 SPDRP_COMPATIBLEIDS = 2;
-
 	public const uint32 SPDRP_UNUSED0 = 3;
-
 	public const uint32 SPDRP_SERVICE = 4;
-
 	public const uint32 SPDRP_UNUSED1 = 5;
-
 	public const uint32 SPDRP_UNUSED2 = 6;
-
 	public const uint32 SPDRP_CLASS = 7;
-
 	public const uint32 SPDRP_CLASSGUID = 8;
-
 	public const uint32 SPDRP_DRIVER = 9;
-
 	public const uint32 SPDRP_CONFIGFLAGS = 10;
-
 	public const uint32 SPDRP_MFG = 11;
-
 	public const uint32 SPDRP_FRIENDLYNAME = 12;
-
 	public const uint32 SPDRP_LOCATION_INFORMATION = 13;
-
 	public const uint32 SPDRP_PHYSICAL_DEVICE_OBJECT_NAME = 14;
-
 	public const uint32 SPDRP_CAPABILITIES = 15;
-
 	public const uint32 SPDRP_UI_NUMBER = 16;
-
 	public const uint32 SPDRP_UPPERFILTERS = 17;
-
 	public const uint32 SPDRP_LOWERFILTERS = 18;
-
 	public const uint32 SPDRP_BUSTYPEGUID = 19;
-
 	public const uint32 SPDRP_LEGACYBUSTYPE = 20;
-
 	public const uint32 SPDRP_BUSNUMBER = 21;
-
 	public const uint32 SPDRP_ENUMERATOR_NAME = 22;
-
 	public const uint32 SPDRP_SECURITY = 23;
-
 	public const uint32 SPDRP_SECURITY_SDS = 24;
-
 	public const uint32 SPDRP_DEVTYPE = 25;
-
 	public const uint32 SPDRP_EXCLUSIVE = 26;
-
 	public const uint32 SPDRP_CHARACTERISTICS = 27;
-
 	public const uint32 SPDRP_ADDRESS = 28;
-
 	public const uint32 SPDRP_UI_NUMBER_DESC_FORMAT = 29;
-
 	public const uint32 SPDRP_DEVICE_POWER_DATA = 30;
-
 	public const uint32 SPDRP_REMOVAL_POLICY = 31;
-
 	public const uint32 SPDRP_REMOVAL_POLICY_HW_DEFAULT = 32;
-
 	public const uint32 SPDRP_REMOVAL_POLICY_OVERRIDE = 33;
-
 	public const uint32 SPDRP_INSTALL_STATE = 34;
-
 	public const uint32 SPDRP_LOCATION_PATHS = 35;
-
 	public const uint32 SPDRP_BASE_CONTAINERID = 36;
-
 	public const uint32 SPDRP_MAXIMUM_PROPERTY = 37;
-
 	public const uint32 SPCRP_UPPERFILTERS = 17;
-
 	public const uint32 SPCRP_LOWERFILTERS = 18;
-
 	public const uint32 SPCRP_SECURITY = 23;
-
 	public const uint32 SPCRP_SECURITY_SDS = 24;
-
 	public const uint32 SPCRP_DEVTYPE = 25;
-
 	public const uint32 SPCRP_EXCLUSIVE = 26;
-
 	public const uint32 SPCRP_CHARACTERISTICS = 27;
-
 	public const uint32 SPCRP_MAXIMUM_PROPERTY = 28;
-
 	public const uint32 DMI_MASK = 1;
-
 	public const uint32 DMI_BKCOLOR = 2;
-
 	public const uint32 DMI_USERECT = 4;
-
 	public const uint32 DIGCDP_FLAG_BASIC = 1;
-
 	public const uint32 DIGCDP_FLAG_ADVANCED = 2;
-
 	public const uint32 DIGCDP_FLAG_REMOTE_BASIC = 3;
-
 	public const uint32 DIGCDP_FLAG_REMOTE_ADVANCED = 4;
-
 	public const uint32 IDI_RESOURCEFIRST = 159;
-
 	public const uint32 IDI_RESOURCE = 159;
-
 	public const uint32 IDI_RESOURCELAST = 161;
-
 	public const uint32 IDI_RESOURCEOVERLAYFIRST = 161;
-
 	public const uint32 IDI_RESOURCEOVERLAYLAST = 161;
-
 	public const uint32 IDI_CONFLICT = 161;
-
 	public const uint32 IDI_CLASSICON_OVERLAYFIRST = 500;
-
 	public const uint32 IDI_CLASSICON_OVERLAYLAST = 502;
-
 	public const uint32 IDI_PROBLEM_OVL = 500;
-
 	public const uint32 IDI_DISABLED_OVL = 501;
-
 	public const uint32 IDI_FORCED_OVL = 502;
-
 	public const uint32 SPWPT_SELECTDEVICE = 1;
-
 	public const uint32 SPWP_USE_DEVINFO_DATA = 1;
-
 	public const uint32 SIGNERSCORE_UNKNOWN = 4278190080;
-
 	public const uint32 SIGNERSCORE_W9X_SUSPECT = 3221225472;
-
 	public const uint32 SIGNERSCORE_UNSIGNED = 2147483648;
-
 	public const uint32 SIGNERSCORE_AUTHENTICODE = 251658240;
-
 	public const uint32 SIGNERSCORE_WHQL = 218103813;
-
 	public const uint32 SIGNERSCORE_UNCLASSIFIED = 218103812;
-
 	public const uint32 SIGNERSCORE_INBOX = 218103811;
-
 	public const uint32 SIGNERSCORE_LOGO_STANDARD = 218103810;
-
 	public const uint32 SIGNERSCORE_LOGO_PREMIUM = 218103809;
-
 	public const uint32 SIGNERSCORE_MASK = 4278190080;
-
 	public const uint32 SIGNERSCORE_SIGNED_MASK = 4026531840;
-
 	public const uint32 DICUSTOMDEVPROP_MERGE_MULTISZ = 1;
-
 	public const uint32 SCWMI_CLOBBER_SECURITY = 1;
-
 	public const uint32 MAX_DEVICE_ID_LEN = 200;
-
 	public const uint32 MAX_DEVNODE_ID_LEN = 200;
-
 	public const uint32 MAX_GUID_STRING_LEN = 39;
-
 	public const uint32 MAX_CLASS_NAME_LEN = 32;
-
 	public const uint32 MAX_PROFILE_LEN = 80;
-
 	public const uint32 MAX_CONFIG_VALUE = 9999;
-
 	public const uint32 MAX_INSTANCE_VALUE = 9999;
-
 	public const uint32 MAX_MEM_REGISTERS = 9;
-
 	public const uint32 MAX_IO_PORTS = 20;
-
 	public const uint32 MAX_IRQS = 7;
-
 	public const uint32 MAX_DMA_CHANNELS = 7;
-
 	public const uint32 DWORD_MAX = 4294967295;
-
 	public const uint32 CONFIGMG_VERSION = 1024;
-
 	public const uint32 CM_CDMASK_DEVINST = 1;
-
 	public const uint32 CM_CDMASK_RESDES = 2;
-
 	public const uint32 CM_CDMASK_FLAGS = 4;
-
 	public const uint32 CM_CDMASK_DESCRIPTION = 8;
-
 	public const uint32 CM_CDMASK_VALID = 15;
-
 	public const uint32 CM_CDFLAGS_DRIVER = 1;
-
 	public const uint32 CM_CDFLAGS_ROOT_OWNED = 2;
-
 	public const uint32 CM_CDFLAGS_RESERVED = 4;
-
 	public const uint32 IO_ALIAS_10_BIT_DECODE = 4;
-
 	public const uint32 IO_ALIAS_12_BIT_DECODE = 16;
-
 	public const uint32 IO_ALIAS_16_BIT_DECODE = 0;
-
 	public const uint32 IO_ALIAS_POSITIVE_DECODE = 255;
-
 	public const uint32 IOA_Local = 255;
-
 	public const uint32 CM_RESDES_WIDTH_DEFAULT = 0;
-
 	public const uint32 CM_RESDES_WIDTH_32 = 1;
-
 	public const uint32 CM_RESDES_WIDTH_64 = 2;
-
 	public const uint32 CM_RESDES_WIDTH_BITS = 3;
-
 	public const uint32 PCD_MAX_MEMORY = 2;
-
 	public const uint32 PCD_MAX_IO = 2;
-
 	public const uint32 CM_HWPI_NOT_DOCKABLE = 0;
-
 	public const uint32 CM_HWPI_UNDOCKED = 1;
-
 	public const uint32 CM_HWPI_DOCKED = 2;
-
 	public const uint32 ResType_All = 0;
-
 	public const uint32 ResType_None = 0;
-
 	public const uint32 ResType_Mem = 1;
-
 	public const uint32 ResType_IO = 2;
-
 	public const uint32 ResType_DMA = 3;
-
 	public const uint32 ResType_IRQ = 4;
-
 	public const uint32 ResType_DoNotUse = 5;
-
 	public const uint32 ResType_BusNumber = 6;
-
 	public const uint32 ResType_MemLarge = 7;
-
 	public const uint32 ResType_MAX = 7;
-
 	public const uint32 ResType_Ignored_Bit = 32768;
-
 	public const uint32 ResType_ClassSpecific = 65535;
-
 	public const uint32 ResType_Reserved = 32768;
-
 	public const uint32 ResType_DevicePrivate = 32769;
-
 	public const uint32 ResType_PcCardConfig = 32770;
-
 	public const uint32 ResType_MfCardConfig = 32771;
-
 	public const uint32 ResType_Connection = 32772;
-
 	public const uint32 CM_ADD_RANGE_ADDIFCONFLICT = 0;
-
 	public const uint32 CM_ADD_RANGE_DONOTADDIFCONFLICT = 1;
-
 	public const uint32 CM_ADD_RANGE_BITS = 1;
-
 	public const uint32 BASIC_LOG_CONF = 0;
-
 	public const uint32 FILTERED_LOG_CONF = 1;
-
 	public const uint32 ALLOC_LOG_CONF = 2;
-
 	public const uint32 BOOT_LOG_CONF = 3;
-
 	public const uint32 FORCED_LOG_CONF = 4;
-
 	public const uint32 OVERRIDE_LOG_CONF = 5;
-
 	public const uint32 NUM_LOG_CONF = 6;
-
 	public const uint32 LOG_CONF_BITS = 7;
-
 	public const uint32 PRIORITY_EQUAL_FIRST = 8;
-
 	public const uint32 PRIORITY_EQUAL_LAST = 0;
-
 	public const uint32 PRIORITY_BIT = 8;
-
 	public const uint32 RegDisposition_OpenAlways = 0;
-
 	public const uint32 RegDisposition_OpenExisting = 1;
-
 	public const uint32 RegDisposition_Bits = 1;
-
 	public const uint32 CM_ADD_ID_HARDWARE = 0;
-
 	public const uint32 CM_ADD_ID_COMPATIBLE = 1;
-
 	public const uint32 CM_ADD_ID_BITS = 1;
-
 	public const uint32 CM_CREATE_DEVNODE_NORMAL = 0;
-
 	public const uint32 CM_CREATE_DEVNODE_NO_WAIT_INSTALL = 1;
-
 	public const uint32 CM_CREATE_DEVNODE_PHANTOM = 2;
-
 	public const uint32 CM_CREATE_DEVNODE_GENERATE_ID = 4;
-
 	public const uint32 CM_CREATE_DEVNODE_DO_NOT_INSTALL = 8;
-
 	public const uint32 CM_CREATE_DEVNODE_BITS = 15;
-
 	public const uint32 CM_CREATE_DEVINST_NORMAL = 0;
-
 	public const uint32 CM_CREATE_DEVINST_NO_WAIT_INSTALL = 1;
-
 	public const uint32 CM_CREATE_DEVINST_PHANTOM = 2;
-
 	public const uint32 CM_CREATE_DEVINST_GENERATE_ID = 4;
-
 	public const uint32 CM_CREATE_DEVINST_DO_NOT_INSTALL = 8;
-
 	public const uint32 CM_CREATE_DEVINST_BITS = 15;
-
 	public const uint32 CM_DELETE_CLASS_ONLY = 0;
-
 	public const uint32 CM_DELETE_CLASS_SUBKEYS = 1;
-
 	public const uint32 CM_DELETE_CLASS_INTERFACE = 2;
-
 	public const uint32 CM_DELETE_CLASS_BITS = 3;
-
 	public const uint32 CM_ENUMERATE_CLASSES_INSTALLER = 0;
-
 	public const uint32 CM_ENUMERATE_CLASSES_INTERFACE = 1;
-
 	public const uint32 CM_ENUMERATE_CLASSES_BITS = 1;
-
 	public const uint32 CM_DETECT_NEW_PROFILE = 1;
-
 	public const uint32 CM_DETECT_CRASHED = 2;
-
 	public const uint32 CM_DETECT_HWPROF_FIRST_BOOT = 4;
-
 	public const uint32 CM_DETECT_RUN = 2147483648;
-
 	public const uint32 CM_DETECT_BITS = 2147483655;
-
 	public const uint32 CM_DISABLE_POLITE = 0;
-
 	public const uint32 CM_DISABLE_ABSOLUTE = 1;
-
 	public const uint32 CM_DISABLE_HARDWARE = 2;
-
 	public const uint32 CM_DISABLE_UI_NOT_OK = 4;
-
 	public const uint32 CM_DISABLE_PERSIST = 8;
-
 	public const uint32 CM_DISABLE_BITS = 15;
-
 	public const uint32 CM_GETIDLIST_FILTER_NONE = 0;
-
 	public const uint32 CM_GETIDLIST_FILTER_ENUMERATOR = 1;
-
 	public const uint32 CM_GETIDLIST_FILTER_SERVICE = 2;
-
 	public const uint32 CM_GETIDLIST_FILTER_EJECTRELATIONS = 4;
-
 	public const uint32 CM_GETIDLIST_FILTER_REMOVALRELATIONS = 8;
-
 	public const uint32 CM_GETIDLIST_FILTER_POWERRELATIONS = 16;
-
 	public const uint32 CM_GETIDLIST_FILTER_BUSRELATIONS = 32;
-
 	public const uint32 CM_GETIDLIST_DONOTGENERATE = 268435520;
-
 	public const uint32 CM_GETIDLIST_FILTER_BITS = 268435583;
-
 	public const uint32 CM_GETIDLIST_FILTER_TRANSPORTRELATIONS = 128;
-
 	public const uint32 CM_GETIDLIST_FILTER_PRESENT = 256;
-
 	public const uint32 CM_GETIDLIST_FILTER_CLASS = 512;
-
 	public const uint32 CM_GET_DEVICE_INTERFACE_LIST_PRESENT = 0;
-
 	public const uint32 CM_GET_DEVICE_INTERFACE_LIST_ALL_DEVICES = 1;
-
 	public const uint32 CM_GET_DEVICE_INTERFACE_LIST_BITS = 1;
-
 	public const uint32 CM_DRP_DEVICEDESC = 1;
-
 	public const uint32 CM_DRP_HARDWAREID = 2;
-
 	public const uint32 CM_DRP_COMPATIBLEIDS = 3;
-
 	public const uint32 CM_DRP_UNUSED0 = 4;
-
 	public const uint32 CM_DRP_SERVICE = 5;
-
 	public const uint32 CM_DRP_UNUSED1 = 6;
-
 	public const uint32 CM_DRP_UNUSED2 = 7;
-
 	public const uint32 CM_DRP_CLASS = 8;
-
 	public const uint32 CM_DRP_CLASSGUID = 9;
-
 	public const uint32 CM_DRP_DRIVER = 10;
-
 	public const uint32 CM_DRP_CONFIGFLAGS = 11;
-
 	public const uint32 CM_DRP_MFG = 12;
-
 	public const uint32 CM_DRP_FRIENDLYNAME = 13;
-
 	public const uint32 CM_DRP_LOCATION_INFORMATION = 14;
-
 	public const uint32 CM_DRP_PHYSICAL_DEVICE_OBJECT_NAME = 15;
-
 	public const uint32 CM_DRP_CAPABILITIES = 16;
-
 	public const uint32 CM_DRP_UI_NUMBER = 17;
-
 	public const uint32 CM_DRP_UPPERFILTERS = 18;
-
 	public const uint32 CM_CRP_UPPERFILTERS = 18;
-
 	public const uint32 CM_DRP_LOWERFILTERS = 19;
-
 	public const uint32 CM_CRP_LOWERFILTERS = 19;
-
 	public const uint32 CM_DRP_BUSTYPEGUID = 20;
-
 	public const uint32 CM_DRP_LEGACYBUSTYPE = 21;
-
 	public const uint32 CM_DRP_BUSNUMBER = 22;
-
 	public const uint32 CM_DRP_ENUMERATOR_NAME = 23;
-
 	public const uint32 CM_DRP_SECURITY = 24;
-
 	public const uint32 CM_CRP_SECURITY = 24;
-
 	public const uint32 CM_DRP_SECURITY_SDS = 25;
-
 	public const uint32 CM_CRP_SECURITY_SDS = 25;
-
 	public const uint32 CM_DRP_DEVTYPE = 26;
-
 	public const uint32 CM_CRP_DEVTYPE = 26;
-
 	public const uint32 CM_DRP_EXCLUSIVE = 27;
-
 	public const uint32 CM_CRP_EXCLUSIVE = 27;
-
 	public const uint32 CM_DRP_CHARACTERISTICS = 28;
-
 	public const uint32 CM_CRP_CHARACTERISTICS = 28;
-
 	public const uint32 CM_DRP_ADDRESS = 29;
-
 	public const uint32 CM_DRP_UI_NUMBER_DESC_FORMAT = 30;
-
 	public const uint32 CM_DRP_DEVICE_POWER_DATA = 31;
-
 	public const uint32 CM_DRP_REMOVAL_POLICY = 32;
-
 	public const uint32 CM_DRP_REMOVAL_POLICY_HW_DEFAULT = 33;
-
 	public const uint32 CM_DRP_REMOVAL_POLICY_OVERRIDE = 34;
-
 	public const uint32 CM_DRP_INSTALL_STATE = 35;
-
 	public const uint32 CM_DRP_LOCATION_PATHS = 36;
-
 	public const uint32 CM_DRP_BASE_CONTAINERID = 37;
-
 	public const uint32 CM_DRP_MIN = 1;
-
 	public const uint32 CM_CRP_MIN = 1;
-
 	public const uint32 CM_DRP_MAX = 37;
-
 	public const uint32 CM_CRP_MAX = 37;
-
 	public const uint32 CM_DEVCAP_LOCKSUPPORTED = 1;
-
 	public const uint32 CM_DEVCAP_EJECTSUPPORTED = 2;
-
 	public const uint32 CM_DEVCAP_REMOVABLE = 4;
-
 	public const uint32 CM_DEVCAP_DOCKDEVICE = 8;
-
 	public const uint32 CM_DEVCAP_UNIQUEID = 16;
-
 	public const uint32 CM_DEVCAP_SILENTINSTALL = 32;
-
 	public const uint32 CM_DEVCAP_RAWDEVICEOK = 64;
-
 	public const uint32 CM_DEVCAP_SURPRISEREMOVALOK = 128;
-
 	public const uint32 CM_DEVCAP_HARDWAREDISABLED = 256;
-
 	public const uint32 CM_DEVCAP_NONDYNAMIC = 512;
-
 	public const uint32 CM_DEVCAP_SECUREDEVICE = 1024;
-
 	public const uint32 CM_REMOVAL_POLICY_EXPECT_NO_REMOVAL = 1;
-
 	public const uint32 CM_REMOVAL_POLICY_EXPECT_ORDERLY_REMOVAL = 2;
-
 	public const uint32 CM_REMOVAL_POLICY_EXPECT_SURPRISE_REMOVAL = 3;
-
 	public const uint32 CM_INSTALL_STATE_INSTALLED = 0;
-
 	public const uint32 CM_INSTALL_STATE_NEEDS_REINSTALL = 1;
-
 	public const uint32 CM_INSTALL_STATE_FAILED_INSTALL = 2;
-
 	public const uint32 CM_INSTALL_STATE_FINISH_INSTALL = 3;
-
 	public const uint32 CM_LOCATE_DEVNODE_NORMAL = 0;
-
 	public const uint32 CM_LOCATE_DEVNODE_PHANTOM = 1;
-
 	public const uint32 CM_LOCATE_DEVNODE_CANCELREMOVE = 2;
-
 	public const uint32 CM_LOCATE_DEVNODE_NOVALIDATION = 4;
-
 	public const uint32 CM_LOCATE_DEVNODE_BITS = 7;
-
 	public const uint32 CM_LOCATE_DEVINST_NORMAL = 0;
-
 	public const uint32 CM_LOCATE_DEVINST_PHANTOM = 1;
-
 	public const uint32 CM_LOCATE_DEVINST_CANCELREMOVE = 2;
-
 	public const uint32 CM_LOCATE_DEVINST_NOVALIDATION = 4;
-
 	public const uint32 CM_LOCATE_DEVINST_BITS = 7;
-
 	public const uint32 CM_OPEN_CLASS_KEY_INSTALLER = 0;
-
 	public const uint32 CM_OPEN_CLASS_KEY_INTERFACE = 1;
-
 	public const uint32 CM_OPEN_CLASS_KEY_BITS = 1;
-
 	public const uint32 CM_REMOVE_UI_OK = 0;
-
 	public const uint32 CM_REMOVE_UI_NOT_OK = 1;
-
 	public const uint32 CM_REMOVE_NO_RESTART = 2;
-
 	public const uint32 CM_REMOVE_DISABLE = 4;
-
 	public const uint32 CM_REMOVE_BITS = 7;
-
 	public const uint32 CM_QUERY_REMOVE_UI_OK = 0;
-
 	public const uint32 CM_QUERY_REMOVE_UI_NOT_OK = 1;
-
 	public const uint32 CM_REENUMERATE_NORMAL = 0;
-
 	public const uint32 CM_REENUMERATE_SYNCHRONOUS = 1;
-
 	public const uint32 CM_REENUMERATE_RETRY_INSTALLATION = 2;
-
 	public const uint32 CM_REENUMERATE_ASYNCHRONOUS = 4;
-
 	public const uint32 CM_REENUMERATE_BITS = 7;
-
 	public const uint32 CM_REGISTER_DEVICE_DRIVER_STATIC = 0;
-
 	public const uint32 CM_REGISTER_DEVICE_DRIVER_DISABLEABLE = 1;
-
 	public const uint32 CM_REGISTER_DEVICE_DRIVER_REMOVABLE = 2;
-
 	public const uint32 CM_REGISTER_DEVICE_DRIVER_BITS = 3;
-
 	public const uint32 CM_REGISTRY_HARDWARE = 0;
-
 	public const uint32 CM_REGISTRY_SOFTWARE = 1;
-
 	public const uint32 CM_REGISTRY_USER = 256;
-
 	public const uint32 CM_REGISTRY_CONFIG = 512;
-
 	public const uint32 CM_REGISTRY_BITS = 769;
-
 	public const uint32 CM_SET_DEVNODE_PROBLEM_NORMAL = 0;
-
 	public const uint32 CM_SET_DEVNODE_PROBLEM_OVERRIDE = 1;
-
 	public const uint32 CM_SET_DEVNODE_PROBLEM_BITS = 1;
-
 	public const uint32 CM_SET_DEVINST_PROBLEM_NORMAL = 0;
-
 	public const uint32 CM_SET_DEVINST_PROBLEM_OVERRIDE = 1;
-
 	public const uint32 CM_SET_DEVINST_PROBLEM_BITS = 1;
-
 	public const uint32 CM_SET_HW_PROF_FLAGS_UI_NOT_OK = 1;
-
 	public const uint32 CM_SET_HW_PROF_FLAGS_BITS = 1;
-
 	public const uint32 CM_SETUP_DEVNODE_READY = 0;
-
 	public const uint32 CM_SETUP_DEVINST_READY = 0;
-
 	public const uint32 CM_SETUP_DOWNLOAD = 1;
-
 	public const uint32 CM_SETUP_WRITE_LOG_CONFS = 2;
-
 	public const uint32 CM_SETUP_PROP_CHANGE = 3;
-
 	public const uint32 CM_SETUP_DEVNODE_RESET = 4;
-
 	public const uint32 CM_SETUP_DEVINST_RESET = 4;
-
 	public const uint32 CM_SETUP_DEVNODE_CONFIG = 5;
-
 	public const uint32 CM_SETUP_DEVINST_CONFIG = 5;
-
 	public const uint32 CM_SETUP_DEVNODE_CONFIG_CLASS = 6;
-
 	public const uint32 CM_SETUP_DEVINST_CONFIG_CLASS = 6;
-
 	public const uint32 CM_SETUP_DEVNODE_CONFIG_EXTENSIONS = 7;
-
 	public const uint32 CM_SETUP_DEVINST_CONFIG_EXTENSIONS = 7;
-
 	public const uint32 CM_SETUP_DEVNODE_CONFIG_RESET = 8;
-
 	public const uint32 CM_SETUP_DEVINST_CONFIG_RESET = 8;
-
 	public const uint32 CM_SETUP_BITS = 15;
-
 	public const uint32 CM_QUERY_ARBITRATOR_RAW = 0;
-
 	public const uint32 CM_QUERY_ARBITRATOR_TRANSLATED = 1;
-
 	public const uint32 CM_QUERY_ARBITRATOR_BITS = 1;
-
 	public const uint32 CM_CUSTOMDEVPROP_MERGE_MULTISZ = 1;
-
 	public const uint32 CM_CUSTOMDEVPROP_BITS = 1;
-
 	public const uint32 CM_NAME_ATTRIBUTE_NAME_RETRIEVED_FROM_DEVICE = 1;
-
 	public const uint32 CM_NAME_ATTRIBUTE_USER_ASSIGNED_NAME = 2;
-
 	public const uint32 CM_CLASS_PROPERTY_INSTALLER = 0;
-
 	public const uint32 CM_CLASS_PROPERTY_INTERFACE = 1;
-
 	public const uint32 CM_CLASS_PROPERTY_BITS = 1;
-
 	public const uint32 CM_NOTIFY_FILTER_FLAG_ALL_INTERFACE_CLASSES = 1;
-
 	public const uint32 CM_NOTIFY_FILTER_FLAG_ALL_DEVICE_INSTANCES = 2;
-
 	public const uint32 CM_GLOBAL_STATE_CAN_DO_UI = 1;
-
 	public const uint32 CM_GLOBAL_STATE_ON_BIG_STACK = 2;
-
 	public const uint32 CM_GLOBAL_STATE_SERVICES_AVAILABLE = 4;
-
 	public const uint32 CM_GLOBAL_STATE_SHUTTING_DOWN = 8;
-
 	public const uint32 CM_GLOBAL_STATE_DETECTION_PENDING = 16;
-
 	public const uint32 CM_GLOBAL_STATE_REBOOT_REQUIRED = 32;
-
 	public const uint32 INSTALLFLAG_FORCE = 1;
-
 	public const uint32 INSTALLFLAG_READONLY = 2;
-
 	public const uint32 INSTALLFLAG_NONINTERACTIVE = 4;
-
 	public const uint32 INSTALLFLAG_BITS = 7;
-
 	public const uint32 DIIDFLAG_SHOWSEARCHUI = 1;
-
 	public const uint32 DIIDFLAG_NOFINISHINSTALLUI = 2;
-
 	public const uint32 DIIDFLAG_INSTALLNULLDRIVER = 4;
-
 	public const uint32 DIIDFLAG_INSTALLCOPYINFDRIVERS = 8;
-
 	public const uint32 DIIDFLAG_BITS = 15;
-
 	public const uint32 DIIRFLAG_INF_ALREADY_COPIED = 1;
-
 	public const uint32 DIIRFLAG_FORCE_INF = 2;
-
 	public const uint32 DIIRFLAG_HW_USING_THE_INF = 4;
-
 	public const uint32 DIIRFLAG_HOTPATCH = 8;
-
 	public const uint32 DIIRFLAG_NOBACKUP = 16;
-
 	public const uint32 DIIRFLAG_PRE_CONFIGURE_INF = 32;
-
 	public const uint32 DIIRFLAG_INSTALL_AS_SET = 64;
-
 	public const uint32 DIURFLAG_NO_REMOVE_INF = 1;
-
 	public const uint32 DIURFLAG_RESERVED = 2;
-
 	public const uint32 ROLLBACK_FLAG_NO_UI = 1;
-
 	public const uint32 ROLLBACK_BITS = 1;
-
 	public const uint32 MAX_KEY_LEN = 100;
-
 	public const uint32 MAX_PRIORITYSTR_LEN = 16;
-
 	public const uint32 MAX_INF_FLAG = 20;
-
 	public const uint32 MAX_INFSTR_STRKEY_LEN = 32;
-
 	public const Guid GUID_HWPROFILE_QUERY_CHANGE = .(0xcb3a4001, 0x46f0, 0x11d0, 0xb0, 0x8f, 0x00, 0x60, 0x97, 0x13, 0x05, 0x3f);
-
 	public const Guid GUID_HWPROFILE_CHANGE_CANCELLED = .(0xcb3a4002, 0x46f0, 0x11d0, 0xb0, 0x8f, 0x00, 0x60, 0x97, 0x13, 0x05, 0x3f);
-
 	public const Guid GUID_HWPROFILE_CHANGE_COMPLETE = .(0xcb3a4003, 0x46f0, 0x11d0, 0xb0, 0x8f, 0x00, 0x60, 0x97, 0x13, 0x05, 0x3f);
-
 	public const Guid GUID_DEVICE_INTERFACE_ARRIVAL = .(0xcb3a4004, 0x46f0, 0x11d0, 0xb0, 0x8f, 0x00, 0x60, 0x97, 0x13, 0x05, 0x3f);
-
 	public const Guid GUID_DEVICE_INTERFACE_REMOVAL = .(0xcb3a4005, 0x46f0, 0x11d0, 0xb0, 0x8f, 0x00, 0x60, 0x97, 0x13, 0x05, 0x3f);
-
 	public const Guid GUID_TARGET_DEVICE_QUERY_REMOVE = .(0xcb3a4006, 0x46f0, 0x11d0, 0xb0, 0x8f, 0x00, 0x60, 0x97, 0x13, 0x05, 0x3f);
-
 	public const Guid GUID_TARGET_DEVICE_REMOVE_CANCELLED = .(0xcb3a4007, 0x46f0, 0x11d0, 0xb0, 0x8f, 0x00, 0x60, 0x97, 0x13, 0x05, 0x3f);
-
 	public const Guid GUID_TARGET_DEVICE_REMOVE_COMPLETE = .(0xcb3a4008, 0x46f0, 0x11d0, 0xb0, 0x8f, 0x00, 0x60, 0x97, 0x13, 0x05, 0x3f);
-
 	public const Guid GUID_PNP_CUSTOM_NOTIFICATION = .(0xaca73f8e, 0x8d23, 0x11d1, 0xac, 0x7d, 0x00, 0x00, 0xf8, 0x75, 0x71, 0xd0);
-
 	public const Guid GUID_PNP_POWER_NOTIFICATION = .(0xc2cf0660, 0xeb7a, 0x11d1, 0xbd, 0x7f, 0x00, 0x00, 0xf8, 0x75, 0x71, 0xd0);
-
 	public const Guid GUID_PNP_POWER_SETTING_CHANGE = .(0x29c69b3e, 0xc79a, 0x43bf, 0xbb, 0xde, 0xa9, 0x32, 0xfa, 0x1b, 0xea, 0x7e);
-
 	public const Guid GUID_TARGET_DEVICE_TRANSPORT_RELATIONS_CHANGED = .(0xfcf528f6, 0xa82f, 0x47b1, 0xad, 0x3a, 0x80, 0x50, 0x59, 0x4c, 0xad, 0x28);
-
 	public const Guid GUID_KERNEL_SOFT_RESTART_PREPARE = .(0xde373def, 0xa85c, 0x4f76, 0x8c, 0xbf, 0xf9, 0x6b, 0xea, 0x8b, 0xd1, 0x0f);
-
 	public const Guid GUID_KERNEL_SOFT_RESTART_CANCEL = .(0x31d737e7, 0x8c0b, 0x468a, 0x95, 0x6e, 0x9f, 0x43, 0x3e, 0xc3, 0x58, 0xfb);
-
 	public const Guid GUID_RECOVERY_PCI_PREPARE_SHUTDOWN = .(0x90d889de, 0x8704, 0x44cf, 0x81, 0x15, 0xed, 0x85, 0x28, 0xd2, 0xb2, 0xda);
-
 	public const Guid GUID_RECOVERY_NVMED_PREPARE_SHUTDOWN = .(0x4b9770ea, 0xbde7, 0x400b, 0xa9, 0xb9, 0x4f, 0x68, 0x4f, 0x54, 0xcc, 0x2a);
-
 	public const Guid GUID_KERNEL_SOFT_RESTART_FINALIZE = .(0x20e91abd, 0x350a, 0x4d4f, 0x85, 0x77, 0x99, 0xc8, 0x15, 0x07, 0x47, 0x3a);
-
 	public const Guid GUID_BUS_INTERFACE_STANDARD = .(0x496b8280, 0x6f25, 0x11d0, 0xbe, 0xaf, 0x08, 0x00, 0x2b, 0xe2, 0x09, 0x2f);
-
 	public const Guid GUID_PCI_BUS_INTERFACE_STANDARD = .(0x496b8281, 0x6f25, 0x11d0, 0xbe, 0xaf, 0x08, 0x00, 0x2b, 0xe2, 0x09, 0x2f);
-
 	public const Guid GUID_PCI_BUS_INTERFACE_STANDARD2 = .(0xde94e966, 0xfdff, 0x4c9c, 0x99, 0x98, 0x67, 0x47, 0xb1, 0x50, 0xe7, 0x4c);
-
 	public const Guid GUID_ARBITER_INTERFACE_STANDARD = .(0xe644f185, 0x8c0e, 0x11d0, 0xbe, 0xcf, 0x08, 0x00, 0x2b, 0xe2, 0x09, 0x2f);
-
 	public const Guid GUID_TRANSLATOR_INTERFACE_STANDARD = .(0x6c154a92, 0xaacf, 0x11d0, 0x8d, 0x2a, 0x00, 0xa0, 0xc9, 0x06, 0xb2, 0x44);
-
 	public const Guid GUID_ACPI_INTERFACE_STANDARD = .(0xb091a08a, 0xba97, 0x11d0, 0xbd, 0x14, 0x00, 0xaa, 0x00, 0xb7, 0xb3, 0x2a);
-
 	public const Guid GUID_INT_ROUTE_INTERFACE_STANDARD = .(0x70941bf4, 0x0073, 0x11d1, 0xa0, 0x9e, 0x00, 0xc0, 0x4f, 0xc3, 0x40, 0xb1);
-
 	public const Guid GUID_PCMCIA_BUS_INTERFACE_STANDARD = .(0x76173af0, 0xc504, 0x11d1, 0x94, 0x7f, 0x00, 0xc0, 0x4f, 0xb9, 0x60, 0xee);
-
 	public const Guid GUID_ACPI_REGS_INTERFACE_STANDARD = .(0x06141966, 0x7245, 0x6369, 0x46, 0x2e, 0x4e, 0x65, 0x6c, 0x73, 0x6f, 0x6e);
-
 	public const Guid GUID_LEGACY_DEVICE_DETECTION_STANDARD = .(0x50feb0de, 0x596a, 0x11d2, 0xa5, 0xb8, 0x00, 0x00, 0xf8, 0x1a, 0x46, 0x19);
-
 	public const Guid GUID_PCI_DEVICE_PRESENT_INTERFACE = .(0xd1b82c26, 0xbf49, 0x45ef, 0xb2, 0x16, 0x71, 0xcb, 0xd7, 0x88, 0x9b, 0x57);
-
 	public const Guid GUID_MF_ENUMERATION_INTERFACE = .(0xaeb895f0, 0x5586, 0x11d1, 0x8d, 0x84, 0x00, 0xa0, 0xc9, 0x06, 0xb2, 0x44);
-
 	public const Guid GUID_REENUMERATE_SELF_INTERFACE_STANDARD = .(0x2aeb0243, 0x6a6e, 0x486b, 0x82, 0xfc, 0xd8, 0x15, 0xf6, 0xb9, 0x70, 0x06);
-
 	public const Guid GUID_AGP_TARGET_BUS_INTERFACE_STANDARD = .(0xb15cfce8, 0x06d1, 0x4d37, 0x9d, 0x4c, 0xbe, 0xdd, 0xe0, 0xc2, 0xa6, 0xff);
-
 	public const Guid GUID_ACPI_CMOS_INTERFACE_STANDARD = .(0x3a8d0384, 0x6505, 0x40ca, 0xbc, 0x39, 0x56, 0xc1, 0x5f, 0x8c, 0x5f, 0xed);
-
 	public const Guid GUID_ACPI_PORT_RANGES_INTERFACE_STANDARD = .(0xf14f609b, 0xcbbd, 0x4957, 0xa6, 0x74, 0xbc, 0x00, 0x21, 0x3f, 0x1c, 0x97);
-
 	public const Guid GUID_ACPI_INTERFACE_STANDARD2 = .(0xe8695f63, 0x1831, 0x4870, 0xa8, 0xcf, 0x9c, 0x2f, 0x03, 0xf9, 0xdc, 0xb5);
-
 	public const Guid GUID_PNP_LOCATION_INTERFACE = .(0x70211b0e, 0x0afb, 0x47db, 0xaf, 0xc1, 0x41, 0x0b, 0xf8, 0x42, 0x49, 0x7a);
-
 	public const Guid GUID_PCI_EXPRESS_LINK_QUIESCENT_INTERFACE = .(0x146cd41c, 0xdae3, 0x4437, 0x8a, 0xff, 0x2a, 0xf3, 0xf0, 0x38, 0x09, 0x9b);
-
 	public const Guid GUID_PCI_EXPRESS_ROOT_PORT_INTERFACE = .(0x83a7734a, 0x84c7, 0x4161, 0x9a, 0x98, 0x60, 0x00, 0xed, 0x0c, 0x4a, 0x33);
-
 	public const Guid GUID_MSIX_TABLE_CONFIG_INTERFACE = .(0x1a6a460b, 0x194f, 0x455d, 0xb3, 0x4b, 0xb8, 0x4c, 0x5b, 0x05, 0x71, 0x2b);
-
 	public const Guid GUID_D3COLD_SUPPORT_INTERFACE = .(0xb38290e5, 0x3cd0, 0x4f9d, 0x99, 0x37, 0xf5, 0xfe, 0x2b, 0x44, 0xd4, 0x7a);
-
 	public const Guid GUID_PROCESSOR_PCC_INTERFACE_STANDARD = .(0x37b17e9a, 0xc21c, 0x4296, 0x97, 0x2d, 0x11, 0xc4, 0xb3, 0x2b, 0x28, 0xf0);
-
 	public const Guid GUID_PCI_VIRTUALIZATION_INTERFACE = .(0x64897b47, 0x3a4a, 0x4d75, 0xbc, 0x74, 0x89, 0xdd, 0x6c, 0x07, 0x82, 0x93);
-
 	public const Guid GUID_PCC_INTERFACE_STANDARD = .(0x3ee8ba63, 0x0f59, 0x4a24, 0x8a, 0x45, 0x35, 0x80, 0x8b, 0xdd, 0x12, 0x49);
-
 	public const Guid GUID_PCC_INTERFACE_INTERNAL = .(0x7cce62ce, 0xc189, 0x4814, 0xa6, 0xa7, 0x12, 0x11, 0x20, 0x89, 0xe9, 0x38);
-
 	public const Guid GUID_THERMAL_COOLING_INTERFACE = .(0xecbe47a8, 0xc498, 0x4bb9, 0xbd, 0x70, 0xe8, 0x67, 0xe0, 0x94, 0x0d, 0x22);
-
 	public const Guid GUID_DMA_CACHE_COHERENCY_INTERFACE = .(0xb520f7fa, 0x8a5a, 0x4e40, 0xa3, 0xf6, 0x6b, 0xe1, 0xe1, 0x62, 0xd9, 0x35);
-
 	public const Guid GUID_DEVICE_RESET_INTERFACE_STANDARD = .(0x649fdf26, 0x3bc0, 0x4813, 0xad, 0x24, 0x7e, 0x0c, 0x1e, 0xda, 0x3f, 0xa3);
-
 	public const Guid GUID_IOMMU_BUS_INTERFACE = .(0x1efee0b2, 0xd278, 0x4ae4, 0xbd, 0xdc, 0x1b, 0x34, 0xdd, 0x64, 0x80, 0x43);
-
 	public const Guid GUID_PCI_SECURITY_INTERFACE = .(0x6e7f1451, 0x199e, 0x4acc, 0xba, 0x2d, 0x76, 0x2b, 0x4e, 0xdf, 0x46, 0x74);
-
 	public const Guid GUID_SCM_BUS_INTERFACE = .(0x25944783, 0xce79, 0x4232, 0x81, 0x5e, 0x4a, 0x30, 0x01, 0x4e, 0x8e, 0xb4);
-
 	public const Guid GUID_SECURE_DRIVER_INTERFACE = .(0x370f67e1, 0x4ff5, 0x4a94, 0x9a, 0x35, 0x06, 0xc5, 0xd9, 0xcc, 0x30, 0xe2);
-
 	public const Guid GUID_SDEV_IDENTIFIER_INTERFACE = .(0x49d67af8, 0x916c, 0x4ee8, 0x9d, 0xf1, 0x88, 0x9f, 0x17, 0xd2, 0x1e, 0x91);
-
 	public const Guid GUID_SCM_BUS_NVD_INTERFACE = .(0x8de064ff, 0xb630, 0x42e4, 0x88, 0xea, 0x6f, 0x24, 0xc8, 0x64, 0x11, 0x75);
-
 	public const Guid GUID_SCM_BUS_LD_INTERFACE = .(0x9b89307d, 0xd76b, 0x4f48, 0xb1, 0x86, 0x54, 0x04, 0x1a, 0xe9, 0x2e, 0x8d);
-
 	public const Guid GUID_SCM_PHYSICAL_NVDIMM_INTERFACE = .(0x0079c21b, 0x917e, 0x405e, 0xa9, 0xce, 0x07, 0x32, 0xb5, 0xbb, 0xce, 0xbd);
-
 	public const Guid GUID_PNP_EXTENDED_ADDRESS_INTERFACE = .(0xb8e992ec, 0xa797, 0x4dc4, 0x88, 0x46, 0x84, 0xd0, 0x41, 0x70, 0x74, 0x46);
-
 	public const Guid GUID_D3COLD_AUX_POWER_AND_TIMING_INTERFACE = .(0x0044d8aa, 0xf664, 0x4588, 0x9f, 0xfc, 0x2a, 0xfe, 0xaf, 0x59, 0x50, 0xb9);
-
 	public const Guid GUID_PCI_FPGA_CONTROL_INTERFACE = .(0x2df3f7a8, 0xb9b3, 0x4063, 0x92, 0x15, 0xb5, 0xd1, 0x4a, 0x0b, 0x26, 0x6e);
-
 	public const Guid GUID_PCI_PTM_CONTROL_INTERFACE = .(0x348a5ebb, 0xba24, 0x44b7, 0x99, 0x16, 0x28, 0x56, 0x87, 0x73, 0x51, 0x17);
-
 	public const Guid GUID_BUS_RESOURCE_UPDATE_INTERFACE = .(0x27d0102d, 0xbfb2, 0x4164, 0x81, 0xdd, 0xdb, 0xb8, 0x2f, 0x96, 0x8b, 0x48);
-
 	public const Guid GUID_NPEM_CONTROL_INTERFACE = .(0x4d95573d, 0xb774, 0x488a, 0xb1, 0x20, 0x4f, 0x28, 0x4a, 0x9e, 0xff, 0x51);
-
 	public const Guid GUID_PCI_ATS_INTERFACE = .(0x010a7fe8, 0x96f5, 0x4943, 0xbe, 0xdf, 0x95, 0xe6, 0x51, 0xb9, 0x34, 0x12);
-
 	public const Guid GUID_BUS_TYPE_INTERNAL = .(0x1530ea73, 0x086b, 0x11d1, 0xa0, 0x9f, 0x00, 0xc0, 0x4f, 0xc3, 0x40, 0xb1);
-
 	public const Guid GUID_BUS_TYPE_PCMCIA = .(0x09343630, 0xaf9f, 0x11d0, 0x92, 0xe9, 0x00, 0x00, 0xf8, 0x1e, 0x1b, 0x30);
-
 	public const Guid GUID_BUS_TYPE_PCI = .(0xc8ebdfb0, 0xb510, 0x11d0, 0x80, 0xe5, 0x00, 0xa0, 0xc9, 0x25, 0x42, 0xe3);
-
 	public const Guid GUID_BUS_TYPE_ISAPNP = .(0xe676f854, 0xd87d, 0x11d0, 0x92, 0xb2, 0x00, 0xa0, 0xc9, 0x05, 0x5f, 0xc5);
-
 	public const Guid GUID_BUS_TYPE_EISA = .(0xddc35509, 0xf3fc, 0x11d0, 0xa5, 0x37, 0x00, 0x00, 0xf8, 0x75, 0x3e, 0xd1);
-
 	public const Guid GUID_BUS_TYPE_MCA = .(0x1c75997a, 0xdc33, 0x11d0, 0x92, 0xb2, 0x00, 0xa0, 0xc9, 0x05, 0x5f, 0xc5);
-
 	public const Guid GUID_BUS_TYPE_SERENUM = .(0x77114a87, 0x8944, 0x11d1, 0xbd, 0x90, 0x00, 0xa0, 0xc9, 0x06, 0xbe, 0x2d);
-
 	public const Guid GUID_BUS_TYPE_USB = .(0x9d7debbc, 0xc85d, 0x11d1, 0x9e, 0xb4, 0x00, 0x60, 0x08, 0xc3, 0xa1, 0x9a);
-
 	public const Guid GUID_BUS_TYPE_LPTENUM = .(0xc4ca1000, 0x2ddc, 0x11d5, 0xa1, 0x7a, 0x00, 0xc0, 0x4f, 0x60, 0x52, 0x4d);
-
 	public const Guid GUID_BUS_TYPE_USBPRINT = .(0x441ee000, 0x4342, 0x11d5, 0xa1, 0x84, 0x00, 0xc0, 0x4f, 0x60, 0x52, 0x4d);
-
 	public const Guid GUID_BUS_TYPE_DOT4PRT = .(0x441ee001, 0x4342, 0x11d5, 0xa1, 0x84, 0x00, 0xc0, 0x4f, 0x60, 0x52, 0x4d);
-
 	public const Guid GUID_BUS_TYPE_1394 = .(0xf74e73eb, 0x9ac5, 0x45eb, 0xbe, 0x4d, 0x77, 0x2c, 0xc7, 0x1d, 0xdf, 0xb3);
-
 	public const Guid GUID_BUS_TYPE_HID = .(0xeeaf37d0, 0x1963, 0x47c4, 0xaa, 0x48, 0x72, 0x47, 0x6d, 0xb7, 0xcf, 0x49);
-
 	public const Guid GUID_BUS_TYPE_AVC = .(0xc06ff265, 0xae09, 0x48f0, 0x81, 0x2c, 0x16, 0x75, 0x3d, 0x7c, 0xba, 0x83);
-
 	public const Guid GUID_BUS_TYPE_IRDA = .(0x7ae17dc1, 0xc944, 0x44d6, 0x88, 0x1f, 0x4c, 0x2e, 0x61, 0x05, 0x3b, 0xc1);
-
 	public const Guid GUID_BUS_TYPE_SD = .(0xe700cc04, 0x4036, 0x4e89, 0x95, 0x79, 0x89, 0xeb, 0xf4, 0x5f, 0x00, 0xcd);
-
 	public const Guid GUID_BUS_TYPE_ACPI = .(0xd7b46895, 0x001a, 0x4942, 0x89, 0x1f, 0xa7, 0xd4, 0x66, 0x10, 0xa8, 0x43);
-
 	public const Guid GUID_BUS_TYPE_SW_DEVICE = .(0x06d10322, 0x7de0, 0x4cef, 0x8e, 0x25, 0x19, 0x7d, 0x0e, 0x74, 0x42, 0xe2);
-
 	public const Guid GUID_BUS_TYPE_SCM = .(0x375a5912, 0x804c, 0x45aa, 0xbd, 0xc2, 0xfd, 0xd2, 0x5a, 0x1d, 0x95, 0x12);
-
 	public const Guid GUID_POWER_DEVICE_ENABLE = .(0x827c0a6f, 0xfeb0, 0x11d0, 0xbd, 0x26, 0x00, 0xaa, 0x00, 0xb7, 0xb3, 0x2a);
-
 	public const Guid GUID_POWER_DEVICE_TIMEOUTS = .(0xa45da735, 0xfeb0, 0x11d0, 0xbd, 0x26, 0x00, 0xaa, 0x00, 0xb7, 0xb3, 0x2a);
-
 	public const Guid GUID_POWER_DEVICE_WAKE_ENABLE = .(0xa9546a82, 0xfeb0, 0x11d0, 0xbd, 0x26, 0x00, 0xaa, 0x00, 0xb7, 0xb3, 0x2a);
-
 	public const Guid GUID_WUDF_DEVICE_HOST_PROBLEM = .(0xc43d25bd, 0x9346, 0x40ee, 0xa2, 0xd2, 0xd7, 0x0c, 0x15, 0xf8, 0xb7, 0x5b);
-
 	public const Guid GUID_PARTITION_UNIT_INTERFACE_STANDARD = .(0x52363f5b, 0xd891, 0x429b, 0x81, 0x95, 0xae, 0xc5, 0xfe, 0xf6, 0x85, 0x3c);
-
 	public const Guid GUID_QUERY_CRASHDUMP_FUNCTIONS = .(0x9cc6b8ff, 0x32e2, 0x4834, 0xb1, 0xde, 0xb3, 0x2e, 0xf8, 0x88, 0x0a, 0x4b);
-
 }
 #endregion
 
@@ -2608,11 +1428,12 @@ public struct INFCONTEXT
 #endif
 
 #if BF_64_BIT || BF_ARM_64
-[CRepr, FlexibleArray("VersionData")]
+[CRepr]
 public struct SP_INF_INFORMATION
 {
 	public SP_INF_STYLE InfStyle;
 	public uint32 InfCount;
+	public uint8* VersionData mut => &VersionData_impl;
 	private uint8[ANYSIZE_ARRAY] VersionData_impl;
 }
 #endif
@@ -2627,7 +1448,6 @@ public struct SP_ALTPLATFORM_INFO_V3
 		public uint16 Reserved;
 		public uint16 Flags;
 	}
-
 	public uint32 cbSize;
 	public uint32 Platform;
 	public uint32 MajorVersion;
@@ -2652,7 +1472,6 @@ public struct SP_ALTPLATFORM_INFO_V2
 		public uint16 Reserved;
 		public uint16 Flags;
 	}
-
 	public uint32 cbSize;
 	public VER_PLATFORM Platform;
 	public uint32 MajorVersion;
@@ -2908,19 +1727,21 @@ public struct SP_DEVICE_INTERFACE_DATA
 #endif
 
 #if BF_64_BIT || BF_ARM_64
-[CRepr, FlexibleArray("DevicePath")]
+[CRepr]
 public struct SP_DEVICE_INTERFACE_DETAIL_DATA_A
 {
 	public uint32 cbSize;
+	public CHAR* DevicePath mut => &DevicePath_impl;
 	private CHAR[ANYSIZE_ARRAY] DevicePath_impl;
 }
 #endif
 
 #if BF_64_BIT || BF_ARM_64
-[CRepr, FlexibleArray("DevicePath")]
+[CRepr]
 public struct SP_DEVICE_INTERFACE_DETAIL_DATA_W
 {
 	public uint32 cbSize;
+	public char16* DevicePath mut => &DevicePath_impl;
 	private char16[ANYSIZE_ARRAY] DevicePath_impl;
 }
 #endif
@@ -3182,7 +2003,7 @@ public struct SP_DRVINFO_DATA_V1_W
 #endif
 
 #if BF_64_BIT || BF_ARM_64
-[CRepr, FlexibleArray("HardwareID")]
+[CRepr]
 public struct SP_DRVINFO_DETAIL_DATA_A
 {
 	public uint32 cbSize;
@@ -3193,12 +2014,13 @@ public struct SP_DRVINFO_DETAIL_DATA_A
 	public CHAR[256] SectionName;
 	public CHAR[260] InfFileName;
 	public CHAR[256] DrvDescription;
+	public CHAR* HardwareID mut => &HardwareID_impl;
 	private CHAR[ANYSIZE_ARRAY] HardwareID_impl;
 }
 #endif
 
 #if BF_64_BIT || BF_ARM_64
-[CRepr, FlexibleArray("HardwareID")]
+[CRepr]
 public struct SP_DRVINFO_DETAIL_DATA_W
 {
 	public uint32 cbSize;
@@ -3209,6 +2031,7 @@ public struct SP_DRVINFO_DETAIL_DATA_W
 	public char16[256] SectionName;
 	public char16[260] InfFileName;
 	public char16[256] DrvDescription;
+	public char16* HardwareID mut => &HardwareID_impl;
 	private char16[ANYSIZE_ARRAY] HardwareID_impl;
 }
 #endif
@@ -3388,10 +2211,11 @@ public struct MEM_DES
 	public uint32 MD_Reserved;
 }
 
-[CRepr, FlexibleArray("MEM_Data")]
+[CRepr]
 public struct MEM_RESOURCE
 {
 	public MEM_DES MEM_Header;
+	public MEM_RANGE* MEM_Data mut => &MEM_Data_impl;
 	private MEM_RANGE[ANYSIZE_ARRAY] MEM_Data_impl;
 }
 
@@ -3417,10 +2241,11 @@ public struct Mem_Large_Des_s
 	public uint32 MLD_Reserved;
 }
 
-[CRepr, FlexibleArray("MEM_LARGE_Data")]
+[CRepr]
 public struct Mem_Large_Resource_s
 {
 	public Mem_Large_Des_s MEM_LARGE_Header;
+	public Mem_Large_Range_s* MEM_LARGE_Data mut => &MEM_LARGE_Data_impl;
 	private Mem_Large_Range_s[ANYSIZE_ARRAY] MEM_LARGE_Data_impl;
 }
 
@@ -3445,10 +2270,11 @@ public struct IO_DES
 	public uint32 IOD_DesFlags;
 }
 
-[CRepr, FlexibleArray("IO_Data")]
+[CRepr]
 public struct IO_RESOURCE
 {
 	public IO_DES IO_Header;
+	public IO_RANGE* IO_Data mut => &IO_Data_impl;
 	private IO_RANGE[ANYSIZE_ARRAY] IO_Data_impl;
 }
 
@@ -3469,10 +2295,11 @@ public struct DMA_DES
 	public uint32 DD_Alloc_Chan;
 }
 
-[CRepr, FlexibleArray("DMA_Data")]
+[CRepr]
 public struct DMA_RESOURCE
 {
 	public DMA_DES DMA_Header;
+	public DMA_RANGE* DMA_Data mut => &DMA_Data_impl;
 	private DMA_RANGE[ANYSIZE_ARRAY] DMA_Data_impl;
 }
 
@@ -3504,17 +2331,19 @@ public struct IRQ_DES_64
 	public uint64 IRQD_Affinity;
 }
 
-[CRepr, FlexibleArray("IRQ_Data")]
+[CRepr]
 public struct IRQ_RESOURCE_32
 {
 	public IRQ_DES_32 IRQ_Header;
+	public IRQ_RANGE* IRQ_Data mut => &IRQ_Data_impl;
 	private IRQ_RANGE[ANYSIZE_ARRAY] IRQ_Data_impl;
 }
 
-[CRepr, FlexibleArray("IRQ_Data")]
+[CRepr]
 public struct IRQ_RESOURCE_64
 {
 	public IRQ_DES_64 IRQ_Header;
+	public IRQ_RANGE* IRQ_Data mut => &IRQ_Data_impl;
 	private IRQ_RANGE[ANYSIZE_ARRAY] IRQ_Data_impl;
 }
 
@@ -3537,14 +2366,15 @@ public struct DevPrivate_Des_s
 	public uint32 PD_Flags;
 }
 
-[CRepr, FlexibleArray("PRV_Data")]
+[CRepr]
 public struct DevPrivate_Resource_s
 {
 	public DevPrivate_Des_s PRV_Header;
+	public DevPrivate_Range_s* PRV_Data mut => &PRV_Data_impl;
 	private DevPrivate_Range_s[ANYSIZE_ARRAY] PRV_Data_impl;
 }
 
-[CRepr, Packed(1), FlexibleArray("CSD_Signature")]
+[CRepr, Packed(1)]
 public struct CS_DES
 {
 	public uint32 CSD_SignatureLength;
@@ -3552,6 +2382,7 @@ public struct CS_DES
 	public uint32 CSD_LegacyDataSize;
 	public uint32 CSD_Flags;
 	public Guid CSD_ClassGuid;
+	public uint8* CSD_Signature mut => &CSD_Signature_impl;
 	private uint8[ANYSIZE_ARRAY] CSD_Signature_impl;
 }
 
@@ -3619,10 +2450,11 @@ public struct BUSNUMBER_DES
 	public uint32 BUSD_Alloc_End;
 }
 
-[CRepr, FlexibleArray("BusNumber_Data")]
+[CRepr]
 public struct BUSNUMBER_RESOURCE
 {
 	public BUSNUMBER_DES BusNumber_Header;
+	public BUSNUMBER_RANGE* BusNumber_Data mut => &BusNumber_Data_impl;
 	private BUSNUMBER_RANGE[ANYSIZE_ARRAY] BusNumber_Data_impl;
 }
 
@@ -3671,24 +2503,20 @@ public struct CM_NOTIFY_FILTER
 		{
 			public HANDLE hTarget;
 		}
-
 		[CRepr]
 		public struct _DeviceInstance_e__Struct
 		{
 			public char16[200] InstanceId;
 		}
-
 		[CRepr]
 		public struct _DeviceInterface_e__Struct
 		{
 			public Guid ClassGuid;
 		}
-
 		public _DeviceInterface_e__Struct DeviceInterface;
 		public _DeviceHandle_e__Struct DeviceHandle;
 		public _DeviceInstance_e__Struct DeviceInstance;
 	}
-
 	public uint32 cbSize;
 	public uint32 Flags;
 	public CM_NOTIFY_FILTER_TYPE FilterType;
@@ -3702,33 +2530,32 @@ public struct CM_NOTIFY_EVENT_DATA
 	[CRepr, Union]
 	public struct _u_e__Union
 	{
-		[CRepr, FlexibleArray("InstanceId")]
+		[CRepr]
 		public struct _DeviceInstance_e__Struct
 		{
+			public char16* InstanceId mut => &InstanceId_impl;
 			private char16[ANYSIZE_ARRAY] InstanceId_impl;
 		}
-
-		[CRepr, FlexibleArray("SymbolicLink")]
+		[CRepr]
 		public struct _DeviceInterface_e__Struct
 		{
 			public Guid ClassGuid;
+			public char16* SymbolicLink mut => &SymbolicLink_impl;
 			private char16[ANYSIZE_ARRAY] SymbolicLink_impl;
 		}
-
-		[CRepr, FlexibleArray("Data")]
+		[CRepr]
 		public struct _DeviceHandle_e__Struct
 		{
 			public Guid EventGuid;
 			public int32 NameOffset;
 			public uint32 DataSize;
+			public uint8* Data mut => &Data_impl;
 			private uint8[ANYSIZE_ARRAY] Data_impl;
 		}
-
 		public _DeviceInterface_e__Struct DeviceInterface;
 		public _DeviceHandle_e__Struct DeviceHandle;
 		public _DeviceInstance_e__Struct DeviceInstance;
 	}
-
 	public CM_NOTIFY_FILTER_TYPE FilterType;
 	public uint32 Reserved;
 	public _u_e__Union u;
@@ -3746,11 +2573,12 @@ public struct INFCONTEXT
 #endif
 
 #if BF_32_BIT
-[CRepr, Packed(1), FlexibleArray("VersionData")]
+[CRepr, Packed(1)]
 public struct SP_INF_INFORMATION
 {
 	public SP_INF_STYLE InfStyle;
 	public uint32 InfCount;
+	public uint8* VersionData mut => &VersionData_impl;
 	private uint8[ANYSIZE_ARRAY] VersionData_impl;
 }
 #endif
@@ -3765,7 +2593,6 @@ public struct SP_ALTPLATFORM_INFO_V3
 		public uint16 Reserved;
 		public uint16 Flags;
 	}
-
 	public uint32 cbSize;
 	public uint32 Platform;
 	public uint32 MajorVersion;
@@ -3790,7 +2617,6 @@ public struct SP_ALTPLATFORM_INFO_V2
 		public uint16 Reserved;
 		public uint16 Flags;
 	}
-
 	public uint32 cbSize;
 	public VER_PLATFORM Platform;
 	public uint32 MajorVersion;
@@ -4046,19 +2872,21 @@ public struct SP_DEVICE_INTERFACE_DATA
 #endif
 
 #if BF_32_BIT
-[CRepr, Packed(1), FlexibleArray("DevicePath")]
+[CRepr, Packed(1)]
 public struct SP_DEVICE_INTERFACE_DETAIL_DATA_A
 {
 	public uint32 cbSize;
+	public CHAR* DevicePath mut => &DevicePath_impl;
 	private CHAR[ANYSIZE_ARRAY] DevicePath_impl;
 }
 #endif
 
 #if BF_32_BIT
-[CRepr, Packed(1), FlexibleArray("DevicePath")]
+[CRepr, Packed(1)]
 public struct SP_DEVICE_INTERFACE_DETAIL_DATA_W
 {
 	public uint32 cbSize;
+	public char16* DevicePath mut => &DevicePath_impl;
 	private char16[ANYSIZE_ARRAY] DevicePath_impl;
 }
 #endif
@@ -4294,7 +3122,7 @@ public struct SP_DRVINFO_DATA_V1_W
 #endif
 
 #if BF_32_BIT
-[CRepr, Packed(1), FlexibleArray("HardwareID")]
+[CRepr, Packed(1)]
 public struct SP_DRVINFO_DETAIL_DATA_A
 {
 	public uint32 cbSize;
@@ -4305,12 +3133,13 @@ public struct SP_DRVINFO_DETAIL_DATA_A
 	public CHAR[256] SectionName;
 	public CHAR[260] InfFileName;
 	public CHAR[256] DrvDescription;
+	public CHAR* HardwareID mut => &HardwareID_impl;
 	private CHAR[ANYSIZE_ARRAY] HardwareID_impl;
 }
 #endif
 
 #if BF_32_BIT
-[CRepr, Packed(1), FlexibleArray("HardwareID")]
+[CRepr, Packed(1)]
 public struct SP_DRVINFO_DETAIL_DATA_W
 {
 	public uint32 cbSize;
@@ -4321,6 +3150,7 @@ public struct SP_DRVINFO_DETAIL_DATA_W
 	public char16[256] SectionName;
 	public char16[260] InfFileName;
 	public char16[256] DrvDescription;
+	public char16* HardwareID mut => &HardwareID_impl;
 	private char16[ANYSIZE_ARRAY] HardwareID_impl;
 }
 #endif

@@ -10,9 +10,7 @@ namespace Win32.NetworkManagement.WindowsNetworkVirtualization;
 public static
 {
 	public const uint32 WNV_API_MAJOR_VERSION_1 = 1;
-
 	public const uint32 WNV_API_MINOR_VERSION_0 = 0;
-
 }
 #endregion
 
@@ -77,7 +75,6 @@ public struct WNV_IP_ADDRESS
 		public IN6_ADDR v6;
 		public uint8[16] Addr;
 	}
-
 	public _IP_e__Union IP;
 }
 
@@ -120,7 +117,6 @@ public struct WNV_OBJECT_CHANGE_PARAM
 		public WNV_PROVIDER_ADDRESS_CHANGE_PARAM ProviderAddressChange;
 		public WNV_CUSTOMER_ADDRESS_CHANGE_PARAM CustomerAddressChange;
 	}
-
 	public WNV_OBJECT_TYPE ObjectType;
 	public _ObjectParam_e__Union ObjectParam;
 }

@@ -1,6 +1,5 @@
 using Win32.Foundation;
 using System;
-using System.Interop;
 
 namespace Win32.NetworkManagement.WindowsConnectionManager;
 
@@ -8,17 +7,11 @@ namespace Win32.NetworkManagement.WindowsConnectionManager;
 public static
 {
 	public const uint32 WCM_API_VERSION_1_0 = 1;
-
 	public const uint32 WCM_API_VERSION = 1;
-
 	public const uint32 WCM_UNKNOWN_DATAPLAN_STATUS = 4294967295;
-
 	public const uint32 WCM_MAX_PROFILE_NAME = 256;
-
 	public const uint32 NET_INTERFACE_FLAG_NONE = 0;
-
 	public const uint32 NET_INTERFACE_FLAG_CONNECT_IF_NEEDED = 1;
-
 }
 #endregion
 
@@ -95,10 +88,11 @@ public struct WCM_PROFILE_INFO
 	public WCM_MEDIA_TYPE Media;
 }
 
-[CRepr, FlexibleArray("ProfileInfo")]
+[CRepr]
 public struct WCM_PROFILE_INFO_LIST
 {
 	public uint32 dwNumberOfItems;
+	public WCM_PROFILE_INFO* ProfileInfo mut => &ProfileInfo_impl;
 	private WCM_PROFILE_INFO[ANYSIZE_ARRAY] ProfileInfo_impl;
 }
 

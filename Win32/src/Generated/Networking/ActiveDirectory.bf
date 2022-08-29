@@ -10,7 +10,6 @@ using Win32.Security;
 using Win32.Networking.WinSock;
 using Win32.Security.Authentication.Identity;
 using System;
-using System.Interop;
 
 namespace Win32.Networking.ActiveDirectory;
 
@@ -18,933 +17,469 @@ namespace Win32.Networking.ActiveDirectory;
 public static
 {
 	public const uint32 WM_ADSPROP_NOTIFY_PAGEINIT = 2125;
-
 	public const uint32 WM_ADSPROP_NOTIFY_PAGEHWND = 2126;
-
 	public const uint32 WM_ADSPROP_NOTIFY_CHANGE = 2127;
-
 	public const uint32 WM_ADSPROP_NOTIFY_APPLY = 2128;
-
 	public const uint32 WM_ADSPROP_NOTIFY_SETFOCUS = 2129;
-
 	public const uint32 WM_ADSPROP_NOTIFY_FOREGROUND = 2130;
-
 	public const uint32 WM_ADSPROP_NOTIFY_EXIT = 2131;
-
 	public const uint32 WM_ADSPROP_NOTIFY_ERROR = 2134;
-
 	public const Guid CLSID_CommonQuery = .(0x83bc5ec0, 0x6f2a, 0x11d0, 0xa1, 0xc4, 0x00, 0xaa, 0x00, 0xc1, 0x6e, 0x65);
-
 	public const uint64 QUERYFORM_CHANGESFORMLIST = 1;
-
 	public const uint64 QUERYFORM_CHANGESOPTFORMLIST = 2;
-
 	public const uint32 CQFF_NOGLOBALPAGES = 1;
-
 	public const uint32 CQFF_ISOPTIONAL = 2;
-
 	public const uint32 CQPM_INITIALIZE = 1;
-
 	public const uint32 CQPM_RELEASE = 2;
-
 	public const uint32 CQPM_ENABLE = 3;
-
 	public const uint32 CQPM_GETPARAMETERS = 5;
-
 	public const uint32 CQPM_CLEARFORM = 6;
-
 	public const uint32 CQPM_PERSIST = 7;
-
 	public const uint32 CQPM_HELP = 8;
-
 	public const uint32 CQPM_SETDEFAULTPARAMETERS = 9;
-
 	public const uint32 CQPM_HANDLERSPECIFIC = 268435456;
-
 	public const uint32 OQWF_OKCANCEL = 1;
-
 	public const uint32 OQWF_DEFAULTFORM = 2;
-
 	public const uint32 OQWF_SINGLESELECT = 4;
-
 	public const uint32 OQWF_LOADQUERY = 8;
-
 	public const uint32 OQWF_REMOVESCOPES = 16;
-
 	public const uint32 OQWF_REMOVEFORMS = 32;
-
 	public const uint32 OQWF_ISSUEONOPEN = 64;
-
 	public const uint32 OQWF_SHOWOPTIONAL = 128;
-
 	public const uint32 OQWF_SAVEQUERYONOK = 512;
-
 	public const uint32 OQWF_HIDEMENUS = 1024;
-
 	public const uint32 OQWF_HIDESEARCHUI = 2048;
-
 	public const uint32 OQWF_PARAMISPROPERTYBAG = 2147483648;
-
 	public const Guid CLSID_DsAdminCreateObj = .(0xe301a009, 0xf901, 0x11d2, 0x82, 0xb9, 0x00, 0xc0, 0x4f, 0x68, 0x92, 0x8b);
-
 	public const uint32 DSA_NEWOBJ_CTX_PRECOMMIT = 1;
-
 	public const uint32 DSA_NEWOBJ_CTX_COMMIT = 2;
-
 	public const uint32 DSA_NEWOBJ_CTX_POSTCOMMIT = 3;
-
 	public const uint32 DSA_NEWOBJ_CTX_CLEANUP = 4;
-
 	public const uint32 DSA_NOTIFY_DEL = 1;
-
 	public const uint32 DSA_NOTIFY_REN = 2;
-
 	public const uint32 DSA_NOTIFY_MOV = 4;
-
 	public const uint32 DSA_NOTIFY_PROP = 8;
-
 	public const uint32 DSA_NOTIFY_FLAG_ADDITIONAL_DATA = 2;
-
 	public const uint32 DSA_NOTIFY_FLAG_FORCE_ADDITIONAL_DATA = 1;
-
 	public const Guid CLSID_MicrosoftDS = .(0xfe1290f0, 0xcfbd, 0x11cf, 0xa3, 0x30, 0x00, 0xaa, 0x00, 0xc1, 0x6e, 0x65);
-
 	public const Guid CLSID_DsPropertyPages = .(0x0d45d530, 0x764b, 0x11d0, 0xa1, 0xca, 0x00, 0xaa, 0x00, 0xc1, 0x6e, 0x65);
-
 	public const Guid CLSID_DsDomainTreeBrowser = .(0x1698790a, 0xe2b4, 0x11d0, 0xb0, 0xb1, 0x00, 0xc0, 0x4f, 0xd8, 0xdc, 0xa6);
-
 	public const Guid CLSID_DsDisplaySpecifier = .(0x1ab4a8c0, 0x6a0b, 0x11d2, 0xad, 0x49, 0x00, 0xc0, 0x4f, 0xa3, 0x1a, 0x86);
-
 	public const Guid CLSID_DsFolderProperties = .(0x9e51e0d0, 0x6e0f, 0x11d2, 0x96, 0x01, 0x00, 0xc0, 0x4f, 0xa3, 0x1a, 0x86);
-
 	public const uint32 DSOBJECT_ISCONTAINER = 1;
-
 	public const uint32 DSOBJECT_READONLYPAGES = 2147483648;
-
 	public const uint32 DSPROVIDER_UNUSED_0 = 1;
-
 	public const uint32 DSPROVIDER_UNUSED_1 = 2;
-
 	public const uint32 DSPROVIDER_UNUSED_2 = 4;
-
 	public const uint32 DSPROVIDER_UNUSED_3 = 8;
-
 	public const uint32 DSPROVIDER_ADVANCED = 16;
-
 	public const uint32 DSPROVIDER_AD_LDS = 32;
-
 	public const uint32 DSDSOF_HASUSERANDSERVERINFO = 1;
-
 	public const uint32 DSDSOF_SIMPLEAUTHENTICATE = 2;
-
 	public const uint32 DSDSOF_DONTSIGNSEAL = 4;
-
 	public const uint32 DSDSOF_DSAVAILABLE = 1073741824;
-
 	public const uint32 DBDTF_RETURNFQDN = 1;
-
 	public const uint32 DBDTF_RETURNMIXEDDOMAINS = 2;
-
 	public const uint32 DBDTF_RETURNEXTERNAL = 4;
-
 	public const uint32 DBDTF_RETURNINBOUND = 8;
-
 	public const uint32 DBDTF_RETURNINOUTBOUND = 16;
-
 	public const uint32 DSSSF_SIMPLEAUTHENTICATE = 1;
-
 	public const uint32 DSSSF_DONTSIGNSEAL = 2;
-
 	public const uint32 DSSSF_DSAVAILABLE = 2147483648;
-
 	public const uint32 DSGIF_ISNORMAL = 0;
-
 	public const uint32 DSGIF_ISOPEN = 1;
-
 	public const uint32 DSGIF_ISDISABLED = 2;
-
 	public const uint32 DSGIF_ISMASK = 15;
-
 	public const uint32 DSGIF_GETDEFAULTICON = 16;
-
 	public const uint32 DSGIF_DEFAULTISCONTAINER = 32;
-
 	public const uint32 DSICCF_IGNORETREATASLEAF = 1;
-
 	public const uint32 DSECAF_NOTLISTED = 1;
-
 	public const uint32 DSCCIF_HASWIZARDDIALOG = 1;
-
 	public const uint32 DSCCIF_HASWIZARDPRIMARYPAGE = 2;
-
 	public const uint32 DSBI_NOBUTTONS = 1;
-
 	public const uint32 DSBI_NOLINES = 2;
-
 	public const uint32 DSBI_NOLINESATROOT = 4;
-
 	public const uint32 DSBI_CHECKBOXES = 256;
-
 	public const uint32 DSBI_NOROOT = 65536;
-
 	public const uint32 DSBI_INCLUDEHIDDEN = 131072;
-
 	public const uint32 DSBI_EXPANDONOPEN = 262144;
-
 	public const uint32 DSBI_ENTIREDIRECTORY = 589824;
-
 	public const uint32 DSBI_RETURN_FORMAT = 1048576;
-
 	public const uint32 DSBI_HASCREDENTIALS = 2097152;
-
 	public const uint32 DSBI_IGNORETREATASLEAF = 4194304;
-
 	public const uint32 DSBI_SIMPLEAUTHENTICATE = 8388608;
-
 	public const uint32 DSBI_RETURNOBJECTCLASS = 16777216;
-
 	public const uint32 DSBI_DONTSIGNSEAL = 33554432;
-
 	public const uint32 DSB_MAX_DISPLAYNAME_CHARS = 64;
-
 	public const uint32 DSBF_STATE = 1;
-
 	public const uint32 DSBF_ICONLOCATION = 2;
-
 	public const uint32 DSBF_DISPLAYNAME = 4;
-
 	public const uint32 DSBS_CHECKED = 1;
-
 	public const uint32 DSBS_HIDDEN = 2;
-
 	public const uint32 DSBS_ROOT = 4;
-
 	public const uint32 DSBM_QUERYINSERTW = 100;
-
 	public const uint32 DSBM_QUERYINSERTA = 101;
-
 	public const uint32 DSBM_QUERYINSERT = 100;
-
 	public const uint32 DSBM_CHANGEIMAGESTATE = 102;
-
 	public const uint32 DSBM_HELP = 103;
-
 	public const uint32 DSBM_CONTEXTMENU = 104;
-
 	public const uint32 DSBID_BANNER = 256;
-
 	public const uint32 DSBID_CONTAINERLIST = 257;
-
 	public const uint32 DS_FORCE_REDISCOVERY = 1;
-
 	public const uint32 DS_DIRECTORY_SERVICE_REQUIRED = 16;
-
 	public const uint32 DS_DIRECTORY_SERVICE_PREFERRED = 32;
-
 	public const uint32 DS_GC_SERVER_REQUIRED = 64;
-
 	public const uint32 DS_PDC_REQUIRED = 128;
-
 	public const uint32 DS_BACKGROUND_ONLY = 256;
-
 	public const uint32 DS_IP_REQUIRED = 512;
-
 	public const uint32 DS_KDC_REQUIRED = 1024;
-
 	public const uint32 DS_TIMESERV_REQUIRED = 2048;
-
 	public const uint32 DS_WRITABLE_REQUIRED = 4096;
-
 	public const uint32 DS_GOOD_TIMESERV_PREFERRED = 8192;
-
 	public const uint32 DS_AVOID_SELF = 16384;
-
 	public const uint32 DS_ONLY_LDAP_NEEDED = 32768;
-
 	public const uint32 DS_IS_FLAT_NAME = 65536;
-
 	public const uint32 DS_IS_DNS_NAME = 131072;
-
 	public const uint32 DS_TRY_NEXTCLOSEST_SITE = 262144;
-
 	public const uint32 DS_DIRECTORY_SERVICE_6_REQUIRED = 524288;
-
 	public const uint32 DS_WEB_SERVICE_REQUIRED = 1048576;
-
 	public const uint32 DS_DIRECTORY_SERVICE_8_REQUIRED = 2097152;
-
 	public const uint32 DS_DIRECTORY_SERVICE_9_REQUIRED = 4194304;
-
 	public const uint32 DS_DIRECTORY_SERVICE_10_REQUIRED = 8388608;
-
 	public const uint32 DS_KEY_LIST_SUPPORT_REQUIRED = 16777216;
-
 	public const uint32 DS_RETURN_DNS_NAME = 1073741824;
-
 	public const uint32 DS_RETURN_FLAT_NAME = 2147483648;
-
 	public const uint32 DS_PDC_FLAG = 1;
-
 	public const uint32 DS_GC_FLAG = 4;
-
 	public const uint32 DS_LDAP_FLAG = 8;
-
 	public const uint32 DS_DS_FLAG = 16;
-
 	public const uint32 DS_KDC_FLAG = 32;
-
 	public const uint32 DS_TIMESERV_FLAG = 64;
-
 	public const uint32 DS_CLOSEST_FLAG = 128;
-
 	public const uint32 DS_WRITABLE_FLAG = 256;
-
 	public const uint32 DS_GOOD_TIMESERV_FLAG = 512;
-
 	public const uint32 DS_NDNC_FLAG = 1024;
-
 	public const uint32 DS_SELECT_SECRET_DOMAIN_6_FLAG = 2048;
-
 	public const uint32 DS_FULL_SECRET_DOMAIN_6_FLAG = 4096;
-
 	public const uint32 DS_WS_FLAG = 8192;
-
 	public const uint32 DS_DS_8_FLAG = 16384;
-
 	public const uint32 DS_DS_9_FLAG = 32768;
-
 	public const uint32 DS_DS_10_FLAG = 65536;
-
 	public const uint32 DS_KEY_LIST_FLAG = 131072;
-
 	public const uint32 DS_PING_FLAGS = 1048575;
-
 	public const uint32 DS_DNS_CONTROLLER_FLAG = 536870912;
-
 	public const uint32 DS_DNS_DOMAIN_FLAG = 1073741824;
-
 	public const uint32 DS_DNS_FOREST_FLAG = 2147483648;
-
 	public const uint32 DS_DOMAIN_IN_FOREST = 1;
-
 	public const uint32 DS_DOMAIN_DIRECT_OUTBOUND = 2;
-
 	public const uint32 DS_DOMAIN_TREE_ROOT = 4;
-
 	public const uint32 DS_DOMAIN_PRIMARY = 8;
-
 	public const uint32 DS_DOMAIN_NATIVE_MODE = 16;
-
 	public const uint32 DS_DOMAIN_DIRECT_INBOUND = 32;
-
 	public const uint32 DS_GFTI_UPDATE_TDO = 1;
-
 	public const uint32 DS_GFTI_VALID_FLAGS = 1;
-
 	public const uint32 DS_ONLY_DO_SITE_NAME = 1;
-
 	public const uint32 DS_NOTIFY_AFTER_SITE_RECORDS = 2;
-
 	public const Guid CLSID_DsQuery = .(0x8a23e65e, 0x31c2, 0x11d0, 0x89, 0x1c, 0x00, 0xa0, 0x24, 0xab, 0x2d, 0xbb);
-
 	public const Guid CLSID_DsFindObjects = .(0x83ee3fe1, 0x57d9, 0x11d0, 0xb9, 0x32, 0x00, 0xa0, 0x24, 0xab, 0x2d, 0xbb);
-
 	public const Guid CLSID_DsFindPeople = .(0x83ee3fe2, 0x57d9, 0x11d0, 0xb9, 0x32, 0x00, 0xa0, 0x24, 0xab, 0x2d, 0xbb);
-
 	public const Guid CLSID_DsFindPrinter = .(0xb577f070, 0x7ee2, 0x11d0, 0x91, 0x3f, 0x00, 0xaa, 0x00, 0xc1, 0x6e, 0x65);
-
 	public const Guid CLSID_DsFindComputer = .(0x16006700, 0x87ad, 0x11d0, 0x91, 0x40, 0x00, 0xaa, 0x00, 0xc1, 0x6e, 0x65);
-
 	public const Guid CLSID_DsFindVolume = .(0xc1b3cbf1, 0x886a, 0x11d0, 0x91, 0x40, 0x00, 0xaa, 0x00, 0xc1, 0x6e, 0x65);
-
 	public const Guid CLSID_DsFindContainer = .(0xc1b3cbf2, 0x886a, 0x11d0, 0x91, 0x40, 0x00, 0xaa, 0x00, 0xc1, 0x6e, 0x65);
-
 	public const Guid CLSID_DsFindAdvanced = .(0x83ee3fe3, 0x57d9, 0x11d0, 0xb9, 0x32, 0x00, 0xa0, 0x24, 0xab, 0x2d, 0xbb);
-
 	public const Guid CLSID_DsFindDomainController = .(0x538c7b7e, 0xd25e, 0x11d0, 0x97, 0x42, 0x00, 0xa0, 0xc9, 0x06, 0xaf, 0x45);
-
 	public const Guid CLSID_DsFindWriteableDomainController = .(0x7cbef079, 0xaa84, 0x444b, 0xbc, 0x70, 0x68, 0xe4, 0x12, 0x83, 0xea, 0xbc);
-
 	public const Guid CLSID_DsFindFrsMembers = .(0x94ce4b18, 0xb3d3, 0x11d1, 0xb9, 0xb4, 0x00, 0xc0, 0x4f, 0xd8, 0xd5, 0xb0);
-
 	public const uint32 DSQPF_NOSAVE = 1;
-
 	public const uint32 DSQPF_SAVELOCATION = 2;
-
 	public const uint32 DSQPF_SHOWHIDDENOBJECTS = 4;
-
 	public const uint32 DSQPF_ENABLEADMINFEATURES = 8;
-
 	public const uint32 DSQPF_ENABLEADVANCEDFEATURES = 16;
-
 	public const uint32 DSQPF_HASCREDENTIALS = 32;
-
 	public const uint32 DSQPF_NOCHOOSECOLUMNS = 64;
-
 	public const uint32 DSQPM_GETCLASSLIST = 268435456;
-
 	public const uint32 DSQPM_HELPTOPICS = 268435457;
-
 	public const uint32 DSROLE_PRIMARY_DS_RUNNING = 1;
-
 	public const uint32 DSROLE_PRIMARY_DS_MIXED_MODE = 2;
-
 	public const uint32 DSROLE_UPGRADE_IN_PROGRESS = 4;
-
 	public const uint32 DSROLE_PRIMARY_DS_READONLY = 8;
-
 	public const uint32 DSROLE_PRIMARY_DOMAIN_GUID_PRESENT = 16777216;
-
 	public const uint32 ADS_ATTR_CLEAR = 1;
-
 	public const uint32 ADS_ATTR_UPDATE = 2;
-
 	public const uint32 ADS_ATTR_APPEND = 3;
-
 	public const uint32 ADS_ATTR_DELETE = 4;
-
 	public const uint32 ADS_EXT_MINEXTDISPID = 1;
-
 	public const uint32 ADS_EXT_MAXEXTDISPID = 16777215;
-
 	public const uint32 ADS_EXT_INITCREDENTIALS = 1;
-
 	public const uint32 ADS_EXT_INITIALIZE_COMPLETE = 2;
-
 	public const uint32 DS_BEHAVIOR_WIN2000 = 0;
-
 	public const uint32 DS_BEHAVIOR_WIN2003_WITH_MIXED_DOMAINS = 1;
-
 	public const uint32 DS_BEHAVIOR_WIN2003 = 2;
-
 	public const uint32 DS_BEHAVIOR_WIN2008 = 3;
-
 	public const uint32 DS_BEHAVIOR_WIN2008R2 = 4;
-
 	public const uint32 DS_BEHAVIOR_WIN2012 = 5;
-
 	public const uint32 DS_BEHAVIOR_WIN2012R2 = 6;
-
 	public const uint32 DS_BEHAVIOR_WIN2016 = 7;
-
 	public const uint32 DS_BEHAVIOR_LONGHORN = 3;
-
 	public const uint32 DS_BEHAVIOR_WIN7 = 4;
-
 	public const uint32 DS_BEHAVIOR_WIN8 = 5;
-
 	public const uint32 DS_BEHAVIOR_WINBLUE = 6;
-
 	public const uint32 DS_BEHAVIOR_WINTHRESHOLD = 7;
-
 	public const uint32 ACTRL_DS_OPEN = 0;
-
 	public const uint32 ACTRL_DS_CREATE_CHILD = 1;
-
 	public const uint32 ACTRL_DS_DELETE_CHILD = 2;
-
 	public const uint32 ACTRL_DS_LIST = 4;
-
 	public const uint32 ACTRL_DS_SELF = 8;
-
 	public const uint32 ACTRL_DS_READ_PROP = 16;
-
 	public const uint32 ACTRL_DS_WRITE_PROP = 32;
-
 	public const uint32 ACTRL_DS_DELETE_TREE = 64;
-
 	public const uint32 ACTRL_DS_LIST_OBJECT = 128;
-
 	public const uint32 ACTRL_DS_CONTROL_ACCESS = 256;
-
 	public const uint32 NTDSAPI_BIND_ALLOW_DELEGATION = 1;
-
 	public const uint32 NTDSAPI_BIND_FIND_BINDING = 2;
-
 	public const uint32 NTDSAPI_BIND_FORCE_KERBEROS = 4;
-
 	public const uint32 DS_REPSYNC_ASYNCHRONOUS_OPERATION = 1;
-
 	public const uint32 DS_REPSYNC_WRITEABLE = 2;
-
 	public const uint32 DS_REPSYNC_PERIODIC = 4;
-
 	public const uint32 DS_REPSYNC_INTERSITE_MESSAGING = 8;
-
 	public const uint32 DS_REPSYNC_FULL = 32;
-
 	public const uint32 DS_REPSYNC_URGENT = 64;
-
 	public const uint32 DS_REPSYNC_NO_DISCARD = 128;
-
 	public const uint32 DS_REPSYNC_FORCE = 256;
-
 	public const uint32 DS_REPSYNC_ADD_REFERENCE = 512;
-
 	public const uint32 DS_REPSYNC_NEVER_COMPLETED = 1024;
-
 	public const uint32 DS_REPSYNC_TWO_WAY = 2048;
-
 	public const uint32 DS_REPSYNC_NEVER_NOTIFY = 4096;
-
 	public const uint32 DS_REPSYNC_INITIAL = 8192;
-
 	public const uint32 DS_REPSYNC_USE_COMPRESSION = 16384;
-
 	public const uint32 DS_REPSYNC_ABANDONED = 32768;
-
 	public const uint32 DS_REPSYNC_SELECT_SECRETS = 32768;
-
 	public const uint32 DS_REPSYNC_INITIAL_IN_PROGRESS = 65536;
-
 	public const uint32 DS_REPSYNC_PARTIAL_ATTRIBUTE_SET = 131072;
-
 	public const uint32 DS_REPSYNC_REQUEUE = 262144;
-
 	public const uint32 DS_REPSYNC_NOTIFICATION = 524288;
-
 	public const uint32 DS_REPSYNC_ASYNCHRONOUS_REPLICA = 1048576;
-
 	public const uint32 DS_REPSYNC_CRITICAL = 2097152;
-
 	public const uint32 DS_REPSYNC_FULL_IN_PROGRESS = 4194304;
-
 	public const uint32 DS_REPSYNC_PREEMPTED = 8388608;
-
 	public const uint32 DS_REPSYNC_NONGC_RO_REPLICA = 16777216;
-
 	public const uint32 DS_REPADD_ASYNCHRONOUS_OPERATION = 1;
-
 	public const uint32 DS_REPADD_WRITEABLE = 2;
-
 	public const uint32 DS_REPADD_INITIAL = 4;
-
 	public const uint32 DS_REPADD_PERIODIC = 8;
-
 	public const uint32 DS_REPADD_INTERSITE_MESSAGING = 16;
-
 	public const uint32 DS_REPADD_ASYNCHRONOUS_REPLICA = 32;
-
 	public const uint32 DS_REPADD_DISABLE_NOTIFICATION = 64;
-
 	public const uint32 DS_REPADD_DISABLE_PERIODIC = 128;
-
 	public const uint32 DS_REPADD_USE_COMPRESSION = 256;
-
 	public const uint32 DS_REPADD_NEVER_NOTIFY = 512;
-
 	public const uint32 DS_REPADD_TWO_WAY = 1024;
-
 	public const uint32 DS_REPADD_CRITICAL = 2048;
-
 	public const uint32 DS_REPADD_SELECT_SECRETS = 4096;
-
 	public const uint32 DS_REPADD_NONGC_RO_REPLICA = 16777216;
-
 	public const uint32 DS_REPDEL_ASYNCHRONOUS_OPERATION = 1;
-
 	public const uint32 DS_REPDEL_WRITEABLE = 2;
-
 	public const uint32 DS_REPDEL_INTERSITE_MESSAGING = 4;
-
 	public const uint32 DS_REPDEL_IGNORE_ERRORS = 8;
-
 	public const uint32 DS_REPDEL_LOCAL_ONLY = 16;
-
 	public const uint32 DS_REPDEL_NO_SOURCE = 32;
-
 	public const uint32 DS_REPDEL_REF_OK = 64;
-
 	public const uint32 DS_REPMOD_ASYNCHRONOUS_OPERATION = 1;
-
 	public const uint32 DS_REPMOD_WRITEABLE = 2;
-
 	public const uint32 DS_REPMOD_UPDATE_FLAGS = 1;
-
 	public const uint32 DS_REPMOD_UPDATE_INSTANCE = 2;
-
 	public const uint32 DS_REPMOD_UPDATE_ADDRESS = 2;
-
 	public const uint32 DS_REPMOD_UPDATE_SCHEDULE = 4;
-
 	public const uint32 DS_REPMOD_UPDATE_RESULT = 8;
-
 	public const uint32 DS_REPMOD_UPDATE_TRANSPORT = 16;
-
 	public const uint32 DS_REPUPD_ASYNCHRONOUS_OPERATION = 1;
-
 	public const uint32 DS_REPUPD_WRITEABLE = 2;
-
 	public const uint32 DS_REPUPD_ADD_REFERENCE = 4;
-
 	public const uint32 DS_REPUPD_DELETE_REFERENCE = 8;
-
 	public const uint32 DS_REPUPD_REFERENCE_GCSPN = 16;
-
 	public const uint32 DS_INSTANCETYPE_IS_NC_HEAD = 1;
-
 	public const uint32 DS_INSTANCETYPE_NC_IS_WRITEABLE = 4;
-
 	public const uint32 DS_INSTANCETYPE_NC_COMING = 16;
-
 	public const uint32 DS_INSTANCETYPE_NC_GOING = 32;
-
 	public const uint32 NTDSDSA_OPT_IS_GC = 1;
-
 	public const uint32 NTDSDSA_OPT_DISABLE_INBOUND_REPL = 2;
-
 	public const uint32 NTDSDSA_OPT_DISABLE_OUTBOUND_REPL = 4;
-
 	public const uint32 NTDSDSA_OPT_DISABLE_NTDSCONN_XLATE = 8;
-
 	public const uint32 NTDSDSA_OPT_DISABLE_SPN_REGISTRATION = 16;
-
 	public const uint32 NTDSDSA_OPT_GENERATE_OWN_TOPO = 32;
-
 	public const uint32 NTDSDSA_OPT_BLOCK_RPC = 64;
-
 	public const uint32 NTDSCONN_OPT_IS_GENERATED = 1;
-
 	public const uint32 NTDSCONN_OPT_TWOWAY_SYNC = 2;
-
 	public const uint32 NTDSCONN_OPT_OVERRIDE_NOTIFY_DEFAULT = 4;
-
 	public const uint32 NTDSCONN_OPT_USE_NOTIFY = 8;
-
 	public const uint32 NTDSCONN_OPT_DISABLE_INTERSITE_COMPRESSION = 16;
-
 	public const uint32 NTDSCONN_OPT_USER_OWNED_SCHEDULE = 32;
-
 	public const uint32 NTDSCONN_OPT_RODC_TOPOLOGY = 64;
-
 	public const uint32 NTDSCONN_KCC_NO_REASON = 0;
-
 	public const uint32 NTDSCONN_KCC_GC_TOPOLOGY = 1;
-
 	public const uint32 NTDSCONN_KCC_RING_TOPOLOGY = 2;
-
 	public const uint32 NTDSCONN_KCC_MINIMIZE_HOPS_TOPOLOGY = 4;
-
 	public const uint32 NTDSCONN_KCC_STALE_SERVERS_TOPOLOGY = 8;
-
 	public const uint32 NTDSCONN_KCC_OSCILLATING_CONNECTION_TOPOLOGY = 16;
-
 	public const uint32 NTDSCONN_KCC_INTERSITE_GC_TOPOLOGY = 32;
-
 	public const uint32 NTDSCONN_KCC_INTERSITE_TOPOLOGY = 64;
-
 	public const uint32 NTDSCONN_KCC_SERVER_FAILOVER_TOPOLOGY = 128;
-
 	public const uint32 NTDSCONN_KCC_SITE_FAILOVER_TOPOLOGY = 256;
-
 	public const uint32 NTDSCONN_KCC_REDUNDANT_SERVER_TOPOLOGY = 512;
-
 	public const uint32 FRSCONN_PRIORITY_MASK = 1879048192;
-
 	public const uint32 FRSCONN_MAX_PRIORITY = 8;
-
 	public const uint32 NTDSCONN_OPT_IGNORE_SCHEDULE_MASK = 2147483648;
-
 	public const uint32 NTDSSETTINGS_OPT_IS_AUTO_TOPOLOGY_DISABLED = 1;
-
 	public const uint32 NTDSSETTINGS_OPT_IS_TOPL_CLEANUP_DISABLED = 2;
-
 	public const uint32 NTDSSETTINGS_OPT_IS_TOPL_MIN_HOPS_DISABLED = 4;
-
 	public const uint32 NTDSSETTINGS_OPT_IS_TOPL_DETECT_STALE_DISABLED = 8;
-
 	public const uint32 NTDSSETTINGS_OPT_IS_INTER_SITE_AUTO_TOPOLOGY_DISABLED = 16;
-
 	public const uint32 NTDSSETTINGS_OPT_IS_GROUP_CACHING_ENABLED = 32;
-
 	public const uint32 NTDSSETTINGS_OPT_FORCE_KCC_WHISTLER_BEHAVIOR = 64;
-
 	public const uint32 NTDSSETTINGS_OPT_FORCE_KCC_W2K_ELECTION = 128;
-
 	public const uint32 NTDSSETTINGS_OPT_IS_RAND_BH_SELECTION_DISABLED = 256;
-
 	public const uint32 NTDSSETTINGS_OPT_IS_SCHEDULE_HASHING_ENABLED = 512;
-
 	public const uint32 NTDSSETTINGS_OPT_IS_REDUNDANT_SERVER_TOPOLOGY_ENABLED = 1024;
-
 	public const uint32 NTDSSETTINGS_OPT_W2K3_IGNORE_SCHEDULES = 2048;
-
 	public const uint32 NTDSSETTINGS_OPT_W2K3_BRIDGES_REQUIRED = 4096;
-
 	public const uint32 NTDSSETTINGS_DEFAULT_SERVER_REDUNDANCY = 2;
-
 	public const uint32 NTDSTRANSPORT_OPT_IGNORE_SCHEDULES = 1;
-
 	public const uint32 NTDSTRANSPORT_OPT_BRIDGES_REQUIRED = 2;
-
 	public const uint32 NTDSSITECONN_OPT_USE_NOTIFY = 1;
-
 	public const uint32 NTDSSITECONN_OPT_TWOWAY_SYNC = 2;
-
 	public const uint32 NTDSSITECONN_OPT_DISABLE_COMPRESSION = 4;
-
 	public const uint32 NTDSSITELINK_OPT_USE_NOTIFY = 1;
-
 	public const uint32 NTDSSITELINK_OPT_TWOWAY_SYNC = 2;
-
 	public const uint32 NTDSSITELINK_OPT_DISABLE_COMPRESSION = 4;
-
 	public const uint32 DS_REPSYNCALL_NO_OPTIONS = 0;
-
 	public const uint32 DS_REPSYNCALL_ABORT_IF_SERVER_UNAVAILABLE = 1;
-
 	public const uint32 DS_REPSYNCALL_SYNC_ADJACENT_SERVERS_ONLY = 2;
-
 	public const uint32 DS_REPSYNCALL_ID_SERVERS_BY_DN = 4;
-
 	public const uint32 DS_REPSYNCALL_DO_NOT_SYNC = 8;
-
 	public const uint32 DS_REPSYNCALL_SKIP_INITIAL_CHECK = 16;
-
 	public const uint32 DS_REPSYNCALL_PUSH_CHANGES_OUTWARD = 32;
-
 	public const uint32 DS_REPSYNCALL_CROSS_SITE_BOUNDARIES = 64;
-
 	public const uint32 DS_LIST_DSA_OBJECT_FOR_SERVER = 0;
-
 	public const uint32 DS_LIST_DNS_HOST_NAME_FOR_SERVER = 1;
-
 	public const uint32 DS_LIST_ACCOUNT_OBJECT_FOR_SERVER = 2;
-
 	public const uint32 DS_ROLE_SCHEMA_OWNER = 0;
-
 	public const uint32 DS_ROLE_DOMAIN_OWNER = 1;
-
 	public const uint32 DS_ROLE_PDC_OWNER = 2;
-
 	public const uint32 DS_ROLE_RID_OWNER = 3;
-
 	public const uint32 DS_ROLE_INFRASTRUCTURE_OWNER = 4;
-
 	public const uint32 DS_SCHEMA_GUID_NOT_FOUND = 0;
-
 	public const uint32 DS_SCHEMA_GUID_ATTR = 1;
-
 	public const uint32 DS_SCHEMA_GUID_ATTR_SET = 2;
-
 	public const uint32 DS_SCHEMA_GUID_CLASS = 3;
-
 	public const uint32 DS_SCHEMA_GUID_CONTROL_RIGHT = 4;
-
 	public const uint32 DS_KCC_FLAG_ASYNC_OP = 1;
-
 	public const uint32 DS_KCC_FLAG_DAMPED = 2;
-
 	public const uint32 DS_EXIST_ADVISORY_MODE = 1;
-
 	public const uint32 DS_REPL_INFO_FLAG_IMPROVE_LINKED_ATTRS = 1;
-
 	public const uint32 DS_REPL_NBR_WRITEABLE = 16;
-
 	public const uint32 DS_REPL_NBR_SYNC_ON_STARTUP = 32;
-
 	public const uint32 DS_REPL_NBR_DO_SCHEDULED_SYNCS = 64;
-
 	public const uint32 DS_REPL_NBR_USE_ASYNC_INTERSITE_TRANSPORT = 128;
-
 	public const uint32 DS_REPL_NBR_TWO_WAY_SYNC = 512;
-
 	public const uint32 DS_REPL_NBR_NONGC_RO_REPLICA = 1024;
-
 	public const uint32 DS_REPL_NBR_RETURN_OBJECT_PARENTS = 2048;
-
 	public const uint32 DS_REPL_NBR_SELECT_SECRETS = 4096;
-
 	public const uint32 DS_REPL_NBR_FULL_SYNC_IN_PROGRESS = 65536;
-
 	public const uint32 DS_REPL_NBR_FULL_SYNC_NEXT_PACKET = 131072;
-
 	public const uint32 DS_REPL_NBR_GCSPN = 1048576;
-
 	public const uint32 DS_REPL_NBR_NEVER_SYNCED = 2097152;
-
 	public const uint32 DS_REPL_NBR_PREEMPTED = 16777216;
-
 	public const uint32 DS_REPL_NBR_IGNORE_CHANGE_NOTIFICATIONS = 67108864;
-
 	public const uint32 DS_REPL_NBR_DISABLE_SCHEDULED_SYNC = 134217728;
-
 	public const uint32 DS_REPL_NBR_COMPRESS_CHANGES = 268435456;
-
 	public const uint32 DS_REPL_NBR_NO_CHANGE_NOTIFICATIONS = 536870912;
-
 	public const uint32 DS_REPL_NBR_PARTIAL_ATTRIBUTE_SET = 1073741824;
-
 	public const uint32 ADAM_REPL_AUTHENTICATION_MODE_NEGOTIATE_PASS_THROUGH = 0;
-
 	public const uint32 ADAM_REPL_AUTHENTICATION_MODE_NEGOTIATE = 1;
-
 	public const uint32 ADAM_REPL_AUTHENTICATION_MODE_MUTUAL_AUTH_REQUIRED = 2;
-
 	public const uint32 FLAG_FOREST_OPTIONAL_FEATURE = 1;
-
 	public const uint32 FLAG_DOMAIN_OPTIONAL_FEATURE = 2;
-
 	public const uint32 FLAG_DISABLABLE_OPTIONAL_FEATURE = 4;
-
 	public const uint32 FLAG_SERVER_OPTIONAL_FEATURE = 8;
-
 	public const uint32 DSOP_SCOPE_TYPE_TARGET_COMPUTER = 1;
-
 	public const uint32 DSOP_SCOPE_TYPE_UPLEVEL_JOINED_DOMAIN = 2;
-
 	public const uint32 DSOP_SCOPE_TYPE_DOWNLEVEL_JOINED_DOMAIN = 4;
-
 	public const uint32 DSOP_SCOPE_TYPE_ENTERPRISE_DOMAIN = 8;
-
 	public const uint32 DSOP_SCOPE_TYPE_GLOBAL_CATALOG = 16;
-
 	public const uint32 DSOP_SCOPE_TYPE_EXTERNAL_UPLEVEL_DOMAIN = 32;
-
 	public const uint32 DSOP_SCOPE_TYPE_EXTERNAL_DOWNLEVEL_DOMAIN = 64;
-
 	public const uint32 DSOP_SCOPE_TYPE_WORKGROUP = 128;
-
 	public const uint32 DSOP_SCOPE_TYPE_USER_ENTERED_UPLEVEL_SCOPE = 256;
-
 	public const uint32 DSOP_SCOPE_TYPE_USER_ENTERED_DOWNLEVEL_SCOPE = 512;
-
 	public const uint32 DSOP_SCOPE_FLAG_STARTING_SCOPE = 1;
-
 	public const uint32 DSOP_SCOPE_FLAG_WANT_PROVIDER_WINNT = 2;
-
 	public const uint32 DSOP_SCOPE_FLAG_WANT_PROVIDER_LDAP = 4;
-
 	public const uint32 DSOP_SCOPE_FLAG_WANT_PROVIDER_GC = 8;
-
 	public const uint32 DSOP_SCOPE_FLAG_WANT_SID_PATH = 16;
-
 	public const uint32 DSOP_SCOPE_FLAG_WANT_DOWNLEVEL_BUILTIN_PATH = 32;
-
 	public const uint32 DSOP_SCOPE_FLAG_DEFAULT_FILTER_USERS = 64;
-
 	public const uint32 DSOP_SCOPE_FLAG_DEFAULT_FILTER_GROUPS = 128;
-
 	public const uint32 DSOP_SCOPE_FLAG_DEFAULT_FILTER_COMPUTERS = 256;
-
 	public const uint32 DSOP_SCOPE_FLAG_DEFAULT_FILTER_CONTACTS = 512;
-
 	public const uint32 DSOP_SCOPE_FLAG_DEFAULT_FILTER_SERVICE_ACCOUNTS = 1024;
-
 	public const uint32 DSOP_SCOPE_FLAG_DEFAULT_FILTER_PASSWORDSETTINGS_OBJECTS = 2048;
-
 	public const uint32 DSOP_FILTER_INCLUDE_ADVANCED_VIEW = 1;
-
 	public const uint32 DSOP_FILTER_USERS = 2;
-
 	public const uint32 DSOP_FILTER_BUILTIN_GROUPS = 4;
-
 	public const uint32 DSOP_FILTER_WELL_KNOWN_PRINCIPALS = 8;
-
 	public const uint32 DSOP_FILTER_UNIVERSAL_GROUPS_DL = 16;
-
 	public const uint32 DSOP_FILTER_UNIVERSAL_GROUPS_SE = 32;
-
 	public const uint32 DSOP_FILTER_GLOBAL_GROUPS_DL = 64;
-
 	public const uint32 DSOP_FILTER_GLOBAL_GROUPS_SE = 128;
-
 	public const uint32 DSOP_FILTER_DOMAIN_LOCAL_GROUPS_DL = 256;
-
 	public const uint32 DSOP_FILTER_DOMAIN_LOCAL_GROUPS_SE = 512;
-
 	public const uint32 DSOP_FILTER_CONTACTS = 1024;
-
 	public const uint32 DSOP_FILTER_COMPUTERS = 2048;
-
 	public const uint32 DSOP_FILTER_SERVICE_ACCOUNTS = 4096;
-
 	public const uint32 DSOP_FILTER_PASSWORDSETTINGS_OBJECTS = 8192;
-
 	public const uint32 DSOP_DOWNLEVEL_FILTER_USERS = 2147483649;
-
 	public const uint32 DSOP_DOWNLEVEL_FILTER_LOCAL_GROUPS = 2147483650;
-
 	public const uint32 DSOP_DOWNLEVEL_FILTER_GLOBAL_GROUPS = 2147483652;
-
 	public const uint32 DSOP_DOWNLEVEL_FILTER_COMPUTERS = 2147483656;
-
 	public const uint32 DSOP_DOWNLEVEL_FILTER_WORLD = 2147483664;
-
 	public const uint32 DSOP_DOWNLEVEL_FILTER_AUTHENTICATED_USER = 2147483680;
-
 	public const uint32 DSOP_DOWNLEVEL_FILTER_ANONYMOUS = 2147483712;
-
 	public const uint32 DSOP_DOWNLEVEL_FILTER_BATCH = 2147483776;
-
 	public const uint32 DSOP_DOWNLEVEL_FILTER_CREATOR_OWNER = 2147483904;
-
 	public const uint32 DSOP_DOWNLEVEL_FILTER_CREATOR_GROUP = 2147484160;
-
 	public const uint32 DSOP_DOWNLEVEL_FILTER_DIALUP = 2147484672;
-
 	public const uint32 DSOP_DOWNLEVEL_FILTER_INTERACTIVE = 2147485696;
-
 	public const uint32 DSOP_DOWNLEVEL_FILTER_NETWORK = 2147487744;
-
 	public const uint32 DSOP_DOWNLEVEL_FILTER_SERVICE = 2147491840;
-
 	public const uint32 DSOP_DOWNLEVEL_FILTER_SYSTEM = 2147500032;
-
 	public const uint32 DSOP_DOWNLEVEL_FILTER_EXCLUDE_BUILTIN_GROUPS = 2147516416;
-
 	public const uint32 DSOP_DOWNLEVEL_FILTER_TERMINAL_SERVER = 2147549184;
-
 	public const uint32 DSOP_DOWNLEVEL_FILTER_ALL_WELLKNOWN_SIDS = 2147614720;
-
 	public const uint32 DSOP_DOWNLEVEL_FILTER_LOCAL_SERVICE = 2147745792;
-
 	public const uint32 DSOP_DOWNLEVEL_FILTER_NETWORK_SERVICE = 2148007936;
-
 	public const uint32 DSOP_DOWNLEVEL_FILTER_REMOTE_LOGON = 2148532224;
-
 	public const uint32 DSOP_DOWNLEVEL_FILTER_INTERNET_USER = 2149580800;
-
 	public const uint32 DSOP_DOWNLEVEL_FILTER_OWNER_RIGHTS = 2151677952;
-
 	public const uint32 DSOP_DOWNLEVEL_FILTER_SERVICES = 2155872256;
-
 	public const uint32 DSOP_DOWNLEVEL_FILTER_LOCAL_LOGON = 2164260864;
-
 	public const uint32 DSOP_DOWNLEVEL_FILTER_THIS_ORG_CERT = 2181038080;
-
 	public const uint32 DSOP_DOWNLEVEL_FILTER_IIS_APP_POOL = 2214592512;
-
 	public const uint32 DSOP_DOWNLEVEL_FILTER_ALL_APP_PACKAGES = 2281701376;
-
 	public const uint32 DSOP_DOWNLEVEL_FILTER_LOCAL_ACCOUNTS = 2415919104;
-
 	public const uint32 DSOP_FLAG_MULTISELECT = 1;
-
 	public const uint32 DSOP_FLAG_SKIP_TARGET_COMPUTER_DC_CHECK = 2;
-
 	public const uint32 SCHEDULE_INTERVAL = 0;
-
 	public const uint32 SCHEDULE_BANDWIDTH = 1;
-
 	public const uint32 SCHEDULE_PRIORITY = 2;
-
 	public const uint32 FACILITY_NTDSB = 2048;
-
 	public const uint32 FACILITY_BACKUP = 2047;
-
 	public const uint32 FACILITY_SYSTEM = 0;
-
 	public const uint32 STATUS_SEVERITY_SUCCESS = 0;
-
 	public const uint32 STATUS_SEVERITY_INFORMATIONAL = 1;
-
 	public const uint32 STATUS_SEVERITY_WARNING = 2;
-
 	public const uint32 STATUS_SEVERITY_ERROR = 3;
-
 	public const Guid CLSID_DsObjectPicker = .(0x17d6ccd8, 0x3b7b, 0x11d2, 0xb9, 0xe0, 0x00, 0xc0, 0x4f, 0xd8, 0xdb, 0xf7);
-
 }
 #endregion
 
@@ -1593,7 +1128,6 @@ public struct OPENQUERYWINDOW
 		public void* pFormParameters;
 		public IPropertyBag* ppbFormParameters;
 	}
-
 	public uint32 cbStruct;
 	public uint32 dwFlags;
 	public Guid clsidHandler;
@@ -1764,7 +1298,6 @@ public struct ADSVALUE
 		public ADS_DN_WITH_BINARY* pDNWithBinary;
 		public ADS_DN_WITH_STRING* pDNWithString;
 	}
-
 	public ADSTYPEENUM dwType;
 	public using _Anonymous_e__Union Anonymous;
 }
@@ -1861,11 +1394,12 @@ public struct DSOBJECT
 	public uint32 offsetClass;
 }
 
-[CRepr, FlexibleArray("aObjects")]
+[CRepr]
 public struct DSOBJECTNAMES
 {
 	public Guid clsidNamespace;
 	public uint32 cItems;
+	public DSOBJECT* aObjects mut => &aObjects_impl;
 	private DSOBJECT[ANYSIZE_ARRAY] aObjects_impl;
 }
 
@@ -1901,21 +1435,23 @@ public struct DOMAINDESC
 	public DOMAINDESC* pdNextSibling;
 }
 
-[CRepr, FlexibleArray("aDomains")]
+[CRepr]
 public struct DOMAIN_TREE
 {
 	public uint32 dsSize;
 	public uint32 dwCount;
+	public DOMAINDESC* aDomains mut => &aDomains_impl;
 	private DOMAINDESC[ANYSIZE_ARRAY] aDomains_impl;
 }
 
-[CRepr, FlexibleArray("aWizardExtensions")]
+[CRepr]
 public struct DSCLASSCREATIONINFO
 {
 	public uint32 dwFlags;
 	public Guid clsidWizardDialog;
 	public Guid clsidWizardPrimaryPage;
 	public uint32 cWizardExtensions;
+	public Guid* aWizardExtensions mut => &aWizardExtensions_impl;
 	private Guid[ANYSIZE_ARRAY] aWizardExtensions_impl;
 }
 
@@ -2037,11 +1573,12 @@ public struct DS_SELECTION
 	public uint32 flScopeType;
 }
 
-[CRepr, FlexibleArray("aDsSelection")]
+[CRepr]
 public struct DS_SELECTION_LIST
 {
 	public uint32 cItems;
 	public uint32 cFetchedAttributes;
+	public DS_SELECTION* aDsSelection mut => &aDsSelection_impl;
 	private DS_SELECTION[ANYSIZE_ARRAY] aDsSelection_impl;
 }
 
@@ -2068,7 +1605,7 @@ public struct DSCOLUMN
 	public uint32 dwReserved;
 }
 
-[CRepr, FlexibleArray("aColumns")]
+[CRepr]
 public struct DSQUERYPARAMS
 {
 	public uint32 cbStruct;
@@ -2077,14 +1614,16 @@ public struct DSQUERYPARAMS
 	public int32 offsetQuery;
 	public int32 iColumns;
 	public uint32 dwReserved;
+	public DSCOLUMN* aColumns mut => &aColumns_impl;
 	private DSCOLUMN[ANYSIZE_ARRAY] aColumns_impl;
 }
 
-[CRepr, FlexibleArray("offsetClass")]
+[CRepr]
 public struct DSQUERYCLASSLIST
 {
 	public uint32 cbStruct;
 	public int32 cClasses;
+	public uint32* offsetClass mut => &offsetClass_impl;
 	private uint32[ANYSIZE_ARRAY] offsetClass_impl;
 }
 
@@ -2126,12 +1665,13 @@ public struct SCHEDULE_HEADER
 	public uint32 Offset;
 }
 
-[CRepr, FlexibleArray("Schedules")]
+[CRepr]
 public struct SCHEDULE
 {
 	public uint32 Size;
 	public uint32 Bandwidth;
 	public uint32 NumberOfSchedules;
+	public SCHEDULE_HEADER* Schedules mut => &Schedules_impl;
 	private SCHEDULE_HEADER[ANYSIZE_ARRAY] Schedules_impl;
 }
 
@@ -2386,11 +1926,12 @@ public struct DS_REPL_NEIGHBORW_BLOB
 	public uint32 cNumConsecutiveSyncFailures;
 }
 
-[CRepr, FlexibleArray("rgNeighbor")]
+[CRepr]
 public struct DS_REPL_NEIGHBORSW
 {
 	public uint32 cNumNeighbors;
 	public uint32 dwReserved;
+	public DS_REPL_NEIGHBORW* rgNeighbor mut => &rgNeighbor_impl;
 	private DS_REPL_NEIGHBORW[ANYSIZE_ARRAY] rgNeighbor_impl;
 }
 
@@ -2427,27 +1968,30 @@ public struct DS_REPL_CURSOR_BLOB
 	public uint32 oszSourceDsaDN;
 }
 
-[CRepr, FlexibleArray("rgCursor")]
+[CRepr]
 public struct DS_REPL_CURSORS
 {
 	public uint32 cNumCursors;
 	public uint32 dwReserved;
+	public DS_REPL_CURSOR* rgCursor mut => &rgCursor_impl;
 	private DS_REPL_CURSOR[ANYSIZE_ARRAY] rgCursor_impl;
 }
 
-[CRepr, FlexibleArray("rgCursor")]
+[CRepr]
 public struct DS_REPL_CURSORS_2
 {
 	public uint32 cNumCursors;
 	public uint32 dwEnumerationContext;
+	public DS_REPL_CURSOR_2* rgCursor mut => &rgCursor_impl;
 	private DS_REPL_CURSOR_2[ANYSIZE_ARRAY] rgCursor_impl;
 }
 
-[CRepr, FlexibleArray("rgCursor")]
+[CRepr]
 public struct DS_REPL_CURSORS_3W
 {
 	public uint32 cNumCursors;
 	public uint32 dwEnumerationContext;
+	public DS_REPL_CURSOR_3W* rgCursor mut => &rgCursor_impl;
 	private DS_REPL_CURSOR_3W[ANYSIZE_ARRAY] rgCursor_impl;
 }
 
@@ -2486,19 +2030,21 @@ public struct DS_REPL_ATTR_META_DATA_BLOB
 	public uint32 oszLastOriginatingDsaDN;
 }
 
-[CRepr, FlexibleArray("rgMetaData")]
+[CRepr]
 public struct DS_REPL_OBJ_META_DATA
 {
 	public uint32 cNumEntries;
 	public uint32 dwReserved;
+	public DS_REPL_ATTR_META_DATA* rgMetaData mut => &rgMetaData_impl;
 	private DS_REPL_ATTR_META_DATA[ANYSIZE_ARRAY] rgMetaData_impl;
 }
 
-[CRepr, FlexibleArray("rgMetaData")]
+[CRepr]
 public struct DS_REPL_OBJ_META_DATA_2
 {
 	public uint32 cNumEntries;
 	public uint32 dwReserved;
+	public DS_REPL_ATTR_META_DATA_2* rgMetaData mut => &rgMetaData_impl;
 	private DS_REPL_ATTR_META_DATA_2[ANYSIZE_ARRAY] rgMetaData_impl;
 }
 
@@ -2522,11 +2068,12 @@ public struct DS_REPL_KCC_DSA_FAILUREW_BLOB
 	public uint32 dwLastResult;
 }
 
-[CRepr, FlexibleArray("rgDsaFailure")]
+[CRepr]
 public struct DS_REPL_KCC_DSA_FAILURESW
 {
 	public uint32 cNumEntries;
 	public uint32 dwReserved;
+	public DS_REPL_KCC_DSA_FAILUREW* rgDsaFailure mut => &rgDsaFailure_impl;
 	private DS_REPL_KCC_DSA_FAILUREW[ANYSIZE_ARRAY] rgDsaFailure_impl;
 }
 
@@ -2560,11 +2107,12 @@ public struct DS_REPL_OPW_BLOB
 	public Guid uuidDsaObjGuid;
 }
 
-[CRepr, FlexibleArray("rgPendingOp")]
+[CRepr]
 public struct DS_REPL_PENDING_OPSW
 {
 	public FILETIME ftimeCurrentOpStarted;
 	public uint32 cNumPendingOps;
+	public DS_REPL_OPW* rgPendingOp mut => &rgPendingOp_impl;
 	private DS_REPL_OPW[ANYSIZE_ARRAY] rgPendingOp_impl;
 }
 
@@ -2658,27 +2206,30 @@ public struct DS_REPL_VALUE_META_DATA_BLOB_EXT
 	public uint32 dwCurrentLinkState;
 }
 
-[CRepr, FlexibleArray("rgMetaData")]
+[CRepr]
 public struct DS_REPL_ATTR_VALUE_META_DATA
 {
 	public uint32 cNumEntries;
 	public uint32 dwEnumerationContext;
+	public DS_REPL_VALUE_META_DATA* rgMetaData mut => &rgMetaData_impl;
 	private DS_REPL_VALUE_META_DATA[ANYSIZE_ARRAY] rgMetaData_impl;
 }
 
-[CRepr, FlexibleArray("rgMetaData")]
+[CRepr]
 public struct DS_REPL_ATTR_VALUE_META_DATA_2
 {
 	public uint32 cNumEntries;
 	public uint32 dwEnumerationContext;
+	public DS_REPL_VALUE_META_DATA_2* rgMetaData mut => &rgMetaData_impl;
 	private DS_REPL_VALUE_META_DATA_2[ANYSIZE_ARRAY] rgMetaData_impl;
 }
 
-[CRepr, FlexibleArray("rgMetaData")]
+[CRepr]
 public struct DS_REPL_ATTR_VALUE_META_DATA_EXT
 {
 	public uint32 cNumEntries;
 	public uint32 dwEnumerationContext;
+	public DS_REPL_VALUE_META_DATA_EXT* rgMetaData mut => &rgMetaData_impl;
 	private DS_REPL_VALUE_META_DATA_EXT[ANYSIZE_ARRAY] rgMetaData_impl;
 }
 

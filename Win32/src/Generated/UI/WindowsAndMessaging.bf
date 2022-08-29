@@ -3,7 +3,6 @@ using Win32.Graphics.Gdi;
 using Win32.UI.Shell;
 using Win32.System.Power;
 using System;
-using System.Interop;
 
 namespace Win32.UI.WindowsAndMessaging;
 
@@ -11,13 +10,9 @@ namespace Win32.UI.WindowsAndMessaging;
 public static
 {
 	public const uint32 WM_DEVICECHANGE = 537;
-
 	public const uint32 BSM_VXDS = 1;
-
 	public const uint32 BSM_NETDRIVER = 2;
-
 	public const uint32 BSM_INSTALLABLEDRIVERS = 4;
-
 	public const PWSTR RT_CURSOR = (PWSTR)(void*)1;
 	public const PWSTR RT_BITMAP = (PWSTR)(void*)2;
 	public const PWSTR RT_ICON = (PWSTR)(void*)3;
@@ -28,7 +23,6 @@ public static
 	public const PWSTR RT_ACCELERATOR = (PWSTR)(void*)9;
 	public const PWSTR RT_MESSAGETABLE = (PWSTR)(void*)11;
 	public const uint32 DIFFERENCE = 11;
-
 	public const PWSTR RT_VERSION = (PWSTR)(void*)16;
 	public const PWSTR RT_DLGINCLUDE = (PWSTR)(void*)17;
 	public const PWSTR RT_PLUGPLAY = (PWSTR)(void*)19;
@@ -37,1283 +31,647 @@ public static
 	public const PWSTR RT_ANIICON = (PWSTR)(void*)22;
 	public const PWSTR RT_HTML = (PWSTR)(void*)23;
 	public const uint32 RT_MANIFEST = 24;
-
 	public const uint32 CREATEPROCESS_MANIFEST_RESOURCE_ID = 1;
-
 	public const uint32 ISOLATIONAWARE_MANIFEST_RESOURCE_ID = 2;
-
 	public const uint32 ISOLATIONAWARE_NOSTATICIMPORT_MANIFEST_RESOURCE_ID = 3;
-
 	public const uint32 ISOLATIONPOLICY_MANIFEST_RESOURCE_ID = 4;
-
 	public const uint32 ISOLATIONPOLICY_BROWSER_MANIFEST_RESOURCE_ID = 5;
-
 	public const uint32 MINIMUM_RESERVED_MANIFEST_RESOURCE_ID = 1;
-
 	public const uint32 MAXIMUM_RESERVED_MANIFEST_RESOURCE_ID = 16;
-
 	public const uint32 SB_LINEUP = 0;
-
 	public const uint32 SB_LINELEFT = 0;
-
 	public const uint32 SB_LINEDOWN = 1;
-
 	public const uint32 SB_LINERIGHT = 1;
-
 	public const uint32 SB_PAGEUP = 2;
-
 	public const uint32 SB_PAGELEFT = 2;
-
 	public const uint32 SB_PAGEDOWN = 3;
-
 	public const uint32 SB_PAGERIGHT = 3;
-
 	public const uint32 SB_THUMBPOSITION = 4;
-
 	public const uint32 SB_THUMBTRACK = 5;
-
 	public const uint32 SB_TOP = 6;
-
 	public const uint32 SB_LEFT = 6;
-
 	public const uint32 SB_BOTTOM = 7;
-
 	public const uint32 SB_RIGHT = 7;
-
 	public const uint32 SB_ENDSCROLL = 8;
-
 	public const uint32 HIDE_WINDOW = 0;
-
 	public const uint32 SHOW_OPENWINDOW = 1;
-
 	public const uint32 SHOW_ICONWINDOW = 2;
-
 	public const uint32 SHOW_FULLSCREEN = 3;
-
 	public const uint32 SHOW_OPENNOACTIVATE = 4;
-
 	public const uint32 KF_EXTENDED = 256;
-
 	public const uint32 KF_DLGMODE = 2048;
-
 	public const uint32 KF_MENUMODE = 4096;
-
 	public const uint32 KF_ALTDOWN = 8192;
-
 	public const uint32 KF_REPEAT = 16384;
-
 	public const uint32 KF_UP = 32768;
-
 	public const int32 WH_MIN = -1;
-
 	public const uint32 WH_HARDWARE = 8;
-
 	public const uint32 WH_MAX = 14;
-
 	public const int32 WH_MINHOOK = -1;
-
 	public const uint32 WH_MAXHOOK = 14;
-
 	public const uint32 HC_ACTION = 0;
-
 	public const uint32 HC_GETNEXT = 1;
-
 	public const uint32 HC_SKIP = 2;
-
 	public const uint32 HC_NOREMOVE = 3;
-
 	public const uint32 HC_NOREM = 3;
-
 	public const uint32 HC_SYSMODALON = 4;
-
 	public const uint32 HC_SYSMODALOFF = 5;
-
 	public const uint32 HCBT_MOVESIZE = 0;
-
 	public const uint32 HCBT_MINMAX = 1;
-
 	public const uint32 HCBT_QS = 2;
-
 	public const uint32 HCBT_CREATEWND = 3;
-
 	public const uint32 HCBT_DESTROYWND = 4;
-
 	public const uint32 HCBT_ACTIVATE = 5;
-
 	public const uint32 HCBT_CLICKSKIPPED = 6;
-
 	public const uint32 HCBT_KEYSKIPPED = 7;
-
 	public const uint32 HCBT_SYSCOMMAND = 8;
-
 	public const uint32 HCBT_SETFOCUS = 9;
-
 	public const uint32 WTS_CONSOLE_CONNECT = 1;
-
 	public const uint32 WTS_CONSOLE_DISCONNECT = 2;
-
 	public const uint32 WTS_REMOTE_CONNECT = 3;
-
 	public const uint32 WTS_REMOTE_DISCONNECT = 4;
-
 	public const uint32 WTS_SESSION_LOGON = 5;
-
 	public const uint32 WTS_SESSION_LOGOFF = 6;
-
 	public const uint32 WTS_SESSION_LOCK = 7;
-
 	public const uint32 WTS_SESSION_UNLOCK = 8;
-
 	public const uint32 WTS_SESSION_REMOTE_CONTROL = 9;
-
 	public const uint32 WTS_SESSION_CREATE = 10;
-
 	public const uint32 WTS_SESSION_TERMINATE = 11;
-
 	public const uint32 MSGF_DIALOGBOX = 0;
-
 	public const uint32 MSGF_MESSAGEBOX = 1;
-
 	public const uint32 MSGF_MENU = 2;
-
 	public const uint32 MSGF_SCROLLBAR = 5;
-
 	public const uint32 MSGF_NEXTWINDOW = 6;
-
 	public const uint32 MSGF_MAX = 8;
-
 	public const uint32 MSGF_USER = 4096;
-
 	public const uint32 HSHELL_WINDOWCREATED = 1;
-
 	public const uint32 HSHELL_WINDOWDESTROYED = 2;
-
 	public const uint32 HSHELL_ACTIVATESHELLWINDOW = 3;
-
 	public const uint32 HSHELL_WINDOWACTIVATED = 4;
-
 	public const uint32 HSHELL_GETMINRECT = 5;
-
 	public const uint32 HSHELL_REDRAW = 6;
-
 	public const uint32 HSHELL_TASKMAN = 7;
-
 	public const uint32 HSHELL_LANGUAGE = 8;
-
 	public const uint32 HSHELL_SYSMENU = 9;
-
 	public const uint32 HSHELL_ENDTASK = 10;
-
 	public const uint32 HSHELL_ACCESSIBILITYSTATE = 11;
-
 	public const uint32 HSHELL_APPCOMMAND = 12;
-
 	public const uint32 HSHELL_WINDOWREPLACED = 13;
-
 	public const uint32 HSHELL_WINDOWREPLACING = 14;
-
 	public const uint32 HSHELL_MONITORCHANGED = 16;
-
 	public const uint32 HSHELL_HIGHBIT = 32768;
-
 	public const uint32 FAPPCOMMAND_MOUSE = 32768;
-
 	public const uint32 FAPPCOMMAND_KEY = 0;
-
 	public const uint32 FAPPCOMMAND_OEM = 4096;
-
 	public const uint32 FAPPCOMMAND_MASK = 61440;
-
 	public const uint32 LLMHF_INJECTED = 1;
-
 	public const uint32 LLMHF_LOWER_IL_INJECTED = 2;
-
 	public const uint32 HKL_PREV = 0;
-
 	public const uint32 HKL_NEXT = 1;
-
 	public const uint32 INPUTLANGCHANGE_SYSCHARSET = 1;
-
 	public const uint32 INPUTLANGCHANGE_FORWARD = 2;
-
 	public const uint32 INPUTLANGCHANGE_BACKWARD = 4;
-
 	public const uint32 KL_NAMELENGTH = 9;
-
 	public const int32 DESKTOP_READOBJECTS = 1;
-
 	public const int32 DESKTOP_CREATEWINDOW = 2;
-
 	public const int32 DESKTOP_CREATEMENU = 4;
-
 	public const int32 DESKTOP_HOOKCONTROL = 8;
-
 	public const int32 DESKTOP_JOURNALRECORD = 16;
-
 	public const int32 DESKTOP_JOURNALPLAYBACK = 32;
-
 	public const int32 DESKTOP_ENUMERATE = 64;
-
 	public const int32 DESKTOP_WRITEOBJECTS = 128;
-
 	public const int32 DESKTOP_SWITCHDESKTOP = 256;
-
 	public const int32 DF_ALLOWOTHERACCOUNTHOOK = 1;
-
 	public const int32 WINSTA_ENUMDESKTOPS = 1;
-
 	public const int32 WINSTA_READATTRIBUTES = 2;
-
 	public const int32 WINSTA_ACCESSCLIPBOARD = 4;
-
 	public const int32 WINSTA_CREATEDESKTOP = 8;
-
 	public const int32 WINSTA_WRITEATTRIBUTES = 16;
-
 	public const int32 WINSTA_ACCESSGLOBALATOMS = 32;
-
 	public const int32 WINSTA_EXITWINDOWS = 64;
-
 	public const int32 WINSTA_ENUMERATE = 256;
-
 	public const int32 WINSTA_READSCREEN = 512;
-
 	public const uint32 CWF_CREATE_ONLY = 1;
-
 	public const int32 WSF_VISIBLE = 1;
-
 	public const uint32 UOI_TIMERPROC_EXCEPTION_SUPPRESSION = 7;
-
 	public const uint32 WM_NULL = 0;
-
 	public const uint32 WM_CREATE = 1;
-
 	public const uint32 WM_DESTROY = 2;
-
 	public const uint32 WM_MOVE = 3;
-
 	public const uint32 WM_SIZE = 5;
-
 	public const uint32 WM_ACTIVATE = 6;
-
 	public const uint32 WA_INACTIVE = 0;
-
 	public const uint32 WA_ACTIVE = 1;
-
 	public const uint32 WA_CLICKACTIVE = 2;
-
 	public const uint32 WM_SETFOCUS = 7;
-
 	public const uint32 WM_KILLFOCUS = 8;
-
 	public const uint32 WM_ENABLE = 10;
-
 	public const uint32 WM_SETREDRAW = 11;
-
 	public const uint32 WM_SETTEXT = 12;
-
 	public const uint32 WM_GETTEXT = 13;
-
 	public const uint32 WM_GETTEXTLENGTH = 14;
-
 	public const uint32 WM_PAINT = 15;
-
 	public const uint32 WM_CLOSE = 16;
-
 	public const uint32 WM_QUERYENDSESSION = 17;
-
 	public const uint32 WM_QUERYOPEN = 19;
-
 	public const uint32 WM_ENDSESSION = 22;
-
 	public const uint32 WM_QUIT = 18;
-
 	public const uint32 WM_ERASEBKGND = 20;
-
 	public const uint32 WM_SYSCOLORCHANGE = 21;
-
 	public const uint32 WM_SHOWWINDOW = 24;
-
 	public const uint32 WM_WININICHANGE = 26;
-
 	public const uint32 WM_SETTINGCHANGE = 26;
-
 	public const uint32 WM_DEVMODECHANGE = 27;
-
 	public const uint32 WM_ACTIVATEAPP = 28;
-
 	public const uint32 WM_FONTCHANGE = 29;
-
 	public const uint32 WM_TIMECHANGE = 30;
-
 	public const uint32 WM_CANCELMODE = 31;
-
 	public const uint32 WM_SETCURSOR = 32;
-
 	public const uint32 WM_MOUSEACTIVATE = 33;
-
 	public const uint32 WM_CHILDACTIVATE = 34;
-
 	public const uint32 WM_QUEUESYNC = 35;
-
 	public const uint32 WM_GETMINMAXINFO = 36;
-
 	public const uint32 WM_PAINTICON = 38;
-
 	public const uint32 WM_ICONERASEBKGND = 39;
-
 	public const uint32 WM_NEXTDLGCTL = 40;
-
 	public const uint32 WM_SPOOLERSTATUS = 42;
-
 	public const uint32 WM_DRAWITEM = 43;
-
 	public const uint32 WM_MEASUREITEM = 44;
-
 	public const uint32 WM_DELETEITEM = 45;
-
 	public const uint32 WM_VKEYTOITEM = 46;
-
 	public const uint32 WM_CHARTOITEM = 47;
-
 	public const uint32 WM_SETFONT = 48;
-
 	public const uint32 WM_GETFONT = 49;
-
 	public const uint32 WM_SETHOTKEY = 50;
-
 	public const uint32 WM_GETHOTKEY = 51;
-
 	public const uint32 WM_QUERYDRAGICON = 55;
-
 	public const uint32 WM_COMPAREITEM = 57;
-
 	public const uint32 WM_GETOBJECT = 61;
-
 	public const uint32 WM_COMPACTING = 65;
-
 	public const uint32 WM_COMMNOTIFY = 68;
-
 	public const uint32 WM_WINDOWPOSCHANGING = 70;
-
 	public const uint32 WM_WINDOWPOSCHANGED = 71;
-
 	public const uint32 WM_POWER = 72;
-
 	public const uint32 PWR_OK = 1;
-
 	public const int32 PWR_FAIL = -1;
-
 	public const uint32 PWR_SUSPENDREQUEST = 1;
-
 	public const uint32 PWR_SUSPENDRESUME = 2;
-
 	public const uint32 PWR_CRITICALRESUME = 3;
-
 	public const uint32 WM_COPYDATA = 74;
-
 	public const uint32 WM_CANCELJOURNAL = 75;
-
 	public const uint32 WM_INPUTLANGCHANGEREQUEST = 80;
-
 	public const uint32 WM_INPUTLANGCHANGE = 81;
-
 	public const uint32 WM_TCARD = 82;
-
 	public const uint32 WM_HELP = 83;
-
 	public const uint32 WM_USERCHANGED = 84;
-
 	public const uint32 WM_NOTIFYFORMAT = 85;
-
 	public const uint32 NFR_ANSI = 1;
-
 	public const uint32 NFR_UNICODE = 2;
-
 	public const uint32 NF_QUERY = 3;
-
 	public const uint32 NF_REQUERY = 4;
-
 	public const uint32 WM_STYLECHANGING = 124;
-
 	public const uint32 WM_STYLECHANGED = 125;
-
 	public const uint32 WM_DISPLAYCHANGE = 126;
-
 	public const uint32 WM_GETICON = 127;
-
 	public const uint32 WM_SETICON = 128;
-
 	public const uint32 WM_NCCREATE = 129;
-
 	public const uint32 WM_NCDESTROY = 130;
-
 	public const uint32 WM_NCCALCSIZE = 131;
-
 	public const uint32 WM_NCHITTEST = 132;
-
 	public const uint32 WM_NCPAINT = 133;
-
 	public const uint32 WM_NCACTIVATE = 134;
-
 	public const uint32 WM_GETDLGCODE = 135;
-
 	public const uint32 WM_SYNCPAINT = 136;
-
 	public const uint32 WM_NCMOUSEMOVE = 160;
-
 	public const uint32 WM_NCLBUTTONDOWN = 161;
-
 	public const uint32 WM_NCLBUTTONUP = 162;
-
 	public const uint32 WM_NCLBUTTONDBLCLK = 163;
-
 	public const uint32 WM_NCRBUTTONDOWN = 164;
-
 	public const uint32 WM_NCRBUTTONUP = 165;
-
 	public const uint32 WM_NCRBUTTONDBLCLK = 166;
-
 	public const uint32 WM_NCMBUTTONDOWN = 167;
-
 	public const uint32 WM_NCMBUTTONUP = 168;
-
 	public const uint32 WM_NCMBUTTONDBLCLK = 169;
-
 	public const uint32 WM_NCXBUTTONDOWN = 171;
-
 	public const uint32 WM_NCXBUTTONUP = 172;
-
 	public const uint32 WM_NCXBUTTONDBLCLK = 173;
-
 	public const uint32 WM_INPUT_DEVICE_CHANGE = 254;
-
 	public const uint32 WM_INPUT = 255;
-
 	public const uint32 WM_KEYFIRST = 256;
-
 	public const uint32 WM_KEYDOWN = 256;
-
 	public const uint32 WM_KEYUP = 257;
-
 	public const uint32 WM_CHAR = 258;
-
 	public const uint32 WM_DEADCHAR = 259;
-
 	public const uint32 WM_SYSKEYDOWN = 260;
-
 	public const uint32 WM_SYSKEYUP = 261;
-
 	public const uint32 WM_SYSCHAR = 262;
-
 	public const uint32 WM_SYSDEADCHAR = 263;
-
 	public const uint32 WM_KEYLAST = 265;
-
 	public const uint32 UNICODE_NOCHAR = 65535;
-
 	public const uint32 WM_IME_STARTCOMPOSITION = 269;
-
 	public const uint32 WM_IME_ENDCOMPOSITION = 270;
-
 	public const uint32 WM_IME_COMPOSITION = 271;
-
 	public const uint32 WM_IME_KEYLAST = 271;
-
 	public const uint32 WM_INITDIALOG = 272;
-
 	public const uint32 WM_COMMAND = 273;
-
 	public const uint32 WM_SYSCOMMAND = 274;
-
 	public const uint32 WM_TIMER = 275;
-
 	public const uint32 WM_HSCROLL = 276;
-
 	public const uint32 WM_VSCROLL = 277;
-
 	public const uint32 WM_INITMENU = 278;
-
 	public const uint32 WM_INITMENUPOPUP = 279;
-
 	public const uint32 WM_GESTURE = 281;
-
 	public const uint32 WM_GESTURENOTIFY = 282;
-
 	public const uint32 WM_MENUSELECT = 287;
-
 	public const uint32 WM_MENUCHAR = 288;
-
 	public const uint32 WM_ENTERIDLE = 289;
-
 	public const uint32 WM_MENURBUTTONUP = 290;
-
 	public const uint32 WM_MENUDRAG = 291;
-
 	public const uint32 WM_MENUGETOBJECT = 292;
-
 	public const uint32 WM_UNINITMENUPOPUP = 293;
-
 	public const uint32 WM_MENUCOMMAND = 294;
-
 	public const uint32 WM_CHANGEUISTATE = 295;
-
 	public const uint32 WM_UPDATEUISTATE = 296;
-
 	public const uint32 WM_QUERYUISTATE = 297;
-
 	public const uint32 UIS_SET = 1;
-
 	public const uint32 UIS_CLEAR = 2;
-
 	public const uint32 UIS_INITIALIZE = 3;
-
 	public const uint32 UISF_HIDEFOCUS = 1;
-
 	public const uint32 UISF_HIDEACCEL = 2;
-
 	public const uint32 UISF_ACTIVE = 4;
-
 	public const uint32 WM_CTLCOLORMSGBOX = 306;
-
 	public const uint32 WM_CTLCOLOREDIT = 307;
-
 	public const uint32 WM_CTLCOLORLISTBOX = 308;
-
 	public const uint32 WM_CTLCOLORBTN = 309;
-
 	public const uint32 WM_CTLCOLORDLG = 310;
-
 	public const uint32 WM_CTLCOLORSCROLLBAR = 311;
-
 	public const uint32 WM_CTLCOLORSTATIC = 312;
-
 	public const uint32 MN_GETHMENU = 481;
-
 	public const uint32 WM_MOUSEFIRST = 512;
-
 	public const uint32 WM_MOUSEMOVE = 512;
-
 	public const uint32 WM_LBUTTONDOWN = 513;
-
 	public const uint32 WM_LBUTTONUP = 514;
-
 	public const uint32 WM_LBUTTONDBLCLK = 515;
-
 	public const uint32 WM_RBUTTONDOWN = 516;
-
 	public const uint32 WM_RBUTTONUP = 517;
-
 	public const uint32 WM_RBUTTONDBLCLK = 518;
-
 	public const uint32 WM_MBUTTONDOWN = 519;
-
 	public const uint32 WM_MBUTTONUP = 520;
-
 	public const uint32 WM_MBUTTONDBLCLK = 521;
-
 	public const uint32 WM_MOUSEWHEEL = 522;
-
 	public const uint32 WM_XBUTTONDOWN = 523;
-
 	public const uint32 WM_XBUTTONUP = 524;
-
 	public const uint32 WM_XBUTTONDBLCLK = 525;
-
 	public const uint32 WM_MOUSEHWHEEL = 526;
-
 	public const uint32 WM_MOUSELAST = 526;
-
 	public const uint32 WHEEL_DELTA = 120;
-
 	public const uint32 WM_PARENTNOTIFY = 528;
-
 	public const uint32 WM_ENTERMENULOOP = 529;
-
 	public const uint32 WM_EXITMENULOOP = 530;
-
 	public const uint32 WM_NEXTMENU = 531;
-
 	public const uint32 WM_SIZING = 532;
-
 	public const uint32 WM_CAPTURECHANGED = 533;
-
 	public const uint32 WM_MOVING = 534;
-
 	public const uint32 WM_POWERBROADCAST = 536;
-
 	public const uint32 PBT_APMQUERYSUSPEND = 0;
-
 	public const uint32 PBT_APMQUERYSTANDBY = 1;
-
 	public const uint32 PBT_APMQUERYSUSPENDFAILED = 2;
-
 	public const uint32 PBT_APMQUERYSTANDBYFAILED = 3;
-
 	public const uint32 PBT_APMSUSPEND = 4;
-
 	public const uint32 PBT_APMSTANDBY = 5;
-
 	public const uint32 PBT_APMRESUMECRITICAL = 6;
-
 	public const uint32 PBT_APMRESUMESUSPEND = 7;
-
 	public const uint32 PBT_APMRESUMESTANDBY = 8;
-
 	public const uint32 PBTF_APMRESUMEFROMFAILURE = 1;
-
 	public const uint32 PBT_APMBATTERYLOW = 9;
-
 	public const uint32 PBT_APMPOWERSTATUSCHANGE = 10;
-
 	public const uint32 PBT_APMOEMEVENT = 11;
-
 	public const uint32 PBT_APMRESUMEAUTOMATIC = 18;
-
 	public const uint32 PBT_POWERSETTINGCHANGE = 32787;
-
 	public const uint32 WM_MDICREATE = 544;
-
 	public const uint32 WM_MDIDESTROY = 545;
-
 	public const uint32 WM_MDIACTIVATE = 546;
-
 	public const uint32 WM_MDIRESTORE = 547;
-
 	public const uint32 WM_MDINEXT = 548;
-
 	public const uint32 WM_MDIMAXIMIZE = 549;
-
 	public const uint32 WM_MDITILE = 550;
-
 	public const uint32 WM_MDICASCADE = 551;
-
 	public const uint32 WM_MDIICONARRANGE = 552;
-
 	public const uint32 WM_MDIGETACTIVE = 553;
-
 	public const uint32 WM_MDISETMENU = 560;
-
 	public const uint32 WM_ENTERSIZEMOVE = 561;
-
 	public const uint32 WM_EXITSIZEMOVE = 562;
-
 	public const uint32 WM_DROPFILES = 563;
-
 	public const uint32 WM_MDIREFRESHMENU = 564;
-
 	public const uint32 WM_POINTERDEVICECHANGE = 568;
-
 	public const uint32 WM_POINTERDEVICEINRANGE = 569;
-
 	public const uint32 WM_POINTERDEVICEOUTOFRANGE = 570;
-
 	public const uint32 WM_TOUCH = 576;
-
 	public const uint32 WM_NCPOINTERUPDATE = 577;
-
 	public const uint32 WM_NCPOINTERDOWN = 578;
-
 	public const uint32 WM_NCPOINTERUP = 579;
-
 	public const uint32 WM_POINTERUPDATE = 581;
-
 	public const uint32 WM_POINTERDOWN = 582;
-
 	public const uint32 WM_POINTERUP = 583;
-
 	public const uint32 WM_POINTERENTER = 585;
-
 	public const uint32 WM_POINTERLEAVE = 586;
-
 	public const uint32 WM_POINTERACTIVATE = 587;
-
 	public const uint32 WM_POINTERCAPTURECHANGED = 588;
-
 	public const uint32 WM_TOUCHHITTESTING = 589;
-
 	public const uint32 WM_POINTERWHEEL = 590;
-
 	public const uint32 WM_POINTERHWHEEL = 591;
-
 	public const uint32 DM_POINTERHITTEST = 592;
-
 	public const uint32 WM_POINTERROUTEDTO = 593;
-
 	public const uint32 WM_POINTERROUTEDAWAY = 594;
-
 	public const uint32 WM_POINTERROUTEDRELEASED = 595;
-
 	public const uint32 WM_IME_SETCONTEXT = 641;
-
 	public const uint32 WM_IME_NOTIFY = 642;
-
 	public const uint32 WM_IME_CONTROL = 643;
-
 	public const uint32 WM_IME_COMPOSITIONFULL = 644;
-
 	public const uint32 WM_IME_SELECT = 645;
-
 	public const uint32 WM_IME_CHAR = 646;
-
 	public const uint32 WM_IME_REQUEST = 648;
-
 	public const uint32 WM_IME_KEYDOWN = 656;
-
 	public const uint32 WM_IME_KEYUP = 657;
-
 	public const uint32 WM_NCMOUSEHOVER = 672;
-
 	public const uint32 WM_NCMOUSELEAVE = 674;
-
 	public const uint32 WM_WTSSESSION_CHANGE = 689;
-
 	public const uint32 WM_TABLET_FIRST = 704;
-
 	public const uint32 WM_TABLET_LAST = 735;
-
 	public const uint32 WM_DPICHANGED = 736;
-
 	public const uint32 WM_DPICHANGED_BEFOREPARENT = 738;
-
 	public const uint32 WM_DPICHANGED_AFTERPARENT = 739;
-
 	public const uint32 WM_GETDPISCALEDSIZE = 740;
-
 	public const uint32 WM_CUT = 768;
-
 	public const uint32 WM_COPY = 769;
-
 	public const uint32 WM_PASTE = 770;
-
 	public const uint32 WM_CLEAR = 771;
-
 	public const uint32 WM_UNDO = 772;
-
 	public const uint32 WM_RENDERFORMAT = 773;
-
 	public const uint32 WM_RENDERALLFORMATS = 774;
-
 	public const uint32 WM_DESTROYCLIPBOARD = 775;
-
 	public const uint32 WM_DRAWCLIPBOARD = 776;
-
 	public const uint32 WM_PAINTCLIPBOARD = 777;
-
 	public const uint32 WM_VSCROLLCLIPBOARD = 778;
-
 	public const uint32 WM_SIZECLIPBOARD = 779;
-
 	public const uint32 WM_ASKCBFORMATNAME = 780;
-
 	public const uint32 WM_CHANGECBCHAIN = 781;
-
 	public const uint32 WM_HSCROLLCLIPBOARD = 782;
-
 	public const uint32 WM_QUERYNEWPALETTE = 783;
-
 	public const uint32 WM_PALETTEISCHANGING = 784;
-
 	public const uint32 WM_PALETTECHANGED = 785;
-
 	public const uint32 WM_HOTKEY = 786;
-
 	public const uint32 WM_PRINT = 791;
-
 	public const uint32 WM_APPCOMMAND = 793;
-
 	public const uint32 WM_THEMECHANGED = 794;
-
 	public const uint32 WM_CLIPBOARDUPDATE = 797;
-
 	public const uint32 WM_DWMCOMPOSITIONCHANGED = 798;
-
 	public const uint32 WM_DWMNCRENDERINGCHANGED = 799;
-
 	public const uint32 WM_DWMCOLORIZATIONCOLORCHANGED = 800;
-
 	public const uint32 WM_DWMWINDOWMAXIMIZEDCHANGE = 801;
-
 	public const uint32 WM_DWMSENDICONICTHUMBNAIL = 803;
-
 	public const uint32 WM_DWMSENDICONICLIVEPREVIEWBITMAP = 806;
-
 	public const uint32 WM_GETTITLEBARINFOEX = 831;
-
 	public const uint32 WM_HANDHELDFIRST = 856;
-
 	public const uint32 WM_HANDHELDLAST = 863;
-
 	public const uint32 WM_AFXFIRST = 864;
-
 	public const uint32 WM_AFXLAST = 895;
-
 	public const uint32 WM_PENWINFIRST = 896;
-
 	public const uint32 WM_PENWINLAST = 911;
-
 	public const uint32 WM_APP = 32768;
-
 	public const uint32 WM_USER = 1024;
-
 	public const uint32 WMSZ_LEFT = 1;
-
 	public const uint32 WMSZ_RIGHT = 2;
-
 	public const uint32 WMSZ_TOP = 3;
-
 	public const uint32 WMSZ_TOPLEFT = 4;
-
 	public const uint32 WMSZ_TOPRIGHT = 5;
-
 	public const uint32 WMSZ_BOTTOM = 6;
-
 	public const uint32 WMSZ_BOTTOMLEFT = 7;
-
 	public const uint32 WMSZ_BOTTOMRIGHT = 8;
-
 	public const int32 HTERROR = -2;
-
 	public const int32 HTTRANSPARENT = -1;
-
 	public const uint32 HTNOWHERE = 0;
-
 	public const uint32 HTCLIENT = 1;
-
 	public const uint32 HTCAPTION = 2;
-
 	public const uint32 HTSYSMENU = 3;
-
 	public const uint32 HTGROWBOX = 4;
-
 	public const uint32 HTSIZE = 4;
-
 	public const uint32 HTMENU = 5;
-
 	public const uint32 HTHSCROLL = 6;
-
 	public const uint32 HTVSCROLL = 7;
-
 	public const uint32 HTMINBUTTON = 8;
-
 	public const uint32 HTMAXBUTTON = 9;
-
 	public const uint32 HTLEFT = 10;
-
 	public const uint32 HTRIGHT = 11;
-
 	public const uint32 HTTOP = 12;
-
 	public const uint32 HTTOPLEFT = 13;
-
 	public const uint32 HTTOPRIGHT = 14;
-
 	public const uint32 HTBOTTOM = 15;
-
 	public const uint32 HTBOTTOMLEFT = 16;
-
 	public const uint32 HTBOTTOMRIGHT = 17;
-
 	public const uint32 HTBORDER = 18;
-
 	public const uint32 HTREDUCE = 8;
-
 	public const uint32 HTZOOM = 9;
-
 	public const uint32 HTSIZEFIRST = 10;
-
 	public const uint32 HTSIZELAST = 17;
-
 	public const uint32 HTOBJECT = 19;
-
 	public const uint32 HTCLOSE = 20;
-
 	public const uint32 HTHELP = 21;
-
 	public const uint32 MA_ACTIVATE = 1;
-
 	public const uint32 MA_ACTIVATEANDEAT = 2;
-
 	public const uint32 MA_NOACTIVATE = 3;
-
 	public const uint32 MA_NOACTIVATEANDEAT = 4;
-
 	public const uint32 ICON_SMALL = 0;
-
 	public const uint32 ICON_BIG = 1;
-
 	public const uint32 ICON_SMALL2 = 2;
-
 	public const uint32 SIZE_RESTORED = 0;
-
 	public const uint32 SIZE_MINIMIZED = 1;
-
 	public const uint32 SIZE_MAXIMIZED = 2;
-
 	public const uint32 SIZE_MAXSHOW = 3;
-
 	public const uint32 SIZE_MAXHIDE = 4;
-
 	public const uint32 SIZENORMAL = 0;
-
 	public const uint32 SIZEICONIC = 1;
-
 	public const uint32 SIZEFULLSCREEN = 2;
-
 	public const uint32 SIZEZOOMSHOW = 3;
-
 	public const uint32 SIZEZOOMHIDE = 4;
-
 	public const uint32 WVR_ALIGNTOP = 16;
-
 	public const uint32 WVR_ALIGNLEFT = 32;
-
 	public const uint32 WVR_ALIGNBOTTOM = 64;
-
 	public const uint32 WVR_ALIGNRIGHT = 128;
-
 	public const uint32 WVR_HREDRAW = 256;
-
 	public const uint32 WVR_VREDRAW = 512;
-
 	public const uint32 WVR_VALIDRECTS = 1024;
-
 	public const uint32 MK_LBUTTON = 1;
-
 	public const uint32 MK_RBUTTON = 2;
-
 	public const uint32 MK_SHIFT = 4;
-
 	public const uint32 MK_CONTROL = 8;
-
 	public const uint32 MK_MBUTTON = 16;
-
 	public const uint32 MK_XBUTTON1 = 32;
-
 	public const uint32 MK_XBUTTON2 = 64;
-
 	public const int32 PRF_CHECKVISIBLE = 1;
-
 	public const int32 PRF_NONCLIENT = 2;
-
 	public const int32 PRF_CLIENT = 4;
-
 	public const int32 PRF_ERASEBKGND = 8;
-
 	public const int32 PRF_CHILDREN = 16;
-
 	public const int32 PRF_OWNED = 32;
-
 	public const uint32 IDANI_OPEN = 1;
-
 	public const uint32 IDANI_CAPTION = 3;
-
 	public const uint32 FVIRTKEY = 1;
-
 	public const uint32 FNOINVERT = 2;
-
 	public const uint32 FSHIFT = 4;
-
 	public const uint32 FCONTROL = 8;
-
 	public const uint32 FALT = 16;
-
 	public const uint32 ODA_DRAWENTIRE = 1;
-
 	public const uint32 ODA_SELECT = 2;
-
 	public const uint32 ODA_FOCUS = 4;
-
 	public const uint32 ODS_SELECTED = 1;
-
 	public const uint32 ODS_GRAYED = 2;
-
 	public const uint32 ODS_DISABLED = 4;
-
 	public const uint32 ODS_CHECKED = 8;
-
 	public const uint32 ODS_FOCUS = 16;
-
 	public const uint32 ODS_DEFAULT = 32;
-
 	public const uint32 ODS_COMBOBOXEDIT = 4096;
-
 	public const uint32 ODS_HOTLIGHT = 64;
-
 	public const uint32 ODS_INACTIVE = 128;
-
 	public const uint32 ODS_NOACCEL = 256;
-
 	public const uint32 ODS_NOFOCUSRECT = 512;
-
 	public const int32 IDHOT_SNAPWINDOW = -1;
-
 	public const int32 IDHOT_SNAPDESKTOP = -2;
-
 	public const uint32 ENDSESSION_CLOSEAPP = 1;
-
 	public const uint32 ENDSESSION_CRITICAL = 1073741824;
-
 	public const uint32 ENDSESSION_LOGOFF = 2147483648;
-
 	public const uint32 EWX_FORCE = 4;
-
 	public const uint32 EWX_FORCEIFHUNG = 16;
-
 	public const uint32 EWX_QUICKRESOLVE = 32;
-
 	public const uint32 EWX_BOOTOPTIONS = 16777216;
-
 	public const uint32 EWX_ARSO = 67108864;
-
 	public const uint32 EWX_CHECK_SAFE_FOR_SERVER = 134217728;
-
 	public const uint32 EWX_SYSTEM_INITIATED = 268435456;
-
 	public const uint32 BROADCAST_QUERY_DENY = 1112363332;
-
 	public const uint32 DEVICE_NOTIFY_ALL_INTERFACE_CLASSES = 4;
-
 	public const HWND HWND_MESSAGE = -3;
 	public const uint32 ISMEX_NOSEND = 0;
-
 	public const uint32 ISMEX_SEND = 1;
-
 	public const uint32 ISMEX_NOTIFY = 2;
-
 	public const uint32 ISMEX_CALLBACK = 4;
-
 	public const uint32 ISMEX_REPLIED = 8;
-
 	public const HWND HWND_DESKTOP = 0;
 	public const uint32 PW_RENDERFULLCONTENT = 2;
-
 	public const HWND HWND_TOP = 0;
 	public const HWND HWND_BOTTOM = 1;
 	public const HWND HWND_TOPMOST = -1;
 	public const HWND HWND_NOTOPMOST = -2;
 	public const uint32 DLGWINDOWEXTRA = 30;
-
 	public const uint32 POINTER_MOD_SHIFT = 4;
-
 	public const uint32 POINTER_MOD_CTRL = 8;
-
 	public const uint32 TOUCH_FLAG_NONE = 0;
-
 	public const uint32 TOUCH_MASK_NONE = 0;
-
 	public const uint32 TOUCH_MASK_CONTACTAREA = 1;
-
 	public const uint32 TOUCH_MASK_ORIENTATION = 2;
-
 	public const uint32 TOUCH_MASK_PRESSURE = 4;
-
 	public const uint32 PEN_FLAG_NONE = 0;
-
 	public const uint32 PEN_FLAG_BARREL = 1;
-
 	public const uint32 PEN_FLAG_INVERTED = 2;
-
 	public const uint32 PEN_FLAG_ERASER = 4;
-
 	public const uint32 PEN_MASK_NONE = 0;
-
 	public const uint32 PEN_MASK_PRESSURE = 1;
-
 	public const uint32 PEN_MASK_ROTATION = 2;
-
 	public const uint32 PEN_MASK_TILT_X = 4;
-
 	public const uint32 PEN_MASK_TILT_Y = 8;
-
 	public const uint32 POINTER_MESSAGE_FLAG_NEW = 1;
-
 	public const uint32 POINTER_MESSAGE_FLAG_INRANGE = 2;
-
 	public const uint32 POINTER_MESSAGE_FLAG_INCONTACT = 4;
-
 	public const uint32 POINTER_MESSAGE_FLAG_FIRSTBUTTON = 16;
-
 	public const uint32 POINTER_MESSAGE_FLAG_SECONDBUTTON = 32;
-
 	public const uint32 POINTER_MESSAGE_FLAG_THIRDBUTTON = 64;
-
 	public const uint32 POINTER_MESSAGE_FLAG_FOURTHBUTTON = 128;
-
 	public const uint32 POINTER_MESSAGE_FLAG_FIFTHBUTTON = 256;
-
 	public const uint32 POINTER_MESSAGE_FLAG_PRIMARY = 8192;
-
 	public const uint32 POINTER_MESSAGE_FLAG_CONFIDENCE = 16384;
-
 	public const uint32 POINTER_MESSAGE_FLAG_CANCELED = 32768;
-
 	public const uint32 PA_ACTIVATE = 1;
-
 	public const uint32 PA_NOACTIVATE = 3;
-
 	public const uint32 MAX_TOUCH_COUNT = 256;
-
 	public const uint32 TOUCH_HIT_TESTING_DEFAULT = 0;
-
 	public const uint32 TOUCH_HIT_TESTING_CLIENT = 1;
-
 	public const uint32 TOUCH_HIT_TESTING_NONE = 2;
-
 	public const uint32 TOUCH_HIT_TESTING_PROXIMITY_CLOSEST = 0;
-
 	public const uint32 TOUCH_HIT_TESTING_PROXIMITY_FARTHEST = 4095;
-
 	public const uint32 GWFS_INCLUDE_ANCESTORS = 1;
-
 	public const uint32 MAPVK_VK_TO_VSC = 0;
-
 	public const uint32 MAPVK_VSC_TO_VK = 1;
-
 	public const uint32 MAPVK_VK_TO_CHAR = 2;
-
 	public const uint32 MAPVK_VSC_TO_VK_EX = 3;
-
 	public const uint32 MAPVK_VK_TO_VSC_EX = 4;
-
 	public const uint32 QS_TOUCH = 2048;
-
 	public const uint32 QS_POINTER = 4096;
-
 	public const uint32 USER_TIMER_MAXIMUM = 2147483647;
-
 	public const uint32 USER_TIMER_MINIMUM = 10;
-
 	public const uint32 TIMERV_DEFAULT_COALESCING = 0;
-
 	public const uint32 TIMERV_NO_COALESCING = 4294967295;
-
 	public const uint32 TIMERV_COALESCING_MIN = 1;
-
 	public const uint32 TIMERV_COALESCING_MAX = 2147483637;
-
 	public const uint32 SM_RESERVED1 = 24;
-
 	public const uint32 SM_RESERVED2 = 25;
-
 	public const uint32 SM_RESERVED3 = 26;
-
 	public const uint32 SM_RESERVED4 = 27;
-
 	public const uint32 SM_CMETRICS = 76;
-
 	public const uint32 SM_CARETBLINKINGENABLED = 8194;
-
 	public const uint32 SM_SYSTEMDOCKED = 8196;
-
 	public const uint32 PMB_ACTIVE = 1;
-
 	public const uint32 MNC_IGNORE = 0;
-
 	public const uint32 MNC_CLOSE = 1;
-
 	public const uint32 MNC_EXECUTE = 2;
-
 	public const uint32 MNC_SELECT = 3;
-
 	public const uint32 MND_CONTINUE = 0;
-
 	public const uint32 MND_ENDMENU = 1;
-
 	public const uint32 MNGO_NOINTERFACE = 0;
-
 	public const uint32 MNGO_NOERROR = 1;
-
 	public const uint32 DOF_EXECUTABLE = 32769;
-
 	public const uint32 DOF_DOCUMENT = 32770;
-
 	public const uint32 DOF_DIRECTORY = 32771;
-
 	public const uint32 DOF_MULTIPLE = 32772;
-
 	public const uint32 DOF_PROGMAN = 1;
-
 	public const uint32 DOF_SHELLDATA = 2;
-
 	public const int32 DO_DROPFILE = 1162627398;
-
 	public const int32 DO_PRINTFILE = 1414419024;
-
 	public const uint32 ASFW_ANY = 4294967295;
-
 	public const int32 DCX_EXCLUDEUPDATE = 256;
-
 	public const uint32 HELPINFO_WINDOW = 1;
-
 	public const uint32 HELPINFO_MENUITEM = 2;
-
 	public const uint32 CTLCOLOR_MSGBOX = 0;
-
 	public const uint32 CTLCOLOR_EDIT = 1;
-
 	public const uint32 CTLCOLOR_LISTBOX = 2;
-
 	public const uint32 CTLCOLOR_BTN = 3;
-
 	public const uint32 CTLCOLOR_DLG = 4;
-
 	public const uint32 CTLCOLOR_SCROLLBAR = 5;
-
 	public const uint32 CTLCOLOR_STATIC = 6;
-
 	public const uint32 CTLCOLOR_MAX = 7;
-
 	public const uint32 COLOR_BTNHIGHLIGHT = 20;
-
 	public const uint32 COLOR_BTNHILIGHT = 20;
-
 	public const uint32 GW_MAX = 5;
-
 	public const uint32 SC_SIZE = 61440;
-
 	public const uint32 SC_MOVE = 61456;
-
 	public const uint32 SC_MINIMIZE = 61472;
-
 	public const uint32 SC_MAXIMIZE = 61488;
-
 	public const uint32 SC_NEXTWINDOW = 61504;
-
 	public const uint32 SC_PREVWINDOW = 61520;
-
 	public const uint32 SC_CLOSE = 61536;
-
 	public const uint32 SC_VSCROLL = 61552;
-
 	public const uint32 SC_HSCROLL = 61568;
-
 	public const uint32 SC_MOUSEMENU = 61584;
-
 	public const uint32 SC_KEYMENU = 61696;
-
 	public const uint32 SC_ARRANGE = 61712;
-
 	public const uint32 SC_RESTORE = 61728;
-
 	public const uint32 SC_TASKLIST = 61744;
-
 	public const uint32 SC_HOTKEY = 61776;
-
 	public const uint32 SC_DEFAULT = 61792;
-
 	public const uint32 SC_MONITORPOWER = 61808;
-
 	public const uint32 SC_CONTEXTHELP = 61824;
-
 	public const uint32 SC_SEPARATOR = 61455;
-
 	public const uint32 SCF_ISSECURE = 1;
-
 	public const uint32 SC_ICON = 61472;
-
 	public const uint32 SC_ZOOM = 61488;
-
 	public const PWSTR IDC_ARROW = (PWSTR)(void*)32512;
 	public const PWSTR IDC_IBEAM = (PWSTR)(void*)32513;
 	public const PWSTR IDC_WAIT = (PWSTR)(void*)32514;
@@ -1333,113 +691,59 @@ public static
 	public const PWSTR IDC_PIN = (PWSTR)(void*)32671;
 	public const PWSTR IDC_PERSON = (PWSTR)(void*)32672;
 	public const uint32 CURSOR_CREATION_SCALING_NONE = 1;
-
 	public const uint32 CURSOR_CREATION_SCALING_DEFAULT = 2;
-
 	public const uint32 IMAGE_ENHMETAFILE = 3;
-
 	public const uint32 LR_COLOR = 2;
-
 	public const uint32 RES_ICON = 1;
-
 	public const uint32 RES_CURSOR = 2;
-
 	public const uint32 OBM_CLOSE = 32754;
-
 	public const uint32 OBM_UPARROW = 32753;
-
 	public const uint32 OBM_DNARROW = 32752;
-
 	public const uint32 OBM_RGARROW = 32751;
-
 	public const uint32 OBM_LFARROW = 32750;
-
 	public const uint32 OBM_REDUCE = 32749;
-
 	public const uint32 OBM_ZOOM = 32748;
-
 	public const uint32 OBM_RESTORE = 32747;
-
 	public const uint32 OBM_REDUCED = 32746;
-
 	public const uint32 OBM_ZOOMD = 32745;
-
 	public const uint32 OBM_RESTORED = 32744;
-
 	public const uint32 OBM_UPARROWD = 32743;
-
 	public const uint32 OBM_DNARROWD = 32742;
-
 	public const uint32 OBM_RGARROWD = 32741;
-
 	public const uint32 OBM_LFARROWD = 32740;
-
 	public const uint32 OBM_MNARROW = 32739;
-
 	public const uint32 OBM_COMBO = 32738;
-
 	public const uint32 OBM_UPARROWI = 32737;
-
 	public const uint32 OBM_DNARROWI = 32736;
-
 	public const uint32 OBM_RGARROWI = 32735;
-
 	public const uint32 OBM_LFARROWI = 32734;
-
 	public const uint32 OBM_OLD_CLOSE = 32767;
-
 	public const uint32 OBM_SIZE = 32766;
-
 	public const uint32 OBM_OLD_UPARROW = 32765;
-
 	public const uint32 OBM_OLD_DNARROW = 32764;
-
 	public const uint32 OBM_OLD_RGARROW = 32763;
-
 	public const uint32 OBM_OLD_LFARROW = 32762;
-
 	public const uint32 OBM_BTSIZE = 32761;
-
 	public const uint32 OBM_CHECK = 32760;
-
 	public const uint32 OBM_CHECKBOXES = 32759;
-
 	public const uint32 OBM_BTNCORNERS = 32758;
-
 	public const uint32 OBM_OLD_REDUCE = 32757;
-
 	public const uint32 OBM_OLD_ZOOM = 32756;
-
 	public const uint32 OBM_OLD_RESTORE = 32755;
-
 	public const uint32 OCR_SIZE = 32640;
-
 	public const uint32 OCR_ICON = 32641;
-
 	public const uint32 OCR_ICOCUR = 32647;
-
 	public const uint32 OIC_SAMPLE = 32512;
-
 	public const uint32 OIC_HAND = 32513;
-
 	public const uint32 OIC_QUES = 32514;
-
 	public const uint32 OIC_BANG = 32515;
-
 	public const uint32 OIC_NOTE = 32516;
-
 	public const uint32 OIC_WINLOGO = 32517;
-
 	public const uint32 OIC_WARNING = 32515;
-
 	public const uint32 OIC_ERROR = 32513;
-
 	public const uint32 OIC_INFORMATION = 32516;
-
 	public const uint32 OIC_SHIELD = 32518;
-
 	public const uint32 ORD_LANGDRIVER = 1;
-
 	public const PWSTR IDI_APPLICATION = (PWSTR)(void*)32512;
 	public const PWSTR IDI_HAND = (PWSTR)(void*)32513;
 	public const PWSTR IDI_QUESTION = (PWSTR)(void*)32514;
@@ -1448,1299 +752,652 @@ public static
 	public const PWSTR IDI_WINLOGO = (PWSTR)(void*)32517;
 	public const PWSTR IDI_SHIELD = (PWSTR)(void*)32518;
 	public const uint32 IDI_WARNING = 32515;
-
 	public const uint32 IDI_ERROR = 32513;
-
 	public const uint32 IDI_INFORMATION = 32516;
-
 	public const int32 ES_LEFT = 0;
-
 	public const int32 ES_CENTER = 1;
-
 	public const int32 ES_RIGHT = 2;
-
 	public const int32 ES_MULTILINE = 4;
-
 	public const int32 ES_UPPERCASE = 8;
-
 	public const int32 ES_LOWERCASE = 16;
-
 	public const int32 ES_PASSWORD = 32;
-
 	public const int32 ES_AUTOVSCROLL = 64;
-
 	public const int32 ES_AUTOHSCROLL = 128;
-
 	public const int32 ES_NOHIDESEL = 256;
-
 	public const int32 ES_OEMCONVERT = 1024;
-
 	public const int32 ES_READONLY = 2048;
-
 	public const int32 ES_WANTRETURN = 4096;
-
 	public const int32 ES_NUMBER = 8192;
-
 	public const uint32 EN_SETFOCUS = 256;
-
 	public const uint32 EN_KILLFOCUS = 512;
-
 	public const uint32 EN_CHANGE = 768;
-
 	public const uint32 EN_UPDATE = 1024;
-
 	public const uint32 EN_ERRSPACE = 1280;
-
 	public const uint32 EN_MAXTEXT = 1281;
-
 	public const uint32 EN_HSCROLL = 1537;
-
 	public const uint32 EN_VSCROLL = 1538;
-
 	public const uint32 EN_ALIGN_LTR_EC = 1792;
-
 	public const uint32 EN_ALIGN_RTL_EC = 1793;
-
 	public const uint32 EN_BEFORE_PASTE = 2048;
-
 	public const uint32 EN_AFTER_PASTE = 2049;
-
 	public const uint32 EC_LEFTMARGIN = 1;
-
 	public const uint32 EC_RIGHTMARGIN = 2;
-
 	public const uint32 EC_USEFONTINFO = 65535;
-
 	public const uint32 EMSIS_COMPOSITIONSTRING = 1;
-
 	public const uint32 EIMES_GETCOMPSTRATONCE = 1;
-
 	public const uint32 EIMES_CANCELCOMPSTRINFOCUS = 2;
-
 	public const uint32 EIMES_COMPLETECOMPSTRKILLFOCUS = 4;
-
 	public const int32 BS_PUSHBUTTON = 0;
-
 	public const int32 BS_DEFPUSHBUTTON = 1;
-
 	public const int32 BS_CHECKBOX = 2;
-
 	public const int32 BS_AUTOCHECKBOX = 3;
-
 	public const int32 BS_RADIOBUTTON = 4;
-
 	public const int32 BS_3STATE = 5;
-
 	public const int32 BS_AUTO3STATE = 6;
-
 	public const int32 BS_GROUPBOX = 7;
-
 	public const int32 BS_USERBUTTON = 8;
-
 	public const int32 BS_AUTORADIOBUTTON = 9;
-
 	public const int32 BS_PUSHBOX = 10;
-
 	public const int32 BS_OWNERDRAW = 11;
-
 	public const int32 BS_TYPEMASK = 15;
-
 	public const int32 BS_LEFTTEXT = 32;
-
 	public const int32 BS_TEXT = 0;
-
 	public const int32 BS_ICON = 64;
-
 	public const int32 BS_BITMAP = 128;
-
 	public const int32 BS_LEFT = 256;
-
 	public const int32 BS_RIGHT = 512;
-
 	public const int32 BS_CENTER = 768;
-
 	public const int32 BS_TOP = 1024;
-
 	public const int32 BS_BOTTOM = 2048;
-
 	public const int32 BS_VCENTER = 3072;
-
 	public const int32 BS_PUSHLIKE = 4096;
-
 	public const int32 BS_MULTILINE = 8192;
-
 	public const int32 BS_NOTIFY = 16384;
-
 	public const int32 BS_FLAT = 32768;
-
 	public const int32 BS_RIGHTBUTTON = 32;
-
 	public const uint32 BN_CLICKED = 0;
-
 	public const uint32 BN_PAINT = 1;
-
 	public const uint32 BN_HILITE = 2;
-
 	public const uint32 BN_UNHILITE = 3;
-
 	public const uint32 BN_DISABLE = 4;
-
 	public const uint32 BN_DOUBLECLICKED = 5;
-
 	public const uint32 BN_PUSHED = 2;
-
 	public const uint32 BN_UNPUSHED = 3;
-
 	public const uint32 BN_DBLCLK = 5;
-
 	public const uint32 BN_SETFOCUS = 6;
-
 	public const uint32 BN_KILLFOCUS = 7;
-
 	public const uint32 BM_GETCHECK = 240;
-
 	public const uint32 BM_SETCHECK = 241;
-
 	public const uint32 BM_GETSTATE = 242;
-
 	public const uint32 BM_SETSTATE = 243;
-
 	public const uint32 BM_SETSTYLE = 244;
-
 	public const uint32 BM_CLICK = 245;
-
 	public const uint32 BM_GETIMAGE = 246;
-
 	public const uint32 BM_SETIMAGE = 247;
-
 	public const uint32 BM_SETDONTCLICK = 248;
-
 	public const uint32 BST_PUSHED = 4;
-
 	public const uint32 BST_FOCUS = 8;
-
 	public const int32 SS_LEFT = 0;
-
 	public const int32 SS_CENTER = 1;
-
 	public const int32 SS_RIGHT = 2;
-
 	public const int32 SS_ICON = 3;
-
 	public const int32 SS_BLACKRECT = 4;
-
 	public const int32 SS_GRAYRECT = 5;
-
 	public const int32 SS_WHITERECT = 6;
-
 	public const int32 SS_BLACKFRAME = 7;
-
 	public const int32 SS_GRAYFRAME = 8;
-
 	public const int32 SS_WHITEFRAME = 9;
-
 	public const int32 SS_USERITEM = 10;
-
 	public const int32 SS_SIMPLE = 11;
-
 	public const int32 SS_LEFTNOWORDWRAP = 12;
-
 	public const int32 SS_OWNERDRAW = 13;
-
 	public const int32 SS_BITMAP = 14;
-
 	public const int32 SS_ENHMETAFILE = 15;
-
 	public const int32 SS_ETCHEDHORZ = 16;
-
 	public const int32 SS_ETCHEDVERT = 17;
-
 	public const int32 SS_ETCHEDFRAME = 18;
-
 	public const int32 SS_TYPEMASK = 31;
-
 	public const int32 SS_REALSIZECONTROL = 64;
-
 	public const int32 SS_NOPREFIX = 128;
-
 	public const int32 SS_NOTIFY = 256;
-
 	public const int32 SS_CENTERIMAGE = 512;
-
 	public const int32 SS_RIGHTJUST = 1024;
-
 	public const int32 SS_REALSIZEIMAGE = 2048;
-
 	public const int32 SS_SUNKEN = 4096;
-
 	public const int32 SS_EDITCONTROL = 8192;
-
 	public const int32 SS_ENDELLIPSIS = 16384;
-
 	public const int32 SS_PATHELLIPSIS = 32768;
-
 	public const int32 SS_WORDELLIPSIS = 49152;
-
 	public const int32 SS_ELLIPSISMASK = 49152;
-
 	public const uint32 STM_SETICON = 368;
-
 	public const uint32 STM_GETICON = 369;
-
 	public const uint32 STM_SETIMAGE = 370;
-
 	public const uint32 STM_GETIMAGE = 371;
-
 	public const uint32 STN_CLICKED = 0;
-
 	public const uint32 STN_DBLCLK = 1;
-
 	public const uint32 STN_ENABLE = 2;
-
 	public const uint32 STN_DISABLE = 3;
-
 	public const uint32 STM_MSGMAX = 372;
-
 	public const uint32 DWL_MSGRESULT = 0;
-
 	public const uint32 DWL_DLGPROC = 4;
-
 	public const uint32 DWL_USER = 8;
-
 	public const uint32 DWLP_MSGRESULT = 0;
-
 	public const int32 DS_ABSALIGN = 1;
-
 	public const int32 DS_SYSMODAL = 2;
-
 	public const int32 DS_LOCALEDIT = 32;
-
 	public const int32 DS_SETFONT = 64;
-
 	public const int32 DS_MODALFRAME = 128;
-
 	public const int32 DS_NOIDLEMSG = 256;
-
 	public const int32 DS_SETFOREGROUND = 512;
-
 	public const int32 DS_3DLOOK = 4;
-
 	public const int32 DS_FIXEDSYS = 8;
-
 	public const int32 DS_NOFAILCREATE = 16;
-
 	public const int32 DS_CONTROL = 1024;
-
 	public const int32 DS_CENTER = 2048;
-
 	public const int32 DS_CENTERMOUSE = 4096;
-
 	public const int32 DS_CONTEXTHELP = 8192;
-
 	public const int32 DS_USEPIXELS = 32768;
-
 	public const uint32 DM_GETDEFID = 1024;
-
 	public const uint32 DM_SETDEFID = 1025;
-
 	public const uint32 DM_REPOSITION = 1026;
-
 	public const uint32 DC_HASDEFID = 21323;
-
 	public const uint32 DLGC_WANTARROWS = 1;
-
 	public const uint32 DLGC_WANTTAB = 2;
-
 	public const uint32 DLGC_WANTALLKEYS = 4;
-
 	public const uint32 DLGC_WANTMESSAGE = 4;
-
 	public const uint32 DLGC_HASSETSEL = 8;
-
 	public const uint32 DLGC_DEFPUSHBUTTON = 16;
-
 	public const uint32 DLGC_UNDEFPUSHBUTTON = 32;
-
 	public const uint32 DLGC_RADIOBUTTON = 64;
-
 	public const uint32 DLGC_WANTCHARS = 128;
-
 	public const uint32 DLGC_STATIC = 256;
-
 	public const uint32 DLGC_BUTTON = 8192;
-
 	public const int32 LB_CTLCODE = 0;
-
 	public const uint32 LB_OKAY = 0;
-
 	public const int32 LB_ERR = -1;
-
 	public const int32 LB_ERRSPACE = -2;
-
 	public const int32 LBN_ERRSPACE = -2;
-
 	public const uint32 LBN_SELCHANGE = 1;
-
 	public const uint32 LBN_DBLCLK = 2;
-
 	public const uint32 LBN_SELCANCEL = 3;
-
 	public const uint32 LBN_SETFOCUS = 4;
-
 	public const uint32 LBN_KILLFOCUS = 5;
-
 	public const uint32 LB_ADDSTRING = 384;
-
 	public const uint32 LB_INSERTSTRING = 385;
-
 	public const uint32 LB_DELETESTRING = 386;
-
 	public const uint32 LB_SELITEMRANGEEX = 387;
-
 	public const uint32 LB_RESETCONTENT = 388;
-
 	public const uint32 LB_SETSEL = 389;
-
 	public const uint32 LB_SETCURSEL = 390;
-
 	public const uint32 LB_GETSEL = 391;
-
 	public const uint32 LB_GETCURSEL = 392;
-
 	public const uint32 LB_GETTEXT = 393;
-
 	public const uint32 LB_GETTEXTLEN = 394;
-
 	public const uint32 LB_GETCOUNT = 395;
-
 	public const uint32 LB_SELECTSTRING = 396;
-
 	public const uint32 LB_DIR = 397;
-
 	public const uint32 LB_GETTOPINDEX = 398;
-
 	public const uint32 LB_FINDSTRING = 399;
-
 	public const uint32 LB_GETSELCOUNT = 400;
-
 	public const uint32 LB_GETSELITEMS = 401;
-
 	public const uint32 LB_SETTABSTOPS = 402;
-
 	public const uint32 LB_GETHORIZONTALEXTENT = 403;
-
 	public const uint32 LB_SETHORIZONTALEXTENT = 404;
-
 	public const uint32 LB_SETCOLUMNWIDTH = 405;
-
 	public const uint32 LB_ADDFILE = 406;
-
 	public const uint32 LB_SETTOPINDEX = 407;
-
 	public const uint32 LB_GETITEMRECT = 408;
-
 	public const uint32 LB_GETITEMDATA = 409;
-
 	public const uint32 LB_SETITEMDATA = 410;
-
 	public const uint32 LB_SELITEMRANGE = 411;
-
 	public const uint32 LB_SETANCHORINDEX = 412;
-
 	public const uint32 LB_GETANCHORINDEX = 413;
-
 	public const uint32 LB_SETCARETINDEX = 414;
-
 	public const uint32 LB_GETCARETINDEX = 415;
-
 	public const uint32 LB_SETITEMHEIGHT = 416;
-
 	public const uint32 LB_GETITEMHEIGHT = 417;
-
 	public const uint32 LB_FINDSTRINGEXACT = 418;
-
 	public const uint32 LB_SETLOCALE = 421;
-
 	public const uint32 LB_GETLOCALE = 422;
-
 	public const uint32 LB_SETCOUNT = 423;
-
 	public const uint32 LB_INITSTORAGE = 424;
-
 	public const uint32 LB_ITEMFROMPOINT = 425;
-
 	public const uint32 LB_MULTIPLEADDSTRING = 433;
-
 	public const uint32 LB_GETLISTBOXINFO = 434;
-
 	public const uint32 LB_MSGMAX = 435;
-
 	public const int32 LBS_NOTIFY = 1;
-
 	public const int32 LBS_SORT = 2;
-
 	public const int32 LBS_NOREDRAW = 4;
-
 	public const int32 LBS_MULTIPLESEL = 8;
-
 	public const int32 LBS_OWNERDRAWFIXED = 16;
-
 	public const int32 LBS_OWNERDRAWVARIABLE = 32;
-
 	public const int32 LBS_HASSTRINGS = 64;
-
 	public const int32 LBS_USETABSTOPS = 128;
-
 	public const int32 LBS_NOINTEGRALHEIGHT = 256;
-
 	public const int32 LBS_MULTICOLUMN = 512;
-
 	public const int32 LBS_WANTKEYBOARDINPUT = 1024;
-
 	public const int32 LBS_EXTENDEDSEL = 2048;
-
 	public const int32 LBS_DISABLENOSCROLL = 4096;
-
 	public const int32 LBS_NODATA = 8192;
-
 	public const int32 LBS_NOSEL = 16384;
-
 	public const int32 LBS_COMBOBOX = 32768;
-
 	public const uint32 CB_OKAY = 0;
-
 	public const int32 CB_ERR = -1;
-
 	public const int32 CB_ERRSPACE = -2;
-
 	public const int32 CBN_ERRSPACE = -1;
-
 	public const uint32 CBN_SELCHANGE = 1;
-
 	public const uint32 CBN_DBLCLK = 2;
-
 	public const uint32 CBN_SETFOCUS = 3;
-
 	public const uint32 CBN_KILLFOCUS = 4;
-
 	public const uint32 CBN_EDITCHANGE = 5;
-
 	public const uint32 CBN_EDITUPDATE = 6;
-
 	public const uint32 CBN_DROPDOWN = 7;
-
 	public const uint32 CBN_CLOSEUP = 8;
-
 	public const uint32 CBN_SELENDOK = 9;
-
 	public const uint32 CBN_SELENDCANCEL = 10;
-
 	public const int32 CBS_SIMPLE = 1;
-
 	public const int32 CBS_DROPDOWN = 2;
-
 	public const int32 CBS_DROPDOWNLIST = 3;
-
 	public const int32 CBS_OWNERDRAWFIXED = 16;
-
 	public const int32 CBS_OWNERDRAWVARIABLE = 32;
-
 	public const int32 CBS_AUTOHSCROLL = 64;
-
 	public const int32 CBS_OEMCONVERT = 128;
-
 	public const int32 CBS_SORT = 256;
-
 	public const int32 CBS_HASSTRINGS = 512;
-
 	public const int32 CBS_NOINTEGRALHEIGHT = 1024;
-
 	public const int32 CBS_DISABLENOSCROLL = 2048;
-
 	public const int32 CBS_UPPERCASE = 8192;
-
 	public const int32 CBS_LOWERCASE = 16384;
-
 	public const uint32 CB_GETEDITSEL = 320;
-
 	public const uint32 CB_LIMITTEXT = 321;
-
 	public const uint32 CB_SETEDITSEL = 322;
-
 	public const uint32 CB_ADDSTRING = 323;
-
 	public const uint32 CB_DELETESTRING = 324;
-
 	public const uint32 CB_DIR = 325;
-
 	public const uint32 CB_GETCOUNT = 326;
-
 	public const uint32 CB_GETCURSEL = 327;
-
 	public const uint32 CB_GETLBTEXT = 328;
-
 	public const uint32 CB_GETLBTEXTLEN = 329;
-
 	public const uint32 CB_INSERTSTRING = 330;
-
 	public const uint32 CB_RESETCONTENT = 331;
-
 	public const uint32 CB_FINDSTRING = 332;
-
 	public const uint32 CB_SELECTSTRING = 333;
-
 	public const uint32 CB_SETCURSEL = 334;
-
 	public const uint32 CB_SHOWDROPDOWN = 335;
-
 	public const uint32 CB_GETITEMDATA = 336;
-
 	public const uint32 CB_SETITEMDATA = 337;
-
 	public const uint32 CB_GETDROPPEDCONTROLRECT = 338;
-
 	public const uint32 CB_SETITEMHEIGHT = 339;
-
 	public const uint32 CB_GETITEMHEIGHT = 340;
-
 	public const uint32 CB_SETEXTENDEDUI = 341;
-
 	public const uint32 CB_GETEXTENDEDUI = 342;
-
 	public const uint32 CB_GETDROPPEDSTATE = 343;
-
 	public const uint32 CB_FINDSTRINGEXACT = 344;
-
 	public const uint32 CB_SETLOCALE = 345;
-
 	public const uint32 CB_GETLOCALE = 346;
-
 	public const uint32 CB_GETTOPINDEX = 347;
-
 	public const uint32 CB_SETTOPINDEX = 348;
-
 	public const uint32 CB_GETHORIZONTALEXTENT = 349;
-
 	public const uint32 CB_SETHORIZONTALEXTENT = 350;
-
 	public const uint32 CB_GETDROPPEDWIDTH = 351;
-
 	public const uint32 CB_SETDROPPEDWIDTH = 352;
-
 	public const uint32 CB_INITSTORAGE = 353;
-
 	public const uint32 CB_MULTIPLEADDSTRING = 355;
-
 	public const uint32 CB_GETCOMBOBOXINFO = 356;
-
 	public const uint32 CB_MSGMAX = 357;
-
 	public const int32 SBS_HORZ = 0;
-
 	public const int32 SBS_VERT = 1;
-
 	public const int32 SBS_TOPALIGN = 2;
-
 	public const int32 SBS_LEFTALIGN = 2;
-
 	public const int32 SBS_BOTTOMALIGN = 4;
-
 	public const int32 SBS_RIGHTALIGN = 4;
-
 	public const int32 SBS_SIZEBOXTOPLEFTALIGN = 2;
-
 	public const int32 SBS_SIZEBOXBOTTOMRIGHTALIGN = 4;
-
 	public const int32 SBS_SIZEBOX = 8;
-
 	public const int32 SBS_SIZEGRIP = 16;
-
 	public const uint32 SBM_SETPOS = 224;
-
 	public const uint32 SBM_GETPOS = 225;
-
 	public const uint32 SBM_SETRANGE = 226;
-
 	public const uint32 SBM_SETRANGEREDRAW = 230;
-
 	public const uint32 SBM_GETRANGE = 227;
-
 	public const uint32 SBM_ENABLE_ARROWS = 228;
-
 	public const uint32 SBM_SETSCROLLINFO = 233;
-
 	public const uint32 SBM_GETSCROLLINFO = 234;
-
 	public const uint32 SBM_GETSCROLLBARINFO = 235;
-
 	public const uint32 MDIS_ALLCHILDSTYLES = 1;
-
 	public const int32 HELP_CONTEXT = 1;
-
 	public const int32 HELP_QUIT = 2;
-
 	public const int32 HELP_INDEX = 3;
-
 	public const int32 HELP_CONTENTS = 3;
-
 	public const int32 HELP_HELPONHELP = 4;
-
 	public const int32 HELP_SETINDEX = 5;
-
 	public const int32 HELP_SETCONTENTS = 5;
-
 	public const int32 HELP_CONTEXTPOPUP = 8;
-
 	public const int32 HELP_FORCEFILE = 9;
-
 	public const int32 HELP_KEY = 257;
-
 	public const int32 HELP_COMMAND = 258;
-
 	public const int32 HELP_PARTIALKEY = 261;
-
 	public const int32 HELP_MULTIKEY = 513;
-
 	public const int32 HELP_SETWINPOS = 515;
-
 	public const uint32 HELP_CONTEXTMENU = 10;
-
 	public const uint32 HELP_FINDER = 11;
-
 	public const uint32 HELP_WM_HELP = 12;
-
 	public const uint32 HELP_SETPOPUP_POS = 13;
-
 	public const uint32 HELP_TCARD = 32768;
-
 	public const uint32 HELP_TCARD_DATA = 16;
-
 	public const uint32 HELP_TCARD_OTHER_CALLER = 17;
-
 	public const uint32 IDH_NO_HELP = 28440;
-
 	public const uint32 IDH_MISSING_CONTEXT = 28441;
-
 	public const uint32 IDH_GENERIC_HELP_BUTTON = 28442;
-
 	public const uint32 IDH_OK = 28443;
-
 	public const uint32 IDH_CANCEL = 28444;
-
 	public const uint32 IDH_HELP = 28445;
-
 	public const uint32 MAX_TOUCH_PREDICTION_FILTER_TAPS = 3;
-
 	public const uint32 TOUCHPREDICTIONPARAMETERS_DEFAULT_LATENCY = 8;
-
 	public const uint32 TOUCHPREDICTIONPARAMETERS_DEFAULT_SAMPLETIME = 8;
-
 	public const uint32 TOUCHPREDICTIONPARAMETERS_DEFAULT_USE_HW_TIMESTAMP = 1;
-
 	public const float TOUCHPREDICTIONPARAMETERS_DEFAULT_RLS_DELTA = 0.001f;
-
 	public const float TOUCHPREDICTIONPARAMETERS_DEFAULT_RLS_LAMBDA_MIN = 0.9f;
-
 	public const float TOUCHPREDICTIONPARAMETERS_DEFAULT_RLS_LAMBDA_MAX = 0.999f;
-
 	public const float TOUCHPREDICTIONPARAMETERS_DEFAULT_RLS_LAMBDA_LEARNING_RATE = 0.001f;
-
 	public const float TOUCHPREDICTIONPARAMETERS_DEFAULT_RLS_EXPO_SMOOTH_ALPHA = 0.99f;
-
 	public const uint32 MAX_LOGICALDPIOVERRIDE = 2;
-
 	public const int32 MIN_LOGICALDPIOVERRIDE = -2;
-
 	public const uint32 FE_FONTSMOOTHINGSTANDARD = 1;
-
 	public const uint32 FE_FONTSMOOTHINGCLEARTYPE = 2;
-
 	public const uint32 FE_FONTSMOOTHINGORIENTATIONBGR = 0;
-
 	public const uint32 FE_FONTSMOOTHINGORIENTATIONRGB = 1;
-
 	public const uint32 CONTACTVISUALIZATION_OFF = 0;
-
 	public const uint32 CONTACTVISUALIZATION_ON = 1;
-
 	public const uint32 CONTACTVISUALIZATION_PRESENTATIONMODE = 2;
-
 	public const uint32 GESTUREVISUALIZATION_OFF = 0;
-
 	public const uint32 GESTUREVISUALIZATION_ON = 31;
-
 	public const uint32 GESTUREVISUALIZATION_TAP = 1;
-
 	public const uint32 GESTUREVISUALIZATION_DOUBLETAP = 2;
-
 	public const uint32 GESTUREVISUALIZATION_PRESSANDTAP = 4;
-
 	public const uint32 GESTUREVISUALIZATION_PRESSANDHOLD = 8;
-
 	public const uint32 GESTUREVISUALIZATION_RIGHTTAP = 16;
-
 	public const uint32 MOUSEWHEEL_ROUTING_FOCUS = 0;
-
 	public const uint32 MOUSEWHEEL_ROUTING_HYBRID = 1;
-
 	public const uint32 MOUSEWHEEL_ROUTING_MOUSE_POS = 2;
-
 	public const uint32 PENVISUALIZATION_ON = 35;
-
 	public const uint32 PENVISUALIZATION_OFF = 0;
-
 	public const uint32 PENVISUALIZATION_TAP = 1;
-
 	public const uint32 PENVISUALIZATION_DOUBLETAP = 2;
-
 	public const uint32 PENVISUALIZATION_CURSOR = 32;
-
 	public const uint32 PENARBITRATIONTYPE_NONE = 0;
-
 	public const uint32 PENARBITRATIONTYPE_WIN8 = 1;
-
 	public const uint32 PENARBITRATIONTYPE_FIS = 2;
-
 	public const uint32 PENARBITRATIONTYPE_SPT = 3;
-
 	public const uint32 PENARBITRATIONTYPE_MAX = 4;
-
 	public const int32 METRICS_USEDEFAULT = -1;
-
 	public const int32 ARW_STARTMASK = 3;
-
 	public const int32 ARW_STARTRIGHT = 1;
-
 	public const int32 ARW_STARTTOP = 2;
-
 	public const int32 ARW_LEFT = 0;
-
 	public const int32 ARW_RIGHT = 0;
-
 	public const int32 ARW_UP = 4;
-
 	public const int32 ARW_DOWN = 4;
-
 	public const int32 ARW_HIDE = 8;
-
 	public const uint32 HCF_LOGONDESKTOP = 256;
-
 	public const uint32 HCF_DEFAULTDESKTOP = 512;
-
 	public const uint32 EDS_RAWMODE = 2;
-
 	public const uint32 EDS_ROTATEDMODE = 4;
-
 	public const uint32 EDD_GET_DEVICE_INTERFACE_NAME = 1;
-
 	public const uint32 FKF_FILTERKEYSON = 1;
-
 	public const uint32 FKF_AVAILABLE = 2;
-
 	public const uint32 FKF_HOTKEYACTIVE = 4;
-
 	public const uint32 FKF_CONFIRMHOTKEY = 8;
-
 	public const uint32 FKF_HOTKEYSOUND = 16;
-
 	public const uint32 FKF_INDICATOR = 32;
-
 	public const uint32 FKF_CLICKON = 64;
-
 	public const uint32 MKF_MOUSEKEYSON = 1;
-
 	public const uint32 MKF_AVAILABLE = 2;
-
 	public const uint32 MKF_HOTKEYACTIVE = 4;
-
 	public const uint32 MKF_CONFIRMHOTKEY = 8;
-
 	public const uint32 MKF_HOTKEYSOUND = 16;
-
 	public const uint32 MKF_INDICATOR = 32;
-
 	public const uint32 MKF_MODIFIERS = 64;
-
 	public const uint32 MKF_REPLACENUMBERS = 128;
-
 	public const uint32 MKF_LEFTBUTTONSEL = 268435456;
-
 	public const uint32 MKF_RIGHTBUTTONSEL = 536870912;
-
 	public const uint32 MKF_LEFTBUTTONDOWN = 16777216;
-
 	public const uint32 MKF_RIGHTBUTTONDOWN = 33554432;
-
 	public const uint32 MKF_MOUSEMODE = 2147483648;
-
 	public const uint32 TKF_TOGGLEKEYSON = 1;
-
 	public const uint32 TKF_AVAILABLE = 2;
-
 	public const uint32 TKF_HOTKEYACTIVE = 4;
-
 	public const uint32 TKF_CONFIRMHOTKEY = 8;
-
 	public const uint32 TKF_HOTKEYSOUND = 16;
-
 	public const uint32 TKF_INDICATOR = 32;
-
 	public const uint32 MONITORINFOF_PRIMARY = 1;
-
 	public const uint32 WINEVENT_OUTOFCONTEXT = 0;
-
 	public const uint32 WINEVENT_SKIPOWNTHREAD = 1;
-
 	public const uint32 WINEVENT_SKIPOWNPROCESS = 2;
-
 	public const uint32 WINEVENT_INCONTEXT = 4;
-
 	public const uint32 CHILDID_SELF = 0;
-
 	public const uint32 INDEXID_OBJECT = 0;
-
 	public const uint32 INDEXID_CONTAINER = 0;
-
 	public const uint32 EVENT_MIN = 1;
-
 	public const uint32 EVENT_MAX = 2147483647;
-
 	public const uint32 EVENT_SYSTEM_SOUND = 1;
-
 	public const uint32 EVENT_SYSTEM_ALERT = 2;
-
 	public const uint32 EVENT_SYSTEM_FOREGROUND = 3;
-
 	public const uint32 EVENT_SYSTEM_MENUSTART = 4;
-
 	public const uint32 EVENT_SYSTEM_MENUEND = 5;
-
 	public const uint32 EVENT_SYSTEM_MENUPOPUPSTART = 6;
-
 	public const uint32 EVENT_SYSTEM_MENUPOPUPEND = 7;
-
 	public const uint32 EVENT_SYSTEM_CAPTURESTART = 8;
-
 	public const uint32 EVENT_SYSTEM_CAPTUREEND = 9;
-
 	public const uint32 EVENT_SYSTEM_MOVESIZESTART = 10;
-
 	public const uint32 EVENT_SYSTEM_MOVESIZEEND = 11;
-
 	public const uint32 EVENT_SYSTEM_CONTEXTHELPSTART = 12;
-
 	public const uint32 EVENT_SYSTEM_CONTEXTHELPEND = 13;
-
 	public const uint32 EVENT_SYSTEM_DRAGDROPSTART = 14;
-
 	public const uint32 EVENT_SYSTEM_DRAGDROPEND = 15;
-
 	public const uint32 EVENT_SYSTEM_DIALOGSTART = 16;
-
 	public const uint32 EVENT_SYSTEM_DIALOGEND = 17;
-
 	public const uint32 EVENT_SYSTEM_SCROLLINGSTART = 18;
-
 	public const uint32 EVENT_SYSTEM_SCROLLINGEND = 19;
-
 	public const uint32 EVENT_SYSTEM_SWITCHSTART = 20;
-
 	public const uint32 EVENT_SYSTEM_SWITCHEND = 21;
-
 	public const uint32 EVENT_SYSTEM_MINIMIZESTART = 22;
-
 	public const uint32 EVENT_SYSTEM_MINIMIZEEND = 23;
-
 	public const uint32 EVENT_SYSTEM_DESKTOPSWITCH = 32;
-
 	public const uint32 EVENT_SYSTEM_SWITCHER_APPGRABBED = 36;
-
 	public const uint32 EVENT_SYSTEM_SWITCHER_APPOVERTARGET = 37;
-
 	public const uint32 EVENT_SYSTEM_SWITCHER_APPDROPPED = 38;
-
 	public const uint32 EVENT_SYSTEM_SWITCHER_CANCELLED = 39;
-
 	public const uint32 EVENT_SYSTEM_IME_KEY_NOTIFICATION = 41;
-
 	public const uint32 EVENT_SYSTEM_END = 255;
-
 	public const uint32 EVENT_OEM_DEFINED_START = 257;
-
 	public const uint32 EVENT_OEM_DEFINED_END = 511;
-
 	public const uint32 EVENT_UIA_EVENTID_START = 19968;
-
 	public const uint32 EVENT_UIA_EVENTID_END = 20223;
-
 	public const uint32 EVENT_UIA_PROPID_START = 29952;
-
 	public const uint32 EVENT_UIA_PROPID_END = 30207;
-
 	public const uint32 EVENT_CONSOLE_CARET = 16385;
-
 	public const uint32 EVENT_CONSOLE_UPDATE_REGION = 16386;
-
 	public const uint32 EVENT_CONSOLE_UPDATE_SIMPLE = 16387;
-
 	public const uint32 EVENT_CONSOLE_UPDATE_SCROLL = 16388;
-
 	public const uint32 EVENT_CONSOLE_LAYOUT = 16389;
-
 	public const uint32 EVENT_CONSOLE_START_APPLICATION = 16390;
-
 	public const uint32 EVENT_CONSOLE_END_APPLICATION = 16391;
-
 	public const uint32 CONSOLE_APPLICATION_16BIT = 0;
-
 	public const uint32 CONSOLE_CARET_SELECTION = 1;
-
 	public const uint32 CONSOLE_CARET_VISIBLE = 2;
-
 	public const uint32 EVENT_CONSOLE_END = 16639;
-
 	public const uint32 EVENT_OBJECT_CREATE = 32768;
-
 	public const uint32 EVENT_OBJECT_DESTROY = 32769;
-
 	public const uint32 EVENT_OBJECT_SHOW = 32770;
-
 	public const uint32 EVENT_OBJECT_HIDE = 32771;
-
 	public const uint32 EVENT_OBJECT_REORDER = 32772;
-
 	public const uint32 EVENT_OBJECT_FOCUS = 32773;
-
 	public const uint32 EVENT_OBJECT_SELECTION = 32774;
-
 	public const uint32 EVENT_OBJECT_SELECTIONADD = 32775;
-
 	public const uint32 EVENT_OBJECT_SELECTIONREMOVE = 32776;
-
 	public const uint32 EVENT_OBJECT_SELECTIONWITHIN = 32777;
-
 	public const uint32 EVENT_OBJECT_STATECHANGE = 32778;
-
 	public const uint32 EVENT_OBJECT_LOCATIONCHANGE = 32779;
-
 	public const uint32 EVENT_OBJECT_NAMECHANGE = 32780;
-
 	public const uint32 EVENT_OBJECT_DESCRIPTIONCHANGE = 32781;
-
 	public const uint32 EVENT_OBJECT_VALUECHANGE = 32782;
-
 	public const uint32 EVENT_OBJECT_PARENTCHANGE = 32783;
-
 	public const uint32 EVENT_OBJECT_HELPCHANGE = 32784;
-
 	public const uint32 EVENT_OBJECT_DEFACTIONCHANGE = 32785;
-
 	public const uint32 EVENT_OBJECT_ACCELERATORCHANGE = 32786;
-
 	public const uint32 EVENT_OBJECT_INVOKED = 32787;
-
 	public const uint32 EVENT_OBJECT_TEXTSELECTIONCHANGED = 32788;
-
 	public const uint32 EVENT_OBJECT_CONTENTSCROLLED = 32789;
-
 	public const uint32 EVENT_SYSTEM_ARRANGMENTPREVIEW = 32790;
-
 	public const uint32 EVENT_OBJECT_CLOAKED = 32791;
-
 	public const uint32 EVENT_OBJECT_UNCLOAKED = 32792;
-
 	public const uint32 EVENT_OBJECT_LIVEREGIONCHANGED = 32793;
-
 	public const uint32 EVENT_OBJECT_HOSTEDOBJECTSINVALIDATED = 32800;
-
 	public const uint32 EVENT_OBJECT_DRAGSTART = 32801;
-
 	public const uint32 EVENT_OBJECT_DRAGCANCEL = 32802;
-
 	public const uint32 EVENT_OBJECT_DRAGCOMPLETE = 32803;
-
 	public const uint32 EVENT_OBJECT_DRAGENTER = 32804;
-
 	public const uint32 EVENT_OBJECT_DRAGLEAVE = 32805;
-
 	public const uint32 EVENT_OBJECT_DRAGDROPPED = 32806;
-
 	public const uint32 EVENT_OBJECT_IME_SHOW = 32807;
-
 	public const uint32 EVENT_OBJECT_IME_HIDE = 32808;
-
 	public const uint32 EVENT_OBJECT_IME_CHANGE = 32809;
-
 	public const uint32 EVENT_OBJECT_TEXTEDIT_CONVERSIONTARGETCHANGED = 32816;
-
 	public const uint32 EVENT_OBJECT_END = 33023;
-
 	public const uint32 EVENT_AIA_START = 40960;
-
 	public const uint32 EVENT_AIA_END = 45055;
-
 	public const uint32 SOUND_SYSTEM_STARTUP = 1;
-
 	public const uint32 SOUND_SYSTEM_SHUTDOWN = 2;
-
 	public const uint32 SOUND_SYSTEM_BEEP = 3;
-
 	public const uint32 SOUND_SYSTEM_ERROR = 4;
-
 	public const uint32 SOUND_SYSTEM_QUESTION = 5;
-
 	public const uint32 SOUND_SYSTEM_WARNING = 6;
-
 	public const uint32 SOUND_SYSTEM_INFORMATION = 7;
-
 	public const uint32 SOUND_SYSTEM_MAXIMIZE = 8;
-
 	public const uint32 SOUND_SYSTEM_MINIMIZE = 9;
-
 	public const uint32 SOUND_SYSTEM_RESTOREUP = 10;
-
 	public const uint32 SOUND_SYSTEM_RESTOREDOWN = 11;
-
 	public const uint32 SOUND_SYSTEM_APPSTART = 12;
-
 	public const uint32 SOUND_SYSTEM_FAULT = 13;
-
 	public const uint32 SOUND_SYSTEM_APPEND = 14;
-
 	public const uint32 SOUND_SYSTEM_MENUCOMMAND = 15;
-
 	public const uint32 SOUND_SYSTEM_MENUPOPUP = 16;
-
 	public const uint32 CSOUND_SYSTEM = 16;
-
 	public const uint32 CALERT_SYSTEM = 6;
-
 	public const uint32 GUI_16BITTASK = 0;
-
 	public const uint32 USER_DEFAULT_SCREEN_DPI = 96;
-
 	public const uint32 STATE_SYSTEM_SELECTED = 2;
-
 	public const uint32 STATE_SYSTEM_FOCUSED = 4;
-
 	public const uint32 STATE_SYSTEM_CHECKED = 16;
-
 	public const uint32 STATE_SYSTEM_MIXED = 32;
-
 	public const uint32 STATE_SYSTEM_INDETERMINATE = 32;
-
 	public const uint32 STATE_SYSTEM_READONLY = 64;
-
 	public const uint32 STATE_SYSTEM_HOTTRACKED = 128;
-
 	public const uint32 STATE_SYSTEM_DEFAULT = 256;
-
 	public const uint32 STATE_SYSTEM_EXPANDED = 512;
-
 	public const uint32 STATE_SYSTEM_COLLAPSED = 1024;
-
 	public const uint32 STATE_SYSTEM_BUSY = 2048;
-
 	public const uint32 STATE_SYSTEM_FLOATING = 4096;
-
 	public const uint32 STATE_SYSTEM_MARQUEED = 8192;
-
 	public const uint32 STATE_SYSTEM_ANIMATED = 16384;
-
 	public const uint32 STATE_SYSTEM_SIZEABLE = 131072;
-
 	public const uint32 STATE_SYSTEM_MOVEABLE = 262144;
-
 	public const uint32 STATE_SYSTEM_SELFVOICING = 524288;
-
 	public const uint32 STATE_SYSTEM_SELECTABLE = 2097152;
-
 	public const uint32 STATE_SYSTEM_LINKED = 4194304;
-
 	public const uint32 STATE_SYSTEM_TRAVERSED = 8388608;
-
 	public const uint32 STATE_SYSTEM_MULTISELECTABLE = 16777216;
-
 	public const uint32 STATE_SYSTEM_EXTSELECTABLE = 33554432;
-
 	public const uint32 STATE_SYSTEM_ALERT_LOW = 67108864;
-
 	public const uint32 STATE_SYSTEM_ALERT_MEDIUM = 134217728;
-
 	public const uint32 STATE_SYSTEM_ALERT_HIGH = 268435456;
-
 	public const uint32 STATE_SYSTEM_PROTECTED = 536870912;
-
 	public const uint32 STATE_SYSTEM_VALID = 1073741823;
-
 	public const uint32 CCHILDREN_TITLEBAR = 5;
-
 	public const uint32 CCHILDREN_SCROLLBAR = 5;
-
 	public const uint32 RIM_INPUT = 0;
-
 	public const uint32 RIM_INPUTSINK = 1;
-
 	public const uint32 RIM_TYPEMAX = 2;
-
 	public const uint32 RI_MOUSE_LEFT_BUTTON_DOWN = 1;
-
 	public const uint32 RI_MOUSE_LEFT_BUTTON_UP = 2;
-
 	public const uint32 RI_MOUSE_RIGHT_BUTTON_DOWN = 4;
-
 	public const uint32 RI_MOUSE_RIGHT_BUTTON_UP = 8;
-
 	public const uint32 RI_MOUSE_MIDDLE_BUTTON_DOWN = 16;
-
 	public const uint32 RI_MOUSE_MIDDLE_BUTTON_UP = 32;
-
 	public const uint32 RI_MOUSE_BUTTON_1_DOWN = 1;
-
 	public const uint32 RI_MOUSE_BUTTON_1_UP = 2;
-
 	public const uint32 RI_MOUSE_BUTTON_2_DOWN = 4;
-
 	public const uint32 RI_MOUSE_BUTTON_2_UP = 8;
-
 	public const uint32 RI_MOUSE_BUTTON_3_DOWN = 16;
-
 	public const uint32 RI_MOUSE_BUTTON_3_UP = 32;
-
 	public const uint32 RI_MOUSE_BUTTON_4_DOWN = 64;
-
 	public const uint32 RI_MOUSE_BUTTON_4_UP = 128;
-
 	public const uint32 RI_MOUSE_BUTTON_5_DOWN = 256;
-
 	public const uint32 RI_MOUSE_BUTTON_5_UP = 512;
-
 	public const uint32 RI_MOUSE_WHEEL = 1024;
-
 	public const uint32 RI_MOUSE_HWHEEL = 2048;
-
 	public const uint32 RI_KEY_MAKE = 0;
-
 	public const uint32 RI_KEY_BREAK = 1;
-
 	public const uint32 RI_KEY_E0 = 2;
-
 	public const uint32 RI_KEY_E1 = 4;
-
 	public const uint32 RI_KEY_TERMSRV_SET_LED = 8;
-
 	public const uint32 RI_KEY_TERMSRV_SHADOW = 16;
-
 	public const uint32 RIDEV_EXMODEMASK = 240;
-
 	public const uint32 GIDC_ARRIVAL = 1;
-
 	public const uint32 GIDC_REMOVAL = 2;
-
 	public const uint32 POINTER_DEVICE_PRODUCT_STRING_MAX = 520;
-
 	public const uint32 PDC_ARRIVAL = 1;
-
 	public const uint32 PDC_REMOVAL = 2;
-
 	public const uint32 PDC_ORIENTATION_0 = 4;
-
 	public const uint32 PDC_ORIENTATION_90 = 8;
-
 	public const uint32 PDC_ORIENTATION_180 = 16;
-
 	public const uint32 PDC_ORIENTATION_270 = 32;
-
 	public const uint32 PDC_MODE_DEFAULT = 64;
-
 	public const uint32 PDC_MODE_CENTERED = 128;
-
 	public const uint32 PDC_MAPPING_CHANGE = 256;
-
 	public const uint32 PDC_RESOLUTION = 512;
-
 	public const uint32 PDC_ORIGIN = 1024;
-
 	public const uint32 PDC_MODE_ASPECTRATIOPRESERVED = 2048;
-
 	public const uint32 GF_BEGIN = 1;
-
 	public const uint32 GF_INERTIA = 2;
-
 	public const uint32 GF_END = 4;
-
 	public const uint32 GESTURECONFIGMAXCOUNT = 256;
-
 	public const uint32 GCF_INCLUDE_ANCESTORS = 1;
-
 	public const uint32 NID_INTEGRATED_TOUCH = 1;
-
 	public const uint32 NID_EXTERNAL_TOUCH = 2;
-
 	public const uint32 NID_INTEGRATED_PEN = 4;
-
 	public const uint32 NID_EXTERNAL_PEN = 8;
-
 	public const uint32 NID_MULTI_INPUT = 64;
-
 	public const uint32 NID_READY = 128;
-
 	public const uint32 MAX_STR_BLOCKREASON = 256;
-
 	public const uint32 STRSAFE_USE_SECURE_CRT = 0;
-
 	public const uint32 STRSAFE_MAX_CCH = 2147483647;
-
 	public const uint32 STRSAFE_IGNORE_NULLS = 256;
-
 	public const uint32 STRSAFE_FILL_BEHIND_NULL = 512;
-
 	public const uint32 STRSAFE_FILL_ON_FAILURE = 1024;
-
 	public const uint32 STRSAFE_NULL_ON_FAILURE = 2048;
-
 	public const uint32 STRSAFE_NO_TRUNCATION = 4096;
-
 	public const HRESULT STRSAFE_E_INSUFFICIENT_BUFFER = -2147024774;
-
 	public const HRESULT STRSAFE_E_INVALID_PARAMETER = -2147024809;
-
 	public const HRESULT STRSAFE_E_END_OF_FILE = -2147024858;
-
 	public const uint32 __WARNING_CYCLOMATIC_COMPLEXITY = 28734;
-
 	public const uint32 __WARNING_USING_UNINIT_VAR = 6001;
-
 	public const uint32 __WARNING_RETURN_UNINIT_VAR = 6101;
-
 	public const uint32 __WARNING_DEREF_NULL_PTR = 6011;
-
 	public const uint32 __WARNING_MISSING_ZERO_TERMINATION2 = 6054;
-
 	public const uint32 __WARNING_INVALID_PARAM_VALUE_1 = 6387;
-
 	public const uint32 __WARNING_INCORRECT_ANNOTATION = 26007;
-
 	public const uint32 __WARNING_POTENTIAL_BUFFER_OVERFLOW_HIGH_PRIORITY = 26015;
-
 	public const uint32 __WARNING_PRECONDITION_NULLTERMINATION_VIOLATION = 26035;
-
 	public const uint32 __WARNING_POSTCONDITION_NULLTERMINATION_VIOLATION = 26036;
-
 	public const uint32 __WARNING_HIGH_PRIORITY_OVERFLOW_POSTCONDITION = 26045;
-
 	public const uint32 __WARNING_RANGE_POSTCONDITION_VIOLATION = 26061;
-
 	public const uint32 __WARNING_POTENTIAL_RANGE_POSTCONDITION_VIOLATION = 26071;
-
 	public const uint32 __WARNING_INVALID_PARAM_VALUE_3 = 28183;
-
 	public const uint32 __WARNING_RETURNING_BAD_RESULT = 28196;
-
 	public const uint32 __WARNING_BANNED_API_USAGE = 28719;
-
 	public const uint32 __WARNING_POST_EXPECTED = 28210;
-
 	public const HBITMAP HBMMENU_CALLBACK = -1;
 	public const HBITMAP HBMMENU_SYSTEM = 1;
 	public const HBITMAP HBMMENU_MBAR_RESTORE = 2;
@@ -2753,9 +1410,7 @@ public static
 	public const HBITMAP HBMMENU_POPUP_MAXIMIZE = 10;
 	public const HBITMAP HBMMENU_POPUP_MINIMIZE = 11;
 	public const int32 CW_USEDEFAULT = -2147483648;
-
 	public const int32 LBS_STANDARD = 10485763;
-
 }
 #endregion
 
@@ -4044,11 +2699,12 @@ public function void MSGBOXCALLBACK(HELPINFO* lpHelpInfo);
 #endregion
 
 #region Structs
-[CRepr, FlexibleArray("Text")]
+[CRepr]
 public struct MESSAGE_RESOURCE_ENTRY
 {
 	public uint16 Length;
 	public uint16 Flags;
+	public uint8* Text mut => &Text_impl;
 	private uint8[ANYSIZE_ARRAY] Text_impl;
 }
 
@@ -4060,10 +2716,11 @@ public struct MESSAGE_RESOURCE_BLOCK
 	public uint32 OffsetToEntries;
 }
 
-[CRepr, FlexibleArray("Blocks")]
+[CRepr]
 public struct MESSAGE_RESOURCE_DATA
 {
 	public uint32 NumberOfBlocks;
+	public MESSAGE_RESOURCE_BLOCK* Blocks mut => &Blocks_impl;
 	private MESSAGE_RESOURCE_BLOCK[ANYSIZE_ARRAY] Blocks_impl;
 }
 
@@ -4511,11 +3168,12 @@ public struct MENUITEMTEMPLATEHEADER
 	public uint16 offset;
 }
 
-[CRepr, FlexibleArray("mtString")]
+[CRepr]
 public struct MENUITEMTEMPLATE
 {
 	public uint16 mtOption;
 	public uint16 mtID;
+	public char16* mtString mut => &mtString_impl;
 	private char16[ANYSIZE_ARRAY] mtString_impl;
 }
 

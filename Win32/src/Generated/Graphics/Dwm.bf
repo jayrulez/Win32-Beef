@@ -9,45 +9,25 @@ namespace Win32.Graphics.Dwm;
 public static
 {
 	public const uint32 DWM_BB_ENABLE = 1;
-
 	public const uint32 DWM_BB_BLURREGION = 2;
-
 	public const uint32 DWM_BB_TRANSITIONONMAXIMIZED = 4;
-
 	public const uint32 DWMWA_COLOR_DEFAULT = 4294967295;
-
 	public const uint32 DWMWA_COLOR_NONE = 4294967294;
-
 	public const uint32 DWM_CLOAKED_APP = 1;
-
 	public const uint32 DWM_CLOAKED_SHELL = 2;
-
 	public const uint32 DWM_CLOAKED_INHERITED = 4;
-
 	public const uint32 DWM_TNP_RECTDESTINATION = 1;
-
 	public const uint32 DWM_TNP_RECTSOURCE = 2;
-
 	public const uint32 DWM_TNP_OPACITY = 4;
-
 	public const uint32 DWM_TNP_VISIBLE = 8;
-
 	public const uint32 DWM_TNP_SOURCECLIENTAREAONLY = 16;
-
 	public const int32 DWM_FRAME_DURATION_DEFAULT = -1;
-
 	public const uint32 DWM_EC_DISABLECOMPOSITION = 0;
-
 	public const uint32 DWM_EC_ENABLECOMPOSITION = 1;
-
 	public const uint32 DWM_SIT_DISPLAYFRAME = 1;
-
 	public const uint32 c_DwmMaxQueuedBuffers = 8;
-
 	public const uint32 c_DwmMaxMonitors = 16;
-
 	public const uint32 c_DwmMaxAdapters = 16;
-
 }
 #endregion
 

@@ -7,19 +7,12 @@ namespace Win32.System.EventCollector;
 public static
 {
 	public const uint32 EC_VARIANT_TYPE_MASK = 127;
-
 	public const uint32 EC_VARIANT_TYPE_ARRAY = 128;
-
 	public const uint32 EC_READ_ACCESS = 1;
-
 	public const uint32 EC_WRITE_ACCESS = 2;
-
 	public const uint32 EC_OPEN_ALWAYS = 0;
-
 	public const uint32 EC_CREATE_NEW = 1;
-
 	public const uint32 EC_OPEN_EXISTING = 2;
-
 }
 #endregion
 
@@ -164,7 +157,6 @@ public struct EC_VARIANT
 		public PWSTR* StringArr;
 		public int PropertyHandleVal;
 	}
-
 	public using _Anonymous_e__Union Anonymous;
 	public uint32 Count;
 	public uint32 Type;

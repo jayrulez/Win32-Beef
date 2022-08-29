@@ -7,31 +7,18 @@ namespace Win32.System.Shutdown;
 public static
 {
 	public const uint32 MAX_REASON_NAME_LEN = 64;
-
 	public const uint32 MAX_REASON_DESC_LEN = 256;
-
 	public const uint32 MAX_REASON_BUGID_LEN = 32;
-
 	public const uint32 MAX_REASON_COMMENT_LEN = 512;
-
 	public const uint32 SHUTDOWN_TYPE_LEN = 32;
-
 	public const uint32 POLICY_SHOWREASONUI_NEVER = 0;
-
 	public const uint32 POLICY_SHOWREASONUI_ALWAYS = 1;
-
 	public const uint32 POLICY_SHOWREASONUI_WORKSTATIONONLY = 2;
-
 	public const uint32 POLICY_SHOWREASONUI_SERVERONLY = 3;
-
 	public const uint32 SNAPSHOT_POLICY_NEVER = 0;
-
 	public const uint32 SNAPSHOT_POLICY_ALWAYS = 1;
-
 	public const uint32 SNAPSHOT_POLICY_UNPLANNED = 2;
-
 	public const uint32 MAX_NUM_REASONS = 256;
-
 }
 #endregion
 

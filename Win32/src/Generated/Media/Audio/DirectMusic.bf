@@ -6,7 +6,6 @@ using Win32.Media.Audio.DirectSound;
 using Win32.System.IO;
 using Win32.Media.Multimedia;
 using System;
-using System.Interop;
 
 namespace Win32.Media.Audio.DirectMusic;
 
@@ -14,477 +13,241 @@ namespace Win32.Media.Audio.DirectMusic;
 public static
 {
 	public const uint32 DMUS_MAX_DESCRIPTION = 128;
-
 	public const uint32 DMUS_MAX_DRIVER = 128;
-
 	public const uint32 DMUS_EFFECT_NONE = 0;
-
 	public const uint32 DMUS_EFFECT_REVERB = 1;
-
 	public const uint32 DMUS_EFFECT_CHORUS = 2;
-
 	public const uint32 DMUS_EFFECT_DELAY = 4;
-
 	public const uint32 DMUS_PC_INPUTCLASS = 0;
-
 	public const uint32 DMUS_PC_OUTPUTCLASS = 1;
-
 	public const uint32 DMUS_PC_DLS = 1;
-
 	public const uint32 DMUS_PC_EXTERNAL = 2;
-
 	public const uint32 DMUS_PC_SOFTWARESYNTH = 4;
-
 	public const uint32 DMUS_PC_MEMORYSIZEFIXED = 8;
-
 	public const uint32 DMUS_PC_GMINHARDWARE = 16;
-
 	public const uint32 DMUS_PC_GSINHARDWARE = 32;
-
 	public const uint32 DMUS_PC_XGINHARDWARE = 64;
-
 	public const uint32 DMUS_PC_DIRECTSOUND = 128;
-
 	public const uint32 DMUS_PC_SHAREABLE = 256;
-
 	public const uint32 DMUS_PC_DLS2 = 512;
-
 	public const uint32 DMUS_PC_AUDIOPATH = 1024;
-
 	public const uint32 DMUS_PC_WAVE = 2048;
-
 	public const uint32 DMUS_PC_SYSTEMMEMORY = 2147483647;
-
 	public const uint32 DMUS_PORT_WINMM_DRIVER = 0;
-
 	public const uint32 DMUS_PORT_USER_MODE_SYNTH = 1;
-
 	public const uint32 DMUS_PORT_KERNEL_MODE = 2;
-
 	public const uint32 DMUS_PORTPARAMS_VOICES = 1;
-
 	public const uint32 DMUS_PORTPARAMS_CHANNELGROUPS = 2;
-
 	public const uint32 DMUS_PORTPARAMS_AUDIOCHANNELS = 4;
-
 	public const uint32 DMUS_PORTPARAMS_SAMPLERATE = 8;
-
 	public const uint32 DMUS_PORTPARAMS_EFFECTS = 32;
-
 	public const uint32 DMUS_PORTPARAMS_SHARE = 64;
-
 	public const uint32 DMUS_PORTPARAMS_FEATURES = 128;
-
 	public const uint32 DMUS_PORT_FEATURE_AUDIOPATH = 1;
-
 	public const uint32 DMUS_PORT_FEATURE_STREAMING = 2;
-
 	public const uint32 DMUS_SYNTHSTATS_VOICES = 1;
-
 	public const uint32 DMUS_SYNTHSTATS_TOTAL_CPU = 2;
-
 	public const uint32 DMUS_SYNTHSTATS_CPU_PER_VOICE = 4;
-
 	public const uint32 DMUS_SYNTHSTATS_LOST_NOTES = 8;
-
 	public const uint32 DMUS_SYNTHSTATS_PEAK_VOLUME = 16;
-
 	public const uint32 DMUS_SYNTHSTATS_FREE_MEMORY = 32;
-
 	public const uint32 DMUS_SYNTHSTATS_SYSTEMMEMORY = 2147483647;
-
 	public const uint32 DMUS_CLOCKF_GLOBAL = 1;
-
 	public const uint32 DSBUSID_FIRST_SPKR_LOC = 0;
-
 	public const uint32 DSBUSID_FRONT_LEFT = 0;
-
 	public const uint32 DSBUSID_LEFT = 0;
-
 	public const uint32 DSBUSID_FRONT_RIGHT = 1;
-
 	public const uint32 DSBUSID_RIGHT = 1;
-
 	public const uint32 DSBUSID_FRONT_CENTER = 2;
-
 	public const uint32 DSBUSID_LOW_FREQUENCY = 3;
-
 	public const uint32 DSBUSID_BACK_LEFT = 4;
-
 	public const uint32 DSBUSID_BACK_RIGHT = 5;
-
 	public const uint32 DSBUSID_FRONT_LEFT_OF_CENTER = 6;
-
 	public const uint32 DSBUSID_FRONT_RIGHT_OF_CENTER = 7;
-
 	public const uint32 DSBUSID_BACK_CENTER = 8;
-
 	public const uint32 DSBUSID_SIDE_LEFT = 9;
-
 	public const uint32 DSBUSID_SIDE_RIGHT = 10;
-
 	public const uint32 DSBUSID_TOP_CENTER = 11;
-
 	public const uint32 DSBUSID_TOP_FRONT_LEFT = 12;
-
 	public const uint32 DSBUSID_TOP_FRONT_CENTER = 13;
-
 	public const uint32 DSBUSID_TOP_FRONT_RIGHT = 14;
-
 	public const uint32 DSBUSID_TOP_BACK_LEFT = 15;
-
 	public const uint32 DSBUSID_TOP_BACK_CENTER = 16;
-
 	public const uint32 DSBUSID_TOP_BACK_RIGHT = 17;
-
 	public const uint32 DSBUSID_LAST_SPKR_LOC = 17;
-
 	public const uint32 DSBUSID_REVERB_SEND = 64;
-
 	public const uint32 DSBUSID_CHORUS_SEND = 65;
-
 	public const uint32 DSBUSID_DYNAMIC_0 = 512;
-
 	public const uint32 DSBUSID_NULL = 4294967295;
-
 	public const uint32 DAUD_CRITICAL_VOICE_PRIORITY = 4026531840;
-
 	public const uint32 DAUD_HIGH_VOICE_PRIORITY = 3221225472;
-
 	public const uint32 DAUD_STANDARD_VOICE_PRIORITY = 2147483648;
-
 	public const uint32 DAUD_LOW_VOICE_PRIORITY = 1073741824;
-
 	public const uint32 DAUD_PERSIST_VOICE_PRIORITY = 268435456;
-
 	public const uint32 DAUD_CHAN1_VOICE_PRIORITY_OFFSET = 14;
-
 	public const uint32 DAUD_CHAN2_VOICE_PRIORITY_OFFSET = 13;
-
 	public const uint32 DAUD_CHAN3_VOICE_PRIORITY_OFFSET = 12;
-
 	public const uint32 DAUD_CHAN4_VOICE_PRIORITY_OFFSET = 11;
-
 	public const uint32 DAUD_CHAN5_VOICE_PRIORITY_OFFSET = 10;
-
 	public const uint32 DAUD_CHAN6_VOICE_PRIORITY_OFFSET = 9;
-
 	public const uint32 DAUD_CHAN7_VOICE_PRIORITY_OFFSET = 8;
-
 	public const uint32 DAUD_CHAN8_VOICE_PRIORITY_OFFSET = 7;
-
 	public const uint32 DAUD_CHAN9_VOICE_PRIORITY_OFFSET = 6;
-
 	public const uint32 DAUD_CHAN10_VOICE_PRIORITY_OFFSET = 15;
-
 	public const uint32 DAUD_CHAN11_VOICE_PRIORITY_OFFSET = 5;
-
 	public const uint32 DAUD_CHAN12_VOICE_PRIORITY_OFFSET = 4;
-
 	public const uint32 DAUD_CHAN13_VOICE_PRIORITY_OFFSET = 3;
-
 	public const uint32 DAUD_CHAN14_VOICE_PRIORITY_OFFSET = 2;
-
 	public const uint32 DAUD_CHAN15_VOICE_PRIORITY_OFFSET = 1;
-
 	public const uint32 DAUD_CHAN16_VOICE_PRIORITY_OFFSET = 0;
-
 	public const Guid CLSID_DirectMusic = .(0x636b9f10, 0x0c7d, 0x11d1, 0x95, 0xb2, 0x00, 0x20, 0xaf, 0xdc, 0x74, 0x21);
-
 	public const Guid CLSID_DirectMusicCollection = .(0x480ff4b0, 0x28b2, 0x11d1, 0xbe, 0xf7, 0x00, 0xc0, 0x4f, 0xbf, 0x8f, 0xef);
-
 	public const Guid CLSID_DirectMusicSynth = .(0x58c2b4d0, 0x46e7, 0x11d1, 0x89, 0xac, 0x00, 0xa0, 0xc9, 0x05, 0x41, 0x29);
-
 	public const Guid GUID_DMUS_PROP_GM_Hardware = .(0x178f2f24, 0xc364, 0x11d1, 0xa7, 0x60, 0x00, 0x00, 0xf8, 0x75, 0xac, 0x12);
-
 	public const Guid GUID_DMUS_PROP_GS_Hardware = .(0x178f2f25, 0xc364, 0x11d1, 0xa7, 0x60, 0x00, 0x00, 0xf8, 0x75, 0xac, 0x12);
-
 	public const Guid GUID_DMUS_PROP_XG_Hardware = .(0x178f2f26, 0xc364, 0x11d1, 0xa7, 0x60, 0x00, 0x00, 0xf8, 0x75, 0xac, 0x12);
-
 	public const Guid GUID_DMUS_PROP_XG_Capable = .(0x6496aba1, 0x61b0, 0x11d2, 0xaf, 0xa6, 0x00, 0xaa, 0x00, 0x24, 0xd8, 0xb6);
-
 	public const Guid GUID_DMUS_PROP_GS_Capable = .(0x6496aba2, 0x61b0, 0x11d2, 0xaf, 0xa6, 0x00, 0xaa, 0x00, 0x24, 0xd8, 0xb6);
-
 	public const Guid GUID_DMUS_PROP_DLS1 = .(0x178f2f27, 0xc364, 0x11d1, 0xa7, 0x60, 0x00, 0x00, 0xf8, 0x75, 0xac, 0x12);
-
 	public const Guid GUID_DMUS_PROP_DLS2 = .(0xf14599e5, 0x4689, 0x11d2, 0xaf, 0xa6, 0x00, 0xaa, 0x00, 0x24, 0xd8, 0xb6);
-
 	public const Guid GUID_DMUS_PROP_INSTRUMENT2 = .(0x865fd372, 0x9f67, 0x11d2, 0x87, 0x2a, 0x00, 0x60, 0x08, 0x93, 0xb1, 0xbd);
-
 	public const Guid GUID_DMUS_PROP_SynthSink_DSOUND = .(0x0aa97844, 0xc877, 0x11d1, 0x87, 0x0c, 0x00, 0x60, 0x08, 0x93, 0xb1, 0xbd);
-
 	public const Guid GUID_DMUS_PROP_SynthSink_WAVE = .(0x0aa97845, 0xc877, 0x11d1, 0x87, 0x0c, 0x00, 0x60, 0x08, 0x93, 0xb1, 0xbd);
-
 	public const Guid GUID_DMUS_PROP_SampleMemorySize = .(0x178f2f28, 0xc364, 0x11d1, 0xa7, 0x60, 0x00, 0x00, 0xf8, 0x75, 0xac, 0x12);
-
 	public const Guid GUID_DMUS_PROP_SamplePlaybackRate = .(0x2a91f713, 0xa4bf, 0x11d2, 0xbb, 0xdf, 0x00, 0x60, 0x08, 0x33, 0xdb, 0xd8);
-
 	public const Guid GUID_DMUS_PROP_WriteLatency = .(0x268a0fa0, 0x60f2, 0x11d2, 0xaf, 0xa6, 0x00, 0xaa, 0x00, 0x24, 0xd8, 0xb6);
-
 	public const Guid GUID_DMUS_PROP_WritePeriod = .(0x268a0fa1, 0x60f2, 0x11d2, 0xaf, 0xa6, 0x00, 0xaa, 0x00, 0x24, 0xd8, 0xb6);
-
 	public const Guid GUID_DMUS_PROP_MemorySize = .(0x178f2f28, 0xc364, 0x11d1, 0xa7, 0x60, 0x00, 0x00, 0xf8, 0x75, 0xac, 0x12);
-
 	public const Guid GUID_DMUS_PROP_WavesReverb = .(0x04cb5622, 0x32e5, 0x11d2, 0xaf, 0xa6, 0x00, 0xaa, 0x00, 0x24, 0xd8, 0xb6);
-
 	public const Guid GUID_DMUS_PROP_Effects = .(0xcda8d611, 0x684a, 0x11d2, 0x87, 0x1e, 0x00, 0x60, 0x08, 0x93, 0xb1, 0xbd);
-
 	public const Guid GUID_DMUS_PROP_LegacyCaps = .(0xcfa7cdc2, 0x00a1, 0x11d2, 0xaa, 0xd5, 0x00, 0x00, 0xf8, 0x75, 0xac, 0x12);
-
 	public const Guid GUID_DMUS_PROP_Volume = .(0xfedfae25, 0xe46e, 0x11d1, 0xaa, 0xce, 0x00, 0x00, 0xf8, 0x75, 0xac, 0x12);
-
 	public const uint32 DMUS_VOLUME_MAX = 2000;
-
 	public const int32 DMUS_VOLUME_MIN = -20000;
-
 	public const uint32 DMUS_EVENT_STRUCTURED = 1;
-
 	public const uint32 DMUS_DOWNLOADINFO_INSTRUMENT = 1;
-
 	public const uint32 DMUS_DOWNLOADINFO_WAVE = 2;
-
 	public const uint32 DMUS_DOWNLOADINFO_INSTRUMENT2 = 3;
-
 	public const uint32 DMUS_DOWNLOADINFO_WAVEARTICULATION = 4;
-
 	public const uint32 DMUS_DOWNLOADINFO_STREAMINGWAVE = 5;
-
 	public const uint32 DMUS_DOWNLOADINFO_ONESHOTWAVE = 6;
-
 	public const uint32 DMUS_DEFAULT_SIZE_OFFSETTABLE = 1;
-
 	public const uint32 DMUS_INSTRUMENT_GM_INSTRUMENT = 1;
-
 	public const uint32 DMUS_MIN_DATA_SIZE = 4;
-
 	public const uint32 CONN_SRC_NONE = 0;
-
 	public const uint32 CONN_SRC_LFO = 1;
-
 	public const uint32 CONN_SRC_KEYONVELOCITY = 2;
-
 	public const uint32 CONN_SRC_KEYNUMBER = 3;
-
 	public const uint32 CONN_SRC_EG1 = 4;
-
 	public const uint32 CONN_SRC_EG2 = 5;
-
 	public const uint32 CONN_SRC_PITCHWHEEL = 6;
-
 	public const uint32 CONN_SRC_CC1 = 129;
-
 	public const uint32 CONN_SRC_CC7 = 135;
-
 	public const uint32 CONN_SRC_CC10 = 138;
-
 	public const uint32 CONN_SRC_CC11 = 139;
-
 	public const uint32 CONN_DST_NONE = 0;
-
 	public const uint32 CONN_DST_ATTENUATION = 1;
-
 	public const uint32 CONN_DST_PITCH = 3;
-
 	public const uint32 CONN_DST_PAN = 4;
-
 	public const uint32 CONN_DST_LFO_FREQUENCY = 260;
-
 	public const uint32 CONN_DST_LFO_STARTDELAY = 261;
-
 	public const uint32 CONN_DST_EG1_ATTACKTIME = 518;
-
 	public const uint32 CONN_DST_EG1_DECAYTIME = 519;
-
 	public const uint32 CONN_DST_EG1_RELEASETIME = 521;
-
 	public const uint32 CONN_DST_EG1_SUSTAINLEVEL = 522;
-
 	public const uint32 CONN_DST_EG2_ATTACKTIME = 778;
-
 	public const uint32 CONN_DST_EG2_DECAYTIME = 779;
-
 	public const uint32 CONN_DST_EG2_RELEASETIME = 781;
-
 	public const uint32 CONN_DST_EG2_SUSTAINLEVEL = 782;
-
 	public const uint32 CONN_TRN_NONE = 0;
-
 	public const uint32 CONN_TRN_CONCAVE = 1;
-
 	public const uint32 F_INSTRUMENT_DRUMS = 2147483648;
-
 	public const uint32 F_RGN_OPTION_SELFNONEXCLUSIVE = 1;
-
 	public const int32 WAVELINK_CHANNEL_LEFT = 1;
-
 	public const int32 WAVELINK_CHANNEL_RIGHT = 2;
-
 	public const uint32 F_WAVELINK_PHASE_MASTER = 1;
-
 	public const int32 POOL_CUE_NULL = -1;
-
 	public const int32 F_WSMP_NO_TRUNCATION = 1;
-
 	public const int32 F_WSMP_NO_COMPRESSION = 2;
-
 	public const uint32 WLOOP_TYPE_FORWARD = 0;
-
 	public const uint32 CONN_SRC_POLYPRESSURE = 7;
-
 	public const uint32 CONN_SRC_CHANNELPRESSURE = 8;
-
 	public const uint32 CONN_SRC_VIBRATO = 9;
-
 	public const uint32 CONN_SRC_MONOPRESSURE = 10;
-
 	public const uint32 CONN_SRC_CC91 = 219;
-
 	public const uint32 CONN_SRC_CC93 = 221;
-
 	public const uint32 CONN_DST_GAIN = 1;
-
 	public const uint32 CONN_DST_KEYNUMBER = 5;
-
 	public const uint32 CONN_DST_LEFT = 16;
-
 	public const uint32 CONN_DST_RIGHT = 17;
-
 	public const uint32 CONN_DST_CENTER = 18;
-
 	public const uint32 CONN_DST_LEFTREAR = 19;
-
 	public const uint32 CONN_DST_RIGHTREAR = 20;
-
 	public const uint32 CONN_DST_LFE_CHANNEL = 21;
-
 	public const uint32 CONN_DST_CHORUS = 128;
-
 	public const uint32 CONN_DST_REVERB = 129;
-
 	public const uint32 CONN_DST_VIB_FREQUENCY = 276;
-
 	public const uint32 CONN_DST_VIB_STARTDELAY = 277;
-
 	public const uint32 CONN_DST_EG1_DELAYTIME = 523;
-
 	public const uint32 CONN_DST_EG1_HOLDTIME = 524;
-
 	public const uint32 CONN_DST_EG1_SHUTDOWNTIME = 525;
-
 	public const uint32 CONN_DST_EG2_DELAYTIME = 783;
-
 	public const uint32 CONN_DST_EG2_HOLDTIME = 784;
-
 	public const uint32 CONN_DST_FILTER_CUTOFF = 1280;
-
 	public const uint32 CONN_DST_FILTER_Q = 1281;
-
 	public const uint32 CONN_TRN_CONVEX = 2;
-
 	public const uint32 CONN_TRN_SWITCH = 3;
-
 	public const uint32 DLS_CDL_AND = 1;
-
 	public const uint32 DLS_CDL_OR = 2;
-
 	public const uint32 DLS_CDL_XOR = 3;
-
 	public const uint32 DLS_CDL_ADD = 4;
-
 	public const uint32 DLS_CDL_SUBTRACT = 5;
-
 	public const uint32 DLS_CDL_MULTIPLY = 6;
-
 	public const uint32 DLS_CDL_DIVIDE = 7;
-
 	public const uint32 DLS_CDL_LOGICAL_AND = 8;
-
 	public const uint32 DLS_CDL_LOGICAL_OR = 9;
-
 	public const uint32 DLS_CDL_LT = 10;
-
 	public const uint32 DLS_CDL_LE = 11;
-
 	public const uint32 DLS_CDL_GT = 12;
-
 	public const uint32 DLS_CDL_GE = 13;
-
 	public const uint32 DLS_CDL_EQ = 14;
-
 	public const uint32 DLS_CDL_NOT = 15;
-
 	public const uint32 DLS_CDL_CONST = 16;
-
 	public const uint32 DLS_CDL_QUERY = 17;
-
 	public const uint32 DLS_CDL_QUERYSUPPORTED = 18;
-
 	public const uint32 WLOOP_TYPE_RELEASE = 2;
-
 	public const uint32 F_WAVELINK_MULTICHANNEL = 2;
-
 	public const Guid DLSID_GMInHardware = .(0x178f2f24, 0xc364, 0x11d1, 0xa7, 0x60, 0x00, 0x00, 0xf8, 0x75, 0xac, 0x12);
-
 	public const Guid DLSID_GSInHardware = .(0x178f2f25, 0xc364, 0x11d1, 0xa7, 0x60, 0x00, 0x00, 0xf8, 0x75, 0xac, 0x12);
-
 	public const Guid DLSID_XGInHardware = .(0x178f2f26, 0xc364, 0x11d1, 0xa7, 0x60, 0x00, 0x00, 0xf8, 0x75, 0xac, 0x12);
-
 	public const Guid DLSID_SupportsDLS1 = .(0x178f2f27, 0xc364, 0x11d1, 0xa7, 0x60, 0x00, 0x00, 0xf8, 0x75, 0xac, 0x12);
-
 	public const Guid DLSID_SupportsDLS2 = .(0xf14599e5, 0x4689, 0x11d2, 0xaf, 0xa6, 0x00, 0xaa, 0x00, 0x24, 0xd8, 0xb6);
-
 	public const Guid DLSID_SampleMemorySize = .(0x178f2f28, 0xc364, 0x11d1, 0xa7, 0x60, 0x00, 0x00, 0xf8, 0x75, 0xac, 0x12);
-
 	public const Guid DLSID_ManufacturersID = .(0xb03e1181, 0x8095, 0x11d2, 0xa1, 0xef, 0x00, 0x60, 0x08, 0x33, 0xdb, 0xd8);
-
 	public const Guid DLSID_ProductID = .(0xb03e1182, 0x8095, 0x11d2, 0xa1, 0xef, 0x00, 0x60, 0x08, 0x33, 0xdb, 0xd8);
-
 	public const Guid DLSID_SamplePlaybackRate = .(0x2a91f713, 0xa4bf, 0x11d2, 0xbb, 0xdf, 0x00, 0x60, 0x08, 0x33, 0xdb, 0xd8);
-
 	public const uint32 REFRESH_F_LASTBUFFER = 1;
-
 	public const Guid CLSID_DirectMusicSynthSink = .(0xaec17ce3, 0xa514, 0x11d1, 0xaf, 0xa6, 0x00, 0xaa, 0x00, 0x24, 0xd8, 0xb6);
-
 	public const Guid GUID_DMUS_PROP_SetSynthSink = .(0x0a3a5ba5, 0x37b6, 0x11d2, 0xb9, 0xf9, 0x00, 0x00, 0xf8, 0x75, 0xac, 0x12);
-
 	public const Guid GUID_DMUS_PROP_SinkUsesDSound = .(0xbe208857, 0x8952, 0x11d2, 0xba, 0x1c, 0x00, 0x00, 0xf8, 0x75, 0xac, 0x12);
-
 	public const Guid CLSID_DirectSoundPrivate = .(0x11ab3ec0, 0x25ec, 0x11d1, 0xa4, 0xd8, 0x00, 0xc0, 0x4f, 0xc2, 0x8a, 0xca);
-
 	public const Guid DSPROPSETID_DirectSoundDevice = .(0x84624f82, 0x25ec, 0x11d1, 0xa4, 0xd8, 0x00, 0xc0, 0x4f, 0xc2, 0x8a, 0xca);
-
 	public const int32 DV_DVSD_NTSC_FRAMESIZE = 120000;
-
 	public const int32 DV_DVSD_PAL_FRAMESIZE = 144000;
-
 	public const uint32 DV_SMCHN = 57344;
-
 	public const uint32 DV_AUDIOMODE = 3840;
-
 	public const uint32 DV_AUDIOSMP = 939524096;
-
 	public const uint32 DV_AUDIOQU = 117440512;
-
 	public const uint32 DV_NTSCPAL = 2097152;
-
 	public const uint32 DV_STYPE = 2031616;
-
 	public const uint32 DV_NTSC = 0;
-
 	public const uint32 DV_PAL = 1;
-
 	public const uint32 DV_SD = 0;
-
 	public const uint32 DV_HD = 1;
-
 	public const uint32 DV_SL = 2;
-
 	public const uint32 DV_CAP_AUD16Bits = 0;
-
 	public const uint32 DV_CAP_AUD12Bits = 1;
-
 	public const uint32 SIZE_DVINFO = 32;
-
 }
 #endregion
 
@@ -660,9 +423,10 @@ public struct DMUS_DOWNLOADINFO
 	public uint32 cbSize;
 }
 
-[CRepr, FlexibleArray("ulOffsetTable")]
+[CRepr]
 public struct DMUS_OFFSETTABLE
 {
+	public uint32* ulOffsetTable mut => &ulOffsetTable_impl;
 	private uint32[ANYSIZE_ARRAY] ulOffsetTable_impl;
 }
 
@@ -677,7 +441,7 @@ public struct DMUS_INSTRUMENT
 	public uint32 ulFlags;
 }
 
-[CRepr, FlexibleArray("WLOOP")]
+[CRepr]
 public struct DMUS_REGION
 {
 	public RGNRANGE RangeKey;
@@ -689,6 +453,7 @@ public struct DMUS_REGION
 	public uint32 ulFirstExtCkIdx;
 	public WAVELINK WaveLink;
 	public _rwsmp WSMP;
+	public _rloop* WLOOP mut => &WLOOP_impl;
 	private _rloop[ANYSIZE_ARRAY] WLOOP_impl;
 }
 
@@ -1028,7 +793,7 @@ public struct MDEVICECAPSEX
 	public void* pCaps;
 }
 
-[CRepr, Packed(1), FlexibleArray("rgIds")]
+[CRepr, Packed(1)]
 public struct MIDIOPENDESC
 {
 	public HMIDI hMidi;
@@ -1036,6 +801,7 @@ public struct MIDIOPENDESC
 	public uint dwInstance;
 	public uint dnDevNode;
 	public uint32 cIds;
+	public MIDIOPENSTRMID* rgIds mut => &rgIds_impl;
 	private MIDIOPENSTRMID[ANYSIZE_ARRAY] rgIds_impl;
 }
 

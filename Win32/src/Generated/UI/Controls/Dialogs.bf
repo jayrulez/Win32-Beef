@@ -10,155 +10,80 @@ namespace Win32.UI.Controls.Dialogs;
 public static
 {
 	public const uint32 OFN_SHAREFALLTHROUGH = 2;
-
 	public const uint32 OFN_SHARENOWARN = 1;
-
 	public const uint32 OFN_SHAREWARN = 0;
-
 	public const uint32 CDM_FIRST = 1124;
-
 	public const uint32 CDM_LAST = 1224;
-
 	public const uint32 CDM_GETSPEC = 1124;
-
 	public const uint32 CDM_GETFILEPATH = 1125;
-
 	public const uint32 CDM_GETFOLDERPATH = 1126;
-
 	public const uint32 CDM_GETFOLDERIDLIST = 1127;
-
 	public const uint32 CDM_SETCONTROLTEXT = 1128;
-
 	public const uint32 CDM_HIDECONTROL = 1129;
-
 	public const uint32 CDM_SETDEFEXT = 1130;
-
 	public const uint32 FR_RAW = 131072;
-
 	public const uint32 FR_SHOWWRAPAROUND = 262144;
-
 	public const uint32 FR_NOWRAPAROUND = 524288;
-
 	public const uint32 FR_WRAPAROUND = 1048576;
-
 	public const uint32 FRM_FIRST = 1124;
-
 	public const uint32 FRM_LAST = 1224;
-
 	public const uint32 FRM_SETOPERATIONRESULT = 1124;
-
 	public const uint32 FRM_SETOPERATIONRESULTTEXT = 1125;
-
 	public const uint32 PS_OPENTYPE_FONTTYPE = 65536;
-
 	public const uint32 TT_OPENTYPE_FONTTYPE = 131072;
-
 	public const uint32 TYPE1_FONTTYPE = 262144;
-
 	public const uint32 SYMBOL_FONTTYPE = 524288;
-
 	public const uint32 WM_CHOOSEFONT_GETLOGFONT = 1025;
-
 	public const uint32 WM_CHOOSEFONT_SETLOGFONT = 1125;
-
 	public const uint32 WM_CHOOSEFONT_SETFLAGS = 1126;
-
 	public const int32 CD_LBSELNOITEMS = -1;
-
 	public const uint32 CD_LBSELCHANGE = 0;
-
 	public const uint32 CD_LBSELSUB = 1;
-
 	public const uint32 CD_LBSELADD = 2;
-
 	public const uint32 START_PAGE_GENERAL = 4294967295;
-
 	public const uint32 PD_RESULT_CANCEL = 0;
-
 	public const uint32 PD_RESULT_PRINT = 1;
-
 	public const uint32 PD_RESULT_APPLY = 2;
-
 	public const uint32 DN_DEFAULTPRN = 1;
-
 	public const uint32 WM_PSD_FULLPAGERECT = 1025;
-
 	public const uint32 WM_PSD_MINMARGINRECT = 1026;
-
 	public const uint32 WM_PSD_MARGINRECT = 1027;
-
 	public const uint32 WM_PSD_GREEKTEXTRECT = 1028;
-
 	public const uint32 WM_PSD_ENVSTAMPRECT = 1029;
-
 	public const uint32 WM_PSD_YAFULLPAGERECT = 1030;
-
 	public const uint32 DLG_COLOR = 10;
-
 	public const uint32 COLOR_HUESCROLL = 700;
-
 	public const uint32 COLOR_SATSCROLL = 701;
-
 	public const uint32 COLOR_LUMSCROLL = 702;
-
 	public const uint32 COLOR_HUE = 703;
-
 	public const uint32 COLOR_SAT = 704;
-
 	public const uint32 COLOR_LUM = 705;
-
 	public const uint32 COLOR_RED = 706;
-
 	public const uint32 COLOR_GREEN = 707;
-
 	public const uint32 COLOR_BLUE = 708;
-
 	public const uint32 COLOR_CURRENT = 709;
-
 	public const uint32 COLOR_RAINBOW = 710;
-
 	public const uint32 COLOR_SAVE = 711;
-
 	public const uint32 COLOR_ADD = 712;
-
 	public const uint32 COLOR_SOLID = 713;
-
 	public const uint32 COLOR_TUNE = 714;
-
 	public const uint32 COLOR_SCHEMES = 715;
-
 	public const uint32 COLOR_ELEMENT = 716;
-
 	public const uint32 COLOR_SAMPLES = 717;
-
 	public const uint32 COLOR_PALETTE = 718;
-
 	public const uint32 COLOR_MIX = 719;
-
 	public const uint32 COLOR_BOX1 = 720;
-
 	public const uint32 COLOR_CUSTOM1 = 721;
-
 	public const uint32 COLOR_HUEACCEL = 723;
-
 	public const uint32 COLOR_SATACCEL = 724;
-
 	public const uint32 COLOR_LUMACCEL = 725;
-
 	public const uint32 COLOR_REDACCEL = 726;
-
 	public const uint32 COLOR_GREENACCEL = 727;
-
 	public const uint32 COLOR_BLUEACCEL = 728;
-
 	public const uint32 COLOR_SOLID_LEFT = 730;
-
 	public const uint32 COLOR_SOLID_RIGHT = 731;
-
 	public const uint32 NUM_BASIC_COLORS = 48;
-
 	public const uint32 NUM_CUSTOM_COLORS = 16;
-
 }
 #endregion
 

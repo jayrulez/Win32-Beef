@@ -12,81 +12,43 @@ namespace Win32.Media.PictureAcquisition;
 public static
 {
 	public const PROPERTYKEY PKEY_PhotoAcquire_RelativePathname = .(.(0x00f23377, 0x7ac6, 0x4b7a, 0x84, 0x43, 0x34, 0x5e, 0x73, 0x1f, 0xa5, 0x7a), 2);
-
 	public const PROPERTYKEY PKEY_PhotoAcquire_FinalFilename = .(.(0x00f23377, 0x7ac6, 0x4b7a, 0x84, 0x43, 0x34, 0x5e, 0x73, 0x1f, 0xa5, 0x7a), 3);
-
 	public const PROPERTYKEY PKEY_PhotoAcquire_GroupTag = .(.(0x00f23377, 0x7ac6, 0x4b7a, 0x84, 0x43, 0x34, 0x5e, 0x73, 0x1f, 0xa5, 0x7a), 4);
-
 	public const PROPERTYKEY PKEY_PhotoAcquire_TransferResult = .(.(0x00f23377, 0x7ac6, 0x4b7a, 0x84, 0x43, 0x34, 0x5e, 0x73, 0x1f, 0xa5, 0x7a), 5);
-
 	public const PROPERTYKEY PKEY_PhotoAcquire_OriginalFilename = .(.(0x00f23377, 0x7ac6, 0x4b7a, 0x84, 0x43, 0x34, 0x5e, 0x73, 0x1f, 0xa5, 0x7a), 6);
-
 	public const PROPERTYKEY PKEY_PhotoAcquire_CameraSequenceNumber = .(.(0x00f23377, 0x7ac6, 0x4b7a, 0x84, 0x43, 0x34, 0x5e, 0x73, 0x1f, 0xa5, 0x7a), 7);
-
 	public const PROPERTYKEY PKEY_PhotoAcquire_IntermediateFile = .(.(0x00f23377, 0x7ac6, 0x4b7a, 0x84, 0x43, 0x34, 0x5e, 0x73, 0x1f, 0xa5, 0x7a), 8);
-
 	public const PROPERTYKEY PKEY_PhotoAcquire_SkipImport = .(.(0x00f23377, 0x7ac6, 0x4b7a, 0x84, 0x43, 0x34, 0x5e, 0x73, 0x1f, 0xa5, 0x7a), 9);
-
 	public const PROPERTYKEY PKEY_PhotoAcquire_DuplicateDetectionID = .(.(0x00f23377, 0x7ac6, 0x4b7a, 0x84, 0x43, 0x34, 0x5e, 0x73, 0x1f, 0xa5, 0x7a), 10);
-
 	public const int32 PROGRESS_INDETERMINATE = -1;
-
 	public const HRESULT PHOTOACQ_ERROR_RESTART_REQUIRED = -2147180543;
-
 	public const uint32 PHOTOACQ_RUN_DEFAULT = 0;
-
 	public const uint32 PHOTOACQ_NO_GALLERY_LAUNCH = 1;
-
 	public const uint32 PHOTOACQ_DISABLE_AUTO_ROTATE = 2;
-
 	public const uint32 PHOTOACQ_DISABLE_PLUGINS = 4;
-
 	public const uint32 PHOTOACQ_DISABLE_GROUP_TAG_PROMPT = 8;
-
 	public const uint32 PHOTOACQ_DISABLE_DB_INTEGRATION = 16;
-
 	public const uint32 PHOTOACQ_DELETE_AFTER_ACQUIRE = 32;
-
 	public const uint32 PHOTOACQ_DISABLE_DUPLICATE_DETECTION = 64;
-
 	public const uint32 PHOTOACQ_ENABLE_THUMBNAIL_CACHING = 128;
-
 	public const uint32 PHOTOACQ_DISABLE_METADATA_WRITE = 256;
-
 	public const uint32 PHOTOACQ_DISABLE_THUMBNAIL_PROGRESS = 512;
-
 	public const uint32 PHOTOACQ_DISABLE_SETTINGS_LINK = 1024;
-
 	public const uint32 PHOTOACQ_ABORT_ON_SETTINGS_UPDATE = 2048;
-
 	public const uint32 PHOTOACQ_IMPORT_VIDEO_AS_MULTIPLE_FILES = 4096;
-
 	public const uint32 DSF_WPD_DEVICES = 1;
-
 	public const uint32 DSF_WIA_CAMERAS = 2;
-
 	public const uint32 DSF_WIA_SCANNERS = 4;
-
 	public const uint32 DSF_STI_DEVICES = 8;
-
 	public const uint32 DSF_TWAIN_DEVICES = 16;
-
 	public const uint32 DSF_FS_DEVICES = 32;
-
 	public const uint32 DSF_DV_DEVICES = 64;
-
 	public const uint32 DSF_ALL_DEVICES = 65535;
-
 	public const uint32 DSF_CPL_MODE = 65536;
-
 	public const uint32 DSF_SHOW_OFFLINE = 131072;
-
 	public const uint32 PAPS_PRESAVE = 0;
-
 	public const uint32 PAPS_POSTSAVE = 1;
-
 	public const uint32 PAPS_CLEANUP = 2;
-
 }
 #endregion
 

@@ -7,13 +7,9 @@ namespace Win32.Storage.Compression;
 public static
 {
 	public const uint32 COMPRESS_ALGORITHM_INVALID = 0;
-
 	public const uint32 COMPRESS_ALGORITHM_NULL = 1;
-
 	public const uint32 COMPRESS_ALGORITHM_MAX = 6;
-
 	public const uint32 COMPRESS_RAW = 536870912;
-
 }
 #endregion
 

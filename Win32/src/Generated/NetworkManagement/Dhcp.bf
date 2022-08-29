@@ -7,645 +7,325 @@ namespace Win32.NetworkManagement.Dhcp;
 public static
 {
 	public const uint32 OPTION_PAD = 0;
-
 	public const uint32 OPTION_SUBNET_MASK = 1;
-
 	public const uint32 OPTION_TIME_OFFSET = 2;
-
 	public const uint32 OPTION_ROUTER_ADDRESS = 3;
-
 	public const uint32 OPTION_TIME_SERVERS = 4;
-
 	public const uint32 OPTION_IEN116_NAME_SERVERS = 5;
-
 	public const uint32 OPTION_DOMAIN_NAME_SERVERS = 6;
-
 	public const uint32 OPTION_LOG_SERVERS = 7;
-
 	public const uint32 OPTION_COOKIE_SERVERS = 8;
-
 	public const uint32 OPTION_LPR_SERVERS = 9;
-
 	public const uint32 OPTION_IMPRESS_SERVERS = 10;
-
 	public const uint32 OPTION_RLP_SERVERS = 11;
-
 	public const uint32 OPTION_HOST_NAME = 12;
-
 	public const uint32 OPTION_BOOT_FILE_SIZE = 13;
-
 	public const uint32 OPTION_MERIT_DUMP_FILE = 14;
-
 	public const uint32 OPTION_DOMAIN_NAME = 15;
-
 	public const uint32 OPTION_SWAP_SERVER = 16;
-
 	public const uint32 OPTION_ROOT_DISK = 17;
-
 	public const uint32 OPTION_EXTENSIONS_PATH = 18;
-
 	public const uint32 OPTION_BE_A_ROUTER = 19;
-
 	public const uint32 OPTION_NON_LOCAL_SOURCE_ROUTING = 20;
-
 	public const uint32 OPTION_POLICY_FILTER_FOR_NLSR = 21;
-
 	public const uint32 OPTION_MAX_REASSEMBLY_SIZE = 22;
-
 	public const uint32 OPTION_DEFAULT_TTL = 23;
-
 	public const uint32 OPTION_PMTU_AGING_TIMEOUT = 24;
-
 	public const uint32 OPTION_PMTU_PLATEAU_TABLE = 25;
-
 	public const uint32 OPTION_MTU = 26;
-
 	public const uint32 OPTION_ALL_SUBNETS_MTU = 27;
-
 	public const uint32 OPTION_BROADCAST_ADDRESS = 28;
-
 	public const uint32 OPTION_PERFORM_MASK_DISCOVERY = 29;
-
 	public const uint32 OPTION_BE_A_MASK_SUPPLIER = 30;
-
 	public const uint32 OPTION_PERFORM_ROUTER_DISCOVERY = 31;
-
 	public const uint32 OPTION_ROUTER_SOLICITATION_ADDR = 32;
-
 	public const uint32 OPTION_STATIC_ROUTES = 33;
-
 	public const uint32 OPTION_TRAILERS = 34;
-
 	public const uint32 OPTION_ARP_CACHE_TIMEOUT = 35;
-
 	public const uint32 OPTION_ETHERNET_ENCAPSULATION = 36;
-
 	public const uint32 OPTION_TTL = 37;
-
 	public const uint32 OPTION_KEEP_ALIVE_INTERVAL = 38;
-
 	public const uint32 OPTION_KEEP_ALIVE_DATA_SIZE = 39;
-
 	public const uint32 OPTION_NETWORK_INFO_SERVICE_DOM = 40;
-
 	public const uint32 OPTION_NETWORK_INFO_SERVERS = 41;
-
 	public const uint32 OPTION_NETWORK_TIME_SERVERS = 42;
-
 	public const uint32 OPTION_VENDOR_SPEC_INFO = 43;
-
 	public const uint32 OPTION_NETBIOS_NAME_SERVER = 44;
-
 	public const uint32 OPTION_NETBIOS_DATAGRAM_SERVER = 45;
-
 	public const uint32 OPTION_NETBIOS_NODE_TYPE = 46;
-
 	public const uint32 OPTION_NETBIOS_SCOPE_OPTION = 47;
-
 	public const uint32 OPTION_XWINDOW_FONT_SERVER = 48;
-
 	public const uint32 OPTION_XWINDOW_DISPLAY_MANAGER = 49;
-
 	public const uint32 OPTION_REQUESTED_ADDRESS = 50;
-
 	public const uint32 OPTION_LEASE_TIME = 51;
-
 	public const uint32 OPTION_OK_TO_OVERLAY = 52;
-
 	public const uint32 OPTION_MESSAGE_TYPE = 53;
-
 	public const uint32 OPTION_SERVER_IDENTIFIER = 54;
-
 	public const uint32 OPTION_PARAMETER_REQUEST_LIST = 55;
-
 	public const uint32 OPTION_MESSAGE = 56;
-
 	public const uint32 OPTION_MESSAGE_LENGTH = 57;
-
 	public const uint32 OPTION_RENEWAL_TIME = 58;
-
 	public const uint32 OPTION_REBIND_TIME = 59;
-
 	public const uint32 OPTION_CLIENT_CLASS_INFO = 60;
-
 	public const uint32 OPTION_CLIENT_ID = 61;
-
 	public const uint32 OPTION_TFTP_SERVER_NAME = 66;
-
 	public const uint32 OPTION_BOOTFILE_NAME = 67;
-
 	public const uint32 OPTION_MSFT_IE_PROXY = 252;
-
 	public const uint32 OPTION_END = 255;
-
 	public const uint32 DHCPCAPI_REQUEST_PERSISTENT = 1;
-
 	public const uint32 DHCPCAPI_REQUEST_SYNCHRONOUS = 2;
-
 	public const uint32 DHCPCAPI_REQUEST_ASYNCHRONOUS = 4;
-
 	public const uint32 DHCPCAPI_REQUEST_CANCEL = 8;
-
 	public const uint32 DHCPCAPI_REQUEST_MASK = 15;
-
 	public const uint32 DHCPCAPI_REGISTER_HANDLE_EVENT = 1;
-
 	public const uint32 DHCPCAPI_DEREGISTER_HANDLE_EVENT = 1;
-
 	public const uint32 ERROR_DHCP_REGISTRY_INIT_FAILED = 20000;
-
 	public const uint32 ERROR_DHCP_DATABASE_INIT_FAILED = 20001;
-
 	public const uint32 ERROR_DHCP_RPC_INIT_FAILED = 20002;
-
 	public const uint32 ERROR_DHCP_NETWORK_INIT_FAILED = 20003;
-
 	public const uint32 ERROR_DHCP_SUBNET_EXITS = 20004;
-
 	public const uint32 ERROR_DHCP_SUBNET_NOT_PRESENT = 20005;
-
 	public const uint32 ERROR_DHCP_PRIMARY_NOT_FOUND = 20006;
-
 	public const uint32 ERROR_DHCP_ELEMENT_CANT_REMOVE = 20007;
-
 	public const uint32 ERROR_DHCP_OPTION_EXITS = 20009;
-
 	public const uint32 ERROR_DHCP_OPTION_NOT_PRESENT = 20010;
-
 	public const uint32 ERROR_DHCP_ADDRESS_NOT_AVAILABLE = 20011;
-
 	public const uint32 ERROR_DHCP_RANGE_FULL = 20012;
-
 	public const uint32 ERROR_DHCP_JET_ERROR = 20013;
-
 	public const uint32 ERROR_DHCP_CLIENT_EXISTS = 20014;
-
 	public const uint32 ERROR_DHCP_INVALID_DHCP_MESSAGE = 20015;
-
 	public const uint32 ERROR_DHCP_INVALID_DHCP_CLIENT = 20016;
-
 	public const uint32 ERROR_DHCP_SERVICE_PAUSED = 20017;
-
 	public const uint32 ERROR_DHCP_NOT_RESERVED_CLIENT = 20018;
-
 	public const uint32 ERROR_DHCP_RESERVED_CLIENT = 20019;
-
 	public const uint32 ERROR_DHCP_RANGE_TOO_SMALL = 20020;
-
 	public const uint32 ERROR_DHCP_IPRANGE_EXITS = 20021;
-
 	public const uint32 ERROR_DHCP_RESERVEDIP_EXITS = 20022;
-
 	public const uint32 ERROR_DHCP_INVALID_RANGE = 20023;
-
 	public const uint32 ERROR_DHCP_RANGE_EXTENDED = 20024;
-
 	public const uint32 ERROR_EXTEND_TOO_SMALL = 20025;
-
 	public const int32 WARNING_EXTENDED_LESS = 20026;
-
 	public const uint32 ERROR_DHCP_JET_CONV_REQUIRED = 20027;
-
 	public const uint32 ERROR_SERVER_INVALID_BOOT_FILE_TABLE = 20028;
-
 	public const uint32 ERROR_SERVER_UNKNOWN_BOOT_FILE_NAME = 20029;
-
 	public const uint32 ERROR_DHCP_SUPER_SCOPE_NAME_TOO_LONG = 20030;
-
 	public const uint32 ERROR_DHCP_IP_ADDRESS_IN_USE = 20032;
-
 	public const uint32 ERROR_DHCP_LOG_FILE_PATH_TOO_LONG = 20033;
-
 	public const uint32 ERROR_DHCP_UNSUPPORTED_CLIENT = 20034;
-
 	public const uint32 ERROR_DHCP_JET97_CONV_REQUIRED = 20036;
-
 	public const uint32 ERROR_DHCP_ROGUE_INIT_FAILED = 20037;
-
 	public const uint32 ERROR_DHCP_ROGUE_SAMSHUTDOWN = 20038;
-
 	public const uint32 ERROR_DHCP_ROGUE_NOT_AUTHORIZED = 20039;
-
 	public const uint32 ERROR_DHCP_ROGUE_DS_UNREACHABLE = 20040;
-
 	public const uint32 ERROR_DHCP_ROGUE_DS_CONFLICT = 20041;
-
 	public const uint32 ERROR_DHCP_ROGUE_NOT_OUR_ENTERPRISE = 20042;
-
 	public const uint32 ERROR_DHCP_ROGUE_STANDALONE_IN_DS = 20043;
-
 	public const uint32 ERROR_DHCP_CLASS_NOT_FOUND = 20044;
-
 	public const uint32 ERROR_DHCP_CLASS_ALREADY_EXISTS = 20045;
-
 	public const uint32 ERROR_DHCP_SCOPE_NAME_TOO_LONG = 20046;
-
 	public const uint32 ERROR_DHCP_DEFAULT_SCOPE_EXITS = 20047;
-
 	public const uint32 ERROR_DHCP_CANT_CHANGE_ATTRIBUTE = 20048;
-
 	public const uint32 ERROR_DHCP_IPRANGE_CONV_ILLEGAL = 20049;
-
 	public const uint32 ERROR_DHCP_NETWORK_CHANGED = 20050;
-
 	public const uint32 ERROR_DHCP_CANNOT_MODIFY_BINDINGS = 20051;
-
 	public const uint32 ERROR_DHCP_SUBNET_EXISTS = 20052;
-
 	public const uint32 ERROR_DHCP_MSCOPE_EXISTS = 20053;
-
 	public const uint32 ERROR_MSCOPE_RANGE_TOO_SMALL = 20054;
-
 	public const uint32 ERROR_DHCP_EXEMPTION_EXISTS = 20055;
-
 	public const uint32 ERROR_DHCP_EXEMPTION_NOT_PRESENT = 20056;
-
 	public const uint32 ERROR_DHCP_INVALID_PARAMETER_OPTION32 = 20057;
-
 	public const uint32 ERROR_DDS_NO_DS_AVAILABLE = 20070;
-
 	public const uint32 ERROR_DDS_NO_DHCP_ROOT = 20071;
-
 	public const uint32 ERROR_DDS_UNEXPECTED_ERROR = 20072;
-
 	public const uint32 ERROR_DDS_TOO_MANY_ERRORS = 20073;
-
 	public const uint32 ERROR_DDS_DHCP_SERVER_NOT_FOUND = 20074;
-
 	public const uint32 ERROR_DDS_OPTION_ALREADY_EXISTS = 20075;
-
 	public const uint32 ERROR_DDS_OPTION_DOES_NOT_EXIST = 20076;
-
 	public const uint32 ERROR_DDS_CLASS_EXISTS = 20077;
-
 	public const uint32 ERROR_DDS_CLASS_DOES_NOT_EXIST = 20078;
-
 	public const uint32 ERROR_DDS_SERVER_ALREADY_EXISTS = 20079;
-
 	public const uint32 ERROR_DDS_SERVER_DOES_NOT_EXIST = 20080;
-
 	public const uint32 ERROR_DDS_SERVER_ADDRESS_MISMATCH = 20081;
-
 	public const uint32 ERROR_DDS_SUBNET_EXISTS = 20082;
-
 	public const uint32 ERROR_DDS_SUBNET_HAS_DIFF_SSCOPE = 20083;
-
 	public const uint32 ERROR_DDS_SUBNET_NOT_PRESENT = 20084;
-
 	public const uint32 ERROR_DDS_RESERVATION_NOT_PRESENT = 20085;
-
 	public const uint32 ERROR_DDS_RESERVATION_CONFLICT = 20086;
-
 	public const uint32 ERROR_DDS_POSSIBLE_RANGE_CONFLICT = 20087;
-
 	public const uint32 ERROR_DDS_RANGE_DOES_NOT_EXIST = 20088;
-
 	public const uint32 ERROR_DHCP_DELETE_BUILTIN_CLASS = 20089;
-
 	public const uint32 ERROR_DHCP_INVALID_SUBNET_PREFIX = 20091;
-
 	public const uint32 ERROR_DHCP_INVALID_DELAY = 20092;
-
 	public const uint32 ERROR_DHCP_LINKLAYER_ADDRESS_EXISTS = 20093;
-
 	public const uint32 ERROR_DHCP_LINKLAYER_ADDRESS_RESERVATION_EXISTS = 20094;
-
 	public const uint32 ERROR_DHCP_LINKLAYER_ADDRESS_DOES_NOT_EXIST = 20095;
-
 	public const uint32 ERROR_DHCP_HARDWARE_ADDRESS_TYPE_ALREADY_EXEMPT = 20101;
-
 	public const uint32 ERROR_DHCP_UNDEFINED_HARDWARE_ADDRESS_TYPE = 20102;
-
 	public const uint32 ERROR_DHCP_OPTION_TYPE_MISMATCH = 20103;
-
 	public const uint32 ERROR_DHCP_POLICY_BAD_PARENT_EXPR = 20104;
-
 	public const uint32 ERROR_DHCP_POLICY_EXISTS = 20105;
-
 	public const uint32 ERROR_DHCP_POLICY_RANGE_EXISTS = 20106;
-
 	public const uint32 ERROR_DHCP_POLICY_RANGE_BAD = 20107;
-
 	public const uint32 ERROR_DHCP_RANGE_INVALID_IN_SERVER_POLICY = 20108;
-
 	public const uint32 ERROR_DHCP_INVALID_POLICY_EXPRESSION = 20109;
-
 	public const uint32 ERROR_DHCP_INVALID_PROCESSING_ORDER = 20110;
-
 	public const uint32 ERROR_DHCP_POLICY_NOT_FOUND = 20111;
-
 	public const uint32 ERROR_SCOPE_RANGE_POLICY_RANGE_CONFLICT = 20112;
-
 	public const uint32 ERROR_DHCP_FO_SCOPE_ALREADY_IN_RELATIONSHIP = 20113;
-
 	public const uint32 ERROR_DHCP_FO_RELATIONSHIP_EXISTS = 20114;
-
 	public const uint32 ERROR_DHCP_FO_RELATIONSHIP_DOES_NOT_EXIST = 20115;
-
 	public const uint32 ERROR_DHCP_FO_SCOPE_NOT_IN_RELATIONSHIP = 20116;
-
 	public const uint32 ERROR_DHCP_FO_RELATION_IS_SECONDARY = 20117;
-
 	public const uint32 ERROR_DHCP_FO_NOT_SUPPORTED = 20118;
-
 	public const uint32 ERROR_DHCP_FO_TIME_OUT_OF_SYNC = 20119;
-
 	public const uint32 ERROR_DHCP_FO_STATE_NOT_NORMAL = 20120;
-
 	public const uint32 ERROR_DHCP_NO_ADMIN_PERMISSION = 20121;
-
 	public const uint32 ERROR_DHCP_SERVER_NOT_REACHABLE = 20122;
-
 	public const uint32 ERROR_DHCP_SERVER_NOT_RUNNING = 20123;
-
 	public const uint32 ERROR_DHCP_SERVER_NAME_NOT_RESOLVED = 20124;
-
 	public const uint32 ERROR_DHCP_FO_RELATIONSHIP_NAME_TOO_LONG = 20125;
-
 	public const uint32 ERROR_DHCP_REACHED_END_OF_SELECTION = 20126;
-
 	public const uint32 ERROR_DHCP_FO_ADDSCOPE_LEASES_NOT_SYNCED = 20127;
-
 	public const uint32 ERROR_DHCP_FO_MAX_RELATIONSHIPS = 20128;
-
 	public const uint32 ERROR_DHCP_FO_IPRANGE_TYPE_CONV_ILLEGAL = 20129;
-
 	public const uint32 ERROR_DHCP_FO_MAX_ADD_SCOPES = 20130;
-
 	public const uint32 ERROR_DHCP_FO_BOOT_NOT_SUPPORTED = 20131;
-
 	public const uint32 ERROR_DHCP_FO_RANGE_PART_OF_REL = 20132;
-
 	public const uint32 ERROR_DHCP_FO_SCOPE_SYNC_IN_PROGRESS = 20133;
-
 	public const uint32 ERROR_DHCP_FO_FEATURE_NOT_SUPPORTED = 20134;
-
 	public const uint32 ERROR_DHCP_POLICY_FQDN_RANGE_UNSUPPORTED = 20135;
-
 	public const uint32 ERROR_DHCP_POLICY_FQDN_OPTION_UNSUPPORTED = 20136;
-
 	public const uint32 ERROR_DHCP_POLICY_EDIT_FQDN_UNSUPPORTED = 20137;
-
 	public const uint32 ERROR_DHCP_NAP_NOT_SUPPORTED = 20138;
-
 	public const uint32 ERROR_LAST_DHCP_SERVER_ERROR = 20139;
-
 	public const uint32 DHCP_SUBNET_INFO_VQ_FLAG_QUARANTINE = 1;
-
 	public const uint32 MAX_PATTERN_LENGTH = 255;
-
 	public const uint32 MAC_ADDRESS_LENGTH = 6;
-
 	public const uint32 HWTYPE_ETHERNET_10MB = 1;
-
 	public const uint32 FILTER_STATUS_NONE = 1;
-
 	public const uint32 FILTER_STATUS_FULL_MATCH_IN_ALLOW_LIST = 2;
-
 	public const uint32 FILTER_STATUS_FULL_MATCH_IN_DENY_LIST = 4;
-
 	public const uint32 FILTER_STATUS_WILDCARD_MATCH_IN_ALLOW_LIST = 8;
-
 	public const uint32 FILTER_STATUS_WILDCARD_MATCH_IN_DENY_LIST = 16;
-
 	public const uint32 Set_APIProtocolSupport = 1;
-
 	public const uint32 Set_DatabaseName = 2;
-
 	public const uint32 Set_DatabasePath = 4;
-
 	public const uint32 Set_BackupPath = 8;
-
 	public const uint32 Set_BackupInterval = 16;
-
 	public const uint32 Set_DatabaseLoggingFlag = 32;
-
 	public const uint32 Set_RestoreFlag = 64;
-
 	public const uint32 Set_DatabaseCleanupInterval = 128;
-
 	public const uint32 Set_DebugFlag = 256;
-
 	public const uint32 Set_PingRetries = 512;
-
 	public const uint32 Set_BootFileTable = 1024;
-
 	public const uint32 Set_AuditLogState = 2048;
-
 	public const uint32 Set_QuarantineON = 4096;
-
 	public const uint32 Set_QuarantineDefFail = 8192;
-
 	public const uint32 CLIENT_TYPE_UNSPECIFIED = 0;
-
 	public const uint32 CLIENT_TYPE_DHCP = 1;
-
 	public const uint32 CLIENT_TYPE_BOOTP = 2;
-
 	public const uint32 CLIENT_TYPE_RESERVATION_FLAG = 4;
-
 	public const uint32 CLIENT_TYPE_NONE = 100;
-
 	public const uint32 Set_UnicastFlag = 1;
-
 	public const uint32 Set_RapidCommitFlag = 2;
-
 	public const uint32 Set_PreferredLifetime = 4;
-
 	public const uint32 Set_ValidLifetime = 8;
-
 	public const uint32 Set_T1 = 16;
-
 	public const uint32 Set_T2 = 32;
-
 	public const uint32 Set_PreferredLifetimeIATA = 64;
-
 	public const uint32 Set_ValidLifetimeIATA = 128;
-
 	public const uint32 V5_ADDRESS_STATE_OFFERED = 0;
-
 	public const uint32 V5_ADDRESS_STATE_ACTIVE = 1;
-
 	public const uint32 V5_ADDRESS_STATE_DECLINED = 2;
-
 	public const uint32 V5_ADDRESS_STATE_DOOM = 3;
-
 	public const uint32 V5_ADDRESS_BIT_DELETED = 128;
-
 	public const uint32 V5_ADDRESS_BIT_UNREGISTERED = 64;
-
 	public const uint32 V5_ADDRESS_BIT_BOTH_REC = 32;
-
 	public const uint32 V5_ADDRESS_EX_BIT_DISABLE_PTR_RR = 1;
-
 	public const uint32 DNS_FLAG_ENABLED = 1;
-
 	public const uint32 DNS_FLAG_UPDATE_DOWNLEVEL = 2;
-
 	public const uint32 DNS_FLAG_CLEANUP_EXPIRED = 4;
-
 	public const uint32 DNS_FLAG_UPDATE_BOTH_ALWAYS = 16;
-
 	public const uint32 DNS_FLAG_UPDATE_DHCID = 32;
-
 	public const uint32 DNS_FLAG_DISABLE_PTR_UPDATE = 64;
-
 	public const uint32 DNS_FLAG_HAS_DNS_SUFFIX = 128;
-
 	public const uint32 DHCP_OPT_ENUM_IGNORE_VENDOR = 1;
-
 	public const uint32 DHCP_OPT_ENUM_USE_CLASSNAME = 2;
-
 	public const uint32 DHCP_FLAGS_DONT_ACCESS_DS = 1;
-
 	public const uint32 DHCP_FLAGS_DONT_DO_RPC = 2;
-
 	public const uint32 DHCP_FLAGS_OPTION_IS_VENDOR = 3;
-
 	public const uint32 DHCP_ATTRIB_BOOL_IS_ROGUE = 1;
-
 	public const uint32 DHCP_ATTRIB_BOOL_IS_DYNBOOTP = 2;
-
 	public const uint32 DHCP_ATTRIB_BOOL_IS_PART_OF_DSDC = 3;
-
 	public const uint32 DHCP_ATTRIB_BOOL_IS_BINDING_AWARE = 4;
-
 	public const uint32 DHCP_ATTRIB_BOOL_IS_ADMIN = 5;
-
 	public const uint32 DHCP_ATTRIB_ULONG_RESTORE_STATUS = 6;
-
 	public const uint32 DHCP_ATTRIB_TYPE_BOOL = 1;
-
 	public const uint32 DHCP_ATTRIB_TYPE_ULONG = 2;
-
 	public const uint32 DHCP_ENDPOINT_FLAG_CANT_MODIFY = 1;
-
 	public const uint32 QUARANTIN_OPTION_BASE = 43220;
-
 	public const uint32 QUARANTINE_SCOPE_QUARPROFILE_OPTION = 43221;
-
 	public const uint32 QUARANTINE_CONFIG_OPTION = 43222;
-
 	public const uint32 ADDRESS_TYPE_IANA = 0;
-
 	public const uint32 ADDRESS_TYPE_IATA = 1;
-
 	public const uint32 DHCP_MIN_DELAY = 0;
-
 	public const uint32 DHCP_MAX_DELAY = 1000;
-
 	public const uint32 DHCP_FAILOVER_DELETE_SCOPES = 1;
-
 	public const uint32 DHCP_FAILOVER_MAX_NUM_ADD_SCOPES = 400;
-
 	public const uint32 DHCP_FAILOVER_MAX_NUM_REL = 31;
-
 	public const uint32 MCLT = 1;
-
 	public const uint32 SAFEPERIOD = 2;
-
 	public const uint32 CHANGESTATE = 4;
-
 	public const uint32 PERCENTAGE = 8;
-
 	public const uint32 MODE = 16;
-
 	public const uint32 PREVSTATE = 32;
-
 	public const uint32 SHAREDSECRET = 64;
-
 	public const uint32 DHCP_CONTROL_START = 1;
-
 	public const uint32 DHCP_CONTROL_STOP = 2;
-
 	public const uint32 DHCP_CONTROL_PAUSE = 3;
-
 	public const uint32 DHCP_CONTROL_CONTINUE = 4;
-
 	public const uint32 DHCP_DROP_DUPLICATE = 1;
-
 	public const uint32 DHCP_DROP_NOMEM = 2;
-
 	public const uint32 DHCP_DROP_INTERNAL_ERROR = 3;
-
 	public const uint32 DHCP_DROP_TIMEOUT = 4;
-
 	public const uint32 DHCP_DROP_UNAUTH = 5;
-
 	public const uint32 DHCP_DROP_PAUSED = 6;
-
 	public const uint32 DHCP_DROP_NO_SUBNETS = 7;
-
 	public const uint32 DHCP_DROP_INVALID = 8;
-
 	public const uint32 DHCP_DROP_WRONG_SERVER = 9;
-
 	public const uint32 DHCP_DROP_NOADDRESS = 10;
-
 	public const uint32 DHCP_DROP_PROCESSED = 11;
-
 	public const uint32 DHCP_DROP_GEN_FAILURE = 256;
-
 	public const uint32 DHCP_SEND_PACKET = 268435456;
-
 	public const uint32 DHCP_PROB_CONFLICT = 536870913;
-
 	public const uint32 DHCP_PROB_DECLINE = 536870914;
-
 	public const uint32 DHCP_PROB_RELEASE = 536870915;
-
 	public const uint32 DHCP_PROB_NACKED = 536870916;
-
 	public const uint32 DHCP_GIVE_ADDRESS_NEW = 805306369;
-
 	public const uint32 DHCP_GIVE_ADDRESS_OLD = 805306370;
-
 	public const uint32 DHCP_CLIENT_BOOTP = 805306371;
-
 	public const uint32 DHCP_CLIENT_DHCP = 805306372;
-
 	public const uint32 DHCPV6_OPTION_CLIENTID = 1;
-
 	public const uint32 DHCPV6_OPTION_SERVERID = 2;
-
 	public const uint32 DHCPV6_OPTION_IA_NA = 3;
-
 	public const uint32 DHCPV6_OPTION_IA_TA = 4;
-
 	public const uint32 DHCPV6_OPTION_ORO = 6;
-
 	public const uint32 DHCPV6_OPTION_PREFERENCE = 7;
-
 	public const uint32 DHCPV6_OPTION_UNICAST = 12;
-
 	public const uint32 DHCPV6_OPTION_RAPID_COMMIT = 14;
-
 	public const uint32 DHCPV6_OPTION_USER_CLASS = 15;
-
 	public const uint32 DHCPV6_OPTION_VENDOR_CLASS = 16;
-
 	public const uint32 DHCPV6_OPTION_VENDOR_OPTS = 17;
-
 	public const uint32 DHCPV6_OPTION_RECONF_MSG = 19;
-
 	public const uint32 DHCPV6_OPTION_SIP_SERVERS_NAMES = 21;
-
 	public const uint32 DHCPV6_OPTION_SIP_SERVERS_ADDRS = 22;
-
 	public const uint32 DHCPV6_OPTION_DNS_SERVERS = 23;
-
 	public const uint32 DHCPV6_OPTION_DOMAIN_LIST = 24;
-
 	public const uint32 DHCPV6_OPTION_IA_PD = 25;
-
 	public const uint32 DHCPV6_OPTION_NIS_SERVERS = 27;
-
 	public const uint32 DHCPV6_OPTION_NISP_SERVERS = 28;
-
 	public const uint32 DHCPV6_OPTION_NIS_DOMAIN_NAME = 29;
-
 	public const uint32 DHCPV6_OPTION_NISP_DOMAIN_NAME = 30;
-
 }
 #endregion
 
@@ -1141,7 +821,6 @@ public struct DHCP_SUBNET_ELEMENT_DATA
 		public DHCP_IP_RANGE* ExcludeIpRange;
 		public DHCP_IP_CLUSTER* IpUsedCluster;
 	}
-
 	public DHCP_SUBNET_ELEMENT_TYPE ElementType;
 	public DHCP_SUBNET_ELEMENT_UNION Element;
 }
@@ -1220,7 +899,6 @@ public struct DHCP_OPTION_DATA_ELEMENT
 		public DHCP_BINARY_DATA EncapsulatedDataOption;
 		public PWSTR Ipv6AddressDataOption;
 	}
-
 	public DHCP_OPTION_DATA_TYPE OptionType;
 	public DHCP_OPTION_ELEMENT_UNION Element;
 }
@@ -1287,7 +965,6 @@ public struct DHCP_OPTION_SCOPE_INFO
 		public DHCP_RESERVED_SCOPE ReservedScopeInfo;
 		public PWSTR MScopeInfo;
 	}
-
 	public DHCP_OPTION_SCOPE_TYPE ScopeType;
 	public _DHCP_OPTION_SCOPE_UNION ScopeInfo;
 }
@@ -1309,7 +986,6 @@ public struct DHCP_OPTION_SCOPE_INFO6
 		public DHCP_IPV6_ADDRESS SubnetScopeInfo;
 		public DHCP_RESERVED_SCOPE6 ReservedScopeInfo;
 	}
-
 	public DHCP_OPTION_SCOPE_TYPE6 ScopeType;
 	public DHCP_OPTION_SCOPE_UNION6 ScopeInfo;
 }
@@ -1430,7 +1106,6 @@ public struct DHCP_SEARCH_INFO
 		public DHCP_BINARY_DATA ClientHardwareAddress;
 		public PWSTR ClientName;
 	}
-
 	public DHCP_SEARCH_INFO_TYPE SearchType;
 	public DHCP_CLIENT_SEARCH_UNION SearchInfo;
 }
@@ -1452,7 +1127,6 @@ public struct DHCP_PROPERTY
 		public PWSTR StringValue;
 		public DHCP_BINARY_DATA BinaryValue;
 	}
-
 	public DHCP_PROPERTY_ID ID;
 	public DHCP_PROPERTY_TYPE Type;
 	public _DHCP_PROPERTY_VALUE_UNION Value;
@@ -1696,7 +1370,6 @@ public struct DHCP_SUBNET_ELEMENT_DATA_V4
 		public DHCP_IP_RANGE* ExcludeIpRange;
 		public DHCP_IP_CLUSTER* IpUsedCluster;
 	}
-
 	public DHCP_SUBNET_ELEMENT_TYPE ElementType;
 	public DHCP_SUBNET_ELEMENT_UNION_V4 Element;
 }
@@ -1833,7 +1506,6 @@ public struct DHCP_ALL_OPTIONS
 		public PWSTR VendorName;
 		public PWSTR ClassName;
 	}
-
 	public uint32 Flags;
 	public DHCP_OPTION_ARRAY* NonVendorOptions;
 	public uint32 NumVendorOptions;
@@ -1851,7 +1523,6 @@ public struct DHCP_ALL_OPTION_VALUES
 		public BOOL IsVendor;
 		public DHCP_OPTION_VALUE_ARRAY* OptionsArray;
 	}
-
 	public uint32 Flags;
 	public uint32 NumElements;
 	public _Anonymous_e__Struct* Options;
@@ -1868,7 +1539,6 @@ public struct DHCP_ALL_OPTION_VALUES_PB
 		public BOOL IsVendor;
 		public DHCP_OPTION_VALUE_ARRAY* OptionsArray;
 	}
-
 	public uint32 Flags;
 	public uint32 NumElements;
 	public _Anonymous_e__Struct* Options;
@@ -1903,7 +1573,6 @@ public struct DHCP_ATTRIB
 		public BOOL DhcpAttribBool;
 		public uint32 DhcpAttribUlong;
 	}
-
 	public uint32 DhcpAttribId;
 	public uint32 DhcpAttribType;
 	public using _Anonymous_e__Union Anonymous;
@@ -1937,7 +1606,6 @@ public struct DHCP_SUBNET_ELEMENT_DATA_V5
 		public DHCP_IP_RANGE* ExcludeIpRange;
 		public DHCP_IP_CLUSTER* IpUsedCluster;
 	}
-
 	public DHCP_SUBNET_ELEMENT_TYPE ElementType;
 	public _DHCP_SUBNET_ELEMENT_UNION_V5 Element;
 }
@@ -2084,7 +1752,6 @@ public struct DHCP_SUBNET_ELEMENT_DATA_V6
 		public DHCP_IP_RESERVATION_V6* ReservedIp;
 		public DHCP_IP_RANGE_V6* ExcludeIpRange;
 	}
-
 	public DHCP_SUBNET_ELEMENT_TYPE_V6 ElementType;
 	public DHCP_SUBNET_ELEMENT_UNION_V6 Element;
 }
@@ -2139,7 +1806,6 @@ public struct DHCP_SEARCH_INFO_V6
 		public DHCP_BINARY_DATA ClientDUID;
 		public PWSTR ClientName;
 	}
-
 	public DHCP_SEARCH_INFO_TYPE_V6 SearchType;
 	public _DHCP_CLIENT_SEARCH_UNION_V6 SearchInfo;
 }

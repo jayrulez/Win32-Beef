@@ -9,7 +9,6 @@ namespace Win32.AI.MachineLearning.WinML;
 public static
 {
 	public const uint32 WINML_TENSOR_DIMENSION_COUNT_MAX = 4;
-
 }
 #endregion
 
@@ -168,7 +167,6 @@ public struct WINML_SEQUENCE_BINDING_DESC
 		public float* pFloats;
 		public double* pDoubles;
 	}
-
 	public uint32 ElementCount;
 	public WINML_TENSOR_DATA_TYPE ElementType;
 	public using _Anonymous_e__Union Anonymous;
@@ -185,14 +183,12 @@ public struct WINML_MAP_BINDING_DESC
 		public float* pFloatFields;
 		public double* pDoubleFields;
 	}
-
 	[CRepr, Union]
 	public struct _Anonymous1_e__Union
 	{
 		public PWSTR* pStringKeys;
 		public int64* pIntKeys;
 	}
-
 	public uint32 ElementCount;
 	public WINML_TENSOR_DATA_TYPE KeyType;
 	public _Anonymous1_e__Union Anonymous1;
@@ -231,7 +227,6 @@ public struct WINML_BINDING_DESC
 		public WINML_IMAGE_BINDING_DESC Image;
 		public WINML_RESOURCE_BINDING_DESC Resource;
 	}
-
 	public PWSTR Name;
 	public WINML_BINDING_TYPE BindType;
 	public using _Anonymous_e__Union Anonymous;
@@ -277,7 +272,6 @@ public struct WINML_VARIABLE_DESC
 		public WINML_MAP_VARIABLE_DESC Map;
 		public WINML_IMAGE_VARIABLE_DESC Image;
 	}
-
 	public PWSTR Name;
 	public PWSTR Description;
 	public WINML_FEATURE_TYPE FeatureType;
@@ -304,7 +298,6 @@ public struct MLOperatorEdgeDescription
 		public uint64 reserved;
 		public MLOperatorTensorDataType tensorDataType;
 	}
-
 	public MLOperatorEdgeType edgeType;
 	public using _Anonymous_e__Union Anonymous;
 }
@@ -319,7 +312,6 @@ public struct MLOperatorSchemaEdgeDescription
 		public PSTR typeLabel;
 		public MLOperatorEdgeDescription edgeDescription;
 	}
-
 	public MLOperatorParameterOptions options;
 	public MLOperatorSchemaEdgeTypeFormat typeFormat;
 	public using _Anonymous_e__Union Anonymous;
@@ -352,7 +344,6 @@ public struct MLOperatorAttributeNameValue
 		public int8** strings;
 		public float* floats;
 	}
-
 	public PSTR name;
 	public MLOperatorAttributeType type;
 	public uint32 valueCount;

@@ -9,7 +9,6 @@ using Win32.System.PasswordManagement;
 using Win32.System.Com;
 using Win32.System.WindowsProgramming;
 using System;
-using System.Interop;
 
 namespace Win32.Security.Authentication.Identity;
 
@@ -17,2601 +16,1303 @@ namespace Win32.Security.Authentication.Identity;
 public static
 {
 	public const uint32 ISSP_LEVEL = 32;
-
 	public const uint32 ISSP_MODE = 1;
-
 	public const uint32 SECPKG_FLAG_INTEGRITY = 1;
-
 	public const uint32 SECPKG_FLAG_PRIVACY = 2;
-
 	public const uint32 SECPKG_FLAG_TOKEN_ONLY = 4;
-
 	public const uint32 SECPKG_FLAG_DATAGRAM = 8;
-
 	public const uint32 SECPKG_FLAG_CONNECTION = 16;
-
 	public const uint32 SECPKG_FLAG_MULTI_REQUIRED = 32;
-
 	public const uint32 SECPKG_FLAG_CLIENT_ONLY = 64;
-
 	public const uint32 SECPKG_FLAG_EXTENDED_ERROR = 128;
-
 	public const uint32 SECPKG_FLAG_IMPERSONATION = 256;
-
 	public const uint32 SECPKG_FLAG_ACCEPT_WIN32_NAME = 512;
-
 	public const uint32 SECPKG_FLAG_STREAM = 1024;
-
 	public const uint32 SECPKG_FLAG_NEGOTIABLE = 2048;
-
 	public const uint32 SECPKG_FLAG_GSS_COMPATIBLE = 4096;
-
 	public const uint32 SECPKG_FLAG_LOGON = 8192;
-
 	public const uint32 SECPKG_FLAG_ASCII_BUFFERS = 16384;
-
 	public const uint32 SECPKG_FLAG_FRAGMENT = 32768;
-
 	public const uint32 SECPKG_FLAG_MUTUAL_AUTH = 65536;
-
 	public const uint32 SECPKG_FLAG_DELEGATION = 131072;
-
 	public const uint32 SECPKG_FLAG_READONLY_WITH_CHECKSUM = 262144;
-
 	public const uint32 SECPKG_FLAG_RESTRICTED_TOKENS = 524288;
-
 	public const uint32 SECPKG_FLAG_NEGO_EXTENDER = 1048576;
-
 	public const uint32 SECPKG_FLAG_NEGOTIABLE2 = 2097152;
-
 	public const uint32 SECPKG_FLAG_APPCONTAINER_PASSTHROUGH = 4194304;
-
 	public const uint32 SECPKG_FLAG_APPCONTAINER_CHECKS = 8388608;
-
 	public const uint32 SECPKG_FLAG_CREDENTIAL_ISOLATION_ENABLED = 16777216;
-
 	public const uint32 SECPKG_FLAG_APPLY_LOOPBACK = 33554432;
-
 	public const uint32 SECPKG_ID_NONE = 65535;
-
 	public const uint32 SECPKG_CALLFLAGS_APPCONTAINER = 1;
-
 	public const uint32 SECPKG_CALLFLAGS_APPCONTAINER_AUTHCAPABLE = 2;
-
 	public const uint32 SECPKG_CALLFLAGS_FORCE_SUPPLIED = 4;
-
 	public const uint32 SECPKG_CALLFLAGS_APPCONTAINER_UPNCAPABLE = 8;
-
 	public const uint32 SECBUFFER_VERSION = 0;
-
 	public const uint32 SECBUFFER_EMPTY = 0;
-
 	public const uint32 SECBUFFER_DATA = 1;
-
 	public const uint32 SECBUFFER_TOKEN = 2;
-
 	public const uint32 SECBUFFER_PKG_PARAMS = 3;
-
 	public const uint32 SECBUFFER_MISSING = 4;
-
 	public const uint32 SECBUFFER_EXTRA = 5;
-
 	public const uint32 SECBUFFER_STREAM_TRAILER = 6;
-
 	public const uint32 SECBUFFER_STREAM_HEADER = 7;
-
 	public const uint32 SECBUFFER_NEGOTIATION_INFO = 8;
-
 	public const uint32 SECBUFFER_PADDING = 9;
-
 	public const uint32 SECBUFFER_STREAM = 10;
-
 	public const uint32 SECBUFFER_MECHLIST = 11;
-
 	public const uint32 SECBUFFER_MECHLIST_SIGNATURE = 12;
-
 	public const uint32 SECBUFFER_TARGET = 13;
-
 	public const uint32 SECBUFFER_CHANNEL_BINDINGS = 14;
-
 	public const uint32 SECBUFFER_CHANGE_PASS_RESPONSE = 15;
-
 	public const uint32 SECBUFFER_TARGET_HOST = 16;
-
 	public const uint32 SECBUFFER_ALERT = 17;
-
 	public const uint32 SECBUFFER_APPLICATION_PROTOCOLS = 18;
-
 	public const uint32 SECBUFFER_SRTP_PROTECTION_PROFILES = 19;
-
 	public const uint32 SECBUFFER_SRTP_MASTER_KEY_IDENTIFIER = 20;
-
 	public const uint32 SECBUFFER_TOKEN_BINDING = 21;
-
 	public const uint32 SECBUFFER_PRESHARED_KEY = 22;
-
 	public const uint32 SECBUFFER_PRESHARED_KEY_IDENTITY = 23;
-
 	public const uint32 SECBUFFER_DTLS_MTU = 24;
-
 	public const uint32 SECBUFFER_SEND_GENERIC_TLS_EXTENSION = 25;
-
 	public const uint32 SECBUFFER_SUBSCRIBE_GENERIC_TLS_EXTENSION = 26;
-
 	public const uint32 SECBUFFER_FLAGS = 27;
-
 	public const uint32 SECBUFFER_TRAFFIC_SECRETS = 28;
-
 	public const uint32 SECBUFFER_ATTRMASK = 4026531840;
-
 	public const uint32 SECBUFFER_READONLY = 2147483648;
-
 	public const uint32 SECBUFFER_READONLY_WITH_CHECKSUM = 268435456;
-
 	public const uint32 SECBUFFER_RESERVED = 1610612736;
-
 	public const uint32 SZ_ALG_MAX_SIZE = 64;
-
 	public const uint32 SECURITY_NATIVE_DREP = 16;
-
 	public const uint32 SECURITY_NETWORK_DREP = 0;
-
 	public const uint32 SECPKG_CRED_BOTH = 3;
-
 	public const uint32 SECPKG_CRED_DEFAULT = 4;
-
 	public const uint32 SECPKG_CRED_RESERVED = 4026531840;
-
 	public const uint32 SECPKG_CRED_AUTOLOGON_RESTRICTED = 16;
-
 	public const uint32 SECPKG_CRED_PROCESS_POLICY_ONLY = 32;
-
 	public const uint32 ISC_REQ_DELEGATE = 1;
-
 	public const uint32 ISC_REQ_MUTUAL_AUTH = 2;
-
 	public const uint32 ISC_REQ_REPLAY_DETECT = 4;
-
 	public const uint32 ISC_REQ_SEQUENCE_DETECT = 8;
-
 	public const uint32 ISC_REQ_CONFIDENTIALITY = 16;
-
 	public const uint32 ISC_REQ_USE_SESSION_KEY = 32;
-
 	public const uint32 ISC_REQ_PROMPT_FOR_CREDS = 64;
-
 	public const uint32 ISC_REQ_USE_SUPPLIED_CREDS = 128;
-
 	public const uint32 ISC_REQ_ALLOCATE_MEMORY = 256;
-
 	public const uint32 ISC_REQ_USE_DCE_STYLE = 512;
-
 	public const uint32 ISC_REQ_DATAGRAM = 1024;
-
 	public const uint32 ISC_REQ_CONNECTION = 2048;
-
 	public const uint32 ISC_REQ_CALL_LEVEL = 4096;
-
 	public const uint32 ISC_REQ_FRAGMENT_SUPPLIED = 8192;
-
 	public const uint32 ISC_REQ_EXTENDED_ERROR = 16384;
-
 	public const uint32 ISC_REQ_STREAM = 32768;
-
 	public const uint32 ISC_REQ_INTEGRITY = 65536;
-
 	public const uint32 ISC_REQ_IDENTIFY = 131072;
-
 	public const uint32 ISC_REQ_NULL_SESSION = 262144;
-
 	public const uint32 ISC_REQ_MANUAL_CRED_VALIDATION = 524288;
-
 	public const uint32 ISC_REQ_RESERVED1 = 1048576;
-
 	public const uint32 ISC_REQ_FRAGMENT_TO_FIT = 2097152;
-
 	public const uint32 ISC_REQ_FORWARD_CREDENTIALS = 4194304;
-
 	public const uint32 ISC_REQ_NO_INTEGRITY = 8388608;
-
 	public const uint32 ISC_REQ_USE_HTTP_STYLE = 16777216;
-
 	public const uint32 ISC_REQ_UNVERIFIED_TARGET_NAME = 536870912;
-
 	public const uint32 ISC_REQ_CONFIDENTIALITY_ONLY = 1073741824;
-
 	public const uint64 ISC_REQ_MESSAGES = 4294967296;
-
 	public const uint64 ISC_REQ_DEFERRED_CRED_VALIDATION = 8589934592;
-
 	public const uint32 ISC_RET_DELEGATE = 1;
-
 	public const uint32 ISC_RET_MUTUAL_AUTH = 2;
-
 	public const uint32 ISC_RET_REPLAY_DETECT = 4;
-
 	public const uint32 ISC_RET_SEQUENCE_DETECT = 8;
-
 	public const uint32 ISC_RET_CONFIDENTIALITY = 16;
-
 	public const uint32 ISC_RET_USE_SESSION_KEY = 32;
-
 	public const uint32 ISC_RET_USED_COLLECTED_CREDS = 64;
-
 	public const uint32 ISC_RET_USED_SUPPLIED_CREDS = 128;
-
 	public const uint32 ISC_RET_ALLOCATED_MEMORY = 256;
-
 	public const uint32 ISC_RET_USED_DCE_STYLE = 512;
-
 	public const uint32 ISC_RET_DATAGRAM = 1024;
-
 	public const uint32 ISC_RET_CONNECTION = 2048;
-
 	public const uint32 ISC_RET_INTERMEDIATE_RETURN = 4096;
-
 	public const uint32 ISC_RET_CALL_LEVEL = 8192;
-
 	public const uint32 ISC_RET_EXTENDED_ERROR = 16384;
-
 	public const uint32 ISC_RET_STREAM = 32768;
-
 	public const uint32 ISC_RET_INTEGRITY = 65536;
-
 	public const uint32 ISC_RET_IDENTIFY = 131072;
-
 	public const uint32 ISC_RET_NULL_SESSION = 262144;
-
 	public const uint32 ISC_RET_MANUAL_CRED_VALIDATION = 524288;
-
 	public const uint32 ISC_RET_RESERVED1 = 1048576;
-
 	public const uint32 ISC_RET_FRAGMENT_ONLY = 2097152;
-
 	public const uint32 ISC_RET_FORWARD_CREDENTIALS = 4194304;
-
 	public const uint32 ISC_RET_USED_HTTP_STYLE = 16777216;
-
 	public const uint32 ISC_RET_NO_ADDITIONAL_TOKEN = 33554432;
-
 	public const uint32 ISC_RET_REAUTHENTICATION = 134217728;
-
 	public const uint32 ISC_RET_CONFIDENTIALITY_ONLY = 1073741824;
-
 	public const uint64 ISC_RET_MESSAGES = 4294967296;
-
 	public const uint64 ISC_RET_DEFERRED_CRED_VALIDATION = 8589934592;
-
 	public const uint32 ASC_REQ_MUTUAL_AUTH = 2;
-
 	public const uint32 ASC_REQ_CONFIDENTIALITY = 16;
-
 	public const uint32 ASC_REQ_USE_SESSION_KEY = 32;
-
 	public const uint32 ASC_REQ_SESSION_TICKET = 64;
-
 	public const uint32 ASC_REQ_USE_DCE_STYLE = 512;
-
 	public const uint32 ASC_REQ_DATAGRAM = 1024;
-
 	public const uint32 ASC_REQ_CALL_LEVEL = 4096;
-
 	public const uint32 ASC_REQ_FRAGMENT_SUPPLIED = 8192;
-
 	public const uint32 ASC_REQ_INTEGRITY = 131072;
-
 	public const uint32 ASC_REQ_LICENSING = 262144;
-
 	public const uint32 ASC_REQ_IDENTIFY = 524288;
-
 	public const uint32 ASC_REQ_ALLOW_NULL_SESSION = 1048576;
-
 	public const uint32 ASC_REQ_ALLOW_NON_USER_LOGONS = 2097152;
-
 	public const uint32 ASC_REQ_ALLOW_CONTEXT_REPLAY = 4194304;
-
 	public const uint32 ASC_REQ_FRAGMENT_TO_FIT = 8388608;
-
 	public const uint32 ASC_REQ_NO_TOKEN = 16777216;
-
 	public const uint32 ASC_REQ_PROXY_BINDINGS = 67108864;
-
 	public const uint32 ASC_REQ_ALLOW_MISSING_BINDINGS = 268435456;
-
 	public const uint64 ASC_REQ_MESSAGES = 4294967296;
-
 	public const uint32 ASC_RET_DELEGATE = 1;
-
 	public const uint32 ASC_RET_MUTUAL_AUTH = 2;
-
 	public const uint32 ASC_RET_REPLAY_DETECT = 4;
-
 	public const uint32 ASC_RET_SEQUENCE_DETECT = 8;
-
 	public const uint32 ASC_RET_CONFIDENTIALITY = 16;
-
 	public const uint32 ASC_RET_USE_SESSION_KEY = 32;
-
 	public const uint32 ASC_RET_SESSION_TICKET = 64;
-
 	public const uint32 ASC_RET_ALLOCATED_MEMORY = 256;
-
 	public const uint32 ASC_RET_USED_DCE_STYLE = 512;
-
 	public const uint32 ASC_RET_DATAGRAM = 1024;
-
 	public const uint32 ASC_RET_CONNECTION = 2048;
-
 	public const uint32 ASC_RET_CALL_LEVEL = 8192;
-
 	public const uint32 ASC_RET_THIRD_LEG_FAILED = 16384;
-
 	public const uint32 ASC_RET_EXTENDED_ERROR = 32768;
-
 	public const uint32 ASC_RET_STREAM = 65536;
-
 	public const uint32 ASC_RET_INTEGRITY = 131072;
-
 	public const uint32 ASC_RET_LICENSING = 262144;
-
 	public const uint32 ASC_RET_IDENTIFY = 524288;
-
 	public const uint32 ASC_RET_NULL_SESSION = 1048576;
-
 	public const uint32 ASC_RET_ALLOW_NON_USER_LOGONS = 2097152;
-
 	public const uint32 ASC_RET_ALLOW_CONTEXT_REPLAY = 4194304;
-
 	public const uint32 ASC_RET_FRAGMENT_ONLY = 8388608;
-
 	public const uint32 ASC_RET_NO_TOKEN = 16777216;
-
 	public const uint32 ASC_RET_NO_ADDITIONAL_TOKEN = 33554432;
-
 	public const uint64 ASC_RET_MESSAGES = 4294967296;
-
 	public const uint32 SECPKG_CRED_ATTR_NAMES = 1;
-
 	public const uint32 SECPKG_CRED_ATTR_SSI_PROVIDER = 2;
-
 	public const uint32 SECPKG_CRED_ATTR_KDC_PROXY_SETTINGS = 3;
-
 	public const uint32 SECPKG_CRED_ATTR_CERT = 4;
-
 	public const uint32 SECPKG_CRED_ATTR_PAC_BYPASS = 5;
-
 	public const uint32 KDC_PROXY_SETTINGS_V1 = 1;
-
 	public const uint32 KDC_PROXY_SETTINGS_FLAGS_FORCEPROXY = 1;
-
 	public const uint32 SECPKG_ATTR_PROTO_INFO = 7;
-
 	public const uint32 SECPKG_ATTR_USER_FLAGS = 11;
-
 	public const uint32 SECPKG_ATTR_USE_VALIDATED = 15;
-
 	public const uint32 SECPKG_ATTR_CREDENTIAL_NAME = 16;
-
 	public const uint32 SECPKG_ATTR_TARGET = 19;
-
 	public const uint32 SECPKG_ATTR_AUTHENTICATION_ID = 20;
-
 	public const uint32 SECPKG_ATTR_LOGOFF_TIME = 21;
-
 	public const uint32 SECPKG_ATTR_NEGO_KEYS = 22;
-
 	public const uint32 SECPKG_ATTR_PROMPTING_NEEDED = 24;
-
 	public const uint32 SECPKG_ATTR_NEGO_PKG_INFO = 31;
-
 	public const uint32 SECPKG_ATTR_NEGO_STATUS = 32;
-
 	public const uint32 SECPKG_ATTR_CONTEXT_DELETED = 33;
-
 	public const uint32 SECPKG_ATTR_APPLICATION_PROTOCOL = 35;
-
 	public const uint32 SECPKG_ATTR_NEGOTIATED_TLS_EXTENSIONS = 36;
-
 	public const uint32 SECPKG_ATTR_IS_LOOPBACK = 37;
-
 	public const uint32 SECPKG_ATTR_NEGO_INFO_FLAG_NO_KERBEROS = 1;
-
 	public const uint32 SECPKG_ATTR_NEGO_INFO_FLAG_NO_NTLM = 2;
-
 	public const uint32 SECPKG_NEGOTIATION_COMPLETE = 0;
-
 	public const uint32 SECPKG_NEGOTIATION_OPTIMISTIC = 1;
-
 	public const uint32 SECPKG_NEGOTIATION_IN_PROGRESS = 2;
-
 	public const uint32 SECPKG_NEGOTIATION_DIRECT = 3;
-
 	public const uint32 SECPKG_NEGOTIATION_TRY_MULTICRED = 4;
-
 	public const uint32 MAX_PROTOCOL_ID_SIZE = 255;
-
 	public const uint32 SECQOP_WRAP_NO_ENCRYPT = 2147483649;
-
 	public const uint32 SECQOP_WRAP_OOB_DATA = 1073741824;
-
 	public const uint32 SECURITY_SUPPORT_PROVIDER_INTERFACE_VERSION = 1;
-
 	public const uint32 SECURITY_SUPPORT_PROVIDER_INTERFACE_VERSION_2 = 2;
-
 	public const uint32 SECURITY_SUPPORT_PROVIDER_INTERFACE_VERSION_3 = 3;
-
 	public const uint32 SECURITY_SUPPORT_PROVIDER_INTERFACE_VERSION_4 = 4;
-
 	public const uint32 SECURITY_SUPPORT_PROVIDER_INTERFACE_VERSION_5 = 5;
-
 	public const uint32 SASL_OPTION_SEND_SIZE = 1;
-
 	public const uint32 SASL_OPTION_RECV_SIZE = 2;
-
 	public const uint32 SASL_OPTION_AUTHZ_STRING = 3;
-
 	public const uint32 SASL_OPTION_AUTHZ_PROCESSING = 4;
-
 	public const uint32 SEC_WINNT_AUTH_IDENTITY_VERSION_2 = 513;
-
 	public const uint32 SEC_WINNT_AUTH_IDENTITY_VERSION = 512;
-
 	public const uint32 SEC_WINNT_AUTH_IDENTITY_FLAGS_PROCESS_ENCRYPTED = 16;
-
 	public const uint32 SEC_WINNT_AUTH_IDENTITY_FLAGS_SYSTEM_PROTECTED = 32;
-
 	public const uint32 SEC_WINNT_AUTH_IDENTITY_FLAGS_USER_PROTECTED = 64;
-
 	public const uint32 SEC_WINNT_AUTH_IDENTITY_FLAGS_SYSTEM_ENCRYPTED = 128;
-
 	public const uint32 SEC_WINNT_AUTH_IDENTITY_FLAGS_RESERVED = 65536;
-
 	public const uint32 SEC_WINNT_AUTH_IDENTITY_FLAGS_NULL_USER = 131072;
-
 	public const uint32 SEC_WINNT_AUTH_IDENTITY_FLAGS_NULL_DOMAIN = 262144;
-
 	public const uint32 SEC_WINNT_AUTH_IDENTITY_FLAGS_ID_PROVIDER = 524288;
-
 	public const uint32 SEC_WINNT_AUTH_IDENTITY_FLAGS_SSPIPFC_USE_MASK = 4278190080;
-
 	public const uint32 SEC_WINNT_AUTH_IDENTITY_FLAGS_SSPIPFC_CREDPROV_DO_NOT_SAVE = 2147483648;
-
 	public const uint32 SEC_WINNT_AUTH_IDENTITY_FLAGS_SSPIPFC_SAVE_CRED_BY_CALLER = 2147483648;
-
 	public const uint32 SEC_WINNT_AUTH_IDENTITY_FLAGS_SSPIPFC_SAVE_CRED_CHECKED = 1073741824;
-
 	public const uint32 SEC_WINNT_AUTH_IDENTITY_FLAGS_SSPIPFC_NO_CHECKBOX = 536870912;
-
 	public const uint32 SEC_WINNT_AUTH_IDENTITY_FLAGS_SSPIPFC_CREDPROV_DO_NOT_LOAD = 268435456;
-
 	public const uint32 SSPIPFC_CREDPROV_DO_NOT_SAVE = 1;
-
 	public const uint32 SSPIPFC_SAVE_CRED_BY_CALLER = 1;
-
 	public const uint32 SSPIPFC_NO_CHECKBOX = 2;
-
 	public const uint32 SSPIPFC_CREDPROV_DO_NOT_LOAD = 4;
-
 	public const uint32 SSPIPFC_USE_CREDUIBROKER = 8;
-
 	public const uint32 NGC_DATA_FLAG_KERB_CERTIFICATE_LOGON_FLAG_CHECK_DUPLICATES = 1;
-
 	public const uint32 NGC_DATA_FLAG_KERB_CERTIFICATE_LOGON_FLAG_USE_CERTIFICATE_INFO = 2;
-
 	public const uint32 NGC_DATA_FLAG_IS_SMARTCARD_DATA = 4;
-
 	public const uint32 NGC_DATA_FLAG_IS_CLOUD_TRUST_CRED = 8;
-
 	public const uint32 SEC_WINNT_AUTH_IDENTITY_ENCRYPT_SAME_LOGON = 1;
-
 	public const uint32 SEC_WINNT_AUTH_IDENTITY_ENCRYPT_SAME_PROCESS = 2;
-
 	public const uint32 SEC_WINNT_AUTH_IDENTITY_ENCRYPT_FOR_SYSTEM = 4;
-
 	public const uint32 SEC_WINNT_AUTH_IDENTITY_MARSHALLED = 4;
-
 	public const uint32 SEC_WINNT_AUTH_IDENTITY_ONLY = 8;
-
 	public const uint32 SECPKG_OPTIONS_PERMANENT = 1;
-
 	public const uint32 LOOKUP_VIEW_LOCAL_INFORMATION = 1;
-
 	public const uint32 LOOKUP_TRANSLATE_NAMES = 2048;
-
 	public const uint32 SECPKG_ATTR_ISSUER_LIST = 80;
-
 	public const uint32 SECPKG_ATTR_REMOTE_CRED = 81;
-
 	public const uint32 SECPKG_ATTR_SUPPORTED_ALGS = 86;
-
 	public const uint32 SECPKG_ATTR_CIPHER_STRENGTHS = 87;
-
 	public const uint32 SECPKG_ATTR_SUPPORTED_PROTOCOLS = 88;
-
 	public const uint32 SECPKG_ATTR_MAPPED_CRED_ATTR = 92;
-
 	public const uint32 SECPKG_ATTR_REMOTE_CERTIFICATES = 95;
-
 	public const uint32 SECPKG_ATTR_CLIENT_CERT_POLICY = 96;
-
 	public const uint32 SECPKG_ATTR_CC_POLICY_RESULT = 97;
-
 	public const uint32 SECPKG_ATTR_USE_NCRYPT = 98;
-
 	public const uint32 SECPKG_ATTR_LOCAL_CERT_INFO = 99;
-
 	public const uint32 SECPKG_ATTR_CIPHER_INFO = 100;
-
 	public const uint32 SECPKG_ATTR_REMOTE_CERT_CHAIN = 103;
-
 	public const uint32 SECPKG_ATTR_UI_INFO = 104;
-
 	public const uint32 SECPKG_ATTR_KEYING_MATERIAL = 107;
-
 	public const uint32 SECPKG_ATTR_SRTP_PARAMETERS = 108;
-
 	public const uint32 SECPKG_ATTR_TOKEN_BINDING = 109;
-
 	public const uint32 SECPKG_ATTR_CONNECTION_INFO_EX = 110;
-
 	public const uint32 SECPKG_ATTR_KEYING_MATERIAL_TOKEN_BINDING = 111;
-
 	public const uint32 SECPKG_ATTR_KEYING_MATERIAL_INPROC = 112;
-
 	public const uint32 SECPKG_ATTR_CERT_CHECK_RESULT = 113;
-
 	public const uint32 SECPKG_ATTR_CERT_CHECK_RESULT_INPROC = 114;
-
 	public const uint32 SECPKG_ATTR_SESSION_TICKET_KEYS = 115;
-
 	public const uint32 SESSION_TICKET_INFO_V0 = 0;
-
 	public const uint32 SESSION_TICKET_INFO_VERSION = 0;
-
 	public const int32 LSA_MODE_PASSWORD_PROTECTED = 1;
-
 	public const int32 LSA_MODE_INDIVIDUAL_ACCOUNTS = 2;
-
 	public const int32 LSA_MODE_MANDATORY_ACCESS = 4;
-
 	public const int32 LSA_MODE_LOG_FULL = 8;
-
 	public const int32 LSA_MAXIMUM_SID_COUNT = 256;
-
 	public const uint32 LSA_MAXIMUM_ENUMERATION_LENGTH = 32000;
-
 	public const uint32 LSA_CALL_LICENSE_SERVER = 2147483648;
-
 	public const uint32 SE_ADT_OBJECT_ONLY = 1;
-
 	public const uint32 SE_MAX_AUDIT_PARAMETERS = 32;
-
 	public const uint32 SE_MAX_GENERIC_AUDIT_PARAMETERS = 28;
-
 	public const uint32 SE_ADT_PARAMETERS_SELF_RELATIVE = 1;
-
 	public const uint32 SE_ADT_PARAMETERS_SEND_TO_LSA = 2;
-
 	public const uint32 SE_ADT_PARAMETER_EXTENSIBLE_AUDIT = 4;
-
 	public const uint32 SE_ADT_PARAMETER_GENERIC_AUDIT = 8;
-
 	public const uint32 SE_ADT_PARAMETER_WRITE_SYNCHRONOUS = 16;
-
 	public const uint32 SE_ADT_POLICY_AUDIT_EVENT_TYPE_EX_BEGIN = 100;
-
 	public const int32 POLICY_AUDIT_EVENT_UNCHANGED = 0;
-
 	public const int32 POLICY_AUDIT_EVENT_SUCCESS = 1;
-
 	public const int32 POLICY_AUDIT_EVENT_FAILURE = 2;
-
 	public const int32 POLICY_AUDIT_EVENT_NONE = 4;
-
 	public const int32 POLICY_VIEW_LOCAL_INFORMATION = 1;
-
 	public const int32 POLICY_VIEW_AUDIT_INFORMATION = 2;
-
 	public const int32 POLICY_GET_PRIVATE_INFORMATION = 4;
-
 	public const int32 POLICY_TRUST_ADMIN = 8;
-
 	public const int32 POLICY_CREATE_ACCOUNT = 16;
-
 	public const int32 POLICY_CREATE_SECRET = 32;
-
 	public const int32 POLICY_CREATE_PRIVILEGE = 64;
-
 	public const int32 POLICY_SET_DEFAULT_QUOTA_LIMITS = 128;
-
 	public const int32 POLICY_SET_AUDIT_REQUIREMENTS = 256;
-
 	public const int32 POLICY_AUDIT_LOG_ADMIN = 512;
-
 	public const int32 POLICY_SERVER_ADMIN = 1024;
-
 	public const int32 POLICY_LOOKUP_NAMES = 2048;
-
 	public const int32 POLICY_NOTIFICATION = 4096;
-
 	public const uint32 LSA_LOOKUP_ISOLATED_AS_LOCAL = 2147483648;
-
 	public const uint32 LSA_LOOKUP_DISALLOW_CONNECTED_ACCOUNT_INTERNET_SID = 2147483648;
-
 	public const uint32 LSA_LOOKUP_PREFER_INTERNET_NAMES = 1073741824;
-
 	public const uint32 PER_USER_POLICY_UNCHANGED = 0;
-
 	public const uint32 PER_USER_AUDIT_SUCCESS_INCLUDE = 1;
-
 	public const uint32 PER_USER_AUDIT_SUCCESS_EXCLUDE = 2;
-
 	public const uint32 PER_USER_AUDIT_FAILURE_INCLUDE = 4;
-
 	public const uint32 PER_USER_AUDIT_FAILURE_EXCLUDE = 8;
-
 	public const uint32 PER_USER_AUDIT_NONE = 16;
-
 	public const uint32 POLICY_QOS_SCHANNEL_REQUIRED = 1;
-
 	public const uint32 POLICY_QOS_OUTBOUND_INTEGRITY = 2;
-
 	public const uint32 POLICY_QOS_OUTBOUND_CONFIDENTIALITY = 4;
-
 	public const uint32 POLICY_QOS_INBOUND_INTEGRITY = 8;
-
 	public const uint32 POLICY_QOS_INBOUND_CONFIDENTIALITY = 16;
-
 	public const uint32 POLICY_QOS_ALLOW_LOCAL_ROOT_CERT_STORE = 32;
-
 	public const uint32 POLICY_QOS_RAS_SERVER_ALLOWED = 64;
-
 	public const uint32 POLICY_QOS_DHCP_SERVER_ALLOWED = 128;
-
 	public const uint32 POLICY_KERBEROS_VALIDATE_CLIENT = 128;
-
 	public const int32 ACCOUNT_VIEW = 1;
-
 	public const int32 ACCOUNT_ADJUST_PRIVILEGES = 2;
-
 	public const int32 ACCOUNT_ADJUST_QUOTAS = 4;
-
 	public const int32 ACCOUNT_ADJUST_SYSTEM_ACCESS = 8;
-
 	public const int32 TRUSTED_QUERY_DOMAIN_NAME = 1;
-
 	public const int32 TRUSTED_QUERY_CONTROLLERS = 2;
-
 	public const int32 TRUSTED_SET_CONTROLLERS = 4;
-
 	public const int32 TRUSTED_QUERY_POSIX = 8;
-
 	public const int32 TRUSTED_SET_POSIX = 16;
-
 	public const int32 TRUSTED_SET_AUTH = 32;
-
 	public const int32 TRUSTED_QUERY_AUTH = 64;
-
 	public const uint32 TRUST_ATTRIBUTE_TREE_PARENT = 4194304;
-
 	public const uint32 TRUST_ATTRIBUTE_TREE_ROOT = 8388608;
-
 	public const uint32 TRUST_ATTRIBUTES_VALID = 4278386687;
-
 	public const uint32 TRUST_ATTRIBUTE_QUARANTINED_DOMAIN = 4;
-
 	public const uint32 TRUST_ATTRIBUTE_TRUST_USES_RC4_ENCRYPTION = 128;
-
 	public const uint32 TRUST_ATTRIBUTE_TRUST_USES_AES_KEYS = 256;
-
 	public const uint32 TRUST_ATTRIBUTE_CROSS_ORGANIZATION_NO_TGT_DELEGATION = 512;
-
 	public const uint32 TRUST_ATTRIBUTE_PIM_TRUST = 1024;
-
 	public const uint32 TRUST_ATTRIBUTE_CROSS_ORGANIZATION_ENABLE_TGT_DELEGATION = 2048;
-
 	public const uint32 TRUST_ATTRIBUTES_USER = 4278190080;
-
 	public const uint32 LSA_FOREST_TRUST_RECORD_TYPE_UNRECOGNIZED = 2147483648;
-
 	public const int32 LSA_FTRECORD_DISABLED_REASONS = 65535;
-
 	public const int32 LSA_TLN_DISABLED_NEW = 1;
-
 	public const int32 LSA_TLN_DISABLED_ADMIN = 2;
-
 	public const int32 LSA_TLN_DISABLED_CONFLICT = 4;
-
 	public const int32 LSA_SID_DISABLED_ADMIN = 1;
-
 	public const int32 LSA_SID_DISABLED_CONFLICT = 2;
-
 	public const int32 LSA_NB_DISABLED_ADMIN = 4;
-
 	public const int32 LSA_NB_DISABLED_CONFLICT = 8;
-
 	public const uint32 MAX_RECORDS_IN_FOREST_TRUST_INFO = 4000;
-
 	public const int32 SECRET_SET_VALUE = 1;
-
 	public const int32 SECRET_QUERY_VALUE = 2;
-
 	public const uint32 LSA_GLOBAL_SECRET_PREFIX_LENGTH = 2;
-
 	public const uint32 LSA_LOCAL_SECRET_PREFIX_LENGTH = 2;
-
 	public const int32 LSA_SECRET_MAXIMUM_COUNT = 4096;
-
 	public const int32 LSA_SECRET_MAXIMUM_LENGTH = 512;
-
 	public const uint32 MAXIMUM_CAPES_PER_CAP = 127;
-
 	public const uint32 CENTRAL_ACCESS_POLICY_OWNER_RIGHTS_PRESENT_FLAG = 1;
-
 	public const uint32 CENTRAL_ACCESS_POLICY_STAGED_OWNER_RIGHTS_PRESENT_FLAG = 256;
-
 	public const uint32 CENTRAL_ACCESS_POLICY_STAGED_FLAG = 65536;
-
 	public const uint32 LSASETCAPS_RELOAD_FLAG = 1;
-
 	public const uint32 LSASETCAPS_VALID_FLAG_MASK = 1;
-
 	public const uint32 NEGOTIATE_MAX_PREFIX = 32;
-
 	public const uint32 NEGOTIATE_ALLOW_NTLM = 268435456;
-
 	public const uint32 NEGOTIATE_NEG_NTLM = 536870912;
-
 	public const uint32 MAX_USER_RECORDS = 1000;
-
 	public const Guid Audit_System_SecurityStateChange = .(0x0cce9210, 0x69ae, 0x11d9, 0xbe, 0xd3, 0x50, 0x50, 0x54, 0x50, 0x30, 0x30);
-
 	public const Guid Audit_System_SecuritySubsystemExtension = .(0x0cce9211, 0x69ae, 0x11d9, 0xbe, 0xd3, 0x50, 0x50, 0x54, 0x50, 0x30, 0x30);
-
 	public const Guid Audit_System_Integrity = .(0x0cce9212, 0x69ae, 0x11d9, 0xbe, 0xd3, 0x50, 0x50, 0x54, 0x50, 0x30, 0x30);
-
 	public const Guid Audit_System_IPSecDriverEvents = .(0x0cce9213, 0x69ae, 0x11d9, 0xbe, 0xd3, 0x50, 0x50, 0x54, 0x50, 0x30, 0x30);
-
 	public const Guid Audit_System_Others = .(0x0cce9214, 0x69ae, 0x11d9, 0xbe, 0xd3, 0x50, 0x50, 0x54, 0x50, 0x30, 0x30);
-
 	public const Guid Audit_Logon_Logon = .(0x0cce9215, 0x69ae, 0x11d9, 0xbe, 0xd3, 0x50, 0x50, 0x54, 0x50, 0x30, 0x30);
-
 	public const Guid Audit_Logon_Logoff = .(0x0cce9216, 0x69ae, 0x11d9, 0xbe, 0xd3, 0x50, 0x50, 0x54, 0x50, 0x30, 0x30);
-
 	public const Guid Audit_Logon_AccountLockout = .(0x0cce9217, 0x69ae, 0x11d9, 0xbe, 0xd3, 0x50, 0x50, 0x54, 0x50, 0x30, 0x30);
-
 	public const Guid Audit_Logon_IPSecMainMode = .(0x0cce9218, 0x69ae, 0x11d9, 0xbe, 0xd3, 0x50, 0x50, 0x54, 0x50, 0x30, 0x30);
-
 	public const Guid Audit_Logon_IPSecQuickMode = .(0x0cce9219, 0x69ae, 0x11d9, 0xbe, 0xd3, 0x50, 0x50, 0x54, 0x50, 0x30, 0x30);
-
 	public const Guid Audit_Logon_IPSecUserMode = .(0x0cce921a, 0x69ae, 0x11d9, 0xbe, 0xd3, 0x50, 0x50, 0x54, 0x50, 0x30, 0x30);
-
 	public const Guid Audit_Logon_SpecialLogon = .(0x0cce921b, 0x69ae, 0x11d9, 0xbe, 0xd3, 0x50, 0x50, 0x54, 0x50, 0x30, 0x30);
-
 	public const Guid Audit_Logon_Others = .(0x0cce921c, 0x69ae, 0x11d9, 0xbe, 0xd3, 0x50, 0x50, 0x54, 0x50, 0x30, 0x30);
-
 	public const Guid Audit_ObjectAccess_FileSystem = .(0x0cce921d, 0x69ae, 0x11d9, 0xbe, 0xd3, 0x50, 0x50, 0x54, 0x50, 0x30, 0x30);
-
 	public const Guid Audit_ObjectAccess_Registry = .(0x0cce921e, 0x69ae, 0x11d9, 0xbe, 0xd3, 0x50, 0x50, 0x54, 0x50, 0x30, 0x30);
-
 	public const Guid Audit_ObjectAccess_Kernel = .(0x0cce921f, 0x69ae, 0x11d9, 0xbe, 0xd3, 0x50, 0x50, 0x54, 0x50, 0x30, 0x30);
-
 	public const Guid Audit_ObjectAccess_Sam = .(0x0cce9220, 0x69ae, 0x11d9, 0xbe, 0xd3, 0x50, 0x50, 0x54, 0x50, 0x30, 0x30);
-
 	public const Guid Audit_ObjectAccess_CertificationServices = .(0x0cce9221, 0x69ae, 0x11d9, 0xbe, 0xd3, 0x50, 0x50, 0x54, 0x50, 0x30, 0x30);
-
 	public const Guid Audit_ObjectAccess_ApplicationGenerated = .(0x0cce9222, 0x69ae, 0x11d9, 0xbe, 0xd3, 0x50, 0x50, 0x54, 0x50, 0x30, 0x30);
-
 	public const Guid Audit_ObjectAccess_Handle = .(0x0cce9223, 0x69ae, 0x11d9, 0xbe, 0xd3, 0x50, 0x50, 0x54, 0x50, 0x30, 0x30);
-
 	public const Guid Audit_ObjectAccess_Share = .(0x0cce9224, 0x69ae, 0x11d9, 0xbe, 0xd3, 0x50, 0x50, 0x54, 0x50, 0x30, 0x30);
-
 	public const Guid Audit_ObjectAccess_FirewallPacketDrops = .(0x0cce9225, 0x69ae, 0x11d9, 0xbe, 0xd3, 0x50, 0x50, 0x54, 0x50, 0x30, 0x30);
-
 	public const Guid Audit_ObjectAccess_FirewallConnection = .(0x0cce9226, 0x69ae, 0x11d9, 0xbe, 0xd3, 0x50, 0x50, 0x54, 0x50, 0x30, 0x30);
-
 	public const Guid Audit_ObjectAccess_Other = .(0x0cce9227, 0x69ae, 0x11d9, 0xbe, 0xd3, 0x50, 0x50, 0x54, 0x50, 0x30, 0x30);
-
 	public const Guid Audit_PrivilegeUse_Sensitive = .(0x0cce9228, 0x69ae, 0x11d9, 0xbe, 0xd3, 0x50, 0x50, 0x54, 0x50, 0x30, 0x30);
-
 	public const Guid Audit_PrivilegeUse_NonSensitive = .(0x0cce9229, 0x69ae, 0x11d9, 0xbe, 0xd3, 0x50, 0x50, 0x54, 0x50, 0x30, 0x30);
-
 	public const Guid Audit_PrivilegeUse_Others = .(0x0cce922a, 0x69ae, 0x11d9, 0xbe, 0xd3, 0x50, 0x50, 0x54, 0x50, 0x30, 0x30);
-
 	public const Guid Audit_DetailedTracking_ProcessCreation = .(0x0cce922b, 0x69ae, 0x11d9, 0xbe, 0xd3, 0x50, 0x50, 0x54, 0x50, 0x30, 0x30);
-
 	public const Guid Audit_DetailedTracking_ProcessTermination = .(0x0cce922c, 0x69ae, 0x11d9, 0xbe, 0xd3, 0x50, 0x50, 0x54, 0x50, 0x30, 0x30);
-
 	public const Guid Audit_DetailedTracking_DpapiActivity = .(0x0cce922d, 0x69ae, 0x11d9, 0xbe, 0xd3, 0x50, 0x50, 0x54, 0x50, 0x30, 0x30);
-
 	public const Guid Audit_DetailedTracking_RpcCall = .(0x0cce922e, 0x69ae, 0x11d9, 0xbe, 0xd3, 0x50, 0x50, 0x54, 0x50, 0x30, 0x30);
-
 	public const Guid Audit_PolicyChange_AuditPolicy = .(0x0cce922f, 0x69ae, 0x11d9, 0xbe, 0xd3, 0x50, 0x50, 0x54, 0x50, 0x30, 0x30);
-
 	public const Guid Audit_PolicyChange_AuthenticationPolicy = .(0x0cce9230, 0x69ae, 0x11d9, 0xbe, 0xd3, 0x50, 0x50, 0x54, 0x50, 0x30, 0x30);
-
 	public const Guid Audit_PolicyChange_AuthorizationPolicy = .(0x0cce9231, 0x69ae, 0x11d9, 0xbe, 0xd3, 0x50, 0x50, 0x54, 0x50, 0x30, 0x30);
-
 	public const Guid Audit_PolicyChange_MpsscvRulePolicy = .(0x0cce9232, 0x69ae, 0x11d9, 0xbe, 0xd3, 0x50, 0x50, 0x54, 0x50, 0x30, 0x30);
-
 	public const Guid Audit_PolicyChange_WfpIPSecPolicy = .(0x0cce9233, 0x69ae, 0x11d9, 0xbe, 0xd3, 0x50, 0x50, 0x54, 0x50, 0x30, 0x30);
-
 	public const Guid Audit_PolicyChange_Others = .(0x0cce9234, 0x69ae, 0x11d9, 0xbe, 0xd3, 0x50, 0x50, 0x54, 0x50, 0x30, 0x30);
-
 	public const Guid Audit_AccountManagement_UserAccount = .(0x0cce9235, 0x69ae, 0x11d9, 0xbe, 0xd3, 0x50, 0x50, 0x54, 0x50, 0x30, 0x30);
-
 	public const Guid Audit_AccountManagement_ComputerAccount = .(0x0cce9236, 0x69ae, 0x11d9, 0xbe, 0xd3, 0x50, 0x50, 0x54, 0x50, 0x30, 0x30);
-
 	public const Guid Audit_AccountManagement_SecurityGroup = .(0x0cce9237, 0x69ae, 0x11d9, 0xbe, 0xd3, 0x50, 0x50, 0x54, 0x50, 0x30, 0x30);
-
 	public const Guid Audit_AccountManagement_DistributionGroup = .(0x0cce9238, 0x69ae, 0x11d9, 0xbe, 0xd3, 0x50, 0x50, 0x54, 0x50, 0x30, 0x30);
-
 	public const Guid Audit_AccountManagement_ApplicationGroup = .(0x0cce9239, 0x69ae, 0x11d9, 0xbe, 0xd3, 0x50, 0x50, 0x54, 0x50, 0x30, 0x30);
-
 	public const Guid Audit_AccountManagement_Others = .(0x0cce923a, 0x69ae, 0x11d9, 0xbe, 0xd3, 0x50, 0x50, 0x54, 0x50, 0x30, 0x30);
-
 	public const Guid Audit_DSAccess_DSAccess = .(0x0cce923b, 0x69ae, 0x11d9, 0xbe, 0xd3, 0x50, 0x50, 0x54, 0x50, 0x30, 0x30);
-
 	public const Guid Audit_DsAccess_AdAuditChanges = .(0x0cce923c, 0x69ae, 0x11d9, 0xbe, 0xd3, 0x50, 0x50, 0x54, 0x50, 0x30, 0x30);
-
 	public const Guid Audit_Ds_Replication = .(0x0cce923d, 0x69ae, 0x11d9, 0xbe, 0xd3, 0x50, 0x50, 0x54, 0x50, 0x30, 0x30);
-
 	public const Guid Audit_Ds_DetailedReplication = .(0x0cce923e, 0x69ae, 0x11d9, 0xbe, 0xd3, 0x50, 0x50, 0x54, 0x50, 0x30, 0x30);
-
 	public const Guid Audit_AccountLogon_CredentialValidation = .(0x0cce923f, 0x69ae, 0x11d9, 0xbe, 0xd3, 0x50, 0x50, 0x54, 0x50, 0x30, 0x30);
-
 	public const Guid Audit_AccountLogon_Kerberos = .(0x0cce9240, 0x69ae, 0x11d9, 0xbe, 0xd3, 0x50, 0x50, 0x54, 0x50, 0x30, 0x30);
-
 	public const Guid Audit_AccountLogon_Others = .(0x0cce9241, 0x69ae, 0x11d9, 0xbe, 0xd3, 0x50, 0x50, 0x54, 0x50, 0x30, 0x30);
-
 	public const Guid Audit_AccountLogon_KerbCredentialValidation = .(0x0cce9242, 0x69ae, 0x11d9, 0xbe, 0xd3, 0x50, 0x50, 0x54, 0x50, 0x30, 0x30);
-
 	public const Guid Audit_Logon_NPS = .(0x0cce9243, 0x69ae, 0x11d9, 0xbe, 0xd3, 0x50, 0x50, 0x54, 0x50, 0x30, 0x30);
-
 	public const Guid Audit_ObjectAccess_DetailedFileShare = .(0x0cce9244, 0x69ae, 0x11d9, 0xbe, 0xd3, 0x50, 0x50, 0x54, 0x50, 0x30, 0x30);
-
 	public const Guid Audit_ObjectAccess_RemovableStorage = .(0x0cce9245, 0x69ae, 0x11d9, 0xbe, 0xd3, 0x50, 0x50, 0x54, 0x50, 0x30, 0x30);
-
 	public const Guid Audit_ObjectAccess_CbacStaging = .(0x0cce9246, 0x69ae, 0x11d9, 0xbe, 0xd3, 0x50, 0x50, 0x54, 0x50, 0x30, 0x30);
-
 	public const Guid Audit_Logon_Claims = .(0x0cce9247, 0x69ae, 0x11d9, 0xbe, 0xd3, 0x50, 0x50, 0x54, 0x50, 0x30, 0x30);
-
 	public const Guid Audit_DetailedTracking_PnpActivity = .(0x0cce9248, 0x69ae, 0x11d9, 0xbe, 0xd3, 0x50, 0x50, 0x54, 0x50, 0x30, 0x30);
-
 	public const Guid Audit_Logon_Groups = .(0x0cce9249, 0x69ae, 0x11d9, 0xbe, 0xd3, 0x50, 0x50, 0x54, 0x50, 0x30, 0x30);
-
 	public const Guid Audit_DetailedTracking_TokenRightAdjusted = .(0x0cce924a, 0x69ae, 0x11d9, 0xbe, 0xd3, 0x50, 0x50, 0x54, 0x50, 0x30, 0x30);
-
 	public const Guid Audit_System = .(0x69979848, 0x797a, 0x11d9, 0xbe, 0xd3, 0x50, 0x50, 0x54, 0x50, 0x30, 0x30);
-
 	public const Guid Audit_Logon = .(0x69979849, 0x797a, 0x11d9, 0xbe, 0xd3, 0x50, 0x50, 0x54, 0x50, 0x30, 0x30);
-
 	public const Guid Audit_ObjectAccess = .(0x6997984a, 0x797a, 0x11d9, 0xbe, 0xd3, 0x50, 0x50, 0x54, 0x50, 0x30, 0x30);
-
 	public const Guid Audit_PrivilegeUse = .(0x6997984b, 0x797a, 0x11d9, 0xbe, 0xd3, 0x50, 0x50, 0x54, 0x50, 0x30, 0x30);
-
 	public const Guid Audit_DetailedTracking = .(0x6997984c, 0x797a, 0x11d9, 0xbe, 0xd3, 0x50, 0x50, 0x54, 0x50, 0x30, 0x30);
-
 	public const Guid Audit_PolicyChange = .(0x6997984d, 0x797a, 0x11d9, 0xbe, 0xd3, 0x50, 0x50, 0x54, 0x50, 0x30, 0x30);
-
 	public const Guid Audit_AccountManagement = .(0x6997984e, 0x797a, 0x11d9, 0xbe, 0xd3, 0x50, 0x50, 0x54, 0x50, 0x30, 0x30);
-
 	public const Guid Audit_DirectoryServiceAccess = .(0x6997984f, 0x797a, 0x11d9, 0xbe, 0xd3, 0x50, 0x50, 0x54, 0x50, 0x30, 0x30);
-
 	public const Guid Audit_AccountLogon = .(0x69979850, 0x797a, 0x11d9, 0xbe, 0xd3, 0x50, 0x50, 0x54, 0x50, 0x30, 0x30);
-
 	public const int32 DOMAIN_NO_LM_OWF_CHANGE = 64;
-
 	public const uint32 MSV1_0_CHALLENGE_LENGTH = 8;
-
 	public const uint32 MSV1_0_USER_SESSION_KEY_LENGTH = 16;
-
 	public const uint32 MSV1_0_LANMAN_SESSION_KEY_LENGTH = 8;
-
 	public const uint32 MSV1_0_USE_CLIENT_CHALLENGE = 128;
-
 	public const uint32 MSV1_0_DISABLE_PERSONAL_FALLBACK = 4096;
-
 	public const uint32 MSV1_0_ALLOW_FORCE_GUEST = 8192;
-
 	public const uint32 MSV1_0_CLEARTEXT_PASSWORD_SUPPLIED = 16384;
-
 	public const uint32 MSV1_0_USE_DOMAIN_FOR_ROUTING_ONLY = 32768;
-
 	public const uint32 MSV1_0_SUBAUTHENTICATION_DLL_EX = 1048576;
-
 	public const uint32 MSV1_0_ALLOW_MSVCHAPV2 = 65536;
-
 	public const uint32 MSV1_0_S4U2SELF = 131072;
-
 	public const uint32 MSV1_0_CHECK_LOGONHOURS_FOR_S4U = 262144;
-
 	public const uint32 MSV1_0_INTERNET_DOMAIN = 524288;
-
 	public const uint32 MSV1_0_SUBAUTHENTICATION_DLL = 4278190080;
-
 	public const uint32 MSV1_0_SUBAUTHENTICATION_DLL_SHIFT = 24;
-
 	public const uint32 MSV1_0_MNS_LOGON = 16777216;
-
 	public const uint32 MSV1_0_SUBAUTHENTICATION_DLL_RAS = 2;
-
 	public const uint32 MSV1_0_SUBAUTHENTICATION_DLL_IIS = 132;
-
 	public const uint32 MSV1_0_S4U_LOGON_FLAG_CHECK_LOGONHOURS = 2;
-
 	public const uint32 LOGON_NTLMV2_ENABLED = 256;
-
 	public const uint32 LOGON_NT_V2 = 2048;
-
 	public const uint32 LOGON_LM_V2 = 4096;
-
 	public const uint32 LOGON_NTLM_V2 = 8192;
-
 	public const uint32 LOGON_OPTIMIZED = 16384;
-
 	public const uint32 LOGON_WINLOGON = 32768;
-
 	public const uint32 LOGON_PKINIT = 65536;
-
 	public const uint32 LOGON_NO_OPTIMIZED = 131072;
-
 	public const uint32 LOGON_NO_ELEVATION = 262144;
-
 	public const uint32 LOGON_MANAGED_SERVICE = 524288;
-
 	public const uint32 MSV1_0_SUBAUTHENTICATION_FLAGS = 4278190080;
-
 	public const uint32 LOGON_GRACE_LOGON = 16777216;
-
 	public const uint32 MSV1_0_OWF_PASSWORD_LENGTH = 16;
-
 	public const uint32 MSV1_0_SHA_PASSWORD_LENGTH = 20;
-
 	public const uint32 MSV1_0_CREDENTIAL_KEY_LENGTH = 20;
-
 	public const uint32 MSV1_0_CRED_REMOVED = 4;
-
 	public const uint32 MSV1_0_CRED_CREDKEY_PRESENT = 8;
-
 	public const uint32 MSV1_0_CRED_SHA_PRESENT = 16;
-
 	public const uint32 MSV1_0_CRED_VERSION_V2 = 2;
-
 	public const uint32 MSV1_0_CRED_VERSION_V3 = 4;
-
 	public const uint32 MSV1_0_CRED_VERSION_IUM = 4294901761;
-
 	public const uint32 MSV1_0_CRED_VERSION_REMOTE = 4294901762;
-
 	public const uint32 MSV1_0_CRED_VERSION_ARSO = 4294901763;
-
 	public const uint32 MSV1_0_CRED_VERSION_RESERVED_1 = 4294967294;
-
 	public const uint32 MSV1_0_CRED_VERSION_INVALID = 4294967295;
-
 	public const uint32 MSV1_0_NTLM3_RESPONSE_LENGTH = 16;
-
 	public const uint32 MSV1_0_NTLM3_OWF_LENGTH = 16;
-
 	public const uint32 MSV1_0_MAX_NTLM3_LIFE = 1800;
-
 	public const uint32 MSV1_0_MAX_AVL_SIZE = 64000;
-
 	public const uint32 MSV1_0_AV_FLAG_FORCE_GUEST = 1;
-
 	public const uint32 MSV1_0_AV_FLAG_MIC_HANDSHAKE_MESSAGES = 2;
-
 	public const uint32 MSV1_0_AV_FLAG_UNVERIFIED_TARGET = 4;
-
 	public const uint32 RTL_ENCRYPT_MEMORY_SIZE = 8;
-
 	public const uint32 RTL_ENCRYPT_OPTION_CROSS_PROCESS = 1;
-
 	public const uint32 RTL_ENCRYPT_OPTION_SAME_LOGON = 2;
-
 	public const uint32 RTL_ENCRYPT_OPTION_FOR_SYSTEM = 4;
-
 	public const uint32 KERBEROS_VERSION = 5;
-
 	public const uint32 KERBEROS_REVISION = 6;
-
 	public const uint32 KERB_ETYPE_AES128_CTS_HMAC_SHA1_96 = 17;
-
 	public const uint32 KERB_ETYPE_AES256_CTS_HMAC_SHA1_96 = 18;
-
 	public const int32 KERB_ETYPE_RC4_PLAIN2 = -129;
-
 	public const int32 KERB_ETYPE_RC4_LM = -130;
-
 	public const int32 KERB_ETYPE_RC4_SHA = -131;
-
 	public const int32 KERB_ETYPE_DES_PLAIN = -132;
-
 	public const int32 KERB_ETYPE_RC4_HMAC_OLD = -133;
-
 	public const int32 KERB_ETYPE_RC4_PLAIN_OLD = -134;
-
 	public const int32 KERB_ETYPE_RC4_HMAC_OLD_EXP = -135;
-
 	public const int32 KERB_ETYPE_RC4_PLAIN_OLD_EXP = -136;
-
 	public const int32 KERB_ETYPE_RC4_PLAIN = -140;
-
 	public const int32 KERB_ETYPE_RC4_PLAIN_EXP = -141;
-
 	public const int32 KERB_ETYPE_AES128_CTS_HMAC_SHA1_96_PLAIN = -148;
-
 	public const int32 KERB_ETYPE_AES256_CTS_HMAC_SHA1_96_PLAIN = -149;
-
 	public const uint32 KERB_ETYPE_DSA_SHA1_CMS = 9;
-
 	public const uint32 KERB_ETYPE_RSA_MD5_CMS = 10;
-
 	public const uint32 KERB_ETYPE_RSA_SHA1_CMS = 11;
-
 	public const uint32 KERB_ETYPE_RC2_CBC_ENV = 12;
-
 	public const uint32 KERB_ETYPE_RSA_ENV = 13;
-
 	public const uint32 KERB_ETYPE_RSA_ES_OEAP_ENV = 14;
-
 	public const uint32 KERB_ETYPE_DES_EDE3_CBC_ENV = 15;
-
 	public const uint32 KERB_ETYPE_DSA_SIGN = 8;
-
 	public const uint32 KERB_ETYPE_RSA_PRIV = 9;
-
 	public const uint32 KERB_ETYPE_RSA_PUB = 10;
-
 	public const uint32 KERB_ETYPE_RSA_PUB_MD5 = 11;
-
 	public const uint32 KERB_ETYPE_RSA_PUB_SHA1 = 12;
-
 	public const uint32 KERB_ETYPE_PKCS7_PUB = 13;
-
 	public const uint32 KERB_ETYPE_DES3_CBC_MD5 = 5;
-
 	public const uint32 KERB_ETYPE_DES3_CBC_SHA1 = 7;
-
 	public const uint32 KERB_ETYPE_DES3_CBC_SHA1_KD = 16;
-
 	public const uint32 KERB_ETYPE_DES_CBC_MD5_NT = 20;
-
 	public const uint32 KERB_ETYPE_RC4_HMAC_NT_EXP = 24;
-
 	public const uint32 KERB_CHECKSUM_NONE = 0;
-
 	public const uint32 KERB_CHECKSUM_CRC32 = 1;
-
 	public const uint32 KERB_CHECKSUM_MD4 = 2;
-
 	public const uint32 KERB_CHECKSUM_KRB_DES_MAC = 4;
-
 	public const uint32 KERB_CHECKSUM_KRB_DES_MAC_K = 5;
-
 	public const uint32 KERB_CHECKSUM_MD5 = 7;
-
 	public const uint32 KERB_CHECKSUM_MD5_DES = 8;
-
 	public const uint32 KERB_CHECKSUM_SHA1_NEW = 14;
-
 	public const uint32 KERB_CHECKSUM_HMAC_SHA1_96_AES128 = 15;
-
 	public const uint32 KERB_CHECKSUM_HMAC_SHA1_96_AES256 = 16;
-
 	public const int32 KERB_CHECKSUM_LM = -130;
-
 	public const int32 KERB_CHECKSUM_SHA1 = -131;
-
 	public const int32 KERB_CHECKSUM_REAL_CRC32 = -132;
-
 	public const int32 KERB_CHECKSUM_DES_MAC = -133;
-
 	public const int32 KERB_CHECKSUM_DES_MAC_MD5 = -134;
-
 	public const int32 KERB_CHECKSUM_MD25 = -135;
-
 	public const int32 KERB_CHECKSUM_RC4_MD5 = -136;
-
 	public const int32 KERB_CHECKSUM_MD5_HMAC = -137;
-
 	public const int32 KERB_CHECKSUM_HMAC_MD5 = -138;
-
 	public const int32 KERB_CHECKSUM_HMAC_SHA1_96_AES128_Ki = -150;
-
 	public const int32 KERB_CHECKSUM_HMAC_SHA1_96_AES256_Ki = -151;
-
 	public const uint32 AUTH_REQ_ALLOW_FORWARDABLE = 1;
-
 	public const uint32 AUTH_REQ_ALLOW_PROXIABLE = 2;
-
 	public const uint32 AUTH_REQ_ALLOW_POSTDATE = 4;
-
 	public const uint32 AUTH_REQ_ALLOW_RENEWABLE = 8;
-
 	public const uint32 AUTH_REQ_ALLOW_NOADDRESS = 16;
-
 	public const uint32 AUTH_REQ_ALLOW_ENC_TKT_IN_SKEY = 32;
-
 	public const uint32 AUTH_REQ_ALLOW_VALIDATE = 64;
-
 	public const uint32 AUTH_REQ_VALIDATE_CLIENT = 128;
-
 	public const uint32 AUTH_REQ_OK_AS_DELEGATE = 256;
-
 	public const uint32 AUTH_REQ_PREAUTH_REQUIRED = 512;
-
 	public const uint32 AUTH_REQ_TRANSITIVE_TRUST = 1024;
-
 	public const uint32 AUTH_REQ_ALLOW_S4U_DELEGATE = 2048;
-
 	public const uint32 KERB_TICKET_FLAGS_name_canonicalize = 65536;
-
 	public const uint32 KERB_TICKET_FLAGS_cname_in_pa_data = 262144;
-
 	public const uint32 KERB_TICKET_FLAGS_enc_pa_rep = 65536;
-
 	public const uint32 KRB_NT_UNKNOWN = 0;
-
 	public const uint32 KRB_NT_PRINCIPAL = 1;
-
 	public const int32 KRB_NT_PRINCIPAL_AND_ID = -131;
-
 	public const uint32 KRB_NT_SRV_INST = 2;
-
 	public const int32 KRB_NT_SRV_INST_AND_ID = -132;
-
 	public const uint32 KRB_NT_SRV_HST = 3;
-
 	public const uint32 KRB_NT_SRV_XHST = 4;
-
 	public const uint32 KRB_NT_UID = 5;
-
 	public const uint32 KRB_NT_ENTERPRISE_PRINCIPAL = 10;
-
 	public const uint32 KRB_NT_WELLKNOWN = 11;
-
 	public const int32 KRB_NT_ENT_PRINCIPAL_AND_ID = -130;
-
 	public const int32 KRB_NT_MS_PRINCIPAL = -128;
-
 	public const int32 KRB_NT_MS_PRINCIPAL_AND_ID = -129;
-
 	public const int32 KRB_NT_MS_BRANCH_ID = -133;
-
 	public const uint32 KRB_NT_X500_PRINCIPAL = 6;
-
 	public const uint32 KERB_WRAP_NO_ENCRYPT = 2147483649;
-
 	public const uint32 KERB_CERTIFICATE_LOGON_FLAG_CHECK_DUPLICATES = 1;
-
 	public const uint32 KERB_CERTIFICATE_LOGON_FLAG_USE_CERTIFICATE_INFO = 2;
-
 	public const uint32 KERB_CERTIFICATE_S4U_LOGON_FLAG_CHECK_DUPLICATES = 1;
-
 	public const uint32 KERB_CERTIFICATE_S4U_LOGON_FLAG_CHECK_LOGONHOURS = 2;
-
 	public const uint32 KERB_CERTIFICATE_S4U_LOGON_FLAG_FAIL_IF_NT_AUTH_POLICY_REQUIRED = 4;
-
 	public const uint32 KERB_CERTIFICATE_S4U_LOGON_FLAG_IDENTIFY = 8;
-
 	public const uint32 KERB_LOGON_FLAG_ALLOW_EXPIRED_TICKET = 1;
-
 	public const uint32 KERB_LOGON_FLAG_REDIRECTED = 2;
-
 	public const uint32 KERB_S4U_LOGON_FLAG_CHECK_LOGONHOURS = 2;
-
 	public const uint32 KERB_S4U_LOGON_FLAG_IDENTIFY = 8;
-
 	public const uint32 KERB_USE_DEFAULT_TICKET_FLAGS = 0;
-
 	public const uint32 KERB_RETRIEVE_TICKET_DEFAULT = 0;
-
 	public const uint32 KERB_RETRIEVE_TICKET_DONT_USE_CACHE = 1;
-
 	public const uint32 KERB_RETRIEVE_TICKET_USE_CACHE_ONLY = 2;
-
 	public const uint32 KERB_RETRIEVE_TICKET_USE_CREDHANDLE = 4;
-
 	public const uint32 KERB_RETRIEVE_TICKET_AS_KERB_CRED = 8;
-
 	public const uint32 KERB_RETRIEVE_TICKET_WITH_SEC_CRED = 16;
-
 	public const uint32 KERB_RETRIEVE_TICKET_CACHE_TICKET = 32;
-
 	public const uint32 KERB_RETRIEVE_TICKET_MAX_LIFETIME = 64;
-
 	public const uint32 KERB_ETYPE_DEFAULT = 0;
-
 	public const uint32 KERB_PURGE_ALL_TICKETS = 1;
-
 	public const uint32 KERB_S4U2PROXY_CACHE_ENTRY_INFO_FLAG_NEGATIVE = 1;
-
 	public const uint32 KERB_S4U2PROXY_CRED_FLAG_NEGATIVE = 1;
-
 	public const uint32 KERB_REFRESH_POLICY_KERBEROS = 1;
-
 	public const uint32 KERB_REFRESH_POLICY_KDC = 2;
-
 	public const uint32 KERB_CLOUD_KERBEROS_DEBUG_DATA_VERSION = 0;
-
 	public const uint32 DS_UNKNOWN_ADDRESS_TYPE = 0;
-
 	public const uint32 KERB_SETPASS_USE_LOGONID = 1;
-
 	public const uint32 KERB_SETPASS_USE_CREDHANDLE = 2;
-
 	public const uint32 KERB_DECRYPT_FLAG_DEFAULT_KEY = 1;
-
 	public const uint32 KERB_REFRESH_SCCRED_RELEASE = 0;
-
 	public const uint32 KERB_REFRESH_SCCRED_GETTGT = 1;
-
 	public const uint32 KERB_TRANSFER_CRED_WITH_TICKETS = 1;
-
 	public const uint32 KERB_TRANSFER_CRED_CLEANUP_CREDENTIALS = 2;
-
 	public const uint32 KERB_QUERY_DOMAIN_EXTENDED_POLICIES_RESPONSE_FLAG_DAC_DISABLED = 1;
-
 	public const uint32 AUDIT_SET_SYSTEM_POLICY = 1;
-
 	public const uint32 AUDIT_QUERY_SYSTEM_POLICY = 2;
-
 	public const uint32 AUDIT_SET_USER_POLICY = 4;
-
 	public const uint32 AUDIT_QUERY_USER_POLICY = 8;
-
 	public const uint32 AUDIT_ENUMERATE_USERS = 16;
-
 	public const uint32 AUDIT_SET_MISC_POLICY = 32;
-
 	public const uint32 AUDIT_QUERY_MISC_POLICY = 64;
-
 	public const uint32 SECPKG_CLIENT_PROCESS_TERMINATED = 1;
-
 	public const uint32 SECPKG_CLIENT_THREAD_TERMINATED = 2;
-
 	public const uint32 SECPKG_CALL_KERNEL_MODE = 1;
-
 	public const uint32 SECPKG_CALL_ANSI = 2;
-
 	public const uint32 SECPKG_CALL_URGENT = 4;
-
 	public const uint32 SECPKG_CALL_RECURSIVE = 8;
-
 	public const uint32 SECPKG_CALL_IN_PROC = 16;
-
 	public const uint32 SECPKG_CALL_CLEANUP = 32;
-
 	public const uint32 SECPKG_CALL_WOWCLIENT = 64;
-
 	public const uint32 SECPKG_CALL_THREAD_TERM = 128;
-
 	public const uint32 SECPKG_CALL_PROCESS_TERM = 256;
-
 	public const uint32 SECPKG_CALL_IS_TCB = 512;
-
 	public const uint32 SECPKG_CALL_NETWORK_ONLY = 1024;
-
 	public const uint32 SECPKG_CALL_WINLOGON = 2048;
-
 	public const uint32 SECPKG_CALL_ASYNC_UPDATE = 4096;
-
 	public const uint32 SECPKG_CALL_SYSTEM_PROC = 8192;
-
 	public const uint32 SECPKG_CALL_NEGO = 16384;
-
 	public const uint32 SECPKG_CALL_NEGO_EXTENDER = 32768;
-
 	public const uint32 SECPKG_CALL_BUFFER_MARSHAL = 65536;
-
 	public const uint32 SECPKG_CALL_UNLOCK = 131072;
-
 	public const uint32 SECPKG_CALL_CLOUDAP_CONNECT = 262144;
-
 	public const uint32 SECPKG_CALL_WOWX86 = 64;
-
 	public const uint32 SECPKG_CALL_WOWA32 = 262144;
-
 	public const uint32 SECPKG_CREDENTIAL_VERSION = 201;
-
 	public const uint32 SECPKG_CREDENTIAL_FLAGS_CALLER_HAS_TCB = 1;
-
 	public const uint32 SECPKG_CREDENTIAL_FLAGS_CREDMAN_CRED = 2;
-
 	public const uint32 SECPKG_SURROGATE_LOGON_VERSION_1 = 1;
-
 	public const uint32 SECBUFFER_UNMAPPED = 1073741824;
-
 	public const uint32 SECBUFFER_KERNEL_MAP = 536870912;
-
 	public const uint32 PRIMARY_CRED_CLEAR_PASSWORD = 1;
-
 	public const uint32 PRIMARY_CRED_OWF_PASSWORD = 2;
-
 	public const uint32 PRIMARY_CRED_UPDATE = 4;
-
 	public const uint32 PRIMARY_CRED_CACHED_LOGON = 8;
-
 	public const uint32 PRIMARY_CRED_LOGON_NO_TCB = 16;
-
 	public const uint32 PRIMARY_CRED_LOGON_LUA = 32;
-
 	public const uint32 PRIMARY_CRED_INTERACTIVE_SMARTCARD_LOGON = 64;
-
 	public const uint32 PRIMARY_CRED_REFRESH_NEEDED = 128;
-
 	public const uint32 PRIMARY_CRED_INTERNET_USER = 256;
-
 	public const uint32 PRIMARY_CRED_AUTH_ID = 512;
-
 	public const uint32 PRIMARY_CRED_DO_NOT_SPLIT = 1024;
-
 	public const uint32 PRIMARY_CRED_PROTECTED_USER = 2048;
-
 	public const uint32 PRIMARY_CRED_EX = 4096;
-
 	public const uint32 PRIMARY_CRED_TRANSFER = 8192;
-
 	public const uint32 PRIMARY_CRED_RESTRICTED_TS = 16384;
-
 	public const uint32 PRIMARY_CRED_PACKED_CREDS = 32768;
-
 	public const uint32 PRIMARY_CRED_ENTERPRISE_INTERNET_USER = 65536;
-
 	public const uint32 PRIMARY_CRED_ENCRYPTED_CREDGUARD_PASSWORD = 131072;
-
 	public const uint32 PRIMARY_CRED_CACHED_INTERACTIVE_LOGON = 262144;
-
 	public const uint32 PRIMARY_CRED_INTERACTIVE_NGC_LOGON = 524288;
-
 	public const uint32 PRIMARY_CRED_INTERACTIVE_FIDO_LOGON = 1048576;
-
 	public const uint32 PRIMARY_CRED_ARSO_LOGON = 2097152;
-
 	public const uint32 PRIMARY_CRED_SUPPLEMENTAL = 4194304;
-
 	public const uint32 PRIMARY_CRED_LOGON_PACKAGE_SHIFT = 24;
-
 	public const uint32 PRIMARY_CRED_PACKAGE_MASK = 4278190080;
-
 	public const uint32 SECPKG_PRIMARY_CRED_EX_FLAGS_EX_DELEGATION_TOKEN = 1;
-
 	public const uint32 MAX_CRED_SIZE = 1024;
-
 	public const uint32 SECPKG_STATE_ENCRYPTION_PERMITTED = 1;
-
 	public const uint32 SECPKG_STATE_STRONG_ENCRYPTION_PERMITTED = 2;
-
 	public const uint32 SECPKG_STATE_DOMAIN_CONTROLLER = 4;
-
 	public const uint32 SECPKG_STATE_WORKSTATION = 8;
-
 	public const uint32 SECPKG_STATE_STANDALONE = 16;
-
 	public const uint32 SECPKG_STATE_CRED_ISOLATION_ENABLED = 32;
-
 	public const uint32 SECPKG_STATE_RESERVED_1 = 2147483648;
-
 	public const uint32 SECPKG_MAX_OID_LENGTH = 32;
-
 	public const uint32 SECPKG_ATTR_SASL_CONTEXT = 65536;
-
 	public const uint32 SECPKG_ATTR_THUNK_ALL = 65536;
-
 	public const uint32 UNDERSTANDS_LONG_NAMES = 1;
-
 	public const uint32 NO_LONG_NAMES = 2;
-
 	public const uint32 SECPKG_CALL_PACKAGE_TRANSFER_CRED_REQUEST_FLAG_OPTIMISTIC_LOGON = 1;
-
 	public const uint32 SECPKG_CALL_PACKAGE_TRANSFER_CRED_REQUEST_FLAG_CLEANUP_CREDENTIALS = 2;
-
 	public const uint32 SECPKG_CALL_PACKAGE_TRANSFER_CRED_REQUEST_FLAG_TO_SSO_SESSION = 4;
-
 	public const uint32 NOTIFIER_FLAG_NEW_THREAD = 1;
-
 	public const uint32 NOTIFIER_FLAG_ONE_SHOT = 2;
-
 	public const uint32 NOTIFIER_FLAG_SECONDS = 2147483648;
-
 	public const uint32 NOTIFIER_TYPE_INTERVAL = 1;
-
 	public const uint32 NOTIFIER_TYPE_HANDLE_WAIT = 2;
-
 	public const uint32 NOTIFIER_TYPE_STATE_CHANGE = 3;
-
 	public const uint32 NOTIFIER_TYPE_NOTIFY_EVENT = 4;
-
 	public const uint32 NOTIFIER_TYPE_IMMEDIATE = 16;
-
 	public const uint32 NOTIFY_CLASS_PACKAGE_CHANGE = 1;
-
 	public const uint32 NOTIFY_CLASS_ROLE_CHANGE = 2;
-
 	public const uint32 NOTIFY_CLASS_DOMAIN_CHANGE = 3;
-
 	public const uint32 NOTIFY_CLASS_REGISTRY_CHANGE = 4;
-
 	public const uint32 LSA_QUERY_CLIENT_PRELOGON_SESSION_ID = 1;
-
 	public const uint32 CREDP_FLAGS_IN_PROCESS = 1;
-
 	public const uint32 CREDP_FLAGS_USE_MIDL_HEAP = 2;
-
 	public const uint32 CREDP_FLAGS_DONT_CACHE_TI = 4;
-
 	public const uint32 CREDP_FLAGS_CLEAR_PASSWORD = 8;
-
 	public const uint32 CREDP_FLAGS_USER_ENCRYPTED_PASSWORD = 16;
-
 	public const uint32 CREDP_FLAGS_TRUSTED_CALLER = 32;
-
 	public const uint32 CREDP_FLAGS_VALIDATE_PROXY_TARGET = 64;
-
 	public const uint32 CRED_MARSHALED_TI_SIZE_SIZE = 12;
-
 	public const uint32 SECPKG_UNICODE_ATTRIBUTE = 2147483648;
-
 	public const uint32 SECPKG_ANSI_ATTRIBUTE = 0;
-
 	public const uint32 SECPKG_CREDENTIAL_ATTRIBUTE = 0;
-
 	public const uint32 SECPKG_INTERFACE_VERSION = 65536;
-
 	public const uint32 SECPKG_INTERFACE_VERSION_2 = 131072;
-
 	public const uint32 SECPKG_INTERFACE_VERSION_3 = 262144;
-
 	public const uint32 SECPKG_INTERFACE_VERSION_4 = 524288;
-
 	public const uint32 SECPKG_INTERFACE_VERSION_5 = 1048576;
-
 	public const uint32 SECPKG_INTERFACE_VERSION_6 = 2097152;
-
 	public const uint32 SECPKG_INTERFACE_VERSION_7 = 4194304;
-
 	public const uint32 SECPKG_INTERFACE_VERSION_8 = 8388608;
-
 	public const uint32 SECPKG_INTERFACE_VERSION_9 = 16777216;
-
 	public const uint32 SECPKG_INTERFACE_VERSION_10 = 33554432;
-
 	public const uint32 UNISP_RPC_ID = 14;
-
 	public const uint32 RCRED_STATUS_NOCRED = 0;
-
 	public const uint32 RCRED_CRED_EXISTS = 1;
-
 	public const uint32 RCRED_STATUS_UNKNOWN_ISSUER = 2;
-
 	public const uint32 LCRED_STATUS_NOCRED = 0;
-
 	public const uint32 LCRED_CRED_EXISTS = 1;
-
 	public const uint32 LCRED_STATUS_UNKNOWN_ISSUER = 2;
-
 	public const uint32 SECPKGCONTEXT_CONNECTION_INFO_EX_V1 = 1;
-
 	public const uint32 SECPKGCONTEXT_CIPHERINFO_V1 = 1;
-
 	public const uint32 SSL_SESSION_RECONNECT = 1;
-
 	public const uint32 KERN_CONTEXT_CERT_INFO_V1 = 0;
-
 	public const uint32 ENABLE_TLS_CLIENT_EARLY_START = 1;
-
 	public const uint32 SCH_CRED_V1 = 1;
-
 	public const uint32 SCH_CRED_V2 = 2;
-
 	public const uint32 SCH_CRED_VERSION = 2;
-
 	public const uint32 SCH_CRED_V3 = 3;
-
 	public const uint32 SCHANNEL_CRED_VERSION = 4;
-
 	public const uint32 SCH_CREDENTIALS_VERSION = 5;
-
 	public const uint32 TLS_PARAMS_OPTIONAL = 1;
-
 	public const uint32 SCH_CRED_MAX_SUPPORTED_PARAMETERS = 16;
-
 	public const uint32 SCH_CRED_MAX_SUPPORTED_ALPN_IDS = 16;
-
 	public const uint32 SCH_CRED_MAX_SUPPORTED_CRYPTO_SETTINGS = 16;
-
 	public const uint32 SCH_CRED_MAX_SUPPORTED_CHAINING_MODES = 16;
-
 	public const uint32 SCH_MAX_EXT_SUBSCRIPTIONS = 2;
-
 	public const uint32 SCH_CRED_FORMAT_CERT_CONTEXT = 0;
-
 	public const uint32 SCH_CRED_FORMAT_CERT_HASH = 1;
-
 	public const uint32 SCH_CRED_FORMAT_CERT_HASH_STORE = 2;
-
 	public const uint32 SCH_CRED_MAX_STORE_NAME_SIZE = 128;
-
 	public const uint32 SCH_CRED_MAX_SUPPORTED_ALGS = 256;
-
 	public const uint32 SCH_CRED_MAX_SUPPORTED_CERTS = 100;
-
 	public const uint32 SCH_MACHINE_CERT_HASH = 1;
-
 	public const uint32 SCH_CRED_DISABLE_RECONNECTS = 128;
-
 	public const uint32 SCH_CRED_RESTRICTED_ROOTS = 8192;
-
 	public const uint32 SCH_CRED_REVOCATION_CHECK_CACHE_ONLY = 16384;
-
 	public const uint32 SCH_CRED_CACHE_ONLY_URL_RETRIEVAL = 32768;
-
 	public const uint32 SCH_CRED_MEMORY_STORE_CERT = 65536;
-
 	public const uint32 SCH_CRED_SNI_CREDENTIAL = 524288;
-
 	public const uint32 SCH_CRED_SNI_ENABLE_OCSP = 1048576;
-
 	public const uint32 SCH_USE_DTLS_ONLY = 16777216;
-
 	public const uint32 SCH_ALLOW_NULL_ENCRYPTION = 33554432;
-
 	public const uint32 SCH_CRED_DEFERRED_CRED_VALIDATION = 67108864;
-
 	public const uint32 SCHANNEL_RENEGOTIATE = 0;
-
 	public const uint32 SCHANNEL_SHUTDOWN = 1;
-
 	public const uint32 SCHANNEL_ALERT = 2;
-
 	public const uint32 SCHANNEL_SESSION = 3;
-
 	public const uint32 TLS1_ALERT_CLOSE_NOTIFY = 0;
-
 	public const uint32 TLS1_ALERT_UNEXPECTED_MESSAGE = 10;
-
 	public const uint32 TLS1_ALERT_BAD_RECORD_MAC = 20;
-
 	public const uint32 TLS1_ALERT_DECRYPTION_FAILED = 21;
-
 	public const uint32 TLS1_ALERT_RECORD_OVERFLOW = 22;
-
 	public const uint32 TLS1_ALERT_DECOMPRESSION_FAIL = 30;
-
 	public const uint32 TLS1_ALERT_HANDSHAKE_FAILURE = 40;
-
 	public const uint32 TLS1_ALERT_BAD_CERTIFICATE = 42;
-
 	public const uint32 TLS1_ALERT_UNSUPPORTED_CERT = 43;
-
 	public const uint32 TLS1_ALERT_CERTIFICATE_REVOKED = 44;
-
 	public const uint32 TLS1_ALERT_CERTIFICATE_EXPIRED = 45;
-
 	public const uint32 TLS1_ALERT_CERTIFICATE_UNKNOWN = 46;
-
 	public const uint32 TLS1_ALERT_ILLEGAL_PARAMETER = 47;
-
 	public const uint32 TLS1_ALERT_UNKNOWN_CA = 48;
-
 	public const uint32 TLS1_ALERT_ACCESS_DENIED = 49;
-
 	public const uint32 TLS1_ALERT_DECODE_ERROR = 50;
-
 	public const uint32 TLS1_ALERT_DECRYPT_ERROR = 51;
-
 	public const uint32 TLS1_ALERT_EXPORT_RESTRICTION = 60;
-
 	public const uint32 TLS1_ALERT_PROTOCOL_VERSION = 70;
-
 	public const uint32 TLS1_ALERT_INSUFFIENT_SECURITY = 71;
-
 	public const uint32 TLS1_ALERT_INTERNAL_ERROR = 80;
-
 	public const uint32 TLS1_ALERT_USER_CANCELED = 90;
-
 	public const uint32 TLS1_ALERT_NO_RENEGOTIATION = 100;
-
 	public const uint32 TLS1_ALERT_UNSUPPORTED_EXT = 110;
-
 	public const uint32 TLS1_ALERT_UNKNOWN_PSK_IDENTITY = 115;
-
 	public const uint32 TLS1_ALERT_NO_APP_PROTOCOL = 120;
-
 	public const uint32 SP_PROT_PCT1_SERVER = 1;
-
 	public const uint32 SP_PROT_PCT1_CLIENT = 2;
-
 	public const uint32 SP_PROT_SSL2_SERVER = 4;
-
 	public const uint32 SP_PROT_SSL2_CLIENT = 8;
-
 	public const uint32 SP_PROT_SSL3_SERVER = 16;
-
 	public const uint32 SP_PROT_SSL3_CLIENT = 32;
-
 	public const uint32 SP_PROT_TLS1_SERVER = 64;
-
 	public const uint32 SP_PROT_TLS1_CLIENT = 128;
-
 	public const uint32 SP_PROT_UNI_SERVER = 1073741824;
-
 	public const uint32 SP_PROT_UNI_CLIENT = 2147483648;
-
 	public const uint32 SP_PROT_ALL = 4294967295;
-
 	public const uint32 SP_PROT_NONE = 0;
-
 	public const uint32 SP_PROT_TLS1_0_SERVER = 64;
-
 	public const uint32 SP_PROT_TLS1_0_CLIENT = 128;
-
 	public const uint32 SP_PROT_TLS1_1_SERVER = 256;
-
 	public const uint32 SP_PROT_TLS1_1_CLIENT = 512;
-
 	public const uint32 SP_PROT_TLS1_2_SERVER = 1024;
-
 	public const uint32 SP_PROT_TLS1_2_CLIENT = 2048;
-
 	public const uint32 SP_PROT_TLS1_3_SERVER = 4096;
-
 	public const uint32 SP_PROT_TLS1_3_CLIENT = 8192;
-
 	public const uint32 SP_PROT_DTLS_SERVER = 65536;
-
 	public const uint32 SP_PROT_DTLS_CLIENT = 131072;
-
 	public const uint32 SP_PROT_DTLS1_0_SERVER = 65536;
-
 	public const uint32 SP_PROT_DTLS1_0_CLIENT = 131072;
-
 	public const uint32 SP_PROT_DTLS1_2_SERVER = 262144;
-
 	public const uint32 SP_PROT_DTLS1_2_CLIENT = 524288;
-
 	public const uint32 SP_PROT_TLS1_3PLUS_SERVER = 4096;
-
 	public const uint32 SP_PROT_TLS1_3PLUS_CLIENT = 8192;
-
 	public const uint32 SCHANNEL_SECRET_TYPE_CAPI = 1;
-
 	public const uint32 SCHANNEL_SECRET_PRIVKEY = 2;
-
 	public const uint32 SCH_CRED_X509_CERTCHAIN = 1;
-
 	public const uint32 SCH_CRED_X509_CAPI = 2;
-
 	public const uint32 SCH_CRED_CERT_CONTEXT = 3;
-
 	public const uint32 SL_SYSTEM_STATE_REBOOT_POLICY_FOUND = 1;
-
 	public const uint32 SL_SYSTEM_STATE_TAMPERED = 2;
-
 	public const uint32 SL_REARM_REBOOT_REQUIRED = 1;
-
 	public const uint32 SPP_MIGRATION_GATHER_MIGRATABLE_APPS = 1;
-
 	public const uint32 SPP_MIGRATION_GATHER_ACTIVATED_WINDOWS_STATE = 2;
-
 	public const uint32 SPP_MIGRATION_GATHER_ALL = 4294967295;
-
 	public const uint32 USER_ACCOUNT_DISABLED = 1;
-
 	public const uint32 USER_HOME_DIRECTORY_REQUIRED = 2;
-
 	public const uint32 USER_PASSWORD_NOT_REQUIRED = 4;
-
 	public const uint32 USER_TEMP_DUPLICATE_ACCOUNT = 8;
-
 	public const uint32 USER_NORMAL_ACCOUNT = 16;
-
 	public const uint32 USER_MNS_LOGON_ACCOUNT = 32;
-
 	public const uint32 USER_INTERDOMAIN_TRUST_ACCOUNT = 64;
-
 	public const uint32 USER_WORKSTATION_TRUST_ACCOUNT = 128;
-
 	public const uint32 USER_SERVER_TRUST_ACCOUNT = 256;
-
 	public const uint32 USER_DONT_EXPIRE_PASSWORD = 512;
-
 	public const uint32 USER_ACCOUNT_AUTO_LOCKED = 1024;
-
 	public const uint32 USER_ENCRYPTED_TEXT_PASSWORD_ALLOWED = 2048;
-
 	public const uint32 USER_SMARTCARD_REQUIRED = 4096;
-
 	public const uint32 USER_TRUSTED_FOR_DELEGATION = 8192;
-
 	public const uint32 USER_NOT_DELEGATED = 16384;
-
 	public const uint32 USER_USE_DES_KEY_ONLY = 32768;
-
 	public const uint32 USER_DONT_REQUIRE_PREAUTH = 65536;
-
 	public const uint32 USER_PASSWORD_EXPIRED = 131072;
-
 	public const uint32 USER_TRUSTED_TO_AUTHENTICATE_FOR_DELEGATION = 262144;
-
 	public const uint32 USER_NO_AUTH_DATA_REQUIRED = 524288;
-
 	public const uint32 USER_PARTIAL_SECRETS_ACCOUNT = 1048576;
-
 	public const uint32 USER_USE_AES_KEYS = 2097152;
-
 	public const uint32 SAM_DAYS_PER_WEEK = 7;
-
 	public const uint32 USER_ALL_PARAMETERS = 2097152;
-
 	public const uint32 CLEAR_BLOCK_LENGTH = 8;
-
 	public const uint32 CYPHER_BLOCK_LENGTH = 8;
-
 	public const uint32 MSV1_0_VALIDATION_LOGOFF_TIME = 1;
-
 	public const uint32 MSV1_0_VALIDATION_KICKOFF_TIME = 2;
-
 	public const uint32 MSV1_0_VALIDATION_LOGON_SERVER = 4;
-
 	public const uint32 MSV1_0_VALIDATION_LOGON_DOMAIN = 8;
-
 	public const uint32 MSV1_0_VALIDATION_SESSION_KEY = 16;
-
 	public const uint32 MSV1_0_VALIDATION_USER_FLAGS = 32;
-
 	public const uint32 MSV1_0_VALIDATION_USER_ID = 64;
-
 	public const uint32 MSV1_0_SUBAUTH_ACCOUNT_DISABLED = 1;
-
 	public const uint32 MSV1_0_SUBAUTH_PASSWORD = 2;
-
 	public const uint32 MSV1_0_SUBAUTH_WORKSTATIONS = 4;
-
 	public const uint32 MSV1_0_SUBAUTH_LOGON_HOURS = 8;
-
 	public const uint32 MSV1_0_SUBAUTH_ACCOUNT_EXPIRY = 16;
-
 	public const uint32 MSV1_0_SUBAUTH_PASSWORD_EXPIRY = 32;
-
 	public const uint32 MSV1_0_SUBAUTH_ACCOUNT_TYPE = 64;
-
 	public const uint32 MSV1_0_SUBAUTH_LOCKOUT = 128;
-
 	public const uint32 SL_MDOLLAR_ZONE = 40960;
-
 	public const uint32 SL_SERVER_ZONE = 45056;
-
 	public const uint32 SL_MSCH_ZONE = 49152;
-
 	public const uint32 SL_INTERNAL_ZONE = 57344;
-
 	public const uint32 SL_CLIENTAPI_ZONE = 61440;
-
 	public const uint32 FACILITY_SL_ITF = 4;
-
 	public const uint32 _FACILITY_WINDOWS_STORE = 63;
-
 	public const HRESULT SL_E_SRV_INVALID_PUBLISH_LICENSE = -1073434623;
-
 	public const HRESULT SL_E_SRV_INVALID_PRODUCT_KEY_LICENSE = -1073434622;
-
 	public const HRESULT SL_E_SRV_INVALID_RIGHTS_ACCOUNT_LICENSE = -1073434621;
-
 	public const HRESULT SL_E_SRV_INVALID_LICENSE_STRUCTURE = -1073434620;
-
 	public const HRESULT SL_E_SRV_AUTHORIZATION_FAILED = -1073434619;
-
 	public const HRESULT SL_E_SRV_INVALID_BINDING = -1073434618;
-
 	public const HRESULT SL_E_SRV_SERVER_PONG = -1073434617;
-
 	public const HRESULT SL_E_SRV_INVALID_PAYLOAD = -1073434616;
-
 	public const HRESULT SL_E_SRV_INVALID_SECURITY_PROCESSOR_LICENSE = -1073434615;
-
 	public const HRESULT SL_E_SRV_BUSINESS_TOKEN_ENTRY_NOT_FOUND = -1073434608;
-
 	public const HRESULT SL_E_SRV_CLIENT_CLOCK_OUT_OF_SYNC = -1073434607;
-
 	public const HRESULT SL_E_SRV_GENERAL_ERROR = -1073434368;
-
 	public const HRESULT SL_E_CHPA_PRODUCT_KEY_OUT_OF_RANGE = -1073430527;
-
 	public const HRESULT SL_E_CHPA_INVALID_BINDING = -1073430526;
-
 	public const HRESULT SL_E_CHPA_PRODUCT_KEY_BLOCKED = -1073430525;
-
 	public const HRESULT SL_E_CHPA_INVALID_PRODUCT_KEY = -1073430524;
-
 	public const HRESULT SL_E_CHPA_BINDING_NOT_FOUND = -1073430523;
-
 	public const HRESULT SL_E_CHPA_BINDING_MAPPING_NOT_FOUND = -1073430522;
-
 	public const HRESULT SL_E_CHPA_UNSUPPORTED_PRODUCT_KEY = -1073430521;
-
 	public const HRESULT SL_E_CHPA_MAXIMUM_UNLOCK_EXCEEDED = -1073430520;
-
 	public const HRESULT SL_E_CHPA_ACTCONFIG_ID_NOT_FOUND = -1073430519;
-
 	public const HRESULT SL_E_CHPA_INVALID_PRODUCT_DATA_ID = -1073430518;
-
 	public const HRESULT SL_E_CHPA_INVALID_PRODUCT_DATA = -1073430517;
-
 	public const HRESULT SL_E_CHPA_SYSTEM_ERROR = -1073430516;
-
 	public const HRESULT SL_E_CHPA_INVALID_ACTCONFIG_ID = -1073430515;
-
 	public const HRESULT SL_E_CHPA_INVALID_PRODUCT_KEY_LENGTH = -1073430514;
-
 	public const HRESULT SL_E_CHPA_INVALID_PRODUCT_KEY_FORMAT = -1073430513;
-
 	public const HRESULT SL_E_CHPA_INVALID_PRODUCT_KEY_CHAR = -1073430512;
-
 	public const HRESULT SL_E_CHPA_INVALID_BINDING_URI = -1073430511;
-
 	public const HRESULT SL_E_CHPA_NETWORK_ERROR = -1073430510;
-
 	public const HRESULT SL_E_CHPA_DATABASE_ERROR = -1073430509;
-
 	public const HRESULT SL_E_CHPA_INVALID_ARGUMENT = -1073430508;
-
 	public const HRESULT SL_E_CHPA_DMAK_LIMIT_EXCEEDED = -1073430496;
-
 	public const HRESULT SL_E_CHPA_DMAK_EXTENSION_LIMIT_EXCEEDED = -1073430495;
-
 	public const HRESULT SL_E_CHPA_REISSUANCE_LIMIT_NOT_FOUND = -1073430494;
-
 	public const HRESULT SL_E_CHPA_OVERRIDE_REQUEST_NOT_FOUND = -1073430493;
-
 	public const HRESULT SL_E_CHPA_OEM_SLP_COA0 = -1073430506;
-
 	public const HRESULT SL_E_CHPA_PRODUCT_KEY_BLOCKED_IPLOCATION = -1073430505;
-
 	public const HRESULT SL_E_CHPA_RESPONSE_NOT_AVAILABLE = -1073430507;
-
 	public const HRESULT SL_E_CHPA_GENERAL_ERROR = -1073430448;
-
 	public const HRESULT SL_E_CHPA_TIMEBASED_ACTIVATION_BEFORE_START_DATE = -1073430480;
-
 	public const HRESULT SL_E_CHPA_TIMEBASED_ACTIVATION_AFTER_END_DATE = -1073430479;
-
 	public const HRESULT SL_E_CHPA_TIMEBASED_ACTIVATION_NOT_AVAILABLE = -1073430478;
-
 	public const HRESULT SL_E_CHPA_TIMEBASED_PRODUCT_KEY_NOT_CONFIGURED = -1073430477;
-
 	public const HRESULT SL_E_CHPA_NO_RULES_TO_ACTIVATE = -1073430449;
-
 	public const HRESULT SL_E_CHPA_DIGITALMARKER_INVALID_BINDING = -1073430447;
-
 	public const HRESULT SL_E_CHPA_DIGITALMARKER_BINDING_NOT_CONFIGURED = -1073430446;
-
 	public const HRESULT SL_E_CHPA_DYNAMICALLY_BLOCKED_PRODUCT_KEY = -1073430432;
-
 	public const HRESULT SL_E_CHPA_MSCH_RESPONSE_NOT_AVAILABLE_VGA = -1073429505;
-
 	public const HRESULT SL_E_CHPA_BUSINESS_RULE_INPUT_NOT_FOUND = -1073428736;
-
 	public const HRESULT SL_E_CHPA_NULL_VALUE_FOR_PROPERTY_NAME_OR_ID = -1073428656;
-
 	public const HRESULT SL_E_CHPA_UNKNOWN_PROPERTY_NAME = -1073428655;
-
 	public const HRESULT SL_E_CHPA_UNKNOWN_PROPERTY_ID = -1073428654;
-
 	public const HRESULT SL_E_CHPA_FAILED_TO_UPDATE_PRODUCTKEY_BINDING = -1073428651;
-
 	public const HRESULT SL_E_CHPA_FAILED_TO_INSERT_PRODUCTKEY_BINDING = -1073428650;
-
 	public const HRESULT SL_E_CHPA_FAILED_TO_DELETE_PRODUCTKEY_BINDING = -1073428649;
-
 	public const HRESULT SL_E_CHPA_FAILED_TO_PROCESS_PRODUCT_KEY_BINDINGS_XML = -1073428648;
-
 	public const HRESULT SL_E_CHPA_FAILED_TO_INSERT_PRODUCT_KEY_PROPERTY = -1073428646;
-
 	public const HRESULT SL_E_CHPA_FAILED_TO_UPDATE_PRODUCT_KEY_PROPERTY = -1073428645;
-
 	public const HRESULT SL_E_CHPA_FAILED_TO_DELETE_PRODUCT_KEY_PROPERTY = -1073428644;
-
 	public const HRESULT SL_E_CHPA_UNKNOWN_PRODUCT_KEY_TYPE = -1073428636;
-
 	public const HRESULT SL_E_CHPA_PRODUCT_KEY_BEING_USED = -1073428624;
-
 	public const HRESULT SL_E_CHPA_FAILED_TO_INSERT_PRODUCT_KEY_RECORD = -1073428608;
-
 	public const HRESULT SL_E_CHPA_FAILED_TO_UPDATE_PRODUCT_KEY_RECORD = -1073428607;
-
 	public const HRESULT SL_E_INVALID_LICENSE_STATE_BREACH_GRACE = -1073429871;
-
 	public const HRESULT SL_E_INVALID_LICENSE_STATE_BREACH_GRACE_EXPIRED = -1073429870;
-
 	public const HRESULT SL_E_INVALID_TEMPLATE_ID = -1073429770;
-
 	public const HRESULT SL_E_INVALID_XML_BLOB = -1073429766;
-
 	public const HRESULT SL_E_VALIDATION_BLOB_PARAM_NOT_FOUND = -1073429721;
-
 	public const HRESULT SL_E_INVALID_CLIENT_TOKEN = -1073429720;
-
 	public const HRESULT SL_E_INVALID_OFFLINE_BLOB = -1073429719;
-
 	public const HRESULT SL_E_OFFLINE_VALIDATION_BLOB_PARAM_NOT_FOUND = -1073429718;
-
 	public const HRESULT SL_E_INVALID_OSVERSION_TEMPLATEID = -1073429717;
-
 	public const HRESULT SL_E_OFFLINE_GENUINE_BLOB_REVOKED = -1073429716;
-
 	public const HRESULT SL_E_OFFLINE_GENUINE_BLOB_NOT_FOUND = -1073429715;
-
 	public const HRESULT SL_E_INVALID_OS_FOR_PRODUCT_KEY = -1073429503;
-
 	public const HRESULT SL_E_INVALID_FILE_HASH = -1073429343;
-
 	public const HRESULT SL_E_VALIDATION_BLOCKED_PRODUCT_KEY = -1073429342;
-
 	public const HRESULT SL_E_MISMATCHED_KEY_TYPES = -1073429340;
-
 	public const HRESULT SL_E_VALIDATION_INVALID_PRODUCT_KEY = -1073429339;
-
 	public const HRESULT SL_E_INVALID_OEM_OR_VOLUME_BINDING_DATA = -1073429337;
-
 	public const HRESULT SL_E_INVALID_LICENSE_STATE = -1073429336;
-
 	public const HRESULT SL_E_IP_LOCATION_FALIED = -1073429335;
-
 	public const HRESULT SL_E_SOFTMOD_EXPLOIT_DETECTED = -1073429333;
-
 	public const HRESULT SL_E_INVALID_TOKEN_DATA = -1073429332;
-
 	public const HRESULT SL_E_HEALTH_CHECK_FAILED_NEUTRAL_FILES = -1073429331;
-
 	public const HRESULT SL_E_HEALTH_CHECK_FAILED_MUI_FILES = -1073429330;
-
 	public const HRESULT SL_E_INVALID_AD_DATA = -1073429329;
-
 	public const HRESULT SL_E_INVALID_RSDP_COUNT = -1073429328;
-
 	public const HRESULT SL_E_ENGINE_DETECTED_EXPLOIT = -1073429327;
-
 	public const HRESULT SL_E_NON_GENUINE_STATUS_LAST = -1073428992;
-
 	public const HRESULT SL_E_NOTIFICATION_BREACH_DETECTED = -1073429199;
-
 	public const HRESULT SL_E_NOTIFICATION_GRACE_EXPIRED = -1073429198;
-
 	public const HRESULT SL_E_NOTIFICATION_OTHER_REASONS = -1073429197;
-
 	public const HRESULT SL_E_INVALID_CONTEXT = -1073422335;
-
 	public const HRESULT SL_E_TOKEN_STORE_INVALID_STATE = -1073422334;
-
 	public const HRESULT SL_E_EVALUATION_FAILED = -1073422333;
-
 	public const HRESULT SL_E_NOT_EVALUATED = -1073422332;
-
 	public const HRESULT SL_E_NOT_ACTIVATED = -1073422331;
-
 	public const HRESULT SL_E_INVALID_GUID = -1073422330;
-
 	public const HRESULT SL_E_TOKSTO_TOKEN_NOT_FOUND = -1073422329;
-
 	public const HRESULT SL_E_TOKSTO_NO_PROPERTIES = -1073422328;
-
 	public const HRESULT SL_E_TOKSTO_NOT_INITIALIZED = -1073422327;
-
 	public const HRESULT SL_E_TOKSTO_ALREADY_INITIALIZED = -1073422326;
-
 	public const HRESULT SL_E_TOKSTO_NO_ID_SET = -1073422325;
-
 	public const HRESULT SL_E_TOKSTO_CANT_CREATE_FILE = -1073422324;
-
 	public const HRESULT SL_E_TOKSTO_CANT_WRITE_TO_FILE = -1073422323;
-
 	public const HRESULT SL_E_TOKSTO_CANT_READ_FILE = -1073422322;
-
 	public const HRESULT SL_E_TOKSTO_CANT_PARSE_PROPERTIES = -1073422321;
-
 	public const HRESULT SL_E_TOKSTO_PROPERTY_NOT_FOUND = -1073422320;
-
 	public const HRESULT SL_E_TOKSTO_INVALID_FILE = -1073422319;
-
 	public const HRESULT SL_E_TOKSTO_CANT_CREATE_MUTEX = -1073422318;
-
 	public const HRESULT SL_E_TOKSTO_CANT_ACQUIRE_MUTEX = -1073422317;
-
 	public const HRESULT SL_E_TOKSTO_NO_TOKEN_DATA = -1073422316;
-
 	public const HRESULT SL_E_EUL_CONSUMPTION_FAILED = -1073422315;
-
 	public const HRESULT SL_E_PKEY_INVALID_CONFIG = -1073422314;
-
 	public const HRESULT SL_E_PKEY_INVALID_UNIQUEID = -1073422313;
-
 	public const HRESULT SL_E_PKEY_INVALID_ALGORITHM = -1073422312;
-
 	public const HRESULT SL_E_PKEY_INTERNAL_ERROR = -1073422311;
-
 	public const HRESULT SL_E_LICENSE_INVALID_ADDON_INFO = -1073422310;
-
 	public const HRESULT SL_E_HWID_ERROR = -1073422309;
-
 	public const HRESULT SL_E_PKEY_INVALID_KEYCHANGE1 = -1073422308;
-
 	public const HRESULT SL_E_PKEY_INVALID_KEYCHANGE2 = -1073422307;
-
 	public const HRESULT SL_E_PKEY_INVALID_KEYCHANGE3 = -1073422306;
-
 	public const HRESULT SL_E_POLICY_OTHERINFO_MISMATCH = -1073422304;
-
 	public const HRESULT SL_E_PRODUCT_UNIQUENESS_GROUP_ID_INVALID = -1073422303;
-
 	public const HRESULT SL_E_SECURE_STORE_ID_MISMATCH = -1073422302;
-
 	public const HRESULT SL_E_INVALID_RULESET_RULE = -1073422301;
-
 	public const HRESULT SL_E_INVALID_CONTEXT_DATA = -1073422300;
-
 	public const HRESULT SL_E_INVALID_HASH = -1073422299;
-
 	public const HRESULT SL_E_INVALID_USE_OF_ADD_ON_PKEY = -2147164122;
-
 	public const HRESULT SL_E_WINDOWS_VERSION_MISMATCH = -1073422297;
-
 	public const HRESULT SL_E_ACTIVATION_IN_PROGRESS = -1073422296;
-
 	public const HRESULT SL_E_STORE_UPGRADE_TOKEN_REQUIRED = -1073422295;
-
 	public const HRESULT SL_E_STORE_UPGRADE_TOKEN_WRONG_EDITION = -1073422294;
-
 	public const HRESULT SL_E_STORE_UPGRADE_TOKEN_WRONG_PID = -1073422293;
-
 	public const HRESULT SL_E_STORE_UPGRADE_TOKEN_NOT_PRS_SIGNED = -1073422292;
-
 	public const HRESULT SL_E_STORE_UPGRADE_TOKEN_WRONG_VERSION = -1073422291;
-
 	public const HRESULT SL_E_STORE_UPGRADE_TOKEN_NOT_AUTHORIZED = -1073422290;
-
 	public const HRESULT SL_E_SFS_INVALID_FS_VERSION = -2147163903;
-
 	public const HRESULT SL_E_SFS_INVALID_FD_TABLE = -2147163902;
-
 	public const HRESULT SL_E_SFS_INVALID_SYNC = -2147163901;
-
 	public const HRESULT SL_E_SFS_BAD_TOKEN_NAME = -2147163900;
-
 	public const HRESULT SL_E_SFS_BAD_TOKEN_EXT = -2147163899;
-
 	public const HRESULT SL_E_SFS_DUPLICATE_TOKEN_NAME = -2147163898;
-
 	public const HRESULT SL_E_SFS_TOKEN_SIZE_MISMATCH = -2147163897;
-
 	public const HRESULT SL_E_SFS_INVALID_TOKEN_DATA_HASH = -2147163896;
-
 	public const HRESULT SL_E_SFS_FILE_READ_ERROR = -2147163895;
-
 	public const HRESULT SL_E_SFS_FILE_WRITE_ERROR = -2147163894;
-
 	public const HRESULT SL_E_SFS_INVALID_FILE_POSITION = -2147163893;
-
 	public const HRESULT SL_E_SFS_NO_ACTIVE_TRANSACTION = -2147163892;
-
 	public const HRESULT SL_E_SFS_INVALID_FS_HEADER = -2147163891;
-
 	public const HRESULT SL_E_SFS_INVALID_TOKEN_DESCRIPTOR = -2147163890;
-
 	public const HRESULT SL_E_INTERNAL_ERROR = -1073418239;
-
 	public const HRESULT SL_E_RIGHT_NOT_CONSUMED = -1073418238;
-
 	public const HRESULT SL_E_USE_LICENSE_NOT_INSTALLED = -1073418237;
-
 	public const HRESULT SL_E_MISMATCHED_PKEY_RANGE = -1073418236;
-
 	public const HRESULT SL_E_MISMATCHED_PID = -1073418235;
-
 	public const HRESULT SL_E_EXTERNAL_SIGNATURE_NOT_FOUND = -1073418234;
-
 	public const HRESULT SL_E_RAC_NOT_AVAILABLE = -1073418233;
-
 	public const HRESULT SL_E_SPC_NOT_AVAILABLE = -1073418232;
-
 	public const HRESULT SL_E_GRACE_TIME_EXPIRED = -1073418231;
-
 	public const HRESULT SL_E_MISMATCHED_APPID = -1073418230;
-
 	public const HRESULT SL_E_NO_PID_CONFIG_DATA = -1073418229;
-
 	public const HRESULT SL_I_OOB_GRACE_PERIOD = 1074065420;
-
 	public const HRESULT SL_I_OOT_GRACE_PERIOD = 1074065421;
-
 	public const HRESULT SL_E_MISMATCHED_SECURITY_PROCESSOR = -1073418226;
-
 	public const HRESULT SL_E_OUT_OF_TOLERANCE = -1073418225;
-
 	public const HRESULT SL_E_INVALID_PKEY = -1073418224;
-
 	public const HRESULT SL_E_LICENSE_FILE_NOT_INSTALLED = -1073418223;
-
 	public const HRESULT SL_E_VALUE_NOT_FOUND = -1073418222;
-
 	public const HRESULT SL_E_RIGHT_NOT_GRANTED = -1073418221;
-
 	public const HRESULT SL_E_PKEY_NOT_INSTALLED = -1073418220;
-
 	public const HRESULT SL_E_PRODUCT_SKU_NOT_INSTALLED = -1073418219;
-
 	public const HRESULT SL_E_NOT_SUPPORTED = -1073418218;
-
 	public const HRESULT SL_E_PUBLISHING_LICENSE_NOT_INSTALLED = -1073418217;
-
 	public const HRESULT SL_E_LICENSE_SERVER_URL_NOT_FOUND = -1073418216;
-
 	public const HRESULT SL_E_INVALID_EVENT_ID = -1073418215;
-
 	public const HRESULT SL_E_EVENT_NOT_REGISTERED = -1073418214;
-
 	public const HRESULT SL_E_EVENT_ALREADY_REGISTERED = -1073418213;
-
 	public const HRESULT SL_E_DECRYPTION_LICENSES_NOT_AVAILABLE = -1073418212;
-
 	public const HRESULT SL_E_LICENSE_SIGNATURE_VERIFICATION_FAILED = -1073418211;
-
 	public const HRESULT SL_E_DATATYPE_MISMATCHED = -1073418210;
-
 	public const HRESULT SL_E_INVALID_LICENSE = -1073418209;
-
 	public const HRESULT SL_E_INVALID_PACKAGE = -1073418208;
-
 	public const HRESULT SL_E_VALIDITY_TIME_EXPIRED = -1073418207;
-
 	public const HRESULT SL_E_LICENSE_AUTHORIZATION_FAILED = -1073418206;
-
 	public const HRESULT SL_E_LICENSE_DECRYPTION_FAILED = -1073418205;
-
 	public const HRESULT SL_E_WINDOWS_INVALID_LICENSE_STATE = -1073418204;
-
 	public const HRESULT SL_E_LUA_ACCESSDENIED = -1073418203;
-
 	public const HRESULT SL_E_PROXY_KEY_NOT_FOUND = -1073418202;
-
 	public const HRESULT SL_E_TAMPER_DETECTED = -1073418201;
-
 	public const HRESULT SL_E_POLICY_CACHE_INVALID = -1073418200;
-
 	public const HRESULT SL_E_INVALID_RUNNING_MODE = -1073418199;
-
 	public const HRESULT SL_E_SLP_NOT_SIGNED = -1073418198;
-
 	public const HRESULT SL_E_CIDIID_INVALID_DATA = -1073418196;
-
 	public const HRESULT SL_E_CIDIID_INVALID_VERSION = -1073418195;
-
 	public const HRESULT SL_E_CIDIID_VERSION_NOT_SUPPORTED = -1073418194;
-
 	public const HRESULT SL_E_CIDIID_INVALID_DATA_LENGTH = -1073418193;
-
 	public const HRESULT SL_E_CIDIID_NOT_DEPOSITED = -1073418192;
-
 	public const HRESULT SL_E_CIDIID_MISMATCHED = -1073418191;
-
 	public const HRESULT SL_E_INVALID_BINDING_BLOB = -1073418190;
-
 	public const HRESULT SL_E_PRODUCT_KEY_INSTALLATION_NOT_ALLOWED = -1073418189;
-
 	public const HRESULT SL_E_EUL_NOT_AVAILABLE = -1073418188;
-
 	public const HRESULT SL_E_VL_NOT_WINDOWS_SLP = -1073418187;
-
 	public const HRESULT SL_E_VL_NOT_ENOUGH_COUNT = -1073418184;
-
 	public const HRESULT SL_E_VL_BINDING_SERVICE_NOT_ENABLED = -1073418183;
-
 	public const HRESULT SL_E_VL_INFO_PRODUCT_USER_RIGHT = 1074065472;
-
 	public const HRESULT SL_E_VL_KEY_MANAGEMENT_SERVICE_NOT_ACTIVATED = -1073418175;
-
 	public const HRESULT SL_E_VL_KEY_MANAGEMENT_SERVICE_ID_MISMATCH = -1073418174;
-
 	public const HRESULT SL_E_PROXY_POLICY_NOT_UPDATED = -1073418169;
-
 	public const HRESULT SL_E_CIDIID_INVALID_CHECK_DIGITS = -1073418163;
-
 	public const HRESULT SL_E_LICENSE_MANAGEMENT_DATA_NOT_FOUND = -1073418161;
-
 	public const HRESULT SL_E_INVALID_PRODUCT_KEY = -1073418160;
-
 	public const HRESULT SL_E_BLOCKED_PRODUCT_KEY = -1073418159;
-
 	public const HRESULT SL_E_DUPLICATE_POLICY = -1073418158;
-
 	public const HRESULT SL_E_MISSING_OVERRIDE_ONLY_ATTRIBUTE = -1073418157;
-
 	public const HRESULT SL_E_LICENSE_MANAGEMENT_DATA_DUPLICATED = -1073418156;
-
 	public const HRESULT SL_E_BASE_SKU_NOT_AVAILABLE = -1073418155;
-
 	public const HRESULT SL_E_VL_MACHINE_NOT_BOUND = -1073418154;
-
 	public const HRESULT SL_E_SLP_MISSING_ACPI_SLIC = -1073418153;
-
 	public const HRESULT SL_E_SLP_MISSING_SLP_MARKER = -1073418152;
-
 	public const HRESULT SL_E_SLP_BAD_FORMAT = -1073418151;
-
 	public const HRESULT SL_E_INVALID_PACKAGE_VERSION = -1073418144;
-
 	public const HRESULT SL_E_PKEY_INVALID_UPGRADE = -1073418143;
-
 	public const HRESULT SL_E_ISSUANCE_LICENSE_NOT_INSTALLED = -1073418142;
-
 	public const HRESULT SL_E_SLP_OEM_CERT_MISSING = -1073418141;
-
 	public const HRESULT SL_E_NONGENUINE_GRACE_TIME_EXPIRED = -1073418140;
-
 	public const HRESULT SL_I_NONGENUINE_GRACE_PERIOD = 1074065509;
-
 	public const HRESULT SL_E_DEPENDENT_PROPERTY_NOT_SET = -1073418138;
-
 	public const HRESULT SL_E_NONGENUINE_GRACE_TIME_EXPIRED_2 = -1073418137;
-
 	public const HRESULT SL_I_NONGENUINE_GRACE_PERIOD_2 = 1074065512;
-
 	public const HRESULT SL_E_MISMATCHED_PRODUCT_SKU = -1073418135;
-
 	public const HRESULT SL_E_OPERATION_NOT_ALLOWED = -1073418134;
-
 	public const HRESULT SL_E_VL_KEY_MANAGEMENT_SERVICE_VM_NOT_SUPPORTED = -1073418133;
-
 	public const HRESULT SL_E_VL_INVALID_TIMESTAMP = -1073418132;
-
 	public const HRESULT SL_E_PLUGIN_INVALID_MANIFEST = -1073418127;
-
 	public const HRESULT SL_E_APPLICATION_POLICIES_MISSING = -1073418126;
-
 	public const HRESULT SL_E_APPLICATION_POLICIES_NOT_LOADED = -1073418125;
-
 	public const HRESULT SL_E_VL_BINDING_SERVICE_UNAVAILABLE = -1073418124;
-
 	public const HRESULT SL_E_SERVICE_STOPPING = -1073418123;
-
 	public const HRESULT SL_E_PLUGIN_NOT_REGISTERED = -1073418122;
-
 	public const HRESULT SL_E_AUTHN_WRONG_VERSION = -1073418121;
-
 	public const HRESULT SL_E_AUTHN_MISMATCHED_KEY = -1073418120;
-
 	public const HRESULT SL_E_AUTHN_CHALLENGE_NOT_SET = -1073418119;
-
 	public const HRESULT SL_E_AUTHN_CANT_VERIFY = -1073418118;
-
 	public const HRESULT SL_E_SERVICE_RUNNING = -1073418117;
-
 	public const HRESULT SL_E_SLP_INVALID_MARKER_VERSION = -1073418116;
-
 	public const HRESULT SL_E_INVALID_PRODUCT_KEY_TYPE = -1073418115;
-
 	public const HRESULT SL_E_CIDIID_MISMATCHED_PKEY = -1073418114;
-
 	public const HRESULT SL_E_CIDIID_NOT_BOUND = -1073418113;
-
 	public const HRESULT SL_E_LICENSE_NOT_BOUND = -1073418112;
-
 	public const HRESULT SL_E_VL_AD_AO_NOT_FOUND = -1073418111;
-
 	public const HRESULT SL_E_VL_AD_AO_NAME_TOO_LONG = -1073418110;
-
 	public const HRESULT SL_E_VL_AD_SCHEMA_VERSION_NOT_SUPPORTED = -1073418109;
-
 	public const HRESULT SL_E_NOT_GENUINE = -1073417728;
-
 	public const HRESULT SL_E_EDITION_MISMATCHED = -1073417712;
-
 	public const HRESULT SL_E_HWID_CHANGED = -1073417711;
-
 	public const HRESULT SL_E_OEM_KEY_EDITION_MISMATCH = -1073417710;
-
 	public const HRESULT SL_E_NO_PRODUCT_KEY_FOUND = -1073417709;
-
 	public const HRESULT SL_E_DOWNLEVEL_SETUP_KEY = -1073417708;
-
 	public const HRESULT SL_E_BIOS_KEY = -1073417707;
-
 	public const HRESULT SL_E_TKA_CHALLENGE_EXPIRED = -1073417471;
-
 	public const HRESULT SL_E_TKA_SILENT_ACTIVATION_FAILURE = -1073417470;
-
 	public const HRESULT SL_E_TKA_INVALID_CERT_CHAIN = -1073417469;
-
 	public const HRESULT SL_E_TKA_GRANT_NOT_FOUND = -1073417468;
-
 	public const HRESULT SL_E_TKA_CERT_NOT_FOUND = -1073417467;
-
 	public const HRESULT SL_E_TKA_INVALID_SKU_ID = -1073417466;
-
 	public const HRESULT SL_E_TKA_INVALID_BLOB = -1073417465;
-
 	public const HRESULT SL_E_TKA_TAMPERED_CERT_CHAIN = -1073417464;
-
 	public const HRESULT SL_E_TKA_CHALLENGE_MISMATCH = -1073417463;
-
 	public const HRESULT SL_E_TKA_INVALID_CERTIFICATE = -1073417462;
-
 	public const HRESULT SL_E_TKA_INVALID_SMARTCARD = -1073417461;
-
 	public const HRESULT SL_E_TKA_FAILED_GRANT_PARSING = -1073417460;
-
 	public const HRESULT SL_E_TKA_INVALID_THUMBPRINT = -1073417459;
-
 	public const HRESULT SL_E_TKA_THUMBPRINT_CERT_NOT_FOUND = -1073417458;
-
 	public const HRESULT SL_E_TKA_CRITERIA_MISMATCH = -1073417457;
-
 	public const HRESULT SL_E_TKA_TPID_MISMATCH = -1073417456;
-
 	public const HRESULT SL_E_TKA_SOFT_CERT_DISALLOWED = -1073417455;
-
 	public const HRESULT SL_E_TKA_SOFT_CERT_INVALID = -1073417454;
-
 	public const HRESULT SL_E_TKA_CERT_CNG_NOT_AVAILABLE = -1073417453;
-
 	public const HRESULT SL_I_STORE_BASED_ACTIVATION = 1074066433;
-
 	public const HRESULT E_RM_UNKNOWN_ERROR = -1073415165;
-
 	public const HRESULT SL_I_TIMEBASED_VALIDITY_PERIOD = 1074068484;
-
 	public const HRESULT SL_I_PERPETUAL_OOB_GRACE_PERIOD = 1074068485;
-
 	public const HRESULT SL_I_TIMEBASED_EXTENDED_GRACE_PERIOD = 1074068486;
-
 	public const HRESULT SL_E_VALIDITY_PERIOD_EXPIRED = -1073415161;
-
 	public const HRESULT SL_E_IA_THROTTLE_LIMIT_EXCEEDED = -1073414912;
-
 	public const HRESULT SL_E_IA_INVALID_VIRTUALIZATION_PLATFORM = -1073414911;
-
 	public const HRESULT SL_E_IA_PARENT_PARTITION_NOT_ACTIVATED = -1073414910;
-
 	public const HRESULT SL_E_IA_ID_MISMATCH = -1073414909;
-
 	public const HRESULT SL_E_IA_MACHINE_NOT_BOUND = -1073414908;
-
 	public const HRESULT SL_E_TAMPER_RECOVERY_REQUIRES_ACTIVATION = -1073414656;
-
 	public const HRESULT SL_REMAPPING_SP_PUB_GENERAL_NOT_INITIALIZED = -1073426175;
-
 	public const HRESULT SL_REMAPPING_SP_STATUS_SYSTEM_TIME_SKEWED = -2147167998;
-
 	public const HRESULT SL_REMAPPING_SP_STATUS_GENERIC_FAILURE = -1073426173;
-
 	public const HRESULT SL_REMAPPING_SP_STATUS_INVALIDARG = -1073426172;
-
 	public const HRESULT SL_REMAPPING_SP_STATUS_ALREADY_EXISTS = -1073426171;
-
 	public const HRESULT SL_REMAPPING_SP_STATUS_INSUFFICIENT_BUFFER = -1073426169;
-
 	public const HRESULT SL_REMAPPING_SP_STATUS_INVALIDDATA = -1073426168;
-
 	public const HRESULT SL_REMAPPING_SP_STATUS_INVALID_SPAPI_CALL = -1073426167;
-
 	public const HRESULT SL_REMAPPING_SP_STATUS_INVALID_SPAPI_VERSION = -1073426166;
-
 	public const HRESULT SL_REMAPPING_SP_STATUS_DEBUGGER_DETECTED = -2147167989;
-
 	public const HRESULT SL_REMAPPING_SP_STATUS_NO_MORE_DATA = -1073426164;
-
 	public const HRESULT SL_REMAPPING_SP_PUB_CRYPTO_INVALID_KEYLENGTH = -1073425919;
-
 	public const HRESULT SL_REMAPPING_SP_PUB_CRYPTO_INVALID_BLOCKLENGTH = -1073425918;
-
 	public const HRESULT SL_REMAPPING_SP_PUB_CRYPTO_INVALID_CIPHER = -1073425917;
-
 	public const HRESULT SL_REMAPPING_SP_PUB_CRYPTO_INVALID_CIPHERMODE = -1073425916;
-
 	public const HRESULT SL_REMAPPING_SP_PUB_CRYPTO_UNKNOWN_PROVIDERID = -1073425915;
-
 	public const HRESULT SL_REMAPPING_SP_PUB_CRYPTO_UNKNOWN_KEYID = -1073425914;
-
 	public const HRESULT SL_REMAPPING_SP_PUB_CRYPTO_UNKNOWN_HASHID = -1073425913;
-
 	public const HRESULT SL_REMAPPING_SP_PUB_CRYPTO_UNKNOWN_ATTRIBUTEID = -1073425912;
-
 	public const HRESULT SL_REMAPPING_SP_PUB_CRYPTO_HASH_FINALIZED = -1073425911;
-
 	public const HRESULT SL_REMAPPING_SP_PUB_CRYPTO_KEY_NOT_AVAILABLE = -1073425910;
-
 	public const HRESULT SL_REMAPPING_SP_PUB_CRYPTO_KEY_NOT_FOUND = -1073425909;
-
 	public const HRESULT SL_REMAPPING_SP_PUB_CRYPTO_NOT_BLOCK_ALIGNED = -1073425908;
-
 	public const HRESULT SL_REMAPPING_SP_PUB_CRYPTO_INVALID_SIGNATURELENGTH = -1073425907;
-
 	public const HRESULT SL_REMAPPING_SP_PUB_CRYPTO_INVALID_SIGNATURE = -1073425906;
-
 	public const HRESULT SL_REMAPPING_SP_PUB_CRYPTO_INVALID_BLOCK = -1073425905;
-
 	public const HRESULT SL_REMAPPING_SP_PUB_CRYPTO_INVALID_FORMAT = -1073425904;
-
 	public const HRESULT SL_REMAPPING_SP_PUB_CRYPTO_INVALID_PADDING = -1073425903;
-
 	public const HRESULT SL_REMAPPING_SP_PUB_TS_TAMPERED = -1073425663;
-
 	public const HRESULT SL_REMAPPING_SP_PUB_TS_REARMED = -1073425662;
-
 	public const HRESULT SL_REMAPPING_SP_PUB_TS_RECREATED = -1073425661;
-
 	public const HRESULT SL_REMAPPING_SP_PUB_TS_ENTRY_KEY_NOT_FOUND = -1073425660;
-
 	public const HRESULT SL_REMAPPING_SP_PUB_TS_ENTRY_KEY_ALREADY_EXISTS = -1073425659;
-
 	public const HRESULT SL_REMAPPING_SP_PUB_TS_ENTRY_KEY_SIZE_TOO_BIG = -1073425658;
-
 	public const HRESULT SL_REMAPPING_SP_PUB_TS_MAX_REARM_REACHED = -1073425657;
-
 	public const HRESULT SL_REMAPPING_SP_PUB_TS_DATA_SIZE_TOO_BIG = -1073425656;
-
 	public const HRESULT SL_REMAPPING_SP_PUB_TS_INVALID_HW_BINDING = -1073425655;
-
 	public const HRESULT SL_REMAPPING_SP_PUB_TIMER_ALREADY_EXISTS = -1073425654;
-
 	public const HRESULT SL_REMAPPING_SP_PUB_TIMER_NOT_FOUND = -1073425653;
-
 	public const HRESULT SL_REMAPPING_SP_PUB_TIMER_EXPIRED = -1073425652;
-
 	public const HRESULT SL_REMAPPING_SP_PUB_TIMER_NAME_SIZE_TOO_BIG = -1073425651;
-
 	public const HRESULT SL_REMAPPING_SP_PUB_TS_FULL = -1073425650;
-
 	public const HRESULT SL_REMAPPING_SP_PUB_TRUSTED_TIME_OK = 1074057999;
-
 	public const HRESULT SL_REMAPPING_SP_PUB_TS_ENTRY_READ_ONLY = -1073425648;
-
 	public const HRESULT SL_REMAPPING_SP_PUB_TIMER_READ_ONLY = -1073425647;
-
 	public const HRESULT SL_REMAPPING_SP_PUB_TS_ATTRIBUTE_READ_ONLY = -1073425646;
-
 	public const HRESULT SL_REMAPPING_SP_PUB_TS_ATTRIBUTE_NOT_FOUND = -1073425645;
-
 	public const HRESULT SL_REMAPPING_SP_PUB_TS_ACCESS_DENIED = -1073425644;
-
 	public const HRESULT SL_REMAPPING_SP_PUB_TS_NAMESPACE_NOT_FOUND = -1073425643;
-
 	public const HRESULT SL_REMAPPING_SP_PUB_TS_NAMESPACE_IN_USE = -1073425642;
-
 	public const HRESULT SL_REMAPPING_SP_PUB_TS_TAMPERED_BREADCRUMB_LOAD_INVALID = -1073425641;
-
 	public const HRESULT SL_REMAPPING_SP_PUB_TS_TAMPERED_BREADCRUMB_GENERATION = -1073425640;
-
 	public const HRESULT SL_REMAPPING_SP_PUB_TS_TAMPERED_INVALID_DATA = -1073425639;
-
 	public const HRESULT SL_REMAPPING_SP_PUB_TS_TAMPERED_NO_DATA = -1073425638;
-
 	public const HRESULT SL_REMAPPING_SP_PUB_TS_TAMPERED_DATA_BREADCRUMB_MISMATCH = -1073425637;
-
 	public const HRESULT SL_REMAPPING_SP_PUB_TS_TAMPERED_DATA_VERSION_MISMATCH = -1073425636;
-
 	public const HRESULT SL_REMAPPING_SP_PUB_TAMPER_MODULE_AUTHENTICATION = -1073425407;
-
 	public const HRESULT SL_REMAPPING_SP_PUB_TAMPER_SECURITY_PROCESSOR_PATCHED = -1073425406;
-
 	public const HRESULT SL_REMAPPING_SP_PUB_KM_CACHE_TAMPER = -1073425151;
-
 	public const HRESULT SL_REMAPPING_SP_PUB_KM_CACHE_TAMPER_RESTORE_FAILED = -1073425150;
-
 	public const HRESULT SL_REMAPPING_SP_PUB_KM_CACHE_IDENTICAL = 1074058753;
-
 	public const HRESULT SL_REMAPPING_SP_PUB_KM_CACHE_POLICY_CHANGED = 1074058754;
-
 	public const HRESULT SL_REMAPPING_SP_STATUS_PUSHKEY_CONFLICT = -1073424639;
-
 	public const HRESULT SL_REMAPPING_SP_PUB_PROXY_SOFT_TAMPER = -1073424638;
-
 	public const HRESULT SL_REMAPPING_SP_PUB_API_INVALID_LICENSE = -1073426432;
-
 	public const HRESULT SL_REMAPPING_SP_PUB_API_INVALID_ALGORITHM_TYPE = -1073426423;
-
 	public const HRESULT SL_REMAPPING_SP_PUB_API_TOO_MANY_LOADED_ENVIRONMENTS = -1073426420;
-
 	public const HRESULT SL_REMAPPING_SP_PUB_API_BAD_GET_INFO_QUERY = -1073426414;
-
 	public const HRESULT SL_REMAPPING_SP_PUB_API_INVALID_HANDLE = -1073426388;
-
 	public const HRESULT SL_REMAPPING_SP_PUB_API_INVALID_KEY_LENGTH = -1073426347;
-
 	public const HRESULT SL_REMAPPING_SP_PUB_API_NO_AES_PROVIDER = -1073426317;
-
 	public const HRESULT SL_REMAPPING_SP_PUB_API_HANDLE_NOT_COMMITED = -1073426303;
-
 	public const HRESULT SL_REMAPPING_MDOLLAR_PRODUCT_KEY_OUT_OF_RANGE = -2143313819;
-
 	public const HRESULT SL_REMAPPING_MDOLLAR_INVALID_BINDING = -2143313818;
-
 	public const HRESULT SL_REMAPPING_MDOLLAR_PRODUCT_KEY_BLOCKED = -2143313817;
-
 	public const HRESULT SL_REMAPPING_MDOLLAR_INVALID_PRODUCT_KEY = -2143313816;
-
 	public const HRESULT SL_REMAPPING_MDOLLAR_UNSUPPORTED_PRODUCT_KEY = -2143313812;
-
 	public const HRESULT SL_REMAPPING_MDOLLAR_MAXIMUM_UNLOCK_EXCEEDED = -2143313807;
-
 	public const HRESULT SL_REMAPPING_MDOLLAR_INVALID_PRODUCT_DATA_ID = -2143313805;
-
 	public const HRESULT SL_REMAPPING_MDOLLAR_INVALID_PRODUCT_DATA = -2143313804;
-
 	public const HRESULT SL_REMAPPING_MDOLLAR_INVALID_ACTCONFIG_ID = -2143313802;
-
 	public const HRESULT SL_REMAPPING_MDOLLAR_INVALID_PRODUCT_KEY_LENGTH = -2143313801;
-
 	public const HRESULT SL_REMAPPING_MDOLLAR_INVALID_PRODUCT_KEY_FORMAT = -2143313800;
-
 	public const HRESULT SL_REMAPPING_MDOLLAR_INVALID_BINDING_URI = -2143313798;
-
 	public const HRESULT SL_REMAPPING_MDOLLAR_INVALID_ARGUMENT = -2143313795;
-
 	public const HRESULT SL_REMAPPING_MDOLLAR_DMAK_LIMIT_EXCEEDED = -2143313793;
-
 	public const HRESULT SL_REMAPPING_MDOLLAR_DMAK_EXTENSION_LIMIT_EXCEEDED = -2143313792;
-
 	public const HRESULT SL_REMAPPING_MDOLLAR_OEM_SLP_COA0 = -2143313789;
-
 	public const HRESULT SL_REMAPPING_MDOLLAR_CIDIID_INVALID_VERSION = -2143313779;
-
 	public const HRESULT SL_REMAPPING_MDOLLAR_CIDIID_INVALID_DATA = -2143313778;
-
 	public const HRESULT SL_REMAPPING_MDOLLAR_CIDIID_INVALID_DATA_LENGTH = -2143313777;
-
 	public const HRESULT SL_REMAPPING_MDOLLAR_CIDIID_INVALID_CHECK_DIGITS = -2143313776;
-
 	public const HRESULT SL_REMAPPING_MDOLLAR_TIMEBASED_ACTIVATION_BEFORE_START_DATE = -2143313769;
-
 	public const HRESULT SL_REMAPPING_MDOLLAR_TIMEBASED_ACTIVATION_AFTER_END_DATE = -2143313768;
-
 	public const HRESULT SL_REMAPPING_MDOLLAR_TIMEBASED_ACTIVATION_NOT_AVAILABLE = -2143313767;
-
 	public const HRESULT SL_REMAPPING_MDOLLAR_TIMEBASED_PRODUCT_KEY_NOT_CONFIGURED = -2143313766;
-
 	public const HRESULT SL_REMAPPING_MDOLLAR_NO_RULES_TO_ACTIVATE = -2143313720;
-
 	public const HRESULT SL_REMAPPING_MDOLLAR_PRODUCT_KEY_BLOCKED_IPLOCATION = -2143313717;
-
 	public const HRESULT SL_REMAPPING_MDOLLAR_DIGITALMARKER_INVALID_BINDING = -2143313709;
-
 	public const HRESULT SL_REMAPPING_MDOLLAR_DIGITALMARKER_BINDING_NOT_CONFIGURED = -2143313708;
-
 	public const HRESULT SL_REMAPPING_MDOLLAR_ROT_OVERRIDE_LIMIT_REACHED = -2143313707;
-
 	public const HRESULT SL_REMAPPING_MDOLLAR_DMAK_OVERRIDE_LIMIT_REACHED = -2143313706;
-
 	public const HRESULT SL_REMAPPING_MDOLLAR_FREE_OFFER_EXPIRED = -2143312896;
-
 	public const HRESULT SL_REMAPPING_MDOLLAR_OSR_DONOR_HWID_NO_ENTITLEMENT = -2143310920;
-
 	public const HRESULT SL_REMAPPING_MDOLLAR_OSR_GENERIC_ERROR = -2143310919;
-
 	public const HRESULT SL_REMAPPING_MDOLLAR_OSR_NO_ASSOCIATION = -2143310918;
-
 	public const HRESULT SL_REMAPPING_MDOLLAR_OSR_NOT_ADMIN = -2143310917;
-
 	public const HRESULT SL_REMAPPING_MDOLLAR_OSR_USER_THROTTLED = -2143310916;
-
 	public const HRESULT SL_REMAPPING_MDOLLAR_OSR_LICENSE_THROTTLED = -2143310915;
-
 	public const HRESULT SL_REMAPPING_MDOLLAR_OSR_DEVICE_THROTTLED = -2143310914;
-
 	public const HRESULT SL_REMAPPING_MDOLLAR_OSR_GP_DISABLED = -2143310913;
-
 	public const HRESULT SL_REMAPPING_MDOLLAR_OSR_HARDWARE_BLOCKED = -2143310912;
-
 	public const HRESULT SL_REMAPPING_MDOLLAR_OSR_USER_BLOCKED = -2143310911;
-
 	public const HRESULT SL_REMAPPING_MDOLLAR_OSR_LICENSE_BLOCKED = -2143310910;
-
 	public const HRESULT SL_REMAPPING_MDOLLAR_OSR_DEVICE_BLOCKED = -2143310909;
-
 	public const Guid WINDOWS_SLID = .(0x55c92734, 0xd682, 0x4d71, 0x98, 0x3e, 0xd6, 0xec, 0x3f, 0x16, 0x05, 0x9f);
-
 }
 #endregion
 
@@ -4299,7 +3000,6 @@ public struct LSA_FOREST_TRUST_RECORD
 		public LSA_FOREST_TRUST_DOMAIN_INFO DomainInfo;
 		public LSA_FOREST_TRUST_BINARY_DATA Data;
 	}
-
 	public uint32 Flags;
 	public LSA_FOREST_TRUST_RECORD_TYPE ForestTrustType;
 	public LARGE_INTEGER Time;
@@ -4556,15 +3256,16 @@ public struct MSV1_0_SUPPLEMENTAL_CREDENTIAL_V3
 	public uint8[20] ShaPassword;
 }
 
-[CRepr, FlexibleArray("EncryptedCreds")]
+[CRepr]
 public struct MSV1_0_IUM_SUPPLEMENTAL_CREDENTIAL
 {
 	public uint32 Version;
 	public uint32 EncryptedCredsSize;
+	public uint8* EncryptedCreds mut => &EncryptedCreds_impl;
 	private uint8[ANYSIZE_ARRAY] EncryptedCreds_impl;
 }
 
-[CRepr, Packed(1), FlexibleArray("EncryptedCreds")]
+[CRepr, Packed(1)]
 public struct MSV1_0_REMOTE_SUPPLEMENTAL_CREDENTIAL
 {
 	public uint32 Version;
@@ -4572,10 +3273,11 @@ public struct MSV1_0_REMOTE_SUPPLEMENTAL_CREDENTIAL
 	public MSV1_0_CREDENTIAL_KEY CredentialKey;
 	public MSV1_0_CREDENTIAL_KEY_TYPE CredentialKeyType;
 	public uint32 EncryptedCredsSize;
+	public uint8* EncryptedCreds mut => &EncryptedCreds_impl;
 	private uint8[ANYSIZE_ARRAY] EncryptedCreds_impl;
 }
 
-[CRepr, FlexibleArray("Buffer")]
+[CRepr]
 public struct MSV1_0_NTLM3_RESPONSE
 {
 	public uint8[16] Response;
@@ -4586,6 +3288,7 @@ public struct MSV1_0_NTLM3_RESPONSE
 	public uint64 TimeStamp;
 	public uint8[8] ChallengeFromClient;
 	public uint32 AvPairsOff;
+	public uint8* Buffer mut => &Buffer_impl;
 	private uint8[ANYSIZE_ARRAY] Buffer_impl;
 }
 
@@ -4860,35 +3563,39 @@ public struct KERB_TICKET_CACHE_INFO_EX3
 	public UNICODE_STRING KdcCalled;
 }
 
-[CRepr, FlexibleArray("Tickets")]
+[CRepr]
 public struct KERB_QUERY_TKT_CACHE_RESPONSE
 {
 	public KERB_PROTOCOL_MESSAGE_TYPE MessageType;
 	public uint32 CountOfTickets;
+	public KERB_TICKET_CACHE_INFO* Tickets mut => &Tickets_impl;
 	private KERB_TICKET_CACHE_INFO[ANYSIZE_ARRAY] Tickets_impl;
 }
 
-[CRepr, FlexibleArray("Tickets")]
+[CRepr]
 public struct KERB_QUERY_TKT_CACHE_EX_RESPONSE
 {
 	public KERB_PROTOCOL_MESSAGE_TYPE MessageType;
 	public uint32 CountOfTickets;
+	public KERB_TICKET_CACHE_INFO_EX* Tickets mut => &Tickets_impl;
 	private KERB_TICKET_CACHE_INFO_EX[ANYSIZE_ARRAY] Tickets_impl;
 }
 
-[CRepr, FlexibleArray("Tickets")]
+[CRepr]
 public struct KERB_QUERY_TKT_CACHE_EX2_RESPONSE
 {
 	public KERB_PROTOCOL_MESSAGE_TYPE MessageType;
 	public uint32 CountOfTickets;
+	public KERB_TICKET_CACHE_INFO_EX2* Tickets mut => &Tickets_impl;
 	private KERB_TICKET_CACHE_INFO_EX2[ANYSIZE_ARRAY] Tickets_impl;
 }
 
-[CRepr, FlexibleArray("Tickets")]
+[CRepr]
 public struct KERB_QUERY_TKT_CACHE_EX3_RESPONSE
 {
 	public KERB_PROTOCOL_MESSAGE_TYPE MessageType;
 	public uint32 CountOfTickets;
+	public KERB_TICKET_CACHE_INFO_EX3* Tickets mut => &Tickets_impl;
 	private KERB_TICKET_CACHE_INFO_EX3[ANYSIZE_ARRAY] Tickets_impl;
 }
 
@@ -4908,18 +3615,20 @@ public struct KERB_NET_ADDRESS
 	public PSTR Address;
 }
 
-[CRepr, FlexibleArray("Addresses")]
+[CRepr]
 public struct KERB_NET_ADDRESSES
 {
 	public uint32 Number;
+	public KERB_NET_ADDRESS* Addresses mut => &Addresses_impl;
 	private KERB_NET_ADDRESS[ANYSIZE_ARRAY] Addresses_impl;
 }
 
-[CRepr, FlexibleArray("Names")]
+[CRepr]
 public struct KERB_EXTERNAL_NAME
 {
 	public int16 NameType;
 	public uint16 NameCount;
+	public UNICODE_STRING* Names mut => &Names_impl;
 	private UNICODE_STRING[ANYSIZE_ARRAY] Names_impl;
 }
 
@@ -5112,12 +3821,13 @@ public struct KERB_CLOUD_KERBEROS_DEBUG_REQUEST
 	public LUID LogonId;
 }
 
-[CRepr, FlexibleArray("Data")]
+[CRepr]
 public struct KERB_CLOUD_KERBEROS_DEBUG_RESPONSE
 {
 	public KERB_PROTOCOL_MESSAGE_TYPE MessageType;
 	public uint32 Version;
 	public uint32 Length;
+	public uint32* Data mut => &Data_impl;
 	private uint32[ANYSIZE_ARRAY] Data_impl;
 }
 
@@ -5182,9 +3892,10 @@ public struct KERB_DECRYPT_REQUEST
 	public uint8* EncryptedData;
 }
 
-[CRepr, FlexibleArray("DecryptedData")]
+[CRepr]
 public struct KERB_DECRYPT_RESPONSE
 {
+	public uint8* DecryptedData mut => &DecryptedData_impl;
 	private uint8[ANYSIZE_ARRAY] DecryptedData_impl;
 }
 
@@ -5217,11 +3928,12 @@ public struct KERB_ADD_CREDENTIALS_REQUEST
 	public KERB_REQUEST_FLAGS Flags;
 }
 
-[CRepr, FlexibleArray("PrincipalNames")]
+[CRepr]
 public struct KERB_ADD_CREDENTIALS_REQUEST_EX
 {
 	public KERB_ADD_CREDENTIALS_REQUEST Credentials;
 	public uint32 PrincipalNameCount;
+	public UNICODE_STRING* PrincipalNames mut => &PrincipalNames_impl;
 	private UNICODE_STRING[ANYSIZE_ARRAY] PrincipalNames_impl;
 }
 
@@ -5418,55 +4130,62 @@ public struct SEC_CHANNEL_BINDINGS
 	public uint32 dwApplicationDataOffset;
 }
 
-[CRepr, FlexibleArray("ProtocolList")]
+[CRepr]
 public struct SEC_APPLICATION_PROTOCOL_LIST
 {
 	public SEC_APPLICATION_PROTOCOL_NEGOTIATION_EXT ProtoNegoExt;
 	public uint16 ProtocolListSize;
+	public uint8* ProtocolList mut => &ProtocolList_impl;
 	private uint8[ANYSIZE_ARRAY] ProtocolList_impl;
 }
 
-[CRepr, FlexibleArray("ProtocolLists")]
+[CRepr]
 public struct SEC_APPLICATION_PROTOCOLS
 {
 	public uint32 ProtocolListsSize;
+	public SEC_APPLICATION_PROTOCOL_LIST* ProtocolLists mut => &ProtocolLists_impl;
 	private SEC_APPLICATION_PROTOCOL_LIST[ANYSIZE_ARRAY] ProtocolLists_impl;
 }
 
-[CRepr, FlexibleArray("ProfilesList")]
+[CRepr]
 public struct SEC_SRTP_PROTECTION_PROFILES
 {
 	public uint16 ProfilesSize;
+	public uint16* ProfilesList mut => &ProfilesList_impl;
 	private uint16[ANYSIZE_ARRAY] ProfilesList_impl;
 }
 
-[CRepr, FlexibleArray("MasterKeyIdentifier")]
+[CRepr]
 public struct SEC_SRTP_MASTER_KEY_IDENTIFIER
 {
 	public uint8 MasterKeyIdentifierSize;
+	public uint8* MasterKeyIdentifier mut => &MasterKeyIdentifier_impl;
 	private uint8[ANYSIZE_ARRAY] MasterKeyIdentifier_impl;
 }
 
-[CRepr, FlexibleArray("KeyParameters")]
+[CRepr]
 public struct SEC_TOKEN_BINDING
 {
 	public uint8 MajorVersion;
 	public uint8 MinorVersion;
 	public uint16 KeyParametersSize;
+	public uint8* KeyParameters mut => &KeyParameters_impl;
 	private uint8[ANYSIZE_ARRAY] KeyParameters_impl;
 }
 
-[CRepr, FlexibleArray("Key")]
+[CRepr]
 public struct SEC_PRESHAREDKEY
 {
 	public uint16 KeySize;
+	public uint8* Key mut => &Key_impl;
 	private uint8[ANYSIZE_ARRAY] Key_impl;
 }
 
-[CRepr, FlexibleArray("KeyIdentity")]
+[CRepr]
 public struct SEC_PRESHAREDKEY_IDENTITY
 {
 	public uint16 KeyIdentitySize;
+	public uint8* KeyIdentity mut => &KeyIdentity_impl;
 	private uint8[ANYSIZE_ARRAY] KeyIdentity_impl;
 }
 
@@ -5482,7 +4201,7 @@ public struct SEC_FLAGS
 	public uint64 Flags;
 }
 
-[CRepr, FlexibleArray("TrafficSecret")]
+[CRepr]
 public struct SEC_TRAFFIC_SECRETS
 {
 	public char16[64] SymmetricAlgId;
@@ -5494,6 +4213,7 @@ public struct SEC_TRAFFIC_SECRETS
 	public uint16 MsgSequenceEnd;
 	public SEC_TRAFFIC_SECRET_TYPE TrafficSecretType;
 	public uint16 TrafficSecretSize;
+	public uint8* TrafficSecret mut => &TrafficSecret_impl;
 	private uint8[ANYSIZE_ARRAY] TrafficSecret_impl;
 }
 
@@ -6120,10 +4840,11 @@ public struct SECPKG_CREDENTIAL
 	public SECPKG_BYTE_VECTOR MarshaledSuppliedCreds;
 }
 
-[CRepr, FlexibleArray("Credentials")]
+[CRepr]
 public struct SECPKG_SUPPLEMENTAL_CRED_ARRAY
 {
 	public uint32 CredentialCount;
+	public SECPKG_SUPPLEMENTAL_CRED* Credentials mut => &Credentials_impl;
 	private SECPKG_SUPPLEMENTAL_CRED[ANYSIZE_ARRAY] Credentials_impl;
 }
 
@@ -6203,10 +4924,11 @@ public struct SECPKG_GSS_INFO
 	public uint8[4] EncodedId;
 }
 
-[CRepr, FlexibleArray("Levels")]
+[CRepr]
 public struct SECPKG_CONTEXT_THUNKS
 {
 	public uint32 InfoLevelCount;
+	public uint32* Levels mut => &Levels_impl;
 	private uint32[ANYSIZE_ARRAY] Levels_impl;
 }
 
@@ -6230,10 +4952,11 @@ public struct SECPKG_SERIALIZED_OID
 	public uint8[32] OidValue;
 }
 
-[CRepr, FlexibleArray("Oids")]
+[CRepr]
 public struct SECPKG_EXTRA_OIDS
 {
 	public uint32 OidCount;
+	public SECPKG_SERIALIZED_OID* Oids mut => &Oids_impl;
 	private SECPKG_SERIALIZED_OID[ANYSIZE_ARRAY] Oids_impl;
 }
 
@@ -6257,7 +4980,6 @@ public struct SECPKG_EXTENDED_INFORMATION
 		public SECPKG_EXTRA_OIDS ExtraOids;
 		public SECPKG_NEGO2_INFO Nego2Info;
 	}
-
 	public SECPKG_EXTENDED_INFORMATION_CLASS Class;
 	public _Info_e__Union Info;
 }
@@ -6859,13 +5581,14 @@ public struct SCHANNEL_CRED
 	public uint32 dwCredFormat;
 }
 
-[CRepr, FlexibleArray("Buffer")]
+[CRepr]
 public struct SEND_GENERIC_TLS_EXTENSION
 {
 	public uint16 ExtensionType;
 	public uint16 HandshakeType;
 	public uint32 Flags;
 	public uint16 BufferSize;
+	public uint8* Buffer mut => &Buffer_impl;
 	private uint8[ANYSIZE_ARRAY] Buffer_impl;
 }
 
@@ -6876,11 +5599,12 @@ public struct TLS_EXTENSION_SUBSCRIPTION
 	public uint16 HandshakeType;
 }
 
-[CRepr, FlexibleArray("Subscriptions")]
+[CRepr]
 public struct SUBSCRIBE_GENERIC_TLS_EXTENSION
 {
 	public uint32 Flags;
 	public uint32 SubscriptionsCount;
+	public TLS_EXTENSION_SUBSCRIPTION* Subscriptions mut => &Subscriptions_impl;
 	private TLS_EXTENSION_SUBSCRIPTION[ANYSIZE_ARRAY] Subscriptions_impl;
 }
 
@@ -6973,11 +5697,12 @@ public struct SCH_CRED_PUBLIC_CERTCHAIN
 	public uint8* pCertChain;
 }
 
-[CRepr, FlexibleArray("pKey")]
+[CRepr]
 public struct PctPublicKey
 {
 	public uint32 Type;
 	public uint32 cbKey;
+	public uint8* pKey mut => &pKey_impl;
 	private uint8[ANYSIZE_ARRAY] pKey_impl;
 }
 

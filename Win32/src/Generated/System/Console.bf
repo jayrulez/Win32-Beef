@@ -8,135 +8,70 @@ namespace Win32.System.Console;
 public static
 {
 	public const uint32 CONSOLE_TEXTMODE_BUFFER = 1;
-
 	public const uint32 ATTACH_PARENT_PROCESS = 4294967295;
-
 	public const uint32 CTRL_C_EVENT = 0;
-
 	public const uint32 CTRL_BREAK_EVENT = 1;
-
 	public const uint32 CTRL_CLOSE_EVENT = 2;
-
 	public const uint32 CTRL_LOGOFF_EVENT = 5;
-
 	public const uint32 CTRL_SHUTDOWN_EVENT = 6;
-
 	public const uint32 PSEUDOCONSOLE_INHERIT_CURSOR = 1;
-
 	public const uint32 FOREGROUND_BLUE = 1;
-
 	public const uint32 FOREGROUND_GREEN = 2;
-
 	public const uint32 FOREGROUND_RED = 4;
-
 	public const uint32 FOREGROUND_INTENSITY = 8;
-
 	public const uint32 BACKGROUND_BLUE = 16;
-
 	public const uint32 BACKGROUND_GREEN = 32;
-
 	public const uint32 BACKGROUND_RED = 64;
-
 	public const uint32 BACKGROUND_INTENSITY = 128;
-
 	public const uint32 COMMON_LVB_LEADING_BYTE = 256;
-
 	public const uint32 COMMON_LVB_TRAILING_BYTE = 512;
-
 	public const uint32 COMMON_LVB_GRID_HORIZONTAL = 1024;
-
 	public const uint32 COMMON_LVB_GRID_LVERTICAL = 2048;
-
 	public const uint32 COMMON_LVB_GRID_RVERTICAL = 4096;
-
 	public const uint32 COMMON_LVB_REVERSE_VIDEO = 16384;
-
 	public const uint32 COMMON_LVB_UNDERSCORE = 32768;
-
 	public const uint32 COMMON_LVB_SBCSDBCS = 768;
-
 	public const uint32 CONSOLE_NO_SELECTION = 0;
-
 	public const uint32 CONSOLE_SELECTION_IN_PROGRESS = 1;
-
 	public const uint32 CONSOLE_SELECTION_NOT_EMPTY = 2;
-
 	public const uint32 CONSOLE_MOUSE_SELECTION = 4;
-
 	public const uint32 CONSOLE_MOUSE_DOWN = 8;
-
 	public const uint32 HISTORY_NO_DUP_FLAG = 1;
-
 	public const uint32 CONSOLE_FULLSCREEN = 1;
-
 	public const uint32 CONSOLE_FULLSCREEN_HARDWARE = 2;
-
 	public const uint32 CONSOLE_FULLSCREEN_MODE = 1;
-
 	public const uint32 CONSOLE_WINDOWED_MODE = 2;
-
 	public const uint32 RIGHT_ALT_PRESSED = 1;
-
 	public const uint32 LEFT_ALT_PRESSED = 2;
-
 	public const uint32 RIGHT_CTRL_PRESSED = 4;
-
 	public const uint32 LEFT_CTRL_PRESSED = 8;
-
 	public const uint32 SHIFT_PRESSED = 16;
-
 	public const uint32 NUMLOCK_ON = 32;
-
 	public const uint32 SCROLLLOCK_ON = 64;
-
 	public const uint32 CAPSLOCK_ON = 128;
-
 	public const uint32 ENHANCED_KEY = 256;
-
 	public const uint32 NLS_DBCSCHAR = 65536;
-
 	public const uint32 NLS_ALPHANUMERIC = 0;
-
 	public const uint32 NLS_KATAKANA = 131072;
-
 	public const uint32 NLS_HIRAGANA = 262144;
-
 	public const uint32 NLS_ROMAN = 4194304;
-
 	public const uint32 NLS_IME_CONVERSION = 8388608;
-
 	public const uint32 ALTNUMPAD_BIT = 67108864;
-
 	public const uint32 NLS_IME_DISABLE = 536870912;
-
 	public const uint32 FROM_LEFT_1ST_BUTTON_PRESSED = 1;
-
 	public const uint32 RIGHTMOST_BUTTON_PRESSED = 2;
-
 	public const uint32 FROM_LEFT_2ND_BUTTON_PRESSED = 4;
-
 	public const uint32 FROM_LEFT_3RD_BUTTON_PRESSED = 8;
-
 	public const uint32 FROM_LEFT_4TH_BUTTON_PRESSED = 16;
-
 	public const uint32 MOUSE_MOVED = 1;
-
 	public const uint32 DOUBLE_CLICK = 2;
-
 	public const uint32 MOUSE_WHEELED = 4;
-
 	public const uint32 MOUSE_HWHEELED = 8;
-
 	public const uint32 KEY_EVENT = 1;
-
 	public const uint32 MOUSE_EVENT = 2;
-
 	public const uint32 WINDOW_BUFFER_SIZE_EVENT = 4;
-
 	public const uint32 MENU_EVENT = 8;
-
 	public const uint32 FOCUS_EVENT = 16;
-
 }
 #endregion
 
@@ -210,7 +145,6 @@ public struct KEY_EVENT_RECORD
 		public char16 UnicodeChar;
 		public CHAR AsciiChar;
 	}
-
 	public BOOL bKeyDown;
 	public uint16 wRepeatCount;
 	public uint16 wVirtualKeyCode;
@@ -258,7 +192,6 @@ public struct INPUT_RECORD
 		public MENU_EVENT_RECORD MenuEvent;
 		public FOCUS_EVENT_RECORD FocusEvent;
 	}
-
 	public uint16 EventType;
 	public _Event_e__Union Event;
 }
@@ -272,7 +205,6 @@ public struct CHAR_INFO
 		public char16 UnicodeChar;
 		public CHAR AsciiChar;
 	}
-
 	public _Char_e__Union Char;
 	public uint16 Attributes;
 }

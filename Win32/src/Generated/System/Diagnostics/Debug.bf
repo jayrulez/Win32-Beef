@@ -9,7 +9,6 @@ using Win32.System.Com.StructuredStorage;
 using Win32.System.Ole;
 using Win32.Security.WinTrust;
 using System;
-using System.Interop;
 
 namespace Win32.System.Diagnostics.Debug;
 
@@ -17,2609 +16,1307 @@ namespace Win32.System.Diagnostics.Debug;
 public static
 {
 	public const uint32 WOW64_CONTEXT_i386 = 65536;
-
 	public const uint32 WOW64_CONTEXT_i486 = 65536;
-
 	public const uint32 WOW64_CONTEXT_EXCEPTION_ACTIVE = 134217728;
-
 	public const uint32 WOW64_CONTEXT_SERVICE_ACTIVE = 268435456;
-
 	public const uint32 WOW64_CONTEXT_EXCEPTION_REQUEST = 1073741824;
-
 	public const uint32 WOW64_CONTEXT_EXCEPTION_REPORTING = 2147483648;
-
 	public const uint32 WOW64_SIZE_OF_80387_REGISTERS = 80;
-
 	public const uint32 WOW64_MAXIMUM_SUPPORTED_EXTENSION = 512;
-
 	public const uint32 ERROR_DBG_CANCELLED = 3221226695;
-
 	public const uint32 ERROR_DBG_TIMEOUT = 3221226932;
-
 	public const uint32 DEBUG_GET_TEXT_COMPLETIONS_NO_DOT_COMMANDS = 1;
-
 	public const uint32 DEBUG_GET_TEXT_COMPLETIONS_NO_EXTENSION_COMMANDS = 2;
-
 	public const uint32 DEBUG_GET_TEXT_COMPLETIONS_NO_SYMBOLS = 4;
-
 	public const uint32 DEBUG_GET_TEXT_COMPLETIONS_IS_DOT_COMMAND = 1;
-
 	public const uint32 DEBUG_GET_TEXT_COMPLETIONS_IS_EXTENSION_COMMAND = 2;
-
 	public const uint32 DEBUG_GET_TEXT_COMPLETIONS_IS_SYMBOL = 4;
-
 	public const uint32 DEBUG_REQUEST_SOURCE_PATH_HAS_SOURCE_SERVER = 0;
-
 	public const uint32 DEBUG_REQUEST_TARGET_EXCEPTION_CONTEXT = 1;
-
 	public const uint32 DEBUG_REQUEST_TARGET_EXCEPTION_THREAD = 2;
-
 	public const uint32 DEBUG_REQUEST_TARGET_EXCEPTION_RECORD = 3;
-
 	public const uint32 DEBUG_REQUEST_GET_ADDITIONAL_CREATE_OPTIONS = 4;
-
 	public const uint32 DEBUG_REQUEST_SET_ADDITIONAL_CREATE_OPTIONS = 5;
-
 	public const uint32 DEBUG_REQUEST_GET_WIN32_MAJOR_MINOR_VERSIONS = 6;
-
 	public const uint32 DEBUG_REQUEST_READ_USER_MINIDUMP_STREAM = 7;
-
 	public const uint32 DEBUG_REQUEST_TARGET_CAN_DETACH = 8;
-
 	public const uint32 DEBUG_REQUEST_SET_LOCAL_IMPLICIT_COMMAND_LINE = 9;
-
 	public const uint32 DEBUG_REQUEST_GET_CAPTURED_EVENT_CODE_OFFSET = 10;
-
 	public const uint32 DEBUG_REQUEST_READ_CAPTURED_EVENT_CODE_STREAM = 11;
-
 	public const uint32 DEBUG_REQUEST_EXT_TYPED_DATA_ANSI = 12;
-
 	public const uint32 DEBUG_REQUEST_GET_EXTENSION_SEARCH_PATH_WIDE = 13;
-
 	public const uint32 DEBUG_REQUEST_GET_TEXT_COMPLETIONS_WIDE = 14;
-
 	public const uint32 DEBUG_REQUEST_GET_CACHED_SYMBOL_INFO = 15;
-
 	public const uint32 DEBUG_REQUEST_ADD_CACHED_SYMBOL_INFO = 16;
-
 	public const uint32 DEBUG_REQUEST_REMOVE_CACHED_SYMBOL_INFO = 17;
-
 	public const uint32 DEBUG_REQUEST_GET_TEXT_COMPLETIONS_ANSI = 18;
-
 	public const uint32 DEBUG_REQUEST_CURRENT_OUTPUT_CALLBACKS_ARE_DML_AWARE = 19;
-
 	public const uint32 DEBUG_REQUEST_GET_OFFSET_UNWIND_INFORMATION = 20;
-
 	public const uint32 DEBUG_REQUEST_GET_DUMP_HEADER = 21;
-
 	public const uint32 DEBUG_REQUEST_SET_DUMP_HEADER = 22;
-
 	public const uint32 DEBUG_REQUEST_MIDORI = 23;
-
 	public const uint32 DEBUG_REQUEST_PROCESS_DESCRIPTORS = 24;
-
 	public const uint32 DEBUG_REQUEST_MISC_INFORMATION = 25;
-
 	public const uint32 DEBUG_REQUEST_OPEN_PROCESS_TOKEN = 26;
-
 	public const uint32 DEBUG_REQUEST_OPEN_THREAD_TOKEN = 27;
-
 	public const uint32 DEBUG_REQUEST_DUPLICATE_TOKEN = 28;
-
 	public const uint32 DEBUG_REQUEST_QUERY_INFO_TOKEN = 29;
-
 	public const uint32 DEBUG_REQUEST_CLOSE_TOKEN = 30;
-
 	public const uint32 DEBUG_REQUEST_WOW_PROCESS = 31;
-
 	public const uint32 DEBUG_REQUEST_WOW_MODULE = 32;
-
 	public const uint32 DEBUG_LIVE_USER_NON_INVASIVE = 33;
-
 	public const uint32 DEBUG_REQUEST_RESUME_THREAD = 34;
-
 	public const uint32 DEBUG_REQUEST_INLINE_QUERY = 35;
-
 	public const uint32 DEBUG_REQUEST_TL_INSTRUMENTATION_AWARE = 36;
-
 	public const uint32 DEBUG_REQUEST_GET_INSTRUMENTATION_VERSION = 37;
-
 	public const uint32 DEBUG_REQUEST_GET_MODULE_ARCHITECTURE = 38;
-
 	public const uint32 DEBUG_SRCFILE_SYMBOL_TOKEN = 0;
-
 	public const uint32 DEBUG_SRCFILE_SYMBOL_TOKEN_SOURCE_COMMAND_WIDE = 1;
-
 	public const uint32 DEBUG_SRCFILE_SYMBOL_CHECKSUMINFO = 2;
-
 	public const uint32 DEBUG_SYMINFO_BREAKPOINT_SOURCE_LINE = 0;
-
 	public const uint32 DEBUG_SYMINFO_IMAGEHLP_MODULEW64 = 1;
-
 	public const uint32 DEBUG_SYMINFO_GET_SYMBOL_NAME_BY_OFFSET_AND_TAG_WIDE = 2;
-
 	public const uint32 DEBUG_SYMINFO_GET_MODULE_SYMBOL_NAMES_AND_OFFSETS = 3;
-
 	public const uint32 DEBUG_SYSOBJINFO_THREAD_BASIC_INFORMATION = 0;
-
 	public const uint32 DEBUG_SYSOBJINFO_THREAD_NAME_WIDE = 1;
-
 	public const uint32 DEBUG_SYSOBJINFO_CURRENT_PROCESS_COOKIE = 2;
-
 	public const uint32 DEBUG_TBINFO_EXIT_STATUS = 1;
-
 	public const uint32 DEBUG_TBINFO_PRIORITY_CLASS = 2;
-
 	public const uint32 DEBUG_TBINFO_PRIORITY = 4;
-
 	public const uint32 DEBUG_TBINFO_TIMES = 8;
-
 	public const uint32 DEBUG_TBINFO_START_OFFSET = 16;
-
 	public const uint32 DEBUG_TBINFO_AFFINITY = 32;
-
 	public const uint32 DEBUG_TBINFO_ALL = 63;
-
 	public const uint32 DEBUG_BREAKPOINT_CODE = 0;
-
 	public const uint32 DEBUG_BREAKPOINT_DATA = 1;
-
 	public const uint32 DEBUG_BREAKPOINT_TIME = 2;
-
 	public const uint32 DEBUG_BREAKPOINT_INLINE = 3;
-
 	public const uint32 DEBUG_BREAKPOINT_GO_ONLY = 1;
-
 	public const uint32 DEBUG_BREAKPOINT_DEFERRED = 2;
-
 	public const uint32 DEBUG_BREAKPOINT_ENABLED = 4;
-
 	public const uint32 DEBUG_BREAKPOINT_ADDER_ONLY = 8;
-
 	public const uint32 DEBUG_BREAKPOINT_ONE_SHOT = 16;
-
 	public const uint32 DEBUG_BREAK_READ = 1;
-
 	public const uint32 DEBUG_BREAK_WRITE = 2;
-
 	public const uint32 DEBUG_BREAK_EXECUTE = 4;
-
 	public const uint32 DEBUG_BREAK_IO = 8;
-
 	public const uint32 DEBUG_ATTACH_KERNEL_CONNECTION = 0;
-
 	public const uint32 DEBUG_ATTACH_LOCAL_KERNEL = 1;
-
 	public const uint32 DEBUG_ATTACH_EXDI_DRIVER = 2;
-
 	public const uint32 DEBUG_ATTACH_INSTALL_DRIVER = 4;
-
 	public const uint32 DEBUG_GET_PROC_DEFAULT = 0;
-
 	public const uint32 DEBUG_GET_PROC_FULL_MATCH = 1;
-
 	public const uint32 DEBUG_GET_PROC_ONLY_MATCH = 2;
-
 	public const uint32 DEBUG_GET_PROC_SERVICE_NAME = 4;
-
 	public const uint32 DEBUG_PROC_DESC_DEFAULT = 0;
-
 	public const uint32 DEBUG_PROC_DESC_NO_PATHS = 1;
-
 	public const uint32 DEBUG_PROC_DESC_NO_SERVICES = 2;
-
 	public const uint32 DEBUG_PROC_DESC_NO_MTS_PACKAGES = 4;
-
 	public const uint32 DEBUG_PROC_DESC_NO_COMMAND_LINE = 8;
-
 	public const uint32 DEBUG_PROC_DESC_NO_SESSION_ID = 16;
-
 	public const uint32 DEBUG_PROC_DESC_NO_USER_NAME = 32;
-
 	public const uint32 DEBUG_PROC_DESC_WITH_PACKAGEFAMILY = 64;
-
 	public const uint32 DEBUG_ATTACH_DEFAULT = 0;
-
 	public const uint32 DEBUG_ATTACH_NONINVASIVE = 1;
-
 	public const uint32 DEBUG_ATTACH_EXISTING = 2;
-
 	public const uint32 DEBUG_ATTACH_NONINVASIVE_NO_SUSPEND = 4;
-
 	public const uint32 DEBUG_ATTACH_INVASIVE_NO_INITIAL_BREAK = 8;
-
 	public const uint32 DEBUG_ATTACH_INVASIVE_RESUME_PROCESS = 16;
-
 	public const uint32 DEBUG_ATTACH_NONINVASIVE_ALLOW_PARTIAL = 32;
-
 	public const uint32 DEBUG_ECREATE_PROCESS_DEFAULT = 0;
-
 	public const uint32 DEBUG_ECREATE_PROCESS_INHERIT_HANDLES = 1;
-
 	public const uint32 DEBUG_ECREATE_PROCESS_USE_VERIFIER_FLAGS = 2;
-
 	public const uint32 DEBUG_ECREATE_PROCESS_USE_IMPLICIT_COMMAND_LINE = 4;
-
 	public const uint32 DEBUG_PROCESS_DETACH_ON_EXIT = 1;
-
 	public const uint32 DEBUG_PROCESS_ONLY_THIS_PROCESS = 2;
-
 	public const uint32 DEBUG_CONNECT_SESSION_DEFAULT = 0;
-
 	public const uint32 DEBUG_CONNECT_SESSION_NO_VERSION = 1;
-
 	public const uint32 DEBUG_CONNECT_SESSION_NO_ANNOUNCE = 2;
-
 	public const uint32 DEBUG_SERVERS_DEBUGGER = 1;
-
 	public const uint32 DEBUG_SERVERS_PROCESS = 2;
-
 	public const uint32 DEBUG_SERVERS_ALL = 3;
-
 	public const uint32 DEBUG_END_PASSIVE = 0;
-
 	public const uint32 DEBUG_END_ACTIVE_TERMINATE = 1;
-
 	public const uint32 DEBUG_END_ACTIVE_DETACH = 2;
-
 	public const uint32 DEBUG_END_REENTRANT = 3;
-
 	public const uint32 DEBUG_END_DISCONNECT = 4;
-
 	public const uint32 DEBUG_OUTPUT_NORMAL = 1;
-
 	public const uint32 DEBUG_OUTPUT_ERROR = 2;
-
 	public const uint32 DEBUG_OUTPUT_WARNING = 4;
-
 	public const uint32 DEBUG_OUTPUT_VERBOSE = 8;
-
 	public const uint32 DEBUG_OUTPUT_PROMPT = 16;
-
 	public const uint32 DEBUG_OUTPUT_PROMPT_REGISTERS = 32;
-
 	public const uint32 DEBUG_OUTPUT_EXTENSION_WARNING = 64;
-
 	public const uint32 DEBUG_OUTPUT_DEBUGGEE = 128;
-
 	public const uint32 DEBUG_OUTPUT_DEBUGGEE_PROMPT = 256;
-
 	public const uint32 DEBUG_OUTPUT_SYMBOLS = 512;
-
 	public const uint32 DEBUG_OUTPUT_STATUS = 1024;
-
 	public const uint32 DEBUG_OUTPUT_XML = 2048;
-
 	public const uint32 DEBUG_IOUTPUT_KD_PROTOCOL = 2147483648;
-
 	public const uint32 DEBUG_IOUTPUT_REMOTING = 1073741824;
-
 	public const uint32 DEBUG_IOUTPUT_BREAKPOINT = 536870912;
-
 	public const uint32 DEBUG_IOUTPUT_EVENT = 268435456;
-
 	public const uint32 DEBUG_IOUTPUT_ADDR_TRANSLATE = 134217728;
-
 	public const uint32 DEBUG_OUTPUT_IDENTITY_DEFAULT = 0;
-
 	public const uint32 DEBUG_CLIENT_UNKNOWN = 0;
-
 	public const uint32 DEBUG_CLIENT_VSINT = 1;
-
 	public const uint32 DEBUG_CLIENT_NTSD = 2;
-
 	public const uint32 DEBUG_CLIENT_NTKD = 3;
-
 	public const uint32 DEBUG_CLIENT_CDB = 4;
-
 	public const uint32 DEBUG_CLIENT_KD = 5;
-
 	public const uint32 DEBUG_CLIENT_WINDBG = 6;
-
 	public const uint32 DEBUG_CLIENT_WINIDE = 7;
-
 	public const uint32 DEBUG_FORMAT_DEFAULT = 0;
-
 	public const uint32 DEBUG_FORMAT_CAB_SECONDARY_ALL_IMAGES = 268435456;
-
 	public const uint32 DEBUG_FORMAT_WRITE_CAB = 536870912;
-
 	public const uint32 DEBUG_FORMAT_CAB_SECONDARY_FILES = 1073741824;
-
 	public const uint32 DEBUG_FORMAT_NO_OVERWRITE = 2147483648;
-
 	public const uint32 DEBUG_FORMAT_USER_SMALL_FULL_MEMORY = 1;
-
 	public const uint32 DEBUG_FORMAT_USER_SMALL_HANDLE_DATA = 2;
-
 	public const uint32 DEBUG_FORMAT_USER_SMALL_UNLOADED_MODULES = 4;
-
 	public const uint32 DEBUG_FORMAT_USER_SMALL_INDIRECT_MEMORY = 8;
-
 	public const uint32 DEBUG_FORMAT_USER_SMALL_DATA_SEGMENTS = 16;
-
 	public const uint32 DEBUG_FORMAT_USER_SMALL_FILTER_MEMORY = 32;
-
 	public const uint32 DEBUG_FORMAT_USER_SMALL_FILTER_PATHS = 64;
-
 	public const uint32 DEBUG_FORMAT_USER_SMALL_PROCESS_THREAD_DATA = 128;
-
 	public const uint32 DEBUG_FORMAT_USER_SMALL_PRIVATE_READ_WRITE_MEMORY = 256;
-
 	public const uint32 DEBUG_FORMAT_USER_SMALL_NO_OPTIONAL_DATA = 512;
-
 	public const uint32 DEBUG_FORMAT_USER_SMALL_FULL_MEMORY_INFO = 1024;
-
 	public const uint32 DEBUG_FORMAT_USER_SMALL_THREAD_INFO = 2048;
-
 	public const uint32 DEBUG_FORMAT_USER_SMALL_CODE_SEGMENTS = 4096;
-
 	public const uint32 DEBUG_FORMAT_USER_SMALL_NO_AUXILIARY_STATE = 8192;
-
 	public const uint32 DEBUG_FORMAT_USER_SMALL_FULL_AUXILIARY_STATE = 16384;
-
 	public const uint32 DEBUG_FORMAT_USER_SMALL_MODULE_HEADERS = 32768;
-
 	public const uint32 DEBUG_FORMAT_USER_SMALL_FILTER_TRIAGE = 65536;
-
 	public const uint32 DEBUG_FORMAT_USER_SMALL_ADD_AVX_XSTATE_CONTEXT = 131072;
-
 	public const uint32 DEBUG_FORMAT_USER_SMALL_IPT_TRACE = 262144;
-
 	public const uint32 DEBUG_FORMAT_USER_SMALL_IGNORE_INACCESSIBLE_MEM = 134217728;
-
 	public const uint32 DEBUG_FORMAT_USER_SMALL_SCAN_PARTIAL_PAGES = 268435456;
-
 	public const uint32 DEBUG_DUMP_FILE_BASE = 4294967295;
-
 	public const uint32 DEBUG_DUMP_FILE_PAGE_FILE_DUMP = 0;
-
 	public const uint32 DEBUG_DUMP_FILE_LOAD_FAILED_INDEX = 4294967295;
-
 	public const uint32 DEBUG_DUMP_FILE_ORIGINAL_CAB_INDEX = 4294967294;
-
 	public const uint32 DEBUG_STATUS_NO_CHANGE = 0;
-
 	public const uint32 DEBUG_STATUS_GO = 1;
-
 	public const uint32 DEBUG_STATUS_GO_HANDLED = 2;
-
 	public const uint32 DEBUG_STATUS_GO_NOT_HANDLED = 3;
-
 	public const uint32 DEBUG_STATUS_STEP_OVER = 4;
-
 	public const uint32 DEBUG_STATUS_STEP_INTO = 5;
-
 	public const uint32 DEBUG_STATUS_BREAK = 6;
-
 	public const uint32 DEBUG_STATUS_NO_DEBUGGEE = 7;
-
 	public const uint32 DEBUG_STATUS_STEP_BRANCH = 8;
-
 	public const uint32 DEBUG_STATUS_IGNORE_EVENT = 9;
-
 	public const uint32 DEBUG_STATUS_RESTART_REQUESTED = 10;
-
 	public const uint32 DEBUG_STATUS_REVERSE_GO = 11;
-
 	public const uint32 DEBUG_STATUS_REVERSE_STEP_BRANCH = 12;
-
 	public const uint32 DEBUG_STATUS_REVERSE_STEP_OVER = 13;
-
 	public const uint32 DEBUG_STATUS_REVERSE_STEP_INTO = 14;
-
 	public const uint32 DEBUG_STATUS_OUT_OF_SYNC = 15;
-
 	public const uint32 DEBUG_STATUS_WAIT_INPUT = 16;
-
 	public const uint32 DEBUG_STATUS_TIMEOUT = 17;
-
 	public const uint32 DEBUG_STATUS_MASK = 31;
-
 	public const uint64 DEBUG_STATUS_INSIDE_WAIT = 4294967296;
-
 	public const uint64 DEBUG_STATUS_WAIT_TIMEOUT = 8589934592;
-
 	public const uint32 DEBUG_OUTCTL_THIS_CLIENT = 0;
-
 	public const uint32 DEBUG_OUTCTL_ALL_CLIENTS = 1;
-
 	public const uint32 DEBUG_OUTCTL_ALL_OTHER_CLIENTS = 2;
-
 	public const uint32 DEBUG_OUTCTL_IGNORE = 3;
-
 	public const uint32 DEBUG_OUTCTL_LOG_ONLY = 4;
-
 	public const uint32 DEBUG_OUTCTL_SEND_MASK = 7;
-
 	public const uint32 DEBUG_OUTCTL_NOT_LOGGED = 8;
-
 	public const uint32 DEBUG_OUTCTL_OVERRIDE_MASK = 16;
-
 	public const uint32 DEBUG_OUTCTL_DML = 32;
-
 	public const uint32 DEBUG_OUTCTL_AMBIENT_DML = 4294967294;
-
 	public const uint32 DEBUG_OUTCTL_AMBIENT_TEXT = 4294967295;
-
 	public const uint32 DEBUG_OUTCTL_AMBIENT = 4294967295;
-
 	public const uint32 DEBUG_INTERRUPT_ACTIVE = 0;
-
 	public const uint32 DEBUG_INTERRUPT_PASSIVE = 1;
-
 	public const uint32 DEBUG_INTERRUPT_EXIT = 2;
-
 	public const uint32 DEBUG_CURRENT_DEFAULT = 15;
-
 	public const uint32 DEBUG_CURRENT_SYMBOL = 1;
-
 	public const uint32 DEBUG_CURRENT_DISASM = 2;
-
 	public const uint32 DEBUG_CURRENT_REGISTERS = 4;
-
 	public const uint32 DEBUG_CURRENT_SOURCE_LINE = 8;
-
 	public const uint32 DEBUG_DISASM_EFFECTIVE_ADDRESS = 1;
-
 	public const uint32 DEBUG_DISASM_MATCHING_SYMBOLS = 2;
-
 	public const uint32 DEBUG_DISASM_SOURCE_LINE_NUMBER = 4;
-
 	public const uint32 DEBUG_DISASM_SOURCE_FILE_NAME = 8;
-
 	public const uint32 DEBUG_LEVEL_SOURCE = 0;
-
 	public const uint32 DEBUG_LEVEL_ASSEMBLY = 1;
-
 	public const uint32 DEBUG_ENGOPT_IGNORE_DBGHELP_VERSION = 1;
-
 	public const uint32 DEBUG_ENGOPT_IGNORE_EXTENSION_VERSIONS = 2;
-
 	public const uint32 DEBUG_ENGOPT_ALLOW_NETWORK_PATHS = 4;
-
 	public const uint32 DEBUG_ENGOPT_DISALLOW_NETWORK_PATHS = 8;
-
 	public const uint32 DEBUG_ENGOPT_IGNORE_LOADER_EXCEPTIONS = 16;
-
 	public const uint32 DEBUG_ENGOPT_INITIAL_BREAK = 32;
-
 	public const uint32 DEBUG_ENGOPT_INITIAL_MODULE_BREAK = 64;
-
 	public const uint32 DEBUG_ENGOPT_FINAL_BREAK = 128;
-
 	public const uint32 DEBUG_ENGOPT_NO_EXECUTE_REPEAT = 256;
-
 	public const uint32 DEBUG_ENGOPT_FAIL_INCOMPLETE_INFORMATION = 512;
-
 	public const uint32 DEBUG_ENGOPT_ALLOW_READ_ONLY_BREAKPOINTS = 1024;
-
 	public const uint32 DEBUG_ENGOPT_SYNCHRONIZE_BREAKPOINTS = 2048;
-
 	public const uint32 DEBUG_ENGOPT_DISALLOW_SHELL_COMMANDS = 4096;
-
 	public const uint32 DEBUG_ENGOPT_KD_QUIET_MODE = 8192;
-
 	public const uint32 DEBUG_ENGOPT_DISABLE_MANAGED_SUPPORT = 16384;
-
 	public const uint32 DEBUG_ENGOPT_DISABLE_MODULE_SYMBOL_LOAD = 32768;
-
 	public const uint32 DEBUG_ENGOPT_DISABLE_EXECUTION_COMMANDS = 65536;
-
 	public const uint32 DEBUG_ENGOPT_DISALLOW_IMAGE_FILE_MAPPING = 131072;
-
 	public const uint32 DEBUG_ENGOPT_PREFER_DML = 262144;
-
 	public const uint32 DEBUG_ENGOPT_DISABLESQM = 524288;
-
 	public const uint32 DEBUG_ENGOPT_DISABLE_STEPLINES_OPTIONS = 2097152;
-
 	public const uint32 DEBUG_ENGOPT_DEBUGGING_SENSITIVE_DATA = 4194304;
-
 	public const uint32 DEBUG_ENGOPT_PREFER_TRACE_FILES = 8388608;
-
 	public const uint32 DEBUG_ENGOPT_ALL = 15728639;
-
 	public const uint32 DEBUG_ANY_ID = 4294967295;
-
 	public const uint32 DBG_FRAME_DEFAULT = 0;
-
 	public const uint32 DBG_FRAME_IGNORE_INLINE = 4294967295;
-
 	public const uint32 STACK_FRAME_TYPE_INIT = 0;
-
 	public const uint32 STACK_FRAME_TYPE_STACK = 1;
-
 	public const uint32 STACK_FRAME_TYPE_INLINE = 2;
-
 	public const uint32 STACK_FRAME_TYPE_RA = 128;
-
 	public const uint32 STACK_FRAME_TYPE_IGNORE = 255;
-
 	public const uint32 DEBUG_STACK_ARGUMENTS = 1;
-
 	public const uint32 DEBUG_STACK_FUNCTION_INFO = 2;
-
 	public const uint32 DEBUG_STACK_SOURCE_LINE = 4;
-
 	public const uint32 DEBUG_STACK_FRAME_ADDRESSES = 8;
-
 	public const uint32 DEBUG_STACK_COLUMN_NAMES = 16;
-
 	public const uint32 DEBUG_STACK_NONVOLATILE_REGISTERS = 32;
-
 	public const uint32 DEBUG_STACK_FRAME_NUMBERS = 64;
-
 	public const uint32 DEBUG_STACK_PARAMETERS = 128;
-
 	public const uint32 DEBUG_STACK_FRAME_ADDRESSES_RA_ONLY = 256;
-
 	public const uint32 DEBUG_STACK_FRAME_MEMORY_USAGE = 512;
-
 	public const uint32 DEBUG_STACK_PARAMETERS_NEWLINE = 1024;
-
 	public const uint32 DEBUG_STACK_DML = 2048;
-
 	public const uint32 DEBUG_STACK_FRAME_OFFSETS = 4096;
-
 	public const uint32 DEBUG_STACK_PROVIDER = 8192;
-
 	public const uint32 DEBUG_STACK_FRAME_ARCH = 16384;
-
 	public const uint32 DEBUG_CLASS_UNINITIALIZED = 0;
-
 	public const uint32 DEBUG_CLASS_KERNEL = 1;
-
 	public const uint32 DEBUG_CLASS_USER_WINDOWS = 2;
-
 	public const uint32 DEBUG_CLASS_IMAGE_FILE = 3;
-
 	public const uint32 DEBUG_DUMP_SMALL = 1024;
-
 	public const uint32 DEBUG_DUMP_DEFAULT = 1025;
-
 	public const uint32 DEBUG_DUMP_FULL = 1026;
-
 	public const uint32 DEBUG_DUMP_IMAGE_FILE = 1027;
-
 	public const uint32 DEBUG_DUMP_TRACE_LOG = 1028;
-
 	public const uint32 DEBUG_DUMP_WINDOWS_CE = 1029;
-
 	public const uint32 DEBUG_DUMP_ACTIVE = 1030;
-
 	public const uint32 DEBUG_KERNEL_CONNECTION = 0;
-
 	public const uint32 DEBUG_KERNEL_LOCAL = 1;
-
 	public const uint32 DEBUG_KERNEL_EXDI_DRIVER = 2;
-
 	public const uint32 DEBUG_KERNEL_IDNA = 3;
-
 	public const uint32 DEBUG_KERNEL_INSTALL_DRIVER = 4;
-
 	public const uint32 DEBUG_KERNEL_REPT = 5;
-
 	public const uint32 DEBUG_KERNEL_SMALL_DUMP = 1024;
-
 	public const uint32 DEBUG_KERNEL_DUMP = 1025;
-
 	public const uint32 DEBUG_KERNEL_ACTIVE_DUMP = 1030;
-
 	public const uint32 DEBUG_KERNEL_FULL_DUMP = 1026;
-
 	public const uint32 DEBUG_KERNEL_TRACE_LOG = 1028;
-
 	public const uint32 DEBUG_USER_WINDOWS_PROCESS = 0;
-
 	public const uint32 DEBUG_USER_WINDOWS_PROCESS_SERVER = 1;
-
 	public const uint32 DEBUG_USER_WINDOWS_IDNA = 2;
-
 	public const uint32 DEBUG_USER_WINDOWS_REPT = 3;
-
 	public const uint32 DEBUG_USER_WINDOWS_SMALL_DUMP = 1024;
-
 	public const uint32 DEBUG_USER_WINDOWS_DUMP = 1025;
-
 	public const uint32 DEBUG_USER_WINDOWS_DUMP_WINDOWS_CE = 1029;
-
 	public const uint32 DEBUG_EXTENSION_AT_ENGINE = 0;
-
 	public const uint32 DEBUG_EXECUTE_DEFAULT = 0;
-
 	public const uint32 DEBUG_EXECUTE_ECHO = 1;
-
 	public const uint32 DEBUG_EXECUTE_NOT_LOGGED = 2;
-
 	public const uint32 DEBUG_EXECUTE_NO_REPEAT = 4;
-
 	public const uint32 DEBUG_EXECUTE_USER_TYPED = 8;
-
 	public const uint32 DEBUG_EXECUTE_USER_CLICKED = 16;
-
 	public const uint32 DEBUG_EXECUTE_EXTENSION = 32;
-
 	public const uint32 DEBUG_EXECUTE_INTERNAL = 64;
-
 	public const uint32 DEBUG_EXECUTE_SCRIPT = 128;
-
 	public const uint32 DEBUG_EXECUTE_TOOLBAR = 256;
-
 	public const uint32 DEBUG_EXECUTE_MENU = 512;
-
 	public const uint32 DEBUG_EXECUTE_HOTKEY = 1024;
-
 	public const uint32 DEBUG_EXECUTE_EVENT = 2048;
-
 	public const uint32 DEBUG_FILTER_CREATE_THREAD = 0;
-
 	public const uint32 DEBUG_FILTER_EXIT_THREAD = 1;
-
 	public const uint32 DEBUG_FILTER_CREATE_PROCESS = 2;
-
 	public const uint32 DEBUG_FILTER_EXIT_PROCESS = 3;
-
 	public const uint32 DEBUG_FILTER_LOAD_MODULE = 4;
-
 	public const uint32 DEBUG_FILTER_UNLOAD_MODULE = 5;
-
 	public const uint32 DEBUG_FILTER_SYSTEM_ERROR = 6;
-
 	public const uint32 DEBUG_FILTER_INITIAL_BREAKPOINT = 7;
-
 	public const uint32 DEBUG_FILTER_INITIAL_MODULE_LOAD = 8;
-
 	public const uint32 DEBUG_FILTER_DEBUGGEE_OUTPUT = 9;
-
 	public const uint32 DEBUG_FILTER_BREAK = 0;
-
 	public const uint32 DEBUG_FILTER_SECOND_CHANCE_BREAK = 1;
-
 	public const uint32 DEBUG_FILTER_OUTPUT = 2;
-
 	public const uint32 DEBUG_FILTER_IGNORE = 3;
-
 	public const uint32 DEBUG_FILTER_REMOVE = 4;
-
 	public const uint32 DEBUG_FILTER_GO_HANDLED = 0;
-
 	public const uint32 DEBUG_FILTER_GO_NOT_HANDLED = 1;
-
 	public const uint32 DEBUG_WAIT_DEFAULT = 0;
-
 	public const uint32 DEBUG_VALUE_INVALID = 0;
-
 	public const uint32 DEBUG_VALUE_INT8 = 1;
-
 	public const uint32 DEBUG_VALUE_INT16 = 2;
-
 	public const uint32 DEBUG_VALUE_INT32 = 3;
-
 	public const uint32 DEBUG_VALUE_INT64 = 4;
-
 	public const uint32 DEBUG_VALUE_FLOAT32 = 5;
-
 	public const uint32 DEBUG_VALUE_FLOAT64 = 6;
-
 	public const uint32 DEBUG_VALUE_FLOAT80 = 7;
-
 	public const uint32 DEBUG_VALUE_FLOAT82 = 8;
-
 	public const uint32 DEBUG_VALUE_FLOAT128 = 9;
-
 	public const uint32 DEBUG_VALUE_VECTOR64 = 10;
-
 	public const uint32 DEBUG_VALUE_VECTOR128 = 11;
-
 	public const uint32 DEBUG_VALUE_TYPES = 12;
-
 	public const uint32 DEBUG_OUT_TEXT_REPL_DEFAULT = 0;
-
 	public const uint32 DEBUG_ASMOPT_DEFAULT = 0;
-
 	public const uint32 DEBUG_ASMOPT_VERBOSE = 1;
-
 	public const uint32 DEBUG_ASMOPT_NO_CODE_BYTES = 2;
-
 	public const uint32 DEBUG_ASMOPT_IGNORE_OUTPUT_WIDTH = 4;
-
 	public const uint32 DEBUG_ASMOPT_SOURCE_LINE_NUMBER = 8;
-
 	public const uint32 DEBUG_EXPR_MASM = 0;
-
 	public const uint32 DEBUG_EXPR_CPLUSPLUS = 1;
-
 	public const uint32 DEBUG_EINDEX_NAME = 0;
-
 	public const uint32 DEBUG_EINDEX_FROM_START = 0;
-
 	public const uint32 DEBUG_EINDEX_FROM_END = 1;
-
 	public const uint32 DEBUG_EINDEX_FROM_CURRENT = 2;
-
 	public const uint32 DEBUG_LOG_DEFAULT = 0;
-
 	public const uint32 DEBUG_LOG_APPEND = 1;
-
 	public const uint32 DEBUG_LOG_UNICODE = 2;
-
 	public const uint32 DEBUG_LOG_DML = 4;
-
 	public const uint32 DEBUG_SYSVERSTR_SERVICE_PACK = 0;
-
 	public const uint32 DEBUG_SYSVERSTR_BUILD = 1;
-
 	public const uint32 DEBUG_MANAGED_DISABLED = 0;
-
 	public const uint32 DEBUG_MANAGED_ALLOWED = 1;
-
 	public const uint32 DEBUG_MANAGED_DLL_LOADED = 2;
-
 	public const uint32 DEBUG_MANSTR_NONE = 0;
-
 	public const uint32 DEBUG_MANSTR_LOADED_SUPPORT_DLL = 1;
-
 	public const uint32 DEBUG_MANSTR_LOAD_STATUS = 2;
-
 	public const uint32 DEBUG_MANRESET_DEFAULT = 0;
-
 	public const uint32 DEBUG_MANRESET_LOAD_DLL = 1;
-
 	public const uint32 DEBUG_EXEC_FLAGS_NONBLOCK = 1;
-
 	public const uint32 DEBUG_DATA_SPACE_VIRTUAL = 0;
-
 	public const uint32 DEBUG_DATA_SPACE_PHYSICAL = 1;
-
 	public const uint32 DEBUG_DATA_SPACE_CONTROL = 2;
-
 	public const uint32 DEBUG_DATA_SPACE_IO = 3;
-
 	public const uint32 DEBUG_DATA_SPACE_MSR = 4;
-
 	public const uint32 DEBUG_DATA_SPACE_BUS_DATA = 5;
-
 	public const uint32 DEBUG_DATA_SPACE_DEBUGGER_DATA = 6;
-
 	public const uint32 DEBUG_DATA_SPACE_COUNT = 7;
-
 	public const uint32 DEBUG_DATA_KernBase = 24;
-
 	public const uint32 DEBUG_DATA_BreakpointWithStatusAddr = 32;
-
 	public const uint32 DEBUG_DATA_SavedContextAddr = 40;
-
 	public const uint32 DEBUG_DATA_KiCallUserModeAddr = 56;
-
 	public const uint32 DEBUG_DATA_KeUserCallbackDispatcherAddr = 64;
-
 	public const uint32 DEBUG_DATA_PsLoadedModuleListAddr = 72;
-
 	public const uint32 DEBUG_DATA_PsActiveProcessHeadAddr = 80;
-
 	public const uint32 DEBUG_DATA_PspCidTableAddr = 88;
-
 	public const uint32 DEBUG_DATA_ExpSystemResourcesListAddr = 96;
-
 	public const uint32 DEBUG_DATA_ExpPagedPoolDescriptorAddr = 104;
-
 	public const uint32 DEBUG_DATA_ExpNumberOfPagedPoolsAddr = 112;
-
 	public const uint32 DEBUG_DATA_KeTimeIncrementAddr = 120;
-
 	public const uint32 DEBUG_DATA_KeBugCheckCallbackListHeadAddr = 128;
-
 	public const uint32 DEBUG_DATA_KiBugcheckDataAddr = 136;
-
 	public const uint32 DEBUG_DATA_IopErrorLogListHeadAddr = 144;
-
 	public const uint32 DEBUG_DATA_ObpRootDirectoryObjectAddr = 152;
-
 	public const uint32 DEBUG_DATA_ObpTypeObjectTypeAddr = 160;
-
 	public const uint32 DEBUG_DATA_MmSystemCacheStartAddr = 168;
-
 	public const uint32 DEBUG_DATA_MmSystemCacheEndAddr = 176;
-
 	public const uint32 DEBUG_DATA_MmSystemCacheWsAddr = 184;
-
 	public const uint32 DEBUG_DATA_MmPfnDatabaseAddr = 192;
-
 	public const uint32 DEBUG_DATA_MmSystemPtesStartAddr = 200;
-
 	public const uint32 DEBUG_DATA_MmSystemPtesEndAddr = 208;
-
 	public const uint32 DEBUG_DATA_MmSubsectionBaseAddr = 216;
-
 	public const uint32 DEBUG_DATA_MmNumberOfPagingFilesAddr = 224;
-
 	public const uint32 DEBUG_DATA_MmLowestPhysicalPageAddr = 232;
-
 	public const uint32 DEBUG_DATA_MmHighestPhysicalPageAddr = 240;
-
 	public const uint32 DEBUG_DATA_MmNumberOfPhysicalPagesAddr = 248;
-
 	public const uint32 DEBUG_DATA_MmMaximumNonPagedPoolInBytesAddr = 256;
-
 	public const uint32 DEBUG_DATA_MmNonPagedSystemStartAddr = 264;
-
 	public const uint32 DEBUG_DATA_MmNonPagedPoolStartAddr = 272;
-
 	public const uint32 DEBUG_DATA_MmNonPagedPoolEndAddr = 280;
-
 	public const uint32 DEBUG_DATA_MmPagedPoolStartAddr = 288;
-
 	public const uint32 DEBUG_DATA_MmPagedPoolEndAddr = 296;
-
 	public const uint32 DEBUG_DATA_MmPagedPoolInformationAddr = 304;
-
 	public const uint32 DEBUG_DATA_MmPageSize = 312;
-
 	public const uint32 DEBUG_DATA_MmSizeOfPagedPoolInBytesAddr = 320;
-
 	public const uint32 DEBUG_DATA_MmTotalCommitLimitAddr = 328;
-
 	public const uint32 DEBUG_DATA_MmTotalCommittedPagesAddr = 336;
-
 	public const uint32 DEBUG_DATA_MmSharedCommitAddr = 344;
-
 	public const uint32 DEBUG_DATA_MmDriverCommitAddr = 352;
-
 	public const uint32 DEBUG_DATA_MmProcessCommitAddr = 360;
-
 	public const uint32 DEBUG_DATA_MmPagedPoolCommitAddr = 368;
-
 	public const uint32 DEBUG_DATA_MmExtendedCommitAddr = 376;
-
 	public const uint32 DEBUG_DATA_MmZeroedPageListHeadAddr = 384;
-
 	public const uint32 DEBUG_DATA_MmFreePageListHeadAddr = 392;
-
 	public const uint32 DEBUG_DATA_MmStandbyPageListHeadAddr = 400;
-
 	public const uint32 DEBUG_DATA_MmModifiedPageListHeadAddr = 408;
-
 	public const uint32 DEBUG_DATA_MmModifiedNoWritePageListHeadAddr = 416;
-
 	public const uint32 DEBUG_DATA_MmAvailablePagesAddr = 424;
-
 	public const uint32 DEBUG_DATA_MmResidentAvailablePagesAddr = 432;
-
 	public const uint32 DEBUG_DATA_PoolTrackTableAddr = 440;
-
 	public const uint32 DEBUG_DATA_NonPagedPoolDescriptorAddr = 448;
-
 	public const uint32 DEBUG_DATA_MmHighestUserAddressAddr = 456;
-
 	public const uint32 DEBUG_DATA_MmSystemRangeStartAddr = 464;
-
 	public const uint32 DEBUG_DATA_MmUserProbeAddressAddr = 472;
-
 	public const uint32 DEBUG_DATA_KdPrintCircularBufferAddr = 480;
-
 	public const uint32 DEBUG_DATA_KdPrintCircularBufferEndAddr = 488;
-
 	public const uint32 DEBUG_DATA_KdPrintWritePointerAddr = 496;
-
 	public const uint32 DEBUG_DATA_KdPrintRolloverCountAddr = 504;
-
 	public const uint32 DEBUG_DATA_MmLoadedUserImageListAddr = 512;
-
 	public const uint32 DEBUG_DATA_NtBuildLabAddr = 520;
-
 	public const uint32 DEBUG_DATA_KiNormalSystemCall = 528;
-
 	public const uint32 DEBUG_DATA_KiProcessorBlockAddr = 536;
-
 	public const uint32 DEBUG_DATA_MmUnloadedDriversAddr = 544;
-
 	public const uint32 DEBUG_DATA_MmLastUnloadedDriverAddr = 552;
-
 	public const uint32 DEBUG_DATA_MmTriageActionTakenAddr = 560;
-
 	public const uint32 DEBUG_DATA_MmSpecialPoolTagAddr = 568;
-
 	public const uint32 DEBUG_DATA_KernelVerifierAddr = 576;
-
 	public const uint32 DEBUG_DATA_MmVerifierDataAddr = 584;
-
 	public const uint32 DEBUG_DATA_MmAllocatedNonPagedPoolAddr = 592;
-
 	public const uint32 DEBUG_DATA_MmPeakCommitmentAddr = 600;
-
 	public const uint32 DEBUG_DATA_MmTotalCommitLimitMaximumAddr = 608;
-
 	public const uint32 DEBUG_DATA_CmNtCSDVersionAddr = 616;
-
 	public const uint32 DEBUG_DATA_MmPhysicalMemoryBlockAddr = 624;
-
 	public const uint32 DEBUG_DATA_MmSessionBase = 632;
-
 	public const uint32 DEBUG_DATA_MmSessionSize = 640;
-
 	public const uint32 DEBUG_DATA_MmSystemParentTablePage = 648;
-
 	public const uint32 DEBUG_DATA_MmVirtualTranslationBase = 656;
-
 	public const uint32 DEBUG_DATA_OffsetKThreadNextProcessor = 664;
-
 	public const uint32 DEBUG_DATA_OffsetKThreadTeb = 666;
-
 	public const uint32 DEBUG_DATA_OffsetKThreadKernelStack = 668;
-
 	public const uint32 DEBUG_DATA_OffsetKThreadInitialStack = 670;
-
 	public const uint32 DEBUG_DATA_OffsetKThreadApcProcess = 672;
-
 	public const uint32 DEBUG_DATA_OffsetKThreadState = 674;
-
 	public const uint32 DEBUG_DATA_OffsetKThreadBStore = 676;
-
 	public const uint32 DEBUG_DATA_OffsetKThreadBStoreLimit = 678;
-
 	public const uint32 DEBUG_DATA_SizeEProcess = 680;
-
 	public const uint32 DEBUG_DATA_OffsetEprocessPeb = 682;
-
 	public const uint32 DEBUG_DATA_OffsetEprocessParentCID = 684;
-
 	public const uint32 DEBUG_DATA_OffsetEprocessDirectoryTableBase = 686;
-
 	public const uint32 DEBUG_DATA_SizePrcb = 688;
-
 	public const uint32 DEBUG_DATA_OffsetPrcbDpcRoutine = 690;
-
 	public const uint32 DEBUG_DATA_OffsetPrcbCurrentThread = 692;
-
 	public const uint32 DEBUG_DATA_OffsetPrcbMhz = 694;
-
 	public const uint32 DEBUG_DATA_OffsetPrcbCpuType = 696;
-
 	public const uint32 DEBUG_DATA_OffsetPrcbVendorString = 698;
-
 	public const uint32 DEBUG_DATA_OffsetPrcbProcessorState = 700;
-
 	public const uint32 DEBUG_DATA_OffsetPrcbNumber = 702;
-
 	public const uint32 DEBUG_DATA_SizeEThread = 704;
-
 	public const uint32 DEBUG_DATA_KdPrintCircularBufferPtrAddr = 712;
-
 	public const uint32 DEBUG_DATA_KdPrintBufferSizeAddr = 720;
-
 	public const uint32 DEBUG_DATA_MmBadPagesDetected = 800;
-
 	public const uint32 DEBUG_DATA_EtwpDebuggerData = 816;
-
 	public const uint32 DEBUG_DATA_PteBase = 864;
-
 	public const uint32 DEBUG_DATA_PaeEnabled = 100000;
-
 	public const uint32 DEBUG_DATA_SharedUserData = 100008;
-
 	public const uint32 DEBUG_DATA_ProductType = 100016;
-
 	public const uint32 DEBUG_DATA_SuiteMask = 100024;
-
 	public const uint32 DEBUG_DATA_DumpWriterStatus = 100032;
-
 	public const uint32 DEBUG_DATA_DumpFormatVersion = 100040;
-
 	public const uint32 DEBUG_DATA_DumpWriterVersion = 100048;
-
 	public const uint32 DEBUG_DATA_DumpPowerState = 100056;
-
 	public const uint32 DEBUG_DATA_DumpMmStorage = 100064;
-
 	public const uint32 DEBUG_DATA_DumpAttributes = 100072;
-
 	public const uint32 DEBUG_DATA_KPCR_OFFSET = 0;
-
 	public const uint32 DEBUG_DATA_KPRCB_OFFSET = 1;
-
 	public const uint32 DEBUG_DATA_KTHREAD_OFFSET = 2;
-
 	public const uint32 DEBUG_DATA_BASE_TRANSLATION_VIRTUAL_OFFSET = 3;
-
 	public const uint32 DEBUG_DATA_PROCESSOR_IDENTIFICATION = 4;
-
 	public const uint32 DEBUG_DATA_PROCESSOR_SPEED = 5;
-
 	public const uint32 DEBUG_HANDLE_DATA_TYPE_BASIC = 0;
-
 	public const uint32 DEBUG_HANDLE_DATA_TYPE_TYPE_NAME = 1;
-
 	public const uint32 DEBUG_HANDLE_DATA_TYPE_OBJECT_NAME = 2;
-
 	public const uint32 DEBUG_HANDLE_DATA_TYPE_HANDLE_COUNT = 3;
-
 	public const uint32 DEBUG_HANDLE_DATA_TYPE_TYPE_NAME_WIDE = 4;
-
 	public const uint32 DEBUG_HANDLE_DATA_TYPE_OBJECT_NAME_WIDE = 5;
-
 	public const uint32 DEBUG_HANDLE_DATA_TYPE_MINI_THREAD_1 = 6;
-
 	public const uint32 DEBUG_HANDLE_DATA_TYPE_MINI_MUTANT_1 = 7;
-
 	public const uint32 DEBUG_HANDLE_DATA_TYPE_MINI_MUTANT_2 = 8;
-
 	public const uint32 DEBUG_HANDLE_DATA_TYPE_PER_HANDLE_OPERATIONS = 9;
-
 	public const uint32 DEBUG_HANDLE_DATA_TYPE_ALL_HANDLE_OPERATIONS = 10;
-
 	public const uint32 DEBUG_HANDLE_DATA_TYPE_MINI_PROCESS_1 = 11;
-
 	public const uint32 DEBUG_HANDLE_DATA_TYPE_MINI_PROCESS_2 = 12;
-
 	public const uint32 DEBUG_HANDLE_DATA_TYPE_MINI_EVENT_1 = 13;
-
 	public const uint32 DEBUG_HANDLE_DATA_TYPE_MINI_SECTION_1 = 14;
-
 	public const uint32 DEBUG_HANDLE_DATA_TYPE_MINI_SEMAPHORE_1 = 15;
-
 	public const uint32 DEBUG_OFFSINFO_VIRTUAL_SOURCE = 1;
-
 	public const uint32 DEBUG_VSOURCE_INVALID = 0;
-
 	public const uint32 DEBUG_VSOURCE_DEBUGGEE = 1;
-
 	public const uint32 DEBUG_VSOURCE_MAPPED_IMAGE = 2;
-
 	public const uint32 DEBUG_VSOURCE_DUMP_WITHOUT_MEMINFO = 3;
-
 	public const uint32 DEBUG_VSEARCH_DEFAULT = 0;
-
 	public const uint32 DEBUG_VSEARCH_WRITABLE_ONLY = 1;
-
 	public const uint32 DEBUG_PHYSICAL_DEFAULT = 0;
-
 	public const uint32 DEBUG_PHYSICAL_CACHED = 1;
-
 	public const uint32 DEBUG_PHYSICAL_UNCACHED = 2;
-
 	public const uint32 DEBUG_PHYSICAL_WRITE_COMBINED = 3;
-
 	public const uint32 DEBUG_EVENT_BREAKPOINT = 1;
-
 	public const uint32 DEBUG_EVENT_EXCEPTION = 2;
-
 	public const uint32 DEBUG_EVENT_CREATE_THREAD = 4;
-
 	public const uint32 DEBUG_EVENT_EXIT_THREAD = 8;
-
 	public const uint32 DEBUG_EVENT_CREATE_PROCESS = 16;
-
 	public const uint32 DEBUG_EVENT_EXIT_PROCESS = 32;
-
 	public const uint32 DEBUG_EVENT_LOAD_MODULE = 64;
-
 	public const uint32 DEBUG_EVENT_UNLOAD_MODULE = 128;
-
 	public const uint32 DEBUG_EVENT_SYSTEM_ERROR = 256;
-
 	public const uint32 DEBUG_EVENT_SESSION_STATUS = 512;
-
 	public const uint32 DEBUG_EVENT_CHANGE_DEBUGGEE_STATE = 1024;
-
 	public const uint32 DEBUG_EVENT_CHANGE_ENGINE_STATE = 2048;
-
 	public const uint32 DEBUG_EVENT_CHANGE_SYMBOL_STATE = 4096;
-
 	public const uint32 DEBUG_EVENT_SERVICE_EXCEPTION = 8192;
-
 	public const uint32 DEBUG_SESSION_ACTIVE = 0;
-
 	public const uint32 DEBUG_SESSION_END_SESSION_ACTIVE_TERMINATE = 1;
-
 	public const uint32 DEBUG_SESSION_END_SESSION_ACTIVE_DETACH = 2;
-
 	public const uint32 DEBUG_SESSION_END_SESSION_PASSIVE = 3;
-
 	public const uint32 DEBUG_SESSION_END = 4;
-
 	public const uint32 DEBUG_SESSION_REBOOT = 5;
-
 	public const uint32 DEBUG_SESSION_HIBERNATE = 6;
-
 	public const uint32 DEBUG_SESSION_FAILURE = 7;
-
 	public const uint32 DEBUG_CDS_ALL = 4294967295;
-
 	public const uint32 DEBUG_CDS_REGISTERS = 1;
-
 	public const uint32 DEBUG_CDS_DATA = 2;
-
 	public const uint32 DEBUG_CDS_REFRESH = 4;
-
 	public const uint32 DEBUG_CDS_REFRESH_EVALUATE = 1;
-
 	public const uint32 DEBUG_CDS_REFRESH_EXECUTE = 2;
-
 	public const uint32 DEBUG_CDS_REFRESH_EXECUTECOMMANDFILE = 3;
-
 	public const uint32 DEBUG_CDS_REFRESH_ADDBREAKPOINT = 4;
-
 	public const uint32 DEBUG_CDS_REFRESH_REMOVEBREAKPOINT = 5;
-
 	public const uint32 DEBUG_CDS_REFRESH_WRITEVIRTUAL = 6;
-
 	public const uint32 DEBUG_CDS_REFRESH_WRITEVIRTUALUNCACHED = 7;
-
 	public const uint32 DEBUG_CDS_REFRESH_WRITEPHYSICAL = 8;
-
 	public const uint32 DEBUG_CDS_REFRESH_WRITEPHYSICAL2 = 9;
-
 	public const uint32 DEBUG_CDS_REFRESH_SETVALUE = 10;
-
 	public const uint32 DEBUG_CDS_REFRESH_SETVALUE2 = 11;
-
 	public const uint32 DEBUG_CDS_REFRESH_SETSCOPE = 12;
-
 	public const uint32 DEBUG_CDS_REFRESH_SETSCOPEFRAMEBYINDEX = 13;
-
 	public const uint32 DEBUG_CDS_REFRESH_SETSCOPEFROMJITDEBUGINFO = 14;
-
 	public const uint32 DEBUG_CDS_REFRESH_SETSCOPEFROMSTOREDEVENT = 15;
-
 	public const uint32 DEBUG_CDS_REFRESH_INLINESTEP = 16;
-
 	public const uint32 DEBUG_CDS_REFRESH_INLINESTEP_PSEUDO = 17;
-
 	public const uint32 DEBUG_CES_ALL = 4294967295;
-
 	public const uint32 DEBUG_CES_CURRENT_THREAD = 1;
-
 	public const uint32 DEBUG_CES_EFFECTIVE_PROCESSOR = 2;
-
 	public const uint32 DEBUG_CES_BREAKPOINTS = 4;
-
 	public const uint32 DEBUG_CES_CODE_LEVEL = 8;
-
 	public const uint32 DEBUG_CES_EXECUTION_STATUS = 16;
-
 	public const uint32 DEBUG_CES_ENGINE_OPTIONS = 32;
-
 	public const uint32 DEBUG_CES_LOG_FILE = 64;
-
 	public const uint32 DEBUG_CES_RADIX = 128;
-
 	public const uint32 DEBUG_CES_EVENT_FILTERS = 256;
-
 	public const uint32 DEBUG_CES_PROCESS_OPTIONS = 512;
-
 	public const uint32 DEBUG_CES_EXTENSIONS = 1024;
-
 	public const uint32 DEBUG_CES_SYSTEMS = 2048;
-
 	public const uint32 DEBUG_CES_ASSEMBLY_OPTIONS = 4096;
-
 	public const uint32 DEBUG_CES_EXPRESSION_SYNTAX = 8192;
-
 	public const uint32 DEBUG_CES_TEXT_REPLACEMENTS = 16384;
-
 	public const uint32 DEBUG_CSS_ALL = 4294967295;
-
 	public const uint32 DEBUG_CSS_LOADS = 1;
-
 	public const uint32 DEBUG_CSS_UNLOADS = 2;
-
 	public const uint32 DEBUG_CSS_SCOPE = 4;
-
 	public const uint32 DEBUG_CSS_PATHS = 8;
-
 	public const uint32 DEBUG_CSS_SYMBOL_OPTIONS = 16;
-
 	public const uint32 DEBUG_CSS_TYPE_OPTIONS = 32;
-
 	public const uint32 DEBUG_CSS_COLLAPSE_CHILDREN = 64;
-
 	public const uint32 DEBUG_OUTCBI_EXPLICIT_FLUSH = 1;
-
 	public const uint32 DEBUG_OUTCBI_TEXT = 2;
-
 	public const uint32 DEBUG_OUTCBI_DML = 4;
-
 	public const uint32 DEBUG_OUTCBI_ANY_FORMAT = 6;
-
 	public const uint32 DEBUG_OUTCB_TEXT = 0;
-
 	public const uint32 DEBUG_OUTCB_DML = 1;
-
 	public const uint32 DEBUG_OUTCB_EXPLICIT_FLUSH = 2;
-
 	public const uint32 DEBUG_OUTCBF_COMBINED_EXPLICIT_FLUSH = 1;
-
 	public const uint32 DEBUG_OUTCBF_DML_HAS_TAGS = 2;
-
 	public const uint32 DEBUG_OUTCBF_DML_HAS_SPECIAL_CHARACTERS = 4;
-
 	public const uint32 DEBUG_REGISTERS_DEFAULT = 0;
-
 	public const uint32 DEBUG_REGISTERS_INT32 = 1;
-
 	public const uint32 DEBUG_REGISTERS_INT64 = 2;
-
 	public const uint32 DEBUG_REGISTERS_FLOAT = 4;
-
 	public const uint32 DEBUG_REGISTERS_ALL = 7;
-
 	public const uint32 DEBUG_REGISTER_SUB_REGISTER = 1;
-
 	public const uint32 DEBUG_REGSRC_DEBUGGEE = 0;
-
 	public const uint32 DEBUG_REGSRC_EXPLICIT = 1;
-
 	public const uint32 DEBUG_REGSRC_FRAME = 2;
-
 	public const uint32 DEBUG_OUTPUT_SYMBOLS_DEFAULT = 0;
-
 	public const uint32 DEBUG_OUTPUT_SYMBOLS_NO_NAMES = 1;
-
 	public const uint32 DEBUG_OUTPUT_SYMBOLS_NO_OFFSETS = 2;
-
 	public const uint32 DEBUG_OUTPUT_SYMBOLS_NO_VALUES = 4;
-
 	public const uint32 DEBUG_OUTPUT_SYMBOLS_NO_TYPES = 16;
-
 	public const uint32 DEBUG_SYMBOL_EXPANSION_LEVEL_MASK = 15;
-
 	public const uint32 DEBUG_SYMBOL_EXPANDED = 16;
-
 	public const uint32 DEBUG_SYMBOL_READ_ONLY = 32;
-
 	public const uint32 DEBUG_SYMBOL_IS_ARRAY = 64;
-
 	public const uint32 DEBUG_SYMBOL_IS_FLOAT = 128;
-
 	public const uint32 DEBUG_SYMBOL_IS_ARGUMENT = 256;
-
 	public const uint32 DEBUG_SYMBOL_IS_LOCAL = 512;
-
 	public const uint32 DEBUG_SYMENT_IS_CODE = 1;
-
 	public const uint32 DEBUG_SYMENT_IS_DATA = 2;
-
 	public const uint32 DEBUG_SYMENT_IS_PARAMETER = 4;
-
 	public const uint32 DEBUG_SYMENT_IS_LOCAL = 8;
-
 	public const uint32 DEBUG_SYMENT_IS_MANAGED = 16;
-
 	public const uint32 DEBUG_SYMENT_IS_SYNTHETIC = 32;
-
 	public const uint32 DEBUG_MODULE_LOADED = 0;
-
 	public const uint32 DEBUG_MODULE_UNLOADED = 1;
-
 	public const uint32 DEBUG_MODULE_USER_MODE = 2;
-
 	public const uint32 DEBUG_MODULE_EXE_MODULE = 4;
-
 	public const uint32 DEBUG_MODULE_EXPLICIT = 8;
-
 	public const uint32 DEBUG_MODULE_SECONDARY = 16;
-
 	public const uint32 DEBUG_MODULE_SYNTHETIC = 32;
-
 	public const uint32 DEBUG_MODULE_SYM_BAD_CHECKSUM = 65536;
-
 	public const uint32 DEBUG_SYMTYPE_NONE = 0;
-
 	public const uint32 DEBUG_SYMTYPE_COFF = 1;
-
 	public const uint32 DEBUG_SYMTYPE_CODEVIEW = 2;
-
 	public const uint32 DEBUG_SYMTYPE_PDB = 3;
-
 	public const uint32 DEBUG_SYMTYPE_EXPORT = 4;
-
 	public const uint32 DEBUG_SYMTYPE_DEFERRED = 5;
-
 	public const uint32 DEBUG_SYMTYPE_SYM = 6;
-
 	public const uint32 DEBUG_SYMTYPE_DIA = 7;
-
 	public const uint32 DEBUG_SCOPE_GROUP_ARGUMENTS = 1;
-
 	public const uint32 DEBUG_SCOPE_GROUP_LOCALS = 2;
-
 	public const uint32 DEBUG_SCOPE_GROUP_ALL = 3;
-
 	public const uint32 DEBUG_SCOPE_GROUP_BY_DATAMODEL = 4;
-
 	public const uint32 DEBUG_OUTTYPE_DEFAULT = 0;
-
 	public const uint32 DEBUG_OUTTYPE_NO_INDENT = 1;
-
 	public const uint32 DEBUG_OUTTYPE_NO_OFFSET = 2;
-
 	public const uint32 DEBUG_OUTTYPE_VERBOSE = 4;
-
 	public const uint32 DEBUG_OUTTYPE_COMPACT_OUTPUT = 8;
-
 	public const uint32 DEBUG_OUTTYPE_ADDRESS_OF_FIELD = 65536;
-
 	public const uint32 DEBUG_OUTTYPE_ADDRESS_AT_END = 131072;
-
 	public const uint32 DEBUG_OUTTYPE_BLOCK_RECURSE = 2097152;
-
 	public const uint32 DEBUG_FIND_SOURCE_DEFAULT = 0;
-
 	public const uint32 DEBUG_FIND_SOURCE_FULL_PATH = 1;
-
 	public const uint32 DEBUG_FIND_SOURCE_BEST_MATCH = 2;
-
 	public const uint32 DEBUG_FIND_SOURCE_NO_SRCSRV = 4;
-
 	public const uint32 DEBUG_FIND_SOURCE_TOKEN_LOOKUP = 8;
-
 	public const uint32 DEBUG_FIND_SOURCE_WITH_CHECKSUM = 16;
-
 	public const uint32 DEBUG_FIND_SOURCE_WITH_CHECKSUM_STRICT = 32;
-
 	public const uint32 MODULE_ORDERS_MASK = 4026531840;
-
 	public const uint32 MODULE_ORDERS_LOADTIME = 268435456;
-
 	public const uint32 MODULE_ORDERS_MODULENAME = 536870912;
-
 	public const uint32 DEBUG_MODNAME_IMAGE = 0;
-
 	public const uint32 DEBUG_MODNAME_MODULE = 1;
-
 	public const uint32 DEBUG_MODNAME_LOADED_IMAGE = 2;
-
 	public const uint32 DEBUG_MODNAME_SYMBOL_FILE = 3;
-
 	public const uint32 DEBUG_MODNAME_MAPPED_IMAGE = 4;
-
 	public const uint32 DEBUG_TYPEOPTS_UNICODE_DISPLAY = 1;
-
 	public const uint32 DEBUG_TYPEOPTS_LONGSTATUS_DISPLAY = 2;
-
 	public const uint32 DEBUG_TYPEOPTS_FORCERADIX_OUTPUT = 4;
-
 	public const uint32 DEBUG_TYPEOPTS_MATCH_MAXSIZE = 8;
-
 	public const uint32 DEBUG_GETMOD_DEFAULT = 0;
-
 	public const uint32 DEBUG_GETMOD_NO_LOADED_MODULES = 1;
-
 	public const uint32 DEBUG_GETMOD_NO_UNLOADED_MODULES = 2;
-
 	public const uint32 DEBUG_ADDSYNTHMOD_DEFAULT = 0;
-
 	public const uint32 DEBUG_ADDSYNTHMOD_ZEROBASE = 1;
-
 	public const uint32 DEBUG_ADDSYNTHSYM_DEFAULT = 0;
-
 	public const uint32 DEBUG_OUTSYM_DEFAULT = 0;
-
 	public const uint32 DEBUG_OUTSYM_FORCE_OFFSET = 1;
-
 	public const uint32 DEBUG_OUTSYM_SOURCE_LINE = 2;
-
 	public const uint32 DEBUG_OUTSYM_ALLOW_DISPLACEMENT = 4;
-
 	public const uint32 DEBUG_GETFNENT_DEFAULT = 0;
-
 	public const uint32 DEBUG_GETFNENT_RAW_ENTRY_ONLY = 1;
-
 	public const uint32 DEBUG_SOURCE_IS_STATEMENT = 1;
-
 	public const uint32 DEBUG_GSEL_DEFAULT = 0;
-
 	public const uint32 DEBUG_GSEL_NO_SYMBOL_LOADS = 1;
-
 	public const uint32 DEBUG_GSEL_ALLOW_LOWER = 2;
-
 	public const uint32 DEBUG_GSEL_ALLOW_HIGHER = 4;
-
 	public const uint32 DEBUG_GSEL_NEAREST_ONLY = 8;
-
 	public const uint32 DEBUG_GSEL_INLINE_CALLSITE = 16;
-
 	public const uint32 DEBUG_FRAME_DEFAULT = 0;
-
 	public const uint32 DEBUG_FRAME_IGNORE_INLINE = 1;
-
 	public const uint32 DEBUG_COMMAND_EXCEPTION_ID = 3688893886;
-
 	public const uint32 DEBUG_CMDEX_INVALID = 0;
-
 	public const uint32 DEBUG_CMDEX_ADD_EVENT_STRING = 1;
-
 	public const uint32 DEBUG_CMDEX_RESET_EVENT_STRINGS = 2;
-
 	public const uint32 DEBUG_EXTINIT_HAS_COMMAND_HELP = 1;
-
 	public const uint32 DEBUG_NOTIFY_SESSION_ACTIVE = 0;
-
 	public const uint32 DEBUG_NOTIFY_SESSION_INACTIVE = 1;
-
 	public const uint32 DEBUG_NOTIFY_SESSION_ACCESSIBLE = 2;
-
 	public const uint32 DEBUG_NOTIFY_SESSION_INACCESSIBLE = 3;
-
 	public const uint32 DEBUG_KNOWN_STRUCT_GET_NAMES = 1;
-
 	public const uint32 DEBUG_KNOWN_STRUCT_GET_SINGLE_LINE_OUTPUT = 2;
-
 	public const uint32 DEBUG_KNOWN_STRUCT_SUPPRESS_TYPE_NAME = 3;
-
 	public const uint32 DEBUG_EXT_QVALUE_DEFAULT = 0;
-
 	public const uint32 DEBUG_EXT_PVALUE_DEFAULT = 0;
-
 	public const uint32 DEBUG_EXT_PVTYPE_IS_VALUE = 0;
-
 	public const uint32 DEBUG_EXT_PVTYPE_IS_POINTER = 1;
-
 	public const uint32 CROSS_PLATFORM_MAXIMUM_PROCESSORS = 2048;
-
 	public const uint32 EXT_API_VERSION_NUMBER = 5;
-
 	public const uint32 EXT_API_VERSION_NUMBER32 = 5;
-
 	public const uint32 EXT_API_VERSION_NUMBER64 = 6;
-
 	public const uint32 IG_KD_CONTEXT = 1;
-
 	public const uint32 IG_READ_CONTROL_SPACE = 2;
-
 	public const uint32 IG_WRITE_CONTROL_SPACE = 3;
-
 	public const uint32 IG_READ_IO_SPACE = 4;
-
 	public const uint32 IG_WRITE_IO_SPACE = 5;
-
 	public const uint32 IG_READ_PHYSICAL = 6;
-
 	public const uint32 IG_WRITE_PHYSICAL = 7;
-
 	public const uint32 IG_READ_IO_SPACE_EX = 8;
-
 	public const uint32 IG_WRITE_IO_SPACE_EX = 9;
-
 	public const uint32 IG_KSTACK_HELP = 10;
-
 	public const uint32 IG_SET_THREAD = 11;
-
 	public const uint32 IG_READ_MSR = 12;
-
 	public const uint32 IG_WRITE_MSR = 13;
-
 	public const uint32 IG_GET_DEBUGGER_DATA = 14;
-
 	public const uint32 IG_GET_KERNEL_VERSION = 15;
-
 	public const uint32 IG_RELOAD_SYMBOLS = 16;
-
 	public const uint32 IG_GET_SET_SYMPATH = 17;
-
 	public const uint32 IG_GET_EXCEPTION_RECORD = 18;
-
 	public const uint32 IG_IS_PTR64 = 19;
-
 	public const uint32 IG_GET_BUS_DATA = 20;
-
 	public const uint32 IG_SET_BUS_DATA = 21;
-
 	public const uint32 IG_DUMP_SYMBOL_INFO = 22;
-
 	public const uint32 IG_LOWMEM_CHECK = 23;
-
 	public const uint32 IG_SEARCH_MEMORY = 24;
-
 	public const uint32 IG_GET_CURRENT_THREAD = 25;
-
 	public const uint32 IG_GET_CURRENT_PROCESS = 26;
-
 	public const uint32 IG_GET_TYPE_SIZE = 27;
-
 	public const uint32 IG_GET_CURRENT_PROCESS_HANDLE = 28;
-
 	public const uint32 IG_GET_INPUT_LINE = 29;
-
 	public const uint32 IG_GET_EXPRESSION_EX = 30;
-
 	public const uint32 IG_TRANSLATE_VIRTUAL_TO_PHYSICAL = 31;
-
 	public const uint32 IG_GET_CACHE_SIZE = 32;
-
 	public const uint32 IG_READ_PHYSICAL_WITH_FLAGS = 33;
-
 	public const uint32 IG_WRITE_PHYSICAL_WITH_FLAGS = 34;
-
 	public const uint32 IG_POINTER_SEARCH_PHYSICAL = 35;
-
 	public const uint32 IG_OBSOLETE_PLACEHOLDER_36 = 36;
-
 	public const uint32 IG_GET_THREAD_OS_INFO = 37;
-
 	public const uint32 IG_GET_CLR_DATA_INTERFACE = 38;
-
 	public const uint32 IG_MATCH_PATTERN_A = 39;
-
 	public const uint32 IG_FIND_FILE = 40;
-
 	public const uint32 IG_TYPED_DATA_OBSOLETE = 41;
-
 	public const uint32 IG_QUERY_TARGET_INTERFACE = 42;
-
 	public const uint32 IG_TYPED_DATA = 43;
-
 	public const uint32 IG_DISASSEMBLE_BUFFER = 44;
-
 	public const uint32 IG_GET_ANY_MODULE_IN_RANGE = 45;
-
 	public const uint32 IG_VIRTUAL_TO_PHYSICAL = 46;
-
 	public const uint32 IG_PHYSICAL_TO_VIRTUAL = 47;
-
 	public const uint32 IG_GET_CONTEXT_EX = 48;
-
 	public const uint32 IG_GET_TEB_ADDRESS = 128;
-
 	public const uint32 IG_GET_PEB_ADDRESS = 129;
-
 	public const uint32 PHYS_FLAG_DEFAULT = 0;
-
 	public const uint32 PHYS_FLAG_CACHED = 1;
-
 	public const uint32 PHYS_FLAG_UNCACHED = 2;
-
 	public const uint32 PHYS_FLAG_WRITE_COMBINED = 3;
-
 	public const uint32 PTR_SEARCH_PHYS_ALL_HITS = 1;
-
 	public const uint32 PTR_SEARCH_PHYS_PTE = 2;
-
 	public const uint32 PTR_SEARCH_PHYS_RANGE_CHECK_ONLY = 4;
-
 	public const uint32 PTR_SEARCH_PHYS_SIZE_SHIFT = 3;
-
 	public const uint32 PTR_SEARCH_NO_SYMBOL_CHECK = 2147483648;
-
 	public const uint32 EXT_FIND_FILE_ALLOW_GIVEN_PATH = 1;
-
 	public const uint32 DEBUG_TYPED_DATA_IS_IN_MEMORY = 1;
-
 	public const uint32 DEBUG_TYPED_DATA_PHYSICAL_DEFAULT = 2;
-
 	public const uint32 DEBUG_TYPED_DATA_PHYSICAL_CACHED = 4;
-
 	public const uint32 DEBUG_TYPED_DATA_PHYSICAL_UNCACHED = 6;
-
 	public const uint32 DEBUG_TYPED_DATA_PHYSICAL_WRITE_COMBINED = 8;
-
 	public const uint32 DEBUG_TYPED_DATA_PHYSICAL_MEMORY = 14;
-
 	public const uint32 EXT_TDF_PHYSICAL_DEFAULT = 2;
-
 	public const uint32 EXT_TDF_PHYSICAL_CACHED = 4;
-
 	public const uint32 EXT_TDF_PHYSICAL_UNCACHED = 6;
-
 	public const uint32 EXT_TDF_PHYSICAL_WRITE_COMBINED = 8;
-
 	public const uint32 EXT_TDF_PHYSICAL_MEMORY = 14;
-
 	public const uint32 WDBGEXTS_ADDRESS_DEFAULT = 0;
-
 	public const uint32 WDBGEXTS_ADDRESS_SEG16 = 1;
-
 	public const uint32 WDBGEXTS_ADDRESS_SEG32 = 2;
-
 	public const uint32 WDBGEXTS_ADDRESS_RESERVED0 = 2147483648;
-
 	public const uint32 DBGKD_VERS_FLAG_MP = 1;
-
 	public const uint32 DBGKD_VERS_FLAG_DATA = 2;
-
 	public const uint32 DBGKD_VERS_FLAG_PTR64 = 4;
-
 	public const uint32 DBGKD_VERS_FLAG_NOMM = 8;
-
 	public const uint32 DBGKD_VERS_FLAG_HSS = 16;
-
 	public const uint32 DBGKD_VERS_FLAG_PARTITIONS = 32;
-
 	public const uint32 DBGKD_VERS_FLAG_HAL_IN_NTOS = 64;
-
 	public const uint32 KD_SECONDARY_VERSION_DEFAULT = 0;
-
 	public const uint32 KD_SECONDARY_VERSION_AMD64_OBSOLETE_CONTEXT_1 = 0;
-
 	public const uint32 KD_SECONDARY_VERSION_AMD64_OBSOLETE_CONTEXT_2 = 1;
-
 	public const uint32 KD_SECONDARY_VERSION_AMD64_CONTEXT = 2;
-
 	public const uint32 CURRENT_KD_SECONDARY_VERSION = 2;
-
 	public const uint32 DBG_DUMP_NO_INDENT = 1;
-
 	public const uint32 DBG_DUMP_NO_OFFSET = 2;
-
 	public const uint32 DBG_DUMP_VERBOSE = 4;
-
 	public const uint32 DBG_DUMP_CALL_FOR_EACH = 8;
-
 	public const uint32 DBG_DUMP_LIST = 32;
-
 	public const uint32 DBG_DUMP_NO_PRINT = 64;
-
 	public const uint32 DBG_DUMP_GET_SIZE_ONLY = 128;
-
 	public const uint32 DBG_DUMP_COMPACT_OUT = 8192;
-
 	public const uint32 DBG_DUMP_ARRAY = 32768;
-
 	public const uint32 DBG_DUMP_ADDRESS_OF_FIELD = 65536;
-
 	public const uint32 DBG_DUMP_ADDRESS_AT_END = 131072;
-
 	public const uint32 DBG_DUMP_COPY_TYPE_DATA = 262144;
-
 	public const uint32 DBG_DUMP_READ_PHYSICAL = 524288;
-
 	public const uint32 DBG_DUMP_FUNCTION_FORMAT = 1048576;
-
 	public const uint32 DBG_DUMP_BLOCK_RECURSE = 2097152;
-
 	public const uint32 DBG_DUMP_MATCH_SIZE = 4194304;
-
 	public const uint32 DBG_RETURN_TYPE = 0;
-
 	public const uint32 DBG_RETURN_SUBTYPES = 0;
-
 	public const uint32 DBG_RETURN_TYPE_VALUES = 0;
-
 	public const uint32 DBG_DUMP_FIELD_CALL_BEFORE_PRINT = 1;
-
 	public const uint32 DBG_DUMP_FIELD_NO_CALLBACK_REQ = 2;
-
 	public const uint32 DBG_DUMP_FIELD_RECUR_ON_THIS = 4;
-
 	public const uint32 DBG_DUMP_FIELD_FULL_NAME = 8;
-
 	public const uint32 DBG_DUMP_FIELD_ARRAY = 16;
-
 	public const uint32 DBG_DUMP_FIELD_COPY_FIELD_DATA = 32;
-
 	public const uint32 DBG_DUMP_FIELD_RETURN_ADDRESS = 4096;
-
 	public const uint32 DBG_DUMP_FIELD_SIZE_IN_BITS = 8192;
-
 	public const uint32 DBG_DUMP_FIELD_NO_PRINT = 16384;
-
 	public const uint32 DBG_DUMP_FIELD_DEFAULT_STRING = 65536;
-
 	public const uint32 DBG_DUMP_FIELD_WCHAR_STRING = 131072;
-
 	public const uint32 DBG_DUMP_FIELD_MULTI_STRING = 262144;
-
 	public const uint32 DBG_DUMP_FIELD_GUID_STRING = 524288;
-
 	public const uint32 DBG_DUMP_FIELD_UTF32_STRING = 1048576;
-
 	public const uint32 MEMORY_READ_ERROR = 1;
-
 	public const uint32 SYMBOL_TYPE_INDEX_NOT_FOUND = 2;
-
 	public const uint32 SYMBOL_TYPE_INFO_NOT_FOUND = 3;
-
 	public const uint32 FIELDS_DID_NOT_MATCH = 4;
-
 	public const uint32 NULL_SYM_DUMP_PARAM = 5;
-
 	public const uint32 NULL_FIELD_NAME = 6;
-
 	public const uint32 INCORRECT_VERSION_INFO = 7;
-
 	public const uint32 EXIT_ON_CONTROLC = 8;
-
 	public const uint32 CANNOT_ALLOCATE_MEMORY = 9;
-
 	public const uint32 INSUFFICIENT_SPACE_TO_COPY = 10;
-
 	public const uint32 ADDRESS_TYPE_INDEX_NOT_FOUND = 11;
-
 	public const uint32 UNAVAILABLE_ERROR = 12;
-
 	public const Guid CATID_ActiveScript = .(0xf0b7a1a1, 0x9847, 0x11cf, 0x8f, 0x20, 0x00, 0x80, 0x5f, 0x2c, 0xd0, 0x64);
-
 	public const Guid CATID_ActiveScriptParse = .(0xf0b7a1a2, 0x9847, 0x11cf, 0x8f, 0x20, 0x00, 0x80, 0x5f, 0x2c, 0xd0, 0x64);
-
 	public const Guid CATID_ActiveScriptEncode = .(0xf0b7a1a3, 0x9847, 0x11cf, 0x8f, 0x20, 0x00, 0x80, 0x5f, 0x2c, 0xd0, 0x64);
-
 	public const Guid OID_VBSSIP = .(0x1629f04e, 0x2799, 0x4db5, 0x8f, 0xe5, 0xac, 0xe1, 0x0f, 0x17, 0xeb, 0xab);
-
 	public const Guid OID_JSSIP = .(0x06c9e010, 0x38ce, 0x11d4, 0xa2, 0xa3, 0x00, 0x10, 0x4b, 0xd3, 0x50, 0x90);
-
 	public const Guid OID_WSFSIP = .(0x1a610570, 0x38ce, 0x11d4, 0xa2, 0xa3, 0x00, 0x10, 0x4b, 0xd3, 0x50, 0x90);
-
 	public const uint32 SCRIPTITEM_ISVISIBLE = 2;
-
 	public const uint32 SCRIPTITEM_ISSOURCE = 4;
-
 	public const uint32 SCRIPTITEM_GLOBALMEMBERS = 8;
-
 	public const uint32 SCRIPTITEM_ISPERSISTENT = 64;
-
 	public const uint32 SCRIPTITEM_CODEONLY = 512;
-
 	public const uint32 SCRIPTITEM_NOCODE = 1024;
-
 	public const uint32 SCRIPTTYPELIB_ISCONTROL = 16;
-
 	public const uint32 SCRIPTTYPELIB_ISPERSISTENT = 64;
-
 	public const uint32 SCRIPTTEXT_DELAYEXECUTION = 1;
-
 	public const uint32 SCRIPTTEXT_ISVISIBLE = 2;
-
 	public const uint32 SCRIPTTEXT_ISEXPRESSION = 32;
-
 	public const uint32 SCRIPTTEXT_ISPERSISTENT = 64;
-
 	public const uint32 SCRIPTTEXT_HOSTMANAGESSOURCE = 128;
-
 	public const uint32 SCRIPTTEXT_ISXDOMAIN = 256;
-
 	public const uint32 SCRIPTTEXT_ISNONUSERCODE = 512;
-
 	public const uint32 SCRIPTPROC_ISEXPRESSION = 32;
-
 	public const uint32 SCRIPTPROC_HOSTMANAGESSOURCE = 128;
-
 	public const uint32 SCRIPTPROC_IMPLICIT_THIS = 256;
-
 	public const uint32 SCRIPTPROC_IMPLICIT_PARENTS = 512;
-
 	public const uint32 SCRIPTPROC_ISXDOMAIN = 1024;
-
 	public const uint32 SCRIPTINFO_IUNKNOWN = 1;
-
 	public const uint32 SCRIPTINFO_ITYPEINFO = 2;
-
 	public const uint32 SCRIPTINTERRUPT_DEBUG = 1;
-
 	public const uint32 SCRIPTINTERRUPT_RAISEEXCEPTION = 2;
-
 	public const uint32 SCRIPTSTAT_STATEMENT_COUNT = 1;
-
 	public const uint32 SCRIPTSTAT_INSTRUCTION_COUNT = 2;
-
 	public const uint32 SCRIPTSTAT_INTSTRUCTION_TIME = 3;
-
 	public const uint32 SCRIPTSTAT_TOTAL_TIME = 4;
-
 	public const uint32 SCRIPT_ENCODE_SECTION = 1;
-
 	public const uint32 SCRIPT_ENCODE_DEFAULT_LANGUAGE = 1;
-
 	public const uint32 SCRIPT_ENCODE_NO_ASP_LANGUAGE = 2;
-
 	public const uint32 SCRIPTPROP_NAME = 0;
-
 	public const uint32 SCRIPTPROP_MAJORVERSION = 1;
-
 	public const uint32 SCRIPTPROP_MINORVERSION = 2;
-
 	public const uint32 SCRIPTPROP_BUILDNUMBER = 3;
-
 	public const uint32 SCRIPTPROP_DELAYEDEVENTSINKING = 4096;
-
 	public const uint32 SCRIPTPROP_CATCHEXCEPTION = 4097;
-
 	public const uint32 SCRIPTPROP_CONVERSIONLCID = 4098;
-
 	public const uint32 SCRIPTPROP_HOSTSTACKREQUIRED = 4099;
-
 	public const uint32 SCRIPTPROP_SCRIPTSAREFULLYTRUSTED = 4100;
-
 	public const uint32 SCRIPTPROP_DEBUGGER = 4352;
-
 	public const uint32 SCRIPTPROP_JITDEBUG = 4353;
-
 	public const uint32 SCRIPTPROP_GCCONTROLSOFTCLOSE = 8192;
-
 	public const uint32 SCRIPTPROP_INTEGERMODE = 12288;
-
 	public const uint32 SCRIPTPROP_STRINGCOMPAREINSTANCE = 12289;
-
 	public const uint32 SCRIPTPROP_INVOKEVERSIONING = 16384;
-
 	public const uint32 SCRIPTPROP_HACK_FIBERSUPPORT = 1879048192;
-
 	public const uint32 SCRIPTPROP_HACK_TRIDENTEVENTSINK = 1879048193;
-
 	public const uint32 SCRIPTPROP_ABBREVIATE_GLOBALNAME_RESOLUTION = 1879048194;
-
 	public const uint32 SCRIPTPROP_HOSTKEEPALIVE = 1879048196;
-
 	public const int32 SCRIPT_E_RECORDED = -2040119292;
-
 	public const int32 SCRIPT_E_REPORTED = -2147352319;
-
 	public const int32 SCRIPT_E_PROPAGATE = -2147352318;
-
 	public const uint32 MINIDUMP_VERSION = 42899;
-
 	public const uint32 MINIDUMP_MISC1_PROCESSOR_POWER_INFO = 4;
-
 	public const uint32 MINIDUMP_MISC3_PROCESS_INTEGRITY = 16;
-
 	public const uint32 MINIDUMP_MISC3_PROCESS_EXECUTE_FLAGS = 32;
-
 	public const uint32 MINIDUMP_MISC3_TIMEZONE = 64;
-
 	public const uint32 MINIDUMP_MISC3_PROTECTED_PROCESS = 128;
-
 	public const uint32 MINIDUMP_MISC4_BUILDSTRING = 256;
-
 	public const uint32 MINIDUMP_MISC5_PROCESS_COOKIE = 512;
-
 	public const uint32 MINIDUMP_SYSMEMINFO1_FILECACHE_TRANSITIONREPURPOSECOUNT_FLAGS = 1;
-
 	public const uint32 MINIDUMP_SYSMEMINFO1_BASICPERF = 2;
-
 	public const uint32 MINIDUMP_SYSMEMINFO1_PERF_CCTOTALDIRTYPAGES_CCDIRTYPAGETHRESHOLD = 4;
-
 	public const uint32 MINIDUMP_SYSMEMINFO1_PERF_RESIDENTAVAILABLEPAGES_SHAREDCOMMITPAGES = 8;
-
 	public const uint32 MINIDUMP_PROCESS_VM_COUNTERS = 1;
-
 	public const uint32 MINIDUMP_PROCESS_VM_COUNTERS_VIRTUALSIZE = 2;
-
 	public const uint32 MINIDUMP_PROCESS_VM_COUNTERS_EX = 4;
-
 	public const uint32 MINIDUMP_PROCESS_VM_COUNTERS_EX2 = 8;
-
 	public const uint32 MINIDUMP_PROCESS_VM_COUNTERS_JOB = 16;
-
 	public const uint32 MAX_SYM_NAME = 2000;
-
 	public const uint32 BIND_NO_BOUND_IMPORTS = 1;
-
 	public const uint32 BIND_NO_UPDATE = 2;
-
 	public const uint32 BIND_ALL_IMAGES = 4;
-
 	public const uint32 BIND_CACHE_IMPORT_DLLS = 8;
-
 	public const uint32 BIND_REPORT_64BIT_VA = 16;
-
 	public const uint32 CHECKSUM_SUCCESS = 0;
-
 	public const uint32 CHECKSUM_OPEN_FAILURE = 1;
-
 	public const uint32 CHECKSUM_MAP_FAILURE = 2;
-
 	public const uint32 CHECKSUM_MAPVIEW_FAILURE = 3;
-
 	public const uint32 CHECKSUM_UNICODE_FAILURE = 4;
-
 	public const uint32 SPLITSYM_REMOVE_PRIVATE = 1;
-
 	public const uint32 SPLITSYM_EXTRACT_ALL = 2;
-
 	public const uint32 SPLITSYM_SYMBOLPATH_IS_SRC = 4;
-
 	public const uint32 CERT_PE_IMAGE_DIGEST_DEBUG_INFO = 1;
-
 	public const uint32 CERT_PE_IMAGE_DIGEST_RESOURCES = 2;
-
 	public const uint32 CERT_PE_IMAGE_DIGEST_ALL_IMPORT_INFO = 4;
-
 	public const uint32 CERT_PE_IMAGE_DIGEST_NON_PE_INFO = 8;
-
 	public const uint32 CERT_SECTION_TYPE_ANY = 255;
-
 	public const uint32 ERROR_IMAGE_NOT_STRIPPED = 34816;
-
 	public const uint32 ERROR_NO_DBG_POINTER = 34817;
-
 	public const uint32 ERROR_NO_PDB_POINTER = 34818;
-
 	public const uint32 UNDNAME_COMPLETE = 0;
-
 	public const uint32 UNDNAME_NO_LEADING_UNDERSCORES = 1;
-
 	public const uint32 UNDNAME_NO_MS_KEYWORDS = 2;
-
 	public const uint32 UNDNAME_NO_FUNCTION_RETURNS = 4;
-
 	public const uint32 UNDNAME_NO_ALLOCATION_MODEL = 8;
-
 	public const uint32 UNDNAME_NO_ALLOCATION_LANGUAGE = 16;
-
 	public const uint32 UNDNAME_NO_MS_THISTYPE = 32;
-
 	public const uint32 UNDNAME_NO_CV_THISTYPE = 64;
-
 	public const uint32 UNDNAME_NO_THISTYPE = 96;
-
 	public const uint32 UNDNAME_NO_ACCESS_SPECIFIERS = 128;
-
 	public const uint32 UNDNAME_NO_THROW_SIGNATURES = 256;
-
 	public const uint32 UNDNAME_NO_MEMBER_TYPE = 512;
-
 	public const uint32 UNDNAME_NO_RETURN_UDT_MODEL = 1024;
-
 	public const uint32 UNDNAME_32_BIT_DECODE = 2048;
-
 	public const uint32 UNDNAME_NAME_ONLY = 4096;
-
 	public const uint32 UNDNAME_NO_ARGUMENTS = 8192;
-
 	public const uint32 UNDNAME_NO_SPECIAL_SYMS = 16384;
-
 	public const uint32 DBHHEADER_PDBGUID = 3;
-
 	public const uint32 INLINE_FRAME_CONTEXT_INIT = 0;
-
 	public const uint32 INLINE_FRAME_CONTEXT_IGNORE = 4294967295;
-
 	public const uint32 SYM_STKWALK_DEFAULT = 0;
-
 	public const uint32 SYM_STKWALK_FORCE_FRAMEPTR = 1;
-
 	public const uint32 SYM_STKWALK_ZEROEXTEND_PTRS = 2;
-
 	public const uint32 API_VERSION_NUMBER = 12;
-
 	public const uint32 SYMFLAG_NULL = 524288;
-
 	public const uint32 SYMFLAG_FUNC_NO_RETURN = 1048576;
-
 	public const uint32 SYMFLAG_SYNTHETIC_ZEROBASE = 2097152;
-
 	public const uint32 SYMFLAG_PUBLIC_CODE = 4194304;
-
 	public const uint32 SYMFLAG_REGREL_ALIASINDIR = 8388608;
-
 	public const uint32 SYMFLAG_FIXUP_ARM64X = 16777216;
-
 	public const uint32 SYMFLAG_GLOBAL = 33554432;
-
 	public const uint32 SYMFLAG_RESET = 2147483648;
-
 	public const uint32 IMAGEHLP_MODULE_REGION_DLLBASE = 1;
-
 	public const uint32 IMAGEHLP_MODULE_REGION_DLLRANGE = 2;
-
 	public const uint32 IMAGEHLP_MODULE_REGION_ADDITIONAL = 4;
-
 	public const uint32 IMAGEHLP_MODULE_REGION_JIT = 8;
-
 	public const uint32 IMAGEHLP_MODULE_REGION_ALL = 255;
-
 	public const uint32 CBA_DEFERRED_SYMBOL_LOAD_START = 1;
-
 	public const uint32 CBA_DEFERRED_SYMBOL_LOAD_COMPLETE = 2;
-
 	public const uint32 CBA_DEFERRED_SYMBOL_LOAD_FAILURE = 3;
-
 	public const uint32 CBA_SYMBOLS_UNLOADED = 4;
-
 	public const uint32 CBA_DUPLICATE_SYMBOL = 5;
-
 	public const uint32 CBA_READ_MEMORY = 6;
-
 	public const uint32 CBA_DEFERRED_SYMBOL_LOAD_CANCEL = 7;
-
 	public const uint32 CBA_SET_OPTIONS = 8;
-
 	public const uint32 CBA_EVENT = 16;
-
 	public const uint32 CBA_DEFERRED_SYMBOL_LOAD_PARTIAL = 32;
-
 	public const uint32 CBA_DEBUG_INFO = 268435456;
-
 	public const uint32 CBA_SRCSRV_INFO = 536870912;
-
 	public const uint32 CBA_SRCSRV_EVENT = 1073741824;
-
 	public const uint32 CBA_UPDATE_STATUS_BAR = 1342177280;
-
 	public const uint32 CBA_ENGINE_PRESENT = 1610612736;
-
 	public const uint32 CBA_CHECK_ENGOPT_DISALLOW_NETWORK_PATHS = 1879048192;
-
 	public const uint32 CBA_CHECK_ARM_MACHINE_THUMB_TYPE_OVERRIDE = 2147483648;
-
 	public const uint32 CBA_XML_LOG = 2415919104;
-
 	public const uint32 CBA_MAP_JIT_SYMBOL = 2684354560;
-
 	public const uint32 EVENT_SRCSPEW_START = 100;
-
 	public const uint32 EVENT_SRCSPEW = 100;
-
 	public const uint32 EVENT_SRCSPEW_END = 199;
-
 	public const uint32 DSLFLAG_MISMATCHED_PDB = 1;
-
 	public const uint32 DSLFLAG_MISMATCHED_DBG = 2;
-
 	public const uint32 FLAG_ENGINE_PRESENT = 4;
-
 	public const uint32 FLAG_ENGOPT_DISALLOW_NETWORK_PATHS = 8;
-
 	public const uint32 FLAG_OVERRIDE_ARM_MACHINE_TYPE = 16;
-
 	public const uint32 SYMOPT_CASE_INSENSITIVE = 1;
-
 	public const uint32 SYMOPT_UNDNAME = 2;
-
 	public const uint32 SYMOPT_DEFERRED_LOADS = 4;
-
 	public const uint32 SYMOPT_NO_CPP = 8;
-
 	public const uint32 SYMOPT_LOAD_LINES = 16;
-
 	public const uint32 SYMOPT_OMAP_FIND_NEAREST = 32;
-
 	public const uint32 SYMOPT_LOAD_ANYTHING = 64;
-
 	public const uint32 SYMOPT_IGNORE_CVREC = 128;
-
 	public const uint32 SYMOPT_NO_UNQUALIFIED_LOADS = 256;
-
 	public const uint32 SYMOPT_FAIL_CRITICAL_ERRORS = 512;
-
 	public const uint32 SYMOPT_EXACT_SYMBOLS = 1024;
-
 	public const uint32 SYMOPT_ALLOW_ABSOLUTE_SYMBOLS = 2048;
-
 	public const uint32 SYMOPT_IGNORE_NT_SYMPATH = 4096;
-
 	public const uint32 SYMOPT_INCLUDE_32BIT_MODULES = 8192;
-
 	public const uint32 SYMOPT_PUBLICS_ONLY = 16384;
-
 	public const uint32 SYMOPT_NO_PUBLICS = 32768;
-
 	public const uint32 SYMOPT_AUTO_PUBLICS = 65536;
-
 	public const uint32 SYMOPT_NO_IMAGE_SEARCH = 131072;
-
 	public const uint32 SYMOPT_SECURE = 262144;
-
 	public const uint32 SYMOPT_NO_PROMPTS = 524288;
-
 	public const uint32 SYMOPT_OVERWRITE = 1048576;
-
 	public const uint32 SYMOPT_IGNORE_IMAGEDIR = 2097152;
-
 	public const uint32 SYMOPT_FLAT_DIRECTORY = 4194304;
-
 	public const uint32 SYMOPT_FAVOR_COMPRESSED = 8388608;
-
 	public const uint32 SYMOPT_ALLOW_ZERO_ADDRESS = 16777216;
-
 	public const uint32 SYMOPT_DISABLE_SYMSRV_AUTODETECT = 33554432;
-
 	public const uint32 SYMOPT_READONLY_CACHE = 67108864;
-
 	public const uint32 SYMOPT_SYMPATH_LAST = 134217728;
-
 	public const uint32 SYMOPT_DISABLE_FAST_SYMBOLS = 268435456;
-
 	public const uint32 SYMOPT_DISABLE_SYMSRV_TIMEOUT = 536870912;
-
 	public const uint32 SYMOPT_DISABLE_SRVSTAR_ON_STARTUP = 1073741824;
-
 	public const uint32 SYMOPT_DEBUG = 2147483648;
-
 	public const uint32 SYM_INLINE_COMP_ERROR = 0;
-
 	public const uint32 SYM_INLINE_COMP_IDENTICAL = 1;
-
 	public const uint32 SYM_INLINE_COMP_STEPIN = 2;
-
 	public const uint32 SYM_INLINE_COMP_STEPOUT = 3;
-
 	public const uint32 SYM_INLINE_COMP_STEPOVER = 4;
-
 	public const uint32 SYM_INLINE_COMP_DIFFERENT = 5;
-
 	public const uint32 ESLFLAG_FULLPATH = 1;
-
 	public const uint32 ESLFLAG_NEAREST = 2;
-
 	public const uint32 ESLFLAG_PREV = 4;
-
 	public const uint32 ESLFLAG_NEXT = 8;
-
 	public const uint32 ESLFLAG_INLINE_SITE = 16;
-
 	public const uint32 SYMENUM_OPTIONS_DEFAULT = 1;
-
 	public const uint32 SYMENUM_OPTIONS_INLINE = 2;
-
 	public const uint32 SYMSEARCH_MASKOBJS = 1;
-
 	public const uint32 SYMSEARCH_RECURSE = 2;
-
 	public const uint32 SYMSEARCH_GLOBALSONLY = 4;
-
 	public const uint32 SYMSEARCH_ALLITEMS = 8;
-
 	public const uint32 EXT_OUTPUT_VER = 1;
-
 	public const uint32 SYMSRV_VERSION = 2;
-
 	public const uint32 SSRVOPT_CALLBACK = 1;
-
 	public const uint32 SSRVOPT_OLDGUIDPTR = 16;
-
 	public const uint32 SSRVOPT_UNATTENDED = 32;
-
 	public const uint32 SSRVOPT_NOCOPY = 64;
-
 	public const uint32 SSRVOPT_GETPATH = 64;
-
 	public const uint32 SSRVOPT_PARENTWIN = 128;
-
 	public const uint32 SSRVOPT_PARAMTYPE = 256;
-
 	public const uint32 SSRVOPT_SECURE = 512;
-
 	public const uint32 SSRVOPT_TRACE = 1024;
-
 	public const uint32 SSRVOPT_SETCONTEXT = 2048;
-
 	public const uint32 SSRVOPT_PROXY = 4096;
-
 	public const uint32 SSRVOPT_DOWNSTREAM_STORE = 8192;
-
 	public const uint32 SSRVOPT_OVERWRITE = 16384;
-
 	public const uint32 SSRVOPT_RESETTOU = 32768;
-
 	public const uint32 SSRVOPT_CALLBACKW = 65536;
-
 	public const uint32 SSRVOPT_FLAT_DEFAULT_STORE = 131072;
-
 	public const uint32 SSRVOPT_PROXYW = 262144;
-
 	public const uint32 SSRVOPT_MESSAGE = 524288;
-
 	public const uint32 SSRVOPT_SERVICE = 1048576;
-
 	public const uint32 SSRVOPT_FAVOR_COMPRESSED = 2097152;
-
 	public const uint32 SSRVOPT_STRING = 4194304;
-
 	public const uint32 SSRVOPT_WINHTTP = 8388608;
-
 	public const uint32 SSRVOPT_WININET = 16777216;
-
 	public const uint32 SSRVOPT_DONT_UNCOMPRESS = 33554432;
-
 	public const uint32 SSRVOPT_DISABLE_PING_HOST = 67108864;
-
 	public const uint32 SSRVOPT_DISABLE_TIMEOUT = 134217728;
-
 	public const uint32 SSRVOPT_ENABLE_COMM_MSG = 268435456;
-
 	public const uint32 SSRVOPT_URI_FILTER = 536870912;
-
 	public const uint32 SSRVOPT_URI_TIERS = 1073741824;
-
 	public const uint32 SSRVOPT_RETRY_APP_HANG = 2147483648;
-
 	public const uint32 SSRVOPT_MAX = 2147483648;
-
 	public const uint32 NUM_SSRVOPTS = 32;
-
 	public const uint32 SSRVURI_HTTP_NORMAL = 1;
-
 	public const uint32 SSRVURI_HTTP_COMPRESSED = 2;
-
 	public const uint32 SSRVURI_HTTP_FILEPTR = 4;
-
 	public const uint32 SSRVURI_UNC_NORMAL = 16;
-
 	public const uint32 SSRVURI_UNC_COMPRESSED = 32;
-
 	public const uint32 SSRVURI_UNC_FILEPTR = 64;
-
 	public const uint32 SSRVURI_HTTP_MASK = 15;
-
 	public const uint32 SSRVURI_UNC_MASK = 240;
-
 	public const uint32 SSRVURI_ALL = 255;
-
 	public const uint32 SSRVURI_NORMAL = 1;
-
 	public const uint32 SSRVURI_COMPRESSED = 2;
-
 	public const uint32 SSRVURI_FILEPTR = 4;
-
 	public const uint32 SSRVACTION_TRACE = 1;
-
 	public const uint32 SSRVACTION_QUERYCANCEL = 2;
-
 	public const uint32 SSRVACTION_EVENT = 3;
-
 	public const uint32 SSRVACTION_EVENTW = 4;
-
 	public const uint32 SSRVACTION_SIZE = 5;
-
 	public const uint32 SSRVACTION_HTTPSTATUS = 6;
-
 	public const uint32 SSRVACTION_XMLOUTPUT = 7;
-
 	public const uint32 SSRVACTION_CHECKSUMSTATUS = 8;
-
 	public const uint32 SYMSTOREOPT_ALT_INDEX = 16;
-
 	public const uint32 SYMSTOREOPT_UNICODE = 32;
-
 	public const uint32 SYMF_OMAP_GENERATED = 1;
-
 	public const uint32 SYMF_OMAP_MODIFIED = 2;
-
 	public const uint32 SYMF_REGISTER = 8;
-
 	public const uint32 SYMF_REGREL = 16;
-
 	public const uint32 SYMF_FRAMEREL = 32;
-
 	public const uint32 SYMF_PARAMETER = 64;
-
 	public const uint32 SYMF_LOCAL = 128;
-
 	public const uint32 SYMF_CONSTANT = 256;
-
 	public const uint32 SYMF_EXPORT = 512;
-
 	public const uint32 SYMF_FORWARDER = 1024;
-
 	public const uint32 SYMF_FUNCTION = 2048;
-
 	public const uint32 SYMF_VIRTUAL = 4096;
-
 	public const uint32 SYMF_THUNK = 8192;
-
 	public const uint32 SYMF_TLSREL = 16384;
-
 	public const uint32 IMAGEHLP_SYMBOL_INFO_VALUEPRESENT = 1;
-
 	public const uint32 IMAGEHLP_SYMBOL_INFO_REGISTER = 8;
-
 	public const uint32 IMAGEHLP_SYMBOL_INFO_REGRELATIVE = 16;
-
 	public const uint32 IMAGEHLP_SYMBOL_INFO_FRAMERELATIVE = 32;
-
 	public const uint32 IMAGEHLP_SYMBOL_INFO_PARAMETER = 64;
-
 	public const uint32 IMAGEHLP_SYMBOL_INFO_LOCAL = 128;
-
 	public const uint32 IMAGEHLP_SYMBOL_INFO_CONSTANT = 256;
-
 	public const uint32 IMAGEHLP_SYMBOL_FUNCTION = 2048;
-
 	public const uint32 IMAGEHLP_SYMBOL_VIRTUAL = 4096;
-
 	public const uint32 IMAGEHLP_SYMBOL_THUNK = 8192;
-
 	public const uint32 IMAGEHLP_SYMBOL_INFO_TLSRELATIVE = 16384;
-
 	public const uint32 IMAGEHLP_RMAP_MAPPED_FLAT = 1;
-
 	public const uint32 IMAGEHLP_RMAP_BIG_ENDIAN = 2;
-
 	public const uint32 IMAGEHLP_RMAP_IGNORE_MISCOMPARE = 4;
-
 	public const uint32 IMAGEHLP_RMAP_FIXUP_ARM64X = 268435456;
-
 	public const uint32 IMAGEHLP_RMAP_LOAD_RW_DATA_SECTIONS = 536870912;
-
 	public const uint32 IMAGEHLP_RMAP_OMIT_SHARED_RW_DATA_SECTIONS = 1073741824;
-
 	public const uint32 IMAGEHLP_RMAP_FIXUP_IMAGEBASE = 2147483648;
-
 	public const uint32 WCT_MAX_NODE_COUNT = 16;
-
 	public const uint32 WCT_OBJNAME_LENGTH = 128;
-
 	public const uint32 WCT_NETWORK_IO_FLAG = 8;
-
 	public const uint32 APPBREAKFLAG_DEBUGGER_BLOCK = 1;
-
 	public const uint32 APPBREAKFLAG_DEBUGGER_HALT = 2;
-
 	public const uint32 APPBREAKFLAG_STEP = 65536;
-
 	public const uint32 APPBREAKFLAG_NESTED = 131072;
-
 	public const uint32 APPBREAKFLAG_STEPTYPE_SOURCE = 0;
-
 	public const uint32 APPBREAKFLAG_STEPTYPE_BYTECODE = 1048576;
-
 	public const uint32 APPBREAKFLAG_STEPTYPE_MACHINE = 2097152;
-
 	public const uint32 APPBREAKFLAG_STEPTYPE_MASK = 15728640;
-
 	public const uint32 APPBREAKFLAG_IN_BREAKPOINT = 2147483648;
-
 	public const uint32 SOURCETEXT_ATTR_KEYWORD = 1;
-
 	public const uint32 SOURCETEXT_ATTR_COMMENT = 2;
-
 	public const uint32 SOURCETEXT_ATTR_NONSOURCE = 4;
-
 	public const uint32 SOURCETEXT_ATTR_OPERATOR = 8;
-
 	public const uint32 SOURCETEXT_ATTR_NUMBER = 16;
-
 	public const uint32 SOURCETEXT_ATTR_STRING = 32;
-
 	public const uint32 SOURCETEXT_ATTR_FUNCTION_START = 64;
-
 	public const uint32 TEXT_DOC_ATTR_READONLY = 1;
-
 	public const uint32 TEXT_DOC_ATTR_TYPE_PRIMARY = 2;
-
 	public const uint32 TEXT_DOC_ATTR_TYPE_WORKER = 4;
-
 	public const uint32 TEXT_DOC_ATTR_TYPE_SCRIPT = 8;
-
 	public const uint32 DEBUG_TEXT_ISEXPRESSION = 1;
-
 	public const uint32 DEBUG_TEXT_RETURNVALUE = 2;
-
 	public const uint32 DEBUG_TEXT_NOSIDEEFFECTS = 4;
-
 	public const uint32 DEBUG_TEXT_ALLOWBREAKPOINTS = 8;
-
 	public const uint32 DEBUG_TEXT_ALLOWERRORREPORT = 16;
-
 	public const uint32 DEBUG_TEXT_EVALUATETOCODECONTEXT = 32;
-
 	public const uint32 DEBUG_TEXT_ISNONUSERCODE = 64;
-
 	public const uint32 THREAD_STATE_RUNNING = 1;
-
 	public const uint32 THREAD_STATE_SUSPENDED = 2;
-
 	public const uint32 THREAD_BLOCKED = 4;
-
 	public const uint32 THREAD_OUT_OF_CONTEXT = 8;
-
 	public const Guid CATID_ActiveScriptAuthor = .(0x0aee2a92, 0xbcbb, 0x11d0, 0x8c, 0x72, 0x00, 0xc0, 0x4f, 0xc2, 0xb0, 0x85);
-
 	public const uint32 FACILITY_JsDEBUG = 3527;
-
 	public const HRESULT E_JsDEBUG_MISMATCHED_RUNTIME = -1916338175;
-
 	public const HRESULT E_JsDEBUG_UNKNOWN_THREAD = -1916338174;
-
 	public const HRESULT E_JsDEBUG_OUTSIDE_OF_VM = -1916338172;
-
 	public const HRESULT E_JsDEBUG_INVALID_MEMORY_ADDRESS = -1916338171;
-
 	public const HRESULT E_JsDEBUG_SOURCE_LOCATION_NOT_FOUND = -1916338170;
-
 	public const HRESULT E_JsDEBUG_RUNTIME_NOT_IN_DEBUG_MODE = -1916338169;
-
 	public const uint32 DMP_PHYSICAL_MEMORY_BLOCK_SIZE_32 = 700;
-
 	public const uint32 DMP_CONTEXT_RECORD_SIZE_32 = 1200;
-
 	public const uint32 DMP_RESERVED_0_SIZE_32 = 1760;
-
 	public const uint32 DMP_RESERVED_2_SIZE_32 = 16;
-
 	public const uint32 DMP_RESERVED_3_SIZE_32 = 56;
-
 	public const uint32 DMP_PHYSICAL_MEMORY_BLOCK_SIZE_64 = 700;
-
 	public const uint32 DMP_CONTEXT_RECORD_SIZE_64 = 3000;
-
 	public const uint32 DMP_RESERVED_0_SIZE_64 = 4008;
-
 	public const uint32 DMP_HEADER_COMMENT_SIZE = 128;
-
 	public const uint32 DUMP_SUMMARY_VALID_KERNEL_VA = 1;
-
 	public const uint32 DUMP_SUMMARY_VALID_CURRENT_USER_VA = 2;
-
 	public const uint32 INTERFACESAFE_FOR_UNTRUSTED_CALLER = 1;
-
 	public const uint32 INTERFACESAFE_FOR_UNTRUSTED_DATA = 2;
-
 	public const uint32 INTERFACE_USES_DISPEX = 4;
-
 	public const uint32 INTERFACE_USES_SECURITY_MANAGER = 8;
-
 	public const uint32 WHEA_ERROR_SOURCE_DESCRIPTOR_VERSION_10 = 10;
-
 	public const uint32 WHEA_ERROR_SOURCE_DESCRIPTOR_VERSION_11 = 11;
-
 	public const uint32 WHEA_MAX_MC_BANKS = 32;
-
 	public const uint32 WHEA_ERROR_SOURCE_FLAG_FIRMWAREFIRST = 1;
-
 	public const uint32 WHEA_ERROR_SOURCE_FLAG_GLOBAL = 2;
-
 	public const uint32 WHEA_ERROR_SOURCE_FLAG_GHES_ASSIST = 4;
-
 	public const uint32 WHEA_ERROR_SOURCE_FLAG_DEFAULTSOURCE = 2147483648;
-
 	public const uint32 WHEA_ERROR_SOURCE_INVALID_RELATED_SOURCE = 65535;
-
 	public const uint32 WHEA_ERROR_SOURCE_DESCRIPTOR_TYPE_XPFMCE = 0;
-
 	public const uint32 WHEA_ERROR_SOURCE_DESCRIPTOR_TYPE_XPFCMC = 1;
-
 	public const uint32 WHEA_ERROR_SOURCE_DESCRIPTOR_TYPE_XPFNMI = 2;
-
 	public const uint32 WHEA_ERROR_SOURCE_DESCRIPTOR_TYPE_IPFMCA = 3;
-
 	public const uint32 WHEA_ERROR_SOURCE_DESCRIPTOR_TYPE_IPFCMC = 4;
-
 	public const uint32 WHEA_ERROR_SOURCE_DESCRIPTOR_TYPE_IPFCPE = 5;
-
 	public const uint32 WHEA_ERROR_SOURCE_DESCRIPTOR_TYPE_AERROOTPORT = 6;
-
 	public const uint32 WHEA_ERROR_SOURCE_DESCRIPTOR_TYPE_AERENDPOINT = 7;
-
 	public const uint32 WHEA_ERROR_SOURCE_DESCRIPTOR_TYPE_AERBRIDGE = 8;
-
 	public const uint32 WHEA_ERROR_SOURCE_DESCRIPTOR_TYPE_GENERIC = 9;
-
 	public const uint32 WHEA_ERROR_SOURCE_DESCRIPTOR_TYPE_GENERIC_V2 = 10;
-
 	public const uint32 WHEA_XPF_MC_BANK_STATUSFORMAT_IA32MCA = 0;
-
 	public const uint32 WHEA_XPF_MC_BANK_STATUSFORMAT_Intel64MCA = 1;
-
 	public const uint32 WHEA_XPF_MC_BANK_STATUSFORMAT_AMD64MCA = 2;
-
 	public const uint32 WHEA_NOTIFICATION_TYPE_POLLED = 0;
-
 	public const uint32 WHEA_NOTIFICATION_TYPE_EXTERNALINTERRUPT = 1;
-
 	public const uint32 WHEA_NOTIFICATION_TYPE_LOCALINTERRUPT = 2;
-
 	public const uint32 WHEA_NOTIFICATION_TYPE_SCI = 3;
-
 	public const uint32 WHEA_NOTIFICATION_TYPE_NMI = 4;
-
 	public const uint32 WHEA_NOTIFICATION_TYPE_CMCI = 5;
-
 	public const uint32 WHEA_NOTIFICATION_TYPE_MCE = 6;
-
 	public const uint32 WHEA_NOTIFICATION_TYPE_GPIO_SIGNAL = 7;
-
 	public const uint32 WHEA_NOTIFICATION_TYPE_ARMV8_SEA = 8;
-
 	public const uint32 WHEA_NOTIFICATION_TYPE_ARMV8_SEI = 9;
-
 	public const uint32 WHEA_NOTIFICATION_TYPE_EXTERNALINTERRUPT_GSIV = 10;
-
 	public const uint32 WHEA_NOTIFICATION_TYPE_SDEI = 11;
-
 	public const uint32 WHEA_DEVICE_DRIVER_CONFIG_V1 = 1;
-
 	public const uint32 WHEA_DEVICE_DRIVER_CONFIG_V2 = 2;
-
 	public const uint32 WHEA_DEVICE_DRIVER_CONFIG_MIN = 1;
-
 	public const uint32 WHEA_DEVICE_DRIVER_CONFIG_MAX = 2;
-
 	public const uint32 WHEA_DEVICE_DRIVER_BUFFER_SET_V1 = 1;
-
 	public const uint32 WHEA_DEVICE_DRIVER_BUFFER_SET_MIN = 1;
-
 	public const uint32 WHEA_DEVICE_DRIVER_BUFFER_SET_MAX = 1;
-
 	public const uint32 WHEA_DISABLE_OFFLINE = 0;
-
 	public const uint32 WHEA_MEM_PERSISTOFFLINE = 1;
-
 	public const uint32 WHEA_MEM_PFA_DISABLE = 2;
-
 	public const uint32 WHEA_MEM_PFA_PAGECOUNT = 3;
-
 	public const uint32 WHEA_MEM_PFA_THRESHOLD = 4;
-
 	public const uint32 WHEA_MEM_PFA_TIMEOUT = 5;
-
 	public const uint32 WHEA_DISABLE_DUMMY_WRITE = 6;
-
 	public const uint32 WHEA_RESTORE_CMCI_ENABLED = 7;
-
 	public const uint32 WHEA_RESTORE_CMCI_ATTEMPTS = 8;
-
 	public const uint32 WHEA_RESTORE_CMCI_ERR_LIMIT = 9;
-
 	public const uint32 WHEA_CMCI_THRESHOLD_COUNT = 10;
-
 	public const uint32 WHEA_CMCI_THRESHOLD_TIME = 11;
-
 	public const uint32 WHEA_CMCI_THRESHOLD_POLL_COUNT = 12;
-
 	public const uint32 WHEA_PENDING_PAGE_LIST_SZ = 13;
-
 	public const uint32 WHEA_BAD_PAGE_LIST_MAX_SIZE = 14;
-
 	public const uint32 WHEA_BAD_PAGE_LIST_LOCATION = 15;
-
 	public const uint32 WHEA_NOTIFY_ALL_OFFLINES = 16;
-
 	public const uint32 IPMI_OS_SEL_RECORD_VERSION_1 = 1;
-
 	public const uint32 IPMI_OS_SEL_RECORD_VERSION = 1;
-
 	public const uint32 IPMI_IOCTL_INDEX = 1024;
-
 	public const uint32 IOCTL_IPMI_INTERNAL_RECORD_SEL_EVENT = 2232320;
-
 	public const uint32 IPMI_OS_SEL_RECORD_MASK = 65535;
-
 	public const int32 DBGKD_SIMULATION_NONE = 0;
-
 	public const int32 DBGKD_SIMULATION_EXDI = 1;
-
 	public const HRESULT ACTIVPROF_E_PROFILER_PRESENT = -2147220992;
-
 	public const HRESULT ACTIVPROF_E_PROFILER_ABSENT = -2147220991;
-
 	public const HRESULT ACTIVPROF_E_UNABLE_TO_APPLY_ACTION = -2147220990;
-
 	public const uint32 PROFILER_HEAP_OBJECT_NAME_ID_UNAVAILABLE = 4294967295;
-
 	public const int32 sevMax = 4;
-
 	public const uint32 fasaPreferInternalHandler = 1;
-
 	public const uint32 fasaSupportInternalHandler = 2;
-
 	public const uint32 fasaCaseSensitive = 4;
-
 	public const uint32 SCRIPT_CMPL_NOLIST = 0;
-
 	public const uint32 SCRIPT_CMPL_MEMBERLIST = 1;
-
 	public const uint32 SCRIPT_CMPL_ENUMLIST = 2;
-
 	public const uint32 SCRIPT_CMPL_PARAMTIP = 4;
-
 	public const uint32 SCRIPT_CMPL_GLOBALLIST = 8;
-
 	public const uint32 SCRIPT_CMPL_ENUM_TRIGGER = 1;
-
 	public const uint32 SCRIPT_CMPL_MEMBER_TRIGGER = 2;
-
 	public const uint32 SCRIPT_CMPL_PARAM_TRIGGER = 3;
-
 	public const uint32 SCRIPT_CMPL_COMMIT = 4;
-
 	public const uint32 GETATTRTYPE_NORMAL = 0;
-
 	public const uint32 GETATTRTYPE_DEPSCAN = 1;
-
 	public const uint32 GETATTRFLAG_THIS = 256;
-
 	public const uint32 GETATTRFLAG_HUMANTEXT = 32768;
-
 	public const uint32 SOURCETEXT_ATTR_HUMANTEXT = 32768;
-
 	public const uint32 SOURCETEXT_ATTR_IDENTIFIER = 256;
-
 	public const uint32 SOURCETEXT_ATTR_MEMBERLOOKUP = 512;
-
 	public const uint32 SOURCETEXT_ATTR_THIS = 1024;
-
 }
 #endregion
 
@@ -5143,11 +3840,9 @@ public struct CONTEXT
 			public uint64 Fp;
 			public uint64 Lr;
 		}
-
 		public using _Anonymous_e__Struct Anonymous;
 		public uint64[31] X;
 	}
-
 	public uint32 ContextFlags;
 	public uint32 Cpsr;
 	public using _Anonymous_e__Union Anonymous;
@@ -5338,7 +4033,6 @@ public struct DEBUG_EVENT
 		public OUTPUT_DEBUG_STRING_INFO DebugString;
 		public RIP_INFO RipInfo;
 	}
-
 	public DEBUG_EVENT_CODE dwDebugEventCode;
 	public uint32 dwProcessId;
 	public uint32 dwThreadId;
@@ -5499,7 +4193,6 @@ public struct INLINE_FRAME_CONTEXT
 		public uint8 FrameType;
 		public uint16 FrameSignature;
 	}
-
 	public uint32 ContextValue;
 	public using _Anonymous_e__Struct Anonymous;
 }
@@ -5607,21 +4300,18 @@ public struct DEBUG_VALUE
 			public uint32 LowPart;
 			public uint32 HighPart;
 		}
-
 		[CRepr]
 		public struct _F128Parts64_e__Struct
 		{
 			public uint64 LowPart;
 			public int64 HighPart;
 		}
-
 		[CRepr]
 		public struct _Anonymous_e__Struct
 		{
 			public uint64 I64;
 			public BOOL Nat;
 		}
-
 		public uint8 I8;
 		public uint16 I16;
 		public uint32 I32;
@@ -5641,7 +4331,6 @@ public struct DEBUG_VALUE
 		public _F128Parts64_e__Struct F128Parts64;
 		public uint8[24] RawBytes;
 	}
-
 	public using _Anonymous_e__Union Anonymous;
 	public uint32 TailOfRawBytes;
 	public uint32 Type;
@@ -5843,17 +4532,14 @@ public struct ScriptDebugEventInformation
 		{
 			public bool IsUncaught;
 		}
-
 		[CRepr]
 		public struct _BreakpointInformation_e__Struct
 		{
 			public uint64 BreakpointId;
 		}
-
 		public _ExceptionInformation_e__Struct ExceptionInformation;
 		public _BreakpointInformation_e__Struct BreakpointInformation;
 	}
-
 	public ScriptDebugEvent DebugEvent;
 	public ScriptDebugPosition EventPosition;
 	public ScriptDebugPosition EventSpanEnd;
@@ -5980,30 +4666,33 @@ public struct PROCESSORINFO
 	public uint16 NumberProcessors;
 }
 
-[CRepr, FlexibleArray("Buf")]
+[CRepr]
 public struct READCONTROLSPACE
 {
 	public uint16 Processor;
 	public uint32 Address;
 	public uint32 BufLen;
+	public uint8* Buf mut => &Buf_impl;
 	private uint8[ANYSIZE_ARRAY] Buf_impl;
 }
 
-[CRepr, FlexibleArray("Buf")]
+[CRepr]
 public struct READCONTROLSPACE32
 {
 	public uint16 Processor;
 	public uint32 Address;
 	public uint32 BufLen;
+	public uint8* Buf mut => &Buf_impl;
 	private uint8[ANYSIZE_ARRAY] Buf_impl;
 }
 
-[CRepr, FlexibleArray("Buf")]
+[CRepr]
 public struct READCONTROLSPACE64
 {
 	public uint16 Processor;
 	public uint64 Address;
 	public uint32 BufLen;
+	public uint8* Buf mut => &Buf_impl;
 	private uint8[ANYSIZE_ARRAY] Buf_impl;
 }
 
@@ -6085,20 +4774,22 @@ public struct SEARCHMEMORY
 	public void* Pattern;
 }
 
-[CRepr, FlexibleArray("Buf")]
+[CRepr]
 public struct PHYSICAL
 {
 	public uint64 Address;
 	public uint32 BufLen;
+	public uint8* Buf mut => &Buf_impl;
 	private uint8[ANYSIZE_ARRAY] Buf_impl;
 }
 
-[CRepr, FlexibleArray("Buf")]
+[CRepr]
 public struct PHYSICAL_WITH_FLAGS
 {
 	public uint64 Address;
 	public uint32 BufLen;
 	public uint32 Flags;
+	public uint8* Buf mut => &Buf_impl;
 	private uint8[ANYSIZE_ARRAY] Buf_impl;
 }
 
@@ -6421,7 +5112,7 @@ public struct KDDEBUGGER_DATA32
 	public uint32 MmLoadedUserImageList;
 }
 
-[CRepr, FlexibleArray("Unused")]
+[CRepr]
 public struct DBGKD_GET_VERSION64
 {
 	public uint16 MajorVersion;
@@ -6434,6 +5125,7 @@ public struct DBGKD_GET_VERSION64
 	public uint8 MaxStateChange;
 	public uint8 MaxManipulate;
 	public uint8 Simulation;
+	public uint16* Unused mut => &Unused_impl;
 	private uint16[ANYSIZE_ARRAY] Unused_impl;
 	public uint64 KernBase;
 	public uint64 PsLoadedModuleList;
@@ -6620,14 +5312,12 @@ public struct FIELD_INFO
 		public void* fieldCallBack;
 		public void* pBuffer;
 	}
-
 	[CRepr]
 	public struct _BitField
 	{
 		public uint16 Position;
 		public uint16 Size;
 	}
-
 	public uint8* fName;
 	public uint8* printName;
 	public uint32 size;
@@ -6650,7 +5340,6 @@ public struct SYM_DUMP_PARAM
 		public void* Context;
 		public void* pBuffer;
 	}
-
 	public uint32 size;
 	public uint8* sName;
 	public uint32 Options;
@@ -6753,11 +5442,9 @@ public struct CONTEXT
 			public M128A Xmm14;
 			public M128A Xmm15;
 		}
-
 		public XSAVE_FORMAT FltSave;
 		public using _Anonymous_e__Struct Anonymous;
 	}
-
 	public uint64 P1Home;
 	public uint64 P2Home;
 	public uint64 P3Home;
@@ -6852,11 +5539,9 @@ public struct KNONVOLATILE_CONTEXT_POINTERS
 			public uint64* R14;
 			public uint64* R15;
 		}
-
 		public uint64*[16] IntegerContext;
 		public using _Anonymous_e__Struct Anonymous;
 	}
-
 	[CRepr, Union]
 	public struct _Anonymous1_e__Union
 	{
@@ -6880,11 +5565,9 @@ public struct KNONVOLATILE_CONTEXT_POINTERS
 			public M128A* Xmm14;
 			public M128A* Xmm15;
 		}
-
 		public M128A*[16] FloatingContext;
 		public using _Anonymous_e__Struct Anonymous;
 	}
-
 	public _Anonymous1_e__Union Anonymous1;
 	public _Anonymous2_e__Union Anonymous2;
 }
@@ -6899,7 +5582,6 @@ public struct ARM64_NT_NEON128
 		public uint64 Low;
 		public int64 High;
 	}
-
 	public using _Anonymous_e__Struct Anonymous;
 	public double[2] D;
 	public float[4] S;
@@ -6949,11 +5631,9 @@ public struct ARM64_NT_CONTEXT
 			public uint64 Fp;
 			public uint64 Lr;
 		}
-
 		public using _Anonymous_e__Struct Anonymous;
 		public uint64[31] X;
 	}
-
 	public uint32 ContextFlags;
 	public uint32 Cpsr;
 	public using _Anonymous_e__Union Anonymous;
@@ -7002,17 +5682,14 @@ public struct LDT_ENTRY
 			public uint8 Flags2;
 			public uint8 BaseHi;
 		}
-
 		[CRepr]
 		public struct _Bits_e__Struct
 		{
 			public uint32 _bitfield;
 		}
-
 		public _Bytes_e__Struct Bytes;
 		public _Bits_e__Struct Bits;
 	}
-
 	public uint16 LimitLow;
 	public uint16 BaseLow;
 	public _HighWord_e__Union HighWord;
@@ -7076,17 +5753,14 @@ public struct WOW64_LDT_ENTRY
 			public uint8 Flags2;
 			public uint8 BaseHi;
 		}
-
 		[CRepr]
 		public struct _Bits_e__Struct
 		{
 			public uint32 _bitfield;
 		}
-
 		public _Bytes_e__Struct Bytes;
 		public _Bits_e__Struct Bits;
 	}
-
 	public uint16 LimitLow;
 	public uint16 BaseLow;
 	public _HighWord_e__Union HighWord;
@@ -7158,11 +5832,9 @@ public struct XSTATE_CONFIGURATION
 		{
 			public uint32 _bitfield;
 		}
-
 		public uint32 ControlFlags;
 		public using _Anonymous_e__Struct Anonymous;
 	}
-
 	public uint64 EnabledFeatures;
 	public uint64 EnabledVolatileFeatures;
 	public uint32 Size;
@@ -7318,7 +5990,6 @@ public struct IMAGE_SECTION_HEADER
 		public uint32 PhysicalAddress;
 		public uint32 VirtualSize;
 	}
-
 	public uint8[8] Name;
 	public _Misc_e__Union Misc;
 	public uint32 VirtualAddress;
@@ -7457,11 +6128,9 @@ public struct IMAGE_ARM64_RUNTIME_FUNCTION_ENTRY
 		{
 			public uint32 _bitfield;
 		}
-
 		public uint32 UnwindData;
 		public using _Anonymous_e__Struct Anonymous;
 	}
-
 	public uint32 BeginAddress;
 	public using _Anonymous_e__Union Anonymous;
 }
@@ -7475,7 +6144,6 @@ public struct IMAGE_RUNTIME_FUNCTION_ENTRY
 		public uint32 UnwindInfoAddress;
 		public uint32 UnwindData;
 	}
-
 	public uint32 BeginAddress;
 	public uint32 EndAddress;
 	public using _Anonymous_e__Union Anonymous;
@@ -7534,7 +6202,6 @@ public struct IMAGE_FUNCTION_ENTRY64
 		public uint64 EndOfPrologue;
 		public uint64 UnwindInfoAddress;
 	}
-
 	public uint64 StartingAddress;
 	public uint64 EndingAddress;
 	public using _Anonymous_e__Union Anonymous;
@@ -7549,7 +6216,6 @@ public struct IMAGE_COR20_HEADER
 		public uint32 EntryPointToken;
 		public uint32 EntryPointRVA;
 	}
-
 	public uint32 cb;
 	public uint16 MajorRuntimeVersion;
 	public uint16 MinorRuntimeVersion;
@@ -7601,7 +6267,6 @@ public struct WAITCHAIN_NODE_INFO
 			public LARGE_INTEGER Timeout;
 			public BOOL Alertable;
 		}
-
 		[CRepr]
 		public struct _ThreadObject_e__Struct
 		{
@@ -7610,11 +6275,9 @@ public struct WAITCHAIN_NODE_INFO
 			public uint32 WaitTime;
 			public uint32 ContextSwitches;
 		}
-
 		public _LockObject_e__Struct LockObject;
 		public _ThreadObject_e__Struct ThreadObject;
 	}
-
 	public WCT_OBJECT_TYPE ObjectType;
 	public WCT_OBJECT_STATUS ObjectStatus;
 	public using _Anonymous_e__Union Anonymous;
@@ -7657,7 +6320,6 @@ public struct MINIDUMP_HEADER
 		public uint32 Reserved;
 		public uint32 TimeDateStamp;
 	}
-
 	public uint32 Signature;
 	public uint32 Version;
 	public uint32 NumberOfStreams;
@@ -7674,10 +6336,11 @@ public struct MINIDUMP_DIRECTORY
 	public MINIDUMP_LOCATION_DESCRIPTOR Location;
 }
 
-[CRepr, FlexibleArray("Buffer")]
+[CRepr]
 public struct MINIDUMP_STRING
 {
 	public uint32 Length;
+	public char16* Buffer mut => &Buffer_impl;
 	private char16[ANYSIZE_ARRAY] Buffer_impl;
 }
 
@@ -7692,13 +6355,11 @@ public struct CPU_INFORMATION
 		public uint32 FeatureInformation;
 		public uint32 AMDExtendedCpuFeatures;
 	}
-
 	[CRepr, Packed(4)]
 	public struct _OtherCpuInfo_e__Struct
 	{
 		public uint64[2] ProcessorFeatures;
 	}
-
 	public _X86CpuInfo_e__Struct X86CpuInfo;
 	public _OtherCpuInfo_e__Struct OtherCpuInfo;
 }
@@ -7715,11 +6376,9 @@ public struct MINIDUMP_SYSTEM_INFO
 			public uint16 SuiteMask;
 			public uint16 Reserved2;
 		}
-
 		public uint32 Reserved1;
 		public using _Anonymous_e__Struct Anonymous;
 	}
-
 	[CRepr, Union]
 	public struct _Anonymous1_e__Union
 	{
@@ -7729,11 +6388,9 @@ public struct MINIDUMP_SYSTEM_INFO
 			public uint8 NumberOfProcessors;
 			public uint8 ProductType;
 		}
-
 		public uint16 Reserved0;
 		public using _Anonymous_e__Struct Anonymous;
 	}
-
 	public PROCESSOR_ARCHITECTURE ProcessorArchitecture;
 	public uint16 ProcessorLevel;
 	public uint16 ProcessorRevision;
@@ -7759,10 +6416,11 @@ public struct MINIDUMP_THREAD
 	public MINIDUMP_LOCATION_DESCRIPTOR ThreadContext;
 }
 
-[CRepr, FlexibleArray("Threads")]
+[CRepr]
 public struct MINIDUMP_THREAD_LIST
 {
 	public uint32 NumberOfThreads;
+	public MINIDUMP_THREAD* Threads mut => &Threads_impl;
 	private MINIDUMP_THREAD[ANYSIZE_ARRAY] Threads_impl;
 }
 
@@ -7779,10 +6437,11 @@ public struct MINIDUMP_THREAD_EX
 	public MINIDUMP_MEMORY_DESCRIPTOR BackingStore;
 }
 
-[CRepr, FlexibleArray("Threads")]
+[CRepr]
 public struct MINIDUMP_THREAD_EX_LIST
 {
 	public uint32 NumberOfThreads;
+	public MINIDUMP_THREAD_EX* Threads mut => &Threads_impl;
 	private MINIDUMP_THREAD_EX[ANYSIZE_ARRAY] Threads_impl;
 }
 
@@ -7822,25 +6481,28 @@ public struct MINIDUMP_MODULE
 	public uint64 Reserved1;
 }
 
-[CRepr, FlexibleArray("Modules")]
+[CRepr]
 public struct MINIDUMP_MODULE_LIST
 {
 	public uint32 NumberOfModules;
+	public MINIDUMP_MODULE* Modules mut => &Modules_impl;
 	private MINIDUMP_MODULE[ANYSIZE_ARRAY] Modules_impl;
 }
 
-[CRepr, FlexibleArray("MemoryRanges")]
+[CRepr]
 public struct MINIDUMP_MEMORY_LIST
 {
 	public uint32 NumberOfMemoryRanges;
+	public MINIDUMP_MEMORY_DESCRIPTOR* MemoryRanges mut => &MemoryRanges_impl;
 	private MINIDUMP_MEMORY_DESCRIPTOR[ANYSIZE_ARRAY] MemoryRanges_impl;
 }
 
-[CRepr, Packed(4), FlexibleArray("MemoryRanges")]
+[CRepr, Packed(4)]
 public struct MINIDUMP_MEMORY64_LIST
 {
 	public uint64 NumberOfMemoryRanges;
 	public uint64 BaseRva;
+	public MINIDUMP_MEMORY_DESCRIPTOR64* MemoryRanges mut => &MemoryRanges_impl;
 	private MINIDUMP_MEMORY_DESCRIPTOR64[ANYSIZE_ARRAY] MemoryRanges_impl;
 }
 
@@ -8086,10 +6748,11 @@ public struct MINIDUMP_THREAD_NAME
 	public uint64 RvaOfThreadName;
 }
 
-[CRepr, FlexibleArray("ThreadNames")]
+[CRepr]
 public struct MINIDUMP_THREAD_NAME_LIST
 {
 	public uint32 NumberOfThreadNames;
+	public MINIDUMP_THREAD_NAME* ThreadNames mut => &ThreadNames_impl;
 	private MINIDUMP_THREAD_NAME[ANYSIZE_ARRAY] ThreadNames_impl;
 }
 
@@ -8444,7 +7107,6 @@ public struct MINIDUMP_CALLBACK_INPUT
 		public MINIDUMP_VM_PRE_READ_CALLBACK VmPreRead;
 		public MINIDUMP_VM_POST_READ_CALLBACK VmPostRead;
 	}
-
 	public uint32 ProcessId;
 	public HANDLE ProcessHandle;
 	public uint32 CallbackType;
@@ -8463,35 +7125,30 @@ public struct MINIDUMP_CALLBACK_OUTPUT
 			public HRESULT VmQueryStatus;
 			public MINIDUMP_MEMORY_INFO VmQueryResult;
 		}
-
 		[CRepr]
 		public struct _Anonymous2_e__Struct
 		{
 			public BOOL CheckCancel;
 			public BOOL Cancel;
 		}
-
 		[CRepr]
 		public struct _Anonymous5_e__Struct
 		{
 			public HRESULT VmReadStatus;
 			public uint32 VmReadBytesCompleted;
 		}
-
 		[CRepr, Packed(4)]
 		public struct _Anonymous1_e__Struct
 		{
 			public uint64 MemoryBase;
 			public uint32 MemorySize;
 		}
-
 		[CRepr]
 		public struct _Anonymous3_e__Struct
 		{
 			public MINIDUMP_MEMORY_INFO VmRegion;
 			public BOOL Continue;
 		}
-
 		public uint32 ModuleWriteFlags;
 		public uint32 ThreadWriteFlags;
 		public uint32 SecondaryFlags;
@@ -8503,7 +7160,6 @@ public struct MINIDUMP_CALLBACK_OUTPUT
 		public _Anonymous5_e__Struct Anonymous5;
 		public HRESULT Status;
 	}
-
 	public using _Anonymous_e__Union Anonymous;
 }
 
@@ -8563,10 +7219,11 @@ public struct DebugStackFrameDescriptor64
 	public IUnknown* punkFinal;
 }
 
-[CRepr, FlexibleArray("scopes")]
+[CRepr]
 public struct PROFILER_HEAP_OBJECT_SCOPE_LIST
 {
 	public uint32 count;
+	public uint* scopes mut => &scopes_impl;
 	private uint[ANYSIZE_ARRAY] scopes_impl;
 }
 
@@ -8590,16 +7247,16 @@ public struct PROFILER_HEAP_OBJECT_RELATIONSHIP
 		public void* externalObjectAddress;
 		public PROFILER_PROPERTY_TYPE_SUBSTRING_INFO* subString;
 	}
-
 	public uint32 relationshipId;
 	public PROFILER_RELATIONSHIP_INFO relationshipInfo;
 	public using _Anonymous_e__Union Anonymous;
 }
 
-[CRepr, FlexibleArray("elements")]
+[CRepr]
 public struct PROFILER_HEAP_OBJECT_RELATIONSHIP_LIST
 {
 	public uint32 count;
+	public PROFILER_HEAP_OBJECT_RELATIONSHIP* elements mut => &elements_impl;
 	private PROFILER_HEAP_OBJECT_RELATIONSHIP[ANYSIZE_ARRAY] elements_impl;
 }
 
@@ -8623,7 +7280,6 @@ public struct PROFILER_HEAP_OBJECT_OPTIONAL_INFO
 		public PROFILER_HEAP_OBJECT_RELATIONSHIP_LIST* mapCollectionList;
 		public PROFILER_HEAP_OBJECT_RELATIONSHIP_LIST* setCollectionList;
 	}
-
 	public PROFILER_HEAP_OBJECT_OPTIONAL_INFO_TYPE infoType;
 	public using _Anonymous_e__Union Anonymous;
 }
@@ -8637,7 +7293,6 @@ public struct PROFILER_HEAP_OBJECT
 		public uint objectId;
 		public void* externalObjectAddress;
 	}
-
 	public uint32 size;
 	public using _Anonymous_e__Union Anonymous;
 	public uint32 typeNameId;
@@ -8775,7 +7430,7 @@ public struct API_VERSION
 	public uint16 Reserved;
 }
 
-[CRepr, FlexibleArray("Name")]
+[CRepr]
 public struct IMAGEHLP_SYMBOL64
 {
 	public uint32 SizeOfStruct;
@@ -8783,6 +7438,7 @@ public struct IMAGEHLP_SYMBOL64
 	public uint32 Size;
 	public uint32 Flags;
 	public uint32 MaxNameLength;
+	public CHAR* Name mut => &Name_impl;
 	private CHAR[ANYSIZE_ARRAY] Name_impl;
 }
 
@@ -8793,7 +7449,7 @@ public struct IMAGEHLP_SYMBOL64_PACKAGE
 	public CHAR[2001] name;
 }
 
-[CRepr, FlexibleArray("Name")]
+[CRepr]
 public struct IMAGEHLP_SYMBOLW64
 {
 	public uint32 SizeOfStruct;
@@ -8801,6 +7457,7 @@ public struct IMAGEHLP_SYMBOLW64
 	public uint32 Size;
 	public uint32 Flags;
 	public uint32 MaxNameLength;
+	public char16* Name mut => &Name_impl;
 	private char16[ANYSIZE_ARRAY] Name_impl;
 }
 
@@ -9028,15 +7685,16 @@ public struct IMAGEHLP_SYMBOL_SRC
 	public CHAR[260] file;
 }
 
-[CRepr, FlexibleArray("data")]
+[CRepr]
 public struct MODULE_TYPE_INFO
 {
 	public uint16 dataLength;
 	public uint16 leaf;
+	public uint8* data mut => &data_impl;
 	private uint8[ANYSIZE_ARRAY] data_impl;
 }
 
-[CRepr, FlexibleArray("Name")]
+[CRepr]
 public struct SYMBOL_INFO
 {
 	public uint32 SizeOfStruct;
@@ -9053,6 +7711,7 @@ public struct SYMBOL_INFO
 	public uint32 Tag;
 	public uint32 NameLen;
 	public uint32 MaxNameLen;
+	public CHAR* Name mut => &Name_impl;
 	private CHAR[ANYSIZE_ARRAY] Name_impl;
 }
 
@@ -9063,7 +7722,7 @@ public struct SYMBOL_INFO_PACKAGE
 	public CHAR[2001] name;
 }
 
-[CRepr, FlexibleArray("Name")]
+[CRepr]
 public struct SYMBOL_INFOW
 {
 	public uint32 SizeOfStruct;
@@ -9080,6 +7739,7 @@ public struct SYMBOL_INFOW
 	public uint32 Tag;
 	public uint32 NameLen;
 	public uint32 MaxNameLen;
+	public char16* Name mut => &Name_impl;
 	private char16[ANYSIZE_ARRAY] Name_impl;
 }
 
@@ -9105,11 +7765,12 @@ public struct IMAGEHLP_STACK_FRAME
 	public uint32 Reserved2;
 }
 
-[CRepr, FlexibleArray("ChildId")]
+[CRepr]
 public struct TI_FINDCHILDREN_PARAMS
 {
 	public uint32 Count;
 	public uint32 Start;
+	public uint32* ChildId mut => &ChildId_impl;
 	private uint32[ANYSIZE_ARRAY] ChildId_impl;
 }
 
@@ -9214,11 +7875,12 @@ public struct PHYSICAL_MEMORY_RUN32
 	public uint32 PageCount;
 }
 
-[CRepr, FlexibleArray("Run")]
+[CRepr]
 public struct PHYSICAL_MEMORY_DESCRIPTOR32
 {
 	public uint32 NumberOfRuns;
 	public uint32 NumberOfPages;
+	public PHYSICAL_MEMORY_RUN32* Run mut => &Run_impl;
 	private PHYSICAL_MEMORY_RUN32[ANYSIZE_ARRAY] Run_impl;
 }
 
@@ -9229,11 +7891,12 @@ public struct PHYSICAL_MEMORY_RUN64
 	public uint64 PageCount;
 }
 
-[CRepr, FlexibleArray("Run")]
+[CRepr]
 public struct PHYSICAL_MEMORY_DESCRIPTOR64
 {
 	public uint32 NumberOfRuns;
 	public uint64 NumberOfPages;
+	public PHYSICAL_MEMORY_RUN64* Run mut => &Run_impl;
 	private PHYSICAL_MEMORY_RUN64[ANYSIZE_ARRAY] Run_impl;
 }
 
@@ -9245,7 +7908,6 @@ public struct DUMP_FILE_ATTRIBUTES
 	{
 		public uint32 _bitfield;
 	}
-
 	public using _Anonymous_e__Struct Anonymous;
 	public uint32 Attributes;
 }
@@ -9259,7 +7921,6 @@ public struct DUMP_HEADER32
 		public PHYSICAL_MEMORY_DESCRIPTOR32 PhysicalMemoryBlock;
 		public uint8[700] PhysicalMemoryBlockBuffer;
 	}
-
 	public uint32 Signature;
 	public uint32 ValidDump;
 	public uint32 MajorVersion;
@@ -9309,7 +7970,6 @@ public struct DUMP_HEADER64
 		public PHYSICAL_MEMORY_DESCRIPTOR64 PhysicalMemoryBlock;
 		public uint8[700] PhysicalMemoryBlockBuffer;
 	}
-
 	public uint32 Signature;
 	public uint32 ValidDump;
 	public uint32 MajorVersion;
@@ -9401,7 +8061,6 @@ public struct WHEA_NOTIFICATION_FLAGS
 	{
 		public uint16 _bitfield;
 	}
-
 	public using _Anonymous_e__Struct Anonymous;
 	public uint16 AsUSHORT;
 }
@@ -9414,7 +8073,6 @@ public struct XPF_MC_BANK_FLAGS
 	{
 		public uint8 _bitfield;
 	}
-
 	public using _Anonymous_e__Struct Anonymous;
 	public uint8 AsUCHAR;
 }
@@ -9427,7 +8085,6 @@ public struct XPF_MCE_FLAGS
 	{
 		public uint32 _bitfield;
 	}
-
 	public using _Anonymous_e__Struct Anonymous;
 	public uint32 AsULONG;
 }
@@ -9440,7 +8097,6 @@ public struct AER_ROOTPORT_DESCRIPTOR_FLAGS
 	{
 		public uint16 _bitfield;
 	}
-
 	public using _Anonymous_e__Struct Anonymous;
 	public uint16 AsUSHORT;
 }
@@ -9453,7 +8109,6 @@ public struct AER_ENDPOINT_DESCRIPTOR_FLAGS
 	{
 		public uint16 _bitfield;
 	}
-
 	public using _Anonymous_e__Struct Anonymous;
 	public uint16 AsUSHORT;
 }
@@ -9466,7 +8121,6 @@ public struct AER_BRIDGE_DESCRIPTOR_FLAGS
 	{
 		public uint16 _bitfield;
 	}
-
 	public using _Anonymous_e__Struct Anonymous;
 	public uint16 AsUSHORT;
 }
@@ -9487,7 +8141,6 @@ public struct WHEA_NOTIFICATION_DESCRIPTOR
 			public uint32 ErrorThreshold;
 			public uint32 ErrorThresholdWindow;
 		}
-
 		[CRepr, Packed(1)]
 		public struct _Nmi_e__Struct
 		{
@@ -9498,7 +8151,6 @@ public struct WHEA_NOTIFICATION_DESCRIPTOR
 			public uint32 ErrorThreshold;
 			public uint32 ErrorThresholdWindow;
 		}
-
 		[CRepr, Packed(1)]
 		public struct _LocalInterrupt_e__Struct
 		{
@@ -9509,13 +8161,11 @@ public struct WHEA_NOTIFICATION_DESCRIPTOR
 			public uint32 ErrorThreshold;
 			public uint32 ErrorThresholdWindow;
 		}
-
 		[CRepr, Packed(1)]
 		public struct _Polled_e__Struct
 		{
 			public uint32 PollInterval;
 		}
-
 		[CRepr, Packed(1)]
 		public struct _Sea_e__Struct
 		{
@@ -9526,7 +8176,6 @@ public struct WHEA_NOTIFICATION_DESCRIPTOR
 			public uint32 ErrorThreshold;
 			public uint32 ErrorThresholdWindow;
 		}
-
 		[CRepr, Packed(1)]
 		public struct _Interrupt_e__Struct
 		{
@@ -9537,7 +8186,6 @@ public struct WHEA_NOTIFICATION_DESCRIPTOR
 			public uint32 ErrorThreshold;
 			public uint32 ErrorThresholdWindow;
 		}
-
 		[CRepr, Packed(1)]
 		public struct _Sci_e__Struct
 		{
@@ -9548,7 +8196,6 @@ public struct WHEA_NOTIFICATION_DESCRIPTOR
 			public uint32 ErrorThreshold;
 			public uint32 ErrorThresholdWindow;
 		}
-
 		[CRepr, Packed(1)]
 		public struct _Gsiv_e__Struct
 		{
@@ -9559,7 +8206,6 @@ public struct WHEA_NOTIFICATION_DESCRIPTOR
 			public uint32 ErrorThreshold;
 			public uint32 ErrorThresholdWindow;
 		}
-
 		public _Polled_e__Struct Polled;
 		public _Interrupt_e__Struct Interrupt;
 		public _LocalInterrupt_e__Struct LocalInterrupt;
@@ -9569,7 +8215,6 @@ public struct WHEA_NOTIFICATION_DESCRIPTOR
 		public _Sei_e__Struct Sei;
 		public _Gsiv_e__Struct Gsiv;
 	}
-
 	public uint8 Type;
 	public uint8 Length;
 	public WHEA_NOTIFICATION_FLAGS Flags;
@@ -9624,11 +8269,9 @@ public struct WHEA_PCI_SLOT_NUMBER
 		{
 			public uint32 _bitfield;
 		}
-
 		public _bits_e__Struct bits;
 		public uint32 AsULONG;
 	}
-
 	public _u_e__Union u;
 }
 
@@ -9794,7 +8437,6 @@ public struct WHEA_ERROR_SOURCE_DESCRIPTOR
 		public WHEA_GENERIC_ERROR_DESCRIPTOR_V2 GenErrDescriptorV2;
 		public WHEA_DEVICE_DRIVER_DESCRIPTOR DeviceDriverDescriptor;
 	}
-
 	public uint32 Length;
 	public uint32 Version;
 	public WHEA_ERROR_SOURCE_TYPE Type;
@@ -9808,7 +8450,7 @@ public struct WHEA_ERROR_SOURCE_DESCRIPTOR
 	public _Info_e__Union Info;
 }
 
-[CRepr, Packed(1), FlexibleArray("Data")]
+[CRepr, Packed(1)]
 public struct IPMI_OS_SEL_RECORD
 {
 	public uint32 Signature;
@@ -9816,6 +8458,7 @@ public struct IPMI_OS_SEL_RECORD
 	public uint32 Length;
 	public IPMI_OS_SEL_RECORD_TYPE RecordType;
 	public uint32 DataLength;
+	public uint8* Data mut => &Data_impl;
 	private uint8[ANYSIZE_ARRAY] Data_impl;
 }
 
@@ -10031,7 +8674,7 @@ public struct STACKFRAME
 #endif
 
 #if BF_32_BIT
-[CRepr, FlexibleArray("Name")]
+[CRepr]
 public struct IMAGEHLP_SYMBOL
 {
 	public uint32 SizeOfStruct;
@@ -10039,6 +8682,7 @@ public struct IMAGEHLP_SYMBOL
 	public uint32 Size;
 	public uint32 Flags;
 	public uint32 MaxNameLength;
+	public CHAR* Name mut => &Name_impl;
 	private CHAR[ANYSIZE_ARRAY] Name_impl;
 }
 #endif
@@ -10053,7 +8697,7 @@ public struct IMAGEHLP_SYMBOL_PACKAGE
 #endif
 
 #if BF_32_BIT
-[CRepr, FlexibleArray("Name")]
+[CRepr]
 public struct IMAGEHLP_SYMBOLW
 {
 	public uint32 SizeOfStruct;
@@ -10061,6 +8705,7 @@ public struct IMAGEHLP_SYMBOLW
 	public uint32 Size;
 	public uint32 Flags;
 	public uint32 MaxNameLength;
+	public char16* Name mut => &Name_impl;
 	private char16[ANYSIZE_ARRAY] Name_impl;
 }
 #endif

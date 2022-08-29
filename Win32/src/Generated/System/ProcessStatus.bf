@@ -1,6 +1,5 @@
 using Win32.Foundation;
 using System;
-using System.Interop;
 
 namespace Win32.System.ProcessStatus;
 
@@ -8,7 +7,6 @@ namespace Win32.System.ProcessStatus;
 public static
 {
 	public const uint32 PSAPI_VERSION = 2;
-
 }
 #endregion
 
@@ -64,15 +62,15 @@ public struct PSAPI_WORKING_SET_BLOCK
 	{
 		public uint _bitfield;
 	}
-
 	public uint Flags;
 	public using _Anonymous_e__Struct Anonymous;
 }
 
-[CRepr, FlexibleArray("WorkingSetInfo")]
+[CRepr]
 public struct PSAPI_WORKING_SET_INFORMATION
 {
 	public uint NumberOfEntries;
+	public PSAPI_WORKING_SET_BLOCK* WorkingSetInfo mut => &WorkingSetInfo_impl;
 	private PSAPI_WORKING_SET_BLOCK[ANYSIZE_ARRAY] WorkingSetInfo_impl;
 }
 
@@ -87,17 +85,14 @@ public struct PSAPI_WORKING_SET_EX_BLOCK
 		{
 			public uint _bitfield;
 		}
-
 		[CRepr]
 		public struct _Invalid_e__Struct
 		{
 			public uint _bitfield;
 		}
-
 		public using _Anonymous_e__Struct Anonymous;
 		public _Invalid_e__Struct Invalid;
 	}
-
 	public uint Flags;
 	public using _Anonymous_e__Union Anonymous;
 }

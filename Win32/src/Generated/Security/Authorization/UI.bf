@@ -4,7 +4,6 @@ using Win32.System.Com;
 using Win32.UI.Controls;
 using Win32.Security.Authorization;
 using System;
-using System.Interop;
 
 namespace Win32.Security.Authorization.UI;
 
@@ -12,59 +11,32 @@ namespace Win32.Security.Authorization.UI;
 public static
 {
 	public const int32 SI_EDIT_PERMS = 0;
-
 	public const int32 SI_EDIT_OWNER = 1;
-
 	public const int32 SI_CONTAINER = 4;
-
 	public const int32 SI_READONLY = 8;
-
 	public const int32 SI_RESET = 32;
-
 	public const int32 SI_OWNER_READONLY = 64;
-
 	public const int32 SI_OWNER_RECURSE = 256;
-
 	public const int32 SI_NO_ACL_PROTECT = 512;
-
 	public const int32 SI_NO_TREE_APPLY = 1024;
-
 	public const int32 SI_PAGE_TITLE = 2048;
-
 	public const int32 SI_SERVER_IS_DC = 4096;
-
 	public const int32 SI_RESET_DACL_TREE = 16384;
-
 	public const int32 SI_RESET_SACL_TREE = 32768;
-
 	public const int32 SI_OBJECT_GUID = 65536;
-
 	public const int32 SI_ACCESS_SPECIFIC = 65536;
-
 	public const int32 SI_ACCESS_GENERAL = 131072;
-
 	public const int32 SI_ACCESS_CONTAINER = 262144;
-
 	public const int32 SI_ACCESS_PROPERTY = 524288;
-
 	public const int32 DOBJ_RES_CONT = 1;
-
 	public const int32 DOBJ_RES_ROOT = 2;
-
 	public const int32 DOBJ_VOL_NTACLS = 4;
-
 	public const int32 DOBJ_COND_NTACLS = 8;
-
 	public const int32 DOBJ_RIBBON_LAUNCH = 16;
-
 	public const uint32 SECURITY_OBJECT_ID_OBJECT_SD = 1;
-
 	public const uint32 SECURITY_OBJECT_ID_SHARE = 2;
-
 	public const uint32 SECURITY_OBJECT_ID_CENTRAL_POLICY = 3;
-
 	public const uint32 SECURITY_OBJECT_ID_CENTRAL_ACCESS_RULE = 4;
-
 }
 #endregion
 
@@ -165,10 +137,11 @@ public struct SID_INFO
 	public PWSTR pwzUPN;
 }
 
-[CRepr, FlexibleArray("aSidInfo")]
+[CRepr]
 public struct SID_INFO_LIST
 {
 	public uint32 cItems;
+	public SID_INFO* aSidInfo mut => &aSidInfo_impl;
 	private SID_INFO[ANYSIZE_ARRAY] aSidInfo_impl;
 }
 

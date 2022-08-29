@@ -7,13 +7,9 @@ namespace Win32.NetworkManagement.Multicast;
 public static
 {
 	public const uint32 MCAST_CLIENT_ID_LEN = 17;
-
 	public const int32 MCAST_API_CURRENT_VERSION = 1;
-
 	public const int32 MCAST_API_VERSION_0 = 0;
-
 	public const int32 MCAST_API_VERSION_1 = 1;
-
 }
 #endregion
 

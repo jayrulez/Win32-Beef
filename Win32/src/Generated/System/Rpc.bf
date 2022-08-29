@@ -3,7 +3,6 @@ using Win32.Foundation;
 using Win32.System.IO;
 using Win32.Security.Cryptography;
 using System;
-using System.Interop;
 
 namespace Win32.System.Rpc;
 
@@ -11,463 +10,234 @@ namespace Win32.System.Rpc;
 public static
 {
 	public const uint32 RPC_C_BINDING_INFINITE_TIMEOUT = 10;
-
 	public const uint32 RPC_C_BINDING_MIN_TIMEOUT = 0;
-
 	public const uint32 RPC_C_BINDING_DEFAULT_TIMEOUT = 5;
-
 	public const uint32 RPC_C_BINDING_MAX_TIMEOUT = 9;
-
 	public const int32 RPC_C_CANCEL_INFINITE_TIMEOUT = -1;
-
 	public const uint32 RPC_C_LISTEN_MAX_CALLS_DEFAULT = 1234;
-
 	public const uint32 RPC_C_PROTSEQ_MAX_REQS_DEFAULT = 10;
-
 	public const uint32 RPC_C_BIND_TO_ALL_NICS = 1;
-
 	public const uint32 RPC_C_USE_INTERNET_PORT = 1;
-
 	public const uint32 RPC_C_USE_INTRANET_PORT = 2;
-
 	public const uint32 RPC_C_DONT_FAIL = 4;
-
 	public const uint32 RPC_C_RPCHTTP_USE_LOAD_BALANCE = 8;
-
 	public const uint32 RPC_C_TRY_ENFORCE_MAX_CALLS = 16;
-
 	public const uint32 RPC_C_MQ_TEMPORARY = 0;
-
 	public const uint32 RPC_C_MQ_PERMANENT = 1;
-
 	public const uint32 RPC_C_MQ_CLEAR_ON_OPEN = 2;
-
 	public const uint32 RPC_C_MQ_USE_EXISTING_SECURITY = 4;
-
 	public const uint32 RPC_C_MQ_AUTHN_LEVEL_NONE = 0;
-
 	public const uint32 RPC_C_MQ_AUTHN_LEVEL_PKT_INTEGRITY = 8;
-
 	public const uint32 RPC_C_MQ_AUTHN_LEVEL_PKT_PRIVACY = 16;
-
 	public const uint32 RPC_C_MQ_EXPRESS = 0;
-
 	public const uint32 RPC_C_MQ_RECOVERABLE = 1;
-
 	public const uint32 RPC_C_MQ_JOURNAL_NONE = 0;
-
 	public const uint32 RPC_C_MQ_JOURNAL_DEADLETTER = 1;
-
 	public const uint32 RPC_C_MQ_JOURNAL_ALWAYS = 2;
-
 	public const uint32 RPC_C_OPT_MQ_DELIVERY = 1;
-
 	public const uint32 RPC_C_OPT_MQ_PRIORITY = 2;
-
 	public const uint32 RPC_C_OPT_MQ_JOURNAL = 3;
-
 	public const uint32 RPC_C_OPT_MQ_ACKNOWLEDGE = 4;
-
 	public const uint32 RPC_C_OPT_MQ_AUTHN_SERVICE = 5;
-
 	public const uint32 RPC_C_OPT_MQ_AUTHN_LEVEL = 6;
-
 	public const uint32 RPC_C_OPT_MQ_TIME_TO_REACH_QUEUE = 7;
-
 	public const uint32 RPC_C_OPT_MQ_TIME_TO_BE_RECEIVED = 8;
-
 	public const uint32 RPC_C_OPT_BINDING_NONCAUSAL = 9;
-
 	public const uint32 RPC_C_OPT_SECURITY_CALLBACK = 10;
-
 	public const uint32 RPC_C_OPT_UNIQUE_BINDING = 11;
-
 	public const uint32 RPC_C_OPT_MAX_OPTIONS = 12;
-
 	public const uint32 RPC_C_OPT_CALL_TIMEOUT = 12;
-
 	public const uint32 RPC_C_OPT_DONT_LINGER = 13;
-
 	public const uint32 RPC_C_OPT_TRANS_SEND_BUFFER_SIZE = 5;
-
 	public const uint32 RPC_C_OPT_TRUST_PEER = 14;
-
 	public const uint32 RPC_C_OPT_ASYNC_BLOCK = 15;
-
 	public const uint32 RPC_C_OPT_OPTIMIZE_TIME = 16;
-
 	public const uint32 RPC_C_FULL_CERT_CHAIN = 1;
-
 	public const uint32 RPC_C_STATS_CALLS_IN = 0;
-
 	public const uint32 RPC_C_STATS_CALLS_OUT = 1;
-
 	public const uint32 RPC_C_STATS_PKTS_IN = 2;
-
 	public const uint32 RPC_C_STATS_PKTS_OUT = 3;
-
 	public const uint32 RPC_C_AUTHN_NONE = 0;
-
 	public const uint32 RPC_C_AUTHN_DCE_PRIVATE = 1;
-
 	public const uint32 RPC_C_AUTHN_DCE_PUBLIC = 2;
-
 	public const uint32 RPC_C_AUTHN_DEC_PUBLIC = 4;
-
 	public const uint32 RPC_C_AUTHN_GSS_NEGOTIATE = 9;
-
 	public const uint32 RPC_C_AUTHN_WINNT = 10;
-
 	public const uint32 RPC_C_AUTHN_GSS_SCHANNEL = 14;
-
 	public const uint32 RPC_C_AUTHN_GSS_KERBEROS = 16;
-
 	public const uint32 RPC_C_AUTHN_DPA = 17;
-
 	public const uint32 RPC_C_AUTHN_MSN = 18;
-
 	public const uint32 RPC_C_AUTHN_DIGEST = 21;
-
 	public const uint32 RPC_C_AUTHN_KERNEL = 20;
-
 	public const uint32 RPC_C_AUTHN_NEGO_EXTENDER = 30;
-
 	public const uint32 RPC_C_AUTHN_PKU2U = 31;
-
 	public const uint32 RPC_C_AUTHN_LIVE_SSP = 32;
-
 	public const uint32 RPC_C_AUTHN_LIVEXP_SSP = 35;
-
 	public const uint32 RPC_C_AUTHN_CLOUD_AP = 36;
-
 	public const uint32 RPC_C_AUTHN_MSONLINE = 82;
-
 	public const uint32 RPC_C_AUTHN_MQ = 100;
-
 	public const int32 RPC_C_AUTHN_DEFAULT = -1;
-
 	public const int32 RPC_C_SECURITY_QOS_VERSION = 1;
-
 	public const int32 RPC_C_SECURITY_QOS_VERSION_1 = 1;
-
 	public const int32 RPC_C_SECURITY_QOS_VERSION_2 = 2;
-
 	public const uint32 RPC_C_HTTP_AUTHN_SCHEME_BASIC = 1;
-
 	public const uint32 RPC_C_HTTP_AUTHN_SCHEME_NTLM = 2;
-
 	public const uint32 RPC_C_HTTP_AUTHN_SCHEME_PASSPORT = 4;
-
 	public const uint32 RPC_C_HTTP_AUTHN_SCHEME_DIGEST = 8;
-
 	public const uint32 RPC_C_HTTP_AUTHN_SCHEME_NEGOTIATE = 16;
-
 	public const uint32 RPC_C_HTTP_AUTHN_SCHEME_CERT = 65536;
-
 	public const int32 RPC_C_SECURITY_QOS_VERSION_3 = 3;
-
 	public const int32 RPC_C_SECURITY_QOS_VERSION_4 = 4;
-
 	public const int32 RPC_C_SECURITY_QOS_VERSION_5 = 5;
-
 	public const uint32 RPC_PROTSEQ_TCP = 1;
-
 	public const uint32 RPC_PROTSEQ_NMP = 2;
-
 	public const uint32 RPC_PROTSEQ_LRPC = 3;
-
 	public const uint32 RPC_PROTSEQ_HTTP = 4;
-
 	public const uint32 RPC_BHT_OBJECT_UUID_VALID = 1;
-
 	public const uint32 RPC_BHO_EXCLUSIVE_AND_GUARANTEED = 4;
-
 	public const uint32 RPC_C_AUTHZ_NONE = 0;
-
 	public const uint32 RPC_C_AUTHZ_NAME = 1;
-
 	public const uint32 RPC_C_AUTHZ_DCE = 2;
-
 	public const uint32 RPC_C_AUTHZ_DEFAULT = 4294967295;
-
 	public const uint32 DCE_C_ERROR_STRING_LEN = 256;
-
 	public const uint32 RPC_C_EP_ALL_ELTS = 0;
-
 	public const uint32 RPC_C_EP_MATCH_BY_IF = 1;
-
 	public const uint32 RPC_C_EP_MATCH_BY_OBJ = 2;
-
 	public const uint32 RPC_C_EP_MATCH_BY_BOTH = 3;
-
 	public const uint32 RPC_C_VERS_ALL = 1;
-
 	public const uint32 RPC_C_VERS_COMPATIBLE = 2;
-
 	public const uint32 RPC_C_VERS_EXACT = 3;
-
 	public const uint32 RPC_C_VERS_MAJOR_ONLY = 4;
-
 	public const uint32 RPC_C_VERS_UPTO = 5;
-
 	public const uint32 RPC_C_MGMT_INQ_IF_IDS = 0;
-
 	public const uint32 RPC_C_MGMT_INQ_PRINC_NAME = 1;
-
 	public const uint32 RPC_C_MGMT_INQ_STATS = 2;
-
 	public const uint32 RPC_C_MGMT_IS_SERVER_LISTEN = 3;
-
 	public const uint32 RPC_C_MGMT_STOP_SERVER_LISTEN = 4;
-
 	public const uint32 RPC_C_PARM_MAX_PACKET_LENGTH = 1;
-
 	public const uint32 RPC_C_PARM_BUFFER_LENGTH = 2;
-
 	public const uint32 RPC_IF_AUTOLISTEN = 1;
-
 	public const uint32 RPC_IF_OLE = 2;
-
 	public const uint32 RPC_IF_ALLOW_UNKNOWN_AUTHORITY = 4;
-
 	public const uint32 RPC_IF_ALLOW_SECURE_ONLY = 8;
-
 	public const uint32 RPC_IF_ALLOW_CALLBACKS_WITH_NO_AUTH = 16;
-
 	public const uint32 RPC_IF_ALLOW_LOCAL_ONLY = 32;
-
 	public const uint32 RPC_IF_SEC_NO_CACHE = 64;
-
 	public const uint32 RPC_IF_SEC_CACHE_PER_PROC = 128;
-
 	public const uint32 RPC_IF_ASYNC_CALLBACK = 256;
-
 	public const uint32 RPC_FW_IF_FLAG_DCOM = 1;
-
 	public const uint32 RPC_C_NOTIFY_ON_SEND_COMPLETE = 1;
-
 	public const uint32 MaxNumberOfEEInfoParams = 4;
-
 	public const uint32 RPC_EEINFO_VERSION = 1;
-
 	public const uint32 EEInfoPreviousRecordsMissing = 1;
-
 	public const uint32 EEInfoNextRecordsMissing = 2;
-
 	public const uint32 EEInfoUseFileTime = 4;
-
 	public const uint32 EEInfoGCCOM = 11;
-
 	public const uint32 EEInfoGCFRS = 12;
-
 	public const uint32 RPC_CALL_ATTRIBUTES_VERSION = 2;
-
 	public const uint32 RPC_QUERY_SERVER_PRINCIPAL_NAME = 2;
-
 	public const uint32 RPC_QUERY_CLIENT_PRINCIPAL_NAME = 4;
-
 	public const uint32 RPC_QUERY_CALL_LOCAL_ADDRESS = 8;
-
 	public const uint32 RPC_QUERY_CLIENT_PID = 16;
-
 	public const uint32 RPC_QUERY_IS_CLIENT_LOCAL = 32;
-
 	public const uint32 RPC_QUERY_NO_AUTH_REQUIRED = 64;
-
 	public const uint32 RPC_QUERY_CLIENT_ID = 128;
-
 	public const uint32 RPC_CALL_STATUS_CANCELLED = 1;
-
 	public const uint32 RPC_CALL_STATUS_DISCONNECTED = 2;
-
 	public const uint32 RPC_CONTEXT_HANDLE_DEFAULT_FLAGS = 0;
-
 	public const uint32 RPC_CONTEXT_HANDLE_FLAGS = 805306368;
-
 	public const uint32 RPC_CONTEXT_HANDLE_SERIALIZE = 268435456;
-
 	public const uint32 RPC_CONTEXT_HANDLE_DONT_SERIALIZE = 536870912;
-
 	public const uint32 RPC_TYPE_STRICT_CONTEXT_HANDLE = 1073741824;
-
 	public const uint32 RPC_TYPE_DISCONNECT_EVENT_CONTEXT_HANDLE = 2147483648;
-
 	public const uint32 RPC_NCA_FLAGS_DEFAULT = 0;
-
 	public const uint32 RPC_NCA_FLAGS_IDEMPOTENT = 1;
-
 	public const uint32 RPC_NCA_FLAGS_BROADCAST = 2;
-
 	public const uint32 RPC_NCA_FLAGS_MAYBE = 4;
-
 	public const uint32 RPCFLG_HAS_GUARANTEE = 16;
-
 	public const uint32 RPCFLG_WINRT_REMOTE_ASYNC = 32;
-
 	public const uint32 RPC_BUFFER_COMPLETE = 4096;
-
 	public const uint32 RPC_BUFFER_PARTIAL = 8192;
-
 	public const uint32 RPC_BUFFER_EXTRA = 16384;
-
 	public const uint32 RPC_BUFFER_ASYNC = 32768;
-
 	public const uint32 RPC_BUFFER_NONOTIFY = 65536;
-
 	public const uint32 RPCFLG_MESSAGE = 16777216;
-
 	public const uint32 RPCFLG_AUTO_COMPLETE = 134217728;
-
 	public const uint32 RPCFLG_LOCAL_CALL = 268435456;
-
 	public const uint32 RPCFLG_INPUT_SYNCHRONOUS = 536870912;
-
 	public const uint32 RPCFLG_ASYNCHRONOUS = 1073741824;
-
 	public const uint32 RPCFLG_NON_NDR = 2147483648;
-
 	public const uint32 RPCFLG_HAS_MULTI_SYNTAXES = 33554432;
-
 	public const uint32 RPCFLG_HAS_CALLBACK = 67108864;
-
 	public const uint32 RPCFLG_ACCESSIBILITY_BIT1 = 1048576;
-
 	public const uint32 RPCFLG_ACCESSIBILITY_BIT2 = 2097152;
-
 	public const uint32 RPCFLG_ACCESS_LOCAL = 4194304;
-
 	public const uint32 NDR_CUSTOM_OR_DEFAULT_ALLOCATOR = 268435456;
-
 	public const uint32 NDR_DEFAULT_ALLOCATOR = 536870912;
-
 	public const uint32 RPCFLG_NDR64_CONTAINS_ARM_LAYOUT = 67108864;
-
 	public const uint32 RPCFLG_SENDER_WAITING_FOR_REPLY = 8388608;
-
 	public const uint32 RPC_FLAGS_VALID_BIT = 32768;
-
 	public const uint32 NT351_INTERFACE_SIZE = 64;
-
 	public const uint32 RPC_INTERFACE_HAS_PIPES = 1;
-
 	public const uint32 RPC_SYSTEM_HANDLE_FREE_UNRETRIEVED = 1;
-
 	public const uint32 RPC_SYSTEM_HANDLE_FREE_RETRIEVED = 2;
-
 	public const uint32 RPC_SYSTEM_HANDLE_FREE_ALL = 3;
-
 	public const uint32 RPC_SYSTEM_HANDLE_FREE_ERROR_ON_CLOSE = 4;
-
 	public const uint32 TRANSPORT_TYPE_CN = 1;
-
 	public const uint32 TRANSPORT_TYPE_DG = 2;
-
 	public const uint32 TRANSPORT_TYPE_LPC = 4;
-
 	public const uint32 TRANSPORT_TYPE_WMSG = 8;
-
 	public const uint32 RPC_P_ADDR_FORMAT_TCP_IPV4 = 1;
-
 	public const uint32 RPC_P_ADDR_FORMAT_TCP_IPV6 = 2;
-
 	public const uint32 RPC_C_OPT_SESSION_ID = 6;
-
 	public const uint32 RPC_C_OPT_COOKIE_AUTH = 7;
-
 	public const uint32 RPC_C_OPT_RESOURCE_TYPE_UUID = 8;
-
 	public const uint32 RPC_PROXY_CONNECTION_TYPE_IN_PROXY = 0;
-
 	public const uint32 RPC_PROXY_CONNECTION_TYPE_OUT_PROXY = 1;
-
 	public const uint32 RPC_C_OPT_PRIVATE_SUPPRESS_WAKE = 1;
-
 	public const uint32 RPC_C_OPT_PRIVATE_DO_NOT_DISTURB = 2;
-
 	public const uint32 RPC_C_OPT_PRIVATE_BREAK_ON_SUSPEND = 3;
-
 	public const uint32 RPC_C_PROFILE_DEFAULT_ELT = 0;
-
 	public const uint32 RPC_C_PROFILE_ALL_ELT = 1;
-
 	public const uint32 RPC_C_PROFILE_ALL_ELTS = 1;
-
 	public const uint32 RPC_C_PROFILE_MATCH_BY_IF = 2;
-
 	public const uint32 RPC_C_PROFILE_MATCH_BY_MBR = 3;
-
 	public const uint32 RPC_C_PROFILE_MATCH_BY_BOTH = 4;
-
 	public const int32 RPC_C_NS_DEFAULT_EXP_AGE = -1;
-
 	public const uint32 TARGET_IS_NT100_OR_LATER = 1;
-
 	public const uint32 TARGET_IS_NT63_OR_LATER = 1;
-
 	public const uint32 TARGET_IS_NT62_OR_LATER = 1;
-
 	public const uint32 TARGET_IS_NT61_OR_LATER = 1;
-
 	public const uint32 TARGET_IS_NT60_OR_LATER = 1;
-
 	public const uint32 TARGET_IS_NT51_OR_LATER = 1;
-
 	public const uint32 TARGET_IS_NT50_OR_LATER = 1;
-
 	public const uint32 TARGET_IS_NT40_OR_LATER = 1;
-
 	public const uint32 TARGET_IS_NT351_OR_WIN95_OR_LATER = 1;
-
 	public const uint32 USER_CALL_IS_ASYNC = 256;
-
 	public const uint32 USER_CALL_NEW_CORRELATION_DESC = 512;
-
 	public const int32 MIDL_WINRT_TYPE_SERIALIZATION_INFO_CURRENT_VERSION = 1;
-
 	public const uint32 USER_MARSHAL_FC_BYTE = 1;
-
 	public const uint32 USER_MARSHAL_FC_CHAR = 2;
-
 	public const uint32 USER_MARSHAL_FC_SMALL = 3;
-
 	public const uint32 USER_MARSHAL_FC_USMALL = 4;
-
 	public const uint32 USER_MARSHAL_FC_WCHAR = 5;
-
 	public const uint32 USER_MARSHAL_FC_SHORT = 6;
-
 	public const uint32 USER_MARSHAL_FC_USHORT = 7;
-
 	public const uint32 USER_MARSHAL_FC_LONG = 8;
-
 	public const uint32 USER_MARSHAL_FC_ULONG = 9;
-
 	public const uint32 USER_MARSHAL_FC_FLOAT = 10;
-
 	public const uint32 USER_MARSHAL_FC_HYPER = 11;
-
 	public const uint32 USER_MARSHAL_FC_DOUBLE = 12;
-
 	public const uint32 INVALID_FRAGMENT_ID = 0;
-
 	public const uint32 NDR64_FC_EXPLICIT_HANDLE = 0;
-
 	public const uint32 NDR64_FC_BIND_GENERIC = 1;
-
 	public const uint32 NDR64_FC_BIND_PRIMITIVE = 2;
-
 	public const uint32 NDR64_FC_AUTO_HANDLE = 3;
-
 	public const uint32 NDR64_FC_CALLBACK_HANDLE = 4;
-
 	public const uint32 NDR64_FC_NO_HANDLE = 5;
-
 	public const uint32 __RPCPROXY_H_VERSION__ = 475;
-
 	public const int32 MidlInterceptionInfoVersionOne = 1;
-
 	public const int32 MidlWinrtTypeSerializationInfoVersionOne = 1;
-
 }
 #endregion
 
@@ -979,17 +749,19 @@ public struct NDR_SCONTEXT_1
 	public void* userContext;
 }
 
-[CRepr, FlexibleArray("BindingH")]
+[CRepr]
 public struct RPC_BINDING_VECTOR
 {
 	public uint32 Count;
+	public void** BindingH mut => &BindingH_impl;
 	private void*[ANYSIZE_ARRAY] BindingH_impl;
 }
 
-[CRepr, FlexibleArray("Uuid")]
+[CRepr]
 public struct UUID_VECTOR
 {
 	public uint32 Count;
+	public Guid** Uuid mut => &Uuid_impl;
 	private Guid*[ANYSIZE_ARRAY] Uuid_impl;
 }
 
@@ -1001,17 +773,19 @@ public struct RPC_IF_ID
 	public uint16 VersMinor;
 }
 
-[CRepr, FlexibleArray("Protseq")]
+[CRepr]
 public struct RPC_PROTSEQ_VECTORA
 {
 	public uint32 Count;
+	public uint8** Protseq mut => &Protseq_impl;
 	private uint8*[ANYSIZE_ARRAY] Protseq_impl;
 }
 
-[CRepr, FlexibleArray("Protseq")]
+[CRepr]
 public struct RPC_PROTSEQ_VECTORW
 {
 	public uint32 Count;
+	public uint16** Protseq mut => &Protseq_impl;
 	private uint16*[ANYSIZE_ARRAY] Protseq_impl;
 }
 
@@ -1023,17 +797,19 @@ public struct RPC_POLICY
 	public uint32 NICFlags;
 }
 
-[CRepr, FlexibleArray("Stats")]
+[CRepr]
 public struct RPC_STATS_VECTOR
 {
 	public uint32 Count;
+	public uint32* Stats mut => &Stats_impl;
 	private uint32[ANYSIZE_ARRAY] Stats_impl;
 }
 
-[CRepr, FlexibleArray("IfId")]
+[CRepr]
 public struct RPC_IF_ID_VECTOR
 {
 	public uint32 Count;
+	public RPC_IF_ID** IfId mut => &IfId_impl;
 	private RPC_IF_ID*[ANYSIZE_ARRAY] IfId_impl;
 }
 
@@ -1156,7 +932,6 @@ public struct RPC_SECURITY_QOS_V2_W
 	{
 		public RPC_HTTP_TRANSPORT_CREDENTIALS_W* HttpCredentials;
 	}
-
 	public uint32 Version;
 	public RPC_C_QOS_CAPABILITIES Capabilities;
 	public RPC_C_QOS_IDENTITY IdentityTracking;
@@ -1173,7 +948,6 @@ public struct RPC_SECURITY_QOS_V2_A
 	{
 		public RPC_HTTP_TRANSPORT_CREDENTIALS_A* HttpCredentials;
 	}
-
 	public uint32 Version;
 	public RPC_C_QOS_CAPABILITIES Capabilities;
 	public RPC_C_QOS_IDENTITY IdentityTracking;
@@ -1190,7 +964,6 @@ public struct RPC_SECURITY_QOS_V3_W
 	{
 		public RPC_HTTP_TRANSPORT_CREDENTIALS_W* HttpCredentials;
 	}
-
 	public uint32 Version;
 	public RPC_C_QOS_CAPABILITIES Capabilities;
 	public RPC_C_QOS_IDENTITY IdentityTracking;
@@ -1208,7 +981,6 @@ public struct RPC_SECURITY_QOS_V3_A
 	{
 		public RPC_HTTP_TRANSPORT_CREDENTIALS_A* HttpCredentials;
 	}
-
 	public uint32 Version;
 	public RPC_C_QOS_CAPABILITIES Capabilities;
 	public RPC_C_QOS_IDENTITY IdentityTracking;
@@ -1226,7 +998,6 @@ public struct RPC_SECURITY_QOS_V4_W
 	{
 		public RPC_HTTP_TRANSPORT_CREDENTIALS_W* HttpCredentials;
 	}
-
 	public uint32 Version;
 	public RPC_C_QOS_CAPABILITIES Capabilities;
 	public RPC_C_QOS_IDENTITY IdentityTracking;
@@ -1245,7 +1016,6 @@ public struct RPC_SECURITY_QOS_V4_A
 	{
 		public RPC_HTTP_TRANSPORT_CREDENTIALS_A* HttpCredentials;
 	}
-
 	public uint32 Version;
 	public RPC_C_QOS_CAPABILITIES Capabilities;
 	public RPC_C_QOS_IDENTITY IdentityTracking;
@@ -1264,7 +1034,6 @@ public struct RPC_SECURITY_QOS_V5_W
 	{
 		public RPC_HTTP_TRANSPORT_CREDENTIALS_W* HttpCredentials;
 	}
-
 	public uint32 Version;
 	public RPC_C_QOS_CAPABILITIES Capabilities;
 	public RPC_C_QOS_IDENTITY IdentityTracking;
@@ -1284,7 +1053,6 @@ public struct RPC_SECURITY_QOS_V5_A
 	{
 		public RPC_HTTP_TRANSPORT_CREDENTIALS_A* HttpCredentials;
 	}
-
 	public uint32 Version;
 	public RPC_C_QOS_CAPABILITIES Capabilities;
 	public RPC_C_QOS_IDENTITY IdentityTracking;
@@ -1304,7 +1072,6 @@ public struct RPC_BINDING_HANDLE_TEMPLATE_V1_W
 	{
 		public uint16* Reserved;
 	}
-
 	public uint32 Version;
 	public uint32 Flags;
 	public uint32 ProtocolSequence;
@@ -1322,7 +1089,6 @@ public struct RPC_BINDING_HANDLE_TEMPLATE_V1_A
 	{
 		public uint8* Reserved;
 	}
-
 	public uint32 Version;
 	public uint32 Flags;
 	public uint32 ProtocolSequence;
@@ -1564,21 +1330,18 @@ public struct RPC_ASYNC_NOTIFICATION_INFO
 		public uint dwCompletionKey;
 		public OVERLAPPED* lpOverlapped;
 	}
-
 	[CRepr]
 	public struct _APC_e__Struct
 	{
 		public PFN_RPCNOTIFICATION_ROUTINE NotificationRoutine;
 		public HANDLE hThread;
 	}
-
 	[CRepr]
 	public struct _IntPtr_e__Struct
 	{
 		public HWND hWnd;
 		public uint32 Msg;
 	}
-
 	public _APC_e__Struct APC;
 	public _IOC_e__Struct IOC;
 	public _IntPtr_e__Struct IntPtr;
@@ -1622,7 +1385,6 @@ public struct RPC_EE_INFO_PARAM
 		public uint64 PVal;
 		public BinaryParam BVal;
 	}
-
 	public ExtendedErrorParamTypes ParameterType;
 	public _u_e__Union u;
 }
@@ -1636,7 +1398,6 @@ public struct RPC_EXTENDED_ERROR_INFO
 		public SYSTEMTIME SystemTime;
 		public FILETIME FileTime;
 	}
-
 	public uint32 Version;
 	public PWSTR ComputerName;
 	public uint32 ProcessID;
@@ -2005,7 +1766,6 @@ public struct MIDL_STUB_DESC
 		public void** pPrimitiveHandle;
 		public GENERIC_BINDING_INFO* pGenericBindingInfo;
 	}
-
 	public void* RpcInterfaceInformation;
 	public int pfnAllocate;
 	public int pfnFree;
@@ -2028,10 +1788,11 @@ public struct MIDL_STUB_DESC
 	public NDR_EXPR_DESC* pExprInfo;
 }
 
-[CRepr, FlexibleArray("Format")]
+[CRepr]
 public struct MIDL_FORMAT_STRING
 {
 	public int16 Pad;
+	public uint8* Format mut => &Format_impl;
 	private uint8[ANYSIZE_ARRAY] Format_impl;
 }
 
@@ -2148,7 +1909,6 @@ public struct NDR_USER_MARSHAL_INFO
 	{
 		public NDR_USER_MARSHAL_INFO_LEVEL1 Level1;
 	}
-
 	public uint32 InformationLevel;
 	public using _Anonymous_e__Union Anonymous;
 }

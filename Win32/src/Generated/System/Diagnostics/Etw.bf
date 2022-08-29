@@ -3,7 +3,6 @@ using Win32.System.Time;
 using Win32.System.Com;
 using Win32.Security;
 using System;
-using System.Interop;
 
 namespace Win32.System.Diagnostics.Etw;
 
@@ -11,923 +10,464 @@ namespace Win32.System.Diagnostics.Etw;
 public static
 {
 	public const uint32 WNODE_FLAG_ALL_DATA = 1;
-
 	public const uint32 WNODE_FLAG_SINGLE_INSTANCE = 2;
-
 	public const uint32 WNODE_FLAG_SINGLE_ITEM = 4;
-
 	public const uint32 WNODE_FLAG_EVENT_ITEM = 8;
-
 	public const uint32 WNODE_FLAG_FIXED_INSTANCE_SIZE = 16;
-
 	public const uint32 WNODE_FLAG_TOO_SMALL = 32;
-
 	public const uint32 WNODE_FLAG_INSTANCES_SAME = 64;
-
 	public const uint32 WNODE_FLAG_STATIC_INSTANCE_NAMES = 128;
-
 	public const uint32 WNODE_FLAG_INTERNAL = 256;
-
 	public const uint32 WNODE_FLAG_USE_TIMESTAMP = 512;
-
 	public const uint32 WNODE_FLAG_PERSIST_EVENT = 1024;
-
 	public const uint32 WNODE_FLAG_EVENT_REFERENCE = 8192;
-
 	public const uint32 WNODE_FLAG_ANSI_INSTANCENAMES = 16384;
-
 	public const uint32 WNODE_FLAG_METHOD_ITEM = 32768;
-
 	public const uint32 WNODE_FLAG_PDO_INSTANCE_NAMES = 65536;
-
 	public const uint32 WNODE_FLAG_TRACED_GUID = 131072;
-
 	public const uint32 WNODE_FLAG_LOG_WNODE = 262144;
-
 	public const uint32 WNODE_FLAG_USE_GUID_PTR = 524288;
-
 	public const uint32 WNODE_FLAG_USE_MOF_PTR = 1048576;
-
 	public const uint32 WNODE_FLAG_NO_HEADER = 2097152;
-
 	public const uint32 WNODE_FLAG_SEND_DATA_BLOCK = 4194304;
-
 	public const uint32 WNODE_FLAG_VERSIONED_PROPERTIES = 8388608;
-
 	public const uint32 WNODE_FLAG_SEVERITY_MASK = 4278190080;
-
 	public const uint32 WMIREG_FLAG_EXPENSIVE = 1;
-
 	public const uint32 WMIREG_FLAG_INSTANCE_LIST = 4;
-
 	public const uint32 WMIREG_FLAG_INSTANCE_BASENAME = 8;
-
 	public const uint32 WMIREG_FLAG_INSTANCE_PDO = 32;
-
 	public const uint32 WMIREG_FLAG_REMOVE_GUID = 65536;
-
 	public const uint32 WMIREG_FLAG_RESERVED1 = 131072;
-
 	public const uint32 WMIREG_FLAG_RESERVED2 = 262144;
-
 	public const uint32 WMIREG_FLAG_TRACED_GUID = 524288;
-
 	public const uint32 WMIREG_FLAG_TRACE_CONTROL_GUID = 4096;
-
 	public const uint32 WMIREG_FLAG_EVENT_ONLY_GUID = 64;
-
 	public const uint32 WMI_GUIDTYPE_TRACECONTROL = 0;
-
 	public const uint32 WMI_GUIDTYPE_TRACE = 1;
-
 	public const uint32 WMI_GUIDTYPE_DATA = 2;
-
 	public const uint32 WMI_GUIDTYPE_EVENT = 3;
-
 	public const uint32 WMIGUID_QUERY = 1;
-
 	public const uint32 WMIGUID_SET = 2;
-
 	public const uint32 WMIGUID_NOTIFICATION = 4;
-
 	public const uint32 WMIGUID_READ_DESCRIPTION = 8;
-
 	public const uint32 WMIGUID_EXECUTE = 16;
-
 	public const uint32 TRACELOG_CREATE_REALTIME = 32;
-
 	public const uint32 TRACELOG_CREATE_ONDISK = 64;
-
 	public const uint32 TRACELOG_GUID_ENABLE = 128;
-
 	public const uint32 TRACELOG_ACCESS_KERNEL_LOGGER = 256;
-
 	public const uint32 TRACELOG_LOG_EVENT = 512;
-
 	public const uint32 TRACELOG_CREATE_INPROC = 512;
-
 	public const uint32 TRACELOG_ACCESS_REALTIME = 1024;
-
 	public const uint32 TRACELOG_REGISTER_GUIDS = 2048;
-
 	public const uint32 TRACELOG_JOIN_GROUP = 4096;
-
 	public const uint32 WMI_GLOBAL_LOGGER_ID = 1;
-
 	public const uint32 MAX_PAYLOAD_PREDICATES = 8;
-
 	public const Guid EventTraceGuid = .(0x68fdd900, 0x4a3e, 0x11d1, 0x84, 0xf4, 0x00, 0x00, 0xf8, 0x04, 0x64, 0xe3);
-
 	public const Guid SystemTraceControlGuid = .(0x9e814aad, 0x3204, 0x11d2, 0x9a, 0x82, 0x00, 0x60, 0x08, 0xa8, 0x69, 0x39);
-
 	public const Guid EventTraceConfigGuid = .(0x01853a65, 0x418f, 0x4f36, 0xae, 0xfc, 0xdc, 0x0f, 0x1d, 0x2f, 0xd2, 0x35);
-
 	public const Guid DefaultTraceSecurityGuid = .(0x0811c1af, 0x7a07, 0x4a06, 0x82, 0xed, 0x86, 0x94, 0x55, 0xcd, 0xf7, 0x13);
-
 	public const Guid PrivateLoggerNotificationGuid = .(0x3595ab5c, 0x042a, 0x4c8e, 0xb9, 0x42, 0x2d, 0x05, 0x9b, 0xfe, 0xb1, 0xb1);
-
 	public const Guid SystemIoFilterProviderGuid = .(0xfbd09363, 0x9e22, 0x4661, 0xb8, 0xbf, 0xe7, 0xa3, 0x4b, 0x53, 0x5b, 0x8c);
-
 	public const Guid SystemObjectProviderGuid = .(0xfebd7460, 0x3d1d, 0x47eb, 0xaf, 0x49, 0xc9, 0xee, 0xb1, 0xe1, 0x46, 0xf2);
-
 	public const Guid SystemPowerProviderGuid = .(0xc134884a, 0x32d5, 0x4488, 0x80, 0xe5, 0x14, 0xed, 0x7a, 0xbb, 0x82, 0x69);
-
 	public const Guid SystemHypervisorProviderGuid = .(0xbafa072a, 0x918a, 0x4bed, 0xb6, 0x22, 0xbc, 0x15, 0x20, 0x97, 0x09, 0x8f);
-
 	public const Guid SystemLockProviderGuid = .(0x721ddfd3, 0xdacc, 0x4e1e, 0xb2, 0x6a, 0xa2, 0xcb, 0x31, 0xd4, 0x70, 0x5a);
-
 	public const Guid SystemConfigProviderGuid = .(0xfef3a8b6, 0x318d, 0x4b67, 0xa9, 0x6a, 0x3b, 0x0f, 0x6b, 0x8f, 0x18, 0xfe);
-
 	public const Guid SystemCpuProviderGuid = .(0xc6c5265f, 0xeae8, 0x4650, 0xaa, 0xe4, 0x9d, 0x48, 0x60, 0x3d, 0x85, 0x10);
-
 	public const Guid SystemSchedulerProviderGuid = .(0x599a2a76, 0x4d91, 0x4910, 0x9a, 0xc7, 0x7d, 0x33, 0xf2, 0xe9, 0x7a, 0x6c);
-
 	public const Guid SystemProfileProviderGuid = .(0xbfeb0324, 0x1cee, 0x496f, 0xa4, 0x09, 0x2a, 0xc2, 0xb4, 0x8a, 0x63, 0x22);
-
 	public const Guid SystemIoProviderGuid = .(0x3d5c43e3, 0x0f1c, 0x4202, 0xb8, 0x17, 0x17, 0x4c, 0x00, 0x70, 0xdc, 0x79);
-
 	public const Guid SystemMemoryProviderGuid = .(0x82958ca9, 0xb6cd, 0x47f8, 0xa3, 0xa8, 0x03, 0xae, 0x85, 0xa4, 0xbc, 0x24);
-
 	public const Guid SystemRegistryProviderGuid = .(0x16156bd9, 0xfab4, 0x4cfa, 0xa2, 0x32, 0x89, 0xd1, 0x09, 0x90, 0x58, 0xe3);
-
 	public const Guid SystemProcessProviderGuid = .(0x151f55dc, 0x467d, 0x471f, 0x83, 0xb5, 0x5f, 0x88, 0x9d, 0x46, 0xff, 0x66);
-
 	public const Guid SystemAlpcProviderGuid = .(0xfcb9baaf, 0xe529, 0x4980, 0x92, 0xe9, 0xce, 0xd1, 0xa6, 0xaa, 0xdf, 0xdf);
-
 	public const Guid SystemSyscallProviderGuid = .(0x434286f7, 0x6f1b, 0x45bb, 0xb3, 0x7e, 0x95, 0xf6, 0x23, 0x04, 0x6c, 0x7c);
-
 	public const Guid SystemInterruptProviderGuid = .(0xd4bbee17, 0xb545, 0x4888, 0x85, 0x8b, 0x74, 0x41, 0x69, 0x01, 0x5b, 0x25);
-
 	public const Guid SystemTimerProviderGuid = .(0x4f061568, 0xe215, 0x499f, 0xab, 0x2e, 0xed, 0xa0, 0xae, 0x89, 0x0a, 0x5b);
-
 	public const uint32 MAX_MOF_FIELDS = 16;
-
 	public const uint32 SYSTEM_EVENT_TYPE = 1;
-
 	public const uint32 EVENT_TRACE_TYPE_INFO = 0;
-
 	public const uint32 EVENT_TRACE_TYPE_START = 1;
-
 	public const uint32 EVENT_TRACE_TYPE_END = 2;
-
 	public const uint32 EVENT_TRACE_TYPE_STOP = 2;
-
 	public const uint32 EVENT_TRACE_TYPE_DC_START = 3;
-
 	public const uint32 EVENT_TRACE_TYPE_DC_END = 4;
-
 	public const uint32 EVENT_TRACE_TYPE_EXTENSION = 5;
-
 	public const uint32 EVENT_TRACE_TYPE_REPLY = 6;
-
 	public const uint32 EVENT_TRACE_TYPE_DEQUEUE = 7;
-
 	public const uint32 EVENT_TRACE_TYPE_RESUME = 7;
-
 	public const uint32 EVENT_TRACE_TYPE_CHECKPOINT = 8;
-
 	public const uint32 EVENT_TRACE_TYPE_SUSPEND = 8;
-
 	public const uint32 EVENT_TRACE_TYPE_WINEVT_SEND = 9;
-
 	public const uint32 EVENT_TRACE_TYPE_WINEVT_RECEIVE = 240;
-
 	public const uint32 TRACE_LEVEL_NONE = 0;
-
 	public const uint32 TRACE_LEVEL_CRITICAL = 1;
-
 	public const uint32 TRACE_LEVEL_FATAL = 1;
-
 	public const uint32 TRACE_LEVEL_ERROR = 2;
-
 	public const uint32 TRACE_LEVEL_WARNING = 3;
-
 	public const uint32 TRACE_LEVEL_INFORMATION = 4;
-
 	public const uint32 TRACE_LEVEL_VERBOSE = 5;
-
 	public const uint32 TRACE_LEVEL_RESERVED6 = 6;
-
 	public const uint32 TRACE_LEVEL_RESERVED7 = 7;
-
 	public const uint32 TRACE_LEVEL_RESERVED8 = 8;
-
 	public const uint32 TRACE_LEVEL_RESERVED9 = 9;
-
 	public const uint32 EVENT_TRACE_TYPE_LOAD = 10;
-
 	public const uint32 EVENT_TRACE_TYPE_TERMINATE = 11;
-
 	public const uint32 EVENT_TRACE_TYPE_IO_READ = 10;
-
 	public const uint32 EVENT_TRACE_TYPE_IO_WRITE = 11;
-
 	public const uint32 EVENT_TRACE_TYPE_IO_READ_INIT = 12;
-
 	public const uint32 EVENT_TRACE_TYPE_IO_WRITE_INIT = 13;
-
 	public const uint32 EVENT_TRACE_TYPE_IO_FLUSH = 14;
-
 	public const uint32 EVENT_TRACE_TYPE_IO_FLUSH_INIT = 15;
-
 	public const uint32 EVENT_TRACE_TYPE_IO_REDIRECTED_INIT = 16;
-
 	public const uint32 EVENT_TRACE_TYPE_MM_TF = 10;
-
 	public const uint32 EVENT_TRACE_TYPE_MM_DZF = 11;
-
 	public const uint32 EVENT_TRACE_TYPE_MM_COW = 12;
-
 	public const uint32 EVENT_TRACE_TYPE_MM_GPF = 13;
-
 	public const uint32 EVENT_TRACE_TYPE_MM_HPF = 14;
-
 	public const uint32 EVENT_TRACE_TYPE_MM_AV = 15;
-
 	public const uint32 EVENT_TRACE_TYPE_SEND = 10;
-
 	public const uint32 EVENT_TRACE_TYPE_RECEIVE = 11;
-
 	public const uint32 EVENT_TRACE_TYPE_CONNECT = 12;
-
 	public const uint32 EVENT_TRACE_TYPE_DISCONNECT = 13;
-
 	public const uint32 EVENT_TRACE_TYPE_RETRANSMIT = 14;
-
 	public const uint32 EVENT_TRACE_TYPE_ACCEPT = 15;
-
 	public const uint32 EVENT_TRACE_TYPE_RECONNECT = 16;
-
 	public const uint32 EVENT_TRACE_TYPE_CONNFAIL = 17;
-
 	public const uint32 EVENT_TRACE_TYPE_COPY_TCP = 18;
-
 	public const uint32 EVENT_TRACE_TYPE_COPY_ARP = 19;
-
 	public const uint32 EVENT_TRACE_TYPE_ACKFULL = 20;
-
 	public const uint32 EVENT_TRACE_TYPE_ACKPART = 21;
-
 	public const uint32 EVENT_TRACE_TYPE_ACKDUP = 22;
-
 	public const uint32 EVENT_TRACE_TYPE_GUIDMAP = 10;
-
 	public const uint32 EVENT_TRACE_TYPE_CONFIG = 11;
-
 	public const uint32 EVENT_TRACE_TYPE_SIDINFO = 12;
-
 	public const uint32 EVENT_TRACE_TYPE_SECURITY = 13;
-
 	public const uint32 EVENT_TRACE_TYPE_DBGID_RSDS = 64;
-
 	public const uint32 EVENT_TRACE_TYPE_REGCREATE = 10;
-
 	public const uint32 EVENT_TRACE_TYPE_REGOPEN = 11;
-
 	public const uint32 EVENT_TRACE_TYPE_REGDELETE = 12;
-
 	public const uint32 EVENT_TRACE_TYPE_REGQUERY = 13;
-
 	public const uint32 EVENT_TRACE_TYPE_REGSETVALUE = 14;
-
 	public const uint32 EVENT_TRACE_TYPE_REGDELETEVALUE = 15;
-
 	public const uint32 EVENT_TRACE_TYPE_REGQUERYVALUE = 16;
-
 	public const uint32 EVENT_TRACE_TYPE_REGENUMERATEKEY = 17;
-
 	public const uint32 EVENT_TRACE_TYPE_REGENUMERATEVALUEKEY = 18;
-
 	public const uint32 EVENT_TRACE_TYPE_REGQUERYMULTIPLEVALUE = 19;
-
 	public const uint32 EVENT_TRACE_TYPE_REGSETINFORMATION = 20;
-
 	public const uint32 EVENT_TRACE_TYPE_REGFLUSH = 21;
-
 	public const uint32 EVENT_TRACE_TYPE_REGKCBCREATE = 22;
-
 	public const uint32 EVENT_TRACE_TYPE_REGKCBDELETE = 23;
-
 	public const uint32 EVENT_TRACE_TYPE_REGKCBRUNDOWNBEGIN = 24;
-
 	public const uint32 EVENT_TRACE_TYPE_REGKCBRUNDOWNEND = 25;
-
 	public const uint32 EVENT_TRACE_TYPE_REGVIRTUALIZE = 26;
-
 	public const uint32 EVENT_TRACE_TYPE_REGCLOSE = 27;
-
 	public const uint32 EVENT_TRACE_TYPE_REGSETSECURITY = 28;
-
 	public const uint32 EVENT_TRACE_TYPE_REGQUERYSECURITY = 29;
-
 	public const uint32 EVENT_TRACE_TYPE_REGCOMMIT = 30;
-
 	public const uint32 EVENT_TRACE_TYPE_REGPREPARE = 31;
-
 	public const uint32 EVENT_TRACE_TYPE_REGROLLBACK = 32;
-
 	public const uint32 EVENT_TRACE_TYPE_REGMOUNTHIVE = 33;
-
 	public const uint32 EVENT_TRACE_TYPE_CONFIG_CPU = 10;
-
 	public const uint32 EVENT_TRACE_TYPE_CONFIG_PHYSICALDISK = 11;
-
 	public const uint32 EVENT_TRACE_TYPE_CONFIG_LOGICALDISK = 12;
-
 	public const uint32 EVENT_TRACE_TYPE_CONFIG_NIC = 13;
-
 	public const uint32 EVENT_TRACE_TYPE_CONFIG_VIDEO = 14;
-
 	public const uint32 EVENT_TRACE_TYPE_CONFIG_SERVICES = 15;
-
 	public const uint32 EVENT_TRACE_TYPE_CONFIG_POWER = 16;
-
 	public const uint32 EVENT_TRACE_TYPE_CONFIG_NETINFO = 17;
-
 	public const uint32 EVENT_TRACE_TYPE_CONFIG_OPTICALMEDIA = 18;
-
 	public const uint32 EVENT_TRACE_TYPE_CONFIG_IRQ = 21;
-
 	public const uint32 EVENT_TRACE_TYPE_CONFIG_PNP = 22;
-
 	public const uint32 EVENT_TRACE_TYPE_CONFIG_IDECHANNEL = 23;
-
 	public const uint32 EVENT_TRACE_TYPE_CONFIG_NUMANODE = 24;
-
 	public const uint32 EVENT_TRACE_TYPE_CONFIG_PLATFORM = 25;
-
 	public const uint32 EVENT_TRACE_TYPE_CONFIG_PROCESSORGROUP = 26;
-
 	public const uint32 EVENT_TRACE_TYPE_CONFIG_PROCESSORNUMBER = 27;
-
 	public const uint32 EVENT_TRACE_TYPE_CONFIG_DPI = 28;
-
 	public const uint32 EVENT_TRACE_TYPE_CONFIG_CI_INFO = 29;
-
 	public const uint32 EVENT_TRACE_TYPE_CONFIG_MACHINEID = 30;
-
 	public const uint32 EVENT_TRACE_TYPE_CONFIG_DEFRAG = 31;
-
 	public const uint32 EVENT_TRACE_TYPE_CONFIG_MOBILEPLATFORM = 32;
-
 	public const uint32 EVENT_TRACE_TYPE_CONFIG_DEVICEFAMILY = 33;
-
 	public const uint32 EVENT_TRACE_TYPE_CONFIG_FLIGHTID = 34;
-
 	public const uint32 EVENT_TRACE_TYPE_CONFIG_PROCESSOR = 35;
-
 	public const uint32 EVENT_TRACE_TYPE_CONFIG_VIRTUALIZATION = 36;
-
 	public const uint32 EVENT_TRACE_TYPE_CONFIG_BOOT = 37;
-
 	public const uint32 EVENT_TRACE_TYPE_OPTICAL_IO_READ = 55;
-
 	public const uint32 EVENT_TRACE_TYPE_OPTICAL_IO_WRITE = 56;
-
 	public const uint32 EVENT_TRACE_TYPE_OPTICAL_IO_FLUSH = 57;
-
 	public const uint32 EVENT_TRACE_TYPE_OPTICAL_IO_READ_INIT = 58;
-
 	public const uint32 EVENT_TRACE_TYPE_OPTICAL_IO_WRITE_INIT = 59;
-
 	public const uint32 EVENT_TRACE_TYPE_OPTICAL_IO_FLUSH_INIT = 60;
-
 	public const uint32 EVENT_TRACE_TYPE_FLT_PREOP_INIT = 96;
-
 	public const uint32 EVENT_TRACE_TYPE_FLT_POSTOP_INIT = 97;
-
 	public const uint32 EVENT_TRACE_TYPE_FLT_PREOP_COMPLETION = 98;
-
 	public const uint32 EVENT_TRACE_TYPE_FLT_POSTOP_COMPLETION = 99;
-
 	public const uint32 EVENT_TRACE_TYPE_FLT_PREOP_FAILURE = 100;
-
 	public const uint32 EVENT_TRACE_TYPE_FLT_POSTOP_FAILURE = 101;
-
 	public const uint32 EVENT_TRACE_FLAG_DEBUG_EVENTS = 4194304;
-
 	public const uint32 EVENT_TRACE_FLAG_EXTENSION = 2147483648;
-
 	public const uint32 EVENT_TRACE_FLAG_FORWARD_WMI = 1073741824;
-
 	public const uint32 EVENT_TRACE_FLAG_ENABLE_RESERVE = 536870912;
-
 	public const uint32 EVENT_TRACE_FILE_MODE_NONE = 0;
-
 	public const uint32 EVENT_TRACE_FILE_MODE_SEQUENTIAL = 1;
-
 	public const uint32 EVENT_TRACE_FILE_MODE_CIRCULAR = 2;
-
 	public const uint32 EVENT_TRACE_FILE_MODE_APPEND = 4;
-
 	public const uint32 EVENT_TRACE_REAL_TIME_MODE = 256;
-
 	public const uint32 EVENT_TRACE_DELAY_OPEN_FILE_MODE = 512;
-
 	public const uint32 EVENT_TRACE_BUFFERING_MODE = 1024;
-
 	public const uint32 EVENT_TRACE_PRIVATE_LOGGER_MODE = 2048;
-
 	public const uint32 EVENT_TRACE_ADD_HEADER_MODE = 4096;
-
 	public const uint32 EVENT_TRACE_USE_GLOBAL_SEQUENCE = 16384;
-
 	public const uint32 EVENT_TRACE_USE_LOCAL_SEQUENCE = 32768;
-
 	public const uint32 EVENT_TRACE_RELOG_MODE = 65536;
-
 	public const uint32 EVENT_TRACE_USE_PAGED_MEMORY = 16777216;
-
 	public const uint32 EVENT_TRACE_FILE_MODE_NEWFILE = 8;
-
 	public const uint32 EVENT_TRACE_FILE_MODE_PREALLOCATE = 32;
-
 	public const uint32 EVENT_TRACE_NONSTOPPABLE_MODE = 64;
-
 	public const uint32 EVENT_TRACE_SECURE_MODE = 128;
-
 	public const uint32 EVENT_TRACE_USE_KBYTES_FOR_SIZE = 8192;
-
 	public const uint32 EVENT_TRACE_PRIVATE_IN_PROC = 131072;
-
 	public const uint32 EVENT_TRACE_MODE_RESERVED = 1048576;
-
 	public const uint32 EVENT_TRACE_NO_PER_PROCESSOR_BUFFERING = 268435456;
-
 	public const uint32 EVENT_TRACE_SYSTEM_LOGGER_MODE = 33554432;
-
 	public const uint32 EVENT_TRACE_ADDTO_TRIAGE_DUMP = 2147483648;
-
 	public const uint32 EVENT_TRACE_STOP_ON_HYBRID_SHUTDOWN = 4194304;
-
 	public const uint32 EVENT_TRACE_PERSIST_ON_HYBRID_SHUTDOWN = 8388608;
-
 	public const uint32 EVENT_TRACE_INDEPENDENT_SESSION_MODE = 134217728;
-
 	public const uint32 EVENT_TRACE_COMPRESSED_MODE = 67108864;
-
 	public const uint32 EVENT_TRACE_CONTROL_INCREMENT_FILE = 4;
-
 	public const uint32 EVENT_TRACE_CONTROL_CONVERT_TO_REALTIME = 5;
-
 	public const uint32 TRACE_MESSAGE_PERFORMANCE_TIMESTAMP = 16;
-
 	public const uint32 TRACE_MESSAGE_POINTER32 = 64;
-
 	public const uint32 TRACE_MESSAGE_POINTER64 = 128;
-
 	public const uint32 TRACE_MESSAGE_FLAG_MASK = 65535;
-
 	public const uint32 EVENT_TRACE_USE_PROCTIME = 1;
-
 	public const uint32 EVENT_TRACE_USE_NOCPUTIME = 2;
-
 	public const uint32 TRACE_HEADER_FLAG_USE_TIMESTAMP = 512;
-
 	public const uint32 TRACE_HEADER_FLAG_TRACED_GUID = 131072;
-
 	public const uint32 TRACE_HEADER_FLAG_LOG_WNODE = 262144;
-
 	public const uint32 TRACE_HEADER_FLAG_USE_GUID_PTR = 524288;
-
 	public const uint32 TRACE_HEADER_FLAG_USE_MOF_PTR = 1048576;
-
 	public const uint64 SYSTEM_ALPC_KW_GENERAL = 1;
-
 	public const uint64 SYSTEM_CONFIG_KW_SYSTEM = 1;
-
 	public const uint64 SYSTEM_CONFIG_KW_GRAPHICS = 2;
-
 	public const uint64 SYSTEM_CONFIG_KW_STORAGE = 4;
-
 	public const uint64 SYSTEM_CONFIG_KW_NETWORK = 8;
-
 	public const uint64 SYSTEM_CONFIG_KW_SERVICES = 16;
-
 	public const uint64 SYSTEM_CONFIG_KW_PNP = 32;
-
 	public const uint64 SYSTEM_CONFIG_KW_OPTICAL = 64;
-
 	public const uint64 SYSTEM_CPU_KW_CONFIG = 1;
-
 	public const uint64 SYSTEM_CPU_KW_CACHE_FLUSH = 2;
-
 	public const uint64 SYSTEM_CPU_KW_SPEC_CONTROL = 4;
-
 	public const uint64 SYSTEM_HYPERVISOR_KW_PROFILE = 1;
-
 	public const uint64 SYSTEM_HYPERVISOR_KW_CALLOUTS = 2;
-
 	public const uint64 SYSTEM_HYPERVISOR_KW_VTL_CHANGE = 4;
-
 	public const uint64 SYSTEM_INTERRUPT_KW_GENERAL = 1;
-
 	public const uint64 SYSTEM_INTERRUPT_KW_CLOCK_INTERRUPT = 2;
-
 	public const uint64 SYSTEM_INTERRUPT_KW_DPC = 4;
-
 	public const uint64 SYSTEM_INTERRUPT_KW_DPC_QUEUE = 8;
-
 	public const uint64 SYSTEM_INTERRUPT_KW_WDF_DPC = 16;
-
 	public const uint64 SYSTEM_INTERRUPT_KW_WDF_INTERRUPT = 32;
-
 	public const uint64 SYSTEM_INTERRUPT_KW_IPI = 64;
-
 	public const uint64 SYSTEM_IO_KW_DISK = 1;
-
 	public const uint64 SYSTEM_IO_KW_DISK_INIT = 2;
-
 	public const uint64 SYSTEM_IO_KW_FILENAME = 4;
-
 	public const uint64 SYSTEM_IO_KW_SPLIT = 8;
-
 	public const uint64 SYSTEM_IO_KW_FILE = 16;
-
 	public const uint64 SYSTEM_IO_KW_OPTICAL = 32;
-
 	public const uint64 SYSTEM_IO_KW_OPTICAL_INIT = 64;
-
 	public const uint64 SYSTEM_IO_KW_DRIVERS = 128;
-
 	public const uint64 SYSTEM_IO_KW_CC = 256;
-
 	public const uint64 SYSTEM_IO_KW_NETWORK = 512;
-
 	public const uint64 SYSTEM_IOFILTER_KW_GENERAL = 1;
-
 	public const uint64 SYSTEM_IOFILTER_KW_INIT = 2;
-
 	public const uint64 SYSTEM_IOFILTER_KW_FASTIO = 4;
-
 	public const uint64 SYSTEM_IOFILTER_KW_FAILURE = 8;
-
 	public const uint64 SYSTEM_LOCK_KW_SPINLOCK = 1;
-
 	public const uint64 SYSTEM_LOCK_KW_SPINLOCK_COUNTERS = 2;
-
 	public const uint64 SYSTEM_LOCK_KW_SYNC_OBJECTS = 4;
-
 	public const uint64 SYSTEM_MEMORY_KW_GENERAL = 1;
-
 	public const uint64 SYSTEM_MEMORY_KW_HARD_FAULTS = 2;
-
 	public const uint64 SYSTEM_MEMORY_KW_ALL_FAULTS = 4;
-
 	public const uint64 SYSTEM_MEMORY_KW_POOL = 8;
-
 	public const uint64 SYSTEM_MEMORY_KW_MEMINFO = 16;
-
 	public const uint64 SYSTEM_MEMORY_KW_PFSECTION = 32;
-
 	public const uint64 SYSTEM_MEMORY_KW_MEMINFO_WS = 64;
-
 	public const uint64 SYSTEM_MEMORY_KW_HEAP = 128;
-
 	public const uint64 SYSTEM_MEMORY_KW_WS = 256;
-
 	public const uint64 SYSTEM_MEMORY_KW_CONTMEM_GEN = 512;
-
 	public const uint64 SYSTEM_MEMORY_KW_VIRTUAL_ALLOC = 1024;
-
 	public const uint64 SYSTEM_MEMORY_KW_FOOTPRINT = 2048;
-
 	public const uint64 SYSTEM_MEMORY_KW_SESSION = 4096;
-
 	public const uint64 SYSTEM_MEMORY_KW_REFSET = 8192;
-
 	public const uint64 SYSTEM_MEMORY_KW_VAMAP = 16384;
-
 	public const uint64 SYSTEM_MEMORY_KW_NONTRADEABLE = 32768;
-
 	public const uint64 SYSTEM_OBJECT_KW_GENERAL = 1;
-
 	public const uint64 SYSTEM_OBJECT_KW_HANDLE = 2;
-
 	public const uint64 SYSTEM_POWER_KW_GENERAL = 1;
-
 	public const uint64 SYSTEM_POWER_KW_HIBER_RUNDOWN = 2;
-
 	public const uint64 SYSTEM_POWER_KW_PROCESSOR_IDLE = 4;
-
 	public const uint64 SYSTEM_POWER_KW_IDLE_SELECTION = 8;
-
 	public const uint64 SYSTEM_POWER_KW_PPM_EXIT_LATENCY = 16;
-
 	public const uint64 SYSTEM_PROCESS_KW_GENERAL = 1;
-
 	public const uint64 SYSTEM_PROCESS_KW_INSWAP = 2;
-
 	public const uint64 SYSTEM_PROCESS_KW_FREEZE = 4;
-
 	public const uint64 SYSTEM_PROCESS_KW_PERF_COUNTER = 8;
-
 	public const uint64 SYSTEM_PROCESS_KW_WAKE_COUNTER = 16;
-
 	public const uint64 SYSTEM_PROCESS_KW_WAKE_DROP = 32;
-
 	public const uint64 SYSTEM_PROCESS_KW_WAKE_EVENT = 64;
-
 	public const uint64 SYSTEM_PROCESS_KW_DEBUG_EVENTS = 128;
-
 	public const uint64 SYSTEM_PROCESS_KW_DBGPRINT = 256;
-
 	public const uint64 SYSTEM_PROCESS_KW_JOB = 512;
-
 	public const uint64 SYSTEM_PROCESS_KW_WORKER_THREAD = 1024;
-
 	public const uint64 SYSTEM_PROCESS_KW_THREAD = 2048;
-
 	public const uint64 SYSTEM_PROCESS_KW_LOADER = 4096;
-
 	public const uint64 SYSTEM_PROFILE_KW_GENERAL = 1;
-
 	public const uint64 SYSTEM_PROFILE_KW_PMC_PROFILE = 2;
-
 	public const uint64 SYSTEM_REGISTRY_KW_GENERAL = 1;
-
 	public const uint64 SYSTEM_REGISTRY_KW_HIVE = 2;
-
 	public const uint64 SYSTEM_REGISTRY_KW_NOTIFICATION = 4;
-
 	public const uint64 SYSTEM_SCHEDULER_KW_XSCHEDULER = 1;
-
 	public const uint64 SYSTEM_SCHEDULER_KW_DISPATCHER = 2;
-
 	public const uint64 SYSTEM_SCHEDULER_KW_KERNEL_QUEUE = 4;
-
 	public const uint64 SYSTEM_SCHEDULER_KW_SHOULD_YIELD = 8;
-
 	public const uint64 SYSTEM_SCHEDULER_KW_ANTI_STARVATION = 16;
-
 	public const uint64 SYSTEM_SCHEDULER_KW_LOAD_BALANCER = 32;
-
 	public const uint64 SYSTEM_SCHEDULER_KW_AFFINITY = 64;
-
 	public const uint64 SYSTEM_SCHEDULER_KW_PRIORITY = 128;
-
 	public const uint64 SYSTEM_SCHEDULER_KW_IDEAL_PROCESSOR = 256;
-
 	public const uint64 SYSTEM_SCHEDULER_KW_CONTEXT_SWITCH = 512;
-
 	public const uint64 SYSTEM_SCHEDULER_KW_COMPACT_CSWITCH = 1024;
-
 	public const uint64 SYSTEM_SYSCALL_KW_GENERAL = 1;
-
 	public const uint64 SYSTEM_TIMER_KW_GENERAL = 1;
-
 	public const uint64 SYSTEM_TIMER_KW_CLOCK_TIMER = 2;
-
 	public const uint32 SYSTEM_MEMORY_POOL_FILTER_ID = 1;
-
 	public const uint32 ETW_NULL_TYPE_VALUE = 0;
-
 	public const uint32 ETW_OBJECT_TYPE_VALUE = 1;
-
 	public const uint32 ETW_STRING_TYPE_VALUE = 2;
-
 	public const uint32 ETW_SBYTE_TYPE_VALUE = 3;
-
 	public const uint32 ETW_BYTE_TYPE_VALUE = 4;
-
 	public const uint32 ETW_INT16_TYPE_VALUE = 5;
-
 	public const uint32 ETW_UINT16_TYPE_VALUE = 6;
-
 	public const uint32 ETW_INT32_TYPE_VALUE = 7;
-
 	public const uint32 ETW_UINT32_TYPE_VALUE = 8;
-
 	public const uint32 ETW_INT64_TYPE_VALUE = 9;
-
 	public const uint32 ETW_UINT64_TYPE_VALUE = 10;
-
 	public const uint32 ETW_CHAR_TYPE_VALUE = 11;
-
 	public const uint32 ETW_SINGLE_TYPE_VALUE = 12;
-
 	public const uint32 ETW_DOUBLE_TYPE_VALUE = 13;
-
 	public const uint32 ETW_BOOLEAN_TYPE_VALUE = 14;
-
 	public const uint32 ETW_DECIMAL_TYPE_VALUE = 15;
-
 	public const uint32 ETW_GUID_TYPE_VALUE = 101;
-
 	public const uint32 ETW_ASCIICHAR_TYPE_VALUE = 102;
-
 	public const uint32 ETW_ASCIISTRING_TYPE_VALUE = 103;
-
 	public const uint32 ETW_COUNTED_STRING_TYPE_VALUE = 104;
-
 	public const uint32 ETW_POINTER_TYPE_VALUE = 105;
-
 	public const uint32 ETW_SIZET_TYPE_VALUE = 106;
-
 	public const uint32 ETW_HIDDEN_TYPE_VALUE = 107;
-
 	public const uint32 ETW_BOOL_TYPE_VALUE = 108;
-
 	public const uint32 ETW_COUNTED_ANSISTRING_TYPE_VALUE = 109;
-
 	public const uint32 ETW_REVERSED_COUNTED_STRING_TYPE_VALUE = 110;
-
 	public const uint32 ETW_REVERSED_COUNTED_ANSISTRING_TYPE_VALUE = 111;
-
 	public const uint32 ETW_NON_NULL_TERMINATED_STRING_TYPE_VALUE = 112;
-
 	public const uint32 ETW_REDUCED_ANSISTRING_TYPE_VALUE = 113;
-
 	public const uint32 ETW_REDUCED_STRING_TYPE_VALUE = 114;
-
 	public const uint32 ETW_SID_TYPE_VALUE = 115;
-
 	public const uint32 ETW_VARIANT_TYPE_VALUE = 116;
-
 	public const uint32 ETW_PTVECTOR_TYPE_VALUE = 117;
-
 	public const uint32 ETW_WMITIME_TYPE_VALUE = 118;
-
 	public const uint32 ETW_DATETIME_TYPE_VALUE = 119;
-
 	public const uint32 ETW_REFRENCE_TYPE_VALUE = 120;
-
 	public const uint32 TRACE_PROVIDER_FLAG_LEGACY = 1;
-
 	public const uint32 TRACE_PROVIDER_FLAG_PRE_ENABLE = 2;
-
 	public const uint32 ENABLE_TRACE_PARAMETERS_VERSION = 1;
-
 	public const uint32 ENABLE_TRACE_PARAMETERS_VERSION_2 = 2;
-
 	public const uint32 EVENT_MIN_LEVEL = 0;
-
 	public const uint32 EVENT_MAX_LEVEL = 255;
-
 	public const uint32 EVENT_ACTIVITY_CTRL_GET_ID = 1;
-
 	public const uint32 EVENT_ACTIVITY_CTRL_SET_ID = 2;
-
 	public const uint32 EVENT_ACTIVITY_CTRL_CREATE_ID = 3;
-
 	public const uint32 EVENT_ACTIVITY_CTRL_GET_SET_ID = 4;
-
 	public const uint32 EVENT_ACTIVITY_CTRL_CREATE_SET_ID = 5;
-
 	public const uint32 MAX_EVENT_DATA_DESCRIPTORS = 128;
-
 	public const uint32 MAX_EVENT_FILTER_DATA_SIZE = 1024;
-
 	public const uint32 MAX_EVENT_FILTER_PAYLOAD_SIZE = 4096;
-
 	public const uint32 MAX_EVENT_FILTER_EVENT_NAME_SIZE = 4096;
-
 	public const uint32 MAX_EVENT_FILTERS_COUNT = 13;
-
 	public const uint32 MAX_EVENT_FILTER_PID_COUNT = 8;
-
 	public const uint32 MAX_EVENT_FILTER_EVENT_ID_COUNT = 64;
-
 	public const uint32 EVENT_FILTER_TYPE_NONE = 0;
-
 	public const uint32 EVENT_FILTER_TYPE_SCHEMATIZED = 2147483648;
-
 	public const uint32 EVENT_FILTER_TYPE_SYSTEM_FLAGS = 2147483649;
-
 	public const uint32 EVENT_FILTER_TYPE_TRACEHANDLE = 2147483650;
-
 	public const uint32 EVENT_FILTER_TYPE_PID = 2147483652;
-
 	public const uint32 EVENT_FILTER_TYPE_EXECUTABLE_NAME = 2147483656;
-
 	public const uint32 EVENT_FILTER_TYPE_PACKAGE_ID = 2147483664;
-
 	public const uint32 EVENT_FILTER_TYPE_PACKAGE_APP_ID = 2147483680;
-
 	public const uint32 EVENT_FILTER_TYPE_PAYLOAD = 2147483904;
-
 	public const uint32 EVENT_FILTER_TYPE_EVENT_ID = 2147484160;
-
 	public const uint32 EVENT_FILTER_TYPE_EVENT_NAME = 2147484672;
-
 	public const uint32 EVENT_FILTER_TYPE_STACKWALK = 2147487744;
-
 	public const uint32 EVENT_FILTER_TYPE_STACKWALK_NAME = 2147491840;
-
 	public const uint32 EVENT_FILTER_TYPE_STACKWALK_LEVEL_KW = 2147500032;
-
 	public const uint32 EVENT_FILTER_TYPE_CONTAINER = 2147516416;
-
 	public const uint32 EVENT_DATA_DESCRIPTOR_TYPE_NONE = 0;
-
 	public const uint32 EVENT_DATA_DESCRIPTOR_TYPE_EVENT_METADATA = 1;
-
 	public const uint32 EVENT_DATA_DESCRIPTOR_TYPE_PROVIDER_METADATA = 2;
-
 	public const uint32 EVENT_DATA_DESCRIPTOR_TYPE_TIMESTAMP_OVERRIDE = 3;
-
 	public const uint32 EVENT_WRITE_FLAG_NO_FAULTING = 1;
-
 	public const uint32 EVENT_WRITE_FLAG_INPRIVATE = 2;
-
 	public const uint32 EVENT_HEADER_EXT_TYPE_RELATED_ACTIVITYID = 1;
-
 	public const uint32 EVENT_HEADER_EXT_TYPE_SID = 2;
-
 	public const uint32 EVENT_HEADER_EXT_TYPE_TS_ID = 3;
-
 	public const uint32 EVENT_HEADER_EXT_TYPE_INSTANCE_INFO = 4;
-
 	public const uint32 EVENT_HEADER_EXT_TYPE_STACK_TRACE32 = 5;
-
 	public const uint32 EVENT_HEADER_EXT_TYPE_STACK_TRACE64 = 6;
-
 	public const uint32 EVENT_HEADER_EXT_TYPE_PEBS_INDEX = 7;
-
 	public const uint32 EVENT_HEADER_EXT_TYPE_PMC_COUNTERS = 8;
-
 	public const uint32 EVENT_HEADER_EXT_TYPE_PSM_KEY = 9;
-
 	public const uint32 EVENT_HEADER_EXT_TYPE_EVENT_KEY = 10;
-
 	public const uint32 EVENT_HEADER_EXT_TYPE_EVENT_SCHEMA_TL = 11;
-
 	public const uint32 EVENT_HEADER_EXT_TYPE_PROV_TRAITS = 12;
-
 	public const uint32 EVENT_HEADER_EXT_TYPE_PROCESS_START_KEY = 13;
-
 	public const uint32 EVENT_HEADER_EXT_TYPE_CONTROL_GUID = 14;
-
 	public const uint32 EVENT_HEADER_EXT_TYPE_QPC_DELTA = 15;
-
 	public const uint32 EVENT_HEADER_EXT_TYPE_CONTAINER_ID = 16;
-
 	public const uint32 EVENT_HEADER_EXT_TYPE_STACK_KEY32 = 17;
-
 	public const uint32 EVENT_HEADER_EXT_TYPE_STACK_KEY64 = 18;
-
 	public const uint32 EVENT_HEADER_EXT_TYPE_MAX = 19;
-
 	public const uint32 EVENT_HEADER_PROPERTY_XML = 1;
-
 	public const uint32 EVENT_HEADER_PROPERTY_FORWARDED_XML = 2;
-
 	public const uint32 EVENT_HEADER_PROPERTY_LEGACY_EVENTLOG = 4;
-
 	public const uint32 EVENT_HEADER_PROPERTY_RELOGGABLE = 8;
-
 	public const uint32 EVENT_HEADER_FLAG_EXTENDED_INFO = 1;
-
 	public const uint32 EVENT_HEADER_FLAG_PRIVATE_SESSION = 2;
-
 	public const uint32 EVENT_HEADER_FLAG_STRING_ONLY = 4;
-
 	public const uint32 EVENT_HEADER_FLAG_TRACE_MESSAGE = 8;
-
 	public const uint32 EVENT_HEADER_FLAG_NO_CPUTIME = 16;
-
 	public const uint32 EVENT_HEADER_FLAG_32_BIT_HEADER = 32;
-
 	public const uint32 EVENT_HEADER_FLAG_64_BIT_HEADER = 64;
-
 	public const uint32 EVENT_HEADER_FLAG_DECODE_GUID = 128;
-
 	public const uint32 EVENT_HEADER_FLAG_CLASSIC_HEADER = 256;
-
 	public const uint32 EVENT_HEADER_FLAG_PROCESSOR_INDEX = 512;
-
 	public const uint32 EVENT_ENABLE_PROPERTY_SID = 1;
-
 	public const uint32 EVENT_ENABLE_PROPERTY_TS_ID = 2;
-
 	public const uint32 EVENT_ENABLE_PROPERTY_STACK_TRACE = 4;
-
 	public const uint32 EVENT_ENABLE_PROPERTY_PSM_KEY = 8;
-
 	public const uint32 EVENT_ENABLE_PROPERTY_IGNORE_KEYWORD_0 = 16;
-
 	public const uint32 EVENT_ENABLE_PROPERTY_PROVIDER_GROUP = 32;
-
 	public const uint32 EVENT_ENABLE_PROPERTY_ENABLE_KEYWORD_0 = 64;
-
 	public const uint32 EVENT_ENABLE_PROPERTY_PROCESS_START_KEY = 128;
-
 	public const uint32 EVENT_ENABLE_PROPERTY_EVENT_KEY = 256;
-
 	public const uint32 EVENT_ENABLE_PROPERTY_EXCLUDE_INPRIVATE = 512;
-
 	public const uint32 EVENT_ENABLE_PROPERTY_ENABLE_SILOS = 1024;
-
 	public const uint32 EVENT_ENABLE_PROPERTY_SOURCE_CONTAINER_TRACKING = 2048;
-
 	public const uint32 PROCESS_TRACE_MODE_REAL_TIME = 256;
-
 	public const uint32 PROCESS_TRACE_MODE_RAW_TIMESTAMP = 4096;
-
 	public const uint32 PROCESS_TRACE_MODE_EVENT_RECORD = 268435456;
-
 	public const Guid CLSID_TraceRelogger = .(0x7b40792d, 0x05ff, 0x44c4, 0x90, 0x58, 0xf4, 0x40, 0xc7, 0x1f, 0x17, 0xd4);
-
 }
 #endregion
 
@@ -1329,7 +869,6 @@ public struct WNODE_HEADER
 		public HANDLE KernelHandle;
 		public LARGE_INTEGER TimeStamp;
 	}
-
 	[CRepr, Union]
 	public struct _Anonymous1_e__Union
 	{
@@ -1339,11 +878,9 @@ public struct WNODE_HEADER
 			public uint32 Version;
 			public uint32 Linkage;
 		}
-
 		public uint64 HistoricalContext;
 		public using _Anonymous_e__Struct Anonymous;
 	}
-
 	public uint32 BufferSize;
 	public uint32 ProviderId;
 	public _Anonymous1_e__Union Anonymous1;
@@ -1367,9 +904,9 @@ public struct WNODE_ALL_DATA
 	public struct _Anonymous_e__Union
 	{
 		public uint32 FixedInstanceSize;
-		public OFFSETINSTANCEDATAANDLENGTH[ANYSIZE_ARRAY] OffsetInstanceDataAndLength;
+		public OFFSETINSTANCEDATAANDLENGTH* OffsetInstanceDataAndLength mut => &OffsetInstanceDataAndLength_impl;
+		private OFFSETINSTANCEDATAANDLENGTH[ANYSIZE_ARRAY] OffsetInstanceDataAndLength_impl;
 	}
-
 	public WNODE_HEADER WnodeHeader;
 	public uint32 DataBlockOffset;
 	public uint32 InstanceCount;
@@ -1377,7 +914,7 @@ public struct WNODE_ALL_DATA
 	public using _Anonymous_e__Union Anonymous;
 }
 
-[CRepr, FlexibleArray("VariableData")]
+[CRepr]
 public struct WNODE_SINGLE_INSTANCE
 {
 	public WNODE_HEADER WnodeHeader;
@@ -1385,10 +922,11 @@ public struct WNODE_SINGLE_INSTANCE
 	public uint32 InstanceIndex;
 	public uint32 DataBlockOffset;
 	public uint32 SizeDataBlock;
+	public uint8* VariableData mut => &VariableData_impl;
 	private uint8[ANYSIZE_ARRAY] VariableData_impl;
 }
 
-[CRepr, FlexibleArray("VariableData")]
+[CRepr]
 public struct WNODE_SINGLE_ITEM
 {
 	public WNODE_HEADER WnodeHeader;
@@ -1397,10 +935,11 @@ public struct WNODE_SINGLE_ITEM
 	public uint32 ItemId;
 	public uint32 DataBlockOffset;
 	public uint32 SizeDataItem;
+	public uint8* VariableData mut => &VariableData_impl;
 	private uint8[ANYSIZE_ARRAY] VariableData_impl;
 }
 
-[CRepr, FlexibleArray("VariableData")]
+[CRepr]
 public struct WNODE_METHOD_ITEM
 {
 	public WNODE_HEADER WnodeHeader;
@@ -1409,6 +948,7 @@ public struct WNODE_METHOD_ITEM
 	public uint32 MethodId;
 	public uint32 DataBlockOffset;
 	public uint32 SizeDataBlock;
+	public uint8* VariableData mut => &VariableData_impl;
 	private uint8[ANYSIZE_ARRAY] VariableData_impl;
 }
 
@@ -1425,9 +965,9 @@ public struct WNODE_EVENT_REFERENCE
 	public struct _Anonymous_e__Union
 	{
 		public uint32 TargetInstanceIndex;
-		public char16[ANYSIZE_ARRAY] TargetInstanceName;
+		public char16* TargetInstanceName mut => &TargetInstanceName_impl;
+		private char16[ANYSIZE_ARRAY] TargetInstanceName_impl;
 	}
-
 	public WNODE_HEADER WnodeHeader;
 	public Guid TargetGuid;
 	public uint32 TargetDataBlockSize;
@@ -1452,14 +992,13 @@ public struct WMIREGGUIDW
 		public uint Pdo;
 		public uint InstanceInfo;
 	}
-
 	public Guid Guid;
 	public uint32 Flags;
 	public uint32 InstanceCount;
 	public using _Anonymous_e__Union Anonymous;
 }
 
-[CRepr, FlexibleArray("WmiRegGuid")]
+[CRepr]
 public struct WMIREGINFOW
 {
 	public uint32 BufferSize;
@@ -1467,6 +1006,7 @@ public struct WMIREGINFOW
 	public uint32 RegistryPath;
 	public uint32 MofResourceName;
 	public uint32 GuidCount;
+	public WMIREGGUIDW* WmiRegGuid mut => &WmiRegGuid_impl;
 	private WMIREGGUIDW[ANYSIZE_ARRAY] WmiRegGuid_impl;
 }
 
@@ -1482,19 +1022,16 @@ public struct EVENT_TRACE_HEADER
 			public uint32 ClientContext;
 			public uint32 Flags;
 		}
-
 		[CRepr]
 		public struct _Anonymous1_e__Struct
 		{
 			public uint32 KernelTime;
 			public uint32 UserTime;
 		}
-
 		public _Anonymous1_e__Struct Anonymous1;
 		public uint64 ProcessorTime;
 		public _Anonymous2_e__Struct Anonymous2;
 	}
-
 	[CRepr, Union]
 	public struct _Anonymous2_e__Union
 	{
@@ -1505,11 +1042,9 @@ public struct EVENT_TRACE_HEADER
 			public uint8 Level;
 			public uint16 Version;
 		}
-
 		public uint32 Version;
 		public _Class_e__Struct Class;
 	}
-
 	[CRepr, Union]
 	public struct _Anonymous1_e__Union
 	{
@@ -1519,18 +1054,15 @@ public struct EVENT_TRACE_HEADER
 			public uint8 HeaderType;
 			public uint8 MarkerFlags;
 		}
-
 		public uint16 FieldTypeFlags;
 		public using _Anonymous_e__Struct Anonymous;
 	}
-
 	[CRepr, Union]
 	public struct _Anonymous3_e__Union
 	{
 		public Guid Guid;
 		public uint64 GuidPtr;
 	}
-
 	public uint16 Size;
 	public _Anonymous1_e__Union Anonymous1;
 	public _Anonymous2_e__Union Anonymous2;
@@ -1553,19 +1085,16 @@ public struct EVENT_INSTANCE_HEADER
 			public uint32 EventId;
 			public uint32 Flags;
 		}
-
 		[CRepr]
 		public struct _Anonymous1_e__Struct
 		{
 			public uint32 KernelTime;
 			public uint32 UserTime;
 		}
-
 		public _Anonymous1_e__Struct Anonymous1;
 		public uint64 ProcessorTime;
 		public _Anonymous2_e__Struct Anonymous2;
 	}
-
 	[CRepr, Union]
 	public struct _Anonymous2_e__Union
 	{
@@ -1576,11 +1105,9 @@ public struct EVENT_INSTANCE_HEADER
 			public uint8 Level;
 			public uint16 Version;
 		}
-
 		public uint32 Version;
 		public _Class_e__Struct Class;
 	}
-
 	[CRepr, Union]
 	public struct _Anonymous1_e__Union
 	{
@@ -1590,11 +1117,9 @@ public struct EVENT_INSTANCE_HEADER
 			public uint8 HeaderType;
 			public uint8 MarkerFlags;
 		}
-
 		public uint16 FieldTypeFlags;
 		public using _Anonymous_e__Struct Anonymous;
 	}
-
 	public uint16 Size;
 	public _Anonymous1_e__Union Anonymous1;
 	public _Anonymous2_e__Union Anonymous2;
@@ -1630,11 +1155,9 @@ public struct TRACE_LOGFILE_HEADER
 			public uint32 EventsLost;
 			public uint32 CpuSpeedInMHz;
 		}
-
 		public Guid LogInstanceGuid;
 		public using _Anonymous_e__Struct Anonymous;
 	}
-
 	[CRepr, Union]
 	public struct _Anonymous1_e__Union
 	{
@@ -1646,11 +1169,9 @@ public struct TRACE_LOGFILE_HEADER
 			public uint8 SubVersion;
 			public uint8 SubMinorVersion;
 		}
-
 		public uint32 Version;
 		public _VersionDetail_e__Struct VersionDetail;
 	}
-
 	public uint32 BufferSize;
 	public _Anonymous1_e__Union Anonymous1;
 	public uint32 ProviderVersion;
@@ -1685,11 +1206,9 @@ public struct TRACE_LOGFILE_HEADER32
 			public uint32 EventsLost;
 			public uint32 CpuSpeedInMHz;
 		}
-
 		public Guid LogInstanceGuid;
 		public using _Anonymous_e__Struct Anonymous;
 	}
-
 	[CRepr, Union]
 	public struct _Anonymous1_e__Union
 	{
@@ -1701,11 +1220,9 @@ public struct TRACE_LOGFILE_HEADER32
 			public uint8 SubVersion;
 			public uint8 SubMinorVersion;
 		}
-
 		public uint32 Version;
 		public _VersionDetail_e__Struct VersionDetail;
 	}
-
 	public uint32 BufferSize;
 	public _Anonymous1_e__Union Anonymous1;
 	public uint32 ProviderVersion;
@@ -1740,11 +1257,9 @@ public struct TRACE_LOGFILE_HEADER64
 			public uint32 EventsLost;
 			public uint32 CpuSpeedInMHz;
 		}
-
 		public Guid LogInstanceGuid;
 		public using _Anonymous_e__Struct Anonymous;
 	}
-
 	[CRepr, Union]
 	public struct _Anonymous1_e__Union
 	{
@@ -1756,11 +1271,9 @@ public struct TRACE_LOGFILE_HEADER64
 			public uint8 SubVersion;
 			public uint8 SubMinorVersion;
 		}
-
 		public uint32 Version;
 		public _VersionDetail_e__Struct VersionDetail;
 	}
-
 	public uint32 BufferSize;
 	public _Anonymous1_e__Union Anonymous1;
 	public uint32 ProviderVersion;
@@ -1797,7 +1310,6 @@ public struct EVENT_TRACE_PROPERTIES
 		public int32 AgeLimit;
 		public int32 FlushThreshold;
 	}
-
 	public WNODE_HEADER Wnode;
 	public uint32 BufferSize;
 	public uint32 MinimumBuffers;
@@ -1829,11 +1341,9 @@ public struct EVENT_TRACE_PROPERTIES_V2
 		{
 			public uint32 _bitfield;
 		}
-
 		public using _Anonymous_e__Struct Anonymous;
 		public uint64 V2Options;
 	}
-
 	[CRepr, Union]
 	public struct _Anonymous2_e__Union
 	{
@@ -1842,18 +1352,15 @@ public struct EVENT_TRACE_PROPERTIES_V2
 		{
 			public uint32 _bitfield;
 		}
-
 		public using _Anonymous_e__Struct Anonymous;
 		public uint32 V2Control;
 	}
-
 	[CRepr, Union]
 	public struct _Anonymous1_e__Union
 	{
 		public int32 AgeLimit;
 		public int32 FlushThreshold;
 	}
-
 	public WNODE_HEADER Wnode;
 	public uint32 BufferSize;
 	public uint32 MinimumBuffers;
@@ -1908,11 +1415,9 @@ public struct ETW_BUFFER_CONTEXT
 			public uint8 ProcessorNumber;
 			public uint8 Alignment;
 		}
-
 		public using _Anonymous_e__Struct Anonymous;
 		public uint16 ProcessorIndex;
 	}
-
 	public using _Anonymous_e__Union Anonymous;
 	public uint16 LoggerId;
 }
@@ -1946,7 +1451,7 @@ public struct TRACE_GUID_INFO
 	public uint32 Reserved;
 }
 
-[CRepr, FlexibleArray("Description")]
+[CRepr]
 public struct PROFILE_SOURCE_INFO
 {
 	public uint32 NextEntryOffset;
@@ -1954,6 +1459,7 @@ public struct PROFILE_SOURCE_INFO
 	public uint32 MinInterval;
 	public uint32 MaxInterval;
 	public uint64 Reserved;
+	public char16* Description mut => &Description_impl;
 	private char16[ANYSIZE_ARRAY] Description_impl;
 }
 
@@ -1965,11 +1471,12 @@ public struct ETW_PMC_COUNTER_OWNER
 	public uint32 OwnerTag;
 }
 
-[CRepr, FlexibleArray("CounterOwners")]
+[CRepr]
 public struct ETW_PMC_COUNTER_OWNERSHIP_STATUS
 {
 	public uint32 ProcessorNumber;
 	public uint32 NumberOfCounters;
+	public ETW_PMC_COUNTER_OWNER* CounterOwners mut => &CounterOwners_impl;
 	private ETW_PMC_COUNTER_OWNER[ANYSIZE_ARRAY] CounterOwners_impl;
 }
 
@@ -1982,7 +1489,6 @@ public struct EVENT_TRACE
 		public uint32 ClientContext;
 		public ETW_BUFFER_CONTEXT BufferContext;
 	}
-
 	public EVENT_TRACE_HEADER Header;
 	public uint32 InstanceId;
 	public uint32 ParentInstanceId;
@@ -2001,14 +1507,12 @@ public struct EVENT_TRACE_LOGFILEW
 		public uint32 LogFileMode;
 		public uint32 ProcessTraceMode;
 	}
-
 	[CRepr, Union]
 	public struct _Anonymous2_e__Union
 	{
 		public PEVENT_CALLBACK EventCallback;
 		public PEVENT_RECORD_CALLBACK EventRecordCallback;
 	}
-
 	public PWSTR LogFileName;
 	public PWSTR LoggerName;
 	public int64 CurrentTime;
@@ -2034,14 +1538,12 @@ public struct EVENT_TRACE_LOGFILEA
 		public uint32 LogFileMode;
 		public uint32 ProcessTraceMode;
 	}
-
 	[CRepr, Union]
 	public struct _Anonymous2_e__Union
 	{
 		public PEVENT_CALLBACK EventCallback;
 		public PEVENT_RECORD_CALLBACK EventRecordCallback;
 	}
-
 	public PSTR LogFileName;
 	public PSTR LoggerName;
 	public int64 CurrentTime;
@@ -2148,11 +1650,9 @@ public struct EVENT_DATA_DESCRIPTOR
 			public uint8 Reserved1;
 			public uint16 Reserved2;
 		}
-
 		public uint32 Reserved;
 		public using _Anonymous_e__Struct Anonymous;
 	}
-
 	public uint64 Ptr;
 	public uint32 Size;
 	public using _Anonymous_e__Union Anonymous;
@@ -2189,16 +1689,17 @@ public struct EVENT_FILTER_HEADER
 	public uint32 NextOffset;
 }
 
-[CRepr, FlexibleArray("Events")]
+[CRepr]
 public struct EVENT_FILTER_EVENT_ID
 {
 	public BOOLEAN FilterIn;
 	public uint8 Reserved;
 	public uint16 Count;
+	public uint16* Events mut => &Events_impl;
 	private uint16[ANYSIZE_ARRAY] Events_impl;
 }
 
-[CRepr, FlexibleArray("Names")]
+[CRepr]
 public struct EVENT_FILTER_EVENT_NAME
 {
 	public uint64 MatchAnyKeyword;
@@ -2206,6 +1707,7 @@ public struct EVENT_FILTER_EVENT_NAME
 	public uint8 Level;
 	public BOOLEAN FilterIn;
 	public uint16 NameCount;
+	public uint8* Names mut => &Names_impl;
 	private uint8[ANYSIZE_ARRAY] Names_impl;
 }
 
@@ -2226,7 +1728,6 @@ public struct EVENT_HEADER_EXTENDED_DATA_ITEM
 	{
 		public uint16 _bitfield;
 	}
-
 	public uint16 Reserved1;
 	public uint16 ExtType;
 	public using _Anonymous_e__Struct Anonymous;
@@ -2254,17 +1755,19 @@ public struct EVENT_EXTENDED_ITEM_TS_ID
 	public uint32 SessionId;
 }
 
-[CRepr, FlexibleArray("Address")]
+[CRepr]
 public struct EVENT_EXTENDED_ITEM_STACK_TRACE32
 {
 	public uint64 MatchId;
+	public uint32* Address mut => &Address_impl;
 	private uint32[ANYSIZE_ARRAY] Address_impl;
 }
 
-[CRepr, FlexibleArray("Address")]
+[CRepr]
 public struct EVENT_EXTENDED_ITEM_STACK_TRACE64
 {
 	public uint64 MatchId;
+	public uint64* Address mut => &Address_impl;
 	private uint64[ANYSIZE_ARRAY] Address_impl;
 }
 
@@ -2289,9 +1792,10 @@ public struct EVENT_EXTENDED_ITEM_PEBS_INDEX
 	public uint64 PebsIndex;
 }
 
-[CRepr, FlexibleArray("Counter")]
+[CRepr]
 public struct EVENT_EXTENDED_ITEM_PMC_COUNTERS
 {
+	public uint64* Counter mut => &Counter_impl;
 	private uint64[ANYSIZE_ARRAY] Counter_impl;
 }
 
@@ -2319,11 +1823,9 @@ public struct EVENT_HEADER
 			public uint32 KernelTime;
 			public uint32 UserTime;
 		}
-
 		public using _Anonymous_e__Struct Anonymous;
 		public uint64 ProcessorTime;
 	}
-
 	public uint16 Size;
 	public uint16 HeaderType;
 	public uint16 Flags;
@@ -2358,12 +1860,11 @@ public struct EVENT_MAP_ENTRY
 		public uint32 Value;
 		public uint32 InputOffset;
 	}
-
 	public uint32 OutputOffset;
 	public using _Anonymous_e__Union Anonymous;
 }
 
-[CRepr, FlexibleArray("MapEntryArray")]
+[CRepr]
 public struct EVENT_MAP_INFO
 {
 	[CRepr, Union]
@@ -2372,11 +1873,11 @@ public struct EVENT_MAP_INFO
 		public MAP_VALUETYPE MapEntryValueType;
 		public uint32 FormatStringOffset;
 	}
-
 	public uint32 NameOffset;
 	public MAP_FLAGS Flag;
 	public uint32 EntryCount;
 	public using _Anonymous_e__Union Anonymous;
+	public EVENT_MAP_ENTRY* MapEntryArray mut => &MapEntryArray_impl;
 	private EVENT_MAP_ENTRY[ANYSIZE_ARRAY] MapEntryArray_impl;
 }
 
@@ -2391,18 +1892,15 @@ public struct EVENT_PROPERTY_INFO
 		{
 			public uint32 _bitfield;
 		}
-
 		public uint32 Reserved;
 		public using _Anonymous_e__Struct Anonymous;
 	}
-
 	[CRepr, Union]
 	public struct _Anonymous2_e__Union
 	{
 		public uint16 count;
 		public uint16 countPropertyIndex;
 	}
-
 	[CRepr, Union]
 	public struct _Anonymous1_e__Union
 	{
@@ -2413,7 +1911,6 @@ public struct EVENT_PROPERTY_INFO
 			public uint16 OutType;
 			public uint32 CustomSchemaOffset;
 		}
-
 		[CRepr]
 		public struct _nonStructType
 		{
@@ -2421,7 +1918,6 @@ public struct EVENT_PROPERTY_INFO
 			public uint16 OutType;
 			public uint32 MapNameOffset;
 		}
-
 		[CRepr]
 		public struct _structType
 		{
@@ -2429,19 +1925,16 @@ public struct EVENT_PROPERTY_INFO
 			public uint16 NumOfStructMembers;
 			public uint32 padding;
 		}
-
 		public _nonStructType nonStructType;
 		public _structType structType;
 		public _customSchemaType customSchemaType;
 	}
-
 	[CRepr, Union]
 	public struct _Anonymous3_e__Union
 	{
 		public uint16 length;
 		public uint16 lengthPropertyIndex;
 	}
-
 	public PROPERTY_FLAGS Flags;
 	public uint32 NameOffset;
 	public _Anonymous1_e__Union Anonymous1;
@@ -2450,7 +1943,7 @@ public struct EVENT_PROPERTY_INFO
 	public _Anonymous4_e__Union Anonymous4;
 }
 
-[CRepr, FlexibleArray("EventPropertyInfoArray")]
+[CRepr]
 public struct TRACE_EVENT_INFO
 {
 	[CRepr, Union]
@@ -2461,25 +1954,21 @@ public struct TRACE_EVENT_INFO
 		{
 			public uint32 _bitfield;
 		}
-
 		public TEMPLATE_FLAGS Flags;
 		public using _Anonymous_e__Struct Anonymous;
 	}
-
 	[CRepr, Union]
 	public struct _Anonymous1_e__Union
 	{
 		public uint32 EventNameOffset;
 		public uint32 ActivityIDNameOffset;
 	}
-
 	[CRepr, Union]
 	public struct _Anonymous2_e__Union
 	{
 		public uint32 EventAttributesOffset;
 		public uint32 RelatedActivityIDNameOffset;
 	}
-
 	public Guid ProviderGuid;
 	public Guid EventGuid;
 	public EVENT_DESCRIPTOR EventDescriptor;
@@ -2499,6 +1988,7 @@ public struct TRACE_EVENT_INFO
 	public uint32 PropertyCount;
 	public uint32 TopLevelPropertyCount;
 	public _Anonymous3_e__Union Anonymous3;
+	public EVENT_PROPERTY_INFO* EventPropertyInfoArray mut => &EventPropertyInfoArray_impl;
 	private EVENT_PROPERTY_INFO[ANYSIZE_ARRAY] EventPropertyInfoArray_impl;
 }
 
@@ -2518,7 +2008,7 @@ public struct PAYLOAD_FILTER_PREDICATE
 	public PWSTR Value;
 }
 
-[CRepr, FlexibleArray("EventPropertyInfoArray")]
+[CRepr]
 public struct PROVIDER_FILTER_INFO
 {
 	public uint8 Id;
@@ -2526,6 +2016,7 @@ public struct PROVIDER_FILTER_INFO
 	public uint32 MessageOffset;
 	public uint32 Reserved;
 	public uint32 PropertyCount;
+	public EVENT_PROPERTY_INFO* EventPropertyInfoArray mut => &EventPropertyInfoArray_impl;
 	private EVENT_PROPERTY_INFO[ANYSIZE_ARRAY] EventPropertyInfoArray_impl;
 }
 
@@ -2537,11 +2028,12 @@ public struct PROVIDER_FIELD_INFO
 	public uint64 Value;
 }
 
-[CRepr, FlexibleArray("FieldInfoArray")]
+[CRepr]
 public struct PROVIDER_FIELD_INFOARRAY
 {
 	public uint32 NumberOfElements;
 	public EVENT_FIELD_TYPE FieldType;
+	public PROVIDER_FIELD_INFO* FieldInfoArray mut => &FieldInfoArray_impl;
 	private PROVIDER_FIELD_INFO[ANYSIZE_ARRAY] FieldInfoArray_impl;
 }
 
@@ -2553,19 +2045,21 @@ public struct TRACE_PROVIDER_INFO
 	public uint32 ProviderNameOffset;
 }
 
-[CRepr, FlexibleArray("TraceProviderInfoArray")]
+[CRepr]
 public struct PROVIDER_ENUMERATION_INFO
 {
 	public uint32 NumberOfProviders;
 	public uint32 Reserved;
+	public TRACE_PROVIDER_INFO* TraceProviderInfoArray mut => &TraceProviderInfoArray_impl;
 	private TRACE_PROVIDER_INFO[ANYSIZE_ARRAY] TraceProviderInfoArray_impl;
 }
 
-[CRepr, FlexibleArray("EventDescriptorsArray")]
+[CRepr]
 public struct PROVIDER_EVENT_INFO
 {
 	public uint32 NumberOfEvents;
 	public uint32 Reserved;
+	public EVENT_DESCRIPTOR* EventDescriptorsArray mut => &EventDescriptorsArray_impl;
 	private EVENT_DESCRIPTOR[ANYSIZE_ARRAY] EventDescriptorsArray_impl;
 }
 

@@ -6,7 +6,6 @@ namespace Win32.System.MixedReality;
 public static
 {
 	public const Guid PERCEPTIONFIELD_StateStream_TimeStamps = .(0xaa886119, 0xf32f, 0x49bf, 0x92, 0xca, 0xf9, 0xdd, 0xf7, 0x84, 0xd2, 0x97);
-
 }
 #endregion
 

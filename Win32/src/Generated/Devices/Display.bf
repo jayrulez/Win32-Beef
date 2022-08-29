@@ -8,7 +8,6 @@ using Win32.UI.ColorSystem;
 using Win32.System.Console;
 using Win32.Graphics.Direct3D9;
 using System;
-using System.Interop;
 
 namespace Win32.Devices.Display;
 
@@ -16,1479 +15,742 @@ namespace Win32.Devices.Display;
 public static
 {
 	public const Guid GUID_DEVINTERFACE_DISPLAY_ADAPTER = .(0x5b45201d, 0xf2f2, 0x4f3b, 0x85, 0xbb, 0x30, 0xff, 0x1f, 0x95, 0x35, 0x99);
-
 	public const Guid GUID_DEVINTERFACE_MONITOR = .(0xe6f07b5f, 0xee97, 0x4a90, 0xb0, 0x76, 0x33, 0xf5, 0x7b, 0xf4, 0xea, 0xa7);
-
 	public const Guid GUID_DISPLAY_DEVICE_ARRIVAL = .(0x1ca05180, 0xa699, 0x450a, 0x9a, 0x0c, 0xde, 0x4f, 0xbe, 0x3d, 0xdd, 0x89);
-
 	public const Guid GUID_DEVINTERFACE_VIDEO_OUTPUT_ARRIVAL = .(0x1ad9e4f0, 0xf88d, 0x4360, 0xba, 0xb9, 0x4c, 0x2d, 0x55, 0xe5, 0x64, 0xcd);
-
 	public const PROPERTYKEY DEVPKEY_IndirectDisplay = .(.(0xc50a3f10, 0xaa5c, 0x4247, 0xb8, 0x30, 0xd6, 0xa6, 0xf8, 0xea, 0xa3, 0x10), 1);
-
 	public const PROPERTYKEY DEVPKEY_Device_TerminalLuid = .(.(0xc50a3f10, 0xaa5c, 0x4247, 0xb8, 0x30, 0xd6, 0xa6, 0xf8, 0xea, 0xa3, 0x10), 2);
-
 	public const PROPERTYKEY DEVPKEY_Device_AdapterLuid = .(.(0xc50a3f10, 0xaa5c, 0x4247, 0xb8, 0x30, 0xd6, 0xa6, 0xf8, 0xea, 0xa3, 0x10), 3);
-
 	public const PROPERTYKEY DEVPKEY_Device_ActivityId = .(.(0xc50a3f10, 0xaa5c, 0x4247, 0xb8, 0x30, 0xd6, 0xa6, 0xf8, 0xea, 0xa3, 0x10), 4);
-
 	public const uint32 INDIRECT_DISPLAY_INFO_FLAGS_CREATED_IDDCX_ADAPTER = 1;
-
 	public const uint32 IOCTL_VIDEO_DISABLE_VDM = 2293764;
-
 	public const uint32 IOCTL_VIDEO_REGISTER_VDM = 2293768;
-
 	public const uint32 IOCTL_VIDEO_SET_OUTPUT_DEVICE_POWER_STATE = 2293772;
-
 	public const uint32 IOCTL_VIDEO_GET_OUTPUT_DEVICE_POWER_STATE = 2293776;
-
 	public const uint32 IOCTL_VIDEO_MONITOR_DEVICE = 2293780;
-
 	public const uint32 IOCTL_VIDEO_ENUM_MONITOR_PDO = 2293784;
-
 	public const uint32 IOCTL_VIDEO_INIT_WIN32K_CALLBACKS = 2293788;
-
 	public const uint32 IOCTL_VIDEO_IS_VGA_DEVICE = 2293796;
-
 	public const uint32 IOCTL_VIDEO_USE_DEVICE_IN_SESSION = 2293800;
-
 	public const uint32 IOCTL_VIDEO_PREPARE_FOR_EARECOVERY = 2293804;
-
 	public const uint32 IOCTL_VIDEO_ENABLE_VDM = 2293760;
-
 	public const uint32 IOCTL_VIDEO_SAVE_HARDWARE_STATE = 2294272;
-
 	public const uint32 IOCTL_VIDEO_RESTORE_HARDWARE_STATE = 2294276;
-
 	public const uint32 IOCTL_VIDEO_HANDLE_VIDEOPARAMETERS = 2293792;
-
 	public const uint32 IOCTL_VIDEO_QUERY_AVAIL_MODES = 2294784;
-
 	public const uint32 IOCTL_VIDEO_QUERY_NUM_AVAIL_MODES = 2294788;
-
 	public const uint32 IOCTL_VIDEO_QUERY_CURRENT_MODE = 2294792;
-
 	public const uint32 IOCTL_VIDEO_SET_CURRENT_MODE = 2294796;
-
 	public const uint32 IOCTL_VIDEO_RESET_DEVICE = 2294800;
-
 	public const uint32 IOCTL_VIDEO_LOAD_AND_SET_FONT = 2294804;
-
 	public const uint32 IOCTL_VIDEO_SET_PALETTE_REGISTERS = 2294808;
-
 	public const uint32 IOCTL_VIDEO_SET_COLOR_REGISTERS = 2294812;
-
 	public const uint32 IOCTL_VIDEO_ENABLE_CURSOR = 2294816;
-
 	public const uint32 IOCTL_VIDEO_DISABLE_CURSOR = 2294820;
-
 	public const uint32 IOCTL_VIDEO_SET_CURSOR_ATTR = 2294824;
-
 	public const uint32 IOCTL_VIDEO_QUERY_CURSOR_ATTR = 2294828;
-
 	public const uint32 IOCTL_VIDEO_SET_CURSOR_POSITION = 2294832;
-
 	public const uint32 IOCTL_VIDEO_QUERY_CURSOR_POSITION = 2294836;
-
 	public const uint32 IOCTL_VIDEO_ENABLE_POINTER = 2294840;
-
 	public const uint32 IOCTL_VIDEO_DISABLE_POINTER = 2294844;
-
 	public const uint32 IOCTL_VIDEO_SET_POINTER_ATTR = 2294848;
-
 	public const uint32 IOCTL_VIDEO_QUERY_POINTER_ATTR = 2294852;
-
 	public const uint32 IOCTL_VIDEO_SET_POINTER_POSITION = 2294856;
-
 	public const uint32 IOCTL_VIDEO_QUERY_POINTER_POSITION = 2294860;
-
 	public const uint32 IOCTL_VIDEO_QUERY_POINTER_CAPABILITIES = 2294864;
-
 	public const uint32 IOCTL_VIDEO_GET_BANK_SELECT_CODE = 2294868;
-
 	public const uint32 IOCTL_VIDEO_MAP_VIDEO_MEMORY = 2294872;
-
 	public const uint32 IOCTL_VIDEO_UNMAP_VIDEO_MEMORY = 2294876;
-
 	public const uint32 IOCTL_VIDEO_QUERY_PUBLIC_ACCESS_RANGES = 2294880;
-
 	public const uint32 IOCTL_VIDEO_FREE_PUBLIC_ACCESS_RANGES = 2294884;
-
 	public const uint32 IOCTL_VIDEO_QUERY_COLOR_CAPABILITIES = 2294888;
-
 	public const uint32 IOCTL_VIDEO_SET_POWER_MANAGEMENT = 2294892;
-
 	public const uint32 IOCTL_VIDEO_GET_POWER_MANAGEMENT = 2294896;
-
 	public const uint32 IOCTL_VIDEO_SHARE_VIDEO_MEMORY = 2294900;
-
 	public const uint32 IOCTL_VIDEO_UNSHARE_VIDEO_MEMORY = 2294904;
-
 	public const uint32 IOCTL_VIDEO_SET_COLOR_LUT_DATA = 2294908;
-
 	public const uint32 IOCTL_VIDEO_GET_CHILD_STATE = 2294912;
-
 	public const uint32 IOCTL_VIDEO_VALIDATE_CHILD_STATE_CONFIGURATION = 2294916;
-
 	public const uint32 IOCTL_VIDEO_SET_CHILD_STATE_CONFIGURATION = 2294920;
-
 	public const uint32 IOCTL_VIDEO_SWITCH_DUALVIEW = 2294924;
-
 	public const uint32 IOCTL_VIDEO_SET_BANK_POSITION = 2294928;
-
 	public const uint32 IOCTL_VIDEO_QUERY_SUPPORTED_BRIGHTNESS = 2294932;
-
 	public const uint32 IOCTL_VIDEO_QUERY_DISPLAY_BRIGHTNESS = 2294936;
-
 	public const uint32 IOCTL_VIDEO_SET_DISPLAY_BRIGHTNESS = 2294940;
-
 	public const uint32 IOCTL_FSVIDEO_COPY_FRAME_BUFFER = 3409920;
-
 	public const uint32 IOCTL_FSVIDEO_WRITE_TO_FRAME_BUFFER = 3409924;
-
 	public const uint32 IOCTL_FSVIDEO_REVERSE_MOUSE_POINTER = 3409928;
-
 	public const uint32 IOCTL_FSVIDEO_SET_CURRENT_MODE = 3409932;
-
 	public const uint32 IOCTL_FSVIDEO_SET_SCREEN_INFORMATION = 3409936;
-
 	public const uint32 IOCTL_FSVIDEO_SET_CURSOR_POSITION = 3409940;
-
 	public const uint32 IOCTL_PANEL_QUERY_BRIGHTNESS_CAPS = 2296832;
-
 	public const uint32 IOCTL_PANEL_QUERY_BRIGHTNESS_RANGES = 2296836;
-
 	public const uint32 IOCTL_PANEL_GET_BRIGHTNESS = 2296840;
-
 	public const uint32 IOCTL_PANEL_SET_BRIGHTNESS = 2296844;
-
 	public const uint32 IOCTL_PANEL_SET_BRIGHTNESS_STATE = 2296848;
-
 	public const uint32 IOCTL_PANEL_SET_BACKLIGHT_OPTIMIZATION = 2296852;
-
 	public const uint32 IOCTL_PANEL_GET_BACKLIGHT_REDUCTION = 2296856;
-
 	public const uint32 IOCTL_COLORSPACE_TRANSFORM_QUERY_TARGET_CAPS = 2297856;
-
 	public const uint32 IOCTL_COLORSPACE_TRANSFORM_SET = 2297860;
-
 	public const uint32 IOCTL_SET_ACTIVE_COLOR_PROFILE_NAME = 2297864;
-
 	public const uint32 IOCTL_MIPI_DSI_QUERY_CAPS = 2298880;
-
 	public const uint32 IOCTL_MIPI_DSI_TRANSMISSION = 2298884;
-
 	public const uint32 IOCTL_MIPI_DSI_RESET = 2298888;
-
 	public const uint32 DXGK_WIN32K_PARAM_FLAG_UPDATEREGISTRY = 1;
-
 	public const uint32 DXGK_WIN32K_PARAM_FLAG_MODESWITCH = 2;
-
 	public const uint32 DXGK_WIN32K_PARAM_FLAG_DISABLEVIEW = 4;
-
 	public const uint32 VIDEO_DUALVIEW_REMOVABLE = 1;
-
 	public const uint32 VIDEO_DUALVIEW_PRIMARY = 2147483648;
-
 	public const uint32 VIDEO_DUALVIEW_SECONDARY = 1073741824;
-
 	public const uint32 VIDEO_DUALVIEW_WDDM_VGA = 536870912;
-
 	public const uint32 VIDEO_STATE_NON_STANDARD_VGA = 1;
-
 	public const uint32 VIDEO_STATE_UNEMULATED_VGA_STATE = 2;
-
 	public const uint32 VIDEO_STATE_PACKED_CHAIN4_MODE = 4;
-
 	public const uint32 VIDEO_MODE_NO_ZERO_MEMORY = 2147483648;
-
 	public const uint32 VIDEO_MODE_MAP_MEM_LINEAR = 1073741824;
-
 	public const uint32 VIDEO_MODE_COLOR = 1;
-
 	public const uint32 VIDEO_MODE_GRAPHICS = 2;
-
 	public const uint32 VIDEO_MODE_PALETTE_DRIVEN = 4;
-
 	public const uint32 VIDEO_MODE_MANAGED_PALETTE = 8;
-
 	public const uint32 VIDEO_MODE_INTERLACED = 16;
-
 	public const uint32 VIDEO_MODE_NO_OFF_SCREEN = 32;
-
 	public const uint32 VIDEO_MODE_NO_64_BIT_ACCESS = 64;
-
 	public const uint32 VIDEO_MODE_BANKED = 128;
-
 	public const uint32 VIDEO_MODE_LINEAR = 256;
-
 	public const uint32 VIDEO_MODE_ASYNC_POINTER = 1;
-
 	public const uint32 VIDEO_MODE_MONO_POINTER = 2;
-
 	public const uint32 VIDEO_MODE_COLOR_POINTER = 4;
-
 	public const uint32 VIDEO_MODE_ANIMATE_START = 8;
-
 	public const uint32 VIDEO_MODE_ANIMATE_UPDATE = 16;
-
 	public const uint32 PLANAR_HC = 1;
-
 	public const uint32 VIDEO_DEVICE_COLOR = 1;
-
 	public const uint32 VIDEO_OPTIONAL_GAMMET_TABLE = 2;
-
 	public const uint32 VIDEO_COLOR_LUT_DATA_FORMAT_RGB256WORDS = 1;
-
 	public const uint32 VIDEO_COLOR_LUT_DATA_FORMAT_PRIVATEFORMAT = 2147483648;
-
 	public const uint32 DISPLAYPOLICY_AC = 1;
-
 	public const uint32 DISPLAYPOLICY_DC = 2;
-
 	public const uint32 CHAR_TYPE_SBCS = 0;
-
 	public const uint32 CHAR_TYPE_LEADING = 2;
-
 	public const uint32 CHAR_TYPE_TRAILING = 3;
-
 	public const uint32 BITMAP_BITS_BYTE_ALIGN = 8;
-
 	public const uint32 BITMAP_BITS_WORD_ALIGN = 16;
-
 	public const uint32 BITMAP_ARRAY_BYTE = 3;
-
 	public const uint32 BITMAP_PLANES = 1;
-
 	public const uint32 BITMAP_BITS_PIXEL = 1;
-
 	public const uint32 VIDEO_REASON_NONE = 0;
-
 	public const uint32 VIDEO_REASON_POLICY1 = 1;
-
 	public const uint32 VIDEO_REASON_POLICY2 = 2;
-
 	public const uint32 VIDEO_REASON_POLICY3 = 3;
-
 	public const uint32 VIDEO_REASON_POLICY4 = 4;
-
 	public const uint32 VIDEO_REASON_LOCK = 5;
-
 	public const uint32 VIDEO_REASON_FAILED_ROTATION = 5;
-
 	public const uint32 VIDEO_REASON_ALLOCATION = 6;
-
 	public const uint32 VIDEO_REASON_SCRATCH = 8;
-
 	public const uint32 VIDEO_REASON_CONFIGURATION = 9;
-
 	public const uint32 VIDEO_MAX_REASON = 9;
-
 	public const uint32 BRIGHTNESS_MAX_LEVEL_COUNT = 103;
-
 	public const uint32 BRIGHTNESS_MAX_NIT_RANGE_COUNT = 16;
-
 	public const uint32 DSI_PACKET_EMBEDDED_PAYLOAD_SIZE = 8;
-
 	public const uint32 MAX_PACKET_COUNT = 128;
-
 	public const uint32 DSI_INVALID_PACKET_INDEX = 255;
-
 	public const uint32 DSI_SOT_ERROR = 1;
-
 	public const uint32 DSI_SOT_SYNC_ERROR = 2;
-
 	public const uint32 DSI_EOT_SYNC_ERROR = 4;
-
 	public const uint32 DSI_ESCAPE_MODE_ENTRY_COMMAND_ERROR = 8;
-
 	public const uint32 DSI_LOW_POWER_TRANSMIT_SYNC_ERROR = 16;
-
 	public const uint32 DSI_PERIPHERAL_TIMEOUT_ERROR = 32;
-
 	public const uint32 DSI_FALSE_CONTROL_ERROR = 64;
-
 	public const uint32 DSI_CONTENTION_DETECTED = 128;
-
 	public const uint32 DSI_CHECKSUM_ERROR_CORRECTED = 256;
-
 	public const uint32 DSI_CHECKSUM_ERROR_NOT_CORRECTED = 512;
-
 	public const uint32 DSI_LONG_PACKET_PAYLOAD_CHECKSUM_ERROR = 1024;
-
 	public const uint32 DSI_DSI_DATA_TYPE_NOT_RECOGNIZED = 2048;
-
 	public const uint32 DSI_DSI_VC_ID_INVALID = 4096;
-
 	public const uint32 DSI_INVALID_TRANSMISSION_LENGTH = 8192;
-
 	public const uint32 DSI_DSI_PROTOCOL_VIOLATION = 32768;
-
 	public const uint32 HOST_DSI_DEVICE_NOT_READY = 1;
-
 	public const uint32 HOST_DSI_INTERFACE_RESET = 2;
-
 	public const uint32 HOST_DSI_DEVICE_RESET = 4;
-
 	public const uint32 HOST_DSI_TRANSMISSION_CANCELLED = 16;
-
 	public const uint32 HOST_DSI_TRANSMISSION_DROPPED = 32;
-
 	public const uint32 HOST_DSI_TRANSMISSION_TIMEOUT = 64;
-
 	public const uint32 HOST_DSI_INVALID_TRANSMISSION = 256;
-
 	public const uint32 HOST_DSI_OS_REJECTED_PACKET = 512;
-
 	public const uint32 HOST_DSI_DRIVER_REJECTED_PACKET = 1024;
-
 	public const uint32 HOST_DSI_BAD_TRANSMISSION_MODE = 4096;
-
 	public const Guid GUID_MONITOR_OVERRIDE_PSEUDO_SPECIALIZED = .(0xf196c02f, 0xf86f, 0x4f9a, 0xaa, 0x15, 0xe9, 0xce, 0xbd, 0xfe, 0x3b, 0x96);
-
 	public const uint32 FD_ERROR = 4294967295;
-
 	public const uint32 DDI_ERROR = 4294967295;
-
 	public const uint32 FDM_TYPE_BM_SIDE_CONST = 1;
-
 	public const uint32 FDM_TYPE_MAXEXT_EQUAL_BM_SIDE = 2;
-
 	public const uint32 FDM_TYPE_CHAR_INC_EQUAL_BM_BASE = 4;
-
 	public const uint32 FDM_TYPE_ZERO_BEARINGS = 8;
-
 	public const uint32 FDM_TYPE_CONST_BEARINGS = 16;
-
 	public const uint32 GS_UNICODE_HANDLES = 1;
-
 	public const uint32 GS_8BIT_HANDLES = 2;
-
 	public const uint32 GS_16BIT_HANDLES = 4;
-
 	public const uint32 FM_VERSION_NUMBER = 0;
-
 	public const uint32 FM_TYPE_LICENSED = 2;
-
 	public const uint32 FM_READONLY_EMBED = 4;
-
 	public const uint32 FM_EDITABLE_EMBED = 8;
-
 	public const uint32 FM_NO_EMBEDDING = 2;
-
 	public const uint32 FM_INFO_TECH_TRUETYPE = 1;
-
 	public const uint32 FM_INFO_TECH_BITMAP = 2;
-
 	public const uint32 FM_INFO_TECH_STROKE = 4;
-
 	public const uint32 FM_INFO_TECH_OUTLINE_NOT_TRUETYPE = 8;
-
 	public const uint32 FM_INFO_ARB_XFORMS = 16;
-
 	public const uint32 FM_INFO_1BPP = 32;
-
 	public const uint32 FM_INFO_4BPP = 64;
-
 	public const uint32 FM_INFO_8BPP = 128;
-
 	public const uint32 FM_INFO_16BPP = 256;
-
 	public const uint32 FM_INFO_24BPP = 512;
-
 	public const uint32 FM_INFO_32BPP = 1024;
-
 	public const uint32 FM_INFO_INTEGER_WIDTH = 2048;
-
 	public const uint32 FM_INFO_CONSTANT_WIDTH = 4096;
-
 	public const uint32 FM_INFO_NOT_CONTIGUOUS = 8192;
-
 	public const uint32 FM_INFO_TECH_MM = 16384;
-
 	public const uint32 FM_INFO_RETURNS_OUTLINES = 32768;
-
 	public const uint32 FM_INFO_RETURNS_STROKES = 65536;
-
 	public const uint32 FM_INFO_RETURNS_BITMAPS = 131072;
-
 	public const uint32 FM_INFO_DSIG = 262144;
-
 	public const uint32 FM_INFO_RIGHT_HANDED = 524288;
-
 	public const uint32 FM_INFO_INTEGRAL_SCALING = 1048576;
-
 	public const uint32 FM_INFO_90DEGREE_ROTATIONS = 2097152;
-
 	public const uint32 FM_INFO_OPTICALLY_FIXED_PITCH = 4194304;
-
 	public const uint32 FM_INFO_DO_NOT_ENUMERATE = 8388608;
-
 	public const uint32 FM_INFO_ISOTROPIC_SCALING_ONLY = 16777216;
-
 	public const uint32 FM_INFO_ANISOTROPIC_SCALING_ONLY = 33554432;
-
 	public const uint32 FM_INFO_TECH_CFF = 67108864;
-
 	public const uint32 FM_INFO_FAMILY_EQUIV = 134217728;
-
 	public const uint32 FM_INFO_DBCS_FIXED_PITCH = 268435456;
-
 	public const uint32 FM_INFO_NONNEGATIVE_AC = 536870912;
-
 	public const uint32 FM_INFO_IGNORE_TC_RA_ABLE = 1073741824;
-
 	public const uint32 FM_INFO_TECH_TYPE1 = 2147483648;
-
 	public const uint32 MAXCHARSETS = 16;
-
 	public const uint32 FM_PANOSE_CULTURE_LATIN = 0;
-
 	public const uint32 FM_SEL_ITALIC = 1;
-
 	public const uint32 FM_SEL_UNDERSCORE = 2;
-
 	public const uint32 FM_SEL_NEGATIVE = 4;
-
 	public const uint32 FM_SEL_OUTLINED = 8;
-
 	public const uint32 FM_SEL_STRIKEOUT = 16;
-
 	public const uint32 FM_SEL_BOLD = 32;
-
 	public const uint32 FM_SEL_REGULAR = 64;
-
 	public const uint32 OPENGL_CMD = 4352;
-
 	public const uint32 OPENGL_GETINFO = 4353;
-
 	public const uint32 WNDOBJ_SETUP = 4354;
-
 	public const uint32 DDI_DRIVER_VERSION_NT4 = 131072;
-
 	public const uint32 DDI_DRIVER_VERSION_SP3 = 131075;
-
 	public const uint32 DDI_DRIVER_VERSION_NT5 = 196608;
-
 	public const uint32 DDI_DRIVER_VERSION_NT5_01 = 196864;
-
 	public const uint32 DDI_DRIVER_VERSION_NT5_01_SP1 = 196865;
-
 	public const uint32 GDI_DRIVER_VERSION = 16384;
-
 	public const int32 INDEX_DrvEnablePDEV = 0;
-
 	public const int32 INDEX_DrvCompletePDEV = 1;
-
 	public const int32 INDEX_DrvDisablePDEV = 2;
-
 	public const int32 INDEX_DrvEnableSurface = 3;
-
 	public const int32 INDEX_DrvDisableSurface = 4;
-
 	public const int32 INDEX_DrvAssertMode = 5;
-
 	public const int32 INDEX_DrvOffset = 6;
-
 	public const int32 INDEX_DrvResetPDEV = 7;
-
 	public const int32 INDEX_DrvDisableDriver = 8;
-
 	public const int32 INDEX_DrvCreateDeviceBitmap = 10;
-
 	public const int32 INDEX_DrvDeleteDeviceBitmap = 11;
-
 	public const int32 INDEX_DrvRealizeBrush = 12;
-
 	public const int32 INDEX_DrvDitherColor = 13;
-
 	public const int32 INDEX_DrvStrokePath = 14;
-
 	public const int32 INDEX_DrvFillPath = 15;
-
 	public const int32 INDEX_DrvStrokeAndFillPath = 16;
-
 	public const int32 INDEX_DrvPaint = 17;
-
 	public const int32 INDEX_DrvBitBlt = 18;
-
 	public const int32 INDEX_DrvCopyBits = 19;
-
 	public const int32 INDEX_DrvStretchBlt = 20;
-
 	public const int32 INDEX_DrvSetPalette = 22;
-
 	public const int32 INDEX_DrvTextOut = 23;
-
 	public const int32 INDEX_DrvEscape = 24;
-
 	public const int32 INDEX_DrvDrawEscape = 25;
-
 	public const int32 INDEX_DrvQueryFont = 26;
-
 	public const int32 INDEX_DrvQueryFontTree = 27;
-
 	public const int32 INDEX_DrvQueryFontData = 28;
-
 	public const int32 INDEX_DrvSetPointerShape = 29;
-
 	public const int32 INDEX_DrvMovePointer = 30;
-
 	public const int32 INDEX_DrvLineTo = 31;
-
 	public const int32 INDEX_DrvSendPage = 32;
-
 	public const int32 INDEX_DrvStartPage = 33;
-
 	public const int32 INDEX_DrvEndDoc = 34;
-
 	public const int32 INDEX_DrvStartDoc = 35;
-
 	public const int32 INDEX_DrvGetGlyphMode = 37;
-
 	public const int32 INDEX_DrvSynchronize = 38;
-
 	public const int32 INDEX_DrvSaveScreenBits = 40;
-
 	public const int32 INDEX_DrvGetModes = 41;
-
 	public const int32 INDEX_DrvFree = 42;
-
 	public const int32 INDEX_DrvDestroyFont = 43;
-
 	public const int32 INDEX_DrvQueryFontCaps = 44;
-
 	public const int32 INDEX_DrvLoadFontFile = 45;
-
 	public const int32 INDEX_DrvUnloadFontFile = 46;
-
 	public const int32 INDEX_DrvFontManagement = 47;
-
 	public const int32 INDEX_DrvQueryTrueTypeTable = 48;
-
 	public const int32 INDEX_DrvQueryTrueTypeOutline = 49;
-
 	public const int32 INDEX_DrvGetTrueTypeFile = 50;
-
 	public const int32 INDEX_DrvQueryFontFile = 51;
-
 	public const int32 INDEX_DrvMovePanning = 52;
-
 	public const int32 INDEX_DrvQueryAdvanceWidths = 53;
-
 	public const int32 INDEX_DrvSetPixelFormat = 54;
-
 	public const int32 INDEX_DrvDescribePixelFormat = 55;
-
 	public const int32 INDEX_DrvSwapBuffers = 56;
-
 	public const int32 INDEX_DrvStartBanding = 57;
-
 	public const int32 INDEX_DrvNextBand = 58;
-
 	public const int32 INDEX_DrvGetDirectDrawInfo = 59;
-
 	public const int32 INDEX_DrvEnableDirectDraw = 60;
-
 	public const int32 INDEX_DrvDisableDirectDraw = 61;
-
 	public const int32 INDEX_DrvQuerySpoolType = 62;
-
 	public const int32 INDEX_DrvIcmCreateColorTransform = 64;
-
 	public const int32 INDEX_DrvIcmDeleteColorTransform = 65;
-
 	public const int32 INDEX_DrvIcmCheckBitmapBits = 66;
-
 	public const int32 INDEX_DrvIcmSetDeviceGammaRamp = 67;
-
 	public const int32 INDEX_DrvGradientFill = 68;
-
 	public const int32 INDEX_DrvStretchBltROP = 69;
-
 	public const int32 INDEX_DrvPlgBlt = 70;
-
 	public const int32 INDEX_DrvAlphaBlend = 71;
-
 	public const int32 INDEX_DrvSynthesizeFont = 72;
-
 	public const int32 INDEX_DrvGetSynthesizedFontFiles = 73;
-
 	public const int32 INDEX_DrvTransparentBlt = 74;
-
 	public const int32 INDEX_DrvQueryPerBandInfo = 75;
-
 	public const int32 INDEX_DrvQueryDeviceSupport = 76;
-
 	public const int32 INDEX_DrvReserved1 = 77;
-
 	public const int32 INDEX_DrvReserved2 = 78;
-
 	public const int32 INDEX_DrvReserved3 = 79;
-
 	public const int32 INDEX_DrvReserved4 = 80;
-
 	public const int32 INDEX_DrvReserved5 = 81;
-
 	public const int32 INDEX_DrvReserved6 = 82;
-
 	public const int32 INDEX_DrvReserved7 = 83;
-
 	public const int32 INDEX_DrvReserved8 = 84;
-
 	public const int32 INDEX_DrvDeriveSurface = 85;
-
 	public const int32 INDEX_DrvQueryGlyphAttrs = 86;
-
 	public const int32 INDEX_DrvNotify = 87;
-
 	public const int32 INDEX_DrvSynchronizeSurface = 88;
-
 	public const int32 INDEX_DrvResetDevice = 89;
-
 	public const int32 INDEX_DrvReserved9 = 90;
-
 	public const int32 INDEX_DrvReserved10 = 91;
-
 	public const int32 INDEX_DrvReserved11 = 92;
-
 	public const int32 INDEX_DrvRenderHint = 93;
-
 	public const int32 INDEX_DrvCreateDeviceBitmapEx = 94;
-
 	public const int32 INDEX_DrvDeleteDeviceBitmapEx = 95;
-
 	public const int32 INDEX_DrvAssociateSharedSurface = 96;
-
 	public const int32 INDEX_DrvSynchronizeRedirectionBitmaps = 97;
-
 	public const int32 INDEX_DrvAccumulateD3DDirtyRect = 98;
-
 	public const int32 INDEX_DrvStartDxInterop = 99;
-
 	public const int32 INDEX_DrvEndDxInterop = 100;
-
 	public const int32 INDEX_DrvLockDisplayArea = 101;
-
 	public const int32 INDEX_DrvUnlockDisplayArea = 102;
-
 	public const int32 INDEX_DrvSurfaceComplete = 103;
-
 	public const int32 INDEX_LAST = 89;
-
 	public const uint32 GCAPS_BEZIERS = 1;
-
 	public const uint32 GCAPS_GEOMETRICWIDE = 2;
-
 	public const uint32 GCAPS_ALTERNATEFILL = 4;
-
 	public const uint32 GCAPS_WINDINGFILL = 8;
-
 	public const uint32 GCAPS_HALFTONE = 16;
-
 	public const uint32 GCAPS_COLOR_DITHER = 32;
-
 	public const uint32 GCAPS_HORIZSTRIKE = 64;
-
 	public const uint32 GCAPS_VERTSTRIKE = 128;
-
 	public const uint32 GCAPS_OPAQUERECT = 256;
-
 	public const uint32 GCAPS_VECTORFONT = 512;
-
 	public const uint32 GCAPS_MONO_DITHER = 1024;
-
 	public const uint32 GCAPS_ASYNCCHANGE = 2048;
-
 	public const uint32 GCAPS_ASYNCMOVE = 4096;
-
 	public const uint32 GCAPS_DONTJOURNAL = 8192;
-
 	public const uint32 GCAPS_DIRECTDRAW = 16384;
-
 	public const uint32 GCAPS_ARBRUSHOPAQUE = 32768;
-
 	public const uint32 GCAPS_PANNING = 65536;
-
 	public const uint32 GCAPS_HIGHRESTEXT = 262144;
-
 	public const uint32 GCAPS_PALMANAGED = 524288;
-
 	public const uint32 GCAPS_DITHERONREALIZE = 2097152;
-
 	public const uint32 GCAPS_NO64BITMEMACCESS = 4194304;
-
 	public const uint32 GCAPS_FORCEDITHER = 8388608;
-
 	public const uint32 GCAPS_GRAY16 = 16777216;
-
 	public const uint32 GCAPS_ICM = 33554432;
-
 	public const uint32 GCAPS_CMYKCOLOR = 67108864;
-
 	public const uint32 GCAPS_LAYERED = 134217728;
-
 	public const uint32 GCAPS_ARBRUSHTEXT = 268435456;
-
 	public const uint32 GCAPS_SCREENPRECISION = 536870912;
-
 	public const uint32 GCAPS_FONT_RASTERIZER = 1073741824;
-
 	public const uint32 GCAPS_NUP = 2147483648;
-
 	public const uint32 GCAPS2_JPEGSRC = 1;
-
 	public const uint32 GCAPS2_xxxx = 2;
-
 	public const uint32 GCAPS2_PNGSRC = 8;
-
 	public const uint32 GCAPS2_CHANGEGAMMARAMP = 16;
-
 	public const uint32 GCAPS2_ALPHACURSOR = 32;
-
 	public const uint32 GCAPS2_SYNCFLUSH = 64;
-
 	public const uint32 GCAPS2_SYNCTIMER = 128;
-
 	public const uint32 GCAPS2_ICD_MULTIMON = 256;
-
 	public const uint32 GCAPS2_MOUSETRAILS = 512;
-
 	public const uint32 GCAPS2_RESERVED1 = 1024;
-
 	public const uint32 GCAPS2_REMOTEDRIVER = 1024;
-
 	public const uint32 GCAPS2_EXCLUDELAYERED = 2048;
-
 	public const uint32 GCAPS2_INCLUDEAPIBITMAPS = 4096;
-
 	public const uint32 GCAPS2_SHOWHIDDENPOINTER = 8192;
-
 	public const uint32 GCAPS2_CLEARTYPE = 16384;
-
 	public const uint32 GCAPS2_ACC_DRIVER = 32768;
-
 	public const uint32 GCAPS2_BITMAPEXREUSE = 65536;
-
 	public const uint32 LA_GEOMETRIC = 1;
-
 	public const uint32 LA_ALTERNATE = 2;
-
 	public const uint32 LA_STARTGAP = 4;
-
 	public const uint32 LA_STYLED = 8;
-
 	public const int32 JOIN_ROUND = 0;
-
 	public const int32 JOIN_BEVEL = 1;
-
 	public const int32 JOIN_MITER = 2;
-
 	public const int32 ENDCAP_ROUND = 0;
-
 	public const int32 ENDCAP_SQUARE = 1;
-
 	public const int32 ENDCAP_BUTT = 2;
-
 	public const uint32 PRIMARY_ORDER_ABC = 0;
-
 	public const uint32 PRIMARY_ORDER_ACB = 1;
-
 	public const uint32 PRIMARY_ORDER_BAC = 2;
-
 	public const uint32 PRIMARY_ORDER_BCA = 3;
-
 	public const uint32 PRIMARY_ORDER_CBA = 4;
-
 	public const uint32 PRIMARY_ORDER_CAB = 5;
-
 	public const uint32 HT_PATSIZE_2x2 = 0;
-
 	public const uint32 HT_PATSIZE_2x2_M = 1;
-
 	public const uint32 HT_PATSIZE_4x4 = 2;
-
 	public const uint32 HT_PATSIZE_4x4_M = 3;
-
 	public const uint32 HT_PATSIZE_6x6 = 4;
-
 	public const uint32 HT_PATSIZE_6x6_M = 5;
-
 	public const uint32 HT_PATSIZE_8x8 = 6;
-
 	public const uint32 HT_PATSIZE_8x8_M = 7;
-
 	public const uint32 HT_PATSIZE_10x10 = 8;
-
 	public const uint32 HT_PATSIZE_10x10_M = 9;
-
 	public const uint32 HT_PATSIZE_12x12 = 10;
-
 	public const uint32 HT_PATSIZE_12x12_M = 11;
-
 	public const uint32 HT_PATSIZE_14x14 = 12;
-
 	public const uint32 HT_PATSIZE_14x14_M = 13;
-
 	public const uint32 HT_PATSIZE_16x16 = 14;
-
 	public const uint32 HT_PATSIZE_16x16_M = 15;
-
 	public const uint32 HT_PATSIZE_SUPERCELL = 16;
-
 	public const uint32 HT_PATSIZE_SUPERCELL_M = 17;
-
 	public const uint32 HT_PATSIZE_USER = 18;
-
 	public const uint32 HT_PATSIZE_MAX_INDEX = 18;
-
 	public const uint32 HT_PATSIZE_DEFAULT = 17;
-
 	public const uint32 HT_USERPAT_CX_MIN = 4;
-
 	public const uint32 HT_USERPAT_CX_MAX = 256;
-
 	public const uint32 HT_USERPAT_CY_MIN = 4;
-
 	public const uint32 HT_USERPAT_CY_MAX = 256;
-
 	public const uint32 HT_FORMAT_1BPP = 0;
-
 	public const uint32 HT_FORMAT_4BPP = 2;
-
 	public const uint32 HT_FORMAT_4BPP_IRGB = 3;
-
 	public const uint32 HT_FORMAT_8BPP = 4;
-
 	public const uint32 HT_FORMAT_16BPP = 5;
-
 	public const uint32 HT_FORMAT_24BPP = 6;
-
 	public const uint32 HT_FORMAT_32BPP = 7;
-
 	public const uint32 WINDDI_MAX_BROADCAST_CONTEXT = 64;
-
 	public const uint32 HT_FLAG_SQUARE_DEVICE_PEL = 1;
-
 	public const uint32 HT_FLAG_HAS_BLACK_DYE = 2;
-
 	public const uint32 HT_FLAG_ADDITIVE_PRIMS = 4;
-
 	public const uint32 HT_FLAG_USE_8BPP_BITMASK = 8;
-
 	public const uint32 HT_FLAG_INK_HIGH_ABSORPTION = 16;
-
 	public const uint32 HT_FLAG_INK_ABSORPTION_INDICES = 96;
-
 	public const uint32 HT_FLAG_DO_DEVCLR_XFORM = 128;
-
 	public const uint32 HT_FLAG_OUTPUT_CMY = 256;
-
 	public const uint32 HT_FLAG_PRINT_DRAFT_MODE = 512;
-
 	public const uint32 HT_FLAG_INVERT_8BPP_BITMASK_IDX = 1024;
-
 	public const uint32 HT_FLAG_8BPP_CMY332_MASK = 4278190080;
-
 	public const uint32 HT_FLAG_INK_ABSORPTION_IDX0 = 0;
-
 	public const uint32 HT_FLAG_INK_ABSORPTION_IDX1 = 32;
-
 	public const uint32 HT_FLAG_INK_ABSORPTION_IDX2 = 64;
-
 	public const uint32 HT_FLAG_INK_ABSORPTION_IDX3 = 96;
-
 	public const uint32 HT_FLAG_NORMAL_INK_ABSORPTION = 0;
-
 	public const uint32 HT_FLAG_LOW_INK_ABSORPTION = 32;
-
 	public const uint32 HT_FLAG_LOWER_INK_ABSORPTION = 64;
-
 	public const uint32 HT_FLAG_LOWEST_INK_ABSORPTION = 96;
-
 	public const uint32 PPC_DEFAULT = 0;
-
 	public const uint32 PPC_UNDEFINED = 1;
-
 	public const uint32 PPC_RGB_ORDER_VERTICAL_STRIPES = 2;
-
 	public const uint32 PPC_BGR_ORDER_VERTICAL_STRIPES = 3;
-
 	public const uint32 PPC_RGB_ORDER_HORIZONTAL_STRIPES = 4;
-
 	public const uint32 PPC_BGR_ORDER_HORIZONTAL_STRIPES = 5;
-
 	public const uint32 PPG_DEFAULT = 0;
-
 	public const uint32 PPG_SRGB = 1;
-
 	public const uint32 BR_DEVICE_ICM = 1;
-
 	public const uint32 BR_HOST_ICM = 2;
-
 	public const uint32 BR_CMYKCOLOR = 4;
-
 	public const uint32 BR_ORIGCOLOR = 8;
-
 	public const uint32 FO_SIM_BOLD = 8192;
-
 	public const uint32 FO_SIM_ITALIC = 16384;
-
 	public const uint32 FO_EM_HEIGHT = 32768;
-
 	public const uint32 FO_GRAY16 = 65536;
-
 	public const uint32 FO_NOGRAY16 = 131072;
-
 	public const uint32 FO_NOHINTS = 262144;
-
 	public const uint32 FO_NO_CHOICE = 524288;
-
 	public const uint32 FO_CFF = 1048576;
-
 	public const uint32 FO_POSTSCRIPT = 2097152;
-
 	public const uint32 FO_MULTIPLEMASTER = 4194304;
-
 	public const uint32 FO_VERT_FACE = 8388608;
-
 	public const uint32 FO_DBCS_FONT = 16777216;
-
 	public const uint32 FO_NOCLEARTYPE = 33554432;
-
 	public const uint32 FO_CLEARTYPE_X = 268435456;
-
 	public const uint32 FO_CLEARTYPE_Y = 536870912;
-
 	public const uint32 FO_CLEARTYPENATURAL_X = 1073741824;
-
 	public const uint32 DC_TRIVIAL = 0;
-
 	public const uint32 DC_RECT = 1;
-
 	public const uint32 DC_COMPLEX = 3;
-
 	public const uint32 FC_RECT = 1;
-
 	public const uint32 FC_RECT4 = 2;
-
 	public const uint32 FC_COMPLEX = 3;
-
 	public const uint32 TC_RECTANGLES = 0;
-
 	public const uint32 TC_PATHOBJ = 2;
-
 	public const uint32 OC_BANK_CLIP = 1;
-
 	public const int32 CT_RECTANGLES = 0;
-
 	public const int32 CD_RIGHTDOWN = 0;
-
 	public const int32 CD_LEFTDOWN = 1;
-
 	public const int32 CD_RIGHTUP = 2;
-
 	public const int32 CD_LEFTUP = 3;
-
 	public const int32 CD_ANY = 4;
-
 	public const int32 CD_LEFTWARDS = 1;
-
 	public const int32 CD_UPWARDS = 2;
-
 	public const int32 FO_HGLYPHS = 0;
-
 	public const int32 FO_GLYPHBITS = 1;
-
 	public const int32 FO_PATHOBJ = 2;
-
 	public const int32 FD_NEGATIVE_FONT = 1;
-
 	public const int32 FO_DEVICE_FONT = 1;
-
 	public const int32 FO_OUTLINE_CAPABLE = 2;
-
 	public const uint32 SO_FLAG_DEFAULT_PLACEMENT = 1;
-
 	public const uint32 SO_HORIZONTAL = 2;
-
 	public const uint32 SO_VERTICAL = 4;
-
 	public const uint32 SO_REVERSED = 8;
-
 	public const uint32 SO_ZERO_BEARINGS = 16;
-
 	public const uint32 SO_CHAR_INC_EQUAL_BM_BASE = 32;
-
 	public const uint32 SO_MAXEXT_EQUAL_BM_SIDE = 64;
-
 	public const uint32 SO_DO_NOT_SUBSTITUTE_DEVICE_FONT = 128;
-
 	public const uint32 SO_GLYPHINDEX_TEXTOUT = 256;
-
 	public const uint32 SO_ESC_NOT_ORIENT = 512;
-
 	public const uint32 SO_DXDY = 1024;
-
 	public const uint32 SO_CHARACTER_EXTRA = 2048;
-
 	public const uint32 SO_BREAK_EXTRA = 4096;
-
 	public const uint32 FO_ATTR_MODE_ROTATE = 1;
-
 	public const uint32 PAL_INDEXED = 1;
-
 	public const uint32 PAL_BITFIELDS = 2;
-
 	public const uint32 PAL_RGB = 4;
-
 	public const uint32 PAL_BGR = 8;
-
 	public const uint32 PAL_CMYK = 16;
-
 	public const uint32 PO_BEZIERS = 1;
-
 	public const uint32 PO_ELLIPSE = 2;
-
 	public const uint32 PO_ALL_INTEGERS = 4;
-
 	public const uint32 PO_ENUM_AS_INTEGERS = 8;
-
 	public const uint32 PO_WIDENED = 16;
-
 	public const uint32 PD_BEGINSUBPATH = 1;
-
 	public const uint32 PD_ENDSUBPATH = 2;
-
 	public const uint32 PD_RESETSTYLE = 4;
-
 	public const uint32 PD_CLOSEFIGURE = 8;
-
 	public const uint32 PD_BEZIERS = 16;
-
 	public const uint32 SGI_EXTRASPACE = 0;
-
 	public const int32 STYPE_BITMAP = 0;
-
 	public const int32 STYPE_DEVBITMAP = 3;
-
 	public const int32 BMF_1BPP = 1;
-
 	public const int32 BMF_4BPP = 2;
-
 	public const int32 BMF_8BPP = 3;
-
 	public const int32 BMF_16BPP = 4;
-
 	public const int32 BMF_24BPP = 5;
-
 	public const int32 BMF_32BPP = 6;
-
 	public const int32 BMF_4RLE = 7;
-
 	public const int32 BMF_8RLE = 8;
-
 	public const int32 BMF_JPEG = 9;
-
 	public const int32 BMF_PNG = 10;
-
 	public const uint32 BMF_TOPDOWN = 1;
-
 	public const uint32 BMF_NOZEROINIT = 2;
-
 	public const uint32 BMF_DONTCACHE = 4;
-
 	public const uint32 BMF_USERMEM = 8;
-
 	public const uint32 BMF_KMSECTION = 16;
-
 	public const uint32 BMF_NOTSYSMEM = 32;
-
 	public const uint32 BMF_WINDOW_BLT = 64;
-
 	public const uint32 BMF_UMPDMEM = 128;
-
 	public const uint32 BMF_TEMP_ALPHA = 256;
-
 	public const uint32 BMF_ACC_NOTIFY = 32768;
-
 	public const uint32 BMF_RMT_ENTER = 16384;
-
 	public const uint32 BMF_RESERVED = 15872;
-
 	public const int32 GX_IDENTITY = 0;
-
 	public const int32 GX_OFFSET = 1;
-
 	public const int32 GX_SCALE = 2;
-
 	public const int32 GX_GENERAL = 3;
-
 	public const int32 XF_LTOL = 0;
-
 	public const int32 XF_INV_LTOL = 1;
-
 	public const int32 XF_LTOFX = 2;
-
 	public const int32 XF_INV_FXTOL = 3;
-
 	public const uint32 XO_TRIVIAL = 1;
-
 	public const uint32 XO_TABLE = 2;
-
 	public const uint32 XO_TO_MONO = 4;
-
 	public const uint32 XO_FROM_CMYK = 8;
-
 	public const uint32 XO_DEVICE_ICM = 16;
-
 	public const uint32 XO_HOST_ICM = 32;
-
 	public const uint32 XO_SRCPALETTE = 1;
-
 	public const uint32 XO_DESTPALETTE = 2;
-
 	public const uint32 XO_DESTDCPALETTE = 3;
-
 	public const uint32 XO_SRCBITFIELDS = 4;
-
 	public const uint32 XO_DESTBITFIELDS = 5;
-
 	public const uint32 HOOK_BITBLT = 1;
-
 	public const uint32 HOOK_STRETCHBLT = 2;
-
 	public const uint32 HOOK_PLGBLT = 4;
-
 	public const uint32 HOOK_TEXTOUT = 8;
-
 	public const uint32 HOOK_PAINT = 16;
-
 	public const uint32 HOOK_STROKEPATH = 32;
-
 	public const uint32 HOOK_FILLPATH = 64;
-
 	public const uint32 HOOK_STROKEANDFILLPATH = 128;
-
 	public const uint32 HOOK_LINETO = 256;
-
 	public const uint32 HOOK_COPYBITS = 1024;
-
 	public const uint32 HOOK_MOVEPANNING = 2048;
-
 	public const uint32 HOOK_SYNCHRONIZE = 4096;
-
 	public const uint32 HOOK_STRETCHBLTROP = 8192;
-
 	public const uint32 HOOK_SYNCHRONIZEACCESS = 16384;
-
 	public const uint32 HOOK_TRANSPARENTBLT = 32768;
-
 	public const uint32 HOOK_ALPHABLEND = 65536;
-
 	public const uint32 HOOK_GRADIENTFILL = 131072;
-
 	public const uint32 HOOK_FLAGS = 243199;
-
 	public const uint32 MS_NOTSYSTEMMEMORY = 1;
-
 	public const uint32 MS_SHAREDACCESS = 2;
-
 	public const uint32 MS_CDDDEVICEBITMAP = 4;
-
 	public const uint32 MS_REUSEDDEVICEBITMAP = 8;
-
 	public const uint32 DRVQUERY_USERMODE = 1;
-
 	public const uint32 HS_DDI_MAX = 6;
-
 	public const uint32 DRD_SUCCESS = 0;
-
 	public const uint32 DRD_ERROR = 1;
-
 	public const uint32 SS_SAVE = 0;
-
 	public const uint32 SS_RESTORE = 1;
-
 	public const uint32 SS_FREE = 2;
-
 	public const uint32 CDBEX_REDIRECTION = 1;
-
 	public const uint32 CDBEX_DXINTEROP = 2;
-
 	public const uint32 CDBEX_NTSHAREDSURFACEHANDLE = 4;
-
 	public const uint32 CDBEX_CROSSADAPTER = 8;
-
 	public const uint32 CDBEX_REUSE = 16;
-
 	public const uint32 WINDDI_MAXSETPALETTECOLORS = 256;
-
 	public const uint32 WINDDI_MAXSETPALETTECOLORINDEX = 255;
-
 	public const uint32 DM_DEFAULT = 1;
-
 	public const uint32 DM_MONOCHROME = 2;
-
 	public const uint32 DCR_SOLID = 0;
-
 	public const uint32 DCR_DRIVER = 1;
-
 	public const uint32 DCR_HALFTONE = 2;
-
 	public const int32 RB_DITHERCOLOR = -2147483648;
-
 	public const int32 QFT_LIGATURES = 1;
-
 	public const int32 QFT_KERNPAIRS = 2;
-
 	public const int32 QFT_GLYPHSET = 3;
-
 	public const int32 QFD_GLYPHANDBITMAP = 1;
-
 	public const int32 QFD_GLYPHANDOUTLINE = 2;
-
 	public const int32 QFD_MAXEXTENTS = 3;
-
 	public const int32 QFD_TT_GLYPHANDBITMAP = 4;
-
 	public const int32 QFD_TT_GRAY1_BITMAP = 5;
-
 	public const int32 QFD_TT_GRAY2_BITMAP = 6;
-
 	public const int32 QFD_TT_GRAY4_BITMAP = 8;
-
 	public const int32 QFD_TT_GRAY8_BITMAP = 9;
-
 	public const int32 QFD_TT_MONO_BITMAP = 5;
-
 	public const uint32 QC_OUTLINES = 1;
-
 	public const uint32 QC_1BIT = 2;
-
 	public const uint32 QC_4BIT = 4;
-
 	public const uint32 FF_SIGNATURE_VERIFIED = 1;
-
 	public const uint32 FF_IGNORED_SIGNATURE = 2;
-
 	public const uint32 QAW_GETWIDTHS = 0;
-
 	public const uint32 QAW_GETEASYWIDTHS = 1;
-
 	public const uint32 TTO_METRICS_ONLY = 1;
-
 	public const uint32 TTO_QUBICS = 2;
-
 	public const uint32 TTO_UNHINTED = 4;
-
 	public const int32 QFF_DESCRIPTION = 1;
-
 	public const int32 QFF_NUMFACES = 2;
-
 	public const int32 FP_ALTERNATEMODE = 1;
-
 	public const int32 FP_WINDINGMODE = 2;
-
 	public const uint32 SPS_ERROR = 0;
-
 	public const uint32 SPS_DECLINE = 1;
-
 	public const uint32 SPS_ACCEPT_NOEXCLUDE = 2;
-
 	public const uint32 SPS_ACCEPT_EXCLUDE = 3;
-
 	public const uint32 SPS_ACCEPT_SYNCHRONOUS = 4;
-
 	public const int32 SPS_CHANGE = 1;
-
 	public const int32 SPS_ASYNCCHANGE = 2;
-
 	public const int32 SPS_ANIMATESTART = 4;
-
 	public const int32 SPS_ANIMATEUPDATE = 8;
-
 	public const int32 SPS_ALPHA = 16;
-
 	public const int32 SPS_RESERVED = 32;
-
 	public const int32 SPS_RESERVED1 = 64;
-
 	public const int32 SPS_FLAGSMASK = 255;
-
 	public const int32 SPS_LENGTHMASK = 3840;
-
 	public const int32 SPS_FREQMASK = 1044480;
-
 	public const uint32 ED_ABORTDOC = 1;
-
 	public const uint32 IGRF_RGB_256BYTES = 0;
-
 	public const uint32 IGRF_RGB_256WORDS = 1;
-
 	public const uint32 QDS_CHECKJPEGFORMAT = 0;
-
 	public const uint32 QDS_CHECKPNGFORMAT = 1;
-
 	public const uint32 DSS_TIMER_EVENT = 1;
-
 	public const uint32 DSS_FLUSH_EVENT = 2;
-
 	public const uint32 DSS_RESERVED = 4;
-
 	public const uint32 DSS_RESERVED1 = 8;
-
 	public const uint32 DSS_RESERVED2 = 16;
-
 	public const uint32 DN_ACCELERATION_LEVEL = 1;
-
 	public const uint32 DN_DEVICE_ORIGIN = 2;
-
 	public const uint32 DN_SLEEP_MODE = 3;
-
 	public const uint32 DN_DRAWING_BEGIN = 4;
-
 	public const uint32 DN_ASSOCIATE_WINDOW = 5;
-
 	public const uint32 DN_COMPOSITION_CHANGED = 6;
-
 	public const uint32 DN_DRAWING_BEGIN_APIBITMAP = 7;
-
 	public const uint32 DN_SURFOBJ_DESTRUCTION = 8;
-
 	public const uint32 WOC_RGN_CLIENT_DELTA = 1;
-
 	public const uint32 WOC_RGN_CLIENT = 2;
-
 	public const uint32 WOC_RGN_SURFACE_DELTA = 4;
-
 	public const uint32 WOC_RGN_SURFACE = 8;
-
 	public const uint32 WOC_CHANGED = 16;
-
 	public const uint32 WOC_DELETE = 32;
-
 	public const uint32 WOC_DRAWN = 64;
-
 	public const uint32 WOC_SPRITE_OVERLAP = 128;
-
 	public const uint32 WOC_SPRITE_NO_OVERLAP = 256;
-
 	public const uint32 WOC_RGN_SPRITE = 512;
-
 	public const uint32 WO_RGN_CLIENT_DELTA = 1;
-
 	public const uint32 WO_RGN_CLIENT = 2;
-
 	public const uint32 WO_RGN_SURFACE_DELTA = 4;
-
 	public const uint32 WO_RGN_SURFACE = 8;
-
 	public const uint32 WO_RGN_UPDATE_ALL = 16;
-
 	public const uint32 WO_RGN_WINDOW = 32;
-
 	public const uint32 WO_DRAW_NOTIFY = 64;
-
 	public const uint32 WO_SPRITE_NOTIFY = 128;
-
 	public const uint32 WO_RGN_DESKTOP_COORD = 256;
-
 	public const uint32 WO_RGN_SPRITE = 512;
-
 	public const uint32 EHN_RESTORED = 0;
-
 	public const uint32 EHN_ERROR = 1;
-
 	public const uint32 ECS_TEARDOWN = 1;
-
 	public const uint32 ECS_REDRAW = 2;
-
 	public const uint32 DEVHTADJF_COLOR_DEVICE = 1;
-
 	public const uint32 DEVHTADJF_ADDITIVE_DEVICE = 2;
-
 	public const uint32 FL_ZERO_MEMORY = 1;
-
 	public const uint32 FL_NONPAGED_MEMORY = 2;
-
 	public const uint32 FL_NON_SESSION = 4;
-
 	public const uint32 QSA_MMX = 256;
-
 	public const uint32 QSA_SSE = 8192;
-
 	public const uint32 QSA_3DNOW = 16384;
-
 	public const uint32 QSA_SSE1 = 8192;
-
 	public const uint32 QSA_SSE2 = 65536;
-
 	public const uint32 QSA_SSE3 = 524288;
-
 	public const uint32 ENG_FNT_CACHE_READ_FAULT = 1;
-
 	public const uint32 ENG_FNT_CACHE_WRITE_FAULT = 2;
-
 	public const uint32 DRH_APIBITMAP = 1;
-
 	public const uint32 MC_CAPS_NONE = 0;
-
 	public const uint32 MC_CAPS_MONITOR_TECHNOLOGY_TYPE = 1;
-
 	public const uint32 MC_CAPS_BRIGHTNESS = 2;
-
 	public const uint32 MC_CAPS_CONTRAST = 4;
-
 	public const uint32 MC_CAPS_COLOR_TEMPERATURE = 8;
-
 	public const uint32 MC_CAPS_RED_GREEN_BLUE_GAIN = 16;
-
 	public const uint32 MC_CAPS_RED_GREEN_BLUE_DRIVE = 32;
-
 	public const uint32 MC_CAPS_DEGAUSS = 64;
-
 	public const uint32 MC_CAPS_DISPLAY_AREA_POSITION = 128;
-
 	public const uint32 MC_CAPS_DISPLAY_AREA_SIZE = 256;
-
 	public const uint32 MC_CAPS_RESTORE_FACTORY_DEFAULTS = 1024;
-
 	public const uint32 MC_CAPS_RESTORE_FACTORY_COLOR_DEFAULTS = 2048;
-
 	public const uint32 MC_RESTORE_FACTORY_DEFAULTS_ENABLES_MONITOR_SETTINGS = 4096;
-
 	public const uint32 MC_SUPPORTED_COLOR_TEMPERATURE_NONE = 0;
-
 	public const uint32 MC_SUPPORTED_COLOR_TEMPERATURE_4000K = 1;
-
 	public const uint32 MC_SUPPORTED_COLOR_TEMPERATURE_5000K = 2;
-
 	public const uint32 MC_SUPPORTED_COLOR_TEMPERATURE_6500K = 4;
-
 	public const uint32 MC_SUPPORTED_COLOR_TEMPERATURE_7500K = 8;
-
 	public const uint32 MC_SUPPORTED_COLOR_TEMPERATURE_8200K = 16;
-
 	public const uint32 MC_SUPPORTED_COLOR_TEMPERATURE_9300K = 32;
-
 	public const uint32 MC_SUPPORTED_COLOR_TEMPERATURE_10000K = 64;
-
 	public const uint32 MC_SUPPORTED_COLOR_TEMPERATURE_11500K = 128;
-
 	public const uint32 PHYSICAL_MONITOR_DESCRIPTION_SIZE = 128;
-
 	public const uint32 GETCONNECTEDIDS_TARGET = 0;
-
 	public const uint32 GETCONNECTEDIDS_SOURCE = 1;
-
 	public const uint32 S_INIT = 2;
-
 	public const uint32 SETCONFIGURATION_STATUS_APPLIED = 0;
-
 	public const uint32 SETCONFIGURATION_STATUS_ADDITIONAL = 1;
-
 	public const uint32 SETCONFIGURATION_STATUS_OVERRIDDEN = 2;
-
 }
 #endregion
 
@@ -2117,11 +1379,9 @@ public struct DISPLAYCONFIG_VIDEO_SIGNAL_INFO
 		{
 			public uint32 _bitfield;
 		}
-
 		public _AdditionalSignalInfo_e__Struct AdditionalSignalInfo;
 		public uint32 videoStandard;
 	}
-
 	public uint64 pixelRate;
 	public DISPLAYCONFIG_RATIONAL hSyncFreq;
 	public DISPLAYCONFIG_RATIONAL vSyncFreq;
@@ -2164,7 +1424,6 @@ public struct DISPLAYCONFIG_MODE_INFO
 		public DISPLAYCONFIG_SOURCE_MODE sourceMode;
 		public DISPLAYCONFIG_DESKTOP_IMAGE_INFO desktopImageInfo;
 	}
-
 	public DISPLAYCONFIG_MODE_INFO_TYPE infoType;
 	public uint32 id;
 	public LUID adapterId;
@@ -2182,11 +1441,9 @@ public struct DISPLAYCONFIG_PATH_SOURCE_INFO
 		{
 			public uint32 _bitfield;
 		}
-
 		public uint32 modeInfoIdx;
 		public using _Anonymous_e__Struct Anonymous;
 	}
-
 	public LUID adapterId;
 	public uint32 id;
 	public using _Anonymous_e__Union Anonymous;
@@ -2204,11 +1461,9 @@ public struct DISPLAYCONFIG_PATH_TARGET_INFO
 		{
 			public uint32 _bitfield;
 		}
-
 		public uint32 modeInfoIdx;
 		public using _Anonymous_e__Struct Anonymous;
 	}
-
 	public LUID adapterId;
 	public uint32 id;
 	public using _Anonymous_e__Union Anonymous;
@@ -2256,11 +1511,9 @@ public struct DISPLAYCONFIG_TARGET_DEVICE_NAME_FLAGS
 		{
 			public uint32 _bitfield;
 		}
-
 		public using _Anonymous_e__Struct Anonymous;
 		public uint32 value;
 	}
-
 	public using _Anonymous_e__Union Anonymous;
 }
 
@@ -2311,11 +1564,9 @@ public struct DISPLAYCONFIG_SET_TARGET_PERSISTENCE
 		{
 			public uint32 _bitfield;
 		}
-
 		public using _Anonymous_e__Struct Anonymous;
 		public uint32 value;
 	}
-
 	public DISPLAYCONFIG_DEVICE_INFO_HEADER header;
 	public using _Anonymous_e__Union Anonymous;
 }
@@ -2331,11 +1582,9 @@ public struct DISPLAYCONFIG_SUPPORT_VIRTUAL_RESOLUTION
 		{
 			public uint32 _bitfield;
 		}
-
 		public using _Anonymous_e__Struct Anonymous;
 		public uint32 value;
 	}
-
 	public DISPLAYCONFIG_DEVICE_INFO_HEADER header;
 	public using _Anonymous_e__Union Anonymous;
 }
@@ -2351,11 +1600,9 @@ public struct DISPLAYCONFIG_GET_ADVANCED_COLOR_INFO
 		{
 			public uint32 _bitfield;
 		}
-
 		public using _Anonymous_e__Struct Anonymous;
 		public uint32 value;
 	}
-
 	public DISPLAYCONFIG_DEVICE_INFO_HEADER header;
 	public using _Anonymous_e__Union Anonymous;
 	public DISPLAYCONFIG_COLOR_ENCODING colorEncoding;
@@ -2373,11 +1620,9 @@ public struct DISPLAYCONFIG_SET_ADVANCED_COLOR_STATE
 		{
 			public uint32 _bitfield;
 		}
-
 		public using _Anonymous_e__Struct Anonymous;
 		public uint32 value;
 	}
-
 	public DISPLAYCONFIG_DEVICE_INFO_HEADER header;
 	public using _Anonymous_e__Union Anonymous;
 }
@@ -2400,11 +1645,9 @@ public struct DISPLAYCONFIG_GET_MONITOR_SPECIALIZATION
 		{
 			public uint32 _bitfield;
 		}
-
 		public using _Anonymous_e__Struct Anonymous;
 		public uint32 value;
 	}
-
 	public DISPLAYCONFIG_DEVICE_INFO_HEADER header;
 	public using _Anonymous_e__Union Anonymous;
 }
@@ -2420,11 +1663,9 @@ public struct DISPLAYCONFIG_SET_MONITOR_SPECIALIZATION
 		{
 			public uint32 _bitfield;
 		}
-
 		public using _Anonymous_e__Struct Anonymous;
 		public uint32 value;
 	}
-
 	public DISPLAYCONFIG_DEVICE_INFO_HEADER header;
 	public using _Anonymous_e__Union Anonymous;
 	public Guid specializationType;
@@ -2447,26 +1688,29 @@ public struct MC_TIMING_REPORT
 	public uint8 bTimingStatusByte;
 }
 
-[CRepr, FlexibleArray("aTargets")]
+[CRepr]
 public struct Sources
 {
 	public uint32 sourceId;
 	public int32 numTargets;
+	public uint32* aTargets mut => &aTargets_impl;
 	private uint32[ANYSIZE_ARRAY] aTargets_impl;
 }
 
-[CRepr, FlexibleArray("sources")]
+[CRepr]
 public struct Adapter
 {
 	public char16[128] AdapterName;
 	public int32 numSources;
+	public Sources* sources mut => &sources_impl;
 	private Sources[ANYSIZE_ARRAY] sources_impl;
 }
 
-[CRepr, FlexibleArray("adapter")]
+[CRepr]
 public struct Adapters
 {
 	public int32 numAdapters;
+	public Adapter* adapter mut => &adapter_impl;
 	private Adapter[ANYSIZE_ARRAY] adapter_impl;
 }
 
@@ -2477,10 +1721,11 @@ public struct DisplayMode
 	public DEVMODEW devMode;
 }
 
-[CRepr, FlexibleArray("displayMode")]
+[CRepr]
 public struct DisplayModes
 {
 	public int32 numDisplayModes;
+	public DisplayMode* displayMode mut => &displayMode_impl;
 	private DisplayMode[ANYSIZE_ARRAY] displayMode_impl;
 }
 
@@ -2557,7 +1802,7 @@ public struct FD_XFORM
 }
 #endif
 
-[CRepr, FlexibleArray("alReserved")]
+[CRepr]
 public struct FD_DEVICEMETRICS
 {
 	public uint32 flRealizedType;
@@ -2581,24 +1826,27 @@ public struct FD_DEVICEMETRICS
 	public int32 lMinA;
 	public int32 lMinC;
 	public int32 lMinD;
+	public int32* alReserved mut => &alReserved_impl;
 	private int32[ANYSIZE_ARRAY] alReserved_impl;
 }
 
-[CRepr, FlexibleArray("ahglyph")]
+[CRepr]
 public struct LIGATURE
 {
 	public uint32 culSize;
 	public PWSTR pwsz;
 	public uint32 chglyph;
+	public uint32* ahglyph mut => &ahglyph_impl;
 	private uint32[ANYSIZE_ARRAY] ahglyph_impl;
 }
 
-[CRepr, FlexibleArray("alig")]
+[CRepr]
 public struct FD_LIGATURE
 {
 	public uint32 culThis;
 	public uint32 ulType;
 	public uint32 cLigatures;
+	public LIGATURE* alig mut => &alig_impl;
 	private LIGATURE[ANYSIZE_ARRAY] alig_impl;
 }
 
@@ -2617,22 +1865,24 @@ public struct WCRUN
 	public uint32* phg;
 }
 
-[CRepr, FlexibleArray("awcrun")]
+[CRepr]
 public struct FD_GLYPHSET
 {
 	public uint32 cjThis;
 	public uint32 flAccel;
 	public uint32 cGlyphsSupported;
 	public uint32 cRuns;
+	public WCRUN* awcrun mut => &awcrun_impl;
 	private WCRUN[ANYSIZE_ARRAY] awcrun_impl;
 }
 
-[CRepr, FlexibleArray("aGlyphAttr")]
+[CRepr]
 public struct FD_GLYPHATTR
 {
 	public uint32 cjThis;
 	public uint32 cGlyphs;
 	public uint32 iMode;
+	public uint8* aGlyphAttr mut => &aGlyphAttr_impl;
 	private uint8[ANYSIZE_ARRAY] aGlyphAttr_impl;
 }
 
@@ -2733,7 +1983,7 @@ public struct IFIMETRICS
 }
 #endif
 
-[CRepr, FlexibleArray("aulReserved")]
+[CRepr]
 public struct IFIEXTRA
 {
 	public uint32 ulIdentifier;
@@ -2741,6 +1991,7 @@ public struct IFIEXTRA
 	public uint32 cig;
 	public int32 dpDesignVector;
 	public int32 dpAxesInfoW;
+	public uint32* aulReserved mut => &aulReserved_impl;
 	private uint32[ANYSIZE_ARRAY] aulReserved_impl;
 }
 
@@ -2997,18 +2248,20 @@ public struct XLATEOBJ
 	public uint32* pulXlate;
 }
 
-[CRepr, FlexibleArray("arcl")]
+[CRepr]
 public struct ENUMRECTS
 {
 	public uint32 c;
+	public RECTL* arcl mut => &arcl_impl;
 	private RECTL[ANYSIZE_ARRAY] arcl_impl;
 }
 
-[CRepr, FlexibleArray("aj")]
+[CRepr]
 public struct GLYPHBITS
 {
 	public POINTL ptlOrigin;
 	public SIZE sizlBitmap;
+	public uint8* aj mut => &aj_impl;
 	private uint8[ANYSIZE_ARRAY] aj_impl;
 }
 
@@ -3079,13 +2332,14 @@ public struct RUN
 	public int32 iStop;
 }
 
-[CRepr, FlexibleArray("arun")]
+[CRepr]
 public struct CLIPLINE
 {
 	public POINTFIX ptfxA;
 	public POINTFIX ptfxB;
 	public int32 lStyleState;
 	public uint32 c;
+	public RUN* arun mut => &arun_impl;
 	private RUN[ANYSIZE_ARRAY] arun_impl;
 }
 
@@ -3203,10 +2457,11 @@ public struct VIDEO_REGISTER_VDM
 	public uint32 MinimumStateSize;
 }
 
-[CRepr, FlexibleArray("Descriptor")]
+[CRepr]
 public struct VIDEO_MONITOR_DESCRIPTOR
 {
 	public uint32 DescriptorSize;
+	public uint8* Descriptor mut => &Descriptor_impl;
 	private uint8[ANYSIZE_ARRAY] Descriptor_impl;
 }
 
@@ -3330,20 +2585,22 @@ public struct VIDEO_MODE_INFORMATION
 	public uint32 DriverSpecificAttributeFlags;
 }
 
-[CRepr, FlexibleArray("Font")]
+[CRepr]
 public struct VIDEO_LOAD_FONT_INFORMATION
 {
 	public uint16 WidthInPixels;
 	public uint16 HeightInPixels;
 	public uint32 FontSize;
+	public uint8* Font mut => &Font_impl;
 	private uint8[ANYSIZE_ARRAY] Font_impl;
 }
 
-[CRepr, FlexibleArray("Colors")]
+[CRepr]
 public struct VIDEO_PALETTE_DATA
 {
 	public uint16 NumEntries;
 	public uint16 FirstEntry;
+	public uint16* Colors mut => &Colors_impl;
 	private uint16[ANYSIZE_ARRAY] Colors_impl;
 }
 
@@ -3356,7 +2613,7 @@ public struct VIDEO_CLUTDATA
 	public uint8 Unused;
 }
 
-[CRepr, FlexibleArray("LookupTable")]
+[CRepr]
 public struct VIDEO_CLUT
 {
 	[CRepr, Union]
@@ -3365,9 +2622,9 @@ public struct VIDEO_CLUT
 		public VIDEO_CLUTDATA RgbArray;
 		public uint32 RgbLong;
 	}
-
 	public uint16 NumEntries;
 	public uint16 FirstEntry;
+	public _Anonymous_e__Union* LookupTable mut => &LookupTable_impl;
 	private _Anonymous_e__Union[ANYSIZE_ARRAY] LookupTable_impl;
 }
 
@@ -3396,7 +2653,7 @@ public struct VIDEO_POINTER_POSITION
 	public int16 Row;
 }
 
-[CRepr, FlexibleArray("Pixels")]
+[CRepr]
 public struct VIDEO_POINTER_ATTRIBUTES
 {
 	public uint32 Flags;
@@ -3406,6 +2663,7 @@ public struct VIDEO_POINTER_ATTRIBUTES
 	public uint32 Enable;
 	public int16 Column;
 	public int16 Row;
+	public uint8* Pixels mut => &Pixels_impl;
 	private uint8[ANYSIZE_ARRAY] Pixels_impl;
 }
 
@@ -3508,11 +2766,12 @@ public struct VIDEO_POWER_MANAGEMENT
 	public uint32 PowerState;
 }
 
-[CRepr, FlexibleArray("LutData")]
+[CRepr]
 public struct VIDEO_COLOR_LUT_DATA
 {
 	public uint32 Length;
 	public uint32 LutDataFormat;
+	public uint8* LutData mut => &LutData_impl;
 	private uint8[ANYSIZE_ARRAY] LutData_impl;
 }
 
@@ -3539,7 +2798,7 @@ public struct DISPLAY_BRIGHTNESS
 	public uint8 ucDCBrightness;
 }
 
-[CRepr, FlexibleArray("Level")]
+[CRepr]
 public struct VIDEO_BRIGHTNESS_POLICY
 {
 	[CRepr]
@@ -3548,9 +2807,9 @@ public struct VIDEO_BRIGHTNESS_POLICY
 		public uint8 BatteryLevel;
 		public uint8 Brightness;
 	}
-
 	public BOOLEAN DefaultToBiosPolicy;
 	public uint8 LevelCount;
+	public _Anonymous_e__Struct* Level mut => &Level_impl;
 	private _Anonymous_e__Struct[ANYSIZE_ARRAY] Level_impl;
 }
 
@@ -3676,11 +2935,9 @@ public struct PANEL_QUERY_BRIGHTNESS_CAPS
 		{
 			public uint32 _bitfield;
 		}
-
 		public using _Anonymous_e__Struct Anonymous;
 		public uint32 Value;
 	}
-
 	public BRIGHTNESS_INTERFACE_VERSION Version;
 	public using _Anonymous_e__Union Anonymous;
 }
@@ -3718,7 +2975,6 @@ public struct PANEL_QUERY_BRIGHTNESS_RANGES
 		public BRIGHTNESS_LEVEL BrightnessLevel;
 		public BRIGHTNESS_NIT_RANGES NitRanges;
 	}
-
 	public BRIGHTNESS_INTERFACE_VERSION Version;
 	public using _Anonymous_e__Union Anonymous;
 }
@@ -3735,11 +2991,9 @@ public struct PANEL_GET_BRIGHTNESS
 			public uint32 CurrentInMillinits;
 			public uint32 TargetInMillinits;
 		}
-
 		public uint8 Level;
 		public using _Anonymous_e__Struct Anonymous;
 	}
-
 	public BRIGHTNESS_INTERFACE_VERSION Version;
 	public using _Anonymous_e__Union Anonymous;
 }
@@ -3762,11 +3016,9 @@ public struct PANEL_BRIGHTNESS_SENSOR_DATA
 		{
 			public uint32 _bitfield;
 		}
-
 		public using _Anonymous_e__Struct Anonymous;
 		public uint32 Value;
 	}
-
 	public using _Anonymous_e__Union Anonymous;
 	public float AlsReading;
 	public CHROMATICITY_COORDINATE ChromaticityCoordinate;
@@ -3786,11 +3038,9 @@ public struct PANEL_SET_BRIGHTNESS
 			public uint32 TransitionTimeInMs;
 			public PANEL_BRIGHTNESS_SENSOR_DATA SensorData;
 		}
-
 		public uint8 Level;
 		public using _Anonymous_e__Struct Anonymous;
 	}
-
 	public BRIGHTNESS_INTERFACE_VERSION Version;
 	public using _Anonymous_e__Union Anonymous;
 }
@@ -3806,11 +3056,9 @@ public struct PANEL_SET_BRIGHTNESS_STATE
 		{
 			public uint32 _bitfield;
 		}
-
 		public using _Anonymous_e__Struct Anonymous;
 		public uint32 Value;
 	}
-
 	public using _Anonymous_e__Union Anonymous;
 }
 
@@ -3847,18 +3095,15 @@ public struct COLORSPACE_TRANSFORM_DATA_CAP
 		{
 			public uint32 _bitfield;
 		}
-
 		[CRepr]
 		public struct _Anonymous1_e__Struct
 		{
 			public uint32 _bitfield;
 		}
-
 		public _Anonymous1_e__Struct Anonymous1;
 		public _Anonymous2_e__Struct Anonymous2;
 		public uint32 Value;
 	}
-
 	public COLORSPACE_TRANSFORM_DATA_TYPE DataType;
 	public using _Anonymous_e__Union Anonymous;
 	public float NumericRangeMin;
@@ -3883,11 +3128,9 @@ public struct COLORSPACE_TRANSFORM_MATRIX_CAP
 		{
 			public uint32 _bitfield;
 		}
-
 		public using _Anonymous_e__Struct Anonymous;
 		public uint32 Value;
 	}
-
 	public using _Anonymous_e__Union Anonymous;
 	public COLORSPACE_TRANSFORM_DATA_CAP DataCap;
 }
@@ -3962,7 +3205,6 @@ public struct COLORSPACE_TRANSFORM
 		public COLORSPACE_TRANSFORM_3x4 T3x4;
 		public COLORSPACE_TRANSFORM_MATRIX_V2 MatrixV2;
 	}
-
 	public COLORSPACE_TRANSFORM_TYPE Type;
 	public _Data_e__Union Data;
 }
@@ -3975,9 +3217,10 @@ public struct COLORSPACE_TRANSFORM_SET_INPUT
 	public COLORSPACE_TRANSFORM ColorSpaceTransform;
 }
 
-[CRepr, FlexibleArray("ColorProfileName")]
+[CRepr]
 public struct SET_ACTIVE_COLOR_PROFILE_NAME
 {
+	public char16* ColorProfileName mut => &ColorProfileName_impl;
 	private char16[ANYSIZE_ARRAY] ColorProfileName_impl;
 }
 
@@ -4016,11 +3259,9 @@ public struct MIPI_DSI_PACKET
 			public uint8 Data0;
 			public uint8 Data1;
 		}
-
 		public using _Anonymous_e__Struct Anonymous;
 		public uint16 LongWriteWordCount;
 	}
-
 	[CRepr, Union]
 	public struct _Anonymous1_e__Union
 	{
@@ -4029,18 +3270,16 @@ public struct MIPI_DSI_PACKET
 		{
 			public uint8 _bitfield;
 		}
-
 		public uint8 DataId;
 		public using _Anonymous_e__Struct Anonymous;
 	}
-
 	public _Anonymous1_e__Union Anonymous1;
 	public _Anonymous2_e__Union Anonymous2;
 	public uint8 EccFiller;
 	public uint8[8] Payload;
 }
 
-[CRepr, FlexibleArray("Packets")]
+[CRepr]
 public struct MIPI_DSI_TRANSMISSION
 {
 	[CRepr]
@@ -4048,7 +3287,6 @@ public struct MIPI_DSI_TRANSMISSION
 	{
 		public uint16 _bitfield;
 	}
-
 	public uint32 TotalBufferSize;
 	public uint8 PacketCount;
 	public uint8 FailedPacket;
@@ -4057,6 +3295,7 @@ public struct MIPI_DSI_TRANSMISSION
 	public uint16 FinalCommandExtraPayload;
 	public uint16 MipiErrors;
 	public uint16 HostErrors;
+	public MIPI_DSI_PACKET* Packets mut => &Packets_impl;
 	private MIPI_DSI_PACKET[ANYSIZE_ARRAY] Packets_impl;
 }
 
@@ -4071,11 +3310,9 @@ public struct MIPI_DSI_RESET
 		{
 			public uint32 _bitfield;
 		}
-
 		public using _Anonymous_e__Struct Anonymous;
 		public uint32 Results;
 	}
-
 	public uint32 Flags;
 	public using _Anonymous_e__Union Anonymous;
 }

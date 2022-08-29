@@ -4,7 +4,6 @@ using Win32.System.Com;
 using Win32.System.IO;
 using Win32.System.WindowsProgramming;
 using System;
-using System.Interop;
 
 namespace Win32.Storage.FileSystem;
 
@@ -12,545 +11,275 @@ namespace Win32.Storage.FileSystem;
 public static
 {
 	public const uint32 CLFS_FLAG_REENTRANT_FILE_SYSTEM = 8;
-
 	public const uint32 CLFS_FLAG_NON_REENTRANT_FILTER = 16;
-
 	public const uint32 CLFS_FLAG_REENTRANT_FILTER = 32;
-
 	public const uint32 CLFS_FLAG_IGNORE_SHARE_ACCESS = 64;
-
 	public const uint32 CLFS_FLAG_READ_IN_PROGRESS = 128;
-
 	public const uint32 CLFS_FLAG_MINIFILTER_LEVEL = 256;
-
 	public const uint32 CLFS_FLAG_HIDDEN_SYSTEM_LOG = 512;
-
 	public const uint32 CLFS_MARSHALLING_FLAG_NONE = 0;
-
 	public const uint32 CLFS_MARSHALLING_FLAG_DISABLE_BUFF_INIT = 1;
-
 	public const uint32 CLFS_FLAG_FILTER_INTERMEDIATE_LEVEL = 16;
-
 	public const uint32 CLFS_FLAG_FILTER_TOP_LEVEL = 32;
-
 	public const uint32 TRANSACTION_MANAGER_VOLATILE = 1;
-
 	public const uint32 TRANSACTION_MANAGER_COMMIT_DEFAULT = 0;
-
 	public const uint32 TRANSACTION_MANAGER_COMMIT_SYSTEM_VOLUME = 2;
-
 	public const uint32 TRANSACTION_MANAGER_COMMIT_SYSTEM_HIVES = 4;
-
 	public const uint32 TRANSACTION_MANAGER_COMMIT_LOWEST = 8;
-
 	public const uint32 TRANSACTION_MANAGER_CORRUPT_FOR_RECOVERY = 16;
-
 	public const uint32 TRANSACTION_MANAGER_CORRUPT_FOR_PROGRESS = 32;
-
 	public const uint32 TRANSACTION_MANAGER_MAXIMUM_OPTION = 63;
-
 	public const uint32 TRANSACTION_DO_NOT_PROMOTE = 1;
-
 	public const uint32 TRANSACTION_MAXIMUM_OPTION = 1;
-
 	public const uint32 RESOURCE_MANAGER_VOLATILE = 1;
-
 	public const uint32 RESOURCE_MANAGER_COMMUNICATION = 2;
-
 	public const uint32 RESOURCE_MANAGER_MAXIMUM_OPTION = 3;
-
 	public const uint32 CRM_PROTOCOL_EXPLICIT_MARSHAL_ONLY = 1;
-
 	public const uint32 CRM_PROTOCOL_DYNAMIC_MARSHAL_INFO = 2;
-
 	public const uint32 CRM_PROTOCOL_MAXIMUM_OPTION = 3;
-
 	public const uint32 ENLISTMENT_SUPERIOR = 1;
-
 	public const uint32 ENLISTMENT_MAXIMUM_OPTION = 1;
-
 	public const uint32 TRANSACTION_NOTIFY_MASK = 1073741823;
-
 	public const uint32 TRANSACTION_NOTIFY_PREPREPARE = 1;
-
 	public const uint32 TRANSACTION_NOTIFY_PREPARE = 2;
-
 	public const uint32 TRANSACTION_NOTIFY_COMMIT = 4;
-
 	public const uint32 TRANSACTION_NOTIFY_ROLLBACK = 8;
-
 	public const uint32 TRANSACTION_NOTIFY_PREPREPARE_COMPLETE = 16;
-
 	public const uint32 TRANSACTION_NOTIFY_PREPARE_COMPLETE = 32;
-
 	public const uint32 TRANSACTION_NOTIFY_COMMIT_COMPLETE = 64;
-
 	public const uint32 TRANSACTION_NOTIFY_ROLLBACK_COMPLETE = 128;
-
 	public const uint32 TRANSACTION_NOTIFY_RECOVER = 256;
-
 	public const uint32 TRANSACTION_NOTIFY_SINGLE_PHASE_COMMIT = 512;
-
 	public const uint32 TRANSACTION_NOTIFY_DELEGATE_COMMIT = 1024;
-
 	public const uint32 TRANSACTION_NOTIFY_RECOVER_QUERY = 2048;
-
 	public const uint32 TRANSACTION_NOTIFY_ENLIST_PREPREPARE = 4096;
-
 	public const uint32 TRANSACTION_NOTIFY_LAST_RECOVER = 8192;
-
 	public const uint32 TRANSACTION_NOTIFY_INDOUBT = 16384;
-
 	public const uint32 TRANSACTION_NOTIFY_PROPAGATE_PULL = 32768;
-
 	public const uint32 TRANSACTION_NOTIFY_PROPAGATE_PUSH = 65536;
-
 	public const uint32 TRANSACTION_NOTIFY_MARSHAL = 131072;
-
 	public const uint32 TRANSACTION_NOTIFY_ENLIST_MASK = 262144;
-
 	public const uint32 TRANSACTION_NOTIFY_RM_DISCONNECTED = 16777216;
-
 	public const uint32 TRANSACTION_NOTIFY_TM_ONLINE = 33554432;
-
 	public const uint32 TRANSACTION_NOTIFY_COMMIT_REQUEST = 67108864;
-
 	public const uint32 TRANSACTION_NOTIFY_PROMOTE = 134217728;
-
 	public const uint32 TRANSACTION_NOTIFY_PROMOTE_NEW = 268435456;
-
 	public const uint32 TRANSACTION_NOTIFY_REQUEST_OUTCOME = 536870912;
-
 	public const uint32 TRANSACTION_NOTIFY_COMMIT_FINALIZE = 1073741824;
-
 	public const uint32 TRANSACTION_NOTIFICATION_TM_ONLINE_FLAG_IS_CLUSTERED = 1;
-
 	public const uint32 KTM_MARSHAL_BLOB_VERSION_MAJOR = 1;
-
 	public const uint32 KTM_MARSHAL_BLOB_VERSION_MINOR = 1;
-
 	public const uint32 MAX_TRANSACTION_DESCRIPTION_LENGTH = 64;
-
 	public const uint32 MAX_RESOURCEMANAGER_DESCRIPTION_LENGTH = 64;
-
 	public const uint32 IOCTL_VOLUME_BASE = 86;
-
 	public const uint32 IOCTL_VOLUME_GET_VOLUME_DISK_EXTENTS = 5636096;
-
 	public const uint32 IOCTL_VOLUME_ONLINE = 5685256;
-
 	public const uint32 IOCTL_VOLUME_OFFLINE = 5685260;
-
 	public const uint32 IOCTL_VOLUME_IS_CLUSTERED = 5636144;
-
 	public const uint32 IOCTL_VOLUME_GET_GPT_ATTRIBUTES = 5636152;
-
 	public const uint32 IOCTL_VOLUME_SUPPORTS_ONLINE_OFFLINE = 5636100;
-
 	public const uint32 IOCTL_VOLUME_IS_OFFLINE = 5636112;
-
 	public const uint32 IOCTL_VOLUME_IS_IO_CAPABLE = 5636116;
-
 	public const uint32 IOCTL_VOLUME_QUERY_FAILOVER_SET = 5636120;
-
 	public const uint32 IOCTL_VOLUME_QUERY_VOLUME_NUMBER = 5636124;
-
 	public const uint32 IOCTL_VOLUME_LOGICAL_TO_PHYSICAL = 5636128;
-
 	public const uint32 IOCTL_VOLUME_PHYSICAL_TO_LOGICAL = 5636132;
-
 	public const uint32 IOCTL_VOLUME_IS_PARTITION = 5636136;
-
 	public const uint32 IOCTL_VOLUME_READ_PLEX = 5652526;
-
 	public const uint32 IOCTL_VOLUME_SET_GPT_ATTRIBUTES = 5636148;
-
 	public const uint32 IOCTL_VOLUME_GET_BC_PROPERTIES = 5652540;
-
 	public const uint32 IOCTL_VOLUME_ALLOCATE_BC_STREAM = 5685312;
-
 	public const uint32 IOCTL_VOLUME_FREE_BC_STREAM = 5685316;
-
 	public const uint32 IOCTL_VOLUME_BC_VERSION = 1;
-
 	public const uint32 IOCTL_VOLUME_IS_DYNAMIC = 5636168;
-
 	public const uint32 IOCTL_VOLUME_PREPARE_FOR_CRITICAL_IO = 5685324;
-
 	public const uint32 IOCTL_VOLUME_QUERY_ALLOCATION_HINT = 5652562;
-
 	public const uint32 IOCTL_VOLUME_UPDATE_PROPERTIES = 5636180;
-
 	public const uint32 IOCTL_VOLUME_QUERY_MINIMUM_SHRINK_SIZE = 5652568;
-
 	public const uint32 IOCTL_VOLUME_PREPARE_FOR_SHRINK = 5685340;
-
 	public const uint32 IOCTL_VOLUME_IS_CSV = 5636192;
-
 	public const uint32 IOCTL_VOLUME_POST_ONLINE = 5685348;
-
 	public const uint32 IOCTL_VOLUME_GET_CSVBLOCKCACHE_CALLBACK = 5685352;
-
 	public const uint32 CSV_BLOCK_CACHE_CALLBACK_VERSION = 1;
-
 	public const uint32 CSV_BLOCK_AND_FILE_CACHE_CALLBACK_VERSION = 2;
-
 	public const Guid PARTITION_BASIC_DATA_GUID = .(0xebd0a0a2, 0xb9e5, 0x4433, 0x87, 0xc0, 0x68, 0xb6, 0xb7, 0x26, 0x99, 0xc7);
-
 	public const Guid PARTITION_BSP_GUID = .(0x57434f53, 0x4df9, 0x45b9, 0x8e, 0x9e, 0x23, 0x70, 0xf0, 0x06, 0x45, 0x7c);
-
 	public const Guid PARTITION_CLUSTER_GUID = .(0xdb97dba9, 0x0840, 0x4bae, 0x97, 0xf0, 0xff, 0xb9, 0xa3, 0x27, 0xc7, 0xe1);
-
 	public const Guid PARTITION_DPP_GUID = .(0x57434f53, 0x94cb, 0x43f0, 0xa5, 0x33, 0xd7, 0x3c, 0x10, 0xcf, 0xa5, 0x7d);
-
 	public const Guid PARTITION_ENTRY_UNUSED_GUID = .(0x00000000, 0x0000, 0x0000, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00);
-
 	public const Guid PARTITION_LDM_DATA_GUID = .(0xaf9b60a0, 0x1431, 0x4f62, 0xbc, 0x68, 0x33, 0x11, 0x71, 0x4a, 0x69, 0xad);
-
 	public const Guid PARTITION_LDM_METADATA_GUID = .(0x5808c8aa, 0x7e8f, 0x42e0, 0x85, 0xd2, 0xe1, 0xe9, 0x04, 0x34, 0xcf, 0xb3);
-
 	public const Guid PARTITION_LEGACY_BL_GUID = .(0x424ca0e2, 0x7cb2, 0x4fb9, 0x81, 0x43, 0xc5, 0x2a, 0x99, 0x39, 0x8b, 0xc6);
-
 	public const Guid PARTITION_LEGACY_BL_GUID_BACKUP = .(0x424c3e6c, 0xd79f, 0x49cb, 0x93, 0x5d, 0x36, 0xd7, 0x14, 0x67, 0xa2, 0x88);
-
 	public const Guid PARTITION_MAIN_OS_GUID = .(0x57434f53, 0x8f45, 0x405e, 0x8a, 0x23, 0x18, 0x6d, 0x8a, 0x43, 0x30, 0xd3);
-
 	public const Guid PARTITION_MSFT_RECOVERY_GUID = .(0xde94bba4, 0x06d1, 0x4d40, 0xa1, 0x6a, 0xbf, 0xd5, 0x01, 0x79, 0xd6, 0xac);
-
 	public const Guid PARTITION_MSFT_RESERVED_GUID = .(0xe3c9e316, 0x0b5c, 0x4db8, 0x81, 0x7d, 0xf9, 0x2d, 0xf0, 0x02, 0x15, 0xae);
-
 	public const Guid PARTITION_MSFT_SNAPSHOT_GUID = .(0xcaddebf1, 0x4400, 0x4de8, 0xb1, 0x03, 0x12, 0x11, 0x7d, 0xcf, 0x3c, 0xcf);
-
 	public const Guid PARTITION_OS_DATA_GUID = .(0x57434f53, 0x23f2, 0x44d5, 0xa8, 0x30, 0x67, 0xbb, 0xda, 0xa6, 0x09, 0xf9);
-
 	public const Guid PARTITION_PATCH_GUID = .(0x8967a686, 0x96aa, 0x6aa8, 0x95, 0x89, 0xa8, 0x42, 0x56, 0x54, 0x10, 0x90);
-
 	public const Guid PARTITION_PRE_INSTALLED_GUID = .(0x57434f53, 0x7fe0, 0x4196, 0x9b, 0x42, 0x42, 0x7b, 0x51, 0x64, 0x34, 0x84);
-
 	public const Guid PARTITION_SERVICING_FILES_GUID = .(0x57434f53, 0x432e, 0x4014, 0xae, 0x4c, 0x8d, 0xea, 0xa9, 0xc0, 0x00, 0x6a);
-
 	public const Guid PARTITION_SERVICING_METADATA_GUID = .(0x57434f53, 0xc691, 0x4a05, 0xbb, 0x4e, 0x70, 0x3d, 0xaf, 0xd2, 0x29, 0xce);
-
 	public const Guid PARTITION_SERVICING_RESERVE_GUID = .(0x57434f53, 0x4b81, 0x460b, 0xa3, 0x19, 0xff, 0xb6, 0xfe, 0x13, 0x6d, 0x14);
-
 	public const Guid PARTITION_SERVICING_STAGING_ROOT_GUID = .(0x57434f53, 0xe84d, 0x4e84, 0xaa, 0xf3, 0xec, 0xbb, 0xbd, 0x04, 0xb9, 0xdf);
-
 	public const Guid PARTITION_SPACES_GUID = .(0xe75caf8f, 0xf680, 0x4cee, 0xaf, 0xa3, 0xb0, 0x01, 0xe5, 0x6e, 0xfc, 0x2d);
-
 	public const Guid PARTITION_SPACES_DATA_GUID = .(0xe7addcb4, 0xdc34, 0x4539, 0x9a, 0x76, 0xeb, 0xbd, 0x07, 0xbe, 0x6f, 0x7e);
-
 	public const Guid PARTITION_SYSTEM_GUID = .(0xc12a7328, 0xf81f, 0x11d2, 0xba, 0x4b, 0x00, 0xa0, 0xc9, 0x3e, 0xc9, 0x3b);
-
 	public const Guid PARTITION_WINDOWS_SYSTEM_GUID = .(0x57434f53, 0xe3e3, 0x4631, 0xa5, 0xc5, 0x26, 0xd2, 0x24, 0x38, 0x73, 0xaa);
-
 	public const uint32 _FT_TYPES_DEFINITION_ = 1;
-
 	public const uint32 CLFS_MGMT_POLICY_VERSION = 1;
-
 	public const uint32 LOG_POLICY_OVERWRITE = 1;
-
 	public const uint32 LOG_POLICY_PERSIST = 2;
-
 	public const uint32 CLFS_MGMT_CLIENT_REGISTRATION_VERSION = 1;
-
 	public const Guid CLSID_DiskQuotaControl = .(0x7988b571, 0xec89, 0x11cf, 0x9c, 0x00, 0x00, 0xaa, 0x00, 0xa1, 0x4f, 0x56);
-
 	public const uint32 DISKQUOTA_STATE_DISABLED = 0;
-
 	public const uint32 DISKQUOTA_STATE_TRACK = 1;
-
 	public const uint32 DISKQUOTA_STATE_ENFORCE = 2;
-
 	public const uint32 DISKQUOTA_STATE_MASK = 3;
-
 	public const uint32 DISKQUOTA_FILESTATE_INCOMPLETE = 256;
-
 	public const uint32 DISKQUOTA_FILESTATE_REBUILDING = 512;
-
 	public const uint32 DISKQUOTA_FILESTATE_MASK = 768;
-
 	public const uint32 DISKQUOTA_LOGFLAG_USER_THRESHOLD = 1;
-
 	public const uint32 DISKQUOTA_LOGFLAG_USER_LIMIT = 2;
-
 	public const uint32 DISKQUOTA_USER_ACCOUNT_RESOLVED = 0;
-
 	public const uint32 DISKQUOTA_USER_ACCOUNT_UNAVAILABLE = 1;
-
 	public const uint32 DISKQUOTA_USER_ACCOUNT_DELETED = 2;
-
 	public const uint32 DISKQUOTA_USER_ACCOUNT_INVALID = 3;
-
 	public const uint32 DISKQUOTA_USER_ACCOUNT_UNKNOWN = 4;
-
 	public const uint32 DISKQUOTA_USER_ACCOUNT_UNRESOLVED = 5;
-
 	public const uint32 INVALID_SET_FILE_POINTER = 4294967295;
-
 	public const uint32 INVALID_FILE_ATTRIBUTES = 4294967295;
-
 	public const uint32 SHARE_NETNAME_PARMNUM = 1;
-
 	public const uint32 SHARE_TYPE_PARMNUM = 3;
-
 	public const uint32 SHARE_REMARK_PARMNUM = 4;
-
 	public const uint32 SHARE_PERMISSIONS_PARMNUM = 5;
-
 	public const uint32 SHARE_MAX_USES_PARMNUM = 6;
-
 	public const uint32 SHARE_CURRENT_USES_PARMNUM = 7;
-
 	public const uint32 SHARE_PATH_PARMNUM = 8;
-
 	public const uint32 SHARE_PASSWD_PARMNUM = 9;
-
 	public const uint32 SHARE_FILE_SD_PARMNUM = 501;
-
 	public const uint32 SHARE_SERVER_PARMNUM = 503;
-
 	public const uint32 SHI1_NUM_ELEMENTS = 4;
-
 	public const uint32 SHI2_NUM_ELEMENTS = 10;
-
 	public const uint32 STYPE_RESERVED1 = 16777216;
-
 	public const uint32 STYPE_RESERVED2 = 33554432;
-
 	public const uint32 STYPE_RESERVED3 = 67108864;
-
 	public const uint32 STYPE_RESERVED4 = 134217728;
-
 	public const uint32 STYPE_RESERVED5 = 1048576;
-
 	public const uint32 STYPE_RESERVED_ALL = 1073741568;
-
 	public const uint32 SHI_USES_UNLIMITED = 4294967295;
-
 	public const uint32 SHI1005_FLAGS_DFS = 1;
-
 	public const uint32 SHI1005_FLAGS_DFS_ROOT = 2;
-
 	public const uint32 CSC_MASK_EXT = 8240;
-
 	public const uint32 CSC_MASK = 48;
-
 	public const uint32 CSC_CACHE_MANUAL_REINT = 0;
-
 	public const uint32 CSC_CACHE_AUTO_REINT = 16;
-
 	public const uint32 CSC_CACHE_VDO = 32;
-
 	public const uint32 CSC_CACHE_NONE = 48;
-
 	public const uint32 SHI1005_FLAGS_RESTRICT_EXCLUSIVE_OPENS = 256;
-
 	public const uint32 SHI1005_FLAGS_FORCE_SHARED_DELETE = 512;
-
 	public const uint32 SHI1005_FLAGS_ALLOW_NAMESPACE_CACHING = 1024;
-
 	public const uint32 SHI1005_FLAGS_ACCESS_BASED_DIRECTORY_ENUM = 2048;
-
 	public const uint32 SHI1005_FLAGS_FORCE_LEVELII_OPLOCK = 4096;
-
 	public const uint32 SHI1005_FLAGS_ENABLE_HASH = 8192;
-
 	public const uint32 SHI1005_FLAGS_ENABLE_CA = 16384;
-
 	public const uint32 SHI1005_FLAGS_ENCRYPT_DATA = 32768;
-
 	public const uint32 SHI1005_FLAGS_RESERVED = 65536;
-
 	public const uint32 SHI1005_FLAGS_DISABLE_CLIENT_BUFFERING = 131072;
-
 	public const uint32 SHI1005_FLAGS_IDENTITY_REMOTING = 262144;
-
 	public const uint32 SHI1005_FLAGS_CLUSTER_MANAGED = 524288;
-
 	public const uint32 SHI1005_FLAGS_COMPRESS_DATA = 1048576;
-
 	public const uint32 SESI1_NUM_ELEMENTS = 8;
-
 	public const uint32 SESI2_NUM_ELEMENTS = 9;
-
 	public const uint32 STATSOPT_CLR = 1;
-
 	public const int32 LZERROR_BADINHANDLE = -1;
-
 	public const int32 LZERROR_BADOUTHANDLE = -2;
-
 	public const int32 LZERROR_READ = -3;
-
 	public const int32 LZERROR_WRITE = -4;
-
 	public const int32 LZERROR_GLOBALLOC = -5;
-
 	public const int32 LZERROR_GLOBLOCK = -6;
-
 	public const int32 LZERROR_BADVALUE = -7;
-
 	public const int32 LZERROR_UNKNOWNALG = -8;
-
 	public const uint32 NTMS_OBJECTNAME_LENGTH = 64;
-
 	public const uint32 NTMS_DESCRIPTION_LENGTH = 127;
-
 	public const uint32 NTMS_DEVICENAME_LENGTH = 64;
-
 	public const uint32 NTMS_SERIALNUMBER_LENGTH = 32;
-
 	public const uint32 NTMS_REVISION_LENGTH = 32;
-
 	public const uint32 NTMS_BARCODE_LENGTH = 64;
-
 	public const uint32 NTMS_SEQUENCE_LENGTH = 32;
-
 	public const uint32 NTMS_VENDORNAME_LENGTH = 128;
-
 	public const uint32 NTMS_PRODUCTNAME_LENGTH = 128;
-
 	public const uint32 NTMS_USERNAME_LENGTH = 64;
-
 	public const uint32 NTMS_APPLICATIONNAME_LENGTH = 64;
-
 	public const uint32 NTMS_COMPUTERNAME_LENGTH = 64;
-
 	public const uint32 NTMS_I1_MESSAGE_LENGTH = 127;
-
 	public const uint32 NTMS_MESSAGE_LENGTH = 256;
-
 	public const uint32 NTMS_POOLHIERARCHY_LENGTH = 512;
-
 	public const uint32 NTMS_OMIDLABELID_LENGTH = 255;
-
 	public const uint32 NTMS_OMIDLABELTYPE_LENGTH = 64;
-
 	public const uint32 NTMS_OMIDLABELINFO_LENGTH = 256;
-
 	public const uint32 NTMS_MAXATTR_LENGTH = 65536;
-
 	public const uint32 NTMS_MAXATTR_NAMELEN = 32;
-
 	public const uint32 NTMSMLI_MAXTYPE = 64;
-
 	public const uint32 NTMSMLI_MAXIDSIZE = 256;
-
 	public const uint32 NTMSMLI_MAXAPPDESCR = 256;
-
 	public const uint32 TXF_LOG_RECORD_GENERIC_TYPE_COMMIT = 1;
-
 	public const uint32 TXF_LOG_RECORD_GENERIC_TYPE_ABORT = 2;
-
 	public const uint32 TXF_LOG_RECORD_GENERIC_TYPE_PREPARE = 4;
-
 	public const uint32 TXF_LOG_RECORD_GENERIC_TYPE_DATA = 8;
-
 	public const uint32 VS_VERSION_INFO = 1;
-
 	public const uint32 VS_USER_DEFINED = 100;
-
 	public const int32 VS_FFI_SIGNATURE = -17890115;
-
 	public const int32 VS_FFI_STRUCVERSION = 65536;
-
 	public const int32 VS_FFI_FILEFLAGSMASK = 63;
-
 	public const uint32 WINEFS_SETUSERKEY_SET_CAPABILITIES = 1;
-
 	public const uint32 EFS_COMPATIBILITY_VERSION_NCRYPT_PROTECTOR = 5;
-
 	public const uint32 EFS_COMPATIBILITY_VERSION_PFILE_PROTECTOR = 6;
-
 	public const uint32 EFS_SUBVER_UNKNOWN = 0;
-
 	public const uint32 EFS_EFS_SUBVER_EFS_CERT = 1;
-
 	public const uint32 EFS_PFILE_SUBVER_RMS = 2;
-
 	public const uint32 EFS_PFILE_SUBVER_APPX = 3;
-
 	public const uint32 MAX_SID_SIZE = 256;
-
 	public const uint32 EFS_METADATA_ADD_USER = 1;
-
 	public const uint32 EFS_METADATA_REMOVE_USER = 2;
-
 	public const uint32 EFS_METADATA_REPLACE_USER = 4;
-
 	public const uint32 EFS_METADATA_GENERAL_OP = 8;
-
 	public const uint32 WOF_PROVIDER_WIM = 1;
-
 	public const uint32 WOF_PROVIDER_FILE = 2;
-
 	public const uint32 WIM_PROVIDER_HASH_SIZE = 20;
-
 	public const uint32 WIM_BOOT_OS_WIM = 1;
-
 	public const uint32 WIM_BOOT_NOT_OS_WIM = 0;
-
 	public const uint32 WIM_ENTRY_FLAG_NOT_ACTIVE = 1;
-
 	public const uint32 WIM_ENTRY_FLAG_SUSPENDED = 2;
-
 	public const uint32 WIM_EXTERNAL_FILE_INFO_FLAG_NOT_ACTIVE = 1;
-
 	public const uint32 WIM_EXTERNAL_FILE_INFO_FLAG_SUSPENDED = 2;
-
 	public const uint32 FILE_PROVIDER_COMPRESSION_XPRESS4K = 0;
-
 	public const uint32 FILE_PROVIDER_COMPRESSION_LZX = 1;
-
 	public const uint32 FILE_PROVIDER_COMPRESSION_XPRESS8K = 2;
-
 	public const uint32 FILE_PROVIDER_COMPRESSION_XPRESS16K = 3;
-
 	public const uint8 ClfsNullRecord = 0;
-
 	public const uint8 ClfsDataRecord = 1;
-
 	public const uint8 ClfsRestartRecord = 2;
-
 	public const uint8 ClfsClientRecord = 3;
-
 	public const uint32 ClsContainerInitializing = 1;
-
 	public const uint32 ClsContainerInactive = 2;
-
 	public const uint32 ClsContainerActive = 4;
-
 	public const uint32 ClsContainerActivePendingDelete = 8;
-
 	public const uint32 ClsContainerPendingArchive = 16;
-
 	public const uint32 ClsContainerPendingArchiveAndDelete = 32;
-
 	public const uint32 ClfsContainerInitializing = 1;
-
 	public const uint32 ClfsContainerInactive = 2;
-
 	public const uint32 ClfsContainerActive = 4;
-
 	public const uint32 ClfsContainerActivePendingDelete = 8;
-
 	public const uint32 ClfsContainerPendingArchive = 16;
-
 	public const uint32 ClfsContainerPendingArchiveAndDelete = 32;
-
 	public const uint32 CLFS_MAX_CONTAINER_INFO = 256;
-
 	public const uint8 CLFS_SCAN_INIT = 1;
-
 	public const uint8 CLFS_SCAN_FORWARD = 2;
-
 	public const uint8 CLFS_SCAN_BACKWARD = 4;
-
 	public const uint8 CLFS_SCAN_CLOSE = 8;
-
 	public const uint8 CLFS_SCAN_INITIALIZED = 16;
-
 	public const uint8 CLFS_SCAN_BUFFERED = 32;
-
 }
 #endregion
 
@@ -2539,7 +2268,6 @@ public struct NTMS_OBJECTINFORMATIONA
 		public NTMS_OPREQUESTINFORMATIONA OpRequest;
 		public NTMS_COMPUTERINFORMATION Computer;
 	}
-
 	public uint32 dwSize;
 	public NtmsObjectsTypes dwType;
 	public SYSTEMTIME Created;
@@ -2575,7 +2303,6 @@ public struct NTMS_OBJECTINFORMATIONW
 		public NTMS_OPREQUESTINFORMATIONW OpRequest;
 		public NTMS_COMPUTERINFORMATION Computer;
 	}
-
 	public uint32 dwSize;
 	public NtmsObjectsTypes dwType;
 	public SYSTEMTIME Created;
@@ -2766,7 +2493,6 @@ public struct NTMS_I1_OBJECTINFORMATIONA
 		public NTMS_I1_LIBREQUESTINFORMATIONA LibRequest;
 		public NTMS_I1_OPREQUESTINFORMATIONA OpRequest;
 	}
-
 	public uint32 dwSize;
 	public uint32 dwType;
 	public SYSTEMTIME Created;
@@ -2801,7 +2527,6 @@ public struct NTMS_I1_OBJECTINFORMATIONW
 		public NTMS_I1_LIBREQUESTINFORMATIONW LibRequest;
 		public NTMS_I1_OPREQUESTINFORMATIONW OpRequest;
 	}
-
 	public uint32 dwSize;
 	public uint32 dwType;
 	public SYSTEMTIME Created;
@@ -2880,10 +2605,11 @@ public struct CLS_INFORMATION
 	public Guid Identity;
 }
 
-[CRepr, FlexibleArray("Name")]
+[CRepr]
 public struct CLFS_LOG_NAME_INFORMATION
 {
 	public uint16 NameLengthInBytes;
+	public char16* Name mut => &Name_impl;
 	private char16[ANYSIZE_ARRAY] Name_impl;
 }
 
@@ -2963,70 +2689,62 @@ public struct CLFS_MGMT_POLICY
 	[CRepr, Union]
 	public struct _PolicyParameters_e__Union
 	{
-		[CRepr, FlexibleArray("ExtensionString")]
+		[CRepr]
 		public struct _NewContainerExtension_e__Struct
 		{
 			public uint16 ExtensionLengthInBytes;
+			public char16* ExtensionString mut => &ExtensionString_impl;
 			private char16[ANYSIZE_ARRAY] ExtensionString_impl;
 		}
-
-		[CRepr, FlexibleArray("PrefixString")]
+		[CRepr]
 		public struct _NewContainerPrefix_e__Struct
 		{
 			public uint16 PrefixLengthInBytes;
+			public char16* PrefixString mut => &PrefixString_impl;
 			private char16[ANYSIZE_ARRAY] PrefixString_impl;
 		}
-
 		[CRepr]
 		public struct _AutoShrink_e__Struct
 		{
 			public uint32 Percentage;
 		}
-
 		[CRepr]
 		public struct _GrowthRate_e__Struct
 		{
 			public uint32 AbsoluteGrowthInContainers;
 			public uint32 RelativeGrowthPercentage;
 		}
-
 		[CRepr]
 		public struct _MinimumSize_e__Struct
 		{
 			public uint32 Containers;
 		}
-
 		[CRepr]
 		public struct _NewContainerSuffix_e__Struct
 		{
 			public uint64 NextContainerSuffix;
 		}
-
 		[CRepr]
 		public struct _LogTail_e__Struct
 		{
 			public uint32 MinimumAvailablePercentage;
 			public uint32 MinimumAvailableContainers;
 		}
-
 		[CRepr]
 		public struct _MaximumSize_e__Struct
 		{
 			public uint32 Containers;
 		}
-
 		[CRepr]
 		public struct _AutoGrow_e__Struct
 		{
 			public uint32 Enabled;
 		}
-
 		[CRepr]
 		public struct _NewContainerSize_e__Struct
 		{
 			public uint32 SizeInBytes;
 		}
-
 		public _MaximumSize_e__Struct MaximumSize;
 		public _MinimumSize_e__Struct MinimumSize;
 		public _NewContainerSize_e__Struct NewContainerSize;
@@ -3038,7 +2756,6 @@ public struct CLFS_MGMT_POLICY
 		public _NewContainerSuffix_e__Struct NewContainerSuffix;
 		public _NewContainerExtension_e__Struct NewContainerExtension;
 	}
-
 	public uint32 Version;
 	public uint32 LengthInBytes;
 	public uint32 PolicyFlags;
@@ -3235,7 +2952,6 @@ public struct TXF_ID
 		public int64 LowPart;
 		public int64 HighPart;
 	}
-
 	public using _Anonymous_e__Struct Anonymous;
 }
 
@@ -3289,10 +3005,11 @@ public struct TXF_LOG_RECORD_AFFECTED_FILE
 	public uint32 FileNameByteOffsetInStructure;
 }
 
-[CRepr, FlexibleArray("DiskNumbers")]
+[CRepr]
 public struct VOLUME_FAILOVER_SET
 {
 	public uint32 NumberOfDisks;
+	public uint32* DiskNumbers mut => &DiskNumbers_impl;
 	private uint32[ANYSIZE_ARRAY] DiskNumbers_impl;
 }
 
@@ -3316,10 +3033,11 @@ public struct VOLUME_PHYSICAL_OFFSET
 	public int64 Offset;
 }
 
-[CRepr, FlexibleArray("PhysicalOffset")]
+[CRepr]
 public struct VOLUME_PHYSICAL_OFFSETS
 {
 	public uint32 NumberOfPhysicalOffsets;
+	public VOLUME_PHYSICAL_OFFSET* PhysicalOffset mut => &PhysicalOffset_impl;
 	private VOLUME_PHYSICAL_OFFSET[ANYSIZE_ARRAY] PhysicalOffset_impl;
 }
 
@@ -3392,11 +3110,12 @@ public struct FILE_EXTENT
 	public uint64 ExtentLength;
 }
 
-[CRepr, FlexibleArray("Extents")]
+[CRepr]
 public struct VOLUME_CRITICAL_IO
 {
 	public uint32 AccessType;
 	public uint32 ExtentsCount;
+	public FILE_EXTENT* Extents mut => &Extents_impl;
 	private FILE_EXTENT[ANYSIZE_ARRAY] Extents_impl;
 }
 
@@ -3408,9 +3127,10 @@ public struct VOLUME_ALLOCATION_HINT_INPUT
 	public int64 StartingClusterNumber;
 }
 
-[CRepr, FlexibleArray("Bitmap")]
+[CRepr]
 public struct VOLUME_ALLOCATION_HINT_OUTPUT
 {
+	public uint32* Bitmap mut => &Bitmap_impl;
 	private uint32[ANYSIZE_ARRAY] Bitmap_impl;
 }
 
@@ -3781,7 +3501,6 @@ public struct IORING_HANDLE_REF
 		public HANDLE Handle;
 		public uint32 Index;
 	}
-
 	public IORING_REF_KIND Kind;
 	public HandleUnion Handle;
 }
@@ -3795,7 +3514,6 @@ public struct IORING_BUFFER_REF
 		public void* Address;
 		public IORING_REGISTERED_BUFFER IndexAndOffset;
 	}
-
 	public IORING_REF_KIND Kind;
 	public BufferUnion Buffer;
 }
@@ -3814,16 +3532,17 @@ public struct FILE_ID_128
 	public uint8[16] Identifier;
 }
 
-[CRepr, FlexibleArray("FileName")]
+[CRepr]
 public struct FILE_NOTIFY_INFORMATION
 {
 	public uint32 NextEntryOffset;
 	public FILE_ACTION Action;
 	public uint32 FileNameLength;
+	public char16* FileName mut => &FileName_impl;
 	private char16[ANYSIZE_ARRAY] FileName_impl;
 }
 
-[CRepr, FlexibleArray("FileName")]
+[CRepr]
 public struct FILE_NOTIFY_EXTENDED_INFORMATION
 {
 	public uint32 NextEntryOffset;
@@ -3839,6 +3558,7 @@ public struct FILE_NOTIFY_EXTENDED_INFORMATION
 	public LARGE_INTEGER FileId;
 	public LARGE_INTEGER ParentFileId;
 	public uint32 FileNameLength;
+	public char16* FileName mut => &FileName_impl;
 	private char16[ANYSIZE_ARRAY] FileName_impl;
 }
 
@@ -3852,12 +3572,12 @@ public struct FILE_SEGMENT_ELEMENT
 [CRepr]
 public struct REPARSE_GUID_DATA_BUFFER
 {
-	[CRepr, FlexibleArray("DataBuffer")]
+	[CRepr]
 	public struct _GenericReparseBuffer_e__Struct
 	{
+		public uint8* DataBuffer mut => &DataBuffer_impl;
 		private uint8[ANYSIZE_ARRAY] DataBuffer_impl;
 	}
-
 	public uint32 ReparseTag;
 	public uint16 ReparseDataLength;
 	public uint16 Reserved;
@@ -3915,13 +3635,14 @@ public struct OFSTRUCT
 	public CHAR[128] szPathName;
 }
 
-[CRepr, FlexibleArray("cStreamName")]
+[CRepr]
 public struct WIN32_STREAM_ID
 {
 	public WIN_STREAM_ID dwStreamId;
 	public uint32 dwStreamAttributes;
 	public LARGE_INTEGER Size;
 	public uint32 dwStreamNameSize;
+	public char16* cStreamName mut => &cStreamName_impl;
 	private char16[ANYSIZE_ARRAY] cStreamName_impl;
 }
 
@@ -3944,7 +3665,6 @@ public struct COPYFILE2_MESSAGE
 			public ULARGE_INTEGER uliTotalFileSize;
 			public ULARGE_INTEGER uliTotalBytesTransferred;
 		}
-
 		[CRepr]
 		public struct _StreamFinished_e__Struct
 		{
@@ -3957,7 +3677,6 @@ public struct COPYFILE2_MESSAGE
 			public ULARGE_INTEGER uliTotalFileSize;
 			public ULARGE_INTEGER uliTotalBytesTransferred;
 		}
-
 		[CRepr]
 		public struct _ChunkFinished_e__Struct
 		{
@@ -3972,13 +3691,11 @@ public struct COPYFILE2_MESSAGE
 			public ULARGE_INTEGER uliTotalFileSize;
 			public ULARGE_INTEGER uliTotalBytesTransferred;
 		}
-
 		[CRepr]
 		public struct _PollContinue_e__Struct
 		{
 			public uint32 dwReserved;
 		}
-
 		[CRepr]
 		public struct _ChunkStarted_e__Struct
 		{
@@ -3991,7 +3708,6 @@ public struct COPYFILE2_MESSAGE
 			public ULARGE_INTEGER uliStreamSize;
 			public ULARGE_INTEGER uliTotalFileSize;
 		}
-
 		[CRepr]
 		public struct _StreamStarted_e__Struct
 		{
@@ -4002,7 +3718,6 @@ public struct COPYFILE2_MESSAGE
 			public ULARGE_INTEGER uliStreamSize;
 			public ULARGE_INTEGER uliTotalFileSize;
 		}
-
 		public _ChunkStarted_e__Struct ChunkStarted;
 		public _ChunkFinished_e__Struct ChunkFinished;
 		public _StreamStarted_e__Struct StreamStarted;
@@ -4010,7 +3725,6 @@ public struct COPYFILE2_MESSAGE
 		public _PollContinue_e__Struct PollContinue;
 		public _Error_e__Struct Error;
 	}
-
 	public COPYFILE2_MESSAGE_TYPE Type;
 	public uint32 dwPadding;
 	public _Info_e__Union Info;
@@ -4060,14 +3774,15 @@ public struct FILE_STANDARD_INFO
 	public BOOLEAN Directory;
 }
 
-[CRepr, FlexibleArray("FileName")]
+[CRepr]
 public struct FILE_NAME_INFO
 {
 	public uint32 FileNameLength;
+	public char16* FileName mut => &FileName_impl;
 	private char16[ANYSIZE_ARRAY] FileName_impl;
 }
 
-[CRepr, FlexibleArray("FileName")]
+[CRepr]
 public struct FILE_RENAME_INFO
 {
 	[CRepr, Union]
@@ -4076,10 +3791,10 @@ public struct FILE_RENAME_INFO
 		public BOOLEAN ReplaceIfExists;
 		public uint32 Flags;
 	}
-
 	public using _Anonymous_e__Union Anonymous;
 	public HANDLE RootDirectory;
 	public uint32 FileNameLength;
+	public char16* FileName mut => &FileName_impl;
 	private char16[ANYSIZE_ARRAY] FileName_impl;
 }
 
@@ -4095,13 +3810,14 @@ public struct FILE_END_OF_FILE_INFO
 	public LARGE_INTEGER EndOfFile;
 }
 
-[CRepr, FlexibleArray("StreamName")]
+[CRepr]
 public struct FILE_STREAM_INFO
 {
 	public uint32 NextEntryOffset;
 	public uint32 StreamNameLength;
 	public LARGE_INTEGER StreamSize;
 	public LARGE_INTEGER StreamAllocationSize;
+	public char16* StreamName mut => &StreamName_impl;
 	private char16[ANYSIZE_ARRAY] StreamName_impl;
 }
 
@@ -4129,7 +3845,7 @@ public struct FILE_DISPOSITION_INFO
 	public BOOLEAN DeleteFileA;
 }
 
-[CRepr, FlexibleArray("FileName")]
+[CRepr]
 public struct FILE_ID_BOTH_DIR_INFO
 {
 	public uint32 NextEntryOffset;
@@ -4146,10 +3862,11 @@ public struct FILE_ID_BOTH_DIR_INFO
 	public int8 ShortNameLength;
 	public char16[12] ShortName;
 	public LARGE_INTEGER FileId;
+	public char16* FileName mut => &FileName_impl;
 	private char16[ANYSIZE_ARRAY] FileName_impl;
 }
 
-[CRepr, FlexibleArray("FileName")]
+[CRepr]
 public struct FILE_FULL_DIR_INFO
 {
 	public uint32 NextEntryOffset;
@@ -4163,6 +3880,7 @@ public struct FILE_FULL_DIR_INFO
 	public uint32 FileAttributes;
 	public uint32 FileNameLength;
 	public uint32 EaSize;
+	public char16* FileName mut => &FileName_impl;
 	private char16[ANYSIZE_ARRAY] FileName_impl;
 }
 
@@ -4197,7 +3915,7 @@ public struct FILE_ID_INFO
 	public FILE_ID_128 FileId;
 }
 
-[CRepr, FlexibleArray("FileName")]
+[CRepr]
 public struct FILE_ID_EXTD_DIR_INFO
 {
 	public uint32 NextEntryOffset;
@@ -4213,6 +3931,7 @@ public struct FILE_ID_EXTD_DIR_INFO
 	public uint32 EaSize;
 	public uint32 ReparsePointTag;
 	public FILE_ID_128 FileId;
+	public char16* FileName mut => &FileName_impl;
 	private char16[ANYSIZE_ARRAY] FileName_impl;
 }
 
@@ -4230,28 +3949,23 @@ public struct FILE_REMOTE_PROTOCOL_INFO
 			{
 				public uint32 Capabilities;
 			}
-
 			[CRepr]
 			public struct _Share_e__Struct
 			{
 				public uint32 Capabilities;
 				public uint32 CachingFlags;
 			}
-
 			public _Server_e__Struct Server;
 			public _Share_e__Struct Share;
 		}
-
 		public _Smb2_e__Struct Smb2;
 		public uint32[16] Reserved;
 	}
-
 	[CRepr]
 	public struct _GenericReserved_e__Struct
 	{
 		public uint32[8] Reserved;
 	}
-
 	public uint16 StructureVersion;
 	public uint16 StructureSize;
 	public uint32 Protocol;
@@ -4274,7 +3988,6 @@ public struct FILE_ID_DESCRIPTOR
 		public Guid ObjectId;
 		public FILE_ID_128 ExtendedFileId;
 	}
-
 	public uint32 dwSize;
 	public FILE_ID_TYPE Type;
 	public using _Anonymous_e__Union Anonymous;

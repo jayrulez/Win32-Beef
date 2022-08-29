@@ -7,9 +7,7 @@ namespace Win32.Security.NetworkAccessProtection;
 public static
 {
 	public const uint32 ComponentTypeEnforcementClientSoH = 1;
-
 	public const uint32 ComponentTypeEnforcementClientRp = 2;
-
 }
 #endregion
 

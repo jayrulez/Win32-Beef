@@ -2,7 +2,6 @@ using Win32.Foundation;
 using Win32.System.Threading;
 using Win32.Security;
 using System;
-using System.Interop;
 
 namespace Win32.System.JobObjects;
 
@@ -248,11 +247,12 @@ public struct JOBOBJECT_EXTENDED_LIMIT_INFORMATION
 	public uint PeakJobMemoryUsed;
 }
 
-[CRepr, FlexibleArray("ProcessIdList")]
+[CRepr]
 public struct JOBOBJECT_BASIC_PROCESS_ID_LIST
 {
 	public uint32 NumberOfAssignedProcesses;
 	public uint32 NumberOfProcessIdsInList;
+	public uint* ProcessIdList mut => &ProcessIdList_impl;
 	private uint[ANYSIZE_ARRAY] ProcessIdList_impl;
 }
 
@@ -319,21 +319,18 @@ public struct JOBOBJECT_NOTIFICATION_LIMIT_INFORMATION_2
 		public JOBOBJECT_RATE_CONTROL_TOLERANCE_INTERVAL RateControlToleranceInterval;
 		public JOBOBJECT_RATE_CONTROL_TOLERANCE_INTERVAL CpuRateControlToleranceInterval;
 	}
-
 	[CRepr, Union]
 	public struct _Anonymous1_e__Union
 	{
 		public uint64 JobHighMemoryLimit;
 		public uint64 JobMemoryLimit;
 	}
-
 	[CRepr, Union]
 	public struct _Anonymous2_e__Union
 	{
 		public JOBOBJECT_RATE_CONTROL_TOLERANCE RateControlTolerance;
 		public JOBOBJECT_RATE_CONTROL_TOLERANCE CpuRateControlTolerance;
 	}
-
 	public uint64 IoReadBytesLimit;
 	public uint64 IoWriteBytesLimit;
 	public LARGE_INTEGER PerJobUserTimeLimit;
@@ -374,21 +371,18 @@ public struct JOBOBJECT_LIMIT_VIOLATION_INFORMATION_2
 		public JOBOBJECT_RATE_CONTROL_TOLERANCE RateControlTolerance;
 		public JOBOBJECT_RATE_CONTROL_TOLERANCE CpuRateControlTolerance;
 	}
-
 	[CRepr, Union]
 	public struct _Anonymous3_e__Union
 	{
 		public JOBOBJECT_RATE_CONTROL_TOLERANCE RateControlToleranceLimit;
 		public JOBOBJECT_RATE_CONTROL_TOLERANCE CpuRateControlToleranceLimit;
 	}
-
 	[CRepr, Union]
 	public struct _Anonymous1_e__Union
 	{
 		public uint64 JobHighMemoryLimit;
 		public uint64 JobMemoryLimit;
 	}
-
 	public JOB_OBJECT_LIMIT LimitFlags;
 	public JOB_OBJECT_LIMIT ViolationLimitFlags;
 	public uint64 IoReadBytes;
@@ -420,12 +414,10 @@ public struct JOBOBJECT_CPU_RATE_CONTROL_INFORMATION
 			public uint16 MinRate;
 			public uint16 MaxRate;
 		}
-
 		public uint32 CpuRate;
 		public uint32 Weight;
 		public using _Anonymous_e__Struct Anonymous;
 	}
-
 	public JOB_OBJECT_CPU_RATE_CONTROL ControlFlags;
 	public using _Anonymous_e__Union Anonymous;
 }

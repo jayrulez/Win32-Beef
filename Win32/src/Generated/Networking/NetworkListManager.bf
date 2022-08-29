@@ -9,9 +9,7 @@ namespace Win32.Networking.NetworkListManager;
 public static
 {
 	public const uint32 NLM_MAX_ADDRESS_LIST_SIZE = 10;
-
 	public const uint32 NLM_UNKNOWN_DATAPLAN_STATUS = 4294967295;
-
 }
 #endregion
 

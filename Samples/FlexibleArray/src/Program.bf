@@ -8,18 +8,17 @@ class Program
 {
 	public static void Main()
 	{
-		IP_INTERFACE_INFO info = .();
 		uint32 bufLen = 0;
 
-		GetInterfaceInfo(&info, &bufLen);
+		GetInterfaceInfo(null, &bufLen);
 
-		IP_INTERFACE_INFO* infoPtr = (.)scope uint8[IP_INTERFACE_INFO.GetAllocSize(bufLen)]*;
+		IP_INTERFACE_INFO* info = (.)scope uint8[bufLen]*;
 
-		GetInterfaceInfo(infoPtr, &bufLen);
+		GetInterfaceInfo(info, &bufLen);
 
-		for (int i = 0; i < infoPtr.NumAdapters; i++)
+		for (int i = 0; i < info.NumAdapters; i++)
 		{
-			Debug.WriteLine("{}", scope String(&infoPtr.Adapter[i].Name));
+			Debug.WriteLine("{}", scope String(&info.Adapter[i].Name));
 		}
 	}
 }

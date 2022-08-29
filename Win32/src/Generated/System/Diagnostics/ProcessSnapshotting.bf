@@ -9,7 +9,6 @@ namespace Win32.System.Diagnostics.ProcessSnapshotting;
 public static
 {
 	public const uint32 PSS_PERF_RESOLUTION = 1000000;
-
 }
 #endregion
 
@@ -256,14 +255,12 @@ public struct PSS_HANDLE_ENTRY
 			public int32 CurrentCount;
 			public int32 MaximumCount;
 		}
-
 		[CRepr]
 		public struct _Event_e__Struct
 		{
 			public BOOL ManualReset;
 			public BOOL Signaled;
 		}
-
 		[CRepr]
 		public struct _Thread_e__Struct
 		{
@@ -276,7 +273,6 @@ public struct PSS_HANDLE_ENTRY
 			public int32 BasePriority;
 			public void* Win32StartAddress;
 		}
-
 		[CRepr]
 		public struct _Section_e__Struct
 		{
@@ -284,7 +280,6 @@ public struct PSS_HANDLE_ENTRY
 			public uint32 AllocationAttributes;
 			public LARGE_INTEGER MaximumSize;
 		}
-
 		[CRepr]
 		public struct _Process_e__Struct
 		{
@@ -296,7 +291,6 @@ public struct PSS_HANDLE_ENTRY
 			public uint32 ParentProcessId;
 			public uint32 Flags;
 		}
-
 		[CRepr]
 		public struct _Mutant_e__Struct
 		{
@@ -305,7 +299,6 @@ public struct PSS_HANDLE_ENTRY
 			public uint32 OwnerProcessId;
 			public uint32 OwnerThreadId;
 		}
-
 		public _Process_e__Struct Process;
 		public _Thread_e__Struct Thread;
 		public _Mutant_e__Struct Mutant;
@@ -313,7 +306,6 @@ public struct PSS_HANDLE_ENTRY
 		public _Section_e__Struct Section;
 		public _Semaphore_e__Struct Semaphore;
 	}
-
 	public HANDLE Handle;
 	public PSS_HANDLE_FLAGS Flags;
 	public PSS_OBJECT_TYPE ObjectType;

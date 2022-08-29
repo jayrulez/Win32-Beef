@@ -7,15 +7,10 @@ namespace Win32.System.RestartManager;
 public static
 {
 	public const uint32 CCH_RM_SESSION_KEY = 32;
-
 	public const uint32 CCH_RM_MAX_APP_NAME = 255;
-
 	public const uint32 CCH_RM_MAX_SVC_NAME = 63;
-
 	public const int32 RM_INVALID_TS_SESSION = -1;
-
 	public const int32 RM_INVALID_PROCESS = -1;
-
 }
 #endregion
 
@@ -124,7 +119,6 @@ public struct RM_FILTER_INFO
 		public RM_UNIQUE_PROCESS Process;
 		public PWSTR strServiceShortName;
 	}
-
 	public RM_FILTER_ACTION FilterAction;
 	public RM_FILTER_TRIGGER FilterTrigger;
 	public uint32 cbNextOffset;

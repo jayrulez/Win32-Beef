@@ -7,7 +7,6 @@ using Win32.Media;
 using Win32.UI.Controls.Dialogs;
 using Win32.UI.Controls;
 using System;
-using System.Interop;
 
 namespace Win32.System.Ole;
 
@@ -15,1185 +14,595 @@ namespace Win32.System.Ole;
 public static
 {
 	public const int32 CTL_E_ILLEGALFUNCTIONCALL = -2146828283;
-
 	public const int32 CONNECT_E_FIRST = -2147220992;
-
 	public const int32 SELFREG_E_FIRST = -2147220992;
-
 	public const int32 PERPROP_E_FIRST = -2147220992;
-
 	public const HRESULT OLECMDERR_E_FIRST = -2147221248;
-
 	public const HRESULT OLECMDERR_E_DISABLED = -2147221247;
-
 	public const HRESULT OLECMDERR_E_NOHELP = -2147221246;
-
 	public const HRESULT OLECMDERR_E_CANCELED = -2147221245;
-
 	public const HRESULT OLECMDERR_E_UNKNOWNGROUP = -2147221244;
-
 	public const HRESULT CONNECT_E_NOCONNECTION = -2147220992;
-
 	public const HRESULT CONNECT_E_ADVISELIMIT = -2147220991;
-
 	public const HRESULT CONNECT_E_CANNOTCONNECT = -2147220990;
-
 	public const HRESULT CONNECT_E_OVERRIDDEN = -2147220989;
-
 	public const HRESULT SELFREG_E_TYPELIB = -2147220992;
-
 	public const HRESULT SELFREG_E_CLASS = -2147220991;
-
 	public const HRESULT PERPROP_E_NOPAGEAVAILABLE = -2147220992;
-
 	public const Guid CLSID_CFontPropPage = .(0x0be35200, 0x8f91, 0x11ce, 0x9d, 0xe3, 0x00, 0xaa, 0x00, 0x4b, 0xb8, 0x51);
-
 	public const Guid CLSID_CColorPropPage = .(0x0be35201, 0x8f91, 0x11ce, 0x9d, 0xe3, 0x00, 0xaa, 0x00, 0x4b, 0xb8, 0x51);
-
 	public const Guid CLSID_CPicturePropPage = .(0x0be35202, 0x8f91, 0x11ce, 0x9d, 0xe3, 0x00, 0xaa, 0x00, 0x4b, 0xb8, 0x51);
-
 	public const Guid CLSID_PersistPropset = .(0xfb8f0821, 0x0164, 0x101b, 0x84, 0xed, 0x08, 0x00, 0x2b, 0x2e, 0xc7, 0x13);
-
 	public const Guid CLSID_ConvertVBX = .(0xfb8f0822, 0x0164, 0x101b, 0x84, 0xed, 0x08, 0x00, 0x2b, 0x2e, 0xc7, 0x13);
-
 	public const Guid CLSID_StdFont = .(0x0be35203, 0x8f91, 0x11ce, 0x9d, 0xe3, 0x00, 0xaa, 0x00, 0x4b, 0xb8, 0x51);
-
 	public const Guid CLSID_StdPicture = .(0x0be35204, 0x8f91, 0x11ce, 0x9d, 0xe3, 0x00, 0xaa, 0x00, 0x4b, 0xb8, 0x51);
-
 	public const Guid GUID_HIMETRIC = .(0x66504300, 0xbe0f, 0x101a, 0x8b, 0xbb, 0x00, 0xaa, 0x00, 0x30, 0x0c, 0xab);
-
 	public const Guid GUID_COLOR = .(0x66504301, 0xbe0f, 0x101a, 0x8b, 0xbb, 0x00, 0xaa, 0x00, 0x30, 0x0c, 0xab);
-
 	public const Guid GUID_XPOSPIXEL = .(0x66504302, 0xbe0f, 0x101a, 0x8b, 0xbb, 0x00, 0xaa, 0x00, 0x30, 0x0c, 0xab);
-
 	public const Guid GUID_YPOSPIXEL = .(0x66504303, 0xbe0f, 0x101a, 0x8b, 0xbb, 0x00, 0xaa, 0x00, 0x30, 0x0c, 0xab);
-
 	public const Guid GUID_XSIZEPIXEL = .(0x66504304, 0xbe0f, 0x101a, 0x8b, 0xbb, 0x00, 0xaa, 0x00, 0x30, 0x0c, 0xab);
-
 	public const Guid GUID_YSIZEPIXEL = .(0x66504305, 0xbe0f, 0x101a, 0x8b, 0xbb, 0x00, 0xaa, 0x00, 0x30, 0x0c, 0xab);
-
 	public const Guid GUID_XPOS = .(0x66504306, 0xbe0f, 0x101a, 0x8b, 0xbb, 0x00, 0xaa, 0x00, 0x30, 0x0c, 0xab);
-
 	public const Guid GUID_YPOS = .(0x66504307, 0xbe0f, 0x101a, 0x8b, 0xbb, 0x00, 0xaa, 0x00, 0x30, 0x0c, 0xab);
-
 	public const Guid GUID_XSIZE = .(0x66504308, 0xbe0f, 0x101a, 0x8b, 0xbb, 0x00, 0xaa, 0x00, 0x30, 0x0c, 0xab);
-
 	public const Guid GUID_YSIZE = .(0x66504309, 0xbe0f, 0x101a, 0x8b, 0xbb, 0x00, 0xaa, 0x00, 0x30, 0x0c, 0xab);
-
 	public const Guid GUID_TRISTATE = .(0x6650430a, 0xbe0f, 0x101a, 0x8b, 0xbb, 0x00, 0xaa, 0x00, 0x30, 0x0c, 0xab);
-
 	public const Guid GUID_OPTIONVALUEEXCLUSIVE = .(0x6650430b, 0xbe0f, 0x101a, 0x8b, 0xbb, 0x00, 0xaa, 0x00, 0x30, 0x0c, 0xab);
-
 	public const Guid GUID_CHECKVALUEEXCLUSIVE = .(0x6650430c, 0xbe0f, 0x101a, 0x8b, 0xbb, 0x00, 0xaa, 0x00, 0x30, 0x0c, 0xab);
-
 	public const Guid GUID_FONTNAME = .(0x6650430d, 0xbe0f, 0x101a, 0x8b, 0xbb, 0x00, 0xaa, 0x00, 0x30, 0x0c, 0xab);
-
 	public const Guid GUID_FONTSIZE = .(0x6650430e, 0xbe0f, 0x101a, 0x8b, 0xbb, 0x00, 0xaa, 0x00, 0x30, 0x0c, 0xab);
-
 	public const Guid GUID_FONTBOLD = .(0x6650430f, 0xbe0f, 0x101a, 0x8b, 0xbb, 0x00, 0xaa, 0x00, 0x30, 0x0c, 0xab);
-
 	public const Guid GUID_FONTITALIC = .(0x66504310, 0xbe0f, 0x101a, 0x8b, 0xbb, 0x00, 0xaa, 0x00, 0x30, 0x0c, 0xab);
-
 	public const Guid GUID_FONTUNDERSCORE = .(0x66504311, 0xbe0f, 0x101a, 0x8b, 0xbb, 0x00, 0xaa, 0x00, 0x30, 0x0c, 0xab);
-
 	public const Guid GUID_FONTSTRIKETHROUGH = .(0x66504312, 0xbe0f, 0x101a, 0x8b, 0xbb, 0x00, 0xaa, 0x00, 0x30, 0x0c, 0xab);
-
 	public const Guid GUID_HANDLE = .(0x66504313, 0xbe0f, 0x101a, 0x8b, 0xbb, 0x00, 0xaa, 0x00, 0x30, 0x0c, 0xab);
-
 	public const int32 PICTYPE_UNINITIALIZED = -1;
-
 	public const uint32 PICTYPE_NONE = 0;
-
 	public const uint32 PICTYPE_BITMAP = 1;
-
 	public const uint32 PICTYPE_METAFILE = 2;
-
 	public const uint32 PICTYPE_ICON = 3;
-
 	public const uint32 PICTYPE_ENHMETAFILE = 4;
-
 	public const HRESULT CONNECT_E_LAST = -2147220977;
-
 	public const HRESULT CONNECT_S_FIRST = 262656;
-
 	public const HRESULT CONNECT_S_LAST = 262671;
-
 	public const HRESULT SELFREG_E_LAST = -2147220977;
-
 	public const HRESULT SELFREG_S_FIRST = 262656;
-
 	public const HRESULT SELFREG_S_LAST = 262671;
-
 	public const HRESULT PERPROP_E_LAST = -2147220977;
-
 	public const HRESULT PERPROP_S_FIRST = 262656;
-
 	public const HRESULT PERPROP_S_LAST = 262671;
-
 	public const int32 OLEIVERB_PROPERTIES = -7;
-
 	public const uint32 VT_STREAMED_PROPSET = 73;
-
 	public const uint32 VT_STORED_PROPSET = 74;
-
 	public const uint32 VT_BLOB_PROPSET = 75;
-
 	public const uint32 VT_VERBOSE_ENUM = 76;
-
 	public const uint32 OCM__BASE = 8192;
-
 	public const uint32 LP_DEFAULT = 0;
-
 	public const uint32 LP_MONOCHROME = 1;
-
 	public const uint32 LP_VGACOLOR = 2;
-
 	public const uint32 LP_COLOR = 4;
-
 	public const int32 DISPID_AUTOSIZE = -500;
-
 	public const int32 DISPID_BACKCOLOR = -501;
-
 	public const int32 DISPID_BACKSTYLE = -502;
-
 	public const int32 DISPID_BORDERCOLOR = -503;
-
 	public const int32 DISPID_BORDERSTYLE = -504;
-
 	public const int32 DISPID_BORDERWIDTH = -505;
-
 	public const int32 DISPID_DRAWMODE = -507;
-
 	public const int32 DISPID_DRAWSTYLE = -508;
-
 	public const int32 DISPID_DRAWWIDTH = -509;
-
 	public const int32 DISPID_FILLCOLOR = -510;
-
 	public const int32 DISPID_FILLSTYLE = -511;
-
 	public const int32 DISPID_FONT = -512;
-
 	public const int32 DISPID_FORECOLOR = -513;
-
 	public const int32 DISPID_ENABLED = -514;
-
 	public const int32 DISPID_HWND = -515;
-
 	public const int32 DISPID_TABSTOP = -516;
-
 	public const int32 DISPID_TEXT = -517;
-
 	public const int32 DISPID_CAPTION = -518;
-
 	public const int32 DISPID_BORDERVISIBLE = -519;
-
 	public const int32 DISPID_APPEARANCE = -520;
-
 	public const int32 DISPID_MOUSEPOINTER = -521;
-
 	public const int32 DISPID_MOUSEICON = -522;
-
 	public const int32 DISPID_PICTURE = -523;
-
 	public const int32 DISPID_VALID = -524;
-
 	public const int32 DISPID_READYSTATE = -525;
-
 	public const int32 DISPID_LISTINDEX = -526;
-
 	public const int32 DISPID_SELECTED = -527;
-
 	public const int32 DISPID_LIST = -528;
-
 	public const int32 DISPID_COLUMN = -529;
-
 	public const int32 DISPID_LISTCOUNT = -531;
-
 	public const int32 DISPID_MULTISELECT = -532;
-
 	public const int32 DISPID_MAXLENGTH = -533;
-
 	public const int32 DISPID_PASSWORDCHAR = -534;
-
 	public const int32 DISPID_SCROLLBARS = -535;
-
 	public const int32 DISPID_WORDWRAP = -536;
-
 	public const int32 DISPID_MULTILINE = -537;
-
 	public const int32 DISPID_NUMBEROFROWS = -538;
-
 	public const int32 DISPID_NUMBEROFCOLUMNS = -539;
-
 	public const int32 DISPID_DISPLAYSTYLE = -540;
-
 	public const int32 DISPID_GROUPNAME = -541;
-
 	public const int32 DISPID_IMEMODE = -542;
-
 	public const int32 DISPID_ACCELERATOR = -543;
-
 	public const int32 DISPID_ENTERKEYBEHAVIOR = -544;
-
 	public const int32 DISPID_TABKEYBEHAVIOR = -545;
-
 	public const int32 DISPID_SELTEXT = -546;
-
 	public const int32 DISPID_SELSTART = -547;
-
 	public const int32 DISPID_SELLENGTH = -548;
-
 	public const int32 DISPID_REFRESH = -550;
-
 	public const int32 DISPID_DOCLICK = -551;
-
 	public const int32 DISPID_ABOUTBOX = -552;
-
 	public const int32 DISPID_ADDITEM = -553;
-
 	public const int32 DISPID_CLEAR = -554;
-
 	public const int32 DISPID_REMOVEITEM = -555;
-
 	public const int32 DISPID_CLICK = -600;
-
 	public const int32 DISPID_DBLCLICK = -601;
-
 	public const int32 DISPID_KEYDOWN = -602;
-
 	public const int32 DISPID_KEYPRESS = -603;
-
 	public const int32 DISPID_KEYUP = -604;
-
 	public const int32 DISPID_MOUSEDOWN = -605;
-
 	public const int32 DISPID_MOUSEMOVE = -606;
-
 	public const int32 DISPID_MOUSEUP = -607;
-
 	public const int32 DISPID_ERROREVENT = -608;
-
 	public const int32 DISPID_READYSTATECHANGE = -609;
-
 	public const int32 DISPID_CLICK_VALUE = -610;
-
 	public const int32 DISPID_RIGHTTOLEFT = -611;
-
 	public const int32 DISPID_TOPTOBOTTOM = -612;
-
 	public const int32 DISPID_THIS = -613;
-
 	public const int32 DISPID_AMBIENT_BACKCOLOR = -701;
-
 	public const int32 DISPID_AMBIENT_DISPLAYNAME = -702;
-
 	public const int32 DISPID_AMBIENT_FONT = -703;
-
 	public const int32 DISPID_AMBIENT_FORECOLOR = -704;
-
 	public const int32 DISPID_AMBIENT_LOCALEID = -705;
-
 	public const int32 DISPID_AMBIENT_MESSAGEREFLECT = -706;
-
 	public const int32 DISPID_AMBIENT_SCALEUNITS = -707;
-
 	public const int32 DISPID_AMBIENT_TEXTALIGN = -708;
-
 	public const int32 DISPID_AMBIENT_USERMODE = -709;
-
 	public const int32 DISPID_AMBIENT_UIDEAD = -710;
-
 	public const int32 DISPID_AMBIENT_SHOWGRABHANDLES = -711;
-
 	public const int32 DISPID_AMBIENT_SHOWHATCHING = -712;
-
 	public const int32 DISPID_AMBIENT_DISPLAYASDEFAULT = -713;
-
 	public const int32 DISPID_AMBIENT_SUPPORTSMNEMONICS = -714;
-
 	public const int32 DISPID_AMBIENT_AUTOCLIP = -715;
-
 	public const int32 DISPID_AMBIENT_APPEARANCE = -716;
-
 	public const int32 DISPID_AMBIENT_CODEPAGE = -725;
-
 	public const int32 DISPID_AMBIENT_PALETTE = -726;
-
 	public const int32 DISPID_AMBIENT_CHARSET = -727;
-
 	public const int32 DISPID_AMBIENT_TRANSFERPRIORITY = -728;
-
 	public const int32 DISPID_AMBIENT_RIGHTTOLEFT = -732;
-
 	public const int32 DISPID_AMBIENT_TOPTOBOTTOM = -733;
-
 	public const int32 DISPID_Name = -800;
-
 	public const int32 DISPID_Delete = -801;
-
 	public const int32 DISPID_Object = -802;
-
 	public const int32 DISPID_Parent = -803;
-
 	public const uint32 DISPID_FONT_NAME = 0;
-
 	public const uint32 DISPID_FONT_SIZE = 2;
-
 	public const uint32 DISPID_FONT_BOLD = 3;
-
 	public const uint32 DISPID_FONT_ITALIC = 4;
-
 	public const uint32 DISPID_FONT_UNDER = 5;
-
 	public const uint32 DISPID_FONT_STRIKE = 6;
-
 	public const uint32 DISPID_FONT_WEIGHT = 7;
-
 	public const uint32 DISPID_FONT_CHARSET = 8;
-
 	public const uint32 DISPID_FONT_CHANGED = 9;
-
 	public const uint32 DISPID_PICT_HANDLE = 0;
-
 	public const uint32 DISPID_PICT_HPAL = 2;
-
 	public const uint32 DISPID_PICT_TYPE = 3;
-
 	public const uint32 DISPID_PICT_WIDTH = 4;
-
 	public const uint32 DISPID_PICT_HEIGHT = 5;
-
 	public const uint32 DISPID_PICT_RENDER = 6;
-
 	public const int32 GC_WCH_SIBLING = 1;
-
 	public const uint32 TIFLAGS_EXTENDDISPATCHONLY = 1;
-
 	public const int32 OLECMDERR_E_NOTSUPPORTED = -2147221248;
-
 	public const int32 MSOCMDERR_E_FIRST = -2147221248;
-
 	public const int32 MSOCMDERR_E_NOTSUPPORTED = -2147221248;
-
 	public const int32 MSOCMDERR_E_DISABLED = -2147221247;
-
 	public const int32 MSOCMDERR_E_NOHELP = -2147221246;
-
 	public const int32 MSOCMDERR_E_CANCELED = -2147221245;
-
 	public const int32 MSOCMDERR_E_UNKNOWNGROUP = -2147221244;
-
 	public const uint32 OLECMD_TASKDLGID_ONBEFOREUNLOAD = 1;
-
 	public const uint32 OLECMDARGINDEX_SHOWPAGEACTIONMENU_HWND = 0;
-
 	public const uint32 OLECMDARGINDEX_SHOWPAGEACTIONMENU_X = 1;
-
 	public const uint32 OLECMDARGINDEX_SHOWPAGEACTIONMENU_Y = 2;
-
 	public const uint32 OLECMDARGINDEX_ACTIVEXINSTALL_PUBLISHER = 0;
-
 	public const uint32 OLECMDARGINDEX_ACTIVEXINSTALL_DISPLAYNAME = 1;
-
 	public const uint32 OLECMDARGINDEX_ACTIVEXINSTALL_CLSID = 2;
-
 	public const uint32 OLECMDARGINDEX_ACTIVEXINSTALL_INSTALLSCOPE = 3;
-
 	public const uint32 OLECMDARGINDEX_ACTIVEXINSTALL_SOURCEURL = 4;
-
 	public const uint32 INSTALL_SCOPE_INVALID = 0;
-
 	public const uint32 INSTALL_SCOPE_MACHINE = 1;
-
 	public const uint32 INSTALL_SCOPE_USER = 2;
-
 	public const uint32 MK_ALT = 32;
-
 	public const uint32 DROPEFFECT_NONE = 0;
-
 	public const uint32 DROPEFFECT_COPY = 1;
-
 	public const uint32 DROPEFFECT_MOVE = 2;
-
 	public const uint32 DROPEFFECT_LINK = 4;
-
 	public const uint32 DROPEFFECT_SCROLL = 2147483648;
-
 	public const uint32 DD_DEFSCROLLINSET = 11;
-
 	public const uint32 DD_DEFSCROLLDELAY = 50;
-
 	public const uint32 DD_DEFSCROLLINTERVAL = 50;
-
 	public const uint32 DD_DEFDRAGDELAY = 200;
-
 	public const uint32 DD_DEFDRAGMINDIST = 2;
-
 	public const int32 OT_LINK = 1;
-
 	public const int32 OT_EMBEDDED = 2;
-
 	public const int32 OT_STATIC = 3;
-
 	public const uint32 OLEVERB_PRIMARY = 0;
-
 	public const uint32 OF_SET = 1;
-
 	public const uint32 OF_GET = 2;
-
 	public const uint32 OF_HANDLER = 4;
-
 	public const uint32 WIN32 = 100;
-
 	public const int32 OLEIVERB_PRIMARY = 0;
-
 	public const int32 OLEIVERB_SHOW = -1;
-
 	public const int32 OLEIVERB_OPEN = -2;
-
 	public const int32 OLEIVERB_HIDE = -3;
-
 	public const int32 OLEIVERB_UIACTIVATE = -4;
-
 	public const int32 OLEIVERB_INPLACEACTIVATE = -5;
-
 	public const int32 OLEIVERB_DISCARDUNDOSTATE = -6;
-
 	public const int32 EMBDHLP_INPROC_HANDLER = 0;
-
 	public const int32 EMBDHLP_INPROC_SERVER = 1;
-
 	public const int32 EMBDHLP_CREATENOW = 0;
-
 	public const int32 EMBDHLP_DELAYCREATE = 65536;
-
 	public const uint32 OLECREATE_LEAVERUNNING = 1;
-
 	public const uint32 IDC_OLEUIHELP = 99;
-
 	public const uint32 IDC_IO_CREATENEW = 2100;
-
 	public const uint32 IDC_IO_CREATEFROMFILE = 2101;
-
 	public const uint32 IDC_IO_LINKFILE = 2102;
-
 	public const uint32 IDC_IO_OBJECTTYPELIST = 2103;
-
 	public const uint32 IDC_IO_DISPLAYASICON = 2104;
-
 	public const uint32 IDC_IO_CHANGEICON = 2105;
-
 	public const uint32 IDC_IO_FILE = 2106;
-
 	public const uint32 IDC_IO_FILEDISPLAY = 2107;
-
 	public const uint32 IDC_IO_RESULTIMAGE = 2108;
-
 	public const uint32 IDC_IO_RESULTTEXT = 2109;
-
 	public const uint32 IDC_IO_ICONDISPLAY = 2110;
-
 	public const uint32 IDC_IO_OBJECTTYPETEXT = 2111;
-
 	public const uint32 IDC_IO_FILETEXT = 2112;
-
 	public const uint32 IDC_IO_FILETYPE = 2113;
-
 	public const uint32 IDC_IO_INSERTCONTROL = 2114;
-
 	public const uint32 IDC_IO_ADDCONTROL = 2115;
-
 	public const uint32 IDC_IO_CONTROLTYPELIST = 2116;
-
 	public const uint32 IDC_PS_PASTE = 500;
-
 	public const uint32 IDC_PS_PASTELINK = 501;
-
 	public const uint32 IDC_PS_SOURCETEXT = 502;
-
 	public const uint32 IDC_PS_PASTELIST = 503;
-
 	public const uint32 IDC_PS_PASTELINKLIST = 504;
-
 	public const uint32 IDC_PS_DISPLAYLIST = 505;
-
 	public const uint32 IDC_PS_DISPLAYASICON = 506;
-
 	public const uint32 IDC_PS_ICONDISPLAY = 507;
-
 	public const uint32 IDC_PS_CHANGEICON = 508;
-
 	public const uint32 IDC_PS_RESULTIMAGE = 509;
-
 	public const uint32 IDC_PS_RESULTTEXT = 510;
-
 	public const uint32 IDC_CI_GROUP = 120;
-
 	public const uint32 IDC_CI_CURRENT = 121;
-
 	public const uint32 IDC_CI_CURRENTICON = 122;
-
 	public const uint32 IDC_CI_DEFAULT = 123;
-
 	public const uint32 IDC_CI_DEFAULTICON = 124;
-
 	public const uint32 IDC_CI_FROMFILE = 125;
-
 	public const uint32 IDC_CI_FROMFILEEDIT = 126;
-
 	public const uint32 IDC_CI_ICONLIST = 127;
-
 	public const uint32 IDC_CI_LABEL = 128;
-
 	public const uint32 IDC_CI_LABELEDIT = 129;
-
 	public const uint32 IDC_CI_BROWSE = 130;
-
 	public const uint32 IDC_CI_ICONDISPLAY = 131;
-
 	public const uint32 IDC_CV_OBJECTTYPE = 150;
-
 	public const uint32 IDC_CV_DISPLAYASICON = 152;
-
 	public const uint32 IDC_CV_CHANGEICON = 153;
-
 	public const uint32 IDC_CV_ACTIVATELIST = 154;
-
 	public const uint32 IDC_CV_CONVERTTO = 155;
-
 	public const uint32 IDC_CV_ACTIVATEAS = 156;
-
 	public const uint32 IDC_CV_RESULTTEXT = 157;
-
 	public const uint32 IDC_CV_CONVERTLIST = 158;
-
 	public const uint32 IDC_CV_ICONDISPLAY = 165;
-
 	public const uint32 IDC_EL_CHANGESOURCE = 201;
-
 	public const uint32 IDC_EL_AUTOMATIC = 202;
-
 	public const uint32 IDC_EL_CANCELLINK = 209;
-
 	public const uint32 IDC_EL_UPDATENOW = 210;
-
 	public const uint32 IDC_EL_OPENSOURCE = 211;
-
 	public const uint32 IDC_EL_MANUAL = 212;
-
 	public const uint32 IDC_EL_LINKSOURCE = 216;
-
 	public const uint32 IDC_EL_LINKTYPE = 217;
-
 	public const uint32 IDC_EL_LINKSLISTBOX = 206;
-
 	public const uint32 IDC_EL_COL1 = 220;
-
 	public const uint32 IDC_EL_COL2 = 221;
-
 	public const uint32 IDC_EL_COL3 = 222;
-
 	public const uint32 IDC_BZ_RETRY = 600;
-
 	public const uint32 IDC_BZ_ICON = 601;
-
 	public const uint32 IDC_BZ_MESSAGE1 = 602;
-
 	public const uint32 IDC_BZ_SWITCHTO = 604;
-
 	public const uint32 IDC_UL_METER = 1029;
-
 	public const uint32 IDC_UL_STOP = 1030;
-
 	public const uint32 IDC_UL_PERCENT = 1031;
-
 	public const uint32 IDC_UL_PROGRESS = 1032;
-
 	public const uint32 IDC_PU_LINKS = 900;
-
 	public const uint32 IDC_PU_TEXT = 901;
-
 	public const uint32 IDC_PU_CONVERT = 902;
-
 	public const uint32 IDC_PU_ICON = 908;
-
 	public const uint32 IDC_GP_OBJECTNAME = 1009;
-
 	public const uint32 IDC_GP_OBJECTTYPE = 1010;
-
 	public const uint32 IDC_GP_OBJECTSIZE = 1011;
-
 	public const uint32 IDC_GP_CONVERT = 1013;
-
 	public const uint32 IDC_GP_OBJECTICON = 1014;
-
 	public const uint32 IDC_GP_OBJECTLOCATION = 1022;
-
 	public const uint32 IDC_VP_PERCENT = 1000;
-
 	public const uint32 IDC_VP_CHANGEICON = 1001;
-
 	public const uint32 IDC_VP_EDITABLE = 1002;
-
 	public const uint32 IDC_VP_ASICON = 1003;
-
 	public const uint32 IDC_VP_RELATIVE = 1005;
-
 	public const uint32 IDC_VP_SPIN = 1006;
-
 	public const uint32 IDC_VP_SCALETXT = 1034;
-
 	public const uint32 IDC_VP_ICONDISPLAY = 1021;
-
 	public const uint32 IDC_VP_RESULTIMAGE = 1033;
-
 	public const uint32 IDC_LP_OPENSOURCE = 1006;
-
 	public const uint32 IDC_LP_UPDATENOW = 1007;
-
 	public const uint32 IDC_LP_BREAKLINK = 1008;
-
 	public const uint32 IDC_LP_LINKSOURCE = 1012;
-
 	public const uint32 IDC_LP_CHANGESOURCE = 1015;
-
 	public const uint32 IDC_LP_AUTOMATIC = 1016;
-
 	public const uint32 IDC_LP_MANUAL = 1017;
-
 	public const uint32 IDC_LP_DATE = 1018;
-
 	public const uint32 IDC_LP_TIME = 1019;
-
 	public const uint32 IDD_INSERTOBJECT = 1000;
-
 	public const uint32 IDD_CHANGEICON = 1001;
-
 	public const uint32 IDD_CONVERT = 1002;
-
 	public const uint32 IDD_PASTESPECIAL = 1003;
-
 	public const uint32 IDD_EDITLINKS = 1004;
-
 	public const uint32 IDD_BUSY = 1006;
-
 	public const uint32 IDD_UPDATELINKS = 1007;
-
 	public const uint32 IDD_CHANGESOURCE = 1009;
-
 	public const uint32 IDD_INSERTFILEBROWSE = 1010;
-
 	public const uint32 IDD_CHANGEICONBROWSE = 1011;
-
 	public const uint32 IDD_CONVERTONLY = 1012;
-
 	public const uint32 IDD_CHANGESOURCE4 = 1013;
-
 	public const uint32 IDD_GNRLPROPS = 1100;
-
 	public const uint32 IDD_VIEWPROPS = 1101;
-
 	public const uint32 IDD_LINKPROPS = 1102;
-
 	public const uint32 IDD_CONVERT4 = 1103;
-
 	public const uint32 IDD_CONVERTONLY4 = 1104;
-
 	public const uint32 IDD_EDITLINKS4 = 1105;
-
 	public const uint32 IDD_GNRLPROPS4 = 1106;
-
 	public const uint32 IDD_LINKPROPS4 = 1107;
-
 	public const uint32 IDD_PASTESPECIAL4 = 1108;
-
 	public const uint32 IDD_CANNOTUPDATELINK = 1008;
-
 	public const uint32 IDD_LINKSOURCEUNAVAILABLE = 1020;
-
 	public const uint32 IDD_SERVERNOTFOUND = 1023;
-
 	public const uint32 IDD_OUTOFMEMORY = 1024;
-
 	public const uint32 IDD_SERVERNOTREGW = 1021;
-
 	public const uint32 IDD_LINKTYPECHANGEDW = 1022;
-
 	public const uint32 IDD_SERVERNOTREGA = 1025;
-
 	public const uint32 IDD_LINKTYPECHANGEDA = 1026;
-
 	public const uint32 IDD_SERVERNOTREG = 1021;
-
 	public const uint32 IDD_LINKTYPECHANGED = 1022;
-
 	public const uint32 ID_BROWSE_CHANGEICON = 1;
-
 	public const uint32 ID_BROWSE_INSERTFILE = 2;
-
 	public const uint32 ID_BROWSE_ADDCONTROL = 3;
-
 	public const uint32 ID_BROWSE_CHANGESOURCE = 4;
-
 	public const uint32 OLEUI_FALSE = 0;
-
 	public const uint32 OLEUI_SUCCESS = 1;
-
 	public const uint32 OLEUI_OK = 1;
-
 	public const uint32 OLEUI_CANCEL = 2;
-
 	public const uint32 OLEUI_ERR_STANDARDMIN = 100;
-
 	public const uint32 OLEUI_ERR_OLEMEMALLOC = 100;
-
 	public const uint32 OLEUI_ERR_STRUCTURENULL = 101;
-
 	public const uint32 OLEUI_ERR_STRUCTUREINVALID = 102;
-
 	public const uint32 OLEUI_ERR_CBSTRUCTINCORRECT = 103;
-
 	public const uint32 OLEUI_ERR_HWNDOWNERINVALID = 104;
-
 	public const uint32 OLEUI_ERR_LPSZCAPTIONINVALID = 105;
-
 	public const uint32 OLEUI_ERR_LPFNHOOKINVALID = 106;
-
 	public const uint32 OLEUI_ERR_HINSTANCEINVALID = 107;
-
 	public const uint32 OLEUI_ERR_LPSZTEMPLATEINVALID = 108;
-
 	public const uint32 OLEUI_ERR_HRESOURCEINVALID = 109;
-
 	public const uint32 OLEUI_ERR_FINDTEMPLATEFAILURE = 110;
-
 	public const uint32 OLEUI_ERR_LOADTEMPLATEFAILURE = 111;
-
 	public const uint32 OLEUI_ERR_DIALOGFAILURE = 112;
-
 	public const uint32 OLEUI_ERR_LOCALMEMALLOC = 113;
-
 	public const uint32 OLEUI_ERR_GLOBALMEMALLOC = 114;
-
 	public const uint32 OLEUI_ERR_LOADSTRING = 115;
-
 	public const uint32 OLEUI_ERR_STANDARDMAX = 116;
-
 	public const int32 IOF_SHOWHELP = 1;
-
 	public const int32 IOF_SELECTCREATENEW = 2;
-
 	public const int32 IOF_SELECTCREATEFROMFILE = 4;
-
 	public const int32 IOF_CHECKLINK = 8;
-
 	public const int32 IOF_CHECKDISPLAYASICON = 16;
-
 	public const int32 IOF_CREATENEWOBJECT = 32;
-
 	public const int32 IOF_CREATEFILEOBJECT = 64;
-
 	public const int32 IOF_CREATELINKOBJECT = 128;
-
 	public const int32 IOF_DISABLELINK = 256;
-
 	public const int32 IOF_VERIFYSERVERSEXIST = 512;
-
 	public const int32 IOF_DISABLEDISPLAYASICON = 1024;
-
 	public const int32 IOF_HIDECHANGEICON = 2048;
-
 	public const int32 IOF_SHOWINSERTCONTROL = 4096;
-
 	public const int32 IOF_SELECTCREATECONTROL = 8192;
-
 	public const uint32 OLEUI_IOERR_LPSZFILEINVALID = 116;
-
 	public const uint32 OLEUI_IOERR_LPSZLABELINVALID = 117;
-
 	public const uint32 OLEUI_IOERR_HICONINVALID = 118;
-
 	public const uint32 OLEUI_IOERR_LPFORMATETCINVALID = 119;
-
 	public const uint32 OLEUI_IOERR_PPVOBJINVALID = 120;
-
 	public const uint32 OLEUI_IOERR_LPIOLECLIENTSITEINVALID = 121;
-
 	public const uint32 OLEUI_IOERR_LPISTORAGEINVALID = 122;
-
 	public const uint32 OLEUI_IOERR_SCODEHASERROR = 123;
-
 	public const uint32 OLEUI_IOERR_LPCLSIDEXCLUDEINVALID = 124;
-
 	public const uint32 OLEUI_IOERR_CCHFILEINVALID = 125;
-
 	public const uint32 PS_MAXLINKTYPES = 8;
-
 	public const int32 PSF_SHOWHELP = 1;
-
 	public const int32 PSF_SELECTPASTE = 2;
-
 	public const int32 PSF_SELECTPASTELINK = 4;
-
 	public const int32 PSF_CHECKDISPLAYASICON = 8;
-
 	public const int32 PSF_DISABLEDISPLAYASICON = 16;
-
 	public const int32 PSF_HIDECHANGEICON = 32;
-
 	public const int32 PSF_STAYONCLIPBOARDCHANGE = 64;
-
 	public const int32 PSF_NOREFRESHDATAOBJECT = 128;
-
 	public const uint32 OLEUI_IOERR_SRCDATAOBJECTINVALID = 116;
-
 	public const uint32 OLEUI_IOERR_ARRPASTEENTRIESINVALID = 117;
-
 	public const uint32 OLEUI_IOERR_ARRLINKTYPESINVALID = 118;
-
 	public const uint32 OLEUI_PSERR_CLIPBOARDCHANGED = 119;
-
 	public const uint32 OLEUI_PSERR_GETCLIPBOARDFAILED = 120;
-
 	public const uint32 OLEUI_ELERR_LINKCNTRNULL = 116;
-
 	public const uint32 OLEUI_ELERR_LINKCNTRINVALID = 117;
-
 	public const int32 ELF_SHOWHELP = 1;
-
 	public const int32 ELF_DISABLEUPDATENOW = 2;
-
 	public const int32 ELF_DISABLEOPENSOURCE = 4;
-
 	public const int32 ELF_DISABLECHANGESOURCE = 8;
-
 	public const int32 ELF_DISABLECANCELLINK = 16;
-
 	public const int32 CIF_SHOWHELP = 1;
-
 	public const int32 CIF_SELECTCURRENT = 2;
-
 	public const int32 CIF_SELECTDEFAULT = 4;
-
 	public const int32 CIF_SELECTFROMFILE = 8;
-
 	public const int32 CIF_USEICONEXE = 16;
-
 	public const uint32 OLEUI_CIERR_MUSTHAVECLSID = 116;
-
 	public const uint32 OLEUI_CIERR_MUSTHAVECURRENTMETAFILE = 117;
-
 	public const uint32 OLEUI_CIERR_SZICONEXEINVALID = 118;
-
 	public const int32 CF_SHOWHELPBUTTON = 1;
-
 	public const int32 CF_SETCONVERTDEFAULT = 2;
-
 	public const int32 CF_SETACTIVATEDEFAULT = 4;
-
 	public const int32 CF_SELECTCONVERTTO = 8;
-
 	public const int32 CF_SELECTACTIVATEAS = 16;
-
 	public const int32 CF_DISABLEDISPLAYASICON = 32;
-
 	public const int32 CF_DISABLEACTIVATEAS = 64;
-
 	public const int32 CF_HIDECHANGEICON = 128;
-
 	public const int32 CF_CONVERTONLY = 256;
-
 	public const uint32 OLEUI_CTERR_CLASSIDINVALID = 117;
-
 	public const uint32 OLEUI_CTERR_DVASPECTINVALID = 118;
-
 	public const uint32 OLEUI_CTERR_CBFORMATINVALID = 119;
-
 	public const uint32 OLEUI_CTERR_HMETAPICTINVALID = 120;
-
 	public const uint32 OLEUI_CTERR_STRINGINVALID = 121;
-
 	public const int32 BZ_DISABLECANCELBUTTON = 1;
-
 	public const int32 BZ_DISABLESWITCHTOBUTTON = 2;
-
 	public const int32 BZ_DISABLERETRYBUTTON = 4;
-
 	public const int32 BZ_NOTRESPONDINGDIALOG = 8;
-
 	public const uint32 OLEUI_BZERR_HTASKINVALID = 116;
-
 	public const uint32 OLEUI_BZ_SWITCHTOSELECTED = 117;
-
 	public const uint32 OLEUI_BZ_RETRYSELECTED = 118;
-
 	public const uint32 OLEUI_BZ_CALLUNBLOCKED = 119;
-
 	public const int32 CSF_SHOWHELP = 1;
-
 	public const int32 CSF_VALIDSOURCE = 2;
-
 	public const int32 CSF_ONLYGETSOURCE = 4;
-
 	public const int32 CSF_EXPLORER = 8;
-
 	public const uint32 OLEUI_CSERR_LINKCNTRNULL = 116;
-
 	public const uint32 OLEUI_CSERR_LINKCNTRINVALID = 117;
-
 	public const uint32 OLEUI_CSERR_FROMNOTNULL = 118;
-
 	public const uint32 OLEUI_CSERR_TONOTNULL = 119;
-
 	public const uint32 OLEUI_CSERR_SOURCENULL = 120;
-
 	public const uint32 OLEUI_CSERR_SOURCEINVALID = 121;
-
 	public const uint32 OLEUI_CSERR_SOURCEPARSERROR = 122;
-
 	public const uint32 OLEUI_CSERR_SOURCEPARSEERROR = 122;
-
 	public const int32 VPF_SELECTRELATIVE = 1;
-
 	public const int32 VPF_DISABLERELATIVE = 2;
-
 	public const int32 VPF_DISABLESCALE = 4;
-
 	public const int32 OPF_OBJECTISLINK = 1;
-
 	public const int32 OPF_NOFILLDEFAULT = 2;
-
 	public const int32 OPF_SHOWHELP = 4;
-
 	public const int32 OPF_DISABLECONVERT = 8;
-
 	public const uint32 OLEUI_OPERR_SUBPROPNULL = 116;
-
 	public const uint32 OLEUI_OPERR_SUBPROPINVALID = 117;
-
 	public const uint32 OLEUI_OPERR_PROPSHEETNULL = 118;
-
 	public const uint32 OLEUI_OPERR_PROPSHEETINVALID = 119;
-
 	public const uint32 OLEUI_OPERR_SUPPROP = 120;
-
 	public const uint32 OLEUI_OPERR_PROPSINVALID = 121;
-
 	public const uint32 OLEUI_OPERR_PAGESINCORRECT = 122;
-
 	public const uint32 OLEUI_OPERR_INVALIDPAGES = 123;
-
 	public const uint32 OLEUI_OPERR_NOTSUPPORTED = 124;
-
 	public const uint32 OLEUI_OPERR_DLGPROCNOTNULL = 125;
-
 	public const uint32 OLEUI_OPERR_LPARAMNOTZERO = 126;
-
 	public const uint32 OLEUI_GPERR_STRINGINVALID = 127;
-
 	public const uint32 OLEUI_GPERR_CLASSIDINVALID = 128;
-
 	public const uint32 OLEUI_GPERR_LPCLSIDEXCLUDEINVALID = 129;
-
 	public const uint32 OLEUI_GPERR_CBFORMATINVALID = 130;
-
 	public const uint32 OLEUI_VPERR_METAPICTINVALID = 131;
-
 	public const uint32 OLEUI_VPERR_DVASPECTINVALID = 132;
-
 	public const uint32 OLEUI_LPERR_LINKCNTRNULL = 133;
-
 	public const uint32 OLEUI_LPERR_LINKCNTRINVALID = 134;
-
 	public const uint32 OLEUI_OPERR_PROPERTYSHEET = 135;
-
 	public const uint32 OLEUI_OPERR_OBJINFOINVALID = 136;
-
 	public const uint32 OLEUI_OPERR_LINKINFOINVALID = 137;
-
 	public const uint32 OLEUI_QUERY_GETCLASSID = 65280;
-
 	public const uint32 OLEUI_QUERY_LINKBROKEN = 65281;
-
 	public const uint32 FADF_AUTO = 1;
-
 	public const uint32 FADF_STATIC = 2;
-
 	public const uint32 FADF_EMBEDDED = 4;
-
 	public const uint32 FADF_FIXEDSIZE = 16;
-
 	public const uint32 FADF_RECORD = 32;
-
 	public const uint32 FADF_HAVEIID = 64;
-
 	public const uint32 FADF_HAVEVARTYPE = 128;
-
 	public const uint32 FADF_BSTR = 256;
-
 	public const uint32 FADF_UNKNOWN = 512;
-
 	public const uint32 FADF_DISPATCH = 1024;
-
 	public const uint32 FADF_VARIANT = 2048;
-
 	public const uint32 FADF_RESERVED = 61448;
-
 	public const uint32 PARAMFLAG_NONE = 0;
-
 	public const uint32 PARAMFLAG_FIN = 1;
-
 	public const uint32 PARAMFLAG_FOUT = 2;
-
 	public const uint32 PARAMFLAG_FLCID = 4;
-
 	public const uint32 PARAMFLAG_FRETVAL = 8;
-
 	public const uint32 PARAMFLAG_FOPT = 16;
-
 	public const uint32 PARAMFLAG_FHASDEFAULT = 32;
-
 	public const uint32 PARAMFLAG_FHASCUSTDATA = 64;
-
 	public const uint32 IDLFLAG_NONE = 0;
-
 	public const uint32 IDLFLAG_FIN = 1;
-
 	public const uint32 IDLFLAG_FOUT = 2;
-
 	public const uint32 IDLFLAG_FLCID = 4;
-
 	public const uint32 IDLFLAG_FRETVAL = 8;
-
 	public const uint32 IMPLTYPEFLAG_FDEFAULT = 1;
-
 	public const uint32 IMPLTYPEFLAG_FSOURCE = 2;
-
 	public const uint32 IMPLTYPEFLAG_FRESTRICTED = 4;
-
 	public const uint32 IMPLTYPEFLAG_FDEFAULTVTABLE = 8;
-
 	public const int32 DISPID_UNKNOWN = -1;
-
 	public const uint32 DISPID_VALUE = 0;
-
 	public const int32 DISPID_PROPERTYPUT = -3;
-
 	public const int32 DISPID_NEWENUM = -4;
-
 	public const int32 DISPID_EVALUATE = -5;
-
 	public const int32 DISPID_CONSTRUCTOR = -6;
-
 	public const int32 DISPID_DESTRUCTOR = -7;
-
 	public const int32 DISPID_COLLECT = -8;
-
 	public const uint32 STDOLE_MAJORVERNUM = 1;
-
 	public const uint32 STDOLE_MINORVERNUM = 0;
-
 	public const uint32 STDOLE_LCID = 0;
-
 	public const uint32 STDOLE2_MAJORVERNUM = 2;
-
 	public const uint32 STDOLE2_MINORVERNUM = 0;
-
 	public const uint32 STDOLE2_LCID = 0;
-
 	public const uint32 VARIANT_NOVALUEPROP = 1;
-
 	public const uint32 VARIANT_ALPHABOOL = 2;
-
 	public const uint32 VARIANT_NOUSEROVERRIDE = 4;
-
 	public const uint32 VARIANT_CALENDAR_HIJRI = 8;
-
 	public const uint32 VARIANT_LOCALBOOL = 16;
-
 	public const uint32 VARIANT_CALENDAR_THAI = 32;
-
 	public const uint32 VARIANT_CALENDAR_GREGORIAN = 64;
-
 	public const uint32 VARIANT_USE_NLS = 128;
-
 	public const uint32 LOCALE_USE_NLS = 268435456;
-
 	public const uint32 VTDATEGRE_MAX = 2958465;
-
 	public const int32 VTDATEGRE_MIN = -657434;
-
 	public const uint32 NUMPRS_LEADING_WHITE = 1;
-
 	public const uint32 NUMPRS_TRAILING_WHITE = 2;
-
 	public const uint32 NUMPRS_LEADING_PLUS = 4;
-
 	public const uint32 NUMPRS_TRAILING_PLUS = 8;
-
 	public const uint32 NUMPRS_LEADING_MINUS = 16;
-
 	public const uint32 NUMPRS_TRAILING_MINUS = 32;
-
 	public const uint32 NUMPRS_HEX_OCT = 64;
-
 	public const uint32 NUMPRS_PARENS = 128;
-
 	public const uint32 NUMPRS_DECIMAL = 256;
-
 	public const uint32 NUMPRS_THOUSANDS = 512;
-
 	public const uint32 NUMPRS_CURRENCY = 1024;
-
 	public const uint32 NUMPRS_EXPONENT = 2048;
-
 	public const uint32 NUMPRS_USE_ALL = 4096;
-
 	public const uint32 NUMPRS_STD = 8191;
-
 	public const uint32 NUMPRS_NEG = 65536;
-
 	public const uint32 NUMPRS_INEXACT = 131072;
-
 	public const uint32 VARCMP_LT = 0;
-
 	public const uint32 VARCMP_EQ = 1;
-
 	public const uint32 VARCMP_GT = 2;
-
 	public const uint32 VARCMP_NULL = 3;
-
 	public const int32 MEMBERID_NIL = -1;
-
 	public const int32 ID_DEFAULTINST = -2;
-
 	public const uint32 DISPATCH_METHOD = 1;
-
 	public const uint32 DISPATCH_PROPERTYGET = 2;
-
 	public const uint32 DISPATCH_PROPERTYPUT = 4;
-
 	public const uint32 DISPATCH_PROPERTYPUTREF = 8;
-
 	public const uint32 LOAD_TLB_AS_32BIT = 32;
-
 	public const uint32 LOAD_TLB_AS_64BIT = 64;
-
 	public const uint32 ACTIVEOBJECT_STRONG = 0;
-
 	public const uint32 ACTIVEOBJECT_WEAK = 1;
-
 	public const uint32 DISPATCH_CONSTRUCT = 16384;
-
 	public const int32 DISPID_STARTENUM = -1;
-
 	public const Guid SID_VariantConversion = .(0x1f101481, 0xbccd, 0x11d0, 0x93, 0x36, 0x00, 0xa0, 0xc9, 0x0d, 0xca, 0xa9);
-
 	public const Guid SID_GetCaller = .(0x4717cc40, 0xbcb9, 0x11d0, 0x93, 0x36, 0x00, 0xa0, 0xc9, 0x0d, 0xca, 0xa9);
-
 	public const Guid SID_ProvideRuntimeContext = .(0x74a5040c, 0xdd0c, 0x48f0, 0xac, 0x85, 0x19, 0x4c, 0x32, 0x59, 0x18, 0x0a);
-
 }
 #endregion
 
@@ -2076,12 +1485,11 @@ public struct _wireSAFEARRAY_UNION
 		public LONG_SIZEDARR LongStr;
 		public HYPER_SIZEDARR HyperStr;
 	}
-
 	public uint32 sfType;
 	public _u_e__Struct u;
 }
 
-[CRepr, FlexibleArray("rgsabound")]
+[CRepr]
 public struct _wireSAFEARRAY
 {
 	public uint16 cDims;
@@ -2089,6 +1497,7 @@ public struct _wireSAFEARRAY
 	public uint32 cbElements;
 	public uint32 cLocks;
 	public _wireSAFEARRAY_UNION uArrayStructs;
+	public SAFEARRAYBOUND* rgsabound mut => &rgsabound_impl;
 	private SAFEARRAYBOUND[ANYSIZE_ARRAY] rgsabound_impl;
 }
 
@@ -2152,7 +1561,6 @@ public struct _wireVARIANT
 		public int32* pintVal;
 		public uint32* puintVal;
 	}
-
 	public uint32 clSize;
 	public uint32 rpcReserved;
 	public uint16 vt;
@@ -2162,11 +1570,12 @@ public struct _wireVARIANT
 	public using _Anonymous_e__Union Anonymous;
 }
 
-[CRepr, FlexibleArray("rgbounds")]
+[CRepr]
 public struct ARRAYDESC
 {
 	public TYPEDESC tdescElem;
 	public uint16 cDims;
+	public SAFEARRAYBOUND* rgbounds mut => &rgbounds_impl;
 	private SAFEARRAYBOUND[ANYSIZE_ARRAY] rgbounds_impl;
 }
 
@@ -2418,14 +1827,12 @@ public struct PICTDESC
 		{
 			public HICON hicon;
 		}
-
 		[CRepr]
 		public struct _bmp_e__Struct
 		{
 			public HBITMAP hbitmap;
 			public HPALETTE hpal;
 		}
-
 		[CRepr]
 		public struct _wmf_e__Struct
 		{
@@ -2433,19 +1840,16 @@ public struct PICTDESC
 			public int32 xExt;
 			public int32 yExt;
 		}
-
 		[CRepr]
 		public struct _emf_e__Struct
 		{
 			public HENHMETAFILE hemf;
 		}
-
 		public _bmp_e__Struct bmp;
 		public _wmf_e__Struct wmf;
 		public _icon_e__Struct icon;
 		public _emf_e__Struct emf;
 	}
-
 	public uint32 cbSizeofstruct;
 	public uint32 picType;
 	public using _Anonymous_e__Union Anonymous;
@@ -2458,13 +1862,14 @@ public struct PAGERANGE
 	public int32 nToPage;
 }
 
-[CRepr, FlexibleArray("rgPages")]
+[CRepr]
 public struct PAGESET
 {
 	public uint32 cbStruct;
 	public BOOL fOddPages;
 	public BOOL fEvenPages;
 	public uint32 cPageRange;
+	public PAGERANGE* rgPages mut => &rgPages_impl;
 	private PAGERANGE[ANYSIZE_ARRAY] rgPages_impl;
 }
 
@@ -2475,12 +1880,13 @@ public struct OLECMD
 	public uint32 cmdf;
 }
 
-[CRepr, FlexibleArray("rgwz")]
+[CRepr]
 public struct OLECMDTEXT
 {
 	public uint32 cmdtextf;
 	public uint32 cwActual;
 	public uint32 cwBuf;
+	public char16* rgwz mut => &rgwz_impl;
 	private char16[ANYSIZE_ARRAY] rgwz_impl;
 }
 

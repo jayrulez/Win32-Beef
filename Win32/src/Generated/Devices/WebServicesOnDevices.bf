@@ -10,33 +10,19 @@ namespace Win32.Devices.WebServicesOnDevices;
 public static
 {
 	public const uint32 WSDAPI_OPTION_MAX_INBOUND_MESSAGE_SIZE = 1;
-
 	public const uint32 WSDAPI_OPTION_TRACE_XML_TO_DEBUGGER = 2;
-
 	public const uint32 WSDAPI_OPTION_TRACE_XML_TO_FILE = 3;
-
 	public const uint32 WSDAPI_SSL_CERT_APPLY_DEFAULT_CHECKS = 0;
-
 	public const uint32 WSDAPI_SSL_CERT_IGNORE_REVOCATION = 1;
-
 	public const uint32 WSDAPI_SSL_CERT_IGNORE_EXPIRY = 2;
-
 	public const uint32 WSDAPI_SSL_CERT_IGNORE_WRONG_USAGE = 4;
-
 	public const uint32 WSDAPI_SSL_CERT_IGNORE_UNKNOWN_CA = 8;
-
 	public const uint32 WSDAPI_SSL_CERT_IGNORE_INVALID_CN = 16;
-
 	public const uint32 WSDAPI_COMPACTSIG_ACCEPT_ALL_MESSAGES = 1;
-
 	public const uint32 WSD_SECURITY_HTTP_AUTH_SCHEME_NEGOTIATE = 1;
-
 	public const uint32 WSD_SECURITY_HTTP_AUTH_SCHEME_NTLM = 2;
-
 	public const uint32 WSDAPI_ADDRESSFAMILY_IPV4 = 1;
-
 	public const uint32 WSDAPI_ADDRESSFAMILY_IPV6 = 2;
-
 }
 #endregion
 

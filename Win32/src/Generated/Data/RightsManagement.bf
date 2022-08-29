@@ -7,135 +7,70 @@ namespace Win32.Data.RightsManagement;
 public static
 {
 	public const uint32 DRMHANDLE_INVALID = 0;
-
 	public const uint32 DRMENVHANDLE_INVALID = 0;
-
 	public const uint32 DRMQUERYHANDLE_INVALID = 0;
-
 	public const uint32 DRMHSESSION_INVALID = 0;
-
 	public const uint32 DRMPUBHANDLE_INVALID = 0;
-
 	public const uint32 DRM_AL_NONSILENT = 1;
-
 	public const uint32 DRM_AL_NOPERSIST = 2;
-
 	public const uint32 DRM_AL_CANCEL = 4;
-
 	public const uint32 DRM_AL_FETCHNOADVISORY = 8;
-
 	public const uint32 DRM_AL_NOUI = 16;
-
 	public const uint32 DRM_ACTIVATE_MACHINE = 1;
-
 	public const uint32 DRM_ACTIVATE_GROUPIDENTITY = 2;
-
 	public const uint32 DRM_ACTIVATE_TEMPORARY = 4;
-
 	public const uint32 DRM_ACTIVATE_CANCEL = 8;
-
 	public const uint32 DRM_ACTIVATE_SILENT = 16;
-
 	public const uint32 DRM_ACTIVATE_SHARED_GROUPIDENTITY = 32;
-
 	public const uint32 DRM_ACTIVATE_DELAYED = 64;
-
 	public const uint32 DRM_EL_MACHINE = 1;
-
 	public const uint32 DRM_EL_GROUPIDENTITY = 2;
-
 	public const uint32 DRM_EL_GROUPIDENTITY_NAME = 4;
-
 	public const uint32 DRM_EL_GROUPIDENTITY_LID = 8;
-
 	public const uint32 DRM_EL_SPECIFIED_GROUPIDENTITY = 16;
-
 	public const uint32 DRM_EL_EUL = 32;
-
 	public const uint32 DRM_EL_EUL_LID = 64;
-
 	public const uint32 DRM_EL_CLIENTLICENSOR = 128;
-
 	public const uint32 DRM_EL_CLIENTLICENSOR_LID = 256;
-
 	public const uint32 DRM_EL_SPECIFIED_CLIENTLICENSOR = 512;
-
 	public const uint32 DRM_EL_REVOCATIONLIST = 1024;
-
 	public const uint32 DRM_EL_REVOCATIONLIST_LID = 2048;
-
 	public const uint32 DRM_EL_EXPIRED = 4096;
-
 	public const uint32 DRM_EL_ISSUERNAME = 8192;
-
 	public const uint32 DRM_EL_ISSUANCELICENSE_TEMPLATE = 16384;
-
 	public const uint32 DRM_EL_ISSUANCELICENSE_TEMPLATE_LID = 32768;
-
 	public const uint32 DRM_ADD_LICENSE_NOPERSIST = 0;
-
 	public const uint32 DRM_ADD_LICENSE_PERSIST = 1;
-
 	public const uint32 DRM_SERVICE_TYPE_ACTIVATION = 1;
-
 	public const uint32 DRM_SERVICE_TYPE_CERTIFICATION = 2;
-
 	public const uint32 DRM_SERVICE_TYPE_PUBLISHING = 4;
-
 	public const uint32 DRM_SERVICE_TYPE_CLIENTLICENSOR = 8;
-
 	public const uint32 DRM_SERVICE_TYPE_SILENT = 16;
-
 	public const uint32 DRM_SERVICE_LOCATION_INTERNET = 1;
-
 	public const uint32 DRM_SERVICE_LOCATION_ENTERPRISE = 2;
-
 	public const uint32 DRM_SIGN_ONLINE = 1;
-
 	public const uint32 DRM_SIGN_OFFLINE = 2;
-
 	public const uint32 DRM_SIGN_CANCEL = 4;
-
 	public const uint32 DRM_SERVER_ISSUANCELICENSE = 8;
-
 	public const uint32 DRM_AUTO_GENERATE_KEY = 16;
-
 	public const uint32 DRM_OWNER_LICENSE_NOPERSIST = 32;
-
 	public const uint32 DRM_REUSE_KEY = 64;
-
 	public const uint32 DRM_LOCKBOXTYPE_NONE = 0;
-
 	public const uint32 DRM_LOCKBOXTYPE_WHITEBOX = 1;
-
 	public const uint32 DRM_LOCKBOXTYPE_BLACKBOX = 2;
-
 	public const uint32 DRM_LOCKBOXTYPE_DEFAULT = 2;
-
 	public const uint32 DRM_AILT_NONSILENT = 1;
-
 	public const uint32 DRM_AILT_OBTAIN_ALL = 2;
-
 	public const uint32 DRM_AILT_CANCEL = 4;
-
 	public const uint32 MSDRM_CLIENT_ZONE = 52992;
-
 	public const uint32 MSDRM_POLICY_ZONE = 37632;
-
 	public const uint32 DRMIDVERSION = 0;
-
 	public const uint32 DRMBOUNDLICENSEPARAMSVERSION = 1;
-
 	public const uint32 DRMBINDINGFLAGS_IGNORE_VALIDITY_INTERVALS = 1;
-
 	public const uint32 DRMLICENSEACQDATAVERSION = 0;
-
 	public const uint32 DRMACTSERVINFOVERSION = 0;
-
 	public const uint32 DRMCLIENTSTRUCTVERSION = 1;
-
 	public const uint32 DRMCALLBACKVERSION = 1;
-
 }
 #endregion
 

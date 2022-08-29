@@ -7,171 +7,88 @@ namespace Win32.NetworkManagement.WNet;
 public static
 {
 	public const uint32 WNGETCON_CONNECTED = 0;
-
 	public const uint32 WNGETCON_DISCONNECTED = 1;
-
 	public const uint32 WNNC_SPEC_VERSION = 1;
-
 	public const uint32 WNNC_SPEC_VERSION51 = 327681;
-
 	public const uint32 WNNC_NET_TYPE = 2;
-
 	public const uint32 WNNC_NET_NONE = 0;
-
 	public const uint32 WNNC_DRIVER_VERSION = 3;
-
 	public const uint32 WNNC_USER = 4;
-
 	public const uint32 WNNC_USR_GETUSER = 1;
-
 	public const uint32 WNNC_CONNECTION = 6;
-
 	public const uint32 WNNC_CON_ADDCONNECTION = 1;
-
 	public const uint32 WNNC_CON_CANCELCONNECTION = 2;
-
 	public const uint32 WNNC_CON_GETCONNECTIONS = 4;
-
 	public const uint32 WNNC_CON_ADDCONNECTION3 = 8;
-
 	public const uint32 WNNC_CON_ADDCONNECTION4 = 16;
-
 	public const uint32 WNNC_CON_CANCELCONNECTION2 = 32;
-
 	public const uint32 WNNC_CON_GETPERFORMANCE = 64;
-
 	public const uint32 WNNC_CON_DEFER = 128;
-
 	public const uint32 WNNC_DIALOG = 8;
-
 	public const uint32 WNNC_DLG_DEVICEMODE = 1;
-
 	public const uint32 WNNC_DLG_PROPERTYDIALOG = 32;
-
 	public const uint32 WNNC_DLG_SEARCHDIALOG = 64;
-
 	public const uint32 WNNC_DLG_FORMATNETWORKNAME = 128;
-
 	public const uint32 WNNC_DLG_PERMISSIONEDITOR = 256;
-
 	public const uint32 WNNC_DLG_GETRESOURCEPARENT = 512;
-
 	public const uint32 WNNC_DLG_GETRESOURCEINFORMATION = 2048;
-
 	public const uint32 WNNC_ADMIN = 9;
-
 	public const uint32 WNNC_ADM_GETDIRECTORYTYPE = 1;
-
 	public const uint32 WNNC_ADM_DIRECTORYNOTIFY = 2;
-
 	public const uint32 WNNC_ENUMERATION = 11;
-
 	public const uint32 WNNC_ENUM_GLOBAL = 1;
-
 	public const uint32 WNNC_ENUM_LOCAL = 2;
-
 	public const uint32 WNNC_ENUM_CONTEXT = 4;
-
 	public const uint32 WNNC_ENUM_SHAREABLE = 8;
-
 	public const uint32 WNNC_START = 12;
-
 	public const uint32 WNNC_WAIT_FOR_START = 1;
-
 	public const uint32 WNNC_CONNECTION_FLAGS = 13;
-
 	public const uint32 WNTYPE_DRIVE = 1;
-
 	public const uint32 WNTYPE_FILE = 2;
-
 	public const uint32 WNTYPE_PRINTER = 3;
-
 	public const uint32 WNTYPE_COMM = 4;
-
 	public const uint32 WNSRCH_REFRESH_FIRST_LEVEL = 1;
-
 	public const uint32 WNDT_NORMAL = 0;
-
 	public const uint32 WNDT_NETWORK = 1;
-
 	public const uint32 WN_NETWORK_CLASS = 1;
-
 	public const uint32 WN_CREDENTIAL_CLASS = 2;
-
 	public const uint32 WN_PRIMARY_AUTHENT_CLASS = 4;
-
 	public const uint32 WN_SERVICE_CLASS = 8;
-
 	public const uint32 WN_VALID_LOGON_ACCOUNT = 1;
-
 	public const uint32 WN_NT_PASSWORD_CHANGED = 2;
-
 	public const uint32 NOTIFY_PRE = 1;
-
 	public const uint32 NOTIFY_POST = 2;
-
 	public const uint32 WNPERMC_PERM = 1;
-
 	public const uint32 WNPERMC_AUDIT = 2;
-
 	public const uint32 WNPERMC_OWNER = 4;
-
 	public const uint32 RESOURCE_RECENT = 4;
-
 	public const uint32 RESOURCETYPE_RESERVED = 8;
-
 	public const uint32 RESOURCETYPE_UNKNOWN = 4294967295;
-
 	public const uint32 RESOURCEUSAGE_NOLOCALDEVICE = 4;
-
 	public const uint32 RESOURCEUSAGE_SIBLING = 8;
-
 	public const uint32 RESOURCEUSAGE_RESERVED = 2147483648;
-
 	public const uint32 RESOURCEDISPLAYTYPE_NETWORK = 6;
-
 	public const uint32 RESOURCEDISPLAYTYPE_ROOT = 7;
-
 	public const uint32 RESOURCEDISPLAYTYPE_SHAREADMIN = 8;
-
 	public const uint32 RESOURCEDISPLAYTYPE_DIRECTORY = 9;
-
 	public const uint32 RESOURCEDISPLAYTYPE_NDSCONTAINER = 11;
-
 	public const uint32 NETPROPERTY_PERSISTENT = 1;
-
 	public const uint32 CONNECT_NEED_DRIVE = 32;
-
 	public const uint32 CONNECT_REFCOUNT = 64;
-
 	public const uint32 CONNECT_LOCALDRIVE = 256;
-
 	public const uint32 CONNECT_CURRENT_MEDIA = 512;
-
 	public const uint32 CONNECT_RESERVED = 4278190080;
-
 	public const uint32 CONNECT_CRED_RESET = 8192;
-
 	public const uint32 CONNECT_REQUIRE_INTEGRITY = 16384;
-
 	public const uint32 CONNECT_REQUIRE_PRIVACY = 32768;
-
 	public const uint32 CONNECT_WRITE_THROUGH_SEMANTICS = 65536;
-
 	public const uint32 CONNECT_GLOBAL_MAPPING = 262144;
-
 	public const uint32 WNFMT_INENUM = 16;
-
 	public const uint32 WNFMT_CONNECTION = 32;
-
 	public const uint32 WNCON_FORNETCARD = 1;
-
 	public const uint32 WNCON_NOTROUTED = 2;
-
 	public const uint32 WNCON_SLOWLINK = 4;
-
 	public const uint32 WNCON_DYNAMIC = 8;
-
 }
 #endregion
 

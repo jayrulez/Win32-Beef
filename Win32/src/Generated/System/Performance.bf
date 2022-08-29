@@ -2,7 +2,6 @@ using Win32.Foundation;
 using Win32.System.Com;
 using Win32.System.Ole;
 using System;
-using System.Interop;
 
 namespace Win32.System.Performance;
 
@@ -10,371 +9,188 @@ namespace Win32.System.Performance;
 public static
 {
 	public const uint32 MAX_COUNTER_PATH = 256;
-
 	public const uint32 PDH_MAX_COUNTER_NAME = 1024;
-
 	public const uint32 PDH_MAX_INSTANCE_NAME = 1024;
-
 	public const uint32 PDH_MAX_COUNTER_PATH = 2048;
-
 	public const uint32 PDH_MAX_DATASOURCE_PATH = 1024;
-
 	public const int32 H_WBEM_DATASOURCE = -1;
-
 	public const int32 PDH_MAX_SCALE = 7;
-
 	public const int32 PDH_MIN_SCALE = -7;
-
 	public const uint32 PDH_NOEXPANDCOUNTERS = 1;
-
 	public const uint32 PDH_NOEXPANDINSTANCES = 2;
-
 	public const uint32 PDH_REFRESHCOUNTERS = 4;
-
 	public const uint32 PDH_LOG_TYPE_RETIRED_BIN = 3;
-
 	public const uint32 PDH_LOG_TYPE_TRACE_KERNEL = 4;
-
 	public const uint32 PDH_LOG_TYPE_TRACE_GENERIC = 5;
-
 	public const uint32 PERF_PROVIDER_USER_MODE = 0;
-
 	public const uint32 PERF_PROVIDER_KERNEL_MODE = 1;
-
 	public const uint32 PERF_PROVIDER_DRIVER = 2;
-
 	public const uint32 PERF_COUNTERSET_FLAG_MULTIPLE = 2;
-
 	public const uint32 PERF_COUNTERSET_FLAG_AGGREGATE = 4;
-
 	public const uint32 PERF_COUNTERSET_FLAG_HISTORY = 8;
-
 	public const uint32 PERF_COUNTERSET_FLAG_INSTANCE = 16;
-
 	public const uint32 PERF_COUNTERSET_SINGLE_INSTANCE = 0;
-
 	public const uint32 PERF_COUNTERSET_MULTI_INSTANCES = 2;
-
 	public const uint32 PERF_COUNTERSET_SINGLE_AGGREGATE = 4;
-
 	public const uint32 PERF_AGGREGATE_MAX = 4;
-
 	public const uint64 PERF_ATTRIB_BY_REFERENCE = 1;
-
 	public const uint64 PERF_ATTRIB_NO_DISPLAYABLE = 2;
-
 	public const uint64 PERF_ATTRIB_NO_GROUP_SEPARATOR = 4;
-
 	public const uint64 PERF_ATTRIB_DISPLAY_AS_REAL = 8;
-
 	public const uint64 PERF_ATTRIB_DISPLAY_AS_HEX = 16;
-
 	public const uint32 PERF_WILDCARD_COUNTER = 4294967295;
-
 	public const uint32 PERF_MAX_INSTANCE_NAME = 1024;
-
 	public const uint32 PERF_ADD_COUNTER = 1;
-
 	public const uint32 PERF_REMOVE_COUNTER = 2;
-
 	public const uint32 PERF_ENUM_INSTANCES = 3;
-
 	public const uint32 PERF_COLLECT_START = 5;
-
 	public const uint32 PERF_COLLECT_END = 6;
-
 	public const uint32 PERF_FILTER = 9;
-
 	public const uint32 PERF_DATA_VERSION = 1;
-
 	public const uint32 PERF_DATA_REVISION = 1;
-
 	public const int32 PERF_NO_INSTANCES = -1;
-
 	public const int32 PERF_METADATA_MULTIPLE_INSTANCES = -2;
-
 	public const int32 PERF_METADATA_NO_INSTANCES = -3;
-
 	public const uint32 PERF_SIZE_DWORD = 0;
-
 	public const uint32 PERF_SIZE_LARGE = 256;
-
 	public const uint32 PERF_SIZE_ZERO = 512;
-
 	public const uint32 PERF_SIZE_VARIABLE_LEN = 768;
-
 	public const uint32 PERF_TYPE_NUMBER = 0;
-
 	public const uint32 PERF_TYPE_COUNTER = 1024;
-
 	public const uint32 PERF_TYPE_TEXT = 2048;
-
 	public const uint32 PERF_TYPE_ZERO = 3072;
-
 	public const uint32 PERF_NUMBER_HEX = 0;
-
 	public const uint32 PERF_NUMBER_DECIMAL = 65536;
-
 	public const uint32 PERF_NUMBER_DEC_1000 = 131072;
-
 	public const uint32 PERF_COUNTER_VALUE = 0;
-
 	public const uint32 PERF_COUNTER_RATE = 65536;
-
 	public const uint32 PERF_COUNTER_FRACTION = 131072;
-
 	public const uint32 PERF_COUNTER_BASE = 196608;
-
 	public const uint32 PERF_COUNTER_ELAPSED = 262144;
-
 	public const uint32 PERF_COUNTER_QUEUELEN = 327680;
-
 	public const uint32 PERF_COUNTER_HISTOGRAM = 393216;
-
 	public const uint32 PERF_COUNTER_PRECISION = 458752;
-
 	public const uint32 PERF_TEXT_UNICODE = 0;
-
 	public const uint32 PERF_TEXT_ASCII = 65536;
-
 	public const uint32 PERF_TIMER_TICK = 0;
-
 	public const uint32 PERF_TIMER_100NS = 1048576;
-
 	public const uint32 PERF_OBJECT_TIMER = 2097152;
-
 	public const uint32 PERF_DELTA_COUNTER = 4194304;
-
 	public const uint32 PERF_DELTA_BASE = 8388608;
-
 	public const uint32 PERF_INVERSE_COUNTER = 16777216;
-
 	public const uint32 PERF_MULTI_COUNTER = 33554432;
-
 	public const uint32 PERF_DISPLAY_NO_SUFFIX = 0;
-
 	public const uint32 PERF_DISPLAY_PER_SEC = 268435456;
-
 	public const uint32 PERF_DISPLAY_PERCENT = 536870912;
-
 	public const uint32 PERF_DISPLAY_SECONDS = 805306368;
-
 	public const uint32 PERF_DISPLAY_NOSHOW = 1073741824;
-
 	public const uint32 PERF_COUNTER_HISTOGRAM_TYPE = 2147483648;
-
 	public const int32 PERF_NO_UNIQUE_ID = -1;
-
 	public const int32 MAX_PERF_OBJECTS_IN_QUERY_FUNCTION = 64;
-
 	public const uint32 WINPERF_LOG_NONE = 0;
-
 	public const uint32 WINPERF_LOG_USER = 1;
-
 	public const uint32 WINPERF_LOG_DEBUG = 2;
-
 	public const uint32 WINPERF_LOG_VERBOSE = 3;
-
 	public const Guid LIBID_SystemMonitor = .(0x1b773e42, 0x2509, 0x11cf, 0x94, 0x2f, 0x00, 0x80, 0x29, 0x00, 0x43, 0x47);
-
 	public const Guid DIID_DICounterItem = .(0xc08c4ff2, 0x0e2e, 0x11cf, 0x94, 0x2c, 0x00, 0x80, 0x29, 0x00, 0x43, 0x47);
-
 	public const Guid DIID_DILogFileItem = .(0x8d093ffc, 0xf777, 0x4917, 0x82, 0xd1, 0x83, 0x3f, 0xbc, 0x54, 0xc5, 0x8f);
-
 	public const Guid DIID_DISystemMonitor = .(0x13d73d81, 0xc32e, 0x11cf, 0x93, 0x98, 0x00, 0xaa, 0x00, 0xa3, 0xdd, 0xea);
-
 	public const Guid DIID_DISystemMonitorInternal = .(0x194eb242, 0xc32c, 0x11cf, 0x93, 0x98, 0x00, 0xaa, 0x00, 0xa3, 0xdd, 0xea);
-
 	public const Guid DIID_DISystemMonitorEvents = .(0x84979930, 0x4ab3, 0x11cf, 0x94, 0x3a, 0x00, 0x80, 0x29, 0x00, 0x43, 0x47);
-
 	public const int32 PDH_CSTATUS_VALID_DATA = 0;
-
 	public const int32 PDH_CSTATUS_NEW_DATA = 1;
-
 	public const int32 PDH_CSTATUS_NO_MACHINE = -2147481648;
-
 	public const int32 PDH_CSTATUS_NO_INSTANCE = -2147481647;
-
 	public const int32 PDH_MORE_DATA = -2147481646;
-
 	public const int32 PDH_CSTATUS_ITEM_NOT_VALIDATED = -2147481645;
-
 	public const int32 PDH_RETRY = -2147481644;
-
 	public const int32 PDH_NO_DATA = -2147481643;
-
 	public const int32 PDH_CALC_NEGATIVE_DENOMINATOR = -2147481642;
-
 	public const int32 PDH_CALC_NEGATIVE_TIMEBASE = -2147481641;
-
 	public const int32 PDH_CALC_NEGATIVE_VALUE = -2147481640;
-
 	public const int32 PDH_DIALOG_CANCELLED = -2147481639;
-
 	public const int32 PDH_END_OF_LOG_FILE = -2147481638;
-
 	public const int32 PDH_ASYNC_QUERY_TIMEOUT = -2147481637;
-
 	public const int32 PDH_CANNOT_SET_DEFAULT_REALTIME_DATASOURCE = -2147481636;
-
 	public const int32 PDH_UNABLE_MAP_NAME_FILES = -2147480619;
-
 	public const int32 PDH_PLA_VALIDATION_WARNING = -2147480589;
-
 	public const int32 PDH_CSTATUS_NO_OBJECT = -1073738824;
-
 	public const int32 PDH_CSTATUS_NO_COUNTER = -1073738823;
-
 	public const int32 PDH_CSTATUS_INVALID_DATA = -1073738822;
-
 	public const int32 PDH_MEMORY_ALLOCATION_FAILURE = -1073738821;
-
 	public const int32 PDH_INVALID_HANDLE = -1073738820;
-
 	public const int32 PDH_INVALID_ARGUMENT = -1073738819;
-
 	public const int32 PDH_FUNCTION_NOT_FOUND = -1073738818;
-
 	public const int32 PDH_CSTATUS_NO_COUNTERNAME = -1073738817;
-
 	public const int32 PDH_CSTATUS_BAD_COUNTERNAME = -1073738816;
-
 	public const int32 PDH_INVALID_BUFFER = -1073738815;
-
 	public const int32 PDH_INSUFFICIENT_BUFFER = -1073738814;
-
 	public const int32 PDH_CANNOT_CONNECT_MACHINE = -1073738813;
-
 	public const int32 PDH_INVALID_PATH = -1073738812;
-
 	public const int32 PDH_INVALID_INSTANCE = -1073738811;
-
 	public const int32 PDH_INVALID_DATA = -1073738810;
-
 	public const int32 PDH_NO_DIALOG_DATA = -1073738809;
-
 	public const int32 PDH_CANNOT_READ_NAME_STRINGS = -1073738808;
-
 	public const int32 PDH_LOG_FILE_CREATE_ERROR = -1073738807;
-
 	public const int32 PDH_LOG_FILE_OPEN_ERROR = -1073738806;
-
 	public const int32 PDH_LOG_TYPE_NOT_FOUND = -1073738805;
-
 	public const int32 PDH_NO_MORE_DATA = -1073738804;
-
 	public const int32 PDH_ENTRY_NOT_IN_LOG_FILE = -1073738803;
-
 	public const int32 PDH_DATA_SOURCE_IS_LOG_FILE = -1073738802;
-
 	public const int32 PDH_DATA_SOURCE_IS_REAL_TIME = -1073738801;
-
 	public const int32 PDH_UNABLE_READ_LOG_HEADER = -1073738800;
-
 	public const int32 PDH_FILE_NOT_FOUND = -1073738799;
-
 	public const int32 PDH_FILE_ALREADY_EXISTS = -1073738798;
-
 	public const int32 PDH_NOT_IMPLEMENTED = -1073738797;
-
 	public const int32 PDH_STRING_NOT_FOUND = -1073738796;
-
 	public const int32 PDH_UNKNOWN_LOG_FORMAT = -1073738794;
-
 	public const int32 PDH_UNKNOWN_LOGSVC_COMMAND = -1073738793;
-
 	public const int32 PDH_LOGSVC_QUERY_NOT_FOUND = -1073738792;
-
 	public const int32 PDH_LOGSVC_NOT_OPENED = -1073738791;
-
 	public const int32 PDH_WBEM_ERROR = -1073738790;
-
 	public const int32 PDH_ACCESS_DENIED = -1073738789;
-
 	public const int32 PDH_LOG_FILE_TOO_SMALL = -1073738788;
-
 	public const int32 PDH_INVALID_DATASOURCE = -1073738787;
-
 	public const int32 PDH_INVALID_SQLDB = -1073738786;
-
 	public const int32 PDH_NO_COUNTERS = -1073738785;
-
 	public const int32 PDH_SQL_ALLOC_FAILED = -1073738784;
-
 	public const int32 PDH_SQL_ALLOCCON_FAILED = -1073738783;
-
 	public const int32 PDH_SQL_EXEC_DIRECT_FAILED = -1073738782;
-
 	public const int32 PDH_SQL_FETCH_FAILED = -1073738781;
-
 	public const int32 PDH_SQL_ROWCOUNT_FAILED = -1073738780;
-
 	public const int32 PDH_SQL_MORE_RESULTS_FAILED = -1073738779;
-
 	public const int32 PDH_SQL_CONNECT_FAILED = -1073738778;
-
 	public const int32 PDH_SQL_BIND_FAILED = -1073738777;
-
 	public const int32 PDH_CANNOT_CONNECT_WMI_SERVER = -1073738776;
-
 	public const int32 PDH_PLA_COLLECTION_ALREADY_RUNNING = -1073738775;
-
 	public const int32 PDH_PLA_ERROR_SCHEDULE_OVERLAP = -1073738774;
-
 	public const int32 PDH_PLA_COLLECTION_NOT_FOUND = -1073738773;
-
 	public const int32 PDH_PLA_ERROR_SCHEDULE_ELAPSED = -1073738772;
-
 	public const int32 PDH_PLA_ERROR_NOSTART = -1073738771;
-
 	public const int32 PDH_PLA_ERROR_ALREADY_EXISTS = -1073738770;
-
 	public const int32 PDH_PLA_ERROR_TYPE_MISMATCH = -1073738769;
-
 	public const int32 PDH_PLA_ERROR_FILEPATH = -1073738768;
-
 	public const int32 PDH_PLA_SERVICE_ERROR = -1073738767;
-
 	public const int32 PDH_PLA_VALIDATION_ERROR = -1073738766;
-
 	public const int32 PDH_PLA_ERROR_NAME_TOO_LONG = -1073738764;
-
 	public const int32 PDH_INVALID_SQL_LOG_FORMAT = -1073738763;
-
 	public const int32 PDH_COUNTER_ALREADY_IN_QUERY = -1073738762;
-
 	public const int32 PDH_BINARY_LOG_CORRUPT = -1073738761;
-
 	public const int32 PDH_LOG_SAMPLE_TOO_SMALL = -1073738760;
-
 	public const int32 PDH_OS_LATER_VERSION = -1073738759;
-
 	public const int32 PDH_OS_EARLIER_VERSION = -1073738758;
-
 	public const int32 PDH_INCORRECT_APPEND_TIME = -1073738757;
-
 	public const int32 PDH_UNMATCHED_APPEND_COUNTER = -1073738756;
-
 	public const int32 PDH_SQL_ALTER_DETAIL_FAILED = -1073738755;
-
 	public const int32 PDH_QUERY_PERF_DATA_TIMEOUT = -1073738754;
-
 	public const uint32 PLA_CAPABILITY_LOCAL = 268435456;
-
 	public const uint32 PLA_CAPABILITY_V1_SVC = 1;
-
 	public const uint32 PLA_CAPABILITY_V1_SESSION = 2;
-
 	public const uint32 PLA_CAPABILITY_V1_SYSTEM = 4;
-
 	public const uint32 PLA_CAPABILITY_LEGACY_SESSION = 8;
-
 	public const uint32 PLA_CAPABILITY_LEGACY_SVC = 16;
-
 	public const uint32 PLA_CAPABILITY_AUTOLOGGER = 32;
-
 	public const Guid S_PDH = .(0x04d66358, 0xc4a1, 0x419b, 0x80, 0x23, 0x23, 0xb7, 0x39, 0x02, 0xde, 0x2c);
-
 }
 #endregion
 
@@ -984,7 +800,6 @@ public struct PDH_FMT_COUNTERVALUE
 		public PSTR AnsiStringValue;
 		public PWSTR WideStringValue;
 	}
-
 	public uint32 CStatus;
 	public using _Anonymous_e__Union Anonymous;
 }
@@ -1053,7 +868,7 @@ public struct PDH_DATA_ITEM_PATH_ELEMENTS_W
 	public PWSTR szInstanceName;
 }
 
-[CRepr, FlexibleArray("DataBuffer")]
+[CRepr]
 public struct PDH_COUNTER_INFO_A
 {
 	[CRepr, Union]
@@ -1069,12 +884,10 @@ public struct PDH_COUNTER_INFO_A
 			public uint32 dwInstanceIndex;
 			public PSTR szCounterName;
 		}
-
 		public PDH_DATA_ITEM_PATH_ELEMENTS_A DataItemPath;
 		public PDH_COUNTER_PATH_ELEMENTS_A CounterPath;
 		public using _Anonymous_e__Struct Anonymous;
 	}
-
 	public uint32 dwLength;
 	public uint32 dwType;
 	public uint32 CVersion;
@@ -1086,10 +899,11 @@ public struct PDH_COUNTER_INFO_A
 	public PSTR szFullPath;
 	public using _Anonymous_e__Union Anonymous;
 	public PSTR szExplainText;
+	public uint32* DataBuffer mut => &DataBuffer_impl;
 	private uint32[ANYSIZE_ARRAY] DataBuffer_impl;
 }
 
-[CRepr, FlexibleArray("DataBuffer")]
+[CRepr]
 public struct PDH_COUNTER_INFO_W
 {
 	[CRepr, Union]
@@ -1105,12 +919,10 @@ public struct PDH_COUNTER_INFO_W
 			public uint32 dwInstanceIndex;
 			public PWSTR szCounterName;
 		}
-
 		public PDH_DATA_ITEM_PATH_ELEMENTS_W DataItemPath;
 		public PDH_COUNTER_PATH_ELEMENTS_W CounterPath;
 		public using _Anonymous_e__Struct Anonymous;
 	}
-
 	public uint32 dwLength;
 	public uint32 dwType;
 	public uint32 CVersion;
@@ -1122,6 +934,7 @@ public struct PDH_COUNTER_INFO_W
 	public PWSTR szFullPath;
 	public using _Anonymous_e__Union Anonymous;
 	public PWSTR szExplainText;
+	public uint32* DataBuffer mut => &DataBuffer_impl;
 	private uint32[ANYSIZE_ARRAY] DataBuffer_impl;
 }
 
@@ -1133,12 +946,13 @@ public struct PDH_TIME_INFO
 	public uint32 SampleCount;
 }
 
-[CRepr, FlexibleArray("RawBytes")]
+[CRepr]
 public struct PDH_RAW_LOG_RECORD
 {
 	public uint32 dwStructureSize;
 	public PDH_LOG_TYPE dwRecordType;
 	public uint32 dwItems;
+	public uint8* RawBytes mut => &RawBytes_impl;
 	private uint8[ANYSIZE_ARRAY] RawBytes_impl;
 }
 
@@ -1160,7 +974,6 @@ public struct PDH_LOG_SERVICE_QUERY_INFO_A
 			public FILETIME PdlLogStartTime;
 			public FILETIME PdlLogEndTime;
 		}
-
 		[CRepr]
 		public struct _Anonymous2_e__Struct
 		{
@@ -1175,11 +988,9 @@ public struct PDH_LOG_SERVICE_QUERY_INFO_A
 			public uint32 TlLogHandle;
 			public PSTR TlLogFileName;
 		}
-
 		public _Anonymous1_e__Struct Anonymous1;
 		public _Anonymous2_e__Struct Anonymous2;
 	}
-
 	public uint32 dwSize;
 	public uint32 dwFlags;
 	public uint32 dwLogQuota;
@@ -1209,7 +1020,6 @@ public struct PDH_LOG_SERVICE_QUERY_INFO_W
 			public FILETIME PdlLogStartTime;
 			public FILETIME PdlLogEndTime;
 		}
-
 		[CRepr]
 		public struct _Anonymous2_e__Struct
 		{
@@ -1224,11 +1034,9 @@ public struct PDH_LOG_SERVICE_QUERY_INFO_W
 			public uint32 TlLogHandle;
 			public PWSTR TlLogFileName;
 		}
-
 		public _Anonymous1_e__Struct Anonymous1;
 		public _Anonymous2_e__Struct Anonymous2;
 	}
-
 	public uint32 dwSize;
 	public uint32 dwFlags;
 	public uint32 dwLogQuota;

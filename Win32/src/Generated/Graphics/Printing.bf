@@ -10,7 +10,6 @@ using Win32.Graphics.Imaging;
 using Win32.Storage.Xps;
 using Win32.Graphics.Dxgi;
 using System;
-using System.Interop;
 
 namespace Win32.Graphics.Printing;
 
@@ -18,2589 +17,1297 @@ namespace Win32.Graphics.Printing;
 public static
 {
 	public const uint32 USB_PRINTER_INTERFACE_CLASSIC = 1;
-
 	public const uint32 USB_PRINTER_INTERFACE_IPP = 2;
-
 	public const uint32 USB_PRINTER_INTERFACE_DUAL = 3;
-
 	public const uint32 USBPRINT_IOCTL_INDEX = 0;
-
 	public const uint32 IOCTL_USBPRINT_GET_LPT_STATUS = 2228272;
-
 	public const uint32 IOCTL_USBPRINT_GET_1284_ID = 2228276;
-
 	public const uint32 IOCTL_USBPRINT_VENDOR_SET_COMMAND = 2228280;
-
 	public const uint32 IOCTL_USBPRINT_VENDOR_GET_COMMAND = 2228284;
-
 	public const uint32 IOCTL_USBPRINT_SOFT_RESET = 2228288;
-
 	public const uint32 IOCTL_USBPRINT_GET_PROTOCOL = 2228292;
-
 	public const uint32 IOCTL_USBPRINT_SET_PROTOCOL = 2228296;
-
 	public const uint32 IOCTL_USBPRINT_GET_INTERFACE_TYPE = 2228300;
-
 	public const uint32 IOCTL_USBPRINT_SET_PORT_NUMBER = 2228304;
-
 	public const uint32 IOCTL_USBPRINT_ADD_MSIPP_COMPAT_ID = 2228308;
-
 	public const uint32 IOCTL_USBPRINT_SET_DEVICE_ID = 2228312;
-
 	public const uint32 IOCTL_USBPRINT_ADD_CHILD_DEVICE = 2228316;
-
 	public const uint32 IOCTL_USBPRINT_CYCLE_PORT = 2228320;
-
 	public const uint32 TVOT_2STATES = 0;
-
 	public const uint32 TVOT_3STATES = 1;
-
 	public const uint32 TVOT_UDARROW = 2;
-
 	public const uint32 TVOT_TRACKBAR = 3;
-
 	public const uint32 TVOT_SCROLLBAR = 4;
-
 	public const uint32 TVOT_LISTBOX = 5;
-
 	public const uint32 TVOT_COMBOBOX = 6;
-
 	public const uint32 TVOT_EDITBOX = 7;
-
 	public const uint32 TVOT_PUSHBUTTON = 8;
-
 	public const uint32 TVOT_CHKBOX = 9;
-
 	public const uint32 TVOT_NSTATES_EX = 10;
-
 	public const uint32 CHKBOXS_FALSE_TRUE = 0;
-
 	public const uint32 CHKBOXS_NO_YES = 1;
-
 	public const uint32 CHKBOXS_OFF_ON = 2;
-
 	public const uint32 CHKBOXS_FALSE_PDATA = 3;
-
 	public const uint32 CHKBOXS_NO_PDATA = 4;
-
 	public const uint32 CHKBOXS_OFF_PDATA = 5;
-
 	public const uint32 CHKBOXS_NONE_PDATA = 6;
-
 	public const uint32 PUSHBUTTON_TYPE_DLGPROC = 0;
-
 	public const uint32 PUSHBUTTON_TYPE_CALLBACK = 1;
-
 	public const uint32 PUSHBUTTON_TYPE_HTCLRADJ = 2;
-
 	public const uint32 PUSHBUTTON_TYPE_HTSETUP = 3;
-
 	public const uint32 MAX_RES_STR_CHARS = 160;
-
 	public const uint32 OPTPF_HIDE = 1;
-
 	public const uint32 OPTPF_DISABLED = 2;
-
 	public const uint32 OPTPF_ICONID_AS_HICON = 4;
-
 	public const uint32 OPTPF_OVERLAY_WARNING_ICON = 8;
-
 	public const uint32 OPTPF_OVERLAY_STOP_ICON = 16;
-
 	public const uint32 OPTPF_OVERLAY_NO_ICON = 32;
-
 	public const uint32 OPTPF_USE_HDLGTEMPLATE = 64;
-
 	public const uint32 OPTPF_MASK = 127;
-
 	public const uint32 OPTCF_HIDE = 1;
-
 	public const uint32 OPTCF_MASK = 1;
-
 	public const uint32 OPTTF_TYPE_DISABLED = 1;
-
 	public const uint32 OPTTF_NOSPACE_BEFORE_POSTFIX = 2;
-
 	public const uint32 OPTTF_MASK = 3;
-
 	public const uint32 OTS_LBCB_SORT = 1;
-
 	public const uint32 OTS_LBCB_PROPPAGE_LBUSECB = 2;
-
 	public const uint32 OTS_LBCB_PROPPAGE_CBUSELB = 4;
-
 	public const uint32 OTS_LBCB_INCL_ITEM_NONE = 8;
-
 	public const uint32 OTS_LBCB_NO_ICON16_IN_ITEM = 16;
-
 	public const uint32 OTS_PUSH_INCL_SETUP_TITLE = 32;
-
 	public const uint32 OTS_PUSH_NO_DOT_DOT_DOT = 64;
-
 	public const uint32 OTS_PUSH_ENABLE_ALWAYS = 128;
-
 	public const uint32 OTS_MASK = 255;
-
 	public const uint32 EPF_PUSH_TYPE_DLGPROC = 1;
-
 	public const uint32 EPF_INCL_SETUP_TITLE = 2;
-
 	public const uint32 EPF_NO_DOT_DOT_DOT = 4;
-
 	public const uint32 EPF_ICONID_AS_HICON = 8;
-
 	public const uint32 EPF_OVERLAY_WARNING_ICON = 16;
-
 	public const uint32 EPF_OVERLAY_STOP_ICON = 32;
-
 	public const uint32 EPF_OVERLAY_NO_ICON = 64;
-
 	public const uint32 EPF_USE_HDLGTEMPLATE = 128;
-
 	public const uint32 EPF_MASK = 255;
-
 	public const uint32 ECBF_CHECKNAME_AT_FRONT = 1;
-
 	public const uint32 ECBF_CHECKNAME_ONLY_ENABLED = 2;
-
 	public const uint32 ECBF_ICONID_AS_HICON = 4;
-
 	public const uint32 ECBF_OVERLAY_WARNING_ICON = 8;
-
 	public const uint32 ECBF_OVERLAY_ECBICON_IF_CHECKED = 16;
-
 	public const uint32 ECBF_OVERLAY_STOP_ICON = 32;
-
 	public const uint32 ECBF_OVERLAY_NO_ICON = 64;
-
 	public const uint32 ECBF_CHECKNAME_ONLY = 128;
-
 	public const uint32 ECBF_MASK = 255;
-
 	public const int32 OPTIF_COLLAPSE = 1;
-
 	public const int32 OPTIF_HIDE = 2;
-
 	public const int32 OPTIF_CALLBACK = 4;
-
 	public const int32 OPTIF_CHANGED = 8;
-
 	public const int32 OPTIF_CHANGEONCE = 16;
-
 	public const int32 OPTIF_DISABLED = 32;
-
 	public const int32 OPTIF_ECB_CHECKED = 64;
-
 	public const int32 OPTIF_EXT_HIDE = 128;
-
 	public const int32 OPTIF_EXT_DISABLED = 256;
-
 	public const int32 OPTIF_SEL_AS_HICON = 512;
-
 	public const int32 OPTIF_EXT_IS_EXTPUSH = 1024;
-
 	public const int32 OPTIF_NO_GROUPBOX_NAME = 2048;
-
 	public const int32 OPTIF_OVERLAY_WARNING_ICON = 4096;
-
 	public const int32 OPTIF_OVERLAY_STOP_ICON = 8192;
-
 	public const int32 OPTIF_OVERLAY_NO_ICON = 16384;
-
 	public const int32 OPTIF_INITIAL_TVITEM = 32768;
-
 	public const int32 OPTIF_HAS_POIEXT = 65536;
-
 	public const int32 OPTIF_MASK = 131071;
-
 	public const uint32 DMPUB_NONE = 0;
-
 	public const uint32 DMPUB_FIRST = 1;
-
 	public const uint32 DMPUB_ORIENTATION = 1;
-
 	public const uint32 DMPUB_SCALE = 2;
-
 	public const uint32 DMPUB_COPIES_COLLATE = 3;
-
 	public const uint32 DMPUB_DEFSOURCE = 4;
-
 	public const uint32 DMPUB_PRINTQUALITY = 5;
-
 	public const uint32 DMPUB_COLOR = 6;
-
 	public const uint32 DMPUB_DUPLEX = 7;
-
 	public const uint32 DMPUB_TTOPTION = 8;
-
 	public const uint32 DMPUB_FORMNAME = 9;
-
 	public const uint32 DMPUB_ICMMETHOD = 10;
-
 	public const uint32 DMPUB_ICMINTENT = 11;
-
 	public const uint32 DMPUB_MEDIATYPE = 12;
-
 	public const uint32 DMPUB_DITHERTYPE = 13;
-
 	public const uint32 DMPUB_OUTPUTBIN = 14;
-
 	public const uint32 DMPUB_QUALITY = 15;
-
 	public const uint32 DMPUB_NUP = 16;
-
 	public const uint32 DMPUB_PAGEORDER = 17;
-
 	public const uint32 DMPUB_NUP_DIRECTION = 18;
-
 	public const uint32 DMPUB_MANUAL_DUPLEX = 19;
-
 	public const uint32 DMPUB_STAPLE = 20;
-
 	public const uint32 DMPUB_BOOKLET_EDGE = 21;
-
 	public const uint32 DMPUB_LAST = 21;
-
 	public const uint32 DMPUB_OEM_PAPER_ITEM = 97;
-
 	public const uint32 DMPUB_OEM_GRAPHIC_ITEM = 98;
-
 	public const uint32 DMPUB_OEM_ROOT_ITEM = 99;
-
 	public const uint32 DMPUB_USER = 100;
-
 	public const uint32 OIEXTF_ANSI_STRING = 1;
-
 	public const uint32 CPSUICB_REASON_SEL_CHANGED = 0;
-
 	public const uint32 CPSUICB_REASON_PUSHBUTTON = 1;
-
 	public const uint32 CPSUICB_REASON_ECB_CHANGED = 2;
-
 	public const uint32 CPSUICB_REASON_DLGPROC = 3;
-
 	public const uint32 CPSUICB_REASON_UNDO_CHANGES = 4;
-
 	public const uint32 CPSUICB_REASON_EXTPUSH = 5;
-
 	public const uint32 CPSUICB_REASON_APPLYNOW = 6;
-
 	public const uint32 CPSUICB_REASON_OPTITEM_SETFOCUS = 7;
-
 	public const uint32 CPSUICB_REASON_ITEMS_REVERTED = 8;
-
 	public const uint32 CPSUICB_REASON_ABOUT = 9;
-
 	public const uint32 CPSUICB_REASON_SETACTIVE = 10;
-
 	public const uint32 CPSUICB_REASON_KILLACTIVE = 11;
-
 	public const uint32 CPSUICB_ACTION_NONE = 0;
-
 	public const uint32 CPSUICB_ACTION_OPTIF_CHANGED = 1;
-
 	public const uint32 CPSUICB_ACTION_REINIT_ITEMS = 2;
-
 	public const uint32 CPSUICB_ACTION_NO_APPLY_EXIT = 3;
-
 	public const uint32 CPSUICB_ACTION_ITEMS_APPLIED = 4;
-
 	public const uint32 DP_STD_TREEVIEWPAGE = 65535;
-
 	public const uint32 DP_STD_DOCPROPPAGE2 = 65534;
-
 	public const uint32 DP_STD_DOCPROPPAGE1 = 65533;
-
 	public const uint32 DP_STD_RESERVED_START = 65520;
-
 	public const uint32 MAX_DLGPAGE_COUNT = 64;
-
 	public const uint32 DPF_ICONID_AS_HICON = 1;
-
 	public const uint32 DPF_USE_HDLGTEMPLATE = 2;
-
 	public const uint32 CPSUIF_UPDATE_PERMISSION = 1;
-
 	public const uint32 CPSUIF_ICONID_AS_HICON = 2;
-
 	public const uint32 CPSUIF_ABOUT_CALLBACK = 4;
-
 	public const uint32 CPSFUNC_ADD_HPROPSHEETPAGE = 0;
-
 	public const uint32 CPSFUNC_ADD_PROPSHEETPAGEW = 1;
-
 	public const uint32 CPSFUNC_ADD_PCOMPROPSHEETUIA = 2;
-
 	public const uint32 CPSFUNC_ADD_PCOMPROPSHEETUIW = 3;
-
 	public const uint32 CPSFUNC_ADD_PFNPROPSHEETUIA = 4;
-
 	public const uint32 CPSFUNC_ADD_PFNPROPSHEETUIW = 5;
-
 	public const uint32 CPSFUNC_DELETE_HCOMPROPSHEET = 6;
-
 	public const uint32 CPSFUNC_SET_HSTARTPAGE = 7;
-
 	public const uint32 CPSFUNC_GET_PAGECOUNT = 8;
-
 	public const uint32 CPSFUNC_SET_RESULT = 9;
-
 	public const uint32 CPSFUNC_GET_HPSUIPAGES = 10;
-
 	public const uint32 CPSFUNC_LOAD_CPSUI_STRINGA = 11;
-
 	public const uint32 CPSFUNC_LOAD_CPSUI_STRINGW = 12;
-
 	public const uint32 CPSFUNC_LOAD_CPSUI_ICON = 13;
-
 	public const uint32 CPSFUNC_GET_PFNPROPSHEETUI_ICON = 14;
-
 	public const uint32 CPSFUNC_ADD_PROPSHEETPAGEA = 15;
-
 	public const uint32 CPSFUNC_INSERT_PSUIPAGEA = 16;
-
 	public const uint32 CPSFUNC_INSERT_PSUIPAGEW = 17;
-
 	public const uint32 CPSFUNC_SET_PSUIPAGE_TITLEA = 18;
-
 	public const uint32 CPSFUNC_SET_PSUIPAGE_TITLEW = 19;
-
 	public const uint32 CPSFUNC_SET_PSUIPAGE_ICON = 20;
-
 	public const uint32 CPSFUNC_SET_DATABLOCK = 21;
-
 	public const uint32 CPSFUNC_QUERY_DATABLOCK = 22;
-
 	public const uint32 CPSFUNC_SET_DMPUB_HIDEBITS = 23;
-
 	public const uint32 CPSFUNC_IGNORE_CPSUI_PSN_APPLY = 24;
-
 	public const uint32 CPSFUNC_DO_APPLY_CPSUI = 25;
-
 	public const uint32 CPSFUNC_SET_FUSION_CONTEXT = 26;
-
 	public const uint32 MAX_CPSFUNC_INDEX = 26;
-
 	public const uint32 CPSFUNC_ADD_PCOMPROPSHEETUI = 3;
-
 	public const uint32 CPSFUNC_ADD_PFNPROPSHEETUI = 5;
-
 	public const uint32 CPSFUNC_LOAD_CPSUI_STRING = 12;
-
 	public const uint32 CPSFUNC_ADD_PROPSHEETPAGE = 1;
-
 	public const uint32 CPSFUNC_INSERT_PSUIPAGE = 17;
-
 	public const uint32 CPSFUNC_SET_PSUIPAGE_TITLE = 19;
-
 	public const uint32 SR_OWNER = 0;
-
 	public const uint32 SR_OWNER_PARENT = 1;
-
 	public const uint32 PSUIPAGEINSERT_GROUP_PARENT = 0;
-
 	public const uint32 PSUIPAGEINSERT_PCOMPROPSHEETUI = 1;
-
 	public const uint32 PSUIPAGEINSERT_PFNPROPSHEETUI = 2;
-
 	public const uint32 PSUIPAGEINSERT_PROPSHEETPAGE = 3;
-
 	public const uint32 PSUIPAGEINSERT_HPROPSHEETPAGE = 4;
-
 	public const uint32 PSUIPAGEINSERT_DLL = 5;
-
 	public const uint32 MAX_PSUIPAGEINSERT_INDEX = 5;
-
 	public const uint32 INSPSUIPAGE_MODE_BEFORE = 0;
-
 	public const uint32 INSPSUIPAGE_MODE_AFTER = 1;
-
 	public const uint32 INSPSUIPAGE_MODE_FIRST_CHILD = 2;
-
 	public const uint32 INSPSUIPAGE_MODE_LAST_CHILD = 3;
-
 	public const uint32 INSPSUIPAGE_MODE_INDEX = 4;
-
 	public const uint32 SSP_TVPAGE = 10000;
-
 	public const uint32 SSP_STDPAGE1 = 10001;
-
 	public const uint32 SSP_STDPAGE2 = 10002;
-
 	public const uint32 APPLYCPSUI_NO_NEWDEF = 1;
-
 	public const uint32 APPLYCPSUI_OK_CANCEL_BUTTON = 2;
-
 	public const uint32 PROPSHEETUI_REASON_INIT = 0;
-
 	public const uint32 PROPSHEETUI_REASON_GET_INFO_HEADER = 1;
-
 	public const uint32 PROPSHEETUI_REASON_DESTROY = 2;
-
 	public const uint32 PROPSHEETUI_REASON_SET_RESULT = 3;
-
 	public const uint32 PROPSHEETUI_REASON_GET_ICON = 4;
-
 	public const uint32 PROPSHEETUI_REASON_BEFORE_INIT = 5;
-
 	public const uint32 MAX_PROPSHEETUI_REASON_INDEX = 5;
-
 	public const uint32 PROPSHEETUI_INFO_VERSION = 256;
-
 	public const uint32 PSUIINFO_UNICODE = 1;
-
 	public const uint32 PSUIHDRF_OBSOLETE = 1;
-
 	public const uint32 PSUIHDRF_NOAPPLYNOW = 2;
-
 	public const uint32 PSUIHDRF_PROPTITLE = 4;
-
 	public const uint32 PSUIHDRF_USEHICON = 8;
-
 	public const uint32 PSUIHDRF_DEFTITLE = 16;
-
 	public const uint32 PSUIHDRF_EXACT_PTITLE = 32;
-
 	public const uint32 CPSUI_CANCEL = 0;
-
 	public const uint32 CPSUI_OK = 1;
-
 	public const uint32 CPSUI_RESTARTWINDOWS = 2;
-
 	public const uint32 CPSUI_REBOOTSYSTEM = 3;
-
 	public const int32 ERR_CPSUI_GETLASTERROR = -1;
-
 	public const int32 ERR_CPSUI_ALLOCMEM_FAILED = -2;
-
 	public const int32 ERR_CPSUI_INVALID_PDATA = -3;
-
 	public const int32 ERR_CPSUI_INVALID_LPARAM = -4;
-
 	public const int32 ERR_CPSUI_NULL_HINST = -5;
-
 	public const int32 ERR_CPSUI_NULL_CALLERNAME = -6;
-
 	public const int32 ERR_CPSUI_NULL_OPTITEMNAME = -7;
-
 	public const int32 ERR_CPSUI_NO_PROPSHEETPAGE = -8;
-
 	public const int32 ERR_CPSUI_TOO_MANY_PROPSHEETPAGES = -9;
-
 	public const int32 ERR_CPSUI_CREATEPROPPAGE_FAILED = -10;
-
 	public const int32 ERR_CPSUI_MORE_THAN_ONE_TVPAGE = -11;
-
 	public const int32 ERR_CPSUI_MORE_THAN_ONE_STDPAGE = -12;
-
 	public const int32 ERR_CPSUI_INVALID_PDLGPAGE = -13;
-
 	public const int32 ERR_CPSUI_INVALID_DLGPAGE_CBSIZE = -14;
-
 	public const int32 ERR_CPSUI_TOO_MANY_DLGPAGES = -15;
-
 	public const int32 ERR_CPSUI_INVALID_DLGPAGEIDX = -16;
-
 	public const int32 ERR_CPSUI_SUBITEM_DIFF_DLGPAGEIDX = -17;
-
 	public const int32 ERR_CPSUI_NULL_POPTITEM = -18;
-
 	public const int32 ERR_CPSUI_INVALID_OPTITEM_CBSIZE = -19;
-
 	public const int32 ERR_CPSUI_INVALID_OPTTYPE_CBSIZE = -20;
-
 	public const int32 ERR_CPSUI_INVALID_OPTTYPE_COUNT = -21;
-
 	public const int32 ERR_CPSUI_NULL_POPTPARAM = -22;
-
 	public const int32 ERR_CPSUI_INVALID_OPTPARAM_CBSIZE = -23;
-
 	public const int32 ERR_CPSUI_INVALID_EDITBOX_PSEL = -24;
-
 	public const int32 ERR_CPSUI_INVALID_EDITBOX_BUF_SIZE = -25;
-
 	public const int32 ERR_CPSUI_INVALID_ECB_CBSIZE = -26;
-
 	public const int32 ERR_CPSUI_NULL_ECB_PTITLE = -27;
-
 	public const int32 ERR_CPSUI_NULL_ECB_PCHECKEDNAME = -28;
-
 	public const int32 ERR_CPSUI_INVALID_DMPUBID = -29;
-
 	public const int32 ERR_CPSUI_INVALID_DMPUB_TVOT = -30;
-
 	public const int32 ERR_CPSUI_CREATE_TRACKBAR_FAILED = -31;
-
 	public const int32 ERR_CPSUI_CREATE_UDARROW_FAILED = -32;
-
 	public const int32 ERR_CPSUI_CREATE_IMAGELIST_FAILED = -33;
-
 	public const int32 ERR_CPSUI_INVALID_TVOT_TYPE = -34;
-
 	public const int32 ERR_CPSUI_INVALID_LBCB_TYPE = -35;
-
 	public const int32 ERR_CPSUI_SUBITEM_DIFF_OPTIF_HIDE = -36;
-
 	public const int32 ERR_CPSUI_INVALID_PUSHBUTTON_TYPE = -38;
-
 	public const int32 ERR_CPSUI_INVALID_EXTPUSH_CBSIZE = -39;
-
 	public const int32 ERR_CPSUI_NULL_EXTPUSH_DLGPROC = -40;
-
 	public const int32 ERR_CPSUI_NO_EXTPUSH_DLGTEMPLATEID = -41;
-
 	public const int32 ERR_CPSUI_NULL_EXTPUSH_CALLBACK = -42;
-
 	public const int32 ERR_CPSUI_DMCOPIES_USE_EXTPUSH = -43;
-
 	public const int32 ERR_CPSUI_ZERO_OPTITEM = -44;
-
 	public const int32 ERR_CPSUI_FUNCTION_NOT_IMPLEMENTED = -9999;
-
 	public const int32 ERR_CPSUI_INTERNAL_ERROR = -10000;
-
 	public const uint32 IDI_CPSUI_ICONID_FIRST = 64000;
-
 	public const uint32 IDI_CPSUI_EMPTY = 64000;
-
 	public const uint32 IDI_CPSUI_SEL_NONE = 64001;
-
 	public const uint32 IDI_CPSUI_WARNING = 64002;
-
 	public const uint32 IDI_CPSUI_NO = 64003;
-
 	public const uint32 IDI_CPSUI_YES = 64004;
-
 	public const uint32 IDI_CPSUI_FALSE = 64005;
-
 	public const uint32 IDI_CPSUI_TRUE = 64006;
-
 	public const uint32 IDI_CPSUI_OFF = 64007;
-
 	public const uint32 IDI_CPSUI_ON = 64008;
-
 	public const uint32 IDI_CPSUI_PAPER_OUTPUT = 64009;
-
 	public const uint32 IDI_CPSUI_ENVELOPE = 64010;
-
 	public const uint32 IDI_CPSUI_MEM = 64011;
-
 	public const uint32 IDI_CPSUI_FONTCARTHDR = 64012;
-
 	public const uint32 IDI_CPSUI_FONTCART = 64013;
-
 	public const uint32 IDI_CPSUI_STAPLER_ON = 64014;
-
 	public const uint32 IDI_CPSUI_STAPLER_OFF = 64015;
-
 	public const uint32 IDI_CPSUI_HT_HOST = 64016;
-
 	public const uint32 IDI_CPSUI_HT_DEVICE = 64017;
-
 	public const uint32 IDI_CPSUI_TT_PRINTASGRAPHIC = 64018;
-
 	public const uint32 IDI_CPSUI_TT_DOWNLOADSOFT = 64019;
-
 	public const uint32 IDI_CPSUI_TT_DOWNLOADVECT = 64020;
-
 	public const uint32 IDI_CPSUI_TT_SUBDEV = 64021;
-
 	public const uint32 IDI_CPSUI_PORTRAIT = 64022;
-
 	public const uint32 IDI_CPSUI_LANDSCAPE = 64023;
-
 	public const uint32 IDI_CPSUI_ROT_LAND = 64024;
-
 	public const uint32 IDI_CPSUI_AUTOSEL = 64025;
-
 	public const uint32 IDI_CPSUI_PAPER_TRAY = 64026;
-
 	public const uint32 IDI_CPSUI_PAPER_TRAY2 = 64027;
-
 	public const uint32 IDI_CPSUI_PAPER_TRAY3 = 64028;
-
 	public const uint32 IDI_CPSUI_TRANSPARENT = 64029;
-
 	public const uint32 IDI_CPSUI_COLLATE = 64030;
-
 	public const uint32 IDI_CPSUI_DUPLEX_NONE = 64031;
-
 	public const uint32 IDI_CPSUI_DUPLEX_HORZ = 64032;
-
 	public const uint32 IDI_CPSUI_DUPLEX_VERT = 64033;
-
 	public const uint32 IDI_CPSUI_RES_DRAFT = 64034;
-
 	public const uint32 IDI_CPSUI_RES_LOW = 64035;
-
 	public const uint32 IDI_CPSUI_RES_MEDIUM = 64036;
-
 	public const uint32 IDI_CPSUI_RES_HIGH = 64037;
-
 	public const uint32 IDI_CPSUI_RES_PRESENTATION = 64038;
-
 	public const uint32 IDI_CPSUI_MONO = 64039;
-
 	public const uint32 IDI_CPSUI_COLOR = 64040;
-
 	public const uint32 IDI_CPSUI_DITHER_NONE = 64041;
-
 	public const uint32 IDI_CPSUI_DITHER_COARSE = 64042;
-
 	public const uint32 IDI_CPSUI_DITHER_FINE = 64043;
-
 	public const uint32 IDI_CPSUI_DITHER_LINEART = 64044;
-
 	public const uint32 IDI_CPSUI_SCALING = 64045;
-
 	public const uint32 IDI_CPSUI_COPY = 64046;
-
 	public const uint32 IDI_CPSUI_HTCLRADJ = 64047;
-
 	public const uint32 IDI_CPSUI_HALFTONE_SETUP = 64048;
-
 	public const uint32 IDI_CPSUI_WATERMARK = 64049;
-
 	public const uint32 IDI_CPSUI_ERROR = 64050;
-
 	public const uint32 IDI_CPSUI_ICM_OPTION = 64051;
-
 	public const uint32 IDI_CPSUI_ICM_METHOD = 64052;
-
 	public const uint32 IDI_CPSUI_ICM_INTENT = 64053;
-
 	public const uint32 IDI_CPSUI_STD_FORM = 64054;
-
 	public const uint32 IDI_CPSUI_OUTBIN = 64055;
-
 	public const uint32 IDI_CPSUI_OUTPUT = 64056;
-
 	public const uint32 IDI_CPSUI_GRAPHIC = 64057;
-
 	public const uint32 IDI_CPSUI_ADVANCE = 64058;
-
 	public const uint32 IDI_CPSUI_DOCUMENT = 64059;
-
 	public const uint32 IDI_CPSUI_DEVICE = 64060;
-
 	public const uint32 IDI_CPSUI_DEVICE2 = 64061;
-
 	public const uint32 IDI_CPSUI_PRINTER = 64062;
-
 	public const uint32 IDI_CPSUI_PRINTER2 = 64063;
-
 	public const uint32 IDI_CPSUI_PRINTER3 = 64064;
-
 	public const uint32 IDI_CPSUI_PRINTER4 = 64065;
-
 	public const uint32 IDI_CPSUI_OPTION = 64066;
-
 	public const uint32 IDI_CPSUI_OPTION2 = 64067;
-
 	public const uint32 IDI_CPSUI_STOP = 64068;
-
 	public const uint32 IDI_CPSUI_NOTINSTALLED = 64069;
-
 	public const uint32 IDI_CPSUI_WARNING_OVERLAY = 64070;
-
 	public const uint32 IDI_CPSUI_STOP_WARNING_OVERLAY = 64071;
-
 	public const uint32 IDI_CPSUI_GENERIC_OPTION = 64072;
-
 	public const uint32 IDI_CPSUI_GENERIC_ITEM = 64073;
-
 	public const uint32 IDI_CPSUI_RUN_DIALOG = 64074;
-
 	public const uint32 IDI_CPSUI_QUESTION = 64075;
-
 	public const uint32 IDI_CPSUI_FORMTRAYASSIGN = 64076;
-
 	public const uint32 IDI_CPSUI_PRINTER_FOLDER = 64077;
-
 	public const uint32 IDI_CPSUI_INSTALLABLE_OPTION = 64078;
-
 	public const uint32 IDI_CPSUI_PRINTER_FEATURE = 64079;
-
 	public const uint32 IDI_CPSUI_DEVICE_FEATURE = 64080;
-
 	public const uint32 IDI_CPSUI_FONTSUB = 64081;
-
 	public const uint32 IDI_CPSUI_POSTSCRIPT = 64082;
-
 	public const uint32 IDI_CPSUI_TELEPHONE = 64083;
-
 	public const uint32 IDI_CPSUI_DUPLEX_NONE_L = 64084;
-
 	public const uint32 IDI_CPSUI_DUPLEX_HORZ_L = 64085;
-
 	public const uint32 IDI_CPSUI_DUPLEX_VERT_L = 64086;
-
 	public const uint32 IDI_CPSUI_LF_PEN_PLOTTER = 64087;
-
 	public const uint32 IDI_CPSUI_SF_PEN_PLOTTER = 64088;
-
 	public const uint32 IDI_CPSUI_LF_RASTER_PLOTTER = 64089;
-
 	public const uint32 IDI_CPSUI_SF_RASTER_PLOTTER = 64090;
-
 	public const uint32 IDI_CPSUI_ROLL_PAPER = 64091;
-
 	public const uint32 IDI_CPSUI_PEN_CARROUSEL = 64092;
-
 	public const uint32 IDI_CPSUI_PLOTTER_PEN = 64093;
-
 	public const uint32 IDI_CPSUI_MANUAL_FEED = 64094;
-
 	public const uint32 IDI_CPSUI_FAX = 64095;
-
 	public const uint32 IDI_CPSUI_PAGE_PROTECT = 64096;
-
 	public const uint32 IDI_CPSUI_ENVELOPE_FEED = 64097;
-
 	public const uint32 IDI_CPSUI_FONTCART_SLOT = 64098;
-
 	public const uint32 IDI_CPSUI_LAYOUT_BMP_PORTRAIT = 64099;
-
 	public const uint32 IDI_CPSUI_LAYOUT_BMP_ARROWL = 64100;
-
 	public const uint32 IDI_CPSUI_LAYOUT_BMP_ARROWS = 64101;
-
 	public const uint32 IDI_CPSUI_LAYOUT_BMP_BOOKLETL = 64102;
-
 	public const uint32 IDI_CPSUI_LAYOUT_BMP_BOOKLETP = 64103;
-
 	public const uint32 IDI_CPSUI_LAYOUT_BMP_ARROWLR = 64104;
-
 	public const uint32 IDI_CPSUI_LAYOUT_BMP_ROT_PORT = 64105;
-
 	public const uint32 IDI_CPSUI_LAYOUT_BMP_BOOKLETL_NB = 64106;
-
 	public const uint32 IDI_CPSUI_LAYOUT_BMP_BOOKLETP_NB = 64107;
-
 	public const uint32 IDI_CPSUI_ROT_PORT = 64110;
-
 	public const uint32 IDI_CPSUI_NUP_BORDER = 64111;
-
 	public const uint32 IDI_CPSUI_ICONID_LAST = 64111;
-
 	public const uint32 IDS_CPSUI_STRID_FIRST = 64700;
-
 	public const uint32 IDS_CPSUI_SETUP = 64700;
-
 	public const uint32 IDS_CPSUI_MORE = 64701;
-
 	public const uint32 IDS_CPSUI_CHANGE = 64702;
-
 	public const uint32 IDS_CPSUI_OPTION = 64703;
-
 	public const uint32 IDS_CPSUI_OF = 64704;
-
 	public const uint32 IDS_CPSUI_RANGE_FROM = 64705;
-
 	public const uint32 IDS_CPSUI_TO = 64706;
-
 	public const uint32 IDS_CPSUI_COLON_SEP = 64707;
-
 	public const uint32 IDS_CPSUI_LEFT_ANGLE = 64708;
-
 	public const uint32 IDS_CPSUI_RIGHT_ANGLE = 64709;
-
 	public const uint32 IDS_CPSUI_SLASH_SEP = 64710;
-
 	public const uint32 IDS_CPSUI_PERCENT = 64711;
-
 	public const uint32 IDS_CPSUI_LBCB_NOSEL = 64712;
-
 	public const uint32 IDS_CPSUI_PROPERTIES = 64713;
-
 	public const uint32 IDS_CPSUI_DEFAULTDOCUMENT = 64714;
-
 	public const uint32 IDS_CPSUI_DOCUMENT = 64715;
-
 	public const uint32 IDS_CPSUI_ADVANCEDOCUMENT = 64716;
-
 	public const uint32 IDS_CPSUI_PRINTER = 64717;
-
 	public const uint32 IDS_CPSUI_AUTOSELECT = 64718;
-
 	public const uint32 IDS_CPSUI_PAPER_OUTPUT = 64719;
-
 	public const uint32 IDS_CPSUI_GRAPHIC = 64720;
-
 	public const uint32 IDS_CPSUI_OPTIONS = 64721;
-
 	public const uint32 IDS_CPSUI_ADVANCED = 64722;
-
 	public const uint32 IDS_CPSUI_STDDOCPROPTAB = 64723;
-
 	public const uint32 IDS_CPSUI_STDDOCPROPTVTAB = 64724;
-
 	public const uint32 IDS_CPSUI_DEVICEOPTIONS = 64725;
-
 	public const uint32 IDS_CPSUI_FALSE = 64726;
-
 	public const uint32 IDS_CPSUI_TRUE = 64727;
-
 	public const uint32 IDS_CPSUI_NO = 64728;
-
 	public const uint32 IDS_CPSUI_YES = 64729;
-
 	public const uint32 IDS_CPSUI_OFF = 64730;
-
 	public const uint32 IDS_CPSUI_ON = 64731;
-
 	public const uint32 IDS_CPSUI_DEFAULT = 64732;
-
 	public const uint32 IDS_CPSUI_ERROR = 64733;
-
 	public const uint32 IDS_CPSUI_NONE = 64734;
-
 	public const uint32 IDS_CPSUI_NOT = 64735;
-
 	public const uint32 IDS_CPSUI_EXIST = 64736;
-
 	public const uint32 IDS_CPSUI_NOTINSTALLED = 64737;
-
 	public const uint32 IDS_CPSUI_ORIENTATION = 64738;
-
 	public const uint32 IDS_CPSUI_SCALING = 64739;
-
 	public const uint32 IDS_CPSUI_NUM_OF_COPIES = 64740;
-
 	public const uint32 IDS_CPSUI_SOURCE = 64741;
-
 	public const uint32 IDS_CPSUI_PRINTQUALITY = 64742;
-
 	public const uint32 IDS_CPSUI_RESOLUTION = 64743;
-
 	public const uint32 IDS_CPSUI_COLOR_APPERANCE = 64744;
-
 	public const uint32 IDS_CPSUI_DUPLEX = 64745;
-
 	public const uint32 IDS_CPSUI_TTOPTION = 64746;
-
 	public const uint32 IDS_CPSUI_FORMNAME = 64747;
-
 	public const uint32 IDS_CPSUI_ICM = 64748;
-
 	public const uint32 IDS_CPSUI_ICMMETHOD = 64749;
-
 	public const uint32 IDS_CPSUI_ICMINTENT = 64750;
-
 	public const uint32 IDS_CPSUI_MEDIA = 64751;
-
 	public const uint32 IDS_CPSUI_DITHERING = 64752;
-
 	public const uint32 IDS_CPSUI_PORTRAIT = 64753;
-
 	public const uint32 IDS_CPSUI_LANDSCAPE = 64754;
-
 	public const uint32 IDS_CPSUI_ROT_LAND = 64755;
-
 	public const uint32 IDS_CPSUI_COLLATE = 64756;
-
 	public const uint32 IDS_CPSUI_COLLATED = 64757;
-
 	public const uint32 IDS_CPSUI_PRINTFLDSETTING = 64758;
-
 	public const uint32 IDS_CPSUI_DRAFT = 64759;
-
 	public const uint32 IDS_CPSUI_LOW = 64760;
-
 	public const uint32 IDS_CPSUI_MEDIUM = 64761;
-
 	public const uint32 IDS_CPSUI_HIGH = 64762;
-
 	public const uint32 IDS_CPSUI_PRESENTATION = 64763;
-
 	public const uint32 IDS_CPSUI_COLOR = 64764;
-
 	public const uint32 IDS_CPSUI_GRAYSCALE = 64765;
-
 	public const uint32 IDS_CPSUI_MONOCHROME = 64766;
-
 	public const uint32 IDS_CPSUI_SIMPLEX = 64767;
-
 	public const uint32 IDS_CPSUI_HORIZONTAL = 64768;
-
 	public const uint32 IDS_CPSUI_VERTICAL = 64769;
-
 	public const uint32 IDS_CPSUI_LONG_SIDE = 64770;
-
 	public const uint32 IDS_CPSUI_SHORT_SIDE = 64771;
-
 	public const uint32 IDS_CPSUI_TT_PRINTASGRAPHIC = 64772;
-
 	public const uint32 IDS_CPSUI_TT_DOWNLOADSOFT = 64773;
-
 	public const uint32 IDS_CPSUI_TT_DOWNLOADVECT = 64774;
-
 	public const uint32 IDS_CPSUI_TT_SUBDEV = 64775;
-
 	public const uint32 IDS_CPSUI_ICM_BLACKWHITE = 64776;
-
 	public const uint32 IDS_CPSUI_ICM_NO = 64777;
-
 	public const uint32 IDS_CPSUI_ICM_YES = 64778;
-
 	public const uint32 IDS_CPSUI_ICM_SATURATION = 64779;
-
 	public const uint32 IDS_CPSUI_ICM_CONTRAST = 64780;
-
 	public const uint32 IDS_CPSUI_ICM_COLORMETRIC = 64781;
-
 	public const uint32 IDS_CPSUI_STANDARD = 64782;
-
 	public const uint32 IDS_CPSUI_GLOSSY = 64783;
-
 	public const uint32 IDS_CPSUI_TRANSPARENCY = 64784;
-
 	public const uint32 IDS_CPSUI_REGULAR = 64785;
-
 	public const uint32 IDS_CPSUI_BOND = 64786;
-
 	public const uint32 IDS_CPSUI_COARSE = 64787;
-
 	public const uint32 IDS_CPSUI_FINE = 64788;
-
 	public const uint32 IDS_CPSUI_LINEART = 64789;
-
 	public const uint32 IDS_CPSUI_ERRDIFFUSE = 64790;
-
 	public const uint32 IDS_CPSUI_HALFTONE = 64791;
-
 	public const uint32 IDS_CPSUI_HTCLRADJ = 64792;
-
 	public const uint32 IDS_CPSUI_USE_HOST_HT = 64793;
-
 	public const uint32 IDS_CPSUI_USE_DEVICE_HT = 64794;
-
 	public const uint32 IDS_CPSUI_USE_PRINTER_HT = 64795;
-
 	public const uint32 IDS_CPSUI_OUTBINASSIGN = 64796;
-
 	public const uint32 IDS_CPSUI_WATERMARK = 64797;
-
 	public const uint32 IDS_CPSUI_FORMTRAYASSIGN = 64798;
-
 	public const uint32 IDS_CPSUI_UPPER_TRAY = 64799;
-
 	public const uint32 IDS_CPSUI_ONLYONE = 64800;
-
 	public const uint32 IDS_CPSUI_LOWER_TRAY = 64801;
-
 	public const uint32 IDS_CPSUI_MIDDLE_TRAY = 64802;
-
 	public const uint32 IDS_CPSUI_MANUAL_TRAY = 64803;
-
 	public const uint32 IDS_CPSUI_ENVELOPE_TRAY = 64804;
-
 	public const uint32 IDS_CPSUI_ENVMANUAL_TRAY = 64805;
-
 	public const uint32 IDS_CPSUI_TRACTOR_TRAY = 64806;
-
 	public const uint32 IDS_CPSUI_SMALLFMT_TRAY = 64807;
-
 	public const uint32 IDS_CPSUI_LARGEFMT_TRAY = 64808;
-
 	public const uint32 IDS_CPSUI_LARGECAP_TRAY = 64809;
-
 	public const uint32 IDS_CPSUI_CASSETTE_TRAY = 64810;
-
 	public const uint32 IDS_CPSUI_DEFAULT_TRAY = 64811;
-
 	public const uint32 IDS_CPSUI_FORMSOURCE = 64812;
-
 	public const uint32 IDS_CPSUI_MANUALFEED = 64813;
-
 	public const uint32 IDS_CPSUI_PRINTERMEM_KB = 64814;
-
 	public const uint32 IDS_CPSUI_PRINTERMEM_MB = 64815;
-
 	public const uint32 IDS_CPSUI_PAGEPROTECT = 64816;
-
 	public const uint32 IDS_CPSUI_HALFTONE_SETUP = 64817;
-
 	public const uint32 IDS_CPSUI_INSTFONTCART = 64818;
-
 	public const uint32 IDS_CPSUI_SLOT1 = 64819;
-
 	public const uint32 IDS_CPSUI_SLOT2 = 64820;
-
 	public const uint32 IDS_CPSUI_SLOT3 = 64821;
-
 	public const uint32 IDS_CPSUI_SLOT4 = 64822;
-
 	public const uint32 IDS_CPSUI_LEFT_SLOT = 64823;
-
 	public const uint32 IDS_CPSUI_RIGHT_SLOT = 64824;
-
 	public const uint32 IDS_CPSUI_STAPLER = 64825;
-
 	public const uint32 IDS_CPSUI_STAPLER_ON = 64826;
-
 	public const uint32 IDS_CPSUI_STAPLER_OFF = 64827;
-
 	public const uint32 IDS_CPSUI_STACKER = 64828;
-
 	public const uint32 IDS_CPSUI_MAILBOX = 64829;
-
 	public const uint32 IDS_CPSUI_COPY = 64830;
-
 	public const uint32 IDS_CPSUI_COPIES = 64831;
-
 	public const uint32 IDS_CPSUI_TOTAL = 64832;
-
 	public const uint32 IDS_CPSUI_MAKE = 64833;
-
 	public const uint32 IDS_CPSUI_PRINT = 64834;
-
 	public const uint32 IDS_CPSUI_FAX = 64835;
-
 	public const uint32 IDS_CPSUI_PLOT = 64836;
-
 	public const uint32 IDS_CPSUI_SLOW = 64837;
-
 	public const uint32 IDS_CPSUI_FAST = 64838;
-
 	public const uint32 IDS_CPSUI_ROTATED = 64839;
-
 	public const uint32 IDS_CPSUI_RESET = 64840;
-
 	public const uint32 IDS_CPSUI_ALL = 64841;
-
 	public const uint32 IDS_CPSUI_DEVICE = 64842;
-
 	public const uint32 IDS_CPSUI_SETTINGS = 64843;
-
 	public const uint32 IDS_CPSUI_REVERT = 64844;
-
 	public const uint32 IDS_CPSUI_CHANGES = 64845;
-
 	public const uint32 IDS_CPSUI_CHANGED = 64846;
-
 	public const uint32 IDS_CPSUI_WARNING = 64847;
-
 	public const uint32 IDS_CPSUI_ABOUT = 64848;
-
 	public const uint32 IDS_CPSUI_VERSION = 64849;
-
 	public const uint32 IDS_CPSUI_NO_NAME = 64850;
-
 	public const uint32 IDS_CPSUI_SETTING = 64851;
-
 	public const uint32 IDS_CPSUI_DEVICE_SETTINGS = 64852;
-
 	public const uint32 IDS_CPSUI_STDDOCPROPTAB1 = 64853;
-
 	public const uint32 IDS_CPSUI_STDDOCPROPTAB2 = 64854;
-
 	public const uint32 IDS_CPSUI_PAGEORDER = 64855;
-
 	public const uint32 IDS_CPSUI_FRONTTOBACK = 64856;
-
 	public const uint32 IDS_CPSUI_BACKTOFRONT = 64857;
-
 	public const uint32 IDS_CPSUI_QUALITY_SETTINGS = 64858;
-
 	public const uint32 IDS_CPSUI_QUALITY_DRAFT = 64859;
-
 	public const uint32 IDS_CPSUI_QUALITY_BETTER = 64860;
-
 	public const uint32 IDS_CPSUI_QUALITY_BEST = 64861;
-
 	public const uint32 IDS_CPSUI_QUALITY_CUSTOM = 64862;
-
 	public const uint32 IDS_CPSUI_OUTPUTBIN = 64863;
-
 	public const uint32 IDS_CPSUI_NUP = 64864;
-
 	public const uint32 IDS_CPSUI_NUP_NORMAL = 64865;
-
 	public const uint32 IDS_CPSUI_NUP_TWOUP = 64866;
-
 	public const uint32 IDS_CPSUI_NUP_FOURUP = 64867;
-
 	public const uint32 IDS_CPSUI_NUP_SIXUP = 64868;
-
 	public const uint32 IDS_CPSUI_NUP_NINEUP = 64869;
-
 	public const uint32 IDS_CPSUI_NUP_SIXTEENUP = 64870;
-
 	public const uint32 IDS_CPSUI_SIDE1 = 64871;
-
 	public const uint32 IDS_CPSUI_SIDE2 = 64872;
-
 	public const uint32 IDS_CPSUI_BOOKLET = 64873;
-
 	public const uint32 IDS_CPSUI_POSTER = 64874;
-
 	public const uint32 IDS_CPSUI_POSTER_2x2 = 64875;
-
 	public const uint32 IDS_CPSUI_POSTER_3x3 = 64876;
-
 	public const uint32 IDS_CPSUI_POSTER_4x4 = 64877;
-
 	public const uint32 IDS_CPSUI_NUP_DIRECTION = 64878;
-
 	public const uint32 IDS_CPSUI_RIGHT_THEN_DOWN = 64879;
-
 	public const uint32 IDS_CPSUI_DOWN_THEN_RIGHT = 64880;
-
 	public const uint32 IDS_CPSUI_LEFT_THEN_DOWN = 64881;
-
 	public const uint32 IDS_CPSUI_DOWN_THEN_LEFT = 64882;
-
 	public const uint32 IDS_CPSUI_MANUAL_DUPLEX = 64883;
-
 	public const uint32 IDS_CPSUI_MANUAL_DUPLEX_ON = 64884;
-
 	public const uint32 IDS_CPSUI_MANUAL_DUPLEX_OFF = 64885;
-
 	public const uint32 IDS_CPSUI_ROT_PORT = 64886;
-
 	public const uint32 IDS_CPSUI_STAPLE = 64887;
-
 	public const uint32 IDS_CPSUI_BOOKLET_EDGE = 64888;
-
 	public const uint32 IDS_CPSUI_BOOKLET_EDGE_LEFT = 64889;
-
 	public const uint32 IDS_CPSUI_BOOKLET_EDGE_RIGHT = 64890;
-
 	public const uint32 IDS_CPSUI_NUP_BORDER = 64891;
-
 	public const uint32 IDS_CPSUI_NUP_BORDERED = 64892;
-
 	public const uint32 IDS_CPSUI_STRID_LAST = 64892;
-
 	public const uint32 MXDC_ESCAPE = 4122;
-
 	public const uint32 MXDCOP_GET_FILENAME = 14;
-
 	public const uint32 MXDCOP_PRINTTICKET_FIXED_DOC_SEQ = 22;
-
 	public const uint32 MXDCOP_PRINTTICKET_FIXED_DOC = 24;
-
 	public const uint32 MXDCOP_PRINTTICKET_FIXED_PAGE = 26;
-
 	public const uint32 MXDCOP_SET_S0PAGE = 28;
-
 	public const uint32 MXDCOP_SET_S0PAGE_RESOURCE = 30;
-
 	public const uint32 MXDCOP_SET_XPSPASSTHRU_MODE = 32;
-
 	public const Guid CLSID_OEMRENDER = .(0x6d6abf26, 0x9f38, 0x11d1, 0x88, 0x2a, 0x00, 0xc0, 0x4f, 0xb9, 0x61, 0xec);
-
 	public const Guid CLSID_OEMUI = .(0xabce80d7, 0x9f46, 0x11d1, 0x88, 0x2a, 0x00, 0xc0, 0x4f, 0xb9, 0x61, 0xec);
-
 	public const Guid CLSID_OEMUIMXDC = .(0x4e144300, 0x5b43, 0x4288, 0x93, 0x2a, 0x5e, 0x4d, 0xd6, 0xd8, 0x2b, 0xed);
-
 	public const Guid CLSID_OEMPTPROVIDER = .(0x91723892, 0x45d2, 0x48e2, 0x9e, 0xc9, 0x56, 0x23, 0x79, 0xda, 0xf9, 0x92);
-
 	public const HRESULT S_DEVCAP_OUTPUT_FULL_REPLACEMENT = 318465;
-
 	public const Guid CLSID_PTPROVIDER = .(0x46ac151b, 0x8490, 0x4531, 0x96, 0xcc, 0x55, 0xbf, 0x2b, 0xf1, 0x9e, 0x11);
-
 	public const uint32 E_VERSION_NOT_SUPPORTED = 2147745793;
-
 	public const uint32 S_NO_CONFLICT = 262145;
-
 	public const uint32 S_CONFLICT_RESOLVED = 262146;
-
 	public const Guid PRINTER_EXTENSION_DETAILEDREASON_PRINTER_STATUS = .(0x5d5a1704, 0xdfd1, 0x4181, 0x8e, 0xee, 0x81, 0x5c, 0x86, 0xed, 0xad, 0x31);
-
 	public const Guid PRINTER_EXTENSION_REASON_PRINT_PREFERENCES = .(0xec8f261f, 0x267c, 0x469f, 0xb5, 0xd6, 0x39, 0x33, 0x02, 0x3c, 0x29, 0xcc);
-
 	public const Guid PRINTER_EXTENSION_REASON_DRIVER_EVENT = .(0x23bb1328, 0x63de, 0x4293, 0x91, 0x5b, 0xa6, 0xa2, 0x3d, 0x92, 0x9a, 0xcb);
-
 	public const Guid FMTID_PrinterPropertyBag = .(0x75f9adca, 0x097d, 0x45c3, 0xa6, 0xe4, 0xba, 0xb2, 0x9e, 0x27, 0x6f, 0x3e);
-
 	public const uint32 PRINTER_OEMINTF_VERSION = 65536;
-
 	public const uint32 OEM_MODE_PUBLISHER = 1;
-
 	public const uint32 OEMGI_GETSIGNATURE = 1;
-
 	public const uint32 OEMGI_GETINTERFACEVERSION = 2;
-
 	public const uint32 OEMGI_GETVERSION = 3;
-
 	public const uint32 OEMGI_GETPUBLISHERINFO = 4;
-
 	public const uint32 OEMGI_GETREQUESTEDHELPERINTERFACES = 5;
-
 	public const uint32 OEMPUBLISH_DEFAULT = 0;
-
 	public const uint32 OEMPUBLISH_IPRINTCOREHELPER = 1;
-
 	public const uint32 OEMDM_SIZE = 1;
-
 	public const uint32 OEMDM_DEFAULT = 2;
-
 	public const uint32 OEMDM_CONVERT = 3;
-
 	public const uint32 OEMDM_MERGE = 4;
-
 	public const uint32 OEMGDS_MIN_DOCSTICKY = 1;
-
 	public const uint32 OEMGDS_PSDM_FLAGS = 1;
-
 	public const uint32 OEMGDS_PSDM_DIALECT = 2;
-
 	public const uint32 OEMGDS_PSDM_TTDLFMT = 3;
-
 	public const uint32 OEMGDS_PSDM_NUP = 4;
-
 	public const uint32 OEMGDS_PSDM_PSLEVEL = 5;
-
 	public const uint32 OEMGDS_PSDM_CUSTOMSIZE = 6;
-
 	public const uint32 OEMGDS_UNIDM_GPDVER = 16384;
-
 	public const uint32 OEMGDS_UNIDM_FLAGS = 16385;
-
 	public const uint32 OEMGDS_MIN_PRINTERSTICKY = 32768;
-
 	public const uint32 OEMGDS_PRINTFLAGS = 32768;
-
 	public const uint32 OEMGDS_FREEMEM = 32769;
-
 	public const uint32 OEMGDS_JOBTIMEOUT = 32770;
-
 	public const uint32 OEMGDS_WAITTIMEOUT = 32771;
-
 	public const uint32 OEMGDS_PROTOCOL = 32772;
-
 	public const uint32 OEMGDS_MINOUTLINE = 32773;
-
 	public const uint32 OEMGDS_MAXBITMAP = 32774;
-
 	public const uint32 OEMGDS_MAX = 65536;
-
 	public const uint32 GPD_OEMCUSTOMDATA = 1;
-
 	public const uint32 MV_UPDATE = 1;
-
 	public const uint32 MV_RELATIVE = 2;
-
 	public const uint32 MV_GRAPHICS = 4;
-
 	public const uint32 MV_PHYSICAL = 8;
-
 	public const uint32 MV_SENDXMOVECMD = 16;
-
 	public const uint32 MV_SENDYMOVECMD = 32;
-
 	public const uint32 OEMTTY_INFO_MARGINS = 1;
-
 	public const uint32 OEMTTY_INFO_CODEPAGE = 2;
-
 	public const uint32 OEMTTY_INFO_NUM_UFMS = 3;
-
 	public const uint32 OEMTTY_INFO_UFM_IDS = 4;
-
 	public const uint32 UFOFLAG_TTFONT = 1;
-
 	public const uint32 UFOFLAG_TTDOWNLOAD_BITMAP = 2;
-
 	public const uint32 UFOFLAG_TTDOWNLOAD_TTOUTLINE = 4;
-
 	public const uint32 UFOFLAG_TTOUTLINE_BOLD_SIM = 8;
-
 	public const uint32 UFOFLAG_TTOUTLINE_ITALIC_SIM = 16;
-
 	public const uint32 UFOFLAG_TTOUTLINE_VERTICAL = 32;
-
 	public const uint32 UFOFLAG_TTSUBSTITUTED = 64;
-
 	public const uint32 UFO_GETINFO_FONTOBJ = 1;
-
 	public const uint32 UFO_GETINFO_GLYPHSTRING = 2;
-
 	public const uint32 UFO_GETINFO_GLYPHBITMAP = 3;
-
 	public const uint32 UFO_GETINFO_GLYPHWIDTH = 4;
-
 	public const uint32 UFO_GETINFO_MEMORY = 5;
-
 	public const uint32 UFO_GETINFO_STDVARIABLE = 6;
-
 	public const uint32 FNT_INFO_PRINTDIRINCCDEGREES = 0;
-
 	public const uint32 FNT_INFO_GRAYPERCENTAGE = 1;
-
 	public const uint32 FNT_INFO_NEXTFONTID = 2;
-
 	public const uint32 FNT_INFO_NEXTGLYPH = 3;
-
 	public const uint32 FNT_INFO_FONTHEIGHT = 4;
-
 	public const uint32 FNT_INFO_FONTWIDTH = 5;
-
 	public const uint32 FNT_INFO_FONTBOLD = 6;
-
 	public const uint32 FNT_INFO_FONTITALIC = 7;
-
 	public const uint32 FNT_INFO_FONTUNDERLINE = 8;
-
 	public const uint32 FNT_INFO_FONTSTRIKETHRU = 9;
-
 	public const uint32 FNT_INFO_CURRENTFONTID = 10;
-
 	public const uint32 FNT_INFO_TEXTYRES = 11;
-
 	public const uint32 FNT_INFO_TEXTXRES = 12;
-
 	public const uint32 FNT_INFO_FONTMAXWIDTH = 13;
-
 	public const uint32 FNT_INFO_MAX = 14;
-
 	public const uint32 TTDOWNLOAD_DONTCARE = 0;
-
 	public const uint32 TTDOWNLOAD_GRAPHICS = 1;
-
 	public const uint32 TTDOWNLOAD_BITMAP = 2;
-
 	public const uint32 TTDOWNLOAD_TTOUTLINE = 3;
-
 	public const uint32 TYPE_UNICODE = 1;
-
 	public const uint32 TYPE_TRANSDATA = 2;
-
 	public const uint32 TYPE_GLYPHHANDLE = 3;
-
 	public const uint32 TYPE_GLYPHID = 4;
-
 	public const uint32 PDEV_ADJUST_PAPER_MARGIN_TYPE = 1;
-
 	public const uint32 PDEV_HOSTFONT_ENABLED_TYPE = 2;
-
 	public const uint32 PDEV_USE_TRUE_COLOR_TYPE = 3;
-
 	public const uint32 OEMCUIP_DOCPROP = 1;
-
 	public const uint32 OEMCUIP_PRNPROP = 2;
-
 	public const uint32 CUSTOMPARAM_WIDTH = 0;
-
 	public const uint32 CUSTOMPARAM_HEIGHT = 1;
-
 	public const uint32 CUSTOMPARAM_WIDTHOFFSET = 2;
-
 	public const uint32 CUSTOMPARAM_HEIGHTOFFSET = 3;
-
 	public const uint32 CUSTOMPARAM_ORIENTATION = 4;
-
 	public const uint32 CUSTOMPARAM_MAX = 5;
-
 	public const uint32 SETOPTIONS_FLAG_RESOLVE_CONFLICT = 1;
-
 	public const uint32 SETOPTIONS_FLAG_KEEP_CONFLICT = 2;
-
 	public const uint32 SETOPTIONS_RESULT_NO_CONFLICT = 0;
-
 	public const uint32 SETOPTIONS_RESULT_CONFLICT_RESOLVED = 1;
-
 	public const uint32 SETOPTIONS_RESULT_CONFLICT_REMAINED = 2;
-
 	public const uint32 UNIFM_VERSION_1_0 = 65536;
-
 	public const uint32 UFM_SOFT = 1;
-
 	public const uint32 UFM_CART = 2;
-
 	public const uint32 UFM_SCALABLE = 4;
-
 	public const uint32 DF_TYPE_HPINTELLIFONT = 0;
-
 	public const uint32 DF_TYPE_TRUETYPE = 1;
-
 	public const uint32 DF_TYPE_PST1 = 2;
-
 	public const uint32 DF_TYPE_CAPSL = 3;
-
 	public const uint32 DF_TYPE_OEM1 = 4;
-
 	public const uint32 DF_TYPE_OEM2 = 5;
-
 	public const uint32 DF_NOITALIC = 1;
-
 	public const uint32 DF_NOUNDER = 2;
-
 	public const uint32 DF_XM_CR = 4;
-
 	public const uint32 DF_NO_BOLD = 8;
-
 	public const uint32 DF_NO_DOUBLE_UNDERLINE = 16;
-
 	public const uint32 DF_NO_STRIKETHRU = 32;
-
 	public const uint32 DF_BKSP_OK = 64;
-
 	public const uint32 UNI_GLYPHSETDATA_VERSION_1_0 = 65536;
-
 	public const uint32 MTYPE_FORMAT_MASK = 7;
-
 	public const uint32 MTYPE_COMPOSE = 1;
-
 	public const uint32 MTYPE_DIRECT = 2;
-
 	public const uint32 MTYPE_PAIRED = 4;
-
 	public const uint32 MTYPE_DOUBLEBYTECHAR_MASK = 24;
-
 	public const uint32 MTYPE_SINGLE = 8;
-
 	public const uint32 MTYPE_DOUBLE = 16;
-
 	public const uint32 MTYPE_PREDEFIN_MASK = 224;
-
 	public const uint32 MTYPE_REPLACE = 32;
-
 	public const uint32 MTYPE_ADD = 64;
-
 	public const uint32 MTYPE_DISABLE = 128;
-
 	public const uint32 CC_NOPRECNV = 65535;
-
 	public const uint32 CC_DEFAULT = 0;
-
 	public const int32 CC_CP437 = -1;
-
 	public const int32 CC_CP850 = -2;
-
 	public const int32 CC_CP863 = -3;
-
 	public const int32 CC_BIG5 = -10;
-
 	public const int32 CC_ISC = -11;
-
 	public const int32 CC_JIS = -12;
-
 	public const int32 CC_JIS_ANK = -13;
-
 	public const int32 CC_NS86 = -14;
-
 	public const int32 CC_TCA = -15;
-
 	public const int32 CC_GB2312 = -16;
-
 	public const int32 CC_SJIS = -17;
-
 	public const int32 CC_WANSUNG = -18;
-
 	public const uint32 UFF_VERSION_NUMBER = 65537;
-
 	public const uint32 FONT_DIR_SORTED = 1;
-
 	public const uint32 FONT_FL_UFM = 1;
-
 	public const uint32 FONT_FL_IFI = 2;
-
 	public const uint32 FONT_FL_SOFTFONT = 4;
-
 	public const uint32 FONT_FL_PERMANENT_SF = 8;
-
 	public const uint32 FONT_FL_DEVICEFONT = 16;
-
 	public const uint32 FONT_FL_GLYPHSET_GTT = 32;
-
 	public const uint32 FONT_FL_GLYPHSET_RLE = 64;
-
 	public const uint32 FONT_FL_RESERVED = 32768;
-
 	public const uint32 FG_CANCHANGE = 128;
-
 	public const uint32 WM_FI_FILENAME = 900;
-
 	public const uint32 UNKNOWN_PROTOCOL = 0;
-
 	public const uint32 PROTOCOL_UNKNOWN_TYPE = 0;
-
 	public const uint32 RAWTCP = 1;
-
 	public const uint32 PROTOCOL_RAWTCP_TYPE = 1;
-
 	public const uint32 LPR = 2;
-
 	public const uint32 PROTOCOL_LPR_TYPE = 2;
-
 	public const uint32 MAX_PORTNAME_LEN = 64;
-
 	public const uint32 MAX_NETWORKNAME_LEN = 49;
-
 	public const uint32 MAX_NETWORKNAME2_LEN = 128;
-
 	public const uint32 MAX_SNMP_COMMUNITY_STR_LEN = 33;
-
 	public const uint32 MAX_QUEUENAME_LEN = 33;
-
 	public const uint32 MAX_IPADDR_STR_LEN = 16;
-
 	public const uint32 MAX_ADDRESS_STR_LEN = 13;
-
 	public const uint32 MAX_DEVICEDESCRIPTION_STR_LEN = 257;
-
 	public const uint32 DPS_NOPERMISSION = 1;
-
 	public const uint32 DM_ADVANCED = 16;
-
 	public const uint32 DM_NOPERMISSION = 32;
-
 	public const uint32 DM_USER_DEFAULT = 64;
-
 	public const uint32 DM_PROMPT_NON_MODAL = 1073741824;
-
 	public const uint32 DM_INVALIDATE_DRIVER_CACHE = 536870912;
-
 	public const uint32 DM_RESERVED = 2147483648;
-
 	public const uint32 CDM_CONVERT = 1;
-
 	public const uint32 CDM_CONVERT351 = 2;
-
 	public const uint32 CDM_DRIVER_DEFAULT = 4;
-
 	public const uint32 DOCUMENTEVENT_FIRST = 1;
-
 	public const uint32 DOCUMENTEVENT_CREATEDCPRE = 1;
-
 	public const uint32 DOCUMENTEVENT_CREATEDCPOST = 2;
-
 	public const uint32 DOCUMENTEVENT_RESETDCPRE = 3;
-
 	public const uint32 DOCUMENTEVENT_RESETDCPOST = 4;
-
 	public const uint32 DOCUMENTEVENT_STARTDOC = 5;
-
 	public const uint32 DOCUMENTEVENT_STARTDOCPRE = 5;
-
 	public const uint32 DOCUMENTEVENT_STARTPAGE = 6;
-
 	public const uint32 DOCUMENTEVENT_ENDPAGE = 7;
-
 	public const uint32 DOCUMENTEVENT_ENDDOC = 8;
-
 	public const uint32 DOCUMENTEVENT_ENDDOCPRE = 8;
-
 	public const uint32 DOCUMENTEVENT_ABORTDOC = 9;
-
 	public const uint32 DOCUMENTEVENT_DELETEDC = 10;
-
 	public const uint32 DOCUMENTEVENT_ESCAPE = 11;
-
 	public const uint32 DOCUMENTEVENT_ENDDOCPOST = 12;
-
 	public const uint32 DOCUMENTEVENT_STARTDOCPOST = 13;
-
 	public const uint32 DOCUMENTEVENT_QUERYFILTER = 14;
-
 	public const uint32 DOCUMENTEVENT_XPS_ADDFIXEDDOCUMENTSEQUENCEPRE = 1;
-
 	public const uint32 DOCUMENTEVENT_XPS_ADDFIXEDDOCUMENTPRE = 2;
-
 	public const uint32 DOCUMENTEVENT_XPS_ADDFIXEDPAGEEPRE = 3;
-
 	public const uint32 DOCUMENTEVENT_XPS_ADDFIXEDPAGEPOST = 4;
-
 	public const uint32 DOCUMENTEVENT_XPS_ADDFIXEDDOCUMENTPOST = 5;
-
 	public const uint32 DOCUMENTEVENT_XPS_CANCELJOB = 6;
-
 	public const uint32 DOCUMENTEVENT_XPS_ADDFIXEDDOCUMENTSEQUENCEPRINTTICKETPRE = 7;
-
 	public const uint32 DOCUMENTEVENT_XPS_ADDFIXEDDOCUMENTPRINTTICKETPRE = 8;
-
 	public const uint32 DOCUMENTEVENT_XPS_ADDFIXEDPAGEPRINTTICKETPRE = 9;
-
 	public const uint32 DOCUMENTEVENT_XPS_ADDFIXEDPAGEPRINTTICKETPOST = 10;
-
 	public const uint32 DOCUMENTEVENT_XPS_ADDFIXEDDOCUMENTPRINTTICKETPOST = 11;
-
 	public const uint32 DOCUMENTEVENT_XPS_ADDFIXEDDOCUMENTSEQUENCEPRINTTICKETPOST = 12;
-
 	public const uint32 DOCUMENTEVENT_XPS_ADDFIXEDDOCUMENTSEQUENCEPOST = 13;
-
 	public const uint32 DOCUMENTEVENT_LAST = 15;
-
 	public const uint32 DOCUMENTEVENT_SPOOLED = 65536;
-
 	public const uint32 DOCUMENTEVENT_SUCCESS = 1;
-
 	public const uint32 DOCUMENTEVENT_UNSUPPORTED = 0;
-
 	public const int32 DOCUMENTEVENT_FAILURE = -1;
-
 	public const uint32 PRINTER_EVENT_CONFIGURATION_CHANGE = 0;
-
 	public const uint32 PRINTER_EVENT_ADD_CONNECTION = 1;
-
 	public const uint32 PRINTER_EVENT_DELETE_CONNECTION = 2;
-
 	public const uint32 PRINTER_EVENT_INITIALIZE = 3;
-
 	public const uint32 PRINTER_EVENT_DELETE = 4;
-
 	public const uint32 PRINTER_EVENT_CACHE_REFRESH = 5;
-
 	public const uint32 PRINTER_EVENT_CACHE_DELETE = 6;
-
 	public const uint32 PRINTER_EVENT_ATTRIBUTES_CHANGED = 7;
-
 	public const uint32 PRINTER_EVENT_CONFIGURATION_UPDATE = 8;
-
 	public const uint32 PRINTER_EVENT_ADD_CONNECTION_NO_UI = 9;
-
 	public const uint32 PRINTER_EVENT_DELETE_CONNECTION_NO_UI = 10;
-
 	public const uint32 PRINTER_EVENT_FLAG_NO_UI = 1;
-
 	public const uint32 DRIVER_EVENT_INITIALIZE = 1;
-
 	public const uint32 DRIVER_EVENT_DELETE = 2;
-
 	public const uint32 BORDER_PRINT = 0;
-
 	public const uint32 NO_BORDER_PRINT = 1;
-
 	public const uint32 NORMAL_PRINT = 0;
-
 	public const uint32 REVERSE_PRINT = 1;
-
 	public const uint32 BOOKLET_PRINT = 2;
-
 	public const uint32 NO_COLOR_OPTIMIZATION = 0;
-
 	public const uint32 COLOR_OPTIMIZATION = 1;
-
 	public const uint32 REVERSE_PAGES_FOR_REVERSE_DUPLEX = 1;
-
 	public const uint32 RIGHT_THEN_DOWN = 1;
-
 	public const uint32 BOOKLET_EDGE_LEFT = 0;
-
 	public const uint32 BOOKLET_EDGE_RIGHT = 1;
-
 	public const uint32 QCP_DEVICEPROFILE = 0;
-
 	public const uint32 QCP_SOURCEPROFILE = 1;
-
 	public const uint32 QCP_PROFILEMEMORY = 1;
-
 	public const uint32 QCP_PROFILEDISK = 2;
-
 	public const uint32 EMF_PP_COLOR_OPTIMIZATION = 1;
-
 	public const uint32 PRINTER_NOTIFY_STATUS_ENDPOINT = 1;
-
 	public const uint32 PRINTER_NOTIFY_STATUS_POLL = 2;
-
 	public const uint32 PRINTER_NOTIFY_STATUS_INFO = 4;
-
 	public const uint32 ROUTER_UNKNOWN = 0;
-
 	public const uint32 ROUTER_SUCCESS = 1;
-
 	public const uint32 ROUTER_STOP_ROUTING = 2;
-
 	public const uint32 FILL_WITH_DEFAULTS = 1;
-
 	public const uint32 PRINTER_NOTIFY_INFO_DATA_COMPACT = 1;
-
 	public const uint32 COPYFILE_EVENT_SET_PRINTER_DATAEX = 1;
-
 	public const uint32 COPYFILE_EVENT_DELETE_PRINTER = 2;
-
 	public const uint32 COPYFILE_EVENT_ADD_PRINTER_CONNECTION = 3;
-
 	public const uint32 COPYFILE_EVENT_DELETE_PRINTER_CONNECTION = 4;
-
 	public const uint32 COPYFILE_EVENT_FILES_CHANGED = 5;
-
 	public const uint32 COPYFILE_FLAG_CLIENT_SPOOLER = 1;
-
 	public const uint32 COPYFILE_FLAG_SERVER_SPOOLER = 2;
-
 	public const uint32 DSPRINT_PUBLISH = 1;
-
 	public const uint32 DSPRINT_UPDATE = 2;
-
 	public const uint32 DSPRINT_UNPUBLISH = 4;
-
 	public const uint32 DSPRINT_REPUBLISH = 8;
-
 	public const uint32 DSPRINT_PENDING = 2147483648;
-
 	public const uint32 PRINTER_CONTROL_PAUSE = 1;
-
 	public const uint32 PRINTER_CONTROL_RESUME = 2;
-
 	public const uint32 PRINTER_CONTROL_PURGE = 3;
-
 	public const uint32 PRINTER_CONTROL_SET_STATUS = 4;
-
 	public const uint32 PRINTER_STATUS_PAUSED = 1;
-
 	public const uint32 PRINTER_STATUS_ERROR = 2;
-
 	public const uint32 PRINTER_STATUS_PENDING_DELETION = 4;
-
 	public const uint32 PRINTER_STATUS_PAPER_JAM = 8;
-
 	public const uint32 PRINTER_STATUS_PAPER_OUT = 16;
-
 	public const uint32 PRINTER_STATUS_MANUAL_FEED = 32;
-
 	public const uint32 PRINTER_STATUS_PAPER_PROBLEM = 64;
-
 	public const uint32 PRINTER_STATUS_OFFLINE = 128;
-
 	public const uint32 PRINTER_STATUS_IO_ACTIVE = 256;
-
 	public const uint32 PRINTER_STATUS_BUSY = 512;
-
 	public const uint32 PRINTER_STATUS_PRINTING = 1024;
-
 	public const uint32 PRINTER_STATUS_OUTPUT_BIN_FULL = 2048;
-
 	public const uint32 PRINTER_STATUS_NOT_AVAILABLE = 4096;
-
 	public const uint32 PRINTER_STATUS_WAITING = 8192;
-
 	public const uint32 PRINTER_STATUS_PROCESSING = 16384;
-
 	public const uint32 PRINTER_STATUS_INITIALIZING = 32768;
-
 	public const uint32 PRINTER_STATUS_WARMING_UP = 65536;
-
 	public const uint32 PRINTER_STATUS_TONER_LOW = 131072;
-
 	public const uint32 PRINTER_STATUS_NO_TONER = 262144;
-
 	public const uint32 PRINTER_STATUS_PAGE_PUNT = 524288;
-
 	public const uint32 PRINTER_STATUS_USER_INTERVENTION = 1048576;
-
 	public const uint32 PRINTER_STATUS_OUT_OF_MEMORY = 2097152;
-
 	public const uint32 PRINTER_STATUS_DOOR_OPEN = 4194304;
-
 	public const uint32 PRINTER_STATUS_SERVER_UNKNOWN = 8388608;
-
 	public const uint32 PRINTER_STATUS_POWER_SAVE = 16777216;
-
 	public const uint32 PRINTER_STATUS_SERVER_OFFLINE = 33554432;
-
 	public const uint32 PRINTER_STATUS_DRIVER_UPDATE_NEEDED = 67108864;
-
 	public const uint32 PRINTER_ATTRIBUTE_QUEUED = 1;
-
 	public const uint32 PRINTER_ATTRIBUTE_DIRECT = 2;
-
 	public const uint32 PRINTER_ATTRIBUTE_DEFAULT = 4;
-
 	public const uint32 PRINTER_ATTRIBUTE_SHARED = 8;
-
 	public const uint32 PRINTER_ATTRIBUTE_NETWORK = 16;
-
 	public const uint32 PRINTER_ATTRIBUTE_HIDDEN = 32;
-
 	public const uint32 PRINTER_ATTRIBUTE_LOCAL = 64;
-
 	public const uint32 PRINTER_ATTRIBUTE_ENABLE_DEVQ = 128;
-
 	public const uint32 PRINTER_ATTRIBUTE_KEEPPRINTEDJOBS = 256;
-
 	public const uint32 PRINTER_ATTRIBUTE_DO_COMPLETE_FIRST = 512;
-
 	public const uint32 PRINTER_ATTRIBUTE_WORK_OFFLINE = 1024;
-
 	public const uint32 PRINTER_ATTRIBUTE_ENABLE_BIDI = 2048;
-
 	public const uint32 PRINTER_ATTRIBUTE_RAW_ONLY = 4096;
-
 	public const uint32 PRINTER_ATTRIBUTE_PUBLISHED = 8192;
-
 	public const uint32 PRINTER_ATTRIBUTE_FAX = 16384;
-
 	public const uint32 PRINTER_ATTRIBUTE_TS = 32768;
-
 	public const uint32 PRINTER_ATTRIBUTE_PUSHED_USER = 131072;
-
 	public const uint32 PRINTER_ATTRIBUTE_PUSHED_MACHINE = 262144;
-
 	public const uint32 PRINTER_ATTRIBUTE_MACHINE = 524288;
-
 	public const uint32 PRINTER_ATTRIBUTE_FRIENDLY_NAME = 1048576;
-
 	public const uint32 PRINTER_ATTRIBUTE_TS_GENERIC_DRIVER = 2097152;
-
 	public const uint32 PRINTER_ATTRIBUTE_PER_USER = 4194304;
-
 	public const uint32 PRINTER_ATTRIBUTE_ENTERPRISE_CLOUD = 8388608;
-
 	public const uint32 NO_PRIORITY = 0;
-
 	public const uint32 MAX_PRIORITY = 99;
-
 	public const uint32 MIN_PRIORITY = 1;
-
 	public const uint32 DEF_PRIORITY = 1;
-
 	public const uint32 JOB_CONTROL_PAUSE = 1;
-
 	public const uint32 JOB_CONTROL_RESUME = 2;
-
 	public const uint32 JOB_CONTROL_CANCEL = 3;
-
 	public const uint32 JOB_CONTROL_RESTART = 4;
-
 	public const uint32 JOB_CONTROL_DELETE = 5;
-
 	public const uint32 JOB_CONTROL_SENT_TO_PRINTER = 6;
-
 	public const uint32 JOB_CONTROL_LAST_PAGE_EJECTED = 7;
-
 	public const uint32 JOB_CONTROL_RETAIN = 8;
-
 	public const uint32 JOB_CONTROL_RELEASE = 9;
-
 	public const uint32 JOB_STATUS_PAUSED = 1;
-
 	public const uint32 JOB_STATUS_ERROR = 2;
-
 	public const uint32 JOB_STATUS_DELETING = 4;
-
 	public const uint32 JOB_STATUS_SPOOLING = 8;
-
 	public const uint32 JOB_STATUS_PRINTING = 16;
-
 	public const uint32 JOB_STATUS_OFFLINE = 32;
-
 	public const uint32 JOB_STATUS_PAPEROUT = 64;
-
 	public const uint32 JOB_STATUS_PRINTED = 128;
-
 	public const uint32 JOB_STATUS_DELETED = 256;
-
 	public const uint32 JOB_STATUS_BLOCKED_DEVQ = 512;
-
 	public const uint32 JOB_STATUS_USER_INTERVENTION = 1024;
-
 	public const uint32 JOB_STATUS_RESTART = 2048;
-
 	public const uint32 JOB_STATUS_COMPLETE = 4096;
-
 	public const uint32 JOB_STATUS_RETAINED = 8192;
-
 	public const uint32 JOB_STATUS_RENDERING_LOCALLY = 16384;
-
 	public const uint32 JOB_POSITION_UNSPECIFIED = 0;
-
 	public const uint32 PRINTER_DRIVER_PACKAGE_AWARE = 1;
-
 	public const uint32 PRINTER_DRIVER_XPS = 2;
-
 	public const uint32 PRINTER_DRIVER_SANDBOX_ENABLED = 4;
-
 	public const uint32 PRINTER_DRIVER_CLASS = 8;
-
 	public const uint32 PRINTER_DRIVER_DERIVED = 16;
-
 	public const uint32 PRINTER_DRIVER_NOT_SHAREABLE = 32;
-
 	public const uint32 PRINTER_DRIVER_CATEGORY_FAX = 64;
-
 	public const uint32 PRINTER_DRIVER_CATEGORY_FILE = 128;
-
 	public const uint32 PRINTER_DRIVER_CATEGORY_VIRTUAL = 256;
-
 	public const uint32 PRINTER_DRIVER_CATEGORY_SERVICE = 512;
-
 	public const uint32 PRINTER_DRIVER_SOFT_RESET_REQUIRED = 1024;
-
 	public const uint32 PRINTER_DRIVER_SANDBOX_DISABLED = 2048;
-
 	public const uint32 PRINTER_DRIVER_CATEGORY_3D = 4096;
-
 	public const uint32 PRINTER_DRIVER_CATEGORY_CLOUD = 8192;
-
 	public const uint32 DRIVER_KERNELMODE = 1;
-
 	public const uint32 DRIVER_USERMODE = 2;
-
 	public const uint32 DPD_DELETE_UNUSED_FILES = 1;
-
 	public const uint32 DPD_DELETE_SPECIFIC_VERSION = 2;
-
 	public const uint32 DPD_DELETE_ALL_FILES = 4;
-
 	public const uint32 APD_STRICT_UPGRADE = 1;
-
 	public const uint32 APD_STRICT_DOWNGRADE = 2;
-
 	public const uint32 APD_COPY_ALL_FILES = 4;
-
 	public const uint32 APD_COPY_NEW_FILES = 8;
-
 	public const uint32 APD_COPY_FROM_DIRECTORY = 16;
-
 	public const uint32 STRING_NONE = 1;
-
 	public const uint32 STRING_MUIDLL = 2;
-
 	public const uint32 STRING_LANGPAIR = 4;
-
 	public const uint32 MAX_FORM_KEYWORD_LENGTH = 64;
-
 	public const uint32 DI_CHANNEL = 1;
-
 	public const uint32 DI_READ_SPOOL_JOB = 3;
-
 	public const uint32 DI_MEMORYMAP_WRITE = 1;
-
 	public const uint32 FORM_USER = 0;
-
 	public const uint32 FORM_BUILTIN = 1;
-
 	public const uint32 FORM_PRINTER = 2;
-
 	public const uint32 PPCAPS_RIGHT_THEN_DOWN = 1;
-
 	public const uint32 PPCAPS_BORDER_PRINT = 1;
-
 	public const uint32 PPCAPS_BOOKLET_EDGE = 1;
-
 	public const uint32 PPCAPS_REVERSE_PAGES_FOR_REVERSE_DUPLEX = 1;
-
 	public const uint32 PPCAPS_SQUARE_SCALING = 1;
-
 	public const uint32 PORT_TYPE_WRITE = 1;
-
 	public const uint32 PORT_TYPE_READ = 2;
-
 	public const uint32 PORT_TYPE_REDIRECTED = 4;
-
 	public const uint32 PORT_TYPE_NET_ATTACHED = 8;
-
 	public const uint32 PORT_STATUS_TYPE_ERROR = 1;
-
 	public const uint32 PORT_STATUS_TYPE_WARNING = 2;
-
 	public const uint32 PORT_STATUS_TYPE_INFO = 3;
-
 	public const uint32 PORT_STATUS_OFFLINE = 1;
-
 	public const uint32 PORT_STATUS_PAPER_JAM = 2;
-
 	public const uint32 PORT_STATUS_PAPER_OUT = 3;
-
 	public const uint32 PORT_STATUS_OUTPUT_BIN_FULL = 4;
-
 	public const uint32 PORT_STATUS_PAPER_PROBLEM = 5;
-
 	public const uint32 PORT_STATUS_NO_TONER = 6;
-
 	public const uint32 PORT_STATUS_DOOR_OPEN = 7;
-
 	public const uint32 PORT_STATUS_USER_INTERVENTION = 8;
-
 	public const uint32 PORT_STATUS_OUT_OF_MEMORY = 9;
-
 	public const uint32 PORT_STATUS_TONER_LOW = 10;
-
 	public const uint32 PORT_STATUS_WARMING_UP = 11;
-
 	public const uint32 PORT_STATUS_POWER_SAVE = 12;
-
 	public const uint32 PRINTER_ENUM_DEFAULT = 1;
-
 	public const uint32 PRINTER_ENUM_LOCAL = 2;
-
 	public const uint32 PRINTER_ENUM_CONNECTIONS = 4;
-
 	public const uint32 PRINTER_ENUM_FAVORITE = 4;
-
 	public const uint32 PRINTER_ENUM_NAME = 8;
-
 	public const uint32 PRINTER_ENUM_REMOTE = 16;
-
 	public const uint32 PRINTER_ENUM_SHARED = 32;
-
 	public const uint32 PRINTER_ENUM_NETWORK = 64;
-
 	public const uint32 PRINTER_ENUM_EXPAND = 16384;
-
 	public const uint32 PRINTER_ENUM_CONTAINER = 32768;
-
 	public const uint32 PRINTER_ENUM_ICONMASK = 16711680;
-
 	public const uint32 PRINTER_ENUM_ICON1 = 65536;
-
 	public const uint32 PRINTER_ENUM_ICON2 = 131072;
-
 	public const uint32 PRINTER_ENUM_ICON3 = 262144;
-
 	public const uint32 PRINTER_ENUM_ICON4 = 524288;
-
 	public const uint32 PRINTER_ENUM_ICON5 = 1048576;
-
 	public const uint32 PRINTER_ENUM_ICON6 = 2097152;
-
 	public const uint32 PRINTER_ENUM_ICON7 = 4194304;
-
 	public const uint32 PRINTER_ENUM_ICON8 = 8388608;
-
 	public const uint32 PRINTER_ENUM_HIDE = 16777216;
-
 	public const uint32 PRINTER_ENUM_CATEGORY_ALL = 33554432;
-
 	public const uint32 PRINTER_ENUM_CATEGORY_3D = 67108864;
-
 	public const uint32 SPOOL_FILE_PERSISTENT = 1;
-
 	public const uint32 SPOOL_FILE_TEMPORARY = 2;
-
 	public const uint32 PRINTER_NOTIFY_TYPE = 0;
-
 	public const uint32 JOB_NOTIFY_TYPE = 1;
-
 	public const uint32 SERVER_NOTIFY_TYPE = 2;
-
 	public const uint32 PRINTER_NOTIFY_FIELD_SERVER_NAME = 0;
-
 	public const uint32 PRINTER_NOTIFY_FIELD_PRINTER_NAME = 1;
-
 	public const uint32 PRINTER_NOTIFY_FIELD_SHARE_NAME = 2;
-
 	public const uint32 PRINTER_NOTIFY_FIELD_PORT_NAME = 3;
-
 	public const uint32 PRINTER_NOTIFY_FIELD_DRIVER_NAME = 4;
-
 	public const uint32 PRINTER_NOTIFY_FIELD_COMMENT = 5;
-
 	public const uint32 PRINTER_NOTIFY_FIELD_LOCATION = 6;
-
 	public const uint32 PRINTER_NOTIFY_FIELD_DEVMODE = 7;
-
 	public const uint32 PRINTER_NOTIFY_FIELD_SEPFILE = 8;
-
 	public const uint32 PRINTER_NOTIFY_FIELD_PRINT_PROCESSOR = 9;
-
 	public const uint32 PRINTER_NOTIFY_FIELD_PARAMETERS = 10;
-
 	public const uint32 PRINTER_NOTIFY_FIELD_DATATYPE = 11;
-
 	public const uint32 PRINTER_NOTIFY_FIELD_SECURITY_DESCRIPTOR = 12;
-
 	public const uint32 PRINTER_NOTIFY_FIELD_ATTRIBUTES = 13;
-
 	public const uint32 PRINTER_NOTIFY_FIELD_PRIORITY = 14;
-
 	public const uint32 PRINTER_NOTIFY_FIELD_DEFAULT_PRIORITY = 15;
-
 	public const uint32 PRINTER_NOTIFY_FIELD_START_TIME = 16;
-
 	public const uint32 PRINTER_NOTIFY_FIELD_UNTIL_TIME = 17;
-
 	public const uint32 PRINTER_NOTIFY_FIELD_STATUS = 18;
-
 	public const uint32 PRINTER_NOTIFY_FIELD_STATUS_STRING = 19;
-
 	public const uint32 PRINTER_NOTIFY_FIELD_CJOBS = 20;
-
 	public const uint32 PRINTER_NOTIFY_FIELD_AVERAGE_PPM = 21;
-
 	public const uint32 PRINTER_NOTIFY_FIELD_TOTAL_PAGES = 22;
-
 	public const uint32 PRINTER_NOTIFY_FIELD_PAGES_PRINTED = 23;
-
 	public const uint32 PRINTER_NOTIFY_FIELD_TOTAL_BYTES = 24;
-
 	public const uint32 PRINTER_NOTIFY_FIELD_BYTES_PRINTED = 25;
-
 	public const uint32 PRINTER_NOTIFY_FIELD_OBJECT_GUID = 26;
-
 	public const uint32 PRINTER_NOTIFY_FIELD_FRIENDLY_NAME = 27;
-
 	public const uint32 PRINTER_NOTIFY_FIELD_BRANCH_OFFICE_PRINTING = 28;
-
 	public const uint32 JOB_NOTIFY_FIELD_PRINTER_NAME = 0;
-
 	public const uint32 JOB_NOTIFY_FIELD_MACHINE_NAME = 1;
-
 	public const uint32 JOB_NOTIFY_FIELD_PORT_NAME = 2;
-
 	public const uint32 JOB_NOTIFY_FIELD_USER_NAME = 3;
-
 	public const uint32 JOB_NOTIFY_FIELD_NOTIFY_NAME = 4;
-
 	public const uint32 JOB_NOTIFY_FIELD_DATATYPE = 5;
-
 	public const uint32 JOB_NOTIFY_FIELD_PRINT_PROCESSOR = 6;
-
 	public const uint32 JOB_NOTIFY_FIELD_PARAMETERS = 7;
-
 	public const uint32 JOB_NOTIFY_FIELD_DRIVER_NAME = 8;
-
 	public const uint32 JOB_NOTIFY_FIELD_DEVMODE = 9;
-
 	public const uint32 JOB_NOTIFY_FIELD_STATUS = 10;
-
 	public const uint32 JOB_NOTIFY_FIELD_STATUS_STRING = 11;
-
 	public const uint32 JOB_NOTIFY_FIELD_SECURITY_DESCRIPTOR = 12;
-
 	public const uint32 JOB_NOTIFY_FIELD_DOCUMENT = 13;
-
 	public const uint32 JOB_NOTIFY_FIELD_PRIORITY = 14;
-
 	public const uint32 JOB_NOTIFY_FIELD_POSITION = 15;
-
 	public const uint32 JOB_NOTIFY_FIELD_SUBMITTED = 16;
-
 	public const uint32 JOB_NOTIFY_FIELD_START_TIME = 17;
-
 	public const uint32 JOB_NOTIFY_FIELD_UNTIL_TIME = 18;
-
 	public const uint32 JOB_NOTIFY_FIELD_TIME = 19;
-
 	public const uint32 JOB_NOTIFY_FIELD_TOTAL_PAGES = 20;
-
 	public const uint32 JOB_NOTIFY_FIELD_PAGES_PRINTED = 21;
-
 	public const uint32 JOB_NOTIFY_FIELD_TOTAL_BYTES = 22;
-
 	public const uint32 JOB_NOTIFY_FIELD_BYTES_PRINTED = 23;
-
 	public const uint32 JOB_NOTIFY_FIELD_REMOTE_JOB_ID = 24;
-
 	public const uint32 SERVER_NOTIFY_FIELD_PRINT_DRIVER_ISOLATION_GROUP = 0;
-
 	public const uint32 PRINTER_NOTIFY_CATEGORY_ALL = 4096;
-
 	public const uint32 PRINTER_NOTIFY_CATEGORY_3D = 8192;
-
 	public const uint32 PRINTER_NOTIFY_OPTIONS_REFRESH = 1;
-
 	public const uint32 PRINTER_NOTIFY_INFO_DISCARDED = 1;
-
 	public const uint32 BIDI_ACCESS_ADMINISTRATOR = 1;
-
 	public const uint32 BIDI_ACCESS_USER = 2;
-
 	public const uint32 ERROR_BIDI_STATUS_OK = 0;
-
 	public const uint32 ERROR_BIDI_ERROR_BASE = 13000;
-
 	public const uint32 ERROR_BIDI_STATUS_WARNING = 13001;
-
 	public const uint32 ERROR_BIDI_SCHEMA_READ_ONLY = 13002;
-
 	public const uint32 ERROR_BIDI_SERVER_OFFLINE = 13003;
-
 	public const uint32 ERROR_BIDI_DEVICE_OFFLINE = 13004;
-
 	public const uint32 ERROR_BIDI_SCHEMA_NOT_SUPPORTED = 13005;
-
 	public const uint32 ERROR_BIDI_SET_DIFFERENT_TYPE = 13006;
-
 	public const uint32 ERROR_BIDI_SET_MULTIPLE_SCHEMAPATH = 13007;
-
 	public const uint32 ERROR_BIDI_SET_INVALID_SCHEMAPATH = 13008;
-
 	public const uint32 ERROR_BIDI_SET_UNKNOWN_FAILURE = 13009;
-
 	public const uint32 ERROR_BIDI_SCHEMA_WRITE_ONLY = 13010;
-
 	public const uint32 ERROR_BIDI_GET_REQUIRES_ARGUMENT = 13011;
-
 	public const uint32 ERROR_BIDI_GET_ARGUMENT_NOT_SUPPORTED = 13012;
-
 	public const uint32 ERROR_BIDI_GET_MISSING_ARGUMENT = 13013;
-
 	public const uint32 ERROR_BIDI_DEVICE_CONFIG_UNCHANGED = 13014;
-
 	public const uint32 ERROR_BIDI_NO_LOCALIZED_RESOURCES = 13015;
-
 	public const uint32 ERROR_BIDI_NO_BIDI_SCHEMA_EXTENSIONS = 13016;
-
 	public const uint32 ERROR_BIDI_UNSUPPORTED_CLIENT_LANGUAGE = 13017;
-
 	public const uint32 ERROR_BIDI_UNSUPPORTED_RESOURCE_FORMAT = 13018;
-
 	public const uint32 PRINTER_CHANGE_ADD_PRINTER = 1;
-
 	public const uint32 PRINTER_CHANGE_SET_PRINTER = 2;
-
 	public const uint32 PRINTER_CHANGE_DELETE_PRINTER = 4;
-
 	public const uint32 PRINTER_CHANGE_FAILED_CONNECTION_PRINTER = 8;
-
 	public const uint32 PRINTER_CHANGE_PRINTER = 255;
-
 	public const uint32 PRINTER_CHANGE_ADD_JOB = 256;
-
 	public const uint32 PRINTER_CHANGE_SET_JOB = 512;
-
 	public const uint32 PRINTER_CHANGE_DELETE_JOB = 1024;
-
 	public const uint32 PRINTER_CHANGE_WRITE_JOB = 2048;
-
 	public const uint32 PRINTER_CHANGE_JOB = 65280;
-
 	public const uint32 PRINTER_CHANGE_ADD_FORM = 65536;
-
 	public const uint32 PRINTER_CHANGE_SET_FORM = 131072;
-
 	public const uint32 PRINTER_CHANGE_DELETE_FORM = 262144;
-
 	public const uint32 PRINTER_CHANGE_FORM = 458752;
-
 	public const uint32 PRINTER_CHANGE_ADD_PORT = 1048576;
-
 	public const uint32 PRINTER_CHANGE_CONFIGURE_PORT = 2097152;
-
 	public const uint32 PRINTER_CHANGE_DELETE_PORT = 4194304;
-
 	public const uint32 PRINTER_CHANGE_PORT = 7340032;
-
 	public const uint32 PRINTER_CHANGE_ADD_PRINT_PROCESSOR = 16777216;
-
 	public const uint32 PRINTER_CHANGE_DELETE_PRINT_PROCESSOR = 67108864;
-
 	public const uint32 PRINTER_CHANGE_PRINT_PROCESSOR = 117440512;
-
 	public const uint32 PRINTER_CHANGE_SERVER = 134217728;
-
 	public const uint32 PRINTER_CHANGE_ADD_PRINTER_DRIVER = 268435456;
-
 	public const uint32 PRINTER_CHANGE_SET_PRINTER_DRIVER = 536870912;
-
 	public const uint32 PRINTER_CHANGE_DELETE_PRINTER_DRIVER = 1073741824;
-
 	public const uint32 PRINTER_CHANGE_PRINTER_DRIVER = 1879048192;
-
 	public const uint32 PRINTER_CHANGE_TIMEOUT = 2147483648;
-
 	public const uint32 PRINTER_CHANGE_ALL = 2138570751;
-
 	public const uint32 PRINTER_ERROR_INFORMATION = 2147483648;
-
 	public const uint32 PRINTER_ERROR_WARNING = 1073741824;
-
 	public const uint32 PRINTER_ERROR_SEVERE = 536870912;
-
 	public const uint32 PRINTER_ERROR_OUTOFPAPER = 1;
-
 	public const uint32 PRINTER_ERROR_JAM = 2;
-
 	public const uint32 PRINTER_ERROR_OUTOFTONER = 4;
-
 	public const uint32 SERVER_ACCESS_ADMINISTER = 1;
-
 	public const uint32 SERVER_ACCESS_ENUMERATE = 2;
-
 	public const uint32 PRINTER_ACCESS_ADMINISTER = 4;
-
 	public const uint32 PRINTER_ACCESS_USE = 8;
-
 	public const uint32 JOB_ACCESS_ADMINISTER = 16;
-
 	public const uint32 JOB_ACCESS_READ = 32;
-
 	public const uint32 PRINTER_ACCESS_MANAGE_LIMITED = 64;
-
 	public const uint32 PRINTER_CONNECTION_MISMATCH = 32;
-
 	public const uint32 PRINTER_CONNECTION_NO_UI = 64;
-
 	public const uint32 IPDFP_COPY_ALL_FILES = 1;
-
 	public const uint32 UPDP_SILENT_UPLOAD = 1;
-
 	public const uint32 UPDP_UPLOAD_ALWAYS = 2;
-
 	public const uint32 UPDP_CHECK_DRIVERSTORE = 4;
-
 	public const uint32 DISPID_PRINTSCHEMA_ELEMENT = 10000;
-
 	public const uint32 DISPID_PRINTSCHEMA_ELEMENT_XMLNODE = 10001;
-
 	public const uint32 DISPID_PRINTSCHEMA_ELEMENT_NAME = 10002;
-
 	public const uint32 DISPID_PRINTSCHEMA_ELEMENT_NAMESPACEURI = 10003;
-
 	public const uint32 DISPID_PRINTSCHEMA_DISPLAYABLEELEMENT = 10100;
-
 	public const uint32 DISPID_PRINTSCHEMA_DISPLAYABLEELEMENT_DISPLAYNAME = 10101;
-
 	public const uint32 DISPID_PRINTSCHEMA_OPTION = 10200;
-
 	public const uint32 DISPID_PRINTSCHEMA_OPTION_SELECTED = 10201;
-
 	public const uint32 DISPID_PRINTSCHEMA_OPTION_CONSTRAINED = 10202;
-
 	public const uint32 DISPID_PRINTSCHEMA_OPTION_GETPROPERTYVALUE = 10203;
-
 	public const uint32 DISPID_PRINTSCHEMA_PAGEMEDIASIZEOPTION = 10300;
-
 	public const uint32 DISPID_PRINTSCHEMA_PAGEMEDIASIZEOPTION_WIDTH = 10301;
-
 	public const uint32 DISPID_PRINTSCHEMA_PAGEMEDIASIZEOPTION_HEIGHT = 10302;
-
 	public const uint32 DISPID_PRINTSCHEMA_NUPOPTION = 10400;
-
 	public const uint32 DISPID_PRINTSCHEMA_NUPOPTION_PAGESPERSHEET = 10401;
-
 	public const uint32 DISPID_PRINTSCHEMA_OPTIONCOLLECTION = 10500;
-
 	public const uint32 DISPID_PRINTSCHEMA_OPTIONCOLLECTION_COUNT = 10501;
-
 	public const uint32 DISPID_PRINTSCHEMA_OPTIONCOLLECTION_GETAT = 10502;
-
 	public const uint32 DISPID_PRINTSCHEMA_FEATURE = 10600;
-
 	public const uint32 DISPID_PRINTSCHEMA_FEATURE_SELECTEDOPTION = 10601;
-
 	public const uint32 DISPID_PRINTSCHEMA_FEATURE_SELECTIONTYPE = 10602;
-
 	public const uint32 DISPID_PRINTSCHEMA_FEATURE_GETOPTION = 10603;
-
 	public const uint32 DISPID_PRINTSCHEMA_FEATURE_DISPLAYUI = 10604;
-
 	public const uint32 DISPID_PRINTSCHEMA_PAGEIMAGEABLESIZE = 10700;
-
 	public const uint32 DISPID_PRINTSCHEMA_PAGEIMAGEABLESIZE_IMAGEABLE_WIDTH = 10701;
-
 	public const uint32 DISPID_PRINTSCHEMA_PAGEIMAGEABLESIZE_IMAGEABLE_HEIGHT = 10702;
-
 	public const uint32 DISPID_PRINTSCHEMA_PAGEIMAGEABLESIZE_ORIGIN_WIDTH = 10703;
-
 	public const uint32 DISPID_PRINTSCHEMA_PAGEIMAGEABLESIZE_ORIGIN_HEIGHT = 10704;
-
 	public const uint32 DISPID_PRINTSCHEMA_PAGEIMAGEABLESIZE_EXTENT_WIDTH = 10705;
-
 	public const uint32 DISPID_PRINTSCHEMA_PAGEIMAGEABLESIZE_EXTENT_HEIGHT = 10706;
-
 	public const uint32 DISPID_PRINTSCHEMA_CAPABILITIES = 10800;
-
 	public const uint32 DISPID_PRINTSCHEMA_CAPABILITIES_GETFEATURE_KEYNAME = 10801;
-
 	public const uint32 DISPID_PRINTSCHEMA_CAPABILITIES_GETFEATURE = 10802;
-
 	public const uint32 DISPID_PRINTSCHEMA_CAPABILITIES_PAGEIMAGEABLESIZE = 10803;
-
 	public const uint32 DISPID_PRINTSCHEMA_CAPABILITIES_JOBCOPIESMINVALUE = 10804;
-
 	public const uint32 DISPID_PRINTSCHEMA_CAPABILITIES_JOBCOPIESMAXVALUE = 10805;
-
 	public const uint32 DISPID_PRINTSCHEMA_CAPABILITIES_GETSELECTEDOPTION = 10806;
-
 	public const uint32 DISPID_PRINTSCHEMA_CAPABILITIES_GETOPTIONS = 10807;
-
 	public const uint32 DISPID_PRINTSCHEMA_CAPABILITIES_GETPARAMETERDEFINITION = 10808;
-
 	public const uint32 DISPID_PRINTSCHEMA_ASYNCOPERATION = 10900;
-
 	public const uint32 DISPID_PRINTSCHEMA_ASYNCOPERATION_START = 10901;
-
 	public const uint32 DISPID_PRINTSCHEMA_ASYNCOPERATION_CANCEL = 10902;
-
 	public const uint32 DISPID_PRINTSCHEMA_TICKET = 11000;
-
 	public const uint32 DISPID_PRINTSCHEMA_TICKET_GETFEATURE_KEYNAME = 11001;
-
 	public const uint32 DISPID_PRINTSCHEMA_TICKET_GETFEATURE = 11002;
-
 	public const uint32 DISPID_PRINTSCHEMA_TICKET_VALIDATEASYNC = 11003;
-
 	public const uint32 DISPID_PRINTSCHEMA_TICKET_COMMITASYNC = 11004;
-
 	public const uint32 DISPID_PRINTSCHEMA_TICKET_NOTIFYXMLCHANGED = 11005;
-
 	public const uint32 DISPID_PRINTSCHEMA_TICKET_GETCAPABILITIES = 11006;
-
 	public const uint32 DISPID_PRINTSCHEMA_TICKET_JOBCOPIESALLDOCUMENTS = 11007;
-
 	public const uint32 DISPID_PRINTSCHEMA_TICKET_GETPARAMETERINITIALIZER = 11008;
-
 	public const uint32 DISPID_PRINTSCHEMA_ASYNCOPERATIONEVENT = 11100;
-
 	public const uint32 DISPID_PRINTSCHEMA_ASYNCOPERATIONEVENT_COMPLETED = 11101;
-
 	public const uint32 DISPID_PRINTERSCRIPTABLESEQUENTIALSTREAM = 11200;
-
 	public const uint32 DISPID_PRINTERSCRIPTABLESEQUENTIALSTREAM_READ = 11201;
-
 	public const uint32 DISPID_PRINTERSCRIPTABLESEQUENTIALSTREAM_WRITE = 11202;
-
 	public const uint32 DISPID_PRINTERSCRIPTABLESTREAM = 11300;
-
 	public const uint32 DISPID_PRINTERSCRIPTABLESTREAM_COMMIT = 11301;
-
 	public const uint32 DISPID_PRINTERSCRIPTABLESTREAM_SEEK = 11302;
-
 	public const uint32 DISPID_PRINTERSCRIPTABLESTREAM_SETSIZE = 11303;
-
 	public const uint32 DISPID_PRINTERPROPERTYBAG = 11400;
-
 	public const uint32 DISPID_PRINTERPROPERTYBAG_GETBOOL = 11401;
-
 	public const uint32 DISPID_PRINTERPROPERTYBAG_SETBOOL = 11402;
-
 	public const uint32 DISPID_PRINTERPROPERTYBAG_GETINT32 = 11403;
-
 	public const uint32 DISPID_PRINTERPROPERTYBAG_SETINT32 = 11404;
-
 	public const uint32 DISPID_PRINTERPROPERTYBAG_GETSTRING = 11405;
-
 	public const uint32 DISPID_PRINTERPROPERTYBAG_SETSTRING = 11406;
-
 	public const uint32 DISPID_PRINTERPROPERTYBAG_GETBYTES = 11407;
-
 	public const uint32 DISPID_PRINTERPROPERTYBAG_SETBYTES = 11408;
-
 	public const uint32 DISPID_PRINTERPROPERTYBAG_GETREADSTREAM = 11409;
-
 	public const uint32 DISPID_PRINTERPROPERTYBAG_GETWRITESTREAM = 11410;
-
 	public const uint32 DISPID_PRINTERSCRIPTABLEPROPERTYBAG_GETSTREAMASXML = 11411;
-
 	public const uint32 DISPID_PRINTERSCRIPTABLEPROPERTYBAG = 11500;
-
 	public const uint32 DISPID_PRINTERSCRIPTABLEPROPERTYBAG_GETBOOL = 11501;
-
 	public const uint32 DISPID_PRINTERSCRIPTABLEPROPERTYBAG_SETBOOL = 11502;
-
 	public const uint32 DISPID_PRINTERSCRIPTABLEPROPERTYBAG_GETINT32 = 11503;
-
 	public const uint32 DISPID_PRINTERSCRIPTABLEPROPERTYBAG_SETINT32 = 11504;
-
 	public const uint32 DISPID_PRINTERSCRIPTABLEPROPERTYBAG_GETSTRING = 11505;
-
 	public const uint32 DISPID_PRINTERSCRIPTABLEPROPERTYBAG_SETSTRING = 11506;
-
 	public const uint32 DISPID_PRINTERSCRIPTABLEPROPERTYBAG_GETBYTES = 11507;
-
 	public const uint32 DISPID_PRINTERSCRIPTABLEPROPERTYBAG_SETBYTES = 11508;
-
 	public const uint32 DISPID_PRINTERSCRIPTABLEPROPERTYBAG_GETREADSTREAM = 11509;
-
 	public const uint32 DISPID_PRINTERSCRIPTABLEPROPERTYBAG_GETWRITESTREAM = 11510;
-
 	public const uint32 DISPID_PRINTERQUEUE = 11600;
-
 	public const uint32 DISPID_PRINTERQUEUE_HANDLE = 11601;
-
 	public const uint32 DISPID_PRINTERQUEUE_NAME = 11602;
-
 	public const uint32 DISPID_PRINTERQUEUE_SENDBIDIQUERY = 11603;
-
 	public const uint32 DISPID_PRINTERQUEUE_GETPROPERTIES = 11604;
-
 	public const uint32 DISPID_PRINTERQUEUE_SENDBIDISETREQUESTASYNC = 11605;
-
 	public const uint32 DISPID_PRINTERQUEUE_GETPRINTERQUEUEVIEW = 11606;
-
 	public const uint32 DISPID_PRINTERQUEUEEVENT = 11700;
-
 	public const uint32 DISPID_PRINTERQUEUEEVENT_ONBIDIRESPONSERECEIVED = 11701;
-
 	public const uint32 DISPID_PRINTEREXTENSION_CONTEXT = 11800;
-
 	public const uint32 DISPID_PRINTEREXTENSION_CONTEXT_PRINTERQUEUE = 11801;
-
 	public const uint32 DISPID_PRINTEREXTENSION_CONTEXT_PRINTSCHEMATICKET = 11802;
-
 	public const uint32 DISPID_PRINTEREXTENSION_CONTEXT_DRIVERPROPERTIES = 11803;
-
 	public const uint32 DISPID_PRINTEREXTENSION_CONTEXT_USERPROPERTIES = 11804;
-
 	public const uint32 DISPID_PRINTEREXTENSION_REQUEST = 11900;
-
 	public const uint32 DISPID_PRINTEREXTENSION_REQUEST_CANCEL = 11901;
-
 	public const uint32 DISPID_PRINTEREXTENSION_REQUEST_COMPLETE = 11902;
-
 	public const uint32 DISPID_PRINTEREXTENSION_EVENTARGS = 12000;
-
 	public const uint32 DISPID_PRINTEREXTENSION_EVENTARGS_BIDINOTIFICATION = 12001;
-
 	public const uint32 DISPID_PRINTEREXTENSION_EVENTARGS_REASONID = 12002;
-
 	public const uint32 DISPID_PRINTEREXTENSION_EVENTARGS_REQUEST = 12003;
-
 	public const uint32 DISPID_PRINTEREXTENSION_EVENTARGS_SOURCEAPPLICATION = 12004;
-
 	public const uint32 DISPID_PRINTEREXTENSION_EVENTARGS_DETAILEDREASONID = 12005;
-
 	public const uint32 DISPID_PRINTEREXTENSION_EVENTARGS_WINDOWMODAL = 12006;
-
 	public const uint32 DISPID_PRINTEREXTENSION_EVENTARGS_WINDOWPARENT = 12007;
-
 	public const uint32 DISPID_PRINTEREXTENSION_CONTEXTCOLLECTION = 12100;
-
 	public const uint32 DISPID_PRINTEREXTENSION_CONTEXTCOLLECTION_COUNT = 12101;
-
 	public const uint32 DISPID_PRINTEREXTENSION_CONTEXTCOLLECTION_GETAT = 12102;
-
 	public const uint32 DISPID_PRINTEREXTENSION_EVENT = 12200;
-
 	public const uint32 DISPID_PRINTEREXTENSION_EVENT_ONDRIVEREVENT = 12201;
-
 	public const uint32 DISPID_PRINTEREXTENSION_EVENT_ONPRINTERQUEUESENUMERATED = 12202;
-
 	public const uint32 DISPID_PRINTERSCRIPTCONTEXT = 12300;
-
 	public const uint32 DISPID_PRINTERSCRIPTCONTEXT_DRIVERPROPERTIES = 12301;
-
 	public const uint32 DISPID_PRINTERSCRIPTCONTEXT_QUEUEPROPERTIES = 12302;
-
 	public const uint32 DISPID_PRINTERSCRIPTCONTEXT_USERPROPERTIES = 12303;
-
 	public const uint32 DISPID_PRINTSCHEMA_PARAMETERINITIALIZER = 12400;
-
 	public const uint32 DISPID_PRINTSCHEMA_PARAMETERINITIALIZER_VALUE = 12401;
-
 	public const uint32 DISPID_PRINTSCHEMA_PARAMETERDEFINITION = 12500;
-
 	public const uint32 DISPID_PRINTSCHEMA_PARAMETERDEFINITION_USERINPUTREQUIRED = 12501;
-
 	public const uint32 DISPID_PRINTSCHEMA_PARAMETERDEFINITION_UNITTYPE = 12502;
-
 	public const uint32 DISPID_PRINTSCHEMA_PARAMETERDEFINITION_DATATYPE = 12503;
-
 	public const uint32 DISPID_PRINTSCHEMA_PARAMETERDEFINITION_RANGEMIN = 12504;
-
 	public const uint32 DISPID_PRINTSCHEMA_PARAMETERDEFINITION_RANGEMAX = 12505;
-
 	public const uint32 DISPID_PRINTJOBCOLLECTION = 12600;
-
 	public const uint32 DISPID_PRINTJOBCOLLECTION_COUNT = 12601;
-
 	public const uint32 DISPID_PRINTJOBCOLLECTION_GETAT = 12602;
-
 	public const uint32 DISPID_PRINTERQUEUEVIEW = 12700;
-
 	public const uint32 DISPID_PRINTERQUEUEVIEW_SETVIEWRANGE = 12701;
-
 	public const uint32 DISPID_PRINTERQUEUEVIEW_EVENT = 12800;
-
 	public const uint32 DISPID_PRINTERQUEUEVIEW_EVENT_ONCHANGED = 12801;
-
 	public const Guid NOTIFICATION_RELEASE = .(0xba9a5027, 0xa70e, 0x4ae7, 0x9b, 0x7d, 0xeb, 0x3e, 0x06, 0xad, 0x41, 0x57);
-
 	public const Guid PRINT_APP_BIDI_NOTIFY_CHANNEL = .(0x2abad223, 0xb994, 0x4aca, 0x82, 0xfc, 0x45, 0x71, 0xb1, 0xb5, 0x85, 0xac);
-
 	public const Guid PRINT_PORT_MONITOR_NOTIFY_CHANNEL = .(0x25df3b0e, 0x74a9, 0x47f5, 0x80, 0xce, 0x79, 0xb4, 0xb1, 0xeb, 0x5c, 0x58);
-
 	public const Guid GUID_DEVINTERFACE_USBPRINT = .(0x28d78fad, 0x5a12, 0x11d1, 0xae, 0x5b, 0x00, 0x00, 0xf8, 0x03, 0xa8, 0xc2);
-
 	public const Guid GUID_DEVINTERFACE_IPPUSB_PRINT = .(0xf2f40381, 0xf46d, 0x4e51, 0xbc, 0xe7, 0x62, 0xde, 0x6c, 0xf2, 0xd0, 0x98);
-
 	public const Guid CLSID_XPSRASTERIZER_FACTORY = .(0x503e79bf, 0x1d09, 0x4764, 0x9d, 0x72, 0x1e, 0xb0, 0xc6, 0x59, 0x67, 0xc6);
-
 }
 #endregion
 
@@ -3602,14 +2309,12 @@ public struct EXTPUSH
 		public uint16 DlgTemplateID;
 		public HANDLE hDlgTemplate;
 	}
-
 	[CRepr, Union]
 	public struct _Anonymous1_e__Union
 	{
 		public DLGPROC DlgProc;
 		public FARPROC pfnCallBack;
 	}
-
 	public uint16 cbSize;
 	public uint16 Flags;
 	public int8* pTitle;
@@ -3651,14 +2356,12 @@ public struct OPTITEM
 		public EXTCHKBOX* pExtChkBox;
 		public EXTPUSH* pExtPush;
 	}
-
 	[CRepr, Union]
 	public struct _Anonymous1_e__Union
 	{
 		public int32 Sel;
 		public int8* pSel;
 	}
-
 	public uint16 cbSize;
 	public uint8 Level;
 	public uint8 DlgPageIdx;
@@ -3685,7 +2388,6 @@ public struct CPSUICBPARAM
 		public int32 OldSel;
 		public int8* pOldSel;
 	}
-
 	public uint16 cbSize;
 	public uint16 Reason;
 	public HWND hDlg;
@@ -3707,7 +2409,6 @@ public struct DLGPAGE
 		public uint16 DlgTemplateID;
 		public HANDLE hDlgTemplate;
 	}
-
 	public uint16 cbSize;
 	public uint16 Flags;
 	public DLGPROC DlgProc;
@@ -3807,7 +2508,6 @@ public struct PROPSHEETUI_INFO_HEADER
 		public HICON hIcon;
 		public uint IconID;
 	}
-
 	public uint16 cbSize;
 	public uint16 Flags;
 	public int8* pTitle;
@@ -4665,11 +3365,9 @@ public struct PRINTER_NOTIFY_INFO_DATA
 			public uint32 cbBuf;
 			public void* pBuf;
 		}
-
 		public uint32[2] adwData;
 		public _Data_e__Struct Data;
 	}
-
 	public uint16 Type;
 	public uint16 Field;
 	public uint32 Reserved;
@@ -4677,12 +3375,13 @@ public struct PRINTER_NOTIFY_INFO_DATA
 	public _NotifyData_e__Union NotifyData;
 }
 
-[CRepr, FlexibleArray("aData")]
+[CRepr]
 public struct PRINTER_NOTIFY_INFO
 {
 	public uint32 Version;
 	public uint32 Flags;
 	public uint32 Count;
+	public PRINTER_NOTIFY_INFO_DATA* aData mut => &aData_impl;
 	private PRINTER_NOTIFY_INFO_DATA[ANYSIZE_ARRAY] aData_impl;
 }
 
@@ -4705,7 +3404,6 @@ public struct BIDI_DATA
 		public float fData;
 		public BINARY_CONTAINER biData;
 	}
-
 	public uint32 dwBidiType;
 	public _u_e__Union u;
 }
@@ -4718,12 +3416,13 @@ public struct BIDI_REQUEST_DATA
 	public BIDI_DATA data;
 }
 
-[CRepr, FlexibleArray("aData")]
+[CRepr]
 public struct BIDI_REQUEST_CONTAINER
 {
 	public uint32 Version;
 	public uint32 Flags;
 	public uint32 Count;
+	public BIDI_REQUEST_DATA* aData mut => &aData_impl;
 	private BIDI_REQUEST_DATA[ANYSIZE_ARRAY] aData_impl;
 }
 
@@ -4736,12 +3435,13 @@ public struct BIDI_RESPONSE_DATA
 	public BIDI_DATA data;
 }
 
-[CRepr, FlexibleArray("aData")]
+[CRepr]
 public struct BIDI_RESPONSE_CONTAINER
 {
 	public uint32 Version;
 	public uint32 Flags;
 	public uint32 Count;
+	public BIDI_RESPONSE_DATA* aData mut => &aData_impl;
 	private BIDI_RESPONSE_DATA[ANYSIZE_ARRAY] aData_impl;
 }
 
@@ -4831,14 +3531,12 @@ public struct PrintPropertyValue
 			public uint32 cbBuf;
 			public void* pBuf;
 		}
-
 		public uint8 propertyByte;
 		public PWSTR propertyString;
 		public int32 propertyInt32;
 		public int64 propertyInt64;
 		public _propertyBlob_e__Struct propertyBlob;
 	}
-
 	public EPrintPropertyType ePropertyType;
 	public _value_e__Union value;
 }
@@ -4872,34 +3570,38 @@ public struct MxdcEscapeHeader
 	public uint32 opCode;
 }
 
-[CRepr, Packed(1), FlexibleArray("wszData")]
+[CRepr, Packed(1)]
 public struct MxdcGetFileNameData
 {
 	public uint32 cbOutput;
+	public char16* wszData mut => &wszData_impl;
 	private char16[ANYSIZE_ARRAY] wszData_impl;
 }
 
-[CRepr, Packed(1), FlexibleArray("bData")]
+[CRepr, Packed(1)]
 public struct MxdcS0PageData
 {
 	public uint32 dwSize;
+	public uint8* bData mut => &bData_impl;
 	private uint8[ANYSIZE_ARRAY] bData_impl;
 }
 
-[CRepr, Packed(1), FlexibleArray("bData")]
+[CRepr, Packed(1)]
 public struct MxdcXpsS0PageResource
 {
 	public uint32 dwSize;
 	public uint32 dwResourceType;
 	public uint8[260] szUri;
 	public uint32 dwDataSize;
+	public uint8* bData mut => &bData_impl;
 	private uint8[ANYSIZE_ARRAY] bData_impl;
 }
 
-[CRepr, Packed(1), FlexibleArray("bData")]
+[CRepr, Packed(1)]
 public struct MxdcPrintTicketPassthrough
 {
 	public uint32 dwDataSize;
+	public uint8* bData mut => &bData_impl;
 	private uint8[ANYSIZE_ARRAY] bData_impl;
 }
 
@@ -4983,13 +3685,14 @@ public struct DRIVER_UPGRADE_INFO_2
 	public int8* pszzPreviousNames;
 }
 
-[CRepr, FlexibleArray("aDocEventCall")]
+[CRepr]
 public struct DOCEVENT_FILTER
 {
 	public uint32 cbSize;
 	public uint32 cElementsAllocated;
 	public uint32 cElementsNeeded;
 	public uint32 cElementsReturned;
+	public uint32* aDocEventCall mut => &aDocEventCall_impl;
 	private uint32[ANYSIZE_ARRAY] aDocEventCall_impl;
 }
 
@@ -5349,19 +4052,21 @@ public struct WIDTHRUN
 	public uint32 loCharWidthOffset;
 }
 
-[CRepr, FlexibleArray("WidthRun")]
+[CRepr]
 public struct WIDTHTABLE
 {
 	public uint32 dwSize;
 	public uint32 dwRunNum;
+	public WIDTHRUN* WidthRun mut => &WidthRun_impl;
 	private WIDTHRUN[ANYSIZE_ARRAY] WidthRun_impl;
 }
 
-[CRepr, FlexibleArray("KernPair")]
+[CRepr]
 public struct KERNDATA
 {
 	public uint32 dwSize;
 	public uint32 dwKernPairNum;
+	public FD_KERNINGPAIR* KernPair mut => &KernPair_impl;
 	private FD_KERNINGPAIR[ANYSIZE_ARRAY] KernPair_impl;
 }
 
@@ -5406,17 +4111,17 @@ public struct TRANSDATA
 		public uint8 ubCode;
 		public uint8[2] ubPairs;
 	}
-
 	public uint8 ubCodePageID;
 	public uint8 ubType;
 	public _uCode_e__Union uCode;
 }
 
-[CRepr, FlexibleArray("Trans")]
+[CRepr]
 public struct MAPTABLE
 {
 	public uint32 dwSize;
 	public uint32 dwGlyphNum;
+	public TRANSDATA* Trans mut => &Trans_impl;
 	private TRANSDATA[ANYSIZE_ARRAY] Trans_impl;
 }
 
@@ -5509,11 +4214,12 @@ public struct PORT_DATA_2
 	public uint32 dwPortMonitorMibIndex;
 }
 
-[CRepr, FlexibleArray("pPortData")]
+[CRepr]
 public struct PORT_DATA_LIST_1
 {
 	public uint32 dwVersion;
 	public uint32 cPortData;
+	public PORT_DATA_2* pPortData mut => &pPortData_impl;
 	private PORT_DATA_2[ANYSIZE_ARRAY] pPortData_impl;
 }
 
@@ -5601,16 +4307,16 @@ public struct BranchOfficeJobData
 		public BranchOfficeJobDataPipelineFailed LogPipelineFailed;
 		public BranchOfficeLogOfflineFileFull LogOfflineFileFull;
 	}
-
 	public EBranchOfficeJobEventType eEventType;
 	public uint32 JobId;
 	public _JobInfo_e__Union JobInfo;
 }
 
-[CRepr, FlexibleArray("JobData")]
+[CRepr]
 public struct BranchOfficeJobDataContainer
 {
 	public uint32 cJobDataEntries;
+	public BranchOfficeJobData* JobData mut => &JobData_impl;
 	private BranchOfficeJobData[ANYSIZE_ARRAY] JobData_impl;
 }
 

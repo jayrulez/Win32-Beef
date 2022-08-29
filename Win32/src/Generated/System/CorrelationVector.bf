@@ -7,15 +7,10 @@ namespace Win32.System.CorrelationVector;
 public static
 {
 	public const uint32 RTL_CORRELATION_VECTOR_STRING_LENGTH = 129;
-
 	public const uint32 RTL_CORRELATION_VECTOR_V1_PREFIX_LENGTH = 16;
-
 	public const uint32 RTL_CORRELATION_VECTOR_V1_LENGTH = 64;
-
 	public const uint32 RTL_CORRELATION_VECTOR_V2_PREFIX_LENGTH = 22;
-
 	public const uint32 RTL_CORRELATION_VECTOR_V2_LENGTH = 128;
-
 }
 #endregion
 

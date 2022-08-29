@@ -10,639 +10,322 @@ namespace Win32.Graphics.Direct3D9;
 public static
 {
 	public const uint32 D3DRTYPECOUNT = 8;
-
 	public const int32 D3DCS_LEFT = 1;
-
 	public const int32 D3DCS_RIGHT = 2;
-
 	public const int32 D3DCS_TOP = 4;
-
 	public const int32 D3DCS_BOTTOM = 8;
-
 	public const int32 D3DCS_FRONT = 16;
-
 	public const int32 D3DCS_BACK = 32;
-
 	public const int32 D3DCS_PLANE0 = 64;
-
 	public const int32 D3DCS_PLANE1 = 128;
-
 	public const int32 D3DCS_PLANE2 = 256;
-
 	public const int32 D3DCS_PLANE3 = 512;
-
 	public const int32 D3DCS_PLANE4 = 1024;
-
 	public const int32 D3DCS_PLANE5 = 2048;
-
 	public const uint32 D3D_MAX_SIMULTANEOUS_RENDERTARGETS = 4;
-
 	public const int32 D3DWRAP_W = 4;
-
 	public const uint32 D3DDMAPSAMPLER = 256;
-
 	public const uint32 D3DVERTEXTEXTURESAMPLER0 = 257;
-
 	public const uint32 D3DVERTEXTEXTURESAMPLER1 = 258;
-
 	public const uint32 D3DVERTEXTEXTURESAMPLER2 = 259;
-
 	public const uint32 D3DVERTEXTEXTURESAMPLER3 = 260;
-
 	public const uint32 D3DTSS_TCI_SPHEREMAP = 262144;
-
 	public const uint32 D3DTA_TEMP = 5;
-
 	public const uint32 D3DTA_CONSTANT = 6;
-
 	public const uint32 D3DFVF_XYZW = 16386;
-
 	public const uint32 D3DFVF_PSIZE = 32;
-
 	public const uint32 D3DFVF_LASTBETA_UBYTE4 = 4096;
-
 	public const uint32 D3DFVF_LASTBETA_D3DCOLOR = 32768;
-
 	public const uint32 MAXD3DDECLUSAGEINDEX = 15;
-
 	public const uint32 MAXD3DDECLLENGTH = 64;
-
 	public const uint32 D3DSTREAMSOURCE_INDEXEDDATA = 1073741824;
-
 	public const uint32 D3DSTREAMSOURCE_INSTANCEDATA = 2147483648;
-
 	public const uint32 D3DSI_OPCODE_MASK = 65535;
-
 	public const uint32 D3DSI_INSTLENGTH_MASK = 251658240;
-
 	public const uint32 D3DSI_INSTLENGTH_SHIFT = 24;
-
 	public const uint32 D3DSI_COISSUE = 1073741824;
-
 	public const uint32 D3DSP_OPCODESPECIFICCONTROL_MASK = 16711680;
-
 	public const uint32 D3DSP_OPCODESPECIFICCONTROL_SHIFT = 16;
-
 	public const uint32 D3DSHADER_COMPARISON_SHIFT = 16;
-
 	public const uint32 D3DSP_DCL_USAGE_SHIFT = 0;
-
 	public const uint32 D3DSP_DCL_USAGE_MASK = 15;
-
 	public const uint32 D3DSP_DCL_USAGEINDEX_SHIFT = 16;
-
 	public const uint32 D3DSP_DCL_USAGEINDEX_MASK = 983040;
-
 	public const uint32 D3DSP_TEXTURETYPE_SHIFT = 27;
-
 	public const uint32 D3DSP_TEXTURETYPE_MASK = 2013265920;
-
 	public const uint32 D3DSP_REGNUM_MASK = 2047;
-
 	public const uint32 D3DSP_WRITEMASK_0 = 65536;
-
 	public const uint32 D3DSP_WRITEMASK_1 = 131072;
-
 	public const uint32 D3DSP_WRITEMASK_2 = 262144;
-
 	public const uint32 D3DSP_WRITEMASK_3 = 524288;
-
 	public const uint32 D3DSP_WRITEMASK_ALL = 983040;
-
 	public const uint32 D3DSP_DSTMOD_SHIFT = 20;
-
 	public const uint32 D3DSP_DSTMOD_MASK = 15728640;
-
 	public const uint32 D3DSP_DSTSHIFT_SHIFT = 24;
-
 	public const uint32 D3DSP_DSTSHIFT_MASK = 251658240;
-
 	public const uint32 D3DSP_REGTYPE_SHIFT = 28;
-
 	public const uint32 D3DSP_REGTYPE_SHIFT2 = 8;
-
 	public const uint32 D3DSP_REGTYPE_MASK = 1879048192;
-
 	public const uint32 D3DSP_REGTYPE_MASK2 = 6144;
-
 	public const uint32 D3DVS_ADDRESSMODE_SHIFT = 13;
-
 	public const uint32 D3DSHADER_ADDRESSMODE_SHIFT = 13;
-
 	public const uint32 D3DVS_SWIZZLE_SHIFT = 16;
-
 	public const uint32 D3DVS_SWIZZLE_MASK = 16711680;
-
 	public const uint32 D3DSP_SWIZZLE_SHIFT = 16;
-
 	public const uint32 D3DSP_SWIZZLE_MASK = 16711680;
-
 	public const uint32 D3DSP_SRCMOD_SHIFT = 24;
-
 	public const uint32 D3DSP_SRCMOD_MASK = 251658240;
-
 	public const uint32 D3DSP_MIN_PRECISION_SHIFT = 14;
-
 	public const uint32 D3DSP_MIN_PRECISION_MASK = 49152;
-
 	public const uint32 D3DSI_COMMENTSIZE_SHIFT = 16;
-
 	public const uint32 D3DSI_COMMENTSIZE_MASK = 2147418112;
-
 	public const uint32 D3DPRESENT_RATE_DEFAULT = 0;
-
 	public const uint32 D3DPRESENTFLAG_LOCKABLE_BACKBUFFER = 1;
-
 	public const uint32 D3DPRESENTFLAG_DISCARD_DEPTHSTENCIL = 2;
-
 	public const uint32 D3DPRESENTFLAG_DEVICECLIP = 4;
-
 	public const uint32 D3DPRESENTFLAG_VIDEO = 16;
-
 	public const uint32 D3DPRESENTFLAG_NOAUTOROTATE = 32;
-
 	public const uint32 D3DPRESENTFLAG_UNPRUNEDMODE = 64;
-
 	public const uint32 D3DPRESENTFLAG_OVERLAY_LIMITEDRGB = 128;
-
 	public const uint32 D3DPRESENTFLAG_OVERLAY_YCbCr_BT709 = 256;
-
 	public const uint32 D3DPRESENTFLAG_OVERLAY_YCbCr_xvYCC = 512;
-
 	public const uint32 D3DPRESENTFLAG_RESTRICTED_CONTENT = 1024;
-
 	public const uint32 D3DPRESENTFLAG_RESTRICT_SHARED_RESOURCE_DRIVER = 2048;
-
 	public const int32 D3DUSAGE_RENDERTARGET = 1;
-
 	public const int32 D3DUSAGE_DEPTHSTENCIL = 2;
-
 	public const int32 D3DUSAGE_DYNAMIC = 512;
-
 	public const int32 D3DUSAGE_NONSECURE = 8388608;
-
 	public const int32 D3DUSAGE_AUTOGENMIPMAP = 1024;
-
 	public const int32 D3DUSAGE_DMAP = 16384;
-
 	public const int32 D3DUSAGE_QUERY_LEGACYBUMPMAP = 32768;
-
 	public const int32 D3DUSAGE_QUERY_SRGBREAD = 65536;
-
 	public const int32 D3DUSAGE_QUERY_FILTER = 131072;
-
 	public const int32 D3DUSAGE_QUERY_SRGBWRITE = 262144;
-
 	public const int32 D3DUSAGE_QUERY_POSTPIXELSHADER_BLENDING = 524288;
-
 	public const int32 D3DUSAGE_QUERY_VERTEXTEXTURE = 1048576;
-
 	public const int32 D3DUSAGE_QUERY_WRAPANDMIP = 2097152;
-
 	public const int32 D3DUSAGE_WRITEONLY = 8;
-
 	public const int32 D3DUSAGE_SOFTWAREPROCESSING = 16;
-
 	public const int32 D3DUSAGE_DONOTCLIP = 32;
-
 	public const int32 D3DUSAGE_POINTS = 64;
-
 	public const int32 D3DUSAGE_RTPATCHES = 128;
-
 	public const int32 D3DUSAGE_NPATCHES = 256;
-
 	public const int32 D3DUSAGE_TEXTAPI = 268435456;
-
 	public const int32 D3DUSAGE_RESTRICTED_CONTENT = 2048;
-
 	public const int32 D3DUSAGE_RESTRICT_SHARED_RESOURCE = 8192;
-
 	public const int32 D3DUSAGE_RESTRICT_SHARED_RESOURCE_DRIVER = 4096;
-
 	public const int32 D3DLOCK_READONLY = 16;
-
 	public const int32 D3DLOCK_DISCARD = 8192;
-
 	public const int32 D3DLOCK_NOOVERWRITE = 4096;
-
 	public const int32 D3DLOCK_NOSYSLOCK = 2048;
-
 	public const int32 D3DLOCK_DONOTWAIT = 16384;
-
 	public const int32 D3DLOCK_NO_DIRTY_UPDATE = 32768;
-
 	public const uint32 MAX_DEVICE_IDENTIFIER_STRING = 512;
-
 	public const uint32 D3DISSUE_END = 1;
-
 	public const uint32 D3DISSUE_BEGIN = 2;
-
 	public const uint32 D3DGETDATA_FLUSH = 1;
-
 	public const uint32 D3DCOMPOSERECTS_MAXNUMRECTS = 65535;
-
 	public const uint32 D3DCONVOLUTIONMONO_MAXWIDTH = 7;
-
 	public const uint32 D3DCONVOLUTIONMONO_MAXHEIGHT = 7;
-
 	public const uint32 D3DFMT_A1_SURFACE_MAXWIDTH = 8192;
-
 	public const uint32 D3DFMT_A1_SURFACE_MAXHEIGHT = 2048;
-
 	public const uint32 D3D9_RESOURCE_PRIORITY_MINIMUM = 671088640;
-
 	public const uint32 D3D9_RESOURCE_PRIORITY_LOW = 1342177280;
-
 	public const uint32 D3D9_RESOURCE_PRIORITY_NORMAL = 2013265920;
-
 	public const uint32 D3D9_RESOURCE_PRIORITY_HIGH = 2684354560;
-
 	public const uint32 D3D9_RESOURCE_PRIORITY_MAXIMUM = 3355443200;
-
 	public const uint32 D3D_OMAC_SIZE = 16;
-
 	public const Guid D3DAUTHENTICATEDQUERY_PROTECTION = .(0xa84eb584, 0xc495, 0x48aa, 0xb9, 0x4d, 0x8b, 0xd2, 0xd6, 0xfb, 0xce, 0x05);
-
 	public const Guid D3DAUTHENTICATEDQUERY_CHANNELTYPE = .(0xbc1b18a5, 0xb1fb, 0x42ab, 0xbd, 0x94, 0xb5, 0x82, 0x8b, 0x4b, 0xf7, 0xbe);
-
 	public const Guid D3DAUTHENTICATEDQUERY_DEVICEHANDLE = .(0xec1c539d, 0x8cff, 0x4e2a, 0xbc, 0xc4, 0xf5, 0x69, 0x2f, 0x99, 0xf4, 0x80);
-
 	public const Guid D3DAUTHENTICATEDQUERY_CRYPTOSESSION = .(0x2634499e, 0xd018, 0x4d74, 0xac, 0x17, 0x7f, 0x72, 0x40, 0x59, 0x52, 0x8d);
-
 	public const Guid D3DAUTHENTICATEDQUERY_RESTRICTEDSHAREDRESOURCEPROCESSCOUNT = .(0x0db207b3, 0x9450, 0x46a6, 0x82, 0xde, 0x1b, 0x96, 0xd4, 0x4f, 0x9c, 0xf2);
-
 	public const Guid D3DAUTHENTICATEDQUERY_RESTRICTEDSHAREDRESOURCEPROCESS = .(0x649bbadb, 0xf0f4, 0x4639, 0xa1, 0x5b, 0x24, 0x39, 0x3f, 0xc3, 0xab, 0xac);
-
 	public const Guid D3DAUTHENTICATEDQUERY_UNRESTRICTEDPROTECTEDSHAREDRESOURCECOUNT = .(0x012f0bd6, 0xe662, 0x4474, 0xbe, 0xfd, 0xaa, 0x53, 0xe5, 0x14, 0x3c, 0x6d);
-
 	public const Guid D3DAUTHENTICATEDQUERY_OUTPUTIDCOUNT = .(0x2c042b5e, 0x8c07, 0x46d5, 0xaa, 0xbe, 0x8f, 0x75, 0xcb, 0xad, 0x4c, 0x31);
-
 	public const Guid D3DAUTHENTICATEDQUERY_OUTPUTID = .(0x839ddca3, 0x9b4e, 0x41e4, 0xb0, 0x53, 0x89, 0x2b, 0xd2, 0xa1, 0x1e, 0xe7);
-
 	public const Guid D3DAUTHENTICATEDQUERY_ACCESSIBILITYATTRIBUTES = .(0x6214d9d2, 0x432c, 0x4abb, 0x9f, 0xce, 0x21, 0x6e, 0xea, 0x26, 0x9e, 0x3b);
-
 	public const Guid D3DAUTHENTICATEDQUERY_ENCRYPTIONWHENACCESSIBLEGUIDCOUNT = .(0xb30f7066, 0x203c, 0x4b07, 0x93, 0xfc, 0xce, 0xaa, 0xfd, 0x61, 0x24, 0x1e);
-
 	public const Guid D3DAUTHENTICATEDQUERY_ENCRYPTIONWHENACCESSIBLEGUID = .(0xf83a5958, 0xe986, 0x4bda, 0xbe, 0xb0, 0x41, 0x1f, 0x6a, 0x7a, 0x01, 0xb7);
-
 	public const Guid D3DAUTHENTICATEDQUERY_CURRENTENCRYPTIONWHENACCESSIBLE = .(0xec1791c7, 0xdad3, 0x4f15, 0x9e, 0xc3, 0xfa, 0xa9, 0x3d, 0x60, 0xd4, 0xf0);
-
 	public const Guid D3DAUTHENTICATEDCONFIGURE_INITIALIZE = .(0x06114bdb, 0x3523, 0x470a, 0x8d, 0xca, 0xfb, 0xc2, 0x84, 0x51, 0x54, 0xf0);
-
 	public const Guid D3DAUTHENTICATEDCONFIGURE_PROTECTION = .(0x50455658, 0x3f47, 0x4362, 0xbf, 0x99, 0xbf, 0xdf, 0xcd, 0xe9, 0xed, 0x29);
-
 	public const Guid D3DAUTHENTICATEDCONFIGURE_CRYPTOSESSION = .(0x6346cc54, 0x2cfc, 0x4ad4, 0x82, 0x24, 0xd1, 0x58, 0x37, 0xde, 0x77, 0x00);
-
 	public const Guid D3DAUTHENTICATEDCONFIGURE_SHAREDRESOURCE = .(0x0772d047, 0x1b40, 0x48e8, 0x9c, 0xa6, 0xb5, 0xf5, 0x10, 0xde, 0x9f, 0x01);
-
 	public const Guid D3DAUTHENTICATEDCONFIGURE_ENCRYPTIONWHENACCESSIBLE = .(0x41fff286, 0x6ae0, 0x4d43, 0x9d, 0x55, 0xa4, 0x6e, 0x9e, 0xfd, 0x15, 0x8a);
-
 	public const uint32 D3DVS20CAPS_PREDICATION = 1;
-
 	public const uint32 D3DVS20_MAX_DYNAMICFLOWCONTROLDEPTH = 24;
-
 	public const uint32 D3DVS20_MIN_DYNAMICFLOWCONTROLDEPTH = 0;
-
 	public const uint32 D3DVS20_MAX_NUMTEMPS = 32;
-
 	public const uint32 D3DVS20_MIN_NUMTEMPS = 12;
-
 	public const uint32 D3DVS20_MAX_STATICFLOWCONTROLDEPTH = 4;
-
 	public const uint32 D3DVS20_MIN_STATICFLOWCONTROLDEPTH = 1;
-
 	public const uint32 D3DPS20CAPS_ARBITRARYSWIZZLE = 1;
-
 	public const uint32 D3DPS20CAPS_GRADIENTINSTRUCTIONS = 2;
-
 	public const uint32 D3DPS20CAPS_PREDICATION = 4;
-
 	public const uint32 D3DPS20CAPS_NODEPENDENTREADLIMIT = 8;
-
 	public const uint32 D3DPS20CAPS_NOTEXINSTRUCTIONLIMIT = 16;
-
 	public const uint32 D3DPS20_MAX_DYNAMICFLOWCONTROLDEPTH = 24;
-
 	public const uint32 D3DPS20_MIN_DYNAMICFLOWCONTROLDEPTH = 0;
-
 	public const uint32 D3DPS20_MAX_NUMTEMPS = 32;
-
 	public const uint32 D3DPS20_MIN_NUMTEMPS = 12;
-
 	public const uint32 D3DPS20_MAX_STATICFLOWCONTROLDEPTH = 4;
-
 	public const uint32 D3DPS20_MIN_STATICFLOWCONTROLDEPTH = 0;
-
 	public const uint32 D3DPS20_MAX_NUMINSTRUCTIONSLOTS = 512;
-
 	public const uint32 D3DPS20_MIN_NUMINSTRUCTIONSLOTS = 96;
-
 	public const uint32 D3DMIN30SHADERINSTRUCTIONS = 512;
-
 	public const uint32 D3DMAX30SHADERINSTRUCTIONS = 32768;
-
 	public const uint32 D3DOVERLAYCAPS_FULLRANGERGB = 1;
-
 	public const uint32 D3DOVERLAYCAPS_LIMITEDRANGERGB = 2;
-
 	public const uint32 D3DOVERLAYCAPS_YCbCr_BT601 = 4;
-
 	public const uint32 D3DOVERLAYCAPS_YCbCr_BT709 = 8;
-
 	public const uint32 D3DOVERLAYCAPS_YCbCr_BT601_xvYCC = 16;
-
 	public const uint32 D3DOVERLAYCAPS_YCbCr_BT709_xvYCC = 32;
-
 	public const uint32 D3DOVERLAYCAPS_STRETCHX = 64;
-
 	public const uint32 D3DOVERLAYCAPS_STRETCHY = 128;
-
 	public const uint32 D3DCPCAPS_SOFTWARE = 1;
-
 	public const uint32 D3DCPCAPS_HARDWARE = 2;
-
 	public const uint32 D3DCPCAPS_PROTECTIONALWAYSON = 4;
-
 	public const uint32 D3DCPCAPS_PARTIALDECRYPTION = 8;
-
 	public const uint32 D3DCPCAPS_CONTENTKEY = 16;
-
 	public const uint32 D3DCPCAPS_FRESHENSESSIONKEY = 32;
-
 	public const uint32 D3DCPCAPS_ENCRYPTEDREADBACK = 64;
-
 	public const uint32 D3DCPCAPS_ENCRYPTEDREADBACKKEY = 128;
-
 	public const uint32 D3DCPCAPS_SEQUENTIAL_CTR_IV = 256;
-
 	public const uint32 D3DCPCAPS_ENCRYPTSLICEDATAONLY = 512;
-
 	public const Guid D3DCRYPTOTYPE_AES128_CTR = .(0x9b6bd711, 0x4f74, 0x41c9, 0x9e, 0x7b, 0x0b, 0xe2, 0xd7, 0xd9, 0x3b, 0x4f);
-
 	public const Guid D3DCRYPTOTYPE_PROPRIETARY = .(0xab4e9afd, 0x1d1c, 0x46e6, 0xa7, 0x2f, 0x08, 0x69, 0x91, 0x7b, 0x0d, 0xe8);
-
 	public const Guid D3DKEYEXCHANGE_RSAES_OAEP = .(0xc1949895, 0xd72a, 0x4a1d, 0x8e, 0x5d, 0xed, 0x85, 0x7d, 0x17, 0x15, 0x20);
-
 	public const Guid D3DKEYEXCHANGE_DXVA = .(0x43d3775c, 0x38e5, 0x4924, 0x8d, 0x86, 0xd3, 0xfc, 0xcf, 0x15, 0x3e, 0x9b);
-
 	public const int32 D3DCAPS_OVERLAY = 2048;
-
 	public const int32 D3DCAPS_READ_SCANLINE = 131072;
-
 	public const int32 D3DCAPS2_FULLSCREENGAMMA = 131072;
-
 	public const int32 D3DCAPS2_CANCALIBRATEGAMMA = 1048576;
-
 	public const int32 D3DCAPS2_RESERVED = 33554432;
-
 	public const int32 D3DCAPS2_CANMANAGERESOURCE = 268435456;
-
 	public const int32 D3DCAPS2_DYNAMICTEXTURES = 536870912;
-
 	public const int32 D3DCAPS2_CANAUTOGENMIPMAP = 1073741824;
-
 	public const int32 D3DCAPS2_CANSHARERESOURCE = -2147483648;
-
 	public const int32 D3DCAPS3_RESERVED = -2147483617;
-
 	public const int32 D3DCAPS3_ALPHA_FULLSCREEN_FLIP_OR_DISCARD = 32;
-
 	public const int32 D3DCAPS3_LINEAR_TO_SRGB_PRESENTATION = 128;
-
 	public const int32 D3DCAPS3_COPY_TO_VIDMEM = 256;
-
 	public const int32 D3DCAPS3_COPY_TO_SYSTEMMEM = 512;
-
 	public const int32 D3DCAPS3_DXVAHD = 1024;
-
 	public const int32 D3DCAPS3_DXVAHD_LIMITED = 2048;
-
 	public const int32 D3DPRESENT_INTERVAL_DEFAULT = 0;
-
 	public const int32 D3DPRESENT_INTERVAL_ONE = 1;
-
 	public const int32 D3DPRESENT_INTERVAL_TWO = 2;
-
 	public const int32 D3DPRESENT_INTERVAL_THREE = 4;
-
 	public const int32 D3DPRESENT_INTERVAL_FOUR = 8;
-
 	public const int32 D3DPRESENT_INTERVAL_IMMEDIATE = -2147483648;
-
 	public const int32 D3DCURSORCAPS_COLOR = 1;
-
 	public const int32 D3DCURSORCAPS_LOWRES = 2;
-
 	public const int32 D3DDEVCAPS_PUREDEVICE = 1048576;
-
 	public const int32 D3DDEVCAPS_QUINTICRTPATCHES = 2097152;
-
 	public const int32 D3DDEVCAPS_RTPATCHES = 4194304;
-
 	public const int32 D3DDEVCAPS_RTPATCHHANDLEZERO = 8388608;
-
 	public const int32 D3DDEVCAPS_NPATCHES = 16777216;
-
 	public const int32 D3DPMISCCAPS_COLORWRITEENABLE = 128;
-
 	public const int32 D3DPMISCCAPS_CLIPPLANESCALEDPOINTS = 256;
-
 	public const int32 D3DPMISCCAPS_CLIPTLVERTS = 512;
-
 	public const int32 D3DPMISCCAPS_TSSARGTEMP = 1024;
-
 	public const int32 D3DPMISCCAPS_BLENDOP = 2048;
-
 	public const int32 D3DPMISCCAPS_NULLREFERENCE = 4096;
-
 	public const int32 D3DPMISCCAPS_INDEPENDENTWRITEMASKS = 16384;
-
 	public const int32 D3DPMISCCAPS_PERSTAGECONSTANT = 32768;
-
 	public const int32 D3DPMISCCAPS_FOGANDSPECULARALPHA = 65536;
-
 	public const int32 D3DPMISCCAPS_SEPARATEALPHABLEND = 131072;
-
 	public const int32 D3DPMISCCAPS_MRTINDEPENDENTBITDEPTHS = 262144;
-
 	public const int32 D3DPMISCCAPS_MRTPOSTPIXELSHADERBLENDING = 524288;
-
 	public const int32 D3DPMISCCAPS_FOGVERTEXCLAMPED = 1048576;
-
 	public const int32 D3DPMISCCAPS_POSTBLENDSRGBCONVERT = 2097152;
-
 	public const int32 D3DLINECAPS_TEXTURE = 1;
-
 	public const int32 D3DLINECAPS_ZTEST = 2;
-
 	public const int32 D3DLINECAPS_BLEND = 4;
-
 	public const int32 D3DLINECAPS_ALPHACMP = 8;
-
 	public const int32 D3DLINECAPS_FOG = 16;
-
 	public const int32 D3DLINECAPS_ANTIALIAS = 32;
-
 	public const int32 D3DPRASTERCAPS_COLORPERSPECTIVE = 4194304;
-
 	public const int32 D3DPRASTERCAPS_SCISSORTEST = 16777216;
-
 	public const int32 D3DPRASTERCAPS_SLOPESCALEDEPTHBIAS = 33554432;
-
 	public const int32 D3DPRASTERCAPS_DEPTHBIAS = 67108864;
-
 	public const int32 D3DPRASTERCAPS_MULTISAMPLE_TOGGLE = 134217728;
-
 	public const int32 D3DPBLENDCAPS_BLENDFACTOR = 8192;
-
 	public const int32 D3DPBLENDCAPS_SRCCOLOR2 = 16384;
-
 	public const int32 D3DPBLENDCAPS_INVSRCCOLOR2 = 32768;
-
 	public const int32 D3DPTEXTURECAPS_VOLUMEMAP = 8192;
-
 	public const int32 D3DPTEXTURECAPS_MIPMAP = 16384;
-
 	public const int32 D3DPTEXTURECAPS_MIPVOLUMEMAP = 32768;
-
 	public const int32 D3DPTEXTURECAPS_MIPCUBEMAP = 65536;
-
 	public const int32 D3DPTEXTURECAPS_CUBEMAP_POW2 = 131072;
-
 	public const int32 D3DPTEXTURECAPS_VOLUMEMAP_POW2 = 262144;
-
 	public const int32 D3DPTEXTURECAPS_NOPROJECTEDBUMPENV = 2097152;
-
 	public const int32 D3DPTFILTERCAPS_MINFPYRAMIDALQUAD = 2048;
-
 	public const int32 D3DPTFILTERCAPS_MINFGAUSSIANQUAD = 4096;
-
 	public const int32 D3DPTFILTERCAPS_CONVOLUTIONMONO = 262144;
-
 	public const int32 D3DPTFILTERCAPS_MAGFPYRAMIDALQUAD = 134217728;
-
 	public const int32 D3DPTFILTERCAPS_MAGFGAUSSIANQUAD = 268435456;
-
 	public const int32 D3DPTADDRESSCAPS_MIRRORONCE = 32;
-
 	public const int32 D3DSTENCILCAPS_TWOSIDED = 256;
-
 	public const int32 D3DTEXOPCAPS_MULTIPLYADD = 16777216;
-
 	public const int32 D3DTEXOPCAPS_LERP = 33554432;
-
 	public const int32 D3DFVFCAPS_PSIZE = 1048576;
-
 	public const int32 D3DVTXPCAPS_TWEENING = 64;
-
 	public const int32 D3DVTXPCAPS_TEXGEN_SPHEREMAP = 256;
-
 	public const int32 D3DVTXPCAPS_NO_TEXGEN_NONLOCALVIEWER = 512;
-
 	public const int32 D3DDEVCAPS2_STREAMOFFSET = 1;
-
 	public const int32 D3DDEVCAPS2_DMAPNPATCH = 2;
-
 	public const int32 D3DDEVCAPS2_ADAPTIVETESSRTPATCH = 4;
-
 	public const int32 D3DDEVCAPS2_ADAPTIVETESSNPATCH = 8;
-
 	public const int32 D3DDEVCAPS2_CAN_STRETCHRECT_FROM_TEXTURES = 16;
-
 	public const int32 D3DDEVCAPS2_PRESAMPLEDDMAPNPATCH = 32;
-
 	public const int32 D3DDEVCAPS2_VERTEXELEMENTSCANSHARESTREAMOFFSET = 64;
-
 	public const int32 D3DDTCAPS_UBYTE4 = 1;
-
 	public const int32 D3DDTCAPS_UBYTE4N = 2;
-
 	public const int32 D3DDTCAPS_SHORT2N = 4;
-
 	public const int32 D3DDTCAPS_SHORT4N = 8;
-
 	public const int32 D3DDTCAPS_USHORT2N = 16;
-
 	public const int32 D3DDTCAPS_USHORT4N = 32;
-
 	public const int32 D3DDTCAPS_UDEC3 = 64;
-
 	public const int32 D3DDTCAPS_DEC3N = 128;
-
 	public const int32 D3DDTCAPS_FLOAT16_2 = 256;
-
 	public const int32 D3DDTCAPS_FLOAT16_4 = 512;
-
 	public const int32 D3DSPD_IUNKNOWN = 1;
-
 	public const int32 D3DCREATE_FPU_PRESERVE = 2;
-
 	public const int32 D3DCREATE_MULTITHREADED = 4;
-
 	public const int32 D3DCREATE_PUREDEVICE = 16;
-
 	public const int32 D3DCREATE_SOFTWARE_VERTEXPROCESSING = 32;
-
 	public const int32 D3DCREATE_HARDWARE_VERTEXPROCESSING = 64;
-
 	public const int32 D3DCREATE_MIXED_VERTEXPROCESSING = 128;
-
 	public const int32 D3DCREATE_DISABLE_DRIVER_MANAGEMENT = 256;
-
 	public const int32 D3DCREATE_ADAPTERGROUP_DEVICE = 512;
-
 	public const uint32 D3DADAPTER_DEFAULT = 0;
-
 	public const int32 D3DENUM_NO_DRIVERVERSION = 4;
-
 	public const int32 D3DPRESENT_BACK_BUFFERS_MAX = 3;
-
 	public const int32 D3DSGR_NO_CALIBRATION = 0;
-
 	public const int32 D3DSGR_CALIBRATE = 1;
-
 	public const int32 D3DCURSOR_IMMEDIATE_UPDATE = 1;
-
 	public const int32 D3DPRESENT_DONOTWAIT = 1;
-
 	public const int32 D3DPRESENT_LINEAR_CONTENT = 2;
-
 	public const uint32 _FACD3D = 2166;
-
 	public const uint32 D3D_SDK_VERSION = 32;
-
 	public const uint32 D3D9b_SDK_VERSION = 31;
-
 	public const int32 D3DCREATE_DISABLE_DRIVER_MANAGEMENT_EX = 1024;
-
 	public const int32 D3DCREATE_NOWINDOWCHANGES = 2048;
-
 	public const int32 D3DCREATE_DISABLE_PSGP_THREADING = 8192;
-
 	public const int32 D3DCREATE_ENABLE_PRESENTSTATS = 16384;
-
 	public const int32 D3DCREATE_DISABLE_PRINTSCREEN = 32768;
-
 	public const int32 D3DCREATE_SCREENSAVER = 268435456;
-
 	public const int32 D3DENUM_WHQL_LEVEL = 2;
-
 	public const int32 D3DPRESENT_BACK_BUFFERS_MAX_EX = 30;
-
 	public const int32 D3DPRESENT_DONOTFLIP = 4;
-
 	public const int32 D3DPRESENT_FLIPRESTART = 8;
-
 	public const int32 D3DPRESENT_VIDEO_RESTRICT_TO_MONITOR = 16;
-
 	public const int32 D3DPRESENT_UPDATEOVERLAYONLY = 32;
-
 	public const int32 D3DPRESENT_HIDEOVERLAY = 64;
-
 	public const int32 D3DPRESENT_UPDATECOLORKEY = 128;
-
 	public const int32 D3DPRESENT_FORCEIMMEDIATE = 256;
-
 }
 #endregion
 
@@ -2048,11 +1731,9 @@ public struct D3DAUTHENTICATEDCHANNEL_PROTECTION_FLAGS
 		{
 			public uint32 _bitfield;
 		}
-
 		public using _Anonymous_e__Struct Anonymous;
 		public uint32 Value;
 	}
-
 	public using _Anonymous_e__Union Anonymous;
 }
 

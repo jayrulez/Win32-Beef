@@ -14,13 +14,9 @@ namespace Win32.Graphics.DirectComposition;
 public static
 {
 	public const int32 COMPOSITIONOBJECT_READ = 1;
-
 	public const int32 COMPOSITIONOBJECT_WRITE = 2;
-
 	public const uint32 DCOMPOSITION_MAX_WAITFORCOMPOSITORCLOCK_OBJECTS = 32;
-
 	public const uint32 COMPOSITION_STATS_MAX_TARGETS = 256;
-
 }
 #endregion
 

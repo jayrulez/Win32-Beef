@@ -8,53 +8,29 @@ namespace Win32.Security.ConfigurationSnapin;
 public static
 {
 	public const Guid cNodetypeSceTemplateServices = .(0x24a7f717, 0x1f0c, 0x11d1, 0xaf, 0xfb, 0x00, 0xc0, 0x4f, 0xb9, 0x84, 0xf9);
-
 	public const Guid cNodetypeSceAnalysisServices = .(0x678050c7, 0x1ff8, 0x11d1, 0xaf, 0xfb, 0x00, 0xc0, 0x4f, 0xb9, 0x84, 0xf9);
-
 	public const Guid cNodetypeSceEventLog = .(0x2ce06698, 0x4bf3, 0x11d1, 0x8c, 0x30, 0x00, 0xc0, 0x4f, 0xb9, 0x84, 0xf9);
-
 	public const int32 SCESTATUS_SUCCESS = 0;
-
 	public const int32 SCESTATUS_INVALID_PARAMETER = 1;
-
 	public const int32 SCESTATUS_RECORD_NOT_FOUND = 2;
-
 	public const int32 SCESTATUS_INVALID_DATA = 3;
-
 	public const int32 SCESTATUS_OBJECT_EXIST = 4;
-
 	public const int32 SCESTATUS_BUFFER_TOO_SMALL = 5;
-
 	public const int32 SCESTATUS_PROFILE_NOT_FOUND = 6;
-
 	public const int32 SCESTATUS_BAD_FORMAT = 7;
-
 	public const int32 SCESTATUS_NOT_ENOUGH_RESOURCE = 8;
-
 	public const int32 SCESTATUS_ACCESS_DENIED = 9;
-
 	public const int32 SCESTATUS_CANT_DELETE = 10;
-
 	public const int32 SCESTATUS_PREFIX_OVERFLOW = 11;
-
 	public const int32 SCESTATUS_OTHER_ERROR = 12;
-
 	public const int32 SCESTATUS_ALREADY_RUNNING = 13;
-
 	public const int32 SCESTATUS_SERVICE_NOT_SUPPORT = 14;
-
 	public const int32 SCESTATUS_MOD_NOT_FOUND = 15;
-
 	public const int32 SCESTATUS_EXCEPTION_IN_SERVER = 16;
-
 	public const int32 SCESTATUS_NO_TEMPLATE_GIVEN = 17;
-
 	public const int32 SCESTATUS_NO_MAPPING = 18;
-
 	public const int32 SCESTATUS_TRUST_FAIL = 19;
-
 	public const int32 SCESVC_ENUMERATION_MAX = 100;
-
 }
 #endregion
 

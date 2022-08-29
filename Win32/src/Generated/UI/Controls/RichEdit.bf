@@ -15,909 +15,457 @@ namespace Win32.UI.Controls.RichEdit;
 public static
 {
 	public const uint32 WM_CONTEXTMENU = 123;
-
 	public const uint32 WM_UNICHAR = 265;
-
 	public const uint32 WM_PRINTCLIENT = 792;
-
 	public const uint32 EM_CANPASTE = 1074;
-
 	public const uint32 EM_DISPLAYBAND = 1075;
-
 	public const uint32 EM_EXGETSEL = 1076;
-
 	public const uint32 EM_EXLIMITTEXT = 1077;
-
 	public const uint32 EM_EXLINEFROMCHAR = 1078;
-
 	public const uint32 EM_EXSETSEL = 1079;
-
 	public const uint32 EM_FINDTEXT = 1080;
-
 	public const uint32 EM_FORMATRANGE = 1081;
-
 	public const uint32 EM_GETCHARFORMAT = 1082;
-
 	public const uint32 EM_GETEVENTMASK = 1083;
-
 	public const uint32 EM_GETOLEINTERFACE = 1084;
-
 	public const uint32 EM_GETPARAFORMAT = 1085;
-
 	public const uint32 EM_GETSELTEXT = 1086;
-
 	public const uint32 EM_HIDESELECTION = 1087;
-
 	public const uint32 EM_PASTESPECIAL = 1088;
-
 	public const uint32 EM_REQUESTRESIZE = 1089;
-
 	public const uint32 EM_SELECTIONTYPE = 1090;
-
 	public const uint32 EM_SETBKGNDCOLOR = 1091;
-
 	public const uint32 EM_SETCHARFORMAT = 1092;
-
 	public const uint32 EM_SETEVENTMASK = 1093;
-
 	public const uint32 EM_SETOLECALLBACK = 1094;
-
 	public const uint32 EM_SETPARAFORMAT = 1095;
-
 	public const uint32 EM_SETTARGETDEVICE = 1096;
-
 	public const uint32 EM_STREAMIN = 1097;
-
 	public const uint32 EM_STREAMOUT = 1098;
-
 	public const uint32 EM_GETTEXTRANGE = 1099;
-
 	public const uint32 EM_FINDWORDBREAK = 1100;
-
 	public const uint32 EM_SETOPTIONS = 1101;
-
 	public const uint32 EM_GETOPTIONS = 1102;
-
 	public const uint32 EM_FINDTEXTEX = 1103;
-
 	public const uint32 EM_GETWORDBREAKPROCEX = 1104;
-
 	public const uint32 EM_SETWORDBREAKPROCEX = 1105;
-
 	public const uint32 EM_SETUNDOLIMIT = 1106;
-
 	public const uint32 EM_REDO = 1108;
-
 	public const uint32 EM_CANREDO = 1109;
-
 	public const uint32 EM_GETUNDONAME = 1110;
-
 	public const uint32 EM_GETREDONAME = 1111;
-
 	public const uint32 EM_STOPGROUPTYPING = 1112;
-
 	public const uint32 EM_SETTEXTMODE = 1113;
-
 	public const uint32 EM_GETTEXTMODE = 1114;
-
 	public const uint32 EM_AUTOURLDETECT = 1115;
-
 	public const uint32 AURL_ENABLEURL = 1;
-
 	public const uint32 AURL_ENABLEEMAILADDR = 2;
-
 	public const uint32 AURL_ENABLETELNO = 4;
-
 	public const uint32 AURL_ENABLEEAURLS = 8;
-
 	public const uint32 AURL_ENABLEDRIVELETTERS = 16;
-
 	public const uint32 AURL_DISABLEMIXEDLGC = 32;
-
 	public const uint32 EM_GETAUTOURLDETECT = 1116;
-
 	public const uint32 EM_SETPALETTE = 1117;
-
 	public const uint32 EM_GETTEXTEX = 1118;
-
 	public const uint32 EM_GETTEXTLENGTHEX = 1119;
-
 	public const uint32 EM_SHOWSCROLLBAR = 1120;
-
 	public const uint32 EM_SETTEXTEX = 1121;
-
 	public const uint32 EM_SETPUNCTUATION = 1124;
-
 	public const uint32 EM_GETPUNCTUATION = 1125;
-
 	public const uint32 EM_SETWORDWRAPMODE = 1126;
-
 	public const uint32 EM_GETWORDWRAPMODE = 1127;
-
 	public const uint32 EM_SETIMECOLOR = 1128;
-
 	public const uint32 EM_GETIMECOLOR = 1129;
-
 	public const uint32 EM_SETIMEOPTIONS = 1130;
-
 	public const uint32 EM_GETIMEOPTIONS = 1131;
-
 	public const uint32 EM_CONVPOSITION = 1132;
-
 	public const uint32 EM_SETLANGOPTIONS = 1144;
-
 	public const uint32 EM_GETLANGOPTIONS = 1145;
-
 	public const uint32 EM_GETIMECOMPMODE = 1146;
-
 	public const uint32 EM_FINDTEXTW = 1147;
-
 	public const uint32 EM_FINDTEXTEXW = 1148;
-
 	public const uint32 EM_RECONVERSION = 1149;
-
 	public const uint32 EM_SETIMEMODEBIAS = 1150;
-
 	public const uint32 EM_GETIMEMODEBIAS = 1151;
-
 	public const uint32 EM_SETBIDIOPTIONS = 1224;
-
 	public const uint32 EM_GETBIDIOPTIONS = 1225;
-
 	public const uint32 EM_SETTYPOGRAPHYOPTIONS = 1226;
-
 	public const uint32 EM_GETTYPOGRAPHYOPTIONS = 1227;
-
 	public const uint32 EM_SETEDITSTYLE = 1228;
-
 	public const uint32 EM_GETEDITSTYLE = 1229;
-
 	public const uint32 SES_EMULATESYSEDIT = 1;
-
 	public const uint32 SES_BEEPONMAXTEXT = 2;
-
 	public const uint32 SES_EXTENDBACKCOLOR = 4;
-
 	public const uint32 SES_MAPCPS = 8;
-
 	public const uint32 SES_HYPERLINKTOOLTIPS = 8;
-
 	public const uint32 SES_EMULATE10 = 16;
-
 	public const uint32 SES_DEFAULTLATINLIGA = 16;
-
 	public const uint32 SES_USECRLF = 32;
-
 	public const uint32 SES_NOFOCUSLINKNOTIFY = 32;
-
 	public const uint32 SES_USEAIMM = 64;
-
 	public const uint32 SES_NOIME = 128;
-
 	public const uint32 SES_ALLOWBEEPS = 256;
-
 	public const uint32 SES_UPPERCASE = 512;
-
 	public const uint32 SES_LOWERCASE = 1024;
-
 	public const uint32 SES_NOINPUTSEQUENCECHK = 2048;
-
 	public const uint32 SES_BIDI = 4096;
-
 	public const uint32 SES_SCROLLONKILLFOCUS = 8192;
-
 	public const uint32 SES_XLTCRCRLFTOCR = 16384;
-
 	public const uint32 SES_DRAFTMODE = 32768;
-
 	public const uint32 SES_USECTF = 65536;
-
 	public const uint32 SES_HIDEGRIDLINES = 131072;
-
 	public const uint32 SES_USEATFONT = 262144;
-
 	public const uint32 SES_CUSTOMLOOK = 524288;
-
 	public const uint32 SES_LBSCROLLNOTIFY = 1048576;
-
 	public const uint32 SES_CTFALLOWEMBED = 2097152;
-
 	public const uint32 SES_CTFALLOWSMARTTAG = 4194304;
-
 	public const uint32 SES_CTFALLOWPROOFING = 8388608;
-
 	public const uint32 SES_LOGICALCARET = 16777216;
-
 	public const uint32 SES_WORDDRAGDROP = 33554432;
-
 	public const uint32 SES_SMARTDRAGDROP = 67108864;
-
 	public const uint32 SES_MULTISELECT = 134217728;
-
 	public const uint32 SES_CTFNOLOCK = 268435456;
-
 	public const uint32 SES_NOEALINEHEIGHTADJUST = 536870912;
-
 	public const uint32 SES_MAX = 536870912;
-
 	public const uint32 IMF_AUTOKEYBOARD = 1;
-
 	public const uint32 IMF_AUTOFONT = 2;
-
 	public const uint32 IMF_IMECANCELCOMPLETE = 4;
-
 	public const uint32 IMF_IMEALWAYSSENDNOTIFY = 8;
-
 	public const uint32 IMF_AUTOFONTSIZEADJUST = 16;
-
 	public const uint32 IMF_UIFONTS = 32;
-
 	public const uint32 IMF_NOIMPLICITLANG = 64;
-
 	public const uint32 IMF_DUALFONT = 128;
-
 	public const uint32 IMF_NOKBDLIDFIXUP = 512;
-
 	public const uint32 IMF_NORTFFONTSUBSTITUTE = 1024;
-
 	public const uint32 IMF_SPELLCHECKING = 2048;
-
 	public const uint32 IMF_TKBPREDICTION = 4096;
-
 	public const uint32 IMF_IMEUIINTEGRATION = 8192;
-
 	public const uint32 ICM_NOTOPEN = 0;
-
 	public const uint32 ICM_LEVEL3 = 1;
-
 	public const uint32 ICM_LEVEL2 = 2;
-
 	public const uint32 ICM_LEVEL2_5 = 3;
-
 	public const uint32 ICM_LEVEL2_SUI = 4;
-
 	public const uint32 ICM_CTF = 5;
-
 	public const uint32 TO_ADVANCEDTYPOGRAPHY = 1;
-
 	public const uint32 TO_SIMPLELINEBREAK = 2;
-
 	public const uint32 TO_DISABLECUSTOMTEXTOUT = 4;
-
 	public const uint32 TO_ADVANCEDLAYOUT = 8;
-
 	public const uint32 EM_OUTLINE = 1244;
-
 	public const uint32 EM_GETSCROLLPOS = 1245;
-
 	public const uint32 EM_SETSCROLLPOS = 1246;
-
 	public const uint32 EM_SETFONTSIZE = 1247;
-
 	public const uint32 EM_GETZOOM = 1248;
-
 	public const uint32 EM_SETZOOM = 1249;
-
 	public const uint32 EM_GETVIEWKIND = 1250;
-
 	public const uint32 EM_SETVIEWKIND = 1251;
-
 	public const uint32 EM_GETPAGE = 1252;
-
 	public const uint32 EM_SETPAGE = 1253;
-
 	public const uint32 EM_GETHYPHENATEINFO = 1254;
-
 	public const uint32 EM_SETHYPHENATEINFO = 1255;
-
 	public const uint32 EM_GETPAGEROTATE = 1259;
-
 	public const uint32 EM_SETPAGEROTATE = 1260;
-
 	public const uint32 EM_GETCTFMODEBIAS = 1261;
-
 	public const uint32 EM_SETCTFMODEBIAS = 1262;
-
 	public const uint32 EM_GETCTFOPENSTATUS = 1264;
-
 	public const uint32 EM_SETCTFOPENSTATUS = 1265;
-
 	public const uint32 EM_GETIMECOMPTEXT = 1266;
-
 	public const uint32 EM_ISIME = 1267;
-
 	public const uint32 EM_GETIMEPROPERTY = 1268;
-
 	public const uint32 EM_GETQUERYRTFOBJ = 1293;
-
 	public const uint32 EM_SETQUERYRTFOBJ = 1294;
-
 	public const uint32 EPR_0 = 0;
-
 	public const uint32 EPR_270 = 1;
-
 	public const uint32 EPR_180 = 2;
-
 	public const uint32 EPR_90 = 3;
-
 	public const uint32 EPR_SE = 5;
-
 	public const uint32 CTFMODEBIAS_DEFAULT = 0;
-
 	public const uint32 CTFMODEBIAS_FILENAME = 1;
-
 	public const uint32 CTFMODEBIAS_NAME = 2;
-
 	public const uint32 CTFMODEBIAS_READING = 3;
-
 	public const uint32 CTFMODEBIAS_DATETIME = 4;
-
 	public const uint32 CTFMODEBIAS_CONVERSATION = 5;
-
 	public const uint32 CTFMODEBIAS_NUMERIC = 6;
-
 	public const uint32 CTFMODEBIAS_HIRAGANA = 7;
-
 	public const uint32 CTFMODEBIAS_KATAKANA = 8;
-
 	public const uint32 CTFMODEBIAS_HANGUL = 9;
-
 	public const uint32 CTFMODEBIAS_HALFWIDTHKATAKANA = 10;
-
 	public const uint32 CTFMODEBIAS_FULLWIDTHALPHANUMERIC = 11;
-
 	public const uint32 CTFMODEBIAS_HALFWIDTHALPHANUMERIC = 12;
-
 	public const uint32 IMF_SMODE_PLAURALCLAUSE = 1;
-
 	public const uint32 IMF_SMODE_NONE = 2;
-
 	public const uint32 EMO_EXIT = 0;
-
 	public const uint32 EMO_ENTER = 1;
-
 	public const uint32 EMO_PROMOTE = 2;
-
 	public const uint32 EMO_EXPAND = 3;
-
 	public const uint32 EMO_MOVESELECTION = 4;
-
 	public const uint32 EMO_GETVIEWMODE = 5;
-
 	public const uint32 EMO_EXPANDSELECTION = 0;
-
 	public const uint32 EMO_EXPANDDOCUMENT = 1;
-
 	public const uint32 VM_NORMAL = 4;
-
 	public const uint32 VM_OUTLINE = 2;
-
 	public const uint32 VM_PAGE = 9;
-
 	public const uint32 EM_INSERTTABLE = 1256;
-
 	public const uint32 EM_GETAUTOCORRECTPROC = 1257;
-
 	public const uint32 EM_SETAUTOCORRECTPROC = 1258;
-
 	public const uint32 EM_CALLAUTOCORRECTPROC = 1279;
-
 	public const uint32 ATP_NOCHANGE = 0;
-
 	public const uint32 ATP_CHANGE = 1;
-
 	public const uint32 ATP_NODELIMITER = 2;
-
 	public const uint32 ATP_REPLACEALLTEXT = 4;
-
 	public const uint32 EM_GETTABLEPARMS = 1289;
-
 	public const uint32 EM_SETEDITSTYLEEX = 1299;
-
 	public const uint32 EM_GETEDITSTYLEEX = 1300;
-
 	public const uint32 SES_EX_NOTABLE = 4;
-
 	public const uint32 SES_EX_NOMATH = 64;
-
 	public const uint32 SES_EX_HANDLEFRIENDLYURL = 256;
-
 	public const uint32 SES_EX_NOTHEMING = 524288;
-
 	public const uint32 SES_EX_NOACETATESELECTION = 1048576;
-
 	public const uint32 SES_EX_USESINGLELINE = 2097152;
-
 	public const uint32 SES_EX_MULTITOUCH = 134217728;
-
 	public const uint32 SES_EX_HIDETEMPFORMAT = 268435456;
-
 	public const uint32 SES_EX_USEMOUSEWPARAM = 536870912;
-
 	public const uint32 EM_GETSTORYTYPE = 1314;
-
 	public const uint32 EM_SETSTORYTYPE = 1315;
-
 	public const uint32 EM_GETELLIPSISMODE = 1329;
-
 	public const uint32 EM_SETELLIPSISMODE = 1330;
-
 	public const uint32 ELLIPSIS_MASK = 3;
-
 	public const uint32 ELLIPSIS_NONE = 0;
-
 	public const uint32 ELLIPSIS_END = 1;
-
 	public const uint32 ELLIPSIS_WORD = 3;
-
 	public const uint32 EM_SETTABLEPARMS = 1331;
-
 	public const uint32 EM_GETTOUCHOPTIONS = 1334;
-
 	public const uint32 EM_SETTOUCHOPTIONS = 1335;
-
 	public const uint32 EM_INSERTIMAGE = 1338;
-
 	public const uint32 EM_SETUIANAME = 1344;
-
 	public const uint32 EM_GETELLIPSISSTATE = 1346;
-
 	public const uint32 RTO_SHOWHANDLES = 1;
-
 	public const uint32 RTO_DISABLEHANDLES = 2;
-
 	public const uint32 RTO_READINGMODE = 3;
-
 	public const uint32 EN_MSGFILTER = 1792;
-
 	public const uint32 EN_REQUESTRESIZE = 1793;
-
 	public const uint32 EN_SELCHANGE = 1794;
-
 	public const uint32 EN_DROPFILES = 1795;
-
 	public const uint32 EN_PROTECTED = 1796;
-
 	public const uint32 EN_CORRECTTEXT = 1797;
-
 	public const uint32 EN_STOPNOUNDO = 1798;
-
 	public const uint32 EN_IMECHANGE = 1799;
-
 	public const uint32 EN_SAVECLIPBOARD = 1800;
-
 	public const uint32 EN_OLEOPFAILED = 1801;
-
 	public const uint32 EN_OBJECTPOSITIONS = 1802;
-
 	public const uint32 EN_LINK = 1803;
-
 	public const uint32 EN_DRAGDROPDONE = 1804;
-
 	public const uint32 EN_PARAGRAPHEXPANDED = 1805;
-
 	public const uint32 EN_PAGECHANGE = 1806;
-
 	public const uint32 EN_LOWFIRTF = 1807;
-
 	public const uint32 EN_ALIGNLTR = 1808;
-
 	public const uint32 EN_ALIGNRTL = 1809;
-
 	public const uint32 EN_CLIPFORMAT = 1810;
-
 	public const uint32 EN_STARTCOMPOSITION = 1811;
-
 	public const uint32 EN_ENDCOMPOSITION = 1812;
-
 	public const uint32 ENM_NONE = 0;
-
 	public const uint32 ENM_CHANGE = 1;
-
 	public const uint32 ENM_UPDATE = 2;
-
 	public const uint32 ENM_SCROLL = 4;
-
 	public const uint32 ENM_SCROLLEVENTS = 8;
-
 	public const uint32 ENM_DRAGDROPDONE = 16;
-
 	public const uint32 ENM_PARAGRAPHEXPANDED = 32;
-
 	public const uint32 ENM_PAGECHANGE = 64;
-
 	public const uint32 ENM_CLIPFORMAT = 128;
-
 	public const uint32 ENM_KEYEVENTS = 65536;
-
 	public const uint32 ENM_MOUSEEVENTS = 131072;
-
 	public const uint32 ENM_REQUESTRESIZE = 262144;
-
 	public const uint32 ENM_SELCHANGE = 524288;
-
 	public const uint32 ENM_DROPFILES = 1048576;
-
 	public const uint32 ENM_PROTECTED = 2097152;
-
 	public const uint32 ENM_CORRECTTEXT = 4194304;
-
 	public const uint32 ENM_IMECHANGE = 8388608;
-
 	public const uint32 ENM_LANGCHANGE = 16777216;
-
 	public const uint32 ENM_OBJECTPOSITIONS = 33554432;
-
 	public const uint32 ENM_LINK = 67108864;
-
 	public const uint32 ENM_LOWFIRTF = 134217728;
-
 	public const uint32 ENM_STARTCOMPOSITION = 268435456;
-
 	public const uint32 ENM_ENDCOMPOSITION = 536870912;
-
 	public const uint32 ENM_GROUPTYPINGCHANGE = 1073741824;
-
 	public const uint32 ENM_HIDELINKTOOLTIP = 2147483648;
-
 	public const uint32 ES_SAVESEL = 32768;
-
 	public const uint32 ES_SUNKEN = 16384;
-
 	public const uint32 ES_DISABLENOSCROLL = 8192;
-
 	public const uint32 ES_SELECTIONBAR = 16777216;
-
 	public const uint32 ES_NOOLEDRAGDROP = 8;
-
 	public const uint32 ES_EX_NOCALLOLEINIT = 0;
-
 	public const uint32 ES_VERTICAL = 4194304;
-
 	public const uint32 ES_NOIME = 524288;
-
 	public const uint32 ES_SELFIME = 262144;
-
 	public const uint32 ECO_AUTOWORDSELECTION = 1;
-
 	public const uint32 ECO_AUTOVSCROLL = 64;
-
 	public const uint32 ECO_AUTOHSCROLL = 128;
-
 	public const uint32 ECO_NOHIDESEL = 256;
-
 	public const uint32 ECO_READONLY = 2048;
-
 	public const uint32 ECO_WANTRETURN = 4096;
-
 	public const uint32 ECO_SAVESEL = 32768;
-
 	public const uint32 ECO_SELECTIONBAR = 16777216;
-
 	public const uint32 ECO_VERTICAL = 4194304;
-
 	public const uint32 ECOOP_SET = 1;
-
 	public const uint32 ECOOP_OR = 2;
-
 	public const uint32 ECOOP_AND = 3;
-
 	public const uint32 ECOOP_XOR = 4;
-
 	public const uint32 WB_MOVEWORDPREV = 4;
-
 	public const uint32 WB_MOVEWORDNEXT = 5;
-
 	public const uint32 WB_PREVBREAK = 6;
-
 	public const uint32 WB_NEXTBREAK = 7;
-
 	public const uint32 PC_FOLLOWING = 1;
-
 	public const uint32 PC_LEADING = 2;
-
 	public const uint32 PC_OVERFLOW = 3;
-
 	public const uint32 PC_DELIMITER = 4;
-
 	public const uint32 WBF_WORDWRAP = 16;
-
 	public const uint32 WBF_WORDBREAK = 32;
-
 	public const uint32 WBF_OVERFLOW = 64;
-
 	public const uint32 WBF_LEVEL1 = 128;
-
 	public const uint32 WBF_LEVEL2 = 256;
-
 	public const uint32 WBF_CUSTOM = 512;
-
 	public const uint32 IMF_FORCENONE = 1;
-
 	public const uint32 IMF_FORCEENABLE = 2;
-
 	public const uint32 IMF_FORCEDISABLE = 4;
-
 	public const uint32 IMF_CLOSESTATUSWINDOW = 8;
-
 	public const uint32 IMF_VERTICAL = 32;
-
 	public const uint32 IMF_FORCEACTIVE = 64;
-
 	public const uint32 IMF_FORCEINACTIVE = 128;
-
 	public const uint32 IMF_FORCEREMEMBER = 256;
-
 	public const uint32 IMF_MULTIPLEEDIT = 1024;
-
 	public const uint32 SCF_SELECTION = 1;
-
 	public const uint32 SCF_WORD = 2;
-
 	public const uint32 SCF_DEFAULT = 0;
-
 	public const uint32 SCF_ALL = 4;
-
 	public const uint32 SCF_USEUIRULES = 8;
-
 	public const uint32 SCF_ASSOCIATEFONT = 16;
-
 	public const uint32 SCF_NOKBUPDATE = 32;
-
 	public const uint32 SCF_ASSOCIATEFONT2 = 64;
-
 	public const uint32 SCF_SMARTFONT = 128;
-
 	public const uint32 SCF_CHARREPFROMLCID = 256;
-
 	public const uint32 SPF_DONTSETDEFAULT = 2;
-
 	public const uint32 SPF_SETDEFAULT = 4;
-
 	public const uint32 SF_TEXT = 1;
-
 	public const uint32 SF_RTF = 2;
-
 	public const uint32 SF_RTFNOOBJS = 3;
-
 	public const uint32 SF_TEXTIZED = 4;
-
 	public const uint32 SF_UNICODE = 16;
-
 	public const uint32 SF_USECODEPAGE = 32;
-
 	public const uint32 SF_NCRFORNONASCII = 64;
-
 	public const uint32 SFF_WRITEXTRAPAR = 128;
-
 	public const uint32 SFF_SELECTION = 32768;
-
 	public const uint32 SFF_PLAINRTF = 16384;
-
 	public const uint32 SFF_PERSISTVIEWSCALE = 8192;
-
 	public const uint32 SFF_KEEPDOCINFO = 4096;
-
 	public const uint32 SFF_PWD = 2048;
-
 	public const uint32 SF_RTFVAL = 1792;
-
 	public const uint32 MAX_TAB_STOPS = 32;
-
 	public const uint32 MAX_TABLE_CELLS = 63;
-
 	public const uint32 PFM_SPACEBEFORE = 64;
-
 	public const uint32 PFM_SPACEAFTER = 128;
-
 	public const uint32 PFM_LINESPACING = 256;
-
 	public const uint32 PFM_STYLE = 1024;
-
 	public const uint32 PFM_BORDER = 2048;
-
 	public const uint32 PFM_SHADING = 4096;
-
 	public const uint32 PFM_NUMBERINGSTYLE = 8192;
-
 	public const uint32 PFM_NUMBERINGTAB = 16384;
-
 	public const uint32 PFM_NUMBERINGSTART = 32768;
-
 	public const uint32 PFM_KEEP = 131072;
-
 	public const uint32 PFM_KEEPNEXT = 262144;
-
 	public const uint32 PFM_PAGEBREAKBEFORE = 524288;
-
 	public const uint32 PFM_NOLINENUMBER = 1048576;
-
 	public const uint32 PFM_NOWIDOWCONTROL = 2097152;
-
 	public const uint32 PFM_DONOTHYPHEN = 4194304;
-
 	public const uint32 PFM_SIDEBYSIDE = 8388608;
-
 	public const uint32 PFM_COLLAPSED = 16777216;
-
 	public const uint32 PFM_OUTLINELEVEL = 33554432;
-
 	public const uint32 PFM_BOX = 67108864;
-
 	public const uint32 PFM_RESERVED2 = 134217728;
-
 	public const uint32 PFM_TABLEROWDELIMITER = 268435456;
-
 	public const uint32 PFM_TEXTWRAPPINGBREAK = 536870912;
-
 	public const uint32 PFM_TABLE = 1073741824;
-
 	public const uint32 PFN_BULLET = 1;
-
 	public const uint32 PFN_ARABIC = 2;
-
 	public const uint32 PFN_LCLETTER = 3;
-
 	public const uint32 PFN_UCLETTER = 4;
-
 	public const uint32 PFN_LCROMAN = 5;
-
 	public const uint32 PFN_UCROMAN = 6;
-
 	public const uint32 PFA_JUSTIFY = 4;
-
 	public const uint32 PFA_FULL_INTERWORD = 4;
-
 	public const uint32 WM_NOTIFY = 78;
-
 	public const uint32 GCMF_GRIPPER = 1;
-
 	public const uint32 GCMF_SPELLING = 2;
-
 	public const uint32 GCMF_TOUCHMENU = 16384;
-
 	public const uint32 GCMF_MOUSEMENU = 8192;
-
 	public const uint32 OLEOP_DOVERB = 1;
-
 	public const uint32 ST_DEFAULT = 0;
-
 	public const uint32 ST_KEEPUNDO = 1;
-
 	public const uint32 ST_SELECTION = 2;
-
 	public const uint32 ST_NEWCHARS = 4;
-
 	public const uint32 ST_UNICODE = 8;
-
 	public const uint32 BOM_DEFPARADIR = 1;
-
 	public const uint32 BOM_PLAINTEXT = 2;
-
 	public const uint32 BOM_NEUTRALOVERRIDE = 4;
-
 	public const uint32 BOM_CONTEXTREADING = 8;
-
 	public const uint32 BOM_CONTEXTALIGNMENT = 16;
-
 	public const uint32 BOM_LEGACYBIDICLASS = 64;
-
 	public const uint32 BOM_UNICODEBIDI = 128;
-
 	public const uint32 BOE_RTLDIR = 1;
-
 	public const uint32 BOE_PLAINTEXT = 2;
-
 	public const uint32 BOE_NEUTRALOVERRIDE = 4;
-
 	public const uint32 BOE_CONTEXTREADING = 8;
-
 	public const uint32 BOE_CONTEXTALIGNMENT = 16;
-
 	public const uint32 BOE_FORCERECALC = 32;
-
 	public const uint32 BOE_LEGACYBIDICLASS = 64;
-
 	public const uint32 BOE_UNICODEBIDI = 128;
-
 	public const uint32 FR_MATCHDIAC = 536870912;
-
 	public const uint32 FR_MATCHKASHIDA = 1073741824;
-
 	public const uint32 FR_MATCHALEFHAMZA = 2147483648;
-
 	public const uint32 PFA_FULL_NEWSPAPER = 5;
-
 	public const uint32 PFA_FULL_INTERLETTER = 6;
-
 	public const uint32 PFA_FULL_SCALED = 7;
-
 	public const uint32 PFA_FULL_GLYPHS = 8;
-
 	public const uint32 AURL_ENABLEEA = 1;
-
 	public const uint32 GCM_TOUCHMENU = 16384;
-
 	public const uint32 GCM_MOUSEMENU = 8192;
-
 	public const HRESULT S_MSG_KEY_IGNORED = 262657;
-
 	public const uint32 TXTBIT_RICHTEXT = 1;
-
 	public const uint32 TXTBIT_MULTILINE = 2;
-
 	public const uint32 TXTBIT_READONLY = 4;
-
 	public const uint32 TXTBIT_SHOWACCELERATOR = 8;
-
 	public const uint32 TXTBIT_USEPASSWORD = 16;
-
 	public const uint32 TXTBIT_HIDESELECTION = 32;
-
 	public const uint32 TXTBIT_SAVESELECTION = 64;
-
 	public const uint32 TXTBIT_AUTOWORDSEL = 128;
-
 	public const uint32 TXTBIT_VERTICAL = 256;
-
 	public const uint32 TXTBIT_SELBARCHANGE = 512;
-
 	public const uint32 TXTBIT_WORDWRAP = 1024;
-
 	public const uint32 TXTBIT_ALLOWBEEP = 2048;
-
 	public const uint32 TXTBIT_DISABLEDRAG = 4096;
-
 	public const uint32 TXTBIT_VIEWINSETCHANGE = 8192;
-
 	public const uint32 TXTBIT_BACKSTYLECHANGE = 16384;
-
 	public const uint32 TXTBIT_MAXLENGTHCHANGE = 32768;
-
 	public const uint32 TXTBIT_SCROLLBARCHANGE = 65536;
-
 	public const uint32 TXTBIT_CHARFORMATCHANGE = 131072;
-
 	public const uint32 TXTBIT_PARAFORMATCHANGE = 262144;
-
 	public const uint32 TXTBIT_EXTENTCHANGE = 524288;
-
 	public const uint32 TXTBIT_CLIENTRECTCHANGE = 1048576;
-
 	public const uint32 TXTBIT_USECURRENTBKG = 2097152;
-
 	public const uint32 TXTBIT_NOTHREADREFCOUNT = 4194304;
-
 	public const uint32 TXTBIT_SHOWPASSWORD = 8388608;
-
 	public const uint32 TXTBIT_D2DDWRITE = 16777216;
-
 	public const uint32 TXTBIT_D2DSIMPLETYPOGRAPHY = 33554432;
-
 	public const uint32 TXTBIT_D2DPIXELSNAPPED = 67108864;
-
 	public const uint32 TXTBIT_D2DSUBPIXELLINES = 134217728;
-
 	public const uint32 TXTBIT_FLASHLASTPASSWORDCHAR = 268435456;
-
 	public const uint32 TXTBIT_ADVANCEDINPUT = 536870912;
-
 	public const uint32 TXES_ISDIALOG = 1;
-
 	public const int32 REO_NULL = 0;
-
 	public const int32 REO_READWRITEMASK = 2047;
-
 	public const int32 RECO_PASTE = 0;
-
 	public const int32 RECO_DROP = 1;
-
 	public const int32 RECO_COPY = 2;
-
 	public const int32 RECO_CUT = 3;
-
 	public const int32 RECO_DRAG = 4;
-
 }
 #endregion
 
@@ -2015,7 +1563,6 @@ public struct CHARFORMAT2W
 		public uint32 dwReserved;
 		public uint32 dwCookie;
 	}
-
 	public CHARFORMATW __AnonymousBase_richedit_L711_C23;
 	public uint16 wWeight;
 	public int16 sSpacing;
@@ -2039,7 +1586,6 @@ public struct CHARFORMAT2A
 		public uint32 dwReserved;
 		public uint32 dwCookie;
 	}
-
 	public CHARFORMATA __AnonymousBase_richedit_L736_C23;
 	public uint16 wWeight;
 	public int16 sSpacing;
@@ -2132,7 +1678,6 @@ public struct PARAFORMAT
 		public uint16 wReserved;
 		public uint16 wEffects;
 	}
-
 	public uint32 cbSize;
 	public PARAFORMAT_MASK dwMask;
 	public uint16 wNumbering;

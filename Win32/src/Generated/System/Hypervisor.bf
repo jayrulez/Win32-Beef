@@ -2,7 +2,6 @@ using Win32.Foundation;
 using Win32.System.Power;
 using Win32.System.HostComputeSystem;
 using System;
-using System.Interop;
 
 namespace Win32.System.Hypervisor;
 
@@ -10,53 +9,29 @@ namespace Win32.System.Hypervisor;
 public static
 {
 	public const uint32 HVSOCKET_CONNECT_TIMEOUT = 1;
-
 	public const uint32 HVSOCKET_CONNECT_TIMEOUT_MAX = 300000;
-
 	public const uint32 HVSOCKET_CONTAINER_PASSTHRU = 2;
-
 	public const uint32 HVSOCKET_CONNECTED_SUSPEND = 4;
-
 	public const uint32 HV_PROTOCOL_RAW = 1;
-
 	public const uint32 HVSOCKET_ADDRESS_FLAG_PASSTHRU = 1;
-
 	public const uint32 WHV_PROCESSOR_FEATURES_BANKS_COUNT = 2;
-
 	public const uint32 WHV_SYNTHETIC_PROCESSOR_FEATURES_BANKS_COUNT = 1;
-
 	public const uint32 WHV_READ_WRITE_GPA_RANGE_MAX_SIZE = 16;
-
 	public const uint32 WHV_HYPERCALL_CONTEXT_MAX_XMM_REGISTERS = 6;
-
 	public const uint32 WHV_MAX_DEVICE_ID_SIZE_IN_CHARS = 200;
-
 	public const uint32 WHV_VPCI_TYPE0_BAR_COUNT = 6;
-
 	public const uint32 WHV_ANY_VP = 4294967295;
-
 	public const uint32 WHV_SYNIC_MESSAGE_SIZE = 256;
-
 	public const uint32 IOCTL_VMGENCOUNTER_READ = 3325956;
-
 	public const uint32 HDV_PCI_BAR_COUNT = 6;
-
 	public const Guid HV_GUID_ZERO = .(0x00000000, 0x0000, 0x0000, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00);
-
 	public const Guid HV_GUID_BROADCAST = .(0xffffffff, 0xffff, 0xffff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff);
-
 	public const Guid HV_GUID_CHILDREN = .(0x90db8b89, 0x0d35, 0x4f79, 0x8c, 0xe9, 0x49, 0xea, 0x0a, 0xc8, 0xb7, 0xcd);
-
 	public const Guid HV_GUID_LOOPBACK = .(0xe0e16197, 0xdd56, 0x4a10, 0x91, 0x95, 0x5e, 0xe7, 0xa1, 0x55, 0xa8, 0x38);
-
 	public const Guid HV_GUID_PARENT = .(0xa42e7cda, 0xd03f, 0x480c, 0x9c, 0xc2, 0xa4, 0xde, 0x20, 0xab, 0xb8, 0x78);
-
 	public const Guid HV_GUID_SILOHOST = .(0x36bd0c5c, 0x7276, 0x4223, 0x88, 0xba, 0x7d, 0x03, 0xb6, 0x54, 0xc5, 0x68);
-
 	public const Guid HV_GUID_VSOCK_TEMPLATE = .(0x00000000, 0xfacb, 0x11e6, 0xbd, 0x58, 0x64, 0x00, 0x6a, 0x79, 0x86, 0xd3);
-
 	public const Guid GUID_DEVINTERFACE_VM_GENCOUNTER = .(0x3ff2c92b, 0x6598, 0x4e60, 0x8e, 0x1c, 0x0c, 0xcf, 0x49, 0x27, 0xe3, 0x19);
-
 }
 #endregion
 
@@ -1034,7 +1009,6 @@ public struct WHV_CAPABILITY_FEATURES
 	{
 		public uint64 _bitfield;
 	}
-
 	public using _Anonymous_e__Struct Anonymous;
 	public uint64 AsUINT64;
 }
@@ -1047,7 +1021,6 @@ public struct WHV_EXTENDED_VM_EXITS
 	{
 		public uint64 _bitfield;
 	}
-
 	public using _Anonymous_e__Struct Anonymous;
 	public uint64 AsUINT64;
 }
@@ -1060,7 +1033,6 @@ public struct WHV_PROCESSOR_FEATURES
 	{
 		public uint64 _bitfield;
 	}
-
 	public using _Anonymous_e__Struct Anonymous;
 	public uint64 AsUINT64;
 }
@@ -1073,7 +1045,6 @@ public struct WHV_PROCESSOR_FEATURES1
 	{
 		public uint64 _bitfield;
 	}
-
 	public using _Anonymous_e__Struct Anonymous;
 	public uint64 AsUINT64;
 }
@@ -1090,11 +1061,9 @@ public struct WHV_PROCESSOR_FEATURES_BANKS
 			public WHV_PROCESSOR_FEATURES Bank0;
 			public WHV_PROCESSOR_FEATURES1 Bank1;
 		}
-
 		public using _Anonymous_e__Struct Anonymous;
 		public uint64[2] AsUINT64;
 	}
-
 	public uint32 BanksCount;
 	public uint32 Reserved0;
 	public using _Anonymous_e__Union Anonymous;
@@ -1108,7 +1077,6 @@ public struct WHV_SYNTHETIC_PROCESSOR_FEATURES
 	{
 		public uint64 _bitfield;
 	}
-
 	public using _Anonymous_e__Struct Anonymous;
 	public uint64 AsUINT64;
 }
@@ -1124,11 +1092,10 @@ public struct WHV_SYNTHETIC_PROCESSOR_FEATURES_BANKS
 		{
 			public WHV_SYNTHETIC_PROCESSOR_FEATURES Bank0;
 		}
-
 		public using _Anonymous_e__Struct Anonymous;
-		public uint64[ANYSIZE_ARRAY] AsUINT64;
+		public uint64* AsUINT64 mut => &AsUINT64_impl;
+		private uint64[ANYSIZE_ARRAY] AsUINT64_impl;
 	}
-
 	public uint32 BanksCount;
 	public uint32 Reserved0;
 	public using _Anonymous_e__Union Anonymous;
@@ -1142,7 +1109,6 @@ public struct WHV_PROCESSOR_XSAVE_FEATURES
 	{
 		public uint64 _bitfield;
 	}
-
 	public using _Anonymous_e__Struct Anonymous;
 	public uint64 AsUINT64;
 }
@@ -1155,7 +1121,6 @@ public struct WHV_PROCESSOR_PERFMON_FEATURES
 	{
 		public uint64 _bitfield;
 	}
-
 	public using _Anonymous_e__Struct Anonymous;
 	public uint64 AsUINT64;
 }
@@ -1168,7 +1133,6 @@ public struct WHV_X64_MSR_EXIT_BITMAP
 	{
 		public uint64 _bitfield;
 	}
-
 	public uint64 AsUINT64;
 	public using _Anonymous_e__Struct Anonymous;
 }
@@ -1188,7 +1152,6 @@ public struct WHV_ADVISE_GPA_RANGE_POPULATE_FLAGS
 	{
 		public uint32 _bitfield;
 	}
-
 	public uint32 AsUINT32;
 	public using _Anonymous_e__Struct Anonymous;
 }
@@ -1218,7 +1181,6 @@ public struct WHV_SCHEDULER_FEATURES
 	{
 		public uint64 _bitfield;
 	}
-
 	public using _Anonymous_e__Struct Anonymous;
 	public uint64 AsUINT64;
 }
@@ -1294,10 +1256,14 @@ public struct WHV_PARTITION_PROPERTY
 	public WHV_PROCESSOR_XSAVE_FEATURES ProcessorXsaveFeatures;
 	public uint8 ProcessorClFlushSize;
 	public uint32 ProcessorCount;
-	public uint32[ANYSIZE_ARRAY] CpuidExitList;
-	public WHV_X64_CPUID_RESULT[ANYSIZE_ARRAY] CpuidResultList;
-	public WHV_X64_CPUID_RESULT2[ANYSIZE_ARRAY] CpuidResultList2;
-	public WHV_MSR_ACTION_ENTRY[ANYSIZE_ARRAY] MsrActionList;
+	public uint32* CpuidExitList mut => &CpuidExitList_impl;
+	private uint32[ANYSIZE_ARRAY] CpuidExitList_impl;
+	public WHV_X64_CPUID_RESULT* CpuidResultList mut => &CpuidResultList_impl;
+	private WHV_X64_CPUID_RESULT[ANYSIZE_ARRAY] CpuidResultList_impl;
+	public WHV_X64_CPUID_RESULT2* CpuidResultList2 mut => &CpuidResultList2_impl;
+	private WHV_X64_CPUID_RESULT2[ANYSIZE_ARRAY] CpuidResultList2_impl;
+	public WHV_MSR_ACTION_ENTRY* MsrActionList mut => &MsrActionList_impl;
+	private WHV_MSR_ACTION_ENTRY[ANYSIZE_ARRAY] MsrActionList_impl;
 	public WHV_MSR_ACTION UnimplementedMsrAction;
 	public uint64 ExceptionExitBitmap;
 	public WHV_X64_LOCAL_APIC_EMULATION_MODE LocalApicEmulationMode;
@@ -1342,7 +1308,6 @@ public struct WHV_ACCESS_GPA_CONTROLS
 		public WHV_CACHE_TYPE CacheType;
 		public uint32 Reserved;
 	}
-
 	public uint64 AsUINT64;
 	public using _Anonymous_e__Struct Anonymous;
 }
@@ -1356,7 +1321,6 @@ public struct WHV_UINT128
 		public uint64 Low64;
 		public uint64 High64;
 	}
-
 	public using _Anonymous_e__Struct Anonymous;
 	public uint32[4] Dword;
 }
@@ -1370,7 +1334,6 @@ public struct WHV_X64_FP_REGISTER
 		public uint64 Mantissa;
 		public uint64 _bitfield;
 	}
-
 	public using _Anonymous_e__Struct Anonymous;
 	public WHV_UINT128 AsUINT128;
 }
@@ -1391,11 +1354,9 @@ public struct WHV_X64_FP_CONTROL_STATUS_REGISTER
 				public uint16 LastFpCs;
 				public uint16 Reserved2;
 			}
-
 			public uint64 LastFpRip;
 			public using _Anonymous_e__Struct Anonymous;
 		}
-
 		public uint16 FpControl;
 		public uint16 FpStatus;
 		public uint8 FpTag;
@@ -1403,7 +1364,6 @@ public struct WHV_X64_FP_CONTROL_STATUS_REGISTER
 		public uint16 LastFpOp;
 		public using _Anonymous_e__Union Anonymous;
 	}
-
 	public using _Anonymous_e__Struct Anonymous;
 	public WHV_UINT128 AsUINT128;
 }
@@ -1424,16 +1384,13 @@ public struct WHV_X64_XMM_CONTROL_STATUS_REGISTER
 				public uint16 LastFpDs;
 				public uint16 Reserved;
 			}
-
 			public uint64 LastFpRdp;
 			public using _Anonymous_e__Struct Anonymous;
 		}
-
 		public using _Anonymous_e__Union Anonymous;
 		public uint32 XmmStatusControl;
 		public uint32 XmmStatusControlMask;
 	}
-
 	public using _Anonymous_e__Struct Anonymous;
 	public WHV_UINT128 AsUINT128;
 }
@@ -1449,11 +1406,9 @@ public struct WHV_X64_SEGMENT_REGISTER
 		{
 			public uint16 _bitfield;
 		}
-
 		public using _Anonymous_e__Struct Anonymous;
 		public uint16 Attributes;
 	}
-
 	public uint64 Base;
 	public uint32 Limit;
 	public uint16 Selector;
@@ -1476,7 +1431,6 @@ public struct WHV_X64_INTERRUPT_STATE_REGISTER
 	{
 		public uint64 _bitfield;
 	}
-
 	public using _Anonymous_e__Struct Anonymous;
 	public uint64 AsUINT64;
 }
@@ -1490,7 +1444,6 @@ public struct WHV_X64_PENDING_INTERRUPTION_REGISTER
 		public uint32 _bitfield;
 		public uint32 ErrorCode;
 	}
-
 	public using _Anonymous_e__Struct Anonymous;
 	public uint64 AsUINT64;
 }
@@ -1503,7 +1456,6 @@ public struct WHV_X64_DELIVERABILITY_NOTIFICATIONS_REGISTER
 	{
 		public uint64 _bitfield;
 	}
-
 	public using _Anonymous_e__Struct Anonymous;
 	public uint64 AsUINT64;
 }
@@ -1518,7 +1470,6 @@ public struct WHV_X64_PENDING_EXCEPTION_EVENT
 		public uint32 ErrorCode;
 		public uint64 ExceptionParameter;
 	}
-
 	public using _Anonymous_e__Struct Anonymous;
 	public WHV_UINT128 AsUINT128;
 }
@@ -1532,7 +1483,6 @@ public struct WHV_X64_PENDING_EXT_INT_EVENT
 		public uint64 _bitfield;
 		public uint64 Reserved2;
 	}
-
 	public using _Anonymous_e__Struct Anonymous;
 	public WHV_UINT128 AsUINT128;
 }
@@ -1545,7 +1495,6 @@ public struct WHV_INTERNAL_ACTIVITY_REGISTER
 	{
 		public uint64 _bitfield;
 	}
-
 	public using _Anonymous_e__Struct Anonymous;
 	public uint64 AsUINT64;
 }
@@ -1558,7 +1507,6 @@ public struct WHV_X64_PENDING_DEBUG_EXCEPTION
 	{
 		public uint64 _bitfield;
 	}
-
 	public uint64 AsUINT64;
 	public using _Anonymous_e__Struct Anonymous;
 }
@@ -1601,7 +1549,6 @@ public struct WHV_X64_VP_EXECUTION_STATE
 	{
 		public uint16 _bitfield;
 	}
-
 	public using _Anonymous_e__Struct Anonymous;
 	public uint16 AsUINT16;
 }
@@ -1626,7 +1573,6 @@ public struct WHV_MEMORY_ACCESS_INFO
 	{
 		public uint32 _bitfield;
 	}
-
 	public using _Anonymous_e__Struct Anonymous;
 	public uint32 AsUINT32;
 }
@@ -1650,7 +1596,6 @@ public struct WHV_X64_IO_PORT_ACCESS_INFO
 	{
 		public uint32 _bitfield;
 	}
-
 	public using _Anonymous_e__Struct Anonymous;
 	public uint32 AsUINT32;
 }
@@ -1680,7 +1625,6 @@ public struct WHV_X64_MSR_ACCESS_INFO
 	{
 		public uint32 _bitfield;
 	}
-
 	public using _Anonymous_e__Struct Anonymous;
 	public uint32 AsUINT32;
 }
@@ -1715,7 +1659,6 @@ public struct WHV_VP_EXCEPTION_INFO
 	{
 		public uint32 _bitfield;
 	}
-
 	public using _Anonymous_e__Struct Anonymous;
 	public uint32 AsUINT32;
 }
@@ -1767,7 +1710,6 @@ public struct WHV_X64_RDTSC_INFO
 	{
 		public uint64 _bitfield;
 	}
-
 	public using _Anonymous_e__Struct Anonymous;
 	public uint64 AsUINT64;
 }
@@ -1839,7 +1781,6 @@ public struct WHV_RUN_VP_EXIT_CONTEXT
 		public WHV_X64_APIC_WRITE_CONTEXT ApicWrite;
 		public WHV_SYNIC_SINT_DELIVERABLE_CONTEXT SynicSintDeliverable;
 	}
-
 	public WHV_RUN_VP_EXIT_REASON ExitReason;
 	public uint32 Reserved;
 	public WHV_VP_EXIT_CONTEXT VpContext;
@@ -1959,7 +1900,6 @@ public struct WHV_VPCI_DEVICE_NOTIFICATION
 	{
 		public uint64 Reserved2;
 	}
-
 	public WHV_VPCI_DEVICE_NOTIFICATION_TYPE NotificationType;
 	public uint32 Reserved1;
 	public using _Anonymous_e__Union Anonymous;
@@ -2002,12 +1942,13 @@ public struct WHV_VPCI_DEVICE_REGISTER
 	public uint64 OffsetInBytes;
 }
 
-[CRepr, FlexibleArray("Processors")]
+[CRepr]
 public struct WHV_VPCI_INTERRUPT_TARGET
 {
 	public uint32 Vector;
 	public WHV_VPCI_INTERRUPT_TARGET_FLAGS Flags;
 	public uint32 ProcessorCount;
+	public uint32* Processors mut => &Processors_impl;
 	private uint32[ANYSIZE_ARRAY] Processors_impl;
 }
 
@@ -2025,12 +1966,10 @@ public struct WHV_TRIGGER_PARAMETERS
 			public uint32 MsiData;
 			public uint32 Reserved;
 		}
-
 		public WHV_INTERRUPT_CONTROL Interrupt;
 		public WHV_SYNIC_EVENT_PARAMETERS SynicEvent;
 		public _DeviceInterrupt_e__Struct DeviceInterrupt;
 	}
-
 	public WHV_TRIGGER_TYPE TriggerType;
 	public uint32 Reserved;
 	public using _Anonymous_e__Union Anonymous;
@@ -2045,7 +1984,6 @@ public struct WHV_VIRTUAL_PROCESSOR_PROPERTY
 		public uint16 NumaNode;
 		public uint64 Padding;
 	}
-
 	public WHV_VIRTUAL_PROCESSOR_PROPERTY_CODE PropertyCode;
 	public uint32 Reserved;
 	public using _Anonymous_e__Union Anonymous;
@@ -2062,11 +2000,9 @@ public struct WHV_NOTIFICATION_PORT_PARAMETERS
 		{
 			public uint32 ConnectionId;
 		}
-
 		public WHV_DOORBELL_MATCH_DATA Doorbell;
 		public _Event_e__Struct Event;
 	}
-
 	public WHV_NOTIFICATION_PORT_TYPE NotificationPortType;
 	public uint32 Reserved;
 	public using _Anonymous_e__Union Anonymous;
@@ -2080,7 +2016,6 @@ public struct WHV_EMULATOR_STATUS
 	{
 		public uint32 _bitfield;
 	}
-
 	public using _Anonymous_e__Struct Anonymous;
 	public uint32 AsUINT32;
 }
@@ -2184,13 +2119,11 @@ public struct GUEST_OS_INFO
 	{
 		public uint64 _bitfield;
 	}
-
 	[CRepr]
 	public struct _ClosedSource_e__Struct
 	{
 		public uint64 _bitfield;
 	}
-
 	public uint64 AsUINT64;
 	public _ClosedSource_e__Struct ClosedSource;
 	public _OpenSource_e__Struct OpenSource;
@@ -2214,16 +2147,13 @@ public struct VIRTUAL_PROCESSOR_REGISTER
 					public uint32 LastFpDp;
 					public uint16 LastFpDs;
 				}
-
 				public uint64 LastFpRdp;
 				public using _Anonymous_e__Struct Anonymous;
 			}
-
 			public using _Anonymous_e__Union Anonymous;
 			public uint32 XmmStatusControl;
 			public uint32 XmmStatusControlMask;
 		}
-
 		[CRepr]
 		public struct _FpControlStatus_e__Struct
 		{
@@ -2236,11 +2166,9 @@ public struct VIRTUAL_PROCESSOR_REGISTER
 					public uint32 LastFpEip;
 					public uint16 LastFpCs;
 				}
-
 				public uint64 LastFpRip;
 				public using _Anonymous_e__Struct Anonymous;
 			}
-
 			public uint16 FpControl;
 			public uint16 FpStatus;
 			public uint8 FpTag;
@@ -2248,7 +2176,6 @@ public struct VIRTUAL_PROCESSOR_REGISTER
 			public uint16 LastFpOp;
 			public using _Anonymous_e__Union Anonymous;
 		}
-
 		[CRepr]
 		public struct _Segment_e__Struct
 		{
@@ -2260,37 +2187,31 @@ public struct VIRTUAL_PROCESSOR_REGISTER
 				{
 					public uint16 _bitfield;
 				}
-
 				public uint16 Attributes;
 				public using _Anonymous_e__Struct Anonymous;
 			}
-
 			public uint64 Base;
 			public uint32 Limit;
 			public uint16 Selector;
 			public using _Anonymous_e__Union Anonymous;
 		}
-
 		[CRepr]
 		public struct _Table_e__Struct
 		{
 			public uint16 Limit;
 			public uint64 Base;
 		}
-
 		public _Segment_e__Struct Segment;
 		public _Table_e__Struct Table;
 		public _FpControlStatus_e__Struct FpControlStatus;
 		public _XmmControlStatus_e__Struct XmmControlStatus;
 	}
-
 	[CRepr]
 	public struct _Reg128_e__Struct
 	{
 		public uint64 Low64;
 		public uint64 High64;
 	}
-
 	public uint64 Reg64;
 	public uint32 Reg32;
 	public uint16 Reg16;

@@ -3,7 +3,6 @@ using Win32.Security;
 using Win32.System.Com;
 using Win32.System.Threading;
 using System;
-using System.Interop;
 
 namespace Win32.Security.Authorization;
 
@@ -11,267 +10,136 @@ namespace Win32.Security.Authorization;
 public static
 {
 	public const uint32 SDDL_REVISION_1 = 1;
-
 	public const uint32 SDDL_REVISION = 1;
-
 	public const uint32 SDDL_ALIAS_SIZE = 2;
-
 	public const uint32 INHERITED_ACCESS_ENTRY = 16;
-
 	public const uint32 INHERITED_PARENT = 268435456;
-
 	public const uint32 INHERITED_GRANDPARENT = 536870912;
-
 	public const int32 TRUSTEE_ACCESS_ALLOWED = 1;
-
 	public const int32 TRUSTEE_ACCESS_READ = 2;
-
 	public const int32 TRUSTEE_ACCESS_WRITE = 4;
-
 	public const int32 TRUSTEE_ACCESS_EXPLICIT = 1;
-
 	public const int32 TRUSTEE_ACCESS_ALL = -1;
-
 	public const uint32 ACTRL_RESERVED = 0;
-
 	public const uint32 ACTRL_PERM_1 = 1;
-
 	public const uint32 ACTRL_PERM_2 = 2;
-
 	public const uint32 ACTRL_PERM_3 = 4;
-
 	public const uint32 ACTRL_PERM_4 = 8;
-
 	public const uint32 ACTRL_PERM_5 = 16;
-
 	public const uint32 ACTRL_PERM_6 = 32;
-
 	public const uint32 ACTRL_PERM_7 = 64;
-
 	public const uint32 ACTRL_PERM_8 = 128;
-
 	public const uint32 ACTRL_PERM_9 = 256;
-
 	public const uint32 ACTRL_PERM_10 = 512;
-
 	public const uint32 ACTRL_PERM_11 = 1024;
-
 	public const uint32 ACTRL_PERM_12 = 2048;
-
 	public const uint32 ACTRL_PERM_13 = 4096;
-
 	public const uint32 ACTRL_PERM_14 = 8192;
-
 	public const uint32 ACTRL_PERM_15 = 16384;
-
 	public const uint32 ACTRL_PERM_16 = 32768;
-
 	public const uint32 ACTRL_PERM_17 = 65536;
-
 	public const uint32 ACTRL_PERM_18 = 131072;
-
 	public const uint32 ACTRL_PERM_19 = 262144;
-
 	public const uint32 ACTRL_PERM_20 = 524288;
-
 	public const uint32 ACTRL_ACCESS_PROTECTED = 1;
-
 	public const uint32 ACTRL_SYSTEM_ACCESS = 67108864;
-
 	public const uint32 ACTRL_DELETE = 134217728;
-
 	public const uint32 ACTRL_READ_CONTROL = 268435456;
-
 	public const uint32 ACTRL_CHANGE_ACCESS = 536870912;
-
 	public const uint32 ACTRL_CHANGE_OWNER = 1073741824;
-
 	public const uint32 ACTRL_SYNCHRONIZE = 2147483648;
-
 	public const uint32 ACTRL_STD_RIGHTS_ALL = 4160749568;
-
 	public const uint32 ACTRL_FILE_READ = 1;
-
 	public const uint32 ACTRL_FILE_WRITE = 2;
-
 	public const uint32 ACTRL_FILE_APPEND = 4;
-
 	public const uint32 ACTRL_FILE_READ_PROP = 8;
-
 	public const uint32 ACTRL_FILE_WRITE_PROP = 16;
-
 	public const uint32 ACTRL_FILE_EXECUTE = 32;
-
 	public const uint32 ACTRL_FILE_READ_ATTRIB = 128;
-
 	public const uint32 ACTRL_FILE_WRITE_ATTRIB = 256;
-
 	public const uint32 ACTRL_FILE_CREATE_PIPE = 512;
-
 	public const uint32 ACTRL_DIR_LIST = 1;
-
 	public const uint32 ACTRL_DIR_CREATE_OBJECT = 2;
-
 	public const uint32 ACTRL_DIR_CREATE_CHILD = 4;
-
 	public const uint32 ACTRL_DIR_DELETE_CHILD = 64;
-
 	public const uint32 ACTRL_DIR_TRAVERSE = 32;
-
 	public const uint32 ACTRL_KERNEL_TERMINATE = 1;
-
 	public const uint32 ACTRL_KERNEL_THREAD = 2;
-
 	public const uint32 ACTRL_KERNEL_VM = 4;
-
 	public const uint32 ACTRL_KERNEL_VM_READ = 8;
-
 	public const uint32 ACTRL_KERNEL_VM_WRITE = 16;
-
 	public const uint32 ACTRL_KERNEL_DUP_HANDLE = 32;
-
 	public const uint32 ACTRL_KERNEL_PROCESS = 64;
-
 	public const uint32 ACTRL_KERNEL_SET_INFO = 128;
-
 	public const uint32 ACTRL_KERNEL_GET_INFO = 256;
-
 	public const uint32 ACTRL_KERNEL_CONTROL = 512;
-
 	public const uint32 ACTRL_KERNEL_ALERT = 1024;
-
 	public const uint32 ACTRL_KERNEL_GET_CONTEXT = 2048;
-
 	public const uint32 ACTRL_KERNEL_SET_CONTEXT = 4096;
-
 	public const uint32 ACTRL_KERNEL_TOKEN = 8192;
-
 	public const uint32 ACTRL_KERNEL_IMPERSONATE = 16384;
-
 	public const uint32 ACTRL_KERNEL_DIMPERSONATE = 32768;
-
 	public const uint32 ACTRL_PRINT_SADMIN = 1;
-
 	public const uint32 ACTRL_PRINT_SLIST = 2;
-
 	public const uint32 ACTRL_PRINT_PADMIN = 4;
-
 	public const uint32 ACTRL_PRINT_PUSE = 8;
-
 	public const uint32 ACTRL_PRINT_JADMIN = 16;
-
 	public const uint32 ACTRL_SVC_GET_INFO = 1;
-
 	public const uint32 ACTRL_SVC_SET_INFO = 2;
-
 	public const uint32 ACTRL_SVC_STATUS = 4;
-
 	public const uint32 ACTRL_SVC_LIST = 8;
-
 	public const uint32 ACTRL_SVC_START = 16;
-
 	public const uint32 ACTRL_SVC_STOP = 32;
-
 	public const uint32 ACTRL_SVC_PAUSE = 64;
-
 	public const uint32 ACTRL_SVC_INTERROGATE = 128;
-
 	public const uint32 ACTRL_SVC_UCONTROL = 256;
-
 	public const uint32 ACTRL_REG_QUERY = 1;
-
 	public const uint32 ACTRL_REG_SET = 2;
-
 	public const uint32 ACTRL_REG_CREATE_CHILD = 4;
-
 	public const uint32 ACTRL_REG_LIST = 8;
-
 	public const uint32 ACTRL_REG_NOTIFY = 16;
-
 	public const uint32 ACTRL_REG_LINK = 32;
-
 	public const uint32 ACTRL_WIN_CLIPBRD = 1;
-
 	public const uint32 ACTRL_WIN_GLOBAL_ATOMS = 2;
-
 	public const uint32 ACTRL_WIN_CREATE = 4;
-
 	public const uint32 ACTRL_WIN_LIST_DESK = 8;
-
 	public const uint32 ACTRL_WIN_LIST = 16;
-
 	public const uint32 ACTRL_WIN_READ_ATTRIBS = 32;
-
 	public const uint32 ACTRL_WIN_WRITE_ATTRIBS = 64;
-
 	public const uint32 ACTRL_WIN_SCREEN = 128;
-
 	public const uint32 ACTRL_WIN_EXIT = 256;
-
 	public const uint32 ACTRL_ACCESS_NO_OPTIONS = 0;
-
 	public const uint32 ACTRL_ACCESS_SUPPORTS_OBJECT_ENTRIES = 1;
-
 	public const uint32 AUDIT_TYPE_LEGACY = 1;
-
 	public const uint32 AUDIT_TYPE_WMI = 2;
-
 	public const uint32 AP_ParamTypeBits = 8;
-
 	public const int32 AP_ParamTypeMask = 255;
-
 	public const uint32 _AUTHZ_SS_MAXSIZE = 128;
-
 	public const uint32 APF_AuditFailure = 0;
-
 	public const uint32 APF_AuditSuccess = 1;
-
 	public const uint32 APF_ValidFlags = 1;
-
 	public const uint32 AUTHZP_WPD_EVENT = 16;
-
 	public const uint32 AUTHZ_ALLOW_MULTIPLE_SOURCE_INSTANCES = 1;
-
 	public const uint32 AUTHZ_MIGRATED_LEGACY_PUBLISHER = 2;
-
 	public const uint32 AUTHZ_AUDIT_INSTANCE_INFORMATION = 2;
-
 	public const uint32 AUTHZ_SKIP_TOKEN_GROUPS = 2;
-
 	public const uint32 AUTHZ_REQUIRE_S4U_LOGON = 4;
-
 	public const uint32 AUTHZ_COMPUTE_PRIVILEGES = 8;
-
 	public const uint32 AUTHZ_SECURITY_ATTRIBUTE_TYPE_INVALID = 0;
-
 	public const uint32 AUTHZ_SECURITY_ATTRIBUTE_TYPE_INT64 = 1;
-
 	public const uint32 AUTHZ_SECURITY_ATTRIBUTE_TYPE_UINT64 = 2;
-
 	public const uint32 AUTHZ_SECURITY_ATTRIBUTE_TYPE_STRING = 3;
-
 	public const uint32 AUTHZ_SECURITY_ATTRIBUTE_TYPE_FQBN = 4;
-
 	public const uint32 AUTHZ_SECURITY_ATTRIBUTE_TYPE_SID = 5;
-
 	public const uint32 AUTHZ_SECURITY_ATTRIBUTE_TYPE_BOOLEAN = 6;
-
 	public const uint32 AUTHZ_SECURITY_ATTRIBUTE_TYPE_OCTET_STRING = 16;
-
 	public const uint32 AUTHZ_SECURITY_ATTRIBUTES_INFORMATION_VERSION_V1 = 1;
-
 	public const uint32 AUTHZ_SECURITY_ATTRIBUTES_INFORMATION_VERSION = 1;
-
 	public const uint32 AUTHZ_RPC_INIT_INFO_CLIENT_VERSION_V1 = 1;
-
 	public const uint32 AUTHZ_INIT_INFO_VERSION_V1 = 1;
-
 	public const uint32 AUTHZ_WPD_CATEGORY_FLAG = 16;
-
 	public const uint32 AUTHZ_FLAG_ALLOW_MULTIPLE_SOURCE_INSTANCES = 1;
-
 	public const HRESULT OLESCRIPT_E_SYNTAX = -2147352319;
-
 }
 #endregion
 
@@ -787,7 +655,6 @@ public struct ACTRL_OVERLAPPED
 		public void* Provider;
 		public uint32 Reserved1;
 	}
-
 	public using _Anonymous_e__Union Anonymous;
 	public uint32 Reserved2;
 	public HANDLE hEvent;
@@ -879,14 +746,12 @@ public struct AUDIT_PARAM
 		public AUDIT_OBJECT_TYPES* pObjectTypes;
 		public AUDIT_IP_ADDRESS* pIpAddress;
 	}
-
 	[CRepr, Union]
 	public struct _Anonymous2_e__Union
 	{
 		public uint Data1;
 		public int32 LogonId_HighPart;
 	}
-
 	public AUDIT_PARAM_TYPE Type;
 	public uint32 Length;
 	public uint32 Flags;
@@ -979,7 +844,6 @@ public struct AUTHZ_SECURITY_ATTRIBUTE_V1
 		public AUTHZ_SECURITY_ATTRIBUTE_FQBN_VALUE* pFqbn;
 		public AUTHZ_SECURITY_ATTRIBUTE_OCTET_STRING_VALUE* pOctetString;
 	}
-
 	public PWSTR pName;
 	public uint16 ValueType;
 	public uint16 Reserved;
@@ -996,7 +860,6 @@ public struct AUTHZ_SECURITY_ATTRIBUTES_INFORMATION
 	{
 		public AUTHZ_SECURITY_ATTRIBUTE_V1* pAttributeV1;
 	}
-
 	public uint16 Version;
 	public uint16 Reserved;
 	public uint32 AttributeCount;
@@ -1034,7 +897,7 @@ public struct AUTHZ_REGISTRATION_OBJECT_TYPE_NAME_OFFSET
 	public uint32 dwOffset;
 }
 
-[CRepr, FlexibleArray("ObjectTypeNames")]
+[CRepr]
 public struct AUTHZ_SOURCE_SCHEMA_REGISTRATION
 {
 	[CRepr, Union]
@@ -1043,7 +906,6 @@ public struct AUTHZ_SOURCE_SCHEMA_REGISTRATION
 		public void* pReserved;
 		public Guid* pProviderGuid;
 	}
-
 	public uint32 dwFlags;
 	public PWSTR szEventSourceName;
 	public PWSTR szEventMessageFile;
@@ -1052,6 +914,7 @@ public struct AUTHZ_SOURCE_SCHEMA_REGISTRATION
 	public PWSTR szExecutableImagePath;
 	public using _Anonymous_e__Union Anonymous;
 	public uint32 dwObjectTypeNameCount;
+	public AUTHZ_REGISTRATION_OBJECT_TYPE_NAME_OFFSET* ObjectTypeNames mut => &ObjectTypeNames_impl;
 	private AUTHZ_REGISTRATION_OBJECT_TYPE_NAME_OFFSET[ANYSIZE_ARRAY] ObjectTypeNames_impl;
 }
 

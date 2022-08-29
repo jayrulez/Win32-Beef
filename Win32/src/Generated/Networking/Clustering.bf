@@ -6,7 +6,6 @@ using Win32.System.Com;
 using Win32.Graphics.Gdi;
 using Win32.UI.WindowsAndMessaging;
 using System;
-using System.Interop;
 
 namespace Win32.Networking.Clustering;
 
@@ -14,451 +13,228 @@ namespace Win32.Networking.Clustering;
 public static
 {
 	public const uint32 CLUSTER_VERSION_FLAG_MIXED_MODE = 1;
-
 	public const uint32 CLUSTER_VERSION_UNKNOWN = 4294967295;
-
 	public const uint32 NT4_MAJOR_VERSION = 1;
-
 	public const uint32 NT4SP4_MAJOR_VERSION = 2;
-
 	public const uint32 NT5_MAJOR_VERSION = 3;
-
 	public const uint32 NT51_MAJOR_VERSION = 4;
-
 	public const uint32 NT6_MAJOR_VERSION = 5;
-
 	public const uint32 NT7_MAJOR_VERSION = 6;
-
 	public const uint32 NT8_MAJOR_VERSION = 7;
-
 	public const uint32 NT9_MAJOR_VERSION = 8;
-
 	public const uint32 NT10_MAJOR_VERSION = 9;
-
 	public const uint32 NT11_MAJOR_VERSION = 10;
-
 	public const uint32 NT12_MAJOR_VERSION = 11;
-
 	public const uint32 NT13_MAJOR_VERSION = 12;
-
 	public const uint32 WS2016_TP4_UPGRADE_VERSION = 6;
-
 	public const uint32 WS2016_TP5_UPGRADE_VERSION = 7;
-
 	public const uint32 WS2016_RTM_UPGRADE_VERSION = 8;
-
 	public const uint32 RS3_UPGRADE_VERSION = 1;
-
 	public const uint32 RS4_UPGRADE_VERSION = 2;
-
 	public const uint32 RS5_UPGRADE_VERSION = 3;
-
 	public const uint32 NINETEEN_H1_UPGRADE_VERSION = 1;
-
 	public const uint32 NINETEEN_H2_UPGRADE_VERSION = 2;
-
 	public const uint32 MN_UPGRADE_VERSION = 3;
-
 	public const uint32 FE_UPGRADE_VERSION = 4;
-
 	public const uint32 CA_UPGRADE_VERSION = 1;
-
 	public const uint32 HCI_UPGRADE_BIT = 32768;
-
 	public const uint32 CLUSAPI_VERSION_SERVER2008 = 1536;
-
 	public const uint32 CLUSAPI_VERSION_SERVER2008R2 = 1792;
-
 	public const uint32 CLUSAPI_VERSION_WINDOWS8 = 1793;
-
 	public const uint32 CLUSAPI_VERSION_WINDOWSBLUE = 1794;
-
 	public const uint32 CLUSAPI_VERSION_WINTHRESHOLD = 1795;
-
 	public const uint32 CLUSAPI_VERSION_RS3 = 2560;
-
 	public const uint32 CLUSAPI_VERSION = 2560;
-
 	public const uint32 CREATE_CLUSTER_VERSION = 1536;
-
 	public const uint32 CREATE_CLUSTER_MAJOR_VERSION_MASK = 4294967040;
-
 	public const uint32 MAX_CLUSTERNAME_LENGTH = 63;
-
 	public const uint32 CLUSTER_INSTALLED = 1;
-
 	public const uint32 CLUSTER_CONFIGURED = 2;
-
 	public const uint32 CLUSTER_RUNNING = 16;
-
 	public const uint32 CLUS_HYBRID_QUORUM = 1024;
-
 	public const uint32 CLUS_NODE_MAJORITY_QUORUM = 0;
-
 	public const uint32 CLUSCTL_RESOURCE_STATE_CHANGE_REASON_VERSION_1 = 1;
-
 	public const uint32 CLUSREG_DATABASE_SYNC_WRITE_TO_ALL_NODES = 1;
-
 	public const uint32 CLUSREG_DATABASE_ISOLATE_READ = 2;
-
 	public const uint32 CLUSTER_ENUM_ITEM_VERSION_1 = 1;
-
 	public const uint32 CLUSTER_ENUM_ITEM_VERSION = 1;
-
 	public const uint32 CLUSTER_CREATE_GROUP_INFO_VERSION_1 = 1;
-
 	public const uint32 CLUSTER_CREATE_GROUP_INFO_VERSION = 1;
-
 	public const uint32 GROUPSET_READY_SETTING_DELAY = 1;
-
 	public const uint32 GROUPSET_READY_SETTING_ONLINE = 2;
-
 	public const uint32 GROUPSET_READY_SETTING_OS_HEARTBEAT = 3;
-
 	public const uint32 GROUPSET_READY_SETTING_APPLICATION_READY = 4;
-
 	public const uint32 CLUS_GRP_MOVE_ALLOWED = 0;
-
 	public const uint32 CLUS_GRP_MOVE_LOCKED = 1;
-
 	public const int32 CLUSAPI_READ_ACCESS = 1;
-
 	public const int32 CLUSAPI_CHANGE_ACCESS = 2;
-
 	public const int32 CLUSAPI_NO_ACCESS = 4;
-
 	public const uint32 CLUSTER_SET_ACCESS_TYPE_ALLOWED = 0;
-
 	public const uint32 CLUSTER_SET_ACCESS_TYPE_DENIED = 1;
-
 	public const uint32 CLUSTER_DELETE_ACCESS_CONTROL_ENTRY = 2;
-
 	public const uint64 CLUSGROUPSET_STATUS_GROUPS_PENDING = 1;
-
 	public const uint64 CLUSGROUPSET_STATUS_GROUPS_ONLINE = 2;
-
 	public const uint64 CLUSGROUPSET_STATUS_OS_HEARTBEAT = 4;
-
 	public const uint64 CLUSGROUPSET_STATUS_APPLICATION_READY = 8;
-
 	public const uint32 CLUSTER_AVAILABILITY_SET_CONFIG_V1 = 1;
-
 	public const uint32 CLUSTER_GROUP_ENUM_ITEM_VERSION_1 = 1;
-
 	public const uint32 CLUSTER_GROUP_ENUM_ITEM_VERSION = 1;
-
 	public const uint32 CLUSTER_RESOURCE_ENUM_ITEM_VERSION_1 = 1;
-
 	public const uint32 CLUSTER_RESOURCE_ENUM_ITEM_VERSION = 1;
-
 	public const uint32 CLUSAPI_NODE_PAUSE_REMAIN_ON_PAUSED_NODE_ON_MOVE_ERROR = 1;
-
 	public const uint32 CLUSAPI_NODE_AVOID_PLACEMENT = 2;
-
 	public const uint32 CLUSAPI_NODE_PAUSE_RETRY_DRAIN_ON_FAILURE = 4;
-
 	public const uint64 CLUSGRP_STATUS_LOCKED_MODE = 1;
-
 	public const uint64 CLUSGRP_STATUS_PREEMPTED = 2;
-
 	public const uint64 CLUSGRP_STATUS_WAITING_IN_QUEUE_FOR_MOVE = 4;
-
 	public const uint64 CLUSGRP_STATUS_PHYSICAL_RESOURCES_LACKING = 8;
-
 	public const uint64 CLUSGRP_STATUS_WAITING_TO_START = 16;
-
 	public const uint64 CLUSGRP_STATUS_EMBEDDED_FAILURE = 32;
-
 	public const uint64 CLUSGRP_STATUS_OFFLINE_DUE_TO_ANTIAFFINITY_CONFLICT = 64;
-
 	public const uint64 CLUSGRP_STATUS_NETWORK_FAILURE = 128;
-
 	public const uint64 CLUSGRP_STATUS_UNMONITORED = 256;
-
 	public const uint64 CLUSGRP_STATUS_OS_HEARTBEAT = 512;
-
 	public const uint64 CLUSGRP_STATUS_APPLICATION_READY = 1024;
-
 	public const uint64 CLUSGRP_STATUS_OFFLINE_NOT_LOCAL_DISK_OWNER = 2048;
-
 	public const uint64 CLUSGRP_STATUS_WAITING_FOR_DEPENDENCIES = 4096;
-
 	public const uint64 CLUSRES_STATUS_LOCKED_MODE = 1;
-
 	public const uint64 CLUSRES_STATUS_EMBEDDED_FAILURE = 2;
-
 	public const uint64 CLUSRES_STATUS_FAILED_DUE_TO_INSUFFICIENT_CPU = 4;
-
 	public const uint64 CLUSRES_STATUS_FAILED_DUE_TO_INSUFFICIENT_MEMORY = 8;
-
 	public const uint64 CLUSRES_STATUS_FAILED_DUE_TO_INSUFFICIENT_GENERIC_RESOURCES = 16;
-
 	public const uint64 CLUSRES_STATUS_NETWORK_FAILURE = 32;
-
 	public const uint64 CLUSRES_STATUS_UNMONITORED = 64;
-
 	public const uint64 CLUSRES_STATUS_OS_HEARTBEAT = 128;
-
 	public const uint64 CLUSRES_STATUS_APPLICATION_READY = 256;
-
 	public const uint64 CLUSRES_STATUS_OFFLINE_NOT_LOCAL_DISK_OWNER = 512;
-
 	public const uint32 CLUSAPI_GROUP_ONLINE_IGNORE_RESOURCE_STATUS = 1;
-
 	public const uint32 CLUSAPI_GROUP_ONLINE_SYNCHRONOUS = 2;
-
 	public const uint32 CLUSAPI_GROUP_ONLINE_BEST_POSSIBLE_NODE = 4;
-
 	public const uint32 CLUSAPI_GROUP_ONLINE_IGNORE_AFFINITY_RULE = 8;
-
 	public const uint32 CLUSAPI_GROUP_OFFLINE_IGNORE_RESOURCE_STATUS = 1;
-
 	public const uint32 CLUSAPI_RESOURCE_ONLINE_IGNORE_RESOURCE_STATUS = 1;
-
 	public const uint32 CLUSAPI_RESOURCE_ONLINE_DO_NOT_UPDATE_PERSISTENT_STATE = 2;
-
 	public const uint32 CLUSAPI_RESOURCE_ONLINE_NECESSARY_FOR_QUORUM = 4;
-
 	public const uint32 CLUSAPI_RESOURCE_ONLINE_BEST_POSSIBLE_NODE = 8;
-
 	public const uint32 CLUSAPI_RESOURCE_ONLINE_IGNORE_AFFINITY_RULE = 32;
-
 	public const uint32 CLUSAPI_RESOURCE_OFFLINE_IGNORE_RESOURCE_STATUS = 1;
-
 	public const uint32 CLUSAPI_RESOURCE_OFFLINE_FORCE_WITH_TERMINATION = 2;
-
 	public const uint32 CLUSAPI_RESOURCE_OFFLINE_DO_NOT_UPDATE_PERSISTENT_STATE = 4;
-
 	public const uint32 CLUSAPI_RESOURCE_OFFLINE_REASON_NONE = 0;
-
 	public const uint32 CLUSAPI_RESOURCE_OFFLINE_REASON_UNKNOWN = 1;
-
 	public const uint32 CLUSAPI_RESOURCE_OFFLINE_REASON_MOVING = 2;
-
 	public const uint32 CLUSAPI_RESOURCE_OFFLINE_REASON_USER_REQUESTED = 4;
-
 	public const uint32 CLUSAPI_RESOURCE_OFFLINE_REASON_BEING_DELETED = 8;
-
 	public const uint32 CLUSAPI_RESOURCE_OFFLINE_REASON_BEING_RESTARTED = 16;
-
 	public const uint32 CLUSAPI_RESOURCE_OFFLINE_REASON_PREEMPTED = 32;
-
 	public const uint32 CLUSAPI_RESOURCE_OFFLINE_REASON_SHUTTING_DOWN = 64;
-
 	public const uint32 CLUSAPI_GROUP_MOVE_IGNORE_RESOURCE_STATUS = 1;
-
 	public const uint32 CLUSAPI_GROUP_MOVE_RETURN_TO_SOURCE_NODE_ON_ERROR = 2;
-
 	public const uint32 CLUSAPI_GROUP_MOVE_QUEUE_ENABLED = 4;
-
 	public const uint32 CLUSAPI_GROUP_MOVE_HIGH_PRIORITY_START = 8;
-
 	public const uint32 CLUSAPI_GROUP_MOVE_FAILBACK = 16;
-
 	public const uint32 CLUSAPI_GROUP_MOVE_IGNORE_AFFINITY_RULE = 32;
-
 	public const uint64 CLUSAPI_CHANGE_RESOURCE_GROUP_FORCE_MOVE_TO_CSV = 1;
-
 	public const uint64 CLUSAPI_VALID_CHANGE_RESOURCE_GROUP_FLAGS = 1;
-
 	public const uint32 GROUP_FAILURE_INFO_VERSION_1 = 1;
-
 	public const uint32 RESOURCE_FAILURE_INFO_VERSION_1 = 1;
-
 	public const uint32 CLUS_ACCESS_ANY = 0;
-
 	public const uint32 CLUS_ACCESS_READ = 1;
-
 	public const uint32 CLUS_ACCESS_WRITE = 2;
-
 	public const uint32 CLUS_NO_MODIFY = 0;
-
 	public const uint32 CLUS_MODIFY = 1;
-
 	public const uint32 CLUS_NOT_GLOBAL = 0;
-
 	public const uint32 CLUS_GLOBAL = 1;
-
 	public const uint32 CLUSCTL_ACCESS_SHIFT = 0;
-
 	public const uint32 CLUSCTL_FUNCTION_SHIFT = 2;
-
 	public const uint32 CLCTL_INTERNAL_SHIFT = 20;
-
 	public const uint32 CLCTL_USER_SHIFT = 21;
-
 	public const uint32 CLCTL_MODIFY_SHIFT = 22;
-
 	public const uint32 CLCTL_GLOBAL_SHIFT = 23;
-
 	public const uint32 CLUSCTL_OBJECT_SHIFT = 24;
-
 	public const uint32 CLUSCTL_CONTROL_CODE_MASK = 4194303;
-
 	public const uint32 CLUSCTL_OBJECT_MASK = 255;
-
 	public const uint32 CLUSCTL_ACCESS_MODE_MASK = 3;
-
 	public const uint32 CLCTL_CLUSTER_BASE = 0;
-
 	public const int32 BitLockerEnabled = 1;
-
 	public const int32 BitLockerDecrypted = 4;
-
 	public const int32 BitlockerEncrypted = 8;
-
 	public const int32 BitLockerDecrypting = 16;
-
 	public const int32 BitlockerEncrypting = 32;
-
 	public const int32 BitLockerPaused = 64;
-
 	public const int32 BitLockerStopped = 128;
-
 	public const uint64 RedirectedIOReasonUserRequest = 1;
-
 	public const uint64 RedirectedIOReasonUnsafeFileSystemFilter = 2;
-
 	public const uint64 RedirectedIOReasonUnsafeVolumeFilter = 4;
-
 	public const uint64 RedirectedIOReasonFileSystemTiering = 8;
-
 	public const uint64 RedirectedIOReasonBitLockerInitializing = 16;
-
 	public const uint64 RedirectedIOReasonReFs = 32;
-
 	public const uint64 RedirectedIOReasonMax = 9223372036854775808;
-
 	public const uint64 VolumeRedirectedIOReasonNoDiskConnectivity = 1;
-
 	public const uint64 VolumeRedirectedIOReasonStorageSpaceNotAttached = 2;
-
 	public const uint64 VolumeRedirectedIOReasonVolumeReplicationEnabled = 4;
-
 	public const uint64 VolumeRedirectedIOReasonMax = 9223372036854775808;
-
 	public const uint32 MAX_OBJECTID = 64;
-
 	public const uint32 MAX_CO_PASSWORD_LENGTH = 16;
-
 	public const uint32 GUID_PRESENT = 1;
-
 	public const uint32 CREATEDC_PRESENT = 2;
-
 	public const uint32 MAX_CO_PASSWORD_LENGTHEX = 127;
-
 	public const uint32 MAX_CO_PASSWORD_STORAGEEX = 128;
-
 	public const uint32 MAX_CREATINGDC_LENGTH = 256;
-
 	public const uint32 DNS_LENGTH = 64;
-
 	public const uint32 MAINTENANCE_MODE_V2_SIG = 2881155087;
-
 	public const uint32 NNLEN = 80;
-
 	public const uint32 SR_REPLICATED_PARTITION_DISALLOW_MULTINODE_IO = 1;
-
 	public const uint32 CLUSCTL_RESOURCE_TYPE_STORAGE_GET_AVAILABLE_DISKS_EX2_FLAG_ADD_VOLUME_INFO = 1;
-
 	public const uint32 CLUSCTL_RESOURCE_TYPE_STORAGE_GET_AVAILABLE_DISKS_EX2_FLAG_FILTER_BY_POOL = 2;
-
 	public const uint32 CLUSCTL_RESOURCE_TYPE_STORAGE_GET_AVAILABLE_DISKS_EX2_FLAG_INCLUDE_NON_SHARED_DISKS = 4;
-
 	public const uint32 CLRES_VERSION_V1_00 = 256;
-
 	public const uint32 CLRES_VERSION_V2_00 = 512;
-
 	public const uint32 CLRES_VERSION_V3_00 = 768;
-
 	public const uint32 CLRES_VERSION_V4_00 = 1024;
-
 	public const uint32 CLUSCTL_GET_OPERATION_CONTEXT_PARAMS_VERSION_1 = 1;
-
 	public const uint32 CLUSRESDLL_STATUS_OFFLINE_BUSY = 1;
-
 	public const uint32 CLUSRESDLL_STATUS_OFFLINE_SOURCE_THROTTLED = 2;
-
 	public const uint32 CLUSRESDLL_STATUS_OFFLINE_DESTINATION_THROTTLED = 4;
-
 	public const uint32 CLUSRESDLL_STATUS_OFFLINE_DESTINATION_REJECTED = 8;
-
 	public const uint32 CLUSRESDLL_STATUS_INSUFFICIENT_MEMORY = 16;
-
 	public const uint32 CLUSRESDLL_STATUS_INSUFFICIENT_PROCESSOR = 32;
-
 	public const uint32 CLUSRESDLL_STATUS_INSUFFICIENT_OTHER_RESOURCES = 64;
-
 	public const uint32 CLUSRESDLL_STATUS_INVALID_PARAMETERS = 128;
-
 	public const uint32 CLUSRESDLL_STATUS_NETWORK_NOT_AVAILABLE = 256;
-
 	public const uint32 CLUSRESDLL_STATUS_DO_NOT_COLLECT_WER_REPORT = 1073741824;
-
 	public const uint32 CLUSRESDLL_STATUS_DUMP_NOW = 2147483648;
-
 	public const uint32 CLUS_RESDLL_OPEN_RECOVER_MONITOR_STATE = 1;
-
 	public const uint32 CLUS_RESDLL_ONLINE_RECOVER_MONITOR_STATE = 1;
-
 	public const uint32 CLUS_RESDLL_ONLINE_IGNORE_RESOURCE_STATUS = 2;
-
 	public const uint32 CLUS_RESDLL_ONLINE_RETURN_TO_SOURCE_NODE_ON_ERROR = 4;
-
 	public const uint32 CLUS_RESDLL_ONLINE_RESTORE_ONLINE_STATE = 8;
-
 	public const uint32 CLUS_RESDLL_ONLINE_IGNORE_NETWORK_CONNECTIVITY = 16;
-
 	public const uint32 CLUS_RESDLL_OFFLINE_IGNORE_RESOURCE_STATUS = 1;
-
 	public const uint32 CLUS_RESDLL_OFFLINE_RETURN_TO_SOURCE_NODE_ON_ERROR = 2;
-
 	public const uint32 CLUS_RESDLL_OFFLINE_QUEUE_ENABLED = 4;
-
 	public const uint32 CLUS_RESDLL_OFFLINE_RETURNING_TO_SOURCE_NODE_BECAUSE_OF_ERROR = 8;
-
 	public const uint32 CLUS_RESDLL_OFFLINE_DUE_TO_EMBEDDED_FAILURE = 16;
-
 	public const uint32 CLUS_RESDLL_OFFLINE_IGNORE_NETWORK_CONNECTIVITY = 32;
-
 	public const uint32 CLUS_RESDLL_OFFLINE_DO_NOT_UPDATE_PERSISTENT_STATE = 64;
-
 	public const uint32 CLUS_RESDLL_OPEN_DONT_DELETE_TEMP_DISK = 2;
-
 	public const uint32 RESTYPE_MONITOR_SHUTTING_DOWN_NODE_STOP = 1;
-
 	public const uint32 RESTYPE_MONITOR_SHUTTING_DOWN_CLUSSVC_CRASH = 2;
-
 	public const uint32 RESUTIL_PROPITEM_READ_ONLY = 1;
-
 	public const uint32 RESUTIL_PROPITEM_REQUIRED = 2;
-
 	public const uint32 RESUTIL_PROPITEM_SIGNED = 4;
-
 	public const uint32 RESUTIL_PROPITEM_IN_MEMORY = 8;
-
 	public const uint32 LOCKED_MODE_FLAGS_DONT_REMOVE_FROM_MOVE_QUEUE = 1;
-
 	public const uint32 CLUSTER_HEALTH_FAULT_ARGS = 7;
-
 	public const uint32 CLUSTER_HEALTH_FAULT_ID = 0;
-
 	public const uint32 CLUSTER_HEALTH_FAULT_ERRORTYPE = 1;
-
 	public const uint32 CLUSTER_HEALTH_FAULT_ERRORCODE = 2;
-
 	public const uint32 CLUSTER_HEALTH_FAULT_DESCRIPTION = 3;
-
 	public const uint32 CLUSTER_HEALTH_FAULT_PROVIDER = 4;
-
 	public const uint32 CLUSTER_HEALTH_FAULT_FLAGS = 5;
-
 	public const uint32 CLUSTER_HEALTH_FAULT_RESERVED = 6;
-
 	public const uint32 CLUS_CREATE_CRYPT_CONTAINER_NOT_FOUND = 1;
-
 	public const uint32 SET_APPINSTANCE_CSV_FLAGS_VALID_ONLY_IF_CSV_COORDINATOR = 1;
-
 }
 #endregion
 
@@ -3082,27 +2858,31 @@ public struct CLUSTER_CREATE_GROUP_INFO
 	public CLUSGROUP_TYPE groupType;
 }
 
-[CRepr, FlexibleArray("szPath")]
+[CRepr]
 public struct CLUSTER_VALIDATE_PATH
 {
+	public char16* szPath mut => &szPath_impl;
 	private char16[ANYSIZE_ARRAY] szPath_impl;
 }
 
-[CRepr, FlexibleArray("szPath")]
+[CRepr]
 public struct CLUSTER_VALIDATE_DIRECTORY
 {
+	public char16* szPath mut => &szPath_impl;
 	private char16[ANYSIZE_ARRAY] szPath_impl;
 }
 
-[CRepr, FlexibleArray("szNetworkName")]
+[CRepr]
 public struct CLUSTER_VALIDATE_NETNAME
 {
+	public char16* szNetworkName mut => &szNetworkName_impl;
 	private char16[ANYSIZE_ARRAY] szNetworkName_impl;
 }
 
-[CRepr, FlexibleArray("szFileName")]
+[CRepr]
 public struct CLUSTER_VALIDATE_CSV_FILENAME
 {
+	public char16* szFileName mut => &szFileName_impl;
 	private char16[ANYSIZE_ARRAY] szFileName_impl;
 }
 
@@ -3156,11 +2936,12 @@ public struct NOTIFY_FILTER_AND_TYPE
 	public int64 FilterFlags;
 }
 
-[CRepr, FlexibleArray("Upnodes")]
+[CRepr]
 public struct CLUSTER_MEMBERSHIP_INFO
 {
 	public BOOL HasQuorum;
 	public uint32 UpnodesSize;
+	public uint8* Upnodes mut => &Upnodes_impl;
 	private uint8[ANYSIZE_ARRAY] Upnodes_impl;
 }
 
@@ -3253,7 +3034,6 @@ public struct CLUSPROP_SYNTAX
 		public uint16 wFormat;
 		public uint16 wType;
 	}
-
 	public uint32 dw;
 	public using _Anonymous_e__Struct Anonymous;
 }
@@ -3265,10 +3045,11 @@ public struct CLUSPROP_VALUE
 	public uint32 cbLength;
 }
 
-[CRepr, FlexibleArray("rgb")]
+[CRepr]
 public struct CLUSPROP_BINARY
 {
 	public CLUSPROP_VALUE __AnonymousBase_clusapi_L5129_C41;
+	public uint8* rgb mut => &rgb_impl;
 	private uint8[ANYSIZE_ARRAY] rgb_impl;
 }
 
@@ -3293,10 +3074,11 @@ public struct CLUSPROP_LONG
 	public int32 l;
 }
 
-[CRepr, FlexibleArray("sz")]
+[CRepr]
 public struct CLUSPROP_SZ
 {
 	public CLUSPROP_VALUE __AnonymousBase_clusapi_L5169_C37;
+	public char16* sz mut => &sz_impl;
 	private char16[ANYSIZE_ARRAY] sz_impl;
 }
 
@@ -3321,9 +3103,9 @@ public struct CLUSPROP_SECURITY_DESCRIPTOR
 	public struct _Anonymous_e__Union
 	{
 		public SECURITY_DESCRIPTOR_RELATIVE sd;
-		public uint8[ANYSIZE_ARRAY] rgbSecurityDescriptor;
+		public uint8* rgbSecurityDescriptor mut => &rgbSecurityDescriptor_impl;
+		private uint8[ANYSIZE_ARRAY] rgbSecurityDescriptor_impl;
 	}
-
 	public CLUSPROP_VALUE __AnonymousBase_clusapi_L5211_C54;
 	public using _Anonymous_e__Union Anonymous;
 }
@@ -3350,15 +3132,12 @@ public struct CLUS_RESOURCE_CLASS_INFO
 				public uint32 dw;
 				public CLUSTER_RESOURCE_CLASS rc;
 			}
-
 			public using _Anonymous_e__Union Anonymous;
 			public uint32 SubClass;
 		}
-
 		public using _Anonymous_e__Struct Anonymous;
 		public ULARGE_INTEGER li;
 	}
-
 	public using _Anonymous_e__Union Anonymous;
 }
 
@@ -3384,12 +3163,13 @@ public struct CLUSPROP_REQUIRED_DEPENDENCY
 	public CLUSPROP_SZ ResTypeName;
 }
 
-[CRepr, FlexibleArray("multiszNodeList")]
+[CRepr]
 public struct CLUS_FORCE_QUORUM_INFO
 {
 	public uint32 dwSize;
 	public uint32 dwNodeBitMask;
 	public uint32 dwMaxNumberofNodes;
+	public char16* multiszNodeList mut => &multiszNodeList_impl;
 	private char16[ANYSIZE_ARRAY] multiszNodeList_impl;
 }
 
@@ -3479,7 +3259,6 @@ public struct CLUSTER_SHARED_VOLUME_RENAME_INPUT_VOLUME
 		public char16[260] VolumeName;
 		public char16[50] VolumeGuid;
 	}
-
 	public CLUSTER_SHARED_VOLUME_RENAME_INPUT_TYPE InputType;
 	public using _Anonymous_e__Union Anonymous;
 }
@@ -3511,12 +3290,13 @@ public struct CLUSTER_SHARED_VOLUME_RENAME_GUID_INPUT
 	public CLUSTER_SHARED_VOLUME_RENAME_INPUT_GUID_NAME __AnonymousBase_clusapi_L5476_C14;
 }
 
-[CRepr, FlexibleArray("FileIdList")]
+[CRepr]
 public struct CLUS_CHKDSK_INFO
 {
 	public uint32 PartitionNumber;
 	public uint32 ChkdskState;
 	public uint32 FileIdCount;
+	public uint64* FileIdList mut => &FileIdList_impl;
 	private uint64[ANYSIZE_ARRAY] FileIdList_impl;
 }
 
@@ -3584,11 +3364,9 @@ public struct CLUS_SCSI_ADDRESS
 			public uint8 TargetId;
 			public uint8 Lun;
 		}
-
 		public using _Anonymous_e__Struct Anonymous;
 		public uint32 dw;
 	}
-
 	public using _Anonymous_e__Union Anonymous;
 }
 
@@ -3639,19 +3417,21 @@ public struct CLUS_DNN_SODAFS_CLONE_STATUS
 	public CLUSTER_RESOURCE_STATE Status;
 }
 
-[CRepr, FlexibleArray("Address")]
+[CRepr]
 public struct CLUS_NETNAME_IP_INFO_ENTRY
 {
 	public uint32 NodeId;
 	public uint32 AddressSize;
+	public uint8* Address mut => &Address_impl;
 	private uint8[ANYSIZE_ARRAY] Address_impl;
 }
 
-[CRepr, FlexibleArray("IpInfo")]
+[CRepr]
 public struct CLUS_NETNAME_IP_INFO_FOR_MULTICHANNEL
 {
 	public char16[64] szName;
 	public uint32 NumEntries;
+	public CLUS_NETNAME_IP_INFO_ENTRY* IpInfo mut => &IpInfo_impl;
 	private CLUS_NETNAME_IP_INFO_ENTRY[ANYSIZE_ARRAY] IpInfo_impl;
 }
 
@@ -3677,11 +3457,12 @@ public struct CLUS_MAINTENANCE_MODE_INFOEX
 	public uint32 Signature;
 }
 
-[CRepr, FlexibleArray("ExtraParameter")]
+[CRepr]
 public struct CLUS_SET_MAINTENANCE_MODE_INPUT
 {
 	public BOOL InMaintenance;
 	public uint32 ExtraParameterSize;
+	public uint8* ExtraParameter mut => &ExtraParameter_impl;
 	private uint8[ANYSIZE_ARRAY] ExtraParameter_impl;
 }
 
@@ -3705,11 +3486,12 @@ public struct CLUS_STORAGE_REMAP_DRIVELETTER
 	public uint32 TargetDriveLetterMask;
 }
 
-[CRepr, FlexibleArray("szProviderId")]
+[CRepr]
 public struct CLUS_PROVIDER_STATE_CHANGE_INFO
 {
 	public uint32 dwSize;
 	public CLUSTER_RESOURCE_STATE resourceState;
+	public char16* szProviderId mut => &szProviderId_impl;
 	private char16[ANYSIZE_ARRAY] szProviderId_impl;
 }
 
@@ -3739,10 +3521,11 @@ public struct FILESHARE_CHANGE
 	public char16[84] ShareName;
 }
 
-[CRepr, FlexibleArray("ChangeEntry")]
+[CRepr]
 public struct FILESHARE_CHANGE_LIST
 {
 	public uint32 NumEntries;
+	public FILESHARE_CHANGE* ChangeEntry mut => &ChangeEntry_impl;
 	private FILESHARE_CHANGE[ANYSIZE_ARRAY] ChangeEntry_impl;
 }
 
@@ -3794,10 +3577,11 @@ public struct SR_RESOURCE_TYPE_REPLICATED_PARTITION_INFO
 	public uint32 Capabilities;
 }
 
-[CRepr, FlexibleArray("PartitionArray")]
+[CRepr]
 public struct SR_RESOURCE_TYPE_REPLICATED_PARTITION_ARRAY
 {
 	public uint32 Count;
+	public SR_RESOURCE_TYPE_REPLICATED_PARTITION_INFO* PartitionArray mut => &PartitionArray_impl;
 	private SR_RESOURCE_TYPE_REPLICATED_PARTITION_INFO[ANYSIZE_ARRAY] PartitionArray_impl;
 }
 
@@ -3831,10 +3615,11 @@ public struct SR_RESOURCE_TYPE_DISK_INFO
 	public Guid DiskGuid;
 }
 
-[CRepr, FlexibleArray("DiskInfo")]
+[CRepr]
 public struct SR_RESOURCE_TYPE_ELIGIBLE_DISKS_RESULT
 {
 	public uint16 Count;
+	public SR_RESOURCE_TYPE_DISK_INFO* DiskInfo mut => &DiskInfo_impl;
 	private SR_RESOURCE_TYPE_DISK_INFO[ANYSIZE_ARRAY] DiskInfo_impl;
 }
 
@@ -3847,10 +3632,11 @@ public struct SR_RESOURCE_TYPE_REPLICATED_DISK
 	public char16[260] ReplicationGroupName;
 }
 
-[CRepr, FlexibleArray("ReplicatedDisks")]
+[CRepr]
 public struct SR_RESOURCE_TYPE_REPLICATED_DISKS_RESULT
 {
 	public uint16 Count;
+	public SR_RESOURCE_TYPE_REPLICATED_DISK* ReplicatedDisks mut => &ReplicatedDisks_impl;
 	private SR_RESOURCE_TYPE_REPLICATED_DISK[ANYSIZE_ARRAY] ReplicatedDisks_impl;
 }
 
@@ -4009,7 +3795,6 @@ public struct CLRES_FUNCTION_TABLE
 		public CLRES_V3_FUNCTIONS V3Functions;
 		public CLRES_V4_FUNCTIONS V4Functions;
 	}
-
 	public uint32 TableSize;
 	public uint32 Version;
 	public using _Anonymous_e__Union Anonymous;
@@ -4052,7 +3837,6 @@ public struct RESUTIL_PROPERTY_ITEM
 		public RESUTIL_ULARGEINT_DATA* ULargeIntData;
 		public RESUTIL_FILETIME_DATA* FileTimeData;
 	}
-
 	public PWSTR Name;
 	public PWSTR KeyName;
 	public uint32 Format;

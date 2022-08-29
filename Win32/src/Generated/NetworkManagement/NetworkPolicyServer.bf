@@ -1,7 +1,6 @@
 using Win32.System.Com;
 using Win32.Foundation;
 using System;
-using System.Interop;
 
 namespace Win32.NetworkManagement.NetworkPolicyServer;
 
@@ -9,7 +8,6 @@ namespace Win32.NetworkManagement.NetworkPolicyServer;
 public static
 {
 	public const uint32 RADIUS_EXTENSION_VERSION = 1;
-
 }
 #endregion
 
@@ -901,19 +899,19 @@ public struct RADIUS_ATTRIBUTE
 		public uint32 dwValue;
 		public uint8* lpValue;
 	}
-
 	public uint32 dwAttrType;
 	public RADIUS_DATA_TYPE fDataType;
 	public uint32 cbDataLength;
 	public using _Anonymous_e__Union Anonymous;
 }
 
-[CRepr, FlexibleArray("AttributeSpecific")]
+[CRepr]
 public struct RADIUS_VSA_FORMAT
 {
 	public uint8[4] VendorId;
 	public uint8 VendorType;
 	public uint8 VendorLength;
+	public uint8* AttributeSpecific mut => &AttributeSpecific_impl;
 	private uint8[ANYSIZE_ARRAY] AttributeSpecific_impl;
 }
 

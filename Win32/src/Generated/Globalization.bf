@@ -9,1533 +9,769 @@ namespace Win32.Globalization;
 public static
 {
 	public const uint32 ALL_SERVICE_TYPES = 0;
-
 	public const uint32 HIGHLEVEL_SERVICE_TYPES = 1;
-
 	public const uint32 LOWLEVEL_SERVICE_TYPES = 2;
-
 	public const uint32 ALL_SERVICES = 0;
-
 	public const uint32 ONLINE_SERVICES = 1;
-
 	public const uint32 OFFLINE_SERVICES = 2;
-
 	public const uint32 MAX_LEADBYTES = 12;
-
 	public const uint32 MAX_DEFAULTCHAR = 2;
-
 	public const uint32 HIGH_SURROGATE_START = 55296;
-
 	public const uint32 HIGH_SURROGATE_END = 56319;
-
 	public const uint32 LOW_SURROGATE_START = 56320;
-
 	public const uint32 LOW_SURROGATE_END = 57343;
-
 	public const uint32 WC_COMPOSITECHECK = 512;
-
 	public const uint32 WC_DISCARDNS = 16;
-
 	public const uint32 WC_SEPCHARS = 32;
-
 	public const uint32 WC_DEFAULTCHAR = 64;
-
 	public const uint32 WC_ERR_INVALID_CHARS = 128;
-
 	public const uint32 WC_NO_BEST_FIT_CHARS = 1024;
-
 	public const uint32 CT_CTYPE1 = 1;
-
 	public const uint32 CT_CTYPE2 = 2;
-
 	public const uint32 CT_CTYPE3 = 4;
-
 	public const uint32 C1_UPPER = 1;
-
 	public const uint32 C1_LOWER = 2;
-
 	public const uint32 C1_DIGIT = 4;
-
 	public const uint32 C1_SPACE = 8;
-
 	public const uint32 C1_PUNCT = 16;
-
 	public const uint32 C1_CNTRL = 32;
-
 	public const uint32 C1_BLANK = 64;
-
 	public const uint32 C1_XDIGIT = 128;
-
 	public const uint32 C1_ALPHA = 256;
-
 	public const uint32 C1_DEFINED = 512;
-
 	public const uint32 C2_LEFTTORIGHT = 1;
-
 	public const uint32 C2_RIGHTTOLEFT = 2;
-
 	public const uint32 C2_EUROPENUMBER = 3;
-
 	public const uint32 C2_EUROPESEPARATOR = 4;
-
 	public const uint32 C2_EUROPETERMINATOR = 5;
-
 	public const uint32 C2_ARABICNUMBER = 6;
-
 	public const uint32 C2_COMMONSEPARATOR = 7;
-
 	public const uint32 C2_BLOCKSEPARATOR = 8;
-
 	public const uint32 C2_SEGMENTSEPARATOR = 9;
-
 	public const uint32 C2_WHITESPACE = 10;
-
 	public const uint32 C2_OTHERNEUTRAL = 11;
-
 	public const uint32 C2_NOTAPPLICABLE = 0;
-
 	public const uint32 C3_NONSPACING = 1;
-
 	public const uint32 C3_DIACRITIC = 2;
-
 	public const uint32 C3_VOWELMARK = 4;
-
 	public const uint32 C3_SYMBOL = 8;
-
 	public const uint32 C3_KATAKANA = 16;
-
 	public const uint32 C3_HIRAGANA = 32;
-
 	public const uint32 C3_HALFWIDTH = 64;
-
 	public const uint32 C3_FULLWIDTH = 128;
-
 	public const uint32 C3_IDEOGRAPH = 256;
-
 	public const uint32 C3_KASHIDA = 512;
-
 	public const uint32 C3_LEXICAL = 1024;
-
 	public const uint32 C3_HIGHSURROGATE = 2048;
-
 	public const uint32 C3_LOWSURROGATE = 4096;
-
 	public const uint32 C3_ALPHA = 32768;
-
 	public const uint32 C3_NOTAPPLICABLE = 0;
-
 	public const uint32 LCMAP_LOWERCASE = 256;
-
 	public const uint32 LCMAP_UPPERCASE = 512;
-
 	public const uint32 LCMAP_TITLECASE = 768;
-
 	public const uint32 LCMAP_SORTKEY = 1024;
-
 	public const uint32 LCMAP_BYTEREV = 2048;
-
 	public const uint32 LCMAP_HIRAGANA = 1048576;
-
 	public const uint32 LCMAP_KATAKANA = 2097152;
-
 	public const uint32 LCMAP_HALFWIDTH = 4194304;
-
 	public const uint32 LCMAP_FULLWIDTH = 8388608;
-
 	public const uint32 LCMAP_LINGUISTIC_CASING = 16777216;
-
 	public const uint32 LCMAP_SIMPLIFIED_CHINESE = 33554432;
-
 	public const uint32 LCMAP_TRADITIONAL_CHINESE = 67108864;
-
 	public const uint32 LCMAP_SORTHANDLE = 536870912;
-
 	public const uint32 LCMAP_HASH = 262144;
-
 	public const uint32 FIND_STARTSWITH = 1048576;
-
 	public const uint32 FIND_ENDSWITH = 2097152;
-
 	public const uint32 FIND_FROMSTART = 4194304;
-
 	public const uint32 FIND_FROMEND = 8388608;
-
 	public const uint32 LCID_ALTERNATE_SORTS = 4;
-
 	public const uint32 LOCALE_ALL = 0;
-
 	public const uint32 LOCALE_WINDOWS = 1;
-
 	public const uint32 LOCALE_SUPPLEMENTAL = 2;
-
 	public const uint32 LOCALE_ALTERNATE_SORTS = 4;
-
 	public const uint32 LOCALE_REPLACEMENT = 8;
-
 	public const uint32 LOCALE_NEUTRALDATA = 16;
-
 	public const uint32 LOCALE_SPECIFICDATA = 32;
-
 	public const uint32 CSTR_LESS_THAN = 1;
-
 	public const uint32 CSTR_EQUAL = 2;
-
 	public const uint32 CSTR_GREATER_THAN = 3;
-
 	public const uint32 CP_ACP = 0;
-
 	public const uint32 CP_OEMCP = 1;
-
 	public const uint32 CP_MACCP = 2;
-
 	public const uint32 CP_THREAD_ACP = 3;
-
 	public const uint32 CP_SYMBOL = 42;
-
 	public const uint32 CP_UTF7 = 65000;
-
 	public const uint32 CP_UTF8 = 65001;
-
 	public const uint32 CTRY_DEFAULT = 0;
-
 	public const uint32 CTRY_ALBANIA = 355;
-
 	public const uint32 CTRY_ALGERIA = 213;
-
 	public const uint32 CTRY_ARGENTINA = 54;
-
 	public const uint32 CTRY_ARMENIA = 374;
-
 	public const uint32 CTRY_AUSTRALIA = 61;
-
 	public const uint32 CTRY_AUSTRIA = 43;
-
 	public const uint32 CTRY_AZERBAIJAN = 994;
-
 	public const uint32 CTRY_BAHRAIN = 973;
-
 	public const uint32 CTRY_BELARUS = 375;
-
 	public const uint32 CTRY_BELGIUM = 32;
-
 	public const uint32 CTRY_BELIZE = 501;
-
 	public const uint32 CTRY_BOLIVIA = 591;
-
 	public const uint32 CTRY_BRAZIL = 55;
-
 	public const uint32 CTRY_BRUNEI_DARUSSALAM = 673;
-
 	public const uint32 CTRY_BULGARIA = 359;
-
 	public const uint32 CTRY_CANADA = 2;
-
 	public const uint32 CTRY_CARIBBEAN = 1;
-
 	public const uint32 CTRY_CHILE = 56;
-
 	public const uint32 CTRY_COLOMBIA = 57;
-
 	public const uint32 CTRY_COSTA_RICA = 506;
-
 	public const uint32 CTRY_CROATIA = 385;
-
 	public const uint32 CTRY_CZECH = 420;
-
 	public const uint32 CTRY_DENMARK = 45;
-
 	public const uint32 CTRY_DOMINICAN_REPUBLIC = 1;
-
 	public const uint32 CTRY_ECUADOR = 593;
-
 	public const uint32 CTRY_EGYPT = 20;
-
 	public const uint32 CTRY_EL_SALVADOR = 503;
-
 	public const uint32 CTRY_ESTONIA = 372;
-
 	public const uint32 CTRY_FAEROE_ISLANDS = 298;
-
 	public const uint32 CTRY_FINLAND = 358;
-
 	public const uint32 CTRY_FRANCE = 33;
-
 	public const uint32 CTRY_GEORGIA = 995;
-
 	public const uint32 CTRY_GERMANY = 49;
-
 	public const uint32 CTRY_GREECE = 30;
-
 	public const uint32 CTRY_GUATEMALA = 502;
-
 	public const uint32 CTRY_HONDURAS = 504;
-
 	public const uint32 CTRY_HONG_KONG = 852;
-
 	public const uint32 CTRY_HUNGARY = 36;
-
 	public const uint32 CTRY_ICELAND = 354;
-
 	public const uint32 CTRY_INDIA = 91;
-
 	public const uint32 CTRY_INDONESIA = 62;
-
 	public const uint32 CTRY_IRAN = 981;
-
 	public const uint32 CTRY_IRAQ = 964;
-
 	public const uint32 CTRY_IRELAND = 353;
-
 	public const uint32 CTRY_ISRAEL = 972;
-
 	public const uint32 CTRY_ITALY = 39;
-
 	public const uint32 CTRY_JAMAICA = 1;
-
 	public const uint32 CTRY_JAPAN = 81;
-
 	public const uint32 CTRY_JORDAN = 962;
-
 	public const uint32 CTRY_KAZAKSTAN = 7;
-
 	public const uint32 CTRY_KENYA = 254;
-
 	public const uint32 CTRY_KUWAIT = 965;
-
 	public const uint32 CTRY_KYRGYZSTAN = 996;
-
 	public const uint32 CTRY_LATVIA = 371;
-
 	public const uint32 CTRY_LEBANON = 961;
-
 	public const uint32 CTRY_LIBYA = 218;
-
 	public const uint32 CTRY_LIECHTENSTEIN = 41;
-
 	public const uint32 CTRY_LITHUANIA = 370;
-
 	public const uint32 CTRY_LUXEMBOURG = 352;
-
 	public const uint32 CTRY_MACAU = 853;
-
 	public const uint32 CTRY_MACEDONIA = 389;
-
 	public const uint32 CTRY_MALAYSIA = 60;
-
 	public const uint32 CTRY_MALDIVES = 960;
-
 	public const uint32 CTRY_MEXICO = 52;
-
 	public const uint32 CTRY_MONACO = 33;
-
 	public const uint32 CTRY_MONGOLIA = 976;
-
 	public const uint32 CTRY_MOROCCO = 212;
-
 	public const uint32 CTRY_NETHERLANDS = 31;
-
 	public const uint32 CTRY_NEW_ZEALAND = 64;
-
 	public const uint32 CTRY_NICARAGUA = 505;
-
 	public const uint32 CTRY_NORWAY = 47;
-
 	public const uint32 CTRY_OMAN = 968;
-
 	public const uint32 CTRY_PAKISTAN = 92;
-
 	public const uint32 CTRY_PANAMA = 507;
-
 	public const uint32 CTRY_PARAGUAY = 595;
-
 	public const uint32 CTRY_PERU = 51;
-
 	public const uint32 CTRY_PHILIPPINES = 63;
-
 	public const uint32 CTRY_POLAND = 48;
-
 	public const uint32 CTRY_PORTUGAL = 351;
-
 	public const uint32 CTRY_PRCHINA = 86;
-
 	public const uint32 CTRY_PUERTO_RICO = 1;
-
 	public const uint32 CTRY_QATAR = 974;
-
 	public const uint32 CTRY_ROMANIA = 40;
-
 	public const uint32 CTRY_RUSSIA = 7;
-
 	public const uint32 CTRY_SAUDI_ARABIA = 966;
-
 	public const uint32 CTRY_SERBIA = 381;
-
 	public const uint32 CTRY_SINGAPORE = 65;
-
 	public const uint32 CTRY_SLOVAK = 421;
-
 	public const uint32 CTRY_SLOVENIA = 386;
-
 	public const uint32 CTRY_SOUTH_AFRICA = 27;
-
 	public const uint32 CTRY_SOUTH_KOREA = 82;
-
 	public const uint32 CTRY_SPAIN = 34;
-
 	public const uint32 CTRY_SWEDEN = 46;
-
 	public const uint32 CTRY_SWITZERLAND = 41;
-
 	public const uint32 CTRY_SYRIA = 963;
-
 	public const uint32 CTRY_TAIWAN = 886;
-
 	public const uint32 CTRY_TATARSTAN = 7;
-
 	public const uint32 CTRY_THAILAND = 66;
-
 	public const uint32 CTRY_TRINIDAD_Y_TOBAGO = 1;
-
 	public const uint32 CTRY_TUNISIA = 216;
-
 	public const uint32 CTRY_TURKEY = 90;
-
 	public const uint32 CTRY_UAE = 971;
-
 	public const uint32 CTRY_UKRAINE = 380;
-
 	public const uint32 CTRY_UNITED_KINGDOM = 44;
-
 	public const uint32 CTRY_UNITED_STATES = 1;
-
 	public const uint32 CTRY_URUGUAY = 598;
-
 	public const uint32 CTRY_UZBEKISTAN = 7;
-
 	public const uint32 CTRY_VENEZUELA = 58;
-
 	public const uint32 CTRY_VIET_NAM = 84;
-
 	public const uint32 CTRY_YEMEN = 967;
-
 	public const uint32 CTRY_ZIMBABWE = 263;
-
 	public const uint32 LOCALE_NOUSEROVERRIDE = 2147483648;
-
 	public const uint32 LOCALE_USE_CP_ACP = 1073741824;
-
 	public const uint32 LOCALE_RETURN_NUMBER = 536870912;
-
 	public const uint32 LOCALE_RETURN_GENITIVE_NAMES = 268435456;
-
 	public const uint32 LOCALE_ALLOW_NEUTRAL_NAMES = 134217728;
-
 	public const uint32 LOCALE_SLOCALIZEDDISPLAYNAME = 2;
-
 	public const uint32 LOCALE_SENGLISHDISPLAYNAME = 114;
-
 	public const uint32 LOCALE_SNATIVEDISPLAYNAME = 115;
-
 	public const uint32 LOCALE_SLOCALIZEDLANGUAGENAME = 111;
-
 	public const uint32 LOCALE_SENGLISHLANGUAGENAME = 4097;
-
 	public const uint32 LOCALE_SNATIVELANGUAGENAME = 4;
-
 	public const uint32 LOCALE_SLOCALIZEDCOUNTRYNAME = 6;
-
 	public const uint32 LOCALE_SENGLISHCOUNTRYNAME = 4098;
-
 	public const uint32 LOCALE_SNATIVECOUNTRYNAME = 8;
-
 	public const uint32 LOCALE_IDIALINGCODE = 5;
-
 	public const uint32 LOCALE_SLIST = 12;
-
 	public const uint32 LOCALE_IMEASURE = 13;
-
 	public const uint32 LOCALE_SDECIMAL = 14;
-
 	public const uint32 LOCALE_STHOUSAND = 15;
-
 	public const uint32 LOCALE_SGROUPING = 16;
-
 	public const uint32 LOCALE_IDIGITS = 17;
-
 	public const uint32 LOCALE_ILZERO = 18;
-
 	public const uint32 LOCALE_INEGNUMBER = 4112;
-
 	public const uint32 LOCALE_SNATIVEDIGITS = 19;
-
 	public const uint32 LOCALE_SCURRENCY = 20;
-
 	public const uint32 LOCALE_SINTLSYMBOL = 21;
-
 	public const uint32 LOCALE_SMONDECIMALSEP = 22;
-
 	public const uint32 LOCALE_SMONTHOUSANDSEP = 23;
-
 	public const uint32 LOCALE_SMONGROUPING = 24;
-
 	public const uint32 LOCALE_ICURRDIGITS = 25;
-
 	public const uint32 LOCALE_ICURRENCY = 27;
-
 	public const uint32 LOCALE_INEGCURR = 28;
-
 	public const uint32 LOCALE_SSHORTDATE = 31;
-
 	public const uint32 LOCALE_SLONGDATE = 32;
-
 	public const uint32 LOCALE_STIMEFORMAT = 4099;
-
 	public const uint32 LOCALE_SAM = 40;
-
 	public const uint32 LOCALE_SPM = 41;
-
 	public const uint32 LOCALE_ICALENDARTYPE = 4105;
-
 	public const uint32 LOCALE_IOPTIONALCALENDAR = 4107;
-
 	public const uint32 LOCALE_IFIRSTDAYOFWEEK = 4108;
-
 	public const uint32 LOCALE_IFIRSTWEEKOFYEAR = 4109;
-
 	public const uint32 LOCALE_SDAYNAME1 = 42;
-
 	public const uint32 LOCALE_SDAYNAME2 = 43;
-
 	public const uint32 LOCALE_SDAYNAME3 = 44;
-
 	public const uint32 LOCALE_SDAYNAME4 = 45;
-
 	public const uint32 LOCALE_SDAYNAME5 = 46;
-
 	public const uint32 LOCALE_SDAYNAME6 = 47;
-
 	public const uint32 LOCALE_SDAYNAME7 = 48;
-
 	public const uint32 LOCALE_SABBREVDAYNAME1 = 49;
-
 	public const uint32 LOCALE_SABBREVDAYNAME2 = 50;
-
 	public const uint32 LOCALE_SABBREVDAYNAME3 = 51;
-
 	public const uint32 LOCALE_SABBREVDAYNAME4 = 52;
-
 	public const uint32 LOCALE_SABBREVDAYNAME5 = 53;
-
 	public const uint32 LOCALE_SABBREVDAYNAME6 = 54;
-
 	public const uint32 LOCALE_SABBREVDAYNAME7 = 55;
-
 	public const uint32 LOCALE_SMONTHNAME1 = 56;
-
 	public const uint32 LOCALE_SMONTHNAME2 = 57;
-
 	public const uint32 LOCALE_SMONTHNAME3 = 58;
-
 	public const uint32 LOCALE_SMONTHNAME4 = 59;
-
 	public const uint32 LOCALE_SMONTHNAME5 = 60;
-
 	public const uint32 LOCALE_SMONTHNAME6 = 61;
-
 	public const uint32 LOCALE_SMONTHNAME7 = 62;
-
 	public const uint32 LOCALE_SMONTHNAME8 = 63;
-
 	public const uint32 LOCALE_SMONTHNAME9 = 64;
-
 	public const uint32 LOCALE_SMONTHNAME10 = 65;
-
 	public const uint32 LOCALE_SMONTHNAME11 = 66;
-
 	public const uint32 LOCALE_SMONTHNAME12 = 67;
-
 	public const uint32 LOCALE_SMONTHNAME13 = 4110;
-
 	public const uint32 LOCALE_SABBREVMONTHNAME1 = 68;
-
 	public const uint32 LOCALE_SABBREVMONTHNAME2 = 69;
-
 	public const uint32 LOCALE_SABBREVMONTHNAME3 = 70;
-
 	public const uint32 LOCALE_SABBREVMONTHNAME4 = 71;
-
 	public const uint32 LOCALE_SABBREVMONTHNAME5 = 72;
-
 	public const uint32 LOCALE_SABBREVMONTHNAME6 = 73;
-
 	public const uint32 LOCALE_SABBREVMONTHNAME7 = 74;
-
 	public const uint32 LOCALE_SABBREVMONTHNAME8 = 75;
-
 	public const uint32 LOCALE_SABBREVMONTHNAME9 = 76;
-
 	public const uint32 LOCALE_SABBREVMONTHNAME10 = 77;
-
 	public const uint32 LOCALE_SABBREVMONTHNAME11 = 78;
-
 	public const uint32 LOCALE_SABBREVMONTHNAME12 = 79;
-
 	public const uint32 LOCALE_SABBREVMONTHNAME13 = 4111;
-
 	public const uint32 LOCALE_SPOSITIVESIGN = 80;
-
 	public const uint32 LOCALE_SNEGATIVESIGN = 81;
-
 	public const uint32 LOCALE_IPOSSIGNPOSN = 82;
-
 	public const uint32 LOCALE_INEGSIGNPOSN = 83;
-
 	public const uint32 LOCALE_IPOSSYMPRECEDES = 84;
-
 	public const uint32 LOCALE_IPOSSEPBYSPACE = 85;
-
 	public const uint32 LOCALE_INEGSYMPRECEDES = 86;
-
 	public const uint32 LOCALE_INEGSEPBYSPACE = 87;
-
 	public const uint32 LOCALE_FONTSIGNATURE = 88;
-
 	public const uint32 LOCALE_SISO639LANGNAME = 89;
-
 	public const uint32 LOCALE_SISO3166CTRYNAME = 90;
-
 	public const uint32 LOCALE_IPAPERSIZE = 4106;
-
 	public const uint32 LOCALE_SENGCURRNAME = 4103;
-
 	public const uint32 LOCALE_SNATIVECURRNAME = 4104;
-
 	public const uint32 LOCALE_SYEARMONTH = 4102;
-
 	public const uint32 LOCALE_SSORTNAME = 4115;
-
 	public const uint32 LOCALE_IDIGITSUBSTITUTION = 4116;
-
 	public const uint32 LOCALE_SNAME = 92;
-
 	public const uint32 LOCALE_SDURATION = 93;
-
 	public const uint32 LOCALE_SSHORTESTDAYNAME1 = 96;
-
 	public const uint32 LOCALE_SSHORTESTDAYNAME2 = 97;
-
 	public const uint32 LOCALE_SSHORTESTDAYNAME3 = 98;
-
 	public const uint32 LOCALE_SSHORTESTDAYNAME4 = 99;
-
 	public const uint32 LOCALE_SSHORTESTDAYNAME5 = 100;
-
 	public const uint32 LOCALE_SSHORTESTDAYNAME6 = 101;
-
 	public const uint32 LOCALE_SSHORTESTDAYNAME7 = 102;
-
 	public const uint32 LOCALE_SISO639LANGNAME2 = 103;
-
 	public const uint32 LOCALE_SISO3166CTRYNAME2 = 104;
-
 	public const uint32 LOCALE_SNAN = 105;
-
 	public const uint32 LOCALE_SPOSINFINITY = 106;
-
 	public const uint32 LOCALE_SNEGINFINITY = 107;
-
 	public const uint32 LOCALE_SSCRIPTS = 108;
-
 	public const uint32 LOCALE_SPARENT = 109;
-
 	public const uint32 LOCALE_SCONSOLEFALLBACKNAME = 110;
-
 	public const uint32 LOCALE_IREADINGLAYOUT = 112;
-
 	public const uint32 LOCALE_INEUTRAL = 113;
-
 	public const uint32 LOCALE_INEGATIVEPERCENT = 116;
-
 	public const uint32 LOCALE_IPOSITIVEPERCENT = 117;
-
 	public const uint32 LOCALE_SPERCENT = 118;
-
 	public const uint32 LOCALE_SPERMILLE = 119;
-
 	public const uint32 LOCALE_SMONTHDAY = 120;
-
 	public const uint32 LOCALE_SSHORTTIME = 121;
-
 	public const uint32 LOCALE_SOPENTYPELANGUAGETAG = 122;
-
 	public const uint32 LOCALE_SSORTLOCALE = 123;
-
 	public const uint32 LOCALE_SRELATIVELONGDATE = 124;
-
 	public const uint32 LOCALE_ICONSTRUCTEDLOCALE = 125;
-
 	public const uint32 LOCALE_SSHORTESTAM = 126;
-
 	public const uint32 LOCALE_SSHORTESTPM = 127;
-
 	public const uint32 LOCALE_IUSEUTF8LEGACYACP = 1638;
-
 	public const uint32 LOCALE_IUSEUTF8LEGACYOEMCP = 2457;
-
 	public const uint32 LOCALE_IDEFAULTCODEPAGE = 11;
-
 	public const uint32 LOCALE_IDEFAULTANSICODEPAGE = 4100;
-
 	public const uint32 LOCALE_IDEFAULTMACCODEPAGE = 4113;
-
 	public const uint32 LOCALE_IDEFAULTEBCDICCODEPAGE = 4114;
-
 	public const uint32 LOCALE_ILANGUAGE = 1;
-
 	public const uint32 LOCALE_SABBREVLANGNAME = 3;
-
 	public const uint32 LOCALE_SABBREVCTRYNAME = 7;
-
 	public const uint32 LOCALE_IGEOID = 91;
-
 	public const uint32 LOCALE_IDEFAULTLANGUAGE = 9;
-
 	public const uint32 LOCALE_IDEFAULTCOUNTRY = 10;
-
 	public const uint32 LOCALE_IINTLCURRDIGITS = 26;
-
 	public const uint32 LOCALE_SDATE = 29;
-
 	public const uint32 LOCALE_STIME = 30;
-
 	public const uint32 LOCALE_IDATE = 33;
-
 	public const uint32 LOCALE_ILDATE = 34;
-
 	public const uint32 LOCALE_ITIME = 35;
-
 	public const uint32 LOCALE_ITIMEMARKPOSN = 4101;
-
 	public const uint32 LOCALE_ICENTURY = 36;
-
 	public const uint32 LOCALE_ITLZERO = 37;
-
 	public const uint32 LOCALE_IDAYLZERO = 38;
-
 	public const uint32 LOCALE_IMONLZERO = 39;
-
 	public const uint32 LOCALE_SKEYBOARDSTOINSTALL = 94;
-
 	public const uint32 LOCALE_SLANGUAGE = 2;
-
 	public const uint32 LOCALE_SLANGDISPLAYNAME = 111;
-
 	public const uint32 LOCALE_SENGLANGUAGE = 4097;
-
 	public const uint32 LOCALE_SNATIVELANGNAME = 4;
-
 	public const uint32 LOCALE_SCOUNTRY = 6;
-
 	public const uint32 LOCALE_SENGCOUNTRY = 4098;
-
 	public const uint32 LOCALE_SNATIVECTRYNAME = 8;
-
 	public const uint32 LOCALE_ICOUNTRY = 5;
-
 	public const uint32 LOCALE_S1159 = 40;
-
 	public const uint32 LOCALE_S2359 = 41;
-
 	public const uint32 CAL_NOUSEROVERRIDE = 2147483648;
-
 	public const uint32 CAL_USE_CP_ACP = 1073741824;
-
 	public const uint32 CAL_RETURN_NUMBER = 536870912;
-
 	public const uint32 CAL_RETURN_GENITIVE_NAMES = 268435456;
-
 	public const uint32 CAL_ICALINTVALUE = 1;
-
 	public const uint32 CAL_SCALNAME = 2;
-
 	public const uint32 CAL_IYEAROFFSETRANGE = 3;
-
 	public const uint32 CAL_SERASTRING = 4;
-
 	public const uint32 CAL_SSHORTDATE = 5;
-
 	public const uint32 CAL_SLONGDATE = 6;
-
 	public const uint32 CAL_SDAYNAME1 = 7;
-
 	public const uint32 CAL_SDAYNAME2 = 8;
-
 	public const uint32 CAL_SDAYNAME3 = 9;
-
 	public const uint32 CAL_SDAYNAME4 = 10;
-
 	public const uint32 CAL_SDAYNAME5 = 11;
-
 	public const uint32 CAL_SDAYNAME6 = 12;
-
 	public const uint32 CAL_SDAYNAME7 = 13;
-
 	public const uint32 CAL_SABBREVDAYNAME1 = 14;
-
 	public const uint32 CAL_SABBREVDAYNAME2 = 15;
-
 	public const uint32 CAL_SABBREVDAYNAME3 = 16;
-
 	public const uint32 CAL_SABBREVDAYNAME4 = 17;
-
 	public const uint32 CAL_SABBREVDAYNAME5 = 18;
-
 	public const uint32 CAL_SABBREVDAYNAME6 = 19;
-
 	public const uint32 CAL_SABBREVDAYNAME7 = 20;
-
 	public const uint32 CAL_SMONTHNAME1 = 21;
-
 	public const uint32 CAL_SMONTHNAME2 = 22;
-
 	public const uint32 CAL_SMONTHNAME3 = 23;
-
 	public const uint32 CAL_SMONTHNAME4 = 24;
-
 	public const uint32 CAL_SMONTHNAME5 = 25;
-
 	public const uint32 CAL_SMONTHNAME6 = 26;
-
 	public const uint32 CAL_SMONTHNAME7 = 27;
-
 	public const uint32 CAL_SMONTHNAME8 = 28;
-
 	public const uint32 CAL_SMONTHNAME9 = 29;
-
 	public const uint32 CAL_SMONTHNAME10 = 30;
-
 	public const uint32 CAL_SMONTHNAME11 = 31;
-
 	public const uint32 CAL_SMONTHNAME12 = 32;
-
 	public const uint32 CAL_SMONTHNAME13 = 33;
-
 	public const uint32 CAL_SABBREVMONTHNAME1 = 34;
-
 	public const uint32 CAL_SABBREVMONTHNAME2 = 35;
-
 	public const uint32 CAL_SABBREVMONTHNAME3 = 36;
-
 	public const uint32 CAL_SABBREVMONTHNAME4 = 37;
-
 	public const uint32 CAL_SABBREVMONTHNAME5 = 38;
-
 	public const uint32 CAL_SABBREVMONTHNAME6 = 39;
-
 	public const uint32 CAL_SABBREVMONTHNAME7 = 40;
-
 	public const uint32 CAL_SABBREVMONTHNAME8 = 41;
-
 	public const uint32 CAL_SABBREVMONTHNAME9 = 42;
-
 	public const uint32 CAL_SABBREVMONTHNAME10 = 43;
-
 	public const uint32 CAL_SABBREVMONTHNAME11 = 44;
-
 	public const uint32 CAL_SABBREVMONTHNAME12 = 45;
-
 	public const uint32 CAL_SABBREVMONTHNAME13 = 46;
-
 	public const uint32 CAL_SYEARMONTH = 47;
-
 	public const uint32 CAL_ITWODIGITYEARMAX = 48;
-
 	public const uint32 CAL_SSHORTESTDAYNAME1 = 49;
-
 	public const uint32 CAL_SSHORTESTDAYNAME2 = 50;
-
 	public const uint32 CAL_SSHORTESTDAYNAME3 = 51;
-
 	public const uint32 CAL_SSHORTESTDAYNAME4 = 52;
-
 	public const uint32 CAL_SSHORTESTDAYNAME5 = 53;
-
 	public const uint32 CAL_SSHORTESTDAYNAME6 = 54;
-
 	public const uint32 CAL_SSHORTESTDAYNAME7 = 55;
-
 	public const uint32 CAL_SMONTHDAY = 56;
-
 	public const uint32 CAL_SABBREVERASTRING = 57;
-
 	public const uint32 CAL_SRELATIVELONGDATE = 58;
-
 	public const uint32 CAL_SENGLISHERANAME = 59;
-
 	public const uint32 CAL_SENGLISHABBREVERANAME = 60;
-
 	public const uint32 CAL_SJAPANESEERAFIRSTYEAR = 61;
-
 	public const uint32 ENUM_ALL_CALENDARS = 4294967295;
-
 	public const uint32 CAL_GREGORIAN = 1;
-
 	public const uint32 CAL_GREGORIAN_US = 2;
-
 	public const uint32 CAL_JAPAN = 3;
-
 	public const uint32 CAL_TAIWAN = 4;
-
 	public const uint32 CAL_KOREA = 5;
-
 	public const uint32 CAL_HIJRI = 6;
-
 	public const uint32 CAL_THAI = 7;
-
 	public const uint32 CAL_HEBREW = 8;
-
 	public const uint32 CAL_GREGORIAN_ME_FRENCH = 9;
-
 	public const uint32 CAL_GREGORIAN_ARABIC = 10;
-
 	public const uint32 CAL_GREGORIAN_XLIT_ENGLISH = 11;
-
 	public const uint32 CAL_GREGORIAN_XLIT_FRENCH = 12;
-
 	public const uint32 CAL_PERSIAN = 22;
-
 	public const uint32 CAL_UMALQURA = 23;
-
 	public const uint32 LGRPID_WESTERN_EUROPE = 1;
-
 	public const uint32 LGRPID_CENTRAL_EUROPE = 2;
-
 	public const uint32 LGRPID_BALTIC = 3;
-
 	public const uint32 LGRPID_GREEK = 4;
-
 	public const uint32 LGRPID_CYRILLIC = 5;
-
 	public const uint32 LGRPID_TURKIC = 6;
-
 	public const uint32 LGRPID_TURKISH = 6;
-
 	public const uint32 LGRPID_JAPANESE = 7;
-
 	public const uint32 LGRPID_KOREAN = 8;
-
 	public const uint32 LGRPID_TRADITIONAL_CHINESE = 9;
-
 	public const uint32 LGRPID_SIMPLIFIED_CHINESE = 10;
-
 	public const uint32 LGRPID_THAI = 11;
-
 	public const uint32 LGRPID_HEBREW = 12;
-
 	public const uint32 LGRPID_ARABIC = 13;
-
 	public const uint32 LGRPID_VIETNAMESE = 14;
-
 	public const uint32 LGRPID_INDIC = 15;
-
 	public const uint32 LGRPID_GEORGIAN = 16;
-
 	public const uint32 LGRPID_ARMENIAN = 17;
-
 	public const uint32 MUI_LANGUAGE_ID = 4;
-
 	public const uint32 MUI_LANGUAGE_NAME = 8;
-
 	public const uint32 MUI_MERGE_SYSTEM_FALLBACK = 16;
-
 	public const uint32 MUI_MERGE_USER_FALLBACK = 32;
-
 	public const uint32 MUI_THREAD_LANGUAGES = 64;
-
 	public const uint32 MUI_CONSOLE_FILTER = 256;
-
 	public const uint32 MUI_COMPLEX_SCRIPT_FILTER = 512;
-
 	public const uint32 MUI_RESET_FILTERS = 1;
-
 	public const uint32 MUI_USER_PREFERRED_UI_LANGUAGES = 16;
-
 	public const uint32 MUI_USE_INSTALLED_LANGUAGES = 32;
-
 	public const uint32 MUI_USE_SEARCH_ALL_LANGUAGES = 64;
-
 	public const uint32 MUI_LANG_NEUTRAL_PE_FILE = 256;
-
 	public const uint32 MUI_NON_LANG_NEUTRAL_FILE = 512;
-
 	public const uint32 MUI_MACHINE_LANGUAGE_SETTINGS = 1024;
-
 	public const uint32 MUI_FILETYPE_NOT_LANGUAGE_NEUTRAL = 1;
-
 	public const uint32 MUI_FILETYPE_LANGUAGE_NEUTRAL_MAIN = 2;
-
 	public const uint32 MUI_FILETYPE_LANGUAGE_NEUTRAL_MUI = 4;
-
 	public const uint32 MUI_QUERY_TYPE = 1;
-
 	public const uint32 MUI_QUERY_CHECKSUM = 2;
-
 	public const uint32 MUI_QUERY_LANGUAGE_NAME = 4;
-
 	public const uint32 MUI_QUERY_RESOURCE_TYPES = 8;
-
 	public const uint32 MUI_FILEINFO_VERSION = 1;
-
 	public const uint32 MUI_FULL_LANGUAGE = 1;
-
 	public const uint32 MUI_PARTIAL_LANGUAGE = 2;
-
 	public const uint32 MUI_LIP_LANGUAGE = 4;
-
 	public const uint32 MUI_LANGUAGE_INSTALLED = 32;
-
 	public const uint32 MUI_LANGUAGE_LICENSED = 64;
-
 	public const int32 GEOID_NOT_AVAILABLE = -1;
-
 	public const uint32 SORTING_PARADIGM_NLS = 0;
-
 	public const uint32 SORTING_PARADIGM_ICU = 16777216;
-
 	public const uint32 IDN_ALLOW_UNASSIGNED = 1;
-
 	public const uint32 IDN_USE_STD3_ASCII_RULES = 2;
-
 	public const uint32 IDN_EMAIL_ADDRESS = 4;
-
 	public const uint32 IDN_RAW_PUNYCODE = 8;
-
 	public const uint32 VS_ALLOW_LATIN = 1;
-
 	public const uint32 GSS_ALLOW_INHERITED_COMMON = 1;
-
 	public const uint32 MUI_FORMAT_REG_COMPAT = 1;
-
 	public const uint32 MUI_FORMAT_INF_COMPAT = 2;
-
 	public const uint32 MUI_VERIFY_FILE_EXISTS = 4;
-
 	public const uint32 MUI_SKIP_STRING_CACHE = 8;
-
 	public const uint32 MUI_IMMUTABLE_LOOKUP = 16;
-
 	public const uint32 MIN_SPELLING_NTDDI = 100794368;
-
 	public const uint32 SCRIPT_UNDEFINED = 0;
-
 	public const HRESULT USP_E_SCRIPT_NOT_IN_FONT = -2147220992;
-
 	public const uint32 SGCM_RTL = 1;
-
 	public const uint32 SSA_PASSWORD = 1;
-
 	public const uint32 SSA_TAB = 2;
-
 	public const uint32 SSA_CLIP = 4;
-
 	public const uint32 SSA_FIT = 8;
-
 	public const uint32 SSA_DZWG = 16;
-
 	public const uint32 SSA_FALLBACK = 32;
-
 	public const uint32 SSA_BREAK = 64;
-
 	public const uint32 SSA_GLYPHS = 128;
-
 	public const uint32 SSA_RTL = 256;
-
 	public const uint32 SSA_GCP = 512;
-
 	public const uint32 SSA_HOTKEY = 1024;
-
 	public const uint32 SSA_METAFILE = 2048;
-
 	public const uint32 SSA_LINK = 4096;
-
 	public const uint32 SSA_HIDEHOTKEY = 8192;
-
 	public const uint32 SSA_HOTKEYONLY = 9216;
-
 	public const uint32 SSA_FULLMEASURE = 67108864;
-
 	public const uint32 SSA_LPKANSIFALLBACK = 134217728;
-
 	public const uint32 SSA_PIDX = 268435456;
-
 	public const uint32 SSA_LAYOUTRTL = 536870912;
-
 	public const uint32 SSA_DONTGLYPH = 1073741824;
-
 	public const uint32 SSA_NOKASHIDA = 2147483648;
-
 	public const uint32 SCRIPT_DIGITSUBSTITUTE_CONTEXT = 0;
-
 	public const uint32 SCRIPT_DIGITSUBSTITUTE_NONE = 1;
-
 	public const uint32 SCRIPT_DIGITSUBSTITUTE_NATIONAL = 2;
-
 	public const uint32 SCRIPT_DIGITSUBSTITUTE_TRADITIONAL = 3;
-
 	public const uint32 UNISCRIBE_OPENTYPE = 256;
-
 	public const uint32 SCRIPT_TAG_UNKNOWN = 0;
-
 	public const uint32 MUI_LANGUAGE_EXACT = 16;
-
 	public const uint32 NLS_CP_CPINFO = 268435456;
-
 	public const uint32 NLS_CP_MBTOWC = 1073741824;
-
 	public const uint32 NLS_CP_WCTOMB = 2147483648;
-
 	public const uint32 U_DISABLE_RENAMING = 1;
-
 	public const uint32 U_SHOW_CPLUSPLUS_API = 0;
-
 	public const uint32 U_DEFAULT_SHOW_DRAFT = 0;
-
 	public const uint32 U_HIDE_DRAFT_API = 1;
-
 	public const uint32 U_HIDE_DEPRECATED_API = 1;
-
 	public const uint32 U_HIDE_OBSOLETE_API = 1;
-
 	public const uint32 U_HIDE_INTERNAL_API = 1;
-
 	public const uint32 U_NO_DEFAULT_INCLUDE_UTF_HEADERS = 1;
-
 	public const uint32 UCLN_NO_AUTO_CLEANUP = 1;
-
 	public const uint32 U_OVERRIDE_CXX_ALLOCATION = 1;
-
 	public const uint32 U_ENABLE_TRACING = 0;
-
 	public const uint32 UCONFIG_ENABLE_PLUGINS = 0;
-
 	public const uint32 U_ENABLE_DYLOAD = 1;
-
 	public const uint32 U_CHECK_DYLOAD = 1;
-
 	public const uint32 U_PF_UNKNOWN = 0;
-
 	public const uint32 U_PF_WINDOWS = 1000;
-
 	public const uint32 U_PF_MINGW = 1800;
-
 	public const uint32 U_PF_CYGWIN = 1900;
-
 	public const uint32 U_PF_HPUX = 2100;
-
 	public const uint32 U_PF_SOLARIS = 2600;
-
 	public const uint32 U_PF_BSD = 3000;
-
 	public const uint32 U_PF_AIX = 3100;
-
 	public const uint32 U_PF_IRIX = 3200;
-
 	public const uint32 U_PF_DARWIN = 3500;
-
 	public const uint32 U_PF_IPHONE = 3550;
-
 	public const uint32 U_PF_QNX = 3700;
-
 	public const uint32 U_PF_LINUX = 4000;
-
 	public const uint32 U_PF_BROWSER_NATIVE_CLIENT = 4020;
-
 	public const uint32 U_PF_ANDROID = 4050;
-
 	public const uint32 U_PF_FUCHSIA = 4100;
-
 	public const uint32 U_PF_EMSCRIPTEN = 5010;
-
 	public const uint32 U_PF_OS390 = 9000;
-
 	public const uint32 U_PF_OS400 = 9400;
-
 	public const uint32 U_ASCII_FAMILY = 0;
-
 	public const uint32 U_EBCDIC_FAMILY = 1;
-
 	public const uint32 U_DEFINE_FALSE_AND_TRUE = 1;
-
 	public const uint32 U_SIZEOF_UCHAR = 2;
-
 	public const int32 U_SENTINEL = -1;
-
 	public const uint32 U8_MAX_LENGTH = 4;
-
 	public const uint32 U16_MAX_LENGTH = 2;
-
 	public const uint32 UTF_SIZE = 16;
-
 	public const uint32 UTF8_ERROR_VALUE_1 = 21;
-
 	public const uint32 UTF8_ERROR_VALUE_2 = 159;
-
 	public const uint32 UTF_ERROR_VALUE = 65535;
-
 	public const uint32 UTF8_MAX_CHAR_LENGTH = 4;
-
 	public const uint32 UTF16_MAX_CHAR_LENGTH = 2;
-
 	public const uint32 UTF32_MAX_CHAR_LENGTH = 1;
-
 	public const uint32 UTF_MAX_CHAR_LENGTH = 2;
-
 	public const uint32 U_COPYRIGHT_STRING_LENGTH = 128;
-
 	public const uint32 U_MAX_VERSION_LENGTH = 4;
-
 	public const uint32 U_MAX_VERSION_STRING_LENGTH = 20;
-
 	public const uint32 U_MILLIS_PER_SECOND = 1000;
-
 	public const uint32 U_MILLIS_PER_MINUTE = 60000;
-
 	public const uint32 U_MILLIS_PER_HOUR = 3600000;
-
 	public const uint32 U_MILLIS_PER_DAY = 86400000;
-
 	public const uint32 U_COMBINED_IMPLEMENTATION = 1;
-
 	public const uint32 U_SHAPE_LENGTH_GROW_SHRINK = 0;
-
 	public const uint32 U_SHAPE_LAMALEF_RESIZE = 0;
-
 	public const uint32 U_SHAPE_LENGTH_FIXED_SPACES_NEAR = 1;
-
 	public const uint32 U_SHAPE_LAMALEF_NEAR = 1;
-
 	public const uint32 U_SHAPE_LENGTH_FIXED_SPACES_AT_END = 2;
-
 	public const uint32 U_SHAPE_LAMALEF_END = 2;
-
 	public const uint32 U_SHAPE_LENGTH_FIXED_SPACES_AT_BEGINNING = 3;
-
 	public const uint32 U_SHAPE_LAMALEF_BEGIN = 3;
-
 	public const uint32 U_SHAPE_LAMALEF_AUTO = 65536;
-
 	public const uint32 U_SHAPE_LENGTH_MASK = 65539;
-
 	public const uint32 U_SHAPE_LAMALEF_MASK = 65539;
-
 	public const uint32 U_SHAPE_TEXT_DIRECTION_LOGICAL = 0;
-
 	public const uint32 U_SHAPE_TEXT_DIRECTION_VISUAL_RTL = 0;
-
 	public const uint32 U_SHAPE_TEXT_DIRECTION_VISUAL_LTR = 4;
-
 	public const uint32 U_SHAPE_TEXT_DIRECTION_MASK = 4;
-
 	public const uint32 U_SHAPE_LETTERS_NOOP = 0;
-
 	public const uint32 U_SHAPE_LETTERS_SHAPE = 8;
-
 	public const uint32 U_SHAPE_LETTERS_UNSHAPE = 16;
-
 	public const uint32 U_SHAPE_LETTERS_SHAPE_TASHKEEL_ISOLATED = 24;
-
 	public const uint32 U_SHAPE_LETTERS_MASK = 24;
-
 	public const uint32 U_SHAPE_DIGITS_NOOP = 0;
-
 	public const uint32 U_SHAPE_DIGITS_EN2AN = 32;
-
 	public const uint32 U_SHAPE_DIGITS_AN2EN = 64;
-
 	public const uint32 U_SHAPE_DIGITS_ALEN2AN_INIT_LR = 96;
-
 	public const uint32 U_SHAPE_DIGITS_ALEN2AN_INIT_AL = 128;
-
 	public const uint32 U_SHAPE_DIGITS_RESERVED = 160;
-
 	public const uint32 U_SHAPE_DIGITS_MASK = 224;
-
 	public const uint32 U_SHAPE_DIGIT_TYPE_AN = 0;
-
 	public const uint32 U_SHAPE_DIGIT_TYPE_AN_EXTENDED = 256;
-
 	public const uint32 U_SHAPE_DIGIT_TYPE_RESERVED = 512;
-
 	public const uint32 U_SHAPE_DIGIT_TYPE_MASK = 768;
-
 	public const uint32 U_SHAPE_AGGREGATE_TASHKEEL = 16384;
-
 	public const uint32 U_SHAPE_AGGREGATE_TASHKEEL_NOOP = 0;
-
 	public const uint32 U_SHAPE_AGGREGATE_TASHKEEL_MASK = 16384;
-
 	public const uint32 U_SHAPE_PRESERVE_PRESENTATION = 32768;
-
 	public const uint32 U_SHAPE_PRESERVE_PRESENTATION_NOOP = 0;
-
 	public const uint32 U_SHAPE_PRESERVE_PRESENTATION_MASK = 32768;
-
 	public const uint32 U_SHAPE_SEEN_TWOCELL_NEAR = 2097152;
-
 	public const uint32 U_SHAPE_SEEN_MASK = 7340032;
-
 	public const uint32 U_SHAPE_YEHHAMZA_TWOCELL_NEAR = 16777216;
-
 	public const uint32 U_SHAPE_YEHHAMZA_MASK = 58720256;
-
 	public const uint32 U_SHAPE_TASHKEEL_BEGIN = 262144;
-
 	public const uint32 U_SHAPE_TASHKEEL_END = 393216;
-
 	public const uint32 U_SHAPE_TASHKEEL_RESIZE = 524288;
-
 	public const uint32 U_SHAPE_TASHKEEL_REPLACE_BY_TATWEEL = 786432;
-
 	public const uint32 U_SHAPE_TASHKEEL_MASK = 917504;
-
 	public const uint32 U_SHAPE_SPACES_RELATIVE_TO_TEXT_BEGIN_END = 67108864;
-
 	public const uint32 U_SHAPE_SPACES_RELATIVE_TO_TEXT_MASK = 67108864;
-
 	public const uint32 U_SHAPE_TAIL_NEW_UNICODE = 134217728;
-
 	public const uint32 U_SHAPE_TAIL_TYPE_MASK = 134217728;
-
 	public const uint32 ULOC_LANG_CAPACITY = 12;
-
 	public const uint32 ULOC_COUNTRY_CAPACITY = 4;
-
 	public const uint32 ULOC_FULLNAME_CAPACITY = 157;
-
 	public const uint32 ULOC_SCRIPT_CAPACITY = 6;
-
 	public const uint32 ULOC_KEYWORDS_CAPACITY = 96;
-
 	public const uint32 ULOC_KEYWORD_AND_VALUES_CAPACITY = 100;
-
 	public const uint32 ULOC_KEYWORD_SEPARATOR_UNICODE = 64;
-
 	public const uint32 ULOC_KEYWORD_ASSIGN_UNICODE = 61;
-
 	public const uint32 ULOC_KEYWORD_ITEM_SEPARATOR_UNICODE = 59;
-
 	public const uint32 UCNV_MAX_CONVERTER_NAME_LENGTH = 60;
-
 	public const uint32 UCNV_SI = 15;
-
 	public const uint32 UCNV_SO = 14;
-
 	public const uint32 U_FOLD_CASE_DEFAULT = 0;
-
 	public const uint32 U_FOLD_CASE_EXCLUDE_SPECIAL_I = 1;
-
 	public const uint32 U_TITLECASE_WHOLE_STRING = 32;
-
 	public const uint32 U_TITLECASE_SENTENCES = 64;
-
 	public const uint32 U_TITLECASE_NO_LOWERCASE = 256;
-
 	public const uint32 U_TITLECASE_NO_BREAK_ADJUSTMENT = 512;
-
 	public const uint32 U_TITLECASE_ADJUST_TO_CASED = 1024;
-
 	public const uint32 U_EDITS_NO_RESET = 8192;
-
 	public const uint32 U_OMIT_UNCHANGED_TEXT = 16384;
-
 	public const uint32 U_COMPARE_CODE_POINT_ORDER = 32768;
-
 	public const uint32 U_COMPARE_IGNORE_CASE = 65536;
-
 	public const uint32 UNORM_INPUT_IS_FCD = 131072;
-
 	public const uint32 UCHAR_MIN_VALUE = 0;
-
 	public const uint32 UCHAR_MAX_VALUE = 1114111;
-
 	public const uint32 UBIDI_DEFAULT_LTR = 254;
-
 	public const uint32 UBIDI_DEFAULT_RTL = 255;
-
 	public const uint32 UBIDI_MAX_EXPLICIT_LEVEL = 125;
-
 	public const uint32 UBIDI_LEVEL_OVERRIDE = 128;
-
 	public const int32 UBIDI_MAP_NOWHERE = -1;
-
 	public const uint32 UBIDI_KEEP_BASE_COMBINING = 1;
-
 	public const uint32 UBIDI_DO_MIRRORING = 2;
-
 	public const uint32 UBIDI_INSERT_LRM_FOR_NUMERIC = 4;
-
 	public const uint32 UBIDI_REMOVE_BIDI_CONTROLS = 8;
-
 	public const uint32 UBIDI_OUTPUT_REVERSE = 16;
-
 	public const uint32 USPREP_DEFAULT = 0;
-
 	public const uint32 USPREP_ALLOW_UNASSIGNED = 1;
-
 	public const int32 USEARCH_DONE = -1;
-
 	public const uint32 U_HAVE_STD_STRING = 0;
-
 	public const uint32 U_IOSTREAM_SOURCE = 199711;
-
 	public const uint32 CANITER_SKIP_ZEROES = 1;
-
 	public const uint32 NUMSYS_NAME_CAPACITY = 8;
-
 	public const uint32 U_HAVE_RBNF = 0;
-
 	public const uint32 IME_CMODE_ALPHANUMERIC = 0;
-
 	public const uint32 IME_CMODE_NATIVE = 1;
-
 	public const uint32 IME_CMODE_CHINESE = 1;
-
 	public const uint32 IME_CMODE_HANGUL = 1;
-
 	public const uint32 IME_CMODE_JAPANESE = 1;
-
 	public const uint32 IME_CMODE_KATAKANA = 2;
-
 	public const uint32 IME_CMODE_LANGUAGE = 3;
-
 	public const uint32 IME_CMODE_FULLSHAPE = 8;
-
 	public const uint32 IME_CMODE_ROMAN = 16;
-
 	public const uint32 IME_CMODE_CHARCODE = 32;
-
 	public const uint32 IME_CMODE_HANJACONVERT = 64;
-
 	public const uint32 IME_CMODE_NATIVESYMBOL = 128;
-
 	public const uint32 MAX_MIMECP_NAME = 64;
-
 	public const uint32 MAX_MIMECSET_NAME = 50;
-
 	public const uint32 MAX_MIMEFACE_NAME = 32;
-
 	public const uint32 MAX_RFC1766_NAME = 6;
-
 	public const uint32 MAX_LOCALE_NAME = 32;
-
 	public const uint32 MAX_SCRIPT_NAME = 48;
-
 	public const int32 CPIOD_PEEK = 1073741824;
-
 	public const int32 CPIOD_FORCE_PROMPT = -2147483648;
-
 	public const int32 UITER_UNKNOWN_INDEX = -2;
-
 	public const int32 UCPTRIE_FAST_SHIFT = 6;
-
 	public const int32 UCPTRIE_FAST_DATA_BLOCK_LENGTH = 64;
-
 	public const int32 UCPTRIE_FAST_DATA_MASK = 63;
-
 	public const int32 UCPTRIE_SMALL_MAX = 4095;
-
 	public const int32 UCPTRIE_ERROR_VALUE_NEG_DATA_OFFSET = 1;
-
 	public const int32 UCPTRIE_HIGH_VALUE_NEG_DATA_OFFSET = 2;
-
 	public const int32 UTEXT_PROVIDER_LENGTH_IS_EXPENSIVE = 1;
-
 	public const int32 UTEXT_PROVIDER_STABLE_CHUNKS = 2;
-
 	public const int32 UTEXT_PROVIDER_WRITABLE = 3;
-
 	public const int32 UTEXT_PROVIDER_HAS_META_DATA = 4;
-
 	public const int32 UTEXT_PROVIDER_OWNS_TEXT = 5;
-
 	public const int32 UTEXT_MAGIC = 878368812;
-
 	public const int32 USET_IGNORE_SPACE = 1;
-
 	public const int32 USET_CASE_INSENSITIVE = 2;
-
 	public const int32 USET_ADD_CASE_MAPPINGS = 4;
-
 	public const int32 USET_SERIALIZED_STATIC_ARRAY_CAPACITY = 8;
-
 	public const int32 U_PARSE_CONTEXT_LEN = 16;
-
 	public const int32 UIDNA_DEFAULT = 0;
-
 	public const int32 UIDNA_USE_STD3_RULES = 2;
-
 	public const int32 UIDNA_CHECK_BIDI = 4;
-
 	public const int32 UIDNA_CHECK_CONTEXTJ = 8;
-
 	public const int32 UIDNA_NONTRANSITIONAL_TO_ASCII = 16;
-
 	public const int32 UIDNA_NONTRANSITIONAL_TO_UNICODE = 32;
-
 	public const int32 UIDNA_CHECK_CONTEXTO = 64;
-
 	public const int32 UIDNA_ERROR_EMPTY_LABEL = 1;
-
 	public const int32 UIDNA_ERROR_LABEL_TOO_LONG = 2;
-
 	public const int32 UIDNA_ERROR_DOMAIN_NAME_TOO_LONG = 4;
-
 	public const int32 UIDNA_ERROR_LEADING_HYPHEN = 8;
-
 	public const int32 UIDNA_ERROR_TRAILING_HYPHEN = 16;
-
 	public const int32 UIDNA_ERROR_HYPHEN_3_4 = 32;
-
 	public const int32 UIDNA_ERROR_LEADING_COMBINING_MARK = 64;
-
 	public const int32 UIDNA_ERROR_DISALLOWED = 128;
-
 	public const int32 UIDNA_ERROR_PUNYCODE = 256;
-
 	public const int32 UIDNA_ERROR_LABEL_HAS_DOT = 512;
-
 	public const int32 UIDNA_ERROR_INVALID_ACE_LABEL = 1024;
-
 	public const int32 UIDNA_ERROR_BIDI = 2048;
-
 	public const int32 UIDNA_ERROR_CONTEXTJ = 4096;
-
 	public const int32 UIDNA_ERROR_CONTEXTO_PUNCTUATION = 8192;
-
 	public const int32 UIDNA_ERROR_CONTEXTO_DIGITS = 16384;
-
 	public const Guid ELS_GUID_LANGUAGE_DETECTION = .(0xcf7e00b1, 0x909b, 0x4d95, 0xa8, 0xf4, 0x61, 0x1f, 0x7c, 0x37, 0x77, 0x02);
-
 	public const Guid ELS_GUID_SCRIPT_DETECTION = .(0x2d64b439, 0x6caf, 0x4f6b, 0xb6, 0x88, 0xe5, 0xd0, 0xf4, 0xfa, 0xa7, 0xd7);
-
 	public const Guid ELS_GUID_TRANSLITERATION_HANT_TO_HANS = .(0xa3a8333b, 0xf4fc, 0x42f6, 0xa0, 0xc4, 0x04, 0x62, 0xfe, 0x73, 0x17, 0xcb);
-
 	public const Guid ELS_GUID_TRANSLITERATION_HANS_TO_HANT = .(0x3caccdc8, 0x5590, 0x42dc, 0x9a, 0x7b, 0xb5, 0xa6, 0xb5, 0xb3, 0xb6, 0x3b);
-
 	public const Guid ELS_GUID_TRANSLITERATION_MALAYALAM_TO_LATIN = .(0xd8b983b1, 0xf8bf, 0x4a2b, 0xbc, 0xd5, 0x5b, 0x5e, 0xa2, 0x06, 0x13, 0xe1);
-
 	public const Guid ELS_GUID_TRANSLITERATION_DEVANAGARI_TO_LATIN = .(0xc4a4dcfe, 0x2661, 0x4d02, 0x98, 0x35, 0xf4, 0x81, 0x87, 0x10, 0x98, 0x03);
-
 	public const Guid ELS_GUID_TRANSLITERATION_CYRILLIC_TO_LATIN = .(0x3dd12a98, 0x5afd, 0x4903, 0xa1, 0x3f, 0xe1, 0x7e, 0x6c, 0x0b, 0xfe, 0x01);
-
 	public const Guid ELS_GUID_TRANSLITERATION_BENGALI_TO_LATIN = .(0xf4dfd825, 0x91a4, 0x489f, 0x85, 0x5e, 0x9a, 0xd9, 0xbe, 0xe5, 0x57, 0x27);
-
 	public const Guid ELS_GUID_TRANSLITERATION_HANGUL_DECOMPOSITION = .(0x4ba2a721, 0xe43d, 0x41b7, 0xb3, 0x30, 0x53, 0x6a, 0xe1, 0xe4, 0x88, 0x63);
-
 	public const int32 UMSGPAT_ARG_NAME_NOT_NUMBER = -1;
-
 	public const int32 UMSGPAT_ARG_NAME_NOT_VALID = -2;
-
 }
 #endregion
 

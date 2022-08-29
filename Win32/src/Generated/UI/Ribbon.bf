@@ -11,11 +11,8 @@ namespace Win32.UI.Ribbon;
 public static
 {
 	public const uint32 UI_ALL_COMMANDS = 0;
-
 	public const uint32 UI_COLLECTION_INVALIDINDEX = 4294967295;
-
 	public const Guid LIBID_UIRibbon = .(0x942f35c2, 0xe83b, 0x45ef, 0xb0, 0x85, 0xac, 0x29, 0x5d, 0xd6, 0x3d, 0x5b);
-
 }
 #endregion
 
@@ -211,7 +208,6 @@ public struct UI_EVENTPARAMS
 		public int32 Modes;
 		public UI_EVENTPARAMS_COMMAND Params;
 	}
-
 	public UI_EVENTTYPE EventType;
 	public using _Anonymous_e__Union Anonymous;
 }

@@ -8,13 +8,9 @@ namespace Win32.System.RemoteAssistance;
 public static
 {
 	public const uint32 DISPID_EVENT_ON_STATE_CHANGED = 5;
-
 	public const uint32 DISPID_EVENT_ON_TERMINATION = 6;
-
 	public const uint32 DISPID_EVENT_ON_CONTEXT_DATA = 7;
-
 	public const uint32 DISPID_EVENT_ON_SEND_ERROR = 8;
-
 }
 #endregion
 

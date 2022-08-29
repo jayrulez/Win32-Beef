@@ -11,7 +11,6 @@ namespace Win32.UI.Shell.PropertiesSystem;
 public static
 {
 	public const uint32 PKEY_PIDSTR_MAX = 10;
-
 }
 #endregion
 

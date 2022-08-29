@@ -7,33 +7,19 @@ namespace Win32.System.LibraryLoader;
 public static
 {
 	public const uint32 FIND_RESOURCE_DIRECTORY_TYPES = 256;
-
 	public const uint32 FIND_RESOURCE_DIRECTORY_NAMES = 512;
-
 	public const uint32 FIND_RESOURCE_DIRECTORY_LANGUAGES = 1024;
-
 	public const uint32 RESOURCE_ENUM_LN = 1;
-
 	public const uint32 RESOURCE_ENUM_MUI = 2;
-
 	public const uint32 RESOURCE_ENUM_MUI_SYSTEM = 4;
-
 	public const uint32 RESOURCE_ENUM_VALIDATE = 8;
-
 	public const uint32 RESOURCE_ENUM_MODULE_EXACT = 16;
-
 	public const uint32 SUPPORT_LANG_NUMBER = 32;
-
 	public const uint32 GET_MODULE_HANDLE_EX_FLAG_PIN = 1;
-
 	public const uint32 GET_MODULE_HANDLE_EX_FLAG_UNCHANGED_REFCOUNT = 2;
-
 	public const uint32 GET_MODULE_HANDLE_EX_FLAG_FROM_ADDRESS = 4;
-
 	public const uint32 CURRENT_IMPORT_REDIRECTION_VERSION = 1;
-
 	public const uint32 LOAD_LIBRARY_OS_INTEGRITY_CONTINUITY = 32768;
-
 }
 #endregion
 

@@ -10,7 +10,6 @@ namespace Win32.Graphics.Direct3D9on12;
 public static
 {
 	public const uint32 MAX_D3D9ON12_QUEUES = 2;
-
 }
 #endregion
 #region Function Pointers

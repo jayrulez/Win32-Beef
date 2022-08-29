@@ -2,7 +2,6 @@ using Win32.Foundation;
 using Win32.System.Com;
 using Win32.System.Com.StructuredStorage;
 using System;
-using System.Interop;
 
 namespace Win32.System.AddressBook;
 
@@ -10,421 +9,213 @@ namespace Win32.System.AddressBook;
 public static
 {
 	public const uint32 PROP_ID_SECURE_MIN = 26608;
-
 	public const uint32 PROP_ID_SECURE_MAX = 26623;
-
 	public const uint32 MAPI_DIM = 1;
-
 	public const uint32 MAPI_P1 = 268435456;
-
 	public const uint32 MAPI_SUBMITTED = 2147483648;
-
 	public const uint32 MAPI_SHORTTERM = 128;
-
 	public const uint32 MAPI_NOTRECIP = 64;
-
 	public const uint32 MAPI_THISSESSION = 32;
-
 	public const uint32 MAPI_NOW = 16;
-
 	public const uint32 MAPI_NOTRESERVED = 8;
-
 	public const uint32 MAPI_COMPOUND = 128;
-
 	public const uint32 MV_FLAG = 4096;
-
 	public const uint32 PROP_ID_NULL = 0;
-
 	public const uint32 PROP_ID_INVALID = 65535;
-
 	public const uint32 MV_INSTANCE = 8192;
-
 	public const uint32 TABLE_CHANGED = 1;
-
 	public const uint32 TABLE_ERROR = 2;
-
 	public const uint32 TABLE_ROW_ADDED = 3;
-
 	public const uint32 TABLE_ROW_DELETED = 4;
-
 	public const uint32 TABLE_ROW_MODIFIED = 5;
-
 	public const uint32 TABLE_SORT_DONE = 6;
-
 	public const uint32 TABLE_RESTRICT_DONE = 7;
-
 	public const uint32 TABLE_SETCOL_DONE = 8;
-
 	public const uint32 TABLE_RELOAD = 9;
-
 	public const int32 MAPI_ERROR_VERSION = 0;
-
 	public const uint32 MAPI_USE_DEFAULT = 64;
-
 	public const uint32 MNID_ID = 0;
-
 	public const uint32 MNID_STRING = 1;
-
 	public const uint32 WAB_LOCAL_CONTAINERS = 1048576;
-
 	public const uint32 WAB_PROFILE_CONTENTS = 2097152;
-
 	public const uint32 WAB_IGNORE_PROFILES = 8388608;
-
 	public const uint32 MAPI_ONE_OFF_NO_RICH_INFO = 1;
-
 	public const uint32 UI_SERVICE = 2;
-
 	public const uint32 SERVICE_UI_ALWAYS = 2;
-
 	public const uint32 SERVICE_UI_ALLOWED = 16;
-
 	public const uint32 UI_CURRENT_PROVIDER_FIRST = 4;
-
 	public const uint32 WABOBJECT_LDAPURL_RETURN_MAILUSER = 1;
-
 	public const uint32 WABOBJECT_ME_NEW = 1;
-
 	public const uint32 WABOBJECT_ME_NOCREATE = 2;
-
 	public const uint32 WAB_VCARD_FILE = 0;
-
 	public const uint32 WAB_VCARD_STREAM = 1;
-
 	public const uint32 WAB_USE_OE_SENDMAIL = 1;
-
 	public const uint32 WAB_ENABLE_PROFILES = 4194304;
-
 	public const uint32 WAB_DISPLAY_LDAPURL = 1;
-
 	public const uint32 WAB_CONTEXT_ADRLIST = 2;
-
 	public const uint32 WAB_DISPLAY_ISNTDS = 4;
-
 	public const HRESULT E_IMAPI_REQUEST_CANCELLED = -1062600702;
-
 	public const HRESULT E_IMAPI_RECORDER_REQUIRED = -1062600701;
-
 	public const HRESULT S_IMAPI_SPEEDADJUSTED = 11141124;
-
 	public const HRESULT S_IMAPI_ROTATIONADJUSTED = 11141125;
-
 	public const HRESULT S_IMAPI_BOTHADJUSTED = 11141126;
-
 	public const HRESULT E_IMAPI_BURN_VERIFICATION_FAILED = -1062600697;
-
 	public const HRESULT S_IMAPI_COMMAND_HAS_SENSE_DATA = 11141632;
-
 	public const HRESULT E_IMAPI_RECORDER_NO_SUCH_MODE_PAGE = -1062600191;
-
 	public const HRESULT E_IMAPI_RECORDER_MEDIA_NO_MEDIA = -1062600190;
-
 	public const HRESULT E_IMAPI_RECORDER_MEDIA_INCOMPATIBLE = -1062600189;
-
 	public const HRESULT E_IMAPI_RECORDER_MEDIA_UPSIDE_DOWN = -1062600188;
-
 	public const HRESULT E_IMAPI_RECORDER_MEDIA_BECOMING_READY = -1062600187;
-
 	public const HRESULT E_IMAPI_RECORDER_MEDIA_FORMAT_IN_PROGRESS = -1062600186;
-
 	public const HRESULT E_IMAPI_RECORDER_MEDIA_BUSY = -1062600185;
-
 	public const HRESULT E_IMAPI_RECORDER_INVALID_MODE_PARAMETERS = -1062600184;
-
 	public const HRESULT E_IMAPI_RECORDER_MEDIA_WRITE_PROTECTED = -1062600183;
-
 	public const HRESULT E_IMAPI_RECORDER_NO_SUCH_FEATURE = -1062600182;
-
 	public const HRESULT E_IMAPI_RECORDER_FEATURE_IS_NOT_CURRENT = -1062600181;
-
 	public const HRESULT E_IMAPI_RECORDER_GET_CONFIGURATION_NOT_SUPPORTED = -1062600180;
-
 	public const HRESULT E_IMAPI_RECORDER_COMMAND_TIMEOUT = -1062600179;
-
 	public const HRESULT E_IMAPI_RECORDER_DVD_STRUCTURE_NOT_PRESENT = -1062600178;
-
 	public const HRESULT E_IMAPI_RECORDER_MEDIA_SPEED_MISMATCH = -1062600177;
-
 	public const HRESULT E_IMAPI_RECORDER_LOCKED = -1062600176;
-
 	public const HRESULT E_IMAPI_RECORDER_CLIENT_NAME_IS_NOT_VALID = -1062600175;
-
 	public const HRESULT E_IMAPI_RECORDER_MEDIA_NOT_FORMATTED = -1062600174;
-
 	public const HRESULT E_IMAPI_RECORDER_INVALID_RESPONSE_FROM_DEVICE = -1062599937;
-
 	public const HRESULT E_IMAPI_LOSS_OF_STREAMING = -1062599936;
-
 	public const HRESULT E_IMAPI_UNEXPECTED_RESPONSE_FROM_DEVICE = -1062599935;
-
 	public const HRESULT S_IMAPI_WRITE_NOT_IN_PROGRESS = 11141890;
-
 	public const HRESULT E_IMAPI_DF2DATA_WRITE_IN_PROGRESS = -1062599680;
-
 	public const HRESULT E_IMAPI_DF2DATA_WRITE_NOT_IN_PROGRESS = -1062599679;
-
 	public const HRESULT E_IMAPI_DF2DATA_INVALID_MEDIA_STATE = -1062599678;
-
 	public const HRESULT E_IMAPI_DF2DATA_STREAM_NOT_SUPPORTED = -1062599677;
-
 	public const HRESULT E_IMAPI_DF2DATA_STREAM_TOO_LARGE_FOR_CURRENT_MEDIA = -1062599676;
-
 	public const HRESULT E_IMAPI_DF2DATA_MEDIA_NOT_BLANK = -1062599675;
-
 	public const HRESULT E_IMAPI_DF2DATA_MEDIA_IS_NOT_SUPPORTED = -1062599674;
-
 	public const HRESULT E_IMAPI_DF2DATA_RECORDER_NOT_SUPPORTED = -1062599673;
-
 	public const HRESULT E_IMAPI_DF2DATA_CLIENT_NAME_IS_NOT_VALID = -1062599672;
-
 	public const HRESULT E_IMAPI_DF2TAO_WRITE_IN_PROGRESS = -1062599424;
-
 	public const HRESULT E_IMAPI_DF2TAO_WRITE_NOT_IN_PROGRESS = -1062599423;
-
 	public const HRESULT E_IMAPI_DF2TAO_MEDIA_IS_NOT_PREPARED = -1062599422;
-
 	public const HRESULT E_IMAPI_DF2TAO_MEDIA_IS_PREPARED = -1062599421;
-
 	public const HRESULT E_IMAPI_DF2TAO_PROPERTY_FOR_BLANK_MEDIA_ONLY = -1062599420;
-
 	public const HRESULT E_IMAPI_DF2TAO_TABLE_OF_CONTENTS_EMPTY_DISC = -1062599419;
-
 	public const HRESULT E_IMAPI_DF2TAO_MEDIA_IS_NOT_BLANK = -1062599418;
-
 	public const HRESULT E_IMAPI_DF2TAO_MEDIA_IS_NOT_SUPPORTED = -1062599417;
-
 	public const HRESULT E_IMAPI_DF2TAO_TRACK_LIMIT_REACHED = -1062599416;
-
 	public const HRESULT E_IMAPI_DF2TAO_NOT_ENOUGH_SPACE = -1062599415;
-
 	public const HRESULT E_IMAPI_DF2TAO_NO_RECORDER_SPECIFIED = -1062599414;
-
 	public const HRESULT E_IMAPI_DF2TAO_INVALID_ISRC = -1062599413;
-
 	public const HRESULT E_IMAPI_DF2TAO_INVALID_MCN = -1062599412;
-
 	public const HRESULT E_IMAPI_DF2TAO_STREAM_NOT_SUPPORTED = -1062599411;
-
 	public const HRESULT E_IMAPI_DF2TAO_RECORDER_NOT_SUPPORTED = -1062599410;
-
 	public const HRESULT E_IMAPI_DF2TAO_CLIENT_NAME_IS_NOT_VALID = -1062599409;
-
 	public const HRESULT E_IMAPI_DF2RAW_WRITE_IN_PROGRESS = -1062599168;
-
 	public const HRESULT E_IMAPI_DF2RAW_WRITE_NOT_IN_PROGRESS = -1062599167;
-
 	public const HRESULT E_IMAPI_DF2RAW_MEDIA_IS_NOT_PREPARED = -1062599166;
-
 	public const HRESULT E_IMAPI_DF2RAW_MEDIA_IS_PREPARED = -1062599165;
-
 	public const HRESULT E_IMAPI_DF2RAW_CLIENT_NAME_IS_NOT_VALID = -1062599164;
-
 	public const HRESULT E_IMAPI_DF2RAW_MEDIA_IS_NOT_BLANK = -1062599162;
-
 	public const HRESULT E_IMAPI_DF2RAW_MEDIA_IS_NOT_SUPPORTED = -1062599161;
-
 	public const HRESULT E_IMAPI_DF2RAW_NOT_ENOUGH_SPACE = -1062599159;
-
 	public const HRESULT E_IMAPI_DF2RAW_NO_RECORDER_SPECIFIED = -1062599158;
-
 	public const HRESULT E_IMAPI_DF2RAW_STREAM_NOT_SUPPORTED = -1062599155;
-
 	public const HRESULT E_IMAPI_DF2RAW_DATA_BLOCK_TYPE_NOT_SUPPORTED = -1062599154;
-
 	public const HRESULT E_IMAPI_DF2RAW_STREAM_LEADIN_TOO_SHORT = -1062599153;
-
 	public const HRESULT E_IMAPI_DF2RAW_RECORDER_NOT_SUPPORTED = -1062599152;
-
 	public const HRESULT E_IMAPI_ERASE_RECORDER_IN_USE = -2136340224;
-
 	public const HRESULT E_IMAPI_ERASE_ONLY_ONE_RECORDER_SUPPORTED = -2136340223;
-
 	public const HRESULT E_IMAPI_ERASE_DISC_INFORMATION_TOO_SMALL = -2136340222;
-
 	public const HRESULT E_IMAPI_ERASE_MODE_PAGE_2A_TOO_SMALL = -2136340221;
-
 	public const HRESULT E_IMAPI_ERASE_MEDIA_IS_NOT_ERASABLE = -2136340220;
-
 	public const HRESULT E_IMAPI_ERASE_DRIVE_FAILED_ERASE_COMMAND = -2136340219;
-
 	public const HRESULT E_IMAPI_ERASE_TOOK_LONGER_THAN_ONE_HOUR = -2136340218;
-
 	public const HRESULT E_IMAPI_ERASE_UNEXPECTED_DRIVE_RESPONSE_DURING_ERASE = -2136340217;
-
 	public const HRESULT E_IMAPI_ERASE_DRIVE_FAILED_SPINUP_COMMAND = -2136340216;
-
 	public const HRESULT E_IMAPI_ERASE_MEDIA_IS_NOT_SUPPORTED = -1062598391;
-
 	public const HRESULT E_IMAPI_ERASE_RECORDER_NOT_SUPPORTED = -1062598390;
-
 	public const HRESULT E_IMAPI_ERASE_CLIENT_NAME_IS_NOT_VALID = -1062598389;
-
 	public const HRESULT E_IMAPI_RAW_IMAGE_IS_READ_ONLY = -2136339968;
-
 	public const HRESULT E_IMAPI_RAW_IMAGE_TOO_MANY_TRACKS = -2136339967;
-
 	public const HRESULT E_IMAPI_RAW_IMAGE_SECTOR_TYPE_NOT_SUPPORTED = -2136339966;
-
 	public const HRESULT E_IMAPI_RAW_IMAGE_NO_TRACKS = -2136339965;
-
 	public const HRESULT E_IMAPI_RAW_IMAGE_TRACKS_ALREADY_ADDED = -2136339964;
-
 	public const HRESULT E_IMAPI_RAW_IMAGE_INSUFFICIENT_SPACE = -2136339963;
-
 	public const HRESULT E_IMAPI_RAW_IMAGE_TOO_MANY_TRACK_INDEXES = -2136339962;
-
 	public const HRESULT E_IMAPI_RAW_IMAGE_TRACK_INDEX_NOT_FOUND = -2136339961;
-
 	public const HRESULT S_IMAPI_RAW_IMAGE_TRACK_INDEX_ALREADY_EXISTS = 11143688;
-
 	public const HRESULT E_IMAPI_RAW_IMAGE_TRACK_INDEX_OFFSET_ZERO_CANNOT_BE_CLEARED = -2136339959;
-
 	public const HRESULT E_IMAPI_RAW_IMAGE_TRACK_INDEX_TOO_CLOSE_TO_OTHER_INDEX = -2136339958;
-
 	public const uint32 FACILITY_IMAPI2 = 170;
-
 	public const HRESULT IMAPI_E_FSI_INTERNAL_ERROR = -1062555392;
-
 	public const HRESULT IMAPI_E_INVALID_PARAM = -1062555391;
-
 	public const HRESULT IMAPI_E_READONLY = -1062555390;
-
 	public const HRESULT IMAPI_E_NO_OUTPUT = -1062555389;
-
 	public const HRESULT IMAPI_E_INVALID_VOLUME_NAME = -1062555388;
-
 	public const HRESULT IMAPI_E_INVALID_DATE = -1062555387;
-
 	public const HRESULT IMAPI_E_FILE_SYSTEM_NOT_EMPTY = -1062555386;
-
 	public const HRESULT IMAPI_E_NOT_FILE = -1062555384;
-
 	public const HRESULT IMAPI_E_NOT_DIR = -1062555383;
-
 	public const HRESULT IMAPI_E_DIR_NOT_EMPTY = -1062555382;
-
 	public const HRESULT IMAPI_E_NOT_IN_FILE_SYSTEM = -1062555381;
-
 	public const HRESULT IMAPI_E_INVALID_PATH = -1062555376;
-
 	public const HRESULT IMAPI_E_RESTRICTED_NAME_VIOLATION = -1062555375;
-
 	public const HRESULT IMAPI_E_DUP_NAME = -1062555374;
-
 	public const HRESULT IMAPI_E_NO_UNIQUE_NAME = -1062555373;
-
 	public const HRESULT IMAPI_E_ITEM_NOT_FOUND = -1062555368;
-
 	public const HRESULT IMAPI_E_FILE_NOT_FOUND = -1062555367;
-
 	public const HRESULT IMAPI_E_DIR_NOT_FOUND = -1062555366;
-
 	public const HRESULT IMAPI_E_IMAGE_SIZE_LIMIT = -1062555360;
-
 	public const HRESULT IMAPI_E_IMAGE_TOO_BIG = -1062555359;
-
 	public const HRESULT IMAPI_E_DATA_STREAM_INCONSISTENCY = -1062555352;
-
 	public const HRESULT IMAPI_E_DATA_STREAM_READ_FAILURE = -1062555351;
-
 	public const HRESULT IMAPI_E_DATA_STREAM_CREATE_FAILURE = -1062555350;
-
 	public const HRESULT IMAPI_E_DIRECTORY_READ_FAILURE = -1062555349;
-
 	public const HRESULT IMAPI_E_TOO_MANY_DIRS = -1062555344;
-
 	public const HRESULT IMAPI_E_ISO9660_LEVELS = -1062555343;
-
 	public const HRESULT IMAPI_E_DATA_TOO_BIG = -1062555342;
-
 	public const HRESULT IMAPI_E_INCOMPATIBLE_PREVIOUS_SESSION = -1062555341;
-
 	public const HRESULT IMAPI_E_STASHFILE_OPEN_FAILURE = -1062555336;
-
 	public const HRESULT IMAPI_E_STASHFILE_SEEK_FAILURE = -1062555335;
-
 	public const HRESULT IMAPI_E_STASHFILE_WRITE_FAILURE = -1062555334;
-
 	public const HRESULT IMAPI_E_STASHFILE_READ_FAILURE = -1062555333;
-
 	public const HRESULT IMAPI_E_INVALID_WORKING_DIRECTORY = -1062555328;
-
 	public const HRESULT IMAPI_E_WORKING_DIRECTORY_SPACE = -1062555327;
-
 	public const HRESULT IMAPI_E_STASHFILE_MOVE = -1062555326;
-
 	public const HRESULT IMAPI_E_BOOT_IMAGE_DATA = -1062555320;
-
 	public const HRESULT IMAPI_E_BOOT_OBJECT_CONFLICT = -1062555319;
-
 	public const HRESULT IMAPI_E_BOOT_EMULATION_IMAGE_SIZE_MISMATCH = -1062555318;
-
 	public const HRESULT IMAPI_E_EMPTY_DISC = -1062555312;
-
 	public const HRESULT IMAPI_E_NO_SUPPORTED_FILE_SYSTEM = -1062555311;
-
 	public const HRESULT IMAPI_E_FILE_SYSTEM_NOT_FOUND = -1062555310;
-
 	public const HRESULT IMAPI_E_FILE_SYSTEM_READ_CONSISTENCY_ERROR = -1062555309;
-
 	public const HRESULT IMAPI_E_FILE_SYSTEM_FEATURE_NOT_SUPPORTED = -1062555308;
-
 	public const HRESULT IMAPI_E_IMPORT_TYPE_COLLISION_FILE_EXISTS_AS_DIRECTORY = -1062555307;
-
 	public const HRESULT IMAPI_E_IMPORT_SEEK_FAILURE = -1062555306;
-
 	public const HRESULT IMAPI_E_IMPORT_READ_FAILURE = -1062555305;
-
 	public const HRESULT IMAPI_E_DISC_MISMATCH = -1062555304;
-
 	public const HRESULT IMAPI_E_IMPORT_MEDIA_NOT_ALLOWED = -1062555303;
-
 	public const HRESULT IMAPI_E_UDF_NOT_WRITE_COMPATIBLE = -1062555302;
-
 	public const HRESULT IMAPI_E_INCOMPATIBLE_MULTISESSION_TYPE = -1062555301;
-
 	public const HRESULT IMAPI_E_NO_COMPATIBLE_MULTISESSION_TYPE = -1062555300;
-
 	public const HRESULT IMAPI_E_MULTISESSION_NOT_SET = -1062555299;
-
 	public const HRESULT IMAPI_E_IMPORT_TYPE_COLLISION_DIRECTORY_EXISTS_AS_FILE = -1062555298;
-
 	public const HRESULT IMAPI_S_IMAGE_FEATURE_NOT_SUPPORTED = 11186527;
-
 	public const HRESULT IMAPI_E_PROPERTY_NOT_ACCESSIBLE = -1062555296;
-
 	public const HRESULT IMAPI_E_UDF_REVISION_CHANGE_NOT_ALLOWED = -1062555295;
-
 	public const HRESULT IMAPI_E_BAD_MULTISESSION_PARAMETER = -1062555294;
-
 	public const HRESULT IMAPI_E_FILE_SYSTEM_CHANGE_NOT_ALLOWED = -1062555293;
-
 	public const HRESULT IMAPI_E_IMAGEMANAGER_IMAGE_NOT_ALIGNED = -1062555136;
-
 	public const HRESULT IMAPI_E_IMAGEMANAGER_NO_VALID_VD_FOUND = -1062555135;
-
 	public const HRESULT IMAPI_E_IMAGEMANAGER_NO_IMAGE = -1062555134;
-
 	public const HRESULT IMAPI_E_IMAGEMANAGER_IMAGE_TOO_BIG = -1062555133;
-
 	public const int32 MAPI_E_CALL_FAILED = -2147467259;
-
 	public const int32 MAPI_E_NOT_ENOUGH_MEMORY = -2147024882;
-
 	public const int32 MAPI_E_INVALID_PARAMETER = -2147024809;
-
 	public const int32 MAPI_E_INTERFACE_NOT_SUPPORTED = -2147467262;
-
 	public const int32 MAPI_E_NO_ACCESS = -2147024891;
-
 	public const uint32 TAD_ALL_ROWS = 1;
-
 	public const int32 PRILOWEST = -32768;
-
 	public const uint32 PRIHIGHEST = 32767;
-
 	public const uint32 PRIUSER = 0;
-
 }
 #endregion
 
@@ -512,10 +303,11 @@ public function uint32 LPWABFREEBUFFER(IWABObject* lpWABObject, void* lpBuffer);
 #endregion
 
 #region Structs
-[CRepr, FlexibleArray("ab")]
+[CRepr]
 public struct ENTRYID
 {
 	public uint8[4] abFlags;
+	public uint8* ab mut => &ab_impl;
 	private uint8[ANYSIZE_ARRAY] ab_impl;
 }
 
@@ -525,10 +317,11 @@ public struct MAPIUID
 	public uint8[16] ab;
 }
 
-[CRepr, FlexibleArray("aulPropTag")]
+[CRepr]
 public struct SPropTagArray
 {
 	public uint32 cValues;
+	public uint32* aulPropTag mut => &aulPropTag_impl;
 	private uint32[ANYSIZE_ARRAY] aulPropTag_impl;
 }
 
@@ -672,40 +465,45 @@ public struct SPropProblem
 	public int32 scode;
 }
 
-[CRepr, FlexibleArray("aProblem")]
+[CRepr]
 public struct SPropProblemArray
 {
 	public uint32 cProblem;
+	public SPropProblem* aProblem mut => &aProblem_impl;
 	private SPropProblem[ANYSIZE_ARRAY] aProblem_impl;
 }
 
-[CRepr, FlexibleArray("abEntry")]
+[CRepr]
 public struct FLATENTRY
 {
 	public uint32 cb;
+	public uint8* abEntry mut => &abEntry_impl;
 	private uint8[ANYSIZE_ARRAY] abEntry_impl;
 }
 
-[CRepr, FlexibleArray("abEntries")]
+[CRepr]
 public struct FLATENTRYLIST
 {
 	public uint32 cEntries;
 	public uint32 cbEntries;
+	public uint8* abEntries mut => &abEntries_impl;
 	private uint8[ANYSIZE_ARRAY] abEntries_impl;
 }
 
-[CRepr, FlexibleArray("ab")]
+[CRepr]
 public struct MTSID
 {
 	public uint32 cb;
+	public uint8* ab mut => &ab_impl;
 	private uint8[ANYSIZE_ARRAY] ab_impl;
 }
 
-[CRepr, FlexibleArray("abMTSIDs")]
+[CRepr]
 public struct FLATMTSIDLIST
 {
 	public uint32 cMTSIDs;
 	public uint32 cbMTSIDs;
+	public uint8* abMTSIDs mut => &abMTSIDs_impl;
 	private uint8[ANYSIZE_ARRAY] abMTSIDs_impl;
 }
 
@@ -717,10 +515,11 @@ public struct ADRENTRY
 	public SPropValue* rgPropVals;
 }
 
-[CRepr, FlexibleArray("aEntries")]
+[CRepr]
 public struct ADRLIST
 {
 	public uint32 cEntries;
+	public ADRENTRY* aEntries mut => &aEntries_impl;
 	private ADRENTRY[ANYSIZE_ARRAY] aEntries_impl;
 }
 
@@ -732,10 +531,11 @@ public struct SRow
 	public SPropValue* lpProps;
 }
 
-[CRepr, FlexibleArray("aRow")]
+[CRepr]
 public struct SRowSet
 {
 	public uint32 cRows;
+	public SRow* aRow mut => &aRow_impl;
 	private SRow[ANYSIZE_ARRAY] aRow_impl;
 }
 
@@ -827,7 +627,6 @@ public struct NOTIFICATION
 		public EXTENDED_NOTIFICATION ext;
 		public STATUS_OBJECT_NOTIFICATION statobj;
 	}
-
 	public uint32 ulEventType;
 	public uint32 ulAlignPad;
 	public _info_e__Union info;
@@ -842,7 +641,6 @@ public struct MAPINAMEID
 		public int32 lID;
 		public PWSTR lpwstrName;
 	}
-
 	public Guid* lpguid;
 	public uint32 ulKind;
 	public _Kind_e__Union Kind;
@@ -855,12 +653,13 @@ public struct SSortOrder
 	public uint32 ulOrder;
 }
 
-[CRepr, FlexibleArray("aSort")]
+[CRepr]
 public struct SSortOrderSet
 {
 	public uint32 cSorts;
 	public uint32 cCategories;
 	public uint32 cExpanded;
+	public SSortOrder* aSort mut => &aSort_impl;
 	private SSortOrder[ANYSIZE_ARRAY] aSort_impl;
 }
 
@@ -966,15 +765,15 @@ public struct SRestriction
 		public SSubRestriction resSub;
 		public SCommentRestriction resComment;
 	}
-
 	public uint32 rt;
 	public _res_e__Union res;
 }
 
-[CRepr, FlexibleArray("ulFlag")]
+[CRepr]
 public struct _flaglist
 {
 	public uint32 cFlags;
+	public uint32* ulFlag mut => &ulFlag_impl;
 	private uint32[ANYSIZE_ARRAY] ulFlag_impl;
 }
 
@@ -1120,7 +919,6 @@ public struct DTCTL
 		public DTBLMVDDLBX* lpmvddlbx;
 		public DTBLPAGE* lppage;
 	}
-
 	public uint32 ulCtlType;
 	public uint32 ulCtlFlags;
 	public uint8* lpbNotif;
@@ -1139,7 +937,6 @@ public struct DTPAGE
 		public int8* lpszComponent;
 		public uint32 ulItemID;
 	}
-
 	public uint32 cctl;
 	public int8* lpszResourceName;
 	public using _Anonymous_e__Union Anonymous;
@@ -1185,10 +982,11 @@ public struct WABEXTDISPLAY
 	public int8* lpsz;
 }
 
-[CRepr, FlexibleArray("ab")]
+[CRepr]
 public struct NOTIFKEY
 {
 	public uint32 cb;
+	public uint8* ab mut => &ab_impl;
 	private uint8[ANYSIZE_ARRAY] ab_impl;
 }
 

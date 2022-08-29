@@ -4,7 +4,6 @@ using Win32.UI.Controls;
 using Win32.Graphics.Gdi;
 using Win32.UI.WindowsAndMessaging;
 using System;
-using System.Interop;
 
 namespace Win32.System.Mmc;
 
@@ -12,181 +11,93 @@ namespace Win32.System.Mmc;
 public static
 {
 	public const uint32 MMC_VER = 512;
-
 	public const uint32 MMC_PROP_CHANGEAFFECTSUI = 1;
-
 	public const uint32 MMC_PROP_MODIFIABLE = 2;
-
 	public const uint32 MMC_PROP_REMOVABLE = 4;
-
 	public const uint32 MMC_PROP_PERSIST = 8;
-
 	public const int32 MMCLV_AUTO = -1;
-
 	public const int32 MMCLV_NOPARAM = -2;
-
 	public const int32 MMCLV_NOICON = -1;
-
 	public const uint32 MMCLV_VIEWSTYLE_ICON = 0;
-
 	public const uint32 MMCLV_VIEWSTYLE_SMALLICON = 2;
-
 	public const uint32 MMCLV_VIEWSTYLE_LIST = 3;
-
 	public const uint32 MMCLV_VIEWSTYLE_REPORT = 1;
-
 	public const uint32 MMCLV_VIEWSTYLE_FILTERED = 4;
-
 	public const uint32 MMCLV_NOPTR = 0;
-
 	public const uint32 MMCLV_UPDATE_NOINVALIDATEALL = 1;
-
 	public const uint32 MMCLV_UPDATE_NOSCROLL = 2;
-
 	public const int32 MMC_IMAGECALLBACK = -1;
-
 	public const uint32 RDI_STR = 2;
-
 	public const uint32 RDI_IMAGE = 4;
-
 	public const uint32 RDI_STATE = 8;
-
 	public const uint32 RDI_PARAM = 16;
-
 	public const uint32 RDI_INDEX = 32;
-
 	public const uint32 RDI_INDENT = 64;
-
 	public const uint32 MMC_VIEW_OPTIONS_NONE = 0;
-
 	public const uint32 MMC_VIEW_OPTIONS_NOLISTVIEWS = 1;
-
 	public const uint32 MMC_VIEW_OPTIONS_MULTISELECT = 2;
-
 	public const uint32 MMC_VIEW_OPTIONS_OWNERDATALIST = 4;
-
 	public const uint32 MMC_VIEW_OPTIONS_FILTERED = 8;
-
 	public const uint32 MMC_VIEW_OPTIONS_CREATENEW = 16;
-
 	public const uint32 MMC_VIEW_OPTIONS_USEFONTLINKING = 32;
-
 	public const uint32 MMC_VIEW_OPTIONS_EXCLUDE_SCOPE_ITEMS_FROM_LIST = 64;
-
 	public const uint32 MMC_VIEW_OPTIONS_LEXICAL_SORT = 128;
-
 	public const uint32 MMC_PSO_NOAPPLYNOW = 1;
-
 	public const uint32 MMC_PSO_HASHELP = 2;
-
 	public const uint32 MMC_PSO_NEWWIZARDTYPE = 4;
-
 	public const uint32 MMC_PSO_NO_PROPTITLE = 8;
-
 	public const uint32 RFI_PARTIAL = 1;
-
 	public const uint32 RFI_WRAP = 2;
-
 	public const uint32 RSI_DESCENDING = 1;
-
 	public const uint32 RSI_NOSORTICON = 2;
-
 	public const uint32 SDI_STR = 2;
-
 	public const uint32 SDI_IMAGE = 4;
-
 	public const uint32 SDI_OPENIMAGE = 8;
-
 	public const uint32 SDI_STATE = 16;
-
 	public const uint32 SDI_PARAM = 32;
-
 	public const uint32 SDI_CHILDREN = 64;
-
 	public const uint32 SDI_PARENT = 0;
-
 	public const uint32 SDI_PREVIOUS = 268435456;
-
 	public const uint32 SDI_NEXT = 536870912;
-
 	public const uint32 SDI_FIRST = 134217728;
-
 	public const int32 MMC_MULTI_SELECT_COOKIE = -2;
-
 	public const int32 MMC_WINDOW_COOKIE = -3;
-
 	public const int32 SPECIAL_COOKIE_MIN = -10;
-
 	public const int32 SPECIAL_COOKIE_MAX = -1;
-
 	public const uint32 MMC_NW_OPTION_NONE = 0;
-
 	public const uint32 MMC_NW_OPTION_NOSCOPEPANE = 1;
-
 	public const uint32 MMC_NW_OPTION_NOTOOLBARS = 2;
-
 	public const uint32 MMC_NW_OPTION_SHORTTITLE = 4;
-
 	public const uint32 MMC_NW_OPTION_CUSTOMTITLE = 8;
-
 	public const uint32 MMC_NW_OPTION_NOPERSIST = 16;
-
 	public const uint32 MMC_NW_OPTION_NOACTIONPANE = 32;
-
 	public const uint32 MMC_NODEID_SLOW_RETRIEVAL = 1;
-
 	public const int32 SPECIAL_DOBJ_MIN = -10;
-
 	public const uint32 SPECIAL_DOBJ_MAX = 0;
-
 	public const int32 AUTO_WIDTH = -1;
-
 	public const int32 HIDE_COLUMN = -4;
-
 	public const uint32 ILSIF_LEAVE_LARGE_ICON = 1073741824;
-
 	public const uint32 ILSIF_LEAVE_SMALL_ICON = 536870912;
-
 	public const uint32 HDI_HIDDEN = 1;
-
 	public const uint32 RDCI_ScopeItem = 2147483648;
-
 	public const uint32 RVTI_MISC_OPTIONS_NOLISTVIEWS = 1;
-
 	public const uint32 RVTI_LIST_OPTIONS_NONE = 0;
-
 	public const uint32 RVTI_LIST_OPTIONS_OWNERDATALIST = 2;
-
 	public const uint32 RVTI_LIST_OPTIONS_MULTISELECT = 4;
-
 	public const uint32 RVTI_LIST_OPTIONS_FILTERED = 8;
-
 	public const uint32 RVTI_LIST_OPTIONS_USEFONTLINKING = 32;
-
 	public const uint32 RVTI_LIST_OPTIONS_EXCLUDE_SCOPE_ITEMS_FROM_LIST = 64;
-
 	public const uint32 RVTI_LIST_OPTIONS_LEXICAL_SORT = 128;
-
 	public const uint32 RVTI_LIST_OPTIONS_ALLOWPASTE = 256;
-
 	public const uint32 RVTI_HTML_OPTIONS_NONE = 0;
-
 	public const uint32 RVTI_HTML_OPTIONS_NOLISTVIEW = 1;
-
 	public const uint32 RVTI_OCX_OPTIONS_NONE = 0;
-
 	public const uint32 RVTI_OCX_OPTIONS_NOLISTVIEW = 1;
-
 	public const uint32 RVTI_OCX_OPTIONS_CACHE_OCX = 2;
-
 	public const uint32 MMC_DEFAULT_OPERATION_COPY = 1;
-
 	public const uint32 MMC_ITEM_OVERLAY_STATE_MASK = 3840;
-
 	public const uint32 MMC_ITEM_OVERLAY_STATE_SHIFT = 8;
-
 	public const uint32 MMC_ITEM_STATE_MASK = 255;
-
 }
 #endregion
 
@@ -580,47 +491,53 @@ public struct MMC_EXPANDSYNC_STRUCT
 	public int hItem;
 }
 
-[CRepr, FlexibleArray("rgVisibleCols")]
+[CRepr]
 public struct MMC_VISIBLE_COLUMNS
 {
 	public int32 nVisibleColumns;
+	public int32* rgVisibleCols mut => &rgVisibleCols_impl;
 	private int32[ANYSIZE_ARRAY] rgVisibleCols_impl;
 }
 
-[CRepr, FlexibleArray("lpDataObject")]
+[CRepr]
 public struct SMMCDataObjects
 {
 	public uint32 count;
+	public IDataObject** lpDataObject mut => &lpDataObject_impl;
 	private IDataObject*[ANYSIZE_ARRAY] lpDataObject_impl;
 }
 
-[CRepr, FlexibleArray("guid")]
+[CRepr]
 public struct SMMCObjectTypes
 {
 	public uint32 count;
+	public Guid* guid mut => &guid_impl;
 	private Guid[ANYSIZE_ARRAY] guid_impl;
 }
 
-[CRepr, FlexibleArray("id")]
+[CRepr]
 public struct SNodeID
 {
 	public uint32 cBytes;
+	public uint8* id mut => &id_impl;
 	private uint8[ANYSIZE_ARRAY] id_impl;
 }
 
-[CRepr, FlexibleArray("id")]
+[CRepr]
 public struct SNodeID2
 {
 	public uint32 dwFlags;
 	public uint32 cBytes;
+	public uint8* id mut => &id_impl;
 	private uint8[ANYSIZE_ARRAY] id_impl;
 }
 
-[CRepr, FlexibleArray("id")]
+[CRepr]
 public struct SColumnSetID
 {
 	public uint32 dwFlags;
 	public uint32 cBytes;
+	public uint8* id mut => &id_impl;
 	private uint8[ANYSIZE_ARRAY] id_impl;
 }
 
@@ -648,7 +565,6 @@ public struct MMC_TASK_DISPLAY_OBJECT
 		public MMC_TASK_DISPLAY_BITMAP uBitmap;
 		public MMC_TASK_DISPLAY_SYMBOL uSymbol;
 	}
-
 	public MMC_TASK_DISPLAY_TYPE eDisplayType;
 	public using _Anonymous_e__Union Anonymous;
 }
@@ -663,7 +579,6 @@ public struct MMC_TASK
 		public PWSTR szActionURL;
 		public PWSTR szScript;
 	}
-
 	public MMC_TASK_DISPLAY_OBJECT sDisplayObject;
 	public PWSTR szText;
 	public PWSTR szHelpString;
@@ -743,19 +658,16 @@ public struct RESULT_VIEW_TYPE_INFO
 			public uint32 dwOCXOptions;
 			public IUnknown* pUnkControl;
 		}
-
 		[CRepr]
 		public struct _Anonymous1_e__Struct
 		{
 			public uint32 dwHTMLOptions;
 			public PWSTR pstrURL;
 		}
-
 		public uint32 dwListOptions;
 		public _Anonymous1_e__Struct Anonymous1;
 		public _Anonymous2_e__Struct Anonymous2;
 	}
-
 	public PWSTR pstrPersistableViewDescription;
 	public MMC_VIEW_TYPE eViewType;
 	public uint32 dwMiscOptions;

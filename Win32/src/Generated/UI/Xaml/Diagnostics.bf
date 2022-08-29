@@ -10,7 +10,6 @@ namespace Win32.UI.Xaml.Diagnostics;
 public static
 {
 	public const HRESULT E_UNKNOWNTYPE = -2144665560;
-
 }
 #endregion
 

@@ -1,7 +1,6 @@
 using Win32.Foundation;
 using Win32.Security;
 using System;
-using System.Interop;
 
 namespace Win32.Storage.DistributedFileSystem;
 
@@ -9,71 +8,38 @@ namespace Win32.Storage.DistributedFileSystem;
 public static
 {
 	public const uint32 FSCTL_DFS_BASE = 6;
-
 	public const uint32 DFS_VOLUME_STATES = 15;
-
 	public const uint32 DFS_VOLUME_STATE_OK = 1;
-
 	public const uint32 DFS_VOLUME_STATE_INCONSISTENT = 2;
-
 	public const uint32 DFS_VOLUME_STATE_OFFLINE = 3;
-
 	public const uint32 DFS_VOLUME_STATE_ONLINE = 4;
-
 	public const uint32 DFS_VOLUME_STATE_RESYNCHRONIZE = 16;
-
 	public const uint32 DFS_VOLUME_STATE_STANDBY = 32;
-
 	public const uint32 DFS_VOLUME_STATE_FORCE_SYNC = 64;
-
 	public const uint32 DFS_VOLUME_FLAVORS = 768;
-
 	public const uint32 DFS_VOLUME_FLAVOR_UNUSED1 = 0;
-
 	public const uint32 DFS_VOLUME_FLAVOR_STANDALONE = 256;
-
 	public const uint32 DFS_VOLUME_FLAVOR_AD_BLOB = 512;
-
 	public const uint32 DFS_STORAGE_FLAVOR_UNUSED2 = 768;
-
 	public const uint32 DFS_STORAGE_STATES = 15;
-
 	public const uint32 DFS_STORAGE_STATE_OFFLINE = 1;
-
 	public const uint32 DFS_STORAGE_STATE_ONLINE = 2;
-
 	public const uint32 DFS_STORAGE_STATE_ACTIVE = 4;
-
 	public const uint32 DFS_PROPERTY_FLAG_INSITE_REFERRALS = 1;
-
 	public const uint32 DFS_PROPERTY_FLAG_ROOT_SCALABILITY = 2;
-
 	public const uint32 DFS_PROPERTY_FLAG_SITE_COSTING = 4;
-
 	public const uint32 DFS_PROPERTY_FLAG_TARGET_FAILBACK = 8;
-
 	public const uint32 DFS_PROPERTY_FLAG_CLUSTER_ENABLED = 16;
-
 	public const uint32 DFS_PROPERTY_FLAG_ABDE = 32;
-
 	public const uint32 DFS_ADD_VOLUME = 1;
-
 	public const uint32 DFS_RESTORE_VOLUME = 2;
-
 	public const uint32 NET_DFS_SETDC_FLAGS = 0;
-
 	public const uint32 NET_DFS_SETDC_TIMEOUT = 1;
-
 	public const uint32 NET_DFS_SETDC_INITPKT = 2;
-
 	public const uint32 DFS_SITE_PRIMARY = 1;
-
 	public const uint32 DFS_MOVE_FLAG_REPLACE_IF_EXISTS = 1;
-
 	public const uint32 DFS_FORCE_REMOVE = 2147483648;
-
 	public const uint32 FSCTL_DFS_GET_PKT_ENTRY_STATE = 401340;
-
 }
 #endregion
 
@@ -379,10 +345,11 @@ public struct DFS_SITENAME_INFO
 	public PWSTR SiteName;
 }
 
-[CRepr, FlexibleArray("Site")]
+[CRepr]
 public struct DFS_SITELIST_INFO
 {
 	public uint32 cSites;
+	public DFS_SITENAME_INFO* Site mut => &Site_impl;
 	private DFS_SITENAME_INFO[ANYSIZE_ARRAY] Site_impl;
 }
 
@@ -397,13 +364,14 @@ public struct DFS_SUPPORTED_NAMESPACE_VERSION_INFO
 	public uint64 StandaloneDfsCapabilities;
 }
 
-[CRepr, FlexibleArray("Buffer")]
+[CRepr]
 public struct DFS_GET_PKT_ENTRY_STATE_ARG
 {
 	public uint16 DfsEntryPathLen;
 	public uint16 ServerNameLen;
 	public uint16 ShareNameLen;
 	public uint32 Level;
+	public char16* Buffer mut => &Buffer_impl;
 	private char16[ANYSIZE_ARRAY] Buffer_impl;
 }
 

@@ -8,15 +8,10 @@ namespace Win32.System.Memory;
 public static
 {
 	public const uint32 FILE_CACHE_MAX_HARD_ENABLE = 1;
-
 	public const uint32 FILE_CACHE_MAX_HARD_DISABLE = 2;
-
 	public const uint32 FILE_CACHE_MIN_HARD_ENABLE = 4;
-
 	public const uint32 FILE_CACHE_MIN_HARD_DISABLE = 8;
-
 	public const uint32 MEHC_PATROL_SCRUBBER_PRESENT = 1;
-
 }
 #endregion
 
@@ -252,7 +247,6 @@ public struct PROCESS_HEAP_ENTRY
 			public HANDLE hMem;
 			public uint32[3] dwReserved;
 		}
-
 		[CRepr]
 		public struct _Region_e__Struct
 		{
@@ -261,11 +255,9 @@ public struct PROCESS_HEAP_ENTRY
 			public void* lpFirstBlock;
 			public void* lpLastBlock;
 		}
-
 		public _Block_e__Struct Block;
 		public _Region_e__Struct Region;
 	}
-
 	public void* lpData;
 	public uint32 cbData;
 	public uint8 cbOverhead;
@@ -302,11 +294,9 @@ public struct WIN32_MEMORY_REGION_INFORMATION
 		{
 			public uint32 _bitfield;
 		}
-
 		public uint32 Flags;
 		public using _Anonymous_e__Struct Anonymous;
 	}
-
 	public void* AllocationBase;
 	public uint32 AllocationProtect;
 	public using _Anonymous_e__Union Anonymous;
@@ -396,13 +386,11 @@ public struct MEM_EXTENDED_PARAMETER
 		public HANDLE Handle;
 		public uint32 ULong;
 	}
-
 	[CRepr]
 	public struct _Anonymous1_e__Struct
 	{
 		public uint64 _bitfield;
 	}
-
 	public _Anonymous1_e__Struct Anonymous1;
 	public _Anonymous2_e__Union Anonymous2;
 }

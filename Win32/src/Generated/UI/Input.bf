@@ -1,6 +1,5 @@
 using Win32.Foundation;
 using System;
-using System.Interop;
 
 namespace Win32.UI.Input;
 
@@ -100,11 +99,9 @@ public struct RAWMOUSE
 			public uint16 usButtonFlags;
 			public uint16 usButtonData;
 		}
-
 		public uint32 ulButtons;
 		public using _Anonymous_e__Struct Anonymous;
 	}
-
 	public uint16 usFlags;
 	public using _Anonymous_e__Union Anonymous;
 	public uint32 ulRawButtons;
@@ -124,11 +121,12 @@ public struct RAWKEYBOARD
 	public uint32 ExtraInformation;
 }
 
-[CRepr, FlexibleArray("bRawData")]
+[CRepr]
 public struct RAWHID
 {
 	public uint32 dwSizeHid;
 	public uint32 dwCount;
+	public uint8* bRawData mut => &bRawData_impl;
 	private uint8[ANYSIZE_ARRAY] bRawData_impl;
 }
 
@@ -142,7 +140,6 @@ public struct RAWINPUT
 		public RAWKEYBOARD keyboard;
 		public RAWHID hid;
 	}
-
 	public RAWINPUTHEADER header;
 	public _data_e__Union data;
 }
@@ -187,7 +184,6 @@ public struct RID_DEVICE_INFO
 		public RID_DEVICE_INFO_KEYBOARD keyboard;
 		public RID_DEVICE_INFO_HID hid;
 	}
-
 	public uint32 cbSize;
 	public RID_DEVICE_INFO_TYPE dwType;
 	public using _Anonymous_e__Union Anonymous;

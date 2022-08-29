@@ -7,7 +7,6 @@ using Win32.System.WinRT;
 using Win32.UI.WindowsAndMessaging;
 using Win32.Security;
 using System;
-using System.Interop;
 
 namespace Win32.System.RemoteDesktop;
 
@@ -15,523 +14,264 @@ namespace Win32.System.RemoteDesktop;
 public static
 {
 	public const uint32 WTS_DOMAIN_LENGTH = 255;
-
 	public const uint32 WTS_USERNAME_LENGTH = 255;
-
 	public const uint32 WTS_PASSWORD_LENGTH = 255;
-
 	public const uint32 WTS_DIRECTORY_LENGTH = 256;
-
 	public const uint32 WTS_INITIALPROGRAM_LENGTH = 256;
-
 	public const uint32 WTS_PROTOCOL_NAME_LENGTH = 8;
-
 	public const uint32 WTS_DRIVER_NAME_LENGTH = 8;
-
 	public const uint32 WTS_DEVICE_NAME_LENGTH = 19;
-
 	public const uint32 WTS_IMEFILENAME_LENGTH = 32;
-
 	public const uint32 WTS_CLIENTNAME_LENGTH = 20;
-
 	public const uint32 WTS_CLIENTADDRESS_LENGTH = 30;
-
 	public const uint32 WTS_CLIENT_PRODUCT_ID_LENGTH = 32;
-
 	public const uint32 WTS_MAX_PROTOCOL_CACHE = 4;
-
 	public const uint32 WTS_MAX_CACHE_RESERVED = 20;
-
 	public const uint32 WTS_MAX_RESERVED = 100;
-
 	public const uint32 WTS_MAX_COUNTERS = 100;
-
 	public const uint32 WTS_MAX_DISPLAY_IOCTL_DATA = 256;
-
 	public const uint32 WTS_PERF_DISABLE_NOTHING = 0;
-
 	public const uint32 WTS_PERF_DISABLE_WALLPAPER = 1;
-
 	public const uint32 WTS_PERF_DISABLE_FULLWINDOWDRAG = 2;
-
 	public const uint32 WTS_PERF_DISABLE_MENUANIMATIONS = 4;
-
 	public const uint32 WTS_PERF_DISABLE_THEMING = 8;
-
 	public const uint32 WTS_PERF_ENABLE_ENHANCED_GRAPHICS = 16;
-
 	public const uint32 WTS_PERF_DISABLE_CURSOR_SHADOW = 32;
-
 	public const uint32 WTS_PERF_DISABLE_CURSORSETTINGS = 64;
-
 	public const uint32 WTS_PERF_ENABLE_FONT_SMOOTHING = 128;
-
 	public const uint32 WTS_PERF_ENABLE_DESKTOP_COMPOSITION = 256;
-
 	public const uint32 WTS_VALUE_TYPE_ULONG = 1;
-
 	public const uint32 WTS_VALUE_TYPE_STRING = 2;
-
 	public const uint32 WTS_VALUE_TYPE_BINARY = 3;
-
 	public const uint32 WTS_VALUE_TYPE_GUID = 4;
-
 	public const uint32 WTS_KEY_EXCHANGE_ALG_RSA = 1;
-
 	public const uint32 WTS_KEY_EXCHANGE_ALG_DH = 2;
-
 	public const uint32 WTS_LICENSE_PROTOCOL_VERSION = 65536;
-
 	public const uint32 WTS_LICENSE_PREAMBLE_VERSION = 3;
-
 	public const uint32 WRDS_DOMAIN_LENGTH = 255;
-
 	public const uint32 WRDS_USERNAME_LENGTH = 255;
-
 	public const uint32 WRDS_PASSWORD_LENGTH = 255;
-
 	public const uint32 WRDS_DIRECTORY_LENGTH = 256;
-
 	public const uint32 WRDS_INITIALPROGRAM_LENGTH = 256;
-
 	public const uint32 WRDS_PROTOCOL_NAME_LENGTH = 8;
-
 	public const uint32 WRDS_DRIVER_NAME_LENGTH = 8;
-
 	public const uint32 WRDS_DEVICE_NAME_LENGTH = 19;
-
 	public const uint32 WRDS_IMEFILENAME_LENGTH = 32;
-
 	public const uint32 WRDS_CLIENTNAME_LENGTH = 20;
-
 	public const uint32 WRDS_CLIENTADDRESS_LENGTH = 30;
-
 	public const uint32 WRDS_CLIENT_PRODUCT_ID_LENGTH = 32;
-
 	public const uint32 WRDS_MAX_PROTOCOL_CACHE = 4;
-
 	public const uint32 WRDS_MAX_CACHE_RESERVED = 20;
-
 	public const uint32 WRDS_MAX_RESERVED = 100;
-
 	public const uint32 WRDS_MAX_COUNTERS = 100;
-
 	public const uint32 WRDS_MAX_DISPLAY_IOCTL_DATA = 256;
-
 	public const uint32 WRDS_PERF_DISABLE_NOTHING = 0;
-
 	public const uint32 WRDS_PERF_DISABLE_WALLPAPER = 1;
-
 	public const uint32 WRDS_PERF_DISABLE_FULLWINDOWDRAG = 2;
-
 	public const uint32 WRDS_PERF_DISABLE_MENUANIMATIONS = 4;
-
 	public const uint32 WRDS_PERF_DISABLE_THEMING = 8;
-
 	public const uint32 WRDS_PERF_ENABLE_ENHANCED_GRAPHICS = 16;
-
 	public const uint32 WRDS_PERF_DISABLE_CURSOR_SHADOW = 32;
-
 	public const uint32 WRDS_PERF_DISABLE_CURSORSETTINGS = 64;
-
 	public const uint32 WRDS_PERF_ENABLE_FONT_SMOOTHING = 128;
-
 	public const uint32 WRDS_PERF_ENABLE_DESKTOP_COMPOSITION = 256;
-
 	public const uint32 WRDS_VALUE_TYPE_ULONG = 1;
-
 	public const uint32 WRDS_VALUE_TYPE_STRING = 2;
-
 	public const uint32 WRDS_VALUE_TYPE_BINARY = 3;
-
 	public const uint32 WRDS_VALUE_TYPE_GUID = 4;
-
 	public const uint32 WRDS_KEY_EXCHANGE_ALG_RSA = 1;
-
 	public const uint32 WRDS_KEY_EXCHANGE_ALG_DH = 2;
-
 	public const uint32 WRDS_LICENSE_PROTOCOL_VERSION = 65536;
-
 	public const uint32 WRDS_LICENSE_PREAMBLE_VERSION = 3;
-
 	public const uint32 SINGLE_SESSION = 1;
-
 	public const uint32 FORCE_REJOIN = 2;
-
 	public const uint32 FORCE_REJOIN_IN_CLUSTERMODE = 3;
-
 	public const uint32 RESERVED_FOR_LEGACY = 4;
-
 	public const uint32 KEEP_EXISTING_SESSIONS = 8;
-
 	public const uint32 CHANNEL_EVENT_INITIALIZED = 0;
-
 	public const uint32 CHANNEL_EVENT_CONNECTED = 1;
-
 	public const uint32 CHANNEL_EVENT_V1_CONNECTED = 2;
-
 	public const uint32 CHANNEL_EVENT_DISCONNECTED = 3;
-
 	public const uint32 CHANNEL_EVENT_TERMINATED = 4;
-
 	public const uint32 CHANNEL_EVENT_DATA_RECEIVED = 10;
-
 	public const uint32 CHANNEL_EVENT_WRITE_COMPLETE = 11;
-
 	public const uint32 CHANNEL_EVENT_WRITE_CANCELLED = 12;
-
 	public const uint32 CHANNEL_RC_OK = 0;
-
 	public const uint32 CHANNEL_RC_ALREADY_INITIALIZED = 1;
-
 	public const uint32 CHANNEL_RC_NOT_INITIALIZED = 2;
-
 	public const uint32 CHANNEL_RC_ALREADY_CONNECTED = 3;
-
 	public const uint32 CHANNEL_RC_NOT_CONNECTED = 4;
-
 	public const uint32 CHANNEL_RC_TOO_MANY_CHANNELS = 5;
-
 	public const uint32 CHANNEL_RC_BAD_CHANNEL = 6;
-
 	public const uint32 CHANNEL_RC_BAD_CHANNEL_HANDLE = 7;
-
 	public const uint32 CHANNEL_RC_NO_BUFFER = 8;
-
 	public const uint32 CHANNEL_RC_BAD_INIT_HANDLE = 9;
-
 	public const uint32 CHANNEL_RC_NOT_OPEN = 10;
-
 	public const uint32 CHANNEL_RC_BAD_PROC = 11;
-
 	public const uint32 CHANNEL_RC_NO_MEMORY = 12;
-
 	public const uint32 CHANNEL_RC_UNKNOWN_CHANNEL_NAME = 13;
-
 	public const uint32 CHANNEL_RC_ALREADY_OPEN = 14;
-
 	public const uint32 CHANNEL_RC_NOT_IN_VIRTUALCHANNELENTRY = 15;
-
 	public const uint32 CHANNEL_RC_NULL_DATA = 16;
-
 	public const uint32 CHANNEL_RC_ZERO_LENGTH = 17;
-
 	public const uint32 CHANNEL_RC_INVALID_INSTANCE = 18;
-
 	public const uint32 CHANNEL_RC_UNSUPPORTED_VERSION = 19;
-
 	public const uint32 CHANNEL_RC_INITIALIZATION_ERROR = 20;
-
 	public const uint32 VIRTUAL_CHANNEL_VERSION_WIN2000 = 1;
-
 	public const uint32 CHANNEL_CHUNK_LENGTH = 1600;
-
 	public const uint32 CHANNEL_BUFFER_SIZE = 65535;
-
 	public const uint32 CHANNEL_FLAG_FIRST = 1;
-
 	public const uint32 CHANNEL_FLAG_LAST = 2;
-
 	public const uint32 CHANNEL_FLAG_MIDDLE = 0;
-
 	public const uint32 CHANNEL_FLAG_FAIL = 256;
-
 	public const uint32 CHANNEL_OPTION_INITIALIZED = 2147483648;
-
 	public const uint32 CHANNEL_OPTION_ENCRYPT_RDP = 1073741824;
-
 	public const uint32 CHANNEL_OPTION_ENCRYPT_SC = 536870912;
-
 	public const uint32 CHANNEL_OPTION_ENCRYPT_CS = 268435456;
-
 	public const uint32 CHANNEL_OPTION_PRI_HIGH = 134217728;
-
 	public const uint32 CHANNEL_OPTION_PRI_MED = 67108864;
-
 	public const uint32 CHANNEL_OPTION_PRI_LOW = 33554432;
-
 	public const uint32 CHANNEL_OPTION_COMPRESS_RDP = 8388608;
-
 	public const uint32 CHANNEL_OPTION_COMPRESS = 4194304;
-
 	public const uint32 CHANNEL_OPTION_SHOW_PROTOCOL = 2097152;
-
 	public const uint32 CHANNEL_OPTION_REMOTE_CONTROL_PERSISTENT = 1048576;
-
 	public const uint32 CHANNEL_MAX_COUNT = 30;
-
 	public const uint32 CHANNEL_NAME_LEN = 7;
-
 	public const uint32 MAX_POLICY_ATTRIBUTES = 20;
-
 	public const uint32 WTS_CURRENT_SESSION = 4294967295;
-
 	public const uint32 USERNAME_LENGTH = 20;
-
 	public const uint32 CLIENTNAME_LENGTH = 20;
-
 	public const uint32 CLIENTADDRESS_LENGTH = 30;
-
 	public const uint32 WTS_WSD_LOGOFF = 1;
-
 	public const uint32 WTS_WSD_SHUTDOWN = 2;
-
 	public const uint32 WTS_WSD_REBOOT = 4;
-
 	public const uint32 WTS_WSD_POWEROFF = 8;
-
 	public const uint32 WTS_WSD_FASTREBOOT = 16;
-
 	public const uint32 MAX_ELAPSED_TIME_LENGTH = 15;
-
 	public const uint32 MAX_DATE_TIME_LENGTH = 56;
-
 	public const uint32 WINSTATIONNAME_LENGTH = 32;
-
 	public const uint32 DOMAIN_LENGTH = 17;
-
 	public const uint32 WTS_DRIVE_LENGTH = 3;
-
 	public const uint32 WTS_LISTENER_NAME_LENGTH = 32;
-
 	public const uint32 WTS_COMMENT_LENGTH = 60;
-
 	public const uint32 WTS_LISTENER_CREATE = 1;
-
 	public const uint32 WTS_LISTENER_UPDATE = 16;
-
 	public const uint32 WTS_SECURITY_QUERY_INFORMATION = 1;
-
 	public const uint32 WTS_SECURITY_SET_INFORMATION = 2;
-
 	public const uint32 WTS_SECURITY_RESET = 4;
-
 	public const uint32 WTS_SECURITY_VIRTUAL_CHANNELS = 8;
-
 	public const uint32 WTS_SECURITY_REMOTE_CONTROL = 16;
-
 	public const uint32 WTS_SECURITY_LOGON = 32;
-
 	public const uint32 WTS_SECURITY_LOGOFF = 64;
-
 	public const uint32 WTS_SECURITY_MESSAGE = 128;
-
 	public const uint32 WTS_SECURITY_CONNECT = 256;
-
 	public const uint32 WTS_SECURITY_DISCONNECT = 512;
-
 	public const uint32 WTS_SECURITY_GUEST_ACCESS = 32;
-
 	public const uint32 WTS_PROTOCOL_TYPE_CONSOLE = 0;
-
 	public const uint32 WTS_PROTOCOL_TYPE_ICA = 1;
-
 	public const uint32 WTS_PROTOCOL_TYPE_RDP = 2;
-
 	public const uint32 WTS_SESSIONSTATE_UNKNOWN = 4294967295;
-
 	public const uint32 WTS_SESSIONSTATE_LOCK = 0;
-
 	public const uint32 WTS_SESSIONSTATE_UNLOCK = 1;
-
 	public const uint32 PRODUCTINFO_COMPANYNAME_LENGTH = 256;
-
 	public const uint32 PRODUCTINFO_PRODUCTID_LENGTH = 4;
-
 	public const uint32 VALIDATIONINFORMATION_LICENSE_LENGTH = 16384;
-
 	public const uint32 VALIDATIONINFORMATION_HARDWAREID_LENGTH = 20;
-
 	public const uint32 WTS_EVENT_NONE = 0;
-
 	public const uint32 WTS_EVENT_CREATE = 1;
-
 	public const uint32 WTS_EVENT_DELETE = 2;
-
 	public const uint32 WTS_EVENT_RENAME = 4;
-
 	public const uint32 WTS_EVENT_CONNECT = 8;
-
 	public const uint32 WTS_EVENT_DISCONNECT = 16;
-
 	public const uint32 WTS_EVENT_LOGON = 32;
-
 	public const uint32 WTS_EVENT_LOGOFF = 64;
-
 	public const uint32 WTS_EVENT_STATECHANGE = 128;
-
 	public const uint32 WTS_EVENT_LICENSE = 256;
-
 	public const uint32 WTS_EVENT_ALL = 2147483647;
-
 	public const uint32 WTS_EVENT_FLUSH = 2147483648;
-
 	public const uint32 REMOTECONTROL_KBDSHIFT_HOTKEY = 1;
-
 	public const uint32 REMOTECONTROL_KBDCTRL_HOTKEY = 2;
-
 	public const uint32 REMOTECONTROL_KBDALT_HOTKEY = 4;
-
 	public const uint32 WTS_CHANNEL_OPTION_DYNAMIC = 1;
-
 	public const uint32 WTS_CHANNEL_OPTION_DYNAMIC_PRI_LOW = 0;
-
 	public const uint32 WTS_CHANNEL_OPTION_DYNAMIC_PRI_MED = 2;
-
 	public const uint32 WTS_CHANNEL_OPTION_DYNAMIC_PRI_HIGH = 4;
-
 	public const uint32 WTS_CHANNEL_OPTION_DYNAMIC_PRI_REAL = 6;
-
 	public const uint32 WTS_CHANNEL_OPTION_DYNAMIC_NO_COMPRESS = 8;
-
 	public const uint32 NOTIFY_FOR_ALL_SESSIONS = 1;
-
 	public const uint32 NOTIFY_FOR_THIS_SESSION = 0;
-
 	public const uint32 WTS_PROCESS_INFO_LEVEL_0 = 0;
-
 	public const uint32 WTS_PROCESS_INFO_LEVEL_1 = 1;
-
 	public const uint32 PLUGIN_CAPABILITY_EXTERNAL_REDIRECTION = 1;
-
 	public const uint32 MaxFQDN_Len = 256;
-
 	public const uint32 MaxNetBiosName_Len = 16;
-
 	public const uint32 MaxNumOfExposed_IPs = 12;
-
 	public const uint32 MaxUserName_Len = 104;
-
 	public const uint32 MaxDomainName_Len = 256;
-
 	public const uint32 MaxFarm_Len = 256;
-
 	public const uint32 MaxAppName_Len = 256;
-
 	public const uint32 WKS_FLAG_CLEAR_CREDS_ON_LAST_RESOURCE = 1;
-
 	public const uint32 WKS_FLAG_PASSWORD_ENCRYPTED = 2;
-
 	public const uint32 WKS_FLAG_CREDS_AUTHENTICATED = 4;
-
 	public const uint32 SB_SYNCH_CONFLICT_MAX_WRITE_ATTEMPTS = 100;
-
 	public const uint32 ACQUIRE_TARGET_LOCK_TIMEOUT = 300000;
-
 	public const uint32 RENDER_HINT_CLEAR = 0;
-
 	public const uint32 RENDER_HINT_VIDEO = 1;
-
 	public const uint32 RENDER_HINT_MAPPEDWINDOW = 2;
-
 	public const uint32 TS_VC_LISTENER_STATIC_CHANNEL = 1;
-
 	public const uint32 WRdsGraphicsChannels_LossyChannelMaxMessageSize = 988;
-
 	public const uint32 RFX_RDP_MSG_PREFIX = 0;
-
 	public const uint32 RFX_GFX_MSG_PREFIX = 48;
-
 	public const uint32 RFX_GFX_MSG_PREFIX_MASK = 48;
-
 	public const uint32 RFX_GFX_MAX_SUPPORTED_MONITORS = 16;
-
 	public const uint32 RFX_CLIENT_ID_LENGTH = 32;
-
 	public const uint32 DISPID_METHOD_REMOTEDESKTOPCLIENT_CONNECT = 701;
-
 	public const uint32 DISPID_METHOD_REMOTEDESKTOPCLIENT_DISCONNECT = 702;
-
 	public const uint32 DISPID_METHOD_REMOTEDESKTOPCLIENT_RECONNECT = 703;
-
 	public const uint32 DISPID_METHOD_REMOTEDESKTOPCLIENT_DELETE_SAVED_CREDENTIALS = 704;
-
 	public const uint32 DISPID_METHOD_REMOTEDESKTOPCLIENT_UPDATE_SESSION_DISPLAYSETTINGS = 705;
-
 	public const uint32 DISPID_METHOD_REMOTEDESKTOPCLIENT_ATTACH_EVENT = 706;
-
 	public const uint32 DISPID_METHOD_REMOTEDESKTOPCLIENT_DETACH_EVENT = 707;
-
 	public const uint32 DISPID_PROP_REMOTEDESKTOPCLIENT_SETTINGS = 710;
-
 	public const uint32 DISPID_PROP_REMOTEDESKTOPCLIENT_ACTIONS = 711;
-
 	public const uint32 DISPID_PROP_REMOTEDESKTOPCLIENT_TOUCH_POINTER = 712;
-
 	public const uint32 DISPID_METHOD_REMOTEDESKTOPCLIENT_SET_RDPPROPERTY = 720;
-
 	public const uint32 DISPID_METHOD_REMOTEDESKTOPCLIENT_GET_RDPPROPERTY = 721;
-
 	public const uint32 DISPID_METHOD_REMOTEDESKTOPCLIENT_APPLY_SETTINGS = 722;
-
 	public const uint32 DISPID_METHOD_REMOTEDESKTOPCLIENT_RETRIEVE_SETTINGS = 723;
-
 	public const uint32 DISPID_METHOD_REMOTEDESKTOPCLIENT_SUSPEND_SCREEN_UPDATES = 730;
-
 	public const uint32 DISPID_METHOD_REMOTEDESKTOPCLIENT_RESUME_SCREEN_UPDATES = 731;
-
 	public const uint32 DISPID_METHOD_REMOTEDESKTOPCLIENT_EXECUTE_REMOTE_ACTION = 732;
-
 	public const uint32 DISPID_METHOD_REMOTEDESKTOPCLIENT_GET_SNAPSHOT = 733;
-
 	public const uint32 DISPID_PROP_REMOTEDESKTOPCLIENT_TOUCHPOINTER_ENABLED = 740;
-
 	public const uint32 DISPID_PROP_REMOTEDESKTOPCLIENT_TOUCHPOINTER_EVENTSENABLED = 741;
-
 	public const uint32 DISPID_PROP_REMOTEDESKTOPCLIENT_TOUCHPOINTER_POINTERSPEED = 742;
-
 	public const uint32 DISPID_AX_CONNECTING = 750;
-
 	public const uint32 DISPID_AX_CONNECTED = 751;
-
 	public const uint32 DISPID_AX_LOGINCOMPLETED = 752;
-
 	public const uint32 DISPID_AX_DISCONNECTED = 753;
-
 	public const uint32 DISPID_AX_STATUSCHANGED = 754;
-
 	public const uint32 DISPID_AX_AUTORECONNECTING = 755;
-
 	public const uint32 DISPID_AX_AUTORECONNECTED = 756;
-
 	public const uint32 DISPID_AX_DIALOGDISPLAYING = 757;
-
 	public const uint32 DISPID_AX_DIALOGDISMISSED = 758;
-
 	public const uint32 DISPID_AX_NETWORKSTATUSCHANGED = 759;
-
 	public const uint32 DISPID_AX_ADMINMESSAGERECEIVED = 760;
-
 	public const uint32 DISPID_AX_KEYCOMBINATIONPRESSED = 761;
-
 	public const uint32 DISPID_AX_REMOTEDESKTOPSIZECHANGED = 762;
-
 	public const uint32 DISPID_AX_TOUCHPOINTERCURSORMOVED = 800;
-
 	public const Guid RDCLIENT_BITMAP_RENDER_SERVICE = .(0xe4cc08cb, 0x942e, 0x4b19, 0x85, 0x04, 0xbd, 0x5a, 0x89, 0xa7, 0x47, 0xf5);
-
 	public const Guid WTS_QUERY_ALLOWED_INITIAL_APP = .(0xc77d1b30, 0x5be1, 0x4c6b, 0xa0, 0xe1, 0xbd, 0x6d, 0x2e, 0x5c, 0x9f, 0xcc);
-
 	public const Guid WTS_QUERY_LOGON_SCREEN_SIZE = .(0x8b8e0fe7, 0x0804, 0x4a0e, 0xb2, 0x79, 0x86, 0x60, 0xb1, 0xdf, 0x00, 0x49);
-
 	public const Guid WTS_QUERY_AUDIOENUM_DLL = .(0x9bf4fa97, 0xc883, 0x4c2a, 0x80, 0xab, 0x5a, 0x39, 0xc9, 0xaf, 0x00, 0xdb);
-
 	public const Guid WTS_QUERY_MF_FORMAT_SUPPORT = .(0x41869ad0, 0x6332, 0x4dc8, 0x95, 0xd5, 0xdb, 0x74, 0x9e, 0x2f, 0x1d, 0x94);
-
 	public const Guid WRDS_SERVICE_ID_GRAPHICS_GUID = .(0xd2993f4d, 0x02cf, 0x4280, 0x8c, 0x48, 0x16, 0x24, 0xb4, 0x4f, 0x87, 0x06);
-
 	public const Guid PROPERTY_DYNAMIC_TIME_ZONE_INFORMATION = .(0x0cdfd28e, 0xd0b9, 0x4c1f, 0xa5, 0xeb, 0x6d, 0x1f, 0x6c, 0x65, 0x35, 0xb9);
-
 	public const Guid PROPERTY_TYPE_GET_FAST_RECONNECT = .(0x6212d757, 0x0043, 0x4862, 0x99, 0xc3, 0x9f, 0x30, 0x59, 0xac, 0x2a, 0x3b);
-
 	public const Guid PROPERTY_TYPE_GET_FAST_RECONNECT_USER_SID = .(0x197c427a, 0x0135, 0x4b6d, 0x9c, 0x5e, 0xe6, 0x57, 0x9a, 0x0a, 0xb6, 0x25);
-
 	public const Guid PROPERTY_TYPE_ENABLE_UNIVERSAL_APPS_FOR_CUSTOM_SHELL = .(0xed2c3fda, 0x338d, 0x4d3f, 0x81, 0xa3, 0xe7, 0x67, 0x31, 0x0d, 0x90, 0x8e);
-
 	public const Guid CONNECTION_PROPERTY_IDLE_TIME_WARNING = .(0x693f7ff5, 0x0c4e, 0x4d17, 0xb8, 0xe0, 0x1f, 0x70, 0x32, 0x5e, 0x5d, 0x58);
-
 	public const Guid CONNECTION_PROPERTY_CURSOR_BLINK_DISABLED = .(0x4b150580, 0xfea4, 0x4d3c, 0x9d, 0xe4, 0x74, 0x33, 0xa6, 0x66, 0x18, 0xf7);
-
 }
 #endregion
 
@@ -1872,10 +1612,11 @@ public struct RFX_GFX_MSG_DESKTOP_RESEND_REQUEST
 	public RFX_GFX_RECT RedrawRect;
 }
 
-[CRepr, FlexibleArray("rdpData")]
+[CRepr]
 public struct RFX_GFX_MSG_RDP_DATA
 {
 	public RFX_GFX_MSG_HEADER channelHdr;
+	public uint8* rdpData mut => &rdpData_impl;
 	private uint8[ANYSIZE_ARRAY] rdpData_impl;
 }
 
@@ -1893,7 +1634,6 @@ public struct WTS_SOCKADDR
 			public uint16[8] sin6_addr;
 			public uint32 sin6_scope_id;
 		}
-
 		[CRepr]
 		public struct _ipv4_e__Struct
 		{
@@ -1901,11 +1641,9 @@ public struct WTS_SOCKADDR
 			public uint32 IN_ADDR;
 			public uint8[8] sin_zero;
 		}
-
 		public _ipv4_e__Struct ipv4;
 		public _ipv6_e__Struct ipv6;
 	}
-
 	public uint16 sin_family;
 	public _u_e__Union u;
 }
@@ -2140,20 +1878,17 @@ public struct WTS_PROPERTY_VALUE
 			public uint32 size;
 			public PSTR pbVal;
 		}
-
 		[CRepr]
 		public struct _strVal_e__Struct
 		{
 			public uint32 size;
 			public PWSTR pstrVal;
 		}
-
 		public uint32 ulVal;
 		public _strVal_e__Struct strVal;
 		public _bVal_e__Struct bVal;
 		public Guid guidVal;
 	}
-
 	public uint16 Type;
 	public _u_e__Union u;
 }

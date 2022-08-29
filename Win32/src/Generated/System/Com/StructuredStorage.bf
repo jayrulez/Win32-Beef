@@ -2,7 +2,6 @@ using Win32.System.Com;
 using Win32.Foundation;
 using Win32.Security;
 using System;
-using System.Interop;
 
 namespace Win32.System.Com.StructuredStorage;
 
@@ -10,185 +9,95 @@ namespace Win32.System.Com.StructuredStorage;
 public static
 {
 	public const uint32 PROPSETFLAG_DEFAULT = 0;
-
 	public const uint32 PROPSETFLAG_NONSIMPLE = 1;
-
 	public const uint32 PROPSETFLAG_ANSI = 2;
-
 	public const uint32 PROPSETFLAG_UNBUFFERED = 4;
-
 	public const uint32 PROPSETFLAG_CASE_SENSITIVE = 8;
-
 	public const uint32 PROPSET_BEHAVIOR_CASE_SENSITIVE = 1;
-
 	public const uint32 PID_DICTIONARY = 0;
-
 	public const uint32 PID_CODEPAGE = 1;
-
 	public const uint32 PID_FIRST_USABLE = 2;
-
 	public const uint32 PID_FIRST_NAME_DEFAULT = 4095;
-
 	public const uint32 PID_LOCALE = 2147483648;
-
 	public const uint32 PID_MODIFY_TIME = 2147483649;
-
 	public const uint32 PID_SECURITY = 2147483650;
-
 	public const uint32 PID_BEHAVIOR = 2147483651;
-
 	public const uint32 PID_ILLEGAL = 4294967295;
-
 	public const uint32 PID_MIN_READONLY = 2147483648;
-
 	public const uint32 PID_MAX_READONLY = 3221225471;
-
 	public const uint32 PRSPEC_INVALID = 4294967295;
-
 	public const uint32 PROPSETHDR_OSVERSION_UNKNOWN = 4294967295;
-
 	public const int32 PIDDI_THUMBNAIL = 2;
-
 	public const int32 PIDSI_TITLE = 2;
-
 	public const int32 PIDSI_SUBJECT = 3;
-
 	public const int32 PIDSI_AUTHOR = 4;
-
 	public const int32 PIDSI_KEYWORDS = 5;
-
 	public const int32 PIDSI_COMMENTS = 6;
-
 	public const int32 PIDSI_TEMPLATE = 7;
-
 	public const int32 PIDSI_LASTAUTHOR = 8;
-
 	public const int32 PIDSI_REVNUMBER = 9;
-
 	public const int32 PIDSI_EDITTIME = 10;
-
 	public const int32 PIDSI_LASTPRINTED = 11;
-
 	public const int32 PIDSI_CREATE_DTM = 12;
-
 	public const int32 PIDSI_LASTSAVE_DTM = 13;
-
 	public const int32 PIDSI_PAGECOUNT = 14;
-
 	public const int32 PIDSI_WORDCOUNT = 15;
-
 	public const int32 PIDSI_CHARCOUNT = 16;
-
 	public const int32 PIDSI_THUMBNAIL = 17;
-
 	public const int32 PIDSI_APPNAME = 18;
-
 	public const int32 PIDSI_DOC_SECURITY = 19;
-
 	public const uint32 PIDDSI_CATEGORY = 2;
-
 	public const uint32 PIDDSI_PRESFORMAT = 3;
-
 	public const uint32 PIDDSI_BYTECOUNT = 4;
-
 	public const uint32 PIDDSI_LINECOUNT = 5;
-
 	public const uint32 PIDDSI_PARCOUNT = 6;
-
 	public const uint32 PIDDSI_SLIDECOUNT = 7;
-
 	public const uint32 PIDDSI_NOTECOUNT = 8;
-
 	public const uint32 PIDDSI_HIDDENCOUNT = 9;
-
 	public const uint32 PIDDSI_MMCLIPCOUNT = 10;
-
 	public const uint32 PIDDSI_SCALE = 11;
-
 	public const uint32 PIDDSI_HEADINGPAIR = 12;
-
 	public const uint32 PIDDSI_DOCPARTS = 13;
-
 	public const uint32 PIDDSI_MANAGER = 14;
-
 	public const uint32 PIDDSI_COMPANY = 15;
-
 	public const uint32 PIDDSI_LINKSDIRTY = 16;
-
 	public const int32 PIDMSI_EDITOR = 2;
-
 	public const int32 PIDMSI_SUPPLIER = 3;
-
 	public const int32 PIDMSI_SOURCE = 4;
-
 	public const int32 PIDMSI_SEQUENCE_NO = 5;
-
 	public const int32 PIDMSI_PROJECT = 6;
-
 	public const int32 PIDMSI_STATUS = 7;
-
 	public const int32 PIDMSI_OWNER = 8;
-
 	public const int32 PIDMSI_RATING = 9;
-
 	public const int32 PIDMSI_PRODUCTION = 10;
-
 	public const int32 PIDMSI_COPYRIGHT = 11;
-
 	public const uint32 CWCSTORAGENAME = 32;
-
 	public const int32 STGM_DIRECT = 0;
-
 	public const int32 STGM_TRANSACTED = 65536;
-
 	public const int32 STGM_SIMPLE = 134217728;
-
 	public const int32 STGM_READ = 0;
-
 	public const int32 STGM_WRITE = 1;
-
 	public const int32 STGM_READWRITE = 2;
-
 	public const int32 STGM_SHARE_DENY_NONE = 64;
-
 	public const int32 STGM_SHARE_DENY_READ = 48;
-
 	public const int32 STGM_SHARE_DENY_WRITE = 32;
-
 	public const int32 STGM_SHARE_EXCLUSIVE = 16;
-
 	public const int32 STGM_PRIORITY = 262144;
-
 	public const int32 STGM_DELETEONRELEASE = 67108864;
-
 	public const int32 STGM_NOSCRATCH = 1048576;
-
 	public const int32 STGM_CREATE = 4096;
-
 	public const int32 STGM_CONVERT = 131072;
-
 	public const int32 STGM_FAILIFTHERE = 0;
-
 	public const int32 STGM_NOSNAPSHOT = 2097152;
-
 	public const int32 STGM_DIRECT_SWMR = 4194304;
-
 	public const uint32 STGFMT_STORAGE = 0;
-
 	public const uint32 STGFMT_NATIVE = 1;
-
 	public const uint32 STGFMT_FILE = 3;
-
 	public const uint32 STGFMT_ANY = 4;
-
 	public const uint32 STGFMT_DOCFILE = 5;
-
 	public const uint32 STGFMT_DOCUMENT = 0;
-
 	public const uint32 STGOPTIONS_VERSION = 1;
-
 	public const uint32 CCH_MAX_PROPSTG_NAME = 31;
-
 }
 #endregion
 
@@ -274,11 +183,12 @@ public struct CLIPDATA
 	public uint8* pClipData;
 }
 
-[CRepr, FlexibleArray("rgString")]
+[CRepr]
 public struct RemSNB
 {
 	public uint32 ulCntStr;
 	public uint32 ulCntChar;
+	public char16* rgString mut => &rgString_impl;
 	private char16[ANYSIZE_ARRAY] rgString_impl;
 }
 
@@ -529,18 +439,15 @@ public struct PROPVARIANT
 				public SAFEARRAY** pparray;
 				public PROPVARIANT* pvarVal;
 			}
-
 			public uint16 vt;
 			public uint16 wReserved1;
 			public uint16 wReserved2;
 			public uint16 wReserved3;
 			public using _Anonymous_e__Union Anonymous;
 		}
-
 		public using _Anonymous_e__Struct Anonymous;
 		public DECIMAL decVal;
 	}
-
 	public using _Anonymous_e__Union Anonymous;
 }
 
@@ -553,7 +460,6 @@ public struct PROPSPEC
 		public uint32 propid;
 		public PWSTR lpwstr;
 	}
-
 	public PROPSPEC_KIND ulKind;
 	public using _Anonymous_e__Union Anonymous;
 }
@@ -587,10 +493,11 @@ public struct STGOPTIONS
 	public PWSTR pwcsTemplateFile;
 }
 
-[CRepr, FlexibleArray("rgb")]
+[CRepr]
 public struct SERIALIZEDPROPERTYVALUE
 {
 	public uint32 dwType;
+	public uint8* rgb mut => &rgb_impl;
 	private uint8[ANYSIZE_ARRAY] rgb_impl;
 }
 

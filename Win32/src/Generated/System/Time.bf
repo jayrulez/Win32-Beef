@@ -7,13 +7,9 @@ namespace Win32.System.Time;
 public static
 {
 	public const uint32 TSF_Hardware = 1;
-
 	public const uint32 TSF_Authenticated = 2;
-
 	public const uint32 TSF_IPv6 = 4;
-
 	public const uint32 TSF_SignatureAuthenticated = 8;
-
 }
 #endregion
 

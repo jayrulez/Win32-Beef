@@ -1,7 +1,6 @@
 using Win32.System.Diagnostics.Debug;
 using Win32.Foundation;
 using System;
-using System.Interop;
 
 namespace Win32.System.SystemInformation;
 
@@ -9,231 +8,118 @@ namespace Win32.System.SystemInformation;
 public static
 {
 	public const uint32 NTDDI_WIN2K = 83886080;
-
 	public const uint32 NTDDI_WINXP = 83951616;
-
 	public const uint32 NTDDI_WINXPSP2 = 83952128;
-
 	public const uint32 NTDDI_WS03SP1 = 84017408;
-
 	public const uint32 NTDDI_VISTA = 100663296;
-
 	public const uint32 NTDDI_VISTASP1 = 100663552;
-
 	public const uint32 NTDDI_WIN7 = 100728832;
-
 	public const uint32 NTDDI_WIN8 = 100794368;
-
 	public const uint32 NTDDI_WINBLUE = 100859904;
-
 	public const uint32 NTDDI_WINTHRESHOLD = 167772160;
-
 	public const uint32 SYSTEM_CPU_SET_INFORMATION_PARKED = 1;
-
 	public const uint32 SYSTEM_CPU_SET_INFORMATION_ALLOCATED = 2;
-
 	public const uint32 SYSTEM_CPU_SET_INFORMATION_ALLOCATED_TO_TARGET_PROCESS = 4;
-
 	public const uint32 SYSTEM_CPU_SET_INFORMATION_REALTIME = 8;
-
 	public const uint32 _WIN32_WINNT_NT4 = 1024;
-
 	public const uint32 _WIN32_WINNT_WIN2K = 1280;
-
 	public const uint32 _WIN32_WINNT_WINXP = 1281;
-
 	public const uint32 _WIN32_WINNT_WS03 = 1282;
-
 	public const uint32 _WIN32_WINNT_WIN6 = 1536;
-
 	public const uint32 _WIN32_WINNT_VISTA = 1536;
-
 	public const uint32 _WIN32_WINNT_WS08 = 1536;
-
 	public const uint32 _WIN32_WINNT_LONGHORN = 1536;
-
 	public const uint32 _WIN32_WINNT_WIN7 = 1537;
-
 	public const uint32 _WIN32_WINNT_WIN8 = 1538;
-
 	public const uint32 _WIN32_WINNT_WINBLUE = 1539;
-
 	public const uint32 _WIN32_WINNT_WINTHRESHOLD = 2560;
-
 	public const uint32 _WIN32_WINNT_WIN10 = 2560;
-
 	public const uint32 _WIN32_IE_IE20 = 512;
-
 	public const uint32 _WIN32_IE_IE30 = 768;
-
 	public const uint32 _WIN32_IE_IE302 = 770;
-
 	public const uint32 _WIN32_IE_IE40 = 1024;
-
 	public const uint32 _WIN32_IE_IE401 = 1025;
-
 	public const uint32 _WIN32_IE_IE50 = 1280;
-
 	public const uint32 _WIN32_IE_IE501 = 1281;
-
 	public const uint32 _WIN32_IE_IE55 = 1360;
-
 	public const uint32 _WIN32_IE_IE60 = 1536;
-
 	public const uint32 _WIN32_IE_IE60SP1 = 1537;
-
 	public const uint32 _WIN32_IE_IE60SP2 = 1539;
-
 	public const uint32 _WIN32_IE_IE70 = 1792;
-
 	public const uint32 _WIN32_IE_IE80 = 2048;
-
 	public const uint32 _WIN32_IE_IE90 = 2304;
-
 	public const uint32 _WIN32_IE_IE100 = 2560;
-
 	public const uint32 _WIN32_IE_IE110 = 2560;
-
 	public const uint32 _WIN32_IE_NT4 = 512;
-
 	public const uint32 _WIN32_IE_NT4SP1 = 512;
-
 	public const uint32 _WIN32_IE_NT4SP2 = 512;
-
 	public const uint32 _WIN32_IE_NT4SP3 = 770;
-
 	public const uint32 _WIN32_IE_NT4SP4 = 1025;
-
 	public const uint32 _WIN32_IE_NT4SP5 = 1025;
-
 	public const uint32 _WIN32_IE_NT4SP6 = 1280;
-
 	public const uint32 _WIN32_IE_WIN98 = 1025;
-
 	public const uint32 _WIN32_IE_WIN98SE = 1280;
-
 	public const uint32 _WIN32_IE_WINME = 1360;
-
 	public const uint32 _WIN32_IE_WIN2K = 1281;
-
 	public const uint32 _WIN32_IE_WIN2KSP1 = 1281;
-
 	public const uint32 _WIN32_IE_WIN2KSP2 = 1281;
-
 	public const uint32 _WIN32_IE_WIN2KSP3 = 1281;
-
 	public const uint32 _WIN32_IE_WIN2KSP4 = 1281;
-
 	public const uint32 _WIN32_IE_XP = 1536;
-
 	public const uint32 _WIN32_IE_XPSP1 = 1537;
-
 	public const uint32 _WIN32_IE_XPSP2 = 1539;
-
 	public const uint32 _WIN32_IE_WS03 = 1538;
-
 	public const uint32 _WIN32_IE_WS03SP1 = 1539;
-
 	public const uint32 _WIN32_IE_WIN6 = 1792;
-
 	public const uint32 _WIN32_IE_LONGHORN = 1792;
-
 	public const uint32 _WIN32_IE_WIN7 = 2048;
-
 	public const uint32 _WIN32_IE_WIN8 = 2560;
-
 	public const uint32 _WIN32_IE_WINBLUE = 2560;
-
 	public const uint32 _WIN32_IE_WINTHRESHOLD = 2560;
-
 	public const uint32 _WIN32_IE_WIN10 = 2560;
-
 	public const uint32 NTDDI_WIN4 = 67108864;
-
 	public const uint32 NTDDI_WIN2KSP1 = 83886336;
-
 	public const uint32 NTDDI_WIN2KSP2 = 83886592;
-
 	public const uint32 NTDDI_WIN2KSP3 = 83886848;
-
 	public const uint32 NTDDI_WIN2KSP4 = 83887104;
-
 	public const uint32 NTDDI_WINXPSP1 = 83951872;
-
 	public const uint32 NTDDI_WINXPSP3 = 83952384;
-
 	public const uint32 NTDDI_WINXPSP4 = 83952640;
-
 	public const uint32 NTDDI_WS03 = 84017152;
-
 	public const uint32 NTDDI_WS03SP2 = 84017664;
-
 	public const uint32 NTDDI_WS03SP3 = 84017920;
-
 	public const uint32 NTDDI_WS03SP4 = 84018176;
-
 	public const uint32 NTDDI_WIN6 = 100663296;
-
 	public const uint32 NTDDI_WIN6SP1 = 100663552;
-
 	public const uint32 NTDDI_WIN6SP2 = 100663808;
-
 	public const uint32 NTDDI_WIN6SP3 = 100664064;
-
 	public const uint32 NTDDI_WIN6SP4 = 100664320;
-
 	public const uint32 NTDDI_VISTASP2 = 100663808;
-
 	public const uint32 NTDDI_VISTASP3 = 100664064;
-
 	public const uint32 NTDDI_VISTASP4 = 100664320;
-
 	public const uint32 NTDDI_LONGHORN = 100663296;
-
 	public const uint32 NTDDI_WS08 = 100663552;
-
 	public const uint32 NTDDI_WS08SP2 = 100663808;
-
 	public const uint32 NTDDI_WS08SP3 = 100664064;
-
 	public const uint32 NTDDI_WS08SP4 = 100664320;
-
 	public const uint32 NTDDI_WIN10 = 167772160;
-
 	public const uint32 NTDDI_WIN10_TH2 = 167772161;
-
 	public const uint32 NTDDI_WIN10_RS1 = 167772162;
-
 	public const uint32 NTDDI_WIN10_RS2 = 167772163;
-
 	public const uint32 NTDDI_WIN10_RS3 = 167772164;
-
 	public const uint32 NTDDI_WIN10_RS4 = 167772165;
-
 	public const uint32 NTDDI_WIN10_RS5 = 167772166;
-
 	public const uint32 NTDDI_WIN10_19H1 = 167772167;
-
 	public const uint32 NTDDI_WIN10_VB = 167772168;
-
 	public const uint32 NTDDI_WIN10_MN = 167772169;
-
 	public const uint32 NTDDI_WIN10_FE = 167772170;
-
 	public const uint32 NTDDI_WIN10_CO = 167772171;
-
 	public const uint32 WDK_NTDDI_VERSION = 167772171;
-
 	public const uint32 OSVERSION_MASK = 4294901760;
-
 	public const uint32 SPVERSION_MASK = 65280;
-
 	public const uint32 SUBVERSION_MASK = 255;
-
 	public const uint32 NTDDI_VERSION = 167772171;
-
 	public const uint32 SCEX2_ALT_NETBIOS_NAME = 1;
-
 }
 #endregion
 
@@ -583,11 +469,9 @@ public struct SYSTEM_INFO
 			public PROCESSOR_ARCHITECTURE wProcessorArchitecture;
 			public uint16 wReserved;
 		}
-
 		public uint32 dwOemId;
 		public using _Anonymous_e__Struct Anonymous;
 	}
-
 	public using _Anonymous_e__Union Anonymous;
 	public uint32 dwPageSize;
 	public void* lpMinimumApplicationAddress;
@@ -635,31 +519,29 @@ public struct SYSTEM_LOGICAL_PROCESSOR_INFORMATION
 		{
 			public uint8 Flags;
 		}
-
 		[CRepr]
 		public struct _NumaNode_e__Struct
 		{
 			public uint32 NodeNumber;
 		}
-
 		public _ProcessorCore_e__Struct ProcessorCore;
 		public _NumaNode_e__Struct NumaNode;
 		public CACHE_DESCRIPTOR Cache;
 		public uint64[2] Reserved;
 	}
-
 	public uint ProcessorMask;
 	public LOGICAL_PROCESSOR_RELATIONSHIP Relationship;
 	public using _Anonymous_e__Union Anonymous;
 }
 
-[CRepr, FlexibleArray("GroupMask")]
+[CRepr]
 public struct PROCESSOR_RELATIONSHIP
 {
 	public uint8 Flags;
 	public uint8 EfficiencyClass;
 	public uint8[20] Reserved;
 	public uint16 GroupCount;
+	public GROUP_AFFINITY* GroupMask mut => &GroupMask_impl;
 	private GROUP_AFFINITY[ANYSIZE_ARRAY] GroupMask_impl;
 }
 
@@ -670,9 +552,9 @@ public struct NUMA_NODE_RELATIONSHIP
 	public struct _Anonymous_e__Union
 	{
 		public GROUP_AFFINITY GroupMask;
-		public GROUP_AFFINITY[ANYSIZE_ARRAY] GroupMasks;
+		public GROUP_AFFINITY* GroupMasks mut => &GroupMasks_impl;
+		private GROUP_AFFINITY[ANYSIZE_ARRAY] GroupMasks_impl;
 	}
-
 	public uint32 NodeNumber;
 	public uint8[18] Reserved;
 	public uint16 GroupCount;
@@ -686,9 +568,9 @@ public struct CACHE_RELATIONSHIP
 	public struct _Anonymous_e__Union
 	{
 		public GROUP_AFFINITY GroupMask;
-		public GROUP_AFFINITY[ANYSIZE_ARRAY] GroupMasks;
+		public GROUP_AFFINITY* GroupMasks mut => &GroupMasks_impl;
+		private GROUP_AFFINITY[ANYSIZE_ARRAY] GroupMasks_impl;
 	}
-
 	public uint8 Level;
 	public uint8 Associativity;
 	public uint16 LineSize;
@@ -708,12 +590,13 @@ public struct PROCESSOR_GROUP_INFO
 	public uint ActiveProcessorMask;
 }
 
-[CRepr, FlexibleArray("GroupInfo")]
+[CRepr]
 public struct GROUP_RELATIONSHIP
 {
 	public uint16 MaximumGroupCount;
 	public uint16 ActiveGroupCount;
 	public uint8[20] Reserved;
+	public PROCESSOR_GROUP_INFO* GroupInfo mut => &GroupInfo_impl;
 	private PROCESSOR_GROUP_INFO[ANYSIZE_ARRAY] GroupInfo_impl;
 }
 
@@ -728,7 +611,6 @@ public struct SYSTEM_LOGICAL_PROCESSOR_INFORMATION_EX
 		public CACHE_RELATIONSHIP Cache;
 		public GROUP_RELATIONSHIP Group;
 	}
-
 	public LOGICAL_PROCESSOR_RELATIONSHIP Relationship;
 	public uint32 Size;
 	public using _Anonymous_e__Union Anonymous;
@@ -751,18 +633,15 @@ public struct SYSTEM_CPU_SET_INFORMATION
 				{
 					public uint8 _bitfield;
 				}
-
 				public uint8 AllFlags;
 				public using _Anonymous_e__Struct Anonymous;
 			}
-
 			[CRepr, Union]
 			public struct _Anonymous2_e__Union
 			{
 				public uint32 Reserved;
 				public uint8 SchedulingClass;
 			}
-
 			public uint32 Id;
 			public uint16 Group;
 			public uint8 LogicalProcessorIndex;
@@ -774,10 +653,8 @@ public struct SYSTEM_CPU_SET_INFORMATION
 			public _Anonymous2_e__Union Anonymous2;
 			public uint64 AllocationTag;
 		}
-
 		public _CpuSet_e__Struct CpuSet;
 	}
-
 	public uint32 Size;
 	public CPU_SET_INFORMATION_TYPE Type;
 	public using _Anonymous_e__Union Anonymous;

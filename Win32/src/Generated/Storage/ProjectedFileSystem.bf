@@ -1,6 +1,5 @@
 using Win32.Foundation;
 using System;
-using System.Interop;
 
 namespace Win32.Storage.ProjectedFileSystem;
 
@@ -159,10 +158,8 @@ public struct PRJ_EXTENDED_INFO
 		{
 			public PWSTR TargetName;
 		}
-
 		public _Symlink_e__Struct Symlink;
 	}
-
 	public PRJ_EXT_INFO_TYPE InfoType;
 	public uint32 NextInfoOffset;
 	public using _Anonymous_e__Union Anonymous;
@@ -211,7 +208,7 @@ public struct PRJ_FILE_BASIC_INFO
 	public uint32 FileAttributes;
 }
 
-[CRepr, FlexibleArray("VariableData")]
+[CRepr]
 public struct PRJ_PLACEHOLDER_INFO
 {
 	[CRepr]
@@ -220,26 +217,24 @@ public struct PRJ_PLACEHOLDER_INFO
 		public uint32 StreamsInfoBufferSize;
 		public uint32 OffsetToFirstStreamInfo;
 	}
-
 	[CRepr]
 	public struct _EaInformation_e__Struct
 	{
 		public uint32 EaBufferSize;
 		public uint32 OffsetToFirstEa;
 	}
-
 	[CRepr]
 	public struct _SecurityInformation_e__Struct
 	{
 		public uint32 SecurityBufferSize;
 		public uint32 OffsetToSecurityDescriptor;
 	}
-
 	public PRJ_FILE_BASIC_INFO FileBasicInfo;
 	public _EaInformation_e__Struct EaInformation;
 	public _SecurityInformation_e__Struct SecurityInformation;
 	public _StreamsInformation_e__Struct StreamsInformation;
 	public PRJ_PLACEHOLDER_VERSION_INFO VersionInfo;
+	public uint8* VariableData mut => &VariableData_impl;
 	private uint8[ANYSIZE_ARRAY] VariableData_impl;
 }
 
@@ -267,19 +262,16 @@ public struct PRJ_NOTIFICATION_PARAMETERS
 	{
 		public PRJ_NOTIFY_TYPES NotificationMask;
 	}
-
 	[CRepr]
 	public struct _FileDeletedOnHandleClose_e__Struct
 	{
 		public BOOLEAN IsFileModified;
 	}
-
 	[CRepr]
 	public struct _PostCreate_e__Struct
 	{
 		public PRJ_NOTIFY_TYPES NotificationMask;
 	}
-
 	public _PostCreate_e__Struct PostCreate;
 	public _FileRenamed_e__Struct FileRenamed;
 	public _FileDeletedOnHandleClose_e__Struct FileDeletedOnHandleClose;
@@ -309,17 +301,14 @@ public struct PRJ_COMPLETE_COMMAND_EXTENDED_PARAMETERS
 		{
 			public PRJ_DIR_ENTRY_BUFFER_HANDLE DirEntryBufferHandle;
 		}
-
 		[CRepr]
 		public struct _Notification_e__Struct
 		{
 			public PRJ_NOTIFY_TYPES NotificationMask;
 		}
-
 		public _Notification_e__Struct Notification;
 		public _Enumeration_e__Struct Enumeration;
 	}
-
 	public PRJ_COMPLETE_COMMAND_TYPE CommandType;
 	public using _Anonymous_e__Union Anonymous;
 }

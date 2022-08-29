@@ -8,211 +8,108 @@ namespace Win32.System.ParentalControls;
 public static
 {
 	public const uint32 ARRAY_SEP_CHAR = 9;
-
 	public const uint32 WPCCHANNEL = 16;
-
 	public const uint32 WPC_SETTINGS_LOCATE = 20;
-
 	public const uint32 WPC_SETTINGS_MODIFY = 21;
-
 	public const uint32 WPC_APP_LAUNCH = 22;
-
 	public const uint32 WPC_SYSTEM = 23;
-
 	public const uint32 WPC_WEB = 24;
-
 	public const uint32 WPCPROV_TASK_SettingChange = 1;
-
 	public const uint32 WPCPROV_TASK_GameStart = 2;
-
 	public const uint32 WPCPROV_TASK_UrlVisit = 3;
-
 	public const uint32 WPCPROV_TASK_EmailReceived = 4;
-
 	public const uint32 WPCPROV_TASK_EmailSent = 5;
-
 	public const uint32 WPCPROV_TASK_MediaPlayback = 6;
-
 	public const uint32 WPCPROV_TASK_IMInvitation = 7;
-
 	public const uint32 WPCPROV_TASK_IMJoin = 8;
-
 	public const uint32 WPCPROV_TASK_IMLeave = 9;
-
 	public const uint32 WPCPROV_TASK_FileDownload = 10;
-
 	public const uint32 WPCPROV_TASK_IMFeature = 11;
-
 	public const uint32 WPCPROV_TASK_Custom = 13;
-
 	public const uint32 WPCPROV_TASK_EmailContact = 14;
-
 	public const uint32 WPCPROV_TASK_IMContact = 15;
-
 	public const uint32 WPCPROV_TASK_AppBlocked = 16;
-
 	public const uint32 WPCPROV_TASK_AppOverride = 17;
-
 	public const uint32 WPCPROV_TASK_WebOverride = 18;
-
 	public const uint32 WPCPROV_TASK_WebsiteVisit = 19;
-
 	public const uint32 WPCPROV_TASK_Application = 20;
-
 	public const uint32 WPCPROV_TASK_ComputerUsage = 21;
-
 	public const uint32 WPCPROV_TASK_ContentUsage = 22;
-
 	public const uint32 WPCPROV_KEYWORD_WPC = 16;
-
 	public const uint32 WPCPROV_KEYWORD_ThirdParty = 32;
-
 	public const uint32 WPCEVENT_SYS_SETTINGCHANGE_value = 1;
-
 	public const uint32 WPCEVENT_GAME_START_value = 2;
-
 	public const uint32 WPCEVENT_WEB_URLVISIT_value = 3;
-
 	public const uint32 WPCEVENT_EMAIL_RECEIVED_value = 4;
-
 	public const uint32 WPCEVENT_EMAIL_SENT_value = 5;
-
 	public const uint32 WPCEVENT_MEDIA_PLAYBACK_value = 6;
-
 	public const uint32 WPCEVENT_IM_INVITATION_value = 7;
-
 	public const uint32 WPCEVENT_IM_JOIN_value = 8;
-
 	public const uint32 WPCEVENT_IM_LEAVE_value = 9;
-
 	public const uint32 WPCEVENT_WEB_FILEDOWNLOAD_value = 10;
-
 	public const uint32 WPCEVENT_IM_FEATURE_value = 11;
-
 	public const uint32 WPCEVENT_CUSTOM_value = 13;
-
 	public const uint32 WPCEVENT_EMAIL_CONTACT_value = 14;
-
 	public const uint32 WPCEVENT_IM_CONTACT_value = 15;
-
 	public const uint32 WPCEVENT_SYSTEM_APPBLOCKED_value = 16;
-
 	public const uint32 WPCEVENT_APPOVERRIDE_value = 17;
-
 	public const uint32 WPCEVENT_WEBOVERRIDE_value = 18;
-
 	public const uint32 WPCEVENT_WEB_WEBSITEVISIT_value = 19;
-
 	public const uint32 WPCEVENT_APPLICATION_value = 20;
-
 	public const uint32 WPCEVENT_COMPUTERUSAGE_value = 21;
-
 	public const uint32 WPCEVENT_CONTENTUSAGE_value = 22;
-
 	public const int32 MSG_Keyword_WPC = 268435461;
-
 	public const int32 MSG_Keyword_ThirdParty = 268435462;
-
 	public const int32 MSG_Opcode_Locate = 805306388;
-
 	public const int32 MSG_Opcode_Modify = 805306389;
-
 	public const int32 MSG_Opcode_Launch = 805306390;
-
 	public const int32 MSG_Opcode_System = 805306391;
-
 	public const int32 MSG_Opcode_Web = 805306392;
-
 	public const int32 MSG_Task_SettingChange = 1879048193;
-
 	public const int32 MSG_Task_GameStart = 1879048194;
-
 	public const int32 MSG_Task_UrlVisit = 1879048195;
-
 	public const int32 MSG_Task_EmailReceived = 1879048196;
-
 	public const int32 MSG_Task_EmailSent = 1879048197;
-
 	public const int32 MSG_Task_MediaPlayback = 1879048198;
-
 	public const int32 MSG_Task_IMInvitation = 1879048199;
-
 	public const int32 MSG_Task_IMJoin = 1879048200;
-
 	public const int32 MSG_Task_IMLeave = 1879048201;
-
 	public const int32 MSG_Task_FileDownload = 1879048202;
-
 	public const int32 MSG_Task_IMFeature = 1879048203;
-
 	public const int32 MSG_Task_Custom = 1879048205;
-
 	public const int32 MSG_Task_EmailContact = 1879048206;
-
 	public const int32 MSG_Task_IMContact = 1879048207;
-
 	public const int32 MSG_Task_AppBlocked = 1879048208;
-
 	public const int32 MSG_Task_AppOverride = 1879048209;
-
 	public const int32 MSG_Task_WebOverride = 1879048210;
-
 	public const int32 MSG_Task_WebsiteVisit = 1879048211;
-
 	public const int32 MSG_Task_Application = 1879048212;
-
 	public const int32 MSG_Task_ComputerUsage = 1879048213;
-
 	public const int32 MSG_Task_ContentUsage = 1879048214;
-
 	public const int32 MSG_Publisher_Name = -1879048191;
-
 	public const int32 MSG_Event_SettingChange = -1342177279;
-
 	public const int32 MSG_Event_GameStart = -1342177278;
-
 	public const int32 MSG_Event_UrlVisit = -1342177277;
-
 	public const int32 MSG_Event_EmailReceived = -1342177276;
-
 	public const int32 MSG_Event_EmailSent = -1342177275;
-
 	public const int32 MSG_Event_MediaPlayback = -1342177274;
-
 	public const int32 MSG_Event_IMInvitation = -1342177273;
-
 	public const int32 MSG_Event_IMJoin = -1342177272;
-
 	public const int32 MSG_Event_IMLeave = -1342177271;
-
 	public const int32 MSG_Event_FileDownload = -1342177270;
-
 	public const int32 MSG_Event_IMFeature = -1342177269;
-
 	public const int32 MSG_Event_Custom = -1342177267;
-
 	public const int32 MSG_Event_EmailContact = -1342177266;
-
 	public const int32 MSG_Event_IMContact = -1342177265;
-
 	public const int32 MSG_Event_AppBlocked = -1342177264;
-
 	public const int32 MSG_Event_AppOverride = -1342177263;
-
 	public const int32 MSG_Event_WebOverride = -1342177262;
-
 	public const int32 MSG_Event_WebsiteVisit = -1342177261;
-
 	public const int32 MSG_Event_Application = -1342177260;
-
 	public const int32 MSG_Event_ComputerUsage = -1342177259;
-
 	public const int32 MSG_Event_ContentUsage = -1342177258;
-
 	public const uint32 FACILITY_WPC = 2457;
-
 	public const Guid WPCPROV = .(0x01090065, 0xb467, 0x4503, 0x9b, 0x28, 0x53, 0x37, 0x66, 0x76, 0x10, 0x87);
-
 }
 #endregion
 

@@ -1,6 +1,5 @@
 using Win32.Foundation;
 using System;
-using System.Interop;
 
 namespace Win32.System.Environment;
 
@@ -8,37 +7,21 @@ namespace Win32.System.Environment;
 public static
 {
 	public const uint32 ENCLAVE_RUNTIME_POLICY_ALLOW_FULL_DEBUG = 1;
-
 	public const uint32 ENCLAVE_RUNTIME_POLICY_ALLOW_DYNAMIC_DEBUG = 2;
-
 	public const uint32 ENCLAVE_UNSEAL_FLAG_STALE_KEY = 1;
-
 	public const uint32 ENCLAVE_FLAG_FULL_DEBUG_ENABLED = 1;
-
 	public const uint32 ENCLAVE_FLAG_DYNAMIC_DEBUG_ENABLED = 2;
-
 	public const uint32 ENCLAVE_FLAG_DYNAMIC_DEBUG_ACTIVE = 4;
-
 	public const uint32 VBS_ENCLAVE_REPORT_PKG_HEADER_VERSION_CURRENT = 1;
-
 	public const uint32 VBS_ENCLAVE_REPORT_SIGNATURE_SCHEME_SHA256_RSA_PSS_SHA256 = 1;
-
 	public const uint32 VBS_ENCLAVE_REPORT_VERSION_CURRENT = 1;
-
 	public const uint32 ENCLAVE_REPORT_DATA_LENGTH = 64;
-
 	public const uint32 VBS_ENCLAVE_VARDATA_INVALID = 0;
-
 	public const uint32 VBS_ENCLAVE_VARDATA_MODULE = 1;
-
 	public const uint32 ENCLAVE_VBS_BASIC_KEY_FLAG_MEASUREMENT = 1;
-
 	public const uint32 ENCLAVE_VBS_BASIC_KEY_FLAG_FAMILY_ID = 2;
-
 	public const uint32 ENCLAVE_VBS_BASIC_KEY_FLAG_IMAGE_ID = 4;
-
 	public const uint32 ENCLAVE_VBS_BASIC_KEY_FLAG_DEBUG_KEY = 8;
-
 }
 #endregion
 
@@ -154,7 +137,7 @@ public struct VBS_ENCLAVE_REPORT_VARDATA_HEADER
 	public uint32 Size;
 }
 
-[CRepr, Packed(1), FlexibleArray("ModuleName")]
+[CRepr, Packed(1)]
 public struct VBS_ENCLAVE_REPORT_MODULE
 {
 	public VBS_ENCLAVE_REPORT_VARDATA_HEADER Header;
@@ -163,6 +146,7 @@ public struct VBS_ENCLAVE_REPORT_MODULE
 	public uint8[16] FamilyId;
 	public uint8[16] ImageId;
 	public uint32 Svn;
+	public char16* ModuleName mut => &ModuleName_impl;
 	private char16[ANYSIZE_ARRAY] ModuleName_impl;
 }
 

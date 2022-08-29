@@ -4,7 +4,6 @@ using Win32.Networking.WinSock;
 using Win32.System.WindowsProgramming;
 using Win32.System.IO;
 using System;
-using System.Interop;
 
 namespace Win32.NetworkManagement.IpHelper;
 
@@ -12,941 +11,473 @@ namespace Win32.NetworkManagement.IpHelper;
 public static
 {
 	public const uint32 NET_IF_OPER_STATUS_DOWN_NOT_AUTHENTICATED = 1;
-
 	public const uint32 NET_IF_OPER_STATUS_DOWN_NOT_MEDIA_CONNECTED = 2;
-
 	public const uint32 NET_IF_OPER_STATUS_DORMANT_PAUSED = 4;
-
 	public const uint32 NET_IF_OPER_STATUS_DORMANT_LOW_POWER = 8;
-
 	public const uint32 NET_IF_OID_IF_ALIAS = 1;
-
 	public const uint32 NET_IF_OID_COMPARTMENT_ID = 2;
-
 	public const uint32 NET_IF_OID_NETWORK_GUID = 3;
-
 	public const uint32 NET_IF_OID_IF_ENTRY = 4;
-
 	public const uint32 NET_SITEID_UNSPECIFIED = 0;
-
 	public const uint32 NET_SITEID_MAXUSER = 134217727;
-
 	public const uint32 NET_SITEID_MAXSYSTEM = 268435455;
-
 	public const uint32 NET_IFLUID_UNSPECIFIED = 0;
-
 	public const uint32 NIIF_HARDWARE_INTERFACE = 1;
-
 	public const uint32 NIIF_FILTER_INTERFACE = 2;
-
 	public const uint32 NIIF_NDIS_RESERVED1 = 4;
-
 	public const uint32 NIIF_NDIS_RESERVED2 = 8;
-
 	public const uint32 NIIF_NDIS_RESERVED3 = 16;
-
 	public const uint32 NIIF_NDIS_WDM_INTERFACE = 32;
-
 	public const uint32 NIIF_NDIS_ENDPOINT_INTERFACE = 64;
-
 	public const uint32 NIIF_NDIS_ISCSI_INTERFACE = 128;
-
 	public const uint32 NIIF_NDIS_RESERVED4 = 256;
-
 	public const uint32 IF_MAX_STRING_SIZE = 256;
-
 	public const uint32 IF_MAX_PHYS_ADDRESS_LENGTH = 32;
-
 	public const uint32 ANY_SIZE = 1;
-
 	public const uint32 MAXLEN_PHYSADDR = 8;
-
 	public const uint32 MAXLEN_IFDESCR = 256;
-
 	public const uint32 MAX_INTERFACE_NAME_LEN = 256;
-
 	public const uint32 MIN_IF_TYPE = 1;
-
 	public const uint32 IF_TYPE_OTHER = 1;
-
 	public const uint32 IF_TYPE_REGULAR_1822 = 2;
-
 	public const uint32 IF_TYPE_HDH_1822 = 3;
-
 	public const uint32 IF_TYPE_DDN_X25 = 4;
-
 	public const uint32 IF_TYPE_RFC877_X25 = 5;
-
 	public const uint32 IF_TYPE_ETHERNET_CSMACD = 6;
-
 	public const uint32 IF_TYPE_IS088023_CSMACD = 7;
-
 	public const uint32 IF_TYPE_ISO88024_TOKENBUS = 8;
-
 	public const uint32 IF_TYPE_ISO88025_TOKENRING = 9;
-
 	public const uint32 IF_TYPE_ISO88026_MAN = 10;
-
 	public const uint32 IF_TYPE_STARLAN = 11;
-
 	public const uint32 IF_TYPE_PROTEON_10MBIT = 12;
-
 	public const uint32 IF_TYPE_PROTEON_80MBIT = 13;
-
 	public const uint32 IF_TYPE_HYPERCHANNEL = 14;
-
 	public const uint32 IF_TYPE_FDDI = 15;
-
 	public const uint32 IF_TYPE_LAP_B = 16;
-
 	public const uint32 IF_TYPE_SDLC = 17;
-
 	public const uint32 IF_TYPE_DS1 = 18;
-
 	public const uint32 IF_TYPE_E1 = 19;
-
 	public const uint32 IF_TYPE_BASIC_ISDN = 20;
-
 	public const uint32 IF_TYPE_PRIMARY_ISDN = 21;
-
 	public const uint32 IF_TYPE_PROP_POINT2POINT_SERIAL = 22;
-
 	public const uint32 IF_TYPE_PPP = 23;
-
 	public const uint32 IF_TYPE_SOFTWARE_LOOPBACK = 24;
-
 	public const uint32 IF_TYPE_EON = 25;
-
 	public const uint32 IF_TYPE_ETHERNET_3MBIT = 26;
-
 	public const uint32 IF_TYPE_NSIP = 27;
-
 	public const uint32 IF_TYPE_SLIP = 28;
-
 	public const uint32 IF_TYPE_ULTRA = 29;
-
 	public const uint32 IF_TYPE_DS3 = 30;
-
 	public const uint32 IF_TYPE_SIP = 31;
-
 	public const uint32 IF_TYPE_FRAMERELAY = 32;
-
 	public const uint32 IF_TYPE_RS232 = 33;
-
 	public const uint32 IF_TYPE_PARA = 34;
-
 	public const uint32 IF_TYPE_ARCNET = 35;
-
 	public const uint32 IF_TYPE_ARCNET_PLUS = 36;
-
 	public const uint32 IF_TYPE_ATM = 37;
-
 	public const uint32 IF_TYPE_MIO_X25 = 38;
-
 	public const uint32 IF_TYPE_SONET = 39;
-
 	public const uint32 IF_TYPE_X25_PLE = 40;
-
 	public const uint32 IF_TYPE_ISO88022_LLC = 41;
-
 	public const uint32 IF_TYPE_LOCALTALK = 42;
-
 	public const uint32 IF_TYPE_SMDS_DXI = 43;
-
 	public const uint32 IF_TYPE_FRAMERELAY_SERVICE = 44;
-
 	public const uint32 IF_TYPE_V35 = 45;
-
 	public const uint32 IF_TYPE_HSSI = 46;
-
 	public const uint32 IF_TYPE_HIPPI = 47;
-
 	public const uint32 IF_TYPE_MODEM = 48;
-
 	public const uint32 IF_TYPE_AAL5 = 49;
-
 	public const uint32 IF_TYPE_SONET_PATH = 50;
-
 	public const uint32 IF_TYPE_SONET_VT = 51;
-
 	public const uint32 IF_TYPE_SMDS_ICIP = 52;
-
 	public const uint32 IF_TYPE_PROP_VIRTUAL = 53;
-
 	public const uint32 IF_TYPE_PROP_MULTIPLEXOR = 54;
-
 	public const uint32 IF_TYPE_IEEE80212 = 55;
-
 	public const uint32 IF_TYPE_FIBRECHANNEL = 56;
-
 	public const uint32 IF_TYPE_HIPPIINTERFACE = 57;
-
 	public const uint32 IF_TYPE_FRAMERELAY_INTERCONNECT = 58;
-
 	public const uint32 IF_TYPE_AFLANE_8023 = 59;
-
 	public const uint32 IF_TYPE_AFLANE_8025 = 60;
-
 	public const uint32 IF_TYPE_CCTEMUL = 61;
-
 	public const uint32 IF_TYPE_FASTETHER = 62;
-
 	public const uint32 IF_TYPE_ISDN = 63;
-
 	public const uint32 IF_TYPE_V11 = 64;
-
 	public const uint32 IF_TYPE_V36 = 65;
-
 	public const uint32 IF_TYPE_G703_64K = 66;
-
 	public const uint32 IF_TYPE_G703_2MB = 67;
-
 	public const uint32 IF_TYPE_QLLC = 68;
-
 	public const uint32 IF_TYPE_FASTETHER_FX = 69;
-
 	public const uint32 IF_TYPE_CHANNEL = 70;
-
 	public const uint32 IF_TYPE_IEEE80211 = 71;
-
 	public const uint32 IF_TYPE_IBM370PARCHAN = 72;
-
 	public const uint32 IF_TYPE_ESCON = 73;
-
 	public const uint32 IF_TYPE_DLSW = 74;
-
 	public const uint32 IF_TYPE_ISDN_S = 75;
-
 	public const uint32 IF_TYPE_ISDN_U = 76;
-
 	public const uint32 IF_TYPE_LAP_D = 77;
-
 	public const uint32 IF_TYPE_IPSWITCH = 78;
-
 	public const uint32 IF_TYPE_RSRB = 79;
-
 	public const uint32 IF_TYPE_ATM_LOGICAL = 80;
-
 	public const uint32 IF_TYPE_DS0 = 81;
-
 	public const uint32 IF_TYPE_DS0_BUNDLE = 82;
-
 	public const uint32 IF_TYPE_BSC = 83;
-
 	public const uint32 IF_TYPE_ASYNC = 84;
-
 	public const uint32 IF_TYPE_CNR = 85;
-
 	public const uint32 IF_TYPE_ISO88025R_DTR = 86;
-
 	public const uint32 IF_TYPE_EPLRS = 87;
-
 	public const uint32 IF_TYPE_ARAP = 88;
-
 	public const uint32 IF_TYPE_PROP_CNLS = 89;
-
 	public const uint32 IF_TYPE_HOSTPAD = 90;
-
 	public const uint32 IF_TYPE_TERMPAD = 91;
-
 	public const uint32 IF_TYPE_FRAMERELAY_MPI = 92;
-
 	public const uint32 IF_TYPE_X213 = 93;
-
 	public const uint32 IF_TYPE_ADSL = 94;
-
 	public const uint32 IF_TYPE_RADSL = 95;
-
 	public const uint32 IF_TYPE_SDSL = 96;
-
 	public const uint32 IF_TYPE_VDSL = 97;
-
 	public const uint32 IF_TYPE_ISO88025_CRFPRINT = 98;
-
 	public const uint32 IF_TYPE_MYRINET = 99;
-
 	public const uint32 IF_TYPE_VOICE_EM = 100;
-
 	public const uint32 IF_TYPE_VOICE_FXO = 101;
-
 	public const uint32 IF_TYPE_VOICE_FXS = 102;
-
 	public const uint32 IF_TYPE_VOICE_ENCAP = 103;
-
 	public const uint32 IF_TYPE_VOICE_OVERIP = 104;
-
 	public const uint32 IF_TYPE_ATM_DXI = 105;
-
 	public const uint32 IF_TYPE_ATM_FUNI = 106;
-
 	public const uint32 IF_TYPE_ATM_IMA = 107;
-
 	public const uint32 IF_TYPE_PPPMULTILINKBUNDLE = 108;
-
 	public const uint32 IF_TYPE_IPOVER_CDLC = 109;
-
 	public const uint32 IF_TYPE_IPOVER_CLAW = 110;
-
 	public const uint32 IF_TYPE_STACKTOSTACK = 111;
-
 	public const uint32 IF_TYPE_VIRTUALIPADDRESS = 112;
-
 	public const uint32 IF_TYPE_MPC = 113;
-
 	public const uint32 IF_TYPE_IPOVER_ATM = 114;
-
 	public const uint32 IF_TYPE_ISO88025_FIBER = 115;
-
 	public const uint32 IF_TYPE_TDLC = 116;
-
 	public const uint32 IF_TYPE_GIGABITETHERNET = 117;
-
 	public const uint32 IF_TYPE_HDLC = 118;
-
 	public const uint32 IF_TYPE_LAP_F = 119;
-
 	public const uint32 IF_TYPE_V37 = 120;
-
 	public const uint32 IF_TYPE_X25_MLP = 121;
-
 	public const uint32 IF_TYPE_X25_HUNTGROUP = 122;
-
 	public const uint32 IF_TYPE_TRANSPHDLC = 123;
-
 	public const uint32 IF_TYPE_INTERLEAVE = 124;
-
 	public const uint32 IF_TYPE_FAST = 125;
-
 	public const uint32 IF_TYPE_IP = 126;
-
 	public const uint32 IF_TYPE_DOCSCABLE_MACLAYER = 127;
-
 	public const uint32 IF_TYPE_DOCSCABLE_DOWNSTREAM = 128;
-
 	public const uint32 IF_TYPE_DOCSCABLE_UPSTREAM = 129;
-
 	public const uint32 IF_TYPE_A12MPPSWITCH = 130;
-
 	public const uint32 IF_TYPE_TUNNEL = 131;
-
 	public const uint32 IF_TYPE_COFFEE = 132;
-
 	public const uint32 IF_TYPE_CES = 133;
-
 	public const uint32 IF_TYPE_ATM_SUBINTERFACE = 134;
-
 	public const uint32 IF_TYPE_L2_VLAN = 135;
-
 	public const uint32 IF_TYPE_L3_IPVLAN = 136;
-
 	public const uint32 IF_TYPE_L3_IPXVLAN = 137;
-
 	public const uint32 IF_TYPE_DIGITALPOWERLINE = 138;
-
 	public const uint32 IF_TYPE_MEDIAMAILOVERIP = 139;
-
 	public const uint32 IF_TYPE_DTM = 140;
-
 	public const uint32 IF_TYPE_DCN = 141;
-
 	public const uint32 IF_TYPE_IPFORWARD = 142;
-
 	public const uint32 IF_TYPE_MSDSL = 143;
-
 	public const uint32 IF_TYPE_IEEE1394 = 144;
-
 	public const uint32 IF_TYPE_IF_GSN = 145;
-
 	public const uint32 IF_TYPE_DVBRCC_MACLAYER = 146;
-
 	public const uint32 IF_TYPE_DVBRCC_DOWNSTREAM = 147;
-
 	public const uint32 IF_TYPE_DVBRCC_UPSTREAM = 148;
-
 	public const uint32 IF_TYPE_ATM_VIRTUAL = 149;
-
 	public const uint32 IF_TYPE_MPLS_TUNNEL = 150;
-
 	public const uint32 IF_TYPE_SRP = 151;
-
 	public const uint32 IF_TYPE_VOICEOVERATM = 152;
-
 	public const uint32 IF_TYPE_VOICEOVERFRAMERELAY = 153;
-
 	public const uint32 IF_TYPE_IDSL = 154;
-
 	public const uint32 IF_TYPE_COMPOSITELINK = 155;
-
 	public const uint32 IF_TYPE_SS7_SIGLINK = 156;
-
 	public const uint32 IF_TYPE_PROP_WIRELESS_P2P = 157;
-
 	public const uint32 IF_TYPE_FR_FORWARD = 158;
-
 	public const uint32 IF_TYPE_RFC1483 = 159;
-
 	public const uint32 IF_TYPE_USB = 160;
-
 	public const uint32 IF_TYPE_IEEE8023AD_LAG = 161;
-
 	public const uint32 IF_TYPE_BGP_POLICY_ACCOUNTING = 162;
-
 	public const uint32 IF_TYPE_FRF16_MFR_BUNDLE = 163;
-
 	public const uint32 IF_TYPE_H323_GATEKEEPER = 164;
-
 	public const uint32 IF_TYPE_H323_PROXY = 165;
-
 	public const uint32 IF_TYPE_MPLS = 166;
-
 	public const uint32 IF_TYPE_MF_SIGLINK = 167;
-
 	public const uint32 IF_TYPE_HDSL2 = 168;
-
 	public const uint32 IF_TYPE_SHDSL = 169;
-
 	public const uint32 IF_TYPE_DS1_FDL = 170;
-
 	public const uint32 IF_TYPE_POS = 171;
-
 	public const uint32 IF_TYPE_DVB_ASI_IN = 172;
-
 	public const uint32 IF_TYPE_DVB_ASI_OUT = 173;
-
 	public const uint32 IF_TYPE_PLC = 174;
-
 	public const uint32 IF_TYPE_NFAS = 175;
-
 	public const uint32 IF_TYPE_TR008 = 176;
-
 	public const uint32 IF_TYPE_GR303_RDT = 177;
-
 	public const uint32 IF_TYPE_GR303_IDT = 178;
-
 	public const uint32 IF_TYPE_ISUP = 179;
-
 	public const uint32 IF_TYPE_PROP_DOCS_WIRELESS_MACLAYER = 180;
-
 	public const uint32 IF_TYPE_PROP_DOCS_WIRELESS_DOWNSTREAM = 181;
-
 	public const uint32 IF_TYPE_PROP_DOCS_WIRELESS_UPSTREAM = 182;
-
 	public const uint32 IF_TYPE_HIPERLAN2 = 183;
-
 	public const uint32 IF_TYPE_PROP_BWA_P2MP = 184;
-
 	public const uint32 IF_TYPE_SONET_OVERHEAD_CHANNEL = 185;
-
 	public const uint32 IF_TYPE_DIGITAL_WRAPPER_OVERHEAD_CHANNEL = 186;
-
 	public const uint32 IF_TYPE_AAL2 = 187;
-
 	public const uint32 IF_TYPE_RADIO_MAC = 188;
-
 	public const uint32 IF_TYPE_ATM_RADIO = 189;
-
 	public const uint32 IF_TYPE_IMT = 190;
-
 	public const uint32 IF_TYPE_MVL = 191;
-
 	public const uint32 IF_TYPE_REACH_DSL = 192;
-
 	public const uint32 IF_TYPE_FR_DLCI_ENDPT = 193;
-
 	public const uint32 IF_TYPE_ATM_VCI_ENDPT = 194;
-
 	public const uint32 IF_TYPE_OPTICAL_CHANNEL = 195;
-
 	public const uint32 IF_TYPE_OPTICAL_TRANSPORT = 196;
-
 	public const uint32 IF_TYPE_IEEE80216_WMAN = 237;
-
 	public const uint32 IF_TYPE_WWANPP = 243;
-
 	public const uint32 IF_TYPE_WWANPP2 = 244;
-
 	public const uint32 IF_TYPE_IEEE802154 = 259;
-
 	public const uint32 IF_TYPE_XBOX_WIRELESS = 281;
-
 	public const uint32 MAX_IF_TYPE = 281;
-
 	public const uint32 IF_CHECK_NONE = 0;
-
 	public const uint32 IF_CHECK_MCAST = 1;
-
 	public const uint32 IF_CHECK_SEND = 2;
-
 	public const uint32 IF_CONNECTION_DEDICATED = 1;
-
 	public const uint32 IF_CONNECTION_PASSIVE = 2;
-
 	public const uint32 IF_CONNECTION_DEMAND = 3;
-
 	public const uint32 IF_ADMIN_STATUS_UP = 1;
-
 	public const uint32 IF_ADMIN_STATUS_DOWN = 2;
-
 	public const uint32 IF_ADMIN_STATUS_TESTING = 3;
-
 	public const uint32 MIB_IF_TYPE_OTHER = 1;
-
 	public const uint32 MIB_IF_TYPE_ETHERNET = 6;
-
 	public const uint32 MIB_IF_TYPE_TOKENRING = 9;
-
 	public const uint32 MIB_IF_TYPE_FDDI = 15;
-
 	public const uint32 MIB_IF_TYPE_PPP = 23;
-
 	public const uint32 MIB_IF_TYPE_LOOPBACK = 24;
-
 	public const uint32 MIB_IF_TYPE_SLIP = 28;
-
 	public const uint32 MIB_IF_ADMIN_STATUS_UP = 1;
-
 	public const uint32 MIB_IF_ADMIN_STATUS_DOWN = 2;
-
 	public const uint32 MIB_IF_ADMIN_STATUS_TESTING = 3;
-
 	public const uint32 MIB_IPADDR_PRIMARY = 1;
-
 	public const uint32 MIB_IPADDR_DYNAMIC = 4;
-
 	public const uint32 MIB_IPADDR_DISCONNECTED = 8;
-
 	public const uint32 MIB_IPADDR_DELETED = 64;
-
 	public const uint32 MIB_IPADDR_TRANSIENT = 128;
-
 	public const uint32 MIB_IPADDR_DNS_ELIGIBLE = 256;
-
 	public const uint32 MIB_IPROUTE_METRIC_UNUSED = 4294967295;
-
 	public const uint32 MIB_USE_CURRENT_TTL = 4294967295;
-
 	public const uint32 MIB_USE_CURRENT_FORWARDING = 4294967295;
-
 	public const uint32 ICMP6_INFOMSG_MASK = 128;
-
 	public const uint32 IPRTRMGR_PID = 10000;
-
 	public const uint32 IF_NUMBER = 0;
-
 	public const uint32 IF_TABLE = 1;
-
 	public const uint32 IF_ROW = 2;
-
 	public const uint32 IP_STATS = 3;
-
 	public const uint32 IP_ADDRTABLE = 4;
-
 	public const uint32 IP_ADDRROW = 5;
-
 	public const uint32 IP_FORWARDNUMBER = 6;
-
 	public const uint32 IP_FORWARDTABLE = 7;
-
 	public const uint32 IP_FORWARDROW = 8;
-
 	public const uint32 IP_NETTABLE = 9;
-
 	public const uint32 IP_NETROW = 10;
-
 	public const uint32 ICMP_STATS = 11;
-
 	public const uint32 TCP_STATS = 12;
-
 	public const uint32 TCP_TABLE = 13;
-
 	public const uint32 TCP_ROW = 14;
-
 	public const uint32 UDP_STATS = 15;
-
 	public const uint32 UDP_TABLE = 16;
-
 	public const uint32 UDP_ROW = 17;
-
 	public const uint32 MCAST_MFE = 18;
-
 	public const uint32 MCAST_MFE_STATS = 19;
-
 	public const uint32 BEST_IF = 20;
-
 	public const uint32 BEST_ROUTE = 21;
-
 	public const uint32 PROXY_ARP = 22;
-
 	public const uint32 MCAST_IF_ENTRY = 23;
-
 	public const uint32 MCAST_GLOBAL = 24;
-
 	public const uint32 IF_STATUS = 25;
-
 	public const uint32 MCAST_BOUNDARY = 26;
-
 	public const uint32 MCAST_SCOPE = 27;
-
 	public const uint32 DEST_MATCHING = 28;
-
 	public const uint32 DEST_LONGER = 29;
-
 	public const uint32 DEST_SHORTER = 30;
-
 	public const uint32 ROUTE_MATCHING = 31;
-
 	public const uint32 ROUTE_LONGER = 32;
-
 	public const uint32 ROUTE_SHORTER = 33;
-
 	public const uint32 ROUTE_STATE = 34;
-
 	public const uint32 MCAST_MFE_STATS_EX = 35;
-
 	public const uint32 IP6_STATS = 36;
-
 	public const uint32 UDP6_STATS = 37;
-
 	public const uint32 TCP6_STATS = 38;
-
 	public const uint32 NUMBER_OF_EXPORTED_VARIABLES = 39;
-
 	public const uint32 MAX_SCOPE_NAME_LEN = 255;
-
 	public const uint32 MAX_MIB_OFFSET = 8;
-
 	public const uint32 MIB_INVALID_TEREDO_PORT_NUMBER = 0;
-
 	public const uint32 DNS_SETTINGS_VERSION1 = 1;
-
 	public const uint32 DNS_SETTINGS_VERSION2 = 2;
-
 	public const uint32 DNS_INTERFACE_SETTINGS_VERSION1 = 1;
-
 	public const uint32 DNS_INTERFACE_SETTINGS_VERSION2 = 2;
-
 	public const uint32 DNS_INTERFACE_SETTINGS_VERSION3 = 3;
-
 	public const uint32 DNS_SETTING_IPV6 = 1;
-
 	public const uint32 DNS_SETTING_NAMESERVER = 2;
-
 	public const uint32 DNS_SETTING_SEARCHLIST = 4;
-
 	public const uint32 DNS_SETTING_REGISTRATION_ENABLED = 8;
-
 	public const uint32 DNS_SETTING_REGISTER_ADAPTER_NAME = 16;
-
 	public const uint32 DNS_SETTING_DOMAIN = 32;
-
 	public const uint32 DNS_SETTING_HOSTNAME = 64;
-
 	public const uint32 DNS_SETTINGS_ENABLE_LLMNR = 128;
-
 	public const uint32 DNS_SETTINGS_QUERY_ADAPTER_NAME = 256;
-
 	public const uint32 DNS_SETTING_PROFILE_NAMESERVER = 512;
-
 	public const uint32 DNS_SETTING_DISABLE_UNCONSTRAINED_QUERIES = 1024;
-
 	public const uint32 DNS_SETTING_SUPPLEMENTAL_SEARCH_LIST = 2048;
-
 	public const uint32 DNS_SETTING_DOH = 4096;
-
 	public const uint32 DNS_SETTING_DOH_PROFILE = 8192;
-
 	public const uint32 DNS_ENABLE_DOH = 1;
-
 	public const uint32 DNS_DOH_POLICY_NOT_CONFIGURED = 4;
-
 	public const uint32 DNS_DOH_POLICY_DISABLE = 8;
-
 	public const uint32 DNS_DOH_POLICY_AUTO = 16;
-
 	public const uint32 DNS_DOH_POLICY_REQUIRED = 32;
-
 	public const uint32 DNS_SERVER_PROPERTY_VERSION1 = 1;
-
 	public const uint32 DNS_DOH_SERVER_SETTINGS_ENABLE_AUTO = 1;
-
 	public const uint32 DNS_DOH_SERVER_SETTINGS_ENABLE = 2;
-
 	public const uint32 DNS_DOH_SERVER_SETTINGS_FALLBACK_TO_UDP = 4;
-
 	public const uint32 DNS_DOH_AUTO_UPGRADE_SERVER = 8;
-
 	public const uint32 TCPIP_OWNING_MODULE_SIZE = 16;
-
 	public const uint32 FD_FLAGS_NOSYN = 1;
-
 	public const uint32 FD_FLAGS_ALLFLAGS = 1;
-
 	public const uint32 LB_SRC_ADDR_USE_SRCADDR_FLAG = 1;
-
 	public const uint32 LB_SRC_ADDR_USE_DSTADDR_FLAG = 2;
-
 	public const uint32 LB_DST_ADDR_USE_SRCADDR_FLAG = 4;
-
 	public const uint32 LB_DST_ADDR_USE_DSTADDR_FLAG = 8;
-
 	public const uint32 LB_SRC_MASK_LATE_FLAG = 16;
-
 	public const uint32 LB_DST_MASK_LATE_FLAG = 32;
-
 	public const uint32 ERROR_BASE = 23000;
-
 	public const uint32 PFERROR_NO_PF_INTERFACE = 23000;
-
 	public const uint32 PFERROR_NO_FILTERS_GIVEN = 23001;
-
 	public const uint32 PFERROR_BUFFER_TOO_SMALL = 23002;
-
 	public const uint32 ERROR_IPV6_NOT_IMPLEMENTED = 23003;
-
 	public const uint32 IP_EXPORT_INCLUDED = 1;
-
 	public const uint32 MAX_ADAPTER_NAME = 128;
-
 	public const uint32 IP_STATUS_BASE = 11000;
-
 	public const uint32 IP_SUCCESS = 0;
-
 	public const uint32 IP_BUF_TOO_SMALL = 11001;
-
 	public const uint32 IP_DEST_NET_UNREACHABLE = 11002;
-
 	public const uint32 IP_DEST_HOST_UNREACHABLE = 11003;
-
 	public const uint32 IP_DEST_PROT_UNREACHABLE = 11004;
-
 	public const uint32 IP_DEST_PORT_UNREACHABLE = 11005;
-
 	public const uint32 IP_NO_RESOURCES = 11006;
-
 	public const uint32 IP_BAD_OPTION = 11007;
-
 	public const uint32 IP_HW_ERROR = 11008;
-
 	public const uint32 IP_PACKET_TOO_BIG = 11009;
-
 	public const uint32 IP_REQ_TIMED_OUT = 11010;
-
 	public const uint32 IP_BAD_REQ = 11011;
-
 	public const uint32 IP_BAD_ROUTE = 11012;
-
 	public const uint32 IP_TTL_EXPIRED_TRANSIT = 11013;
-
 	public const uint32 IP_TTL_EXPIRED_REASSEM = 11014;
-
 	public const uint32 IP_PARAM_PROBLEM = 11015;
-
 	public const uint32 IP_SOURCE_QUENCH = 11016;
-
 	public const uint32 IP_OPTION_TOO_BIG = 11017;
-
 	public const uint32 IP_BAD_DESTINATION = 11018;
-
 	public const uint32 IP_DEST_NO_ROUTE = 11002;
-
 	public const uint32 IP_DEST_ADDR_UNREACHABLE = 11003;
-
 	public const uint32 IP_DEST_PROHIBITED = 11004;
-
 	public const uint32 IP_HOP_LIMIT_EXCEEDED = 11013;
-
 	public const uint32 IP_REASSEMBLY_TIME_EXCEEDED = 11014;
-
 	public const uint32 IP_PARAMETER_PROBLEM = 11015;
-
 	public const uint32 IP_DEST_UNREACHABLE = 11040;
-
 	public const uint32 IP_TIME_EXCEEDED = 11041;
-
 	public const uint32 IP_BAD_HEADER = 11042;
-
 	public const uint32 IP_UNRECOGNIZED_NEXT_HEADER = 11043;
-
 	public const uint32 IP_ICMP_ERROR = 11044;
-
 	public const uint32 IP_DEST_SCOPE_MISMATCH = 11045;
-
 	public const uint32 IP_ADDR_DELETED = 11019;
-
 	public const uint32 IP_SPEC_MTU_CHANGE = 11020;
-
 	public const uint32 IP_MTU_CHANGE = 11021;
-
 	public const uint32 IP_UNLOAD = 11022;
-
 	public const uint32 IP_ADDR_ADDED = 11023;
-
 	public const uint32 IP_MEDIA_CONNECT = 11024;
-
 	public const uint32 IP_MEDIA_DISCONNECT = 11025;
-
 	public const uint32 IP_BIND_ADAPTER = 11026;
-
 	public const uint32 IP_UNBIND_ADAPTER = 11027;
-
 	public const uint32 IP_DEVICE_DOES_NOT_EXIST = 11028;
-
 	public const uint32 IP_DUPLICATE_ADDRESS = 11029;
-
 	public const uint32 IP_INTERFACE_METRIC_CHANGE = 11030;
-
 	public const uint32 IP_RECONFIG_SECFLTR = 11031;
-
 	public const uint32 IP_NEGOTIATING_IPSEC = 11032;
-
 	public const uint32 IP_INTERFACE_WOL_CAPABILITY_CHANGE = 11033;
-
 	public const uint32 IP_DUPLICATE_IPADD = 11034;
-
 	public const uint32 IP_GENERAL_FAILURE = 11050;
-
 	public const uint32 MAX_IP_STATUS = 11050;
-
 	public const uint32 IP_PENDING = 11255;
-
 	public const uint32 IP_FLAG_REVERSE = 1;
-
 	public const uint32 IP_FLAG_DF = 2;
-
 	public const uint32 MAX_OPT_SIZE = 40;
-
 	public const uint32 IOCTL_IP_RTCHANGE_NOTIFY_REQUEST = 101;
-
 	public const uint32 IOCTL_IP_ADDCHANGE_NOTIFY_REQUEST = 102;
-
 	public const uint32 IOCTL_ARP_SEND_REQUEST = 103;
-
 	public const uint32 IOCTL_IP_INTERFACE_INFO = 104;
-
 	public const uint32 IOCTL_IP_GET_BEST_INTERFACE = 105;
-
 	public const uint32 IOCTL_IP_UNIDIRECTIONAL_ADAPTER_ADDRESS = 106;
-
 	public const uint32 NET_STRING_IPV4_ADDRESS = 1;
-
 	public const uint32 NET_STRING_IPV4_SERVICE = 2;
-
 	public const uint32 NET_STRING_IPV4_NETWORK = 4;
-
 	public const uint32 NET_STRING_IPV6_ADDRESS = 8;
-
 	public const uint32 NET_STRING_IPV6_ADDRESS_NO_SCOPE = 16;
-
 	public const uint32 NET_STRING_IPV6_SERVICE = 32;
-
 	public const uint32 NET_STRING_IPV6_SERVICE_NO_SCOPE = 64;
-
 	public const uint32 NET_STRING_IPV6_NETWORK = 128;
-
 	public const uint32 NET_STRING_NAMED_ADDRESS = 256;
-
 	public const uint32 NET_STRING_NAMED_SERVICE = 512;
-
 	public const uint32 MAX_ADAPTER_DESCRIPTION_LENGTH = 128;
-
 	public const uint32 MAX_ADAPTER_NAME_LENGTH = 256;
-
 	public const uint32 MAX_ADAPTER_ADDRESS_LENGTH = 8;
-
 	public const uint32 DEFAULT_MINIMUM_ENTITIES = 32;
-
 	public const uint32 MAX_HOSTNAME_LEN = 128;
-
 	public const uint32 MAX_DOMAIN_NAME_LEN = 128;
-
 	public const uint32 MAX_SCOPE_ID_LEN = 256;
-
 	public const uint32 MAX_DHCPV6_DUID_LENGTH = 130;
-
 	public const uint32 MAX_DNS_SUFFIX_STRING_LENGTH = 256;
-
 	public const uint32 BROADCAST_NODETYPE = 1;
-
 	public const uint32 PEER_TO_PEER_NODETYPE = 2;
-
 	public const uint32 MIXED_NODETYPE = 4;
-
 	public const uint32 HYBRID_NODETYPE = 8;
-
 	public const uint32 IP_ADAPTER_ADDRESS_DNS_ELIGIBLE = 1;
-
 	public const uint32 IP_ADAPTER_ADDRESS_TRANSIENT = 2;
-
 	public const uint32 IP_ADAPTER_DDNS_ENABLED = 1;
-
 	public const uint32 IP_ADAPTER_REGISTER_ADAPTER_SUFFIX = 2;
-
 	public const uint32 IP_ADAPTER_DHCP_ENABLED = 4;
-
 	public const uint32 IP_ADAPTER_RECEIVE_ONLY = 8;
-
 	public const uint32 IP_ADAPTER_NO_MULTICAST = 16;
-
 	public const uint32 IP_ADAPTER_IPV6_OTHER_STATEFUL_CONFIG = 32;
-
 	public const uint32 IP_ADAPTER_NETBIOS_OVER_TCPIP_ENABLED = 64;
-
 	public const uint32 IP_ADAPTER_IPV4_ENABLED = 128;
-
 	public const uint32 IP_ADAPTER_IPV6_ENABLED = 256;
-
 	public const uint32 IP_ADAPTER_IPV6_MANAGE_ADDRESS_CONFIG = 512;
-
 	public const uint32 GAA_FLAG_SKIP_DNS_INFO = 2048;
-
 	public const uint32 IP_ROUTER_MANAGER_VERSION = 1;
-
 	public const uint32 IP_GENERAL_INFO_BASE = 4294901760;
-
 	public const uint32 IP_IN_FILTER_INFO = 4294901761;
-
 	public const uint32 IP_OUT_FILTER_INFO = 4294901762;
-
 	public const uint32 IP_GLOBAL_INFO = 4294901763;
-
 	public const uint32 IP_INTERFACE_STATUS_INFO = 4294901764;
-
 	public const uint32 IP_ROUTE_INFO = 4294901765;
-
 	public const uint32 IP_PROT_PRIORITY_INFO = 4294901766;
-
 	public const uint32 IP_ROUTER_DISC_INFO = 4294901767;
-
 	public const uint32 IP_DEMAND_DIAL_FILTER_INFO = 4294901769;
-
 	public const uint32 IP_MCAST_HEARBEAT_INFO = 4294901770;
-
 	public const uint32 IP_MCAST_BOUNDARY_INFO = 4294901771;
-
 	public const uint32 IP_IPINIP_CFG_INFO = 4294901772;
-
 	public const uint32 IP_IFFILTER_INFO = 4294901773;
-
 	public const uint32 IP_MCAST_LIMIT_INFO = 4294901774;
-
 	public const uint32 IPV6_GLOBAL_INFO = 4294901775;
-
 	public const uint32 IPV6_ROUTE_INFO = 4294901776;
-
 	public const uint32 IP_IN_FILTER_INFO_V6 = 4294901777;
-
 	public const uint32 IP_OUT_FILTER_INFO_V6 = 4294901778;
-
 	public const uint32 IP_DEMAND_DIAL_FILTER_INFO_V6 = 4294901779;
-
 	public const uint32 IP_IFFILTER_INFO_V6 = 4294901780;
-
 	public const uint32 IP_FILTER_ENABLE_INFO = 4294901781;
-
 	public const uint32 IP_FILTER_ENABLE_INFO_V6 = 4294901782;
-
 	public const uint32 IP_PROT_PRIORITY_INFO_EX = 4294901783;
-
 }
 #endregion
 
@@ -1493,24 +1024,27 @@ public struct IP_ADAPTER_INDEX_MAP
 	public char16[128] Name;
 }
 
-[CRepr, FlexibleArray("Adapter")]
+[CRepr]
 public struct IP_INTERFACE_INFO
 {
 	public int32 NumAdapters;
+	public IP_ADAPTER_INDEX_MAP* Adapter mut => &Adapter_impl;
 	private IP_ADAPTER_INDEX_MAP[ANYSIZE_ARRAY] Adapter_impl;
 }
 
-[CRepr, FlexibleArray("Address")]
+[CRepr]
 public struct IP_UNIDIRECTIONAL_ADAPTER_ADDRESS
 {
 	public uint32 NumAdapters;
+	public uint32* Address mut => &Address_impl;
 	private uint32[ANYSIZE_ARRAY] Address_impl;
 }
 
-[CRepr, FlexibleArray("AdapterOrder")]
+[CRepr]
 public struct IP_ADAPTER_ORDER_MAP
 {
 	public uint32 NumAdapters;
+	public uint32* AdapterOrder mut => &AdapterOrder_impl;
 	private uint32[ANYSIZE_ARRAY] AdapterOrder_impl;
 }
 
@@ -1546,7 +1080,6 @@ public struct NET_LUID_LH
 	{
 		public uint64 _bitfield;
 	}
-
 	public uint64 Value;
 	public _Info_e__Struct Info;
 }
@@ -1618,7 +1151,6 @@ public struct MIB_IF_ROW2
 	{
 		public uint8 _bitfield;
 	}
-
 	public NET_LUID_LH InterfaceLuid;
 	public uint32 InterfaceIndex;
 	public Guid InterfaceGuid;
@@ -1662,10 +1194,11 @@ public struct MIB_IF_ROW2
 	public uint64 OutQLen;
 }
 
-[CRepr, FlexibleArray("Table")]
+[CRepr]
 public struct MIB_IF_TABLE2
 {
 	public uint32 NumEntries;
+	public MIB_IF_ROW2* Table mut => &Table_impl;
 	private MIB_IF_ROW2[ANYSIZE_ARRAY] Table_impl;
 }
 
@@ -1709,10 +1242,11 @@ public struct MIB_IPINTERFACE_ROW
 	public BOOLEAN DisableDefaultRoutes;
 }
 
-[CRepr, FlexibleArray("Table")]
+[CRepr]
 public struct MIB_IPINTERFACE_TABLE
 {
 	public uint32 NumEntries;
+	public MIB_IPINTERFACE_ROW* Table mut => &Table_impl;
 	private MIB_IPINTERFACE_ROW[ANYSIZE_ARRAY] Table_impl;
 }
 
@@ -1730,17 +1264,19 @@ public struct MIB_INVERTEDIFSTACK_ROW
 	public uint32 HigherLayerInterfaceIndex;
 }
 
-[CRepr, FlexibleArray("Table")]
+[CRepr]
 public struct MIB_IFSTACK_TABLE
 {
 	public uint32 NumEntries;
+	public MIB_IFSTACK_ROW* Table mut => &Table_impl;
 	private MIB_IFSTACK_ROW[ANYSIZE_ARRAY] Table_impl;
 }
 
-[CRepr, FlexibleArray("Table")]
+[CRepr]
 public struct MIB_INVERTEDIFSTACK_TABLE
 {
 	public uint32 NumEntries;
+	public MIB_INVERTEDIFSTACK_ROW* Table mut => &Table_impl;
 	private MIB_INVERTEDIFSTACK_ROW[ANYSIZE_ARRAY] Table_impl;
 }
 
@@ -1768,10 +1304,11 @@ public struct MIB_UNICASTIPADDRESS_ROW
 	public LARGE_INTEGER CreationTimeStamp;
 }
 
-[CRepr, FlexibleArray("Table")]
+[CRepr]
 public struct MIB_UNICASTIPADDRESS_TABLE
 {
 	public uint32 NumEntries;
+	public MIB_UNICASTIPADDRESS_ROW* Table mut => &Table_impl;
 	private MIB_UNICASTIPADDRESS_ROW[ANYSIZE_ARRAY] Table_impl;
 }
 
@@ -1784,10 +1321,11 @@ public struct MIB_ANYCASTIPADDRESS_ROW
 	public SCOPE_ID ScopeId;
 }
 
-[CRepr, FlexibleArray("Table")]
+[CRepr]
 public struct MIB_ANYCASTIPADDRESS_TABLE
 {
 	public uint32 NumEntries;
+	public MIB_ANYCASTIPADDRESS_ROW* Table mut => &Table_impl;
 	private MIB_ANYCASTIPADDRESS_ROW[ANYSIZE_ARRAY] Table_impl;
 }
 
@@ -1800,10 +1338,11 @@ public struct MIB_MULTICASTIPADDRESS_ROW
 	public SCOPE_ID ScopeId;
 }
 
-[CRepr, FlexibleArray("Table")]
+[CRepr]
 public struct MIB_MULTICASTIPADDRESS_TABLE
 {
 	public uint32 NumEntries;
+	public MIB_MULTICASTIPADDRESS_ROW* Table mut => &Table_impl;
 	private MIB_MULTICASTIPADDRESS_ROW[ANYSIZE_ARRAY] Table_impl;
 }
 
@@ -1834,10 +1373,11 @@ public struct MIB_IPFORWARD_ROW2
 	public NL_ROUTE_ORIGIN Origin;
 }
 
-[CRepr, FlexibleArray("Table")]
+[CRepr]
 public struct MIB_IPFORWARD_TABLE2
 {
 	public uint32 NumEntries;
+	public MIB_IPFORWARD_ROW2* Table mut => &Table_impl;
 	private MIB_IPFORWARD_ROW2[ANYSIZE_ARRAY] Table_impl;
 }
 
@@ -1850,7 +1390,6 @@ public struct MIB_IPPATH_ROW
 		public uint32 LastReachable;
 		public uint32 LastUnreachable;
 	}
-
 	public SOCKADDR_INET Source;
 	public SOCKADDR_INET Destination;
 	public NET_LUID_LH InterfaceLuid;
@@ -1865,10 +1404,11 @@ public struct MIB_IPPATH_ROW
 	public uint64 LinkReceiveSpeed;
 }
 
-[CRepr, FlexibleArray("Table")]
+[CRepr]
 public struct MIB_IPPATH_TABLE
 {
 	public uint32 NumEntries;
+	public MIB_IPPATH_ROW* Table mut => &Table_impl;
 	private MIB_IPPATH_ROW[ANYSIZE_ARRAY] Table_impl;
 }
 
@@ -1883,18 +1423,15 @@ public struct MIB_IPNET_ROW2
 		{
 			public uint8 _bitfield;
 		}
-
 		public using _Anonymous_e__Struct Anonymous;
 		public uint8 Flags;
 	}
-
 	[CRepr, Union]
 	public struct _ReachabilityTime_e__Union
 	{
 		public uint32 LastReachable;
 		public uint32 LastUnreachable;
 	}
-
 	public SOCKADDR_INET Address;
 	public uint32 InterfaceIndex;
 	public NET_LUID_LH InterfaceLuid;
@@ -1905,10 +1442,11 @@ public struct MIB_IPNET_ROW2
 	public _ReachabilityTime_e__Union ReachabilityTime;
 }
 
-[CRepr, FlexibleArray("Table")]
+[CRepr]
 public struct MIB_IPNET_TABLE2
 {
 	public uint32 NumEntries;
+	public MIB_IPNET_ROW2* Table mut => &Table_impl;
 	private MIB_IPNET_ROW2[ANYSIZE_ARRAY] Table_impl;
 }
 
@@ -1999,10 +1537,11 @@ public struct DNS_INTERFACE_SETTINGS3
 	public DNS_SERVER_PROPERTY* ProfileServerProperties;
 }
 
-[CRepr, FlexibleArray("rgdwVarIndex")]
+[CRepr]
 public struct MIB_OPAQUE_QUERY
 {
 	public uint32 dwVarId;
+	public uint32* rgdwVarIndex mut => &rgdwVarIndex_impl;
 	private uint32[ANYSIZE_ARRAY] rgdwVarIndex_impl;
 }
 
@@ -2041,10 +1580,11 @@ public struct MIB_IFROW
 	public uint8[256] bDescr;
 }
 
-[CRepr, FlexibleArray("table")]
+[CRepr]
 public struct MIB_IFTABLE
 {
 	public uint32 dwNumEntries;
+	public MIB_IFROW* table mut => &table_impl;
 	private MIB_IFROW[ANYSIZE_ARRAY] table_impl;
 }
 
@@ -2072,10 +1612,11 @@ public struct MIB_IPADDRROW_W2K
 	public uint16 unused2;
 }
 
-[CRepr, FlexibleArray("table")]
+[CRepr]
 public struct MIB_IPADDRTABLE
 {
 	public uint32 dwNumEntries;
+	public MIB_IPADDRROW_XP* table mut => &table_impl;
 	private MIB_IPADDRROW_XP[ANYSIZE_ARRAY] table_impl;
 }
 
@@ -2094,14 +1635,12 @@ public struct MIB_IPFORWARDROW
 		public uint32 dwForwardType;
 		public MIB_IPFORWARD_TYPE ForwardType;
 	}
-
 	[CRepr, Union]
 	public struct _Anonymous2_e__Union
 	{
 		public uint32 dwForwardProto;
 		public NL_ROUTE_PROTOCOL ForwardProto;
 	}
-
 	public uint32 dwForwardDest;
 	public uint32 dwForwardMask;
 	public uint32 dwForwardPolicy;
@@ -2118,10 +1657,11 @@ public struct MIB_IPFORWARDROW
 	public uint32 dwForwardMetric5;
 }
 
-[CRepr, FlexibleArray("table")]
+[CRepr]
 public struct MIB_IPFORWARDTABLE
 {
 	public uint32 dwNumEntries;
+	public MIB_IPFORWARDROW* table mut => &table_impl;
 	private MIB_IPFORWARDROW[ANYSIZE_ARRAY] table_impl;
 }
 
@@ -2134,7 +1674,6 @@ public struct MIB_IPNETROW_LH
 		public uint32 dwType;
 		public MIB_IPNET_TYPE Type;
 	}
-
 	public uint32 dwIndex;
 	public uint32 dwPhysAddrLen;
 	public uint8[8] bPhysAddr;
@@ -2152,10 +1691,11 @@ public struct MIB_IPNETROW_W2K
 	public uint32 dwType;
 }
 
-[CRepr, FlexibleArray("table")]
+[CRepr]
 public struct MIB_IPNETTABLE
 {
 	public uint32 dwNumEntries;
+	public MIB_IPNETROW_LH* table mut => &table_impl;
 	private MIB_IPNETROW_LH[ANYSIZE_ARRAY] table_impl;
 }
 
@@ -2168,7 +1708,6 @@ public struct MIB_IPSTATS_LH
 		public uint32 dwForwarding;
 		public MIB_IPSTATS_FORWARDING Forwarding;
 	}
-
 	public using _Anonymous_e__Union Anonymous;
 	public uint32 dwDefaultTTL;
 	public uint32 dwInReceives;
@@ -2286,7 +1825,7 @@ public struct MIB_IPMCAST_OIF_W2K
 	public uint32 dwReserved;
 }
 
-[CRepr, FlexibleArray("rgmioOutInfo")]
+[CRepr]
 public struct MIB_IPMCAST_MFE
 {
 	public uint32 dwGroup;
@@ -2304,13 +1843,15 @@ public struct MIB_IPMCAST_MFE
 	public uint32 ulNumOutIf;
 	public uint32 fFlags;
 	public uint32 dwReserved;
+	public MIB_IPMCAST_OIF_XP* rgmioOutInfo mut => &rgmioOutInfo_impl;
 	private MIB_IPMCAST_OIF_XP[ANYSIZE_ARRAY] rgmioOutInfo_impl;
 }
 
-[CRepr, FlexibleArray("table")]
+[CRepr]
 public struct MIB_MFE_TABLE
 {
 	public uint32 dwNumEntries;
+	public MIB_IPMCAST_MFE* table mut => &table_impl;
 	private MIB_IPMCAST_MFE[ANYSIZE_ARRAY] table_impl;
 }
 
@@ -2338,7 +1879,7 @@ public struct MIB_IPMCAST_OIF_STATS_W2K
 	public uint32 ulOutDiscards;
 }
 
-[CRepr, FlexibleArray("rgmiosOutStats")]
+[CRepr]
 public struct MIB_IPMCAST_MFE_STATS
 {
 	public uint32 dwGroup;
@@ -2357,17 +1898,19 @@ public struct MIB_IPMCAST_MFE_STATS
 	public uint32 ulInOctets;
 	public uint32 ulPktsDifferentIf;
 	public uint32 ulQueueOverflow;
+	public MIB_IPMCAST_OIF_STATS_LH* rgmiosOutStats mut => &rgmiosOutStats_impl;
 	private MIB_IPMCAST_OIF_STATS_LH[ANYSIZE_ARRAY] rgmiosOutStats_impl;
 }
 
-[CRepr, FlexibleArray("table")]
+[CRepr]
 public struct MIB_MFE_STATS_TABLE
 {
 	public uint32 dwNumEntries;
+	public MIB_IPMCAST_MFE_STATS* table mut => &table_impl;
 	private MIB_IPMCAST_MFE_STATS[ANYSIZE_ARRAY] table_impl;
 }
 
-[CRepr, FlexibleArray("rgmiosOutStats")]
+[CRepr]
 public struct MIB_IPMCAST_MFE_STATS_EX_XP
 {
 	public uint32 dwGroup;
@@ -2391,13 +1934,15 @@ public struct MIB_IPMCAST_MFE_STATS_EX_XP
 	public uint32 ulInDiscards;
 	public uint32 ulInHdrErrors;
 	public uint32 ulTotalOutPackets;
+	public MIB_IPMCAST_OIF_STATS_LH* rgmiosOutStats mut => &rgmiosOutStats_impl;
 	private MIB_IPMCAST_OIF_STATS_LH[ANYSIZE_ARRAY] rgmiosOutStats_impl;
 }
 
-[CRepr, FlexibleArray("table")]
+[CRepr]
 public struct MIB_MFE_STATS_TABLE_EX_XP
 {
 	public uint32 dwNumEntries;
+	public MIB_IPMCAST_MFE_STATS_EX_XP** table mut => &table_impl;
 	private MIB_IPMCAST_MFE_STATS_EX_XP*[ANYSIZE_ARRAY] table_impl;
 }
 
@@ -2418,10 +1963,11 @@ public struct MIB_IPMCAST_IF_ENTRY
 	public uint32 ulOutMcastOctets;
 }
 
-[CRepr, FlexibleArray("table")]
+[CRepr]
 public struct MIB_IPMCAST_IF_TABLE
 {
 	public uint32 dwNumEntries;
+	public MIB_IPMCAST_IF_ENTRY* table mut => &table_impl;
 	private MIB_IPMCAST_IF_ENTRY[ANYSIZE_ARRAY] table_impl;
 }
 
@@ -2434,7 +1980,6 @@ public struct MIB_TCPROW_LH
 		public uint32 dwState;
 		public MIB_TCP_STATE State;
 	}
-
 	public using _Anonymous_e__Union Anonymous;
 	public uint32 dwLocalAddr;
 	public uint32 dwLocalPort;
@@ -2452,10 +1997,11 @@ public struct MIB_TCPROW_W2K
 	public uint32 dwRemotePort;
 }
 
-[CRepr, FlexibleArray("table")]
+[CRepr]
 public struct MIB_TCPTABLE
 {
 	public uint32 dwNumEntries;
+	public MIB_TCPROW_LH* table mut => &table_impl;
 	private MIB_TCPROW_LH[ANYSIZE_ARRAY] table_impl;
 }
 
@@ -2471,10 +2017,11 @@ public struct MIB_TCPROW2
 	public TCP_CONNECTION_OFFLOAD_STATE dwOffloadState;
 }
 
-[CRepr, FlexibleArray("table")]
+[CRepr]
 public struct MIB_TCPTABLE2
 {
 	public uint32 dwNumEntries;
+	public MIB_TCPROW2* table mut => &table_impl;
 	private MIB_TCPROW2[ANYSIZE_ARRAY] table_impl;
 }
 
@@ -2489,10 +2036,11 @@ public struct MIB_TCPROW_OWNER_PID
 	public uint32 dwOwningPid;
 }
 
-[CRepr, FlexibleArray("table")]
+[CRepr]
 public struct MIB_TCPTABLE_OWNER_PID
 {
 	public uint32 dwNumEntries;
+	public MIB_TCPROW_OWNER_PID* table mut => &table_impl;
 	private MIB_TCPROW_OWNER_PID[ANYSIZE_ARRAY] table_impl;
 }
 
@@ -2509,10 +2057,11 @@ public struct MIB_TCPROW_OWNER_MODULE
 	public uint64[16] OwningModuleInfo;
 }
 
-[CRepr, FlexibleArray("table")]
+[CRepr]
 public struct MIB_TCPTABLE_OWNER_MODULE
 {
 	public uint32 dwNumEntries;
+	public MIB_TCPROW_OWNER_MODULE* table mut => &table_impl;
 	private MIB_TCPROW_OWNER_MODULE[ANYSIZE_ARRAY] table_impl;
 }
 
@@ -2528,10 +2077,11 @@ public struct MIB_TCP6ROW
 	public uint32 dwRemotePort;
 }
 
-[CRepr, FlexibleArray("table")]
+[CRepr]
 public struct MIB_TCP6TABLE
 {
 	public uint32 dwNumEntries;
+	public MIB_TCP6ROW* table mut => &table_impl;
 	private MIB_TCP6ROW[ANYSIZE_ARRAY] table_impl;
 }
 
@@ -2549,10 +2099,11 @@ public struct MIB_TCP6ROW2
 	public TCP_CONNECTION_OFFLOAD_STATE dwOffloadState;
 }
 
-[CRepr, FlexibleArray("table")]
+[CRepr]
 public struct MIB_TCP6TABLE2
 {
 	public uint32 dwNumEntries;
+	public MIB_TCP6ROW2* table mut => &table_impl;
 	private MIB_TCP6ROW2[ANYSIZE_ARRAY] table_impl;
 }
 
@@ -2569,10 +2120,11 @@ public struct MIB_TCP6ROW_OWNER_PID
 	public uint32 dwOwningPid;
 }
 
-[CRepr, FlexibleArray("table")]
+[CRepr]
 public struct MIB_TCP6TABLE_OWNER_PID
 {
 	public uint32 dwNumEntries;
+	public MIB_TCP6ROW_OWNER_PID* table mut => &table_impl;
 	private MIB_TCP6ROW_OWNER_PID[ANYSIZE_ARRAY] table_impl;
 }
 
@@ -2591,10 +2143,11 @@ public struct MIB_TCP6ROW_OWNER_MODULE
 	public uint64[16] OwningModuleInfo;
 }
 
-[CRepr, FlexibleArray("table")]
+[CRepr]
 public struct MIB_TCP6TABLE_OWNER_MODULE
 {
 	public uint32 dwNumEntries;
+	public MIB_TCP6ROW_OWNER_MODULE* table mut => &table_impl;
 	private MIB_TCP6ROW_OWNER_MODULE[ANYSIZE_ARRAY] table_impl;
 }
 
@@ -2607,7 +2160,6 @@ public struct MIB_TCPSTATS_LH
 		public uint32 dwRtoAlgorithm;
 		public TCP_RTO_ALGORITHM RtoAlgorithm;
 	}
-
 	public using _Anonymous_e__Union Anonymous;
 	public uint32 dwRtoMin;
 	public uint32 dwRtoMax;
@@ -2672,10 +2224,11 @@ public struct MIB_UDPROW
 	public uint32 dwLocalPort;
 }
 
-[CRepr, FlexibleArray("table")]
+[CRepr]
 public struct MIB_UDPTABLE
 {
 	public uint32 dwNumEntries;
+	public MIB_UDPROW* table mut => &table_impl;
 	private MIB_UDPROW[ANYSIZE_ARRAY] table_impl;
 }
 
@@ -2687,10 +2240,11 @@ public struct MIB_UDPROW_OWNER_PID
 	public uint32 dwOwningPid;
 }
 
-[CRepr, FlexibleArray("table")]
+[CRepr]
 public struct MIB_UDPTABLE_OWNER_PID
 {
 	public uint32 dwNumEntries;
+	public MIB_UDPROW_OWNER_PID* table mut => &table_impl;
 	private MIB_UDPROW_OWNER_PID[ANYSIZE_ARRAY] table_impl;
 }
 
@@ -2705,11 +2259,9 @@ public struct MIB_UDPROW_OWNER_MODULE
 		{
 			public int32 _bitfield;
 		}
-
 		public using _Anonymous_e__Struct Anonymous;
 		public int32 dwFlags;
 	}
-
 	public uint32 dwLocalAddr;
 	public uint32 dwLocalPort;
 	public uint32 dwOwningPid;
@@ -2718,10 +2270,11 @@ public struct MIB_UDPROW_OWNER_MODULE
 	public uint64[16] OwningModuleInfo;
 }
 
-[CRepr, FlexibleArray("table")]
+[CRepr]
 public struct MIB_UDPTABLE_OWNER_MODULE
 {
 	public uint32 dwNumEntries;
+	public MIB_UDPROW_OWNER_MODULE* table mut => &table_impl;
 	private MIB_UDPROW_OWNER_MODULE[ANYSIZE_ARRAY] table_impl;
 }
 
@@ -2736,11 +2289,9 @@ public struct MIB_UDPROW2
 		{
 			public int32 _bitfield;
 		}
-
 		public using _Anonymous_e__Struct Anonymous;
 		public int32 dwFlags;
 	}
-
 	public uint32 dwLocalAddr;
 	public uint32 dwLocalPort;
 	public uint32 dwOwningPid;
@@ -2751,10 +2302,11 @@ public struct MIB_UDPROW2
 	public uint32 dwRemotePort;
 }
 
-[CRepr, FlexibleArray("table")]
+[CRepr]
 public struct MIB_UDPTABLE2
 {
 	public uint32 dwNumEntries;
+	public MIB_UDPROW2* table mut => &table_impl;
 	private MIB_UDPROW2[ANYSIZE_ARRAY] table_impl;
 }
 
@@ -2766,10 +2318,11 @@ public struct MIB_UDP6ROW
 	public uint32 dwLocalPort;
 }
 
-[CRepr, FlexibleArray("table")]
+[CRepr]
 public struct MIB_UDP6TABLE
 {
 	public uint32 dwNumEntries;
+	public MIB_UDP6ROW* table mut => &table_impl;
 	private MIB_UDP6ROW[ANYSIZE_ARRAY] table_impl;
 }
 
@@ -2782,10 +2335,11 @@ public struct MIB_UDP6ROW_OWNER_PID
 	public uint32 dwOwningPid;
 }
 
-[CRepr, FlexibleArray("table")]
+[CRepr]
 public struct MIB_UDP6TABLE_OWNER_PID
 {
 	public uint32 dwNumEntries;
+	public MIB_UDP6ROW_OWNER_PID* table mut => &table_impl;
 	private MIB_UDP6ROW_OWNER_PID[ANYSIZE_ARRAY] table_impl;
 }
 
@@ -2800,11 +2354,9 @@ public struct MIB_UDP6ROW_OWNER_MODULE
 		{
 			public int32 _bitfield;
 		}
-
 		public using _Anonymous_e__Struct Anonymous;
 		public int32 dwFlags;
 	}
-
 	public uint8[16] ucLocalAddr;
 	public uint32 dwLocalScopeId;
 	public uint32 dwLocalPort;
@@ -2814,10 +2366,11 @@ public struct MIB_UDP6ROW_OWNER_MODULE
 	public uint64[16] OwningModuleInfo;
 }
 
-[CRepr, FlexibleArray("table")]
+[CRepr]
 public struct MIB_UDP6TABLE_OWNER_MODULE
 {
 	public uint32 dwNumEntries;
+	public MIB_UDP6ROW_OWNER_MODULE* table mut => &table_impl;
 	private MIB_UDP6ROW_OWNER_MODULE[ANYSIZE_ARRAY] table_impl;
 }
 
@@ -2832,11 +2385,9 @@ public struct MIB_UDP6ROW2
 		{
 			public int32 _bitfield;
 		}
-
 		public using _Anonymous_e__Struct Anonymous;
 		public int32 dwFlags;
 	}
-
 	public uint8[16] ucLocalAddr;
 	public uint32 dwLocalScopeId;
 	public uint32 dwLocalPort;
@@ -2849,10 +2400,11 @@ public struct MIB_UDP6ROW2
 	public uint32 dwRemotePort;
 }
 
-[CRepr, FlexibleArray("table")]
+[CRepr]
 public struct MIB_UDP6TABLE2
 {
 	public uint32 dwNumEntries;
+	public MIB_UDP6ROW2* table mut => &table_impl;
 	private MIB_UDP6ROW2[ANYSIZE_ARRAY] table_impl;
 }
 
@@ -2892,10 +2444,11 @@ public struct MIB_IPMCAST_BOUNDARY
 	public uint32 dwStatus;
 }
 
-[CRepr, FlexibleArray("table")]
+[CRepr]
 public struct MIB_IPMCAST_BOUNDARY_TABLE
 {
 	public uint32 dwNumEntries;
+	public MIB_IPMCAST_BOUNDARY* table mut => &table_impl;
 	private MIB_IPMCAST_BOUNDARY[ANYSIZE_ARRAY] table_impl;
 }
 
@@ -2930,10 +2483,11 @@ public struct MIB_IPDESTROW
 	public uint32 dwForwardViewSet;
 }
 
-[CRepr, FlexibleArray("table")]
+[CRepr]
 public struct MIB_IPDESTTABLE
 {
 	public uint32 dwNumEntries;
+	public MIB_IPDESTROW* table mut => &table_impl;
 	private MIB_IPDESTROW[ANYSIZE_ARRAY] table_impl;
 }
 
@@ -2975,9 +2529,9 @@ public struct MIB_OPAQUE_INFO
 	public struct _Anonymous_e__Union
 	{
 		public uint64 ullAlign;
-		public uint8[ANYSIZE_ARRAY] rgbyData;
+		public uint8* rgbyData mut => &rgbyData_impl;
+		private uint8[ANYSIZE_ARRAY] rgbyData_impl;
 	}
-
 	public uint32 dwId;
 	public using _Anonymous_e__Union Anonymous;
 }
@@ -3032,11 +2586,9 @@ public struct IP_ADAPTER_UNICAST_ADDRESS_LH
 			public uint32 Length;
 			public uint32 Flags;
 		}
-
 		public uint64 Alignment;
 		public using _Anonymous_e__Struct Anonymous;
 	}
-
 	public using _Anonymous_e__Union Anonymous;
 	public IP_ADAPTER_UNICAST_ADDRESS_LH* Next;
 	public SOCKET_ADDRESS Address;
@@ -3061,11 +2613,9 @@ public struct IP_ADAPTER_UNICAST_ADDRESS_XP
 			public uint32 Length;
 			public uint32 Flags;
 		}
-
 		public uint64 Alignment;
 		public using _Anonymous_e__Struct Anonymous;
 	}
-
 	public using _Anonymous_e__Union Anonymous;
 	public IP_ADAPTER_UNICAST_ADDRESS_XP* Next;
 	public SOCKET_ADDRESS Address;
@@ -3089,11 +2639,9 @@ public struct IP_ADAPTER_ANYCAST_ADDRESS_XP
 			public uint32 Length;
 			public uint32 Flags;
 		}
-
 		public uint64 Alignment;
 		public using _Anonymous_e__Struct Anonymous;
 	}
-
 	public using _Anonymous_e__Union Anonymous;
 	public IP_ADAPTER_ANYCAST_ADDRESS_XP* Next;
 	public SOCKET_ADDRESS Address;
@@ -3111,11 +2659,9 @@ public struct IP_ADAPTER_MULTICAST_ADDRESS_XP
 			public uint32 Length;
 			public uint32 Flags;
 		}
-
 		public uint64 Alignment;
 		public using _Anonymous_e__Struct Anonymous;
 	}
-
 	public using _Anonymous_e__Union Anonymous;
 	public IP_ADAPTER_MULTICAST_ADDRESS_XP* Next;
 	public SOCKET_ADDRESS Address;
@@ -3133,11 +2679,9 @@ public struct IP_ADAPTER_DNS_SERVER_ADDRESS_XP
 			public uint32 Length;
 			public uint32 Reserved;
 		}
-
 		public uint64 Alignment;
 		public using _Anonymous_e__Struct Anonymous;
 	}
-
 	public using _Anonymous_e__Union Anonymous;
 	public IP_ADAPTER_DNS_SERVER_ADDRESS_XP* Next;
 	public SOCKET_ADDRESS Address;
@@ -3155,11 +2699,9 @@ public struct IP_ADAPTER_WINS_SERVER_ADDRESS_LH
 			public uint32 Length;
 			public uint32 Reserved;
 		}
-
 		public uint64 Alignment;
 		public using _Anonymous_e__Struct Anonymous;
 	}
-
 	public using _Anonymous_e__Union Anonymous;
 	public IP_ADAPTER_WINS_SERVER_ADDRESS_LH* Next;
 	public SOCKET_ADDRESS Address;
@@ -3177,11 +2719,9 @@ public struct IP_ADAPTER_GATEWAY_ADDRESS_LH
 			public uint32 Length;
 			public uint32 Reserved;
 		}
-
 		public uint64 Alignment;
 		public using _Anonymous_e__Struct Anonymous;
 	}
-
 	public using _Anonymous_e__Union Anonymous;
 	public IP_ADAPTER_GATEWAY_ADDRESS_LH* Next;
 	public SOCKET_ADDRESS Address;
@@ -3199,11 +2739,9 @@ public struct IP_ADAPTER_PREFIX_XP
 			public uint32 Length;
 			public uint32 Flags;
 		}
-
 		public uint64 Alignment;
 		public using _Anonymous_e__Struct Anonymous;
 	}
-
 	public using _Anonymous_e__Union Anonymous;
 	public IP_ADAPTER_PREFIX_XP* Next;
 	public SOCKET_ADDRESS Address;
@@ -3228,11 +2766,9 @@ public struct IP_ADAPTER_ADDRESSES_LH
 		{
 			public uint32 _bitfield;
 		}
-
 		public uint32 Flags;
 		public using _Anonymous_e__Struct Anonymous;
 	}
-
 	[CRepr, Union]
 	public struct _Anonymous1_e__Union
 	{
@@ -3242,11 +2778,9 @@ public struct IP_ADAPTER_ADDRESSES_LH
 			public uint32 Length;
 			public uint32 IfIndex;
 		}
-
 		public uint64 Alignment;
 		public using _Anonymous_e__Struct Anonymous;
 	}
-
 	public _Anonymous1_e__Union Anonymous1;
 	public IP_ADAPTER_ADDRESSES_LH* Next;
 	public PSTR AdapterName;
@@ -3297,11 +2831,9 @@ public struct IP_ADAPTER_ADDRESSES_XP
 			public uint32 Length;
 			public uint32 IfIndex;
 		}
-
 		public uint64 Alignment;
 		public using _Anonymous_e__Struct Anonymous;
 	}
-
 	public using _Anonymous_e__Union Anonymous;
 	public IP_ADAPTER_ADDRESSES_XP* Next;
 	public PSTR AdapterName;
@@ -3630,7 +3162,7 @@ public struct PF_FILTER_STATS
 	public PF_FILTER_DESCRIPTOR info;
 }
 
-[CRepr, FlexibleArray("FilterInfo")]
+[CRepr]
 public struct PF_INTERFACE_STATS
 {
 	public void* pvDriverContext;
@@ -3648,6 +3180,7 @@ public struct PF_INTERFACE_STATS
 	public LARGE_INTEGER liSYN;
 	public LARGE_INTEGER liTotalLogged;
 	public uint32 dwLostLogEntries;
+	public PF_FILTER_STATS* FilterInfo mut => &FilterInfo_impl;
 	private PF_FILTER_STATS[ANYSIZE_ARRAY] FilterInfo_impl;
 }
 
@@ -3659,7 +3192,7 @@ public struct PF_LATEBIND_INFO
 	public uint8* Mask;
 }
 
-[CRepr, FlexibleArray("bPacketData")]
+[CRepr]
 public struct PFLOGFRAME
 {
 	public LARGE_INTEGER Timestamp;
@@ -3670,6 +3203,7 @@ public struct PFLOGFRAME
 	public uint16 wSizeOfIpHeader;
 	public uint32 dwInterfaceName;
 	public uint32 dwIPIndex;
+	public uint8* bPacketData mut => &bPacketData_impl;
 	private uint8[ANYSIZE_ARRAY] bPacketData_impl;
 }
 

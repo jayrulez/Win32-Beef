@@ -2,7 +2,6 @@ using Win32.Foundation;
 using Win32.System.Registry;
 using Win32.System.Com;
 using System;
-using System.Interop;
 
 namespace Win32.System.DeploymentServices;
 
@@ -10,399 +9,202 @@ namespace Win32.System.DeploymentServices;
 public static
 {
 	public const uint32 WDS_CLI_TRANSFER_ASYNCHRONOUS = 1;
-
 	public const uint32 WDS_CLI_NO_SPARSE_FILE = 2;
-
 	public const uint32 PXE_DHCP_SERVER_PORT = 67;
-
 	public const uint32 PXE_DHCP_CLIENT_PORT = 68;
-
 	public const uint32 PXE_SERVER_PORT = 4011;
-
 	public const uint32 PXE_DHCPV6_SERVER_PORT = 547;
-
 	public const uint32 PXE_DHCPV6_CLIENT_PORT = 546;
-
 	public const uint32 PXE_DHCP_FILE_SIZE = 128;
-
 	public const uint32 PXE_DHCP_SERVER_SIZE = 64;
-
 	public const uint32 PXE_DHCP_HWAADR_SIZE = 16;
-
 	public const uint32 PXE_DHCP_MAGIC_COOKIE_SIZE = 4;
-
 	public const uint32 PXE_REG_INDEX_TOP = 0;
-
 	public const uint32 PXE_REG_INDEX_BOTTOM = 4294967295;
-
 	public const uint32 PXE_CALLBACK_RECV_REQUEST = 0;
-
 	public const uint32 PXE_CALLBACK_SHUTDOWN = 1;
-
 	public const uint32 PXE_CALLBACK_SERVICE_CONTROL = 2;
-
 	public const uint32 PXE_CALLBACK_MAX = 3;
-
 	public const uint32 PXE_GSI_TRACE_ENABLED = 1;
-
 	public const uint32 PXE_GSI_SERVER_DUID = 2;
-
 	public const uint32 PXE_MAX_ADDRESS = 16;
-
 	public const uint32 PXE_ADDR_BROADCAST = 1;
-
 	public const uint32 PXE_ADDR_USE_PORT = 2;
-
 	public const uint32 PXE_ADDR_USE_ADDR = 4;
-
 	public const uint32 PXE_ADDR_USE_DHCP_RULES = 8;
-
 	public const uint32 PXE_DHCPV6_RELAY_HOP_COUNT_LIMIT = 32;
-
 	public const uint32 PXE_BA_NBP = 1;
-
 	public const uint32 PXE_BA_CUSTOM = 2;
-
 	public const uint32 PXE_BA_IGNORE = 3;
-
 	public const uint32 PXE_BA_REJECTED = 4;
-
 	public const uint32 PXE_TRACE_VERBOSE = 65536;
-
 	public const uint32 PXE_TRACE_INFO = 131072;
-
 	public const uint32 PXE_TRACE_WARNING = 262144;
-
 	public const uint32 PXE_TRACE_ERROR = 524288;
-
 	public const uint32 PXE_TRACE_FATAL = 1048576;
-
 	public const uint32 PXE_PROV_ATTR_FILTER = 0;
-
 	public const uint32 PXE_PROV_ATTR_FILTER_IPV6 = 1;
-
 	public const uint32 PXE_PROV_ATTR_IPV6_CAPABLE = 2;
-
 	public const uint32 PXE_PROV_FILTER_ALL = 0;
-
 	public const uint32 PXE_PROV_FILTER_DHCP_ONLY = 1;
-
 	public const uint32 PXE_PROV_FILTER_PXE_ONLY = 2;
-
 	public const uint32 MC_SERVER_CURRENT_VERSION = 1;
-
 	public const uint32 TRANSPORTPROVIDER_CURRENT_VERSION = 1;
-
 	public const uint32 WDS_MC_TRACE_VERBOSE = 65536;
-
 	public const uint32 WDS_MC_TRACE_INFO = 131072;
-
 	public const uint32 WDS_MC_TRACE_WARNING = 262144;
-
 	public const uint32 WDS_MC_TRACE_ERROR = 524288;
-
 	public const uint32 WDS_MC_TRACE_FATAL = 1048576;
-
 	public const uint32 WDS_TRANSPORTCLIENT_CURRENT_API_VERSION = 1;
-
 	public const uint32 WDS_TRANSPORTCLIENT_PROTOCOL_MULTICAST = 1;
-
 	public const uint32 WDS_TRANSPORTCLIENT_NO_CACHE = 0;
-
 	public const uint32 WDS_TRANSPORTCLIENT_STATUS_IN_PROGRESS = 1;
-
 	public const uint32 WDS_TRANSPORTCLIENT_STATUS_SUCCESS = 2;
-
 	public const uint32 WDS_TRANSPORTCLIENT_STATUS_FAILURE = 3;
-
 	public const uint32 WDSTRANSPORT_RESOURCE_UTILIZATION_UNKNOWN = 255;
-
 	public const uint32 WDSBP_PK_TYPE_DHCP = 1;
-
 	public const uint32 WDSBP_PK_TYPE_WDSNBP = 2;
-
 	public const uint32 WDSBP_PK_TYPE_BCD = 4;
-
 	public const uint32 WDSBP_PK_TYPE_DHCPV6 = 8;
-
 	public const uint32 WDSBP_OPT_TYPE_NONE = 0;
-
 	public const uint32 WDSBP_OPT_TYPE_BYTE = 1;
-
 	public const uint32 WDSBP_OPT_TYPE_USHORT = 2;
-
 	public const uint32 WDSBP_OPT_TYPE_ULONG = 3;
-
 	public const uint32 WDSBP_OPT_TYPE_WSTR = 4;
-
 	public const uint32 WDSBP_OPT_TYPE_STR = 5;
-
 	public const uint32 WDSBP_OPT_TYPE_IP4 = 6;
-
 	public const uint32 WDSBP_OPT_TYPE_IP6 = 7;
-
 	public const uint32 WDSBP_OPTVAL_ACTION_APPROVAL = 1;
-
 	public const uint32 WDSBP_OPTVAL_ACTION_REFERRAL = 3;
-
 	public const uint32 WDSBP_OPTVAL_ACTION_ABORT = 5;
-
 	public const uint32 WDSBP_OPTVAL_PXE_PROMPT_OPTIN = 1;
-
 	public const uint32 WDSBP_OPTVAL_PXE_PROMPT_NOPROMPT = 2;
-
 	public const uint32 WDSBP_OPTVAL_PXE_PROMPT_OPTOUT = 3;
-
 	public const uint32 WDSBP_OPTVAL_NBP_VER_7 = 1792;
-
 	public const uint32 WDSBP_OPTVAL_NBP_VER_8 = 2048;
-
 	public const uint32 FACILITY_WDSMCSERVER = 289;
-
 	public const uint32 FACILITY_WDSMCCLIENT = 290;
-
 	public const HRESULT WDSMCSERVER_CATEGORY = 1;
-
 	public const HRESULT WDSMCCLIENT_CATEGORY = 2;
-
 	public const HRESULT WDSMCS_E_SESSION_SHUTDOWN_IN_PROGRESS = -1054801664;
-
 	public const HRESULT WDSMCS_E_REQCALLBACKS_NOT_REG = -1054801663;
-
 	public const HRESULT WDSMCS_E_INCOMPATIBLE_VERSION = -1054801662;
-
 	public const HRESULT WDSMCS_E_CONTENT_NOT_FOUND = -1054801661;
-
 	public const HRESULT WDSMCS_E_CLIENT_NOT_FOUND = -1054801660;
-
 	public const HRESULT WDSMCS_E_NAMESPACE_NOT_FOUND = -1054801659;
-
 	public const HRESULT WDSMCS_E_CONTENT_PROVIDER_NOT_FOUND = -1054801658;
-
 	public const HRESULT WDSMCS_E_NAMESPACE_ALREADY_EXISTS = -1054801657;
-
 	public const HRESULT WDSMCS_E_NAMESPACE_SHUTDOWN_IN_PROGRESS = -1054801656;
-
 	public const HRESULT WDSMCS_E_NAMESPACE_ALREADY_STARTED = -1054801655;
-
 	public const HRESULT WDSMCS_E_NS_START_FAILED_NO_CLIENTS = -1054801654;
-
 	public const HRESULT WDSMCS_E_START_TIME_IN_PAST = -1054801653;
-
 	public const HRESULT WDSMCS_E_PACKET_NOT_HASHED = -1054801652;
-
 	public const HRESULT WDSMCS_E_PACKET_NOT_SIGNED = -1054801651;
-
 	public const HRESULT WDSMCS_E_PACKET_HAS_SECURITY = -1054801650;
-
 	public const HRESULT WDSMCS_E_PACKET_NOT_CHECKSUMED = -1054801649;
-
 	public const HRESULT WDSMCS_E_CLIENT_DOESNOT_SUPPORT_SECURITY_MODE = -1054801648;
-
 	public const HRESULT EVT_WDSMCS_S_PARAMETERS_READ = 1092682240;
-
 	public const HRESULT EVT_WDSMCS_E_PARAMETERS_READ_FAILED = -1054801407;
-
 	public const HRESULT EVT_WDSMCS_E_DUPLICATE_MULTICAST_ADDR = -1054801406;
-
 	public const HRESULT EVT_WDSMCS_E_NON_WDS_DUPLICATE_MULTICAST_ADDR = -1054801405;
-
 	public const HRESULT EVT_WDSMCS_E_CP_DLL_LOAD_FAILED = -1054801328;
-
 	public const HRESULT EVT_WDSMCS_E_CP_INIT_FUNC_MISSING = -1054801327;
-
 	public const HRESULT EVT_WDSMCS_E_CP_INIT_FUNC_FAILED = -1054801326;
-
 	public const HRESULT EVT_WDSMCS_E_CP_INCOMPATIBLE_SERVER_VERSION = -1054801325;
-
 	public const HRESULT EVT_WDSMCS_E_CP_CALLBACKS_NOT_REG = -1054801324;
-
 	public const HRESULT EVT_WDSMCS_E_CP_SHUTDOWN_FUNC_FAILED = -1054801323;
-
 	public const HRESULT EVT_WDSMCS_E_CP_MEMORY_LEAK = -1054801322;
-
 	public const HRESULT EVT_WDSMCS_E_CP_OPEN_INSTANCE_FAILED = -1054801321;
-
 	public const HRESULT EVT_WDSMCS_E_CP_CLOSE_INSTANCE_FAILED = -1054801320;
-
 	public const HRESULT EVT_WDSMCS_E_CP_OPEN_CONTENT_FAILED = -1054801319;
-
 	public const HRESULT EVT_WDSMCS_W_CP_DLL_LOAD_FAILED_NOT_CRITICAL = -2128543142;
-
 	public const HRESULT EVT_WDSMCS_E_CP_DLL_LOAD_FAILED_CRITICAL = -1054801317;
-
 	public const HRESULT EVT_WDSMCS_E_NSREG_START_TIME_IN_PAST = -1054801152;
-
 	public const HRESULT EVT_WDSMCS_E_NSREG_CONTENT_PROVIDER_NOT_REG = -1054801151;
-
 	public const HRESULT EVT_WDSMCS_E_NSREG_NAMESPACE_EXISTS = -1054801150;
-
 	public const HRESULT EVT_WDSMCS_E_NSREG_FAILURE = -1054801149;
-
 	public const HRESULT WDSTPC_E_CALLBACKS_NOT_REG = -1054735616;
-
 	public const HRESULT WDSTPC_E_ALREADY_COMPLETED = -1054735615;
-
 	public const HRESULT WDSTPC_E_ALREADY_IN_PROGRESS = -1054735614;
-
 	public const HRESULT WDSTPC_E_UNKNOWN_ERROR = -1054735613;
-
 	public const HRESULT WDSTPC_E_NOT_INITIALIZED = -1054735612;
-
 	public const HRESULT WDSTPC_E_KICKED_POLICY_NOT_MET = -1054735611;
-
 	public const HRESULT WDSTPC_E_KICKED_FALLBACK = -1054735610;
-
 	public const HRESULT WDSTPC_E_KICKED_FAIL = -1054735609;
-
 	public const HRESULT WDSTPC_E_KICKED_UNKNOWN = -1054735608;
-
 	public const HRESULT WDSTPC_E_MULTISTREAM_NOT_ENABLED = -1054735607;
-
 	public const HRESULT WDSTPC_E_ALREADY_IN_LOWEST_SESSION = -1054735606;
-
 	public const HRESULT WDSTPC_E_CLIENT_DEMOTE_NOT_SUPPORTED = -1054735605;
-
 	public const HRESULT WDSTPC_E_NO_IP4_INTERFACE = -1054735604;
-
 	public const HRESULT WDSTPTC_E_WIM_APPLY_REQUIRES_REFERENCE_IMAGE = -1054735603;
-
 	public const uint32 FACILITY_WDSTPTMGMT = 272;
-
 	public const HRESULT WDSTPTMGMT_CATEGORY = 1;
-
 	public const HRESULT WDSTPTMGMT_E_INVALID_PROPERTY = -1055915776;
-
 	public const HRESULT WDSTPTMGMT_E_INVALID_OPERATION = -1055915775;
-
 	public const HRESULT WDSTPTMGMT_E_INVALID_CLASS = -1055915774;
-
 	public const HRESULT WDSTPTMGMT_E_CONTENT_PROVIDER_ALREADY_REGISTERED = -1055915773;
-
 	public const HRESULT WDSTPTMGMT_E_CONTENT_PROVIDER_NOT_REGISTERED = -1055915772;
-
 	public const HRESULT WDSTPTMGMT_E_INVALID_CONTENT_PROVIDER_NAME = -1055915771;
-
 	public const HRESULT WDSTPTMGMT_E_TRANSPORT_SERVER_ROLE_NOT_CONFIGURED = -1055915770;
-
 	public const HRESULT WDSTPTMGMT_E_NAMESPACE_ALREADY_REGISTERED = -1055915769;
-
 	public const HRESULT WDSTPTMGMT_E_NAMESPACE_NOT_REGISTERED = -1055915768;
-
 	public const HRESULT WDSTPTMGMT_E_CANNOT_REINITIALIZE_OBJECT = -1055915767;
-
 	public const HRESULT WDSTPTMGMT_E_INVALID_NAMESPACE_NAME = -1055915766;
-
 	public const HRESULT WDSTPTMGMT_E_INVALID_NAMESPACE_DATA = -1055915765;
-
 	public const HRESULT WDSTPTMGMT_E_NAMESPACE_READ_ONLY = -1055915764;
-
 	public const HRESULT WDSTPTMGMT_E_INVALID_NAMESPACE_START_TIME = -1055915763;
-
 	public const HRESULT WDSTPTMGMT_E_INVALID_DIAGNOSTICS_COMPONENTS = -1055915762;
-
 	public const HRESULT WDSTPTMGMT_E_CANNOT_REFRESH_DIRTY_OBJECT = -1055915761;
-
 	public const HRESULT WDSTPTMGMT_E_INVALID_SERVICE_IP_ADDRESS_RANGE = -1055915760;
-
 	public const HRESULT WDSTPTMGMT_E_INVALID_SERVICE_PORT_RANGE = -1055915759;
-
 	public const HRESULT WDSTPTMGMT_E_INVALID_NAMESPACE_START_PARAMETERS = -1055915758;
-
 	public const HRESULT WDSTPTMGMT_E_TRANSPORT_SERVER_UNAVAILABLE = -1055915757;
-
 	public const HRESULT WDSTPTMGMT_E_NAMESPACE_NOT_ON_SERVER = -1055915756;
-
 	public const HRESULT WDSTPTMGMT_E_NAMESPACE_REMOVED_FROM_SERVER = -1055915755;
-
 	public const HRESULT WDSTPTMGMT_E_INVALID_IP_ADDRESS = -1055915754;
-
 	public const HRESULT WDSTPTMGMT_E_INVALID_IPV4_MULTICAST_ADDRESS = -1055915753;
-
 	public const HRESULT WDSTPTMGMT_E_INVALID_IPV6_MULTICAST_ADDRESS = -1055915752;
-
 	public const HRESULT WDSTPTMGMT_E_IPV6_NOT_SUPPORTED = -1055915751;
-
 	public const HRESULT WDSTPTMGMT_E_INVALID_IPV6_MULTICAST_ADDRESS_SOURCE = -1055915750;
-
 	public const HRESULT WDSTPTMGMT_E_INVALID_MULTISTREAM_STREAM_COUNT = -1055915749;
-
 	public const HRESULT WDSTPTMGMT_E_INVALID_AUTO_DISCONNECT_THRESHOLD = -1055915748;
-
 	public const HRESULT WDSTPTMGMT_E_MULTICAST_SESSION_POLICY_NOT_SUPPORTED = -1055915747;
-
 	public const HRESULT WDSTPTMGMT_E_INVALID_SLOW_CLIENT_HANDLING_TYPE = -1055915746;
-
 	public const HRESULT WDSTPTMGMT_E_NETWORK_PROFILES_NOT_SUPPORTED = -1055915745;
-
 	public const HRESULT WDSTPTMGMT_E_UDP_PORT_POLICY_NOT_SUPPORTED = -1055915744;
-
 	public const HRESULT WDSTPTMGMT_E_TFTP_MAX_BLOCKSIZE_NOT_SUPPORTED = -1055915743;
-
 	public const HRESULT WDSTPTMGMT_E_TFTP_VAR_WINDOW_NOT_SUPPORTED = -1055915742;
-
 	public const HRESULT WDSTPTMGMT_E_INVALID_TFTP_MAX_BLOCKSIZE = -1055915741;
-
 	public const int32 WdsCliFlagEnumFilterVersion = 1;
-
 	public const int32 WdsCliFlagEnumFilterFirmware = 2;
-
 	public const int32 WDS_LOG_TYPE_CLIENT_ERROR = 1;
-
 	public const int32 WDS_LOG_TYPE_CLIENT_STARTED = 2;
-
 	public const int32 WDS_LOG_TYPE_CLIENT_FINISHED = 3;
-
 	public const int32 WDS_LOG_TYPE_CLIENT_IMAGE_SELECTED = 4;
-
 	public const int32 WDS_LOG_TYPE_CLIENT_APPLY_STARTED = 5;
-
 	public const int32 WDS_LOG_TYPE_CLIENT_APPLY_FINISHED = 6;
-
 	public const int32 WDS_LOG_TYPE_CLIENT_GENERIC_MESSAGE = 7;
-
 	public const int32 WDS_LOG_TYPE_CLIENT_UNATTEND_MODE = 8;
-
 	public const int32 WDS_LOG_TYPE_CLIENT_TRANSFER_START = 9;
-
 	public const int32 WDS_LOG_TYPE_CLIENT_TRANSFER_END = 10;
-
 	public const int32 WDS_LOG_TYPE_CLIENT_TRANSFER_DOWNGRADE = 11;
-
 	public const int32 WDS_LOG_TYPE_CLIENT_DOMAINJOINERROR = 12;
-
 	public const int32 WDS_LOG_TYPE_CLIENT_POST_ACTIONS_START = 13;
-
 	public const int32 WDS_LOG_TYPE_CLIENT_POST_ACTIONS_END = 14;
-
 	public const int32 WDS_LOG_TYPE_CLIENT_APPLY_STARTED_2 = 15;
-
 	public const int32 WDS_LOG_TYPE_CLIENT_APPLY_FINISHED_2 = 16;
-
 	public const int32 WDS_LOG_TYPE_CLIENT_DOMAINJOINERROR_2 = 17;
-
 	public const int32 WDS_LOG_TYPE_CLIENT_DRIVER_PACKAGE_NOT_ACCESSIBLE = 18;
-
 	public const int32 WDS_LOG_TYPE_CLIENT_OFFLINE_DRIVER_INJECTION_START = 19;
-
 	public const int32 WDS_LOG_TYPE_CLIENT_OFFLINE_DRIVER_INJECTION_END = 20;
-
 	public const int32 WDS_LOG_TYPE_CLIENT_OFFLINE_DRIVER_INJECTION_FAILURE = 21;
-
 	public const int32 WDS_LOG_TYPE_CLIENT_IMAGE_SELECTED2 = 22;
-
 	public const int32 WDS_LOG_TYPE_CLIENT_IMAGE_SELECTED3 = 23;
-
 	public const int32 WDS_LOG_TYPE_CLIENT_MAX_CODE = 24;
-
 	public const int32 WDS_LOG_LEVEL_DISABLED = 0;
-
 	public const int32 WDS_LOG_LEVEL_ERROR = 1;
-
 	public const int32 WDS_LOG_LEVEL_WARNING = 2;
-
 	public const int32 WDS_LOG_LEVEL_INFO = 3;
-
 }
 #endregion
 
@@ -633,11 +435,12 @@ public struct WDS_CLI_CRED
 	public PWSTR pwszPassword;
 }
 
-[CRepr, FlexibleArray("OptionValue")]
+[CRepr]
 public struct PXE_DHCP_OPTION
 {
 	public uint8 OptionType;
 	public uint8 OptionLength;
+	public uint8* OptionValue mut => &OptionValue_impl;
 	private uint8[ANYSIZE_ARRAY] OptionValue_impl;
 }
 
@@ -650,7 +453,6 @@ public struct PXE_DHCP_MESSAGE
 		public uint8[4] bMagicCookie;
 		public uint32 uMagicCookie;
 	}
-
 	public uint8 Operation;
 	public uint8 HardwareAddressType;
 	public uint8 HardwareAddressLength;
@@ -669,38 +471,42 @@ public struct PXE_DHCP_MESSAGE
 	public PXE_DHCP_OPTION Option;
 }
 
-[CRepr, Packed(1), FlexibleArray("Data")]
+[CRepr, Packed(1)]
 public struct PXE_DHCPV6_OPTION
 {
 	public uint16 OptionCode;
 	public uint16 DataLength;
+	public uint8* Data mut => &Data_impl;
 	private uint8[ANYSIZE_ARRAY] Data_impl;
 }
 
-[CRepr, FlexibleArray("Message")]
+[CRepr]
 public struct PXE_DHCPV6_MESSAGE_HEADER
 {
 	public uint8 MessageType;
+	public uint8* Message mut => &Message_impl;
 	private uint8[ANYSIZE_ARRAY] Message_impl;
 }
 
-[CRepr, FlexibleArray("Options")]
+[CRepr]
 public struct PXE_DHCPV6_MESSAGE
 {
 	public uint8 MessageType;
 	public uint8 TransactionIDByte1;
 	public uint8 TransactionIDByte2;
 	public uint8 TransactionIDByte3;
+	public PXE_DHCPV6_OPTION* Options mut => &Options_impl;
 	private PXE_DHCPV6_OPTION[ANYSIZE_ARRAY] Options_impl;
 }
 
-[CRepr, FlexibleArray("Options")]
+[CRepr]
 public struct PXE_DHCPV6_RELAY_MESSAGE
 {
 	public uint8 MessageType;
 	public uint8 HopCount;
 	public uint8[16] LinkAddress;
 	public uint8[16] PeerAddress;
+	public PXE_DHCPV6_OPTION* Options mut => &Options_impl;
 	private PXE_DHCPV6_OPTION[ANYSIZE_ARRAY] Options_impl;
 }
 
@@ -723,7 +529,6 @@ public struct PXE_ADDRESS
 		public uint8[16] bAddress;
 		public uint32 uIpAddress;
 	}
-
 	public uint32 uFlags;
 	public using _Anonymous_e__Union Anonymous;
 	public uint32 uAddrLen;

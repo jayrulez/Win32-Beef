@@ -7,23 +7,14 @@ namespace Win32.Graphics.Dxgi.Common;
 public static
 {
 	public const uint32 _FACDXGI = 2170;
-
 	public const uint32 DXGI_CPU_ACCESS_NONE = 0;
-
 	public const uint32 DXGI_CPU_ACCESS_DYNAMIC = 1;
-
 	public const uint32 DXGI_CPU_ACCESS_READ_WRITE = 2;
-
 	public const uint32 DXGI_CPU_ACCESS_SCRATCH = 3;
-
 	public const uint32 DXGI_CPU_ACCESS_FIELD = 15;
-
 	public const uint32 DXGI_FORMAT_DEFINED = 1;
-
 	public const uint32 DXGI_STANDARD_MULTISAMPLE_QUALITY_PATTERN = 4294967295;
-
 	public const uint32 DXGI_CENTER_MULTISAMPLE_QUALITY_PATTERN = 4294967294;
-
 }
 #endregion
 

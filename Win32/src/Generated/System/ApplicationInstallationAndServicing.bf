@@ -4,7 +4,6 @@ using Win32.System.WindowsProgramming;
 using Win32.System.Registry;
 using Win32.Security.Cryptography;
 using System;
-using System.Interop;
 
 namespace Win32.System.ApplicationInstallationAndServicing;
 
@@ -12,703 +11,354 @@ namespace Win32.System.ApplicationInstallationAndServicing;
 public static
 {
 	public const uint32 UIALL = 32768;
-
 	public const uint32 LOGTOKEN_TYPE_MASK = 3;
-
 	public const uint32 LOGTOKEN_UNSPECIFIED = 0;
-
 	public const uint32 LOGTOKEN_NO_LOG = 1;
-
 	public const uint32 LOGTOKEN_SETUPAPI_APPLOG = 2;
-
 	public const uint32 LOGTOKEN_SETUPAPI_DEVLOG = 3;
-
 	public const uint32 TXTLOG_SETUPAPI_DEVLOG = 1;
-
 	public const uint32 TXTLOG_SETUPAPI_CMDLINE = 2;
-
 	public const uint32 TXTLOG_SETUPAPI_BITS = 3;
-
 	public const uint32 TXTLOG_ERROR = 1;
-
 	public const uint32 TXTLOG_WARNING = 2;
-
 	public const uint32 TXTLOG_SYSTEM_STATE_CHANGE = 3;
-
 	public const uint32 TXTLOG_SUMMARY = 4;
-
 	public const uint32 TXTLOG_DETAILS = 5;
-
 	public const uint32 TXTLOG_VERBOSE = 6;
-
 	public const uint32 TXTLOG_VERY_VERBOSE = 7;
-
 	public const uint32 TXTLOG_RESERVED_FLAGS = 65520;
-
 	public const uint32 TXTLOG_TIMESTAMP = 65536;
-
 	public const uint32 TXTLOG_DEPTH_INCR = 131072;
-
 	public const uint32 TXTLOG_DEPTH_DECR = 262144;
-
 	public const uint32 TXTLOG_TAB_1 = 524288;
-
 	public const uint32 TXTLOG_FLUSH_FILE = 1048576;
-
 	public const uint32 TXTLOG_DEVINST = 1;
-
 	public const uint32 TXTLOG_INF = 2;
-
 	public const uint32 TXTLOG_FILEQ = 4;
-
 	public const uint32 TXTLOG_COPYFILES = 8;
-
 	public const uint32 TXTLOG_SIGVERIF = 32;
-
 	public const uint32 TXTLOG_BACKUP = 128;
-
 	public const uint32 TXTLOG_UI = 256;
-
 	public const uint32 TXTLOG_UTIL = 512;
-
 	public const uint32 TXTLOG_INFDB = 1024;
-
 	public const uint32 TXTLOG_DRVSETUP = 4194304;
-
 	public const uint32 TXTLOG_POLICY = 8388608;
-
 	public const uint32 TXTLOG_NEWDEV = 16777216;
-
 	public const uint32 TXTLOG_UMPNPMGR = 33554432;
-
 	public const uint32 TXTLOG_DRIVER_STORE = 67108864;
-
 	public const uint32 TXTLOG_SETUP = 134217728;
-
 	public const uint32 TXTLOG_CMI = 268435456;
-
 	public const uint32 TXTLOG_DEVMGR = 536870912;
-
 	public const uint32 TXTLOG_INSTALLER = 1073741824;
-
 	public const uint32 TXTLOG_VENDOR = 2147483648;
-
 	public const Guid CLSID_EvalCom2 = .(0x6e5e1910, 0x8053, 0x4660, 0xb7, 0x95, 0x6b, 0x61, 0x2e, 0x29, 0xbc, 0x58);
-
 	public const uint32 _WIN32_MSM = 100;
-
 	public const Guid LIBID_MsmMergeTypeLib = .(0x0adda82f, 0x2c26, 0x11d2, 0xad, 0x65, 0x00, 0xa0, 0xc9, 0xaf, 0x11, 0xa6);
-
 	public const Guid CLSID_MsmMerge2 = .(0xf94985d5, 0x29f9, 0x4743, 0x98, 0x05, 0x99, 0xbc, 0x3f, 0x35, 0xb6, 0x78);
-
 	public const uint32 _WIN32_MSI = 500;
-
 	public const uint32 MAX_GUID_CHARS = 38;
-
 	public const uint32 MAX_FEATURE_CHARS = 38;
-
 	public const uint32 MSI_INVALID_HASH_IS_FATAL = 1;
-
 	public const uint32 ERROR_ROLLBACK_DISABLED = 1653;
-
 	public const uint32 MSI_NULL_INTEGER = 2147483648;
-
 	public const int32 INSTALLMESSAGE_TYPEMASK = -16777216;
-
 	public const uint32 STREAM_FORMAT_COMPLIB_MODULE = 0;
-
 	public const uint32 STREAM_FORMAT_COMPLIB_MANIFEST = 1;
-
 	public const uint32 STREAM_FORMAT_WIN32_MODULE = 2;
-
 	public const uint32 STREAM_FORMAT_WIN32_MANIFEST = 4;
-
 	public const uint32 IASSEMBLYCACHEITEM_COMMIT_FLAG_REFRESH = 1;
-
 	public const uint32 ASSEMBLYINFO_FLAG_INSTALLED = 1;
-
 	public const uint32 ASSEMBLYINFO_FLAG_PAYLOADRESIDENT = 2;
-
 	public const uint32 IASSEMBLYCACHEITEM_COMMIT_DISPOSITION_INSTALLED = 1;
-
 	public const uint32 IASSEMBLYCACHEITEM_COMMIT_DISPOSITION_REFRESHED = 2;
-
 	public const uint32 IASSEMBLYCACHEITEM_COMMIT_DISPOSITION_ALREADY_INSTALLED = 3;
-
 	public const Guid FUSION_REFCOUNT_UNINSTALL_SUBKEY_GUID = .(0x8cedc215, 0xac4b, 0x488b, 0x93, 0xc0, 0xa5, 0x0a, 0x49, 0xcb, 0x2f, 0xb8);
-
 	public const Guid FUSION_REFCOUNT_FILEPATH_GUID = .(0xb02f9d65, 0xfb77, 0x4f7a, 0xaf, 0xa5, 0xb3, 0x91, 0x30, 0x9f, 0x11, 0xc9);
-
 	public const Guid FUSION_REFCOUNT_OPAQUE_STRING_GUID = .(0x2ec93463, 0xb0c3, 0x45e1, 0x83, 0x64, 0x32, 0x7e, 0x96, 0xae, 0xa8, 0x56);
-
 	public const uint32 SFC_DISABLE_NORMAL = 0;
-
 	public const uint32 SFC_DISABLE_ASK = 1;
-
 	public const uint32 SFC_DISABLE_ONCE = 2;
-
 	public const uint32 SFC_DISABLE_SETUP = 3;
-
 	public const uint32 SFC_DISABLE_NOPOPUPS = 4;
-
 	public const uint32 SFC_SCAN_NORMAL = 0;
-
 	public const uint32 SFC_SCAN_ALWAYS = 1;
-
 	public const uint32 SFC_SCAN_ONCE = 2;
-
 	public const uint32 SFC_SCAN_IMMEDIATE = 3;
-
 	public const uint32 SFC_QUOTA_DEFAULT = 50;
-
 	public const uint32 PID_TITLE = 2;
-
 	public const uint32 PID_SUBJECT = 3;
-
 	public const uint32 PID_AUTHOR = 4;
-
 	public const uint32 PID_KEYWORDS = 5;
-
 	public const uint32 PID_COMMENTS = 6;
-
 	public const uint32 PID_TEMPLATE = 7;
-
 	public const uint32 PID_LASTAUTHOR = 8;
-
 	public const uint32 PID_REVNUMBER = 9;
-
 	public const uint32 PID_EDITTIME = 10;
-
 	public const uint32 PID_LASTPRINTED = 11;
-
 	public const uint32 PID_CREATE_DTM = 12;
-
 	public const uint32 PID_LASTSAVE_DTM = 13;
-
 	public const uint32 PID_PAGECOUNT = 14;
-
 	public const uint32 PID_WORDCOUNT = 15;
-
 	public const uint32 PID_CHARCOUNT = 16;
-
 	public const uint32 PID_THUMBNAIL = 17;
-
 	public const uint32 PID_APPNAME = 18;
-
 	public const uint32 PID_MSIVERSION = 14;
-
 	public const uint32 PID_MSISOURCE = 15;
-
 	public const uint32 PID_MSIRESTRICT = 16;
-
 	public const uint32 PATCH_OPTION_USE_BEST = 0;
-
 	public const uint32 PATCH_OPTION_USE_LZX_BEST = 3;
-
 	public const uint32 PATCH_OPTION_USE_LZX_A = 1;
-
 	public const uint32 PATCH_OPTION_USE_LZX_B = 2;
-
 	public const uint32 PATCH_OPTION_USE_LZX_LARGE = 4;
-
 	public const uint32 PATCH_OPTION_NO_BINDFIX = 65536;
-
 	public const uint32 PATCH_OPTION_NO_LOCKFIX = 131072;
-
 	public const uint32 PATCH_OPTION_NO_REBASE = 262144;
-
 	public const uint32 PATCH_OPTION_FAIL_IF_SAME_FILE = 524288;
-
 	public const uint32 PATCH_OPTION_FAIL_IF_BIGGER = 1048576;
-
 	public const uint32 PATCH_OPTION_NO_CHECKSUM = 2097152;
-
 	public const uint32 PATCH_OPTION_NO_RESTIMEFIX = 4194304;
-
 	public const uint32 PATCH_OPTION_NO_TIMESTAMP = 8388608;
-
 	public const uint32 PATCH_OPTION_SIGNATURE_MD5 = 16777216;
-
 	public const uint32 PATCH_OPTION_INTERLEAVE_FILES = 1073741824;
-
 	public const uint32 PATCH_OPTION_RESERVED1 = 2147483648;
-
 	public const uint32 PATCH_OPTION_VALID_FLAGS = 3237937159;
-
 	public const uint32 PATCH_SYMBOL_NO_IMAGEHLP = 1;
-
 	public const uint32 PATCH_SYMBOL_NO_FAILURES = 2;
-
 	public const uint32 PATCH_SYMBOL_UNDECORATED_TOO = 4;
-
 	public const uint32 PATCH_SYMBOL_RESERVED1 = 2147483648;
-
 	public const uint32 PATCH_TRANSFORM_PE_RESOURCE_2 = 256;
-
 	public const uint32 PATCH_TRANSFORM_PE_IRELOC_2 = 512;
-
 	public const uint32 APPLY_OPTION_FAIL_IF_EXACT = 1;
-
 	public const uint32 APPLY_OPTION_FAIL_IF_CLOSE = 2;
-
 	public const uint32 APPLY_OPTION_TEST_ONLY = 4;
-
 	public const uint32 APPLY_OPTION_VALID_FLAGS = 7;
-
 	public const uint32 ERROR_PATCH_ENCODE_FAILURE = 3222155521;
-
 	public const uint32 ERROR_PATCH_INVALID_OPTIONS = 3222155522;
-
 	public const uint32 ERROR_PATCH_SAME_FILE = 3222155523;
-
 	public const uint32 ERROR_PATCH_RETAIN_RANGES_DIFFER = 3222155524;
-
 	public const uint32 ERROR_PATCH_BIGGER_THAN_COMPRESSED = 3222155525;
-
 	public const uint32 ERROR_PATCH_IMAGEHLP_FAILURE = 3222155526;
-
 	public const uint32 ERROR_PATCH_DECODE_FAILURE = 3222159617;
-
 	public const uint32 ERROR_PATCH_CORRUPT = 3222159618;
-
 	public const uint32 ERROR_PATCH_NEWER_FORMAT = 3222159619;
-
 	public const uint32 ERROR_PATCH_WRONG_FILE = 3222159620;
-
 	public const uint32 ERROR_PATCH_NOT_NECESSARY = 3222159621;
-
 	public const uint32 ERROR_PATCH_NOT_AVAILABLE = 3222159622;
-
 	public const uint32 ERROR_PCW_BASE = 3222163713;
-
 	public const uint32 ERROR_PCW_PCP_DOESNT_EXIST = 3222163713;
-
 	public const uint32 ERROR_PCW_PCP_BAD_FORMAT = 3222163714;
-
 	public const uint32 ERROR_PCW_CANT_CREATE_TEMP_FOLDER = 3222163715;
-
 	public const uint32 ERROR_PCW_MISSING_PATCH_PATH = 3222163716;
-
 	public const uint32 ERROR_PCW_CANT_OVERWRITE_PATCH = 3222163717;
-
 	public const uint32 ERROR_PCW_CANT_CREATE_PATCH_FILE = 3222163718;
-
 	public const uint32 ERROR_PCW_MISSING_PATCH_GUID = 3222163719;
-
 	public const uint32 ERROR_PCW_BAD_PATCH_GUID = 3222163720;
-
 	public const uint32 ERROR_PCW_BAD_GUIDS_TO_REPLACE = 3222163721;
-
 	public const uint32 ERROR_PCW_BAD_TARGET_PRODUCT_CODE_LIST = 3222163722;
-
 	public const uint32 ERROR_PCW_NO_UPGRADED_IMAGES_TO_PATCH = 3222163723;
-
 	public const uint32 ERROR_PCW_BAD_API_PATCHING_SYMBOL_FLAGS = 3222163725;
-
 	public const uint32 ERROR_PCW_OODS_COPYING_MSI = 3222163726;
-
 	public const uint32 ERROR_PCW_UPGRADED_IMAGE_NAME_TOO_LONG = 3222163727;
-
 	public const uint32 ERROR_PCW_BAD_UPGRADED_IMAGE_NAME = 3222163728;
-
 	public const uint32 ERROR_PCW_DUP_UPGRADED_IMAGE_NAME = 3222163729;
-
 	public const uint32 ERROR_PCW_UPGRADED_IMAGE_PATH_TOO_LONG = 3222163730;
-
 	public const uint32 ERROR_PCW_UPGRADED_IMAGE_PATH_EMPTY = 3222163731;
-
 	public const uint32 ERROR_PCW_UPGRADED_IMAGE_PATH_NOT_EXIST = 3222163732;
-
 	public const uint32 ERROR_PCW_UPGRADED_IMAGE_PATH_NOT_MSI = 3222163733;
-
 	public const uint32 ERROR_PCW_UPGRADED_IMAGE_COMPRESSED = 3222163734;
-
 	public const uint32 ERROR_PCW_TARGET_IMAGE_NAME_TOO_LONG = 3222163735;
-
 	public const uint32 ERROR_PCW_BAD_TARGET_IMAGE_NAME = 3222163736;
-
 	public const uint32 ERROR_PCW_DUP_TARGET_IMAGE_NAME = 3222163737;
-
 	public const uint32 ERROR_PCW_TARGET_IMAGE_PATH_TOO_LONG = 3222163738;
-
 	public const uint32 ERROR_PCW_TARGET_IMAGE_PATH_EMPTY = 3222163739;
-
 	public const uint32 ERROR_PCW_TARGET_IMAGE_PATH_NOT_EXIST = 3222163740;
-
 	public const uint32 ERROR_PCW_TARGET_IMAGE_PATH_NOT_MSI = 3222163741;
-
 	public const uint32 ERROR_PCW_TARGET_IMAGE_COMPRESSED = 3222163742;
-
 	public const uint32 ERROR_PCW_TARGET_BAD_PROD_VALIDATE = 3222163743;
-
 	public const uint32 ERROR_PCW_TARGET_BAD_PROD_CODE_VAL = 3222163744;
-
 	public const uint32 ERROR_PCW_UPGRADED_MISSING_SRC_FILES = 3222163745;
-
 	public const uint32 ERROR_PCW_TARGET_MISSING_SRC_FILES = 3222163746;
-
 	public const uint32 ERROR_PCW_IMAGE_FAMILY_NAME_TOO_LONG = 3222163747;
-
 	public const uint32 ERROR_PCW_BAD_IMAGE_FAMILY_NAME = 3222163748;
-
 	public const uint32 ERROR_PCW_DUP_IMAGE_FAMILY_NAME = 3222163749;
-
 	public const uint32 ERROR_PCW_BAD_IMAGE_FAMILY_SRC_PROP = 3222163750;
-
 	public const uint32 ERROR_PCW_UFILEDATA_LONG_FILE_TABLE_KEY = 3222163751;
-
 	public const uint32 ERROR_PCW_UFILEDATA_BLANK_FILE_TABLE_KEY = 3222163752;
-
 	public const uint32 ERROR_PCW_UFILEDATA_MISSING_FILE_TABLE_KEY = 3222163753;
-
 	public const uint32 ERROR_PCW_EXTFILE_LONG_FILE_TABLE_KEY = 3222163754;
-
 	public const uint32 ERROR_PCW_EXTFILE_BLANK_FILE_TABLE_KEY = 3222163755;
-
 	public const uint32 ERROR_PCW_EXTFILE_BAD_FAMILY_FIELD = 3222163756;
-
 	public const uint32 ERROR_PCW_EXTFILE_LONG_PATH_TO_FILE = 3222163757;
-
 	public const uint32 ERROR_PCW_EXTFILE_BLANK_PATH_TO_FILE = 3222163758;
-
 	public const uint32 ERROR_PCW_EXTFILE_MISSING_FILE = 3222163759;
-
 	public const uint32 ERROR_PCW_BAD_FILE_SEQUENCE_START = 3222163770;
-
 	public const uint32 ERROR_PCW_CANT_COPY_FILE_TO_TEMP_FOLDER = 3222163771;
-
 	public const uint32 ERROR_PCW_CANT_CREATE_ONE_PATCH_FILE = 3222163772;
-
 	public const uint32 ERROR_PCW_BAD_IMAGE_FAMILY_DISKID = 3222163773;
-
 	public const uint32 ERROR_PCW_BAD_IMAGE_FAMILY_FILESEQSTART = 3222163774;
-
 	public const uint32 ERROR_PCW_BAD_UPGRADED_IMAGE_FAMILY = 3222163775;
-
 	public const uint32 ERROR_PCW_BAD_TARGET_IMAGE_UPGRADED = 3222163776;
-
 	public const uint32 ERROR_PCW_DUP_TARGET_IMAGE_PACKCODE = 3222163777;
-
 	public const uint32 ERROR_PCW_UFILEDATA_BAD_UPGRADED_FIELD = 3222163778;
-
 	public const uint32 ERROR_PCW_MISMATCHED_PRODUCT_CODES = 3222163779;
-
 	public const uint32 ERROR_PCW_MISMATCHED_PRODUCT_VERSIONS = 3222163780;
-
 	public const uint32 ERROR_PCW_CANNOT_WRITE_DDF = 3222163781;
-
 	public const uint32 ERROR_PCW_CANNOT_RUN_MAKECAB = 3222163782;
-
 	public const uint32 ERROR_PCW_WRITE_SUMMARY_PROPERTIES = 3222163787;
-
 	public const uint32 ERROR_PCW_TFILEDATA_LONG_FILE_TABLE_KEY = 3222163788;
-
 	public const uint32 ERROR_PCW_TFILEDATA_BLANK_FILE_TABLE_KEY = 3222163789;
-
 	public const uint32 ERROR_PCW_TFILEDATA_MISSING_FILE_TABLE_KEY = 3222163790;
-
 	public const uint32 ERROR_PCW_TFILEDATA_BAD_TARGET_FIELD = 3222163791;
-
 	public const uint32 ERROR_PCW_UPGRADED_IMAGE_PATCH_PATH_TOO_LONG = 3222163792;
-
 	public const uint32 ERROR_PCW_UPGRADED_IMAGE_PATCH_PATH_NOT_EXIST = 3222163793;
-
 	public const uint32 ERROR_PCW_UPGRADED_IMAGE_PATCH_PATH_NOT_MSI = 3222163794;
-
 	public const uint32 ERROR_PCW_DUP_UPGRADED_IMAGE_PACKCODE = 3222163795;
-
 	public const uint32 ERROR_PCW_UFILEIGNORE_BAD_UPGRADED_FIELD = 3222163796;
-
 	public const uint32 ERROR_PCW_UFILEIGNORE_LONG_FILE_TABLE_KEY = 3222163797;
-
 	public const uint32 ERROR_PCW_UFILEIGNORE_BLANK_FILE_TABLE_KEY = 3222163798;
-
 	public const uint32 ERROR_PCW_UFILEIGNORE_BAD_FILE_TABLE_KEY = 3222163799;
-
 	public const uint32 ERROR_PCW_FAMILY_RANGE_NAME_TOO_LONG = 3222163800;
-
 	public const uint32 ERROR_PCW_BAD_FAMILY_RANGE_NAME = 3222163801;
-
 	public const uint32 ERROR_PCW_FAMILY_RANGE_LONG_FILE_TABLE_KEY = 3222163802;
-
 	public const uint32 ERROR_PCW_FAMILY_RANGE_BLANK_FILE_TABLE_KEY = 3222163803;
-
 	public const uint32 ERROR_PCW_FAMILY_RANGE_LONG_RETAIN_OFFSETS = 3222163804;
-
 	public const uint32 ERROR_PCW_FAMILY_RANGE_BLANK_RETAIN_OFFSETS = 3222163805;
-
 	public const uint32 ERROR_PCW_FAMILY_RANGE_BAD_RETAIN_OFFSETS = 3222163806;
-
 	public const uint32 ERROR_PCW_FAMILY_RANGE_LONG_RETAIN_LENGTHS = 3222163807;
-
 	public const uint32 ERROR_PCW_FAMILY_RANGE_BLANK_RETAIN_LENGTHS = 3222163808;
-
 	public const uint32 ERROR_PCW_FAMILY_RANGE_BAD_RETAIN_LENGTHS = 3222163809;
-
 	public const uint32 ERROR_PCW_FAMILY_RANGE_COUNT_MISMATCH = 3222163810;
-
 	public const uint32 ERROR_PCW_EXTFILE_LONG_IGNORE_OFFSETS = 3222163811;
-
 	public const uint32 ERROR_PCW_EXTFILE_BAD_IGNORE_OFFSETS = 3222163812;
-
 	public const uint32 ERROR_PCW_EXTFILE_LONG_IGNORE_LENGTHS = 3222163813;
-
 	public const uint32 ERROR_PCW_EXTFILE_BAD_IGNORE_LENGTHS = 3222163814;
-
 	public const uint32 ERROR_PCW_EXTFILE_IGNORE_COUNT_MISMATCH = 3222163815;
-
 	public const uint32 ERROR_PCW_EXTFILE_LONG_RETAIN_OFFSETS = 3222163816;
-
 	public const uint32 ERROR_PCW_EXTFILE_BAD_RETAIN_OFFSETS = 3222163817;
-
 	public const uint32 ERROR_PCW_TFILEDATA_LONG_IGNORE_OFFSETS = 3222163819;
-
 	public const uint32 ERROR_PCW_TFILEDATA_BAD_IGNORE_OFFSETS = 3222163820;
-
 	public const uint32 ERROR_PCW_TFILEDATA_LONG_IGNORE_LENGTHS = 3222163821;
-
 	public const uint32 ERROR_PCW_TFILEDATA_BAD_IGNORE_LENGTHS = 3222163822;
-
 	public const uint32 ERROR_PCW_TFILEDATA_IGNORE_COUNT_MISMATCH = 3222163823;
-
 	public const uint32 ERROR_PCW_TFILEDATA_LONG_RETAIN_OFFSETS = 3222163824;
-
 	public const uint32 ERROR_PCW_TFILEDATA_BAD_RETAIN_OFFSETS = 3222163825;
-
 	public const uint32 ERROR_PCW_CANT_GENERATE_TRANSFORM = 3222163827;
-
 	public const uint32 ERROR_PCW_CANT_CREATE_SUMMARY_INFO = 3222163828;
-
 	public const uint32 ERROR_PCW_CANT_GENERATE_TRANSFORM_POUND = 3222163829;
-
 	public const uint32 ERROR_PCW_CANT_CREATE_SUMMARY_INFO_POUND = 3222163830;
-
 	public const uint32 ERROR_PCW_BAD_UPGRADED_IMAGE_PRODUCT_CODE = 3222163831;
-
 	public const uint32 ERROR_PCW_BAD_UPGRADED_IMAGE_PRODUCT_VERSION = 3222163832;
-
 	public const uint32 ERROR_PCW_BAD_UPGRADED_IMAGE_UPGRADE_CODE = 3222163833;
-
 	public const uint32 ERROR_PCW_BAD_TARGET_IMAGE_PRODUCT_CODE = 3222163834;
-
 	public const uint32 ERROR_PCW_BAD_TARGET_IMAGE_PRODUCT_VERSION = 3222163835;
-
 	public const uint32 ERROR_PCW_BAD_TARGET_IMAGE_UPGRADE_CODE = 3222163836;
-
 	public const uint32 ERROR_PCW_MATCHED_PRODUCT_VERSIONS = 3222163837;
-
 	public const uint32 ERROR_PCW_OBSOLETION_WITH_SEQUENCE_DATA = 3222163838;
-
 	public const uint32 ERROR_PCW_OBSOLETION_WITH_MSI30 = 3222163839;
-
 	public const uint32 ERROR_PCW_OBSOLETION_WITH_PATCHSEQUENCE = 3222163840;
-
 	public const uint32 ERROR_PCW_CANNOT_CREATE_TABLE = 3222163841;
-
 	public const uint32 ERROR_PCW_CANT_GENERATE_SEQUENCEINFO_MAJORUPGD = 3222163842;
-
 	public const uint32 ERROR_PCW_MAJOR_UPGD_WITHOUT_SEQUENCING = 3222163843;
-
 	public const uint32 ERROR_PCW_BAD_PRODUCTVERSION_VALIDATION = 3222163844;
-
 	public const uint32 ERROR_PCW_BAD_TRANSFORMSET = 3222163845;
-
 	public const uint32 ERROR_PCW_BAD_TGT_UPD_IMAGES = 3222163846;
-
 	public const uint32 ERROR_PCW_BAD_SUPERCEDENCE = 3222163847;
-
 	public const uint32 ERROR_PCW_BAD_SEQUENCE = 3222163848;
-
 	public const uint32 ERROR_PCW_BAD_TARGET = 3222163849;
-
 	public const uint32 ERROR_PCW_NULL_PATCHFAMILY = 3222163850;
-
 	public const uint32 ERROR_PCW_NULL_SEQUENCE_NUMBER = 3222163851;
-
 	public const uint32 ERROR_PCW_BAD_VERSION_STRING = 3222163852;
-
 	public const uint32 ERROR_PCW_BAD_MAJOR_VERSION = 3222163853;
-
 	public const uint32 ERROR_PCW_SEQUENCING_BAD_TARGET = 3222163854;
-
 	public const uint32 ERROR_PCW_PATCHMETADATA_PROP_NOT_SET = 3222163855;
-
 	public const uint32 ERROR_PCW_INVALID_PATCHMETADATA_PROP = 3222163856;
-
 	public const uint32 ERROR_PCW_INVALID_SUPERCEDENCE = 3222163857;
-
 	public const uint32 ERROR_PCW_DUPLICATE_SEQUENCE_RECORD = 3222163858;
-
 	public const uint32 ERROR_PCW_WRONG_PATCHMETADATA_STRD_PROP = 3222163859;
-
 	public const uint32 ERROR_PCW_INVALID_PARAMETER = 3222163860;
-
 	public const uint32 ERROR_PCW_CREATEFILE_LOG_FAILED = 3222163861;
-
 	public const uint32 ERROR_PCW_INVALID_LOG_LEVEL = 3222163862;
-
 	public const uint32 ERROR_PCW_INVALID_UI_LEVEL = 3222163863;
-
 	public const uint32 ERROR_PCW_ERROR_WRITING_TO_LOG = 3222163864;
-
 	public const uint32 ERROR_PCW_OUT_OF_MEMORY = 3222163865;
-
 	public const uint32 ERROR_PCW_UNKNOWN_ERROR = 3222163866;
-
 	public const uint32 ERROR_PCW_UNKNOWN_INFO = 3222163867;
-
 	public const uint32 ERROR_PCW_UNKNOWN_WARN = 3222163868;
-
 	public const uint32 ERROR_PCW_OPEN_VIEW = 3222163869;
-
 	public const uint32 ERROR_PCW_EXECUTE_VIEW = 3222163870;
-
 	public const uint32 ERROR_PCW_VIEW_FETCH = 3222163871;
-
 	public const uint32 ERROR_PCW_FAILED_EXPAND_PATH = 3222163872;
-
 	public const uint32 ERROR_PCW_INTERNAL_ERROR = 3222163969;
-
 	public const uint32 ERROR_PCW_INVALID_PCP_PROPERTY = 3222163970;
-
 	public const uint32 ERROR_PCW_INVALID_PCP_TARGETIMAGES = 3222163971;
-
 	public const uint32 ERROR_PCW_LAX_VALIDATION_FLAGS = 3222163972;
-
 	public const uint32 ERROR_PCW_FAILED_CREATE_TRANSFORM = 3222163973;
-
 	public const uint32 ERROR_PCW_CANT_DELETE_TEMP_FOLDER = 3222163974;
-
 	public const uint32 ERROR_PCW_MISSING_DIRECTORY_TABLE = 3222163975;
-
 	public const uint32 ERROR_PCW_INVALID_SUPERSEDENCE_VALUE = 3222163976;
-
 	public const uint32 ERROR_PCW_INVALID_PATCH_TYPE_SEQUENCING = 3222163977;
-
 	public const uint32 ERROR_PCW_CANT_READ_FILE = 3222163978;
-
 	public const uint32 ERROR_PCW_TARGET_WRONG_PRODUCT_VERSION_COMP = 3222163979;
-
 	public const uint32 ERROR_PCW_INVALID_PCP_UPGRADEDFILESTOIGNORE = 3222163980;
-
 	public const uint32 ERROR_PCW_INVALID_PCP_UPGRADEDIMAGES = 3222163981;
-
 	public const uint32 ERROR_PCW_INVALID_PCP_EXTERNALFILES = 3222163982;
-
 	public const uint32 ERROR_PCW_INVALID_PCP_IMAGEFAMILIES = 3222163983;
-
 	public const uint32 ERROR_PCW_INVALID_PCP_PATCHSEQUENCE = 3222163984;
-
 	public const uint32 ERROR_PCW_INVALID_PCP_TARGETFILES_OPTIONALDATA = 3222163985;
-
 	public const uint32 ERROR_PCW_INVALID_PCP_UPGRADEDFILES_OPTIONALDATA = 3222163986;
-
 	public const uint32 ERROR_PCW_MISSING_PATCHMETADATA = 3222163987;
-
 	public const uint32 ERROR_PCW_IMAGE_PATH_NOT_EXIST = 3222163988;
-
 	public const uint32 ERROR_PCW_INVALID_RANGE_ELEMENT = 3222163989;
-
 	public const uint32 ERROR_PCW_INVALID_MAJOR_VERSION = 3222163990;
-
 	public const uint32 ERROR_PCW_INVALID_PCP_PROPERTIES = 3222163991;
-
 	public const uint32 ERROR_PCW_INVALID_PCP_FAMILYFILERANGES = 3222163992;
-
 	public const uint32 INFO_BASE = 3222229249;
-
 	public const uint32 INFO_PASSED_MAIN_CONTROL = 3222229249;
-
 	public const uint32 INFO_ENTERING_PHASE_I_VALIDATION = 3222229250;
-
 	public const uint32 INFO_ENTERING_PHASE_I = 3222229251;
-
 	public const uint32 INFO_PCP_PATH = 3222229252;
-
 	public const uint32 INFO_TEMP_DIR = 3222229253;
-
 	public const uint32 INFO_SET_OPTIONS = 3222229254;
-
 	public const uint32 INFO_PROPERTY = 3222229255;
-
 	public const uint32 INFO_ENTERING_PHASE_II = 3222229256;
-
 	public const uint32 INFO_ENTERING_PHASE_III = 3222229257;
-
 	public const uint32 INFO_ENTERING_PHASE_IV = 3222229258;
-
 	public const uint32 INFO_ENTERING_PHASE_V = 3222229259;
-
 	public const uint32 INFO_GENERATING_METADATA = 3222229265;
-
 	public const uint32 INFO_TEMP_DIR_CLEANUP = 3222229266;
-
 	public const uint32 INFO_PATCHCACHE_FILEINFO_FAILURE = 3222229267;
-
 	public const uint32 INFO_PATCHCACHE_PCI_READFAILURE = 3222229268;
-
 	public const uint32 INFO_PATCHCACHE_PCI_WRITEFAILURE = 3222229269;
-
 	public const uint32 INFO_USING_USER_MSI_FOR_PATCH_TABLES = 3222229270;
-
 	public const uint32 INFO_SUCCESSFUL_PATCH_CREATION = 3222229271;
-
 	public const uint32 WARN_BASE = 3222294785;
-
 	public const uint32 WARN_MAJOR_UPGRADE_PATCH = 3222294785;
-
 	public const uint32 WARN_SEQUENCE_DATA_GENERATION_DISABLED = 3222294786;
-
 	public const uint32 WARN_SEQUENCE_DATA_SUPERSEDENCE_IGNORED = 3222294787;
-
 	public const uint32 WARN_IMPROPER_TRANSFORM_VALIDATION = 3222294788;
-
 	public const uint32 WARN_PCW_MISMATCHED_PRODUCT_CODES = 3222294789;
-
 	public const uint32 WARN_PCW_MISMATCHED_PRODUCT_VERSIONS = 3222294790;
-
 	public const uint32 WARN_INVALID_TRANSFORM_VALIDATION = 3222294791;
-
 	public const uint32 WARN_BAD_MAJOR_VERSION = 3222294792;
-
 	public const uint32 WARN_FILE_VERSION_DOWNREV = 3222294793;
-
 	public const uint32 WARN_EQUAL_FILE_VERSION = 3222294794;
-
 	public const uint32 WARN_PATCHPROPERTYNOTSET = 3222294795;
-
 	public const uint32 WARN_OBSOLETION_WITH_SEQUENCE_DATA = 3222294802;
-
 	public const uint32 WARN_OBSOLETION_WITH_MSI30 = 3222294801;
-
 	public const uint32 WARN_OBSOLETION_WITH_PATCHSEQUENCE = 3222294803;
-
 	public const uint32 DELTA_MAX_HASH_SIZE = 32;
-
 	public const int32 cchMaxInteger = 12;
-
 	public const uint32 LOGNONE = 0;
-
 	public const uint32 LOGINFO = 1;
-
 	public const uint32 LOGWARN = 2;
-
 	public const uint32 LOGERR = 4;
-
 	public const uint32 LOGPERFMESSAGES = 8;
-
 	public const uint32 LOGALL = 15;
-
 	public const uint32 UINONE = 0;
-
 	public const uint32 UILOGBITS = 15;
-
 	public const uint32 DEFAULT_MINIMUM_REQUIRED_MSI_VERSION = 100;
-
 	public const uint32 DEFAULT_FILE_SEQUENCE_START = 2;
-
 	public const uint32 DEFAULT_DISK_ID = 2;
-
 }
 #endregion
 
@@ -2060,7 +1710,6 @@ public struct PM_ENUM_FILTER
 		public Guid AppSupportedFileExtPID;
 		public BSTR ShareTargetFileType;
 	}
-
 	public int32 FilterType;
 	public _FilterParameter_e__Union FilterParameter;
 }
@@ -2201,7 +1850,6 @@ public struct PATCH_OLD_FILE_INFO
 		public PWSTR OldFileNameW;
 		public HANDLE OldFileHandle;
 	}
-
 	public uint32 SizeOfThisStruct;
 	public using _Anonymous_e__Union Anonymous;
 	public uint32 IgnoreRangeCount;
@@ -2210,7 +1858,7 @@ public struct PATCH_OLD_FILE_INFO
 	public PATCH_RETAIN_RANGE* RetainRangeArray;
 }
 
-[CRepr, FlexibleArray("Range")]
+[CRepr]
 public struct PATCH_INTERLEAVE_MAP
 {
 	[CRepr]
@@ -2220,8 +1868,8 @@ public struct PATCH_INTERLEAVE_MAP
 		public uint32 OldLength;
 		public uint32 NewLength;
 	}
-
 	public uint32 CountRanges;
+	public _Anonymous_e__Struct* Range mut => &Range_impl;
 	private _Anonymous_e__Struct[ANYSIZE_ARRAY] Range_impl;
 }
 
@@ -2248,7 +1896,6 @@ public struct DELTA_INPUT
 		public void* lpcStart;
 		public void* lpStart;
 	}
-
 	public using _Anonymous_e__Union Anonymous;
 	public uint uSize;
 	public BOOL Editable;
@@ -2337,10 +1984,11 @@ public struct COMPATIBILITY_CONTEXT_ELEMENT
 	public uint64 MaxVersionTested;
 }
 
-[CRepr, FlexibleArray("Elements")]
+[CRepr]
 public struct ACTIVATION_CONTEXT_COMPATIBILITY_INFORMATION
 {
 	public uint32 ElementCount;
+	public COMPATIBILITY_CONTEXT_ELEMENT* Elements mut => &Elements_impl;
 	private COMPATIBILITY_CONTEXT_ELEMENT[ANYSIZE_ARRAY] Elements_impl;
 }
 

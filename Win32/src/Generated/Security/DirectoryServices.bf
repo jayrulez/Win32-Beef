@@ -10,19 +10,12 @@ namespace Win32.Security.DirectoryServices;
 public static
 {
 	public const uint32 DSSI_READ_ONLY = 1;
-
 	public const uint32 DSSI_NO_ACCESS_CHECK = 2;
-
 	public const uint32 DSSI_NO_EDIT_SACL = 4;
-
 	public const uint32 DSSI_NO_EDIT_OWNER = 8;
-
 	public const uint32 DSSI_IS_ROOT = 16;
-
 	public const uint32 DSSI_NO_FILTER = 32;
-
 	public const uint32 DSSI_NO_READONLY_MESSAGE = 64;
-
 }
 #endregion
 #region Function Pointers

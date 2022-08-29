@@ -9,193 +9,99 @@ namespace Win32.System.VirtualDosMachines;
 public static
 {
 	public const uint32 VDMCONTEXT_i386 = 65536;
-
 	public const uint32 VDMCONTEXT_i486 = 65536;
-
 	public const uint32 VDM_KGDT_R3_CODE = 24;
-
 	public const uint32 VDM_MAXIMUM_SUPPORTED_EXTENSION = 512;
-
 	public const uint32 V86FLAGS_CARRY = 1;
-
 	public const uint32 V86FLAGS_PARITY = 4;
-
 	public const uint32 V86FLAGS_AUXCARRY = 16;
-
 	public const uint32 V86FLAGS_ZERO = 64;
-
 	public const uint32 V86FLAGS_SIGN = 128;
-
 	public const uint32 V86FLAGS_TRACE = 256;
-
 	public const uint32 V86FLAGS_INTERRUPT = 512;
-
 	public const uint32 V86FLAGS_DIRECTION = 1024;
-
 	public const uint32 V86FLAGS_OVERFLOW = 2048;
-
 	public const uint32 V86FLAGS_IOPL = 12288;
-
 	public const uint32 V86FLAGS_IOPL_BITS = 18;
-
 	public const uint32 V86FLAGS_RESUME = 65536;
-
 	public const uint32 V86FLAGS_V86 = 131072;
-
 	public const uint32 V86FLAGS_ALIGNMENT = 262144;
-
 	public const int32 STATUS_VDM_EVENT = 1073741829;
-
 	public const uint32 DBG_SEGLOAD = 0;
-
 	public const uint32 DBG_SEGMOVE = 1;
-
 	public const uint32 DBG_SEGFREE = 2;
-
 	public const uint32 DBG_MODLOAD = 3;
-
 	public const uint32 DBG_MODFREE = 4;
-
 	public const uint32 DBG_SINGLESTEP = 5;
-
 	public const uint32 DBG_BREAK = 6;
-
 	public const uint32 DBG_GPFAULT = 7;
-
 	public const uint32 DBG_DIVOVERFLOW = 8;
-
 	public const uint32 DBG_INSTRFAULT = 9;
-
 	public const uint32 DBG_TASKSTART = 10;
-
 	public const uint32 DBG_TASKSTOP = 11;
-
 	public const uint32 DBG_DLLSTART = 12;
-
 	public const uint32 DBG_DLLSTOP = 13;
-
 	public const uint32 DBG_ATTACH = 14;
-
 	public const uint32 DBG_TOOLHELP = 15;
-
 	public const uint32 DBG_STACKFAULT = 16;
-
 	public const uint32 DBG_WOWINIT = 17;
-
 	public const uint32 DBG_TEMPBP = 18;
-
 	public const uint32 DBG_MODMOVE = 19;
-
 	public const uint32 DBG_INIT = 20;
-
 	public const uint32 DBG_GPFAULT2 = 21;
-
 	public const uint32 VDMEVENT_NEEDS_INTERACTIVE = 32768;
-
 	public const uint32 VDMEVENT_VERBOSE = 16384;
-
 	public const uint32 VDMEVENT_PE = 8192;
-
 	public const uint32 VDMEVENT_ALLFLAGS = 57344;
-
 	public const uint32 VDMEVENT_V86 = 1;
-
 	public const uint32 VDMEVENT_PM16 = 2;
-
 	public const uint32 MAX_MODULE_NAME = 9;
-
 	public const uint32 MAX_PATH16 = 255;
-
 	public const uint32 SN_CODE = 0;
-
 	public const uint32 SN_DATA = 1;
-
 	public const uint32 SN_V86 = 2;
-
 	public const uint32 GLOBAL_ALL = 0;
-
 	public const uint32 GLOBAL_LRU = 1;
-
 	public const uint32 GLOBAL_FREE = 2;
-
 	public const uint32 GT_UNKNOWN = 0;
-
 	public const uint32 GT_DGROUP = 1;
-
 	public const uint32 GT_DATA = 2;
-
 	public const uint32 GT_CODE = 3;
-
 	public const uint32 GT_TASK = 4;
-
 	public const uint32 GT_RESOURCE = 5;
-
 	public const uint32 GT_MODULE = 6;
-
 	public const uint32 GT_FREE = 7;
-
 	public const uint32 GT_INTERNAL = 8;
-
 	public const uint32 GT_SENTINEL = 9;
-
 	public const uint32 GT_BURGERMASTER = 10;
-
 	public const uint32 GD_USERDEFINED = 0;
-
 	public const uint32 GD_CURSORCOMPONENT = 1;
-
 	public const uint32 GD_BITMAP = 2;
-
 	public const uint32 GD_ICONCOMPONENT = 3;
-
 	public const uint32 GD_MENU = 4;
-
 	public const uint32 GD_DIALOG = 5;
-
 	public const uint32 GD_STRING = 6;
-
 	public const uint32 GD_FONTDIR = 7;
-
 	public const uint32 GD_FONT = 8;
-
 	public const uint32 GD_ACCELERATORS = 9;
-
 	public const uint32 GD_RCDATA = 10;
-
 	public const uint32 GD_ERRTABLE = 11;
-
 	public const uint32 GD_CURSOR = 12;
-
 	public const uint32 GD_ICON = 14;
-
 	public const uint32 GD_NAMETABLE = 15;
-
 	public const uint32 GD_MAX_RESOURCE = 15;
-
 	public const uint32 VDMDBG_BREAK_DOSTASK = 1;
-
 	public const uint32 VDMDBG_BREAK_WOWTASK = 2;
-
 	public const uint32 VDMDBG_BREAK_LOADDLL = 4;
-
 	public const uint32 VDMDBG_BREAK_EXCEPTIONS = 8;
-
 	public const uint32 VDMDBG_BREAK_DEBUGGER = 16;
-
 	public const uint32 VDMDBG_TRACE_HISTORY = 128;
-
 	public const uint32 VDMDBG_BREAK_DIVIDEBYZERO = 256;
-
 	public const uint32 VDMDBG_INITIAL_FLAGS = 256;
-
 	public const uint32 VDMDBG_MAX_SYMBOL_BUFFER = 256;
-
 	public const uint32 VDMADDR_V86 = 2;
-
 	public const uint32 VDMADDR_PM16 = 4;
-
 	public const uint32 VDMADDR_PM32 = 16;
-
 }
 #endregion
 #region Function Pointers
@@ -322,7 +228,6 @@ public struct VDMLDT_ENTRY
 		{
 			public uint32 _bitfield;
 		}
-
 		[CRepr]
 		public struct _Bytes_e__Struct
 		{
@@ -331,11 +236,9 @@ public struct VDMLDT_ENTRY
 			public uint8 Flags2;
 			public uint8 BaseHi;
 		}
-
 		public _Bytes_e__Struct Bytes;
 		public _Bits_e__Struct Bits;
 	}
-
 	public uint16 LimitLow;
 	public uint16 BaseLow;
 	public _HighWord_e__Union HighWord;

@@ -7,25 +7,15 @@ namespace Win32.Storage.Cabinets;
 public static
 {
 	public const uint32 INCLUDED_FCI = 1;
-
 	public const uint32 _A_NAME_IS_UTF = 128;
-
 	public const uint32 _A_EXEC = 64;
-
 	public const uint32 INCLUDED_TYPES_FCI_FDI = 1;
-
 	public const int32 CB_MAX_DISK = 2147483647;
-
 	public const uint32 CB_MAX_FILENAME = 256;
-
 	public const uint32 CB_MAX_CABINET_NAME = 256;
-
 	public const uint32 CB_MAX_CAB_PATH = 256;
-
 	public const uint32 CB_MAX_DISK_NAME = 256;
-
 	public const uint32 INCLUDED_FDI = 1;
-
 }
 #endregion
 
@@ -198,7 +188,6 @@ public struct FDIDECRYPT
 			public BOOL fSplit;
 			public uint16 cbPartial;
 		}
-
 		[CRepr]
 		public struct _cabinet_e__Struct
 		{
@@ -207,7 +196,6 @@ public struct FDIDECRYPT
 			public uint16 setID;
 			public int32 iCabinet;
 		}
-
 		[CRepr]
 		public struct _folder_e__Struct
 		{
@@ -215,12 +203,10 @@ public struct FDIDECRYPT
 			public uint16 cbFolderReserve;
 			public uint16 iFolder;
 		}
-
 		public _cabinet_e__Struct cabinet;
 		public _folder_e__Struct folder;
 		public _decrypt_e__Struct decrypt;
 	}
-
 	public FDIDECRYPTTYPE fdidt;
 	public void* pvUser;
 	public using _Anonymous_e__Union Anonymous;

@@ -4,7 +4,6 @@ using Win32.System.Registry;
 using Win32.Media.Audio;
 using Win32.System.Com.Urlmon;
 using System;
-using System.Interop;
 
 namespace Win32.Media.Speech;
 
@@ -12,39 +11,22 @@ namespace Win32.Media.Speech;
 public static
 {
 	public const int32 SP_LOW_CONFIDENCE = -1;
-
 	public const uint32 SP_NORMAL_CONFIDENCE = 0;
-
 	public const uint32 DEFAULT_WEIGHT = 1;
-
 	public const uint32 SP_MAX_WORD_LENGTH = 128;
-
 	public const uint32 SP_MAX_PRON_LENGTH = 384;
-
 	public const uint32 SP_EMULATE_RESULT = 1073741824;
-
 	public const uint32 SP_STREAMPOS_ASAP = 0;
-
 	public const int32 SP_STREAMPOS_REALTIME = -1;
-
 	public const uint32 SPRP_NORMAL = 0;
-
 	public const uint32 SP_MAX_LANGIDS = 20;
-
 	public const uint32 SAPI_ERROR_BASE = 20480;
-
 	public const float Speech_Default_Weight = 1f;
-
 	public const int32 Speech_Max_Word_Length = 128;
-
 	public const int32 Speech_Max_Pron_Length = 384;
-
 	public const int32 Speech_StreamPos_Asap = 0;
-
 	public const int32 Speech_StreamPos_RealTime = -1;
-
 	public const int32 SpeechAllElements = -1;
-
 }
 #endregion
 
@@ -1911,11 +1893,9 @@ public struct SPPHRASEPROPERTY
 			public uint8 bReserved;
 			public uint16 usArrayIndex;
 		}
-
 		public uint32 ulId;
 		public using _Anonymous_e__Struct Anonymous;
 	}
-
 	public PWSTR pszName;
 	public using _Anonymous_e__Union Anonymous;
 	public PWSTR pszValue;
@@ -2003,7 +1983,7 @@ public struct SPSTATEHANDLE__
 	public int32 unused;
 }
 
-[CRepr, FlexibleArray("szPronunciation")]
+[CRepr]
 public struct SPWORDPRONUNCIATION
 {
 	public SPWORDPRONUNCIATION* pNextWordPronunciation;
@@ -2011,6 +1991,7 @@ public struct SPWORDPRONUNCIATION
 	public uint16 LangID;
 	public uint16 wPronunciationFlags;
 	public SPPARTOFSPEECH ePartOfSpeech;
+	public uint16* szPronunciation mut => &szPronunciation_impl;
 	private uint16[ANYSIZE_ARRAY] szPronunciation_impl;
 }
 

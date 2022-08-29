@@ -7,7 +7,6 @@ namespace Win32.System.ApplicationVerifier;
 public static
 {
 	public const uint32 AVRF_MAX_TRACES = 32;
-
 }
 #endregion
 

@@ -8,65 +8,35 @@ namespace Win32.Security.AppLocker;
 public static
 {
 	public const uint32 SAFER_SCOPEID_MACHINE = 1;
-
 	public const uint32 SAFER_SCOPEID_USER = 2;
-
 	public const uint32 SAFER_LEVELID_FULLYTRUSTED = 262144;
-
 	public const uint32 SAFER_LEVELID_NORMALUSER = 131072;
-
 	public const uint32 SAFER_LEVELID_CONSTRAINED = 65536;
-
 	public const uint32 SAFER_LEVELID_UNTRUSTED = 4096;
-
 	public const uint32 SAFER_LEVELID_DISALLOWED = 0;
-
 	public const uint32 SAFER_LEVEL_OPEN = 1;
-
 	public const uint32 SAFER_MAX_FRIENDLYNAME_SIZE = 256;
-
 	public const uint32 SAFER_MAX_DESCRIPTION_SIZE = 256;
-
 	public const uint32 SAFER_MAX_HASH_SIZE = 64;
-
 	public const uint32 SAFER_CRITERIA_IMAGEPATH = 1;
-
 	public const uint32 SAFER_CRITERIA_NOSIGNEDHASH = 2;
-
 	public const uint32 SAFER_CRITERIA_IMAGEHASH = 4;
-
 	public const uint32 SAFER_CRITERIA_AUTHENTICODE = 8;
-
 	public const uint32 SAFER_CRITERIA_URLZONE = 16;
-
 	public const uint32 SAFER_CRITERIA_APPX_PACKAGE = 32;
-
 	public const uint32 SAFER_CRITERIA_IMAGEPATH_NT = 4096;
-
 	public const uint32 SAFER_POLICY_JOBID_MASK = 4278190080;
-
 	public const uint32 SAFER_POLICY_JOBID_CONSTRAINED = 67108864;
-
 	public const uint32 SAFER_POLICY_JOBID_UNTRUSTED = 50331648;
-
 	public const uint32 SAFER_POLICY_ONLY_EXES = 65536;
-
 	public const uint32 SAFER_POLICY_SANDBOX_INERT = 131072;
-
 	public const uint32 SAFER_POLICY_HASH_DUPLICATE = 262144;
-
 	public const uint32 SAFER_POLICY_ONLY_AUDIT = 4096;
-
 	public const uint32 SAFER_POLICY_BLOCK_CLIENT_UI = 8192;
-
 	public const uint32 SAFER_POLICY_UIFLAGS_MASK = 255;
-
 	public const uint32 SAFER_POLICY_UIFLAGS_INFORMATION_PROMPT = 1;
-
 	public const uint32 SAFER_POLICY_UIFLAGS_OPTION_PROMPT = 2;
-
 	public const uint32 SAFER_POLICY_UIFLAGS_HIDDEN = 4;
-
 }
 #endregion
 

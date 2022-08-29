@@ -9,293 +9,149 @@ namespace Win32.Networking.Ldap;
 public static
 {
 	public const int32 LBER_ERROR = -1;
-
 	public const int32 LBER_DEFAULT = -1;
-
 	public const uint32 LDAP_UNICODE = 1;
-
 	public const uint32 LDAP_PORT = 389;
-
 	public const uint32 LDAP_SSL_PORT = 636;
-
 	public const uint32 LDAP_GC_PORT = 3268;
-
 	public const uint32 LDAP_SSL_GC_PORT = 3269;
-
 	public const uint32 LDAP_VERSION1 = 1;
-
 	public const uint32 LDAP_VERSION2 = 2;
-
 	public const uint32 LDAP_VERSION3 = 3;
-
 	public const uint32 LDAP_VERSION = 2;
-
 	public const int32 LDAP_BIND_CMD = 96;
-
 	public const int32 LDAP_UNBIND_CMD = 66;
-
 	public const int32 LDAP_SEARCH_CMD = 99;
-
 	public const int32 LDAP_MODIFY_CMD = 102;
-
 	public const int32 LDAP_ADD_CMD = 104;
-
 	public const int32 LDAP_DELETE_CMD = 74;
-
 	public const int32 LDAP_MODRDN_CMD = 108;
-
 	public const int32 LDAP_COMPARE_CMD = 110;
-
 	public const int32 LDAP_ABANDON_CMD = 80;
-
 	public const int32 LDAP_SESSION_CMD = 113;
-
 	public const int32 LDAP_EXTENDED_CMD = 119;
-
 	public const int32 LDAP_RES_BIND = 97;
-
 	public const int32 LDAP_RES_SEARCH_ENTRY = 100;
-
 	public const int32 LDAP_RES_SEARCH_RESULT = 101;
-
 	public const int32 LDAP_RES_MODIFY = 103;
-
 	public const int32 LDAP_RES_ADD = 105;
-
 	public const int32 LDAP_RES_DELETE = 107;
-
 	public const int32 LDAP_RES_MODRDN = 109;
-
 	public const int32 LDAP_RES_COMPARE = 111;
-
 	public const int32 LDAP_RES_SESSION = 114;
-
 	public const int32 LDAP_RES_REFERRAL = 115;
-
 	public const int32 LDAP_RES_EXTENDED = 120;
-
 	public const int32 LDAP_RES_ANY = -1;
-
 	public const uint32 LDAP_INVALID_CMD = 255;
-
 	public const uint32 LDAP_INVALID_RES = 255;
-
 	public const int32 LDAP_AUTH_SIMPLE = 128;
-
 	public const int32 LDAP_AUTH_SASL = 131;
-
 	public const int32 LDAP_AUTH_OTHERKIND = 134;
-
 	public const uint32 LDAP_FILTER_AND = 160;
-
 	public const uint32 LDAP_FILTER_OR = 161;
-
 	public const uint32 LDAP_FILTER_NOT = 162;
-
 	public const uint32 LDAP_FILTER_EQUALITY = 163;
-
 	public const uint32 LDAP_FILTER_SUBSTRINGS = 164;
-
 	public const uint32 LDAP_FILTER_GE = 165;
-
 	public const uint32 LDAP_FILTER_LE = 166;
-
 	public const uint32 LDAP_FILTER_PRESENT = 135;
-
 	public const uint32 LDAP_FILTER_APPROX = 168;
-
 	public const uint32 LDAP_FILTER_EXTENSIBLE = 169;
-
 	public const int32 LDAP_SUBSTRING_INITIAL = 128;
-
 	public const int32 LDAP_SUBSTRING_ANY = 129;
-
 	public const int32 LDAP_SUBSTRING_FINAL = 130;
-
 	public const uint32 LDAP_DEREF_NEVER = 0;
-
 	public const uint32 LDAP_DEREF_SEARCHING = 1;
-
 	public const uint32 LDAP_DEREF_FINDING = 2;
-
 	public const uint32 LDAP_DEREF_ALWAYS = 3;
-
 	public const uint32 LDAP_NO_LIMIT = 0;
-
 	public const uint32 LDAP_OPT_DNS = 1;
-
 	public const uint32 LDAP_OPT_CHASE_REFERRALS = 2;
-
 	public const uint32 LDAP_OPT_RETURN_REFS = 4;
-
 	public const uint32 LDAP_MOD_ADD = 0;
-
 	public const uint32 LDAP_MOD_DELETE = 1;
-
 	public const uint32 LDAP_MOD_REPLACE = 2;
-
 	public const uint32 LDAP_MOD_BVALUES = 128;
-
 	public const uint32 LDAP_OPT_API_INFO = 0;
-
 	public const uint32 LDAP_OPT_DESC = 1;
-
 	public const uint32 LDAP_OPT_DEREF = 2;
-
 	public const uint32 LDAP_OPT_SIZELIMIT = 3;
-
 	public const uint32 LDAP_OPT_TIMELIMIT = 4;
-
 	public const uint32 LDAP_OPT_THREAD_FN_PTRS = 5;
-
 	public const uint32 LDAP_OPT_REBIND_FN = 6;
-
 	public const uint32 LDAP_OPT_REBIND_ARG = 7;
-
 	public const uint32 LDAP_OPT_REFERRALS = 8;
-
 	public const uint32 LDAP_OPT_RESTART = 9;
-
 	public const uint32 LDAP_OPT_SSL = 10;
-
 	public const uint32 LDAP_OPT_IO_FN_PTRS = 11;
-
 	public const uint32 LDAP_OPT_CACHE_FN_PTRS = 13;
-
 	public const uint32 LDAP_OPT_CACHE_STRATEGY = 14;
-
 	public const uint32 LDAP_OPT_CACHE_ENABLE = 15;
-
 	public const uint32 LDAP_OPT_REFERRAL_HOP_LIMIT = 16;
-
 	public const uint32 LDAP_OPT_PROTOCOL_VERSION = 17;
-
 	public const uint32 LDAP_OPT_VERSION = 17;
-
 	public const uint32 LDAP_OPT_API_FEATURE_INFO = 21;
-
 	public const uint32 LDAP_OPT_HOST_NAME = 48;
-
 	public const uint32 LDAP_OPT_ERROR_NUMBER = 49;
-
 	public const uint32 LDAP_OPT_ERROR_STRING = 50;
-
 	public const uint32 LDAP_OPT_SERVER_ERROR = 51;
-
 	public const uint32 LDAP_OPT_SERVER_EXT_ERROR = 52;
-
 	public const uint32 LDAP_OPT_HOST_REACHABLE = 62;
-
 	public const uint32 LDAP_OPT_PING_KEEP_ALIVE = 54;
-
 	public const uint32 LDAP_OPT_PING_WAIT_TIME = 55;
-
 	public const uint32 LDAP_OPT_PING_LIMIT = 56;
-
 	public const uint32 LDAP_OPT_DNSDOMAIN_NAME = 59;
-
 	public const uint32 LDAP_OPT_GETDSNAME_FLAGS = 61;
-
 	public const uint32 LDAP_OPT_PROMPT_CREDENTIALS = 63;
-
 	public const uint32 LDAP_OPT_AUTO_RECONNECT = 145;
-
 	public const uint32 LDAP_OPT_SSPI_FLAGS = 146;
-
 	public const uint32 LDAP_OPT_SSL_INFO = 147;
-
 	public const uint32 LDAP_OPT_TLS = 10;
-
 	public const uint32 LDAP_OPT_TLS_INFO = 147;
-
 	public const uint32 LDAP_OPT_SIGN = 149;
-
 	public const uint32 LDAP_OPT_ENCRYPT = 150;
-
 	public const uint32 LDAP_OPT_SASL_METHOD = 151;
-
 	public const uint32 LDAP_OPT_AREC_EXCLUSIVE = 152;
-
 	public const uint32 LDAP_OPT_SECURITY_CONTEXT = 153;
-
 	public const uint32 LDAP_OPT_ROOTDSE_CACHE = 154;
-
 	public const uint32 LDAP_OPT_TCP_KEEPALIVE = 64;
-
 	public const uint32 LDAP_OPT_FAST_CONCURRENT_BIND = 65;
-
 	public const uint32 LDAP_OPT_SEND_TIMEOUT = 66;
-
 	public const uint32 LDAP_OPT_SCH_FLAGS = 67;
-
 	public const uint32 LDAP_OPT_SOCKET_BIND_ADDRESSES = 68;
-
 	public const uint32 LDAP_CHASE_SUBORDINATE_REFERRALS = 32;
-
 	public const uint32 LDAP_CHASE_EXTERNAL_REFERRALS = 64;
-
 	public const uint32 LDAP_SCOPE_BASE = 0;
-
 	public const uint32 LDAP_SCOPE_ONELEVEL = 1;
-
 	public const uint32 LDAP_SCOPE_SUBTREE = 2;
-
 	public const uint32 LDAP_MSG_ONE = 0;
-
 	public const uint32 LDAP_MSG_ALL = 1;
-
 	public const uint32 LDAP_MSG_RECEIVED = 2;
-
 	public const uint32 LBER_USE_DER = 1;
-
 	public const uint32 LBER_USE_INDEFINITE_LEN = 2;
-
 	public const uint32 LBER_TRANSLATE_STRINGS = 4;
-
 	public const uint32 LAPI_MAJOR_VER1 = 1;
-
 	public const uint32 LAPI_MINOR_VER1 = 1;
-
 	public const uint32 LDAP_API_INFO_VERSION = 1;
-
 	public const uint32 LDAP_API_VERSION = 2004;
-
 	public const uint32 LDAP_VERSION_MIN = 2;
-
 	public const uint32 LDAP_VERSION_MAX = 3;
-
 	public const uint32 LDAP_VENDOR_VERSION = 510;
-
 	public const uint32 LDAP_FEATURE_INFO_VERSION = 1;
-
 	public const uint32 LDAP_API_FEATURE_VIRTUAL_LIST_VIEW = 1001;
-
 	public const uint32 LDAP_VLVINFO_VERSION = 1;
-
 	public const uint32 LDAP_OPT_REFERRAL_CALLBACK = 112;
-
 	public const uint32 LDAP_OPT_CLIENT_CERTIFICATE = 128;
-
 	public const uint32 LDAP_OPT_SERVER_CERTIFICATE = 129;
-
 	public const uint32 LDAP_OPT_REF_DEREF_CONN_PER_MSG = 148;
-
 	public const uint32 SERVER_SEARCH_FLAG_DOMAIN_SCOPE = 1;
-
 	public const uint32 SERVER_SEARCH_FLAG_PHANTOM_ROOT = 2;
-
 	public const uint32 LDAP_DIRSYNC_OBJECT_SECURITY = 1;
-
 	public const uint32 LDAP_DIRSYNC_ANCESTORS_FIRST_ORDER = 2048;
-
 	public const uint32 LDAP_DIRSYNC_PUBLIC_DATA_ONLY = 8192;
-
 	public const uint32 LDAP_DIRSYNC_INCREMENTAL_VALUES = 2147483648;
-
 	public const uint32 LDAP_DIRSYNC_ROPAS_DATA_ONLY = 1073741824;
-
 	public const uint32 LDAP_POLICYHINT_APPLY_FULLPWDPOLICY = 1;
-
 }
 #endregion
 
@@ -398,7 +254,6 @@ public struct ldap
 		public uint sb_naddr;
 		public uint8[24] Reserved2;
 	}
-
 	public _ld_sb_e__Struct ld_sb;
 	public PSTR ld_host;
 	public uint32 ld_version;
@@ -474,7 +329,6 @@ public struct ldapmodW
 		public PWSTR* modv_strvals;
 		public LDAP_BERVAL** modv_bvals;
 	}
-
 	public uint32 mod_op;
 	public PWSTR mod_type;
 	public _mod_vals_e__Union mod_vals;
@@ -489,7 +343,6 @@ public struct ldapmodA
 		public PSTR* modv_strvals;
 		public LDAP_BERVAL** modv_bvals;
 	}
-
 	public uint32 mod_op;
 	public PSTR mod_type;
 	public _mod_vals_e__Union mod_vals;

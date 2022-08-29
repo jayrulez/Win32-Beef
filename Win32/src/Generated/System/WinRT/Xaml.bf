@@ -10,7 +10,6 @@ namespace Win32.System.WinRT.Xaml;
 public static
 {
 	public const uint32 E_SURFACE_CONTENTS_LOST = 2150301728;
-
 }
 #endregion
 

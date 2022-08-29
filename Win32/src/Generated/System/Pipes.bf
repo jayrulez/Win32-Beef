@@ -10,13 +10,9 @@ namespace Win32.System.Pipes;
 public static
 {
 	public const uint32 PIPE_UNLIMITED_INSTANCES = 255;
-
 	public const uint32 NMPWAIT_WAIT_FOREVER = 4294967295;
-
 	public const uint32 NMPWAIT_NOWAIT = 1;
-
 	public const uint32 NMPWAIT_USE_DEFAULT_WAIT = 0;
-
 }
 #endregion
 

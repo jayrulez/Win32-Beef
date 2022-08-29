@@ -3,7 +3,6 @@ using Win32.Foundation;
 using Win32.System.Registry;
 using Win32.System.Threading;
 using System;
-using System.Interop;
 
 namespace Win32.System.Power;
 
@@ -11,273 +10,139 @@ namespace Win32.System.Power;
 public static
 {
 	public const PROPERTYKEY PROCESSOR_NUMBER_PKEY = .(.(0x5724c81d, 0xd5af, 0x4c1f, 0xa1, 0x03, 0xa0, 0x6e, 0x28, 0xf2, 0x04, 0xc6), 1);
-
 	public const Guid GUID_DEVICE_BATTERY = .(0x72631e54, 0x78a4, 0x11d0, 0xbc, 0xf7, 0x00, 0xaa, 0x00, 0xb7, 0xb3, 0x2a);
-
 	public const Guid GUID_DEVICE_APPLICATIONLAUNCH_BUTTON = .(0x629758ee, 0x986e, 0x4d9e, 0x8e, 0x47, 0xde, 0x27, 0xf8, 0xab, 0x05, 0x4d);
-
 	public const Guid GUID_DEVICE_SYS_BUTTON = .(0x4afa3d53, 0x74a7, 0x11d0, 0xbe, 0x5e, 0x00, 0xa0, 0xc9, 0x06, 0x28, 0x57);
-
 	public const Guid GUID_DEVICE_LID = .(0x4afa3d52, 0x74a7, 0x11d0, 0xbe, 0x5e, 0x00, 0xa0, 0xc9, 0x06, 0x28, 0x57);
-
 	public const Guid GUID_DEVICE_THERMAL_ZONE = .(0x4afa3d51, 0x74a7, 0x11d0, 0xbe, 0x5e, 0x00, 0xa0, 0xc9, 0x06, 0x28, 0x57);
-
 	public const Guid GUID_DEVICE_FAN = .(0x05ecd13d, 0x81da, 0x4a2a, 0x8a, 0x4c, 0x52, 0x4f, 0x23, 0xdd, 0x4d, 0xc9);
-
 	public const Guid GUID_DEVICE_PROCESSOR = .(0x97fadb10, 0x4e33, 0x40ae, 0x35, 0x9c, 0x8b, 0xef, 0x02, 0x9d, 0xbd, 0xd0);
-
 	public const Guid GUID_DEVICE_MEMORY = .(0x3fd0f03d, 0x92e0, 0x45fb, 0xb7, 0x5c, 0x5e, 0xd8, 0xff, 0xb0, 0x10, 0x21);
-
 	public const Guid GUID_DEVICE_ACPI_TIME = .(0x97f99bf6, 0x4497, 0x4f18, 0xbb, 0x22, 0x4b, 0x9f, 0xb2, 0xfb, 0xef, 0x9c);
-
 	public const Guid GUID_DEVICE_MESSAGE_INDICATOR = .(0xcd48a365, 0xfa94, 0x4ce2, 0xa2, 0x32, 0xa1, 0xb7, 0x64, 0xe5, 0xd8, 0xb4);
-
 	public const Guid GUID_CLASS_INPUT = .(0x4d1e55b2, 0xf16f, 0x11cf, 0x88, 0xcb, 0x00, 0x11, 0x11, 0x00, 0x00, 0x30);
-
 	public const Guid GUID_DEVINTERFACE_THERMAL_COOLING = .(0xdbe4373d, 0x3c81, 0x40cb, 0xac, 0xe4, 0xe0, 0xe5, 0xd0, 0x5f, 0x0c, 0x9f);
-
 	public const Guid GUID_DEVINTERFACE_THERMAL_MANAGER = .(0x927ec093, 0x69a4, 0x4bc0, 0xbd, 0x02, 0x71, 0x16, 0x64, 0x71, 0x44, 0x63);
-
 	public const uint32 BATTERY_UNKNOWN_CAPACITY = 4294967295;
-
 	public const uint32 UNKNOWN_CAPACITY = 4294967295;
-
 	public const uint32 BATTERY_SYSTEM_BATTERY = 2147483648;
-
 	public const uint32 BATTERY_CAPACITY_RELATIVE = 1073741824;
-
 	public const uint32 BATTERY_IS_SHORT_TERM = 536870912;
-
 	public const uint32 BATTERY_SEALED = 268435456;
-
 	public const uint32 BATTERY_SET_CHARGE_SUPPORTED = 1;
-
 	public const uint32 BATTERY_SET_DISCHARGE_SUPPORTED = 2;
-
 	public const uint32 BATTERY_SET_CHARGINGSOURCE_SUPPORTED = 4;
-
 	public const uint32 BATTERY_SET_CHARGER_ID_SUPPORTED = 8;
-
 	public const uint32 BATTERY_UNKNOWN_TIME = 4294967295;
-
 	public const uint32 BATTERY_UNKNOWN_CURRENT = 4294967295;
-
 	public const uint32 UNKNOWN_CURRENT = 4294967295;
-
 	public const uint32 BATTERY_USB_CHARGER_STATUS_FN_DEFAULT_USB = 1;
-
 	public const uint32 BATTERY_USB_CHARGER_STATUS_UCM_PD = 2;
-
 	public const uint32 BATTERY_UNKNOWN_VOLTAGE = 4294967295;
-
 	public const uint32 BATTERY_UNKNOWN_RATE = 2147483648;
-
 	public const uint32 UNKNOWN_RATE = 2147483648;
-
 	public const uint32 UNKNOWN_VOLTAGE = 4294967295;
-
 	public const uint32 BATTERY_POWER_ON_LINE = 1;
-
 	public const uint32 BATTERY_DISCHARGING = 2;
-
 	public const uint32 BATTERY_CHARGING = 4;
-
 	public const uint32 BATTERY_CRITICAL = 8;
-
 	public const uint32 MAX_BATTERY_STRING_SIZE = 128;
-
 	public const uint32 IOCTL_BATTERY_QUERY_TAG = 2703424;
-
 	public const uint32 IOCTL_BATTERY_QUERY_INFORMATION = 2703428;
-
 	public const uint32 IOCTL_BATTERY_SET_INFORMATION = 2719816;
-
 	public const uint32 IOCTL_BATTERY_QUERY_STATUS = 2703436;
-
 	public const uint32 IOCTL_BATTERY_CHARGING_SOURCE_CHANGE = 2703440;
-
 	public const uint32 BATTERY_TAG_INVALID = 0;
-
 	public const uint32 MAX_ACTIVE_COOLING_LEVELS = 10;
-
 	public const uint32 ACTIVE_COOLING = 0;
-
 	public const uint32 PASSIVE_COOLING = 1;
-
 	public const uint32 TZ_ACTIVATION_REASON_THERMAL = 1;
-
 	public const uint32 TZ_ACTIVATION_REASON_CURRENT = 2;
-
 	public const uint32 THERMAL_POLICY_VERSION_1 = 1;
-
 	public const uint32 THERMAL_POLICY_VERSION_2 = 2;
-
 	public const uint32 IOCTL_THERMAL_QUERY_INFORMATION = 2703488;
-
 	public const uint32 IOCTL_THERMAL_SET_COOLING_POLICY = 2719876;
-
 	public const uint32 IOCTL_RUN_ACTIVE_COOLING_METHOD = 2719880;
-
 	public const uint32 IOCTL_THERMAL_SET_PASSIVE_LIMIT = 2719884;
-
 	public const uint32 IOCTL_THERMAL_READ_TEMPERATURE = 2703504;
-
 	public const uint32 IOCTL_THERMAL_READ_POLICY = 2703508;
-
 	public const uint32 IOCTL_QUERY_LID = 2703552;
-
 	public const uint32 IOCTL_NOTIFY_SWITCH_EVENT = 2703616;
-
 	public const uint32 IOCTL_GET_SYS_BUTTON_CAPS = 2703680;
-
 	public const uint32 IOCTL_GET_SYS_BUTTON_EVENT = 2703684;
-
 	public const uint32 SYS_BUTTON_POWER = 1;
-
 	public const uint32 SYS_BUTTON_SLEEP = 2;
-
 	public const uint32 SYS_BUTTON_LID = 4;
-
 	public const uint32 SYS_BUTTON_WAKE = 2147483648;
-
 	public const uint32 SYS_BUTTON_LID_STATE_MASK = 196608;
-
 	public const uint32 SYS_BUTTON_LID_OPEN = 65536;
-
 	public const uint32 SYS_BUTTON_LID_CLOSED = 131072;
-
 	public const uint32 SYS_BUTTON_LID_INITIAL = 262144;
-
 	public const uint32 SYS_BUTTON_LID_CHANGED = 524288;
-
 	public const uint32 IOCTL_GET_PROCESSOR_OBJ_INFO = 2703744;
-
 	public const uint32 THERMAL_COOLING_INTERFACE_VERSION = 1;
-
 	public const uint32 THERMAL_DEVICE_INTERFACE_VERSION = 1;
-
 	public const uint32 IOCTL_SET_SYS_MESSAGE_INDICATOR = 2720192;
-
 	public const uint32 IOCTL_SET_WAKE_ALARM_VALUE = 2720256;
-
 	public const uint32 IOCTL_SET_WAKE_ALARM_POLICY = 2720260;
-
 	public const uint32 IOCTL_GET_WAKE_ALARM_VALUE = 2736648;
-
 	public const uint32 IOCTL_GET_WAKE_ALARM_POLICY = 2736652;
-
 	public const uint32 ACPI_TIME_ADJUST_DAYLIGHT = 1;
-
 	public const uint32 ACPI_TIME_IN_DAYLIGHT = 2;
-
 	public const uint32 ACPI_TIME_ZONE_UNKNOWN = 2047;
-
 	public const uint32 IOCTL_ACPI_GET_REAL_TIME = 2703888;
-
 	public const uint32 IOCTL_ACPI_SET_REAL_TIME = 2720276;
-
 	public const uint32 IOCTL_GET_WAKE_ALARM_SYSTEM_POWERSTATE = 2703896;
-
 	public const Guid BATTERY_STATUS_WMI_GUID = .(0xfc4670d1, 0xebbf, 0x416e, 0x87, 0xce, 0x37, 0x4a, 0x4e, 0xbc, 0x11, 0x1a);
-
 	public const Guid BATTERY_RUNTIME_WMI_GUID = .(0x535a3767, 0x1ac2, 0x49bc, 0xa0, 0x77, 0x3f, 0x7a, 0x02, 0xe4, 0x0a, 0xec);
-
 	public const Guid BATTERY_TEMPERATURE_WMI_GUID = .(0x1a52a14d, 0xadce, 0x4a44, 0x9a, 0x3e, 0xc8, 0xd8, 0xf1, 0x5f, 0xf2, 0xc2);
-
 	public const Guid BATTERY_FULL_CHARGED_CAPACITY_WMI_GUID = .(0x40b40565, 0x96f7, 0x4435, 0x86, 0x94, 0x97, 0xe0, 0xe4, 0x39, 0x59, 0x05);
-
 	public const Guid BATTERY_CYCLE_COUNT_WMI_GUID = .(0xef98db24, 0x0014, 0x4c25, 0xa5, 0x0b, 0xc7, 0x24, 0xae, 0x5c, 0xd3, 0x71);
-
 	public const Guid BATTERY_STATIC_DATA_WMI_GUID = .(0x05e1e463, 0xe4e2, 0x4ea9, 0x80, 0xcb, 0x9b, 0xd4, 0xb3, 0xca, 0x06, 0x55);
-
 	public const Guid BATTERY_STATUS_CHANGE_WMI_GUID = .(0xcddfa0c3, 0x7c5b, 0x4e43, 0xa0, 0x34, 0x05, 0x9f, 0xa5, 0xb8, 0x43, 0x64);
-
 	public const Guid BATTERY_TAG_CHANGE_WMI_GUID = .(0x5e1f6e19, 0x8786, 0x4d23, 0x94, 0xfc, 0x9e, 0x74, 0x6b, 0xd5, 0xd8, 0x88);
-
 	public const uint32 BATTERY_MINIPORT_UPDATE_DATA_VER_1 = 1;
-
 	public const uint32 BATTERY_MINIPORT_UPDATE_DATA_VER_2 = 2;
-
 	public const uint32 BATTERY_CLASS_MAJOR_VERSION = 1;
-
 	public const uint32 BATTERY_CLASS_MINOR_VERSION = 0;
-
 	public const uint32 BATTERY_CLASS_MINOR_VERSION_1 = 1;
-
 	public const Guid GUID_DEVICE_ENERGY_METER = .(0x45bd8344, 0x7ed6, 0x49cf, 0xa4, 0x40, 0xc2, 0x76, 0xc9, 0x33, 0xb0, 0x53);
-
 	public const uint32 IOCTL_EMI_GET_VERSION = 2244608;
-
 	public const uint32 IOCTL_EMI_GET_METADATA_SIZE = 2244612;
-
 	public const uint32 IOCTL_EMI_GET_METADATA = 2244616;
-
 	public const uint32 IOCTL_EMI_GET_MEASUREMENT = 2244620;
-
 	public const uint32 EMI_NAME_MAX = 16;
-
 	public const uint32 EMI_VERSION_V1 = 1;
-
 	public const uint32 EMI_VERSION_V2 = 2;
-
 	public const uint32 EFFECTIVE_POWER_MODE_V1 = 1;
-
 	public const uint32 EFFECTIVE_POWER_MODE_V2 = 2;
-
 	public const uint32 EnableSysTrayBatteryMeter = 1;
-
 	public const uint32 EnableMultiBatteryDisplay = 2;
-
 	public const uint32 EnablePasswordLogon = 4;
-
 	public const uint32 EnableWakeOnRing = 8;
-
 	public const uint32 EnableVideoDimDisplay = 16;
-
 	public const uint32 POWER_ATTRIBUTE_HIDE = 1;
-
 	public const uint32 POWER_ATTRIBUTE_SHOW_AOAC = 2;
-
 	public const uint32 DEVICEPOWER_HARDWAREID = 2147483648;
-
 	public const uint32 DEVICEPOWER_AND_OPERATION = 1073741824;
-
 	public const uint32 DEVICEPOWER_FILTER_DEVICES_PRESENT = 536870912;
-
 	public const uint32 DEVICEPOWER_FILTER_HARDWARE = 268435456;
-
 	public const uint32 DEVICEPOWER_FILTER_WAKEENABLED = 134217728;
-
 	public const uint32 DEVICEPOWER_FILTER_WAKEPROGRAMMABLE = 67108864;
-
 	public const uint32 DEVICEPOWER_FILTER_ON_NAME = 33554432;
-
 	public const uint32 DEVICEPOWER_SET_WAKEENABLED = 1;
-
 	public const uint32 DEVICEPOWER_CLEAR_WAKEENABLED = 2;
-
 	public const uint32 PDCAP_S0_SUPPORTED = 65536;
-
 	public const uint32 PDCAP_S1_SUPPORTED = 131072;
-
 	public const uint32 PDCAP_S2_SUPPORTED = 262144;
-
 	public const uint32 PDCAP_S3_SUPPORTED = 524288;
-
 	public const uint32 PDCAP_WAKE_FROM_S0_SUPPORTED = 1048576;
-
 	public const uint32 PDCAP_WAKE_FROM_S1_SUPPORTED = 2097152;
-
 	public const uint32 PDCAP_WAKE_FROM_S2_SUPPORTED = 4194304;
-
 	public const uint32 PDCAP_WAKE_FROM_S3_SUPPORTED = 8388608;
-
 	public const uint32 PDCAP_S4_SUPPORTED = 16777216;
-
 	public const uint32 PDCAP_S5_SUPPORTED = 33554432;
-
 	public const uint32 THERMAL_EVENT_VERSION = 1;
-
 }
 #endregion
 
@@ -777,18 +642,20 @@ public struct BATTERY_CHARGING_SOURCE_INFORMATION
 	public BOOLEAN SourceOnline;
 }
 
-[CRepr, FlexibleArray("Buffer")]
+[CRepr]
 public struct BATTERY_SET_INFORMATION
 {
 	public uint32 BatteryTag;
 	public BATTERY_SET_INFORMATION_LEVEL InformationLevel;
+	public uint8* Buffer mut => &Buffer_impl;
 	private uint8[ANYSIZE_ARRAY] Buffer_impl;
 }
 
-[CRepr, FlexibleArray("VaData")]
+[CRepr]
 public struct BATTERY_CHARGER_STATUS
 {
 	public BATTERY_CHARGING_SOURCE_TYPE Type;
+	public uint32* VaData mut => &VaData_impl;
 	private uint32[ANYSIZE_ARRAY] VaData_impl;
 }
 
@@ -929,7 +796,7 @@ public struct EMI_CHANNEL_MEASUREMENT_DATA
 	public uint64 AbsoluteTime;
 }
 
-[CRepr, FlexibleArray("MeteredHardwareName")]
+[CRepr]
 public struct EMI_METADATA_V1
 {
 	public EMI_MEASUREMENT_UNIT MeasurementUnit;
@@ -937,30 +804,34 @@ public struct EMI_METADATA_V1
 	public char16[16] HardwareModel;
 	public uint16 HardwareRevision;
 	public uint16 MeteredHardwareNameSize;
+	public char16* MeteredHardwareName mut => &MeteredHardwareName_impl;
 	private char16[ANYSIZE_ARRAY] MeteredHardwareName_impl;
 }
 
-[CRepr, FlexibleArray("ChannelName")]
+[CRepr]
 public struct EMI_CHANNEL_V2
 {
 	public EMI_MEASUREMENT_UNIT MeasurementUnit;
 	public uint16 ChannelNameSize;
+	public char16* ChannelName mut => &ChannelName_impl;
 	private char16[ANYSIZE_ARRAY] ChannelName_impl;
 }
 
-[CRepr, FlexibleArray("Channels")]
+[CRepr]
 public struct EMI_METADATA_V2
 {
 	public char16[16] HardwareOEM;
 	public char16[16] HardwareModel;
 	public uint16 HardwareRevision;
 	public uint16 ChannelCount;
+	public EMI_CHANNEL_V2* Channels mut => &Channels_impl;
 	private EMI_CHANNEL_V2[ANYSIZE_ARRAY] Channels_impl;
 }
 
-[CRepr, FlexibleArray("ChannelData")]
+[CRepr]
 public struct EMI_MEASUREMENT_DATA_V2
 {
+	public EMI_CHANNEL_MEASUREMENT_DATA* ChannelData mut => &ChannelData_impl;
 	private EMI_CHANNEL_MEASUREMENT_DATA[ANYSIZE_ARRAY] ChannelData_impl;
 }
 
@@ -977,13 +848,14 @@ public struct CM_POWER_DATA
 	public SYSTEM_POWER_STATE PD_DeepestSystemWake;
 }
 
-[CRepr, FlexibleArray("Data")]
+[CRepr]
 public struct SET_POWER_SETTING_VALUE
 {
 	public uint32 Version;
 	public Guid Guid;
 	public SYSTEM_POWER_CONDITION PowerCondition;
 	public uint32 DataLength;
+	public uint8* Data mut => &Data_impl;
 	private uint8[ANYSIZE_ARRAY] Data_impl;
 }
 
@@ -1134,11 +1006,12 @@ public struct SYSTEM_BATTERY_STATE
 	public uint32 DefaultAlert2;
 }
 
-[CRepr, FlexibleArray("Data")]
+[CRepr]
 public struct POWERBROADCAST_SETTING
 {
 	public Guid PowerSetting;
 	public uint32 DataLength;
+	public uint8* Data mut => &Data_impl;
 	private uint8[ANYSIZE_ARRAY] Data_impl;
 }
 

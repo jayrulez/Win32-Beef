@@ -1,6 +1,5 @@
 using Win32.Foundation;
 using System;
-using System.Interop;
 
 namespace Win32.Security;
 
@@ -8,7 +7,6 @@ namespace Win32.Security;
 public static
 {
 	public const uint32 CVT_SECONDS = 1;
-
 }
 #endregion
 
@@ -500,7 +498,6 @@ public struct LLFILETIME
 		public int64 ll;
 		public FILETIME ft;
 	}
-
 	public using _Anonymous_e__Union Anonymous;
 }
 
@@ -526,12 +523,13 @@ public struct SID_IDENTIFIER_AUTHORITY
 	public uint8[6] Value;
 }
 
-[CRepr, FlexibleArray("SubAuthority")]
+[CRepr]
 public struct SID
 {
 	public uint8 Revision;
 	public uint8 SubAuthorityCount;
 	public SID_IDENTIFIER_AUTHORITY IdentifierAuthority;
+	public uint32* SubAuthority mut => &SubAuthority_impl;
 	private uint32[ANYSIZE_ARRAY] SubAuthority_impl;
 }
 
@@ -801,11 +799,12 @@ public struct OBJECT_TYPE_LIST
 	public Guid* ObjectType;
 }
 
-[CRepr, FlexibleArray("Privilege")]
+[CRepr]
 public struct PRIVILEGE_SET
 {
 	public uint32 PrivilegeCount;
 	public uint32 Control;
+	public LUID_AND_ATTRIBUTES* Privilege mut => &Privilege_impl;
 	private LUID_AND_ATTRIBUTES[ANYSIZE_ARRAY] Privilege_impl;
 }
 
@@ -853,17 +852,19 @@ public struct TOKEN_USER
 	public SID_AND_ATTRIBUTES User;
 }
 
-[CRepr, FlexibleArray("Groups")]
+[CRepr]
 public struct TOKEN_GROUPS
 {
 	public uint32 GroupCount;
+	public SID_AND_ATTRIBUTES* Groups mut => &Groups_impl;
 	private SID_AND_ATTRIBUTES[ANYSIZE_ARRAY] Groups_impl;
 }
 
-[CRepr, FlexibleArray("Privileges")]
+[CRepr]
 public struct TOKEN_PRIVILEGES
 {
 	public uint32 PrivilegeCount;
+	public LUID_AND_ATTRIBUTES* Privileges mut => &Privileges_impl;
 	private LUID_AND_ATTRIBUTES[ANYSIZE_ARRAY] Privileges_impl;
 }
 
@@ -1029,7 +1030,6 @@ public struct CLAIM_SECURITY_ATTRIBUTE_V1
 		public CLAIM_SECURITY_ATTRIBUTE_FQBN_VALUE* pFqbn;
 		public CLAIM_SECURITY_ATTRIBUTE_OCTET_STRING_VALUE* pOctetString;
 	}
-
 	public PWSTR Name;
 	public CLAIM_SECURITY_ATTRIBUTE_VALUE_TYPE ValueType;
 	public uint16 Reserved;
@@ -1038,19 +1038,23 @@ public struct CLAIM_SECURITY_ATTRIBUTE_V1
 	public _Values_e__Union Values;
 }
 
-[CRepr, FlexibleArray("pInt64", "pUint64", "ppString", "pFqbn", "pOctetString")]
+[CRepr]
 public struct CLAIM_SECURITY_ATTRIBUTE_RELATIVE_V1
 {
 	[CRepr, Union]
 	public struct _Values_e__Union
 	{
-		public uint32[ANYSIZE_ARRAY] pInt64_impl;
-		public uint32[ANYSIZE_ARRAY] pUint64_impl;
-		public uint32[ANYSIZE_ARRAY] ppString_impl;
-		public uint32[ANYSIZE_ARRAY] pFqbn_impl;
-		public uint32[ANYSIZE_ARRAY] pOctetString_impl;
+		public uint32* pInt64 mut => &pInt64_impl;
+		private uint32[ANYSIZE_ARRAY] pInt64_impl;
+		public uint32* pUint64 mut => &pUint64_impl;
+		private uint32[ANYSIZE_ARRAY] pUint64_impl;
+		public uint32* ppString mut => &ppString_impl;
+		private uint32[ANYSIZE_ARRAY] ppString_impl;
+		public uint32* pFqbn mut => &pFqbn_impl;
+		private uint32[ANYSIZE_ARRAY] pFqbn_impl;
+		public uint32* pOctetString mut => &pOctetString_impl;
+		private uint32[ANYSIZE_ARRAY] pOctetString_impl;
 	}
-
 	public uint32 Name;
 	public CLAIM_SECURITY_ATTRIBUTE_VALUE_TYPE ValueType;
 	public uint16 Reserved;
@@ -1067,7 +1071,6 @@ public struct CLAIM_SECURITY_ATTRIBUTES_INFORMATION
 	{
 		public CLAIM_SECURITY_ATTRIBUTE_V1* pAttributeV1;
 	}
-
 	public uint16 Version;
 	public uint16 Reserved;
 	public uint32 AttributeCount;

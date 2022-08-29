@@ -11,43 +11,24 @@ namespace Win32.UI.LegacyWindowsEnvironmentFeatures;
 public static
 {
 	public const uint32 EVCF_HASSETTINGS = 1;
-
 	public const uint32 EVCF_ENABLEBYDEFAULT = 2;
-
 	public const uint32 EVCF_REMOVEFROMLIST = 4;
-
 	public const uint32 EVCF_ENABLEBYDEFAULT_AUTO = 8;
-
 	public const uint32 EVCF_DONTSHOWIFZERO = 16;
-
 	public const uint32 EVCF_SETTINGSMODE = 32;
-
 	public const uint32 EVCF_OUTOFDISKSPACE = 64;
-
 	public const uint32 EVCF_USERCONSENTOBTAINED = 128;
-
 	public const uint32 EVCF_SYSTEMAUTORUN = 256;
-
 	public const uint32 EVCCBF_LASTNOTIFICATION = 1;
-
 	public const uint32 STATEBITS_FLAT = 1;
-
 	public const HRESULT REC_S_IDIDTHEUPDATES = 266240;
-
 	public const HRESULT REC_S_NOTCOMPLETE = 266241;
-
 	public const HRESULT REC_S_NOTCOMPLETEBUTPROPAGATE = 266242;
-
 	public const HRESULT REC_E_ABORTED = -2147217408;
-
 	public const HRESULT REC_E_NOCALLBACK = -2147217407;
-
 	public const HRESULT REC_E_NORESIDUES = -2147217406;
-
 	public const HRESULT REC_E_TOODIFFERENT = -2147217405;
-
 	public const HRESULT REC_E_INEEDTODOTHEUPDATES = -2147217404;
-
 }
 #endregion
 

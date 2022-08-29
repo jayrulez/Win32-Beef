@@ -9,43 +9,24 @@ namespace Win32.Security.Cryptography.Sip;
 public static
 {
 	public const uint32 MSSIP_FLAGS_PROHIBIT_RESIZE_ON_CREATE = 65536;
-
 	public const uint32 MSSIP_FLAGS_USE_CATALOG = 131072;
-
 	public const uint32 MSSIP_FLAGS_MULTI_HASH = 262144;
-
 	public const uint32 SPC_INC_PE_RESOURCES_FLAG = 128;
-
 	public const uint32 SPC_INC_PE_DEBUG_INFO_FLAG = 64;
-
 	public const uint32 SPC_INC_PE_IMPORT_ADDR_TABLE_FLAG = 32;
-
 	public const uint32 SPC_EXC_PE_PAGE_HASHES_FLAG = 16;
-
 	public const uint32 SPC_INC_PE_PAGE_HASHES_FLAG = 256;
-
 	public const uint32 SPC_DIGEST_GENERATE_FLAG = 512;
-
 	public const uint32 SPC_DIGEST_SIGN_FLAG = 1024;
-
 	public const uint32 SPC_DIGEST_SIGN_EX_FLAG = 16384;
-
 	public const uint32 SPC_RELAXED_PE_MARKER_CHECK = 2048;
-
 	public const uint32 SPC_MARKER_CHECK_SKIP_SIP_INDIRECT_DATA_FLAG = 1;
-
 	public const uint32 SPC_MARKER_CHECK_CURRENTLY_SUPPORTED_FLAGS = 1;
-
 	public const uint32 SIP_CAP_SET_VERSION_2 = 2;
-
 	public const uint32 SIP_CAP_SET_VERSION_3 = 3;
-
 	public const uint32 SIP_CAP_SET_CUR_VER = 3;
-
 	public const uint32 SIP_CAP_FLAG_SEALING = 1;
-
 	public const uint32 SIP_MAX_MAGIC_NUMBER = 4;
-
 }
 #endregion
 #region Function Pointers
@@ -80,7 +61,6 @@ public struct SIP_SUBJECTINFO
 		public MS_ADDINFO_CATALOGMEMBER* psCatMember;
 		public MS_ADDINFO_BLOB* psBlob;
 	}
-
 	public uint32 cbSize;
 	public Guid* pgSubjectType;
 	public HANDLE hFile;
@@ -144,7 +124,6 @@ public struct SIP_CAP_SET_V3
 		public uint32 dwFlags;
 		public uint32 dwReserved;
 	}
-
 	public uint32 cbSize;
 	public uint32 dwVersion;
 	public BOOL isMultiSign;

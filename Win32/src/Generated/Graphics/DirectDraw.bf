@@ -2,7 +2,6 @@ using Win32.Foundation;
 using Win32.Graphics.Gdi;
 using Win32.System.Com;
 using System;
-using System.Interop;
 
 namespace Win32.Graphics.DirectDraw;
 
@@ -10,1871 +9,938 @@ namespace Win32.Graphics.DirectDraw;
 public static
 {
 	public const uint32 DIRECTDRAW_VERSION = 1792;
-
 	public const uint32 _FACDD = 2166;
-
 	public const Guid CLSID_DirectDraw = .(0xd7b70ee0, 0x4340, 0x11cf, 0xb0, 0x63, 0x00, 0x20, 0xaf, 0xc2, 0xcd, 0x35);
-
 	public const Guid CLSID_DirectDraw7 = .(0x3c305196, 0x50db, 0x11d3, 0x9c, 0xfe, 0x00, 0xc0, 0x4f, 0xd9, 0x30, 0xc5);
-
 	public const Guid CLSID_DirectDrawClipper = .(0x593817a0, 0x7db3, 0x11cf, 0xa2, 0xde, 0x00, 0xaa, 0x00, 0xb9, 0x33, 0x56);
-
 	public const int32 DDENUM_ATTACHEDSECONDARYDEVICES = 1;
-
 	public const int32 DDENUM_DETACHEDSECONDARYDEVICES = 2;
-
 	public const int32 DDENUM_NONDISPLAYDEVICES = 4;
-
 	public const int32 DDCREATE_HARDWAREONLY = 1;
-
 	public const int32 DDCREATE_EMULATIONONLY = 2;
-
 	public const uint32 MAX_DDDEVICEID_STRING = 512;
-
 	public const int32 DDGDI_GETHOSTIDENTIFIER = 1;
-
 	public const int32 DDSD_CAPS = 1;
-
 	public const int32 DDSD_HEIGHT = 2;
-
 	public const int32 DDSD_WIDTH = 4;
-
 	public const int32 DDSD_PITCH = 8;
-
 	public const int32 DDSD_BACKBUFFERCOUNT = 32;
-
 	public const int32 DDSD_ZBUFFERBITDEPTH = 64;
-
 	public const int32 DDSD_ALPHABITDEPTH = 128;
-
 	public const int32 DDSD_LPSURFACE = 2048;
-
 	public const int32 DDSD_PIXELFORMAT = 4096;
-
 	public const int32 DDSD_CKDESTOVERLAY = 8192;
-
 	public const int32 DDSD_CKDESTBLT = 16384;
-
 	public const int32 DDSD_CKSRCOVERLAY = 32768;
-
 	public const int32 DDSD_CKSRCBLT = 65536;
-
 	public const int32 DDSD_MIPMAPCOUNT = 131072;
-
 	public const int32 DDSD_REFRESHRATE = 262144;
-
 	public const int32 DDSD_LINEARSIZE = 524288;
-
 	public const int32 DDSD_TEXTURESTAGE = 1048576;
-
 	public const int32 DDSD_FVF = 2097152;
-
 	public const int32 DDSD_SRCVBHANDLE = 4194304;
-
 	public const int32 DDSD_DEPTH = 8388608;
-
 	public const int32 DDSD_ALL = 16775662;
-
 	public const int32 DDOSD_GUID = 1;
-
 	public const int32 DDOSD_COMPRESSION_RATIO = 2;
-
 	public const int32 DDOSD_SCAPS = 4;
-
 	public const int32 DDOSD_OSCAPS = 8;
-
 	public const int32 DDOSD_ALL = 15;
-
 	public const int32 DDOSDCAPS_OPTCOMPRESSED = 1;
-
 	public const int32 DDOSDCAPS_OPTREORDERED = 2;
-
 	public const int32 DDOSDCAPS_MONOLITHICMIPMAP = 4;
-
 	public const int32 DDOSDCAPS_VALIDSCAPS = 805324800;
-
 	public const int32 DDOSDCAPS_VALIDOSCAPS = 7;
-
 	public const int32 DDCOLOR_BRIGHTNESS = 1;
-
 	public const int32 DDCOLOR_CONTRAST = 2;
-
 	public const int32 DDCOLOR_HUE = 4;
-
 	public const int32 DDCOLOR_SATURATION = 8;
-
 	public const int32 DDCOLOR_SHARPNESS = 16;
-
 	public const int32 DDCOLOR_GAMMA = 32;
-
 	public const int32 DDCOLOR_COLORENABLE = 64;
-
 	public const int32 DDSCAPS_RESERVED1 = 1;
-
 	public const int32 DDSCAPS_ALPHA = 2;
-
 	public const int32 DDSCAPS_BACKBUFFER = 4;
-
 	public const int32 DDSCAPS_COMPLEX = 8;
-
 	public const int32 DDSCAPS_FLIP = 16;
-
 	public const int32 DDSCAPS_FRONTBUFFER = 32;
-
 	public const int32 DDSCAPS_OFFSCREENPLAIN = 64;
-
 	public const int32 DDSCAPS_OVERLAY = 128;
-
 	public const int32 DDSCAPS_PALETTE = 256;
-
 	public const int32 DDSCAPS_PRIMARYSURFACE = 512;
-
 	public const int32 DDSCAPS_RESERVED3 = 1024;
-
 	public const int32 DDSCAPS_PRIMARYSURFACELEFT = 0;
-
 	public const int32 DDSCAPS_SYSTEMMEMORY = 2048;
-
 	public const int32 DDSCAPS_TEXTURE = 4096;
-
 	public const int32 DDSCAPS_3DDEVICE = 8192;
-
 	public const int32 DDSCAPS_VIDEOMEMORY = 16384;
-
 	public const int32 DDSCAPS_VISIBLE = 32768;
-
 	public const int32 DDSCAPS_WRITEONLY = 65536;
-
 	public const int32 DDSCAPS_ZBUFFER = 131072;
-
 	public const int32 DDSCAPS_OWNDC = 262144;
-
 	public const int32 DDSCAPS_LIVEVIDEO = 524288;
-
 	public const int32 DDSCAPS_HWCODEC = 1048576;
-
 	public const int32 DDSCAPS_MODEX = 2097152;
-
 	public const int32 DDSCAPS_MIPMAP = 4194304;
-
 	public const int32 DDSCAPS_RESERVED2 = 8388608;
-
 	public const int32 DDSCAPS_ALLOCONLOAD = 67108864;
-
 	public const int32 DDSCAPS_VIDEOPORT = 134217728;
-
 	public const int32 DDSCAPS_LOCALVIDMEM = 268435456;
-
 	public const int32 DDSCAPS_NONLOCALVIDMEM = 536870912;
-
 	public const int32 DDSCAPS_STANDARDVGAMODE = 1073741824;
-
 	public const int32 DDSCAPS_OPTIMIZED = -2147483648;
-
 	public const int32 DDSCAPS2_RESERVED4 = 2;
-
 	public const int32 DDSCAPS2_HARDWAREDEINTERLACE = 0;
-
 	public const int32 DDSCAPS2_HINTDYNAMIC = 4;
-
 	public const int32 DDSCAPS2_HINTSTATIC = 8;
-
 	public const int32 DDSCAPS2_TEXTUREMANAGE = 16;
-
 	public const int32 DDSCAPS2_RESERVED1 = 32;
-
 	public const int32 DDSCAPS2_RESERVED2 = 64;
-
 	public const int32 DDSCAPS2_OPAQUE = 128;
-
 	public const int32 DDSCAPS2_HINTANTIALIASING = 256;
-
 	public const int32 DDSCAPS2_CUBEMAP = 512;
-
 	public const int32 DDSCAPS2_CUBEMAP_POSITIVEX = 1024;
-
 	public const int32 DDSCAPS2_CUBEMAP_NEGATIVEX = 2048;
-
 	public const int32 DDSCAPS2_CUBEMAP_POSITIVEY = 4096;
-
 	public const int32 DDSCAPS2_CUBEMAP_NEGATIVEY = 8192;
-
 	public const int32 DDSCAPS2_CUBEMAP_POSITIVEZ = 16384;
-
 	public const int32 DDSCAPS2_CUBEMAP_NEGATIVEZ = 32768;
-
 	public const int32 DDSCAPS2_MIPMAPSUBLEVEL = 65536;
-
 	public const int32 DDSCAPS2_D3DTEXTUREMANAGE = 131072;
-
 	public const int32 DDSCAPS2_DONOTPERSIST = 262144;
-
 	public const int32 DDSCAPS2_STEREOSURFACELEFT = 524288;
-
 	public const int32 DDSCAPS2_VOLUME = 2097152;
-
 	public const int32 DDSCAPS2_NOTUSERLOCKABLE = 4194304;
-
 	public const int32 DDSCAPS2_POINTS = 8388608;
-
 	public const int32 DDSCAPS2_RTPATCHES = 16777216;
-
 	public const int32 DDSCAPS2_NPATCHES = 33554432;
-
 	public const int32 DDSCAPS2_RESERVED3 = 67108864;
-
 	public const int32 DDSCAPS2_DISCARDBACKBUFFER = 268435456;
-
 	public const int32 DDSCAPS2_ENABLEALPHACHANNEL = 536870912;
-
 	public const int32 DDSCAPS2_EXTENDEDFORMATPRIMARY = 1073741824;
-
 	public const int32 DDSCAPS2_ADDITIONALPRIMARY = -2147483648;
-
 	public const int32 DDSCAPS3_MULTISAMPLE_MASK = 31;
-
 	public const int32 DDSCAPS3_MULTISAMPLE_QUALITY_MASK = 224;
-
 	public const uint32 DDSCAPS3_MULTISAMPLE_QUALITY_SHIFT = 5;
-
 	public const int32 DDSCAPS3_RESERVED1 = 256;
-
 	public const int32 DDSCAPS3_RESERVED2 = 512;
-
 	public const int32 DDSCAPS3_LIGHTWEIGHTMIPMAP = 1024;
-
 	public const int32 DDSCAPS3_AUTOGENMIPMAP = 2048;
-
 	public const int32 DDSCAPS3_DMAP = 4096;
-
 	public const int32 DDSCAPS3_CREATESHAREDRESOURCE = 8192;
-
 	public const int32 DDSCAPS3_READONLYRESOURCE = 16384;
-
 	public const int32 DDSCAPS3_OPENSHAREDRESOURCE = 32768;
-
 	public const int32 DDCAPS_3D = 1;
-
 	public const int32 DDCAPS_ALIGNBOUNDARYDEST = 2;
-
 	public const int32 DDCAPS_ALIGNSIZEDEST = 4;
-
 	public const int32 DDCAPS_ALIGNBOUNDARYSRC = 8;
-
 	public const int32 DDCAPS_ALIGNSIZESRC = 16;
-
 	public const int32 DDCAPS_ALIGNSTRIDE = 32;
-
 	public const int32 DDCAPS_BLT = 64;
-
 	public const int32 DDCAPS_BLTQUEUE = 128;
-
 	public const int32 DDCAPS_BLTFOURCC = 256;
-
 	public const int32 DDCAPS_BLTSTRETCH = 512;
-
 	public const int32 DDCAPS_GDI = 1024;
-
 	public const int32 DDCAPS_OVERLAY = 2048;
-
 	public const int32 DDCAPS_OVERLAYCANTCLIP = 4096;
-
 	public const int32 DDCAPS_OVERLAYFOURCC = 8192;
-
 	public const int32 DDCAPS_OVERLAYSTRETCH = 16384;
-
 	public const int32 DDCAPS_PALETTE = 32768;
-
 	public const int32 DDCAPS_PALETTEVSYNC = 65536;
-
 	public const int32 DDCAPS_READSCANLINE = 131072;
-
 	public const int32 DDCAPS_RESERVED1 = 262144;
-
 	public const int32 DDCAPS_VBI = 524288;
-
 	public const int32 DDCAPS_ZBLTS = 1048576;
-
 	public const int32 DDCAPS_ZOVERLAYS = 2097152;
-
 	public const int32 DDCAPS_COLORKEY = 4194304;
-
 	public const int32 DDCAPS_ALPHA = 8388608;
-
 	public const int32 DDCAPS_COLORKEYHWASSIST = 16777216;
-
 	public const int32 DDCAPS_NOHARDWARE = 33554432;
-
 	public const int32 DDCAPS_BLTCOLORFILL = 67108864;
-
 	public const int32 DDCAPS_BANKSWITCHED = 134217728;
-
 	public const int32 DDCAPS_BLTDEPTHFILL = 268435456;
-
 	public const int32 DDCAPS_CANCLIP = 536870912;
-
 	public const int32 DDCAPS_CANCLIPSTRETCHED = 1073741824;
-
 	public const int32 DDCAPS_CANBLTSYSMEM = -2147483648;
-
 	public const int32 DDCAPS2_CERTIFIED = 1;
-
 	public const int32 DDCAPS2_NO2DDURING3DSCENE = 2;
-
 	public const int32 DDCAPS2_VIDEOPORT = 4;
-
 	public const int32 DDCAPS2_AUTOFLIPOVERLAY = 8;
-
 	public const int32 DDCAPS2_CANBOBINTERLEAVED = 16;
-
 	public const int32 DDCAPS2_CANBOBNONINTERLEAVED = 32;
-
 	public const int32 DDCAPS2_COLORCONTROLOVERLAY = 64;
-
 	public const int32 DDCAPS2_COLORCONTROLPRIMARY = 128;
-
 	public const int32 DDCAPS2_CANDROPZ16BIT = 256;
-
 	public const int32 DDCAPS2_NONLOCALVIDMEM = 512;
-
 	public const int32 DDCAPS2_NONLOCALVIDMEMCAPS = 1024;
-
 	public const int32 DDCAPS2_NOPAGELOCKREQUIRED = 2048;
-
 	public const int32 DDCAPS2_WIDESURFACES = 4096;
-
 	public const int32 DDCAPS2_CANFLIPODDEVEN = 8192;
-
 	public const int32 DDCAPS2_CANBOBHARDWARE = 16384;
-
 	public const int32 DDCAPS2_COPYFOURCC = 32768;
-
 	public const int32 DDCAPS2_PRIMARYGAMMA = 131072;
-
 	public const int32 DDCAPS2_CANRENDERWINDOWED = 524288;
-
 	public const int32 DDCAPS2_CANCALIBRATEGAMMA = 1048576;
-
 	public const int32 DDCAPS2_FLIPINTERVAL = 2097152;
-
 	public const int32 DDCAPS2_FLIPNOVSYNC = 4194304;
-
 	public const int32 DDCAPS2_CANMANAGETEXTURE = 8388608;
-
 	public const int32 DDCAPS2_TEXMANINNONLOCALVIDMEM = 16777216;
-
 	public const int32 DDCAPS2_STEREO = 33554432;
-
 	public const int32 DDCAPS2_SYSTONONLOCAL_AS_SYSTOLOCAL = 67108864;
-
 	public const int32 DDCAPS2_RESERVED1 = 134217728;
-
 	public const int32 DDCAPS2_CANMANAGERESOURCE = 268435456;
-
 	public const int32 DDCAPS2_DYNAMICTEXTURES = 536870912;
-
 	public const int32 DDCAPS2_CANAUTOGENMIPMAP = 1073741824;
-
 	public const int32 DDCAPS2_CANSHARERESOURCE = -2147483648;
-
 	public const int32 DDFXALPHACAPS_BLTALPHAEDGEBLEND = 1;
-
 	public const int32 DDFXALPHACAPS_BLTALPHAPIXELS = 2;
-
 	public const int32 DDFXALPHACAPS_BLTALPHAPIXELSNEG = 4;
-
 	public const int32 DDFXALPHACAPS_BLTALPHASURFACES = 8;
-
 	public const int32 DDFXALPHACAPS_BLTALPHASURFACESNEG = 16;
-
 	public const int32 DDFXALPHACAPS_OVERLAYALPHAEDGEBLEND = 32;
-
 	public const int32 DDFXALPHACAPS_OVERLAYALPHAPIXELS = 64;
-
 	public const int32 DDFXALPHACAPS_OVERLAYALPHAPIXELSNEG = 128;
-
 	public const int32 DDFXALPHACAPS_OVERLAYALPHASURFACES = 256;
-
 	public const int32 DDFXALPHACAPS_OVERLAYALPHASURFACESNEG = 512;
-
 	public const int32 DDFXCAPS_BLTARITHSTRETCHY = 32;
-
 	public const int32 DDFXCAPS_BLTARITHSTRETCHYN = 16;
-
 	public const int32 DDFXCAPS_BLTMIRRORLEFTRIGHT = 64;
-
 	public const int32 DDFXCAPS_BLTMIRRORUPDOWN = 128;
-
 	public const int32 DDFXCAPS_BLTROTATION = 256;
-
 	public const int32 DDFXCAPS_BLTROTATION90 = 512;
-
 	public const int32 DDFXCAPS_BLTSHRINKX = 1024;
-
 	public const int32 DDFXCAPS_BLTSHRINKXN = 2048;
-
 	public const int32 DDFXCAPS_BLTSHRINKY = 4096;
-
 	public const int32 DDFXCAPS_BLTSHRINKYN = 8192;
-
 	public const int32 DDFXCAPS_BLTSTRETCHX = 16384;
-
 	public const int32 DDFXCAPS_BLTSTRETCHXN = 32768;
-
 	public const int32 DDFXCAPS_BLTSTRETCHY = 65536;
-
 	public const int32 DDFXCAPS_BLTSTRETCHYN = 131072;
-
 	public const int32 DDFXCAPS_OVERLAYARITHSTRETCHY = 262144;
-
 	public const int32 DDFXCAPS_OVERLAYARITHSTRETCHYN = 8;
-
 	public const int32 DDFXCAPS_OVERLAYSHRINKX = 524288;
-
 	public const int32 DDFXCAPS_OVERLAYSHRINKXN = 1048576;
-
 	public const int32 DDFXCAPS_OVERLAYSHRINKY = 2097152;
-
 	public const int32 DDFXCAPS_OVERLAYSHRINKYN = 4194304;
-
 	public const int32 DDFXCAPS_OVERLAYSTRETCHX = 8388608;
-
 	public const int32 DDFXCAPS_OVERLAYSTRETCHXN = 16777216;
-
 	public const int32 DDFXCAPS_OVERLAYSTRETCHY = 33554432;
-
 	public const int32 DDFXCAPS_OVERLAYSTRETCHYN = 67108864;
-
 	public const int32 DDFXCAPS_OVERLAYMIRRORLEFTRIGHT = 134217728;
-
 	public const int32 DDFXCAPS_OVERLAYMIRRORUPDOWN = 268435456;
-
 	public const int32 DDFXCAPS_OVERLAYDEINTERLACE = 536870912;
-
 	public const int32 DDFXCAPS_BLTALPHA = 1;
-
 	public const int32 DDFXCAPS_BLTFILTER = 32;
-
 	public const int32 DDFXCAPS_OVERLAYALPHA = 4;
-
 	public const int32 DDFXCAPS_OVERLAYFILTER = 262144;
-
 	public const int32 DDSVCAPS_RESERVED1 = 1;
-
 	public const int32 DDSVCAPS_RESERVED2 = 2;
-
 	public const int32 DDSVCAPS_RESERVED3 = 4;
-
 	public const int32 DDSVCAPS_RESERVED4 = 8;
-
 	public const int32 DDSVCAPS_STEREOSEQUENTIAL = 16;
-
 	public const int32 DDPCAPS_4BIT = 1;
-
 	public const int32 DDPCAPS_8BITENTRIES = 2;
-
 	public const int32 DDPCAPS_8BIT = 4;
-
 	public const int32 DDPCAPS_INITIALIZE = 0;
-
 	public const int32 DDPCAPS_PRIMARYSURFACE = 16;
-
 	public const int32 DDPCAPS_PRIMARYSURFACELEFT = 32;
-
 	public const int32 DDPCAPS_ALLOW256 = 64;
-
 	public const int32 DDPCAPS_VSYNC = 128;
-
 	public const int32 DDPCAPS_1BIT = 256;
-
 	public const int32 DDPCAPS_2BIT = 512;
-
 	public const int32 DDPCAPS_ALPHA = 1024;
-
 	public const int32 DDSPD_IUNKNOWNPOINTER = 1;
-
 	public const int32 DDSPD_VOLATILE = 2;
-
 	public const int32 DDBD_1 = 16384;
-
 	public const int32 DDBD_2 = 8192;
-
 	public const int32 DDBD_4 = 4096;
-
 	public const int32 DDBD_8 = 2048;
-
 	public const int32 DDBD_16 = 1024;
-
 	public const int32 DDBD_24 = 512;
-
 	public const int32 DDBD_32 = 256;
-
 	public const int32 DDCKEY_COLORSPACE = 1;
-
 	public const int32 DDCKEY_DESTBLT = 2;
-
 	public const int32 DDCKEY_DESTOVERLAY = 4;
-
 	public const int32 DDCKEY_SRCBLT = 8;
-
 	public const int32 DDCKEY_SRCOVERLAY = 16;
-
 	public const int32 DDCKEYCAPS_DESTBLT = 1;
-
 	public const int32 DDCKEYCAPS_DESTBLTCLRSPACE = 2;
-
 	public const int32 DDCKEYCAPS_DESTBLTCLRSPACEYUV = 4;
-
 	public const int32 DDCKEYCAPS_DESTBLTYUV = 8;
-
 	public const int32 DDCKEYCAPS_DESTOVERLAY = 16;
-
 	public const int32 DDCKEYCAPS_DESTOVERLAYCLRSPACE = 32;
-
 	public const int32 DDCKEYCAPS_DESTOVERLAYCLRSPACEYUV = 64;
-
 	public const int32 DDCKEYCAPS_DESTOVERLAYONEACTIVE = 128;
-
 	public const int32 DDCKEYCAPS_DESTOVERLAYYUV = 256;
-
 	public const int32 DDCKEYCAPS_SRCBLT = 512;
-
 	public const int32 DDCKEYCAPS_SRCBLTCLRSPACE = 1024;
-
 	public const int32 DDCKEYCAPS_SRCBLTCLRSPACEYUV = 2048;
-
 	public const int32 DDCKEYCAPS_SRCBLTYUV = 4096;
-
 	public const int32 DDCKEYCAPS_SRCOVERLAY = 8192;
-
 	public const int32 DDCKEYCAPS_SRCOVERLAYCLRSPACE = 16384;
-
 	public const int32 DDCKEYCAPS_SRCOVERLAYCLRSPACEYUV = 32768;
-
 	public const int32 DDCKEYCAPS_SRCOVERLAYONEACTIVE = 65536;
-
 	public const int32 DDCKEYCAPS_SRCOVERLAYYUV = 131072;
-
 	public const int32 DDCKEYCAPS_NOCOSTOVERLAY = 262144;
-
 	public const int32 DDPF_ALPHAPIXELS = 1;
-
 	public const int32 DDPF_ALPHA = 2;
-
 	public const int32 DDPF_FOURCC = 4;
-
 	public const int32 DDPF_PALETTEINDEXED4 = 8;
-
 	public const int32 DDPF_PALETTEINDEXEDTO8 = 16;
-
 	public const int32 DDPF_PALETTEINDEXED8 = 32;
-
 	public const int32 DDPF_RGB = 64;
-
 	public const int32 DDPF_COMPRESSED = 128;
-
 	public const int32 DDPF_RGBTOYUV = 256;
-
 	public const int32 DDPF_YUV = 512;
-
 	public const int32 DDPF_ZBUFFER = 1024;
-
 	public const int32 DDPF_PALETTEINDEXED1 = 2048;
-
 	public const int32 DDPF_PALETTEINDEXED2 = 4096;
-
 	public const int32 DDPF_ZPIXELS = 8192;
-
 	public const int32 DDPF_STENCILBUFFER = 16384;
-
 	public const int32 DDPF_ALPHAPREMULT = 32768;
-
 	public const int32 DDPF_LUMINANCE = 131072;
-
 	public const int32 DDPF_BUMPLUMINANCE = 262144;
-
 	public const int32 DDPF_BUMPDUDV = 524288;
-
 	public const int32 DDENUMSURFACES_ALL = 1;
-
 	public const int32 DDENUMSURFACES_MATCH = 2;
-
 	public const int32 DDENUMSURFACES_NOMATCH = 4;
-
 	public const int32 DDENUMSURFACES_CANBECREATED = 8;
-
 	public const int32 DDENUMSURFACES_DOESEXIST = 16;
-
 	public const int32 DDSDM_STANDARDVGAMODE = 1;
-
 	public const int32 DDEDM_REFRESHRATES = 1;
-
 	public const int32 DDEDM_STANDARDVGAMODES = 2;
-
 	public const int32 DDSCL_FULLSCREEN = 1;
-
 	public const int32 DDSCL_ALLOWREBOOT = 2;
-
 	public const int32 DDSCL_NOWINDOWCHANGES = 4;
-
 	public const int32 DDSCL_NORMAL = 8;
-
 	public const int32 DDSCL_EXCLUSIVE = 16;
-
 	public const int32 DDSCL_ALLOWMODEX = 64;
-
 	public const int32 DDSCL_SETFOCUSWINDOW = 128;
-
 	public const int32 DDSCL_SETDEVICEWINDOW = 256;
-
 	public const int32 DDSCL_CREATEDEVICEWINDOW = 512;
-
 	public const int32 DDSCL_MULTITHREADED = 1024;
-
 	public const int32 DDSCL_FPUSETUP = 2048;
-
 	public const int32 DDSCL_FPUPRESERVE = 4096;
-
 	public const int32 DDBLT_ALPHADEST = 1;
-
 	public const int32 DDBLT_ALPHADESTCONSTOVERRIDE = 2;
-
 	public const int32 DDBLT_ALPHADESTNEG = 4;
-
 	public const int32 DDBLT_ALPHADESTSURFACEOVERRIDE = 8;
-
 	public const int32 DDBLT_ALPHAEDGEBLEND = 16;
-
 	public const int32 DDBLT_ALPHASRC = 32;
-
 	public const int32 DDBLT_ALPHASRCCONSTOVERRIDE = 64;
-
 	public const int32 DDBLT_ALPHASRCNEG = 128;
-
 	public const int32 DDBLT_ALPHASRCSURFACEOVERRIDE = 256;
-
 	public const int32 DDBLT_ASYNC = 512;
-
 	public const int32 DDBLT_COLORFILL = 1024;
-
 	public const int32 DDBLT_DDFX = 2048;
-
 	public const int32 DDBLT_DDROPS = 4096;
-
 	public const int32 DDBLT_KEYDEST = 8192;
-
 	public const int32 DDBLT_KEYDESTOVERRIDE = 16384;
-
 	public const int32 DDBLT_KEYSRC = 32768;
-
 	public const int32 DDBLT_KEYSRCOVERRIDE = 65536;
-
 	public const int32 DDBLT_ROP = 131072;
-
 	public const int32 DDBLT_ROTATIONANGLE = 262144;
-
 	public const int32 DDBLT_ZBUFFER = 524288;
-
 	public const int32 DDBLT_ZBUFFERDESTCONSTOVERRIDE = 1048576;
-
 	public const int32 DDBLT_ZBUFFERDESTOVERRIDE = 2097152;
-
 	public const int32 DDBLT_ZBUFFERSRCCONSTOVERRIDE = 4194304;
-
 	public const int32 DDBLT_ZBUFFERSRCOVERRIDE = 8388608;
-
 	public const int32 DDBLT_WAIT = 16777216;
-
 	public const int32 DDBLT_DEPTHFILL = 33554432;
-
 	public const int32 DDBLT_DONOTWAIT = 134217728;
-
 	public const int32 DDBLT_PRESENTATION = 268435456;
-
 	public const int32 DDBLT_LAST_PRESENTATION = 536870912;
-
 	public const int32 DDBLT_EXTENDED_FLAGS = 1073741824;
-
 	public const int32 DDBLT_EXTENDED_LINEAR_CONTENT = 4;
-
 	public const uint32 DDBLTFAST_NOCOLORKEY = 0;
-
 	public const uint32 DDBLTFAST_SRCCOLORKEY = 1;
-
 	public const uint32 DDBLTFAST_DESTCOLORKEY = 2;
-
 	public const uint32 DDBLTFAST_WAIT = 16;
-
 	public const uint32 DDBLTFAST_DONOTWAIT = 32;
-
 	public const int32 DDFLIP_WAIT = 1;
-
 	public const int32 DDFLIP_EVEN = 2;
-
 	public const int32 DDFLIP_ODD = 4;
-
 	public const int32 DDFLIP_NOVSYNC = 8;
-
 	public const int32 DDFLIP_INTERVAL2 = 33554432;
-
 	public const int32 DDFLIP_INTERVAL3 = 50331648;
-
 	public const int32 DDFLIP_INTERVAL4 = 67108864;
-
 	public const int32 DDFLIP_STEREO = 16;
-
 	public const int32 DDFLIP_DONOTWAIT = 32;
-
 	public const int32 DDOVER_ALPHADEST = 1;
-
 	public const int32 DDOVER_ALPHADESTCONSTOVERRIDE = 2;
-
 	public const int32 DDOVER_ALPHADESTNEG = 4;
-
 	public const int32 DDOVER_ALPHADESTSURFACEOVERRIDE = 8;
-
 	public const int32 DDOVER_ALPHAEDGEBLEND = 16;
-
 	public const int32 DDOVER_ALPHASRC = 32;
-
 	public const int32 DDOVER_ALPHASRCCONSTOVERRIDE = 64;
-
 	public const int32 DDOVER_ALPHASRCNEG = 128;
-
 	public const int32 DDOVER_ALPHASRCSURFACEOVERRIDE = 256;
-
 	public const int32 DDOVER_HIDE = 512;
-
 	public const int32 DDOVER_KEYDEST = 1024;
-
 	public const int32 DDOVER_KEYDESTOVERRIDE = 2048;
-
 	public const int32 DDOVER_KEYSRC = 4096;
-
 	public const int32 DDOVER_KEYSRCOVERRIDE = 8192;
-
 	public const int32 DDOVER_SHOW = 16384;
-
 	public const int32 DDOVER_ADDDIRTYRECT = 32768;
-
 	public const int32 DDOVER_REFRESHDIRTYRECTS = 65536;
-
 	public const int32 DDOVER_REFRESHALL = 131072;
-
 	public const int32 DDOVER_DDFX = 524288;
-
 	public const int32 DDOVER_AUTOFLIP = 1048576;
-
 	public const int32 DDOVER_BOB = 2097152;
-
 	public const int32 DDOVER_OVERRIDEBOBWEAVE = 4194304;
-
 	public const int32 DDOVER_INTERLEAVED = 8388608;
-
 	public const int32 DDOVER_BOBHARDWARE = 16777216;
-
 	public const int32 DDOVER_ARGBSCALEFACTORS = 33554432;
-
 	public const int32 DDOVER_DEGRADEARGBSCALING = 67108864;
-
 	public const int32 DDSETSURFACEDESC_RECREATEDC = 0;
-
 	public const int32 DDSETSURFACEDESC_PRESERVEDC = 1;
-
 	public const int32 DDLOCK_SURFACEMEMORYPTR = 0;
-
 	public const int32 DDLOCK_WAIT = 1;
-
 	public const int32 DDLOCK_EVENT = 2;
-
 	public const int32 DDLOCK_READONLY = 16;
-
 	public const int32 DDLOCK_WRITEONLY = 32;
-
 	public const int32 DDLOCK_NOSYSLOCK = 2048;
-
 	public const int32 DDLOCK_NOOVERWRITE = 4096;
-
 	public const int32 DDLOCK_DISCARDCONTENTS = 8192;
-
 	public const int32 DDLOCK_OKTOSWAP = 8192;
-
 	public const int32 DDLOCK_DONOTWAIT = 16384;
-
 	public const int32 DDLOCK_HASVOLUMETEXTUREBOXRECT = 32768;
-
 	public const int32 DDLOCK_NODIRTYUPDATE = 65536;
-
 	public const int32 DDBLTFX_ARITHSTRETCHY = 1;
-
 	public const int32 DDBLTFX_MIRRORLEFTRIGHT = 2;
-
 	public const int32 DDBLTFX_MIRRORUPDOWN = 4;
-
 	public const int32 DDBLTFX_NOTEARING = 8;
-
 	public const int32 DDBLTFX_ROTATE180 = 16;
-
 	public const int32 DDBLTFX_ROTATE270 = 32;
-
 	public const int32 DDBLTFX_ROTATE90 = 64;
-
 	public const int32 DDBLTFX_ZBUFFERRANGE = 128;
-
 	public const int32 DDBLTFX_ZBUFFERBASEDEST = 256;
-
 	public const int32 DDOVERFX_ARITHSTRETCHY = 1;
-
 	public const int32 DDOVERFX_MIRRORLEFTRIGHT = 2;
-
 	public const int32 DDOVERFX_MIRRORUPDOWN = 4;
-
 	public const int32 DDOVERFX_DEINTERLACE = 8;
-
 	public const int32 DDWAITVB_BLOCKBEGIN = 1;
-
 	public const int32 DDWAITVB_BLOCKBEGINEVENT = 2;
-
 	public const int32 DDWAITVB_BLOCKEND = 4;
-
 	public const int32 DDGFS_CANFLIP = 1;
-
 	public const int32 DDGFS_ISFLIPDONE = 2;
-
 	public const int32 DDGBS_CANBLT = 1;
-
 	public const int32 DDGBS_ISBLTDONE = 2;
-
 	public const int32 DDENUMOVERLAYZ_BACKTOFRONT = 0;
-
 	public const int32 DDENUMOVERLAYZ_FRONTTOBACK = 1;
-
 	public const int32 DDOVERZ_SENDTOFRONT = 0;
-
 	public const int32 DDOVERZ_SENDTOBACK = 1;
-
 	public const int32 DDOVERZ_MOVEFORWARD = 2;
-
 	public const int32 DDOVERZ_MOVEBACKWARD = 3;
-
 	public const int32 DDOVERZ_INSERTINFRONTOF = 4;
-
 	public const int32 DDOVERZ_INSERTINBACKOF = 5;
-
 	public const int32 DDSGR_CALIBRATE = 1;
-
 	public const int32 DDSMT_ISTESTREQUIRED = 1;
-
 	public const int32 DDEM_MODEPASSED = 1;
-
 	public const int32 DDEM_MODEFAILED = 2;
-
 	public const uint32 DDENUMRET_CANCEL = 0;
-
 	public const uint32 DDENUMRET_OK = 1;
-
 	public const int32 DDERR_NOTINITIALIZED = -2147221008;
-
 	public const int32 OBJECT_ISROOT = -2147483648;
-
 	public const uint32 DDUNSUPPORTEDMODE = 4294967295;
-
 	public const Guid GUID_MiscellaneousCallbacks = .(0xefd60cc0, 0x49e7, 0x11d0, 0x88, 0x9d, 0x00, 0xaa, 0x00, 0xbb, 0xb7, 0x6a);
-
 	public const Guid GUID_VideoPortCallbacks = .(0xefd60cc1, 0x49e7, 0x11d0, 0x88, 0x9d, 0x00, 0xaa, 0x00, 0xbb, 0xb7, 0x6a);
-
 	public const Guid GUID_ColorControlCallbacks = .(0xefd60cc2, 0x49e7, 0x11d0, 0x88, 0x9d, 0x00, 0xaa, 0x00, 0xbb, 0xb7, 0x6a);
-
 	public const Guid GUID_VideoPortCaps = .(0xefd60cc3, 0x49e7, 0x11d0, 0x88, 0x9d, 0x00, 0xaa, 0x00, 0xbb, 0xb7, 0x6a);
-
 	public const Guid GUID_D3DCallbacks2 = .(0x0ba584e1, 0x70b6, 0x11d0, 0x88, 0x9d, 0x00, 0xaa, 0x00, 0xbb, 0xb7, 0x6a);
-
 	public const Guid GUID_D3DCallbacks3 = .(0xddf41230, 0xec0a, 0x11d0, 0xa9, 0xb6, 0x00, 0xaa, 0x00, 0xc0, 0x99, 0x3e);
-
 	public const Guid GUID_NonLocalVidMemCaps = .(0x86c4fa80, 0x8d84, 0x11d0, 0x94, 0xe8, 0x00, 0xc0, 0x4f, 0xc3, 0x41, 0x37);
-
 	public const Guid GUID_KernelCallbacks = .(0x80863800, 0x6b06, 0x11d0, 0x9b, 0x06, 0x00, 0xa0, 0xc9, 0x03, 0xa3, 0xb8);
-
 	public const Guid GUID_KernelCaps = .(0xffaa7540, 0x7aa8, 0x11d0, 0x9b, 0x06, 0x00, 0xa0, 0xc9, 0x03, 0xa3, 0xb8);
-
 	public const Guid GUID_D3DExtendedCaps = .(0x7de41f80, 0x9d93, 0x11d0, 0x89, 0xab, 0x00, 0xa0, 0xc9, 0x05, 0x41, 0x29);
-
 	public const Guid GUID_ZPixelFormats = .(0x93869880, 0x36cf, 0x11d1, 0x9b, 0x1b, 0x00, 0xaa, 0x00, 0xbb, 0xb8, 0xae);
-
 	public const Guid GUID_DDMoreSurfaceCaps = .(0x3b8a0466, 0xf269, 0x11d1, 0x88, 0x0b, 0x00, 0xc0, 0x4f, 0xd9, 0x30, 0xc5);
-
 	public const Guid GUID_DDStereoMode = .(0xf828169c, 0xa8e8, 0x11d2, 0xa1, 0xf2, 0x00, 0xa0, 0xc9, 0x83, 0xea, 0xf6);
-
 	public const Guid GUID_OptSurfaceKmodeInfo = .(0xe05c8472, 0x51d4, 0x11d1, 0x8c, 0xce, 0x00, 0xa0, 0xc9, 0x06, 0x29, 0xa8);
-
 	public const Guid GUID_OptSurfaceUmodeInfo = .(0x9d792804, 0x5fa8, 0x11d1, 0x8c, 0xd0, 0x00, 0xa0, 0xc9, 0x06, 0x29, 0xa8);
-
 	public const Guid GUID_UserModeDriverInfo = .(0xf0b0e8e2, 0x5f97, 0x11d1, 0x8c, 0xd0, 0x00, 0xa0, 0xc9, 0x06, 0x29, 0xa8);
-
 	public const Guid GUID_UserModeDriverPassword = .(0x97f861b6, 0x60a1, 0x11d1, 0x8c, 0xd0, 0x00, 0xa0, 0xc9, 0x06, 0x29, 0xa8);
-
 	public const Guid GUID_D3DParseUnknownCommandCallback = .(0x2e04ffa0, 0x98e4, 0x11d1, 0x8c, 0xe1, 0x00, 0xa0, 0xc9, 0x06, 0x29, 0xa8);
-
 	public const Guid GUID_MotionCompCallbacks = .(0xb1122b40, 0x5da5, 0x11d1, 0x8f, 0xcf, 0x00, 0xc0, 0x4f, 0xc2, 0x9b, 0x4e);
-
 	public const Guid GUID_Miscellaneous2Callbacks = .(0x406b2f00, 0x3e5a, 0x11d1, 0xb6, 0x40, 0x00, 0xaa, 0x00, 0xa1, 0xf9, 0x6a);
-
 	public const int32 DDPF_NOVEL_TEXTURE_FORMAT = 1048576;
-
 	public const int32 DDPF_D3DFORMAT = 2097152;
-
 	public const int32 D3DFORMAT_OP_TEXTURE = 1;
-
 	public const int32 D3DFORMAT_OP_VOLUMETEXTURE = 2;
-
 	public const int32 D3DFORMAT_OP_CUBETEXTURE = 4;
-
 	public const int32 D3DFORMAT_OP_OFFSCREEN_RENDERTARGET = 8;
-
 	public const int32 D3DFORMAT_OP_SAME_FORMAT_RENDERTARGET = 16;
-
 	public const int32 D3DFORMAT_OP_ZSTENCIL = 64;
-
 	public const int32 D3DFORMAT_OP_ZSTENCIL_WITH_ARBITRARY_COLOR_DEPTH = 128;
-
 	public const int32 D3DFORMAT_OP_SAME_FORMAT_UP_TO_ALPHA_RENDERTARGET = 256;
-
 	public const int32 D3DFORMAT_OP_DISPLAYMODE = 1024;
-
 	public const int32 D3DFORMAT_OP_3DACCELERATION = 2048;
-
 	public const int32 D3DFORMAT_OP_PIXELSIZE = 4096;
-
 	public const int32 D3DFORMAT_OP_CONVERT_TO_ARGB = 8192;
-
 	public const int32 D3DFORMAT_OP_OFFSCREENPLAIN = 16384;
-
 	public const int32 D3DFORMAT_OP_SRGBREAD = 32768;
-
 	public const int32 D3DFORMAT_OP_BUMPMAP = 65536;
-
 	public const int32 D3DFORMAT_OP_DMAP = 131072;
-
 	public const int32 D3DFORMAT_OP_NOFILTER = 262144;
-
 	public const int32 D3DFORMAT_MEMBEROFGROUP_ARGB = 524288;
-
 	public const int32 D3DFORMAT_OP_SRGBWRITE = 1048576;
-
 	public const int32 D3DFORMAT_OP_NOALPHABLEND = 2097152;
-
 	public const int32 D3DFORMAT_OP_AUTOGENMIPMAP = 4194304;
-
 	public const int32 D3DFORMAT_OP_VERTEXTEXTURE = 8388608;
-
 	public const int32 D3DFORMAT_OP_NOTEXCOORDWRAPNORMIP = 16777216;
-
 	public const uint32 DELETED_OK = 0;
-
 	public const uint32 DELETED_LASTONE = 1;
-
 	public const uint32 DELETED_NOTFOUND = 2;
-
 	public const uint32 DCICOMMAND = 3075;
-
 	public const int32 DD_VERSION = 512;
-
 	public const int32 DD_RUNTIME_VERSION = 2306;
-
 	public const uint32 DD_HAL_VERSION = 256;
-
 	public const uint32 DDCREATEDRIVEROBJECT = 10;
-
 	public const uint32 DDGET32BITDRIVERNAME = 11;
-
 	public const uint32 DDNEWCALLBACKFNS = 12;
-
 	public const uint32 DDVERSIONINFO = 13;
-
 	public const uint32 CCHDEVICENAME = 32;
-
 	public const uint32 MAX_DRIVER_NAME = 32;
-
 	public const uint32 MAX_PALETTE_SIZE = 256;
-
 	public const uint32 MAX_AUTOFLIP_BUFFERS = 10;
-
 	public const int32 DDSCAPS_EXECUTEBUFFER = 8388608;
-
 	public const int32 DDSCAPS2_VERTEXBUFFER = 32;
-
 	public const int32 DDSCAPS2_COMMANDBUFFER = 64;
-
 	public const int32 DDSCAPS2_INDEXBUFFER = 67108864;
-
 	public const int32 DDSCAPS3_VIDEO = 512;
-
 	public const uint32 D3DFMT_INTERNAL_D32 = 71;
-
 	public const uint32 D3DFMT_INTERNAL_S1D15 = 72;
-
 	public const uint32 D3DFMT_INTERNAL_D15S1 = 73;
-
 	public const uint32 D3DFMT_INTERNAL_S8D24 = 74;
-
 	public const uint32 D3DFMT_INTERNAL_D24S8 = 75;
-
 	public const uint32 D3DFMT_INTERNAL_X8D24 = 76;
-
 	public const uint32 D3DFMT_INTERNAL_D24X8 = 77;
-
 	public const int32 DDHAL_PLEASEALLOC_BLOCKSIZE = 2;
-
 	public const int32 DDHAL_PLEASEALLOC_LINEARSIZE = 3;
-
 	public const int32 VIDMEM_ISLINEAR = 1;
-
 	public const int32 VIDMEM_ISRECTANGULAR = 2;
-
 	public const int32 VIDMEM_ISHEAP = 4;
-
 	public const int32 VIDMEM_ISNONLOCAL = 8;
-
 	public const int32 VIDMEM_ISWC = 16;
-
 	public const int32 VIDMEM_HEAPDISABLED = 32;
-
 	public const int32 HEAPALIASINFO_MAPPEDREAL = 1;
-
 	public const int32 HEAPALIASINFO_MAPPEDDUMMY = 2;
-
 	public const int32 DDHAL_CB32_DESTROYDRIVER = 1;
-
 	public const int32 DDHAL_CB32_CREATESURFACE = 2;
-
 	public const int32 DDHAL_CB32_SETCOLORKEY = 4;
-
 	public const int32 DDHAL_CB32_SETMODE = 8;
-
 	public const int32 DDHAL_CB32_WAITFORVERTICALBLANK = 16;
-
 	public const int32 DDHAL_CB32_CANCREATESURFACE = 32;
-
 	public const int32 DDHAL_CB32_CREATEPALETTE = 64;
-
 	public const int32 DDHAL_CB32_GETSCANLINE = 128;
-
 	public const int32 DDHAL_CB32_SETEXCLUSIVEMODE = 256;
-
 	public const int32 DDHAL_CB32_FLIPTOGDISURFACE = 512;
-
 	public const int32 DDHAL_PALCB32_DESTROYPALETTE = 1;
-
 	public const int32 DDHAL_PALCB32_SETENTRIES = 2;
-
 	public const int32 DDHAL_SURFCB32_DESTROYSURFACE = 1;
-
 	public const int32 DDHAL_SURFCB32_FLIP = 2;
-
 	public const int32 DDHAL_SURFCB32_SETCLIPLIST = 4;
-
 	public const int32 DDHAL_SURFCB32_LOCK = 8;
-
 	public const int32 DDHAL_SURFCB32_UNLOCK = 16;
-
 	public const int32 DDHAL_SURFCB32_BLT = 32;
-
 	public const int32 DDHAL_SURFCB32_SETCOLORKEY = 64;
-
 	public const int32 DDHAL_SURFCB32_ADDATTACHEDSURFACE = 128;
-
 	public const int32 DDHAL_SURFCB32_GETBLTSTATUS = 256;
-
 	public const int32 DDHAL_SURFCB32_GETFLIPSTATUS = 512;
-
 	public const int32 DDHAL_SURFCB32_UPDATEOVERLAY = 1024;
-
 	public const int32 DDHAL_SURFCB32_SETOVERLAYPOSITION = 2048;
-
 	public const int32 DDHAL_SURFCB32_RESERVED4 = 4096;
-
 	public const int32 DDHAL_SURFCB32_SETPALETTE = 8192;
-
 	public const int32 DDHAL_MISCCB32_GETAVAILDRIVERMEMORY = 1;
-
 	public const int32 DDHAL_MISCCB32_UPDATENONLOCALHEAP = 2;
-
 	public const int32 DDHAL_MISCCB32_GETHEAPALIGNMENT = 4;
-
 	public const int32 DDHAL_MISCCB32_GETSYSMEMBLTSTATUS = 8;
-
 	public const int32 DDHAL_MISC2CB32_CREATESURFACEEX = 2;
-
 	public const int32 DDHAL_MISC2CB32_GETDRIVERSTATE = 4;
-
 	public const int32 DDHAL_MISC2CB32_DESTROYDDLOCAL = 8;
-
 	public const int32 DDHAL_EXEBUFCB32_CANCREATEEXEBUF = 1;
-
 	public const int32 DDHAL_EXEBUFCB32_CREATEEXEBUF = 2;
-
 	public const int32 DDHAL_EXEBUFCB32_DESTROYEXEBUF = 4;
-
 	public const int32 DDHAL_EXEBUFCB32_LOCKEXEBUF = 8;
-
 	public const int32 DDHAL_EXEBUFCB32_UNLOCKEXEBUF = 16;
-
 	public const int32 DDHAL_VPORT32_CANCREATEVIDEOPORT = 1;
-
 	public const int32 DDHAL_VPORT32_CREATEVIDEOPORT = 2;
-
 	public const int32 DDHAL_VPORT32_FLIP = 4;
-
 	public const int32 DDHAL_VPORT32_GETBANDWIDTH = 8;
-
 	public const int32 DDHAL_VPORT32_GETINPUTFORMATS = 16;
-
 	public const int32 DDHAL_VPORT32_GETOUTPUTFORMATS = 32;
-
 	public const int32 DDHAL_VPORT32_GETFIELD = 128;
-
 	public const int32 DDHAL_VPORT32_GETLINE = 256;
-
 	public const int32 DDHAL_VPORT32_GETCONNECT = 512;
-
 	public const int32 DDHAL_VPORT32_DESTROY = 1024;
-
 	public const int32 DDHAL_VPORT32_GETFLIPSTATUS = 2048;
-
 	public const int32 DDHAL_VPORT32_UPDATE = 4096;
-
 	public const int32 DDHAL_VPORT32_WAITFORSYNC = 8192;
-
 	public const int32 DDHAL_VPORT32_GETSIGNALSTATUS = 16384;
-
 	public const int32 DDHAL_VPORT32_COLORCONTROL = 32768;
-
 	public const int32 DDHAL_COLOR_COLORCONTROL = 1;
-
 	public const int32 DDHAL_KERNEL_SYNCSURFACEDATA = 1;
-
 	public const int32 DDHAL_KERNEL_SYNCVIDEOPORTDATA = 2;
-
 	public const uint32 DDHAL_MOCOMP32_GETGUIDS = 1;
-
 	public const uint32 DDHAL_MOCOMP32_GETFORMATS = 2;
-
 	public const uint32 DDHAL_MOCOMP32_CREATE = 4;
-
 	public const uint32 DDHAL_MOCOMP32_GETCOMPBUFFINFO = 8;
-
 	public const uint32 DDHAL_MOCOMP32_GETINTERNALINFO = 16;
-
 	public const uint32 DDHAL_MOCOMP32_BEGINFRAME = 32;
-
 	public const uint32 DDHAL_MOCOMP32_ENDFRAME = 64;
-
 	public const uint32 DDHAL_MOCOMP32_RENDER = 128;
-
 	public const uint32 DDHAL_MOCOMP32_QUERYSTATUS = 256;
-
 	public const uint32 DDHAL_MOCOMP32_DESTROY = 512;
-
 	public const int32 DDHAL_DRIVER_NOTHANDLED = 0;
-
 	public const int32 DDHAL_DRIVER_HANDLED = 1;
-
 	public const int32 DDHAL_DRIVER_NOCKEYHW = 2;
-
 	public const int32 DDRAWIPAL_256 = 1;
-
 	public const int32 DDRAWIPAL_16 = 2;
-
 	public const int32 DDRAWIPAL_GDI = 4;
-
 	public const int32 DDRAWIPAL_STORED_8 = 8;
-
 	public const int32 DDRAWIPAL_STORED_16 = 16;
-
 	public const int32 DDRAWIPAL_STORED_24 = 32;
-
 	public const int32 DDRAWIPAL_EXCLUSIVE = 64;
-
 	public const int32 DDRAWIPAL_INHEL = 128;
-
 	public const int32 DDRAWIPAL_DIRTY = 256;
-
 	public const int32 DDRAWIPAL_ALLOW256 = 512;
-
 	public const int32 DDRAWIPAL_4 = 1024;
-
 	public const int32 DDRAWIPAL_2 = 2048;
-
 	public const int32 DDRAWIPAL_STORED_8INDEX = 4096;
-
 	public const int32 DDRAWIPAL_ALPHA = 8192;
-
 	public const int32 DDRAWICLIP_WATCHWINDOW = 1;
-
 	public const int32 DDRAWICLIP_ISINITIALIZED = 2;
-
 	public const int32 DDRAWICLIP_INMASTERSPRITELIST = 4;
-
 	public const int32 DDAL_IMPLICIT = 1;
-
 	public const int32 ACCESSRECT_VRAMSTYLE = 1;
-
 	public const int32 ACCESSRECT_NOTHOLDINGWIN16LOCK = 2;
-
 	public const int32 ACCESSRECT_BROKEN = 4;
-
 	public const uint32 PFINDEX_UNINITIALIZED = 0;
-
 	public const int32 DDRAWISURFGBL_MEMFREE = 1;
-
 	public const int32 DDRAWISURFGBL_SYSMEMREQUESTED = 2;
-
 	public const int32 DDRAWISURFGBL_ISGDISURFACE = 4;
-
 	public const int32 DDRAWISURFGBL_SOFTWAREAUTOFLIP = 8;
-
 	public const int32 DDRAWISURFGBL_LOCKNOTHOLDINGWIN16LOCK = 16;
-
 	public const int32 DDRAWISURFGBL_LOCKVRAMSTYLE = 32;
-
 	public const int32 DDRAWISURFGBL_LOCKBROKEN = 64;
-
 	public const int32 DDRAWISURFGBL_IMPLICITHANDLE = 128;
-
 	public const int32 DDRAWISURFGBL_ISCLIENTMEM = 256;
-
 	public const int32 DDRAWISURFGBL_HARDWAREOPSOURCE = 512;
-
 	public const int32 DDRAWISURFGBL_HARDWAREOPDEST = 1024;
-
 	public const int32 DDRAWISURFGBL_VPORTINTERLEAVED = 2048;
-
 	public const int32 DDRAWISURFGBL_VPORTDATA = 4096;
-
 	public const int32 DDRAWISURFGBL_LATEALLOCATELINEAR = 8192;
-
 	public const int32 DDRAWISURFGBL_SYSMEMEXECUTEBUFFER = 16384;
-
 	public const int32 DDRAWISURFGBL_FASTLOCKHELD = 32768;
-
 	public const int32 DDRAWISURFGBL_READONLYLOCKHELD = 65536;
-
 	public const int32 DDRAWISURFGBL_DX8SURFACE = 524288;
-
 	public const int32 DDRAWISURFGBL_DDHELDONTFREE = 1048576;
-
 	public const int32 DDRAWISURFGBL_NOTIFYWHENUNLOCKED = 2097152;
-
 	public const int32 DDRAWISURFGBL_RESERVED0 = -2147483648;
-
 	public const int32 DDRAWISURF_ATTACHED = 1;
-
 	public const int32 DDRAWISURF_IMPLICITCREATE = 2;
-
 	public const int32 DDRAWISURF_ISFREE = 4;
-
 	public const int32 DDRAWISURF_ATTACHED_FROM = 8;
-
 	public const int32 DDRAWISURF_IMPLICITROOT = 16;
-
 	public const int32 DDRAWISURF_PARTOFPRIMARYCHAIN = 32;
-
 	public const int32 DDRAWISURF_DATAISALIASED = 64;
-
 	public const int32 DDRAWISURF_HASDC = 128;
-
 	public const int32 DDRAWISURF_HASCKEYDESTOVERLAY = 256;
-
 	public const int32 DDRAWISURF_HASCKEYDESTBLT = 512;
-
 	public const int32 DDRAWISURF_HASCKEYSRCOVERLAY = 1024;
-
 	public const int32 DDRAWISURF_HASCKEYSRCBLT = 2048;
-
 	public const int32 DDRAWISURF_LOCKEXCLUDEDCURSOR = 4096;
-
 	public const int32 DDRAWISURF_HASPIXELFORMAT = 8192;
-
 	public const int32 DDRAWISURF_HASOVERLAYDATA = 16384;
-
 	public const int32 DDRAWISURF_SETGAMMA = 32768;
-
 	public const int32 DDRAWISURF_SW_CKEYDESTOVERLAY = 65536;
-
 	public const int32 DDRAWISURF_SW_CKEYDESTBLT = 131072;
-
 	public const int32 DDRAWISURF_SW_CKEYSRCOVERLAY = 262144;
-
 	public const int32 DDRAWISURF_SW_CKEYSRCBLT = 524288;
-
 	public const int32 DDRAWISURF_HW_CKEYDESTOVERLAY = 1048576;
-
 	public const int32 DDRAWISURF_HW_CKEYDESTBLT = 2097152;
-
 	public const int32 DDRAWISURF_HW_CKEYSRCOVERLAY = 4194304;
-
 	public const int32 DDRAWISURF_HW_CKEYSRCBLT = 8388608;
-
 	public const int32 DDRAWISURF_INMASTERSPRITELIST = 16777216;
-
 	public const int32 DDRAWISURF_HELCB = 33554432;
-
 	public const int32 DDRAWISURF_FRONTBUFFER = 67108864;
-
 	public const int32 DDRAWISURF_BACKBUFFER = 134217728;
-
 	public const int32 DDRAWISURF_INVALID = 268435456;
-
 	public const int32 DDRAWISURF_DCIBUSY = 536870912;
-
 	public const int32 DDRAWISURF_GETDCNULL = 1073741824;
-
 	public const int32 DDRAWISURF_STEREOSURFACELEFT = 536870912;
-
 	public const int32 DDRAWISURF_DRIVERMANAGED = 1073741824;
-
 	public const int32 DDRAWISURF_DCILOCK = -2147483648;
-
 	public const int32 ROP_HAS_SOURCE = 1;
-
 	public const int32 ROP_HAS_PATTERN = 2;
-
 	public const uint32 DDMODEINFO_PALETTIZED = 1;
-
 	public const uint32 DDMODEINFO_MODEX = 2;
-
 	public const uint32 DDMODEINFO_UNSUPPORTED = 4;
-
 	public const uint32 DDMODEINFO_STANDARDVGA = 8;
-
 	public const uint32 DDMODEINFO_MAXREFRESH = 16;
-
 	public const uint32 DDMODEINFO_STEREO = 32;
-
 	public const int32 DDRAWILCL_HASEXCLUSIVEMODE = 1;
-
 	public const int32 DDRAWILCL_ISFULLSCREEN = 2;
-
 	public const int32 DDRAWILCL_SETCOOPCALLED = 4;
-
 	public const int32 DDRAWILCL_ACTIVEYES = 8;
-
 	public const int32 DDRAWILCL_ACTIVENO = 16;
-
 	public const int32 DDRAWILCL_HOOKEDHWND = 32;
-
 	public const int32 DDRAWILCL_ALLOWMODEX = 64;
-
 	public const int32 DDRAWILCL_V1SCLBEHAVIOUR = 128;
-
 	public const int32 DDRAWILCL_MODEHASBEENCHANGED = 256;
-
 	public const int32 DDRAWILCL_CREATEDWINDOW = 512;
-
 	public const int32 DDRAWILCL_DIRTYDC = 1024;
-
 	public const int32 DDRAWILCL_DISABLEINACTIVATE = 2048;
-
 	public const int32 DDRAWILCL_CURSORCLIPPED = 4096;
-
 	public const int32 DDRAWILCL_EXPLICITMONITOR = 8192;
-
 	public const int32 DDRAWILCL_MULTITHREADED = 16384;
-
 	public const int32 DDRAWILCL_FPUSETUP = 32768;
-
 	public const int32 DDRAWILCL_POWEREDDOWN = 65536;
-
 	public const int32 DDRAWILCL_DIRECTDRAW7 = 131072;
-
 	public const int32 DDRAWILCL_ATTEMPTEDD3DCONTEXT = 262144;
-
 	public const int32 DDRAWILCL_FPUPRESERVE = 524288;
-
 	public const int32 DDRAWILCL_DX8DRIVER = 1048576;
-
 	public const int32 DDRAWILCL_DIRECTDRAW8 = 2097152;
-
 	public const int32 DDRAWI_xxxxxxxxx1 = 1;
-
 	public const int32 DDRAWI_xxxxxxxxx2 = 2;
-
 	public const int32 DDRAWI_VIRTUALDESKTOP = 8;
-
 	public const int32 DDRAWI_MODEX = 16;
-
 	public const int32 DDRAWI_DISPLAYDRV = 32;
-
 	public const int32 DDRAWI_FULLSCREEN = 64;
-
 	public const int32 DDRAWI_MODECHANGED = 128;
-
 	public const int32 DDRAWI_NOHARDWARE = 256;
-
 	public const int32 DDRAWI_PALETTEINIT = 512;
-
 	public const int32 DDRAWI_NOEMULATION = 1024;
-
 	public const int32 DDRAWI_HASCKEYDESTOVERLAY = 2048;
-
 	public const int32 DDRAWI_HASCKEYSRCOVERLAY = 4096;
-
 	public const int32 DDRAWI_HASGDIPALETTE = 8192;
-
 	public const int32 DDRAWI_EMULATIONINITIALIZED = 16384;
-
 	public const int32 DDRAWI_HASGDIPALETTE_EXCLUSIVE = 32768;
-
 	public const int32 DDRAWI_MODEXILLEGAL = 65536;
-
 	public const int32 DDRAWI_FLIPPEDTOGDI = 131072;
-
 	public const int32 DDRAWI_NEEDSWIN16FORVRAMLOCK = 262144;
-
 	public const int32 DDRAWI_PDEVICEVRAMBITCLEARED = 524288;
-
 	public const int32 DDRAWI_STANDARDVGA = 1048576;
-
 	public const int32 DDRAWI_EXTENDEDALIGNMENT = 2097152;
-
 	public const int32 DDRAWI_CHANGINGMODE = 4194304;
-
 	public const int32 DDRAWI_GDIDRV = 8388608;
-
 	public const int32 DDRAWI_ATTACHEDTODESKTOP = 16777216;
-
 	public const int32 DDRAWI_UMODELOADED = 33554432;
-
 	public const int32 DDRAWI_DDRAWDATANOTFETCHED = 67108864;
-
 	public const int32 DDRAWI_SECONDARYDRIVERLOADED = 134217728;
-
 	public const int32 DDRAWI_TESTINGMODES = 268435456;
-
 	public const int32 DDRAWI_DRIVERINFO2 = 536870912;
-
 	public const int32 DDRAWI_BADPDEV = 1073741824;
-
 	public const uint32 DDRAWIVPORT_ON = 1;
-
 	public const uint32 DDRAWIVPORT_SOFTWARE_AUTOFLIP = 2;
-
 	public const uint32 DDRAWIVPORT_COLORKEYANDINTERP = 4;
-
 	public const uint32 DDRAWIVPORT_NOKERNELHANDLES = 8;
-
 	public const uint32 DDRAWIVPORT_SOFTWARE_BOB = 16;
-
 	public const uint32 DDRAWIVPORT_VBION = 32;
-
 	public const uint32 DDRAWIVPORT_VIDEOON = 64;
-
 	public const int32 DDHALINFO_ISPRIMARYDISPLAY = 1;
-
 	public const int32 DDHALINFO_MODEXILLEGAL = 2;
-
 	public const int32 DDHALINFO_GETDRIVERINFOSET = 4;
-
 	public const int32 DDHALINFO_GETDRIVERINFO2 = 8;
-
 	public const int32 DDWAITVB_I_TESTVB = -2147483642;
-
 	public const uint32 DDRAWI_VPORTSTART = 1;
-
 	public const uint32 DDRAWI_VPORTSTOP = 2;
-
 	public const uint32 DDRAWI_VPORTUPDATE = 3;
-
 	public const uint32 DDRAWI_VPORTGETCOLOR = 1;
-
 	public const uint32 DDRAWI_VPORTSETCOLOR = 2;
-
 	public const uint32 DDRAWI_GETCOLOR = 1;
-
 	public const uint32 DDRAWI_SETCOLOR = 2;
-
 	public const uint32 DDMCQUERY_READ = 1;
-
 	public const Guid GUID_D3DCaps = .(0x7bf06991, 0x8794, 0x11d0, 0x91, 0x39, 0x08, 0x00, 0x36, 0xd2, 0xef, 0x02);
-
 	public const Guid GUID_D3DCallbacks = .(0x7bf06990, 0x8794, 0x11d0, 0x91, 0x39, 0x08, 0x00, 0x36, 0xd2, 0xef, 0x02);
-
 	public const Guid GUID_DDMoreCaps = .(0x880baf30, 0xb030, 0x11d0, 0x8e, 0xa7, 0x00, 0x60, 0x97, 0x97, 0xea, 0x5b);
-
 	public const Guid GUID_NTCallbacks = .(0x6fe9ecde, 0xdf89, 0x11d1, 0x9d, 0xb0, 0x00, 0x60, 0x08, 0x27, 0x71, 0xba);
-
 	public const Guid GUID_GetHeapAlignment = .(0x42e02f16, 0x7b41, 0x11d2, 0x8b, 0xff, 0x00, 0xa0, 0xc9, 0x83, 0xea, 0xf6);
-
 	public const Guid GUID_UpdateNonLocalHeap = .(0x42e02f17, 0x7b41, 0x11d2, 0x8b, 0xff, 0x00, 0xa0, 0xc9, 0x83, 0xea, 0xf6);
-
 	public const Guid GUID_NTPrivateDriverCaps = .(0xfad16a23, 0x7b66, 0x11d2, 0x83, 0xd7, 0x00, 0xc0, 0x4f, 0x7c, 0xe5, 0x8c);
-
 	public const Guid GUID_VPE2Callbacks = .(0x52882147, 0x2d47, 0x469a, 0xa0, 0xd1, 0x03, 0x45, 0x58, 0x90, 0xf6, 0xc8);
-
 	public const int32 DDSCAPS_COMMANDBUFFER = 1024;
-
 	public const int32 DDHAL_PLEASEALLOC_USERMEM = 4;
-
 	public const int32 DDHAL_CB32_MAPMEMORY = -2147483648;
-
 	public const int32 DDHAL_MISC2CB32_ALPHABLT = 1;
-
 	public const int32 DDHAL_CREATESURFACEEX_SWAPHANDLES = 1;
-
 	public const int32 DDHAL_NTCB32_FREEDRIVERMEMORY = 1;
-
 	public const int32 DDHAL_NTCB32_SETEXCLUSIVEMODE = 2;
-
 	public const int32 DDHAL_NTCB32_FLIPTOGDISURFACE = 4;
-
 	public const int32 DDHAL_VPORT32_GETAUTOFLIPSURF = 64;
-
 	public const int32 DDHAL_D3DBUFCB32_CANCREATED3DBUF = 1;
-
 	public const int32 DDHAL_D3DBUFCB32_CREATED3DBUF = 2;
-
 	public const int32 DDHAL_D3DBUFCB32_DESTROYD3DBUF = 4;
-
 	public const int32 DDHAL_D3DBUFCB32_LOCKD3DBUF = 8;
-
 	public const int32 DDHAL_D3DBUFCB32_UNLOCKD3DBUF = 16;
-
 	public const int32 DDHAL_PRIVATECAP_ATOMICSURFACECREATION = 1;
-
 	public const int32 DDHAL_PRIVATECAP_NOTIFYPRIMARYCREATION = 2;
-
 	public const int32 DDHAL_PRIVATECAP_RESERVED1 = 4;
-
 	public const int32 DDBLT_AFLAGS = -2147483648;
-
 	public const int32 DDABLT_SRCOVERDEST = 1;
-
 	public const int32 DDKERNELCAPS_SKIPFIELDS = 1;
-
 	public const int32 DDKERNELCAPS_AUTOFLIP = 2;
-
 	public const int32 DDKERNELCAPS_SETSTATE = 4;
-
 	public const int32 DDKERNELCAPS_LOCK = 8;
-
 	public const int32 DDKERNELCAPS_FLIPVIDEOPORT = 16;
-
 	public const int32 DDKERNELCAPS_FLIPOVERLAY = 32;
-
 	public const int32 DDKERNELCAPS_CAPTURE_SYSMEM = 64;
-
 	public const int32 DDKERNELCAPS_CAPTURE_NONLOCALVIDMEM = 128;
-
 	public const int32 DDKERNELCAPS_FIELDPOLARITY = 256;
-
 	public const int32 DDKERNELCAPS_CAPTURE_INVERTED = 512;
-
 	public const int32 DDIRQ_DISPLAY_VSYNC = 1;
-
 	public const int32 DDIRQ_RESERVED1 = 2;
-
 	public const int32 DDIRQ_VPORT0_VSYNC = 4;
-
 	public const int32 DDIRQ_VPORT0_LINE = 8;
-
 	public const int32 DDIRQ_VPORT1_VSYNC = 16;
-
 	public const int32 DDIRQ_VPORT1_LINE = 32;
-
 	public const int32 DDIRQ_VPORT2_VSYNC = 64;
-
 	public const int32 DDIRQ_VPORT2_LINE = 128;
-
 	public const int32 DDIRQ_VPORT3_VSYNC = 256;
-
 	public const int32 DDIRQ_VPORT3_LINE = 512;
-
 	public const int32 DDIRQ_VPORT4_VSYNC = 1024;
-
 	public const int32 DDIRQ_VPORT4_LINE = 2048;
-
 	public const int32 DDIRQ_VPORT5_VSYNC = 4096;
-
 	public const int32 DDIRQ_VPORT5_LINE = 8192;
-
 	public const int32 DDIRQ_VPORT6_VSYNC = 16384;
-
 	public const int32 DDIRQ_VPORT6_LINE = 32768;
-
 	public const int32 DDIRQ_VPORT7_VSYNC = 65536;
-
 	public const int32 DDIRQ_VPORT7_LINE = 131072;
-
 	public const int32 DDIRQ_VPORT8_VSYNC = 262144;
-
 	public const int32 DDIRQ_VPORT8_LINE = 524288;
-
 	public const int32 DDIRQ_VPORT9_VSYNC = 65536;
-
 	public const int32 DDIRQ_VPORT9_LINE = 131072;
-
 	public const int32 SURFACEALIGN_DISCARDABLE = 1;
-
 	public const int32 VMEMHEAP_LINEAR = 1;
-
 	public const int32 VMEMHEAP_RECTANGULAR = 2;
-
 	public const int32 VMEMHEAP_ALIGNMENT = 4;
-
 	public const Guid DDVPTYPE_E_HREFH_VREFH = .(0x54f39980, 0xda60, 0x11cf, 0x9b, 0x06, 0x00, 0xa0, 0xc9, 0x03, 0xa3, 0xb8);
-
 	public const Guid DDVPTYPE_E_HREFH_VREFL = .(0x92783220, 0xda60, 0x11cf, 0x9b, 0x06, 0x00, 0xa0, 0xc9, 0x03, 0xa3, 0xb8);
-
 	public const Guid DDVPTYPE_E_HREFL_VREFH = .(0xa07a02e0, 0xda60, 0x11cf, 0x9b, 0x06, 0x00, 0xa0, 0xc9, 0x03, 0xa3, 0xb8);
-
 	public const Guid DDVPTYPE_E_HREFL_VREFL = .(0xe09c77e0, 0xda60, 0x11cf, 0x9b, 0x06, 0x00, 0xa0, 0xc9, 0x03, 0xa3, 0xb8);
-
 	public const Guid DDVPTYPE_CCIR656 = .(0xfca326a0, 0xda60, 0x11cf, 0x9b, 0x06, 0x00, 0xa0, 0xc9, 0x03, 0xa3, 0xb8);
-
 	public const Guid DDVPTYPE_BROOKTREE = .(0x1352a560, 0xda61, 0x11cf, 0x9b, 0x06, 0x00, 0xa0, 0xc9, 0x03, 0xa3, 0xb8);
-
 	public const Guid DDVPTYPE_PHILIPS = .(0x332cf160, 0xda61, 0x11cf, 0x9b, 0x06, 0x00, 0xa0, 0xc9, 0x03, 0xa3, 0xb8);
-
 	public const int32 DDVPD_WIDTH = 1;
-
 	public const int32 DDVPD_HEIGHT = 2;
-
 	public const int32 DDVPD_ID = 4;
-
 	public const int32 DDVPD_CAPS = 8;
-
 	public const int32 DDVPD_FX = 16;
-
 	public const int32 DDVPD_AUTOFLIP = 32;
-
 	public const int32 DDVPD_ALIGN = 64;
-
 	public const int32 DDVPD_PREFERREDAUTOFLIP = 128;
-
 	public const int32 DDVPD_FILTERQUALITY = 256;
-
 	public const int32 DDVPCONNECT_DOUBLECLOCK = 1;
-
 	public const int32 DDVPCONNECT_VACT = 2;
-
 	public const int32 DDVPCONNECT_INVERTPOLARITY = 4;
-
 	public const int32 DDVPCONNECT_DISCARDSVREFDATA = 8;
-
 	public const int32 DDVPCONNECT_HALFLINE = 16;
-
 	public const int32 DDVPCONNECT_INTERLACED = 32;
-
 	public const int32 DDVPCONNECT_SHAREEVEN = 64;
-
 	public const int32 DDVPCONNECT_SHAREODD = 128;
-
 	public const int32 DDVPCAPS_AUTOFLIP = 1;
-
 	public const int32 DDVPCAPS_INTERLACED = 2;
-
 	public const int32 DDVPCAPS_NONINTERLACED = 4;
-
 	public const int32 DDVPCAPS_READBACKFIELD = 8;
-
 	public const int32 DDVPCAPS_READBACKLINE = 16;
-
 	public const int32 DDVPCAPS_SHAREABLE = 32;
-
 	public const int32 DDVPCAPS_SKIPEVENFIELDS = 64;
-
 	public const int32 DDVPCAPS_SKIPODDFIELDS = 128;
-
 	public const int32 DDVPCAPS_SYNCMASTER = 256;
-
 	public const int32 DDVPCAPS_VBISURFACE = 512;
-
 	public const int32 DDVPCAPS_COLORCONTROL = 1024;
-
 	public const int32 DDVPCAPS_OVERSAMPLEDVBI = 2048;
-
 	public const int32 DDVPCAPS_SYSTEMMEMORY = 4096;
-
 	public const int32 DDVPCAPS_VBIANDVIDEOINDEPENDENT = 8192;
-
 	public const int32 DDVPCAPS_HARDWAREDEINTERLACE = 16384;
-
 	public const int32 DDVPFX_CROPTOPDATA = 1;
-
 	public const int32 DDVPFX_CROPX = 2;
-
 	public const int32 DDVPFX_CROPY = 4;
-
 	public const int32 DDVPFX_INTERLEAVE = 8;
-
 	public const int32 DDVPFX_MIRRORLEFTRIGHT = 16;
-
 	public const int32 DDVPFX_MIRRORUPDOWN = 32;
-
 	public const int32 DDVPFX_PRESHRINKX = 64;
-
 	public const int32 DDVPFX_PRESHRINKY = 128;
-
 	public const int32 DDVPFX_PRESHRINKXB = 256;
-
 	public const int32 DDVPFX_PRESHRINKYB = 512;
-
 	public const int32 DDVPFX_PRESHRINKXS = 1024;
-
 	public const int32 DDVPFX_PRESHRINKYS = 2048;
-
 	public const int32 DDVPFX_PRESTRETCHX = 4096;
-
 	public const int32 DDVPFX_PRESTRETCHY = 8192;
-
 	public const int32 DDVPFX_PRESTRETCHXN = 16384;
-
 	public const int32 DDVPFX_PRESTRETCHYN = 32768;
-
 	public const int32 DDVPFX_VBICONVERT = 65536;
-
 	public const int32 DDVPFX_VBINOSCALE = 131072;
-
 	public const int32 DDVPFX_IGNOREVBIXCROP = 262144;
-
 	public const int32 DDVPFX_VBINOINTERLEAVE = 524288;
-
 	public const int32 DDVP_AUTOFLIP = 1;
-
 	public const int32 DDVP_CONVERT = 2;
-
 	public const int32 DDVP_CROP = 4;
-
 	public const int32 DDVP_INTERLEAVE = 8;
-
 	public const int32 DDVP_MIRRORLEFTRIGHT = 16;
-
 	public const int32 DDVP_MIRRORUPDOWN = 32;
-
 	public const int32 DDVP_PRESCALE = 64;
-
 	public const int32 DDVP_SKIPEVENFIELDS = 128;
-
 	public const int32 DDVP_SKIPODDFIELDS = 256;
-
 	public const int32 DDVP_SYNCMASTER = 512;
-
 	public const int32 DDVP_VBICONVERT = 1024;
-
 	public const int32 DDVP_VBINOSCALE = 2048;
-
 	public const int32 DDVP_OVERRIDEBOBWEAVE = 4096;
-
 	public const int32 DDVP_IGNOREVBIXCROP = 8192;
-
 	public const int32 DDVP_VBINOINTERLEAVE = 16384;
-
 	public const int32 DDVP_HARDWAREDEINTERLACE = 32768;
-
 	public const int32 DDVPFORMAT_VIDEO = 1;
-
 	public const int32 DDVPFORMAT_VBI = 2;
-
 	public const int32 DDVPTARGET_VIDEO = 1;
-
 	public const int32 DDVPTARGET_VBI = 2;
-
 	public const int32 DDVPWAIT_BEGIN = 1;
-
 	public const int32 DDVPWAIT_END = 2;
-
 	public const int32 DDVPWAIT_LINE = 3;
-
 	public const int32 DDVPFLIP_VIDEO = 1;
-
 	public const int32 DDVPFLIP_VBI = 2;
-
 	public const int32 DDVPSQ_NOSIGNAL = 1;
-
 	public const int32 DDVPSQ_SIGNALOK = 2;
-
 	public const int32 DDVPB_VIDEOPORT = 1;
-
 	public const int32 DDVPB_OVERLAY = 2;
-
 	public const int32 DDVPB_TYPE = 4;
-
 	public const int32 DDVPBCAPS_SOURCE = 1;
-
 	public const int32 DDVPBCAPS_DESTINATION = 2;
-
 	public const int32 DDVPCREATE_VBIONLY = 1;
-
 	public const int32 DDVPCREATE_VIDEOONLY = 2;
-
 	public const int32 DDVPSTATUS_VBIONLY = 1;
-
 	public const int32 DDVPSTATUS_VIDEOONLY = 2;
-
 	public const Guid GUID_DxApi = .(0x8a79bef0, 0xb915, 0x11d0, 0x91, 0x44, 0x08, 0x00, 0x36, 0xd2, 0xef, 0x02);
-
 	public const uint32 MDL_MAPPED_TO_SYSTEM_VA = 1;
-
 	public const uint32 MDL_PAGES_LOCKED = 2;
-
 	public const uint32 MDL_SOURCE_IS_NONPAGED_POOL = 4;
-
 	public const uint32 MDL_ALLOCATED_FIXED_SIZE = 8;
-
 	public const uint32 MDL_PARTIAL = 16;
-
 	public const uint32 MDL_PARTIAL_HAS_BEEN_MAPPED = 32;
-
 	public const uint32 MDL_IO_PAGE_READ = 64;
-
 	public const uint32 MDL_WRITE_OPERATION = 128;
-
 	public const uint32 MDL_PARENT_MAPPED_SYSTEM_VA = 256;
-
 	public const uint32 MDL_LOCK_HELD = 512;
-
 	public const uint32 MDL_SCATTER_GATHER_VA = 1024;
-
 	public const uint32 MDL_IO_SPACE = 2048;
-
 	public const uint32 MDL_NETWORK_HEADER = 4096;
-
 	public const uint32 MDL_MAPPING_CAN_FAIL = 8192;
-
 	public const uint32 MDL_ALLOCATED_MUST_SUCCEED = 16384;
-
 	public const uint32 MDL_64_BIT_VA = 32768;
-
 	public const uint32 DX_OK = 0;
-
 	public const uint32 DXERR_UNSUPPORTED = 2147500033;
-
 	public const uint32 DXERR_GENERIC = 2147500037;
-
 	public const uint32 DXERR_OUTOFCAPS = 2289434984;
-
 	public const int32 DDIRQ_BUSMASTER = 2;
-
 	public const uint32 IRQINFO_HANDLED = 1;
-
 	public const uint32 IRQINFO_NOTHANDLED = 2;
-
 	public const uint32 DDSKIP_SKIPNEXT = 1;
-
 	public const uint32 DDSKIP_ENABLENEXT = 2;
-
 	public const uint32 DDTRANSFER_SYSTEMMEMORY = 1;
-
 	public const uint32 DDTRANSFER_NONLOCALVIDMEM = 2;
-
 	public const uint32 DDTRANSFER_INVERT = 4;
-
 	public const uint32 DDTRANSFER_CANCEL = 128;
-
 	public const uint32 DDTRANSFER_HALFLINES = 256;
-
 	public const uint32 DXAPI_HALVERSION = 1;
-
 }
 #endregion
 #region Function Pointers
@@ -2240,14 +1306,12 @@ public struct DDBLTFX
 		public uint32 dwAlphaSrcConst;
 		public IDirectDrawSurface* lpDDSAlphaSrc;
 	}
-
 	[CRepr, Union]
 	public struct _Anonymous2_e__Union
 	{
 		public uint32 dwZSrcConst;
 		public IDirectDrawSurface* lpDDSZBufferSrc;
 	}
-
 	[CRepr, Union]
 	public struct _Anonymous5_e__Union
 	{
@@ -2256,21 +1320,18 @@ public struct DDBLTFX
 		public uint32 dwFillPixel;
 		public IDirectDrawSurface* lpDDSPattern;
 	}
-
 	[CRepr, Union]
 	public struct _Anonymous1_e__Union
 	{
 		public uint32 dwZDestConst;
 		public IDirectDrawSurface* lpDDSZBufferDest;
 	}
-
 	[CRepr, Union]
 	public struct _Anonymous3_e__Union
 	{
 		public uint32 dwAlphaDestConst;
 		public IDirectDrawSurface* lpDDSAlphaDest;
 	}
-
 	public uint32 dwSize;
 	public uint32 dwDDFX;
 	public uint32 dwROP;
@@ -2317,7 +1378,6 @@ public struct DDSCAPSEX
 		public uint32 dwCaps4;
 		public uint32 dwVolumeDepth;
 	}
-
 	public uint32 dwCaps2;
 	public uint32 dwCaps3;
 	public using _Anonymous_e__Union Anonymous;
@@ -2332,7 +1392,6 @@ public struct DDSCAPS2
 		public uint32 dwCaps4;
 		public uint32 dwVolumeDepth;
 	}
-
 	public uint32 dwCaps;
 	public uint32 dwCaps2;
 	public uint32 dwCaps3;
@@ -2633,7 +1692,6 @@ public struct DDPIXELFORMAT
 		public uint32 dwRGBZBitMask;
 		public uint32 dwYUVZBitMask;
 	}
-
 	[CRepr, Union]
 	public struct _Anonymous3_e__Union
 	{
@@ -2643,14 +1701,12 @@ public struct DDPIXELFORMAT
 			public uint16 wFlipMSTypes;
 			public uint16 wBltMSTypes;
 		}
-
 		public uint32 dwGBitMask;
 		public uint32 dwUBitMask;
 		public uint32 dwZBitMask;
 		public uint32 dwBumpDvBitMask;
 		public _MultiSampleCaps_e__Struct MultiSampleCaps;
 	}
-
 	[CRepr, Union]
 	public struct _Anonymous1_e__Union
 	{
@@ -2662,7 +1718,6 @@ public struct DDPIXELFORMAT
 		public uint32 dwBumpBitCount;
 		public uint32 dwPrivateFormatBitCount;
 	}
-
 	[CRepr, Union]
 	public struct _Anonymous4_e__Union
 	{
@@ -2671,7 +1726,6 @@ public struct DDPIXELFORMAT
 		public uint32 dwStencilBitMask;
 		public uint32 dwBumpLuminanceBitMask;
 	}
-
 	[CRepr, Union]
 	public struct _Anonymous2_e__Union
 	{
@@ -2682,7 +1736,6 @@ public struct DDPIXELFORMAT
 		public uint32 dwBumpDuBitMask;
 		public uint32 dwOperations;
 	}
-
 	public uint32 dwSize;
 	public uint32 dwFlags;
 	public uint32 dwFourCC;
@@ -2702,14 +1755,12 @@ public struct DDOVERLAYFX
 		public uint32 dwAlphaSrcConst;
 		public IDirectDrawSurface* lpDDSAlphaSrc;
 	}
-
 	[CRepr, Union]
 	public struct _Anonymous1_e__Union
 	{
 		public uint32 dwAlphaDestConst;
 		public IDirectDrawSurface* lpDDSAlphaDest;
 	}
-
 	public uint32 dwSize;
 	public uint32 dwAlphaEdgeBlendBitDepth;
 	public uint32 dwAlphaEdgeBlend;
@@ -2779,14 +1830,12 @@ public struct DDSURFACEDESC
 		public uint32 dwZBufferBitDepth;
 		public uint32 dwRefreshRate;
 	}
-
 	[CRepr, Union]
 	public struct _Anonymous1_e__Union
 	{
 		public int32 lPitch;
 		public uint32 dwLinearSize;
 	}
-
 	public uint32 dwSize;
 	public uint32 dwFlags;
 	public uint32 dwHeight;
@@ -2814,14 +1863,12 @@ public struct DDSURFACEDESC2
 		public DDCOLORKEY ddckCKDestOverlay;
 		public uint32 dwEmptyFaceColor;
 	}
-
 	[CRepr, Union]
 	public struct _Anonymous2_e__Union
 	{
 		public uint32 dwBackBufferCount;
 		public uint32 dwDepth;
 	}
-
 	[CRepr, Union]
 	public struct _Anonymous3_e__Union
 	{
@@ -2829,21 +1876,18 @@ public struct DDSURFACEDESC2
 		public uint32 dwRefreshRate;
 		public uint32 dwSrcVBHandle;
 	}
-
 	[CRepr, Union]
 	public struct _Anonymous1_e__Union
 	{
 		public int32 lPitch;
 		public uint32 dwLinearSize;
 	}
-
 	[CRepr, Union]
 	public struct _Anonymous5_e__Union
 	{
 		public DDPIXELFORMAT ddpfPixelFormat;
 		public uint32 dwFVF;
 	}
-
 	public uint32 dwSize;
 	public uint32 dwFlags;
 	public uint32 dwHeight;
@@ -3028,7 +2072,6 @@ public struct SURFACEALIGNMENT
 			public uint32 dwFlags;
 			public uint32 dwReserved2;
 		}
-
 		[CRepr]
 		public struct _Rectangular_e__Struct
 		{
@@ -3037,11 +2080,9 @@ public struct SURFACEALIGNMENT
 			public uint32 dwFlags;
 			public uint32 dwReserved2;
 		}
-
 		public _Linear_e__Struct Linear;
 		public _Rectangular_e__Struct Rectangular;
 	}
-
 	public using _Anonymous_e__Union Anonymous;
 }
 
@@ -3248,14 +2289,12 @@ public struct VIDMEM
 		public uint fpEnd;
 		public uint32 dwWidth;
 	}
-
 	[CRepr, Union]
 	public struct _Anonymous2_e__Union
 	{
 		public VMEMHEAP* lpHeap;
 		public uint32 dwHeight;
 	}
-
 	public uint32 dwFlags;
 	public uint fpStart;
 	public _Anonymous1_e__Union Anonymous1;
@@ -3456,7 +2495,7 @@ public struct DDNONLOCALVIDMEMCAPS
 	public uint32[8] dwNLVBRops;
 }
 
-[CRepr, FlexibleArray("ddsExtendedHeapRestrictions")]
+[CRepr]
 public struct DDMORESURFACECAPS
 {
 	[CRepr]
@@ -3465,9 +2504,9 @@ public struct DDMORESURFACECAPS
 		public DDSCAPSEX ddsCapsEx;
 		public DDSCAPSEX ddsCapsExAlt;
 	}
-
 	public uint32 dwSize;
 	public DDSCAPSEX ddsCapsMore;
+	public ExtendedHeapRestrictions* ddsExtendedHeapRestrictions mut => &ddsExtendedHeapRestrictions_impl;
 	private ExtendedHeapRestrictions[ANYSIZE_ARRAY] ddsExtendedHeapRestrictions_impl;
 }
 
@@ -3500,7 +2539,6 @@ public struct DDRAWI_DDRAWPALETTE_GBL
 		public uint dwReserved1;
 		public HPALETTE hHELGDIPalette;
 	}
-
 	public uint32 dwRefCnt;
 	public uint32 dwFlags;
 	public DDRAWI_DIRECTDRAW_LCL* lpDD_lcl;
@@ -3609,7 +2647,6 @@ public struct DDRAWI_DDRAWSURFACE_GBL
 		public DDRAWI_DIRECTDRAW_GBL* lpDD;
 		public void* lpDDHandle;
 	}
-
 	[CRepr, Union]
 	public struct _Anonymous1_e__Union
 	{
@@ -3617,21 +2654,18 @@ public struct DDRAWI_DDRAWSURFACE_GBL
 		public uint32 dwBlockSizeY;
 		public int32 lSlicePitch;
 	}
-
 	[CRepr, Union]
 	public struct _Anonymous2_e__Union
 	{
 		public VMEMHEAP* lpVidMemHeap;
 		public uint32 dwBlockSizeX;
 	}
-
 	[CRepr, Union]
 	public struct _Anonymous4_e__Union
 	{
 		public int32 lPitch;
 		public uint32 dwLinearSize;
 	}
-
 	public uint32 dwRefCnt;
 	public uint32 dwGlobalFlags;
 	public _Anonymous1_e__Union Anonymous1;
@@ -3655,7 +2689,6 @@ public struct DDRAWI_DDRAWSURFACE_GBL_MORE
 		public uint32 dwPhysicalPageTable;
 		public uint fpPhysicalVidMem;
 	}
-
 	public uint32 dwSize;
 	public using _Anonymous_e__Union Anonymous;
 	public uint32* pPageTable;
@@ -3722,14 +2755,12 @@ public struct DDRAWI_DDRAWSURFACE_LCL
 		public DDRAWI_DDRAWCLIPPER_LCL* lpDDClipper;
 		public DDRAWI_DDRAWCLIPPER_INT* lp16DDClipper;
 	}
-
 	[CRepr, Union]
 	public struct _Anonymous1_e__Union
 	{
 		public DDRAWI_DDRAWPALETTE_INT* lpDDPalette;
 		public DDRAWI_DDRAWPALETTE_INT* lp16DDPalette;
 	}
-
 	public DDRAWI_DDRAWSURFACE_MORE* lpSurfMore;
 	public DDRAWI_DDRAWSURFACE_GBL* lpGbl;
 	public uint hDDSurface;
@@ -4584,7 +3615,6 @@ public struct DDHAL_GETDRIVERSTATEDATA
 	{
 		public uint dwhContext;
 	}
-
 	public uint32 dwFlags;
 	public using _Anonymous_e__Union Anonymous;
 	public uint32* lpdwStates;
@@ -4805,14 +3835,12 @@ public struct VIDEOMEMORY
 		public uint fpEnd;
 		public uint32 dwWidth;
 	}
-
 	[CRepr, Union]
 	public struct _Anonymous2_e__Union
 	{
 		public VMEMHEAP* lpHeap;
 		public uint32 dwHeight;
 	}
-
 	public uint32 dwFlags;
 	public uint fpStart;
 	public _Anonymous1_e__Union Anonymous1;
@@ -5028,14 +4056,12 @@ public struct DD_SURFACE_GLOBAL
 		public int32 lPitch;
 		public uint32 dwLinearSize;
 	}
-
 	[CRepr, Union]
 	public struct _Anonymous1_e__Union
 	{
 		public uint32 dwBlockSizeY;
 		public int32 lSlicePitch;
 	}
-
 	[CRepr, Union]
 	public struct _Anonymous2_e__Union
 	{
@@ -5043,7 +4069,6 @@ public struct DD_SURFACE_GLOBAL
 		public uint32 dwBlockSizeX;
 		public uint32 dwUserMemSize;
 	}
-
 	public _Anonymous1_e__Union Anonymous1;
 	public _Anonymous2_e__Union Anonymous2;
 	public uint fpVidMem;
@@ -5077,14 +4102,12 @@ public struct DD_SURFACE_LOCAL
 		public DDCOLORKEY ddckCKDestOverlay;
 		public DDCOLORKEY ddckCKDestBlt;
 	}
-
 	[CRepr, Union]
 	public struct _Anonymous1_e__Union
 	{
 		public DDCOLORKEY ddckCKSrcOverlay;
 		public DDCOLORKEY ddckCKSrcBlt;
 	}
-
 	public DD_SURFACE_GLOBAL* lpGbl;
 	public uint32 dwFlags;
 	public DDSCAPS ddsCaps;
@@ -5248,7 +4271,7 @@ public struct DD_MOTIONCOMP_LOCAL
 	public void* lpDriverReserved3;
 }
 
-[CRepr, FlexibleArray("ddsExtendedHeapRestrictions")]
+[CRepr]
 public struct DD_MORESURFACECAPS
 {
 	[CRepr]
@@ -5257,9 +4280,9 @@ public struct DD_MORESURFACECAPS
 		public DDSCAPSEX ddsCapsEx;
 		public DDSCAPSEX ddsCapsExAlt;
 	}
-
 	public uint32 dwSize;
 	public DDSCAPSEX ddsCapsMore;
+	public NTExtendedHeapRestrictions* ddsExtendedHeapRestrictions mut => &ddsExtendedHeapRestrictions_impl;
 	private NTExtendedHeapRestrictions[ANYSIZE_ARRAY] ddsExtendedHeapRestrictions_impl;
 }
 
@@ -5954,7 +4977,6 @@ public struct DD_GETDRIVERSTATEDATA
 		public DD_DIRECTDRAW_GLOBAL* lpDD;
 		public uint dwhContext;
 	}
-
 	public uint32 dwFlags;
 	public using _Anonymous_e__Union Anonymous;
 	public uint32* lpdwStates;
@@ -5977,7 +4999,6 @@ public struct MDL
 	public struct _EPROCESS
 	{
 	}
-
 	public MDL* MdlNext;
 	public int16 MdlSize;
 	public int16 MdlFlags;

@@ -9,53 +9,29 @@ namespace Win32.Security.Cryptography.Catalog;
 public static
 {
 	public const uint32 CRYPTCAT_MAX_MEMBERTAG = 64;
-
 	public const uint32 CRYPTCAT_MEMBER_SORTED = 1073741824;
-
 	public const uint32 CRYPTCAT_ATTR_AUTHENTICATED = 268435456;
-
 	public const uint32 CRYPTCAT_ATTR_UNAUTHENTICATED = 536870912;
-
 	public const uint32 CRYPTCAT_ATTR_NAMEASCII = 1;
-
 	public const uint32 CRYPTCAT_ATTR_NAMEOBJID = 2;
-
 	public const uint32 CRYPTCAT_ATTR_DATAASCII = 65536;
-
 	public const uint32 CRYPTCAT_ATTR_DATABASE64 = 131072;
-
 	public const uint32 CRYPTCAT_ATTR_DATAREPLACE = 262144;
-
 	public const uint32 CRYPTCAT_ATTR_NO_AUTO_COMPAT_ENTRY = 16777216;
-
 	public const uint32 CRYPTCAT_E_AREA_HEADER = 0;
-
 	public const uint32 CRYPTCAT_E_AREA_MEMBER = 65536;
-
 	public const uint32 CRYPTCAT_E_AREA_ATTRIBUTE = 131072;
-
 	public const uint32 CRYPTCAT_E_CDF_UNSUPPORTED = 1;
-
 	public const uint32 CRYPTCAT_E_CDF_DUPLICATE = 2;
-
 	public const uint32 CRYPTCAT_E_CDF_TAGNOTFOUND = 4;
-
 	public const uint32 CRYPTCAT_E_CDF_MEMBER_FILE_PATH = 65537;
-
 	public const uint32 CRYPTCAT_E_CDF_MEMBER_INDIRECTDATA = 65538;
-
 	public const uint32 CRYPTCAT_E_CDF_MEMBER_FILENOTFOUND = 65540;
-
 	public const uint32 CRYPTCAT_E_CDF_BAD_GUID_CONV = 131073;
-
 	public const uint32 CRYPTCAT_E_CDF_ATTR_TOOFEWVALUES = 131074;
-
 	public const uint32 CRYPTCAT_E_CDF_ATTR_TYPECOMBO = 131076;
-
 	public const uint32 CRYPTCAT_ADDCATALOG_NONE = 0;
-
 	public const uint32 CRYPTCAT_ADDCATALOG_HARDLINK = 1;
-
 }
 #endregion
 

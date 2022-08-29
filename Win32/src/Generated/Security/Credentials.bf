@@ -9,115 +9,60 @@ namespace Win32.Security.Credentials;
 public static
 {
 	public const uint32 FILE_DEVICE_SMARTCARD = 49;
-
 	public const Guid GUID_DEVINTERFACE_SMARTCARD_READER = .(0x50dd5230, 0xba8a, 0x11d1, 0xbf, 0x5d, 0x00, 0x00, 0xf8, 0x05, 0xf5, 0x30);
-
 	public const uint32 SCARD_ATR_LENGTH = 33;
-
 	public const uint32 SCARD_PROTOCOL_UNDEFINED = 0;
-
 	public const uint32 SCARD_PROTOCOL_T0 = 1;
-
 	public const uint32 SCARD_PROTOCOL_T1 = 2;
-
 	public const uint32 SCARD_PROTOCOL_RAW = 65536;
-
 	public const uint32 SCARD_PROTOCOL_DEFAULT = 2147483648;
-
 	public const uint32 SCARD_PROTOCOL_OPTIMAL = 0;
-
 	public const uint32 SCARD_POWER_DOWN = 0;
-
 	public const uint32 SCARD_COLD_RESET = 1;
-
 	public const uint32 SCARD_WARM_RESET = 2;
-
 	public const uint32 MAXIMUM_ATTR_STRING_LENGTH = 32;
-
 	public const uint32 MAXIMUM_SMARTCARD_READERS = 10;
-
 	public const uint32 SCARD_CLASS_VENDOR_INFO = 1;
-
 	public const uint32 SCARD_CLASS_COMMUNICATIONS = 2;
-
 	public const uint32 SCARD_CLASS_PROTOCOL = 3;
-
 	public const uint32 SCARD_CLASS_POWER_MGMT = 4;
-
 	public const uint32 SCARD_CLASS_SECURITY = 5;
-
 	public const uint32 SCARD_CLASS_MECHANICAL = 6;
-
 	public const uint32 SCARD_CLASS_VENDOR_DEFINED = 7;
-
 	public const uint32 SCARD_CLASS_IFD_PROTOCOL = 8;
-
 	public const uint32 SCARD_CLASS_ICC_STATE = 9;
-
 	public const uint32 SCARD_CLASS_PERF = 32766;
-
 	public const uint32 SCARD_CLASS_SYSTEM = 32767;
-
 	public const uint32 SCARD_T0_HEADER_LENGTH = 7;
-
 	public const uint32 SCARD_T0_CMD_LENGTH = 5;
-
 	public const uint32 SCARD_T1_PROLOGUE_LENGTH = 3;
-
 	public const uint32 SCARD_T1_EPILOGUE_LENGTH = 2;
-
 	public const uint32 SCARD_T1_EPILOGUE_LENGTH_LRC = 1;
-
 	public const uint32 SCARD_T1_MAX_IFS = 254;
-
 	public const uint32 SCARD_UNKNOWN = 0;
-
 	public const uint32 SCARD_ABSENT = 1;
-
 	public const uint32 SCARD_PRESENT = 2;
-
 	public const uint32 SCARD_SWALLOWED = 3;
-
 	public const uint32 SCARD_POWERED = 4;
-
 	public const uint32 SCARD_NEGOTIABLE = 5;
-
 	public const uint32 SCARD_SPECIFIC = 6;
-
 	public const uint32 SCARD_READER_SWALLOWS = 1;
-
 	public const uint32 SCARD_READER_EJECTS = 2;
-
 	public const uint32 SCARD_READER_CONFISCATES = 4;
-
 	public const uint32 SCARD_READER_CONTACTLESS = 8;
-
 	public const uint32 SCARD_READER_TYPE_SERIAL = 1;
-
 	public const uint32 SCARD_READER_TYPE_PARALELL = 2;
-
 	public const uint32 SCARD_READER_TYPE_KEYBOARD = 4;
-
 	public const uint32 SCARD_READER_TYPE_SCSI = 8;
-
 	public const uint32 SCARD_READER_TYPE_IDE = 16;
-
 	public const uint32 SCARD_READER_TYPE_USB = 32;
-
 	public const uint32 SCARD_READER_TYPE_PCMCIA = 64;
-
 	public const uint32 SCARD_READER_TYPE_TPM = 128;
-
 	public const uint32 SCARD_READER_TYPE_NFC = 256;
-
 	public const uint32 SCARD_READER_TYPE_UICC = 512;
-
 	public const uint32 SCARD_READER_TYPE_NGC = 1024;
-
 	public const uint32 SCARD_READER_TYPE_EMBEDDEDSE = 2048;
-
 	public const uint32 SCARD_READER_TYPE_VENDOR = 240;
-
 	public const NTSTATUS STATUS_LOGON_FAILURE = -1073741715;
 	public const NTSTATUS STATUS_WRONG_PASSWORD = -1073741718;
 	public const NTSTATUS STATUS_PASSWORD_EXPIRED = -1073741711;
@@ -133,113 +78,59 @@ public static
 	public const NTSTATUS STATUS_NO_SUCH_LOGON_SESSION = -1073741729;
 	public const NTSTATUS STATUS_NO_SUCH_USER = -1073741724;
 	public const uint32 CRED_MAX_STRING_LENGTH = 256;
-
 	public const uint32 CRED_MAX_GENERIC_TARGET_NAME_LENGTH = 32767;
-
 	public const uint32 CRED_MAX_TARGETNAME_NAMESPACE_LENGTH = 256;
-
 	public const uint32 CRED_MAX_TARGETNAME_ATTRIBUTE_LENGTH = 256;
-
 	public const uint32 CRED_MAX_VALUE_SIZE = 256;
-
 	public const uint32 CRED_MAX_ATTRIBUTES = 64;
-
 	public const uint32 CRED_LOGON_TYPES_MASK = 61440;
-
 	public const uint32 CRED_TI_SERVER_FORMAT_UNKNOWN = 1;
-
 	public const uint32 CRED_TI_DOMAIN_FORMAT_UNKNOWN = 2;
-
 	public const uint32 CRED_TI_ONLY_PASSWORD_REQUIRED = 4;
-
 	public const uint32 CRED_TI_USERNAME_TARGET = 8;
-
 	public const uint32 CRED_TI_CREATE_EXPLICIT_CRED = 16;
-
 	public const uint32 CRED_TI_WORKGROUP_MEMBER = 32;
-
 	public const uint32 CRED_TI_DNSTREE_IS_DFS_SERVER = 64;
-
 	public const uint32 CRED_TI_VALID_FLAGS = 61567;
-
 	public const uint32 CERT_HASH_LENGTH = 20;
-
 	public const uint32 CREDUI_MAX_MESSAGE_LENGTH = 1024;
-
 	public const uint32 CREDUI_MAX_CAPTION_LENGTH = 128;
-
 	public const uint32 CREDUI_MAX_GENERIC_TARGET_LENGTH = 32767;
-
 	public const uint32 CREDUIWIN_IGNORE_CLOUDAUTHORITY_NAME = 262144;
-
 	public const uint32 CREDUIWIN_DOWNLEVEL_HELLO_AS_SMART_CARD = 2147483648;
-
 	public const uint32 CRED_PRESERVE_CREDENTIAL_BLOB = 1;
-
 	public const uint32 CRED_CACHE_TARGET_INFORMATION = 1;
-
 	public const uint32 CRED_ALLOW_NAME_RESOLUTION = 1;
-
 	public const uint32 CRED_PROTECT_AS_SELF = 1;
-
 	public const uint32 CRED_PROTECT_TO_SYSTEM = 2;
-
 	public const uint32 CRED_UNPROTECT_AS_SELF = 1;
-
 	public const uint32 CRED_UNPROTECT_ALLOW_TO_SYSTEM = 2;
-
 	public const uint32 SCARD_SCOPE_TERMINAL = 1;
-
 	public const uint32 SCARD_PROVIDER_PRIMARY = 1;
-
 	public const uint32 SCARD_PROVIDER_CSP = 2;
-
 	public const uint32 SCARD_PROVIDER_KSP = 3;
-
 	public const uint32 SCARD_STATE_UNPOWERED = 1024;
-
 	public const uint32 SCARD_SHARE_EXCLUSIVE = 1;
-
 	public const uint32 SCARD_SHARE_SHARED = 2;
-
 	public const uint32 SCARD_SHARE_DIRECT = 3;
-
 	public const uint32 SCARD_LEAVE_CARD = 0;
-
 	public const uint32 SCARD_RESET_CARD = 1;
-
 	public const uint32 SCARD_UNPOWER_CARD = 2;
-
 	public const uint32 SCARD_EJECT_CARD = 3;
-
 	public const uint32 SC_DLG_MINIMAL_UI = 1;
-
 	public const uint32 SC_DLG_NO_UI = 2;
-
 	public const uint32 SC_DLG_FORCE_UI = 4;
-
 	public const uint32 SCERR_NOCARDNAME = 16384;
-
 	public const uint32 SCERR_NOGUIDS = 32768;
-
 	public const uint32 SCARD_AUDIT_CHV_FAILURE = 0;
-
 	public const uint32 SCARD_AUDIT_CHV_SUCCESS = 1;
-
 	public const uint32 CREDSSP_SERVER_AUTH_NEGOTIATE = 1;
-
 	public const uint32 CREDSSP_SERVER_AUTH_CERTIFICATE = 2;
-
 	public const uint32 CREDSSP_SERVER_AUTH_LOOPBACK = 4;
-
 	public const uint32 SECPKG_ALT_ATTR = 2147483648;
-
 	public const uint32 SECPKG_ATTR_C_FULL_IDENT_TOKEN = 2147483781;
-
 	public const uint32 CREDSSP_CRED_EX_VERSION = 0;
-
 	public const uint32 CREDSSP_FLAG_REDIRECT = 1;
-
 }
 #endregion
 
@@ -604,7 +495,6 @@ public struct SCARD_T0_REQUEST
 		public SCARD_T0_COMMAND CmdBytes;
 		public uint8[5] rgbHeader;
 	}
-
 	public SCARD_IO_REQUEST ioRequest;
 	public uint8 bSw1;
 	public uint8 bSw2;
@@ -745,7 +635,6 @@ public struct READER_SEL_REQUEST
 			public uint32 dwDesiredCardModuleVersion;
 			public uint32 dwCspFlags;
 		}
-
 		[CRepr]
 		public struct _SerialNumberParameter_e__Struct
 		{
@@ -753,11 +642,9 @@ public struct READER_SEL_REQUEST
 			public uint32 cbSerialNumberLength;
 			public uint32 dwDesiredCardModuleVersion;
 		}
-
 		public _ReaderAndContainerParameter_e__Struct ReaderAndContainerParameter;
 		public _SerialNumberParameter_e__Struct SerialNumberParameter;
 	}
-
 	public uint32 dwShareMode;
 	public uint32 dwPreferredProtocols;
 	public READER_SEL_REQUEST_MATCH_TYPE MatchType;

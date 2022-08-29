@@ -8,127 +8,66 @@ namespace Win32.System.Wmi;
 public static
 {
 	public const uint32 MI_FLAG_ANY = 127;
-
 	public const uint32 MI_FLAG_VERSION = 469762048;
-
 	public const uint32 MI_FLAG_ADOPT = 2147483648;
-
 	public const uint32 MI_FLAG_CLASS = 1;
-
 	public const uint32 MI_FLAG_METHOD = 2;
-
 	public const uint32 MI_FLAG_PROPERTY = 4;
-
 	public const uint32 MI_FLAG_PARAMETER = 8;
-
 	public const uint32 MI_FLAG_ASSOCIATION = 16;
-
 	public const uint32 MI_FLAG_INDICATION = 32;
-
 	public const uint32 MI_FLAG_REFERENCE = 64;
-
 	public const uint32 MI_FLAG_ENABLEOVERRIDE = 128;
-
 	public const uint32 MI_FLAG_DISABLEOVERRIDE = 256;
-
 	public const uint32 MI_FLAG_RESTRICTED = 512;
-
 	public const uint32 MI_FLAG_TOSUBCLASS = 1024;
-
 	public const uint32 MI_FLAG_TRANSLATABLE = 2048;
-
 	public const uint32 MI_FLAG_KEY = 4096;
-
 	public const uint32 MI_FLAG_IN = 8192;
-
 	public const uint32 MI_FLAG_OUT = 16384;
-
 	public const uint32 MI_FLAG_REQUIRED = 32768;
-
 	public const uint32 MI_FLAG_STATIC = 65536;
-
 	public const uint32 MI_FLAG_ABSTRACT = 131072;
-
 	public const uint32 MI_FLAG_TERMINAL = 262144;
-
 	public const uint32 MI_FLAG_EXPENSIVE = 524288;
-
 	public const uint32 MI_FLAG_STREAM = 1048576;
-
 	public const uint32 MI_FLAG_READONLY = 2097152;
-
 	public const uint32 MI_FLAG_EXTENDED = 4096;
-
 	public const uint32 MI_FLAG_NOT_MODIFIED = 33554432;
-
 	public const uint32 MI_FLAG_NULL = 536870912;
-
 	public const uint32 MI_FLAG_BORROW = 1073741824;
-
 	public const uint32 MI_MODULE_FLAG_STANDARD_QUALIFIERS = 1;
-
 	public const uint32 MI_MODULE_FLAG_DESCRIPTIONS = 2;
-
 	public const uint32 MI_MODULE_FLAG_VALUES = 4;
-
 	public const uint32 MI_MODULE_FLAG_MAPPING_STRINGS = 8;
-
 	public const uint32 MI_MODULE_FLAG_BOOLEANS = 16;
-
 	public const uint32 MI_MODULE_FLAG_CPLUSPLUS = 32;
-
 	public const uint32 MI_MODULE_FLAG_LOCALIZED = 64;
-
 	public const uint32 MI_MODULE_FLAG_FILTER_SUPPORT = 128;
-
 	public const uint32 MI_MAX_LOCALE_SIZE = 128;
-
 	public const uint32 MI_WRITEMESSAGE_CHANNEL_WARNING = 0;
-
 	public const uint32 MI_WRITEMESSAGE_CHANNEL_VERBOSE = 1;
-
 	public const uint32 MI_WRITEMESSAGE_CHANNEL_DEBUG = 2;
-
 	public const uint32 MI_CALL_VERSION = 1;
-
 	public const uint32 MI_OPERATIONFLAGS_MANUAL_ACK_RESULTS = 1;
-
 	public const uint32 MI_OPERATIONFLAGS_NO_RTTI = 1024;
-
 	public const uint32 MI_OPERATIONFLAGS_BASIC_RTTI = 2;
-
 	public const uint32 MI_OPERATIONFLAGS_STANDARD_RTTI = 2048;
-
 	public const uint32 MI_OPERATIONFLAGS_FULL_RTTI = 4;
-
 	public const uint32 MI_OPERATIONFLAGS_DEFAULT_RTTI = 0;
-
 	public const uint32 MI_OPERATIONFLAGS_LOCALIZED_QUALIFIERS = 8;
-
 	public const uint32 MI_OPERATIONFLAGS_EXPENSIVE_PROPERTIES = 64;
-
 	public const uint32 MI_OPERATIONFLAGS_POLYMORPHISM_SHALLOW = 128;
-
 	public const uint32 MI_OPERATIONFLAGS_POLYMORPHISM_DEEP_BASE_PROPS_ONLY = 384;
-
 	public const uint32 MI_OPERATIONFLAGS_REPORT_OPERATION_STARTED = 512;
-
 	public const uint32 MI_SERIALIZER_FLAGS_CLASS_DEEP = 1;
-
 	public const uint32 MI_SERIALIZER_FLAGS_INSTANCE_WITH_CLASS = 1;
-
 	public const uint32 WBEMS_DISPID_DERIVATION = 23;
-
 	public const uint32 WBEMS_DISPID_OBJECT_READY = 1;
-
 	public const uint32 WBEMS_DISPID_COMPLETED = 2;
-
 	public const uint32 WBEMS_DISPID_PROGRESS = 3;
-
 	public const uint32 WBEMS_DISPID_OBJECT_PUT = 4;
-
 	public const uint32 WBEMS_DISPID_CONNECTION_READY = 5;
-
 }
 #endregion
 
@@ -1440,7 +1379,6 @@ public struct MI_Datetime
 		public MI_Timestamp timestamp;
 		public MI_Interval interval;
 	}
-
 	public uint32 isTimestamp;
 	public _u_e__Union u;
 }
@@ -2626,7 +2564,6 @@ public struct MI_UserCredentials
 		public MI_UsernamePasswordCreds usernamePassword;
 		public uint16* certificateThumbprint;
 	}
-
 	public uint16* authenticationType;
 	public _credentials_e__Union credentials;
 }

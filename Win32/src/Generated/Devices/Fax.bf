@@ -13,435 +13,220 @@ namespace Win32.Devices.Fax;
 public static
 {
 	public const uint32 FS_INITIALIZING = 536870912;
-
 	public const uint32 FS_DIALING = 536870913;
-
 	public const uint32 FS_TRANSMITTING = 536870914;
-
 	public const uint32 FS_RECEIVING = 536870916;
-
 	public const uint32 FS_COMPLETED = 536870920;
-
 	public const uint32 FS_HANDLED = 536870928;
-
 	public const uint32 FS_LINE_UNAVAILABLE = 536870944;
-
 	public const uint32 FS_BUSY = 536870976;
-
 	public const uint32 FS_NO_ANSWER = 536871040;
-
 	public const uint32 FS_BAD_ADDRESS = 536871168;
-
 	public const uint32 FS_NO_DIAL_TONE = 536871424;
-
 	public const uint32 FS_DISCONNECTED = 536871936;
-
 	public const uint32 FS_FATAL_ERROR = 536872960;
-
 	public const uint32 FS_NOT_FAX_CALL = 536875008;
-
 	public const uint32 FS_CALL_DELAYED = 536879104;
-
 	public const uint32 FS_CALL_BLACKLISTED = 536887296;
-
 	public const uint32 FS_USER_ABORT = 538968064;
-
 	public const uint32 FS_ANSWERED = 545259520;
-
 	public const uint32 FAXDEVRECEIVE_SIZE = 4096;
-
 	public const uint32 FAXDEVREPORTSTATUS_SIZE = 4096;
-
 	public const int32 FAX_ERR_START = 7001;
-
 	public const int32 FAX_ERR_SRV_OUTOFMEMORY = 7001;
-
 	public const int32 FAX_ERR_GROUP_NOT_FOUND = 7002;
-
 	public const int32 FAX_ERR_BAD_GROUP_CONFIGURATION = 7003;
-
 	public const int32 FAX_ERR_GROUP_IN_USE = 7004;
-
 	public const int32 FAX_ERR_RULE_NOT_FOUND = 7005;
-
 	public const int32 FAX_ERR_NOT_NTFS = 7006;
-
 	public const int32 FAX_ERR_DIRECTORY_IN_USE = 7007;
-
 	public const int32 FAX_ERR_FILE_ACCESS_DENIED = 7008;
-
 	public const int32 FAX_ERR_MESSAGE_NOT_FOUND = 7009;
-
 	public const int32 FAX_ERR_DEVICE_NUM_LIMIT_EXCEEDED = 7010;
-
 	public const int32 FAX_ERR_NOT_SUPPORTED_ON_THIS_SKU = 7011;
-
 	public const int32 FAX_ERR_VERSION_MISMATCH = 7012;
-
 	public const int32 FAX_ERR_RECIPIENTS_LIMIT = 7013;
-
 	public const int32 FAX_ERR_END = 7013;
-
 	public const HRESULT FAX_E_SRV_OUTOFMEMORY = -2147214503;
-
 	public const HRESULT FAX_E_GROUP_NOT_FOUND = -2147214502;
-
 	public const HRESULT FAX_E_BAD_GROUP_CONFIGURATION = -2147214501;
-
 	public const HRESULT FAX_E_GROUP_IN_USE = -2147214500;
-
 	public const HRESULT FAX_E_RULE_NOT_FOUND = -2147214499;
-
 	public const HRESULT FAX_E_NOT_NTFS = -2147214498;
-
 	public const HRESULT FAX_E_DIRECTORY_IN_USE = -2147214497;
-
 	public const HRESULT FAX_E_FILE_ACCESS_DENIED = -2147214496;
-
 	public const HRESULT FAX_E_MESSAGE_NOT_FOUND = -2147214495;
-
 	public const HRESULT FAX_E_DEVICE_NUM_LIMIT_EXCEEDED = -2147214494;
-
 	public const HRESULT FAX_E_NOT_SUPPORTED_ON_THIS_SKU = -2147214493;
-
 	public const HRESULT FAX_E_VERSION_MISMATCH = -2147214492;
-
 	public const HRESULT FAX_E_RECIPIENTS_LIMIT = -2147214491;
-
 	public const uint32 JT_UNKNOWN = 0;
-
 	public const uint32 JT_SEND = 1;
-
 	public const uint32 JT_RECEIVE = 2;
-
 	public const uint32 JT_ROUTING = 3;
-
 	public const uint32 JT_FAIL_RECEIVE = 4;
-
 	public const uint32 JS_PENDING = 0;
-
 	public const uint32 JS_INPROGRESS = 1;
-
 	public const uint32 JS_DELETING = 2;
-
 	public const uint32 JS_FAILED = 4;
-
 	public const uint32 JS_PAUSED = 8;
-
 	public const uint32 JS_NOLINE = 16;
-
 	public const uint32 JS_RETRYING = 32;
-
 	public const uint32 JS_RETRIES_EXCEEDED = 64;
-
 	public const uint32 FPS_DIALING = 536870913;
-
 	public const uint32 FPS_SENDING = 536870914;
-
 	public const uint32 FPS_RECEIVING = 536870916;
-
 	public const uint32 FPS_COMPLETED = 536870920;
-
 	public const uint32 FPS_HANDLED = 536870928;
-
 	public const uint32 FPS_UNAVAILABLE = 536870944;
-
 	public const uint32 FPS_BUSY = 536870976;
-
 	public const uint32 FPS_NO_ANSWER = 536871040;
-
 	public const uint32 FPS_BAD_ADDRESS = 536871168;
-
 	public const uint32 FPS_NO_DIAL_TONE = 536871424;
-
 	public const uint32 FPS_DISCONNECTED = 536871936;
-
 	public const uint32 FPS_FATAL_ERROR = 536872960;
-
 	public const uint32 FPS_NOT_FAX_CALL = 536875008;
-
 	public const uint32 FPS_CALL_DELAYED = 536879104;
-
 	public const uint32 FPS_CALL_BLACKLISTED = 536887296;
-
 	public const uint32 FPS_INITIALIZING = 536903680;
-
 	public const uint32 FPS_OFFLINE = 536936448;
-
 	public const uint32 FPS_RINGING = 537001984;
-
 	public const uint32 FPS_AVAILABLE = 537919488;
-
 	public const uint32 FPS_ABORTING = 538968064;
-
 	public const uint32 FPS_ROUTING = 541065216;
-
 	public const uint32 FPS_ANSWERED = 545259520;
-
 	public const uint32 FPF_RECEIVE = 1;
-
 	public const uint32 FPF_SEND = 2;
-
 	public const uint32 FPF_VIRTUAL = 4;
-
 	public const uint32 FEI_DIALING = 1;
-
 	public const uint32 FEI_SENDING = 2;
-
 	public const uint32 FEI_RECEIVING = 3;
-
 	public const uint32 FEI_COMPLETED = 4;
-
 	public const uint32 FEI_BUSY = 5;
-
 	public const uint32 FEI_NO_ANSWER = 6;
-
 	public const uint32 FEI_BAD_ADDRESS = 7;
-
 	public const uint32 FEI_NO_DIAL_TONE = 8;
-
 	public const uint32 FEI_DISCONNECTED = 9;
-
 	public const uint32 FEI_FATAL_ERROR = 10;
-
 	public const uint32 FEI_NOT_FAX_CALL = 11;
-
 	public const uint32 FEI_CALL_DELAYED = 12;
-
 	public const uint32 FEI_CALL_BLACKLISTED = 13;
-
 	public const uint32 FEI_RINGING = 14;
-
 	public const uint32 FEI_ABORTING = 15;
-
 	public const uint32 FEI_ROUTING = 16;
-
 	public const uint32 FEI_MODEM_POWERED_ON = 17;
-
 	public const uint32 FEI_MODEM_POWERED_OFF = 18;
-
 	public const uint32 FEI_IDLE = 19;
-
 	public const uint32 FEI_FAXSVC_ENDED = 20;
-
 	public const uint32 FEI_ANSWERED = 21;
-
 	public const uint32 FEI_JOB_QUEUED = 22;
-
 	public const uint32 FEI_DELETED = 23;
-
 	public const uint32 FEI_INITIALIZING = 24;
-
 	public const uint32 FEI_LINE_UNAVAILABLE = 25;
-
 	public const uint32 FEI_HANDLED = 26;
-
 	public const uint32 FEI_FAXSVC_STARTED = 27;
-
 	public const uint32 FEI_NEVENTS = 27;
-
 	public const uint32 FAX_JOB_SUBMIT = 1;
-
 	public const uint32 FAX_JOB_QUERY = 2;
-
 	public const uint32 FAX_CONFIG_QUERY = 4;
-
 	public const uint32 FAX_CONFIG_SET = 8;
-
 	public const uint32 FAX_PORT_QUERY = 16;
-
 	public const uint32 FAX_PORT_SET = 32;
-
 	public const uint32 FAX_JOB_MANAGE = 64;
-
 	public const uint32 STI_UNICODE = 1;
-
 	public const Guid CLSID_Sti = .(0xb323f8e0, 0x2e68, 0x11d0, 0x90, 0xea, 0x00, 0xaa, 0x00, 0x60, 0xf8, 0x6c);
-
 	public const Guid GUID_DeviceArrivedLaunch = .(0x740d9ee6, 0x70f1, 0x11d1, 0xad, 0x10, 0x00, 0xa0, 0x24, 0x38, 0xad, 0x48);
-
 	public const Guid GUID_ScanImage = .(0xa6c5a715, 0x8c6e, 0x11d2, 0x97, 0x7a, 0x00, 0x00, 0xf8, 0x7a, 0x92, 0x6f);
-
 	public const Guid GUID_ScanPrintImage = .(0xb441f425, 0x8c6e, 0x11d2, 0x97, 0x7a, 0x00, 0x00, 0xf8, 0x7a, 0x92, 0x6f);
-
 	public const Guid GUID_ScanFaxImage = .(0xc00eb793, 0x8c6e, 0x11d2, 0x97, 0x7a, 0x00, 0x00, 0xf8, 0x7a, 0x92, 0x6f);
-
 	public const Guid GUID_STIUserDefined1 = .(0xc00eb795, 0x8c6e, 0x11d2, 0x97, 0x7a, 0x00, 0x00, 0xf8, 0x7a, 0x92, 0x6f);
-
 	public const Guid GUID_STIUserDefined2 = .(0xc77ae9c5, 0x8c6e, 0x11d2, 0x97, 0x7a, 0x00, 0x00, 0xf8, 0x7a, 0x92, 0x6f);
-
 	public const Guid GUID_STIUserDefined3 = .(0xc77ae9c6, 0x8c6e, 0x11d2, 0x97, 0x7a, 0x00, 0x00, 0xf8, 0x7a, 0x92, 0x6f);
-
 	public const uint32 STI_VERSION_FLAG_MASK = 4278190080;
-
 	public const uint32 STI_VERSION_FLAG_UNICODE = 16777216;
-
 	public const uint32 STI_VERSION_REAL = 2;
-
 	public const uint32 STI_VERSION_MIN_ALLOWED = 2;
-
 	public const uint32 STI_VERSION = 2;
-
 	public const uint32 STI_MAX_INTERNAL_NAME_LENGTH = 128;
-
 	public const uint32 STI_GENCAP_NOTIFICATIONS = 1;
-
 	public const uint32 STI_GENCAP_POLLING_NEEDED = 2;
-
 	public const uint32 STI_GENCAP_GENERATE_ARRIVALEVENT = 4;
-
 	public const uint32 STI_GENCAP_AUTO_PORTSELECT = 8;
-
 	public const uint32 STI_GENCAP_WIA = 16;
-
 	public const uint32 STI_GENCAP_SUBSET = 32;
-
 	public const uint32 WIA_INCOMPAT_XP = 1;
-
 	public const uint32 STI_HW_CONFIG_UNKNOWN = 1;
-
 	public const uint32 STI_HW_CONFIG_SCSI = 2;
-
 	public const uint32 STI_HW_CONFIG_USB = 4;
-
 	public const uint32 STI_HW_CONFIG_SERIAL = 8;
-
 	public const uint32 STI_HW_CONFIG_PARALLEL = 16;
-
 	public const uint32 STI_DEVSTATUS_ONLINE_STATE = 1;
-
 	public const uint32 STI_DEVSTATUS_EVENTS_STATE = 2;
-
 	public const uint32 STI_ONLINESTATE_OPERATIONAL = 1;
-
 	public const uint32 STI_ONLINESTATE_PENDING = 2;
-
 	public const uint32 STI_ONLINESTATE_ERROR = 4;
-
 	public const uint32 STI_ONLINESTATE_PAUSED = 8;
-
 	public const uint32 STI_ONLINESTATE_PAPER_JAM = 16;
-
 	public const uint32 STI_ONLINESTATE_PAPER_PROBLEM = 32;
-
 	public const uint32 STI_ONLINESTATE_OFFLINE = 64;
-
 	public const uint32 STI_ONLINESTATE_IO_ACTIVE = 128;
-
 	public const uint32 STI_ONLINESTATE_BUSY = 256;
-
 	public const uint32 STI_ONLINESTATE_TRANSFERRING = 512;
-
 	public const uint32 STI_ONLINESTATE_INITIALIZING = 1024;
-
 	public const uint32 STI_ONLINESTATE_WARMING_UP = 2048;
-
 	public const uint32 STI_ONLINESTATE_USER_INTERVENTION = 4096;
-
 	public const uint32 STI_ONLINESTATE_POWER_SAVE = 8192;
-
 	public const uint32 STI_EVENTHANDLING_ENABLED = 1;
-
 	public const uint32 STI_EVENTHANDLING_POLLING = 2;
-
 	public const uint32 STI_EVENTHANDLING_PENDING = 4;
-
 	public const uint32 STI_DIAGCODE_HWPRESENCE = 1;
-
 	public const uint32 STI_TRACE_INFORMATION = 1;
-
 	public const uint32 STI_TRACE_WARNING = 2;
-
 	public const uint32 STI_TRACE_ERROR = 4;
-
 	public const uint32 STI_SUBSCRIBE_FLAG_WINDOW = 1;
-
 	public const uint32 STI_SUBSCRIBE_FLAG_EVENT = 2;
-
 	public const uint32 MAX_NOTIFICATION_DATA = 64;
-
 	public const uint32 STI_DEVICE_CREATE_STATUS = 1;
-
 	public const uint32 STI_DEVICE_CREATE_DATA = 2;
-
 	public const uint32 STI_DEVICE_CREATE_BOTH = 3;
-
 	public const uint32 STI_DEVICE_CREATE_MASK = 65535;
-
 	public const uint32 STIEDFL_ALLDEVICES = 0;
-
 	public const uint32 STIEDFL_ATTACHEDONLY = 1;
-
 	public const uint32 STI_RAW_RESERVED = 4096;
-
 	public const int32 STI_OK = 0;
-
 	public const int32 STI_ERROR_NO_ERROR = 0;
-
 	public const int32 STI_NOTCONNECTED = 1;
-
 	public const int32 STI_CHANGENOEFFECT = 1;
-
 	public const HRESULT STIERR_OLD_VERSION = -2147023746;
-
 	public const HRESULT STIERR_BETA_VERSION = -2147023743;
-
 	public const HRESULT STIERR_BADDRIVER = -2147024777;
-
 	public const int32 STIERR_DEVICENOTREG = -2147221164;
-
 	public const HRESULT STIERR_OBJECTNOTFOUND = -2147024894;
-
 	public const int32 STIERR_INVALID_PARAM = -2147024809;
-
 	public const int32 STIERR_NOINTERFACE = -2147467262;
-
 	public const int32 STIERR_GENERIC = -2147467259;
-
 	public const int32 STIERR_OUTOFMEMORY = -2147024882;
-
 	public const int32 STIERR_UNSUPPORTED = -2147467263;
-
 	public const HRESULT STIERR_NOT_INITIALIZED = -2147024875;
-
 	public const HRESULT STIERR_ALREADY_INITIALIZED = -2147023649;
-
 	public const HRESULT STIERR_DEVICE_LOCKED = -2147024863;
-
 	public const int32 STIERR_READONLY = -2147024891;
-
 	public const int32 STIERR_NOTINITIALIZED = -2147024891;
-
 	public const HRESULT STIERR_NEEDS_LOCK = -2147024738;
-
 	public const HRESULT STIERR_SHARING_VIOLATION = -2147024864;
-
 	public const HRESULT STIERR_HANDLEEXISTS = -2147024713;
-
 	public const HRESULT STIERR_INVALID_DEVICE_NAME = -2147024773;
-
 	public const HRESULT STIERR_INVALID_HW_TYPE = -2147024883;
-
 	public const HRESULT STIERR_NOEVENTS = -2147024637;
-
 	public const HRESULT STIERR_DEVICE_NOTREADY = -2147024875;
-
 	public const uint32 IS_DIGITAL_CAMERA_VAL = 1;
-
 	public const uint32 SUPPORTS_MSCPLUS_VAL = 1;
-
 	public const PROPERTYKEY DEVPKEY_WIA_DeviceType = .(.(0x6bdd1fc6, 0x810f, 0x11d0, 0xbe, 0xc7, 0x08, 0x00, 0x2b, 0xe2, 0x09, 0x2f), 2);
-
 	public const PROPERTYKEY DEVPKEY_WIA_USDClassId = .(.(0x6bdd1fc6, 0x810f, 0x11d0, 0xbe, 0xc7, 0x08, 0x00, 0x2b, 0xe2, 0x09, 0x2f), 3);
-
 	public const uint32 STI_USD_GENCAP_NATIVE_PUSHSUPPORT = 1;
-
 	public const uint32 STI_DEVICE_CREATE_FOR_MONITOR = 16777216;
-
 	public const int32 lDEFAULT_PREFETCH_SIZE = 100;
-
 	public const uint16 wcharREASSIGN_RECIPIENTS_DELIMITER = 59;
-
 }
 #endregion
 

@@ -4,7 +4,6 @@ using Win32.Foundation;
 using Win32.Security.ExtensibleAuthenticationProtocol;
 using Win32.System.Com;
 using System;
-using System.Interop;
 
 namespace Win32.NetworkManagement.WiFi;
 
@@ -12,1597 +11,801 @@ namespace Win32.NetworkManagement.WiFi;
 public static
 {
 	public const uint32 L2_REASON_CODE_DOT11_AC_BASE = 131072;
-
 	public const uint32 L2_REASON_CODE_DOT11_MSM_BASE = 196608;
-
 	public const uint32 L2_REASON_CODE_DOT11_SECURITY_BASE = 262144;
-
 	public const uint32 L2_REASON_CODE_ONEX_BASE = 327680;
-
 	public const uint32 L2_REASON_CODE_DOT3_AC_BASE = 393216;
-
 	public const uint32 L2_REASON_CODE_DOT3_MSM_BASE = 458752;
-
 	public const uint32 L2_REASON_CODE_PROFILE_BASE = 524288;
-
 	public const uint32 L2_REASON_CODE_IHV_BASE = 589824;
-
 	public const uint32 L2_REASON_CODE_WIMAX_BASE = 655360;
-
 	public const uint32 L2_REASON_CODE_RESERVED_BASE = 720896;
-
 	public const uint32 WLAN_REASON_CODE_SUCCESS = 0;
-
 	public const uint32 WLAN_REASON_CODE_UNKNOWN = 65537;
-
 	public const uint32 WLAN_REASON_CODE_RANGE_SIZE = 65536;
-
 	public const uint32 WLAN_REASON_CODE_BASE = 131072;
-
 	public const uint32 WLAN_REASON_CODE_AC_BASE = 131072;
-
 	public const uint32 WLAN_REASON_CODE_AC_CONNECT_BASE = 163840;
-
 	public const uint32 WLAN_REASON_CODE_AC_END = 196607;
-
 	public const uint32 WLAN_REASON_CODE_PROFILE_BASE = 524288;
-
 	public const uint32 WLAN_REASON_CODE_PROFILE_CONNECT_BASE = 557056;
-
 	public const uint32 WLAN_REASON_CODE_PROFILE_END = 589823;
-
 	public const uint32 WLAN_REASON_CODE_MSM_BASE = 196608;
-
 	public const uint32 WLAN_REASON_CODE_MSM_CONNECT_BASE = 229376;
-
 	public const uint32 WLAN_REASON_CODE_MSM_END = 262143;
-
 	public const uint32 WLAN_REASON_CODE_MSMSEC_BASE = 262144;
-
 	public const uint32 WLAN_REASON_CODE_MSMSEC_CONNECT_BASE = 294912;
-
 	public const uint32 WLAN_REASON_CODE_MSMSEC_END = 327679;
-
 	public const uint32 WLAN_REASON_CODE_RESERVED_BASE = 720896;
-
 	public const uint32 WLAN_REASON_CODE_RESERVED_END = 786431;
-
 	public const uint32 L2_PROFILE_MAX_NAME_LENGTH = 256;
-
 	public const uint32 L2_NOTIFICATION_SOURCE_NONE = 0;
-
 	public const uint32 L2_NOTIFICATION_SOURCE_DOT3_AUTO_CONFIG = 1;
-
 	public const uint32 L2_NOTIFICATION_SOURCE_SECURITY = 2;
-
 	public const uint32 L2_NOTIFICATION_SOURCE_ONEX = 4;
-
 	public const uint32 L2_NOTIFICATION_SOURCE_WLAN_ACM = 8;
-
 	public const uint32 L2_NOTIFICATION_SOURCE_WLAN_MSM = 16;
-
 	public const uint32 L2_NOTIFICATION_SOURCE_WLAN_SECURITY = 32;
-
 	public const uint32 L2_NOTIFICATION_SOURCE_WLAN_IHV = 64;
-
 	public const uint32 L2_NOTIFICATION_SOURCE_WLAN_HNWK = 128;
-
 	public const uint32 L2_NOTIFICATION_SOURCE_WCM = 256;
-
 	public const uint32 L2_NOTIFICATION_SOURCE_WCM_CSP = 512;
-
 	public const uint32 L2_NOTIFICATION_SOURCE_WFD = 1024;
-
 	public const uint32 L2_NOTIFICATION_SOURCE_WLAN_DEVICE_SERVICE = 2048;
-
 	public const uint32 L2_NOTIFICATION_SOURCE_ALL = 65535;
-
 	public const uint32 L2_NOTIFICATION_CODE_PUBLIC_BEGIN = 0;
-
 	public const uint32 L2_NOTIFICATION_CODE_GROUP_SIZE = 4096;
-
 	public const uint32 L2_REASON_CODE_GROUP_SIZE = 65536;
-
 	public const uint32 L2_REASON_CODE_GEN_BASE = 65536;
-
 	public const uint32 L2_REASON_CODE_SUCCESS = 0;
-
 	public const uint32 L2_REASON_CODE_UNKNOWN = 65537;
-
 	public const uint32 L2_REASON_CODE_PROFILE_MISSING = 1;
-
 	public const uint32 DOT11_BSSID_LIST_REVISION_1 = 1;
-
 	public const uint32 DOT11_HESSID_LENGTH = 6;
-
 	public const uint32 DOT11_RATE_SET_MAX_LENGTH = 126;
-
 	public const uint32 DOT11_WFD_SERVICE_NAME_MAX_LENGTH = 255;
-
 	public const uint32 DOT11_WFD_APS2_SERVICE_TYPE_MAX_LENGTH = 21;
-
 	public const uint32 DOT11_WFD_ASP2_INSTANCE_NAME_MAX_LENGTH = 63;
-
 	public const uint32 DOT11_WFD_SERVICE_INFORMATION_MAX_LENGTH = 65535;
-
 	public const uint32 DOT11_MAX_REQUESTED_SERVICE_INFORMATION_LENGTH = 255;
-
 	public const uint32 DOT11_WFD_SESSION_INFO_MAX_LENGTH = 144;
-
 	public const uint32 NDIS_PACKET_TYPE_802_11_DIRECTED_DATA = 1;
-
 	public const uint32 NDIS_PACKET_TYPE_802_11_BROADCAST_DATA = 8;
-
 	public const uint32 NDIS_PACKET_TYPE_802_11_MULTICAST_DATA = 2;
-
 	public const uint32 NDIS_PACKET_TYPE_802_11_ALL_MULTICAST_DATA = 4;
-
 	public const uint32 NDIS_PACKET_TYPE_802_11_PROMISCUOUS_DATA = 32;
-
 	public const uint32 DOT11_MAX_PDU_SIZE = 2346;
-
 	public const uint32 DOT11_MIN_PDU_SIZE = 256;
-
 	public const uint32 DOT11_MAX_NUM_DEFAULT_KEY = 4;
-
 	public const uint32 DOT11_MAX_NUM_DEFAULT_KEY_MFP = 6;
-
 	public const uint32 OID_DOT11_NDIS_START = 218170112;
-
 	public const uint32 OID_DOT11_OFFLOAD_CAPABILITY = 218170112;
-
 	public const uint32 DOT11_HW_WEP_SUPPORTED_TX = 1;
-
 	public const uint32 DOT11_HW_WEP_SUPPORTED_RX = 2;
-
 	public const uint32 DOT11_HW_FRAGMENTATION_SUPPORTED = 4;
-
 	public const uint32 DOT11_HW_DEFRAGMENTATION_SUPPORTED = 8;
-
 	public const uint32 DOT11_HW_MSDU_AUTH_SUPPORTED_TX = 16;
-
 	public const uint32 DOT11_HW_MSDU_AUTH_SUPPORTED_RX = 32;
-
 	public const uint32 DOT11_CONF_ALGO_WEP_RC4 = 1;
-
 	public const uint32 DOT11_CONF_ALGO_TKIP = 2;
-
 	public const uint32 DOT11_AUTH_ALGO_MICHAEL = 1;
-
 	public const uint32 OID_DOT11_CURRENT_OFFLOAD_CAPABILITY = 218170113;
-
 	public const uint32 OID_DOT11_WEP_OFFLOAD = 218170114;
-
 	public const uint32 OID_DOT11_WEP_UPLOAD = 218170115;
-
 	public const uint32 OID_DOT11_DEFAULT_WEP_OFFLOAD = 218170116;
-
 	public const uint32 OID_DOT11_DEFAULT_WEP_UPLOAD = 218170117;
-
 	public const uint32 OID_DOT11_MPDU_MAX_LENGTH = 218170118;
-
 	public const uint32 OID_DOT11_OPERATION_MODE_CAPABILITY = 218170119;
-
 	public const uint32 DOT11_OPERATION_MODE_UNKNOWN = 0;
-
 	public const uint32 DOT11_OPERATION_MODE_STATION = 1;
-
 	public const uint32 DOT11_OPERATION_MODE_AP = 2;
-
 	public const uint32 DOT11_OPERATION_MODE_EXTENSIBLE_STATION = 4;
-
 	public const uint32 DOT11_OPERATION_MODE_EXTENSIBLE_AP = 8;
-
 	public const uint32 DOT11_OPERATION_MODE_WFD_DEVICE = 16;
-
 	public const uint32 DOT11_OPERATION_MODE_WFD_GROUP_OWNER = 32;
-
 	public const uint32 DOT11_OPERATION_MODE_WFD_CLIENT = 64;
-
 	public const uint32 DOT11_OPERATION_MODE_MANUFACTURING = 1073741824;
-
 	public const uint32 DOT11_OPERATION_MODE_NETWORK_MONITOR = 2147483648;
-
 	public const uint32 OID_DOT11_CURRENT_OPERATION_MODE = 218170120;
-
 	public const uint32 OID_DOT11_CURRENT_PACKET_FILTER = 218170121;
-
 	public const uint32 DOT11_PACKET_TYPE_DIRECTED_CTRL = 1;
-
 	public const uint32 DOT11_PACKET_TYPE_DIRECTED_MGMT = 2;
-
 	public const uint32 DOT11_PACKET_TYPE_DIRECTED_DATA = 4;
-
 	public const uint32 DOT11_PACKET_TYPE_MULTICAST_CTRL = 8;
-
 	public const uint32 DOT11_PACKET_TYPE_MULTICAST_MGMT = 16;
-
 	public const uint32 DOT11_PACKET_TYPE_MULTICAST_DATA = 32;
-
 	public const uint32 DOT11_PACKET_TYPE_BROADCAST_CTRL = 64;
-
 	public const uint32 DOT11_PACKET_TYPE_BROADCAST_MGMT = 128;
-
 	public const uint32 DOT11_PACKET_TYPE_BROADCAST_DATA = 256;
-
 	public const uint32 DOT11_PACKET_TYPE_PROMISCUOUS_CTRL = 512;
-
 	public const uint32 DOT11_PACKET_TYPE_PROMISCUOUS_MGMT = 1024;
-
 	public const uint32 DOT11_PACKET_TYPE_PROMISCUOUS_DATA = 2048;
-
 	public const uint32 DOT11_PACKET_TYPE_ALL_MULTICAST_CTRL = 4096;
-
 	public const uint32 DOT11_PACKET_TYPE_ALL_MULTICAST_MGMT = 8192;
-
 	public const uint32 DOT11_PACKET_TYPE_ALL_MULTICAST_DATA = 16384;
-
 	public const uint32 OID_DOT11_ATIM_WINDOW = 218170122;
-
 	public const uint32 OID_DOT11_SCAN_REQUEST = 218170123;
-
 	public const uint32 OID_DOT11_CURRENT_PHY_TYPE = 218170124;
-
 	public const uint32 DOT11_PHY_TYPE_LIST_REVISION_1 = 1;
-
 	public const uint32 OID_DOT11_JOIN_REQUEST = 218170125;
-
 	public const uint32 DOT11_CAPABILITY_INFO_ESS = 1;
-
 	public const uint32 DOT11_CAPABILITY_INFO_IBSS = 2;
-
 	public const uint32 DOT11_CAPABILITY_INFO_CF_POLLABLE = 4;
-
 	public const uint32 DOT11_CAPABILITY_INFO_CF_POLL_REQ = 8;
-
 	public const uint32 DOT11_CAPABILITY_INFO_PRIVACY = 16;
-
 	public const uint32 DOT11_CAPABILITY_SHORT_PREAMBLE = 32;
-
 	public const uint32 DOT11_CAPABILITY_PBCC = 64;
-
 	public const uint32 DOT11_CAPABILITY_CHANNEL_AGILITY = 128;
-
 	public const uint32 DOT11_CAPABILITY_SHORT_SLOT_TIME = 1024;
-
 	public const uint32 DOT11_CAPABILITY_DSSSOFDM = 8192;
-
 	public const uint32 OID_DOT11_START_REQUEST = 218170126;
-
 	public const uint32 OID_DOT11_UPDATE_IE = 218170127;
-
 	public const uint32 OID_DOT11_RESET_REQUEST = 218170128;
-
 	public const uint32 OID_DOT11_NIC_POWER_STATE = 218170129;
-
 	public const uint32 OID_DOT11_OPTIONAL_CAPABILITY = 218170130;
-
 	public const uint32 OID_DOT11_CURRENT_OPTIONAL_CAPABILITY = 218170131;
-
 	public const uint32 OID_DOT11_STATION_ID = 218170132;
-
 	public const uint32 OID_DOT11_MEDIUM_OCCUPANCY_LIMIT = 218170133;
-
 	public const uint32 OID_DOT11_CF_POLLABLE = 218170134;
-
 	public const uint32 OID_DOT11_CFP_PERIOD = 218170135;
-
 	public const uint32 OID_DOT11_CFP_MAX_DURATION = 218170136;
-
 	public const uint32 OID_DOT11_POWER_MGMT_MODE = 218170137;
-
 	public const uint32 DOT11_POWER_SAVE_LEVEL_MAX_PSP = 1;
-
 	public const uint32 DOT11_POWER_SAVE_LEVEL_FAST_PSP = 2;
-
 	public const uint32 OID_DOT11_OPERATIONAL_RATE_SET = 218170138;
-
 	public const uint32 OID_DOT11_BEACON_PERIOD = 218170139;
-
 	public const uint32 OID_DOT11_DTIM_PERIOD = 218170140;
-
 	public const uint32 OID_DOT11_WEP_ICV_ERROR_COUNT = 218170141;
-
 	public const uint32 OID_DOT11_MAC_ADDRESS = 218170142;
-
 	public const uint32 OID_DOT11_RTS_THRESHOLD = 218170143;
-
 	public const uint32 OID_DOT11_SHORT_RETRY_LIMIT = 218170144;
-
 	public const uint32 OID_DOT11_LONG_RETRY_LIMIT = 218170145;
-
 	public const uint32 OID_DOT11_FRAGMENTATION_THRESHOLD = 218170146;
-
 	public const uint32 OID_DOT11_MAX_TRANSMIT_MSDU_LIFETIME = 218170147;
-
 	public const uint32 OID_DOT11_MAX_RECEIVE_LIFETIME = 218170148;
-
 	public const uint32 OID_DOT11_COUNTERS_ENTRY = 218170149;
-
 	public const uint32 OID_DOT11_SUPPORTED_PHY_TYPES = 218170150;
-
 	public const uint32 OID_DOT11_CURRENT_REG_DOMAIN = 218170151;
-
 	public const uint32 DOT11_REG_DOMAIN_OTHER = 0;
-
 	public const uint32 DOT11_REG_DOMAIN_FCC = 16;
-
 	public const uint32 DOT11_REG_DOMAIN_DOC = 32;
-
 	public const uint32 DOT11_REG_DOMAIN_ETSI = 48;
-
 	public const uint32 DOT11_REG_DOMAIN_SPAIN = 49;
-
 	public const uint32 DOT11_REG_DOMAIN_FRANCE = 50;
-
 	public const uint32 DOT11_REG_DOMAIN_MKK = 64;
-
 	public const uint32 OID_DOT11_TEMP_TYPE = 218170152;
-
 	public const uint32 OID_DOT11_CURRENT_TX_ANTENNA = 218170153;
-
 	public const uint32 OID_DOT11_DIVERSITY_SUPPORT = 218170154;
-
 	public const uint32 OID_DOT11_CURRENT_RX_ANTENNA = 218170155;
-
 	public const uint32 OID_DOT11_SUPPORTED_POWER_LEVELS = 218170156;
-
 	public const uint32 OID_DOT11_CURRENT_TX_POWER_LEVEL = 218170157;
-
 	public const uint32 OID_DOT11_HOP_TIME = 218170158;
-
 	public const uint32 OID_DOT11_CURRENT_CHANNEL_NUMBER = 218170159;
-
 	public const uint32 OID_DOT11_MAX_DWELL_TIME = 218170160;
-
 	public const uint32 OID_DOT11_CURRENT_DWELL_TIME = 218170161;
-
 	public const uint32 OID_DOT11_CURRENT_SET = 218170162;
-
 	public const uint32 OID_DOT11_CURRENT_PATTERN = 218170163;
-
 	public const uint32 OID_DOT11_CURRENT_INDEX = 218170164;
-
 	public const uint32 OID_DOT11_CURRENT_CHANNEL = 218170165;
-
 	public const uint32 OID_DOT11_CCA_MODE_SUPPORTED = 218170166;
-
 	public const uint32 DOT11_CCA_MODE_ED_ONLY = 1;
-
 	public const uint32 DOT11_CCA_MODE_CS_ONLY = 2;
-
 	public const uint32 DOT11_CCA_MODE_ED_and_CS = 4;
-
 	public const uint32 DOT11_CCA_MODE_CS_WITH_TIMER = 8;
-
 	public const uint32 DOT11_CCA_MODE_HRCS_AND_ED = 16;
-
 	public const uint32 OID_DOT11_CURRENT_CCA_MODE = 218170167;
-
 	public const uint32 OID_DOT11_ED_THRESHOLD = 218170168;
-
 	public const uint32 OID_DOT11_CCA_WATCHDOG_TIMER_MAX = 218170169;
-
 	public const uint32 OID_DOT11_CCA_WATCHDOG_COUNT_MAX = 218170170;
-
 	public const uint32 OID_DOT11_CCA_WATCHDOG_TIMER_MIN = 218170171;
-
 	public const uint32 OID_DOT11_CCA_WATCHDOG_COUNT_MIN = 218170172;
-
 	public const uint32 OID_DOT11_REG_DOMAINS_SUPPORT_VALUE = 218170173;
-
 	public const uint32 OID_DOT11_SUPPORTED_TX_ANTENNA = 218170174;
-
 	public const uint32 OID_DOT11_SUPPORTED_RX_ANTENNA = 218170175;
-
 	public const uint32 OID_DOT11_DIVERSITY_SELECTION_RX = 218170176;
-
 	public const uint32 OID_DOT11_SUPPORTED_DATA_RATES_VALUE = 218170177;
-
 	public const uint32 MAX_NUM_SUPPORTED_RATES = 8;
-
 	public const uint32 MAX_NUM_SUPPORTED_RATES_V2 = 255;
-
 	public const uint32 OID_DOT11_CURRENT_FREQUENCY = 218170178;
-
 	public const uint32 OID_DOT11_TI_THRESHOLD = 218170179;
-
 	public const uint32 OID_DOT11_FREQUENCY_BANDS_SUPPORTED = 218170180;
-
 	public const uint32 DOT11_FREQUENCY_BANDS_LOWER = 1;
-
 	public const uint32 DOT11_FREQUENCY_BANDS_MIDDLE = 2;
-
 	public const uint32 DOT11_FREQUENCY_BANDS_UPPER = 4;
-
 	public const uint32 OID_DOT11_SHORT_PREAMBLE_OPTION_IMPLEMENTED = 218170181;
-
 	public const uint32 OID_DOT11_PBCC_OPTION_IMPLEMENTED = 218170182;
-
 	public const uint32 OID_DOT11_CHANNEL_AGILITY_PRESENT = 218170183;
-
 	public const uint32 OID_DOT11_CHANNEL_AGILITY_ENABLED = 218170184;
-
 	public const uint32 OID_DOT11_HR_CCA_MODE_SUPPORTED = 218170185;
-
 	public const uint32 DOT11_HR_CCA_MODE_ED_ONLY = 1;
-
 	public const uint32 DOT11_HR_CCA_MODE_CS_ONLY = 2;
-
 	public const uint32 DOT11_HR_CCA_MODE_CS_AND_ED = 4;
-
 	public const uint32 DOT11_HR_CCA_MODE_CS_WITH_TIMER = 8;
-
 	public const uint32 DOT11_HR_CCA_MODE_HRCS_AND_ED = 16;
-
 	public const uint32 OID_DOT11_MULTI_DOMAIN_CAPABILITY_IMPLEMENTED = 218170186;
-
 	public const uint32 OID_DOT11_MULTI_DOMAIN_CAPABILITY_ENABLED = 218170187;
-
 	public const uint32 OID_DOT11_COUNTRY_STRING = 218170188;
-
 	public const uint32 OID_DOT11_MULTI_DOMAIN_CAPABILITY = 218170189;
-
 	public const uint32 OID_DOT11_EHCC_PRIME_RADIX = 218170190;
-
 	public const uint32 OID_DOT11_EHCC_NUMBER_OF_CHANNELS_FAMILY_INDEX = 218170191;
-
 	public const uint32 OID_DOT11_EHCC_CAPABILITY_IMPLEMENTED = 218170192;
-
 	public const uint32 OID_DOT11_EHCC_CAPABILITY_ENABLED = 218170193;
-
 	public const uint32 OID_DOT11_HOP_ALGORITHM_ADOPTED = 218170194;
-
 	public const uint32 OID_DOT11_RANDOM_TABLE_FLAG = 218170195;
-
 	public const uint32 OID_DOT11_NUMBER_OF_HOPPING_SETS = 218170196;
-
 	public const uint32 OID_DOT11_HOP_MODULUS = 218170197;
-
 	public const uint32 OID_DOT11_HOP_OFFSET = 218170198;
-
 	public const uint32 OID_DOT11_HOPPING_PATTERN = 218170199;
-
 	public const uint32 OID_DOT11_RANDOM_TABLE_FIELD_NUMBER = 218170200;
-
 	public const uint32 OID_DOT11_WPA_TSC = 218170201;
-
 	public const uint32 OID_DOT11_RSSI_RANGE = 218170202;
-
 	public const uint32 OID_DOT11_RF_USAGE = 218170203;
-
 	public const uint32 OID_DOT11_NIC_SPECIFIC_EXTENSION = 218170204;
-
 	public const uint32 OID_DOT11_AP_JOIN_REQUEST = 218170205;
-
 	public const uint32 OID_DOT11_ERP_PBCC_OPTION_IMPLEMENTED = 218170206;
-
 	public const uint32 OID_DOT11_ERP_PBCC_OPTION_ENABLED = 218170207;
-
 	public const uint32 OID_DOT11_DSSS_OFDM_OPTION_IMPLEMENTED = 218170208;
-
 	public const uint32 OID_DOT11_DSSS_OFDM_OPTION_ENABLED = 218170209;
-
 	public const uint32 OID_DOT11_SHORT_SLOT_TIME_OPTION_IMPLEMENTED = 218170210;
-
 	public const uint32 OID_DOT11_SHORT_SLOT_TIME_OPTION_ENABLED = 218170211;
-
 	public const uint32 OID_DOT11_MAX_MAC_ADDRESS_STATES = 218170212;
-
 	public const uint32 OID_DOT11_RECV_SENSITIVITY_LIST = 218170213;
-
 	public const uint32 OID_DOT11_WME_IMPLEMENTED = 218170214;
-
 	public const uint32 OID_DOT11_WME_ENABLED = 218170215;
-
 	public const uint32 OID_DOT11_WME_AC_PARAMETERS = 218170216;
-
 	public const uint32 OID_DOT11_WME_UPDATE_IE = 218170217;
-
 	public const uint32 OID_DOT11_QOS_TX_QUEUES_SUPPORTED = 218170218;
-
 	public const uint32 OID_DOT11_QOS_TX_DURATION = 218170219;
-
 	public const uint32 OID_DOT11_QOS_TX_MEDIUM_TIME = 218170220;
-
 	public const uint32 OID_DOT11_SUPPORTED_OFDM_FREQUENCY_LIST = 218170221;
-
 	public const uint32 OID_DOT11_SUPPORTED_DSSS_CHANNEL_LIST = 218170222;
-
 	public const uint32 DOT11_BSS_ENTRY_BYTE_ARRAY_REVISION_1 = 1;
-
 	public const uint32 DOT11_POWER_SAVING_NO_POWER_SAVING = 0;
-
 	public const uint32 DOT11_POWER_SAVING_FAST_PSP = 8;
-
 	public const uint32 DOT11_POWER_SAVING_MAX_PSP = 16;
-
 	public const uint32 DOT11_POWER_SAVING_MAXIMUM_LEVEL = 24;
-
 	public const uint32 DOT11_SSID_LIST_REVISION_1 = 1;
-
 	public const uint32 DOT11_MAC_ADDRESS_LIST_REVISION_1 = 1;
-
 	public const uint32 DOT11_PMKID_LIST_REVISION_1 = 1;
-
 	public const uint32 DOT11_STATISTICS_REVISION_1 = 1;
-
 	public const uint32 DOT11_EXEMPT_NO_EXEMPTION = 0;
-
 	public const uint32 DOT11_EXEMPT_ALWAYS = 1;
-
 	public const uint32 DOT11_EXEMPT_ON_KEY_MAPPING_KEY_UNAVAILABLE = 2;
-
 	public const uint32 DOT11_EXEMPT_UNICAST = 1;
-
 	public const uint32 DOT11_EXEMPT_MULTICAST = 2;
-
 	public const uint32 DOT11_EXEMPT_BOTH = 3;
-
 	public const uint32 DOT11_PRIVACY_EXEMPTION_LIST_REVISION_1 = 1;
-
 	public const uint32 DOT11_AUTH_ALGORITHM_LIST_REVISION_1 = 1;
-
 	public const uint32 DOT11_AUTH_CIPHER_PAIR_LIST_REVISION_1 = 1;
-
 	public const uint32 DOT11_CIPHER_ALGORITHM_LIST_REVISION_1 = 1;
-
 	public const uint32 DOT11_CIPHER_DEFAULT_KEY_VALUE_REVISION_1 = 1;
-
 	public const uint32 DOT11_CIPHER_KEY_MAPPING_KEY_VALUE_BYTE_ARRAY_REVISION_1 = 1;
-
 	public const uint32 DOT11_ASSOCIATION_INFO_LIST_REVISION_1 = 1;
-
 	public const uint32 DOT11_PHY_ID_LIST_REVISION_1 = 1;
-
 	public const uint32 DOT11_EXTSTA_CAPABILITY_REVISION_1 = 1;
-
 	public const uint32 DOT11_DATA_RATE_MAPPING_TABLE_REVISION_1 = 1;
-
 	public const uint32 DOT11_COUNTRY_OR_REGION_STRING_LIST_REVISION_1 = 1;
-
 	public const uint32 DOT11_PORT_STATE_NOTIFICATION_REVISION_1 = 1;
-
 	public const uint32 DOT11_IBSS_PARAMS_REVISION_1 = 1;
-
 	public const uint32 DOT11_QOS_PARAMS_REVISION_1 = 1;
-
 	public const uint32 DOT11_ASSOCIATION_PARAMS_REVISION_1 = 1;
-
 	public const uint32 DOT11_MAX_NUM_OF_FRAGMENTS = 16;
-
 	public const uint32 DOT11_PRIORITY_CONTENTION = 0;
-
 	public const uint32 DOT11_PRIORITY_CONTENTION_FREE = 1;
-
 	public const uint32 DOT11_SERVICE_CLASS_REORDERABLE_MULTICAST = 0;
-
 	public const uint32 DOT11_SERVICE_CLASS_STRICTLY_ORDERED = 1;
-
 	public const uint32 DOT11_FLAGS_80211B_SHORT_PREAMBLE = 1;
-
 	public const uint32 DOT11_FLAGS_80211B_PBCC = 2;
-
 	public const uint32 DOT11_FLAGS_80211B_CHANNEL_AGILITY = 4;
-
 	public const uint32 DOT11_FLAGS_PS_ON = 8;
-
 	public const uint32 DOT11_FLAGS_80211G_DSSS_OFDM = 16;
-
 	public const uint32 DOT11_FLAGS_80211G_USE_PROTECTION = 32;
-
 	public const uint32 DOT11_FLAGS_80211G_NON_ERP_PRESENT = 64;
-
 	public const uint32 DOT11_FLAGS_80211G_BARKER_PREAMBLE_MODE = 128;
-
 	public const uint32 DOT11_WME_PACKET = 256;
-
 	public const uint32 DOT11_PHY_ATTRIBUTES_REVISION_1 = 1;
-
 	public const uint32 DOT11_EXTSTA_ATTRIBUTES_SAFEMODE_OID_SUPPORTED = 1;
-
 	public const uint32 DOT11_EXTSTA_ATTRIBUTES_SAFEMODE_CERTIFIED = 2;
-
 	public const uint32 DOT11_EXTSTA_ATTRIBUTES_SAFEMODE_RESERVED = 12;
-
 	public const uint32 DOT11_EXTSTA_ATTRIBUTES_REVISION_1 = 1;
-
 	public const uint32 DOT11_EXTSTA_ATTRIBUTES_REVISION_2 = 2;
-
 	public const uint32 DOT11_EXTSTA_ATTRIBUTES_REVISION_3 = 3;
-
 	public const uint32 DOT11_EXTSTA_ATTRIBUTES_REVISION_4 = 4;
-
 	public const uint32 DOT11_SEND_CONTEXT_REVISION_1 = 1;
-
 	public const uint32 DOT11_RECV_CONTEXT_REVISION_1 = 1;
-
 	public const uint32 DOT11_STATUS_SUCCESS = 1;
-
 	public const uint32 DOT11_STATUS_RETRY_LIMIT_EXCEEDED = 2;
-
 	public const uint32 DOT11_STATUS_UNSUPPORTED_PRIORITY = 4;
-
 	public const uint32 DOT11_STATUS_UNSUPPORTED_SERVICE_CLASS = 8;
-
 	public const uint32 DOT11_STATUS_UNAVAILABLE_PRIORITY = 16;
-
 	public const uint32 DOT11_STATUS_UNAVAILABLE_SERVICE_CLASS = 32;
-
 	public const uint32 DOT11_STATUS_XMIT_MSDU_TIMER_EXPIRED = 64;
-
 	public const uint32 DOT11_STATUS_UNAVAILABLE_BSS = 128;
-
 	public const uint32 DOT11_STATUS_EXCESSIVE_DATA_LENGTH = 256;
-
 	public const uint32 DOT11_STATUS_ENCRYPTION_FAILED = 512;
-
 	public const uint32 DOT11_STATUS_WEP_KEY_UNAVAILABLE = 1024;
-
 	public const uint32 DOT11_STATUS_ICV_VERIFIED = 2048;
-
 	public const uint32 DOT11_STATUS_PACKET_REASSEMBLED = 4096;
-
 	public const uint32 DOT11_STATUS_PACKET_NOT_REASSEMBLED = 8192;
-
 	public const uint32 DOT11_STATUS_GENERATE_AUTH_FAILED = 16384;
-
 	public const uint32 DOT11_STATUS_AUTH_NOT_VERIFIED = 32768;
-
 	public const uint32 DOT11_STATUS_AUTH_VERIFIED = 65536;
-
 	public const uint32 DOT11_STATUS_AUTH_FAILED = 131072;
-
 	public const uint32 DOT11_STATUS_PS_LIFETIME_EXPIRED = 262144;
-
 	public const uint32 DOT11_STATUS_RESET_CONFIRM = 4;
-
 	public const uint32 DOT11_STATUS_SCAN_CONFIRM = 1;
-
 	public const uint32 DOT11_STATUS_JOIN_CONFIRM = 2;
-
 	public const uint32 DOT11_STATUS_START_CONFIRM = 3;
-
 	public const uint32 DOT11_STATUS_AP_JOIN_CONFIRM = 5;
-
 	public const uint32 DOT11_STATUS_MPDU_MAX_LENGTH_CHANGED = 6;
-
 	public const uint32 DOT11_MPDU_MAX_LENGTH_INDICATION_REVISION_1 = 1;
-
 	public const uint32 DOT11_ASSOCIATION_START_PARAMETERS_REVISION_1 = 1;
-
 	public const uint32 DOT11_ENCAP_RFC_1042 = 1;
-
 	public const uint32 DOT11_ENCAP_802_1H = 2;
-
 	public const uint32 DOT11_ASSOC_STATUS_SUCCESS = 0;
-
 	public const uint32 DOT11_ASSOCIATION_COMPLETION_PARAMETERS_REVISION_1 = 1;
-
 	public const uint32 DOT11_ASSOCIATION_COMPLETION_PARAMETERS_REVISION_2 = 2;
-
 	public const uint32 DOT11_CONNECTION_START_PARAMETERS_REVISION_1 = 1;
-
 	public const uint32 DOT11_CONNECTION_STATUS_SUCCESS = 0;
-
 	public const uint32 DOT11_CONNECTION_COMPLETION_PARAMETERS_REVISION_1 = 1;
-
 	public const uint32 DOT11_ROAMING_START_PARAMETERS_REVISION_1 = 1;
-
 	public const uint32 DOT11_ROAMING_COMPLETION_PARAMETERS_REVISION_1 = 1;
-
 	public const uint32 DOT11_DISASSOCIATION_PARAMETERS_REVISION_1 = 1;
-
 	public const uint32 DOT11_TKIPMIC_FAILURE_PARAMETERS_REVISION_1 = 1;
-
 	public const uint32 DOT11_PMKID_CANDIDATE_LIST_PARAMETERS_REVISION_1 = 1;
-
 	public const uint32 DOT11_PHY_STATE_PARAMETERS_REVISION_1 = 1;
-
 	public const uint32 DOT11_LINK_QUALITY_PARAMETERS_REVISION_1 = 1;
-
 	public const uint32 DOT11_EXTSTA_SEND_CONTEXT_REVISION_1 = 1;
-
 	public const uint32 DOT11_EXTSTA_RECV_CONTEXT_REVISION_1 = 1;
-
 	public const uint32 OID_DOT11_PRIVATE_OIDS_START = 218171136;
-
 	public const uint32 OID_DOT11_CURRENT_ADDRESS = 218171138;
-
 	public const uint32 OID_DOT11_PERMANENT_ADDRESS = 218171139;
-
 	public const uint32 OID_DOT11_MULTICAST_LIST = 218171140;
-
 	public const uint32 OID_DOT11_MAXIMUM_LIST_SIZE = 218171141;
-
 	public const uint32 DOT11_EXTAP_ATTRIBUTES_REVISION_1 = 1;
-
 	public const uint32 DOT11_INCOMING_ASSOC_STARTED_PARAMETERS_REVISION_1 = 1;
-
 	public const uint32 DOT11_INCOMING_ASSOC_REQUEST_RECEIVED_PARAMETERS_REVISION_1 = 1;
-
 	public const uint32 DOT11_ASSOC_ERROR_SOURCE_OS = 0;
-
 	public const uint32 DOT11_ASSOC_ERROR_SOURCE_REMOTE = 1;
-
 	public const uint32 DOT11_ASSOC_ERROR_SOURCE_OTHER = 255;
-
 	public const uint32 DOT11_INCOMING_ASSOC_COMPLETION_PARAMETERS_REVISION_1 = 1;
-
 	public const uint32 DOT11_STOP_AP_PARAMETERS_REVISION_1 = 1;
-
 	public const uint32 DOT11_STOP_AP_REASON_FREQUENCY_NOT_AVAILABLE = 1;
-
 	public const uint32 DOT11_STOP_AP_REASON_CHANNEL_NOT_AVAILABLE = 2;
-
 	public const uint32 DOT11_STOP_AP_REASON_AP_ACTIVE = 3;
-
 	public const uint32 DOT11_STOP_AP_REASON_IHV_START = 4278190080;
-
 	public const uint32 DOT11_STOP_AP_REASON_IHV_END = 4294967295;
-
 	public const uint32 DOT11_PHY_FREQUENCY_ADOPTED_PARAMETERS_REVISION_1 = 1;
-
 	public const uint32 DOT11_CAN_SUSTAIN_AP_PARAMETERS_REVISION_1 = 1;
-
 	public const uint32 DOT11_CAN_SUSTAIN_AP_REASON_IHV_START = 4278190080;
-
 	public const uint32 DOT11_CAN_SUSTAIN_AP_REASON_IHV_END = 4294967295;
-
 	public const uint32 DOT11_AVAILABLE_CHANNEL_LIST_REVISION_1 = 1;
-
 	public const uint32 DOT11_AVAILABLE_FREQUENCY_LIST_REVISION_1 = 1;
-
 	public const uint32 DOT11_DISASSOCIATE_PEER_REQUEST_REVISION_1 = 1;
-
 	public const uint32 DOT11_INCOMING_ASSOC_DECISION_REVISION_1 = 1;
-
 	public const uint32 DOT11_INCOMING_ASSOC_DECISION_REVISION_2 = 2;
-
 	public const uint32 DOT11_ADDITIONAL_IE_REVISION_1 = 1;
-
 	public const uint32 DOT11_EXTAP_SEND_CONTEXT_REVISION_1 = 1;
-
 	public const uint32 DOT11_EXTAP_RECV_CONTEXT_REVISION_1 = 1;
-
 	public const uint32 DOT11_PEER_INFO_LIST_REVISION_1 = 1;
-
 	public const uint32 DOT11_VWIFI_COMBINATION_REVISION_1 = 1;
-
 	public const uint32 DOT11_VWIFI_COMBINATION_REVISION_2 = 2;
-
 	public const uint32 DOT11_VWIFI_COMBINATION_REVISION_3 = 3;
-
 	public const uint32 DOT11_VWIFI_ATTRIBUTES_REVISION_1 = 1;
-
 	public const uint32 DOT11_MAC_PARAMETERS_REVISION_1 = 1;
-
 	public const uint32 DOT11_WFD_ATTRIBUTES_REVISION_1 = 1;
-
 	public const uint32 DOT11_WFD_STATUS_SUCCESS = 0;
-
 	public const uint32 DOT11_WFD_STATUS_FAILED_INFORMATION_IS_UNAVAILABLE = 1;
-
 	public const uint32 DOT11_WFD_STATUS_FAILED_INCOMPATIBLE_PARAMETERS = 2;
-
 	public const uint32 DOT11_WFD_STATUS_FAILED_LIMIT_REACHED = 3;
-
 	public const uint32 DOT11_WFD_STATUS_FAILED_INVALID_PARAMETERS = 4;
-
 	public const uint32 DOT11_WFD_STATUS_FAILED_UNABLE_TO_ACCOMODATE_REQUEST = 5;
-
 	public const uint32 DOT11_WFD_STATUS_FAILED_PREVIOUS_PROTOCOL_ERROR = 6;
-
 	public const uint32 DOT11_WFD_STATUS_FAILED_NO_COMMON_CHANNELS = 7;
-
 	public const uint32 DOT11_WFD_STATUS_FAILED_UNKNOWN_WFD_GROUP = 8;
-
 	public const uint32 DOT11_WFD_STATUS_FAILED_MATCHING_MAX_INTENT = 9;
-
 	public const uint32 DOT11_WFD_STATUS_FAILED_INCOMPATIBLE_PROVISIONING_METHOD = 10;
-
 	public const uint32 DOT11_WFD_STATUS_FAILED_REJECTED_BY_USER = 11;
-
 	public const uint32 DOT11_WFD_STATUS_SUCCESS_ACCEPTED_BY_USER = 12;
-
 	public const uint32 DOT11_WFD_MINOR_REASON_SUCCESS = 0;
-
 	public const uint32 DOT11_WFD_MINOR_REASON_DISASSOCIATED_FROM_WLAN_CROSS_CONNECTION_POLICY = 1;
-
 	public const uint32 DOT11_WFD_MINOR_REASON_DISASSOCIATED_NOT_MANAGED_INFRASTRUCTURE_CAPABLE = 2;
-
 	public const uint32 DOT11_WFD_MINOR_REASON_DISASSOCIATED_WFD_COEXISTENCE_POLICY = 3;
-
 	public const uint32 DOT11_WFD_MINOR_REASON_DISASSOCIATED_INFRASTRUCTURE_MANAGED_POLICY = 4;
-
 	public const uint32 DOT11_WPS_VERSION_1_0 = 1;
-
 	public const uint32 DOT11_WPS_VERSION_2_0 = 2;
-
 	public const uint32 DOT11_WFD_DEVICE_CAPABILITY_SERVICE_DISCOVERY = 1;
-
 	public const uint32 DOT11_WFD_DEVICE_CAPABILITY_P2P_CLIENT_DISCOVERABILITY = 2;
-
 	public const uint32 DOT11_WFD_DEVICE_CAPABILITY_CONCURRENT_OPERATION = 4;
-
 	public const uint32 DOT11_WFD_DEVICE_CAPABILITY_P2P_INFRASTRUCTURE_MANAGED = 8;
-
 	public const uint32 DOT11_WFD_DEVICE_CAPABILITY_P2P_DEVICE_LIMIT = 16;
-
 	public const uint32 DOT11_WFD_DEVICE_CAPABILITY_P2P_INVITATION_PROCEDURE = 32;
-
 	public const uint32 DOT11_WFD_DEVICE_CAPABILITY_RESERVED_6 = 64;
-
 	public const uint32 DOT11_WFD_DEVICE_CAPABILITY_RESERVED_7 = 128;
-
 	public const uint32 DOT11_WFD_GROUP_CAPABILITY_NONE = 0;
-
 	public const uint32 DOT11_WFD_GROUP_CAPABILITY_GROUP_OWNER = 1;
-
 	public const uint32 DOT11_WFD_GROUP_CAPABILITY_PERSISTENT_GROUP = 2;
-
 	public const uint32 DOT11_WFD_GROUP_CAPABILITY_GROUP_LIMIT_REACHED = 4;
-
 	public const uint32 DOT11_WFD_GROUP_CAPABILITY_INTRABSS_DISTRIBUTION_SUPPORTED = 8;
-
 	public const uint32 DOT11_WFD_GROUP_CAPABILITY_CROSS_CONNECTION_SUPPORTED = 16;
-
 	public const uint32 DOT11_WFD_GROUP_CAPABILITY_PERSISTENT_RECONNECT_SUPPORTED = 32;
-
 	public const uint32 DOT11_WFD_GROUP_CAPABILITY_IN_GROUP_FORMATION = 64;
-
 	public const uint32 DOT11_WFD_GROUP_CAPABILITY_RESERVED_7 = 128;
-
 	public const uint32 DOT11_WFD_GROUP_CAPABILITY_EAPOL_KEY_IP_ADDRESS_ALLOCATION_SUPPORTED = 128;
-
 	public const uint32 DOT11_WPS_DEVICE_NAME_MAX_LENGTH = 32;
-
 	public const uint32 DOT11_WPS_MAX_PASSKEY_LENGTH = 8;
-
 	public const uint32 DOT11_WPS_MAX_MODEL_NAME_LENGTH = 32;
-
 	public const uint32 DOT11_WPS_MAX_MODEL_NUMBER_LENGTH = 32;
-
 	public const uint32 WFDSVC_CONNECTION_CAPABILITY_NEW = 1;
-
 	public const uint32 WFDSVC_CONNECTION_CAPABILITY_CLIENT = 2;
-
 	public const uint32 WFDSVC_CONNECTION_CAPABILITY_GO = 4;
-
 	public const uint32 DOT11_WFD_DISCOVER_COMPLETE_PARAMETERS_REVISION_1 = 1;
-
 	public const uint32 DOT11_WFD_DISCOVER_COMPLETE_MAX_LIST_SIZE = 128;
-
 	public const uint32 DOT11_GO_NEGOTIATION_REQUEST_SEND_COMPLETE_PARAMETERS_REVISION_1 = 1;
-
 	public const uint32 DOT11_RECEIVED_GO_NEGOTIATION_REQUEST_PARAMETERS_REVISION_1 = 1;
-
 	public const uint32 DOT11_GO_NEGOTIATION_RESPONSE_SEND_COMPLETE_PARAMETERS_REVISION_1 = 1;
-
 	public const uint32 DOT11_RECEIVED_GO_NEGOTIATION_RESPONSE_PARAMETERS_REVISION_1 = 1;
-
 	public const uint32 DOT11_GO_NEGOTIATION_CONFIRMATION_SEND_COMPLETE_PARAMETERS_REVISION_1 = 1;
-
 	public const uint32 DOT11_RECEIVED_GO_NEGOTIATION_CONFIRMATION_PARAMETERS_REVISION_1 = 1;
-
 	public const uint32 DOT11_INVITATION_REQUEST_SEND_COMPLETE_PARAMETERS_REVISION_1 = 1;
-
 	public const uint32 DOT11_RECEIVED_INVITATION_REQUEST_PARAMETERS_REVISION_1 = 1;
-
 	public const uint32 DOT11_INVITATION_RESPONSE_SEND_COMPLETE_PARAMETERS_REVISION_1 = 1;
-
 	public const uint32 DOT11_RECEIVED_INVITATION_RESPONSE_PARAMETERS_REVISION_1 = 1;
-
 	public const uint32 DOT11_PROVISION_DISCOVERY_REQUEST_SEND_COMPLETE_PARAMETERS_REVISION_1 = 1;
-
 	public const uint32 DOT11_RECEIVED_PROVISION_DISCOVERY_REQUEST_PARAMETERS_REVISION_1 = 1;
-
 	public const uint32 DOT11_PROVISION_DISCOVERY_RESPONSE_SEND_COMPLETE_PARAMETERS_REVISION_1 = 1;
-
 	public const uint32 DOT11_RECEIVED_PROVISION_DISCOVERY_RESPONSE_PARAMETERS_REVISION_1 = 1;
-
 	public const uint32 DOT11_ANQP_QUERY_COMPLETE_PARAMETERS_REVISION_1 = 1;
-
 	public const uint32 DOT11_WFD_DEVICE_CAPABILITY_CONFIG_REVISION_1 = 1;
-
 	public const uint32 DOT11_WFD_GROUP_OWNER_CAPABILITY_CONFIG_REVISION_1 = 1;
-
 	public const uint32 DOT11_WFD_GROUP_OWNER_CAPABILITY_CONFIG_REVISION_2 = 2;
-
 	public const uint32 DOT11_WFD_DEVICE_INFO_REVISION_1 = 1;
-
 	public const uint32 DOT11_WFD_SECONDARY_DEVICE_TYPE_LIST_REVISION_1 = 1;
-
 	public const uint32 DISCOVERY_FILTER_BITMASK_DEVICE = 1;
-
 	public const uint32 DISCOVERY_FILTER_BITMASK_GO = 2;
-
 	public const uint32 DISCOVERY_FILTER_BITMASK_ANY = 15;
-
 	public const uint32 DOT11_WFD_DISCOVER_REQUEST_REVISION_1 = 1;
-
 	public const uint32 DOT11_DEVICE_ENTRY_BYTE_ARRAY_REVISION_1 = 1;
-
 	public const uint32 DOT11_WFD_DEVICE_NOT_DISCOVERABLE = 0;
-
 	public const uint32 DOT11_WFD_DEVICE_AUTO_AVAILABILITY = 16;
-
 	public const uint32 DOT11_WFD_DEVICE_HIGH_AVAILABILITY = 24;
-
 	public const uint32 DOT11_WFD_ADDITIONAL_IE_REVISION_1 = 1;
-
 	public const uint32 DOT11_SEND_GO_NEGOTIATION_REQUEST_PARAMETERS_REVISION_1 = 1;
-
 	public const uint32 DOT11_SEND_GO_NEGOTIATION_RESPONSE_PARAMETERS_REVISION_1 = 1;
-
 	public const uint32 DOT11_SEND_GO_NEGOTIATION_CONFIRMATION_PARAMETERS_REVISION_1 = 1;
-
 	public const uint32 DOT11_SEND_INVITATION_REQUEST_PARAMETERS_REVISION_1 = 1;
-
 	public const uint32 DOT11_SEND_INVITATION_RESPONSE_PARAMETERS_REVISION_1 = 1;
-
 	public const uint32 DOT11_SEND_PROVISION_DISCOVERY_REQUEST_PARAMETERS_REVISION_1 = 1;
-
 	public const uint32 DOT11_SEND_PROVISION_DISCOVERY_RESPONSE_PARAMETERS_REVISION_1 = 1;
-
 	public const uint32 DOT11_WFD_DEVICE_LISTEN_CHANNEL_REVISION_1 = 1;
-
 	public const uint32 DOT11_WFD_GROUP_START_PARAMETERS_REVISION_1 = 1;
-
 	public const uint32 DOT11_WFD_GROUP_JOIN_PARAMETERS_REVISION_1 = 1;
-
 	public const uint32 DOT11_POWER_MGMT_AUTO_MODE_ENABLED_REVISION_1 = 1;
-
 	public const uint32 DOT11_POWER_MGMT_MODE_STATUS_INFO_REVISION_1 = 1;
-
 	public const uint32 DOT11_MAX_CHANNEL_HINTS = 4;
-
 	public const uint32 DOT11_INVALID_CHANNEL_NUMBER = 0;
-
 	public const uint32 DOT11_NLO_FLAG_STOP_NLO_INDICATION = 1;
-
 	public const uint32 DOT11_NLO_FLAG_SCAN_ON_AOAC_PLATFORM = 2;
-
 	public const uint32 DOT11_NLO_FLAG_SCAN_AT_SYSTEM_RESUME = 4;
-
 	public const uint32 DOT11_OFFLOAD_NETWORK_LIST_REVISION_1 = 1;
-
 	public const uint32 DOT11_OFFLOAD_NETWORK_STATUS_PARAMETERS_REVISION_1 = 1;
-
 	public const uint32 DOT11_MANUFACTURING_TEST_REVISION_1 = 1;
-
 	public const uint32 DOT11_MANUFACTURING_CALLBACK_REVISION_1 = 1;
-
 	public const uint32 DOT11_SSID_MAX_LENGTH = 32;
-
 	public const uint32 DOT11_OI_MAX_LENGTH = 5;
-
 	public const uint32 DOT11_OI_MIN_LENGTH = 3;
-
 	public const uint32 DevProp_PciRootBus_SecondaryInterface_PciConventional = 0;
-
 	public const uint32 DevProp_PciRootBus_SecondaryInterface_PciXMode1 = 1;
-
 	public const uint32 DevProp_PciRootBus_SecondaryInterface_PciXMode2 = 2;
-
 	public const uint32 DevProp_PciRootBus_SecondaryInterface_PciExpress = 3;
-
 	public const uint32 DevProp_PciRootBus_CurrentSpeedAndMode_Pci_Conventional_33Mhz = 0;
-
 	public const uint32 DevProp_PciRootBus_CurrentSpeedAndMode_Pci_Conventional_66Mhz = 1;
-
 	public const uint32 DevProp_PciRootBus_CurrentSpeedAndMode_Pci_X_Mode1_66Mhz = 2;
-
 	public const uint32 DevProp_PciRootBus_CurrentSpeedAndMode_Pci_X_Mode1_100Mhz = 3;
-
 	public const uint32 DevProp_PciRootBus_CurrentSpeedAndMode_Pci_X_Mode1_133Mhz = 4;
-
 	public const uint32 DevProp_PciRootBus_CurrentSpeedAndMode_Pci_X_Mode1_ECC_66Mhz = 5;
-
 	public const uint32 DevProp_PciRootBus_CurrentSpeedAndMode_Pci_X_Mode1_ECC_100Mhz = 6;
-
 	public const uint32 DevProp_PciRootBus_CurrentSpeedAndMode_Pci_X_Mode1_ECC_133Mhz = 7;
-
 	public const uint32 DevProp_PciRootBus_CurrentSpeedAndMode_Pci_X_266_Mode2_66Mhz = 8;
-
 	public const uint32 DevProp_PciRootBus_CurrentSpeedAndMode_Pci_X_266_Mode2_100Mhz = 9;
-
 	public const uint32 DevProp_PciRootBus_CurrentSpeedAndMode_Pci_X_266_Mode2_133Mhz = 10;
-
 	public const uint32 DevProp_PciRootBus_CurrentSpeedAndMode_Pci_X_533_Mode2_66Mhz = 11;
-
 	public const uint32 DevProp_PciRootBus_CurrentSpeedAndMode_Pci_X_533_Mode2_100Mhz = 12;
-
 	public const uint32 DevProp_PciRootBus_CurrentSpeedAndMode_Pci_X_533_Mode2_133Mhz = 13;
-
 	public const uint32 DevProp_PciRootBus_SupportedSpeedsAndModes_Pci_Conventional_33Mhz = 1;
-
 	public const uint32 DevProp_PciRootBus_SupportedSpeedsAndModes_Pci_Conventional_66Mhz = 2;
-
 	public const uint32 DevProp_PciRootBus_SupportedSpeedsAndModes_Pci_X_66Mhz = 4;
-
 	public const uint32 DevProp_PciRootBus_SupportedSpeedsAndModes_Pci_X_133Mhz = 8;
-
 	public const uint32 DevProp_PciRootBus_SupportedSpeedsAndModes_Pci_X_266Mhz = 16;
-
 	public const uint32 DevProp_PciRootBus_SupportedSpeedsAndModes_Pci_X_533Mhz = 32;
-
 	public const uint32 DevProp_PciRootBus_BusWidth_32Bits = 0;
-
 	public const uint32 DevProp_PciRootBus_BusWidth_64Bits = 1;
-
 	public const uint32 DevProp_PciDevice_DeviceType_PciConventional = 0;
-
 	public const uint32 DevProp_PciDevice_DeviceType_PciX = 1;
-
 	public const uint32 DevProp_PciDevice_DeviceType_PciExpressEndpoint = 2;
-
 	public const uint32 DevProp_PciDevice_DeviceType_PciExpressLegacyEndpoint = 3;
-
 	public const uint32 DevProp_PciDevice_DeviceType_PciExpressRootComplexIntegratedEndpoint = 4;
-
 	public const uint32 DevProp_PciDevice_DeviceType_PciExpressTreatedAsPci = 5;
-
 	public const uint32 DevProp_PciDevice_BridgeType_PciConventional = 6;
-
 	public const uint32 DevProp_PciDevice_BridgeType_PciX = 7;
-
 	public const uint32 DevProp_PciDevice_BridgeType_PciExpressRootPort = 8;
-
 	public const uint32 DevProp_PciDevice_BridgeType_PciExpressUpstreamSwitchPort = 9;
-
 	public const uint32 DevProp_PciDevice_BridgeType_PciExpressDownstreamSwitchPort = 10;
-
 	public const uint32 DevProp_PciDevice_BridgeType_PciExpressToPciXBridge = 11;
-
 	public const uint32 DevProp_PciDevice_BridgeType_PciXToExpressBridge = 12;
-
 	public const uint32 DevProp_PciDevice_BridgeType_PciExpressTreatedAsPci = 13;
-
 	public const uint32 DevProp_PciDevice_BridgeType_PciExpressEventCollector = 14;
-
 	public const uint32 DevProp_PciDevice_CurrentSpeedAndMode_Pci_Conventional_33MHz = 0;
-
 	public const uint32 DevProp_PciDevice_CurrentSpeedAndMode_Pci_Conventional_66MHz = 1;
-
 	public const uint32 DevProp_PciDevice_CurrentSpeedAndMode_PciX_Mode_Conventional_Pci = 0;
-
 	public const uint32 DevProp_PciDevice_CurrentSpeedAndMode_PciX_Mode1_66Mhz = 1;
-
 	public const uint32 DevProp_PciDevice_CurrentSpeedAndMode_PciX_Mode1_100Mhz = 2;
-
 	public const uint32 DevProp_PciDevice_CurrentSpeedAndMode_PciX_Mode1_133MHZ = 3;
-
 	public const uint32 DevProp_PciDevice_CurrentSpeedAndMode_PciX_Mode1_ECC_66Mhz = 5;
-
 	public const uint32 DevProp_PciDevice_CurrentSpeedAndMode_PciX_Mode1_ECC_100Mhz = 6;
-
 	public const uint32 DevProp_PciDevice_CurrentSpeedAndMode_PciX_Mode1_ECC_133Mhz = 7;
-
 	public const uint32 DevProp_PciDevice_CurrentSpeedAndMode_PciX_Mode2_266_66MHz = 9;
-
 	public const uint32 DevProp_PciDevice_CurrentSpeedAndMode_PciX_Mode2_266_100MHz = 10;
-
 	public const uint32 DevProp_PciDevice_CurrentSpeedAndMode_PciX_Mode2_266_133MHz = 11;
-
 	public const uint32 DevProp_PciDevice_CurrentSpeedAndMode_PciX_Mode2_533_66MHz = 13;
-
 	public const uint32 DevProp_PciDevice_CurrentSpeedAndMode_PciX_Mode2_533_100MHz = 14;
-
 	public const uint32 DevProp_PciDevice_CurrentSpeedAndMode_PciX_Mode2_533_133MHz = 15;
-
 	public const uint32 DevProp_PciExpressDevice_PayloadOrRequestSize_128Bytes = 0;
-
 	public const uint32 DevProp_PciExpressDevice_PayloadOrRequestSize_256Bytes = 1;
-
 	public const uint32 DevProp_PciExpressDevice_PayloadOrRequestSize_512Bytes = 2;
-
 	public const uint32 DevProp_PciExpressDevice_PayloadOrRequestSize_1024Bytes = 3;
-
 	public const uint32 DevProp_PciExpressDevice_PayloadOrRequestSize_2048Bytes = 4;
-
 	public const uint32 DevProp_PciExpressDevice_PayloadOrRequestSize_4096Bytes = 5;
-
 	public const uint32 DevProp_PciExpressDevice_LinkSpeed_TwoAndHalf_Gbps = 1;
-
 	public const uint32 DevProp_PciExpressDevice_LinkSpeed_Five_Gbps = 2;
-
 	public const uint32 DevProp_PciExpressDevice_LinkWidth_By_1 = 1;
-
 	public const uint32 DevProp_PciExpressDevice_LinkWidth_By_2 = 2;
-
 	public const uint32 DevProp_PciExpressDevice_LinkWidth_By_4 = 4;
-
 	public const uint32 DevProp_PciExpressDevice_LinkWidth_By_8 = 8;
-
 	public const uint32 DevProp_PciExpressDevice_LinkWidth_By_12 = 12;
-
 	public const uint32 DevProp_PciExpressDevice_LinkWidth_By_16 = 16;
-
 	public const uint32 DevProp_PciExpressDevice_LinkWidth_By_32 = 32;
-
 	public const uint32 DevProp_PciExpressDevice_Spec_Version_10 = 1;
-
 	public const uint32 DevProp_PciExpressDevice_Spec_Version_11 = 2;
-
 	public const uint32 DevProp_PciDevice_InterruptType_LineBased = 1;
-
 	public const uint32 DevProp_PciDevice_InterruptType_Msi = 2;
-
 	public const uint32 DevProp_PciDevice_InterruptType_MsiX = 4;
-
 	public const uint32 DevProp_PciDevice_SriovSupport_Ok = 0;
-
 	public const uint32 DevProp_PciDevice_SriovSupport_MissingAcs = 1;
-
 	public const uint32 DevProp_PciDevice_SriovSupport_MissingPfDriver = 2;
-
 	public const uint32 DevProp_PciDevice_SriovSupport_NoBusResource = 3;
-
 	public const uint32 DevProp_PciDevice_SriovSupport_DidntGetVfBarSpace = 4;
-
 	public const uint32 DevProp_PciDevice_AcsSupport_Present = 0;
-
 	public const uint32 DevProp_PciDevice_AcsSupport_NotNeeded = 1;
-
 	public const uint32 DevProp_PciDevice_AcsSupport_Missing = 2;
-
 	public const uint32 DevProp_PciDevice_AcsCompatibleUpHierarchy_NotSupported = 0;
-
 	public const uint32 DevProp_PciDevice_AcsCompatibleUpHierarchy_SingleFunctionSupported = 1;
-
 	public const uint32 DevProp_PciDevice_AcsCompatibleUpHierarchy_NoP2PSupported = 2;
-
 	public const uint32 DevProp_PciDevice_AcsCompatibleUpHierarchy_Supported = 3;
-
 	public const uint32 DevProp_PciDevice_AcsCompatibleUpHierarchy_Enhanced = 4;
-
 	public const uint32 WLAN_API_VERSION_1_0 = 1;
-
 	public const uint32 WLAN_API_VERSION_2_0 = 2;
-
 	public const uint32 WLAN_API_VERSION = 2;
-
 	public const uint32 WLAN_MAX_NAME_LENGTH = 256;
-
 	public const uint32 WLAN_PROFILE_GROUP_POLICY = 1;
-
 	public const uint32 WLAN_PROFILE_USER = 2;
-
 	public const uint32 WLAN_PROFILE_GET_PLAINTEXT_KEY = 4;
-
 	public const uint32 WLAN_PROFILE_CONNECTION_MODE_SET_BY_CLIENT = 65536;
-
 	public const uint32 WLAN_PROFILE_CONNECTION_MODE_AUTO = 131072;
-
 	public const uint32 DOT11_PSD_IE_MAX_DATA_SIZE = 240;
-
 	public const uint32 DOT11_PSD_IE_MAX_ENTRY_NUMBER = 5;
-
 	public const uint32 WLAN_REASON_CODE_NETWORK_NOT_COMPATIBLE = 131073;
-
 	public const uint32 WLAN_REASON_CODE_PROFILE_NOT_COMPATIBLE = 131074;
-
 	public const uint32 WLAN_REASON_CODE_NO_AUTO_CONNECTION = 163841;
-
 	public const uint32 WLAN_REASON_CODE_NOT_VISIBLE = 163842;
-
 	public const uint32 WLAN_REASON_CODE_GP_DENIED = 163843;
-
 	public const uint32 WLAN_REASON_CODE_USER_DENIED = 163844;
-
 	public const uint32 WLAN_REASON_CODE_BSS_TYPE_NOT_ALLOWED = 163845;
-
 	public const uint32 WLAN_REASON_CODE_IN_FAILED_LIST = 163846;
-
 	public const uint32 WLAN_REASON_CODE_IN_BLOCKED_LIST = 163847;
-
 	public const uint32 WLAN_REASON_CODE_SSID_LIST_TOO_LONG = 163848;
-
 	public const uint32 WLAN_REASON_CODE_CONNECT_CALL_FAIL = 163849;
-
 	public const uint32 WLAN_REASON_CODE_SCAN_CALL_FAIL = 163850;
-
 	public const uint32 WLAN_REASON_CODE_NETWORK_NOT_AVAILABLE = 163851;
-
 	public const uint32 WLAN_REASON_CODE_PROFILE_CHANGED_OR_DELETED = 163852;
-
 	public const uint32 WLAN_REASON_CODE_KEY_MISMATCH = 163853;
-
 	public const uint32 WLAN_REASON_CODE_USER_NOT_RESPOND = 163854;
-
 	public const uint32 WLAN_REASON_CODE_AP_PROFILE_NOT_ALLOWED_FOR_CLIENT = 163855;
-
 	public const uint32 WLAN_REASON_CODE_AP_PROFILE_NOT_ALLOWED = 163856;
-
 	public const uint32 WLAN_REASON_CODE_HOTSPOT2_PROFILE_DENIED = 163857;
-
 	public const uint32 WLAN_REASON_CODE_INVALID_PROFILE_SCHEMA = 524289;
-
 	public const uint32 WLAN_REASON_CODE_PROFILE_MISSING = 524290;
-
 	public const uint32 WLAN_REASON_CODE_INVALID_PROFILE_NAME = 524291;
-
 	public const uint32 WLAN_REASON_CODE_INVALID_PROFILE_TYPE = 524292;
-
 	public const uint32 WLAN_REASON_CODE_INVALID_PHY_TYPE = 524293;
-
 	public const uint32 WLAN_REASON_CODE_MSM_SECURITY_MISSING = 524294;
-
 	public const uint32 WLAN_REASON_CODE_IHV_SECURITY_NOT_SUPPORTED = 524295;
-
 	public const uint32 WLAN_REASON_CODE_IHV_OUI_MISMATCH = 524296;
-
 	public const uint32 WLAN_REASON_CODE_IHV_OUI_MISSING = 524297;
-
 	public const uint32 WLAN_REASON_CODE_IHV_SETTINGS_MISSING = 524298;
-
 	public const uint32 WLAN_REASON_CODE_CONFLICT_SECURITY = 524299;
-
 	public const uint32 WLAN_REASON_CODE_SECURITY_MISSING = 524300;
-
 	public const uint32 WLAN_REASON_CODE_INVALID_BSS_TYPE = 524301;
-
 	public const uint32 WLAN_REASON_CODE_INVALID_ADHOC_CONNECTION_MODE = 524302;
-
 	public const uint32 WLAN_REASON_CODE_NON_BROADCAST_SET_FOR_ADHOC = 524303;
-
 	public const uint32 WLAN_REASON_CODE_AUTO_SWITCH_SET_FOR_ADHOC = 524304;
-
 	public const uint32 WLAN_REASON_CODE_AUTO_SWITCH_SET_FOR_MANUAL_CONNECTION = 524305;
-
 	public const uint32 WLAN_REASON_CODE_IHV_SECURITY_ONEX_MISSING = 524306;
-
 	public const uint32 WLAN_REASON_CODE_PROFILE_SSID_INVALID = 524307;
-
 	public const uint32 WLAN_REASON_CODE_TOO_MANY_SSID = 524308;
-
 	public const uint32 WLAN_REASON_CODE_IHV_CONNECTIVITY_NOT_SUPPORTED = 524309;
-
 	public const uint32 WLAN_REASON_CODE_BAD_MAX_NUMBER_OF_CLIENTS_FOR_AP = 524310;
-
 	public const uint32 WLAN_REASON_CODE_INVALID_CHANNEL = 524311;
-
 	public const uint32 WLAN_REASON_CODE_OPERATION_MODE_NOT_SUPPORTED = 524312;
-
 	public const uint32 WLAN_REASON_CODE_AUTO_AP_PROFILE_NOT_ALLOWED = 524313;
-
 	public const uint32 WLAN_REASON_CODE_AUTO_CONNECTION_NOT_ALLOWED = 524314;
-
 	public const uint32 WLAN_REASON_CODE_HOTSPOT2_PROFILE_NOT_ALLOWED = 524315;
-
 	public const uint32 WLAN_REASON_CODE_UNSUPPORTED_SECURITY_SET_BY_OS = 196609;
-
 	public const uint32 WLAN_REASON_CODE_UNSUPPORTED_SECURITY_SET = 196610;
-
 	public const uint32 WLAN_REASON_CODE_BSS_TYPE_UNMATCH = 196611;
-
 	public const uint32 WLAN_REASON_CODE_PHY_TYPE_UNMATCH = 196612;
-
 	public const uint32 WLAN_REASON_CODE_DATARATE_UNMATCH = 196613;
-
 	public const uint32 WLAN_REASON_CODE_USER_CANCELLED = 229377;
-
 	public const uint32 WLAN_REASON_CODE_ASSOCIATION_FAILURE = 229378;
-
 	public const uint32 WLAN_REASON_CODE_ASSOCIATION_TIMEOUT = 229379;
-
 	public const uint32 WLAN_REASON_CODE_PRE_SECURITY_FAILURE = 229380;
-
 	public const uint32 WLAN_REASON_CODE_START_SECURITY_FAILURE = 229381;
-
 	public const uint32 WLAN_REASON_CODE_SECURITY_FAILURE = 229382;
-
 	public const uint32 WLAN_REASON_CODE_SECURITY_TIMEOUT = 229383;
-
 	public const uint32 WLAN_REASON_CODE_ROAMING_FAILURE = 229384;
-
 	public const uint32 WLAN_REASON_CODE_ROAMING_SECURITY_FAILURE = 229385;
-
 	public const uint32 WLAN_REASON_CODE_ADHOC_SECURITY_FAILURE = 229386;
-
 	public const uint32 WLAN_REASON_CODE_DRIVER_DISCONNECTED = 229387;
-
 	public const uint32 WLAN_REASON_CODE_DRIVER_OPERATION_FAILURE = 229388;
-
 	public const uint32 WLAN_REASON_CODE_IHV_NOT_AVAILABLE = 229389;
-
 	public const uint32 WLAN_REASON_CODE_IHV_NOT_RESPONDING = 229390;
-
 	public const uint32 WLAN_REASON_CODE_DISCONNECT_TIMEOUT = 229391;
-
 	public const uint32 WLAN_REASON_CODE_INTERNAL_FAILURE = 229392;
-
 	public const uint32 WLAN_REASON_CODE_UI_REQUEST_TIMEOUT = 229393;
-
 	public const uint32 WLAN_REASON_CODE_TOO_MANY_SECURITY_ATTEMPTS = 229394;
-
 	public const uint32 WLAN_REASON_CODE_AP_STARTING_FAILURE = 229395;
-
 	public const uint32 WLAN_REASON_CODE_NO_VISIBLE_AP = 229396;
-
 	public const uint32 WLAN_REASON_CODE_MSMSEC_MIN = 262144;
-
 	public const uint32 WLAN_REASON_CODE_MSMSEC_PROFILE_INVALID_KEY_INDEX = 262145;
-
 	public const uint32 WLAN_REASON_CODE_MSMSEC_PROFILE_PSK_PRESENT = 262146;
-
 	public const uint32 WLAN_REASON_CODE_MSMSEC_PROFILE_KEY_LENGTH = 262147;
-
 	public const uint32 WLAN_REASON_CODE_MSMSEC_PROFILE_PSK_LENGTH = 262148;
-
 	public const uint32 WLAN_REASON_CODE_MSMSEC_PROFILE_NO_AUTH_CIPHER_SPECIFIED = 262149;
-
 	public const uint32 WLAN_REASON_CODE_MSMSEC_PROFILE_TOO_MANY_AUTH_CIPHER_SPECIFIED = 262150;
-
 	public const uint32 WLAN_REASON_CODE_MSMSEC_PROFILE_DUPLICATE_AUTH_CIPHER = 262151;
-
 	public const uint32 WLAN_REASON_CODE_MSMSEC_PROFILE_RAWDATA_INVALID = 262152;
-
 	public const uint32 WLAN_REASON_CODE_MSMSEC_PROFILE_INVALID_AUTH_CIPHER = 262153;
-
 	public const uint32 WLAN_REASON_CODE_MSMSEC_PROFILE_ONEX_DISABLED = 262154;
-
 	public const uint32 WLAN_REASON_CODE_MSMSEC_PROFILE_ONEX_ENABLED = 262155;
-
 	public const uint32 WLAN_REASON_CODE_MSMSEC_PROFILE_INVALID_PMKCACHE_MODE = 262156;
-
 	public const uint32 WLAN_REASON_CODE_MSMSEC_PROFILE_INVALID_PMKCACHE_SIZE = 262157;
-
 	public const uint32 WLAN_REASON_CODE_MSMSEC_PROFILE_INVALID_PMKCACHE_TTL = 262158;
-
 	public const uint32 WLAN_REASON_CODE_MSMSEC_PROFILE_INVALID_PREAUTH_MODE = 262159;
-
 	public const uint32 WLAN_REASON_CODE_MSMSEC_PROFILE_INVALID_PREAUTH_THROTTLE = 262160;
-
 	public const uint32 WLAN_REASON_CODE_MSMSEC_PROFILE_PREAUTH_ONLY_ENABLED = 262161;
-
 	public const uint32 WLAN_REASON_CODE_MSMSEC_CAPABILITY_NETWORK = 262162;
-
 	public const uint32 WLAN_REASON_CODE_MSMSEC_CAPABILITY_NIC = 262163;
-
 	public const uint32 WLAN_REASON_CODE_MSMSEC_CAPABILITY_PROFILE = 262164;
-
 	public const uint32 WLAN_REASON_CODE_MSMSEC_CAPABILITY_DISCOVERY = 262165;
-
 	public const uint32 WLAN_REASON_CODE_MSMSEC_PROFILE_PASSPHRASE_CHAR = 262166;
-
 	public const uint32 WLAN_REASON_CODE_MSMSEC_PROFILE_KEYMATERIAL_CHAR = 262167;
-
 	public const uint32 WLAN_REASON_CODE_MSMSEC_PROFILE_WRONG_KEYTYPE = 262168;
-
 	public const uint32 WLAN_REASON_CODE_MSMSEC_MIXED_CELL = 262169;
-
 	public const uint32 WLAN_REASON_CODE_MSMSEC_PROFILE_AUTH_TIMERS_INVALID = 262170;
-
 	public const uint32 WLAN_REASON_CODE_MSMSEC_PROFILE_INVALID_GKEY_INTV = 262171;
-
 	public const uint32 WLAN_REASON_CODE_MSMSEC_TRANSITION_NETWORK = 262172;
-
 	public const uint32 WLAN_REASON_CODE_MSMSEC_PROFILE_KEY_UNMAPPED_CHAR = 262173;
-
 	public const uint32 WLAN_REASON_CODE_MSMSEC_CAPABILITY_PROFILE_AUTH = 262174;
-
 	public const uint32 WLAN_REASON_CODE_MSMSEC_CAPABILITY_PROFILE_CIPHER = 262175;
-
 	public const uint32 WLAN_REASON_CODE_MSMSEC_PROFILE_SAFE_MODE = 262176;
-
 	public const uint32 WLAN_REASON_CODE_MSMSEC_CAPABILITY_PROFILE_SAFE_MODE_NIC = 262177;
-
 	public const uint32 WLAN_REASON_CODE_MSMSEC_CAPABILITY_PROFILE_SAFE_MODE_NW = 262178;
-
 	public const uint32 WLAN_REASON_CODE_MSMSEC_PROFILE_UNSUPPORTED_AUTH = 262179;
-
 	public const uint32 WLAN_REASON_CODE_MSMSEC_PROFILE_UNSUPPORTED_CIPHER = 262180;
-
 	public const uint32 WLAN_REASON_CODE_MSMSEC_CAPABILITY_MFP_NW_NIC = 262181;
-
 	public const uint32 WLAN_REASON_CODE_MSMSEC_UI_REQUEST_FAILURE = 294913;
-
 	public const uint32 WLAN_REASON_CODE_MSMSEC_AUTH_START_TIMEOUT = 294914;
-
 	public const uint32 WLAN_REASON_CODE_MSMSEC_AUTH_SUCCESS_TIMEOUT = 294915;
-
 	public const uint32 WLAN_REASON_CODE_MSMSEC_KEY_START_TIMEOUT = 294916;
-
 	public const uint32 WLAN_REASON_CODE_MSMSEC_KEY_SUCCESS_TIMEOUT = 294917;
-
 	public const uint32 WLAN_REASON_CODE_MSMSEC_M3_MISSING_KEY_DATA = 294918;
-
 	public const uint32 WLAN_REASON_CODE_MSMSEC_M3_MISSING_IE = 294919;
-
 	public const uint32 WLAN_REASON_CODE_MSMSEC_M3_MISSING_GRP_KEY = 294920;
-
 	public const uint32 WLAN_REASON_CODE_MSMSEC_PR_IE_MATCHING = 294921;
-
 	public const uint32 WLAN_REASON_CODE_MSMSEC_SEC_IE_MATCHING = 294922;
-
 	public const uint32 WLAN_REASON_CODE_MSMSEC_NO_PAIRWISE_KEY = 294923;
-
 	public const uint32 WLAN_REASON_CODE_MSMSEC_G1_MISSING_KEY_DATA = 294924;
-
 	public const uint32 WLAN_REASON_CODE_MSMSEC_G1_MISSING_GRP_KEY = 294925;
-
 	public const uint32 WLAN_REASON_CODE_MSMSEC_PEER_INDICATED_INSECURE = 294926;
-
 	public const uint32 WLAN_REASON_CODE_MSMSEC_NO_AUTHENTICATOR = 294927;
-
 	public const uint32 WLAN_REASON_CODE_MSMSEC_NIC_FAILURE = 294928;
-
 	public const uint32 WLAN_REASON_CODE_MSMSEC_CANCELLED = 294929;
-
 	public const uint32 WLAN_REASON_CODE_MSMSEC_KEY_FORMAT = 294930;
-
 	public const uint32 WLAN_REASON_CODE_MSMSEC_DOWNGRADE_DETECTED = 294931;
-
 	public const uint32 WLAN_REASON_CODE_MSMSEC_PSK_MISMATCH_SUSPECTED = 294932;
-
 	public const uint32 WLAN_REASON_CODE_MSMSEC_FORCED_FAILURE = 294933;
-
 	public const uint32 WLAN_REASON_CODE_MSMSEC_M3_TOO_MANY_RSNIE = 294934;
-
 	public const uint32 WLAN_REASON_CODE_MSMSEC_M2_MISSING_KEY_DATA = 294935;
-
 	public const uint32 WLAN_REASON_CODE_MSMSEC_M2_MISSING_IE = 294936;
-
 	public const uint32 WLAN_REASON_CODE_MSMSEC_AUTH_WCN_COMPLETED = 294937;
-
 	public const uint32 WLAN_REASON_CODE_MSMSEC_M3_MISSING_MGMT_GRP_KEY = 294938;
-
 	public const uint32 WLAN_REASON_CODE_MSMSEC_G1_MISSING_MGMT_GRP_KEY = 294939;
-
 	public const uint32 WLAN_REASON_CODE_MSMSEC_MAX = 327679;
-
 	public const uint32 WLAN_AVAILABLE_NETWORK_CONNECTED = 1;
-
 	public const uint32 WLAN_AVAILABLE_NETWORK_HAS_PROFILE = 2;
-
 	public const uint32 WLAN_AVAILABLE_NETWORK_CONSOLE_USER_PROFILE = 4;
-
 	public const uint32 WLAN_AVAILABLE_NETWORK_INTERWORKING_SUPPORTED = 8;
-
 	public const uint32 WLAN_AVAILABLE_NETWORK_HOTSPOT2_ENABLED = 16;
-
 	public const uint32 WLAN_AVAILABLE_NETWORK_ANQP_SUPPORTED = 32;
-
 	public const uint32 WLAN_AVAILABLE_NETWORK_HOTSPOT2_DOMAIN = 64;
-
 	public const uint32 WLAN_AVAILABLE_NETWORK_HOTSPOT2_ROAMING = 128;
-
 	public const uint32 WLAN_AVAILABLE_NETWORK_AUTO_CONNECT_FAILED = 256;
-
 	public const uint32 WLAN_AVAILABLE_NETWORK_INCLUDE_ALL_ADHOC_PROFILES = 1;
-
 	public const uint32 WLAN_AVAILABLE_NETWORK_INCLUDE_ALL_MANUAL_HIDDEN_PROFILES = 2;
-
 	public const uint32 WLAN_MAX_PHY_TYPE_NUMBER = 8;
-
 	public const uint32 WLAN_MAX_PHY_INDEX = 64;
-
 	public const uint32 WLAN_CONNECTION_HIDDEN_NETWORK = 1;
-
 	public const uint32 WLAN_CONNECTION_ADHOC_JOIN_ONLY = 2;
-
 	public const uint32 WLAN_CONNECTION_IGNORE_PRIVACY_BIT = 4;
-
 	public const uint32 WLAN_CONNECTION_EAPOL_PASSTHROUGH = 8;
-
 	public const uint32 WLAN_CONNECTION_PERSIST_DISCOVERY_PROFILE = 16;
-
 	public const uint32 WLAN_CONNECTION_PERSIST_DISCOVERY_PROFILE_CONNECTION_MODE_AUTO = 32;
-
 	public const uint32 WLAN_CONNECTION_PERSIST_DISCOVERY_PROFILE_OVERWRITE_EXISTING = 64;
-
 	public const uint32 WLAN_NOTIFICATION_SOURCE_NONE = 0;
-
 	public const uint32 WLAN_NOTIFICATION_SOURCE_ALL = 65535;
-
 	public const uint32 WLAN_NOTIFICATION_SOURCE_ACM = 8;
-
 	public const uint32 WLAN_NOTIFICATION_SOURCE_MSM = 16;
-
 	public const uint32 WLAN_NOTIFICATION_SOURCE_SECURITY = 32;
-
 	public const uint32 WLAN_NOTIFICATION_SOURCE_IHV = 64;
-
 	public const uint32 WLAN_NOTIFICATION_SOURCE_HNWK = 128;
-
 	public const uint32 WLAN_NOTIFICATION_SOURCE_ONEX = 4;
-
 	public const uint32 WLAN_NOTIFICATION_SOURCE_DEVICE_SERVICE = 2048;
-
 	public const uint32 WFD_API_VERSION_1_0 = 1;
-
 	public const uint32 WFD_API_VERSION = 1;
-
 	public const uint32 WLAN_UI_API_VERSION = 1;
-
 	public const uint32 WLAN_UI_API_INITIAL_VERSION = 1;
-
 	public const Guid GUID_DEVINTERFACE_WIFIDIRECT_DEVICE = .(0x439b20af, 0x8955, 0x405b, 0x99, 0xf0, 0xa6, 0x2a, 0xf0, 0xc6, 0x8d, 0x43);
-
 	public const Guid GUID_AEPSERVICE_WIFIDIRECT_DEVICE = .(0xcc29827c, 0x9caf, 0x4928, 0x99, 0xa9, 0x18, 0xf7, 0xc2, 0x38, 0x13, 0x89);
-
 	public const Guid GUID_DEVINTERFACE_ASP_INFRA_DEVICE = .(0xff823995, 0x7a72, 0x4c80, 0x87, 0x57, 0xc6, 0x7e, 0xe1, 0x3d, 0x1a, 0x49);
-
 	public const PROPERTYKEY DEVPKEY_WiFiDirect_DeviceAddress = .(.(0x1506935d, 0xe3e7, 0x450f, 0x86, 0x37, 0x82, 0x23, 0x3e, 0xbe, 0x5f, 0x6e), 1);
-
 	public const PROPERTYKEY DEVPKEY_WiFiDirect_InterfaceAddress = .(.(0x1506935d, 0xe3e7, 0x450f, 0x86, 0x37, 0x82, 0x23, 0x3e, 0xbe, 0x5f, 0x6e), 2);
-
 	public const PROPERTYKEY DEVPKEY_WiFiDirect_InterfaceGuid = .(.(0x1506935d, 0xe3e7, 0x450f, 0x86, 0x37, 0x82, 0x23, 0x3e, 0xbe, 0x5f, 0x6e), 3);
-
 	public const PROPERTYKEY DEVPKEY_WiFiDirect_GroupId = .(.(0x1506935d, 0xe3e7, 0x450f, 0x86, 0x37, 0x82, 0x23, 0x3e, 0xbe, 0x5f, 0x6e), 4);
-
 	public const PROPERTYKEY DEVPKEY_WiFiDirect_IsConnected = .(.(0x1506935d, 0xe3e7, 0x450f, 0x86, 0x37, 0x82, 0x23, 0x3e, 0xbe, 0x5f, 0x6e), 5);
-
 	public const PROPERTYKEY DEVPKEY_WiFiDirect_IsVisible = .(.(0x1506935d, 0xe3e7, 0x450f, 0x86, 0x37, 0x82, 0x23, 0x3e, 0xbe, 0x5f, 0x6e), 6);
-
 	public const PROPERTYKEY DEVPKEY_WiFiDirect_IsLegacyDevice = .(.(0x1506935d, 0xe3e7, 0x450f, 0x86, 0x37, 0x82, 0x23, 0x3e, 0xbe, 0x5f, 0x6e), 7);
-
 	public const PROPERTYKEY DEVPKEY_WiFiDirect_MiracastVersion = .(.(0x1506935d, 0xe3e7, 0x450f, 0x86, 0x37, 0x82, 0x23, 0x3e, 0xbe, 0x5f, 0x6e), 8);
-
 	public const PROPERTYKEY DEVPKEY_WiFiDirect_IsMiracastLCPSupported = .(.(0x1506935d, 0xe3e7, 0x450f, 0x86, 0x37, 0x82, 0x23, 0x3e, 0xbe, 0x5f, 0x6e), 9);
-
 	public const PROPERTYKEY DEVPKEY_WiFiDirect_Services = .(.(0x1506935d, 0xe3e7, 0x450f, 0x86, 0x37, 0x82, 0x23, 0x3e, 0xbe, 0x5f, 0x6e), 10);
-
 	public const PROPERTYKEY DEVPKEY_WiFiDirect_SupportedChannelList = .(.(0x1506935d, 0xe3e7, 0x450f, 0x86, 0x37, 0x82, 0x23, 0x3e, 0xbe, 0x5f, 0x6e), 11);
-
 	public const PROPERTYKEY DEVPKEY_WiFiDirect_InformationElements = .(.(0x1506935d, 0xe3e7, 0x450f, 0x86, 0x37, 0x82, 0x23, 0x3e, 0xbe, 0x5f, 0x6e), 12);
-
 	public const PROPERTYKEY DEVPKEY_WiFiDirect_DeviceAddressCopy = .(.(0x1506935d, 0xe3e7, 0x450f, 0x86, 0x37, 0x82, 0x23, 0x3e, 0xbe, 0x5f, 0x6e), 13);
-
 	public const PROPERTYKEY DEVPKEY_WiFiDirect_IsRecentlyAssociated = .(.(0x1506935d, 0xe3e7, 0x450f, 0x86, 0x37, 0x82, 0x23, 0x3e, 0xbe, 0x5f, 0x6e), 14);
-
 	public const PROPERTYKEY DEVPKEY_WiFiDirect_Service_Aeps = .(.(0x1506935d, 0xe3e7, 0x450f, 0x86, 0x37, 0x82, 0x23, 0x3e, 0xbe, 0x5f, 0x6e), 15);
-
 	public const PROPERTYKEY DEVPKEY_WiFiDirect_NoMiracastAutoProject = .(.(0x1506935d, 0xe3e7, 0x450f, 0x86, 0x37, 0x82, 0x23, 0x3e, 0xbe, 0x5f, 0x6e), 16);
-
 	public const PROPERTYKEY DEVPKEY_InfraCast_Supported = .(.(0x1506935d, 0xe3e7, 0x450f, 0x86, 0x37, 0x82, 0x23, 0x3e, 0xbe, 0x5f, 0x6e), 17);
-
 	public const PROPERTYKEY DEVPKEY_InfraCast_StreamSecuritySupported = .(.(0x1506935d, 0xe3e7, 0x450f, 0x86, 0x37, 0x82, 0x23, 0x3e, 0xbe, 0x5f, 0x6e), 18);
-
 	public const PROPERTYKEY DEVPKEY_InfraCast_AccessPointBssid = .(.(0x1506935d, 0xe3e7, 0x450f, 0x86, 0x37, 0x82, 0x23, 0x3e, 0xbe, 0x5f, 0x6e), 19);
-
 	public const PROPERTYKEY DEVPKEY_InfraCast_SinkHostName = .(.(0x1506935d, 0xe3e7, 0x450f, 0x86, 0x37, 0x82, 0x23, 0x3e, 0xbe, 0x5f, 0x6e), 20);
-
 	public const PROPERTYKEY DEVPKEY_InfraCast_ChallengeAep = .(.(0x1506935d, 0xe3e7, 0x450f, 0x86, 0x37, 0x82, 0x23, 0x3e, 0xbe, 0x5f, 0x6e), 21);
-
 	public const PROPERTYKEY DEVPKEY_WiFiDirect_IsDMGCapable = .(.(0x1506935d, 0xe3e7, 0x450f, 0x86, 0x37, 0x82, 0x23, 0x3e, 0xbe, 0x5f, 0x6e), 22);
-
 	public const PROPERTYKEY DEVPKEY_InfraCast_DevnodeAep = .(.(0x1506935d, 0xe3e7, 0x450f, 0x86, 0x37, 0x82, 0x23, 0x3e, 0xbe, 0x5f, 0x6e), 23);
-
 	public const PROPERTYKEY DEVPKEY_WiFiDirect_FoundWsbService = .(.(0x1506935d, 0xe3e7, 0x450f, 0x86, 0x37, 0x82, 0x23, 0x3e, 0xbe, 0x5f, 0x6e), 24);
-
 	public const PROPERTYKEY DEVPKEY_InfraCast_HostName_ResolutionMode = .(.(0x1506935d, 0xe3e7, 0x450f, 0x86, 0x37, 0x82, 0x23, 0x3e, 0xbe, 0x5f, 0x6e), 25);
-
 	public const PROPERTYKEY DEVPKEY_InfraCast_SinkIpAddress = .(.(0x1506935d, 0xe3e7, 0x450f, 0x86, 0x37, 0x82, 0x23, 0x3e, 0xbe, 0x5f, 0x6e), 26);
-
 	public const PROPERTYKEY DEVPKEY_WiFiDirect_TransientAssociation = .(.(0x1506935d, 0xe3e7, 0x450f, 0x86, 0x37, 0x82, 0x23, 0x3e, 0xbe, 0x5f, 0x6e), 27);
-
 	public const PROPERTYKEY DEVPKEY_WiFiDirect_LinkQuality = .(.(0x1506935d, 0xe3e7, 0x450f, 0x86, 0x37, 0x82, 0x23, 0x3e, 0xbe, 0x5f, 0x6e), 28);
-
 	public const PROPERTYKEY DEVPKEY_InfraCast_PinSupported = .(.(0x1506935d, 0xe3e7, 0x450f, 0x86, 0x37, 0x82, 0x23, 0x3e, 0xbe, 0x5f, 0x6e), 29);
-
 	public const PROPERTYKEY DEVPKEY_InfraCast_RtspTcpConnectionParametersSupported = .(.(0x1506935d, 0xe3e7, 0x450f, 0x86, 0x37, 0x82, 0x23, 0x3e, 0xbe, 0x5f, 0x6e), 30);
-
 	public const PROPERTYKEY DEVPKEY_WiFiDirect_Miracast_SessionMgmtControlPort = .(.(0x1506935d, 0xe3e7, 0x450f, 0x86, 0x37, 0x82, 0x23, 0x3e, 0xbe, 0x5f, 0x6e), 31);
-
 	public const PROPERTYKEY DEVPKEY_WiFiDirect_RtspTcpConnectionParametersSupported = .(.(0x1506935d, 0xe3e7, 0x450f, 0x86, 0x37, 0x82, 0x23, 0x3e, 0xbe, 0x5f, 0x6e), 32);
-
 	public const PROPERTYKEY DEVPKEY_WiFiDirectServices_ServiceAddress = .(.(0x31b37743, 0x7c5e, 0x4005, 0x93, 0xe6, 0xe9, 0x53, 0xf9, 0x2b, 0x82, 0xe9), 2);
-
 	public const PROPERTYKEY DEVPKEY_WiFiDirectServices_ServiceName = .(.(0x31b37743, 0x7c5e, 0x4005, 0x93, 0xe6, 0xe9, 0x53, 0xf9, 0x2b, 0x82, 0xe9), 3);
-
 	public const PROPERTYKEY DEVPKEY_WiFiDirectServices_ServiceInformation = .(.(0x31b37743, 0x7c5e, 0x4005, 0x93, 0xe6, 0xe9, 0x53, 0xf9, 0x2b, 0x82, 0xe9), 4);
-
 	public const PROPERTYKEY DEVPKEY_WiFiDirectServices_AdvertisementId = .(.(0x31b37743, 0x7c5e, 0x4005, 0x93, 0xe6, 0xe9, 0x53, 0xf9, 0x2b, 0x82, 0xe9), 5);
-
 	public const PROPERTYKEY DEVPKEY_WiFiDirectServices_ServiceConfigMethods = .(.(0x31b37743, 0x7c5e, 0x4005, 0x93, 0xe6, 0xe9, 0x53, 0xf9, 0x2b, 0x82, 0xe9), 6);
-
 	public const PROPERTYKEY DEVPKEY_WiFiDirectServices_RequestServiceInformation = .(.(0x31b37743, 0x7c5e, 0x4005, 0x93, 0xe6, 0xe9, 0x53, 0xf9, 0x2b, 0x82, 0xe9), 7);
-
 	public const PROPERTYKEY DEVPKEY_WiFi_InterfaceGuid = .(.(0xef1167eb, 0xcbfc, 0x4341, 0xa5, 0x68, 0xa7, 0xc9, 0x1a, 0x68, 0x98, 0x2c), 2);
-
 }
 #endregion
 
@@ -2500,7 +1703,7 @@ public struct DOT11_IV48_COUNTER
 	public uint16 usIV16Counter;
 }
 
-[CRepr, FlexibleArray("ucKey")]
+[CRepr]
 public struct DOT11_WEP_OFFLOAD
 {
 	public uint32 uReserved;
@@ -2517,6 +1720,7 @@ public struct DOT11_WEP_OFFLOAD
 	public DOT11_IV48_COUNTER[16] dot11IV48Counters;
 	public uint16[16] usDot11RWBitMaps;
 	public uint16 usKeyLength;
+	public uint8* ucKey mut => &ucKey_impl;
 	private uint8[ANYSIZE_ARRAY] ucKey_impl;
 }
 
@@ -2531,7 +1735,7 @@ public struct DOT11_WEP_UPLOAD
 	public uint16[16] usDot11RWBitMaps;
 }
 
-[CRepr, FlexibleArray("ucKey")]
+[CRepr]
 public struct DOT11_DEFAULT_WEP_OFFLOAD
 {
 	public uint32 uReserved;
@@ -2547,6 +1751,7 @@ public struct DOT11_DEFAULT_WEP_OFFLOAD
 	public DOT11_IV48_COUNTER[16] dot11IV48Counters;
 	public uint16[16] usDot11RWBitMaps;
 	public uint16 usKeyLength;
+	public uint8* ucKey mut => &ucKey_impl;
 	private uint8[ANYSIZE_ARRAY] ucKey_impl;
 }
 
@@ -2579,7 +1784,7 @@ public struct DOT11_CURRENT_OPERATION_MODE
 	public uint32 uCurrentOpMode;
 }
 
-[CRepr, FlexibleArray("ucBuffer")]
+[CRepr]
 public struct DOT11_SCAN_REQUEST
 {
 	public DOT11_BSS_TYPE dot11BSSType;
@@ -2594,10 +1799,11 @@ public struct DOT11_SCAN_REQUEST
 	public uint32 uNumOfPhyTypes;
 	public uint32 uIEsOffset;
 	public uint32 uIEsLength;
+	public uint8* ucBuffer mut => &ucBuffer_impl;
 	private uint8[ANYSIZE_ARRAY] ucBuffer_impl;
 }
 
-[CRepr, FlexibleArray("ucChannelListBuffer")]
+[CRepr]
 public struct DOT11_PHY_TYPE_INFO
 {
 	public DOT11_PHY_TYPE dot11PhyType;
@@ -2607,10 +1813,11 @@ public struct DOT11_PHY_TYPE_INFO
 	public uint32 uMaxChannelTime;
 	public CH_DESCRIPTION_TYPE ChDescriptionType;
 	public uint32 uChannelListSize;
+	public uint8* ucChannelListBuffer mut => &ucChannelListBuffer_impl;
 	private uint8[ANYSIZE_ARRAY] ucChannelListBuffer_impl;
 }
 
-[CRepr, FlexibleArray("ucBuffer")]
+[CRepr]
 public struct DOT11_SCAN_REQUEST_V2
 {
 	public DOT11_BSS_TYPE dot11BSSType;
@@ -2626,19 +1833,21 @@ public struct DOT11_SCAN_REQUEST_V2
 	public uint32 uNumOfPhyTypeInfos;
 	public uint32 uIEsOffset;
 	public uint32 uIEsLength;
+	public uint8* ucBuffer mut => &ucBuffer_impl;
 	private uint8[ANYSIZE_ARRAY] ucBuffer_impl;
 }
 
-[CRepr, FlexibleArray("dot11PhyType")]
+[CRepr]
 public struct DOT11_PHY_TYPE_LIST
 {
 	public NDIS_OBJECT_HEADER Header;
 	public uint32 uNumOfEntries;
 	public uint32 uTotalNumOfEntries;
+	public DOT11_PHY_TYPE* dot11PhyType mut => &dot11PhyType_impl;
 	private DOT11_PHY_TYPE[ANYSIZE_ARRAY] dot11PhyType_impl;
 }
 
-[CRepr, FlexibleArray("ucBuffer")]
+[CRepr]
 public struct DOT11_BSS_DESCRIPTION
 {
 	public uint32 uReserved;
@@ -2648,6 +1857,7 @@ public struct DOT11_BSS_DESCRIPTION
 	public uint64 ullTimestamp;
 	public uint16 usCapabilityInformation;
 	public uint32 uBufferLength;
+	public uint8* ucBuffer mut => &ucBuffer_impl;
 	private uint8[ANYSIZE_ARRAY] ucBuffer_impl;
 }
 
@@ -2669,11 +1879,12 @@ public struct DOT11_START_REQUEST
 	public DOT11_BSS_DESCRIPTION dot11BSSDescription;
 }
 
-[CRepr, FlexibleArray("ucBuffer")]
+[CRepr]
 public struct DOT11_UPDATE_IE
 {
 	public DOT11_UPDATE_IE_OP dot11UpdateIEOp;
 	public uint32 uBufferLength;
+	public uint8* ucBuffer mut => &ucBuffer_impl;
 	private uint8[ANYSIZE_ARRAY] ucBuffer_impl;
 }
 
@@ -2732,11 +1943,12 @@ public struct DOT11_COUNTERS_ENTRY
 	public uint32 uTransmittedFrameCount;
 }
 
-[CRepr, FlexibleArray("dot11PHYType")]
+[CRepr]
 public struct DOT11_SUPPORTED_PHY_TYPES
 {
 	public uint32 uNumOfEntries;
 	public uint32 uTotalNumOfEntries;
+	public DOT11_PHY_TYPE* dot11PHYType mut => &dot11PHYType_impl;
 	private DOT11_PHY_TYPE[ANYSIZE_ARRAY] dot11PHYType_impl;
 }
 
@@ -2754,11 +1966,12 @@ public struct DOT11_REG_DOMAIN_VALUE
 	public uint32 uRegDomainsSupportValue;
 }
 
-[CRepr, FlexibleArray("dot11RegDomainValue")]
+[CRepr]
 public struct DOT11_REG_DOMAINS_SUPPORT_VALUE
 {
 	public uint32 uNumOfEntries;
 	public uint32 uTotalNumOfEntries;
+	public DOT11_REG_DOMAIN_VALUE* dot11RegDomainValue mut => &dot11RegDomainValue_impl;
 	private DOT11_REG_DOMAIN_VALUE[ANYSIZE_ARRAY] dot11RegDomainValue_impl;
 }
 
@@ -2769,11 +1982,12 @@ public struct DOT11_SUPPORTED_ANTENNA
 	public BOOLEAN bSupportedAntenna;
 }
 
-[CRepr, FlexibleArray("dot11SupportedAntenna")]
+[CRepr]
 public struct DOT11_SUPPORTED_ANTENNA_LIST
 {
 	public uint32 uNumOfEntries;
 	public uint32 uTotalNumOfEntries;
+	public DOT11_SUPPORTED_ANTENNA* dot11SupportedAntenna mut => &dot11SupportedAntenna_impl;
 	private DOT11_SUPPORTED_ANTENNA[ANYSIZE_ARRAY] dot11SupportedAntenna_impl;
 }
 
@@ -2784,11 +1998,12 @@ public struct DOT11_DIVERSITY_SELECTION_RX
 	public BOOLEAN bDiversitySelectionRX;
 }
 
-[CRepr, FlexibleArray("dot11DiversitySelectionRx")]
+[CRepr]
 public struct DOT11_DIVERSITY_SELECTION_RX_LIST
 {
 	public uint32 uNumOfEntries;
 	public uint32 uTotalNumOfEntries;
+	public DOT11_DIVERSITY_SELECTION_RX* dot11DiversitySelectionRx mut => &dot11DiversitySelectionRx_impl;
 	private DOT11_DIVERSITY_SELECTION_RX[ANYSIZE_ARRAY] dot11DiversitySelectionRx_impl;
 }
 
@@ -2815,11 +2030,12 @@ public struct DOT11_MULTI_DOMAIN_CAPABILITY_ENTRY
 	public int32 lMaximumTransmitPowerLevel;
 }
 
-[CRepr, FlexibleArray("dot11MDCapabilityEntry")]
+[CRepr]
 public struct DOT11_MD_CAPABILITY_ENTRY_LIST
 {
 	public uint32 uNumOfEntries;
 	public uint32 uTotalNumOfEntries;
+	public DOT11_MULTI_DOMAIN_CAPABILITY_ENTRY* dot11MDCapabilityEntry mut => &dot11MDCapabilityEntry_impl;
 	private DOT11_MULTI_DOMAIN_CAPABILITY_ENTRY[ANYSIZE_ARRAY] dot11MDCapabilityEntry_impl;
 }
 
@@ -2830,11 +2046,12 @@ public struct DOT11_HOPPING_PATTERN_ENTRY
 	public uint32 uRandomTableFieldNumber;
 }
 
-[CRepr, FlexibleArray("dot11HoppingPatternEntry")]
+[CRepr]
 public struct DOT11_HOPPING_PATTERN_ENTRY_LIST
 {
 	public uint32 uNumOfEntries;
 	public uint32 uTotalNumOfEntries;
+	public DOT11_HOPPING_PATTERN_ENTRY* dot11HoppingPatternEntry mut => &dot11HoppingPatternEntry_impl;
 	private DOT11_HOPPING_PATTERN_ENTRY[ANYSIZE_ARRAY] dot11HoppingPatternEntry_impl;
 }
 
@@ -2855,11 +2072,12 @@ public struct DOT11_RSSI_RANGE
 	public uint32 uRSSIMax;
 }
 
-[CRepr, FlexibleArray("ucBuffer")]
+[CRepr]
 public struct DOT11_NIC_SPECIFIC_EXTENSION
 {
 	public uint32 uBufferLength;
 	public uint32 uTotalBufferLength;
+	public uint8* ucBuffer mut => &ucBuffer_impl;
 	private uint8[ANYSIZE_ARRAY] ucBuffer_impl;
 }
 
@@ -2880,7 +2098,7 @@ public struct DOT11_RECV_SENSITIVITY
 	public int32 lRSSIMax;
 }
 
-[CRepr, FlexibleArray("dot11RecvSensitivity")]
+[CRepr]
 public struct DOT11_RECV_SENSITIVITY_LIST
 {
 	[CRepr, Union]
@@ -2889,10 +2107,10 @@ public struct DOT11_RECV_SENSITIVITY_LIST
 		public DOT11_PHY_TYPE dot11PhyType;
 		public uint32 uPhyId;
 	}
-
 	public using _Anonymous_e__Union Anonymous;
 	public uint32 uNumOfEntries;
 	public uint32 uTotalNumOfEntries;
+	public DOT11_RECV_SENSITIVITY* dot11RecvSensitivity mut => &dot11RecvSensitivity_impl;
 	private DOT11_RECV_SENSITIVITY[ANYSIZE_ARRAY] dot11RecvSensitivity_impl;
 }
 
@@ -2906,15 +2124,16 @@ public struct DOT11_WME_AC_PARAMETERS
 	public uint16 usTXOPLimit;
 }
 
-[CRepr, FlexibleArray("dot11WMEACParameters")]
+[CRepr]
 public struct _DOT11_WME_AC_PARAMTERS_LIST
 {
 	public uint32 uNumOfEntries;
 	public uint32 uTotalNumOfEntries;
+	public DOT11_WME_AC_PARAMETERS* dot11WMEACParameters mut => &dot11WMEACParameters_impl;
 	private DOT11_WME_AC_PARAMETERS[ANYSIZE_ARRAY] dot11WMEACParameters_impl;
 }
 
-[CRepr, FlexibleArray("ucBuffer")]
+[CRepr]
 public struct DOT11_WME_UPDATE_IE
 {
 	public uint32 uParamElemMinBeaconIntervals;
@@ -2922,6 +2141,7 @@ public struct DOT11_WME_UPDATE_IE
 	public uint32 uWMEInfoElemLength;
 	public uint32 uWMEParamElemOffset;
 	public uint32 uWMEParamElemLength;
+	public uint8* ucBuffer mut => &ucBuffer_impl;
 	private uint8[ANYSIZE_ARRAY] ucBuffer_impl;
 }
 
@@ -2947,11 +2167,12 @@ public struct DOT11_SUPPORTED_OFDM_FREQUENCY
 	public uint32 uCenterFrequency;
 }
 
-[CRepr, FlexibleArray("dot11SupportedOFDMFrequency")]
+[CRepr]
 public struct DOT11_SUPPORTED_OFDM_FREQUENCY_LIST
 {
 	public uint32 uNumOfEntries;
 	public uint32 uTotalNumOfEntries;
+	public DOT11_SUPPORTED_OFDM_FREQUENCY* dot11SupportedOFDMFrequency mut => &dot11SupportedOFDMFrequency_impl;
 	private DOT11_SUPPORTED_OFDM_FREQUENCY[ANYSIZE_ARRAY] dot11SupportedOFDMFrequency_impl;
 }
 
@@ -2961,20 +2182,22 @@ public struct DOT11_SUPPORTED_DSSS_CHANNEL
 	public uint32 uChannel;
 }
 
-[CRepr, FlexibleArray("dot11SupportedDSSSChannel")]
+[CRepr]
 public struct DOT11_SUPPORTED_DSSS_CHANNEL_LIST
 {
 	public uint32 uNumOfEntries;
 	public uint32 uTotalNumOfEntries;
+	public DOT11_SUPPORTED_DSSS_CHANNEL* dot11SupportedDSSSChannel mut => &dot11SupportedDSSSChannel_impl;
 	private DOT11_SUPPORTED_DSSS_CHANNEL[ANYSIZE_ARRAY] dot11SupportedDSSSChannel_impl;
 }
 
-[CRepr, FlexibleArray("ucBuffer")]
+[CRepr]
 public struct DOT11_BYTE_ARRAY
 {
 	public NDIS_OBJECT_HEADER Header;
 	public uint32 uNumOfBytes;
 	public uint32 uTotalNumOfBytes;
+	public uint8* ucBuffer mut => &ucBuffer_impl;
 	private uint8[ANYSIZE_ARRAY] ucBuffer_impl;
 }
 
@@ -2988,12 +2211,11 @@ public struct DOT11_BSS_ENTRY_PHY_SPECIFIC_INFO
 		public uint32 uHopSet;
 		public uint32 uDwellTime;
 	}
-
 	public uint32 uChCenterFrequency;
 	public _FHSS_e__Struct FHSS;
 }
 
-[CRepr, FlexibleArray("ucBuffer")]
+[CRepr]
 public struct DOT11_BSS_ENTRY
 {
 	public uint32 uPhyId;
@@ -3008,15 +2230,17 @@ public struct DOT11_BSS_ENTRY
 	public uint64 ullHostTimestamp;
 	public uint16 usCapabilityInformation;
 	public uint32 uBufferLength;
+	public uint8* ucBuffer mut => &ucBuffer_impl;
 	private uint8[ANYSIZE_ARRAY] ucBuffer_impl;
 }
 
-[CRepr, FlexibleArray("SSIDs")]
+[CRepr]
 public struct DOT11_SSID_LIST
 {
 	public NDIS_OBJECT_HEADER Header;
 	public uint32 uNumOfEntries;
 	public uint32 uTotalNumOfEntries;
+	public DOT11_SSID* SSIDs mut => &SSIDs_impl;
 	private DOT11_SSID[ANYSIZE_ARRAY] SSIDs_impl;
 }
 
@@ -3037,12 +2261,13 @@ public struct DOT11_PMKID_ENTRY
 	public uint32 uFlags;
 }
 
-[CRepr, FlexibleArray("PMKIDs")]
+[CRepr]
 public struct DOT11_PMKID_LIST
 {
 	public NDIS_OBJECT_HEADER Header;
 	public uint32 uNumOfEntries;
 	public uint32 uTotalNumOfEntries;
+	public DOT11_PMKID_ENTRY* PMKIDs mut => &PMKIDs_impl;
 	private DOT11_PMKID_ENTRY[ANYSIZE_ARRAY] PMKIDs_impl;
 }
 
@@ -3088,7 +2313,7 @@ public struct DOT11_MAC_FRAME_STATISTICS
 	public uint64 ullDecryptFailureCount;
 }
 
-[CRepr, FlexibleArray("PhyCounters")]
+[CRepr]
 public struct DOT11_STATISTICS
 {
 	public NDIS_OBJECT_HEADER Header;
@@ -3097,6 +2322,7 @@ public struct DOT11_STATISTICS
 	public uint64 ullReserved;
 	public DOT11_MAC_FRAME_STATISTICS MacUcastCounters;
 	public DOT11_MAC_FRAME_STATISTICS MacMcastCounters;
+	public DOT11_PHY_FRAME_STATISTICS* PhyCounters mut => &PhyCounters_impl;
 	private DOT11_PHY_FRAME_STATISTICS[ANYSIZE_ARRAY] PhyCounters_impl;
 }
 
@@ -3108,43 +2334,47 @@ public struct DOT11_PRIVACY_EXEMPTION
 	public uint16 usExemptionPacketType;
 }
 
-[CRepr, FlexibleArray("PrivacyExemptionEntries")]
+[CRepr]
 public struct DOT11_PRIVACY_EXEMPTION_LIST
 {
 	public NDIS_OBJECT_HEADER Header;
 	public uint32 uNumOfEntries;
 	public uint32 uTotalNumOfEntries;
+	public DOT11_PRIVACY_EXEMPTION* PrivacyExemptionEntries mut => &PrivacyExemptionEntries_impl;
 	private DOT11_PRIVACY_EXEMPTION[ANYSIZE_ARRAY] PrivacyExemptionEntries_impl;
 }
 
-[CRepr, FlexibleArray("AlgorithmIds")]
+[CRepr]
 public struct DOT11_AUTH_ALGORITHM_LIST
 {
 	public NDIS_OBJECT_HEADER Header;
 	public uint32 uNumOfEntries;
 	public uint32 uTotalNumOfEntries;
+	public DOT11_AUTH_ALGORITHM* AlgorithmIds mut => &AlgorithmIds_impl;
 	private DOT11_AUTH_ALGORITHM[ANYSIZE_ARRAY] AlgorithmIds_impl;
 }
 
-[CRepr, FlexibleArray("AuthCipherPairs")]
+[CRepr]
 public struct DOT11_AUTH_CIPHER_PAIR_LIST
 {
 	public NDIS_OBJECT_HEADER Header;
 	public uint32 uNumOfEntries;
 	public uint32 uTotalNumOfEntries;
+	public DOT11_AUTH_CIPHER_PAIR* AuthCipherPairs mut => &AuthCipherPairs_impl;
 	private DOT11_AUTH_CIPHER_PAIR[ANYSIZE_ARRAY] AuthCipherPairs_impl;
 }
 
-[CRepr, FlexibleArray("AlgorithmIds")]
+[CRepr]
 public struct DOT11_CIPHER_ALGORITHM_LIST
 {
 	public NDIS_OBJECT_HEADER Header;
 	public uint32 uNumOfEntries;
 	public uint32 uTotalNumOfEntries;
+	public DOT11_CIPHER_ALGORITHM* AlgorithmIds mut => &AlgorithmIds_impl;
 	private DOT11_CIPHER_ALGORITHM[ANYSIZE_ARRAY] AlgorithmIds_impl;
 }
 
-[CRepr, FlexibleArray("ucKey")]
+[CRepr]
 public struct DOT11_CIPHER_DEFAULT_KEY_VALUE
 {
 	public NDIS_OBJECT_HEADER Header;
@@ -3154,59 +2384,66 @@ public struct DOT11_CIPHER_DEFAULT_KEY_VALUE
 	public BOOLEAN bDelete;
 	public BOOLEAN bStatic;
 	public uint16 usKeyLength;
+	public uint8* ucKey mut => &ucKey_impl;
 	private uint8[ANYSIZE_ARRAY] ucKey_impl;
 }
 
-[CRepr, FlexibleArray("ucTKIPMICKeys")]
+[CRepr]
 public struct DOT11_KEY_ALGO_TKIP_MIC
 {
 	public uint8[6] ucIV48Counter;
 	public uint32 ulTKIPKeyLength;
 	public uint32 ulMICKeyLength;
+	public uint8* ucTKIPMICKeys mut => &ucTKIPMICKeys_impl;
 	private uint8[ANYSIZE_ARRAY] ucTKIPMICKeys_impl;
 }
 
-[CRepr, FlexibleArray("ucCCMPKey")]
+[CRepr]
 public struct DOT11_KEY_ALGO_CCMP
 {
 	public uint8[6] ucIV48Counter;
 	public uint32 ulCCMPKeyLength;
+	public uint8* ucCCMPKey mut => &ucCCMPKey_impl;
 	private uint8[ANYSIZE_ARRAY] ucCCMPKey_impl;
 }
 
-[CRepr, FlexibleArray("ucGCMPKey")]
+[CRepr]
 public struct DOT11_KEY_ALGO_GCMP
 {
 	public uint8[6] ucIV48Counter;
 	public uint32 ulGCMPKeyLength;
+	public uint8* ucGCMPKey mut => &ucGCMPKey_impl;
 	private uint8[ANYSIZE_ARRAY] ucGCMPKey_impl;
 }
 
-[CRepr, FlexibleArray("ucGCMP256Key")]
+[CRepr]
 public struct DOT11_KEY_ALGO_GCMP_256
 {
 	public uint8[6] ucIV48Counter;
 	public uint32 ulGCMP256KeyLength;
+	public uint8* ucGCMP256Key mut => &ucGCMP256Key_impl;
 	private uint8[ANYSIZE_ARRAY] ucGCMP256Key_impl;
 }
 
-[CRepr, FlexibleArray("ucBIPKey")]
+[CRepr]
 public struct DOT11_KEY_ALGO_BIP
 {
 	public uint8[6] ucIPN;
 	public uint32 ulBIPKeyLength;
+	public uint8* ucBIPKey mut => &ucBIPKey_impl;
 	private uint8[ANYSIZE_ARRAY] ucBIPKey_impl;
 }
 
-[CRepr, FlexibleArray("ucBIPGmac256Key")]
+[CRepr]
 public struct DOT11_KEY_ALGO_BIP_GMAC_256
 {
 	public uint8[6] ucIPN;
 	public uint32 ulBIPGmac256KeyLength;
+	public uint8* ucBIPGmac256Key mut => &ucBIPGmac256Key_impl;
 	private uint8[ANYSIZE_ARRAY] ucBIPGmac256Key_impl;
 }
 
-[CRepr, FlexibleArray("ucKey")]
+[CRepr]
 public struct DOT11_CIPHER_KEY_MAPPING_KEY_VALUE
 {
 	public uint8[6] PeerMacAddr;
@@ -3215,6 +2452,7 @@ public struct DOT11_CIPHER_KEY_MAPPING_KEY_VALUE
 	public BOOLEAN bDelete;
 	public BOOLEAN bStatic;
 	public uint16 usKeyLength;
+	public uint8* ucKey mut => &ucKey_impl;
 	private uint8[ANYSIZE_ARRAY] ucKey_impl;
 }
 
@@ -3236,21 +2474,23 @@ public struct DOT11_ASSOCIATION_INFO_EX
 	public uint64 ullNumOfRxPacketFailures;
 }
 
-[CRepr, FlexibleArray("dot11AssocInfo")]
+[CRepr]
 public struct DOT11_ASSOCIATION_INFO_LIST
 {
 	public NDIS_OBJECT_HEADER Header;
 	public uint32 uNumOfEntries;
 	public uint32 uTotalNumOfEntries;
+	public DOT11_ASSOCIATION_INFO_EX* dot11AssocInfo mut => &dot11AssocInfo_impl;
 	private DOT11_ASSOCIATION_INFO_EX[ANYSIZE_ARRAY] dot11AssocInfo_impl;
 }
 
-[CRepr, FlexibleArray("dot11PhyId")]
+[CRepr]
 public struct DOT11_PHY_ID_LIST
 {
 	public NDIS_OBJECT_HEADER Header;
 	public uint32 uNumOfEntries;
 	public uint32 uTotalNumOfEntries;
+	public uint32* dot11PhyId mut => &dot11PhyId_impl;
 	private uint32[ANYSIZE_ARRAY] dot11PhyId_impl;
 }
 
@@ -3379,7 +2619,6 @@ public struct DOT11_PHY_ATTRIBUTES
 		public DOT11_OFDM_PHY_ATTRIBUTES OFDMAttributes;
 		public DOT11_ERP_PHY_ATTRIBUTES ERPAttributes;
 	}
-
 	public NDIS_OBJECT_HEADER Header;
 	public DOT11_PHY_TYPE PhyType;
 	public BOOLEAN bHardwarePhyState;
@@ -3435,7 +2674,7 @@ public struct DOT11_EXTSTA_ATTRIBUTES
 	public BOOLEAN bHESSIDConnectionSupported;
 }
 
-[CRepr, FlexibleArray("pNdisPackets")]
+[CRepr]
 public struct DOT11_RECV_EXTENSION_INFO
 {
 	public uint32 uVersion;
@@ -3460,10 +2699,11 @@ public struct DOT11_RECV_EXTENSION_INFO
 	public uint16 usDot11RightRWBitMap;
 	public uint16 usNumberOfMPDUsReceived;
 	public uint16 usNumberOfFragments;
+	public void** pNdisPackets mut => &pNdisPackets_impl;
 	private void*[ANYSIZE_ARRAY] pNdisPackets_impl;
 }
 
-[CRepr, FlexibleArray("pNdisPackets")]
+[CRepr]
 public struct DOT11_RECV_EXTENSION_INFO_V2
 {
 	public uint32 uVersion;
@@ -3486,6 +2726,7 @@ public struct DOT11_RECV_EXTENSION_INFO_V2
 	public uint16 usDot11RightRWBitMap;
 	public uint16 usNumberOfMPDUsReceived;
 	public uint16 usNumberOfFragments;
+	public void** pNdisPackets mut => &pNdisPackets_impl;
 	private void*[ANYSIZE_ARRAY] pNdisPackets_impl;
 }
 
@@ -3742,7 +2983,6 @@ public struct DOT11_PHY_FREQUENCY_ADOPTED_PARAMETERS
 		public uint32 ulChannel;
 		public uint32 ulFrequency;
 	}
-
 	public NDIS_OBJECT_HEADER Header;
 	public uint32 ulPhyId;
 	public using _Anonymous_e__Union Anonymous;
@@ -3755,21 +2995,23 @@ public struct DOT11_CAN_SUSTAIN_AP_PARAMETERS
 	public uint32 ulReason;
 }
 
-[CRepr, FlexibleArray("uChannelNumber")]
+[CRepr]
 public struct DOT11_AVAILABLE_CHANNEL_LIST
 {
 	public NDIS_OBJECT_HEADER Header;
 	public uint32 uNumOfEntries;
 	public uint32 uTotalNumOfEntries;
+	public uint32* uChannelNumber mut => &uChannelNumber_impl;
 	private uint32[ANYSIZE_ARRAY] uChannelNumber_impl;
 }
 
-[CRepr, FlexibleArray("uFrequencyValue")]
+[CRepr]
 public struct DOT11_AVAILABLE_FREQUENCY_LIST
 {
 	public NDIS_OBJECT_HEADER Header;
 	public uint32 uNumOfEntries;
 	public uint32 uTotalNumOfEntries;
+	public uint32* uFrequencyValue mut => &uFrequencyValue_impl;
 	private uint32[ANYSIZE_ARRAY] uFrequencyValue_impl;
 }
 
@@ -3843,12 +3085,13 @@ public struct DOT11_PEER_INFO
 	public DOT11_PEER_STATISTICS Statistics;
 }
 
-[CRepr, FlexibleArray("PeerInfo")]
+[CRepr]
 public struct DOT11_PEER_INFO_LIST
 {
 	public NDIS_OBJECT_HEADER Header;
 	public uint32 uNumOfEntries;
 	public uint32 uTotalNumOfEntries;
+	public DOT11_PEER_INFO* PeerInfo mut => &PeerInfo_impl;
 	private DOT11_PEER_INFO[ANYSIZE_ARRAY] PeerInfo_impl;
 }
 
@@ -3882,11 +3125,12 @@ public struct DOT11_VWIFI_COMBINATION_V3
 	public uint32 uNumWFDGroup;
 }
 
-[CRepr, FlexibleArray("Combinations")]
+[CRepr]
 public struct DOT11_VWIFI_ATTRIBUTES
 {
 	public NDIS_OBJECT_HEADER Header;
 	public uint32 uTotalNumOfEntries;
+	public DOT11_VWIFI_COMBINATION* Combinations mut => &Combinations_impl;
 	private DOT11_VWIFI_COMBINATION[ANYSIZE_ARRAY] Combinations_impl;
 }
 
@@ -4006,10 +3250,11 @@ public struct DOT11_WFD_ADVERTISED_SERVICE_DESCRIPTOR
 	public uint8[255] ServiceName;
 }
 
-[CRepr, FlexibleArray("AdvertisedService")]
+[CRepr]
 public struct DOT11_WFD_ADVERTISED_SERVICE_LIST
 {
 	public uint16 ServiceCount;
+	public DOT11_WFD_ADVERTISED_SERVICE_DESCRIPTOR* AdvertisedService mut => &AdvertisedService_impl;
 	private DOT11_WFD_ADVERTISED_SERVICE_DESCRIPTOR[ANYSIZE_ARRAY] AdvertisedService_impl;
 }
 
@@ -4238,12 +3483,13 @@ public struct DOT11_WFD_DEVICE_INFO
 	public DOT11_WPS_DEVICE_NAME DeviceName;
 }
 
-[CRepr, FlexibleArray("SecondaryDeviceTypes")]
+[CRepr]
 public struct DOT11_WFD_SECONDARY_DEVICE_TYPE_LIST
 {
 	public NDIS_OBJECT_HEADER Header;
 	public uint32 uNumOfEntries;
 	public uint32 uTotalNumOfEntries;
+	public DOT11_WFD_DEVICE_TYPE* SecondaryDeviceTypes mut => &SecondaryDeviceTypes_impl;
 	private DOT11_WFD_DEVICE_TYPE[ANYSIZE_ARRAY] SecondaryDeviceTypes_impl;
 }
 
@@ -4477,7 +3723,7 @@ public struct DOT11_OFFLOAD_NETWORK
 	public DOT11_CHANNEL_HINT[4] Dot11ChannelHints;
 }
 
-[CRepr, FlexibleArray("offloadNetworkList")]
+[CRepr]
 public struct DOT11_OFFLOAD_NETWORK_LIST_INFO
 {
 	public NDIS_OBJECT_HEADER Header;
@@ -4486,6 +3732,7 @@ public struct DOT11_OFFLOAD_NETWORK_LIST_INFO
 	public uint32 FastScanIterations;
 	public uint32 SlowScanPeriod;
 	public uint32 uNumOfEntries;
+	public DOT11_OFFLOAD_NETWORK* offloadNetworkList mut => &offloadNetworkList_impl;
 	private DOT11_OFFLOAD_NETWORK[ANYSIZE_ARRAY] offloadNetworkList_impl;
 }
 
@@ -4496,15 +3743,16 @@ public struct DOT11_OFFLOAD_NETWORK_STATUS_PARAMETERS
 	public int32 Status;
 }
 
-[CRepr, FlexibleArray("ucBuffer")]
+[CRepr]
 public struct DOT11_MANUFACTURING_TEST
 {
 	public DOT11_MANUFACTURING_TEST_TYPE dot11ManufacturingTestType;
 	public uint32 uBufferLength;
+	public uint8* ucBuffer mut => &ucBuffer_impl;
 	private uint8[ANYSIZE_ARRAY] ucBuffer_impl;
 }
 
-[CRepr, FlexibleArray("ucBufferIn")]
+[CRepr]
 public struct DOT11_MANUFACTURING_SELF_TEST_SET_PARAMS
 {
 	public DOT11_MANUFACTURING_SELF_TEST_TYPE SelfTestType;
@@ -4512,10 +3760,11 @@ public struct DOT11_MANUFACTURING_SELF_TEST_SET_PARAMS
 	public uint32 uPinBitMask;
 	public void* pvContext;
 	public uint32 uBufferLength;
+	public uint8* ucBufferIn mut => &ucBufferIn_impl;
 	private uint8[ANYSIZE_ARRAY] ucBufferIn_impl;
 }
 
-[CRepr, FlexibleArray("ucBufferOut")]
+[CRepr]
 public struct DOT11_MANUFACTURING_SELF_TEST_QUERY_RESULTS
 {
 	public DOT11_MANUFACTURING_SELF_TEST_TYPE SelfTestType;
@@ -4524,6 +3773,7 @@ public struct DOT11_MANUFACTURING_SELF_TEST_QUERY_RESULTS
 	public uint32 uPinFailedBitMask;
 	public void* pvContext;
 	public uint32 uBytesWrittenOut;
+	public uint8* ucBufferOut mut => &ucBufferOut_impl;
 	private uint8[ANYSIZE_ARRAY] ucBufferOut_impl;
 }
 
@@ -4555,22 +3805,24 @@ public struct DOT11_MANUFACTURING_FUNCTIONAL_TEST_QUERY_ADC
 	public int32 ADCPowerLevel;
 }
 
-[CRepr, FlexibleArray("ucBufferIn")]
+[CRepr]
 public struct DOT11_MANUFACTURING_TEST_SET_DATA
 {
 	public uint32 uKey;
 	public uint32 uOffset;
 	public uint32 uBufferLength;
+	public uint8* ucBufferIn mut => &ucBufferIn_impl;
 	private uint8[ANYSIZE_ARRAY] ucBufferIn_impl;
 }
 
-[CRepr, FlexibleArray("ucBufferOut")]
+[CRepr]
 public struct DOT11_MANUFACTURING_TEST_QUERY_DATA
 {
 	public uint32 uKey;
 	public uint32 uOffset;
 	public uint32 uBufferLength;
 	public uint32 uBytesRead;
+	public uint8* ucBufferOut mut => &ucBufferOut_impl;
 	private uint8[ANYSIZE_ARRAY] ucBufferOut_impl;
 }
 
@@ -4614,14 +3866,15 @@ public struct DOT11_NETWORK
 	public DOT11_BSS_TYPE dot11BssType;
 }
 
-[CRepr, FlexibleArray("DataBlob")]
+[CRepr]
 public struct WLAN_RAW_DATA
 {
 	public uint32 dwDataSize;
+	public uint8* DataBlob mut => &DataBlob_impl;
 	private uint8[ANYSIZE_ARRAY] DataBlob_impl;
 }
 
-[CRepr, FlexibleArray("DataList")]
+[CRepr]
 public struct WLAN_RAW_DATA_LIST
 {
 	[CRepr]
@@ -4630,9 +3883,9 @@ public struct WLAN_RAW_DATA_LIST
 		public uint32 dwDataOffset;
 		public uint32 dwDataSize;
 	}
-
 	public uint32 dwTotalSize;
 	public uint32 dwNumberOfItems;
+	public _Anonymous_e__Struct* DataList mut => &DataList_impl;
 	private _Anonymous_e__Struct[ANYSIZE_ARRAY] DataList_impl;
 }
 
@@ -4707,11 +3960,12 @@ public struct WLAN_BSS_ENTRY
 	public uint32 ulIeSize;
 }
 
-[CRepr, FlexibleArray("wlanBssEntries")]
+[CRepr]
 public struct WLAN_BSS_LIST
 {
 	public uint32 dwTotalSize;
 	public uint32 dwNumberOfItems;
+	public WLAN_BSS_ENTRY* wlanBssEntries mut => &wlanBssEntries_impl;
 	private WLAN_BSS_ENTRY[ANYSIZE_ARRAY] wlanBssEntries_impl;
 }
 
@@ -4781,10 +4035,11 @@ public struct WLAN_INTERFACE_CAPABILITY
 	public DOT11_PHY_TYPE[64] dot11PhyTypes;
 }
 
-[CRepr, FlexibleArray("pAuthCipherPairList")]
+[CRepr]
 public struct WLAN_AUTH_CIPHER_PAIR_LIST
 {
 	public uint32 dwNumberOfItems;
+	public DOT11_AUTH_CIPHER_PAIR* pAuthCipherPairList mut => &pAuthCipherPairList_impl;
 	private DOT11_AUTH_CIPHER_PAIR[ANYSIZE_ARRAY] pAuthCipherPairList_impl;
 }
 
@@ -4795,43 +4050,48 @@ public struct WLAN_COUNTRY_OR_REGION_STRING_LIST
 	public uint8[3] pCountryOrRegionStringList;
 }
 
-[CRepr, FlexibleArray("ProfileInfo")]
+[CRepr]
 public struct WLAN_PROFILE_INFO_LIST
 {
 	public uint32 dwNumberOfItems;
 	public uint32 dwIndex;
+	public WLAN_PROFILE_INFO* ProfileInfo mut => &ProfileInfo_impl;
 	private WLAN_PROFILE_INFO[ANYSIZE_ARRAY] ProfileInfo_impl;
 }
 
-[CRepr, FlexibleArray("Network")]
+[CRepr]
 public struct WLAN_AVAILABLE_NETWORK_LIST
 {
 	public uint32 dwNumberOfItems;
 	public uint32 dwIndex;
+	public WLAN_AVAILABLE_NETWORK* Network mut => &Network_impl;
 	private WLAN_AVAILABLE_NETWORK[ANYSIZE_ARRAY] Network_impl;
 }
 
-[CRepr, FlexibleArray("Network")]
+[CRepr]
 public struct WLAN_AVAILABLE_NETWORK_LIST_V2
 {
 	public uint32 dwNumberOfItems;
 	public uint32 dwIndex;
+	public WLAN_AVAILABLE_NETWORK_V2* Network mut => &Network_impl;
 	private WLAN_AVAILABLE_NETWORK_V2[ANYSIZE_ARRAY] Network_impl;
 }
 
-[CRepr, FlexibleArray("InterfaceInfo")]
+[CRepr]
 public struct WLAN_INTERFACE_INFO_LIST
 {
 	public uint32 dwNumberOfItems;
 	public uint32 dwIndex;
+	public WLAN_INTERFACE_INFO* InterfaceInfo mut => &InterfaceInfo_impl;
 	private WLAN_INTERFACE_INFO[ANYSIZE_ARRAY] InterfaceInfo_impl;
 }
 
-[CRepr, FlexibleArray("Network")]
+[CRepr]
 public struct DOT11_NETWORK_LIST
 {
 	public uint32 dwNumberOfItems;
 	public uint32 dwIndex;
+	public DOT11_NETWORK* Network mut => &Network_impl;
 	private DOT11_NETWORK[ANYSIZE_ARRAY] Network_impl;
 }
 
@@ -4873,7 +4133,7 @@ public struct WLAN_MSM_NOTIFICATION_DATA
 	public uint32 wlanReasonCode;
 }
 
-[CRepr, FlexibleArray("strProfileXml")]
+[CRepr]
 public struct WLAN_CONNECTION_NOTIFICATION_DATA
 {
 	public WLAN_CONNECTION_MODE wlanConnectionMode;
@@ -4883,15 +4143,17 @@ public struct WLAN_CONNECTION_NOTIFICATION_DATA
 	public BOOL bSecurityEnabled;
 	public uint32 wlanReasonCode;
 	public WLAN_CONNECTION_NOTIFICATION_FLAGS dwFlags;
+	public char16* strProfileXml mut => &strProfileXml_impl;
 	private char16[ANYSIZE_ARRAY] strProfileXml_impl;
 }
 
-[CRepr, FlexibleArray("DataBlob")]
+[CRepr]
 public struct WLAN_DEVICE_SERVICE_NOTIFICATION_DATA
 {
 	public Guid DeviceService;
 	public uint32 dwOpCode;
 	public uint32 dwDataSize;
+	public uint8* DataBlob mut => &DataBlob_impl;
 	private uint8[ANYSIZE_ARRAY] DataBlob_impl;
 }
 
@@ -4935,7 +4197,7 @@ public struct WLAN_MAC_FRAME_STATISTICS
 	public uint64 ullDecryptFailureCount;
 }
 
-[CRepr, FlexibleArray("PhyCounters")]
+[CRepr]
 public struct WLAN_STATISTICS
 {
 	public uint64 ullFourWayHandshakeFailures;
@@ -4944,14 +4206,16 @@ public struct WLAN_STATISTICS
 	public WLAN_MAC_FRAME_STATISTICS MacUcastCounters;
 	public WLAN_MAC_FRAME_STATISTICS MacMcastCounters;
 	public uint32 dwNumberOfPhys;
+	public WLAN_PHY_FRAME_STATISTICS* PhyCounters mut => &PhyCounters_impl;
 	private WLAN_PHY_FRAME_STATISTICS[ANYSIZE_ARRAY] PhyCounters_impl;
 }
 
-[CRepr, FlexibleArray("DeviceService")]
+[CRepr]
 public struct WLAN_DEVICE_SERVICE_GUID_LIST
 {
 	public uint32 dwNumberOfItems;
 	public uint32 dwIndex;
+	public Guid* DeviceService mut => &DeviceService_impl;
 	private Guid[ANYSIZE_ARRAY] DeviceService_impl;
 }
 
@@ -5006,7 +4270,7 @@ public struct WLAN_HOSTED_NETWORK_SECURITY_SETTINGS
 	public DOT11_CIPHER_ALGORITHM dot11CipherAlgo;
 }
 
-[CRepr, FlexibleArray("PeerList")]
+[CRepr]
 public struct WLAN_HOSTED_NETWORK_STATUS
 {
 	public WLAN_HOSTED_NETWORK_STATE HostedNetworkState;
@@ -5015,6 +4279,7 @@ public struct WLAN_HOSTED_NETWORK_STATUS
 	public DOT11_PHY_TYPE dot11PhyType;
 	public uint32 ulChannelFrequency;
 	public uint32 dwNumberOfPeers;
+	public WLAN_HOSTED_NETWORK_PEER_STATE* PeerList mut => &PeerList_impl;
 	private WLAN_HOSTED_NETWORK_PEER_STATE[ANYSIZE_ARRAY] PeerList_impl;
 }
 

@@ -1,6 +1,5 @@
 using Win32.Foundation;
 using System;
-using System.Interop;
 
 namespace Win32.NetworkManagement.Dns;
 
@@ -8,655 +7,330 @@ namespace Win32.NetworkManagement.Dns;
 public static
 {
 	public const uint32 SIZEOF_IP4_ADDRESS = 4;
-
 	public const uint32 IP4_ADDRESS_STRING_LENGTH = 16;
-
 	public const uint32 IP4_ADDRESS_STRING_BUFFER_LENGTH = 16;
-
 	public const uint32 DNS_ADDR_MAX_SOCKADDR_LENGTH = 32;
-
 	public const uint32 IP6_ADDRESS_STRING_LENGTH = 65;
-
 	public const uint32 IP6_ADDRESS_STRING_BUFFER_LENGTH = 65;
-
 	public const uint32 DNS_ADDRESS_STRING_LENGTH = 65;
-
 	public const uint32 DNS_PORT_HOST_ORDER = 53;
-
 	public const uint32 DNS_PORT_NET_ORDER = 13568;
-
 	public const uint32 DNS_RFC_MAX_UDP_PACKET_LENGTH = 512;
-
 	public const uint32 DNS_MAX_NAME_LENGTH = 255;
-
 	public const uint32 DNS_MAX_LABEL_LENGTH = 63;
-
 	public const uint32 DNS_MAX_NAME_BUFFER_LENGTH = 256;
-
 	public const uint32 DNS_MAX_LABEL_BUFFER_LENGTH = 64;
-
 	public const uint32 DNS_MAX_IP4_REVERSE_NAME_LENGTH = 31;
-
 	public const uint32 DNS_MAX_IP6_REVERSE_NAME_LENGTH = 75;
-
 	public const uint32 DNS_MAX_REVERSE_NAME_LENGTH = 75;
-
 	public const uint32 DNS_MAX_IP4_REVERSE_NAME_BUFFER_LENGTH = 31;
-
 	public const uint32 DNS_MAX_IP6_REVERSE_NAME_BUFFER_LENGTH = 75;
-
 	public const uint32 DNS_MAX_REVERSE_NAME_BUFFER_LENGTH = 75;
-
 	public const uint32 DNS_MAX_TEXT_STRING_LENGTH = 255;
-
 	public const uint32 DNS_COMPRESSED_QUESTION_NAME = 49164;
-
 	public const uint32 DNS_OPCODE_QUERY = 0;
-
 	public const uint32 DNS_OPCODE_IQUERY = 1;
-
 	public const uint32 DNS_OPCODE_SERVER_STATUS = 2;
-
 	public const uint32 DNS_OPCODE_UNKNOWN = 3;
-
 	public const uint32 DNS_OPCODE_NOTIFY = 4;
-
 	public const uint32 DNS_OPCODE_UPDATE = 5;
-
 	public const uint32 DNS_RCODE_NOERROR = 0;
-
 	public const uint32 DNS_RCODE_FORMERR = 1;
-
 	public const uint32 DNS_RCODE_SERVFAIL = 2;
-
 	public const uint32 DNS_RCODE_NXDOMAIN = 3;
-
 	public const uint32 DNS_RCODE_NOTIMPL = 4;
-
 	public const uint32 DNS_RCODE_REFUSED = 5;
-
 	public const uint32 DNS_RCODE_YXDOMAIN = 6;
-
 	public const uint32 DNS_RCODE_YXRRSET = 7;
-
 	public const uint32 DNS_RCODE_NXRRSET = 8;
-
 	public const uint32 DNS_RCODE_NOTAUTH = 9;
-
 	public const uint32 DNS_RCODE_NOTZONE = 10;
-
 	public const uint32 DNS_RCODE_MAX = 15;
-
 	public const uint32 DNS_RCODE_BADVERS = 16;
-
 	public const uint32 DNS_RCODE_BADSIG = 16;
-
 	public const uint32 DNS_RCODE_BADKEY = 17;
-
 	public const uint32 DNS_RCODE_BADTIME = 18;
-
 	public const uint32 DNS_RCODE_NO_ERROR = 0;
-
 	public const uint32 DNS_RCODE_FORMAT_ERROR = 1;
-
 	public const uint32 DNS_RCODE_SERVER_FAILURE = 2;
-
 	public const uint32 DNS_RCODE_NAME_ERROR = 3;
-
 	public const uint32 DNS_RCODE_NOT_IMPLEMENTED = 4;
-
 	public const uint32 DNS_CLASS_INTERNET = 1;
-
 	public const uint32 DNS_CLASS_CSNET = 2;
-
 	public const uint32 DNS_CLASS_CHAOS = 3;
-
 	public const uint32 DNS_CLASS_HESIOD = 4;
-
 	public const uint32 DNS_CLASS_NONE = 254;
-
 	public const uint32 DNS_CLASS_ALL = 255;
-
 	public const uint32 DNS_CLASS_ANY = 255;
-
 	public const uint32 DNS_CLASS_UNICAST_RESPONSE = 32768;
-
 	public const uint32 DNS_RCLASS_INTERNET = 256;
-
 	public const uint32 DNS_RCLASS_CSNET = 512;
-
 	public const uint32 DNS_RCLASS_CHAOS = 768;
-
 	public const uint32 DNS_RCLASS_HESIOD = 1024;
-
 	public const uint32 DNS_RCLASS_NONE = 65024;
-
 	public const uint32 DNS_RCLASS_ALL = 65280;
-
 	public const uint32 DNS_RCLASS_ANY = 65280;
-
 	public const uint32 DNS_RCLASS_UNICAST_RESPONSE = 128;
-
 	public const uint32 DNS_TYPE_ZERO = 0;
-
 	public const uint32 DNS_TYPE_A = 1;
-
 	public const uint32 DNS_TYPE_NS = 2;
-
 	public const uint32 DNS_TYPE_MD = 3;
-
 	public const uint32 DNS_TYPE_MF = 4;
-
 	public const uint32 DNS_TYPE_CNAME = 5;
-
 	public const uint32 DNS_TYPE_SOA = 6;
-
 	public const uint32 DNS_TYPE_MB = 7;
-
 	public const uint32 DNS_TYPE_MG = 8;
-
 	public const uint32 DNS_TYPE_MR = 9;
-
 	public const uint32 DNS_TYPE_NULL = 10;
-
 	public const uint32 DNS_TYPE_WKS = 11;
-
 	public const uint32 DNS_TYPE_PTR = 12;
-
 	public const uint32 DNS_TYPE_HINFO = 13;
-
 	public const uint32 DNS_TYPE_MINFO = 14;
-
 	public const uint32 DNS_TYPE_MX = 15;
-
 	public const uint32 DNS_TYPE_TEXT = 16;
-
 	public const uint32 DNS_TYPE_RP = 17;
-
 	public const uint32 DNS_TYPE_AFSDB = 18;
-
 	public const uint32 DNS_TYPE_X25 = 19;
-
 	public const uint32 DNS_TYPE_ISDN = 20;
-
 	public const uint32 DNS_TYPE_RT = 21;
-
 	public const uint32 DNS_TYPE_NSAP = 22;
-
 	public const uint32 DNS_TYPE_NSAPPTR = 23;
-
 	public const uint32 DNS_TYPE_SIG = 24;
-
 	public const uint32 DNS_TYPE_KEY = 25;
-
 	public const uint32 DNS_TYPE_PX = 26;
-
 	public const uint32 DNS_TYPE_GPOS = 27;
-
 	public const uint32 DNS_TYPE_AAAA = 28;
-
 	public const uint32 DNS_TYPE_LOC = 29;
-
 	public const uint32 DNS_TYPE_NXT = 30;
-
 	public const uint32 DNS_TYPE_EID = 31;
-
 	public const uint32 DNS_TYPE_NIMLOC = 32;
-
 	public const uint32 DNS_TYPE_SRV = 33;
-
 	public const uint32 DNS_TYPE_ATMA = 34;
-
 	public const uint32 DNS_TYPE_NAPTR = 35;
-
 	public const uint32 DNS_TYPE_KX = 36;
-
 	public const uint32 DNS_TYPE_CERT = 37;
-
 	public const uint32 DNS_TYPE_A6 = 38;
-
 	public const uint32 DNS_TYPE_DNAME = 39;
-
 	public const uint32 DNS_TYPE_SINK = 40;
-
 	public const uint32 DNS_TYPE_OPT = 41;
-
 	public const uint32 DNS_TYPE_DS = 43;
-
 	public const uint32 DNS_TYPE_RRSIG = 46;
-
 	public const uint32 DNS_TYPE_NSEC = 47;
-
 	public const uint32 DNS_TYPE_DNSKEY = 48;
-
 	public const uint32 DNS_TYPE_DHCID = 49;
-
 	public const uint32 DNS_TYPE_NSEC3 = 50;
-
 	public const uint32 DNS_TYPE_NSEC3PARAM = 51;
-
 	public const uint32 DNS_TYPE_TLSA = 52;
-
 	public const uint32 DNS_TYPE_UINFO = 100;
-
 	public const uint32 DNS_TYPE_UID = 101;
-
 	public const uint32 DNS_TYPE_GID = 102;
-
 	public const uint32 DNS_TYPE_UNSPEC = 103;
-
 	public const uint32 DNS_TYPE_ADDRS = 248;
-
 	public const uint32 DNS_TYPE_TKEY = 249;
-
 	public const uint32 DNS_TYPE_TSIG = 250;
-
 	public const uint32 DNS_TYPE_IXFR = 251;
-
 	public const uint32 DNS_TYPE_AXFR = 252;
-
 	public const uint32 DNS_TYPE_MAILB = 253;
-
 	public const uint32 DNS_TYPE_MAILA = 254;
-
 	public const uint32 DNS_TYPE_ALL = 255;
-
 	public const uint32 DNS_TYPE_ANY = 255;
-
 	public const uint32 DNS_TYPE_WINS = 65281;
-
 	public const uint32 DNS_TYPE_WINSR = 65282;
-
 	public const uint32 DNS_TYPE_NBSTAT = 65282;
-
 	public const uint32 DNS_RTYPE_A = 256;
-
 	public const uint32 DNS_RTYPE_NS = 512;
-
 	public const uint32 DNS_RTYPE_MD = 768;
-
 	public const uint32 DNS_RTYPE_MF = 1024;
-
 	public const uint32 DNS_RTYPE_CNAME = 1280;
-
 	public const uint32 DNS_RTYPE_SOA = 1536;
-
 	public const uint32 DNS_RTYPE_MB = 1792;
-
 	public const uint32 DNS_RTYPE_MG = 2048;
-
 	public const uint32 DNS_RTYPE_MR = 2304;
-
 	public const uint32 DNS_RTYPE_NULL = 2560;
-
 	public const uint32 DNS_RTYPE_WKS = 2816;
-
 	public const uint32 DNS_RTYPE_PTR = 3072;
-
 	public const uint32 DNS_RTYPE_HINFO = 3328;
-
 	public const uint32 DNS_RTYPE_MINFO = 3584;
-
 	public const uint32 DNS_RTYPE_MX = 3840;
-
 	public const uint32 DNS_RTYPE_TEXT = 4096;
-
 	public const uint32 DNS_RTYPE_RP = 4352;
-
 	public const uint32 DNS_RTYPE_AFSDB = 4608;
-
 	public const uint32 DNS_RTYPE_X25 = 4864;
-
 	public const uint32 DNS_RTYPE_ISDN = 5120;
-
 	public const uint32 DNS_RTYPE_RT = 5376;
-
 	public const uint32 DNS_RTYPE_NSAP = 5632;
-
 	public const uint32 DNS_RTYPE_NSAPPTR = 5888;
-
 	public const uint32 DNS_RTYPE_SIG = 6144;
-
 	public const uint32 DNS_RTYPE_KEY = 6400;
-
 	public const uint32 DNS_RTYPE_PX = 6656;
-
 	public const uint32 DNS_RTYPE_GPOS = 6912;
-
 	public const uint32 DNS_RTYPE_AAAA = 7168;
-
 	public const uint32 DNS_RTYPE_LOC = 7424;
-
 	public const uint32 DNS_RTYPE_NXT = 7680;
-
 	public const uint32 DNS_RTYPE_EID = 7936;
-
 	public const uint32 DNS_RTYPE_NIMLOC = 8192;
-
 	public const uint32 DNS_RTYPE_SRV = 8448;
-
 	public const uint32 DNS_RTYPE_ATMA = 8704;
-
 	public const uint32 DNS_RTYPE_NAPTR = 8960;
-
 	public const uint32 DNS_RTYPE_KX = 9216;
-
 	public const uint32 DNS_RTYPE_CERT = 9472;
-
 	public const uint32 DNS_RTYPE_A6 = 9728;
-
 	public const uint32 DNS_RTYPE_DNAME = 9984;
-
 	public const uint32 DNS_RTYPE_SINK = 10240;
-
 	public const uint32 DNS_RTYPE_OPT = 10496;
-
 	public const uint32 DNS_RTYPE_DS = 11008;
-
 	public const uint32 DNS_RTYPE_RRSIG = 11776;
-
 	public const uint32 DNS_RTYPE_NSEC = 12032;
-
 	public const uint32 DNS_RTYPE_DNSKEY = 12288;
-
 	public const uint32 DNS_RTYPE_DHCID = 12544;
-
 	public const uint32 DNS_RTYPE_NSEC3 = 12800;
-
 	public const uint32 DNS_RTYPE_NSEC3PARAM = 13056;
-
 	public const uint32 DNS_RTYPE_TLSA = 13312;
-
 	public const uint32 DNS_RTYPE_UINFO = 25600;
-
 	public const uint32 DNS_RTYPE_UID = 25856;
-
 	public const uint32 DNS_RTYPE_GID = 26112;
-
 	public const uint32 DNS_RTYPE_UNSPEC = 26368;
-
 	public const uint32 DNS_RTYPE_TKEY = 63744;
-
 	public const uint32 DNS_RTYPE_TSIG = 64000;
-
 	public const uint32 DNS_RTYPE_IXFR = 64256;
-
 	public const uint32 DNS_RTYPE_AXFR = 64512;
-
 	public const uint32 DNS_RTYPE_MAILB = 64768;
-
 	public const uint32 DNS_RTYPE_MAILA = 65024;
-
 	public const uint32 DNS_RTYPE_ALL = 65280;
-
 	public const uint32 DNS_RTYPE_ANY = 65280;
-
 	public const uint32 DNS_RTYPE_WINS = 511;
-
 	public const uint32 DNS_RTYPE_WINSR = 767;
-
 	public const uint32 DNS_ATMA_FORMAT_E164 = 1;
-
 	public const uint32 DNS_ATMA_FORMAT_AESA = 2;
-
 	public const uint32 DNS_ATMA_MAX_ADDR_LENGTH = 20;
-
 	public const uint32 DNS_ATMA_AESA_ADDR_LENGTH = 20;
-
 	public const uint32 DNS_ATMA_MAX_RECORD_LENGTH = 21;
-
 	public const uint32 DNSSEC_ALGORITHM_RSAMD5 = 1;
-
 	public const uint32 DNSSEC_ALGORITHM_RSASHA1 = 5;
-
 	public const uint32 DNSSEC_ALGORITHM_RSASHA1_NSEC3 = 7;
-
 	public const uint32 DNSSEC_ALGORITHM_RSASHA256 = 8;
-
 	public const uint32 DNSSEC_ALGORITHM_RSASHA512 = 10;
-
 	public const uint32 DNSSEC_ALGORITHM_ECDSAP256_SHA256 = 13;
-
 	public const uint32 DNSSEC_ALGORITHM_ECDSAP384_SHA384 = 14;
-
 	public const uint32 DNSSEC_ALGORITHM_NULL = 253;
-
 	public const uint32 DNSSEC_ALGORITHM_PRIVATE = 254;
-
 	public const uint32 DNSSEC_DIGEST_ALGORITHM_SHA1 = 1;
-
 	public const uint32 DNSSEC_DIGEST_ALGORITHM_SHA256 = 2;
-
 	public const uint32 DNSSEC_DIGEST_ALGORITHM_SHA384 = 4;
-
 	public const uint32 DNSSEC_PROTOCOL_NONE = 0;
-
 	public const uint32 DNSSEC_PROTOCOL_TLS = 1;
-
 	public const uint32 DNSSEC_PROTOCOL_EMAIL = 2;
-
 	public const uint32 DNSSEC_PROTOCOL_DNSSEC = 3;
-
 	public const uint32 DNSSEC_PROTOCOL_IPSEC = 4;
-
 	public const uint32 DNSSEC_KEY_FLAG_NOAUTH = 1;
-
 	public const uint32 DNSSEC_KEY_FLAG_NOCONF = 2;
-
 	public const uint32 DNSSEC_KEY_FLAG_FLAG2 = 4;
-
 	public const uint32 DNSSEC_KEY_FLAG_EXTEND = 8;
-
 	public const uint32 DNSSEC_KEY_FLAG_FLAG4 = 16;
-
 	public const uint32 DNSSEC_KEY_FLAG_FLAG5 = 32;
-
 	public const uint32 DNSSEC_KEY_FLAG_USER = 0;
-
 	public const uint32 DNSSEC_KEY_FLAG_ZONE = 64;
-
 	public const uint32 DNSSEC_KEY_FLAG_HOST = 128;
-
 	public const uint32 DNSSEC_KEY_FLAG_NTPE3 = 192;
-
 	public const uint32 DNSSEC_KEY_FLAG_FLAG8 = 256;
-
 	public const uint32 DNSSEC_KEY_FLAG_FLAG9 = 512;
-
 	public const uint32 DNSSEC_KEY_FLAG_FLAG10 = 1024;
-
 	public const uint32 DNSSEC_KEY_FLAG_FLAG11 = 2048;
-
 	public const uint32 DNSSEC_KEY_FLAG_SIG0 = 0;
-
 	public const uint32 DNSSEC_KEY_FLAG_SIG1 = 4096;
-
 	public const uint32 DNSSEC_KEY_FLAG_SIG2 = 8192;
-
 	public const uint32 DNSSEC_KEY_FLAG_SIG3 = 12288;
-
 	public const uint32 DNSSEC_KEY_FLAG_SIG4 = 16384;
-
 	public const uint32 DNSSEC_KEY_FLAG_SIG5 = 20480;
-
 	public const uint32 DNSSEC_KEY_FLAG_SIG6 = 24576;
-
 	public const uint32 DNSSEC_KEY_FLAG_SIG7 = 28672;
-
 	public const uint32 DNSSEC_KEY_FLAG_SIG8 = 32768;
-
 	public const uint32 DNSSEC_KEY_FLAG_SIG9 = 36864;
-
 	public const uint32 DNSSEC_KEY_FLAG_SIG10 = 40960;
-
 	public const uint32 DNSSEC_KEY_FLAG_SIG11 = 45056;
-
 	public const uint32 DNSSEC_KEY_FLAG_SIG12 = 49152;
-
 	public const uint32 DNSSEC_KEY_FLAG_SIG13 = 53248;
-
 	public const uint32 DNSSEC_KEY_FLAG_SIG14 = 57344;
-
 	public const uint32 DNSSEC_KEY_FLAG_SIG15 = 61440;
-
 	public const uint32 DNS_TKEY_MODE_SERVER_ASSIGN = 1;
-
 	public const uint32 DNS_TKEY_MODE_DIFFIE_HELLMAN = 2;
-
 	public const uint32 DNS_TKEY_MODE_GSS = 3;
-
 	public const uint32 DNS_TKEY_MODE_RESOLVER_ASSIGN = 4;
-
 	public const uint32 DNS_WINS_FLAG_SCOPE = 2147483648;
-
 	public const uint32 DNS_WINS_FLAG_LOCAL = 65536;
-
 	public const uint32 DNS_CONFIG_FLAG_ALLOC = 1;
-
 	public const uint32 DNSREC_SECTION = 3;
-
 	public const uint32 DNSREC_QUESTION = 0;
-
 	public const uint32 DNSREC_ANSWER = 1;
-
 	public const uint32 DNSREC_AUTHORITY = 2;
-
 	public const uint32 DNSREC_ADDITIONAL = 3;
-
 	public const uint32 DNSREC_ZONE = 0;
-
 	public const uint32 DNSREC_PREREQ = 1;
-
 	public const uint32 DNSREC_UPDATE = 2;
-
 	public const uint32 DNSREC_DELETE = 4;
-
 	public const uint32 DNSREC_NOEXIST = 4;
-
 	public const uint32 DNS_QUERY_STANDARD = 0;
-
 	public const uint32 DNS_QUERY_ACCEPT_TRUNCATED_RESPONSE = 1;
-
 	public const uint32 DNS_QUERY_USE_TCP_ONLY = 2;
-
 	public const uint32 DNS_QUERY_NO_RECURSION = 4;
-
 	public const uint32 DNS_QUERY_BYPASS_CACHE = 8;
-
 	public const uint32 DNS_QUERY_NO_WIRE_QUERY = 16;
-
 	public const uint32 DNS_QUERY_NO_LOCAL_NAME = 32;
-
 	public const uint32 DNS_QUERY_NO_HOSTS_FILE = 64;
-
 	public const uint32 DNS_QUERY_NO_NETBT = 128;
-
 	public const uint32 DNS_QUERY_WIRE_ONLY = 256;
-
 	public const uint32 DNS_QUERY_RETURN_MESSAGE = 512;
-
 	public const uint32 DNS_QUERY_MULTICAST_ONLY = 1024;
-
 	public const uint32 DNS_QUERY_NO_MULTICAST = 2048;
-
 	public const uint32 DNS_QUERY_TREAT_AS_FQDN = 4096;
-
 	public const uint32 DNS_QUERY_ADDRCONFIG = 8192;
-
 	public const uint32 DNS_QUERY_DUAL_ADDR = 16384;
-
 	public const uint32 DNS_QUERY_DONT_RESET_TTL_VALUES = 1048576;
-
 	public const uint32 DNS_QUERY_DISABLE_IDN_ENCODING = 2097152;
-
 	public const uint32 DNS_QUERY_APPEND_MULTILABEL = 8388608;
-
 	public const uint32 DNS_QUERY_DNSSEC_OK = 16777216;
-
 	public const uint32 DNS_QUERY_DNSSEC_CHECKING_DISABLED = 33554432;
-
 	public const uint32 DNS_QUERY_RESERVED = 4026531840;
-
 	public const uint32 DNS_QUERY_CACHE_ONLY = 16;
-
 	public const uint32 DNS_QUERY_REQUEST_VERSION1 = 1;
-
 	public const uint32 DNS_QUERY_REQUEST_VERSION2 = 2;
-
 	public const uint32 DNS_QUERY_RESULTS_VERSION1 = 1;
-
 	public const uint32 DNS_QUERY_REQUEST_VERSION3 = 3;
-
 	public const uint32 DNS_CUSTOM_SERVER_TYPE_UDP = 1;
-
 	public const uint32 DNS_CUSTOM_SERVER_TYPE_DOH = 2;
-
 	public const uint32 DNS_CUSTOM_SERVER_UDP_FALLBACK = 1;
-
 	public const uint32 DNS_APP_SETTINGS_VERSION1 = 1;
-
 	public const uint32 DNS_APP_SETTINGS_EXCLUSIVE_SERVERS = 1;
-
 	public const uint32 DNS_UPDATE_SECURITY_USE_DEFAULT = 0;
-
 	public const uint32 DNS_UPDATE_SECURITY_OFF = 16;
-
 	public const uint32 DNS_UPDATE_SECURITY_ON = 32;
-
 	public const uint32 DNS_UPDATE_SECURITY_ONLY = 256;
-
 	public const uint32 DNS_UPDATE_CACHE_SECURITY_CONTEXT = 512;
-
 	public const uint32 DNS_UPDATE_TEST_USE_LOCAL_SYS_ACCT = 1024;
-
 	public const uint32 DNS_UPDATE_FORCE_SECURITY_NEGO = 2048;
-
 	public const uint32 DNS_UPDATE_TRY_ALL_MASTER_SERVERS = 4096;
-
 	public const uint32 DNS_UPDATE_SKIP_NO_UPDATE_ADAPTERS = 8192;
-
 	public const uint32 DNS_UPDATE_REMOTE_SERVER = 16384;
-
 	public const uint32 DNS_UPDATE_RESERVED = 4294901760;
-
 	public const uint32 DNS_VALSVR_ERROR_INVALID_ADDR = 1;
-
 	public const uint32 DNS_VALSVR_ERROR_INVALID_NAME = 2;
-
 	public const uint32 DNS_VALSVR_ERROR_UNREACHABLE = 3;
-
 	public const uint32 DNS_VALSVR_ERROR_NO_RESPONSE = 4;
-
 	public const uint32 DNS_VALSVR_ERROR_NO_AUTH = 5;
-
 	public const uint32 DNS_VALSVR_ERROR_REFUSED = 6;
-
 	public const uint32 DNS_VALSVR_ERROR_NO_TCP = 16;
-
 	public const uint32 DNS_VALSVR_ERROR_UNKNOWN = 255;
-
 	public const uint32 DNS_CONNECTION_NAME_MAX_LENGTH = 64;
-
 	public const uint32 DNS_CONNECTION_PROXY_INFO_CURRENT_VERSION = 1;
-
 	public const uint32 DNS_CONNECTION_PROXY_INFO_SERVER_MAX_LENGTH = 256;
-
 	public const uint32 DNS_CONNECTION_PROXY_INFO_FRIENDLY_NAME_MAX_LENGTH = 64;
-
 	public const uint32 DNS_CONNECTION_PROXY_INFO_USERNAME_MAX_LENGTH = 128;
-
 	public const uint32 DNS_CONNECTION_PROXY_INFO_PASSWORD_MAX_LENGTH = 128;
-
 	public const uint32 DNS_CONNECTION_PROXY_INFO_EXCEPTION_MAX_LENGTH = 1024;
-
 	public const uint32 DNS_CONNECTION_PROXY_INFO_EXTRA_INFO_MAX_LENGTH = 1024;
-
 	public const uint32 DNS_CONNECTION_PROXY_INFO_FLAG_DISABLED = 1;
-
 	public const uint32 DNS_CONNECTION_PROXY_INFO_FLAG_BYPASSLOCAL = 2;
-
 	public const uint32 DNS_CONNECTION_POLICY_ENTRY_ONDEMAND = 1;
-
 }
 #endregion
 
@@ -791,10 +465,11 @@ public function void PMDNS_QUERY_CALLBACK(void* pQueryContext, MDNS_QUERY_HANDLE
 #endregion
 
 #region Structs
-[CRepr, FlexibleArray("AddrArray")]
+[CRepr]
 public struct IP4_ARRAY
 {
 	public uint32 AddrCount;
+	public uint32* AddrArray mut => &AddrArray_impl;
 	private uint32[ANYSIZE_ARRAY] AddrArray_impl;
 }
 
@@ -817,12 +492,11 @@ public struct DNS_ADDR
 	{
 		public uint32[8] DnsAddrUserDword;
 	}
-
 	public CHAR[32] MaxSa;
 	public _Data_e__Union Data;
 }
 
-[CRepr, Packed(1), FlexibleArray("AddrArray")]
+[CRepr, Packed(1)]
 public struct DNS_ADDR_ARRAY
 {
 	public uint32 MaxCount;
@@ -834,6 +508,7 @@ public struct DNS_ADDR_ARRAY
 	public uint32 MatchFlag;
 	public uint32 Reserved1;
 	public uint32 Reserved2;
+	public DNS_ADDR* AddrArray mut => &AddrArray_impl;
 	private DNS_ADDR[ANYSIZE_ARRAY] AddrArray_impl;
 }
 
@@ -945,32 +620,36 @@ public struct DNS_MX_DATAA
 	public uint16 Pad;
 }
 
-[CRepr, FlexibleArray("pStringArray")]
+[CRepr]
 public struct DNS_TXT_DATAW
 {
 	public uint32 dwStringCount;
+	public PWSTR* pStringArray mut => &pStringArray_impl;
 	private PWSTR[ANYSIZE_ARRAY] pStringArray_impl;
 }
 
-[CRepr, FlexibleArray("pStringArray")]
+[CRepr]
 public struct DNS_TXT_DATAA
 {
 	public uint32 dwStringCount;
+	public PSTR* pStringArray mut => &pStringArray_impl;
 	private PSTR[ANYSIZE_ARRAY] pStringArray_impl;
 }
 
-[CRepr, FlexibleArray("Data")]
+[CRepr]
 public struct DNS_NULL_DATA
 {
 	public uint32 dwByteCount;
+	public uint8* Data mut => &Data_impl;
 	private uint8[ANYSIZE_ARRAY] Data_impl;
 }
 
-[CRepr, FlexibleArray("BitMask")]
+[CRepr]
 public struct DNS_WKS_DATA
 {
 	public uint32 IpAddress;
 	public uint8 chProtocol;
+	public uint8* BitMask mut => &BitMask_impl;
 	private uint8[ANYSIZE_ARRAY] BitMask_impl;
 }
 
@@ -980,7 +659,7 @@ public struct DNS_AAAA_DATA
 	public IP6_ADDRESS Ip6Address;
 }
 
-[CRepr, FlexibleArray("Signature")]
+[CRepr]
 public struct DNS_SIG_DATAW
 {
 	public uint16 wTypeCovered;
@@ -992,10 +671,11 @@ public struct DNS_SIG_DATAW
 	public uint16 wKeyTag;
 	public uint16 wSignatureLength;
 	public PWSTR pNameSigner;
+	public uint8* Signature mut => &Signature_impl;
 	private uint8[ANYSIZE_ARRAY] Signature_impl;
 }
 
-[CRepr, FlexibleArray("Signature")]
+[CRepr]
 public struct DNS_SIG_DATAA
 {
 	public uint16 wTypeCovered;
@@ -1007,10 +687,11 @@ public struct DNS_SIG_DATAA
 	public uint16 wKeyTag;
 	public uint16 wSignatureLength;
 	public PSTR pNameSigner;
+	public uint8* Signature mut => &Signature_impl;
 	private uint8[ANYSIZE_ARRAY] Signature_impl;
 }
 
-[CRepr, FlexibleArray("Key")]
+[CRepr]
 public struct DNS_KEY_DATA
 {
 	public uint16 wFlags;
@@ -1018,35 +699,39 @@ public struct DNS_KEY_DATA
 	public uint8 chAlgorithm;
 	public uint16 wKeyLength;
 	public uint16 wPad;
+	public uint8* Key mut => &Key_impl;
 	private uint8[ANYSIZE_ARRAY] Key_impl;
 }
 
-[CRepr, FlexibleArray("DHCID")]
+[CRepr]
 public struct DNS_DHCID_DATA
 {
 	public uint32 dwByteCount;
+	public uint8* DHCID mut => &DHCID_impl;
 	private uint8[ANYSIZE_ARRAY] DHCID_impl;
 }
 
-[CRepr, FlexibleArray("TypeBitMaps")]
+[CRepr]
 public struct DNS_NSEC_DATAW
 {
 	public PWSTR pNextDomainName;
 	public uint16 wTypeBitMapsLength;
 	public uint16 wPad;
+	public uint8* TypeBitMaps mut => &TypeBitMaps_impl;
 	private uint8[ANYSIZE_ARRAY] TypeBitMaps_impl;
 }
 
-[CRepr, FlexibleArray("TypeBitMaps")]
+[CRepr]
 public struct DNS_NSEC_DATAA
 {
 	public PSTR pNextDomainName;
 	public uint16 wTypeBitMapsLength;
 	public uint16 wPad;
+	public uint8* TypeBitMaps mut => &TypeBitMaps_impl;
 	private uint8[ANYSIZE_ARRAY] TypeBitMaps_impl;
 }
 
-[CRepr, FlexibleArray("chData")]
+[CRepr]
 public struct DNS_NSEC3_DATA
 {
 	public uint8 chAlgorithm;
@@ -1055,10 +740,11 @@ public struct DNS_NSEC3_DATA
 	public uint8 bSaltLength;
 	public uint8 bHashLength;
 	public uint16 wTypeBitMapsLength;
+	public uint8* chData mut => &chData_impl;
 	private uint8[ANYSIZE_ARRAY] chData_impl;
 }
 
-[CRepr, FlexibleArray("pbSalt")]
+[CRepr]
 public struct DNS_NSEC3PARAM_DATA
 {
 	public uint8 chAlgorithm;
@@ -1066,10 +752,11 @@ public struct DNS_NSEC3PARAM_DATA
 	public uint16 wIterations;
 	public uint8 bSaltLength;
 	public uint8[3] bPad;
+	public uint8* pbSalt mut => &pbSalt_impl;
 	private uint8[ANYSIZE_ARRAY] pbSalt_impl;
 }
 
-[CRepr, FlexibleArray("bCertificateAssociationData")]
+[CRepr]
 public struct DNS_TLSA_DATA
 {
 	public uint8 bCertUsage;
@@ -1077,10 +764,11 @@ public struct DNS_TLSA_DATA
 	public uint8 bMatchingType;
 	public uint16 bCertificateAssociationDataLength;
 	public uint8[3] bPad;
+	public uint8* bCertificateAssociationData mut => &bCertificateAssociationData_impl;
 	private uint8[ANYSIZE_ARRAY] bCertificateAssociationData_impl;
 }
 
-[CRepr, FlexibleArray("Digest")]
+[CRepr]
 public struct DNS_DS_DATA
 {
 	public uint16 wKeyTag;
@@ -1088,14 +776,16 @@ public struct DNS_DS_DATA
 	public uint8 chDigestType;
 	public uint16 wDigestLength;
 	public uint16 wPad;
+	public uint8* Digest mut => &Digest_impl;
 	private uint8[ANYSIZE_ARRAY] Digest_impl;
 }
 
-[CRepr, FlexibleArray("Data")]
+[CRepr]
 public struct DNS_OPT_DATA
 {
 	public uint16 wDataLength;
 	public uint16 wPad;
+	public uint8* Data mut => &Data_impl;
 	private uint8[ANYSIZE_ARRAY] Data_impl;
 }
 
@@ -1111,19 +801,21 @@ public struct DNS_LOC_DATA
 	public uint32 dwAltitude;
 }
 
-[CRepr, FlexibleArray("wTypes")]
+[CRepr]
 public struct DNS_NXT_DATAW
 {
 	public PWSTR pNameNext;
 	public uint16 wNumTypes;
+	public uint16* wTypes mut => &wTypes_impl;
 	private uint16[ANYSIZE_ARRAY] wTypes_impl;
 }
 
-[CRepr, FlexibleArray("wTypes")]
+[CRepr]
 public struct DNS_NXT_DATAA
 {
 	public PSTR pNameNext;
 	public uint16 wNumTypes;
+	public uint16* wTypes mut => &wTypes_impl;
 	private uint16[ANYSIZE_ARRAY] wTypes_impl;
 }
 
@@ -1244,20 +936,22 @@ public struct DNS_TSIG_DATAA
 	public BOOL bPacketPointers;
 }
 
-[CRepr, FlexibleArray("bData")]
+[CRepr]
 public struct DNS_UNKNOWN_DATA
 {
 	public uint32 dwByteCount;
+	public uint8* bData mut => &bData_impl;
 	private uint8[ANYSIZE_ARRAY] bData_impl;
 }
 
-[CRepr, FlexibleArray("WinsServers")]
+[CRepr]
 public struct DNS_WINS_DATA
 {
 	public uint32 dwMappingFlag;
 	public uint32 dwLookupTimeout;
 	public uint32 dwCacheTimeout;
 	public uint32 cWinsServerCount;
+	public uint32* WinsServers mut => &WinsServers_impl;
 	private uint32[ANYSIZE_ARRAY] WinsServers_impl;
 }
 
@@ -1294,7 +988,6 @@ public struct DNS_RECORDW
 		public uint32 DW;
 		public DNS_RECORD_FLAGS S;
 	}
-
 	[CRepr, Union]
 	public struct _Data_e__Union
 	{
@@ -1383,7 +1076,6 @@ public struct DNS_RECORDW
 		public DNS_UNKNOWN_DATA Unknown;
 		public uint8* pDataPtr;
 	}
-
 	public DNS_RECORDW* pNext;
 	public PWSTR pName;
 	public uint16 wType;
@@ -1403,14 +1095,12 @@ public struct _DnsRecordOptW
 		public uint32 DW;
 		public DNS_RECORD_FLAGS S;
 	}
-
 	[CRepr, Union]
 	public struct _Data_e__Union
 	{
 		public DNS_OPT_DATA OPT;
 		public DNS_OPT_DATA Opt;
 	}
-
 	public DNS_RECORDW* pNext;
 	public PWSTR pName;
 	public uint16 wType;
@@ -1431,7 +1121,6 @@ public struct DNS_RECORDA
 		public uint32 DW;
 		public DNS_RECORD_FLAGS S;
 	}
-
 	[CRepr, Union]
 	public struct _Data_e__Union
 	{
@@ -1520,7 +1209,6 @@ public struct DNS_RECORDA
 		public DNS_UNKNOWN_DATA Unknown;
 		public uint8* pDataPtr;
 	}
-
 	public DNS_RECORDA* pNext;
 	public PSTR pName;
 	public uint16 wType;
@@ -1540,14 +1228,12 @@ public struct _DnsRecordOptA
 		public uint32 DW;
 		public DNS_RECORD_FLAGS S;
 	}
-
 	[CRepr, Union]
 	public struct _Data_e__Union
 	{
 		public DNS_OPT_DATA OPT;
 		public DNS_OPT_DATA Opt;
 	}
-
 	public DNS_RECORDA* pNext;
 	public PSTR pName;
 	public uint16 wType;
@@ -1611,13 +1297,11 @@ public struct DNS_CUSTOM_SERVER
 	{
 		public PWSTR pwszTemplate;
 	}
-
 	[CRepr, Union]
 	public struct _Anonymous2_e__Union
 	{
 		public CHAR[32] MaxSa;
 	}
-
 	public uint32 dwServerType;
 	public uint64 ullFlags;
 	public _Anonymous1_e__Union Anonymous1;
@@ -1648,10 +1332,11 @@ public struct DNS_APPLICATION_SETTINGS
 	public uint64 Flags;
 }
 
-[CRepr, FlexibleArray("MessageBody")]
+[CRepr]
 public struct DNS_MESSAGE_BUFFER
 {
 	public DNS_HEADER MessageHead;
+	public CHAR* MessageBody mut => &MessageBody_impl;
 	private CHAR[ANYSIZE_ARRAY] MessageBody_impl;
 }
 
@@ -1668,7 +1353,6 @@ public struct DNS_CONNECTION_PROXY_INFO
 			public PWSTR pwszUsername;
 			public PWSTR pwszPassword;
 		}
-
 		[CRepr]
 		public struct _DNS_CONNECTION_PROXY_INFO_CONFIG
 		{
@@ -1679,11 +1363,9 @@ public struct DNS_CONNECTION_PROXY_INFO
 			public PWSTR pwszExtraInfo;
 			public uint16 Port;
 		}
-
 		public _DNS_CONNECTION_PROXY_INFO_CONFIG Config;
 		public _DNS_CONNECTION_PROXY_INFO_SCRIPT Script;
 	}
-
 	public uint32 Version;
 	public PWSTR pwszFriendlyName;
 	public uint32 Flags;
@@ -1792,7 +1474,6 @@ public struct DNS_SERVICE_BROWSE_REQUEST
 		public PDNS_SERVICE_BROWSE_CALLBACK pBrowseCallback;
 		public PDNS_QUERY_COMPLETION_ROUTINE pBrowseCallbackV2;
 	}
-
 	public uint32 Version;
 	public uint32 InterfaceIndex;
 	public PWSTR QueryName;

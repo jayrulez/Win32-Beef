@@ -8,113 +8,59 @@ namespace Win32.Graphics.Direct3D;
 public static
 {
 	public const uint32 D3D_FL9_1_REQ_TEXTURE1D_U_DIMENSION = 2048;
-
 	public const uint32 D3D_FL9_3_REQ_TEXTURE1D_U_DIMENSION = 4096;
-
 	public const uint32 D3D_FL9_1_REQ_TEXTURE2D_U_OR_V_DIMENSION = 2048;
-
 	public const uint32 D3D_FL9_3_REQ_TEXTURE2D_U_OR_V_DIMENSION = 4096;
-
 	public const uint32 D3D_FL9_1_REQ_TEXTURECUBE_DIMENSION = 512;
-
 	public const uint32 D3D_FL9_3_REQ_TEXTURECUBE_DIMENSION = 4096;
-
 	public const uint32 D3D_FL9_1_REQ_TEXTURE3D_U_V_OR_W_DIMENSION = 256;
-
 	public const uint32 D3D_FL9_1_DEFAULT_MAX_ANISOTROPY = 2;
-
 	public const uint32 D3D_FL9_1_IA_PRIMITIVE_MAX_COUNT = 65535;
-
 	public const uint32 D3D_FL9_2_IA_PRIMITIVE_MAX_COUNT = 1048575;
-
 	public const uint32 D3D_FL9_1_SIMULTANEOUS_RENDER_TARGET_COUNT = 1;
-
 	public const uint32 D3D_FL9_3_SIMULTANEOUS_RENDER_TARGET_COUNT = 4;
-
 	public const uint32 D3D_FL9_1_MAX_TEXTURE_REPEAT = 128;
-
 	public const uint32 D3D_FL9_2_MAX_TEXTURE_REPEAT = 2048;
-
 	public const uint32 D3D_FL9_3_MAX_TEXTURE_REPEAT = 8192;
-
 	public const uint32 D3D_SHADER_FEATURE_DOUBLES = 1;
-
 	public const uint32 D3D_SHADER_FEATURE_COMPUTE_SHADERS_PLUS_RAW_AND_STRUCTURED_BUFFERS_VIA_SHADER_4_X = 2;
-
 	public const uint32 D3D_SHADER_FEATURE_UAVS_AT_EVERY_STAGE = 4;
-
 	public const uint32 D3D_SHADER_FEATURE_64_UAVS = 8;
-
 	public const uint32 D3D_SHADER_FEATURE_MINIMUM_PRECISION = 16;
-
 	public const uint32 D3D_SHADER_FEATURE_11_1_DOUBLE_EXTENSIONS = 32;
-
 	public const uint32 D3D_SHADER_FEATURE_11_1_SHADER_EXTENSIONS = 64;
-
 	public const uint32 D3D_SHADER_FEATURE_LEVEL_9_COMPARISON_FILTERING = 128;
-
 	public const uint32 D3D_SHADER_FEATURE_TILED_RESOURCES = 256;
-
 	public const uint32 D3D_SHADER_FEATURE_STENCIL_REF = 512;
-
 	public const uint32 D3D_SHADER_FEATURE_INNER_COVERAGE = 1024;
-
 	public const uint32 D3D_SHADER_FEATURE_TYPED_UAV_LOAD_ADDITIONAL_FORMATS = 2048;
-
 	public const uint32 D3D_SHADER_FEATURE_ROVS = 4096;
-
 	public const uint32 D3D_SHADER_FEATURE_VIEWPORT_AND_RT_ARRAY_INDEX_FROM_ANY_SHADER_FEEDING_RASTERIZER = 8192;
-
 	public const uint32 D3D_SHADER_FEATURE_WAVE_OPS = 16384;
-
 	public const uint32 D3D_SHADER_FEATURE_INT64_OPS = 32768;
-
 	public const uint32 D3D_SHADER_FEATURE_VIEW_ID = 65536;
-
 	public const uint32 D3D_SHADER_FEATURE_BARYCENTRICS = 131072;
-
 	public const uint32 D3D_SHADER_FEATURE_NATIVE_16BIT_OPS = 262144;
-
 	public const uint32 D3D_SHADER_FEATURE_SHADING_RATE = 524288;
-
 	public const uint32 D3D_SHADER_FEATURE_RAYTRACING_TIER_1_1 = 1048576;
-
 	public const uint32 D3D_SHADER_FEATURE_SAMPLER_FEEDBACK = 2097152;
-
 	public const uint32 D3D_SHADER_FEATURE_ATOMIC_INT64_ON_TYPED_RESOURCE = 4194304;
-
 	public const uint32 D3D_SHADER_FEATURE_ATOMIC_INT64_ON_GROUP_SHARED = 8388608;
-
 	public const uint32 D3D_SHADER_FEATURE_DERIVATIVES_IN_MESH_AND_AMPLIFICATION_SHADERS = 16777216;
-
 	public const uint32 D3D_SHADER_FEATURE_RESOURCE_DESCRIPTOR_HEAP_INDEXING = 33554432;
-
 	public const uint32 D3D_SHADER_FEATURE_SAMPLER_DESCRIPTOR_HEAP_INDEXING = 67108864;
-
 	public const uint32 D3D_SHADER_FEATURE_WAVE_MMA = 134217728;
-
 	public const uint32 D3D_SHADER_FEATURE_ATOMIC_INT64_ON_DESCRIPTOR_HEAP_RESOURCE = 268435456;
-
 	public const Guid WKPDID_D3DDebugObjectName = .(0x429b8c22, 0x9188, 0x4b0c, 0x87, 0x42, 0xac, 0xb0, 0xbf, 0x85, 0xc2, 0x00);
-
 	public const Guid WKPDID_D3DDebugObjectNameW = .(0x4cca5fd8, 0x921f, 0x42c8, 0x85, 0x66, 0x70, 0xca, 0xf2, 0xa9, 0xb7, 0x41);
-
 	public const Guid WKPDID_CommentStringW = .(0xd0149dc0, 0x90e8, 0x4ec8, 0x81, 0x44, 0xe9, 0x00, 0xad, 0x26, 0x6b, 0xb2);
-
 	public const Guid WKPDID_D3D12UniqueObjectId = .(0x1b39de15, 0xec04, 0x4bae, 0xba, 0x4d, 0x8c, 0xef, 0x79, 0xfc, 0x04, 0xc1);
-
 	public const uint32 D3D_COMPONENT_MASK_X = 1;
-
 	public const uint32 D3D_COMPONENT_MASK_Y = 2;
-
 	public const uint32 D3D_COMPONENT_MASK_Z = 4;
-
 	public const uint32 D3D_COMPONENT_MASK_W = 8;
-
 	public const Guid D3D_TEXTURE_LAYOUT_ROW_MAJOR = .(0xb5dc234f, 0x72bb, 0x4bec, 0x97, 0x05, 0x8c, 0xf2, 0x58, 0xdf, 0x6b, 0x6c);
-
 	public const Guid D3D_TEXTURE_LAYOUT_64KB_STANDARD_SWIZZLE = .(0x4c0f29e3, 0x3f5f, 0x4d35, 0x84, 0xc9, 0xbc, 0x09, 0x83, 0xb6, 0x2c, 0x28);
-
 }
 #endregion
 
@@ -868,11 +814,9 @@ public struct D3DMATRIX
 			public float _43;
 			public float _44;
 		}
-
 		public using _Anonymous_e__Struct Anonymous;
 		public float[16] m;
 	}
-
 	public using _Anonymous_e__Union Anonymous;
 }
 

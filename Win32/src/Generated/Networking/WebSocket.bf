@@ -7,7 +7,6 @@ namespace Win32.Networking.WebSocket;
 public static
 {
 	public const uint32 WEB_SOCKET_MAX_CLOSE_REASON_LENGTH = 123;
-
 }
 #endregion
 
@@ -112,7 +111,6 @@ public struct WEB_SOCKET_BUFFER
 		public uint8* pbBuffer;
 		public uint32 ulBufferLength;
 	}
-
 	[CRepr]
 	public struct _CloseStatus_e__Struct
 	{
@@ -120,7 +118,6 @@ public struct WEB_SOCKET_BUFFER
 		public uint32 ulReasonLength;
 		public uint16 usStatus;
 	}
-
 	public _Data_e__Struct Data;
 	public _CloseStatus_e__Struct CloseStatus;
 }

@@ -10,123 +10,64 @@ namespace Win32.Security.WinWlx;
 public static
 {
 	public const uint32 WLX_VERSION_1_0 = 65536;
-
 	public const uint32 WLX_VERSION_1_1 = 65537;
-
 	public const uint32 WLX_VERSION_1_2 = 65538;
-
 	public const uint32 WLX_VERSION_1_3 = 65539;
-
 	public const uint32 WLX_VERSION_1_4 = 65540;
-
 	public const uint32 WLX_CURRENT_VERSION = 65540;
-
 	public const uint32 WLX_SAS_TYPE_TIMEOUT = 0;
-
 	public const uint32 WLX_SAS_TYPE_CTRL_ALT_DEL = 1;
-
 	public const uint32 WLX_SAS_TYPE_SCRNSVR_TIMEOUT = 2;
-
 	public const uint32 WLX_SAS_TYPE_SCRNSVR_ACTIVITY = 3;
-
 	public const uint32 WLX_SAS_TYPE_USER_LOGOFF = 4;
-
 	public const uint32 WLX_SAS_TYPE_SC_INSERT = 5;
-
 	public const uint32 WLX_SAS_TYPE_SC_REMOVE = 6;
-
 	public const uint32 WLX_SAS_TYPE_AUTHENTICATED = 7;
-
 	public const uint32 WLX_SAS_TYPE_SC_FIRST_READER_ARRIVED = 8;
-
 	public const uint32 WLX_SAS_TYPE_SC_LAST_READER_REMOVED = 9;
-
 	public const uint32 WLX_SAS_TYPE_SWITCHUSER = 10;
-
 	public const uint32 WLX_SAS_TYPE_MAX_MSFT_VALUE = 127;
-
 	public const uint32 WLX_LOGON_OPT_NO_PROFILE = 1;
-
 	public const uint32 WLX_PROFILE_TYPE_V1_0 = 1;
-
 	public const uint32 WLX_PROFILE_TYPE_V2_0 = 2;
-
 	public const uint32 WLX_SAS_ACTION_LOGON = 1;
-
 	public const uint32 WLX_SAS_ACTION_NONE = 2;
-
 	public const uint32 WLX_SAS_ACTION_LOCK_WKSTA = 3;
-
 	public const uint32 WLX_SAS_ACTION_LOGOFF = 4;
-
 	public const uint32 WLX_SAS_ACTION_PWD_CHANGED = 6;
-
 	public const uint32 WLX_SAS_ACTION_TASKLIST = 7;
-
 	public const uint32 WLX_SAS_ACTION_UNLOCK_WKSTA = 8;
-
 	public const uint32 WLX_SAS_ACTION_FORCE_LOGOFF = 9;
-
 	public const uint32 WLX_SAS_ACTION_SHUTDOWN_SLEEP = 12;
-
 	public const uint32 WLX_SAS_ACTION_SHUTDOWN_SLEEP2 = 13;
-
 	public const uint32 WLX_SAS_ACTION_SHUTDOWN_HIBERNATE = 14;
-
 	public const uint32 WLX_SAS_ACTION_RECONNECTED = 15;
-
 	public const uint32 WLX_SAS_ACTION_DELAYED_FORCE_LOGOFF = 16;
-
 	public const uint32 WLX_SAS_ACTION_SWITCH_CONSOLE = 17;
-
 	public const uint32 WLX_WM_SAS = 1625;
-
 	public const uint32 WLX_DLG_SAS = 101;
-
 	public const uint32 WLX_DLG_INPUT_TIMEOUT = 102;
-
 	public const uint32 WLX_DLG_SCREEN_SAVER_TIMEOUT = 103;
-
 	public const uint32 WLX_DLG_USER_LOGOFF = 104;
-
 	public const uint32 WLX_DIRECTORY_LENGTH = 256;
-
 	public const uint32 WLX_CREDENTIAL_TYPE_V1_0 = 1;
-
 	public const uint32 WLX_CREDENTIAL_TYPE_V2_0 = 2;
-
 	public const uint32 WLX_CONSOLESWITCHCREDENTIAL_TYPE_V1_0 = 1;
-
 	public const uint32 STATUSMSG_OPTION_NOANIMATION = 1;
-
 	public const uint32 STATUSMSG_OPTION_SETFOREGROUND = 2;
-
 	public const uint32 WLX_DESKTOP_NAME = 1;
-
 	public const uint32 WLX_DESKTOP_HANDLE = 2;
-
 	public const uint32 WLX_CREATE_INSTANCE_ONLY = 1;
-
 	public const uint32 WLX_CREATE_USER = 2;
-
 	public const uint32 WLX_OPTION_USE_CTRL_ALT_DEL = 1;
-
 	public const uint32 WLX_OPTION_CONTEXT_POINTER = 2;
-
 	public const uint32 WLX_OPTION_USE_SMART_CARD = 3;
-
 	public const uint32 WLX_OPTION_FORCE_LOGOFF_TIME = 4;
-
 	public const uint32 WLX_OPTION_IGNORE_AUTO_LOGON = 8;
-
 	public const uint32 WLX_OPTION_NO_SWITCH_ON_SAS = 9;
-
 	public const uint32 WLX_OPTION_SMART_CARD_PRESENT = 65537;
-
 	public const uint32 WLX_OPTION_SMART_CARD_INFO = 65538;
-
 	public const uint32 WLX_OPTION_DISPATCH_TABLE_SIZE = 65539;
-
 }
 #endregion
 

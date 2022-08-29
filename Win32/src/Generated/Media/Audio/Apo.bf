@@ -3,7 +3,6 @@ using Win32.UI.Shell.PropertiesSystem;
 using Win32.System.Com;
 using Win32.Media.Audio;
 using System;
-using System.Interop;
 
 namespace Win32.Media.Audio.Apo;
 
@@ -11,111 +10,58 @@ namespace Win32.Media.Audio.Apo;
 public static
 {
 	public const HRESULT APOERR_ALREADY_INITIALIZED = -2005073919;
-
 	public const HRESULT APOERR_NOT_INITIALIZED = -2005073918;
-
 	public const HRESULT APOERR_FORMAT_NOT_SUPPORTED = -2005073917;
-
 	public const HRESULT APOERR_INVALID_APO_CLSID = -2005073916;
-
 	public const HRESULT APOERR_BUFFERS_OVERLAP = -2005073915;
-
 	public const HRESULT APOERR_ALREADY_UNLOCKED = -2005073914;
-
 	public const HRESULT APOERR_NUM_CONNECTIONS_INVALID = -2005073913;
-
 	public const HRESULT APOERR_INVALID_OUTPUT_MAXFRAMECOUNT = -2005073912;
-
 	public const HRESULT APOERR_INVALID_CONNECTION_FORMAT = -2005073911;
-
 	public const HRESULT APOERR_APO_LOCKED = -2005073910;
-
 	public const HRESULT APOERR_INVALID_COEFFCOUNT = -2005073909;
-
 	public const HRESULT APOERR_INVALID_COEFFICIENT = -2005073908;
-
 	public const HRESULT APOERR_INVALID_CURVE_PARAM = -2005073907;
-
 	public const HRESULT APOERR_INVALID_INPUTID = -2005073906;
-
 	public const double AUDIO_MIN_FRAMERATE = 10;
-
 	public const double AUDIO_MAX_FRAMERATE = 384000;
-
 	public const uint32 AUDIO_MIN_CHANNELS = 1;
-
 	public const uint32 AUDIO_MAX_CHANNELS = 4096;
-
 	public const PROPERTYKEY PKEY_FX_Association = .(.(0xd04e05a6, 0x594b, 0x4fb6, 0xa8, 0x0d, 0x01, 0xaf, 0x5e, 0xed, 0x7d, 0x1d), 0);
-
 	public const PROPERTYKEY PKEY_FX_PreMixEffectClsid = .(.(0xd04e05a6, 0x594b, 0x4fb6, 0xa8, 0x0d, 0x01, 0xaf, 0x5e, 0xed, 0x7d, 0x1d), 1);
-
 	public const PROPERTYKEY PKEY_FX_PostMixEffectClsid = .(.(0xd04e05a6, 0x594b, 0x4fb6, 0xa8, 0x0d, 0x01, 0xaf, 0x5e, 0xed, 0x7d, 0x1d), 2);
-
 	public const PROPERTYKEY PKEY_FX_UserInterfaceClsid = .(.(0xd04e05a6, 0x594b, 0x4fb6, 0xa8, 0x0d, 0x01, 0xaf, 0x5e, 0xed, 0x7d, 0x1d), 3);
-
 	public const PROPERTYKEY PKEY_FX_FriendlyName = .(.(0xd04e05a6, 0x594b, 0x4fb6, 0xa8, 0x0d, 0x01, 0xaf, 0x5e, 0xed, 0x7d, 0x1d), 4);
-
 	public const PROPERTYKEY PKEY_FX_StreamEffectClsid = .(.(0xd04e05a6, 0x594b, 0x4fb6, 0xa8, 0x0d, 0x01, 0xaf, 0x5e, 0xed, 0x7d, 0x1d), 5);
-
 	public const PROPERTYKEY PKEY_FX_ModeEffectClsid = .(.(0xd04e05a6, 0x594b, 0x4fb6, 0xa8, 0x0d, 0x01, 0xaf, 0x5e, 0xed, 0x7d, 0x1d), 6);
-
 	public const PROPERTYKEY PKEY_FX_EndpointEffectClsid = .(.(0xd04e05a6, 0x594b, 0x4fb6, 0xa8, 0x0d, 0x01, 0xaf, 0x5e, 0xed, 0x7d, 0x1d), 7);
-
 	public const PROPERTYKEY PKEY_FX_KeywordDetector_StreamEffectClsid = .(.(0xd04e05a6, 0x594b, 0x4fb6, 0xa8, 0x0d, 0x01, 0xaf, 0x5e, 0xed, 0x7d, 0x1d), 8);
-
 	public const PROPERTYKEY PKEY_FX_KeywordDetector_ModeEffectClsid = .(.(0xd04e05a6, 0x594b, 0x4fb6, 0xa8, 0x0d, 0x01, 0xaf, 0x5e, 0xed, 0x7d, 0x1d), 9);
-
 	public const PROPERTYKEY PKEY_FX_KeywordDetector_EndpointEffectClsid = .(.(0xd04e05a6, 0x594b, 0x4fb6, 0xa8, 0x0d, 0x01, 0xaf, 0x5e, 0xed, 0x7d, 0x1d), 10);
-
 	public const PROPERTYKEY PKEY_FX_Offload_StreamEffectClsid = .(.(0xd04e05a6, 0x594b, 0x4fb6, 0xa8, 0x0d, 0x01, 0xaf, 0x5e, 0xed, 0x7d, 0x1d), 11);
-
 	public const PROPERTYKEY PKEY_FX_Offload_ModeEffectClsid = .(.(0xd04e05a6, 0x594b, 0x4fb6, 0xa8, 0x0d, 0x01, 0xaf, 0x5e, 0xed, 0x7d, 0x1d), 12);
-
 	public const PROPERTYKEY PKEY_CompositeFX_StreamEffectClsid = .(.(0xd04e05a6, 0x594b, 0x4fb6, 0xa8, 0x0d, 0x01, 0xaf, 0x5e, 0xed, 0x7d, 0x1d), 13);
-
 	public const PROPERTYKEY PKEY_CompositeFX_ModeEffectClsid = .(.(0xd04e05a6, 0x594b, 0x4fb6, 0xa8, 0x0d, 0x01, 0xaf, 0x5e, 0xed, 0x7d, 0x1d), 14);
-
 	public const PROPERTYKEY PKEY_CompositeFX_EndpointEffectClsid = .(.(0xd04e05a6, 0x594b, 0x4fb6, 0xa8, 0x0d, 0x01, 0xaf, 0x5e, 0xed, 0x7d, 0x1d), 15);
-
 	public const PROPERTYKEY PKEY_CompositeFX_KeywordDetector_StreamEffectClsid = .(.(0xd04e05a6, 0x594b, 0x4fb6, 0xa8, 0x0d, 0x01, 0xaf, 0x5e, 0xed, 0x7d, 0x1d), 16);
-
 	public const PROPERTYKEY PKEY_CompositeFX_KeywordDetector_ModeEffectClsid = .(.(0xd04e05a6, 0x594b, 0x4fb6, 0xa8, 0x0d, 0x01, 0xaf, 0x5e, 0xed, 0x7d, 0x1d), 17);
-
 	public const PROPERTYKEY PKEY_CompositeFX_KeywordDetector_EndpointEffectClsid = .(.(0xd04e05a6, 0x594b, 0x4fb6, 0xa8, 0x0d, 0x01, 0xaf, 0x5e, 0xed, 0x7d, 0x1d), 18);
-
 	public const PROPERTYKEY PKEY_CompositeFX_Offload_StreamEffectClsid = .(.(0xd04e05a6, 0x594b, 0x4fb6, 0xa8, 0x0d, 0x01, 0xaf, 0x5e, 0xed, 0x7d, 0x1d), 19);
-
 	public const PROPERTYKEY PKEY_CompositeFX_Offload_ModeEffectClsid = .(.(0xd04e05a6, 0x594b, 0x4fb6, 0xa8, 0x0d, 0x01, 0xaf, 0x5e, 0xed, 0x7d, 0x1d), 20);
-
 	public const PROPERTYKEY PKEY_SFX_ProcessingModes_Supported_For_Streaming = .(.(0xd3993a3f, 0x99c2, 0x4402, 0xb5, 0xec, 0xa9, 0x2a, 0x03, 0x67, 0x66, 0x4b), 5);
-
 	public const PROPERTYKEY PKEY_MFX_ProcessingModes_Supported_For_Streaming = .(.(0xd3993a3f, 0x99c2, 0x4402, 0xb5, 0xec, 0xa9, 0x2a, 0x03, 0x67, 0x66, 0x4b), 6);
-
 	public const PROPERTYKEY PKEY_EFX_ProcessingModes_Supported_For_Streaming = .(.(0xd3993a3f, 0x99c2, 0x4402, 0xb5, 0xec, 0xa9, 0x2a, 0x03, 0x67, 0x66, 0x4b), 7);
-
 	public const PROPERTYKEY PKEY_SFX_KeywordDetector_ProcessingModes_Supported_For_Streaming = .(.(0xd3993a3f, 0x99c2, 0x4402, 0xb5, 0xec, 0xa9, 0x2a, 0x03, 0x67, 0x66, 0x4b), 8);
-
 	public const PROPERTYKEY PKEY_MFX_KeywordDetector_ProcessingModes_Supported_For_Streaming = .(.(0xd3993a3f, 0x99c2, 0x4402, 0xb5, 0xec, 0xa9, 0x2a, 0x03, 0x67, 0x66, 0x4b), 9);
-
 	public const PROPERTYKEY PKEY_EFX_KeywordDetector_ProcessingModes_Supported_For_Streaming = .(.(0xd3993a3f, 0x99c2, 0x4402, 0xb5, 0xec, 0xa9, 0x2a, 0x03, 0x67, 0x66, 0x4b), 10);
-
 	public const PROPERTYKEY PKEY_SFX_Offload_ProcessingModes_Supported_For_Streaming = .(.(0xd3993a3f, 0x99c2, 0x4402, 0xb5, 0xec, 0xa9, 0x2a, 0x03, 0x67, 0x66, 0x4b), 11);
-
 	public const PROPERTYKEY PKEY_MFX_Offload_ProcessingModes_Supported_For_Streaming = .(.(0xd3993a3f, 0x99c2, 0x4402, 0xb5, 0xec, 0xa9, 0x2a, 0x03, 0x67, 0x66, 0x4b), 12);
-
 	public const PROPERTYKEY PKEY_APO_SWFallback_ProcessingModes = .(.(0xd3993a3f, 0x99c2, 0x4402, 0xb5, 0xec, 0xa9, 0x2a, 0x03, 0x67, 0x66, 0x4b), 13);
-
 	public const Guid SID_AudioProcessingObjectRTQueue = .(0x458c1a1f, 0x6899, 0x4c12, 0x99, 0xac, 0xe2, 0xe6, 0xac, 0x25, 0x31, 0x04);
-
 	public const Guid SID_AudioProcessingObjectLoggingService = .(0x8b8008af, 0x09f9, 0x456e, 0xa1, 0x73, 0xbd, 0xb5, 0x84, 0x99, 0xbc, 0xe7);
-
 	public const uint32 AUDIOMEDIATYPE_EQUAL_FORMAT_TYPES = 2;
-
 	public const uint32 AUDIOMEDIATYPE_EQUAL_FORMAT_DATA = 4;
-
 	public const uint32 AUDIOMEDIATYPE_EQUAL_FORMAT_USER_DATA = 8;
-
 }
 #endregion
 
@@ -245,7 +191,7 @@ public struct APO_CONNECTION_DESCRIPTOR
 	public uint32 u32Signature;
 }
 
-[CRepr, FlexibleArray("iidAPOInterfaceList")]
+[CRepr]
 public struct APO_REG_PROPERTIES
 {
 	public Guid clsid;
@@ -260,6 +206,7 @@ public struct APO_REG_PROPERTIES
 	public uint32 u32MaxOutputConnections;
 	public uint32 u32MaxInstances;
 	public uint32 u32NumAPOInterfaces;
+	public Guid* iidAPOInterfaceList mut => &iidAPOInterfaceList_impl;
 	private Guid[ANYSIZE_ARRAY] iidAPOInterfaceList_impl;
 }
 
@@ -358,7 +305,6 @@ public struct APO_NOTIFICATION
 		public AUDIO_ENDPOINT_PROPERTY_CHANGE_NOTIFICATION audioEndpointPropertyChange;
 		public AUDIO_SYSTEMEFFECTS_PROPERTY_CHANGE_NOTIFICATION audioSystemEffectsPropertyChange;
 	}
-
 	public APO_NOTIFICATION_TYPE type;
 	public using _Anonymous_e__Union Anonymous;
 }
@@ -392,7 +338,6 @@ public struct APO_NOTIFICATION_DESCRIPTOR
 		public AUDIO_ENDPOINT_PROPERTY_CHANGE_APO_NOTIFICATION_DESCRIPTOR audioEndpointPropertyChange;
 		public AUDIO_SYSTEMEFFECTS_PROPERTY_CHANGE_APO_NOTIFICATION_DESCRIPTOR audioSystemEffectsPropertyChange;
 	}
-
 	public APO_NOTIFICATION_TYPE type;
 	public using _Anonymous_e__Union Anonymous;
 }

@@ -5,7 +5,6 @@ using Win32.System.SystemServices;
 using Win32.Security;
 using Win32.System.Ole;
 using System;
-using System.Interop;
 
 namespace Win32.System.Com;
 
@@ -13,83 +12,44 @@ namespace Win32.System.Com;
 public static
 {
 	public const uint32 MARSHALINTERFACE_MIN = 500;
-
 	public const int32 ASYNC_MODE_COMPATIBILITY = 1;
-
 	public const int32 ASYNC_MODE_DEFAULT = 0;
-
 	public const int32 STGTY_REPEAT = 256;
-
 	public const int32 STG_TOEND = -1;
-
 	public const int32 STG_LAYOUT_SEQUENTIAL = 0;
-
 	public const int32 STG_LAYOUT_INTERLEAVED = 1;
-
 	public const uint32 COM_RIGHTS_EXECUTE = 1;
-
 	public const uint32 COM_RIGHTS_EXECUTE_LOCAL = 2;
-
 	public const uint32 COM_RIGHTS_EXECUTE_REMOTE = 4;
-
 	public const uint32 COM_RIGHTS_ACTIVATE_LOCAL = 8;
-
 	public const uint32 COM_RIGHTS_ACTIVATE_REMOTE = 16;
-
 	public const uint32 COM_RIGHTS_RESERVED1 = 32;
-
 	public const uint32 COM_RIGHTS_RESERVED2 = 64;
-
 	public const uint32 CWMO_MAX_HANDLES = 56;
-
 	public const uint32 ROTREGFLAGS_ALLOWANYCLIENT = 1;
-
 	public const uint32 APPIDREGFLAGS_ACTIVATE_IUSERVER_INDESKTOP = 1;
-
 	public const uint32 APPIDREGFLAGS_SECURE_SERVER_PROCESS_SD_AND_BIND = 2;
-
 	public const uint32 APPIDREGFLAGS_ISSUE_ACTIVATION_RPC_AT_IDENTIFY = 4;
-
 	public const uint32 APPIDREGFLAGS_IUSERVER_UNMODIFIED_LOGON_TOKEN = 8;
-
 	public const uint32 APPIDREGFLAGS_IUSERVER_SELF_SID_IN_LAUNCH_PERMISSION = 16;
-
 	public const uint32 APPIDREGFLAGS_IUSERVER_ACTIVATE_IN_CLIENT_SESSION_ONLY = 32;
-
 	public const uint32 APPIDREGFLAGS_RESERVED1 = 64;
-
 	public const uint32 APPIDREGFLAGS_RESERVED2 = 128;
-
 	public const uint32 APPIDREGFLAGS_RESERVED3 = 256;
-
 	public const uint32 APPIDREGFLAGS_RESERVED4 = 512;
-
 	public const uint32 APPIDREGFLAGS_RESERVED5 = 1024;
-
 	public const uint32 APPIDREGFLAGS_AAA_NO_IMPLICIT_ACTIVATE_AS_IU = 2048;
-
 	public const uint32 APPIDREGFLAGS_RESERVED7 = 4096;
-
 	public const uint32 APPIDREGFLAGS_RESERVED8 = 8192;
-
 	public const uint32 APPIDREGFLAGS_RESERVED9 = 16384;
-
 	public const uint32 DCOMSCM_ACTIVATION_USE_ALL_AUTHNSERVICES = 1;
-
 	public const uint32 DCOMSCM_ACTIVATION_DISALLOW_UNSECURE_CALL = 2;
-
 	public const uint32 DCOMSCM_RESOLVE_USE_ALL_AUTHNSERVICES = 4;
-
 	public const uint32 DCOMSCM_RESOLVE_DISALLOW_UNSECURE_CALL = 8;
-
 	public const uint32 DCOMSCM_PING_USE_MID_AUTHNSERVICE = 16;
-
 	public const uint32 DCOMSCM_PING_DISALLOW_UNSECURE_CALL = 32;
-
 	public const uint64 MAXLSN = 9223372036854775807;
-
 	public const uint32 DMUS_ERRBASE = 4096;
-
 }
 #endregion
 
@@ -768,7 +728,6 @@ public struct CY
 		public uint32 Lo;
 		public int32 Hi;
 	}
-
 	public using _Anonymous_e__Struct Anonymous;
 	public int64 int64;
 }
@@ -804,14 +763,12 @@ public struct uCLSSPEC
 			public PWSTR pPackageName;
 			public Guid PolicyId;
 		}
-
 		[CRepr]
 		public struct _ByObjectId_e__Struct
 		{
 			public Guid ObjectId;
 			public Guid PolicyId;
 		}
-
 		public Guid clsid;
 		public PWSTR pFileExt;
 		public PWSTR pMimeType;
@@ -820,7 +777,6 @@ public struct uCLSSPEC
 		public _ByName_e__Struct ByName;
 		public _ByObjectId_e__Struct ByObjectId;
 	}
-
 	public uint32 tyspec;
 	public _tagged_union_e__Struct tagged_union;
 }
@@ -849,40 +805,45 @@ public struct COAUTHINFO
 	public uint32 dwCapabilities;
 }
 
-[CRepr, FlexibleArray("abData")]
+[CRepr]
 public struct BYTE_BLOB
 {
 	public uint32 clSize;
+	public uint8* abData mut => &abData_impl;
 	private uint8[ANYSIZE_ARRAY] abData_impl;
 }
 
-[CRepr, FlexibleArray("asData")]
+[CRepr]
 public struct WORD_BLOB
 {
 	public uint32 clSize;
+	public uint16* asData mut => &asData_impl;
 	private uint16[ANYSIZE_ARRAY] asData_impl;
 }
 
-[CRepr, FlexibleArray("alData")]
+[CRepr]
 public struct DWORD_BLOB
 {
 	public uint32 clSize;
+	public uint32* alData mut => &alData_impl;
 	private uint32[ANYSIZE_ARRAY] alData_impl;
 }
 
-[CRepr, FlexibleArray("abData")]
+[CRepr]
 public struct FLAGGED_BYTE_BLOB
 {
 	public uint32 fFlags;
 	public uint32 clSize;
+	public uint8* abData mut => &abData_impl;
 	private uint8[ANYSIZE_ARRAY] abData_impl;
 }
 
-[CRepr, FlexibleArray("asData")]
+[CRepr]
 public struct FLAGGED_WORD_BLOB
 {
 	public uint32 fFlags;
 	public uint32 clSize;
+	public uint16* asData mut => &asData_impl;
 	private uint16[ANYSIZE_ARRAY] asData_impl;
 }
 
@@ -1043,7 +1004,7 @@ public struct BIND_OPTS3
 	public HWND hwnd;
 }
 
-[CRepr, FlexibleArray("tdData")]
+[CRepr]
 public struct DVTARGETDEVICE
 {
 	public uint32 tdSize;
@@ -1051,6 +1012,7 @@ public struct DVTARGETDEVICE
 	public uint16 tdDeviceNameOffset;
 	public uint16 tdPortNameOffset;
 	public uint16 tdExtDevmodeOffset;
+	public uint8* tdData mut => &tdData_impl;
 	private uint8[ANYSIZE_ARRAY] tdData_impl;
 }
 
@@ -1073,7 +1035,7 @@ public struct STATDATA
 	public uint32 dwConnection;
 }
 
-[CRepr, FlexibleArray("data")]
+[CRepr]
 public struct RemSTGMEDIUM
 {
 	public uint32 tymed;
@@ -1081,6 +1043,7 @@ public struct RemSTGMEDIUM
 	public uint32 pData;
 	public uint32 pUnkForRelease;
 	public uint32 cbData;
+	public uint8* data mut => &data_impl;
 	private uint8[ANYSIZE_ARRAY] data_impl;
 }
 
@@ -1098,7 +1061,6 @@ public struct STGMEDIUM
 		public IStream* pstm;
 		public IStorage* pstg;
 	}
-
 	public uint32 tymed;
 	public using _Anonymous_e__Union Anonymous;
 	public IUnknown* pUnkForRelease;
@@ -1114,7 +1076,6 @@ public struct GDI_OBJECT
 		public userHPALETTE* hPalette;
 		public userHGLOBAL* hGeneric;
 	}
-
 	public uint32 ObjectType;
 	public _u_e__Struct u;
 }
@@ -1136,11 +1097,9 @@ public struct userSTGMEDIUM
 			public BYTE_BLOB* pstm;
 			public BYTE_BLOB* pstg;
 		}
-
 		public uint32 tymed;
 		public _u_e__Struct u;
 	}
-
 	public IUnknown* pUnkForRelease;
 }
 
@@ -1226,7 +1185,7 @@ public struct SAFEARRAYBOUND
 	public int32 lLbound;
 }
 
-[CRepr, FlexibleArray("rgsabound")]
+[CRepr]
 public struct SAFEARRAY
 {
 	public uint16 cDims;
@@ -1234,6 +1193,7 @@ public struct SAFEARRAY
 	public uint32 cbElements;
 	public uint32 cLocks;
 	public void* pvData;
+	public SAFEARRAYBOUND* rgsabound mut => &rgsabound_impl;
 	private SAFEARRAYBOUND[ANYSIZE_ARRAY] rgsabound_impl;
 }
 
@@ -1255,7 +1215,6 @@ public struct VARIANT
 					public void* pvRecord;
 					public IRecordInfo* pRecInfo;
 				}
-
 				public int64 llVal;
 				public int32 lVal;
 				public uint8 bVal;
@@ -1303,18 +1262,15 @@ public struct VARIANT
 				public uint32* puintVal;
 				public using _Anonymous_e__Struct Anonymous;
 			}
-
 			public uint16 vt;
 			public uint16 wReserved1;
 			public uint16 wReserved2;
 			public uint16 wReserved3;
 			public using _Anonymous_e__Union Anonymous;
 		}
-
 		public using _Anonymous_e__Struct Anonymous;
 		public DECIMAL decVal;
 	}
-
 	public using _Anonymous_e__Union Anonymous;
 }
 
@@ -1328,7 +1284,6 @@ public struct TYPEDESC
 		public ARRAYDESC* lpadesc;
 		public uint32 hreftype;
 	}
-
 	public using _Anonymous_e__Union Anonymous;
 	public uint16 vt;
 }
@@ -1349,7 +1304,6 @@ public struct ELEMDESC
 		public IDLDESC idldesc;
 		public PARAMDESC paramdesc;
 	}
-
 	public TYPEDESC tdesc;
 	public using _Anonymous_e__Union Anonymous;
 }
@@ -1426,7 +1380,6 @@ public struct VARDESC
 		public uint32 oInst;
 		public VARIANT* lpvarValue;
 	}
-
 	public int32 memid;
 	public PWSTR lpstrSchema;
 	public using _Anonymous_e__Union Anonymous;

@@ -7,107 +7,56 @@ namespace Win32.UI.Input.XboxController;
 public static
 {
 	public const uint32 XINPUT_DEVTYPE_GAMEPAD = 1;
-
 	public const uint32 XINPUT_DEVSUBTYPE_GAMEPAD = 1;
-
 	public const uint32 XINPUT_DEVSUBTYPE_UNKNOWN = 0;
-
 	public const uint32 XINPUT_DEVSUBTYPE_WHEEL = 2;
-
 	public const uint32 XINPUT_DEVSUBTYPE_ARCADE_STICK = 3;
-
 	public const uint32 XINPUT_DEVSUBTYPE_FLIGHT_STICK = 4;
-
 	public const uint32 XINPUT_DEVSUBTYPE_DANCE_PAD = 5;
-
 	public const uint32 XINPUT_DEVSUBTYPE_GUITAR = 6;
-
 	public const uint32 XINPUT_DEVSUBTYPE_GUITAR_ALTERNATE = 7;
-
 	public const uint32 XINPUT_DEVSUBTYPE_DRUM_KIT = 8;
-
 	public const uint32 XINPUT_DEVSUBTYPE_GUITAR_BASS = 11;
-
 	public const uint32 XINPUT_DEVSUBTYPE_ARCADE_PAD = 19;
-
 	public const uint32 XINPUT_CAPS_VOICE_SUPPORTED = 4;
-
 	public const uint32 XINPUT_CAPS_FFB_SUPPORTED = 1;
-
 	public const uint32 XINPUT_CAPS_WIRELESS = 2;
-
 	public const uint32 XINPUT_CAPS_PMD_SUPPORTED = 8;
-
 	public const uint32 XINPUT_CAPS_NO_NAVIGATION = 16;
-
 	public const uint32 XINPUT_GAMEPAD_DPAD_UP = 1;
-
 	public const uint32 XINPUT_GAMEPAD_DPAD_DOWN = 2;
-
 	public const uint32 XINPUT_GAMEPAD_DPAD_LEFT = 4;
-
 	public const uint32 XINPUT_GAMEPAD_DPAD_RIGHT = 8;
-
 	public const uint32 XINPUT_GAMEPAD_START = 16;
-
 	public const uint32 XINPUT_GAMEPAD_BACK = 32;
-
 	public const uint32 XINPUT_GAMEPAD_LEFT_THUMB = 64;
-
 	public const uint32 XINPUT_GAMEPAD_RIGHT_THUMB = 128;
-
 	public const uint32 XINPUT_GAMEPAD_LEFT_SHOULDER = 256;
-
 	public const uint32 XINPUT_GAMEPAD_RIGHT_SHOULDER = 512;
-
 	public const uint32 XINPUT_GAMEPAD_A = 4096;
-
 	public const uint32 XINPUT_GAMEPAD_B = 8192;
-
 	public const uint32 XINPUT_GAMEPAD_X = 16384;
-
 	public const uint32 XINPUT_GAMEPAD_Y = 32768;
-
 	public const uint32 XINPUT_GAMEPAD_LEFT_THUMB_DEADZONE = 7849;
-
 	public const uint32 XINPUT_GAMEPAD_RIGHT_THUMB_DEADZONE = 8689;
-
 	public const uint32 XINPUT_GAMEPAD_TRIGGER_THRESHOLD = 30;
-
 	public const uint32 XINPUT_FLAG_GAMEPAD = 1;
-
 	public const uint32 BATTERY_DEVTYPE_GAMEPAD = 0;
-
 	public const uint32 BATTERY_DEVTYPE_HEADSET = 1;
-
 	public const uint32 BATTERY_TYPE_DISCONNECTED = 0;
-
 	public const uint32 BATTERY_TYPE_WIRED = 1;
-
 	public const uint32 BATTERY_TYPE_ALKALINE = 2;
-
 	public const uint32 BATTERY_TYPE_NIMH = 3;
-
 	public const uint32 BATTERY_TYPE_UNKNOWN = 255;
-
 	public const uint32 BATTERY_LEVEL_EMPTY = 0;
-
 	public const uint32 BATTERY_LEVEL_LOW = 1;
-
 	public const uint32 BATTERY_LEVEL_MEDIUM = 2;
-
 	public const uint32 BATTERY_LEVEL_FULL = 3;
-
 	public const uint32 XUSER_MAX_COUNT = 4;
-
 	public const uint32 XUSER_INDEX_ANY = 255;
-
 	public const uint32 XINPUT_KEYSTROKE_KEYDOWN = 1;
-
 	public const uint32 XINPUT_KEYSTROKE_KEYUP = 2;
-
 	public const uint32 XINPUT_KEYSTROKE_REPEAT = 4;
-
 }
 #endregion
 

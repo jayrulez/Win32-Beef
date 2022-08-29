@@ -7,59 +7,32 @@ namespace Win32.System.TpmBaseServices;
 public static
 {
 	public const uint32 TBS_CONTEXT_VERSION_ONE = 1;
-
 	public const uint32 TBS_SUCCESS = 0;
-
 	public const uint32 TBS_OWNERAUTH_TYPE_FULL = 1;
-
 	public const uint32 TBS_OWNERAUTH_TYPE_ADMIN = 2;
-
 	public const uint32 TBS_OWNERAUTH_TYPE_USER = 3;
-
 	public const uint32 TBS_OWNERAUTH_TYPE_ENDORSEMENT = 4;
-
 	public const uint32 TBS_OWNERAUTH_TYPE_ENDORSEMENT_20 = 12;
-
 	public const uint32 TBS_OWNERAUTH_TYPE_STORAGE_20 = 13;
-
 	public const uint32 TBS_CONTEXT_VERSION_TWO = 2;
-
 	public const uint32 TPM_WNF_INFO_CLEAR_SUCCESSFUL = 1;
-
 	public const uint32 TPM_WNF_INFO_OWNERSHIP_SUCCESSFUL = 2;
-
 	public const uint32 TPM_WNF_INFO_NO_REBOOT_REQUIRED = 1;
-
 	public const uint32 TPM_VERSION_UNKNOWN = 0;
-
 	public const uint32 TPM_VERSION_12 = 1;
-
 	public const uint32 TPM_VERSION_20 = 2;
-
 	public const uint32 TPM_IFTYPE_UNKNOWN = 0;
-
 	public const uint32 TPM_IFTYPE_1 = 1;
-
 	public const uint32 TPM_IFTYPE_TRUSTZONE = 2;
-
 	public const uint32 TPM_IFTYPE_HW = 3;
-
 	public const uint32 TPM_IFTYPE_EMULATOR = 4;
-
 	public const uint32 TPM_IFTYPE_SPB = 5;
-
 	public const uint32 TBS_TCGLOG_SRTM_CURRENT = 0;
-
 	public const uint32 TBS_TCGLOG_DRTM_CURRENT = 1;
-
 	public const uint32 TBS_TCGLOG_SRTM_BOOT = 2;
-
 	public const uint32 TBS_TCGLOG_SRTM_RESUME = 3;
-
 	public const uint32 TBS_TCGLOG_DRTM_BOOT = 4;
-
 	public const uint32 TBS_TCGLOG_DRTM_RESUME = 5;
-
 }
 #endregion
 
@@ -107,11 +80,9 @@ public struct TBS_CONTEXT_PARAMS2
 		{
 			public uint32 _bitfield;
 		}
-
 		public using _Anonymous_e__Struct Anonymous;
 		public uint32 asUINT32;
 	}
-
 	public uint32 version;
 	public using _Anonymous_e__Union Anonymous;
 }

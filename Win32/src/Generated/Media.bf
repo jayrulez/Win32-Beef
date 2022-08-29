@@ -9,207 +9,106 @@ namespace Win32.Media;
 public static
 {
 	public const uint32 TIMERR_NOERROR = 0;
-
 	public const uint32 TIMERR_NOCANDO = 97;
-
 	public const uint32 TIMERR_STRUCT = 129;
-
 	public const uint32 MAXPNAMELEN = 32;
-
 	public const uint32 MAXERRORLENGTH = 256;
-
 	public const uint32 MM_MICROSOFT = 1;
-
 	public const uint32 MM_MIDI_MAPPER = 1;
-
 	public const uint32 MM_WAVE_MAPPER = 2;
-
 	public const uint32 MM_SNDBLST_MIDIOUT = 3;
-
 	public const uint32 MM_SNDBLST_MIDIIN = 4;
-
 	public const uint32 MM_SNDBLST_SYNTH = 5;
-
 	public const uint32 MM_SNDBLST_WAVEOUT = 6;
-
 	public const uint32 MM_SNDBLST_WAVEIN = 7;
-
 	public const uint32 MM_ADLIB = 9;
-
 	public const uint32 MM_MPU401_MIDIOUT = 10;
-
 	public const uint32 MM_MPU401_MIDIIN = 11;
-
 	public const uint32 MM_PC_JOYSTICK = 12;
-
 	public const uint32 TIME_MS = 1;
-
 	public const uint32 TIME_SAMPLES = 2;
-
 	public const uint32 TIME_BYTES = 4;
-
 	public const uint32 TIME_SMPTE = 8;
-
 	public const uint32 TIME_MIDI = 16;
-
 	public const uint32 TIME_TICKS = 32;
-
 	public const uint32 MM_JOY1MOVE = 928;
-
 	public const uint32 MM_JOY2MOVE = 929;
-
 	public const uint32 MM_JOY1ZMOVE = 930;
-
 	public const uint32 MM_JOY2ZMOVE = 931;
-
 	public const uint32 MM_JOY1BUTTONDOWN = 949;
-
 	public const uint32 MM_JOY2BUTTONDOWN = 950;
-
 	public const uint32 MM_JOY1BUTTONUP = 951;
-
 	public const uint32 MM_JOY2BUTTONUP = 952;
-
 	public const uint32 MM_MCINOTIFY = 953;
-
 	public const uint32 MM_WOM_OPEN = 955;
-
 	public const uint32 MM_WOM_CLOSE = 956;
-
 	public const uint32 MM_WOM_DONE = 957;
-
 	public const uint32 MM_WIM_OPEN = 958;
-
 	public const uint32 MM_WIM_CLOSE = 959;
-
 	public const uint32 MM_WIM_DATA = 960;
-
 	public const uint32 MM_MIM_OPEN = 961;
-
 	public const uint32 MM_MIM_CLOSE = 962;
-
 	public const uint32 MM_MIM_DATA = 963;
-
 	public const uint32 MM_MIM_LONGDATA = 964;
-
 	public const uint32 MM_MIM_ERROR = 965;
-
 	public const uint32 MM_MIM_LONGERROR = 966;
-
 	public const uint32 MM_MOM_OPEN = 967;
-
 	public const uint32 MM_MOM_CLOSE = 968;
-
 	public const uint32 MM_MOM_DONE = 969;
-
 	public const uint32 MM_DRVM_OPEN = 976;
-
 	public const uint32 MM_DRVM_CLOSE = 977;
-
 	public const uint32 MM_DRVM_DATA = 978;
-
 	public const uint32 MM_DRVM_ERROR = 979;
-
 	public const uint32 MM_STREAM_OPEN = 980;
-
 	public const uint32 MM_STREAM_CLOSE = 981;
-
 	public const uint32 MM_STREAM_DONE = 982;
-
 	public const uint32 MM_STREAM_ERROR = 983;
-
 	public const uint32 MM_MOM_POSITIONCB = 970;
-
 	public const uint32 MM_MCISIGNAL = 971;
-
 	public const uint32 MM_MIM_MOREDATA = 972;
-
 	public const uint32 MM_MIXM_LINE_CHANGE = 976;
-
 	public const uint32 MM_MIXM_CONTROL_CHANGE = 977;
-
 	public const uint32 MMSYSERR_BASE = 0;
-
 	public const uint32 WAVERR_BASE = 32;
-
 	public const uint32 MIDIERR_BASE = 64;
-
 	public const uint32 TIMERR_BASE = 96;
-
 	public const uint32 JOYERR_BASE = 160;
-
 	public const uint32 MCIERR_BASE = 256;
-
 	public const uint32 MIXERR_BASE = 1024;
-
 	public const uint32 MCI_STRING_OFFSET = 512;
-
 	public const uint32 MCI_VD_OFFSET = 1024;
-
 	public const uint32 MCI_CD_OFFSET = 1088;
-
 	public const uint32 MCI_WAVE_OFFSET = 1152;
-
 	public const uint32 MCI_SEQ_OFFSET = 1216;
-
 	public const uint32 MMSYSERR_NOERROR = 0;
-
 	public const uint32 MMSYSERR_ERROR = 1;
-
 	public const uint32 MMSYSERR_BADDEVICEID = 2;
-
 	public const uint32 MMSYSERR_NOTENABLED = 3;
-
 	public const uint32 MMSYSERR_ALLOCATED = 4;
-
 	public const uint32 MMSYSERR_INVALHANDLE = 5;
-
 	public const uint32 MMSYSERR_NODRIVER = 6;
-
 	public const uint32 MMSYSERR_NOMEM = 7;
-
 	public const uint32 MMSYSERR_NOTSUPPORTED = 8;
-
 	public const uint32 MMSYSERR_BADERRNUM = 9;
-
 	public const uint32 MMSYSERR_INVALFLAG = 10;
-
 	public const uint32 MMSYSERR_INVALPARAM = 11;
-
 	public const uint32 MMSYSERR_HANDLEBUSY = 12;
-
 	public const uint32 MMSYSERR_INVALIDALIAS = 13;
-
 	public const uint32 MMSYSERR_BADDB = 14;
-
 	public const uint32 MMSYSERR_KEYNOTFOUND = 15;
-
 	public const uint32 MMSYSERR_READERROR = 16;
-
 	public const uint32 MMSYSERR_WRITEERROR = 17;
-
 	public const uint32 MMSYSERR_DELETEERROR = 18;
-
 	public const uint32 MMSYSERR_VALNOTFOUND = 19;
-
 	public const uint32 MMSYSERR_NODRIVERCB = 20;
-
 	public const uint32 MMSYSERR_MOREDATA = 21;
-
 	public const uint32 MMSYSERR_LASTERROR = 21;
-
 	public const uint32 TIME_ONESHOT = 0;
-
 	public const uint32 TIME_PERIODIC = 1;
-
 	public const uint32 TIME_CALLBACK_FUNCTION = 0;
-
 	public const uint32 TIME_CALLBACK_EVENT_SET = 16;
-
 	public const uint32 TIME_CALLBACK_EVENT_PULSE = 32;
-
 	public const uint32 TIME_KILL_SYNCHRONOUS = 256;
-
 }
 #endregion
 
@@ -256,13 +155,11 @@ public struct MMTIME
 			public uint8 dummy;
 			public uint8[2] pad;
 		}
-
 		[CRepr, Packed(1)]
 		public struct _midi_e__Struct
 		{
 			public uint32 songptrpos;
 		}
-
 		public uint32 ms;
 		public uint32 sample;
 		public uint32 cb;
@@ -270,7 +167,6 @@ public struct MMTIME
 		public _smpte_e__Struct smpte;
 		public _midi_e__Struct midi;
 	}
-
 	public uint32 wType;
 	public _u_e__Union u;
 }
@@ -292,7 +188,6 @@ public struct TIMECODE
 		public uint16 wFrameFract;
 		public uint32 dwFrames;
 	}
-
 	public using _Anonymous_e__Struct Anonymous;
 	public uint64 qw;
 }

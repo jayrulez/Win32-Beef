@@ -1,6 +1,5 @@
 using Win32.Foundation;
 using System;
-using System.Interop;
 
 namespace Win32.System.EventLog;
 
@@ -8,17 +7,11 @@ namespace Win32.System.EventLog;
 public static
 {
 	public const uint32 EVT_VARIANT_TYPE_MASK = 127;
-
 	public const uint32 EVT_VARIANT_TYPE_ARRAY = 128;
-
 	public const uint32 EVT_READ_ACCESS = 1;
-
 	public const uint32 EVT_WRITE_ACCESS = 2;
-
 	public const uint32 EVT_CLEAR_ACCESS = 4;
-
 	public const uint32 EVT_ALL_ACCESS = 7;
-
 }
 #endregion
 
@@ -426,7 +419,6 @@ public struct EVT_VARIANT
 		public PWSTR XmlVal;
 		public PWSTR* XmlValArr;
 	}
-
 	public using _Anonymous_e__Union Anonymous;
 	public uint32 Count;
 	public uint32 Type;
@@ -463,12 +455,13 @@ public struct EVENTLOGRECORD
 	public uint32 DataOffset;
 }
 
-[CRepr, FlexibleArray("pEventLogRecords")]
+[CRepr]
 public struct EVENTSFORLOGFILE
 {
 	public uint32 ulSize;
 	public char16[256] szLogicalLogFile;
 	public uint32 ulNumRecords;
+	public EVENTLOGRECORD* pEventLogRecords mut => &pEventLogRecords_impl;
 	private EVENTLOGRECORD[ANYSIZE_ARRAY] pEventLogRecords_impl;
 }
 

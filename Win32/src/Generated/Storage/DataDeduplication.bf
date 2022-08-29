@@ -8,7 +8,6 @@ namespace Win32.Storage.DataDeduplication;
 public static
 {
 	public const uint32 DEDUP_CHUNKLIB_MAX_CHUNKS_ENUM = 1024;
-
 }
 #endregion
 

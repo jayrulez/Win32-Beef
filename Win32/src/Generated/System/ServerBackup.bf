@@ -8,11 +8,8 @@ namespace Win32.System.ServerBackup;
 public static
 {
 	public const uint32 WSB_MAX_OB_STATUS_VALUE_TYPE_PAIR = 5;
-
 	public const uint32 WSB_MAX_OB_STATUS_ENTRY = 5;
-
 	public const HRESULT WSBAPP_ASYNC_IN_PROGRESS = 7995396;
-
 }
 #endregion
 

@@ -15,7 +15,6 @@ using Win32.Media.MediaFoundation;
 using Win32.System.Diagnostics.Etw;
 using Win32.System.Ole;
 using System;
-using System.Interop;
 
 namespace Win32.Media.DirectShow;
 
@@ -23,2019 +22,1012 @@ namespace Win32.Media.DirectShow;
 public static
 {
 	public const uint32 EC_SND_DEVICE_ERROR_BASE = 512;
-
 	public const uint32 EC_SNDDEV_IN_ERROR = 512;
-
 	public const uint32 EC_SNDDEV_OUT_ERROR = 513;
-
 	public const uint32 EC_SYSTEMBASE = 0;
-
 	public const uint32 EC_USER = 32768;
-
 	public const uint32 EC_COMPLETE = 1;
-
 	public const uint32 EC_USERABORT = 2;
-
 	public const uint32 EC_ERRORABORT = 3;
-
 	public const uint32 EC_TIME = 4;
-
 	public const uint32 EC_REPAINT = 5;
-
 	public const uint32 EC_STREAM_ERROR_STOPPED = 6;
-
 	public const uint32 EC_STREAM_ERROR_STILLPLAYING = 7;
-
 	public const uint32 EC_ERROR_STILLPLAYING = 8;
-
 	public const uint32 EC_PALETTE_CHANGED = 9;
-
 	public const uint32 EC_VIDEO_SIZE_CHANGED = 10;
-
 	public const uint32 EC_QUALITY_CHANGE = 11;
-
 	public const uint32 EC_SHUTTING_DOWN = 12;
-
 	public const uint32 EC_CLOCK_CHANGED = 13;
-
 	public const uint32 EC_PAUSED = 14;
-
 	public const uint32 EC_OPENING_FILE = 16;
-
 	public const uint32 EC_BUFFERING_DATA = 17;
-
 	public const uint32 EC_FULLSCREEN_LOST = 18;
-
 	public const uint32 EC_ACTIVATE = 19;
-
 	public const uint32 EC_NEED_RESTART = 20;
-
 	public const uint32 EC_WINDOW_DESTROYED = 21;
-
 	public const uint32 EC_DISPLAY_CHANGED = 22;
-
 	public const uint32 EC_STARVATION = 23;
-
 	public const uint32 EC_OLE_EVENT = 24;
-
 	public const uint32 EC_NOTIFY_WINDOW = 25;
-
 	public const uint32 EC_STREAM_CONTROL_STOPPED = 26;
-
 	public const uint32 EC_STREAM_CONTROL_STARTED = 27;
-
 	public const uint32 EC_END_OF_SEGMENT = 28;
-
 	public const uint32 EC_SEGMENT_STARTED = 29;
-
 	public const uint32 EC_LENGTH_CHANGED = 30;
-
 	public const uint32 EC_DEVICE_LOST = 31;
-
 	public const uint32 EC_SAMPLE_NEEDED = 32;
-
 	public const uint32 EC_PROCESSING_LATENCY = 33;
-
 	public const uint32 EC_SAMPLE_LATENCY = 34;
-
 	public const uint32 EC_SCRUB_TIME = 35;
-
 	public const uint32 EC_STEP_COMPLETE = 36;
-
 	public const uint32 EC_TIMECODE_AVAILABLE = 48;
-
 	public const uint32 EC_EXTDEVICE_MODE_CHANGE = 49;
-
 	public const uint32 EC_STATE_CHANGE = 50;
-
 	public const uint32 EC_GRAPH_CHANGED = 80;
-
 	public const uint32 EC_CLOCK_UNSET = 81;
-
 	public const uint32 EC_VMR_RENDERDEVICE_SET = 83;
-
 	public const uint32 VMR_RENDER_DEVICE_OVERLAY = 1;
-
 	public const uint32 VMR_RENDER_DEVICE_VIDMEM = 2;
-
 	public const uint32 VMR_RENDER_DEVICE_SYSMEM = 4;
-
 	public const uint32 EC_VMR_SURFACE_FLIPPED = 84;
-
 	public const uint32 EC_VMR_RECONNECTION_FAILED = 85;
-
 	public const uint32 EC_PREPROCESS_COMPLETE = 86;
-
 	public const uint32 EC_CODECAPI_EVENT = 87;
-
 	public const uint32 EC_WMT_EVENT_BASE = 593;
-
 	public const uint32 EC_WMT_INDEX_EVENT = 593;
-
 	public const uint32 EC_WMT_EVENT = 594;
-
 	public const uint32 EC_BUILT = 768;
-
 	public const uint32 EC_UNBUILT = 769;
-
 	public const uint32 EC_SKIP_FRAMES = 37;
-
 	public const uint32 EC_PLEASE_REOPEN = 64;
-
 	public const uint32 EC_STATUS = 65;
-
 	public const uint32 EC_MARKER_HIT = 66;
-
 	public const uint32 EC_LOADSTATUS = 67;
-
 	public const uint32 EC_FILE_CLOSED = 68;
-
 	public const uint32 EC_ERRORABORTEX = 69;
-
 	public const uint32 AM_LOADSTATUS_CLOSED = 0;
-
 	public const uint32 AM_LOADSTATUS_LOADINGDESCR = 1;
-
 	public const uint32 AM_LOADSTATUS_LOADINGMCAST = 2;
-
 	public const uint32 AM_LOADSTATUS_LOCATING = 3;
-
 	public const uint32 AM_LOADSTATUS_CONNECTING = 4;
-
 	public const uint32 AM_LOADSTATUS_OPENING = 5;
-
 	public const uint32 AM_LOADSTATUS_OPEN = 6;
-
 	public const uint32 EC_NEW_PIN = 32;
-
 	public const uint32 EC_RENDER_FINISHED = 33;
-
 	public const uint32 EC_EOS_SOON = 70;
-
 	public const uint32 EC_CONTENTPROPERTY_CHANGED = 71;
-
 	public const uint32 AM_CONTENTPROPERTY_TITLE = 1;
-
 	public const uint32 AM_CONTENTPROPERTY_AUTHOR = 2;
-
 	public const uint32 AM_CONTENTPROPERTY_COPYRIGHT = 4;
-
 	public const uint32 AM_CONTENTPROPERTY_DESCRIPTION = 8;
-
 	public const uint32 EC_BANDWIDTHCHANGE = 72;
-
 	public const uint32 EC_VIDEOFRAMEREADY = 73;
-
 	public const uint32 EC_DVDBASE = 256;
-
 	public const uint32 EC_DVD_DOMAIN_CHANGE = 257;
-
 	public const uint32 EC_DVD_TITLE_CHANGE = 258;
-
 	public const uint32 EC_DVD_CHAPTER_START = 259;
-
 	public const uint32 EC_DVD_AUDIO_STREAM_CHANGE = 260;
-
 	public const uint32 EC_DVD_SUBPICTURE_STREAM_CHANGE = 261;
-
 	public const uint32 EC_DVD_ANGLE_CHANGE = 262;
-
 	public const uint32 EC_DVD_BUTTON_CHANGE = 263;
-
 	public const uint32 EC_DVD_VALID_UOPS_CHANGE = 264;
-
 	public const uint32 EC_DVD_STILL_ON = 265;
-
 	public const uint32 EC_DVD_STILL_OFF = 266;
-
 	public const uint32 EC_DVD_CURRENT_TIME = 267;
-
 	public const uint32 EC_DVD_ERROR = 268;
-
 	public const uint32 EC_DVD_WARNING = 269;
-
 	public const uint32 EC_DVD_CHAPTER_AUTOSTOP = 270;
-
 	public const uint32 EC_DVD_NO_FP_PGC = 271;
-
 	public const uint32 EC_DVD_PLAYBACK_RATE_CHANGE = 272;
-
 	public const uint32 EC_DVD_PARENTAL_LEVEL_CHANGE = 273;
-
 	public const uint32 EC_DVD_PLAYBACK_STOPPED = 274;
-
 	public const uint32 EC_DVD_ANGLES_AVAILABLE = 275;
-
 	public const uint32 EC_DVD_PLAYPERIOD_AUTOSTOP = 276;
-
 	public const uint32 EC_DVD_BUTTON_AUTO_ACTIVATED = 277;
-
 	public const uint32 EC_DVD_CMD_START = 278;
-
 	public const uint32 EC_DVD_CMD_END = 279;
-
 	public const uint32 EC_DVD_DISC_EJECTED = 280;
-
 	public const uint32 EC_DVD_DISC_INSERTED = 281;
-
 	public const uint32 EC_DVD_CURRENT_HMSF_TIME = 282;
-
 	public const uint32 EC_DVD_KARAOKE_MODE = 283;
-
 	public const uint32 EC_DVD_PROGRAM_CELL_CHANGE = 284;
-
 	public const uint32 EC_DVD_TITLE_SET_CHANGE = 285;
-
 	public const uint32 EC_DVD_PROGRAM_CHAIN_CHANGE = 286;
-
 	public const uint32 EC_DVD_VOBU_Offset = 287;
-
 	public const uint32 EC_DVD_VOBU_Timestamp = 288;
-
 	public const uint32 EC_DVD_GPRM_Change = 289;
-
 	public const uint32 EC_DVD_SPRM_Change = 290;
-
 	public const uint32 EC_DVD_BeginNavigationCommands = 291;
-
 	public const uint32 EC_DVD_NavigationCommand = 292;
-
 	public const uint32 AM_AC3_ALTERNATE_AUDIO_1 = 1;
-
 	public const uint32 AM_AC3_ALTERNATE_AUDIO_2 = 2;
-
 	public const uint32 AM_AC3_ALTERNATE_AUDIO_BOTH = 3;
-
 	public const uint32 AM_AC3_SERVICE_MAIN_AUDIO = 0;
-
 	public const uint32 AM_AC3_SERVICE_NO_DIALOG = 1;
-
 	public const uint32 AM_AC3_SERVICE_VISUALLY_IMPAIRED = 2;
-
 	public const uint32 AM_AC3_SERVICE_HEARING_IMPAIRED = 3;
-
 	public const uint32 AM_AC3_SERVICE_DIALOG_ONLY = 4;
-
 	public const uint32 AM_AC3_SERVICE_COMMENTARY = 5;
-
 	public const uint32 AM_AC3_SERVICE_EMERGENCY_FLASH = 6;
-
 	public const uint32 AM_AC3_SERVICE_VOICE_OVER = 7;
-
 	public const uint32 AM_UseNewCSSKey = 1;
-
 	public const uint32 AM_ReverseBlockStart = 2;
-
 	public const uint32 AM_ReverseBlockEnd = 4;
-
 	public const uint32 AM_DVD_CGMS_RESERVED_MASK = 120;
-
 	public const uint32 AM_DVD_CGMS_COPY_PROTECT_MASK = 24;
-
 	public const uint32 AM_DVD_CGMS_COPY_PERMITTED = 0;
-
 	public const uint32 AM_DVD_CGMS_COPY_ONCE = 16;
-
 	public const uint32 AM_DVD_CGMS_NO_COPY = 24;
-
 	public const uint32 AM_DVD_COPYRIGHT_MASK = 64;
-
 	public const uint32 AM_DVD_NOT_COPYRIGHTED = 0;
-
 	public const uint32 AM_DVD_COPYRIGHTED = 64;
-
 	public const uint32 AM_DVD_SECTOR_PROTECT_MASK = 32;
-
 	public const uint32 AM_DVD_SECTOR_NOT_PROTECTED = 0;
-
 	public const uint32 AM_DVD_SECTOR_PROTECTED = 32;
-
 	public const uint32 AMINTERLACE_IsInterlaced = 1;
-
 	public const uint32 AMINTERLACE_1FieldPerSample = 2;
-
 	public const uint32 AMINTERLACE_Field1First = 4;
-
 	public const uint32 AMINTERLACE_UNUSED = 8;
-
 	public const uint32 AMINTERLACE_FieldPatternMask = 48;
-
 	public const uint32 AMINTERLACE_FieldPatField1Only = 0;
-
 	public const uint32 AMINTERLACE_FieldPatField2Only = 16;
-
 	public const uint32 AMINTERLACE_FieldPatBothRegular = 32;
-
 	public const uint32 AMINTERLACE_FieldPatBothIrregular = 48;
-
 	public const uint32 AMINTERLACE_DisplayModeMask = 192;
-
 	public const uint32 AMINTERLACE_DisplayModeBobOnly = 0;
-
 	public const uint32 AMINTERLACE_DisplayModeWeaveOnly = 64;
-
 	public const uint32 AMINTERLACE_DisplayModeBobOrWeave = 128;
-
 	public const uint32 AMCOPYPROTECT_RestrictDuplication = 1;
-
 	public const uint32 AMCONTROL_USED = 1;
-
 	public const uint32 AMCONTROL_PAD_TO_4x3 = 2;
-
 	public const uint32 AMCONTROL_PAD_TO_16x9 = 4;
-
 	public const uint32 AMCONTROL_COLORINFO_PRESENT = 128;
-
 	public const int32 AM_VIDEO_FLAG_FIELD_MASK = 3;
-
 	public const int32 AM_VIDEO_FLAG_INTERLEAVED_FRAME = 0;
-
 	public const int32 AM_VIDEO_FLAG_FIELD1 = 1;
-
 	public const int32 AM_VIDEO_FLAG_FIELD2 = 2;
-
 	public const int32 AM_VIDEO_FLAG_FIELD1FIRST = 4;
-
 	public const int32 AM_VIDEO_FLAG_WEAVE = 8;
-
 	public const int32 AM_VIDEO_FLAG_IPB_MASK = 48;
-
 	public const int32 AM_VIDEO_FLAG_I_SAMPLE = 0;
-
 	public const int32 AM_VIDEO_FLAG_P_SAMPLE = 16;
-
 	public const int32 AM_VIDEO_FLAG_B_SAMPLE = 32;
-
 	public const int32 AM_VIDEO_FLAG_REPEAT_FIELD = 64;
-
 	public const uint32 AVIF_HASINDEX = 16;
-
 	public const uint32 AVIF_MUSTUSEINDEX = 32;
-
 	public const uint32 AVIF_ISINTERLEAVED = 256;
-
 	public const uint32 AVIF_TRUSTCKTYPE = 2048;
-
 	public const uint32 AVIF_WASCAPTUREFILE = 65536;
-
 	public const uint32 AVIF_COPYRIGHTED = 131072;
-
 	public const uint32 AVI_HEADERSIZE = 2048;
-
 	public const uint32 AVISF_DISABLED = 1;
-
 	public const uint32 AVISF_VIDEO_PALCHANGES = 65536;
-
 	public const int32 AVIIF_LIST = 1;
-
 	public const int32 AVIIF_KEYFRAME = 16;
-
 	public const int32 AVIIF_FIRSTPART = 32;
-
 	public const int32 AVIIF_LASTPART = 64;
-
 	public const int32 AVIIF_NOTIME = 256;
-
 	public const int32 AVIIF_COMPUSE = 268369920;
-
 	public const uint32 AVIIF_NO_TIME = 256;
-
 	public const uint32 AVIIF_COMPRESSOR = 268369920;
-
 	public const uint32 TIMECODE_RATE_30DROP = 0;
-
 	public const uint32 TIMECODE_SMPTE_BINARY_GROUP = 7;
-
 	public const uint32 TIMECODE_SMPTE_COLOR_FRAME = 8;
-
 	public const uint32 AVI_INDEX_OF_INDEXES = 0;
-
 	public const uint32 AVI_INDEX_OF_CHUNKS = 1;
-
 	public const uint32 AVI_INDEX_OF_TIMED_CHUNKS = 2;
-
 	public const uint32 AVI_INDEX_OF_SUB_2FIELD = 3;
-
 	public const uint32 AVI_INDEX_IS_DATA = 128;
-
 	public const uint32 AVI_INDEX_SUB_DEFAULT = 0;
-
 	public const uint32 AVI_INDEX_SUB_2FIELD = 1;
-
 	public const uint32 STDINDEXSIZE = 16384;
-
 	public const uint32 AVISTDINDEX_DELTAFRAME = 2147483648;
-
 	public const uint32 AMVA_TYPEINDEX_OUTPUTFRAME = 4294967295;
-
 	public const uint32 AMVA_QUERYRENDERSTATUSF_READ = 1;
-
 	public const uint32 MIN_DIMENSION = 1;
-
 	public const int32 BDA_PLP_ID_NOT_SET = -1;
-
 	public const uint32 CDEF_CLASS_DEFAULT = 1;
-
 	public const uint32 CDEF_BYPASS_CLASS_MANAGER = 2;
-
 	public const uint32 CDEF_MERIT_ABOVE_DO_NOT_USE = 8;
-
 	public const uint32 CDEF_DEVMON_CMGR_DEVICE = 16;
-
 	public const uint32 CDEF_DEVMON_DMO = 32;
-
 	public const uint32 CDEF_DEVMON_PNP_DEVICE = 64;
-
 	public const uint32 CDEF_DEVMON_FILTER = 128;
-
 	public const uint32 CDEF_DEVMON_SELECTIVE_MASK = 240;
-
 	public const uint32 CHARS_IN_GUID = 39;
-
 	public const uint32 MAX_PIN_NAME = 128;
-
 	public const uint32 MAX_FILTER_NAME = 128;
-
 	public const uint32 AM_GBF_PREVFRAMESKIPPED = 1;
-
 	public const uint32 AM_GBF_NOTASYNCPOINT = 2;
-
 	public const uint32 AM_GBF_NOWAIT = 4;
-
 	public const uint32 AM_GBF_NODDSURFACELOCK = 8;
-
 	public const double AMF_AUTOMATICGAIN = -1;
-
 	public const uint32 AnalogVideo_NTSC_Mask = 7;
-
 	public const uint32 AnalogVideo_PAL_Mask = 1052656;
-
 	public const uint32 AnalogVideo_SECAM_Mask = 1044480;
-
 	public const uint32 MPEG2_PROGRAM_STREAM_MAP = 0;
-
 	public const uint32 MPEG2_PROGRAM_ELEMENTARY_STREAM = 1;
-
 	public const uint32 MPEG2_PROGRAM_DIRECTORY_PES_PACKET = 2;
-
 	public const uint32 MPEG2_PROGRAM_PACK_HEADER = 3;
-
 	public const uint32 MPEG2_PROGRAM_PES_STREAM = 4;
-
 	public const uint32 MPEG2_PROGRAM_SYSTEM_HEADER = 5;
-
 	public const uint32 SUBSTREAM_FILTER_VAL_NONE = 268435456;
-
 	public const uint32 AM_GETDECODERCAP_QUERY_VMR_SUPPORT = 1;
-
 	public const uint32 VMR_NOTSUPPORTED = 0;
-
 	public const uint32 VMR_SUPPORTED = 1;
-
 	public const uint32 AM_QUERY_DECODER_VMR_SUPPORT = 1;
-
 	public const uint32 AM_QUERY_DECODER_DXVA_1_SUPPORT = 2;
-
 	public const uint32 AM_QUERY_DECODER_DVD_SUPPORT = 3;
-
 	public const uint32 AM_QUERY_DECODER_ATSC_SD_SUPPORT = 4;
-
 	public const uint32 AM_QUERY_DECODER_ATSC_HD_SUPPORT = 5;
-
 	public const uint32 AM_GETDECODERCAP_QUERY_VMR9_SUPPORT = 6;
-
 	public const uint32 AM_GETDECODERCAP_QUERY_EVR_SUPPORT = 7;
-
 	public const uint32 DECODER_CAP_NOTSUPPORTED = 0;
-
 	public const uint32 DECODER_CAP_SUPPORTED = 1;
-
 	public const uint32 VMRBITMAP_DISABLE = 1;
-
 	public const uint32 VMRBITMAP_HDC = 2;
-
 	public const uint32 VMRBITMAP_ENTIREDDS = 4;
-
 	public const uint32 VMRBITMAP_SRCCOLORKEY = 8;
-
 	public const uint32 VMRBITMAP_SRCRECT = 16;
-
 	public const uint32 DVD_TITLE_MENU = 0;
-
 	public const uint32 DVD_STREAM_DATA_CURRENT = 2048;
-
 	public const uint32 DVD_STREAM_DATA_VMGM = 1024;
-
 	public const uint32 DVD_STREAM_DATA_VTSM = 1025;
-
 	public const uint32 DVD_DEFAULT_AUDIO_STREAM = 15;
-
 	public const uint32 DVD_AUDIO_CAPS_AC3 = 1;
-
 	public const uint32 DVD_AUDIO_CAPS_MPEG2 = 2;
-
 	public const uint32 DVD_AUDIO_CAPS_LPCM = 4;
-
 	public const uint32 DVD_AUDIO_CAPS_DTS = 8;
-
 	public const uint32 DVD_AUDIO_CAPS_SDDS = 16;
-
 	public const Guid MEDIATYPE_MPEG2_PACK = .(0x36523b13, 0x8ee5, 0x11d1, 0x8c, 0xa3, 0x00, 0x60, 0xb0, 0x57, 0x66, 0x4a);
-
 	public const Guid PBDA_AUX_CONNECTOR_TYPE_SVideo = .(0xa0e905f4, 0x24c9, 0x4a54, 0xb7, 0x61, 0x21, 0x33, 0x55, 0xef, 0xc1, 0x3a);
-
 	public const Guid PBDA_AUX_CONNECTOR_TYPE_Composite = .(0xf6298b4c, 0xc725, 0x4d42, 0x84, 0x9b, 0x41, 0x0b, 0xbb, 0x14, 0xea, 0x62);
-
 	public const Guid CLSID_PBDA_AUX_DATA_TYPE = .(0xfd456373, 0x3323, 0x4090, 0xad, 0xca, 0x8e, 0xd4, 0x5f, 0x55, 0xcf, 0x10);
-
 	public const Guid CLSID_PBDA_Encoder_DATA_TYPE = .(0x728fd6bc, 0x5546, 0x4716, 0xb1, 0x03, 0xf8, 0x99, 0xf5, 0xa1, 0xfa, 0x68);
-
 	public const uint32 PBDA_Encoder_Audio_AlgorithmType_MPEG1LayerII = 0;
-
 	public const uint32 PBDA_Encoder_Audio_AlgorithmType_AC3 = 1;
-
 	public const uint32 PBDA_Encoder_Video_MPEG2PartII = 0;
-
 	public const uint32 PBDA_Encoder_Video_MPEG4Part10 = 1;
-
 	public const uint32 PBDA_Encoder_Video_AVC = 1;
-
 	public const uint32 PBDA_Encoder_Video_H264 = 1;
-
 	public const uint32 PBDA_Encoder_BitrateMode_Constant = 1;
-
 	public const uint32 PBDA_Encoder_BitrateMode_Variable = 2;
-
 	public const uint32 PBDA_Encoder_BitrateMode_Average = 3;
-
 	public const Guid CLSID_PBDA_FDC_DATA_TYPE = .(0xe7dbf9a0, 0x22ab, 0x4047, 0x8e, 0x67, 0xef, 0x9a, 0xd5, 0x04, 0xe7, 0x29);
-
 	public const Guid CLSID_PBDA_GDDS_DATA_TYPE = .(0xc80c0df3, 0x6052, 0x4c16, 0x9f, 0x56, 0xc4, 0x4c, 0x21, 0xf7, 0x3c, 0x45);
-
 	public const Guid LIBID_QuartzNetTypeLib = .(0x56a868b1, 0x0ad4, 0x11ce, 0xb0, 0x3a, 0x00, 0x20, 0xaf, 0x0b, 0xa7, 0x70);
-
 	public const Guid LIBID_QuartzTypeLib = .(0x56a868b0, 0x0ad4, 0x11ce, 0xb0, 0x3a, 0x00, 0x20, 0xaf, 0x0b, 0xa7, 0x70);
-
 	public const Guid CLSID_AMMultiMediaStream = .(0x49c47ce5, 0x9ba4, 0x11d0, 0x82, 0x12, 0x00, 0xc0, 0x4f, 0xc3, 0x2c, 0x45);
-
 	public const Guid CLSID_AMDirectDrawStream = .(0x49c47ce4, 0x9ba4, 0x11d0, 0x82, 0x12, 0x00, 0xc0, 0x4f, 0xc3, 0x2c, 0x45);
-
 	public const Guid CLSID_AMAudioStream = .(0x8496e040, 0xaf4c, 0x11d0, 0x82, 0x12, 0x00, 0xc0, 0x4f, 0xc3, 0x2c, 0x45);
-
 	public const Guid CLSID_AMAudioData = .(0xf2468580, 0xaf8a, 0x11d0, 0x82, 0x12, 0x00, 0xc0, 0x4f, 0xc3, 0x2c, 0x45);
-
 	public const Guid CLSID_AMMediaTypeStream = .(0xcf0f2f7c, 0xf7bf, 0x11d0, 0x90, 0x0d, 0x00, 0xc0, 0x4f, 0xd9, 0x18, 0x9d);
-
 	public const uint32 AMDDS_NONE = 0;
-
 	public const uint32 AMDDS_DCIPS = 1;
-
 	public const uint32 AMDDS_PS = 2;
-
 	public const uint32 AMDDS_RGBOVR = 4;
-
 	public const uint32 AMDDS_YUVOVR = 8;
-
 	public const uint32 AMDDS_RGBOFF = 16;
-
 	public const uint32 AMDDS_YUVOFF = 32;
-
 	public const uint32 AMDDS_RGBFLP = 64;
-
 	public const uint32 AMDDS_YUVFLP = 128;
-
 	public const uint32 AMDDS_ALL = 255;
-
 	public const uint32 AMDDS_DEFAULT = 255;
-
 	public const uint32 MAX_SIZE_MPEG1_SEQUENCE_INFO = 140;
-
 	public const Guid CLSID_DMOWrapperFilter = .(0x94297043, 0xbd82, 0x4dfd, 0xb0, 0xde, 0x81, 0x77, 0x73, 0x9c, 0x6d, 0x20);
-
 	public const Guid CLSID_DMOFilterCategory = .(0xbcd5796c, 0xbd52, 0x4d30, 0xab, 0x76, 0x70, 0xf9, 0x75, 0xb8, 0x91, 0x99);
-
 	public const uint32 AM_MPEG_AUDIO_DUAL_MERGE = 0;
-
 	public const uint32 AM_MPEG_AUDIO_DUAL_LEFT = 1;
-
 	public const uint32 AM_MPEG_AUDIO_DUAL_RIGHT = 2;
-
 	public const uint32 VFW_FIRST_CODE = 512;
-
 	public const uint32 MAX_ERROR_TEXT_LEN = 160;
-
 	public const uint32 MPBOOL_TRUE = 1;
-
 	public const uint32 MPBOOL_FALSE = 0;
-
 	public const int32 DWORD_ALLPARAMS = -1;
-
 	public const Guid GUID_TIME_REFERENCE = .(0x93ad712b, 0xdaa0, 0x4ffe, 0xbc, 0x81, 0xb0, 0xce, 0x50, 0x0f, 0xcd, 0xd9);
-
 	public const Guid GUID_TIME_MUSIC = .(0x0574c49d, 0x5b04, 0x4b15, 0xa5, 0x42, 0xae, 0x28, 0x20, 0x30, 0x11, 0x7b);
-
 	public const Guid GUID_TIME_SAMPLES = .(0xa8593d05, 0x0c43, 0x4984, 0x9a, 0x63, 0x97, 0xaf, 0x9e, 0x02, 0xc4, 0xc0);
-
 	public const uint32 MPF_ENVLP_STANDARD = 0;
-
 	public const uint32 MPF_ENVLP_BEGIN_CURRENTVAL = 1;
-
 	public const uint32 MPF_ENVLP_BEGIN_NEUTRALVAL = 2;
-
 	public const uint32 MPF_PUNCHIN_REFTIME = 0;
-
 	public const uint32 MPF_PUNCHIN_NOW = 1;
-
 	public const uint32 MPF_PUNCHIN_STOPPED = 2;
-
 	public const Guid MSPID_PrimaryVideo = .(0xa35ff56a, 0x9fda, 0x11d0, 0x8f, 0xdf, 0x00, 0xc0, 0x4f, 0xd9, 0x18, 0x9d);
-
 	public const Guid MSPID_PrimaryAudio = .(0xa35ff56b, 0x9fda, 0x11d0, 0x8f, 0xdf, 0x00, 0xc0, 0x4f, 0xd9, 0x18, 0x9d);
-
 	public const HRESULT VFW_E_INVALIDMEDIATYPE = -2147220992;
-
 	public const HRESULT VFW_E_INVALIDSUBTYPE = -2147220991;
-
 	public const HRESULT VFW_E_NEED_OWNER = -2147220990;
-
 	public const HRESULT VFW_E_ENUM_OUT_OF_SYNC = -2147220989;
-
 	public const HRESULT VFW_E_ALREADY_CONNECTED = -2147220988;
-
 	public const HRESULT VFW_E_FILTER_ACTIVE = -2147220987;
-
 	public const HRESULT VFW_E_NO_TYPES = -2147220986;
-
 	public const HRESULT VFW_E_NO_ACCEPTABLE_TYPES = -2147220985;
-
 	public const HRESULT VFW_E_INVALID_DIRECTION = -2147220984;
-
 	public const HRESULT VFW_E_NOT_CONNECTED = -2147220983;
-
 	public const HRESULT VFW_E_NO_ALLOCATOR = -2147220982;
-
 	public const HRESULT VFW_E_RUNTIME_ERROR = -2147220981;
-
 	public const HRESULT VFW_E_BUFFER_NOTSET = -2147220980;
-
 	public const HRESULT VFW_E_BUFFER_OVERFLOW = -2147220979;
-
 	public const HRESULT VFW_E_BADALIGN = -2147220978;
-
 	public const HRESULT VFW_E_ALREADY_COMMITTED = -2147220977;
-
 	public const HRESULT VFW_E_BUFFERS_OUTSTANDING = -2147220976;
-
 	public const HRESULT VFW_E_NOT_COMMITTED = -2147220975;
-
 	public const HRESULT VFW_E_SIZENOTSET = -2147220974;
-
 	public const HRESULT VFW_E_NO_CLOCK = -2147220973;
-
 	public const HRESULT VFW_E_NO_SINK = -2147220972;
-
 	public const HRESULT VFW_E_NO_INTERFACE = -2147220971;
-
 	public const HRESULT VFW_E_NOT_FOUND = -2147220970;
-
 	public const HRESULT VFW_E_CANNOT_CONNECT = -2147220969;
-
 	public const HRESULT VFW_E_CANNOT_RENDER = -2147220968;
-
 	public const HRESULT VFW_E_CHANGING_FORMAT = -2147220967;
-
 	public const HRESULT VFW_E_NO_COLOR_KEY_SET = -2147220966;
-
 	public const HRESULT VFW_E_NOT_OVERLAY_CONNECTION = -2147220965;
-
 	public const HRESULT VFW_E_NOT_SAMPLE_CONNECTION = -2147220964;
-
 	public const HRESULT VFW_E_PALETTE_SET = -2147220963;
-
 	public const HRESULT VFW_E_COLOR_KEY_SET = -2147220962;
-
 	public const HRESULT VFW_E_NO_COLOR_KEY_FOUND = -2147220961;
-
 	public const HRESULT VFW_E_NO_PALETTE_AVAILABLE = -2147220960;
-
 	public const HRESULT VFW_E_NO_DISPLAY_PALETTE = -2147220959;
-
 	public const HRESULT VFW_E_TOO_MANY_COLORS = -2147220958;
-
 	public const HRESULT VFW_E_STATE_CHANGED = -2147220957;
-
 	public const HRESULT VFW_E_NOT_STOPPED = -2147220956;
-
 	public const HRESULT VFW_E_NOT_PAUSED = -2147220955;
-
 	public const HRESULT VFW_E_NOT_RUNNING = -2147220954;
-
 	public const HRESULT VFW_E_WRONG_STATE = -2147220953;
-
 	public const HRESULT VFW_E_START_TIME_AFTER_END = -2147220952;
-
 	public const HRESULT VFW_E_INVALID_RECT = -2147220951;
-
 	public const HRESULT VFW_E_TYPE_NOT_ACCEPTED = -2147220950;
-
 	public const HRESULT VFW_E_SAMPLE_REJECTED = -2147220949;
-
 	public const HRESULT VFW_E_SAMPLE_REJECTED_EOS = -2147220948;
-
 	public const HRESULT VFW_E_DUPLICATE_NAME = -2147220947;
-
 	public const HRESULT VFW_S_DUPLICATE_NAME = 262701;
-
 	public const HRESULT VFW_E_TIMEOUT = -2147220946;
-
 	public const HRESULT VFW_E_INVALID_FILE_FORMAT = -2147220945;
-
 	public const HRESULT VFW_E_ENUM_OUT_OF_RANGE = -2147220944;
-
 	public const HRESULT VFW_E_CIRCULAR_GRAPH = -2147220943;
-
 	public const HRESULT VFW_E_NOT_ALLOWED_TO_SAVE = -2147220942;
-
 	public const HRESULT VFW_E_TIME_ALREADY_PASSED = -2147220941;
-
 	public const HRESULT VFW_E_ALREADY_CANCELLED = -2147220940;
-
 	public const HRESULT VFW_E_CORRUPT_GRAPH_FILE = -2147220939;
-
 	public const HRESULT VFW_E_ADVISE_ALREADY_SET = -2147220938;
-
 	public const HRESULT VFW_S_STATE_INTERMEDIATE = 262711;
-
 	public const HRESULT VFW_E_NO_MODEX_AVAILABLE = -2147220936;
-
 	public const HRESULT VFW_E_NO_ADVISE_SET = -2147220935;
-
 	public const HRESULT VFW_E_NO_FULLSCREEN = -2147220934;
-
 	public const HRESULT VFW_E_IN_FULLSCREEN_MODE = -2147220933;
-
 	public const HRESULT VFW_E_UNKNOWN_FILE_TYPE = -2147220928;
-
 	public const HRESULT VFW_E_CANNOT_LOAD_SOURCE_FILTER = -2147220927;
-
 	public const HRESULT VFW_S_PARTIAL_RENDER = 262722;
-
 	public const HRESULT VFW_E_FILE_TOO_SHORT = -2147220925;
-
 	public const HRESULT VFW_E_INVALID_FILE_VERSION = -2147220924;
-
 	public const HRESULT VFW_S_SOME_DATA_IGNORED = 262725;
-
 	public const HRESULT VFW_S_CONNECTIONS_DEFERRED = 262726;
-
 	public const HRESULT VFW_E_INVALID_CLSID = -2147220921;
-
 	public const HRESULT VFW_E_INVALID_MEDIA_TYPE = -2147220920;
-
 	public const HRESULT VFW_E_BAD_KEY = -2147220494;
-
 	public const HRESULT VFW_S_NO_MORE_ITEMS = 262403;
-
 	public const HRESULT VFW_E_SAMPLE_TIME_NOT_SET = -2147220919;
-
 	public const HRESULT VFW_S_RESOURCE_NOT_NEEDED = 262736;
-
 	public const HRESULT VFW_E_MEDIA_TIME_NOT_SET = -2147220911;
-
 	public const HRESULT VFW_E_NO_TIME_FORMAT_SET = -2147220910;
-
 	public const HRESULT VFW_E_MONO_AUDIO_HW = -2147220909;
-
 	public const HRESULT VFW_S_MEDIA_TYPE_IGNORED = 262740;
-
 	public const HRESULT VFW_E_NO_DECOMPRESSOR = -2147220907;
-
 	public const HRESULT VFW_E_NO_AUDIO_HARDWARE = -2147220906;
-
 	public const HRESULT VFW_S_VIDEO_NOT_RENDERED = 262743;
-
 	public const HRESULT VFW_S_AUDIO_NOT_RENDERED = 262744;
-
 	public const HRESULT VFW_E_RPZA = -2147220903;
-
 	public const HRESULT VFW_S_RPZA = 262746;
-
 	public const HRESULT VFW_E_PROCESSOR_NOT_SUITABLE = -2147220901;
-
 	public const HRESULT VFW_E_UNSUPPORTED_AUDIO = -2147220900;
-
 	public const HRESULT VFW_E_UNSUPPORTED_VIDEO = -2147220899;
-
 	public const HRESULT VFW_E_MPEG_NOT_CONSTRAINED = -2147220898;
-
 	public const HRESULT VFW_E_NOT_IN_GRAPH = -2147220897;
-
 	public const HRESULT VFW_S_ESTIMATED = 262752;
-
 	public const HRESULT VFW_E_NO_TIME_FORMAT = -2147220895;
-
 	public const HRESULT VFW_E_READ_ONLY = -2147220894;
-
 	public const HRESULT VFW_S_RESERVED = 262755;
-
 	public const HRESULT VFW_E_BUFFER_UNDERFLOW = -2147220892;
-
 	public const HRESULT VFW_E_UNSUPPORTED_STREAM = -2147220891;
-
 	public const HRESULT VFW_E_NO_TRANSPORT = -2147220890;
-
 	public const HRESULT VFW_S_STREAM_OFF = 262759;
-
 	public const HRESULT VFW_S_CANT_CUE = 262760;
-
 	public const HRESULT VFW_E_BAD_VIDEOCD = -2147220887;
-
 	public const HRESULT VFW_S_NO_STOP_TIME = 262768;
-
 	public const HRESULT VFW_E_OUT_OF_VIDEO_MEMORY = -2147220879;
-
 	public const HRESULT VFW_E_VP_NEGOTIATION_FAILED = -2147220878;
-
 	public const HRESULT VFW_E_DDRAW_CAPS_NOT_SUITABLE = -2147220877;
-
 	public const HRESULT VFW_E_NO_VP_HARDWARE = -2147220876;
-
 	public const HRESULT VFW_E_NO_CAPTURE_HARDWARE = -2147220875;
-
 	public const HRESULT VFW_E_DVD_OPERATION_INHIBITED = -2147220874;
-
 	public const HRESULT VFW_E_DVD_INVALIDDOMAIN = -2147220873;
-
 	public const HRESULT VFW_E_DVD_NO_BUTTON = -2147220872;
-
 	public const HRESULT VFW_E_DVD_GRAPHNOTREADY = -2147220871;
-
 	public const HRESULT VFW_E_DVD_RENDERFAIL = -2147220870;
-
 	public const HRESULT VFW_E_DVD_DECNOTENOUGH = -2147220869;
-
 	public const HRESULT VFW_E_DDRAW_VERSION_NOT_SUITABLE = -2147220868;
-
 	public const HRESULT VFW_E_COPYPROT_FAILED = -2147220867;
-
 	public const HRESULT VFW_S_NOPREVIEWPIN = 262782;
-
 	public const HRESULT VFW_E_TIME_EXPIRED = -2147220865;
-
 	public const HRESULT VFW_S_DVD_NON_ONE_SEQUENTIAL = 262784;
-
 	public const HRESULT VFW_E_DVD_WRONG_SPEED = -2147220863;
-
 	public const HRESULT VFW_E_DVD_MENU_DOES_NOT_EXIST = -2147220862;
-
 	public const HRESULT VFW_E_DVD_CMD_CANCELLED = -2147220861;
-
 	public const HRESULT VFW_E_DVD_STATE_WRONG_VERSION = -2147220860;
-
 	public const HRESULT VFW_E_DVD_STATE_CORRUPT = -2147220859;
-
 	public const HRESULT VFW_E_DVD_STATE_WRONG_DISC = -2147220858;
-
 	public const HRESULT VFW_E_DVD_INCOMPATIBLE_REGION = -2147220857;
-
 	public const HRESULT VFW_E_DVD_NO_ATTRIBUTES = -2147220856;
-
 	public const HRESULT VFW_E_DVD_NO_GOUP_PGC = -2147220855;
-
 	public const HRESULT VFW_E_DVD_LOW_PARENTAL_LEVEL = -2147220854;
-
 	public const HRESULT VFW_E_DVD_NOT_IN_KARAOKE_MODE = -2147220853;
-
 	public const HRESULT VFW_S_DVD_CHANNEL_CONTENTS_NOT_AVAILABLE = 262796;
-
 	public const HRESULT VFW_S_DVD_NOT_ACCURATE = 262797;
-
 	public const HRESULT VFW_E_FRAME_STEP_UNSUPPORTED = -2147220850;
-
 	public const HRESULT VFW_E_DVD_STREAM_DISABLED = -2147220849;
-
 	public const HRESULT VFW_E_DVD_TITLE_UNKNOWN = -2147220848;
-
 	public const HRESULT VFW_E_DVD_INVALID_DISC = -2147220847;
-
 	public const HRESULT VFW_E_DVD_NO_RESUME_INFORMATION = -2147220846;
-
 	public const HRESULT VFW_E_PIN_ALREADY_BLOCKED_ON_THIS_THREAD = -2147220845;
-
 	public const HRESULT VFW_E_PIN_ALREADY_BLOCKED = -2147220844;
-
 	public const HRESULT VFW_E_CERTIFICATION_FAILURE = -2147220843;
-
 	public const HRESULT VFW_E_VMR_NOT_IN_MIXER_MODE = -2147220842;
-
 	public const HRESULT VFW_E_VMR_NO_AP_SUPPLIED = -2147220841;
-
 	public const HRESULT VFW_E_VMR_NO_DEINTERLACE_HW = -2147220840;
-
 	public const HRESULT VFW_E_VMR_NO_PROCAMP_HW = -2147220839;
-
 	public const HRESULT VFW_E_DVD_VMR9_INCOMPATIBLEDEC = -2147220838;
-
 	public const HRESULT VFW_E_NO_COPP_HW = -2147220837;
-
 	public const HRESULT VFW_E_DVD_NONBLOCKING = -2147220836;
-
 	public const HRESULT VFW_E_DVD_TOO_MANY_RENDERERS_IN_FILTER_GRAPH = -2147220835;
-
 	public const HRESULT VFW_E_DVD_NON_EVR_RENDERER_IN_FILTER_GRAPH = -2147220834;
-
 	public const HRESULT VFW_E_DVD_RESOLUTION_ERROR = -2147220833;
-
 	public const HRESULT E_PROP_SET_UNSUPPORTED = -2147023726;
-
 	public const HRESULT E_PROP_ID_UNSUPPORTED = -2147023728;
-
 	public const HRESULT VFW_E_CODECAPI_LINEAR_RANGE = -2147220720;
-
 	public const HRESULT VFW_E_CODECAPI_ENUMERATED = -2147220719;
-
 	public const HRESULT VFW_E_CODECAPI_NO_DEFAULT = -2147220717;
-
 	public const HRESULT VFW_E_CODECAPI_NO_CURRENT_VALUE = -2147220716;
-
 	public const HRESULT VFW_E_DVD_CHAPTER_DOES_NOT_EXIST = -2147220715;
-
 	public const HRESULT VFW_S_DVD_RENDER_STATUS = 262944;
-
 	public const Guid DXVA_ModeNone = .(0x1b81be00, 0xa0c7, 0x11d3, 0xb9, 0x84, 0x00, 0xc0, 0x4f, 0x2e, 0x73, 0xc5);
-
 	public const Guid DXVA_ModeH261_A = .(0x1b81be01, 0xa0c7, 0x11d3, 0xb9, 0x84, 0x00, 0xc0, 0x4f, 0x2e, 0x73, 0xc5);
-
 	public const Guid DXVA_ModeH261_B = .(0x1b81be02, 0xa0c7, 0x11d3, 0xb9, 0x84, 0x00, 0xc0, 0x4f, 0x2e, 0x73, 0xc5);
-
 	public const Guid DXVA_ModeH263_A = .(0x1b81be03, 0xa0c7, 0x11d3, 0xb9, 0x84, 0x00, 0xc0, 0x4f, 0x2e, 0x73, 0xc5);
-
 	public const Guid DXVA_ModeH263_B = .(0x1b81be04, 0xa0c7, 0x11d3, 0xb9, 0x84, 0x00, 0xc0, 0x4f, 0x2e, 0x73, 0xc5);
-
 	public const Guid DXVA_ModeH263_C = .(0x1b81be05, 0xa0c7, 0x11d3, 0xb9, 0x84, 0x00, 0xc0, 0x4f, 0x2e, 0x73, 0xc5);
-
 	public const Guid DXVA_ModeH263_D = .(0x1b81be06, 0xa0c7, 0x11d3, 0xb9, 0x84, 0x00, 0xc0, 0x4f, 0x2e, 0x73, 0xc5);
-
 	public const Guid DXVA_ModeH263_E = .(0x1b81be07, 0xa0c7, 0x11d3, 0xb9, 0x84, 0x00, 0xc0, 0x4f, 0x2e, 0x73, 0xc5);
-
 	public const Guid DXVA_ModeH263_F = .(0x1b81be08, 0xa0c7, 0x11d3, 0xb9, 0x84, 0x00, 0xc0, 0x4f, 0x2e, 0x73, 0xc5);
-
 	public const Guid DXVA_ModeMPEG1_A = .(0x1b81be09, 0xa0c7, 0x11d3, 0xb9, 0x84, 0x00, 0xc0, 0x4f, 0x2e, 0x73, 0xc5);
-
 	public const Guid DXVA_ModeMPEG1_VLD = .(0x6f3ec719, 0x3735, 0x42cc, 0x80, 0x63, 0x65, 0xcc, 0x3c, 0xb3, 0x66, 0x16);
-
 	public const Guid DXVA_ModeMPEG2_A = .(0x1b81be0a, 0xa0c7, 0x11d3, 0xb9, 0x84, 0x00, 0xc0, 0x4f, 0x2e, 0x73, 0xc5);
-
 	public const Guid DXVA_ModeMPEG2_B = .(0x1b81be0b, 0xa0c7, 0x11d3, 0xb9, 0x84, 0x00, 0xc0, 0x4f, 0x2e, 0x73, 0xc5);
-
 	public const Guid DXVA_ModeMPEG2_C = .(0x1b81be0c, 0xa0c7, 0x11d3, 0xb9, 0x84, 0x00, 0xc0, 0x4f, 0x2e, 0x73, 0xc5);
-
 	public const Guid DXVA_ModeMPEG2_D = .(0x1b81be0d, 0xa0c7, 0x11d3, 0xb9, 0x84, 0x00, 0xc0, 0x4f, 0x2e, 0x73, 0xc5);
-
 	public const Guid DXVA_ModeMPEG2and1_VLD = .(0x86695f12, 0x340e, 0x4f04, 0x9f, 0xd3, 0x92, 0x53, 0xdd, 0x32, 0x74, 0x60);
-
 	public const Guid DXVA_ModeH264_A = .(0x1b81be64, 0xa0c7, 0x11d3, 0xb9, 0x84, 0x00, 0xc0, 0x4f, 0x2e, 0x73, 0xc5);
-
 	public const Guid DXVA_ModeH264_B = .(0x1b81be65, 0xa0c7, 0x11d3, 0xb9, 0x84, 0x00, 0xc0, 0x4f, 0x2e, 0x73, 0xc5);
-
 	public const Guid DXVA_ModeH264_C = .(0x1b81be66, 0xa0c7, 0x11d3, 0xb9, 0x84, 0x00, 0xc0, 0x4f, 0x2e, 0x73, 0xc5);
-
 	public const Guid DXVA_ModeH264_D = .(0x1b81be67, 0xa0c7, 0x11d3, 0xb9, 0x84, 0x00, 0xc0, 0x4f, 0x2e, 0x73, 0xc5);
-
 	public const Guid DXVA_ModeH264_E = .(0x1b81be68, 0xa0c7, 0x11d3, 0xb9, 0x84, 0x00, 0xc0, 0x4f, 0x2e, 0x73, 0xc5);
-
 	public const Guid DXVA_ModeH264_F = .(0x1b81be69, 0xa0c7, 0x11d3, 0xb9, 0x84, 0x00, 0xc0, 0x4f, 0x2e, 0x73, 0xc5);
-
 	public const Guid DXVA_ModeH264_VLD_WithFMOASO_NoFGT = .(0xd5f04ff9, 0x3418, 0x45d8, 0x95, 0x61, 0x32, 0xa7, 0x6a, 0xae, 0x2d, 0xdd);
-
 	public const Guid DXVA_ModeH264_VLD_Stereo_Progressive_NoFGT = .(0xd79be8da, 0x0cf1, 0x4c81, 0xb8, 0x2a, 0x69, 0xa4, 0xe2, 0x36, 0xf4, 0x3d);
-
 	public const Guid DXVA_ModeH264_VLD_Stereo_NoFGT = .(0xf9aaccbb, 0xc2b6, 0x4cfc, 0x87, 0x79, 0x57, 0x07, 0xb1, 0x76, 0x05, 0x52);
-
 	public const Guid DXVA_ModeH264_VLD_Multiview_NoFGT = .(0x705b9d82, 0x76cf, 0x49d6, 0xb7, 0xe6, 0xac, 0x88, 0x72, 0xdb, 0x01, 0x3c);
-
 	public const Guid DXVA_ModeWMV8_A = .(0x1b81be80, 0xa0c7, 0x11d3, 0xb9, 0x84, 0x00, 0xc0, 0x4f, 0x2e, 0x73, 0xc5);
-
 	public const Guid DXVA_ModeWMV8_B = .(0x1b81be81, 0xa0c7, 0x11d3, 0xb9, 0x84, 0x00, 0xc0, 0x4f, 0x2e, 0x73, 0xc5);
-
 	public const Guid DXVA_ModeWMV9_A = .(0x1b81be90, 0xa0c7, 0x11d3, 0xb9, 0x84, 0x00, 0xc0, 0x4f, 0x2e, 0x73, 0xc5);
-
 	public const Guid DXVA_ModeWMV9_B = .(0x1b81be91, 0xa0c7, 0x11d3, 0xb9, 0x84, 0x00, 0xc0, 0x4f, 0x2e, 0x73, 0xc5);
-
 	public const Guid DXVA_ModeWMV9_C = .(0x1b81be94, 0xa0c7, 0x11d3, 0xb9, 0x84, 0x00, 0xc0, 0x4f, 0x2e, 0x73, 0xc5);
-
 	public const Guid DXVA_ModeVC1_A = .(0x1b81bea0, 0xa0c7, 0x11d3, 0xb9, 0x84, 0x00, 0xc0, 0x4f, 0x2e, 0x73, 0xc5);
-
 	public const Guid DXVA_ModeVC1_B = .(0x1b81bea1, 0xa0c7, 0x11d3, 0xb9, 0x84, 0x00, 0xc0, 0x4f, 0x2e, 0x73, 0xc5);
-
 	public const Guid DXVA_ModeVC1_C = .(0x1b81bea2, 0xa0c7, 0x11d3, 0xb9, 0x84, 0x00, 0xc0, 0x4f, 0x2e, 0x73, 0xc5);
-
 	public const Guid DXVA_ModeVC1_D = .(0x1b81bea3, 0xa0c7, 0x11d3, 0xb9, 0x84, 0x00, 0xc0, 0x4f, 0x2e, 0x73, 0xc5);
-
 	public const Guid DXVA_ModeVC1_D2010 = .(0x1b81bea4, 0xa0c7, 0x11d3, 0xb9, 0x84, 0x00, 0xc0, 0x4f, 0x2e, 0x73, 0xc5);
-
 	public const Guid DXVA_ModeMPEG4pt2_VLD_Simple = .(0xefd64d74, 0xc9e8, 0x41d7, 0xa5, 0xe9, 0xe9, 0xb0, 0xe3, 0x9f, 0xa3, 0x19);
-
 	public const Guid DXVA_ModeMPEG4pt2_VLD_AdvSimple_NoGMC = .(0xed418a9f, 0x010d, 0x4eda, 0x9a, 0xe3, 0x9a, 0x65, 0x35, 0x8d, 0x8d, 0x2e);
-
 	public const Guid DXVA_ModeMPEG4pt2_VLD_AdvSimple_GMC = .(0xab998b5b, 0x4258, 0x44a9, 0x9f, 0xeb, 0x94, 0xe5, 0x97, 0xa6, 0xba, 0xae);
-
 	public const Guid DXVA_ModeHEVC_VLD_Main = .(0x5b11d51b, 0x2f4c, 0x4452, 0xbc, 0xc3, 0x09, 0xf2, 0xa1, 0x16, 0x0c, 0xc0);
-
 	public const Guid DXVA_ModeHEVC_VLD_Main10 = .(0x107af0e0, 0xef1a, 0x4d19, 0xab, 0xa8, 0x67, 0xa1, 0x63, 0x07, 0x3d, 0x13);
-
 	public const Guid DXVA_ModeVP9_VLD_Profile0 = .(0x463707f8, 0xa1d0, 0x4585, 0x87, 0x6d, 0x83, 0xaa, 0x6d, 0x60, 0xb8, 0x9e);
-
 	public const Guid DXVA_ModeVP9_VLD_10bit_Profile2 = .(0xa4c749ef, 0x6ecf, 0x48aa, 0x84, 0x48, 0x50, 0xa7, 0xa1, 0x16, 0x5f, 0xf7);
-
 	public const Guid DXVA_ModeVP8_VLD = .(0x90b899ea, 0x3a62, 0x4705, 0x88, 0xb3, 0x8d, 0xf0, 0x4b, 0x27, 0x44, 0xe7);
-
 	public const Guid DXVA_ModeAV1_VLD_Profile0 = .(0xb8be4ccb, 0xcf53, 0x46ba, 0x8d, 0x59, 0xd6, 0xb8, 0xa6, 0xda, 0x5d, 0x2a);
-
 	public const Guid DXVA_ModeAV1_VLD_Profile1 = .(0x6936ff0f, 0x45b1, 0x4163, 0x9c, 0xc1, 0x64, 0x6e, 0xf6, 0x94, 0x61, 0x08);
-
 	public const Guid DXVA_ModeAV1_VLD_Profile2 = .(0x0c5f2aa1, 0xe541, 0x4089, 0xbb, 0x7b, 0x98, 0x11, 0x0a, 0x19, 0xd7, 0xc8);
-
 	public const Guid DXVA_ModeAV1_VLD_12bit_Profile2 = .(0x17127009, 0xa00f, 0x4ce1, 0x99, 0x4e, 0xbf, 0x40, 0x81, 0xf6, 0xf3, 0xf0);
-
 	public const Guid DXVA_ModeAV1_VLD_12bit_Profile2_420 = .(0x2d80bed6, 0x9cac, 0x4835, 0x9e, 0x91, 0x32, 0x7b, 0xbc, 0x4f, 0x9e, 0xe8);
-
 	public const Guid DXVA_NoEncrypt = .(0x1b81bed0, 0xa0c7, 0x11d3, 0xb9, 0x84, 0x00, 0xc0, 0x4f, 0x2e, 0x73, 0xc5);
-
 	public const uint32 DXVA_RESTRICTED_MODE_UNRESTRICTED = 65535;
-
 	public const uint32 DXVA_RESTRICTED_MODE_H261_A = 1;
-
 	public const uint32 DXVA_RESTRICTED_MODE_H261_B = 2;
-
 	public const uint32 DXVA_RESTRICTED_MODE_H263_A = 3;
-
 	public const uint32 DXVA_RESTRICTED_MODE_H263_B = 4;
-
 	public const uint32 DXVA_RESTRICTED_MODE_H263_C = 5;
-
 	public const uint32 DXVA_RESTRICTED_MODE_H263_D = 6;
-
 	public const uint32 DXVA_RESTRICTED_MODE_H263_E = 7;
-
 	public const uint32 DXVA_RESTRICTED_MODE_H263_F = 8;
-
 	public const uint32 DXVA_RESTRICTED_MODE_MPEG1_A = 9;
-
 	public const uint32 DXVA_RESTRICTED_MODE_MPEG2_A = 10;
-
 	public const uint32 DXVA_RESTRICTED_MODE_MPEG2_B = 11;
-
 	public const uint32 DXVA_RESTRICTED_MODE_MPEG2_C = 12;
-
 	public const uint32 DXVA_RESTRICTED_MODE_MPEG2_D = 13;
-
 	public const uint32 DXVA_RESTRICTED_MODE_MPEG1_VLD = 16;
-
 	public const uint32 DXVA_RESTRICTED_MODE_MPEG2and1_VLD = 17;
-
 	public const uint32 DXVA_RESTRICTED_MODE_H264_A = 100;
-
 	public const uint32 DXVA_RESTRICTED_MODE_H264_B = 101;
-
 	public const uint32 DXVA_RESTRICTED_MODE_H264_C = 102;
-
 	public const uint32 DXVA_RESTRICTED_MODE_H264_D = 103;
-
 	public const uint32 DXVA_RESTRICTED_MODE_H264_E = 104;
-
 	public const uint32 DXVA_RESTRICTED_MODE_H264_F = 105;
-
 	public const uint32 DXVA_RESTRICTED_MODE_H264_VLD_WITHFMOASO_NOFGT = 112;
-
 	public const uint32 DXVA_RESTRICTED_MODE_H264_VLD_STEREO_PROGRESSIVE_NOFGT = 113;
-
 	public const uint32 DXVA_RESTRICTED_MODE_H264_VLD_STEREO_NOFGT = 114;
-
 	public const uint32 DXVA_RESTRICTED_MODE_H264_VLD_MULTIVIEW_NOFGT = 115;
-
 	public const uint32 DXVA_RESTRICTED_MODE_WMV8_A = 128;
-
 	public const uint32 DXVA_RESTRICTED_MODE_WMV8_B = 129;
-
 	public const uint32 DXVA_RESTRICTED_MODE_WMV9_A = 144;
-
 	public const uint32 DXVA_RESTRICTED_MODE_WMV9_B = 145;
-
 	public const uint32 DXVA_RESTRICTED_MODE_WMV9_C = 148;
-
 	public const uint32 DXVA_RESTRICTED_MODE_VC1_A = 160;
-
 	public const uint32 DXVA_RESTRICTED_MODE_VC1_B = 161;
-
 	public const uint32 DXVA_RESTRICTED_MODE_VC1_C = 162;
-
 	public const uint32 DXVA_RESTRICTED_MODE_VC1_D = 163;
-
 	public const uint32 DXVA_RESTRICTED_MODE_VC1_D2010 = 164;
-
 	public const uint32 DXVA_RESTRICTED_MODE_MPEG4PT2_VLD_SIMPLE = 176;
-
 	public const uint32 DXVA_RESTRICTED_MODE_MPEG4PT2_VLD_ADV_SIMPLE_NOGMC = 177;
-
 	public const uint32 DXVA_RESTRICTED_MODE_MPEG4PT2_VLD_ADV_SIMPLE_GMC = 178;
-
 	public const uint32 DXVA_RESTRICTED_MODE_WMV8_POSTPROC = 128;
-
 	public const uint32 DXVA_RESTRICTED_MODE_WMV8_MOCOMP = 129;
-
 	public const uint32 DXVA_RESTRICTED_MODE_WMV9_POSTPROC = 144;
-
 	public const uint32 DXVA_RESTRICTED_MODE_WMV9_MOCOMP = 145;
-
 	public const uint32 DXVA_RESTRICTED_MODE_WMV9_IDCT = 148;
-
 	public const uint32 DXVA_RESTRICTED_MODE_VC1_POSTPROC = 160;
-
 	public const uint32 DXVA_RESTRICTED_MODE_VC1_MOCOMP = 161;
-
 	public const uint32 DXVA_RESTRICTED_MODE_VC1_IDCT = 162;
-
 	public const uint32 DXVA_RESTRICTED_MODE_VC1_VLD = 163;
-
 	public const uint32 DXVA_RESTRICTED_MODE_H264_MOCOMP_NOFGT = 100;
-
 	public const uint32 DXVA_RESTRICTED_MODE_H264_MOCOMP_FGT = 101;
-
 	public const uint32 DXVA_RESTRICTED_MODE_H264_IDCT_NOFGT = 102;
-
 	public const uint32 DXVA_RESTRICTED_MODE_H264_IDCT_FGT = 103;
-
 	public const uint32 DXVA_RESTRICTED_MODE_H264_VLD_NOFGT = 104;
-
 	public const uint32 DXVA_RESTRICTED_MODE_H264_VLD_FGT = 105;
-
 	public const uint32 DXVA_COMPBUFFER_TYPE_THAT_IS_NOT_USED = 0;
-
 	public const uint32 DXVA_PICTURE_DECODE_BUFFER = 1;
-
 	public const uint32 DXVA_MACROBLOCK_CONTROL_BUFFER = 2;
-
 	public const uint32 DXVA_RESIDUAL_DIFFERENCE_BUFFER = 3;
-
 	public const uint32 DXVA_DEBLOCKING_CONTROL_BUFFER = 4;
-
 	public const uint32 DXVA_INVERSE_QUANTIZATION_MATRIX_BUFFER = 5;
-
 	public const uint32 DXVA_SLICE_CONTROL_BUFFER = 6;
-
 	public const uint32 DXVA_BITSTREAM_DATA_BUFFER = 7;
-
 	public const uint32 DXVA_AYUV_BUFFER = 8;
-
 	public const uint32 DXVA_IA44_SURFACE_BUFFER = 9;
-
 	public const uint32 DXVA_DPXD_SURFACE_BUFFER = 10;
-
 	public const uint32 DXVA_HIGHLIGHT_BUFFER = 11;
-
 	public const uint32 DXVA_DCCMD_SURFACE_BUFFER = 12;
-
 	public const uint32 DXVA_ALPHA_BLEND_COMBINATION_BUFFER = 13;
-
 	public const uint32 DXVA_PICTURE_RESAMPLE_BUFFER = 14;
-
 	public const uint32 DXVA_READ_BACK_BUFFER = 15;
-
 	public const uint32 DXVA_MOTION_VECTOR_BUFFER = 16;
-
 	public const uint32 DXVA_FILM_GRAIN_BUFFER = 17;
-
 	public const uint32 DXVA_NUM_TYPES_COMP_BUFFERS = 18;
-
 	public const uint32 DXVA_PICTURE_DECODING_FUNCTION = 1;
-
 	public const uint32 DXVA_ALPHA_BLEND_DATA_LOAD_FUNCTION = 2;
-
 	public const uint32 DXVA_ALPHA_BLEND_COMBINATION_FUNCTION = 3;
-
 	public const uint32 DXVA_PICTURE_RESAMPLE_FUNCTION = 4;
-
 	public const uint32 DXVA_DEBLOCKING_FILTER_FUNCTION = 5;
-
 	public const uint32 DXVA_FILM_GRAIN_SYNTHESIS_FUNCTION = 6;
-
 	public const uint32 DXVA_STATUS_REPORTING_FUNCTION = 7;
-
 	public const uint32 DXVA_EXECUTE_RETURN_OK = 0;
-
 	public const uint32 DXVA_EXECUTE_RETURN_DATA_ERROR_MINOR = 1;
-
 	public const uint32 DXVA_EXECUTE_RETURN_DATA_ERROR_SIGNIF = 2;
-
 	public const uint32 DXVA_EXECUTE_RETURN_DATA_ERROR_SEVERE = 3;
-
 	public const uint32 DXVA_EXECUTE_RETURN_OTHER_ERROR_SEVERE = 4;
-
 	public const uint32 DXVA_QUERYORREPLYFUNCFLAG_DECODER_PROBE_QUERY = 16777201;
-
 	public const uint32 DXVA_QUERYORREPLYFUNCFLAG_DECODER_LOCK_QUERY = 16777205;
-
 	public const uint32 DXVA_QUERYORREPLYFUNCFLAG_ACCEL_PROBE_OK_COPY = 16777208;
-
 	public const uint32 DXVA_QUERYORREPLYFUNCFLAG_ACCEL_PROBE_OK_PLUS = 16777209;
-
 	public const uint32 DXVA_QUERYORREPLYFUNCFLAG_ACCEL_LOCK_OK_COPY = 16777212;
-
 	public const uint32 DXVA_QUERYORREPLYFUNCFLAG_ACCEL_PROBE_FALSE_PLUS = 16777211;
-
 	public const uint32 DXVA_QUERYORREPLYFUNCFLAG_ACCEL_LOCK_FALSE_PLUS = 16777215;
-
 	public const uint32 DXVA_ENCRYPTPROTOCOLFUNCFLAG_HOST = 16776960;
-
 	public const uint32 DXVA_ENCRYPTPROTOCOLFUNCFLAG_ACCEL = 16776968;
-
 	public const uint32 DXVA_CHROMA_FORMAT_420 = 1;
-
 	public const uint32 DXVA_CHROMA_FORMAT_422 = 2;
-
 	public const uint32 DXVA_CHROMA_FORMAT_444 = 3;
-
 	public const uint32 DXVA_PICTURE_STRUCTURE_TOP_FIELD = 1;
-
 	public const uint32 DXVA_PICTURE_STRUCTURE_BOTTOM_FIELD = 2;
-
 	public const uint32 DXVA_PICTURE_STRUCTURE_FRAME = 3;
-
 	public const uint32 DXVA_BIDIRECTIONAL_AVERAGING_MPEG2_ROUND = 0;
-
 	public const uint32 DXVA_BIDIRECTIONAL_AVERAGING_H263_TRUNC = 1;
-
 	public const uint32 DXVA_MV_PRECISION_AND_CHROMA_RELATION_MPEG2 = 0;
-
 	public const uint32 DXVA_MV_PRECISION_AND_CHROMA_RELATION_H263 = 1;
-
 	public const uint32 DXVA_MV_PRECISION_AND_CHROMA_RELATION_H261 = 2;
-
 	public const uint32 DXVA_SCAN_METHOD_ZIG_ZAG = 0;
-
 	public const uint32 DXVA_SCAN_METHOD_ALTERNATE_VERTICAL = 1;
-
 	public const uint32 DXVA_SCAN_METHOD_ALTERNATE_HORIZONTAL = 2;
-
 	public const uint32 DXVA_SCAN_METHOD_ARBITRARY = 3;
-
 	public const uint32 DXVA_BITSTREAM_CONCEALMENT_NEED_UNLIKELY = 0;
-
 	public const uint32 DXVA_BITSTREAM_CONCEALMENT_NEED_MILD = 1;
-
 	public const uint32 DXVA_BITSTREAM_CONCEALMENT_NEED_LIKELY = 2;
-
 	public const uint32 DXVA_BITSTREAM_CONCEALMENT_NEED_SEVERE = 3;
-
 	public const uint32 DXVA_BITSTREAM_CONCEALMENT_METHOD_UNSPECIFIED = 0;
-
 	public const uint32 DXVA_BITSTREAM_CONCEALMENT_METHOD_INTRA = 1;
-
 	public const uint32 DXVA_BITSTREAM_CONCEALMENT_METHOD_FORWARD = 2;
-
 	public const uint32 DXVA_BITSTREAM_CONCEALMENT_METHOD_BACKWARD = 3;
-
 	public const uint32 DXVA_USUAL_BLOCK_WIDTH = 8;
-
 	public const uint32 DXVA_USUAL_BLOCK_HEIGHT = 8;
-
 	public const uint32 DXVA_NumMV_OBMC_off_BinPBwith4MV_off = 4;
-
 	public const uint32 DXVA_NumMV_OBMC_off_BinPBwith4MV_on = 5;
-
 	public const uint32 DXVA_NumMV_OBMC_on__BinPB_off = 10;
-
 	public const uint32 DXVA_NumMV_OBMC_on__BinPB_on = 11;
-
 	public const uint32 DXVA_CONFIG_DATA_TYPE_IA44 = 0;
-
 	public const uint32 DXVA_CONFIG_DATA_TYPE_AI44 = 1;
-
 	public const uint32 DXVA_CONFIG_DATA_TYPE_DPXD = 2;
-
 	public const uint32 DXVA_CONFIG_DATA_TYPE_AYUV = 3;
-
 	public const uint32 DXVA_CONFIG_BLEND_TYPE_FRONT_BUFFER = 0;
-
 	public const uint32 DXVA_CONFIG_BLEND_TYPE_BACK_HARDWARE = 1;
-
 	public const uint32 DXVA_ExtColorData_ShiftBase = 8;
-
 	public const Guid DXVA_DeinterlaceBobDevice = .(0x335aa36e, 0x7884, 0x43a4, 0x9c, 0x91, 0x7f, 0x87, 0xfa, 0xf3, 0xe3, 0x7e);
-
 	public const Guid DXVA_DeinterlaceContainerDevice = .(0x0e85cb93, 0x3046, 0x4ff0, 0xae, 0xcc, 0xd5, 0x8c, 0xb5, 0xf0, 0x35, 0xfd);
-
 	public const uint32 MAX_DEINTERLACE_SURFACES = 32;
-
 	public const uint32 DXVA_DeinterlaceBltFnCode = 1;
-
 	public const uint32 DXVA_DeinterlaceBltExFnCode = 2;
-
 	public const uint32 MAX_DEINTERLACE_DEVICE_GUIDS = 32;
-
 	public const uint32 DXVA_DeinterlaceQueryAvailableModesFnCode = 1;
-
 	public const uint32 DXVA_DeinterlaceQueryModeCapsFnCode = 2;
-
 	public const Guid DXVA_ProcAmpControlDevice = .(0x9f200913, 0x2ffd, 0x4056, 0x9f, 0x1e, 0xe1, 0xb5, 0x08, 0xf2, 0x2d, 0xcf);
-
 	public const uint32 DXVA_ProcAmpControlQueryCapsFnCode = 3;
-
 	public const uint32 DXVA_ProcAmpControlQueryRangeFnCode = 4;
-
 	public const uint32 DXVA_ProcAmpControlBltFnCode = 1;
-
 	public const Guid DXVA_COPPDevice = .(0xd2457add, 0x8999, 0x45ed, 0x8a, 0x8a, 0xd1, 0xaa, 0x04, 0x7b, 0xa4, 0xd5);
-
 	public const uint32 DXVA_COPPGetCertificateLengthFnCode = 1;
-
 	public const uint32 DXVA_COPPKeyExchangeFnCode = 2;
-
 	public const uint32 DXVA_COPPSequenceStartFnCode = 3;
-
 	public const uint32 DXVA_COPPCommandFnCode = 4;
-
 	public const Guid DXVA_COPPSetProtectionLevel = .(0x9bb9327c, 0x4eb5, 0x4727, 0x9f, 0x00, 0xb4, 0x2b, 0x09, 0x19, 0xc0, 0xda);
-
 	public const int32 COPP_NoProtectionLevelAvailable = -1;
-
 	public const uint32 COPP_DefaultProtectionLevel = 0;
-
 	public const Guid DXVA_COPPSetSignaling = .(0x09a631a5, 0xd684, 0x4c60, 0x8e, 0x4d, 0xd3, 0xbb, 0x0f, 0x0b, 0xe3, 0xee);
-
 	public const uint32 COPP_ImageAspectRatio_EN300294_Mask = 7;
-
 	public const uint32 DXVA_COPPQueryStatusFnCode = 5;
-
 	public const Guid DXVA_COPPQueryConnectorType = .(0x81d0bfd5, 0x6afe, 0x48c2, 0x99, 0xc0, 0x95, 0xa0, 0x8f, 0x97, 0xc5, 0xda);
-
 	public const Guid DXVA_COPPQueryProtectionType = .(0x38f2a801, 0x9a6c, 0x48bb, 0x91, 0x07, 0xb6, 0x69, 0x6e, 0x6f, 0x17, 0x97);
-
 	public const Guid DXVA_COPPQueryLocalProtectionLevel = .(0xb2075857, 0x3eda, 0x4d5d, 0x88, 0xdb, 0x74, 0x8f, 0x8c, 0x1a, 0x05, 0x49);
-
 	public const Guid DXVA_COPPQueryGlobalProtectionLevel = .(0x1957210a, 0x7766, 0x452a, 0xb9, 0x9a, 0xd2, 0x7a, 0xed, 0x54, 0xf0, 0x3a);
-
 	public const Guid DXVA_COPPQueryDisplayData = .(0xd7bf1ba3, 0xad13, 0x4f8e, 0xaf, 0x98, 0x0d, 0xcb, 0x3c, 0xa2, 0x04, 0xcc);
-
 	public const Guid DXVA_COPPQueryHDCPKeyData = .(0x0db59d74, 0xa992, 0x492e, 0xa0, 0xbd, 0xc2, 0x3f, 0xda, 0x56, 0x4e, 0x00);
-
 	public const Guid DXVA_COPPQueryBusData = .(0xc6f4d673, 0x6174, 0x4184, 0x8e, 0x35, 0xf6, 0xdb, 0x52, 0x00, 0xbc, 0xba);
-
 	public const Guid DXVA_COPPQuerySignaling = .(0x6629a591, 0x3b79, 0x4cf3, 0x92, 0x4a, 0x11, 0xe8, 0xe7, 0x81, 0x16, 0x71);
-
 	public const Guid DXVA2Trace_Control = .(0xa0386e75, 0xf70c, 0x464c, 0xa9, 0xce, 0x33, 0xc4, 0x4e, 0x09, 0x16, 0x23);
-
 	public const Guid DXVA2Trace_DecodeDevCreated = .(0xb4de17a1, 0xc5b2, 0x44fe, 0x86, 0xd5, 0xd9, 0x7a, 0x64, 0x81, 0x14, 0xff);
-
 	public const Guid DXVA2Trace_DecodeDevDestroyed = .(0x853ebdf2, 0x4160, 0x421d, 0x88, 0x93, 0x63, 0xdc, 0xea, 0x4f, 0x18, 0xbb);
-
 	public const Guid DXVA2Trace_DecodeDevBeginFrame = .(0x9fd1acf6, 0x44cb, 0x4637, 0xbc, 0x62, 0x2c, 0x11, 0xa9, 0x60, 0x8f, 0x90);
-
 	public const Guid DXVA2Trace_DecodeDevExecute = .(0x850aeb4c, 0xd19a, 0x4609, 0xb3, 0xb4, 0xbc, 0xbf, 0x0e, 0x22, 0x12, 0x1e);
-
 	public const Guid DXVA2Trace_DecodeDevGetBuffer = .(0x57b128fb, 0x72cb, 0x4137, 0xa5, 0x75, 0xd9, 0x1f, 0xa3, 0x16, 0x08, 0x97);
-
 	public const Guid DXVA2Trace_DecodeDevEndFrame = .(0x9fb3cb33, 0x47dc, 0x4899, 0x98, 0xc8, 0xc0, 0xc6, 0xcd, 0x7c, 0xd3, 0xcb);
-
 	public const Guid DXVA2Trace_VideoProcessDevCreated = .(0x895508c6, 0x540d, 0x4c87, 0x98, 0xf8, 0x8d, 0xcb, 0xf2, 0xda, 0xbb, 0x2a);
-
 	public const Guid DXVA2Trace_VideoProcessDevDestroyed = .(0xf97f30b1, 0xfb49, 0x42c7, 0x8e, 0xe8, 0x88, 0xbd, 0xfa, 0x92, 0xd4, 0xe2);
-
 	public const Guid DXVA2Trace_VideoProcessBlt = .(0x69089cc0, 0x71ab, 0x42d0, 0x95, 0x3a, 0x28, 0x87, 0xbf, 0x05, 0xa8, 0xaf);
-
 	public const uint32 DTV_CardStatus_Inserted = 0;
-
 	public const uint32 DTV_CardStatus_Removed = 1;
-
 	public const uint32 DTV_CardStatus_Error = 2;
-
 	public const uint32 DTV_CardStatus_FirmwareDownload = 3;
-
 	public const uint32 OCUR_PAIRING_PROTOCOL_VERSION = 2;
-
 	public const uint32 PBDA_PAIRING_PROTOCOL_VERSION = 3;
-
 	public const uint32 DTV_MMIMessage_Open = 0;
-
 	public const uint32 DTV_MMIMessage_Close = 1;
-
 	public const uint32 DTV_Entitlement_CanDecrypt = 0;
-
 	public const uint32 DTV_Entitlement_NotEntitled = 1;
-
 	public const uint32 DTV_Entitlement_TechnicalFailure = 2;
-
 	public const uint32 AudioType_Standard = 0;
-
 	public const uint32 AudioType_Music_And_Effects = 1;
-
 	public const uint32 AudioType_Visually_Impaired = 2;
-
 	public const uint32 AudioType_Hearing_Impaired = 3;
-
 	public const uint32 AudioType_Dialogue = 4;
-
 	public const uint32 AudioType_Commentary = 5;
-
 	public const uint32 AudioType_Emergency = 6;
-
 	public const uint32 AudioType_Voiceover = 7;
-
 	public const int32 AudioType_Reserved = -1;
-
 	public const uint32 MAX_COUNTRY_CODE_STRING = 3;
-
 	public const uint32 PARENTAL_CONTROL_TIME_RANGE = 1;
-
 	public const uint32 REQUIRED_PARENTAL_CONTROL_TIME_RANGE = 2;
-
 	public const uint32 PARENTAL_CONTROL_CONTENT_RATING = 256;
-
 	public const uint32 PARENTAL_CONTROL_ATTRIB_VIOLENCE = 512;
-
 	public const uint32 PARENTAL_CONTROL_ATTRIB_LANGUAGE = 513;
-
 	public const uint32 PARENTAL_CONTROL_ATTRIB_SEXUAL = 514;
-
 	public const uint32 PARENTAL_CONTROL_ATTRIB_DIALOGUE = 515;
-
 	public const uint32 PARENTAL_CONTROL_ATTRIB_FANTASY = 516;
-
 	public const uint32 PARENTAL_CONTROL_VALUE_UNDEFINED = 0;
-
 	public const uint32 MPEG2_FILTER_VERSION_1_SIZE = 124;
-
 	public const uint32 MPEG2_FILTER_VERSION_2_SIZE = 133;
-
 	public const Guid SID_MSVidCtl_CurrentAudioEndpoint = .(0xcf9a88f4, 0xabcf, 0x4ed8, 0x9b, 0x74, 0x7d, 0xb3, 0x34, 0x45, 0x45, 0x9e);
-
 	public const uint32 STREAMBUFFER_EC_BASE = 806;
-
 	public const Guid EVENTID_SBE2RecControlStarted = .(0x8966a89e, 0xf83e, 0x4c0e, 0xbc, 0x3b, 0xbf, 0xa7, 0x64, 0x9e, 0x04, 0xcb);
-
 	public const Guid EVENTID_SBE2RecControlStopped = .(0x454b1ec8, 0x0c9b, 0x4caa, 0xb1, 0xa1, 0x1e, 0x7a, 0x26, 0x66, 0xf6, 0xc3);
-
 	public const Guid SBE2_STREAM_DESC_EVENT = .(0x2313a4ed, 0xbf2d, 0x454f, 0xad, 0x8a, 0xd9, 0x5b, 0xa7, 0xf9, 0x1f, 0xee);
-
 	public const Guid SBE2_V1_STREAMS_CREATION_EVENT = .(0x000fcf09, 0x97f5, 0x46ac, 0x97, 0x69, 0x7a, 0x83, 0xb3, 0x53, 0x84, 0xfb);
-
 	public const Guid SBE2_V2_STREAMS_CREATION_EVENT = .(0xa72530a3, 0x0344, 0x4cab, 0xa2, 0xd0, 0xfe, 0x93, 0x7d, 0xbd, 0xca, 0xb3);
-
 	public const uint32 SBE2_STREAM_DESC_VERSION = 1;
-
 	public const Guid SID_DRMSecureServiceChannel = .(0xc4c4c4c4, 0x0049, 0x4e2b, 0x98, 0xfb, 0x95, 0x37, 0xf6, 0xce, 0x51, 0x6d);
-
 	public const Guid CLSID_ETFilterEncProperties = .(0xc4c4c481, 0x0049, 0x4e2b, 0x98, 0xfb, 0x95, 0x37, 0xf6, 0xce, 0x51, 0x6d);
-
 	public const Guid CLSID_ETFilterTagProperties = .(0xc4c4c491, 0x0049, 0x4e2b, 0x98, 0xfb, 0x95, 0x37, 0xf6, 0xce, 0x51, 0x6d);
-
 	public const Guid CLSID_PTFilter = .(0x9cd31617, 0xb303, 0x4f96, 0x83, 0x30, 0x2e, 0xb1, 0x73, 0xea, 0x4d, 0xc6);
-
 	public const Guid CLSID_DTFilterEncProperties = .(0xc4c4c482, 0x0049, 0x4e2b, 0x98, 0xfb, 0x95, 0x37, 0xf6, 0xce, 0x51, 0x6d);
-
 	public const Guid CLSID_DTFilterTagProperties = .(0xc4c4c492, 0x0049, 0x4e2b, 0x98, 0xfb, 0x95, 0x37, 0xf6, 0xce, 0x51, 0x6d);
-
 	public const Guid CLSID_XDSCodecProperties = .(0xc4c4c483, 0x0049, 0x4e2b, 0x98, 0xfb, 0x95, 0x37, 0xf6, 0xce, 0x51, 0x6d);
-
 	public const Guid CLSID_XDSCodecTagProperties = .(0xc4c4c493, 0x0049, 0x4e2b, 0x98, 0xfb, 0x95, 0x37, 0xf6, 0xce, 0x51, 0x6d);
-
 	public const Guid CLSID_CPCAFiltersCategory = .(0xc4c4c4fc, 0x0049, 0x4e2b, 0x98, 0xfb, 0x95, 0x37, 0xf6, 0xce, 0x51, 0x6d);
-
 	public const Guid EVENTID_XDSCodecNewXDSRating = .(0xc4c4c4e0, 0x0049, 0x4e2b, 0x98, 0xfb, 0x95, 0x37, 0xf6, 0xce, 0x51, 0x6d);
-
 	public const Guid EVENTID_XDSCodecDuplicateXDSRating = .(0xc4c4c4df, 0x0049, 0x4e2b, 0x98, 0xfb, 0x95, 0x37, 0xf6, 0xce, 0x51, 0x6d);
-
 	public const Guid EVENTID_XDSCodecNewXDSPacket = .(0xc4c4c4e1, 0x0049, 0x4e2b, 0x98, 0xfb, 0x95, 0x37, 0xf6, 0xce, 0x51, 0x6d);
-
 	public const Guid EVENTID_DTFilterRatingChange = .(0xc4c4c4e2, 0x0049, 0x4e2b, 0x98, 0xfb, 0x95, 0x37, 0xf6, 0xce, 0x51, 0x6d);
-
 	public const Guid EVENTID_DTFilterRatingsBlock = .(0xc4c4c4e3, 0x0049, 0x4e2b, 0x98, 0xfb, 0x95, 0x37, 0xf6, 0xce, 0x51, 0x6d);
-
 	public const Guid EVENTID_DTFilterRatingsUnblock = .(0xc4c4c4e4, 0x0049, 0x4e2b, 0x98, 0xfb, 0x95, 0x37, 0xf6, 0xce, 0x51, 0x6d);
-
 	public const Guid EVENTID_DTFilterXDSPacket = .(0xc4c4c4e5, 0x0049, 0x4e2b, 0x98, 0xfb, 0x95, 0x37, 0xf6, 0xce, 0x51, 0x6d);
-
 	public const Guid EVENTID_ETFilterEncryptionOn = .(0xc4c4c4e6, 0x0049, 0x4e2b, 0x98, 0xfb, 0x95, 0x37, 0xf6, 0xce, 0x51, 0x6d);
-
 	public const Guid EVENTID_ETFilterEncryptionOff = .(0xc4c4c4e7, 0x0049, 0x4e2b, 0x98, 0xfb, 0x95, 0x37, 0xf6, 0xce, 0x51, 0x6d);
-
 	public const Guid EVENTID_DTFilterCOPPUnblock = .(0xc4c4c4e8, 0x0049, 0x4e2b, 0x98, 0xfb, 0x95, 0x37, 0xf6, 0xce, 0x51, 0x6d);
-
 	public const Guid EVENTID_EncDecFilterError = .(0xc4c4c4e9, 0x0049, 0x4e2b, 0x98, 0xfb, 0x95, 0x37, 0xf6, 0xce, 0x51, 0x6d);
-
 	public const Guid EVENTID_DTFilterCOPPBlock = .(0xc4c4c4ea, 0x0049, 0x4e2b, 0x98, 0xfb, 0x95, 0x37, 0xf6, 0xce, 0x51, 0x6d);
-
 	public const Guid EVENTID_ETFilterCopyOnce = .(0xc4c4c4eb, 0x0049, 0x4e2b, 0x98, 0xfb, 0x95, 0x37, 0xf6, 0xce, 0x51, 0x6d);
-
 	public const Guid EVENTID_ETFilterCopyNever = .(0xc4c4c4f0, 0x0049, 0x4e2b, 0x98, 0xfb, 0x95, 0x37, 0xf6, 0xce, 0x51, 0x6d);
-
 	public const Guid EVENTID_DTFilterDataFormatOK = .(0xc4c4c4ec, 0x0049, 0x4e2b, 0x98, 0xfb, 0x95, 0x37, 0xf6, 0xce, 0x51, 0x6d);
-
 	public const Guid EVENTID_DTFilterDataFormatFailure = .(0xc4c4c4ed, 0x0049, 0x4e2b, 0x98, 0xfb, 0x95, 0x37, 0xf6, 0xce, 0x51, 0x6d);
-
 	public const Guid EVENTID_ETDTFilterLicenseOK = .(0xc4c4c4ee, 0x0049, 0x4e2b, 0x98, 0xfb, 0x95, 0x37, 0xf6, 0xce, 0x51, 0x6d);
-
 	public const Guid EVENTID_ETDTFilterLicenseFailure = .(0xc4c4c4ef, 0x0049, 0x4e2b, 0x98, 0xfb, 0x95, 0x37, 0xf6, 0xce, 0x51, 0x6d);
-
 	public const Guid MEDIASUBTYPE_ETDTFilter_Tagged = .(0xc4c4c4d0, 0x0049, 0x4e2b, 0x98, 0xfb, 0x95, 0x37, 0xf6, 0xce, 0x51, 0x6d);
-
 	public const Guid FORMATTYPE_ETDTFilter_Tagged = .(0xc4c4c4d1, 0x0049, 0x4e2b, 0x98, 0xfb, 0x95, 0x37, 0xf6, 0xce, 0x51, 0x6d);
-
 	public const Guid MEDIASUBTYPE_CPFilters_Processed = .(0x46adbd28, 0x6fd0, 0x4796, 0x93, 0xb2, 0x15, 0x5c, 0x51, 0xdc, 0x04, 0x8d);
-
 	public const Guid FORMATTYPE_CPFilters_Processed = .(0x6739b36f, 0x1d5f, 0x4ac2, 0x81, 0x92, 0x28, 0xbb, 0x0e, 0x73, 0xd1, 0x6a);
-
 	public const Guid EVENTID_EncDecFilterEvent = .(0x4a1b465b, 0x0fb9, 0x4159, 0xaf, 0xbd, 0xe3, 0x30, 0x06, 0xa0, 0xf9, 0xf4);
-
 	public const Guid EVENTID_FormatNotSupportedEvent = .(0x24b2280a, 0xb2aa, 0x4777, 0xbf, 0x65, 0x63, 0xf3, 0x5e, 0x7b, 0x02, 0x4a);
-
 	public const Guid EVENTID_DemultiplexerFilterDiscontinuity = .(0x16155770, 0xaed5, 0x475c, 0xbb, 0x98, 0x95, 0xa3, 0x30, 0x70, 0xdf, 0x0c);
-
 	public const Guid DSATTRIB_WMDRMProtectionInfo = .(0x40749583, 0x6b9d, 0x4eec, 0xb4, 0x3c, 0x67, 0xa1, 0x80, 0x1e, 0x1a, 0x9b);
-
 	public const Guid DSATTRIB_BadSampleInfo = .(0xe4846dda, 0x5838, 0x42b4, 0xb8, 0x97, 0x6f, 0x7e, 0x5f, 0xaa, 0x2f, 0x2f);
-
 	public const uint32 MPEG_PAT_PID = 0;
-
 	public const uint32 MPEG_PAT_TID = 0;
-
 	public const uint32 MPEG_CAT_PID = 1;
-
 	public const uint32 MPEG_CAT_TID = 1;
-
 	public const uint32 MPEG_PMT_TID = 2;
-
 	public const uint32 MPEG_TSDT_PID = 2;
-
 	public const uint32 MPEG_TSDT_TID = 3;
-
 	public const uint32 ATSC_MGT_PID = 8187;
-
 	public const uint32 ATSC_MGT_TID = 199;
-
 	public const uint32 ATSC_VCT_PID = 8187;
-
 	public const uint32 ATSC_VCT_TERR_TID = 200;
-
 	public const uint32 ATSC_VCT_CABL_TID = 201;
-
 	public const uint32 ATSC_EIT_TID = 203;
-
 	public const uint32 ATSC_ETT_TID = 204;
-
 	public const uint32 ATSC_RRT_TID = 202;
-
 	public const uint32 ATSC_RRT_PID = 8187;
-
 	public const uint32 ATSC_STT_PID = 8187;
-
 	public const uint32 ATSC_STT_TID = 205;
-
 	public const uint32 ATSC_PIT_TID = 208;
-
 	public const uint32 DVB_NIT_PID = 16;
-
 	public const uint32 DVB_NIT_ACTUAL_TID = 64;
-
 	public const uint32 DVB_NIT_OTHER_TID = 65;
-
 	public const uint32 DVB_SDT_PID = 17;
-
 	public const uint32 DVB_SDT_ACTUAL_TID = 66;
-
 	public const uint32 DVB_SDT_OTHER_TID = 70;
-
 	public const uint32 DVB_BAT_PID = 17;
-
 	public const uint32 DVB_BAT_TID = 74;
-
 	public const uint32 DVB_EIT_PID = 18;
-
 	public const uint32 DVB_EIT_ACTUAL_TID = 78;
-
 	public const uint32 DVB_EIT_OTHER_TID = 79;
-
 	public const uint32 DVB_RST_PID = 19;
-
 	public const uint32 DVB_RST_TID = 113;
-
 	public const uint32 DVB_TDT_PID = 20;
-
 	public const uint32 DVB_TDT_TID = 112;
-
 	public const uint32 DVB_ST_PID_16 = 16;
-
 	public const uint32 DVB_ST_PID_17 = 17;
-
 	public const uint32 DVB_ST_PID_18 = 18;
-
 	public const uint32 DVB_ST_PID_19 = 19;
-
 	public const uint32 DVB_ST_PID_20 = 20;
-
 	public const uint32 DVB_ST_TID = 114;
-
 	public const uint32 ISDB_ST_TID = 114;
-
 	public const uint32 DVB_TOT_PID = 20;
-
 	public const uint32 DVB_TOT_TID = 115;
-
 	public const uint32 DVB_DIT_PID = 30;
-
 	public const uint32 DVB_DIT_TID = 126;
-
 	public const uint32 DVB_SIT_PID = 31;
-
 	public const uint32 DVB_SIT_TID = 127;
-
 	public const uint32 ISDB_EMM_TID = 133;
-
 	public const uint32 ISDB_BIT_PID = 36;
-
 	public const uint32 ISDB_BIT_TID = 196;
-
 	public const uint32 ISDB_NBIT_PID = 37;
-
 	public const uint32 ISDB_NBIT_MSG_TID = 197;
-
 	public const uint32 ISDB_NBIT_REF_TID = 198;
-
 	public const uint32 ISDB_LDT_PID = 37;
-
 	public const uint32 ISDB_LDT_TID = 199;
-
 	public const uint32 ISDB_SDTT_PID = 35;
-
 	public const uint32 ISDB_SDTT_ALT_PID = 40;
-
 	public const uint32 ISDB_SDTT_TID = 195;
-
 	public const uint32 ISDB_CDT_PID = 41;
-
 	public const uint32 ISDB_CDT_TID = 200;
-
 	public const uint32 SCTE_EAS_TID = 216;
-
 	public const uint32 SCTE_EAS_IB_PID = 8187;
-
 	public const uint32 SCTE_EAS_OOB_PID = 8188;
-
 	public const Guid CLSID_Mpeg2TableFilter = .(0x752845f1, 0x758f, 0x4c83, 0xa0, 0x43, 0x42, 0x70, 0xc5, 0x93, 0x30, 0x8e);
-
 	public const uint32 ATSC_ETM_LOCATION_NOT_PRESENT = 0;
-
 	public const uint32 ATSC_ETM_LOCATION_IN_PTC_FOR_PSIP = 1;
-
 	public const uint32 ATSC_ETM_LOCATION_IN_PTC_FOR_EVENT = 2;
-
 	public const uint32 ATSC_ETM_LOCATION_RESERVED = 3;
-
 	public const uint32 SAMPLE_SEQ_SEQUENCE_HEADER = 1;
-
 	public const uint32 SAMPLE_SEQ_GOP_HEADER = 2;
-
 	public const uint32 SAMPLE_SEQ_PICTURE_HEADER = 3;
-
 	public const uint32 SAMPLE_SEQ_SEQUENCE_START = 1;
-
 	public const uint32 SAMPLE_SEQ_SEEK_POINT = 2;
-
 	public const uint32 SAMPLE_SEQ_FRAME_START = 3;
-
 	public const uint32 SAMPLE_SEQ_CONTENT_UNKNOWN = 0;
-
 	public const uint32 SAMPLE_SEQ_CONTENT_I_FRAME = 1;
-
 	public const uint32 SAMPLE_SEQ_CONTENT_P_FRAME = 2;
-
 	public const uint32 SAMPLE_SEQ_CONTENT_B_FRAME = 3;
-
 	public const uint32 SAMPLE_SEQ_CONTENT_STANDALONE_FRAME = 1;
-
 	public const uint32 SAMPLE_SEQ_CONTENT_REF_FRAME = 2;
-
 	public const uint32 SAMPLE_SEQ_CONTENT_NONREF_FRAME = 3;
-
 	public const uint32 COMPONENT_TAG_CAPTION_MIN = 48;
-
 	public const uint32 COMPONENT_TAG_CAPTION_MAX = 55;
-
 	public const uint32 COMPONENT_TAG_SUPERIMPOSE_MIN = 56;
-
 	public const uint32 COMPONENT_TAG_SUPERIMPOSE_MAX = 63;
-
 	public const uint32 DVBS_SCAN_TABLE_MAX_SIZE = 400;
-
 	public const String g_wszExcludeScriptStreamDeliverySynchronization = "ExcludeScriptStreamDeliverySynchronization";
-
 	public const uint32 MPEG2_BASE = 512;
-
 	public const HRESULT MPEG2_S_MORE_DATA_AVAILABLE = 262656;
-
 	public const HRESULT MPEG2_S_NO_MORE_DATA_AVAILABLE = 262657;
-
 	public const HRESULT MPEG2_S_SG_INFO_FOUND = 262658;
-
 	public const HRESULT MPEG2_S_SG_INFO_NOT_FOUND = 262659;
-
 	public const HRESULT MPEG2_S_MPE_INFO_FOUND = 262660;
-
 	public const HRESULT MPEG2_S_MPE_INFO_NOT_FOUND = 262661;
-
 	public const HRESULT MPEG2_S_NEW_MODULE_VERSION = 262662;
-
 	public const HRESULT MPEG2_E_UNINITIALIZED = -2147220992;
-
 	public const HRESULT MPEG2_E_ALREADY_INITIALIZED = -2147220991;
-
 	public const HRESULT MPEG2_E_OUT_OF_BOUNDS = -2147220990;
-
 	public const HRESULT MPEG2_E_MALFORMED_TABLE = -2147220989;
-
 	public const HRESULT MPEG2_E_UNDEFINED = -2147220988;
-
 	public const HRESULT MPEG2_E_NOT_PRESENT = -2147220987;
-
 	public const HRESULT MPEG2_E_SECTION_NOT_FOUND = -2147220986;
-
 	public const HRESULT MPEG2_E_TX_STREAM_UNAVAILABLE = -2147220985;
-
 	public const HRESULT MPEG2_E_SERVICE_ID_NOT_FOUND = -2147220984;
-
 	public const HRESULT MPEG2_E_SERVICE_PMT_NOT_FOUND = -2147220983;
-
 	public const HRESULT MPEG2_E_DSI_NOT_FOUND = -2147220982;
-
 	public const HRESULT MPEG2_E_SERVER_UNAVAILABLE = -2147220981;
-
 	public const HRESULT MPEG2_E_INVALID_CAROUSEL_ID = -2147220980;
-
 	public const HRESULT MPEG2_E_MALFORMED_DSMCC_MESSAGE = -2147220979;
-
 	public const HRESULT MPEG2_E_INVALID_SG_OBJECT_KIND = -2147220978;
-
 	public const HRESULT MPEG2_E_OBJECT_NOT_FOUND = -2147220977;
-
 	public const HRESULT MPEG2_E_OBJECT_KIND_NOT_A_DIRECTORY = -2147220976;
-
 	public const HRESULT MPEG2_E_OBJECT_KIND_NOT_A_FILE = -2147220975;
-
 	public const HRESULT MPEG2_E_FILE_OFFSET_TOO_BIG = -2147220974;
-
 	public const HRESULT MPEG2_E_STREAM_STOPPED = -2147220973;
-
 	public const HRESULT MPEG2_E_REGISTRY_ACCESS_FAILED = -2147220972;
-
 	public const HRESULT MPEG2_E_INVALID_UDP_PORT = -2147220971;
-
 	public const HRESULT MPEG2_E_DATA_SOURCE_FAILED = -2147220970;
-
 	public const HRESULT MPEG2_E_DII_NOT_FOUND = -2147220969;
-
 	public const HRESULT MPEG2_E_DSHOW_PIN_NOT_FOUND = -2147220968;
-
 	public const HRESULT MPEG2_E_BUFFER_TOO_SMALL = -2147220967;
-
 	public const HRESULT MPEG2_E_MISSING_SECTIONS = -2147220966;
-
 	public const HRESULT MPEG2_E_TOO_MANY_SECTIONS = -2147220965;
-
 	public const HRESULT MPEG2_E_NEXT_TABLE_OPS_NOT_AVAILABLE = -2147220964;
-
 	public const HRESULT MPEG2_E_INCORRECT_DESCRIPTOR_TAG = -2147220963;
-
 	public const HRESULT MSDRI_S_MMI_PENDING = 2;
-
 	public const HRESULT MSDRI_S_PENDING = 1;
-
 	public const HRESULT BDA_E_FAILURE = -1073479679;
-
 	public const HRESULT BDA_E_NOT_IMPLEMENTED = -1073479678;
-
 	public const HRESULT BDA_E_NO_SUCH_COMMAND = -1073479677;
-
 	public const HRESULT BDA_E_OUT_OF_BOUNDS = -1073479676;
-
 	public const HRESULT BDA_E_INVALID_SCHEMA = -1073479675;
-
 	public const HRESULT BDA_E_INVALID_HANDLE = -1073479674;
-
 	public const HRESULT BDA_E_INVALID_TYPE = -1073479673;
-
 	public const HRESULT BDA_E_READ_ONLY = -1073479672;
-
 	public const HRESULT BDA_E_ACCESS_DENIED = -1073479671;
-
 	public const HRESULT BDA_E_NOT_FOUND = -1073479670;
-
 	public const HRESULT BDA_E_BUFFER_TOO_SMALL = -1073479669;
-
 	public const HRESULT BDA_E_OUT_OF_RESOURCES = -1073479668;
-
 	public const HRESULT BDA_E_OUT_OF_MEMORY = -1073479667;
-
 	public const HRESULT BDA_E_DISABLED = -1073479666;
-
 	public const HRESULT BDA_E_NO_HANDLER = -1073479665;
-
 	public const HRESULT BDA_E_INVALID_LANGUAGE = -1073479664;
-
 	public const HRESULT BDA_E_TIMEOUT_ELAPSED = -1073479663;
-
 	public const HRESULT BDA_E_NO_MORE_EVENTS = -1073475583;
-
 	public const HRESULT BDA_E_NO_MORE_DATA = -1073475582;
-
 	public const HRESULT BDA_E_TUNER_INITIALIZING = -1073467391;
-
 	public const HRESULT BDA_E_TUNER_REQUIRED = -1073467390;
-
 	public const HRESULT BDA_E_TUNER_CONFLICT = -1073467389;
-
 	public const HRESULT BDA_E_INVALID_TUNE_REQUEST = -1073467388;
-
 	public const HRESULT BDA_E_INVALID_ENTITLEMENT_TOKEN = -1073463295;
-
 	public const HRESULT BDA_E_INVALID_CAPTURE_TOKEN = -1073463294;
-
 	public const HRESULT BDA_E_WOULD_DISRUPT_STREAMING = -1073463293;
-
 	public const HRESULT BDA_E_INVALID_PURCHASE_TOKEN = -1073463292;
-
 	public const HRESULT BDA_E_IPNETWORK_ERROR = -1073459199;
-
 	public const HRESULT BDA_E_IPNETWORK_ADDRESS_NOT_FOUND = -1073459198;
-
 	public const HRESULT BDA_E_IPNETWORK_TIMEOUT = -1073459197;
-
 	public const HRESULT BDA_E_IPNETWORK_UNAVAILABLE = -1073459196;
-
 	public const HRESULT BDA_E_TUNE_FAILED_SDV01 = -1073455103;
-
 	public const HRESULT BDA_E_TUNE_FAILED_SDV02 = -1073455102;
-
 	public const HRESULT BDA_E_TUNE_FAILED_SDV03 = -1073455101;
-
 	public const HRESULT BDA_E_TUNE_FAILED_SDV04 = -1073455100;
-
 	public const HRESULT BDA_E_TUNE_FAILED_SDV05 = -1073455099;
-
 	public const HRESULT BDA_E_TUNE_FAILED_SDV06 = -1073455098;
-
 	public const HRESULT BDA_E_TUNE_FAILED_SDV07 = -1073455097;
-
 	public const HRESULT BDA_E_TUNE_FAILED_SDV08 = -1073455096;
-
 	public const HRESULT BDA_E_TUNE_FAILED_SDVFF = -1073454849;
-
 	public const HRESULT BDA_E_WMDRM_INVALID_SIGNATURE = -1073418239;
-
 	public const HRESULT BDA_E_WMDRM_INVALID_CERTIFICATE = -1073418238;
-
 	public const HRESULT BDA_E_WMDRM_INVALID_VERSION = -1073418236;
-
 	public const HRESULT BDA_E_WMDRM_INVALID_DATE = -1073418235;
-
 	public const HRESULT BDA_E_WMDRM_INVALID_PROXIMITY = -1073418234;
-
 	public const HRESULT BDA_E_WMDRM_KEY_ID_NOT_FOUND = -1073418232;
-
 	public const Guid SPECIFYPAGES_STATISTICS = .(0x4c437b92, 0x6e9e, 0x11d1, 0xa7, 0x04, 0x00, 0x60, 0x97, 0xc4, 0xe4, 0x76);
-
 	public const String g_wszStreamBufferRecordingDuration = "Duration";
-
 	public const String g_wszStreamBufferRecordingBitrate = "Bitrate";
-
 	public const String g_wszStreamBufferRecordingSeekable = "Seekable";
-
 	public const String g_wszStreamBufferRecordingStridable = "Stridable";
-
 	public const String g_wszStreamBufferRecordingBroadcast = "Broadcast";
-
 	public const String g_wszStreamBufferRecordingProtected = "Is_Protected";
-
 	public const String g_wszStreamBufferRecordingTrusted = "Is_Trusted";
-
 	public const String g_wszStreamBufferRecordingSignature_Name = "Signature_Name";
-
 	public const String g_wszStreamBufferRecordingHasAudio = "HasAudio";
-
 	public const String g_wszStreamBufferRecordingHasImage = "HasImage";
-
 	public const String g_wszStreamBufferRecordingHasScript = "HasScript";
-
 	public const String g_wszStreamBufferRecordingHasVideo = "HasVideo";
-
 	public const String g_wszStreamBufferRecordingCurrentBitrate = "CurrentBitrate";
-
 	public const String g_wszStreamBufferRecordingOptimalBitrate = "OptimalBitrate";
-
 	public const String g_wszStreamBufferRecordingHasAttachedImages = "HasAttachedImages";
-
 	public const String g_wszStreamBufferRecordingSkipBackward = "Can_Skip_Backward";
-
 	public const String g_wszStreamBufferRecordingSkipForward = "Can_Skip_Forward";
-
 	public const String g_wszStreamBufferRecordingNumberOfFrames = "NumberOfFrames";
-
 	public const String g_wszStreamBufferRecordingFileSize = "FileSize";
-
 	public const String g_wszStreamBufferRecordingHasArbitraryDataStream = "HasArbitraryDataStream";
-
 	public const String g_wszStreamBufferRecordingHasFileTransferStream = "HasFileTransferStream";
-
 	public const String g_wszStreamBufferRecordingTitle = "Title";
-
 	public const String g_wszStreamBufferRecordingAuthor = "Author";
-
 	public const String g_wszStreamBufferRecordingDescription = "Description";
-
 	public const String g_wszStreamBufferRecordingRating = "Rating";
-
 	public const String g_wszStreamBufferRecordingCopyright = "Copyright";
-
 	public const String g_wszStreamBufferRecordingUse_DRM = "Use_DRM";
-
 	public const String g_wszStreamBufferRecordingDRM_Flags = "DRM_Flags";
-
 	public const String g_wszStreamBufferRecordingDRM_Level = "DRM_Level";
-
 	public const String g_wszStreamBufferRecordingAlbumTitle = "WM/AlbumTitle";
-
 	public const String g_wszStreamBufferRecordingTrack = "WM/Track";
-
 	public const String g_wszStreamBufferRecordingPromotionURL = "WM/PromotionURL";
-
 	public const String g_wszStreamBufferRecordingAlbumCoverURL = "WM/AlbumCoverURL";
-
 	public const String g_wszStreamBufferRecordingGenre = "WM/Genre";
-
 	public const String g_wszStreamBufferRecordingYear = "WM/Year";
-
 	public const String g_wszStreamBufferRecordingGenreID = "WM/GenreID";
-
 	public const String g_wszStreamBufferRecordingMCDI = "WM/MCDI";
-
 	public const String g_wszStreamBufferRecordingComposer = "WM/Composer";
-
 	public const String g_wszStreamBufferRecordingLyrics = "WM/Lyrics";
-
 	public const String g_wszStreamBufferRecordingTrackNumber = "WM/TrackNumber";
-
 	public const String g_wszStreamBufferRecordingToolName = "WM/ToolName";
-
 	public const String g_wszStreamBufferRecordingToolVersion = "WM/ToolVersion";
-
 	public const String g_wszStreamBufferRecordingIsVBR = "IsVBR";
-
 	public const String g_wszStreamBufferRecordingAlbumArtist = "WM/AlbumArtist";
-
 	public const String g_wszStreamBufferRecordingBannerImageType = "BannerImageType";
-
 	public const String g_wszStreamBufferRecordingBannerImageData = "BannerImageData";
-
 	public const String g_wszStreamBufferRecordingBannerImageURL = "BannerImageURL";
-
 	public const String g_wszStreamBufferRecordingCopyrightURL = "CopyrightURL";
-
 	public const String g_wszStreamBufferRecordingAspectRatioX = "AspectRatioX";
-
 	public const String g_wszStreamBufferRecordingAspectRatioY = "AspectRatioY";
-
 	public const String g_wszStreamBufferRecordingNSCName = "NSC_Name";
-
 	public const String g_wszStreamBufferRecordingNSCAddress = "NSC_Address";
-
 	public const String g_wszStreamBufferRecordingNSCPhone = "NSC_Phone";
-
 	public const String g_wszStreamBufferRecordingNSCEmail = "NSC_Email";
-
 	public const String g_wszStreamBufferRecordingNSCDescription = "NSC_Description";
-
 	public const int32 STREAMBUFFER_EC_TIMEHOLE = 806;
-
 	public const int32 STREAMBUFFER_EC_STALE_DATA_READ = 807;
-
 	public const int32 STREAMBUFFER_EC_STALE_FILE_DELETED = 808;
-
 	public const int32 STREAMBUFFER_EC_CONTENT_BECOMING_STALE = 809;
-
 	public const int32 STREAMBUFFER_EC_WRITE_FAILURE = 810;
-
 	public const int32 STREAMBUFFER_EC_WRITE_FAILURE_CLEAR = 811;
-
 	public const int32 STREAMBUFFER_EC_READ_FAILURE = 812;
-
 	public const int32 STREAMBUFFER_EC_RATE_CHANGED = 813;
-
 	public const int32 STREAMBUFFER_EC_PRIMARY_AUDIO = 814;
-
 	public const int32 STREAMBUFFER_EC_RATE_CHANGING_FOR_SETPOSITIONS = 815;
-
 	public const int32 STREAMBUFFER_EC_SETPOSITIONS_EVENTS_DONE = 816;
-
 }
 #endregion
 
@@ -6142,18 +5134,15 @@ public struct REGFILTER2
 			public uint32 cPins;
 			public REGFILTERPINS* rgPins;
 		}
-
 		[CRepr]
 		public struct _Anonymous2_e__Struct
 		{
 			public uint32 cPins2;
 			public REGFILTERPINS2* rgPins2;
 		}
-
 		public _Anonymous1_e__Struct Anonymous1;
 		public _Anonymous2_e__Struct Anonymous2;
 	}
-
 	public uint32 dwVersion;
 	public uint32 dwMerit;
 	public using _Anonymous_e__Union Anonymous;
@@ -6519,7 +5508,6 @@ public struct DVD_TitleAttributes
 		public DVD_TITLE_APPMODE AppMode;
 		public DVD_HMSF_TIMECODE TitleLength;
 	}
-
 	public using _Anonymous_e__Union Anonymous;
 	public DVD_VideoAttributes VideoAttributes;
 	public uint32 ulNumberOfAudioStreams;
@@ -6603,10 +5591,11 @@ public struct BDA_ETHERNET_ADDRESS
 	public uint8[6] rgbAddress;
 }
 
-[CRepr, FlexibleArray("rgAddressl")]
+[CRepr]
 public struct BDA_ETHERNET_ADDRESS_LIST
 {
 	public uint32 ulcAddresses;
+	public BDA_ETHERNET_ADDRESS* rgAddressl mut => &rgAddressl_impl;
 	private BDA_ETHERNET_ADDRESS[ANYSIZE_ARRAY] rgAddressl_impl;
 }
 
@@ -6616,10 +5605,11 @@ public struct BDA_IPv4_ADDRESS
 	public uint8[4] rgbAddress;
 }
 
-[CRepr, FlexibleArray("rgAddressl")]
+[CRepr]
 public struct BDA_IPv4_ADDRESS_LIST
 {
 	public uint32 ulcAddresses;
+	public BDA_IPv4_ADDRESS* rgAddressl mut => &rgAddressl_impl;
 	private BDA_IPv4_ADDRESS[ANYSIZE_ARRAY] rgAddressl_impl;
 }
 
@@ -6629,10 +5619,11 @@ public struct BDA_IPv6_ADDRESS
 	public uint8[6] rgbAddress;
 }
 
-[CRepr, FlexibleArray("rgAddressl")]
+[CRepr]
 public struct BDA_IPv6_ADDRESS_LIST
 {
 	public uint32 ulcAddresses;
+	public BDA_IPv6_ADDRESS* rgAddressl mut => &rgAddressl_impl;
 	private BDA_IPv6_ADDRESS[ANYSIZE_ARRAY] rgAddressl_impl;
 }
 
@@ -6644,12 +5635,13 @@ public struct BDANODE_DESCRIPTOR
 	public Guid guidName;
 }
 
-[CRepr, FlexibleArray("argbSectionData")]
+[CRepr]
 public struct BDA_TABLE_SECTION
 {
 	public uint32 ulPrimarySectionId;
 	public uint32 ulSecondarySectionId;
 	public uint32 ulcbSectionLength;
+	public uint32* argbSectionData mut => &argbSectionData_impl;
 	private uint32[ANYSIZE_ARRAY] argbSectionData_impl;
 }
 
@@ -6676,43 +5668,48 @@ public struct PID_MAP
 	public MEDIA_SAMPLE_CONTENT MediaSampleContent;
 }
 
-[CRepr, FlexibleArray("aulPIDs")]
+[CRepr]
 public struct BDA_PID_MAP
 {
 	public MEDIA_SAMPLE_CONTENT MediaSampleContent;
 	public uint32 ulcPIDs;
+	public uint32* aulPIDs mut => &aulPIDs_impl;
 	private uint32[ANYSIZE_ARRAY] aulPIDs_impl;
 }
 
-[CRepr, FlexibleArray("aulPIDs")]
+[CRepr]
 public struct BDA_PID_UNMAP
 {
 	public uint32 ulcPIDs;
+	public uint32* aulPIDs mut => &aulPIDs_impl;
 	private uint32[ANYSIZE_ARRAY] aulPIDs_impl;
 }
 
-[CRepr, FlexibleArray("ulDesc")]
+[CRepr]
 public struct BDA_CA_MODULE_UI
 {
 	public uint32 ulFormat;
 	public uint32 ulbcDesc;
+	public uint32* ulDesc mut => &ulDesc_impl;
 	private uint32[ANYSIZE_ARRAY] ulDesc_impl;
 }
 
-[CRepr, FlexibleArray("ulPID")]
+[CRepr]
 public struct BDA_PROGRAM_PID_LIST
 {
 	public uint32 ulProgramNumber;
 	public uint32 ulcPIDs;
+	public uint32* ulPID mut => &ulPID_impl;
 	private uint32[ANYSIZE_ARRAY] ulPID_impl;
 }
 
-[CRepr, FlexibleArray("argbDrmUuidListString")]
+[CRepr]
 public struct BDA_DRM_DRMSTATUS
 {
 	public int32 lResult;
 	public Guid DRMuuid;
 	public uint32 ulDrmUuidListStringSize;
+	public Guid* argbDrmUuidListString mut => &argbDrmUuidListString_impl;
 	private Guid[ANYSIZE_ARRAY] argbDrmUuidListString_impl;
 }
 
@@ -6731,28 +5728,31 @@ public struct BDA_WMDRM_STATUS
 	public uint32 ulState;
 }
 
-[CRepr, FlexibleArray("argKeyuuidBuffer")]
+[CRepr]
 public struct BDA_WMDRM_KEYINFOLIST
 {
 	public int32 lResult;
 	public uint32 ulKeyuuidBufferLen;
+	public Guid* argKeyuuidBuffer mut => &argKeyuuidBuffer_impl;
 	private Guid[ANYSIZE_ARRAY] argKeyuuidBuffer_impl;
 }
 
-[CRepr, FlexibleArray("argbBuffer")]
+[CRepr]
 public struct BDA_BUFFER
 {
 	public int32 lResult;
 	public uint32 ulBufferSize;
+	public uint8* argbBuffer mut => &argbBuffer_impl;
 	private uint8[ANYSIZE_ARRAY] argbBuffer_impl;
 }
 
-[CRepr, FlexibleArray("argbXmrLicenceOutputBuffer")]
+[CRepr]
 public struct BDA_WMDRM_RENEWLICENSE
 {
 	public int32 lResult;
 	public uint32 ulDescrambleStatus;
 	public uint32 ulXmrLicenseOutputLength;
+	public uint8* argbXmrLicenceOutputBuffer mut => &argbXmrLicenceOutputBuffer_impl;
 	private uint8[ANYSIZE_ARRAY] argbXmrLicenceOutputBuffer_impl;
 }
 
@@ -6763,20 +5763,22 @@ public struct BDA_WMDRMTUNER_PIDPROTECTION
 	public Guid uuidKeyID;
 }
 
-[CRepr, FlexibleArray("argbCaptureTokenBuffer")]
+[CRepr]
 public struct BDA_WMDRMTUNER_PURCHASEENTITLEMENT
 {
 	public int32 lResult;
 	public uint32 ulDescrambleStatus;
 	public uint32 ulCaptureTokenLength;
+	public uint8* argbCaptureTokenBuffer mut => &argbCaptureTokenBuffer_impl;
 	private uint8[ANYSIZE_ARRAY] argbCaptureTokenBuffer_impl;
 }
 
-[CRepr, FlexibleArray("argbTuneData")]
+[CRepr]
 public struct BDA_TUNER_TUNERSTATE
 {
 	public int32 lResult;
 	public uint32 ulTuneLength;
+	public uint8* argbTuneData mut => &argbTuneData_impl;
 	private uint8[ANYSIZE_ARRAY] argbTuneData_impl;
 }
 
@@ -6789,11 +5791,12 @@ public struct BDA_TUNER_DIAGNOSTICS
 	public uint32 ulSignalNoiseRatio;
 }
 
-[CRepr, FlexibleArray("argbString")]
+[CRepr]
 public struct BDA_STRING
 {
 	public int32 lResult;
 	public uint32 ulStringSize;
+	public uint8* argbString mut => &argbString_impl;
 	private uint8[ANYSIZE_ARRAY] argbString_impl;
 }
 
@@ -6828,12 +5831,13 @@ public struct BDA_GDDS_DATATYPE
 	public Guid uuidDataType;
 }
 
-[CRepr, FlexibleArray("argbData")]
+[CRepr]
 public struct BDA_GDDS_DATA
 {
 	public int32 lResult;
 	public uint32 ulDataLength;
 	public uint32 ulPercentageProgress;
+	public uint8* argbData mut => &argbData_impl;
 	private uint8[ANYSIZE_ARRAY] argbData_impl;
 }
 
@@ -6867,13 +5871,14 @@ public struct BDA_CAS_REQUESTTUNERDATA
 	public uint32 ulEstimatedTime;
 }
 
-[CRepr, FlexibleArray("argbDialogData")]
+[CRepr]
 public struct BDA_CAS_OPENMMIDATA
 {
 	public uint32 ulDialogNumber;
 	public uint32 ulDialogRequest;
 	public Guid uuidDialogType;
 	public uint16 usDialogDataLength;
+	public uint8* argbDialogData mut => &argbDialogData_impl;
 	private uint8[ANYSIZE_ARRAY] argbDialogData_impl;
 }
 
@@ -6883,26 +5888,28 @@ public struct BDA_CAS_CLOSEMMIDATA
 	public uint32 ulDialogNumber;
 }
 
-[CRepr, Packed(1), FlexibleArray("argbIsdbCommand")]
+[CRepr, Packed(1)]
 public struct BDA_ISDBCAS_REQUESTHEADER
 {
 	public uint8 bInstruction;
 	public uint8[3] bReserved;
 	public uint32 ulDataLength;
+	public uint8* argbIsdbCommand mut => &argbIsdbCommand_impl;
 	private uint8[ANYSIZE_ARRAY] argbIsdbCommand_impl;
 }
 
-[CRepr, Packed(1), FlexibleArray("argbIsdbCommandData")]
+[CRepr, Packed(1)]
 public struct BDA_ISDBCAS_RESPONSEDATA
 {
 	public int32 lResult;
 	public uint32 ulRequestID;
 	public uint32 ulIsdbStatus;
 	public uint32 ulIsdbDataSize;
+	public uint8* argbIsdbCommandData mut => &argbIsdbCommandData_impl;
 	private uint8[ANYSIZE_ARRAY] argbIsdbCommandData_impl;
 }
 
-[CRepr, FlexibleArray("bMessageCode")]
+[CRepr]
 public struct BDA_ISDBCAS_EMG_REQ
 {
 	public uint8 bCLA;
@@ -6914,6 +5921,7 @@ public struct BDA_ISDBCAS_EMG_REQ
 	public uint8 bProtocol;
 	public uint8 bCABroadcasterGroupId;
 	public uint8 bMessageControl;
+	public uint8* bMessageCode mut => &bMessageCode_impl;
 	private uint8[ANYSIZE_ARRAY] bMessageCode_impl;
 }
 
@@ -6925,13 +5933,14 @@ public struct BDA_MUX_PIDLISTITEM
 	public MUX_PID_TYPE ePIDType;
 }
 
-[CRepr, Packed(1), FlexibleArray("usTSID")]
+[CRepr, Packed(1)]
 public struct BDA_TS_SELECTORINFO
 {
 	public uint8 bTSInfolength;
 	public uint8[2] bReserved;
 	public Guid guidNetworkType;
 	public uint8 bTSIDCount;
+	public uint16* usTSID mut => &usTSID_impl;
 	private uint16[ANYSIZE_ARRAY] usTSID_impl;
 }
 
@@ -6941,7 +5950,7 @@ public struct BDA_TS_SELECTORINFO_ISDBS_EXT
 	public uint8[48] bTMCC;
 }
 
-[CRepr, FlexibleArray("L1PostData")]
+[CRepr]
 public struct BDA_DVBT2_L1_SIGNALLING_DATA
 {
 	public uint8 L1Pre_TYPE;
@@ -6957,13 +5966,15 @@ public struct BDA_DVBT2_L1_SIGNALLING_DATA
 	public uint8[2] L1Pre_NUM_DATA_REGENFLAG_L1POSTEXT;
 	public uint8[2] L1Pre_NUMRF_CURRENTRF_RESERVED;
 	public uint8[4] L1Pre_CRC32;
+	public uint8* L1PostData mut => &L1PostData_impl;
 	private uint8[ANYSIZE_ARRAY] L1PostData_impl;
 }
 
-[CRepr, FlexibleArray("argbNewPin")]
+[CRepr]
 public struct BDA_RATING_PINRESET
 {
 	public uint8 bPinLength;
+	public uint8* argbNewPin mut => &argbNewPin_impl;
 	private uint8[ANYSIZE_ARRAY] argbNewPin_impl;
 }
 
@@ -7096,7 +6107,6 @@ public struct VIDEOINFO
 		public uint32[3] dwBitMasks;
 		public TRUECOLORINFO TrueColorInfo;
 	}
-
 	public RECT rcSource;
 	public RECT rcTarget;
 	public uint32 dwBitRate;
@@ -7106,12 +6116,13 @@ public struct VIDEOINFO
 	public using _Anonymous_e__Union Anonymous;
 }
 
-[CRepr, FlexibleArray("bSequenceHeader")]
+[CRepr]
 public struct MPEG1VIDEOINFO
 {
 	public VIDEOINFOHEADER hdr;
 	public uint32 dwStartTimeCode;
 	public uint32 cbSequenceHeader;
+	public uint8* bSequenceHeader mut => &bSequenceHeader_impl;
 	private uint8[ANYSIZE_ARRAY] bSequenceHeader_impl;
 }
 
@@ -7131,20 +6142,22 @@ public struct AM_FRAMESTEP_STEP
 	public uint32 dwFramesToStep;
 }
 
-[CRepr, FlexibleArray("bFormat")]
+[CRepr]
 public struct AM_MPEGSTREAMTYPE
 {
 	public uint32 dwStreamId;
 	public uint32 dwReserved;
 	public AM_MEDIA_TYPE mt;
+	public uint8* bFormat mut => &bFormat_impl;
 	private uint8[ANYSIZE_ARRAY] bFormat_impl;
 }
 
-[CRepr, FlexibleArray("Streams")]
+[CRepr]
 public struct AM_MPEGSYSTEMTYPE
 {
 	public uint32 dwBitRate;
 	public uint32 cStreams;
+	public AM_MPEGSTREAMTYPE* Streams mut => &Streams_impl;
 	private AM_MPEGSTREAMTYPE[ANYSIZE_ARRAY] Streams_impl;
 }
 
@@ -7331,7 +6344,6 @@ public struct AVISTREAMHEADER
 		public int16 right;
 		public int16 bottom;
 	}
-
 	public uint32 fcc;
 	public uint32 cb;
 	public uint32 fccType;
@@ -7350,7 +6362,7 @@ public struct AVISTREAMHEADER
 	public _rcFrame_e__Struct rcFrame;
 }
 
-[CRepr, Packed(2), FlexibleArray("aIndex")]
+[CRepr, Packed(2)]
 public struct AVIOLDINDEX
 {
 	[CRepr, Packed(2)]
@@ -7361,9 +6373,9 @@ public struct AVIOLDINDEX
 		public uint32 dwOffset;
 		public uint32 dwSize;
 	}
-
 	public uint32 fcc;
 	public uint32 cb;
+	public _avioldindex_entry* aIndex mut => &aIndex_impl;
 	private _avioldindex_entry[ANYSIZE_ARRAY] aIndex_impl;
 }
 
@@ -7375,7 +6387,7 @@ public struct TIMECODEDATA
 	public uint32 dwUser;
 }
 
-[CRepr, Packed(2), FlexibleArray("adwIndex")]
+[CRepr, Packed(2)]
 public struct AVIMETAINDEX
 {
 	public uint32 fcc;
@@ -7386,6 +6398,7 @@ public struct AVIMETAINDEX
 	public uint32 nEntriesInUse;
 	public uint32 dwChunkId;
 	public uint32[3] dwReserved;
+	public uint32* adwIndex mut => &adwIndex_impl;
 	private uint32[ANYSIZE_ARRAY] adwIndex_impl;
 }
 
@@ -7399,7 +6412,6 @@ public struct AVISUPERINDEX
 		public uint32 dwSize;
 		public uint32 dwDuration;
 	}
-
 	public uint32 fcc;
 	public uint32 cb;
 	public uint16 wLongsPerEntry;
@@ -7496,7 +6508,7 @@ public struct _avitcdlindex
 	public uint32[3512] adwTrailingFill;
 }
 
-[CRepr, Packed(2), FlexibleArray("aIndex")]
+[CRepr, Packed(2)]
 public struct AVIFIELDINDEX
 {
 	[CRepr, Packed(2)]
@@ -7506,7 +6518,6 @@ public struct AVIFIELDINDEX
 		public uint32 dwSize;
 		public uint32 dwOffsetField2;
 	}
-
 	public uint32 fcc;
 	public uint32 cb;
 	public uint16 wLongsPerEntry;
@@ -7516,6 +6527,7 @@ public struct AVIFIELDINDEX
 	public uint32 dwChunkId;
 	public uint64 qwBaseOffset;
 	public uint32 dwReserved3;
+	public _avifieldindex_entry* aIndex mut => &aIndex_impl;
 	private _avifieldindex_entry[ANYSIZE_ARRAY] aIndex_impl;
 }
 
@@ -7563,12 +6575,13 @@ public struct AVIINDEXENTRY
 	public uint32 dwChunkLength;
 }
 
-[CRepr, FlexibleArray("peNew")]
+[CRepr]
 public struct AVIPALCHANGE
 {
 	public uint8 bFirstEntry;
 	public uint8 bNumEntries;
 	public uint16 wFlags;
+	public PALETTEENTRY* peNew mut => &peNew_impl;
 	private PALETTEENTRY[ANYSIZE_ARRAY] peNew_impl;
 }
 
@@ -7656,10 +6669,11 @@ public struct AM_DVDCOPY_CHLGKEY
 	public uint8[2] Reserved;
 }
 
-[CRepr, FlexibleArray("Reserved")]
+[CRepr]
 public struct AM_DVDCOPY_BUSKEY
 {
 	public uint8[5] BusKey;
+	public uint8* Reserved mut => &Reserved_impl;
 	private uint8[ANYSIZE_ARRAY] Reserved_impl;
 }
 
@@ -7708,7 +6722,6 @@ public struct VIDEOINFOHEADER2
 		public uint32 dwControlFlags;
 		public uint32 dwReserved1;
 	}
-
 	public RECT rcSource;
 	public RECT rcTarget;
 	public uint32 dwBitRate;
@@ -7723,7 +6736,7 @@ public struct VIDEOINFOHEADER2
 	public BITMAPINFOHEADER bmiHeader;
 }
 
-[CRepr, FlexibleArray("dwSequenceHeader")]
+[CRepr]
 public struct MPEG2VIDEOINFO
 {
 	public VIDEOINFOHEADER2 hdr;
@@ -7732,6 +6745,7 @@ public struct MPEG2VIDEOINFO
 	public uint32 dwProfile;
 	public uint32 dwLevel;
 	public MPEG2VIDEOINFO_FLAGS dwFlags;
+	public uint32* dwSequenceHeader mut => &dwSequenceHeader_impl;
 	private uint32[ANYSIZE_ARRAY] dwSequenceHeader_impl;
 }
 
@@ -7794,10 +6808,11 @@ public struct MP_ENVELOPE_SEGMENT
 	public uint32 flags;
 }
 
-[CRepr, FlexibleArray("aClsId")]
+[CRepr]
 public struct VFW_FILTERLIST
 {
 	public uint32 cFilters;
+	public Guid* aClsId mut => &aClsId_impl;
 	private Guid[ANYSIZE_ARRAY] aClsId_impl;
 }
 
@@ -8005,7 +7020,7 @@ public struct TID_EXTENSION
 	public uint16 wCount;
 }
 
-[CRepr, FlexibleArray("SectionData")]
+[CRepr]
 public struct SECTION
 {
 	[CRepr, Union, Packed(1)]
@@ -8014,13 +7029,13 @@ public struct SECTION
 		public MPEG_HEADER_BITS_MIDL S;
 		public uint16 W;
 	}
-
 	public uint8 TableId;
 	public _Header_e__Union Header;
+	public uint8* SectionData mut => &SectionData_impl;
 	private uint8[ANYSIZE_ARRAY] SectionData_impl;
 }
 
-[CRepr, Packed(1), FlexibleArray("RemainingData")]
+[CRepr, Packed(1)]
 public struct LONG_SECTION
 {
 	[CRepr, Union, Packed(1)]
@@ -8029,24 +7044,23 @@ public struct LONG_SECTION
 		public MPEG_HEADER_BITS_MIDL S;
 		public uint16 W;
 	}
-
 	[CRepr, Union]
 	public struct _Version_e__Union
 	{
 		public MPEG_HEADER_VERSION_BITS_MIDL S;
 		public uint8 B;
 	}
-
 	public uint8 TableId;
 	public _Header_e__Union Header;
 	public uint16 TableIdExtension;
 	public _Version_e__Union Version;
 	public uint8 SectionNumber;
 	public uint8 LastSectionNumber;
+	public uint8* RemainingData mut => &RemainingData_impl;
 	private uint8[ANYSIZE_ARRAY] RemainingData_impl;
 }
 
-[CRepr, Packed(1), FlexibleArray("RemainingData")]
+[CRepr, Packed(1)]
 public struct DSMCC_SECTION
 {
 	[CRepr, Union, Packed(1)]
@@ -8055,14 +7069,12 @@ public struct DSMCC_SECTION
 		public MPEG_HEADER_BITS_MIDL S;
 		public uint16 W;
 	}
-
 	[CRepr, Union]
 	public struct _Version_e__Union
 	{
 		public MPEG_HEADER_VERSION_BITS_MIDL S;
 		public uint8 B;
 	}
-
 	public uint8 TableId;
 	public _Header_e__Union Header;
 	public uint16 TableIdExtension;
@@ -8076,6 +7088,7 @@ public struct DSMCC_SECTION
 	public uint8 Reserved;
 	public uint8 AdaptationLength;
 	public uint16 MessageLength;
+	public uint8* RemainingData mut => &RemainingData_impl;
 	private uint8[ANYSIZE_ARRAY] RemainingData_impl;
 }
 
@@ -8086,10 +7099,11 @@ public struct MPEG_RQST_PACKET
 	public SECTION* pSection;
 }
 
-[CRepr, Packed(1), FlexibleArray("PacketList")]
+[CRepr, Packed(1)]
 public struct MPEG_PACKET_LIST
 {
 	public uint16 wPacketCount;
+	public MPEG_RQST_PACKET** PacketList mut => &PacketList_impl;
 	private MPEG_RQST_PACKET*[ANYSIZE_ARRAY] PacketList_impl;
 }
 
@@ -8176,11 +7190,9 @@ public struct MPEG2_FILTER2
 			public BOOL fSpecifyAtscOptions;
 			public ATSC_FILTER_OPTIONS Atsc;
 		}
-
 		public using _Anonymous_e__Struct Anonymous;
 		public uint8[124] bVersion1Bytes;
 	}
-
 	public using _Anonymous_e__Union Anonymous;
 	public BOOL fSpecifyDvbEitOptions;
 	public DVB_EIT_FILTER_OPTIONS DvbEit;
@@ -8239,7 +7251,6 @@ public struct MPEG_CONTEXT
 		public MPEG_BCS_DEMUX Demux;
 		public MPEG_WINSOCK Winsock;
 	}
-
 	public MPEG_CONTEXT_TYPE Type;
 	public _U_e__Union U;
 }
@@ -8290,11 +7301,12 @@ public struct MPEG_STREAM_FILTER
 	public uint8[16] rgchMask;
 }
 
-[CRepr, Packed(1), FlexibleArray("SectionOffsets")]
+[CRepr, Packed(1)]
 public struct Mpeg2TableSampleHdr
 {
 	public uint8 SectionCount;
 	public uint8[3] Reserved;
+	public int32* SectionOffsets mut => &SectionOffsets_impl;
 	private int32[ANYSIZE_ARRAY] SectionOffsets_impl;
 }
 
@@ -8354,23 +7366,22 @@ public struct TRANSPORT_PROPERTIES
 		{
 			public int64 _bitfield;
 		}
-
 		public _Others Others;
 		public int64 Value;
 	}
-
 	public uint32 PID;
 	public int64 PCR;
 	public _Fields_e__Union Fields;
 }
 
-[CRepr, FlexibleArray("TableData")]
+[CRepr]
 public struct PBDA_TAG_ATTRIBUTE
 {
 	public Guid TableUUId;
 	public uint8 TableId;
 	public uint16 VersionNo;
 	public uint32 TableDataSize;
+	public uint8* TableData mut => &TableData_impl;
 	private uint8[ANYSIZE_ARRAY] TableData_impl;
 }
 
@@ -8415,7 +7426,6 @@ public struct KSM_BDA_PIN
 		public uint32 PinId;
 		public uint32 PinType;
 	}
-
 	public KSIDENTIFIER Method;
 	public using _Anonymous_e__Union Anonymous;
 	public uint32 Reserved;
@@ -8430,14 +7440,12 @@ public struct KSM_BDA_PIN_PAIR
 		public uint32 InputPinId;
 		public uint32 InputPinType;
 	}
-
 	[CRepr, Union]
 	public struct _Anonymous2_e__Union
 	{
 		public uint32 OutputPinId;
 		public uint32 OutputPinType;
 	}
-
 	public KSIDENTIFIER Method;
 	public _Anonymous1_e__Union Anonymous1;
 	public _Anonymous2_e__Union Anonymous2;
@@ -8450,31 +7458,34 @@ public struct KSP_NODE_ESPID
 	public uint32 EsPid;
 }
 
-[CRepr, FlexibleArray("argbDebugString")]
+[CRepr]
 public struct KSM_BDA_DEBUG_LEVEL
 {
 	public KSIDENTIFIER Method;
 	public uint8 ucDebugLevel;
 	public uint32 ulDebugStringSize;
+	public uint8* argbDebugString mut => &argbDebugString_impl;
 	private uint8[ANYSIZE_ARRAY] argbDebugString_impl;
 }
 
-[CRepr, FlexibleArray("argbDebugData")]
+[CRepr]
 public struct BDA_DEBUG_DATA
 {
 	public int32 lResult;
 	public Guid uuidDebugDataType;
 	public uint32 ulDataSize;
+	public uint8* argbDebugData mut => &argbDebugData_impl;
 	private uint8[ANYSIZE_ARRAY] argbDebugData_impl;
 }
 
-[CRepr, FlexibleArray("argbEventData")]
+[CRepr]
 public struct BDA_EVENT_DATA
 {
 	public int32 lResult;
 	public uint32 ulEventID;
 	public Guid uuidEventType;
 	public uint32 ulEventDataLength;
+	public uint8* argbEventData mut => &argbEventData_impl;
 	private uint8[ANYSIZE_ARRAY] argbEventData_impl;
 }
 
@@ -8493,11 +7504,12 @@ public struct KSM_BDA_DRM_SETDRM
 	public Guid NewDRMuuid;
 }
 
-[CRepr, FlexibleArray("argbBuffer")]
+[CRepr]
 public struct KSM_BDA_BUFFER
 {
 	public KSM_NODE NodeMethod;
 	public uint32 ulBufferSize;
+	public uint8* argbBuffer mut => &argbBuffer_impl;
 	private uint8[ANYSIZE_ARRAY] argbBuffer_impl;
 }
 
@@ -8508,22 +7520,24 @@ public struct KSM_BDA_WMDRM_LICENSE
 	public Guid uuidKeyID;
 }
 
-[CRepr, FlexibleArray("argbDataBuffer")]
+[CRepr]
 public struct KSM_BDA_WMDRM_RENEWLICENSE
 {
 	public KSM_NODE NodeMethod;
 	public uint32 ulXMRLicenseLength;
 	public uint32 ulEntitlementTokenLength;
+	public uint8* argbDataBuffer mut => &argbDataBuffer_impl;
 	private uint8[ANYSIZE_ARRAY] argbDataBuffer_impl;
 }
 
-[CRepr, FlexibleArray("argbDataBuffer")]
+[CRepr]
 public struct KSM_BDA_WMDRMTUNER_PURCHASEENTITLEMENT
 {
 	public KSM_NODE NodeMethod;
 	public uint32 ulDialogRequest;
 	public CHAR[12] cLanguage;
 	public uint32 ulPurchaseTokenLength;
+	public uint8* argbDataBuffer mut => &argbDataBuffer_impl;
 	private uint8[ANYSIZE_ARRAY] argbDataBuffer_impl;
 }
 
@@ -8549,24 +7563,26 @@ public struct KSM_BDA_WMDRMTUNER_SYNCVALUE
 	public uint32 ulSyncValue;
 }
 
-[CRepr, FlexibleArray("argbTuneData")]
+[CRepr]
 public struct KSM_BDA_TUNER_TUNEREQUEST
 {
 	public KSIDENTIFIER Method;
 	public uint32 ulTuneLength;
+	public uint8* argbTuneData mut => &argbTuneData_impl;
 	private uint8[ANYSIZE_ARRAY] argbTuneData_impl;
 }
 
-[CRepr, FlexibleArray("argbData")]
+[CRepr]
 public struct KSM_BDA_GPNV_GETVALUE
 {
 	public KSIDENTIFIER Method;
 	public uint32 ulNameLength;
 	public CHAR[12] cLanguage;
+	public uint8* argbData mut => &argbData_impl;
 	private uint8[ANYSIZE_ARRAY] argbData_impl;
 }
 
-[CRepr, FlexibleArray("argbName")]
+[CRepr]
 public struct KSM_BDA_GPNV_SETVALUE
 {
 	public KSIDENTIFIER Method;
@@ -8574,6 +7590,7 @@ public struct KSM_BDA_GPNV_SETVALUE
 	public CHAR[12] cLanguage;
 	public uint32 ulNameLength;
 	public uint32 ulValueLength;
+	public uint8* argbName mut => &argbName_impl;
 	private uint8[ANYSIZE_ARRAY] argbName_impl;
 }
 
@@ -8591,12 +7608,13 @@ public struct KSM_BDA_SCAN_CAPABILTIES
 	public Guid uuidBroadcastStandard;
 }
 
-[CRepr, FlexibleArray("argbScanModulationTypes")]
+[CRepr]
 public struct KSM_BDA_SCAN_FILTER
 {
 	public KSIDENTIFIER Method;
 	public uint32 ulScanModulationTypeSize;
 	public uint64 AnalogVideoStandards;
+	public uint8* argbScanModulationTypes mut => &argbScanModulationTypes_impl;
 	private uint8[ANYSIZE_ARRAY] argbScanModulationTypes_impl;
 }
 
@@ -8615,11 +7633,12 @@ public struct KSM_BDA_GDDS_TUNEXMLFROMIDX
 	public uint64 ulIdx;
 }
 
-[CRepr, FlexibleArray("argbTuneXml")]
+[CRepr]
 public struct KSM_BDA_GDDS_SERVICEFROMTUNEXML
 {
 	public KSIDENTIFIER Method;
 	public uint32 ulTuneXmlLength;
+	public uint8* argbTuneXml mut => &argbTuneXml_impl;
 	private uint8[ANYSIZE_ARRAY] argbTuneXml_impl;
 }
 
@@ -8630,7 +7649,7 @@ public struct KSM_BDA_USERACTIVITY_USEREASON
 	public uint32 ulUseReason;
 }
 
-[CRepr, FlexibleArray("argbEntitlementToken")]
+[CRepr]
 public struct KSM_BDA_CAS_ENTITLEMENTTOKEN
 {
 	public KSM_NODE NodeMethod;
@@ -8638,14 +7657,16 @@ public struct KSM_BDA_CAS_ENTITLEMENTTOKEN
 	public CHAR[12] cLanguage;
 	public uint32 ulRequestType;
 	public uint32 ulEntitlementTokenLen;
+	public uint8* argbEntitlementToken mut => &argbEntitlementToken_impl;
 	private uint8[ANYSIZE_ARRAY] argbEntitlementToken_impl;
 }
 
-[CRepr, FlexibleArray("argbToken")]
+[CRepr]
 public struct KSM_BDA_CAS_CAPTURETOKEN
 {
 	public KSM_NODE NodeMethod;
 	public uint32 ulTokenLength;
+	public uint8* argbToken mut => &argbToken_impl;
 	private uint8[ANYSIZE_ARRAY] argbToken_impl;
 }
 
@@ -8668,12 +7689,13 @@ public struct KSM_BDA_CAS_CLOSEMMIDIALOG
 	public uint32 ulReason;
 }
 
-[CRepr, FlexibleArray("argbIsdbCommandData")]
+[CRepr]
 public struct KSM_BDA_ISDBCAS_REQUEST
 {
 	public KSM_NODE NodeMethod;
 	public uint32 ulRequestID;
 	public uint32 ulIsdbCommandSize;
+	public uint8* argbIsdbCommandData mut => &argbIsdbCommandData_impl;
 	private uint8[ANYSIZE_ARRAY] argbIsdbCommandData_impl;
 }
 
@@ -8731,7 +7753,6 @@ public struct ChannelInfo
 		{
 			public int32 lProgNumber;
 		}
-
 		[CRepr]
 		public struct _DVB_e__Struct
 		{
@@ -8739,28 +7760,26 @@ public struct ChannelInfo
 			public int32 lTSID;
 			public int32 lSID;
 		}
-
 		[CRepr]
 		public struct _ATSC_e__Struct
 		{
 			public int32 lProgNumber;
 		}
-
 		public _DVB_e__Struct DVB;
 		public _DC_e__Struct DC;
 		public _ATSC_e__Struct ATSC;
 	}
-
 	public int32 lFrequency;
 	public using _Anonymous_e__Union Anonymous;
 }
 
-[CRepr, FlexibleArray("bDescriptor")]
+[CRepr]
 public struct SpanningEventDescriptor
 {
 	public uint16 wDataLen;
 	public uint16 wProgNumber;
 	public uint16 wSID;
+	public uint8* bDescriptor mut => &bDescriptor_impl;
 	private uint8[ANYSIZE_ARRAY] bDescriptor_impl;
 }
 
@@ -8771,7 +7790,7 @@ public struct DVBScramblingControlSpanningEvent
 	public BOOL fScrambled;
 }
 
-[CRepr, FlexibleArray("szMessageArea")]
+[CRepr]
 public struct SpanningEventEmmMessage
 {
 	public uint8 bCAbroadcasterGroupId;
@@ -8786,6 +7805,7 @@ public struct SpanningEventEmmMessage
 	public uint8 bFormatVersion;
 	public uint8 bDisplayPosition;
 	public uint16 wMessageLength;
+	public char16* szMessageArea mut => &szMessageArea_impl;
 	private char16[ANYSIZE_ARRAY] szMessageArea_impl;
 }
 
@@ -8805,10 +7825,11 @@ public struct DualMonoInfo
 	public int32 lISOLangCode2;
 }
 
-[CRepr, FlexibleArray("pulPIDs")]
+[CRepr]
 public struct PIDListSpanningEvent
 {
 	public uint16 wPIDCount;
+	public uint32* pulPIDs mut => &pulPIDs_impl;
 	private uint32[ANYSIZE_ARRAY] pulPIDs_impl;
 }
 
@@ -8850,10 +7871,11 @@ public struct DvbParentalRatingParam
 	public uint8 bRating;
 }
 
-[CRepr, FlexibleArray("pParams")]
+[CRepr]
 public struct DvbParentalRatingDescriptor
 {
 	public uint32 ulNumParams;
+	public DvbParentalRatingParam* pParams mut => &pParams_impl;
 	private DvbParentalRatingParam[ANYSIZE_ARRAY] pParams_impl;
 }
 
@@ -8960,10 +7982,11 @@ public struct HEAACWAVEINFO
 	public uint32 dwReserved2;
 }
 
-[CRepr, FlexibleArray("pbAudioSpecificConfig")]
+[CRepr]
 public struct HEAACWAVEFORMAT
 {
 	public HEAACWAVEINFO wfInfo;
+	public uint8* pbAudioSpecificConfig mut => &pbAudioSpecificConfig_impl;
 	private uint8[ANYSIZE_ARRAY] pbAudioSpecificConfig_impl;
 }
 

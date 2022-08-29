@@ -9,15 +9,10 @@ namespace Win32.UI.Animation;
 public static
 {
 	public const int32 UI_ANIMATION_SECONDS_EVENTUALLY = -1;
-
 	public const int32 UI_ANIMATION_REPEAT_INDEFINITELY = -1;
-
 	public const int32 UI_ANIMATION_REPEAT_INDEFINITELY_CONCLUDE_AT_END = -1;
-
 	public const int32 UI_ANIMATION_REPEAT_INDEFINITELY_CONCLUDE_AT_START = -2;
-
 	public const int32 UI_ANIMATION_SECONDS_INFINITE = -1;
-
 }
 #endregion
 

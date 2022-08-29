@@ -141,11 +141,9 @@ public struct INPUT_TRANSFORM
 			public float _43;
 			public float _44;
 		}
-
 		public using _Anonymous_e__Struct Anonymous;
 		public float[16] m;
 	}
-
 	public using _Anonymous_e__Union Anonymous;
 }
 

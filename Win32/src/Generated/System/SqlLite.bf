@@ -7,771 +7,388 @@ namespace Win32.System.SqlLite;
 public static
 {
 	public const uint32 SQLITE_VERSION_NUMBER = 3029000;
-
 	public const uint32 SQLITE_OK = 0;
-
 	public const uint32 SQLITE_ERROR = 1;
-
 	public const uint32 SQLITE_INTERNAL = 2;
-
 	public const uint32 SQLITE_PERM = 3;
-
 	public const uint32 SQLITE_ABORT = 4;
-
 	public const uint32 SQLITE_BUSY = 5;
-
 	public const uint32 SQLITE_LOCKED = 6;
-
 	public const uint32 SQLITE_NOMEM = 7;
-
 	public const uint32 SQLITE_READONLY = 8;
-
 	public const uint32 SQLITE_INTERRUPT = 9;
-
 	public const uint32 SQLITE_IOERR = 10;
-
 	public const uint32 SQLITE_CORRUPT = 11;
-
 	public const uint32 SQLITE_NOTFOUND = 12;
-
 	public const uint32 SQLITE_FULL = 13;
-
 	public const uint32 SQLITE_CANTOPEN = 14;
-
 	public const uint32 SQLITE_PROTOCOL = 15;
-
 	public const uint32 SQLITE_EMPTY = 16;
-
 	public const uint32 SQLITE_SCHEMA = 17;
-
 	public const uint32 SQLITE_TOOBIG = 18;
-
 	public const uint32 SQLITE_CONSTRAINT = 19;
-
 	public const uint32 SQLITE_MISMATCH = 20;
-
 	public const uint32 SQLITE_MISUSE = 21;
-
 	public const uint32 SQLITE_NOLFS = 22;
-
 	public const uint32 SQLITE_AUTH = 23;
-
 	public const uint32 SQLITE_FORMAT = 24;
-
 	public const uint32 SQLITE_RANGE = 25;
-
 	public const uint32 SQLITE_NOTADB = 26;
-
 	public const uint32 SQLITE_NOTICE = 27;
-
 	public const uint32 SQLITE_WARNING = 28;
-
 	public const uint32 SQLITE_ROW = 100;
-
 	public const uint32 SQLITE_DONE = 101;
-
 	public const uint32 SQLITE_OPEN_READONLY = 1;
-
 	public const uint32 SQLITE_OPEN_READWRITE = 2;
-
 	public const uint32 SQLITE_OPEN_CREATE = 4;
-
 	public const uint32 SQLITE_OPEN_DELETEONCLOSE = 8;
-
 	public const uint32 SQLITE_OPEN_EXCLUSIVE = 16;
-
 	public const uint32 SQLITE_OPEN_AUTOPROXY = 32;
-
 	public const uint32 SQLITE_OPEN_URI = 64;
-
 	public const uint32 SQLITE_OPEN_MEMORY = 128;
-
 	public const uint32 SQLITE_OPEN_MAIN_DB = 256;
-
 	public const uint32 SQLITE_OPEN_TEMP_DB = 512;
-
 	public const uint32 SQLITE_OPEN_TRANSIENT_DB = 1024;
-
 	public const uint32 SQLITE_OPEN_MAIN_JOURNAL = 2048;
-
 	public const uint32 SQLITE_OPEN_TEMP_JOURNAL = 4096;
-
 	public const uint32 SQLITE_OPEN_SUBJOURNAL = 8192;
-
 	public const uint32 SQLITE_OPEN_SUPER_JOURNAL = 16384;
-
 	public const uint32 SQLITE_OPEN_NOMUTEX = 32768;
-
 	public const uint32 SQLITE_OPEN_FULLMUTEX = 65536;
-
 	public const uint32 SQLITE_OPEN_SHAREDCACHE = 131072;
-
 	public const uint32 SQLITE_OPEN_PRIVATECACHE = 262144;
-
 	public const uint32 SQLITE_OPEN_WAL = 524288;
-
 	public const uint32 SQLITE_OPEN_NOFOLLOW = 16777216;
-
 	public const uint32 SQLITE_OPEN_MASTER_JOURNAL = 16384;
-
 	public const uint32 SQLITE_IOCAP_ATOMIC = 1;
-
 	public const uint32 SQLITE_IOCAP_ATOMIC512 = 2;
-
 	public const uint32 SQLITE_IOCAP_ATOMIC1K = 4;
-
 	public const uint32 SQLITE_IOCAP_ATOMIC2K = 8;
-
 	public const uint32 SQLITE_IOCAP_ATOMIC4K = 16;
-
 	public const uint32 SQLITE_IOCAP_ATOMIC8K = 32;
-
 	public const uint32 SQLITE_IOCAP_ATOMIC16K = 64;
-
 	public const uint32 SQLITE_IOCAP_ATOMIC32K = 128;
-
 	public const uint32 SQLITE_IOCAP_ATOMIC64K = 256;
-
 	public const uint32 SQLITE_IOCAP_SAFE_APPEND = 512;
-
 	public const uint32 SQLITE_IOCAP_SEQUENTIAL = 1024;
-
 	public const uint32 SQLITE_IOCAP_UNDELETABLE_WHEN_OPEN = 2048;
-
 	public const uint32 SQLITE_IOCAP_POWERSAFE_OVERWRITE = 4096;
-
 	public const uint32 SQLITE_IOCAP_IMMUTABLE = 8192;
-
 	public const uint32 SQLITE_IOCAP_BATCH_ATOMIC = 16384;
-
 	public const uint32 SQLITE_LOCK_NONE = 0;
-
 	public const uint32 SQLITE_LOCK_SHARED = 1;
-
 	public const uint32 SQLITE_LOCK_RESERVED = 2;
-
 	public const uint32 SQLITE_LOCK_PENDING = 3;
-
 	public const uint32 SQLITE_LOCK_EXCLUSIVE = 4;
-
 	public const uint32 SQLITE_SYNC_NORMAL = 2;
-
 	public const uint32 SQLITE_SYNC_FULL = 3;
-
 	public const uint32 SQLITE_SYNC_DATAONLY = 16;
-
 	public const uint32 SQLITE_FCNTL_LOCKSTATE = 1;
-
 	public const uint32 SQLITE_FCNTL_GET_LOCKPROXYFILE = 2;
-
 	public const uint32 SQLITE_FCNTL_SET_LOCKPROXYFILE = 3;
-
 	public const uint32 SQLITE_FCNTL_LAST_ERRNO = 4;
-
 	public const uint32 SQLITE_FCNTL_SIZE_HINT = 5;
-
 	public const uint32 SQLITE_FCNTL_CHUNK_SIZE = 6;
-
 	public const uint32 SQLITE_FCNTL_FILE_POINTER = 7;
-
 	public const uint32 SQLITE_FCNTL_SYNC_OMITTED = 8;
-
 	public const uint32 SQLITE_FCNTL_WIN32_AV_RETRY = 9;
-
 	public const uint32 SQLITE_FCNTL_PERSIST_WAL = 10;
-
 	public const uint32 SQLITE_FCNTL_OVERWRITE = 11;
-
 	public const uint32 SQLITE_FCNTL_VFSNAME = 12;
-
 	public const uint32 SQLITE_FCNTL_POWERSAFE_OVERWRITE = 13;
-
 	public const uint32 SQLITE_FCNTL_PRAGMA = 14;
-
 	public const uint32 SQLITE_FCNTL_BUSYHANDLER = 15;
-
 	public const uint32 SQLITE_FCNTL_TEMPFILENAME = 16;
-
 	public const uint32 SQLITE_FCNTL_MMAP_SIZE = 18;
-
 	public const uint32 SQLITE_FCNTL_TRACE = 19;
-
 	public const uint32 SQLITE_FCNTL_HAS_MOVED = 20;
-
 	public const uint32 SQLITE_FCNTL_SYNC = 21;
-
 	public const uint32 SQLITE_FCNTL_COMMIT_PHASETWO = 22;
-
 	public const uint32 SQLITE_FCNTL_WIN32_SET_HANDLE = 23;
-
 	public const uint32 SQLITE_FCNTL_WAL_BLOCK = 24;
-
 	public const uint32 SQLITE_FCNTL_ZIPVFS = 25;
-
 	public const uint32 SQLITE_FCNTL_RBU = 26;
-
 	public const uint32 SQLITE_FCNTL_VFS_POINTER = 27;
-
 	public const uint32 SQLITE_FCNTL_JOURNAL_POINTER = 28;
-
 	public const uint32 SQLITE_FCNTL_WIN32_GET_HANDLE = 29;
-
 	public const uint32 SQLITE_FCNTL_PDB = 30;
-
 	public const uint32 SQLITE_FCNTL_BEGIN_ATOMIC_WRITE = 31;
-
 	public const uint32 SQLITE_FCNTL_COMMIT_ATOMIC_WRITE = 32;
-
 	public const uint32 SQLITE_FCNTL_ROLLBACK_ATOMIC_WRITE = 33;
-
 	public const uint32 SQLITE_FCNTL_LOCK_TIMEOUT = 34;
-
 	public const uint32 SQLITE_FCNTL_DATA_VERSION = 35;
-
 	public const uint32 SQLITE_FCNTL_SIZE_LIMIT = 36;
-
 	public const uint32 SQLITE_FCNTL_CKPT_DONE = 37;
-
 	public const uint32 SQLITE_FCNTL_RESERVE_BYTES = 38;
-
 	public const uint32 SQLITE_FCNTL_CKPT_START = 39;
-
 	public const uint32 SQLITE_GET_LOCKPROXYFILE = 2;
-
 	public const uint32 SQLITE_SET_LOCKPROXYFILE = 3;
-
 	public const uint32 SQLITE_LAST_ERRNO = 4;
-
 	public const uint32 SQLITE_ACCESS_EXISTS = 0;
-
 	public const uint32 SQLITE_ACCESS_READWRITE = 1;
-
 	public const uint32 SQLITE_ACCESS_READ = 2;
-
 	public const uint32 SQLITE_SHM_UNLOCK = 1;
-
 	public const uint32 SQLITE_SHM_LOCK = 2;
-
 	public const uint32 SQLITE_SHM_SHARED = 4;
-
 	public const uint32 SQLITE_SHM_EXCLUSIVE = 8;
-
 	public const uint32 SQLITE_SHM_NLOCK = 8;
-
 	public const uint32 SQLITE_CONFIG_SINGLETHREAD = 1;
-
 	public const uint32 SQLITE_CONFIG_MULTITHREAD = 2;
-
 	public const uint32 SQLITE_CONFIG_SERIALIZED = 3;
-
 	public const uint32 SQLITE_CONFIG_MALLOC = 4;
-
 	public const uint32 SQLITE_CONFIG_GETMALLOC = 5;
-
 	public const uint32 SQLITE_CONFIG_SCRATCH = 6;
-
 	public const uint32 SQLITE_CONFIG_PAGECACHE = 7;
-
 	public const uint32 SQLITE_CONFIG_HEAP = 8;
-
 	public const uint32 SQLITE_CONFIG_MEMSTATUS = 9;
-
 	public const uint32 SQLITE_CONFIG_MUTEX = 10;
-
 	public const uint32 SQLITE_CONFIG_GETMUTEX = 11;
-
 	public const uint32 SQLITE_CONFIG_LOOKASIDE = 13;
-
 	public const uint32 SQLITE_CONFIG_PCACHE = 14;
-
 	public const uint32 SQLITE_CONFIG_GETPCACHE = 15;
-
 	public const uint32 SQLITE_CONFIG_LOG = 16;
-
 	public const uint32 SQLITE_CONFIG_URI = 17;
-
 	public const uint32 SQLITE_CONFIG_PCACHE2 = 18;
-
 	public const uint32 SQLITE_CONFIG_GETPCACHE2 = 19;
-
 	public const uint32 SQLITE_CONFIG_COVERING_INDEX_SCAN = 20;
-
 	public const uint32 SQLITE_CONFIG_SQLLOG = 21;
-
 	public const uint32 SQLITE_CONFIG_MMAP_SIZE = 22;
-
 	public const uint32 SQLITE_CONFIG_WIN32_HEAPSIZE = 23;
-
 	public const uint32 SQLITE_CONFIG_PCACHE_HDRSZ = 24;
-
 	public const uint32 SQLITE_CONFIG_PMASZ = 25;
-
 	public const uint32 SQLITE_CONFIG_STMTJRNL_SPILL = 26;
-
 	public const uint32 SQLITE_CONFIG_SMALL_MALLOC = 27;
-
 	public const uint32 SQLITE_CONFIG_SORTERREF_SIZE = 28;
-
 	public const uint32 SQLITE_CONFIG_MEMDB_MAXSIZE = 29;
-
 	public const uint32 SQLITE_DBCONFIG_MAINDBNAME = 1000;
-
 	public const uint32 SQLITE_DBCONFIG_LOOKASIDE = 1001;
-
 	public const uint32 SQLITE_DBCONFIG_ENABLE_FKEY = 1002;
-
 	public const uint32 SQLITE_DBCONFIG_ENABLE_TRIGGER = 1003;
-
 	public const uint32 SQLITE_DBCONFIG_ENABLE_FTS3_TOKENIZER = 1004;
-
 	public const uint32 SQLITE_DBCONFIG_ENABLE_LOAD_EXTENSION = 1005;
-
 	public const uint32 SQLITE_DBCONFIG_NO_CKPT_ON_CLOSE = 1006;
-
 	public const uint32 SQLITE_DBCONFIG_ENABLE_QPSG = 1007;
-
 	public const uint32 SQLITE_DBCONFIG_TRIGGER_EQP = 1008;
-
 	public const uint32 SQLITE_DBCONFIG_RESET_DATABASE = 1009;
-
 	public const uint32 SQLITE_DBCONFIG_DEFENSIVE = 1010;
-
 	public const uint32 SQLITE_DBCONFIG_WRITABLE_SCHEMA = 1011;
-
 	public const uint32 SQLITE_DBCONFIG_LEGACY_ALTER_TABLE = 1012;
-
 	public const uint32 SQLITE_DBCONFIG_DQS_DML = 1013;
-
 	public const uint32 SQLITE_DBCONFIG_DQS_DDL = 1014;
-
 	public const uint32 SQLITE_DBCONFIG_ENABLE_VIEW = 1015;
-
 	public const uint32 SQLITE_DBCONFIG_LEGACY_FILE_FORMAT = 1016;
-
 	public const uint32 SQLITE_DBCONFIG_TRUSTED_SCHEMA = 1017;
-
 	public const uint32 SQLITE_DBCONFIG_MAX = 1017;
-
 	public const uint32 SQLITE_DENY = 1;
-
 	public const uint32 SQLITE_IGNORE = 2;
-
 	public const uint32 SQLITE_CREATE_INDEX = 1;
-
 	public const uint32 SQLITE_CREATE_TABLE = 2;
-
 	public const uint32 SQLITE_CREATE_TEMP_INDEX = 3;
-
 	public const uint32 SQLITE_CREATE_TEMP_TABLE = 4;
-
 	public const uint32 SQLITE_CREATE_TEMP_TRIGGER = 5;
-
 	public const uint32 SQLITE_CREATE_TEMP_VIEW = 6;
-
 	public const uint32 SQLITE_CREATE_TRIGGER = 7;
-
 	public const uint32 SQLITE_CREATE_VIEW = 8;
-
 	public const uint32 SQLITE_DELETE = 9;
-
 	public const uint32 SQLITE_DROP_INDEX = 10;
-
 	public const uint32 SQLITE_DROP_TABLE = 11;
-
 	public const uint32 SQLITE_DROP_TEMP_INDEX = 12;
-
 	public const uint32 SQLITE_DROP_TEMP_TABLE = 13;
-
 	public const uint32 SQLITE_DROP_TEMP_TRIGGER = 14;
-
 	public const uint32 SQLITE_DROP_TEMP_VIEW = 15;
-
 	public const uint32 SQLITE_DROP_TRIGGER = 16;
-
 	public const uint32 SQLITE_DROP_VIEW = 17;
-
 	public const uint32 SQLITE_INSERT = 18;
-
 	public const uint32 SQLITE_PRAGMA = 19;
-
 	public const uint32 SQLITE_READ = 20;
-
 	public const uint32 SQLITE_SELECT = 21;
-
 	public const uint32 SQLITE_TRANSACTION = 22;
-
 	public const uint32 SQLITE_UPDATE = 23;
-
 	public const uint32 SQLITE_ATTACH = 24;
-
 	public const uint32 SQLITE_DETACH = 25;
-
 	public const uint32 SQLITE_ALTER_TABLE = 26;
-
 	public const uint32 SQLITE_REINDEX = 27;
-
 	public const uint32 SQLITE_ANALYZE = 28;
-
 	public const uint32 SQLITE_CREATE_VTABLE = 29;
-
 	public const uint32 SQLITE_DROP_VTABLE = 30;
-
 	public const uint32 SQLITE_FUNCTION = 31;
-
 	public const uint32 SQLITE_SAVEPOINT = 32;
-
 	public const uint32 SQLITE_COPY = 0;
-
 	public const uint32 SQLITE_RECURSIVE = 33;
-
 	public const uint32 SQLITE_TRACE_STMT = 1;
-
 	public const uint32 SQLITE_TRACE_PROFILE = 2;
-
 	public const uint32 SQLITE_TRACE_ROW = 4;
-
 	public const uint32 SQLITE_TRACE_CLOSE = 8;
-
 	public const uint32 SQLITE_LIMIT_LENGTH = 0;
-
 	public const uint32 SQLITE_LIMIT_SQL_LENGTH = 1;
-
 	public const uint32 SQLITE_LIMIT_COLUMN = 2;
-
 	public const uint32 SQLITE_LIMIT_EXPR_DEPTH = 3;
-
 	public const uint32 SQLITE_LIMIT_COMPOUND_SELECT = 4;
-
 	public const uint32 SQLITE_LIMIT_VDBE_OP = 5;
-
 	public const uint32 SQLITE_LIMIT_FUNCTION_ARG = 6;
-
 	public const uint32 SQLITE_LIMIT_ATTACHED = 7;
-
 	public const uint32 SQLITE_LIMIT_LIKE_PATTERN_LENGTH = 8;
-
 	public const uint32 SQLITE_LIMIT_VARIABLE_NUMBER = 9;
-
 	public const uint32 SQLITE_LIMIT_TRIGGER_DEPTH = 10;
-
 	public const uint32 SQLITE_LIMIT_WORKER_THREADS = 11;
-
 	public const uint32 SQLITE_PREPARE_PERSISTENT = 1;
-
 	public const uint32 SQLITE_PREPARE_NORMALIZE = 2;
-
 	public const uint32 SQLITE_PREPARE_NO_VTAB = 4;
-
 	public const uint32 SQLITE_INTEGER = 1;
-
 	public const uint32 SQLITE_FLOAT = 2;
-
 	public const uint32 SQLITE_BLOB = 4;
-
 	public const uint32 SQLITE_NULL = 5;
-
 	public const uint32 SQLITE3_TEXT = 3;
-
 	public const uint32 SQLITE_UTF8 = 1;
-
 	public const uint32 SQLITE_UTF16LE = 2;
-
 	public const uint32 SQLITE_UTF16BE = 3;
-
 	public const uint32 SQLITE_UTF16 = 4;
-
 	public const uint32 SQLITE_ANY = 5;
-
 	public const uint32 SQLITE_UTF16_ALIGNED = 8;
-
 	public const uint64 SQLITE_DETERMINISTIC = 2048;
-
 	public const uint64 SQLITE_DIRECTONLY = 524288;
-
 	public const uint64 SQLITE_SUBTYPE = 1048576;
-
 	public const uint64 SQLITE_INNOCUOUS = 2097152;
-
 	public const uint32 SQLITE_WIN32_DATA_DIRECTORY_TYPE = 1;
-
 	public const uint32 SQLITE_WIN32_TEMP_DIRECTORY_TYPE = 2;
-
 	public const uint32 SQLITE_TXN_NONE = 0;
-
 	public const uint32 SQLITE_TXN_READ = 1;
-
 	public const uint32 SQLITE_TXN_WRITE = 2;
-
 	public const uint32 SQLITE_INDEX_SCAN_UNIQUE = 1;
-
 	public const uint32 SQLITE_INDEX_CONSTRAINT_EQ = 2;
-
 	public const uint32 SQLITE_INDEX_CONSTRAINT_GT = 4;
-
 	public const uint32 SQLITE_INDEX_CONSTRAINT_LE = 8;
-
 	public const uint32 SQLITE_INDEX_CONSTRAINT_LT = 16;
-
 	public const uint32 SQLITE_INDEX_CONSTRAINT_GE = 32;
-
 	public const uint32 SQLITE_INDEX_CONSTRAINT_MATCH = 64;
-
 	public const uint32 SQLITE_INDEX_CONSTRAINT_LIKE = 65;
-
 	public const uint32 SQLITE_INDEX_CONSTRAINT_GLOB = 66;
-
 	public const uint32 SQLITE_INDEX_CONSTRAINT_REGEXP = 67;
-
 	public const uint32 SQLITE_INDEX_CONSTRAINT_NE = 68;
-
 	public const uint32 SQLITE_INDEX_CONSTRAINT_ISNOT = 69;
-
 	public const uint32 SQLITE_INDEX_CONSTRAINT_ISNOTNULL = 70;
-
 	public const uint32 SQLITE_INDEX_CONSTRAINT_ISNULL = 71;
-
 	public const uint32 SQLITE_INDEX_CONSTRAINT_IS = 72;
-
 	public const uint32 SQLITE_INDEX_CONSTRAINT_FUNCTION = 150;
-
 	public const uint32 SQLITE_MUTEX_FAST = 0;
-
 	public const uint32 SQLITE_MUTEX_RECURSIVE = 1;
-
 	public const uint32 SQLITE_MUTEX_STATIC_MAIN = 2;
-
 	public const uint32 SQLITE_MUTEX_STATIC_MEM = 3;
-
 	public const uint32 SQLITE_MUTEX_STATIC_MEM2 = 4;
-
 	public const uint32 SQLITE_MUTEX_STATIC_OPEN = 4;
-
 	public const uint32 SQLITE_MUTEX_STATIC_PRNG = 5;
-
 	public const uint32 SQLITE_MUTEX_STATIC_LRU = 6;
-
 	public const uint32 SQLITE_MUTEX_STATIC_LRU2 = 7;
-
 	public const uint32 SQLITE_MUTEX_STATIC_PMEM = 7;
-
 	public const uint32 SQLITE_MUTEX_STATIC_APP1 = 8;
-
 	public const uint32 SQLITE_MUTEX_STATIC_APP2 = 9;
-
 	public const uint32 SQLITE_MUTEX_STATIC_APP3 = 10;
-
 	public const uint32 SQLITE_MUTEX_STATIC_VFS1 = 11;
-
 	public const uint32 SQLITE_MUTEX_STATIC_VFS2 = 12;
-
 	public const uint32 SQLITE_MUTEX_STATIC_VFS3 = 13;
-
 	public const uint32 SQLITE_MUTEX_STATIC_MASTER = 2;
-
 	public const uint32 SQLITE_TESTCTRL_FIRST = 5;
-
 	public const uint32 SQLITE_TESTCTRL_PRNG_SAVE = 5;
-
 	public const uint32 SQLITE_TESTCTRL_PRNG_RESTORE = 6;
-
 	public const uint32 SQLITE_TESTCTRL_PRNG_RESET = 7;
-
 	public const uint32 SQLITE_TESTCTRL_BITVEC_TEST = 8;
-
 	public const uint32 SQLITE_TESTCTRL_FAULT_INSTALL = 9;
-
 	public const uint32 SQLITE_TESTCTRL_BENIGN_MALLOC_HOOKS = 10;
-
 	public const uint32 SQLITE_TESTCTRL_PENDING_BYTE = 11;
-
 	public const uint32 SQLITE_TESTCTRL_ASSERT = 12;
-
 	public const uint32 SQLITE_TESTCTRL_ALWAYS = 13;
-
 	public const uint32 SQLITE_TESTCTRL_RESERVE = 14;
-
 	public const uint32 SQLITE_TESTCTRL_OPTIMIZATIONS = 15;
-
 	public const uint32 SQLITE_TESTCTRL_ISKEYWORD = 16;
-
 	public const uint32 SQLITE_TESTCTRL_SCRATCHMALLOC = 17;
-
 	public const uint32 SQLITE_TESTCTRL_INTERNAL_FUNCTIONS = 17;
-
 	public const uint32 SQLITE_TESTCTRL_LOCALTIME_FAULT = 18;
-
 	public const uint32 SQLITE_TESTCTRL_EXPLAIN_STMT = 19;
-
 	public const uint32 SQLITE_TESTCTRL_ONCE_RESET_THRESHOLD = 19;
-
 	public const uint32 SQLITE_TESTCTRL_NEVER_CORRUPT = 20;
-
 	public const uint32 SQLITE_TESTCTRL_VDBE_COVERAGE = 21;
-
 	public const uint32 SQLITE_TESTCTRL_BYTEORDER = 22;
-
 	public const uint32 SQLITE_TESTCTRL_ISINIT = 23;
-
 	public const uint32 SQLITE_TESTCTRL_SORTER_MMAP = 24;
-
 	public const uint32 SQLITE_TESTCTRL_IMPOSTER = 25;
-
 	public const uint32 SQLITE_TESTCTRL_PARSER_COVERAGE = 26;
-
 	public const uint32 SQLITE_TESTCTRL_RESULT_INTREAL = 27;
-
 	public const uint32 SQLITE_TESTCTRL_PRNG_SEED = 28;
-
 	public const uint32 SQLITE_TESTCTRL_EXTRA_SCHEMA_CHECKS = 29;
-
 	public const uint32 SQLITE_TESTCTRL_SEEK_COUNT = 30;
-
 	public const uint32 SQLITE_TESTCTRL_LAST = 30;
-
 	public const uint32 SQLITE_STATUS_MEMORY_USED = 0;
-
 	public const uint32 SQLITE_STATUS_PAGECACHE_USED = 1;
-
 	public const uint32 SQLITE_STATUS_PAGECACHE_OVERFLOW = 2;
-
 	public const uint32 SQLITE_STATUS_SCRATCH_USED = 3;
-
 	public const uint32 SQLITE_STATUS_SCRATCH_OVERFLOW = 4;
-
 	public const uint32 SQLITE_STATUS_MALLOC_SIZE = 5;
-
 	public const uint32 SQLITE_STATUS_PARSER_STACK = 6;
-
 	public const uint32 SQLITE_STATUS_PAGECACHE_SIZE = 7;
-
 	public const uint32 SQLITE_STATUS_SCRATCH_SIZE = 8;
-
 	public const uint32 SQLITE_STATUS_MALLOC_COUNT = 9;
-
 	public const uint32 SQLITE_DBSTATUS_LOOKASIDE_USED = 0;
-
 	public const uint32 SQLITE_DBSTATUS_CACHE_USED = 1;
-
 	public const uint32 SQLITE_DBSTATUS_SCHEMA_USED = 2;
-
 	public const uint32 SQLITE_DBSTATUS_STMT_USED = 3;
-
 	public const uint32 SQLITE_DBSTATUS_LOOKASIDE_HIT = 4;
-
 	public const uint32 SQLITE_DBSTATUS_LOOKASIDE_MISS_SIZE = 5;
-
 	public const uint32 SQLITE_DBSTATUS_LOOKASIDE_MISS_FULL = 6;
-
 	public const uint32 SQLITE_DBSTATUS_CACHE_HIT = 7;
-
 	public const uint32 SQLITE_DBSTATUS_CACHE_MISS = 8;
-
 	public const uint32 SQLITE_DBSTATUS_CACHE_WRITE = 9;
-
 	public const uint32 SQLITE_DBSTATUS_DEFERRED_FKS = 10;
-
 	public const uint32 SQLITE_DBSTATUS_CACHE_USED_SHARED = 11;
-
 	public const uint32 SQLITE_DBSTATUS_CACHE_SPILL = 12;
-
 	public const uint32 SQLITE_DBSTATUS_MAX = 12;
-
 	public const uint32 SQLITE_STMTSTATUS_FULLSCAN_STEP = 1;
-
 	public const uint32 SQLITE_STMTSTATUS_SORT = 2;
-
 	public const uint32 SQLITE_STMTSTATUS_AUTOINDEX = 3;
-
 	public const uint32 SQLITE_STMTSTATUS_VM_STEP = 4;
-
 	public const uint32 SQLITE_STMTSTATUS_REPREPARE = 5;
-
 	public const uint32 SQLITE_STMTSTATUS_RUN = 6;
-
 	public const uint32 SQLITE_STMTSTATUS_MEMUSED = 99;
-
 	public const uint32 SQLITE_CHECKPOINT_PASSIVE = 0;
-
 	public const uint32 SQLITE_CHECKPOINT_FULL = 1;
-
 	public const uint32 SQLITE_CHECKPOINT_RESTART = 2;
-
 	public const uint32 SQLITE_CHECKPOINT_TRUNCATE = 3;
-
 	public const uint32 SQLITE_VTAB_CONSTRAINT_SUPPORT = 1;
-
 	public const uint32 SQLITE_VTAB_INNOCUOUS = 2;
-
 	public const uint32 SQLITE_VTAB_DIRECTONLY = 3;
-
 	public const uint32 SQLITE_ROLLBACK = 1;
-
 	public const uint32 SQLITE_FAIL = 3;
-
 	public const uint32 SQLITE_REPLACE = 5;
-
 	public const uint32 SQLITE_SCANSTAT_NLOOP = 0;
-
 	public const uint32 SQLITE_SCANSTAT_NVISIT = 1;
-
 	public const uint32 SQLITE_SCANSTAT_EST = 2;
-
 	public const uint32 SQLITE_SCANSTAT_NAME = 3;
-
 	public const uint32 SQLITE_SCANSTAT_EXPLAIN = 4;
-
 	public const uint32 SQLITE_SCANSTAT_SELECTID = 5;
-
 	public const uint32 SQLITE_SERIALIZE_NOCOPY = 1;
-
 	public const uint32 SQLITE_DESERIALIZE_FREEONCLOSE = 1;
-
 	public const uint32 SQLITE_DESERIALIZE_RESIZEABLE = 2;
-
 	public const uint32 SQLITE_DESERIALIZE_READONLY = 4;
-
 	public const uint32 NOT_WITHIN = 0;
-
 	public const uint32 PARTLY_WITHIN = 1;
-
 	public const uint32 FULLY_WITHIN = 2;
-
 	public const uint32 __SQLITESESSION_H_ = 1;
-
 	public const uint32 SQLITE_CHANGESETSTART_INVERT = 2;
-
 	public const uint32 SQLITE_CHANGESETAPPLY_NOSAVEPOINT = 1;
-
 	public const uint32 SQLITE_CHANGESETAPPLY_INVERT = 2;
-
 	public const uint32 SQLITE_CHANGESET_DATA = 1;
-
 	public const uint32 SQLITE_CHANGESET_NOTFOUND = 2;
-
 	public const uint32 SQLITE_CHANGESET_CONFLICT = 3;
-
 	public const uint32 SQLITE_CHANGESET_CONSTRAINT = 4;
-
 	public const uint32 SQLITE_CHANGESET_FOREIGN_KEY = 5;
-
 	public const uint32 SQLITE_CHANGESET_OMIT = 0;
-
 	public const uint32 SQLITE_CHANGESET_REPLACE = 1;
-
 	public const uint32 SQLITE_CHANGESET_ABORT = 2;
-
 	public const uint32 SQLITE_SESSION_CONFIG_STRMSIZE = 1;
-
 	public const uint32 FTS5_TOKENIZE_QUERY = 1;
-
 	public const uint32 FTS5_TOKENIZE_PREFIX = 2;
-
 	public const uint32 FTS5_TOKENIZE_DOCUMENT = 4;
-
 	public const uint32 FTS5_TOKENIZE_AUX = 8;
-
 	public const uint32 FTS5_TOKEN_COLOCATED = 1;
-
 }
 #endregion
 #region Function Pointers
@@ -951,14 +568,12 @@ public struct sqlite3_index_info
 		public int32 iColumn;
 		public uint8 desc;
 	}
-
 	[CRepr]
 	public struct sqlite3_index_constraint_usage
 	{
 		public int32 argvIndex;
 		public uint8 omit;
 	}
-
 	[CRepr]
 	public struct sqlite3_index_constraint
 	{
@@ -967,7 +582,6 @@ public struct sqlite3_index_info
 		public uint8 usable;
 		public int32 iTermOffset;
 	}
-
 	public int32 nConstraint;
 	public sqlite3_index_constraint* aConstraint;
 	public int32 nOrderBy;

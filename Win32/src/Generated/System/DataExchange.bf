@@ -2,7 +2,6 @@ using Win32.Security;
 using Win32.Foundation;
 using Win32.Graphics.Gdi;
 using System;
-using System.Interop;
 
 namespace Win32.System.DataExchange;
 
@@ -10,137 +9,71 @@ namespace Win32.System.DataExchange;
 public static
 {
 	public const uint32 WM_DDE_FIRST = 992;
-
 	public const uint32 WM_DDE_INITIATE = 992;
-
 	public const uint32 WM_DDE_TERMINATE = 993;
-
 	public const uint32 WM_DDE_ADVISE = 994;
-
 	public const uint32 WM_DDE_UNADVISE = 995;
-
 	public const uint32 WM_DDE_ACK = 996;
-
 	public const uint32 WM_DDE_DATA = 997;
-
 	public const uint32 WM_DDE_REQUEST = 998;
-
 	public const uint32 WM_DDE_POKE = 999;
-
 	public const uint32 WM_DDE_EXECUTE = 1000;
-
 	public const uint32 WM_DDE_LAST = 1000;
-
 	public const uint32 CADV_LATEACK = 65535;
-
 	public const uint32 DDE_FACK = 32768;
-
 	public const uint32 DDE_FBUSY = 16384;
-
 	public const uint32 DDE_FDEFERUPD = 16384;
-
 	public const uint32 DDE_FACKREQ = 32768;
-
 	public const uint32 DDE_FRELEASE = 8192;
-
 	public const uint32 DDE_FREQUESTED = 4096;
-
 	public const uint32 DDE_FAPPSTATUS = 255;
-
 	public const uint32 DDE_FNOTPROCESSED = 0;
-
 	public const uint32 MSGF_DDEMGR = 32769;
-
 	public const int32 CP_WINANSI = 1004;
-
 	public const int32 CP_WINUNICODE = 1200;
-
 	public const int32 CP_WINNEUTRAL = 1200;
-
 	public const uint32 XTYPF_NOBLOCK = 2;
-
 	public const uint32 XTYPF_NODATA = 4;
-
 	public const uint32 XTYPF_ACKREQ = 8;
-
 	public const uint32 XCLASS_MASK = 64512;
-
 	public const uint32 XCLASS_BOOL = 4096;
-
 	public const uint32 XCLASS_DATA = 8192;
-
 	public const uint32 XCLASS_FLAGS = 16384;
-
 	public const uint32 XCLASS_NOTIFICATION = 32768;
-
 	public const uint32 XTYP_MASK = 240;
-
 	public const uint32 XTYP_SHIFT = 4;
-
 	public const uint32 TIMEOUT_ASYNC = 4294967295;
-
 	public const uint32 QID_SYNC = 4294967295;
-
 	public const int32 APPCMD_MASK = 4080;
-
 	public const int32 APPCLASS_MASK = 15;
-
 	public const uint32 HDATA_APPOWNED = 1;
-
 	public const uint32 DMLERR_NO_ERROR = 0;
-
 	public const uint32 DMLERR_FIRST = 16384;
-
 	public const uint32 DMLERR_ADVACKTIMEOUT = 16384;
-
 	public const uint32 DMLERR_BUSY = 16385;
-
 	public const uint32 DMLERR_DATAACKTIMEOUT = 16386;
-
 	public const uint32 DMLERR_DLL_NOT_INITIALIZED = 16387;
-
 	public const uint32 DMLERR_DLL_USAGE = 16388;
-
 	public const uint32 DMLERR_EXECACKTIMEOUT = 16389;
-
 	public const uint32 DMLERR_INVALIDPARAMETER = 16390;
-
 	public const uint32 DMLERR_LOW_MEMORY = 16391;
-
 	public const uint32 DMLERR_MEMORY_ERROR = 16392;
-
 	public const uint32 DMLERR_NOTPROCESSED = 16393;
-
 	public const uint32 DMLERR_NO_CONV_ESTABLISHED = 16394;
-
 	public const uint32 DMLERR_POKEACKTIMEOUT = 16395;
-
 	public const uint32 DMLERR_POSTMSG_FAILED = 16396;
-
 	public const uint32 DMLERR_REENTRANCY = 16397;
-
 	public const uint32 DMLERR_SERVER_DIED = 16398;
-
 	public const uint32 DMLERR_SYS_ERROR = 16399;
-
 	public const uint32 DMLERR_UNADVACKTIMEOUT = 16400;
-
 	public const uint32 DMLERR_UNFOUND_QUEUE_ID = 16401;
-
 	public const uint32 DMLERR_LAST = 16401;
-
 	public const uint32 MH_CREATE = 1;
-
 	public const uint32 MH_KEEP = 2;
-
 	public const uint32 MH_DELETE = 3;
-
 	public const uint32 MH_CLEANUP = 4;
-
 	public const uint32 MAX_MONITORS = 4;
-
 	public const uint32 MF_MASK = 4278190080;
-
 }
 #endregion
 
@@ -286,19 +219,21 @@ public struct DDEADVISE
 	public int16 cfFormat;
 }
 
-[CRepr, FlexibleArray("Value")]
+[CRepr]
 public struct DDEDATA
 {
 	public uint16 _bitfield;
 	public int16 cfFormat;
+	public uint8* Value mut => &Value_impl;
 	private uint8[ANYSIZE_ARRAY] Value_impl;
 }
 
-[CRepr, FlexibleArray("Value")]
+[CRepr]
 public struct DDEPOKE
 {
 	public uint16 _bitfield;
 	public int16 cfFormat;
+	public uint8* Value mut => &Value_impl;
 	private uint8[ANYSIZE_ARRAY] Value_impl;
 }
 
@@ -309,11 +244,12 @@ public struct DDELN
 	public int16 cfFormat;
 }
 
-[CRepr, FlexibleArray("rgb")]
+[CRepr]
 public struct DDEUP
 {
 	public uint16 _bitfield;
 	public int16 cfFormat;
+	public uint8* rgb mut => &rgb_impl;
 	private uint8[ANYSIZE_ARRAY] rgb_impl;
 }
 
@@ -399,7 +335,7 @@ public struct MONCBSTRUCT
 	public uint32[8] Data;
 }
 
-[CRepr, FlexibleArray("str")]
+[CRepr]
 public struct MONHSZSTRUCTA
 {
 	public uint32 cb;
@@ -407,10 +343,11 @@ public struct MONHSZSTRUCTA
 	public uint32 dwTime;
 	public HSZ hsz;
 	public HANDLE hTask;
+	public CHAR* str mut => &str_impl;
 	private CHAR[ANYSIZE_ARRAY] str_impl;
 }
 
-[CRepr, FlexibleArray("str")]
+[CRepr]
 public struct MONHSZSTRUCTW
 {
 	public uint32 cb;
@@ -418,6 +355,7 @@ public struct MONHSZSTRUCTW
 	public uint32 dwTime;
 	public HSZ hsz;
 	public HANDLE hTask;
+	public char16* str mut => &str_impl;
 	private char16[ANYSIZE_ARRAY] str_impl;
 }
 

@@ -4,7 +4,6 @@ using Win32.System.Com;
 using Win32.Security.Cryptography;
 using Win32.System.IO;
 using System;
-using System.Interop;
 
 namespace Win32.NetworkManagement.P2P;
 
@@ -12,181 +11,93 @@ namespace Win32.NetworkManagement.P2P;
 public static
 {
 	public const uint32 NS_PNRPNAME = 38;
-
 	public const uint32 NS_PNRPCLOUD = 39;
-
 	public const uint32 PNRPINFO_HINT = 1;
-
 	public const Guid NS_PROVIDER_PNRPNAME = .(0x03fe89cd, 0x766d, 0x4976, 0xb9, 0xc1, 0xbb, 0x9b, 0xc4, 0x2c, 0x7b, 0x4d);
-
 	public const Guid NS_PROVIDER_PNRPCLOUD = .(0x03fe89ce, 0x766d, 0x4976, 0xb9, 0xc1, 0xbb, 0x9b, 0xc4, 0x2c, 0x7b, 0x4d);
-
 	public const Guid SVCID_PNRPCLOUD = .(0xc2239ce6, 0x00c0, 0x4fbf, 0xba, 0xd6, 0x18, 0x13, 0x93, 0x85, 0xa4, 0x9a);
-
 	public const Guid SVCID_PNRPNAME_V1 = .(0xc2239ce5, 0x00c0, 0x4fbf, 0xba, 0xd6, 0x18, 0x13, 0x93, 0x85, 0xa4, 0x9a);
-
 	public const Guid SVCID_PNRPNAME_V2 = .(0xc2239ce7, 0x00c0, 0x4fbf, 0xba, 0xd6, 0x18, 0x13, 0x93, 0x85, 0xa4, 0x9a);
-
 	public const uint32 PNRP_MAX_ENDPOINT_ADDRESSES = 10;
-
 	public const uint32 PNRP_MAX_EXTENDED_PAYLOAD_BYTES = 4096;
-
 	public const uint32 WSA_PNRP_ERROR_BASE = 11500;
-
 	public const uint32 WSA_PNRP_CLOUD_NOT_FOUND = 11501;
-
 	public const uint32 WSA_PNRP_CLOUD_DISABLED = 11502;
-
 	public const uint32 WSA_PNRP_INVALID_IDENTITY = 11503;
-
 	public const uint32 WSA_PNRP_TOO_MUCH_LOAD = 11504;
-
 	public const uint32 WSA_PNRP_CLOUD_IS_SEARCH_ONLY = 11505;
-
 	public const uint32 WSA_PNRP_CLIENT_INVALID_COMPARTMENT_ID = 11506;
-
 	public const uint32 WSA_PNRP_DUPLICATE_PEER_NAME = 11508;
-
 	public const uint32 WSA_PNRP_CLOUD_IS_DEAD = 11509;
-
 	public const HRESULT PEER_E_CLOUD_NOT_FOUND = -2147013395;
-
 	public const HRESULT PEER_E_CLOUD_DISABLED = -2147013394;
-
 	public const HRESULT PEER_E_INVALID_IDENTITY = -2147013393;
-
 	public const HRESULT PEER_E_TOO_MUCH_LOAD = -2147013392;
-
 	public const HRESULT PEER_E_CLOUD_IS_SEARCH_ONLY = -2147013391;
-
 	public const HRESULT PEER_E_CLIENT_INVALID_COMPARTMENT_ID = -2147013390;
-
 	public const HRESULT PEER_E_DUPLICATE_PEER_NAME = -2147013388;
-
 	public const HRESULT PEER_E_CLOUD_IS_DEAD = -2147013387;
-
 	public const HRESULT PEER_E_NOT_FOUND = -2147023728;
-
 	public const HRESULT PEER_E_DISK_FULL = -2147024784;
-
 	public const HRESULT PEER_E_ALREADY_EXISTS = -2147024713;
-
 	public const Guid PEER_GROUP_ROLE_ADMIN = .(0x04387127, 0xaa56, 0x450a, 0x8c, 0xe5, 0x4f, 0x56, 0x5c, 0x67, 0x90, 0xf4);
-
 	public const Guid PEER_GROUP_ROLE_MEMBER = .(0xf12dc4c7, 0x0857, 0x4ca0, 0x93, 0xfc, 0xb1, 0xbb, 0x19, 0xa3, 0xd8, 0xc2);
-
 	public const Guid PEER_GROUP_ROLE_INVITING_MEMBER = .(0x4370fd89, 0xdc18, 0x4cfb, 0x8d, 0xbf, 0x98, 0x53, 0xa8, 0xa9, 0xf9, 0x05);
-
 	public const Guid PEER_COLLAB_OBJECTID_USER_PICTURE = .(0xdd15f41f, 0xfc4e, 0x4922, 0xb0, 0x35, 0x4c, 0x06, 0xa7, 0x54, 0xd0, 0x1d);
-
 	public const uint32 FACILITY_DRT = 98;
-
 	public const HRESULT DRT_E_TIMEOUT = -2141057023;
-
 	public const HRESULT DRT_E_INVALID_KEY_SIZE = -2141057022;
-
 	public const HRESULT DRT_E_INVALID_CERT_CHAIN = -2141057020;
-
 	public const HRESULT DRT_E_INVALID_MESSAGE = -2141057019;
-
 	public const HRESULT DRT_E_NO_MORE = -2141057018;
-
 	public const HRESULT DRT_E_INVALID_MAX_ADDRESSES = -2141057017;
-
 	public const HRESULT DRT_E_SEARCH_IN_PROGRESS = -2141057016;
-
 	public const HRESULT DRT_E_INVALID_KEY = -2141057015;
-
 	public const HRESULT DRT_S_RETRY = 6426640;
-
 	public const HRESULT DRT_E_INVALID_MAX_ENDPOINTS = -2141057007;
-
 	public const HRESULT DRT_E_INVALID_SEARCH_RANGE = -2141057006;
-
 	public const HRESULT DRT_E_INVALID_PORT = -2141052928;
-
 	public const HRESULT DRT_E_INVALID_TRANSPORT_PROVIDER = -2141052927;
-
 	public const HRESULT DRT_E_INVALID_SECURITY_PROVIDER = -2141052926;
-
 	public const HRESULT DRT_E_STILL_IN_USE = -2141052925;
-
 	public const HRESULT DRT_E_INVALID_BOOTSTRAP_PROVIDER = -2141052924;
-
 	public const HRESULT DRT_E_INVALID_ADDRESS = -2141052923;
-
 	public const HRESULT DRT_E_INVALID_SCOPE = -2141052922;
-
 	public const HRESULT DRT_E_TRANSPORT_SHUTTING_DOWN = -2141052921;
-
 	public const HRESULT DRT_E_NO_ADDRESSES_AVAILABLE = -2141052920;
-
 	public const HRESULT DRT_E_DUPLICATE_KEY = -2141052919;
-
 	public const HRESULT DRT_E_TRANSPORTPROVIDER_IN_USE = -2141052918;
-
 	public const HRESULT DRT_E_TRANSPORTPROVIDER_NOT_ATTACHED = -2141052917;
-
 	public const HRESULT DRT_E_SECURITYPROVIDER_IN_USE = -2141052916;
-
 	public const HRESULT DRT_E_SECURITYPROVIDER_NOT_ATTACHED = -2141052915;
-
 	public const HRESULT DRT_E_BOOTSTRAPPROVIDER_IN_USE = -2141052914;
-
 	public const HRESULT DRT_E_BOOTSTRAPPROVIDER_NOT_ATTACHED = -2141052913;
-
 	public const HRESULT DRT_E_TRANSPORT_ALREADY_BOUND = -2141052671;
-
 	public const HRESULT DRT_E_TRANSPORT_NOT_BOUND = -2141052670;
-
 	public const HRESULT DRT_E_TRANSPORT_UNEXPECTED = -2141052669;
-
 	public const HRESULT DRT_E_TRANSPORT_INVALID_ARGUMENT = -2141052668;
-
 	public const HRESULT DRT_E_TRANSPORT_NO_DEST_ADDRESSES = -2141052667;
-
 	public const HRESULT DRT_E_TRANSPORT_EXECUTING_CALLBACK = -2141052666;
-
 	public const HRESULT DRT_E_TRANSPORT_ALREADY_EXISTS_FOR_SCOPE = -2141052665;
-
 	public const HRESULT DRT_E_INVALID_SETTINGS = -2141052664;
-
 	public const HRESULT DRT_E_INVALID_SEARCH_INFO = -2141052663;
-
 	public const HRESULT DRT_E_FAULTED = -2141052662;
-
 	public const HRESULT DRT_E_TRANSPORT_STILL_BOUND = -2141052661;
-
 	public const HRESULT DRT_E_INSUFFICIENT_BUFFER = -2141052660;
-
 	public const HRESULT DRT_E_INVALID_INSTANCE_PREFIX = -2141052659;
-
 	public const HRESULT DRT_E_INVALID_SECURITY_MODE = -2141052658;
-
 	public const HRESULT DRT_E_CAPABILITY_MISMATCH = -2141052657;
-
 	public const uint32 DRT_PAYLOAD_REVOKED = 1;
-
 	public const uint32 DRT_MIN_ROUTING_ADDRESSES = 1;
-
 	public const uint32 DRT_MAX_ROUTING_ADDRESSES = 20;
-
 	public const uint32 DRT_MAX_PAYLOAD_SIZE = 5120;
-
 	public const uint32 DRT_MAX_INSTANCE_PREFIX_LEN = 128;
-
 	public const uint32 DRT_LINK_LOCAL_ISATAP_SCOPEID = 4294967295;
-
 	public const int32 PEERDIST_PUBLICATION_OPTIONS_VERSION_1 = 1;
-
 	public const int32 PEERDIST_PUBLICATION_OPTIONS_VERSION = 2;
-
 	public const int32 PEERDIST_PUBLICATION_OPTIONS_VERSION_2 = 2;
-
 	public const uint32 PEERDIST_READ_TIMEOUT_LOCAL_CACHE_ONLY = 0;
-
 	public const uint32 PEERDIST_READ_TIMEOUT_DEFAULT = 4294967294;
-
 }
 #endregion
 
@@ -640,7 +551,6 @@ public struct PNRPINFO_V2
 		public BLOB blobPayload;
 		public PWSTR pwszPayload;
 	}
-
 	public uint32 dwSize;
 	public PWSTR lpwszIdentity;
 	public uint32 nMaxResolve;
@@ -804,7 +714,6 @@ public struct PEER_GRAPH_EVENT_DATA
 		public PEER_EVENT_NODE_CHANGE_DATA nodeChangeData;
 		public PEER_EVENT_SYNCHRONIZED_DATA synchronizedData;
 	}
-
 	public PEER_GRAPH_EVENT_TYPE eventType;
 	public using _Anonymous_e__Union Anonymous;
 }
@@ -922,7 +831,6 @@ public struct PEER_GROUP_EVENT_DATA
 		public PEER_EVENT_MEMBER_CHANGE_DATA memberChangeData;
 		public HRESULT hrConnectionFailedReason;
 	}
-
 	public PEER_GROUP_EVENT_TYPE eventType;
 	public using _Anonymous_e__Union Anonymous;
 }
@@ -1094,7 +1002,6 @@ public struct PEER_COLLAB_EVENT_DATA
 		public PEER_EVENT_PEOPLE_NEAR_ME_CHANGED_DATA peopleNearMeChangedData;
 		public PEER_EVENT_REQUEST_STATUS_CHANGED_DATA requestStatusChangedData;
 	}
-
 	public PEER_COLLAB_EVENT_TYPE eventType;
 	public using _Anonymous_e__Union Anonymous;
 }
@@ -1211,10 +1118,11 @@ public struct DRT_ADDRESS
 	public uint32 latency;
 }
 
-[CRepr, FlexibleArray("AddressList")]
+[CRepr]
 public struct DRT_ADDRESS_LIST
 {
 	public uint32 AddressCount;
+	public DRT_ADDRESS* AddressList mut => &AddressList_impl;
 	private DRT_ADDRESS[ANYSIZE_ARRAY] AddressList_impl;
 }
 
@@ -1242,11 +1150,9 @@ public struct DRT_EVENT_DATA
 				public uint32 cntAddress;
 				public SOCKADDR_STORAGE* pAddresses;
 			}
-
 			public DRT_STATUS status;
 			public _bootstrapAddresses_e__Struct bootstrapAddresses;
 		}
-
 		[CRepr]
 		public struct _leafsetKeyChange_e__Struct
 		{
@@ -1254,19 +1160,16 @@ public struct DRT_EVENT_DATA
 			public DRT_DATA localKey;
 			public DRT_DATA remoteKey;
 		}
-
 		[CRepr]
 		public struct _registrationStateChange_e__Struct
 		{
 			public DRT_REGISTRATION_STATE state;
 			public DRT_DATA localKey;
 		}
-
 		public _leafsetKeyChange_e__Struct leafsetKeyChange;
 		public _registrationStateChange_e__Struct registrationStateChange;
 		public _statusChange_e__Struct statusChange;
 	}
-
 	public DRT_EVENT_TYPE type;
 	public HRESULT hr;
 	public void* pvContext;

@@ -10,13 +10,9 @@ namespace Win32.System.WinRT;
 public static
 {
 	public const uint32 MAX_ERROR_MESSAGE_CHARS = 512;
-
 	public const String CastingSourceInfo_Property_PreferredSourceUriScheme = "PreferredSourceUriScheme";
-
 	public const String CastingSourceInfo_Property_CastingTypes = "CastingTypes";
-
 	public const String CastingSourceInfo_Property_ProtectedMedia = "ProtectedMedia";
-
 }
 #endregion
 
@@ -165,7 +161,6 @@ public struct HSTRING_HEADER
 		public void* Reserved1;
 		public CHAR[24] Reserved2;
 	}
-
 	public _Reserved_e__Union Reserved;
 }
 

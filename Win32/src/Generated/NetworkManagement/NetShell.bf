@@ -7,61 +7,33 @@ namespace Win32.NetworkManagement.NetShell;
 public static
 {
 	public const uint32 NETSH_ERROR_BASE = 15000;
-
 	public const uint32 ERROR_NO_ENTRIES = 15000;
-
 	public const uint32 ERROR_INVALID_SYNTAX = 15001;
-
 	public const uint32 ERROR_PROTOCOL_NOT_IN_TRANSPORT = 15002;
-
 	public const uint32 ERROR_NO_CHANGE = 15003;
-
 	public const uint32 ERROR_CMD_NOT_FOUND = 15004;
-
 	public const uint32 ERROR_ENTRY_PT_NOT_FOUND = 15005;
-
 	public const uint32 ERROR_DLL_LOAD_FAILED = 15006;
-
 	public const uint32 ERROR_INIT_DISPLAY = 15007;
-
 	public const uint32 ERROR_TAG_ALREADY_PRESENT = 15008;
-
 	public const uint32 ERROR_INVALID_OPTION_TAG = 15009;
-
 	public const uint32 ERROR_NO_TAG = 15010;
-
 	public const uint32 ERROR_MISSING_OPTION = 15011;
-
 	public const uint32 ERROR_TRANSPORT_NOT_PRESENT = 15012;
-
 	public const uint32 ERROR_SHOW_USAGE = 15013;
-
 	public const uint32 ERROR_INVALID_OPTION_VALUE = 15014;
-
 	public const uint32 ERROR_OKAY = 15015;
-
 	public const uint32 ERROR_CONTINUE_IN_PARENT_CONTEXT = 15016;
-
 	public const uint32 ERROR_SUPPRESS_OUTPUT = 15017;
-
 	public const uint32 ERROR_HELPER_ALREADY_REGISTERED = 15018;
-
 	public const uint32 ERROR_CONTEXT_ALREADY_REGISTERED = 15019;
-
 	public const uint32 ERROR_PARSING_FAILURE = 15020;
-
 	public const uint32 NETSH_ERROR_END = 15019;
-
 	public const uint32 MAX_NAME_LEN = 48;
-
 	public const uint32 NETSH_VERSION_50 = 20480;
-
 	public const uint32 NETSH_MAX_TOKEN_LENGTH = 64;
-
 	public const uint32 NETSH_MAX_CMD_TOKEN_LENGTH = 128;
-
 	public const uint32 DEFAULT_CONTEXT_PRIORITY = 100;
-
 }
 #endregion
 
@@ -156,11 +128,9 @@ public struct NS_HELPER_ATTRIBUTES
 			public uint32 dwVersion;
 			public uint32 dwReserved;
 		}
-
 		public using _Anonymous_e__Struct Anonymous;
 		public uint64 _ullAlign;
 	}
-
 	public using _Anonymous_e__Union Anonymous;
 	public Guid guidHelper;
 	public PNS_HELPER_START_FN pfnStart;
@@ -201,11 +171,9 @@ public struct NS_CONTEXT_ATTRIBUTES
 			public uint32 dwVersion;
 			public uint32 dwReserved;
 		}
-
 		public using _Anonymous_e__Struct Anonymous;
 		public uint64 _ullAlign;
 	}
-
 	public using _Anonymous_e__Union Anonymous;
 	public PWSTR pwszContext;
 	public Guid guidHelper;

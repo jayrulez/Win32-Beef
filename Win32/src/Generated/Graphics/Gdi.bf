@@ -1,6 +1,5 @@
 using Win32.Foundation;
 using System;
-using System.Interop;
 
 namespace Win32.Graphics.Gdi;
 
@@ -8,2449 +7,1227 @@ namespace Win32.Graphics.Gdi;
 public static
 {
 	public const int32 GDI_ERROR = -1;
-
 	public const uint32 ERROR = 0;
-
 	public const uint32 NULLREGION = 1;
-
 	public const uint32 SIMPLEREGION = 2;
-
 	public const uint32 COMPLEXREGION = 3;
-
 	public const uint32 RGN_ERROR = 0;
-
 	public const uint32 MAXSTRETCHBLTMODE = 4;
-
 	public const uint32 POLYFILL_LAST = 2;
-
 	public const uint32 LAYOUT_BTT = 2;
-
 	public const uint32 LAYOUT_VBH = 4;
-
 	public const uint32 ASPECT_FILTERING = 1;
-
 	public const uint32 META_SETBKCOLOR = 513;
-
 	public const uint32 META_SETBKMODE = 258;
-
 	public const uint32 META_SETMAPMODE = 259;
-
 	public const uint32 META_SETROP2 = 260;
-
 	public const uint32 META_SETRELABS = 261;
-
 	public const uint32 META_SETPOLYFILLMODE = 262;
-
 	public const uint32 META_SETSTRETCHBLTMODE = 263;
-
 	public const uint32 META_SETTEXTCHAREXTRA = 264;
-
 	public const uint32 META_SETTEXTCOLOR = 521;
-
 	public const uint32 META_SETTEXTJUSTIFICATION = 522;
-
 	public const uint32 META_SETWINDOWORG = 523;
-
 	public const uint32 META_SETWINDOWEXT = 524;
-
 	public const uint32 META_SETVIEWPORTORG = 525;
-
 	public const uint32 META_SETVIEWPORTEXT = 526;
-
 	public const uint32 META_OFFSETWINDOWORG = 527;
-
 	public const uint32 META_SCALEWINDOWEXT = 1040;
-
 	public const uint32 META_OFFSETVIEWPORTORG = 529;
-
 	public const uint32 META_SCALEVIEWPORTEXT = 1042;
-
 	public const uint32 META_LINETO = 531;
-
 	public const uint32 META_MOVETO = 532;
-
 	public const uint32 META_EXCLUDECLIPRECT = 1045;
-
 	public const uint32 META_INTERSECTCLIPRECT = 1046;
-
 	public const uint32 META_ARC = 2071;
-
 	public const uint32 META_ELLIPSE = 1048;
-
 	public const uint32 META_FLOODFILL = 1049;
-
 	public const uint32 META_PIE = 2074;
-
 	public const uint32 META_RECTANGLE = 1051;
-
 	public const uint32 META_ROUNDRECT = 1564;
-
 	public const uint32 META_PATBLT = 1565;
-
 	public const uint32 META_SAVEDC = 30;
-
 	public const uint32 META_SETPIXEL = 1055;
-
 	public const uint32 META_OFFSETCLIPRGN = 544;
-
 	public const uint32 META_TEXTOUT = 1313;
-
 	public const uint32 META_BITBLT = 2338;
-
 	public const uint32 META_STRETCHBLT = 2851;
-
 	public const uint32 META_POLYGON = 804;
-
 	public const uint32 META_POLYLINE = 805;
-
 	public const uint32 META_ESCAPE = 1574;
-
 	public const uint32 META_RESTOREDC = 295;
-
 	public const uint32 META_FILLREGION = 552;
-
 	public const uint32 META_FRAMEREGION = 1065;
-
 	public const uint32 META_INVERTREGION = 298;
-
 	public const uint32 META_PAINTREGION = 299;
-
 	public const uint32 META_SELECTCLIPREGION = 300;
-
 	public const uint32 META_SELECTOBJECT = 301;
-
 	public const uint32 META_SETTEXTALIGN = 302;
-
 	public const uint32 META_CHORD = 2096;
-
 	public const uint32 META_SETMAPPERFLAGS = 561;
-
 	public const uint32 META_EXTTEXTOUT = 2610;
-
 	public const uint32 META_SETDIBTODEV = 3379;
-
 	public const uint32 META_SELECTPALETTE = 564;
-
 	public const uint32 META_REALIZEPALETTE = 53;
-
 	public const uint32 META_ANIMATEPALETTE = 1078;
-
 	public const uint32 META_SETPALENTRIES = 55;
-
 	public const uint32 META_POLYPOLYGON = 1336;
-
 	public const uint32 META_RESIZEPALETTE = 313;
-
 	public const uint32 META_DIBBITBLT = 2368;
-
 	public const uint32 META_DIBSTRETCHBLT = 2881;
-
 	public const uint32 META_DIBCREATEPATTERNBRUSH = 322;
-
 	public const uint32 META_STRETCHDIB = 3907;
-
 	public const uint32 META_EXTFLOODFILL = 1352;
-
 	public const uint32 META_SETLAYOUT = 329;
-
 	public const uint32 META_DELETEOBJECT = 496;
-
 	public const uint32 META_CREATEPALETTE = 247;
-
 	public const uint32 META_CREATEPATTERNBRUSH = 505;
-
 	public const uint32 META_CREATEPENINDIRECT = 762;
-
 	public const uint32 META_CREATEFONTINDIRECT = 763;
-
 	public const uint32 META_CREATEBRUSHINDIRECT = 764;
-
 	public const uint32 META_CREATEREGION = 1791;
-
 	public const uint32 NEWFRAME = 1;
-
 	public const uint32 ABORTDOC = 2;
-
 	public const uint32 NEXTBAND = 3;
-
 	public const uint32 SETCOLORTABLE = 4;
-
 	public const uint32 GETCOLORTABLE = 5;
-
 	public const uint32 FLUSHOUTPUT = 6;
-
 	public const uint32 DRAFTMODE = 7;
-
 	public const uint32 QUERYESCSUPPORT = 8;
-
 	public const uint32 SETABORTPROC = 9;
-
 	public const uint32 STARTDOC = 10;
-
 	public const uint32 ENDDOC = 11;
-
 	public const uint32 GETPHYSPAGESIZE = 12;
-
 	public const uint32 GETPRINTINGOFFSET = 13;
-
 	public const uint32 GETSCALINGFACTOR = 14;
-
 	public const uint32 MFCOMMENT = 15;
-
 	public const uint32 GETPENWIDTH = 16;
-
 	public const uint32 SETCOPYCOUNT = 17;
-
 	public const uint32 SELECTPAPERSOURCE = 18;
-
 	public const uint32 DEVICEDATA = 19;
-
 	public const uint32 PASSTHROUGH = 19;
-
 	public const uint32 GETTECHNOLGY = 20;
-
 	public const uint32 GETTECHNOLOGY = 20;
-
 	public const uint32 SETLINECAP = 21;
-
 	public const uint32 SETLINEJOIN = 22;
-
 	public const uint32 SETMITERLIMIT = 23;
-
 	public const uint32 BANDINFO = 24;
-
 	public const uint32 DRAWPATTERNRECT = 25;
-
 	public const uint32 GETVECTORPENSIZE = 26;
-
 	public const uint32 GETVECTORBRUSHSIZE = 27;
-
 	public const uint32 ENABLEDUPLEX = 28;
-
 	public const uint32 GETSETPAPERBINS = 29;
-
 	public const uint32 GETSETPRINTORIENT = 30;
-
 	public const uint32 ENUMPAPERBINS = 31;
-
 	public const uint32 SETDIBSCALING = 32;
-
 	public const uint32 EPSPRINTING = 33;
-
 	public const uint32 ENUMPAPERMETRICS = 34;
-
 	public const uint32 GETSETPAPERMETRICS = 35;
-
 	public const uint32 POSTSCRIPT_DATA = 37;
-
 	public const uint32 POSTSCRIPT_IGNORE = 38;
-
 	public const uint32 MOUSETRAILS = 39;
-
 	public const uint32 GETDEVICEUNITS = 42;
-
 	public const uint32 GETEXTENDEDTEXTMETRICS = 256;
-
 	public const uint32 GETEXTENTTABLE = 257;
-
 	public const uint32 GETPAIRKERNTABLE = 258;
-
 	public const uint32 GETTRACKKERNTABLE = 259;
-
 	public const uint32 EXTTEXTOUT = 512;
-
 	public const uint32 GETFACENAME = 513;
-
 	public const uint32 DOWNLOADFACE = 514;
-
 	public const uint32 ENABLERELATIVEWIDTHS = 768;
-
 	public const uint32 ENABLEPAIRKERNING = 769;
-
 	public const uint32 SETKERNTRACK = 770;
-
 	public const uint32 SETALLJUSTVALUES = 771;
-
 	public const uint32 SETCHARSET = 772;
-
 	public const uint32 STRETCHBLT = 2048;
-
 	public const uint32 METAFILE_DRIVER = 2049;
-
 	public const uint32 GETSETSCREENPARAMS = 3072;
-
 	public const uint32 QUERYDIBSUPPORT = 3073;
-
 	public const uint32 BEGIN_PATH = 4096;
-
 	public const uint32 CLIP_TO_PATH = 4097;
-
 	public const uint32 END_PATH = 4098;
-
 	public const uint32 EXT_DEVICE_CAPS = 4099;
-
 	public const uint32 RESTORE_CTM = 4100;
-
 	public const uint32 SAVE_CTM = 4101;
-
 	public const uint32 SET_ARC_DIRECTION = 4102;
-
 	public const uint32 SET_BACKGROUND_COLOR = 4103;
-
 	public const uint32 SET_POLY_MODE = 4104;
-
 	public const uint32 SET_SCREEN_ANGLE = 4105;
-
 	public const uint32 SET_SPREAD = 4106;
-
 	public const uint32 TRANSFORM_CTM = 4107;
-
 	public const uint32 SET_CLIP_BOX = 4108;
-
 	public const uint32 SET_BOUNDS = 4109;
-
 	public const uint32 SET_MIRROR_MODE = 4110;
-
 	public const uint32 OPENCHANNEL = 4110;
-
 	public const uint32 DOWNLOADHEADER = 4111;
-
 	public const uint32 CLOSECHANNEL = 4112;
-
 	public const uint32 POSTSCRIPT_PASSTHROUGH = 4115;
-
 	public const uint32 ENCAPSULATED_POSTSCRIPT = 4116;
-
 	public const uint32 POSTSCRIPT_IDENTIFY = 4117;
-
 	public const uint32 POSTSCRIPT_INJECTION = 4118;
-
 	public const uint32 CHECKJPEGFORMAT = 4119;
-
 	public const uint32 CHECKPNGFORMAT = 4120;
-
 	public const uint32 GET_PS_FEATURESETTING = 4121;
-
 	public const uint32 GDIPLUS_TS_QUERYVER = 4122;
-
 	public const uint32 GDIPLUS_TS_RECORD = 4123;
-
 	public const uint32 MILCORE_TS_QUERYVER_RESULT_FALSE = 0;
-
 	public const uint32 MILCORE_TS_QUERYVER_RESULT_TRUE = 2147483647;
-
 	public const uint32 SPCLPASSTHROUGH2 = 4568;
-
 	public const uint32 PSIDENT_GDICENTRIC = 0;
-
 	public const uint32 PSIDENT_PSCENTRIC = 1;
-
 	public const uint32 PSINJECT_DLFONT = 3722304989;
-
 	public const uint32 FEATURESETTING_NUP = 0;
-
 	public const uint32 FEATURESETTING_OUTPUT = 1;
-
 	public const uint32 FEATURESETTING_PSLEVEL = 2;
-
 	public const uint32 FEATURESETTING_CUSTPAPER = 3;
-
 	public const uint32 FEATURESETTING_MIRROR = 4;
-
 	public const uint32 FEATURESETTING_NEGATIVE = 5;
-
 	public const uint32 FEATURESETTING_PROTOCOL = 6;
-
 	public const uint32 FEATURESETTING_PRIVATE_BEGIN = 4096;
-
 	public const uint32 FEATURESETTING_PRIVATE_END = 8191;
-
 	public const uint32 PSPROTOCOL_ASCII = 0;
-
 	public const uint32 PSPROTOCOL_BCP = 1;
-
 	public const uint32 PSPROTOCOL_TBCP = 2;
-
 	public const uint32 PSPROTOCOL_BINARY = 3;
-
 	public const uint32 QDI_SETDIBITS = 1;
-
 	public const uint32 QDI_GETDIBITS = 2;
-
 	public const uint32 QDI_DIBTOSCREEN = 4;
-
 	public const uint32 QDI_STRETCHDIB = 8;
-
 	public const uint32 SP_NOTREPORTED = 16384;
-
 	public const int32 SP_ERROR = -1;
-
 	public const int32 SP_APPABORT = -2;
-
 	public const int32 SP_USERABORT = -3;
-
 	public const int32 SP_OUTOFDISK = -4;
-
 	public const int32 SP_OUTOFMEMORY = -5;
-
 	public const uint32 PR_JOBSTATUS = 0;
-
 	public const int32 LCS_CALIBRATED_RGB = 0;
-
 	public const int32 LCS_GM_BUSINESS = 1;
-
 	public const int32 LCS_GM_GRAPHICS = 2;
-
 	public const int32 LCS_GM_IMAGES = 4;
-
 	public const int32 LCS_GM_ABS_COLORIMETRIC = 8;
-
 	public const uint32 CM_OUT_OF_GAMUT = 255;
-
 	public const uint32 CM_IN_GAMUT = 0;
-
 	public const int32 BI_RGB = 0;
-
 	public const int32 BI_RLE8 = 1;
-
 	public const int32 BI_RLE4 = 2;
-
 	public const int32 BI_BITFIELDS = 3;
-
 	public const int32 BI_JPEG = 4;
-
 	public const int32 BI_PNG = 5;
-
 	public const uint32 TMPF_FIXED_PITCH = 1;
-
 	public const uint32 TMPF_VECTOR = 2;
-
 	public const uint32 TMPF_DEVICE = 8;
-
 	public const uint32 TMPF_TRUETYPE = 4;
-
 	public const int32 NTM_REGULAR = 64;
-
 	public const int32 NTM_BOLD = 32;
-
 	public const int32 NTM_ITALIC = 1;
-
 	public const uint32 NTM_NONNEGATIVE_AC = 65536;
-
 	public const uint32 NTM_PS_OPENTYPE = 131072;
-
 	public const uint32 NTM_TT_OPENTYPE = 262144;
-
 	public const uint32 NTM_MULTIPLEMASTER = 524288;
-
 	public const uint32 NTM_TYPE1 = 1048576;
-
 	public const uint32 NTM_DSIG = 2097152;
-
 	public const uint32 LF_FACESIZE = 32;
-
 	public const uint32 LF_FULLFACESIZE = 64;
-
 	public const uint32 OUT_SCREEN_OUTLINE_PRECIS = 9;
-
 	public const uint32 CLEARTYPE_NATURAL_QUALITY = 6;
-
 	public const uint32 DEFAULT_PITCH = 0;
-
 	public const uint32 FIXED_PITCH = 1;
-
 	public const uint32 VARIABLE_PITCH = 2;
-
 	public const uint32 MONO_FONT = 8;
-
 	public const uint32 ANSI_CHARSET = 0;
-
 	public const uint32 DEFAULT_CHARSET = 1;
-
 	public const uint32 SYMBOL_CHARSET = 2;
-
 	public const uint32 SHIFTJIS_CHARSET = 128;
-
 	public const uint32 HANGEUL_CHARSET = 129;
-
 	public const uint32 HANGUL_CHARSET = 129;
-
 	public const uint32 GB2312_CHARSET = 134;
-
 	public const uint32 CHINESEBIG5_CHARSET = 136;
-
 	public const uint32 OEM_CHARSET = 255;
-
 	public const uint32 JOHAB_CHARSET = 130;
-
 	public const uint32 HEBREW_CHARSET = 177;
-
 	public const uint32 ARABIC_CHARSET = 178;
-
 	public const uint32 GREEK_CHARSET = 161;
-
 	public const uint32 TURKISH_CHARSET = 162;
-
 	public const uint32 VIETNAMESE_CHARSET = 163;
-
 	public const uint32 THAI_CHARSET = 222;
-
 	public const uint32 EASTEUROPE_CHARSET = 238;
-
 	public const uint32 RUSSIAN_CHARSET = 204;
-
 	public const uint32 MAC_CHARSET = 77;
-
 	public const uint32 BALTIC_CHARSET = 186;
-
 	public const int32 FS_LATIN1 = 1;
-
 	public const int32 FS_LATIN2 = 2;
-
 	public const int32 FS_CYRILLIC = 4;
-
 	public const int32 FS_GREEK = 8;
-
 	public const int32 FS_TURKISH = 16;
-
 	public const int32 FS_HEBREW = 32;
-
 	public const int32 FS_ARABIC = 64;
-
 	public const int32 FS_BALTIC = 128;
-
 	public const int32 FS_VIETNAMESE = 256;
-
 	public const int32 FS_THAI = 65536;
-
 	public const int32 FS_JISJAPAN = 131072;
-
 	public const int32 FS_CHINESESIMP = 262144;
-
 	public const int32 FS_WANSUNG = 524288;
-
 	public const int32 FS_CHINESETRAD = 1048576;
-
 	public const int32 FS_JOHAB = 2097152;
-
 	public const int32 FS_SYMBOL = -2147483648;
-
 	public const uint32 FW_DONTCARE = 0;
-
 	public const uint32 FW_THIN = 100;
-
 	public const uint32 FW_EXTRALIGHT = 200;
-
 	public const uint32 FW_LIGHT = 300;
-
 	public const uint32 FW_NORMAL = 400;
-
 	public const uint32 FW_MEDIUM = 500;
-
 	public const uint32 FW_SEMIBOLD = 600;
-
 	public const uint32 FW_BOLD = 700;
-
 	public const uint32 FW_EXTRABOLD = 800;
-
 	public const uint32 FW_HEAVY = 900;
-
 	public const uint32 FW_ULTRALIGHT = 200;
-
 	public const uint32 FW_REGULAR = 400;
-
 	public const uint32 FW_DEMIBOLD = 600;
-
 	public const uint32 FW_ULTRABOLD = 800;
-
 	public const uint32 FW_BLACK = 900;
-
 	public const uint32 PANOSE_COUNT = 10;
-
 	public const uint32 PAN_FAMILYTYPE_INDEX = 0;
-
 	public const uint32 PAN_SERIFSTYLE_INDEX = 1;
-
 	public const uint32 PAN_WEIGHT_INDEX = 2;
-
 	public const uint32 PAN_PROPORTION_INDEX = 3;
-
 	public const uint32 PAN_CONTRAST_INDEX = 4;
-
 	public const uint32 PAN_STROKEVARIATION_INDEX = 5;
-
 	public const uint32 PAN_ARMSTYLE_INDEX = 6;
-
 	public const uint32 PAN_LETTERFORM_INDEX = 7;
-
 	public const uint32 PAN_MIDLINE_INDEX = 8;
-
 	public const uint32 PAN_XHEIGHT_INDEX = 9;
-
 	public const uint32 PAN_CULTURE_LATIN = 0;
-
 	public const uint32 PAN_ANY = 0;
-
 	public const uint32 PAN_NO_FIT = 1;
-
 	public const uint32 PAN_FAMILY_TEXT_DISPLAY = 2;
-
 	public const uint32 PAN_FAMILY_SCRIPT = 3;
-
 	public const uint32 PAN_FAMILY_DECORATIVE = 4;
-
 	public const uint32 PAN_FAMILY_PICTORIAL = 5;
-
 	public const uint32 PAN_SERIF_COVE = 2;
-
 	public const uint32 PAN_SERIF_OBTUSE_COVE = 3;
-
 	public const uint32 PAN_SERIF_SQUARE_COVE = 4;
-
 	public const uint32 PAN_SERIF_OBTUSE_SQUARE_COVE = 5;
-
 	public const uint32 PAN_SERIF_SQUARE = 6;
-
 	public const uint32 PAN_SERIF_THIN = 7;
-
 	public const uint32 PAN_SERIF_BONE = 8;
-
 	public const uint32 PAN_SERIF_EXAGGERATED = 9;
-
 	public const uint32 PAN_SERIF_TRIANGLE = 10;
-
 	public const uint32 PAN_SERIF_NORMAL_SANS = 11;
-
 	public const uint32 PAN_SERIF_OBTUSE_SANS = 12;
-
 	public const uint32 PAN_SERIF_PERP_SANS = 13;
-
 	public const uint32 PAN_SERIF_FLARED = 14;
-
 	public const uint32 PAN_SERIF_ROUNDED = 15;
-
 	public const uint32 PAN_WEIGHT_VERY_LIGHT = 2;
-
 	public const uint32 PAN_WEIGHT_LIGHT = 3;
-
 	public const uint32 PAN_WEIGHT_THIN = 4;
-
 	public const uint32 PAN_WEIGHT_BOOK = 5;
-
 	public const uint32 PAN_WEIGHT_MEDIUM = 6;
-
 	public const uint32 PAN_WEIGHT_DEMI = 7;
-
 	public const uint32 PAN_WEIGHT_BOLD = 8;
-
 	public const uint32 PAN_WEIGHT_HEAVY = 9;
-
 	public const uint32 PAN_WEIGHT_BLACK = 10;
-
 	public const uint32 PAN_WEIGHT_NORD = 11;
-
 	public const uint32 PAN_PROP_OLD_STYLE = 2;
-
 	public const uint32 PAN_PROP_MODERN = 3;
-
 	public const uint32 PAN_PROP_EVEN_WIDTH = 4;
-
 	public const uint32 PAN_PROP_EXPANDED = 5;
-
 	public const uint32 PAN_PROP_CONDENSED = 6;
-
 	public const uint32 PAN_PROP_VERY_EXPANDED = 7;
-
 	public const uint32 PAN_PROP_VERY_CONDENSED = 8;
-
 	public const uint32 PAN_PROP_MONOSPACED = 9;
-
 	public const uint32 PAN_CONTRAST_NONE = 2;
-
 	public const uint32 PAN_CONTRAST_VERY_LOW = 3;
-
 	public const uint32 PAN_CONTRAST_LOW = 4;
-
 	public const uint32 PAN_CONTRAST_MEDIUM_LOW = 5;
-
 	public const uint32 PAN_CONTRAST_MEDIUM = 6;
-
 	public const uint32 PAN_CONTRAST_MEDIUM_HIGH = 7;
-
 	public const uint32 PAN_CONTRAST_HIGH = 8;
-
 	public const uint32 PAN_CONTRAST_VERY_HIGH = 9;
-
 	public const uint32 PAN_STROKE_GRADUAL_DIAG = 2;
-
 	public const uint32 PAN_STROKE_GRADUAL_TRAN = 3;
-
 	public const uint32 PAN_STROKE_GRADUAL_VERT = 4;
-
 	public const uint32 PAN_STROKE_GRADUAL_HORZ = 5;
-
 	public const uint32 PAN_STROKE_RAPID_VERT = 6;
-
 	public const uint32 PAN_STROKE_RAPID_HORZ = 7;
-
 	public const uint32 PAN_STROKE_INSTANT_VERT = 8;
-
 	public const uint32 PAN_STRAIGHT_ARMS_HORZ = 2;
-
 	public const uint32 PAN_STRAIGHT_ARMS_WEDGE = 3;
-
 	public const uint32 PAN_STRAIGHT_ARMS_VERT = 4;
-
 	public const uint32 PAN_STRAIGHT_ARMS_SINGLE_SERIF = 5;
-
 	public const uint32 PAN_STRAIGHT_ARMS_DOUBLE_SERIF = 6;
-
 	public const uint32 PAN_BENT_ARMS_HORZ = 7;
-
 	public const uint32 PAN_BENT_ARMS_WEDGE = 8;
-
 	public const uint32 PAN_BENT_ARMS_VERT = 9;
-
 	public const uint32 PAN_BENT_ARMS_SINGLE_SERIF = 10;
-
 	public const uint32 PAN_BENT_ARMS_DOUBLE_SERIF = 11;
-
 	public const uint32 PAN_LETT_NORMAL_CONTACT = 2;
-
 	public const uint32 PAN_LETT_NORMAL_WEIGHTED = 3;
-
 	public const uint32 PAN_LETT_NORMAL_BOXED = 4;
-
 	public const uint32 PAN_LETT_NORMAL_FLATTENED = 5;
-
 	public const uint32 PAN_LETT_NORMAL_ROUNDED = 6;
-
 	public const uint32 PAN_LETT_NORMAL_OFF_CENTER = 7;
-
 	public const uint32 PAN_LETT_NORMAL_SQUARE = 8;
-
 	public const uint32 PAN_LETT_OBLIQUE_CONTACT = 9;
-
 	public const uint32 PAN_LETT_OBLIQUE_WEIGHTED = 10;
-
 	public const uint32 PAN_LETT_OBLIQUE_BOXED = 11;
-
 	public const uint32 PAN_LETT_OBLIQUE_FLATTENED = 12;
-
 	public const uint32 PAN_LETT_OBLIQUE_ROUNDED = 13;
-
 	public const uint32 PAN_LETT_OBLIQUE_OFF_CENTER = 14;
-
 	public const uint32 PAN_LETT_OBLIQUE_SQUARE = 15;
-
 	public const uint32 PAN_MIDLINE_STANDARD_TRIMMED = 2;
-
 	public const uint32 PAN_MIDLINE_STANDARD_POINTED = 3;
-
 	public const uint32 PAN_MIDLINE_STANDARD_SERIFED = 4;
-
 	public const uint32 PAN_MIDLINE_HIGH_TRIMMED = 5;
-
 	public const uint32 PAN_MIDLINE_HIGH_POINTED = 6;
-
 	public const uint32 PAN_MIDLINE_HIGH_SERIFED = 7;
-
 	public const uint32 PAN_MIDLINE_CONSTANT_TRIMMED = 8;
-
 	public const uint32 PAN_MIDLINE_CONSTANT_POINTED = 9;
-
 	public const uint32 PAN_MIDLINE_CONSTANT_SERIFED = 10;
-
 	public const uint32 PAN_MIDLINE_LOW_TRIMMED = 11;
-
 	public const uint32 PAN_MIDLINE_LOW_POINTED = 12;
-
 	public const uint32 PAN_MIDLINE_LOW_SERIFED = 13;
-
 	public const uint32 PAN_XHEIGHT_CONSTANT_SMALL = 2;
-
 	public const uint32 PAN_XHEIGHT_CONSTANT_STD = 3;
-
 	public const uint32 PAN_XHEIGHT_CONSTANT_LARGE = 4;
-
 	public const uint32 PAN_XHEIGHT_DUCKING_SMALL = 5;
-
 	public const uint32 PAN_XHEIGHT_DUCKING_STD = 6;
-
 	public const uint32 PAN_XHEIGHT_DUCKING_LARGE = 7;
-
 	public const uint32 ELF_VENDOR_SIZE = 4;
-
 	public const uint32 ELF_VERSION = 0;
-
 	public const uint32 ELF_CULTURE_LATIN = 0;
-
 	public const uint32 RASTER_FONTTYPE = 1;
-
 	public const uint32 DEVICE_FONTTYPE = 2;
-
 	public const uint32 TRUETYPE_FONTTYPE = 4;
-
 	public const uint32 PC_RESERVED = 1;
-
 	public const uint32 PC_EXPLICIT = 2;
-
 	public const uint32 PC_NOCOLLAPSE = 4;
-
 	public const uint32 BKMODE_LAST = 2;
-
 	public const uint32 GM_LAST = 2;
-
 	public const uint32 PT_CLOSEFIGURE = 1;
-
 	public const uint32 PT_LINETO = 2;
-
 	public const uint32 PT_BEZIERTO = 4;
-
 	public const uint32 PT_MOVETO = 6;
-
 	public const uint32 ABSOLUTE = 1;
-
 	public const uint32 RELATIVE = 2;
-
 	public const uint32 STOCK_LAST = 19;
-
 	public const uint32 CLR_INVALID = 4294967295;
-
 	public const uint32 BS_SOLID = 0;
-
 	public const uint32 BS_NULL = 1;
-
 	public const uint32 BS_HOLLOW = 1;
-
 	public const uint32 BS_HATCHED = 2;
-
 	public const uint32 BS_PATTERN = 3;
-
 	public const uint32 BS_INDEXED = 4;
-
 	public const uint32 BS_DIBPATTERN = 5;
-
 	public const uint32 BS_DIBPATTERNPT = 6;
-
 	public const uint32 BS_PATTERN8X8 = 7;
-
 	public const uint32 BS_DIBPATTERN8X8 = 8;
-
 	public const uint32 BS_MONOPATTERN = 9;
-
 	public const uint32 HS_API_MAX = 12;
-
 	public const uint32 DT_PLOTTER = 0;
-
 	public const uint32 DT_RASDISPLAY = 1;
-
 	public const uint32 DT_RASPRINTER = 2;
-
 	public const uint32 DT_RASCAMERA = 3;
-
 	public const uint32 DT_CHARSTREAM = 4;
-
 	public const uint32 DT_METAFILE = 5;
-
 	public const uint32 DT_DISPFILE = 6;
-
 	public const uint32 CC_NONE = 0;
-
 	public const uint32 CC_CIRCLES = 1;
-
 	public const uint32 CC_PIE = 2;
-
 	public const uint32 CC_CHORD = 4;
-
 	public const uint32 CC_ELLIPSES = 8;
-
 	public const uint32 CC_WIDE = 16;
-
 	public const uint32 CC_STYLED = 32;
-
 	public const uint32 CC_WIDESTYLED = 64;
-
 	public const uint32 CC_INTERIORS = 128;
-
 	public const uint32 CC_ROUNDRECT = 256;
-
 	public const uint32 LC_NONE = 0;
-
 	public const uint32 LC_POLYLINE = 2;
-
 	public const uint32 LC_MARKER = 4;
-
 	public const uint32 LC_POLYMARKER = 8;
-
 	public const uint32 LC_WIDE = 16;
-
 	public const uint32 LC_STYLED = 32;
-
 	public const uint32 LC_WIDESTYLED = 64;
-
 	public const uint32 LC_INTERIORS = 128;
-
 	public const uint32 PC_NONE = 0;
-
 	public const uint32 PC_POLYGON = 1;
-
 	public const uint32 PC_RECTANGLE = 2;
-
 	public const uint32 PC_WINDPOLYGON = 4;
-
 	public const uint32 PC_TRAPEZOID = 4;
-
 	public const uint32 PC_SCANLINE = 8;
-
 	public const uint32 PC_WIDE = 16;
-
 	public const uint32 PC_STYLED = 32;
-
 	public const uint32 PC_WIDESTYLED = 64;
-
 	public const uint32 PC_INTERIORS = 128;
-
 	public const uint32 PC_POLYPOLYGON = 256;
-
 	public const uint32 PC_PATHS = 512;
-
 	public const uint32 CP_NONE = 0;
-
 	public const uint32 CP_RECTANGLE = 1;
-
 	public const uint32 CP_REGION = 2;
-
 	public const uint32 TC_OP_CHARACTER = 1;
-
 	public const uint32 TC_OP_STROKE = 2;
-
 	public const uint32 TC_CP_STROKE = 4;
-
 	public const uint32 TC_CR_90 = 8;
-
 	public const uint32 TC_CR_ANY = 16;
-
 	public const uint32 TC_SF_X_YINDEP = 32;
-
 	public const uint32 TC_SA_DOUBLE = 64;
-
 	public const uint32 TC_SA_INTEGER = 128;
-
 	public const uint32 TC_SA_CONTIN = 256;
-
 	public const uint32 TC_EA_DOUBLE = 512;
-
 	public const uint32 TC_IA_ABLE = 1024;
-
 	public const uint32 TC_UA_ABLE = 2048;
-
 	public const uint32 TC_SO_ABLE = 4096;
-
 	public const uint32 TC_RA_ABLE = 8192;
-
 	public const uint32 TC_VA_ABLE = 16384;
-
 	public const uint32 TC_RESERVED = 32768;
-
 	public const uint32 TC_SCROLLBLT = 65536;
-
 	public const uint32 RC_BITBLT = 1;
-
 	public const uint32 RC_BANDING = 2;
-
 	public const uint32 RC_SCALING = 4;
-
 	public const uint32 RC_BITMAP64 = 8;
-
 	public const uint32 RC_GDI20_OUTPUT = 16;
-
 	public const uint32 RC_GDI20_STATE = 32;
-
 	public const uint32 RC_SAVEBITMAP = 64;
-
 	public const uint32 RC_DI_BITMAP = 128;
-
 	public const uint32 RC_PALETTE = 256;
-
 	public const uint32 RC_DIBTODEV = 512;
-
 	public const uint32 RC_BIGFONT = 1024;
-
 	public const uint32 RC_STRETCHBLT = 2048;
-
 	public const uint32 RC_FLOODFILL = 4096;
-
 	public const uint32 RC_STRETCHDIB = 8192;
-
 	public const uint32 RC_OP_DX_OUTPUT = 16384;
-
 	public const uint32 RC_DEVBITS = 32768;
-
 	public const uint32 SB_NONE = 0;
-
 	public const uint32 SB_CONST_ALPHA = 1;
-
 	public const uint32 SB_PIXEL_ALPHA = 2;
-
 	public const uint32 SB_PREMULT_ALPHA = 4;
-
 	public const uint32 SB_GRAD_RECT = 16;
-
 	public const uint32 SB_GRAD_TRI = 32;
-
 	public const uint32 CM_NONE = 0;
-
 	public const uint32 CM_DEVICE_ICM = 1;
-
 	public const uint32 CM_GAMMA_RAMP = 2;
-
 	public const uint32 CM_CMYK_COLOR = 4;
-
 	public const uint32 SYSPAL_ERROR = 0;
-
 	public const int32 CBM_INIT = 4;
-
 	public const uint32 CCHFORMNAME = 32;
-
 	public const uint32 DM_SPECVERSION = 1025;
-
 	public const int32 DM_ORIENTATION = 1;
-
 	public const int32 DM_PAPERSIZE = 2;
-
 	public const int32 DM_PAPERLENGTH = 4;
-
 	public const int32 DM_PAPERWIDTH = 8;
-
 	public const int32 DM_SCALE = 16;
-
 	public const int32 DM_POSITION = 32;
-
 	public const int32 DM_NUP = 64;
-
 	public const int32 DM_DISPLAYORIENTATION = 128;
-
 	public const int32 DM_COPIES = 256;
-
 	public const int32 DM_DEFAULTSOURCE = 512;
-
 	public const int32 DM_PRINTQUALITY = 1024;
-
 	public const int32 DM_COLOR = 2048;
-
 	public const int32 DM_DUPLEX = 4096;
-
 	public const int32 DM_YRESOLUTION = 8192;
-
 	public const int32 DM_TTOPTION = 16384;
-
 	public const int32 DM_COLLATE = 32768;
-
 	public const int32 DM_FORMNAME = 65536;
-
 	public const int32 DM_LOGPIXELS = 131072;
-
 	public const int32 DM_BITSPERPEL = 262144;
-
 	public const int32 DM_PELSWIDTH = 524288;
-
 	public const int32 DM_PELSHEIGHT = 1048576;
-
 	public const int32 DM_DISPLAYFLAGS = 2097152;
-
 	public const int32 DM_DISPLAYFREQUENCY = 4194304;
-
 	public const int32 DM_ICMMETHOD = 8388608;
-
 	public const int32 DM_ICMINTENT = 16777216;
-
 	public const int32 DM_MEDIATYPE = 33554432;
-
 	public const int32 DM_DITHERTYPE = 67108864;
-
 	public const int32 DM_PANNINGWIDTH = 134217728;
-
 	public const int32 DM_PANNINGHEIGHT = 268435456;
-
 	public const int32 DM_DISPLAYFIXEDOUTPUT = 536870912;
-
 	public const uint32 DMORIENT_PORTRAIT = 1;
-
 	public const uint32 DMORIENT_LANDSCAPE = 2;
-
 	public const uint32 DMPAPER_LETTER = 1;
-
 	public const uint32 DMPAPER_LETTERSMALL = 2;
-
 	public const uint32 DMPAPER_TABLOID = 3;
-
 	public const uint32 DMPAPER_LEDGER = 4;
-
 	public const uint32 DMPAPER_LEGAL = 5;
-
 	public const uint32 DMPAPER_STATEMENT = 6;
-
 	public const uint32 DMPAPER_EXECUTIVE = 7;
-
 	public const uint32 DMPAPER_A3 = 8;
-
 	public const uint32 DMPAPER_A4 = 9;
-
 	public const uint32 DMPAPER_A4SMALL = 10;
-
 	public const uint32 DMPAPER_A5 = 11;
-
 	public const uint32 DMPAPER_B4 = 12;
-
 	public const uint32 DMPAPER_B5 = 13;
-
 	public const uint32 DMPAPER_FOLIO = 14;
-
 	public const uint32 DMPAPER_QUARTO = 15;
-
 	public const uint32 DMPAPER_10X14 = 16;
-
 	public const uint32 DMPAPER_11X17 = 17;
-
 	public const uint32 DMPAPER_NOTE = 18;
-
 	public const uint32 DMPAPER_ENV_9 = 19;
-
 	public const uint32 DMPAPER_ENV_10 = 20;
-
 	public const uint32 DMPAPER_ENV_11 = 21;
-
 	public const uint32 DMPAPER_ENV_12 = 22;
-
 	public const uint32 DMPAPER_ENV_14 = 23;
-
 	public const uint32 DMPAPER_CSHEET = 24;
-
 	public const uint32 DMPAPER_DSHEET = 25;
-
 	public const uint32 DMPAPER_ESHEET = 26;
-
 	public const uint32 DMPAPER_ENV_DL = 27;
-
 	public const uint32 DMPAPER_ENV_C5 = 28;
-
 	public const uint32 DMPAPER_ENV_C3 = 29;
-
 	public const uint32 DMPAPER_ENV_C4 = 30;
-
 	public const uint32 DMPAPER_ENV_C6 = 31;
-
 	public const uint32 DMPAPER_ENV_C65 = 32;
-
 	public const uint32 DMPAPER_ENV_B4 = 33;
-
 	public const uint32 DMPAPER_ENV_B5 = 34;
-
 	public const uint32 DMPAPER_ENV_B6 = 35;
-
 	public const uint32 DMPAPER_ENV_ITALY = 36;
-
 	public const uint32 DMPAPER_ENV_MONARCH = 37;
-
 	public const uint32 DMPAPER_ENV_PERSONAL = 38;
-
 	public const uint32 DMPAPER_FANFOLD_US = 39;
-
 	public const uint32 DMPAPER_FANFOLD_STD_GERMAN = 40;
-
 	public const uint32 DMPAPER_FANFOLD_LGL_GERMAN = 41;
-
 	public const uint32 DMPAPER_ISO_B4 = 42;
-
 	public const uint32 DMPAPER_JAPANESE_POSTCARD = 43;
-
 	public const uint32 DMPAPER_9X11 = 44;
-
 	public const uint32 DMPAPER_10X11 = 45;
-
 	public const uint32 DMPAPER_15X11 = 46;
-
 	public const uint32 DMPAPER_ENV_INVITE = 47;
-
 	public const uint32 DMPAPER_RESERVED_48 = 48;
-
 	public const uint32 DMPAPER_RESERVED_49 = 49;
-
 	public const uint32 DMPAPER_LETTER_EXTRA = 50;
-
 	public const uint32 DMPAPER_LEGAL_EXTRA = 51;
-
 	public const uint32 DMPAPER_TABLOID_EXTRA = 52;
-
 	public const uint32 DMPAPER_A4_EXTRA = 53;
-
 	public const uint32 DMPAPER_LETTER_TRANSVERSE = 54;
-
 	public const uint32 DMPAPER_A4_TRANSVERSE = 55;
-
 	public const uint32 DMPAPER_LETTER_EXTRA_TRANSVERSE = 56;
-
 	public const uint32 DMPAPER_A_PLUS = 57;
-
 	public const uint32 DMPAPER_B_PLUS = 58;
-
 	public const uint32 DMPAPER_LETTER_PLUS = 59;
-
 	public const uint32 DMPAPER_A4_PLUS = 60;
-
 	public const uint32 DMPAPER_A5_TRANSVERSE = 61;
-
 	public const uint32 DMPAPER_B5_TRANSVERSE = 62;
-
 	public const uint32 DMPAPER_A3_EXTRA = 63;
-
 	public const uint32 DMPAPER_A5_EXTRA = 64;
-
 	public const uint32 DMPAPER_B5_EXTRA = 65;
-
 	public const uint32 DMPAPER_A2 = 66;
-
 	public const uint32 DMPAPER_A3_TRANSVERSE = 67;
-
 	public const uint32 DMPAPER_A3_EXTRA_TRANSVERSE = 68;
-
 	public const uint32 DMPAPER_DBL_JAPANESE_POSTCARD = 69;
-
 	public const uint32 DMPAPER_A6 = 70;
-
 	public const uint32 DMPAPER_JENV_KAKU2 = 71;
-
 	public const uint32 DMPAPER_JENV_KAKU3 = 72;
-
 	public const uint32 DMPAPER_JENV_CHOU3 = 73;
-
 	public const uint32 DMPAPER_JENV_CHOU4 = 74;
-
 	public const uint32 DMPAPER_LETTER_ROTATED = 75;
-
 	public const uint32 DMPAPER_A3_ROTATED = 76;
-
 	public const uint32 DMPAPER_A4_ROTATED = 77;
-
 	public const uint32 DMPAPER_A5_ROTATED = 78;
-
 	public const uint32 DMPAPER_B4_JIS_ROTATED = 79;
-
 	public const uint32 DMPAPER_B5_JIS_ROTATED = 80;
-
 	public const uint32 DMPAPER_JAPANESE_POSTCARD_ROTATED = 81;
-
 	public const uint32 DMPAPER_DBL_JAPANESE_POSTCARD_ROTATED = 82;
-
 	public const uint32 DMPAPER_A6_ROTATED = 83;
-
 	public const uint32 DMPAPER_JENV_KAKU2_ROTATED = 84;
-
 	public const uint32 DMPAPER_JENV_KAKU3_ROTATED = 85;
-
 	public const uint32 DMPAPER_JENV_CHOU3_ROTATED = 86;
-
 	public const uint32 DMPAPER_JENV_CHOU4_ROTATED = 87;
-
 	public const uint32 DMPAPER_B6_JIS = 88;
-
 	public const uint32 DMPAPER_B6_JIS_ROTATED = 89;
-
 	public const uint32 DMPAPER_12X11 = 90;
-
 	public const uint32 DMPAPER_JENV_YOU4 = 91;
-
 	public const uint32 DMPAPER_JENV_YOU4_ROTATED = 92;
-
 	public const uint32 DMPAPER_P16K = 93;
-
 	public const uint32 DMPAPER_P32K = 94;
-
 	public const uint32 DMPAPER_P32KBIG = 95;
-
 	public const uint32 DMPAPER_PENV_1 = 96;
-
 	public const uint32 DMPAPER_PENV_2 = 97;
-
 	public const uint32 DMPAPER_PENV_3 = 98;
-
 	public const uint32 DMPAPER_PENV_4 = 99;
-
 	public const uint32 DMPAPER_PENV_5 = 100;
-
 	public const uint32 DMPAPER_PENV_6 = 101;
-
 	public const uint32 DMPAPER_PENV_7 = 102;
-
 	public const uint32 DMPAPER_PENV_8 = 103;
-
 	public const uint32 DMPAPER_PENV_9 = 104;
-
 	public const uint32 DMPAPER_PENV_10 = 105;
-
 	public const uint32 DMPAPER_P16K_ROTATED = 106;
-
 	public const uint32 DMPAPER_P32K_ROTATED = 107;
-
 	public const uint32 DMPAPER_P32KBIG_ROTATED = 108;
-
 	public const uint32 DMPAPER_PENV_1_ROTATED = 109;
-
 	public const uint32 DMPAPER_PENV_2_ROTATED = 110;
-
 	public const uint32 DMPAPER_PENV_3_ROTATED = 111;
-
 	public const uint32 DMPAPER_PENV_4_ROTATED = 112;
-
 	public const uint32 DMPAPER_PENV_5_ROTATED = 113;
-
 	public const uint32 DMPAPER_PENV_6_ROTATED = 114;
-
 	public const uint32 DMPAPER_PENV_7_ROTATED = 115;
-
 	public const uint32 DMPAPER_PENV_8_ROTATED = 116;
-
 	public const uint32 DMPAPER_PENV_9_ROTATED = 117;
-
 	public const uint32 DMPAPER_PENV_10_ROTATED = 118;
-
 	public const uint32 DMPAPER_LAST = 118;
-
 	public const uint32 DMPAPER_USER = 256;
-
 	public const uint32 DMBIN_UPPER = 1;
-
 	public const uint32 DMBIN_ONLYONE = 1;
-
 	public const uint32 DMBIN_LOWER = 2;
-
 	public const uint32 DMBIN_MIDDLE = 3;
-
 	public const uint32 DMBIN_MANUAL = 4;
-
 	public const uint32 DMBIN_ENVELOPE = 5;
-
 	public const uint32 DMBIN_ENVMANUAL = 6;
-
 	public const uint32 DMBIN_AUTO = 7;
-
 	public const uint32 DMBIN_TRACTOR = 8;
-
 	public const uint32 DMBIN_SMALLFMT = 9;
-
 	public const uint32 DMBIN_LARGEFMT = 10;
-
 	public const uint32 DMBIN_LARGECAPACITY = 11;
-
 	public const uint32 DMBIN_CASSETTE = 14;
-
 	public const uint32 DMBIN_FORMSOURCE = 15;
-
 	public const uint32 DMBIN_LAST = 15;
-
 	public const uint32 DMBIN_USER = 256;
-
 	public const int32 DMRES_DRAFT = -1;
-
 	public const int32 DMRES_LOW = -2;
-
 	public const int32 DMRES_MEDIUM = -3;
-
 	public const int32 DMRES_HIGH = -4;
-
 	public const uint32 DMCOLOR_MONOCHROME = 1;
-
 	public const uint32 DMCOLOR_COLOR = 2;
-
 	public const uint32 DMDUP_SIMPLEX = 1;
-
 	public const uint32 DMDUP_VERTICAL = 2;
-
 	public const uint32 DMDUP_HORIZONTAL = 3;
-
 	public const uint32 DMTT_BITMAP = 1;
-
 	public const uint32 DMTT_DOWNLOAD = 2;
-
 	public const uint32 DMTT_SUBDEV = 3;
-
 	public const uint32 DMTT_DOWNLOAD_OUTLINE = 4;
-
 	public const uint32 DMCOLLATE_FALSE = 0;
-
 	public const uint32 DMCOLLATE_TRUE = 1;
-
 	public const uint32 DMDO_DEFAULT = 0;
-
 	public const uint32 DMDO_90 = 1;
-
 	public const uint32 DMDO_180 = 2;
-
 	public const uint32 DMDO_270 = 3;
-
 	public const uint32 DMDFO_DEFAULT = 0;
-
 	public const uint32 DMDFO_STRETCH = 1;
-
 	public const uint32 DMDFO_CENTER = 2;
-
 	public const uint32 DM_INTERLACED = 2;
-
 	public const uint32 DMDISPLAYFLAGS_TEXTMODE = 4;
-
 	public const uint32 DMNUP_SYSTEM = 1;
-
 	public const uint32 DMNUP_ONEUP = 2;
-
 	public const uint32 DMICMMETHOD_NONE = 1;
-
 	public const uint32 DMICMMETHOD_SYSTEM = 2;
-
 	public const uint32 DMICMMETHOD_DRIVER = 3;
-
 	public const uint32 DMICMMETHOD_DEVICE = 4;
-
 	public const uint32 DMICMMETHOD_USER = 256;
-
 	public const uint32 DMICM_SATURATE = 1;
-
 	public const uint32 DMICM_CONTRAST = 2;
-
 	public const uint32 DMICM_COLORIMETRIC = 3;
-
 	public const uint32 DMICM_ABS_COLORIMETRIC = 4;
-
 	public const uint32 DMICM_USER = 256;
-
 	public const uint32 DMMEDIA_STANDARD = 1;
-
 	public const uint32 DMMEDIA_TRANSPARENCY = 2;
-
 	public const uint32 DMMEDIA_GLOSSY = 3;
-
 	public const uint32 DMMEDIA_USER = 256;
-
 	public const uint32 DMDITHER_NONE = 1;
-
 	public const uint32 DMDITHER_COARSE = 2;
-
 	public const uint32 DMDITHER_FINE = 3;
-
 	public const uint32 DMDITHER_LINEART = 4;
-
 	public const uint32 DMDITHER_ERRORDIFFUSION = 5;
-
 	public const uint32 DMDITHER_RESERVED6 = 6;
-
 	public const uint32 DMDITHER_RESERVED7 = 7;
-
 	public const uint32 DMDITHER_RESERVED8 = 8;
-
 	public const uint32 DMDITHER_RESERVED9 = 9;
-
 	public const uint32 DMDITHER_GRAYSCALE = 10;
-
 	public const uint32 DMDITHER_USER = 256;
-
 	public const uint32 DISPLAY_DEVICE_ATTACHED_TO_DESKTOP = 1;
-
 	public const uint32 DISPLAY_DEVICE_MULTI_DRIVER = 2;
-
 	public const uint32 DISPLAY_DEVICE_PRIMARY_DEVICE = 4;
-
 	public const uint32 DISPLAY_DEVICE_MIRRORING_DRIVER = 8;
-
 	public const uint32 DISPLAY_DEVICE_VGA_COMPATIBLE = 16;
-
 	public const uint32 DISPLAY_DEVICE_REMOVABLE = 32;
-
 	public const uint32 DISPLAY_DEVICE_ACC_DRIVER = 64;
-
 	public const uint32 DISPLAY_DEVICE_MODESPRUNED = 134217728;
-
 	public const uint32 DISPLAY_DEVICE_RDPUDD = 16777216;
-
 	public const uint32 DISPLAY_DEVICE_REMOTE = 67108864;
-
 	public const uint32 DISPLAY_DEVICE_DISCONNECT = 33554432;
-
 	public const uint32 DISPLAY_DEVICE_TS_COMPATIBLE = 2097152;
-
 	public const uint32 DISPLAY_DEVICE_UNSAFE_MODES_ON = 524288;
-
 	public const uint32 DISPLAY_DEVICE_ACTIVE = 1;
-
 	public const uint32 DISPLAY_DEVICE_ATTACHED = 2;
-
 	public const uint32 DISPLAYCONFIG_MAXPATH = 1024;
-
 	public const uint32 DISPLAYCONFIG_PATH_MODE_IDX_INVALID = 4294967295;
-
 	public const uint32 DISPLAYCONFIG_PATH_TARGET_MODE_IDX_INVALID = 65535;
-
 	public const uint32 DISPLAYCONFIG_PATH_DESKTOP_IMAGE_IDX_INVALID = 65535;
-
 	public const uint32 DISPLAYCONFIG_PATH_SOURCE_MODE_IDX_INVALID = 65535;
-
 	public const uint32 DISPLAYCONFIG_PATH_CLONE_GROUP_INVALID = 65535;
-
 	public const uint32 DISPLAYCONFIG_SOURCE_IN_USE = 1;
-
 	public const uint32 DISPLAYCONFIG_TARGET_IN_USE = 1;
-
 	public const uint32 DISPLAYCONFIG_TARGET_FORCIBLE = 2;
-
 	public const uint32 DISPLAYCONFIG_TARGET_FORCED_AVAILABILITY_BOOT = 4;
-
 	public const uint32 DISPLAYCONFIG_TARGET_FORCED_AVAILABILITY_PATH = 8;
-
 	public const uint32 DISPLAYCONFIG_TARGET_FORCED_AVAILABILITY_SYSTEM = 16;
-
 	public const uint32 DISPLAYCONFIG_TARGET_IS_HMD = 32;
-
 	public const uint32 DISPLAYCONFIG_PATH_ACTIVE = 1;
-
 	public const uint32 DISPLAYCONFIG_PATH_PREFERRED_UNSCALED = 4;
-
 	public const uint32 DISPLAYCONFIG_PATH_SUPPORT_VIRTUAL_MODE = 8;
-
 	public const uint32 DISPLAYCONFIG_PATH_VALID_FLAGS = 29;
-
 	public const uint32 QDC_ALL_PATHS = 1;
-
 	public const uint32 QDC_ONLY_ACTIVE_PATHS = 2;
-
 	public const uint32 QDC_DATABASE_CURRENT = 4;
-
 	public const uint32 QDC_VIRTUAL_MODE_AWARE = 16;
-
 	public const uint32 QDC_INCLUDE_HMD = 32;
-
 	public const uint32 QDC_VIRTUAL_REFRESH_RATE_AWARE = 64;
-
 	public const uint32 SDC_TOPOLOGY_INTERNAL = 1;
-
 	public const uint32 SDC_TOPOLOGY_CLONE = 2;
-
 	public const uint32 SDC_TOPOLOGY_EXTEND = 4;
-
 	public const uint32 SDC_TOPOLOGY_EXTERNAL = 8;
-
 	public const uint32 SDC_TOPOLOGY_SUPPLIED = 16;
-
 	public const uint32 SDC_USE_SUPPLIED_DISPLAY_CONFIG = 32;
-
 	public const uint32 SDC_VALIDATE = 64;
-
 	public const uint32 SDC_APPLY = 128;
-
 	public const uint32 SDC_NO_OPTIMIZATION = 256;
-
 	public const uint32 SDC_SAVE_TO_DATABASE = 512;
-
 	public const uint32 SDC_ALLOW_CHANGES = 1024;
-
 	public const uint32 SDC_PATH_PERSIST_IF_REQUIRED = 2048;
-
 	public const uint32 SDC_FORCE_MODE_ENUMERATION = 4096;
-
 	public const uint32 SDC_ALLOW_PATH_ORDER_CHANGES = 8192;
-
 	public const uint32 SDC_VIRTUAL_MODE_AWARE = 32768;
-
 	public const uint32 SDC_VIRTUAL_REFRESH_RATE_AWARE = 131072;
-
 	public const uint32 RDH_RECTANGLES = 1;
-
 	public const uint32 SYSRGN = 4;
-
 	public const uint32 TT_POLYGON_TYPE = 24;
-
 	public const uint32 TT_PRIM_LINE = 1;
-
 	public const uint32 TT_PRIM_QSPLINE = 2;
-
 	public const uint32 TT_PRIM_CSPLINE = 3;
-
 	public const uint32 GCP_DBCS = 1;
-
 	public const uint32 GCP_ERROR = 32768;
-
 	public const uint32 FLI_MASK = 4155;
-
 	public const int32 FLI_GLYPHS = 262144;
-
 	public const int32 GCP_JUSTIFYIN = 2097152;
-
 	public const uint32 GCPCLASS_LATIN = 1;
-
 	public const uint32 GCPCLASS_HEBREW = 2;
-
 	public const uint32 GCPCLASS_ARABIC = 2;
-
 	public const uint32 GCPCLASS_NEUTRAL = 3;
-
 	public const uint32 GCPCLASS_LOCALNUMBER = 4;
-
 	public const uint32 GCPCLASS_LATINNUMBER = 5;
-
 	public const uint32 GCPCLASS_LATINNUMERICTERMINATOR = 6;
-
 	public const uint32 GCPCLASS_LATINNUMERICSEPARATOR = 7;
-
 	public const uint32 GCPCLASS_NUMERICSEPARATOR = 8;
-
 	public const uint32 GCPCLASS_PREBOUNDLTR = 128;
-
 	public const uint32 GCPCLASS_PREBOUNDRTL = 64;
-
 	public const uint32 GCPCLASS_POSTBOUNDLTR = 32;
-
 	public const uint32 GCPCLASS_POSTBOUNDRTL = 16;
-
 	public const uint32 GCPGLYPH_LINKBEFORE = 32768;
-
 	public const uint32 GCPGLYPH_LINKAFTER = 16384;
-
 	public const uint32 TT_AVAILABLE = 1;
-
 	public const uint32 TT_ENABLED = 2;
-
 	public const uint32 PFD_TYPE_RGBA = 0;
-
 	public const uint32 PFD_TYPE_COLORINDEX = 1;
-
 	public const uint32 PFD_MAIN_PLANE = 0;
-
 	public const uint32 PFD_OVERLAY_PLANE = 1;
-
 	public const int32 PFD_UNDERLAY_PLANE = -1;
-
 	public const uint32 PFD_DOUBLEBUFFER = 1;
-
 	public const uint32 PFD_STEREO = 2;
-
 	public const uint32 PFD_DRAW_TO_WINDOW = 4;
-
 	public const uint32 PFD_DRAW_TO_BITMAP = 8;
-
 	public const uint32 PFD_SUPPORT_GDI = 16;
-
 	public const uint32 PFD_SUPPORT_OPENGL = 32;
-
 	public const uint32 PFD_GENERIC_FORMAT = 64;
-
 	public const uint32 PFD_NEED_PALETTE = 128;
-
 	public const uint32 PFD_NEED_SYSTEM_PALETTE = 256;
-
 	public const uint32 PFD_SWAP_EXCHANGE = 512;
-
 	public const uint32 PFD_SWAP_COPY = 1024;
-
 	public const uint32 PFD_SWAP_LAYER_BUFFERS = 2048;
-
 	public const uint32 PFD_GENERIC_ACCELERATED = 4096;
-
 	public const uint32 PFD_SUPPORT_DIRECTDRAW = 8192;
-
 	public const uint32 PFD_DIRECT3D_ACCELERATED = 16384;
-
 	public const uint32 PFD_SUPPORT_COMPOSITION = 32768;
-
 	public const uint32 PFD_DEPTH_DONTCARE = 536870912;
-
 	public const uint32 PFD_DOUBLEBUFFER_DONTCARE = 1073741824;
-
 	public const uint32 PFD_STEREO_DONTCARE = 2147483648;
-
 	public const uint32 DC_BINADJUST = 19;
-
 	public const uint32 DC_EMF_COMPLIANT = 20;
-
 	public const uint32 DC_DATATYPE_PRODUCED = 21;
-
 	public const uint32 DC_MANUFACTURER = 23;
-
 	public const uint32 DC_MODEL = 24;
-
 	public const uint32 PRINTRATEUNIT_PPM = 1;
-
 	public const uint32 PRINTRATEUNIT_CPS = 2;
-
 	public const uint32 PRINTRATEUNIT_LPM = 3;
-
 	public const uint32 PRINTRATEUNIT_IPM = 4;
-
 	public const int32 DCTT_BITMAP = 1;
-
 	public const int32 DCTT_DOWNLOAD = 2;
-
 	public const int32 DCTT_SUBDEV = 4;
-
 	public const int32 DCTT_DOWNLOAD_OUTLINE = 8;
-
 	public const uint32 DCBA_FACEUPNONE = 0;
-
 	public const uint32 DCBA_FACEUPCENTER = 1;
-
 	public const uint32 DCBA_FACEUPLEFT = 2;
-
 	public const uint32 DCBA_FACEUPRIGHT = 3;
-
 	public const uint32 DCBA_FACEDOWNNONE = 256;
-
 	public const uint32 DCBA_FACEDOWNCENTER = 257;
-
 	public const uint32 DCBA_FACEDOWNLEFT = 258;
-
 	public const uint32 DCBA_FACEDOWNRIGHT = 259;
-
 	public const uint32 GS_8BIT_INDICES = 1;
-
 	public const uint32 GGI_MARK_NONEXISTING_GLYPHS = 1;
-
 	public const uint32 MM_MAX_NUMAXES = 16;
-
 	public const uint32 MM_MAX_AXES_NAMELEN = 16;
-
 	public const uint32 GDIREGISTERDDRAWPACKETVERSION = 1;
-
 	public const uint32 AC_SRC_OVER = 0;
-
 	public const uint32 AC_SRC_ALPHA = 1;
-
 	public const uint32 GRADIENT_FILL_OP_FLAG = 255;
-
 	public const uint32 CA_NEGATIVE = 1;
-
 	public const uint32 CA_LOG_FILTER = 2;
-
 	public const uint32 ILLUMINANT_DEVICE_DEFAULT = 0;
-
 	public const uint32 ILLUMINANT_A = 1;
-
 	public const uint32 ILLUMINANT_B = 2;
-
 	public const uint32 ILLUMINANT_C = 3;
-
 	public const uint32 ILLUMINANT_D50 = 4;
-
 	public const uint32 ILLUMINANT_D55 = 5;
-
 	public const uint32 ILLUMINANT_D65 = 6;
-
 	public const uint32 ILLUMINANT_D75 = 7;
-
 	public const uint32 ILLUMINANT_F2 = 8;
-
 	public const uint32 ILLUMINANT_MAX_INDEX = 8;
-
 	public const uint32 ILLUMINANT_TUNGSTEN = 1;
-
 	public const uint32 ILLUMINANT_DAYLIGHT = 3;
-
 	public const uint32 ILLUMINANT_FLUORESCENT = 8;
-
 	public const uint32 ILLUMINANT_NTSC = 3;
-
 	public const uint32 DI_APPBANDING = 1;
-
 	public const uint32 DI_ROPS_READ_DESTINATION = 2;
-
 	public const uint32 FONTMAPPER_MAX = 10;
-
 	public const uint32 ICM_OFF = 1;
-
 	public const uint32 ICM_ON = 2;
-
 	public const uint32 ICM_QUERY = 3;
-
 	public const uint32 ICM_DONE_OUTSIDEDC = 4;
-
 	public const uint32 ENHMETA_SIGNATURE = 1179469088;
-
 	public const uint32 ENHMETA_STOCK_OBJECT = 2147483648;
-
 	public const uint32 EMR_HEADER = 1;
-
 	public const uint32 EMR_POLYBEZIER = 2;
-
 	public const uint32 EMR_POLYGON = 3;
-
 	public const uint32 EMR_POLYLINE = 4;
-
 	public const uint32 EMR_POLYBEZIERTO = 5;
-
 	public const uint32 EMR_POLYLINETO = 6;
-
 	public const uint32 EMR_POLYPOLYLINE = 7;
-
 	public const uint32 EMR_POLYPOLYGON = 8;
-
 	public const uint32 EMR_SETWINDOWEXTEX = 9;
-
 	public const uint32 EMR_SETWINDOWORGEX = 10;
-
 	public const uint32 EMR_SETVIEWPORTEXTEX = 11;
-
 	public const uint32 EMR_SETVIEWPORTORGEX = 12;
-
 	public const uint32 EMR_SETBRUSHORGEX = 13;
-
 	public const uint32 EMR_EOF = 14;
-
 	public const uint32 EMR_SETPIXELV = 15;
-
 	public const uint32 EMR_SETMAPPERFLAGS = 16;
-
 	public const uint32 EMR_SETMAPMODE = 17;
-
 	public const uint32 EMR_SETBKMODE = 18;
-
 	public const uint32 EMR_SETPOLYFILLMODE = 19;
-
 	public const uint32 EMR_SETROP2 = 20;
-
 	public const uint32 EMR_SETSTRETCHBLTMODE = 21;
-
 	public const uint32 EMR_SETTEXTALIGN = 22;
-
 	public const uint32 EMR_SETCOLORADJUSTMENT = 23;
-
 	public const uint32 EMR_SETTEXTCOLOR = 24;
-
 	public const uint32 EMR_SETBKCOLOR = 25;
-
 	public const uint32 EMR_OFFSETCLIPRGN = 26;
-
 	public const uint32 EMR_MOVETOEX = 27;
-
 	public const uint32 EMR_SETMETARGN = 28;
-
 	public const uint32 EMR_EXCLUDECLIPRECT = 29;
-
 	public const uint32 EMR_INTERSECTCLIPRECT = 30;
-
 	public const uint32 EMR_SCALEVIEWPORTEXTEX = 31;
-
 	public const uint32 EMR_SCALEWINDOWEXTEX = 32;
-
 	public const uint32 EMR_SAVEDC = 33;
-
 	public const uint32 EMR_RESTOREDC = 34;
-
 	public const uint32 EMR_SETWORLDTRANSFORM = 35;
-
 	public const uint32 EMR_MODIFYWORLDTRANSFORM = 36;
-
 	public const uint32 EMR_SELECTOBJECT = 37;
-
 	public const uint32 EMR_CREATEPEN = 38;
-
 	public const uint32 EMR_CREATEBRUSHINDIRECT = 39;
-
 	public const uint32 EMR_DELETEOBJECT = 40;
-
 	public const uint32 EMR_ANGLEARC = 41;
-
 	public const uint32 EMR_ELLIPSE = 42;
-
 	public const uint32 EMR_RECTANGLE = 43;
-
 	public const uint32 EMR_ROUNDRECT = 44;
-
 	public const uint32 EMR_ARC = 45;
-
 	public const uint32 EMR_CHORD = 46;
-
 	public const uint32 EMR_PIE = 47;
-
 	public const uint32 EMR_SELECTPALETTE = 48;
-
 	public const uint32 EMR_CREATEPALETTE = 49;
-
 	public const uint32 EMR_SETPALETTEENTRIES = 50;
-
 	public const uint32 EMR_RESIZEPALETTE = 51;
-
 	public const uint32 EMR_REALIZEPALETTE = 52;
-
 	public const uint32 EMR_EXTFLOODFILL = 53;
-
 	public const uint32 EMR_LINETO = 54;
-
 	public const uint32 EMR_ARCTO = 55;
-
 	public const uint32 EMR_POLYDRAW = 56;
-
 	public const uint32 EMR_SETARCDIRECTION = 57;
-
 	public const uint32 EMR_SETMITERLIMIT = 58;
-
 	public const uint32 EMR_BEGINPATH = 59;
-
 	public const uint32 EMR_ENDPATH = 60;
-
 	public const uint32 EMR_CLOSEFIGURE = 61;
-
 	public const uint32 EMR_FILLPATH = 62;
-
 	public const uint32 EMR_STROKEANDFILLPATH = 63;
-
 	public const uint32 EMR_STROKEPATH = 64;
-
 	public const uint32 EMR_FLATTENPATH = 65;
-
 	public const uint32 EMR_WIDENPATH = 66;
-
 	public const uint32 EMR_SELECTCLIPPATH = 67;
-
 	public const uint32 EMR_ABORTPATH = 68;
-
 	public const uint32 EMR_GDICOMMENT = 70;
-
 	public const uint32 EMR_FILLRGN = 71;
-
 	public const uint32 EMR_FRAMERGN = 72;
-
 	public const uint32 EMR_INVERTRGN = 73;
-
 	public const uint32 EMR_PAINTRGN = 74;
-
 	public const uint32 EMR_EXTSELECTCLIPRGN = 75;
-
 	public const uint32 EMR_BITBLT = 76;
-
 	public const uint32 EMR_STRETCHBLT = 77;
-
 	public const uint32 EMR_MASKBLT = 78;
-
 	public const uint32 EMR_PLGBLT = 79;
-
 	public const uint32 EMR_SETDIBITSTODEVICE = 80;
-
 	public const uint32 EMR_STRETCHDIBITS = 81;
-
 	public const uint32 EMR_EXTCREATEFONTINDIRECTW = 82;
-
 	public const uint32 EMR_EXTTEXTOUTA = 83;
-
 	public const uint32 EMR_EXTTEXTOUTW = 84;
-
 	public const uint32 EMR_POLYBEZIER16 = 85;
-
 	public const uint32 EMR_POLYGON16 = 86;
-
 	public const uint32 EMR_POLYLINE16 = 87;
-
 	public const uint32 EMR_POLYBEZIERTO16 = 88;
-
 	public const uint32 EMR_POLYLINETO16 = 89;
-
 	public const uint32 EMR_POLYPOLYLINE16 = 90;
-
 	public const uint32 EMR_POLYPOLYGON16 = 91;
-
 	public const uint32 EMR_POLYDRAW16 = 92;
-
 	public const uint32 EMR_CREATEMONOBRUSH = 93;
-
 	public const uint32 EMR_CREATEDIBPATTERNBRUSHPT = 94;
-
 	public const uint32 EMR_EXTCREATEPEN = 95;
-
 	public const uint32 EMR_POLYTEXTOUTA = 96;
-
 	public const uint32 EMR_POLYTEXTOUTW = 97;
-
 	public const uint32 EMR_SETICMMODE = 98;
-
 	public const uint32 EMR_CREATECOLORSPACE = 99;
-
 	public const uint32 EMR_SETCOLORSPACE = 100;
-
 	public const uint32 EMR_DELETECOLORSPACE = 101;
-
 	public const uint32 EMR_GLSRECORD = 102;
-
 	public const uint32 EMR_GLSBOUNDEDRECORD = 103;
-
 	public const uint32 EMR_PIXELFORMAT = 104;
-
 	public const uint32 EMR_RESERVED_105 = 105;
-
 	public const uint32 EMR_RESERVED_106 = 106;
-
 	public const uint32 EMR_RESERVED_107 = 107;
-
 	public const uint32 EMR_RESERVED_108 = 108;
-
 	public const uint32 EMR_RESERVED_109 = 109;
-
 	public const uint32 EMR_RESERVED_110 = 110;
-
 	public const uint32 EMR_COLORCORRECTPALETTE = 111;
-
 	public const uint32 EMR_SETICMPROFILEA = 112;
-
 	public const uint32 EMR_SETICMPROFILEW = 113;
-
 	public const uint32 EMR_ALPHABLEND = 114;
-
 	public const uint32 EMR_SETLAYOUT = 115;
-
 	public const uint32 EMR_TRANSPARENTBLT = 116;
-
 	public const uint32 EMR_RESERVED_117 = 117;
-
 	public const uint32 EMR_GRADIENTFILL = 118;
-
 	public const uint32 EMR_RESERVED_119 = 119;
-
 	public const uint32 EMR_RESERVED_120 = 120;
-
 	public const uint32 EMR_COLORMATCHTOTARGETW = 121;
-
 	public const uint32 EMR_CREATECOLORSPACEW = 122;
-
 	public const uint32 EMR_MIN = 1;
-
 	public const uint32 EMR_MAX = 122;
-
 	public const uint32 SETICMPROFILE_EMBEDED = 1;
-
 	public const uint32 CREATECOLORSPACE_EMBEDED = 1;
-
 	public const uint32 COLORMATCHTOTARGET_EMBEDED = 1;
-
 	public const uint32 GDICOMMENT_IDENTIFIER = 1128875079;
-
 	public const uint32 GDICOMMENT_WINDOWS_METAFILE = 2147483649;
-
 	public const uint32 GDICOMMENT_BEGINGROUP = 2;
-
 	public const uint32 GDICOMMENT_ENDGROUP = 3;
-
 	public const uint32 GDICOMMENT_MULTIFORMATS = 1073741828;
-
 	public const uint32 EPS_SIGNATURE = 1179865157;
-
 	public const uint32 GDICOMMENT_UNICODE_STRING = 64;
-
 	public const uint32 GDICOMMENT_UNICODE_END = 128;
-
 	public const uint32 WGL_FONT_LINES = 0;
-
 	public const uint32 WGL_FONT_POLYGONS = 1;
-
 	public const uint32 LPD_DOUBLEBUFFER = 1;
-
 	public const uint32 LPD_STEREO = 2;
-
 	public const uint32 LPD_SUPPORT_GDI = 16;
-
 	public const uint32 LPD_SUPPORT_OPENGL = 32;
-
 	public const uint32 LPD_SHARE_DEPTH = 64;
-
 	public const uint32 LPD_SHARE_STENCIL = 128;
-
 	public const uint32 LPD_SHARE_ACCUM = 256;
-
 	public const uint32 LPD_SWAP_EXCHANGE = 512;
-
 	public const uint32 LPD_SWAP_COPY = 1024;
-
 	public const uint32 LPD_TRANSPARENT = 4096;
-
 	public const uint32 LPD_TYPE_RGBA = 0;
-
 	public const uint32 LPD_TYPE_COLORINDEX = 1;
-
 	public const uint32 WGL_SWAP_MAIN_PLANE = 1;
-
 	public const uint32 WGL_SWAP_OVERLAY1 = 2;
-
 	public const uint32 WGL_SWAP_OVERLAY2 = 4;
-
 	public const uint32 WGL_SWAP_OVERLAY3 = 8;
-
 	public const uint32 WGL_SWAP_OVERLAY4 = 16;
-
 	public const uint32 WGL_SWAP_OVERLAY5 = 32;
-
 	public const uint32 WGL_SWAP_OVERLAY6 = 64;
-
 	public const uint32 WGL_SWAP_OVERLAY7 = 128;
-
 	public const uint32 WGL_SWAP_OVERLAY8 = 256;
-
 	public const uint32 WGL_SWAP_OVERLAY9 = 512;
-
 	public const uint32 WGL_SWAP_OVERLAY10 = 1024;
-
 	public const uint32 WGL_SWAP_OVERLAY11 = 2048;
-
 	public const uint32 WGL_SWAP_OVERLAY12 = 4096;
-
 	public const uint32 WGL_SWAP_OVERLAY13 = 8192;
-
 	public const uint32 WGL_SWAP_OVERLAY14 = 16384;
-
 	public const uint32 WGL_SWAP_OVERLAY15 = 32768;
-
 	public const uint32 WGL_SWAP_UNDERLAY1 = 65536;
-
 	public const uint32 WGL_SWAP_UNDERLAY2 = 131072;
-
 	public const uint32 WGL_SWAP_UNDERLAY3 = 262144;
-
 	public const uint32 WGL_SWAP_UNDERLAY4 = 524288;
-
 	public const uint32 WGL_SWAP_UNDERLAY5 = 1048576;
-
 	public const uint32 WGL_SWAP_UNDERLAY6 = 2097152;
-
 	public const uint32 WGL_SWAP_UNDERLAY7 = 4194304;
-
 	public const uint32 WGL_SWAP_UNDERLAY8 = 8388608;
-
 	public const uint32 WGL_SWAP_UNDERLAY9 = 16777216;
-
 	public const uint32 WGL_SWAP_UNDERLAY10 = 33554432;
-
 	public const uint32 WGL_SWAP_UNDERLAY11 = 67108864;
-
 	public const uint32 WGL_SWAP_UNDERLAY12 = 134217728;
-
 	public const uint32 WGL_SWAP_UNDERLAY13 = 268435456;
-
 	public const uint32 WGL_SWAP_UNDERLAY14 = 536870912;
-
 	public const uint32 WGL_SWAP_UNDERLAY15 = 1073741824;
-
 	public const uint32 WGL_SWAPMULTIPLE_MAX = 16;
-
 	public const uint32 NEWTRANSPARENT = 3;
-
 	public const uint32 QUERYROPSUPPORT = 40;
-
 	public const uint32 SELECTDIB = 41;
-
 	public const uint32 SC_SCREENSAVE = 61760;
-
 	public const uint32 TTFCFP_SUBSET = 0;
-
 	public const uint32 TTFCFP_SUBSET1 = 1;
-
 	public const uint32 TTFCFP_DELTA = 2;
-
 	public const uint32 TTFCFP_APPLE_PLATFORMID = 1;
-
 	public const uint32 TTFCFP_MS_PLATFORMID = 3;
-
 	public const uint32 TTFCFP_DONT_CARE = 65535;
-
 	public const uint32 TTFCFP_LANG_KEEP_ALL = 0;
-
 	public const uint32 TTFCFP_FLAGS_SUBSET = 1;
-
 	public const uint32 TTFCFP_FLAGS_COMPRESS = 2;
-
 	public const uint32 TTFCFP_FLAGS_TTC = 4;
-
 	public const uint32 TTFCFP_FLAGS_GLYPHLIST = 8;
-
 	public const uint32 TTFMFP_SUBSET = 0;
-
 	public const uint32 TTFMFP_SUBSET1 = 1;
-
 	public const uint32 TTFMFP_DELTA = 2;
-
 	public const uint32 ERR_GENERIC = 1000;
-
 	public const uint32 ERR_READOUTOFBOUNDS = 1001;
-
 	public const uint32 ERR_WRITEOUTOFBOUNDS = 1002;
-
 	public const uint32 ERR_READCONTROL = 1003;
-
 	public const uint32 ERR_WRITECONTROL = 1004;
-
 	public const uint32 ERR_MEM = 1005;
-
 	public const uint32 ERR_FORMAT = 1006;
-
 	public const uint32 ERR_WOULD_GROW = 1007;
-
 	public const uint32 ERR_VERSION = 1008;
-
 	public const uint32 ERR_NO_GLYPHS = 1009;
-
 	public const uint32 ERR_INVALID_MERGE_FORMATS = 1010;
-
 	public const uint32 ERR_INVALID_MERGE_CHECKSUMS = 1011;
-
 	public const uint32 ERR_INVALID_MERGE_NUMGLYPHS = 1012;
-
 	public const uint32 ERR_INVALID_DELTA_FORMAT = 1013;
-
 	public const uint32 ERR_NOT_TTC = 1014;
-
 	public const uint32 ERR_INVALID_TTC_INDEX = 1015;
-
 	public const uint32 ERR_MISSING_CMAP = 1030;
-
 	public const uint32 ERR_MISSING_GLYF = 1031;
-
 	public const uint32 ERR_MISSING_HEAD = 1032;
-
 	public const uint32 ERR_MISSING_HHEA = 1033;
-
 	public const uint32 ERR_MISSING_HMTX = 1034;
-
 	public const uint32 ERR_MISSING_LOCA = 1035;
-
 	public const uint32 ERR_MISSING_MAXP = 1036;
-
 	public const uint32 ERR_MISSING_NAME = 1037;
-
 	public const uint32 ERR_MISSING_POST = 1038;
-
 	public const uint32 ERR_MISSING_OS2 = 1039;
-
 	public const uint32 ERR_MISSING_VHEA = 1040;
-
 	public const uint32 ERR_MISSING_VMTX = 1041;
-
 	public const uint32 ERR_MISSING_HHEA_OR_VHEA = 1042;
-
 	public const uint32 ERR_MISSING_HMTX_OR_VMTX = 1043;
-
 	public const uint32 ERR_MISSING_EBDT = 1044;
-
 	public const uint32 ERR_INVALID_CMAP = 1060;
-
 	public const uint32 ERR_INVALID_GLYF = 1061;
-
 	public const uint32 ERR_INVALID_HEAD = 1062;
-
 	public const uint32 ERR_INVALID_HHEA = 1063;
-
 	public const uint32 ERR_INVALID_HMTX = 1064;
-
 	public const uint32 ERR_INVALID_LOCA = 1065;
-
 	public const uint32 ERR_INVALID_MAXP = 1066;
-
 	public const uint32 ERR_INVALID_NAME = 1067;
-
 	public const uint32 ERR_INVALID_POST = 1068;
-
 	public const uint32 ERR_INVALID_OS2 = 1069;
-
 	public const uint32 ERR_INVALID_VHEA = 1070;
-
 	public const uint32 ERR_INVALID_VMTX = 1071;
-
 	public const uint32 ERR_INVALID_HHEA_OR_VHEA = 1072;
-
 	public const uint32 ERR_INVALID_HMTX_OR_VMTX = 1073;
-
 	public const uint32 ERR_INVALID_TTO = 1080;
-
 	public const uint32 ERR_INVALID_GSUB = 1081;
-
 	public const uint32 ERR_INVALID_GPOS = 1082;
-
 	public const uint32 ERR_INVALID_GDEF = 1083;
-
 	public const uint32 ERR_INVALID_JSTF = 1084;
-
 	public const uint32 ERR_INVALID_BASE = 1085;
-
 	public const uint32 ERR_INVALID_EBLC = 1086;
-
 	public const uint32 ERR_INVALID_LTSH = 1087;
-
 	public const uint32 ERR_INVALID_VDMX = 1088;
-
 	public const uint32 ERR_INVALID_HDMX = 1089;
-
 	public const uint32 ERR_PARAMETER0 = 1100;
-
 	public const uint32 ERR_PARAMETER1 = 1101;
-
 	public const uint32 ERR_PARAMETER2 = 1102;
-
 	public const uint32 ERR_PARAMETER3 = 1103;
-
 	public const uint32 ERR_PARAMETER4 = 1104;
-
 	public const uint32 ERR_PARAMETER5 = 1105;
-
 	public const uint32 ERR_PARAMETER6 = 1106;
-
 	public const uint32 ERR_PARAMETER7 = 1107;
-
 	public const uint32 ERR_PARAMETER8 = 1108;
-
 	public const uint32 ERR_PARAMETER9 = 1109;
-
 	public const uint32 ERR_PARAMETER10 = 1110;
-
 	public const uint32 ERR_PARAMETER11 = 1111;
-
 	public const uint32 ERR_PARAMETER12 = 1112;
-
 	public const uint32 ERR_PARAMETER13 = 1113;
-
 	public const uint32 ERR_PARAMETER14 = 1114;
-
 	public const uint32 ERR_PARAMETER15 = 1115;
-
 	public const uint32 ERR_PARAMETER16 = 1116;
-
 	public const uint32 CHARSET_DEFAULT = 1;
-
 	public const uint32 CHARSET_GLYPHIDX = 3;
-
 	public const uint32 TTEMBED_FAILIFVARIATIONSIMULATED = 16;
-
 	public const uint32 TTEMBED_WEBOBJECT = 128;
-
 	public const uint32 TTEMBED_XORENCRYPTDATA = 268435456;
-
 	public const uint32 TTEMBED_VARIATIONSIMULATED = 1;
-
 	public const uint32 TTEMBED_EUDCEMBEDDED = 2;
-
 	public const uint32 TTEMBED_SUBSETCANCEL = 4;
-
 	public const uint32 TTLOAD_PRIVATE = 1;
-
 	public const uint32 TTLOAD_EUDC_OVERWRITE = 2;
-
 	public const uint32 TTLOAD_EUDC_SET = 4;
-
 	public const uint32 TTDELETE_DONTREMOVEFONT = 1;
-
 	public const int32 E_NONE = 0;
-
 	public const int32 E_API_NOTIMPL = 1;
-
 	public const int32 E_CHARCODECOUNTINVALID = 2;
-
 	public const int32 E_CHARCODESETINVALID = 3;
-
 	public const int32 E_DEVICETRUETYPEFONT = 4;
-
 	public const int32 E_HDCINVALID = 6;
-
 	public const int32 E_NOFREEMEMORY = 7;
-
 	public const int32 E_FONTREFERENCEINVALID = 8;
-
 	public const int32 E_NOTATRUETYPEFONT = 10;
-
 	public const int32 E_ERRORACCESSINGFONTDATA = 12;
-
 	public const int32 E_ERRORACCESSINGFACENAME = 13;
-
 	public const int32 E_ERRORUNICODECONVERSION = 17;
-
 	public const int32 E_ERRORCONVERTINGCHARS = 18;
-
 	public const int32 E_EXCEPTION = 19;
-
 	public const int32 E_RESERVEDPARAMNOTNULL = 20;
-
 	public const int32 E_CHARSETINVALID = 21;
-
 	public const int32 E_FILE_NOT_FOUND = 23;
-
 	public const int32 E_TTC_INDEX_OUT_OF_RANGE = 24;
-
 	public const int32 E_INPUTPARAMINVALID = 25;
-
 	public const int32 E_ERRORCOMPRESSINGFONTDATA = 256;
-
 	public const int32 E_FONTDATAINVALID = 258;
-
 	public const int32 E_NAMECHANGEFAILED = 259;
-
 	public const int32 E_FONTNOTEMBEDDABLE = 260;
-
 	public const int32 E_PRIVSINVALID = 261;
-
 	public const int32 E_SUBSETTINGFAILED = 262;
-
 	public const int32 E_READFROMSTREAMFAILED = 263;
-
 	public const int32 E_SAVETOSTREAMFAILED = 264;
-
 	public const int32 E_NOOS2 = 265;
-
 	public const int32 E_T2NOFREEMEMORY = 266;
-
 	public const int32 E_ERRORREADINGFONTDATA = 267;
-
 	public const int32 E_FLAGSINVALID = 268;
-
 	public const int32 E_ERRORCREATINGFONTFILE = 269;
-
 	public const int32 E_FONTALREADYEXISTS = 270;
-
 	public const int32 E_FONTNAMEALREADYEXISTS = 271;
-
 	public const int32 E_FONTINSTALLFAILED = 272;
-
 	public const int32 E_ERRORDECOMPRESSINGFONTDATA = 273;
-
 	public const int32 E_ERRORACCESSINGEXCLUDELIST = 274;
-
 	public const int32 E_FACENAMEINVALID = 275;
-
 	public const int32 E_STREAMINVALID = 276;
-
 	public const int32 E_STATUSINVALID = 277;
-
 	public const int32 E_PRIVSTATUSINVALID = 278;
-
 	public const int32 E_PERMISSIONSINVALID = 279;
-
 	public const int32 E_PBENABLEDINVALID = 280;
-
 	public const int32 E_SUBSETTINGEXCEPTION = 281;
-
 	public const int32 E_SUBSTRING_TEST_FAIL = 282;
-
 	public const int32 E_FONTVARIATIONSIMULATED = 283;
-
 	public const int32 E_FONTFAMILYNAMENOTINFULL = 285;
-
 	public const int32 E_ADDFONTFAILED = 512;
-
 	public const int32 E_COULDNTCREATETEMPFILE = 513;
-
 	public const int32 E_FONTFILECREATEFAILED = 515;
-
 	public const int32 E_WINDOWSAPI = 516;
-
 	public const int32 E_FONTFILENOTFOUND = 517;
-
 	public const int32 E_RESOURCEFILECREATEFAILED = 518;
-
 	public const int32 E_ERROREXPANDINGFONTDATA = 519;
-
 	public const int32 E_ERRORGETTINGDC = 520;
-
 	public const int32 E_EXCEPTIONINDECOMPRESSION = 521;
-
 	public const int32 E_EXCEPTIONINCOMPRESSION = 522;
-
 }
 #endregion
 
@@ -3417,17 +2194,19 @@ public struct BITMAPV5HEADER
 	public uint32 bV5Reserved;
 }
 
-[CRepr, FlexibleArray("bmiColors")]
+[CRepr]
 public struct BITMAPINFO
 {
 	public BITMAPINFOHEADER bmiHeader;
+	public RGBQUAD* bmiColors mut => &bmiColors_impl;
 	private RGBQUAD[ANYSIZE_ARRAY] bmiColors_impl;
 }
 
-[CRepr, FlexibleArray("bmciColors")]
+[CRepr]
 public struct BITMAPCOREINFO
 {
 	public BITMAPCOREHEADER bmciHeader;
+	public RGBTRIPLE* bmciColors mut => &bmciColors_impl;
 	private RGBTRIPLE[ANYSIZE_ARRAY] bmciColors_impl;
 }
 
@@ -3441,17 +2220,19 @@ public struct BITMAPFILEHEADER
 	public uint32 bfOffBits;
 }
 
-[CRepr, FlexibleArray("objectHandle")]
+[CRepr]
 public struct HANDLETABLE
 {
+	public HGDIOBJ* objectHandle mut => &objectHandle_impl;
 	private HGDIOBJ[ANYSIZE_ARRAY] objectHandle_impl;
 }
 
-[CRepr, FlexibleArray("rdParm")]
+[CRepr]
 public struct METARECORD
 {
 	public uint32 rdSize;
 	public uint16 rdFunction;
+	public uint16* rdParm mut => &rdParm_impl;
 	private uint16[ANYSIZE_ARRAY] rdParm_impl;
 }
 
@@ -3467,11 +2248,12 @@ public struct METAHEADER
 	public uint16 mtNoParameters;
 }
 
-[CRepr, FlexibleArray("dParm")]
+[CRepr]
 public struct ENHMETARECORD
 {
 	public uint32 iType;
 	public uint32 nSize;
+	public uint32* dParm mut => &dParm_impl;
 	private uint32[ANYSIZE_ARRAY] dParm_impl;
 }
 
@@ -3641,7 +2423,7 @@ public struct LOGPEN
 	public uint32 lopnColor;
 }
 
-[CRepr, FlexibleArray("elpStyleEntry")]
+[CRepr]
 public struct EXTLOGPEN
 {
 	public uint32 elpPenStyle;
@@ -3650,10 +2432,11 @@ public struct EXTLOGPEN
 	public uint32 elpColor;
 	public uint elpHatch;
 	public uint32 elpNumEntries;
+	public uint32* elpStyleEntry mut => &elpStyleEntry_impl;
 	private uint32[ANYSIZE_ARRAY] elpStyleEntry_impl;
 }
 
-[CRepr, FlexibleArray("elpStyleEntry")]
+[CRepr]
 public struct EXTLOGPEN32
 {
 	public uint32 elpPenStyle;
@@ -3662,6 +2445,7 @@ public struct EXTLOGPEN32
 	public uint32 elpColor;
 	public uint32 elpHatch;
 	public uint32 elpNumEntries;
+	public uint32* elpStyleEntry mut => &elpStyleEntry_impl;
 	private uint32[ANYSIZE_ARRAY] elpStyleEntry_impl;
 }
 
@@ -3674,11 +2458,12 @@ public struct PALETTEENTRY
 	public uint8 peFlags;
 }
 
-[CRepr, FlexibleArray("palPalEntry")]
+[CRepr]
 public struct LOGPALETTE
 {
 	public uint16 palVersion;
 	public uint16 palNumEntries;
+	public PALETTEENTRY* palPalEntry mut => &palPalEntry_impl;
 	private PALETTEENTRY[ANYSIZE_ARRAY] palPalEntry_impl;
 }
 
@@ -3812,7 +2597,6 @@ public struct DEVMODEA
 			public uint32 dmDisplayOrientation;
 			public uint32 dmDisplayFixedOutput;
 		}
-
 		[CRepr]
 		public struct _Anonymous1_e__Struct
 		{
@@ -3825,18 +2609,15 @@ public struct DEVMODEA
 			public int16 dmDefaultSource;
 			public int16 dmPrintQuality;
 		}
-
 		public _Anonymous1_e__Struct Anonymous1;
 		public _Anonymous2_e__Struct Anonymous2;
 	}
-
 	[CRepr, Union]
 	public struct _Anonymous2_e__Union
 	{
 		public uint32 dmDisplayFlags;
 		public uint32 dmNup;
 	}
-
 	public uint8[32] dmDeviceName;
 	public uint16 dmSpecVersion;
 	public uint16 dmDriverVersion;
@@ -3884,7 +2665,6 @@ public struct DEVMODEW
 			public int16 dmDefaultSource;
 			public int16 dmPrintQuality;
 		}
-
 		[CRepr]
 		public struct _Anonymous2_e__Struct
 		{
@@ -3892,18 +2672,15 @@ public struct DEVMODEW
 			public uint32 dmDisplayOrientation;
 			public uint32 dmDisplayFixedOutput;
 		}
-
 		public _Anonymous1_e__Struct Anonymous1;
 		public _Anonymous2_e__Struct Anonymous2;
 	}
-
 	[CRepr, Union]
 	public struct _Anonymous2_e__Union
 	{
 		public uint32 dmDisplayFlags;
 		public uint32 dmNup;
 	}
-
 	public char16[32] dmDeviceName;
 	public uint16 dmSpecVersion;
 	public uint16 dmDriverVersion;
@@ -3965,10 +2742,11 @@ public struct RGNDATAHEADER
 	public RECT rcBound;
 }
 
-[CRepr, FlexibleArray("Buffer")]
+[CRepr]
 public struct RGNDATA
 {
 	public RGNDATAHEADER rdh;
+	public CHAR* Buffer mut => &Buffer_impl;
 	private CHAR[ANYSIZE_ARRAY] Buffer_impl;
 }
 
@@ -4119,11 +2897,12 @@ public struct POINTFX
 	public FIXED y;
 }
 
-[CRepr, FlexibleArray("apfx")]
+[CRepr]
 public struct TTPOLYCURVE
 {
 	public uint16 wType;
 	public uint16 cpfx;
+	public POINTFX* apfx mut => &apfx_impl;
 	private POINTFX[ANYSIZE_ARRAY] apfx_impl;
 }
 
@@ -4178,13 +2957,14 @@ public struct WCRANGE
 	public uint16 cGlyphs;
 }
 
-[CRepr, FlexibleArray("ranges")]
+[CRepr]
 public struct GLYPHSET
 {
 	public uint32 cbThis;
 	public uint32 flAccel;
 	public uint32 cGlyphsSupported;
 	public uint32 cRanges;
+	public WCRANGE* ranges mut => &ranges_impl;
 	private WCRANGE[ANYSIZE_ARRAY] ranges_impl;
 }
 
@@ -4400,13 +3180,14 @@ public struct EMRRESIZEPALETTE
 	public uint32 cEntries;
 }
 
-[CRepr, FlexibleArray("aPalEntries")]
+[CRepr]
 public struct EMRSETPALETTEENTRIES
 {
 	public EMR emr;
 	public uint32 ihPal;
 	public uint32 iStart;
 	public uint32 cEntries;
+	public PALETTEENTRY* aPalEntries mut => &aPalEntries_impl;
 	private PALETTEENTRY[ANYSIZE_ARRAY] aPalEntries_impl;
 }
 
@@ -4417,11 +3198,12 @@ public struct EMRSETCOLORADJUSTMENT
 	public COLORADJUSTMENT ColorAdjustment;
 }
 
-[CRepr, FlexibleArray("Data")]
+[CRepr]
 public struct EMRGDICOMMENT
 {
 	public EMR emr;
 	public uint32 cbData;
+	public uint8* Data mut => &Data_impl;
 	private uint8[ANYSIZE_ARRAY] Data_impl;
 }
 
@@ -4552,86 +3334,98 @@ public struct EMRANGLEARC
 	public float eSweepAngle;
 }
 
-[CRepr, FlexibleArray("aptl")]
+[CRepr]
 public struct EMRPOLYLINE
 {
 	public EMR emr;
 	public RECTL rclBounds;
 	public uint32 cptl;
+	public POINTL* aptl mut => &aptl_impl;
 	private POINTL[ANYSIZE_ARRAY] aptl_impl;
 }
 
-[CRepr, FlexibleArray("apts")]
+[CRepr]
 public struct EMRPOLYLINE16
 {
 	public EMR emr;
 	public RECTL rclBounds;
 	public uint32 cpts;
+	public POINTS* apts mut => &apts_impl;
 	private POINTS[ANYSIZE_ARRAY] apts_impl;
 }
 
-[CRepr, FlexibleArray("aptl"), FlexibleArray("abTypes")]
+[CRepr]
 public struct EMRPOLYDRAW
 {
 	public EMR emr;
 	public RECTL rclBounds;
 	public uint32 cptl;
+	public POINTL* aptl mut => &aptl_impl;
 	private POINTL[ANYSIZE_ARRAY] aptl_impl;
+	public uint8* abTypes mut => &abTypes_impl;
 	private uint8[ANYSIZE_ARRAY] abTypes_impl;
 }
 
-[CRepr, FlexibleArray("apts"), FlexibleArray("abTypes")]
+[CRepr]
 public struct EMRPOLYDRAW16
 {
 	public EMR emr;
 	public RECTL rclBounds;
 	public uint32 cpts;
+	public POINTS* apts mut => &apts_impl;
 	private POINTS[ANYSIZE_ARRAY] apts_impl;
+	public uint8* abTypes mut => &abTypes_impl;
 	private uint8[ANYSIZE_ARRAY] abTypes_impl;
 }
 
-[CRepr, FlexibleArray("aPolyCounts"), FlexibleArray("aptl")]
+[CRepr]
 public struct EMRPOLYPOLYLINE
 {
 	public EMR emr;
 	public RECTL rclBounds;
 	public uint32 nPolys;
 	public uint32 cptl;
+	public uint32* aPolyCounts mut => &aPolyCounts_impl;
 	private uint32[ANYSIZE_ARRAY] aPolyCounts_impl;
+	public POINTL* aptl mut => &aptl_impl;
 	private POINTL[ANYSIZE_ARRAY] aptl_impl;
 }
 
-[CRepr, FlexibleArray("aPolyCounts"), FlexibleArray("apts")]
+[CRepr]
 public struct EMRPOLYPOLYLINE16
 {
 	public EMR emr;
 	public RECTL rclBounds;
 	public uint32 nPolys;
 	public uint32 cpts;
+	public uint32* aPolyCounts mut => &aPolyCounts_impl;
 	private uint32[ANYSIZE_ARRAY] aPolyCounts_impl;
+	public POINTS* apts mut => &apts_impl;
 	private POINTS[ANYSIZE_ARRAY] apts_impl;
 }
 
-[CRepr, FlexibleArray("RgnData")]
+[CRepr]
 public struct EMRINVERTRGN
 {
 	public EMR emr;
 	public RECTL rclBounds;
 	public uint32 cbRgnData;
+	public uint8* RgnData mut => &RgnData_impl;
 	private uint8[ANYSIZE_ARRAY] RgnData_impl;
 }
 
-[CRepr, FlexibleArray("RgnData")]
+[CRepr]
 public struct EMRFILLRGN
 {
 	public EMR emr;
 	public RECTL rclBounds;
 	public uint32 cbRgnData;
 	public uint32 ihBrush;
+	public uint8* RgnData mut => &RgnData_impl;
 	private uint8[ANYSIZE_ARRAY] RgnData_impl;
 }
 
-[CRepr, FlexibleArray("RgnData")]
+[CRepr]
 public struct EMRFRAMERGN
 {
 	public EMR emr;
@@ -4639,15 +3433,17 @@ public struct EMRFRAMERGN
 	public uint32 cbRgnData;
 	public uint32 ihBrush;
 	public SIZE szlStroke;
+	public uint8* RgnData mut => &RgnData_impl;
 	private uint8[ANYSIZE_ARRAY] RgnData_impl;
 }
 
-[CRepr, FlexibleArray("RgnData")]
+[CRepr]
 public struct EMREXTSELECTCLIPRGN
 {
 	public EMR emr;
 	public uint32 cbRgnData;
 	public uint32 iMode;
+	public uint8* RgnData mut => &RgnData_impl;
 	private uint8[ANYSIZE_ARRAY] RgnData_impl;
 }
 
@@ -4662,7 +3458,7 @@ public struct EMREXTTEXTOUTA
 	public EMRTEXT emrtext;
 }
 
-[CRepr, FlexibleArray("aemrtext")]
+[CRepr]
 public struct EMRPOLYTEXTOUTA
 {
 	public EMR emr;
@@ -4671,6 +3467,7 @@ public struct EMRPOLYTEXTOUTA
 	public float exScale;
 	public float eyScale;
 	public int32 cStrings;
+	public EMRTEXT* aemrtext mut => &aemrtext_impl;
 	private EMRTEXT[ANYSIZE_ARRAY] aemrtext_impl;
 }
 
@@ -4890,20 +3687,22 @@ public struct EMRFORMAT
 	public uint32 offData;
 }
 
-[CRepr, FlexibleArray("Data")]
+[CRepr]
 public struct EMRGLSRECORD
 {
 	public EMR emr;
 	public uint32 cbData;
+	public uint8* Data mut => &Data_impl;
 	private uint8[ANYSIZE_ARRAY] Data_impl;
 }
 
-[CRepr, FlexibleArray("Data")]
+[CRepr]
 public struct EMRGLSBOUNDEDRECORD
 {
 	public EMR emr;
 	public RECTL rclBounds;
 	public uint32 cbData;
+	public uint8* Data mut => &Data_impl;
 	private uint8[ANYSIZE_ARRAY] Data_impl;
 }
 
@@ -4914,36 +3713,39 @@ public struct EMRSETCOLORSPACE
 	public uint32 ihCS;
 }
 
-[CRepr, FlexibleArray("EscData")]
+[CRepr]
 public struct EMREXTESCAPE
 {
 	public EMR emr;
 	public int32 iEscape;
 	public int32 cbEscData;
+	public uint8* EscData mut => &EscData_impl;
 	private uint8[ANYSIZE_ARRAY] EscData_impl;
 }
 
-[CRepr, FlexibleArray("EscData")]
+[CRepr]
 public struct EMRNAMEDESCAPE
 {
 	public EMR emr;
 	public int32 iEscape;
 	public int32 cbDriver;
 	public int32 cbEscData;
+	public uint8* EscData mut => &EscData_impl;
 	private uint8[ANYSIZE_ARRAY] EscData_impl;
 }
 
-[CRepr, FlexibleArray("Data")]
+[CRepr]
 public struct EMRSETICMPROFILE
 {
 	public EMR emr;
 	public uint32 dwFlags;
 	public uint32 cbName;
 	public uint32 cbData;
+	public uint8* Data mut => &Data_impl;
 	private uint8[ANYSIZE_ARRAY] Data_impl;
 }
 
-[CRepr, FlexibleArray("Data")]
+[CRepr]
 public struct COLORMATCHTOTARGET
 {
 	public EMR emr;
@@ -4951,6 +3753,7 @@ public struct COLORMATCHTOTARGET
 	public uint32 dwFlags;
 	public uint32 cbName;
 	public uint32 cbData;
+	public uint8* Data mut => &Data_impl;
 	private uint8[ANYSIZE_ARRAY] Data_impl;
 }
 
@@ -4987,7 +3790,7 @@ public struct EMRALPHABLEND
 	public int32 cySrc;
 }
 
-[CRepr, FlexibleArray("Ver")]
+[CRepr]
 public struct EMRGRADIENTFILL
 {
 	public EMR emr;
@@ -4995,6 +3798,7 @@ public struct EMRGRADIENTFILL
 	public uint32 nVer;
 	public uint32 nTri;
 	public GRADIENT_FILL ulMode;
+	public TRIVERTEX* Ver mut => &Ver_impl;
 	private TRIVERTEX[ANYSIZE_ARRAY] Ver_impl;
 }
 

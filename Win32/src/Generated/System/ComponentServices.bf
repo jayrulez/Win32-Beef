@@ -9,23 +9,14 @@ namespace Win32.System.ComponentServices;
 public static
 {
 	public const uint32 GUID_STRING_SIZE = 40;
-
 	public const uint32 DATA_NOT_AVAILABLE = 4294967295;
-
 	public const uint32 MTXDM_E_ENLISTRESOURCEFAILED = 2147803392;
-
 	public const uint32 CRR_NO_REASON_SUPPLIED = 0;
-
 	public const uint32 CRR_LIFETIME_LIMIT = 4294967295;
-
 	public const uint32 CRR_ACTIVATION_LIMIT = 4294967294;
-
 	public const uint32 CRR_CALL_LIMIT = 4294967293;
-
 	public const uint32 CRR_MEMORY_LIMIT = 4294967292;
-
 	public const uint32 CRR_RECYCLED_FROM_UI = 4294967291;
-
 }
 #endregion
 

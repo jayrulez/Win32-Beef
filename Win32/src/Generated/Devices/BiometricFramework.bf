@@ -1,7 +1,6 @@
 using Win32.Foundation;
 using Win32.System.IO;
 using System;
-using System.Interop;
 
 namespace Win32.Devices.BiometricFramework;
 
@@ -9,213 +8,109 @@ namespace Win32.Devices.BiometricFramework;
 public static
 {
 	public const uint32 WINBIO_MAX_STRING_LEN = 256;
-
 	public const uint32 WINBIO_SCP_VERSION_1 = 1;
-
 	public const uint32 WINBIO_SCP_RANDOM_SIZE_V1 = 32;
-
 	public const uint32 WINBIO_SCP_DIGEST_SIZE_V1 = 32;
-
 	public const uint32 WINBIO_SCP_CURVE_FIELD_SIZE_V1 = 32;
-
 	public const uint32 WINBIO_SCP_PUBLIC_KEY_SIZE_V1 = 65;
-
 	public const uint32 WINBIO_SCP_PRIVATE_KEY_SIZE_V1 = 32;
-
 	public const uint32 WINBIO_SCP_SIGNATURE_SIZE_V1 = 64;
-
 	public const uint32 WINBIO_SCP_ENCRYPTION_BLOCK_SIZE_V1 = 16;
-
 	public const uint32 WINBIO_SCP_ENCRYPTION_KEY_SIZE_V1 = 32;
-
 	public const uint32 WINBIO_BIR_ALIGN_SIZE = 8;
-
 	public const uint32 WINBIO_BIR_ALGIN_SIZE = 8;
-
 	public const uint32 FACILITY_WINBIO = 9;
-
 	public const uint32 FACILITY_NONE = 0;
-
 	public const HRESULT WINBIO_E_UNSUPPORTED_FACTOR = -2146861055;
-
 	public const HRESULT WINBIO_E_INVALID_UNIT = -2146861054;
-
 	public const HRESULT WINBIO_E_UNKNOWN_ID = -2146861053;
-
 	public const HRESULT WINBIO_E_CANCELED = -2146861052;
-
 	public const HRESULT WINBIO_E_NO_MATCH = -2146861051;
-
 	public const HRESULT WINBIO_E_CAPTURE_ABORTED = -2146861050;
-
 	public const HRESULT WINBIO_E_ENROLLMENT_IN_PROGRESS = -2146861049;
-
 	public const HRESULT WINBIO_E_BAD_CAPTURE = -2146861048;
-
 	public const HRESULT WINBIO_E_INVALID_CONTROL_CODE = -2146861047;
-
 	public const HRESULT WINBIO_E_DATA_COLLECTION_IN_PROGRESS = -2146861045;
-
 	public const HRESULT WINBIO_E_UNSUPPORTED_DATA_FORMAT = -2146861044;
-
 	public const HRESULT WINBIO_E_UNSUPPORTED_DATA_TYPE = -2146861043;
-
 	public const HRESULT WINBIO_E_UNSUPPORTED_PURPOSE = -2146861042;
-
 	public const HRESULT WINBIO_E_INVALID_DEVICE_STATE = -2146861041;
-
 	public const HRESULT WINBIO_E_DEVICE_BUSY = -2146861040;
-
 	public const HRESULT WINBIO_E_DATABASE_CANT_CREATE = -2146861039;
-
 	public const HRESULT WINBIO_E_DATABASE_CANT_OPEN = -2146861038;
-
 	public const HRESULT WINBIO_E_DATABASE_CANT_CLOSE = -2146861037;
-
 	public const HRESULT WINBIO_E_DATABASE_CANT_ERASE = -2146861036;
-
 	public const HRESULT WINBIO_E_DATABASE_CANT_FIND = -2146861035;
-
 	public const HRESULT WINBIO_E_DATABASE_ALREADY_EXISTS = -2146861034;
-
 	public const HRESULT WINBIO_E_DATABASE_FULL = -2146861032;
-
 	public const HRESULT WINBIO_E_DATABASE_LOCKED = -2146861031;
-
 	public const HRESULT WINBIO_E_DATABASE_CORRUPTED = -2146861030;
-
 	public const HRESULT WINBIO_E_DATABASE_NO_SUCH_RECORD = -2146861029;
-
 	public const HRESULT WINBIO_E_DUPLICATE_ENROLLMENT = -2146861028;
-
 	public const HRESULT WINBIO_E_DATABASE_READ_ERROR = -2146861027;
-
 	public const HRESULT WINBIO_E_DATABASE_WRITE_ERROR = -2146861026;
-
 	public const HRESULT WINBIO_E_DATABASE_NO_RESULTS = -2146861025;
-
 	public const HRESULT WINBIO_E_DATABASE_NO_MORE_RECORDS = -2146861024;
-
 	public const HRESULT WINBIO_E_DATABASE_EOF = -2146861023;
-
 	public const HRESULT WINBIO_E_DATABASE_BAD_INDEX_VECTOR = -2146861022;
-
 	public const HRESULT WINBIO_E_INCORRECT_BSP = -2146861020;
-
 	public const HRESULT WINBIO_E_INCORRECT_SENSOR_POOL = -2146861019;
-
 	public const HRESULT WINBIO_E_NO_CAPTURE_DATA = -2146861018;
-
 	public const HRESULT WINBIO_E_INVALID_SENSOR_MODE = -2146861017;
-
 	public const HRESULT WINBIO_E_LOCK_VIOLATION = -2146861014;
-
 	public const HRESULT WINBIO_E_DUPLICATE_TEMPLATE = -2146861013;
-
 	public const HRESULT WINBIO_E_INVALID_OPERATION = -2146861012;
-
 	public const HRESULT WINBIO_E_SESSION_BUSY = -2146861011;
-
 	public const HRESULT WINBIO_E_CRED_PROV_DISABLED = -2146861008;
-
 	public const HRESULT WINBIO_E_CRED_PROV_NO_CREDENTIAL = -2146861007;
-
 	public const HRESULT WINBIO_E_DISABLED = -2146861006;
-
 	public const HRESULT WINBIO_E_CONFIGURATION_FAILURE = -2146861005;
-
 	public const HRESULT WINBIO_E_SENSOR_UNAVAILABLE = -2146861004;
-
 	public const HRESULT WINBIO_E_SAS_ENABLED = -2146861003;
-
 	public const HRESULT WINBIO_E_DEVICE_FAILURE = -2146861002;
-
 	public const HRESULT WINBIO_E_FAST_USER_SWITCH_DISABLED = -2146861001;
-
 	public const HRESULT WINBIO_E_NOT_ACTIVE_CONSOLE = -2146861000;
-
 	public const HRESULT WINBIO_E_EVENT_MONITOR_ACTIVE = -2146860999;
-
 	public const HRESULT WINBIO_E_INVALID_PROPERTY_TYPE = -2146860998;
-
 	public const HRESULT WINBIO_E_INVALID_PROPERTY_ID = -2146860997;
-
 	public const HRESULT WINBIO_E_UNSUPPORTED_PROPERTY = -2146860996;
-
 	public const HRESULT WINBIO_E_ADAPTER_INTEGRITY_FAILURE = -2146860995;
-
 	public const HRESULT WINBIO_E_INCORRECT_SESSION_TYPE = -2146860994;
-
 	public const HRESULT WINBIO_E_SESSION_HANDLE_CLOSED = -2146860993;
-
 	public const HRESULT WINBIO_E_DEADLOCK_DETECTED = -2146860992;
-
 	public const HRESULT WINBIO_E_NO_PREBOOT_IDENTITY = -2146860991;
-
 	public const HRESULT WINBIO_E_MAX_ERROR_COUNT_EXCEEDED = -2146860990;
-
 	public const HRESULT WINBIO_E_AUTO_LOGON_DISABLED = -2146860989;
-
 	public const HRESULT WINBIO_E_INVALID_TICKET = -2146860988;
-
 	public const HRESULT WINBIO_E_TICKET_QUOTA_EXCEEDED = -2146860987;
-
 	public const HRESULT WINBIO_E_DATA_PROTECTION_FAILURE = -2146860986;
-
 	public const HRESULT WINBIO_E_CRED_PROV_SECURITY_LOCKOUT = -2146860985;
-
 	public const HRESULT WINBIO_E_UNSUPPORTED_POOL_TYPE = -2146860984;
-
 	public const HRESULT WINBIO_E_SELECTION_REQUIRED = -2146860983;
-
 	public const HRESULT WINBIO_E_PRESENCE_MONITOR_ACTIVE = -2146860982;
-
 	public const HRESULT WINBIO_E_INVALID_SUBFACTOR = -2146860981;
-
 	public const HRESULT WINBIO_E_INVALID_CALIBRATION_FORMAT_ARRAY = -2146860980;
-
 	public const HRESULT WINBIO_E_NO_SUPPORTED_CALIBRATION_FORMAT = -2146860979;
-
 	public const HRESULT WINBIO_E_UNSUPPORTED_SENSOR_CALIBRATION_FORMAT = -2146860978;
-
 	public const HRESULT WINBIO_E_CALIBRATION_BUFFER_TOO_SMALL = -2146860977;
-
 	public const HRESULT WINBIO_E_CALIBRATION_BUFFER_TOO_LARGE = -2146860976;
-
 	public const HRESULT WINBIO_E_CALIBRATION_BUFFER_INVALID = -2146860975;
-
 	public const HRESULT WINBIO_E_INVALID_KEY_IDENTIFIER = -2146860974;
-
 	public const HRESULT WINBIO_E_KEY_CREATION_FAILED = -2146860973;
-
 	public const HRESULT WINBIO_E_KEY_IDENTIFIER_BUFFER_TOO_SMALL = -2146860972;
-
 	public const HRESULT WINBIO_E_PROPERTY_UNAVAILABLE = -2146860971;
-
 	public const HRESULT WINBIO_E_POLICY_PROTECTION_UNAVAILABLE = -2146860970;
-
 	public const HRESULT WINBIO_E_INSECURE_SENSOR = -2146860969;
-
 	public const HRESULT WINBIO_E_INVALID_BUFFER_ID = -2146860968;
-
 	public const HRESULT WINBIO_E_INVALID_BUFFER = -2146860967;
-
 	public const HRESULT WINBIO_E_TRUSTLET_INTEGRITY_FAIL = -2146860966;
-
 	public const HRESULT WINBIO_E_ENROLLMENT_CANCELED_BY_SUSPEND = -2146860965;
-
 	public const HRESULT WINBIO_I_MORE_DATA = 589825;
-
 	public const HRESULT WINBIO_I_EXTENDED_STATUS_INFORMATION = 589826;
-
 	public const Guid GUID_DEVINTERFACE_BIOMETRIC_READER = .(0xe2b5183a, 0x99ea, 0x4cc3, 0xad, 0x6b, 0x80, 0xca, 0x8d, 0x71, 0x5b, 0x80);
-
 	public const uint32 IOCTL_BIOMETRIC_VENDOR = 4464640;
-
 	public const uint32 WINBIO_WBDI_MAJOR_VERSION = 1;
-
 	public const uint32 WINBIO_WBDI_MINOR_VERSION = 0;
-
 }
 #endregion
 
@@ -586,14 +481,12 @@ public struct WINBIO_IDENTITY
 			public uint32 Size;
 			public uint8[68] Data;
 		}
-
 		public uint32 Null;
 		public uint32 Wildcard;
 		public Guid TemplateGuid;
 		public _AccountSid_e__Struct AccountSid;
 		public uint8[32] SecureId;
 	}
-
 	public uint32 Type;
 	public _Value_e__Union Value;
 }
@@ -649,7 +542,6 @@ public struct WINBIO_BIR_HEADER
 		public LARGE_INTEGER BeginDate;
 		public LARGE_INTEGER EndDate;
 	}
-
 	public uint16 ValidFields;
 	public uint8 HeaderVersion;
 	public uint8 PatronHeaderVersion;
@@ -721,25 +613,21 @@ public struct WINBIO_EVENT
 			public uint8 SubFactor;
 			public uint32 RejectDetail;
 		}
-
 		[CRepr]
 		public struct _Unclaimed_e__Struct
 		{
 			public uint32 UnitId;
 			public uint32 RejectDetail;
 		}
-
 		[CRepr]
 		public struct _Error_e__Struct
 		{
 			public HRESULT ErrorCode;
 		}
-
 		public _Unclaimed_e__Struct Unclaimed;
 		public _UnclaimedIdentify_e__Struct UnclaimedIdentify;
 		public _Error_e__Struct Error;
 	}
-
 	public uint32 Type;
 	public _Parameters_e__Union Parameters;
 }
@@ -756,7 +644,6 @@ public struct WINBIO_PRESENCE_PROPERTIES
 		public POINT PupilCenter_2;
 		public int32 Distance;
 	}
-
 	[CRepr]
 	public struct _FacialFeatures_e__Struct
 	{
@@ -766,12 +653,10 @@ public struct WINBIO_PRESENCE_PROPERTIES
 			public Guid AdapterId;
 			public uint32[78] Data;
 		}
-
 		public RECT BoundingBox;
 		public int32 Distance;
 		public _OpaqueEngineData_e__Struct OpaqueEngineData;
 	}
-
 	public _FacialFeatures_e__Struct FacialFeatures;
 	public _Iris_e__Struct Iris;
 }
@@ -785,7 +670,6 @@ public struct WINBIO_PRESENCE
 		public uint32 Size;
 		public uint8[32] Data;
 	}
-
 	public uint32 Factor;
 	public uint8 SubFactor;
 	public HRESULT Status;
@@ -847,7 +731,6 @@ public struct WINBIO_EXTENDED_SENSOR_INFO
 			public POINT FrameOffset;
 			public uint32 MandatoryOrientation;
 		}
-
 		[CRepr]
 		public struct _FacialFeatures_e__Struct
 		{
@@ -858,32 +741,27 @@ public struct WINBIO_EXTENDED_SENSOR_INFO
 				public char16[260] InfraredSensorId;
 				public uint32 InfraredSensorRotationAngle;
 			}
-
 			public RECT FrameSize;
 			public POINT FrameOffset;
 			public uint32 MandatoryOrientation;
 			public _HardwareInfo_e__Struct HardwareInfo;
 		}
-
 		[CRepr]
 		public struct _Fingerprint_e__Struct
 		{
 			public uint32 Reserved;
 		}
-
 		[CRepr]
 		public struct _Voice_e__Struct
 		{
 			public uint32 Reserved;
 		}
-
 		public uint32 Null;
 		public _FacialFeatures_e__Struct FacialFeatures;
 		public _Fingerprint_e__Struct Fingerprint;
 		public _Iris_e__Struct Iris;
 		public _Voice_e__Struct Voice;
 	}
-
 	public uint32 GenericSensorCapabilities;
 	public uint32 Factor;
 	public _Specific_e__Union Specific;
@@ -903,11 +781,9 @@ public struct WINBIO_EXTENDED_ENGINE_INFO
 			{
 				public uint32 Null;
 			}
-
 			public uint32 Capabilities;
 			public _EnrollmentRequirements_e__Struct EnrollmentRequirements;
 		}
-
 		[CRepr]
 		public struct _Iris_e__Struct
 		{
@@ -916,11 +792,9 @@ public struct WINBIO_EXTENDED_ENGINE_INFO
 			{
 				public uint32 Null;
 			}
-
 			public uint32 Capabilities;
 			public _EnrollmentRequirements_e__Struct EnrollmentRequirements;
 		}
-
 		[CRepr]
 		public struct _Fingerprint_e__Struct
 		{
@@ -934,11 +808,9 @@ public struct WINBIO_EXTENDED_ENGINE_INFO
 				public uint32 LeftEdge;
 				public uint32 RightEdge;
 			}
-
 			public uint32 Capabilities;
 			public _EnrollmentRequirements_e__Struct EnrollmentRequirements;
 		}
-
 		[CRepr]
 		public struct _FacialFeatures_e__Struct
 		{
@@ -947,18 +819,15 @@ public struct WINBIO_EXTENDED_ENGINE_INFO
 			{
 				public uint32 Null;
 			}
-
 			public uint32 Capabilities;
 			public _EnrollmentRequirements_e__Struct EnrollmentRequirements;
 		}
-
 		public uint32 Null;
 		public _FacialFeatures_e__Struct FacialFeatures;
 		public _Fingerprint_e__Struct Fingerprint;
 		public _Iris_e__Struct Iris;
 		public _Voice_e__Struct Voice;
 	}
-
 	public uint32 GenericEngineCapabilities;
 	public uint32 Factor;
 	public _Specific_e__Union Specific;
@@ -975,32 +844,27 @@ public struct WINBIO_EXTENDED_STORAGE_INFO
 		{
 			public uint32 Capabilities;
 		}
-
 		[CRepr]
 		public struct _FacialFeatures_e__Struct
 		{
 			public uint32 Capabilities;
 		}
-
 		[CRepr]
 		public struct _Fingerprint_e__Struct
 		{
 			public uint32 Capabilities;
 		}
-
 		[CRepr]
 		public struct _Voice_e__Struct
 		{
 			public uint32 Capabilities;
 		}
-
 		public uint32 Null;
 		public _FacialFeatures_e__Struct FacialFeatures;
 		public _Fingerprint_e__Struct Fingerprint;
 		public _Iris_e__Struct Iris;
 		public _Voice_e__Struct Voice;
 	}
-
 	public uint32 GenericStorageCapabilities;
 	public uint32 Factor;
 	public _Specific_e__Union Specific;
@@ -1017,7 +881,6 @@ public struct WINBIO_EXTENDED_ENROLLMENT_STATUS
 		{
 			public uint32 Reserved;
 		}
-
 		[CRepr]
 		public struct _Iris_e__Struct
 		{
@@ -1028,7 +891,6 @@ public struct WINBIO_EXTENDED_ENROLLMENT_STATUS
 				public double Y;
 				public double Z;
 			}
-
 			public RECT EyeBoundingBox_1;
 			public RECT EyeBoundingBox_2;
 			public POINT PupilCenter_1;
@@ -1039,7 +901,6 @@ public struct WINBIO_EXTENDED_ENROLLMENT_STATUS
 			public _Point3D_e__Struct Point3D;
 			public BOOL StopCaptureAndShowCriticalFeedback;
 		}
-
 		[CRepr]
 		public struct _FacialFeatures_e__Struct
 		{
@@ -1049,12 +910,10 @@ public struct WINBIO_EXTENDED_ENROLLMENT_STATUS
 				public Guid AdapterId;
 				public uint32[78] Data;
 			}
-
 			public RECT BoundingBox;
 			public int32 Distance;
 			public _OpaqueEngineData_e__Struct OpaqueEngineData;
 		}
-
 		[CRepr]
 		public struct _Fingerprint_e__Struct
 		{
@@ -1065,14 +924,12 @@ public struct WINBIO_EXTENDED_ENROLLMENT_STATUS
 			public uint32 LeftEdge;
 			public uint32 RightEdge;
 		}
-
 		public uint32 Null;
 		public _FacialFeatures_e__Struct FacialFeatures;
 		public _Fingerprint_e__Struct Fingerprint;
 		public _Iris_e__Struct Iris;
 		public _Voice_e__Struct Voice;
 	}
-
 	public HRESULT TemplateStatus;
 	public uint32 RejectDetail;
 	public uint32 PercentComplete;
@@ -1148,13 +1005,11 @@ public struct WINBIO_ASYNC_RESULT
 			public WINBIO_IDENTITY Identity;
 			public WINBIO_PROTECTION_POLICY Policy;
 		}
-
 		[CRepr]
 		public struct _EnrollSelect_e__Struct
 		{
 			public uint64 SelectorValue;
 		}
-
 		[CRepr]
 		public struct _VerifyAndReleaseTicket_e__Struct
 		{
@@ -1162,14 +1017,12 @@ public struct WINBIO_ASYNC_RESULT
 			public uint32 RejectDetail;
 			public uint64 Ticket;
 		}
-
 		[CRepr]
 		public struct _EnumBiometricUnits_e__Struct
 		{
 			public uint UnitCount;
 			public WINBIO_UNIT_SCHEMA* UnitSchemaArray;
 		}
-
 		[CRepr]
 		public struct _ControlUnit_e__Struct
 		{
@@ -1182,7 +1035,6 @@ public struct WINBIO_ASYNC_RESULT
 			public uint ReceiveBufferSize;
 			public uint ReceiveDataSize;
 		}
-
 		[CRepr]
 		public struct _SetProperty_e__Struct
 		{
@@ -1193,14 +1045,12 @@ public struct WINBIO_ASYNC_RESULT
 			public uint PropertyBufferSize;
 			public void* PropertyBuffer;
 		}
-
 		[CRepr]
 		public struct _DeleteTemplate_e__Struct
 		{
 			public WINBIO_IDENTITY Identity;
 			public uint8 SubFactor;
 		}
-
 		[CRepr]
 		public struct _EnumEnrollments_e__Struct
 		{
@@ -1208,13 +1058,11 @@ public struct WINBIO_ASYNC_RESULT
 			public uint SubFactorCount;
 			public uint8* SubFactorArray;
 		}
-
 		[CRepr]
 		public struct _EnrollCapture_e__Struct
 		{
 			public uint32 RejectDetail;
 		}
-
 		[CRepr]
 		public struct _Identify_e__Struct
 		{
@@ -1222,7 +1070,6 @@ public struct WINBIO_ASYNC_RESULT
 			public uint8 SubFactor;
 			public uint32 RejectDetail;
 		}
-
 		[CRepr]
 		public struct _MonitorPresence_e__Struct
 		{
@@ -1230,20 +1077,17 @@ public struct WINBIO_ASYNC_RESULT
 			public uint PresenceCount;
 			public WINBIO_PRESENCE* PresenceArray;
 		}
-
 		[CRepr]
 		public struct _EnumDatabases_e__Struct
 		{
 			public uint StorageCount;
 			public WINBIO_STORAGE_SCHEMA* StorageSchemaArray;
 		}
-
 		[CRepr]
 		public struct _GetEvent_e__Struct
 		{
 			public WINBIO_EVENT Event;
 		}
-
 		[CRepr]
 		public struct _CaptureSample_e__Struct
 		{
@@ -1251,33 +1095,28 @@ public struct WINBIO_ASYNC_RESULT
 			public uint SampleSize;
 			public uint32 RejectDetail;
 		}
-
 		[CRepr]
 		public struct _EnrollBegin_e__Struct
 		{
 			public uint8 SubFactor;
 		}
-
 		[CRepr]
 		public struct _NotifyUnitStatusChange_e__Struct
 		{
 			public WINBIO_EXTENDED_UNIT_STATUS ExtendedStatus;
 		}
-
 		[CRepr]
 		public struct _EnumServiceProviders_e__Struct
 		{
 			public uint BspCount;
 			public WINBIO_BSP_SCHEMA* BspSchemaArray;
 		}
-
 		[CRepr]
 		public struct _EnrollCommit_e__Struct
 		{
 			public WINBIO_IDENTITY Identity;
 			public BOOLEAN IsNewTemplate;
 		}
-
 		[CRepr]
 		public struct _GetProperty_e__Struct
 		{
@@ -1288,7 +1127,6 @@ public struct WINBIO_ASYNC_RESULT
 			public uint PropertyBufferSize;
 			public void* PropertyBuffer;
 		}
-
 		[CRepr]
 		public struct _IdentifyAndReleaseTicket_e__Struct
 		{
@@ -1297,14 +1135,12 @@ public struct WINBIO_ASYNC_RESULT
 			public uint32 RejectDetail;
 			public uint64 Ticket;
 		}
-
 		[CRepr]
 		public struct _Verify_e__Struct
 		{
 			public BOOLEAN Match;
 			public uint32 RejectDetail;
 		}
-
 		public _Verify_e__Struct Verify;
 		public _Identify_e__Struct Identify;
 		public _EnrollBegin_e__Struct EnrollBegin;
@@ -1327,7 +1163,6 @@ public struct WINBIO_ASYNC_RESULT
 		public _GetProtectionPolicy_e__Struct GetProtectionPolicy;
 		public _NotifyUnitStatusChange_e__Struct NotifyUnitStatusChange;
 	}
-
 	public uint32 SessionHandle;
 	public uint32 Operation;
 	public uint64 SequenceNumber;
@@ -1570,7 +1405,7 @@ public struct WINBIO_FRAMEWORK_INTERFACE
 	public PIBIO_FRAMEWORK_VSM_DECRYPT_SAMPLE_FN DecryptSample;
 }
 
-[CRepr, FlexibleArray("SupportedFormat")]
+[CRepr]
 public struct WINBIO_SENSOR_ATTRIBUTES
 {
 	public uint32 PayloadSize;
@@ -1584,13 +1419,15 @@ public struct WINBIO_SENSOR_ATTRIBUTES
 	public uint16[256] SerialNumber;
 	public WINBIO_VERSION FirmwareVersion;
 	public uint32 SupportedFormatEntries;
+	public WINBIO_REGISTERED_FORMAT* SupportedFormat mut => &SupportedFormat_impl;
 	private WINBIO_REGISTERED_FORMAT[ANYSIZE_ARRAY] SupportedFormat_impl;
 }
 
-[CRepr, FlexibleArray("Data")]
+[CRepr]
 public struct WINBIO_DATA
 {
 	public uint32 Size;
+	public uint8* Data mut => &Data_impl;
 	private uint8[ANYSIZE_ARRAY] Data_impl;
 }
 

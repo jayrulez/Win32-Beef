@@ -9,91 +9,48 @@ namespace Win32.System.TaskScheduler;
 public static
 {
 	public const uint32 TASK_SUNDAY = 1;
-
 	public const uint32 TASK_MONDAY = 2;
-
 	public const uint32 TASK_TUESDAY = 4;
-
 	public const uint32 TASK_WEDNESDAY = 8;
-
 	public const uint32 TASK_THURSDAY = 16;
-
 	public const uint32 TASK_FRIDAY = 32;
-
 	public const uint32 TASK_SATURDAY = 64;
-
 	public const uint32 TASK_FIRST_WEEK = 1;
-
 	public const uint32 TASK_SECOND_WEEK = 2;
-
 	public const uint32 TASK_THIRD_WEEK = 3;
-
 	public const uint32 TASK_FOURTH_WEEK = 4;
-
 	public const uint32 TASK_LAST_WEEK = 5;
-
 	public const uint32 TASK_JANUARY = 1;
-
 	public const uint32 TASK_FEBRUARY = 2;
-
 	public const uint32 TASK_MARCH = 4;
-
 	public const uint32 TASK_APRIL = 8;
-
 	public const uint32 TASK_MAY = 16;
-
 	public const uint32 TASK_JUNE = 32;
-
 	public const uint32 TASK_JULY = 64;
-
 	public const uint32 TASK_AUGUST = 128;
-
 	public const uint32 TASK_SEPTEMBER = 256;
-
 	public const uint32 TASK_OCTOBER = 512;
-
 	public const uint32 TASK_NOVEMBER = 1024;
-
 	public const uint32 TASK_DECEMBER = 2048;
-
 	public const uint32 TASK_FLAG_INTERACTIVE = 1;
-
 	public const uint32 TASK_FLAG_DELETE_WHEN_DONE = 2;
-
 	public const uint32 TASK_FLAG_DISABLED = 4;
-
 	public const uint32 TASK_FLAG_START_ONLY_IF_IDLE = 16;
-
 	public const uint32 TASK_FLAG_KILL_ON_IDLE_END = 32;
-
 	public const uint32 TASK_FLAG_DONT_START_IF_ON_BATTERIES = 64;
-
 	public const uint32 TASK_FLAG_KILL_IF_GOING_ON_BATTERIES = 128;
-
 	public const uint32 TASK_FLAG_RUN_ONLY_IF_DOCKED = 256;
-
 	public const uint32 TASK_FLAG_HIDDEN = 512;
-
 	public const uint32 TASK_FLAG_RUN_IF_CONNECTED_TO_INTERNET = 1024;
-
 	public const uint32 TASK_FLAG_RESTART_ON_IDLE_RESUME = 2048;
-
 	public const uint32 TASK_FLAG_SYSTEM_REQUIRED = 4096;
-
 	public const uint32 TASK_FLAG_RUN_ONLY_IF_LOGGED_ON = 8192;
-
 	public const uint32 TASK_TRIGGER_FLAG_HAS_END_DATE = 1;
-
 	public const uint32 TASK_TRIGGER_FLAG_KILL_AT_DURATION_END = 2;
-
 	public const uint32 TASK_TRIGGER_FLAG_DISABLED = 4;
-
 	public const uint32 TASK_MAX_RUN_TIMES = 1440;
-
 	public const Guid CLSID_CTask = .(0x148bd520, 0xa2ab, 0x11ce, 0xb1, 0x1f, 0x00, 0xaa, 0x00, 0x53, 0x05, 0x03);
-
 	public const Guid CLSID_CTaskScheduler = .(0x148bd52a, 0xa2ab, 0x11ce, 0xb1, 0x1f, 0x00, 0xaa, 0x00, 0x53, 0x05, 0x03);
-
 }
 #endregion
 

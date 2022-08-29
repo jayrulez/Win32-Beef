@@ -11,541 +11,273 @@ namespace Win32.UI.TabletPC;
 public static
 {
 	public const String MICROSOFT_URL_EXPERIENCE_PROPERTY = "Microsoft TIP URL Experience";
-
 	public const String MICROSOFT_TIP_NO_INSERT_BUTTON_PROPERTY = "Microsoft TIP No Insert Option";
-
 	public const String MICROSOFT_TIP_COMBOBOXLIST_PROPERTY = "Microsoft TIP ComboBox List Window Identifier";
-
 	public const String MICROSOFT_TIP_OPENING_MSG = "TabletInputPanelOpening";
-
 	public const uint32 SAFE_PARTIAL = 1;
-
 	public const uint32 BEST_COMPLETE = 2;
-
 	public const uint32 MAX_VENDORNAME = 32;
-
 	public const uint32 MAX_FRIENDLYNAME = 64;
-
 	public const uint32 MAX_LANGUAGES = 64;
-
 	public const uint32 CAC_FULL = 0;
-
 	public const uint32 CAC_PREFIX = 1;
-
 	public const uint32 CAC_RANDOM = 2;
-
 	public const uint32 ASYNC_RECO_INTERRUPTED = 1;
-
 	public const uint32 ASYNC_RECO_PROCESS_FAILED = 2;
-
 	public const uint32 ASYNC_RECO_ADDSTROKE_FAILED = 4;
-
 	public const uint32 ASYNC_RECO_SETCACMODE_FAILED = 8;
-
 	public const uint32 ASYNC_RECO_RESETCONTEXT_FAILED = 16;
-
 	public const uint32 ASYNC_RECO_SETGUIDE_FAILED = 32;
-
 	public const uint32 ASYNC_RECO_SETFLAGS_FAILED = 64;
-
 	public const uint32 ASYNC_RECO_SETFACTOID_FAILED = 128;
-
 	public const uint32 ASYNC_RECO_SETTEXTCONTEXT_FAILED = 256;
-
 	public const uint32 ASYNC_RECO_SETWORDLIST_FAILED = 512;
-
 	public const int32 RF_DONTCARE = 1;
-
 	public const int32 RF_OBJECT = 2;
-
 	public const int32 RF_FREE_INPUT = 4;
-
 	public const int32 RF_LINED_INPUT = 8;
-
 	public const int32 RF_BOXED_INPUT = 16;
-
 	public const int32 RF_CAC_INPUT = 32;
-
 	public const int32 RF_RIGHT_AND_DOWN = 64;
-
 	public const int32 RF_LEFT_AND_DOWN = 128;
-
 	public const int32 RF_DOWN_AND_LEFT = 256;
-
 	public const int32 RF_DOWN_AND_RIGHT = 512;
-
 	public const int32 RF_ARBITRARY_ANGLE = 1024;
-
 	public const int32 RF_LATTICE = 2048;
-
 	public const int32 RF_ADVISEINKCHANGE = 4096;
-
 	public const int32 RF_STROKEREORDER = 8192;
-
 	public const int32 RF_PERSONALIZABLE = 16384;
-
 	public const int32 RF_PERFORMSLINEBREAKING = 65536;
-
 	public const int32 RF_REQUIRESSEGMENTATIONBREAKING = 131072;
-
 	public const uint32 FLICK_WM_HANDLED_MASK = 1;
-
 	public const uint32 NUM_FLICK_DIRECTIONS = 8;
-
 	public const uint32 WM_TABLET_DEFBASE = 704;
-
 	public const uint32 WM_TABLET_MAXOFFSET = 32;
-
 	public const uint32 WM_TABLET_ADDED = 712;
-
 	public const uint32 WM_TABLET_DELETED = 713;
-
 	public const uint32 WM_TABLET_FLICK = 715;
-
 	public const uint32 WM_TABLET_QUERYSYSTEMGESTURESTATUS = 716;
-
 	public const uint32 TABLET_DISABLE_PRESSANDHOLD = 1;
-
 	public const uint32 TABLET_DISABLE_PENTAPFEEDBACK = 8;
-
 	public const uint32 TABLET_DISABLE_PENBARRELFEEDBACK = 16;
-
 	public const uint32 TABLET_DISABLE_TOUCHUIFORCEON = 256;
-
 	public const uint32 TABLET_DISABLE_TOUCHUIFORCEOFF = 512;
-
 	public const uint32 TABLET_DISABLE_TOUCHSWITCH = 32768;
-
 	public const uint32 TABLET_DISABLE_FLICKS = 65536;
-
 	public const uint32 TABLET_ENABLE_FLICKSONCONTEXT = 131072;
-
 	public const uint32 TABLET_ENABLE_FLICKLEARNINGMODE = 262144;
-
 	public const uint32 TABLET_DISABLE_SMOOTHSCROLLING = 524288;
-
 	public const uint32 TABLET_DISABLE_FLICKFALLBACKKEYS = 1048576;
-
 	public const uint32 TABLET_ENABLE_MULTITOUCHDATA = 16777216;
-
 	public const uint32 MAX_PACKET_PROPERTY_COUNT = 32;
-
 	public const uint32 MAX_PACKET_BUTTON_COUNT = 32;
-
 	public const uint32 IP_CURSOR_DOWN = 1;
-
 	public const uint32 IP_INVERTED = 2;
-
 	public const uint32 IP_MARGIN = 4;
-
 	public const uint32 IEC__BASE = 1536;
-
 	public const uint32 EM_GETINKMODE = 1537;
-
 	public const uint32 EM_SETINKMODE = 1538;
-
 	public const uint32 EM_GETINKINSERTMODE = 1539;
-
 	public const uint32 EM_SETINKINSERTMODE = 1540;
-
 	public const uint32 EM_GETDRAWATTR = 1541;
-
 	public const uint32 EM_SETDRAWATTR = 1542;
-
 	public const uint32 EM_GETRECOTIMEOUT = 1543;
-
 	public const uint32 EM_SETRECOTIMEOUT = 1544;
-
 	public const uint32 EM_GETGESTURESTATUS = 1545;
-
 	public const uint32 EM_SETGESTURESTATUS = 1546;
-
 	public const uint32 EM_GETRECOGNIZER = 1547;
-
 	public const uint32 EM_SETRECOGNIZER = 1548;
-
 	public const uint32 EM_GETFACTOID = 1549;
-
 	public const uint32 EM_SETFACTOID = 1550;
-
 	public const uint32 EM_GETSELINK = 1551;
-
 	public const uint32 EM_SETSELINK = 1552;
-
 	public const uint32 EM_GETMOUSEICON = 1553;
-
 	public const uint32 EM_SETMOUSEICON = 1554;
-
 	public const uint32 EM_GETMOUSEPOINTER = 1555;
-
 	public const uint32 EM_SETMOUSEPOINTER = 1556;
-
 	public const uint32 EM_GETSTATUS = 1557;
-
 	public const uint32 EM_RECOGNIZE = 1558;
-
 	public const uint32 EM_GETUSEMOUSEFORINPUT = 1559;
-
 	public const uint32 EM_SETUSEMOUSEFORINPUT = 1560;
-
 	public const uint32 EM_SETSELINKDISPLAYMODE = 1561;
-
 	public const uint32 EM_GETSELINKDISPLAYMODE = 1562;
-
 	public const uint32 IECN__BASE = 2048;
-
 	public const uint32 IECN_STROKE = 2049;
-
 	public const uint32 IECN_GESTURE = 2050;
-
 	public const uint32 IECN_RECOGNITIONRESULT = 2051;
-
 	public const uint32 RECOFLAG_WORDMODE = 1;
-
 	public const uint32 RECOFLAG_COERCE = 2;
-
 	public const uint32 RECOFLAG_SINGLESEG = 4;
-
 	public const uint32 RECOFLAG_PREFIXOK = 8;
-
 	public const uint32 RECOFLAG_LINEMODE = 16;
-
 	public const uint32 RECOFLAG_DISABLEPERSONALIZATION = 32;
-
 	public const uint32 RECOFLAG_AUTOSPACE = 64;
-
 	public const int32 RECOCONF_LOWCONFIDENCE = -1;
-
 	public const uint32 RECOCONF_MEDIUMCONFIDENCE = 0;
-
 	public const uint32 RECOCONF_HIGHCONFIDENCE = 1;
-
 	public const uint32 RECOCONF_NOTSET = 128;
-
 	public const uint32 GESTURE_NULL = 61440;
-
 	public const uint32 GESTURE_SCRATCHOUT = 61441;
-
 	public const uint32 GESTURE_TRIANGLE = 61442;
-
 	public const uint32 GESTURE_SQUARE = 61443;
-
 	public const uint32 GESTURE_STAR = 61444;
-
 	public const uint32 GESTURE_CHECK = 61445;
-
 	public const uint32 GESTURE_INFINITY = 61446;
-
 	public const uint32 GESTURE_CROSS = 61447;
-
 	public const uint32 GESTURE_PARAGRAPH = 61448;
-
 	public const uint32 GESTURE_SECTION = 61449;
-
 	public const uint32 GESTURE_BULLET = 61450;
-
 	public const uint32 GESTURE_BULLET_CROSS = 61451;
-
 	public const uint32 GESTURE_SQUIGGLE = 61452;
-
 	public const uint32 GESTURE_SWAP = 61453;
-
 	public const uint32 GESTURE_OPENUP = 61454;
-
 	public const uint32 GESTURE_CLOSEUP = 61455;
-
 	public const uint32 GESTURE_CURLICUE = 61456;
-
 	public const uint32 GESTURE_DOUBLE_CURLICUE = 61457;
-
 	public const uint32 GESTURE_RECTANGLE = 61458;
-
 	public const uint32 GESTURE_CIRCLE = 61472;
-
 	public const uint32 GESTURE_DOUBLE_CIRCLE = 61473;
-
 	public const uint32 GESTURE_CIRCLE_TAP = 61474;
-
 	public const uint32 GESTURE_CIRCLE_CIRCLE = 61475;
-
 	public const uint32 GESTURE_CIRCLE_CROSS = 61477;
-
 	public const uint32 GESTURE_CIRCLE_LINE_VERT = 61478;
-
 	public const uint32 GESTURE_CIRCLE_LINE_HORZ = 61479;
-
 	public const uint32 GESTURE_SEMICIRCLE_LEFT = 61480;
-
 	public const uint32 GESTURE_SEMICIRCLE_RIGHT = 61481;
-
 	public const uint32 GESTURE_CHEVRON_UP = 61488;
-
 	public const uint32 GESTURE_CHEVRON_DOWN = 61489;
-
 	public const uint32 GESTURE_CHEVRON_LEFT = 61490;
-
 	public const uint32 GESTURE_CHEVRON_RIGHT = 61491;
-
 	public const uint32 GESTURE_ARROW_UP = 61496;
-
 	public const uint32 GESTURE_ARROW_DOWN = 61497;
-
 	public const uint32 GESTURE_ARROW_LEFT = 61498;
-
 	public const uint32 GESTURE_ARROW_RIGHT = 61499;
-
 	public const uint32 GESTURE_DOUBLE_ARROW_UP = 61500;
-
 	public const uint32 GESTURE_DOUBLE_ARROW_DOWN = 61501;
-
 	public const uint32 GESTURE_DOUBLE_ARROW_LEFT = 61502;
-
 	public const uint32 GESTURE_DOUBLE_ARROW_RIGHT = 61503;
-
 	public const uint32 GESTURE_UP_ARROW_LEFT = 61504;
-
 	public const uint32 GESTURE_UP_ARROW_RIGHT = 61505;
-
 	public const uint32 GESTURE_DOWN_ARROW_LEFT = 61506;
-
 	public const uint32 GESTURE_DOWN_ARROW_RIGHT = 61507;
-
 	public const uint32 GESTURE_LEFT_ARROW_UP = 61508;
-
 	public const uint32 GESTURE_LEFT_ARROW_DOWN = 61509;
-
 	public const uint32 GESTURE_RIGHT_ARROW_UP = 61510;
-
 	public const uint32 GESTURE_RIGHT_ARROW_DOWN = 61511;
-
 	public const uint32 GESTURE_UP = 61528;
-
 	public const uint32 GESTURE_DOWN = 61529;
-
 	public const uint32 GESTURE_LEFT = 61530;
-
 	public const uint32 GESTURE_RIGHT = 61531;
-
 	public const uint32 GESTURE_DIAGONAL_LEFTUP = 61532;
-
 	public const uint32 GESTURE_DIAGONAL_RIGHTUP = 61533;
-
 	public const uint32 GESTURE_DIAGONAL_LEFTDOWN = 61534;
-
 	public const uint32 GESTURE_DIAGONAL_RIGHTDOWN = 61535;
-
 	public const uint32 GESTURE_UP_DOWN = 61536;
-
 	public const uint32 GESTURE_DOWN_UP = 61537;
-
 	public const uint32 GESTURE_LEFT_RIGHT = 61538;
-
 	public const uint32 GESTURE_RIGHT_LEFT = 61539;
-
 	public const uint32 GESTURE_UP_LEFT_LONG = 61540;
-
 	public const uint32 GESTURE_UP_RIGHT_LONG = 61541;
-
 	public const uint32 GESTURE_DOWN_LEFT_LONG = 61542;
-
 	public const uint32 GESTURE_DOWN_RIGHT_LONG = 61543;
-
 	public const uint32 GESTURE_UP_LEFT = 61544;
-
 	public const uint32 GESTURE_UP_RIGHT = 61545;
-
 	public const uint32 GESTURE_DOWN_LEFT = 61546;
-
 	public const uint32 GESTURE_DOWN_RIGHT = 61547;
-
 	public const uint32 GESTURE_LEFT_UP = 61548;
-
 	public const uint32 GESTURE_LEFT_DOWN = 61549;
-
 	public const uint32 GESTURE_RIGHT_UP = 61550;
-
 	public const uint32 GESTURE_RIGHT_DOWN = 61551;
-
 	public const uint32 GESTURE_LETTER_A = 61568;
-
 	public const uint32 GESTURE_LETTER_B = 61569;
-
 	public const uint32 GESTURE_LETTER_C = 61570;
-
 	public const uint32 GESTURE_LETTER_D = 61571;
-
 	public const uint32 GESTURE_LETTER_E = 61572;
-
 	public const uint32 GESTURE_LETTER_F = 61573;
-
 	public const uint32 GESTURE_LETTER_G = 61574;
-
 	public const uint32 GESTURE_LETTER_H = 61575;
-
 	public const uint32 GESTURE_LETTER_I = 61576;
-
 	public const uint32 GESTURE_LETTER_J = 61577;
-
 	public const uint32 GESTURE_LETTER_K = 61578;
-
 	public const uint32 GESTURE_LETTER_L = 61579;
-
 	public const uint32 GESTURE_LETTER_M = 61580;
-
 	public const uint32 GESTURE_LETTER_N = 61581;
-
 	public const uint32 GESTURE_LETTER_O = 61582;
-
 	public const uint32 GESTURE_LETTER_P = 61583;
-
 	public const uint32 GESTURE_LETTER_Q = 61584;
-
 	public const uint32 GESTURE_LETTER_R = 61585;
-
 	public const uint32 GESTURE_LETTER_S = 61586;
-
 	public const uint32 GESTURE_LETTER_T = 61587;
-
 	public const uint32 GESTURE_LETTER_U = 61588;
-
 	public const uint32 GESTURE_LETTER_V = 61589;
-
 	public const uint32 GESTURE_LETTER_W = 61590;
-
 	public const uint32 GESTURE_LETTER_X = 61591;
-
 	public const uint32 GESTURE_LETTER_Y = 61592;
-
 	public const uint32 GESTURE_LETTER_Z = 61593;
-
 	public const uint32 GESTURE_DIGIT_0 = 61594;
-
 	public const uint32 GESTURE_DIGIT_1 = 61595;
-
 	public const uint32 GESTURE_DIGIT_2 = 61596;
-
 	public const uint32 GESTURE_DIGIT_3 = 61597;
-
 	public const uint32 GESTURE_DIGIT_4 = 61598;
-
 	public const uint32 GESTURE_DIGIT_5 = 61599;
-
 	public const uint32 GESTURE_DIGIT_6 = 61600;
-
 	public const uint32 GESTURE_DIGIT_7 = 61601;
-
 	public const uint32 GESTURE_DIGIT_8 = 61602;
-
 	public const uint32 GESTURE_DIGIT_9 = 61603;
-
 	public const uint32 GESTURE_EXCLAMATION = 61604;
-
 	public const uint32 GESTURE_QUESTION = 61605;
-
 	public const uint32 GESTURE_SHARP = 61606;
-
 	public const uint32 GESTURE_DOLLAR = 61607;
-
 	public const uint32 GESTURE_ASTERISK = 61608;
-
 	public const uint32 GESTURE_PLUS = 61609;
-
 	public const uint32 GESTURE_DOUBLE_UP = 61624;
-
 	public const uint32 GESTURE_DOUBLE_DOWN = 61625;
-
 	public const uint32 GESTURE_DOUBLE_LEFT = 61626;
-
 	public const uint32 GESTURE_DOUBLE_RIGHT = 61627;
-
 	public const uint32 GESTURE_TRIPLE_UP = 61628;
-
 	public const uint32 GESTURE_TRIPLE_DOWN = 61629;
-
 	public const uint32 GESTURE_TRIPLE_LEFT = 61630;
-
 	public const uint32 GESTURE_TRIPLE_RIGHT = 61631;
-
 	public const uint32 GESTURE_BRACKET_OVER = 61668;
-
 	public const uint32 GESTURE_BRACKET_UNDER = 61669;
-
 	public const uint32 GESTURE_BRACKET_LEFT = 61670;
-
 	public const uint32 GESTURE_BRACKET_RIGHT = 61671;
-
 	public const uint32 GESTURE_BRACE_OVER = 61672;
-
 	public const uint32 GESTURE_BRACE_UNDER = 61673;
-
 	public const uint32 GESTURE_BRACE_LEFT = 61674;
-
 	public const uint32 GESTURE_BRACE_RIGHT = 61675;
-
 	public const uint32 GESTURE_TAP = 61680;
-
 	public const uint32 GESTURE_DOUBLE_TAP = 61681;
-
 	public const uint32 GESTURE_TRIPLE_TAP = 61682;
-
 	public const uint32 GESTURE_QUAD_TAP = 61683;
-
 	public const uint32 FACILITY_INK = 40;
-
 	public const Guid GUID_PACKETPROPERTY_GUID_X = .(0x598a6a8f, 0x52c0, 0x4ba0, 0x93, 0xaf, 0xaf, 0x35, 0x74, 0x11, 0xa5, 0x61);
-
 	public const Guid GUID_PACKETPROPERTY_GUID_Y = .(0xb53f9f75, 0x04e0, 0x4498, 0xa7, 0xee, 0xc3, 0x0d, 0xbb, 0x5a, 0x90, 0x11);
-
 	public const Guid GUID_PACKETPROPERTY_GUID_Z = .(0x735adb30, 0x0ebb, 0x4788, 0xa0, 0xe4, 0x0f, 0x31, 0x64, 0x90, 0x05, 0x5d);
-
 	public const Guid GUID_PACKETPROPERTY_GUID_PACKET_STATUS = .(0x6e0e07bf, 0xafe7, 0x4cf7, 0x87, 0xd1, 0xaf, 0x64, 0x46, 0x20, 0x84, 0x18);
-
 	public const Guid GUID_PACKETPROPERTY_GUID_TIMER_TICK = .(0x436510c5, 0xfed3, 0x45d1, 0x8b, 0x76, 0x71, 0xd3, 0xea, 0x7a, 0x82, 0x9d);
-
 	public const Guid GUID_PACKETPROPERTY_GUID_SERIAL_NUMBER = .(0x78a81b56, 0x0935, 0x4493, 0xba, 0xae, 0x00, 0x54, 0x1a, 0x8a, 0x16, 0xc4);
-
 	public const Guid GUID_PACKETPROPERTY_GUID_NORMAL_PRESSURE = .(0x7307502d, 0xf9f4, 0x4e18, 0xb3, 0xf2, 0x2c, 0xe1, 0xb1, 0xa3, 0x61, 0x0c);
-
 	public const Guid GUID_PACKETPROPERTY_GUID_TANGENT_PRESSURE = .(0x6da4488b, 0x5244, 0x41ec, 0x90, 0x5b, 0x32, 0xd8, 0x9a, 0xb8, 0x08, 0x09);
-
 	public const Guid GUID_PACKETPROPERTY_GUID_BUTTON_PRESSURE = .(0x8b7fefc4, 0x96aa, 0x4bfe, 0xac, 0x26, 0x8a, 0x5f, 0x0b, 0xe0, 0x7b, 0xf5);
-
 	public const Guid GUID_PACKETPROPERTY_GUID_X_TILT_ORIENTATION = .(0xa8d07b3a, 0x8bf0, 0x40b0, 0x95, 0xa9, 0xb8, 0x0a, 0x6b, 0xb7, 0x87, 0xbf);
-
 	public const Guid GUID_PACKETPROPERTY_GUID_Y_TILT_ORIENTATION = .(0x0e932389, 0x1d77, 0x43af, 0xac, 0x00, 0x5b, 0x95, 0x0d, 0x6d, 0x4b, 0x2d);
-
 	public const Guid GUID_PACKETPROPERTY_GUID_AZIMUTH_ORIENTATION = .(0x029123b4, 0x8828, 0x410b, 0xb2, 0x50, 0xa0, 0x53, 0x65, 0x95, 0xe5, 0xdc);
-
 	public const Guid GUID_PACKETPROPERTY_GUID_ALTITUDE_ORIENTATION = .(0x82dec5c7, 0xf6ba, 0x4906, 0x89, 0x4f, 0x66, 0xd6, 0x8d, 0xfc, 0x45, 0x6c);
-
 	public const Guid GUID_PACKETPROPERTY_GUID_TWIST_ORIENTATION = .(0x0d324960, 0x13b2, 0x41e4, 0xac, 0xe6, 0x7a, 0xe9, 0xd4, 0x3d, 0x2d, 0x3b);
-
 	public const Guid GUID_PACKETPROPERTY_GUID_PITCH_ROTATION = .(0x7f7e57b7, 0xbe37, 0x4be1, 0xa3, 0x56, 0x7a, 0x84, 0x16, 0x0e, 0x18, 0x93);
-
 	public const Guid GUID_PACKETPROPERTY_GUID_ROLL_ROTATION = .(0x5d5d5e56, 0x6ba9, 0x4c5b, 0x9f, 0xb0, 0x85, 0x1c, 0x91, 0x71, 0x4e, 0x56);
-
 	public const Guid GUID_PACKETPROPERTY_GUID_YAW_ROTATION = .(0x6a849980, 0x7c3a, 0x45b7, 0xaa, 0x82, 0x90, 0xa2, 0x62, 0x95, 0x0e, 0x89);
-
 	public const Guid GUID_PACKETPROPERTY_GUID_WIDTH = .(0xbaabe94d, 0x2712, 0x48f5, 0xbe, 0x9d, 0x8f, 0x8b, 0x5e, 0xa0, 0x71, 0x1a);
-
 	public const Guid GUID_PACKETPROPERTY_GUID_HEIGHT = .(0xe61858d2, 0xe447, 0x4218, 0x9d, 0x3f, 0x18, 0x86, 0x5c, 0x20, 0x3d, 0xf4);
-
 	public const Guid GUID_PACKETPROPERTY_GUID_FINGERCONTACTCONFIDENCE = .(0xe706c804, 0x57f0, 0x4f00, 0x8a, 0x0c, 0x85, 0x3d, 0x57, 0x78, 0x9b, 0xe9);
-
 	public const Guid GUID_PACKETPROPERTY_GUID_DEVICE_CONTACT_ID = .(0x02585b91, 0x049b, 0x4750, 0x96, 0x15, 0xdf, 0x89, 0x48, 0xab, 0x3c, 0x9c);
-
 	public const int32 InkMinTransparencyValue = 0;
-
 	public const int32 InkMaxTransparencyValue = 255;
-
 	public const int32 InkCollectorClipInkToMargin = 0;
-
 	public const int32 InkCollectorDefaultMargin = -2147483648;
-
 	public const Guid GUID_GESTURE_DATA = .(0x41e4ec0f, 0x26aa, 0x455a, 0x9a, 0xa5, 0x2c, 0xd3, 0x6c, 0xf6, 0x3f, 0xb9);
-
 	public const Guid GUID_DYNAMIC_RENDERER_CACHED_DATA = .(0xbf531b92, 0x25bf, 0x4a95, 0x89, 0xad, 0x0e, 0x47, 0x6b, 0x34, 0xb4, 0xf5);
-
 }
 #endregion
 

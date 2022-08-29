@@ -240,7 +240,6 @@ public struct INTERACTION_CONTEXT_OUTPUT
 		public INTERACTION_ARGUMENTS_TAP tap;
 		public INTERACTION_ARGUMENTS_CROSS_SLIDE crossSlide;
 	}
-
 	public INTERACTION_ID interactionId;
 	public INTERACTION_FLAGS interactionFlags;
 	public POINTER_INPUT_TYPE inputType;
@@ -259,7 +258,6 @@ public struct INTERACTION_CONTEXT_OUTPUT2
 		public INTERACTION_ARGUMENTS_TAP tap;
 		public INTERACTION_ARGUMENTS_CROSS_SLIDE crossSlide;
 	}
-
 	public INTERACTION_ID interactionId;
 	public INTERACTION_FLAGS interactionFlags;
 	public POINTER_INPUT_TYPE inputType;

@@ -8,15 +8,10 @@ namespace Win32.UI.Magnification;
 public static
 {
 	public const int32 MS_SHOWMAGNIFIEDCURSOR = 1;
-
 	public const int32 MS_CLIPAROUNDCURSOR = 2;
-
 	public const int32 MS_INVERTCOLORS = 4;
-
 	public const uint32 MW_FILTERMODE_EXCLUDE = 0;
-
 	public const uint32 MW_FILTERMODE_INCLUDE = 1;
-
 }
 #endregion
 #region Function Pointers

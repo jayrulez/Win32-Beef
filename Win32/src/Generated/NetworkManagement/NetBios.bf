@@ -7,169 +7,87 @@ namespace Win32.NetworkManagement.NetBios;
 public static
 {
 	public const uint32 NCBNAMSZ = 16;
-
 	public const uint32 MAX_LANA = 254;
-
 	public const uint32 NAME_FLAGS_MASK = 135;
-
 	public const uint32 GROUP_NAME = 128;
-
 	public const uint32 UNIQUE_NAME = 0;
-
 	public const uint32 REGISTERING = 0;
-
 	public const uint32 REGISTERED = 4;
-
 	public const uint32 DEREGISTERED = 5;
-
 	public const uint32 DUPLICATE = 6;
-
 	public const uint32 DUPLICATE_DEREG = 7;
-
 	public const uint32 LISTEN_OUTSTANDING = 1;
-
 	public const uint32 CALL_PENDING = 2;
-
 	public const uint32 SESSION_ESTABLISHED = 3;
-
 	public const uint32 HANGUP_PENDING = 4;
-
 	public const uint32 HANGUP_COMPLETE = 5;
-
 	public const uint32 SESSION_ABORTED = 6;
-
 	public const uint32 NCBCALL = 16;
-
 	public const uint32 NCBLISTEN = 17;
-
 	public const uint32 NCBHANGUP = 18;
-
 	public const uint32 NCBSEND = 20;
-
 	public const uint32 NCBRECV = 21;
-
 	public const uint32 NCBRECVANY = 22;
-
 	public const uint32 NCBCHAINSEND = 23;
-
 	public const uint32 NCBDGSEND = 32;
-
 	public const uint32 NCBDGRECV = 33;
-
 	public const uint32 NCBDGSENDBC = 34;
-
 	public const uint32 NCBDGRECVBC = 35;
-
 	public const uint32 NCBADDNAME = 48;
-
 	public const uint32 NCBDELNAME = 49;
-
 	public const uint32 NCBRESET = 50;
-
 	public const uint32 NCBASTAT = 51;
-
 	public const uint32 NCBSSTAT = 52;
-
 	public const uint32 NCBCANCEL = 53;
-
 	public const uint32 NCBADDGRNAME = 54;
-
 	public const uint32 NCBENUM = 55;
-
 	public const uint32 NCBUNLINK = 112;
-
 	public const uint32 NCBSENDNA = 113;
-
 	public const uint32 NCBCHAINSENDNA = 114;
-
 	public const uint32 NCBLANSTALERT = 115;
-
 	public const uint32 NCBACTION = 119;
-
 	public const uint32 NCBFINDNAME = 120;
-
 	public const uint32 NCBTRACE = 121;
-
 	public const uint32 ASYNCH = 128;
-
 	public const uint32 NRC_GOODRET = 0;
-
 	public const uint32 NRC_BUFLEN = 1;
-
 	public const uint32 NRC_ILLCMD = 3;
-
 	public const uint32 NRC_CMDTMO = 5;
-
 	public const uint32 NRC_INCOMP = 6;
-
 	public const uint32 NRC_BADDR = 7;
-
 	public const uint32 NRC_SNUMOUT = 8;
-
 	public const uint32 NRC_NORES = 9;
-
 	public const uint32 NRC_SCLOSED = 10;
-
 	public const uint32 NRC_CMDCAN = 11;
-
 	public const uint32 NRC_DUPNAME = 13;
-
 	public const uint32 NRC_NAMTFUL = 14;
-
 	public const uint32 NRC_ACTSES = 15;
-
 	public const uint32 NRC_LOCTFUL = 17;
-
 	public const uint32 NRC_REMTFUL = 18;
-
 	public const uint32 NRC_ILLNN = 19;
-
 	public const uint32 NRC_NOCALL = 20;
-
 	public const uint32 NRC_NOWILD = 21;
-
 	public const uint32 NRC_INUSE = 22;
-
 	public const uint32 NRC_NAMERR = 23;
-
 	public const uint32 NRC_SABORT = 24;
-
 	public const uint32 NRC_NAMCONF = 25;
-
 	public const uint32 NRC_IFBUSY = 33;
-
 	public const uint32 NRC_TOOMANY = 34;
-
 	public const uint32 NRC_BRIDGE = 35;
-
 	public const uint32 NRC_CANOCCR = 36;
-
 	public const uint32 NRC_CANCEL = 38;
-
 	public const uint32 NRC_DUPENV = 48;
-
 	public const uint32 NRC_ENVNOTDEF = 52;
-
 	public const uint32 NRC_OSRESNOTAV = 53;
-
 	public const uint32 NRC_MAXAPPS = 54;
-
 	public const uint32 NRC_NOSAPS = 55;
-
 	public const uint32 NRC_NORESOURCES = 56;
-
 	public const uint32 NRC_INVADDRESS = 57;
-
 	public const uint32 NRC_INVDDID = 59;
-
 	public const uint32 NRC_LOCKFAIL = 60;
-
 	public const uint32 NRC_OPENERR = 63;
-
 	public const uint32 NRC_SYSTEM = 64;
-
 	public const uint32 NRC_PENDING = 255;
-
 }
 #endregion
 
